@@ -1,0 +1,189 @@
+Rapport de génération des voix — 2026-10-05 21:56:38
+Commande : generate.py --voice aigue --only immigration
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  immigration-intro-01 — 5.55 s, F0 241.2 Hz, pauses entre phrases [0.21, 0.35, 0.24, 0.25] s
+    1. Chaque année, des étrangers…   1/3    235.1  -0.63   -2.5      —  0.0    5.7  1.11  1:235 2:253 3:262×!
+         prise 3 : parole en trop 0.03-0.31 s (net, +42 dB, confiance 0.82) [début | Chaque]
+    2. Qui peut rester, à quelles …   2/3    249.8  +0.42   -3.2   +5.7  5.5    6.7  1.31  1:276~ 2:250 3:234
+  immigration-intro-02 — 5.17 s, F0 243.8 Hz, pauses entre phrases [0.3] s
+    1. Un immigré, c'est une perso…   2/3    247.5  +0.26   -3.1   +2.1  0.0    5.4  1.05  1:266~ 2:248 3:237
+    2. Certains sont devenus franç…   5/5    229.7  -1.03   -6.0   +2.4  3.1    5.6  1.09  1:234×! 2:210~ 3:252~ 4:297~ 5:230
+         prise 1 : respiration 0.02-0.16 s (net, +46 dB, confiance 0.86) [début | Certains]
+  immigration-intro-03 — 8.50 s, F0 233.7 Hz, pauses entre phrases [0.15, 0.3, 0.23] s
+    1. En deux mille vingt-quatre,…   2/3    233.2  -0.77   -8.0   +0.0  6.0    5.6  1.10  1:232 2:233 3:217~
+    2. À peu près douze sur cent.    3/3    249.6  +0.41   -9.3   +5.4  6.0    4.8  0.94  1:275~ 2:275~ 3:250
+  immigration-intro-04 — 9.77 s, F0 243.9 Hz, pauses entre phrases [0.3] s
+    1. En deux mille vingt-cinq, t…   1/3    239.2  -0.33   -4.4   +0.4  6.0    6.2  1.21  1:239 2:274~ 3:246?
+         prise 3 : vocalise 6.56-6.88 s (leger, +42 dB, confiance 0.69) [tiers | hors]
+    2. C'est neuf virgule deux pou…   3/3    263.8  +1.36   +0.9   +2.9  4.4    5.5  1.07  1:277~ 2:287~ 3:264
+  immigration-intro-05 — 6.94 s, F0 234.9 Hz, pauses entre phrases [0.3, 0.22] s
+    1. D'autres vivent déjà en Fra…   3/3    226.8  -1.25   -2.4   +0.3  0.0    5.0  0.97  1:206~ 2:251~ 3:227
+    2. Certains sont régularisés, …   2/3    239.0  -0.34   -2.9   +2.2  2.4    6.4  1.25  1:219~ 2:239 3:217~
+  immigration-intro-06 — 12.21 s, F0 237.8 Hz, pauses entre phrases [0.3, 0.18] s
+    1. Dans l'autre sens, vingt-tr…   3/3    242.7  -0.08   -6.4   +3.8  2.9    5.3  1.04  1:213~ 2:230 3:243
+    2. Et vingt-quatre mille cinq …   3/3    232.7  -0.81   -2.4   +1.5  6.0    5.6  1.09  1:230 2:210~ 3:233
+  immigration-intro-07 — 9.53 s, F0 243.1 Hz, pauses entre phrases [0.3, 0.35, 0.35, 0.37] s
+    1. Alors, quatre questions se …   1/3    238.2  -0.40   -8.9   +0.9  2.4    5.2  1.01  1:238 2:229 3:226
+    2. Qui accueillir, et pour que…   2/3    243.4  -0.03   -4.3   +3.2  6.0    6.3  1.24  1:383~? 2:243 3:251
+         prise 1 : mot étiré « accueillir » 0.48-0.96 s (leger, +55 dB, confiance 0.30) [Qui | et]
+         prise 1 : respiration 0.64-0.96 s (leger, +50 dB, confiance 0.88) [accueillir | et]
+         prise 1 : bruit 1.84-2.08 s (leger, +36 dB, confiance 0.66) [motifs | fin]
+    3. Que demander aux nouveaux a…   1/3    241.9  -0.14   +2.9   +0.5  3.0    7.6  1.49  1:242 2:315~ 3:298~
+    4. Quel accès à l'emploi et au…   2/3    251.9  +0.57   -0.8   +1.4  3.0    6.6  1.28  1:267~ 2:252 3:302~
+    5. Et qui éloigner, et comment…   7/7    258.2  +0.99   -3.5   +0.1  3.0    4.4  0.86  1:332~ 2:296~ 3:328~ 4:277~ 5:298~ 6:241×! 7:258
+         prise 6 : rire 0.05-0.30 s (net, +63 dB, confiance 0.95) [début | Et]
+         prise 6 : respiration 0.42-0.77 s (leger, +37 dB, confiance 0.43) [début | Et]
+  immigration-intro-08 — 2.40 s, F0 238.3 Hz
+    1. Ce sont les quatre sujets d…   1/3    238.3  -0.40   +0.5   +0.5  0.0    5.3  1.03  1:238 2:211~ 3:281~
+  immigration-titres-01 — 6.66 s, F0 238.5 Hz, pauses entre phrases [0.3, 0.3] s
+    1. Un étranger non européen ve…   1/3    242.7  -0.08   -3.1      —  0.0    5.3  1.03  1:243 2:264 3:238
+    2. Il lui faut un titre de séj…   2/3    250.3  +0.46   -7.2   +3.8  3.1    5.2  1.01  1:253 2:250 3:265
+    3. Pour quels motifs peut-il l…   4/4    229.2  -1.07   -2.0   +1.0  6.0    6.0  1.17  1:221~ 2:287~ 3:304~ 4:229
+  immigration-titres-02 — 9.88 s, F0 245.1 Hz, pauses entre phrases [0.16, 0.33, 0.3] s
+    1. En deux mille vingt-cinq, s…   2/3    250.0  +0.43   -2.4   +2.3  0.0    5.2  1.02  1:213~ 2:250 3:246~?
+         prise 3 : bruit 0.91-1.03 s (leger, +40 dB, confiance 0.75) [cinq | sur]
+    2. Et treize virgule cinq pour…   4/4    235.5  -0.60   -3.7   +1.3  2.4    7.0  1.36  1:275×! 2:249×! 3:215~ 4:236?
+         prise 1 : rire 1.04-1.44 s (net, +47 dB, confiance 0.92) [cinq | pour]
+         prise 2 : rire 1.08-1.44 s (net, +48 dB, confiance 0.92) [cinq | pour]
+         prise 4 : mot étiré « treize » 0.16-0.64 s (leger, confiance 0.40) [Et | virgule]
+      passage assemblé : rire 8.24-8.56 s (net, +50 dB, confiance 0.91) [cinq | pour]
+      ⚠ son parasite dans le passage assemblé : rire 8.24-8.56 s (net, +50 dB, confiance 0.91) [cinq | pour]
+  immigration-titres-03 — 6.58 s, F0 249.1 Hz, pauses entre phrases [0.23, 0.34, 0.28] s
+    1. D'autres vivent déjà en Fra…   2/3    240.8  -0.21  -13.2   +3.0  3.7    3.7  0.72  1:228 2:241 3:235
+    2. Leur régularisation est déc…   3/3    255.5  +0.81   -5.3   +2.1  6.0    6.2  1.21  1:256 2:248~ 3:256
+  immigration-titres-04 — 7.50 s, F0 242.4 Hz
+    1. Depuis la loi du vingt-six …   3/3    242.4  -0.10   +0.1   +1.7  5.3    6.0  1.17  1:225 2:237 3:242
+  immigration-titres-05 — 5.88 s, F0 232.2 Hz
+    1. Il faut y avoir travaillé d…   2/3    232.2  -0.84   -1.6   +0.8  0.0    7.1  1.38  1:208~ 2:232 3:230
+  immigration-titres-06 — 7.62 s, F0 239.5 Hz, pauses entre phrases [0.27, 0.31] s
+    1. Le titre est accordé à titr…   2/3    234.1  -0.70   -2.1   +1.2  1.6    6.5  1.26  1:215~ 2:234 3:226?
+         prise 3 : respiration 1.76-1.99 s (leger, +19 dB, confiance 0.36) [exceptionnel | le]
+    2. Et cette voie s'applique ju…   3/3    243.8  +0.00   -3.2   +2.2  2.1    6.0  1.17  1:218~ 2:250 3:244
+  immigration-titres-07 — 8.37 s, F0 241.7 Hz, pauses entre phrases [0.23, 0.34, 0.31] s
+    1. En deux mille vingt-cinq, v…   1/3    240.8  -0.21   -8.4   +2.8  3.2    6.1  1.19  1:241 2:251 3:235
+    2. Dont neuf mille six cent qu…   1/3    244.3  +0.04   -2.5   +3.9  6.0    5.4  1.06  1:244 2:261~ 3:258
+  immigration-titres-08 — 9.74 s, F0 240.9 Hz, pauses entre phrases [0.31] s
+    1. Le ministère de l'Intérieur…   1/3    240.6  -0.23   -0.5   +5.2  2.5    6.2  1.21  1:241 2:254~ 3:209~
+    2. Et à une circulaire de janv…   1/3    241.4  -0.17   -6.2   +2.2  0.5    5.9  1.15  1:241? 2:257~ 3:229?
+         prise 1 : respiration 2.22-2.36 s (leger, +17 dB, confiance 0.33) [cinq | qui]
+         prise 3 : respiration 2.28-2.43 s (leger, +22 dB, confiance 0.40) [cinq | qui]
+      passage assemblé : respiration 5.73-5.86 s (leger, +16 dB, confiance 0.32) [cinq | qui]
+  immigration-titres-09 — 13.50 s, F0 240.9 Hz, pauses entre phrases [0.15, 0.21, 0.29, 0.35, 0.21, 0.22] s
+    1. En janvier deux mille vingt…   2/3    239.7  -0.29   -3.1   +2.3  6.0    6.2  1.21  1:225 2:240 3:240
+    2. Selon lui, une loi ne peut …   1/3    241.1  -0.19   -0.6   +2.3  3.1    6.2  1.20  1:241 2:250 3:253
+  immigration-titres-10 — 3.43 s, F0 239.0 Hz
+    1. Alors, qui accueillir, pour…   3/3    239.0  -0.34   -7.6   +1.2  3.6    5.4  1.05  1:250 2:271~? 3:239
+         prise 2 : respiration 2.72-2.93 s (leger, +33 dB, confiance 0.62) [cap | fin]
+  immigration-langue-01 — 5.57 s, F0 247.6 Hz, pauses entre phrases [0.3, 0.23] s
+    1. Un étranger non européen s'…   1/3    246.1  +0.16   -2.6      —  0.0    5.0  0.99  1:246 2:246 3:255
+    2. Que lui demande-t-on, et qu…   1/3    250.7  +0.48   -0.1   +3.3  5.6    6.5  1.28  1:251 2:364×! 3:292~
+         prise 2 : vocalise « Que » 0.00-0.32 s (net, +62 dB, confiance 0.59) [début | lui]
+         prise 2 : vocalise 0.91-1.15 s (net, +64 dB, confiance 0.95) [demande | t]
+         prise 2 : mot manquant ou bâclé « on » 1.36-1.44 s (leger, confiance 0.30) [t | et]
+         prise 2 : mot manquant ou bâclé « et » 1.44-1.52 s (leger, confiance 0.30) [on | que]
+         prise 2 : vocalise « lui » 1.52-1.76 s (net, +49 dB, confiance 0.37) [que | propose]
+         prise 2 : vocalise « t » 1.99-2.24 s (net, +67 dB, confiance 0.32) [propose | on]
+         prise 2 : vocalise 2.27-2.50 s (net, +63 dB, confiance 0.95) [t | on]
+         prise 2 : mot étiré « on » 2.56-3.04 s (net, confiance 0.81) [t | fin]
+  immigration-langue-02 — 8.96 s, F0 243.4 Hz, pauses entre phrases [0.3, 0.24, 0.18] s
+    1. Il signe un contrat d'intég…   2/3    245.1  +0.09   -2.5   +1.9  0.0    7.1  1.39  1:237 2:245 3:247
+    2. Il s'engage à suivre une fo…   2/3    242.3  -0.11   -6.6   +2.3  2.5    5.6  1.10  1:254 2:242 3:254
+  immigration-langue-03 — 8.91 s, F0 245.7 Hz, pauses entre phrases [0.35, 0.29, 0.43] s
+    1. En deux mille vingt-cinq, c…   3/3    246.2  +0.17   -3.6   +1.3  6.0    7.1  1.38  1:252 2:262 3:246
+    2. Pour un peu plus de la moit…   2/3    245.6  +0.13   -2.2   +2.4  3.6    5.9  1.15  1:269~ 2:246 3:220~?
+         prise 3 : bruit 4.86-4.98 s (leger, +40 dB, confiance 0.75) [prescrite | fin]
+  immigration-langue-04 — 11.13 s, F0 238.9 Hz, pauses entre phrases [0.18, 0.19, 0.3, 0.2] s
+    1. En deux mille vingt-cinq, s…   1/3    240.7  -0.22   -2.5   +0.8  2.2    6.7  1.30  1:241 2:233 3:216~
+    2. Depuis juillet deux mille v…   3/3    236.2  -0.55   -1.3   +4.0  2.5    6.1  1.18  1:215~ 2:231 3:236
+  immigration-langue-05 — 14.43 s, F0 242.9 Hz, pauses entre phrases [0.3, 0.2, 0.26, 0.33, 0.3, 0.18] s
+    1. La loi de deux mille vingt-…   2/3    228.4  -1.13   -3.7   +2.3  1.3    6.2  1.20  1:224? 2:228? 3:270~
+         prise 1 : mot étiré « quatre » 0.96-1.52 s (leger, confiance 0.42) [vingt | exige]
+         prise 2 : respiration 3.16-3.27 s (leger, +36 dB, confiance 0.69) [étape | fin]
+    2. A deux pour une carte de sé…   1/3    243.6  -0.01   -7.7   +1.9  3.7    4.5  0.88  1:244 2:212~ 3:212~
+    3. Et à partir de deux mille v…   1/3    251.5  +0.54   -2.5   +1.8  6.0    5.7  1.12  1:252 2:230 3:256
+      passage assemblé : respiration 3.16-3.27 s (leger, +33 dB, confiance 0.66) [étape | A]
+  immigration-langue-06 — 11.96 s, F0 241.3 Hz, pauses entre phrases [0.2, 0.32, 0.31] s
+    1. En deux mille vingt-cinq, o…   3/3    255.1  +0.78   -2.6   +3.5  2.5    6.3  1.23  1:212~ 2:260 3:255
+    2. C'est treize virgule cinq p…   2/3    237.3  -0.47   -2.0   +1.3  2.6    6.3  1.23  1:212~ 2:237 3:237
+  immigration-langue-07 — 4.47 s, F0 249.2 Hz
+    1. Ce qu'on exige des nouveaux…   2/3    249.2  +0.38   -3.6   +3.2  2.0    7.5  1.46  1:218~ 2:249 3:260
+  immigration-langue-08 — 3.58 s, F0 234.7 Hz
+    1. Alors, quel niveau demander…   1/3    234.7  -0.66   +4.6   +5.1  6.0    6.6  1.28  1:235 2:283~ 3:229
+  immigration-emploi-01 — 3.46 s, F0 238.5 Hz, pauses entre phrases [0.3] s
+    1. S'intégrer passe aussi par …   2/3    244.1  +0.02   -2.7      —  0.0    7.0  1.37  1:231 2:244 3:210~
+    2. Où en est-on ?                3/4    236.6  -0.52   +1.9   +1.5  5.7    7.0  1.37  1:330×! 2:271×! 3:237 4:412~
+         prise 1 : parole en trop 1.45-1.62 s (net, +68 dB, confiance 0.80) [on | fin]
+         prise 2 : rire 0.89-1.12 s (net, +62 dB, confiance 0.95) [on | fin]
+  immigration-emploi-02 — 9.60 s, F0 243.7 Hz, pauses entre phrases [0.3] s
+    1. En deux mille vingt-quatre,…   2/3    243.5  -0.02   -8.6   +1.6  0.0    5.1  0.99  1:254~ 2:244 3:240
+    2. Contre soixante-neuf virgul…   1/3    247.0  +0.23   -4.6   +4.0  6.0    5.3  1.03  1:247 2:238 3:247
+      passage assemblé : respiration 8.17-8.32 s (net, +36 dB, confiance 0.73) [pour | cent]
+      ⚠ son parasite dans le passage assemblé : respiration 8.17-8.32 s (net, +36 dB, confiance 0.73) [pour | cent]
+  immigration-emploi-03 — 11.48 s, F0 246.3 Hz, pauses entre phrases [0.21, 0.31] s
+    1. Pour mesurer les discrimina…   1/3    256.6  +0.89   -3.7   +4.1  4.6    6.8  1.33  1:257 2:320~ 3:222~
+    2. Un testing a porté sur neuf…   2/3    235.4  -0.61   -8.1   +1.2  3.7    5.5  1.08  1:223~ 2:235 3:222~?
+         prise 3 : respiration 3.44-3.67 s (leger, +18 dB, confiance 0.34) [diplômés | de]
+  immigration-emploi-04 — 9.62 s, F0 233.4 Hz, pauses entre phrases [0.31] s
+    1. Les recruteurs ont rappelé …   3/3    238.1  -0.41   -5.1   +2.0  6.0    6.3  1.24  1:236 2:223~ 3:238
+    2. Et trente-trois virgule tro…   2/3    228.2  -1.14   -1.9   +4.0  5.1    5.1  0.99  1:213~ 2:228 3:223~
+  immigration-emploi-05 — 6.26 s, F0 236.1 Hz, pauses entre phrases [0.3, 0.19] s
+    1. Côté aides, certaines exige…   1/3    238.4  -0.39   -4.5   +3.9  1.9    5.3  1.04  1:238 2:208~ 3:230×!
+         prise 3 : parole en trop 0.00-0.11 s (net, +47 dB, confiance 0.78) [début | Côté]
+    2. C'est le cas du R.S.A., le …   5/5    234.0  -0.71   -1.9   +1.2  4.5    5.7  1.11  1:230×! 2:241× 3:278~? 4:260×! 5:234
+         prise 1 : respiration 0.96-1.28 s (net, +50 dB, confiance 0.95) [RSA | le]
+         prise 3 : respiration 1.10-1.22 s (leger, +21 dB, confiance 0.39) [le | revenu]
+         prise 4 : respiration 0.80-1.02 s (net, +42 dB, confiance 0.89) [RSA | le]
+  immigration-emploi-06 — 11.13 s, F0 238.0 Hz, pauses entre phrases [0.19, 0.31] s
+    1. Pour le toucher, un étrange…   2/3    238.0  -0.42   -1.1   +3.4  1.9    5.5  1.08  1:265~ 2:238 3:245~
+    2. Sauf, notamment, les réfugi…   4/4    237.5  -0.45   -5.1   +2.2  1.1    5.3  1.04  1:216~ 2:219~ 3:220~ 4:238
+  immigration-emploi-07 — 14.17 s, F0 243.7 Hz, pauses entre phrases [0.31, 0.15] s
+    1. En avril deux mille vingt-q…   2/3    239.7  -0.29   -9.2   +2.9  5.1    5.8  1.13  1:228 2:240 3:234
+    2. Mais il a jugé disproportio…   1/3    249.2  +0.38   -5.3   +3.1  6.0    6.5  1.26  1:249 2:216~ 3:216~
+  immigration-emploi-08 — 3.79 s, F0 244.3 Hz
+    1. Alors, comment favoriser l'…   3/3    244.3  +0.04   -1.0   +1.1  6.0    6.8  1.32  1:264 2:258? 3:244
+         prise 2 : respiration 2.72-2.87 s (leger, +32 dB, confiance 0.56) [ouvrir | après]
+  immigration-expulsions-01 — 7.31 s, F0 246.1 Hz, pauses entre phrases [0.26, 0.3, 0.38] s
+    1. Un étranger en situation ir…   3/3    246.5  +0.19   -1.8      —  0.0    5.7  1.12  1:259×! 2:237 3:246
+         prise 1 : bruit 2.96-3.13 s (net, +30 dB, confiance 0.67) [OQTF | une]
+    2. Part-il ensuite ?             2/3    232.7  -0.81   +6.6   -0.7  4.8    5.6  1.08  1:334~ 2:233? 3:309~
+         prise 2 : bruit 1.11-1.16 s (leger, +40 dB, confiance 0.61) [ensuite | fin]
+      passage assemblé : bruit 6.96-7.01 s (leger, +33 dB, confiance 0.61) [ensuite | fin]
+  immigration-expulsions-02 — 8.86 s, F0 247.5 Hz, pauses entre phrases [0.19, 0.3] s
+    1. Selon la commission des loi…   3/3    241.9  -0.14   -6.8   +1.4  0.0    5.7  1.12  1:253 2:259~ 3:242
+    2. Environ une sur dix.          2/3    261.9  +1.24   +0.6   +2.3  6.0    4.8  0.94  1:337~ 2:262 3:288~
+  immigration-expulsions-03 — 8.34 s, F0 240.8 Hz, pauses entre phrases [0.3] s
+    1. Plusieurs facteurs pèsent s…   2/3    249.2  +0.38   -6.0   +1.3  0.0    4.7  0.91  1:232 2:249 3:221~
+    2. D'abord, la loi impose une …   2/3    240.5  -0.24   -7.7   +2.6  6.0    4.9  0.96  1:229 2:240 3:223~
+  immigration-expulsions-04 — 8.68 s, F0 245.7 Hz, pauses entre phrases [0.35, 0.21, 0.31, 0.3] s
+    1. Ensuite, le juge en annule …   1/3    240.3  -0.25   -8.5   +0.5  6.0    5.9  1.16  1:240 2:261 3:223~
+    2. Une même personne peut en r…   1/3    241.0  -0.20   -1.9   +6.6  6.0    6.6  1.29  1:241 2:252 3:282~
+    3. Certains départs spontanés …   2/3    255.8  +0.83   -1.8   +4.0  1.9    6.6  1.29  1:272~ 2:256 3:232~
+  immigration-expulsions-05 — 11.84 s, F0 236.5 Hz, pauses entre phrases [0.23, 0.3] s
+    1. En deux mille vingt-cinq, a…   1/3    237.9  -0.42   -1.3   +3.7  1.8    5.9  1.16  1:238 2:236 3:238~
+    2. Pour les O.Q.T.F. exécutées…   2/3    234.9  -0.64   -6.2   +3.2  1.3    6.4  1.25  1:258~ 2:235 3:250
+  immigration-expulsions-06 — 12.04 s, F0 247.6 Hz, pauses entre phrases [0.3, 0.36] s
+    1. Depuis une circulaire d'aoû…   3/3    253.4  +0.67   -4.9   +4.9  6.0    5.7  1.12  1:225 2:214~ 3:253
+    2. Selon le ministère de l'Int…   2/3    241.0  -0.20   -2.6   +1.8  4.9    6.5  1.27  1:238 2:241 3:228
+  immigration-expulsions-07 — 6.80 s, F0 233.8 Hz, pauses entre phrases [0.3, 0.22] s
+    1. Les vingt-six centres de ré…   1/3    234.1  -0.70   -6.2   +1.8  2.6    5.1  1.00  1:234 2:213~ 3:216~
+    2. Pour les personnes retenues…   1/3    232.8  -0.80   -2.5   +0.1  6.0    6.0  1.18  1:233 2:266~ 3:268~
+  immigration-expulsions-08 — 11.62 s, F0 241.0 Hz, pauses entre phrases [0.28, 0.3, 0.23] s
+    1. Pour un éloignement forcé, …   3/3    243.8  +0.00   -7.4   +2.8  2.5    5.2  1.01  1:251 2:249 3:244
+    2. En deux mille vingt-trois, …   2/3    236.7  -0.51   -9.0   +1.0  6.0    6.5  1.26  1:264 2:237 3:234
+  immigration-expulsions-09 — 9.32 s, F0 246.4 Hz, pauses entre phrases [0.25, 0.31, 0.33, 0.38] s
+    1. Selon la commission des loi…   3/3    242.9  -0.06   -2.0   +3.1  6.0    6.5  1.26  1:242 2:246 3:243
+    2. Certaines personnes refusen…   3/3    250.8  +0.49   -3.7   +4.4  2.0    6.1  1.19  1:238~ 2:206~ 3:251
+    3. Certains consulats tardent,…   3/3    233.9  -0.72   -3.1   +3.1  3.7    5.3  1.03  1:243×! 2:256 3:234
+         prise 1 : respiration 0.03-0.72 s (net, +49 dB, confiance 0.95) [début | Certains]
+  immigration-expulsions-10 — 4.56 s, F0 244.5 Hz
+    1. Alors, qui éloigner, combie…   1/3    244.5  +0.05   -2.3   +1.3  6.0    5.7  1.12  1:244 2:240 3:256
+
+Alertes (2) :
+  aigue / immigration-titres-02 : son parasite dans le passage assemblé : rire 8.24-8.56 s (net, +50 dB, confiance 0.91) [cinq | pour]
+  aigue / immigration-emploi-02 : son parasite dans le passage assemblé : respiration 8.17-8.32 s (net, +36 dB, confiance 0.73) [pour | cent]
+
+Temps : 2747 s pour 273 prise(s), 9.72 s de calcul par prise en moyenne (3.93 s d'audio) ; calcul d'une prise ≈ 0.37 s + 2.42 s par seconde d'audio. Détecteur de sons parasites : 0.158 s par prise en moyenne (au plus 0.436 s), 2% du calcul d'une prise.
+Estimation pour les 1013 passages (1856 phrases) (voix aiguë 3 prises, 5% de secours) : ~989 min.

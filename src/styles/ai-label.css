@@ -1,0 +1,171 @@
+/* ——— Étiquette « Rédigé par IA » (src/ui/components/AiLabel.tsx) ———
+   Une mention imprimée en petit corps, de la famille de « Exemple fictif » sous le film : le constat en noir
+   700 (« Rédigé par IA »), la précision en gris (« vérifié automatiquement »), puis « En savoir plus ».
+   Ni couleur, ni pastille, ni pictogramme seul : du vrai texte, lisible sur papier, sur les pastels des
+   fiches et sur le jaune du double (les encres suivent les jetons locaux). */
+
+.ai-label {
+  /* La mesure du texte courant : en petit corps, 66ch couperaient la ligne trop tôt */
+  max-width: 44rem;
+  margin: 0 0 var(--s3);
+  font-size: var(--text-xs);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--print-soft);
+  overflow-wrap: break-word;
+}
+
+.ai-label-lead {
+  font-weight: 700;
+  color: var(--print);
+}
+
+/* Bulle : toute la ligne déplie l'explication ; cible de 2rem au moins (WCAG 2.5.8 : 24 px) */
+.ai-label > summary {
+  display: block;
+  min-height: 2rem;
+  padding: 0.4rem 0;
+  list-style: none;
+  cursor: pointer;
+}
+
+.ai-label > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* « En savoir plus » : le chevron des menus repliables, le libellé souligné ; ils ne se séparent pas */
+.ai-label-more {
+  margin-left: 0.3rem;
+  white-space: nowrap;
+  font-weight: 650;
+  color: var(--print);
+}
+
+.ai-label-more .disclosure {
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-right: 0.15rem;
+  vertical-align: -0.08em;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ai-label > summary:hover .summary-label {
+    text-decoration-thickness: 2px;
+  }
+}
+
+/* L'explication dépliée : un encart sur papier, filet fort dessus, comme une note de bas de page tirée */
+.ai-label-note {
+  margin: 0 0 var(--s2);
+  padding: var(--s3) var(--s3) var(--s2);
+  background: var(--paper);
+  border: var(--hair) solid var(--rule);
+  border-top: var(--line) solid var(--rule-strong);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: var(--print);
+}
+
+.ai-label-note p {
+  margin: 0 0 var(--s2);
+}
+
+.ai-label-note a {
+  color: var(--print);
+}
+
+/* Forme « lien » : la mention, puis un lien souligné vers la rubrique de la méthode, avec sa cible */
+.ai-label-link {
+  display: inline-block;
+  padding-block: 0.2rem;
+  font-weight: 650;
+  color: var(--print);
+  white-space: nowrap;
+}
+
+/* Texte très agrandi ou colonne très étroite : « En savoir plus » peut passer à la ligne en entier */
+@media (max-width: 20rem) {
+  .ai-label-more,
+  .ai-label-link {
+    white-space: normal;
+  }
+}
+
+/* ——— Notice Méthode : la rubrique « Usage de l'IA » (ancre #/methode/ia) ——— */
+
+/* Arrivée par « En savoir plus » : le titre se pose sous l'en-tête collant (déjà réservé par le
+   scroll-padding-top de la page), avec un blanc en plus */
+.ai-section > h2 {
+  scroll-margin-top: var(--s4);
+}
+
+.ai-section h3 {
+  margin: var(--s5) 0 var(--s2);
+  font-weight: 800;
+  font-stretch: 80%;
+  font-size: 1.2rem;
+  line-height: 1.15;
+  max-width: var(--measure);
+}
+
+/* Le titre reçoit le focus quand on arrive par un lien « En savoir plus » (ou par le renvoi au journal) :
+   pas d'anneau sur un titre */
+.ai-section > h2[tabindex='-1']:focus,
+.prose > h2[tabindex='-1']:focus {
+  outline: none;
+}
+
+/* ——— Emplacements ——— */
+
+/* Comprendre l'enjeu (feuille, page « Les sujets ») : la mention ouvre la fiche, comme une signature sous le
+   chapeau ; la ligne garde sa cible, le blanc du haut est repris */
+.ex-body > .ai-label {
+  margin: -0.4rem 0 var(--s2);
+}
+
+/* Chaque question de la feuille : sous le contexte, avant « Comprendre l'enjeu » */
+.q-ai {
+  margin: -0.35rem 0 0;
+}
+
+/* Fiches de « Les sujets » : la mention seule (un paragraphe, sans la cible d'une bulle) garde le blanc
+   d'une ligne avant le chapeau */
+.ex-body > p.ai-label {
+  margin: 0 0 var(--s3);
+}
+
+/* Tête de « Les sujets » : sous le chapeau, dans la colonne du texte */
+.topics-ai {
+  margin: var(--s2) 0 0;
+}
+
+/* Tête de « Qui porte quoi » : sous le chapeau, avant la légende */
+.proximity-ai {
+  margin: calc(-1 * var(--s2)) 0 var(--s4);
+}
+
+/* Fiche d'un candidat : en tête des positions, sous le compte */
+.positions-ai {
+  margin: calc(-1 * var(--s3)) 0 var(--s4);
+}
+
+/* Encart « Détail et sources » d'une fiche bristol : en tête, avant les résumés, puis une ligne de tirets */
+.encart-ai {
+  margin: 0 0 var(--s3);
+  padding-bottom: var(--s2);
+  border-bottom: var(--hair) dashed var(--rule);
+}
+
+/* Qui porte quoi : en tête des positions et sources dépliées */
+.sources-ai {
+  margin: var(--s2) 0 0;
+}
+
+.sources-list {
+  margin: 0;
+}
+
+/* Parcours d'un candidat, sur le jaune du double : sous le titre, avant la frise, comme une signature */
+.bio-ai {
+  margin: calc(-1 * var(--s2)) 0 var(--s2);
+}

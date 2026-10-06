@@ -1,0 +1,503 @@
+Rapport de génération des voix — 2026-10-05 02:07:20
+Commande : generate.py --voice grave
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix grave (grave, v5b) — référence : F0 médiane 200.1 Hz (partie lue 190.9 Hz, fin -6.6 dt) ; cible 190.9 Hz ; débit articulé 4.76 syll/s ; 5 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  retraites-age-01 — 3.78 s, F0 183.3 Hz
+    1. Pour partir à la retraite, …   2/5    183.3  -0.70   -0.5      —  0.0    5.4  1.14  1:166~ 2:183 3:194~ 4:280~ 5:143~
+  retraites-age-02 — 4.87 s, F0 183.5 Hz
+    1. L'âge légal, c'est le minim…   3/5    183.5  -0.68   -7.0   +0.2  0.5    5.0  1.06  1:174~ 2:133~ 3:184 4:182? 5:199
+         prise 4 : respiration 2.64-2.88 s (leger, +34 dB, confiance 0.60) [partir | sauf]
+  retraites-age-03 — 5.56 s, F0 182.4 Hz, pauses entre phrases [0.3] s
+    1. Les trimestres mesurent vot…   3/5    193.1  +0.20   -0.8   +4.5  6.0    4.1  0.87  1:174~ 2:157~ 3:193 4:171~ 5:229~
+    2. S'il en manque, la pension …   4/5    175.5  -1.46   -0.8   -0.6  0.8    5.1  1.07  1:250~ 2:223~ 3:202~ 4:176 5:216~
+  retraites-age-04 — 7.16 s, F0 199.7 Hz
+    1. La réforme de deux mille vi…   8/8    199.7  +0.78   -0.3   +1.0  0.8    5.4  1.12  1:158~ 2:166~? 3:172~ 4:158×! 5:154~ 6:153~ 7:180×! 8:200?
+         prise 2 : respiration 4.32-4.58 s (leger, +42 dB, confiance 0.76) [ans | et]
+         prise 4 : respiration 4.03-4.30 s (net, +28 dB, confiance 0.67) [ans | et]
+         prise 7 : respiration 4.41-4.64 s (net, +35 dB, confiance 0.71) [ans | et]
+         prise 8 : respiration 1.51-1.67 s (leger, +19 dB, confiance 0.36) [trois | relève]
+         prise 8 : respiration 4.35-4.48 s (leger, +24 dB, confiance 0.43) [ans | et]
+      passage assemblé : respiration 1.51-1.67 s (leger, +19 dB, confiance 0.36) [trois | relève]
+      passage assemblé : respiration 4.35-4.48 s (leger, +24 dB, confiance 0.43) [ans | et]
+  retraites-age-05 — 7.59 s, F0 206.3 Hz
+    1. Elle est suspendue jusqu'en…   4/5    206.3  +1.34   -5.9   +1.7  0.3    5.5  1.14  1:177 2:166~ 3:143~ 4:206 5:151~?
+         prise 5 : respiration 2.76-2.94 s (leger, +23 dB, confiance 0.42) [annulée | dès]
+         prise 5 : respiration 5.04-5.28 s (leger, +22 dB, confiance 0.40) [neuf | l'âge]
+  retraites-age-06 — 4.38 s, F0 183.0 Hz
+    1. Cette suspension coûte un v…   2/5    183.0  -0.73   -5.4   +2.4  5.9    5.9  1.24  1:178 2:183 3:162~ 4:176? 5:180
+         prise 4 : respiration 2.96-3.20 s (leger, +21 dB, confiance 0.38) [moyenne | jusqu'en]
+  retraites-age-07 — 6.68 s, F0 178.8 Hz
+    1. Selon le Conseil d'orientat…   2/5    178.8  -1.13   -5.5   +0.9  5.4    5.9  1.24  1:131~? 2:179? 3:165~ 4:167~ 5:180~
+         prise 1 : respiration 5.15-5.32 s (leger, +25 dB, confiance 0.47) [cotisations | et]
+         prise 2 : respiration 4.69-4.88 s (leger, +21 dB, confiance 0.38) [cotisations | et]
+      passage assemblé : respiration 4.69-4.88 s (leger, +21 dB, confiance 0.38) [cotisations | et]
+  retraites-age-08 — 6.56 s, F0 176.1 Hz
+    1. Depuis la réforme, le taux …   4/5    176.1  -1.40   +0.1   +4.7  5.5    6.2  1.31  1:135~? 2:143~ 3:236~? 4:176 5:166~
+         prise 1 : respiration 2.88-3.20 s (leger, +44 dB, confiance 0.76) [ans | a]
+         prise 3 : respiration 5.92-6.16 s (leger, +25 dB, confiance 0.50) [quatre | puis]
+  retraites-age-09 — 8.21 s, F0 180.4 Hz
+    1. Mais à court terme, près d'…   5/5    180.4  -0.98   -5.8   +2.6  0.0    5.6  1.17  1:164~? 2:174~ 3:197~ 4:140~ 5:180
+         prise 1 : respiration 2.32-2.56 s (leger, +20 dB, confiance 0.34) [économies | repart]
+  retraites-age-10 — 6.57 s, F0 194.8 Hz
+    1. Et la santé compte : à soix…   2/5    194.8  +0.35  -10.2   +1.7  5.8    5.3  1.11  1:174~? 2:195? 3:140~? 4:129~ 5:198?
+         prise 1 : respiration 2.43-2.73 s (leger, +21 dB, confiance 0.40) [ans | il]
+         prise 2 : respiration 4.84-5.02 s (leger, +19 dB, confiance 0.36) [hommes | onze]
+         prise 3 : respiration 5.60-5.83 s (leger, +25 dB, confiance 0.45) [hommes | onze]
+         prise 5 : respiration 1.05-1.20 s (leger, +19 dB, confiance 0.35) [compte | à]
+         prise 5 : respiration 2.26-2.42 s (leger, +20 dB, confiance 0.37) [ans | il]
+         prise 5 : respiration 5.84-6.02 s (leger, +17 dB, confiance 0.33) [hommes | onze]
+      passage assemblé : respiration 4.84-5.02 s (leger, +19 dB, confiance 0.36) [hommes | onze]
+  retraites-age-11 — 3.64 s, F0 196.2 Hz
+    1. Financement et emploi d'un …   1/5    196.2  +0.47   -3.4   +1.4  6.0    6.3  1.33  1:196 2:206 3:160~ 4:246~ 5:138~?
+         prise 5 : respiration 2.36-2.44 s (leger, +15 dB, confiance 0.30) [l'autre | c'est]
+  retraites-financement-01 — 4.75 s, F0 211.7 Hz, pauses entre phrases [0.33] s
+    1. Sur votre fiche de paie, un…   3/5    200.5  +0.85  -12.5      —  0.0    3.7  0.78  1:229~? 2:158~ 3:200 4:234~ 5:141~
+         prise 1 : bruit 2.31-2.43 s (leger, +39 dB, confiance 0.75) [Retraite | fin]
+    2. Cet argent n'est pas mis de…   5/9    214.5  +2.02   -0.5   -1.2  6.0    6.5  1.36  1:186~ 2:225~ 3:149~ 4:170~ 5:214~ 6:173~ 7:159~ 8:117~ 9:225~
+      ⚠ phrase 2 : aucune prise acceptable : hauteur +2.02 dt de la cible
+  retraites-financement-02 — 2.36 s, F0 183.8 Hz
+    1. Il paie les pensions d'aujo…   9/9    183.8  -0.66   +1.0   +2.4  0.5    6.9  1.45  1:158~ 2:141~ 3:170~ 4:207~ 5:249~ 6:125~ 7:251× 8:177~ 9:184
+  retraites-financement-03 — 5.10 s, F0 191.0 Hz
+    1. En deux mille vingt-cinq, l…   4/5    191.0  +0.01   -2.9   +2.9  0.0    6.1  1.28  1:156~? 2:181~? 3:146~ 4:191 5:176?
+         prise 1 : respiration 1.16-1.31 s (leger, +16 dB, confiance 0.31) [cinq | le]
+         prise 1 : respiration 4.19-4.39 s (leger, +17 dB, confiance 0.33) [d'euros | dont]
+         prise 2 : respiration 3.60-3.77 s (leger, +21 dB, confiance 0.39) [d'euros | dont]
+         prise 5 : respiration 3.28-3.50 s (leger, +18 dB, confiance 0.35) [d'euros | dont]
+  retraites-financement-04 — 5.94 s, F0 190.0 Hz
+    1. Mais il y a moins de cotisa…   3/5    190.0  -0.08   -2.6   +3.7  2.9    6.8  1.42  1:170~? 2:142~? 3:190? 4:137~ 5:157~?
+         prise 1 : respiration 3.60-3.81 s (leger, +23 dB, confiance 0.42) [cinq | et]
+         prise 2 : respiration 3.48-3.64 s (leger, +23 dB, confiance 0.41) [cinq | et]
+         prise 3 : respiration 1.61-1.80 s (leger, +18 dB, confiance 0.35) [retraité | un]
+         prise 3 : respiration 3.34-3.50 s (leger, +15 dB, confiance 0.30) [cinq | et]
+         prise 5 : respiration 1.92-2.24 s (leger, +39 dB, confiance 0.71) [retraité | un]
+      passage assemblé : respiration 1.61-1.80 s (leger, +18 dB, confiance 0.35) [retraité | un]
+      passage assemblé : respiration 3.34-3.50 s (leger, +15 dB, confiance 0.30) [cinq | et]
+  retraites-financement-05 — 5.20 s, F0 188.7 Hz
+    1. Pour combler le déficit, le…   5/5    188.7  -0.20   -5.8   +1.8  2.6    4.8  1.01  1:180? 2:206 3:164~ 4:157~ 5:189
+         prise 1 : respiration 1.12-1.31 s (leger, +30 dB, confiance 0.55) [déficit | le]
+  retraites-financement-06 — 5.39 s, F0 182.1 Hz
+    1. Cotiser plus : les pensions…   2/5    182.1  -0.82   -1.9   +1.0  5.8    5.6  1.17  1:180? 2:182 3:132~? 4:163~ 5:153~
+         prise 1 : respiration 2.64-2.84 s (leger, +25 dB, confiance 0.46) [préservées | mais]
+         prise 3 : respiration 2.30-2.49 s (leger, +17 dB, confiance 0.33) [préservées | mais]
+  retraites-financement-07 — 5.51 s, F0 187.9 Hz
+    1. Revaloriser les pensions mo…   6/6    187.9  -0.27   -2.7   +3.1  1.9    5.8  1.21  1:164~ 2:151~? 3:171~ 4:166~? 5:162~ 6:188
+         prise 2 : respiration 3.57-3.75 s (leger, +21 dB, confiance 0.40) [suite | mais]
+         prise 4 : respiration 3.17-3.28 s (leger, +17 dB, confiance 0.33) [suite | mais]
+  retraites-financement-08 — 7.95 s, F0 184.7 Hz
+    1. Partir plus tard : plus de …   5/5    184.7  -0.57   -8.3   +0.6  2.7    5.2  1.10  1:140~? 2:161~ 3:149~? 4:182~? 5:185
+         prise 1 : bruit 5.81-5.92 s (leger, +15 dB, confiance 0.31) [plus | et]
+         prise 3 : respiration 4.18-4.41 s (leger, +21 dB, confiance 0.39) [longtemps | mais]
+         prise 3 : respiration 6.16-6.35 s (leger, +18 dB, confiance 0.35) [plus | et]
+         prise 4 : respiration 4.02-4.23 s (leger, +26 dB, confiance 0.48) [longtemps | mais]
+         prise 4 : respiration 5.85-6.02 s (leger, +17 dB, confiance 0.33) [plus | et]
+  retraites-financement-09 — 8.58 s, F0 202.5 Hz, pauses entre phrases [0.3, 0.17] s
+    1. Autre modèle, la capitalisa…   8/8    180.7  -0.95   -0.9   +0.5  6.0    5.1  1.07  1:153~ 2:180~ 3:142~ 4:141~? 5:129~ 6:142~ 7:145~ 8:181
+         prise 4 : respiration 1.93-2.06 s (leger, +15 dB, confiance 0.30) [capitalisation | chacun]
+    2. Fin deux mille vingt-quatre…   1/5    205.6  +1.28   +0.5   +1.5  0.9    5.0  1.04  1:206 2:229~ 3:175 4:216~ 5:164~
+  retraites-financement-10 — 9.09 s, F0 193.0 Hz
+    1. Selon un document de travai…   2/5    193.0  +0.19  -10.8   +1.0  0.0    6.2  1.30  1:193? 2:193 3:176? 4:155~ 5:182×!
+         prise 1 : respiration 6.88-7.08 s (leger, +22 dB, confiance 0.40) [répartition | de]
+         prise 3 : respiration 1.70-1.86 s (leger, +15 dB, confiance 0.30) [COR | elle]
+         prise 5 : respiration 1.89-2.04 s (leger, +24 dB, confiance 0.43) [COR | elle]
+         prise 5 : respiration 3.26-3.44 s (leger, +26 dB, confiance 0.49) [plus | mais]
+         prise 5 : respiration 6.16-6.38 s (leger, +38 dB, confiance 0.71) [croissance | la]
+         prise 5 : respiration 7.20-7.60 s (net, +26 dB, confiance 0.56) [répartition | la]
+         prise 5 : mot étiré « de » 7.20-7.60 s (net, +26 dB, confiance 0.58) [répartition | la]
+  retraites-financement-11 — 3.86 s, F0 207.8 Hz
+    1. Et passer à la capitalisati…   7/7    207.8  +1.47   -1.8   +0.8  6.0    7.1  1.49  1:172× 2:194~ 3:156~ 4:154× 5:154× 6:170~ 7:208
+  retraites-financement-12 — 3.83 s, F0 205.2 Hz
+    1. Actifs, retraités, entrepri…   3/5    205.2  +1.25   -3.0   -1.9  4.8    4.3  0.90  1:142~ 2:176~? 3:205? 4:140~? 5:189~
+         prise 2 : respiration 2.24-2.51 s (leger, +21 dB, confiance 0.39) [entreprises | qui]
+         prise 3 : respiration 1.28-1.43 s (leger, +26 dB, confiance 0.53) [retraités | entreprises]
+         prise 4 : respiration 1.84-2.03 s (leger, +25 dB, confiance 0.45) [entreprises | qui]
+      passage assemblé : respiration 1.28-1.43 s (leger, +26 dB, confiance 0.53) [retraités | entreprises]
+  retraites-pensions-01 — 5.40 s, F0 187.8 Hz, pauses entre phrases [0.3] s
+    1. Fin deux mille vingt-quatre…   1/5    189.6  -0.12   -0.6      —  0.0    5.5  1.15  1:190 2:203~ 3:202~ 4:209×! 5:187
+         prise 4 : respiration 0.32-0.64 s (net, +39 dB, confiance 0.76) [Fin | deux]
+    2. Mais la moyenne cache des é…   3/5    186.4  -0.41   -0.8   -1.9  0.6    5.3  1.11  1:171× 2:260~ 3:186 4:257~ 5:210×?
+         prise 5 : respiration 0.56-0.80 s (leger, +31 dB, confiance 0.62) [Mais | la]
+  retraites-pensions-02 — 8.86 s, F0 186.6 Hz, pauses entre phrases [0.21, 0.2, 0.3] s
+    1. Dans le privé, avec tous vo…   3/5    181.3  -0.89   -3.1   +1.4  0.8    5.0  1.05  1:144~ 2:193? 3:181 4:130~ 5:123~
+         prise 2 : respiration 1.60-1.84 s (leger, +21 dB, confiance 0.39) [trimestres | la]
+         prise 2 : respiration 3.84-4.02 s (leger, +19 dB, confiance 0.35) [moyen | plafonné]
+         prise 2 : respiration 4.56-4.72 s (leger, +23 dB, confiance 0.43) [plafonné | de]
+    2. Plus une complémentaire.      5/5    193.8  +0.26   +0.3   +2.9  3.1    6.5  1.37  1:139~ 2:189~ 3:183× 4:199~ 5:194
+  retraites-pensions-03 — 3.51 s, F0 198.5 Hz
+    1. La pension moyenne des femm…   6/6    198.5  +0.68   -3.5   +1.9  0.0    5.4  1.13  1:173~ 2:259~ 3:263~ 4:230~ 5:185~ 6:198
+  retraites-pensions-04 — 4.73 s, F0 179.6 Hz
+    1. Et vingt-cinq pour cent plu…   4/5    179.6  -1.06  -11.9   +4.0  3.5    5.9  1.24  1:142~? 2:172~ 3:180~ 4:180 5:156~?
+         prise 1 : respiration 2.32-2.56 s (leger, +23 dB, confiance 0.43) [réversion | une]
+         prise 5 : respiration 2.56-2.79 s (leger, +23 dB, confiance 0.42) [réversion | une]
+  retraites-pensions-05 — 7.88 s, F0 180.9 Hz
+    1. Pour les plus petites resso…   5/5    180.9  -0.93   -7.3   -1.0  6.0    5.8  1.22  1:177 2:164~ 3:161~ 4:151~? 5:181
+         prise 4 : respiration 3.47-3.60 s (leger, +19 dB, confiance 0.36) [complète | dès]
+  retraites-pensions-06 — 6.26 s, F0 193.1 Hz
+    1. Chaque année, les pensions …   4/5    193.1  +0.20   -4.8   +2.4  6.0    5.4  1.13  1:181? 2:204? 3:180 4:193 5:177?
+         prise 1 : respiration 2.03-2.23 s (leger, +22 dB, confiance 0.40) [prix | plus]
+         prise 2 : respiration 1.68-1.88 s (leger, +21 dB, confiance 0.39) [prix | plus]
+         prise 5 : respiration 2.00-2.22 s (leger, +21 dB, confiance 0.40) [prix | plus]
+  retraites-pensions-07 — 2.92 s, F0 174.1 Hz
+    1. Mais les salaires montent e…   9/9    174.1  -1.59   -0.7   +1.1  4.8    6.4  1.34  1:165× 2:157~ 3:184~ 4:172~ 5:174~ 6:206× 7:175× 8:172~ 9:174~
+      ⚠ phrase 1 : aucune prise acceptable : hauteur -1.59 dt de la cible
+  retraites-pensions-08 — 11.83 s, F0 179.6 Hz
+    1. Selon le Conseil d'orientat…   1/5    179.6  -1.06   -2.5   +2.6  0.7    6.1  1.29  1:180 2:135~? 3:167~? 4:172~? 5:157~
+         prise 2 : respiration 2.00-2.16 s (leger, +16 dB, confiance 0.32) [retraites | le]
+         prise 2 : respiration 7.79-8.00 s (leger, +21 dB, confiance 0.39) [trois | à]
+         prise 3 : respiration 2.36-2.53 s (leger, +20 dB, confiance 0.37) [retraites | le]
+         prise 3 : bruit 7.36-7.64 s (leger, +27 dB, confiance 0.50) [population | en]
+         prise 3 : bruit 11.44-11.65 s (leger, +38 dB, confiance 0.68) [dix | tout]
+         prise 4 : respiration 1.84-2.08 s (leger, +22 dB, confiance 0.41) [retraites | le]
+         prise 4 : respiration 7.12-7.37 s (leger, +30 dB, confiance 0.57) [trois | à]
+  retraites-pensions-09 — 5.71 s, F0 177.5 Hz, pauses entre phrases [0.24, 0.3] s
+    1. Revaloriser moins vite rapp…   3/5    180.0  -1.02   -5.5   +1.3  2.5    6.0  1.25  1:172~? 2:212~? 3:180 4:159~ 5:138×!
+         prise 1 : respiration 2.24-2.49 s (leger, +24 dB, confiance 0.44) [système | mais]
+         prise 2 : respiration 2.33-2.56 s (leger, +26 dB, confiance 0.49) [système | mais]
+         prise 5 : respiration 2.40-2.64 s (net, +32 dB, confiance 0.71) [système | mais]
+    2. Plus vite, c'est l'inverse.   7/9    169.9  -2.02   -3.6   -1.0  5.5    5.0  1.06  1:294~ 2:208~ 3:226~ 4:154~ 5:259~ 6:241~ 7:170~ 8:220~ 9:198×!
+         prise 9 : bruit 0.36-0.56 s (net, +39 dB, confiance 0.79) [vite | c'est]
+      ⚠ phrase 2 : aucune prise acceptable : hauteur -2.02 dt de la cible
+  retraites-pensions-10 — 3.46 s, F0 181.6 Hz
+    1. Quel niveau de pension gara…   4/5    181.6  -0.86   +8.4   +3.3  6.0    5.8  1.22  1:154~ 2:164~? 3:161~ 4:182 5:178
+         prise 2 : respiration 1.44-1.69 s (leger, +29 dB, confiance 0.54) [garantir | et]
+  retraites-penibilite-01 — 5.89 s, F0 189.8 Hz, pauses entre phrases [0.23, 0.3] s
+    1. Travail de nuit, bruit, ges…   4/5    188.4  -0.23   -2.3      —  0.0    5.0  1.04  1:129~ 2:281~? 3:171~? 4:188 5:171~
+         prise 2 : respiration 2.32-2.56 s (leger, +45 dB, confiance 0.77) [répétés | certains]
+         prise 3 : respiration 2.82-2.96 s (leger, +28 dB, confiance 0.48) [répétés | certains]
+    2. La retraite en tient-elle c…   4/5    193.9  +0.27   +7.7   +1.9  5.3    5.4  1.14  1:200 2:208~ 3:215~ 4:194 5:220~
+  retraites-penibilite-02 — 6.52 s, F0 200.8 Hz, pauses entre phrases [0.3] s
+    1. À trente-cinq ans, un homme…   4/5    203.8  +1.13   -4.9   +0.0  0.0    5.2  1.09  1:168~ 2:180? 3:139~ 4:204 5:159~
+         prise 2 : respiration 3.04-3.19 s (leger, +18 dB, confiance 0.34) [virgule | trois]
+    2. Chez les femmes, trois virg…   1/5    185.4  -0.51   -7.9   +0.4  4.9    4.7  0.98  1:185 2:164~ 3:218~ 4:256~ 5:193~
+  retraites-penibilite-04 — 6.76 s, F0 190.7 Hz
+    1. Six risques comptent : nuit…   1/5    190.7  -0.02   -9.6   -0.1  6.0    4.8  1.00  1:191? 2:255~ 3:137~ 4:130~ 5:203
+         prise 1 : respiration 1.43-1.53 s (leger, +18 dB, confiance 0.34) [nuit | équipes]
+      passage assemblé : respiration 1.43-1.53 s (leger, +18 dB, confiance 0.34) [nuit | équipes]
+  retraites-penibilite-05 — 7.70 s, F0 185.8 Hz, pauses entre phrases [0.3] s
+    1. Une année d'exposition rapp…   4/5    179.8  -1.04   -6.3   +0.6  6.0    6.2  1.31  1:231~ 2:149~ 3:148~ 4:180 5:159~?
+         prise 5 : respiration 0.00-0.16 s (leger, +48 dB, confiance 0.88) [début | Une]
+    2. Après vingt points pour la …   4/5    189.6  -0.12   -5.0   +4.6  6.0    5.8  1.22  1:133~ 2:160~ 3:181 4:190 5:183
+  retraites-penibilite-06 — 6.01 s, F0 178.9 Hz
+    1. En deux mille dix-sept, qua…   3/5    178.9  -1.12   -4.8   +3.1  5.0    5.3  1.12  1:178 2:167~ 3:179 4:150~ 5:178?
+         prise 5 : respiration 2.08-2.25 s (leger, +25 dB, confiance 0.48) [sortis | postures]
+  retraites-penibilite-07 — 8.28 s, F0 184.6 Hz, pauses entre phrases [0.3] s
+    1. Motif officiel : leur évalu…   4/9    172.2  -1.78   -4.1   -0.7  4.8    4.9  1.02  1:146~ 2:111~? 3:139~ 4:172~ 5:151~? 6:157~ 7:138~ 8:122~ 9:150~
+         prise 2 : respiration 1.19-1.44 s (leger, +24 dB, confiance 0.43) [officiel | leur]
+         prise 5 : respiration 1.08-1.23 s (leger, +16 dB, confiance 0.32) [officiel | leur]
+    2. Un départ anticipé reste po…   3/5    194.2  +0.30   -9.2   +3.9  4.1    5.7  1.19  1:145~ 2:128~? 3:194 4:121~ 5:167~?
+         prise 2 : respiration 1.60-1.83 s (leger, +36 dB, confiance 0.62) [possible | mais]
+         prise 5 : bruit 2.33-2.46 s (leger, +17 dB, confiance 0.33) [possible | mais]
+      ⚠ phrase 1 : aucune prise acceptable : hauteur -1.78 dt de la cible
+  retraites-penibilite-08 — 4.79 s, F0 191.5 Hz
+    1. En deux mille vingt-deux, l…   2/5    191.5  +0.05   -6.1   +1.2  6.0    5.5  1.16  1:179 2:192 3:164~? 4:210~ 5:196×!
+         prise 3 : respiration 0.88-1.12 s (leger, +20 dB, confiance 0.38) [deux | la]
+         prise 5 : bruit 0.01-0.32 s (net, +28 dB, confiance 0.68) [début | En]
+  retraites-penibilite-09 — 7.45 s, F0 174.1 Hz, pauses entre phrases [0.19, 0.3, 0.2] s
+    1. D'un côté, des écarts d'esp…   2/9    163.6  -2.67   -2.6   +1.4  6.0    6.1  1.29  1:164~ 2:164~ 3:147~ 4:145~ 5:119~ 6:161~ 7:126~ 8:127~? 9:119×
+         prise 8 : respiration 0.64-0.97 s (leger, +19 dB, confiance 0.37) [côté | des]
+    2. De l'autre, certaines expos…   6/6    191.9  +0.09   -4.4   +5.0  2.6    6.1  1.28  1:161~? 2:225~ 3:176×! 4:132~ 5:159~? 6:192
+         prise 1 : respiration 2.81-3.04 s (leger, +19 dB, confiance 0.36) [mesurer | et]
+         prise 3 : respiration 2.44-2.72 s (net, +28 dB, confiance 0.63) [mesurer | et]
+         prise 5 : respiration 2.54-2.71 s (leger, +16 dB, confiance 0.32) [mesurer | et]
+      ⚠ phrase 1 : aucune prise acceptable : hauteur -2.67 dt de la cible
+  retraites-penibilite-10 — 3.32 s, F0 192.2 Hz
+    1. Comment mesurer l'usure, et…   9/9    192.2  +0.12   -0.4   +3.5  6.0    5.9  1.24  1:254~? 2:127~ 3:218~? 4:159~ 5:140~ 6:154~ 7:223~ 8:161~ 9:192
+         prise 1 : respiration 0.88-1.07 s (leger, +19 dB, confiance 0.36) [l'usure | et]
+         prise 3 : respiration 1.06-1.22 s (leger, +24 dB, confiance 0.43) [l'usure | et]
+  logement-intro-01 — 2.92 s, F0 195.6 Hz
+    1. Sur cent euros que vous gag…   5/5    195.6  +0.42   -3.9      —  3.0    6.8  1.43  1:211×? 2:247~ 3:148×! 4:162~ 5:196
+         prise 1 : respiration 0.00-0.12 s (leger, +41 dB, confiance 0.74) [début | Sur]
+         prise 3 : respiration 0.00-0.40 s (net, +44 dB, confiance 0.95) [début | Sur]
+  logement-intro-02 — 6.97 s, F0 190.6 Hz, pauses entre phrases [0.3] s
+    1. Pour la moitié des locatair…   1/5    190.9  +0.00   -4.1   -1.0  0.0    5.6  1.18  1:191? 2:195? 3:172~ 4:164~? 5:142~?
+         prise 1 : respiration 1.60-1.82 s (leger, +26 dB, confiance 0.49) [privé | c'est]
+         prise 2 : respiration 1.43-1.55 s (leger, +18 dB, confiance 0.35) [privé | c'est]
+         prise 4 : respiration 3.36-3.62 s (leger, +18 dB, confiance 0.35) [cent | aides]
+         prise 5 : respiration 1.52-1.75 s (leger, +23 dB, confiance 0.42) [privé | c'est]
+    2. Presque trente euros sur ce…   2/5    186.7  -0.39   -1.1   -0.5  4.1    4.9  1.04  1:142~ 2:187 3:170~ 4:260~ 5:183
+      passage assemblé : respiration 1.60-1.82 s (leger, +26 dB, confiance 0.49) [privé | c'est]
+  logement-intro-03 — 9.89 s, F0 192.8 Hz, pauses entre phrases [0.3, 0.2, 0.28] s
+    1. Acheter aussi demande plus …   4/9    172.5  -1.75   +0.5   +1.1  1.1    6.9  1.45  1:164~ 2:209~ 3:250~ 4:172~ 5:146~ 6:216× 7:208~ 8:216~ 9:200~
+    2. Pour acheter le même logeme…   3/5    197.0  +0.54   -6.5   +2.9  0.0    6.4  1.34  1:203~ 2:149~ 3:197? 4:167~ 5:169~?
+         prise 3 : respiration 3.28-3.44 s (leger, +15 dB, confiance 0.30) [quinze | un]
+         prise 5 : respiration 3.60-3.87 s (leger, +18 dB, confiance 0.34) [quinze | un]
+         prise 5 : respiration 6.61-6.75 s (leger, +16 dB, confiance 0.31) [ans | contre]
+      ⚠ phrase 1 : aucune prise acceptable : hauteur -1.75 dt de la cible
+  logement-intro-04 — 9.33 s, F0 180.8 Hz, pauses entre phrases [0.23, 0.32, 0.3] s
+    1. Côté logement social, deux …   5/5    180.2  -1.00   -2.2   +3.2  6.0    5.4  1.13  1:158~ 2:137~ 3:137~? 4:126~ 5:180
+         prise 3 : respiration 0.96-1.20 s (leger, +21 dB, confiance 0.38) [social | deux]
+         prise 3 : respiration 4.26-4.40 s (leger, +21 dB, confiance 0.39) [quatre | pour]
+    2. À peu près une demande sur …   5/5    186.0  -0.45   -6.5   +3.8  2.2    6.4  1.34  1:169~ 2:138~ 3:125~ 4:234~ 5:186
+  logement-intro-05 — 9.22 s, F0 180.1 Hz, pauses entre phrases [0.41, 0.3, 0.24] s
+    1. Et l'on autorise moins de l…   2/5    175.6  -1.45   +1.0   +0.3  6.0    5.2  1.09  1:182~ 2:176 3:162~ 4:143~ 5:211~
+    2. Pour dix logements autorisé…   3/9    184.3  -0.61   -6.3   +3.9  0.0    7.2  1.51  1:164~ 2:158~? 3:184~ 4:162~ 5:161~? 6:145~ 7:190~ 8:205~ 9:169~?
+         prise 2 : respiration 2.60-2.78 s (leger, +23 dB, confiance 0.42) [d'avant | à]
+         prise 5 : mot étiré « moyenne » 1.12-1.60 s (leger, confiance 0.40) [en | les]
+         prise 9 : respiration 2.89-3.04 s (leger, +41 dB, confiance 0.71) [d'avant | à]
+      ⚠ phrase 2 : aucune prise acceptable : saut de +3.87 dt à l'enchaînement (tolérance de reprise 0.0 dt)
+  logement-intro-06 — 6.44 s, F0 193.4 Hz
+    1. Pour agir, il existe plusie…   1/5    193.4  +0.23   -6.3   +4.1  6.0    5.8  1.21  1:193 2:149~? 3:166~ 4:135~? 5:138~
+         prise 2 : respiration 4.32-4.49 s (leger, +18 dB, confiance 0.35) [social | la]
+         prise 4 : respiration 1.64-1.90 s (leger, +21 dB, confiance 0.39) [leviers | les]
+  logement-intro-07 — 4.04 s, F0 199.3 Hz
+    1. Ils n'agissent pas sur les …   5/5    199.3  +0.75   -4.3   +2.8  6.0    6.5  1.35  1:163~ 2:203 3:254×? 4:165~ 5:199
+         prise 3 : respiration 1.57-1.76 s (leger, +18 dB, confiance 0.35) [coût | et]
+  logement-intro-08 — 2.94 s, F0 195.1 Hz
+    1. Alors, quel levier, pour qu…   4/5    195.1  +0.38   -4.1   +2.1  6.0    5.7  1.20  1:138~ 2:186 3:278×? 4:195 5:313×
+         prise 3 : respiration 1.00-1.23 s (leger, +22 dB, confiance 0.41) [levier | pour]
+  logement-intro-09 — 3.89 s, F0 184.9 Hz
+    1. Dans les vidéos suivantes, …   5/5    184.9  -0.55   -2.2   -1.7  0.0    5.2  1.10  1:196~ 2:253~? 3:174~ 4:142~ 5:185?
+         prise 2 : respiration 1.19-1.34 s (leger, +23 dB, confiance 0.42) [suivantes | on]
+         prise 5 : respiration 1.19-1.41 s (leger, +22 dB, confiance 0.40) [suivantes | on]
+      passage assemblé : respiration 1.19-1.41 s (leger, +22 dB, confiance 0.40) [suivantes | on]
+  logement-loyers-01 — 3.84 s, F0 190.4 Hz, pauses entre phrases [0.3] s
+    1. Vous changez d'appartement.   9/9    195.1  +0.38  -13.3      —  0.0    6.5  1.35  1:168~ 2:171~ 3:152× 4:197~ 5:169~ 6:0× 7:255~ 8:164~ 9:195
+    2. Le propriétaire peut-il fix…   4/5    184.8  -0.56   -5.6   +1.6  6.0    5.7  1.20  1:176 2:166~ 3:174×! 4:185 5:169~
+         prise 3 : rire 1.80-2.58 s (net, +49 dB, confiance 0.95) [veut | fin]
+  logement-loyers-02 — 6.54 s, F0 174.5 Hz
+    1. Dans les zones tendues, les…   2/9    174.5  -1.56   -6.6   +0.7  0.0    6.0  1.25  1:172~ 2:174~ 3:152~ 4:174~? 5:169~ 6:186~? 7:125~ 8:141~ 9:137~
+         prise 4 : respiration 0.92-1.10 s (leger, +17 dB, confiance 0.33) [tendues | les]
+         prise 6 : respiration 0.91-1.06 s (leger, +16 dB, confiance 0.32) [tendues | les]
+      ⚠ phrase 1 : aucune prise acceptable : hauteur -1.56 dt de la cible
+  logement-loyers-03 — 9.21 s, F0 178.1 Hz
+    1. Dans neuf territoires volon…   9/9    178.1  -1.20   -3.5   +1.4  6.0    4.5  0.93  1:165~? 2:160~ 3:144~ 4:152~? 5:151~ 6:137~? 7:138~ 8:152~? 9:178
+         prise 1 : respiration 3.12-3.36 s (leger, +26 dB, confiance 0.51) [Bordeaux | le]
+         prise 1 : respiration 5.68-5.92 s (leger, +24 dB, confiance 0.43) [quartier | le]
+         prise 4 : bruit 3.20-3.52 s (leger, +25 dB, confiance 0.46) [Bordeaux | le]
+         prise 4 : respiration 4.97-5.08 s (leger, +17 dB, confiance 0.33) [plafond | selon]
+         prise 6 : bruit 2.96-3.16 s (leger, +15 dB, confiance 0.30) [Bordeaux | le]
+         prise 6 : respiration 5.57-5.71 s (leger, +15 dB, confiance 0.30) [quartier | le]
+         prise 8 : respiration 1.58-1.72 s (leger, +15 dB, confiance 0.30) [volontaires | dont]
+  logement-loyers-04 — 9.43 s, F0 197.9 Hz, pauses entre phrases [0.3, 0.3] s
+    1. C'est un essai de huit ans.   1/5    186.3  -0.42  -10.9   +2.2  3.5    7.4  1.55  1:186 2:122× 3:176×! 4:171~ 5:281~
+         prise 3 : parole en trop 0.02-0.24 s (net, +48 dB, confiance 0.80) [début | C'est]
+    2. Sans nouvelle loi, il s'arr…   3/5    191.3  +0.04   -3.5   +2.0  6.0    5.0  1.04  1:168~ 2:361~ 3:191 4:150~ 5:221~?
+         prise 5 : respiration 0.80-1.06 s (leger, +18 dB, confiance 0.35) [loi | il]
+    3. Un texte pour le rendre per…   4/5    205.5  +1.28   -0.4   +2.1  3.5    6.1  1.28  1:175 2:169~? 3:170~ 4:206? 5:156~?
+         prise 2 : respiration 2.80-3.02 s (leger, +16 dB, confiance 0.32) [l'Assemblée | doit]
+         prise 4 : respiration 2.41-2.59 s (leger, +20 dB, confiance 0.37) [l'Assemblée | doit]
+         prise 5 : bruit 2.58-2.80 s (leger, +23 dB, confiance 0.42) [l'Assemblée | doit]
+      passage assemblé : respiration 6.72-6.95 s (leger, +20 dB, confiance 0.37) [l'Assemblée | doit]
+  logement-loyers-05 — 8.00 s, F0 193.2 Hz, pauses entre phrases [0.36, 0.31, 0.23] s
+    1. Effet mesuré sur les loyers…   5/5    202.7  +1.04   -4.0   +1.4  0.4    6.2  1.31  1:167~? 2:121~ 3:171~? 4:209~ 5:203
+         prise 1 : respiration 1.27-1.42 s (leger, +18 dB, confiance 0.35) [loyers | deux]
+         prise 3 : respiration 1.35-1.53 s (leger, +18 dB, confiance 0.35) [loyers | deux]
+    2. Sur un loyer de huit cents …   7/7    184.7  -0.57   -4.3   +0.8  4.0    4.3  0.89  1:217~ 2:214~ 3:213~ 4:167~ 5:173~ 6:164~ 7:185
+  logement-loyers-06 — 7.60 s, F0 207.2 Hz, pauses entre phrases [0.24, 0.3, 0.3] s
+    1. Effet mesuré sur l'offre, h…   9/9    208.4  +1.52   -5.3   +3.6  4.3    5.7  1.20  1:171~ 2:169~ 3:164~ 4:144~ 5:144×! 6:137~ 7:166~ 8:169~ 9:208~
+         prise 5 : rire 1.12-1.39 s (net, +28 dB, confiance 0.54) [l'offre | hors]
+    2. À Paris, aucun effet mesuré…   6/6    195.8  +0.44   -5.6   -0.6  5.3    6.8  1.43  1:127× 2:237~ 3:210~ 4:173~ 5:172~ 6:196
+      ⚠ phrase 1 : aucune prise acceptable : hauteur +1.52 dt de la cible
+  logement-loyers-07 — 6.95 s, F0 170.2 Hz
+    1. Et plus d'un tiers des baux…   5/9    170.2  -1.99  -13.1   +1.8  5.6    6.1  1.28  1:117~? 2:136~? 3:156~? 4:131~? 5:170~ 6:164~ 7:130~ 8:152~ 9:170~?
+         prise 1 : respiration 4.35-4.44 s (leger, +18 dB, confiance 0.31) [autorisé | bail]
+         prise 2 : respiration 2.64-2.79 s (leger, +15 dB, confiance 0.30) [plafond | complément]
+         prise 3 : respiration 3.80-3.96 s (leger, +19 dB, confiance 0.35) [autorisé | bail]
+         prise 4 : respiration 2.64-2.94 s (leger, +46 dB, confiance 0.78) [plafond | complément]
+         prise 4 : respiration 5.44-5.62 s (leger, +22 dB, confiance 0.41) [dispositif | ou]
+         prise 9 : respiration 4.40-4.80 s (leger, +15 dB, confiance 0.31) [autorisé | bail]
+         prise 9 : vocalise 6.08-6.56 s (leger, +22 dB, confiance 0.42) [dispositif | ou]
+      ⚠ phrase 1 : aucune prise acceptable : hauteur -1.99 dt de la cible
+  logement-loyers-08 — 5.35 s, F0 189.4 Hz, pauses entre phrases [0.19, 0.31, 0.17] s
+    1. Pour les uns, c'est une pro…   4/5    190.2  -0.06   -3.4   +6.7  6.0    6.4  1.34  1:193 2:322× 3:164~ 4:190 5:243~
+    2. Pour d'autres, un risque de…   7/7    189.3  -0.15   -6.3   +4.0  3.4    5.7  1.20  1:132~? 2:144~ 3:142~ 4:167~ 5:143~ 6:135~ 7:189
+         prise 1 : respiration 0.00-0.13 s (leger, +46 dB, confiance 0.74) [début | Pour]
+  logement-loyers-09 — 2.05 s, F0 180.0 Hz
+    1. Alors, jusqu'où encadrer le…   1/5    180.0  -1.02   -7.4   +3.4  6.0    6.5  1.36  1:180 2:173~? 3:118~ 4:133× 5:127~
+         prise 2 : bruit 0.32-0.50 s (leger, +20 dB, confiance 0.37) [Alors | jusqu'où]
+  logement-social-01 — 7.87 s, F0 188.7 Hz, pauses entre phrases [0.35] s
+    1. Le logement social, réservé…   3/5    180.9  -0.93   -3.6      —  3.0    5.2  1.10  1:171~? 2:207? 3:181 4:178? 5:162~
+         prise 1 : respiration 1.10-1.30 s (leger, +18 dB, confiance 0.35) [social | réservé]
+         prise 2 : respiration 1.04-1.27 s (leger, +22 dB, confiance 0.41) [social | réservé]
+         prise 4 : respiration 1.07-1.19 s (leger, +16 dB, confiance 0.32) [social | réservé]
+    2. Non : soixante-douze pour c…   2/5    193.1  +0.20   -5.0   +2.1  0.0    6.2  1.30  1:180 2:193 3:126~ 4:148~ 5:134×!
+         prise 5 : parole en trop 0.00-0.67 s (net, +49 dB, confiance 0.77) [début | Non]
+  logement-social-02 — 5.21 s, F0 189.2 Hz
+    1. Le principe : un loyer plus…   7/7    189.2  -0.15   -1.5   +4.1  5.0    6.5  1.36  1:121~ 2:176~ 3:147~ 4:155~? 5:138~? 6:163~ 7:189
+         prise 4 : respiration 0.90-1.10 s (leger, +28 dB, confiance 0.53) [principe | un]
+         prise 4 : bruit 2.24-2.45 s (leger, +21 dB, confiance 0.39) [bas | sous]
+         prise 4 : bruit 3.81-4.00 s (leger, +21 dB, confiance 0.39) [revenus | dans]
+         prise 5 : respiration 0.61-0.82 s (leger, +18 dB, confiance 0.33) [principe | un]
+  logement-social-03 — 9.94 s, F0 189.4 Hz, pauses entre phrases [0.31] s
+    1. Loyer médian : cinq euros q…   4/5    182.5  -0.78   -0.9   +1.2  1.5    4.7  0.99  1:168~ 2:203 3:172~? 4:182 5:171~
+         prise 3 : respiration 3.14-3.29 s (leger, +17 dB, confiance 0.33) [carré | contre]
+    2. Pour cinquante mètres carré…   1/5    195.5  +0.41   -7.3   +2.5  0.9    5.1  1.07  1:196 2:204 3:175~ 4:174~? 5:209~
+         prise 4 : respiration 3.49-3.65 s (leger, +15 dB, confiance 0.30) [euros | contre]
+  logement-social-04 — 5.73 s, F0 189.9 Hz, pauses entre phrases [0.3] s
+    1. Il y a cinq virgule quatre …   2/5    191.2  +0.03   -0.4   +0.0  6.0    6.0  1.25  1:162~ 2:191 3:231~ 4:178 5:132~
+    2. À peu près une résidence pr…   2/5    183.2  -0.71   -4.9   +0.8  0.4    5.3  1.12  1:211~ 2:183 3:208 4:148~ 5:141~
+  logement-social-05 — 7.75 s, F0 182.9 Hz, pauses entre phrases [0.17, 0.3, 0.17, 0.34] s
+    1. Mais il faut attendre : dix…   3/5    175.4  -1.47   -5.1   +4.2  4.9    5.7  1.19  1:223~ 2:129~ 3:175 4:173~ 5:148~
+    2. En Île-de-France, trente-ne…   4/5    188.1  -0.26   -9.1   +5.9  5.1    4.1  0.85  1:184 2:178 3:155~ 4:188 5:164~
+  logement-social-06 — 14.03 s, F0 185.3 Hz, pauses entre phrases [0.37, 0.3, 0.31, 0.18] s
+    1. Pourquoi ?                    7/9      0.0  +0.00      —      —  6.0    2.4  0.51  1:329×? 2:190× 3:292×! 4:373×! 5:276× 6:296× 7:0× 8:353× 9:454×
+         prise 1 : respiration 0.00-0.19 s (leger, +21 dB, confiance 0.39) [début | Pourquoi]
+         prise 1 : respiration 0.48-0.71 s (leger, +16 dB, confiance 0.31) [Pourquoi | fin]
+         prise 3 : parole en trop 0.49-1.11 s (net, +53 dB, confiance 0.95) [Pourquoi | fin]
+         prise 4 : respiration 0.32-0.60 s (net, +51 dB, confiance 0.95) [Pourquoi | fin]
+    2. D'abord, les locataires par…   1/9    167.4  -2.27   -0.1      —  0.0    5.1  1.06  1:167~ 2:145~ 3:168~ 4:132~ 5:270~ 6:274~ 7:217~ 8:150~ 9:172~
+    3. En deux mille vingt-quatre,…   2/9    191.6  +0.06   -4.6   +3.2  0.1    4.9  1.04  1:206~ 2:192~? 3:204~? 4:142~? 5:144~ 6:188~ 7:205~? 8:145~? 9:206~
+         prise 2 : respiration 3.61-3.82 s (leger, +20 dB, confiance 0.37) [d'occupant | contre]
+         prise 3 : bruit 6.56-6.77 s (leger, +35 dB, confiance 0.67) [neuf | fin]
+         prise 4 : respiration 3.12-3.31 s (leger, +21 dB, confiance 0.39) [d'occupant | contre]
+         prise 7 : bruit 3.37-3.58 s (leger, +27 dB, confiance 0.54) [d'occupant | contre]
+         prise 8 : respiration 2.88-3.15 s (leger, +26 dB, confiance 0.49) [d'occupant | contre]
+         prise 8 : bruit 5.60-5.76 s (leger, +32 dB, confiance 0.63) [neuf | fin]
+    4. Ensuite, la production de l…   3/5    193.2  +0.21   -8.7   +5.5  4.6    6.1  1.28  1:178 2:218~ 3:193 4:177 5:224~
+      passage assemblé : respiration 6.78-6.99 s (leger, +20 dB, confiance 0.37) [d'occupant | contre]
+      passage assemblé : bruit 9.60-9.78 s (leger, +29 dB, confiance 0.59) [neuf | Ensuite]
+      ⚠ phrase 1 : aucune prise sans défaut : pas de parole, voix soufflée ou craquée (0 trames voisées/s, 0.00 × la médiane des prises)
+      ⚠ phrase 1 : mesure de F0 incertaine (YIN et SHS d'accord sur 0% des trames)
+      ⚠ phrase 2 : aucune prise acceptable : hauteur -2.27 dt de la cible
+      ⚠ phrase 3 : aucune prise acceptable : saut de +3.20 dt à l'enchaînement (tolérance de reprise 0.1 dt)
+  logement-social-07 — 8.39 s, F0 185.5 Hz, pauses entre phrases [0.31] s
+    1. Construire plus de logement…   3/5    179.1  -1.10   -8.8   +7.0  6.0    5.1  1.07  1:161~ 2:231~ 3:179 4:181 5:183~
+    2. Le soutien public au logeme…   2/5    187.2  -0.34   -7.0   +2.8  6.0    5.5  1.15  1:162~ 2:187 3:153~ 4:168~ 5:163~
+  logement-social-08 — 9.58 s, F0 195.2 Hz, pauses entre phrases [0.15, 0.29, 0.3] s
+    1. Les rapports publics relève…   6/6    183.3  -0.70   -8.2   +2.6  6.0    5.9  1.24  1:132~? 2:158~? 3:143~ 4:151~ 5:137~ 6:183?
+         prise 1 : respiration 2.28-2.37 s (leger, +20 dB, confiance 0.38) [décalages | la]
+         prise 1 : respiration 4.43-4.49 s (leger, +18 dB, confiance 0.34) [seules | et]
+         prise 2 : respiration 2.08-2.32 s (leger, +22 dB, confiance 0.40) [décalages | la]
+         prise 2 : respiration 4.13-4.31 s (leger, +17 dB, confiance 0.33) [seules | et]
+         prise 6 : respiration 2.46-2.65 s (leger, +19 dB, confiance 0.36) [décalages | la]
+    2. Et le loyer ne dépend pas d…   3/5    201.1  +0.90   -6.3   +3.2  6.0    6.1  1.29  1:161~ 2:168~ 3:201 4:121~ 5:109~
+      passage assemblé : respiration 2.46-2.65 s (leger, +20 dB, confiance 0.37) [décalages | la]
+  logement-social-09 — 1.63 s, F0 191.3 Hz
+    1. Alors, comment raccourcir l…   3/5    191.3  +0.04   -0.8   +2.6  6.0    6.2  1.30  1:275~ 2:178 3:191 4:202 5:205
+  logement-construire-01 — 5.89 s, F0 191.4 Hz, pauses entre phrases [0.3] s
+    1. Pour loger plus de monde, i…   1/5    185.9  -0.46   -6.2      —  0.0    5.7  1.20  1:186? 2:193~? 3:160~ 4:221~ 5:162~
+         prise 1 : respiration 1.12-1.28 s (leger, +26 dB, confiance 0.51) [monde | il]
+         prise 2 : respiration 1.04-1.27 s (leger, +39 dB, confiance 0.67) [monde | il]
+    2. Or, depuis deux mille vingt…   3/5    201.3  +0.92  -11.0   -1.0  6.0    4.7  0.98  1:224~ 2:162~? 3:201 4:122~ 5:150~
+         prise 2 : respiration 1.84-2.09 s (leger, +18 dB, confiance 0.34) [deux | les]
+      passage assemblé : respiration 1.12-1.28 s (leger, +27 dB, confiance 0.51) [monde | il]
+  logement-construire-02 — 7.08 s, F0 176.6 Hz
+    1. En cause d'abord, les taux …   9/9    176.6  -1.35   -5.0   -2.0  6.0    6.1  1.28  1:165~ 2:156~ 3:149×! 4:159~ 5:165~ 6:155~ 7:127~ 8:127~? 9:177
+         prise 3 : respiration 1.92-2.16 s (leger, +28 dB, confiance 0.58) [immobiliers | multipliés]
+         prise 3 : respiration 5.05-5.28 s (net, +27 dB, confiance 0.62) [quatre | avant]
+         prise 8 : respiration 5.27-5.44 s (leger, +18 dB, confiance 0.34) [quatre | avant]
+  logement-construire-03 — 9.97 s, F0 198.2 Hz, pauses entre phrases [0.31, 0.3] s
+    1. Résultat : deux cent soixan…   3/5    201.0  +0.89   -2.6   +4.7  5.0    5.6  1.18  1:121×! 2:137~? 3:201? 4:159~ 5:152~
+         prise 1 : respiration 0.66-0.91 s (leger, +22 dB, confiance 0.40) [Résultat | deux]
+         prise 1 : respiration 4.00-4.24 s (net, +35 dB, confiance 0.72) [quatre | et]
+         prise 2 : respiration 4.33-4.40 s (leger, +19 dB, confiance 0.34) [quatre | et]
+         prise 3 : respiration 3.70-3.88 s (leger, +17 dB, confiance 0.33) [quatre | et]
+    2. Environ sept cents par jour…   3/5    188.9  -0.18   -7.5   -0.9  2.6    5.4  1.14  1:264× 2:226× 3:189 4:155~ 5:185~
+    3. Une reprise s'amorce depuis…   5/5    191.1  +0.02   -3.4   +5.6  6.0    5.6  1.18  1:173~ 2:238~ 3:148~ 4:179 5:191
+      passage assemblé : respiration 3.70-3.88 s (leger, +17 dB, confiance 0.33) [quatre | et]
+  logement-construire-04 — 8.12 s, F0 177.4 Hz, pauses entre phrases [0.3, 0.29] s
+    1. Il faut aussi des terrains.   3/9    171.9  -1.81   -2.5   -1.0  3.4    4.9  1.04  1:216×! 2:283~? 3:172~ 4:285~ 5:274×! 6:130×! 7:264×! 8:280~ 9:169~
+         prise 1 : bruit 0.88-1.06 s (net, +44 dB, confiance 0.87) [terrains | fin]
+         prise 2 : respiration 1.06-1.12 s (leger, +36 dB, confiance 0.66) [terrains | fin]
+         prise 5 : parole en trop 0.00-1.17 s (net, +53 dB, confiance 0.88) [début | Il]
+         prise 5 : respiration 1.22-2.08 s (net, +51 dB, confiance 0.95) [début | faut]
+         prise 5 : parole en trop « Il » 1.22-2.08 s (net, +51 dB, confiance 0.90) [début | faut]
+         prise 6 : bruit 0.00-0.40 s (net, +43 dB, confiance 0.84) [début | Il]
+         prise 7 : rire 0.08-0.63 s (net, +48 dB, confiance 0.93) [Il | faut]
+    2. Pour une maison, cent deux …   9/9    179.6  -1.06   -4.3   +5.9  2.5    5.2  1.10  1:169~ 2:171~? 3:143~ 4:224~ 5:146~ 6:193~ 7:197~ 8:190~? 9:180~
+         prise 2 : respiration 4.00-4.21 s (leger, +23 dB, confiance 0.42) [quatre | soit]
+         prise 8 : respiration 3.58-3.71 s (leger, +15 dB, confiance 0.30) [quatre | soit]
+      ⚠ phrase 1 : aucune prise acceptable : hauteur -1.81 dt de la cible
+      ⚠ phrase 2 : aucune prise acceptable : saut de +5.93 dt à l'enchaînement (tolérance de reprise 2.5 dt)
+  logement-construire-05 — 13.56 s, F0 187.4 Hz, pauses entre phrases [0.3] s
+    1. Et quand les prix montent d…   7/9    179.2  -1.09   -4.5   +3.9  4.3    5.6  1.17  1:158~ 2:146~ 3:160~ 4:120~ 5:170~ 6:175~ 7:179~ 8:154~ 9:208~
+    2. Selon une étude citée par l…   4/9    190.4  -0.05   -5.4   +8.5  4.5    5.6  1.17  1:130~? 2:165~? 3:175~ 4:190~ 5:173~ 6:193~ 7:167~? 8:200~ 9:166~?
+         prise 1 : respiration 1.60-1.91 s (leger, +22 dB, confiance 0.41) [Trésor | les]
+         prise 2 : respiration 1.84-2.08 s (leger, +20 dB, confiance 0.37) [Trésor | les]
+         prise 7 : respiration 1.71-1.88 s (leger, +22 dB, confiance 0.40) [Trésor | les]
+         prise 9 : respiration 1.88-2.02 s (leger, +19 dB, confiance 0.36) [Trésor | les]
+      ⚠ phrase 1 : aucune prise acceptable : dispersion 9.8 dt
+      ⚠ phrase 2 : aucune prise acceptable : saut de +8.52 dt à l'enchaînement (tolérance de reprise 4.5 dt)
+  logement-construire-06 — 5.04 s, F0 175.8 Hz
+    1. Ces règles ont aussi des bu…   9/9    175.8  -1.43   -7.3   +1.8  5.4    5.2  1.10  1:156~? 2:165~? 3:142~ 4:159~ 5:212~ 6:159~ 7:162~ 8:171~ 9:176
+         prise 1 : respiration 2.56-2.78 s (leger, +22 dB, confiance 0.40) [patrimoine | les]
+         prise 2 : bruit 1.01-1.14 s (leger, +39 dB, confiance 0.74) [buts | protéger]
+  logement-construire-07 — 11.22 s, F0 191.2 Hz, pauses entre phrases [0.3, 0.32, 0.15] s
+    1. Pour encourager les particu…   5/5    189.7  -0.11   -0.6   +5.0  6.0    6.0  1.25  1:160~ 2:130~? 3:215~? 4:167×! 5:190?
+         prise 2 : respiration 2.63-2.87 s (leger, +20 dB, confiance 0.38) [louer | il]
+         prise 3 : respiration 2.60-2.81 s (leger, +16 dB, confiance 0.32) [louer | il]
+         prise 4 : respiration 2.60-2.76 s (leger, +17 dB, confiance 0.34) [louer | il]
+         prise 4 : rire 3.36-3.60 s (net, +51 dB, confiance 0.93) [existe | aides]
+         prise 5 : respiration 2.67-2.84 s (leger, +17 dB, confiance 0.33) [louer | il]
+    2. Limite relevée par le Tréso…   4/5    193.4  +0.23   -6.8   +2.2  0.6    6.1  1.27  1:184 2:147~? 3:179~ 4:193 5:153~
+         prise 2 : respiration 1.48-1.64 s (leger, +16 dB, confiance 0.32) [Trésor | là]
+      passage assemblé : respiration 2.67-2.84 s (leger, +17 dB, confiance 0.33) [louer | il]
+  logement-construire-08 — 3.54 s, F0 176.4 Hz
+    1. Alors, comment construire p…   8/8    176.4  -1.37   -7.4   -0.9  6.0    4.3  0.91  1:268~ 2:307× 3:207~ 4:261~ 5:272~ 6:169~ 7:274~ 8:176
+  logement-existant-01 — 2.83 s, F0 194.5 Hz
+    1. Et si une partie des logeme…   1/5    194.5  +0.32   -2.3      —  3.0    6.8  1.44  1:194 2:212× 3:167× 4:141~ 5:146~?
+         prise 5 : respiration 0.08-0.28 s (leger, +42 dB, confiance 0.72) [Et | si]
+  logement-existant-02 — 4.26 s, F0 177.1 Hz
+    1. Deux virgule neuf millions …   8/8    177.1  -1.30  -13.1   -1.5  0.0    5.2  1.09  1:243~ 2:165~ 3:176~ 4:230~ 5:212~ 6:156~ 7:151~ 8:177
+  logement-existant-03 — 8.55 s, F0 180.3 Hz, pauses entre phrases [0.19, 0.3] s
+    1. Souvent, entre deux occupan…   6/9    170.6  -1.95   -9.2   +4.2  6.0    4.4  0.93  1:294×! 2:218×! 3:146~ 4:111~ 5:148~ 6:171~ 7:296~ 8:166~ 9:225~
+         prise 1 : parole en trop 0.00-0.54 s (net, +49 dB, confiance 0.84) [début | Souvent]
+         prise 2 : respiration 0.00-0.24 s (net, +42 dB, confiance 0.91) [début | Souvent]
+    2. Vides depuis plus de deux a…   6/6    181.1  -0.91   -1.7   +1.0  6.0    4.9  1.02  1:133~ 2:144~ 3:150~ 4:173~? 5:174~ 6:181?
+         prise 4 : bruit 1.15-1.44 s (leger, +22 dB, confiance 0.41) [ans | environ]
+         prise 4 : respiration 3.47-3.64 s (leger, +20 dB, confiance 0.37) [privé | surtout]
+         prise 6 : respiration 1.92-2.24 s (leger, +29 dB, confiance 0.56) [ans | environ]
+         prise 6 : respiration 4.08-4.32 s (leger, +23 dB, confiance 0.41) [privé | surtout]
+      passage assemblé : respiration 3.68-4.08 s (leger, +29 dB, confiance 0.56) [ans | environ]
+      passage assemblé : respiration 5.92-6.24 s (leger, +28 dB, confiance 0.51) [privé | surtout]
+      ⚠ phrase 1 : aucune prise acceptable : hauteur -1.95 dt de la cible
+  logement-existant-04 — 8.13 s, F0 181.9 Hz, pauses entre phrases [0.3] s
+    1. Dans les zones tendues, un …   3/5    178.4  -1.17   -8.6   +3.4  1.7    6.5  1.37  1:200? 2:168~ 3:178 4:175~? 5:146~
+         prise 1 : respiration 0.88-1.12 s (leger, +23 dB, confiance 0.41) [tendues | un]
+         prise 4 : respiration 2.64-2.88 s (leger, +18 dB, confiance 0.34) [taxé | pour]
+    2. Selon la Cour des comptes, …   2/5    186.1  -0.44   -6.3   +7.2  6.0    6.8  1.42  1:125~ 2:186 3:175~ 4:196 5:163~
+  logement-existant-05 — 7.25 s, F0 191.0 Hz
+    1. Depuis deux mille vingt-cin…   3/5    191.0  +0.01   -5.3   +5.6  6.0    5.9  1.24  1:158~ 2:231~ 3:191 4:164~ 5:168~?
+         prise 5 : respiration 1.19-1.36 s (leger, +20 dB, confiance 0.38) [cinq | une]
+         prise 5 : respiration 4.58-4.75 s (leger, +22 dB, confiance 0.41) [vingt | la]
+  logement-existant-07 — 7.03 s, F0 178.6 Hz
+    1. La loi interdit peu à peu d…   5/5    178.6  -1.15   -2.9   -1.3  6.0    5.2  1.08  1:152~ 2:211~ 3:176? 4:151~? 5:179?
+         prise 3 : respiration 1.60-1.86 s (leger, +26 dB, confiance 0.54) [louer | classe]
+         prise 4 : respiration 4.54-4.70 s (leger, +20 dB, confiance 0.34) [cinq | F]
+         prise 5 : respiration 3.72-3.88 s (leger, +16 dB, confiance 0.31) [cinq | F]
+      passage assemblé : respiration 3.72-3.88 s (leger, +16 dB, confiance 0.31) [cinq | F]
+  logement-existant-08 — 13.24 s, F0 193.4 Hz, pauses entre phrases [0.3, 0.15, 0.2] s
+    1. Rénover réduit les factures…   9/9    196.3  +0.48   -0.2   +5.3  2.9    5.5  1.16  1:151~ 2:157~ 3:222~ 4:149~? 5:118×! 6:140~? 7:143~ 8:172~ 9:196?
+         prise 4 : respiration 1.47-1.72 s (leger, +23 dB, confiance 0.42) [factures | et]
+         prise 4 : respiration 3.05-3.20 s (leger, +16 dB, confiance 0.32) [Trésor | la]
+         prise 5 : respiration 1.44-1.76 s (net, +30 dB, confiance 0.65) [factures | et]
+         prise 5 : respiration 2.80-3.04 s (net, +33 dB, confiance 0.71) [Trésor | la]
+         prise 6 : respiration 1.58-1.76 s (leger, +16 dB, confiance 0.31) [factures | et]
+         prise 9 : respiration 1.36-1.60 s (leger, +23 dB, confiance 0.42) [factures | et]
+         prise 9 : respiration 2.65-2.85 s (leger, +22 dB, confiance 0.41) [Trésor | la]
+    2. Mais, d'après une étude qu'…   1/5    186.8  -0.38   -6.0   +2.1  0.2    5.8  1.21  1:187 2:154~? 3:152~ 4:176? 5:173~
+         prise 2 : respiration 1.52-1.73 s (leger, +20 dB, confiance 0.38) [cite | l'annonce]
+         prise 2 : respiration 3.36-3.60 s (leger, +22 dB, confiance 0.40) [G | aurait]
+         prise 2 : respiration 5.84-5.99 s (leger, +18 dB, confiance 0.35) [vendre | plutôt]
+         prise 4 : respiration 1.98-2.22 s (leger, +20 dB, confiance 0.38) [cite | l'annonce]
+      passage assemblé : respiration 1.36-1.60 s (leger, +24 dB, confiance 0.43) [factures | et]
+      passage assemblé : respiration 2.65-2.85 s (leger, +23 dB, confiance 0.42) [Trésor | la]
+  logement-existant-09 — 2.55 s, F0 196.8 Hz
+    1. Alors, comment mieux utilis…   3/5    196.8  +0.53   -5.4   +6.3  6.0    6.8  1.42  1:214~ 2:176×! 3:197 4:165× 5:154~
+         prise 2 : respiration 0.00-0.12 s (leger, +28 dB, confiance 0.51) [début | Alors]
+         prise 2 : respiration 0.65-0.88 s (net, +48 dB, confiance 0.95) [début | Alors]
+
+Alertes (19) :
+  grave / retraites-financement-01 : phrase 2 : aucune prise acceptable : hauteur +2.02 dt de la cible
+  grave / retraites-pensions-07 : phrase 1 : aucune prise acceptable : hauteur -1.59 dt de la cible
+  grave / retraites-pensions-09 : phrase 2 : aucune prise acceptable : hauteur -2.02 dt de la cible
+  grave / retraites-penibilite-07 : phrase 1 : aucune prise acceptable : hauteur -1.78 dt de la cible
+  grave / retraites-penibilite-09 : phrase 1 : aucune prise acceptable : hauteur -2.67 dt de la cible
+  grave / logement-intro-03 : phrase 1 : aucune prise acceptable : hauteur -1.75 dt de la cible
+  grave / logement-intro-05 : phrase 2 : aucune prise acceptable : saut de +3.87 dt à l'enchaînement (tolérance de reprise 0.0 dt)
+  grave / logement-loyers-02 : phrase 1 : aucune prise acceptable : hauteur -1.56 dt de la cible
+  grave / logement-loyers-06 : phrase 1 : aucune prise acceptable : hauteur +1.52 dt de la cible
+  grave / logement-loyers-07 : phrase 1 : aucune prise acceptable : hauteur -1.99 dt de la cible
+  grave / logement-social-06 : phrase 1 : aucune prise sans défaut : pas de parole, voix soufflée ou craquée (0 trames voisées/s, 0.00 × la médiane des prises)
+  grave / logement-social-06 : phrase 1 : mesure de F0 incertaine (YIN et SHS d'accord sur 0% des trames)
+  grave / logement-social-06 : phrase 2 : aucune prise acceptable : hauteur -2.27 dt de la cible
+  grave / logement-social-06 : phrase 3 : aucune prise acceptable : saut de +3.20 dt à l'enchaînement (tolérance de reprise 0.1 dt)
+  grave / logement-construire-04 : phrase 1 : aucune prise acceptable : hauteur -1.81 dt de la cible
+  grave / logement-construire-04 : phrase 2 : aucune prise acceptable : saut de +5.93 dt à l'enchaînement (tolérance de reprise 2.5 dt)
+  grave / logement-construire-05 : phrase 1 : aucune prise acceptable : dispersion 9.8 dt
+  grave / logement-construire-05 : phrase 2 : aucune prise acceptable : saut de +8.52 dt à l'enchaînement (tolérance de reprise 4.5 dt)
+  grave / logement-existant-03 : phrase 1 : aucune prise acceptable : hauteur -1.95 dt de la cible
+
+Temps : 8241 s pour 746 prise(s), 10.67 s de calcul par prise en moyenne (4.22 s d'audio) ; calcul d'une prise ≈ 0.66 s + 2.42 s par seconde d'audio. Détecteur de sons parasites : 0.185 s par prise en moyenne (au plus 0.613 s), 2% du calcul d'une prise.
+Estimation pour les 97 passages (149 phrases) × 2 voix (voix aiguë 3 prises + voix grave 5 prises, 20% de secours) : ~259 min.

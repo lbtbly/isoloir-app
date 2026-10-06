@@ -1,0 +1,101 @@
+/* ——— Pied de page : le pied imprimé du formulaire, sur chaque écran ———
+   Il suit le contenu de la feuille. Double filet, comme l'en-tête (épais, puis fin 3px dessous), à la
+   largeur du texte ; dessous, en petit corps gris, la mention d'indépendance, et les liens vers les notices
+   en noir. Une colonne sur téléphone ; à partir de 48rem de pied, les liens passent à droite de la
+   mention, sur la ligne de base de sa première ligne. */
+
+.site-foot {
+  container: foot / inline-size;
+  padding: 0 var(--gutter);
+  /* La réserve de la barre d'actions fixe passe de la feuille au pied : le dernier lien remonte au-dessus
+     de la barre, quelle que soit sa hauteur réelle (texte agrandi, zone sûre) */
+  padding-bottom: calc(var(--bar-real, var(--bar-h)) + var(--s4));
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: var(--print-soft);
+}
+
+/* La feuille qui précède le pied n'a plus à réserver la place de la barre : un blanc franc suffit */
+.screen:has(> .site-foot) > .sheet {
+  padding-bottom: var(--s7);
+}
+
+/* Écrans sans barre du bas (accueil, page d'essai, écrans vides) : un simple blanc sous le pied */
+.screen:not(:has(> .action-bar)) > .site-foot {
+  padding-bottom: calc(var(--s6) + env(safe-area-inset-bottom));
+}
+
+.site-foot-inner {
+  display: grid;
+  row-gap: var(--s3);
+  /* La largeur du texte de la feuille : le cadre, moins ses deux gouttières */
+  max-width: calc(var(--frame) - 2 * var(--gutter));
+  margin: 0 auto;
+  border-top: var(--thick) solid var(--rule-strong);
+}
+
+/* Le filet fin du double filet, 3px sous le filet épais */
+.site-foot-inner::before {
+  content: '';
+  margin-top: 3px;
+  border-top: var(--hair) solid var(--rule-strong);
+}
+
+.site-foot-text {
+  max-width: var(--measure);
+}
+
+.site-foot-text p {
+  margin: 0;
+}
+
+.site-foot-text p + p {
+  margin-top: var(--s2);
+}
+
+/* Les liens de la mention propre à un écran (site officiel du vote) gardent l'encre du texte */
+.site-foot-text a {
+  color: var(--print);
+}
+
+.site-foot-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--s5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Cible de 24 px au moins (WCAG 2.5.8), les liens passant sur deux rangées */
+.site-foot-links a {
+  display: inline-block;
+  padding-block: 0.15rem;
+  color: var(--print);
+  font-weight: 650;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+/* La notice où l'on est : plus grasse, soulignée de 2px, comme le lien courant du menu */
+.site-foot-links a[aria-current] {
+  font-weight: 800;
+  text-decoration-thickness: 2px;
+}
+
+@container foot (min-width: 48rem) {
+  .site-foot-inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: var(--s6);
+    align-items: baseline;
+  }
+
+  .site-foot-inner::before {
+    grid-column: 1 / -1;
+  }
+
+  .site-foot-links {
+    justify-content: flex-end;
+  }
+}

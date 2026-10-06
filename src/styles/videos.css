@@ -1,0 +1,1316 @@
+/* Vidéos « Les sujets » : le lecteur à la TikTok (.vp-). Le dessin des scènes est celui de la piste C, dans sa
+   propre feuille (videos-c.css, .vc-) ; la page « Les sujets en vidéo » et les entrées vers les vidéos sont dans
+   videos-page.css.
+   Le lecteur : plein écran sur téléphone ; popin 9:16 sur fond noir translucide et flouté sur tablette et
+   ordinateur. Chaque vidéo porte ses jetons (--vp-*), que la classe de la piste peut redéfinir.
+   Mêmes encres que la feuille : imprimé noir pour ce qui est dit, bleu bille pour ce qui compte. */
+
+/* ——— Le lecteur : plein écran (téléphone) ——— */
+
+html.vp-open {
+  overflow: hidden;
+}
+
+.vp {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background: var(--paper);
+  color: var(--print);
+}
+
+/* Le fond : noir translucide et flouté, dans les deux thèmes */
+.vp::backdrop {
+  background: rgb(0 0 0 / 0.66);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+.vp-shell {
+  position: relative;
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-areas:
+    'close cats'
+    'screen screen';
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+.vp-close {
+  grid-area: close;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-width: 3rem;
+  min-height: 3rem;
+  padding: 0 var(--s2);
+  background: none;
+  border: 0;
+  border-bottom: var(--hair) solid var(--rule);
+  color: inherit;
+  font-weight: 700;
+  font-size: var(--text-sm);
+  cursor: pointer;
+}
+
+.vp-close .vp-glyph {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.vp-close-label {
+  /* Libellé gardé pour les lecteurs d'écran, masqué à l'œil sur téléphone */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Les catégories : onglets défilants, l'onglet courant souligné d'un filet épais */
+.vp-cats {
+  grid-area: cats;
+  display: flex;
+  align-items: stretch;
+  min-width: 0;
+  border-bottom: var(--hair) solid var(--rule);
+}
+
+.vp-tabs {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  gap: var(--s1);
+  margin: 0;
+  padding: 0 var(--s2);
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+  /* Le défilement vers l'onglet focalisé laisse la place des fondus du masque (0.6rem à gauche, 1.25rem à droite) */
+  scroll-padding-inline: 0.6rem 1.25rem;
+  /* le dernier onglet, en fin de défilement, échappe lui aussi au fondu de droite */
+  padding-inline-end: 1.25rem;
+  /* Les onglets qui dépassent s'estompent au bord : on devine qu'il y en a d'autres */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 0.6rem, #000 calc(100% - 1.25rem), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 0.6rem, #000 calc(100% - 1.25rem), transparent);
+}
+
+.vp-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.vp-tabs > li {
+  display: flex;
+}
+
+.vp-tab {
+  white-space: nowrap;
+  min-height: 3rem;
+  padding: 0 var(--s2);
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: inset 0 calc(-1 * var(--thick)) 0 transparent;
+  color: var(--print-soft);
+  font-size: var(--text-sm);
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.vp-tab[aria-current='true'] {
+  color: var(--print);
+  font-weight: 800;
+  box-shadow: inset 0 calc(-1 * var(--thick)) 0 currentColor;
+}
+
+.vp-tab:focus-visible,
+.vp-close:focus-visible,
+.vp-cats-all:focus-visible {
+  outline-offset: -4px;
+}
+
+.vp-cats-all {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-width: 3rem;
+  min-height: 3rem;
+  padding: 0 var(--s2);
+  background: none;
+  border: 0;
+  border-left: var(--hair) solid var(--rule);
+  color: inherit;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.vp-cats-all .vp-glyph {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.vp-cats-all-label {
+  /* Libellé gardé pour les lecteurs d'écran, masqué à l'œil sur téléphone */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Panneau ouvert : les commandes autour du lecteur sont inertes, on les estompe (un clic dessus ferme le panneau) */
+.vp-close[inert],
+.vp-cats[inert],
+.vp-side[inert] {
+  opacity: 0.4;
+}
+
+.vp-screen {
+  grid-area: screen;
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--paper);
+  color: var(--print);
+}
+
+/* Le fil : défilement vertical aimanté, une vidéo par geste */
+.vp-feed {
+  height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+  touch-action: pan-y;
+}
+
+.vp-feed::-webkit-scrollbar {
+  display: none;
+}
+
+.vp-item {
+  /* Conteneur de taille : la vidéo passe en réglage compact quand la hauteur manque face au texte */
+  container: vp-item / size;
+  height: 100%;
+  /* Rien d'une vidéo ne déborde sur sa voisine */
+  overflow: clip;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Changement de catégorie : la nouvelle glisse de côté */
+.vp-feed.is-from-right {
+  animation: vp-from-right 380ms var(--ease-out) both;
+}
+
+.vp-feed.is-from-left {
+  animation: vp-from-left 380ms var(--ease-out) both;
+}
+
+@keyframes vp-from-right {
+  from {
+    opacity: 0.25;
+    transform: translateX(14%);
+  }
+}
+
+@keyframes vp-from-left {
+  from {
+    opacity: 0.25;
+    transform: translateX(-14%);
+  }
+}
+
+.vp-side,
+.vp-keys {
+  display: none;
+}
+
+/* ——— Une vidéo ——— */
+
+.vp-video {
+  --vp-paper: var(--paper);
+  --vp-print: var(--print);
+  --vp-soft: var(--print-soft);
+  --vp-rule: var(--rule);
+  --vp-mark: var(--print);
+  height: 100%;
+  display: grid;
+  /* La scène garde un plancher : quand l'en-tête, les sous-titres et les commandes ne tiennent plus (texte
+     agrandi, zoom fort), c'est la vidéo qui défile en elle-même, au lieu d'écraser le dessin */
+  grid-template-rows: auto auto minmax(min(11rem, 45%), 1fr) auto auto;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  background: var(--vp-paper);
+  color: var(--vp-print);
+}
+
+.vp-video:focus {
+  outline: none;
+}
+
+.vp-video:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: -4px;
+}
+
+/* Un passage par barre, comme des stories ; le passage en cours se remplit au rythme de la voix */
+.vp-bars {
+  display: flex;
+  gap: 3px;
+  padding: var(--s3) var(--s4) 0;
+}
+
+.vp-bar {
+  flex: 1;
+  height: 3px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--vp-print) 16%, transparent);
+}
+
+.vp-bar-fill {
+  display: block;
+  height: 100%;
+  background: var(--vp-print);
+  transform-origin: left center;
+  transform: scaleX(var(--p, 0));
+  transition: transform 120ms linear;
+}
+
+.vp-head {
+  padding: var(--s1) var(--s4) var(--s2);
+}
+
+/* Le repère de la série (« Retraites · 1 sur 4 — Âge de départ ») : il ouvre le sommaire, en un toucher.
+   Souligné comme un lien de la feuille, précédé du pictogramme du sommaire. */
+.vp-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  max-width: 100%;
+  min-height: 2.25rem;
+  margin: 0 0 0 -0.1rem;
+  padding: 0.2rem 0.1rem;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  color: var(--vp-print);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: left;
+  cursor: pointer;
+}
+
+.vp-mark .vp-glyph {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.vp-mark-text {
+  min-width: 0;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  text-decoration-color: color-mix(in srgb, var(--vp-print) 55%, transparent);
+}
+
+.vp-kicker {
+  margin: 0;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--vp-soft);
+}
+
+.vp-title {
+  overflow-wrap: break-word;
+  margin: 0.15rem 0 0;
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: 1.35rem;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+/* « Texte rédigé par IA · voix de synthèse » : sous le titre, pendant toute la lecture, dans les encres de la
+   vidéo ; ni sur le dessin, ni sur les sous-titres (src/ui/components/AiLabel.tsx) */
+.vp-head .vp-ai {
+  margin: 0.3rem 0 0;
+  line-height: 1.3;
+  color: var(--vp-soft);
+}
+
+.vp-head .vp-ai .ai-label-lead {
+  color: var(--vp-print);
+}
+
+/* Panneau Sources : qui a écrit et qui parle, avant la liste des sources */
+.vp-ai-note {
+  margin: 0 0 var(--s5);
+  padding: var(--s3) var(--s3) var(--s1);
+  border: var(--hair) solid var(--rule);
+  border-top: var(--line) solid var(--rule-strong);
+  font-size: var(--text-sm);
+  line-height: 1.45;
+}
+
+.vp-ai-note p {
+  margin: 0 0 var(--s2);
+}
+
+.vp-stage-wrap {
+  position: relative;
+  min-height: 0;
+  display: grid;
+}
+
+.vp-stage {
+  container: vp-stage / size;
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  cursor: pointer;
+  border-top: var(--hair) solid var(--vp-rule);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Pause, attente de la voix, vidéo hors champ : tout se fige */
+.vp-stage.is-paused *,
+.vp-stage.is-paused *::before,
+.vp-stage.is-paused *::after {
+  animation-play-state: paused !important;
+}
+
+/* Image fixe (mouvement réduit, affiche d'une vidéo voisine) : l'état final, sans aucun mouvement */
+.vp-stage.is-still *,
+.vp-stage.is-still *::before,
+.vp-stage.is-still *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* En pause : un repère de lecture au centre, au trait */
+.vp-paused {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  transform: translate(-50%, -50%);
+  background: color-mix(in srgb, var(--vp-paper) 88%, transparent);
+  border: var(--line) solid var(--vp-print);
+  color: var(--vp-print);
+  pointer-events: none;
+}
+
+.vp-paused .vp-glyph {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+/* Fin de vidéo : une invite douce, rien ne s'enchaîne tout seul. Elle prend la place des sous-titres, dans le
+   flux : elle ne couvre ni le dessin, ni le titre, ni le repère de série. */
+.vp-captions.is-end {
+  padding: var(--s2) var(--s4) var(--s3);
+  border-top: 0;
+}
+
+.vp-end {
+  display: grid;
+  gap: var(--s2);
+  padding: var(--s3);
+  background: var(--vp-paper);
+  border: var(--line) solid var(--vp-print);
+  box-shadow: inset 0 var(--thick) 0 var(--vp-print);
+}
+
+.vp-end-next {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: var(--s3);
+  min-height: 3rem;
+  padding: var(--s2) var(--s3);
+  background: var(--vp-print);
+  color: var(--vp-paper);
+  border: 0;
+  border-radius: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.vp-end-kicker {
+  grid-column: 1;
+  font-size: var(--text-xs);
+  font-weight: 700;
+}
+
+.vp-end-label {
+  grid-column: 1;
+  font-weight: 800;
+  font-stretch: 85%;
+  font-size: 1.0625rem;
+  line-height: 1.15;
+}
+
+.vp-end-next .vp-glyph {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+/* Hors du site seulement (contexte « share ») : l'invitation à donner son avis, cadre imprimé */
+.vp-end-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s3);
+  min-height: 3rem;
+  padding: var(--s2) var(--s3);
+  border: var(--line) solid var(--vp-print);
+  color: var(--vp-print);
+  font-weight: 800;
+  font-stretch: 85%;
+  font-size: 1.0625rem;
+  line-height: 1.15;
+  text-decoration: none;
+}
+
+.vp-end-cta .vp-glyph {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.vp-end-again {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.75rem;
+  padding: 0 0.05rem;
+  background: none;
+  border: 0;
+  color: var(--vp-print);
+  font-size: var(--text-sm);
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  cursor: pointer;
+}
+
+/* Sous-titres : toujours là, gros, sous un filet ; le mot dit souligné, ceux qui viennent en gris */
+.vp-captions {
+  padding: var(--s3) var(--s4) var(--s2);
+  border-top: var(--line) solid var(--vp-print);
+}
+
+.vp-voice-note {
+  margin: 0 0 var(--s1);
+  font-size: var(--text-xs);
+  font-weight: 650;
+  line-height: 1.3;
+  color: var(--vp-soft);
+}
+
+.vp-cap {
+  margin: 0;
+  min-height: calc(3 * 1.3em);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--vp-soft);
+}
+
+/* Les sous-titres de tous les passages, empilés : la hauteur réservée est celle du plus long, la scène ne
+   change pas de taille d'un passage à l'autre */
+.vp-cap-stack {
+  display: grid;
+}
+
+.vp-cap-stack > * {
+  grid-area: 1 / 1;
+}
+
+.vp-cap-sizer {
+  visibility: hidden;
+}
+
+/* Hauteur courte face au texte (texte agrandi, téléphone couché ; rem suit ici la taille du texte) : on ne
+   réserve plus rien d'avance. Les libellés des commandes et le titre ne sont jamais réduits ni masqués. */
+@container vp-item (max-height: 30rem) {
+  .vp-cap {
+    min-height: 0;
+  }
+
+  .vp-voice-note {
+    margin: 0;
+  }
+
+  .vp-cap-sizer {
+    display: none;
+  }
+}
+
+.vp-cap .is-said,
+.vp-cap .is-now,
+.vp-cap.is-settled {
+  color: var(--vp-print);
+}
+
+.vp-cap .is-now {
+  text-decoration: underline;
+  text-decoration-thickness: 0.12em;
+  text-underline-offset: 0.2em;
+  text-decoration-color: var(--vp-mark);
+  text-decoration-skip-ink: none;
+}
+
+/* Commandes : pictogramme et libellé, quatre colonnes au pouce */
+.vp-controls {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding: 0 var(--s2) var(--s1);
+  border-top: var(--hair) solid var(--vp-rule);
+}
+
+.vp-ctl {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  min-width: 0;
+  min-height: 3.4rem;
+  padding: 0.35rem 0.15rem;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  color: var(--vp-print);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.vp-ctl .vp-glyph {
+  width: 1.45rem;
+  height: 1.45rem;
+}
+
+.vp-ctl:focus-visible {
+  outline-offset: -3px;
+}
+
+.vp-ctl:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .vp-ctl:not(:disabled):hover,
+  .vp-end-again:hover {
+    background: color-mix(in srgb, var(--vp-print) 6%, transparent);
+  }
+
+  .vp-tab:hover {
+    color: var(--print);
+  }
+
+  .vp-end-next:hover {
+    background: color-mix(in srgb, var(--vp-print) 82%, var(--vp-paper));
+  }
+}
+
+/* ——— Famille sans vidéo : un état sobre ——— */
+
+.vp-empty {
+  grid-template-rows: minmax(0, 1fr);
+  align-items: center;
+}
+
+.vp-empty-body {
+  display: grid;
+  justify-items: start;
+  gap: var(--s3);
+  padding: var(--s6) var(--s5);
+  border-top: 2px dashed var(--vp-rule);
+  margin: 0 var(--s4);
+}
+
+.vp-empty-title {
+  margin: 0;
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: clamp(2rem, 9vw, 2.6rem);
+  line-height: 1;
+}
+
+.vp-empty-text {
+  margin: 0;
+  max-width: 32ch;
+  color: var(--vp-soft);
+}
+
+.vp-empty-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.75rem;
+  font-weight: 650;
+  color: var(--vp-print);
+}
+
+/* ——— Panneaux : sources, catégories ——— */
+
+.vp-sheet {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  color: var(--print);
+}
+
+.vp-sheet-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s3);
+  padding: var(--s3) var(--s2) var(--s2) var(--s4);
+  border-bottom: var(--thick) solid var(--rule-strong);
+  box-shadow:
+    0 4px 0 var(--paper),
+    0 5px 0 var(--rule-strong);
+}
+
+.vp-sheet-title {
+  flex: 1 1 auto;
+  /* le titre passe à la ligne au lieu de pousser la croix hors de l'écran */
+  min-width: 0;
+  margin: 0;
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: clamp(1.4rem, 9vw, 1.85rem);
+  line-height: 1;
+  overflow-wrap: break-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  outline: none;
+}
+
+.vp-sheet-close {
+  /* la croix garde ses 3rem, jamais écrasée */
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+}
+
+.vp-sheet-close .vp-glyph {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.vp-sheet-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--s5) var(--s4) var(--s5);
+  /* texte agrandi : « approfondissements » se coupe au lieu de déborder */
+  overflow-wrap: break-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.vp-sources,
+.vp-transcript {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--s3);
+}
+
+/* Sources : retrait à gauche, filet fin vertical, comme dans les fiches */
+.vp-sources > li {
+  display: grid;
+  gap: 0.15rem;
+  padding-left: var(--s3);
+  border-left: var(--hair) solid var(--rule);
+  font-size: var(--text-sm);
+  line-height: 1.4;
+}
+
+.vp-sources a {
+  font-weight: 650;
+}
+
+.vp-source-meta {
+  font-size: var(--text-xs);
+  color: var(--print-soft);
+}
+
+.vp-sheet-sub {
+  margin: var(--s6) 0 var(--s3);
+  font-weight: 800;
+  font-stretch: 78%;
+  font-size: 1.3rem;
+  line-height: 1.1;
+}
+
+.vp-transcript {
+  counter-reset: passage;
+  gap: var(--s2);
+}
+
+.vp-transcript > li {
+  counter-increment: passage;
+  display: grid;
+  grid-template-columns: 1.75rem minmax(0, 1fr);
+  font-size: var(--text-sm);
+}
+
+/* Ce qui est dit, puis le chiffre clé et ce que le dessin écrit en plus, dans la colonne du texte */
+.vp-transcript > li > p {
+  grid-column: 2;
+  margin: 0;
+}
+
+.vp-transcript > li > .vp-transcript-more {
+  margin-top: 0.2rem;
+  font-size: var(--text-xs);
+  color: var(--print-soft);
+}
+
+.vp-transcript > li::before {
+  content: counter(passage);
+  font-weight: 850;
+  font-stretch: 70%;
+  font-size: 1.15rem;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+.vp-sheet-more {
+  display: grid;
+  justify-items: start;
+  gap: var(--s2);
+  margin: var(--s5) 0 0;
+  font-size: var(--text-sm);
+  font-weight: 650;
+}
+
+.vp-sheet-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.75rem;
+  padding: 0 0.05rem;
+  background: none;
+  border: 0;
+  color: var(--print);
+  font: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+  cursor: pointer;
+}
+
+.vp-sheet-link .vp-glyph {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+/* Sommaire d'une série : lignes réglées, la place dans la marge en chiffre condensé, la vidéo en cours
+   cadrée d'un filet épais à gauche */
+.vp-toc-lede {
+  margin: 0 0 var(--s4);
+  max-width: 36ch;
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.vp-toc {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: var(--line) solid var(--rule-strong);
+  border-bottom: var(--line) solid var(--rule-strong);
+}
+
+.vp-toc > li + li {
+  border-top: var(--hair) solid var(--rule);
+}
+
+.vp-toc-item {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  align-items: start;
+  width: 100%;
+  min-height: 3.5rem;
+  padding: var(--s3) var(--s2) var(--s3) 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  color: var(--print);
+  text-align: left;
+  cursor: pointer;
+}
+
+.vp-toc-item[aria-current='true'] {
+  box-shadow: inset var(--thick) 0 0 var(--rule-strong);
+}
+
+.vp-toc-n {
+  align-self: stretch;
+  padding-top: 0.1rem;
+  text-align: center;
+  font-weight: 850;
+  font-stretch: 70%;
+  font-size: 1.9rem;
+  line-height: 0.9;
+  font-variant-numeric: tabular-nums;
+}
+
+.vp-toc-n.is-intro {
+  padding-top: 0.3rem;
+  font-size: 0.875rem;
+  font-stretch: 80%;
+  line-height: 1.1;
+}
+
+.vp-toc-text {
+  display: grid;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.vp-toc-short {
+  font-weight: 800;
+  font-stretch: 85%;
+  font-size: 1.125rem;
+  line-height: 1.15;
+}
+
+.vp-toc-title {
+  font-size: var(--text-sm);
+  line-height: 1.3;
+}
+
+.vp-toc-meta {
+  font-size: var(--text-xs);
+  color: var(--print-soft);
+}
+
+.vp-toc-here {
+  color: var(--print);
+  font-weight: 750;
+}
+
+.vp-toc-item:focus-visible {
+  outline-offset: -3px;
+}
+
+/* Catégories : un aplat par famille, dans l'ordre du drapé selon la place ; ses séries en boutons imprimés */
+.vp-catgrid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr));
+  gap: var(--s2);
+}
+
+.vp-cat {
+  --panel: var(--pastel-vert);
+  display: grid;
+  align-content: start;
+  gap: var(--s2);
+  padding: var(--s4) var(--s3) var(--s3);
+  background: var(--panel);
+  color: var(--print);
+  box-shadow: inset 0 var(--thick) 0 var(--rule-strong);
+}
+
+.vp-tint-1 {
+  --panel: var(--pastel-rouge);
+}
+
+.vp-tint-2 {
+  --panel: var(--pastel-jaune);
+}
+
+.vp-tint-3 {
+  --panel: var(--pastel-bleu);
+}
+
+/* La famille en cours : un cadre en plus du filet de tête */
+.vp-cat.is-current {
+  box-shadow:
+    inset 0 var(--thick) 0 var(--rule-strong),
+    inset 0 0 0 var(--line) var(--rule-strong);
+}
+
+.vp-cat-label {
+  overflow-wrap: anywhere;
+  margin: 0;
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: 1.2rem;
+  line-height: 1.05;
+}
+
+.vp-cat-series {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--s1);
+}
+
+.vp-cat-go {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: var(--s2);
+  width: 100%;
+  min-height: 2.75rem;
+  padding: var(--s1) var(--s2);
+  background: var(--paper);
+  color: var(--print);
+  border: var(--line) solid var(--rule-strong);
+  border-radius: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.vp-cat-go[aria-current='true'] {
+  box-shadow: inset var(--thick) 0 0 var(--rule-strong);
+}
+
+.vp-cat-go .vp-glyph {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.vp-cat-name {
+  font-weight: 800;
+  font-stretch: 85%;
+  font-size: 1.0625rem;
+  line-height: 1.15;
+}
+
+.vp-cat-count {
+  font-size: var(--text-xs);
+  color: var(--print-soft);
+}
+
+.vp-cat-none {
+  margin: 0;
+  font-size: var(--text-xs);
+  font-weight: 750;
+}
+
+.vp-cat-topics {
+  margin: 0;
+  font-size: var(--text-xs);
+  line-height: 1.3;
+  color: var(--print-soft);
+}
+
+.vp-cat-go:focus-visible {
+  outline-offset: -4px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .vp-toc-item:hover,
+  .vp-cat-go:hover {
+    background: color-mix(in srgb, var(--print) 6%, var(--paper));
+  }
+
+  .vp-mark:hover .vp-mark-text {
+    text-decoration-color: currentColor;
+  }
+}
+
+/* ——— Tablette et ordinateur : la popin 9:16 sur le fond noir flouté ———
+   À partir de 36rem de haut seulement (même requête que POPIN dans Player.tsx) : plus bas (zoom fort, fenêtre
+   basse), la popin serait trop étroite, et le lecteur passe en plein écran. */
+
+@media (min-width: 48rem) and (min-height: 36rem) {
+  .vp {
+    background: transparent;
+    color: #fff;
+  }
+
+  .vp-shell {
+    --vp-h: min(90dvh, calc(100dvh - 6.5rem));
+    /* 9:16 de la hauteur, sans descendre sous 20rem ni dépasser la largeur moins les flèches */
+    --vp-w: clamp(min(20rem, 100vw - 12rem), calc(var(--vp-h) * 9 / 16), calc(100vw - 12rem));
+    grid-template-columns: minmax(0, 1fr) var(--vp-w) minmax(0, 1fr);
+    grid-template-rows: auto var(--vp-h);
+    grid-template-areas:
+      'cats cats cats'
+      '. screen side';
+    align-content: center;
+    column-gap: var(--s5);
+    row-gap: var(--s3);
+  }
+
+  /* Sur le fond sombre, des commandes blanches et un focus blanc */
+  .vp-close,
+  .vp-cats,
+  .vp-side,
+  .vp-keys {
+    --focus: #fff;
+    color: #fff;
+  }
+
+  .vp-close {
+    /* même rangée que les catégories, colonne de droite : les deux alignés en haut */
+    grid-area: 1 / 3;
+    justify-self: end;
+    align-self: start;
+    margin-right: var(--s4);
+    z-index: 2;
+    border: var(--line) solid rgb(255 255 255 / 0.85);
+    padding: 0 var(--s3);
+  }
+
+  .vp-close-label {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+  }
+
+  .vp-cats {
+    justify-self: center;
+    /* Toute la largeur, moins la place de « Fermer » de chaque côté (la bande reste centrée) : à 1920 px, les
+       huit onglets tiennent */
+    width: calc(100vw - 19rem);
+    border-bottom: 0;
+  }
+
+  .vp-tabs {
+    justify-content: safe center;
+    /* Fondu plus long qu'au téléphone : l'onglet coupé au bord se voit */
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 0.6rem, #000 calc(100% - 3rem), transparent);
+    mask-image: linear-gradient(to right, transparent, #000 0.6rem, #000 calc(100% - 3rem), transparent);
+  }
+
+  .vp-tab {
+    color: rgb(255 255 255 / 0.82);
+  }
+
+  .vp-tab[aria-current='true'] {
+    color: #fff;
+  }
+
+  .vp-cats-all {
+    border-left: 0;
+    border: var(--line) solid rgb(255 255 255 / 0.85);
+  }
+
+  .vp-cats-all-label {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+  }
+
+  .vp-screen {
+    width: var(--vp-w);
+    height: var(--vp-h);
+    outline: var(--hair) solid rgb(255 255 255 / 0.2);
+  }
+
+  .vp-side {
+    grid-area: side;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: center;
+    gap: var(--s3);
+  }
+
+  .vp-arrow {
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    background: rgb(0 0 0 / 0.3);
+    border: var(--line) solid rgb(255 255 255 / 0.85);
+    border-radius: 0;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .vp-arrow:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+
+  .vp-arrow .vp-glyph {
+    width: 1.35rem;
+    height: 1.35rem;
+  }
+
+  .vp-keys {
+    display: block;
+    grid-area: side;
+    align-self: end;
+    max-width: 13rem;
+    margin: 0;
+    font-size: var(--text-xs);
+    line-height: 1.7;
+    color: rgb(255 255 255 / 0.85);
+  }
+
+  .vp-keys kbd {
+    display: inline-block;
+    min-width: 1.5em;
+    padding: 0 0.3em;
+    border: 1px solid rgb(255 255 255 / 0.6);
+    font: inherit;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .vp-arrow:not(:disabled):hover,
+    .vp-cats-all:hover,
+    .vp-close:hover {
+      background: rgb(255 255 255 / 0.14);
+    }
+
+    .vp-tab:hover {
+      color: #fff;
+    }
+  }
+
+  .vp-title {
+    font-size: 1.45rem;
+  }
+
+  .vp-cap {
+    font-size: 1.25rem;
+  }
+}
+
+/* Au doigt (tablette), pas de raccourcis clavier à rappeler */
+@media (pointer: coarse) {
+  .vp-keys {
+    display: none !important;
+  }
+}
+
+/* Fenêtre basse (téléphone couché, zoom fort) : plein écran, la vidéo centrée sans s'étirer */
+@media (max-height: 35.99rem) {
+  .vp-screen {
+    width: min(100%, 40rem);
+    justify-self: center;
+  }
+}
+
+/* Basse et large : deux colonnes, le dessin à gauche, le reste à droite ; les sous-titres gardent leur hauteur
+   naturelle, c'est la vidéo qui défile si besoin */
+@media (max-height: 35.99rem) and (min-aspect-ratio: 4/3) {
+  .vp-screen {
+    width: 100%;
+  }
+
+  .vp-video:not(.vp-empty) {
+    grid-template-columns: minmax(0, 1.15fr) minmax(min(15rem, 45vw), 1fr);
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+      'stage bars'
+      'stage head'
+      'stage captions'
+      'stage controls';
+  }
+
+  .vp-bars {
+    grid-area: bars;
+  }
+
+  .vp-head {
+    grid-area: head;
+  }
+
+  .vp-stage-wrap {
+    grid-area: stage;
+  }
+
+  .vp-captions {
+    grid-area: captions;
+  }
+
+  .vp-controls {
+    grid-area: controls;
+  }
+
+  .vp-stage {
+    border-top: 0;
+    border-right: var(--hair) solid var(--vp-rule);
+  }
+
+  /* L'invite de fin, plus serrée : elle tient sous l'en-tête, au-dessus des commandes */
+  .vp-captions.is-end {
+    padding-block: var(--s2);
+  }
+}
+
+/* Mouvement réduit : rien ne glisse */
+.vp.is-still .vp-feed {
+  animation: none;
+}
+
+.vp.is-still .vp-bar-fill {
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vp-feed {
+    animation: none !important;
+  }
+
+  .vp-bar-fill {
+    transition: none;
+  }
+}

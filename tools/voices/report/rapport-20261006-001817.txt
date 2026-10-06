@@ -1,0 +1,210 @@
+Rapport de génération des voix — 2026-10-05 23:27:24
+Commande : generate.py --voice aigue --only education
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  ecole-intro-01 — 4.92 s, F0 239.3 Hz, pauses entre phrases [0.19, 0.31, 0.23] s
+    1. Une classe, un enseignant, …   2/3    234.2  -0.70   -2.4      —  0.0    4.2  0.82  1:273~ 2:234 3:281×!
+         prise 3 : bruit 0.00-0.41 s (net, +40 dB, confiance 0.78) [début | Une]
+    2. Combien sont-ils, et qu'app…   3/3    248.0  +0.30   +3.1   +3.0  5.4    5.2  1.02  1:321×! 2:315~? 3:248
+         prise 1 : parole en trop 0.01-0.29 s (net, +47 dB, confiance 0.79) [début | Combien]
+         prise 1 : respiration 0.32-0.59 s (net, +51 dB, confiance 0.95) [début | Combien]
+         prise 2 : parole en trop « ils » 1.60-1.92 s (leger, +33 dB, confiance 0.53) [qu'apprennent | fin]
+  ecole-intro-02 — 6.78 s, F0 235.1 Hz, pauses entre phrases [0.3] s
+    1. Dans une classe d'élémentai…   2/3    243.3  -0.04   -3.0   +0.9  0.0    6.5  1.28  1:232 2:243 3:259
+    2. C'est deux virgule huit élè…   1/3    226.6  -1.27   -4.7   +0.6  3.0    6.4  1.25  1:227 2:262~ 3:257~
+  ecole-intro-03 — 10.84 s, F0 235.4 Hz, pauses entre phrases [0.17, 0.3] s
+    1. Les élèves français de quin…   3/3    233.1  -0.78   -1.9   +3.8  4.7    5.5  1.08  1:238×! 2:231? 3:233?
+         prise 1 : mot étiré « l'OCDE » 3.04-3.69 s (net, +42 dB, confiance 0.81) [de | à]
+         prise 2 : mot étiré « l'OCDE » 2.88-3.52 s (leger, confiance 0.52) [de | à]
+         prise 3 : mot étiré « l'OCDE » 3.12-3.76 s (leger, confiance 0.49) [de | à]
+    2. Mais depuis deux mille quin…   1/3    237.5  -0.45   -1.4   +3.0  1.9    6.5  1.27  1:238 2:249 3:238
+      passage assemblé : mot étiré « l'OCDE » 3.12-3.76 s (net, confiance 0.59) [de | à]
+      ⚠ son parasite dans le passage assemblé : mot étiré « l'OCDE » 3.12-3.76 s (net, confiance 0.59) [de | à]
+  ecole-intro-04 — 6.98 s, F0 250.0 Hz, pauses entre phrases [0.22, 0.31] s
+    1. En maternelle et en élément…   3/3    250.5  +0.47   -1.8   +2.1  1.4    6.3  1.23  1:216~ 2:228 3:250
+    2. À peu près un sur sept.       2/3    241.9  -0.14   -0.1   +1.7  1.8    5.6  1.08  1:275~ 2:242 3:289~?
+         prise 3 : bruit 1.22-1.35 s (leger, +44 dB, confiance 0.73) [sept | fin]
+      passage assemblé : bruit 6.55-6.67 s (leger, +32 dB, confiance 0.61) [sept | fin]
+  ecole-intro-05 — 8.69 s, F0 238.3 Hz, pauses entre phrases [0.3, 0.26] s
+    1. Dans l'enseignement supérie…   1/3    244.9  +0.08   -3.2   +0.5  0.1    6.0  1.17  1:245 2:238 3:225
+    2. Et vingt-six pour cent d'en…   3/3    227.5  -1.20   -2.0   +3.6  3.2    6.0  1.17  1:278~ 2:276~ 3:228
+  ecole-intro-06 — 7.06 s, F0 255.4 Hz, pauses entre phrases [0.23, 0.31] s
+    1. Et chez les quinze à vingt-…   1/3    256.1  +0.85   -1.7   +3.1  2.0    5.7  1.10  1:256 2:256 3:232
+    2. Plus d'un jeune sur huit.     3/3    251.0  +0.50   -4.3   -0.5  1.7    5.4  1.05  1:253 2:258 3:251
+  ecole-intro-07 — 9.43 s, F0 249.0 Hz, pauses entre phrases [0.3, 0.39, 0.35, 0.42, 0.35] s
+    1. Alors, cinq questions.        2/3    232.1  -0.85   -2.6   +1.7  4.3    5.7  1.11  1:237× 2:232 3:308~
+    2. Combien d'élèves par classe…   3/3    263.4  +1.34   +2.7   +3.9  5.6    5.7  1.12  1:283~ 2:291~ 3:263
+    3. Comment mieux faire apprend…   1/3    255.3  +0.80   +5.7   +0.8  3.0    5.5  1.07  1:255 2:340~ 3:310~
+    4. Quelles règles pour finance…   1/3    245.9  +0.15   -1.2   +3.0  3.0    5.3  1.03  1:246? 2:265 3:284~?
+         prise 1 : mot étiré « règles » 0.26-0.80 s (leger, +55 dB, confiance 0.81) [Quelles | pour]
+         prise 3 : mot étiré « Quelles » 0.00-0.96 s (leger, confiance 0.56) [début | règles]
+    5. Quelle priorité pour l'univ…   1/3    241.2  -0.19   +2.6   +1.0  3.0    5.8  1.13  1:241 2:254 3:298~
+    6. Et que faire d'abord pour l…   1/3    257.0  +0.91   +6.1   -0.2  3.0    7.1  1.39  1:257 2:262 3:248
+  ecole-intro-08 — 2.34 s, F0 239.8 Hz
+    1. Ce sont les cinq sujets des…   1/3    239.8  -0.29   +1.5   +2.1  0.0    5.5  1.06  1:240 2:234 3:326~
+  ecole-classes-01 — 3.98 s, F0 251.6 Hz, pauses entre phrases [0.25, 0.3] s
+    1. Chaque année, l'école prima…   2/3    254.3  +0.73   -1.4      —  0.0    5.9  1.16  1:222~ 2:254 3:256?
+         prise 3 : respiration 0.00-0.24 s (leger, +51 dB, confiance 0.88) [début | année]
+    2. Que faire de ses classes ?    6/6    243.6  -0.01   -1.9   +1.9  4.4    4.7  0.91  1:278~ 2:282×! 3:283×! 4:295~? 5:215~ 6:244
+         prise 2 : rire 0.08-0.80 s (net, +52 dB, confiance 0.95) [Que | de]
+         prise 3 : vocalise « Que » 0.00-0.40 s (net, +49 dB, confiance 0.30) [début | faire]
+         prise 3 : respiration 0.16-0.40 s (leger, +49 dB, confiance 0.90) [Que | faire]
+         prise 4 : bruit 1.03-1.14 s (leger, +34 dB, confiance 0.65) [classes | fin]
+  ecole-classes-02 — 11.30 s, F0 246.3 Hz, pauses entre phrases [0.3] s
+    1. Avec la baisse des naissanc…   2/3    243.7  -0.01   -7.5   +1.6  0.0    5.6  1.09  1:224~ 2:244 3:217~
+    2. Elles passeraient de six vi…   3/3    248.2  +0.31   -1.5   +1.7  6.0    6.1  1.19  1:230 2:225 3:248
+  ecole-classes-03 — 11.54 s, F0 234.6 Hz, pauses entre phrases [0.3, 0.31, 0.24] s
+    1. En primaire, public et priv…   3/3    233.7  -0.73   -9.0   +2.4  1.5    5.3  1.04  1:226 2:251 3:234
+    2. Autant que la moyenne de l'…   3/3    238.5  -0.38   -7.3   +1.3  6.0    5.4  1.06  1:237×! 2:223~? 3:238?
+         prise 1 : mot étiré « l'OCDE » 0.88-1.60 s (net, confiance 0.66) [de | et]
+         prise 2 : mot étiré « l'OCDE » 0.96-1.60 s (leger, confiance 0.48) [de | et]
+         prise 2 : bruit 4.64-4.86 s (leger, +27 dB, confiance 0.56) [neuf | fin]
+         prise 3 : mot étiré « l'OCDE » 0.88-1.44 s (leger, confiance 0.43) [de | et]
+      passage assemblé : mot étiré « l'OCDE » 7.28-7.86 s (leger, +40 dB, confiance 0.64) [de | et]
+      passage assemblé : respiration 11.04-11.22 s (leger, +26 dB, confiance 0.48) [neuf | fin]
+  ecole-classes-04 — 11.01 s, F0 247.5 Hz, pauses entre phrases [0.15, 0.3] s
+    1. Depuis deux mille vingt, pa…   2/3    250.5  +0.47  -10.1   +2.4  6.0    4.8  0.93  1:248? 2:250 3:251×!
+         prise 1 : mot étiré « et » 5.28-5.60 s (leger, +38 dB, confiance 0.42) [CP | en]
+         prise 3 : mot étiré « et » 5.76-6.24 s (net, +43 dB, confiance 0.77) [CP | en]
+    2. En deux mille vingt-cinq, q…   2/3    242.4  -0.10   -7.6   +0.5  6.0    5.6  1.09  1:251 2:242 3:238
+  ecole-classes-05 — 13.10 s, F0 235.6 Hz, pauses entre phrases [0.15, 0.3, 0.68, 0.2, 0.31] s
+    1. De deux mille dix-sept à de…   1/3    239.0  -0.34   -7.3   +2.9  6.0    5.5  1.08  1:239 2:209~? 3:223~
+         prise 2 : respiration 1.52-1.72 s (leger, +27 dB, confiance 0.52) [neuf | les]
+    2. En réseau renforcé : en moy…   2/3    231.9  -0.87   -1.6   +2.1  6.0    5.2  1.02  1:219~ 2:232 3:216~
+    3. Contre vingt et un virgule …   5/5    234.7  -0.66   -4.5   +2.5  1.6    4.5  0.89  1:258~ 2:242~ 3:242~ 4:308~ 5:235
+  ecole-classes-06 — 15.34 s, F0 241.1 Hz, pauses entre phrases [0.31, 0.16, 0.19, 0.35, 0.16] s
+    1. Selon le ministère, en rése…   1/3    240.7  -0.22   -2.9   +2.9  4.5    6.0  1.17  1:241 2:229 3:228
+    2. Pour la première génération…   2/3    242.2  -0.11   -5.4   +2.1  2.9    5.4  1.06  1:248 2:242 3:240
+  ecole-classes-07 — 10.92 s, F0 244.5 Hz, pauses entre phrases [0.25, 0.22, 0.3, 0.15] s
+    1. En dix ans, les écoles publ…   3/3    242.5  -0.09   -2.4   +2.0  5.4    6.5  1.27  1:229 2:224 3:242
+    2. En éducation prioritaire, s…   2/3    252.3  +0.59   -3.9   +2.1  2.4    6.1  1.20  1:230 2:252 3:208~
+  ecole-classes-08 — 2.84 s, F0 257.3 Hz
+    1. Alors, avec moins d'élèves,…   2/3    257.3  +0.93   -4.7   -1.1  6.0    5.6  1.08  1:273~ 2:257 3:274~
+  ecole-apprentissages-01 — 3.50 s, F0 243.9 Hz, pauses entre phrases [0.3] s
+    1. Lire, écrire, compter.        1/3    252.3  +0.59   -2.5      —  0.0    4.1  0.81  1:252 2:249× 3:314×!
+         prise 3 : vocalise « Lire » 0.00-0.39 s (net, +48 dB, confiance 0.30) [début | écrire]
+         prise 3 : respiration 0.16-0.39 s (leger, +48 dB, confiance 0.83) [Lire | écrire]
+    2. Comment aider les élèves à …   2/3    233.6  -0.74   -2.7   +1.2  5.5    6.0  1.17  1:299~ 2:234 3:262
+  ecole-apprentissages-02 — 11.66 s, F0 241.4 Hz, pauses entre phrases [0.2, 0.22, 0.23, 0.3] s
+    1. En C.M. un, à l'enquête int…   3/3    238.9  -0.35   -6.0   +0.3  0.0    5.2  1.02  1:251 2:235 3:239
+    2. La moyenne des pays de l'Un…   3/3    244.9  +0.08   -6.4   +3.4  6.0    6.2  1.22  1:240 2:253 3:245
+  ecole-apprentissages-03 — 13.67 s, F0 235.5 Hz, pauses entre phrases [0.34, 0.45, 0.3, 0.17] s
+    1. Entre élèves très favorisés…   3/3    244.8  +0.07   -5.7   +4.1  6.0    5.2  1.02  1:228 2:254 3:245
+    2. Selon le ministère, la Fran…   3/3    224.9  -1.40   -2.0   +2.4  5.7    6.3  1.23  1:220×! 2:219~? 3:225
+         prise 1 : mot étiré « l'OCDE » 3.84-4.48 s (net, confiance 0.59) [de | les]
+         prise 2 : mot étiré « l'OCDE » 3.84-4.40 s (leger, confiance 0.46) [de | les]
+      passage assemblé : respiration 7.20-7.35 s (leger, +38 dB, confiance 0.68) [et | Selon]
+  ecole-apprentissages-04 — 13.78 s, F0 240.6 Hz, pauses entre phrases [0.3, 0.17, 0.36, 0.2] s
+    1. Par rapport à la moyenne de…   3/3    238.5  -0.38   -5.7   +2.0  2.0    5.8  1.12  1:238×! 2:222×! 3:238
+         prise 1 : mot étiré « l'OCDE » 1.04-1.70 s (net, +42 dB, confiance 0.80) [de | les]
+         prise 2 : mot étiré « l'OCDE » 0.96-1.72 s (net, +42 dB, confiance 0.90) [de | les]
+    2. Dans le public, la réglemen…   3/3    241.8  -0.14   -2.4   +1.3  5.7    5.6  1.09  1:260 2:247 3:242
+    3. Mais plus d'heures : huit c…   2/3    242.7  -0.08  -10.3   +4.4  2.4    4.5  0.87  1:247 2:243 3:228
+  ecole-apprentissages-05 — 9.89 s, F0 234.9 Hz, pauses entre phrases [0.19, 0.3, 0.18, 0.15] s
+    1. Les vacances d'été durent e…   1/3    231.6  -0.89   -2.7   +1.4  6.0    5.2  1.00  1:232 2:225? 3:226?
+         prise 2 : mot étiré « l'OCDE » 3.20-3.84 s (leger, confiance 0.48) [de | huit]
+         prise 3 : mot étiré « l'OCDE » 3.28-4.00 s (leger, confiance 0.52) [de | huit]
+    2. Mais avec les autres congés…   2/3    246.4  +0.18   -2.2   +2.7  2.7    5.6  1.08  1:248 2:246 3:261
+      passage assemblé : mot étiré « l'OCDE » 3.28-4.00 s (leger, confiance 0.52) [de | huit]
+  ecole-apprentissages-06 — 7.08 s, F0 236.0 Hz, pauses entre phrases [0.22, 0.3] s
+    1. En élémentaire, cinquante-n…   1/3    232.4  -0.83   -7.2   +1.9  2.2    6.0  1.17  1:232 2:212~ 3:212~
+    2. Dans l'O.C.D.E., c'est quar…   1/3    242.8  -0.07   -3.4   -1.3  6.0    6.4  1.25  1:243 2:263 3:241
+  ecole-apprentissages-07 — 4.96 s, F0 240.0 Hz
+    1. Alors, sur quoi agir d'abor…   3/3    240.0  -0.27   -9.8   +1.1  6.0    6.1  1.19  1:239 2:218~ 3:240
+  ecole-prive-01 — 3.96 s, F0 248.8 Hz
+    1. Une école privée sous contr…   2/3    248.8  +0.35   +0.5      —  3.0    6.4  1.26  1:254 2:249 3:236
+  ecole-prive-02 — 13.07 s, F0 249.2 Hz, pauses entre phrases [0.15, 0.3, 0.3, 0.33, 0.2] s
+    1. Depuis une loi de mille neu…   1/3    255.7  +0.83   -9.5   +0.0  0.0    6.0  1.16  1:256 2:232 3:234?
+         prise 3 : bruit 1.60-1.89 s (leger, +46 dB, confiance 0.84) [neuf | elle]
+    2. L'État paie ses enseignants…   3/3    238.2  -0.40   -1.4   +1.7  6.0    7.3  1.42  1:201~ 2:216~ 3:238
+    3. Mais elle décide de ses ins…   2/3    242.2  -0.11   -8.5   +2.4  1.4    5.3  1.04  1:213~ 2:242 3:226
+  ecole-prive-03 — 7.35 s, F0 239.4 Hz, pauses entre phrases [0.3] s
+    1. Selon la Cour des comptes, …   1/3    236.6  -0.52   -6.5   +1.3  6.0    6.0  1.17  1:237 2:261 3:295~
+    2. Et soixante-huit pour cent …   2/3    258.8  +1.03   -2.7   +7.5  6.0    6.8  1.32  1:276~ 2:259 3:285~
+  ecole-prive-04 — 9.40 s, F0 248.4 Hz, pauses entre phrases [0.3] s
+    1. Pour deux mille vingt-six, …   2/3    250.9  +0.50   -3.5   +3.5  2.7    6.4  1.25  1:234 2:251 3:253
+    2. C'est neuf virgule neuf pou…   3/3    245.8  +0.14   -1.1   +1.6  3.5    4.8  0.94  1:230 2:249 3:246
+  ecole-prive-05 — 11.42 s, F0 244.8 Hz, pauses entre phrases [0.31, 0.27, 0.15] s
+    1. Au collège, cinquante-huit …   1/3    249.0  +0.37   -0.9   +2.3  1.1    5.6  1.10  1:249 2:227 3:216~
+    2. De milieu défavorisé : seiz…   1/3    230.5  -0.97  -12.4   +1.1  0.9    5.2  1.01  1:230? 2:273×! 3:222~?
+         prise 1 : mot étiré « seize » 1.44-2.08 s (leger, confiance 0.48) [défavorisé | pour]
+         prise 2 : bruit 1.34-1.68 s (net, +50 dB, confiance 0.94) [défavorisé | pour]
+         prise 2 : mot étiré « seize » 1.34-1.68 s (leger, +50 dB, confiance 0.40) [défavorisé | pour]
+         prise 3 : mot étiré « seize » 1.20-1.76 s (leger, confiance 0.46) [défavorisé | pour]
+  ecole-prive-06 — 10.60 s, F0 234.6 Hz, pauses entre phrases [0.18, 0.3] s
+    1. Les résultats du privé sont…   3/3    234.7  -0.66   -2.0   +0.5  6.0    6.3  1.23  1:220~ 2:221~ 3:235
+    2. Selon la Cour des comptes, …   2/3    234.5  -0.67   -9.0   +4.0  2.0    5.9  1.14  1:216~ 2:234 3:234
+  ecole-prive-07 — 2.94 s, F0 246.6 Hz
+    1. Alors, quelles règles pour …   1/3    246.6  +0.20   +0.1   +3.2  6.0    6.6  1.28  1:247 2:255 3:261
+  ecole-superieur-01 — 5.20 s, F0 243.0 Hz, pauses entre phrases [0.27, 0.35] s
+    1. Après le bac, comment entre…   4/4    262.7  +1.29   -6.6      —  3.0    5.6  1.09  1:270~ 2:218~ 3:209~ 4:263
+    2. Et quels moyens pour l'univ…   1/3    237.3  -0.47   -1.3   -0.6  3.0    6.3  1.24  1:237 2:235 3:237
+  ecole-superieur-02 — 14.47 s, F0 242.2 Hz, pauses entre phrases [0.3, 0.21, 0.39, 0.31] s
+    1. L'accès aux formations pass…   3/3    242.2  -0.11   -0.9   +2.0  0.0    5.6  1.08  1:257? 2:218~ 3:242?
+         prise 1 : respiration 2.40-2.55 s (leger, +33 dB, confiance 0.64) [Parcoursup | fin]
+         prise 3 : respiration 2.56-2.72 s (leger, +30 dB, confiance 0.57) [Parcoursup | fin]
+    2. En deux mille vingt-cinq, q…   2/3    246.0  +0.16   -2.7   +1.8  0.9    5.6  1.09  1:236 2:246 3:246
+    3. Ils sont quatre-vingt-dix-s…   3/3    237.1  -0.48   +0.1   +1.0  2.7    6.7  1.31  1:270~ 2:235? 3:237
+         prise 2 : respiration 5.76-5.93 s (leger, +38 dB, confiance 0.70) [professionnel | fin]
+      passage assemblé : respiration 2.56-2.72 s (leger, +30 dB, confiance 0.55) [Parcoursup | En]
+  ecole-superieur-03 — 13.16 s, F0 233.8 Hz, pauses entre phrases [0.19, 0.31, 0.35, 0.32, 0.22, 0.35] s
+    1. Depuis deux mille dix, le p…   3/3    230.6  -0.96   -0.9   +0.3  0.0    5.6  1.09  1:223~ 2:224 3:231
+    2. Le public, dix-neuf pour ce…   1/3    239.4  -0.32  -10.2   +2.0  0.9    5.0  0.98  1:239 2:258 3:256~
+    3. En deux mille vingt-cinq, l…   1/3    243.7  -0.01   -4.0   +3.5  6.0    5.5  1.06  1:244 2:232 3:244
+  ecole-superieur-04 — 11.48 s, F0 243.7 Hz, pauses entre phrases [0.26, 0.31, 0.24] s
+    1. À l'université, la dépense …   3/3    245.4  +0.11   -9.8   +1.9  4.0    5.3  1.03  1:251 2:228 3:245
+    2. Contre douze mille huit cen…   1/3    238.1  -0.41   -1.7   +1.1  6.0    5.9  1.16  1:238 2:225×! 3:214~
+         prise 2 : bruit 2.32-2.53 s (net, +40 dB, confiance 0.82) [dix | et]
+  ecole-superieur-05 — 10.00 s, F0 240.3 Hz, pauses entre phrases [0.18, 0.3] s
+    1. À l'université publique, un…   2/3    236.3  -0.54   -3.5   +0.4  1.7    6.4  1.24  1:255 2:236 3:257
+    2. À la rentrée deux mille vin…   2/3    249.9  +0.43   -2.7   +3.6  3.5    5.2  1.02  1:281×! 2:250? 3:228
+         prise 1 : bruit 1.28-1.44 s (net, +40 dB, confiance 0.81) [six | c'est]
+         prise 2 : respiration 3.68-4.00 s (leger, +37 dB, confiance 0.65) [licence | et]
+      passage assemblé : respiration 7.68-7.92 s (leger, +23 dB, confiance 0.42) [licence | et]
+  ecole-superieur-06 — 13.77 s, F0 236.6 Hz, pauses entre phrases [0.15, 0.22, 0.31, 0.24, 0.15] s
+    1. En deux mille vingt-trois, …   1/3    228.2  -1.14   -1.2   +0.3  2.7    6.0  1.17  1:228 2:223~ 3:225
+    2. Les entreprises en font un …   3/3    245.7  +0.13   -7.0   +2.9  1.2    5.5  1.07  1:233 2:216~ 3:246
+  ecole-superieur-07 — 15.07 s, F0 233.9 Hz, pauses entre phrases [0.4, 0.3, 0.21, 0.17, 0.3, 0.21] s
+    1. La recherche se finance aus…   1/3    236.6  -0.52   -2.4   +1.4  6.0    5.5  1.06  1:237 2:234 3:225
+    2. En deux mille vingt-cinq, l…   2/3    244.1  +0.02   -5.6   +3.2  2.4    6.2  1.21  1:236 2:244 3:247
+    3. Sur sept mille six cent soi…   1/3    224.4  -1.44   -3.2   +0.9  5.6    5.1  1.00  1:224 2:220~ 3:208~
+  ecole-superieur-08 — 3.48 s, F0 250.2 Hz
+    1. Alors, quelle priorité pour…   3/3    250.2  +0.45   -2.1   +3.5  6.0    6.7  1.31  1:211~ 2:220~ 3:250
+  ecole-jeunes-01 — 3.94 s, F0 238.2 Hz
+    1. Après l'école, avant un emp…   2/3    238.2  -0.40   -7.6      —  3.0    4.2  0.82  1:293~ 2:238 3:274~
+  ecole-jeunes-02 — 8.70 s, F0 238.5 Hz, pauses entre phrases [0.15, 0.3] s
+    1. En deux mille vingt-quatre,…   2/3    239.2  -0.33   -2.9   +1.2  0.0    5.7  1.12  1:237 2:239 3:226
+    2. Contre quinze virgule quatr…   3/3    236.0  -0.56   +0.7   +1.5  2.9    5.0  0.97  1:245~ 2:260 3:236
+  ecole-jeunes-03 — 12.53 s, F0 241.4 Hz, pauses entre phrases [0.2, 0.22, 0.23, 0.3, 0.25, 0.3] s
+    1. Avant vingt-cinq ans, le R.…   4/7    241.6  -0.16   -3.1   +3.8  0.0    6.0  1.17  1:267×! 2:226×! 3:242×! 4:242~ 5:243×! 6:244×! 7:224×!
+         prise 1 : rire 1.36-1.71 s (net, +47 dB, confiance 0.89) [RSA | revenu]
+         prise 2 : respiration 1.52-1.81 s (net, +56 dB, confiance 0.95) [RSA | revenu]
+         prise 3 : vocalise 1.52-1.85 s (net, +47 dB, confiance 0.82) [RSA | revenu]
+         prise 5 : respiration 1.52-1.73 s (net, +46 dB, confiance 0.89) [RSA | revenu]
+         prise 6 : respiration 1.68-1.94 s (net, +49 dB, confiance 0.95) [RSA | revenu]
+         prise 7 : respiration 1.85-2.03 s (net, +56 dB, confiance 0.92) [RSA | revenu]
+    2. Ou à ceux qui ont travaillé…   2/3    236.2  -0.55   -1.6   +1.3  3.1    7.0  1.37  1:237 2:236 3:238?
+         prise 3 : respiration 0.00-0.09 s (leger, +29 dB, confiance 0.54) [début | Ou]
+    3. Les étudiants n'y ont pas d…   2/3    249.6  +0.41   -2.9   +2.0  1.6    6.3  1.24  1:290~ 2:250 3:238
+      ⚠ phrase 1 : aucune prise acceptable : saut de +3.82 dt à l'enchaînement (tolérance de reprise 0.0 dt)
+  ecole-jeunes-04 — 12.68 s, F0 236.5 Hz, pauses entre phrases [0.15, 0.38, 0.31, 0.17] s
+    1. Pour les seize à vingt-cinq…   3/3    236.0  -0.56   -2.6   +2.1  2.9    6.0  1.17  1:233 2:219~ 3:236
+    2. Il prévoit quinze à vingt h…   1/3    237.9  -0.42   -5.5   +2.5  2.6    5.1  1.00  1:238 2:248 3:260~
+  ecole-jeunes-05 — 12.59 s, F0 238.8 Hz, pauses entre phrases [0.3, 0.3, 0.3, 0.41] s
+    1. Le service civique est volo…   2/3    238.0  -0.42   -2.5   +1.4  5.5    6.5  1.26  1:221~ 2:238 3:250
+    2. Le volontaire touche au moi…   3/3    239.5  -0.31   -6.5   +2.6  2.5    6.0  1.18  1:220~ 2:235 3:240
+    3. En deux mille vingt-quatre,…   1/3    238.5  -0.38   -7.0   +2.6  6.0    6.5  1.27  1:238 2:245~ 3:237
+  ecole-jeunes-06 — 12.71 s, F0 254.9 Hz, pauses entre phrases [0.15, 0.31, 0.34] s
+    1. À la rentrée deux mille vin…   3/3    248.8  +0.35   -7.6   +1.6  6.0    5.5  1.07  1:274~ 2:253 3:249
+    2. C'est deux virgule six pour…   3/3    258.2  +0.99   -0.7   +4.5  6.0    5.9  1.15  1:224 2:212~ 3:258
+  ecole-jeunes-07 — 3.59 s, F0 237.6 Hz
+    1. Alors, pour les jeunes, que…   2/3    237.6  -0.45   -8.7   -0.7  3.7    5.9  1.16  1:296~ 2:238 3:301~
+
+Alertes (2) :
+  aigue / ecole-intro-03 : son parasite dans le passage assemblé : mot étiré « l'OCDE » 3.12-3.76 s (net, confiance 0.59) [de | à]
+  aigue / ecole-jeunes-03 : phrase 1 : aucune prise acceptable : saut de +3.82 dt à l'enchaînement (tolérance de reprise 0.0 dt)
+
+Temps : 3053 s pour 292 prise(s), 10.11 s de calcul par prise en moyenne (4.15 s d'audio) ; calcul d'une prise ≈ 0.51 s + 2.35 s par seconde d'audio. Détecteur de sons parasites : 0.165 s par prise en moyenne (au plus 0.416 s), 2% du calcul d'une prise.
+Estimation pour les 1013 passages (1856 phrases) (voix aiguë 3 prises, 4% de secours) : ~994 min.

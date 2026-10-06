@@ -1,0 +1,1129 @@
+{
+  "candidate": "Raphaël Glucksmann",
+  "affiliation": "Place publique (co-président), eurodéputé du groupe S&D depuis 2019, réélu en 2024 comme tête de liste PS-Place publique (13,8 %). Il est candidat de Place publique à la primaire « Choisir 2027 » organisée avec le PS (et, selon la page de Place publique, la GRS).",
+  "campaign_site": "Aucun site de campagne dédié n'a été trouvé. Le support officiel est le site de Place publique : https://place-publique.eu (pages « Le projet », « L'Acte I » et « Choisir 2027 »). La page de Place publique renvoie au vote sur participer.choisir2027.fr, et non sur choisir2027.org.",
+  "overview": "Raphaël Glucksmann, 46 ans, eurodéputé et co-président de Place publique, a déclaré sa candidature le 23 août 2026 sur TF1. Il défend une ligne sociale-démocrate, écologiste et fédéraliste européenne. Son marqueur stratégique est la rupture avec La France insoumise : aucun accord à la présidentielle ni aux législatives. Sa mesure phare de pouvoir d'achat est une baisse de la CSG (ou des prélèvements salariaux) pour augmenter le salaire net. Elle serait financée par une hausse de la fiscalité sur les « méga-héritages » (successions de plus de 2 M€, réforme du pacte Dutreil, 15 Md€ par an). Il propose aussi un plan de sauvetage de l'école publique, un service civique obligatoire de 10 mois et une convention citoyenne sur l'immigration. Il veut des « 100 jours de révolution écologique », confiés à Yannick Jadot, et un pro-nucléaire assumé accompagné d'un plan massif pour les renouvelables. En Europe, il veut un saut fédéral : fin du droit de veto et emprunt commun de 500 Md€ pour la défense. Sur la Russie, il tient la ligne la plus offensive : aide militaire accrue à l'Ukraine. Sur Gaza, il refuse le terme de « génocide » tout en s'opposant à Netanyahou et en défendant deux États. Son corpus programmatique repose sur l'« Acte I » de Place publique (42 chantiers, juin 2025), le livre « Nous avons encore envie. Pour un sursaut patriotique » (Allary, mai 2026), sa « lettre aux Français » (25 août 2026) et les débats de la primaire.",
+  "programme_sources": [
+    {
+      "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (PDF, co-directeurs de publication : Aurore Lalucq et Raphaël Glucksmann)",
+      "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+      "date": "juin 2025"
+    },
+    {
+      "title": "Place publique – Le projet / L'Acte I",
+      "url": "https://place-publique.eu/pages/6mRSwq5tuSrSi68Cw1IADX/l-acte-i",
+      "date": "2025"
+    },
+    {
+      "title": "Nous avons encore envie. Pour un sursaut patriotique (livre, Allary Éditions)",
+      "url": "https://allary-editions.fr/products/raphael-glucksmann-nous-avons-encore-envie",
+      "date": "2026-05-28"
+    },
+    {
+      "title": "Raphaël Glucksmann – Sa lettre aux Français (Place publique)",
+      "url": "https://place-publique.eu/posts/2fgDdljEIy36rgxBjRyiQZ/raphael-glucksmann-sa-lettre-aux-francais",
+      "date": "2026-08-25"
+    },
+    {
+      "title": "Place publique – page Primaire Choisir 2027",
+      "url": "https://place-publique.eu/pages/Croet4tWXmSbd5sL5upQF/choisir-2027",
+      "date": "2026-09"
+    },
+    {
+      "title": "Fiscalité, école, immigration : ce que propose Raphaël Glucksmann (Public Sénat)",
+      "url": "https://www.publicsenat.fr/actualites/politique/fiscalite-ecole-immigration-ce-que-propose-raphael-glucksmann",
+      "date": "2026-08-24"
+    },
+    {
+      "title": "Présidentielle : Raphaël Glucksmann dévoile les premières lignes de son possible programme (LCP)",
+      "url": "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme",
+      "date": "2026-05-26"
+    }
+  ],
+  "topics": [
+    {
+      "topic_id": "strategie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Aucun accord avec La France insoumise, ni à la présidentielle ni aux législatives : des candidats dans toutes les circonscriptions.",
+          "kind": "position_declaree",
+          "details": "Position tenue au premier débat de la primaire (LCI, 23/09/2026). Guedj est aussi hostile aux accords. Faure défend des « convergences » (les députés PS votent « 80 % » avec LFI). Maurel et Royal refusent de centrer la campagne sur Mélenchon sans fermer la porte de la même façon.",
+          "short_quote": "Il n'y aura pas d'accord à la présidentielle avec les insoumis, ni aux législatives",
+          "source_url": "https://lcp.fr/actualites/primaire-de-gauche-sur-les-accords-avec-lfi-la-fracture-eclate-entre-les-candidats",
+          "source_title": "Primaire de gauche : sur les accords avec LFI, la fracture éclate entre les candidats (LCP)",
+          "source_date": "2026-09-24",
+          "confidence": "high"
+        },
+        {
+          "position": "S'il gagne la primaire, il n'y aura « plus jamais » d'accord avec Jean-Luc Mélenchon. Il a qualifié ce dernier de « Jean-Marie Le Pen de notre époque » et accuse LFI de complaisance envers l'antisémitisme.",
+          "kind": "position_declaree",
+          "details": "Déclarations sur TF1 lors de l'annonce de candidature (23/08/2026). La formule « Jean-Marie Le Pen de notre époque » date de mars 2026, selon France 24. Au débat du 01/10/2026, il refuse toute alliance avec ceux « qui surfent sur des fièvres identitaires » et reproche à Faure de préparer un rapprochement.",
+          "source_url": "https://www.france24.com/fr/france/20260824-france-presidentielle-2027-raphael-glucksman-veut-remporter-primaire-socialiste-sur-une-ligne-anti-lfi",
+          "source_title": "Présidentielle 2027 : Raphaël Glucksmann veut remporter la primaire socialiste sur une ligne anti-LFI (France 24)",
+          "source_date": "2026-08-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Pas d'union avec LFI, même dans les circonscriptions menacées par le RN. Il dit en revanche vouloir « œuvrer au front républicain au 2e tour ».",
+          "kind": "position_declaree",
+          "details": "Il propose une union « sociale, démocrate, écologiste et pro-européenne », sans LFI. Il juge le NFP de 2024 conclu « dans la hâte ». En juin 2024, il s'était au contraire prononcé pour un désistement républicain systématique face au RN en cas de triangulaire. On ne sait pas clairement s'il appellerait à se désister pour un candidat LFI face au RN.",
+          "source_url": "https://www.brut.media/fr/articles/legislatives-raphael-glucksmann-exclut-toute-union-avec-lfi-meme-pour-faire-barrage-au-rn",
+          "source_title": "Législatives : Raphaël Glucksmann exclut toute union avec LFI même pour faire barrage au RN (Brut)",
+          "source_date": "2025-11-17",
+          "confidence": "medium"
+        },
+        {
+          "position": "Aux municipales de 2026, Place publique a refusé toute fusion de listes avec LFI et retiré ses candidats des listes communes.",
+          "kind": "position_declaree",
+          "short_quote": "Avec Place publique, nous refusons toutes ces fusions sans exception avec LFI",
+          "source_url": "https://www.franceinfo.fr/replay-radio/8h30-fauvelle-dely/alliances-avec-lfi-front-antifasciste-le-8h30-franceinfo-de-raphael-glucksmann_7842077.html",
+          "source_title": "Alliances avec LFI, front antifasciste… Le 8h30 franceinfo de Raphaël Glucksmann",
+          "source_date": "2026-03-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Rassemblement de la « gauche démocratique et écologique » : appel aux écologistes et aux communistes. Il a confié à Yannick Jadot la préparation d'un « état d'urgence écologique ».",
+          "kind": "position_declaree",
+          "details": "Soutiens annoncés : Boris Vallaud (président du groupe PS à l'Assemblée), Carole Delga, Nicolas Mayer-Rossignol, Michaël Delafosse et Yannick Jadot (franceinfo, 27/08/2026).",
+          "source_url": "https://www.france24.com/fr/france/20260823-rapha%C3%ABl-glucksmann-annonce-sa-candidature-%C3%A0-la-pr%C3%A9sidentielle-de-2027",
+          "source_title": "Raphaël Glucksmann annonce sa candidature à la présidentielle de 2027 (France 24)",
+          "source_date": "2026-08-23",
+          "confidence": "high"
+        },
+        {
+          "position": "Après avoir longtemps refusé une primaire, il participe finalement à la primaire PS–Place publique, selon un protocole adopté le 25/08/2026.",
+          "kind": "position_declaree",
+          "details": "Le 23/05/2025, il annonçait qu'il « ne participera pas à une primaire », jugée « mortifère » et productrice d'une « synthèse molle ». Il maintenait ce refus encore au meeting d'Aubervilliers (13/06/2026). Le protocole a été adopté par le PS (159 pour, 32 contre, 21 abstentions) et à l'unanimité par Place publique.",
+          "short_quote": "ne participera pas à une primaire",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/presidentielle-2027-raphael-glucksmann-annonce-qu-il-ne-participera-pas-a-une-primaire-de-la-gauche_7268598.html",
+          "source_title": "Présidentielle 2027 : Raphaël Glucksmann annonce qu'il ne participera pas à une primaire de la gauche (franceinfo)",
+          "source_date": "2025-05-23",
+          "confidence": "high"
+        },
+        {
+          "position": "Rapport à l'exécutif : en 2025, il a fait de la taxe Zucman « la base de tout accord » de non-censure avec le gouvernement Lecornu. En septembre 2026, il indique qu'il soutiendrait probablement la censure du projet de budget 2027.",
+          "kind": "position_declaree",
+          "details": "France 24/AFP, 11/09/2025 ; « 8h30 franceinfo », 21/09/2026. Il qualifie de « régressives » les économies de 54 Md€ proposées par le gouvernement (franceinfo, 21/09/2026).",
+          "source_url": "https://www.franceinfo.fr/replay-radio/8h30-fauvelle-dely/prix-des-carburants-taxation-situation-internationale-budget-le-8h30-franceinfo-de-raphael-glucksmann_8180243.html",
+          "source_title": "Prix des carburants, taxation, situation internationale, budget... Le 8h30 franceinfo de Raphaël Glucksmann",
+          "source_date": "2026-09-21",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "fiscalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Taxer davantage les « méga-héritages » (les 1 % plus grosses successions, au-delà d'environ 2 M€) pour dégager environ 15 Md€ par an, intégralement reversés sur les fiches de paie.",
+          "kind": "proposition_explicite",
+          "details": "Selon franceinfo, trois leviers : relever le taux de la tranche haute (au-delà de 1,8 M€) de 45 % à 50 % (≈2 Md€), redéfinir les biens professionnels du pacte Dutreil (≈3 Md€) et taxer les plus-values latentes à la transmission (≈10 Md€). Il présente « 99 % des héritages » comme non concernés. Guillaume Allègre (OFCE) juge l'objectif « très optimiste ». Il dénonce une « hérito-cratie ».",
+          "source_url": "https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/augmenter-les-salaires-en-taxant-les-plus-gros-heritages-la-proposition-de-raphael-glucksmann-est-elle-realiste_8076284.html",
+          "source_title": "Augmenter les salaires en taxant les plus gros héritages, la proposition de Raphaël Glucksmann est-elle réaliste ? (franceinfo)",
+          "source_date": "2026-08-25",
+          "confidence": "high"
+        },
+        {
+          "position": "Soutien à la taxe Zucman : impôt plancher de 2 % sur les patrimoines de plus de 100 M€.",
+          "kind": "position_declaree",
+          "details": "En septembre 2025, il en faisait « la base de tout accord » de non-censure avec le gouvernement Lecornu, en se disant ouvert sur les modalités (assiette, taux) mais pas sur le principe. Sa campagne 2026 met surtout en avant la fiscalité des successions ; la place exacte de la taxe Zucman dans son projet de 2026 n'est pas précisée.",
+          "source_url": "https://www.france24.com/fr/info-en-continu/20250911-taxe-zucman-c-est-non-pour-larcher-la-base-de-tout-accord-pour-glucksmann",
+          "source_title": "Taxe Zucman : « la base de tout accord » pour Glucksmann, « une illusion » pour Larcher (France 24/AFP)",
+          "source_date": "2025-09-11",
+          "confidence": "high"
+        },
+        {
+          "position": "Taxer les superprofits des multinationales pétrolières (TotalEnergies) pour financer les aides carburant. Il accuse le gouvernement de bloquer une taxe européenne sur ces profits.",
+          "kind": "proposition_explicite",
+          "details": "La taxe financerait environ 2 Md€ sur les 4 Md€ du triplement du chèque énergie. Le programme Acte I (2025) prévoyait déjà un « mécanisme automatique de taxation des superprofits des multinationales et des profiteurs de guerre ».",
+          "source_url": "https://www.franceinfo.fr/economie/automobile/essence/prix-des-carburants-le-gouvernement-ne-veut-pas-heurter-totalenergies-selon-raphael-glucksmann-qui-reclame-une-taxe-sur-les-superprofits_8202563.html",
+          "source_title": "Prix des carburants : le gouvernement « ne veut pas heurter TotalEnergies » selon Raphaël Glucksmann qui réclame une taxe sur les superprofits (franceinfo)",
+          "source_date": "2026-09-21",
+          "confidence": "high"
+        },
+        {
+          "position": "Rééquilibrer la taxation entre travail, capital, héritage et retraites, au détriment des « héritiers » et des « retraités aisés ».",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantier 16 et « chantier cadre » : suppression des niches fiscales inefficaces ou polluantes, « effort fiscal nouveau » ciblé sur les très hauts patrimoines et les grands groupes, renforcement de la fiscalité écologique, audit de la dépense. Thème repris dans le livre de mai 2026 (« nouveau contrat fiscal et social »).",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – Notre vision pour la France (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "high"
+        },
+        {
+          "position": "Ne pas financer ses mesures salariales par la dette ni par « la casse du modèle social ». Assainir les finances publiques par une « trajectoire crédible de désendettement ».",
+          "kind": "position_declaree",
+          "details": "Engagement formulé au débat du Medef (AFP, septembre 2026). L'Acte I mentionne une trajectoire de désendettement mais aucun objectif chiffré de déficit, ni de position sur les règles budgétaires européennes ou une « règle d'or ».",
+          "source_url": "https://fr.tradingview.com/news/afp:99040789ca9a3:0/",
+          "source_title": "Glucksmann promet de ne pas financer la hausse des salaires par « la casse du modèle social » (AFP)",
+          "source_date": "2026-09",
+          "confidence": "medium"
+        },
+        {
+          "position": "Supprimer les exonérations de TVA et de taxe sur le kérosène du transport aérien. Taxer les plus gros pollueurs individuels (jets privés, yachts, SUV) et les poids lourds étrangers en transit.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 12 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "travail_salaires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Baisser la CSG sur les salaires pour augmenter immédiatement le salaire net, en compensant par la taxation des méga-héritages (règle « 1 € prélevé = 1 € reversé »).",
+          "kind": "proposition_explicite",
+          "details": "Mesure présentée sur TF1 (23/08/2026) comme une baisse des prélèvements ou cotisations salariales, puis précisée en baisse de CSG au débat du Medef et au débat du 01/10/2026. Il y est « isolé » : Faure la juge limitée, Royal « dangereuse » pour le financement de la protection sociale, Guedj y voit un risque pour la Sécu. Gains annoncés par un soutien (Sacha Houlié, sur X) : environ +1 000 €/an au SMIC et +1 300 €/an au salaire médian. Ces chiffres n'ont pas été vérifiés dans une source de presse. Un autre compte rendu évoque « jusqu'à 200 € net » par mois (Senioractu), chiffre non recoupé.",
+          "short_quote": "on baisse la CSG sur les salaires pour les salariés",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html",
+          "source_title": "Sept séquences à retenir du débat des candidats à la primaire de la gauche sur France 2 et France Inter (franceinfo)",
+          "source_date": "2026-10-01",
+          "confidence": "high"
+        },
+        {
+          "position": "Tripler le chèque énergie (de 150 € à 500 €/an) et l'étendre aux classes moyennes qui dépendent de leur voiture. Il préfère cette aide ciblée à une baisse générale des taxes sur les carburants.",
+          "kind": "proposition_explicite",
+          "details": "Coût estimé à environ 4 Md€ : 2 Md€ via une taxe sur les superprofits, le reste à la charge des finances publiques. Au débat du 01/10/2026, il s'oppose à la baisse générale de fiscalité sur les carburants défendue par Royal et Guedj, qui aiderait « indistinctement » tout le monde.",
+          "short_quote": "triplement du chèque énergie",
+          "source_url": "https://actu.orange.fr/politique/carburant-raphael-glucksmann-propose-de-tripler-le-cheque-energie-et-de-l-etendre-aux-classes-moyennes-magic-CNT000002rZCN7.html",
+          "source_title": "Carburant : Raphaël Glucksmann propose de « tripler le chèque énergie » et de l'étendre aux « classes moyennes » (L'Express/6Médias)",
+          "source_date": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "position": "Porter le SMIC à 1 600 € net dans les deux ans suivant l'arrivée au pouvoir. Organiser immédiatement des conférences salariales par branche, en priorité pour les métiers précaires et pénibles.",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantier 16 ; confirmé par Public Sénat (23/06/2025). Cette mesure n'a pas été explicitement réaffirmée dans les comptes rendus de la campagne de 2026 consultés. L'Acte I prévoit aussi de limiter les écarts de salaires dans l'entreprise et d'indexer le point d'indice des fonctionnaires sur l'inflation.",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/presidentielle-pas-candidat-pour-le-moment-raphael-glucksmann-trace-son-chemin-et-defend-sa-vision-pour-le-pays",
+          "source_title": "Présidentielle : pas candidat pour le moment, Raphaël Glucksmann trace son chemin (Public Sénat)",
+          "source_date": "2025-06-23",
+          "confidence": "medium"
+        },
+        {
+          "position": "Abroger la réforme Macron de l'assurance chômage. Ouvrir une conférence sociale vers un minimum social unique, accessible aussi aux moins de 25 ans.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 25 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Démocratiser l'entreprise : administrateurs salariés dès 100 salariés, « chèque syndical », primauté des accords de branche sur les accords d'entreprise, stratégie « Zéro mort au travail », taxe Amazon pour financer le commerce de proximité.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 17 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Instaurer une garantie à l'emploi en généralisant « Territoires zéro chômeur de longue durée ». Créer un CDI d'insertion harmonisé et des guichets uniques emploi et jeunesse.",
+          "kind": "proposition_explicite",
+          "details": "Aucune position trouvée sur les 32 heures ou la semaine de quatre jours.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 18 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "retraites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Abroger la réforme des retraites de 2023 (report à 64 ans).",
+          "kind": "proposition_explicite",
+          "details": "Inscrit dans l'Acte I (juin 2025). Réaffirmé lors de la campagne de la primaire : premier débat LCI (23/09/2026), présentation devant le Medef, synthèses de LCP (16/09/2026) et Public Sénat (30/09/2026).",
+          "source_url": "https://www.senioractu.com/Pas-encore-retraite-Au-premier-debat-de-la-primaire-socialiste-Faure-et-Glucksmann-ont-promis-d-abroger-la-reforme-qui_a28076.html",
+          "source_title": "Au premier débat de la primaire socialiste, Faure et Glucksmann ont promis d'abroger la réforme (Senioractu)",
+          "source_date": "2026-09-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Ne pas fixer un âge légal unique mais fonder la réforme sur la pénibilité et l'espérance de vie en bonne santé : certains devraient pouvoir partir à 60 ans, d'autres travailler davantage.",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantier 19 : « cesser la focalisation sur le seul âge légal ». En juin 2025, il disait que certains « doivent pouvoir partir à 60 ans, car ils sont cassés ». En septembre 2026 : « il faudra la fonder sur la pénibilité ». Il ne donne aucun paramètre chiffré (âge, durée de cotisation), contrairement à Faure (62 ans) ou Guedj (logique de durée de cotisation).",
+          "short_quote": "il faudra la fonder sur la pénibilité",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/reculer-ou-avancer-lage-legal-avec-ou-sans-capitalisation-ce-que-proposent-les-principaux-candidats-a-lelection-presidentielle-sur-les-retraites",
+          "source_title": "Reculer ou avancer l'âge légal… ce que proposent les principaux candidats sur les retraites (Public Sénat)",
+          "source_date": "2026-09-30",
+          "confidence": "high"
+        },
+        {
+          "position": "Créer un Haut Conseil du pilotage des retraites où les partenaires sociaux seraient majoritaires. Lancer un plan pour augmenter le nombre de cotisants (emploi des seniors, immigration légale de travail, entrée plus rapide des jeunes dans l'emploi).",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantier 19, repris dans la synthèse de franceinfo (30/09/2026). Il dit vouloir « converger vers une simplification des régimes » et un meilleur équilibre budgétaire.",
+          "source_url": "https://www.franceinfo.fr/economie/retraite/reforme-des-retraites/changement-de-systeme-passage-a-60-ou-a-65-ans-capitalisation-que-proposent-les-principaux-candidats-a-l-election-presidentielle-pour-les-retraites_8215784.html",
+          "source_title": "Changement de système, passage à 60 ou à 65 ans, capitalisation... Que proposent les principaux candidats ? (franceinfo)",
+          "source_date": "2026-09-30",
+          "confidence": "high"
+        },
+        {
+          "position": "Le livre de mai 2026 appelle à une réforme « juste et ambitieuse » tenant compte des « bouleversements démographiques ». Le député Place publique Aurélien Rousseau évoque de « mixer l'âge et la durée de cotisation » et dit que certains devront « travailler plus longtemps ».",
+          "kind": "inference",
+          "details": "Position de l'entourage (Rousseau, dans Capital, 24/08/2026), non formulée telle quelle par Glucksmann. LFI (Manuel Bompard) l'accuse d'avoir « renoncé à l'abrogation ». Les sources hostiles (LFI, Révolution permanente) parlent d'un report au-delà de 64 ans pour certains, ce que les sources neutres ne confirment pas. L'ambiguïté porte sur le sens concret de l'abrogation.",
+          "source_url": "https://fr.finance.yahoo.com/actualites/r%C3%A9formes-retraites-propose-place-publique-154421508.html",
+          "source_title": "Réformes des retraites : que propose Place publique alors que Raphaël Glucksmann vient d'annoncer sa candidature ? (Capital)",
+          "source_date": "2026-08-24",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "sante",
+      "found": true,
+      "positions": [
+        {
+          "position": "Bâtir un modèle de santé coopératif piloté localement (projet territorial de santé). Multiplier centres et maisons de santé, dispensaires, permanences mobiles rurales et centres pour les « petites urgences ».",
+          "kind": "proposition_explicite",
+          "details": "Sur les déserts médicaux, l'Acte I parle de « soutenir l'installation » et d'encourager l'exercice mixte ville-hôpital. Il ne mentionne pas de régulation contraignante de l'installation des médecins : sa position sur la coercition reste inconnue.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 23 « Bien soigner, partout ! » (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Contrer la financiarisation de la santé : fin de la tarification à l'acte à l'hôpital au profit d'un financement global, territorial et pluriannuel, et meilleure rémunération des soignants.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 23 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Sortir la prévention de l'ONDAM annuel, créer un fonds territorial de prévention et faire de la santé mentale des jeunes une priorité nationale.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 24 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Aller vers une Sécurité sociale unique fusionnant tous les régimes. Mutualiser les systèmes d'information de l'assurance maladie et des complémentaires.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantiers 23 et 25 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Démarchandiser les EHPAD et les crèches. Recentrer les EHPAD sur les personnes très dépendantes, développer des alternatives (résidences autonomie, béguinage) et créer une indemnité pour les aidants familiaux.",
+          "kind": "proposition_explicite",
+          "details": "La « démarchandisation des EHPAD et des crèches » figure dans la lettre aux Français (25/08/2026). Les autres éléments viennent de l'Acte I (chantiers 26 et 27).",
+          "source_url": "https://place-publique.eu/posts/2fgDdljEIy36rgxBjRyiQZ/raphael-glucksmann-sa-lettre-aux-francais",
+          "source_title": "Raphaël Glucksmann – Sa lettre aux Français (Place publique)",
+          "source_date": "2026-08-25",
+          "confidence": "high"
+        },
+        {
+          "position": "Opposition au doublement des franchises médicales (de 100 € à 200 €) proposé par le gouvernement Lecornu.",
+          "kind": "position_declaree",
+          "details": "Communiqué du parti Place publique, non signé personnellement par Glucksmann.",
+          "source_url": "https://place-publique.eu/posts/5alHI42mxxIp7GNFA9ImFX/franchises-medicales-s-lecornu-envoie-la-facture-du-deficit-aux-malades",
+          "source_title": "Franchises médicales : S. Lecornu envoie la facture du déficit aux malades (Place publique)",
+          "source_date": "2026-07-29",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "found": true,
+      "positions": [
+        {
+          "position": "Plan de sauvetage de l'école publique sur 5 ans : moins d'élèves par enseignant en primaire, revalorisation continue et planifiée des salaires de tous les enseignants, rénovation du bâti scolaire.",
+          "kind": "proposition_explicite",
+          "details": "Annoncé lors de la déclaration de candidature (TF1, 23/08/2026), issu de l'Acte I (chantier 33). L'Acte I prévoit aussi le tutorat sur le temps scolaire et un frein aux fermetures d'écoles rurales. Au débat du 01/10/2026, il a affirmé qu'un enseignant français du primaire est moins payé qu'un Slovène ou un Portugais : exact en parité de pouvoir d'achat selon franceinfo.",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/fiscalite-ecole-immigration-ce-que-propose-raphael-glucksmann",
+          "source_title": "Fiscalité, école, immigration : ce que propose Raphaël Glucksmann (Public Sénat)",
+          "source_date": "2026-08-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Intégrer les établissements privés sous contrat à la carte scolaire, pour appliquer la mixité sociale à tous les établissements financés par le contribuable.",
+          "kind": "proposition_explicite",
+          "details": "Acte I (chantier 33), repris dans le livre de mai 2026.",
+          "source_url": "https://www.lejdd.fr/politique/immigration-raphael-glucksmann-plaide-pour-une-convention-citoyenne-174735",
+          "source_title": "Immigration : Raphaël Glucksmann plaide pour une convention citoyenne (Le JDD)",
+          "source_date": "2026-05-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Service civique obligatoire de 10 mois pour tous les jeunes (EHPAD, écoles, services publics, missions d'intérêt général). La dimension militaire resterait volontaire.",
+          "kind": "proposition_explicite",
+          "details": "Proposition du livre de mai 2026 (« contrat patriotique »). L'Acte I de 2025 parlait seulement de recréer un « rite de passage républicain » remplaçant le service militaire.",
+          "short_quote": "dix mois de leur vie à la Nation",
+          "source_url": "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme",
+          "source_title": "Présidentielle : Raphaël Glucksmann dévoile les premières lignes de son possible programme (LCP)",
+          "source_date": "2026-05-26",
+          "confidence": "high"
+        },
+        {
+          "position": "« Passeport pour l'émancipation » : garantir à chaque enfant des séjours collectifs (colonies, classes découvertes, séjour dans un pays de l'UE).",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/fiscalite-ecole-immigration-ce-que-propose-raphael-glucksmann",
+          "source_title": "Fiscalité, école, immigration : ce que propose Raphaël Glucksmann (Public Sénat)",
+          "source_date": "2026-08-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Repenser en profondeur Parcoursup par une concertation, mieux encadrer le supérieur privé lucratif, créer un « capital formation universel » et une aide contre l'éloignement géographique.",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantier 10. Également : module obligatoire « Médias et influence » au lycée, convention citoyenne pour l'École. Aucune position trouvée sur l'uniforme.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantiers 10 et 34 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Juge les blocages de lycées « complètement irresponsables », tout en recentrant le débat sur l'état de l'éducation.",
+          "kind": "position_declaree",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html",
+          "source_title": "Sept séquences à retenir du débat de la primaire de la gauche (franceinfo)",
+          "source_date": "2026-10-01",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Conforter le nucléaire et construire de nouvelles unités dans les délais, avec un grand plan pluriannuel pour les renouvelables. La sortie du nucléaire est jugée irréaliste.",
+          "kind": "position_declaree",
+          "details": "Acte I, chantier 6 : « construction à temps de nouvelles unités ». Le nombre de réacteurs n'est pas précisé.",
+          "short_quote": "faire de la sortie du nucléaire un objectif est totalement irréaliste et suicidaire",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/presidentielle-pas-candidat-pour-le-moment-raphael-glucksmann-trace-son-chemin-et-defend-sa-vision-pour-le-pays",
+          "source_title": "Présidentielle : pas candidat pour le moment, Raphaël Glucksmann trace son chemin (Public Sénat)",
+          "source_date": "2025-06-23",
+          "confidence": "high"
+        },
+        {
+          "position": "Faire de la « libération écologique » la priorité absolue, avec « 100 jours de révolution écologique » dès l'arrivée au pouvoir, préparés par Yannick Jadot.",
+          "kind": "proposition_explicite",
+          "details": "Meeting d'Aubervilliers (13/06/2026) et conférence de presse à Montpellier (18/09/2026). Au débat du 01/10/2026, il regrette que l'écologie n'ait pas été « mise au centre ».",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/raphael-glucksmann-promet-que-la-gauche-peut-transformer-la-vie-des-francais_8199911.html",
+          "source_title": "Raphaël Glucksmann promet que la gauche peut « transformer la vie des Français » (franceinfo)",
+          "source_date": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "position": "Leasing social de voitures électriques à environ 100 €/mois, notamment pour les gros rouleurs. Soutien à une filière française de la petite voiture électrique et relocalisation des batteries.",
+          "kind": "proposition_explicite",
+          "details": "Exemple cité : 100 000 aides-soignantes. L'Acte I fixe aussi un objectif de flottes 100 % électriques pour les grandes entreprises et les collectivités. Aucune position explicite trouvée sur la fin des moteurs thermiques en 2035.",
+          "source_url": "https://www.france24.com/fr/france/20260614-présidentielle-2027-en-meeting-glucksmann-veut-ramener-la-gauche-au-pouvoir",
+          "source_title": "Présidentielle 2027 : en meeting, Glucksmann veut ramener la gauche au pouvoir (France 24)",
+          "source_date": "2026-06-14",
+          "confidence": "high"
+        },
+        {
+          "position": "Indexer une partie de la facture d'électricité sur le coût de production nucléaire et renouvelable plutôt que sur le prix de marché. Annuler la hausse de la taxe sur l'électricité de 2024 et relancer MaPrimeRénov'.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 6 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Grande loi Climat : -90 % d'émissions en 2040 et neutralité en 2050. Loi anti-fast-fashion, score carbone obligatoire et fin des plastiques à usage unique d'ici 2030.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 11 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Transports : plan Rail national, retour des trains de nuit, « Ticket climat » national, et extension de l'interdiction des vols intérieurs quand une alternative ferroviaire existe.",
+          "kind": "proposition_explicite",
+          "details": "L'Acte I prévoit aussi un moratoire sur les grands projets autoroutiers et routiers de l'État pour les réexaminer, sans citer de projet précis (A69 non mentionnée), et l'affectation des recettes de péage à la mobilité durable.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 12 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "found": true,
+      "positions": [
+        {
+          "position": "S'opposer aux accords de libre-échange comme le Mercosur et imposer des « mesures miroirs » aux importations agricoles.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 14 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "high"
+        },
+        {
+          "position": "Opposition à la loi d'urgence agricole adoptée en juillet 2026, qui réautorise l'acétamipride et la flupyradifurone. Il réclame une réforme de la PAC, des revenus décents et un partage juste de l'eau.",
+          "kind": "position_declaree",
+          "details": "Il juge que la loi ne règle ni le problème des revenus paysans ni celui de la concurrence déloyale. Aucun communiqué spécifique sur la loi Duplomb de 2025 n'a été consulté.",
+          "short_quote": "Elle sacrifie l'écologie et la santé. C'est une impasse.",
+          "source_url": "https://place-publique.eu/posts/68jyTyNjDww1F2yvJ1c4St/reaction-de-raphael-glucksmann-suite-a-l-adoption-de-la-loi-d-urgence-agricole",
+          "source_title": "Réaction de Raphaël Glucksmann suite à l'adoption de la loi d'urgence agricole (Place publique)",
+          "source_date": "2026-07-21",
+          "confidence": "high"
+        },
+        {
+          "position": "Interdire les pesticides les plus nocifs (glyphosate, néonicotinoïdes), interdire les PFAS dans les objets du quotidien et créer des zones sans pesticides autour des captages et des écoles.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 15 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Réformer la PAC : sortir des aides à l'hectare et plafonner les aides comme en Espagne, au profit des petites fermes, des jeunes installés et de l'agroécologie. Créer un revenu de transition écologique.",
+          "kind": "proposition_explicite",
+          "details": "L'Acte I prévoit aussi des prix planchers rémunérateurs, la fin des contournements d'EGALIM, une autorité européenne de contrôle des prix alimentaires et l'interdiction de la vente à perte.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 14 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Refuser les méga-bassines au profit de solutions locales concertées et transformer les comités de bassin en « Parlements de l'eau ». Tarification sociale de l'eau au-delà de 3 % des revenus.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 15 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Saut fédéral européen : supprimer le droit de veto, c'est-à-dire passer à la majorité qualifiée au Conseil européen.",
+          "kind": "proposition_explicite",
+          "details": "Livre de mai 2026 (« pacte de souveraineté » quasi fédéral). L'Acte I prévoit d'ici 2030 un « grand traité de réunification européenne » qui serait aussi une refondation institutionnelle : droit d'initiative législative pour le Parlement européen et Initiatives citoyennes européennes facilitées.",
+          "source_url": "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme",
+          "source_title": "Présidentielle : Raphaël Glucksmann dévoile les premières lignes de son possible programme (LCP)",
+          "source_date": "2026-05-26",
+          "confidence": "high"
+        },
+        {
+          "position": "Grand emprunt européen commun, notamment un fonds européen de défense de 500 Md€, dont les investissements seraient réservés aux productions européennes.",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantier 2 ; repris dans le livre de 2026. Le programme des européennes de 2024 évoquait un fonds de 100 Md€ et la mobilisation des 206 Md€ d'avoirs russes gelés pour l'Ukraine.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 2 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "high"
+        },
+        {
+          "position": "Augmenter massivement le budget de l'UE avec de nouvelles ressources propres. Instaurer une taxation commune des hauts patrimoines et des multinationales.",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantier 3, et programme européen 2024 (ISF européen, taxe sur les superprofits).",
+          "source_url": "https://www.touteleurope.eu/vie-politique-des-etats-membres/elections-europeennes-2024-le-programme-de-raphael-glucksmann-et-de-la-liste-parti-socialiste-ps-place-publique-pp/",
+          "source_title": "Élections européennes 2024 : le programme de Raphaël Glucksmann (Toute l'Europe)",
+          "source_date": "2024-05",
+          "confidence": "medium"
+        },
+        {
+          "position": "Protectionnisme européen ciblé : « Buy European Act » réservant la commande publique aux productions européennes, clauses de sauvegarde, mesures miroirs, et remise en cause du dogme de la « concurrence libre et non faussée » pour faire émerger des champions européens.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 4 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "high"
+        },
+        {
+          "position": "Faire de la France « la locomotive de la puissance européenne naissante ». Proposer un « pacte girondin » clarifiant les compétences entre UE, État, régions et collectivités.",
+          "kind": "position_declaree",
+          "details": "L'élargissement n'est abordé que via le « traité de réunification » de 2030 et le soutien à l'Ukraine, la Moldavie et l'Arménie. Aucune position explicite et datée sur le calendrier d'adhésion de l'Ukraine. Aucune position détaillée sur les règles budgétaires européennes.",
+          "source_url": "https://place-publique.eu/posts/2fgDdljEIy36rgxBjRyiQZ/raphael-glucksmann-sa-lettre-aux-francais",
+          "source_title": "Raphaël Glucksmann – Sa lettre aux Français (Place publique)",
+          "source_date": "2026-08-25",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "international_defense",
+      "found": true,
+      "positions": [
+        {
+          "position": "Augmenter fortement l'aide militaire à l'Ukraine et protéger le ciel ukrainien, « comme cela a été fait avec les Émirats arabes unis ».",
+          "kind": "position_declaree",
+          "details": "C'est la ligne la plus offensive envers la Russie parmi les cinq candidats (LCP). Au débat du 01/10/2026, il s'oppose à la ligne de dialogue avec Poutine défendue par Royal. L'Acte I qualifie l'Ukraine de « première ligne de défense » et prévoit un soutien à la Moldavie et à l'Arménie. Aucune position vérifiée sur l'envoi de troupes françaises au sol.",
+          "source_url": "https://lcp.fr/actualites/accord-avec-lfi-moyen-orient-pouvoir-d-achat-ce-qu-il-faut-retenir-du-premier-debat-de",
+          "source_title": "Accord avec LFI, Moyen-Orient, pouvoir d'achat : ce qu'il faut retenir du premier débat de la primaire (LCP)",
+          "source_date": "2026-09-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Refuse de qualifier de « génocide » les crimes d'Israël à Gaza, au motif que la CPI n'emploie pas ce terme. Se dit opposé à Netanyahou et favorable à deux États.",
+          "kind": "position_declaree",
+          "details": "À Faure, au débat France 2 du 01/10/2026 : « Ce que tu fais est obscène ». Au débat LCI, à Royal : « il faut faire attention aux mots » et « les Juifs ne sont en aucun cas responsables de la politique de Netanyahou ». Guedj partage ce refus ; Faure et Royal emploient ou défendent le mot.",
+          "short_quote": "Ce que tu fais est obscène",
+          "source_url": "https://www.20min.ch/fr/story/primaire-de-la-gauche-au-debat-glucksmann-et-faure-s-opposent-sur-l-alliance-avec-lfi-103642735",
+          "source_title": "Primaire de la gauche : au débat, Glucksmann et Faure s'opposent sur l'alliance avec LFI (20 minutes/AFP)",
+          "source_date": "2026-10-02",
+          "confidence": "high"
+        },
+        {
+          "position": "Reconnaître l'État de Palestine aux côtés d'Israël (proposé en 2025). Suspendre l'accord d'association UE-Israël et sanctionner les acteurs de la colonisation en Cisjordanie.",
+          "kind": "proposition_explicite",
+          "details": "Reconnaissance : Acte I, chantier 42 (juin 2025). Suspension de l'accord et sanctions : communiqué de Place publique du 21/08/2026, non signé nominativement. Aucune position trouvée sur un embargo sur les armes.",
+          "short_quote": "Sanctionner les acteurs de la colonisation illégale",
+          "source_url": "https://place-publique.eu/posts/2i0gWFYaKIzY29qXbIwzpP/l-europe-doit-s-elever-contre-la-colonisation-israelienne",
+          "source_title": "L'Europe doit s'élever contre la colonisation israélienne (Place publique)",
+          "source_date": "2026-08-21",
+          "confidence": "medium"
+        },
+        {
+          "position": "Proposer aux partenaires de l'UE d'étendre la dissuasion nucléaire française aux autres pays de l'Union, la France gardant seule la décision d'emploi.",
+          "kind": "proposition_explicite",
+          "details": "L'Acte I prévoit aussi : accélérer la production pour un conflit de haute intensité, de grands programmes de drones, un programme « cyber sentinelle », une réserve opérationnelle fortement augmentée et une adaptation de la LPM. Aucun objectif chiffré en % du PIB trouvé.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantiers 1 et 2 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "high"
+        },
+        {
+          "position": "Rupture avec les États-Unis de Trump, présentés comme ayant basculé « du côté des tyrans ». Il a lancé en mars 2025 : « rendez-nous la statue de la Liberté ».",
+          "kind": "position_declaree",
+          "details": "Dans sa lettre aux Français (25/08/2026), il dénonce « les valets de Trump et de Poutine ». L'Acte I juge qu'on ne peut plus compter sur le « parapluie américain ». Aucune position explicite trouvée sur la sortie ou le maintien dans l'OTAN.",
+          "source_url": "https://www.yahoo.com/news/white-house-slams-french-mep-102356451.html",
+          "source_title": "White House slams French MEP's call to return Statue of Liberty (AFP via Yahoo)",
+          "source_date": "2025-03-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Interdire immédiatement toute importation de gaz russe. Aide publique au développement portée progressivement à 0,7 % du RNB. Coalition internationale pour la démocratie.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantiers 6 et 42 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "institutions",
+      "found": true,
+      "positions": [
+        {
+          "position": "Investiture du Premier ministre par un vote de confiance de l'Assemblée et motion de censure « constructive », ce qui permettrait de supprimer le 49.3.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 20 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "high"
+        },
+        {
+          "position": "Instaurer immédiatement la proportionnelle, de préférence par circonscriptions régionales avec fléchage départemental des candidats.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 20 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "high"
+        },
+        {
+          "position": "Supprimer l'article 16 (pouvoirs exceptionnels) et l'article 40, et réformer le Conseil constitutionnel. Lancer une convention citoyenne préparant une assemblée constituante.",
+          "kind": "proposition_explicite",
+          "details": "Il ne parle pas de « VIe République » en tant que telle, mais d'une « régénération constitutionnelle » via une constituante. Formule : un Président « qui préside », un gouvernement « qui gouverne ».",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 20 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "high"
+        },
+        {
+          "position": "Droit d'initiative citoyenne pouvant déclencher des référendums locaux et nationaux, généralisation des conventions citoyennes et « bon pour la démocratie » pour le financement des partis.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 21 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Droit de vote à 16 ans, droit de vote des étrangers extra-communautaires aux élections locales et inscription automatique sur les listes électorales.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 21 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Nouvelle loi de décentralisation et de clarification des compétences, loi pluriannuelle des finances locales et élection des conseils intercommunaux au suffrage universel direct.",
+          "kind": "proposition_explicite",
+          "details": "L'Acte I prévoit aussi : lutte contre le pantouflage, fin de la dépendance de l'État aux cabinets de conseil, observatoire de l'intégrité publique. Aucune position trouvée sur le cumul ou la limitation des mandats.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantiers 21 et 22 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "found": true,
+      "positions": [
+        {
+          "position": "Faire renaître une police de proximité moderne, centrée sur la prévention et la médiation. Améliorer les conditions de travail des policiers et supprimer l'échelon zonal de la police nationale.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 29 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Narcotrafic : renforcer les moyens d'enquête (effectifs spécialisés, service national de renseignement criminel, cyber-enquête) et frapper au portefeuille (TRACFIN, office national anti-blanchiment, parquet financier européen).",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 29 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Organiser une convention citoyenne sur la politique des drogues, notamment sur la légalisation du cannabis. Il ne tranche donc pas lui-même la question.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 29 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "high"
+        },
+        {
+          "position": "Revoir la doctrine du maintien de l'ordre et généraliser les récépissés de contrôle d'identité.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantiers 29 et 40 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Justice : « choc » de justice de proximité, doublement des Maisons du droit, recours massif à la justice restaurative et aux TIG. Lutte contre la surpopulation carcérale par l'adaptation des peines et des prisons rénovées.",
+          "kind": "proposition_explicite",
+          "details": "L'Acte I prévoit aussi la hausse des effectifs judiciaires et pénitentiaires et le jugement en France des djihadistes rapatriés. Aucune position trouvée sur la vidéosurveillance ou les peines planchers.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 30 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "found": true,
+      "positions": [
+        {
+          "position": "Organiser une convention citoyenne sur l'immigration : citoyens tirés au sort confrontés aux données démographiques, économiques et sécuritaires, débouchant sur des propositions soumises au Parlement.",
+          "kind": "proposition_explicite",
+          "short_quote": "Non, l'immigration zéro n'est ni souhaitable, ni possible",
+          "source_url": "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme",
+          "source_title": "Présidentielle : Raphaël Glucksmann dévoile les premières lignes de son possible programme (LCP)",
+          "source_date": "2026-05-26",
+          "confidence": "high"
+        },
+        {
+          "position": "Régulariser les travailleurs sans papiers, notamment dans les métiers en tension, et faciliter les démarches de régularisation.",
+          "kind": "proposition_explicite",
+          "details": "Livre de mai 2026 selon Libre Journal ; l'Acte I (chantier 41) prévoit aussi de « faciliter les démarches de régularisation des travailleurs sans papiers ».",
+          "source_url": "https://librejournal.fr/article/glucksmann-se-devoile/",
+          "source_title": "Glucksmann se dévoile (Libre Journal)",
+          "source_date": "2026-05-25",
+          "confidence": "medium"
+        },
+        {
+          "position": "Abroger la loi immigration de 2024 et faire de la carte de séjour pluriannuelle le titre de référence.",
+          "kind": "proposition_explicite",
+          "details": "Non réaffirmé explicitement en 2026 dans les sources consultées.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 41 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Guichets uniques pour les primo-arrivants sur le modèle portugais, cours de français universels jusqu'au niveau A2 et droit au travail dès l'enregistrement de la demande d'asile.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 41 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Échelle européenne : force européenne de sauvetage en mer et « devoir de sauver », harmonisation de l'asile et fin du système de Dublin, refus d'externaliser les politiques migratoires.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 41 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Créer des voies légales d'immigration de travail liées par accords bilatéraux à la réadmission (laissez-passer consulaires). Mettre fin à la « politique du chiffre » sur les OQTF tout en appliquant celles qui sont délivrées.",
+          "kind": "proposition_explicite",
+          "details": "L'Acte I prévoit aussi le droit de vote des étrangers aux élections locales. Aucune position trouvée sur l'AME ou le droit du sol dans les sources vérifiées.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 41 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "laicite_republique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Défendre la laïcité comme principe d'émancipation (« droit de sortie »), la garantir à l'école et abolir progressivement les régimes dérogatoires à la loi de 1905 et aux lois laïques scolaires.",
+          "kind": "proposition_explicite",
+          "details": "Le texte ne nomme pas l'Alsace-Moselle, mais l'abolition des régimes dérogatoires la vise de fait. Il prévoit aussi de renforcer la MIVILUDES. Aucune position trouvée sur le voile.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 36 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Lutte contre l'antisémitisme comme marqueur : il reproche à LFI des « jeux de mots sur les noms juifs ». Il juge Jordan Bardella « disqualifié » après les accusations de propos antisémites.",
+          "kind": "position_declaree",
+          "details": "Au débat du 01/10/2026, il relie l'affaire Bardella aux vidéos de Soral et dénonce la « tentation » des élites de normaliser le RN. L'Acte I propose une formation obligatoire des parlementaires sur l'antisémitisme et le racisme, des commissions d'enquête, et le maintien de la protection des lieux juifs et musulmans.",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html",
+          "source_title": "Sept séquences à retenir du débat de la primaire de la gauche (franceinfo)",
+          "source_date": "2026-10-01",
+          "confidence": "high"
+        },
+        {
+          "position": "Discriminations : renforcer le Défenseur des droits (injonctions contraignantes, sanctions sur le modèle de la CNIL), formation obligatoire des forces de l'ordre et des magistrats, et renforcement de l'ARCOM contre la haine.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 40 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "« Contrat patriotique » et « sursaut patriotique » : discours républicain et patriote assumé à gauche, visant aussi les électeurs du RN.",
+          "kind": "position_declaree",
+          "details": "Sous-titre du livre de mai 2026. Ses critiques de gauche (LFI, Révolution permanente) l'accusent de reprendre des thèmes de droite ; ces qualifications sont partisanes.",
+          "source_url": "https://allary-editions.fr/products/raphael-glucksmann-nous-avons-encore-envie",
+          "source_title": "Nous avons encore envie. Pour un sursaut patriotique (Allary Éditions)",
+          "source_date": "2026-05-28",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "logement",
+      "found": true,
+      "positions": [
+        {
+          "position": "« Plan Marshall » du logement : fonds national pour aider les collectivités à acheter du foncier et objectifs annuels de construction de logements sociaux rehaussés, via des contrats territoriaux.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 31 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Encadrer les loyers dans les zones en grande tension.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 31 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Réguler davantage les meublés touristiques (modèles du Pays basque et de la Suisse) pour limiter les plateformes de type Airbnb.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 31 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Lutter contre la vacance : élargir le droit de préemption des collectivités sur les immeubles vides et taxer plus lourdement la vacance longue avec des barèmes progressifs. Aucune réquisition explicite n'est proposée.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 31 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Accession à la propriété via le Bail réel solidaire « de masse ». Abrogation de la loi Kasbarian, extension de Visale et programme « logement d'abord » contre le sans-abrisme.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 31 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "industrie_economie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Réindustrialisation portée par la transition écologique et pilotage public du développement industriel : « protectionnisme ciblé et intelligent », commande publique « Fabriqué en France » avec indice d'achat local.",
+          "kind": "proposition_explicite",
+          "details": "Le livre de mai 2026 reprend la réindustrialisation écologique et la mobilisation de l'épargne privée (Libre Journal, 25/05/2026).",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 4 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "high"
+        },
+        {
+          "position": "Protéger les entreprises européennes de la concurrence chinoise par des barrières douanières, notamment sur les batteries, et soutenir l'industrie sur le modèle de l'Inflation Reduction Act américain.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 5 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Fonds régionaux permettant aux Régions d'entrer au capital d'entreprises clés, soutien aux reprises en SCOP et label européen d'épargne pour flécher l'épargne vers l'économie européenne.",
+          "kind": "proposition_explicite",
+          "details": "Ce n'est pas une politique de nationalisations : aucune nationalisation n'est proposée dans les sources consultées.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 4 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Conditionner les aides publiques aux entreprises et plafonner le Crédit d'impôt recherche pour les grands groupes, en le recentrant sur les PME, les ETI industrielles et les jeunes entreprises innovantes.",
+          "kind": "proposition_explicite",
+          "details": "L'Acte I attribue la désindustrialisation à « l'absence de conditionnement des aides publiques ». Le plafonnement du CIR figure au chantier 9.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantiers 2 (intro) et 9 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Ouvrir de nouvelles mines et raffineries de métaux critiques comme le lithium, sous normes strictes, et faire de la France un leader de l'économie circulaire (droit à la réparabilité).",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 5 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "numerique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Interdire les réseaux sociaux aux moins de 15 ans et bannir TikTok.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 8 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "high"
+        },
+        {
+          "position": "Faire de la souveraineté numérique « le grand combat anticapitaliste » de la gauche contre les géants de la tech, en citant Elon Musk, Sam Altman et Zhang Yiming.",
+          "kind": "position_declaree",
+          "source_url": "https://www.france24.com/fr/france/20260614-présidentielle-2027-en-meeting-glucksmann-veut-ramener-la-gauche-au-pouvoir",
+          "source_title": "Présidentielle 2027 : en meeting, Glucksmann veut ramener la gauche au pouvoir (France 24)",
+          "source_date": "2026-06-14",
+          "confidence": "high"
+        },
+        {
+          "position": "Sortir de la dépendance aux GAFAM en 5 ans grâce à un fonds souverain européen pour les alternatives libres. Régulation renforcée et sanctions contre les abus de position dominante.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 8 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Autorité indépendante de protection des mineurs en ligne (sur le modèle de la KJM allemande) avec vérification d'âge, et règles strictes contre les algorithmes addictifs.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 8 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "IA : grande Agence industrielle du numérique et de l'IA financée notamment par une hausse ciblée de la taxe GAFAM, accélérateur pour une « IA sûre » et traité international sur les usages à très haut risque.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 7 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Créer un délit de désinformation organisée dans la loi de 1881. Financer la presse par une taxe sur les géants du numérique et limiter la concentration des médias (réforme de la loi de 1986).",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 21 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "societe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Plan contre les violences sexistes et sexuelles inspiré de l'Espagne, doté d'1 Md€ : unités spécialisées, ordonnances de protection accélérées, bracelets anti-rapprochement généralisés.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 38 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Inscrire dans la loi que toute pénétration sexuelle non consentie est un viol, et soutenir une définition européenne fondée sur le consentement.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 38 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Contraception gratuite, remboursement des protections périodiques, congé menstruel, droit opposable à la garde d'enfant, réforme égalitaire du congé parental et inscription de l'IVG dans la Charte des droits fondamentaux de l'UE.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 38 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Droits LGBTQIA+ : aligner les droits de filiation sur ceux des couples hétérosexuels, harmoniser la PMA en Europe, garantir l'autodétermination de genre et interdire les thérapies de conversion dans toute l'UE.",
+          "kind": "proposition_explicite",
+          "details": "Aucune position vérifiée trouvée sur la GPA.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 39 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Culture et audiovisuel : renforcer le service public de l'audiovisuel avec un financement stable. Pacte d'aménagement culturel du territoire et suppression de la part individuelle du pass Culture au profit d'artistes intervenant à l'école.",
+          "kind": "proposition_explicite",
+          "details": "Également : statut des artistes-auteurs, protection du droit d'auteur face à l'IA générative et exclusion de la culture des accords de libre-échange. Côté sport : plan « Sport pour tous » et contribution solidaire sur les transferts. Aucune position vérifiée trouvée sur la fin de vie (aide à mourir).",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantiers 21, 35 et 37 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "territoires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Outre-mer : démanteler les conglomérats responsables de la vie chère, plafonner les prix des produits de première nécessité, aligner les tarifs télécoms et livres sur l'Hexagone, et flécher une part de l'octroi de mer vers l'investissement local.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 32 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Nouvelle-Calédonie : « renouer avec l'esprit des accords de Nouméa », par le dialogue et la co-construction politique.",
+          "kind": "proposition_explicite",
+          "details": "Formulation générale, sans position précise sur le corps électoral ni sur l'accord de Bougival. Aucune position trouvée sur la Corse.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 32 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Services publics de proximité : garantir l'accès à la CAF, la CPAM, France Travail et aux impôts près de chez soi, et freiner les fermetures d'écoles rurales.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantiers 22 et 33 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Ruralité : service public de transport rural, trains légers en zones rurales, relance des Trains d'équilibre du territoire, interdiction des nouvelles méga-surfaces commerciales et défense du ZAN.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantiers 11 et 12 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        }
+      ]
+    }
+  ],
+  "signature_proposals": [
+    {
+      "proposal": "Taxer davantage les « méga-héritages » (successions de plus de 2 M€, réforme du pacte Dutreil, plus-values latentes) pour environ 15 Md€ par an, reversés intégralement sur les fiches de paie.",
+      "topic_id": "fiscalite",
+      "source_url": "https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/augmenter-les-salaires-en-taxant-les-plus-gros-heritages-la-proposition-de-raphael-glucksmann-est-elle-realiste_8076284.html"
+    },
+    {
+      "proposal": "Baisser la CSG sur les salaires pour augmenter le salaire net, en la finançant par la taxation des grands héritages.",
+      "topic_id": "travail_salaires",
+      "source_url": "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html"
+    },
+    {
+      "proposal": "Tripler le chèque énergie (de 150 € à 500 €), l'étendre aux classes moyennes qui ont besoin de leur voiture, et le financer par une taxe sur les superprofits pétroliers.",
+      "topic_id": "travail_salaires",
+      "source_url": "https://actu.orange.fr/politique/carburant-raphael-glucksmann-propose-de-tripler-le-cheque-energie-et-de-l-etendre-aux-classes-moyennes-magic-CNT000002rZCN7.html"
+    },
+    {
+      "proposal": "Plan de sauvetage de l'école publique sur 5 ans : moins d'élèves par classe en primaire, hausse planifiée des salaires enseignants, intégration du privé sous contrat à la carte scolaire.",
+      "topic_id": "education",
+      "source_url": "https://www.publicsenat.fr/actualites/politique/fiscalite-ecole-immigration-ce-que-propose-raphael-glucksmann"
+    },
+    {
+      "proposal": "Service civique obligatoire de 10 mois pour tous les jeunes, avec une dimension militaire volontaire.",
+      "topic_id": "education",
+      "source_url": "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme"
+    },
+    {
+      "proposal": "Convention citoyenne tirée au sort sur l'immigration, dont les propositions seraient soumises au Parlement.",
+      "topic_id": "immigration",
+      "source_url": "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme"
+    },
+    {
+      "proposal": "Aucun accord avec La France insoumise, ni à la présidentielle ni aux législatives.",
+      "topic_id": "strategie",
+      "source_url": "https://lcp.fr/actualites/primaire-de-gauche-sur-les-accords-avec-lfi-la-fracture-eclate-entre-les-candidats"
+    },
+    {
+      "proposal": "Saut fédéral européen : fin du droit de veto (majorité qualifiée) et emprunt commun, dont un fonds européen de défense de 500 Md€.",
+      "topic_id": "europe",
+      "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf"
+    },
+    {
+      "proposal": "« 100 jours de révolution écologique » dès l'élection, préparés par Yannick Jadot, et leasing social de voiture électrique à environ 100 €/mois.",
+      "topic_id": "ecologie_energie",
+      "source_url": "https://www.franceinfo.fr/elections/presidentielle/raphael-glucksmann-promet-que-la-gauche-peut-transformer-la-vie-des-francais_8199911.html"
+    },
+    {
+      "proposal": "Abroger la réforme des retraites de 2023 et refonder le système sur la pénibilité et l'espérance de vie en bonne santé plutôt que sur un âge légal unique.",
+      "topic_id": "retraites",
+      "source_url": "https://www.publicsenat.fr/actualites/politique/reculer-ou-avancer-lage-legal-avec-ou-sans-capitalisation-ce-que-proposent-les-principaux-candidats-a-lelection-presidentielle-sur-les-retraites"
+    },
+    {
+      "proposal": "Investiture du Premier ministre par l'Assemblée, censure constructive et fin du 49.3, avec proportionnelle immédiate.",
+      "topic_id": "institutions",
+      "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf"
+    },
+    {
+      "proposal": "Interdire les réseaux sociaux aux moins de 15 ans et bannir TikTok.",
+      "topic_id": "numerique",
+      "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf"
+    }
+  ],
+  "distinctive_vs_others": "(1) Alliances. C'est le seul candidat à exclure formellement tout accord avec LFI à la fois à la présidentielle et aux législatives, avec des candidats partout. Guedj est aussi hostile aux accords ; Faure défend des « convergences » (80 % de votes communs à l'Assemblée) ; Maurel soutient un front républicain incluant LFI face à Le Pen ; Royal refuse LFI mais aussi le centre (LCP, 24/09/2026). Il fait de cette « clarification » le cœur de sa candidature et accuse Faure d'« esprit de défaite ».\n\n(2) Pouvoir d'achat. Sa mesure phare, la baisse de la CSG sur les salaires financée par les méga-héritages, l'isole : Faure la juge limitée, Royal « dangereuse », Guedj y voit une menace pour la Sécurité sociale (débat du 01/10/2026). Sur les carburants, il défend une aide ciblée (chèque énergie triplé), là où Royal et Guedj proposent une baisse générale des taxes.\n\n(3) Retraites. Il ne fixe aucun âge légal : la réforme serait fondée sur la pénibilité et l'espérance de vie en bonne santé. Faure vise un retour à 62 ans ; Guedj veut une logique de durée de cotisation (Public Sénat, 30/09/2026 ; franceinfo, 30/09/2026).\n\n(4) International. C'est la ligne la plus offensive contre la Russie (protection du ciel ukrainien, hausse de l'aide), face à Royal qui prône l'équilibre et la négociation. Sur Gaza, il refuse le mot « génocide », comme Guedj, et s'oppose vivement à Faure et à Royal.\n\n(5) Europe. Il est le plus fédéraliste : fin du veto, traité de refondation d'ici 2030, emprunt de 500 Md€. Maurel prône au contraire la « démondialisation » et un « emprunt national » (LCP, 23/09/2026).\n\n(6) Profil. Seul candidat issu de Place publique et sans mandat national ni exécutif. Royal l'a qualifié de « stagiaire ». Il est soutenu par des figures du PS (Vallaud, Delga, Mayer-Rossignol, Delafosse) et par l'écologiste Yannick Jadot.\n\n(7) Propositions qui lui sont propres dans les sources consultées : service civique obligatoire de 10 mois, convention citoyenne sur l'immigration, extension de la dissuasion nucléaire française aux partenaires de l'UE, bannissement de TikTok.",
+  "evolutions_and_contradictions": "(a) Primaire. Le 23/05/2025, il refuse toute primaire, jugée « mortifère ». Il maintient ce refus en janvier 2026, puis au meeting d'Aubervilliers (13/06/2026). Le 25/08/2026, il accepte un protocole de primaire avec le PS : revirement majeur.\n\n(b) Rapport à LFI. En juin 2024, il rejoint le NFP après avoir obtenu des engagements sur l'Ukraine et l'Europe, et se prononce pour un désistement républicain systématique face au RN. Depuis 2025-2026, il exclut toute alliance, même dans les circonscriptions menacées par le RN, et dit regretter la genèse du NFP (« plus jamais à la remorque »). Il dit encore vouloir « œuvrer au front républicain au 2e tour ».\n\n(c) Retraites. L'Acte I (juin 2025) prévoit l'abrogation de la réforme de 2023, certains partant à 60 ans et d'autres travaillant plus. Le livre de mai 2026 parle d'une réforme « juste et ambitieuse » tenant compte des « bouleversements démographiques », ce que LFI présente comme un renoncement à l'abrogation. En août 2026, son député Aurélien Rousseau évoque un mix âge/durée de cotisation et un travail plus long pour certains. En septembre 2026, il réaffirme l'abrogation sans aucun paramètre chiffré. Il reste une tension entre « abroger » et « réformer en faisant travailler certains plus longtemps ».\n\n(d) Instrument salarial. Sur TF1 (23/08/2026), il annonce une baisse des cotisations ou prélèvements salariaux. Le 01/10/2026, il s'agit d'une baisse de la CSG. Le montant de gain par salarié varie selon les sources : environ 1 000 €/an au SMIC selon un soutien, « jusqu'à 200 € » par mois selon un autre compte rendu.\n\n(e) Service national. L'Acte I (2025) proposait un « rite de passage républicain » remplaçant le service militaire. Le livre (2026) propose un service civique obligatoire de 10 mois.\n\n(f) Budget. En 2025, il faisait de la taxe Zucman « la base de tout accord » de non-censure avec Lecornu. En septembre 2026, il penche pour la censure du budget 2027. Sa campagne met désormais l'accent sur les successions plutôt que sur la taxe Zucman.\n\n(g) SMIC à 1 600 € net. C'est l'engagement de juin 2025 ; il n'a pas été retrouvé dans les comptes rendus de la campagne de 2026.",
+  "open_questions": [
+    "Retraites : quel âge légal et quelle durée de cotisation ? Que signifie concrètement « abroger » la réforme de 2023 si certains doivent travailler plus longtemps ?",
+    "Baisse de la CSG : comment la perte de recettes de la Sécurité sociale serait-elle compensée ? Quel gain réel par salarié (les chiffres de ~1 000 €/an au SMIC et « jusqu'à 200 €/mois » ne concordent pas) ? Mesure pérenne ou ponctuelle ?",
+    "Le SMIC à 1 600 € net en deux ans (Acte I, 2025) fait-il toujours partie du projet de 2026 ? Aucune position trouvée sur les 32 heures ou la semaine de quatre jours.",
+    "La taxe Zucman (2 % au-delà de 100 M€) est-elle maintenue dans son programme présidentiel, en plus de la réforme des successions ?",
+    "S'il perd la primaire, s'engage-t-il personnellement à soutenir le vainqueur, notamment Faure, plus ouvert à LFI ? Le protocole implique un soutien au candidat désigné, mais aucune déclaration personnelle explicite n'a été trouvée.",
+    "Second tour des législatives : appellerait-il à se désister pour un candidat LFI arrivé devant le RN ?",
+    "Défense : quel objectif de budget en % du PIB ? Quelle position sur l'envoi de troupes européennes ou françaises en Ukraine (garanties de sécurité) et sur l'OTAN ? Aucune source vérifiée.",
+    "Nucléaire : combien de nouveaux réacteurs ? Aucune position vérifiée sur la fin des moteurs thermiques en 2035, l'A69 ou d'autres grands projets contestés (seul un moratoire général est évoqué).",
+    "Déserts médicaux : soutient-il une régulation contraignante de l'installation des médecins ? L'Acte I parle seulement de « soutenir l'installation ».",
+    "Aucune position vérifiée trouvée sur la fin de vie (aide à mourir), la GPA, l'AME, le droit du sol, le voile, l'uniforme scolaire, la vidéosurveillance, le cumul ou la limitation des mandats, ni la Corse.",
+    "Cannabis : il renvoie à une convention citoyenne sans se prononcer lui-même sur la légalisation.",
+    "Vérification du contexte : les sources (franceinfo, LCP, Place publique) confirment des tours de scrutin les 9-10 et 16-17 octobre 2026. Wikipédia EN et certains sites tiers indiquent à tort 10-11 et 17-18 octobre. Les cinq candidats (Faure, Glucksmann, Guedj, Maurel, Royal) sont confirmés par LCP le 23/09/2026 ; Philippe Brun figurait parmi les déclarés fin août, mais le motif de son exclusion n'a pas été vérifié. La page de Place publique cite le PS, Place publique et la GRS comme organisateurs, alors que l'article franceinfo d'août ne mentionnait que le PS et Place publique. Place publique renvoie vers participer.choisir2027.fr, et non choisir2027.org. Les débats du 23/09 (LCI/Le Parisien), du 01/10 (France 2/France Inter) et du 04/10 (BFMTV) sont confirmés par LCP."
+  ]
+}

@@ -1,0 +1,5557 @@
+/* ——— Base : la page est la feuille ——— */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scrollbar-color: var(--print-soft) var(--paper);
+  scrollbar-width: thin;
+  scroll-padding-top: 5rem;
+  /* La barre du bas grossit avec le texte : le focus clavier s'arrête au-dessus de sa hauteur réelle */
+  scroll-padding-bottom: calc(var(--bar-real, var(--bar-h)) + 0.75rem);
+}
+
+/* Fiche candidat, sujets : l'élément qui reçoit le focus passe sous l'en-tête et la barre de filtres collante
+   (--filters-h vaut zéro quand elle ne colle plus) */
+html:has(.fiche-filters) {
+  scroll-padding-top: calc(var(--header-real, 3.5rem) + var(--filters-h, 9rem) + 0.75rem);
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--print);
+  font-size: var(--text);
+  line-height: var(--leading);
+  font-stretch: 100%;
+  font-kerning: normal;
+  caret-color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p,
+li,
+dd {
+  text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+code {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 0.88em;
+}
+
+abbr[title] {
+  text-decoration: none;
+}
+
+q {
+  quotes: '«\202F' '\202F»' '“' '”';
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.nowrap .icon {
+  width: 0.85em;
+  height: 0.85em;
+  margin-left: 0.2em;
+  vertical-align: -0.05em;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip {
+  position: absolute;
+  left: var(--gutter);
+  top: 0;
+  /* Caché au-dessus de la page quelle que soit sa hauteur (texte agrandi, lien sur plusieurs lignes) */
+  transform: translateY(-120%);
+  z-index: 30;
+  padding: 0.6rem 1rem;
+  background: var(--print);
+  color: var(--on-print);
+  font-weight: 700;
+}
+
+.skip:focus {
+  transform: translateY(0.5rem);
+}
+
+.screen {
+  --frame: calc(var(--sheet) + var(--margin-col));
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ——— En-tête de formulaire : double filet imprimé ——— */
+
+.form-header {
+  container: header / inline-size;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--paper);
+  border-bottom: var(--thick) solid var(--rule-strong);
+}
+
+.form-header::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(-1 * var(--thick) - 5px);
+  height: 5px;
+  background: linear-gradient(var(--paper) 0 4px, var(--rule-strong) 4px);
+}
+
+/* Une seule rangée, de la même hauteur sur toutes les pages et à toutes les largeurs (à texte normal) :
+   chaque élément tient dans une cible de 2.75rem. Le logo s'y centre (brand.css), le bouton « Menu » et
+   l'appel de l'accueil la prennent toute, les textes se posent sur la ligne de base du mot « isoloir ».
+   Le nom de la page n'y figure pas : la page le porte déjà. */
+.form-header-inner {
+  max-width: var(--frame);
+  margin: 0 auto;
+  padding: 0.55rem var(--gutter);
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  gap: 0.9rem;
+  min-width: 0;
+  /* La cible et ses deux blancs : l'arrondi des lignes de base ne la fait pas varier d'un pixel */
+  min-height: calc(2.75rem + 2 * 0.55rem);
+}
+
+/* Le nom du scrutin (accueil), à côté du logo, dès que la rangée a la place de le garder entier */
+.form-scrutin {
+  display: none;
+  flex: none;
+  font-size: var(--text-sm);
+  white-space: nowrap;
+}
+
+@container header (min-width: 40rem) {
+  .form-scrutin {
+    display: inline;
+  }
+}
+
+/* Le repère de la feuille (thème + compteur), à droite : le thème se rogne par son ellipse plutôt que de
+   pousser le bouton « Menu » sur une autre rangée */
+.form-locator {
+  display: flex;
+  flex: 1 1 0;
+  justify-content: flex-end;
+  font-size: var(--text-sm);
+  text-align: right;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.locator {
+  display: flex;
+  gap: 0.7rem;
+  align-items: baseline;
+  justify-content: flex-end;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.locator-topic {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.locator-count {
+  flex: none;
+  font-weight: 800;
+  font-stretch: 80%;
+  font-size: 1.05rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* L'appel principal dans l'en-tête (accueil) : la barre du haut et le bouton ne font qu'un. Il a la
+   hauteur du bouton « Menu », sur une ligne. Sélecteur renforcé : .btn-primary, déclaré plus loin,
+   imposerait sinon sa hauteur de 3rem, son corps et son remplissage, et l'accueil aurait un en-tête
+   plus haut que les autres pages */
+.form-header .header-cta {
+  flex: none;
+  align-self: center;
+  margin-left: auto;
+  min-height: 2.75rem;
+  padding: 0 var(--s4);
+  font-size: 1rem;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+/* Libellé long s'il tient, sinon le court (FormHeader mesure la rangée et pose data-fit) */
+.header-cta .cta-short {
+  display: none;
+}
+
+.form-header-inner:is([data-fit='short'], [data-fit='tight']) .header-cta .cta-long {
+  display: none;
+}
+
+.form-header-inner:is([data-fit='short'], [data-fit='tight']) .header-cta .cta-short {
+  display: inline;
+}
+
+/* Très étroit (texte agrandi) : la marque et le compteur seuls, sur une ligne */
+@container header (max-width: 19.9rem) {
+  .form-header-inner {
+    min-height: 0;
+  }
+
+  .locator-topic {
+    display: none;
+  }
+
+  /* L'appel de l'accueil prend toute une rangée sous la marque, au libellé court ; sa flèche s'efface pour
+     laisser au libellé toute la largeur (« Mon dépouillement » à 200 %) */
+  .form-header-inner:has(.header-cta) {
+    flex-wrap: wrap;
+    row-gap: 0.4rem;
+  }
+
+  .form-header .header-cta {
+    flex: 1 1 100%;
+    justify-content: center;
+    /* Sa propre rangée : la hauteur du libellé suffit, la cible reste bien au-delà de 24px */
+    min-height: 0;
+    padding: 0.35rem var(--s3);
+    white-space: normal;
+    text-align: center;
+    hyphens: auto;
+  }
+
+  .form-header .header-cta .cta-long {
+    display: none;
+  }
+
+  .form-header .header-cta .cta-short {
+    display: inline;
+  }
+
+  .header-cta .icon {
+    display: none;
+  }
+}
+
+/* ——— Feuille ——— */
+
+.sheet {
+  flex: 1;
+  width: 100%;
+  max-width: var(--frame);
+  margin: 0 auto;
+  padding: var(--s6) var(--gutter) calc(var(--bar-real, var(--bar-h)) + var(--s7));
+}
+
+.display {
+  /* Un mot plus large que la ligne (texte très agrandi) se coupe plutôt que de déborder */
+  overflow-wrap: anywhere;
+  margin: var(--s4) 0 var(--s5);
+  font-weight: 850;
+  font-stretch: 70%;
+  font-size: clamp(2.6rem, 12.5vw, 5.5rem);
+  line-height: 0.96;
+  letter-spacing: -0.01em;
+  max-width: 13ch;
+}
+
+.display.is-medium {
+  font-size: clamp(2.3rem, 9.5vw, 4.25rem);
+  max-width: 16ch;
+}
+
+.lede {
+  margin: 0 0 var(--s5);
+  font-size: 1.125rem;
+  line-height: 1.5;
+  max-width: var(--measure);
+}
+
+.q-prompt {
+  overflow-wrap: break-word;
+  margin: var(--s4) 0 var(--s4);
+  font-weight: 800;
+  font-stretch: 76%;
+  font-size: clamp(1.9rem, 7.4vw, 3.15rem);
+  line-height: 1.03;
+  letter-spacing: -0.006em;
+  max-width: 21ch;
+  outline: none;
+}
+
+.q-context {
+  margin: 0 0 var(--s3);
+  max-width: var(--measure);
+  color: var(--print-soft);
+}
+
+.q-hint {
+  margin: var(--s5) 0 var(--s3);
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+  max-width: var(--measure);
+}
+
+.small {
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+  max-width: var(--measure);
+}
+
+/* ——— Lignes du formulaire ——— */
+
+.approaches {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: var(--line) solid var(--rule-strong);
+  border-bottom: var(--line) solid var(--rule-strong);
+}
+
+.approach {
+  display: grid;
+  grid-template-columns: var(--margin-col) minmax(0, 1fr) auto;
+  align-items: stretch;
+  border-top: var(--hair) solid var(--rule);
+  transition: background-color var(--t-quick) ease-out;
+}
+
+.approach:first-child {
+  border-top: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .approach:hover {
+    background: color-mix(in srgb, var(--print) 3%, var(--paper));
+  }
+}
+
+.approach-letter {
+  grid-column: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: 0.95rem;
+  border-right: var(--hair) solid var(--rule);
+  font-weight: 800;
+  font-stretch: 80%;
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+
+.approach-letter.count {
+  font-variant-numeric: tabular-nums;
+  color: var(--print-soft);
+}
+
+.is-topics .approach-letter {
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.is-topics .approach-letter.count {
+  color: var(--print-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.approach-main {
+  grid-column: 2;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s3);
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.95rem 0 0.95rem var(--s4);
+  background: none;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Listes de thèmes : pas de colonne « inacceptable », la ligne prend toute la largeur */
+.approach-main:last-child {
+  grid-column: 2 / -1;
+  padding-right: 0;
+}
+
+.approach-text {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: break-word;
+  font-size: 1.0625rem;
+  line-height: 1.45;
+  max-width: var(--measure);
+}
+
+.topic-label {
+  display: block;
+  font-weight: 750;
+}
+
+.topic-desc {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+/* Réglette d'avis et colonne de cases « ligne rouge », comme une feuille de pointage */
+
+.approaches,
+.approach-head {
+  --box-col: 3rem;
+}
+
+.answers {
+  container: answers / inline-size;
+}
+
+/* Largeur d'un cran : jusqu'à 4.5rem, réduite sur les plus petits écrans pour que la réglette tienne */
+.answers .approaches,
+.answers .approach-head {
+  --cran-w: clamp(2.75rem, calc((100cqi - var(--margin-col) - var(--s4) - var(--s3) - var(--box-col)) / 3), 4.5rem);
+  --cran-h: 2.75rem;
+  --row-pad: 0.55rem;
+}
+
+.approach-body {
+  grid-column: 2;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.85rem var(--s3) var(--row-pad) var(--s4);
+}
+
+.approach-body .approach-text {
+  margin: 0;
+}
+
+.ruler-row {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  min-width: 0;
+}
+
+/* La case rouge s'aligne sur le filet de la réglette */
+.approach-reject {
+  grid-column: 3;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: var(--box-col);
+  padding: 0 0 calc(var(--row-pad) + (var(--cran-h) - 1.75rem) / 2);
+  background: none;
+  border: 0;
+  border-left: var(--hair) solid var(--rule);
+  cursor: pointer;
+}
+
+/* Tons de l'échelle : chaque cran a la couleur du palier d'affinité qui lui répond */
+[data-tone='tres-eloigne'] {
+  --tone: var(--aff-tres-eloigne);
+}
+[data-tone='eloigne'] {
+  --tone: var(--aff-eloigne);
+}
+[data-tone='mitige'] {
+  --tone: var(--aff-mitige);
+}
+[data-tone='proche'] {
+  --tone: var(--aff-proche);
+}
+[data-tone='tres-proche'] {
+  --tone: var(--aff-tres-proche);
+}
+
+.ruler {
+  position: relative;
+  flex: none;
+  display: grid;
+  grid-template-columns: repeat(3, var(--cran-w));
+}
+
+/* Le filet imprimé de la réglette */
+.ruler::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--cran-w) / 2);
+  right: calc(var(--cran-w) / 2);
+  top: 50%;
+  border-top: var(--line) solid var(--print);
+  pointer-events: none;
+}
+
+.cran {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: var(--cran-h);
+  cursor: pointer;
+}
+
+.cran input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.cran:has(input:focus-visible) {
+  outline: 2px solid var(--focus);
+  outline-offset: -3px;
+}
+
+.tick {
+  width: var(--line);
+  height: 0.75rem;
+  background: var(--print);
+  transition:
+    height var(--t-quick) var(--ease-out),
+    width var(--t-quick) var(--ease-out);
+}
+
+.cran:first-child .tick,
+.cran:last-child .tick {
+  height: 1.15rem;
+}
+
+/* Le cran central, « sans avis » : un point imprimé sur le filet */
+.cran.is-zero .tick {
+  position: relative;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--paper);
+  box-shadow: inset 0 0 0 var(--line) var(--print);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cran:not(.is-zero):hover .tick {
+    width: 2.5px;
+    height: 1.3rem;
+  }
+}
+
+.cran.is-on:not(.is-zero) .tick {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--tone);
+}
+
+/* « Sans avis » choisi (y compris au départ) : le point se remplit de gris, entouré comme les autres */
+.cran.is-on.is-zero .tick {
+  background: var(--tone);
+  box-shadow: none;
+}
+
+.ink-loop.cran-mark {
+  left: 50%;
+  top: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  transform: translate(-50%, -50%) rotate(-6deg);
+  stroke: var(--tone);
+  stroke-width: 2.1;
+}
+
+/* Le mot du cran choisi, écrit sous le repère : la couleur n'est jamais le seul indice */
+.ruler-value {
+  position: absolute;
+  top: calc(100% - 0.2rem);
+  left: calc((var(--at) + 0.5) * var(--cran-w));
+  transform: translateX(-50%);
+  font-size: var(--text-xs);
+  font-weight: 750;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--tone);
+  pointer-events: none;
+}
+
+.ruler-value.at-start {
+  left: 0;
+  transform: none;
+}
+
+.ruler-value.at-end {
+  left: auto;
+  right: 0;
+  transform: none;
+}
+
+/* Le mot du cran choisi, « Sans avis » compris, est toujours écrit : sa place est réservée sur chaque
+   ligne (rien ne saute d'un état à l'autre), et la case rouge reste alignée sur le filet */
+.approach .ruler-row {
+  padding-bottom: 0.8rem;
+}
+
+.approach .approach-reject {
+  padding-bottom: calc(var(--row-pad) + 0.8rem + (var(--cran-h) - 1.75rem) / 2);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .approach-reject:hover .box {
+    box-shadow: inset 0 0 0 1px var(--red);
+  }
+}
+
+.approach-reject[aria-pressed='true'] .box {
+  border-color: var(--red);
+}
+
+.approach-head {
+  display: grid;
+  grid-template-columns: var(--margin-col) minmax(0, 1fr) var(--box-col);
+  align-items: end;
+  padding-bottom: 0.45rem;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  line-height: 1.12;
+}
+
+/* Légende des crans, alignée sur la réglette */
+.ruler-legend {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: repeat(3, var(--cran-w));
+  justify-content: start;
+  align-items: end;
+  padding-left: var(--s4);
+  text-align: center;
+}
+
+.ruler-legend span {
+  padding: 0 1px;
+  font-stretch: 85%;
+  color: var(--tone);
+}
+
+.ruler-legend [data-tone='mitige'] {
+  color: var(--print-soft);
+  font-weight: 400;
+}
+
+.approach-head .col-reject {
+  grid-column: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  text-align: center;
+  color: var(--red);
+}
+
+.reject-label {
+  display: none;
+}
+
+/* Très étroit (petit écran, texte agrandi) : la lettre passe devant le texte et la case « ligne rouge »
+   sous la réglette, avec son libellé. La réglette garde toute la largeur et ne glisse jamais sous la case. */
+.inline-letter {
+  display: none;
+}
+
+@container answers (max-width: 17.9rem) {
+  .answers .approaches,
+  .answers .approach-head {
+    --box-col: 0px;
+    --cran-w: clamp(36px, calc((100cqi - var(--s4) - var(--s3)) / 3), 4.5rem);
+  }
+
+  .answers .approach,
+  .answers .approach-head {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .answers .approach-letter {
+    display: none;
+  }
+
+  .answers .inline-letter {
+    display: inline;
+    margin-right: 0.4em;
+    font-weight: 800;
+    font-stretch: 80%;
+  }
+
+  .answers .approach-body,
+  .answers .ruler-legend {
+    grid-column: 1;
+  }
+
+  .answers .approach-reject,
+  .answers .approach .approach-reject {
+    grid-column: 1;
+    grid-row: 2;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--s2);
+    width: auto;
+    min-width: 0;
+    min-height: 2.75rem;
+    padding: 0 0 var(--row-pad) var(--s4);
+    border-left: 0;
+    color: var(--red);
+    font-size: var(--text-sm);
+    font-weight: 700;
+  }
+
+  .answers .approach-reject .box {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .answers .reject-label {
+    display: inline;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .answers .approach-head .col-reject {
+    display: none;
+  }
+
+  /* Texte très agrandi : les mots de la légende se coupent plutôt que de déborder */
+  .answers .ruler-legend span {
+    hyphens: auto;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* Assez de largeur : le texte à gauche, la réglette à droite, une ligne par approche */
+@container answers (min-width: 36rem) {
+  .answers .approaches,
+  .answers .approach-head {
+    --cran-w: 3.75rem;
+    --cran-h: 2.5rem;
+    --row-pad: 0.6rem;
+    --box-col: 4rem;
+  }
+
+  .approach-body {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--s5);
+    padding: var(--row-pad) var(--s4);
+  }
+
+  .approach-body .approach-text {
+    flex: 1;
+  }
+
+  /* Côte à côte : la place du mot est réservée dessus et dessous, le filet reste centré sur la ligne */
+  .approach .ruler-row {
+    padding: 0.8rem 0;
+  }
+
+  .approach-reject,
+  .approach .approach-reject {
+    align-items: center;
+    padding: 0;
+  }
+
+  .answers .ruler-legend {
+    justify-content: end;
+    padding-right: var(--s4);
+  }
+}
+
+.approach-head .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  stroke-width: 2.4;
+}
+
+.hint-mark {
+  width: 1.05rem;
+  height: 1.05rem;
+  vertical-align: -0.2rem;
+  stroke-width: 2.6;
+}
+
+.is-ink {
+  color: var(--ink);
+}
+
+.is-red {
+  color: var(--red);
+}
+
+@media (min-width: 40rem) {
+  .approaches,
+  .approach-head {
+    --box-col: 4.5rem;
+  }
+}
+
+.approach.is-rejected .approach-text {
+  color: var(--print-soft);
+  text-decoration: line-through;
+  text-decoration-color: var(--red);
+  text-decoration-thickness: 2px;
+}
+
+.approach-main[aria-disabled='true'] {
+  cursor: not-allowed;
+}
+
+.approach-main[aria-disabled='true'] .approach-text,
+.approach-main[aria-disabled='true'] .box {
+  opacity: 0.55;
+}
+
+/* Case imprimée et marques à l'encre */
+
+.box {
+  position: relative;
+  flex: none;
+  display: inline-block;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-top: 0.02rem;
+  border: var(--line) solid var(--print);
+  border-radius: 1px;
+  background: var(--paper);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .approach-main:hover .box {
+    box-shadow: inset 0 0 0 1px var(--print);
+  }
+}
+
+.ink {
+  position: absolute;
+  overflow: visible;
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+.ink-tick {
+  left: -12%;
+  top: -34%;
+  width: 135%;
+  height: 135%;
+}
+
+.ink-cross {
+  inset: -6%;
+  width: 112%;
+  height: 112%;
+  stroke: var(--red);
+}
+
+.ink-draw path,
+path.ink-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: ink-draw var(--t-stroke) var(--ease-out) forwards;
+}
+
+.ink-draw .ink-second {
+  animation-delay: 80ms;
+}
+
+@keyframes ink-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ink-draw path,
+  path.ink-draw {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ——— Barre d'actions, dans la zone du pouce ——— */
+
+.action-bar {
+  container: actions / inline-size;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background: var(--paper);
+  border-top: var(--line) solid var(--rule-strong);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.action-bar-inner {
+  max-width: var(--frame);
+  min-height: var(--bar-h);
+  margin: 0 auto;
+  padding: 0.7rem var(--gutter);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s2) var(--s3);
+}
+
+.action-bar-inner > :nth-child(2) {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.action-bar-inner.is-single > * {
+  flex: 1 1 100%;
+}
+
+.bar-note {
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 3rem;
+  padding: 0 1.3rem;
+  background: var(--print);
+  color: var(--on-print);
+  border: 0;
+  border-radius: 0;
+  font-weight: 750;
+  font-stretch: 85%;
+  font-size: 1.0625rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--t-quick) ease-out;
+}
+
+.btn-primary:hover {
+  background: color-mix(in srgb, var(--print) 82%, var(--paper));
+  text-decoration: none;
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+.btn-primary:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+.btn-primary.is-wide {
+  width: 100%;
+  min-height: 3.5rem;
+  font-size: 1.15rem;
+}
+
+.btn-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.05rem;
+  background: none;
+  border: 0;
+  font-size: var(--text-sm);
+  font-weight: 650;
+  color: var(--print);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+  cursor: pointer;
+}
+
+.btn-text:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-text.is-danger {
+  font-weight: 850;
+  text-decoration-thickness: 2px;
+}
+
+.icon {
+  flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.tally {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  min-height: 1.6rem;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.tally-carry {
+  color: var(--ink);
+  font-weight: 700;
+  font-stretch: 85%;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.tally-group {
+  width: 1.7rem;
+  height: 1.5rem;
+  overflow: visible;
+}
+
+.tally path {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2.1;
+  stroke-linecap: round;
+}
+
+.suggestion {
+  max-width: var(--measure);
+  margin: 0 0 var(--s4);
+  font-size: var(--text-sm);
+}
+
+/* ——— Accueil ——— */
+
+.home-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  column-gap: var(--s5);
+}
+
+.stamp {
+  display: inline-flex;
+  flex-direction: column;
+  /* la rotation déborde de quelques pixels : on la garde dans la colonne */
+  max-width: calc(100% - 0.75rem);
+  margin: 0;
+  padding: 0.4rem 0.7rem 0.35rem;
+  border: 2px solid var(--print);
+  transform: rotate(-4deg);
+  font-stretch: 80%;
+  line-height: 1.1;
+}
+
+.stamp-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.stamp-date {
+  overflow-wrap: anywhere;
+  font-size: 1.45rem;
+  font-weight: 850;
+  font-variant-numeric: tabular-nums;
+}
+
+.legend {
+  margin: var(--s6) 0 var(--s5);
+  border-top: var(--line) solid var(--rule-strong);
+  border-bottom: var(--line) solid var(--rule-strong);
+}
+
+.legend-row {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr);
+  padding: 0.8rem 0;
+  border-top: var(--hair) solid var(--rule);
+  align-items: start;
+}
+
+.legend-row:first-child {
+  border-top: 0;
+}
+
+.legend-mark {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.legend-n {
+  width: 1rem;
+  font-weight: 800;
+  font-stretch: 80%;
+  font-size: 1.1rem;
+  line-height: 1.45;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.legend .box {
+  width: 1.45rem;
+  height: 1.45rem;
+  margin-top: 0.12rem;
+}
+
+.legend dd {
+  margin: 0;
+  max-width: var(--measure);
+}
+
+.legend strong {
+  font-weight: 800;
+  font-stretch: 82%;
+  font-size: 1.1rem;
+}
+
+.guarantee {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  max-width: var(--measure);
+  margin: 0;
+  padding: var(--s4) 0 var(--s3);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.guarantee .icon {
+  margin-top: 0.2rem;
+}
+
+.home-more {
+  margin-top: var(--s4);
+}
+
+.progress-note {
+  margin: 0 0 var(--s1);
+  font-size: var(--text-sm);
+}
+
+.done-note {
+  color: var(--print-soft);
+}
+
+/* Accueil : entrées au défilement (voir useReveal). Une fois, sans rebond, rien sous mouvement réduit. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-on .is-reveal {
+    opacity: 0;
+    transform: translateY(1.25rem);
+    transition:
+      opacity 520ms var(--ease-out),
+      transform 760ms var(--ease-out);
+    transition-delay: calc(var(--reveal-i, 0) * 110ms);
+  }
+
+  .reveal-on .is-reveal.is-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal-on .section-title.is-reveal {
+    transform: none;
+  }
+
+  /* Les portraits : un léger zoom, en cascade */
+  .reveal-on .people-strip > li.is-reveal {
+    transform: translateY(0.75rem) scale(0.96);
+  }
+
+  .reveal-on .people-strip > li.is-reveal.is-in {
+    transform: none;
+  }
+}
+
+/* Les titres de section : le filet se trace de gauche à droite sous le titre (pas en contraste forcé,
+   où le fond disparaît : la bordure d'origine y reste) */
+@media (prefers-reduced-motion: no-preference) and (forced-colors: none) {
+  .reveal-on .section-title.is-reveal {
+    border-bottom-color: transparent;
+    background: linear-gradient(var(--rule-strong), var(--rule-strong)) left bottom / 0% var(--thick) no-repeat border-box;
+    transition:
+      opacity 520ms var(--ease-out),
+      background-size 900ms var(--ease-out) 120ms;
+  }
+
+  .reveal-on .section-title.is-reveal.is-in {
+    background-size: 100% var(--thick);
+  }
+}
+
+.link-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 1.5rem;
+}
+
+.confirm {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0 1.25rem;
+}
+
+.error {
+  font-weight: 700;
+}
+
+/* ——— Procès-verbal ——— */
+
+.pv-tie {
+  margin-top: 0.3rem;
+  font-size: 0.75rem;
+  font-weight: 650;
+  font-stretch: 90%;
+  line-height: 1.1;
+}
+
+.pv-unit {
+  margin-left: 0.06em;
+  font-size: 0.5em;
+  font-weight: 700;
+}
+
+.tally.is-muted path {
+  opacity: 0.45;
+}
+
+.pv-moved {
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.flag-mark {
+  width: 0.9rem;
+  height: 0.9rem;
+  margin-right: 0.4rem;
+  vertical-align: -0.1rem;
+  stroke-width: 2.4;
+  color: var(--red);
+}
+
+.pv-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  padding: var(--s6) 0 var(--s2);
+  border-bottom: var(--line) solid var(--rule-strong);
+  font-weight: 750;
+  font-stretch: 85%;
+  font-size: 1.05rem;
+}
+
+.switch {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin: var(--s4) 0;
+  max-width: var(--measure);
+  font-size: var(--text-sm);
+  cursor: pointer;
+}
+
+.switch input {
+  flex: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin: 0.12rem 0 0;
+  accent-color: var(--ink);
+}
+
+.notice {
+  max-width: var(--measure);
+  margin: var(--s4) 0;
+  padding: var(--s3) var(--s4);
+  border: var(--line) solid var(--rule-strong);
+  font-size: var(--text-sm);
+}
+
+.notice p {
+  margin: 0 0 var(--s2);
+}
+
+.q-hint.is-alert {
+  color: var(--print);
+  font-weight: 650;
+}
+
+.block {
+  margin-top: var(--s8);
+}
+
+.block h2,
+.prose h2,
+.reveal-topic h2 {
+  margin: 0 0 var(--s4);
+  padding-bottom: var(--s2);
+  border-bottom: var(--line) solid var(--rule-strong);
+  font-weight: 800;
+  font-stretch: 78%;
+  font-size: clamp(1.55rem, 5.4vw, 2.1rem);
+  line-height: 1.08;
+}
+
+.grid-scroll {
+  /* Les textes pour lecteurs d'écran (position absolue) restent dans la zone qui défile */
+  position: relative;
+  overflow-x: auto;
+  margin: 0 calc(-1 * var(--gutter));
+  padding: 0 var(--gutter);
+}
+
+.pv-grid {
+  width: 100%;
+  min-width: 22rem;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.pv-grid th,
+.pv-grid td {
+  padding: 0.6rem 0.35rem;
+  border-bottom: var(--hair) solid var(--rule);
+  text-align: right;
+  vertical-align: baseline;
+}
+
+.pv-grid thead th {
+  border-bottom: var(--line) solid var(--rule-strong);
+  font-weight: 800;
+  font-stretch: 82%;
+}
+
+.pv-grid th[scope='row'],
+.pv-grid thead th:first-child {
+  text-align: left;
+  font-weight: 600;
+  padding-left: 0;
+}
+
+.pv-grid td {
+  font-weight: 650;
+}
+
+/* ——— Échelle d'affinité (rouge → vert), toujours doublée d'un libellé ——— */
+
+.aff-tres-eloigne { --aff: var(--aff-tres-eloigne); --aff-tint: var(--aff-tres-eloigne-tint); }
+.aff-eloigne { --aff: var(--aff-eloigne); --aff-tint: var(--aff-eloigne-tint); }
+.aff-mitige { --aff: var(--aff-mitige); --aff-tint: var(--aff-mitige-tint); }
+.aff-proche { --aff: var(--aff-proche); --aff-tint: var(--aff-proche-tint); }
+.aff-tres-proche { --aff: var(--aff-tres-proche); --aff-tint: var(--aff-tres-proche-tint); }
+
+.aff-cell {
+  background: var(--aff-tint);
+  color: var(--aff);
+}
+
+.pv-grid td.aff-cell {
+  font-weight: 750;
+  border-bottom-color: var(--paper);
+  border-bottom-width: 2px;
+}
+
+.swatch {
+  display: inline-block;
+  flex: none;
+  width: 0.8rem;
+  height: 0.8rem;
+  background: var(--aff, var(--print-soft));
+  border-radius: 1px;
+}
+
+/* En résumé */
+
+.syn-scale {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1rem;
+  margin: var(--s3) 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-xs);
+  color: var(--print-soft);
+}
+
+.syn-scale li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.syn-range {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ——— Qui porte quoi ——— */
+
+.key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.4rem;
+  margin: var(--s5) 0;
+  padding: var(--s3) 0;
+  border-top: var(--hair) solid var(--rule);
+  border-bottom: var(--hair) solid var(--rule);
+}
+
+.key div {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.key dt,
+.key dd {
+  margin: 0;
+}
+
+.key dd {
+  font-size: var(--text-sm);
+}
+
+.initials {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.initials-mark {
+  display: inline-grid;
+  place-items: center;
+  min-width: 2.15rem;
+  height: 2.15rem;
+  padding: 0 0.3rem;
+  border: var(--line) solid var(--print);
+  border-radius: 999px;
+  font-weight: 800;
+  font-stretch: 80%;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+/* Ce que pense le candidat, dans le code de la réglette : vert pour l'approche, orangé-brun contre
+   (jamais le rouge, réservé aux lignes rouges de l'utilisateur), gris si on ne sait pas. La forme double
+   la couleur : plein, pâle, tirets barrés, pointillé. Fond toujours défini : lisible sur les bristols. */
+.initials.is-main .initials-mark {
+  background: var(--aff-tres-proche);
+  border-color: var(--aff-tres-proche);
+  color: var(--paper);
+}
+
+.initials.is-secondary .initials-mark {
+  background: var(--aff-tres-proche-tint);
+  border-color: var(--aff-tres-proche);
+  color: var(--aff-tres-proche);
+}
+
+.initials.is-rejects .initials-mark {
+  background: var(--paper);
+  border-style: dashed;
+  border-color: var(--aff-eloigne);
+  color: var(--aff-eloigne);
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+}
+
+.initials.is-unknown .initials-mark {
+  background: var(--paper);
+  border-style: dotted;
+  border-color: var(--aff-mitige);
+  color: var(--print-soft);
+}
+
+.segmented {
+  display: inline-flex;
+  flex-wrap: wrap;
+  /* dans la grille de la feuille à marge, le sélecteur garde sa largeur au lieu de s'étirer */
+  justify-self: start;
+  margin: var(--s2) 0 var(--s4);
+  border: var(--line) solid var(--print);
+}
+
+.segmented button {
+  min-height: 2.75rem;
+  padding: 0.5rem 0.9rem;
+  background: none;
+  border: 0;
+  font-size: var(--text-sm);
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.segmented button[aria-pressed='true'] {
+  background: var(--print);
+  color: var(--on-print);
+}
+
+.reveal-topic {
+  margin-top: var(--s7);
+}
+
+.reveal {
+  container: reveal / inline-size;
+  padding: var(--s4) 0 var(--s5);
+  border-bottom: var(--hair) solid var(--rule);
+}
+
+.reveal:last-child {
+  border-bottom: 0;
+}
+
+.reveal-prompt {
+  margin: 0 0 var(--s3);
+  max-width: 32ch;
+  font-weight: 750;
+  font-stretch: 84%;
+  font-size: 1.32rem;
+  line-height: 1.2;
+}
+
+.reveal-approaches {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.reveal-row {
+  display: grid;
+  grid-template-columns: 5.25rem minmax(0, 1fr);
+  grid-template-areas:
+    'mark text'
+    '. holders';
+  gap: 0.35rem var(--s3);
+  padding: 0.7rem 0;
+  border-top: var(--hair) solid var(--rule);
+}
+
+.rating-mark {
+  grid-area: mark;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  padding-top: 0.2rem;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--tone);
+}
+
+.rating-mark[data-tone='mitige'] {
+  color: var(--print-soft);
+  font-weight: 400;
+}
+
+.rating-mark.is-red-line {
+  color: var(--red);
+}
+
+.mini-ruler {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1.1rem);
+  height: 0.85rem;
+}
+
+.mini-ruler::before {
+  content: '';
+  position: absolute;
+  left: 0.55rem;
+  right: 0.55rem;
+  top: 50%;
+  border-top: var(--hair) solid var(--print-soft);
+}
+
+.mini-ruler span {
+  justify-self: center;
+  align-self: center;
+  width: var(--hair);
+  height: 0.5rem;
+  background: var(--print-soft);
+}
+
+.mini-ruler span:nth-child(2):not(.is-on) {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  border: var(--hair) solid var(--print-soft);
+  background: var(--paper);
+}
+
+.mini-ruler span.is-on {
+  position: relative;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--tone);
+}
+
+.is-red-line .mini-ruler span.is-on {
+  background: var(--red);
+}
+
+/* Contraste forcé : les fonds disparaissent. La pastille « approche principale » reste pleine et le point
+   de la mini-réglette reste visible, en couleurs système, pour garder la forme (plein contre cerclé). */
+@media (forced-colors: active) {
+  .initials.is-main .initials-mark {
+    forced-color-adjust: none;
+    background: CanvasText;
+    border-color: CanvasText;
+    color: Canvas;
+  }
+
+  .mini-ruler span,
+  .mini-ruler span.is-on {
+    forced-color-adjust: none;
+    background: CanvasText;
+  }
+
+  .mini-ruler span:nth-child(2):not(.is-on) {
+    background: Canvas;
+    border-color: CanvasText;
+  }
+}
+
+.reveal-text {
+  grid-area: text;
+  max-width: var(--measure);
+}
+
+.reveal-row.is-rejected .reveal-text {
+  color: var(--print-soft);
+  text-decoration: line-through;
+  text-decoration-color: var(--red);
+  text-decoration-thickness: 2px;
+}
+
+.reveal-holders {
+  grid-area: holders;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.nobody {
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+/* Colonne étroite (texte très agrandi) : votre avis passe au-dessus de l'approche */
+@container reveal (max-width: 19rem) {
+  .reveal-row {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'mark'
+      'text'
+      'holders';
+  }
+
+  .reveal-text,
+  .nobody {
+    overflow-wrap: anywhere;
+  }
+}
+
+/* Positions introuvables : des pastilles grises, nommées */
+.reveal-unknown {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.9rem;
+  margin: var(--s3) 0 0;
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+/* En-têtes de colonnes, sur grand écran seulement */
+.reveal-head {
+  display: none;
+}
+
+@media (min-width: 46rem) {
+  .reveal-row,
+  .reveal-head {
+    grid-template-columns: 5.25rem minmax(0, 1fr) 13rem;
+  }
+
+  .reveal-row {
+    grid-template-areas: 'mark text holders';
+  }
+
+  .reveal-head {
+    display: grid;
+    column-gap: var(--s3);
+    margin: 0;
+    padding-bottom: 0.3rem;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    color: var(--print-soft);
+  }
+}
+
+/* Légende de « Qui porte quoi » : votre avis d'un côté, ce qu'en pensent les candidats de l'autre, et la
+   phrase qui lève le malentendu (une pastille verte ne veut pas dire « pense comme vous ») */
+.reveal-legend {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s4) var(--s6);
+  margin: 0;
+  padding: var(--s4) min(var(--s4), 4vw) var(--s3);
+  overflow-wrap: break-word;
+  border: var(--line) solid var(--rule-strong);
+}
+
+@media (min-width: 46rem) {
+  .reveal-legend {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.legend-head {
+  margin: 0;
+  font-weight: 800;
+  font-stretch: 82%;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
+.legend-desc {
+  margin: 0.15rem 0 var(--s3);
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.legend-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.legend-items.is-you {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s3);
+}
+
+.legend-items.is-you .rating-mark {
+  padding-top: 0;
+}
+
+.legend-items.is-them {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 8.5rem), 1fr));
+  gap: var(--s2) var(--s3);
+}
+
+.legend-items.is-them li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+  font-size: var(--text-sm);
+  line-height: 1.25;
+}
+
+.legend-warning {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin: 0;
+  padding-top: var(--s3);
+  border-top: var(--hair) solid var(--rule);
+  font-size: var(--text-sm);
+  font-weight: 650;
+  max-width: var(--measure);
+}
+
+.legend-warning .icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-top: 0.15em;
+}
+
+.sources-toggle {
+  margin-top: var(--s2);
+}
+
+.sources {
+  margin: var(--s2) 0 0;
+  padding: 0 0 0 var(--s4);
+  border-left: var(--hair) solid var(--rule-strong);
+}
+
+.source-person dt {
+  margin-top: var(--s4);
+  font-weight: 750;
+}
+
+.source-person dd {
+  margin: 0.3rem 0 0;
+  font-size: var(--text-sm);
+  max-width: var(--measure);
+}
+
+.source-person dd p {
+  margin: 0;
+}
+
+.source-approach {
+  margin-bottom: 0.2rem !important;
+}
+
+.source-mark {
+  font-weight: 750;
+}
+
+.source-person dd + dd {
+  margin-top: var(--s3);
+}
+
+.source-kind,
+.source-meta {
+  color: var(--print-soft);
+}
+
+.source-links {
+  list-style: none;
+  margin: 0.25rem 0 0;
+  padding: 0;
+}
+
+.source-links a {
+  overflow-wrap: anywhere;
+}
+
+.source-links .icon {
+  width: 0.85rem;
+  height: 0.85rem;
+  margin-left: 0.25rem;
+  vertical-align: -0.05rem;
+}
+
+.consensus {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.consensus li {
+  margin: 0.5rem 0;
+  max-width: var(--measure);
+  overflow-wrap: break-word;
+}
+
+.consensus-topic {
+  display: block;
+  font-weight: 700;
+}
+
+/* ——— Les candidats : la grammaire de l'accueil, héros puis panneaux colorés, toute la largeur ——— */
+
+/* Plus spécifique que la largeur de cadre par défaut des grands écrans : toute la largeur, comme l'accueil */
+.screen.screen-wide {
+  --frame: 86rem;
+}
+
+.wide-sheet {
+  padding-top: var(--s6);
+}
+
+/* Aplat jaune autocopiant : l'encre reste foncée en clair comme en sombre */
+.on-copy {
+  --print: var(--copy-print);
+  --print-soft: var(--copy-print-soft);
+  --rule: color-mix(in srgb, var(--copy-print) 30%, transparent);
+  --rule-strong: var(--copy-print);
+  --paper: var(--copy);
+  --on-print: var(--copy);
+  /* Le jaune reste clair en mode sombre : encre, rouge et échelle d'affinité y gardent leurs teintes claires */
+  --ink: var(--copy-ink);
+  --focus: var(--copy-ink);
+  --red: var(--copy-red);
+  --aff-tres-eloigne: var(--copy-aff-tres-eloigne);
+  --aff-eloigne: var(--copy-aff-eloigne);
+  --aff-mitige: var(--copy-aff-mitige);
+  --aff-proche: var(--copy-aff-proche);
+  --aff-tres-proche: var(--copy-aff-tres-proche);
+  background: var(--copy);
+  color: var(--copy-print);
+}
+
+.wide-hero {
+  display: grid;
+  gap: var(--s3) var(--s8);
+  margin-bottom: var(--s6);
+}
+
+.wide-hero .display {
+  margin-bottom: 0;
+}
+
+@media (min-width: 64rem) {
+  .wide-sheet {
+    padding-top: var(--s7);
+  }
+
+  .wide-hero {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    align-items: end;
+  }
+}
+
+/* Index : une colonne colorée par candidat */
+.people-panels {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+  gap: var(--s4);
+}
+
+/* Les pastels du rideau suivent la place dans la liste, tirée au hasard pour chaque visiteur : aucune
+   couleur n'est attachée à un candidat, et d'un visiteur à l'autre une même personne change de fond */
+.people-panel {
+  --panel: var(--pastel-vert);
+  background: var(--panel);
+  box-shadow: inset 0 var(--thick) 0 var(--rule-strong);
+}
+
+.people-panel:nth-child(4n + 2) {
+  --panel: var(--pastel-rouge);
+}
+
+.people-panel:nth-child(4n + 3) {
+  --panel: var(--pastel-jaune);
+}
+
+.people-panel:nth-child(4n) {
+  --panel: var(--pastel-bleu);
+}
+
+.people-panel-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  height: 100%;
+  padding: var(--s5) var(--s4) var(--s4);
+  color: inherit;
+  text-decoration: none;
+}
+
+.people-panel .portrait {
+  margin-bottom: var(--s3);
+}
+
+.people-panel-name {
+  overflow-wrap: anywhere;
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: clamp(1.7rem, 5vw, 2.1rem);
+  line-height: 1;
+}
+
+.people-panel-role {
+  font-size: var(--text-sm);
+  line-height: 1.35;
+}
+
+.people-panel-meta,
+.people-panel-count {
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.people-panel-count {
+  margin-top: auto;
+  padding-top: var(--s3);
+}
+
+.count-figure {
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: 1.6em;
+  line-height: 1;
+  color: var(--print);
+  font-variant-numeric: tabular-nums;
+}
+
+.people-panel-go {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: var(--s2);
+  font-weight: 750;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .people-panel-link:hover .people-panel-go {
+    text-decoration-thickness: 2px;
+  }
+}
+
+@media (min-width: 64rem) {
+  .people-panels {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+/* Portrait : la photo autorisée, ou les initiales imprimées dans leur cercle */
+.portrait {
+  flex: none;
+  display: grid;
+  place-items: center;
+  object-fit: cover;
+  border-radius: 999px;
+  background: var(--paper);
+  box-shadow: inset 0 0 0 var(--line) var(--print);
+}
+
+.portrait.is-small {
+  width: 4rem;
+  height: 4rem;
+}
+
+.portrait.is-strip {
+  width: 6rem;
+  height: 6rem;
+}
+
+.portrait.is-initials {
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: 1.8rem;
+}
+
+/* Fiche : la photo d'identité agrafée à la feuille, de biais comme le tampon */
+.portrait.is-id {
+  width: clamp(8rem, 30vw, 14rem);
+  height: clamp(8rem, 30vw, 14rem);
+  border-radius: 0;
+  border: 2px solid var(--print);
+  box-shadow: none;
+  transform: rotate(-2deg);
+}
+
+.portrait.is-id.is-initials {
+  font-size: clamp(2.6rem, 9vw, 4.5rem);
+}
+
+.fiche-hero {
+  display: grid;
+  gap: var(--s6);
+}
+
+.fiche-id {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--s5);
+}
+
+.fiche-name {
+  min-width: min(100%, 18rem);
+  flex: 1;
+}
+
+.fiche-name .display {
+  margin: 0 0 var(--s3);
+}
+
+.fiche-role {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.35;
+}
+
+.fiche-affiliation {
+  margin: 0.2rem 0 var(--s3);
+  color: var(--print-soft);
+}
+
+.fiche-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2) var(--s5);
+  margin: 0;
+  font-weight: 750;
+}
+
+/* Le parcours en frise, sur l'aplat jaune de la fiche */
+.fiche-bio {
+  container: bio / inline-size;
+  padding: var(--s4) var(--s4) var(--s3);
+  box-shadow: inset 0 var(--thick) 0 var(--rule-strong);
+}
+
+.fiche-bio h2 {
+  margin: var(--s2) 0 var(--s3);
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: clamp(1.6rem, 6vw, 2.15rem);
+  line-height: 1;
+}
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.timeline li {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  gap: var(--s3);
+  padding: var(--s2) 0;
+  border-top: var(--hair) solid var(--rule);
+}
+
+.timeline li:first-child {
+  border-top: 0;
+}
+
+.timeline-when {
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: 1.25rem;
+  line-height: 1.15;
+  font-variant-numeric: tabular-nums;
+}
+
+.timeline-text {
+  font-size: var(--text-sm);
+  line-height: 1.45;
+}
+
+/* Colonne étroite (texte très agrandi) : la date passe au-dessus, les longs liens se coupent */
+@container bio (max-width: 24rem) {
+  .timeline li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.1rem;
+  }
+
+  .timeline .nowrap {
+    white-space: normal;
+  }
+
+  .timeline-text {
+    overflow-wrap: anywhere;
+  }
+}
+
+.credit {
+  margin-top: var(--s3);
+}
+
+@media (min-width: 64rem) {
+  .fiche-hero {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: var(--s8);
+    align-items: start;
+  }
+}
+
+/* Les positions : des fiches bristol, en colonnes « maçonnerie » (voir useMasonry) */
+.fiche-positions {
+  margin-top: var(--s8);
+  scroll-margin-top: calc(var(--header-real, 3.5rem) + var(--s3));
+}
+
+.positions-count {
+  max-width: 44rem;
+  margin: 0 0 var(--s4);
+}
+
+.positions-count .count-figure {
+  font-size: 2.2em;
+  vertical-align: -0.12em;
+}
+
+/* Barre collante sous l'en-tête : familles de thèmes, et « Mes réponses » */
+.fiche-filters {
+  position: sticky;
+  top: calc(var(--header-real, 3.5rem) + 5px);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  margin: 0 calc(-1 * var(--gutter)) var(--s5);
+  padding: var(--s2) var(--gutter);
+  background: var(--paper);
+  border-bottom: var(--hair) solid var(--rule);
+}
+
+/* Écran court face au texte (voir useStickyFilters) : la barre suit la page au lieu de coller */
+.fiche-filters.is-loose {
+  position: static;
+}
+
+.filter-chips {
+  /* Bloc conteneur des .sr-only des pastilles : sinon ils échappent au rognage et élargissent la page */
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  gap: var(--s2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.filter-chips::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-chips li {
+  flex: none;
+}
+
+@media (min-width: 64rem) {
+  .filter-chips {
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+}
+
+/* Sur téléphone, un menu déroulant natif à la place des pastilles */
+.filter-select {
+  position: relative;
+  flex: 1 1 10rem;
+  min-width: 0;
+}
+
+.filter-select select {
+  appearance: none;
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0 2.2rem 0 0.75rem;
+  border: var(--line) solid var(--rule-strong);
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--print);
+  font: inherit;
+  font-size: var(--text-sm);
+  font-weight: 650;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.select-chevron {
+  position: absolute;
+  right: 0.7rem;
+  top: 50%;
+  width: 1rem;
+  height: 1rem;
+  transform: translateY(-50%) rotate(90deg);
+  pointer-events: none;
+}
+
+/* Téléphone : le menu sur toute la largeur, l'interrupteur dessous, à droite */
+@media (max-width: 47.99rem) {
+  .fiche-filters {
+    flex-wrap: wrap;
+    row-gap: var(--s1);
+  }
+
+  .filter-chips {
+    display: none;
+  }
+
+  .filter-select {
+    flex-basis: 100%;
+  }
+
+  .fiche-filters .mine-toggle {
+    flex: 0 1 auto;
+    min-height: 2.5rem;
+    margin-left: auto;
+    padding-left: 0;
+    border-left: 0;
+    white-space: normal;
+    text-align: start;
+  }
+}
+
+@media (min-width: 48rem) {
+  .filter-select {
+    display: none;
+  }
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.75rem;
+  padding: 0 0.75rem;
+  border: var(--line) solid var(--rule-strong);
+  background: var(--paper);
+  color: var(--print);
+  font-size: var(--text-sm);
+  font-weight: 650;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.filter-chip[aria-pressed='true'] {
+  background: var(--print);
+  color: var(--on-print);
+}
+
+.chip-n {
+  font-weight: 450;
+  font-variant-numeric: tabular-nums;
+  color: var(--print-soft);
+}
+
+.filter-chip[aria-pressed='true'] .chip-n {
+  color: inherit;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .filter-chip:hover:not([aria-pressed='true']) {
+    background: color-mix(in srgb, var(--print) 7%, var(--paper));
+  }
+}
+
+/* Interrupteur « Mes réponses » : vos avis s'affichent à côté des siens */
+.mine-toggle {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 2.75rem;
+  padding: 0 0 0 var(--s3);
+  border: 0;
+  border-left: var(--hair) solid var(--rule);
+  background: none;
+  color: var(--print);
+  font: inherit;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.switch-track {
+  position: relative;
+  flex: none;
+  width: 2.5rem;
+  height: 1.5rem;
+  border: var(--line) solid var(--rule-strong);
+  border-radius: 999px;
+  background: var(--paper);
+  transition: background-color var(--t-quick), border-color var(--t-quick);
+}
+
+.switch-knob {
+  position: absolute;
+  top: 0.15rem;
+  left: 0.15rem;
+  width: 0.95rem;
+  height: 0.95rem;
+  border-radius: 50%;
+  background: var(--print);
+  transition: transform var(--t-stroke) var(--ease-out);
+}
+
+.mine-toggle[aria-checked='true'] .switch-track {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.mine-toggle[aria-checked='true'] .switch-knob {
+  transform: translateX(1rem);
+  background: var(--paper);
+}
+
+/* Les couleurs des fiches, comme un paquet de bristols pris dans l'ordre du rideau : elles ne disent
+   rien du thème, de la famille ni de la position du candidat */
+.tint-0 {
+  --card: var(--pastel-vert);
+}
+
+.tint-1 {
+  --card: var(--pastel-rouge);
+}
+
+.tint-2 {
+  --card: var(--pastel-jaune);
+}
+
+.tint-3 {
+  --card: var(--pastel-bleu);
+}
+
+/* Sans script de mise en page, une grille simple ; avec, les cartes se suivent à la verticale */
+.bristol-grid {
+  --page: var(--paper);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
+  align-items: start;
+  gap: var(--s5);
+}
+
+.bristol-grid.is-masonry {
+  grid-auto-rows: 4px;
+  grid-auto-flow: row dense;
+  row-gap: 0;
+}
+
+/* Une fiche bristol quadrillée : un titre souligné d'un double filet, puis les positions */
+.bristol {
+  --edge: color-mix(in srgb, var(--print) 24%, transparent);
+  --grid-line: color-mix(in srgb, var(--print) 6.5%, transparent);
+  position: relative;
+  align-self: start;
+  margin: 0;
+  padding: var(--s4) var(--s4) var(--s3);
+  background-color: var(--card);
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 1.25rem 1.25rem;
+  background-position: -1px -1px;
+  border: var(--hair) solid var(--edge);
+  border-radius: 3px;
+  overflow-wrap: break-word;
+  scroll-margin-top: calc(var(--header-real, 3.5rem) + var(--filters-h, 9rem) + 0.75rem);
+}
+
+.bristol-head {
+  margin: calc(-1 * var(--s4)) calc(-1 * var(--s4)) 0;
+  padding: var(--s4) var(--s4) var(--s3);
+  background: var(--card);
+  border-radius: 3px 3px 0 0;
+  border-bottom: 2px solid var(--ink);
+  box-shadow:
+    0 3px 0 0 var(--card),
+    0 4px 0 0 var(--ink);
+  margin-bottom: 4px;
+}
+
+.bristol-title {
+  overflow-wrap: anywhere;
+  margin: 0;
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: clamp(1.45rem, 4.5vw, 1.8rem);
+  line-height: 1.05;
+}
+
+.bristol-head + .position-row {
+  border-top: 0;
+}
+
+.position-row {
+  padding: var(--s3) 0 var(--s2);
+  border-top: var(--hair) solid var(--rule);
+}
+
+.position-q {
+  margin: 0 0 var(--s2);
+  font-size: var(--text-sm);
+  font-weight: 650;
+  line-height: 1.3;
+  color: var(--print-soft);
+}
+
+.position-stances {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--s2);
+}
+
+.stance {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--s3);
+  align-items: start;
+}
+
+.stance-text {
+  line-height: 1.4;
+}
+
+.stance-label {
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--print-soft);
+}
+
+.stance.is-main .stance-text {
+  font-weight: 650;
+}
+
+.stance-note {
+  font-size: var(--text-xs);
+  color: var(--print-soft);
+}
+
+/* Vos avis, en étiquette posée sur la fiche (fond papier : contraste garanti sur toutes les teintes) */
+.stance-you {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: fit-content;
+  margin-top: 0.4rem;
+  padding: 0.2rem 0.5rem 0.25rem;
+  background: var(--page);
+  border: var(--hair) solid var(--rule);
+  border-radius: 2px;
+}
+
+.you-label {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--print-soft);
+}
+
+.stance-you .rating-mark {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0;
+}
+
+.you-none {
+  margin: -0.15rem 0 var(--s2);
+  font-size: var(--text-xs);
+  color: var(--print-soft);
+}
+
+/* « Détail et sources » : un petit lien qui ouvre un encart dans la fiche */
+.card-sources {
+  margin-top: var(--s1);
+  font-size: var(--text-xs);
+}
+
+.card-sources summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  min-height: 2rem;
+  list-style: none;
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.card-sources summary::-webkit-details-marker {
+  display: none;
+}
+
+.card-sources .summary-label {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.card-sources .disclosure {
+  width: 0.85rem;
+  height: 0.85rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card-sources summary:hover .summary-label {
+    text-decoration-thickness: 2px;
+  }
+}
+
+.encart {
+  container: encart / inline-size;
+  margin: var(--s1) 0 var(--s2);
+  padding: var(--s3) var(--s3) var(--s2);
+  background: var(--page);
+  border: var(--hair) solid var(--rule);
+  border-top: var(--line) solid var(--ink);
+  font-size: var(--text-sm);
+}
+
+@container encart (max-width: 22rem) {
+  .encart .nowrap {
+    white-space: normal;
+  }
+
+  .encart {
+    overflow-wrap: anywhere;
+  }
+}
+
+.encart .position-detail + .position-detail {
+  margin-top: var(--s3);
+  padding-top: var(--s3);
+  border-top: var(--hair) dashed var(--rule);
+}
+
+.position-detail p {
+  margin: 0 0 var(--s2);
+}
+
+.encart .detail-kicker {
+  margin: 0 0 0.15rem;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--print-soft);
+}
+
+/* Le talon « à compléter » : séparé par une ligne de découpe, à détacher quand la position sera connue */
+.bristol-stub {
+  position: relative;
+  margin: var(--s3) calc(-1 * var(--s4)) calc(-1 * var(--s3));
+  padding: var(--s4) var(--s4) var(--s3);
+  background: color-mix(in srgb, var(--print) 4%, var(--card));
+  border-top: 2px dashed color-mix(in srgb, var(--print) 42%, transparent);
+  border-radius: 0 0 3px 3px;
+}
+
+/* Les deux encoches de la découpe, aux bords de la fiche */
+.bristol-stub::before,
+.bristol-stub::after {
+  content: '';
+  position: absolute;
+  top: calc(-0.55rem - 1px);
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  background: var(--page);
+  border: var(--hair) solid var(--edge);
+}
+
+.bristol-stub::before {
+  left: calc(-0.55rem - 1px);
+  clip-path: inset(0 0 0 calc(50% - 1px));
+}
+
+.bristol-stub::after {
+  right: calc(-0.55rem - 1px);
+  clip-path: inset(0 calc(50% - 1px) 0 0);
+}
+
+.stub-scissors {
+  position: absolute;
+  top: -0.7rem;
+  left: var(--s5);
+  width: 1.3rem;
+  height: 1.3rem;
+  padding: 0 0.15rem;
+  background: var(--card);
+  color: var(--print-soft);
+}
+
+.stub-head {
+  margin: 0;
+  font-size: var(--text-xs);
+  font-weight: 650;
+  line-height: 1.35;
+  color: var(--print-soft);
+}
+
+.stub-list {
+  margin: var(--s2) 0 0;
+  padding-left: 1.1rem;
+  font-size: var(--text-xs);
+  line-height: 1.4;
+  color: var(--print-soft);
+}
+
+.stub-list li + li {
+  margin-top: 0.2rem;
+}
+
+/* ——— Partage ——— */
+
+.share-preview {
+  margin: var(--s5) 0 0;
+}
+
+.share-preview img {
+  display: block;
+  width: 100%;
+  max-width: 26rem;
+  height: auto;
+  border: var(--hair) solid var(--rule-strong);
+}
+
+.share-placeholder {
+  display: grid;
+  place-items: center;
+  max-width: 26rem;
+  aspect-ratio: 4 / 5;
+  border: var(--hair) dashed var(--rule);
+  color: var(--print-soft);
+  font-size: var(--text-sm);
+}
+
+/* ——— Notices ——— */
+
+.prose h2 {
+  margin-top: var(--s7);
+}
+
+.prose p,
+.prose li {
+  max-width: var(--measure);
+}
+
+.prose ul {
+  padding-left: 1.2rem;
+}
+
+.prose li {
+  margin: 0.5rem 0;
+}
+
+/* ——— Grands écrans : la colonne de marge reste lisible, la feuille respire ——— */
+
+@media (min-width: 64rem) {
+  :root {
+    --margin-col: 3.25rem;
+  }
+
+  .sheet {
+    padding-top: var(--s7);
+  }
+}
+
+/* ——— Colonne de marge imprimée (grands écrans) ——— */
+
+.home-stamp {
+  margin: 0 0 var(--s5);
+}
+
+.sheet-margin {
+  display: none;
+}
+
+@container actions (max-width: 26rem) {
+  .action-bar .btn-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .action-bar .btn-text .icon {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+}
+
+@container actions (max-width: 22rem) {
+  .action-bar-inner .bar-tally {
+    display: none;
+  }
+}
+
+/* Texte très agrandi : le bouton principal prend toute une rangée plutôt que de déborder */
+@container actions (max-width: 19rem) {
+  .action-bar-inner > .btn-primary {
+    flex: 1 1 100%;
+    justify-content: center;
+    min-width: 0;
+    padding-inline: var(--s3);
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+@media (min-width: 64rem) {
+  .sheet.has-margin {
+    --margin-wide: 11rem;
+    position: relative;
+    display: grid;
+    grid-template-columns: var(--margin-wide) minmax(0, 1fr);
+    column-gap: var(--s6);
+    align-content: start;
+    max-width: var(--frame);
+  }
+
+  .sheet.has-margin > * {
+    grid-column: 2;
+  }
+
+  /* Filet vertical de la marge, comme sur un formulaire pré-imprimé */
+  .sheet.has-margin::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(var(--gutter) + var(--margin-wide) + var(--s6) / 2);
+    border-left: var(--hair) solid var(--rule);
+  }
+
+  .sheet.has-margin > .in-margin {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    justify-self: end;
+    align-self: start;
+    text-align: right;
+  }
+
+  .home-stamp {
+    margin: var(--s5) 0 0;
+  }
+
+  .sheet-margin {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.2rem;
+    padding-top: var(--s5);
+  }
+
+  .margin-count {
+    font-weight: 850;
+    font-stretch: 70%;
+    font-size: 3.5rem;
+    line-height: 0.9;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .margin-total {
+    font-size: var(--text-sm);
+    color: var(--print-soft);
+    margin-bottom: var(--s3);
+  }
+
+  .sheet-margin .tally {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    max-width: var(--margin-wide);
+    overflow: visible;
+  }
+
+  .action-bar-inner .bar-tally {
+    visibility: hidden;
+  }
+
+  /* Procès-verbal : les rangs passent dans la marge imprimée */
+  
+
+  .pv-divider {
+    position: relative;
+  }
+
+  .screen {
+    --frame: calc(var(--sheet) + 11rem + var(--s6) + 2 * var(--gutter));
+  }
+}
+
+/* ——— Questionnaire sur grand écran : la question à gauche, les approches à droite ——— */
+
+@media (min-width: 64rem) {
+  .screen-question {
+    --frame: 86rem;
+  }
+
+  .sheet.has-margin.q-layout {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+    column-gap: var(--s6);
+    padding-top: var(--s6);
+  }
+
+  .sheet.has-margin.q-layout::before {
+    display: none;
+  }
+
+  .sheet.has-margin.q-layout > * {
+    grid-column: auto;
+  }
+
+  .sheet.has-margin.q-layout > .in-margin {
+    display: none;
+  }
+
+  .q-col {
+    position: sticky;
+    top: 5.5rem;
+    align-self: start;
+  }
+
+  /* Contexte déplié : la colonne de la question défile avec la page */
+  .q-col:has(.explainer[open]) {
+    position: static;
+  }
+
+  .q-layout .a-col {
+    padding-left: var(--s6);
+    border-left: var(--hair) solid var(--rule);
+  }
+
+  .q-layout .q-prompt {
+    margin-top: 0;
+    font-size: clamp(2rem, 2.6vw, 2.9rem);
+  }
+
+  .action-bar-inner .bar-tally {
+    visibility: visible;
+  }
+}
+
+@media (min-width: 80rem) {
+  .sheet.has-margin.q-layout {
+    grid-template-columns: 7rem minmax(0, 4fr) minmax(0, 7fr);
+  }
+
+  .sheet.has-margin.q-layout > .in-margin {
+    display: flex;
+    grid-column: 1;
+    grid-row: 1;
+    padding-top: 0;
+  }
+
+  .action-bar-inner .bar-tally {
+    visibility: hidden;
+  }
+}
+
+/* ——— Schémas au trait ——— */
+
+.diagram {
+  display: block;
+  width: 100%;
+  max-width: 30rem;
+  height: auto;
+  margin: var(--s3) 0;
+  overflow: visible;
+  font-family: var(--font);
+}
+
+.diagram line,
+.diagram polyline,
+.diagram path {
+  fill: none;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.dg-box {
+  fill: var(--paper);
+  stroke: var(--rule-strong);
+  stroke-width: 1.2;
+}
+
+.dg-strong {
+  stroke-width: 2.2;
+}
+
+.dg-ink-box {
+  stroke: var(--ink);
+  stroke-width: 1.6;
+}
+
+.dg-stamp {
+  stroke-width: 1.8;
+  transform: rotate(-4deg);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.dg-print line,
+.dg-print polyline,
+.dg-strong-line {
+  stroke: var(--print);
+}
+
+.dg-strong-line {
+  stroke-width: 2.4;
+}
+
+.dg-ink line,
+.dg-ink polyline,
+.dg-ink.dg-tick {
+  stroke: var(--ink);
+  stroke-width: 2.2;
+}
+
+.dg-red line,
+.dg-red polyline,
+line.dg-red {
+  stroke: var(--red);
+}
+
+.dg-thick line,
+line.dg-thick {
+  stroke-width: 2.6;
+}
+
+.dg-soft {
+  stroke: var(--rule);
+  stroke-width: 3;
+}
+
+.dg-label {
+  fill: var(--print);
+  font-size: 14px;
+}
+
+.dg-small {
+  fill: var(--print-soft);
+  font-size: 12px;
+}
+
+.dg-bold {
+  font-weight: 750;
+}
+
+.dg-ink-text {
+  fill: var(--ink);
+  font-weight: 650;
+}
+
+.dg-red-text {
+  fill: var(--red);
+  font-weight: 650;
+}
+
+.dg-step {
+  fill: var(--print);
+  font-size: 22px;
+  font-weight: 850;
+  font-stretch: 70%;
+}
+
+.dg-chip {
+  fill: var(--print);
+}
+
+.dg-chip-text {
+  fill: var(--on-print);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.figure-block {
+  margin-top: var(--s7);
+}
+
+.figure-block h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.fig-n {
+  font-variant-numeric: tabular-nums;
+  color: var(--print-soft);
+}
+
+.caption {
+  max-width: var(--measure);
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.kept {
+  list-style: none;
+  margin: var(--s3) 0;
+  padding: 0;
+  border-top: var(--line) solid var(--rule-strong);
+  border-bottom: var(--line) solid var(--rule-strong);
+}
+
+.kept li {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  grid-template-areas:
+    'icon what'
+    'icon where'
+    'icon until';
+  column-gap: var(--s3);
+  padding: var(--s3) 0;
+  border-top: var(--hair) solid var(--rule);
+}
+
+.kept li:first-child {
+  border-top: 0;
+}
+
+.kept-icon {
+  grid-area: icon;
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-top: 0.15rem;
+  color: var(--print);
+}
+
+.kept-what {
+  grid-area: what;
+  font-weight: 750;
+}
+
+.kept-where {
+  grid-area: where;
+}
+
+.kept-until {
+  grid-area: until;
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+@media (min-width: 48rem) {
+  .kept li {
+    grid-template-columns: 2rem 12rem minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: 'icon what where until';
+    align-items: baseline;
+  }
+}
+
+.tech {
+  margin-top: var(--s7);
+  padding-top: var(--s3);
+  border-top: var(--hair) solid var(--rule);
+  font-size: var(--text-sm);
+}
+
+.tech summary {
+  cursor: pointer;
+  font-weight: 700;
+  min-height: 2.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  list-style: none;
+}
+
+.tech ul {
+  padding-left: 1.2rem;
+}
+
+/* ——— Accueil : la démonstration en direct ——— */
+
+.screen-home {
+  --frame: 86rem;
+}
+
+/* Pas de barre du bas sur l'accueil : l'appel principal est dans l'en-tête */
+.home-sheet.sheet {
+  padding-top: var(--s4);
+  padding-bottom: var(--s7);
+}
+
+/* Le héros : le film, sans cadre, dans la page */
+.home-film {
+  margin: 0;
+}
+
+/* Où en est la feuille : sous le film, pour qui revient */
+.home-status {
+  display: grid;
+  gap: var(--s2);
+  margin-top: var(--s5);
+}
+
+.home-status > * {
+  margin: 0;
+}
+
+/* Sous le film : la liste de confiance et le tampon daté, sur une ligne quand la place le permet */
+.home-proof {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s3) var(--s6);
+  margin-top: var(--s6);
+  padding-top: var(--s4);
+  border-top: var(--line) solid var(--rule-strong);
+}
+
+.home-proof .trust {
+  margin: 0;
+}
+
+/* Quatre points de confiance (le quatrième : textes rédigés par IA) : deux colonnes de deux, lues colonne par
+   colonne (les deux points courts à gauche, les deux longs à droite), le tampon à droite */
+@media (min-width: 64rem) {
+  .home-proof .trust {
+    grid-template-rows: repeat(2, auto);
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, max-content);
+    gap: 0.45rem var(--s6);
+  }
+}
+
+.trust {
+  list-style: none;
+  margin: var(--s4) 0;
+  padding: 0;
+  display: grid;
+  gap: 0.45rem;
+  font-weight: 650;
+}
+
+.trust li {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  /* Texte très agrandi sur téléphone (200 % sur 320 px) : un mot trop long pour la ligne se coupe plutôt que de
+     pousser la page en largeur (« automatiquement » porte sa césure conditionnelle) ; sans effet tant que les
+     mots tiennent dans la ligne */
+  overflow-wrap: anywhere;
+}
+
+.trust .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  stroke-width: 2.4;
+}
+
+.hero-stamp {
+  margin: 0;
+}
+
+/* ——— Le parcours en trois gestes : trois aplats reliés par un seul geste ——— */
+
+.journey {
+  margin-top: var(--s7);
+}
+
+/* Repères des trois gestes, sur téléphone seulement : ils passent à la ligne plutôt que de déborder */
+.journey-steps {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  margin: 0 0 var(--s3);
+  padding: 0;
+}
+
+.journey-steps > li {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.step-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  max-width: 100%;
+  min-height: 2.75rem;
+  padding: 0.25rem 0.75rem;
+  border: 0;
+  box-shadow: inset 0 var(--thick) 0 var(--rule-strong);
+  background: var(--chip);
+  color: var(--print);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: left;
+  hyphens: auto;
+  cursor: pointer;
+}
+
+.step-chip.is-1 {
+  --chip: var(--pastel-vert);
+}
+
+.step-chip.is-2 {
+  --chip: var(--pastel-rouge);
+}
+
+.step-chip.is-3 {
+  --chip: var(--copy);
+  color: var(--copy-print);
+}
+
+.step-n {
+  font-weight: 850;
+  font-stretch: 70%;
+  font-size: 1.25rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.journey-track {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s3);
+  margin-inline: calc(-1 * var(--gutter));
+  padding: 0 var(--gutter) var(--s3);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--gutter);
+  overscroll-behavior-x: contain;
+}
+
+.journey-panel {
+  --panel: var(--paper);
+  flex: 0 0 min(92%, 26rem);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  min-width: 0;
+  padding: var(--s4) var(--s4) var(--s5);
+  background: var(--panel);
+  box-shadow: inset 0 var(--thick) 0 var(--rule-strong);
+}
+
+/* Les trois gestes dans l'ordre du rideau : vert, rouge, puis le jaune, qui est ici celui du double ;
+   le bleu, quatrième bande, vient juste après sur « Fermez l'isoloir ». Les deux premiers pastels
+   portent la réglette et les pourcentages à 4,5:1 au moins. */
+.journey-panel.is-avis {
+  --panel: var(--pastel-vert);
+}
+
+.journey-panel.is-depouillement {
+  --panel: var(--pastel-rouge);
+}
+
+/* Le jaune autocopiant : c'est bien le double qu'on emporte */
+.journey-panel.is-affiche {
+  --panel: var(--copy);
+  color: var(--copy-print);
+}
+
+.journey-panel.is-affiche .panel-hint {
+  color: var(--copy-print-soft);
+}
+
+.panel-head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s3);
+  margin: var(--s2) 0 0;
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: clamp(1.6rem, 6vw, 2.15rem);
+  line-height: 1;
+}
+
+.panel-n {
+  font-size: 1.7em;
+  line-height: 0.75;
+  font-variant-numeric: tabular-nums;
+}
+
+.panel-tag {
+  display: flex;
+  gap: 0.4rem;
+  align-items: flex-start;
+  margin: 0;
+  font-size: var(--text-xs);
+  font-weight: 650;
+  color: var(--print-soft);
+}
+
+.panel-tag .icon {
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+}
+
+.panel-prompt {
+  margin: 0;
+  font-weight: 800;
+  font-stretch: 76%;
+  font-size: 1.35rem;
+  line-height: 1.1;
+}
+
+.panel-hint {
+  margin: auto 0 0;
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.journey-next {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.panel-empty {
+  margin: auto 0;
+  color: var(--print-soft);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .journey .approach:hover {
+    background: color-mix(in srgb, var(--print) 4%, transparent);
+  }
+}
+
+/* Panneau 2 : les candidats fictifs, leurs bâtons et leur pourcentage, recomptés à chaque avis */
+.jr-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: var(--line) solid var(--rule-strong);
+}
+
+.jr-row {
+  display: grid;
+  grid-template-columns: 1.6rem minmax(0, 1fr) auto;
+  grid-template-areas:
+    'rank who pct'
+    'rank tally tally';
+  gap: 0.25rem var(--s3);
+  align-items: start;
+  padding: var(--s3) 0;
+  border-bottom: var(--hair) solid var(--rule);
+}
+
+.jr-rank {
+  grid-area: rank;
+  font-weight: 850;
+  font-stretch: 70%;
+  font-size: 1.7rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.jr-who {
+  grid-area: who;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.jr-name {
+  font-weight: 750;
+}
+
+.jr-holds {
+  font-size: var(--text-xs);
+  color: var(--print-soft);
+}
+
+.jr-pct {
+  grid-area: pct;
+  text-align: right;
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: 1.9rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--aff, var(--print));
+}
+
+.jr-band {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  font-stretch: 100%;
+}
+
+.jr-row .tally {
+  grid-area: tally;
+  justify-content: flex-start;
+}
+
+.jr-row.is-flagged .jr-name {
+  color: var(--print-soft);
+}
+
+/* Panneau 3 : l'affiche, imprimée à l'encre de carbone, qui se réimprime à chaque changement */
+.poster {
+  margin: var(--s2) 0 0;
+  padding: var(--s4) var(--s4) var(--s3);
+  border: 2px solid var(--copy-print);
+  transform: rotate(-1.5deg);
+  animation: poster-print 260ms var(--ease-out);
+}
+
+.poster.is-blank {
+  border-style: dashed;
+  animation: none;
+}
+
+.poster-brand {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.poster-title {
+  margin: 0.1rem 0 var(--s3);
+  font-weight: 850;
+  font-stretch: 70%;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.poster-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: var(--line) solid var(--copy-print);
+}
+
+.poster-list li {
+  display: grid;
+  grid-template-columns: 1.4rem minmax(0, 1fr) auto;
+  gap: var(--s2);
+  align-items: baseline;
+  padding: 0.35rem 0;
+  border-bottom: var(--hair) solid color-mix(in srgb, var(--copy-print) 35%, transparent);
+}
+
+.poster-rank,
+.poster-pct {
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: 1.2rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.poster-name {
+  font-weight: 650;
+}
+
+.poster-foot {
+  margin: var(--s3) 0 0;
+  font-size: var(--text-xs);
+  color: var(--copy-print-soft);
+}
+
+@keyframes poster-print {
+  from {
+    opacity: 0.35;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .poster {
+    animation: none;
+  }
+}
+
+@media (min-width: 64rem) {
+  .journey-track {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: var(--s4);
+    margin-inline: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .journey-next,
+  .journey-steps {
+    display: none;
+  }
+}
+
+/* ——— Les candidats, sur l'accueil ——— */
+
+.home-people {
+  margin-top: var(--s8);
+}
+
+.people-lede {
+  max-width: 40rem;
+  margin: 0 0 var(--s4);
+}
+
+.people-strip {
+  list-style: none;
+  margin: 0 0 var(--s4);
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
+  gap: var(--s4);
+}
+
+.people-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s2);
+  text-align: center;
+  color: inherit;
+  text-decoration: none;
+}
+
+.portrait.is-strip {
+  width: 6rem;
+  height: 6rem;
+}
+
+.portrait.is-strip.is-initials {
+  font-size: 1.8rem;
+}
+
+.people-name {
+  font-weight: 750;
+  font-stretch: 85%;
+  line-height: 1.2;
+}
+
+@media (min-width: 48rem) {
+  .people-strip {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .portrait.is-strip {
+    width: clamp(6rem, 11vw, 9rem);
+    height: clamp(6rem, 11vw, 9rem);
+  }
+
+  .people-name {
+    font-size: 1.15rem;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .people-card:hover .people-name {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+}
+
+.guarantees {
+  margin-top: var(--s8);
+}
+
+.section-title {
+  overflow-wrap: anywhere;
+  margin: 0 0 var(--s5);
+  padding-bottom: var(--s2);
+  border-bottom: var(--thick) solid var(--rule-strong);
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: clamp(2rem, 7vw, 3.25rem);
+  line-height: 1;
+}
+
+.g-grid {
+  display: grid;
+  gap: var(--s7);
+}
+
+.g-grid > * {
+  min-width: 0;
+}
+
+.g-item h3 {
+  overflow-wrap: break-word;
+  margin: 0;
+  font-weight: 800;
+  font-stretch: 80%;
+  font-size: clamp(1.4rem, 4.5vw, 1.75rem);
+  line-height: 1.1;
+}
+
+.g-item .diagram {
+  max-width: 26rem;
+}
+
+.g-facts {
+  margin: 0 0 var(--s3);
+  padding-left: 1.1rem;
+  max-width: 34rem;
+}
+
+.g-facts li {
+  margin: 0.35rem 0;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.g-link {
+  font-weight: 700;
+}
+
+@media (min-width: 64rem) {
+  .home-sheet {
+    padding-top: var(--s7);
+  }
+
+  .g-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--s6);
+  }
+
+  .g-item {
+    padding-top: var(--s3);
+  }
+
+  .screen-home .sheet {
+    padding-bottom: var(--s7);
+  }
+}
+
+/* ——— Comprendre l'enjeu : le cadre du module dans la feuille ———
+   Le contenu (résumé, chiffres clés et leurs graphiques, repères) est mis en page dans topics.css. */
+
+.explainer {
+  max-width: var(--measure);
+  margin: var(--s4) 0 var(--s3);
+  border-top: var(--hair) solid var(--rule);
+}
+
+.explainer > summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.15rem 0.35rem;
+  min-height: 2.75rem;
+  cursor: pointer;
+  list-style: none;
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+.explainer > summary::-webkit-details-marker {
+  display: none;
+}
+
+.explainer-count {
+  margin-left: auto;
+  white-space: nowrap;
+  font-weight: 400;
+  color: var(--print-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ——— Fermez l'isoloir : la preuve par le mode avion ——— */
+
+/* Barre des questions : le cadenas avant les bâtons, et sa fenêtre de détails */
+.bar-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s3);
+  min-width: 0;
+}
+
+.privacy-trigger {
+  flex: none;
+}
+
+.privacy-dialog {
+  width: min(34rem, calc(100vw - 2 * var(--gutter)));
+  max-height: calc(100dvh - 2 * var(--gutter));
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  background: var(--paper);
+  color: var(--print);
+  border: var(--line) solid var(--rule-strong);
+  box-shadow: inset 0 var(--thick) 0 var(--rule-strong);
+}
+
+.privacy-dialog::backdrop {
+  background: color-mix(in srgb, var(--print) 45%, transparent);
+}
+
+.dialog-body {
+  padding: var(--s5) var(--s5) var(--s4);
+}
+
+.dialog-body h2 {
+  margin: 0 0 var(--s3);
+  font-weight: 800;
+  font-stretch: 78%;
+  font-size: clamp(1.4rem, 5vw, 1.75rem);
+  line-height: 1.1;
+}
+
+.dialog-body p {
+  margin: 0 0 var(--s3);
+  max-width: var(--measure);
+}
+
+.dialog-body .diagram {
+  max-width: 24rem;
+}
+
+.dialog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s3);
+  margin-top: var(--s4);
+  font-size: var(--text-sm);
+}
+
+.how-to {
+  max-width: var(--measure);
+  font-size: var(--text-sm);
+}
+
+.how-to summary {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 2.75rem;
+  cursor: pointer;
+  font-weight: 700;
+  list-style: none;
+}
+
+.tech summary::-webkit-details-marker,
+.how-to summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Un menu repliable se reconnaît : chevron dessiné qui pivote, libellé souligné */
+.disclosure {
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  stroke-width: 2.2;
+  transition: transform var(--t-quick) var(--ease-out);
+}
+
+details[open] > summary .disclosure {
+  transform: rotate(90deg);
+}
+
+.summary-label {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+details[open] > summary .summary-label {
+  text-decoration: none;
+}
+
+.how-to ul {
+  margin: 0 0 var(--s3);
+  padding-left: 1.1rem;
+}
+
+.how-to li {
+  margin: 0.3rem 0;
+}
+
+.airplane {
+  margin-top: var(--s8);
+}
+
+/* La quatrième bande du rideau, le bleu, sur le geste qui ferme l'isoloir : après les trois panneaux
+   du parcours, les quatre pastels se suivent dans l'ordre du logo. Un décor, sans autre sens. */
+.airplane-grid {
+  display: grid;
+  gap: var(--s5);
+  padding: var(--s5) var(--s4);
+  background: var(--pastel-bleu);
+  box-shadow: inset 0 var(--thick) 0 var(--rule-strong);
+}
+
+/* Sur téléphone, le schéma déborde un peu sur la marge de l'aplat : ses légendes gardent leur corps */
+@media (max-width: 63.99rem) {
+  .airplane-grid > .diagram {
+    width: calc(100% + 2 * var(--s3));
+    margin-inline: calc(-1 * var(--s3));
+  }
+}
+
+.airplane-lede {
+  margin: 0 0 var(--s4);
+  max-width: 32rem;
+  font-size: 1.25rem;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.net-state {
+  display: flex;
+  gap: 0.55rem;
+  align-items: flex-start;
+  max-width: 32rem;
+  margin: 0 0 var(--s2);
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.net-state.is-closed {
+  color: var(--print);
+  font-weight: 700;
+}
+
+.diagram path.dg-plane {
+  stroke: var(--print);
+  stroke-width: 1.6;
+}
+
+.dg-ink-ring {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2;
+}
+
+.dg-tone-ring {
+  fill: none;
+  stroke: var(--aff-tres-proche);
+  stroke-width: 2;
+}
+
+.dg-tone-dot {
+  fill: var(--aff-tres-proche);
+}
+
+.dg-tone-ring.is-low {
+  stroke: var(--aff-eloigne);
+}
+
+.dg-tone-dot.is-low {
+  fill: var(--aff-eloigne);
+}
+
+.dg-open-dot {
+  fill: var(--paper);
+  stroke: var(--print);
+  stroke-width: 1.2;
+}
+
+@media (min-width: 64rem) {
+  .airplane-grid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: var(--s8);
+    align-items: center;
+    padding: var(--s6) var(--s6) var(--s5);
+  }
+}
+
+/* Hors ligne : le rideau de l'isoloir tombe sous le double filet de l'en-tête, une fois.
+   Il est dans le flux : il ne masque rien de la feuille. */
+.form-header:has(.curtain) {
+  border-bottom: 0;
+}
+
+.form-header:has(.curtain)::after {
+  display: none;
+}
+
+.curtain {
+  position: relative;
+  height: 1.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: var(--thick) solid var(--rule-strong);
+  animation: curtain-fall 560ms var(--ease-out) both;
+}
+
+.curtain::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 3px;
+  height: 1px;
+  background: var(--rule-strong);
+}
+
+.curtain-pleats {
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 100%;
+  height: calc(100% - 5px);
+  color: var(--print);
+}
+
+.curtain-pleats path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+}
+
+.curtain-label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.1rem 0.6rem;
+  background: var(--paper);
+  border: var(--line) solid var(--print);
+  font-size: var(--text-xs);
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.curtain-label .icon {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+@keyframes curtain-fall {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .curtain {
+    animation: none;
+  }
+}
+
+/* ——— Résultat provisoire et révision ——— */
+
+.results-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 var(--s5);
+}
+
+.stamp.is-provisional {
+  margin-bottom: var(--s4);
+}
+
+.revision-notice {
+  margin-top: 0;
+}
+
+/* ——— Dépouillement : un héros avec l'affiche du plus proche, un seul classement, les suites en panneaux ——— */
+
+.results-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s6);
+}
+
+@media (min-width: 64rem) {
+  .results-hero {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: var(--s8);
+    align-items: end;
+  }
+}
+
+.results-intro .display {
+  margin-bottom: var(--s4);
+  max-width: 12ch;
+}
+
+.results-intro .lede {
+  margin-bottom: var(--s3);
+}
+
+.results-reading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem 1.25rem;
+  margin: var(--s4) 0 0;
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.results-reading > span {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Un bâton de pointage, en légende */
+.mini-tally {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-right: 0.45rem;
+  background: var(--ink);
+  border-radius: 1px;
+  transform: rotate(4deg);
+}
+
+/* L'affiche du plus proche : le double jaune, avec la photo d'identité */
+.leader {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--s5);
+  padding: var(--s5) var(--s5) var(--s4);
+  box-shadow: inset 0 var(--thick) 0 var(--rule-strong);
+}
+
+.leader .portrait.is-id {
+  width: clamp(5.5rem, 24vw, 11rem);
+  height: clamp(5.5rem, 24vw, 11rem);
+}
+
+.leader-title {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0;
+}
+
+.leader-lead {
+  font-size: var(--text-sm);
+  font-weight: 650;
+  color: var(--print-soft);
+}
+
+.leader-name {
+  overflow-wrap: anywhere;
+  color: var(--print);
+  font-weight: 850;
+  font-stretch: 70%;
+  font-size: clamp(1.9rem, 7vw, 3.4rem);
+  line-height: 0.95;
+  text-decoration: none;
+}
+
+.leader-score {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 var(--s3);
+  margin: var(--s3) 0 var(--s2);
+}
+
+.leader-pct {
+  color: var(--aff, var(--print));
+  font-weight: 850;
+  font-stretch: 70%;
+  font-size: clamp(3rem, 12vw, 5.25rem);
+  line-height: 0.85;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Le palier en toutes lettres, sur l'encre du double (contraste garanti), sa couleur dans la pastille */
+.leader-band {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 750;
+}
+
+.leader-band::before {
+  content: '';
+  width: 0.8rem;
+  height: 0.8rem;
+  background: var(--aff);
+  border-radius: 1px;
+}
+
+.leader-band.aff-tres-eloigne,
+.leader-band.aff-eloigne,
+.leader-band.aff-mitige,
+.leader-band.aff-proche,
+.leader-band.aff-tres-proche {
+  color: var(--print);
+}
+
+.leader-note {
+  margin: var(--s2) 0 0;
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+@media (max-width: 29.99rem) {
+  .leader {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s3);
+  }
+}
+
+/* Première tendance : où vous en êtes, sur une fiche imprimée au cadre fort (pas d'affiche jaune : ce
+   n'est pas encore un résultat à emporter), et l'appel à continuer en bouton large */
+.trend {
+  container: trend / inline-size;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s3);
+  min-width: 0;
+  padding: var(--s4) min(var(--s5), 4vw) var(--s5);
+  border: var(--line) solid var(--rule-strong);
+  border-top-width: var(--thick);
+}
+
+.trend-title {
+  display: grid;
+  gap: 0.2rem;
+  margin: 0;
+}
+
+.trend-where {
+  font-size: var(--text-sm);
+  font-weight: 650;
+  color: var(--print-soft);
+}
+
+.trend-count {
+  overflow-wrap: anywhere;
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: clamp(1.6rem, 6vw, 2.15rem);
+  line-height: 1;
+}
+
+.trend-figure {
+  font-size: 1.6em;
+  line-height: 0.8;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 19 bâtons par paquets de cinq : la largeur suit la fiche, le trait garde son épaisseur */
+.trend-tally {
+  display: block;
+  width: 100%;
+  max-width: 22rem;
+  height: auto;
+  margin: var(--s1) 0;
+  overflow: visible;
+}
+
+.trend-tally path {
+  fill: none;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.trend-tally .is-done {
+  stroke: var(--ink);
+  stroke-width: 3px;
+}
+
+.trend-tally .is-todo {
+  stroke: var(--print-soft);
+  stroke-width: 1.5px;
+  stroke-dasharray: 2 4;
+}
+
+.trend-text {
+  margin: 0;
+  max-width: 36ch;
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+
+.trend-cta {
+  margin-top: var(--s2);
+}
+
+/* Le bouton large passe à la ligne plutôt que de déborder ; très étroit, il laisse sa flèche (texte très agrandi) */
+.trend-cta.btn-primary {
+  padding: 0.5rem var(--s3);
+  overflow-wrap: anywhere;
+  white-space: normal;
+  text-align: center;
+}
+
+@container trend (max-width: 16rem) {
+  .trend-cta .icon {
+    display: none;
+  }
+}
+
+@media (min-width: 64rem) {
+  .results-hero.is-trend {
+    align-items: start;
+  }
+}
+
+/* Tendance : le palier en toutes lettres avec sa pastille, sans pourcentage */
+.board.is-trend .board-band {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+  font-size: var(--text-sm);
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.board.is-trend .board-band::before {
+  content: '';
+  flex: none;
+  width: 0.8rem;
+  height: 0.8rem;
+  background: var(--aff);
+  border-radius: 1px;
+}
+
+.board.is-trend .results-reading {
+  margin: 0 0 var(--s3);
+}
+
+.next-block.is-trend .next-panels {
+  max-width: 28rem;
+}
+
+/* Le classement : une seule liste, portrait, bâtons et pourcentage sur la même ligne dès 48rem */
+.board {
+  container: board / inline-size;
+  margin-top: var(--s7);
+}
+
+.board .switch {
+  margin-top: 0;
+}
+
+.board-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.board-row {
+  display: grid;
+  grid-template-columns: 1.75rem 3rem minmax(0, 1fr) auto;
+  grid-template-areas:
+    'rank photo who score'
+    '. . tally tally'
+    '. . meta meta'
+    '. . flags flags';
+  align-items: center;
+  column-gap: var(--s3);
+  padding: var(--s4) 0;
+  border-bottom: var(--hair) solid var(--rule);
+}
+
+.board-rank {
+  grid-area: rank;
+  display: flex;
+  flex-direction: column;
+  font-weight: 850;
+  font-stretch: 70%;
+  font-size: 2rem;
+  line-height: 0.9;
+  font-variant-numeric: tabular-nums;
+}
+
+.board-row > .portrait {
+  grid-area: photo;
+}
+
+.portrait.is-row {
+  width: 3rem;
+  height: 3rem;
+}
+
+.portrait.is-row.is-initials {
+  font-size: 1.1rem;
+}
+
+.board-who {
+  grid-area: who;
+  display: grid;
+  min-width: 0;
+}
+
+.board-name {
+  color: var(--print);
+  font-weight: 800;
+  font-size: 1.15rem;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.board-party {
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.board-tally {
+  grid-area: tally;
+  min-height: 2rem;
+  margin-top: var(--s2);
+}
+
+.board-score {
+  grid-area: score;
+  text-align: right;
+}
+
+.board-pct {
+  display: block;
+  color: var(--aff, var(--print));
+  font-weight: 850;
+  font-stretch: 70%;
+  font-size: clamp(2.2rem, 8vw, 3rem);
+  line-height: 0.9;
+  font-variant-numeric: tabular-nums;
+}
+
+.board-band {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--aff);
+  font-size: var(--text-xs);
+  font-weight: 700;
+}
+
+.board-meta {
+  grid-area: meta;
+  margin: var(--s1) 0 0;
+  font-size: var(--text-xs);
+  color: var(--print-soft);
+}
+
+.board-flags {
+  grid-area: flags;
+  overflow-wrap: anywhere;
+  margin-top: var(--s1);
+  font-size: var(--text-sm);
+}
+
+.board-flags summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  list-style: none;
+  cursor: pointer;
+  color: var(--red);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.board-flags summary::-webkit-details-marker {
+  display: none;
+}
+
+.board-flags ul {
+  margin: var(--s1) 0 0;
+  padding-left: 1.3rem;
+  color: var(--print-soft);
+}
+
+.board-flags li + li {
+  margin-top: 0.25rem;
+}
+
+.board-row.is-flagged .board-name {
+  color: var(--print-soft);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .board-name:hover,
+  .leader-name:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.15em;
+  }
+}
+
+@media (min-width: 48rem) {
+  .board-row {
+    grid-template-columns: 3rem 3.5rem minmax(0, 1fr) 15rem 7rem;
+    grid-template-areas:
+      'rank photo who tally score'
+      '. . meta meta meta'
+      '. . flags flags flags';
+  }
+
+  .board-rank {
+    font-size: 2.6rem;
+  }
+
+  .portrait.is-row {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .board-tally {
+    margin-top: 0;
+  }
+}
+
+.board-tally .tally {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+/* Colonne étroite (texte très agrandi) : le portrait s'efface, le score passe sous le nom */
+@container board (max-width: 26rem) {
+  .board-row {
+    grid-template-columns: 1.75rem minmax(0, 1fr);
+    grid-template-areas:
+      'rank who'
+      '. score'
+      '. tally'
+      '. meta'
+      '. flags';
+  }
+
+  .board-row > .portrait {
+    display: none;
+  }
+
+  .board-score {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 var(--s2);
+    margin-top: var(--s1);
+    text-align: left;
+  }
+
+  .board-who,
+  .board-name {
+    overflow-wrap: anywhere;
+  }
+}
+
+.board .syn-scale {
+  margin-top: var(--s4);
+}
+
+.callouts {
+  list-style: none;
+  margin: var(--s4) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--s2);
+  font-size: var(--text-sm);
+}
+
+.callouts li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  max-width: var(--measure);
+}
+
+.callouts .icon {
+  flex: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-top: 0.15em;
+  color: var(--print-soft);
+}
+
+/* Par thème et « ce qui les sépare », côte à côte sur grand écran */
+.results-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s7);
+  margin-top: var(--s8);
+}
+
+.results-split .block {
+  margin-top: 0;
+}
+
+@media (min-width: 64rem) {
+  .results-split {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: var(--s8);
+    align-items: start;
+  }
+}
+
+.grid-who {
+  display: inline-grid;
+  justify-items: center;
+  gap: 0.2rem;
+}
+
+.grid-who .portrait {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.grid-who .portrait.is-initials {
+  font-size: 0.85rem;
+}
+
+.pv-grid thead th:not(:first-child) {
+  text-align: center;
+}
+
+.why-pair {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s2) var(--s3);
+  margin: 0 0 var(--s4);
+  font-weight: 800;
+  font-stretch: 82%;
+  font-size: 1.25rem;
+  line-height: 1.15;
+}
+
+.why-faces {
+  display: inline-flex;
+}
+
+.why-faces .portrait {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+/* Les deux visages se chevauchent, comme deux photos posées l'une sur l'autre */
+.why-faces .portrait + .portrait {
+  margin-left: -0.6rem;
+  outline: 2px solid var(--paper);
+}
+
+.why-vs {
+  font-weight: 500;
+  color: var(--print-soft);
+}
+
+.why-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: var(--line) solid var(--rule-strong);
+}
+
+.why-list a {
+  overflow-wrap: anywhere;
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--s3);
+  padding: var(--s3) 0;
+  border-bottom: var(--hair) solid var(--rule);
+  color: var(--print);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.why-n {
+  color: var(--print);
+  font-weight: 850;
+  font-stretch: 70%;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.why-list .icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  color: var(--print-soft);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .why-list a:hover > span:not(.why-n) {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+}
+
+/* Priorités : une étoile par thème, pleine à la bille quand le thème compte double (le bleu compte) */
+.star-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  stroke-width: 1.6;
+}
+
+.star-icon.is-on {
+  color: var(--ink);
+  fill: currentColor;
+}
+
+.prio {
+  max-width: 34rem;
+  margin: var(--s4) 0 0;
+  padding: var(--s3) 0 var(--s2);
+  border-top: var(--hair) solid var(--rule);
+  border-bottom: var(--hair) solid var(--rule);
+}
+
+.prio-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 var(--s2);
+  margin: 0 0 var(--s2);
+}
+
+.prio-title {
+  font-weight: 800;
+  font-stretch: 82%;
+  font-size: 1.125rem;
+}
+
+.prio-none {
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.prio-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  margin: 0 0 var(--s1);
+  padding: 0;
+  list-style: none;
+}
+
+/* Une pastille par thème prioritaire, comme une pastille de filtre ; l'étoile dit si elle compte double */
+.star-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 2.75rem;
+  max-width: 100%;
+  padding: 0.35rem 0.8rem 0.35rem 0.6rem;
+  border: var(--line) solid var(--rule-strong);
+  background: var(--paper);
+  color: var(--print);
+  font-size: var(--text-sm);
+  font-weight: 650;
+  line-height: 1.25;
+  text-align: left;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.star-chip[aria-pressed='false'] {
+  border-color: var(--rule);
+  color: var(--print-soft);
+}
+
+.star-chip .star-icon:not(.is-on),
+.star-toggle .star-icon:not(.is-on) {
+  color: var(--print-soft);
+}
+
+/* Déjà le maximum : les étoiles libres s'impriment en pointillé, pâlies. Elles restent actives pour dire
+   pourquoi rien ne change (un composant inactif échappe au contraste minimal de WCAG 1.4.11) */
+.star-chip[aria-disabled='true'],
+.star-toggle[aria-disabled='true'] {
+  cursor: not-allowed;
+}
+
+.star-chip[aria-disabled='true'] .star-icon,
+.star-toggle[aria-disabled='true'] .star-icon {
+  stroke-dasharray: 2 1.6;
+  opacity: 0.55;
+}
+
+.prio-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 var(--s4);
+  margin: 0;
+  font-size: var(--text-sm);
+}
+
+.prio-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+}
+
+.prio-status {
+  max-width: var(--measure);
+  margin: 0 0 var(--s2);
+  font-size: var(--text-sm);
+  font-weight: 650;
+}
+
+.prio-status:empty {
+  margin: 0;
+}
+
+/* Refus d'une quatrième étoile, sous le nom du thème touché */
+.star-refused {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: var(--text-xs);
+  font-weight: 650;
+  color: var(--print-soft);
+  white-space: normal;
+}
+
+.star-legend {
+  margin: 0 0 var(--s2);
+}
+
+.star-legend .star-icon {
+  display: inline-block;
+  width: 1.05rem;
+  height: 1.05rem;
+  margin-right: 0.1rem;
+  vertical-align: -0.2em;
+}
+
+/* Dans la grille, l'étoile précède le thème : 2rem de cible, posée sur la marge de la colonne */
+.topic-head {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.star-toggle {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  margin: -0.35rem 0 -0.35rem -0.4rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+/* Petit écran : la grille tient dans la colonne, portraits et marges des cellules resserrés ; aucun
+   candidat, le dernier classé compris, n'est coupé au bord */
+@media (max-width: 25.5rem) {
+  .pv-grid {
+    min-width: 20rem;
+  }
+
+  .pv-grid th,
+  .pv-grid td {
+    padding-inline: 0.25rem;
+  }
+
+  .grid-who .portrait {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.pv-grid tbody th,
+.pv-grid tbody td {
+  vertical-align: middle;
+}
+
+.pv-grid tr.is-priority th[scope='row'] {
+  font-weight: 750;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .star-chip:hover {
+    box-shadow: inset 0 0 0 1px var(--rule-strong);
+  }
+
+  .star-toggle:not([aria-disabled='true']):hover .star-icon:not(.is-on) {
+    color: var(--print);
+  }
+}
+
+.section-title[tabindex='-1']:focus {
+  outline: none;
+}
+
+/* Accords et désaccords : une barre divergente par ligne, désaccords à gauche de l'axe, accords à droite,
+   dans les tons de la réglette ; les nombres sont écrits, la légende est imprimée au-dessus */
+.agree {
+  --agree-label: 6.5rem;
+  --agree-who: 19rem;
+  container: agree / inline-size;
+  margin-top: var(--s8);
+}
+
+.agree-lede {
+  max-width: var(--measure);
+  margin: 0 0 var(--s4);
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.agree-head {
+  display: grid;
+  grid-template-columns: var(--agree-label) minmax(0, 1fr);
+  column-gap: var(--s3);
+  padding-bottom: var(--s1);
+  border-bottom: var(--line) solid var(--rule-strong);
+}
+
+.agree-head::before {
+  content: '';
+}
+
+.agree-col {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.agree-col + .agree-col,
+.agree-col-title {
+  display: none;
+}
+
+.agree-col-title {
+  text-align: center;
+  font-size: var(--text-sm);
+  font-weight: 750;
+}
+
+.agree-scale {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  hyphens: auto;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.agree-scale .is-against {
+  padding-right: 0.5rem;
+  text-align: right;
+  color: var(--aff-eloigne);
+}
+
+.agree-scale .is-for {
+  padding-left: 0.5rem;
+  border-left: var(--line) solid var(--print);
+  color: var(--aff-tres-proche);
+}
+
+.agree-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.agree-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 0.1rem;
+  padding: var(--s3) 0;
+  border-bottom: var(--hair) solid var(--rule);
+}
+
+.agree-who {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  min-width: 0;
+  margin: 0 0 var(--s1);
+}
+
+.agree-rank {
+  flex: none;
+  min-width: 1.1rem;
+  font-weight: 850;
+  font-stretch: 70%;
+  font-size: 1.5rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.agree-who .portrait {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.agree-who .portrait.is-initials {
+  font-size: 0.85rem;
+}
+
+.agree-name {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.agree-score {
+  flex: none;
+  margin-left: auto;
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.agree-item.is-flagged .agree-name {
+  color: var(--print-soft);
+}
+
+.agree-none {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.agree-row {
+  display: grid;
+  grid-template-columns: var(--agree-label) minmax(0, 1fr);
+  align-items: center;
+  column-gap: var(--s3);
+}
+
+.agree-label {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--print-soft);
+}
+
+.agree-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 1.75rem;
+}
+
+.agree-side {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.agree-side.is-against {
+  justify-content: flex-end;
+}
+
+/* L'axe : un filet imprimé entre désaccords et accords */
+.agree-side.is-for {
+  border-left: var(--line) solid var(--print);
+}
+
+.agree-fill {
+  flex: none;
+  width: calc((100% - 2.4rem) * var(--f, 0));
+  height: 0.8rem;
+}
+
+.is-against .agree-fill {
+  background: var(--aff-eloigne);
+}
+
+.is-for .agree-fill {
+  background: var(--aff-tres-proche);
+}
+
+/* Contraste forcé : les fonds disparaissent. Les barres restent pleines, en couleur système ; l'axe sépare
+   désaccords et accords */
+@media (forced-colors: active) {
+  .agree-side .agree-fill {
+    forced-color-adjust: none;
+    background: CanvasText;
+  }
+}
+
+.agree-n {
+  flex: none;
+  min-width: 1.5ch;
+  font-size: var(--text-sm);
+  font-weight: 750;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.is-against .agree-n {
+  padding-right: 0.1rem;
+  text-align: right;
+  color: var(--aff-eloigne);
+}
+
+.is-for .agree-n {
+  color: var(--aff-tres-proche);
+}
+
+.agree-n.is-zero {
+  font-weight: 400;
+  color: var(--print-soft);
+}
+
+.is-for .agree-n.is-zero {
+  padding-left: 0.35rem;
+}
+
+/* Grand écran : une ligne par candidat, ses deux barres côte à côte sous leurs titres de colonne */
+@container agree (min-width: 46rem) {
+  .agree-head,
+  .agree-item {
+    grid-template-columns: var(--agree-who) minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: var(--s6);
+  }
+
+  .agree-col + .agree-col {
+    display: grid;
+  }
+
+  .agree-col-title {
+    display: block;
+  }
+
+  .agree-item {
+    align-items: center;
+  }
+
+  .agree-who {
+    margin: 0;
+  }
+
+  .agree-none {
+    grid-column: 2 / -1;
+  }
+
+  .agree-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .agree-label {
+    display: none;
+  }
+}
+
+/* Très étroit (texte agrandi) : le libellé passe au-dessus de sa barre, le portrait s'efface */
+@container agree (max-width: 19rem) {
+  .agree-head,
+  .agree-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .agree-head::before,
+  .agree-who .portrait {
+    display: none;
+  }
+
+  .agree-who {
+    flex-wrap: wrap;
+    align-items: baseline;
+  }
+
+  .agree-name {
+    flex: 1 1 0;
+  }
+
+  .agree-score {
+    flex-basis: 100%;
+    margin-left: 0;
+  }
+}
+
+/* Résultat sensible à la méthode : deux classements reliés, dans un cadre imprimé */
+.swap {
+  container: swap / inline-size;
+  max-width: 50rem;
+  margin: 0 0 var(--s6);
+  padding: var(--s4) min(var(--s5), 4vw) var(--s4);
+  border: var(--line) solid var(--rule-strong);
+  border-top-width: var(--thick);
+}
+
+.swap-title {
+  overflow-wrap: anywhere;
+  margin: 0 0 var(--s2);
+  font-weight: 800;
+  font-stretch: 78%;
+  font-size: clamp(1.3rem, 4.5vw, 1.6rem);
+  line-height: 1.1;
+}
+
+.swap-text {
+  max-width: var(--measure);
+  margin: 0 0 var(--s4);
+  font-size: var(--text-sm);
+}
+
+.swap-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 3rem minmax(0, 1fr);
+  grid-template-rows: auto auto;
+}
+
+/* Les deux en-têtes partagent une rangée : les listes partent de la même hauteur, et un rang inchangé
+   donne un trait horizontal */
+.swap-col {
+  display: grid;
+  grid-row: span 2;
+  grid-template-rows: subgrid;
+  row-gap: 0;
+}
+
+.swap-head {
+  min-height: 2.6em;
+  margin: 0;
+  padding-bottom: var(--s1);
+  border-bottom: var(--line) solid var(--rule-strong);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--print-soft);
+  line-height: 1.3;
+}
+
+.swap-gutter {
+  position: relative;
+  grid-row: span 2;
+}
+
+.swap-links {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.swap-links line {
+  stroke: var(--rule);
+  stroke-width: 1px;
+  stroke-linecap: round;
+}
+
+.swap-links line.is-marked {
+  stroke: var(--print);
+  stroke-width: 2px;
+}
+
+.swap-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.swap-list li {
+  display: grid;
+  grid-template-columns: 1.2rem minmax(0, 1fr) auto;
+  align-items: baseline;
+  column-gap: var(--s2);
+  min-height: 2.75rem;
+  padding: 0.45rem 0;
+  border-bottom: var(--hair) solid var(--rule);
+  color: var(--print-soft);
+  font-size: var(--text-sm);
+}
+
+/* Un peu d'air entre chaque liste et les traits qui les relient */
+.is-full .swap-list li {
+  padding-right: var(--s2);
+}
+
+.is-simple .swap-list li {
+  padding-left: var(--s2);
+}
+
+.swap-list li.is-marked {
+  color: var(--print);
+  font-weight: 750;
+}
+
+.swap-rank {
+  font-weight: 850;
+  font-stretch: 70%;
+  font-size: 1.2rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.swap-name {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  line-height: 1.25;
+}
+
+.swap-value {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Colonnes étroites : la valeur passe sous le nom */
+@container swap (max-width: 34rem) {
+  .swap-list li {
+    grid-template-columns: 1.2rem minmax(0, 1fr);
+  }
+
+  .swap-value {
+    grid-column: 2;
+  }
+}
+
+/* Très étroit : les deux classements s'empilent, sans traits */
+@container swap (max-width: 17rem) {
+  .swap-cols {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--s4);
+  }
+
+  .swap-gutter {
+    display: none;
+  }
+
+  .swap-head {
+    min-height: 0;
+  }
+}
+
+/* Et maintenant : des aplats, le premier sur le double jaune. Les suivants prennent les pastels du
+   rideau dans l'ordre du drapé, à partir du jaune : bleu, vert, rouge. La couleur suit la place,
+   pas le contenu. */
+.next-block {
+  margin-top: var(--s8);
+}
+
+.next-panels {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: var(--s3);
+}
+
+.next-panels > li {
+  --panel: var(--pastel-jaune);
+  display: flex;
+  box-shadow: inset 0 var(--thick) 0 var(--rule-strong);
+}
+
+.next-panels > li:nth-child(4n + 2) {
+  --panel: var(--pastel-bleu);
+}
+
+.next-panels > li:nth-child(4n + 3) {
+  --panel: var(--pastel-vert);
+}
+
+.next-panels > li:nth-child(4n) {
+  --panel: var(--pastel-rouge);
+}
+
+/* Le double garde son jaune (.on-copy pose le fond et les encres) */
+.next-panels > li:not(.on-copy) {
+  background: var(--panel);
+}
+
+.next-panel {
+  flex: 1;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 0.35rem;
+  min-height: 9.5rem;
+  padding: var(--s4) var(--s4) var(--s3);
+  color: var(--print);
+  text-decoration: none;
+}
+
+.next-title {
+  overflow-wrap: anywhere;
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: 1.65rem;
+  line-height: 1.02;
+}
+
+.next-desc {
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.next-icon {
+  order: 3;
+  justify-self: end;
+  width: 1.4rem;
+  height: 1.4rem;
+  color: var(--print-soft);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .next-panel:hover .next-title {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.15em;
+  }
+}
+
+/* Pied : ce qu'il faut garder en tête, et vos données */
+.results-foot {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s6);
+  margin-top: var(--s8);
+  padding-top: var(--s4);
+  border-top: var(--line) solid var(--rule-strong);
+}
+
+@media (min-width: 64rem) {
+  .results-foot {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: var(--s8);
+  }
+}
+
+.results-foot h2 {
+  margin: 0 0 var(--s3);
+  font-weight: 800;
+  font-stretch: 78%;
+  font-size: 1.4rem;
+  line-height: 1.1;
+}
+
+.caveats ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.caveats li {
+  margin: 0.35rem 0;
+  max-width: var(--measure);
+}
+
+/* Barre du bas du dépouillement : l'action principale et deux raccourcis */
+.bar-shortcuts {
+  gap: var(--s2);
+}
+
+.bar-mini {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 2.75rem;
+  padding: 0 0.75rem;
+  border: var(--line) solid var(--rule-strong);
+  color: var(--print);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.bar-mini .icon {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .bar-mini:hover {
+    background: color-mix(in srgb, var(--print) 7%, var(--paper));
+  }
+}
+
+/* Téléphone : raccourcis en pictogramme légendé ; l'accueil reste joignable par le logo de l'en-tête */
+@container actions (max-width: 36rem) {
+  .results-bar .bar-home {
+    display: none;
+  }
+
+  .results-bar .bar-shortcuts {
+    justify-content: flex-start;
+    gap: 0;
+  }
+
+  .bar-mini {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.1rem;
+    min-width: 3.6rem;
+    padding: 0.15rem 0.35rem;
+    border: 0;
+    font-size: 0.75rem;
+    line-height: 1.1;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .bar-mini .icon {
+    width: 1.35rem;
+    height: 1.35rem;
+  }
+}
+
+/* Tendance : « Continuer : 11 questions » garde son libellé long tant qu'il tient à côté du raccourci */
+@container actions (min-width: 24rem) {
+  .results-bar .btn-primary .btn-label {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+  }
+}
+
+/* Très étroit : les raccourcis gardent leur pictogramme, leur nom reste lu par les lecteurs d'écran */
+@container actions (max-width: 22rem) {
+  .bar-mini span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .bar-mini {
+    min-width: 2.75rem;
+  }
+}

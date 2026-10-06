@@ -1,0 +1,16 @@
+Rapport de génération des voix — 2026-10-04 23:27:04
+Commande : generate.py --voice grave --only retraites-intro --limit 1 --force --keep-takes --bitrate 128000 --extra-takes 12
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix grave (v5b) — référence : F0 médiane 200.1 Hz (partie lue 190.9 Hz, fin -6.6 dt) ; cible 190.9 Hz ; débit articulé 4.76 syll/s ; 5 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères)
+  retraites-intro-01 — 4.32 s, F0 186.0 Hz, pauses entre phrases [0.3, 0.3] s
+    1. Un jour, vous arrêterez de …  16/17   210.4  +1.68   -7.3      —  0.0    6.8  1.42  1:202× 2:168× 3:199× 4:221× 5:166× 6:159~ 7:116× 8:178× 9:139× 10:205× 11:167× 12:214× 13:194× 14:143~ 15:297~ 16:210~ 17:220×
+    2. Qui vous versera alors votr…   7/7    178.3  -1.18   +0.1   +2.5  6.0    5.7  1.19  1:146~ 2:153× 3:230~ 4:135~ 5:135~ 6:292~ 7:178
+      ⚠ phrase 1 : aucune prise acceptable : hauteur +1.68 dt de la cible, dispersion 9.3 dt
+
+Alertes (1) :
+  grave / retraites-intro-01 : phrase 1 : aucune prise acceptable : hauteur +1.68 dt de la cible, dispersion 9.3 dt
+
+Temps : 92 s pour 24 prise(s), 3.71 s de calcul par prise en moyenne (1.6 s d'audio) ; calcul d'une prise ≈ -0.30 s + 2.51 s par seconde d'audio.
+Estimation pour les 97 passages (149 phrases) × 2 voix (aigue 3 prises + grave 5 prises, 140% de secours) : ~449 min.

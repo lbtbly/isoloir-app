@@ -1,0 +1,352 @@
+{
+  "_note": "Arbitrages éditoriaux appliqués par tools/build-pack.mjs après la critique de complétude et les relectures (2026-10-02). Chaque nouvelle attribution renvoie à une source déjà présente dans les dossiers de recherche.",
+  "newTopics": [
+    {
+      "id": "ukraine_russie",
+      "label": "Ukraine et Russie",
+      "description": "Soutien à l'Ukraine et relation avec la Russie."
+    },
+    {
+      "id": "proche_orient",
+      "label": "Israël et Gaza",
+      "description": "Position de la France sur la guerre à Gaza et les relations avec le gouvernement israélien."
+    },
+    {
+      "id": "defense",
+      "label": "Défense",
+      "description": "Stratégie militaire, alliances et dissuasion nucléaire."
+    }
+  ],
+  "topicChanges": [
+    {
+      "questionId": "international_defense-1",
+      "topicId": "ukraine_russie"
+    },
+    {
+      "questionId": "international_defense-2",
+      "topicId": "proche_orient"
+    },
+    {
+      "questionId": "international_defense-4",
+      "topicId": "proche_orient"
+    },
+    {
+      "questionId": "international_defense-3",
+      "topicId": "defense"
+    },
+    {
+      "questionId": "international_defense-5",
+      "topicId": "defense"
+    }
+  ],
+  "tierChanges": [
+    {
+      "questionId": "strategie-2",
+      "newTier": "approfondi"
+    },
+    {
+      "questionId": "agriculture-1",
+      "newTier": "approfondi"
+    },
+    {
+      "questionId": "numerique-1",
+      "newTier": "approfondi"
+    },
+    {
+      "questionId": "international_defense-4",
+      "newTier": "approfondi"
+    },
+    {
+      "questionId": "logement-2",
+      "newTier": "essentiel"
+    },
+    {
+      "questionId": "sante-3",
+      "newTier": "essentiel"
+    },
+    {
+      "questionId": "industrie_economie-3",
+      "newTier": "essentiel"
+    }
+  ],
+  "drops": [
+    "retraites-3",
+    "europe-4",
+    "laicite_republique-3",
+    "international_defense-6"
+  ],
+  "dropApproaches": [
+    "travail_salaires-1-d",
+    "ecologie_energie-1-d"
+  ],
+  "addApproaches": [
+    {
+      "questionId": "fiscalite-1",
+      "id": "fiscalite-1-d",
+      "text": "Ne pas alourdir la fiscalité du patrimoine, pour préserver l'investissement",
+      "external": true
+    },
+    {
+      "questionId": "immigration-1",
+      "id": "immigration-1-f",
+      "text": "Réduire l'immigration irrégulière en exécutant davantage de décisions d'expulsion",
+      "external": true
+    },
+    {
+      "questionId": "laicite_republique-1",
+      "id": "laicite_republique-1-f",
+      "text": "Étendre l'interdiction des signes religieux à d'autres lieux, comme les sorties scolaires ou les compétitions sportives",
+      "external": true
+    },
+    {
+      "questionId": "securite_justice-1",
+      "id": "securite_justice-1-f",
+      "text": "Appliquer une tolérance zéro face aux violences commises contre les personnes",
+      "external": false
+    },
+    {
+      "questionId": "international_defense-3",
+      "id": "international_defense-3-e",
+      "text": "Prendre ses distances avec l'OTAN et refuser la logique des blocs militaires",
+      "external": false
+    }
+  ],
+  "externalFlags": [
+    {
+      "approachId": "education-3-d",
+      "external": false
+    },
+    {
+      "approachId": "strategie-2-c",
+      "external": true
+    },
+    {
+      "approachId": "securite_justice-2-a",
+      "external": false
+    }
+  ],
+  "edits": [
+    {
+      "id": "fiscalite-1",
+      "field": "prompt",
+      "newText": "Quels impôts privilégier pour faire davantage contribuer les plus grandes fortunes ?"
+    },
+    {
+      "id": "travail_salaires-1-b",
+      "field": "text",
+      "newText": "Baisser les prélèvements sociaux payés par les salariés pour augmenter leur salaire net, en compensant par d'autres recettes"
+    },
+    {
+      "id": "travail_salaires-2-a",
+      "field": "text",
+      "newText": "Indexer par la loi les salaires sur l'inflation, et pas seulement le salaire minimum"
+    },
+    {
+      "id": "industrie_economie-1-c",
+      "field": "text",
+      "newText": "Planifier la relocalisation des productions essentielles : alimentation, énergie, numérique, biens stratégiques"
+    },
+    {
+      "id": "fiscalite-2-a",
+      "field": "text",
+      "newText": "Réduire le déficit surtout par des économies sur le fonctionnement de l'État et sur les aides publiques"
+    },
+    {
+      "id": "retraites-1-d",
+      "field": "text",
+      "newText": "Laisser les retraites en l'état pour l'instant et donner la priorité à la relance industrielle"
+    },
+    {
+      "id": "sante-1-d",
+      "field": "text",
+      "newText": "Réduire les dépenses administratives de la santé pour reporter les moyens vers les soins"
+    },
+    {
+      "id": "sante-3-d",
+      "field": "text",
+      "newText": "Installer des caméras dans les EHPAD pour prévenir les maltraitances"
+    },
+    {
+      "id": "securite_justice-1-e",
+      "field": "text",
+      "newText": "Installer des caméras de surveillance dans les écoles, les crèches et les lieux d'accueil périscolaire"
+    },
+    {
+      "id": "logement-2-c",
+      "field": "text",
+      "newText": "Faire de la rénovation énergétique des logements la priorité, pour réduire les charges des ménages"
+    },
+    {
+      "id": "ecologie_energie-1-b",
+      "field": "text",
+      "newText": "Faire payer le secteur pétrolier, en plafonnant les marges des raffineurs ou en taxant ses superprofits"
+    },
+    {
+      "id": "ecologie_energie-6-a",
+      "field": "text",
+      "newText": "Proposer aux ménages modestes la location de voitures électriques à prix réduit"
+    },
+    {
+      "id": "immigration-1-a",
+      "field": "text",
+      "newText": "Régulariser à grande échelle les travailleurs sans titre de séjour"
+    },
+    {
+      "id": "institutions-2-c",
+      "field": "text",
+      "newText": "Recourir plus souvent au référendum d'initiative partagée pour trancher les réformes contestées"
+    },
+    {
+      "id": "international_defense-1-a",
+      "field": "text",
+      "newText": "Augmenter fortement l'aide militaire à l'Ukraine, notamment pour défendre son espace aérien"
+    },
+    {
+      "id": "international_defense-3-b",
+      "field": "text",
+      "newText": "Renforcer en priorité l'armée française et garder une défense strictement nationale"
+    },
+    {
+      "id": "laicite_republique-1-d",
+      "field": "text",
+      "newText": "Mettre l'accent sur la lutte contre les discriminations, y compris celles qui visent les musulmans"
+    },
+    {
+      "id": "securite_justice-4-a",
+      "field": "text",
+      "newText": "Faire preuve de fermeté face aux violences commises en marge des blocages"
+    },
+    {
+      "id": "securite_justice-4-d",
+      "field": "text",
+      "newText": "Défendre le droit des lycéens à manifester sans leur dicter leur conduite"
+    },
+    {
+      "id": "securite_justice-4-e",
+      "field": "text",
+      "newText": "Appeler les lycéens à cesser les blocages, jugés sans issue face au gouvernement actuel"
+    }
+  ],
+  "rejectEdits": [],
+  "movePositions": [
+    {
+      "questionId": "ecologie_energie-1",
+      "candidate": "faure",
+      "from": "ecologie_energie-1-d",
+      "to": "ecologie_energie-1-b"
+    }
+  ],
+  "positions": [
+    {
+      "questionId": "fiscalite-2",
+      "candidate": "guedj",
+      "approachId": "fiscalite-2-a",
+      "remove": true
+    },
+    {
+      "questionId": "securite_justice-1",
+      "candidate": "maurel",
+      "approachId": "securite_justice-1-b",
+      "remove": true
+    },
+    {
+      "questionId": "sante-1",
+      "candidate": "faure",
+      "approachId": "sante-1-a",
+      "remove": true
+    },
+    {
+      "questionId": "europe-3",
+      "candidate": "royal",
+      "approachId": "europe-3-b",
+      "remove": true
+    },
+    {
+      "questionId": "securite_justice-1",
+      "candidate": "maurel",
+      "approachId": "securite_justice-1-f",
+      "weight": 1,
+      "rejects": false,
+      "nature": "proposition",
+      "confidence": "high",
+      "summary": "Son programme prévoit une « tolérance zéro » contre les atteintes aux personnes et le port d'armes blanches chez les jeunes, avec une police judiciaire renforcée.",
+      "sources": [
+        {
+          "title": "Programme d'Emmanuel Maurel",
+          "url": "https://emmanuel-maurel.fr/programme/",
+          "publisher": "emmanuel-maurel.fr",
+          "date": "2026"
+        }
+      ]
+    },
+    {
+      "questionId": "securite_justice-1",
+      "candidate": "royal",
+      "approachId": "securite_justice-1-f",
+      "weight": 1,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "En annonçant sa candidature, elle a inscrit la « sécurité du quotidien » dans l'« ordre juste » et prôné la tolérance zéro envers les agresseurs.",
+      "sources": [
+        {
+          "title": "Présidentielle 2027 : Ségolène Royal annonce sa candidature à la primaire socialiste (LCP)",
+          "url": "https://lcp.fr/actualites/presidentielle-2027-segolene-royal-annonce-sa-candidature-a-la-primaire-socialiste",
+          "publisher": "LCP",
+          "date": "2026-07-10"
+        }
+      ]
+    },
+    {
+      "questionId": "international_defense-3",
+      "candidate": "maurel",
+      "approachId": "international_defense-3-e",
+      "weight": 2,
+      "rejects": false,
+      "nature": "proposition",
+      "confidence": "high",
+      "summary": "Son programme assimile l'indépendance au non-alignement et juge que « l'OTAN est en état de mort cérébrale ».",
+      "sources": [
+        {
+          "title": "Programme d'Emmanuel Maurel",
+          "url": "https://emmanuel-maurel.fr/programme/",
+          "publisher": "emmanuel-maurel.fr",
+          "date": "2026"
+        }
+      ]
+    },
+    {
+      "questionId": "international_defense-3",
+      "candidate": "maurel",
+      "approachId": "international_defense-3-b",
+      "weight": 1,
+      "rejects": false,
+      "nature": "proposition",
+      "confidence": "high",
+      "summary": "Il propose de porter le budget de la défense à 3 % du PIB (environ 100 milliards d'euros) et de garder une dissuasion strictement nationale.",
+      "sources": [
+        {
+          "title": "Programme d'Emmanuel Maurel",
+          "url": "https://emmanuel-maurel.fr/programme/",
+          "publisher": "emmanuel-maurel.fr",
+          "date": "2026"
+        }
+      ]
+    }
+  ],
+  "step1": [
+    "strategie-1",
+    "fiscalite-1",
+    "retraites-2",
+    "international_defense-1",
+    "international_defense-2",
+    "europe-1",
+    "sante-1",
+    "securite_justice-1"
+  ],
+  "_step1_note": "Premier dépouillement (8 questions) : grandes fractures de la primaire, 5 candidats connus sur chacune. Audit sur 3 000 profils au hasard, réglette à trois crans : premières places 17,8-21,3 %, 2e combinaison la plus équilibrée sur 331 (la 1re est dans la marge du hasard). Arbitrage du 2026-10-03.",
+  "lastInStep": [
+    "strategie-1"
+  ],
+  "_lastInStep_note": "Questions qui ferment toujours leur temps au lieu d'être placées au hasard : la question sur LFI clôt le premier dépouillement, pour ne pas ouvrir le questionnaire sur le sujet le plus clivant. Demande de l'utilisateur du 2026-10-03."
+}

@@ -1,0 +1,22 @@
+Rapport de génération des voix — 2026-10-04 22:26:08
+Commande : generate.py --mode clone --only retraites-intro --limit 3 --force --keep-takes --bitrate 128000
+Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (v3.1a) — référence : F0 médiane 270.1 Hz, dispersion 6.45 dt, débit 4.23 syll/s
+  passage                    prise   durée  F0 méd.    réf.   vidéo  disp.  prises (F0 Hz / parole s)
+  retraites-intro-01             2   3.71s   243.9   -1.77       —   3.00  1:222/3.02 2:244/3.35 3:209/3.26
+  retraites-intro-02             3   5.34s   241.7   -1.92   -0.16   4.49  1:223/5.39 2:276/5.69 3:242/5.02
+  retraites-intro-03             3   3.86s   253.5   -1.10   +0.75   1.99  1:271/3.82 2:229/3.19 3:254/3.52
+
+Voix grave (v5b) — référence : F0 médiane 199.8 Hz, dispersion 7.23 dt, débit 3.81 syll/s
+  passage                    prise   durée  F0 méd.    réf.   vidéo  disp.  prises (F0 Hz / parole s)
+  retraites-intro-01             1   3.06s   189.2   -0.94       —   3.41  1:189/2.72 2:175/4.95× 3:186/2.89
+  retraites-intro-02             2   5.50s   180.8   -1.73   -0.79   8.80  1:143/5.23 2:181/5.18 3:130/5.11
+      ⚠ saut de note à l'enchaînement : +4.29 dt (fin du précédent 174.4 Hz, début 223.5 Hz)
+  retraites-intro-03             1   4.60s   167.3   -3.07   -1.74   4.25  1:167/4.27 2:165/3.94 3:137/4.42
+
+Alertes (1) :
+  grave / retraites-intro-02 : saut de note à l'enchaînement : +4.29 dt (fin du précédent 174.4 Hz, début 223.5 Hz)
+
+Temps : 170 s pour 18 prise(s), 9.29 s de calcul par prise en moyenne ; 2.18 s de calcul par seconde de voix.
+Estimation pour les deux séries et les deux voix : ~144 min.

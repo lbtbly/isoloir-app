@@ -1,0 +1,360 @@
+[2026-10-05 12:49:41] Démon lancé (pid 68524), file tools/voices/queue, voix aigue, tour toutes les 60 s ; thèmes de la banque : 23
+[2026-10-05 12:49:41] retraites : attente
+[2026-10-05 12:49:41] logement : attente
+[2026-10-05 12:49:41] → thème retraites : generate.py --voice aigue --only retraites
+[2026-10-05 12:49:42] ✓ retraites : 0 passage(s) généré(s) en 0.0 min, 0 alerte(s) → queue/retraites.done
+[2026-10-05 12:49:42] retraites : fait
+[2026-10-05 12:49:42] → thème logement : generate.py --voice aigue --only logement
+[2026-10-05 12:49:42] ✓ logement : 0 passage(s) généré(s) en 0.0 min, 0 alerte(s) → queue/logement.done
+[2026-10-05 12:49:42] logement : fait
+[2026-10-05 14:18:44] societe : attente
+[2026-10-05 14:18:44] → thème societe : generate.py --voice aigue --only societe
+[2026-10-05 14:57:07] ✓ societe : 40 passage(s) généré(s) en 38.4 min, 1 alerte(s) → queue/societe.done
+[2026-10-05 14:57:07] fiscalite : attente
+[2026-10-05 14:57:07] travail_salaires : attente
+[2026-10-05 14:57:07] industrie_economie : attente
+[2026-10-05 14:57:07] sante : attente
+[2026-10-05 14:57:07] education : attente
+[2026-10-05 14:57:07] agriculture : attente
+[2026-10-05 14:57:07] immigration : attente
+[2026-10-05 14:57:07] securite_justice : attente
+[2026-10-05 14:57:07] numerique : attente
+[2026-10-05 14:57:07] societe : fait
+[2026-10-05 14:57:07] solidarites : attente
+[2026-10-05 14:57:07] egalite : attente
+[2026-10-05 14:57:07] ukraine_russie : attente
+[2026-10-05 14:57:07] → thème egalite : generate.py --voice aigue --only egalite
+[2026-10-05 15:35:44] ✓ egalite : 41 passage(s) généré(s) en 38.6 min, 3 alerte(s) → queue/egalite.done
+[2026-10-05 15:35:44] strategie : attente
+[2026-10-05 15:35:44] institutions : attente
+[2026-10-05 15:35:44] ecologie_energie : attente
+[2026-10-05 15:35:44] territoires : attente
+[2026-10-05 15:35:44] europe : attente
+[2026-10-05 15:35:44] laicite_republique : attente
+[2026-10-05 15:35:44] egalite : fait
+[2026-10-05 15:35:44] proche_orient : attente
+[2026-10-05 15:35:44] defense : attente
+[2026-10-05 15:35:44] → thème solidarites : generate.py --voice aigue --only solidarites
+[2026-10-05 16:21:03] ✓ solidarites : 45 passage(s) généré(s) en 45.3 min, 9 alerte(s) → queue/solidarites.done
+[2026-10-05 16:21:03] solidarites : fait
+[2026-10-05 16:21:03] → thème industrie_economie : generate.py --voice aigue --only industrie_economie
+[2026-10-05 17:14:46] ✓ industrie_economie : 45 passage(s) généré(s) en 53.7 min, 2 alerte(s) → queue/industrie_economie.done
+[2026-10-05 17:14:46] industrie_economie : fait
+[2026-10-05 17:14:46] → thème sante : generate.py --voice aigue --only sante
+[2026-10-05 18:11:12] ✓ sante : 45 passage(s) généré(s) en 56.4 min, 2 alerte(s) → queue/sante.done
+[2026-10-05 18:11:12] sante : fait
+[2026-10-05 18:11:12] → thème travail_salaires : generate.py --voice aigue --only travail_salaires
+[2026-10-05 19:10:25] ✓ travail_salaires : 45 passage(s) généré(s) en 59.2 min, 4 alerte(s) → queue/travail_salaires.done
+[2026-10-05 19:10:25] travail_salaires : fait
+[2026-10-05 19:10:25] → thème fiscalite : generate.py --voice aigue --only fiscalite
+[2026-10-05 20:00:53] ✓ fiscalite : 44 passage(s) généré(s) en 50.5 min, 3 alerte(s) → queue/fiscalite.done
+[2026-10-05 20:00:53] fiscalite : fait
+[2026-10-05 20:00:53] → thème ukraine_russie : generate.py --voice aigue --only ukraine_russie
+[2026-10-05 20:26:07] ✓ ukraine_russie : 35 passage(s) généré(s) en 25.2 min, 1 alerte(s) → queue/ukraine_russie.done
+[2026-10-05 20:26:07] ukraine_russie : fait
+[2026-10-05 20:26:07] → thème agriculture : generate.py --voice aigue --only agriculture
+[2026-10-05 21:08:39] ✓ agriculture : 45 passage(s) généré(s) en 42.5 min, 2 alerte(s) → queue/agriculture.done
+[2026-10-05 21:08:39] agriculture : fait
+[2026-10-05 21:08:39] → thème securite_justice : generate.py --voice aigue --only securite_justice
+[2026-10-05 21:56:38] ✓ securite_justice : 45 passage(s) généré(s) en 48.0 min, 0 alerte(s) → queue/securite_justice.done
+[2026-10-05 21:56:38] securite_justice : fait
+[2026-10-05 21:56:38] → thème immigration : generate.py --voice aigue --only immigration
+[2026-10-05 22:42:26] ✓ immigration : 44 passage(s) généré(s) en 45.8 min, 2 alerte(s) → queue/immigration.done
+[2026-10-05 22:42:26] immigration : fait
+[2026-10-05 22:42:26] → thème numerique : generate.py --voice aigue --only numerique
+[2026-10-05 23:27:23] ✓ numerique : 45 passage(s) généré(s) en 45.0 min, 0 alerte(s) → queue/numerique.done
+[2026-10-05 23:27:23] numerique : fait
+[2026-10-05 23:27:23] → thème education : generate.py --voice aigue --only education
+[2026-10-06 00:18:18] ✓ education : 45 passage(s) généré(s) en 50.9 min, 2 alerte(s) → queue/education.done
+[2026-10-06 00:18:18] education : fait
+[2026-10-06 00:18:18] → thème territoires : generate.py --voice aigue --only territoires
+[2026-10-06 01:04:06] ✓ territoires : 45 passage(s) généré(s) en 45.8 min, 2 alerte(s) → queue/territoires.done
+[2026-10-06 01:04:06] territoires : fait
+[2026-10-06 01:04:06] → thème europe : generate.py --voice aigue --only europe
+[2026-10-06 01:47:19] ✓ europe : 45 passage(s) généré(s) en 43.2 min, 4 alerte(s) → queue/europe.done
+[2026-10-06 01:47:19] europe : fait
+[2026-10-06 01:47:19] → thème proche_orient : generate.py --voice aigue --only proche_orient
+[2026-10-06 02:26:11] ✓ proche_orient : 45 passage(s) généré(s) en 38.9 min, 3 alerte(s) → queue/proche_orient.done
+[2026-10-06 02:26:11] proche_orient : fait
+[2026-10-06 02:26:11] → thème ecologie_energie : generate.py --voice aigue --only ecologie_energie
+[2026-10-06 03:20:31] ✓ ecologie_energie : 45 passage(s) généré(s) en 54.3 min, 7 alerte(s) → queue/ecologie_energie.done
+[2026-10-06 03:20:31] ecologie_energie : fait
+[2026-10-06 03:20:31] → thème strategie : generate.py --voice aigue --only strategie
+[2026-10-06 03:55:51] ✓ strategie : 40 passage(s) généré(s) en 35.3 min, 3 alerte(s) → queue/strategie.done
+[2026-10-06 03:55:51] strategie : fait
+[2026-10-06 03:55:51] → thème laicite_republique : generate.py --voice aigue --only laicite_republique
+[2026-10-06 04:32:24] ✓ laicite_republique : 45 passage(s) généré(s) en 36.5 min, 0 alerte(s) → queue/laicite_republique.done
+[2026-10-06 04:32:24] laicite_republique : fait
+[2026-10-06 04:32:24] → thème institutions : generate.py --voice aigue --only institutions
+[2026-10-06 05:05:58] ✓ institutions : 42 passage(s) généré(s) en 33.6 min, 5 alerte(s) → queue/institutions.done
+[2026-10-06 05:05:58] institutions : fait
+[2026-10-06 05:05:58] → thème defense : generate.py --voice aigue --only defense
+[2026-10-06 05:43:12] ✓ defense : 45 passage(s) généré(s) en 37.2 min, 3 alerte(s) → queue/defense.done
+[2026-10-06 05:43:12] defense : fait
+[2026-10-06 05:43:12] Passe finale : les 23 thèmes sont faits
+[2026-10-06 05:43:12] → passe finale, génération complète (passages manquants ou périmés) : generate.py --voice aigue
+[2026-10-06 05:43:14] ✓ génération complète (passages manquants ou périmés) (0.0 min)
+[2026-10-06 05:43:14] → passe finale, contrôle des sons parasites : generate.py --scan --voice aigue
+[2026-10-06 05:46:12] ✓ contrôle des sons parasites (3.0 min)
+[2026-10-06 05:46:12] → passe finale, reprise des passages marqués à refaire : generate.py --redo-flagged --voice aigue --extra-takes 8
+[2026-10-06 06:07:50] ✓ reprise des passages marqués à refaire (21.6 min)
+[2026-10-06 06:07:50] → passe finale, contrôle final et compilation d'écoute : generate.py --scan --voice aigue --listen /Users/lambertbouley/Claude/Politique/primaire-de-gauche/.impeccable/voix/controle-final-toutes-videos.m4a
+[2026-10-06 06:10:50] ✓ contrôle final et compilation d'écoute (3.0 min)
+[2026-10-06 06:10:50] TERMINE écrit (queue/TERMINE) :
+File d'attente des voix : terminé le 2026-10-06 06:10:50 (voix aigue)
+
+Passe finale :
+  génération complète (passages manquants ou périmés) : ok (0.0 min)
+  contrôle des sons parasites : ok (3.0 min)
+  reprise des passages marqués à refaire : ok (21.6 min)
+  contrôle final et compilation d'écoute : ok (3.0 min)
+
+Passages par vidéo (avec voix à jour / passages) :
+  travail-intro                              8 / 8  
+  travail-pouvoir                            8 / 8  
+  travail-salaires                           7 / 7  
+  travail-partage                            7 / 7  
+  travail-droits                             9 / 9  
+  travail-temps                              6 / 6  
+  impots-intro                               7 / 7  
+  impots-dette                               7 / 7  
+  impots-fortune                             8 / 8  
+  impots-heritages                           7 / 7  
+  impots-capital                             8 / 8  
+  impots-recettes                            7 / 7  
+  industrie-intro                            8 / 8  
+  industrie-etat                             6 / 6  
+  industrie-energie                          6 / 6  
+  industrie-commerce                         8 / 8  
+  industrie-achats                           8 / 8  
+  industrie-aides                            9 / 9  
+  retraites-intro                           10 / 10 
+  retraites-age                             11 / 11 
+  retraites-financement                     12 / 12 
+  retraites-pensions                        10 / 10 
+  retraites-penibilite                      10 / 10 
+  egalite-intro                             10 / 10 
+  egalite-salaires                           9 / 9  
+  egalite-conges                             9 / 9  
+  egalite-garde                              6 / 6  
+  egalite-transparence                       7 / 7  
+  sante-intro                                7 / 7  
+  sante-acces                               10 / 10 
+  sante-remboursements                      11 / 11 
+  sante-age                                  9 / 9  
+  sante-prevention                           8 / 8  
+  logement-intro                             9 / 9  
+  logement-loyers                            9 / 9  
+  logement-social                            9 / 9  
+  logement-construire                        8 / 8  
+  logement-existant                          9 / 9  
+  solidarites-intro                          8 / 8  
+  solidarites-chomage                        9 / 9  
+  solidarites-rsa                           10 / 10 
+  solidarites-contreparties                  7 / 7  
+  solidarites-handicap                      11 / 11 
+  ecole-intro                                8 / 8  
+  ecole-classes                              8 / 8  
+  ecole-apprentissages                       7 / 7  
+  ecole-prive                                7 / 7  
+  ecole-superieur                            8 / 8  
+  ecole-jeunes                               7 / 7  
+  culture-intro                              8 / 8  
+  culture-budget                             6 / 6  
+  culture-audiovisuel                        9 / 9  
+  culture-pass                              10 / 10 
+  culture-quotas                             7 / 7  
+  numerique-intro                            7 / 7  
+  numerique-ia                              11 / 11 
+  numerique-ecrans                          11 / 11 
+  numerique-plateformes                      8 / 8  
+  numerique-medias                           8 / 8  
+  ecologie-intro                             6 / 6  
+  ecologie-carburants                        7 / 7  
+  ecologie-electricite                       8 / 8  
+  ecologie-climat                            8 / 8  
+  ecologie-transports                        8 / 8  
+  ecologie-adaptation                        8 / 8  
+  agriculture-intro                          8 / 8  
+  agriculture-revenu                         6 / 6  
+  agriculture-prix                          11 / 11 
+  agriculture-aides                          7 / 7  
+  agriculture-importations                   7 / 7  
+  agriculture-alimentation                   6 / 6  
+  territoires-intro                          7 / 7  
+  territoires-services                      10 / 10 
+  territoires-agents                         9 / 9  
+  territoires-collectivites                  9 / 9  
+  territoires-outre-mer                     10 / 10 
+  securite-intro                             8 / 8  
+  securite-police                            9 / 9  
+  securite-drogues                           9 / 9  
+  securite-justice                          10 / 10 
+  securite-lycees                            9 / 9  
+  immigration-intro                          8 / 8  
+  immigration-titres                        10 / 10 
+  immigration-langue                         8 / 8  
+  immigration-emploi                         8 / 8  
+  immigration-expulsions                    10 / 10 
+  europe-intro                               8 / 8  
+  europe-decider                             7 / 7  
+  europe-traites                             7 / 7  
+  europe-budget                              9 / 9  
+  europe-deficits                            6 / 6  
+  europe-concurrence                         8 / 8  
+  ukraine-intro                              9 / 9  
+  ukraine-civils                            11 / 11 
+  ukraine-aide                               7 / 7  
+  ukraine-diplomatie                         8 / 8  
+  proche-orient-intro                        8 / 8  
+  proche-orient-mots                         7 / 7  
+  proche-orient-justice                      9 / 9  
+  proche-orient-accord                       8 / 8  
+  proche-orient-colonisation                 7 / 7  
+  proche-orient-onu                          6 / 6  
+  defense-intro                              8 / 8  
+  defense-budget                             9 / 9  
+  defense-alliances                          9 / 9  
+  defense-dissuasion                        11 / 11 
+  defense-desarmement                        8 / 8  
+  institutions-intro                         9 / 9  
+  institutions-pouvoirs                      7 / 7  
+  institutions-49-3                          7 / 7  
+  institutions-constitution                  7 / 7  
+  institutions-citoyens                     12 / 12 
+  laicite-intro                              8 / 8  
+  laicite-principe                           8 / 8  
+  laicite-signes                             6 / 6  
+  laicite-discriminations                    7 / 7  
+  laicite-memoire                            8 / 8  
+  laicite-histoire                           8 / 8  
+  alliances-intro                            8 / 8  
+  alliances-premier-tour                     9 / 9  
+  alliances-dissolution                      7 / 7  
+  alliances-majorite                         9 / 9  
+  alliances-49-3                             7 / 7  
+  Total : 1013 / 1013 passages, 123 vidéos, 23 séries
+
+Thèmes :
+  strategie              fait (40 générés, 3 alertes)
+  institutions           fait (42 générés, 5 alertes)
+  fiscalite              fait (44 générés, 3 alertes)
+  travail_salaires       fait (45 générés, 4 alertes)
+  industrie_economie     fait (45 générés, 2 alertes)
+  retraites              fait (0 générés, 0 alertes)
+  sante                  fait (45 générés, 2 alertes)
+  education              fait (45 générés, 2 alertes)
+  logement               fait (0 générés, 0 alertes)
+  ecologie_energie       fait (45 générés, 7 alertes)
+  agriculture            fait (45 générés, 2 alertes)
+  territoires            fait (45 générés, 2 alertes)
+  europe                 fait (45 générés, 4 alertes)
+  immigration            fait (44 générés, 2 alertes)
+  securite_justice       fait (45 générés, 0 alertes)
+  laicite_republique     fait (45 générés, 0 alertes)
+  numerique              fait (45 générés, 0 alertes)
+  societe                fait (40 générés, 1 alertes)
+  solidarites            fait (45 générés, 9 alertes)
+  egalite                fait (41 générés, 3 alertes)
+  ukraine_russie         fait (35 générés, 1 alertes)
+  proche_orient          fait (45 générés, 3 alertes)
+  defense                fait (45 générés, 3 alertes)
+
+Alertes des rapports de génération depuis le lancement (76) :
+  rapport-20261005-145706.json : aigue/culture-quotas-02 : phrase 1 : aucune prise acceptable : hauteur +6.61 dt de la cible, saut de +6.80 dt à l'enchaînement (tolérance de reprise 0.0 dt)
+  rapport-20261005-153544.json : aigue/egalite-conges-01 : phrase 1 : aucune prise acceptable : hauteur -1.97 dt de la cible
+  rapport-20261005-153544.json : aigue/egalite-transparence-01 : phrase 2 : aucune prise sans défaut : son parasite (respiration 0.00-0.28 s)
+  rapport-20261005-153544.json : aigue/egalite-transparence-01 : son parasite dans le passage assemblé : respiration 4.32-4.60 s (net, +51 dB, confiance 0.95) [travail | Comment]
+  rapport-20261005-162102.json : aigue/solidarites-intro-03 : phrase 1 : aucune prise sans défaut : son parasite (vocalise 3.68-3.98 s, mot étiré 4.32-4.96 s)
+  rapport-20261005-162102.json : aigue/solidarites-intro-03 : son parasite dans le passage assemblé : vocalise 3.68-3.98 s (net, +44 dB, confiance 0.79) [RSA | ou]
+  rapport-20261005-162102.json : aigue/solidarites-intro-03 : son parasite dans le passage assemblé : mot étiré « l'AAH » 4.32-4.96 s (net, confiance 0.63) [ou | pour]
+  rapport-20261005-162102.json : aigue/solidarites-intro-07 : phrase 1 : aucune prise acceptable : hauteur -1.54 dt de la cible
+  rapport-20261005-162102.json : aigue/solidarites-chomage-01 : phrase 2 : aucune prise acceptable : saut de +9.12 dt à l'enchaînement (tolérance de reprise 6.0 dt)
+  rapport-20261005-162102.json : aigue/solidarites-chomage-06 : phrase 3 : aucune prise acceptable : saut de +4.22 dt à l'enchaînement (tolérance de reprise 0.4 dt)
+  rapport-20261005-162102.json : aigue/solidarites-rsa-08 : phrase 1 : mesure de F0 incertaine (YIN et SHS d'accord sur 82% des trames)
+  rapport-20261005-162102.json : aigue/solidarites-contreparties-05 : son parasite dans le passage assemblé : respiration 0.48-0.68 s (net, +46 dB, confiance 0.89) [RSA | dans]
+  rapport-20261005-162102.json : aigue/solidarites-handicap-02 : phrase 1 : aucune prise acceptable : hauteur -2.41 dt de la cible
+  rapport-20261005-171446.json : aigue/industrie-energie-01 : phrase 2 : aucune prise acceptable : hauteur +1.64 dt de la cible
+  rapport-20261005-171446.json : aigue/industrie-energie-02 : son parasite dans le passage assemblé : respiration 8.67-9.04 s (net, +50 dB, confiance 0.95) [hors | TVA]
+  rapport-20261005-181111.json : aigue/sante-intro-06 : phrase 2 : aucune prise acceptable : hauteur +1.65 dt de la cible
+  rapport-20261005-181111.json : aigue/sante-remboursements-01 : phrase 2 : aucune prise acceptable : hauteur -3.80 dt de la cible
+  rapport-20261005-191024.json : aigue/travail-pouvoir-03 : son parasite dans le passage assemblé : rire 5.04-5.28 s (net, +44 dB, confiance 0.80) [Comme | au]
+  rapport-20261005-191024.json : aigue/travail-pouvoir-07 : phrase 1 : aucune prise acceptable : hauteur +1.84 dt de la cible
+  rapport-20261005-191024.json : aigue/travail-partage-03 : son parasite dans le passage assemblé : rire 7.28-7.52 s (net, +29 dB, confiance 0.56) [agriculture | étaient]
+  rapport-20261005-191024.json : aigue/travail-partage-07 : son parasite dans le passage assemblé : bruit 2.95-3.10 s (net, +42 dB, confiance 0.81) [Profits | décisions]
+  rapport-20261005-200052.json : aigue/impots-intro-06 : phrase 4 : aucune prise acceptable : hauteur +2.09 dt de la cible
+  rapport-20261005-200052.json : aigue/impots-fortune-05 : son parasite dans le passage assemblé : mot étiré « l'ISF » 2.72-3.44 s (net, confiance 0.59) [Sous | environ]
+  rapport-20261005-200052.json : aigue/impots-recettes-06 : phrase 3 : aucune prise sans défaut : trop lente (3.2 syll/s, 0.62 × la référence)
+  rapport-20261005-202606.json : aigue/ukraine-diplomatie-01 : phrase 2 : aucune prise acceptable : hauteur +2.37 dt de la cible
+  rapport-20261005-210839.json : aigue/agriculture-aides-03 : son parasite dans le passage assemblé : respiration 5.44-5.64 s (net, +50 dB, confiance 0.95) [l'hectare | dépend]
+  rapport-20261005-210839.json : aigue/agriculture-alimentation-02 : phrase 1 : aucune prise sans défaut : pas de parole, voix soufflée ou craquée (0 trames voisées/s, 0.00 × la médiane des prises)
+  rapport-20261005-224225.json : aigue/immigration-titres-02 : son parasite dans le passage assemblé : rire 8.24-8.56 s (net, +50 dB, confiance 0.91) [cinq | pour]
+  rapport-20261005-224225.json : aigue/immigration-emploi-02 : son parasite dans le passage assemblé : respiration 8.17-8.32 s (net, +36 dB, confiance 0.73) [pour | cent]
+  rapport-20261006-001817.json : aigue/ecole-intro-03 : son parasite dans le passage assemblé : mot étiré « l'OCDE » 3.12-3.76 s (net, confiance 0.59) [de | à]
+  rapport-20261006-001817.json : aigue/ecole-jeunes-03 : phrase 1 : aucune prise acceptable : saut de +3.82 dt à l'enchaînement (tolérance de reprise 0.0 dt)
+  rapport-20261006-010405.json : aigue/territoires-intro-02 : phrase 2 : aucune prise acceptable : hauteur +4.89 dt de la cible
+  rapport-20261006-010405.json : aigue/territoires-services-04 : phrase 1 : aucune prise acceptable : hauteur -4.10 dt de la cible
+  rapport-20261006-014719.json : aigue/europe-intro-01 : phrase 2 : aucune prise acceptable : saut de +4.06 dt à l'enchaînement (tolérance de reprise 0.0 dt)
+  rapport-20261006-014719.json : aigue/europe-intro-07 : phrase 1 : aucune prise acceptable : hauteur -2.06 dt de la cible
+  rapport-20261006-014719.json : aigue/europe-intro-08 : phrase 1 : aucune prise acceptable : saut de +3.32 dt à l'enchaînement (tolérance de reprise 0.0 dt)
+  rapport-20261006-014719.json : aigue/europe-decider-05 : phrase 1 : aucune prise acceptable : saut de +4.66 dt à l'enchaînement (tolérance de reprise 0.2 dt)
+  rapport-20261006-022611.json : aigue/proche-orient-mots-01 : phrase 2 : aucune prise acceptable : hauteur -2.35 dt de la cible
+  rapport-20261006-022611.json : aigue/proche-orient-justice-05 : phrase 1 : aucune prise acceptable : saut de +4.72 dt à l'enchaînement (tolérance de reprise 1.5 dt)
+  rapport-20261006-022611.json : aigue/proche-orient-justice-07 : phrase 2 : aucune prise acceptable : saut de +6.65 dt à l'enchaînement (tolérance de reprise 2.4 dt)
+  rapport-20261006-032031.json : aigue/ecologie-electricite-03 : phrase 2 : aucune prise acceptable : saut de +4.43 dt à l'enchaînement (tolérance de reprise 0.0 dt)
+  rapport-20261006-032031.json : aigue/ecologie-electricite-05 : phrase 2 : aucune prise acceptable : saut de +4.04 dt à l'enchaînement (tolérance de reprise 0.8 dt)
+  rapport-20261006-032031.json : aigue/ecologie-climat-02 : phrase 1 : aucune prise acceptable : saut de +3.11 dt à l'enchaînement (tolérance de reprise 0.0 dt)
+  rapport-20261006-032031.json : aigue/ecologie-adaptation-01 : phrase 2 : aucune prise acceptable : hauteur +2.65 dt de la cible
+  rapport-20261006-032031.json : aigue/ecologie-adaptation-05 : phrase 1 : aucune prise sans défaut : trop lente (3.0 syll/s, 0.59 × la référence), son parasite (rire 0.77-1.02 s)
+  rapport-20261006-032031.json : aigue/ecologie-adaptation-05 : son parasite dans le passage assemblé : rire 0.01-0.16 s (net, +50 dB, confiance 0.91) [début | Et]
+  rapport-20261006-032031.json : aigue/ecologie-adaptation-05 : son parasite dans le passage assemblé : mot étiré « De » 0.80-1.52 s (net, confiance 0.67) [l'eau | juin]
+  rapport-20261006-035551.json : aigue/alliances-dissolution-02 : phrase 1 : aucune prise sans défaut : trop lente (2.9 syll/s, 0.56 × la référence)
+  rapport-20261006-035551.json : aigue/alliances-49-3-02 : phrase 1 : aucune prise sans défaut : pas de parole
+  rapport-20261006-035551.json : aigue/alliances-49-3-06 : phrase 3 : aucune prise acceptable : hauteur -2.68 dt de la cible
+  rapport-20261006-050558.json : aigue/institutions-intro-07 : phrase 1 : aucune prise sans défaut : trop lente (3.4 syll/s, 0.66 × la référence), son parasite (bruit 0.92-1.06 s)
+  rapport-20261006-050558.json : aigue/institutions-intro-07 : son parasite dans le passage assemblé : bruit 0.92-1.06 s (net, +44 dB, confiance 0.86) [vous | Vous]
+  rapport-20261006-050558.json : aigue/institutions-intro-09 : phrase 1 : aucune prise acceptable : saut de +3.23 dt à l'enchaînement (tolérance de reprise 0.0 dt)
+  rapport-20261006-050558.json : aigue/institutions-pouvoirs-05 : son parasite dans le passage assemblé : rire 2.46-2.88 s (net, +53 dB, confiance 0.95) [l'Assemblée | six]
+  rapport-20261006-050558.json : aigue/institutions-citoyens-08 : phrase 3 : aucune prise acceptable : hauteur -1.59 dt de la cible
+  rapport-20261006-054312.json : aigue/defense-intro-06 : son parasite dans le passage assemblé : bruit 3.92-4.48 s (net, +50 dB, confiance 0.95) [Selon | estimation]
+  rapport-20261006-054312.json : aigue/defense-intro-06 : son parasite dans le passage assemblé : mot étiré « une » 3.92-4.48 s (net, +53 dB, confiance 0.90) [Selon | estimation]
+  rapport-20261006-054312.json : aigue/defense-alliances-05 : son parasite dans le passage assemblé : rire 6.88-7.12 s (net, +50 dB, confiance 0.92) [neuf | États]
+  rapport-20261006-060750.json : aigue/travail-pouvoir-03 : son parasite dans le passage assemblé : rire 5.04-5.28 s (net, +44 dB, confiance 0.80) [Comme | au]
+  rapport-20261006-060750.json : aigue/travail-partage-03 : son parasite dans le passage assemblé : rire 7.28-7.52 s (net, +29 dB, confiance 0.56) [agriculture | étaient]
+  rapport-20261006-060750.json : aigue/travail-partage-07 : son parasite dans le passage assemblé : bruit 2.95-3.10 s (net, +42 dB, confiance 0.81) [Profits | décisions]
+  rapport-20261006-060750.json : aigue/impots-fortune-05 : son parasite dans le passage assemblé : mot étiré « l'ISF » 2.72-3.44 s (net, confiance 0.59) [Sous | environ]
+  rapport-20261006-060750.json : aigue/industrie-energie-02 : son parasite dans le passage assemblé : respiration 8.67-9.04 s (net, +50 dB, confiance 0.95) [hors | TVA]
+  rapport-20261006-060750.json : aigue/egalite-transparence-01 : phrase 2 : aucune prise acceptable : hauteur +1.74 dt de la cible
+  rapport-20261006-060750.json : aigue/ecole-intro-03 : son parasite dans le passage assemblé : mot étiré « l'OCDE » 3.12-3.76 s (net, confiance 0.59) [de | à]
+  rapport-20261006-060750.json : aigue/ecologie-adaptation-05 : phrase 1 : aucune prise sans défaut : trop lente (3.0 syll/s, 0.59 × la référence), son parasite (rire 0.77-1.02 s)
+  rapport-20261006-060750.json : aigue/ecologie-adaptation-05 : son parasite dans le passage assemblé : rire 0.01-0.16 s (net, +50 dB, confiance 0.91) [début | Et]
+  rapport-20261006-060750.json : aigue/ecologie-adaptation-05 : son parasite dans le passage assemblé : mot étiré « De » 0.80-1.52 s (net, confiance 0.67) [l'eau | juin]
+  rapport-20261006-060750.json : aigue/agriculture-aides-03 : son parasite dans le passage assemblé : respiration 5.44-5.64 s (net, +50 dB, confiance 0.95) [l'hectare | dépend]
+  rapport-20261006-060750.json : aigue/immigration-titres-02 : son parasite dans le passage assemblé : rire 8.24-8.56 s (net, +50 dB, confiance 0.91) [cinq | pour]
+  rapport-20261006-060750.json : aigue/defense-intro-06 : son parasite dans le passage assemblé : bruit 3.92-4.48 s (net, +50 dB, confiance 0.95) [Selon | estimation]
+  rapport-20261006-060750.json : aigue/defense-intro-06 : son parasite dans le passage assemblé : mot étiré « une » 3.92-4.48 s (net, +53 dB, confiance 0.90) [Selon | estimation]
+  rapport-20261006-060750.json : aigue/defense-alliances-05 : son parasite dans le passage assemblé : rire 6.88-7.12 s (net, +50 dB, confiance 0.92) [neuf | États]
+  rapport-20261006-060750.json : aigue/institutions-intro-07 : phrase 1 : aucune prise sans défaut : trop lente (3.4 syll/s, 0.66 × la référence), son parasite (bruit 0.92-1.06 s)
+  rapport-20261006-060750.json : aigue/institutions-intro-07 : son parasite dans le passage assemblé : bruit 0.92-1.06 s (net, +44 dB, confiance 0.86) [vous | Vous]
+  rapport-20261006-060750.json : aigue/institutions-pouvoirs-05 : son parasite dans le passage assemblé : rire 2.46-2.88 s (net, +53 dB, confiance 0.95) [l'Assemblée | six]
+
+Sons parasites, dernier contrôle (scan-20261006-061050.json) :
+  1013 passages contrôlés, 77 sons repérés dont 15 nets ; à refaire : aigue/travail-pouvoir-03, aigue/travail-partage-03, aigue/travail-partage-07, aigue/impots-fortune-05, aigue/industrie-energie-02, aigue/ecole-intro-03, aigue/ecologie-adaptation-05, aigue/agriculture-aides-03, aigue/immigration-titres-02, aigue/immigration-emploi-05, aigue/defense-intro-06, aigue/defense-alliances-05, aigue/institutions-intro-07, aigue/institutions-pouvoirs-05
+  net : travail-pouvoir-03 rire 5.04-5.28 s
+  net : travail-partage-03 rire 7.28-7.52 s
+  net : travail-partage-07 bruit 2.95-3.10 s
+  net : impots-fortune-05 mot étiré 2.72-3.44 s
+  net : industrie-energie-02 respiration 8.67-9.04 s
+  net : ecole-intro-03 mot étiré 3.12-3.76 s
+  net : ecologie-adaptation-05 rire 0.01-0.16 s
+  net : agriculture-aides-03 respiration 5.44-5.64 s
+  net : immigration-titres-02 rire 8.24-8.56 s
+  net : immigration-emploi-05 vocalise 3.76-3.99 s
+  net : defense-intro-06 bruit 3.92-4.48 s
+  net : defense-intro-06 mot étiré 3.92-4.48 s
+  net : defense-alliances-05 rire 6.88-7.12 s
+  net : institutions-intro-07 bruit 0.92-1.06 s
+  net : institutions-pouvoirs-05 rire 2.46-2.88 s
+  Liste report/a-refaire.json : aigue/agriculture-aides-03, aigue/defense-alliances-05, aigue/defense-intro-06, aigue/ecole-intro-03, aigue/ecologie-adaptation-05, aigue/immigration-emploi-05, aigue/immigration-titres-02, aigue/impots-fortune-05, aigue/industrie-energie-02, aigue/institutions-intro-07, aigue/institutions-pouvoirs-05, aigue/travail-partage-03, aigue/travail-partage-07, aigue/travail-pouvoir-03
+  Compilation d'écoute : .impeccable/voix/controle-final-toutes-videos.m4a (liste : .impeccable/voix/controle-final-toutes-videos.txt)
+[2026-10-06 06:10:50] Démon arrêté

@@ -1,0 +1,65 @@
+Compilation d'écoute des sons repérés : controle-final-sons-reperes.m4a (30 extrait(s), 112.0 s ; 1.5 s de contexte avant et après chaque son, 0.8 s de silence entre deux extraits ; dans l'ordre des passages).
+Pour chaque extrait : où il commence dans la compilation, où le son commence, le passage et l'instant dans le passage, le type, et les mots autour ([·] marque la place du son).
+
+ 1. extrait à 0.0 s, son à 1.5 s — aigue/retraites-intro-02 à 5.15-5.25 s : respiration (léger, confiance 0.86)
+      « C'est la répartition [·] (fin) »
+ 2. extrait à 2.7 s, son à 4.2 s — aigue/retraites-age-01 à 2.24-2.56 s : vocalise (léger, confiance 0.58)
+      « retraite deux compteurs [·] votre âge et »
+ 3. extrait à 6.8 s, son à 8.3 s — aigue/retraites-age-09 à 3.36-3.53 s : respiration (léger, confiance 0.59)
+      « autres dépenses sociales [·] chômage arrêts maladie »
+ 4. extrait à 10.8 s, son à 10.8 s — aigue/logement-intro-01 à 0.00-0.16 s : parole en trop (léger, confiance 0.77)
+      « (début) [·] Sur cent euros »
+ 5. extrait à 13.3 s, son à 14.7 s — aigue/logement-loyers-04 à 1.40-1.47 s : vocalise (léger, confiance 0.63)
+      « de huit ans [·] Sans nouvelle loi »
+ 6. extrait à 17.0 s, son à 17.0 s — aigue/logement-social-04 à 0.00-0.08 s : mot manquant ou bâclé « y » (léger, confiance 0.30)
+      « (début) [·] a cinq virgule »
+ 7. extrait à 19.4 s, son à 20.9 s — grave/retraites-intro-08 à 1.79-1.89 s : respiration (léger, confiance 0.32)
+      « avoir l'âge minimum [·] pour une pension »
+ 8. extrait à 23.3 s, son à 24.8 s — grave/retraites-age-04 à 1.51-1.67 s : respiration (léger, confiance 0.36)
+      « mille vingt trois [·] relève l'âge légal »
+ 9. extrait à 27.3 s, son à 28.8 s — grave/retraites-age-04 à 4.35-4.48 s : respiration (léger, confiance 0.43)
+      « soixante quatre ans [·] et la durée »
+10. extrait à 31.2 s, son à 32.7 s — grave/retraites-age-07 à 4.69-4.88 s : respiration (léger, confiance 0.39)
+      « plus de cotisations [·] et des pensions »
+11. extrait à 35.2 s, son à 36.7 s — grave/retraites-age-10 à 4.84-5.02 s : respiration (léger, confiance 0.35)
+      « incapacité aux hommes [·] onze virgule huit »
+12. extrait à 39.2 s, son à 40.7 s — grave/retraites-financement-04 à 1.61-1.80 s : respiration (léger, confiance 0.35)
+      « cotisants par retraité [·] un virgule huit »
+13. extrait à 43.2 s, son à 44.7 s — grave/retraites-financement-04 à 3.34-3.50 s : respiration (léger, confiance 0.30)
+      « mille vingt cinq [·] et un virgule »
+14. extrait à 47.1 s, son à 47.1 s — grave/retraites-penibilite-03 à 0.00-0.10 s : bruit (léger, confiance 0.57)
+      « (début) [·] Un outil existe »
+15. extrait à 49.5 s, son à 50.9 s — grave/retraites-penibilite-04 à 1.43-1.53 s : respiration (léger, confiance 0.33)
+      « risques comptent nuit [·] équipes alternantes gestes »
+16. extrait à 53.3 s, son à 54.8 s — grave/logement-intro-02 à 1.60-1.82 s : respiration (léger, confiance 0.49)
+      « locataires du privé [·] c'est plus de »
+17. extrait à 57.4 s, son à 58.6 s — grave/logement-intro-09 à 1.19-1.41 s : respiration (léger, confiance 0.40)
+      « les vidéos suivantes [·] on regarde chacun »
+18. extrait à 61.1 s, son à 62.6 s — grave/logement-loyers-04 à 6.72-6.95 s : respiration (léger, confiance 0.37)
+      « adopté par l'Assemblée [·] doit être examiné »
+19. extrait à 65.1 s, son à 66.6 s — grave/logement-social-06 à 6.78-6.99 s : respiration (léger, confiance 0.37)
+      « ont changé d'occupant [·] contre douze virgule »
+20. extrait à 69.1 s, son à 70.6 s — grave/logement-social-06 à 9.60-9.78 s : bruit (léger, confiance 0.59)
+      « vingt dix neuf [·] Ensuite la production »
+21. extrait à 73.1 s, son à 74.6 s — grave/logement-social-08 à 2.46-2.65 s : respiration (léger, confiance 0.37)
+      « aussi des décalages [·] la moitié des »
+22. extrait à 77.1 s, son à 78.2 s — grave/logement-construire-01 à 1.12-1.28 s : respiration (léger, confiance 0.51)
+      « plus de monde [·] il faut des »
+23. extrait à 80.7 s, son à 82.2 s — grave/logement-construire-03 à 3.70-3.88 s : respiration (léger, confiance 0.33)
+      « mille vingt quatre [·] et autant en »
+24. extrait à 84.6 s, son à 86.1 s — grave/logement-construire-07 à 2.67-2.84 s : respiration (léger, confiance 0.32)
+      « logements à louer [·] il existe des »
+25. extrait à 88.6 s, son à 90.1 s — grave/logement-existant-03 à 3.68-4.08 s : respiration (léger, confiance 0.56)
+      « de deux ans [·] environ un virgule »
+26. extrait à 92.8 s, son à 94.3 s — grave/logement-existant-03 à 5.92-6.24 s : respiration (léger, confiance 0.51)
+      « dans le privé [·] surtout là où »
+27. extrait à 96.9 s, son à 98.4 s — grave/logement-existant-06 à 6.11-6.27 s : respiration (léger, confiance 0.36)
+      « mille vingt cinq [·] dont un virgule »
+28. extrait à 100.9 s, son à 102.4 s — grave/logement-existant-07 à 3.72-3.88 s : respiration (léger, confiance 0.31)
+      « mille vingt cinq [·] F en deux »
+29. extrait à 104.9 s, son à 106.2 s — grave/logement-existant-08 à 1.36-1.60 s : respiration (léger, confiance 0.43)
+      « réduit les factures [·] et selon le »
+30. extrait à 108.8 s, son à 110.3 s — grave/logement-existant-08 à 2.65-2.85 s : respiration (léger, confiance 0.42)
+      « selon le Trésor [·] la mesure incite »
+
+Passages contrôlés sans aucun son repéré : aigue/retraites-intro-01, aigue/retraites-intro-03, aigue/retraites-intro-04, aigue/retraites-intro-05, aigue/retraites-intro-06, aigue/retraites-intro-07, aigue/retraites-intro-08, aigue/retraites-intro-09, aigue/retraites-intro-10, aigue/retraites-age-02, aigue/retraites-age-03, aigue/retraites-age-04, aigue/retraites-age-05, aigue/retraites-age-06, aigue/retraites-age-07, aigue/retraites-age-08, aigue/retraites-age-10, aigue/retraites-age-11, aigue/retraites-financement-01, aigue/retraites-financement-02, aigue/retraites-financement-03, aigue/retraites-financement-04, aigue/retraites-financement-05, aigue/retraites-financement-06, aigue/retraites-financement-07, aigue/retraites-financement-08, aigue/retraites-financement-09, aigue/retraites-financement-10, aigue/retraites-financement-11, aigue/retraites-financement-12, aigue/retraites-pensions-01, aigue/retraites-pensions-02, aigue/retraites-pensions-03, aigue/retraites-pensions-04, aigue/retraites-pensions-05, aigue/retraites-pensions-06, aigue/retraites-pensions-07, aigue/retraites-pensions-08, aigue/retraites-pensions-09, aigue/retraites-pensions-10, aigue/retraites-penibilite-01, aigue/retraites-penibilite-02, aigue/retraites-penibilite-03, aigue/retraites-penibilite-04, aigue/retraites-penibilite-05, aigue/retraites-penibilite-06, aigue/retraites-penibilite-07, aigue/retraites-penibilite-08, aigue/retraites-penibilite-09, aigue/retraites-penibilite-10, aigue/logement-intro-02, aigue/logement-intro-03, aigue/logement-intro-04, aigue/logement-intro-05, aigue/logement-intro-06, aigue/logement-intro-07, aigue/logement-intro-08, aigue/logement-intro-09, aigue/logement-loyers-01, aigue/logement-loyers-02, aigue/logement-loyers-03, aigue/logement-loyers-05, aigue/logement-loyers-06, aigue/logement-loyers-07, aigue/logement-loyers-08, aigue/logement-loyers-09, aigue/logement-social-01, aigue/logement-social-02, aigue/logement-social-03, aigue/logement-social-05, aigue/logement-social-06, aigue/logement-social-07, aigue/logement-social-08, aigue/logement-social-09, aigue/logement-construire-01, aigue/logement-construire-02, aigue/logement-construire-03, aigue/logement-construire-04, aigue/logement-construire-05, aigue/logement-construire-06, aigue/logement-construire-07, aigue/logement-construire-08, aigue/logement-existant-01, aigue/logement-existant-02, aigue/logement-existant-03, aigue/logement-existant-04, aigue/logement-existant-05, aigue/logement-existant-06, aigue/logement-existant-07, aigue/logement-existant-08, aigue/logement-existant-09, grave/retraites-intro-01, grave/retraites-intro-02, grave/retraites-intro-03, grave/retraites-intro-04, grave/retraites-intro-05, grave/retraites-intro-06, grave/retraites-intro-07, grave/retraites-intro-09, grave/retraites-intro-10, grave/retraites-age-01, grave/retraites-age-02, grave/retraites-age-03, grave/retraites-age-05, grave/retraites-age-06, grave/retraites-age-08, grave/retraites-age-09, grave/retraites-age-11, grave/retraites-financement-01, grave/retraites-financement-02, grave/retraites-financement-03, grave/retraites-financement-05, grave/retraites-financement-06, grave/retraites-financement-07, grave/retraites-financement-08, grave/retraites-financement-09, grave/retraites-financement-10, grave/retraites-financement-11, grave/retraites-financement-12, grave/retraites-pensions-01, grave/retraites-pensions-02, grave/retraites-pensions-03, grave/retraites-pensions-04, grave/retraites-pensions-05, grave/retraites-pensions-06, grave/retraites-pensions-07, grave/retraites-pensions-08, grave/retraites-pensions-09, grave/retraites-pensions-10, grave/retraites-penibilite-01, grave/retraites-penibilite-02, grave/retraites-penibilite-05, grave/retraites-penibilite-06, grave/retraites-penibilite-07, grave/retraites-penibilite-08, grave/retraites-penibilite-09, grave/retraites-penibilite-10, grave/logement-intro-01, grave/logement-intro-03, grave/logement-intro-04, grave/logement-intro-05, grave/logement-intro-06, grave/logement-intro-07, grave/logement-intro-08, grave/logement-loyers-01, grave/logement-loyers-02, grave/logement-loyers-03, grave/logement-loyers-05, grave/logement-loyers-06, grave/logement-loyers-07, grave/logement-loyers-08, grave/logement-loyers-09, grave/logement-social-01, grave/logement-social-02, grave/logement-social-03, grave/logement-social-04, grave/logement-social-05, grave/logement-social-07, grave/logement-social-09, grave/logement-construire-02, grave/logement-construire-04, grave/logement-construire-05, grave/logement-construire-06, grave/logement-construire-08, grave/logement-existant-01, grave/logement-existant-02, grave/logement-existant-04, grave/logement-existant-05, grave/logement-existant-09

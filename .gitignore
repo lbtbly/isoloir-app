@@ -1,0 +1,19 @@
+node_modules
+dist
+*.local
+.DS_Store
+.impeccable/config.local.json
+.impeccable/review/
+coverage
+# Voix des vidéos : WAV de travail du générateur (prises, passages assemblés, archives d'essais), à
+# régénérer avec --keep-takes. Restent suivis : les références tools/voices/refs/*.wav, les rapports texte
+# (report/*.txt, *.json, journal.log) et etat.json.
+tools/voices/report/**/*.wav
+tools/voices/report/archives/
+__pycache__/
+# File d'attente de la génération des voix (tools/voices/file-attente.py) : marqueurs .ready/.done, pid du
+# démon, et la sortie de la génération en cours ; son journal, tools/voices/report/file-attente.log, reste suivi
+tools/voices/queue/
+tools/voices/report/file-attente-en-cours.log
+# Images fixes des passages (node tools/videos-snap.mjs .impeccable/videos-snap …)
+.impeccable/videos-snap/

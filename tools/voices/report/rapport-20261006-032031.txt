@@ -1,0 +1,222 @@
+Rapport de génération des voix — 2026-10-06 02:26:12
+Commande : generate.py --voice aigue --only ecologie_energie
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  ecologie-intro-01 — 7.42 s, F0 242.4 Hz, pauses entre phrases [0.25, 0.27, 0.31] s
+    1. Faire le plein, payer l'éle…   2/3    236.9  -0.50   -4.3      —  0.0    6.3  1.22  1:267~ 2:237 3:221~
+    2. Où en est la France ?         1/3    250.3  +0.46   -4.7   +2.5  6.0    5.6  1.08  1:250 2:236 3:225
+  ecologie-intro-02 — 8.08 s, F0 235.8 Hz, pauses entre phrases [0.17, 0.31] s
+    1. Le vingt-cinq septembre deu…   3/3    237.0  -0.49   -0.7   +0.7  0.0    5.5  1.07  1:226 2:207~ 3:237
+    2. C'est quarante-six virgule …   4/4    234.6  -0.67   -3.4   +0.2  0.7    6.4  1.24  1:298~ 2:262×! 3:251~ 4:235
+         prise 2 : bruit 0.00-0.16 s (net, +44 dB, confiance 0.87) [début | C'est]
+  ecologie-intro-03 — 10.10 s, F0 248.9 Hz, pauses entre phrases [0.4, 0.32, 0.18] s
+    1. L'électricité, elle, vient …   3/3    241.6  -0.16   -7.0   +2.7  3.4    5.5  1.07  1:219~ 2:228 3:242
+    2. Les renouvelables en fourni…   4/4    256.4  +0.87   -7.6   +3.7  6.0    4.8  0.93  1:261~ 2:332~ 3:301×! 4:256
+         prise 3 : respiration 1.58-1.84 s (net, +34 dB, confiance 0.73) [sept | pour]
+  ecologie-intro-04 — 10.39 s, F0 238.3 Hz, pauses entre phrases [0.19, 0.3, 0.34, 0.49] s
+    1. En deux mille vingt-cinq, l…   1/3    242.2  -0.11   -2.5   +0.5  6.0    5.9  1.15  1:242 2:223~ 3:248
+    2. La baisse ralentit : moins …   1/3    232.0  -0.86   -1.1   +1.0  2.5    6.0  1.18  1:232 2:224 3:230
+  ecologie-intro-05 — 12.05 s, F0 240.2 Hz, pauses entre phrases [0.32, 0.36, 0.4, 0.35, 0.17, 0.35, 0.34, 0.35] s
+    1. Alors, cinq questions se po…   3/3    227.4  -1.21   -6.3   +1.0  1.1    5.0  0.97  1:289~ 2:311~ 3:227
+    2. Que faire face au prix des …   4/4    236.8  -0.50   +6.0   +4.9  6.0    6.4  1.25  1:300~ 2:221~ 3:255~ 4:237
+    3. Quelle électricité, et à qu…   2/3    232.5  -0.82   +2.5   -0.6  3.0    7.1  1.38  1:259 2:232 3:297~
+    4. Comment baisser les émissio…   3/3    256.9  +0.91   -3.8   +4.2  3.0    5.8  1.14  1:359~ 2:210~ 3:257
+    5. Comment se déplacer ?         2/3    248.8  +0.35   +1.3   +4.0  3.0    5.9  1.15  1:324×! 2:249 3:255
+         prise 1 : rire 0.27-0.64 s (net, +56 dB, confiance 0.95) [Comment | se]
+    6. Et comment s'adapter à la c…   2/3    246.0  +0.16   -1.8   +2.6  3.0    7.1  1.39  1:222~ 2:246 3:258~
+  ecologie-intro-06 — 2.10 s, F0 227.1 Hz
+    1. Ce sont les sujets des vidé…   3/3    227.1  -1.23   -1.7   +1.2  0.0    5.6  1.09  1:260 2:198~ 3:227
+  ecologie-carburants-01 — 5.37 s, F0 235.9 Hz, pauses entre phrases [0.33] s
+    1. Vous faites le plein.         5/5    244.1  +0.02   -3.5      —  0.0    4.0  0.77  1:259~ 2:281×! 3:258~ 4:231~? 5:244
+         prise 2 : parole en trop 1.04-1.16 s (net, +50 dB, confiance 0.77) [plein | fin]
+         prise 4 : parole en trop 1.04-1.12 s (leger, +55 dB, confiance 0.75) [plein | fin]
+    2. Dans le prix du litre, quel…   1/3    233.8  -0.73   -6.4   +3.0  6.0    5.0  0.98  1:234 2:256 3:231?
+         prise 3 : respiration 2.68-2.79 s (leger, +18 dB, confiance 0.34) [carburant | et]
+  ecologie-carburants-02 — 13.92 s, F0 250.8 Hz, pauses entre phrases [0.3, 0.3, 0.2, 0.3] s
+    1. Hors Corse et outre-mer, le…   2/3    255.0  +0.78   +0.0   +2.2  0.0    4.2  0.82  1:219~ 2:255 3:266~
+    2. L'accise, un montant fixe :…   1/3    247.2  +0.24   -4.2   +2.1  0.0    4.7  0.91  1:247 2:252 3:252~?
+         prise 3 : respiration 4.16-4.31 s (leger, +40 dB, confiance 0.73) [gazole | fin]
+    3. Et la T.V.A., de vingt pour…   2/3    262.2  +1.26   -2.2   +4.1  4.2    6.0  1.17  1:227 2:262 3:223~
+  ecologie-carburants-03 — 12.36 s, F0 239.2 Hz, pauses entre phrases [0.3, 0.17, 0.21, 0.3, 0.15] s
+    1. Prenons le vingt-cinq septe…   3/3    239.2  -0.33   -2.1   -0.7  2.2    4.4  0.86  1:256 2:249×? 3:239
+         prise 2 : respiration 4.32-4.49 s (leger, +40 dB, confiance 0.70) [gazole | fin]
+    2. Hors taxes, cent trente-six…   1/3    238.8  -0.36   -3.7   +3.0  2.1    5.5  1.07  1:239 2:233 3:236
+    3. Les taxes font le reste, un…   2/3    240.9  -0.21   -6.7   +2.2  3.7    6.4  1.25  1:272~ 2:241 3:219~
+  ecologie-carburants-04 — 11.79 s, F0 235.5 Hz, pauses entre phrases [0.16, 0.35, 0.16, 0.17] s
+    1. Depuis mars deux mille ving…   2/3    236.3  -0.54   -2.1   +1.2  6.0    5.9  1.15  1:259 2:236 3:264
+    2. Le baril de Brent, la référ…   3/3    234.8  -0.65   -4.7   +1.2  2.1    5.3  1.04  1:225 2:218~ 3:235
+  ecologie-carburants-05 — 13.22 s, F0 240.5 Hz, pauses entre phrases [0.35, 0.3, 0.23] s
+    1. Et le raffinage ?             4/4    235.4  -0.61   +4.8   +1.5  6.0    6.5  1.27  1:333×! 2:265×! 3:425×! 4:235
+         prise 1 : parole en trop « raffinage » 0.32-1.02 s (net, +51 dB, confiance 0.55) [le | fin]
+         prise 2 : respiration 0.64-0.95 s (net, +48 dB, confiance 0.95) [raffinage | fin]
+         prise 3 : rire 0.24-0.64 s (net, +52 dB, confiance 0.95) [le | raffinage]
+    2. Sa marge brute valait trent…   2/3    243.9  +0.01   -9.1   +1.6  0.0    4.6  0.89  1:236 2:244 3:221~
+    3. Un indicateur du ministère …   2/3    234.4  -0.68   -2.5   +1.5  6.0    7.5  1.47  1:218~ 2:234 3:197~
+  ecologie-carburants-06 — 12.15 s, F0 251.1 Hz, pauses entre phrases [0.16, 0.3, 0.32, 0.3, 0.18, 0.19, 0.17] s
+    1. Un poids inégal.              6/6    261.8  +1.23   -3.0   +3.2  2.5    5.6  1.10  1:271× 2:267~ 3:195~ 4:214~ 5:258~ 6:262
+    2. En deux mille vingt et un, …   3/3    243.1  -0.05   -3.0   +4.2  3.0    6.7  1.31  1:219~ 2:222~ 3:243
+    3. Dans les intercommunalités …   2/3    253.2  +0.65   +0.6   +2.8  3.0    5.8  1.13  1:275~ 2:253 3:264
+  ecologie-carburants-07 — 3.74 s, F0 232.4 Hz
+    1. Alors, face à la hausse des…   2/3    232.4  -0.83   +1.2   +0.8  3.0    5.4  1.05  1:260 2:232 3:252~
+  ecologie-electricite-01 — 5.27 s, F0 248.4 Hz, pauses entre phrases [0.31, 0.31] s
+    1. Vous allumez la lumière.      4/4    262.7  +1.29   -5.4      —  0.0    5.8  1.14  1:302~ 2:312~ 3:212×! 4:263
+         prise 3 : parole en trop 0.00-0.40 s (net, +66 dB, confiance 0.95) [début | Vous]
+    2. Qui a produit cette électri…   2/3    233.7  -0.73   +0.6   -1.7  6.0    5.7  1.12  1:261? 2:234 3:258
+         prise 1 : respiration 1.44-1.65 s (leger, +17 dB, confiance 0.33) [électricité | et]
+  ecologie-electricite-02 — 11.07 s, F0 244.8 Hz, pauses entre phrases [0.28, 0.3, 0.21, 0.15] s
+    1. En deux mille vingt-cinq, l…   2/3    245.4  +0.11   -0.5   +1.8  0.0    5.8  1.14  1:230 2:245 3:261~
+    2. Sur les dix dernières année…   3/3    242.9  -0.06   -3.9   +1.8  0.5    5.0  0.99  1:262 2:231 3:243
+  ecologie-electricite-03 — 12.46 s, F0 242.9 Hz, pauses entre phrases [0.15, 0.2, 0.31] s
+    1. Pour six nouveaux réacteurs…   2/3    242.3  -0.11   +0.3   +1.5  3.9    4.6  0.91  1:233? 2:242 3:250
+         prise 1 : respiration 5.20-5.35 s (leger, +19 dB, confiance 0.36) [sept | virgule]
+    2. C'est trente pour cent de p…   7/7    247.9  +0.29   -2.8   +4.4  0.0    5.7  1.12  1:271~ 2:223~ 3:261~ 4:258~ 5:266×! 6:261~ 7:248~
+         prise 5 : respiration 0.19-0.40 s (net, +50 dB, confiance 0.93) [trente | pour]
+      ⚠ phrase 2 : aucune prise acceptable : saut de +4.43 dt à l'enchaînement (tolérance de reprise 0.0 dt)
+  ecologie-electricite-04 — 12.23 s, F0 243.5 Hz, pauses entre phrases [0.3, 0.2, 0.18] s
+    1. Les renouvelables ont fourn…   3/3    246.5  +0.19   -8.5   +4.0  2.8    6.0  1.18  1:258 2:239 3:246
+    2. Le solaire progresse : tren…   1/3    241.0  -0.20   -1.9   +1.9  6.0    5.6  1.08  1:241 2:257 3:235
+  ecologie-electricite-05 — 8.81 s, F0 240.8 Hz, pauses entre phrases [0.25, 0.3, 0.2] s
+    1. Le nucléaire produit sans d…   3/3    234.6  -0.67   -0.8   +1.5  1.9    6.1  1.18  1:223~ 2:221~ 3:235
+    2. Les renouvelables s'install…   2/7    253.2  +0.65   -2.3   +4.0  0.8    5.4  1.05  1:251~ 2:253~ 3:252~ 4:285~ 5:217×! 6:258~ 7:230~
+         prise 5 : parole en trop 0.01-0.22 s (net, +61 dB, confiance 0.95) [début | Les]
+      ⚠ phrase 2 : aucune prise acceptable : saut de +4.04 dt à l'enchaînement (tolérance de reprise 0.8 dt)
+  ecologie-electricite-06 — 10.88 s, F0 240.0 Hz, pauses entre phrases [0.27, 0.31, 0.3] s
+    1. Sur le marché européen de g…   3/3    235.4  -0.61   -7.3   +0.5  2.3    5.7  1.10  1:218~ 2:228 3:235
+    2. En France, soixante et un e…   1/3    254.9  +0.77   -3.7   +4.1  6.0    5.8  1.13  1:255 2:228 3:213~
+  ecologie-electricite-07 — 10.19 s, F0 243.2 Hz, pauses entre phrases [0.31] s
+    1. Selon R.T.E., qui gère le r…   3/3    239.8  -0.29   -3.4   +2.2  3.7    5.3  1.04  1:223~? 2:217×! 3:240
+         prise 1 : respiration 0.64-0.89 s (leger, +37 dB, confiance 0.67) [RTE | qui]
+         prise 2 : rire 1.04-1.44 s (net, +49 dB, confiance 0.95) [qui | gère]
+    2. Ses centrales ont produit e…   3/3    246.8  +0.21   -3.1   +4.8  3.4    6.6  1.29  1:231 2:210~ 3:247
+  ecologie-electricite-08 — 6.79 s, F0 244.7 Hz, pauses entre phrases [0.3, 0.26, 0.15] s
+    1. Une réforme européenne de d…   1/3    247.7  +0.27   -2.3   +5.0  3.1    5.3  1.03  1:248 2:268~ 3:233
+    2. Alors, quelle électricité p…   1/3    230.8  -0.95   -2.7   +2.7  5.3    6.2  1.22  1:231 2:301~ 3:282~
+  ecologie-climat-01 — 6.05 s, F0 240.0 Hz, pauses entre phrases [0.21, 0.3, 0.18] s
+    1. Pour le climat, la France s…   1/3    244.1  +0.02   -2.3      —  0.0    5.5  1.07  1:244 2:228~ 3:250
+    2. Où en est-elle, et comment …   2/3    229.0  -1.08   +4.2   +0.9  5.3    5.8  1.14  1:285~ 2:229 3:269~
+  ecologie-climat-02 — 12.02 s, F0 244.6 Hz, pauses entre phrases [0.3, 0.3, 0.16] s
+    1. C'est la stratégie national…   5/7    253.5  +0.68   -2.9   +3.1  0.0    5.4  1.05  1:234~ 2:216~ 3:264~ 4:226~ 5:254~ 6:220~ 7:232~
+    2. Elle fixe des budgets carbo…   1/3    242.3  -0.11   -6.7   +1.8  2.9    5.2  1.01  1:242 2:216~ 3:214~
+    3. Pour deux mille vingt-quatr…   2/3    242.2  -0.11   -7.3   +0.7  6.0    4.8  0.94  1:229 2:242? 3:218×!
+         prise 2 : respiration 1.92-2.14 s (leger, +18 dB, confiance 0.35) [huit | trois]
+         prise 3 : bruit 4.44-4.64 s (net, +37 dB, confiance 0.78) [d'équivalent | CO]
+      passage assemblé : respiration 7.60-7.78 s (leger, +18 dB, confiance 0.34) [huit | trois]
+      ⚠ phrase 1 : aucune prise acceptable : saut de +3.11 dt à l'enchaînement (tolérance de reprise 0.0 dt)
+  ecologie-climat-03 — 11.32 s, F0 246.2 Hz, pauses entre phrases [0.34, 0.3, 0.23] s
+    1. Selon le Haut Conseil pour …   3/3    242.1  -0.12   -7.3   +5.0  6.0    5.5  1.08  1:233 2:237 3:242
+    2. Au moins le double du rythm…   1/3    249.2  +0.38   -5.7   +2.3  6.0    5.0  0.97  1:249 2:238 3:273~
+  ecologie-climat-04 — 13.76 s, F0 248.6 Hz, pauses entre phrases [0.23, 0.22, 0.3, 0.32, 0.27] s
+    1. Centrales, industrie et vol…   2/3    253.4  +0.67   -8.3   +2.8  5.7    5.5  1.07  1:254 2:253 3:230
+    2. En deux mille vingt-cinq, l…   1/3    249.7  +0.41   -7.4   +2.0  6.0    5.9  1.14  1:250 2:271~ 3:250
+    3. Les autres, de zéro virgule…   3/3    238.1  -0.41   -3.1   -1.5  6.0    5.7  1.11  1:274~ 2:266 3:238
+  ecologie-climat-05 — 10.06 s, F0 243.2 Hz, pauses entre phrases [0.3, 0.2] s
+    1. Les investissements pour le…   2/3    241.8  -0.14   -5.7   +0.9  3.1    6.3  1.22  1:240 2:242 3:246
+    2. Selon le Haut Conseil pour …   2/3    243.4  -0.03   -7.7   +2.5  5.7    5.7  1.12  1:222~ 2:243 3:222~
+  ecologie-climat-06 — 14.18 s, F0 240.7 Hz, pauses entre phrases [0.18, 0.3, 0.38, 0.29, 0.22] s
+    1. En deux mille vingt-trois, …   3/3    237.0  -0.49   -4.0   +2.0  6.0    5.7  1.11  1:238 2:225 3:237
+    2. Il citait trois leviers : r…   2/3    247.6  +0.27   -2.0   +4.6  4.0    5.8  1.13  1:227 2:248 3:226
+  ecologie-climat-07 — 11.07 s, F0 240.9 Hz, pauses entre phrases [0.3] s
+    1. Côté budget, fin deux mille…   1/3    243.8  +0.00   -2.3   +2.6  2.0    5.7  1.11  1:244 2:232 3:220~
+    2. Selon les règles européenne…   1/3    238.3  -0.40   -3.0   +2.8  2.3    5.9  1.15  1:238 2:235 3:220~
+  ecologie-climat-08 — 3.55 s, F0 229.8 Hz
+    1. Alors, quel principe pour g…   2/3    229.8  -1.02   -1.9   +0.9  6.0    5.9  1.15  1:266~ 2:230 3:229
+  ecologie-transports-01 — 9.05 s, F0 233.4 Hz, pauses entre phrases [0.35] s
+    1. Vous allez au travail, vous…   1/3    232.6  -0.81   -2.8      —  3.0    6.3  1.23  1:233 2:210~ 3:256
+    2. Les transports sont le prem…   4/4    236.3  -0.54   -8.6   +2.6  0.0    6.2  1.20  1:272~? 2:238~ 3:217~ 4:236?
+         prise 1 : mot étiré « et » 3.04-3.36 s (leger, +24 dB, confiance 0.39) [serre | la]
+         prise 4 : vocalise 2.96-3.28 s (leger, +34 dB, confiance 0.55) [serre | et]
+  ecologie-transports-02 — 11.94 s, F0 242.9 Hz, pauses entre phrases [0.3, 0.24] s
+    1. Depuis deux mille vingt-qua…   1/3    244.9  +0.08   -6.9   +0.7  6.0    5.7  1.12  1:245 2:243? 3:218~
+         prise 2 : respiration 1.12-1.38 s (leger, +18 dB, confiance 0.34) [quatre | la]
+    2. Par vagues de cinquante mil…   1/3    241.3  -0.18   -1.1   +0.4  6.0    5.3  1.03  1:241 2:222~ 3:220~
+  ecologie-transports-03 — 9.92 s, F0 244.7 Hz, pauses entre phrases [0.29, 0.31] s
+    1. Le train bat des records : …   2/3    249.0  +0.37   -2.3   +3.8  1.1    5.4  1.06  1:220~ 2:249 3:219~
+    2. Un passager-kilomètre, c'es…   3/3    240.3  -0.25   -2.4   +0.5  2.3    5.7  1.12  1:258 2:225 3:240
+  ecologie-transports-04 — 13.93 s, F0 243.7 Hz, pauses entre phrases [0.2, 0.3, 0.2, 0.97, 0.27] s
+    1. Les trains financés par les…   1/3    243.6  -0.01   -4.4   +0.6  2.4    5.9  1.16  1:244 2:261 3:246
+    2. Mi-deux mille vingt-six, qu…   1/3    243.4  -0.03   -6.6   +0.6  4.4    4.2  0.81  1:243? 2:236? 3:242×!
+         prise 1 : parole en trop 0.00-0.05 s (leger, +40 dB, confiance 0.65) [début | Mi]
+         prise 2 : respiration 9.60-9.76 s (leger, +25 dB, confiance 0.46) [Transdev | fin]
+         prise 3 : rire 0.16-0.40 s (net, +51 dB, confiance 0.88) [Mi | deux]
+         prise 3 : bruit 3.84-4.02 s (net, +51 dB, confiance 0.95) [dix | à]
+      passage assemblé : vocalise 3.53-3.59 s (leger, +40 dB, confiance 0.65) [concurrence | Mi]
+  ecologie-transports-05 — 10.20 s, F0 237.6 Hz, pauses entre phrases [0.16, 0.23, 0.3, 0.15] s
+    1. Face à l'avion, depuis deux…   3/3    233.7  -0.73   -8.6   +1.5  6.0    5.8  1.12  1:228 2:255 3:234
+    2. Pour l'été deux mille vingt…   1/3    248.1  +0.30   -3.7   +3.2  6.0    4.5  0.87  1:248 2:227 3:256
+  ecologie-transports-06 — 10.53 s, F0 246.2 Hz, pauses entre phrases [0.3] s
+    1. Les autoroutes, elles, sont…   2/3    245.9  +0.15   -9.5   +2.5  3.7    5.0  0.97  1:265 2:246 3:236
+    2. Les contrats historiques pr…   2/3    246.6  +0.20   -3.6   +3.0  6.0    6.2  1.21  1:221~ 2:247 3:239?
+         prise 3 : respiration 3.68-3.92 s (leger, +22 dB, confiance 0.40) [six | le]
+  ecologie-transports-07 — 10.47 s, F0 237.7 Hz, pauses entre phrases [0.15, 0.3, 0.26] s
+    1. En deux mille vingt-quatre,…   1/3    239.2  -0.33   -1.0   +2.0  3.6    6.1  1.19  1:239 2:233 3:231
+    2. La même année, elles ont in…   3/3    235.1  -0.63   -8.2   +1.8  1.0    5.8  1.14  1:228 2:216~? 3:235
+         prise 2 : respiration 2.16-2.32 s (leger, +44 dB, confiance 0.80) [milliard | et]
+  ecologie-transports-08 — 2.56 s, F0 234.3 Hz
+    1. Alors, quelles priorités po…   1/3    234.3  -0.69   -0.5   +3.0  6.0    6.6  1.29  1:234 2:273~ 3:266~
+  ecologie-adaptation-01 — 7.85 s, F0 249.3 Hz, pauses entre phrases [0.31, 0.3] s
+    1. L'été deux mille vingt-six …   3/3    242.2  -0.11   -3.9      —  0.0    5.9  1.15  1:246 2:250? 3:242
+         prise 2 : respiration 5.76-5.93 s (leger, +32 dB, confiance 0.63) [normale | fin]
+    2. Comment s'y adapter ?         2/7    284.2  +2.65   +9.4   +4.3  6.0    5.2  1.02  1:464×? 2:284~ 3:310~ 4:367×! 5:398×! 6:310×! 7:329×!
+         prise 1 : respiration 1.07-1.14 s (leger, +37 dB, confiance 0.70) [adapter | fin]
+         prise 4 : parole en trop 0.00-0.75 s (net, +53 dB, confiance 0.95) [début | Comment]
+         prise 5 : rire 0.01-0.56 s (net, +57 dB, confiance 0.95) [début | Comment]
+         prise 6 : parole en trop 0.00-0.16 s (net, +56 dB, confiance 0.72) [début | Comment]
+         prise 7 : respiration 0.80-1.05 s (net, +48 dB, confiance 0.91) [adapter | fin]
+      ⚠ phrase 2 : aucune prise acceptable : hauteur +2.65 dt de la cible
+  ecologie-adaptation-02 — 10.55 s, F0 241.1 Hz, pauses entre phrases [0.2, 0.3] s
+    1. Cet été-là, cinquante-trois…   2/3    227.9  -1.17   -7.5   -0.3  0.0    5.2  1.01  1:265 2:228 3:217~
+    2. Et vingt-sept jours où au m…   3/3    243.3  -0.04   -2.0   +3.6  6.0    5.8  1.14  1:217~ 2:233 3:243
+  ecologie-adaptation-03 — 11.79 s, F0 242.5 Hz, pauses entre phrases [0.15, 0.3] s
+    1. Selon des estimations provi…   1/3    246.5  +0.19   -6.1   +3.8  2.0    6.2  1.21  1:246 2:244? 3:235?
+         prise 2 : respiration 2.96-3.18 s (leger, +34 dB, confiance 0.60) [France | la]
+         prise 3 : mot étiré « France » 2.32-2.88 s (leger, confiance 0.46) [publique | la]
+    2. Puis d'au moins mille deux …   1/3    238.5  -0.38   +0.5   +1.7  6.0    5.1  1.00  1:238 2:234 3:263
+  ecologie-adaptation-04 — 14.92 s, F0 247.2 Hz, pauses entre phrases [0.16, 0.3, 0.3, 0.36] s
+    1. Inondations, sécheresse, sé…   1/3    242.7  -0.08   -5.4   +2.2  0.0    4.4  0.85  1:243? 2:228? 3:254×!
+         prise 1 : mot étiré « séismes » 1.92-2.64 s (leger, confiance 0.45) [sécheresse | le]
+         prise 2 : mot étiré « séismes » 1.60-2.24 s (leger, confiance 0.46) [sécheresse | le]
+         prise 3 : bruit 0.64-0.88 s (net, +44 dB, confiance 0.88) [Inondations | sécheresse]
+         prise 3 : mot étiré « séismes » 1.84-2.56 s (leger, confiance 0.55) [sécheresse | le]
+    2. En deux mille vingt-cinq, s…   3/3    252.7  +0.62   -0.4   +3.5  5.4    5.6  1.10  1:249? 2:210~ 3:253
+         prise 1 : mot étiré « moyenne » 3.60-4.16 s (leger, +16 dB, confiance 0.70) [en | environ]
+      passage assemblé : mot étiré « séismes » 1.92-2.64 s (leger, confiance 0.54) [sécheresse | le]
+  ecologie-adaptation-05 — 8.96 s, F0 251.0 Hz, pauses entre phrases [0.34, 0.35, 0.31, 0.2, 0.21] s
+    1. Et l'eau ?                    2/7    257.4  +0.94   -1.6   -0.8  3.4    3.0  0.59  1:427×! 2:257×! 3:399×! 4:300×! 5:268× 6:374×! 7:269×?
+         prise 1 : parole en trop 0.60-1.02 s (net, +69 dB, confiance 0.95) [l'eau | fin]
+         prise 2 : rire 0.77-1.02 s (net, +60 dB, confiance 0.95) [l'eau | fin]
+         prise 3 : respiration 0.25-0.41 s (net, +53 dB, confiance 0.62) [début | Et]
+         prise 3 : respiration 0.96-1.06 s (leger, +51 dB, confiance 0.53) [l'eau | fin]
+         prise 4 : parole en trop 0.83-1.05 s (net, +73 dB, confiance 0.81) [l'eau | fin]
+         prise 6 : parole en trop 0.40-1.04 s (net, +51 dB, confiance 0.88) [l'eau | fin]
+         prise 7 : bruit 1.05-1.14 s (leger, +59 dB, confiance 0.60) [l'eau | fin]
+    2. De juin à août, on consomme…   3/3    257.6  +0.95   -3.0   +0.9  0.0    5.8  1.13  1:226 2:265 3:258
+    3. Les cours d'eau, eux, trans…   1/3    249.5  +0.40   -2.0   +5.1  3.0    5.5  1.08  1:250 2:257 3:257
+      passage assemblé : rire 0.01-0.16 s (net, +50 dB, confiance 0.91) [début | Et]
+      passage assemblé : mot étiré « De » 0.80-1.52 s (net, confiance 0.67) [l'eau | juin]
+      ⚠ phrase 1 : aucune prise sans défaut : trop lente (3.0 syll/s, 0.59 × la référence), son parasite (rire 0.77-1.02 s)
+      ⚠ son parasite dans le passage assemblé : rire 0.01-0.16 s (net, +50 dB, confiance 0.91) [début | Et]
+      ⚠ son parasite dans le passage assemblé : mot étiré « De » 0.80-1.52 s (net, confiance 0.67) [l'eau | juin]
+  ecologie-adaptation-06 — 12.51 s, F0 244.6 Hz, pauses entre phrases [0.3, 0.32, 0.32] s
+    1. L'agriculture représente ci…   2/3    248.8  +0.35   -9.1   +2.8  2.0    6.8  1.32  1:240 2:249 3:250
+    2. Des retenues la stockent l'…   1/3    240.7  -0.22   -1.9   +2.3  6.0    6.2  1.22  1:241 2:288~ 3:257
+    3. Mais selon une étude citée …   3/3    239.6  -0.30   -5.5   +3.7  1.9    5.4  1.06  1:224 2:227 3:240
+  ecologie-adaptation-07 — 8.54 s, F0 250.5 Hz, pauses entre phrases [0.18, 0.16, 0.3] s
+    1. Au robinet, chaque commune …   3/3    247.5  +0.26   -4.3   +4.8  5.5    6.7  1.32  1:232 2:227 3:248
+    2. Les régies desservent quara…   3/3    257.6  +0.95   -0.6   +2.4  4.3    7.5  1.47  1:272~ 2:226 3:258
+  ecologie-adaptation-08 — 3.19 s, F0 241.4 Hz
+    1. Alors, comment protéger la …   2/3    241.4  -0.17   -2.2   +3.0  3.6    5.9  1.15  1:244~? 2:241 3:241
+         prise 1 : respiration 1.84-2.08 s (leger, +42 dB, confiance 0.74) [population | et]
+
+Alertes (7) :
+  aigue / ecologie-electricite-03 : phrase 2 : aucune prise acceptable : saut de +4.43 dt à l'enchaînement (tolérance de reprise 0.0 dt)
+  aigue / ecologie-electricite-05 : phrase 2 : aucune prise acceptable : saut de +4.04 dt à l'enchaînement (tolérance de reprise 0.8 dt)
+  aigue / ecologie-climat-02 : phrase 1 : aucune prise acceptable : saut de +3.11 dt à l'enchaînement (tolérance de reprise 0.0 dt)
+  aigue / ecologie-adaptation-01 : phrase 2 : aucune prise acceptable : hauteur +2.65 dt de la cible
+  aigue / ecologie-adaptation-05 : phrase 1 : aucune prise sans défaut : trop lente (3.0 syll/s, 0.59 × la référence), son parasite (rire 0.77-1.02 s)
+  aigue / ecologie-adaptation-05 : son parasite dans le passage assemblé : rire 0.01-0.16 s (net, +50 dB, confiance 0.91) [début | Et]
+  aigue / ecologie-adaptation-05 : son parasite dans le passage assemblé : mot étiré « De » 0.80-1.52 s (net, confiance 0.67) [l'eau | juin]
+
+Temps : 3259 s pour 322 prise(s), 9.8 s de calcul par prise en moyenne (4.09 s d'audio) ; calcul d'une prise ≈ 0.48 s + 2.32 s par seconde d'audio. Détecteur de sons parasites : 0.15 s par prise en moyenne (au plus 0.386 s), 2% du calcul d'une prise.
+Estimation pour les 1013 passages (1856 phrases) (voix aiguë 3 prises, 11% de secours) : ~1038 min.

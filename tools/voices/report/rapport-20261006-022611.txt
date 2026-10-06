@@ -1,0 +1,169 @@
+Rapport de génération des voix — 2026-10-06 01:47:20
+Commande : generate.py --voice aigue --only proche_orient
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  proche-orient-intro-01 — 6.91 s, F0 244.1 Hz, pauses entre phrases [0.16, 0.3] s
+    1. La guerre à Gaza a suivi l'…   3/3    242.6  -0.09   -2.6      —  0.0    5.8  1.13  1:227 2:222~ 3:243
+    2. Quelle position la France d…   2/3    254.2  +0.72   -1.7   +2.8  5.7    5.0  0.98  1:267~ 2:254 3:258
+  proche-orient-intro-02 — 7.03 s, F0 239.5 Hz
+    1. Selon les autorités israéli…   3/3    239.5  -0.31   -2.2   -0.2  0.0    5.6  1.09  1:257 2:221~ 3:240?
+         prise 3 : respiration 4.61-4.84 s (leger, +20 dB, confiance 0.38) [là | et]
+      passage assemblé : respiration 4.61-4.84 s (leger, +20 dB, confiance 0.38) [là | et]
+  proche-orient-intro-03 — 9.76 s, F0 232.4 Hz, pauses entre phrases [0.3] s
+    1. Selon le ministère de la Sa…   2/3    234.9  -0.64   -3.3   +1.8  2.2    6.3  1.22  1:226 2:235 3:224
+    2. C'est le bilan d'octobre de…   3/3    231.9  -0.87   -2.1   +1.8  3.3    5.5  1.08  1:224 2:264 3:232
+  proche-orient-intro-04 — 4.51 s, F0 224.0 Hz
+    1. Le bureau des affaires huma…   1/3    224.0  -1.47   -2.3   +0.9  2.1    6.6  1.29  1:224 2:224 3:208~
+  proche-orient-intro-05 — 7.93 s, F0 235.5 Hz, pauses entre phrases [0.31, 0.31] s
+    1. Deux juridictions internati…   3/3    232.5  -0.82   -1.3   +4.8  2.3    6.4  1.24  1:211~ 2:212~ 3:232
+    2. La Cour internationale de j…   3/3    246.3  +0.18   -3.9   +3.1  1.3    6.0  1.18  1:266~ 2:224 3:246
+    3. La Cour pénale internationa…   2/3    231.5  -0.90   +0.5   +0.6  3.9    6.0  1.18  1:223~ 2:232 3:222~
+  proche-orient-intro-06 — 7.53 s, F0 229.9 Hz, pauses entre phrases [0.31, 0.18] s
+    1. L'Union européenne est le p…   2/3    229.9  -1.02   -6.0   +2.1  0.0    5.9  1.15  1:225~ 2:230 3:250
+    2. Un accord d'association enc…   2/3    229.6  -1.04  -10.7   +2.4  6.0    5.3  1.03  1:220~ 2:230 3:220~
+  proche-orient-intro-07 — 7.21 s, F0 249.3 Hz, pauses entre phrases [0.32, 0.35] s
+    1. Deux questions se posent à …   3/3    251.5  +0.54   -1.8   +3.5  6.0    5.2  1.02  1:276~ 2:251× 3:252
+    2. Comment qualifier l'action …   2/3    259.4  +1.07   +0.2   +5.9  4.8    6.2  1.20  1:220~ 2:259 3:206~
+    3. Et quels moyens de pression…   2/3    240.7  -0.22   +5.0   +1.3  3.0    6.5  1.28  1:233 2:241 3:215~
+  proche-orient-intro-08 — 2.70 s, F0 257.6 Hz
+    1. Les cinq vidéos qui suivent…   2/3    257.6  +0.95   +0.4   +2.8  0.0    5.0  0.98  1:257~ 2:258 3:270~
+  proche-orient-mots-01 — 6.38 s, F0 242.8 Hz, pauses entre phrases [0.3, 0.3] s
+    1. Génocide, crimes contre l'h…   1/3    249.1  +0.37   -3.4      —  0.0    4.9  0.95  1:249 2:251 3:259
+    2. Que veulent-ils dire ?        1/7    212.9  -2.35   +3.9   -1.4  6.0    4.2  0.81  1:213~ 2:328×! 3:392×! 4:258×! 5:392×! 6:409×! 7:388×!
+         prise 2 : respiration 0.88-1.03 s (net, +43 dB, confiance 0.83) [dire | fin]
+         prise 3 : respiration 0.80-1.05 s (net, +60 dB, confiance 0.95) [dire | fin]
+         prise 4 : respiration 0.08-0.32 s (net, +42 dB, confiance 0.91) [Que | veulent]
+         prise 5 : rire 0.16-0.45 s (net, +49 dB, confiance 0.95) [Que | veulent]
+         prise 6 : rire 0.08-0.48 s (net, +47 dB, confiance 0.95) [Que | veulent]
+         prise 6 : respiration 0.80-1.07 s (leger, +41 dB, confiance 0.63) [ils | fin]
+         prise 7 : respiration 0.01-0.20 s (net, +37 dB, confiance 0.78) [début | Que]
+      ⚠ phrase 2 : aucune prise acceptable : hauteur -2.35 dt de la cible
+  proche-orient-mots-02 — 6.98 s, F0 244.9 Hz, pauses entre phrases [0.31, 0.28, 0.19] s
+    1. Le génocide est défini par …   3/3    242.9  -0.06   -2.5   +2.8  0.0    6.4  1.26  1:250 2:262~ 3:243
+    2. Il réunit deux éléments : d…   3/3    249.7  +0.41   -5.6   +3.2  2.5    5.8  1.14  1:236 2:238 3:250
+  proche-orient-mots-03 — 8.16 s, F0 245.9 Hz
+    1. Cinq catégories d'actes : m…   2/3    245.9  +0.15   -6.4   -0.3  5.6    4.9  0.95  1:248? 2:246 3:256?
+         prise 1 : vocalise 5.12-5.41 s (leger, +37 dB, confiance 0.63) [groupe | entraves]
+         prise 3 : respiration 5.04-5.23 s (leger, +42 dB, confiance 0.76) [groupe | entraves]
+  proche-orient-mots-04 — 6.20 s, F0 237.2 Hz
+    1. Et l'intention de détruire,…   3/3    237.2  -0.48   -4.3   +0.8  6.0    6.0  1.17  1:234 2:230 3:237
+  proche-orient-mots-05 — 6.99 s, F0 234.8 Hz
+    1. Les crimes contre l'humanit…   1/3    234.8  -0.65   -6.9   +1.6  4.3    6.0  1.18  1:235 2:216~ 3:217~
+  proche-orient-mots-06 — 6.77 s, F0 235.1 Hz, pauses entre phrases [0.3] s
+    1. Les crimes de guerre sont d…   3/3    237.3  -0.47   -1.3   +2.5  6.0    5.4  1.05  1:216~ 2:206~ 3:237
+    2. Eux non plus n'exigent pas …   1/3    227.2  -1.22   -8.3   +2.3  1.3    4.9  0.96  1:227 2:221~ 3:211~
+  proche-orient-mots-07 — 5.68 s, F0 244.2 Hz, pauses entre phrases [0.17, 0.3, 0.37] s
+    1. Le mot choisi engage la Fra…   1/3    253.9  +0.70   -6.5   +2.3  6.0    5.1  1.00  1:254 2:264 3:234
+    2. Alors, doit-elle employer l…   3/3    244.1  +0.02   +3.1   +3.3  6.0    4.4  0.86  1:286~ 2:228 3:244
+  proche-orient-justice-01 — 6.77 s, F0 247.7 Hz, pauses entre phrases [0.22, 0.35, 0.31] s
+    1. Qui peut dire s'il y a géno…   3/3    246.4  +0.18   -4.3      —  3.0    6.3  1.23  1:259 2:234 3:246
+    2. Plusieurs instances interna…   1/3    241.0  -0.20   -3.4   +0.9  0.0    6.4  1.25  1:241 2:237~ 3:254
+    3. Elles n'ont pas le même rôl…   3/3    254.9  +0.77   +1.0   +2.9  3.4    6.0  1.17  1:220~ 2:248×! 3:255
+         prise 2 : respiration 0.01-0.16 s (leger, +61 dB, confiance 0.87) [début | Elles]
+         prise 2 : bruit 0.32-0.64 s (net, +43 dB, confiance 0.67) [début | Elles]
+  proche-orient-justice-02 — 8.72 s, F0 242.8 Hz, pauses entre phrases [0.3, 0.3] s
+    1. La Cour internationale de j…   1/3    242.1  -0.12   -2.8   -0.6  0.0    6.4  1.24  1:242 2:230 3:226
+    2. Le vingt-neuf décembre deux…   3/3    243.3  -0.04   -7.1   +1.6  2.8    5.3  1.04  1:265~ 2:231 3:243
+  proche-orient-justice-03 — 5.50 s, F0 239.6 Hz, pauses entre phrases [0.22, 0.3] s
+    1. Le vingt-six janvier deux m…   3/3    240.0  -0.27   -4.7   +2.9  6.0    6.1  1.19  1:235 2:232 3:240
+    2. Elles ne tranchent pas la q…   3/3    238.4  -0.39   -1.8   +2.9  4.7    5.8  1.14  1:206~ 2:305~ 3:238
+  proche-orient-justice-04 — 6.05 s, F0 238.9 Hz, pauses entre phrases [0.3] s
+    1. Le vingt et un mai deux mil…   1/3    238.0  -0.42   -2.2   +2.2  1.8    6.1  1.19  1:238 2:229 3:250
+    2. L'examen du fond se poursui…   1/3    240.7  -0.22   -1.5   +0.7  2.2    6.7  1.31  1:241 2:308~ 3:338~
+  proche-orient-justice-05 — 10.78 s, F0 245.0 Hz, pauses entre phrases [0.26, 0.15, 0.3, 0.3, 0.23] s
+    1. La Cour pénale internationa…   1/7    242.1  -0.12   -4.3   +4.7  1.5    6.1  1.19  1:242~ 2:316~ 3:198~ 4:216~ 5:221~ 6:221~ 7:268~
+    2. Le vingt et un novembre deu…   1/3    256.8  +0.90   -7.8   +3.6  4.3    6.4  1.25  1:257 2:267~ 3:216~
+    3. Deux contre des dirigeants …   3/3    223.6  -1.50   -2.2   +1.3  6.0    5.7  1.11  1:223~? 2:217~ 3:224
+         prise 1 : respiration 1.60-1.84 s (leger, +43 dB, confiance 0.75) [israéliens | un]
+      ⚠ phrase 1 : aucune prise acceptable : saut de +4.72 dt à l'enchaînement (tolérance de reprise 1.5 dt)
+  proche-orient-justice-06 — 5.81 s, F0 231.8 Hz
+    1. Ces mandats portent sur des…   2/3    231.8  -0.87   -9.0   +3.4  2.2    6.3  1.22  1:249~ 2:232 3:229
+  proche-orient-justice-07 — 8.93 s, F0 234.5 Hz, pauses entre phrases [0.2, 0.3, 0.19] s
+    1. Le seize septembre deux mil…   2/3    227.0  -1.24   -2.4   +0.3  6.0    5.9  1.16  1:226 2:227 3:226
+    2. Elle réunit des experts : c…   1/7    248.6  +0.34   -5.7   +6.7  2.4    5.4  1.06  1:249~ 2:241~? 3:227~ 4:264~ 5:259~ 6:279~ 7:269~
+         prise 2 : respiration 2.48-2.65 s (leger, +36 dB, confiance 0.71) [tribunal | fin]
+      ⚠ phrase 2 : aucune prise acceptable : saut de +6.65 dt à l'enchaînement (tolérance de reprise 2.4 dt)
+  proche-orient-justice-08 — 7.96 s, F0 243.0 Hz, pauses entre phrases [0.3] s
+    1. Selon elle, Israël commettr…   1/3    244.5  +0.05   -6.3   +3.2  5.7    5.4  1.06  1:244 2:236 3:225
+    2. Israël rejette ce rapport, …   3/3    239.3  -0.32   -8.9   +5.0  6.0    5.4  1.05  1:228 2:222~ 3:239
+  proche-orient-justice-09 — 6.31 s, F0 242.3 Hz, pauses entre phrases [0.49, 0.17, 0.3] s
+    1. Les instances saisies n'ont…   3/3    237.3  -0.47   -7.6   +1.9  6.0    6.0  1.17  1:232 2:251 3:237
+    2. Alors, quelle position pour…   2/3    254.2  +0.72   -2.8   +3.2  6.0    5.9  1.15  1:282~ 2:254 3:278~
+  proche-orient-accord-01 — 7.62 s, F0 242.2 Hz, pauses entre phrases [0.3] s
+    1. Entre l'Union européenne et…   2/3    233.4  -0.75   -9.1      —  0.0    5.7  1.12  1:221~ 2:233 3:241×!
+         prise 3 : rire 0.57-0.80 s (net, +54 dB, confiance 0.95) [Entre | l'Union]
+    2. Que prévoit-il, et qui peut…   1/3    252.8  +0.63   +7.5   +2.2  6.0    5.1  1.00  1:253 2:344~ 3:261
+  proche-orient-accord-02 — 10.86 s, F0 228.2 Hz, pauses entre phrases [0.33, 0.32] s
+    1. L'Union est le premier part…   2/3    224.1  -1.46   -2.4   -0.5  0.0    5.7  1.11  1:221~ 2:224 3:214~
+    2. À l'inverse, Israël représe…   1/3    236.1  -0.56   -1.3   +3.7  2.4    5.7  1.11  1:236 2:253 3:228
+  proche-orient-accord-03 — 10.46 s, F0 233.6 Hz, pauses entre phrases [0.3, 0.31] s
+    1. L'accord fait du respect de…   3/3    237.7  -0.44   -2.1   +3.7  1.3    5.4  1.05  1:222~ 2:214~ 3:238
+    2. En juin deux mille vingt-ci…   1/3    231.1  -0.93   -1.4   +1.9  2.1    6.0  1.18  1:231 2:226 3:258?
+         prise 3 : mot étiré « cinq » 0.80-1.28 s (leger, confiance 0.43) [vingt | un]
+  proche-orient-accord-04 — 9.60 s, F0 229.8 Hz
+    1. En septembre deux mille vin…   1/3    229.8  -1.02   -7.7   +2.2  1.4    5.7  1.11  1:230? 2:222~? 3:220~
+         prise 1 : respiration 9.12-9.29 s (leger, +37 dB, confiance 0.70) [européen | fin]
+         prise 2 : respiration 1.37-1.54 s (leger, +20 dB, confiance 0.37) [cinq | la]
+         prise 2 : respiration 5.15-5.31 s (leger, +16 dB, confiance 0.31) [commerciales | les]
+      passage assemblé : respiration 9.12-9.29 s (leger, +37 dB, confiance 0.70) [européen | fin]
+  proche-orient-accord-05 — 6.57 s, F0 247.3 Hz
+    1. Elle propose aussi des sanc…   3/3    247.3  +0.25   -2.2   +2.9  6.0    5.6  1.09  1:237 2:227×! 3:247
+         prise 2 : bruit 5.68-5.87 s (net, +44 dB, confiance 0.90) [Hamas | fin]
+  proche-orient-accord-06 — 8.54 s, F0 235.9 Hz, pauses entre phrases [0.3, 0.37, 0.31] s
+    1. Deux règles de décision.      2/3    228.1  -1.15   -1.6   +3.3  2.2    5.2  1.02  1:216~ 2:228 3:272~
+    2. La mesure commerciale se pr…   2/3    243.4  -0.03   -3.8   +1.9  1.6    7.1  1.38  1:234 2:243 3:242
+    3. Les sanctions exigent l'una…   2/3    242.6  -0.09   -0.9   +2.9  3.8    5.7  1.11  1:242 2:243 3:248
+  proche-orient-accord-07 — 10.61 s, F0 240.1 Hz, pauses entre phrases [0.3, 0.18] s
+    1. Certains États membres ont …   3/3    241.8  -0.14   -6.8   +2.2  0.9    5.5  1.08  1:240 2:267~ 3:242
+    2. Le vingt et un avril deux m…   1/3    239.7  -0.29   -4.1   +0.3  6.0    6.2  1.20  1:240 2:224 3:222~
+  proche-orient-accord-08 — 3.96 s, F0 238.3 Hz
+    1. Alors, faut-il se servir de…   2/3    238.3  -0.40   -8.6   +1.5  6.0    5.4  1.06  1:230 2:238 3:232
+  proche-orient-colonisation-01 — 6.12 s, F0 240.0 Hz, pauses entre phrases [0.16, 0.3] s
+    1. En Cisjordanie, des colons …   4/4    238.1  -0.41   -3.0      —  0.0    7.0  1.37  1:222~ 2:209~ 3:215~ 4:238
+    2. Que dit le droit internatio…   1/3    245.3  +0.11  +10.3   +3.5  6.0    6.2  1.22  1:245 2:235× 3:220~
+  proche-orient-colonisation-02 — 9.18 s, F0 242.9 Hz, pauses entre phrases [0.22, 0.24, 0.32] s
+    1. En douze mois, jusqu'au tre…   2/3    241.8  -0.14   -6.1   +0.3  0.0    6.1  1.19  1:219~ 2:242 3:240
+    2. Un nombre sans précédent, s…   3/3    246.6  +0.20   -0.9   +3.0  6.0    6.0  1.18  1:267~ 2:237 3:247
+  proche-orient-colonisation-03 — 11.37 s, F0 236.2 Hz, pauses entre phrases [0.22, 0.3] s
+    1. Le dix-neuf juillet deux mi…   1/3    236.2  -0.55   -8.0   +1.6  0.9    5.1  1.00  1:236 2:222~ 3:259
+    2. Elle juge illicite la prése…   2/3    237.6  -0.45   -1.9   +1.0  6.0    5.8  1.13  1:254 2:238 3:283~
+  proche-orient-colonisation-04 — 7.76 s, F0 243.3 Hz, pauses entre phrases [0.3, 0.16] s
+    1. Selon la Cour, Israël doit …   2/3    248.1  +0.30   +0.5   +2.8  1.9    5.5  1.07  1:281~ 2:248 3:254~
+    2. Et les États ne doivent ni …   3/3    240.8  -0.21   -2.2   +1.2  0.0    6.5  1.26  1:257~ 2:241 3:241
+  proche-orient-colonisation-05 — 3.44 s, F0 246.3 Hz
+    1. Israël a rejeté cet avis, q…   2/3    246.3  +0.18   -2.2   +1.8  2.2    6.8  1.34  1:233 2:246 3:260
+  proche-orient-colonisation-06 — 10.61 s, F0 246.6 Hz, pauses entre phrases [0.15, 0.3] s
+    1. Le vingt-huit mai deux mill…   2/3    248.4  +0.32   -2.1   +4.2  2.2    6.0  1.18  1:226? 2:248 3:229
+         prise 1 : mot étiré « six » 1.12-1.68 s (leger, confiance 0.42) [vingt | l'Union]
+    2. Ce sont, selon elle, des co…   3/3    245.1  +0.09   +1.0   +3.6  2.1    5.7  1.12  1:258 2:223~ 3:245
+  proche-orient-colonisation-07 — 6.08 s, F0 243.9 Hz
+    1. Alors, quelles mesures, s'i…   2/3    243.9  +0.01   -2.9   +1.5  3.0    5.7  1.12  1:233 2:244 3:242
+  proche-orient-onu-01 — 6.70 s, F0 247.5 Hz, pauses entre phrases [0.18, 0.25, 0.33, 0.15] s
+    1. À l'Onu, le Conseil de sécu…   3/3    248.1  +0.30   -0.9      —  0.0    5.7  1.10  1:255~ 2:245~ 3:248
+    2. Mais toutes les voix n'y on…   1/3    246.3  +0.18   -3.8   +0.2  0.9    5.6  1.10  1:246 2:207~ 3:313×!
+         prise 3 : rire 0.00-0.58 s (net, +47 dB, confiance 0.95) [début | toutes]
+  proche-orient-onu-02 — 5.44 s, F0 240.0 Hz, pauses entre phrases [0.3, 0.33] s
+    1. Cinq de ses membres sont pe…   3/3    229.6  -1.04   -1.8   +1.7  3.8    5.7  1.11  1:227 2:203~ 3:230
+    2. L'opposition d'un seul d'en…   1/3    243.4  -0.03   +0.2   +4.6  1.8    7.1  1.39  1:243 2:250~ 3:250~
+  proche-orient-onu-03 — 7.19 s, F0 233.1 Hz, pauses entre phrases [0.3, 0.21] s
+    1. Le dix-huit septembre deux …   1/3    229.7  -1.03   -4.2   +1.5  0.0    6.1  1.19  1:230 2:217~ 3:222~
+    2. Le texte exige un cessez-le…   1/3    239.9  -0.28   +0.3   +1.2  4.2    5.8  1.13  1:240 2:220~ 3:231
+  proche-orient-onu-04 — 5.80 s, F0 228.6 Hz, pauses entre phrases [0.3, 0.27, 0.2] s
+    1. Il recueille quatorze voix …   2/3    235.8  -0.58   +0.7   +2.6  0.0    5.0  0.98  1:258~ 2:236 3:285~
+    2. Mais il est rejeté : le vot…   3/3    226.1  -1.30   -2.4   +1.9  0.0    6.2  1.22  1:237~ 2:226 3:226
+  proche-orient-onu-05 — 8.50 s, F0 249.9 Hz, pauses entre phrases [0.35, 0.25, 0.26, 0.31] s
+    1. Chaque outil a sa règle.      2/3    239.6  -0.30   -3.9   +3.6  2.4    7.1  1.39  1:259~ 2:240 3:266×
+    2. Dans l'Union européenne, la…   3/3    251.4  +0.53   -7.2   +5.1  3.9    5.8  1.14  1:265~ 2:222~ 3:251
+    3. À l'Onu, l'absence de veto …   3/3    247.4  +0.25   -5.0   +4.7  6.0    5.4  1.06  1:220~ 2:213~ 3:247
+  proche-orient-onu-06 — 3.54 s, F0 243.9 Hz
+    1. Alors, quelle place donner …   1/3    243.9  +0.01   +0.9   +3.3  6.0    5.9  1.16  1:244 2:234 3:222~
+
+Alertes (3) :
+  aigue / proche-orient-mots-01 : phrase 2 : aucune prise acceptable : hauteur -2.35 dt de la cible
+  aigue / proche-orient-justice-05 : phrase 1 : aucune prise acceptable : saut de +4.72 dt à l'enchaînement (tolérance de reprise 1.5 dt)
+  aigue / proche-orient-justice-07 : phrase 2 : aucune prise acceptable : saut de +6.65 dt à l'enchaînement (tolérance de reprise 2.4 dt)
+
+Temps : 2331 s pour 262 prise(s), 8.59 s de calcul par prise en moyenne (3.67 s d'audio) ; calcul d'une prise ≈ 0.49 s + 2.24 s par seconde d'audio. Détecteur de sons parasites : 0.14 s par prise en moyenne (au plus 0.277 s), 2% du calcul d'une prise.
+Estimation pour les 1013 passages (1856 phrases) (voix aiguë 3 prises, 5% de secours) : ~947 min.

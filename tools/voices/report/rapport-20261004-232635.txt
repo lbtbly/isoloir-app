@@ -1,0 +1,19 @@
+Rapport de génération des voix — 2026-10-04 23:24:47
+Commande : generate.py --voice aigue --only retraites-intro --limit 3 --force --keep-takes --bitrate 128000
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères)
+  retraites-intro-01 — 3.91 s, F0 255.1 Hz, pauses entre phrases [0.33] s
+    1. Un jour, vous arrêterez de …   2/3    264.8  +1.43   -4.1      —  0.0    8.0  1.56  1:256× 2:265 3:254×
+    2. Qui vous versera alors votr…   1/3    253.0  +0.64   +6.4   +3.6  6.0    5.3  1.04  1:253 2:276~ 3:214~
+  retraites-intro-02 — 5.56 s, F0 241.5 Hz, pauses entre phrases [0.3] s
+    1. Surtout ceux qui travailler…   3/3    240.9  -0.21   -6.7   +0.8  0.0    6.9  1.34  1:236 2:256 3:241
+    2. C'est la répartition.         2/3    243.1  -0.05   -3.3   +1.0  6.0    5.8  1.14  1:390~ 2:243 3:322~
+  retraites-intro-03 — 3.86 s, F0 253.5 Hz
+    1. Fin deux mille vingt-quatre…   3/3    253.5  +0.68   -8.9   +1.7  3.3    6.2  1.20  1:271~ 2:229 3:254
+
+Aucune alerte.
+
+Temps : 109 s pour 15 prise(s), 6.89 s de calcul par prise en moyenne (2.47 s d'audio) ; calcul d'une prise ≈ 0.56 s + 2.55 s par seconde d'audio.
+Estimation pour les 97 passages (149 phrases) × 2 voix (aigue 3 prises + grave 5 prises, 0% de secours) : ~209 min.

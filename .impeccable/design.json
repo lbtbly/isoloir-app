@@ -1,0 +1,1449 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-04T11:20:00Z",
+  "title": "Design System: Isoloir",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Papier blanc froid",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#1c1e21",
+          "#383b40",
+          "#5a5e65",
+          "#80848b",
+          "#a7aab0",
+          "#cdcfd2",
+          "#ebecee",
+          "#ffffff"
+        ]
+      },
+      "print": {
+        "role": "primary",
+        "displayName": "Noir d'imprimerie",
+        "canonical": "#17191c",
+        "tonalRamp": [
+          "#17191c",
+          "#2c2f34",
+          "#44484f",
+          "#5f636b",
+          "#7d8189",
+          "#a1a4aa",
+          "#c9cbcf",
+          "#eceded"
+        ]
+      },
+      "print-soft": {
+        "role": "neutral",
+        "displayName": "Gris d'impression secondaire",
+        "canonical": "#4a4f57",
+        "tonalRamp": [
+          "#1a1c20",
+          "#2e3238",
+          "#4a4f57",
+          "#646a73",
+          "#80868f",
+          "#a0a5ad",
+          "#c3c7cc",
+          "#e6e8eb"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Filet fin",
+        "canonical": "#c9cbcf",
+        "tonalRamp": [
+          "#26282b",
+          "#40434a",
+          "#5d6068",
+          "#7c7f86",
+          "#9c9fa5",
+          "#b6b8bd",
+          "#c9cbcf",
+          "#ecedef"
+        ]
+      },
+      "rule-strong": {
+        "role": "neutral",
+        "displayName": "Filet fort",
+        "canonical": "#17191c",
+        "tonalRamp": [
+          "#17191c",
+          "#2c2f34",
+          "#44484f",
+          "#5f636b",
+          "#7d8189",
+          "#a1a4aa",
+          "#c9cbcf",
+          "#eceded"
+        ]
+      },
+      "ink": {
+        "role": "secondary",
+        "displayName": "Bleu bille",
+        "canonical": "#1f3bb3",
+        "tonalRamp": [
+          "#0d1a52",
+          "#162c8a",
+          "#1f3bb3",
+          "#3d58d0",
+          "#6379e0",
+          "#9aaeff",
+          "#c3cfff",
+          "#e8edff"
+        ]
+      },
+      "on-print": {
+        "role": "neutral",
+        "displayName": "Réserve du papier sur aplat",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#1c1e21",
+          "#383b40",
+          "#5a5e65",
+          "#80848b",
+          "#a7aab0",
+          "#cdcfd2",
+          "#ebecee",
+          "#ffffff"
+        ]
+      },
+      "focus": {
+        "role": "secondary",
+        "displayName": "Anneau de focus bille",
+        "canonical": "#1f3bb3",
+        "tonalRamp": [
+          "#0d1a52",
+          "#162c8a",
+          "#1f3bb3",
+          "#3d58d0",
+          "#6379e0",
+          "#9aaeff",
+          "#c3cfff",
+          "#e8edff"
+        ]
+      },
+      "carbon-paper": {
+        "role": "neutral",
+        "displayName": "Papier carbone",
+        "canonical": "#111419",
+        "tonalRamp": [
+          "#111419",
+          "#1d2128",
+          "#2a2f38",
+          "#333944",
+          "#4d5562",
+          "#6d7584",
+          "#9aa1ad",
+          "#d0d4da"
+        ]
+      },
+      "carbon-print": {
+        "role": "primary",
+        "displayName": "Impression sur carbone",
+        "canonical": "#e9eae5",
+        "tonalRamp": [
+          "#2a2b28",
+          "#45473f",
+          "#63665c",
+          "#83867c",
+          "#a3a69d",
+          "#c4c6bf",
+          "#e9eae5",
+          "#f7f7f4"
+        ]
+      },
+      "carbon-print-soft": {
+        "role": "neutral",
+        "displayName": "Impression secondaire sur carbone",
+        "canonical": "#aab0b8",
+        "tonalRamp": [
+          "#22262b",
+          "#3a3f46",
+          "#545a63",
+          "#707780",
+          "#8d949d",
+          "#aab0b8",
+          "#c9cdd3",
+          "#e8eaed"
+        ]
+      },
+      "carbon-rule": {
+        "role": "neutral",
+        "displayName": "Filet sur carbone",
+        "canonical": "#333944",
+        "tonalRamp": [
+          "#14171c",
+          "#222731",
+          "#333944",
+          "#4a5160",
+          "#646c7c",
+          "#848b99",
+          "#a9aeb8",
+          "#d3d6dc"
+        ]
+      },
+      "carbon-ink": {
+        "role": "secondary",
+        "displayName": "Bille sur carbone",
+        "canonical": "#9aaeff",
+        "tonalRamp": [
+          "#0d1a52",
+          "#162c8a",
+          "#1f3bb3",
+          "#3d58d0",
+          "#6379e0",
+          "#9aaeff",
+          "#c3cfff",
+          "#e8edff"
+        ]
+      },
+      "copy": {
+        "role": "tertiary",
+        "displayName": "Jaune autocopiant",
+        "canonical": "#f2e7a6",
+        "tonalRamp": [
+          "#3b3412",
+          "#5e5420",
+          "#837733",
+          "#a89a4a",
+          "#cbbd67",
+          "#e3d688",
+          "#f2e7a6",
+          "#fbf6d9"
+        ]
+      },
+      "copy-print": {
+        "role": "tertiary",
+        "displayName": "Brun de carbone",
+        "canonical": "#1d1b10",
+        "tonalRamp": [
+          "#1d1b10",
+          "#353220",
+          "#4f4823",
+          "#6b6338",
+          "#8a8253",
+          "#aca476",
+          "#cfc9a2",
+          "#efecd6"
+        ]
+      },
+      "copy-print-soft": {
+        "role": "tertiary",
+        "displayName": "Brun de carbone secondaire",
+        "canonical": "#4f4823",
+        "tonalRamp": [
+          "#1d1b10",
+          "#353220",
+          "#4f4823",
+          "#6b6338",
+          "#8a8253",
+          "#aca476",
+          "#cfc9a2",
+          "#efecd6"
+        ]
+      },
+      "red": {
+        "role": "secondary",
+        "displayName": "Rouge stylo",
+        "canonical": "#c90f1a",
+        "tonalRamp": [
+          "#3d0507",
+          "#650a0f",
+          "#8f0d15",
+          "#c90f1a",
+          "#e23d40",
+          "#fa6863",
+          "#fdaba6",
+          "#ffe6e2"
+        ]
+      },
+      "carbon-red": {
+        "role": "secondary",
+        "displayName": "Rouge stylo sur carbone",
+        "canonical": "#fa6863",
+        "tonalRamp": [
+          "#3d0507",
+          "#650a0f",
+          "#8f0d15",
+          "#c90f1a",
+          "#e23d40",
+          "#fa6863",
+          "#fdaba6",
+          "#ffe6e2"
+        ]
+      },
+      "aff-tres-eloigne": {
+        "role": "tertiary",
+        "displayName": "Palier Très éloigné",
+        "canonical": "#b7191c",
+        "tonalRamp": [
+          "#3a0a0b",
+          "#5e1112",
+          "#8a1719",
+          "#b7191c",
+          "#d9474a",
+          "#f9786c",
+          "#fcb3aa",
+          "#ffe6e2"
+        ]
+      },
+      "aff-tres-eloigne-tint": {
+        "role": "tertiary",
+        "displayName": "Teinte Très éloigné",
+        "canonical": "#ffe6e2",
+        "tonalRamp": [
+          "#3a0a0b",
+          "#5e1112",
+          "#8a1719",
+          "#b7191c",
+          "#d9474a",
+          "#f9786c",
+          "#fcb3aa",
+          "#ffe6e2"
+        ]
+      },
+      "carbon-aff-tres-eloigne": {
+        "role": "tertiary",
+        "displayName": "Palier Très éloigné sur carbone",
+        "canonical": "#f9786c",
+        "tonalRamp": [
+          "#3a0a0b",
+          "#5e1112",
+          "#8a1719",
+          "#b7191c",
+          "#d9474a",
+          "#f9786c",
+          "#fcb3aa",
+          "#ffe6e2"
+        ]
+      },
+      "carbon-aff-tres-eloigne-tint": {
+        "role": "tertiary",
+        "displayName": "Teinte Très éloigné sur carbone",
+        "canonical": "#47211d",
+        "tonalRamp": [
+          "#3a0a0b",
+          "#5e1112",
+          "#8a1719",
+          "#b7191c",
+          "#d9474a",
+          "#f9786c",
+          "#fcb3aa",
+          "#ffe6e2"
+        ]
+      },
+      "aff-eloigne": {
+        "role": "tertiary",
+        "displayName": "Palier Éloigné",
+        "canonical": "#b44f00",
+        "tonalRamp": [
+          "#3a1900",
+          "#5c2800",
+          "#843a00",
+          "#b44f00",
+          "#d9762f",
+          "#f9a275",
+          "#fcc9ab",
+          "#ffece1"
+        ]
+      },
+      "aff-eloigne-tint": {
+        "role": "tertiary",
+        "displayName": "Teinte Éloigné",
+        "canonical": "#ffece1",
+        "tonalRamp": [
+          "#3a1900",
+          "#5c2800",
+          "#843a00",
+          "#b44f00",
+          "#d9762f",
+          "#f9a275",
+          "#fcc9ab",
+          "#ffece1"
+        ]
+      },
+      "carbon-aff-eloigne": {
+        "role": "tertiary",
+        "displayName": "Palier Éloigné sur carbone",
+        "canonical": "#f9a275",
+        "tonalRamp": [
+          "#3a1900",
+          "#5c2800",
+          "#843a00",
+          "#b44f00",
+          "#d9762f",
+          "#f9a275",
+          "#fcc9ab",
+          "#ffece1"
+        ]
+      },
+      "carbon-aff-eloigne-tint": {
+        "role": "tertiary",
+        "displayName": "Teinte Éloigné sur carbone",
+        "canonical": "#402719",
+        "tonalRamp": [
+          "#3a1900",
+          "#5c2800",
+          "#843a00",
+          "#b44f00",
+          "#d9762f",
+          "#f9a275",
+          "#fcc9ab",
+          "#ffece1"
+        ]
+      },
+      "aff-mitige": {
+        "role": "tertiary",
+        "displayName": "Palier Mitigé",
+        "canonical": "#636363",
+        "tonalRamp": [
+          "#1c1c1c",
+          "#333333",
+          "#4a4a4a",
+          "#636363",
+          "#8a8a8a",
+          "#b1b1b1",
+          "#d4d4d4",
+          "#eeeeee"
+        ]
+      },
+      "aff-mitige-tint": {
+        "role": "tertiary",
+        "displayName": "Teinte Mitigé",
+        "canonical": "#eeeeee",
+        "tonalRamp": [
+          "#1c1c1c",
+          "#333333",
+          "#4a4a4a",
+          "#636363",
+          "#8a8a8a",
+          "#b1b1b1",
+          "#d4d4d4",
+          "#eeeeee"
+        ]
+      },
+      "carbon-aff-mitige": {
+        "role": "tertiary",
+        "displayName": "Palier Mitigé sur carbone",
+        "canonical": "#b1b1b1",
+        "tonalRamp": [
+          "#1c1c1c",
+          "#333333",
+          "#4a4a4a",
+          "#636363",
+          "#8a8a8a",
+          "#b1b1b1",
+          "#d4d4d4",
+          "#eeeeee"
+        ]
+      },
+      "carbon-aff-mitige-tint": {
+        "role": "tertiary",
+        "displayName": "Teinte Mitigé sur carbone",
+        "canonical": "#262626",
+        "tonalRamp": [
+          "#1c1c1c",
+          "#333333",
+          "#4a4a4a",
+          "#636363",
+          "#8a8a8a",
+          "#b1b1b1",
+          "#d4d4d4",
+          "#eeeeee"
+        ]
+      },
+      "aff-proche": {
+        "role": "tertiary",
+        "displayName": "Palier Proche",
+        "canonical": "#53760e",
+        "tonalRamp": [
+          "#1a2604",
+          "#2c3f08",
+          "#3f590b",
+          "#53760e",
+          "#729a2c",
+          "#acd476",
+          "#d0eab0",
+          "#ebf7de"
+        ]
+      },
+      "aff-proche-tint": {
+        "role": "tertiary",
+        "displayName": "Teinte Proche",
+        "canonical": "#ebf7de",
+        "tonalRamp": [
+          "#1a2604",
+          "#2c3f08",
+          "#3f590b",
+          "#53760e",
+          "#729a2c",
+          "#acd476",
+          "#d0eab0",
+          "#ebf7de"
+        ]
+      },
+      "carbon-aff-proche": {
+        "role": "tertiary",
+        "displayName": "Palier Proche sur carbone",
+        "canonical": "#acd476",
+        "tonalRamp": [
+          "#1a2604",
+          "#2c3f08",
+          "#3f590b",
+          "#53760e",
+          "#729a2c",
+          "#acd476",
+          "#d0eab0",
+          "#ebf7de"
+        ]
+      },
+      "carbon-aff-proche-tint": {
+        "role": "tertiary",
+        "displayName": "Teinte Proche sur carbone",
+        "canonical": "#273219",
+        "tonalRamp": [
+          "#1a2604",
+          "#2c3f08",
+          "#3f590b",
+          "#53760e",
+          "#729a2c",
+          "#acd476",
+          "#d0eab0",
+          "#ebf7de"
+        ]
+      },
+      "aff-tres-proche": {
+        "role": "tertiary",
+        "displayName": "Palier Très proche",
+        "canonical": "#00722e",
+        "tonalRamp": [
+          "#00240f",
+          "#003d19",
+          "#005522",
+          "#00722e",
+          "#2f9a52",
+          "#67d283",
+          "#a8e8b6",
+          "#dcf7e1"
+        ]
+      },
+      "aff-tres-proche-tint": {
+        "role": "tertiary",
+        "displayName": "Teinte Très proche",
+        "canonical": "#dcf7e1",
+        "tonalRamp": [
+          "#00240f",
+          "#003d19",
+          "#005522",
+          "#00722e",
+          "#2f9a52",
+          "#67d283",
+          "#a8e8b6",
+          "#dcf7e1"
+        ]
+      },
+      "carbon-aff-tres-proche": {
+        "role": "tertiary",
+        "displayName": "Palier Très proche sur carbone",
+        "canonical": "#67d283",
+        "tonalRamp": [
+          "#00240f",
+          "#003d19",
+          "#005522",
+          "#00722e",
+          "#2f9a52",
+          "#67d283",
+          "#a8e8b6",
+          "#dcf7e1"
+        ]
+      },
+      "carbon-aff-tres-proche-tint": {
+        "role": "tertiary",
+        "displayName": "Teinte Très proche sur carbone",
+        "canonical": "#14361d",
+        "tonalRamp": [
+          "#00240f",
+          "#003d19",
+          "#005522",
+          "#00722e",
+          "#2f9a52",
+          "#67d283",
+          "#a8e8b6",
+          "#dcf7e1"
+        ]
+      },
+      "poster-red": {
+        "role": "tertiary",
+        "displayName": "Rouge stylo sur le double (affiche JPG)",
+        "canonical": "#b7191c",
+        "tonalRamp": [
+          "#3a0a0b",
+          "#5e1112",
+          "#8a1719",
+          "#b7191c",
+          "#d9474a",
+          "#f9786c",
+          "#fcb3aa",
+          "#ffe6e2"
+        ]
+      },
+      "poster-aff-tres-proche": {
+        "role": "tertiary",
+        "displayName": "Palier Très proche sur le double (affiche JPG)",
+        "canonical": "#00722e",
+        "tonalRamp": [
+          "#00240f",
+          "#003d19",
+          "#005522",
+          "#00722e",
+          "#2f9a52",
+          "#67d283",
+          "#a8e8b6",
+          "#dcf7e1"
+        ]
+      },
+      "poster-aff-proche": {
+        "role": "tertiary",
+        "displayName": "Palier Proche sur le double (affiche JPG)",
+        "canonical": "#4a6a0c",
+        "tonalRamp": [
+          "#1a2604",
+          "#2c3f08",
+          "#3f590b",
+          "#53760e",
+          "#729a2c",
+          "#acd476",
+          "#d0eab0",
+          "#ebf7de"
+        ]
+      },
+      "poster-aff-mitige": {
+        "role": "tertiary",
+        "displayName": "Palier Mitigé sur le double (affiche JPG)",
+        "canonical": "#55554f",
+        "tonalRamp": [
+          "#1c1c1c",
+          "#333333",
+          "#4a4a4a",
+          "#636363",
+          "#8a8a8a",
+          "#b1b1b1",
+          "#d4d4d4",
+          "#eeeeee"
+        ]
+      },
+      "poster-aff-eloigne": {
+        "role": "tertiary",
+        "displayName": "Palier Éloigné sur le double (affiche JPG)",
+        "canonical": "#a34500",
+        "tonalRamp": [
+          "#3a1900",
+          "#5c2800",
+          "#843a00",
+          "#b44f00",
+          "#d9762f",
+          "#f9a275",
+          "#fcc9ab",
+          "#ffece1"
+        ]
+      },
+      "poster-aff-tres-eloigne": {
+        "role": "tertiary",
+        "displayName": "Palier Très éloigné sur le double (affiche JPG)",
+        "canonical": "#b7191c",
+        "tonalRamp": [
+          "#3a0a0b",
+          "#5e1112",
+          "#8a1719",
+          "#b7191c",
+          "#d9474a",
+          "#f9786c",
+          "#fcb3aa",
+          "#ffe6e2"
+        ]
+      },
+      "copy-ink": {
+        "role": "secondary",
+        "displayName": "Bleu bille sur le double",
+        "canonical": "#1f3bb3"
+      },
+      "copy-red": {
+        "role": "secondary",
+        "displayName": "Rouge stylo sur le double",
+        "canonical": "#c90f1a"
+      },
+      "copy-aff-tres-eloigne": {
+        "role": "tertiary",
+        "displayName": "Très éloigné sur le double (clair et sombre)",
+        "canonical": "#b7191c"
+      },
+      "copy-aff-eloigne": {
+        "role": "tertiary",
+        "displayName": "Éloigné sur le double (clair et sombre)",
+        "canonical": "#9c4400"
+      },
+      "copy-aff-mitige": {
+        "role": "tertiary",
+        "displayName": "Mitigé sur le double (clair et sombre)",
+        "canonical": "#5a5a5a"
+      },
+      "copy-aff-proche": {
+        "role": "tertiary",
+        "displayName": "Proche sur le double (clair et sombre)",
+        "canonical": "#4a690c"
+      },
+      "copy-aff-tres-proche": {
+        "role": "tertiary",
+        "displayName": "Très proche sur le double (clair et sombre)",
+        "canonical": "#00672a"
+      },
+      "pastel-vert": {
+        "role": "neutral",
+        "displayName": "Pastel vert du rideau (aplat, fiche)",
+        "canonical": "#d5f9e0"
+      },
+      "carbon-pastel-vert": {
+        "role": "neutral",
+        "displayName": "Pastel vert du rideau (carbone)",
+        "canonical": "#1b3122"
+      },
+      "pastel-rouge": {
+        "role": "neutral",
+        "displayName": "Pastel rouge du rideau (aplat, fiche)",
+        "canonical": "#ffece7"
+      },
+      "carbon-pastel-rouge": {
+        "role": "neutral",
+        "displayName": "Pastel rouge du rideau (carbone)",
+        "canonical": "#3d241f"
+      },
+      "pastel-jaune": {
+        "role": "neutral",
+        "displayName": "Pastel jaune du rideau (aplat, fiche ; distinct du double)",
+        "canonical": "#fbf1c7"
+      },
+      "carbon-pastel-jaune": {
+        "role": "neutral",
+        "displayName": "Pastel jaune du rideau (carbone)",
+        "canonical": "#322b13"
+      },
+      "pastel-bleu": {
+        "role": "neutral",
+        "displayName": "Pastel bleu du rideau (aplat, fiche ; ni réglette ni dépouillement dessus)",
+        "canonical": "#dcebff"
+      },
+      "carbon-pastel-bleu": {
+        "role": "neutral",
+        "displayName": "Pastel bleu du rideau (carbone)",
+        "canonical": "#1e2c3f"
+      },
+      "rideau-vert": {
+        "role": "tertiary",
+        "displayName": "Logo : bande verte du rideau",
+        "canonical": "#95d4a9"
+      },
+      "rideau-rouge": {
+        "role": "tertiary",
+        "displayName": "Logo : bande rouge du rideau",
+        "canonical": "#f8a898"
+      },
+      "rideau-jaune": {
+        "role": "tertiary",
+        "displayName": "Logo : bande jaune du rideau",
+        "canonical": "#f9e6a2"
+      },
+      "rideau-bleu": {
+        "role": "tertiary",
+        "displayName": "Logo : bande bleue du rideau",
+        "canonical": "#9bc2f6"
+      },
+      "rideau-gris-1": {
+        "role": "neutral",
+        "displayName": "Logo gris : bande contre le fût",
+        "canonical": "#5c5e60"
+      },
+      "rideau-gris-2": {
+        "role": "neutral",
+        "displayName": "Logo gris : deuxième bande",
+        "canonical": "#828386"
+      },
+      "rideau-gris-3": {
+        "role": "neutral",
+        "displayName": "Logo gris : troisième bande",
+        "canonical": "#a6a8aa"
+      },
+      "rideau-gris-4": {
+        "role": "neutral",
+        "displayName": "Logo gris : bande extérieure",
+        "canonical": "#c9cacd"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Titre des écrans de bilan et des pages (dépouillement, candidats, méthode, confidentialité, qui porte quoi, partage), à l'échelle d'une affiche, 13ch max : « Votre dépouillement », ou « Une première tendance » tant que le résultat est provisoire. L'accueil n'a pas de titre visible : son h1 est réservé aux lecteurs d'écran."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Intitulé de chaque question, 21ch max."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Titres de section (En résumé, Le détail du dépouillement, figures) ; question de la démonstration."
+      },
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "Pourcentage d’une ligne du classement."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texte des approches et lecture courante, 66ch max."
+      },
+      "body-sm": {
+        "displayName": "Body small",
+        "purpose": "Consignes, méta, petits caractères, actions secondaires."
+      },
+      "row-letter": {
+        "displayName": "Row letter",
+        "purpose": "Lettres de ligne et numéros de règle dans la colonne de marge."
+      },
+      "body-xs": {
+        "displayName": "Body xs",
+        "purpose": "Légende des crans dans le ton de chaque cran, mot du cran choisi (« Sans avis » compris, en gris), en-tête « Ligne rouge », étiquette du rideau, libellé de palier, légende de l'échelle, en-têtes « Vous, Approche, Candidats »."
+      },
+      "headline-wide": {
+        "displayName": "Headline wide",
+        "purpose": "Intitulé de question en mise en page large (≥ 64rem), colonne collante."
+      },
+      "section-title": {
+        "displayName": "Section title",
+        "purpose": "Grand titre de partie de l'accueil (« À vous d'essayer », « Fermez l'isoloir », « Pourquoi vous pouvez vous y fier », « Les candidats »), sur filet épais."
+      },
+      "guarantee-title": {
+        "displayName": "Guarantee title",
+        "purpose": "Titre de chacune des trois garanties de l'accueil."
+      },
+      "diagram-label": {
+        "displayName": "Diagram label",
+        "purpose": "Libellé des schémas au trait (unités SVG)."
+      },
+      "diagram-small": {
+        "displayName": "Diagram small",
+        "purpose": "Légende secondaire des schémas, en print-soft."
+      },
+      "diagram-step": {
+        "displayName": "Diagram step",
+        "purpose": "Numéro d'étape condensé des schémas."
+      },
+      "diagram-chip": {
+        "displayName": "Diagram chip",
+        "purpose": "Initiales en réserve dans les pastilles noires des schémas."
+      },
+      "card-title": {
+        "displayName": "Titre de fiche",
+        "purpose": "Titre de thème d’une fiche bristol."
+      },
+      "panel-title": {
+        "displayName": "Titre de panneau",
+        "purpose": "Panneaux de « À vous d’essayer » (accueil), parcours d’un candidat."
+      },
+      "film-title": {
+        "displayName": "Film title",
+        "purpose": "Titre de chaque scène du film de l'accueil, 15ch max ; clamp(2.4rem, 4.6cqi, 3.6rem) dès 48rem de conteneur film."
+      },
+      "film-number": {
+        "displayName": "Film number",
+        "purpose": "Numéro condensé de la scène, devant le titre (téléphone) ou au-dessus (3.5rem dès 48rem de film)."
+      },
+      "leader-name": {
+        "displayName": "Nom du plus proche",
+        "purpose": "Affiche du plus proche, au dépouillement."
+      },
+      "leader-figure": {
+        "displayName": "Pourcentage du plus proche",
+        "purpose": "Affiche du plus proche, au dépouillement."
+      },
+      "rank-figure": {
+        "displayName": "Rang",
+        "purpose": "Rang dans le classement."
+      },
+      "next-title": {
+        "displayName": "Titre de suite",
+        "purpose": "Panneaux « Et maintenant »."
+      },
+      "row-name": {
+        "displayName": "Nom de ligne",
+        "purpose": "Nom d’un candidat dans le classement."
+      },
+      "trend-count": {
+        "displayName": "Trend count",
+        "purpose": "« 8 questions sur 19 » dans la fiche « Où vous en êtes » de la tendance provisoire, chiffre à 1.6em tabulaire."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Décélération exponentielle pour tout mouvement ; jamais de rebond."
+      },
+      {
+        "name": "t-stroke",
+        "value": "220ms",
+        "purpose": "Tracé d'une marque d'encre (stroke-dashoffset 1 → 0), une fois au geste ; 0ms sous mouvement réduit."
+      },
+      {
+        "name": "t-stroke-second",
+        "value": "80ms delay",
+        "purpose": "Départ du second trait de la croix."
+      },
+      {
+        "name": "tally-stagger",
+        "value": "55ms per stroke",
+        "purpose": "Tracé successif des bâtons au dépouillement."
+      },
+      {
+        "name": "t-quick",
+        "value": "140ms",
+        "purpose": "Teinte de survol des lignes et du bouton primaire ; 0ms sous mouvement réduit."
+      },
+      {
+        "name": "rerank-flip",
+        "value": "520ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Glissement des lignes du classement qui ont changé de rang depuis la visite précédente ; 0ms sous mouvement réduit."
+      },
+      {
+        "name": "curtain-fall",
+        "value": "560ms cubic-bezier(0.16, 1, 0.3, 1), clip-path inset(0 0 100% 0) → inset(0)",
+        "purpose": "Chute unique du rideau hors ligne sous l'en-tête ; aucune animation sous mouvement réduit."
+      },
+      {
+        "name": "disclosure-turn",
+        "value": "140ms cubic-bezier(0.16, 1, 0.3, 1), rotate(90deg)",
+        "purpose": "Pivot du chevron d'un menu repliable à l'ouverture."
+      },
+      {
+        "name": "notch-hover",
+        "value": "140ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Allongement du trait d'un cran au survol (2.5px × 1.3rem)."
+      },
+      {
+        "name": "home-reveal",
+        "value": "translateY(1.25rem) → 0 ; opacity 520ms, transform 760ms, ease-out ; cascade 110ms (5 max)",
+        "purpose": "Accueil seulement : entrée unique des blocs sous le film (preuve, titres de partie, panneaux de « À vous d'essayer », garanties, candidats) ; le film n'entre pas ; rien sous mouvement réduit."
+      },
+      {
+        "name": "title-rule-draw",
+        "value": "background-size 0 → 100% en 900ms, ease-out, délai 120ms",
+        "purpose": "Filet épais d’un titre de partie de l’accueil, tracé de gauche à droite (pas en contraste forcé)."
+      },
+      {
+        "name": "switch-knob",
+        "value": "translateX(1rem) en 220ms ease-out",
+        "purpose": "Interrupteur « Mes réponses »."
+      },
+      {
+        "name": "poster-print",
+        "value": "opacity 0.35 → 1 en 260ms",
+        "purpose": "Réimpression de l’affiche du panneau 3 de « À vous d’essayer »."
+      },
+      {
+        "name": "film-scenes",
+        "value": "6.5s, 7.5s, 7.5s, 6s, 6.5s ; une fois, sans boucle",
+        "purpose": "Durée des cinq scènes du film de l'accueil ; lecture suspendue quand la page est masquée ou que moins d'un quart de la scène est à l'écran ; pas de lecture automatique sous mouvement réduit (images fixes, « Lire le film » à la demande)."
+      },
+      {
+        "name": "film-gesture",
+        "value": "départ --d et durée --dur écrits par geste dans la partition ; cubic-bezier(0.16, 1, 0.3, 1) ; par défaut fondu 450ms, montée 0.6rem 550ms, croissance scaleX 600ms, tampon scale(1.25) 350ms, trait d'encre 500ms",
+        "purpose": "Gestes du film, joués seulement dans la scène en cours ; la pause les fige (animation-play-state) ; ailleurs et en images fixes, l'état final directement."
+      },
+      {
+        "name": "film-chapter-run",
+        "value": "scaleX 0 → 1, linéaire, sur la durée de la scène",
+        "purpose": "Filet de 3px du chapitre en cours, tracé en noir sous le numéro."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "hover",
+        "value": "(hover: hover) and (pointer: fine)",
+        "note": "Seule condition des teintes et contours de survol (ligne, cran, case) : rien ne reste gris après un toucher."
+      },
+      {
+        "name": "answers-narrow (container)",
+        "value": "@container answers (max-width: 17.9rem)",
+        "note": "Petit téléphone ou texte agrandi : lettre en tête du texte, réglette pleine largeur (cran ≥ 36px), case « Ligne rouge » sous la réglette avec son libellé rouge, légende avec césure."
+      },
+      {
+        "name": "header-minimal",
+        "value": "@container header (max-width: 19.9rem)",
+        "note": "Pictogramme seul et compteur là où l'en-tête porte un localisateur (titre du formulaire et thème masqués), logo à 1.5rem ; sur l'accueil, le logo horizontal reste et l'appel de l'en-tête prend toute une rangée dessous, centré."
+      },
+      {
+        "name": "header-cta-short (container)",
+        "value": "@container header (max-width: 34rem)",
+        "note": "Accueil : l'appel de l'en-tête passe au libellé court (Commencer, Reprendre, Mon dépouillement, Répondre)."
+      },
+      {
+        "name": "narrow",
+        "value": "@container actions (max-width: 22rem)",
+        "note": "Bâtons de la barre d’actions masqués (largeur de la barre, pas de l’écran)."
+      },
+      {
+        "name": "compact",
+        "value": "@container actions (max-width: 26rem)",
+        "note": "Libellés des actions texte de la barre masqués, pictogrammes de 1.4rem."
+      },
+      {
+        "name": "reminder",
+        "value": "max-width: 40rem",
+        "note": "Rappel du mode avion réduit à son lien, sur une ligne."
+      },
+      {
+        "name": "small",
+        "value": "@container header (max-width: 30rem)",
+        "note": "En-tête replié : titre du formulaire à la ligne sous la marque, en body xs."
+      },
+      {
+        "name": "box-col",
+        "value": "min-width: 40rem",
+        "note": "Colonne de case « Ligne rouge » à 4.5rem quand la réglette est empilée."
+      },
+      {
+        "name": "answers-side (container)",
+        "value": "@container answers (min-width: 36rem)",
+        "note": "Ligne d’approche côte à côte : texte à gauche, réglette à droite, crans de 3.75rem × 2.5rem, colonne de case de 4rem ; empilée en dessous avec crans clamp(2.75rem, … / 3, 4.5rem) × 2.75rem."
+      },
+      {
+        "name": "reveal",
+        "value": "min-width: 46rem",
+        "note": "« Qui porte quoi » : légende sur deux colonnes ; lignes sur trois colonnes (5.25rem, texte, 13rem pour les porteurs) sous des en-têtes « Vous, Approche, Candidats »."
+      },
+      {
+        "name": "kept-grid",
+        "value": "min-width: 48rem",
+        "note": "Liste « Ce qui reste, et où » sur quatre colonnes."
+      },
+      {
+        "name": "wide",
+        "value": "min-width: 64rem",
+        "note": "Marge imprimée de 11rem (résultats) ; questionnaire en deux colonnes 5fr/7fr, question collante ; accueil : « À vous d'essayer » sur trois colonnes, « Fermez l'isoloir » 5fr/6fr, garanties sur trois colonnes, preuve sur une ligne ; cadre 86rem pour questionnaire et accueil."
+      },
+      {
+        "name": "xwide",
+        "value": "min-width: 80rem",
+        "note": "Questionnaire : colonne de marge de 7rem (numéro, total, bâtons) ajoutée à gauche."
+      },
+      {
+        "name": "filters-chips",
+        "value": "min-width: 48rem",
+        "note": "Pastilles de familles ; en dessous, menu natif pleine largeur."
+      },
+      {
+        "name": "board-row",
+        "value": "min-width: 48rem",
+        "note": "Ligne du classement sur une rangée (rang, portrait, nom, bâtons, score)."
+      },
+      {
+        "name": "board-narrow (container)",
+        "value": "@container board (max-width: 26rem)",
+        "note": "Portrait masqué, score sous le nom."
+      },
+      {
+        "name": "results-bar (container)",
+        "value": "@container actions (max-width: 36rem)",
+        "note": "Raccourcis en pictogramme légendé, lien Accueil masqué ; sous 22rem, légende en sr-only."
+      },
+      {
+        "name": "bio-narrow (container)",
+        "value": "@container bio (max-width: 24rem)",
+        "note": "Date du parcours au-dessus du texte."
+      },
+      {
+        "name": "encart-narrow (container)",
+        "value": "@container encart (max-width: 22rem)",
+        "note": "Encart : nowrap relâché, mots coupés."
+      },
+      {
+        "name": "leader-stack",
+        "value": "max-width: 29.99rem",
+        "note": "Affiche du plus proche empilée."
+      },
+      {
+        "name": "film-wide (container)",
+        "value": "@container film (min-width: 48rem)",
+        "note": "Film de l'accueil : légende 5fr / image 7fr, écart s7, centrées ; hauteur clamp(28rem, calc(100dvh − var(--header-real) − 9rem), 44rem) ; appel final sous la légende. En dessous : numéro devant le titre, phrase, puis image ; appel final sous l'affiche."
+      },
+      {
+        "name": "film-art (container)",
+        "value": "@container art (min-width: 30rem | 34rem | 38rem)",
+        "note": "Image du film : rangées de la feuille, du téléphone et de l'affiche à 30rem, du dépouillement à 34rem, puis à l'échelle du film à 38rem."
+      },
+      {
+        "name": "film-chapters-narrow (container)",
+        "value": "@container controls (max-width: 40rem)",
+        "note": "Chapitres du film en numéros seuls, centrés ; le titre reste lu par les lecteurs d’écran."
+      },
+      {
+        "name": "film-play-icon (container)",
+        "value": "@container controls (max-width: 21rem)",
+        "note": "Bouton lecture du film réduit à son pictogramme, nom accessible conservé."
+      },
+      {
+        "name": "header-logo (container)",
+        "value": "@container header (min-width: 48rem)",
+        "note": "Logo de l'en-tête à 2.1rem de haut (1.8rem en dessous)."
+      },
+      {
+        "name": "trend-cta-narrow (container)",
+        "value": "@container trend (max-width: 16rem)",
+        "note": "Bouton large « Continuer » de la tendance sans sa flèche (texte très agrandi)."
+      },
+      {
+        "name": "results-bar-label (container)",
+        "value": "@container actions (min-width: 24rem)",
+        "note": "Tendance : « Continuer : N questions » garde son libellé long dans la barre ; « Continuer » seul en dessous."
+      },
+      {
+        "name": "reveal-narrow (container)",
+        "value": "@container reveal (max-width: 19rem)",
+        "note": "« Qui porte quoi », texte très agrandi : avis, texte et porteurs empilés."
+      }
+    ],
+    "strokes": [
+      {
+        "name": "hair",
+        "value": "1px",
+        "purpose": "Filet fin entre lignes, filet de marge."
+      },
+      {
+        "name": "line",
+        "value": "1.5px",
+        "purpose": "Bords de liste, filet et crans de la réglette, cases, cadres d'avis et d'étiquette du rideau, barre d'actions."
+      },
+      {
+        "name": "thick",
+        "value": "3px",
+        "purpose": "En-tête, pied et dessus du rideau, doublés d'un filet fin pour le double filet d'imprimé."
+      }
+    ],
+    "frames": [
+      {
+        "name": "default",
+        "value": "calc(var(--sheet) + var(--margin-col))",
+        "purpose": "Cadre par défaut d’un écran."
+      },
+      {
+        "name": "wide-margin",
+        "value": "calc(var(--sheet) + 11rem + var(--s6) + 2 * var(--gutter))",
+        "purpose": "Écrans à marge large à partir de 64rem (méthode, confidentialité, qui porte quoi, priorités, partage, approfondir, questionnaire)."
+      },
+      {
+        "name": "question-home",
+        "value": "86rem",
+        "purpose": "Questionnaire (≥ 64rem) et pages larges : accueil, candidats, dépouillement."
+      }
+    ],
+    "masonry": {
+      "rowHeight": "4px",
+      "tolerance": "96px (6rem)",
+      "minColumn": "22rem",
+      "note": "Colonne la plus à gauche parmi les moins hautes ; ordre DOM conservé ; répartition refaite seulement si colonnes ou liste changent."
+    }
+  },
+  "components": [
+    {
+      "name": "Bouton primaire",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Barre inversée noire, un seul par écran : dans la barre d'actions, ou dans l'en-tête sur l'accueil (la fin du film en reprend l'appel à l'identique). Sur la tendance provisoire, la fiche « Où vous en êtes » reprend de même, en bouton large, « Continuer : N questions » de la barre.",
+      "html": "<button class=\"ds-btn-primary\">Suivante <svg class=\"ds-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12h13M13 6l6 6-6 6\"/></svg></button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 0.55rem; min-height: 3rem; padding: 0 1.3rem; background: var(--print, #17191c); color: var(--on-print, #fff); border: 0; border-radius: 0; font-family: 'Archivo Variable', Archivo, 'Helvetica Neue', Arial, sans-serif; font-weight: 750; font-stretch: 85%; font-size: 1.0625rem; letter-spacing: 0.01em; cursor: pointer; transition: background-color 140ms ease-out; } .ds-btn-primary:hover { background: color-mix(in srgb, var(--print, #17191c) 82%, var(--paper, #fff)); } .ds-btn-primary:active { transform: translateY(1px); } .ds-btn-primary:focus-visible { outline: 2px solid var(--focus, #1f3bb3); outline-offset: 3px; } .ds-icon { width: 1.15rem; height: 1.15rem; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }"
+    },
+    {
+      "name": "Action texte",
+      "kind": "button",
+      "refersTo": "button-text",
+      "description": "Toute action secondaire : texte imprimé souligné, variante de danger plus grasse.",
+      "html": "<button class=\"ds-btn-text\">Télécharger mon double (JSON)</button> <button class=\"ds-btn-text ds-danger\">Tout effacer</button>",
+      "css": ".ds-btn-text { display: inline-flex; align-items: center; min-height: 2.75rem; padding: 0.5rem 0.05rem; background: none; border: 0; font-family: 'Archivo Variable', Archivo, 'Helvetica Neue', Arial, sans-serif; font-size: 0.9375rem; font-weight: 650; color: var(--print, #17191c); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.25em; cursor: pointer; } .ds-btn-text:hover { text-decoration-thickness: 2px; } .ds-btn-text:focus-visible { outline: 2px solid var(--focus, #1f3bb3); outline-offset: 3px; } .ds-danger { font-weight: 850; text-decoration-thickness: 2px; }"
+    },
+    {
+      "name": "Ligne d'approche à réglette",
+      "kind": "input",
+      "refersTo": "ruler-notch",
+      "description": "Une approche : lettre dans la marge, texte puis réglette à trois crans (Pas d’accord orangé-brun, Sans avis gris, D’accord vert ; boucle et mot dans le ton du cran choisi ; « Sans avis » entouré de gris et écrit dessous dès le départ), case « Ligne rouge » dans sa colonne, qui force « Pas d’accord ». Empilée sous 36rem de conteneur, côte à côte au-dessus ; case sous la réglette avec libellé sous 17.9rem.",
+      "html": "<div class=\"ds-ans\"><div class=\"ds-head\"><span></span><span class=\"ds-legend\"><span style=\"--tone:var(--aff-eloigne,#b44f00)\">Pas d’accord</span><span class=\"ds-mid\">Sans avis</span><span style=\"--tone:var(--aff-tres-proche,#00722e)\">D’accord</span></span><span class=\"ds-rej\"><svg class=\"ds-ic\" viewBox=\"0 0 24 24\"><path d=\"M6 6l12 12M18 6L6 18\"/></svg>Ligne rouge</span></div><ol class=\"ds-rows\"><li class=\"ds-row is-rated\"><span class=\"ds-letter\">A</span><div class=\"ds-body\"><p class=\"ds-text\">Rouvrir dès maintenant le dialogue pour négocier la paix</p><div class=\"ds-ruler\" role=\"radiogroup\" aria-label=\"Votre avis sur l’approche A\"><label class=\"ds-cran\"><input type=\"radio\" name=\"a\"><span class=\"ds-tick\"></span></label><label class=\"ds-cran is-zero\"><input type=\"radio\" name=\"a\"><span class=\"ds-tick\"></span></label><label class=\"ds-cran is-on\" style=\"--tone:var(--aff-tres-proche,#00722e)\"><input type=\"radio\" name=\"a\" checked><span class=\"ds-tick\"></span><svg class=\"ds-loop\" viewBox=\"0 0 40 40\"><path d=\"M30.6 9.8C26.4 5.3 16.2 4.6 10.3 9.1 4.2 13.8 4 24.6 9.7 30.3c6 6 17.3 5.3 22.3-1.2 4.4-5.7 3.3-14.6-2.4-19.4-3.8-3.2-9.3-4.1-13.9-3.2\"/></svg></label><span class=\"ds-word\" style=\"--tone:var(--aff-tres-proche,#00722e);right:0\">D’accord</span></div></div><button class=\"ds-cell\" aria-pressed=\"false\"><span class=\"ds-box\"></span></button></li><li class=\"ds-row\"><span class=\"ds-letter\">B</span><div class=\"ds-body\"><p class=\"ds-text\">Suspendre les livraisons d’armes</p><div class=\"ds-ruler\" role=\"radiogroup\" aria-label=\"Votre avis sur l’approche B\"><label class=\"ds-cran\"><input type=\"radio\" name=\"b\"><span class=\"ds-tick\"></span></label><label class=\"ds-cran is-zero is-on\" style=\"--tone:var(--aff-mitige,#636363)\"><input type=\"radio\" name=\"b\" checked><span class=\"ds-tick\"></span><svg class=\"ds-loop\" viewBox=\"0 0 40 40\"><path d=\"M30.6 9.8C26.4 5.3 16.2 4.6 10.3 9.1 4.2 13.8 4 24.6 9.7 30.3c6 6 17.3 5.3 22.3-1.2 4.4-5.7 3.3-14.6-2.4-19.4-3.8-3.2-9.3-4.1-13.9-3.2\"/></svg></label><label class=\"ds-cran\"><input type=\"radio\" name=\"b\"><span class=\"ds-tick\"></span></label><span class=\"ds-word\" style=\"--tone:var(--aff-mitige,#636363);left:50%;transform:translateX(-50%)\">Sans avis</span></div></div><button class=\"ds-cell\" aria-pressed=\"false\"><span class=\"ds-box\"></span></button></li><li class=\"ds-row is-rated is-rejected\"><span class=\"ds-letter\">C</span><div class=\"ds-body\"><p class=\"ds-text\">Arrêter toute aide</p><div class=\"ds-ruler\" role=\"radiogroup\" aria-label=\"Votre avis sur l’approche C\"><label class=\"ds-cran is-on\" style=\"--tone:var(--aff-eloigne,#b44f00)\"><input type=\"radio\" name=\"c\" checked><span class=\"ds-tick\"></span><svg class=\"ds-loop\" viewBox=\"0 0 40 40\"><path d=\"M30.6 9.8C26.4 5.3 16.2 4.6 10.3 9.1 4.2 13.8 4 24.6 9.7 30.3c6 6 17.3 5.3 22.3-1.2 4.4-5.7 3.3-14.6-2.4-19.4-3.8-3.2-9.3-4.1-13.9-3.2\"/></svg></label><label class=\"ds-cran is-zero\"><input type=\"radio\" name=\"c\"><span class=\"ds-tick\"></span></label><label class=\"ds-cran\"><input type=\"radio\" name=\"c\"><span class=\"ds-tick\"></span></label><span class=\"ds-word\" style=\"--tone:var(--aff-eloigne,#b44f00);left:0\">Pas d’accord</span></div></div><button class=\"ds-cell\" aria-pressed=\"true\"><span class=\"ds-box\"><svg class=\"ds-cross\" viewBox=\"0 0 24 24\"><path d=\"M5.3 5.6c4.6 4.5 8.8 8.8 13.3 13.3\"/><path d=\"M18.6 5.1c-4.4 4.8-8.6 9.1-13.2 13.6\"/></svg></span></button></li></ol></div>",
+      "css": ".ds-ans { font-family: 'Archivo Variable', Archivo, 'Helvetica Neue', Arial, sans-serif; color: var(--print, #17191c); --w: 3.75rem; } .ds-head, .ds-row { display: grid; grid-template-columns: 2.75rem minmax(0, 1fr) 4rem; } .ds-head { align-items: end; padding-bottom: 0.45rem; font-size: 0.8125rem; font-weight: 700; line-height: 1.12; } .ds-legend { display: grid; grid-template-columns: repeat(3, var(--w)); justify-content: end; padding-right: 1rem; text-align: center; font-stretch: 85%; } .ds-legend span { color: var(--tone); } .ds-legend .ds-mid { color: var(--print-soft, #4a4f57); font-weight: 400; } .ds-rej { display: flex; flex-direction: column; align-items: center; gap: 0.15rem; color: var(--red, #c90f1a); } .ds-ic { width: 1.25rem; height: 1.25rem; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; } .ds-rows { list-style: none; margin: 0; padding: 0; border-top: 1.5px solid var(--rule-strong, #17191c); border-bottom: 1.5px solid var(--rule-strong, #17191c); } .ds-row { border-top: 1px solid var(--rule, #c9cbcf); transition: background-color 140ms ease-out; } .ds-row:first-child { border-top: 0; } .ds-letter { display: flex; justify-content: center; align-items: center; border-right: 1px solid var(--rule, #c9cbcf); font-weight: 800; font-stretch: 80%; font-size: 1.15rem; } .ds-body { display: flex; align-items: center; gap: 1.5rem; padding: 0.6rem 1rem; min-width: 0; } .ds-text { flex: 1; margin: 0; font-size: 1.0625rem; line-height: 1.45; } .ds-row.is-rejected .ds-text { color: var(--print-soft, #4a4f57); text-decoration: line-through; text-decoration-color: var(--red, #c90f1a); text-decoration-thickness: 2px; } .ds-ruler { position: relative; flex: none; display: grid; grid-template-columns: repeat(3, var(--w)); margin: 0.8rem 0; } .ds-ruler::before { content: ''; position: absolute; left: calc(var(--w) / 2); right: calc(var(--w) / 2); top: 50%; border-top: 1.5px solid var(--print, #17191c); } .ds-cran { position: relative; display: grid; place-items: center; height: 2.5rem; cursor: pointer; } .ds-cran input { position: absolute; inset: 0; margin: 0; opacity: 0; cursor: pointer; } .ds-cran:has(input:focus-visible) { outline: 2px solid var(--focus, #1f3bb3); outline-offset: -3px; } .ds-tick { width: 1.5px; height: 1.15rem; background: var(--print, #17191c); transition: height 140ms cubic-bezier(0.16,1,0.3,1), width 140ms cubic-bezier(0.16,1,0.3,1); } .ds-cran.is-zero .ds-tick { width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--paper, #fff); box-shadow: inset 0 0 0 1.5px var(--print, #17191c); } .ds-cran.is-on .ds-tick { width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--tone); } .ds-cran.is-on.is-zero .ds-tick { box-shadow: none; } .ds-loop { position: absolute; left: 50%; top: 50%; width: 2.5rem; height: 2.5rem; transform: translate(-50%, -50%) rotate(-6deg); overflow: visible; fill: none; stroke: var(--tone); stroke-width: 2.1; stroke-linecap: round; pointer-events: none; } .ds-word { position: absolute; top: calc(100% - 0.2rem); font-size: 0.8125rem; font-weight: 750; line-height: 1; white-space: nowrap; color: var(--tone); } .ds-cell { display: flex; justify-content: center; align-items: center; background: none; border: 0; border-left: 1px solid var(--rule, #c9cbcf); cursor: pointer; } .ds-cell:focus-visible { outline: 2px solid var(--focus, #1f3bb3); outline-offset: -3px; } .ds-box { position: relative; display: inline-block; width: 1.75rem; height: 1.75rem; border: 1.5px solid var(--print, #17191c); border-radius: 1px; background: var(--paper, #fff); } .ds-cell[aria-pressed='true'] .ds-box { border-color: var(--red, #c90f1a); } .ds-cross { position: absolute; inset: -6%; width: 112%; height: 112%; overflow: visible; fill: none; stroke: var(--red, #c90f1a); stroke-width: 2.5; stroke-linecap: round; } @media (hover: hover) and (pointer: fine) { .ds-row:hover { background: color-mix(in srgb, var(--print, #17191c) 3%, var(--paper, #fff)); } .ds-cran:not(.is-zero):not(.is-on):hover .ds-tick { width: 2.5px; height: 1.3rem; } .ds-cell:hover .ds-box { box-shadow: inset 0 0 0 1px var(--red, #c90f1a); } }"
+    },
+    {
+      "name": "Mini-réglette (Qui porte quoi)",
+      "kind": "custom",
+      "refersTo": "rating-mark",
+      "description": "Rappel en lecture seule de l’avis donné : trois crans, point ouvert au centre, point plein dans le ton du cran choisi (gris au centre pour « Sans avis »), mot dessous ; rouge pour une ligne rouge.",
+      "html": "<div class=\"ds-marks\"><span class=\"ds-rm\" style=\"--tone:var(--aff-tres-proche,#00722e)\"><span class=\"ds-mini\"><span></span><span class=\"is-mid\"></span><span class=\"is-on\"></span></span>D’accord</span><span class=\"ds-rm is-mid-tone\" style=\"--tone:var(--aff-mitige,#636363)\"><span class=\"ds-mini\"><span></span><span class=\"is-on\"></span><span></span></span>Sans avis</span><span class=\"ds-rm\" style=\"--tone:var(--aff-eloigne,#b44f00)\"><span class=\"ds-mini\"><span class=\"is-on\"></span><span class=\"is-mid\"></span><span></span></span>Pas d’accord</span><span class=\"ds-rm is-red\"><span class=\"ds-mini\"><span class=\"is-on\"></span><span class=\"is-mid\"></span><span></span></span>Ligne rouge</span></div>",
+      "css": ".ds-marks { display: flex; gap: 1.5rem; font-family: 'Archivo Variable', Archivo, 'Helvetica Neue', Arial, sans-serif; } .ds-rm { display: flex; flex-direction: column; gap: 0.25rem; width: 5.25rem; font-size: 0.8125rem; font-weight: 700; line-height: 1.15; color: var(--tone); } .ds-rm.is-mid-tone { color: var(--print-soft, #4a4f57); font-weight: 400; } .ds-rm.is-red { color: var(--red, #c90f1a); --tone: var(--red, #c90f1a); } .ds-mini { position: relative; display: grid; grid-template-columns: repeat(3, 1.1rem); height: 0.85rem; } .ds-mini::before { content: ''; position: absolute; left: 0.55rem; right: 0.55rem; top: 50%; border-top: 1px solid var(--print-soft, #4a4f57); } .ds-mini span { position: relative; justify-self: center; align-self: center; width: 1px; height: 0.5rem; background: var(--print-soft, #4a4f57); } .ds-mini span.is-mid { width: 0.4rem; height: 0.4rem; border-radius: 50%; border: 1px solid var(--print-soft, #4a4f57); background: var(--paper, #fff); box-sizing: border-box; } .ds-mini span.is-on { width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--tone); }"
+    },
+    {
+      "name": "Rideau hors ligne",
+      "kind": "custom",
+      "refersTo": "curtain",
+      "description": "Sous l'en-tête, dans le flux, quand le réseau tombe : double filet, plis inégaux à ourlet ondulé, étiquette-panneau. Tombe une fois en 560ms.",
+      "html": "<div class=\"ds-curtain\" role=\"status\"><svg class=\"ds-pleats\" aria-hidden=\"true\" preserveAspectRatio=\"none\"><defs><pattern id=\"ds-pleats\" width=\"46\" height=\"40\" patternUnits=\"userSpaceOnUse\"><path d=\"M3.5 0v15.6M13 0v13.9M21.5 0v15.2M33.5 0v13.6M40 0v15\"/><path d=\"M0 15q5.75 2.6 11.5 0t11.5 0t11.5 0t11.5 0\"/></pattern></defs><rect width=\"100%\" height=\"100%\" fill=\"url(#ds-pleats)\"/></svg><span class=\"ds-curtain-label\"><svg class=\"ds-plane\" viewBox=\"0 0 24 24\"><path d=\"M12 2.8c.8 0 1.4.7 1.4 1.6v5l7.1 4.2v2l-7.1-2.1v4.2l2.3 1.8v1.7L12 20.3l-3.7.9v-1.7l2.3-1.8v-4.2l-7.1 2.1v-2l7.1-4.2v-5c0-.9.6-1.6 1.4-1.6z\"/></svg>Isoloir fermé : hors ligne, rien ne peut partir</span></div>",
+      "css": ".ds-curtain { position: relative; height: 1.75rem; display: flex; justify-content: center; align-items: center; border-top: 3px solid var(--rule-strong, #17191c); font-family: 'Archivo Variable', Archivo, 'Helvetica Neue', Arial, sans-serif; color: var(--print, #17191c); animation: ds-fall 560ms cubic-bezier(0.16, 1, 0.3, 1) both; } .ds-curtain::before { content: ''; position: absolute; left: 0; right: 0; top: 3px; height: 1px; background: var(--rule-strong, #17191c); } .ds-pleats { position: absolute; left: 0; top: 5px; width: 100%; height: calc(100% - 5px); } .ds-pleats path { fill: none; stroke: currentColor; stroke-width: 1; } .ds-curtain-label { position: relative; display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.1rem 0.6rem; background: var(--paper, #fff); border: 1.5px solid var(--print, #17191c); font-size: 0.8125rem; font-weight: 750; white-space: nowrap; } .ds-plane { width: 0.95rem; height: 0.95rem; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linejoin: round; } @keyframes ds-fall { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0); } } @media (prefers-reduced-motion: reduce) { .ds-curtain { animation: none; } }"
+    },
+    {
+      "name": "Bâtons de pointage",
+      "kind": "custom",
+      "refersTo": "tally",
+      "description": "Comptage à l'encre bille par paquets de cinq ; au dépouillement, un bâton vaut 5 points.",
+      "html": "<span class=\"ds-tally\" role=\"img\" aria-label=\"40 % d'affinité, soit 8 bâtons\"><svg viewBox=\"0 0 30 26\"><path d=\"M4 3L4.4 23\"/><path d=\"M10 3.4L10.3 23\"/><path d=\"M16 2.8L16.4 22.6\"/><path d=\"M22 3.2L22.3 23.2\"/><path d=\"M0.8 19.5L28.5 6\"/></svg><svg viewBox=\"0 0 30 26\"><path d=\"M4 3L4.4 23\"/><path d=\"M10 3.4L10.3 23\"/><path d=\"M16 2.8L16.4 22.6\"/></svg></span>",
+      "css": ".ds-tally { display: inline-flex; align-items: center; gap: 0.3rem; min-height: 1.6rem; } .ds-tally svg { width: 1.7rem; height: 1.5rem; overflow: visible; } .ds-tally path { fill: none; stroke: var(--ink, #1f3bb3); stroke-width: 2.1; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 0; } @media (prefers-reduced-motion: no-preference) { .ds-tally path { animation: ds-draw 220ms cubic-bezier(0.16, 1, 0.3, 1) both; } } @keyframes ds-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }"
+    },
+    {
+      "name": "Tampon daté",
+      "kind": "custom",
+      "refersTo": "date-stamp",
+      "description": "La date d'arrêt des positions, cadre de 2px tourné de -4°, une fois par écran. Seule autre déclinaison : « Résultat / provisoire » sur l'écran de la tendance provisoire.",
+      "html": "<span class=\"ds-stamp\"><span class=\"ds-stamp-label\">Positions arrêtées au</span><span class=\"ds-stamp-date\">02.10.2026</span></span><span class=\"ds-stamp\" style=\"margin-left:2rem\"><span class=\"ds-stamp-label\">Résultat</span><span class=\"ds-stamp-date\">provisoire</span></span>",
+      "css": ".ds-stamp { display: inline-flex; flex-direction: column; padding: 0.4rem 0.7rem 0.35rem; border: 2px solid var(--print, #17191c); transform: rotate(-4deg); font-family: 'Archivo Variable', Archivo, 'Helvetica Neue', Arial, sans-serif; font-stretch: 80%; line-height: 1.1; color: var(--print, #17191c); } .ds-stamp-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; } .ds-stamp-date { font-size: 1.45rem; font-weight: 850; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "Lecteur du film",
+      "kind": "custom",
+      "refersTo": "film-chapter",
+      "description": "Sous le film de l'accueil, sans cadre autour de la scène : bouton lecture/pause au trait (Pause, Lecture, Revoir, « Lire le film » en images fixes), puis cinq chapitres en règles numérotées ; filet fin, épais une fois vu, tracé en noir pendant la scène en cours. Conteneur controls : numéros seuls sous 40rem, pictogramme seul sous 21rem. Mention « Exemple fictif » dessous.",
+      "html": "<div class=\"ds-film\"><div class=\"ds-film-row\"><button type=\"button\" class=\"ds-film-play\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M8.5 5.5v13M15.5 5.5v13\"/></svg><span class=\"ds-film-lbl\">Pause</span></button><ol class=\"ds-film-ch\"><li><button type=\"button\" class=\"ds-film-c is-done\"><b>1</b><span>Des idées</span></button></li><li><button type=\"button\" class=\"ds-film-c is-on\" aria-current=\"step\"><b>2</b><span>Votre avis</span><i style=\"--p:45%\"></i></button></li><li><button type=\"button\" class=\"ds-film-c\"><b>3</b><span>Le dépouillement</span></button></li><li><button type=\"button\" class=\"ds-film-c\"><b>4</b><span>Rien ne part</span></button></li><li><button type=\"button\" class=\"ds-film-c\"><b>5</b><span>Votre affiche</span></button></li></ol></div><p class=\"ds-film-fic\">Exemple fictif : ces candidats n’existent pas, et les pourcentages sont illustratifs.</p></div>",
+      "css": ".ds-film { font-family: 'Archivo Variable', Archivo, 'Helvetica Neue', Arial, sans-serif; color: var(--print, #17191c); } .ds-film-row { container: ds-controls / inline-size; display: flex; flex-wrap: wrap; align-items: stretch; gap: 0.75rem; } .ds-film-play { display: inline-flex; flex: none; align-items: center; justify-content: center; gap: 0.5rem; min-width: 2.75rem; min-height: 2.75rem; padding: 0 1rem 0 0.8rem; background: var(--paper, #fff); color: var(--print, #17191c); border: 1.5px solid var(--rule-strong, #17191c); border-radius: 0; font: inherit; font-weight: 750; font-stretch: 85%; font-size: 1rem; cursor: pointer; } .ds-film-play svg { width: 1.2rem; height: 1.2rem; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; } .ds-film-ch { display: grid; grid-template-columns: repeat(5, minmax(2.75rem, 1fr)); flex: 1 1 auto; gap: 0.5rem; min-width: 0; margin: 0; padding: 0; list-style: none; } .ds-film-c { position: relative; display: flex; align-items: center; gap: 0.45rem; width: 100%; min-height: 2.75rem; padding: 0.35rem 0.1rem 0; background: none; border: 0; border-top: 1px solid var(--rule, #c9cbcf); color: var(--print-soft, #4a4f57); font: inherit; font-size: 0.9375rem; font-weight: 650; text-align: left; cursor: pointer; } .ds-film-c.is-on, .ds-film-c.is-done { color: var(--print, #17191c); } .ds-film-c.is-on { font-weight: 800; } .ds-film-c.is-done { border-top: 3px solid var(--rule-strong, #17191c); padding-top: calc(0.35rem - 2px); } .ds-film-c b { flex: none; font-weight: 850; font-stretch: 70%; font-size: 1.35rem; line-height: 1; font-variant-numeric: tabular-nums; } .ds-film-c span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .ds-film-c i { position: absolute; left: 0; top: -2px; width: var(--p, 0%); height: 3px; background: var(--rule-strong, #17191c); } .ds-film-play:focus-visible, .ds-film-c:focus-visible { outline: 2px solid var(--focus, #1f3bb3); outline-offset: 3px; } .ds-film-fic { margin: 0.5rem 0 0; font-size: 0.8125rem; color: var(--print-soft, #4a4f57); } @container ds-controls (max-width: 40rem) { .ds-film-ch { gap: 0.25rem; } .ds-film-c { justify-content: center; } .ds-film-c span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); } } @container ds-controls (max-width: 21rem) { .ds-film-play { padding: 0; } .ds-film-lbl { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; } }"
+    },
+    {
+      "name": "Grille par thème",
+      "kind": "custom",
+      "refersTo": "affinity-cell",
+      "description": "Scores par thème sur la teinte de leur palier, texte dans sa couleur pleine.",
+      "html": "<table class=\"ds-grid\"><thead><tr><th>Thème</th><th>JG</th><th>SR</th><th>EM</th></tr></thead><tbody><tr><td>Retraites</td><td class=\"ds-cell-aff ds-tp\">83</td><td class=\"ds-cell-aff ds-te\">0</td><td class=\"ds-cell-aff ds-mi\">50</td></tr><tr><td>Logement</td><td class=\"ds-cell-aff ds-tp\">100</td><td>–</td><td class=\"ds-cell-aff ds-el\">33</td></tr></tbody></table>",
+      "css": ".ds-grid { border-collapse: collapse; font-family: 'Archivo Variable', Archivo, 'Helvetica Neue', Arial, sans-serif; font-size: 0.9375rem; color: var(--print, #17191c); font-variant-numeric: tabular-nums; } .ds-grid th { padding: 0.4rem 0.8rem; font-weight: 800; font-stretch: 80%; border-bottom: 1.5px solid var(--rule-strong, #17191c); text-align: center; } .ds-grid th:first-child, .ds-grid td:first-child { text-align: left; font-weight: 650; } .ds-grid td { padding: 0.45rem 0.8rem; text-align: center; border-bottom: 1px solid var(--rule, #c9cbcf); } .ds-cell-aff { font-weight: 750; border-bottom: 2px solid var(--paper, #fff) !important; background: var(--t); color: var(--c); } .ds-tp { --c: var(--aff-tres-proche, #00722e); --t: var(--aff-tres-proche-tint, #dcf7e1); } .ds-mi { --c: var(--aff-mitige, #636363); --t: var(--aff-mitige-tint, #eeeeee); } .ds-el { --c: var(--aff-eloigne, #b44f00); --t: var(--aff-eloigne-tint, #ffece1); } .ds-te { --c: var(--aff-tres-eloigne, #b7191c); --t: var(--aff-tres-eloigne-tint, #ffe6e2); }"
+    },
+    {
+      "name": "Initiales de candidat",
+      "kind": "chip",
+      "refersTo": "initials-mark",
+      "description": "Cercle de 2.15rem. Sans marque, au trait noir. Avec une marque, le code de la réglette, la forme doublant la couleur : vert plein (approche principale), vert pâle cerclé de vert (compatible), orangé-brun en tirets barrés (rejette l'approche), gris en pointillé (position inconnue). Dit ce que le candidat pense de l'approche, jamais s'il pense comme l'électeur ; légende visible dans « Qui porte quoi ».",
+      "html": "<span class=\"ds-init\">JG</span> <span class=\"ds-init ds-main-mark\">SR</span> <span class=\"ds-init ds-secondary\">EM</span> <span class=\"ds-init ds-rejects\">OF</span> <span class=\"ds-init ds-unknown\">RG</span>",
+      "css": ".ds-init { display: inline-grid; place-items: center; min-width: 2.15rem; height: 2.15rem; padding: 0 0.3rem; border: 1.5px solid var(--print, #17191c); border-radius: 999px; font-family: 'Archivo Variable', Archivo, 'Helvetica Neue', Arial, sans-serif; font-weight: 800; font-stretch: 80%; font-size: 0.82rem; letter-spacing: 0.02em; line-height: 1; color: var(--print, #17191c); } .ds-main-mark { background: var(--aff-tres-proche, #00722e); border-color: var(--aff-tres-proche, #00722e); color: var(--paper, #fff); } .ds-secondary { background: var(--aff-tres-proche-tint, #dcf7e1); border-color: var(--aff-tres-proche, #00722e); color: var(--aff-tres-proche, #00722e); } .ds-rejects { background: var(--paper, #fff); border-style: dashed; border-color: var(--aff-eloigne, #b44f00); color: var(--aff-eloigne, #b44f00); text-decoration: line-through; text-decoration-thickness: 1.5px; } .ds-unknown { background: var(--paper, #fff); border-style: dotted; border-color: var(--aff-mitige, #636363); color: var(--print-soft, #4a4f57); }"
+    },
+    {
+      "name": "Sélecteur segmenté",
+      "kind": "chip",
+      "refersTo": "segmented-on",
+      "description": "Cadre noir, segment actif imprimé en négatif.",
+      "html": "<div class=\"ds-seg\"><button aria-pressed=\"true\">Mes réponses</button><button aria-pressed=\"false\">Toutes les questions vues</button></div>",
+      "css": ".ds-seg { display: inline-flex; border: 1.5px solid var(--print, #17191c); } .ds-seg button { min-height: 2.75rem; padding: 0.5rem 0.9rem; background: none; border: 0; font-family: 'Archivo Variable', Archivo, 'Helvetica Neue', Arial, sans-serif; font-size: 0.9375rem; font-weight: 650; color: var(--print, #17191c); cursor: pointer; } .ds-seg button[aria-pressed='true'] { background: var(--print, #17191c); color: var(--on-print, #fff); } .ds-seg button:focus-visible { outline: 2px solid var(--focus, #1f3bb3); outline-offset: 3px; }"
+    },
+    {
+      "name": "En-tête de formulaire",
+      "kind": "nav",
+      "refersTo": "form-header",
+      "description": "Collant, logo horizontal (1.8rem, 2.1rem dès 48rem de conteneur) aligné sur la ligne de base de son mot, titre du formulaire, localisateur et compteur à droite, double filet dessous dont l’intervalle de 4px est peint en papier ; conteneur : titre à la ligne sous 30rem, pictogramme seul et compteur sous 19.9rem. Sur l'accueil, il porte l'appel principal (voir « En-tête de l'accueil »).",
+      "html": "<header class=\"ds-head\"><a class=\"ds-brand\" href=\"#\" aria-label=\"Isoloir, retour à l’accueil\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"-136 -100 697.7 200.16\" class=\"ds-logo\" aria-hidden=\"true\"><path fill=\"currentColor\" fill-opacity=\"0.42\" d=\"M-32 94.74A92 14 0 1 1 -32 66.98Z\"/><path fill=\"currentColor\" d=\"M-32 94.74L-32 -18A14 14 0 0 1 -18 -32L16 -32C20.41 18.42 27.91 60.43 52.03 85.4A100 100 0 1 0 -32 94.74ZM10 -60A18 18 0 0 1 -26 -60A18 18 0 0 1 10 -60Z\"/><path fill=\"#9bc2f6\" d=\"M16 -32C16 40 17 90 34 100C70 102 125 85 150 48C72 32 24 -10 16 -32Z\"/><path fill=\"#f9e6a2\" d=\"M16 -32C16 40 17 90 34 100C61.27 101.52 99.44 92.13 127.22 71.4C58.25 46.5 25.2 2.35 16 -32Z\"/><path fill=\"#f8a898\" d=\"M16 -32C16 40 17 90 34 100C52.63 101.04 76.35 96.98 98.36 87.7C44.5 61 24.28 14.98 16 -32Z\"/><path fill=\"#95d4a9\" d=\"M16 -32C16 40 17 90 34 100C43.9 100.55 55.24 99.66 66.99 97.32C30.75 75.5 21.21 27.62 16 -32Z\"/><path fill=\"currentColor\" d=\"M188 -26L208.72 -26L208.72 48L188 48ZM210.2 -49.68A11.84 11.84 0 0 1 186.52 -49.68A11.84 11.84 0 0 1 210.2 -49.68ZM275.1 -18.97C269.25 -24.52 258.89 -28.22 247.2 -28.22C230.25 -28.22 219.01 -19.34 219.01 -6.02C219.01 5.08 228.63 12.7 238.25 15.81C247.87 18.92 255.71 21.06 255.71 26.24C255.71 29.87 252.01 32.46 246.46 32.46C239.65 32.46 232.77 29.5 228.26 25.43L217.6 36.9C223.08 43.56 234.1 49.85 247.2 49.85C264.37 49.85 276.8 39.42 276.8 25.06C276.8 13.96 267.18 4.93 253.79 1.38C245.57 -0.99 238.91 -0.84 238.91 -6.02C238.91 -10.09 242.39 -11.94 247.5 -11.94C252.68 -11.94 258.23 -10.83 262.67 -6.76ZM359.68 11A38.85 38.85 0 0 1 281.98 11A38.85 38.85 0 0 1 359.68 11ZM338.22 11A17.39 17.39 0 0 0 303.44 11A17.39 17.39 0 0 0 338.22 11ZM367.82 -63L388.54 -63L388.54 48L367.82 48ZM474.38 11A38.85 38.85 0 0 1 396.68 11A38.85 38.85 0 0 1 474.38 11ZM452.92 11A17.39 17.39 0 0 0 418.14 11A17.39 17.39 0 0 0 452.92 11ZM481.78 -26L502.5 -26L502.5 48L481.78 48ZM503.98 -49.68A11.84 11.84 0 0 1 480.3 -49.68A11.84 11.84 0 0 1 503.98 -49.68ZM512.12 48L512.12 -26L532.84 -26L532.84 -15.64C534.69 -21.19 539.5 -26 546.16 -26L561.7 -26L561.7 -6.76C544.68 -6.76 532.84 -0.84 532.84 13.96L532.84 48Z\"/></svg></a><span class=\"ds-form\">Feuille de pointage</span><span class=\"ds-loc\">Industrie et entreprises <b>02/19</b></span></header>",
+      "css": ".ds-head { position: relative; display: flex; align-items: baseline; gap: 0.9rem; padding: 0.6rem 1rem 0.55rem; background: var(--paper, #fff); border-bottom: 3px solid var(--rule-strong, #17191c); font-family: 'Archivo Variable', Archivo, 'Helvetica Neue', Arial, sans-serif; color: var(--print, #17191c); } .ds-head::after { content: ''; position: absolute; left: 0; right: 0; bottom: -8px; height: 5px; background: linear-gradient(var(--paper, #fff) 0 4px, var(--rule-strong, #17191c) 4px); } .ds-brand { flex: none; display: block; line-height: 0; color: inherit; } .ds-logo { height: 1.8rem; width: calc(1.8rem * 3.4858); vertical-align: calc(1.8rem * -0.2606); } .ds-form { font-size: 0.9375rem; } .ds-loc { margin-left: auto; font-size: 0.9375rem; } .ds-loc b { margin-left: 0.7rem; font-weight: 800; font-stretch: 80%; font-size: 1.05rem; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "En-tête de l'accueil",
+      "kind": "nav",
+      "refersTo": "button-primary-header",
+      "description": "La seule barre de l'accueil : logo horizontal (centré dans la hauteur de l'appel), nom de l'élection sur la ligne de base du mot, appel principal à droite (Commencer la feuille, Reprendre la feuille, Voir mon dépouillement, Répondre aux N nouvelles questions). Conteneur header : libellé court sous 34rem, nom sous le logo sous 30rem, logo à 1.5rem et appel sur toute une rangée sous 19.9rem.",
+      "html": "<header class=\"ds-hh\"><div class=\"ds-hh-in\"><a class=\"ds-hh-brand\" href=\"#\" aria-label=\"Isoloir\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"-136 -100 697.7 200.16\" class=\"ds-hh-logo\" aria-hidden=\"true\"><path fill=\"currentColor\" fill-opacity=\"0.42\" d=\"M-32 94.74A92 14 0 1 1 -32 66.98Z\"/><path fill=\"currentColor\" d=\"M-32 94.74L-32 -18A14 14 0 0 1 -18 -32L16 -32C20.41 18.42 27.91 60.43 52.03 85.4A100 100 0 1 0 -32 94.74ZM10 -60A18 18 0 0 1 -26 -60A18 18 0 0 1 10 -60Z\"/><path fill=\"#9bc2f6\" d=\"M16 -32C16 40 17 90 34 100C70 102 125 85 150 48C72 32 24 -10 16 -32Z\"/><path fill=\"#f9e6a2\" d=\"M16 -32C16 40 17 90 34 100C61.27 101.52 99.44 92.13 127.22 71.4C58.25 46.5 25.2 2.35 16 -32Z\"/><path fill=\"#f8a898\" d=\"M16 -32C16 40 17 90 34 100C52.63 101.04 76.35 96.98 98.36 87.7C44.5 61 24.28 14.98 16 -32Z\"/><path fill=\"#95d4a9\" d=\"M16 -32C16 40 17 90 34 100C43.9 100.55 55.24 99.66 66.99 97.32C30.75 75.5 21.21 27.62 16 -32Z\"/><path fill=\"currentColor\" d=\"M188 -26L208.72 -26L208.72 48L188 48ZM210.2 -49.68A11.84 11.84 0 0 1 186.52 -49.68A11.84 11.84 0 0 1 210.2 -49.68ZM275.1 -18.97C269.25 -24.52 258.89 -28.22 247.2 -28.22C230.25 -28.22 219.01 -19.34 219.01 -6.02C219.01 5.08 228.63 12.7 238.25 15.81C247.87 18.92 255.71 21.06 255.71 26.24C255.71 29.87 252.01 32.46 246.46 32.46C239.65 32.46 232.77 29.5 228.26 25.43L217.6 36.9C223.08 43.56 234.1 49.85 247.2 49.85C264.37 49.85 276.8 39.42 276.8 25.06C276.8 13.96 267.18 4.93 253.79 1.38C245.57 -0.99 238.91 -0.84 238.91 -6.02C238.91 -10.09 242.39 -11.94 247.5 -11.94C252.68 -11.94 258.23 -10.83 262.67 -6.76ZM359.68 11A38.85 38.85 0 0 1 281.98 11A38.85 38.85 0 0 1 359.68 11ZM338.22 11A17.39 17.39 0 0 0 303.44 11A17.39 17.39 0 0 0 338.22 11ZM367.82 -63L388.54 -63L388.54 48L367.82 48ZM474.38 11A38.85 38.85 0 0 1 396.68 11A38.85 38.85 0 0 1 474.38 11ZM452.92 11A17.39 17.39 0 0 0 418.14 11A17.39 17.39 0 0 0 452.92 11ZM481.78 -26L502.5 -26L502.5 48L481.78 48ZM503.98 -49.68A11.84 11.84 0 0 1 480.3 -49.68A11.84 11.84 0 0 1 503.98 -49.68ZM512.12 48L512.12 -26L532.84 -26L532.84 -15.64C534.69 -21.19 539.5 -26 546.16 -26L561.7 -26L561.7 -6.76C544.68 -6.76 532.84 -0.84 532.84 13.96L532.84 48Z\"/></svg></a><span class=\"ds-hh-form\">Primaire Choisir 2027</span><a class=\"ds-hh-cta\" href=\"#\"><span class=\"ds-hh-long\">Commencer la feuille</span><span class=\"ds-hh-short\">Commencer</span><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12h13M13 6l6 6-6 6\"/></svg></a></div></header>",
+      "css": ".ds-hh { position: relative; container: ds-hh / inline-size; background: var(--paper, #fff); border-bottom: 3px solid var(--rule-strong, #17191c); font-family: 'Archivo Variable', Archivo, 'Helvetica Neue', Arial, sans-serif; color: var(--print, #17191c); } .ds-hh::after { content: ''; position: absolute; left: 0; right: 0; bottom: -8px; height: 5px; background: linear-gradient(var(--paper, #fff) 0 4px, var(--rule-strong, #17191c) 4px); } .ds-hh-in { display: flex; align-items: center; gap: 0.9rem; padding: 0.55rem 1rem; } .ds-hh-brand { flex: none; display: block; line-height: 0; color: inherit; } .ds-hh-logo { height: 1.8rem; width: calc(1.8rem * 3.4858); } .ds-hh-form { font-size: 0.9375rem; white-space: nowrap; } .ds-hh-cta { display: inline-flex; flex: none; align-items: center; gap: 0.55rem; max-width: 100%; margin-left: auto; min-height: 2.75rem; padding: 0 1rem; background: var(--print, #17191c); color: var(--on-print, #fff); font-weight: 750; font-stretch: 85%; font-size: 1rem; text-decoration: none; transition: background-color 140ms ease-out; } .ds-hh-cta:hover { background: color-mix(in srgb, var(--print, #17191c) 82%, var(--paper, #fff)); } .ds-hh-cta:focus-visible { outline: 2px solid var(--focus, #1f3bb3); outline-offset: 3px; } .ds-hh-cta svg { width: 1.15rem; height: 1.15rem; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; } .ds-hh-short { display: none; } @container ds-hh (max-width: 34rem) { .ds-hh-long { display: none; } .ds-hh-short { display: inline; } } @container ds-hh (max-width: 30rem) { .ds-hh-in { flex-wrap: wrap; row-gap: 0.1rem; } .ds-hh-form { order: 3; flex-basis: 100%; font-size: 0.8125rem; line-height: 1.2; } } @container ds-hh (max-width: 19.9rem) { .ds-hh-form { display: none; } .ds-hh-cta { flex: 1 1 100%; justify-content: center; white-space: normal; } }"
+    },
+    {
+      "name": "Fiche bristol",
+      "kind": "card",
+      "refersTo": "bristol-card",
+      "description": "Une fiche de positions par thème, quadrillée, sur un pastel du rideau pris dans l'ordre (vert, rouge, jaune, bleu), titre sous double filet bleu, pastilles d'initiales dans le code de la réglette, talon « À compléter ».",
+      "html": "<section class=\"ds-bristol\"><header class=\"ds-bristol-head\"><h3>Logement</h3></header><p class=\"ds-q\">Comment loger tout le monde ?</p><p class=\"ds-stance\"><span class=\"ds-lab\">Approche principale</span> Encadrer les loyers.</p><div class=\"ds-stub\"><p>À compléter : position non trouvée à ce jour sur 1 question</p></div></section>",
+      "css": ".ds-bristol{--card:var(--pastel-vert,#d5f9e0);--edge:color-mix(in srgb,var(--print,#17191c) 24%,transparent);position:relative;max-width:22rem;padding:1rem 1rem .75rem;background-color:var(--card);background-image:linear-gradient(color-mix(in srgb,var(--print,#17191c) 6.5%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--print,#17191c) 6.5%,transparent) 1px,transparent 1px);background-size:1.25rem 1.25rem;border:1px solid var(--edge);border-radius:3px;font-family:'Archivo Variable',Archivo,Arial,sans-serif;color:var(--print,#17191c)} .ds-bristol-head{margin:-1rem -1rem 4px;padding:1rem 1rem .75rem;background:var(--card);border-bottom:2px solid var(--ink,#1f3bb3);box-shadow:0 3px 0 0 var(--card),0 4px 0 0 var(--ink,#1f3bb3);border-radius:3px 3px 0 0} .ds-bristol h3{margin:0;font-weight:850;font-stretch:72%;font-size:1.8rem;line-height:1.05} .ds-q{font-size:.9375rem;font-weight:650;color:var(--print-soft,#4a4f57)} .ds-lab{display:block;font-size:.8125rem;font-weight:700;color:var(--print-soft,#4a4f57)} .ds-stub{margin:.75rem -1rem -.75rem;padding:1rem;background:color-mix(in srgb,var(--print,#17191c) 4%,var(--card));border-top:2px dashed color-mix(in srgb,var(--print,#17191c) 42%,transparent);border-radius:0 0 3px 3px;font-size:.8125rem;color:var(--print-soft,#4a4f57)} .ds-stub p{margin:0}"
+    },
+    {
+      "name": "Aplat (double jaune)",
+      "kind": "card",
+      "refersTo": "aplat-copy",
+      "description": "Panneau plat coiffé d’un filet épais ; sur le jaune, les encres passent aux jetons copy-*.",
+      "html": "<section class=\"ds-aplat\"><span class=\"ds-lead\">Le plus proche de vos idées</span><span class=\"ds-name\">Nom Prénom</span><span class=\"ds-pct\">72<small>%</small></span></section>",
+      "css": ".ds-aplat{display:grid;gap:.25rem;max-width:24rem;padding:1.5rem 1.5rem 1rem;background:var(--copy,#f2e7a6);color:var(--copy-print,#1d1b10);box-shadow:inset 0 3px 0 var(--copy-print,#1d1b10);font-family:'Archivo Variable',Archivo,Arial,sans-serif} .ds-lead{font-size:.9375rem;font-weight:650;color:var(--copy-print-soft,#4f4823)} .ds-name{font-weight:850;font-stretch:70%;font-size:2.6rem;line-height:.95} .ds-pct{color:var(--copy-aff-proche,#4a690c);font-weight:850;font-stretch:70%;font-size:4.5rem;line-height:.85;font-variant-numeric:tabular-nums} .ds-pct small{font-size:.5em}"
+    },
+    {
+      "name": "Pastille de filtre",
+      "kind": "chip",
+      "refersTo": "filter-chip",
+      "description": "Famille de thèmes, angle droit ; enfoncée, imprimée en négatif.",
+      "html": "<button class=\"ds-chip\" aria-pressed=\"true\">Tout <span>23</span></button> <button class=\"ds-chip\" aria-pressed=\"false\">Immigration <span>1</span></button>",
+      "css": ".ds-chip{display:inline-flex;align-items:center;gap:.45rem;min-height:2.75rem;padding:0 .75rem;border:1.5px solid var(--rule-strong,#17191c);border-radius:0;background:var(--paper,#fff);color:var(--print,#17191c);font:650 .9375rem 'Archivo Variable',Archivo,Arial,sans-serif;cursor:pointer} .ds-chip span{font-weight:450;color:var(--print-soft,#4a4f57);font-variant-numeric:tabular-nums} .ds-chip[aria-pressed='true']{background:var(--print,#17191c);color:var(--on-print,#fff)} .ds-chip[aria-pressed='true'] span{color:inherit} .ds-chip:hover:not([aria-pressed='true']){background:color-mix(in srgb,var(--print,#17191c) 7%,var(--paper,#fff))} .ds-chip:focus-visible{outline:2px solid var(--focus,#1f3bb3);outline-offset:3px}"
+    },
+    {
+      "name": "Aplat pastel",
+      "kind": "card",
+      "refersTo": "aplat-pastel",
+      "description": "Panneau plat coiffé d’un filet épais, sur l'un des quatre pastels du rideau, distribués dans l'ordre du drapé (vert, rouge, jaune, bleu) selon la place : « À vous d'essayer », « Fermez l'isoloir » (bleu), index des candidats, « Et maintenant ». Un décor sans sens ; pas de réglette ni de dépouillement sur le bleu.",
+      "html": "<div class=\"ds-pastels\"><section class=\"ds-pa\" style=\"--panel:var(--pastel-vert,#d5f9e0)\"><b>1</b> Vous donnez votre avis</section><section class=\"ds-pa\" style=\"--panel:var(--pastel-rouge,#ffece7)\"><b>2</b> On dépouille</section><section class=\"ds-pa\" style=\"--panel:var(--pastel-jaune,#fbf1c7)\"><b>3</b> Panneau suivant</section><section class=\"ds-pa\" style=\"--panel:var(--pastel-bleu,#dcebff)\"><b>4</b> Fermez l’isoloir</section></div>",
+      "css": ".ds-pastels { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 0.75rem; font-family: 'Archivo Variable', Archivo, 'Helvetica Neue', Arial, sans-serif; } .ds-pa { min-height: 6rem; padding: 1rem; background: var(--panel); color: var(--print, #17191c); box-shadow: inset 0 3px 0 var(--rule-strong, #17191c); font-weight: 850; font-stretch: 72%; font-size: 1.35rem; line-height: 1.05; } .ds-pa b { font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "Logo",
+      "kind": "custom",
+      "refersTo": "logo-header",
+      "description": "Isoloir vu de face : disque d'encre parfaitement rond, « i » en réserve, rideau en quatre bandes égales (vert, rouge, jaune, bleu), ombre au sol ; mot « isoloir » dessiné en géométrie. Dispositions horizontale (en-tête), empilée, pictogramme ; versions couleur, grise, blanche. Source unique : src/core/brand.ts. L'horizontal ne descend pas sous 1.5rem ; en dessous, pictogramme seul ; marge de 12 unités (disque de rayon 100) dans les fichiers.",
+      "html": "<div class=\"ds-logos\"><span class=\"ds-lg is-h\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"-148 -112 721.7 224.16\" role=\"img\" aria-label=\"Isoloir\"><title>Isoloir</title><path fill=\"#17191c\" fill-opacity=\"0.42\" d=\"M-32 94.74A92 14 0 1 1 -32 66.98Z\"/><path fill=\"#17191c\" d=\"M-32 94.74L-32 -18A14 14 0 0 1 -18 -32L16 -32C20.41 18.42 27.91 60.43 52.03 85.4A100 100 0 1 0 -32 94.74ZM10 -60A18 18 0 0 1 -26 -60A18 18 0 0 1 10 -60Z\"/><path fill=\"#9bc2f6\" d=\"M16 -32C16 40 17 90 34 100C70 102 125 85 150 48C72 32 24 -10 16 -32Z\"/><path fill=\"#f9e6a2\" d=\"M16 -32C16 40 17 90 34 100C61.27 101.52 99.44 92.13 127.22 71.4C58.25 46.5 25.2 2.35 16 -32Z\"/><path fill=\"#f8a898\" d=\"M16 -32C16 40 17 90 34 100C52.63 101.04 76.35 96.98 98.36 87.7C44.5 61 24.28 14.98 16 -32Z\"/><path fill=\"#95d4a9\" d=\"M16 -32C16 40 17 90 34 100C43.9 100.55 55.24 99.66 66.99 97.32C30.75 75.5 21.21 27.62 16 -32Z\"/><path fill=\"#17191c\" d=\"M188 -26L208.72 -26L208.72 48L188 48ZM210.2 -49.68A11.84 11.84 0 0 1 186.52 -49.68A11.84 11.84 0 0 1 210.2 -49.68ZM275.1 -18.97C269.25 -24.52 258.89 -28.22 247.2 -28.22C230.25 -28.22 219.01 -19.34 219.01 -6.02C219.01 5.08 228.63 12.7 238.25 15.81C247.87 18.92 255.71 21.06 255.71 26.24C255.71 29.87 252.01 32.46 246.46 32.46C239.65 32.46 232.77 29.5 228.26 25.43L217.6 36.9C223.08 43.56 234.1 49.85 247.2 49.85C264.37 49.85 276.8 39.42 276.8 25.06C276.8 13.96 267.18 4.93 253.79 1.38C245.57 -0.99 238.91 -0.84 238.91 -6.02C238.91 -10.09 242.39 -11.94 247.5 -11.94C252.68 -11.94 258.23 -10.83 262.67 -6.76ZM359.68 11A38.85 38.85 0 0 1 281.98 11A38.85 38.85 0 0 1 359.68 11ZM338.22 11A17.39 17.39 0 0 0 303.44 11A17.39 17.39 0 0 0 338.22 11ZM367.82 -63L388.54 -63L388.54 48L367.82 48ZM474.38 11A38.85 38.85 0 0 1 396.68 11A38.85 38.85 0 0 1 474.38 11ZM452.92 11A17.39 17.39 0 0 0 418.14 11A17.39 17.39 0 0 0 452.92 11ZM481.78 -26L502.5 -26L502.5 48L481.78 48ZM503.98 -49.68A11.84 11.84 0 0 1 480.3 -49.68A11.84 11.84 0 0 1 503.98 -49.68ZM512.12 48L512.12 -26L532.84 -26L532.84 -15.64C534.69 -21.19 539.5 -26 546.16 -26L561.7 -26L561.7 -6.76C544.68 -6.76 532.84 -0.84 532.84 13.96L532.84 48Z\"/></svg></span><span class=\"ds-lg is-s\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"-148 -112 310 331.26\" role=\"img\" aria-label=\"Isoloir\"><title>Isoloir</title><path fill=\"#17191c\" fill-opacity=\"0.42\" d=\"M-32 94.74A92 14 0 1 1 -32 66.98Z\"/><path fill=\"#17191c\" d=\"M-32 94.74L-32 -18A14 14 0 0 1 -18 -32L16 -32C20.41 18.42 27.91 60.43 52.03 85.4A100 100 0 1 0 -32 94.74ZM10 -60A18 18 0 0 1 -26 -60A18 18 0 0 1 10 -60Z\"/><path fill=\"#9bc2f6\" d=\"M16 -32C16 40 17 90 34 100C70 102 125 85 150 48C72 32 24 -10 16 -32Z\"/><path fill=\"#f9e6a2\" d=\"M16 -32C16 40 17 90 34 100C61.27 101.52 99.44 92.13 127.22 71.4C58.25 46.5 25.2 2.35 16 -32Z\"/><path fill=\"#f8a898\" d=\"M16 -32C16 40 17 90 34 100C52.63 101.04 76.35 96.98 98.36 87.7C44.5 61 24.28 14.98 16 -32Z\"/><path fill=\"#95d4a9\" d=\"M16 -32C16 40 17 90 34 100C43.9 100.55 55.24 99.66 66.99 97.32C30.75 75.5 21.21 27.62 16 -32Z\"/><path fill=\"#17191c\" d=\"M-97.1 162.16L-84.78 162.16L-84.78 206.16L-97.1 206.16ZM-83.9 148.08A7.04 7.04 0 0 1 -97.98 148.08A7.04 7.04 0 0 1 -83.9 148.08ZM-45.31 166.34C-48.79 163.04 -54.95 160.84 -61.9 160.84C-71.98 160.84 -78.66 166.12 -78.66 174.04C-78.66 180.64 -72.94 185.17 -67.22 187.02C-61.5 188.87 -56.84 190.14 -56.84 193.22C-56.84 195.38 -59.04 196.92 -62.34 196.92C-66.39 196.92 -70.48 195.16 -73.16 192.74L-79.5 199.56C-76.24 203.52 -69.69 207.26 -61.9 207.26C-51.69 207.26 -44.3 201.05 -44.3 192.52C-44.3 185.92 -50.02 180.55 -57.98 178.44C-62.87 177.03 -66.83 177.12 -66.83 174.04C-66.83 171.62 -64.76 170.52 -61.72 170.52C-58.64 170.52 -55.34 171.18 -52.7 173.6ZM4.98 184.16A23.1 23.1 0 0 1 -41.22 184.16A23.1 23.1 0 0 1 4.98 184.16ZM-7.78 184.16A10.34 10.34 0 0 0 -28.46 184.16A10.34 10.34 0 0 0 -7.78 184.16ZM9.82 140.16L22.14 140.16L22.14 206.16L9.82 206.16ZM73.18 184.16A23.1 23.1 0 0 1 26.98 184.16A23.1 23.1 0 0 1 73.18 184.16ZM60.42 184.16A10.34 10.34 0 0 0 39.74 184.16A10.34 10.34 0 0 0 60.42 184.16ZM77.58 162.16L89.9 162.16L89.9 206.16L77.58 206.16ZM90.78 148.08A7.04 7.04 0 0 1 76.7 148.08A7.04 7.04 0 0 1 90.78 148.08ZM95.62 206.16L95.62 162.16L107.94 162.16L107.94 168.32C109.04 165.02 111.9 162.16 115.86 162.16L125.1 162.16L125.1 173.6C114.98 173.6 107.94 177.12 107.94 185.92L107.94 206.16Z\"/></svg></span><span class=\"ds-lg is-m\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"-148 -112 310 224.16\" role=\"img\" aria-label=\"Isoloir\"><title>Isoloir</title><path fill=\"#17191c\" fill-opacity=\"0.42\" d=\"M-32 94.74A92 14 0 1 1 -32 66.98Z\"/><path fill=\"#17191c\" d=\"M-32 94.74L-32 -18A14 14 0 0 1 -18 -32L16 -32C20.41 18.42 27.91 60.43 52.03 85.4A100 100 0 1 0 -32 94.74ZM10 -60A18 18 0 0 1 -26 -60A18 18 0 0 1 10 -60Z\"/><path fill=\"#9bc2f6\" d=\"M16 -32C16 40 17 90 34 100C70 102 125 85 150 48C72 32 24 -10 16 -32Z\"/><path fill=\"#f9e6a2\" d=\"M16 -32C16 40 17 90 34 100C61.27 101.52 99.44 92.13 127.22 71.4C58.25 46.5 25.2 2.35 16 -32Z\"/><path fill=\"#f8a898\" d=\"M16 -32C16 40 17 90 34 100C52.63 101.04 76.35 96.98 98.36 87.7C44.5 61 24.28 14.98 16 -32Z\"/><path fill=\"#95d4a9\" d=\"M16 -32C16 40 17 90 34 100C43.9 100.55 55.24 99.66 66.99 97.32C30.75 75.5 21.21 27.62 16 -32Z\"/></svg></span><span class=\"ds-lg is-dark\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"-148 -112 721.7 224.16\" role=\"img\" aria-label=\"Isoloir\"><title>Isoloir</title><path fill=\"#ffffff\" fill-opacity=\"0.42\" d=\"M-32 94.74A92 14 0 1 1 -32 66.98Z\"/><path fill=\"#ffffff\" d=\"M-32 94.74L-32 -18A14 14 0 0 1 -18 -32L16 -32C20.41 18.42 27.91 60.43 52.03 85.4A100 100 0 1 0 -32 94.74ZM10 -60A18 18 0 0 1 -26 -60A18 18 0 0 1 10 -60Z\"/><path fill=\"#c9cacd\" d=\"M16 -32C16 40 17 90 34 100C70 102 125 85 150 48C72 32 24 -10 16 -32Z\"/><path fill=\"#a6a8aa\" d=\"M16 -32C16 40 17 90 34 100C61.27 101.52 99.44 92.13 127.22 71.4C58.25 46.5 25.2 2.35 16 -32Z\"/><path fill=\"#828386\" d=\"M16 -32C16 40 17 90 34 100C52.63 101.04 76.35 96.98 98.36 87.7C44.5 61 24.28 14.98 16 -32Z\"/><path fill=\"#5c5e60\" d=\"M16 -32C16 40 17 90 34 100C43.9 100.55 55.24 99.66 66.99 97.32C30.75 75.5 21.21 27.62 16 -32Z\"/><path fill=\"#ffffff\" d=\"M188 -26L208.72 -26L208.72 48L188 48ZM210.2 -49.68A11.84 11.84 0 0 1 186.52 -49.68A11.84 11.84 0 0 1 210.2 -49.68ZM275.1 -18.97C269.25 -24.52 258.89 -28.22 247.2 -28.22C230.25 -28.22 219.01 -19.34 219.01 -6.02C219.01 5.08 228.63 12.7 238.25 15.81C247.87 18.92 255.71 21.06 255.71 26.24C255.71 29.87 252.01 32.46 246.46 32.46C239.65 32.46 232.77 29.5 228.26 25.43L217.6 36.9C223.08 43.56 234.1 49.85 247.2 49.85C264.37 49.85 276.8 39.42 276.8 25.06C276.8 13.96 267.18 4.93 253.79 1.38C245.57 -0.99 238.91 -0.84 238.91 -6.02C238.91 -10.09 242.39 -11.94 247.5 -11.94C252.68 -11.94 258.23 -10.83 262.67 -6.76ZM359.68 11A38.85 38.85 0 0 1 281.98 11A38.85 38.85 0 0 1 359.68 11ZM338.22 11A17.39 17.39 0 0 0 303.44 11A17.39 17.39 0 0 0 338.22 11ZM367.82 -63L388.54 -63L388.54 48L367.82 48ZM474.38 11A38.85 38.85 0 0 1 396.68 11A38.85 38.85 0 0 1 474.38 11ZM452.92 11A17.39 17.39 0 0 0 418.14 11A17.39 17.39 0 0 0 452.92 11ZM481.78 -26L502.5 -26L502.5 48L481.78 48ZM503.98 -49.68A11.84 11.84 0 0 1 480.3 -49.68A11.84 11.84 0 0 1 503.98 -49.68ZM512.12 48L512.12 -26L532.84 -26L532.84 -15.64C534.69 -21.19 539.5 -26 546.16 -26L561.7 -26L561.7 -6.76C544.68 -6.76 532.84 -0.84 532.84 13.96L532.84 48Z\"/></svg></span></div>",
+      "css": ".ds-logos { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; } .ds-lg { display: inline-block; line-height: 0; } .ds-lg svg { display: block; height: 100%; width: auto; } .ds-lg.is-h, .ds-lg.is-dark { height: 3rem; } .ds-lg.is-s { height: 6rem; } .ds-lg.is-m { height: 3rem; } .ds-lg.is-dark { padding: 0.5rem; background: #111419; }"
+    },
+    {
+      "name": "Tendance provisoire (Où vous en êtes)",
+      "kind": "custom",
+      "refersTo": "trend-card",
+      "description": "Après les 8 questions du premier temps, à la place de l'affiche du plus proche : fiche imprimée sur papier (cadre 1.5px, filet supérieur 3px), « Où vous en êtes », « 8 questions sur 19 », les 19 questions en bâtons (pointées au bleu bille, à venir en crans pointillés), « C’est un début : les 11 questions suivantes peuvent encore changer l’ordre. » et le bouton large « Continuer : 11 questions ». Le classement dessous montre les paliers sans pourcentage.",
+      "html": "<section class=\"ds-trend\"><h2 class=\"ds-trend-t\"><span class=\"ds-trend-w\">Où vous en êtes</span> <span class=\"ds-trend-c\"><span class=\"ds-trend-f\">8</span> questions sur 19</span></h2><svg class=\"ds-trend-tally\" viewBox=\"0 0 138 26\" aria-hidden=\"true\"><path class=\"d\" d=\"M4 3L4.4 23M10 3L10.4 23M16 3L16.4 23M22 3L22.4 23M0.8 19.5L28.5 6\"/><path class=\"d\" d=\"M40 3L40.4 23M46 3L46.4 23M52 3L52.4 23\"/><path class=\"t\" d=\"M57 4V22M63 4V22M75 4V22M81 4V22M87 4V22M93 4V22M99 4V22M111 4V22M117 4V22M123 4V22M129 4V22\"/></svg><p class=\"ds-trend-p\">C’est un début : les 11 questions suivantes peuvent encore changer l’ordre.</p><a class=\"ds-trend-cta\" href=\"#\">Continuer : 11 questions <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12h13M13 6l6 6-6 6\"/></svg></a></section>",
+      "css": ".ds-trend { display: grid; gap: 0.75rem; max-width: 24rem; padding: 1rem 1.5rem 1.5rem; border: 1.5px solid var(--rule-strong, #17191c); border-top-width: 3px; font-family: 'Archivo Variable', Archivo, 'Helvetica Neue', Arial, sans-serif; color: var(--print, #17191c); } .ds-trend-t { display: grid; gap: 0.2rem; margin: 0; } .ds-trend-w { font-size: 0.9375rem; font-weight: 650; color: var(--print-soft, #4a4f57); } .ds-trend-c { font-weight: 850; font-stretch: 72%; font-size: clamp(1.6rem, 6vw, 2.15rem); line-height: 1; } .ds-trend-f { font-size: 1.6em; line-height: 0.8; font-variant-numeric: tabular-nums; } .ds-trend-tally { display: block; width: 100%; max-width: 22rem; height: auto; overflow: visible; } .ds-trend-tally path { fill: none; stroke-linecap: round; vector-effect: non-scaling-stroke; } .ds-trend-tally .d { stroke: var(--ink, #1f3bb3); stroke-width: 3px; } .ds-trend-tally .t { stroke: var(--print-soft, #4a4f57); stroke-width: 1.5px; stroke-dasharray: 2 4; } .ds-trend-p { margin: 0; max-width: 36ch; font-size: 1.125rem; line-height: 1.4; } .ds-trend-cta { display: flex; justify-content: center; align-items: center; gap: 0.55rem; min-height: 3rem; padding: 0.5rem 0.75rem; background: var(--print, #17191c); color: var(--on-print, #fff); font-weight: 750; font-stretch: 85%; font-size: 1.0625rem; text-decoration: none; text-align: center; } .ds-trend-cta svg { width: 1.15rem; height: 1.15rem; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }"
+    },
+    {
+      "name": "Légende de Qui porte quoi",
+      "kind": "custom",
+      "refersTo": "reveal-legend",
+      "description": "Visible, sans infobulle, en tête de « Qui porte quoi » : « Votre avis » (quatre mini-réglettes) d'un côté, « Ce qu’en pensent les candidats » (quatre pastilles d'exemple nommées) de l'autre, et la phrase qui lève le malentendu : les pastilles disent ce que le candidat pense de l'approche, pas s'il pense comme vous.",
+      "html": "<section class=\"ds-rleg\"><div><h3>Votre avis</h3><p>À gauche de chaque approche, le repère de votre feuille.</p><p class=\"ds-rleg-you\"><span style=\"color:var(--aff-tres-proche,#00722e);font-weight:700\">D’accord</span> <span style=\"color:var(--print-soft,#4a4f57)\">Sans avis</span> <span style=\"color:var(--aff-eloigne,#b44f00);font-weight:700\">Pas d’accord</span> <span style=\"color:var(--red,#c90f1a);font-weight:700\">Ligne rouge</span></p></div><div><h3>Ce qu’en pensent les candidats</h3><p>Une pastille par candidat, avec ses initiales.</p><ul><li><span class=\"ds-ri m\">AB</span>Approche principale</li><li><span class=\"ds-ri s\">AB</span>Approche compatible</li><li><span class=\"ds-ri r\">AB</span>Rejette l’approche</li><li><span class=\"ds-ri u\">AB</span>Position inconnue</li></ul></div><p class=\"ds-rleg-warn\">Les pastilles disent ce que chaque candidat pense de l’approche, pas s’il pense comme vous. Vert : pour l’approche ; orangé : contre, de votre côté comme du leur.</p></section>",
+      "css": ".ds-rleg { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1rem 2rem; max-width: 46rem; padding: 1rem 1rem 0.75rem; border: 1.5px solid var(--rule-strong, #17191c); font-family: 'Archivo Variable', Archivo, 'Helvetica Neue', Arial, sans-serif; color: var(--print, #17191c); } .ds-rleg h3 { margin: 0; font-weight: 800; font-stretch: 82%; font-size: 1.1rem; line-height: 1.2; } .ds-rleg p { margin: 0.15rem 0 0.75rem; font-size: 0.9375rem; color: var(--print-soft, #4a4f57); } .ds-rleg-you { display: flex; flex-wrap: wrap; gap: 0.75rem; font-size: 0.8125rem !important; } .ds-rleg ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr)); gap: 0.5rem 0.75rem; } .ds-rleg li { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9375rem; line-height: 1.25; } .ds-ri { display: inline-grid; place-items: center; flex: none; min-width: 2.15rem; height: 2.15rem; border: 1.5px solid; border-radius: 999px; font-weight: 800; font-stretch: 80%; font-size: 0.82rem; } .ds-ri.m { background: var(--aff-tres-proche, #00722e); border-color: var(--aff-tres-proche, #00722e); color: var(--paper, #fff); } .ds-ri.s { background: var(--aff-tres-proche-tint, #dcf7e1); border-color: var(--aff-tres-proche, #00722e); color: var(--aff-tres-proche, #00722e); } .ds-ri.r { background: var(--paper, #fff); border-style: dashed; border-color: var(--aff-eloigne, #b44f00); color: var(--aff-eloigne, #b44f00); text-decoration: line-through; } .ds-ri.u { background: var(--paper, #fff); border-style: dotted; border-color: var(--aff-mitige, #636363); color: var(--print-soft, #4a4f57); } .ds-rleg-warn { grid-column: 1 / -1; margin: 0 !important; padding-top: 0.75rem; border-top: 1px solid var(--rule, #c9cbcf); font-weight: 650; color: var(--print, #17191c) !important; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Le dépouillement",
+    "overview": "**Creative North Star: \"Le dépouillement\"**\n\nIsoloir est une feuille de pointage de bureau de vote. La page est le formulaire : un papier blanc froid sous une grille pré-imprimée en noir d'imprimerie (double filet d'en-tête, colonne de marge réglée, lettres de ligne, réglettes à trois crans, colonne de cases, règles numérotées, pied imprimé, tampon). Sur ce formulaire, l'électeur laisse trois marques. Son avis sur une approche se trace sur une réglette imprimée à trois crans (Pas d'accord, Sans avis, D'accord) : il entoure le cran d'une boucle au stylo, dans le ton du palier d'affinité qui lui répond (orangé-brun pour « Pas d'accord », gris pour « Sans avis », vert pour « D'accord »), et le mot du cran s'écrit dessous ; « Sans avis » est entouré dès le départ, comme un cran choisi. Ses lignes rouges se tracent au stylo rouge (croix dans la case « Ligne rouge », rature du texte, croix sur les candidats concernés). Le bleu bille ne fait plus que compter : bâtons, « ×2 » d'un thème prioritaire, coche des thèmes choisis, écart depuis la dernière visite. Tout ce que l'outil affirme (faits, approches, positions des candidats) est imprimé en noir.\n\nLe moment fort est le dépouillement. Il s'ouvre sur un héros en deux colonnes : à gauche le titre, la phrase de lecture et la légende (50 % : neutre, un bâton de pointage = 5 points) ; à droite l'affiche du plus proche, posée sur le double jaune avec sa photo d'identité agrafée de biais, son pourcentage en très grand chiffre et le palier en toutes lettres. Suit un classement unique : rang condensé, portrait, nom, bâtons groupés par cinq (un bâton vaut 5 points), pourcentage coloré sur une échelle d'affinité du rouge au vert en cinq paliers nommés, doublé de son libellé. Tant que des questions du questionnaire rapide restent à voir, l'écran n'est pas encore un dépouillement mais « Une première tendance » : le tampon « Résultat provisoire », une fiche « Où vous en êtes » qui compte les questions en bâtons et porte l'appel à continuer, et un ordre en bâtons et en paliers nommés, sans pourcentage ni affiche. La même échelle rouge → vert sert donc deux fois : à l'entrée, la réglette de l'électeur en emprunte deux tons (orangé-brun et vert) autour d'un centre neutre ; à la sortie, les scores la parcourent en entier ; dans « Qui porte quoi », les pastilles d'initiales des candidats en reprennent le vert, le vert pâle, l'orangé-brun et le gris, sous une légende visible. Le « double », la copie autocopiante jaune, est ce qu'on emporte : l'export JSON, l'affiche JPG dessinée en Canvas, et à l'écran les aplats qui la montrent ou y mènent (affiche du plus proche, double de la dernière scène du film d'accueil, troisième panneau de « À vous d'essayer », première suite « Et maintenant », parcours d'un candidat). En sombre, la feuille devient « papier carbone », mais le double reste jaune.\n\nLes positions des candidats se lisent sur un autre papier du bureau : un paquet de fiches bristol quadrillées, une par thème, rangées en colonnes « maçonnerie ». Chaque fiche porte un titre souligné d'un double filet bleu, comme une fiche d'index imprimée, puis les positions ; les questions sans position connue tiennent sur un talon « À compléter », séparé par une ligne de découpe.\n\nLa marque est un logo : un isoloir vu de face, disque d'encre parfaitement rond où la personne se découpe en « i », et un rideau tiré en quatre bandes pastel (vert, rouge, jaune, bleu) qui, ensemble, couvrent tout l'échiquier ; le mot « isoloir » en bas de casse, dessiné en géométrie, vient à sa droite dans l'en-tête. Ces quatre pastels, éclaircis, habillent les aplats et les fiches bristol, pris dans l'ordre du rideau selon la place : un décor commun, qui ne désigne personne et ne dit rien d'un avis ni d'un score.\n\nLa preuve de confidentialité est un geste de bureau de vote : « Fermez l'isoloir ». L'accueil propose de passer en mode avion, chaque question le rappelle en une ligne, et dès que le réseau tombe un rideau plissé descend sous le double filet de l'en-tête. Le système est plat, dense et sans ornement. L'accueil et la page de confidentialité expliquent par des schémas au trait (mêmes réglettes, cases, flèches, croix rouges barrant ce qui n'existe pas) plutôt que par des illustrations. L'accueil s'ouvre sur un film : cinq scènes posées sur la page, sans cadre ni titre, qui jouent dans les encres de la feuille, sur un exemple fictif, les gestes qu'on va faire ; l'appel à commencer vit dans l'en-tête, seule barre de la page. Il refuse l'arrangement par défaut de la catégorie (cartes arrondies, barre de progression, résultats en barres avec photos), toute couleur ou tout code de parti, et tout ce qui est ludique (badges, confettis, ton de quiz).",
+    "keyCharacteristics": [
+      "Imprimé noir pour les faits ; trois marques pour l'électeur : l'avis entouré sur la réglette dans le ton de son cran, la ligne rouge au stylo rouge (seul usage du rouge pur), le comptage au bleu bille.",
+      "Échelle d'affinité rouge → vert en cinq paliers nommés, toujours doublée d'un mot : à la sortie sur les scores ; à l'entrée, la réglette n'en prend que l'orangé-brun, le gris et le vert ; dans « Qui porte quoi », les pastilles des candidats reprennent ce code, doublé d'une forme et d'une légende.",
+      "Un logo, source unique en géométrie : isoloir rond, « i » en réserve, rideau en quatre pastels ; dans l'en-tête de chaque écran, sur l'affiche, dans l'aperçu des liens et en icône.",
+      "Grammaire de formulaire pré-imprimé : filets, colonne de marge, lettres de ligne, réglette à trois crans, colonne de cases rouges, règles numérotées.",
+      "Une seule famille, Archivo Variable, dont l'axe de largeur porte la hiérarchie (condensé 70 % pour l'affiche, 100 % pour le texte).",
+      "Bâtons de pointage par cinq comme unité de compte, à la place des barres de progression et des jauges.",
+      "Schémas au trait dans le vocabulaire du formulaire pour expliquer garanties et confidentialité.",
+      "« Fermez l'isoloir » : mode avion proposé, rappelé, et rendu visible par un rideau hors ligne.",
+      "Jaune autocopiant réservé au double et à ce qui le montre (export, affiche partagée, aplat de l'affiche du plus proche).",
+      "Aplats : panneaux de couleur plate coiffés d'un filet épais, jamais de cartes flottantes ; leurs fonds sont les quatre pastels du rideau, pris dans l'ordre selon la place, ou le jaune du double.",
+      "Fiches bristol quadrillées pour les positions d'un candidat, dans les mêmes quatre pastels pris dans l'ordre du rideau, sans aucun sens.",
+      "Mouvement limité au geste : le trait d'encre se dessine une fois ; le rideau tombe une fois ; les lignes du classement se reclassent ; sur l'accueil seulement, le film joue une fois ses cinq scènes (images fixes sous mouvement réduit) et les blocs sous le film entrent une fois."
+    ],
+    "rules": [
+      {
+        "name": "The Three Marks Rule",
+        "body": "L'électeur laisse trois marques, et chacune a son encre. L'avis : une boucle autour du cran choisi, tracée dans le ton de ce cran (orangé-brun `aff-eloigne` pour « Pas d'accord », gris `aff-mitige` pour « Sans avis », vert `aff-tres-proche` pour « D'accord »), toujours doublée du mot du cran écrit sous le repère. La ligne rouge : au stylo rouge, et lui seul (croix dans la case, rature du texte, signalement) ; un désaccord n'est jamais rouge. Le comptage : au bleu bille, et il ne fait que compter (bâtons, ×2, coche de thème, écart). Le bleu ne dit jamais qu'une approche convient ; aucune de ces encres ne sert à un titre, un bouton ou un fond. Deux exceptions. Matérielle : sur la fiche bristol, le bleu imprimé du carton (double filet de titre, filet de l'encart, lien « Détail et sources »). De lecture (2026-10-04) : les pastilles d'initiales des candidats reprennent les tons de la réglette (vert pour, orangé-brun contre, gris inconnu) pour dire ce que le candidat pense de l'approche, jamais s'il pense comme l'électeur ; une légende visible le dit.",
+        "section": "colors"
+      },
+      {
+        "name": "The Named Band Rule",
+        "body": "Une couleur d'affinité n'apparaît jamais seule : le pourcentage est toujours accompagné du libellé de son palier (ou de la légende de l'échelle juste dessous), le cran choisi du mot écrit sous lui, la mini-réglette de son mot, la pastille d'un candidat de sa forme (plein, pâle, tirets barrés, pointillé), d'un texte pour les lecteurs d'écran et de la légende de « Qui porte quoi ». En tendance provisoire, le palier s'écrit sans pourcentage. L'échelle est absolue, pas relative au premier : deux scores proches restent proches en couleur.",
+        "section": "colors"
+      },
+      {
+        "name": "The Carbon Copy Rule",
+        "body": "Le jaune `copy` appartient au double, ce qui sort de l'appareil : l'affiche JPG, l'export, et à l'écran les aplats qui montrent ou annoncent ce double (affiche du plus proche, double de la dernière scène du film, troisième panneau de « À vous d'essayer », première suite « Et maintenant ») ou une fiche de référence (parcours d'un candidat). Jamais en fond de page, en surlignage ou en état. Sur un aplat jaune, les encres passent aux jetons `copy-*`, identiques en clair et en sombre.",
+        "section": "colors"
+      },
+      {
+        "name": "The Four Pastels Rule",
+        "body": "Les quatre pastels du rideau (remplacent depuis le 2026-10-04 les teintes bristol et les aplats pris dans l'échelle d'affinité) se distribuent dans l'ordre du drapé du logo, vert, rouge, jaune, bleu, puis on recommence, selon la place d'un élément dans sa suite : fiche après fiche, panneau après panneau. Ils ne disent rien du thème, de la famille, du candidat, d'un avis ni d'un score ; quand l'ordre des éléments est tiré au hasard (index des candidats), la couleur d'une personne change d'un visiteur à l'autre. Ils vont ensemble : aucun n'est mis en avant ni employé seul pour signifier quelque chose. Aucune donnée ne tire son sens de l'aplat qui la porte.",
+        "section": "colors"
+      },
+      {
+        "name": "The No Party Colour Rule",
+        "body": "Aucune couleur n'identifie un candidat ou un parti. Les candidats se distinguent par des initiales imprimées dans un cercle ; la couleur d'une pastille qualifie la position d'un candidat sur une approche (pour, compatible, contre, inconnue), et une même personne change de couleur d'une approche à l'autre ; la couleur d'affinité qualifie un avis ou un score, jamais une personne. Les quatre pastels du logo couvrent l'échiquier ensemble pour ne désigner personne.",
+        "section": "colors"
+      },
+      {
+        "name": "The Width Carries Rank Rule",
+        "body": "On monte dans la hiérarchie en condensant (70-80 %) et en graissant (800-850), jamais en changeant de famille. La couleur d'affinité dit un palier ou un avis, pas un rang typographique.",
+        "section": "typography"
+      },
+      {
+        "name": "The Long Word Rule",
+        "body": "Un titre plus large que sa colonne se coupe plutôt que de déborder : `overflow-wrap: anywhere` sur l'affiche (display), les titres de partie, les titres de fiche et de panneau, le nom du plus proche ; les conteneurs étroits (parcours ≤ 24rem, encart ≤ 22rem, classement ≤ 26rem) relâchent leurs `nowrap` et coupent les longs liens.",
+        "section": "typography"
+      },
+      {
+        "name": "The Counted Figures Rule",
+        "body": "Tout nombre qui se compare (rang, pourcentage, compteur 02/19, grille par thème, report de bâtons, numéro de figure, date de tampon) est en chiffres tabulaires.",
+        "section": "typography"
+      },
+      {
+        "name": "The Printed Margin Rule",
+        "body": "Ce qui identifie ou compte une ligne (lettre, numéro de règle, rang, compteur, tampon) vit dans la colonne de marge, derrière un filet fin. Le corps de la feuille ne porte que le contenu.",
+        "section": "layout"
+      },
+      {
+        "name": "The Ruler Rule",
+        "body": "Un jugement sur une approche se place sur une réglette imprimée à trois crans, jamais par un bouton texte ni une case « me convient » : Pas d'accord, Sans avis (point ouvert imprimé au centre, position de départ), D'accord. Toucher à nouveau le cran choisi revient à « Sans avis ». La ligne rouge est une case séparée, dans sa propre colonne à droite (sous la réglette, avec son libellé, en très étroit) ; la tracer force toujours la réglette sur « Pas d'accord », et déplacer la réglette ailleurs la retire. Une légende d'en-tête nomme les crans exactement au-dessus d'eux. Empilé (texte puis réglette) sous 36rem de conteneur, côte à côte au-dessus.",
+        "section": "layout"
+      },
+      {
+        "name": "The Closing Question Rule",
+        "body": "Une question marquée « dernière » ferme son étape ; toutes les autres gardent l'ordre aléatoire de la personne. Aucune autre exception à l'ordre tiré au hasard.",
+        "section": "layout"
+      },
+      {
+        "name": "The Ruled Not Raised Rule",
+        "body": "Aucune surface ne flotte. En-tête, rideau, barres, avis et listes se séparent par des filets d'imprimé, jamais par une ombre. Les fonds de couleur sont des papiers posés à plat : aplats coiffés d'un filet épais (quatre pastels du rideau, jaune du double), fiches bristol au bord fin, cellules de la grille par thème (une donnée). Le double filet du bristol est une ombre portée sans flou ni décalage horizontal, utilisée comme second trait imprimé, pas comme élévation. L'ombre au sol du logo est un dessin (un segment d'ellipse à 42 % de l'encre du disque), pas une élévation.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Neutral Families Rule",
+        "body": "Les 23 thèmes se rangent en 8 familles éditoriales, chacun dans une seule : Travail et économie ; Santé, logement, solidarités ; École, culture, numérique ; Écologie et territoires ; Sécurité et justice ; Immigration ; Europe et monde ; République et vie politique. Aucun regroupement ne vaut cadrage : l'immigration n'est rangée ni avec la sécurité ni avec la laïcité, la laïcité n'est pas rangée avec la sécurité.",
+        "section": "components"
+      },
+      {
+        "name": "The One Source Logo Rule",
+        "body": "Le logo n'existe qu'en un endroit, `src/core/brand.ts` : le composant, les SVG, les icônes, l'affiche et l'image d'aperçu en dérivent. On ne le redessine pas, on ne le compose pas en Archivo, on ne change ni l'ordre ni les parts égales des quatre bandes, et on ne recolore pas le rideau hors des deux jeux définis (pastels, gris). Changer le nom de l'outil demande de redessiner le mot dans `brand.ts` : la constante `APP_NAME` ne le change pas.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "**Do** faire juger une approche sur la réglette à trois crans (Pas d'accord, Sans avis, D'accord), avec la case « Ligne rouge » dans sa colonne séparée à droite (sous la réglette, libellé visible, en très étroit).",
+      "**Do** tracer l'avis par une boucle dans le ton du cran choisi (`aff-eloigne`, `aff-mitige` ou `aff-tres-proche`) et écrire le mot du cran sous le repère, « Sans avis » compris, entouré dès le départ ; la ligne rouge au rouge (`red`) ; le comptage au bleu bille (`ink`).",
+      "**Do** forcer la réglette sur « Pas d'accord » dès qu'une ligne rouge est tracée, et ramener « Sans avis » quand on touche à nouveau le cran choisi.",
+      "**Do** aligner la légende des crans exactement sur les crans et la case rouge sur le filet de la réglette, empilé sous 36rem de conteneur et côte à côte au-dessus ; mettre en page la ligne, l'en-tête et la barre d'actions par requêtes de conteneur, pour suivre aussi le texte agrandi.",
+      "**Do** doubler chaque couleur d'affinité d'un mot : libellé du palier (Très éloigné, Éloigné, Mitigé, Proche, Très proche), mot du cran, ou légende de l'échelle ; chaque pastille de candidat d'une forme et d'une légende visible, sans compter sur une infobulle.",
+      "**Do** imprimer toute affirmation de l'outil (approches, positions, noms, liens, titres) en `print` ou `print-soft`.",
+      "**Do** construire chaque liste comme des lignes de formulaire : filet fort dessus et dessous (1.5px), filets fins entre lignes, lettre ou numéro dans la colonne de marge.",
+      "**Do** compter en bâtons par cinq ; au dépouillement, un bâton = 5 points.",
+      "**Do** expliquer un mécanisme par un schéma au trait dans le vocabulaire de la feuille plutôt que par une illustration.",
+      "**Do** monter la hiérarchie par la largeur (70-80 %) et la graisse (800-850) d'Archivo, avec chiffres tabulaires pour tout ce qui se compare.",
+      "**Do** garder un seul bouton primaire noir plein par vue ; les autres actions sont du texte souligné (raccourcis encadrés seulement dans la barre du dépouillement). Sur l'accueil, ce bouton est dans l'en-tête ; la fin du film le reprend à l'identique (même lien, même libellé) ; sur la tendance provisoire, la fiche « Où vous en êtes » reprend de même « Continuer : N questions » de la barre.",
+      "**Do** ouvrir l'accueil sur le film, posé sur la page sans cadre ni titre visible, ses chapitres en règles numérotées, sa mention « Exemple fictif » ; sous mouvement réduit, montrer l'image fixe de chaque chapitre et laisser « Lire le film » à la main de la personne.",
+      "**Do** poser les positions d'un candidat sur des fiches bristol en maçonnerie qui gardent l'ordre du DOM, teintes prises dans l'ordre du rideau, et ranger les thèmes dans les 8 familles neutres.",
+      "**Do** distribuer les quatre pastels du rideau dans l'ordre du drapé (vert, rouge, jaune, bleu) selon la place, et les décliner en `carbon-pastel-*` en sombre.",
+      "**Do** présenter le résultat du premier temps comme une tendance : tampon « Résultat provisoire », compte des questions en bâtons, paliers sans pourcentage, appel à continuer au premier plan.",
+      "**Do** tirer toute occurrence du logo de `src/core/brand.ts` (composant `Logo`, fichiers de `public/brand/`, `drawLogo`), cadré sur sa boîte serrée dans l'interface, pictogramme seul quand la place manque.",
+      "**Do** couper les mots longs (`overflow-wrap: anywhere`) dans les titres et les conteneurs étroits plutôt que de laisser déborder au texte agrandi.",
+      "**Do** signaler un menu repliable par un chevron dessiné qui pivote et un libellé souligné.",
+      "**Do** dessiner chaque trait d'encre une seule fois, au geste, en 220ms avec `cubic-bezier(0.16, 1, 0.3, 1)`, et le montrer entier sous mouvement réduit ; le rideau hors ligne tombe une fois en 560ms, sans animation sous mouvement réduit.",
+      "**Do** décliner chaque écran en papier carbone par les jetons, sans valeur codée en dur ; sur un aplat jaune, laisser `on-copy` basculer les encres sur `copy-*`.",
+      "**Do** réserver les teintes et contours de survol à `(hover: hover) and (pointer: fine)`."
+    ],
+    "donts": [
+      "**Don't** utiliser de couleur ou de code de parti, ni de teinte par candidat.",
+      "**Don't** montrer une couleur d'affinité sans son mot, ni la recalculer relativement au premier.",
+      "**Don't** marquer un avis au bleu bille ni au rouge (`red`, `aff-tres-eloigne`) : le désaccord est orangé-brun, le rouge pur appartient à la ligne rouge ; de même pour le rejet d'un candidat dans sa pastille. Ne pas revenir à une case « Me convient », à une option « aucune » sous la liste, ni à plus de trois crans, ni laisser « Sans avis » sans boucle ni mot.",
+      "**Don't** introduire de badges, confettis, scores de jeu ou ton de quiz.",
+      "**Don't** utiliser de cartes arrondies ou flottantes, de barre de progression ni de jauges ; un score se compte en bâtons, jamais en barre pleine. Le seul arrondi de carton est celui du bristol (3px).",
+      "**Don't** utiliser le bleu, le rouge ou un ton d'affinité pour un lien, un titre, un bouton ou un fond (hors le bleu imprimé du bristol) ; pour une donnée de candidat, seules les pastilles d'initiales reprennent le code de la réglette, sous leur légende.",
+      "**Don't** donner un sens aux pastels du rideau : ni couleur attachée à un candidat, un parti, une famille d'idées, un thème, un avis ou un score, ni pastel employé seul pour signaler quelque chose ; pas de réglette ni de dépouillement sur l'aplat bleu.",
+      "**Don't** redessiner, recomposer en police, recadrer ou recolorer le logo, ni changer l'ordre ou les parts de son rideau ; ne pas l'employer sous 1.5rem de haut en version horizontale.",
+      "**Don't** employer le jaune `copy` à l'écran ailleurs que sur les aplats du double (affiche du plus proche, double de la dernière scène du film, panneau de l'affiche, première suite) et le parcours d'un candidat.",
+      "**Don't** séparer les surfaces par des ombres ; utiliser des filets et des aplats posés à plat.",
+      "**Don't** poser le rideau hors ligne par-dessus la feuille ; il prend sa place dans l'en-tête.",
+      "**Don't** révéler dans « Qui porte quoi » une question que la personne n'a pas encore vue.",
+      "**Don't** apposer le tampon « Résultat provisoire » ailleurs que sur l'écran de la tendance provisoire, ni deux tampons sur un écran ; ne pas y afficher de pourcentage, d'affiche du plus proche ni d'image à partager.",
+      "**Don't** ajouter de surtitres en capitales au-dessus des titres ; les seules capitales sont l'étiquette des tampons (la marque est désormais le logo, en bas de casse).",
+      "**Don't** utiliser d'animation de rebond ou d'animation décorative au chargement ; les entrées au défilement restent propres à l'accueil. Seul le film de l'accueil joue de lui-même, parce qu'il explique : une fois, sans boucle, jamais sous mouvement réduit.",
+      "**Don't** encadrer le film, lui ajouter un titre de section visible ni un lien « Passer » ; ne pas remettre de titre-affiche, de bouton large, de barre du bas ni d'appel final en bas de page sur l'accueil : l'appel principal vit dans l'en-tête."
+    ]
+  }
+}

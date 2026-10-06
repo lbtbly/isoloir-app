@@ -1,0 +1,55 @@
+Rapport de génération des voix — 2026-10-06 09:14:50
+Commande : generate.py --redo-flagged --voice aigue --seed 5051 --takes 5 --extra-takes 12
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 5 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  industrie-energie-02 — 10.72 s, F0 238.1 Hz, pauses entre phrases [0.31, 0.15] s
+    1. Prenons les entreprises qui…   3/5    241.2  -0.19   -6.1   +0.7  0.0    5.9  1.14  1:259 2:256~ 3:241 4:282~ 5:217~
+    2. Au second semestre deux mil…   4/5    236.6  -0.52   -4.9   +3.2  6.0    5.2  1.02  1:229×! 2:222×! 3:226 4:237 5:200~
+         prise 1 : respiration 5.95-6.16 s (net, +50 dB, confiance 0.92) [hors | TVA]
+         prise 2 : respiration 5.06-5.28 s (net, +54 dB, confiance 0.95) [hors | TVA]
+  ecologie-adaptation-05 — 7.59 s, F0 234.2 Hz, pauses entre phrases [0.35, 0.24, 0.31] s
+    1. Et l'eau ?                    4/5    224.7  -1.41   +3.2   -0.6  3.4    4.1  0.80  1:259? 2:356×! 3:218~? 4:225 5:258×!
+         prise 1 : parole en trop 1.15-1.25 s (leger, +63 dB, confiance 0.69) [l'eau | fin]
+         prise 2 : parole en trop « Et » 0.00-0.55 s (net, +73 dB, confiance 0.90) [début | l'eau]
+         prise 2 : respiration 0.16-0.55 s (leger, +41 dB, confiance 0.39) [Et | l'eau]
+         prise 2 : respiration 0.80-1.06 s (leger, +60 dB, confiance 0.57) [Et | fin]
+         prise 3 : parole en trop 1.10-1.18 s (leger, +67 dB, confiance 0.71) [l'eau | fin]
+         prise 5 : parole en trop 0.85-1.12 s (net, +62 dB, confiance 0.89) [l'eau | fin]
+    2. De juin à août, on consomme…   5/5    232.7  -0.81   -2.2   +1.1  0.0    7.0  1.37  1:252 2:272~ 3:267~ 4:251~ 5:233
+    3. Les cours d'eau, eux, trans…   3/5    243.0  -0.06   -6.5   +4.7  2.2    5.4  1.06  1:221~ 2:265 3:243 4:280~ 5:260
+  immigration-emploi-05 — 6.69 s, F0 255.4 Hz, pauses entre phrases [0.32] s
+    1. Côté aides, certaines exige…   4/5    254.4  +0.74   -5.4   +3.8  1.9    4.9  0.96  1:257~ 2:253 3:262~ 4:254 5:239~
+    2. C'est le cas du R.S.A., le …   3/5    256.6  +0.89   -0.5   +2.7  5.4    5.4  1.06  1:228 2:231? 3:257 4:272×! 5:228
+         prise 2 : respiration 1.12-1.36 s (leger, +56 dB, confiance 0.74) [RSA | revenu]
+         prise 4 : vocalise 0.88-1.52 s (net, +53 dB, confiance 0.95) [le | revenu]
+  institutions-intro-07 — 10.43 s, F0 240.9 Hz, pauses entre phrases [1.07, 0.35, 0.3, 0.31, 0.32] s
+    1. Et vous ?                    12/15   260.8  +1.17   +4.8   +2.7  4.6    4.3  0.83  1:436×! 2:227×! 3:475× 4:450×! 5:402×! 6:350× 7:290×! 8:387×! 9:271×! 10:250×! 11:298×! 12:261? 13:385×! 14:203×? 15:315~?
+         prise 1 : parole en trop 0.75-0.86 s (net, +68 dB, confiance 0.81) [vous | fin]
+         prise 1 : respiration 0.92-1.08 s (leger, +54 dB, confiance 0.68) [vous | fin]
+         prise 2 : parole en trop 0.98-1.10 s (net, +69 dB, confiance 0.89) [vous | fin]
+         prise 4 : rire 0.00-0.30 s (net, +67 dB, confiance 0.95) [début | vous]
+         prise 4 : rire 0.88-1.08 s (net, +51 dB, confiance 0.80) [vous | fin]
+         prise 5 : parole en trop 0.74-1.08 s (net, +69 dB, confiance 0.89) [vous | fin]
+         prise 7 : rire 0.74-1.05 s (net, +48 dB, confiance 0.80) [vous | fin]
+         prise 7 : bruit 1.12-1.22 s (leger, +37 dB, confiance 0.56) [vous | fin]
+         prise 8 : parole en trop 0.00-0.19 s (net, +60 dB, confiance 0.87) [début | Et]
+         prise 8 : respiration 0.25-0.47 s (net, +48 dB, confiance 0.83) [début | Et]
+         prise 9 : rire 0.70-1.14 s (net, +63 dB, confiance 0.95) [vous | fin]
+         prise 10 : respiration 0.58-0.95 s (net, +47 dB, confiance 0.84) [vous | fin]
+         prise 11 : parole en trop 0.00-0.61 s (net, +50 dB, confiance 0.95) [début | Et]
+         prise 12 : parole en trop 0.00-0.16 s (leger, +70 dB, confiance 0.75) [début | Et]
+         prise 13 : parole en trop 0.00-0.12 s (net, +72 dB, confiance 0.81) [début | Et]
+         prise 14 : respiration 0.00-0.09 s (leger, +49 dB, confiance 0.46) [début | Et]
+         prise 15 : parole en trop 0.95-1.08 s (leger, +67 dB, confiance 0.87) [vous | fin]
+    2. Vous décidez surtout en éli…   2/5    240.3  -0.25   -3.3   +0.3  0.0    7.1  1.38  1:261 2:240 3:229 4:251 5:239
+    3. Sous la Constitution de mil…   2/5    240.7  -0.22   +0.9   +1.2  3.3    6.2  1.21  1:221~ 2:241 3:233 4:225 5:234
+      passage assemblé : parole en trop 0.00-0.17 s (net, +48 dB, confiance 0.79) [début | Et]
+      ⚠ son parasite dans le passage assemblé : parole en trop 0.00-0.17 s (net, +48 dB, confiance 0.79) [début | Et]
+
+Alertes (1) :
+  aigue / institutions-intro-07 : son parasite dans le passage assemblé : parole en trop 0.00-0.17 s (net, +48 dB, confiance 0.79) [début | Et]
+
+Temps : 415 s pour 60 prise(s), 6.7 s de calcul par prise en moyenne (3.01 s d'audio) ; calcul d'une prise ≈ 0.32 s + 2.15 s par seconde d'audio. Détecteur de sons parasites : 0.101 s par prise en moyenne (au plus 0.224 s), 2% du calcul d'une prise.
+Estimation pour les 1013 passages (1853 phrases) (voix aiguë 5 prises, 20% de secours) : ~1802 min.

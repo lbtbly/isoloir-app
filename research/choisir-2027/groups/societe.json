@@ -1,0 +1,1280 @@
+{
+  "group": "societe",
+  "topics": [
+    "immigration",
+    "laicite_republique",
+    "securite_justice",
+    "numerique",
+    "societe"
+  ],
+  "candidates": [
+    {
+      "candidate": "Olivier Faure",
+      "affiliation": "Parti socialiste (Premier secrétaire depuis 2018, direction du parti confiée à Johanna Rolland pendant la campagne). Député de la 11e circonscription de Seine-et-Marne depuis 2012, conseiller municipal de Lieusaint depuis 2026.",
+      "overview": "Olivier Faure, premier secrétaire du PS, a officialisé sa candidature le 30 août 2026 au JT de 20h de TF1. Slogan : « Pour une France + juste ! ». Il défend une ligne qu'il présente lui-même comme « résolument de gauche » et « socialiste-écologique », exposée dans son livre-programme « La Loi du plus juste » (Robert Laffont, 17 septembre 2026) et dans sa profession de foi en quatre axes : Redresser la France, Vivre dignement, Réorienter l'économie, Préparer demain. Ses mesures phares sont redistributives : Smic à 1 700 € net, parité dividendes/salariés, retour à 62 ans, taxe Zucman, faire cotiser l'IA, encadrement généralisé des loyers, régularisation massive des travailleurs sans papiers et « règle d'or verte ». Sur la stratégie, il est l'artisan du NFP en 2024. Il a ensuite co-lancé une primaire unitaire de la gauche, puis perdu le vote interne du 9 juillet 2026 (44,5 % pour sa primaire ouverte). Il refuse toute alliance présidentielle ou gouvernementale avec LFI et Mélenchon, mais il est le seul grand candidat à défendre un rassemblement de toute la gauche aux législatives et les convergences parlementaires avec les Insoumis. À l'international, il utilise le mot « génocide » pour Gaza, ce qui l'oppose frontalement à Glucksmann et à Guedj, et il soutient l'Ukraine et la défense européenne. Sondages : environ 3,5 à 5 % (fin août-septembre 2026), loin derrière Glucksmann, le favori.",
+      "distinctive_vs_others": "1) Rapport à LFI. Faure est le seul des cinq à refuser d'exclure un rassemblement de toute la gauche, électeurs et forces insoumises compris, aux législatives. Il insiste sur les convergences parlementaires (« 80 % » de votes communs) tout en refusant une alliance présidentielle ou gouvernementale avec Mélenchon. Glucksmann exige la clarté et refuse toute alliance, Guedj l'accuse de « danse du ventre » devant LFI, et Royal et Maurel refusent de faire de Mélenchon le centre de la stratégie (LCP 23/09/2026 ; France 24 et L'essentiel 01/10/2026).\n\n2) Gaza. Avec Royal, il emploie le mot « génocide » ; Glucksmann (« Ce que tu fais est obscène ») et Guedj le refusent (France 24, franceinfo 01/10/2026). Il porte aussi une PPL interdisant les produits des colonies israéliennes (LCP 22/06/2026).\n\n3) Fiscalité et pouvoir d'achat. Il s'oppose frontalement à la baisse de CSG sur les salaires proposée par Glucksmann. Il défend le Smic à 1 700 €, la parité dividende/salariés, le refus de toute baisse de cotisations et la cotisation sur l'IA (franceinfo 01/10/2026 ; AFP 16-17/09/2026).\n\n4) Marqueurs « à gauche toute » pour un candidat issu de l'appareil. Il assume la régularisation massive (400 000 à 500 000), le mot « islamophobie », le « racisme structurel » dans la police, une commission vérité sur la colonisation et la légalisation du cannabis. Le projet du PS ne prévoyait pourtant qu'une convention citoyenne sur le cannabis (AFP 17/09 ; Politis 21/09/2026).\n\n5) Positionnement contre le centre. Il refuse un « Fillon 2 ou Macron 3 » et reproche à Glucksmann de s'entourer d'anciens macronistes (Politis 21/09 ; débat du 01/10).\n\n6) Nucléaire. Il propose 2 à 4 EPR2 seulement, avec priorité forte aux renouvelables (UFE 23/06/2026). C'est une position plus restrictive que celle des pro-nucléaires du PS et de la GRS (le positionnement précis de Maurel est à vérifier dans son propre dossier).\n\n7) Légitimité. Il est le seul candidat chef de parti en exercice. Il revendique d'avoir « repris le parti quand il était dans la poussière » mais a été désavoué par ses adhérents sur le format de la primaire (juillet 2026). Il est crédité d'environ 5 % des intentions de vote, loin derrière Glucksmann (environ 10-14 %).\n\nPoints communs : avec Maurel, il refuse l'annulation de la dette (LCP 23/09) ; tous les candidats jugent Bardella « disqualifié » après les révélations de Mediapart (01-02/10/2026).",
+      "signature_proposals": [
+        {
+          "proposal": "Régularisation massive des travailleurs sans papiers (de l'ordre de 400 000 à 500 000)",
+          "topic_id": "immigration",
+          "source_url": "https://www.boursorama.com/actualite-economique/actualites/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions-e0f504871547edbc6960940d9c6e1fd9"
+        },
+        {
+          "proposal": "Légaliser le cannabis pour assécher les réseaux de narcotrafic",
+          "topic_id": "securite_justice",
+          "source_url": "https://www.politis.fr/articles/2026/09/olivier-faure-je-ne-vois-pas-ce-qui-pourrait-conduire-vers-une-autre-decision-que-la-censure/"
+        },
+        {
+          "proposal": "Commission « vérité et réconciliation » sur la colonisation",
+          "topic_id": "laicite_republique",
+          "source_url": "https://www.boursorama.com/actualite-economique/actualites/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions-e0f504871547edbc6960940d9c6e1fd9"
+        }
+      ],
+      "topics": [
+        {
+          "topic_id": "securite_justice",
+          "found": true,
+          "positions": [
+            {
+              "position": "Il veut légaliser le cannabis pour assécher les réseaux de narcotrafic en les privant de leur produit d'appel.",
+              "kind": "proposition_explicite",
+              "short_quote": "légalisation du cannabis pour asphyxier les filières",
+              "source_url": "https://www.politis.fr/articles/2026/09/olivier-faure-je-ne-vois-pas-ce-qui-pourrait-conduire-vers-une-autre-decision-que-la-censure/",
+              "source_title": "Entretien Politis",
+              "source_date": "2026-09-21",
+              "details": "Le projet du PS se contente de proposer une convention citoyenne sur la légalisation : la position personnelle de Faure va plus loin.",
+              "confidence": "high"
+            },
+            {
+              "position": "Il s'oppose à la présomption de légitime défense pour les forces de l'ordre, qu'il présente comme une vieille revendication de Le Pen. Il a voté contre la proposition de loi le 7 juillet 2026.",
+              "kind": "inference",
+              "source_url": "https://datan.fr/votes/legislature-17/vote_7987",
+              "source_title": "Datan – PPL visant à reconnaître une présomption de légitime défense pour les forces de l'ordre",
+              "source_date": "2026-07-07",
+              "details": "Critique explicite dans Politis (21/09/2026).",
+              "confidence": "high"
+            },
+            {
+              "position": "Il affirme l'existence d'un « racisme structurel au sein des forces de police » et demande de reconnaître les contrôles au faciès et les discriminations.",
+              "kind": "position_declaree",
+              "short_quote": "un racisme structurel au sein des forces de police",
+              "source_url": "https://www.france24.com/fr/info-en-continu/20260917-olivier-faure-%C3%A0-gauche-toute-pour-la-primaire",
+              "source_title": "Olivier Faure, « à gauche toute » pour la primaire (AFP / France 24)",
+              "source_date": "2026-09-17",
+              "details": "Le projet du PS prévoit des récépissés de contrôle d'identité, une IGPN/IGGN indépendante ou une autorité externe de contrôle, et des places de prison supplémentaires pour des conditions de détention dignes.",
+              "confidence": "high"
+            },
+            {
+              "position": "Il a qualifié de « voyous en uniforme » des gendarmes filmés lors de violences à Sainte-Soline en 2023 et a demandé quelles sanctions avaient été prises. Il a ensuite précisé ne viser que les gendarmes identifiés, pas toute la gendarmerie.",
+              "kind": "position_declaree",
+              "source_url": "https://www.epochtimes.fr/voyous-en-uniforme-laurent-nunez-accuse-olivier-faure-de-jeter-en-pature-les-gendarmes-3330705.html",
+              "source_title": "« Voyous en uniforme » : Laurent Nuñez accuse Olivier Faure (Epoch Times)",
+              "source_date": "2026-08-21",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "immigration",
+          "found": true,
+          "positions": [
+            {
+              "position": "Il veut une régularisation massive des travailleurs sans papiers, sur le modèle espagnol. Il dit ne pas être choqué par le chiffre de 500 000 régularisations.",
+              "kind": "proposition_explicite",
+              "short_quote": "le chiffre de 500.000 régularisations ne (le) choque pas",
+              "source_url": "https://www.boursorama.com/actualite-economique/actualites/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions-e0f504871547edbc6960940d9c6e1fd9",
+              "source_title": "Smic à 1.700 euros, régularisation des travailleurs sans papiers, retraites : Faure développe ses propositions (AFP)",
+              "source_date": "2026-09-16",
+              "details": "Le chiffre varie selon les sources. L'AFP parle de 500 000. Public Sénat (17/09/2026) et Wikipédia parlent de « régulariser 400 000 travailleurs ». Le chiffre exact du livre reste à vérifier.",
+              "confidence": "high"
+            },
+            {
+              "position": "Il veut régulariser et intégrer les sans-papiers par le travail, avec un titre de séjour pour les étrangers ayant un contrat de travail d'au moins six mois. Le projet du PS ajoute le droit au travail dès le dépôt d'une demande d'asile, 30 000 places d'hébergement, la réforme de Dublin avec répartition obligatoire et le refus des « hubs de retour ».",
+              "kind": "inference",
+              "source_url": "https://projet-socialiste.fr/projet/refaire-societe/",
+              "source_title": "Le Projet socialiste – Immigration et asile",
+              "source_date": "2026",
+              "confidence": "medium"
+            },
+            {
+              "position": "Il s'oppose à la « préférence nationale » et au délai de carence pour les prestations sociales versées aux étrangers que le budget 2027 introduirait.",
+              "kind": "position_declaree",
+              "source_url": "https://www.politis.fr/articles/2026/09/olivier-faure-je-ne-vois-pas-ce-qui-pourrait-conduire-vers-une-autre-decision-que-la-censure/",
+              "source_title": "Entretien Politis",
+              "source_date": "2026-09-21",
+              "confidence": "high"
+            },
+            {
+              "position": "Il a voté contre la restriction du droit du sol à Mayotte (6 février 2025) et contre la loi immigration (19 décembre 2023).",
+              "kind": "inference",
+              "source_url": "https://datan.fr/votes/legislature-17/vote_697",
+              "source_title": "Datan – vote sur le droit du sol à Mayotte",
+              "source_date": "2025-02-06",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "topic_id": "laicite_republique",
+          "found": true,
+          "positions": [
+            {
+              "position": "Il propose une commission « vérité et réconciliation » sur la colonisation.",
+              "kind": "proposition_explicite",
+              "short_quote": "Une nation n'est pas diminuée lorsqu'elle regarde son histoire en face",
+              "source_url": "https://www.boursorama.com/actualite-economique/actualites/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions-e0f504871547edbc6960940d9c6e1fd9",
+              "source_title": "Faure développe ses propositions (AFP / Boursorama)",
+              "source_date": "2026-09-16",
+              "details": "Le projet du PS propose aussi de qualifier la colonisation de crime contre l'humanité et de créer une fondation nationale pour l'histoire de la colonisation.",
+              "confidence": "high"
+            },
+            {
+              "position": "Il emploie franchement le terme « islamophobie », que d'autres au PS refusent d'utiliser.",
+              "kind": "position_declaree",
+              "source_url": "https://www.france24.com/fr/info-en-continu/20260917-olivier-faure-%C3%A0-gauche-toute-pour-la-primaire",
+              "source_title": "Olivier Faure, « à gauche toute » pour la primaire (AFP / France 24)",
+              "source_date": "2026-09-17",
+              "confidence": "high"
+            },
+            {
+              "position": "Sur l'antisémitisme, il juge « inexcusables » les dérapages de Mélenchon. Après les écrits antisémites attribués à Jordan Bardella et révélés par Mediapart, il estime que Bardella « ment » et ne peut plus prétendre à Matignon.",
+              "kind": "position_declaree",
+              "short_quote": "son antisémitisme et le mensonge en politique",
+              "source_url": "https://www.france24.com/fr/info-en-continu/20261002-pour-faure-bardella-ment-et-ne-peut-plus-pr%C3%A9tendre-%C3%A0-matignon",
+              "source_title": "Pour Faure, Bardella « ment » et ne peut plus prétendre à Matignon (AFP / France 24, RTL)",
+              "source_date": "2026-10-02",
+              "details": "Lors du débat du 23/09, il a aussi critiqué Royal, jugeant problématique de demander aux Juifs de se justifier de la politique israélienne (JDN, 24/09/2026).",
+              "confidence": "high"
+            },
+            {
+              "position": "Le projet du PS prévoit un Défenseur de la laïcité au sein du Défenseur des droits, de reprendre le contrôle des écoles privées sous contrat, d'encadrer le hors-contrat, de faire de la DILCRAH une autorité indépendante et de généraliser le testing. Faure n'a pas pris de position personnelle sourcée sur le voile.",
+              "kind": "inference",
+              "source_url": "https://projet-socialiste.fr/projet/refaire-societe/",
+              "source_title": "Le Projet socialiste – Refaire société",
+              "source_date": "2026",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "numerique",
+          "found": true,
+          "positions": [
+            {
+              "position": "Il veut faire contribuer l'IA (« dividende IA ») au financement de la protection sociale, au motif que les entreprises économisent salaires et cotisations grâce à l'automatisation.",
+              "kind": "proposition_explicite",
+              "source_url": "https://www.21news.be/olivier-faure-dans-une-entreprise-ou-il-y-a-dix-comptables-demain-avec-lia-il-ny-en-aura-peut-etre-plus-quun-seul/",
+              "source_title": "Olivier Faure : « Dans une entreprise où il y a dix comptables… » (21news)",
+              "source_date": "2026-09-26",
+              "details": "Il ne précise ni taux ni seuil.",
+              "confidence": "high"
+            },
+            {
+              "position": "Il fait de la souveraineté numérique l'un de ses trois grands défis industriels.",
+              "kind": "proposition_explicite",
+              "source_url": "https://www.france24.com/fr/info-en-continu/20260917-olivier-faure-%C3%A0-gauche-toute-pour-la-primaire",
+              "source_title": "AFP / France 24",
+              "source_date": "2026-09-17",
+              "confidence": "high"
+            },
+            {
+              "position": "Il s'est abstenu, contre la consigne de son groupe qui votait pour, sur le texte final de la PPL visant à protéger les mineurs des risques des réseaux sociaux (21/07/2026). Le Conseil constitutionnel a ensuite censuré l'interdiction avant 15 ans. Les raisons de son abstention n'ont pas été trouvées.",
+              "kind": "inference",
+              "source_url": "https://datan.fr/votes/legislature-17/vote_8431",
+              "source_title": "Datan – PPL visant à protéger les mineurs des risques des réseaux sociaux (CMP)",
+              "source_date": "2026-07-21",
+              "confidence": "medium"
+            },
+            {
+              "position": "Le projet du PS prévoit une taxe GAFAM à 10 %, un pôle public de l'IA autour de l'INRIA, l'étiquetage obligatoire des contenus générés par IA et une présomption d'utilisation des œuvres pour l'entraînement des IA.",
+              "kind": "inference",
+              "source_url": "https://projet-socialiste.fr/projet/vivre-libres/",
+              "source_title": "Le Projet socialiste – Progrès technique",
+              "source_date": "2026",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "societe",
+          "found": true,
+          "positions": [
+            {
+              "position": "Il a voté pour la proposition de loi créant un droit à l'aide à mourir à toutes les lectures, y compris la lecture définitive du 15 juillet 2026, ainsi que pour le texte sur les soins palliatifs.",
+              "kind": "inference",
+              "source_url": "https://datan.fr/votes/legislature-17/vote_8280",
+              "source_title": "Datan – PPL créant un droit à l'aide à mourir (lecture définitive)",
+              "source_date": "2026-07-15",
+              "confidence": "high"
+            },
+            {
+              "position": "Augmenter le financement public de la culture et de la création, et créer un grand service public de la lecture.",
+              "kind": "proposition_explicite",
+              "source_url": "https://avecfaure2027.fr/mes-propositions",
+              "source_title": "Mes propositions – Avec Olivier Faure 2027",
+              "source_date": "2026-09",
+              "details": "Le service public de la lecture a été évoqué à Blois (France 24, 29/08/2026). Le projet du PS vise 2 % du budget pour la culture et l'information, et défend un audiovisuel public renforcé sans holding.",
+              "confidence": "high"
+            },
+            {
+              "position": "Il a voté pour l'inscription de l'IVG dans la Constitution (mars 2024).",
+              "kind": "inference",
+              "source_url": "https://datan.fr/deputes/seine-et-marne-77/depute_olivier-faure/votes",
+              "source_title": "Datan – votes d'Olivier Faure",
+              "source_date": "2024-03-04",
+              "confidence": "high"
+            },
+            {
+              "position": "Le projet du PS prévoit la sécurisation des familles LGBTQIA+, la rectification de la mention de genre par simple démarche administrative et l'interdiction des thérapies de conversion en Europe. Aucune position personnelle sourcée de Faure n'a été trouvée sur la GPA.",
+              "kind": "inference",
+              "source_url": "https://projet-socialiste.fr/projet/refaire-societe/",
+              "source_title": "Le Projet socialiste – LGBTQIA+",
+              "source_date": "2026",
+              "confidence": "low"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "candidate": "Raphaël Glucksmann",
+      "affiliation": "Place publique (co-président), eurodéputé du groupe S&D depuis 2019, réélu en 2024 comme tête de liste PS-Place publique (13,8 %). Il est candidat de Place publique à la primaire « Choisir 2027 » organisée avec le PS (et, selon la page de Place publique, la GRS).",
+      "overview": "Raphaël Glucksmann, 46 ans, eurodéputé et co-président de Place publique, a déclaré sa candidature le 23 août 2026 sur TF1. Il défend une ligne sociale-démocrate, écologiste et fédéraliste européenne. Son marqueur stratégique est la rupture avec La France insoumise : aucun accord à la présidentielle ni aux législatives. Sa mesure phare de pouvoir d'achat est une baisse de la CSG (ou des prélèvements salariaux) pour augmenter le salaire net. Elle serait financée par une hausse de la fiscalité sur les « méga-héritages » (successions de plus de 2 M€, réforme du pacte Dutreil, 15 Md€ par an). Il propose aussi un plan de sauvetage de l'école publique, un service civique obligatoire de 10 mois et une convention citoyenne sur l'immigration. Il veut des « 100 jours de révolution écologique », confiés à Yannick Jadot, et un pro-nucléaire assumé accompagné d'un plan massif pour les renouvelables. En Europe, il veut un saut fédéral : fin du droit de veto et emprunt commun de 500 Md€ pour la défense. Sur la Russie, il tient la ligne la plus offensive : aide militaire accrue à l'Ukraine. Sur Gaza, il refuse le terme de « génocide » tout en s'opposant à Netanyahou et en défendant deux États. Son corpus programmatique repose sur l'« Acte I » de Place publique (42 chantiers, juin 2025), le livre « Nous avons encore envie. Pour un sursaut patriotique » (Allary, mai 2026), sa « lettre aux Français » (25 août 2026) et les débats de la primaire.",
+      "distinctive_vs_others": "(1) Alliances. C'est le seul candidat à exclure formellement tout accord avec LFI à la fois à la présidentielle et aux législatives, avec des candidats partout. Guedj est aussi hostile aux accords ; Faure défend des « convergences » (80 % de votes communs à l'Assemblée) ; Maurel soutient un front républicain incluant LFI face à Le Pen ; Royal refuse LFI mais aussi le centre (LCP, 24/09/2026). Il fait de cette « clarification » le cœur de sa candidature et accuse Faure d'« esprit de défaite ».\n\n(2) Pouvoir d'achat. Sa mesure phare, la baisse de la CSG sur les salaires financée par les méga-héritages, l'isole : Faure la juge limitée, Royal « dangereuse », Guedj y voit une menace pour la Sécurité sociale (débat du 01/10/2026). Sur les carburants, il défend une aide ciblée (chèque énergie triplé), là où Royal et Guedj proposent une baisse générale des taxes.\n\n(3) Retraites. Il ne fixe aucun âge légal : la réforme serait fondée sur la pénibilité et l'espérance de vie en bonne santé. Faure vise un retour à 62 ans ; Guedj veut une logique de durée de cotisation (Public Sénat, 30/09/2026 ; franceinfo, 30/09/2026).\n\n(4) International. C'est la ligne la plus offensive contre la Russie (protection du ciel ukrainien, hausse de l'aide), face à Royal qui prône l'équilibre et la négociation. Sur Gaza, il refuse le mot « génocide », comme Guedj, et s'oppose vivement à Faure et à Royal.\n\n(5) Europe. Il est le plus fédéraliste : fin du veto, traité de refondation d'ici 2030, emprunt de 500 Md€. Maurel prône au contraire la « démondialisation » et un « emprunt national » (LCP, 23/09/2026).\n\n(6) Profil. Seul candidat issu de Place publique et sans mandat national ni exécutif. Royal l'a qualifié de « stagiaire ». Il est soutenu par des figures du PS (Vallaud, Delga, Mayer-Rossignol, Delafosse) et par l'écologiste Yannick Jadot.\n\n(7) Propositions qui lui sont propres dans les sources consultées : service civique obligatoire de 10 mois, convention citoyenne sur l'immigration, extension de la dissuasion nucléaire française aux partenaires de l'UE, bannissement de TikTok.",
+      "signature_proposals": [
+        {
+          "proposal": "Convention citoyenne tirée au sort sur l'immigration, dont les propositions seraient soumises au Parlement.",
+          "topic_id": "immigration",
+          "source_url": "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme"
+        },
+        {
+          "proposal": "Interdire les réseaux sociaux aux moins de 15 ans et bannir TikTok.",
+          "topic_id": "numerique",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf"
+        }
+      ],
+      "topics": [
+        {
+          "topic_id": "securite_justice",
+          "found": true,
+          "positions": [
+            {
+              "position": "Faire renaître une police de proximité moderne, centrée sur la prévention et la médiation. Améliorer les conditions de travail des policiers et supprimer l'échelon zonal de la police nationale.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 29 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Narcotrafic : renforcer les moyens d'enquête (effectifs spécialisés, service national de renseignement criminel, cyber-enquête) et frapper au portefeuille (TRACFIN, office national anti-blanchiment, parquet financier européen).",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 29 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Organiser une convention citoyenne sur la politique des drogues, notamment sur la légalisation du cannabis. Il ne tranche donc pas lui-même la question.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 29 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "high"
+            },
+            {
+              "position": "Revoir la doctrine du maintien de l'ordre et généraliser les récépissés de contrôle d'identité.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantiers 29 et 40 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Justice : « choc » de justice de proximité, doublement des Maisons du droit, recours massif à la justice restaurative et aux TIG. Lutte contre la surpopulation carcérale par l'adaptation des peines et des prisons rénovées.",
+              "kind": "proposition_explicite",
+              "details": "L'Acte I prévoit aussi la hausse des effectifs judiciaires et pénitentiaires et le jugement en France des djihadistes rapatriés. Aucune position trouvée sur la vidéosurveillance ou les peines planchers.",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 30 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "immigration",
+          "found": true,
+          "positions": [
+            {
+              "position": "Organiser une convention citoyenne sur l'immigration : citoyens tirés au sort confrontés aux données démographiques, économiques et sécuritaires, débouchant sur des propositions soumises au Parlement.",
+              "kind": "proposition_explicite",
+              "short_quote": "Non, l'immigration zéro n'est ni souhaitable, ni possible",
+              "source_url": "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme",
+              "source_title": "Présidentielle : Raphaël Glucksmann dévoile les premières lignes de son possible programme (LCP)",
+              "source_date": "2026-05-26",
+              "confidence": "high"
+            },
+            {
+              "position": "Régulariser les travailleurs sans papiers, notamment dans les métiers en tension, et faciliter les démarches de régularisation.",
+              "kind": "proposition_explicite",
+              "details": "Livre de mai 2026 selon Libre Journal ; l'Acte I (chantier 41) prévoit aussi de « faciliter les démarches de régularisation des travailleurs sans papiers ».",
+              "source_url": "https://librejournal.fr/article/glucksmann-se-devoile/",
+              "source_title": "Glucksmann se dévoile (Libre Journal)",
+              "source_date": "2026-05-25",
+              "confidence": "medium"
+            },
+            {
+              "position": "Abroger la loi immigration de 2024 et faire de la carte de séjour pluriannuelle le titre de référence.",
+              "kind": "proposition_explicite",
+              "details": "Non réaffirmé explicitement en 2026 dans les sources consultées.",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 41 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Guichets uniques pour les primo-arrivants sur le modèle portugais, cours de français universels jusqu'au niveau A2 et droit au travail dès l'enregistrement de la demande d'asile.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 41 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Échelle européenne : force européenne de sauvetage en mer et « devoir de sauver », harmonisation de l'asile et fin du système de Dublin, refus d'externaliser les politiques migratoires.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 41 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Créer des voies légales d'immigration de travail liées par accords bilatéraux à la réadmission (laissez-passer consulaires). Mettre fin à la « politique du chiffre » sur les OQTF tout en appliquant celles qui sont délivrées.",
+              "kind": "proposition_explicite",
+              "details": "L'Acte I prévoit aussi le droit de vote des étrangers aux élections locales. Aucune position trouvée sur l'AME ou le droit du sol dans les sources vérifiées.",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 41 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "laicite_republique",
+          "found": true,
+          "positions": [
+            {
+              "position": "Défendre la laïcité comme principe d'émancipation (« droit de sortie »), la garantir à l'école et abolir progressivement les régimes dérogatoires à la loi de 1905 et aux lois laïques scolaires.",
+              "kind": "proposition_explicite",
+              "details": "Le texte ne nomme pas l'Alsace-Moselle, mais l'abolition des régimes dérogatoires la vise de fait. Il prévoit aussi de renforcer la MIVILUDES. Aucune position trouvée sur le voile.",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 36 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Lutte contre l'antisémitisme comme marqueur : il reproche à LFI des « jeux de mots sur les noms juifs ». Il juge Jordan Bardella « disqualifié » après les accusations de propos antisémites.",
+              "kind": "position_declaree",
+              "details": "Au débat du 01/10/2026, il relie l'affaire Bardella aux vidéos de Soral et dénonce la « tentation » des élites de normaliser le RN. L'Acte I propose une formation obligatoire des parlementaires sur l'antisémitisme et le racisme, des commissions d'enquête, et le maintien de la protection des lieux juifs et musulmans.",
+              "source_url": "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html",
+              "source_title": "Sept séquences à retenir du débat de la primaire de la gauche (franceinfo)",
+              "source_date": "2026-10-01",
+              "confidence": "high"
+            },
+            {
+              "position": "Discriminations : renforcer le Défenseur des droits (injonctions contraignantes, sanctions sur le modèle de la CNIL), formation obligatoire des forces de l'ordre et des magistrats, et renforcement de l'ARCOM contre la haine.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 40 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "« Contrat patriotique » et « sursaut patriotique » : discours républicain et patriote assumé à gauche, visant aussi les électeurs du RN.",
+              "kind": "position_declaree",
+              "details": "Sous-titre du livre de mai 2026. Ses critiques de gauche (LFI, Révolution permanente) l'accusent de reprendre des thèmes de droite ; ces qualifications sont partisanes.",
+              "source_url": "https://allary-editions.fr/products/raphael-glucksmann-nous-avons-encore-envie",
+              "source_title": "Nous avons encore envie. Pour un sursaut patriotique (Allary Éditions)",
+              "source_date": "2026-05-28",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "numerique",
+          "found": true,
+          "positions": [
+            {
+              "position": "Interdire les réseaux sociaux aux moins de 15 ans et bannir TikTok.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 8 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "high"
+            },
+            {
+              "position": "Faire de la souveraineté numérique « le grand combat anticapitaliste » de la gauche contre les géants de la tech, en citant Elon Musk, Sam Altman et Zhang Yiming.",
+              "kind": "position_declaree",
+              "source_url": "https://www.france24.com/fr/france/20260614-présidentielle-2027-en-meeting-glucksmann-veut-ramener-la-gauche-au-pouvoir",
+              "source_title": "Présidentielle 2027 : en meeting, Glucksmann veut ramener la gauche au pouvoir (France 24)",
+              "source_date": "2026-06-14",
+              "confidence": "high"
+            },
+            {
+              "position": "Sortir de la dépendance aux GAFAM en 5 ans grâce à un fonds souverain européen pour les alternatives libres. Régulation renforcée et sanctions contre les abus de position dominante.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 8 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Autorité indépendante de protection des mineurs en ligne (sur le modèle de la KJM allemande) avec vérification d'âge, et règles strictes contre les algorithmes addictifs.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 8 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "IA : grande Agence industrielle du numérique et de l'IA financée notamment par une hausse ciblée de la taxe GAFAM, accélérateur pour une « IA sûre » et traité international sur les usages à très haut risque.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 7 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Créer un délit de désinformation organisée dans la loi de 1881. Financer la presse par une taxe sur les géants du numérique et limiter la concentration des médias (réforme de la loi de 1986).",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 21 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "societe",
+          "found": true,
+          "positions": [
+            {
+              "position": "Plan contre les violences sexistes et sexuelles inspiré de l'Espagne, doté d'1 Md€ : unités spécialisées, ordonnances de protection accélérées, bracelets anti-rapprochement généralisés.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 38 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Inscrire dans la loi que toute pénétration sexuelle non consentie est un viol, et soutenir une définition européenne fondée sur le consentement.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 38 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Contraception gratuite, remboursement des protections périodiques, congé menstruel, droit opposable à la garde d'enfant, réforme égalitaire du congé parental et inscription de l'IVG dans la Charte des droits fondamentaux de l'UE.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 38 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Droits LGBTQIA+ : aligner les droits de filiation sur ceux des couples hétérosexuels, harmoniser la PMA en Europe, garantir l'autodétermination de genre et interdire les thérapies de conversion dans toute l'UE.",
+              "kind": "proposition_explicite",
+              "details": "Aucune position vérifiée trouvée sur la GPA.",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 39 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Culture et audiovisuel : renforcer le service public de l'audiovisuel avec un financement stable. Pacte d'aménagement culturel du territoire et suppression de la part individuelle du pass Culture au profit d'artistes intervenant à l'école.",
+              "kind": "proposition_explicite",
+              "details": "Également : statut des artistes-auteurs, protection du droit d'auteur face à l'IA générative et exclusion de la culture des accords de libre-échange. Côté sport : plan « Sport pour tous » et contribution solidaire sur les transferts. Aucune position vérifiée trouvée sur la fin de vie (aide à mourir).",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantiers 21, 35 et 37 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "candidate": "Jérôme Guedj",
+      "affiliation": "Parti socialiste. Député de la 6e circonscription de l'Essonne depuis 2022, groupe Socialistes et apparentés, membre de la commission des affaires sociales. Ancien assistant parlementaire de Jean-Luc Mélenchon, élu en 2022 sous l'étiquette NUPES, il a refusé le label NFP en 2024. Il a déclaré sa candidature présidentielle hors primaire le 5 février 2026, puis a rejoint la primaire « Choisir 2027 » fin août 2026 (le 23 août selon Wikipédia FR). Il a annoncé ses parrainages le 15 septembre 2026.",
+      "overview": "Jérôme Guedj se présente comme le candidat d'une gauche « républicaine, universaliste, écologiste, européenne et laïque ». Son slogan est « La République, c'est nous ! », titre de son livre paru le 27 août 2026. Sa ligne stratégique est la plus anti-LFI des cinq candidats : aucune alliance avec La France insoumise, « plus jamais ». Il rappelle avoir refusé l'accord NFP en 2024 et assume un « compromis » avec le centre, voire avec une partie de la droite, face à l'extrême droite. Spécialiste des questions sociales, il fait de la « République du soin » sa première priorité : Sécurité sociale intégrale ou « Grande Sécu » (un seul payeur pour les soins essentiels), extension à tout le pays du régime local d'Alsace-Moselle, critères d'installation des médecins et financement du grand âge. Sur les retraites, il veut « sortir de l'âge légal » au profit d'un système fondé sur les annuités et la pénibilité, avec un âge du taux plein abaissé. Il accepte, sous conditions, une sous-indexation des pensions les plus élevées et une hausse de la CSG sur ces pensions. Côté recettes, il propose d'alourdir les droits de succession au-delà de 2 M€ (environ 10 Md€ par an pour l'autonomie) et un « ISF climatique ». Sur l'immigration, il veut une immigration « planifiée par le Parlement », avec apprentissage obligatoire de la langue. Sur la laïcité, il propose un Défenseur de la laïcité, autorité indépendante, et a reçu en juillet 2026 une mission du Premier ministre Lecornu. À l'international, il soutient fermement l'Ukraine et défend la solution à deux États. Il refuse le terme « génocide » pour Gaza et parle de crimes de guerre et de crimes contre l'humanité.",
+      "distinctive_vs_others": "1) Stratégie : avec Glucksmann, il porte la ligne la plus fermement anti-LFI (« plus jamais » d'alliance). Il va plus loin en accusant Faure et Royal de « soumission » à LFI et Faure d'une « danse du ventre permanente » (Orange/AFP 24/09/2026 ; LCP 01/10/2026). Il se dit le seul à avoir refusé l'accord NFP en 2024, alors que Maurel assume son élection de 2024 sous la bannière NFP (Public Sénat 24/09/2026). Il est aussi le seul à revendiquer explicitement un « compromis » avec le centre, « voire une partie de la droite » (AFP 17/09/2026).\n\n2) Retraites : c'est le seul des cinq, dans les sources consultées, à proposer de sortir de l'âge légal au profit des annuités et de la pénibilité (BFMTV/Capital 12/09/2026). Il accepte aussi, sous conditions, une sous-indexation des hautes pensions et une hausse de la CSG sur ces pensions (L'Opinion, août 2026 ; AFP 17/09/2026), ce qui le distingue d'une gauche attachée à l'indexation de toutes les pensions.\n\n3) Santé : il fait de la santé son marqueur. Il défend la Sécurité sociale intégrale ou « Grande Sécu » et se dit le « seul candidat » à avoir parlé de santé au débat LCI (X, 23/09/2026). Il veut étendre le régime d'Alsace-Moselle à tout le pays (Moselle TV 29/09/2026). Au débat du 01/10, il s'oppose à la baisse de CSG proposée par Glucksmann (Entrevue 02/10/2026).\n\n4) Immigration : sa ligne est plus restrictive que celle de Faure, qui prône une régularisation massive (500 000 régularisations ne le « choquent » pas, selon l'AFP). Guedj veut une immigration « planifiée par le Parlement » et critique « l'angélisme moral » de la gauche (AFP 17/09/2026).\n\n5) Laïcité : il est le candidat le plus identifié sur le sujet. Ancien secrétaire national du PS à la laïcité, il a reçu une mission Lecornu en juillet 2026 et a déposé la proposition de loi constitutionnelle n°2000 pour un Défenseur de la laïcité. Il combine fermeté face à l'islamisme et refus de l'interdiction du voile dans l'espace public (BFMTV 18/09 et 31/08/2026).\n\n6) Gaza : comme Glucksmann et contrairement à Faure et Royal, il refuse le mot « génocide ». Contrairement à Faure et Maurel, il ne demande pas la suspension de l'accord UE-Israël mais l'utilisation de ses leviers commerciaux contre le gouvernement israélien (Times of Israel 24/09/2026).\n\n7) Carburants : il rejoint Royal sur la baisse de la fiscalité et Maurel sur le plafonnement des marges des raffineurs (Public Sénat 24/09 ; Entrevue 02/10/2026).\n\n8) SMIC : son montant de 1 700 € est le même que celui de Faure (1 700 € net), ce qui le rend peu distinctif sur ce point.",
+      "signature_proposals": [
+        {
+          "proposal": "Immigration « planifiée par le Parlement » selon les capacités d'accueil et les besoins de l'économie, avec apprentissage obligatoire de la langue et lutte contre les discriminations à l'emploi et au logement.",
+          "topic_id": "immigration",
+          "source_url": "https://www.jeromeguedj2027.fr/"
+        },
+        {
+          "proposal": "Création d'un Défenseur de la laïcité, autorité indépendante, et définition constitutionnelle de la laïcité.",
+          "topic_id": "laicite_republique",
+          "source_url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b2000_proposition-loi"
+        }
+      ],
+      "topics": [
+        {
+          "topic_id": "securite_justice",
+          "found": true,
+          "positions": [
+            {
+              "position": "Renforcer la police et la justice.",
+              "kind": "position_declaree",
+              "details": "Lettre de campagne. Aucune mesure chiffrée (effectifs, prisons, peines) ni position trouvée sur le cannabis.",
+              "source_url": "https://www.jeromeguedj2027.fr/lettre",
+              "source_title": "Lettre / profession de foi de Jérôme Guedj",
+              "source_date": "2026",
+              "confidence": "medium"
+            },
+            {
+              "position": "Combattre l'islamisme et la radicalisation par des moyens juridiques, pénaux, de renseignement, de prévention et de déradicalisation, en le distinguant nettement de la pratique de l'islam.",
+              "kind": "position_declaree",
+              "source_url": "https://entrevue.fr/presidentielle-2027/jerome-guedj-lislam-est-compatible-avec-la-republique/",
+              "source_title": "Jérôme Guedj : « L'islam est compatible avec la République » (Entrevue, d'après BFMTV)",
+              "source_date": "2026-09-18",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "immigration",
+          "found": true,
+          "positions": [
+            {
+              "position": "Une immigration « planifiée par le Parlement », en fonction des capacités d'accueil et des besoins réels de l'économie. Il évite le mot « quotas » mais reproche à la gauche son « angélisme moral » sur ce sujet.",
+              "kind": "proposition_explicite",
+              "short_quote": "planifiée par le Parlement, en fonction de nos capacités d'accueil",
+              "details": "Il ne fixe ni volumes ni critères. Il y associe la lutte contre les discriminations à l'embauche et la revalorisation des salaires dans les secteurs concernés.",
+              "source_url": "https://www.boursorama.com/actualite-economique/actualites/primaire-a-gauche-guedj-veut-repousser-les-frontieres-du-ps-au-risque-de-l-isolement-0938091ba9ae98269b3524add32329ab",
+              "source_title": "Primaire à gauche: Guedj veut repousser les frontières du PS, au risque de l'isolement (AFP via Boursorama)",
+              "source_date": "2026-09-17",
+              "confidence": "high"
+            },
+            {
+              "position": "« Planifier l'immigration, réussir l'intégration » : une immigration alignée sur les besoins économiques, avec simplification administrative, apprentissage obligatoire de la langue et lutte contre les discriminations à l'emploi et au logement.",
+              "kind": "proposition_explicite",
+              "details": "Engagement n°7 du site de campagne. La lettre précise le maintien du droit d'asile.",
+              "source_url": "https://www.jeromeguedj2027.fr/",
+              "source_title": "Site de campagne Jérôme Guedj 2027 – 7 engagements",
+              "source_date": "2026",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "topic_id": "laicite_republique",
+          "found": true,
+          "positions": [
+            {
+              "position": "Créer un Défenseur de la laïcité, autorité indépendante sur le modèle du Défenseur des droits, au service des administrations et des citoyens, et inscrire une définition de la laïcité dans la Constitution.",
+              "kind": "proposition_explicite",
+              "details": "Proposition de loi constitutionnelle n°2000 déposée le 23/10/2025, rejetée en commission en décembre 2025 selon LCP. Reprise dans l'engagement n°3 du site (services publics et entreprises).",
+              "source_url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b2000_proposition-loi",
+              "source_title": "Proposition de loi constitutionnelle portant création d'un Défenseur de la laïcité et définition de ce principe, n°2000 (Assemblée nationale)",
+              "source_date": "2025-10-23",
+              "confidence": "high"
+            },
+            {
+              "position": "Chargé par décret du 07/07/2026, par le Premier ministre Sébastien Lecornu, d'une mission temporaire sur l'application, la défense et la promotion de la laïcité.",
+              "kind": "position_declaree",
+              "source_url": "https://lcp.fr/actualites/le-depute-socialiste-jerome-guedj-charge-d-une-mission-sur-la-laicite-par-sebastien",
+              "source_title": "Le député socialiste Jérôme Guedj chargé d'une mission sur la laïcité par Sébastien Lecornu (LCP)",
+              "source_date": "2026-07",
+              "confidence": "high"
+            },
+            {
+              "position": "Affirme que l'islam est compatible avec la République et que la laïcité protège les religions comme les non-croyants. Il refuse d'assimiler les musulmans de France à l'islamisme.",
+              "kind": "position_declaree",
+              "short_quote": "l'islam est compatible avec la République",
+              "source_url": "https://entrevue.fr/presidentielle-2027/jerome-guedj-lislam-est-compatible-avec-la-republique/",
+              "source_title": "Jérôme Guedj : « L'islam est compatible avec la République » (Entrevue, d'après BFMTV)",
+              "source_date": "2026-09-18",
+              "confidence": "high"
+            },
+            {
+              "position": "S'oppose à l'interdiction du voile dans l'espace public par référendum proposée par Marine Le Pen et le RN : contraire à la laïcité et contre-productive face à la radicalisation.",
+              "kind": "position_declaree",
+              "short_quote": "On ne va pas faire la chasse aux personnes qui expriment leur religion",
+              "source_url": "https://www.titrespresse.com/20058212603/jerome-guedj-pen",
+              "source_title": "Jérôme Guedj réagit à la proposition du RN (référendum sur le voile), d'après BFMTV",
+              "source_date": "2026-08-31",
+              "confidence": "medium"
+            },
+            {
+              "position": "Lutte contre l'antisémitisme au cœur de sa campagne. Il a rompu avec Mélenchon, qu'il accuse d'antisémitisme (« salopard antisémite » en juin 2025 : il a regretté le mot mais maintenu l'accusation), et refuse toute injonction faite aux Juifs de France.",
+              "kind": "position_declaree",
+              "details": "Times of Israel, 16/06/2025 ; débat du 23/09/2026, où il dit qu'on n'a pas demandé aux musulmans de se désolidariser des crimes de Daech.",
+              "source_url": "https://fr.timesofisrael.com/melenchon-guedj-regrette-le-terme-salopard-mais-assume-laccusation-dantisemitisme/",
+              "source_title": "Mélenchon: Guedj regrette le terme « salopard » mais assume l'accusation d'antisémitisme (Times of Israel)",
+              "source_date": "2025-06-16",
+              "confidence": "high"
+            },
+            {
+              "position": "Défend une laïcité sans qualificatif, qui n'est pas un outil de stigmatisation des religions, et lie laïcité et lutte contre les discriminations.",
+              "kind": "position_declaree",
+              "short_quote": "La laïcité n'a pas d'adjectif",
+              "details": "Engagement n°3 du site : « Défendre la laïcité et lutter contre les discriminations ».",
+              "source_url": "https://www.jeromeguedj2027.fr/",
+              "source_title": "Site de campagne Jérôme Guedj 2027 – 7 engagements",
+              "source_date": "2026",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "topic_id": "numerique",
+          "found": true,
+          "positions": [
+            {
+              "position": "Encadrer les mutations technologiques, en particulier l'IA, pour qu'elles deviennent une opportunité de progrès collectif plutôt que d'être subies.",
+              "kind": "position_declaree",
+              "details": "Lettre de campagne. Aucune position trouvée sur les réseaux sociaux et les mineurs, la régulation des plateformes ou la désinformation.",
+              "source_url": "https://www.jeromeguedj2027.fr/lettre",
+              "source_title": "Lettre / profession de foi de Jérôme Guedj",
+              "source_date": "2026",
+              "confidence": "medium"
+            },
+            {
+              "position": "Faire contribuer fiscalement les géants de l'intelligence artificielle.",
+              "kind": "position_declaree",
+              "details": "Tribune dans L'Opinion, août 2026, comme condition d'un effort demandé aux retraités aisés.",
+              "source_url": "https://lcp.fr/actualites/budget-2027-vers-un-gel-partiel-des-pensions-de-retraites-440455",
+              "source_title": "Budget 2027: vers un gel partiel des pensions de retraites? (LCP)",
+              "source_date": "2026-08-17",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "topic_id": "societe",
+          "found": true,
+          "positions": [
+            {
+              "position": "A voté pour la proposition de loi relative au droit à l'aide à mourir en deuxième lecture (scrutin n°5729).",
+              "kind": "inference",
+              "details": "Vote du 25/02/2026 : 299 pour, 226 contre ; groupe socialiste à 60 pour, 4 contre, 3 abstentions.",
+              "source_url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/5729",
+              "source_title": "Analyse du scrutin n°5729 – droit à l'aide à mourir (deuxième lecture) (Assemblée nationale)",
+              "source_date": "2026-02-25",
+              "confidence": "high"
+            },
+            {
+              "position": "Défend une aide à mourir strictement encadrée (maladie grave et incurable, phase avancée ou terminale) et le développement prioritaire des soins palliatifs. Il exclut d'ouvrir l'aide à mourir aux malades d'Alzheimer.",
+              "kind": "position_declaree",
+              "details": "Message X du 17/01/2025 : il ne votera jamais un texte qui l'ouvrirait aux malades d'Alzheimer. Ses articles de blog sur la fin de vie (dates non affichées) précisent son vote, fait « avec gravité ».",
+              "source_url": "https://x.com/JeromeGuedj/status/1880325544681910576",
+              "source_title": "Message X de Jérôme Guedj sur l'aide à mourir et la maladie d'Alzheimer",
+              "source_date": "2025-01-17",
+              "confidence": "high"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "candidate": "Emmanuel Maurel",
+      "affiliation": "Gauche républicaine et socialiste (GRS), dont il est cofondateur (2018-2019) et animateur national. Député de la 3e circonscription du Val-d'Oise depuis juillet 2024, élu sous l'étiquette Nouveau Front populaire, il siège au groupe Gauche démocrate et républicaine (GDR, à direction communiste). Député européen de 2014 à 2024 (S&D, puis GUE/NGL après 2018). Membre du PS de 1990 à 2018.",
+      "overview": "Emmanuel Maurel se présente comme « passionnément républicain, résolument socialiste ». Il a déclaré sa candidature le 4 septembre 2026 sur franceinfo et porte une ligne de gauche républicaine, sociale et souverainiste résumée en trois mots : « démondialiser, démarchandiser, démocratiser ». Son programme est construit autour d'une relance productive financée par un grand emprunt national de 300 Md€, avec un retour de l'État stratège : ministère de l'Industrie, fonds souverain, nationalisations possibles, commande publique avec clauses de « contenu local ». Il prévoit aussi le retour des services publics de l'électricité, du rail, des autoroutes et de l'eau dans le giron public, ainsi que la sortie du marché européen de l'électricité. Sur le plan social, il propose un SMIC à 1 700 € net, l'indexation des salaires sur l'inflation, le retour de l'ISF, un PFU à 40 %, une taxe sur les patrimoines de plus de 100 M€ et la retraite à 62 ans. Il défend une laïcité « intransigeante », une Europe sans « saut fédéral » et sans extension de la majorité qualifiée en diplomatie, une France non alignée (il juge l'OTAN en « mort cérébrale ») et un budget de défense de 3 % du PIB. Sur les alliances, il reconnaît « un problème avec LFI, et notamment Mélenchon », refuse que la campagne devienne un référendum sur Mélenchon et exclut l'alliance avec la droite. Il assume enfin d'être un petit candidat : environ 1 % d'intentions de vote présidentielles selon un sondage cité par une source secondaire.",
+      "distinctive_vs_others": "1) Ligne souverainiste et « démondialisatrice ». C'est le seul des cinq à refuser tout « saut fédéral » et toute extension de la majorité qualifiée en diplomatie, à vouloir un rabais sur la contribution française au budget de l'UE, à combattre le « 28e régime », à remettre en cause la libre circulation des capitaux hors UE et à vouloir sortir du marché européen de l'électricité (programme, emmanuel-maurel.fr/programme). Il avait voté non à Maastricht (1992) et au TCE (2005) (Sud Radio, 23/09/2026). Il s'oppose à l'adhésion accélérée de l'Ukraine (Mediapart via GRS, 13/03/2024 ; vote du 12/03/2025, Datan n°973). Glucksmann, à l'opposé, porte une ligne pro-européenne.\n2) Diplomatie non alignée. Il assimile indépendance et non-alignement, juge l'OTAN en « mort cérébrale » et veut que la « dissuasion nucléaire avancée » de Macron soit « sérieusement questionnée » (programme). Il soutient l'aide militaire à l'Ukraine (débat du 01/10/2026) mais s'est abstenu sur la LPM, alors que le GDR votait contre (Datan n°6736 et 7905). Sur Gaza, il parle de « guerre criminelle » sans employer « génocide » et appelle au « sang-froid », à distance du clivage Faure/Glucksmann et Guedj sur ce mot (franceinfo et Figaro, 01/10/2026).\n3) Économie la plus interventionniste du lot. Grand emprunt de 300 Md€, nationalisations possibles, fonds souverain, ministère de l'Industrie, fin de la concurrence ferroviaire, autoroutes reprises par l'État, eau en régie (programme). Il propose l'ISF et un PFU à 40 % en plus de la taxe sur les patrimoines de plus de 100 M€, quand Faure met surtout en avant la taxe Zucman (LCP, 01/10/2026). Il traite d'« usine à gaz » la baisse de CSG de Glucksmann (franceinfo, 01/10/2026).\n4) École privée : il est le seul à écrire qu'« à plus long terme » les financements publics seront réservés à l'école publique (programme).\n5) Laïcité « intransigeante » (aucun « accommodement raisonnable ») associée à la régularisation des travailleurs sans-papiers et à la défense du droit du sol (programme).\n6) Position intermédiaire sur LFI. Il reconnaît « un problème avec LFI, et notamment Mélenchon » mais refuse le « référendum » sur Mélenchon et l'alliance avec la droite (LCP, 24/09/2026). Il promet l'union de la gauche et le front républicain si Le Pen gagne (LCP, 01/10/2026). Il se situe ainsi entre Glucksmann et Guedj (aucun accord avec LFI) et Faure (convergences), plus près de Royal dans l'agacement face à la question (franceinfo, 01/10/2026).\n7) Profil parlementaire singulier. Seul candidat élu au sein du groupe GDR, à direction communiste, il s'en est démarqué pour voter avec les socialistes la suspension de la réforme des retraites (12/11/2025) et le PLFSS 2026 (09/12/2025) (Datan n°3684 et 4696).\n8) Il est le seul candidat issu de la GRS, et non du PS ou de Place publique, et le moins bien placé dans les sondages (environ 1 % selon TIME France, source secondaire).",
+      "signature_proposals": [
+        {
+          "proposal": "Règle « 5-10-15 » pour les écrans : aucun écran avant 5 ans, au maximum 1 h par jour de 5 à 10 ans, pas de smartphone avant 15 ans.",
+          "topic_id": "numerique",
+          "source_url": "https://emmanuel-maurel.fr/programme/"
+        }
+      ],
+      "topics": [
+        {
+          "topic_id": "securite_justice",
+          "found": true,
+          "positions": [
+            {
+              "position": "Police républicaine au service de tous : relancer la police de proximité et réviser la doctrine d'usage de la force, dont les bornes ont selon lui été dépassées.",
+              "kind": "proposition_explicite",
+              "short_quote": "les bornes de l'exercice de la violence légitime ont été dépassées",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "A voté contre la proposition de loi instaurant une présomption de légitime défense pour les forces de l'ordre.",
+              "kind": "inference",
+              "details": "Adoptée en première lecture par 313 voix contre 199 le 07/07/2026. Le même jour, il a voté contre le projet de loi « justice criminelle et respect des victimes », comme tout le groupe GDR (vote n°7980).",
+              "source_url": "https://datan.fr/votes/legislature-17/vote_7987",
+              "source_title": "Vote : Reconnaître une présomption de légitime défense pour les forces de l'ordre (Datan)",
+              "source_date": "2026-07-07",
+              "confidence": "high"
+            },
+            {
+              "position": "Criminalité organisée et violences : renforcer la police judiciaire, « tolérance zéro » contre les atteintes aux personnes et le port d'armes blanches chez les jeunes. Pour les mineurs : éducateurs de rue, centres éducatifs fermés et responsabilisation des parents.",
+              "kind": "proposition_explicite",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Justice : augmenter massivement le budget (environ 12 Md€ aujourd'hui), recruter des magistrats du parquet, améliorer les prisons, et mener une politique pénale « rapide et sévère » face à la récidive.",
+              "kind": "proposition_explicite",
+              "details": "Rien trouvé sur le cannabis (légalisation ou dépénalisation) ni sur la vidéosurveillance.",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "topic_id": "immigration",
+          "found": true,
+          "positions": [
+            {
+              "position": "Régulariser les travailleurs sans-papiers.",
+              "kind": "proposition_explicite",
+              "short_quote": "la France régularise les travailleurs sans-papiers",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Défendre le droit du sol, présenté comme un pilier du pacte civique.",
+              "kind": "proposition_explicite",
+              "short_quote": "le droit du sol constitue un pilier du pacte civique",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Identifier les étrangers sous OQTF pour motifs graves (atteintes aux personnes, crimes, déstabilisation de l'État) afin de concentrer sur eux les moyens d'éloignement.",
+              "kind": "proposition_explicite",
+              "short_quote": "identifier les étrangers sous OQTF pour raisons graves",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Intégration et procédures : réduire les délais d'instruction de l'asile et des titres de séjour, renforcer les effectifs de l'État, financer massivement l'apprentissage du français, créer un service public de l'intégration. La naturalisation serait facilitée pour qui parle français et adhère aux principes républicains, dans une « maîtrise démocratique » de la politique migratoire.",
+              "kind": "proposition_explicite",
+              "details": "Rien trouvé sur l'AME, les quotas ou le droit de vote des étrangers aux élections locales.",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "A critiqué Bruno Retailleau, alors ministre de l'Intérieur, pour qui l'État de droit n'était « pas intangible », y voyant une dérive à la Meloni ou à la Orbán.",
+              "kind": "position_declaree",
+              "details": "Intervention sur franceinfo le 30/09/2024, rapportée par la GRS.",
+              "source_url": "https://g-r-s.fr/retailleau-sattaque-a-letat-de-droit/",
+              "source_title": "Retailleau s'attaque à l'État de droit (GRS)",
+              "source_date": "2024-10-01",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "laicite_republique",
+          "found": true,
+          "positions": [
+            {
+              "position": "Se dit défenseur intransigeant de la laïcité : neutralité des services publics (école, hôpital), aucun « accommodement raisonnable » avec les activistes religieux, la foi ne prime pas sur la loi.",
+              "kind": "proposition_explicite",
+              "short_quote": "je ne ferai jamais « d'accommodements raisonnables » avec les activistes religieux",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Faire de la laïcité un levier de justice sociale contre son instrumentalisation par le RN pour stigmatiser les musulmans : laïcité inscrite pleinement dans la Constitution, création d'un « Défenseur de la laïcité ».",
+              "kind": "position_declaree",
+              "short_quote": "La laïcité est un rempart contre l'intolérance et un levier pour l'émancipation",
+              "details": "Tribune collective dans Libération (9 signataires PS, PCF, GRS). Pas de position individuelle trouvée sur le voile.",
+              "source_url": "https://g-r-s.fr/refaire-de-la-laicite-un-instrument-de-justice-sociale-et-de-cohesion-republicaine-tribune-parue-dans-liberation-le-jeudi-20-mars-2025/",
+              "source_title": "Refaire de la laïcité un instrument de justice sociale et de cohésion républicaine (tribune Libération, via GRS)",
+              "source_date": "2025-03-20",
+              "confidence": "medium"
+            },
+            {
+              "position": "Des politiques publiques contre les discriminations, le racisme et l'antisémitisme, et une transmission renforcée des principes républicains, notamment via l'éducation populaire.",
+              "kind": "proposition_explicite",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Après les révélations sur Jordan Bardella, rappelle que le RN a été fondé par d'anciens Waffen-SS et que ces propos « ne devraient surprendre personne ».",
+              "kind": "position_declaree",
+              "short_quote": "ne devraient surprendre personne",
+              "source_url": "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html",
+              "source_title": "Sept séquences à retenir du débat de la primaire de la gauche (franceinfo)",
+              "source_date": "2026-10-01",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "topic_id": "numerique",
+          "found": true,
+          "positions": [
+            {
+              "position": "Maîtriser l'IA comme un bien commun : convention citoyenne sur l'IA, financement massif de la recherche publique, modèles ouverts aux données accessibles, capacités de calcul souveraines, modèles moins énergivores.",
+              "kind": "proposition_explicite",
+              "short_quote": "réunir une convention citoyenne, qui posera toutes les questions",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Négocier un traité international pour encadrer l'IA et instaurer un rapport de force avec les géants américains.",
+              "kind": "proposition_explicite",
+              "short_quote": "un traité international qui organisera l'encadrement de cette technologie",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Protéger les enfants des écrans (règle 5-10-15) : aucun écran avant 5 ans, au maximum 1 h par jour de 5 à 10 ans, pas de smartphone avant 15 ans. Crèches et maternelles en « zones sans écrans », interdiction des lunettes à caméra connectée.",
+              "kind": "proposition_explicite",
+              "short_quote": "Pas de smartphone avant 15 ans",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "A voté pour la loi visant à protéger les mineurs des risques liés aux réseaux sociaux (texte de la CMP).",
+              "kind": "inference",
+              "details": "Adoptée par 279 voix contre 81 le 21/07/2026. Le groupe GDR était divisé (6 pour, 5 abstentions, 3 contre).",
+              "source_url": "https://datan.fr/votes/legislature-17/vote_8431",
+              "source_title": "Vote : Protéger les mineurs des risques liés aux réseaux sociaux (Datan)",
+              "source_date": "2026-07-21",
+              "confidence": "high"
+            },
+            {
+              "position": "Faire contribuer les plateformes (type YouTube) et l'IA générative au financement de la création culturelle.",
+              "kind": "proposition_explicite",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "topic_id": "societe",
+          "found": true,
+          "positions": [
+            {
+              "position": "A voté pour la création d'un droit à l'aide à mourir, en première lecture puis en lecture définitive.",
+              "kind": "inference",
+              "details": "Lecture définitive le 15/07/2026 (291 pour, 241 contre). Première lecture le 27/05/2025 (305 pour, 199 contre ; vote n°2107).",
+              "source_url": "https://datan.fr/votes/legislature-17/vote_8280",
+              "source_title": "Vote : Proposition de loi créant un droit à l'aide à mourir – lecture définitive (Datan)",
+              "source_date": "2026-07-15",
+              "confidence": "high"
+            },
+            {
+              "position": "Égalité salariale entre femmes et hommes par la transparence et le conditionnement des aides publiques.",
+              "kind": "proposition_explicite",
+              "short_quote": "pour l'égalité salariale femmes/hommes : transparence, conditionnement des aides publiques",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Soutenir une loi intégrale contre les violences sexuelles et renforcer l'aide aux victimes, aux associations et aux policiers.",
+              "kind": "proposition_explicite",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Culture : défense de l'exception culturelle, quotas de diffusion d'œuvres françaises et européennes, moyens du CNC et des « films du milieu », régime des intermittents, prix unique du livre sanctuarisé, audiovisuel public constitutionnalisé.",
+              "kind": "proposition_explicite",
+              "short_quote": "défendre notre audiovisuel public",
+              "details": "Rien trouvé sur la PMA, la GPA, les droits LGBT ou le sport.",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "candidate": "Ségolène Royal",
+      "affiliation": "Parti socialiste. Candidate PS à la primaire « socialiste et démocratique » Choisir 2027, co-organisée par le PS, Place publique et la GRS. Présidente de l'Association France-Algérie depuis le 18 décembre 2025, où elle a succédé à Arnaud Montebourg. Ancienne ministre de l'Écologie (2014-2017), présidente de la COP21, présidente de Poitou-Charentes et finaliste de la présidentielle 2007. Soutiens identifiés : Luc Carvounas (maire d'Alfortville) et Béatrice Bellay (Wikipédia FR).",
+      "overview": "Ségolène Royal, 73 ans, a annoncé le 10 juillet 2026 sa candidature à la primaire du pôle socialiste. Elle la justifie par le risque d'arrivée au pouvoir de l'extrême droite. Elle dit agir « avec humilité, sans ego ». Son slogan, « La France tranquille et l'Ordre juste », reprend son concept de 2007. Elle le décline en cinq axes : ordre juste (pouvoir d'achat, emploi, services publics), urgence climatique (appliquer les décisions de la COP21), urgence énergétique pour les TPE/PME, artisans et agriculteurs, État fort (notamment contre les violences faites aux enfants) et France « puissance médiatrice ». Elle n'a pas publié de programme détaillé. Ses propositions concrètes connues sont surtout le retour de l'ISF « financière », un carburant ramené à 1,70 €/L par des baisses de taxes (TVA, accise européenne, CEE), des caméras « partout » dans les écoles, le périscolaire, les crèches et les Ehpad, une TVA allégée sur les aliments produits en France et une énergie à bas prix (jusqu'à demander la sortie du marché européen de l'électricité). Sur les retraites, elle refuse tout effort supplémentaire, notamment la désindexation, tant que l'ISF n'est pas rétabli et que le pays n'est pas réindustrialisé. Aucune déclaration de 2026 réclamant explicitement l'abrogation de la réforme de 2023 n'a été trouvée. Lors du débat LCI, elle s'est distinguée par une ligne de paix négociée en Ukraine, l'emploi du mot « génocide » pour Gaza et le refus d'exclure une alliance avec LFI aux législatives. Elle s'oppose fermement à l'interdiction du voile dans l'espace public. Sa campagne mise sur l'expérience : elle a qualifié Raphaël Glucksmann de « stagiaire », ce qui lui a valu un rappel à l'ordre de la commission d'organisation le 21/09/2026.",
+      "distinctive_vs_others": "1) International : c'est la seule des cinq à défendre au débat LCI (23/09/2026) une issue négociée avec la Russie, au nom d'une « paix juste et durable ». Glucksmann lui a opposé que Poutine ne veut pas négocier et qu'il faut « résister » (franceinfo, 23/09/2026). Ses propos de 2022 mettant en doute des informations ukrainiennes renforcent ce marqueur (La Libre, 17/11/2022).\n2. Gaza et antisémitisme : comme Faure, elle emploie le mot « génocide », que Glucksmann refuse. Elle est la seule à avoir appelé les « voix juives » à dénoncer la politique israélienne, ce que Guedj a qualifié d'« incroyable injonction » et que le CRIF a condamné (Planet, 24/09/2026 ; franceinfo, 23/09/2026).\n3. Alliances : elle refuse d'exclure un accord avec LFI aux législatives, contrairement à Glucksmann et Guedj (France 24, 23/09/2026). En 2023, elle proposait une liste d'union avec LFI ; en 2024, un gouvernement d'« union républicaine » ouvert au centre et à LR. Sa ligne d'alliance est donc fluctuante.\n4. Une campagne « ordre juste » à forte tonalité sécuritaire et protectrice : vidéosurveillance généralisée dans les écoles, crèches et Ehpad, « tolérance zéro » pour les violences faites aux enfants. C'est sa marque propre, sans équivalent repéré chez les autres candidats.\n5. Sur l'économie, elle mise sur des baisses de taxes immédiates pour le pouvoir d'achat (carburant à 1,70 €, TVA allégée sur l'alimentation française, taxes énergie des PME). Elle refuse un alourdissement fiscal général et limite la hausse d'impôts à l'ISF financier. Les autres candidats ont mis en avant dans le fact-check du 01/10/2026 d'autres sujets fiscaux : millionnaires non imposés et dividendes pour Faure, droits de succession pour Guedj (franceinfo Vrai ou Fake).\n6. Positionnement souverainiste sur l'énergie et l'Europe : sortie du marché européen de l'électricité, « Les règles européennes, on les change ». Cette ligne la rapproche davantage de Maurel (GRS) que de Glucksmann (Place publique), pro-européen.\n7. Laïcité : opposition frontale à l'interdiction du voile dans l'espace public (« Laissons les femmes tranquilles »), avec un argumentaire sur l'image de la France dans le monde musulman.\n8. Mémoire : excuses officielles à l'Algérie, en tant que présidente de l'Association France-Algérie.\n9. Style : elle revendique son expérience de gouvernement contre l'« inexpérience » de Glucksmann (« stagiaire »), ce qui lui a valu un rappel à l'ordre de la commission de la primaire. C'est la seule candidate sans programme écrit détaillé.",
+      "signature_proposals": [
+        {
+          "proposal": "Installer des caméras de vidéosurveillance « partout » : écoles, périscolaire, crèches, Ehpad et chez les assistantes maternelles",
+          "topic_id": "securite_justice",
+          "source_url": "https://actu.orange.fr/politique/violences-dans-le-periscolaire-segolene-royal-veut-installer-des-cameras-partout-dans-les-ecoles-magic-CNT000002rFJA5.html"
+        },
+        {
+          "proposal": "« Tolérance zéro » pour les violences faites aux enfants et aux femmes",
+          "topic_id": "securite_justice",
+          "source_url": "https://www.france24.com/fr/info-en-continu/20260829-aux-journ%C3%A9es-d-%C3%A9t%C3%A9-du-ps-s%C3%A9gol%C3%A8ne-royal-d%C3%A9fend-sa-candidature"
+        },
+        {
+          "proposal": "Refus de toute interdiction du voile dans l'espace public (« Laissons les femmes tranquilles »)",
+          "topic_id": "laicite_republique",
+          "source_url": "https://www.tsa-algerie.com/france-segolene-royal-denonce-la-chasse-au-foulard/"
+        }
+      ],
+      "topics": [
+        {
+          "topic_id": "securite_justice",
+          "found": true,
+          "positions": [
+            {
+              "position": "Installer des caméras de vidéosurveillance dans tous les lieux accueillant un public fragile (écoles, périscolaire, crèches, Ehpad, et jusque chez les assistantes maternelles), « en accord avec les salariés ».",
+              "kind": "proposition_explicite",
+              "short_quote": "Pourquoi ce n'est pas encore fait ?",
+              "source_url": "https://actu.orange.fr/politique/violences-dans-le-periscolaire-segolene-royal-veut-installer-des-cameras-partout-dans-les-ecoles-magic-CNT000002rFJA5.html",
+              "source_title": "Violences dans le périscolaire : Ségolène Royal veut installer des caméras « partout » (Orange/L'Express)",
+              "source_date": "2026-09-02",
+              "confidence": "high"
+            },
+            {
+              "position": "Promet la « tolérance zéro » pour les violences faites aux enfants et dénonce le silence sur la maltraitance et les abus sexuels.",
+              "kind": "proposition_explicite",
+              "short_quote": "zéro tolérance pour les violences faites aux enfants",
+              "source_url": "https://www.france24.com/fr/info-en-continu/20260829-aux-journ%C3%A9es-d-%C3%A9t%C3%A9-du-ps-s%C3%A9gol%C3%A8ne-royal-d%C3%A9fend-sa-candidature",
+              "source_title": "Aux Journées d'été du PS, Ségolène Royal défend sa candidature (France 24/AFP)",
+              "source_date": "2026-08-29",
+              "confidence": "high"
+            },
+            {
+              "position": "Plaide pour la prévention et l'éducation, des espaces d'audition adaptés aux enfants victimes et des sanctions immédiates. Elle a estimé que Gérald Darmanin « aurait dû démissionner » après des affaires de violences sur enfants.",
+              "kind": "position_declaree",
+              "short_quote": "aurait dû démissionner",
+              "source_url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pour-2027-je-consulte-je-reflechis-si-je-peux-etre-utile-pourquoi-pas",
+              "source_title": "Ségolène Royal : « Pour 2027, je consulte, je réfléchis… » (Sud Radio)",
+              "source_date": "2026-07-03",
+              "confidence": "medium"
+            },
+            {
+              "position": "Inscrit la « sécurité du quotidien » dans l'« ordre juste » et prône la tolérance zéro envers les agresseurs.",
+              "kind": "position_declaree",
+              "details": "Orientation générale. Aucune position trouvée sur la police de proximité, les effectifs, les prisons, le cannabis ou le narcotrafic.",
+              "source_url": "https://lcp.fr/actualites/presidentielle-2027-segolene-royal-annonce-sa-candidature-a-la-primaire-socialiste",
+              "source_title": "Présidentielle 2027 : Ségolène Royal annonce sa candidature (LCP)",
+              "source_date": "2026-07-10",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "immigration",
+          "found": true,
+          "positions": [
+            {
+              "position": "Critique le durcissement de la politique des visas, qui décourage selon elle les talents et les étudiants. Elle dénonce l'OQTF délivrée à un médecin urgentiste tunisien exerçant en France et rappelle que 6 000 médecins algériens exercent en France.",
+              "kind": "position_declaree",
+              "details": "Interview Beur FM (« Les Zinformés ») du 26/05/2026.",
+              "source_url": "https://www.beurfm.net/segolene-royal-plaide-pour-l-apaisement-avec-alger-et-remet-l-ordre-juste-dans-le-debat",
+              "source_title": "Ségolène Royal plaide pour l'apaisement avec Alger et remet « l'ordre juste » dans le débat (Beur FM)",
+              "source_date": "2026-05-26",
+              "confidence": "high"
+            },
+            {
+              "position": "Dénonce l'amalgame entre immigration et délinquance. Elle défend la possibilité pour les binationaux d'être « 100 % français » et « 100 % algériens » et pointe l'écart entre les discours et les guichets administratifs.",
+              "kind": "position_declaree",
+              "details": "Aucune position trouvée en 2025-2026 sur la régularisation des travailleurs sans papiers, l'AME, les quotas, le pacte asile-migration, le droit du sol ou le droit de vote des étrangers (ce dernier figurait dans son programme de 2007).",
+              "source_url": "https://www.beurfm.net/segolene-royal-plaide-pour-l-apaisement-avec-alger-et-remet-l-ordre-juste-dans-le-debat",
+              "source_title": "Ségolène Royal plaide pour l'apaisement avec Alger (Beur FM)",
+              "source_date": "2026-05-26",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "laicite_republique",
+          "found": true,
+          "positions": [
+            {
+              "position": "S'oppose à l'interdiction du voile dans l'espace public proposée par le RN. Elle prône l'éducation plutôt que la sanction et le respect du libre choix des femmes qui portent le foulard volontairement.",
+              "kind": "position_declaree",
+              "short_quote": "Laissons les femmes tranquilles",
+              "details": "BFMTV-RMC, 02/09/2026. Elle a suscité la polémique en déclarant préférer une femme portant un foulard à un « pédocriminel ». Elle a aussi prédit des « révoltes sociales dans les quartiers » en cas d'interdiction.",
+              "source_url": "https://www.beurfm.net/je-prefere-une-femme-qui-a-un-foulard-sur-la-tete-qu-un-pedophile-pedocriminel",
+              "source_title": "« Je préfère une femme qui a un foulard sur la tête […] qu'un pédophile, pédocriminel » ! (Beur FM, d'après BFMTV-RMC)",
+              "source_date": "2026-09-02",
+              "confidence": "high"
+            },
+            {
+              "position": "Qualifie la « chasse au foulard » de « diversion irresponsable », inapplicable et sans intérêt économique, la burqa étant déjà interdite. Selon elle, ce débat rend la France « risée du monde musulman » ; elle s'engage à ne pas mener cette politique si elle est élue.",
+              "kind": "position_declaree",
+              "short_quote": "c'est une diversion irresponsable",
+              "details": "BFMTV, 07/09/2026.",
+              "source_url": "https://www.tsa-algerie.com/france-segolene-royal-denonce-la-chasse-au-foulard/",
+              "source_title": "Projet du RN d'interdire le voile en France : Ségolène Royal dénonce la « chasse au foulard » (TSA)",
+              "source_date": "2026-09-08",
+              "confidence": "high"
+            },
+            {
+              "position": "Antisémitisme : estime que sa montée n'est pas due à Israël mais aux dirigeants israéliens actuels. Elle appelle davantage de voix israéliennes et juives à dénoncer la situation à Gaza pour freiner l'antisémitisme.",
+              "kind": "position_declaree",
+              "short_quote": "la montée de l'antisémitisme n'est pas due à Israël",
+              "details": "Débat LCI du 23/09/2026. Guedj a dénoncé une « incroyable injonction » qui essentialise le conflit ; Glucksmann et le président du CRIF Yonathan Arfi (« trahison de l'idéal républicain ») l'ont également critiquée. Elle a répondu en parlant de « caricatures ».",
+              "source_url": "https://www.franceinfo.fr/elections/presidentielle/lors-du-premier-debat-de-la-primaire-socialiste-segolene-royal-mise-en-difficulte-sur-l-ukraine-et-israel_8207075.html",
+              "source_title": "Lors du premier débat de la primaire socialiste, Ségolène Royal mise en difficulté sur l'Ukraine et Israël (franceinfo)",
+              "source_date": "2026-09-23",
+              "confidence": "high"
+            },
+            {
+              "position": "Justifie sa candidature par la lutte contre l'extrême droite, en invoquant les risques de racisme, d'antisémitisme, de sexisme et d'homophobie.",
+              "kind": "position_declaree",
+              "source_url": "https://lcp.fr/actualites/presidentielle-2027-segolene-royal-annonce-sa-candidature-a-la-primaire-socialiste",
+              "source_title": "Présidentielle 2027 : Ségolène Royal annonce sa candidature (LCP)",
+              "source_date": "2026-07-10",
+              "confidence": "high"
+            },
+            {
+              "position": "Dénonce l'instrumentalisation du débat sur le voile (le « À bas le voile » de Bruno Retailleau jugé « insupportable ») et privilégie une approche pédagogique sur les tenues religieuses à l'école.",
+              "kind": "position_declaree",
+              "details": "Sud Radio, 11/12/2025 ; Anadolu, décembre 2025, dont le contenu n'a pas pu être lu intégralement.",
+              "source_url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pourquoi-pas-un-ticket-avec-dominique-de-villepin-pour-la-presidentielle",
+              "source_title": "Ségolène Royal : pourquoi pas un ticket avec Dominique de Villepin ? (Sud Radio)",
+              "source_date": "2025-12-11",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "numerique",
+          "found": true,
+          "positions": [
+            {
+              "position": "Soutient la restriction de l'accès des moins de 15 ans aux réseaux sociaux, comme en Australie, en dénonçant les dégâts des algorithmes sur la santé mentale des jeunes. Elle préfère négocier avec les plateformes, dont Elon Musk, plutôt que les affronter frontalement.",
+              "kind": "position_declaree",
+              "details": "Sud Radio, 11/12/2025. Aucune réaction trouvée à la loi de juillet 2026 sur l'interdiction aux moins de 15 ans, censurée par le Conseil constitutionnel le 14/08/2026, ni de position sur l'IA ou la souveraineté numérique.",
+              "source_url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pourquoi-pas-un-ticket-avec-dominique-de-villepin-pour-la-presidentielle",
+              "source_title": "Ségolène Royal : pourquoi pas un ticket avec Dominique de Villepin ? (Sud Radio)",
+              "source_date": "2025-12-11",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "societe",
+          "found": true,
+          "positions": [
+            {
+              "position": "Promet la « tolérance zéro » pour les violences faites aux enfants et aux femmes, priorité affichée de sa démarche.",
+              "kind": "proposition_explicite",
+              "short_quote": "Tolérance zéro pour les violences faites aux enfants et aux femmes",
+              "source_url": "https://www.epochtimes.fr/peut-etre-que-le-temps-des-femmes-est-venu-segolene-royal-entretient-le-suspense-sur-une-eventuelle-candidature-aux-presidentielles-3299152.html",
+              "source_title": "« Peut-être que le temps des femmes est venu » (Epoch Times, d'après Sud Radio)",
+              "source_date": "2026-07-03",
+              "confidence": "medium"
+            },
+            {
+              "position": "Dénonce l'impunité des violences sexuelles, affirmant que plus de 90 % des viols aboutissent à un non-lieu. Elle s'oppose à la réouverture des maisons closes évoquée par le RN.",
+              "kind": "position_declaree",
+              "short_quote": "plus de 90% des viols aboutissent en non-lieu",
+              "details": "Chiffre avancé par la candidate, non vérifié ici.",
+              "source_url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pourquoi-pas-un-ticket-avec-dominique-de-villepin-pour-la-presidentielle",
+              "source_title": "Ségolène Royal : pourquoi pas un ticket avec Dominique de Villepin ? (Sud Radio)",
+              "source_date": "2025-12-11",
+              "confidence": "medium"
+            },
+            {
+              "position": "Défend l'idée que « le temps des femmes est venu » et veut placer les « valeurs féminines » (protection, soin, transmission) au cœur de l'action publique. C'est la thèse de son livre « Mais qui va garder les enfants ? » (Fayard, octobre 2025).",
+              "kind": "position_declaree",
+              "short_quote": "Peut-être que le temps des femmes est venu",
+              "source_url": "https://www.franceinfo.fr/politique/segolene-royal/budget-2026-pour-reduire-le-deficit-il-faut-lutter-contre-les-gaspillages-il-ne-faut-pas-baisser-les-depenses-essentielles-estime-segolene-royal_7582286.html",
+              "source_title": "Budget 2026 : « Pour réduire le déficit, il faut lutter contre les gaspillages » (franceinfo, présentation du livre)",
+              "source_date": "2025-10-29",
+              "confidence": "medium"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "cleavages": [
+    {
+      "topic_id": "securite_justice",
+      "cleavage": "Ordre public et police : accent sur la fermeté ou sur les dérives policières (débat sur les blocages lycéens et les contrôles au faciès)",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Fermeté contre les débordements des manifestations lycéennes ; Guedj et Royal reprochent à LFI de \"jouer avec le feu\" ; Royal propose des caméras dans tout l'environnement scolaire et une tolérance zéro contre les violences faites aux enfants",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Ségolène Royal",
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://www.publicsenat.fr/actualites/politique/lelephant-dans-la-piece-lfi-sinvite-encore-dans-le-debat-de-la-primaire-socialiste",
+            "https://www.franceinfo.fr/politique/ps/primaire-socialiste/on-la-prend-tres-au-serieux-segolene-royal-peut-elle-creer-la-surprise-a-la-primaire-socialiste-vingt-ans-apres-son-echec-a-la-presidentielle_8184773.html"
+          ]
+        },
+        {
+          "approach": "Privilégier le fond des revendications ; reconnaître les contrôles au faciès et les discriminations policières (Faure) ; défendre le droit de manifester et revoir la doctrine d'emploi de la force légitime, avec une police de proximité (Maurel)",
+          "candidates": [
+            "Olivier Faure",
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://www.publicsenat.fr/actualites/politique/lelephant-dans-la-piece-lfi-sinvite-encore-dans-le-debat-de-la-primaire-socialiste",
+            "https://www.lagazettefrance.fr/article/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions",
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "cleavage": "Politique migratoire : régularisation de masse, délibération citoyenne préalable ou planification par le Parlement",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Régulariser massivement les travailleurs sans papiers, dans l'ordre de 500 000 comme en Espagne (Wikipédia cite 400 000)",
+          "candidates": [
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://www.lagazettefrance.fr/article/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions",
+            "https://fr.wikipedia.org/wiki/Olivier_Faure"
+          ]
+        },
+        {
+          "approach": "Réunir une convention citoyenne tirée au sort avant toute nouvelle politique ; ni immigration zéro ni laisser-faire ; régularisation ciblée sur les métiers en tension",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://www.lejdd.fr/politique/immigration-raphael-glucksmann-plaide-pour-une-convention-citoyenne-174735",
+            "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme"
+          ]
+        },
+        {
+          "approach": "Faire planifier l'immigration par le Parlement selon les capacités d'accueil et les besoins économiques",
+          "candidates": [
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://entrevue.fr/en/presidentielle-2027/primaire-socialiste-ou-en-sont-les-cinq-candidats-avant-le-premier-debat-de-ce-soir/"
+          ]
+        },
+        {
+          "approach": "Régulariser les travailleurs sans papiers, réaffirmer le droit du sol, raccourcir les délais d'asile et de séjour, développer massivement l'apprentissage du français, concentrer les éloignements sur les auteurs de délits graves",
+          "candidates": [
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "laicite_republique",
+      "cleavage": "Accent sur la laïcité stricte ou sur la lutte contre les discriminations et le travail de mémoire",
+      "importance": "low",
+      "sides": [
+        {
+          "approach": "Faire de la laïcité un étendard. Guedj : autorité constitutionnelle indépendante de la laïcité, interdiction de l'abaya à l'école. Maurel : neutralité absolue des services publics, aucun \"accommodement raisonnable\"",
+          "candidates": [
+            "Jérôme Guedj",
+            "Emmanuel Maurel",
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://fr.wikipedia.org/wiki/J%C3%A9r%C3%B4me_Guedj",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://lcp.fr/actualites/primaire-de-gauche-ce-qui-oppose-glucksmann-faure-royal-guedj-et-maurel-442266"
+          ]
+        },
+        {
+          "approach": "Mettre en avant la lutte contre les discriminations : commission \"vérité et réconciliation\" sur la colonisation, reconnaissance des contrôles au faciès",
+          "candidates": [
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://www.lagazettefrance.fr/article/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "numerique",
+      "cleavage": "Priorités numériques et IA",
+      "importance": "low",
+      "sides": [
+        {
+          "approach": "Faire cotiser l'IA pour financer retraites et protection sociale",
+          "candidates": [
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://www.lagazettefrance.fr/article/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions"
+          ]
+        },
+        {
+          "approach": "IA comme bien commun (recherche publique, modèles ouverts, calcul souverain), convention citoyenne sur l'IA, interdiction des smartphones avant 15 ans",
+          "candidates": [
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        },
+        {
+          "approach": "Interdire les réseaux sociaux avant 15 ans, bannir TikTok, stratégie d'IA souveraine (source non officielle)",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://www.wikiglucksmann.fr/programme.html"
+          ]
+        }
+      ]
+    }
+  ],
+  "consensus": [],
+  "debates": [
+    {
+      "date": "2026-09-23",
+      "channel": "LCI (avec Le Parisien, animé par David Pujadas, environ 10 citoyens posant des questions)",
+      "summary": "Premier débat, près de 2 heures, en l'absence de Philippe Brun, exclu.\n- Carburants : Royal veut baisser les taxes (TVA à 10 %, suspension de l'accise sur le gazole, prix entre 1,50 et 1,70 €/l). Glucksmann veut tripler le chèque énergie de façon ciblée. Faure veut des aides ciblées et taxer les superprofits pétroliers. Maurel veut plafonner les marges des raffineurs et lancer un emprunt citoyen. Guedj veut plafonner les marges et créer un ISF climatique.\n- Salaires : Faure propose un SMIC à 1 700 € net, l'indexation jusqu'au salaire médian et un bouclier logement. Glucksmann propose de baisser la CSG, financée par les méga-héritages. Royal veut bloquer les prix des produits essentiels et revoir les aides aux entreprises.\n- Ukraine : clivage net entre Royal (négociation, casques bleus) et les quatre autres (soutien militaire). Glucksmann veut saisir les avoirs russes. Guedj s'interroge sur les risques d'une zone d'exclusion aérienne.\n- Gaza : Faure et Royal parlent de génocide, Glucksmann et Guedj refusent le terme. Quatre candidats veulent suspendre l'accord UE-Israël. Royal est vivement critiquée par Guedj et Glucksmann pour avoir appelé davantage de voix juives à dénoncer Gaza.\n- Dette : pas d'annulation. Royal envisage une exception pour la dette de la transition.\n- LFI : Glucksmann et Guedj excluent tout accord, même aux législatives. Faure, Royal et Maurel refusent de l'exclure. Faure lance : \"si vous ne voulez pas d'alliance avec la gauche...\"",
+      "url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats"
+    },
+    {
+      "date": "2026-10-01",
+      "channel": "France 2 / France Inter",
+      "summary": "Deuxième débat, plus de 2 heures.\n- Mobilisations lycéennes (environ 400 lycées bloqués, environ 2 000 interpellations) : Glucksmann demande de la fermeté. Faure appelle à \"regarder la lune\". Guedj et Royal accusent LFI de \"jouer avec le feu\". Maurel défend le droit de manifester.\n- Carburants : Royal et Guedj veulent des baisses de taxes. Glucksmann veut des aides ciblées. Maurel veut une TVA réduite sur l'électricité.\n- CSG : la proposition de Glucksmann de baisser la CSG est attaquée par tous les autres, qui y voient un danger pour la Sécurité sociale. Faure la juge provisoire.\n- Fiscalité : Faure promet la taxe Zucman, Royal l'ISF.\n- Bardella : unanimité pour le juger \"disqualifié\" après les révélations de Mediapart.\n- Ukraine : Royal propose de renouer le dialogue avec Poutine. Les autres s'y opposent, Guedj invoquant Munich.\n- Gaza : Faure s'engage à reconnaître un génocide. Glucksmann juge cette position \"obscène\". Guedj estime que le mot diabolise Israël. Royal cite des ministres israéliens.\n- LFI : Glucksmann réclame la rupture. Guedj dénonce la \"danse du ventre\" de Faure. Faure, Royal et Maurel déplorent l'obsession autour de LFI. Glucksmann regrette l'absence de l'écologie et insiste sur la défense européenne.",
+      "url": "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html"
+    },
+    {
+      "date": "2026-10-04",
+      "channel": "BFMTV",
+      "summary": "Troisième et dernier débat, programmé avant le premier tour. Il n'a pas encore eu lieu au 2 octobre 2026.",
+      "url": "https://lcp.fr/actualites/primaire-de-gauche-les-candidats-face-a-face-lors-d-un-premier-debat-televise-ce"
+    }
+  ]
+}

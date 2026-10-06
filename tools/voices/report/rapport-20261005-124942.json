@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-05 12:49:42",
+  "modele": "mlx-community/VoxCPM2-8bit",
+  "commande": "--voice aigue --only logement",
+  "parametres": {
+    "only": [
+      "logement"
+    ],
+    "voice": "aigue",
+    "takes": 0,
+    "takes_aigue": 0,
+    "extra_takes": 4,
+    "target_aigue": 0.0,
+    "segment": [],
+    "limit": 0,
+    "dry_run": false,
+    "force": false,
+    "purge": false,
+    "keep_takes": false,
+    "steps": 16,
+    "cfg": 2.0,
+    "seed": 2027,
+    "bitrate": 80000,
+    "scan": false,
+    "listen": null,
+    "redo_flagged": false,
+    "no_artifacts": false,
+    "journal": "/Users/lambertbouley/Claude/Politique/primaire-de-gauche/tools/voices/report/journal.log"
+  },
+  "niveau_db": -20.0,
+  "plafond_db": -1.5,
+  "voix": {
+    "aigue": {
+      "libelle": "aiguë",
+      "nom": "v3.1a",
+      "prises": 3,
+      "cible_f0": 243.8,
+      "debit_ref": 5.12,
+      "voisement_ref": 55.9,
+      "reference": {
+        "f0_median": 270.1,
+        "f0_iqr_st": 6.45,
+        "f0_p10": 213.2,
+        "f0_p90": 354.5,
+        "f0_debut": 341.2,
+        "f0_fin": 258.7,
+        "fin_dt": -3.43,
+        "voiced": 0.514,
+        "frames": 636,
+        "partie_lue_f0_median": 267.5,
+        "partie_lue_fin_dt": -3.43,
+        "bruit_db": -76.6
+      },
+      "passages": []
+    }
+  },
+  "alertes": [],
+  "temps": {
+    "total_s": 0.1,
+    "prises": 0,
+    "calcul_moyen_par_prise_s": null,
+    "audio_moyen_par_prise_s": null,
+    "modele_calcul": "1.00 s + 2.57 s par seconde d'audio",
+    "phrases_series": 149,
+    "passages_series": 97,
+    "part_prises_secours": 0.15,
+    "hypothese": "voix aiguë 3 prises, 15% de secours",
+    "estimation_tout_min": 96.2,
+    "sons_moyen_par_prise_s": null,
+    "sons_max_par_prise_s": null,
+    "sons_part_du_calcul": null
+  },
+  "interrompu": false
+}

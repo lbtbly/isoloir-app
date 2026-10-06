@@ -1,0 +1,193 @@
+Rapport de génération des voix — 2026-10-06 05:46:12
+Commande : generate.py --redo-flagged --voice aigue --extra-takes 8
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  travail-pouvoir-03 — 9.99 s, F0 251.8 Hz, pauses entre phrases [0.31, 0.32] s
+    1. En cours d'année, il augmen…   3/3    254.4  +0.74   -1.5   +3.9  2.1    5.7  1.12  1:227 2:269~ 3:254
+    2. Comme au premier juin deux …   2/3    253.7  +0.69   -1.7   +2.7  1.5    4.2  0.81  1:255 2:254 3:253~
+    3. Le gouvernement peut aussi …   2/3    239.0  -0.34   +1.1   +0.2  1.7    6.2  1.21  1:217~ 2:239 3:225
+      passage assemblé : rire 5.04-5.28 s (net, +44 dB, confiance 0.80) [Comme | au]
+      ⚠ son parasite dans le passage assemblé : rire 5.04-5.28 s (net, +44 dB, confiance 0.80) [Comme | au]
+  travail-partage-03 — 11.48 s, F0 241.8 Hz, pauses entre phrases [0.23, 0.2, 0.17, 0.31] s
+    1. Participation, intéressemen…   2/3    247.1  +0.23   -4.2   +0.8  2.1    5.4  1.05  1:227? 2:247? 3:231
+         prise 1 : respiration 3.07-3.20 s (leger, +48 dB, confiance 0.83) [salariale | en]
+         prise 2 : mot étiré « agriculture » 6.56-7.52 s (leger, +36 dB, confiance 0.30) [hors | étaient]
+    2. Quarante-six pour cent ont …   5/5    224.8  -1.40   -2.3   +0.5  4.2    5.8  1.13  1:295~ 2:288~ 3:247~ 4:302~ 5:225?
+         prise 5 : bruit 0.00-0.13 s (leger, +24 dB, confiance 0.44) [début | Quarante]
+      passage assemblé : rire 7.28-7.52 s (net, +29 dB, confiance 0.56) [agriculture | étaient]
+      passage assemblé : bruit 9.30-9.41 s (leger, +24 dB, confiance 0.43) [d'eux | Quarante]
+      ⚠ son parasite dans le passage assemblé : rire 7.28-7.52 s (net, +29 dB, confiance 0.56) [agriculture | étaient]
+  travail-partage-07 — 7.87 s, F0 233.7 Hz, pauses entre phrases [0.33, 0.23] s
+    1. Aucune loi ne plafonne ces …   3/3    228.6  -1.11   -0.8   +3.1  2.5    5.9  1.15  1:224 2:247~ 3:229
+    2. Profits, décisions, écarts …   2/3    236.5  -0.53   -7.1   +2.9  3.8    4.8  0.94  1:246? 2:236 3:224
+         prise 1 : bruit 0.47-0.60 s (leger, +44 dB, confiance 0.72) [Profits | décisions]
+      passage assemblé : bruit 2.95-3.10 s (net, +42 dB, confiance 0.81) [Profits | décisions]
+      ⚠ son parasite dans le passage assemblé : bruit 2.95-3.10 s (net, +42 dB, confiance 0.81) [Profits | décisions]
+  impots-fortune-05 — 11.62 s, F0 238.9 Hz, pauses entre phrases [0.35, 0.15, 0.3] s
+    1. Ces impôts poussent-ils à p…   2/3    231.2  -0.92   +9.8   -1.1  4.2    5.5  1.06  1:326~ 2:231 3:265
+    2. Sous l'I.S.F., environ neuf…   1/3    244.4  +0.04   -4.0   +1.2  0.0    4.9  0.95  1:244? 2:221~ 3:225
+         prise 1 : mot étiré « l'ISF » 0.16-0.88 s (leger, confiance 0.53) [Sous | environ]
+    3. Sous l'I.F.I., qui touche m…   1/3    235.5  -0.60   -0.8   +1.9  4.0    5.5  1.07  1:236 2:256 3:276~
+      passage assemblé : mot étiré « l'ISF » 2.72-3.44 s (net, confiance 0.59) [Sous | environ]
+      ⚠ son parasite dans le passage assemblé : mot étiré « l'ISF » 2.72-3.44 s (net, confiance 0.59) [Sous | environ]
+  industrie-energie-02 — 11.01 s, F0 233.2 Hz, pauses entre phrases [0.3] s
+    1. Prenons les entreprises qui…   1/3    242.9  -0.06   -0.7   +2.1  0.0    6.6  1.29  1:243 2:267~ 3:239
+    2. Au second semestre deux mil…   5/5    229.8  -1.02   -6.8   +1.4  0.7    4.7  0.91  1:257~ 2:225×! 3:254×! 4:245×! 5:230
+         prise 2 : rire 0.00-0.48 s (net, +50 dB, confiance 0.95) [début | semestre]
+         prise 2 : vocalise 5.65-5.84 s (net, +53 dB, confiance 0.89) [hors | TVA]
+         prise 3 : bruit 2.04-2.16 s (leger, +35 dB, confiance 0.70) [cinq | elles]
+         prise 3 : respiration 6.71-6.88 s (net, +48 dB, confiance 0.90) [hors | TVA]
+         prise 3 : respiration 7.20-7.63 s (net, +45 dB, confiance 0.92) [TVA | et]
+         prise 4 : respiration 6.34-6.56 s (net, +53 dB, confiance 0.95) [hors | TVA]
+      passage assemblé : respiration 8.67-9.04 s (net, +50 dB, confiance 0.95) [hors | TVA]
+      ⚠ son parasite dans le passage assemblé : respiration 8.67-9.04 s (net, +50 dB, confiance 0.95) [hors | TVA]
+  egalite-transparence-01 — 5.51 s, F0 244.6 Hz, pauses entre phrases [0.35] s
+    1. Dans votre entreprise, femm…   3/3    242.2  -0.11   +3.4      —  3.0    4.7  0.92  1:253 2:269~? 3:242
+         prise 2 : respiration 1.68-1.92 s (leger, +15 dB, confiance 0.31) [hommes | sont]
+    2. Comment le savoir ?          11/11   269.6  +1.74   -8.5   +2.5  3.0    4.6  0.90  1:379×! 2:359×! 3:463×! 4:423×! 5:345×? 6:255×! 7:380~? 8:276~ 9:264×! 10:253~ 11:270~
+         prise 1 : rire 0.16-0.96 s (net, +56 dB, confiance 0.95) [Comment | le]
+         prise 2 : respiration 0.00-0.24 s (leger, +44 dB, confiance 0.79) [début | Comment]
+         prise 2 : mot étiré « Comment » 0.00-0.56 s (net, +49 dB, confiance 0.88) [début | le]
+         prise 2 : parole en trop 0.88-1.36 s (net, +53 dB, confiance 0.93) [savoir | fin]
+         prise 3 : rire 0.16-0.80 s (net, +71 dB, confiance 0.95) [Comment | le]
+         prise 4 : rire 0.16-0.72 s (net, +74 dB, confiance 0.95) [Comment | le]
+         prise 5 : respiration 1.04-1.28 s (leger, +31 dB, confiance 0.61) [savoir | fin]
+         prise 6 : respiration 0.00-0.28 s (net, +71 dB, confiance 0.95) [début | Comment]
+         prise 7 : respiration 0.72-0.89 s (leger, +42 dB, confiance 0.61) [savoir | fin]
+         prise 9 : respiration 1.08-1.29 s (net, +60 dB, confiance 0.80) [savoir | fin]
+      ⚠ phrase 2 : aucune prise acceptable : hauteur +1.74 dt de la cible
+  solidarites-intro-03 — 7.96 s, F0 251.8 Hz, pauses entre phrases [0.19, 0.28, 0.17, 0.31] s
+    1. Second filet, les minima so…  11/11   252.4  +0.60   -6.0   +4.0  1.1    5.7  1.11  1:214×! 2:286×! 3:257×! 4:252×! 5:226×! 6:236×! 7:249×! 8:227×! 9:222~? 10:251×! 11:252?
+         prise 1 : respiration 3.20-3.43 s (net, +47 dB, confiance 0.94) [RSA | ou]
+         prise 2 : rire 3.60-4.08 s (net, +45 dB, confiance 0.91) [RSA | ou]
+         prise 2 : mot étiré « l'AAH » 4.16-4.72 s (net, confiance 0.60) [ou | pour]
+         prise 3 : rire 3.68-4.24 s (net, +44 dB, confiance 0.88) [RSA | ou]
+         prise 3 : mot étiré « l'AAH » 4.32-5.04 s (net, confiance 0.90) [ou | pour]
+         prise 4 : rire 3.68-3.93 s (net, +50 dB, confiance 0.88) [RSA | ou]
+         prise 4 : mot étiré « l'AAH » 4.16-4.64 s (leger, confiance 0.49) [ou | pour]
+         prise 5 : vocalise 4.00-4.27 s (net, +43 dB, confiance 0.75) [RSA | ou]
+         prise 5 : mot étiré « l'AAH » 4.64-5.36 s (net, confiance 0.75) [ou | pour]
+         prise 6 : vocalise 3.68-3.98 s (net, +44 dB, confiance 0.78) [RSA | ou]
+         prise 6 : mot étiré « l'AAH » 4.32-4.96 s (net, confiance 0.70) [ou | pour]
+         prise 7 : respiration 4.48-4.72 s (net, +49 dB, confiance 0.94) [ou | l'AAH]
+         prise 8 : bruit 3.12-3.36 s (net, +45 dB, confiance 0.94) [RSA | ou]
+         prise 8 : mot étiré « l'AAH » 3.60-4.16 s (net, confiance 0.60) [ou | pour]
+         prise 9 : mot étiré « l'AAH » 4.24-4.80 s (leger, confiance 0.56) [ou | pour]
+         prise 10 : vocalise 4.00-4.49 s (net, +42 dB, confiance 0.72) [RSA | ou]
+         prise 11 : mot étiré « l'AAH » 4.40-4.88 s (leger, confiance 0.42) [ou | pour]
+    2. Chacun a ses propres règles…   3/3    245.3  +0.11   -2.4   +4.3  6.0    4.7  0.91  1:289~ 2:245 3:245
+  ecole-intro-03 — 10.84 s, F0 235.4 Hz, pauses entre phrases [0.17, 0.3] s
+    1. Les élèves français de quin…   3/3    233.1  -0.78   -1.9   +3.8  4.7    5.5  1.08  1:238×! 2:231? 3:233?
+         prise 1 : mot étiré « l'OCDE » 3.04-3.69 s (net, +42 dB, confiance 0.81) [de | à]
+         prise 2 : mot étiré « l'OCDE » 2.88-3.52 s (leger, confiance 0.52) [de | à]
+         prise 3 : mot étiré « l'OCDE » 3.12-3.76 s (leger, confiance 0.49) [de | à]
+    2. Mais depuis deux mille quin…   1/3    237.5  -0.45   -1.4   +3.0  1.9    6.5  1.27  1:238 2:249 3:238
+      passage assemblé : mot étiré « l'OCDE » 3.12-3.76 s (net, confiance 0.59) [de | à]
+      ⚠ son parasite dans le passage assemblé : mot étiré « l'OCDE » 3.12-3.76 s (net, confiance 0.59) [de | à]
+  ecologie-adaptation-05 — 8.96 s, F0 251.0 Hz, pauses entre phrases [0.34, 0.35, 0.31, 0.2, 0.21] s
+    1. Et l'eau ?                    2/11   257.4  +0.94   -1.6   -0.8  3.4    3.0  0.59  1:427×! 2:257×! 3:399×! 4:300×! 5:268× 6:374×! 7:269×? 8:375×! 9:325× 10:339×? 11:394×!
+         prise 1 : parole en trop 0.60-1.02 s (net, +69 dB, confiance 0.95) [l'eau | fin]
+         prise 2 : rire 0.77-1.02 s (net, +60 dB, confiance 0.95) [l'eau | fin]
+         prise 3 : respiration 0.25-0.41 s (net, +53 dB, confiance 0.62) [début | Et]
+         prise 3 : respiration 0.96-1.06 s (leger, +51 dB, confiance 0.53) [l'eau | fin]
+         prise 4 : parole en trop 0.83-1.05 s (net, +73 dB, confiance 0.81) [l'eau | fin]
+         prise 6 : parole en trop 0.40-1.04 s (net, +51 dB, confiance 0.88) [l'eau | fin]
+         prise 7 : bruit 1.05-1.14 s (leger, +59 dB, confiance 0.60) [l'eau | fin]
+         prise 8 : parole en trop 0.81-1.04 s (net, +76 dB, confiance 0.90) [l'eau | fin]
+         prise 10 : respiration 0.48-0.75 s (leger, +66 dB, confiance 0.83) [l'eau | fin]
+         prise 11 : rire 0.30-1.02 s (net, +55 dB, confiance 0.95) [l'eau | fin]
+    2. De juin à août, on consomme…   3/3    257.6  +0.95   -3.0   +0.9  0.0    5.8  1.13  1:226 2:265 3:258
+    3. Les cours d'eau, eux, trans…   1/3    249.5  +0.40   -2.0   +5.1  3.0    5.5  1.08  1:250 2:257 3:257
+      passage assemblé : rire 0.01-0.16 s (net, +50 dB, confiance 0.91) [début | Et]
+      passage assemblé : mot étiré « De » 0.80-1.52 s (net, confiance 0.67) [l'eau | juin]
+      ⚠ phrase 1 : aucune prise sans défaut : trop lente (3.0 syll/s, 0.59 × la référence), son parasite (rire 0.77-1.02 s)
+      ⚠ son parasite dans le passage assemblé : rire 0.01-0.16 s (net, +50 dB, confiance 0.91) [début | Et]
+      ⚠ son parasite dans le passage assemblé : mot étiré « De » 0.80-1.52 s (net, confiance 0.67) [l'eau | juin]
+  agriculture-aides-03 — 10.66 s, F0 228.9 Hz, pauses entre phrases [0.3, 0.38] s
+    1. Dans le détail, seize virgu…   3/3    227.8  -1.18   -4.2   +2.2  0.0    6.9  1.34  1:222~ 2:222~ 3:228
+    2. Cette aide à l'hectare dépe…   3/3    231.9  -0.87   -5.6   +4.4  4.2    6.2  1.22  1:228 2:225 3:232
+      passage assemblé : respiration 5.44-5.64 s (net, +50 dB, confiance 0.95) [l'hectare | dépend]
+      ⚠ son parasite dans le passage assemblé : respiration 5.44-5.64 s (net, +50 dB, confiance 0.95) [l'hectare | dépend]
+  immigration-titres-02 — 9.88 s, F0 245.1 Hz, pauses entre phrases [0.16, 0.33, 0.3] s
+    1. En deux mille vingt-cinq, s…   2/3    250.0  +0.43   -2.4   +2.3  0.0    5.2  1.02  1:213~ 2:250 3:246~?
+         prise 3 : bruit 0.91-1.03 s (leger, +40 dB, confiance 0.75) [cinq | sur]
+    2. Et treize virgule cinq pour…   4/4    235.5  -0.60   -3.7   +1.3  2.4    7.0  1.36  1:275×! 2:249×! 3:215~ 4:236?
+         prise 1 : rire 1.04-1.44 s (net, +47 dB, confiance 0.92) [cinq | pour]
+         prise 2 : rire 1.08-1.44 s (net, +48 dB, confiance 0.92) [cinq | pour]
+         prise 4 : mot étiré « treize » 0.16-0.64 s (leger, confiance 0.40) [Et | virgule]
+      passage assemblé : rire 8.24-8.56 s (net, +50 dB, confiance 0.91) [cinq | pour]
+      ⚠ son parasite dans le passage assemblé : rire 8.24-8.56 s (net, +50 dB, confiance 0.91) [cinq | pour]
+  immigration-emploi-05 — 6.26 s, F0 236.1 Hz, pauses entre phrases [0.3, 0.19] s
+    1. Côté aides, certaines exige…   1/3    238.4  -0.39   -4.5   +3.9  1.9    5.3  1.04  1:238 2:208~ 3:230×!
+         prise 3 : parole en trop 0.00-0.11 s (net, +47 dB, confiance 0.78) [début | Côté]
+    2. C'est le cas du R.S.A., le …   5/5    234.0  -0.71   -1.9   +1.2  4.5    5.7  1.11  1:230×! 2:241× 3:278~? 4:260×! 5:234
+         prise 1 : respiration 0.96-1.28 s (net, +50 dB, confiance 0.95) [RSA | le]
+         prise 3 : respiration 1.10-1.22 s (leger, +21 dB, confiance 0.39) [le | revenu]
+         prise 4 : respiration 0.80-1.02 s (net, +42 dB, confiance 0.89) [RSA | le]
+  defense-intro-06 — 8.52 s, F0 241.5 Hz, pauses entre phrases [0.15, 0.3] s
+    1. Et la France est le seul pa…   3/3    243.7  -0.01   -2.1   +3.5  1.2    5.1  1.00  1:234 2:233 3:244
+    2. Selon une estimation de jan…   1/3    241.2  -0.19   -0.2   +0.8  2.1    6.0  1.18  1:241 2:253~ 3:258×!
+         prise 3 : bruit 2.24-2.41 s (net, +41 dB, confiance 0.83) [six | elle]
+      passage assemblé : bruit 3.92-4.48 s (net, +50 dB, confiance 0.95) [Selon | estimation]
+      passage assemblé : mot étiré « une » 3.92-4.48 s (net, +53 dB, confiance 0.90) [Selon | estimation]
+      ⚠ son parasite dans le passage assemblé : bruit 3.92-4.48 s (net, +50 dB, confiance 0.95) [Selon | estimation]
+      ⚠ son parasite dans le passage assemblé : mot étiré « une » 3.92-4.48 s (net, +53 dB, confiance 0.90) [Selon | estimation]
+  defense-alliances-05 — 9.12 s, F0 241.7 Hz, pauses entre phrases [0.31, 0.32] s
+    1. L'Union européenne a ses pr…   1/3    237.5  -0.45   -1.3   +4.4  2.8    5.6  1.10  1:238 2:231 3:252×!
+         prise 3 : rire 0.00-0.61 s (net, +52 dB, confiance 0.95) [début | L'Union]
+    2. Elle prête jusqu'à cent cin…   3/3    240.0  -0.27   -2.8   +3.7  1.3    5.0  0.99  1:213~ 2:252 3:240
+    3. Dix-neuf États, dont la Fra…   2/3    244.6  +0.06   -1.9   +2.9  2.8    6.0  1.18  1:274~ 2:245 3:236
+      passage assemblé : rire 6.88-7.12 s (net, +50 dB, confiance 0.92) [neuf | États]
+      ⚠ son parasite dans le passage assemblé : rire 6.88-7.12 s (net, +50 dB, confiance 0.92) [neuf | États]
+  institutions-intro-07 — 9.86 s, F0 239.4 Hz, pauses entre phrases [0.41, 0.35, 0.17, 0.3, 0.16] s
+    1. Et vous ?                     3/11   255.3  +0.80   +1.3   +3.0  4.6    3.4  0.66  1:227×! 2:444×! 3:255×! 4:287× 5:315×! 6:261×! 7:454×! 8:293×! 9:345×! 10:302×! 11:387×?
+         prise 1 : parole en trop 0.79-1.13 s (net, +68 dB, confiance 0.93) [vous | fin]
+         prise 2 : rire 0.08-0.40 s (net, +65 dB, confiance 0.95) [Et | vous]
+         prise 2 : respiration 0.56-0.98 s (net, +60 dB, confiance 0.95) [Et | vous]
+         prise 3 : bruit 0.92-1.06 s (net, +64 dB, confiance 0.81) [vous | fin]
+         prise 5 : respiration 0.77-0.98 s (net, +73 dB, confiance 0.91) [vous | fin]
+         prise 6 : parole en trop 0.88-1.14 s (net, +63 dB, confiance 0.95) [vous | fin]
+         prise 7 : rire 0.48-0.96 s (net, +65 dB, confiance 0.93) [vous | fin]
+         prise 8 : parole en trop 0.01-0.24 s (net, +48 dB, confiance 0.75) [début | Et]
+         prise 8 : respiration 0.65-0.97 s (net, +38 dB, confiance 0.76) [vous | fin]
+         prise 9 : respiration 0.01-0.34 s (net, +73 dB, confiance 0.95) [début | Et]
+         prise 10 : rire 0.00-0.55 s (net, +55 dB, confiance 0.95) [début | Et]
+         prise 11 : parole en trop 0.04-0.29 s (leger, +62 dB, confiance 0.51) [début | Et]
+    2. Vous décidez surtout en éli…   7/7    237.6  -0.45   -3.9   -1.1  0.0    6.4  1.25  1:261~ 2:249~ 3:256× 4:271~ 5:267~ 6:213~ 7:238
+    3. Sous la Constitution de mil…   3/3    238.8  -0.36   -1.5   +2.8  3.9    6.2  1.21  1:224~ 2:256 3:239
+      passage assemblé : bruit 0.92-1.06 s (net, +44 dB, confiance 0.86) [vous | Vous]
+      ⚠ phrase 1 : aucune prise sans défaut : trop lente (3.4 syll/s, 0.66 × la référence), son parasite (bruit 0.92-1.06 s)
+      ⚠ son parasite dans le passage assemblé : bruit 0.92-1.06 s (net, +44 dB, confiance 0.86) [vous | Vous]
+  institutions-pouvoirs-05 — 13.56 s, F0 240.0 Hz, pauses entre phrases [0.29, 0.31, 0.35, 0.34, 0.3, 0.17] s
+    1. En face, le président peut …   1/3    247.5  +0.26   -7.8   +1.2  6.0    5.6  1.08  1:248 2:232 3:218~
+    2. C'est arrivé six fois depui…   3/3    255.5  +0.81   -1.4   +4.4  6.0    6.8  1.33  1:269~ 2:277~ 3:256
+    3. En mille neuf cent soixante…   3/3    228.4  -1.13   -3.2   -0.3  1.4    5.1  1.00  1:258 2:242×! 3:228
+         prise 2 : rire 5.60-5.84 s (net, +36 dB, confiance 0.66) [cent | vingt]
+      passage assemblé : rire 2.46-2.88 s (net, +53 dB, confiance 0.95) [l'Assemblée | six]
+      passage assemblé : mot manquant ou bâclé « arrivé » 2.88-3.04 s (leger, confiance 0.30) [C'est | six]
+      ⚠ son parasite dans le passage assemblé : rire 2.46-2.88 s (net, +53 dB, confiance 0.95) [l'Assemblée | six]
+
+Alertes (18) :
+  aigue / travail-pouvoir-03 : son parasite dans le passage assemblé : rire 5.04-5.28 s (net, +44 dB, confiance 0.80) [Comme | au]
+  aigue / travail-partage-03 : son parasite dans le passage assemblé : rire 7.28-7.52 s (net, +29 dB, confiance 0.56) [agriculture | étaient]
+  aigue / travail-partage-07 : son parasite dans le passage assemblé : bruit 2.95-3.10 s (net, +42 dB, confiance 0.81) [Profits | décisions]
+  aigue / impots-fortune-05 : son parasite dans le passage assemblé : mot étiré « l'ISF » 2.72-3.44 s (net, confiance 0.59) [Sous | environ]
+  aigue / industrie-energie-02 : son parasite dans le passage assemblé : respiration 8.67-9.04 s (net, +50 dB, confiance 0.95) [hors | TVA]
+  aigue / egalite-transparence-01 : phrase 2 : aucune prise acceptable : hauteur +1.74 dt de la cible
+  aigue / ecole-intro-03 : son parasite dans le passage assemblé : mot étiré « l'OCDE » 3.12-3.76 s (net, confiance 0.59) [de | à]
+  aigue / ecologie-adaptation-05 : phrase 1 : aucune prise sans défaut : trop lente (3.0 syll/s, 0.59 × la référence), son parasite (rire 0.77-1.02 s)
+  aigue / ecologie-adaptation-05 : son parasite dans le passage assemblé : rire 0.01-0.16 s (net, +50 dB, confiance 0.91) [début | Et]
+  aigue / ecologie-adaptation-05 : son parasite dans le passage assemblé : mot étiré « De » 0.80-1.52 s (net, confiance 0.67) [l'eau | juin]
+  aigue / agriculture-aides-03 : son parasite dans le passage assemblé : respiration 5.44-5.64 s (net, +50 dB, confiance 0.95) [l'hectare | dépend]
+  aigue / immigration-titres-02 : son parasite dans le passage assemblé : rire 8.24-8.56 s (net, +50 dB, confiance 0.91) [cinq | pour]
+  aigue / defense-intro-06 : son parasite dans le passage assemblé : bruit 3.92-4.48 s (net, +50 dB, confiance 0.95) [Selon | estimation]
+  aigue / defense-intro-06 : son parasite dans le passage assemblé : mot étiré « une » 3.92-4.48 s (net, +53 dB, confiance 0.90) [Selon | estimation]
+  aigue / defense-alliances-05 : son parasite dans le passage assemblé : rire 6.88-7.12 s (net, +50 dB, confiance 0.92) [neuf | États]
+  aigue / institutions-intro-07 : phrase 1 : aucune prise sans défaut : trop lente (3.4 syll/s, 0.66 × la référence), son parasite (bruit 0.92-1.06 s)
+  aigue / institutions-intro-07 : son parasite dans le passage assemblé : bruit 0.92-1.06 s (net, +44 dB, confiance 0.86) [vous | Vous]
+  aigue / institutions-pouvoirs-05 : son parasite dans le passage assemblé : rire 2.46-2.88 s (net, +53 dB, confiance 0.95) [l'Assemblée | six]
+
+Temps : 1298 s pour 157 prise(s), 8.02 s de calcul par prise en moyenne (3.45 s d'audio) ; calcul d'une prise ≈ 0.45 s + 2.23 s par seconde d'audio. Détecteur de sons parasites : 0.117 s par prise en moyenne (au plus 0.256 s), 2% du calcul d'une prise.
+Estimation pour les 1013 passages (1856 phrases) (voix aiguë 3 prises, 38% de secours) : ~1276 min.

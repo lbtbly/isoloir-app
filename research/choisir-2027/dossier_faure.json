@@ -1,0 +1,1025 @@
+{
+  "candidate": "Olivier Faure",
+  "affiliation": "Parti socialiste (Premier secrétaire depuis 2018, direction du parti confiée à Johanna Rolland pendant la campagne). Député de la 11e circonscription de Seine-et-Marne depuis 2012, conseiller municipal de Lieusaint depuis 2026.",
+  "campaign_site": "https://avecfaure2027.fr (page candidat officielle : https://choisir2027.fr/candidat/olivier-faure/)",
+  "overview": "Olivier Faure, premier secrétaire du PS, a officialisé sa candidature le 30 août 2026 au JT de 20h de TF1. Slogan : « Pour une France + juste ! ». Il défend une ligne qu'il présente lui-même comme « résolument de gauche » et « socialiste-écologique », exposée dans son livre-programme « La Loi du plus juste » (Robert Laffont, 17 septembre 2026) et dans sa profession de foi en quatre axes : Redresser la France, Vivre dignement, Réorienter l'économie, Préparer demain. Ses mesures phares sont redistributives : Smic à 1 700 € net, parité dividendes/salariés, retour à 62 ans, taxe Zucman, faire cotiser l'IA, encadrement généralisé des loyers, régularisation massive des travailleurs sans papiers et « règle d'or verte ». Sur la stratégie, il est l'artisan du NFP en 2024. Il a ensuite co-lancé une primaire unitaire de la gauche, puis perdu le vote interne du 9 juillet 2026 (44,5 % pour sa primaire ouverte). Il refuse toute alliance présidentielle ou gouvernementale avec LFI et Mélenchon, mais il est le seul grand candidat à défendre un rassemblement de toute la gauche aux législatives et les convergences parlementaires avec les Insoumis. À l'international, il utilise le mot « génocide » pour Gaza, ce qui l'oppose frontalement à Glucksmann et à Guedj, et il soutient l'Ukraine et la défense européenne. Sondages : environ 3,5 à 5 % (fin août-septembre 2026), loin derrière Glucksmann, le favori.",
+  "topics": [
+    {
+      "topic_id": "strategie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il présente le rassemblement de la gauche et des écologistes comme la seule méthode pour battre la droite et l'extrême droite, et se présente comme « l'architecte de l'union de la gauche et des écologistes ».",
+          "kind": "proposition_explicite",
+          "short_quote": "le rassemblement de la gauche et des écologistes est la seule méthode",
+          "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+          "source_title": "Profession de foi d'Olivier Faure – primaire Choisir 2027",
+          "source_date": "2026-09-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Il refuse une alliance présidentielle avec Mélenchon et refuse de gouverner avec LFI, mais il met en avant les convergences de vote à l'Assemblée entre Insoumis, socialistes et écologistes. Il juge « inexcusables » les dérapages de Mélenchon sur l'antisémitisme.",
+          "kind": "position_declaree",
+          "source_url": "https://www.france24.com/fr/info-en-continu/20260917-olivier-faure-%C3%A0-gauche-toute-pour-la-primaire",
+          "source_title": "Olivier Faure, « à gauche toute » pour la primaire (AFP / France 24)",
+          "source_date": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Lors des débats, il refuse d'exclure un rapprochement avec LFI aux législatives et plaide pour un « rassemblement de la gauche aux législatives ». Il rappelle que les socialistes votent « à 80 % » avec les Insoumis au Parlement et reproche aux autres candidats de stigmatiser les électeurs insoumis.",
+          "kind": "position_declaree",
+          "short_quote": "Arrêtons de cracher sur le reste de la gauche !",
+          "source_url": "https://www.france24.com/fr/france/20260923-primaire-de-la-gauche-lors-du-premier-débat-ségolène-royal-épinglée-sur-l-ukraine-et-israël",
+          "source_title": "Primaire de la gauche : débat poli, mais désaccords profonds sur Gaza et une alliance avec LFI (France 24)",
+          "source_date": "2026-09-23",
+          "details": "Lors du débat du 1er octobre, il dit être « le seul à pouvoir rassembler l'ensemble des forces de gauche ». Il s'agace que Mélenchon soit « l'éléphant dans la pièce » de chaque débat (L'essentiel / Public Sénat, 01-02/10/2026). Guedj l'accuse de faire « la danse du ventre » devant LFI ; Glucksmann lui reproche d'être « habité par l'esprit de défaite ».",
+          "confidence": "high"
+        },
+        {
+          "position": "Sur BFMTV, il a assuré qu'il n'y aurait pas d'accord national PS-LFI pour la présidentielle et les législatives de 2027, après les alliances locales PS-LFI de second tour aux municipales. Il a qualifié Mélenchon de « boulet » pour la gauche.",
+          "kind": "position_declaree",
+          "source_url": "https://www.franceinfo.fr/politique/elections-de-2027-il-n-y-aura-pas-d-accord-national-entre-le-ps-et-lfi-assure-le-socialiste-olivier-faure_7897622.html",
+          "source_title": "Il « n'y aura pas d'accord national » entre le PS et LFI pour 2027, assure Olivier Faure (franceinfo)",
+          "source_date": "2026-03-27",
+          "details": "Cette déclaration coexiste avec l'ouverture affichée en septembre 2026 à un rassemblement aux législatives : la frontière entre « pas d'accord national » et « rassemblement de la gauche » reste floue.",
+          "confidence": "high"
+        },
+        {
+          "position": "En avril 2026, il plaidait pour un mécanisme débouchant sur une candidature commune de la gauche hors LFI. Il avait co-lancé le 15 novembre 2025 une primaire unitaire avec Tondelier, Castets, Ruffin et Autain, puis défendu une primaire ouverte, rejetée le 9 juillet 2026 par les adhérents PS (55,5 % pour une primaire fermée).",
+          "kind": "position_declaree",
+          "short_quote": "un candidat commun de la gauche hors LFI",
+          "source_url": "https://actu.orange.fr/politique/presidentielle-olivier-faure-maintient-son-v-u-d-un-seul-candidat-a-gauche-toujours-sans-lfi-magic-CNT000002oXJMa.html",
+          "source_title": "Présidentielle : Olivier Faure maintient son vœu d'un « seul candidat » à gauche, toujours sans LFI (RTL via Orange)",
+          "source_date": "2026-04-30",
+          "details": "Résultat du vote interne : https://lcp.fr/actualites/presidentielle-le-ps-se-prononce-pour-une-primaire-fermee-un-desaveu-pour-olivier-faure (LCP, 10/07/2026).",
+          "confidence": "high"
+        },
+        {
+          "position": "Il rejette les candidatures centristes et toute alliance avec le centre ou la droite. Le socialisme est selon lui d'abord un rapport de force mis au service des plus vulnérables. Il cible Glucksmann et Hollande, et reproche à Glucksmann de s'entourer d'anciens macronistes.",
+          "kind": "position_declaree",
+          "short_quote": "nous n'avons pas besoin d'un Fillon 2 ou d'un Macron 3",
+          "source_url": "https://www.politis.fr/articles/2026/09/olivier-faure-je-ne-vois-pas-ce-qui-pourrait-conduire-vers-une-autre-decision-que-la-censure/",
+          "source_title": "Olivier Faure : « Je ne vois pas ce qui pourrait conduire vers une autre décision que la censure » (Politis)",
+          "source_date": "2026-09-21",
+          "confidence": "high"
+        },
+        {
+          "position": "Il annonce la censure du gouvernement Lecornu sur le budget 2027 si celui-ci n'évolue pas. Il cite comme motifs l'introduction d'une préférence nationale pour certaines prestations, la baisse des aides aux renouvelables et la réduction de la contribution française à l'UE. Fin 2025, il avait au contraire négocié avec Lecornu la suspension de la réforme des retraites et la non-censure.",
+          "kind": "position_declaree",
+          "short_quote": "Si rien ne change, nous censurerons",
+          "source_url": "https://fr.news.yahoo.com/sport/budget-2027-rien-ne-change-044402037.html",
+          "source_title": "Budget 2027 : « Si rien ne change, nous censurerons » (Yahoo Actualités)",
+          "source_date": "2026-09-27",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "fiscalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il veut instaurer la taxe Zucman (impôt plancher sur les très grandes fortunes) et affecter son produit à l'investissement dans la transition écologique.",
+          "kind": "proposition_explicite",
+          "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+          "source_title": "Profession de foi d'Olivier Faure – primaire Choisir 2027",
+          "source_date": "2026-09-24",
+          "details": "Il l'a réaffirmé lors du débat France 2 du 1er octobre 2026 (franceinfo, direct). Le taux et le seuil ne figurent pas dans les documents de campagne consultés. La version de référence de la taxe Zucman est de 2 % au-delà de 100 M€.",
+          "confidence": "high"
+        },
+        {
+          "position": "Il veut faire contribuer les très gros héritages. Il souligne que 9 000 Md€ seront transmis d'ici 2040 et critique le refus de solliciter « le 1 % des super-héritages ».",
+          "kind": "position_declaree",
+          "source_url": "https://www.politis.fr/articles/2026/09/olivier-faure-je-ne-vois-pas-ce-qui-pourrait-conduire-vers-une-autre-decision-que-la-censure/",
+          "source_title": "Entretien Politis",
+          "source_date": "2026-09-21",
+          "details": "Le projet du PS, adopté sous sa direction, prévoit un « impôt sur les grandes successions » au rendement estimé à 400 Md€ cumulés sur 2025-2040 (https://projet-socialiste.fr/projet/refaire-societe/). Barème et seuil personnels non précisés.",
+          "confidence": "medium"
+        },
+        {
+          "position": "Il refuse toute baisse des cotisations sociales. Au débat du 1er octobre, il s'est opposé à la baisse de CSG sur les salaires proposée par Glucksmann, jugée trop provisoire.",
+          "kind": "position_declaree",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html",
+          "source_title": "VIDEOS. Sept séquences à retenir du débat des candidats à la primaire de la gauche (franceinfo)",
+          "source_date": "2026-10-01",
+          "confidence": "high"
+        },
+        {
+          "position": "Il veut évaluer et revoir les quelque 211 Md€ d'aides publiques annuelles aux entreprises, en s'appuyant sur le rapport parlementaire Gay, et conditionner ces aides aux hausses de salaires. Il chiffre les « cadeaux fiscaux » de la décennie à plus de 60 Md€ par an.",
+          "kind": "position_declaree",
+          "source_url": "https://www.politis.fr/articles/2026/09/olivier-faure-je-ne-vois-pas-ce-qui-pourrait-conduire-vers-une-autre-decision-que-la-censure/",
+          "source_title": "Entretien Politis",
+          "source_date": "2026-09-21",
+          "confidence": "high"
+        },
+        {
+          "position": "Sur la dette, il refuse l'annulation prônée par Mélenchon et privilégie l'augmentation des recettes fiscales pour redresser les comptes publics, avec des solutions qu'il dit « concrètes » et « faisables ».",
+          "kind": "position_declaree",
+          "source_url": "https://lcp.fr/actualites/accord-avec-lfi-moyen-orient-pouvoir-d-achat-ce-qu-il-faut-retenir-du-premier-debat-de",
+          "source_title": "Accord avec LFI, Moyen-Orient, pouvoir d'achat : ce qu'il faut retenir du premier débat de la primaire de gauche (LCP)",
+          "source_date": "2026-09-23",
+          "details": "Aucune cible chiffrée de déficit ou de dette n'a été trouvée dans ses documents de campagne.",
+          "confidence": "medium"
+        },
+        {
+          "position": "Il dénonce le fait que quelque 13 000 « millionnaires » ne paient pas d'impôt sur le revenu (chiffre jugé globalement exact par franceinfo) et que la France soit le « deuxième pays producteur de dividendes » (jugé partiellement trompeur).",
+          "kind": "position_declaree",
+          "source_url": "https://www.franceinfo.fr/vrai-ou-fake/vrai-ou-faux-salaire-des-enseignants-impot-sur-la-fortune-dividendes-on-a-verifie-six-affirmations-des-candidats-a-la-primaire-de-la-gauche-lors-de-leur-debat_8218897.html",
+          "source_title": "Vrai ou faux. On a vérifié six affirmations des candidats à la primaire de la gauche (franceinfo)",
+          "source_date": "2026-10-02",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "travail_salaires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Porter le Smic à 1 700 € net et convoquer une conférence salariale où l'État conditionnera ses aides aux entreprises à l'augmentation des salaires.",
+          "kind": "proposition_explicite",
+          "short_quote": "un smic à 1.700 euros",
+          "source_url": "https://www.france24.com/fr/info-en-continu/20260917-olivier-faure-%C3%A0-gauche-toute-pour-la-primaire",
+          "source_title": "Olivier Faure, « à gauche toute » pour la primaire (AFP / France 24)",
+          "source_date": "2026-09-17",
+          "details": "Le projet du PS (2026) retenait 1 690 € net. Certains sites agrégateurs attribuent encore ce chiffre de 1 690 € à Faure, mais sa campagne dit 1 700 €.",
+          "confidence": "high"
+        },
+        {
+          "position": "Pour chaque euro de dividende versé aux actionnaires, verser au moins l'équivalent aux salariés, sous forme de participation, d'intéressement ou de salaire.",
+          "kind": "proposition_explicite",
+          "short_quote": "1€ de dividende pour les actionnaires = 1€ de participation",
+          "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+          "source_title": "Profession de foi d'Olivier Faure",
+          "source_date": "2026-09-24",
+          "details": "Le Figaro (01/10/2026) a publié une analyse jugeant cette mesure contre-productive.",
+          "confidence": "high"
+        },
+        {
+          "position": "Plafonner les écarts de rémunération dans les entreprises.",
+          "kind": "proposition_explicite",
+          "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+          "source_title": "Profession de foi d'Olivier Faure",
+          "source_date": "2026-09-24",
+          "details": "Le projet du PS fixe un ratio maximal de 1 à 20 (https://projet-socialiste.fr/projet/vivre-libres/). Faure n'a pas précisé de ratio dans sa profession de foi.",
+          "confidence": "high"
+        },
+        {
+          "position": "Reconnaître le burn-out comme maladie professionnelle et fixer un objectif de zéro décès au travail.",
+          "kind": "proposition_explicite",
+          "source_url": "https://avecfaure2027.fr/mes-propositions",
+          "source_title": "Mes propositions – Avec Olivier Faure 2027",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Face à la flambée des prix des carburants, il demande des aides ciblées sur les classes populaires et moyennes et réclame leur doublement.",
+          "kind": "position_declaree",
+          "short_quote": "les aides ciblées on peut les doubler",
+          "source_url": "https://www.capital.fr/economie-politique/prix-des-carburants-les-aides-ciblees-on-peut-les-doubler-affirme-olivier-faure-1530239",
+          "source_title": "Prix des carburants : « les aides ciblées on peut les doubler », affirme Olivier Faure (Capital)",
+          "source_date": "2026-09-17",
+          "details": "Seuls le titre et le chapô de l'article ont été consultés (contenu inaccessible). Position confirmée par LCP lors du débat du 23/09.",
+          "confidence": "medium"
+        },
+        {
+          "position": "Le projet du PS qu'il a porté prévoit d'expérimenter la semaine de quatre jours et de créer un compte épargne-temps universel. Il n'a pas repris ces mesures personnellement dans ses documents de campagne.",
+          "kind": "inference",
+          "source_url": "https://projet-socialiste.fr/projet/vivre-libres/",
+          "source_title": "Le Projet socialiste – Vivre libres",
+          "source_date": "2026",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "retraites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il veut revenir à un âge de départ à la retraite à 62 ans, ce qui implique d'abroger la réforme Borne de 2023.",
+          "kind": "proposition_explicite",
+          "short_quote": "Aucun candidat se revendiquant des socialistes ne saurait s'en éloigner",
+          "source_url": "https://www.boursorama.com/actualite-economique/actualites/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions-e0f504871547edbc6960940d9c6e1fd9",
+          "source_title": "Smic à 1.700 euros, régularisation des travailleurs sans papiers, retraites : Faure développe ses propositions (AFP / Boursorama)",
+          "source_date": "2026-09-16",
+          "confidence": "high"
+        },
+        {
+          "position": "Il veut faire cotiser l'intelligence artificielle (« dividende IA ») pour financer les retraites et la protection sociale, afin de compenser la baisse du nombre de cotisants liée à l'automatisation.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.france24.com/fr/info-en-continu/20260917-olivier-faure-%C3%A0-gauche-toute-pour-la-primaire",
+          "source_title": "Olivier Faure, « à gauche toute » pour la primaire (AFP / France 24)",
+          "source_date": "2026-09-17",
+          "details": "Selon 21news.be (26/09/2026), il ne donne ni taux ni seuil d'application : la mesure reste au stade du principe.",
+          "confidence": "high"
+        },
+        {
+          "position": "Il a voté pour la suspension de la réforme des retraites jusqu'au 1er janvier 2028 (âge gelé à 62 ans et 9 mois), obtenue lors de ses négociations avec le gouvernement Lecornu.",
+          "kind": "inference",
+          "source_url": "https://datan.fr/votes/legislature-17/vote_3684",
+          "source_title": "Datan – vote sur la suspension de la réforme des retraites (12/11/2025)",
+          "source_date": "2025-11-12",
+          "confidence": "high"
+        },
+        {
+          "position": "Le projet du PS qu'il dirige fixe la durée de cotisation à 43 annuités, modulable selon la pénibilité, et prévoit de réintégrer les quatre critères de pénibilité supprimés en 2018. Faure n'a pas détaillé la durée de cotisation dans sa campagne personnelle.",
+          "kind": "inference",
+          "source_url": "https://projet-socialiste.fr/projet/vivre-libres/",
+          "source_title": "Le Projet socialiste – Vivre libres",
+          "source_date": "2026",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "sante",
+      "found": true,
+      "positions": [
+        {
+          "position": "Développer fortement l'aide et les soins à domicile.",
+          "kind": "proposition_explicite",
+          "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+          "source_title": "Profession de foi d'Olivier Faure",
+          "source_date": "2026-09-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Relocaliser la production des médicaments essentiels.",
+          "kind": "proposition_explicite",
+          "source_url": "https://avecfaure2027.fr/mes-propositions",
+          "source_title": "Mes propositions – Avec Olivier Faure 2027",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Le projet du PS prévoit une « Grande Sécu » (reste à charge zéro), de porter la prévention de 4 % à 8 % des dépenses de santé et d'indemniser les proches aidants 365 jours au lieu de 66.",
+          "kind": "inference",
+          "source_url": "https://projet-socialiste.fr/projet/etre-en-securites/",
+          "source_title": "Le Projet socialiste – Être en sécurité(s)",
+          "source_date": "2026",
+          "confidence": "medium"
+        },
+        {
+          "position": "Il a voté pour le PLFSS 2026 (financement de la Sécurité sociale), qui intégrait la suspension de la réforme des retraites.",
+          "kind": "inference",
+          "source_url": "https://datan.fr/deputes/seine-et-marne-77/depute_olivier-faure/votes",
+          "source_title": "Datan – votes d'Olivier Faure",
+          "source_date": "2025-12-16",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "found": true,
+      "positions": [
+        {
+          "position": "Plafonner les classes à 19 élèves en profitant de la baisse démographique plutôt que de fermer des classes.",
+          "kind": "proposition_explicite",
+          "short_quote": "19 élèves par classe, réelle mixité, conditions de travail des AESH",
+          "source_url": "https://www.franceinfo.fr/france/rentree/direct-rentree-des-classes-plus-de-11-millions-d-eleves-de-retour-dans-leurs-etablissements-sans-telephone-portable_8171747.html",
+          "source_title": "Rentrée scolaire 2026 : Olivier Faure plaide pour revaloriser les enseignants (franceinfo, direct)",
+          "source_date": "2026-09-01",
+          "details": "Mesure présentée lors d'une visite à l'école des Ormes de Savigny-le-Temple. Un site agrégateur évoque un étalement sur 10 ans, non confirmé par une source primaire.",
+          "confidence": "high"
+        },
+        {
+          "position": "Augmenter les salaires des enseignants pour « redonner de la visibilité » au métier.",
+          "kind": "position_declaree",
+          "source_url": "https://www.franceinfo.fr/france/rentree/direct-rentree-des-classes-plus-de-11-millions-d-eleves-de-retour-dans-leurs-etablissements-sans-telephone-portable_8171747.html",
+          "source_title": "franceinfo, direct de la rentrée",
+          "source_date": "2026-09-01",
+          "details": "Aucun montant de revalorisation n'a été trouvé.",
+          "confidence": "high"
+        },
+        {
+          "position": "Assurer une réelle mixité sociale à l'école et améliorer les conditions de travail des AESH.",
+          "kind": "proposition_explicite",
+          "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+          "source_title": "Profession de foi d'Olivier Faure",
+          "source_date": "2026-09-24",
+          "details": "Les outils de mixité (carte scolaire, école privée sous contrat) ne sont pas précisés. Le projet du PS prévoit de « reprendre le contrôle » des écoles privées sous contrat.",
+          "confidence": "high"
+        },
+        {
+          "position": "Renforcer les aides au logement, au transport et à l'alimentation des étudiants.",
+          "kind": "proposition_explicite",
+          "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+          "source_title": "Profession de foi d'Olivier Faure",
+          "source_date": "2026-09-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Sur les blocages de lycées, il refuse de réduire le débat aux violences ou à LFI et appelle à prendre au sérieux ce que vivent les lycéens.",
+          "kind": "position_declaree",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/lelephant-dans-la-piece-lfi-sinvite-encore-dans-le-debat-de-la-primaire-socialiste",
+          "source_title": "« L'éléphant dans la pièce » : LFI s'invite encore dans le débat de la primaire socialiste (Public Sénat)",
+          "source_date": "2026-10-02",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Instaurer une « règle d'or verte » : aucun budget, investissement ou aide publique en dehors des objectifs de protection de la biodiversité et de lutte contre le changement climatique.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.france24.com/fr/info-en-continu/20260917-olivier-faure-%C3%A0-gauche-toute-pour-la-primaire",
+          "source_title": "Olivier Faure, « à gauche toute » pour la primaire (AFP / France 24)",
+          "source_date": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Sur le nucléaire, il propose de construire 2 à 4 EPR2 au lieu du programme gouvernemental, en invoquant les déchets, la dépendance à l'uranium et les difficultés d'exportation. Il défend en parallèle tous les efforts possibles sur les renouvelables.",
+          "kind": "position_declaree",
+          "short_quote": "tout miser sur le cheval nucléaire",
+          "source_url": "https://www.sfen.org/rgn/presidentielle-2027-au-colloque-de-lufe-les-grands-partis-listent-leurs-positions-sur-le-nucleaire/",
+          "source_title": "[Présidentielle 2027] Au colloque de l'UFE, les grands partis listent leurs positions sur le nucléaire (SFEN/RGN)",
+          "source_date": "2026-07-02",
+          "details": "Propos tenus au colloque de l'UFE du 23 juin 2026. La formule du PS est « le nucléaire autant que nécessaire, les ENR autant que possible ». En 2023, il avait voté contre la loi d'accélération du nucléaire (Datan).",
+          "confidence": "high"
+        },
+        {
+          "position": "Financer massivement la rénovation énergétique des logements, faire de la transition écologique un grand chantier de réindustrialisation et viser la souveraineté énergétique.",
+          "kind": "proposition_explicite",
+          "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+          "source_title": "Profession de foi d'Olivier Faure",
+          "source_date": "2026-09-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Créer un grand fonds national et européen aux ressources pérennes pour financer des investissements écologiques sur 20 à 30 ans. Suspendre les dividendes des entreprises non engagées dans la transformation écologique.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.france24.com/fr/france/20260829-présidentielle-2027-le-ps-divisé-olivier-faure-sous-la-pression-d-une-primaire-de-la-gauche",
+          "source_title": "Présidentielle 2027 : Olivier Faure sous pression face à un PS divisé (France 24, discours de Blois)",
+          "source_date": "2026-08-29",
+          "details": "Dans Politis (21/09), il cite aussi l'adaptation : végétaliser les cours d'école, climatiser les crèches, replanter des arbres.",
+          "confidence": "high"
+        },
+        {
+          "position": "Il presse le gouvernement de publier la PPE et de ne pas céder à l'extrême droite contre l'éolien et le solaire : selon lui, sans progrès des renouvelables, les fossiles deviennent l'alternative par défaut. Il critique la baisse des aides aux renouvelables dans le budget 2027.",
+          "kind": "position_declaree",
+          "source_url": "https://www.linfodurable.fr/energies-renouvelables-faure-demande-lecornu-de-tourner-le-dos-aux-sirenes-obscurantistes-54435",
+          "source_title": "Énergies renouvelables : Faure demande à Lecornu de « tourner le dos aux sirènes obscurantistes » (L'info durable)",
+          "source_date": "2026-02-06",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "found": true,
+      "positions": [
+        {
+          "position": "Mettre en œuvre une préférence européenne pour l'agriculture, restaurer les cycles de l'eau et défendre l'agroécologie.",
+          "kind": "proposition_explicite",
+          "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+          "source_title": "Profession de foi d'Olivier Faure",
+          "source_date": "2026-09-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Instaurer une sécurité sociale de l'alimentation, c'est-à-dire un fonds national permettant aux familles modestes d'acheter une alimentation de qualité à prix réduit. Il fait de la souveraineté alimentaire l'un de ses trois grands défis industriels.",
+          "kind": "proposition_explicite",
+          "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+          "source_title": "Profession de foi d'Olivier Faure",
+          "source_date": "2026-09-24",
+          "details": "Le fonds a été décrit à Blois (France 24, 29/08/2026). Le mode de financement n'est pas précisé.",
+          "confidence": "high"
+        },
+        {
+          "position": "Il a voté contre la loi Duplomb (8 juillet 2025) et contre le texte de la loi d'urgence agricole réautorisant un néonicotinoïde (20 juillet 2026).",
+          "kind": "inference",
+          "source_url": "https://datan.fr/votes/legislature-17/vote_2957",
+          "source_title": "Datan – vote sur la PPL visant à lever les contraintes à l'exercice du métier d'agriculteur",
+          "source_date": "2025-07-08",
+          "details": "Vote de 2026 : https://datan.fr/votes/legislature-17/vote_8427",
+          "confidence": "high"
+        },
+        {
+          "position": "Il a voté pour la résolution demandant au gouvernement de s'opposer à l'accord UE-Mercosur (27/11/2025). En janvier 2026, il a pourtant refusé de voter les motions de censure du RN et de LFI sur le Mercosur, jugeant « absurde » de censurer alors que Macron s'opposait à l'accord.",
+          "kind": "inference",
+          "source_url": "https://datan.fr/votes/legislature-17/vote_4244",
+          "source_title": "Datan – résolution contre l'accord UE-Mercosur",
+          "source_date": "2025-11-27",
+          "details": "Sur le refus de censure : https://www.epochtimes.fr/le-ps-dolivier-faure-refuse-les-motions-de-censure-du-rn-et-de-lfi-contre-laccord-mercosur-3150327.html (12/01/2026).",
+          "confidence": "high"
+        },
+        {
+          "position": "Sur les méga-bassines, il a dénoncé les violences de gendarmes filmées à Sainte-Soline (« voyous en uniforme ») et présente les manifestants comme des défenseurs du cycle de l'eau contre sa privatisation.",
+          "kind": "position_declaree",
+          "short_quote": "voyous en uniforme",
+          "source_url": "https://www.epochtimes.fr/voyous-en-uniforme-laurent-nunez-accuse-olivier-faure-de-jeter-en-pature-les-gendarmes-3330705.html",
+          "source_title": "« Voyous en uniforme » : Laurent Nuñez accuse Olivier Faure de « jeter en pâture » les gendarmes (Epoch Times)",
+          "source_date": "2026-08-21",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il est attaché à la construction européenne, qu'il présente comme le prolongement de l'identité française, et veut défendre l'UE et le droit international sans « deux poids deux mesures ». Il reproche à LFI son euroscepticisme.",
+          "kind": "position_declaree",
+          "source_url": "https://www.politis.fr/articles/2026/09/olivier-faure-je-ne-vois-pas-ce-qui-pourrait-conduire-vers-une-autre-decision-que-la-censure/",
+          "source_title": "Entretien Politis",
+          "source_date": "2026-09-21",
+          "confidence": "medium"
+        },
+        {
+          "position": "Il s'oppose à la réduction de la contribution française au budget de l'UE prévue dans le projet de budget 2027 et en fait l'un des motifs d'une censure.",
+          "kind": "position_declaree",
+          "source_url": "https://fr.news.yahoo.com/sport/budget-2027-rien-ne-change-044402037.html",
+          "source_title": "Budget 2027 : « Si rien ne change, nous censurerons » (Yahoo Actualités)",
+          "source_date": "2026-09-27",
+          "confidence": "high"
+        },
+        {
+          "position": "Il défend une défense européenne à laquelle la France doit prendre toute sa part, y compris en posant la question du « parapluie nucléaire ». Il s'est dit « parfaitement » en accord avec Macron sur ce point.",
+          "kind": "position_declaree",
+          "source_url": "https://www.france24.com/fr/info-en-continu/20250303-d%C3%A9fense-europ%C3%A9enne-dissuasion-faure-se-retrouve-parfaitement-avec-macron",
+          "source_title": "Défense européenne, dissuasion… Faure « se retrouve parfaitement » avec Macron (AFP / France 24)",
+          "source_date": "2025-03-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Le projet du PS qu'il dirige prévoit de réformer les règles budgétaires européennes au profit de l'investissement, un nouvel emprunt commun de 500 Md€, un budget européen porté à 3 % du PIB, le passage progressif à la majorité qualifiée et un protectionnisme sectoriel assumé (mesures miroirs, barrières douanières).",
+          "kind": "inference",
+          "source_url": "https://projet-socialiste.fr/projet/vivre-libres/",
+          "source_title": "Le Projet socialiste – chapitre 4 « Construire la souveraineté européenne »",
+          "source_date": "2026",
+          "details": "Faure n'a pas détaillé personnellement ces chiffres pendant la campagne de la primaire. Le projet ne tranche pas explicitement la question du fédéralisme.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "international_defense",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il qualifie de « génocide » l'action de l'armée israélienne à Gaza et défend ce terme comme nécessaire pour peser et faire cesser le massacre, en citant Pedro Sánchez. Il rappelle avoir employé ce mot avec Glucksmann à propos des Ouïghours.",
+          "kind": "position_declaree",
+          "short_quote": "Je ne comprends pas pourquoi on n'utilise pas les bons mots",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html",
+          "source_title": "Sept séquences à retenir du débat de la primaire de la gauche (franceinfo)",
+          "source_date": "2026-10-01",
+          "details": "Royal emploie aussi ce terme. Glucksmann (« Ce que tu fais est obscène ») et Guedj le refusent et parlent de crimes contre l'humanité et de crimes de guerre.",
+          "confidence": "high"
+        },
+        {
+          "position": "Il demande la suspension immédiate des accords de coopération UE-Israël et un embargo sur les armes utilisées à Gaza et sur leurs composants.",
+          "kind": "position_declaree",
+          "source_url": "https://x.com/faureolivier/status/1927092457549742585",
+          "source_title": "Message d'Olivier Faure sur X",
+          "source_date": "2025-05-26",
+          "details": "La demande de suspension de l'accord d'association UE-Israël date au moins d'avril 2024 (Times of Israel, 26/04/2024). Le projet du PS prévoit aussi des sanctions contre les ministres de Netanyahou et les colons violents.",
+          "confidence": "high"
+        },
+        {
+          "position": "Il a déposé avec Sabrina Sebaihi (Écologistes) et Richard Ramos (MoDem) une proposition de loi transpartisane interdisant l'importation et la vente des produits fabriqués dans les colonies israéliennes, en s'appuyant sur l'avis de la CIJ de juillet 2024.",
+          "kind": "proposition_explicite",
+          "source_url": "https://lcp.fr/actualites/colonies-israeliennes-des-deputes-veulent-interdire-la-vente-de-certains-produits-en",
+          "source_title": "Colonies israéliennes : des députés veulent interdire la vente de certains produits en France (LCP)",
+          "source_date": "2026-06-22",
+          "confidence": "high"
+        },
+        {
+          "position": "Il juge la reconnaissance de l'État de Palestine « indispensable » et l'inscrit dans un mouvement européen coordonné.",
+          "kind": "position_declaree",
+          "source_url": "https://www.franceinfo.fr/replay-radio/8h30-fauvelle-dely/possible-reconnaissance-de-l-etat-palestinien-revirement-de-donald-trump-sur-les-droits-de-douane-le-8h30-franceinfo-d-olivier-faure_7153530.html",
+          "source_title": "Le « 8h30 franceinfo » d'Olivier Faure",
+          "source_date": "2025-04-10",
+          "confidence": "high"
+        },
+        {
+          "position": "Il soutient l'Ukraine : il présente ce conflit comme existentiel pour la sécurité européenne et reproche à Mélenchon de vouloir rouvrir le gazoduc Nord Stream avec la Russie.",
+          "kind": "position_declaree",
+          "source_url": "https://lcp.fr/actualites/accord-avec-lfi-moyen-orient-pouvoir-d-achat-ce-qu-il-faut-retenir-du-premier-debat-de",
+          "source_title": "Ce qu'il faut retenir du premier débat de la primaire de gauche (LCP)",
+          "source_date": "2026-09-23",
+          "details": "Le projet du PS prévoit de saisir les 210 Md€ d'avoirs publics russes immobilisés dans l'UE et de soutenir l'adhésion de l'Ukraine à l'UE. Aucune position personnelle sourcée n'a été trouvée sur l'envoi de troupes, un montant d'aide ou un pourcentage du PIB pour la défense.",
+          "confidence": "medium"
+        },
+        {
+          "position": "Lors d'une visite à Taïwan, où il a rencontré le président Lai Ching-te, il a affirmé que Taïwan est « un État, de fait » et défendu l'autonomie de l'île, ce qui le démarque de la ligne diplomatique française classique.",
+          "kind": "position_declaree",
+          "short_quote": "Taïwan est un État, de fait",
+          "source_url": "https://www.sudouest.fr/international/asie/taiwan/taiwan-est-un-etat-de-fait-le-patron-du-ps-olivier-faure-se-rend-sur-l-ile-ou-il-rencontrera-le-president-lai-ching-te-29170164.php",
+          "source_title": "« Taïwan est un État, de fait » : Olivier Faure se rend sur l'île (Sud Ouest)",
+          "source_date": "2026-05-21",
+          "details": "Source vérifiée uniquement par le titre et le chapô (article inaccessible), confirmés par un titre de Libération du 28/05/2026.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "institutions",
+      "found": true,
+      "positions": [
+        {
+          "position": "En mai 2025, il s'est dit opposé à l'instauration de la proportionnelle. Le projet du PS de 2026 prévoit pourtant un scrutin proportionnel inspiré du modèle allemand.",
+          "kind": "position_declaree",
+          "short_quote": "On ne résout pas une crise politique avec un mode de scrutin",
+          "source_url": "https://www.franceinfo.fr/politique/ps/congres-du-ps/instauration-de-la-proportionnelle-on-ne-resout-pas-une-crise-politique-avec-un-mode-de-scrutin-assume-olivier-faure_7261020.html",
+          "source_title": "Instauration de la proportionnelle : Olivier Faure assume (franceinfo)",
+          "source_date": "2025-05-20",
+          "details": "Aucune clarification de sa position personnelle pendant la campagne de 2026 n'a été trouvée.",
+          "confidence": "medium"
+        },
+        {
+          "position": "Le projet du PS qu'il dirige prévoit de supprimer le 49.3 (sauf textes financiers) et le vote bloqué, d'inverser le calendrier présidentielle/législatives, d'abaisser le droit de vote à 16 ans, de créer un RIC, d'abaisser le seuil du RIP à un million de signatures, d'accorder le droit de vote des étrangers extra-européens aux élections locales et de réformer le Conseil constitutionnel.",
+          "kind": "inference",
+          "source_url": "https://projet-socialiste.fr/projet/refaire-societe/",
+          "source_title": "Le Projet socialiste – La République démocratique du XXIe siècle",
+          "source_date": "2026",
+          "details": "Faure n'a pas mis ces réformes en avant dans sa profession de foi.",
+          "confidence": "medium"
+        },
+        {
+          "position": "Il a obtenu en 2025 que Lecornu renonce au 49.3 pour le budget 2026, puis a entrouvert la porte à son usage s'il était précédé d'un compromis. Lecornu a finalement utilisé le 49.3 en janvier 2026.",
+          "kind": "position_declaree",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/budget-au-ps-le-retour-du-49-3-apparait-de-plus-en-plus-comme-une-porte-de-sortie",
+          "source_title": "Budget : au PS, le retour du 49.3 apparaît de plus en plus comme « une porte de sortie » (Public Sénat)",
+          "source_date": "2026-01-06",
+          "confidence": "high"
+        },
+        {
+          "position": "Il a dénoncé une « trumpisation » de la vie politique après l'annonce de la candidature de Marine Le Pen malgré sa condamnation.",
+          "kind": "position_declaree",
+          "source_url": "https://www.bfmtv.com/politique/parti-socialiste/olivier-faure-denonce-une-forme-de-trumpisation-de-la-vie-politique-apres-la-candidature-de-marine-le-pen_AN-202607090264.html",
+          "source_title": "Olivier Faure dénonce une « forme de trumpisation de la vie politique » (BFMTV)",
+          "source_date": "2026-07-08",
+          "details": "Source vérifiée uniquement par le titre et le chapô.",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il veut légaliser le cannabis pour assécher les réseaux de narcotrafic en les privant de leur produit d'appel.",
+          "kind": "proposition_explicite",
+          "short_quote": "légalisation du cannabis pour asphyxier les filières",
+          "source_url": "https://www.politis.fr/articles/2026/09/olivier-faure-je-ne-vois-pas-ce-qui-pourrait-conduire-vers-une-autre-decision-que-la-censure/",
+          "source_title": "Entretien Politis",
+          "source_date": "2026-09-21",
+          "details": "Le projet du PS se contente de proposer une convention citoyenne sur la légalisation : la position personnelle de Faure va plus loin.",
+          "confidence": "high"
+        },
+        {
+          "position": "Il s'oppose à la présomption de légitime défense pour les forces de l'ordre, qu'il présente comme une vieille revendication de Le Pen. Il a voté contre la proposition de loi le 7 juillet 2026.",
+          "kind": "inference",
+          "source_url": "https://datan.fr/votes/legislature-17/vote_7987",
+          "source_title": "Datan – PPL visant à reconnaître une présomption de légitime défense pour les forces de l'ordre",
+          "source_date": "2026-07-07",
+          "details": "Critique explicite dans Politis (21/09/2026).",
+          "confidence": "high"
+        },
+        {
+          "position": "Il affirme l'existence d'un « racisme structurel au sein des forces de police » et demande de reconnaître les contrôles au faciès et les discriminations.",
+          "kind": "position_declaree",
+          "short_quote": "un racisme structurel au sein des forces de police",
+          "source_url": "https://www.france24.com/fr/info-en-continu/20260917-olivier-faure-%C3%A0-gauche-toute-pour-la-primaire",
+          "source_title": "Olivier Faure, « à gauche toute » pour la primaire (AFP / France 24)",
+          "source_date": "2026-09-17",
+          "details": "Le projet du PS prévoit des récépissés de contrôle d'identité, une IGPN/IGGN indépendante ou une autorité externe de contrôle, et des places de prison supplémentaires pour des conditions de détention dignes.",
+          "confidence": "high"
+        },
+        {
+          "position": "Il a qualifié de « voyous en uniforme » des gendarmes filmés lors de violences à Sainte-Soline en 2023 et a demandé quelles sanctions avaient été prises. Il a ensuite précisé ne viser que les gendarmes identifiés, pas toute la gendarmerie.",
+          "kind": "position_declaree",
+          "source_url": "https://www.epochtimes.fr/voyous-en-uniforme-laurent-nunez-accuse-olivier-faure-de-jeter-en-pature-les-gendarmes-3330705.html",
+          "source_title": "« Voyous en uniforme » : Laurent Nuñez accuse Olivier Faure (Epoch Times)",
+          "source_date": "2026-08-21",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il veut une régularisation massive des travailleurs sans papiers, sur le modèle espagnol. Il dit ne pas être choqué par le chiffre de 500 000 régularisations.",
+          "kind": "proposition_explicite",
+          "short_quote": "le chiffre de 500.000 régularisations ne (le) choque pas",
+          "source_url": "https://www.boursorama.com/actualite-economique/actualites/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions-e0f504871547edbc6960940d9c6e1fd9",
+          "source_title": "Smic à 1.700 euros, régularisation des travailleurs sans papiers, retraites : Faure développe ses propositions (AFP)",
+          "source_date": "2026-09-16",
+          "details": "Le chiffre varie selon les sources. L'AFP parle de 500 000. Public Sénat (17/09/2026) et Wikipédia parlent de « régulariser 400 000 travailleurs ». Le chiffre exact du livre reste à vérifier.",
+          "confidence": "high"
+        },
+        {
+          "position": "Il veut régulariser et intégrer les sans-papiers par le travail, avec un titre de séjour pour les étrangers ayant un contrat de travail d'au moins six mois. Le projet du PS ajoute le droit au travail dès le dépôt d'une demande d'asile, 30 000 places d'hébergement, la réforme de Dublin avec répartition obligatoire et le refus des « hubs de retour ».",
+          "kind": "inference",
+          "source_url": "https://projet-socialiste.fr/projet/refaire-societe/",
+          "source_title": "Le Projet socialiste – Immigration et asile",
+          "source_date": "2026",
+          "confidence": "medium"
+        },
+        {
+          "position": "Il s'oppose à la « préférence nationale » et au délai de carence pour les prestations sociales versées aux étrangers que le budget 2027 introduirait.",
+          "kind": "position_declaree",
+          "source_url": "https://www.politis.fr/articles/2026/09/olivier-faure-je-ne-vois-pas-ce-qui-pourrait-conduire-vers-une-autre-decision-que-la-censure/",
+          "source_title": "Entretien Politis",
+          "source_date": "2026-09-21",
+          "confidence": "high"
+        },
+        {
+          "position": "Il a voté contre la restriction du droit du sol à Mayotte (6 février 2025) et contre la loi immigration (19 décembre 2023).",
+          "kind": "inference",
+          "source_url": "https://datan.fr/votes/legislature-17/vote_697",
+          "source_title": "Datan – vote sur le droit du sol à Mayotte",
+          "source_date": "2025-02-06",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "laicite_republique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il propose une commission « vérité et réconciliation » sur la colonisation.",
+          "kind": "proposition_explicite",
+          "short_quote": "Une nation n'est pas diminuée lorsqu'elle regarde son histoire en face",
+          "source_url": "https://www.boursorama.com/actualite-economique/actualites/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions-e0f504871547edbc6960940d9c6e1fd9",
+          "source_title": "Faure développe ses propositions (AFP / Boursorama)",
+          "source_date": "2026-09-16",
+          "details": "Le projet du PS propose aussi de qualifier la colonisation de crime contre l'humanité et de créer une fondation nationale pour l'histoire de la colonisation.",
+          "confidence": "high"
+        },
+        {
+          "position": "Il emploie franchement le terme « islamophobie », que d'autres au PS refusent d'utiliser.",
+          "kind": "position_declaree",
+          "source_url": "https://www.france24.com/fr/info-en-continu/20260917-olivier-faure-%C3%A0-gauche-toute-pour-la-primaire",
+          "source_title": "Olivier Faure, « à gauche toute » pour la primaire (AFP / France 24)",
+          "source_date": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Sur l'antisémitisme, il juge « inexcusables » les dérapages de Mélenchon. Après les écrits antisémites attribués à Jordan Bardella et révélés par Mediapart, il estime que Bardella « ment » et ne peut plus prétendre à Matignon.",
+          "kind": "position_declaree",
+          "short_quote": "son antisémitisme et le mensonge en politique",
+          "source_url": "https://www.france24.com/fr/info-en-continu/20261002-pour-faure-bardella-ment-et-ne-peut-plus-pr%C3%A9tendre-%C3%A0-matignon",
+          "source_title": "Pour Faure, Bardella « ment » et ne peut plus prétendre à Matignon (AFP / France 24, RTL)",
+          "source_date": "2026-10-02",
+          "details": "Lors du débat du 23/09, il a aussi critiqué Royal, jugeant problématique de demander aux Juifs de se justifier de la politique israélienne (JDN, 24/09/2026).",
+          "confidence": "high"
+        },
+        {
+          "position": "Le projet du PS prévoit un Défenseur de la laïcité au sein du Défenseur des droits, de reprendre le contrôle des écoles privées sous contrat, d'encadrer le hors-contrat, de faire de la DILCRAH une autorité indépendante et de généraliser le testing. Faure n'a pas pris de position personnelle sourcée sur le voile.",
+          "kind": "inference",
+          "source_url": "https://projet-socialiste.fr/projet/refaire-societe/",
+          "source_title": "Le Projet socialiste – Refaire société",
+          "source_date": "2026",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "logement",
+      "found": true,
+      "positions": [
+        {
+          "position": "Généraliser l'encadrement des loyers et faciliter la réquisition des logements vacants en zone tendue.",
+          "kind": "proposition_explicite",
+          "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+          "source_title": "Profession de foi d'Olivier Faure",
+          "source_date": "2026-09-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Créer un « bouclier logement » pour qu'aucun ménage du parc locatif privé ne consacre plus de 30 % de ses revenus au logement.",
+          "kind": "proposition_explicite",
+          "source_url": "https://edito.seloger.com/actualites/france/presidentielle-2027-faure-hollande-devoilent-leurs-pistes-logement-article-23779",
+          "source_title": "Présidentielle 2027 : Faure et Hollande dévoilent leurs pistes pour le logement (SeLoger)",
+          "source_date": "2026-09-28",
+          "details": "Mesure également citée par LCP lors du débat LCI du 23/09. Le mécanisme de financement n'est pas précisé.",
+          "confidence": "high"
+        },
+        {
+          "position": "Au congrès HLM de Bordeaux, il a défendu la régulation des prix du foncier et le soutien à l'accession à la propriété. Il a dénoncé le gel des APL comme un « nouvel affront » aux classes populaires et s'est opposé à la préférence nationale dans le logement social et à la suppression de la loi SRU proposées par le RN.",
+          "kind": "position_declaree",
+          "source_url": "https://www.batiweb.com/actualites/immobilier/congres-hlm-faure-hollande-logement-49329",
+          "source_title": "Au congrès HLM, Olivier Faure et François Hollande s'expriment sur le logement (Batiweb)",
+          "source_date": "2026-09-23",
+          "confidence": "high"
+        },
+        {
+          "position": "Le projet du PS prévoit qu'un tiers des constructions soient des logements sociaux et une taxe « anti-rente » à partir du 4e logement.",
+          "kind": "inference",
+          "source_url": "https://projet-socialiste.fr/projet/vivre-libres/",
+          "source_title": "Le Projet socialiste – Coût de la vie",
+          "source_date": "2026",
+          "details": "Aucun objectif chiffré personnel de construction de HLM n'a été trouvé.",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "industrie_economie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Relocaliser la production des biens essentiels et des médicaments et atteindre la souveraineté énergétique.",
+          "kind": "proposition_explicite",
+          "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+          "source_title": "Profession de foi d'Olivier Faure",
+          "source_date": "2026-09-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Il fixe trois grands défis industriels : la transition écologique, la souveraineté alimentaire et la souveraineté numérique.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.france24.com/fr/info-en-continu/20260917-olivier-faure-%C3%A0-gauche-toute-pour-la-primaire",
+          "source_title": "Olivier Faure, « à gauche toute » pour la primaire (AFP / France 24)",
+          "source_date": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Il veut conditionner les aides publiques aux entreprises aux hausses de salaires (conférence salariale) et réévaluer les 211 Md€ d'aides annuelles.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.boursorama.com/actualite-economique/actualites/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions-e0f504871547edbc6960940d9c6e1fd9",
+          "source_title": "Faure développe ses propositions (AFP)",
+          "source_date": "2026-09-16",
+          "confidence": "high"
+        },
+        {
+          "position": "Le projet du PS prévoit une loi de programmation industrielle 2027-2032, la réorientation de 30 Md€ d'aides jugées inefficaces, un protectionnisme sectoriel assumé, la sortie de l'électricité de la logique de marché et l'extension des tarifs réglementés. Aucune proposition de nationalisation n'a été trouvée.",
+          "kind": "inference",
+          "source_url": "https://projet-socialiste.fr/projet/vivre-libres/",
+          "source_title": "Le Projet socialiste – Réindustrialiser le pays",
+          "source_date": "2026",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "numerique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il veut faire contribuer l'IA (« dividende IA ») au financement de la protection sociale, au motif que les entreprises économisent salaires et cotisations grâce à l'automatisation.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.21news.be/olivier-faure-dans-une-entreprise-ou-il-y-a-dix-comptables-demain-avec-lia-il-ny-en-aura-peut-etre-plus-quun-seul/",
+          "source_title": "Olivier Faure : « Dans une entreprise où il y a dix comptables… » (21news)",
+          "source_date": "2026-09-26",
+          "details": "Il ne précise ni taux ni seuil.",
+          "confidence": "high"
+        },
+        {
+          "position": "Il fait de la souveraineté numérique l'un de ses trois grands défis industriels.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.france24.com/fr/info-en-continu/20260917-olivier-faure-%C3%A0-gauche-toute-pour-la-primaire",
+          "source_title": "AFP / France 24",
+          "source_date": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Il s'est abstenu, contre la consigne de son groupe qui votait pour, sur le texte final de la PPL visant à protéger les mineurs des risques des réseaux sociaux (21/07/2026). Le Conseil constitutionnel a ensuite censuré l'interdiction avant 15 ans. Les raisons de son abstention n'ont pas été trouvées.",
+          "kind": "inference",
+          "source_url": "https://datan.fr/votes/legislature-17/vote_8431",
+          "source_title": "Datan – PPL visant à protéger les mineurs des risques des réseaux sociaux (CMP)",
+          "source_date": "2026-07-21",
+          "confidence": "medium"
+        },
+        {
+          "position": "Le projet du PS prévoit une taxe GAFAM à 10 %, un pôle public de l'IA autour de l'INRIA, l'étiquetage obligatoire des contenus générés par IA et une présomption d'utilisation des œuvres pour l'entraînement des IA.",
+          "kind": "inference",
+          "source_url": "https://projet-socialiste.fr/projet/vivre-libres/",
+          "source_title": "Le Projet socialiste – Progrès technique",
+          "source_date": "2026",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "societe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il a voté pour la proposition de loi créant un droit à l'aide à mourir à toutes les lectures, y compris la lecture définitive du 15 juillet 2026, ainsi que pour le texte sur les soins palliatifs.",
+          "kind": "inference",
+          "source_url": "https://datan.fr/votes/legislature-17/vote_8280",
+          "source_title": "Datan – PPL créant un droit à l'aide à mourir (lecture définitive)",
+          "source_date": "2026-07-15",
+          "confidence": "high"
+        },
+        {
+          "position": "Augmenter le financement public de la culture et de la création, et créer un grand service public de la lecture.",
+          "kind": "proposition_explicite",
+          "source_url": "https://avecfaure2027.fr/mes-propositions",
+          "source_title": "Mes propositions – Avec Olivier Faure 2027",
+          "source_date": "2026-09",
+          "details": "Le service public de la lecture a été évoqué à Blois (France 24, 29/08/2026). Le projet du PS vise 2 % du budget pour la culture et l'information, et défend un audiovisuel public renforcé sans holding.",
+          "confidence": "high"
+        },
+        {
+          "position": "Il a voté pour l'inscription de l'IVG dans la Constitution (mars 2024).",
+          "kind": "inference",
+          "source_url": "https://datan.fr/deputes/seine-et-marne-77/depute_olivier-faure/votes",
+          "source_title": "Datan – votes d'Olivier Faure",
+          "source_date": "2024-03-04",
+          "confidence": "high"
+        },
+        {
+          "position": "Le projet du PS prévoit la sécurisation des familles LGBTQIA+, la rectification de la mention de genre par simple démarche administrative et l'interdiction des thérapies de conversion en Europe. Aucune position personnelle sourcée de Faure n'a été trouvée sur la GPA.",
+          "kind": "inference",
+          "source_url": "https://projet-socialiste.fr/projet/refaire-societe/",
+          "source_title": "Le Projet socialiste – LGBTQIA+",
+          "source_date": "2026",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "territoires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il met en avant son ancrage d'élu d'un territoire de Seine-et-Marne d'où est parti le mouvement des Gilets jaunes, et a dit qu'il serait aux côtés des Français s'ils se soulevaient contre la vie chère.",
+          "kind": "position_declaree",
+          "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+          "source_title": "Profession de foi d'Olivier Faure",
+          "source_date": "2026-09-24",
+          "details": "Sur la vie chère : titre du Parisien, « Olivier Faure assure qu'il sera aux côtés des Gilets jaunes, s'ils se soulèvent » (13/09/2026).",
+          "confidence": "medium"
+        },
+        {
+          "position": "Sur la Nouvelle-Calédonie, il avait soutenu l'accord de Bougival en juillet 2025, puis le PS a refusé la réforme constitutionnelle. Il plaide désormais pour un nouvel accord inclusif et suffisamment large entre les forces calédoniennes, selon la méthode Matignon-Nouméa.",
+          "kind": "position_declaree",
+          "source_url": "https://la1ere.franceinfo.fr/nouvellecaledonie/presidentielle-2027-ce-que-proposent-les-principaux-candidats-pour-l-avenir-de-la-nouvelle-caledonie-1739837.html",
+          "source_title": "Présidentielle 2027 : ce que proposent les principaux candidats pour l'avenir de la Nouvelle-Calédonie (la1ere franceinfo)",
+          "source_date": "2026-09-19",
+          "details": "Il avait aussi voté contre la modification du corps électoral en mai 2024 (Datan).",
+          "confidence": "high"
+        },
+        {
+          "position": "Le projet du PS garantit aucun enfant à plus de 30 minutes d'un collège ou d'un lycée et aucune femme à plus de 45 minutes d'une maternité, l'absence de fermeture de service public rural sans concertation ni solution alternative, la lutte contre la vie chère outre-mer, un « Plan Marshall Mayotte », la ratification de la Charte des langues régionales et la recréation de la DATAR.",
+          "kind": "inference",
+          "source_url": "https://projet-socialiste.fr/projet/refaire-societe/",
+          "source_title": "Le Projet socialiste – Services publics et territoires",
+          "source_date": "2026",
+          "details": "Aucune position personnelle de Faure n'a été trouvée sur la Corse.",
+          "confidence": "medium"
+        }
+      ]
+    }
+  ],
+  "signature_proposals": [
+    {
+      "proposal": "Smic à 1 700 € net et conférence salariale où l'État conditionne ses aides aux entreprises aux hausses de salaires",
+      "topic_id": "travail_salaires",
+      "source_url": "https://www.france24.com/fr/info-en-continu/20260917-olivier-faure-%C3%A0-gauche-toute-pour-la-primaire"
+    },
+    {
+      "proposal": "1 € de dividende versé aux actionnaires = au moins 1 € pour les salariés (participation, intéressement ou salaire)",
+      "topic_id": "travail_salaires",
+      "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf"
+    },
+    {
+      "proposal": "Retour de l'âge de départ à la retraite à 62 ans, financé notamment en faisant cotiser l'intelligence artificielle",
+      "topic_id": "retraites",
+      "source_url": "https://www.boursorama.com/actualite-economique/actualites/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions-e0f504871547edbc6960940d9c6e1fd9"
+    },
+    {
+      "proposal": "Instaurer la taxe Zucman pour financer la transition écologique, et faire contribuer les très gros héritages",
+      "topic_id": "fiscalite",
+      "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf"
+    },
+    {
+      "proposal": "« Règle d'or verte » : aucun budget, investissement ou aide publique hors des objectifs climat et biodiversité",
+      "topic_id": "ecologie_energie",
+      "source_url": "https://www.france24.com/fr/info-en-continu/20260917-olivier-faure-%C3%A0-gauche-toute-pour-la-primaire"
+    },
+    {
+      "proposal": "Des classes de 19 élèves maximum, une réelle mixité sociale et de meilleures conditions de travail pour les AESH",
+      "topic_id": "education",
+      "source_url": "https://www.franceinfo.fr/france/rentree/direct-rentree-des-classes-plus-de-11-millions-d-eleves-de-retour-dans-leurs-etablissements-sans-telephone-portable_8171747.html"
+    },
+    {
+      "proposal": "Généraliser l'encadrement des loyers, faciliter la réquisition des logements vacants en zone tendue, et créer un « bouclier logement » plafonnant le coût du logement à 30 % des revenus",
+      "topic_id": "logement",
+      "source_url": "https://edito.seloger.com/actualites/france/presidentielle-2027-faure-hollande-devoilent-leurs-pistes-logement-article-23779"
+    },
+    {
+      "proposal": "Créer une sécurité sociale de l'alimentation",
+      "topic_id": "agriculture",
+      "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf"
+    },
+    {
+      "proposal": "Régularisation massive des travailleurs sans papiers (de l'ordre de 400 000 à 500 000)",
+      "topic_id": "immigration",
+      "source_url": "https://www.boursorama.com/actualite-economique/actualites/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions-e0f504871547edbc6960940d9c6e1fd9"
+    },
+    {
+      "proposal": "Légaliser le cannabis pour assécher les réseaux de narcotrafic",
+      "topic_id": "securite_justice",
+      "source_url": "https://www.politis.fr/articles/2026/09/olivier-faure-je-ne-vois-pas-ce-qui-pourrait-conduire-vers-une-autre-decision-que-la-censure/"
+    },
+    {
+      "proposal": "Commission « vérité et réconciliation » sur la colonisation",
+      "topic_id": "laicite_republique",
+      "source_url": "https://www.boursorama.com/actualite-economique/actualites/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions-e0f504871547edbc6960940d9c6e1fd9"
+    },
+    {
+      "proposal": "Relocaliser la production des biens essentiels et des médicaments ; trois défis industriels : transition écologique, souveraineté alimentaire et souveraineté numérique",
+      "topic_id": "industrie_economie",
+      "source_url": "https://avecfaure2027.fr/mes-propositions"
+    }
+  ],
+  "distinctive_vs_others": "1) Rapport à LFI. Faure est le seul des cinq à refuser d'exclure un rassemblement de toute la gauche, électeurs et forces insoumises compris, aux législatives. Il insiste sur les convergences parlementaires (« 80 % » de votes communs) tout en refusant une alliance présidentielle ou gouvernementale avec Mélenchon. Glucksmann exige la clarté et refuse toute alliance, Guedj l'accuse de « danse du ventre » devant LFI, et Royal et Maurel refusent de faire de Mélenchon le centre de la stratégie (LCP 23/09/2026 ; France 24 et L'essentiel 01/10/2026).\n\n2) Gaza. Avec Royal, il emploie le mot « génocide » ; Glucksmann (« Ce que tu fais est obscène ») et Guedj le refusent (France 24, franceinfo 01/10/2026). Il porte aussi une PPL interdisant les produits des colonies israéliennes (LCP 22/06/2026).\n\n3) Fiscalité et pouvoir d'achat. Il s'oppose frontalement à la baisse de CSG sur les salaires proposée par Glucksmann. Il défend le Smic à 1 700 €, la parité dividende/salariés, le refus de toute baisse de cotisations et la cotisation sur l'IA (franceinfo 01/10/2026 ; AFP 16-17/09/2026).\n\n4) Marqueurs « à gauche toute » pour un candidat issu de l'appareil. Il assume la régularisation massive (400 000 à 500 000), le mot « islamophobie », le « racisme structurel » dans la police, une commission vérité sur la colonisation et la légalisation du cannabis. Le projet du PS ne prévoyait pourtant qu'une convention citoyenne sur le cannabis (AFP 17/09 ; Politis 21/09/2026).\n\n5) Positionnement contre le centre. Il refuse un « Fillon 2 ou Macron 3 » et reproche à Glucksmann de s'entourer d'anciens macronistes (Politis 21/09 ; débat du 01/10).\n\n6) Nucléaire. Il propose 2 à 4 EPR2 seulement, avec priorité forte aux renouvelables (UFE 23/06/2026). C'est une position plus restrictive que celle des pro-nucléaires du PS et de la GRS (le positionnement précis de Maurel est à vérifier dans son propre dossier).\n\n7) Légitimité. Il est le seul candidat chef de parti en exercice. Il revendique d'avoir « repris le parti quand il était dans la poussière » mais a été désavoué par ses adhérents sur le format de la primaire (juillet 2026). Il est crédité d'environ 5 % des intentions de vote, loin derrière Glucksmann (environ 10-14 %).\n\nPoints communs : avec Maurel, il refuse l'annulation de la dette (LCP 23/09) ; tous les candidats jugent Bardella « disqualifié » après les révélations de Mediapart (01-02/10/2026).",
+  "evolutions_and_contradictions": "- Stratégie d'union. Il a signé l'accord NFP avec LFI en 2024. En avril 2026, il plaidait pour un candidat commun « hors LFI » (RTL 30/04/2026) et assurait en mars 2026 qu'il n'y aurait « pas d'accord national » PS-LFI (BFMTV 26/03/2026). En septembre 2026, il refuse pourtant d'exclure un « rassemblement de la gauche aux législatives » incluant les Insoumis. Il a co-lancé la primaire unitaire (novembre 2025), puis a été battu par ses adhérents (55,5 % pour une primaire fermée, 9 juillet 2026) et a fini candidat à la primaire fermée qu'il ne voulait pas.\n\n- Rapport au gouvernement Lecornu. Fin 2025, il a négocié la suspension de la réforme des retraites, l'absence de 49.3 et la non-censure, et voté le PLFSS 2026. Il a ensuite accepté l'idée d'un 49.3 précédé d'un compromis (décembre 2025-janvier 2026). En septembre 2026, il menace de censure le budget 2027 (« Si rien ne change, nous censurerons »).\n\n- Proportionnelle. Il s'est dit contre en mai 2025 (« On ne résout pas une crise politique avec un mode de scrutin »), alors que le projet du PS de 2026 prévoit un scrutin proportionnel de type allemand. Sa position personnelle actuelle n'est pas clarifiée.\n\n- 49.3. Le projet du PS veut le supprimer hors textes financiers, alors que Faure a entrouvert la porte à son usage pour le budget 2026.\n\n- Smic. Le projet du PS fixait 1 690 € net ; sa campagne retient 1 700 € net, et certains agrégateurs mélangent les deux chiffres.\n\n- Régularisations. L'AFP rapporte que 500 000 régularisations « ne le choquent pas », mais Public Sénat et Wikipédia parlent de 400 000. Le chiffre exact du livre n'a pas pu être vérifié.\n\n- Nouvelle-Calédonie. Il a soutenu l'accord de Bougival en juillet 2025, puis le PS a refusé la réforme constitutionnelle et il demande un nouvel accord inclusif.\n\n- Mercosur. Il a voté la résolution contre l'accord (novembre 2025) mais refusé les motions de censure RN et LFI sur ce sujet (janvier 2026).\n\n- Nucléaire. Il a voté contre la loi d'accélération du nucléaire en 2023, mais accepte aujourd'hui 2 à 4 EPR2.\n\n- Cannabis. Il va au-delà du projet du PS (convention citoyenne) en prônant la légalisation.\n\n- Réseaux sociaux. Il s'est abstenu, contre la consigne de son groupe, sur la PPL de protection des mineurs face aux réseaux sociaux (juillet 2026), sans explication trouvée.\n\n- Faits du cadrage à vérifier ou corriger :\n  - Le site officiel de la primaire est choisir2027.fr, et non choisir2027.org.\n  - Organisateurs (PS, Place publique, GRS), dates (9-10 et 16-17 octobre 2026), débats (LCI 23/09, France 2/France Inter 01/10, BFMTV 04/10) et cinq candidats validés le 16/09 : confirmés.\n  - Philippe Brun a été suspendu du PS « à titre conservatoire » le 16/09/2026 à la suite d'accusations, ce qui a empêché sa participation. Fabien Verdier n'a pas obtenu assez de parrainages.\n  - Un résumé de franceinfo du 30/08 cité en ligne présente Faure comme « député du Val-de-Marne » : c'est une erreur, il est élu de Seine-et-Marne (11e circonscription).\n  - Le vote est réservé aux adhérents à jour de cotisation (adhésion possible jusqu'au 5 octobre pour le 1er tour, pour 10 € ou 15 €).",
+  "open_questions": [
+    "Chiffre exact de régularisations inscrit dans « La Loi du plus juste » : 400 000 (Public Sénat, Wikipédia) ou 500 000 (AFP) ? Selon quels critères : contrat de travail de 6 mois, secteurs en tension ?",
+    "Chiffrage global du programme et trajectoire de déficit et de dette : aucune cible (3 %, etc.) ni coût total trouvé.",
+    "Modalités de la cotisation sur l'IA (« dividende IA ») : assiette, taux, seuil ; il n'en donne aucun selon 21news.",
+    "Taux, seuil et assiette exacts de sa taxe Zucman et de sa taxation des super-héritages.",
+    "Position personnelle actuelle sur la proportionnelle (contre en 2025, alors que le projet du PS de 2026 la prévoit) et sur une VIe République.",
+    "Forme concrète du « rassemblement de la gauche aux législatives » : candidatures uniques, désistements réciproques avec LFI, compatibilité avec le « pas d'accord national » de mars 2026 ?",
+    "Défense : budget en % du PIB, envoi de troupes en Ukraine dans le cadre de garanties de sécurité, service militaire volontaire : aucune position personnelle sourcée.",
+    "Durée de cotisation retraite (43 annuités dans le projet du PS) : la reprend-il à son compte avec le retour à 62 ans ?",
+    "Déserts médicaux : soutient-il la régulation de l'installation des médecins ? Son vote sur la PPL transpartisane de 2025 n'a pas été trouvé (abstention en 2023 sur une mesure similaire selon Datan).",
+    "Laïcité : position personnelle sur le voile (sport, université, accompagnatrices) et sur l'école privée sous contrat.",
+    "Raison de son abstention, contre la consigne de son groupe, sur la loi de protection des mineurs face aux réseaux sociaux (21/07/2026).",
+    "Contenu complet de « La Loi du plus juste » (573 mesures annoncées par un agrégateur, chiffre non vérifié) : le livre n'a pas pu être consulté directement.",
+    "Positions sur l'AME, les OQTF et le pacte européen asile-migration : non trouvées dans les sources personnelles.",
+    "Débat BFMTV du 4 octobre 2026 : pas encore eu lieu à la date de la recherche."
+  ],
+  "programme_sources": [
+    {
+      "title": "Profession de foi d'Olivier Faure – primaire Choisir 2027 (PDF)",
+      "url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+      "date": "2026-09-24"
+    },
+    {
+      "title": "Page candidat Olivier Faure – choisir2027.fr",
+      "url": "https://choisir2027.fr/candidat/olivier-faure/",
+      "date": "2026-09"
+    },
+    {
+      "title": "Mes propositions – site de campagne Avec Olivier Faure 2027",
+      "url": "https://avecfaure2027.fr/mes-propositions",
+      "date": "2026-09"
+    },
+    {
+      "title": "La Loi du plus juste (livre-programme, Robert Laffont) – page campagne",
+      "url": "https://avecfaure2027.fr/la-loi-du-plus-juste",
+      "date": "2026-09-17"
+    },
+    {
+      "title": "Smic à 1.700 euros, régularisation des travailleurs sans papiers, retraites : Faure développe ses propositions (AFP / Boursorama)",
+      "url": "https://www.boursorama.com/actualite-economique/actualites/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions-e0f504871547edbc6960940d9c6e1fd9",
+      "date": "2026-09-16"
+    },
+    {
+      "title": "Olivier Faure, « à gauche toute » pour la primaire (AFP / France 24)",
+      "url": "https://www.france24.com/fr/info-en-continu/20260917-olivier-faure-%C3%A0-gauche-toute-pour-la-primaire",
+      "date": "2026-09-17"
+    },
+    {
+      "title": "Olivier Faure : « Je ne vois pas ce qui pourrait conduire vers une autre décision que la censure » (Politis)",
+      "url": "https://www.politis.fr/articles/2026/09/olivier-faure-je-ne-vois-pas-ce-qui-pourrait-conduire-vers-une-autre-decision-que-la-censure/",
+      "date": "2026-09-21"
+    },
+    {
+      "title": "Accord avec LFI, Moyen-Orient, pouvoir d'achat : ce qu'il faut retenir du premier débat de la primaire de gauche (LCP)",
+      "url": "https://lcp.fr/actualites/accord-avec-lfi-moyen-orient-pouvoir-d-achat-ce-qu-il-faut-retenir-du-premier-debat-de",
+      "date": "2026-09-23"
+    },
+    {
+      "title": "Sept séquences à retenir du débat des candidats à la primaire de la gauche sur France 2 et France Inter (franceinfo)",
+      "url": "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html",
+      "date": "2026-10-01"
+    },
+    {
+      "title": "Le Projet socialiste (projet du PS adopté sous la direction de Faure)",
+      "url": "https://projet-socialiste.fr/projet/",
+      "date": "2026"
+    },
+    {
+      "title": "Le chef du PS Olivier Faure confirme sa candidature à la primaire (franceinfo)",
+      "url": "https://www.franceinfo.fr/elections/presidentielle/le-chef-du-parti-socialiste-olivier-faure-confirme-sa-candidature-a-la-primaire-de-son-camp-en-vue-de-l-election-presidentielle_8169896.html",
+      "date": "2026-08-30"
+    },
+    {
+      "title": "Primaire présidentielle socialiste française de 2026 (Wikipédia, point d'entrée)",
+      "url": "https://fr.wikipedia.org/wiki/Primaire_pr%C3%A9sidentielle_socialiste_fran%C3%A7aise_de_2026",
+      "date": "2026-10"
+    },
+    {
+      "title": "Datan – fiche et votes du député Olivier Faure",
+      "url": "https://datan.fr/deputes/seine-et-marne-77/depute_olivier-faure/votes",
+      "date": "2026"
+    }
+  ]
+}

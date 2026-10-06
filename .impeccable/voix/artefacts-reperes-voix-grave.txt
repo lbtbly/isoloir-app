@@ -1,0 +1,11 @@
+Compilation d'écoute des sons repérés : artefacts-reperes-voix-grave.m4a (3 extrait(s), 9.8 s ; 1.5 s de contexte avant et après chaque son, 0.8 s de silence entre deux extraits ; dans l'ordre des passages).
+Pour chaque extrait : où il commence dans la compilation, où le son commence, le passage et l'instant dans le passage, le type, et les mots autour ([·] marque la place du son).
+
+ 1. extrait à 0.0 s, son à 0.0 s — grave/retraites-intro-01 à 0.00-0.43 s : rire (défaut net, confiance 0.95)
+      « (début) [·] Un jour vous »
+ 2. extrait à 2.7 s, son à 4.2 s — grave/retraites-intro-09 à 5.67-5.80 s : bruit (défaut net, confiance 0.95)
+      « comment Combien toucher [·] Et comment tenir »
+ 3. extrait à 6.7 s, son à 8.2 s — grave/logement-existant-06 à 6.12-6.24 s : respiration (léger, confiance 0.36)
+      « mille vingt cinq [·] dont un virgule »
+
+Passages contrôlés sans aucun son repéré : grave/retraites-intro-02, grave/retraites-intro-03, grave/retraites-intro-04, grave/retraites-intro-05, grave/retraites-intro-06, grave/retraites-intro-07, grave/retraites-intro-08, grave/retraites-intro-10, grave/retraites-penibilite-03

@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font",
+        "value": "sf mono",
+        "createdAt": "2026-10-02T20:53:11.101Z",
+        "reason": "agent decided: system monospace stack used only for inline <code> (the CSP directive quoted on the Confidentialité page); code, not a brand face — craft floor allows mono for code"
+      }
+    ]
+  }
+}

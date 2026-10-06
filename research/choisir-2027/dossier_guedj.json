@@ -1,0 +1,839 @@
+{
+  "candidate": "Jérôme Guedj",
+  "affiliation": "Parti socialiste. Député de la 6e circonscription de l'Essonne depuis 2022, groupe Socialistes et apparentés, membre de la commission des affaires sociales. Ancien assistant parlementaire de Jean-Luc Mélenchon, élu en 2022 sous l'étiquette NUPES, il a refusé le label NFP en 2024. Il a déclaré sa candidature présidentielle hors primaire le 5 février 2026, puis a rejoint la primaire « Choisir 2027 » fin août 2026 (le 23 août selon Wikipédia FR). Il a annoncé ses parrainages le 15 septembre 2026.",
+  "campaign_site": "https://www.jeromeguedj2027.fr/",
+  "overview": "Jérôme Guedj se présente comme le candidat d'une gauche « républicaine, universaliste, écologiste, européenne et laïque ». Son slogan est « La République, c'est nous ! », titre de son livre paru le 27 août 2026. Sa ligne stratégique est la plus anti-LFI des cinq candidats : aucune alliance avec La France insoumise, « plus jamais ». Il rappelle avoir refusé l'accord NFP en 2024 et assume un « compromis » avec le centre, voire avec une partie de la droite, face à l'extrême droite. Spécialiste des questions sociales, il fait de la « République du soin » sa première priorité : Sécurité sociale intégrale ou « Grande Sécu » (un seul payeur pour les soins essentiels), extension à tout le pays du régime local d'Alsace-Moselle, critères d'installation des médecins et financement du grand âge. Sur les retraites, il veut « sortir de l'âge légal » au profit d'un système fondé sur les annuités et la pénibilité, avec un âge du taux plein abaissé. Il accepte, sous conditions, une sous-indexation des pensions les plus élevées et une hausse de la CSG sur ces pensions. Côté recettes, il propose d'alourdir les droits de succession au-delà de 2 M€ (environ 10 Md€ par an pour l'autonomie) et un « ISF climatique ». Sur l'immigration, il veut une immigration « planifiée par le Parlement », avec apprentissage obligatoire de la langue. Sur la laïcité, il propose un Défenseur de la laïcité, autorité indépendante, et a reçu en juillet 2026 une mission du Premier ministre Lecornu. À l'international, il soutient fermement l'Ukraine et défend la solution à deux États. Il refuse le terme « génocide » pour Gaza et parle de crimes de guerre et de crimes contre l'humanité.",
+  "topics": [
+    {
+      "topic_id": "strategie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Refuse toute alliance avec LFI, y compris aux législatives, et jure de ne « plus jamais » s'allier avec ce mouvement. Il avertit qu'un second tour Le Pen-Mélenchon garantirait la victoire de l'extrême droite.",
+          "kind": "position_declaree",
+          "short_quote": "plus jamais",
+          "details": "Débat LCI du 23/09/2026. Il rappelle avoir été « le seul » à refuser l'accord en 2024 et somme Olivier Faure de clarifier la position du PS.",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+          "source_title": "Primaire de la gauche : échanges tendus sur les alliances avec LFI, Gaza, Ukraine… Que retenir du 1er débat (Public Sénat)",
+          "source_date": "2026-09-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Accuse Olivier Faure et Ségolène Royal de complaisance envers LFI : au premier débat, il leur reproche de « glisser dans la soumission » à LFI. Au second débat, il dénonce la « danse du ventre permanente » de Faure avec La France insoumise.",
+          "kind": "position_declaree",
+          "short_quote": "J'ai un problème avec la danse du ventre permanente",
+          "details": "Débats du 23/09/2026 (LCI) et du 01/10/2026 (France 2). Royal a répliqué : « Je ne me soumets à personne ». Il juge aussi « largement » révélateurs les accords municipaux passés avec LFI.",
+          "source_url": "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+          "source_title": "Mobilisation lycéenne, budget, situation internationale... Ce qu'il faut retenir du deuxième débat de la primaire de gauche (LCP)",
+          "source_date": "2026-10-01",
+          "confidence": "high"
+        },
+        {
+          "position": "Juge un « compromis » avec le centre, voire avec une partie de la droite, inévitable face à la montée de l'extrême droite. Il présente certaines mesures sur les retraites comme des éléments de ce compromis.",
+          "kind": "position_declaree",
+          "short_quote": "c'est un des éléments du compromis",
+          "details": "Il note que « Gabriel Attal va sur ce terrain » (CSG et désindexation des hautes pensions). Selon la dépêche AFP, une partie de ses proches soutient Glucksmann.",
+          "source_url": "https://www.boursorama.com/actualite-economique/actualites/primaire-a-gauche-guedj-veut-repousser-les-frontieres-du-ps-au-risque-de-l-isolement-0938091ba9ae98269b3524add32329ab",
+          "source_title": "Primaire à gauche: Guedj veut repousser les frontières du PS, au risque de l'isolement (AFP via Boursorama)",
+          "source_date": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Qualifie Jean-Luc Mélenchon de « marche-pied » du Rassemblement national pour justifier son refus de toute alliance avec LFI.",
+          "kind": "position_declaree",
+          "short_quote": "le marche-pied du Rassemblement national",
+          "details": "Entretien lors du FIM de Metz.",
+          "source_url": "https://moselle.tv/jerome-guedj-inspirons-nous-de-ce-que-la-moselle-a-ete-capable-de-faire-depuis-80-ans/",
+          "source_title": "Jérôme Guedj : « inspirons-nous de ce que la Moselle a été capable de faire depuis plus de 80 ans » (Moselle TV)",
+          "source_date": "2026-09-29",
+          "confidence": "high"
+        },
+        {
+          "position": "Assume d'avoir soutenu des compromis budgétaires avec le gouvernement (refus de censure) pour éviter le « chaos » et permettre un vrai débat présidentiel, notamment sur l'IA et le financement de la protection sociale. Il refuse toute ambiguïté vis-à-vis de LFI.",
+          "kind": "position_declaree",
+          "details": "Déclaré lors de l'annonce de sa candidature, le 05/02/2026. Il y rappelait aussi son refus du label NFP en 2024.",
+          "source_url": "https://www.franceinfo.fr/politique/jerome-guedj-je-suis-candidat-a-l-election-presidentielle-pour-porter-une-ligne-politique_7786493.html",
+          "source_title": "Jérôme Guedj : « Je suis candidat à l'élection présidentielle pour porter une ligne politique » (franceinfo)",
+          "source_date": "2026-02-05",
+          "confidence": "medium"
+        },
+        {
+          "position": "A d'abord déclaré sa candidature présidentielle hors primaire, jugeant le processus « baroque » (il visait alors la primaire unitaire). Il a ensuite rejoint la primaire PS-Place publique-GRS et annoncé ses parrainages le 15/09/2026.",
+          "kind": "position_declaree",
+          "short_quote": "Je prendrai toute ma place dans cette primaire",
+          "details": "Annonce sur France Inter le 05/02/2026 ; ralliement fin août 2026 (le 23/08 selon Wikipédia FR, citation tirée de La Tribune Dimanche).",
+          "source_url": "https://www.franceinfo.fr/politique/ps/primaire-a-gauche/apres-olivier-faure-et-segolene-royal-les-deputes-jerome-guedj-et-philippe-brun-affirment-pouvoir-participer-a-la-primaire-socialiste_8194187.html",
+          "source_title": "Après Olivier Faure et Ségolène Royal, les députés Jérôme Guedj et Philippe Brun affirment pouvoir participer à la primaire socialiste (franceinfo)",
+          "source_date": "2026-09-15",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "fiscalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Augmenter les droits de succession, notamment sur les patrimoines transmis au-delà de 2 millions d'euros, pour dégager environ 10 Md€ de recettes par an affectées à la branche autonomie de la Sécurité sociale.",
+          "kind": "proposition_explicite",
+          "details": "Annoncé aux Assises de l'Afer le 29/09/2026. Le taux et le barème ne sont pas précisés.",
+          "source_url": "https://entrevue.fr/entrevue/presidentielle-2027-jerome-guedj-veut-augmenter-les-droits-de-succession-au-dela-de-2-millions-deuros/",
+          "source_title": "Présidentielle 2027 : Jérôme Guedj veut augmenter les droits de succession au-delà de 2 millions d'euros (Entrevue)",
+          "source_date": "2026-09-30",
+          "confidence": "high"
+        },
+        {
+          "position": "Accepte une sous-indexation (revalorisation inférieure à l'inflation) des pensions les plus confortables, à condition qu'elle s'inscrive dans un effort plus large qui touche aussi les héritages, les « niches sociales » des entreprises et les géants de l'intelligence artificielle.",
+          "kind": "position_declaree",
+          "details": "Tribune dans L'Opinion, mi-août 2026. Le seuil de pension « confortable » n'est pas précisé.",
+          "source_url": "https://lcp.fr/actualites/budget-2027-vers-un-gel-partiel-des-pensions-de-retraites-440455",
+          "source_title": "Budget 2027: vers un gel partiel des pensions de retraites? (LCP)",
+          "source_date": "2026-08-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Propose une révision des taux de CSG pour les pensions les plus élevées et ne s'interdit pas une désindexation partielle des retraites selon leur niveau.",
+          "kind": "proposition_explicite",
+          "short_quote": "révision des taux de CSG pour les pensions les plus élevées",
+          "details": "Présenté comme un élément de compromis avec le centre.",
+          "source_url": "https://www.boursorama.com/actualite-economique/actualites/primaire-a-gauche-guedj-veut-repousser-les-frontieres-du-ps-au-risque-de-l-isolement-0938091ba9ae98269b3524add32329ab",
+          "source_title": "Primaire à gauche: Guedj veut repousser les frontières du PS, au risque de l'isolement (AFP via Boursorama)",
+          "source_date": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Veut réintroduire un « ISF climatique ».",
+          "kind": "proposition_explicite",
+          "details": "Évoqué au débat LCI du 23/09/2026. L'assiette et le taux ne sont pas précisés.",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+          "source_title": "Primaire de la gauche : échanges tendus sur les alliances avec LFI, Gaza, Ukraine… (Public Sénat)",
+          "source_date": "2026-09-24",
+          "confidence": "medium"
+        },
+        {
+          "position": "Sur la dette : « redresser dans la justice ». L'effort ne doit pas porter seulement sur des économies demandées « toujours aux mêmes » ; il pointe aussi des gaspillages et des dépenses redondantes à la Sécurité sociale.",
+          "kind": "position_declaree",
+          "short_quote": "les efforts ne peuvent pas seulement être supportés par des économies",
+          "details": "Débats des 23/09 et 01/10/2026. Il ne fixe pas de cible chiffrée de déficit.",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+          "source_title": "Primaire de la gauche : échanges tendus sur les alliances avec LFI, Gaza, Ukraine… (Public Sénat)",
+          "source_date": "2026-09-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Baisser le prix des carburants « par tous les moyens », y compris en réduisant les taxes qui s'y appliquent. Au second débat, il rejoint Ségolène Royal sur une baisse de la fiscalité plutôt que sur des aides ciblées.",
+          "kind": "proposition_explicite",
+          "short_quote": "un litre de carburant à 3 euros",
+          "details": "Moselle TV, 29/09/2026 ; débat France 2 du 01/10/2026 (compte rendu Entrevue). Il juge intenable d'aborder la présidentielle avec un litre « à 3 euros ».",
+          "source_url": "https://moselle.tv/jerome-guedj-inspirons-nous-de-ce-que-la-moselle-a-ete-capable-de-faire-depuis-80-ans/",
+          "source_title": "Jérôme Guedj : « inspirons-nous de ce que la Moselle a été capable de faire depuis plus de 80 ans » (Moselle TV)",
+          "source_date": "2026-09-29",
+          "confidence": "high"
+        },
+        {
+          "position": "Défend la taxe Zucman, un impôt minimum sur les très hauts patrimoines, comme mesure de justice fiscale protégeant les classes moyennes et populaires.",
+          "kind": "position_declaree",
+          "details": "Titre d'un article de son site de député (« Pour une justice fiscale : défendre la taxe Zucman… »). La date n'est pas affichée et le contenu n'a pas pu être lu (page en JavaScript) : probablement le débat budgétaire 2025-2026, ce qui reste à vérifier.",
+          "source_url": "https://www.jerome-guedj.fr/pour-une-justice-fiscale-defendre-la-taxe-zucman-pour-preserver-les-classes-moyennes-et-populaires/",
+          "source_title": "Pour une justice fiscale : défendre la taxe Zucman pour préserver les classes moyennes et populaires (site de J. Guedj)",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "travail_salaires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Porter le SMIC à 1 700 euros.",
+          "kind": "proposition_explicite",
+          "details": "La dépêche AFP ne précise pas s'il s'agit de net ou de brut. Olivier Faure propose aussi 1 700 € net.",
+          "source_url": "https://www.boursorama.com/actualite-economique/actualites/primaire-a-gauche-guedj-veut-repousser-les-frontieres-du-ps-au-risque-de-l-isolement-0938091ba9ae98269b3524add32329ab",
+          "source_title": "Primaire à gauche: Guedj veut repousser les frontières du PS, au risque de l'isolement (AFP via Boursorama)",
+          "source_date": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Engagement « Produire plus en travaillant tous, en travaillant mieux » : augmenter les bas salaires, meilleur partage des richesses, contribution de chacun selon ses moyens. Il veut aussi renforcer la participation des salariés aux profits des entreprises.",
+          "kind": "proposition_explicite",
+          "short_quote": "Le pouvoir d'achat doit redevenir le thermomètre de la dignité",
+          "details": "Engagement n°2 du site de campagne ; la lettre aux électeurs y ajoute la participation aux profits et la maîtrise des prix de l'énergie.",
+          "source_url": "https://www.jeromeguedj2027.fr/lettre",
+          "source_title": "Lettre / profession de foi de Jérôme Guedj (site de campagne)",
+          "source_date": "2026",
+          "confidence": "high"
+        },
+        {
+          "position": "Défend un travail qui « paye dignement » et revendique de ne pas être « décroissant » (logique de production et de croissance).",
+          "kind": "position_declaree",
+          "short_quote": "pas un décroissant",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+          "source_title": "Primaire de la gauche : échanges tendus… Que retenir du 1er débat (Public Sénat)",
+          "source_date": "2026-09-24",
+          "confidence": "high"
+        },
+        {
+          "position": "S'oppose à une baisse de CSG comme levier de pouvoir d'achat (proposition de Glucksmann) : selon lui, elle risque de faire de la Sécurité sociale une « variable d'ajustement ». Il présente plutôt la Grande Sécu comme le levier de pouvoir d'achat.",
+          "kind": "position_declaree",
+          "details": "Débat du 01/10/2026 ; au débat du 23/09, il avait présenté la Grande Sécu comme un moyen de redonner du pouvoir d'achat.",
+          "source_url": "https://entrevue.fr/presidentielle-2027/primaire-a-gauche-lfi-gaza-pouvoir-dachat-ce-quil-faut-retenir-du-deuxieme-debat/",
+          "source_title": "Primaire à gauche : LFI, Gaza, pouvoir d'achat… ce qu'il faut retenir du deuxième débat (Entrevue)",
+          "source_date": "2026-10-02",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "retraites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Veut « sortir de l'âge légal » comme critère central. L'âge légal est pour lui un « couperet » anxiogène : le départ reposerait d'abord sur le nombre d'annuités cotisées, avec une prise en compte réelle de la pénibilité.",
+          "kind": "proposition_explicite",
+          "short_quote": "Je veux sortir de l'âge légal",
+          "details": "Déclaré sur BFMTV le 11/09/2026. Il ne chiffre ni la durée de cotisation requise ni les critères de pénibilité.",
+          "source_url": "https://fr.finance.yahoo.com/actualites/veux-sortir-l%C3%A2ge-l%C3%A9gal-j%C3%A9r%C3%B4me-144747223.html",
+          "source_title": "« Je veux sortir de l'âge légal », Jérôme Guedj propose une retraite calculée sur les annuités et la pénibilité (Capital via Yahoo Finance)",
+          "source_date": "2026-09-12",
+          "confidence": "high"
+        },
+        {
+          "position": "Abaisser l'âge du taux plein (sans décote), fixé aujourd'hui à 67 ans.",
+          "kind": "proposition_explicite",
+          "details": "Le nouvel âge n'est pas précisé. Les paramètres seraient négociés avec les partenaires sociaux plutôt que tranchés au Parlement.",
+          "source_url": "https://fr.finance.yahoo.com/actualites/veux-sortir-l%C3%A2ge-l%C3%A9gal-j%C3%A9r%C3%B4me-144747223.html",
+          "source_title": "« Je veux sortir de l'âge légal »… (Capital via Yahoo Finance)",
+          "source_date": "2026-09-12",
+          "confidence": "high"
+        },
+        {
+          "position": "Rappelle avoir défendu la suspension de la réforme de 2023 (plutôt qu'une abrogation immédiate) pour rouvrir le débat lors de la présidentielle. Il privilégie la négociation avec les partenaires sociaux.",
+          "kind": "position_declaree",
+          "details": "Opposé à la réforme Borne de 2023, il a plaidé pour sa suspension lors des négociations budgétaires 2025. Il ne s'engage pas sur un retour à 62 ou 60 ans.",
+          "source_url": "https://renseignementeconomique.fr/guedj-propose-de-substituer-l-age-legal-par-les-annuites-et-la-penibilite-et-de-baisser-le-taux-plein",
+          "source_title": "Guedj propose de substituer l'âge légal par les annuités et la pénibilité et de baisser le taux plein (Renseignement Économique, d'après Capital)",
+          "source_date": "2026-09-12",
+          "confidence": "medium"
+        },
+        {
+          "position": "Faire contribuer davantage les retraités aisés : révision de la CSG sur les plus hautes pensions et sous-indexation ciblée, à condition que les héritages, les niches sociales des entreprises et les géants de l'IA contribuent aussi.",
+          "kind": "position_declaree",
+          "details": "Tribune dans L'Opinion (août 2026) et dépêche AFP du 17/09/2026. Seuils non précisés. C'est une inflexion pour la gauche, qui défendait l'indexation de toutes les pensions.",
+          "source_url": "https://www.senioractu.com/La-gauche-avait-jure-de-proteger-votre-pension-Jerome-Guedj-accepte-la-sous-indexation-a-condition-que-vos-heritiers_a27953.html",
+          "source_title": "La gauche avait juré de protéger votre pension : Jérôme Guedj accepte la sous-indexation… (Senioractu)",
+          "source_date": "2026-08-14",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "sante",
+      "found": true,
+      "positions": [
+        {
+          "position": "Créer une Sécurité sociale intégrale (« Grande Sécu ») : un seul payeur pour les soins essentiels, moins de doublons avec les complémentaires, jusqu'à 5,4 Md€ d'économies de frais de gestion. Les mutuelles et assurances privées seraient reléguées à « leur portion congrue ».",
+          "kind": "proposition_explicite",
+          "short_quote": "un seul payeur pour les soins essentiels",
+          "details": "Message posté le soir du débat LCI (23/09/2026), où il se dit le seul candidat à avoir parlé de santé. La dépêche AFP du 17/09/2026 en fait sa proposition phare.",
+          "source_url": "https://x.com/JeromeGuedj/status/2102873950988771608",
+          "source_title": "Message X de Jérôme Guedj (République du soin, Sécurité sociale intégrale)",
+          "source_date": "2026-09-23",
+          "confidence": "high"
+        },
+        {
+          "position": "Étendre à tout le pays le modèle du régime local d'assurance maladie d'Alsace-Moselle : une complémentaire publique obligatoire gérée par la Sécurité sociale.",
+          "kind": "proposition_explicite",
+          "details": "Il juge ce régime vertueux et durable depuis plus de 80 ans.",
+          "source_url": "https://moselle.tv/jerome-guedj-inspirons-nous-de-ce-que-la-moselle-a-ete-capable-de-faire-depuis-80-ans/",
+          "source_title": "Jérôme Guedj : « inspirons-nous de ce que la Moselle a été capable de faire depuis plus de 80 ans » (Moselle TV)",
+          "source_date": "2026-09-29",
+          "confidence": "high"
+        },
+        {
+          "position": "Corapporteur (avec Thibault Bazin, DR, et Thierry Frappé, RN) d'un rapport de la MECSS sur la répartition des dépenses entre assurance maladie obligatoire et complémentaire. Il y plaide pour hausser les taux de remboursement de base (« Sécurité sociale intégrale ou élargie »).",
+          "kind": "position_declaree",
+          "details": "Rapport adopté le 29/09/2026. Frais de gestion : 18,8 % des cotisations des complémentaires contre 2,7 % pour l'assurance maladie obligatoire.",
+          "source_url": "https://www.assemblee-nationale.fr/dyn/espace-presse/communiques-de-presse/2026/publication-du-rapport-d-information-sur-la-repartition-des-depenses-entre-l-assurance-maladie-obligatoire-et-l-assurance-maladie-complementaire",
+          "source_title": "Publication du rapport d'information sur la répartition des dépenses entre l'AMO et l'AMC (Assemblée nationale)",
+          "source_date": "2026-09-29",
+          "confidence": "high"
+        },
+        {
+          "position": "Lutter contre les déserts médicaux en fixant des critères pour l'installation des médecins (régulation de l'installation), en travaillant avec toutes les forces politiques.",
+          "kind": "position_declaree",
+          "details": "Les modalités (conventionnement sélectif, autorisation ARS) ne sont pas détaillées.",
+          "source_url": "https://moselle.tv/jerome-guedj-inspirons-nous-de-ce-que-la-moselle-a-ete-capable-de-faire-depuis-80-ans/",
+          "source_title": "Moselle TV, entretien Jérôme Guedj",
+          "source_date": "2026-09-29",
+          "confidence": "medium"
+        },
+        {
+          "position": "République du soin : la santé ne doit pas dépendre du lieu de vie. Il veut investir dans la prévention et les soins de proximité, renforcer l'hôpital public et garantir la dignité des personnes âgées.",
+          "kind": "proposition_explicite",
+          "short_quote": "La santé ne doit plus jamais dépendre de l'endroit où l'on vit",
+          "details": "Engagement n°1 du site de campagne.",
+          "source_url": "https://www.jeromeguedj2027.fr/",
+          "source_title": "Site de campagne Jérôme Guedj 2027 – 7 engagements",
+          "source_date": "2026",
+          "confidence": "high"
+        },
+        {
+          "position": "Grand âge : financer la branche autonomie par la hausse des droits de succession (environ 10 Md€ par an). Il a par ailleurs défendu des ratios opposables de personnel par résident en EHPAD.",
+          "kind": "proposition_explicite",
+          "details": "Le financement de l'autonomie est sourcé (Entrevue, 30/09/2026). Les ratios opposables en EHPAD viennent de Wikipédia FR, sans source primaire vérifiée, et datent de propositions antérieures (vers 2023).",
+          "source_url": "https://entrevue.fr/entrevue/presidentielle-2027-jerome-guedj-veut-augmenter-les-droits-de-succession-au-dela-de-2-millions-deuros/",
+          "source_title": "Présidentielle 2027 : Jérôme Guedj veut augmenter les droits de succession au-delà de 2 millions d'euros (Entrevue)",
+          "source_date": "2026-09-30",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "found": true,
+      "positions": [
+        {
+          "position": "« École de l'émancipation » : concentrer l'effort là où c'est le plus nécessaire. Cela passe par mieux former les enseignants, réduire les effectifs par classe dans les territoires en difficulté et refuser que la carte scolaire devienne une carte sociale (mixité).",
+          "kind": "proposition_explicite",
+          "details": "Engagement n°5 du site de campagne. Pas de chiffres (salaires, nombre d'élèves par classe).",
+          "source_url": "https://www.jeromeguedj2027.fr/",
+          "source_title": "Site de campagne Jérôme Guedj 2027 – 7 engagements",
+          "source_date": "2026",
+          "confidence": "high"
+        },
+        {
+          "position": "Voit dans la mobilisation lycéenne d'automne 2026 « un cri pour la défense des services publics » et propose de recueillir la parole des élèves dans chaque établissement. Il condamne toute violence et insiste sur le rôle de LFI dans les débordements.",
+          "kind": "position_declaree",
+          "short_quote": "aucune violence n'est acceptable",
+          "source_url": "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+          "source_title": "Ce qu'il faut retenir du deuxième débat de la primaire de gauche (LCP)",
+          "source_date": "2026-10-01",
+          "confidence": "high"
+        },
+        {
+          "position": "Laïcité à l'école : il a proposé de mieux former les enseignants à la laïcité, de mieux protéger ceux confrontés à des contestations et d'instaurer une journée nationale de la laïcité le 9 décembre (aujourd'hui en place).",
+          "kind": "proposition_explicite",
+          "details": "Propositions de décembre 2022, rappelées par LCP lors de sa nomination à la mission laïcité (juillet 2026).",
+          "source_url": "https://lcp.fr/actualites/le-depute-socialiste-jerome-guedj-charge-d-une-mission-sur-la-laicite-par-sebastien",
+          "source_title": "Le député socialiste Jérôme Guedj chargé d'une mission sur la laïcité par Sébastien Lecornu (LCP)",
+          "source_date": "2026-07",
+          "confidence": "medium"
+        },
+        {
+          "position": "Favorable à l'interdiction de l'abaya et du qamis à l'école lorsqu'ils sont portés de manière ostentatoire.",
+          "kind": "position_declaree",
+          "details": "Position rapportée par Wikipédia FR (vers 2023-2025), sans source primaire vérifiée ici.",
+          "source_url": "https://fr.wikipedia.org/wiki/J%C3%A9r%C3%B4me_Guedj",
+          "source_title": "Jérôme Guedj (Wikipédia FR)",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "found": true,
+      "positions": [
+        {
+          "position": "« Écologie du concret » : une transition planifiée et financée, juste et non punitive. Elle passe par une rénovation thermique massive des logements et des transports accessibles partout, l'effort pesant d'abord sur les plus gros pollueurs.",
+          "kind": "proposition_explicite",
+          "short_quote": "On ne sauvera pas le climat contre les Français, mais avec eux",
+          "details": "Engagement n°6 du site de campagne. La lettre parle d'une transition « juste et populaire » qui réconcilie industrie et sobriété.",
+          "source_url": "https://www.jeromeguedj2027.fr/",
+          "source_title": "Site de campagne Jérôme Guedj 2027 – 7 engagements",
+          "source_date": "2026",
+          "confidence": "high"
+        },
+        {
+          "position": "Contre la flambée des carburants : plafonner les marges des raffineurs (comme Emmanuel Maurel) et réintroduire un « ISF climatique ».",
+          "kind": "proposition_explicite",
+          "details": "Débat LCI du 23/09/2026.",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+          "source_title": "Primaire de la gauche : échanges tendus… Que retenir du 1er débat (Public Sénat)",
+          "source_date": "2026-09-24",
+          "confidence": "medium"
+        },
+        {
+          "position": "Baisser la fiscalité sur les carburants plutôt que verser des aides ciblées ; il juge que les prix élevés nourrissent le populisme.",
+          "kind": "proposition_explicite",
+          "details": "Moselle TV, 29/09/2026 ; débats des 23/09 et 01/10/2026.",
+          "source_url": "https://entrevue.fr/presidentielle-2027/primaire-a-gauche-lfi-gaza-pouvoir-dachat-ce-quil-faut-retenir-du-deuxieme-debat/",
+          "source_title": "Primaire à gauche : LFI, Gaza, pouvoir d'achat… ce qu'il faut retenir du deuxième débat (Entrevue)",
+          "source_date": "2026-10-02",
+          "confidence": "medium"
+        },
+        {
+          "position": "Souveraineté énergétique : un pays qui ne maîtrise plus son énergie n'est « plus tout à fait libre ». Il veut maîtriser les prix de l'énergie.",
+          "kind": "position_declaree",
+          "details": "Engagement n°4 du site et lettre. Aucune position vérifiée sur le nucléaire (nouveaux EPR ou sortie) : les agrégateurs se contredisent.",
+          "source_url": "https://www.jeromeguedj2027.fr/lettre",
+          "source_title": "Lettre / profession de foi de Jérôme Guedj (site de campagne)",
+          "source_date": "2026",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "found": true,
+      "positions": [
+        {
+          "position": "Range la maîtrise de l'alimentation parmi les conditions de la souveraineté nationale (« La souveraineté, c'est la liberté »). Aucune mesure agricole précise n'a été trouvée (Mercosur, pesticides, loi Duplomb, revenus).",
+          "kind": "position_declaree",
+          "details": "Engagement n°4 du site de campagne. La position est générale et sans mesure concrète.",
+          "source_url": "https://www.jeromeguedj2027.fr/",
+          "source_title": "Site de campagne Jérôme Guedj 2027 – 7 engagements",
+          "source_date": "2026",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Se revendique d'une gauche « européenne » et pro-européenne.",
+          "kind": "position_declaree",
+          "details": "Libération, 05/02/2026 (via Wikipédia), et Moselle TV, 29/09/2026. Pas de position trouvée sur le fédéralisme, les traités, l'unanimité ou l'élargissement.",
+          "source_url": "https://moselle.tv/jerome-guedj-inspirons-nous-de-ce-que-la-moselle-a-ete-capable-de-faire-depuis-80-ans/",
+          "source_title": "Moselle TV, entretien Jérôme Guedj",
+          "source_date": "2026-09-29",
+          "confidence": "high"
+        },
+        {
+          "position": "Veut une Europe « puissance », sociale et écologique, capable de se défendre, tout en défendant l'indépendance et la souveraineté françaises.",
+          "kind": "position_declaree",
+          "details": "Lettre de campagne et engagement n°4. La presse lui prête aussi des accents protectionnistes (Yahoo/HuffPost, 14/07/2026), sans mesure précise.",
+          "source_url": "https://www.jeromeguedj2027.fr/lettre",
+          "source_title": "Lettre / profession de foi de Jérôme Guedj",
+          "source_date": "2026",
+          "confidence": "medium"
+        },
+        {
+          "position": "Utiliser les instruments commerciaux de l'accord d'association UE-Israël comme levier de pression sur le gouvernement israélien, sans viser la société civile israélienne. Faure et Maurel, eux, demandent la suspension de l'accord.",
+          "kind": "position_declaree",
+          "source_url": "https://fr.timesofisrael.com/primaire-de-la-gauche-en-france-les-5-candidats-confrontent-leurs-positions-sur-israel-et-gaza/",
+          "source_title": "Primaire de la gauche en France : les 5 candidats confrontent leurs positions sur Israël et Gaza (Times of Israel)",
+          "source_date": "2026-09-24",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "international_defense",
+      "found": true,
+      "positions": [
+        {
+          "position": "Soutien ferme à l'Ukraine : un État qui occupe 20 % du territoire de son voisin menace tout le continent.",
+          "kind": "position_declaree",
+          "details": "Débat LCI du 23/09/2026, sur la même ligne que Glucksmann et Maurel. Pas de position trouvée sur l'envoi de troupes.",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+          "source_title": "Primaire de la gauche : échanges tendus… Que retenir du 1er débat (Public Sénat)",
+          "source_date": "2026-09-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Refuse qu'une négociation avec la Russie tourne à la capitulation, en invoquant Munich.",
+          "kind": "position_declaree",
+          "short_quote": "des paix munichoises qui préparent des guerres",
+          "source_url": "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+          "source_title": "Ce qu'il faut retenir du deuxième débat de la primaire de gauche (LCP)",
+          "source_date": "2026-10-01",
+          "confidence": "high"
+        },
+        {
+          "position": "Gaza : refuse le terme « génocide » et parle de « crimes de guerre et crimes contre l'humanité », comme la CPI. Il accuse Ségolène Royal d'« essentialiser » les Juifs de France en leur demandant de se désolidariser de Netanyahou.",
+          "kind": "position_declaree",
+          "details": "Débats des 23/09 et 01/10/2026. Même ligne que Glucksmann ; Faure et Royal emploient « génocide ».",
+          "source_url": "https://lcp.fr/actualites/debat-de-la-primaire-de-gauche-jerome-guedj-accuse-segolene-royal-d-essentialiser-les",
+          "source_title": "Débat de la primaire de gauche: Jérôme Guedj accuse Ségolène Royal d'« essentialiser » les Juifs de France (LCP)",
+          "source_date": "2026-09-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Défend la solution à deux États (il se dit « enfant d'Oslo »). Il condamne le terrorisme du Hamas et la « fuite en avant nationaliste » du gouvernement Netanyahou, et soutient une coalition alternative en Israël.",
+          "kind": "position_declaree",
+          "short_quote": "enfant d'Oslo",
+          "details": "Premier déplacement de candidat en Israël et en Palestine du 8 au 13/06/2026 (Yaïr Golan, députés arabes israéliens, Autorité palestinienne).",
+          "source_url": "https://fr.timesofisrael.com/jerome-guedj-choisit-israel-et-les-territoires-palestiniens-comme-premier-voyage-de-campagne/",
+          "source_title": "Jérôme Guedj choisit Israël et les Territoires palestiniens comme premier voyage de campagne (Times of Israel)",
+          "source_date": "2026-06-02",
+          "confidence": "high"
+        },
+        {
+          "position": "Dit se présenter contre une « internationale réactionnaire » incarnée par Trump et Poutine.",
+          "kind": "position_declaree",
+          "details": "Déclaré lors de l'annonce de sa candidature.",
+          "source_url": "https://www.franceinfo.fr/politique/jerome-guedj-je-suis-candidat-a-l-election-presidentielle-pour-porter-une-ligne-politique_7786493.html",
+          "source_title": "Jérôme Guedj : « Je suis candidat… pour porter une ligne politique » (franceinfo)",
+          "source_date": "2026-02-05",
+          "confidence": "medium"
+        },
+        {
+          "position": "Estime que s'abstenir sur le soutien à l'Ukraine revient à de l'indifférence, « même » à être pro-Poutine, et refuse toute remise en cause des frontières en Europe.",
+          "kind": "position_declaree",
+          "details": "Entretien Europe 1-CNews lors d'un débat parlementaire sur l'Ukraine. Date non vérifiée (probablement 2024, page inaccessible).",
+          "source_url": "https://www.europe1.fr/politique/debat-sur-lukraine-labstention-est-une-indifference-cest-meme-etre-pro-poutine-juge-jerome-guedj-4235386",
+          "source_title": "Débat sur l'Ukraine : « L'abstention est une indifférence, c'est même être pro-Poutine », juge Jérôme Guedj (Europe 1)",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "institutions",
+      "found": false,
+      "positions": []
+    },
+    {
+      "topic_id": "securite_justice",
+      "found": true,
+      "positions": [
+        {
+          "position": "Renforcer la police et la justice.",
+          "kind": "position_declaree",
+          "details": "Lettre de campagne. Aucune mesure chiffrée (effectifs, prisons, peines) ni position trouvée sur le cannabis.",
+          "source_url": "https://www.jeromeguedj2027.fr/lettre",
+          "source_title": "Lettre / profession de foi de Jérôme Guedj",
+          "source_date": "2026",
+          "confidence": "medium"
+        },
+        {
+          "position": "Combattre l'islamisme et la radicalisation par des moyens juridiques, pénaux, de renseignement, de prévention et de déradicalisation, en le distinguant nettement de la pratique de l'islam.",
+          "kind": "position_declaree",
+          "source_url": "https://entrevue.fr/presidentielle-2027/jerome-guedj-lislam-est-compatible-avec-la-republique/",
+          "source_title": "Jérôme Guedj : « L'islam est compatible avec la République » (Entrevue, d'après BFMTV)",
+          "source_date": "2026-09-18",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "found": true,
+      "positions": [
+        {
+          "position": "Une immigration « planifiée par le Parlement », en fonction des capacités d'accueil et des besoins réels de l'économie. Il évite le mot « quotas » mais reproche à la gauche son « angélisme moral » sur ce sujet.",
+          "kind": "proposition_explicite",
+          "short_quote": "planifiée par le Parlement, en fonction de nos capacités d'accueil",
+          "details": "Il ne fixe ni volumes ni critères. Il y associe la lutte contre les discriminations à l'embauche et la revalorisation des salaires dans les secteurs concernés.",
+          "source_url": "https://www.boursorama.com/actualite-economique/actualites/primaire-a-gauche-guedj-veut-repousser-les-frontieres-du-ps-au-risque-de-l-isolement-0938091ba9ae98269b3524add32329ab",
+          "source_title": "Primaire à gauche: Guedj veut repousser les frontières du PS, au risque de l'isolement (AFP via Boursorama)",
+          "source_date": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "position": "« Planifier l'immigration, réussir l'intégration » : une immigration alignée sur les besoins économiques, avec simplification administrative, apprentissage obligatoire de la langue et lutte contre les discriminations à l'emploi et au logement.",
+          "kind": "proposition_explicite",
+          "details": "Engagement n°7 du site de campagne. La lettre précise le maintien du droit d'asile.",
+          "source_url": "https://www.jeromeguedj2027.fr/",
+          "source_title": "Site de campagne Jérôme Guedj 2027 – 7 engagements",
+          "source_date": "2026",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "laicite_republique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Créer un Défenseur de la laïcité, autorité indépendante sur le modèle du Défenseur des droits, au service des administrations et des citoyens, et inscrire une définition de la laïcité dans la Constitution.",
+          "kind": "proposition_explicite",
+          "details": "Proposition de loi constitutionnelle n°2000 déposée le 23/10/2025, rejetée en commission en décembre 2025 selon LCP. Reprise dans l'engagement n°3 du site (services publics et entreprises).",
+          "source_url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b2000_proposition-loi",
+          "source_title": "Proposition de loi constitutionnelle portant création d'un Défenseur de la laïcité et définition de ce principe, n°2000 (Assemblée nationale)",
+          "source_date": "2025-10-23",
+          "confidence": "high"
+        },
+        {
+          "position": "Chargé par décret du 07/07/2026, par le Premier ministre Sébastien Lecornu, d'une mission temporaire sur l'application, la défense et la promotion de la laïcité.",
+          "kind": "position_declaree",
+          "source_url": "https://lcp.fr/actualites/le-depute-socialiste-jerome-guedj-charge-d-une-mission-sur-la-laicite-par-sebastien",
+          "source_title": "Le député socialiste Jérôme Guedj chargé d'une mission sur la laïcité par Sébastien Lecornu (LCP)",
+          "source_date": "2026-07",
+          "confidence": "high"
+        },
+        {
+          "position": "Affirme que l'islam est compatible avec la République et que la laïcité protège les religions comme les non-croyants. Il refuse d'assimiler les musulmans de France à l'islamisme.",
+          "kind": "position_declaree",
+          "short_quote": "l'islam est compatible avec la République",
+          "source_url": "https://entrevue.fr/presidentielle-2027/jerome-guedj-lislam-est-compatible-avec-la-republique/",
+          "source_title": "Jérôme Guedj : « L'islam est compatible avec la République » (Entrevue, d'après BFMTV)",
+          "source_date": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "position": "S'oppose à l'interdiction du voile dans l'espace public par référendum proposée par Marine Le Pen et le RN : contraire à la laïcité et contre-productive face à la radicalisation.",
+          "kind": "position_declaree",
+          "short_quote": "On ne va pas faire la chasse aux personnes qui expriment leur religion",
+          "source_url": "https://www.titrespresse.com/20058212603/jerome-guedj-pen",
+          "source_title": "Jérôme Guedj réagit à la proposition du RN (référendum sur le voile), d'après BFMTV",
+          "source_date": "2026-08-31",
+          "confidence": "medium"
+        },
+        {
+          "position": "Lutte contre l'antisémitisme au cœur de sa campagne. Il a rompu avec Mélenchon, qu'il accuse d'antisémitisme (« salopard antisémite » en juin 2025 : il a regretté le mot mais maintenu l'accusation), et refuse toute injonction faite aux Juifs de France.",
+          "kind": "position_declaree",
+          "details": "Times of Israel, 16/06/2025 ; débat du 23/09/2026, où il dit qu'on n'a pas demandé aux musulmans de se désolidariser des crimes de Daech.",
+          "source_url": "https://fr.timesofisrael.com/melenchon-guedj-regrette-le-terme-salopard-mais-assume-laccusation-dantisemitisme/",
+          "source_title": "Mélenchon: Guedj regrette le terme « salopard » mais assume l'accusation d'antisémitisme (Times of Israel)",
+          "source_date": "2025-06-16",
+          "confidence": "high"
+        },
+        {
+          "position": "Défend une laïcité sans qualificatif, qui n'est pas un outil de stigmatisation des religions, et lie laïcité et lutte contre les discriminations.",
+          "kind": "position_declaree",
+          "short_quote": "La laïcité n'a pas d'adjectif",
+          "details": "Engagement n°3 du site : « Défendre la laïcité et lutter contre les discriminations ».",
+          "source_url": "https://www.jeromeguedj2027.fr/",
+          "source_title": "Site de campagne Jérôme Guedj 2027 – 7 engagements",
+          "source_date": "2026",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "logement",
+      "found": true,
+      "positions": [
+        {
+          "position": "Rénovation thermique massive des logements dans le cadre de l'« écologie du concret ». Il annonce une « politique du logement » et la lutte contre les discriminations au logement, sans mesure détaillée.",
+          "kind": "position_declaree",
+          "details": "Engagements n°6 et n°7 et lettre de campagne. Aucune position trouvée sur l'encadrement des loyers, les HLM, Airbnb ou les réquisitions.",
+          "source_url": "https://www.jeromeguedj2027.fr/",
+          "source_title": "Site de campagne Jérôme Guedj 2027 – 7 engagements",
+          "source_date": "2026",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "industrie_economie",
+      "found": true,
+      "positions": [
+        {
+          "position": "« La souveraineté, c'est la liberté » : réindustrialiser les secteurs stratégiques, investir dans les technologies d'avenir et l'innovation, maîtriser énergie, industrie, alimentation et technologies.",
+          "kind": "proposition_explicite",
+          "short_quote": "La souveraineté, c'est la liberté",
+          "details": "Engagement n°4 du site de campagne. Pas de mesure chiffrée (nationalisations, conditionnalité des aides, etc.).",
+          "source_url": "https://www.jeromeguedj2027.fr/",
+          "source_title": "Site de campagne Jérôme Guedj 2027 – 7 engagements",
+          "source_date": "2026",
+          "confidence": "high"
+        },
+        {
+          "position": "Mettre à contribution les géants de l'intelligence artificielle et les « niches sociales » des entreprises dans l'effort budgétaire.",
+          "kind": "position_declaree",
+          "details": "Tribune dans L'Opinion, août 2026.",
+          "source_url": "https://lcp.fr/actualites/budget-2027-vers-un-gel-partiel-des-pensions-de-retraites-440455",
+          "source_title": "Budget 2027: vers un gel partiel des pensions de retraites? (LCP)",
+          "source_date": "2026-08-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Ligne décrite comme « protectionniste » sur l'économie et les migrations, alliant justice fiscale et discipline budgétaire.",
+          "kind": "inference",
+          "details": "Caractérisation journalistique à partir du livre, et non une mesure explicite.",
+          "source_url": "https://fr.news.yahoo.com/sport/le-titre-du-livre-de-jerome-guedj-depute-ps-et-ex-proche-de-jean-luc-melenchon-risque-de-ne-pas-plaire-a-lfi-114723104.html",
+          "source_title": "Le titre du livre de Jérôme Guedj… risque de ne pas plaire à LFI (Yahoo Actualités)",
+          "source_date": "2026-07-14",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "numerique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Encadrer les mutations technologiques, en particulier l'IA, pour qu'elles deviennent une opportunité de progrès collectif plutôt que d'être subies.",
+          "kind": "position_declaree",
+          "details": "Lettre de campagne. Aucune position trouvée sur les réseaux sociaux et les mineurs, la régulation des plateformes ou la désinformation.",
+          "source_url": "https://www.jeromeguedj2027.fr/lettre",
+          "source_title": "Lettre / profession de foi de Jérôme Guedj",
+          "source_date": "2026",
+          "confidence": "medium"
+        },
+        {
+          "position": "Faire contribuer fiscalement les géants de l'intelligence artificielle.",
+          "kind": "position_declaree",
+          "details": "Tribune dans L'Opinion, août 2026, comme condition d'un effort demandé aux retraités aisés.",
+          "source_url": "https://lcp.fr/actualites/budget-2027-vers-un-gel-partiel-des-pensions-de-retraites-440455",
+          "source_title": "Budget 2027: vers un gel partiel des pensions de retraites? (LCP)",
+          "source_date": "2026-08-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "societe",
+      "found": true,
+      "positions": [
+        {
+          "position": "A voté pour la proposition de loi relative au droit à l'aide à mourir en deuxième lecture (scrutin n°5729).",
+          "kind": "inference",
+          "details": "Vote du 25/02/2026 : 299 pour, 226 contre ; groupe socialiste à 60 pour, 4 contre, 3 abstentions.",
+          "source_url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/5729",
+          "source_title": "Analyse du scrutin n°5729 – droit à l'aide à mourir (deuxième lecture) (Assemblée nationale)",
+          "source_date": "2026-02-25",
+          "confidence": "high"
+        },
+        {
+          "position": "Défend une aide à mourir strictement encadrée (maladie grave et incurable, phase avancée ou terminale) et le développement prioritaire des soins palliatifs. Il exclut d'ouvrir l'aide à mourir aux malades d'Alzheimer.",
+          "kind": "position_declaree",
+          "details": "Message X du 17/01/2025 : il ne votera jamais un texte qui l'ouvrirait aux malades d'Alzheimer. Ses articles de blog sur la fin de vie (dates non affichées) précisent son vote, fait « avec gravité ».",
+          "source_url": "https://x.com/JeromeGuedj/status/1880325544681910576",
+          "source_title": "Message X de Jérôme Guedj sur l'aide à mourir et la maladie d'Alzheimer",
+          "source_date": "2025-01-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "territoires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Garantir l'égalité territoriale dans l'accès aux soins et aux transports : santé indépendante du lieu de vie, transports accessibles partout, moins d'élèves par classe dans les territoires en difficulté.",
+          "kind": "proposition_explicite",
+          "details": "Engagements n°1, n°5 et n°6 du site. Aucune position trouvée sur l'Outre-mer, la Corse ou la Nouvelle-Calédonie.",
+          "source_url": "https://www.jeromeguedj2027.fr/",
+          "source_title": "Site de campagne Jérôme Guedj 2027 – 7 engagements",
+          "source_date": "2026",
+          "confidence": "medium"
+        },
+        {
+          "position": "Alsace-Moselle : ne pas remettre brutalement en cause le concordat, qui fait partie du droit français, et généraliser le régime local d'assurance maladie à tout le pays.",
+          "kind": "position_declaree",
+          "short_quote": "Le concordat est dans le droit français",
+          "source_url": "https://moselle.tv/jerome-guedj-inspirons-nous-de-ce-que-la-moselle-a-ete-capable-de-faire-depuis-80-ans/",
+          "source_title": "Moselle TV, entretien Jérôme Guedj",
+          "source_date": "2026-09-29",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "signature_proposals": [
+    {
+      "proposal": "Sécurité sociale intégrale (« Grande Sécu ») : un seul payeur public pour les soins essentiels, sur le modèle du régime local d'Alsace-Moselle étendu à tout le pays, avec jusqu'à 5,4 Md€ d'économies de frais de gestion.",
+      "topic_id": "sante",
+      "source_url": "https://x.com/JeromeGuedj/status/2102873950988771608"
+    },
+    {
+      "proposal": "Retraites : sortir de l'âge légal comme critère central, avec un départ fondé sur les annuités cotisées et la pénibilité et un âge du taux plein abaissé (67 ans aujourd'hui).",
+      "topic_id": "retraites",
+      "source_url": "https://fr.finance.yahoo.com/actualites/veux-sortir-l%C3%A2ge-l%C3%A9gal-j%C3%A9r%C3%B4me-144747223.html"
+    },
+    {
+      "proposal": "Hausse des droits de succession au-delà de 2 M€ transmis, pour environ 10 Md€ par an affectés à la branche autonomie (grand âge).",
+      "topic_id": "fiscalite",
+      "source_url": "https://entrevue.fr/entrevue/presidentielle-2027-jerome-guedj-veut-augmenter-les-droits-de-succession-au-dela-de-2-millions-deuros/"
+    },
+    {
+      "proposal": "CSG révisée et sous-indexation ciblée sur les pensions les plus élevées, conditionnées à un effort des héritages, des niches sociales des entreprises et des géants de l'IA.",
+      "topic_id": "fiscalite",
+      "source_url": "https://lcp.fr/actualites/budget-2027-vers-un-gel-partiel-des-pensions-de-retraites-440455"
+    },
+    {
+      "proposal": "SMIC porté à 1 700 euros (net ou brut non précisé).",
+      "topic_id": "travail_salaires",
+      "source_url": "https://www.boursorama.com/actualite-economique/actualites/primaire-a-gauche-guedj-veut-repousser-les-frontieres-du-ps-au-risque-de-l-isolement-0938091ba9ae98269b3524add32329ab"
+    },
+    {
+      "proposal": "Immigration « planifiée par le Parlement » selon les capacités d'accueil et les besoins de l'économie, avec apprentissage obligatoire de la langue et lutte contre les discriminations à l'emploi et au logement.",
+      "topic_id": "immigration",
+      "source_url": "https://www.jeromeguedj2027.fr/"
+    },
+    {
+      "proposal": "Création d'un Défenseur de la laïcité, autorité indépendante, et définition constitutionnelle de la laïcité.",
+      "topic_id": "laicite_republique",
+      "source_url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b2000_proposition-loi"
+    },
+    {
+      "proposal": "Aucune alliance avec La France insoumise, « plus jamais », et compromis assumé avec le centre face à l'extrême droite.",
+      "topic_id": "strategie",
+      "source_url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats"
+    },
+    {
+      "proposal": "Carburants : baisse de la fiscalité, plafonnement des marges des raffineurs et « ISF climatique ».",
+      "topic_id": "ecologie_energie",
+      "source_url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats"
+    },
+    {
+      "proposal": "École de l'émancipation : mieux former les enseignants, réduire les effectifs dans les territoires en difficulté, empêcher que la carte scolaire devienne une carte sociale.",
+      "topic_id": "education",
+      "source_url": "https://www.jeromeguedj2027.fr/"
+    }
+  ],
+  "distinctive_vs_others": "1) Stratégie : avec Glucksmann, il porte la ligne la plus fermement anti-LFI (« plus jamais » d'alliance). Il va plus loin en accusant Faure et Royal de « soumission » à LFI et Faure d'une « danse du ventre permanente » (Orange/AFP 24/09/2026 ; LCP 01/10/2026). Il se dit le seul à avoir refusé l'accord NFP en 2024, alors que Maurel assume son élection de 2024 sous la bannière NFP (Public Sénat 24/09/2026). Il est aussi le seul à revendiquer explicitement un « compromis » avec le centre, « voire une partie de la droite » (AFP 17/09/2026).\n\n2) Retraites : c'est le seul des cinq, dans les sources consultées, à proposer de sortir de l'âge légal au profit des annuités et de la pénibilité (BFMTV/Capital 12/09/2026). Il accepte aussi, sous conditions, une sous-indexation des hautes pensions et une hausse de la CSG sur ces pensions (L'Opinion, août 2026 ; AFP 17/09/2026), ce qui le distingue d'une gauche attachée à l'indexation de toutes les pensions.\n\n3) Santé : il fait de la santé son marqueur. Il défend la Sécurité sociale intégrale ou « Grande Sécu » et se dit le « seul candidat » à avoir parlé de santé au débat LCI (X, 23/09/2026). Il veut étendre le régime d'Alsace-Moselle à tout le pays (Moselle TV 29/09/2026). Au débat du 01/10, il s'oppose à la baisse de CSG proposée par Glucksmann (Entrevue 02/10/2026).\n\n4) Immigration : sa ligne est plus restrictive que celle de Faure, qui prône une régularisation massive (500 000 régularisations ne le « choquent » pas, selon l'AFP). Guedj veut une immigration « planifiée par le Parlement » et critique « l'angélisme moral » de la gauche (AFP 17/09/2026).\n\n5) Laïcité : il est le candidat le plus identifié sur le sujet. Ancien secrétaire national du PS à la laïcité, il a reçu une mission Lecornu en juillet 2026 et a déposé la proposition de loi constitutionnelle n°2000 pour un Défenseur de la laïcité. Il combine fermeté face à l'islamisme et refus de l'interdiction du voile dans l'espace public (BFMTV 18/09 et 31/08/2026).\n\n6) Gaza : comme Glucksmann et contrairement à Faure et Royal, il refuse le mot « génocide ». Contrairement à Faure et Maurel, il ne demande pas la suspension de l'accord UE-Israël mais l'utilisation de ses leviers commerciaux contre le gouvernement israélien (Times of Israel 24/09/2026).\n\n7) Carburants : il rejoint Royal sur la baisse de la fiscalité et Maurel sur le plafonnement des marges des raffineurs (Public Sénat 24/09 ; Entrevue 02/10/2026).\n\n8) SMIC : son montant de 1 700 € est le même que celui de Faure (1 700 € net), ce qui le rend peu distinctif sur ce point.",
+  "evolutions_and_contradictions": "Trajectoire politique : ancien assistant parlementaire de Mélenchon (1993-1997, courant Gauche socialiste), frondeur sous Hollande, élu en 2022 sous l'étiquette NUPES. Il a rompu avec LFI après le 7 octobre 2023 et a refusé le label NFP en juin 2024. Au congrès PS de Nancy (2025), il a rejoint le texte de Nicolas Mayer-Rossignol contre Olivier Faure. En juin 2025, il a traité Mélenchon de « salopard antisémite », puis a regretté le mot tout en maintenant l'accusation (Times of Israel 16/06/2025 ; Wikipédia FR).\n\nPrimaire : le 05/02/2026, il se déclare candidat hors primaire, jugée « baroque » (il visait alors la primaire unitaire PS/Écologistes/Ruffin). Fin août 2026, il rejoint la primaire PS-Place publique-GRS (« Je prendrai toute ma place dans cette primaire », La Tribune Dimanche du 23/08/2026, citée par franceinfo) et annonce ses parrainages le 15/09/2026.\n\nRetraites : opposé à la réforme Borne de 2023, il plaidait en 2025 pour la suspension plutôt que l'abrogation. En septembre 2026, il propose de supprimer l'âge légal comme critère, sans s'engager sur un retour à 62 ou 60 ans. En août 2026, il accepte, sous conditions, une sous-indexation des pensions les plus élevées, une inflexion nette par rapport à la défense traditionnelle de l'indexation par la gauche (Senioractu 14/08/2026).\n\nPositionnement : l'AFP (17/09/2026) et la presse le décrivent comme ayant « changé de cap » vers le compromis avec le centre. Des collègues PS le jugent « isolé » ou « individualiste », et un « fauriste » prédit qu'il finira par soutenir Glucksmann.\n\nTension interne à relever : il veut réduire la dette avec « justice » et repère des « gaspillages » à la Sécurité sociale, tout en proposant des mesures coûteuses (baisse des taxes sur les carburants, Grande Sécu, SMIC à 1 700 €) dont le chiffrage d'ensemble n'est pas publié.\n\nFaits de contexte vérifiés et points divergents :\n- Le site officiel de la primaire est choisir2027.fr, et non choisir2027.org (Wikipédia FR, site de campagne).\n- L'organisation par le PS, Place publique et la GRS est confirmée par France 24 et Wikipédia FR. Plusieurs articles (franceinfo, LCP, site de Guedj) ne citent que le PS et Place publique, la GRS ayant annoncé sa participation le 26/08/2026.\n- Confirmés : les tours des 9-10 et 16-17 octobre 2026, les débats LCI (23/09), France 2/France Inter (01/10) et BFMTV (04/10), les cinq candidats retenus et l'exclusion de Philippe Brun (suspendu le 16/09/2026).\n- La page Wikipédia EN « 2026 United Left primary » (scrutin du 11 octobre) concerne une autre primaire (Tondelier, Ruffin…) et ne doit pas être confondue avec Choisir 2027.",
+  "open_questions": [
+    "Nucléaire : aucune position primaire vérifiée (nouveaux EPR, sortie, part des renouvelables). Des agrégateurs non sourcés se contredisent (« sortie du nucléaire d'ici 2040 » d'un côté, « plutôt favorable aux nouveaux réacteurs » de l'autre) : à vérifier avant tout positionnement.",
+    "Retraites : quelle durée de cotisation, quels critères de pénibilité et quel nouvel âge du taux plein ? Y a-t-il un engagement à abroger la réforme de 2023 ou seulement à la remplacer ?",
+    "SMIC à 1 700 € : net ou brut ? À quel horizon ?",
+    "Immigration : quels volumes, quels critères de planification par le Parlement ? Quelle position sur la régularisation des travailleurs sans papiers, l'AME, le droit du sol, le pacte asile-migration et le droit de vote des étrangers aux élections locales ? (21News souligne l'absence de seuils chiffrés.)",
+    "Institutions : aucune position sourcée trouvée sur la VIe République, la proportionnelle, le 49.3, le RIC ou la limitation des mandats. Les agrégateurs lui prêtent un soutien à la proportionnelle sans source vérifiable.",
+    "Europe : quelle position sur le fédéralisme, l'unanimité, l'emprunt commun, les règles budgétaires européennes et l'élargissement à l'Ukraine ? Que recouvrent concrètement les accents « protectionnistes » qu'on lui prête ?",
+    "Défense : quel budget (en % du PIB), quelle position sur la dissuasion nucléaire européenne, l'OTAN, un service militaire, l'envoi de troupes en Ukraine ?",
+    "Agriculture : aucune position trouvée sur le Mercosur, la loi Duplomb, les pesticides, la PAC ou les bassines.",
+    "Sécurité et justice : aucune position trouvée sur le cannabis, les effectifs de police, les prisons ou la vidéosurveillance.",
+    "Logement : aucune mesure concrète trouvée (encadrement des loyers, HLM, meublés touristiques).",
+    "ISF climatique : quelle assiette et quel taux ? Soutien maintenu à la taxe Zucman dans le programme présidentiel (la page de son blog n'est pas datée) ?",
+    "Financement et chiffrage de la Grande Sécu (transfert des cotisations des complémentaires, panier de « soins essentiels ») et du programme dans son ensemble, au regard de son discours de redressement des comptes.",
+    "Le livre « La République, c'est nous ! » (27/08/2026) et les extraits publiés par Le Point (19/08/2026) contiendraient des propositions sur l'éducation, les retraites et l'immigration : sources non accessibles ici, à consulter.",
+    "Le débat BFMTV du 04/10/2026 n'avait pas encore eu lieu à la date de ce dossier."
+  ],
+  "programme_sources": [
+    {
+      "title": "Site de campagne Jérôme Guedj 2027 – « La République, c'est nous ! » – 7 engagements",
+      "url": "https://www.jeromeguedj2027.fr/",
+      "date": "2026 (consulté le 2026-10-02)"
+    },
+    {
+      "title": "Lettre / profession de foi de Jérôme Guedj",
+      "url": "https://www.jeromeguedj2027.fr/lettre",
+      "date": "2026"
+    },
+    {
+      "title": "Livre « La République, c'est nous ! Plaidoyer pour en finir avec l'indignité » (Éditions de l'Observatoire)",
+      "url": "https://www.decitre.fr/livres/la-republique-c-est-nous-plaidoyer-pour-en-finir-avec-l-indignite-9791070210192.html",
+      "date": "2026-08-27"
+    },
+    {
+      "title": "Proposition de loi constitutionnelle n°2000 portant création d'un Défenseur de la laïcité et définition de ce principe",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b2000_proposition-loi",
+      "date": "2025-10-23"
+    },
+    {
+      "title": "Rapport MECSS sur la répartition des dépenses entre assurance maladie obligatoire et complémentaire (corapporteur J. Guedj)",
+      "url": "https://www.assemblee-nationale.fr/dyn/espace-presse/communiques-de-presse/2026/publication-du-rapport-d-information-sur-la-repartition-des-depenses-entre-l-assurance-maladie-obligatoire-et-l-assurance-maladie-complementaire",
+      "date": "2026-09-29"
+    },
+    {
+      "title": "Dépêche AFP « Primaire à gauche: Guedj veut repousser les frontières du PS, au risque de l'isolement »",
+      "url": "https://www.boursorama.com/actualite-economique/actualites/primaire-a-gauche-guedj-veut-repousser-les-frontieres-du-ps-au-risque-de-l-isolement-0938091ba9ae98269b3524add32329ab",
+      "date": "2026-09-17"
+    },
+    {
+      "title": "Compte rendu du 1er débat de la primaire (LCI) – Public Sénat",
+      "url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+      "date": "2026-09-24"
+    },
+    {
+      "title": "Compte rendu du 2e débat de la primaire (France 2 / France Inter) – LCP",
+      "url": "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+      "date": "2026-10-01"
+    },
+    {
+      "title": "Retraites : « Je veux sortir de l'âge légal » (BFMTV / Capital)",
+      "url": "https://fr.finance.yahoo.com/actualites/veux-sortir-l%C3%A2ge-l%C3%A9gal-j%C3%A9r%C3%B4me-144747223.html",
+      "date": "2026-09-12"
+    },
+    {
+      "title": "Tribune dans L'Opinion sur la sous-indexation des pensions, citée par LCP",
+      "url": "https://lcp.fr/actualites/budget-2027-vers-un-gel-partiel-des-pensions-de-retraites-440455",
+      "date": "2026-08-17"
+    }
+  ]
+}

@@ -1,0 +1,357 @@
+/* ——— Notices légales : mentions légales et confidentialité ———
+   Rubriques numérotées comme les figures de la notice (numéro gris tabulaire devant le titre), sommaire
+   qui passe dans la colonne de marge sur grand écran, champs en lignes de formulaire entre filets, et
+   informations à compléter encadrées de tirets, comme le talon « À compléter » de la fiche bristol. */
+
+/* Texte long, lu d'un bout à l'autre : 66ch d'Archivo font plus de 90 signes par ligne. Sur les notices,
+   la ligne s'arrête vers 75 signes, sous les 80 au-delà desquels la lecture fatigue (WCAG 1.4.8) */
+.legal-page {
+  --measure: 56ch;
+}
+
+.legal-block {
+  margin-top: var(--s7);
+}
+
+.legal-block > h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  overflow-wrap: anywhere;
+}
+
+/* Sur grand écran, la feuille est une grille : les marges ne fusionnent plus entre la rubrique et son
+   titre ; le titre n'ajoute donc pas la sienne (même écart qu'en une colonne) */
+.prose .legal-block > h2:first-child,
+.prose .figure-block > h2:first-child {
+  margin-top: 0;
+}
+
+/* Le titre reçoit le focus quand on y va depuis le sommaire : pas d'anneau sur un titre */
+.legal-block > h2[tabindex='-1']:focus,
+.figure-block > h2[tabindex='-1']:focus {
+  outline: none;
+}
+
+.legal-block h3 {
+  margin: var(--s6) 0 var(--s3);
+  font-weight: 800;
+  font-stretch: 80%;
+  font-size: 1.3rem;
+  line-height: 1.15;
+  max-width: var(--measure);
+}
+
+.legal-block strong {
+  font-weight: 750;
+}
+
+/* ——— Sommaire ——— */
+
+.legal-toc {
+  max-width: var(--measure);
+  margin: 0 0 var(--s5);
+  padding: var(--s3) 0 var(--s2);
+  border-top: var(--line) solid var(--rule-strong);
+  border-bottom: var(--hair) solid var(--rule);
+}
+
+.legal-toc-title {
+  margin: 0 0 var(--s1);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--print-soft);
+}
+
+.prose .legal-toc ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.prose .legal-toc li {
+  margin: 0;
+}
+
+.legal-toc a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  min-height: 2rem;
+  padding-block: 0.3rem;
+  font-size: var(--text-sm);
+  font-weight: 650;
+  line-height: 1.3;
+  color: var(--print);
+  text-decoration: none;
+}
+
+.legal-toc .legal-toc-label {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+.legal-toc .fig-n {
+  font-weight: 800;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .legal-toc a:hover .legal-toc-label {
+    text-decoration-thickness: 2px;
+  }
+}
+
+/* Grand écran : le sommaire se range dans la colonne de marge et reste en vue pendant la lecture */
+@media (min-width: 64rem) {
+  .sheet.has-margin > .legal-toc {
+    grid-column: 1;
+    grid-row: 1 / span 60;
+    align-self: start;
+    position: sticky;
+    top: calc(var(--header-real, 3.5rem) + var(--s5) - var(--ring-room));
+    max-height: calc(100dvh - var(--header-real, 3.5rem) - var(--bar-real, 4.5rem) - var(--s6));
+    overflow-y: auto;
+    /* Le défilement du sommaire rognerait l'anneau de focus (2px, décalé de 3px) : une marge intérieure lui
+       fait place, une marge négative garde le texte au même endroit */
+    --ring-room: 0.375rem;
+    margin: calc(var(--s2) - var(--ring-room)) calc(-1 * var(--ring-room)) 0;
+    padding: var(--ring-room);
+    scroll-padding-block: var(--ring-room);
+    border: 0;
+  }
+
+  .prose .legal-toc ol {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .legal-toc a {
+    min-height: 0;
+    padding-block: 0.35rem;
+    font-size: var(--text-xs);
+  }
+}
+
+/* ——— Champs : lignes de formulaire entre filets ——— */
+
+.legal-fields {
+  max-width: var(--measure);
+  margin: var(--s3) 0 var(--s4);
+  border-top: var(--line) solid var(--rule-strong);
+  border-bottom: var(--line) solid var(--rule-strong);
+}
+
+.legal-fields > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 0.15rem;
+  padding: var(--s3) 0;
+  border-top: var(--hair) solid var(--rule);
+}
+
+.legal-fields > div:first-child {
+  border-top: 0;
+}
+
+.legal-fields dt {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--print-soft);
+}
+
+.legal-fields dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 48rem) {
+  .legal-fields > div {
+    grid-template-columns: 13rem minmax(0, 1fr);
+    column-gap: var(--s4);
+    align-items: baseline;
+  }
+}
+
+.legal-aside {
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+/* Information à compléter (src/core/legal.ts) : bien visible, sans couleur d'alerte */
+.to-fill {
+  padding: 0 0.3em;
+  border: var(--line) dashed var(--print-soft);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  font-weight: 650;
+  color: var(--print);
+  overflow-wrap: anywhere;
+}
+
+.contact-link {
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+/* ——— Crédits et composants tiers ——— */
+
+.prose .credits,
+.prose .third-party {
+  max-width: var(--measure);
+  margin: var(--s3) 0 var(--s4);
+  padding: 0;
+  list-style: none;
+  border-top: var(--line) solid var(--rule-strong);
+  border-bottom: var(--line) solid var(--rule-strong);
+}
+
+.prose .credits > li,
+.prose .third-party > li {
+  margin: 0;
+  padding: var(--s4) 0;
+  border-top: var(--hair) solid var(--rule);
+}
+
+.prose .credits > li:first-child,
+.prose .third-party > li:first-child {
+  border-top: 0;
+}
+
+.prose .credits > li {
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr);
+  column-gap: var(--s4);
+  align-items: start;
+}
+
+.prose .credits > li.is-text .credit-body {
+  grid-column: 2;
+}
+
+.credit-name {
+  margin: 0 0 0.2rem;
+  font-weight: 800;
+  font-stretch: 80%;
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+
+.credit-line {
+  margin: 0 0 0.2rem;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
+.file-name,
+.file-link {
+  overflow-wrap: anywhere;
+}
+
+.license-details {
+  margin-top: var(--s2);
+  font-size: var(--text-sm);
+}
+
+.license-details summary {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 2.75rem;
+  cursor: pointer;
+  font-weight: 700;
+  list-style: none;
+}
+
+.license-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.license-text {
+  margin: var(--s2) 0 0;
+  /* Rien à droite du texte : la marge intérieure n'est qu'à gauche, contre le filet */
+  padding: var(--s3) 0 var(--s3) var(--s4);
+  border-left: var(--hair) solid var(--rule);
+  font-family: var(--font);
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  color: var(--print-soft);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.legal-date {
+  margin-top: var(--s7);
+  padding-top: var(--s3);
+  border-top: var(--hair) solid var(--rule);
+}
+
+/* Très étroit (texte agrandi) : la photo passe au-dessus du texte */
+@media (max-width: 22rem) {
+  .prose .credits > li {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--s2);
+  }
+
+  .prose .credits > li.is-text .credit-body {
+    grid-column: 1;
+  }
+
+  .license-text {
+    padding-left: var(--s3);
+  }
+}
+
+/* « Ce qui reste, et où » : au texte très agrandi, un mot long (« l’application ») se coupe plutôt que de
+   faire défiler la page de côté */
+.kept-what,
+.kept-where,
+.kept-until {
+  overflow-wrap: anywhere;
+}
+
+/* La liste se règle sur sa propre largeur, mesurée en rem du texte réel : à 200 %, une tablette n'a plus
+   la place des quatre colonnes, ni un téléphone celle de la colonne du pictogramme. Les filets des lignes
+   courent sur toute la largeur de la liste, comme ceux qui l'encadrent. */
+.legal-page .kept {
+  container: kept / inline-size;
+  /* Sans le retrait des listes de .prose : pictogrammes et filets partent du bord, sous le filet du haut */
+  padding-left: 0;
+}
+
+.legal-page .kept > li {
+  max-width: none;
+}
+
+@container kept (max-width: 40rem) {
+  .legal-page .kept > li {
+    grid-template-columns: 2rem minmax(0, 1fr);
+    grid-template-areas:
+      'icon what'
+      'icon where'
+      'icon until';
+    align-items: normal;
+  }
+}
+
+@container kept (max-width: 13rem) {
+  .legal-page .kept > li {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'icon'
+      'what'
+      'where'
+      'until';
+    row-gap: var(--s1);
+  }
+}
+
+/* Texte très agrandi : un titre trop long pour la ligne se coupe à la syllabe (« Men-tions »), avant de
+   se couper n'importe où */
+.legal-page .display,
+.legal-page .legal-block > h2 {
+  hyphens: auto;
+}

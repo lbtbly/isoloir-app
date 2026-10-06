@@ -1,0 +1,134 @@
+Contrôle des sons parasites — 2026-10-05 01:52:09
+Commande : generate.py --scan --listen /private/tmp/claude-501/-Users-lambertbouley-Claude-Politique-primaire-de-gauche/157e5e56-5df4-4285-80f7-e25003d46142/scratchpad/rev/sons-reperes-scan.m4a
+Détecteur : artefacts.py (alignement Qwen3-ForcedAligner, seuils étalonnés : voir artefacts.py et README.md). Net : à refaire ; léger : signalé seulement.
+
+aigue / retraites-intro-01 — 3.91 s : ok
+aigue / retraites-intro-02 — 5.56 s : léger
+    respiration 5.15-5.25 s (leger, +48 dB, confiance 0.86) [répartition | fin]
+aigue / retraites-intro-03 — 3.86 s : ok
+aigue / retraites-intro-04 — 8.17 s : ok
+aigue / retraites-intro-05 — 2.58 s : ok
+aigue / retraites-intro-06 — 9.55 s : ok
+aigue / retraites-intro-07 — 5.27 s : ok
+aigue / retraites-intro-08 — 8.22 s : ok
+aigue / retraites-intro-09 — 8.72 s : À REFAIRE
+    vocalise 5.90-6.07 s (net, +56 dB, confiance 0.85) [toucher | Et]
+aigue / retraites-intro-10 — 2.11 s : ok
+aigue / retraites-age-01 — 4.60 s : léger
+    vocalise 2.24-2.56 s (leger, +34 dB, confiance 0.58) [compteurs | votre]
+aigue / retraites-age-02 — 3.81 s : ok
+aigue / retraites-age-03 — 5.28 s : ok
+aigue / retraites-age-04 — 7.48 s : ok
+aigue / retraites-age-05 — 7.48 s : ok
+aigue / retraites-age-06 — 5.22 s : ok
+aigue / retraites-age-07 — 6.56 s : ok
+aigue / retraites-age-08 — 8.30 s : ok
+aigue / retraites-age-09 — 7.17 s : léger
+    respiration 3.36-3.53 s (leger, +33 dB, confiance 0.59) [sociales | chômage]
+aigue / retraites-age-10 — 7.88 s : ok
+aigue / retraites-age-11 — 4.04 s : ok
+aigue / retraites-financement-01 — 4.82 s : ok
+aigue / retraites-financement-02 — 2.77 s : ok
+aigue / retraites-financement-03 — 5.65 s : ok
+aigue / retraites-financement-04 — 6.26 s : ok
+aigue / retraites-financement-05 — 4.21 s : ok
+aigue / retraites-financement-06 — 6.22 s : ok
+aigue / retraites-financement-07 — 5.44 s : ok
+aigue / retraites-financement-08 — 7.07 s : ok
+aigue / retraites-financement-09 — 8.54 s : ok
+aigue / retraites-financement-10 — 9.13 s : ok
+aigue / retraites-financement-11 — 3.55 s : ok
+aigue / retraites-financement-12 — 4.22 s : ok
+aigue / retraites-pensions-01 — 6.02 s : ok
+aigue / retraites-pensions-02 — 9.34 s : À REFAIRE
+    respiration 0.72-0.89 s (net, +52 dB, confiance 0.95) [privé | avec]
+    respiration 0.92-1.12 s (leger, +38 dB, confiance 0.74) [privé | avec]
+aigue / retraites-pensions-03 — 3.42 s : ok
+aigue / retraites-pensions-04 — 4.60 s : ok
+aigue / retraites-pensions-05 — 7.24 s : ok
+aigue / retraites-pensions-06 — 5.70 s : ok
+aigue / retraites-pensions-07 — 2.96 s : ok
+aigue / retraites-pensions-08 — 12.09 s : ok
+aigue / retraites-pensions-09 — 5.36 s : ok
+aigue / retraites-pensions-10 — 3.37 s : ok
+aigue / retraites-penibilite-01 — 6.19 s : ok
+aigue / retraites-penibilite-02 — 6.12 s : ok
+aigue / retraites-penibilite-03 — 8.20 s : ok
+aigue / retraites-penibilite-04 — 8.80 s : ok
+aigue / retraites-penibilite-05 — 7.27 s : ok
+aigue / retraites-penibilite-06 — 5.86 s : ok
+aigue / retraites-penibilite-07 — 7.97 s : ok
+aigue / retraites-penibilite-08 — 4.75 s : ok
+aigue / retraites-penibilite-09 — 7.77 s : ok
+aigue / retraites-penibilite-10 — 3.74 s : ok
+aigue / logement-intro-01 — 3.03 s : léger
+    parole en trop 0.00-0.16 s (leger, +46 dB, confiance 0.77) [début | Sur]
+aigue / logement-intro-02 — 6.79 s : ok
+aigue / logement-intro-03 — 10.49 s : ok
+aigue / logement-intro-04 — 9.40 s : ok
+aigue / logement-intro-05 — 8.62 s : ok
+aigue / logement-intro-06 — 6.98 s : ok
+aigue / logement-intro-07 — 3.70 s : ok
+aigue / logement-intro-08 — 3.03 s : ok
+aigue / logement-intro-09 — 2.77 s : ok
+aigue / logement-loyers-01 — 4.10 s : ok
+aigue / logement-loyers-02 — 7.04 s : ok
+aigue / logement-loyers-03 — 8.43 s : ok
+aigue / logement-loyers-04 — 11.37 s : léger
+    vocalise 1.40-1.47 s (leger, +38 dB, confiance 0.63) [ans | Sans]
+aigue / logement-loyers-05 — 7.09 s : ok
+aigue / logement-loyers-06 — 6.92 s : ok
+aigue / logement-loyers-07 — 7.44 s : ok
+aigue / logement-loyers-08 — 5.09 s : ok
+aigue / logement-loyers-09 — 1.88 s : ok
+aigue / logement-social-01 — 9.70 s : ok
+aigue / logement-social-02 — 5.11 s : ok
+aigue / logement-social-03 — 8.94 s : ok
+aigue / logement-social-04 — 4.80 s : léger
+    mot manquant ou bâclé « y » 0.00-0.08 s (leger, confiance 0.30) [Il | a]
+aigue / logement-social-05 — 6.80 s : ok
+aigue / logement-social-06 — 14.06 s : léger
+    vocalise 1.07-1.14 s (leger, +48 dB, confiance 0.77) [Pourquoi | D'abord]
+aigue / logement-social-07 — 7.77 s : ok
+aigue / logement-social-08 — 9.07 s : ok
+aigue / logement-social-09 — 1.73 s : ok
+aigue / logement-construire-01 — 6.19 s : ok
+aigue / logement-construire-02 — 6.56 s : ok
+aigue / logement-construire-03 — 10.95 s : ok
+aigue / logement-construire-04 — 6.96 s : ok
+aigue / logement-construire-05 — 12.25 s : ok
+aigue / logement-construire-06 — 5.17 s : ok
+aigue / logement-construire-07 — 11.85 s : ok
+aigue / logement-construire-08 — 2.80 s : ok
+aigue / logement-existant-01 — 2.96 s : ok
+aigue / logement-existant-02 — 4.15 s : ok
+aigue / logement-existant-03 — 8.46 s : ok
+aigue / logement-existant-04 — 8.03 s : ok
+aigue / logement-existant-05 — 7.20 s : ok
+aigue / logement-existant-06 — 13.87 s : ok
+aigue / logement-existant-07 — 7.27 s : ok
+aigue / logement-existant-08 — 12.51 s : ok
+aigue / logement-existant-09 — 2.39 s : ok
+grave / retraites-intro-01 — 4.32 s : À REFAIRE
+    rire 0.00-0.44 s (net, +48 dB, confiance 0.95) [début | Un]
+grave / retraites-intro-02 — 6.11 s : ok
+grave / retraites-intro-03 — 4.54 s : ok
+grave / retraites-intro-04 — 7.04 s : ok
+grave / retraites-intro-05 — 3.00 s : ok
+grave / retraites-intro-06 — 10.22 s : ok
+grave / retraites-intro-07 — 4.47 s : ok
+grave / retraites-intro-08 — 8.45 s : léger
+    respiration 1.79-1.89 s (leger, +16 dB, confiance 0.32) [minimum | pour]
+grave / retraites-intro-09 — 8.32 s : À REFAIRE
+    bruit 5.66-5.80 s (net, +52 dB, confiance 0.95) [toucher | Et]
+grave / retraites-intro-10 — 2.03 s : ok
+grave / retraites-penibilite-03 — 8.25 s : léger
+    bruit 0.00-0.10 s (leger, +29 dB, confiance 0.57) [début | Un]
+grave / logement-existant-06 — 14.58 s : léger
+    respiration 6.11-6.27 s (leger, +19 dB, confiance 0.36) [cinq | dont]
+
+À refaire (4) : aigue/retraites-intro-09, aigue/retraites-pensions-02, grave/retraites-intro-01, grave/retraites-intro-09
+Liste report/a-refaire.json (4) : aigue/retraites-intro-09, aigue/retraites-pensions-02, grave/retraites-intro-01, grave/retraites-intro-09
+→ ~/isoloir-tts/bin/python tools/voices/generate.py --redo-flagged   (ne régénère que ceux-là ; --voice pour une seule voix)
+Temps : 17 s pour 109 passage(s), chargement du modèle d'alignement compris.
+Compilation d'écoute : /private/tmp/claude-501/-Users-lambertbouley-Claude-Politique-primaire-de-gauche/157e5e56-5df4-4285-80f7-e25003d46142/scratchpad/rev/sons-reperes-scan.m4a (15 extrait(s), liste dans /private/tmp/claude-501/-Users-lambertbouley-Claude-Politique-primaire-de-gauche/157e5e56-5df4-4285-80f7-e25003d46142/scratchpad/rev/sons-reperes-scan.txt)

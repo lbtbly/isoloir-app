@@ -1,0 +1,172 @@
+Rapport de génération des voix — 2026-10-06 05:05:58
+Commande : generate.py --voice aigue --only defense
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  defense-intro-01 — 5.13 s, F0 247.0 Hz, pauses entre phrases [0.26, 0.34, 0.3] s
+    1. Une armée, des alliés, l'ar…   2/3    246.4  +0.18   -3.5      —  0.0    4.3  0.85  1:235 2:246 3:256
+    2. Sur quoi repose la défense …   2/3    264.0  +1.38   -1.8   +5.1  6.0    5.6  1.08  1:242×! 2:264 3:267~
+         prise 1 : respiration 0.00-0.24 s (net, +52 dB, confiance 0.95) [début | Sur]
+  defense-intro-02 — 3.33 s, F0 258.1 Hz
+    1. Depuis la guerre en Ukraine…   1/3    258.1  +0.99   -6.8   -0.3  0.0    6.0  1.17  1:258 2:238? 3:227
+         prise 2 : respiration 3.04-3.24 s (leger, +37 dB, confiance 0.69) [Europe | fin]
+  defense-intro-03 — 11.10 s, F0 238.9 Hz, pauses entre phrases [0.3, 0.31] s
+    1. Selon une estimation de l'O…   3/3    236.3  -0.54   -1.0   +1.9  6.0    6.8  1.32  1:252 2:258 3:236
+    2. C'était un virgule quatre-v…   3/3    240.6  -0.23   -0.6   +3.4  1.0    5.0  0.99  1:310×! 2:251 3:241
+         prise 1 : respiration 0.00-0.16 s (net, +49 dB, confiance 0.95) [début | C'était]
+    3. Le P.I.B., c'est la richess…   4/4    238.2  -0.40   -1.3   +2.6  0.6    4.7  0.93  1:251~ 2:230~ 3:252~ 4:238
+  defense-intro-04 — 8.58 s, F0 245.0 Hz, pauses entre phrases [0.3] s
+    1. La France est membre de l'O…   2/3    249.5  +0.40   -5.7   +2.8  1.3    4.5  0.89  1:227 2:250 3:234
+    2. Une attaque armée contre l'…   2/3    242.3  -0.11   -6.3   -0.3  5.7    5.7  1.10  1:226~ 2:242 3:236
+  defense-intro-05 — 6.04 s, F0 229.4 Hz
+    1. L'Union européenne a aussi …   4/4    229.4  -1.05   -1.2   +4.1  6.0    5.8  1.14  1:218~ 2:204~ 3:223~ 4:229
+  defense-intro-06 — 8.52 s, F0 241.5 Hz, pauses entre phrases [0.15, 0.3] s
+    1. Et la France est le seul pa…   3/3    243.7  -0.01   -2.1   +3.5  1.2    5.1  1.00  1:234 2:233 3:244
+    2. Selon une estimation de jan…   1/3    241.2  -0.19   -0.2   +0.8  2.1    6.0  1.18  1:241 2:253~ 3:258×!
+         prise 3 : bruit 2.24-2.41 s (net, +41 dB, confiance 0.83) [six | elle]
+      passage assemblé : bruit 3.92-4.48 s (net, +50 dB, confiance 0.95) [Selon | estimation]
+      passage assemblé : mot étiré « une » 3.92-4.48 s (net, +53 dB, confiance 0.90) [Selon | estimation]
+      ⚠ son parasite dans le passage assemblé : bruit 3.92-4.48 s (net, +50 dB, confiance 0.95) [Selon | estimation]
+      ⚠ son parasite dans le passage assemblé : mot étiré « une » 3.92-4.48 s (net, +53 dB, confiance 0.90) [Selon | estimation]
+  defense-intro-07 — 8.71 s, F0 249.3 Hz, pauses entre phrases [0.3, 0.35, 0.36, 0.35] s
+    1. Alors, quatre questions se …   1/3    257.9  +0.97   -3.8   +1.0  0.2    4.1  0.81  1:258 2:279~ 3:284~
+    2. Combien dépenser pour sa dé…   3/3    264.6  +1.42   -2.8   +4.5  6.0    7.8  1.51  1:286~ 2:273~ 3:265
+    3. Avec quels alliés ?           5/5    251.6  +0.55   -4.8   -0.4  3.0    6.2  1.22  1:215~ 2:421×! 3:475×! 4:276×! 5:252
+         prise 2 : parole en trop 0.48-1.43 s (net, +56 dB, confiance 0.95) [alliés | fin]
+         prise 2 : respiration 1.47-1.84 s (net, +52 dB, confiance 0.95) [alliés | fin]
+         prise 3 : rire 0.24-0.64 s (net, +50 dB, confiance 0.95) [quels | alliés]
+         prise 3 : parole en trop « alliés » 0.64-1.16 s (net, +50 dB, confiance 0.90) [quels | fin]
+         prise 3 : respiration 0.72-1.16 s (leger, +31 dB, confiance 0.57) [alliés | fin]
+         prise 4 : parole en trop 1.25-1.43 s (net, +59 dB, confiance 0.70) [alliés | fin]
+    4. Quel rôle pour la dissuasio…   3/3    263.6  +1.35   -5.3   +5.0  3.0    4.8  0.93  1:309~ 2:269~ 3:264
+    5. Et quelle place pour le dés…   2/3    238.3  -0.40   -2.9   +3.1  3.0    5.8  1.12  1:216~ 2:238 3:211~
+  defense-intro-08 — 1.97 s, F0 240.6 Hz
+    1. Ce sont les quatre sujets d…   2/3    240.6  -0.23   -4.8   +1.4  0.0    6.7  1.30  1:226 2:241 3:246~
+  defense-budget-01 — 4.10 s, F0 243.4 Hz, pauses entre phrases [0.31] s
+    1. Se défendre a un coût.        6/6    265.8  +1.50   -0.4      —  0.0    5.4  1.05  1:262~ 2:296~? 3:276×! 4:357~ 5:259~ 6:266
+         prise 2 : respiration 1.07-1.12 s (leger, +45 dB, confiance 0.70) [coût | fin]
+         prise 3 : rire 0.72-1.04 s (net, +43 dB, confiance 0.80) [coût | fin]
+    2. Combien la France y consacr…   4/4    236.6  -0.52   +4.1   +1.5  3.4    5.6  1.08  1:297~ 2:212~ 3:269~ 4:237
+  defense-budget-02 — 7.92 s, F0 227.8 Hz, pauses entre phrases [0.3, 0.51, 0.3] s
+    1. Ces dépenses sont prévues p…   2/3    224.0  -1.47   -2.0   +0.2  0.0    6.0  1.17  1:223~ 2:224 3:202~
+    2. L'actuelle couvre les année…   1/3    240.0  -0.27   +1.5   +1.7  2.0    5.6  1.08  1:240 2:250 3:253~
+  defense-budget-03 — 12.43 s, F0 241.8 Hz, pauses entre phrases [0.3, 0.3] s
+    1. Une loi du seize août deux …   3/3    237.0  -0.49   -2.3   +0.4  0.0    5.4  1.06  1:225 2:252~ 3:237
+    2. Au total, quatre cent trent…   1/3    245.5  +0.12   -4.4   +3.8  2.3    5.3  1.03  1:246 2:237 3:241
+    3. Dont trente-six milliards a…   1/3    239.4  -0.32   -3.9   +0.6  4.4    5.3  1.04  1:239 2:264 3:228
+  defense-budget-04 — 8.85 s, F0 244.3 Hz, pauses entre phrases [0.32, 0.32] s
+    1. Son objectif : consacrer à …   1/3    243.9  +0.01   -8.3   +4.8  3.9    5.4  1.05  1:244 2:237 3:252
+    2. Puis trois virgule cinq pou…   1/3    245.1  +0.09   -3.4   +2.0  6.0    5.4  1.06  1:245 2:303~ 3:267~
+  defense-budget-05 — 11.43 s, F0 244.2 Hz, pauses entre phrases [0.35, 0.3, 0.17] s
+    1. L'Otan a sa propre mesure d…   2/3    233.8  -0.73   -2.7   +1.3  3.4    5.9  1.14  1:220~ 2:234 3:221~
+    2. Selon son estimation, la Fr…   2/3    246.2  +0.17   -2.3   +4.1  2.7    5.0  0.98  1:237 2:246 3:238
+    3. Contre un virgule quatre-vi…   1/3    245.4  +0.11   -3.1   +2.0  2.3    5.1  1.00  1:245 2:231 3:246
+  defense-budget-06 — 4.70 s, F0 257.4 Hz
+    1. Pour l'ensemble des alliés …   2/3    257.4  +0.94   -1.9   +4.4  3.1    5.3  1.03  1:222~ 2:257 3:267~
+  defense-budget-07 — 8.34 s, F0 246.0 Hz, pauses entre phrases [0.18, 0.3] s
+    1. En juin deux mille vingt-ci…   1/3    242.6  -0.09   -5.1   +1.1  1.9    5.7  1.11  1:243 2:242 3:214~
+    2. Le précédent était de deux …   2/3    254.3  +0.73   -5.7   +1.3  5.1    5.2  1.02  1:259 2:254 3:196~
+  defense-budget-08 — 8.14 s, F0 233.8 Hz, pauses entre phrases [0.31] s
+    1. Dans ces cinq pour cent, tr…   3/3    245.0  +0.09   -3.3   +3.7  5.7    5.6  1.08  1:227 2:282~ 3:245
+    2. Et un virgule cinq pour cen…   2/3    227.5  -1.20   -3.5   +2.3  3.3    6.1  1.19  1:221~ 2:228 3:215~
+  defense-budget-09 — 3.18 s, F0 240.5 Hz
+    1. Alors, quel effort de défen…   1/3    240.5  -0.24   -1.8   +6.1  6.0    5.3  1.03  1:240 2:262 3:238
+  defense-alliances-01 — 2.47 s, F0 245.8 Hz
+    1. Si un pays de l'Otan est at…   2/3    245.8  +0.14   -1.7      —  3.0    6.9  1.34  1:267~ 2:246 3:297~
+  defense-alliances-02 — 6.37 s, F0 243.5 Hz
+    1. Dans l'Otan, l'article cinq…   1/3    243.5  -0.02   -2.7   +0.7  0.0    5.4  1.05  1:244 2:226 3:235
+  defense-alliances-03 — 5.76 s, F0 243.2 Hz
+    1. Chaque allié assiste alors …   3/3    243.2  -0.04   -3.8   +1.5  2.7    5.5  1.06  1:237 2:229? 3:243
+         prise 2 : respiration 4.08-4.32 s (leger, +33 dB, confiance 0.60) [nécessaire | y]
+  defense-alliances-04 — 12.42 s, F0 241.1 Hz, pauses entre phrases [0.22, 0.31, 0.3] s
+    1. Membre de l'Otan depuis sa …   1/3    242.5  -0.09   -7.2   -0.5  3.8    5.7  1.10  1:242 2:232 3:222~
+    2. En avril deux mille neuf, e…   1/3    239.5  -0.31   -2.8   +1.0  6.0    5.2  1.02  1:240 2:229 3:252
+  defense-alliances-05 — 9.12 s, F0 241.7 Hz, pauses entre phrases [0.31, 0.32] s
+    1. L'Union européenne a ses pr…   1/3    237.5  -0.45   -1.3   +4.4  2.8    5.6  1.10  1:238 2:231 3:252×!
+         prise 3 : rire 0.00-0.61 s (net, +52 dB, confiance 0.95) [début | L'Union]
+    2. Elle prête jusqu'à cent cin…   3/3    240.0  -0.27   -2.8   +3.7  1.3    5.0  0.99  1:213~ 2:252 3:240
+    3. Dix-neuf États, dont la Fra…   2/3    244.6  +0.06   -1.9   +2.9  2.8    6.0  1.18  1:274~ 2:245 3:236
+      passage assemblé : rire 6.88-7.12 s (net, +50 dB, confiance 0.92) [neuf | États]
+      ⚠ son parasite dans le passage assemblé : rire 6.88-7.12 s (net, +50 dB, confiance 0.92) [neuf | États]
+  defense-alliances-06 — 11.25 s, F0 234.3 Hz, pauses entre phrases [0.31, 0.42] s
+    1. Ces achats doivent en princ…   1/3    249.0  +0.37   -3.5   +3.2  1.9    5.4  1.05  1:249 2:250 3:265
+    2. Et au moins soixante-cinq p…   1/3    233.1  -0.78   -0.1   +1.4  3.5    5.2  1.02  1:233 2:230 3:224
+  defense-alliances-07 — 11.93 s, F0 241.1 Hz, pauses entre phrases [0.3, 0.3] s
+    1. Les vingt-neuf pays europée…   2/3    233.1  -0.78   -7.5   +2.7  0.1    5.9  1.15  1:230 2:233 3:220~
+    2. De deux mille vingt et un à…   1/3    241.5  -0.16   -3.7   +3.8  6.0    5.7  1.12  1:242 2:271~ 3:211~
+    3. Sept virgule quatre pour ce…   1/3    246.6  +0.20   -8.3   +3.2  3.7    5.3  1.04  1:247 2:262 3:246
+  defense-alliances-08 — 5.64 s, F0 248.0 Hz, pauses entre phrases [0.2, 0.3, 0.2] s
+    1. Dans l'Otan, les décisions …   3/3    248.3  +0.32   -2.0   +1.2  6.0    5.7  1.12  1:236 2:300~ 3:248
+    2. Dans la défense européenne,…   1/3    248.4  +0.32   -4.4   +1.6  2.0    6.0  1.17  1:248 2:328×! 3:259
+         prise 2 : rire 0.00-0.34 s (net, +46 dB, confiance 0.80) [début | Dans]
+  defense-alliances-09 — 3.42 s, F0 243.4 Hz
+    1. Alors, sur quoi faire repos…   3/3    243.4  -0.03   -4.1   +1.2  6.0    6.6  1.29  1:233 2:245 3:243
+  defense-dissuasion-01 — 4.41 s, F0 241.4 Hz, pauses entre phrases [0.3, 0.31] s
+    1. La France a l'arme nucléair…   1/3    240.4  -0.24   -5.3      —  0.0    4.3  0.85  1:240 2:223~ 3:258
+    2. À quoi sert-elle, et qui pe…   1/3    241.7  -0.15   -1.6   +2.5  6.0    6.2  1.22  1:242 2:224~ 3:252
+  defense-dissuasion-02 — 8.99 s, F0 238.9 Hz, pauses entre phrases [0.17, 0.31] s
+    1. Son but : faire redouter à …   1/3    238.8  -0.36   -5.6   +0.7  0.0    4.8  0.93  1:239 2:251×! 3:233
+         prise 2 : bruit 0.47-0.60 s (net, +41 dB, confiance 0.79) [but | faire]
+    2. C'est la dissuasion.          1/3    240.4  -0.24   -1.6   +2.6  5.6    5.2  1.02  1:240 2:208~ 3:264
+  defense-dissuasion-03 — 3.03 s, F0 228.7 Hz
+    1. Seul le président de la Rép…   3/3    228.7  -1.11   -1.1   +2.5  1.6    5.9  1.16  1:217~ 2:224 3:229
+  defense-dissuasion-04 — 9.25 s, F0 247.6 Hz, pauses entre phrases [0.3] s
+    1. Selon une estimation de jan…   3/3    246.3  +0.18   -7.2   +3.4  1.1    5.7  1.11  1:231 2:244 3:246
+    2. Sur environ neuf mille sept…   3/3    248.4  +0.32   -0.8   +1.3  6.0    6.2  1.20  1:267~ 2:254 3:248
+  defense-dissuasion-05 — 8.71 s, F0 240.4 Hz, pauses entre phrases [0.16, 0.3] s
+    1. Pour deux mille vingt-six, …   1/3    234.2  -0.70   -4.5   +2.7  0.8    5.2  1.02  1:234 2:233 3:220~
+    2. Un peu plus de onze euros s…   2/3    253.5  +0.68   -1.0   +5.5  4.5    6.0  1.17  1:254 2:254 3:258
+  defense-dissuasion-06 — 11.72 s, F0 234.5 Hz, pauses entre phrases [0.31, 0.17, 0.35] s
+    1. Dans l'Otan, le partage nuc…   2/3    224.2  -1.45   -7.9   +0.8  1.0    5.2  1.01  1:203~ 2:224 3:243~
+    2. En deux mille vingt-cinq, p…   2/3    244.4  +0.04   -7.7   +4.3  6.0    5.5  1.07  1:235 2:244 3:224~
+  defense-dissuasion-07 — 6.08 s, F0 238.2 Hz
+    1. En mars deux mille vingt-si…   3/3    238.2  -0.40   -8.6   +3.0  6.0    6.4  1.26  1:220~ 2:226 3:238
+  defense-dissuasion-08 — 7.82 s, F0 231.5 Hz, pauses entre phrases [0.17, 0.37] s
+    1. Ces pays pourront participe…   3/3    236.6  -0.52   -2.1   +3.4  6.0    5.9  1.15  1:220~ 2:224? 3:237
+         prise 2 : respiration 2.40-2.59 s (leger, +29 dB, confiance 0.53) [nucléaires | et]
+    2. Mais la décision d'emploi n…   3/3    230.8  -0.95   -2.3   +0.4  2.1    5.5  1.07  1:216~ 2:267~ 3:231
+  defense-dissuasion-09 — 5.87 s, F0 233.3 Hz, pauses entre phrases [0.3] s
+    1. Au quinze septembre deux mi…   1/3    238.7  -0.37   -3.3   +1.7  2.3    5.6  1.08  1:239 2:280~ 3:246
+    2. Huit sont membres de l'Unio…   3/3    225.1  -1.38   -2.3   +0.1  3.3    4.8  0.93  1:223~ 2:254×! 3:225
+         prise 2 : parole en trop 0.00-0.18 s (net, +48 dB, confiance 0.79) [début | Huit]
+  defense-dissuasion-10 — 4.96 s, F0 243.5 Hz
+    1. Autre annonce : le nombre d…   2/3    243.5  -0.02   -4.2   +1.8  2.3    5.6  1.10  1:232 2:244 3:236
+  defense-dissuasion-11 — 2.61 s, F0 242.1 Hz
+    1. Alors, quel rôle pour la di…   2/3    242.1  -0.12   -4.2   +4.3  6.0    6.2  1.20  1:216~? 2:242 3:241
+         prise 1 : respiration 2.30-2.40 s (leger, +36 dB, confiance 0.66) [Europe | fin]
+  defense-desarmement-01 — 3.53 s, F0 241.8 Hz, pauses entre phrases [0.35] s
+    1. Combien d'armes nucléaires …   3/3    234.9  -0.64   +0.0      —  3.0    4.8  0.95  1:281~ 2:322~ 3:235
+    2. Et des traités les limitent…   3/3    245.7  +0.13   +8.1   -1.0  3.0    6.6  1.29  1:279~ 2:304~ 3:246
+  defense-desarmement-02 — 10.97 s, F0 251.8 Hz, pauses entre phrases [0.15, 0.31] s
+    1. En janvier deux mille vingt…   1/3    256.8  +0.90   -8.8   +2.6  0.0    5.9  1.16  1:257 2:272~ 3:223~
+    2. La Russie et les États-Unis…   1/3    239.6  -0.30   -5.1   -0.3  6.0    5.8  1.14  1:240 2:216~ 3:259
+  defense-desarmement-03 — 8.02 s, F0 246.4 Hz, pauses entre phrases [0.19, 0.21, 0.31] s
+    1. Côté désarmement, le traité…   2/3    246.8  +0.21   -3.3   +1.5  5.1    5.6  1.09  1:257 2:247 3:237?
+         prise 3 : respiration 1.92-2.07 s (leger, +39 dB, confiance 0.60) [Start | entre]
+    2. Sans traité pour le remplac…   3/3    241.9  -0.14   -0.8   +4.4  3.3    6.2  1.21  1:233 2:272~ 3:242
+  defense-desarmement-04 — 10.00 s, F0 246.1 Hz, pauses entre phrases [0.15, 0.31, 0.3] s
+    1. Le traité sur la non-prolif…   3/3    230.7  -0.96   -2.5   +2.8  0.8    5.7  1.11  1:236~ 2:231 3:231
+    2. La dernière s'est achevée l…   2/3    248.2  +0.31   -5.8   +2.6  2.5    5.5  1.06  1:239 2:248 3:224
+    3. Pour la troisième fois de s…   1/3    260.4  +1.14   -9.6   +3.7  5.8    5.1  1.00  1:260 2:364~ 3:224
+  defense-desarmement-05 — 9.77 s, F0 250.1 Hz, pauses entre phrases [0.3, 0.3, 0.17] s
+    1. Un traité de l'Onu interdit…   2/3    251.6  +0.55   -4.0   +0.8  6.0    6.3  1.24  1:235 2:252 3:226
+    2. Il est en vigueur depuis de…   2/3    251.5  +0.54   -2.2   +0.7  4.0    6.5  1.27  1:258 2:252 3:212~
+    3. Au trois octobre deux mille…   1/3    247.4  +0.25   -5.5   +0.4  2.2    5.1  1.00  1:247 2:238 3:228
+  defense-desarmement-06 — 6.37 s, F0 243.2 Hz, pauses entre phrases [0.3] s
+    1. Aucun des neuf États dotés …   3/3    241.0  -0.20   -4.1   +3.0  5.5    6.2  1.21  1:248 2:228 3:241
+    2. Dans l'Union européenne, l'…   3/3    246.7  +0.20   -0.0   +2.2  4.1    5.3  1.03  1:261 2:251 3:247
+  defense-desarmement-07 — 6.71 s, F0 228.4 Hz, pauses entre phrases [0.3, 0.17] s
+    1. En Europe, des pays s'assoc…   3/3    226.2  -1.30   -2.1   +1.8  0.0    5.8  1.13  1:230~ 2:237? 3:226
+         prise 2 : respiration 0.48-0.63 s (leger, +49 dB, confiance 0.86) [Europe | des]
+    2. Dans le monde, des États s'…   3/3    232.6  -0.81   -6.4   +3.1  2.1    5.2  1.01  1:230 2:227 3:233
+  defense-desarmement-08 — 3.59 s, F0 242.7 Hz
+    1. Alors, quelle place pour l'…   3/3    242.7  -0.08   -2.2   +4.5  6.0    5.2  1.02  1:225 2:219~ 3:243
+
+Alertes (3) :
+  aigue / defense-intro-06 : son parasite dans le passage assemblé : bruit 3.92-4.48 s (net, +50 dB, confiance 0.95) [Selon | estimation]
+  aigue / defense-intro-06 : son parasite dans le passage assemblé : mot étiré « une » 3.92-4.48 s (net, +53 dB, confiance 0.90) [Selon | estimation]
+  aigue / defense-alliances-05 : son parasite dans le passage assemblé : rire 6.88-7.12 s (net, +50 dB, confiance 0.92) [neuf | États]
+
+Temps : 2234 s pour 266 prise(s), 8.14 s de calcul par prise en moyenne (3.48 s d'audio) ; calcul d'une prise ≈ 0.50 s + 2.23 s par seconde d'audio. Détecteur de sons parasites : 0.119 s par prise en moyenne (au plus 0.224 s), 2% du calcul d'une prise.
+Estimation pour les 1013 passages (1856 phrases) (voix aiguë 3 prises, 3% de secours) : ~959 min.

@@ -1,0 +1,770 @@
+{
+  "agriculture-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quel levier privilégier pour soutenir l’agriculture et l’alimentation ?",
+    "approaches": {
+      "agriculture-1-a": "Créer un fonds national pour que les familles modestes achètent une alimentation de qualité à prix réduit",
+      "agriculture-1-b": "Plafonner l’agrandissement des exploitations pour freiner la concentration des terres agricoles",
+      "agriculture-1-c": "Réorienter les aides agricoles européennes vers les petites fermes, les jeunes agriculteurs et les pratiques écologiques",
+      "agriculture-1-d": "Réduire la taxe sur la valeur ajoutée (TVA) des aliments produits en France pour soutenir leur production",
+      "agriculture-1-e": "Protéger les agriculteurs en refusant les produits importés qui ne respectent pas les normes françaises"
+    }
+  },
+  "agriculture-x1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment améliorer le revenu des agriculteurs ?",
+    "approaches": {
+      "agriculture-x1-a": "Garantir aux agriculteurs des prix minimums couvrant leurs coûts de production",
+      "agriculture-x1-b": "Encadrer les marges des industriels de l’agroalimentaire et de la grande distribution",
+      "agriculture-x1-c": "Verser une aide au revenu aux agriculteurs qui passent à des pratiques écologiques",
+      "agriculture-x1-d": "Afficher de façon très visible l’origine française des produits dans les magasins"
+    }
+  },
+  "ecologie_energie-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Face à la hausse des prix des carburants, quelle réponse privilégier ?",
+    "approaches": {
+      "ecologie_energie-1-a": "Baisser pour tous les automobilistes les taxes sur l’essence et le gazole",
+      "ecologie_energie-1-b": "Faire payer le secteur pétrolier, en plafonnant les marges des raffineurs ou en taxant ses superprofits",
+      "ecologie_energie-1-c": "Réserver les aides aux ménages modestes et à ceux qui dépendent de leur voiture",
+      "ecologie_energie-1-e": "Baisser les taxes sur l’électricité pour accélérer l’abandon des carburants"
+    }
+  },
+  "ecologie_energie-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle place donner au nucléaire dans la production d’électricité ?",
+    "approaches": {
+      "ecologie_energie-2-a": "Construire de nouveaux réacteurs nucléaires tout en développant les énergies renouvelables",
+      "ecologie_energie-2-b": "Limiter le nombre de nouveaux réacteurs et donner la priorité aux énergies renouvelables",
+      "ecologie_energie-2-c": "Sortir progressivement du nucléaire en le remplaçant par les énergies renouvelables"
+    }
+  },
+  "ecologie_energie-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment fixer le prix de l’électricité ?",
+    "approaches": {
+      "ecologie_energie-3-a": "Sortir la France du marché européen de l’électricité pour fixer les prix au niveau national",
+      "ecologie_energie-3-b": "Rester dans le marché européen en calculant une partie de la facture sur les coûts de production",
+      "ecologie_energie-3-c": "Placer la production, le transport et la distribution d’électricité sous un contrôle public unique",
+      "ecologie_energie-3-d": "Conserver les règles actuelles du marché européen de l’électricité, réformées en 2024"
+    }
+  },
+  "ecologie_energie-4": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment financer les investissements de la transition écologique ?",
+    "approaches": {
+      "ecologie_energie-4-a": "Lancer un grand emprunt national auprès des épargnants pour financer l’électrification et l’industrie",
+      "ecologie_energie-4-b": "Créer un fonds public national et européen doté de ressources stables sur plusieurs décennies",
+      "ecologie_energie-4-c": "Distinguer la dette contractée pour la transition écologique du reste de la dette publique",
+      "ecologie_energie-4-d": "Rétablir un impôt sur la fortune des plus gros patrimoines, consacré à l’action climatique",
+      "ecologie_energie-4-e": "Redéployer des dépenses publiques existantes, sans nouvel impôt ni nouvelle dette"
+    }
+  },
+  "ecologie_energie-5": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quel principe doit guider en priorité la transition écologique ?",
+    "approaches": {
+      "ecologie_energie-5-a": "Conditionner toute dépense ou aide publique au respect des objectifs de climat et de biodiversité",
+      "ecologie_energie-5-b": "Adopter dès le début du mandat une loi climat fixant des objectifs contraignants de baisse des émissions",
+      "ecologie_energie-5-c": "Faire de la transition écologique le moteur de la relance industrielle et de la création d’emplois",
+      "ecologie_energie-5-d": "Faire porter l’effort d’abord sur les plus gros pollueurs plutôt que sur les ménages"
+    }
+  },
+  "ecologie_energie-6": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelles priorités pour les transports et les déplacements ?",
+    "approaches": {
+      "ecologie_energie-6-a": "Proposer aux ménages modestes la location de voitures électriques à prix réduit",
+      "ecologie_energie-6-b": "Confier de nouveau l’ensemble du transport ferroviaire à un opérateur public unique",
+      "ecologie_energie-6-c": "Développer les trains du quotidien et de nuit, et supprimer les vols intérieurs remplaçables par le train",
+      "ecologie_energie-6-d": "Reprendre les autoroutes à la fin des concessions et affecter leurs profits aux transports collectifs",
+      "ecologie_energie-6-e": "Poursuivre l’ouverture des lignes ferroviaires à la concurrence entre plusieurs opérateurs"
+    }
+  },
+  "ecologie_energie-x1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité pour la gestion de l’eau ?",
+    "approaches": {
+      "ecologie_energie-x1-a": "Confier dans toutes les communes le traitement et la distribution de l’eau à une régie publique",
+      "ecologie_energie-x1-b": "Interdire les grandes retenues d’eau pour l’irrigation et restaurer le cycle naturel de l’eau",
+      "ecologie_energie-x1-c": "Instaurer une tarification sociale de l’eau, avec une aide automatique pour les foyers modestes",
+      "ecologie_energie-x1-d": "Construire davantage de retenues d’eau pour sécuriser l’irrigation des cultures face aux sécheresses"
+    }
+  },
+  "ecologie_energie-x2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité pour protéger la population face aux canicules, aux incendies et aux catastrophes climatiques ?",
+    "approaches": {
+      "ecologie_energie-x2-a": "Climatiser les écoles, les hôpitaux et les autres bâtiments qui accueillent du public",
+      "ecologie_energie-x2-b": "Rénover les écoles et aménager leurs cours pour mieux protéger les élèves de la chaleur",
+      "ecologie_energie-x2-c": "Créer une assurance contre les risques climatiques garantie à tous et financée par les assureurs",
+      "ecologie_energie-x2-d": "Renforcer fortement les effectifs et les équipements des pompiers et de la sécurité civile"
+    }
+  },
+  "education-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle politique pour la taille des classes ?",
+    "approaches": {
+      "education-1-a": "Réduire le nombre d’élèves par classe dans toutes les écoles, quel que soit le territoire",
+      "education-1-b": "Réduire le nombre d’élèves par classe d’abord dans les écoles des territoires en difficulté",
+      "education-1-c": "Fermer des classes là où le nombre d’élèves baisse et redéployer les postes vers d’autres besoins"
+    }
+  },
+  "education-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelles règles pour le financement public des écoles privées sous contrat ?",
+    "approaches": {
+      "education-2-a": "Réserver à terme l’argent public de l’enseignement aux seules écoles publiques",
+      "education-2-b": "Moduler l’argent public versé aux écoles privées selon leur mixité sociale",
+      "education-2-c": "Intégrer les écoles privées sous contrat à la carte scolaire pour y imposer la mixité sociale",
+      "education-2-d": "Maintenir le financement public des écoles privées sous contrat dans les règles actuelles"
+    }
+  },
+  "education-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle mesure prioritaire pour les jeunes ?",
+    "approaches": {
+      "education-3-a": "Instaurer un service civique obligatoire pour tous les jeunes, avec un volet militaire facultatif",
+      "education-3-b": "Financer par l’État des contrats en alternance pour les jeunes chômeurs, dans les métiers de l’écologie",
+      "education-3-c": "Augmenter les aides aux étudiants pour le logement, les transports et l’alimentation",
+      "education-3-d": "Ouvrir le revenu de solidarité active (RSA) aux 18-25 ans, aujourd’hui largement exclus"
+    }
+  },
+  "education-x1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité pour l’université et la recherche publique ?",
+    "approaches": {
+      "education-x1-a": "Supprimer Parcoursup au profit d’une autre procédure nationale d’affectation, plus transparente",
+      "education-x1-b": "Augmenter fortement les moyens des universités par étudiant et le budget de la recherche publique",
+      "education-x1-c": "Financer les laboratoires sur la durée plutôt que par des appels à projets de court terme",
+      "education-x1-d": "Encadrer plus strictement les établissements d’enseignement supérieur privés à but lucratif",
+      "education-x1-e": "Laisser les universités choisir leurs étudiants et fixer plus librement leurs frais d’inscription"
+    }
+  },
+  "education-x2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité pour améliorer les apprentissages des élèves à l’école ?",
+    "approaches": {
+      "education-x2-a": "Consacrer les matinées aux savoirs fondamentaux et les après-midis à d’autres activités",
+      "education-x2-b": "Raccourcir les journées de classe en réduisant en contrepartie les vacances d’été",
+      "education-x2-c": "Recentrer l’enseignement sur le français et le calcul, avec dictée et calcul mental",
+      "education-x2-d": "Généraliser le tutorat et le soutien des élèves en difficulté pendant le temps scolaire"
+    }
+  },
+  "egalite-x1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité pour l’égalité entre les femmes et les hommes au travail et dans la famille ?",
+    "approaches": {
+      "egalite-x1-a": "Aligner le congé du second parent sur le congé de maternité, en durée comme en caractère obligatoire",
+      "egalite-x1-b": "Garantir à chaque famille une solution de garde pour ses jeunes enfants, avec un droit de recours",
+      "egalite-x1-c": "Rendre publics les écarts de salaire et revaloriser les métiers surtout exercés par des femmes",
+      "egalite-x1-d": "Laisser les entreprises et les familles s’organiser librement, sans nouvelle obligation légale"
+    }
+  },
+  "europe-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle direction donner à la construction européenne ?",
+    "approaches": {
+      "europe-1-a": "Supprimer le droit de veto des États et réviser les traités pour aller vers une Europe fédérale",
+      "europe-1-b": "Renforcer l’Union dans la défense, le social et l’écologie, tout en préservant la souveraineté nationale",
+      "europe-1-c": "Renégocier les règles européennes qui limitent les choix nationaux, ou obtenir des dérogations"
+    }
+  },
+  "europe-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle politique budgétaire pour l’Union européenne ?",
+    "approaches": {
+      "europe-2-a": "Doter l’Union d’un budget plus important, financé par des emprunts communs et des impôts européens",
+      "europe-2-b": "Assouplir les règles européennes de déficit pour que chaque État puisse emprunter et investir",
+      "europe-2-c": "Réduire la contribution de la France au budget européen en négociant un rabais, comme d’autres pays",
+      "europe-2-d": "Conserver le budget européen à son niveau actuel et appliquer les règles de déficit en vigueur"
+    }
+  },
+  "europe-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle place pour la concurrence dans le marché unique européen ?",
+    "approaches": {
+      "europe-3-a": "Assouplir les règles européennes de concurrence pour faire émerger de grandes entreprises européennes",
+      "europe-3-b": "Revenir sur l’ouverture à la concurrence pour rétablir des monopoles publics nationaux à prix réglementés",
+      "europe-3-c": "Conserver les règles de concurrence actuelles et l’ouverture des services publics à la concurrence"
+    }
+  },
+  "fiscalite-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quels impôts privilégier pour faire davantage contribuer les plus grandes fortunes ?",
+    "approaches": {
+      "fiscalite-1-a": "Rétablir un impôt annuel sur la fortune incluant les placements financiers, comme avant 2018",
+      "fiscalite-1-b": "Créer un impôt minimum de 2 % par an sur les patrimoines de plus de 100 millions d’euros",
+      "fiscalite-1-c": "Taxer davantage les plus grosses successions, au-delà d’environ 2 millions d’euros transmis",
+      "fiscalite-1-d": "Ne pas alourdir la fiscalité du patrimoine, pour préserver l’investissement"
+    }
+  },
+  "fiscalite-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle stratégie pour les finances publiques face à la dette ?",
+    "approaches": {
+      "fiscalite-2-a": "Réduire le déficit surtout par des économies sur le fonctionnement de l’État et sur les aides publiques",
+      "fiscalite-2-b": "Réduire le déficit surtout par de nouveaux impôts sur les plus hauts patrimoines et sur le capital",
+      "fiscalite-2-c": "Répartir l’effort entre tous, en demandant aussi une contribution aux retraités les plus aisés",
+      "fiscalite-2-d": "Emprunter pour investir massivement dans l’industrie et la transition écologique, plutôt que de réduire les dépenses"
+    }
+  },
+  "fiscalite-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "À quoi affecter en priorité les recettes d’une taxation accrue des plus riches ?",
+    "approaches": {
+      "fiscalite-3-a": "Les reverser aux salariés en baissant les prélèvements sur leurs fiches de paie",
+      "fiscalite-3-b": "Les affecter à la prise en charge des personnes âgées en perte d’autonomie",
+      "fiscalite-3-c": "Les affecter aux investissements publics dans la transition écologique et énergétique",
+      "fiscalite-3-d": "Les consacrer en priorité à la réduction du déficit et de la dette publique"
+    }
+  },
+  "fiscalite-x1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment imposer les revenus du capital et les bénéfices des entreprises ?",
+    "approaches": {
+      "fiscalite-x1-a": "Supprimer le taux forfaitaire et imposer les revenus du capital au barème progressif, comme les salaires",
+      "fiscalite-x1-b": "Augmenter les prélèvements sociaux sur les revenus financiers pour financer la Sécurité sociale",
+      "fiscalite-x1-c": "Taxer davantage les bénéfices des grandes entreprises, en particulier leurs profits exceptionnels",
+      "fiscalite-x1-d": "Conserver le taux forfaitaire sur les revenus du capital pour encourager l’épargne et l’investissement"
+    }
+  },
+  "immigration-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle orientation donner à la politique d’immigration ?",
+    "approaches": {
+      "immigration-1-a": "Régulariser à grande échelle les travailleurs sans titre de séjour",
+      "immigration-1-b": "Régulariser les travailleurs sans titre de séjour, en priorité dans les métiers qui peinent à recruter",
+      "immigration-1-c": "Confier à des citoyens tirés au sort l’élaboration de propositions sur l’immigration, soumises au Parlement",
+      "immigration-1-d": "Faire planifier l’immigration par le Parlement selon les capacités d’accueil et les besoins de l’économie",
+      "immigration-1-e": "Assouplir la délivrance de visas aux étudiants et aux professionnels qualifiés venus de l’étranger",
+      "immigration-1-f": "Réduire l’immigration irrégulière en exécutant davantage de décisions d’expulsion"
+    }
+  },
+  "immigration-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment favoriser l’intégration des étrangers qui s’installent en France ?",
+    "approaches": {
+      "immigration-2-a": "Rendre obligatoire l’apprentissage du français et lutter contre les discriminations à l’embauche et au logement",
+      "immigration-2-b": "Garantir à tous les nouveaux arrivants des cours de français et un guichet unique pour leurs démarches",
+      "immigration-2-c": "Créer un service public de l’intégration et faciliter la naturalisation des étrangers qui parlent français",
+      "immigration-2-d": "Conditionner l’accès des étrangers à certaines prestations sociales à une durée minimale de résidence"
+    }
+  },
+  "immigration-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle politique d’expulsion des étrangers en situation irrégulière ?",
+    "approaches": {
+      "immigration-3-a": "Concentrer les moyens d’expulsion sur les étrangers auteurs de crimes ou d’atteintes graves aux personnes",
+      "immigration-3-b": "Ouvrir des voies légales d’immigration de travail en échange de la coopération des pays d’origine sur les retours",
+      "immigration-3-c": "Augmenter le nombre d’expulsions en fixant aux préfectures des objectifs chiffrés à atteindre chaque année"
+    }
+  },
+  "industrie_economie-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle stratégie privilégier pour réindustrialiser le pays ?",
+    "approaches": {
+      "industrie_economie-1-a": "Faire de l’État un actionnaire industriel : fonds souverain, prises de participation, nationalisations possibles",
+      "industrie_economie-1-b": "Bâtir la politique industrielle à l’échelle de l’Union européenne : protection commune, financements communs",
+      "industrie_economie-1-c": "Planifier la relocalisation des productions essentielles : alimentation, énergie, numérique, biens stratégiques",
+      "industrie_economie-1-d": "Faire baisser le prix de l’énergie pour les entreprises, en priorité pour les petites entreprises et les artisans"
+    }
+  },
+  "industrie_economie-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment protéger la production face à la concurrence internationale ?",
+    "approaches": {
+      "industrie_economie-2-a": "Relever les droits de douane européens sur les produits stratégiques venant de Chine, comme les batteries",
+      "industrie_economie-2-b": "Intégrer dans le prix des produits importés le coût du carbone émis lors de leur fabrication",
+      "industrie_economie-2-c": "Réserver une part des achats publics de l’État et des collectivités à la production française",
+      "industrie_economie-2-d": "Poursuivre l’ouverture commerciale par des accords de libre-échange négociés par l’Union européenne"
+    }
+  },
+  "industrie_economie-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Que faire des aides publiques aux entreprises ?",
+    "approaches": {
+      "industrie_economie-3-a": "Réduire nettement leur montant, en supprimant celles accordées sans contrepartie, pour baisser le déficit",
+      "industrie_economie-3-b": "Les conditionner à des engagements sur les salaires, l’emploi, l’investissement ou le climat",
+      "industrie_economie-3-c": "Les recentrer sur les petites entreprises et l’industrie, en plafonnant celles des grands groupes"
+    }
+  },
+  "institutions-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle évolution des institutions privilégier ?",
+    "approaches": {
+      "institutions-1-a": "Faire investir le Premier ministre par l’Assemblée et supprimer l’adoption des textes sans vote (article 49.3)",
+      "institutions-1-b": "Limiter, voire supprimer, le droit de dissolution et réduire le pouvoir de nomination du président",
+      "institutions-1-c": "Préparer une nouvelle Constitution avec une convention citoyenne tirée au sort, puis une assemblée constituante",
+      "institutions-1-d": "Transformer la façon d’exercer le pouvoir, en rétablissant l’autorité de l’État et le respect des règles",
+      "institutions-1-e": "Conserver les règles actuelles, dont le droit de dissolution du président et l’article 49.3"
+    }
+  },
+  "institutions-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle place donner aux citoyens dans les décisions publiques ?",
+    "approaches": {
+      "institutions-2-a": "Créer un droit d’initiative citoyenne permettant de déclencher des référendums locaux et nationaux",
+      "institutions-2-b": "Organiser chaque année une journée de référendums sur des questions proposées par les citoyens",
+      "institutions-2-c": "Recourir plus souvent au référendum d’initiative partagée pour trancher les réformes contestées",
+      "institutions-2-d": "Confier les grandes questions à des conventions de citoyens tirés au sort, avant le vote du Parlement",
+      "institutions-2-e": "Laisser les décisions aux parlementaires élus et réserver le référendum à des circonstances exceptionnelles"
+    }
+  },
+  "international_defense-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle stratégie face à la guerre menée par la Russie en Ukraine ?",
+    "approaches": {
+      "international_defense-1-a": "Augmenter fortement l’aide militaire à l’Ukraine, notamment pour défendre son espace aérien",
+      "international_defense-1-b": "Continuer l’aide militaire et financière à l’Ukraine tant que la Russie refuse de négocier",
+      "international_defense-1-c": "Rouvrir dès maintenant le dialogue avec la Russie pour négocier la paix, la France servant de médiatrice",
+      "international_defense-1-d": "Arrêter les livraisons d’armes à l’Ukraine et se limiter à l’aide humanitaire et diplomatique"
+    }
+  },
+  "international_defense-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment la France doit-elle qualifier l’action de l’armée israélienne à Gaza ?",
+    "approaches": {
+      "international_defense-2-a": "Reconnaître officiellement que l’action de l’armée israélienne à Gaza constitue un génocide",
+      "international_defense-2-b": "Qualifier cette action de crimes de guerre et de crimes contre l’humanité, sans parler de génocide",
+      "international_defense-2-c": "Condamner la conduite de la guerre à Gaza sans prendre position sur sa qualification juridique"
+    }
+  },
+  "international_defense-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle stratégie de défense pour la France ?",
+    "approaches": {
+      "international_defense-3-a": "Bâtir une défense européenne commune, avec des achats d’armement et des financements partagés",
+      "international_defense-3-b": "Renforcer en priorité l’armée française et garder une défense strictement nationale",
+      "international_defense-3-c": "Donner la priorité à la diplomatie, la France servant de médiatrice entre puissances rivales",
+      "international_defense-3-d": "S’appuyer d’abord sur l’OTAN et l’alliance avec les États-Unis pour assurer la sécurité de la France",
+      "international_defense-3-e": "Prendre ses distances avec l’OTAN et refuser la logique des blocs militaires"
+    }
+  },
+  "international_defense-4": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quels moyens de pression privilégier envers le gouvernement israélien ?",
+    "approaches": {
+      "international_defense-4-a": "Suspendre l’accord d’association qui encadre les échanges entre l’Union européenne et Israël",
+      "international_defense-4-b": "Utiliser les clauses commerciales de l’accord avec Israël pour viser son gouvernement, sans suspendre l’accord",
+      "international_defense-4-c": "Sanctionner les acteurs de la colonisation et interdire la vente en France des produits des colonies israéliennes",
+      "international_defense-4-d": "Saisir le Conseil de sécurité des Nations unies pour obtenir des sanctions contre les dirigeants israéliens"
+    }
+  },
+  "international_defense-5": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quel rôle pour la dissuasion nucléaire française en Europe ?",
+    "approaches": {
+      "international_defense-5-a": "Étendre la protection nucléaire française aux autres pays de l’Union, la France gardant seule la décision",
+      "international_defense-5-b": "Réserver la dissuasion nucléaire à la seule protection de la France, sans l’étendre à ses voisins européens",
+      "international_defense-5-c": "Renoncer à l’arme nucléaire dans le cadre d’un désarmement négocié entre les puissances nucléaires"
+    }
+  },
+  "laicite_republique-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle approche de la laïcité privilégier ?",
+    "approaches": {
+      "laicite_republique-1-a": "Créer une autorité indépendante chargée de la laïcité et inscrire une définition de la laïcité dans la Constitution",
+      "laicite_republique-1-b": "Garantir la neutralité religieuse de l’école et de l’hôpital, en refusant tout aménagement pour motif religieux",
+      "laicite_republique-1-c": "Mettre fin progressivement aux exceptions locales à la loi de 1905, comme le régime d’Alsace-Moselle",
+      "laicite_republique-1-d": "Mettre l’accent sur la lutte contre les discriminations, y compris celles qui visent les musulmans",
+      "laicite_republique-1-e": "Maintenir la liberté de porter le voile dans l’espace public et respecter le choix des femmes qui le portent",
+      "laicite_republique-1-f": "Étendre l’interdiction des signes religieux à d’autres lieux, comme les sorties scolaires ou les compétitions sportives"
+    }
+  },
+  "laicite_republique-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment la France doit-elle aborder l’histoire de la colonisation ?",
+    "approaches": {
+      "laicite_republique-2-a": "Créer une commission officielle chargée d’établir les faits de la colonisation et de favoriser la réconciliation",
+      "laicite_republique-2-b": "Présenter des excuses officielles à l’Algérie, restituer des biens culturels et remettre les archives",
+      "laicite_republique-2-c": "Laisser l’histoire de la colonisation aux historiens, sans démarche officielle de l’État"
+    }
+  },
+  "logement-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Jusqu’où encadrer les loyers ?",
+    "approaches": {
+      "logement-1-a": "Généraliser l’encadrement des loyers et l’étendre au-delà des seules villes volontaires",
+      "logement-1-b": "Étendre l’encadrement des loyers à toutes les zones où le manque de logements est le plus fort",
+      "logement-1-c": "Laisser chaque ville volontaire décider d’encadrer ou non ses loyers, comme aujourd’hui"
+    }
+  },
+  "logement-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quel levier prioritaire face à la crise du logement ?",
+    "approaches": {
+      "logement-2-a": "Plafonner la part des revenus que les locataires du parc privé consacrent à leur logement",
+      "logement-2-b": "Construire beaucoup plus de logements sociaux, avec davantage de terrains et de moyens pour les bailleurs sociaux",
+      "logement-2-c": "Faire de la rénovation énergétique des logements la priorité, pour réduire les charges des ménages",
+      "logement-2-d": "Réguler davantage les locations touristiques de courte durée pour remettre des logements en location"
+    }
+  },
+  "logement-x1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle politique pour les terrains à bâtir, les logements vides et la fiscalité des propriétaires ?",
+    "approaches": {
+      "logement-x1-a": "Encadrer le prix des terrains à bâtir pour en freiner la hausse",
+      "logement-x1-b": "Taxer davantage les propriétaires qui possèdent quatre logements ou plus",
+      "logement-x1-c": "Alourdir la taxe sur les logements vides et permettre aux communes de les acheter en priorité",
+      "logement-x1-d": "Alléger les impôts des propriétaires bailleurs pour relancer l’investissement locatif"
+    }
+  },
+  "numerique-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité face au développement de l’intelligence artificielle (IA) ?",
+    "approaches": {
+      "numerique-1-a": "Faire contribuer l’IA au financement de la protection sociale, pour compenser les emplois qu’elle remplace",
+      "numerique-1-b": "Développer une IA publique : recherche publique, modèles ouverts et capacités de calcul souveraines",
+      "numerique-1-c": "Financer des solutions européennes pour réduire la dépendance aux géants étrangers du numérique",
+      "numerique-1-d": "Négocier un traité international qui encadre les usages les plus risqués de l’intelligence artificielle",
+      "numerique-1-e": "Laisser les entreprises développer l’IA librement, dans le seul cadre des règles européennes actuelles"
+    }
+  },
+  "numerique-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment protéger les enfants et les adolescents face aux écrans et aux réseaux sociaux ?",
+    "approaches": {
+      "numerique-2-a": "Interdire l’accès aux réseaux sociaux avant 15 ans, avec une vérification obligatoire de l’âge",
+      "numerique-2-b": "Fixer des règles d’usage des écrans par âge : aucun écran avant 5 ans, pas de smartphone avant 15 ans",
+      "numerique-2-c": "Interdire en France l’application de vidéos TikTok, pour tous les utilisateurs quel que soit leur âge",
+      "numerique-2-d": "Miser sur l’éducation au numérique et le contrôle parental plutôt que sur des interdictions légales"
+    }
+  },
+  "numerique-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment encadrer les grandes plateformes numériques ?",
+    "approaches": {
+      "numerique-3-a": "Créer un délit de désinformation organisée et limiter la concentration de la propriété des médias",
+      "numerique-3-b": "Faire contribuer les plateformes au financement de la création culturelle et de la presse",
+      "numerique-3-c": "Privilégier la négociation directe avec les dirigeants des plateformes plutôt que le rapport de force",
+      "numerique-3-d": "S’en tenir aux règles européennes existantes, sans nouvelle loi nationale sur les plateformes"
+    }
+  },
+  "retraites-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle suite donner à la réforme des retraites de 2023 ?",
+    "approaches": {
+      "retraites-1-a": "Ramener l’âge légal de départ à 62 ans et rétablir des critères de pénibilité",
+      "retraites-1-b": "Supprimer l’âge légal et ouvrir le départ selon le nombre d’années cotisées et la pénibilité",
+      "retraites-1-c": "Fixer des âges de départ différents selon la pénibilité et l’espérance de vie en bonne santé",
+      "retraites-1-d": "Laisser les retraites en l’état pour l’instant et donner la priorité à la relance industrielle",
+      "retraites-1-e": "Appliquer le report progressif de l’âge légal à 64 ans prévu par la réforme de 2023"
+    }
+  },
+  "retraites-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment financer les retraites et faire évoluer les pensions ?",
+    "approaches": {
+      "retraites-2-a": "Créer une cotisation sur les gains de l’intelligence artificielle et de l’automatisation pour financer les pensions",
+      "retraites-2-b": "Augmenter le nombre de cotisants par l’emploi des seniors, l’insertion des jeunes et l’immigration légale de travail",
+      "retraites-2-c": "Demander plus aux retraités aisés : hausse de leur CSG et pensions revalorisées moins vite que l’inflation",
+      "retraites-2-d": "Revaloriser chaque année toutes les pensions au rythme de l’inflation, y compris les plus élevées",
+      "retraites-2-e": "Financer les retraites par les cotisations sociales et écarter toute part de retraite par capitalisation"
+    }
+  },
+  "sante-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité pour améliorer l’accès aux soins ?",
+    "approaches": {
+      "sante-1-a": "Encadrer l’installation des médecins pour les orienter vers les territoires qui en manquent",
+      "sante-1-b": "Ouvrir partout des centres de santé, dispensaires et permanences mobiles organisés localement",
+      "sante-1-c": "Financer l’hôpital selon les besoins de santé plutôt qu’à l’activité, avec un budget en hausse",
+      "sante-1-d": "Réduire les dépenses administratives de la santé pour reporter les moyens vers les soins",
+      "sante-1-e": "Relocaliser en France la production des médicaments essentiels pour limiter les pénuries"
+    }
+  },
+  "sante-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quel rôle pour la Sécurité sociale face aux mutuelles et assurances complémentaires ?",
+    "approaches": {
+      "sante-2-a": "Faire rembourser les soins essentiels par la seule Sécurité sociale, les complémentaires gardant un rôle réduit",
+      "sante-2-b": "Créer partout une complémentaire santé publique et obligatoire, gérée par la Sécurité sociale",
+      "sante-2-c": "Fusionner tous les régimes en une Sécurité sociale unique et mettre en commun son informatique avec les complémentaires",
+      "sante-2-d": "Conserver le partage actuel des remboursements entre Sécurité sociale et complémentaires santé"
+    }
+  },
+  "sante-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité pour accompagner les personnes âgées en perte d’autonomie ?",
+    "approaches": {
+      "sante-3-a": "Réorienter l’argent public vers les EHPAD publics ou associatifs, à but non lucratif",
+      "sante-3-b": "Développer l’aide et les soins à domicile et les résidences autonomie pour retarder l’entrée en EHPAD",
+      "sante-3-c": "Financer la perte d’autonomie par une hausse des droits de succession sur les gros héritages",
+      "sante-3-d": "Installer des caméras dans les EHPAD pour prévenir les maltraitances",
+      "sante-3-e": "Imposer dans tous les EHPAD un nombre minimal de soignants par résident, pour renforcer les effectifs"
+    }
+  },
+  "sante-x1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité pour la prévention en santé ?",
+    "approaches": {
+      "sante-x1-a": "Rendre obligatoire l’affichage du Nutri-Score sur tous les aliments vendus emballés",
+      "sante-x1-b": "Doubler la part des dépenses de santé qui est consacrée à la prévention des maladies",
+      "sante-x1-c": "Voter le budget de la prévention pour plusieurs années, au lieu d’un vote chaque année",
+      "sante-x1-d": "Améliorer l’air intérieur des écoles, hôpitaux et administrations : ventilation, filtration"
+    }
+  },
+  "securite_justice-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité pour la police et la sécurité du quotidien ?",
+    "approaches": {
+      "securite_justice-1-a": "Lutter contre les contrôles d’identité au faciès et reconnaître les discriminations au sein de la police",
+      "securite_justice-1-b": "Recréer une police de proximité, tournée vers la prévention, la médiation et le contact avec les habitants",
+      "securite_justice-1-c": "Revoir la doctrine qui encadre l’usage de la force par les policiers et les gendarmes lors de leurs interventions",
+      "securite_justice-1-d": "Donner davantage d’effectifs et de moyens à la police et à la justice pour faire face à la délinquance",
+      "securite_justice-1-e": "Installer des caméras de surveillance dans les écoles, les crèches et les lieux d’accueil périscolaire",
+      "securite_justice-1-f": "Appliquer une tolérance zéro face aux violences commises contre les personnes"
+    }
+  },
+  "securite_justice-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment lutter contre le trafic de drogue ?",
+    "approaches": {
+      "securite_justice-2-a": "Légaliser et encadrer la vente de cannabis pour priver les réseaux de trafiquants de leurs revenus",
+      "securite_justice-2-b": "Renforcer les enquêteurs spécialisés et saisir l’argent du trafic en luttant contre le blanchiment",
+      "securite_justice-2-c": "Réunir des citoyens tirés au sort pour formuler des propositions sur la légalisation du cannabis",
+      "securite_justice-2-d": "Maintenir l’interdiction du cannabis et continuer à sanctionner sa consommation par des amendes"
+    }
+  },
+  "securite_justice-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle orientation pour la justice pénale ?",
+    "approaches": {
+      "securite_justice-3-a": "Développer les peines hors de prison, comme les travaux d’intérêt général, et la médiation entre auteurs et victimes",
+      "securite_justice-3-b": "Sanctionner les délits de façon rapide et sévère, en particulier lorsque leur auteur est en récidive",
+      "securite_justice-3-c": "Augmenter fortement le budget de la justice et le nombre de magistrats dans les tribunaux",
+      "securite_justice-3-d": "Construire davantage de places de prison pour exécuter toutes les peines d’emprisonnement prononcées"
+    }
+  },
+  "securite_justice-4": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment répondre aux blocages de lycées de l’automne 2026 ?",
+    "approaches": {
+      "securite_justice-4-a": "Faire preuve de fermeté face aux violences commises en marge des blocages",
+      "securite_justice-4-b": "Prendre au sérieux ce que vivent les lycéens plutôt que de centrer le débat sur les violences",
+      "securite_justice-4-c": "Organiser l’expression des élèves dans chaque lycée tout en condamnant toute forme de violence",
+      "securite_justice-4-d": "Défendre le droit des lycéens à manifester sans leur dicter leur conduite",
+      "securite_justice-4-e": "Appeler les lycéens à cesser les blocages, jugés sans issue face au gouvernement actuel"
+    }
+  },
+  "societe-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité pour la politique culturelle ?",
+    "approaches": {
+      "societe-1-a": "Augmenter le budget public de la culture et créer un grand service public de la lecture",
+      "societe-1-b": "Remplacer le crédit culturel individuel des jeunes par des interventions d’artistes dans les écoles",
+      "societe-1-c": "Inscrire l’audiovisuel public dans la Constitution et lui garantir un financement stable",
+      "societe-1-d": "Renforcer les quotas de diffusion d’œuvres françaises et européennes et le soutien au cinéma",
+      "societe-1-e": "Maintenir le crédit individuel versé aux jeunes pour leurs achats et sorties culturels"
+    }
+  },
+  "solidarites-x1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle orientation donner à l’assurance chômage ?",
+    "approaches": {
+      "solidarites-x1-a": "Revenir sur les réformes récentes qui ont réduit la durée et le montant des allocations chômage",
+      "solidarites-x1-b": "Laisser les syndicats et le patronat gérer seuls l’assurance chômage, sans cadrage de l’État",
+      "solidarites-x1-c": "Limiter les sanctions contre les chômeurs et interdire leur radiation pour refus d’un emploi précaire",
+      "solidarites-x1-d": "Maintenir la baisse de la durée d’indemnisation quand le chômage est bas, pour inciter à l’emploi"
+    }
+  },
+  "solidarites-x2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle évolution pour le revenu de solidarité active (RSA) et les autres minima sociaux ?",
+    "approaches": {
+      "solidarites-x2-a": "Supprimer les heures d’activité exigées des allocataires du RSA pour en faire un droit sans condition",
+      "solidarites-x2-b": "Fusionner les différents minima sociaux en une allocation unique aux règles et montants harmonisés",
+      "solidarites-x2-c": "Verser automatiquement les aides sociales à ceux qui y ont droit, grâce à un dossier social unique",
+      "solidarites-x2-d": "Revaloriser chaque année les minima sociaux au moins au rythme de la hausse des prix, sans gel",
+      "solidarites-x2-e": "Durcir les contrôles et les sanctions contre la fraude aux aides, avec suspension des droits en cas d’indices sérieux"
+    }
+  },
+  "solidarites-x3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité pour les droits des personnes handicapées ?",
+    "approaches": {
+      "solidarites-x3-a": "Porter l’allocation aux adultes handicapés au niveau du seuil de pauvreté et l’ouvrir dès 18 ans",
+      "solidarites-x3-b": "Supprimer les maisons départementales des personnes handicapées et confier leurs missions à la Sécurité sociale",
+      "solidarites-x3-c": "Augmenter la paie des accompagnants des élèves handicapés et leur donner un statut plus protecteur",
+      "solidarites-x3-d": "Rendre accessibles aux personnes handicapées tous les transports en commun et tous les logements neufs"
+    }
+  },
+  "strategie-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle attitude adopter envers La France insoumise (LFI) pour les élections de 2027 ?",
+    "approaches": {
+      "strategie-1-a": "Exclure tout accord électoral avec LFI, à l’élection présidentielle comme aux élections législatives",
+      "strategie-1-b": "Rechercher un rassemblement de toute la gauche aux législatives, LFI comprise, sans gouverner avec elle",
+      "strategie-1-c": "Garder la porte ouverte à un accord avec LFI aux législatives, sans en faire l’enjeu central de la campagne",
+      "strategie-1-d": "Former une coalition de toute la gauche, LFI comprise, autour d’un programme commun de gouvernement"
+    }
+  },
+  "strategie-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle attitude adopter envers le centre et la droite modérée pour gouverner ?",
+    "approaches": {
+      "strategie-2-a": "Gouverner seulement avec la gauche et les écologistes, sans alliance avec le centre ni la droite",
+      "strategie-2-b": "Passer des compromis de gouvernement avec le centre, voire avec une partie de la droite",
+      "strategie-2-c": "Gouverner en minorité, en cherchant une majorité différente pour chaque texte à l’Assemblée"
+    }
+  },
+  "territoires-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment garantir l’accès aux services publics dans tous les territoires ?",
+    "approaches": {
+      "territoires-1-a": "Fixer par la loi des temps d’accès maximum à l’école et à la maternité, et encadrer les fermetures",
+      "territoires-1-b": "Garantir près de chez soi un accueil physique pour les allocations, la santé, l’emploi et les impôts",
+      "territoires-1-c": "Planifier chaque année avec les collectivités locales le développement des services publics et de l’industrie",
+      "territoires-1-d": "Concentrer les moyens supplémentaires (écoles, soins, transports) sur les territoires les plus en difficulté"
+    }
+  },
+  "territoires-x1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle politique pour les salaires et les effectifs de la fonction publique ?",
+    "approaches": {
+      "territoires-x1-a": "Revaloriser chaque année la paie de base de tous les fonctionnaires au rythme des prix",
+      "territoires-x1-b": "Augmenter d’au moins 10 % en cinq ans la paie de base de l’ensemble des fonctionnaires",
+      "territoires-x1-c": "Concentrer les hausses de salaire sur les agents publics qui sont les moins bien payés",
+      "territoires-x1-d": "Réduire le recours aux agents contractuels et aux cabinets de conseil privés dans l’administration",
+      "territoires-x1-e": "Réduire le nombre d’agents publics pour diminuer les dépenses de fonctionnement de l’État"
+    }
+  },
+  "territoires-x2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle évolution pour les pouvoirs et les moyens des collectivités locales ?",
+    "approaches": {
+      "territoires-x2-a": "Engager une nouvelle décentralisation qui clarifie les compétences et renforce l’autonomie fiscale locale",
+      "territoires-x2-b": "Augmenter les moyens versés par l’État aux collectivités pour leurs services publics et leurs investissements",
+      "territoires-x2-c": "Permettre aux collectivités d’adapter certaines lois et certains règlements aux réalités de leur territoire",
+      "territoires-x2-d": "Rendre à l’État certaines compétences des collectivités pour garantir l’égalité entre les territoires"
+    }
+  },
+  "territoires-x3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment lutter contre la vie chère dans les outre-mer ?",
+    "approaches": {
+      "territoires-x3-a": "Démanteler les grands groupes qui dominent l’importation et la distribution des produits",
+      "territoires-x3-b": "Plafonner les prix des produits de première nécessité vendus dans les territoires d’outre-mer",
+      "territoires-x3-c": "Contrôler les marges de la grande distribution et des entreprises de transport de marchandises",
+      "territoires-x3-d": "Réformer l’octroi de mer et réduire le coût du transport des marchandises vers les outre-mer",
+      "territoires-x3-e": "S’en tenir aux accords annuels de modération des prix négociés avec les distributeurs"
+    }
+  },
+  "travail_salaires-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quel levier privilégier pour augmenter le pouvoir d’achat des salariés ?",
+    "approaches": {
+      "travail_salaires-1-a": "Relever nettement le salaire minimum (SMIC) par décision de l’État, au-delà de ce qu’impose l’inflation",
+      "travail_salaires-1-b": "Baisser les prélèvements sociaux payés par les salariés pour augmenter leur salaire net, en compensant par d’autres recettes",
+      "travail_salaires-1-c": "Faire baisser les prix des produits de première nécessité, par un blocage des prix et des baisses de taxes"
+    }
+  },
+  "travail_salaires-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Au-delà du salaire minimum, comment faire progresser les autres salaires ?",
+    "approaches": {
+      "travail_salaires-2-a": "Indexer par la loi les salaires sur l’inflation, et pas seulement le salaire minimum",
+      "travail_salaires-2-b": "Organiser des conférences salariales par branche, en commençant par les métiers pénibles et précaires",
+      "travail_salaires-2-c": "Obliger chaque branche à fixer des grilles de salaires qui démarrent au moins au niveau du SMIC"
+    }
+  },
+  "travail_salaires-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment mieux partager les bénéfices des entreprises avec les salariés ?",
+    "approaches": {
+      "travail_salaires-3-a": "Obliger les entreprises qui versent des dividendes à reverser aussi une part des profits aux salariés",
+      "travail_salaires-3-b": "Faire siéger des représentants des salariés dans les conseils d’administration dès 50 à 100 salariés",
+      "travail_salaires-3-c": "Plafonner l’écart entre la plus haute et la plus basse rémunération dans chaque entreprise"
+    }
+  },
+  "travail_salaires-4": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité pour les droits des salariés au travail ?",
+    "approaches": {
+      "travail_salaires-4-a": "Revenir sur les ordonnances de 2017 : recréer les CHSCT, déplafonner les indemnités pour licenciement injustifié",
+      "travail_salaires-4-b": "Renforcer les syndicats et faire primer les accords de branche sur les accords signés dans l’entreprise",
+      "travail_salaires-4-c": "Faire de la santé au travail la priorité : reconnaître l’épuisement professionnel, viser zéro accident mortel",
+      "travail_salaires-4-d": "Augmenter les cotisations chômage des entreprises qui recourent le plus souvent aux contrats courts"
+    }
+  },
+  "travail_salaires-x1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle évolution pour la durée et l’organisation du temps de travail ?",
+    "approaches": {
+      "travail_salaires-x1-a": "Expérimenter la semaine de quatre jours en gardant le même nombre d’heures de travail",
+      "travail_salaires-x1-b": "Expérimenter la semaine de quatre jours et réduire peu à peu la durée du travail, par la négociation",
+      "travail_salaires-x1-c": "Donner aux salariés plus de maîtrise de leurs horaires et congés, et renforcer le droit à la déconnexion",
+      "travail_salaires-x1-d": "Inciter à travailler davantage en exonérant plus largement les heures supplémentaires de cotisations"
+    }
+  }
+}

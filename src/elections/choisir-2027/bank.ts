@@ -1,0 +1,9718 @@
+// Fichier généré par tools/build-pack.mjs depuis research/choisir-2027 : ne pas modifier à la main.
+import type { QuestionBank } from '../../core/types'
+
+export const bank: QuestionBank = {
+  "topics": [
+    {
+      "id": "strategie",
+      "label": "Alliances",
+      "description": "Avec quelles forces politiques s’allier pour les élections de 2027 et pour gouverner."
+    },
+    {
+      "id": "institutions",
+      "label": "Institutions",
+      "description": "Équilibre des pouvoirs entre président, gouvernement et Parlement, et place des citoyens dans la décision."
+    },
+    {
+      "id": "fiscalite",
+      "label": "Impôts et budget",
+      "description": "Répartition de l’effort fiscal, affectation des recettes, gestion du déficit et de la dette."
+    },
+    {
+      "id": "travail_salaires",
+      "label": "Salaires et travail",
+      "description": "Pouvoir d’achat, évolution des salaires, partage des bénéfices, temps de travail et droits des salariés."
+    },
+    {
+      "id": "industrie_economie",
+      "label": "Industrie et entreprises",
+      "description": "Stratégie de réindustrialisation, protection commerciale et aides publiques aux entreprises."
+    },
+    {
+      "id": "retraites",
+      "label": "Retraites",
+      "description": "Âge de départ, financement des pensions et partage des décisions sur le système de retraite."
+    },
+    {
+      "id": "sante",
+      "label": "Santé et grand âge",
+      "description": "Accès aux soins, prévention, place de la Sécurité sociale face aux complémentaires et accompagnement des personnes âgées dépendantes."
+    },
+    {
+      "id": "education",
+      "label": "École et jeunesse",
+      "description": "Apprentissages et taille des classes, enseignement privé, université et recherche, mesures pour les jeunes."
+    },
+    {
+      "id": "logement",
+      "label": "Logement",
+      "description": "Encadrement des loyers et leviers pour rendre le logement plus abordable."
+    },
+    {
+      "id": "ecologie_energie",
+      "label": "Écologie, énergie et transports",
+      "description": "Prix de l’énergie, nucléaire, transition écologique, transports, gestion de l’eau et adaptation au climat."
+    },
+    {
+      "id": "agriculture",
+      "label": "Agriculture et alimentation",
+      "description": "Soutien aux agriculteurs, accès à l’alimentation et concurrence des produits importés."
+    },
+    {
+      "id": "territoires",
+      "label": "Territoires et services publics",
+      "description": "Services publics et fonctionnaires, pouvoirs des collectivités locales, égalité entre les territoires et outre-mer."
+    },
+    {
+      "id": "europe",
+      "label": "Europe",
+      "description": "Orientation de la construction européenne, budget de l’Union, règles du marché unique et élargissement."
+    },
+    {
+      "id": "immigration",
+      "label": "Immigration",
+      "description": "Orientation de la politique migratoire, intégration des étrangers et expulsions."
+    },
+    {
+      "id": "securite_justice",
+      "label": "Sécurité et justice",
+      "description": "Police, réponse aux mobilisations, lutte contre le trafic de drogue et politique pénale."
+    },
+    {
+      "id": "laicite_republique",
+      "label": "Laïcité et mémoire",
+      "description": "Conception de la laïcité, signes religieux, laïcité à l’école et mémoire de la colonisation."
+    },
+    {
+      "id": "numerique",
+      "label": "Numérique",
+      "description": "Intelligence artificielle, protection des mineurs face aux écrans et encadrement des grandes plateformes."
+    },
+    {
+      "id": "societe",
+      "label": "Culture",
+      "description": "Priorités de la politique culturelle, de l’audiovisuel public et du soutien à la création."
+    },
+    {
+      "id": "solidarites",
+      "label": "Solidarités",
+      "description": "Minima sociaux, assurance chômage et droits des personnes handicapées."
+    },
+    {
+      "id": "egalite",
+      "label": "Égalité femmes-hommes",
+      "description": "Partage des responsabilités familiales et égalité salariale entre les femmes et les hommes."
+    },
+    {
+      "id": "ukraine_russie",
+      "label": "Ukraine et Russie",
+      "description": "Soutien à l’Ukraine et relation avec la Russie."
+    },
+    {
+      "id": "proche_orient",
+      "label": "Israël et Gaza",
+      "description": "Position de la France sur la guerre à Gaza et les relations avec le gouvernement israélien."
+    },
+    {
+      "id": "defense",
+      "label": "Défense",
+      "description": "Stratégie militaire, alliances et dissuasion nucléaire."
+    }
+  ],
+  "questions": [
+    {
+      "id": "strategie-1",
+      "topicId": "strategie",
+      "tier": "essentiel",
+      "step": 1,
+      "rev": 1,
+      "last": true,
+      "prompt": "Quelle attitude adopter envers La France insoumise (LFI) pour les élections de 2027 ?",
+      "context": "Aujourd’hui : aux législatives anticipées de 2024, les partis de gauche, LFI comprise, avaient présenté des candidats communs sous l’étiquette du Nouveau Front populaire.",
+      "explainer": {
+        "summary": "Les approches vont du refus de tout accord avec LFI à une coalition de gouvernement, en passant par des accords limités aux législatives. Pour les uns, l’union aide à se qualifier pour le second tour ; pour les autres, elle gêne le rassemblement nécessaire pour gagner et bute sur des désaccords de programme.",
+        "points": [
+          {
+            "text": "À la présidentielle, seuls les deux candidats arrivés en tête au premier tour, après d’éventuels retraits, peuvent se présenter au second tour. Pour être élu, il faut ensuite obtenir la majorité absolue des suffrages exprimés.",
+            "source": {
+              "title": "Texte intégral de la Constitution du 4 octobre 1958 en vigueur (article 7)",
+              "url": "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/texte-integral-de-la-constitution-du-4-octobre-1958-en-vigueur",
+              "date": "à jour de la révision constitutionnelle du 8 mars 2024",
+              "publisher": "Conseil constitutionnel"
+            }
+          },
+          {
+            "text": "Les pouvoirs de l’Assemblée expirent « le troisième mardi de juin de la cinquième année qui suit son élection », et les législatives ont lieu dans les 60 jours qui précèdent. Pour l’Assemblée élue en juillet 2024, cela mène à juin 2029. Des législatives en 2027 supposent donc une dissolution par le président de la République (article 12 de la Constitution).",
+            "source": {
+              "title": "Fiche de synthèse n° 3 : L’élection des députés",
+              "url": "https://www.assemblee-nationale.fr/dyn/synthese/deputes-groupes-parlementaires/l-election-des-deputes",
+              "date": "septembre 2023",
+              "publisher": "Assemblée nationale"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "27,99 %",
+            "label": "des suffrages exprimés pour les candidats « Union de la gauche » (Nouveau Front populaire) au 1er tour des législatives, France entière (8 971 581 voix)",
+            "date": "30 juin 2024",
+            "source": {
+              "title": "Élections législatives des 30 juin et 7 juillet 2024 – Résultats définitifs du 1er tour, France entière (fichier)",
+              "url": "https://static.data.gouv.fr/resources/elections-legislatives-des-30-juin-et-7-juillet-2024-resultats-definitifs-du-1er-tour/20240710-171253/resultats-definitifs-france-entiere.xlsx",
+              "date": "10 juillet 2024",
+              "publisher": "Ministère de l’Intérieur (data.gouv.fr)"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 27.99,
+              "total": 100,
+              "unit": "%",
+              "whole": "des suffrages exprimés"
+            }
+          },
+          {
+            "value": "12,5 %",
+            "label": "des électeurs inscrits : score minimal au 1er tour des législatives pour se maintenir au second tour dans une circonscription. Si moins de deux candidats l’atteignent, les deux premiers peuvent se maintenir.",
+            "date": "règle en vigueur depuis le 9 décembre 2003",
+            "source": {
+              "title": "Code électoral, article L162",
+              "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006353380",
+              "date": "version en vigueur depuis le 9 décembre 2003",
+              "publisher": "Légifrance"
+            }
+          },
+          {
+            "value": "70",
+            "label": "députés au groupe LFI-NFP. Les 192 députés de gauche et écologistes se répartissent en quatre groupes : 70, 67, 38 et 17 (569 sièges pourvus).",
+            "date": "3 octobre 2026",
+            "source": {
+              "title": "Effectif des groupes politiques, XVIIe législature",
+              "url": "https://www2.assemblee-nationale.fr/instances/liste/groupes_politiques/effectif",
+              "date": "page non datée, consultée le 3 octobre 2026",
+              "publisher": "Assemblée nationale"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 70,
+              "total": 192,
+              "whole": "députés de gauche et écologistes"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "strategie-1-a",
+          "text": "Exclure tout accord électoral avec LFI, à l’élection présidentielle comme aux élections législatives"
+        },
+        {
+          "id": "strategie-1-b",
+          "text": "Rechercher un rassemblement de toute la gauche aux législatives, LFI comprise, sans gouverner avec elle"
+        },
+        {
+          "id": "strategie-1-c",
+          "text": "Garder la porte ouverte à un accord avec LFI aux législatives, sans en faire l’enjeu central de la campagne"
+        },
+        {
+          "id": "strategie-1-d",
+          "text": "Former une coalition de toute la gauche, LFI comprise, autour d’un programme commun de gouvernement",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "strategie-2",
+      "topicId": "strategie",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelle attitude adopter envers le centre et la droite modérée pour gouverner ?",
+      "context": "Aujourd’hui : aucun bloc ne dispose seul de la majorité absolue à l’Assemblée nationale.",
+      "explainer": {
+        "summary": "Un gouvernement tombe si la majorité absolue des députés vote une motion de censure. S’allier au centre, voire à une partie de la droite, élargit la base du gouvernement mais impose des compromis durables ; s’en passer, en gouvernant avec la seule gauche ou texte par texte, évite ces compromis mais expose davantage à la censure.",
+        "points": [
+          {
+            "text": "Une motion de censure n’est adoptée qu’à la majorité des membres composant l’Assemblée, et seuls les votes favorables sont comptés. S’abstenir revient donc à laisser le gouvernement en place.",
+            "source": {
+              "title": "Texte intégral de la Constitution du 4 octobre 1958 en vigueur (article 49)",
+              "url": "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/texte-integral-de-la-constitution-du-4-octobre-1958-en-vigueur",
+              "date": "à jour de la révision constitutionnelle du 8 mars 2024",
+              "publisher": "Conseil constitutionnel"
+            }
+          },
+          {
+            "text": "L’article 49.3 permet d’adopter un texte sans vote, sauf si une motion de censure est votée. De 1988 à 1993, des gouvernements sans majorité absolue y ont eu recours 39 fois. Depuis la révision du 23 juillet 2008, il est limité aux budgets de l’État et de la Sécurité sociale, plus un autre texte par session.",
+            "source": {
+              "title": "Fiche de synthèse n° 64 : La mise en cause de la responsabilité du Gouvernement",
+              "url": "https://www.assemblee-nationale.fr/dyn/synthese/fonctionnement-assemblee-nationale/evaluation-politiques-publiques-controle-gouvernement/la-mise-en-cause-de-la-responsabilite-du-gouvernement",
+              "date": "actualisée le 6 décembre 2024",
+              "publisher": "Assemblée nationale"
+            }
+          },
+          {
+            "text": "Le président élu en 2027 pourra dissoudre l’Assemblée (article 12 de la Constitution). Sinon, le gouvernement devra composer avec l’Assemblée élue en juillet 2024, dont les pouvoirs expirent en juin 2029.",
+            "source": {
+              "title": "Fiche de synthèse n° 3 : L’élection des députés",
+              "url": "https://www.assemblee-nationale.fr/dyn/synthese/deputes-groupes-parlementaires/l-election-des-deputes",
+              "date": "septembre 2023",
+              "publisher": "Assemblée nationale"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "192",
+            "label": "députés dans les quatre groupes de gauche et écologistes ; 161 dans les trois groupes du centre, dits « bloc central » ; 47 dans le groupe Droite républicaine ; 169 dans les autres groupes ou parmi les non-inscrits (569 sièges pourvus)",
+            "date": "3 octobre 2026",
+            "source": {
+              "title": "Effectif des groupes politiques, XVIIe législature",
+              "url": "https://www2.assemblee-nationale.fr/instances/liste/groupes_politiques/effectif",
+              "date": "page non datée, consultée le 3 octobre 2026",
+              "publisher": "Assemblée nationale"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "députés",
+              "items": [
+                {
+                  "label": "Gauche et écologistes",
+                  "value": 192
+                },
+                {
+                  "label": "Bloc central",
+                  "value": 161
+                },
+                {
+                  "label": "Groupe Droite républicaine",
+                  "value": 47
+                },
+                {
+                  "label": "Autres groupes et non-inscrits",
+                  "value": 169
+                }
+              ]
+            }
+          },
+          {
+            "value": "331",
+            "label": "voix pour la motion de censure du 4 décembre 2024, déposée après un recours au 49.3 sur le budget de la Sécurité sociale ; 288 étaient nécessaires. Le gouvernement, nommé trois mois plus tôt, a été renversé.",
+            "date": "4 décembre 2024",
+            "source": {
+              "title": "Engagements de responsabilité du Gouvernement et motions de censure depuis 1958 (article 49, alinéa 3)",
+              "url": "https://www.assemblee-nationale.fr/dyn/engagements_responsabilite-motions_censures/engagements-de-responsabilite-du-gouvernement-et-motions-de-censure-depuis-1958",
+              "date": "mise à jour du 9 septembre 2025 (lignes jusqu’en janvier 2026)",
+              "publisher": "Assemblée nationale"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "voix",
+              "items": [
+                {
+                  "label": "Voix pour la motion",
+                  "value": 331
+                },
+                {
+                  "label": "Voix nécessaires",
+                  "value": 288
+                }
+              ]
+            }
+          },
+          {
+            "value": "364 contre 194",
+            "label": "députés ont refusé la confiance que le gouvernement avait lui-même demandée ; il a dû démissionner. C’est le seul des 42 votes de confiance demandés depuis 1958 (article 49, alinéa 1) à avoir été perdu.",
+            "date": "8 septembre 2025",
+            "source": {
+              "title": "Engagements de responsabilité du Gouvernement sur son programme ou sur une déclaration de politique générale depuis 1958 (article 49, alinéa 1)",
+              "url": "https://www.assemblee-nationale.fr/dyn/engagements_responsabilite-motions_censures/engagements-de-responsabilite-du-gouvernement-sur-son-programme-ou-sur-une-declaration-de-politique-generale-depuis-1958",
+              "date": "mise à jour du 15 septembre 2025",
+              "publisher": "Assemblée nationale"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "députés",
+              "items": [
+                {
+                  "label": "Contre la confiance",
+                  "value": 364
+                },
+                {
+                  "label": "Pour la confiance",
+                  "value": 194
+                }
+              ]
+            }
+          },
+          {
+            "value": "271",
+            "label": "voix pour la motion de censure du 16 octobre 2025 ; 289 étaient nécessaires (majorité absolue des membres de l’Assemblée). La motion a été rejetée et le gouvernement est resté en place.",
+            "date": "16 octobre 2025",
+            "source": {
+              "title": "Motions de censure depuis 1958",
+              "url": "https://www.assemblee-nationale.fr/dyn/engagements_responsabilite-motions_censures/motions-de-censure-depuis-1958",
+              "date": "mise à jour du 15 janvier 2026 (votes recensés jusqu’au 26 février 2026)",
+              "publisher": "Assemblée nationale"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "voix",
+              "items": [
+                {
+                  "label": "Voix pour la motion",
+                  "value": 271
+                },
+                {
+                  "label": "Voix nécessaires",
+                  "value": 289
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "strategie-2-a",
+          "text": "Gouverner seulement avec la gauche et les écologistes, sans alliance avec le centre ni la droite"
+        },
+        {
+          "id": "strategie-2-b",
+          "text": "Passer des compromis de gouvernement avec le centre, voire avec une partie de la droite"
+        },
+        {
+          "id": "strategie-2-c",
+          "text": "Gouverner en minorité, en cherchant une majorité différente pour chaque texte à l’Assemblée",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "institutions-1",
+      "topicId": "institutions",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelle évolution des institutions privilégier ?",
+      "context": "Aujourd’hui : le président peut dissoudre l’Assemblée nationale, et le gouvernement peut faire adopter un texte sans vote en engageant sa responsabilité (article 49.3).",
+      "explainer": {
+        "summary": "La Constitution de 1958 donne au président des pouvoirs qu’il exerce seul, comme nommer le Premier ministre ou dissoudre l’Assemblée, et au gouvernement des outils pour faire adopter ses textes. Le débat met en balance la capacité de l’exécutif à agir et le poids du Parlement et des citoyens : les approches vont du maintien des règles actuelles, ou d’un changement de pratique, à une nouvelle Constitution.",
+        "points": [
+          {
+            "text": "Le président nomme le Premier ministre sans vote de l’Assemblée : il n’y a pas d’investiture obligatoire. Le gouvernement reste en place tant que l’Assemblée n’adopte pas de motion de censure, ou ne lui refuse pas une confiance qu’il a lui-même demandée.",
+            "source": {
+              "title": "Fiche de synthèse n° 64 : La mise en cause de la responsabilité du Gouvernement",
+              "url": "https://www.assemblee-nationale.fr/dyn/synthese/fonctionnement-assemblee-nationale/evaluation-politiques-publiques-controle-gouvernement/la-mise-en-cause-de-la-responsabilite-du-gouvernement",
+              "date": "actualisée le 6 décembre 2024",
+              "publisher": "Assemblée nationale"
+            }
+          },
+          {
+            "text": "Avec le 49.3, le texte est considéré comme adopté, sauf si une motion de censure est votée. Depuis la révision du 23 juillet 2008, il ne sert que pour les budgets de l’État et de la Sécurité sociale, plus un autre texte par session ; auparavant, il n’avait pas de limite.",
+            "source": {
+              "title": "Fiche de synthèse n° 64 : La mise en cause de la responsabilité du Gouvernement",
+              "url": "https://www.assemblee-nationale.fr/dyn/synthese/fonctionnement-assemblee-nationale/evaluation-politiques-publiques-controle-gouvernement/la-mise-en-cause-de-la-responsabilite-du-gouvernement",
+              "date": "actualisée le 6 décembre 2024",
+              "publisher": "Assemblée nationale"
+            }
+          },
+          {
+            "text": "Pour réviser la Constitution (article 89), l’Assemblée et le Sénat doivent d’abord voter le même texte. La révision est ensuite approuvée par référendum ou, pour un projet du gouvernement et si le président le décide, par le Parlement réuni en Congrès, à la majorité des trois cinquièmes des suffrages exprimés.",
+            "source": {
+              "title": "Texte intégral de la Constitution du 4 octobre 1958 en vigueur (article 89)",
+              "url": "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/texte-integral-de-la-constitution-du-4-octobre-1958-en-vigueur",
+              "date": "à jour de la révision constitutionnelle du 8 mars 2024",
+              "publisher": "Conseil constitutionnel"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "116",
+            "label": "recours au 49.3 entre 1959 et septembre 2025, sur 61 textes, selon le bilan de l’Assemblée nationale. Son tableau détaillé en ajoute 2 en janvier 2026, pour le budget 2026.",
+            "date": "9 septembre 2025",
+            "source": {
+              "title": "Engagements de responsabilité du Gouvernement et motions de censure depuis 1958",
+              "url": "https://www.assemblee-nationale.fr/dyn/engagements_responsabilite-motions_censures/engagements-de-responsabilite-du-gouvernement-et-motions-de-censure-depuis-1958",
+              "date": "mise à jour du 9 septembre 2025",
+              "publisher": "Assemblée nationale"
+            }
+          },
+          {
+            "value": "6",
+            "label": "dissolutions de l’Assemblée nationale depuis 1958 : 1962, 1968, 1981, 1988, 1997 et 2024. L’Assemblée élue en 2024 siège toujours.",
+            "date": "juin 2024",
+            "source": {
+              "title": "Dissolution de l’Assemblée nationale : Emmanuel Macron procède à la sixième dissolution depuis 1958",
+              "url": "https://lcp.fr/actualites/dissolution-de-l-assemblee-nationale-emmanuel-macron-procede-a-la-sixieme-dissolution",
+              "date": "10 juin 2024",
+              "publisher": "LCP-Assemblée nationale"
+            }
+          },
+          {
+            "value": "2",
+            "label": "motions de censure adoptées depuis 1958 : en octobre 1962 et le 4 décembre 2024. Aucune autre n’a atteint la majorité requise jusqu’au dernier vote recensé par l’Assemblée, le 26 février 2026.",
+            "date": "état au 26 février 2026",
+            "source": {
+              "title": "Fiche de synthèse n° 64 : La mise en cause de la responsabilité du Gouvernement",
+              "url": "https://www.assemblee-nationale.fr/dyn/synthese/fonctionnement-assemblee-nationale/evaluation-politiques-publiques-controle-gouvernement/la-mise-en-cause-de-la-responsabilite-du-gouvernement",
+              "date": "actualisée le 6 décembre 2024",
+              "publisher": "Assemblée nationale"
+            }
+          },
+          {
+            "value": "25",
+            "label": "révisions de la Constitution depuis 1958, la dernière le 8 mars 2024",
+            "date": "8 mars 2024",
+            "source": {
+              "title": "Quand la Constitution a-t-elle été modifiée ?",
+              "url": "https://www.conseil-constitutionnel.fr/la-constitution/quand-la-constitution-a-t-elle-ete-modifiee",
+              "date": "mise à jour du 11 mars 2024",
+              "publisher": "Conseil constitutionnel"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "institutions-1-a",
+          "text": "Faire investir le Premier ministre par l’Assemblée et supprimer l’adoption des textes sans vote (article 49.3)"
+        },
+        {
+          "id": "institutions-1-b",
+          "text": "Limiter, voire supprimer, le droit de dissolution et réduire le pouvoir de nomination du président"
+        },
+        {
+          "id": "institutions-1-c",
+          "text": "Préparer une nouvelle Constitution avec une convention citoyenne tirée au sort, puis une assemblée constituante"
+        },
+        {
+          "id": "institutions-1-d",
+          "text": "Transformer la façon d’exercer le pouvoir, en rétablissant l’autorité de l’État et le respect des règles"
+        },
+        {
+          "id": "institutions-1-e",
+          "text": "Conserver les règles actuelles, dont le droit de dissolution du président et l’article 49.3",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "institutions-2",
+      "topicId": "institutions",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelle place donner aux citoyens dans les décisions publiques ?",
+      "context": "Aujourd’hui : un référendum d’initiative partagée exige le soutien d’un cinquième des parlementaires et d’un dixième des électeurs inscrits.",
+      "explainer": {
+        "summary": "En France, les citoyens décident surtout en élisant leurs représentants : le dernier référendum national date de 2005, et aucune procédure ne permet aux seuls électeurs d’en déclencher un. Les uns veulent leur donner un droit d’initiative ou un rôle de délibération par tirage au sort ; les autres préfèrent laisser la décision aux élus et réserver le référendum à des cas exceptionnels.",
+        "points": [
+          {
+            "text": "Le référendum d’initiative partagée part d’une proposition de loi de parlementaires, contrôlée par le Conseil constitutionnel. Elle ne peut pas abroger une loi promulguée depuis moins d’un an. Si elle réunit assez de soutiens et que les deux assemblées ne l’examinent pas dans le délai prévu, le président de la République la soumet au référendum.",
+            "source": {
+              "title": "Texte intégral de la Constitution du 4 octobre 1958 en vigueur (article 11)",
+              "url": "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/texte-integral-de-la-constitution-du-4-octobre-1958-en-vigueur",
+              "date": "à jour de la révision constitutionnelle du 8 mars 2024",
+              "publisher": "Conseil constitutionnel"
+            }
+          },
+          {
+            "text": "Sept propositions de ce type ont été soumises au Conseil constitutionnel depuis 2019. Une seule, sur les aéroports de Paris (2019), a été jugée conforme et a pu recueillir des soutiens. Les six autres, d’août 2021 à juin 2026, ont été jugées non conformes, ce qui a arrêté la procédure.",
+            "source": {
+              "title": "Les décisions – type : Référendum d’initiative partagée (RIP)",
+              "url": "https://www.conseil-constitutionnel.fr/les-decisions/type/RIP",
+              "date": "consulté le 3 octobre 2026",
+              "publisher": "Conseil constitutionnel"
+            }
+          },
+          {
+            "text": "Au niveau local, un référendum n’est adopté que si au moins la moitié des électeurs inscrits a voté et si le projet obtient la majorité des suffrages exprimés.",
+            "source": {
+              "title": "Code général des collectivités territoriales, article LO1112-7",
+              "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006389054",
+              "date": "en vigueur depuis le 1er janvier 2005",
+              "publisher": "Légifrance"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "9",
+            "label": "référendums nationaux organisés depuis 1958 (hors adoption de la Constitution), le dernier le 29 mai 2005",
+            "date": "29 mai 2005",
+            "source": {
+              "title": "L’histoire du référendum sous la Ve République",
+              "url": "https://www.conseil-constitutionnel.fr/la-constitution/l-histoire-du-referendum-sous-la-ve-republique",
+              "date": "mise à jour du 11 février 2020",
+              "publisher": "Conseil constitutionnel"
+            }
+          },
+          {
+            "value": "69,81 %",
+            "label": "d’abstention au référendum de 2000 sur le quinquennat, contre 30,63 % à celui de 2005 sur le traité constitutionnel européen (en % des inscrits)",
+            "date": "2000 et 2005",
+            "source": {
+              "title": "Tableau récapitulatif des référendums de la Vème République",
+              "url": "https://www.conseil-constitutionnel.fr/referendum-sous-la-ve-republique/tableau-recapitulatif-des-referendums-de-la-veme-republique",
+              "publisher": "Conseil constitutionnel"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Quinquennat (2000)",
+                  "value": 69.81
+                },
+                {
+                  "label": "Traité constitutionnel (2005)",
+                  "value": 30.63
+                }
+              ]
+            }
+          },
+          {
+            "value": "1 093 030",
+            "label": "soutiens recueillis en neuf mois pour le seul référendum d’initiative partagée arrivé à la collecte (aéroports de Paris), sur 4 717 396 nécessaires",
+            "date": "12 mars 2020 (fin de la collecte)",
+            "source": {
+              "title": "Décision n° 2019-1-8 RIP du 26 mars 2020",
+              "url": "https://www.conseil-constitutionnel.fr/decision/2020/201918RIP.htm",
+              "date": "26 mars 2020",
+              "publisher": "Conseil constitutionnel"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 1093030,
+              "total": 4717396,
+              "whole": "soutiens nécessaires"
+            }
+          },
+          {
+            "value": "150",
+            "label": "citoyens tirés au sort pour la Convention citoyenne pour le climat (2019-2020). Elle a formulé 149 propositions, remises au gouvernement le 21 juin 2020.",
+            "date": "juin 2020",
+            "source": {
+              "title": "Après 8 mois de travail, la Convention Citoyenne pour le Climat a rendu ses propositions",
+              "url": "https://www.lecese.fr/actualites/apres-8-mois-de-travail-la-convention-citoyenne-pour-le-climat-rendu-ses-propositions",
+              "date": "30 juin 2020",
+              "publisher": "Conseil économique, social et environnemental (CESE)"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "institutions-2-a",
+          "text": "Créer un droit d’initiative citoyenne permettant de déclencher des référendums locaux et nationaux"
+        },
+        {
+          "id": "institutions-2-b",
+          "text": "Organiser chaque année une journée de référendums sur des questions proposées par les citoyens"
+        },
+        {
+          "id": "institutions-2-c",
+          "text": "Recourir plus souvent au référendum d’initiative partagée pour trancher les réformes contestées"
+        },
+        {
+          "id": "institutions-2-d",
+          "text": "Confier les grandes questions à des conventions de citoyens tirés au sort, avant le vote du Parlement"
+        },
+        {
+          "id": "institutions-2-e",
+          "text": "Laisser les décisions aux parlementaires élus et réserver le référendum à des circonstances exceptionnelles",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "fiscalite-1",
+      "topicId": "fiscalite",
+      "tier": "essentiel",
+      "step": 1,
+      "rev": 1,
+      "prompt": "Quels impôts privilégier pour faire davantage contribuer les plus grandes fortunes ?",
+      "context": "Aujourd’hui : depuis 2018, seul le patrimoine immobilier de plus de 1,3 million d’euros est soumis à un impôt annuel ; un enfant qui hérite de ses parents est taxé jusqu’à 45 % sur la part dépassant environ 1,9 million d’euros.",
+      "explainer": {
+        "summary": "Trois outils sont débattus pour faire davantage contribuer les plus grands patrimoines : un impôt annuel sur toute la fortune, un impôt minimum sur les très grandes fortunes ou une taxation accrue des héritages. D’autres jugent préférable de ne pas alourdir cette fiscalité, par crainte de freiner l’investissement ou de provoquer des départs à l’étranger.",
+        "points": [
+          {
+            "text": "Impôt minimum : une proposition de loi prévoit que, pour les foyers dont le patrimoine net dépasse 100 M€, l’impôt sur le revenu, l’impôt sur la fortune immobilière (IFI) et les prélèvements sociaux atteignent ensemble au moins 2 % de ce patrimoine chaque année. Adoptée en première lecture par l’Assemblée nationale, elle a été rejetée par le Sénat le 12 juin 2025.",
+            "source": {
+              "title": "Proposition de loi instaurant un impôt plancher de 2 % sur le patrimoine des ultrariches – La loi en clair",
+              "url": "https://www.senat.fr/travaux-parlementaires/textes-legislatifs/la-loi-en-clair/proposition-de-loi-instaurant-un-impot-plancher-de-2-sur-le-patrimoine-des-ultrariches.html",
+              "publisher": "Sénat"
+            }
+          },
+          {
+            "text": "Départs et retours : sous l’ancien impôt de solidarité sur la fortune (ISF), environ 950 foyers assujettis partaient chaque année à l’étranger et 370 revenaient (moyenne 2011-2016). Sous l’IFI, qui concerne moins de foyers, on compte 260 départs et 380 retours par an (moyenne 2018-2021). Le comité d’évaluation juge leur enjeu budgétaire « vraisemblablement de second ordre ». Une étude commandée par France Stratégie suggère par ailleurs que l’activité des entreprises dont l’actionnaire principal part à l’étranger évolue ensuite, en moyenne, moins bien que celle des autres.",
+            "source": {
+              "title": "Comité d’évaluation des réformes de la fiscalité du capital – Rapport final (avis du comité)",
+              "url": "https://www.strategie-plan.gouv.fr/files/files/Publications/Rapport/fs-2023-rapport-isf-quatrieme_rapport_complet_17octobre_avis_0.pdf",
+              "date": "2023-10",
+              "publisher": "France Stratégie"
+            }
+          },
+          {
+            "text": "Héritages : selon une microsimulation de la DG Trésor, 24 % des successions en ligne directe (entre parents et enfants, ou grands-parents et petits-enfants) sont effectivement taxées. Pour les successions de plus de 1 M€, le taux effectif est de 15 % avec les exonérations sur les entreprises familiales et l’assurance-vie, et de plus de 20 % sans elles. Sur 39 États de l’OCDE ou de l’UE, c’est en France que les droits de succession et de donation pèsent le plus : 0,74 % du PIB en 2021.",
+            "source": {
+              "title": "Les droits de succession – Communication à la commission des finances de l’Assemblée nationale",
+              "url": "https://www.ccomptes.fr/sites/default/files/2024-09/20240925-Droits-de-succession%C2%A0_1.pdf",
+              "date": "2024-09-25",
+              "publisher": "Cour des comptes"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "193 600 foyers",
+            "label": "Foyers ayant reçu un avis d’impôt sur la fortune immobilière (IFI), pour un total de 2,3 Md€ d’impôt (+8,0 % sur un an)",
+            "date": "2025",
+            "source": {
+              "title": "Bulletin « DGFiP Statistiques » n° 45 – L’impôt sur la fortune immobilière en 2025",
+              "url": "https://www.impots.gouv.fr/actualite/bulletin-dgfip-statistiques-ndeg45-limpot-sur-la-fortune-immobiliere-en-2025",
+              "date": "2026-04-14",
+              "publisher": "DGFiP (impots.gouv.fr)"
+            }
+          },
+          {
+            "value": "4,2 Md€",
+            "label": "Recettes de l’impôt de solidarité sur la fortune (ISF) en 2017, sa dernière année. L’IFI, qui l’a remplacé, a rapporté 1,29 Md€ en 2018 (hors contrôle fiscal).",
+            "date": "2017",
+            "source": {
+              "title": "Comité d’évaluation des réformes de la fiscalité du capital – Rapport final (avis du comité)",
+              "url": "https://www.strategie-plan.gouv.fr/files/files/Publications/Rapport/fs-2023-rapport-isf-quatrieme_rapport_complet_17octobre_avis_0.pdf",
+              "date": "2023-10",
+              "publisher": "France Stratégie"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "Md€",
+              "items": [
+                {
+                  "label": "Recettes de l’ISF en 2017",
+                  "value": 4.2
+                },
+                {
+                  "label": "Recettes de l’IFI en 2018",
+                  "value": 1.29
+                }
+              ]
+            }
+          },
+          {
+            "value": "16,1 Md€",
+            "label": "Droits de succession perçus par l’État (s’y ajoutent 5,1 Md€ de droits sur les donations)",
+            "date": "2025",
+            "source": {
+              "title": "Exécution budgétaire 2025 des recettes fiscales nettes de l’État et des remboursements et dégrèvements (§ 7.1)",
+              "url": "https://www.budget.gouv.fr/documentation/file-download/33360",
+              "date": "2026-02",
+              "publisher": "Direction du Budget, DG Trésor, DGFiP (budget.gouv.fr)"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "Md€",
+              "items": [
+                {
+                  "label": "Droits de succession",
+                  "value": 16.1
+                },
+                {
+                  "label": "Droits sur les donations",
+                  "value": 5.1
+                }
+              ]
+            }
+          },
+          {
+            "value": "48 %",
+            "label": "Part du patrimoine brut total détenue par les 10 % de ménages les mieux dotés (France hors Mayotte, ménages en logement ordinaire). Les 1 % les mieux dotés en détiennent 15 %.",
+            "date": "2023-2024 (enquête menée de juin 2023 à janvier 2024)",
+            "source": {
+              "title": "Les montants de patrimoine détenus par les ménages en 2024 (Insee Focus n° 371)",
+              "url": "https://www.insee.fr/fr/statistiques/8672665",
+              "date": "2025-12-09",
+              "publisher": "Insee"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 48,
+              "total": 100,
+              "unit": "%",
+              "whole": "du patrimoine brut total"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "fiscalite-1-a",
+          "text": "Rétablir un impôt annuel sur la fortune incluant les placements financiers, comme avant 2018"
+        },
+        {
+          "id": "fiscalite-1-b",
+          "text": "Créer un impôt minimum de 2 % par an sur les patrimoines de plus de 100 millions d’euros"
+        },
+        {
+          "id": "fiscalite-1-c",
+          "text": "Taxer davantage les plus grosses successions, au-delà d’environ 2 millions d’euros transmis"
+        },
+        {
+          "id": "fiscalite-1-d",
+          "text": "Ne pas alourdir la fiscalité du patrimoine, pour préserver l’investissement",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "travail_salaires-1",
+      "topicId": "travail_salaires",
+      "tier": "essentiel",
+      "step": 2,
+      "rev": 1,
+      "prompt": "Quel levier privilégier pour augmenter le pouvoir d’achat des salariés ?",
+      "context": "Aujourd’hui : le salaire minimum (SMIC) suit au moins l’inflation ; la contribution sociale généralisée (CSG) prélève environ 9 % du salaire brut pour financer la protection sociale.",
+      "explainer": {
+        "summary": "Le pouvoir d’achat dépend du salaire net et des prix. Chaque levier pèse d’abord sur un acteur différent : les employeurs pour une hausse du SMIC, les finances publiques et sociales pour une baisse des prélèvements, les producteurs, les distributeurs ou l’État pour une baisse des prix.",
+        "points": [
+          {
+            "text": "Le SMIC est revalorisé chaque 1er janvier : il suit l’inflation subie par les 20 % de ménages aux revenus les plus faibles, plus la moitié du gain de pouvoir d’achat du salaire horaire moyen des ouvriers et des employés. En cours d’année, il augmente automatiquement dès que les prix ont progressé d’au moins 2 % depuis la dernière hausse, comme au 1er juin 2026. Le gouvernement peut aussi décider à tout moment une hausse supplémentaire, le « coup de pouce ».",
+            "source": {
+              "title": "Smic (salaire minimum interprofessionnel de croissance)",
+              "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2300",
+              "date": "2026-06-01",
+              "publisher": "Service-public.gouv.fr (DILA)"
+            }
+          },
+          {
+            "text": "Le salaire net, c’est le brut moins les cotisations salariales (surtout pour la retraite) et la CSG-CRDS. La CSG finance l’assurance maladie, la famille, l’autonomie et le Fonds de solidarité vieillesse ; la CRDS rembourse la dette sociale. Baisser ces prélèvements augmente le net sans changer le coût pour l’employeur ; la recette perdue doit alors être compensée par d’autres recettes ou par des économies.",
+            "source": {
+              "title": "La CSG-CRDS",
+              "url": "https://www.urssaf.fr/accueil/employeur/cotisations/liste-cotisations/csg-crds.html",
+              "date": "2026-02-12",
+              "publisher": "Urssaf"
+            }
+          },
+          {
+            "text": "En principe, les prix sont libres. En cas de crise, de circonstances exceptionnelles ou de situation manifestement anormale du marché, le gouvernement peut toutefois prendre, par décret en Conseil d’État, des mesures temporaires contre des hausses ou des baisses excessives de prix dans un secteur donné. Ces mesures durent six mois au plus (code de commerce, art. L410-2).",
+            "source": {
+              "title": "Article L410-2 du code de commerce",
+              "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000019798129",
+              "date": "2008-11-15",
+              "publisher": "Légifrance"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "12,31 €",
+            "label": "SMIC horaire brut depuis le 1er juin 2026, contre 12,02 € avant (+2,41 %). Pour un temps plein : 1 867,02 € brut et 1 477,93 € net par mois (France hors Mayotte).",
+            "date": "1er juin 2026",
+            "source": {
+              "title": "Revalorisation annuelle du SMIC au 1er juin 2026",
+              "url": "https://normandie.dreets.gouv.fr/Revalorisation-annuelle-du-SMIC-au-1er-juin-2026",
+              "date": "2026-05-22",
+              "publisher": "DREETS Normandie (ministère du Travail et des Solidarités)"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "€",
+              "items": [
+                {
+                  "label": "Brut par mois, temps plein",
+                  "value": 1867.02
+                },
+                {
+                  "label": "Net par mois, temps plein",
+                  "value": 1477.93
+                }
+              ]
+            }
+          },
+          {
+            "value": "12,4 %",
+            "label": "Part des salariés du privé non agricole directement concernés par la hausse du SMIC du 1er novembre 2024, soit 2,2 millions de personnes. C’est la dernière hausse mesurée par la Dares (France hors Mayotte, hors apprentis, stagiaires et intérimaires).",
+            "date": "1er novembre 2024",
+            "source": {
+              "title": "La revalorisation du Smic au 1er novembre 2024 (Dares Résultats n° 52)",
+              "url": "https://dares.travail-emploi.gouv.fr/publication/la-revalorisation-du-smic-au-1er-novembre-2024",
+              "date": "2025-10-29",
+              "publisher": "Dares (ministère du Travail)"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 12.4,
+              "total": 100,
+              "unit": "%",
+              "whole": "des salariés du privé non agricole"
+            }
+          },
+          {
+            "value": "3,0 %",
+            "label": "Hausse des prix à la consommation sur un an en septembre 2026 (estimation provisoire, France). Sur la même période : énergie +21,2 %, alimentation +1,5 %.",
+            "date": "septembre 2026",
+            "source": {
+              "title": "En septembre 2026, les prix à la consommation augmenteraient de 3,0 % sur un an (Informations rapides n° 242)",
+              "url": "https://www.insee.fr/fr/statistiques/9056956",
+              "date": "2026-09-30",
+              "publisher": "Insee"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Prix à la consommation",
+                  "value": 3
+                },
+                {
+                  "label": "Énergie",
+                  "value": 21.2
+                },
+                {
+                  "label": "Alimentation",
+                  "value": 1.5
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "travail_salaires-1-a",
+          "text": "Relever nettement le salaire minimum (SMIC) par décision de l’État, au-delà de ce qu’impose l’inflation"
+        },
+        {
+          "id": "travail_salaires-1-b",
+          "text": "Baisser les prélèvements sociaux payés par les salariés pour augmenter leur salaire net, en compensant par d’autres recettes"
+        },
+        {
+          "id": "travail_salaires-1-c",
+          "text": "Faire baisser les prix des produits de première nécessité, par un blocage des prix et des baisses de taxes"
+        }
+      ]
+    },
+    {
+      "id": "industrie_economie-1",
+      "topicId": "industrie_economie",
+      "tier": "essentiel",
+      "step": 2,
+      "rev": 1,
+      "prompt": "Quelle stratégie privilégier pour réindustrialiser le pays ?",
+      "context": "Aujourd’hui : l’industrie manufacturière représente environ 10 % de la richesse produite en France.",
+      "explainer": {
+        "summary": "La France continue d’ouvrir ou d’agrandir plus d’usines qu’elle n’en ferme, mais ce solde a reculé en 2025. Les approches divergent sur le levier à privilégier : l’État actionnaire, une politique industrielle européenne, la relocalisation planifiée des productions essentielles ou la baisse du prix de l’énergie.",
+        "points": [
+          {
+            "text": "Toute aide publique à une entreprise doit respecter les règles européennes sur les aides d’État. Les aides qui faussent la concurrence sont en principe interdites, avec des exceptions, par exemple pour les « projets importants d’intérêt européen commun ». Une prise de participation de l’État compte comme une aide quand il n’agit pas comme un investisseur privé qui recherche une rentabilité à long terme.",
+            "source": {
+              "title": "L’essentiel sur le rapport de la commission d’enquête sur l’utilisation des aides publiques aux grandes entreprises et à leurs sous-traitants (rapport n° 808, 2024-2025)",
+              "url": "https://www.senat.fr/rap/r24-808-1/r24-808-1-syn.pdf",
+              "date": "2025-07",
+              "publisher": "Sénat"
+            }
+          },
+          {
+            "text": "Le dispositif qui donnait aux fournisseurs un accès régulé à une partie de l’électricité nucléaire d’EDF (ARENH) a pris fin le 31 décembre 2025. Depuis, les fournisseurs s’approvisionnent sur le marché ou avec leurs propres centrales. Un « versement nucléaire universel » réduit les factures si les revenus nucléaires d’EDF dépassent des seuils fixés par le gouvernement.",
+            "source": {
+              "title": "La CRE publie son avis sur le projet de décret relatif aux paramètres de la comptabilité appropriée des revenus nucléaires d’EDF dans le cadre du nouveau dispositif de versement nucléaire universel (lettre d’information de juin 2025)",
+              "url": "https://www.cre.fr/actualites/nos-lettres-dinformation/la-cre-publie-son-avis-sur-le-projet-de-decret-relatif-aux-parametres-de-la-comptabilite-appropriee-des-revenus-nucleaires-dedf-dans-le-cadre-du-nouveau-dispositif-de-versement-nucleaire-universel.html",
+              "date": "2025-06",
+              "publisher": "Commission de régulation de l’énergie (CRE)"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "+19",
+            "label": "Solde des ouvertures et extensions significatives d’usines, moins les fermetures et réductions importantes, en France en 2025 (contre +88 en 2024). Dernier baromètre publié.",
+            "date": "2025",
+            "source": {
+              "title": "Baromètre industriel de l’État : en 2025, les extensions d’usines portent la réindustrialisation avec un solde positif malgré un contexte international dégradé",
+              "url": "https://www.entreprises.gouv.fr/espace-presse/barometre-industriel-de-letat-en-2025-les-extensions-dusines-portent-la",
+              "date": "2026-03-29",
+              "publisher": "Direction générale des Entreprises (ministère de l’Économie)"
+            },
+            "chart": {
+              "kind": "series",
+              "items": [
+                {
+                  "label": "2024",
+                  "value": 88
+                },
+                {
+                  "label": "2025",
+                  "value": 19
+                }
+              ]
+            }
+          },
+          {
+            "value": "3 240 600",
+            "label": "Emplois salariés dans l’industrie (hors intérim) fin juin 2026, France hors Mayotte : -0,5 % sur un an, +1,7 % par rapport à fin 2019. Dont 2 816 200 dans l’industrie manufacturière.",
+            "date": "2e trimestre 2026",
+            "source": {
+              "title": "Au deuxième trimestre 2026, l’emploi salarié est quasi stable (-0,1 %) – Informations rapides n° 214",
+              "url": "https://www.insee.fr/fr/statistiques/9039152",
+              "date": "2026-08-28",
+              "publisher": "Insee"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Sur un an",
+                  "value": -0.5
+                },
+                {
+                  "label": "Par rapport à fin 2019",
+                  "value": 1.7
+                }
+              ]
+            }
+          },
+          {
+            "value": "209,1 Md€",
+            "label": "Valeur des participations de l’État gérées par l’Agence des participations de l’État au 30 juin 2025 (86 entités), dont 67,9 Md€ dans des sociétés cotées",
+            "date": "30 juin 2025",
+            "source": {
+              "title": "Rapport relatif à l’État actionnaire, annexe au projet de loi de finances pour 2026",
+              "url": "https://www2.assemblee-nationale.fr/static/17/Annexes-DL/PLF-2026/10-Jaune2026_Etat_actionnaire.pdf",
+              "date": "2025",
+              "publisher": "Agence des participations de l’État (ministère de l’Économie), publié par l’Assemblée nationale"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "Md€",
+              "items": [
+                {
+                  "label": "Participations de l’État",
+                  "value": 209.1
+                },
+                {
+                  "label": "Dont sociétés cotées",
+                  "value": 67.9
+                }
+              ]
+            }
+          },
+          {
+            "value": "0,2688 €/kWh",
+            "label": "Prix moyen de l’électricité pour les entreprises françaises consommant moins de 20 MWh par an, hors TVA et taxes récupérables, au 2e semestre 2025 (0,1704 €/kWh au 2e semestre 2019). Moyenne de l’UE : 0,298 €/kWh (0,2077 €/kWh en 2019).",
+            "date": "2e semestre 2025",
+            "source": {
+              "title": "Prix de l’électricité pour les clients non résidentiels – données semestrielles (nrg_pc_205), France et UE, moins de 20 MWh, hors TVA, 2e semestre 2019 et 2e semestre 2025",
+              "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_205?lang=fr&geo=FR&geo=EU27_2020&nrg_cons=MWH_LT20&tax=X_VAT&currency=EUR&time=2019-S2&time=2025-S2",
+              "date": "2026-09-24",
+              "publisher": "Eurostat"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "€/kWh",
+              "items": [
+                {
+                  "label": "France, 2e sem. 2019",
+                  "value": 0.1704
+                },
+                {
+                  "label": "Moyenne de l’UE, 2e sem. 2019",
+                  "value": 0.2077
+                },
+                {
+                  "label": "France, 2e sem. 2025",
+                  "value": 0.2688
+                },
+                {
+                  "label": "Moyenne de l’UE, 2e sem. 2025",
+                  "value": 0.298
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "industrie_economie-1-a",
+          "text": "Faire de l’État un actionnaire industriel : fonds souverain, prises de participation, nationalisations possibles"
+        },
+        {
+          "id": "industrie_economie-1-b",
+          "text": "Bâtir la politique industrielle à l’échelle de l’Union européenne : protection commune, financements communs"
+        },
+        {
+          "id": "industrie_economie-1-c",
+          "text": "Planifier la relocalisation des productions essentielles : alimentation, énergie, numérique, biens stratégiques"
+        },
+        {
+          "id": "industrie_economie-1-d",
+          "text": "Faire baisser le prix de l’énergie pour les entreprises, en priorité pour les petites entreprises et les artisans"
+        }
+      ]
+    },
+    {
+      "id": "fiscalite-2",
+      "topicId": "fiscalite",
+      "tier": "essentiel",
+      "step": 2,
+      "rev": 1,
+      "prompt": "Quelle stratégie pour les finances publiques face à la dette ?",
+      "context": "Aujourd’hui : la dette publique dépasse 110 % de la richesse produite en un an.",
+      "explainer": {
+        "summary": "Les administrations publiques dépensent plus qu’elles ne perçoivent : chaque année de déficit alourdit la dette, dont les intérêts augmentent. Les approches divergent sur le levier à privilégier : moins de dépenses, plus d’impôts sur le patrimoine et le capital, un effort partagé par tous, ou davantage d’emprunt pour investir.",
+        "points": [
+          {
+            "text": "Dépenses et recettes : en 2025, les dépenses publiques représentent 57,3 % du PIB et les recettes 52,2 %, dont 43,6 % du PIB d’impôts et de cotisations sociales (les « prélèvements obligatoires »). Le déficit est l’écart entre les deux ; la dette, l’accumulation des déficits passés.",
+            "source": {
+              "title": "Le compte des administrations publiques en 2025 (Insee Première n° 2106)",
+              "url": "https://www.insee.fr/fr/statistiques/8997691",
+              "date": "2026-05-29",
+              "publisher": "Insee"
+            }
+          },
+          {
+            "text": "Règles européennes : depuis juillet 2024, la France fait l’objet d’une procédure de l’Union européenne pour déficit excessif. Elle doit ramener son déficit sous 3 % du PIB d’ici 2029. Le Gouvernement prévoit 5,4 % en 2026, puis 5,0 % en 2027. Le Haut Conseil des finances publiques juge un retour sous 3 % en 2029 « très peu vraisemblable », sauf conjoncture très favorable.",
+            "source": {
+              "title": "Avis n° HCFP-2026-5 relatif aux projets de lois de finances et de financement de la sécurité sociale pour l’année 2027",
+              "url": "https://www.hcfp.fr/sites/default/files/2026-10/Avis%20HCFP%202026-5%20-%20PLF-PLFSS%202027.pdf",
+              "date": "2026-09-25",
+              "publisher": "Haut Conseil des finances publiques"
+            }
+          },
+          {
+            "text": "Retraites : en 2025, elles représentent 422 Md€, soit 24,3 % des dépenses publiques. En 2023, le niveau de vie moyen des retraités équivalait à celui de l’ensemble de la population (100,2 %). Dans le scénario de référence du COR, ce rapport serait de 90,3 % en 2070.",
+            "source": {
+              "title": "Évolutions et perspectives des retraites en France – Rapport annuel du COR, juin 2026",
+              "url": "https://www.cor-retraites.fr/sites/default/files/2026-07/RA_2026_def.pdf",
+              "date": "2026-06",
+              "publisher": "Conseil d’orientation des retraites"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "119,0 % du PIB",
+            "label": "Dette publique selon la définition des règles européennes (« au sens de Maastricht »), soit 3 595,5 Md€",
+            "date": "fin juin 2026 (2e trimestre)",
+            "source": {
+              "title": "À la fin du deuxième trimestre 2026, le ratio de dette publique s’établit à 119,0 % du PIB (Informations rapides n° 239)",
+              "url": "https://www.insee.fr/fr/statistiques/9053525",
+              "date": "2026-09-29",
+              "publisher": "Insee"
+            }
+          },
+          {
+            "value": "5,1 % du PIB",
+            "label": "Déficit public, soit 152,5 Md€ (5,8 % du PIB en 2024)",
+            "date": "2025",
+            "source": {
+              "title": "Le compte des administrations publiques en 2025 (Insee Première n° 2106)",
+              "url": "https://www.insee.fr/fr/statistiques/8997691",
+              "date": "2026-05-29",
+              "publisher": "Insee"
+            },
+            "chart": {
+              "kind": "series",
+              "unit": "% du PIB",
+              "items": [
+                {
+                  "label": "2024",
+                  "value": 5.8
+                },
+                {
+                  "label": "2025",
+                  "value": 5.1
+                }
+              ]
+            }
+          },
+          {
+            "value": "1 714,2 Md€",
+            "label": "Dépenses de l’ensemble des administrations publiques, dont 771,0 Md€ de prestations sociales (retraites, chômage, remboursements médicaux…), 548,8 Md€ de fonctionnement (dont 370,0 Md€ de rémunérations des agents publics), 192,1 Md€ de subventions et autres transferts, et 132,2 Md€ d’investissement",
+            "date": "2025",
+            "source": {
+              "title": "Le compte des administrations publiques en 2025 (Insee Première n° 2106), figure 4",
+              "url": "https://www.insee.fr/fr/statistiques/8997691",
+              "date": "2026-05-29",
+              "publisher": "Insee"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "Md€",
+              "items": [
+                {
+                  "label": "Prestations sociales",
+                  "value": 771
+                },
+                {
+                  "label": "Fonctionnement",
+                  "value": 548.8
+                },
+                {
+                  "label": "Subventions et autres transferts",
+                  "value": 192.1
+                },
+                {
+                  "label": "Investissement",
+                  "value": 132.2
+                }
+              ]
+            }
+          },
+          {
+            "value": "64,7 Md€",
+            "label": "Charges d’intérêts de la dette de l’ensemble des administrations publiques, en hausse de 11,2 % sur un an",
+            "date": "2025",
+            "source": {
+              "title": "Le compte des administrations publiques en 2025 (Insee Première n° 2106), figure 4",
+              "url": "https://www.insee.fr/fr/statistiques/8997691",
+              "date": "2026-05-29",
+              "publisher": "Insee"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "fiscalite-2-a",
+          "text": "Réduire le déficit surtout par des économies sur le fonctionnement de l’État et sur les aides publiques"
+        },
+        {
+          "id": "fiscalite-2-b",
+          "text": "Réduire le déficit surtout par de nouveaux impôts sur les plus hauts patrimoines et sur le capital"
+        },
+        {
+          "id": "fiscalite-2-c",
+          "text": "Répartir l’effort entre tous, en demandant aussi une contribution aux retraités les plus aisés"
+        },
+        {
+          "id": "fiscalite-2-d",
+          "text": "Emprunter pour investir massivement dans l’industrie et la transition écologique, plutôt que de réduire les dépenses"
+        }
+      ]
+    },
+    {
+      "id": "fiscalite-3",
+      "topicId": "fiscalite",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "À quoi affecter en priorité les recettes d’une taxation accrue des plus riches ?",
+      "context": "Aujourd’hui : en règle générale, le produit d’un impôt n’est pas réservé à une dépense particulière.",
+      "explainer": {
+        "summary": "Une recette nouvelle peut servir à alléger d’autres prélèvements, à financer une dépense jugée prioritaire ou à réduire le déficit. Les approches diffèrent sur la priorité : les prélèvements sur les salaires, le grand âge, la transition écologique ou la dette.",
+        "points": [
+          {
+            "text": "Règle de l’universalité : selon la loi organique relative aux lois de finances (art. 6), l’ensemble des recettes de l’État finance l’ensemble de ses dépenses, réunies dans un compte unique, le budget général. Par exception, une recette peut être réservée à une dépense précise, par exemple dans un budget annexe ou un compte spécial (art. 16).",
+            "source": {
+              "title": "Loi organique n° 2001-692 du 1er août 2001 relative aux lois de finances (articles 6 et 16)",
+              "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000394028",
+              "publisher": "Légifrance"
+            }
+          },
+          {
+            "text": "La Sécurité sociale fonctionne autrement : ses recettes sont attribuées à chacune de ses branches (maladie, vieillesse, famille, autonomie…). Par exemple, depuis 2024, la branche autonomie reçoit 0,15 point de CSG (contribution sociale généralisée), une part qui allait auparavant à la caisse chargée de rembourser la dette sociale (Cades).",
+            "source": {
+              "title": "La sécurité sociale 2026 – Rapport sur l’application des lois de financement de la sécurité sociale (p. 37)",
+              "url": "https://www.ccomptes.fr/sites/default/files/2026-05/20260527-RALFSS-2026_0.pdf",
+              "date": "2026-05-27",
+              "publisher": "Cour des comptes"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "312,5 Md€",
+            "label": "Cotisations sociales perçues par les régimes obligatoires de base de la Sécurité sociale (hors retraites complémentaires et assurance chômage). S’y ajoutent 131,0 Md€ de CSG, prélevée aussi sur les pensions et les revenus du capital.",
+            "date": "2025",
+            "source": {
+              "title": "La sécurité sociale 2026 – RALFSS, tableau n° 2 (p. 38)",
+              "url": "https://www.ccomptes.fr/sites/default/files/2026-05/20260527-RALFSS-2026_0.pdf",
+              "date": "2026-05-27",
+              "publisher": "Cour des comptes"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "Md€",
+              "items": [
+                {
+                  "label": "Cotisations sociales",
+                  "value": 312.5
+                },
+                {
+                  "label": "CSG",
+                  "value": 131
+                }
+              ]
+            }
+          },
+          {
+            "value": "41,8 Md€",
+            "label": "Dépenses de la branche autonomie de la Sécurité sociale (personnes âgées et personnes handicapées), en hausse de 4,8 % sur un an",
+            "date": "2025",
+            "source": {
+              "title": "La sécurité sociale 2026 – RALFSS (p. 43)",
+              "url": "https://www.ccomptes.fr/sites/default/files/2026-05/20260527-RALFSS-2026_0.pdf",
+              "date": "2026-05-27",
+              "publisher": "Cour des comptes"
+            }
+          },
+          {
+            "value": "25 à 34 Md€ par an",
+            "label": "Supplément annuel de dépenses publiques lié à la transition climatique, à l’horizon 2030 (estimation publiée en 2023)",
+            "date": "horizon 2030 (estimation publiée en mai 2023)",
+            "source": {
+              "title": "Les incidences économiques de l’action pour le climat (rapport, chapitre 10, p. 113)",
+              "url": "https://www.strategie-plan.gouv.fr/files/files/Publications/Rapport/2023-incidences-economiques-rapport-pisani-5juin.pdf",
+              "date": "2023-05",
+              "publisher": "France Stratégie"
+            }
+          },
+          {
+            "value": "64,7 Md€",
+            "label": "Charges d’intérêts de la dette de l’ensemble des administrations publiques, en hausse de 11,2 % sur un an",
+            "date": "2025",
+            "source": {
+              "title": "Le compte des administrations publiques en 2025 (Insee Première n° 2106), figure 4",
+              "url": "https://www.insee.fr/fr/statistiques/8997691",
+              "date": "2026-05-29",
+              "publisher": "Insee"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "fiscalite-3-a",
+          "text": "Les reverser aux salariés en baissant les prélèvements sur leurs fiches de paie"
+        },
+        {
+          "id": "fiscalite-3-b",
+          "text": "Les affecter à la prise en charge des personnes âgées en perte d’autonomie"
+        },
+        {
+          "id": "fiscalite-3-c",
+          "text": "Les affecter aux investissements publics dans la transition écologique et énergétique"
+        },
+        {
+          "id": "fiscalite-3-d",
+          "text": "Les consacrer en priorité à la réduction du déficit et de la dette publique",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "travail_salaires-2",
+      "topicId": "travail_salaires",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Au-delà du salaire minimum, comment faire progresser les autres salaires ?",
+      "context": "Aujourd’hui : seul le SMIC est revalorisé automatiquement ; les autres salaires dépendent des négociations de branche et d’entreprise.",
+      "explainer": {
+        "summary": "Si les prix ou le SMIC augmentent plus vite que les autres salaires, ces salariés perdent du pouvoir d’achat ou voient le bas de leur grille rattrapé par le minimum légal. Les approches divergent sur la place de la loi et celle de la négociation entre syndicats et employeurs.",
+        "points": [
+          {
+            "text": "La loi interdit, dans les contrats et les accords collectifs, les clauses qui indexent une rémunération sur le SMIC ou sur le niveau général des prix ou des salaires (code monétaire et financier, art. L112-2 ; code du travail, art. L3231-3). Indexer tous les salaires sur l’inflation supposerait donc de modifier ces textes.",
+            "source": {
+              "title": "Article L112-2 du code monétaire et financier",
+              "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000024039949",
+              "date": "2011-05-19",
+              "publisher": "Légifrance"
+            }
+          },
+          {
+            "text": "Le salaire versé ne peut pas descendre sous le SMIC, même si la grille de la branche commence plus bas. Dans ce cas, syndicats et employeurs de la branche doivent ouvrir des négociations dans les 45 jours. L’article 20 de la loi de financement de la sécurité sociale prévoit aussi de réduire les allègements de cotisations patronales des entreprises dont la branche reste sous le SMIC toute une année civile, sauf si elles prouvent qu’elles paient leurs salariés au-dessus. Fin mai 2026, le décret d’application n’avait pas encore été présenté aux partenaires sociaux.",
+            "source": {
+              "title": "Comité de suivi de la négociation salariale de branches du 27 mai 2026",
+              "url": "https://travail-emploi.gouv.fr/comite-de-suivi-de-la-negociation-salariale-de-branches-du-27-mai-2026",
+              "date": "2026-05-27",
+              "publisher": "Ministère du Travail et des Solidarités"
+            }
+          },
+          {
+            "text": "Les grilles de classification rangent les emplois par niveau de qualification ; chaque niveau a son salaire minimum. En mai 2026, 97 des 179 branches suivies par le ministère avaient un accord de classification de plus de 5 ans, dont 63 de plus de 10 ans.",
+            "source": {
+              "title": "Comité de suivi de la négociation salariale de branches du 27 mai 2026",
+              "url": "https://travail-emploi.gouv.fr/comite-de-suivi-de-la-negociation-salariale-de-branches-du-27-mai-2026",
+              "date": "2026-05-27",
+              "publisher": "Ministère du Travail et des Solidarités"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "−1,3 % puis −1,0 %",
+            "label": "Évolution du salaire net moyen du privé, inflation déduite, en 2022 puis en 2023. Selon l’Insee, les hausses du SMIC ont alors préservé le bas de l’échelle, quand l’inflation rognait les salaires plus élevés. Après +0,8 % en 2024, le salaire moyen retrouve « à peine » son niveau de 2019 (France y compris Mayotte, apprentis et stagiaires compris, hors agriculture et particuliers employeurs)",
+            "date": "2022 à 2024",
+            "source": {
+              "title": "Insee Première n° 2079 – Salaires dans le secteur privé en 2024 (23 octobre 2025)",
+              "url": "https://www.insee.fr/fr/statistiques/8657156",
+              "date": "2025-10-23",
+              "publisher": "Insee"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "2022",
+                  "value": -1.3
+                },
+                {
+                  "label": "2023",
+                  "value": -1
+                },
+                {
+                  "label": "2024",
+                  "value": 0.8
+                }
+              ]
+            }
+          },
+          {
+            "value": "+2,0 %",
+            "label": "Hausse sur un an du salaire mensuel de base dans le privé, à fin juin 2026. Les prix (hors tabac) ont augmenté de 1,7 % sur la même période, soit un gain de 0,2 % une fois l’inflation déduite (France hors Mayotte, hors agriculture et particuliers employeurs).",
+            "date": "2e trimestre 2026",
+            "source": {
+              "title": "Évolution des salaires de base dans le secteur privé : résultats définitifs du 2e trimestre 2026 (Dares Indicateurs n° 40)",
+              "url": "https://dares.travail-emploi.gouv.fr/publication/evolution-des-salaires-de-base-dans-le-secteur-prive-resultats-definitifs-du-T2-2026",
+              "date": "2026-09-25",
+              "publisher": "Dares (ministère du Travail)"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Salaire mensuel de base",
+                  "value": 2
+                },
+                {
+                  "label": "Prix (hors tabac)",
+                  "value": 1.7
+                }
+              ]
+            }
+          },
+          {
+            "value": "126 sur 179",
+            "label": "Branches suivies par le ministère dont les salaires minimums devaient passer sous le SMIC avec la hausse du 1er juin 2026 (projection du ministère). Fin mai, 30 étaient sous le SMIC du 1er janvier 2026. Selon le ministère, ce phénomène est habituel après chaque hausse en cours d’année.",
+            "date": "1er juin 2026",
+            "source": {
+              "title": "Comité de suivi de la négociation salariale de branches du 27 mai 2026",
+              "url": "https://travail-emploi.gouv.fr/comite-de-suivi-de-la-negociation-salariale-de-branches-du-27-mai-2026",
+              "date": "2026-05-27",
+              "publisher": "Ministère du Travail et des Solidarités"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 126,
+              "total": 179,
+              "whole": "branches suivies"
+            }
+          },
+          {
+            "value": "2,8 %",
+            "label": "Part des salariés du privé non agricole dont l’entreprise appliquait une convention de branche non conforme au SMIC, au 31 octobre 2024, veille de la hausse du 1er novembre (3,7 % au 31 décembre 2023)",
+            "date": "31 octobre 2024",
+            "source": {
+              "title": "La revalorisation du Smic au 1er novembre 2024 (Dares Résultats n° 52)",
+              "url": "https://dares.travail-emploi.gouv.fr/publication/la-revalorisation-du-smic-au-1er-novembre-2024",
+              "date": "2025-10-29",
+              "publisher": "Dares (ministère du Travail)"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 2.8,
+              "total": 100,
+              "unit": "%",
+              "whole": "des salariés du privé non agricole"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "travail_salaires-2-a",
+          "text": "Indexer par la loi les salaires sur l’inflation, et pas seulement le salaire minimum"
+        },
+        {
+          "id": "travail_salaires-2-b",
+          "text": "Organiser des conférences salariales par branche, en commençant par les métiers pénibles et précaires"
+        },
+        {
+          "id": "travail_salaires-2-c",
+          "text": "Obliger chaque branche à fixer des grilles de salaires qui démarrent au moins au niveau du SMIC"
+        }
+      ]
+    },
+    {
+      "id": "travail_salaires-3",
+      "topicId": "travail_salaires",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Comment mieux partager les bénéfices des entreprises avec les salariés ?",
+      "context": "Aujourd’hui : la participation aux bénéfices est obligatoire à partir de 50 salariés ; les grands groupes comptent un ou deux représentants des salariés dans leur conseil d’administration.",
+      "explainer": {
+        "summary": "En 2024, un peu plus de la moitié des salariés du privé étaient couverts par la participation, l’intéressement ou un plan d’épargne salariale. Les approches divergent sur la façon d’aller plus loin : partager davantage les profits, donner plus de poids aux salariés dans les décisions ou encadrer les écarts de rémunération.",
+        "points": [
+          {
+            "text": "Pour les exercices ouverts depuis le 1er janvier 2025, les entreprises de 11 à 49 salariés doivent aussi partager la valeur si elles ont réalisé, 3 exercices de suite, un bénéfice net fiscal d’au moins 1 % de leur chiffre d’affaires. Elles choisissent entre participation ou intéressement, abondement à un plan d’épargne salariale ou prime de partage de la valeur.",
+            "source": {
+              "title": "Participation",
+              "url": "https://entreprendre.service-public.gouv.fr/vosdroits/F2141",
+              "date": "2026-07-21",
+              "publisher": "Service-public.gouv.fr Entreprendre (DILA)"
+            }
+          },
+          {
+            "text": "Les sociétés qui emploient, deux exercices de suite, au moins 1 000 salariés en France (filiales comprises) ou 5 000 en France et à l’étranger doivent compter des représentants des salariés dans leur conseil d’administration : au moins un, et au moins deux si le conseil compte plus de huit autres administrateurs (code de commerce, art. L225-27-1).",
+            "source": {
+              "title": "Article L225-27-1 du code de commerce",
+              "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000042339592",
+              "date": "2021-01-01",
+              "publisher": "Légifrance"
+            }
+          },
+          {
+            "text": "Aucune loi ne plafonne les écarts de rémunération dans le privé. Les sociétés cotées doivent en revanche publier chaque année le rapport entre la rémunération de leurs dirigeants et les rémunérations moyenne et médiane de leurs salariés (code de commerce, art. L22-10-9). Dans les entreprises publiques contrôlées par l’État, la rémunération des dirigeants est plafonnée depuis 2012 à 450 000 € brut par an.",
+            "source": {
+              "title": "Décret n° 53-707 du 9 août 1953, article 3 (modifié par le décret n° 2012-915 du 26 juillet 2012)",
+              "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000026228693",
+              "date": "2012-07-28",
+              "publisher": "Légifrance"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "54,0 %",
+            "label": "Part des salariés du privé non agricole couverts en 2024 par au moins un dispositif (participation, intéressement ou plan d’épargne salariale). 46,0 % ont effectivement reçu une prime (France hors Mayotte).",
+            "date": "2024",
+            "source": {
+              "title": "L’épargne salariale en 2024 (Dares Résultats n° 23)",
+              "url": "https://dares.travail-emploi.gouv.fr/publication/lepargne-salariale-en-2024",
+              "date": "2026-06-10",
+              "publisher": "Dares (ministère du Travail)"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 54,
+              "total": 100,
+              "unit": "%",
+              "whole": "des salariés du privé non agricole"
+            }
+          },
+          {
+            "value": "27,2 Md€",
+            "label": "Montant brut des primes de participation et d’intéressement et des abondements aux plans d’épargne salariale versés en 2024 dans le privé non agricole (France hors Mayotte)",
+            "date": "2024",
+            "source": {
+              "title": "L’épargne salariale en 2024 (Dares Résultats n° 23)",
+              "url": "https://dares.travail-emploi.gouv.fr/publication/lepargne-salariale-en-2024",
+              "date": "2026-06-10",
+              "publisher": "Dares (ministère du Travail)"
+            }
+          },
+          {
+            "value": "32,2 %",
+            "label": "Taux de marge des sociétés non financières en 2025 (32,7 % en 2024). C’est la part de leur valeur ajoutée qui leur reste une fois payés les salariés et les impôts sur la production, en comptant les subventions d’exploitation reçues.",
+            "date": "2025",
+            "source": {
+              "title": "Les comptes de la Nation en 2025 (Insee Première n° 2105)",
+              "url": "https://www.insee.fr/fr/statistiques/8996855?sommaire=8071406",
+              "date": "2026-05-29",
+              "publisher": "Insee"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 32.2,
+              "total": 100,
+              "unit": "%",
+              "whole": "de leur valeur ajoutée"
+            }
+          },
+          {
+            "value": "10 261 €",
+            "label": "Salaire net mensuel en équivalent temps plein au-dessus duquel se situent les 1 % de salariés du privé les mieux payés en 2024, soit 7,3 fois le SMIC. La moitié des salariés gagne moins de 2 190 € (France y compris Mayotte, apprentis et stagiaires compris, hors agriculture et particuliers employeurs).",
+            "date": "2024",
+            "source": {
+              "title": "Insee Première n° 2079 – Salaires dans le secteur privé en 2024 (23 octobre 2025)",
+              "url": "https://www.insee.fr/fr/statistiques/8657156",
+              "date": "2025-10-23",
+              "publisher": "Insee"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "€",
+              "items": [
+                {
+                  "label": "Seuil des 1 % les mieux payés",
+                  "value": 10261
+                },
+                {
+                  "label": "Seuil de la moitié des salariés",
+                  "value": 2190
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "travail_salaires-3-a",
+          "text": "Obliger les entreprises qui versent des dividendes à reverser aussi une part des profits aux salariés"
+        },
+        {
+          "id": "travail_salaires-3-b",
+          "text": "Faire siéger des représentants des salariés dans les conseils d’administration dès 50 à 100 salariés"
+        },
+        {
+          "id": "travail_salaires-3-c",
+          "text": "Plafonner l’écart entre la plus haute et la plus basse rémunération dans chaque entreprise"
+        }
+      ]
+    },
+    {
+      "id": "travail_salaires-4",
+      "topicId": "travail_salaires",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelle priorité pour les droits des salariés au travail ?",
+      "context": "Aujourd’hui : depuis les ordonnances de 2017, les indemnités pour licenciement injustifié sont plafonnées et les comités d’hygiène, de sécurité et des conditions de travail (CHSCT) ont été fusionnés dans le comité social et économique (CSE).",
+      "explainer": {
+        "summary": "Les approches ne visent pas le même levier : les règles de licenciement et les instances du personnel, le poids des syndicats et des branches, la santé au travail ou le recours aux contrats courts. Toutes touchent à l’équilibre entre la protection des salariés et la marge de manœuvre des employeurs.",
+        "points": [
+          {
+            "text": "Si un licenciement est jugé sans cause réelle et sérieuse, le juge fixe l’indemnité dans un barème : de 1 à 2 mois de salaire brut pour un an d’ancienneté, de 3 à 20 mois à partir de 29 ans d’ancienneté. Les minimums sont plus bas dans les entreprises de moins de 11 salariés. Le barème ne s’applique pas aux licenciements nuls (harcèlement, discrimination, atteinte à une liberté fondamentale…) : l’indemnité est alors d’au moins 6 mois de salaire (art. L1235-3-1).",
+            "source": {
+              "title": "Article L1235-3 du code du travail",
+              "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000036762052",
+              "date": "2018-04-01",
+              "publisher": "Légifrance"
+            }
+          },
+          {
+            "text": "Depuis les ordonnances de 2017, l’accord d’entreprise prime sur l’accord de branche dans la plupart des domaines, qu’il soit plus ou moins favorable aux salariés. La branche prévaut dans 13 domaines, dont les salaires minimums et les classifications, sauf si l’accord d’entreprise offre des garanties au moins équivalentes. Elle peut aussi se réserver 4 autres domaines, dont la prévention des risques professionnels (code du travail, art. L2253-1 à L2253-3).",
+            "source": {
+              "title": "Code du travail, articles L2253-1 à L2253-4 (rapports entre accords d’entreprise et accords de branche)",
+              "url": "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006072050/LEGISCTA000006177936",
+              "date": "2018-04-01",
+              "publisher": "Légifrance"
+            }
+          },
+          {
+            "text": "Depuis septembre 2022, un « bonus-malus » fait varier la contribution chômage des employeurs (4 % du salaire en principe) entre 2,95 % et 5 %. Le taux dépend du nombre de fins de contrat ou de missions d’intérim suivies d’une inscription à France Travail, comparé à celui du secteur. Il concerne les entreprises d’au moins 11 salariés de six secteurs, dont l’hébergement-restauration et les transports.",
+            "source": {
+              "title": "Le bonus-malus assurance chômage",
+              "url": "https://travail-emploi.gouv.fr/le-bonus-malus-assurance-chomage",
+              "date": "2026-06-11",
+              "publisher": "Ministère du Travail et des Solidarités"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "764",
+            "label": "Décès dus à un accident du travail en 2024 (régime général), soit 5 de plus qu’en 2023. Plus de la moitié sont dus à des malaises.",
+            "date": "2024",
+            "source": {
+              "title": "Rapport annuel 2024 de l’Assurance Maladie – Risques professionnels (p. 2)",
+              "url": "https://www.assurance-maladie.ameli.fr/sites/default/files/rapport_annuel_2024_de_lassurance_maladie_-_risques_professionnels_novembre_2025.pdf",
+              "date": "2025-11",
+              "publisher": "Assurance Maladie – Risques professionnels"
+            }
+          },
+          {
+            "value": "1 805",
+            "label": "Affections psychiques liées au travail, surtout des dépressions, prises en charge comme maladies professionnelles en 2024 (régime général), contre 840 en 2020. Aucun tableau de maladies professionnelles ne les prévoit, pas plus que l’épuisement professionnel : un comité régional les examine au cas par cas et exige une incapacité permanente d’au moins 25 % (ou un décès) et un lien « direct et essentiel » avec le travail.",
+            "date": "2024",
+            "source": {
+              "title": "Rapport annuel 2024 de l’Assurance Maladie – Risques professionnels (p. 47, 50 et 152)",
+              "url": "https://www.assurance-maladie.ameli.fr/sites/default/files/rapport_annuel_2024_de_lassurance_maladie_-_risques_professionnels_novembre_2025.pdf",
+              "date": "2025-11",
+              "publisher": "Assurance Maladie – Risques professionnels"
+            },
+            "chart": {
+              "kind": "series",
+              "items": [
+                {
+                  "label": "2020",
+                  "value": 840
+                },
+                {
+                  "label": "2024",
+                  "value": 1805
+                }
+              ]
+            }
+          },
+          {
+            "value": "10,3 %",
+            "label": "Part des salariés adhérant à un syndicat en 2019 : 7,8 % dans le privé, 18,4 % dans la fonction publique. C’est la dernière mesure disponible (France hors Mayotte).",
+            "date": "2019",
+            "source": {
+              "title": "Léger repli de la syndicalisation en France entre 2013 et 2019 (Dares Analyses n° 6)",
+              "url": "https://dares.travail-emploi.gouv.fr/publication/leger-repli-de-la-syndicalisation-en-france-entre-2013-et-2019",
+              "date": "2023-02-01",
+              "publisher": "Dares (ministère du Travail)"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Tous les salariés",
+                  "value": 10.3
+                },
+                {
+                  "label": "Dans le privé",
+                  "value": 7.8
+                },
+                {
+                  "label": "Dans la fonction publique",
+                  "value": 18.4
+                }
+              ]
+            }
+          },
+          {
+            "value": "9,4 %",
+            "label": "Part des CDD et de l’intérim dans l’emploi total en 2025. Elle baisse depuis 2023 et se situe 0,9 point sous son niveau d’avant la crise sanitaire (France, hors personnes vivant en collectivité).",
+            "date": "2025",
+            "source": {
+              "title": "Une photographie du marché du travail en 2025 (Insee Première n° 2096)",
+              "url": "https://www.insee.fr/fr/statistiques/8901327",
+              "date": "2026-03-25",
+              "publisher": "Insee"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 9.4,
+              "total": 100,
+              "unit": "%",
+              "whole": "de l’emploi total"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "travail_salaires-4-a",
+          "text": "Revenir sur les ordonnances de 2017 : recréer les CHSCT, déplafonner les indemnités pour licenciement injustifié"
+        },
+        {
+          "id": "travail_salaires-4-b",
+          "text": "Renforcer les syndicats et faire primer les accords de branche sur les accords signés dans l’entreprise"
+        },
+        {
+          "id": "travail_salaires-4-c",
+          "text": "Faire de la santé au travail la priorité : reconnaître l’épuisement professionnel, viser zéro accident mortel"
+        },
+        {
+          "id": "travail_salaires-4-d",
+          "text": "Augmenter les cotisations chômage des entreprises qui recourent le plus souvent aux contrats courts"
+        }
+      ]
+    },
+    {
+      "id": "industrie_economie-2",
+      "topicId": "industrie_economie",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Comment protéger la production face à la concurrence internationale ?",
+      "context": "Aujourd’hui : les droits de douane relèvent de l’Union européenne, qui applique depuis 2026 un prix du carbone à quelques importations (acier, ciment, engrais…).",
+      "explainer": {
+        "summary": "La France importe plus de biens qu’elle n’en exporte, mais une partie de ses emplois dépend des exportations. Sa politique commerciale se décide surtout au niveau de l’UE, et les approches divergent : se protéger davantage (droits de douane, prix du carbone, achats publics) ou poursuivre l’ouverture par des accords négociés par l’UE.",
+        "points": [
+          {
+            "text": "Le droit européen interdit de réserver un marché public aux entreprises françaises ou locales : les clauses de préférence locale sont proscrites. Les acheteurs publics peuvent en revanche écarter les entreprises de pays sans accord avec l’UE sur les marchés publics, comme la Chine et l’Inde, et fixer des exigences environnementales et sociales.",
+            "source": {
+              "title": "Rapport n° 830 (2024-2025) de la commission d’enquête sur la commande publique : « L’urgence d’agir pour éviter la sortie de route : piloter la commande publique au service de la souveraineté économique »",
+              "url": "https://www.senat.fr/rap/r24-830-1/r24-830-1_mono.html",
+              "date": "2025-07-08",
+              "publisher": "Sénat"
+            }
+          },
+          {
+            "text": "En mars 2026, la Commission européenne a proposé d’exiger des produits « fabriqués dans l’UE » ou bas carbone dans certains achats et aides publics : acier, ciment, aluminium, voitures, technologies propres dites « zéro émission nette ». Ce projet de règlement doit être négocié par le Parlement européen et le Conseil de l’UE avant d’entrer en vigueur.",
+            "source": {
+              "title": "Commission proposes Industrial Accelerator Act to strengthen industry and create jobs in Europe",
+              "url": "https://employment-social-affairs.ec.europa.eu/news/commission-proposes-industrial-accelerator-act-strengthen-industry-and-create-jobs-europe-2026-03-04_en",
+              "date": "2026-03-04",
+              "publisher": "Commission européenne"
+            }
+          },
+          {
+            "text": "L’accord commercial entre l’UE et le Mercosur (Argentine, Brésil, Paraguay, Uruguay) s’applique à titre provisoire depuis le 1er mai 2026. Le 21 janvier 2026, le Parlement européen a saisi la Cour de justice de l’UE sur sa conformité aux traités, ce qui suspend pour l’heure la ratification (situation au 27 avril 2026).",
+            "source": {
+              "title": "Accord commercial UE - Mercosur : distinguer le vrai du faux",
+              "url": "https://france.representation.ec.europa.eu/informations/accord-commercial-ue-mercosur-distinguer-le-vrai-du-faux-2026-04-27_fr",
+              "date": "2026-04-27",
+              "publisher": "Représentation de la Commission européenne en France"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "-69,2 Md€",
+            "label": "Solde commercial des biens de la France en 2025, en amélioration de 10,0 Md€ sur un an (exportations : 614,7 Md€)",
+            "date": "2025",
+            "source": {
+              "title": "Le chiffre du commerce extérieur – Analyse annuelle 2025",
+              "url": "https://www.douane.gouv.fr/sites/default/files/2026-02/09/chiffre-comex-Analyse-Annuelle-2025.pdf",
+              "date": "2026-02-06",
+              "publisher": "Direction générale des douanes et droits indirects"
+            }
+          },
+          {
+            "value": "13,5 %",
+            "label": "Part des emplois en France qui dépendent des exportations vers des pays hors UE, selon la Commission européenne (exportations de 2024) : 3,46 millions d’emplois liés aux exportations françaises et 671 000 à celles d’autres pays de l’UE",
+            "date": "2024",
+            "source": {
+              "title": "Trade and Jobs: France",
+              "url": "https://policy.trade.ec.europa.eu/analysis-and-assessment/statistics/trade-and-jobs/france_en",
+              "publisher": "Commission européenne (DG Commerce et sécurité économique)"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 13.5,
+              "total": 100,
+              "unit": "%",
+              "whole": "des emplois en France"
+            }
+          },
+          {
+            "value": "de 7,8 % à 35,3 %",
+            "label": "Droits compensateurs (anti-subventions) imposés par l’UE pour cinq ans, applicables depuis le 30 octobre 2024, sur les voitures électriques neuves importées de Chine ; le taux dépend du constructeur",
+            "date": "depuis le 30 octobre 2024",
+            "source": {
+              "title": "EU Commission imposes countervailing duties on imports of battery electric vehicles (BEVs) from China",
+              "url": "https://trade.ec.europa.eu/access-to-markets/en/news/eu-commission-imposes-countervailing-duties-imports-battery-electric-vehicles-bevs-china",
+              "date": "2024-12-12",
+              "publisher": "Commission européenne (Access2Markets)"
+            }
+          },
+          {
+            "value": "170,7 Md€",
+            "label": "Montant des marchés publics recensés en France en 2023 (contrats d’au moins 90 000 € HT seulement), soit 6 % du PIB. Tous contrats confondus, la Cour des comptes européenne estime la commande publique à près de 400 Md€ pour la France.",
+            "date": "2023",
+            "source": {
+              "title": "Rapport n° 830 (2024-2025) de la commission d’enquête sur la commande publique : « L’urgence d’agir pour éviter la sortie de route : piloter la commande publique au service de la souveraineté économique »",
+              "url": "https://www.senat.fr/rap/r24-830-1/r24-830-1_mono.html",
+              "date": "2025-07-08",
+              "publisher": "Sénat"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "industrie_economie-2-a",
+          "text": "Relever les droits de douane européens sur les produits stratégiques venant de Chine, comme les batteries"
+        },
+        {
+          "id": "industrie_economie-2-b",
+          "text": "Intégrer dans le prix des produits importés le coût du carbone émis lors de leur fabrication"
+        },
+        {
+          "id": "industrie_economie-2-c",
+          "text": "Réserver une part des achats publics de l’État et des collectivités à la production française"
+        },
+        {
+          "id": "industrie_economie-2-d",
+          "text": "Poursuivre l’ouverture commerciale par des accords de libre-échange négociés par l’Union européenne",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "industrie_economie-3",
+      "topicId": "industrie_economie",
+      "tier": "essentiel",
+      "step": 2,
+      "rev": 1,
+      "prompt": "Que faire des aides publiques aux entreprises ?",
+      "context": "Aujourd’hui : une commission d’enquête du Sénat a estimé en 2025 ces aides (subventions, allègements de cotisations, crédits d’impôt) à environ 211 milliards d’euros par an.",
+      "explainer": {
+        "summary": "Les aides aux entreprises prennent des formes très diverses (subventions, crédits d’impôt, baisses de cotisations), et leur montant total dépend de ce qu’on y inclut. Le débat porte sur leur coût pour les finances publiques, sur les contreparties à exiger et sur le choix des bénéficiaires.",
+        "points": [
+          {
+            "text": "Devant la commission d’enquête du Sénat, en mai 2025, le ministre de l’Économie a estimé ces aides à 150 Md€ : 40 Md€ de dépenses fiscales (réductions et crédits d’impôt), 30 Md€ de dépenses budgétaires et 80 Md€ d’allègements de cotisations sociales. La commission retient un périmètre plus large, qui inclut notamment les aides de Bpifrance, la banque publique d’investissement. Elle juge impossible, faute de données détaillées, de chiffrer précisément les aides versées aux grandes entreprises.",
+            "source": {
+              "title": "L’essentiel sur le rapport de la commission d’enquête sur l’utilisation des aides publiques aux grandes entreprises et à leurs sous-traitants (rapport n° 808, 2024-2025)",
+              "url": "https://www.senat.fr/rap/r24-808-1/r24-808-1-syn.pdf",
+              "date": "2025-07",
+              "publisher": "Sénat"
+            }
+          },
+          {
+            "text": "La « conditionnalité » recouvre deux choses : les conditions pour obtenir une aide et les contreparties exigées en échange. Certaines aides en comportent : clauses « anti-délocalisation » dans les zones dites « d’aide à finalité régionale », engagement de ne pas verser de dividendes pour les bénéficiaires d’un prêt garanti par l’État (PGE), maintien de l’emploi pendant le projet et les cinq années suivantes dans certaines régions, comme l’Occitanie.",
+            "source": {
+              "title": "L’essentiel sur le rapport de la commission d’enquête sur l’utilisation des aides publiques aux grandes entreprises et à leurs sous-traitants (rapport n° 808, 2024-2025)",
+              "url": "https://www.senat.fr/rap/r24-808-1/r24-808-1-syn.pdf",
+              "date": "2025-07",
+              "publisher": "Sénat"
+            }
+          },
+          {
+            "text": "Selon les évaluations citées par la Cour des comptes, les baisses de cotisations ont un effet positif sur l’emploi au niveau du Smic, mais les études récentes sont plus incertaines. Une simulation faite avec le modèle du Trésor, pour un rapport d’économistes de 2024, chiffre à un million les emplois détruits si elles étaient toutes supprimées. La baisse des cotisations familiales sur les salaires intermédiaires (jusqu’à 3,3 Smic en 2025) a en revanche des effets sur l’emploi « jugés marginaux ».",
+            "source": {
+              "title": "Maîtriser la dynamique des allègements généraux de cotisations sociales (Sécurité sociale 2025, chapitre III)",
+              "url": "https://www.ccomptes.fr/sites/default/files/2025-05/20250526-RALFSS-2025-Maitriser-dynamique-allegements-generaux-de-cotisations-sociales.pdf",
+              "date": "2025-05",
+              "publisher": "Cour des comptes"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "108 Md€",
+            "label": "Aides publiques aux entreprises en 2023 selon la commission d’enquête du Sénat, au sens strict : sans les interventions de Bpifrance, les avantages fiscaux sur la TVA et ceux que l’État ne compte plus officiellement comme « dépenses fiscales »",
+            "date": "2023",
+            "source": {
+              "title": "L’essentiel sur le rapport de la commission d’enquête sur l’utilisation des aides publiques aux grandes entreprises et à leurs sous-traitants (rapport n° 808, 2024-2025)",
+              "url": "https://www.senat.fr/rap/r24-808-1/r24-808-1-syn.pdf",
+              "date": "2025-07",
+              "publisher": "Sénat"
+            }
+          },
+          {
+            "value": "77,3 Md€",
+            "label": "Allègements généraux de cotisations patronales du secteur privé en 2024, contre 20,9 Md€ en 2014. La hausse tient en partie à la transformation, en 2019, d’un crédit d’impôt (le CICE) en baisse de cotisations.",
+            "date": "2024",
+            "source": {
+              "title": "Maîtriser la dynamique des allègements généraux de cotisations sociales (Sécurité sociale 2025, chapitre III)",
+              "url": "https://www.ccomptes.fr/sites/default/files/2025-05/20250526-RALFSS-2025-Maitriser-dynamique-allegements-generaux-de-cotisations-sociales.pdf",
+              "date": "2025-05",
+              "publisher": "Cour des comptes"
+            },
+            "chart": {
+              "kind": "series",
+              "unit": "Md€",
+              "items": [
+                {
+                  "label": "2014",
+                  "value": 20.9
+                },
+                {
+                  "label": "2024",
+                  "value": 77.3
+                }
+              ]
+            }
+          },
+          {
+            "value": "152,5 Md€",
+            "label": "Déficit public de la France en 2025, soit 5,1 % du PIB (après 5,8 % en 2024)",
+            "date": "2025",
+            "source": {
+              "title": "Le compte des administrations publiques en 2025 – Insee Première n° 2106",
+              "url": "https://www.insee.fr/fr/statistiques/8997691",
+              "date": "2026-05-29",
+              "publisher": "Insee"
+            },
+            "chart": {
+              "kind": "series",
+              "unit": "% du PIB",
+              "items": [
+                {
+                  "label": "2024",
+                  "value": 5.8
+                },
+                {
+                  "label": "2025",
+                  "value": 5.1
+                }
+              ]
+            }
+          },
+          {
+            "value": "2 267",
+            "label": "Nombre d’aides publiques aux entreprises recensées en mai 2025 par le site de référence aides-entreprises.fr (État, sécurité sociale, collectivités, Union européenne…)",
+            "date": "mai 2025",
+            "source": {
+              "title": "L’essentiel sur le rapport de la commission d’enquête sur l’utilisation des aides publiques aux grandes entreprises et à leurs sous-traitants (rapport n° 808, 2024-2025)",
+              "url": "https://www.senat.fr/rap/r24-808-1/r24-808-1-syn.pdf",
+              "date": "2025-07",
+              "publisher": "Sénat"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "industrie_economie-3-a",
+          "text": "Réduire nettement leur montant, en supprimant celles accordées sans contrepartie, pour baisser le déficit"
+        },
+        {
+          "id": "industrie_economie-3-b",
+          "text": "Les conditionner à des engagements sur les salaires, l’emploi, l’investissement ou le climat"
+        },
+        {
+          "id": "industrie_economie-3-c",
+          "text": "Les recentrer sur les petites entreprises et l’industrie, en plafonnant celles des grands groupes"
+        }
+      ]
+    },
+    {
+      "id": "retraites-1",
+      "topicId": "retraites",
+      "tier": "essentiel",
+      "step": 2,
+      "rev": 1,
+      "prompt": "Quelle suite donner à la réforme des retraites de 2023 ?",
+      "context": "Aujourd’hui : la réforme de 2023, qui reporte l’âge légal de 62 à 64 ans, est suspendue jusqu’au 1er janvier 2028 ; l’âge de départ est gelé à 62 ans et 9 mois.",
+      "explainer": {
+        "summary": "La réforme de 2023 relève par étapes l’âge légal de départ ; sa suspension oblige à décider de la suite. Le débat met en balance le coût pour le système de retraite et les écarts d’espérance de vie et de santé selon les métiers et les catégories sociales.",
+        "points": [
+          {
+            "text": "Deux règles se combinent. L’âge légal est l’âge avant lequel on ne peut pas partir, sauf départ anticipé (carrière longue, par exemple). La durée d’assurance est le nombre de trimestres à valider pour une pension à taux plein, c’est-à-dire sans réduction (« décote »). Depuis le 1er septembre 2026, une personne née en 1964 peut partir à 62 ans et 9 mois, et il lui faut 170 trimestres pour le taux plein, contre 63 ans et 171 trimestres avant la suspension.",
+            "source": {
+              "title": "Suspension de la réforme des retraites : qui est concerné ?",
+              "url": "https://www.service-public.gouv.fr/particuliers/actualites/A18825",
+              "date": "2026-02-27",
+              "publisher": "Service-public.gouv.fr (DILA)"
+            }
+          },
+          {
+            "text": "Pénibilité : le compte professionnel de prévention donne aux salariés exposés à certains risques des droits à formation, à temps partiel ou à des trimestres de retraite supplémentaires. Depuis une ordonnance de 2017, il retient six facteurs de risque au lieu de dix. Les quatre facteurs retirés (postures pénibles, manutention manuelle de charges, vibrations mécaniques, agents chimiques dangereux) relèvent depuis du départ anticipé pour pénibilité créé en 2010, lié à une maladie professionnelle.",
+            "source": {
+              "title": "Rapport au Président de la République relatif à l’ordonnance n° 2017-1389 du 22 septembre 2017",
+              "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000035607467",
+              "date": "2017-09-23",
+              "publisher": "Légifrance"
+            }
+          },
+          {
+            "text": "Suspendre la réforme ne l’annule pas. Après les personnes nées au premier trimestre 1965, la hausse de l’âge légal reprend avec un trimestre de décalage : l’âge de 64 ans s’appliquera aux personnes nées à partir de 1969, au lieu de 1968.",
+            "source": {
+              "title": "Suspension de la réforme des retraites : qui est concerné ?",
+              "url": "https://www.service-public.gouv.fr/particuliers/actualites/A18825",
+              "date": "2026-02-27",
+              "publisher": "Service-public.gouv.fr (DILA)"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "63,1 ans",
+            "label": "Âge moyen de départ à la retraite en 2025, tous régimes obligatoires. Projection du COR : 64,6 ans en 2070, en tenant compte de la suspension de la réforme",
+            "date": "2025",
+            "source": {
+              "title": "Rapport annuel du COR, juin 2026 : Évolutions et perspectives des retraites en France (synthèse, p. 11)",
+              "url": "https://www.cor-retraites.fr/sites/default/files/2026-07/RA_2026_def.pdf",
+              "date": "2026-06",
+              "publisher": "Conseil d’orientation des retraites"
+            },
+            "chart": {
+              "kind": "series",
+              "unit": "ans",
+              "items": [
+                {
+                  "label": "2025",
+                  "value": 63.1
+                },
+                {
+                  "label": "2070 (projection)",
+                  "value": 64.6
+                }
+              ]
+            }
+          },
+          {
+            "value": "10,5 ans (hommes), 11,8 ans (femmes)",
+            "label": "Espérance de vie sans incapacité à 65 ans, c’est-à-dire sans être limité par un problème de santé dans les activités quotidiennes (France hors Mayotte, 2024)",
+            "date": "2024",
+            "source": {
+              "title": "L’espérance de vie sans incapacité à 65 ans est de 11,8 ans pour les femmes et de 10,5 ans pour les hommes en 2024 (Études et Résultats n° 1363)",
+              "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2026-01/ER1363_esperance_de_vie_sans_incapacit%C3%A9_0.pdf",
+              "date": "2026-01",
+              "publisher": "DREES"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "ans",
+              "items": [
+                {
+                  "label": "Hommes",
+                  "value": 10.5
+                },
+                {
+                  "label": "Femmes",
+                  "value": 11.8
+                }
+              ]
+            }
+          },
+          {
+            "value": "5,3 ans",
+            "label": "Écart d’espérance de vie à 35 ans entre les hommes cadres et les hommes ouvriers (3,4 ans chez les femmes), France hors Mayotte, selon la mortalité observée en 2020-2022",
+            "date": "2020-2022",
+            "source": {
+              "title": "Les écarts d’espérance de vie entre cadres et ouvriers : 5 ans chez les hommes, 3 ans chez les femmes (Insee Première n° 2005)",
+              "url": "https://www.insee.fr/fr/statistiques/8220688",
+              "date": "2024-07-16",
+              "publisher": "Insee"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "ans",
+              "items": [
+                {
+                  "label": "Écart chez les hommes",
+                  "value": 5.3
+                },
+                {
+                  "label": "Écart chez les femmes",
+                  "value": 3.4
+                }
+              ]
+            }
+          },
+          {
+            "value": "1,8 Md€ par an",
+            "label": "Coût moyen de la suspension de la réforme de 2023, en année pleine, jusqu’en 2032 (chiffrage de la DREES repris par le COR)",
+            "date": "2026",
+            "source": {
+              "title": "Rapport annuel du COR, juin 2026 (synthèse, p. 7)",
+              "url": "https://www.cor-retraites.fr/sites/default/files/2026-07/RA_2026_def.pdf",
+              "date": "2026-06",
+              "publisher": "Conseil d’orientation des retraites"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "retraites-1-a",
+          "text": "Ramener l’âge légal de départ à 62 ans et rétablir des critères de pénibilité"
+        },
+        {
+          "id": "retraites-1-b",
+          "text": "Supprimer l’âge légal et ouvrir le départ selon le nombre d’années cotisées et la pénibilité"
+        },
+        {
+          "id": "retraites-1-c",
+          "text": "Fixer des âges de départ différents selon la pénibilité et l’espérance de vie en bonne santé"
+        },
+        {
+          "id": "retraites-1-d",
+          "text": "Laisser les retraites en l’état pour l’instant et donner la priorité à la relance industrielle"
+        },
+        {
+          "id": "retraites-1-e",
+          "text": "Appliquer le report progressif de l’âge légal à 64 ans prévu par la réforme de 2023",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "retraites-2",
+      "topicId": "retraites",
+      "tier": "essentiel",
+      "step": 1,
+      "rev": 1,
+      "prompt": "Comment financer les retraites et faire évoluer les pensions ?",
+      "context": "Aujourd’hui : les pensions sont financées principalement par les cotisations des actifs, selon le principe de la répartition.",
+      "explainer": {
+        "summary": "Le système de retraite est en déficit et le nombre de cotisants par retraité diminue. Les approches divergent sur les ressources à mobiliser (actifs, retraités, entreprises), sur la revalorisation des pensions et sur la place de l’épargne retraite individuelle.",
+        "points": [
+          {
+            "text": "Dans la répartition, les cotisations des actifs paient les pensions versées la même année. Dans la capitalisation, chacun épargne pour sa propre retraite. À côté des régimes obligatoires, il existe une retraite supplémentaire : en 2024, elle a reçu 21,4 Md€ de cotisations, dont 77 % sur des plans d’épargne retraite (PER), et versé 8,9 Md€ de prestations. Fin 2024, 2,7 millions de personnes en percevaient une.",
+            "source": {
+              "title": "Les Plans épargne retraite représentent 77 % des cotisations de retraite supplémentaire en 2024",
+              "url": "https://drees.solidarites-sante.gouv.fr/communique-de-presse-jeux-de-donnees/jeux-de-donnees/les-plans-epargne-retraite-cotisation",
+              "date": "2026-02-03",
+              "publisher": "DREES"
+            }
+          },
+          {
+            "text": "En 2025, le système de retraite a reçu 417 Md€ de ressources (hors produits financiers). Près des deux tiers, soit 277 Md€, viennent des cotisations sur les revenus d’activité. Le reste vient d’impôts affectés et de transferts de l’État ou d’autres organismes publics (branche famille, Unédic pour l’assurance chômage). À règles inchangées, ces ressources passeraient de 13,9 % du PIB en 2025 à 12,9 % en 2070.",
+            "source": {
+              "title": "Rapport annuel du COR, juin 2026 (synthèse, p. 15)",
+              "url": "https://www.cor-retraites.fr/sites/default/files/2026-07/RA_2026_def.pdf",
+              "date": "2026-06",
+              "publisher": "Conseil d’orientation des retraites"
+            }
+          },
+          {
+            "text": "Les pensions de base sont revalorisées chaque année selon la hausse des prix mesurée par l’Insee (hors tabac). Elles ont augmenté de 0,9 % le 1er janvier 2026. Le projet de budget de la Sécurité sociale prévoyait un gel ; les députés l’ont supprimé, et la loi adoptée le 16 décembre 2025 ne le contient pas.",
+            "source": {
+              "title": "Pensions de retraite de base : quelle revalorisation au 1er janvier 2026 ?",
+              "url": "https://www.service-public.gouv.fr/particuliers/actualites/A17919",
+              "date": "2025-12-24",
+              "publisher": "Service-public.gouv.fr (DILA)"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "14,1 % du PIB",
+            "label": "Dépenses de retraite en 2025, tous régimes obligatoires : 422 Md€, soit 24,3 % de l’ensemble des dépenses publiques. Projection du COR : 14,2 % du PIB en 2045 et 15,3 % en 2070",
+            "date": "2025",
+            "source": {
+              "title": "Rapport annuel du COR, juin 2026 (synthèse, p. 9)",
+              "url": "https://www.cor-retraites.fr/sites/default/files/2026-07/RA_2026_def.pdf",
+              "date": "2026-06",
+              "publisher": "Conseil d’orientation des retraites"
+            },
+            "chart": {
+              "kind": "series",
+              "unit": "% du PIB",
+              "items": [
+                {
+                  "label": "2025",
+                  "value": 14.1
+                },
+                {
+                  "label": "2045 (projection)",
+                  "value": 14.2
+                },
+                {
+                  "label": "2070 (projection)",
+                  "value": 15.3
+                }
+              ]
+            }
+          },
+          {
+            "value": "−5,1 Md€",
+            "label": "Solde du système de retraite en 2025 (régimes de base et complémentaires), hors charges et produits financiers, soit −0,2 % du PIB. En les comptant, le déficit est de 1,3 Md€. Projection à règles inchangées : −2,4 % du PIB en 2070 dans le scénario de référence, entre −1,7 % et −3,1 % selon la croissance de la productivité",
+            "date": "2025",
+            "source": {
+              "title": "Rapport annuel du COR, juin 2026 (synthèse, p. 7 et 23 ; partie 2, chapitre 3, p. 91)",
+              "url": "https://www.cor-retraites.fr/sites/default/files/2026-07/RA_2026_def.pdf",
+              "date": "2026-06",
+              "publisher": "Conseil d’orientation des retraites"
+            },
+            "chart": {
+              "kind": "series",
+              "unit": "% du PIB",
+              "items": [
+                {
+                  "label": "2025",
+                  "value": -0.2
+                },
+                {
+                  "label": "2070 (projection)",
+                  "value": -2.4
+                }
+              ]
+            }
+          },
+          {
+            "value": "1,8",
+            "label": "Nombre de cotisants par retraité en 2025 (estimation), contre 2,1 en 2002. Projection : 1,3 en 2070 dans le scénario de référence",
+            "date": "2025",
+            "source": {
+              "title": "Rapport annuel du COR, juin 2026 (p. 72)",
+              "url": "https://www.cor-retraites.fr/sites/default/files/2026-07/RA_2026_def.pdf",
+              "date": "2026-06",
+              "publisher": "Conseil d’orientation des retraites"
+            },
+            "chart": {
+              "kind": "series",
+              "unit": "cotisants par retraité",
+              "items": [
+                {
+                  "label": "2002",
+                  "value": 2.1
+                },
+                {
+                  "label": "2025 (estimation)",
+                  "value": 1.8
+                },
+                {
+                  "label": "2070 (projection)",
+                  "value": 1.3
+                }
+              ]
+            }
+          },
+          {
+            "value": "100,2 %",
+            "label": "Niveau de vie moyen des retraités rapporté à celui de l’ensemble de la population en 2023. Projection du COR : 90,3 % en 2070",
+            "date": "2023",
+            "source": {
+              "title": "Rapport annuel du COR, juin 2026 (synthèse, p. 12)",
+              "url": "https://www.cor-retraites.fr/sites/default/files/2026-07/RA_2026_def.pdf",
+              "date": "2026-06",
+              "publisher": "Conseil d’orientation des retraites"
+            },
+            "chart": {
+              "kind": "series",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "2023",
+                  "value": 100.2
+                },
+                {
+                  "label": "2070 (projection)",
+                  "value": 90.3
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "retraites-2-a",
+          "text": "Créer une cotisation sur les gains de l’intelligence artificielle et de l’automatisation pour financer les pensions"
+        },
+        {
+          "id": "retraites-2-b",
+          "text": "Augmenter le nombre de cotisants par l’emploi des seniors, l’insertion des jeunes et l’immigration légale de travail"
+        },
+        {
+          "id": "retraites-2-c",
+          "text": "Demander plus aux retraités aisés : hausse de leur CSG et pensions revalorisées moins vite que l’inflation"
+        },
+        {
+          "id": "retraites-2-d",
+          "text": "Revaloriser chaque année toutes les pensions au rythme de l’inflation, y compris les plus élevées"
+        },
+        {
+          "id": "retraites-2-e",
+          "text": "Financer les retraites par les cotisations sociales et écarter toute part de retraite par capitalisation"
+        }
+      ]
+    },
+    {
+      "id": "sante-1",
+      "topicId": "sante",
+      "tier": "essentiel",
+      "step": 1,
+      "rev": 1,
+      "prompt": "Quelle priorité pour améliorer l’accès aux soins ?",
+      "context": "Aujourd’hui : plusieurs millions de personnes n’ont pas de médecin traitant, des pénuries de médicaments se répètent et l’hôpital public est financé en grande partie selon son activité.",
+      "explainer": {
+        "summary": "Trouver un médecin traitant ou un médicament reste difficile pour une partie de la population. Les approches divergent sur le levier à privilégier : l’installation des médecins, les centres de santé, le financement de l’hôpital, les coûts de gestion ou la production de médicaments en France.",
+        "points": [
+          {
+            "text": "Une proposition de loi adoptée par l’Assemblée nationale prévoit une autorisation d’installation des médecins, délivrée par l’agence régionale de santé. Cette autorisation serait accordée de droit dans les zones sous-dotées et, ailleurs, seulement après le départ d’un médecin de la même spécialité. En commission, les sénateurs l’ont remplacée par une condition : un généraliste qui s’installe en zone bien dotée s’engage à exercer aussi à temps partiel en zone sous-dotée. L’examen en séance au Sénat, entamé le 11 juin 2026, a été suspendu.",
+            "source": {
+              "title": "Proposition de loi visant à lutter contre les déserts médicaux, d’initiative transpartisane (la loi en clair)",
+              "url": "https://www.senat.fr/travaux-parlementaires/textes-legislatifs/la-loi-en-clair/proposition-de-loi-visant-a-lutter-contre-les-deserts-medicaux-dinitiative-transpartisane.html",
+              "date": "2026-06",
+              "publisher": "Sénat"
+            }
+          },
+          {
+            "text": "En 2025, 2 810 médecins généralistes se sont installés pour la première fois en libéral, contre 2 130 en 2024, une année où ce nombre avait baissé de 9,8 %. Dans les zones d’intervention prioritaire, où les médecins manquent le plus, 891 généralistes se sont installés en 2025, soit près de 45 % de plus qu’en 2024.",
+            "source": {
+              "title": "Observatoire de l’accès aux soins : les résultats 2025 témoignent d’une dynamique positive sur l’ensemble du territoire",
+              "url": "https://www.assurance-maladie.ameli.fr/presse/2026-06-11-cp-observatoire-de-l-acces-aux-soins",
+              "date": "2026-06-11",
+              "publisher": "Assurance maladie"
+            }
+          },
+          {
+            "text": "En 2025, les dépenses de gestion du système de santé (Sécurité sociale, complémentaires santé, ministère et agences) s’élèvent à 17,6 Md€. Cela représente 5,0 % de la dépense courante de santé, mesurée selon la définition utilisée pour les comparaisons internationales.",
+            "source": {
+              "title": "Les dépenses de santé en 2025, édition 2026 – Fiche 28 : Les dépenses de gestion du système de santé",
+              "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2026-09/CNS2026%20-%20Fiche%2028%20-%20Les%20d%C3%A9penses%20de%20gestion%20du%20syst%C3%A8me%20de%20sant%C3%A9.pdf",
+              "date": "2026-10-01",
+              "publisher": "DREES"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "6,3 millions",
+            "label": "assurés adultes sans médecin traitant en 2025 (88,5 % de la population adulte en avait déclaré un)",
+            "date": "2025",
+            "source": {
+              "title": "Le dispositif du médecin traitant",
+              "url": "https://www.ccomptes.fr/fr/publications/le-dispositif-du-medecin-traitant",
+              "date": "2026-09-30",
+              "publisher": "Cour des comptes"
+            }
+          },
+          {
+            "value": "4,3 fois",
+            "label": "plus d’accès aux médecins généralistes pour les 10 % de la population les mieux pourvus que pour les 10 % les moins pourvus (France, 2024). En moyenne, chaque habitant a accès à 3,3 consultations par an.",
+            "date": "2024",
+            "source": {
+              "title": "Accessibilité aux soins de premier recours en 2024",
+              "url": "https://drees.solidarites-sante.gouv.fr/communique-de-presse-jeux-de-donnees/jeux-de-donnees/260722-accessibilite-aux-soins-de-premier-recours-en-2024",
+              "date": "2026-07-22",
+              "publisher": "DREES"
+            }
+          },
+          {
+            "value": "près de 3 880",
+            "label": "déclarations de ruptures ou de risques de rupture de médicaments d’intérêt thérapeutique majeur en 2025, un niveau stable par rapport à 2024. Principales causes : capacités de production insuffisantes ou hausse des ventes.",
+            "date": "2025",
+            "source": {
+              "title": "Rapport d’activité 2025 – Une mobilisation constante pour assurer la disponibilité des produits de santé",
+              "url": "https://ansm.sante.fr/qui-sommes-nous/rapport-dactivite-2025/rapport-dactivite-2025/p/une-mobilisation-constante-pour-assurer-la-disponibilite-des-produits-de-sante",
+              "date": "2026-07",
+              "publisher": "ANSM"
+            }
+          },
+          {
+            "value": "59,2 %",
+            "label": "part des recettes tarifaires dans ce que l’assurance maladie verse aux hôpitaux publics en 2019. Ces recettes correspondent à un tarif fixé pour chaque séjour ou acte : c’est la « tarification à l’activité ». Cette part est de 69,2 % dans le privé non lucratif et de 81,4 % dans le privé lucratif.",
+            "date": "2019",
+            "source": {
+              "title": "La tarification à l’activité",
+              "url": "https://www.ccomptes.fr/fr/publications/la-tarification-lactivite",
+              "date": "2023-07-28",
+              "publisher": "Cour des comptes"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Hôpitaux publics",
+                  "value": 59.2
+                },
+                {
+                  "label": "Privé non lucratif",
+                  "value": 69.2
+                },
+                {
+                  "label": "Privé lucratif",
+                  "value": 81.4
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "sante-1-a",
+          "text": "Encadrer l’installation des médecins pour les orienter vers les territoires qui en manquent"
+        },
+        {
+          "id": "sante-1-b",
+          "text": "Ouvrir partout des centres de santé, dispensaires et permanences mobiles organisés localement"
+        },
+        {
+          "id": "sante-1-c",
+          "text": "Financer l’hôpital selon les besoins de santé plutôt qu’à l’activité, avec un budget en hausse"
+        },
+        {
+          "id": "sante-1-d",
+          "text": "Réduire les dépenses administratives de la santé pour reporter les moyens vers les soins"
+        },
+        {
+          "id": "sante-1-e",
+          "text": "Relocaliser en France la production des médicaments essentiels pour limiter les pénuries"
+        }
+      ]
+    },
+    {
+      "id": "sante-2",
+      "topicId": "sante",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quel rôle pour la Sécurité sociale face aux mutuelles et assurances complémentaires ?",
+      "context": "Aujourd’hui : la Sécurité sociale finance environ les quatre cinquièmes des dépenses de soins ; les complémentaires santé (mutuelles, assurances) en financent une partie du reste.",
+      "explainer": {
+        "summary": "La plupart des soins sont payés en partie par la Sécurité sociale, en partie par une complémentaire santé (mutuelle, assurance ou institution de prévoyance) et en partie par le patient. Les approches divergent : garder ce partage, étendre le rôle de la Sécurité sociale ou réorganiser les régimes. Elles n’ont pas les mêmes effets sur les frais de gestion, la dépense publique et la couverture de chacun.",
+        "points": [
+          {
+            "text": "Tout employeur du secteur privé doit faire bénéficier ses salariés d’une complémentaire santé et en payer au moins 50 % de la cotisation.",
+            "source": {
+              "title": "Complémentaire santé d’entreprise (mutuelle santé)",
+              "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F20739",
+              "date": "2024-05-15",
+              "publisher": "Service-public.fr (DILA)"
+            }
+          },
+          {
+            "text": "En 2025, ce qui reste à payer par les ménages représente 9,7 % de la dépense courante de santé, soit 495 € par habitant. La moyenne de l’Union européenne est de 14,8 % (dernière année disponible). La France est parmi les pays où ce reste à charge est le plus faible, après le Luxembourg et la Croatie.",
+            "source": {
+              "title": "Les dépenses de santé en 2025 – édition 2026 (Panorama)",
+              "url": "https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse-infographie-documents-de-reference/261001-les-d%C3%A9penses-de-sant%C3%A9-en-2025-edition-2026-panorama-de-la-drees",
+              "date": "2026-10-01",
+              "publisher": "DREES"
+            }
+          },
+          {
+            "text": "En 2023, 44 % de la population est couverte par un contrat d’entreprise ou de la fonction publique, 42 % par un contrat individuel et 11 % par la complémentaire santé solidaire (C2S), réservée aux revenus modestes.",
+            "source": {
+              "title": "En 2023, les personnes sous le seuil de pauvreté restent bien plus souvent sans complémentaire santé que les autres (Les Dossiers de la DREES n° 137)",
+              "url": "https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse/les-dossiers-de-la-drees/260401_DD_compl%C3%A9mentaire_sant%C3%A9",
+              "date": "2026-04-01",
+              "publisher": "DREES"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "12,3 %",
+            "label": "part de la dépense courante de santé (au sens international) financée par les complémentaires en 2025. Elles prennent en charge 69 % de l’optique, 48 % des audioprothèses et 46 % des soins et prothèses dentaires.",
+            "date": "2025",
+            "source": {
+              "title": "Les dépenses de santé en 2025 – édition 2026 (Panorama)",
+              "url": "https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse-infographie-documents-de-reference/261001-les-d%C3%A9penses-de-sant%C3%A9-en-2025-edition-2026-panorama-de-la-drees",
+              "date": "2026-10-01",
+              "publisher": "DREES"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Dépense courante de santé",
+                  "value": 12.3
+                },
+                {
+                  "label": "Optique",
+                  "value": 69
+                },
+                {
+                  "label": "Audioprothèses",
+                  "value": 48
+                },
+                {
+                  "label": "Soins et prothèses dentaires",
+                  "value": 46
+                }
+              ]
+            }
+          },
+          {
+            "value": "9,2 Md€ et 7,2 Md€",
+            "label": "frais de gestion en santé des complémentaires (52 % du total) et des régimes de Sécurité sociale (41 %) en 2025, sur 17,6 Md€ de dépenses de gestion du système de santé",
+            "date": "2025",
+            "source": {
+              "title": "Les dépenses de santé en 2025, édition 2026 – Fiche 28 : Les dépenses de gestion du système de santé",
+              "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2026-09/CNS2026%20-%20Fiche%2028%20-%20Les%20d%C3%A9penses%20de%20gestion%20du%20syst%C3%A8me%20de%20sant%C3%A9.pdf",
+              "date": "2026-10-01",
+              "publisher": "DREES"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "Md€",
+              "items": [
+                {
+                  "label": "Complémentaires",
+                  "value": 9.2
+                },
+                {
+                  "label": "Sécurité sociale",
+                  "value": 7.2
+                }
+              ]
+            }
+          },
+          {
+            "value": "3,4 %",
+            "label": "part de la population sans complémentaire santé en 2023 (France hors Mayotte) ; 7 % parmi les personnes sous le seuil de pauvreté",
+            "date": "2023",
+            "source": {
+              "title": "En 2023, les personnes sous le seuil de pauvreté restent bien plus souvent sans complémentaire santé que les autres (Les Dossiers de la DREES n° 137)",
+              "url": "https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse/les-dossiers-de-la-drees/260401_DD_compl%C3%A9mentaire_sant%C3%A9",
+              "date": "2026-04-01",
+              "publisher": "DREES"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Ensemble de la population",
+                  "value": 3.4
+                },
+                {
+                  "label": "Sous le seuil de pauvreté",
+                  "value": 7
+                }
+              ]
+            }
+          },
+          {
+            "value": "+18,8 Md€",
+            "label": "de dépenses publiques dans un scénario étudié en 2022 par le Haut Conseil pour l’avenir de l’assurance maladie. La Sécurité sociale y rembourse aussi le ticket modérateur (la part du tarif qu’elle ne prend pas en charge aujourd’hui) et les dépenses nécessaires d’optique, de dentaire et d’audioprothèses. Des prélèvements obligatoires remplacent alors une partie des cotisations aux complémentaires. Les frais de gestion baissent de 5,4 Md€. La réforme est favorable aux 8 premiers dixièmes de la population et coûteuse pour les 2 derniers.",
+            "date": "2022-01",
+            "source": {
+              "title": "Sécurité sociale : la boîte à outils du Sénat (reprise du rapport du HCAAM « Quatre scénarios polaires d’évolution de l’articulation entre Sécurité sociale et assurance maladie complémentaire »)",
+              "url": "https://www.senat.fr/rap/r24-901/r24-90136.html",
+              "date": "2025-09-23",
+              "publisher": "Sénat"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "sante-2-a",
+          "text": "Faire rembourser les soins essentiels par la seule Sécurité sociale, les complémentaires gardant un rôle réduit"
+        },
+        {
+          "id": "sante-2-b",
+          "text": "Créer partout une complémentaire santé publique et obligatoire, gérée par la Sécurité sociale"
+        },
+        {
+          "id": "sante-2-c",
+          "text": "Fusionner tous les régimes en une Sécurité sociale unique et mettre en commun son informatique avec les complémentaires"
+        },
+        {
+          "id": "sante-2-d",
+          "text": "Conserver le partage actuel des remboursements entre Sécurité sociale et complémentaires santé",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "sante-3",
+      "topicId": "sante",
+      "tier": "essentiel",
+      "step": 2,
+      "rev": 1,
+      "prompt": "Quelle priorité pour accompagner les personnes âgées en perte d’autonomie ?",
+      "context": "Aujourd’hui : les EHPAD (établissements d’hébergement pour personnes âgées dépendantes) sont publics, associatifs ou privés à but lucratif ; une branche de la Sécurité sociale finance l’autonomie depuis 2021.",
+      "explainer": {
+        "summary": "Accompagner les personnes âgées qui perdent leur autonomie pose trois questions : où (en établissement ou à domicile), avec combien de personnel et avec quel financement. Les approches divergent sur le statut des EHPAD à financer, la place du domicile, un nombre minimal de soignants, la prévention des maltraitances et la source de financement.",
+        "points": [
+          {
+            "text": "L’allocation personnalisée d’autonomie (APA), versée par les départements, aide les personnes de 60 ans ou plus en perte d’autonomie. Ce besoin d’aide est mesuré sur une grille nationale : seuls les niveaux GIR 1 à 4 donnent droit à l’APA. Son montant dépend de ce niveau, des revenus et du plan d’aide. Fin 2024, 7,4 % des 60 ans ou plus en bénéficient.",
+            "source": {
+              "title": "Les chiffres clés de l’aide à l’autonomie 2026",
+              "url": "https://www.cnsa.fr/sites/default/files/2026-06/PUB-CNSA-CC2026-WEB-ACCESS.pdf",
+              "date": "2026-06-30",
+              "publisher": "CNSA"
+            }
+          },
+          {
+            "text": "Fin 2023, 697 000 personnes vivent ou sont accueillies dans un établissement pour personnes âgées, soit 4,5 % de moins qu’en 2019 ; 85 % des résidents sont en perte d’autonomie. Selon la DREES, ce recul pourrait s’expliquer par deux raisons. La première serait l’amorce d’un « virage domiciliaire », c’est-à-dire la volonté de privilégier le maintien à domicile. La seconde serait une baisse de la perte d’autonomie chez les seniors.",
+            "source": {
+              "title": "Établissements d’hébergement pour personnes âgées : des résidents aussi âgés et autant en perte d’autonomie qu’en 2019, mais moins nombreux (Études et résultats n° 1351)",
+              "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2025-11/ER%201351%20EHPA-MEL.pdf",
+              "date": "2025-11-04",
+              "publisher": "DREES"
+            }
+          },
+          {
+            "text": "Entre parents et enfants, les droits de succession s’appliquent après un abattement de 100 000 € par enfant, au décès de chaque parent. Le taux augmente ensuite par tranches, de 5 % jusqu’à 45 % pour la part taxable qui dépasse 1 805 677 €. L’époux ou le partenaire de Pacs est exonéré.",
+            "source": {
+              "title": "Droits de succession – Évaluation de la succession et calcul des droits",
+              "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F14198",
+              "date": "2026-02-09",
+              "publisher": "Service-public.fr (DILA)"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "609 970 places",
+            "label": "en EHPAD fin 2023 : 292 840 dans le public, 179 440 dans le privé non lucratif et 137 690 dans le privé lucratif (France métropolitaine et DROM)",
+            "date": "fin 2023",
+            "source": {
+              "title": "L’aide sociale aux personnes âgées ou handicapées, édition 2025 – Fiche : Les établissements d’hébergement pour personnes âgées",
+              "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2025-09/PAPH%20-%20Fiche%2009%20-%20Les%20%C3%A9tablissements%20d%E2%80%99h%C3%A9bergement%20pour%20personnes%20%C3%A2g%C3%A9es_0.pdf",
+              "date": "2025-09",
+              "publisher": "DREES"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "places",
+              "items": [
+                {
+                  "label": "Public",
+                  "value": 292840
+                },
+                {
+                  "label": "Privé non lucratif",
+                  "value": 179440
+                },
+                {
+                  "label": "Privé lucratif",
+                  "value": 137690
+                }
+              ]
+            }
+          },
+          {
+            "value": "66 ETP pour 100 places",
+            "label": "de personnel en équivalent temps plein (ETP) dans les EHPAD fin 2023, tous métiers confondus (France métropolitaine et DROM). Le personnel « au chevet » (infirmiers et aides-soignants) représente 29 ETP pour 100 places, un niveau stable depuis 2019.",
+            "date": "fin 2023",
+            "source": {
+              "title": "L’aide sociale aux personnes âgées ou handicapées, édition 2025 – Fiche : Les établissements d’hébergement pour personnes âgées",
+              "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2025-09/PAPH%20-%20Fiche%2009%20-%20Les%20%C3%A9tablissements%20d%E2%80%99h%C3%A9bergement%20pour%20personnes%20%C3%A2g%C3%A9es_0.pdf",
+              "date": "2025-09",
+              "publisher": "DREES"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "ETP pour 100 places",
+              "items": [
+                {
+                  "label": "Tous métiers confondus",
+                  "value": 66
+                },
+                {
+                  "label": "Infirmiers et aides-soignants",
+                  "value": 29
+                }
+              ]
+            }
+          },
+          {
+            "value": "56 %",
+            "label": "des aides sociales des départements aux personnes âgées, comptées en nombre de bénéficiaires, sont des aides à domicile (850 959), surtout l’APA. Les 44 % restants sont des aides à l’accueil en établissement (676 563). Chiffres au 31 décembre 2024.",
+            "date": "2024-12-31",
+            "source": {
+              "title": "Les chiffres clés de l’aide à l’autonomie 2026",
+              "url": "https://www.cnsa.fr/sites/default/files/2026-06/PUB-CNSA-CC2026-WEB-ACCESS.pdf",
+              "date": "2026-06-30",
+              "publisher": "CNSA"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Aides à domicile",
+                  "value": 56
+                },
+                {
+                  "label": "Accueil en établissement",
+                  "value": 44
+                }
+              ]
+            }
+          },
+          {
+            "value": "31,1 Md€",
+            "label": "d’argent public consacré en 2024 à la perte d’autonomie des personnes âgées, versé à 79 % par la Sécurité sociale, à 16 % par les départements et à 5 % par l’État. Ce montant ne comprend pas les dépenses des personnes elles-mêmes ni celles de leurs proches.",
+            "date": "2024",
+            "source": {
+              "title": "Les chiffres clés de l’aide à l’autonomie 2026",
+              "url": "https://www.cnsa.fr/sites/default/files/2026-06/PUB-CNSA-CC2026-WEB-ACCESS.pdf",
+              "date": "2026-06-30",
+              "publisher": "CNSA"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Sécurité sociale",
+                  "value": 79
+                },
+                {
+                  "label": "Départements",
+                  "value": 16
+                },
+                {
+                  "label": "État",
+                  "value": 5
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "sante-3-a",
+          "text": "Réorienter l’argent public vers les EHPAD publics ou associatifs, à but non lucratif"
+        },
+        {
+          "id": "sante-3-b",
+          "text": "Développer l’aide et les soins à domicile et les résidences autonomie pour retarder l’entrée en EHPAD"
+        },
+        {
+          "id": "sante-3-c",
+          "text": "Financer la perte d’autonomie par une hausse des droits de succession sur les gros héritages"
+        },
+        {
+          "id": "sante-3-d",
+          "text": "Installer des caméras dans les EHPAD pour prévenir les maltraitances"
+        },
+        {
+          "id": "sante-3-e",
+          "text": "Imposer dans tous les EHPAD un nombre minimal de soignants par résident, pour renforcer les effectifs"
+        }
+      ]
+    },
+    {
+      "id": "education-1",
+      "topicId": "education",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelle politique pour la taille des classes ?",
+      "context": "Aujourd’hui : le nombre d’élèves diminue avec la baisse des naissances, ce qui entraîne des fermetures de classes.",
+      "explainer": {
+        "summary": "Avec la baisse des naissances, l’école primaire perd des élèves chaque année. La question est de savoir comment en tenir compte : alléger les classes partout, d’abord dans les territoires en difficulté, ou fermer des classes pour redéployer les postes vers d’autres besoins.",
+        "points": [
+          {
+            "text": "Dans l’éducation prioritaire (réseaux REP, et REP+ pour « renforcé »), les classes de CP puis de CE1 ont été dédoublées entre 2017 et 2019, puis celles de grande section à partir de 2020. Depuis 2020, un plafond de 24 élèves par classe est aussi mis en place en grande section, CP et CE1 dans toute la France. En 2025, 95 % des classes publiques accueillant des élèves de CP le respectent.",
+            "source": {
+              "title": "Taille des classes du premier degré : une neuvième année de baisse consécutive dans les écoles publiques (Note d’information n° 26.01)",
+              "url": "https://www.education.gouv.fr/sites/default/files/document/Education_nationale_DEPP_NI%20Taille%20des%20classes%2026-01.pdf-478592.pdf",
+              "date": "2026-01",
+              "publisher": "Ministère de l’Éducation nationale – DEPP"
+            }
+          },
+          {
+            "text": "L’effet des petites classes fait débat. Selon la DEPP, en REP+, les élèves des classes dédoublées ont davantage progressé que des élèves comparables, surtout en CP, et cet avantage subsiste en fin de CE1. Pour la première génération concernée, une thèse financée par la DEPP ne trouve plus d’écart significatif à l’entrée en 6e, sauf en français dans les départements d’outre-mer.",
+            "source": {
+              "title": "Réduction de la taille de classe en éducation prioritaire : que nous apprennent les données de la DEPP ? (Synthèse de la DEPP n° 8)",
+              "url": "https://www.education.gouv.fr/sites/default/files/document/r-duction-de-la-taille-de-classe-en-ducation-prioritaire-que-nous-apprennent-les-donn-es-de-la-depp--478949.pdf",
+              "date": "2026-02",
+              "publisher": "Ministère de l’Éducation nationale – DEPP"
+            }
+          },
+          {
+            "text": "De 2015 à 2025, les écoles publiques ont perdu des élèves partout : − 6,5 % en éducation prioritaire, − 7,7 % dans l’urbain et − 15,4 % dans le rural (hors éducation prioritaire). Sur la même période, le nombre de classes a augmenté de 25,5 % en éducation prioritaire et de 0,9 % dans l’urbain ; il a baissé de 8,1 % dans le rural.",
+            "source": {
+              "title": "Taille des classes du premier degré : une neuvième année de baisse consécutive dans les écoles publiques (Note d’information n° 26.01, figure 3)",
+              "url": "https://www.education.gouv.fr/sites/default/files/document/Education_nationale_DEPP_NI%20Taille%20des%20classes%2026-01.pdf-478592.pdf",
+              "date": "2026-01",
+              "publisher": "Ministère de l’Éducation nationale – DEPP"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "20,7 élèves",
+            "label": "par classe en moyenne en élémentaire (du CP au CM2) dans les écoles publiques, soit 2,8 de moins qu’en 2015 (France, hors dispositifs ULIS pour élèves en situation de handicap)",
+            "date": "rentrée 2025",
+            "source": {
+              "title": "Taille des classes du premier degré : une neuvième année de baisse consécutive dans les écoles publiques (Note d’information n° 26.01)",
+              "url": "https://www.education.gouv.fr/sites/default/files/document/Education_nationale_DEPP_NI%20Taille%20des%20classes%2026-01.pdf-478592.pdf",
+              "date": "2026-01",
+              "publisher": "Ministère de l’Éducation nationale – DEPP"
+            }
+          },
+          {
+            "value": "12,8 élèves",
+            "label": "par classe de CP en éducation prioritaire renforcée (REP+) après le dédoublement, contre 21,7 en 2015 (France)",
+            "date": "rentrée 2025",
+            "source": {
+              "title": "Taille des classes du premier degré : une neuvième année de baisse consécutive dans les écoles publiques (Note d’information n° 26.01)",
+              "url": "https://www.education.gouv.fr/sites/default/files/document/Education_nationale_DEPP_NI%20Taille%20des%20classes%2026-01.pdf-478592.pdf",
+              "date": "2026-01",
+              "publisher": "Ministère de l’Éducation nationale – DEPP"
+            },
+            "chart": {
+              "kind": "series",
+              "unit": "élèves",
+              "items": [
+                {
+                  "label": "2015",
+                  "value": 21.7
+                },
+                {
+                  "label": "2025",
+                  "value": 12.8
+                }
+              ]
+            }
+          },
+          {
+            "value": "− 933 000 élèves",
+            "label": "dans le premier degré (maternelle et élémentaire) entre 2025 (6,15 millions) et 2035 (5,22 millions), soit − 15,2 %, selon le scénario intermédiaire de projection (France, public et privé sous contrat)",
+            "date": "projection 2025-2035",
+            "source": {
+              "title": "Projections d’effectifs scolaires à horizon 2035 (Note d’information n° 26.09)",
+              "url": "https://www.education.gouv.fr/sites/default/files/document/education-nationale-depp-ni-2026-09-pdf-508061.pdf",
+              "date": "2026-04",
+              "publisher": "Ministère de l’Éducation nationale – DEPP"
+            },
+            "chart": {
+              "kind": "series",
+              "unit": "millions d’élèves",
+              "items": [
+                {
+                  "label": "2025",
+                  "value": 6.15
+                },
+                {
+                  "label": "2035 (projection)",
+                  "value": 5.22
+                }
+              ]
+            }
+          },
+          {
+            "value": "21 élèves",
+            "label": "par classe en moyenne en primaire en France (public et privé), contre 24 en 2015. C’est autant que la moyenne de l’OCDE (21) et plus que celle de 25 pays de l’UE membres de l’OCDE (19)",
+            "date": "2024",
+            "source": {
+              "title": "Education at a Glance 2026 : OECD Indicators (indicateur D2, tableau D2.3)",
+              "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2026/09/education-at-a-glance-2026_3bce4131/b4968bbc-en.pdf",
+              "date": "2026-09",
+              "publisher": "OCDE"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "élèves",
+              "items": [
+                {
+                  "label": "France",
+                  "value": 21
+                },
+                {
+                  "label": "Moyenne de l’OCDE",
+                  "value": 21
+                },
+                {
+                  "label": "Moyenne de 25 pays de l’UE",
+                  "value": 19
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "education-1-a",
+          "text": "Réduire le nombre d’élèves par classe dans toutes les écoles, quel que soit le territoire"
+        },
+        {
+          "id": "education-1-b",
+          "text": "Réduire le nombre d’élèves par classe d’abord dans les écoles des territoires en difficulté"
+        },
+        {
+          "id": "education-1-c",
+          "text": "Fermer des classes là où le nombre d’élèves baisse et redéployer les postes vers d’autres besoins",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "education-2",
+      "topicId": "education",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelles règles pour le financement public des écoles privées sous contrat ?",
+      "context": "Aujourd’hui : les établissements privés sous contrat scolarisent environ un élève sur six et sont financés en grande partie par l’argent public, sans être soumis à la carte scolaire.",
+      "explainer": {
+        "summary": "Les établissements privés sous contrat sont financés en majorité par l’État, mais gardent la main sur l’inscription de leurs élèves, hors de la carte scolaire qui affecte les élèves du public selon leur adresse. Le débat porte sur ce financement : le maintenir dans les règles actuelles, y attacher des obligations de mixité sociale ou le réserver à terme aux écoles publiques.",
+        "points": [
+          {
+            "text": "Depuis la loi Debré de 1959, un établissement privé sous contrat s’engage notamment à suivre les programmes nationaux et à accueillir les élèves sans discrimination. L’État paie ses enseignants, mais ses chefs d’établissement ont plus de pouvoirs que dans le public, notamment pour inscrire les élèves et recruter les personnels. L’enseignement catholique scolarise 96 % des élèves du privé sous contrat.",
+            "source": {
+              "title": "L’enseignement privé sous contrat (rapport public thématique)",
+              "url": "https://www.ccomptes.fr/fr/publications/lenseignement-prive-sous-contrat",
+              "date": "2023-06-01",
+              "publisher": "Cour des comptes"
+            }
+          },
+          {
+            "text": "Les résultats du privé sont en moyenne meilleurs, mais ils dépendent beaucoup du milieu social des élèves accueillis. Selon la Cour des comptes, la recherche ne permet pas d’établir que le privé apporte une plus-value supérieure ou inférieure à celle du public.",
+            "source": {
+              "title": "L’enseignement privé sous contrat (rapport public thématique)",
+              "url": "https://www.ccomptes.fr/fr/publications/lenseignement-prive-sous-contrat",
+              "date": "2023-06-01",
+              "publisher": "Cour des comptes"
+            }
+          },
+          {
+            "text": "Le poids du privé dans le premier degré varie fortement selon les territoires : 13,6 % des écoliers en France hexagonale, 50,7 % en Vendée, mais moins de 5 % dans la Creuse, en Haute-Corse, en Seine-et-Marne ou dans le Val-d’Oise (rentrée 2025).",
+            "source": {
+              "title": "Repères et références statistiques 2026 (fiche 3.02, le premier degré par département et académie)",
+              "url": "https://www.education.gouv.fr/sites/default/files/document/rers-2026-pdf-519880.pdf",
+              "date": "2026-08",
+              "publisher": "Ministère de l’Éducation nationale – DEPP"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "8 871 M€",
+            "label": "de crédits votés par l’État pour 2026 en faveur de l’enseignement privé sous contrat, premier et second degrés (programme 139), soit 9,9 % du budget de l’enseignement scolaire ; 8 812 M€ ont été dépensés en 2025 (France, y compris collectivités d’outre-mer)",
+            "date": "loi de finances 2026",
+            "source": {
+              "title": "Repères et références statistiques 2026 (fiche 10.03, le budget : analyse et évolution)",
+              "url": "https://www.education.gouv.fr/sites/default/files/document/rers-2026-pdf-519880.pdf",
+              "date": "2026-08",
+              "publisher": "Ministère de l’Éducation nationale – DEPP"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 9.9,
+              "total": 100,
+              "unit": "%",
+              "whole": "du budget de l’enseignement scolaire"
+            }
+          },
+          {
+            "value": "55 % et 68 %",
+            "label": "part de l’État dans le financement des établissements privés sous contrat, respectivement dans le premier et dans le second degré",
+            "date": "2022 (rapport de juin 2023)",
+            "source": {
+              "title": "L’enseignement privé sous contrat (rapport public thématique)",
+              "url": "https://www.ccomptes.fr/fr/publications/lenseignement-prive-sous-contrat",
+              "date": "2023-06-01",
+              "publisher": "Cour des comptes"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Premier degré",
+                  "value": 55
+                },
+                {
+                  "label": "Second degré",
+                  "value": 68
+                }
+              ]
+            }
+          },
+          {
+            "value": "58 % contre 33 %",
+            "label": "des collégiens du privé sous contrat sont de milieu favorisé ou très favorisé, contre 33 % dans le public ; ceux de milieu défavorisé y sont 16 %, contre 40 % (France hors Mayotte, origine sociale renseignée)",
+            "date": "rentrée 2025",
+            "source": {
+              "title": "Repères et références statistiques 2026 (fiche 2.19, les élèves du second degré habitant dans un quartier prioritaire)",
+              "url": "https://www.education.gouv.fr/sites/default/files/document/rers-2026-pdf-519880.pdf",
+              "date": "2026-08",
+              "publisher": "Ministère de l’Éducation nationale – DEPP"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Favorisés, privé sous contrat",
+                  "value": 58
+                },
+                {
+                  "label": "Favorisés, public",
+                  "value": 33
+                },
+                {
+                  "label": "Défavorisés, privé sous contrat",
+                  "value": 16
+                },
+                {
+                  "label": "Défavorisés, public",
+                  "value": 40
+                }
+              ]
+            }
+          },
+          {
+            "value": "24,2 contre 20,7",
+            "label": "élèves par classe en moyenne en élémentaire dans le privé sous contrat, contre le public ; dans le premier degré, 45 % des classes du privé comptent plus de 25 élèves, contre 11 % dans le public (France)",
+            "date": "rentrée 2025",
+            "source": {
+              "title": "Taille des classes du premier degré : une neuvième année de baisse consécutive dans les écoles publiques (Note d’information n° 26.01)",
+              "url": "https://www.education.gouv.fr/sites/default/files/document/Education_nationale_DEPP_NI%20Taille%20des%20classes%2026-01.pdf-478592.pdf",
+              "date": "2026-01",
+              "publisher": "Ministère de l’Éducation nationale – DEPP"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "élèves par classe",
+              "items": [
+                {
+                  "label": "Privé sous contrat",
+                  "value": 24.2
+                },
+                {
+                  "label": "Public",
+                  "value": 20.7
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "education-2-a",
+          "text": "Réserver à terme l’argent public de l’enseignement aux seules écoles publiques"
+        },
+        {
+          "id": "education-2-b",
+          "text": "Moduler l’argent public versé aux écoles privées selon leur mixité sociale"
+        },
+        {
+          "id": "education-2-c",
+          "text": "Intégrer les écoles privées sous contrat à la carte scolaire pour y imposer la mixité sociale"
+        },
+        {
+          "id": "education-2-d",
+          "text": "Maintenir le financement public des écoles privées sous contrat dans les règles actuelles",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "education-3",
+      "topicId": "education",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelle mesure prioritaire pour les jeunes ?",
+      "context": "Aujourd’hui : le service civique est volontaire et ouvert aux 16-25 ans ; le revenu de solidarité active (RSA) n’est en principe accessible qu’à partir de 25 ans.",
+      "explainer": {
+        "summary": "Les jeunes adultes sont plus exposés à la pauvreté que l’ensemble de la population, et une partie d’entre eux n’est ni en emploi ni en formation. Les options divergent sur l’objectif prioritaire : l’engagement de tous les jeunes, l’emploi des jeunes chômeurs, les conditions de vie des étudiants ou un revenu minimum dès 18 ans.",
+        "points": [
+          {
+            "text": "Avant 25 ans, le RSA n’est ouvert que dans deux cas : avoir un enfant (né ou à naître), ou avoir travaillé l’équivalent de deux ans à temps plein (3 214 heures) au cours des trois dernières années. Ce second cas, appelé « RSA jeune », concernait 600 foyers au 31 décembre 2023. Les étudiants n’ont pas droit au RSA, sauf exceptions.",
+            "source": {
+              "title": "Minima sociaux et prestations de solidarité, édition 2025 – fiche 23 : le revenu de solidarité active (RSA)",
+              "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2025-12/MS2025%20-%20Fiche%2023%20-%20Le%20revenu%20de%20solidarit%C3%A9%20active%20(RSA).pdf",
+              "date": "2025-12",
+              "publisher": "DREES"
+            }
+          },
+          {
+            "text": "Le contrat d’engagement jeune (CEJ) vise les 16-25 ans qui ne sont ni étudiants ni en formation et peinent à trouver un emploi durable : 15 à 20 heures d’accompagnement par semaine pendant un an au plus (prolongeable de 6 mois), avec une allocation de 566,17 € par mois au maximum.",
+            "source": {
+              "title": "Contrat d’engagement jeune (accompagnement pour trouver un travail)",
+              "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F32700",
+              "date": "2026-04-01",
+              "publisher": "Service-Public.fr (DILA)"
+            }
+          },
+          {
+            "text": "Le service civique est aujourd’hui volontaire : une mission d’intérêt général de 6 mois à 1 an, le plus souvent d’au moins 24 heures par semaine. Le volontaire touche 504,98 € net par mois, plus au moins 114,85 € pour ses frais de repas ou de transport, soit au moins 619,83 €.",
+            "source": {
+              "title": "Engagement de service civique",
+              "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F13278",
+              "date": "2026-07-17",
+              "publisher": "Service-Public.fr (DILA)"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "149 878",
+            "label": "jeunes accueillis en service civique (volontaire) en 2024, une année record ; âge moyen : 21 ans. Plus de 850 000 jeunes s’y sont engagés depuis sa création",
+            "date": "2024",
+            "source": {
+              "title": "Rapport annuel 2024 (« Nos chiffres clés », p. 12)",
+              "url": "https://www.service-civique.gouv.fr/api/media/assets/document/rapport-d-activite-2024-asc-version-web.pdf",
+              "date": "2025-08",
+              "publisher": "Agence du Service Civique"
+            }
+          },
+          {
+            "value": "13,3 %",
+            "label": "des 15-29 ans ne sont ni en emploi, ni en études, ni en formation : 0,9 point de plus que fin 2019 (12,4 %), mais moins que fin 2015 (14,3 %) (France y compris Mayotte, personnes vivant en logement ordinaire, données corrigées des variations saisonnières)",
+            "date": "2e trimestre 2026",
+            "source": {
+              "title": "Au deuxième trimestre 2026, le taux de chômage augmente de 0,2 point et atteint 8,3 % (Informations rapides n° 192)",
+              "url": "https://www.insee.fr/fr/statistiques/9032359",
+              "date": "2026-08-07",
+              "publisher": "Insee"
+            },
+            "chart": {
+              "kind": "series",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Fin 2015",
+                  "value": 14.3
+                },
+                {
+                  "label": "Fin 2019",
+                  "value": 12.4
+                },
+                {
+                  "label": "2e trimestre 2026",
+                  "value": 13.3
+                }
+              ]
+            }
+          },
+          {
+            "value": "661 700",
+            "label": "étudiants boursiers sur critères sociaux (France, toutes formations), en baisse de 2,6 % à la rentrée 2024 : le barème d’éligibilité n’a pas été revalorisé dans un contexte d’inflation. La bourse va de 1 450 € par an (un tiers des boursiers) à 6 340 € (8 %)",
+            "date": "2024-2025",
+            "source": {
+              "title": "Repères et références statistiques 2026 (fiche 10.07, l’aide aux étudiants)",
+              "url": "https://www.education.gouv.fr/sites/default/files/document/rers-2026-pdf-519880.pdf",
+              "date": "2026-08",
+              "publisher": "Ministère de l’Éducation nationale – DEPP / SIES"
+            }
+          },
+          {
+            "value": "18,6 %",
+            "label": "taux de pauvreté des 18-29 ans (niveau de vie inférieur à 60 % du niveau de vie médian), contre 15,4 % pour l’ensemble de la population ; France métropolitaine, hors ménages dont la personne de référence est étudiante",
+            "date": "2024",
+            "source": {
+              "title": "Pauvreté selon l’âge et le seuil – données annuelles de 1996 à 2024",
+              "url": "https://www.insee.fr/fr/statistiques/3565548",
+              "date": "2026-07-09",
+              "publisher": "Insee"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "18-29 ans",
+                  "value": 18.6
+                },
+                {
+                  "label": "Ensemble de la population",
+                  "value": 15.4
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "education-3-a",
+          "text": "Instaurer un service civique obligatoire pour tous les jeunes, avec un volet militaire facultatif"
+        },
+        {
+          "id": "education-3-b",
+          "text": "Financer par l’État des contrats en alternance pour les jeunes chômeurs, dans les métiers de l’écologie"
+        },
+        {
+          "id": "education-3-c",
+          "text": "Augmenter les aides aux étudiants pour le logement, les transports et l’alimentation"
+        },
+        {
+          "id": "education-3-d",
+          "text": "Ouvrir le revenu de solidarité active (RSA) aux 18-25 ans, aujourd’hui largement exclus"
+        }
+      ]
+    },
+    {
+      "id": "logement-1",
+      "topicId": "logement",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Jusqu’où encadrer les loyers ?",
+      "context": "Aujourd’hui : l’encadrement des loyers ne s’applique que dans certaines villes volontaires où le logement manque, comme Paris, Lille, Lyon ou Bordeaux.",
+      "explainer": {
+        "summary": "L’encadrement des loyers, qui plafonne les loyers dans des villes volontaires depuis 2019, prend fin en novembre 2026 si aucune loi ne le prolonge. Le débat porte sur son extension : ses défenseurs y voient une protection des locataires, ses critiques un risque de recul de l’offre de logements à louer.",
+        "points": [
+          {
+            "text": "Il existe deux niveaux de règles. Dans la plupart des communes en zone tendue (grandes agglomérations où la demande de logements dépasse nettement l’offre), le propriétaire ne peut pas augmenter librement le loyer quand il change de locataire. Dans neuf territoires seulement (Paris, deux territoires de Seine-Saint-Denis et six de province), le loyer lui-même est plafonné. Ce plafond, fixé par arrêté préfectoral, dépend du type de location (vide ou meublée), du nombre de pièces et de l’époque de construction ; un « complément de loyer » permet de le dépasser si le logement a une localisation ou un confort particuliers.",
+            "source": {
+              "title": "En quoi consiste l’encadrement des loyers à respecter en zone tendue ?",
+              "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F1314",
+              "date": "2026-08-01",
+              "publisher": "Service-Public.fr (DILA)"
+            }
+          },
+          {
+            "text": "Le plafonnement est une expérimentation de huit ans ouverte par la loi du 23 novembre 2018 : sans nouvelle loi, il s’arrête en novembre 2026. Le 11 décembre 2025, l’Assemblée nationale a adopté en première lecture une proposition de loi qui le rendrait permanent. Le texte permettrait aussi à d’autres communes (en zone tendue ou connaissant de sérieuses difficultés de logement) de le demander.",
+            "source": {
+              "title": "Texte adopté n° 196 – Proposition de loi pour retrouver la confiance et l’équilibre dans les rapports locatifs",
+              "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17t0196_texte-adopte-provisoire",
+              "date": "2025-12-11",
+              "publisher": "Assemblée nationale"
+            }
+          },
+          {
+            "text": "Le texte n’est pas définitivement adopté : le Sénat doit l’examiner en séance le mercredi 21 octobre 2026.",
+            "source": {
+              "title": "Ordre du jour du Sénat (proposition de loi n° 217, 2025-2026)",
+              "url": "https://www.senat.fr/ordre-du-jour/ordre-du-jour.html",
+              "date": "2026-10-03",
+              "publisher": "Sénat"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "−2 à −4 %",
+            "label": "Effet estimé du plafonnement sur les loyers en deux ans, dans les métropoles concernées",
+            "date": "Évaluation publiée en mai 2026",
+            "source": {
+              "title": "Trésor-Éco n° 405 – Logement : des tensions structurelles pesant sur l’offre et la mobilité",
+              "url": "https://www.tresor.economie.gouv.fr/Articles/572b5c4f-81c1-4879-ba96-50962e878252/files/7b57ca30-411c-4af3-8785-01924c8ef73d",
+              "date": "2026-10",
+              "publisher": "Direction générale du Trésor"
+            }
+          },
+          {
+            "value": "−8 %",
+            "label": "Effet estimé sur l’offre de logements privés à louer en deux ans, dans les métropoles concernées hors Île-de-France (aucun effet mesuré à Paris)",
+            "date": "Évaluation publiée en mai 2026",
+            "source": {
+              "title": "Trésor-Éco n° 405 – Logement : des tensions structurelles pesant sur l’offre et la mobilité",
+              "url": "https://www.tresor.economie.gouv.fr/Articles/572b5c4f-81c1-4879-ba96-50962e878252/files/7b57ca30-411c-4af3-8785-01924c8ef73d",
+              "date": "2026-10",
+              "publisher": "Direction générale du Trésor"
+            }
+          },
+          {
+            "value": "Plus d’un tiers",
+            "label": "des baux récents étudiés ont un loyer hors charges supérieur au plafond. Causes possibles selon le rapport : complément de loyer autorisé, non-respect de la règle ou bail non soumis au plafond (environ 270 000 baux signés de 2020 à 2024, dans les communes entrées dans le dispositif avant 2024)",
+            "date": "Baux signés de 2020 à 2024",
+            "source": {
+              "title": "L’encadrement des loyers : effets économiques et redistributifs – Rapport de la mission d’évaluation (G. Chapelle, G. Fack, avec l’IGEDD et l’IGF)",
+              "url": "https://www.clcv.org/storage/app/media/RAPPORT%20FACK%20CHAPELLE.pdf",
+              "date": "2026-05",
+              "publisher": "Mission d’évaluation commandée par le Premier ministre (copie hébergée par la CLCV)"
+            }
+          },
+          {
+            "value": "2 millions de logements",
+            "label": "seraient concernés si le plafonnement était étendu à toutes les zones tendues, avec des effets identiques à ceux observés. Gain estimé pour les locataires : 1,1 Md€, à la charge des propriétaires (787 M€) et de l’État, en recettes fiscales perdues (320 M€) (simulation)",
+            "date": "Simulation publiée en mai 2026",
+            "source": {
+              "title": "L’encadrement des loyers : effets économiques et redistributifs – Rapport de la mission d’évaluation (G. Chapelle, G. Fack, avec l’IGEDD et l’IGF)",
+              "url": "https://www.clcv.org/storage/app/media/RAPPORT%20FACK%20CHAPELLE.pdf",
+              "date": "2026-05",
+              "publisher": "Mission d’évaluation commandée par le Premier ministre (copie hébergée par la CLCV)"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "logement-1-a",
+          "text": "Généraliser l’encadrement des loyers et l’étendre au-delà des seules villes volontaires"
+        },
+        {
+          "id": "logement-1-b",
+          "text": "Étendre l’encadrement des loyers à toutes les zones où le manque de logements est le plus fort"
+        },
+        {
+          "id": "logement-1-c",
+          "text": "Laisser chaque ville volontaire décider d’encadrer ou non ses loyers, comme aujourd’hui",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "logement-2",
+      "topicId": "logement",
+      "tier": "essentiel",
+      "step": 2,
+      "rev": 1,
+      "prompt": "Quel levier prioritaire face à la crise du logement ?",
+      "context": "Aujourd’hui : plus de 2,5 millions de ménages attendent un logement social, et la construction de logements neufs a fortement reculé depuis 2022.",
+      "explainer": {
+        "summary": "Le logement pèse lourd dans le budget des locataires, et la demande de logement social dépasse de loin le nombre d’attributions annuelles. Les leviers proposés agissent sur des points différents (coût pour les locataires, nombre de logements sociaux, factures d’énergie, locations touristiques) et n’ont ni le même coût ni la même rapidité d’effet.",
+        "points": [
+          {
+            "text": "La loi vise à retirer peu à peu du marché locatif les logements les plus énergivores. Le diagnostic de performance énergétique (DPE) classe les logements de A (le plus économe) à G (le plus énergivore). Les logements G sont considérés comme non décents depuis 2025 ; ce sera le cas des F en 2028 et des E en 2034. Depuis août 2022, les loyers des logements F et G ne peuvent plus être augmentés.",
+            "source": {
+              "title": "Diagnostic de performance énergétique (DPE)",
+              "url": "https://www.ecologie.gouv.fr/politiques-publiques/diagnostic-performance-energetique-dpe",
+              "date": "2025-12-19",
+              "publisher": "Ministère de la Transition écologique"
+            }
+          },
+          {
+            "text": "Les locations touristiques de courte durée sont déjà encadrées. Depuis une loi du 19 novembre 2024, les communes peuvent limiter à 90 jours par an, au lieu de 120, la location d’une résidence principale à des touristes. Elles peuvent aussi fixer des quotas d’autorisations de meublés de tourisme.",
+            "source": {
+              "title": "Locations touristiques : de nouvelles règles en 2025 ?",
+              "url": "https://www.service-public.gouv.fr/particuliers/actualites/A17883",
+              "date": "2025-01-20",
+              "publisher": "Service-Public.fr (DILA)"
+            }
+          },
+          {
+            "text": "En 2025, les aides publiques au logement représentaient 45,9 Md€, soit 1,5 % du PIB. Les trois premiers postes : 16,4 Md€ d’aides personnelles au logement, 10,6 Md€ d’aides à la rénovation et 9,9 Md€ de soutien au logement social.",
+            "source": {
+              "title": "Trésor-Éco n° 405 – Logement : des tensions structurelles pesant sur l’offre et la mobilité",
+              "url": "https://www.tresor.economie.gouv.fr/Articles/572b5c4f-81c1-4879-ba96-50962e878252/files/7b57ca30-411c-4af3-8785-01924c8ef73d",
+              "date": "2026-10",
+              "publisher": "Direction générale du Trésor"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "29,6 %",
+            "label": "Taux d’effort médian des locataires du parc privé : la moitié d’entre eux consacrent plus de 29,6 % de leur revenu au logement, aides déduites (26,6 % dans le parc social). Pour les plus modestes (quart de la population au niveau de vie le plus faible), ce taux atteint 42,3 % (France métropolitaine)",
+            "date": "2023",
+            "source": {
+              "title": "Logement – France, portrait social, édition 2025",
+              "url": "https://www.insee.fr/fr/statistiques/8612550?sommaire=8612596",
+              "date": "2025-11-18",
+              "publisher": "Insee"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Locataires du parc privé",
+                  "value": 29.6
+                },
+                {
+                  "label": "Locataires du parc social",
+                  "value": 26.6
+                }
+              ]
+            }
+          },
+          {
+            "value": "380 000",
+            "label": "logements sociaux attribués en un an, pour 2,76 millions de demandes actives fin 2024 (France)",
+            "date": "2024",
+            "source": {
+              "title": "Rapport public annuel 2026 – Faciliter le parcours d’accès au logement social dans les territoires",
+              "url": "https://www.ccomptes.fr/sites/default/files/2026-03/20260325-RPA-2026-I-4-Faciliter-le-parcours-d-acces-au-logement-social_0.pdf",
+              "date": "2026-03-25",
+              "publisher": "Cour des comptes"
+            },
+            "chart": {
+              "kind": "compare",
+              "items": [
+                {
+                  "label": "Attributions en un an",
+                  "value": 380000
+                },
+                {
+                  "label": "Demandes actives fin 2024",
+                  "value": 2760000
+                }
+              ]
+            }
+          },
+          {
+            "value": "369 723",
+            "label": "logements autorisés à la construction en douze mois, soit 9,7 % de moins que la moyenne des cinq années précédentes (France entière)",
+            "date": "Septembre 2025 – août 2026",
+            "source": {
+              "title": "Construction de logements : résultats à fin août 2026 (France entière)",
+              "url": "https://www.statistiques.developpement-durable.gouv.fr/construction-de-logements-resultats-fin-aout-2026-france-entiere",
+              "date": "2026-09-29",
+              "publisher": "SDES – Ministère de la Transition écologique"
+            }
+          },
+          {
+            "value": "3,9 millions",
+            "label": "résidences principales classées F ou G au DPE (« passoires énergétiques »), soit 12,7 % du parc, dont 1,1 million dans le parc locatif privé (13,8 % de ce parc) (France métropolitaine)",
+            "date": "1er janvier 2025",
+            "source": {
+              "title": "Le parc de logements par classe de performance énergétique au 1er janvier 2025",
+              "url": "https://www.statistiques.developpement-durable.gouv.fr/le-parc-de-logements-par-classe-de-performance-energetique-au-1er-janvier-2025",
+              "date": "2025-11-12",
+              "publisher": "SDES – Observatoire national de la rénovation énergétique"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 12.7,
+              "total": 100,
+              "unit": "%",
+              "whole": "des résidences principales"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "logement-2-a",
+          "text": "Plafonner la part des revenus que les locataires du parc privé consacrent à leur logement"
+        },
+        {
+          "id": "logement-2-b",
+          "text": "Construire beaucoup plus de logements sociaux, avec davantage de terrains et de moyens pour les bailleurs sociaux"
+        },
+        {
+          "id": "logement-2-c",
+          "text": "Faire de la rénovation énergétique des logements la priorité, pour réduire les charges des ménages"
+        },
+        {
+          "id": "logement-2-d",
+          "text": "Réguler davantage les locations touristiques de courte durée pour remettre des logements en location"
+        }
+      ]
+    },
+    {
+      "id": "ecologie_energie-1",
+      "topicId": "ecologie_energie",
+      "tier": "essentiel",
+      "step": 2,
+      "rev": 1,
+      "prompt": "Face à la hausse des prix des carburants, quelle réponse privilégier ?",
+      "context": "Aujourd’hui : les prix de l’essence et du gazole ont fortement augmenté, et les taxes représentent une part importante du prix payé à la pompe.",
+      "explainer": {
+        "summary": "Depuis mars 2026, la hausse du pétrole se répercute à la pompe, avec un poids inégal selon les ménages. Le débat porte sur la réponse à apporter : baisser les taxes sur les carburants pour tous, faire payer le secteur pétrolier, réserver les aides aux ménages modestes ou dépendants de la voiture, ou alléger les taxes sur l’électricité pour accélérer la sortie des carburants.",
+        "points": [
+          {
+            "text": "Le prix à la pompe additionne le prix du carburant hors taxes et deux taxes. L’accise est un montant fixe par litre. La TVA, de 20 % (hors Corse et outre-mer), s’applique au prix hors taxes et aussi à l’accise.",
+            "source": {
+              "title": "Guide 2026 sur la fiscalité des énergies",
+              "url": "https://www.ecologie.gouv.fr/sites/default/files/documents/Guide%202026%20sur%20fiscalit%C3%A9%20des%20%C3%A9nergies.pdf",
+              "date": "2026",
+              "publisher": "Ministère de la Transition écologique"
+            }
+          },
+          {
+            "text": "Le Brent, pétrole brut de référence en Europe, a coûté en moyenne 94 $ le baril de mars à mi-septembre 2026, soit 33 $ de plus qu’au début de l’année, sur fond de conflit au Moyen-Orient. Selon le Haut Conseil des finances publiques, les tensions dans le golfe Persique et la guerre en Ukraine affaiblissent aussi les capacités de raffinage. Le Gouvernement prévoit un baril à 88 $ en moyenne en 2026 et à 80 $ en 2027.",
+            "source": {
+              "title": "Avis n° HCFP-2026-5 relatif aux projets de lois de finances et de financement de la sécurité sociale pour l’année 2027",
+              "url": "https://www.hcfp.fr/sites/default/files/2026-10/Avis%20HCFP%202026-5%20-%20PLF-PLFSS%202027.pdf",
+              "date": "2026-09-25",
+              "publisher": "Haut Conseil des finances publiques"
+            }
+          },
+          {
+            "text": "Électricité : l’accise payée par les ménages est de 30,62 €/MWh depuis le 1er août 2026, soit 3,06 centimes par kilowattheure. Pendant le « bouclier tarifaire », de février 2022 à janvier 2024, elle avait été abaissée à 1 €/MWh, le minimum autorisé par le droit européen pour les particuliers.",
+            "source": {
+              "title": "Guide 2026 sur la fiscalité des énergies",
+              "url": "https://www.ecologie.gouv.fr/sites/default/files/documents/Guide%202026%20sur%20fiscalit%C3%A9%20des%20%C3%A9nergies.pdf",
+              "date": "2026",
+              "publisher": "Ministère de la Transition écologique"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "2,37 € le litre",
+            "label": "Prix moyen du gazole à la pompe le vendredi 25 septembre 2026 (237,06 centimes par litre), en hausse de 46,6 % sur un an. Hors taxes, il vaut 136,8 centimes : 108,3 pour le produit raffiné au cours international et 28,5 pour le transport, la distribution et la marge des distributeurs. SP95-E10 : 214,24 centimes (+26,2 %). France métropolitaine hors Corse.",
+            "date": "2026-09-25",
+            "source": {
+              "title": "Cours, prix et marges des produits pétroliers en France et dans l’Union européenne (note hebdomadaire du 25 septembre 2026)",
+              "url": "https://www.ecologie.gouv.fr/sites/default/files/documents/NPG-2026.09.25.pdf",
+              "date": "2026-09-25",
+              "publisher": "Ministère de la Transition écologique (DGEC)"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "centimes par litre",
+              "items": [
+                {
+                  "label": "Prix à la pompe",
+                  "value": 237.06
+                },
+                {
+                  "label": "Prix hors taxes",
+                  "value": 136.8
+                },
+                {
+                  "label": "Dont produit raffiné",
+                  "value": 108.3
+                }
+              ]
+            }
+          },
+          {
+            "value": "60,75 € par hectolitre",
+            "label": "Accise sur le gazole au 1er août 2026, soit 60,75 centimes par litre, taux inchangé depuis le 1er août 2025 (hors Corse). SP95-E10 : 67,50 € par hectolitre. La TVA s’ajoute.",
+            "date": "2026-08-01",
+            "source": {
+              "title": "Guide 2026 sur la fiscalité des énergies (annexes 2 et 3)",
+              "url": "https://www.ecologie.gouv.fr/sites/default/files/documents/Guide%202026%20sur%20fiscalit%C3%A9%20des%20%C3%A9nergies.pdf",
+              "date": "2026",
+              "publisher": "Ministère de la Transition écologique"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "€ par hectolitre",
+              "items": [
+                {
+                  "label": "Gazole",
+                  "value": 60.75
+                },
+                {
+                  "label": "SP95-E10",
+                  "value": 67.5
+                }
+              ]
+            }
+          },
+          {
+            "value": "37,26 $ par baril",
+            "label": "Marge brute de raffinage en septembre 2026 (données provisoires), soit 20,3 centimes par litre, contre 23,17 $ (12,6 centimes) en moyenne sur 2026. Cet indicateur de la DGEC compare la valeur d’un panier de produits raffinés au prix du Brent ; il diffère de la marge réelle de chaque raffinerie.",
+            "date": "2026-09",
+            "source": {
+              "title": "Cours, prix et marges des produits pétroliers en France et dans l’Union européenne (note hebdomadaire du 25 septembre 2026)",
+              "url": "https://www.ecologie.gouv.fr/sites/default/files/documents/NPG-2026.09.25.pdf",
+              "date": "2026-09-25",
+              "publisher": "Ministère de la Transition écologique (DGEC)"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "$ par baril",
+              "items": [
+                {
+                  "label": "Septembre 2026 (provisoire)",
+                  "value": 37.26
+                },
+                {
+                  "label": "Moyenne 2026",
+                  "value": 23.17
+                }
+              ]
+            }
+          },
+          {
+            "value": "10,6 %",
+            "label": "Part des ménages avec voiture qui ont consacré plus d’un mois de revenu annuel au carburant en 2021, soit 2,2 millions de ménages (13,5 % dans les intercommunalités rurales, 9,0 % dans les urbaines). Avec les prix du printemps 2026 appliqués aux revenus de 2021, cette part aurait été de 22,4 % (4,7 millions). France hors Mayotte.",
+            "date": "2021",
+            "source": {
+              "title": "Les dépenses de carburant pèsent davantage sur le budget des ménages ruraux (Insee Première n° 2125)",
+              "url": "https://www.insee.fr/fr/statistiques/9037833",
+              "date": "2026-09-08",
+              "publisher": "INSEE"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "En 2021",
+                  "value": 10.6
+                },
+                {
+                  "label": "Prix du printemps 2026 (simulé)",
+                  "value": 22.4
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "ecologie_energie-1-a",
+          "text": "Baisser pour tous les automobilistes les taxes sur l’essence et le gazole"
+        },
+        {
+          "id": "ecologie_energie-1-b",
+          "text": "Faire payer le secteur pétrolier, en plafonnant les marges des raffineurs ou en taxant ses superprofits"
+        },
+        {
+          "id": "ecologie_energie-1-c",
+          "text": "Réserver les aides aux ménages modestes et à ceux qui dépendent de leur voiture"
+        },
+        {
+          "id": "ecologie_energie-1-e",
+          "text": "Baisser les taxes sur l’électricité pour accélérer l’abandon des carburants"
+        }
+      ]
+    },
+    {
+      "id": "agriculture-1",
+      "topicId": "agriculture",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quel levier privilégier pour soutenir l’agriculture et l’alimentation ?",
+      "context": "Aujourd’hui : les aides de la politique agricole commune européenne sont en grande partie versées en fonction de la surface exploitée.",
+      "explainer": {
+        "summary": "Les fermes sont de moins en moins nombreuses et de plus en plus grandes, et en 2025 la France a importé presque autant de produits agricoles et alimentaires qu’elle en a exporté. Les approches divergent sur le levier à privilégier : aider les ménages modestes à bien se nourrir, freiner la concentration des terres, réorienter les aides européennes, baisser la TVA des aliments produits en France ou filtrer les importations.",
+        "points": [
+          {
+            "text": "La PAC de 2028-2034 est en cours de négociation. En juillet 2025, la Commission européenne a proposé de réunir ses deux fonds actuels et de réserver au moins 300 Md€ au soutien du revenu des agriculteurs de l’UE. L’aide à l’hectare deviendrait unique, dégressive et plafonnée pour les grandes exploitations, avec une priorité aux petites fermes et aux jeunes agriculteurs.",
+            "source": {
+              "title": "Questions and answers on the CAP post-2027 proposal",
+              "url": "https://agriculture.ec.europa.eu/media/news/questions-and-answers-cap-post-2027-proposal-2025-07-23_en",
+              "date": "2025-07-23",
+              "publisher": "Commission européenne (DG Agriculture et développement rural)"
+            }
+          },
+          {
+            "text": "La plupart des produits alimentaires sont soumis au taux réduit de TVA de 5,5 %, sauf exceptions (confiseries, chocolats, margarines, caviar, boissons alcoolisées). Les plats préparés pour une consommation immédiate et les repas servis sur place relèvent du taux de 10 %.",
+            "source": {
+              "title": "TVA – Liquidation – Taux réduits – Produits destinés à l’alimentation humaine (BOI-TVA-LIQ-30-10-10, version en vigueur depuis le 19/11/2025)",
+              "url": "https://bofip.impots.gouv.fr/bofip/2033-PGP.html/identifiant=BOI-TVA-LIQ-30-10-10-20251119",
+              "date": "2025-11-19",
+              "publisher": "Direction générale des finances publiques (BOFiP-Impôts)"
+            }
+          },
+          {
+            "text": "Les aliments importés doivent respecter les normes sanitaires de l’UE, par exemple les limites de résidus de pesticides ou l’interdiction des viandes aux hormones. Leurs normes de production peuvent en revanche différer : un pesticide interdit dans l’UE peut avoir été utilisé si les résidus restent sous la limite fixée. L’accord commercial avec le Mercosur s’applique à titre provisoire depuis le 1er mai 2026.",
+            "source": {
+              "title": "Accord commercial UE - Mercosur : distinguer le vrai du faux",
+              "url": "https://france.representation.ec.europa.eu/informations/accord-commercial-ue-mercosur-distinguer-le-vrai-du-faux-2026-04-27_fr",
+              "date": "2026-04-27",
+              "publisher": "Représentation de la Commission européenne en France"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "11,2 %",
+            "label": "Part des personnes qui, faute de moyens, ne peuvent pas manger de viande, de poisson ou d’équivalent végétarien tous les deux jours, début 2025, France hors Mayotte (7,3 % en 2020)",
+            "date": "début 2025",
+            "source": {
+              "title": "Privation matérielle et sociale en 2025 – Insee Focus n° 380",
+              "url": "https://www.insee.fr/fr/statistiques/8967255",
+              "date": "2026-04-15",
+              "publisher": "Insee"
+            },
+            "chart": {
+              "kind": "series",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "2020",
+                  "value": 7.3
+                },
+                {
+                  "label": "Début 2025",
+                  "value": 11.2
+                }
+              ]
+            }
+          },
+          {
+            "value": "Un tiers",
+            "label": "Part des terres agricoles exploitées par les fermes de 200 hectares ou plus en 2023, qui représentent une exploitation sur dix (France métropolitaine, hors micro-exploitations). Surface moyenne des fermes : 93 hectares, contre 76 en 2010.",
+            "date": "2023",
+            "source": {
+              "title": "Enquête sur la structure des exploitations agricoles en 2023 – L’agrandissement des exploitations se poursuit depuis 2020 (Agreste Primeur n° 2, version révisée)",
+              "url": "https://agreste.agriculture.gouv.fr/agreste-web/download/publication/publie/Pri2502/Primeur2025-2_ESEA-2023_v2.pdf",
+              "date": "2025-06",
+              "publisher": "Agreste, ministère de l’Agriculture"
+            }
+          },
+          {
+            "value": "34,2 Md€",
+            "label": "Paiements directs de la PAC prévus pour la France sur 2023-2027, sur 45,5 Md€ d’aides européennes au total. Dont 16,5 Md€ d’aide de base au revenu, 8,6 Md€ d’écorégime (paiement lié à des pratiques favorables au climat et à l’environnement), 5,1 Md€ d’aides liées à certaines productions, 3,4 Md€ d’aide redistributive en faveur des fermes plus petites et 0,6 Md€ pour les jeunes agriculteurs (première version approuvée du plan stratégique national, 2022)",
+            "date": "2023-2027",
+            "source": {
+              "title": "CAP Strategic Plan 2023-2027: key facts & figures – France",
+              "url": "https://eu-cap-network.ec.europa.eu/sites/default/files/publications/2024-10/eu-cap-network-csp-summary-france.pdf",
+              "date": "2024-09",
+              "publisher": "Commission européenne (EU CAP Network)"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 34.2,
+              "total": 45.5,
+              "unit": "Md€",
+              "whole": "des aides européennes 2023-2027"
+            }
+          },
+          {
+            "value": "200 M€",
+            "label": "Excédent commercial agricole et agroalimentaire de la France en 2025, en baisse de 5 Md€ sur un an, au plus bas depuis au moins 2000. Exportations : 19,3 Md€ de produits agricoles et 65 Md€ de produits des industries agroalimentaires.",
+            "date": "2025",
+            "source": {
+              "title": "Le chiffre du commerce extérieur – Analyse annuelle 2025",
+              "url": "https://www.douane.gouv.fr/sites/default/files/2026-02/09/chiffre-comex-Analyse-Annuelle-2025.pdf",
+              "date": "2026-02-06",
+              "publisher": "Direction générale des douanes et droits indirects"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "agriculture-1-a",
+          "text": "Créer un fonds national pour que les familles modestes achètent une alimentation de qualité à prix réduit"
+        },
+        {
+          "id": "agriculture-1-b",
+          "text": "Plafonner l’agrandissement des exploitations pour freiner la concentration des terres agricoles"
+        },
+        {
+          "id": "agriculture-1-c",
+          "text": "Réorienter les aides agricoles européennes vers les petites fermes, les jeunes agriculteurs et les pratiques écologiques"
+        },
+        {
+          "id": "agriculture-1-d",
+          "text": "Réduire la taxe sur la valeur ajoutée (TVA) des aliments produits en France pour soutenir leur production"
+        },
+        {
+          "id": "agriculture-1-e",
+          "text": "Protéger les agriculteurs en refusant les produits importés qui ne respectent pas les normes françaises"
+        }
+      ]
+    },
+    {
+      "id": "ecologie_energie-2",
+      "topicId": "ecologie_energie",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelle place donner au nucléaire dans la production d’électricité ?",
+      "context": "Aujourd’hui : le nucléaire produit environ deux tiers de l’électricité française ; l’État prévoit six nouveaux réacteurs et en étudie huit de plus.",
+      "explainer": {
+        "summary": "Le débat porte sur l’avenir de la production d’électricité : construire de nouveaux réacteurs, qui produisent sans dépendre du vent ni du soleil mais sont longs et coûteux à bâtir, donner la priorité aux renouvelables, rapides à installer mais dont la production varie avec la météo, ou sortir progressivement du nucléaire. Ces choix engagent le pays pour plusieurs décennies.",
+        "points": [
+          {
+            "text": "La troisième programmation pluriannuelle de l’énergie (PPE3), publiée le 13 février 2026, fixe la stratégie énergétique de la France pour la période 2026-2035.",
+            "source": {
+              "title": "Programmations pluriannuelles de l’énergie (PPE)",
+              "url": "https://www.ecologie.gouv.fr/politiques-publiques/programmations-pluriannuelles-lenergie-ppe",
+              "date": "2026-02-13",
+              "publisher": "Ministère de la Transition écologique"
+            }
+          },
+          {
+            "text": "La durée de vie des réacteurs actuels est en cours d’allongement. À partir de 2026, ceux de 1 300 MW passent leur quatrième « visite décennale », un arrêt d’environ six mois prévu par la loi tous les dix ans, en vue de fonctionner jusqu’à 50 ans. Le réacteur EPR de Flamanville 3 a été raccordé au réseau en décembre 2024.",
+            "source": {
+              "title": "Bilan électrique 2025 : production",
+              "url": "https://analysesetdonnees.rte-france.com/bilan-electrique-2025/production",
+              "date": "2026",
+              "publisher": "RTE"
+            }
+          },
+          {
+            "text": "En 2021, RTE a comparé six scénarios pour atteindre zéro émission nette en 2050. Tous exigent un développement important des renouvelables, jugées « compétitives » ; construire de nouveaux réacteurs y est jugé « pertinent » économiquement. Sans nouveaux réacteurs, il faudrait déployer les renouvelables plus vite que les pays européens les plus dynamiques. Les scénarios à très forte part de renouvelables, et celui qui prolongerait les réacteurs actuels au-delà de 60 ans, reposent sur des « paris technologiques lourds ». Une mise à jour est attendue fin 2026, dans un contexte qui « a fortement évolué ».",
+            "source": {
+              "title": "Futurs énergétiques 2050 : principaux résultats et réactualisation de l’étude",
+              "url": "https://www.rte-france.com/donnees-publications/etudes-prospectives/futurs-energetique-2050",
+              "date": "2021-10 (page mise à jour en 2026)",
+              "publisher": "RTE"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "68,1 %",
+            "label": "Part du nucléaire dans la production d’électricité en 2025 (373,0 TWh), France métropolitaine. Elle a varié entre 63 et 77 % sur les dix dernières années.",
+            "date": "2025",
+            "source": {
+              "title": "Bilan électrique 2025 : production",
+              "url": "https://analysesetdonnees.rte-france.com/bilan-electrique-2025/production",
+              "date": "2026",
+              "publisher": "RTE"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 68.1,
+              "total": 100,
+              "unit": "%",
+              "whole": "de la production d’électricité"
+            }
+          },
+          {
+            "value": "27,0 %",
+            "label": "Part des renouvelables dans la production d’électricité en 2025 (27,9 % en 2024), France métropolitaine. Avec le nucléaire, la part de l’électricité bas-carbone, c’est-à-dire peu émettrice de gaz à effet de serre, atteint 95,2 %.",
+            "date": "2025",
+            "source": {
+              "title": "Bilan électrique 2025 – Production",
+              "url": "https://analysesetdonnees.rte-france.com/bilan-electrique-2025/production",
+              "date": "2026",
+              "publisher": "RTE"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 27,
+              "total": 100,
+              "unit": "%",
+              "whole": "de la production d’électricité"
+            }
+          },
+          {
+            "value": "30,4 GW",
+            "label": "Puissance solaire installée fin 2025 (+5,9 GW en un an), désormais supérieure à celle des installations hydrauliques (25,7 GW).",
+            "date": "2025-12-31",
+            "source": {
+              "title": "Bilan électrique 2025 : synthèse",
+              "url": "https://analysesetdonnees.rte-france.com/bilan-electrique-2025/synthese",
+              "date": "2026",
+              "publisher": "RTE"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "GW",
+              "items": [
+                {
+                  "label": "Solaire (fin 2025)",
+                  "value": 30.4
+                },
+                {
+                  "label": "Hydraulique",
+                  "value": 25.7
+                }
+              ]
+            }
+          },
+          {
+            "value": "67,4 Md€",
+            "label": "Coût de construction estimé de six réacteurs EPR2 (trois paires), en euros de 2020 et hors frais de financement, selon le chiffrage d’EDF de fin 2023 : +30 % par rapport aux 51,7 Md€ de 2022. En euros de 2023 : 79,9 Md€. Ce chiffrage prévoyait la mise en service du premier réacteur, à Penly, en juillet 2038.",
+            "date": "2023-12",
+            "source": {
+              "title": "La filière EPR : une dynamique nouvelle, des risques persistants",
+              "url": "https://www.ccomptes.fr/sites/default/files/2025-01/20250114-La-filiere-EPR--une-dynamique-nouvelle-des-risques-persistants_0.pdf",
+              "date": "2025-01-14",
+              "publisher": "Cour des comptes"
+            },
+            "chart": {
+              "kind": "series",
+              "unit": "Md€ de 2020",
+              "items": [
+                {
+                  "label": "Chiffrage 2022",
+                  "value": 51.7
+                },
+                {
+                  "label": "Chiffrage fin 2023",
+                  "value": 67.4
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "ecologie_energie-2-a",
+          "text": "Construire de nouveaux réacteurs nucléaires tout en développant les énergies renouvelables"
+        },
+        {
+          "id": "ecologie_energie-2-b",
+          "text": "Limiter le nombre de nouveaux réacteurs et donner la priorité aux énergies renouvelables"
+        },
+        {
+          "id": "ecologie_energie-2-c",
+          "text": "Sortir progressivement du nucléaire en le remplaçant par les énergies renouvelables",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "ecologie_energie-3",
+      "topicId": "ecologie_energie",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Comment fixer le prix de l’électricité ?",
+      "context": "Aujourd’hui : la France participe au marché européen de l’électricité, où le prix de gros dépend souvent du coût de la dernière centrale appelée, fréquemment au gaz.",
+      "explainer": {
+        "summary": "Sur le marché de gros européen de l’électricité, tous les producteurs reçoivent le même prix, celui de la dernière offre retenue pour couvrir la demande. Le débat porte sur le lien entre ce prix, les coûts de production et les factures : sortir de ce marché, y rester en calculant une partie de la facture sur les coûts, placer tout le secteur sous un contrôle public unique, ou garder les règles européennes réformées en 2024.",
+        "points": [
+          {
+            "text": "Le réseau de transport, à haute et très haute tension, appartient à RTE, qui le gère. Les réseaux de distribution appartiennent aux communes ; leur gestion est assurée par Enedis (95 % du territoire métropolitain continental) et par quelque 160 régies ou entreprises locales. Les règles européennes, reprises dans le code de l’énergie, imposent que ces gestionnaires restent indépendants des activités de production et de vente du groupe auquel ils peuvent appartenir.",
+            "source": {
+              "title": "Présentation des réseaux d’électricité",
+              "url": "https://www.cre.fr/electricite/reseaux-delectricite/presentation-des-reseaux-delectricite.html",
+              "date": "2024-04-10",
+              "publisher": "Commission de régulation de l’énergie (CRE)"
+            }
+          },
+          {
+            "text": "L’ARENH, qui permettait aux concurrents d’EDF d’acheter à prix régulé une partie de sa production nucléaire, a pris fin le 31 décembre 2025. Les fournisseurs s’approvisionnent désormais entièrement sur les marchés ou avec leurs propres centrales. Depuis le 1er janvier 2026, une taxe prélève 50 %, puis 90 %, des revenus du parc nucléaire historique d’EDF au-delà de deux seuils de prix : c’est le « versement nucléaire universel ».",
+            "source": {
+              "title": "VNU – Estimation des revenus nucléaires d’EDF",
+              "url": "https://www.cre.fr/electricite/marche-de-detail-de-lelectricite/vnu-estimation-des-revenus-nucleaires-dedf.html",
+              "date": "2026-09-18",
+              "publisher": "Commission de régulation de l’énergie (CRE)"
+            }
+          },
+          {
+            "text": "La réforme européenne de 2024 vise des prix plus stables et encourage les contrats de long terme. Quand un État soutient le prix de nouvelles centrales, renouvelables ou nucléaires, il doit passer par des « contrats d’écart compensatoire bidirectionnels », qui stabilisent le revenu du producteur ; les recettes excédentaires doivent revenir aux consommateurs.",
+            "source": {
+              "title": "Questions et réponses sur la réforme de l’organisation du marché de l’électricité",
+              "url": "https://ec.europa.eu/commission/presscorner/detail/fr/qanda_24_2260",
+              "date": "2024-05-21",
+              "publisher": "Commission européenne"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "61 €/MWh",
+            "label": "Prix moyen de l’électricité sur le marché de gros (prix « spot ») en France en 2025. Il était de 58 €/MWh en 2024, de 275,9 €/MWh en 2022 au plus fort de la crise et de 39,4 €/MWh en 2019.",
+            "date": "2025",
+            "source": {
+              "title": "Bilan électrique 2025 : synthèse",
+              "url": "https://analysesetdonnees.rte-france.com/bilan-electrique-2025/synthese",
+              "date": "2026",
+              "publisher": "RTE"
+            },
+            "chart": {
+              "kind": "series",
+              "unit": "€/MWh",
+              "items": [
+                {
+                  "label": "2019",
+                  "value": 39.4
+                },
+                {
+                  "label": "2022",
+                  "value": 275.9
+                },
+                {
+                  "label": "2024",
+                  "value": 58
+                },
+                {
+                  "label": "2025",
+                  "value": 61
+                }
+              ]
+            }
+          },
+          {
+            "value": "Environ 30 % du temps",
+            "label": "En mars et en novembre 2025, deux mois étudiés par RTE, le prix spot a dépassé le coût variable minimal des centrales à gaz environ 30 % du temps : pour RTE, un indice du temps où le gaz a pu fixer le prix (barrages et batteries peuvent aussi caler leurs offres sur le prix du gaz). Ces centrales ont produit environ 3 % de l’électricité en 2025. Depuis mi-2024, les prix à terme annuels français restent sous leurs coûts variables.",
+            "date": "2025",
+            "source": {
+              "title": "Bilan électrique 2025 : prix",
+              "url": "https://analysesetdonnees.rte-france.com/bilan-electrique-2025/prix",
+              "date": "2026",
+              "publisher": "RTE"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 30,
+              "total": 100,
+              "unit": "%",
+              "whole": "du temps, mars et novembre 2025"
+            }
+          },
+          {
+            "value": "92,3 TWh",
+            "label": "Exportations nettes d’électricité de la France en 2025, un record, soit l’équivalent de 17 % de sa production. La France reste le premier exportateur net d’Europe en volume.",
+            "date": "2025",
+            "source": {
+              "title": "Bilan électrique 2025 : synthèse",
+              "url": "https://analysesetdonnees.rte-france.com/bilan-electrique-2025/synthese",
+              "date": "2026",
+              "publisher": "RTE"
+            }
+          },
+          {
+            "value": "54,8 %",
+            "label": "Part des foyers (sites résidentiels) au tarif réglementé de vente d’électricité fin juin 2026 : 19,2 millions sur 35,04 millions. Les 15,84 millions d’autres foyers ont une offre de marché. France métropolitaine.",
+            "date": "2026-06-30",
+            "source": {
+              "title": "La CRE publie son observatoire des marchés de détail du 2e trimestre 2026",
+              "url": "https://www.cre.fr/actualites/toute-lactualite/la-cre-publie-son-observatoire-des-marches-de-detail-du-2eme-trimestre-2026.html",
+              "date": "2026-09-30",
+              "publisher": "Commission de régulation de l’énergie (CRE)"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 54.8,
+              "total": 100,
+              "unit": "%",
+              "whole": "des foyers"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "ecologie_energie-3-a",
+          "text": "Sortir la France du marché européen de l’électricité pour fixer les prix au niveau national"
+        },
+        {
+          "id": "ecologie_energie-3-b",
+          "text": "Rester dans le marché européen en calculant une partie de la facture sur les coûts de production"
+        },
+        {
+          "id": "ecologie_energie-3-c",
+          "text": "Placer la production, le transport et la distribution d’électricité sous un contrôle public unique"
+        },
+        {
+          "id": "ecologie_energie-3-d",
+          "text": "Conserver les règles actuelles du marché européen de l’électricité, réformées en 2024",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "ecologie_energie-4",
+      "topicId": "ecologie_energie",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Comment financer les investissements de la transition écologique ?",
+      "context": "Aujourd’hui : les règles budgétaires européennes encadrent le déficit et la dette publics, y compris pour les investissements écologiques.",
+      "explainer": {
+        "summary": "Réduire les émissions de gaz à effet de serre demande d’investir davantage, alors que le déficit public dépasse le seuil européen de 3 % et que la dette augmente. Les approches divergent sur l’origine de l’argent : emprunt auprès des épargnants, fonds public dédié, traitement à part de la dette « verte », impôt sur la fortune rétabli ou redéploiement de dépenses existantes.",
+        "points": [
+          {
+            "text": "Depuis 2024, les règles européennes plafonnent la hausse des « dépenses nettes ». Ce sont les dépenses publiques hors intérêts de la dette et hors dépenses financées par des fonds européens (y compris leur cofinancement national), corrigées des hausses ou baisses d’impôts décidées. Visée depuis juillet 2024 par une procédure pour déficit excessif, la France doit ramener son déficit de 5,1 % du PIB en 2025 sous 3 % d’ici 2029.",
+            "source": {
+              "title": "Avis n° HCFP-2026-5 relatif aux projets de lois de finances et de financement de la sécurité sociale pour l’année 2027",
+              "url": "https://www.hcfp.fr/sites/default/files/2026-10/Avis%20HCFP%202026-5%20-%20PLF-PLFSS%202027.pdf",
+              "date": "2026-09-25",
+              "publisher": "Haut Conseil des finances publiques"
+            }
+          },
+          {
+            "text": "Un rapport remis à la Première ministre en 2023 évalue le risque pour la dette publique à environ 10 points de PIB en 2030, 15 en 2035 et 25 en 2040, du fait des dépenses nouvelles et de recettes réduites par une croissance plus lente, en supposant compensée la baisse des recettes tirées des taxes sur l’énergie. Pour financer la transition, il évoque trois leviers : redéployer les dépenses défavorables au climat, emprunter et relever les prélèvements obligatoires.",
+            "source": {
+              "title": "Les incidences économiques de l’action pour le climat (rapport à la Première ministre)",
+              "url": "https://www.strategie-plan.gouv.fr/publications/incidences-economiques-de-laction-climat",
+              "date": "2023-05-22",
+              "publisher": "France Stratégie (aujourd’hui Haut-commissariat à la Stratégie et au Plan)"
+            }
+          },
+          {
+            "text": "Exemple de règle comptable : le prêt du Fonds d’épargne (qui gère l’épargne du Livret A) à EDF pour les nouveaux réacteurs est accordé pour le compte de l’État. Il devrait donc être intégré aux comptes publics dès les premiers versements, attendus en 2027.",
+            "source": {
+              "title": "Avis n° HCFP-2026-5 relatif aux projets de lois de finances et de financement de la sécurité sociale pour l’année 2027",
+              "url": "https://www.hcfp.fr/sites/default/files/2026-10/Avis%20HCFP%202026-5%20-%20PLF-PLFSS%202027.pdf",
+              "date": "2026-09-25",
+              "publisher": "Haut Conseil des finances publiques"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "Plus de 2 points de PIB",
+            "label": "Investissements supplémentaires nécessaires en 2030 pour réduire les émissions, par rapport à un scénario sans action climatique (estimation de 2023).",
+            "date": "2023-05",
+            "source": {
+              "title": "Les incidences économiques de l’action pour le climat (rapport à la Première ministre)",
+              "url": "https://www.strategie-plan.gouv.fr/publications/incidences-economiques-de-laction-climat",
+              "date": "2023-05-22",
+              "publisher": "France Stratégie (aujourd’hui Haut-commissariat à la Stratégie et au Plan)"
+            }
+          },
+          {
+            "value": "115,7 % du PIB",
+            "label": "Dette publique fin 2025, au sens retenu par les règles européennes (dite « de Maastricht »). Le Gouvernement prévoit 119,3 % en 2026 et 121,7 % en 2027.",
+            "date": "2025",
+            "source": {
+              "title": "Avis n° HCFP-2026-5 relatif aux projets de lois de finances et de financement de la sécurité sociale pour l’année 2027 (annexe 3)",
+              "url": "https://www.hcfp.fr/sites/default/files/2026-10/Avis%20HCFP%202026-5%20-%20PLF-PLFSS%202027.pdf",
+              "date": "2026-09-25",
+              "publisher": "Haut Conseil des finances publiques"
+            },
+            "chart": {
+              "kind": "series",
+              "unit": "% du PIB",
+              "items": [
+                {
+                  "label": "2025",
+                  "value": 115.7
+                },
+                {
+                  "label": "2026 (prévision)",
+                  "value": 119.3
+                },
+                {
+                  "label": "2027 (prévision)",
+                  "value": 121.7
+                }
+              ]
+            }
+          },
+          {
+            "value": "17,9 %",
+            "label": "Taux d’épargne des ménages en 2025, c’est-à-dire la part de leur revenu disponible qu’ils mettent de côté. Selon le Gouvernement, la moyenne 2010-2019 était de 14,6 % et le taux serait encore de 17,3 % en 2027.",
+            "date": "2025",
+            "source": {
+              "title": "Avis n° HCFP-2026-5 relatif aux projets de lois de finances et de financement de la sécurité sociale pour l’année 2027 (annexes 1 et 2)",
+              "url": "https://www.hcfp.fr/sites/default/files/2026-10/Avis%20HCFP%202026-5%20-%20PLF-PLFSS%202027.pdf",
+              "date": "2026-09-25",
+              "publisher": "Haut Conseil des finances publiques"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Moyenne 2010-2019",
+                  "value": 14.6
+                },
+                {
+                  "label": "2025",
+                  "value": 17.9
+                },
+                {
+                  "label": "2027 (prévision)",
+                  "value": 17.3
+                }
+              ]
+            }
+          },
+          {
+            "value": "2,3 Md€",
+            "label": "Montant total de l’impôt sur la fortune immobilière (IFI) figurant sur les avis adressés à 193 600 foyers en 2025, en hausse de 8,0 % sur un an. L’IFI, qui ne porte que sur l’immobilier, a remplacé en 2018 l’impôt de solidarité sur la fortune (ISF).",
+            "date": "2025",
+            "source": {
+              "title": "Bulletin DGFiP Statistiques n° 45 – L’impôt sur la fortune immobilière en 2025 (14/04/2026)",
+              "url": "https://www.impots.gouv.fr/actualite/bulletin-dgfip-statistiques-ndeg45-limpot-sur-la-fortune-immobiliere-en-2025",
+              "date": "2026-08-28",
+              "publisher": "DGFiP"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "ecologie_energie-4-a",
+          "text": "Lancer un grand emprunt national auprès des épargnants pour financer l’électrification et l’industrie"
+        },
+        {
+          "id": "ecologie_energie-4-b",
+          "text": "Créer un fonds public national et européen doté de ressources stables sur plusieurs décennies"
+        },
+        {
+          "id": "ecologie_energie-4-c",
+          "text": "Distinguer la dette contractée pour la transition écologique du reste de la dette publique"
+        },
+        {
+          "id": "ecologie_energie-4-d",
+          "text": "Rétablir un impôt sur la fortune des plus gros patrimoines, consacré à l’action climatique"
+        },
+        {
+          "id": "ecologie_energie-4-e",
+          "text": "Redéployer des dépenses publiques existantes, sans nouvel impôt ni nouvelle dette",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "ecologie_energie-5",
+      "topicId": "ecologie_energie",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quel principe doit guider en priorité la transition écologique ?",
+      "context": "Aujourd’hui : la loi fixe à la France un objectif de neutralité carbone en 2050.",
+      "explainer": {
+        "summary": "Les émissions françaises de gaz à effet de serre baissent encore, mais de moins en moins vite, alors que les objectifs supposent d’accélérer. Les approches divergent sur le levier à privilégier : une règle pour l’argent public, une loi contraignante, la politique industrielle ou la répartition de l’effort entre gros émetteurs et ménages.",
+        "points": [
+          {
+            "text": "La trajectoire est fixée par la stratégie nationale bas-carbone (SNBC). Elle découpe l’effort en « budgets carbone » : des plafonds d’émissions par période de cinq ans, fixés par décret. La troisième stratégie (version de juillet 2026) retient 342 millions de tonnes d’équivalent CO₂ (Mt CO₂e) par an en moyenne pour 2024-2028. Elle traduit les objectifs européens en une baisse « de l’ordre de −50 % » des émissions entre 1990 et 2030, soit environ 273 Mt CO₂e.",
+            "source": {
+              "title": "Stratégie nationale bas-carbone n°3 – Partie 1 (version de juillet 2026)",
+              "url": "https://www.ecologie.gouv.fr/sites/default/files/documents/SNBC3-Partie1-Juillet2026.pdf",
+              "date": "2026-07",
+              "publisher": "Ministère de la Transition écologique"
+            }
+          },
+          {
+            "text": "Une loi du 8 novembre 2019 prévoit qu’une loi fixe les objectifs et les priorités de la politique énergétique « avant le 1er juillet 2023, puis tous les cinq ans ». En juillet 2026, le HCC relevait que la stratégie énergie-climat ne reposait sur aucune loi de ce type. Cette stratégie comprend la SNBC, le plan d’adaptation et la programmation de l’énergie, publiée par le gouvernement en février 2026.",
+            "source": {
+              "title": "Rapport annuel 2026 « Dangers climatiques : la France face à ses responsabilités » – Résumé exécutif et recommandations",
+              "url": "https://www.hautconseilclimat.fr/wp-content/uploads/2026/07/HCC_RA2026-Resume-executif-Recommandations_1707.pdf",
+              "date": "2026-07-09",
+              "publisher": "Haut Conseil pour le climat"
+            }
+          },
+          {
+            "text": "Les centrales, l’industrie et les vols intra-européens relèvent déjà d’un marché européen du carbone : ils doivent restituer un quota pour chaque tonne émise. Un second marché, pour le transport routier et les bâtiments, doit démarrer en 2028. Selon un calcul du HCC, un quota à 60 € la tonne de CO₂ ferait monter le gazole d’au moins 5 centimes par litre, même en ajustant au maximum les taxes existantes. Un Fonds social pour le climat doit aider les ménages vulnérables : 9,7 Md€ pour la France sur 2026-2032, cofinancés à 25 % par la France. En juillet 2026, la France n’avait ni présenté le plan exigé pour y accéder, ni transposé ce second marché.",
+            "source": {
+              "title": "Rapport annuel 2026 – Chapitre 4 : suivi des émissions et des politiques publiques par secteur",
+              "url": "https://www.hautconseilclimat.fr/wp-content/uploads/2026/07/RANC2026-Chapitre-4.pdf",
+              "date": "2026-07-09",
+              "publisher": "Haut Conseil pour le climat"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "359 Mt CO₂e",
+            "label": "Émissions de gaz à effet de serre de la France (Hexagone et outre-mer de l’UE), en millions de tonnes d’équivalent CO₂. Ce total ne déduit pas le CO₂ absorbé par les forêts et les sols. Il a baissé de 2,1 % sur un an, après −3,0 % en 2024",
+            "date": "2025 (pré-estimation)",
+            "source": {
+              "title": "Rapport Secten 2026 – Synthèse et messages clés",
+              "url": "https://www.citepa.org/wp-content/uploads/2026/06/Synthese-et-messages-cles-Secten-2026.pdf",
+              "date": "2026-06-16",
+              "publisher": "Citepa"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Évolution en 2024",
+                  "value": -3
+                },
+                {
+                  "label": "Évolution en 2025",
+                  "value": -2.1
+                }
+              ]
+            }
+          },
+          {
+            "value": "plus de 4 % par an",
+            "label": "Baisse annuelle moyenne des émissions nécessaire en 2026, 2027 et 2028 pour respecter le budget carbone 2024-2028, soit au moins le double du rythme de 2025",
+            "date": "2026-2028 (évaluation de juillet 2026)",
+            "source": {
+              "title": "Rapport annuel 2026 « Dangers climatiques : la France face à ses responsabilités » – Résumé exécutif et recommandations",
+              "url": "https://www.hautconseilclimat.fr/wp-content/uploads/2026/07/HCC_RA2026-Resume-executif-Recommandations_1707.pdf",
+              "date": "2026-07-09",
+              "publisher": "Haut Conseil pour le climat"
+            }
+          },
+          {
+            "value": "−14 %",
+            "label": "Évolution des émissions soumises au marché européen du carbone (centrales électriques et de chaleur, industrie, vols intra-européens), contre −0,4 % pour les autres émissions. Dans l’industrie, la baisse tient aussi à un recul de la production",
+            "date": "2025",
+            "source": {
+              "title": "Rapport annuel 2026 « Dangers climatiques : la France face à ses responsabilités » – Résumé exécutif et recommandations",
+              "url": "https://www.hautconseilclimat.fr/wp-content/uploads/2026/07/HCC_RA2026-Resume-executif-Recommandations_1707.pdf",
+              "date": "2026-07-09",
+              "publisher": "Haut Conseil pour le climat"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Soumises au marché du carbone",
+                  "value": -14
+                },
+                {
+                  "label": "Autres émissions",
+                  "value": -0.4
+                }
+              ]
+            }
+          },
+          {
+            "value": "−5 %",
+            "label": "Évolution en 2024 des investissements publics et privés en faveur du climat, après +50 % en dix ans (en euros constants). Selon le Haut Conseil pour le climat (HCC), ils devraient presque doubler d’ici 2030",
+            "date": "2024",
+            "source": {
+              "title": "Rapport annuel 2026 « Dangers climatiques : la France face à ses responsabilités » – Résumé exécutif et recommandations",
+              "url": "https://www.hautconseilclimat.fr/wp-content/uploads/2026/07/HCC_RA2026-Resume-executif-Recommandations_1707.pdf",
+              "date": "2026-07-09",
+              "publisher": "Haut Conseil pour le climat"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "ecologie_energie-5-a",
+          "text": "Conditionner toute dépense ou aide publique au respect des objectifs de climat et de biodiversité"
+        },
+        {
+          "id": "ecologie_energie-5-b",
+          "text": "Adopter dès le début du mandat une loi climat fixant des objectifs contraignants de baisse des émissions"
+        },
+        {
+          "id": "ecologie_energie-5-c",
+          "text": "Faire de la transition écologique le moteur de la relance industrielle et de la création d’emplois"
+        },
+        {
+          "id": "ecologie_energie-5-d",
+          "text": "Faire porter l’effort d’abord sur les plus gros pollueurs plutôt que sur les ménages"
+        }
+      ]
+    },
+    {
+      "id": "ecologie_energie-6",
+      "topicId": "ecologie_energie",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelles priorités pour les transports et les déplacements ?",
+      "context": "Aujourd’hui : les lignes ferroviaires régionales s’ouvrent progressivement à la concurrence, et la plupart des autoroutes sont exploitées par des sociétés privées sous concession.",
+      "explainer": {
+        "summary": "Les transports sont le premier secteur émetteur de gaz à effet de serre en France, et la voiture représente plus de la moitié de leurs émissions. Le débat porte sur l’aide aux ménages pour passer à l’électrique et sur l’organisation du rail : opérateur public unique ou concurrence. Il porte aussi sur la place du train face à l’avion et sur l’avenir des autoroutes à la fin des concessions.",
+        "points": [
+          {
+            "text": "Les contrats des sociétés d’autoroutes « historiques » prennent fin entre 2031 et 2036. Les concessionnaires doivent alors remettre gratuitement le réseau à l’État. Depuis 2024, une taxe sur l’exploitation des infrastructures de transport de longue distance, assise sur les péages, vise à accroître leur contribution au financement des infrastructures de transport. Elle leur a coûté environ 0,5 Md€ en 2024.",
+            "source": {
+              "title": "Synthèse des comptes des sociétés concessionnaires d’autoroutes – exercice 2024",
+              "url": "https://www.autorite-transports.fr/wp-content/uploads/2025/12/synthese_des_comptes_sca_2024.pdf",
+              "date": "2025-12",
+              "publisher": "Autorité de régulation des transports"
+            }
+          },
+          {
+            "text": "Depuis 2024, les ménages des cinq premiers déciles de revenus (la moitié la plus modeste) peuvent louer une voiture électrique neuve pour 100 à 200 € par mois. 50 000 véhicules ont été loués début 2024, 50 000 de plus fin 2025, et 50 000 autres sont prévus en 2026. L’aide représente environ 8 400 € par véhicule en 2026. Elle est désormais financée par les certificats d’économies d’énergie, un dispositif qui oblige les fournisseurs d’énergie à financer des économies d’énergie.",
+            "source": {
+              "title": "Rapport annuel 2026 – Chapitre 4 : suivi des émissions et des politiques publiques par secteur",
+              "url": "https://www.hautconseilclimat.fr/wp-content/uploads/2026/07/RANC2026-Chapitre-4.pdf",
+              "date": "2026-07-09",
+              "publisher": "Haut Conseil pour le climat"
+            }
+          },
+          {
+            "text": "Un décret du 22 mai 2023 permet d’interdire les vols intérieurs réguliers lorsqu’une alternative en train de moins de 2 h 30 existe. Pour l’été 2026, huit liaisons sont susceptibles d’être interdites : sept relient Paris-Orly à Nantes, Lyon, Bordeaux, Rennes, Strasbourg, Lille ou Reims, la huitième relie Lille à Paris-Charles-de-Gaulle.",
+            "source": {
+              "title": "Interdiction liaisons de moins de 2h30",
+              "url": "https://www.ecologie.gouv.fr/politiques-publiques/interdiction-liaisons-moins-2h30",
+              "date": "2026-04-14",
+              "publisher": "Ministère de la Transition écologique"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "55 %",
+            "label": "Part des voitures particulières dans les émissions des transports, qui atteignent 122,9 millions de tonnes d’équivalent CO₂ (34 % des émissions de la France). Suivent les poids lourds (22 %), les utilitaires légers (13 %) et l’avion sur les trajets intérieurs (4 %)",
+            "date": "2025 (estimation provisoire)",
+            "source": {
+              "title": "Rapport annuel 2026 – Chapitre 4 : suivi des émissions et des politiques publiques par secteur",
+              "url": "https://www.hautconseilclimat.fr/wp-content/uploads/2026/07/RANC2026-Chapitre-4.pdf",
+              "date": "2026-07-09",
+              "publisher": "Haut Conseil pour le climat"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Voitures particulières",
+                  "value": 55
+                },
+                {
+                  "label": "Poids lourds",
+                  "value": 22
+                },
+                {
+                  "label": "Utilitaires légers",
+                  "value": 13
+                },
+                {
+                  "label": "Avion, trajets intérieurs",
+                  "value": 4
+                }
+              ]
+            }
+          },
+          {
+            "value": "118 milliards de passagers-km",
+            "label": "Fréquentation des trains en France (un passager-km correspond à un voyageur transporté sur un kilomètre). C’est un record pour la quatrième année consécutive, en hausse de 4 % sur un an",
+            "date": "2025 (chiffres provisoires)",
+            "source": {
+              "title": "Marché français du transport ferroviaire – Premiers chiffres 2025",
+              "url": "https://www.autorite-transports.fr/wp-content/uploads/2026/07/art-bilan-ferroviaire-france-premiers-chiffres-2025.pdf",
+              "date": "2026-07",
+              "publisher": "Autorité de régulation des transports"
+            }
+          },
+          {
+            "value": "15 lots sur plus de 50",
+            "label": "Lots de trains financés par les régions ou l’État (TER, Intercités, Transilien) attribués après mise en concurrence. SNCF Voyageurs en a remporté 10, plus 1 en groupement, soit 86,3 % de l’offre attribuée ; RATP et Transdev, 2 chacun. Plus de 40 lots restent à mettre en concurrence avant 2033. Sur les trains commerciaux comme les TGV, les concurrents de la SNCF pèsent environ 2 % du marché national",
+            "date": "mi-2026",
+            "source": {
+              "title": "Marché français du transport ferroviaire – Premiers chiffres 2025",
+              "url": "https://www.autorite-transports.fr/wp-content/uploads/2026/07/art-bilan-ferroviaire-france-premiers-chiffres-2025.pdf",
+              "date": "2026-07",
+              "publisher": "Autorité de régulation des transports"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "lots",
+              "items": [
+                {
+                  "label": "SNCF Voyageurs",
+                  "value": 10
+                },
+                {
+                  "label": "SNCF Voyageurs en groupement",
+                  "value": 1
+                },
+                {
+                  "label": "RATP",
+                  "value": 2
+                },
+                {
+                  "label": "Transdev",
+                  "value": 2
+                }
+              ]
+            }
+          },
+          {
+            "value": "4,3 Md€",
+            "label": "Résultat net des sociétés concessionnaires d’autoroutes, pour un chiffre d’affaires de 12,8 Md€, à 97 % issu des péages. La même année, elles ont investi 1,3 Md€ et payé 1,6 Md€ d’impôt sur les sociétés",
+            "date": "2024",
+            "source": {
+              "title": "Synthèse des comptes des sociétés concessionnaires d’autoroutes – exercice 2024",
+              "url": "https://www.autorite-transports.fr/wp-content/uploads/2025/12/synthese_des_comptes_sca_2024.pdf",
+              "date": "2025-12",
+              "publisher": "Autorité de régulation des transports"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "Md€",
+              "items": [
+                {
+                  "label": "Résultat net",
+                  "value": 4.3
+                },
+                {
+                  "label": "Chiffre d’affaires",
+                  "value": 12.8
+                },
+                {
+                  "label": "Investissements",
+                  "value": 1.3
+                },
+                {
+                  "label": "Impôt sur les sociétés",
+                  "value": 1.6
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "ecologie_energie-6-a",
+          "text": "Proposer aux ménages modestes la location de voitures électriques à prix réduit"
+        },
+        {
+          "id": "ecologie_energie-6-b",
+          "text": "Confier de nouveau l’ensemble du transport ferroviaire à un opérateur public unique"
+        },
+        {
+          "id": "ecologie_energie-6-c",
+          "text": "Développer les trains du quotidien et de nuit, et supprimer les vols intérieurs remplaçables par le train"
+        },
+        {
+          "id": "ecologie_energie-6-d",
+          "text": "Reprendre les autoroutes à la fin des concessions et affecter leurs profits aux transports collectifs"
+        },
+        {
+          "id": "ecologie_energie-6-e",
+          "text": "Poursuivre l’ouverture des lignes ferroviaires à la concurrence entre plusieurs opérateurs",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "territoires-1",
+      "topicId": "territoires",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Comment garantir l’accès aux services publics dans tous les territoires ?",
+      "context": "Aujourd’hui : environ 2 800 espaces « France Services » regroupent plusieurs administrations, souvent en zone rurale.",
+      "explainer": {
+        "summary": "L’enjeu est l’égalité d’accès aux services publics (école, maternité, guichets) d’un territoire à l’autre. Les approches divergent sur l’outil : temps d’accès garantis par la loi, accueil physique de proximité, planification annuelle avec les collectivités ou moyens concentrés sur les territoires en difficulté.",
+        "points": [
+          {
+            "text": "Lancé en 2019, le programme France services réunit en un même lieu 12 opérateurs nationaux, dont France Travail, les Finances publiques, l’Assurance maladie, les Allocations familiales et l’Assurance retraite. Son objectif de proximité : un espace France services accessible en moins de 20 minutes.",
+            "source": {
+              "title": "France services",
+              "url": "https://agence-cohesion-territoires.gouv.fr/france-services-36",
+              "date": "2026",
+              "publisher": "Agence nationale de la cohésion des territoires (ANCT)"
+            }
+          },
+          {
+            "text": "Depuis 1998, une maternité doit réaliser au moins 300 accouchements par an, pour des raisons de qualité et de sécurité des soins. Une dérogation est possible quand l’éloignement imposerait des trajets excessifs. Selon la Cour des comptes, réduire l’offre allonge les temps de trajet, ce qui inquiète les familles. Depuis 2022, une femme enceinte vivant à plus de 45 minutes d’une maternité peut demander à être hébergée à proximité pendant les cinq derniers jours de sa grossesse.",
+            "source": {
+              "title": "La politique de périnatalité – Rapport public thématique",
+              "url": "https://www.ccomptes.fr/sites/default/files/2024-05/20240506-Sante-perinatale.pdf",
+              "date": "2024-05",
+              "publisher": "Cour des comptes"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "471",
+            "label": "maternités en France en 2021, contre 721 en 2000 et 557 en 2010",
+            "date": "2021",
+            "source": {
+              "title": "La politique de périnatalité – Rapport public thématique",
+              "url": "https://www.ccomptes.fr/sites/default/files/2024-05/20240506-Sante-perinatale.pdf",
+              "date": "2024-05",
+              "publisher": "Cour des comptes"
+            },
+            "chart": {
+              "kind": "series",
+              "unit": "maternités",
+              "items": [
+                {
+                  "label": "2000",
+                  "value": 721
+                },
+                {
+                  "label": "2010",
+                  "value": 557
+                },
+                {
+                  "label": "2021",
+                  "value": 471
+                }
+              ]
+            }
+          },
+          {
+            "value": "18",
+            "label": "maternités ont réalisé moins de 300 accouchements dans l’année, sous le seuil minimal fixé en 1998 (données Drees)",
+            "date": "2021",
+            "source": {
+              "title": "La politique de périnatalité – Rapport public thématique",
+              "url": "https://www.ccomptes.fr/sites/default/files/2024-05/20240506-Sante-perinatale.pdf",
+              "date": "2024-05",
+              "publisher": "Cour des comptes"
+            }
+          },
+          {
+            "value": "23 %",
+            "label": "des ménages ayant fait une démarche administrative dans l’année ont rencontré au moins une difficulté (France hors Mayotte)",
+            "date": "2023",
+            "source": {
+              "title": "Les difficultés rencontrées lors des démarches administratives – France, portrait social, édition 2025",
+              "url": "https://www.insee.fr/fr/statistiques/8612560?sommaire=8612596",
+              "date": "2025-11-18",
+              "publisher": "Insee"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 23,
+              "total": 100,
+              "unit": "%",
+              "whole": "des ménages ayant fait une démarche"
+            }
+          },
+          {
+            "value": "10,3 %",
+            "label": "des ménages ayant rencontré une difficulté citent l’absence de service administratif près de chez eux. Ils sont 45,3 % à citer des délais d’attente trop longs et 22,7 % l’absence d’un interlocuteur compétent (France hors Mayotte)",
+            "date": "2023",
+            "source": {
+              "title": "Les difficultés rencontrées lors des démarches administratives – France, portrait social, édition 2025",
+              "url": "https://www.insee.fr/fr/statistiques/8612560?sommaire=8612596",
+              "date": "2025-11-18",
+              "publisher": "Insee"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Pas de service près de chez eux",
+                  "value": 10.3
+                },
+                {
+                  "label": "Délais d’attente trop longs",
+                  "value": 45.3
+                },
+                {
+                  "label": "Pas d’interlocuteur compétent",
+                  "value": 22.7
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "territoires-1-a",
+          "text": "Fixer par la loi des temps d’accès maximum à l’école et à la maternité, et encadrer les fermetures"
+        },
+        {
+          "id": "territoires-1-b",
+          "text": "Garantir près de chez soi un accueil physique pour les allocations, la santé, l’emploi et les impôts"
+        },
+        {
+          "id": "territoires-1-c",
+          "text": "Planifier chaque année avec les collectivités locales le développement des services publics et de l’industrie"
+        },
+        {
+          "id": "territoires-1-d",
+          "text": "Concentrer les moyens supplémentaires (écoles, soins, transports) sur les territoires les plus en difficulté"
+        }
+      ]
+    },
+    {
+      "id": "international_defense-1",
+      "topicId": "ukraine_russie",
+      "tier": "essentiel",
+      "step": 1,
+      "rev": 1,
+      "prompt": "Quelle stratégie face à la guerre menée par la Russie en Ukraine ?",
+      "context": "Aujourd’hui : la guerre déclenchée par l’invasion russe de février 2022 se poursuit ; la France et l’Union européenne aident l’Ukraine militairement et financièrement.",
+      "explainer": {
+        "summary": "Plus de quatre ans après le début de l’invasion à grande échelle de l’Ukraine par la Russie, le 24 février 2022, la guerre continue et l’Union européenne a prévu de financer l’Ukraine en 2026 et 2027. Les avis divergent sur l’attitude de la France : renforcer l’aide militaire, la poursuivre tant que la Russie refuse de négocier, ouvrir dès maintenant des pourparlers en se posant en médiatrice, ou cesser les livraisons d’armes.",
+        "points": [
+          {
+            "text": "De janvier à août 2026, la mission de surveillance des droits de l’homme de l’ONU en Ukraine a vérifié 2 222 civils tués et 13 058 blessés, soit 55 % de victimes de plus que sur la même période de 2025. En août, les missiles et drones à longue portée ont causé 47 % des victimes civiles, surtout dans des villes éloignées du front.",
+            "source": {
+              "title": "Protection of Civilians in Armed Conflict — August 2026",
+              "url": "https://ukraine.ohchr.org/en/Protection-of-Civilians-in-Armed-Conflict-August-2026",
+              "date": "2026-09-16",
+              "publisher": "Mission de surveillance des droits de l’homme des Nations unies en Ukraine (HCDH)"
+            }
+          },
+          {
+            "text": "En février 2026, l’UE a adopté un prêt à l’Ukraine pouvant aller jusqu’à 90 Md€ pour 2026-2027 : 60 Md€ pour sa défense et 30 Md€ d’aide budgétaire, pour maintenir l’État et les services publics.",
+            "source": {
+              "title": "La Commission verse 3,3 milliards d’euros à l’Ukraine pour financer sa défense (IP/26/1900)",
+              "url": "https://ec.europa.eu/commission/presscorner/detail/fr/ip_26_1900",
+              "date": "2026-09-18",
+              "publisher": "Commission européenne"
+            }
+          },
+          {
+            "text": "La France et la Russie sont toutes deux membres permanents du Conseil de sécurité de l’ONU. Le vote négatif d’un seul des cinq membres permanents suffit à bloquer une résolution.",
+            "source": {
+              "title": "Système de vote – Conseil de sécurité des Nations unies",
+              "url": "https://main.un.org/securitycouncil/fr/content/voting-system",
+              "publisher": "Nations unies, Conseil de sécurité"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "17 257 tués, 53 693 blessés",
+            "label": "Civils tués et blessés en Ukraine, vérifiés par la mission de l’ONU. Selon elle, le bilan réel est probablement bien plus élevé, faute d’accès à certaines zones.",
+            "date": "24 février 2022 – 31 août 2026",
+            "source": {
+              "title": "Ukraine – Protection of civilians in armed conflict, August 2026 update (PDF)",
+              "url": "https://ukraine.ohchr.org/sites/default/files/2026-09/Ukraine%20-%20protection%20of%20civilians%20in%20armed%20conflict%20%28August%29_ENG.pdf",
+              "date": "2026-09-16",
+              "publisher": "Mission de surveillance des droits de l’homme des Nations unies en Ukraine (HCDH)"
+            }
+          },
+          {
+            "value": "224,5 Md€",
+            "label": "Soutien total de l’UE et de ses États membres à l’Ukraine depuis 2022, dont 77,9 Md€ d’aide militaire, selon la Commission",
+            "date": "Page mise à jour le 18 septembre 2026",
+            "source": {
+              "title": "Aide de l’UE à l’Ukraine",
+              "url": "https://commission.europa.eu/topics/eu-solidarity-ukraine/eu-assistance-ukraine_fr",
+              "date": "2026-09-18",
+              "publisher": "Commission européenne"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "Md€",
+              "items": [
+                {
+                  "label": "Soutien total depuis 2022",
+                  "value": 224.5
+                },
+                {
+                  "label": "Dont aide militaire",
+                  "value": 77.9
+                }
+              ]
+            }
+          },
+          {
+            "value": "10,8 millions",
+            "label": "Personnes ayant besoin d’une aide humanitaire en Ukraine, selon l’ONU. Le plan de l’ONU et de ses partenaires en cible 4,1 millions, pour 2,3 milliards de dollars.",
+            "date": "2026",
+            "source": {
+              "title": "Ukraine – Humanitarian Needs and Response Plan 2026 (page pays)",
+              "url": "https://www.unocha.org/ukraine",
+              "publisher": "Bureau de la coordination des affaires humanitaires des Nations unies (OCHA)"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "millions",
+              "items": [
+                {
+                  "label": "Personnes ayant besoin d’aide",
+                  "value": 10.8
+                },
+                {
+                  "label": "Personnes ciblées par le plan",
+                  "value": 4.1
+                }
+              ]
+            }
+          },
+          {
+            "value": "4 363 130",
+            "label": "Ukrainiens sous protection temporaire dans l’UE, dont 47 215 en France (définition française légèrement différente, selon Eurostat)",
+            "date": "Fin juillet 2026",
+            "source": {
+              "title": "Personnes bénéficiant d’une protection temporaire à la fin du mois par nationalité, âge et sexe (migr_asytpsm)",
+              "url": "https://ec.europa.eu/eurostat/databrowser/view/migr_asytpsm/default/table?lang=fr",
+              "date": "2026-10-01",
+              "publisher": "Eurostat"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "personnes",
+              "items": [
+                {
+                  "label": "Union européenne",
+                  "value": 4363130
+                },
+                {
+                  "label": "Dont France",
+                  "value": 47215
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "international_defense-1-a",
+          "text": "Augmenter fortement l’aide militaire à l’Ukraine, notamment pour défendre son espace aérien"
+        },
+        {
+          "id": "international_defense-1-b",
+          "text": "Continuer l’aide militaire et financière à l’Ukraine tant que la Russie refuse de négocier"
+        },
+        {
+          "id": "international_defense-1-c",
+          "text": "Rouvrir dès maintenant le dialogue avec la Russie pour négocier la paix, la France servant de médiatrice"
+        },
+        {
+          "id": "international_defense-1-d",
+          "text": "Arrêter les livraisons d’armes à l’Ukraine et se limiter à l’aide humanitaire et diplomatique",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "europe-1",
+      "topicId": "europe",
+      "tier": "essentiel",
+      "step": 1,
+      "rev": 1,
+      "prompt": "Quelle direction donner à la construction européenne ?",
+      "context": "Aujourd’hui : en politique étrangère, en défense et en fiscalité, les décisions de l’Union européenne exigent l’unanimité des 27 États membres.",
+      "explainer": {
+        "summary": "Au Conseil de l’UE, la majorité qualifiée est la règle par défaut, mais l’unanimité, qui donne un droit de veto à chaque État, reste exigée dans quelques domaines, dont le budget pluriannuel et l’adhésion de nouveaux pays, et pour réviser les traités. Trois orientations s’opposent : supprimer ce veto pour aller vers une Europe fédérale, renforcer l’Union dans certains domaines en préservant la souveraineté nationale, ou renégocier les règles qui limitent les choix nationaux.",
+        "points": [
+          {
+            "text": "Réviser les traités exige l’unanimité des États, puis une ratification dans chacun d’eux, par le Parlement ou par référendum. Le Parlement européen a demandé en juin 2022 une convention de révision ; à ce jour, le Conseil européen ne l’a pas convoquée.",
+            "source": {
+              "title": "Le traité de Lisbonne – Fiches thématiques sur l’Union européenne",
+              "url": "https://www.europarl.europa.eu/factsheets/fr/sheet/5/le-traite-de-lisbonne",
+              "date": "2026-04",
+              "publisher": "Parlement européen"
+            }
+          },
+          {
+            "text": "Sans réviser les traités, sept « clauses passerelles » permettent de passer de l’unanimité à la majorité qualifiée dans un domaine. Leur activation exige elle-même l’unanimité, et elles ont été rarement utilisées. La « coopération renforcée » permet aussi à au moins neuf États d’avancer ensemble, comme pour le Parquet européen.",
+            "source": {
+              "title": "Le traité de Lisbonne – Fiches thématiques sur l’Union européenne",
+              "url": "https://www.europarl.europa.eu/factsheets/fr/sheet/5/le-traite-de-lisbonne",
+              "date": "2026-04",
+              "publisher": "Parlement européen"
+            }
+          },
+          {
+            "text": "Un État peut aussi obtenir des garanties ou des exceptions. Après un premier « non » par référendum, l’Irlande a obtenu des garanties sur sa neutralité, sa fiscalité et des questions éthiques, puis a ratifié le traité de Lisbonne lors d’un second référendum.",
+            "source": {
+              "title": "Le traité de Lisbonne – Fiches thématiques sur l’Union européenne",
+              "url": "https://www.europarl.europa.eu/factsheets/fr/sheet/5/le-traite-de-lisbonne",
+              "date": "2026-04",
+              "publisher": "Parlement européen"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "55 % des États, 65 % de la population",
+            "label": "Seuil de la majorité qualifiée au Conseil de l’UE : au moins 15 États sur 27, représentant au moins 65 % des habitants de l’Union",
+            "date": "Règle en vigueur (article 16 du traité sur l’UE)",
+            "source": {
+              "title": "Le Conseil de l’Union européenne – Fiches thématiques sur l’Union européenne",
+              "url": "https://www.europarl.europa.eu/factsheets/fr/sheet/24/le-conseil-de-l-union-europeenne",
+              "date": "2026-09",
+              "publisher": "Parlement européen"
+            }
+          },
+          {
+            "value": "305 pour, 276 contre",
+            "label": "Vote du Parlement européen sur ses propositions de révision des traités, qui prévoient notamment davantage de décisions à la majorité qualifiée au Conseil (29 abstentions)",
+            "date": "22 novembre 2023",
+            "source": {
+              "title": "Avenir de l’UE : les propositions du Parlement pour modifier les traités",
+              "url": "https://www.europarl.europa.eu/news/fr/press-room/20231117IPR12217/avenir-de-l-ue-les-propositions-du-parlement-pour-modifier-les-traites",
+              "date": "2023-11-22",
+              "publisher": "Parlement européen"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "voix",
+              "items": [
+                {
+                  "label": "Pour",
+                  "value": 305
+                },
+                {
+                  "label": "Contre",
+                  "value": 276
+                },
+                {
+                  "label": "Abstentions",
+                  "value": 29
+                }
+              ]
+            }
+          },
+          {
+            "value": "69,1 millions sur 452,0 millions",
+            "label": "Habitants de la France et de l’UE à 27 (données provisoires). Ce poids démographique compte dans les votes à la majorité qualifiée.",
+            "date": "1er janvier 2026",
+            "source": {
+              "title": "Population au 1er janvier (tps00001)",
+              "url": "https://ec.europa.eu/eurostat/databrowser/view/tps00001/default/table?lang=fr",
+              "date": "2026-09-30",
+              "publisher": "Eurostat"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 69.1,
+              "total": 452,
+              "unit": "millions",
+              "whole": "d’habitants de l’UE à 27"
+            }
+          },
+          {
+            "value": "21 sur 27",
+            "label": "États membres qui ont adopté l’euro. Tous doivent l’adopter une fois les critères remplis, sauf le Danemark, qui bénéficie d’une dérogation.",
+            "date": "Avril 2026",
+            "source": {
+              "title": "Historique de l’Union économique et monétaire – Fiches thématiques sur l’Union européenne",
+              "url": "https://www.europarl.europa.eu/factsheets/fr/sheet/79/historique-de-l-union-economique-et-monetaire",
+              "date": "2026-04",
+              "publisher": "Parlement européen"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 21,
+              "total": 27,
+              "whole": "États membres de l’UE"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "europe-1-a",
+          "text": "Supprimer le droit de veto des États et réviser les traités pour aller vers une Europe fédérale"
+        },
+        {
+          "id": "europe-1-b",
+          "text": "Renforcer l’Union dans la défense, le social et l’écologie, tout en préservant la souveraineté nationale"
+        },
+        {
+          "id": "europe-1-c",
+          "text": "Renégocier les règles européennes qui limitent les choix nationaux, ou obtenir des dérogations"
+        }
+      ]
+    },
+    {
+      "id": "international_defense-2",
+      "topicId": "proche_orient",
+      "tier": "essentiel",
+      "step": 1,
+      "rev": 1,
+      "prompt": "Comment la France doit-elle qualifier l’action de l’armée israélienne à Gaza ?",
+      "context": "Aujourd’hui : la guerre à Gaza a suivi l’attaque du Hamas contre Israël le 7 octobre 2023 ; la Cour internationale de justice examine une requête pour génocide visant Israël ; la Cour pénale internationale a émis des mandats d’arrêt contre des dirigeants israéliens pour crimes de guerre et crimes contre l’humanité.",
+      "explainer": {
+        "summary": "Le mot choisi engage la France : « génocide » suppose l’intention de détruire un groupe, ce que n’exigent ni les « crimes de guerre » ni les « crimes contre l’humanité ». Les instances internationales saisies n’ont pas toutes conclu, et leurs conclusions n’ont pas la même portée.",
+        "points": [
+          {
+            "text": "Selon la Convention de 1948, le génocide réunit des actes précis (meurtres, atteintes graves, conditions de vie imposées pour détruire le groupe, entraves aux naissances, transferts forcés d’enfants) et l’intention de détruire, en tout ou en partie, un groupe national, ethnique, racial ou religieux. Les crimes contre l’humanité sont commis dans le cadre d’une attaque généralisée ou systématique contre des civils, sans exiger cette intention. Les crimes de guerre sont des violations graves des règles applicables dans un conflit armé.",
+            "source": {
+              "title": "Definitions of Genocide and Related Crimes",
+              "url": "https://www.un.org/en/genocide-prevention/definition",
+              "publisher": "Nations unies – Bureau pour la prévention du génocide et la responsabilité de protéger"
+            }
+          },
+          {
+            "text": "La Cour internationale de justice (CIJ) juge les États. Saisie par l’Afrique du Sud le 29 décembre 2023, elle a ordonné le 26 janvier 2024 des mesures conservatoires : des mesures d’urgence, qui ne tranchent pas la question du génocide. Le 21 mai 2026, elle a fixé les délais d’une nouvelle série de mémoires écrits des deux États : l’examen du fond se poursuit.",
+            "source": {
+              "title": "Application de la convention pour la prévention et la répression du crime de génocide dans la bande de Gaza (Afrique du Sud c. Israël)",
+              "url": "https://www.icj-cij.org/fr/affaire/192",
+              "date": "2026-09-22",
+              "publisher": "Cour internationale de justice"
+            }
+          },
+          {
+            "text": "La Cour pénale internationale (CPI) poursuit des personnes, pas des États. Le 21 novembre 2024, elle a émis des mandats d’arrêt contre deux dirigeants israéliens, Benyamin Nétanyahou et Yoav Gallant, et contre Mohammed Deif, chef de la branche armée du Hamas. Tous sont visés pour des crimes de guerre et des crimes contre l’humanité présumés, commis à partir du 7 octobre 2023.",
+            "source": {
+              "title": "Gaza : la CPI émet des mandats d’arrêt contre les Israéliens Nétanyahou et Gallant et Deif du Hamas",
+              "url": "https://news.un.org/fr/story/2024/11/1150771",
+              "date": "2024-11-21",
+              "publisher": "ONU Info (Nations unies)"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "Plus de 1 200",
+            "label": "personnes tuées en Israël lors de l’attaque du 7 octobre 2023 et dans les jours suivants, ressortissants étrangers compris. Source : autorités israéliennes, citées par les médias israéliens ; l’OCHA reprend ce bilan en l’attribuant à cette source.",
+            "date": "7 octobre 2023 (bilan repris par l’OCHA au 23 septembre 2026)",
+            "source": {
+              "title": "Reported impact snapshot | Gaza Strip (23 September 2026)",
+              "url": "https://www.ochaopt.org/sites/default/files/Gaza_Reported_Impact_Snapshot_23_September_2026.pdf",
+              "date": "2026-09-23",
+              "publisher": "OCHA – Bureau de la coordination des affaires humanitaires de l’ONU"
+            }
+          },
+          {
+            "value": "73 922",
+            "label": "Palestiniens tués dans la bande de Gaza depuis octobre 2023 (cumul). Source : ministère de la Santé de Gaza ; l’OCHA reprend ce bilan en l’attribuant à cette source.",
+            "date": "au 23 septembre 2026",
+            "source": {
+              "title": "Reported impact snapshot | Gaza Strip (23 September 2026)",
+              "url": "https://www.ochaopt.org/sites/default/files/Gaza_Reported_Impact_Snapshot_23_September_2026.pdf",
+              "date": "2026-09-23",
+              "publisher": "OCHA – Bureau de la coordination des affaires humanitaires de l’ONU"
+            }
+          },
+          {
+            "value": "4 sur 5",
+            "label": "catégories d’actes de génocide prévues par la Convention de 1948 que commettrait Israël à Gaza, selon la commission d’enquête internationale indépendante créée par le Conseil des droits de l’homme de l’ONU, qui en conclut à un génocide. Cette commission réunit des experts : ce n’est pas un tribunal. Israël rejette ce rapport, qu’il juge « biaisé et mensonger ».",
+            "date": "16 septembre 2025",
+            "source": {
+              "title": "Israël commet un génocide à Gaza, affirme une commission d’enquête de l’ONU",
+              "url": "https://news.un.org/fr/story/2025/09/1157475",
+              "date": "2025-09-16",
+              "publisher": "ONU Info (Nations unies)"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "international_defense-2-a",
+          "text": "Reconnaître officiellement que l’action de l’armée israélienne à Gaza constitue un génocide"
+        },
+        {
+          "id": "international_defense-2-b",
+          "text": "Qualifier cette action de crimes de guerre et de crimes contre l’humanité, sans parler de génocide"
+        },
+        {
+          "id": "international_defense-2-c",
+          "text": "Condamner la conduite de la guerre à Gaza sans prendre position sur sa qualification juridique"
+        }
+      ]
+    },
+    {
+      "id": "international_defense-3",
+      "topicId": "defense",
+      "tier": "essentiel",
+      "step": 2,
+      "rev": 1,
+      "prompt": "Quelle stratégie de défense pour la France ?",
+      "context": "Aujourd’hui : la France est membre de l’Alliance atlantique (OTAN) et seul pays de l’Union européenne doté de l’arme nucléaire.",
+      "explainer": {
+        "summary": "Les dépenses militaires augmentent en Europe depuis la guerre en Ukraine, et la France, membre permanent du Conseil de sécurité de l’ONU, participe aussi aux nouveaux outils de défense de l’UE. La question est de savoir sur quoi faire reposer d’abord sa sécurité : la mise en commun européenne, l’effort national, la diplomatie, l’alliance atlantique ou une prise de distance avec les blocs militaires.",
+        "points": [
+          {
+            "text": "Dans l’OTAN, l’article 5 prévoit qu’une attaque armée contre un allié est considérée comme dirigée contre tous. Chaque allié assiste alors l’allié attaqué par l’action qu’il juge nécessaire, y compris la force armée. Les décisions de l’OTAN se prennent d’un commun accord, celles de la défense européenne à l’unanimité.",
+            "source": {
+              "title": "Armée, dissuasion nucléaire, Europe de la défense… en 10 questions",
+              "url": "https://www.vie-publique.fr/questions-reponses/284126-armee-dissuasion-nucleaire-europe-de-la-defense-en-10-questions",
+              "date": "2025-12-16",
+              "publisher": "Vie-publique.fr (DILA)"
+            }
+          },
+          {
+            "text": "L’UE prête jusqu’à 150 Md€ aux États pour leurs achats d’armement, en principe communs à au moins deux pays (instrument SAFE). Dix-neuf États, dont la France, ont présenté des plans d’investissement. Au moins 65 % du coût des composants doit venir de l’UE, d’Ukraine ou, sous conditions, de Norvège, d’Islande et du Liechtenstein.",
+            "source": {
+              "title": "SAFE | Security Action for Europe",
+              "url": "https://defence-industry-space.ec.europa.eu/eu-defence-industry/safe-security-action-europe_en",
+              "publisher": "Commission européenne, DG Industrie de la défense et espace"
+            }
+          },
+          {
+            "text": "La France est membre de l’OTAN depuis sa fondation, en 1949. Elle a quitté la structure militaire intégrée de l’Alliance en 1966, puis annoncé en avril 2009 sa pleine participation, sans rejoindre le Groupe des plans nucléaires.",
+            "source": {
+              "title": "Pays membres de l’OTAN",
+              "url": "https://www.nato.int/fr/about-us/organization/nato-member-countries",
+              "date": "2024-03-11",
+              "publisher": "OTAN"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "5 % du PIB en 2035",
+            "label": "Objectif adopté par les 32 pays de l’OTAN : 3,5 % du PIB pour la défense elle-même et 1,5 % pour la résilience et l’innovation en matière de sécurité. L’objectif précédent était de 2 %.",
+            "date": "Sommet de La Haye, 24-25 juin 2025",
+            "source": {
+              "title": "Projet de loi de finances pour 2026 : Défense – Rapport général n° 139 (2025-2026), tome III, annexe 8",
+              "url": "https://www.senat.fr/rap/l25-139-38/l25-139-38_mono.html",
+              "date": "2025-11-24",
+              "publisher": "Sénat, commission des finances"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "% du PIB",
+              "items": [
+                {
+                  "label": "Objectif précédent",
+                  "value": 2
+                },
+                {
+                  "label": "Objectif 2035",
+                  "value": 5
+                },
+                {
+                  "label": "Dont défense elle-même",
+                  "value": 3.5
+                }
+              ]
+            }
+          },
+          {
+            "value": "2,22 % du PIB",
+            "label": "Dépenses de défense de la France au sens de l’OTAN (estimation, hors volet résilience de 1,5 %), contre 1,82 % en 2014. Pour l’ensemble des alliés européens et du Canada : 2,53 %.",
+            "date": "2026 (estimation, données arrêtées au 3 juillet 2026)",
+            "source": {
+              "title": "Defence Investment of NATO Countries (2014-2026)",
+              "url": "https://www.nato.int/content/dam/nato/webready/documents/finance/def-exp-2026-en.pdf",
+              "date": "2026-07",
+              "publisher": "OTAN"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "% du PIB",
+              "items": [
+                {
+                  "label": "France, 2014",
+                  "value": 1.82
+                },
+                {
+                  "label": "France, 2026",
+                  "value": 2.22
+                },
+                {
+                  "label": "Alliés européens et Canada, 2026",
+                  "value": 2.53
+                }
+              ]
+            }
+          },
+          {
+            "value": "436 Md€",
+            "label": "Budget de la mission Défense sur 2024-2030 après la loi d’actualisation, qui ajoute 36 Md€ sur 2026-2030. Objectif : 2,5 % du PIB en 2030 et 3,5 % en 2035.",
+            "date": "Loi promulguée le 16 août 2026",
+            "source": {
+              "title": "Loi du 16 août 2026 actualisant la programmation militaire 2024-2030",
+              "url": "https://www.vie-publique.fr/loi/302742-actualisation-lpm-2024-2030-etat-dalerte-de-securite-nationale-loi-2026",
+              "date": "2026-08-18",
+              "publisher": "Vie-publique.fr (DILA)"
+            }
+          },
+          {
+            "value": "58 %",
+            "label": "Part des États-Unis dans les importations d’armes majeures des 29 pays européens de l’OTAN. La France en fournit 7,4 %.",
+            "date": "2021-2025 (publié le 9 mars 2026)",
+            "source": {
+              "title": "Global arms flows jump nearly 10 per cent as European demand soars",
+              "url": "https://www.sipri.org/media/press-release/2026/global-arms-flows-jump-nearly-10-cent-european-demand-soars",
+              "date": "2026-03-09",
+              "publisher": "SIPRI"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "États-Unis",
+                  "value": 58
+                },
+                {
+                  "label": "France",
+                  "value": 7.4
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "international_defense-3-a",
+          "text": "Bâtir une défense européenne commune, avec des achats d’armement et des financements partagés"
+        },
+        {
+          "id": "international_defense-3-b",
+          "text": "Renforcer en priorité l’armée française et garder une défense strictement nationale"
+        },
+        {
+          "id": "international_defense-3-c",
+          "text": "Donner la priorité à la diplomatie, la France servant de médiatrice entre puissances rivales"
+        },
+        {
+          "id": "international_defense-3-d",
+          "text": "S’appuyer d’abord sur l’OTAN et l’alliance avec les États-Unis pour assurer la sécurité de la France",
+          "external": true
+        },
+        {
+          "id": "international_defense-3-e",
+          "text": "Prendre ses distances avec l’OTAN et refuser la logique des blocs militaires"
+        }
+      ]
+    },
+    {
+      "id": "international_defense-4",
+      "topicId": "proche_orient",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quels moyens de pression privilégier envers le gouvernement israélien ?",
+      "context": "Aujourd’hui : un accord d’association en vigueur depuis 2000 encadre les échanges commerciaux et politiques entre l’Union européenne et Israël.",
+      "explainer": {
+        "summary": "Les approches diffèrent par l’outil (l’accord entre l’UE et Israël, des mesures contre la colonisation, le Conseil de sécurité de l’ONU) et par la cible (le pays, ses dirigeants ou les acteurs de la colonisation). Chaque outil a sa règle de décision : majorité qualifiée ou unanimité des Vingt-Sept dans l’UE, absence de veto d’un membre permanent à l’ONU.",
+        "points": [
+          {
+            "text": "L’accord d’association fait du respect des droits de l’homme un « élément essentiel » (article 2). En juin 2025, un réexamen européen a relevé des éléments indiquant qu’Israël violerait cet article. En septembre 2025, la Commission a proposé de suspendre certaines dispositions commerciales : les produits israéliens perdraient leur accès préférentiel au marché européen. Cette mesure se décide à la majorité qualifiée, où aucun État ne peut bloquer seul. Les sanctions proposées en même temps (ministres et colons israéliens, membres du bureau politique du Hamas) exigent l’unanimité.",
+            "source": {
+              "title": "La Commission propose des sanctions et la suspension des concessions commerciales avec Israël",
+              "url": "https://france.representation.ec.europa.eu/informations-et-evenements/informations/la-commission-propose-des-sanctions-et-la-suspension-des-concessions-commerciales-avec-israel-2025-09-17_fr",
+              "date": "2025-09-17",
+              "publisher": "Commission européenne – Représentation en France"
+            }
+          },
+          {
+            "text": "Le 21 avril 2026, la haute représentante de l’UE pour les affaires étrangères a constaté l’absence d’unanimité des ministres sur une suspension totale ou partielle de l’accord, proposée par certains États membres.",
+            "source": {
+              "title": "Foreign Affairs Council, 21 April 2026 – Main results",
+              "url": "https://www.consilium.europa.eu/en/meetings/fac/2026/04/21/",
+              "date": "2026-04-21",
+              "publisher": "Conseil de l’Union européenne"
+            }
+          },
+          {
+            "text": "Le 19 juillet 2024, la Cour internationale de justice a rendu un avis consultatif, non contraignant. Elle juge illicite la présence continue d’Israël dans le Territoire palestinien occupé et estime qu’Israël doit cesser toute nouvelle colonisation. Les États ne doivent ni reconnaître cette situation comme licite ni aider à la maintenir. Israël a rejeté cet avis, qu’il juge « fondamentalement erroné ».",
+            "source": {
+              "title": "La CIJ déclare que l’occupation des territoires palestiniens par Israël viole le droit international",
+              "url": "https://news.un.org/fr/story/2024/07/1147211",
+              "date": "2024-07-19",
+              "publisher": "ONU Info (Nations unies)"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "31,7 %",
+            "label": "part de l’UE dans le commerce de biens d’Israël, dont elle est le premier partenaire (43,3 Md€ d’échanges de biens). À l’inverse, Israël représente près de 0,8 % du commerce de biens de l’UE (27e partenaire).",
+            "date": "2025",
+            "source": {
+              "title": "EU trade relations with Israel",
+              "url": "https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/israel_en",
+              "date": "2026",
+              "publisher": "Commission européenne – DG Commerce"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "UE dans le commerce d’Israël",
+                  "value": 31.7
+                },
+                {
+                  "label": "Israël dans le commerce de l’UE",
+                  "value": 0.8
+                }
+              ]
+            }
+          },
+          {
+            "value": "4 entités et 3 personnes",
+            "label": "colons extrémistes et organisations qui les soutiennent, sanctionnés par l’UE pour des atteintes aux droits humains en Cisjordanie (gel des avoirs, interdiction de voyager), après un accord politique des ministres le 11 mai 2026",
+            "date": "28 mai 2026",
+            "source": {
+              "title": "Extremist Israeli settlers: EU lists four entities and three individuals",
+              "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/05/28/extremist-israeli-settlers-eu-lists-four-entities-and-three-individuals/",
+              "date": "2026-05-28",
+              "publisher": "Conseil de l’Union européenne"
+            }
+          },
+          {
+            "value": "14 voix contre 1",
+            "label": "vote au Conseil de sécurité de l’ONU sur un projet de résolution exigeant un cessez-le-feu immédiat à Gaza. Le texte a été rejeté car le vote contre venait d’un membre permanent, les États-Unis : l’opposition d’un seul des cinq membres permanents suffit à bloquer une résolution.",
+            "date": "18 septembre 2025",
+            "source": {
+              "title": "Security Council Fails to Adopt Resolution on Gaza Ceasefire (SC/16174)",
+              "url": "https://press.un.org/en/2025/sc16174.doc.htm",
+              "date": "2025-09-18",
+              "publisher": "Nations unies – Couverture des réunions"
+            }
+          },
+          {
+            "value": "84",
+            "label": "nouveaux avant-postes de colonisation (implantations de colons) établis en Cisjordanie en douze mois, un nombre « sans précédent » selon le Haut-Commissariat de l’ONU aux droits de l’homme",
+            "date": "12 mois jusqu’au 31 octobre 2025 (rapport du 17 mars 2026)",
+            "source": {
+              "title": "Israel’s settlement expansion drives mass displacement in West Bank – UN report",
+              "url": "https://www.ohchr.org/en/press-releases/2026/03/israels-settlement-expansion-drives-mass-displacement-west-bank-un-report",
+              "date": "2026-03-17",
+              "publisher": "Haut-Commissariat des Nations unies aux droits de l’homme (HCDH)"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "international_defense-4-a",
+          "text": "Suspendre l’accord d’association qui encadre les échanges entre l’Union européenne et Israël"
+        },
+        {
+          "id": "international_defense-4-b",
+          "text": "Utiliser les clauses commerciales de l’accord avec Israël pour viser son gouvernement, sans suspendre l’accord"
+        },
+        {
+          "id": "international_defense-4-c",
+          "text": "Sanctionner les acteurs de la colonisation et interdire la vente en France des produits des colonies israéliennes"
+        },
+        {
+          "id": "international_defense-4-d",
+          "text": "Saisir le Conseil de sécurité des Nations unies pour obtenir des sanctions contre les dirigeants israéliens"
+        }
+      ]
+    },
+    {
+      "id": "europe-2",
+      "topicId": "europe",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelle politique budgétaire pour l’Union européenne ?",
+      "context": "Aujourd’hui : le budget de l’Union représente environ 1 % du revenu national des États membres ; la France y contribue pour environ 28 milliards d’euros par an.",
+      "explainer": {
+        "summary": "Le budget européen est financé surtout par des contributions des États calculées sur leur richesse, et son cadre pour 2028-2034 est en cours de négociation. Le débat porte sur sa taille et son financement (emprunt commun, impôts européens), sur la contribution de la France et sur les règles qui encadrent les déficits nationaux.",
+        "points": [
+          {
+            "text": "Les contributions calculées sur le revenu national brut (RNB) fournissent environ 60 à 70 % des ressources propres de l’UE. Créer une nouvelle ressource, par exemple un impôt européen, exige l’unanimité des États au Conseil. En juillet 2025, la Commission en a proposé plusieurs, assises notamment sur les quotas carbone, le tabac, les déchets électroniques et les grandes entreprises.",
+            "source": {
+              "title": "Recettes de l’Union – Fiches thématiques sur l’Union européenne",
+              "url": "https://www.europarl.europa.eu/factsheets/fr/sheet/27/recettes-de-l-union",
+              "date": "2026-05",
+              "publisher": "Parlement européen"
+            }
+          },
+          {
+            "text": "Le plan de relance NextGenerationEU (750 Md€ aux prix de 2018) a été financé par des emprunts de l’UE sur les marchés financiers. Son remboursement coûtera environ 25 Md€ par an au budget 2028-2034.",
+            "source": {
+              "title": "Cadre financier pluriannuel – Fiches thématiques sur l’Union européenne",
+              "url": "https://www.europarl.europa.eu/factsheets/fr/sheet/29/cadre-financier-pluriannuel",
+              "date": "2025-11",
+              "publisher": "Parlement européen"
+            }
+          },
+          {
+            "text": "Les règles européennes fixent deux valeurs de référence : 3 % du PIB pour le déficit public et 60 % pour la dette. Depuis la réforme de 2024, un État qui les dépasse suit une trajectoire de dépenses sur quatre ou cinq ans, prolongeable jusqu’à sept ans s’il s’engage à investir et à réformer.",
+            "source": {
+              "title": "Le cadre de l’Union européenne pour les politiques budgétaires – Fiches thématiques sur l’Union européenne",
+              "url": "https://www.europarl.europa.eu/factsheets/fr/sheet/89/le-cadre-de-l-union-europeenne-pour-les-politiques-budgetaires",
+              "date": "2026-04",
+              "publisher": "Parlement européen"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "1 763 Md€",
+            "label": "Budget 2028-2034 proposé par la Commission (prix de 2025), soit 1,26 % du revenu national brut de l’UE, dont 0,11 % pour rembourser le plan de relance. Le budget 2021-2027 représentait 1,13 % à son adoption.",
+            "date": "Proposition du 16 juillet 2025, en négociation",
+            "source": {
+              "title": "Cadre financier pluriannuel – Fiches thématiques sur l’Union européenne",
+              "url": "https://www.europarl.europa.eu/factsheets/fr/sheet/29/cadre-financier-pluriannuel",
+              "date": "2025-11",
+              "publisher": "Parlement européen"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "% du revenu national brut",
+              "items": [
+                {
+                  "label": "2021-2027, à son adoption",
+                  "value": 1.13
+                },
+                {
+                  "label": "2028-2034, proposition",
+                  "value": 1.26
+                },
+                {
+                  "label": "Dont remboursement de la relance",
+                  "value": 0.11
+                }
+              ]
+            }
+          },
+          {
+            "value": "−7,9 Md€",
+            "label": "Solde net de la France avec le budget européen (versements moins dépenses de l’UE en France) : deuxième contributeur net, derrière l’Allemagne. Avec 16,5 Md€ reçus hors plan de relance, dont 58 % au titre de la politique agricole commune, elle est aussi le premier bénéficiaire en volume, mais 22e par habitant.",
+            "date": "2024",
+            "source": {
+              "title": "Projet de loi de finances pour 2026 : Affaires européennes – Rapport général n° 139 (2025-2026), tome II, fascicule 2",
+              "url": "https://www.senat.fr/rap/l25-139-22/l25-139-22_mono.html",
+              "date": "2025-11-24",
+              "publisher": "Sénat, commission des finances"
+            }
+          },
+          {
+            "value": "1,5 Md€",
+            "label": "Part payée par la France pour financer les rabais accordés à cinq pays : Allemagne (2,2 Md€), Pays-Bas (1,7 Md€), Suède (0,9 Md€), Autriche (0,4 Md€) et Danemark (0,2 Md€). La France est le premier financeur de ces rabais.",
+            "date": "2025",
+            "source": {
+              "title": "Projet de loi de finances pour 2026 : Affaires européennes – Rapport général n° 139 (2025-2026), tome II, fascicule 2",
+              "url": "https://www.senat.fr/rap/l25-139-22/l25-139-22_mono.html",
+              "date": "2025-11-24",
+              "publisher": "Sénat, commission des finances"
+            }
+          },
+          {
+            "value": "5,1 % du PIB",
+            "label": "Déficit public de la France (152,5 Md€), au-dessus de la valeur de référence européenne de 3 %. La dette publique atteint 115,7 % du PIB fin 2025.",
+            "date": "2025 (comptes publiés le 29 mai 2026)",
+            "source": {
+              "title": "Le compte des administrations publiques en 2025 – Insee Première n° 2106",
+              "url": "https://www.insee.fr/fr/statistiques/8997691",
+              "date": "2026-05-29",
+              "publisher": "Insee"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "% du PIB",
+              "items": [
+                {
+                  "label": "Déficit public de la France",
+                  "value": 5.1
+                },
+                {
+                  "label": "Valeur de référence européenne",
+                  "value": 3
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "europe-2-a",
+          "text": "Doter l’Union d’un budget plus important, financé par des emprunts communs et des impôts européens"
+        },
+        {
+          "id": "europe-2-b",
+          "text": "Assouplir les règles européennes de déficit pour que chaque État puisse emprunter et investir"
+        },
+        {
+          "id": "europe-2-c",
+          "text": "Réduire la contribution de la France au budget européen en négociant un rabais, comme d’autres pays"
+        },
+        {
+          "id": "europe-2-d",
+          "text": "Conserver le budget européen à son niveau actuel et appliquer les règles de déficit en vigueur",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "europe-3",
+      "topicId": "europe",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelle place pour la concurrence dans le marché unique européen ?",
+      "context": "Aujourd’hui : les règles européennes ont ouvert à la concurrence l’électricité, le gaz, le transport ferroviaire et d’autres services publics.",
+      "explainer": {
+        "summary": "L’Union contrôle les ententes, les fusions et les aides publiques aux entreprises, et elle a ouvert à la concurrence d’anciens monopoles publics. Trois orientations s’opposent : assouplir ces règles pour faire émerger de grandes entreprises européennes, revenir à des monopoles publics nationaux à prix réglementés, ou garder le cadre actuel.",
+        "points": [
+          {
+            "text": "Le droit européen interdit les ententes et l’abus de position dominante, mais pas le fait d’être dominant (articles 101 et 102 du traité sur le fonctionnement de l’UE). Les règles sur les fusions sont en cours de réexamen en 2026. Celles qui encadrent les compensations versées aux services publics (« services d’intérêt économique général ») ont été révisées en janvier 2026.",
+            "source": {
+              "title": "Politique de concurrence – Fiches thématiques sur l’Union européenne",
+              "url": "https://www.europarl.europa.eu/factsheets/fr/sheet/82/politique-de-concurrence",
+              "date": "2026-04",
+              "publisher": "Parlement européen"
+            }
+          },
+          {
+            "text": "Le 6 février 2019, la Commission a interdit le rachat d’Alstom par Siemens, qui aurait réuni les deux plus grands fournisseurs européens de signalisation ferroviaire et de matériel roulant. Selon elle, l’opération aurait réduit la concurrence dans la signalisation et les trains à très grande vitesse, et les mesures correctives proposées étaient insuffisantes.",
+            "source": {
+              "title": "Concentrations : la Commission interdit le projet d’acquisition d’Alstom par Siemens (IP/19/881)",
+              "url": "https://ec.europa.eu/commission/presscorner/detail/fr/ip_19_881",
+              "date": "2019-02-06",
+              "publisher": "Commission européenne"
+            }
+          },
+          {
+            "text": "Les marchés de l’électricité et du gaz sont totalement ouverts depuis le 1er juillet 2007 : chacun peut choisir son fournisseur. Pour l’électricité, des offres à prix libres coexistent avec des tarifs réglementés, fixés par les pouvoirs publics et proposés par EDF et un peu plus de 100 entreprises locales de distribution.",
+            "source": {
+              "title": "Marché de détail de l’électricité – Présentation",
+              "url": "https://www.cre.fr/electricite/marche-de-detail-de-lelectricite/presentation.html",
+              "publisher": "Commission de régulation de l’énergie (CRE)"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "33 sur 10 164",
+            "label": "Fusions interdites par la Commission européenne, sur l’ensemble des opérations qui lui ont été notifiées",
+            "date": "21 septembre 1990 – 30 septembre 2026",
+            "source": {
+              "title": "Merger cases statistics",
+              "url": "https://competition-policy.ec.europa.eu/document/download/4b083559-e36c-44c2-a604-f581abd6b42c_en?filename=Merger_cases_statistics.pdf",
+              "date": "2026-09-30",
+              "publisher": "Commission européenne, DG Concurrence"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 33,
+              "total": 10164,
+              "whole": "opérations notifiées"
+            }
+          },
+          {
+            "value": "49 %",
+            "label": "Part des sites de consommation d’électricité en offre de marché, dont 34 % chez un fournisseur autre que les fournisseurs historiques. Les autres sites restent au tarif réglementé. En volume, 77 % de l’électricité consommée passe par des offres de marché.",
+            "date": "30 juin 2026",
+            "source": {
+              "title": "Marché de détail de l’électricité – Présentation",
+              "url": "https://www.cre.fr/electricite/marche-de-detail-de-lelectricite/presentation.html",
+              "publisher": "Commission de régulation de l’énergie (CRE)"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 49,
+              "total": 100,
+              "unit": "%",
+              "whole": "des sites de consommation d’électricité"
+            }
+          },
+          {
+            "value": "48 %",
+            "label": "Part des sites de gaz naturel servis par un fournisseur autre que les fournisseurs historiques. Depuis la fin des tarifs réglementés du gaz, le 30 juin 2023, tous les sites sont en offre de marché.",
+            "date": "30 juin 2026",
+            "source": {
+              "title": "Marché de détail du gaz naturel – Présentation",
+              "url": "https://www.cre.fr/gaz/marche-de-detail-du-gaz-naturel/presentation.html",
+              "publisher": "Commission de régulation de l’énergie (CRE)"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 48,
+              "total": 100,
+              "unit": "%",
+              "whole": "des sites de gaz naturel"
+            }
+          },
+          {
+            "value": "près de 20 %",
+            "label": "Part de l’offre nationale que représentent les lots de trains conventionnés (services financés par une autorité publique, comme les TER) déjà attribués après appel d’offres, selon le régulateur des transports",
+            "date": "Juin 2026",
+            "source": {
+              "title": "Ouverture du marché ferroviaire : de premiers bénéfices concrets, trois défis pour les pérenniser",
+              "url": "https://www.autorite-transports.fr/actualites/ouverture-du-marche-ferroviaire-de-premiers-benefices-concrets-trois-defis-pour-les-perenniser/",
+              "date": "2026-06-28",
+              "publisher": "Autorité de régulation des transports (ART)"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 20,
+              "total": 100,
+              "unit": "%",
+              "whole": "de l’offre nationale"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "europe-3-a",
+          "text": "Assouplir les règles européennes de concurrence pour faire émerger de grandes entreprises européennes"
+        },
+        {
+          "id": "europe-3-b",
+          "text": "Revenir sur l’ouverture à la concurrence pour rétablir des monopoles publics nationaux à prix réglementés"
+        },
+        {
+          "id": "europe-3-c",
+          "text": "Conserver les règles de concurrence actuelles et l’ouverture des services publics à la concurrence",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "international_defense-5",
+      "topicId": "defense",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quel rôle pour la dissuasion nucléaire française en Europe ?",
+      "context": "Aujourd’hui : la France est le seul pays de l’Union européenne doté de l’arme nucléaire, dont le président de la République décide seul l’emploi.",
+      "explainer": {
+        "summary": "La dissuasion nucléaire vise à faire redouter à tout agresseur des dommages « absolument inacceptables » s’il s’en prenait aux intérêts vitaux de la France. Depuis 2026, des pays européens y sont associés sans partage de la décision, et le débat porte sur la suite : étendre cette protection aux autres pays de l’Union, la réserver à la France, ou y renoncer dans le cadre d’un désarmement négocié.",
+        "points": [
+          {
+            "text": "En mars 2026, le président de la République a annoncé une « dissuasion avancée ». Les pays partenaires pourront participer aux exercices nucléaires, et des forces stratégiques françaises pourront être déployées chez eux. La décision d’emploi ne sera pas partagée. Le nombre de têtes nucléaires va augmenter et ne sera plus rendu public.",
+            "source": {
+              "title": "La « dissuasion avancée » : une évolution de la doctrine nucléaire française",
+              "url": "https://www.vie-publique.fr/en-bref/302309-la-dissuasion-avancee-une-evolution-de-la-doctrine-nucleaire-francaise",
+              "date": "2026-09-15",
+              "publisher": "Vie-publique.fr (DILA)"
+            }
+          },
+          {
+            "text": "Le « partage nucléaire » de l’OTAN repose sur des armes américaines. En 2025, plusieurs États européens, dont l’Allemagne, ont souhaité le compléter par des accords comparables avec la France et le Royaume-Uni.",
+            "source": {
+              "title": "Communiqué de presse : parution du Sipri Yearbook 2026 (version française, PDF)",
+              "url": "https://www.sipri.org/sites/default/files/WNF%202026%20PR%20FRE.pdf",
+              "date": "2026-06-08",
+              "publisher": "SIPRI"
+            }
+          },
+          {
+            "text": "Côté désarmement, le traité New Start entre les États-Unis et la Russie a expiré en février 2026 sans traité de remplacement. La conférence d’examen du traité sur la non-prolifération (TNP) s’est achevée le 22 mai 2026 sans document final, pour la troisième fois de suite.",
+            "source": {
+              "title": "Communiqué de presse : parution du Sipri Yearbook 2026 (version française, PDF)",
+              "url": "https://www.sipri.org/sites/default/files/WNF%202026%20PR%20FRE.pdf",
+              "date": "2026-06-08",
+              "publisher": "SIPRI"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "290 ogives",
+            "label": "Stock militaire de la France (ogives utilisables) estimé par le SIPRI, sur environ 9 745 dans le monde. La Russie et les États-Unis en détiennent environ 83 %.",
+            "date": "Janvier 2026",
+            "source": {
+              "title": "Communiqué de presse : parution du Sipri Yearbook 2026 (version française, PDF)",
+              "url": "https://www.sipri.org/sites/default/files/WNF%202026%20PR%20FRE.pdf",
+              "date": "2026-06-08",
+              "publisher": "SIPRI"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 290,
+              "total": 9745,
+              "unit": "ogives",
+              "whole": "environ dans le monde"
+            }
+          },
+          {
+            "value": "7,4 Md€",
+            "label": "Crédits de la dissuasion nucléaire prévus pour 2026, soit 11,1 % des crédits de paiement de la mission Défense",
+            "date": "2026 (projet de loi de finances)",
+            "source": {
+              "title": "Projet de loi de finances pour 2026 : Défense – Rapport général n° 139 (2025-2026), tome III, annexe 8",
+              "url": "https://www.senat.fr/rap/l25-139-38/l25-139-38_mono.html",
+              "date": "2025-11-24",
+              "publisher": "Sénat, commission des finances"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 11.1,
+              "total": 100,
+              "unit": "%",
+              "whole": "des crédits de paiement de la mission Défense"
+            }
+          },
+          {
+            "value": "10 pays",
+            "label": "Pays européens associés à la « dissuasion avancée » : Royaume-Uni, Allemagne, Pologne, Pays-Bas, Belgique, Grèce, Suède, Danemark, puis Norvège et Finlande. Huit d’entre eux sont membres de l’UE.",
+            "date": "Au 15 septembre 2026",
+            "source": {
+              "title": "La « dissuasion avancée » : une évolution de la doctrine nucléaire française",
+              "url": "https://www.vie-publique.fr/en-bref/302309-la-dissuasion-avancee-une-evolution-de-la-doctrine-nucleaire-francaise",
+              "date": "2026-09-15",
+              "publisher": "Vie-publique.fr (DILA)"
+            }
+          },
+          {
+            "value": "75 États parties",
+            "label": "Pays engagés dans le traité de l’ONU sur l’interdiction des armes nucléaires, en vigueur depuis 2021 (96 signataires). Aucun des neuf États dotés de l’arme nucléaire n’en fait partie ; dans l’UE, l’Autriche, l’Irlande et Malte l’ont ratifié.",
+            "date": "Au 3 octobre 2026",
+            "source": {
+              "title": "Traité sur l’interdiction des armes nucléaires – état des signatures et ratifications",
+              "url": "https://treaties.un.org/Pages/ViewDetails.aspx?src=TREATY&mtdsg_no=XXVI-9&chapter=26&clang=_fr",
+              "date": "2026-10-03",
+              "publisher": "Nations unies, Collection des traités"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "international_defense-5-a",
+          "text": "Étendre la protection nucléaire française aux autres pays de l’Union, la France gardant seule la décision"
+        },
+        {
+          "id": "international_defense-5-b",
+          "text": "Réserver la dissuasion nucléaire à la seule protection de la France, sans l’étendre à ses voisins européens"
+        },
+        {
+          "id": "international_defense-5-c",
+          "text": "Renoncer à l’arme nucléaire dans le cadre d’un désarmement négocié entre les puissances nucléaires",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "immigration-1",
+      "topicId": "immigration",
+      "tier": "essentiel",
+      "step": 2,
+      "rev": 1,
+      "prompt": "Quelle orientation donner à la politique d’immigration ?",
+      "context": "Aujourd’hui : la régularisation des étrangers sans titre de séjour est décidée au cas par cas par les préfectures.",
+      "explainer": {
+        "summary": "Les approches divergent sur la priorité : régulariser des travailleurs déjà présents, choisir les entrées selon les besoins, attirer étudiants et profils qualifiés, ou exécuter davantage d’expulsions. Elles divergent aussi sur la méthode : confier le cap au Parlement ou y associer des citoyens tirés au sort.",
+        "points": [
+          {
+            "text": "La loi du 26 janvier 2024 a ouvert une voie de régularisation pour les « métiers en tension », où les employeurs peinent à recruter (liste officielle par métier et par zone). Il faut y avoir travaillé 12 mois sur les 24 derniers, y occuper un emploi et résider en France depuis au moins 3 ans. Le titre est accordé « à titre exceptionnel » : le préfet n’est pas tenu de le délivrer. Le dispositif s’applique jusqu’au 31 décembre 2026.",
+            "source": {
+              "title": "Article L435-4 du Code de l’entrée et du séjour des étrangers et du droit d’asile",
+              "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000049044146",
+              "date": "2024-01-28",
+              "publisher": "Légifrance"
+            }
+          },
+          {
+            "text": "Les « conventions citoyennes » réunissent des personnes tirées au sort pour formuler des propositions. Celle de 2025 sur les temps de l’enfant, organisée par le Conseil économique, social et environnemental (CESE), comptait 130 citoyens choisis selon six critères de représentativité : sexe, âge, type de territoire, région, diplôme et catégorie socioprofessionnelle.",
+            "source": {
+              "title": "Convention sur les temps des enfants : les citoyens vont être tirés au sort",
+              "url": "https://www.vie-publique.fr/en-bref/298628-convention-sur-les-temps-des-enfants-les-citoyens-tires-au-sort",
+              "date": "2025-05-19",
+              "publisher": "Vie-publique.fr (DILA, Premier ministre)"
+            }
+          },
+          {
+            "text": "En janvier 2024, le Conseil constitutionnel a censuré l’article qui imposait au Parlement un débat et la fixation, pour trois ans, du nombre d’étrangers admis à s’installer durablement en France. Motif : une loi ne peut imposer au Parlement ni un débat ni des objectifs chiffrés en matière d’immigration, car cela pourrait empiéter sur les règles constitutionnelles de fixation de son ordre du jour.",
+            "source": {
+              "title": "Décision n° 2023-863 DC du 25 janvier 2024 – Communiqué de presse",
+              "url": "https://www.conseil-constitutionnel.fr/actualites/communique/decision-n-2023-863-dc-du-25-janvier-2024-communique-de-presse",
+              "date": "2024-01-25",
+              "publisher": "Conseil constitutionnel"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "377 462",
+            "label": "premiers titres de séjour délivrés à des ressortissants de pays tiers (+ 9,2 % sur un an), dont 31,0 % pour études et 13,5 % pour motif économique (France)",
+            "date": "2025 (données provisoires)",
+            "source": {
+              "title": "Les titres de séjour en 2025 : les protections subsidiaires ont plus que doublé",
+              "url": "https://www.immigration.interieur.gouv.fr/documentation/etudes-et-statistiques/titres-de-sejour-en-2025-protections-subsidiaires-ont-plus-que-double.html",
+              "date": "2026-06-30",
+              "publisher": "Ministère de l’Intérieur – DGEF, service statistique (DSED)"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Titres pour études",
+                  "value": 31
+                },
+                {
+                  "label": "Titres pour motif économique",
+                  "value": 13.5
+                }
+              ]
+            }
+          },
+          {
+            "value": "27 819",
+            "label": "régularisations (admissions exceptionnelles au séjour et titres « liens personnels et familiaux »), en baisse de 11,0 % sur un an, dont 9 696 au titre du travail (France). Le ministère relie cette baisse à la loi de 2024 et à une circulaire de janvier 2025 qui recentre la régularisation sur des situations « strictement exceptionnelles ».",
+            "date": "2025 (données provisoires)",
+            "source": {
+              "title": "Les titres de séjour en 2025 : les protections subsidiaires ont plus que doublé",
+              "url": "https://www.immigration.interieur.gouv.fr/documentation/etudes-et-statistiques/titres-de-sejour-en-2025-protections-subsidiaires-ont-plus-que-double.html",
+              "date": "2026-06-30",
+              "publisher": "Ministère de l’Intérieur – DGEF, service statistique (DSED)"
+            },
+            "chart": {
+              "kind": "compare",
+              "items": [
+                {
+                  "label": "Toutes régularisations",
+                  "value": 27819
+                },
+                {
+                  "label": "Dont au titre du travail",
+                  "value": 9696
+                }
+              ]
+            }
+          },
+          {
+            "value": "12,2 %",
+            "label": "part des immigrés dans la population active de 15 à 64 ans (France hors Mayotte). Un immigré est une personne née étrangère à l’étranger ; certains sont devenus français.",
+            "date": "2024",
+            "source": {
+              "title": "Activité, emploi et chômage des immigrés de 2014 à 2024",
+              "url": "https://www.immigration.interieur.gouv.fr/documentation/etudes-et-statistiques/activite-emploi-et-chomage-des-immigres-de-2014-a-2024.html",
+              "date": "2025-10-22",
+              "publisher": "Ministère de l’Intérieur – DGEF, service statistique (DSED), d’après l’INSEE"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 12.2,
+              "total": 100,
+              "unit": "%",
+              "whole": "de la population active"
+            }
+          },
+          {
+            "value": "23 549",
+            "label": "éloignements d’étrangers en situation irrégulière (forcés, aidés et spontanés), en hausse de 11,1 % sur un an (France métropolitaine, majeurs). S’y ajoutent 24 512 éloignements depuis l’outre-mer, à près de 90 % depuis Mayotte.",
+            "date": "2025",
+            "source": {
+              "title": "Les éloignements d’étrangers en situation irrégulière en 2025 : une dynamique ascendante",
+              "url": "https://www.immigration.interieur.gouv.fr/chiffres-de-limmigration-en-france/eloignements-detrangers-en-situation-irreguliere-en-2025-dynamique-ascendante",
+              "date": "2026-06-30",
+              "publisher": "Ministère de l’Intérieur – DGEF, service statistique (DSED)"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "immigration-1-a",
+          "text": "Régulariser à grande échelle les travailleurs sans titre de séjour"
+        },
+        {
+          "id": "immigration-1-b",
+          "text": "Régulariser les travailleurs sans titre de séjour, en priorité dans les métiers qui peinent à recruter"
+        },
+        {
+          "id": "immigration-1-c",
+          "text": "Confier à des citoyens tirés au sort l’élaboration de propositions sur l’immigration, soumises au Parlement"
+        },
+        {
+          "id": "immigration-1-d",
+          "text": "Faire planifier l’immigration par le Parlement selon les capacités d’accueil et les besoins de l’économie"
+        },
+        {
+          "id": "immigration-1-e",
+          "text": "Assouplir la délivrance de visas aux étudiants et aux professionnels qualifiés venus de l’étranger"
+        },
+        {
+          "id": "immigration-1-f",
+          "text": "Réduire l’immigration irrégulière en exécutant davantage de décisions d’expulsion",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "securite_justice-1",
+      "topicId": "securite_justice",
+      "tier": "essentiel",
+      "step": 1,
+      "rev": 1,
+      "prompt": "Quelle priorité pour la police et la sécurité du quotidien ?",
+      "explainer": {
+        "summary": "Les approches se partagent entre deux priorités, qui peuvent se combiner : changer la façon dont la police agit (contrôles d’identité, usage de la force, proximité avec les habitants), ou renforcer ses moyens, la surveillance et la fermeté face aux violences.",
+        "points": [
+          {
+            "text": "Depuis le 2 mars 2017, policiers et gendarmes peuvent faire usage de leurs armes « en cas d’absolue nécessité et de manière strictement proportionnée », dans cinq cas fixés par la loi. L’un d’eux vise un conducteur qui refuse de s’arrêter : il faut qu’on ne puisse pas immobiliser le véhicule autrement et que ses occupants soient susceptibles, dans leur fuite, de porter atteinte à la vie ou à l’intégrité physique des agents ou d’autrui.",
+            "source": {
+              "title": "Code de la sécurité intérieure, article L435-1",
+              "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000034107970",
+              "date": "en vigueur depuis le 2 mars 2017",
+              "publisher": "Légifrance"
+            }
+          },
+          {
+            "text": "Dans les établissements scolaires, les caméras peuvent filmer les entrées, les sorties et les espaces de circulation. Sauf cas exceptionnels (actes de malveillance fréquents et répétés), la CNIL exclut de filmer les lieux de vie (cour, classe, cantine…) pendant les heures d’ouverture, au nom de la vie privée des élèves et des personnels.",
+            "source": {
+              "title": "Les dispositifs vidéo dans les établissements scolaires",
+              "url": "https://www.cnil.fr/fr/la-videosurveillance-videoprotection-dans-les-etablissements-scolaires",
+              "date": "12 septembre 2025",
+              "publisher": "Commission nationale de l’informatique et des libertés (CNIL)"
+            }
+          },
+          {
+            "text": "Les chiffres de la délinquance ne comptent que les faits enregistrés par la police et la gendarmerie, après une plainte, un signalement ou à leur propre initiative. Selon le service statistique du ministère de l’Intérieur, ils donnent une indication du volume réel surtout pour les faits que les victimes signalent souvent, comme les cambriolages ou les vols de véhicules.",
+            "source": {
+              "title": "Présentation du jeu de données « Principales caractéristiques des victimes enregistrées et des mis en cause » (SSMSI)",
+              "url": "https://static.data.gouv.fr/resources/principales-caracteristiques-des-victimes-enregistrees-et-des-mis-en-cause-pour-des-infractions-elucidees-par-la-police-et-la-gendarmerie-nationales/20260129-113555/metadonnees-victimes-mec-caract-ssmsi-29012026.pdf",
+              "date": "29 janvier 2026",
+              "publisher": "Ministère de l’Intérieur – SSMSI (data.gouv.fr)"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "472 956",
+            "label": "victimes de violences physiques enregistrées par la police et la gendarmerie en 2025, contre 449 819 en 2024 ; plus de la moitié (256 863) dans le cadre familial – France métropolitaine et départements d’outre-mer",
+            "date": "2025",
+            "source": {
+              "title": "Base nationale des caractéristiques des victimes enregistrées par la police et la gendarmerie nationales (fichier xlsx)",
+              "url": "https://static.data.gouv.fr/resources/principales-caracteristiques-des-victimes-enregistrees-et-des-mis-en-cause-pour-des-infractions-elucidees-par-la-police-et-la-gendarmerie-nationales/20260129-160110/donnee-nat-caract-victimes-data.gouv-2025-produit-le-29012026.xlsx",
+              "date": "29 janvier 2026",
+              "publisher": "Ministère de l’Intérieur – SSMSI (data.gouv.fr)"
+            },
+            "chart": {
+              "kind": "compare",
+              "items": [
+                {
+                  "label": "Ensemble des victimes",
+                  "value": 472956
+                },
+                {
+                  "label": "Dont dans le cadre familial",
+                  "value": 256863
+                }
+              ]
+            }
+          },
+          {
+            "value": "4 fois",
+            "label": "plus de risque d’avoir été contrôlés pour les jeunes hommes perçus comme noirs, arabes ou maghrébins que pour le reste de la population. Les contrôles ont progressé dans toute la population : 26 % des personnes disent avoir été contrôlées au moins une fois en cinq ans, contre 16 % en 2016 – France métropolitaine, 18-79 ans",
+            "date": "enquête d’octobre 2024 à janvier 2025",
+            "source": {
+              "title": "Relations police/population : contrôles d’identité et dépôts de plainte – Enquête Accès aux droits, 2e édition, volume 1 (dossier de presse)",
+              "url": "https://www.defenseurdesdroits.fr/sites/default/files/2025-07/ddd_EAD-2024_volume-1_relations-police-population_DP.pdf",
+              "date": "juin 2025",
+              "publisher": "Défenseur des droits"
+            }
+          },
+          {
+            "value": "50 %",
+            "label": "des habitants se disent confiants ou rassurés en présence d’un policier ou d’un gendarme sur la voie publique ; 28 % se disent indifférents et 22 % méfiants ou inquiets – France métropolitaine, 18-79 ans",
+            "date": "enquête d’octobre 2024 à janvier 2025",
+            "source": {
+              "title": "Relations police/population : contrôles d’identité et dépôts de plainte – Enquête Accès aux droits, 2e édition, volume 1 (dossier de presse)",
+              "url": "https://www.defenseurdesdroits.fr/sites/default/files/2025-07/ddd_EAD-2024_volume-1_relations-police-population_DP.pdf",
+              "date": "juin 2025",
+              "publisher": "Défenseur des droits"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Confiants ou rassurés",
+                  "value": 50
+                },
+                {
+                  "label": "Indifférents",
+                  "value": 28
+                },
+                {
+                  "label": "Méfiants ou inquiets",
+                  "value": 22
+                }
+              ]
+            }
+          },
+          {
+            "value": "+ 3 872",
+            "label": "postes de policiers (équivalents temps plein) visés entre 2023 et 2027, et + 3 540 dans la gendarmerie, selon la trajectoire liée à la loi de programmation du ministère de l’Intérieur relevée par le Sénat (ces cibles ne sont pas inscrites dans la loi elle-même). Après un gel en 2025, le projet de budget 2026 prévoyait + 1 000 postes dans la police et + 400 dans la gendarmerie",
+            "date": "2023-2027",
+            "source": {
+              "title": "Projet de loi de finances pour 2026 : Sécurités (Gendarmerie nationale – Police nationale) – Rapport général n° 139 (2025-2026), tome III, annexe 28",
+              "url": "https://www.senat.fr/rap/l25-139-328-1/l25-139-328-1_mono.html",
+              "date": "24 novembre 2025",
+              "publisher": "Sénat – commission des finances"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "postes",
+              "items": [
+                {
+                  "label": "Hausse visée, police",
+                  "value": 3872
+                },
+                {
+                  "label": "Hausse visée, gendarmerie",
+                  "value": 3540
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "securite_justice-1-a",
+          "text": "Lutter contre les contrôles d’identité au faciès et reconnaître les discriminations au sein de la police"
+        },
+        {
+          "id": "securite_justice-1-b",
+          "text": "Recréer une police de proximité, tournée vers la prévention, la médiation et le contact avec les habitants"
+        },
+        {
+          "id": "securite_justice-1-c",
+          "text": "Revoir la doctrine qui encadre l’usage de la force par les policiers et les gendarmes lors de leurs interventions"
+        },
+        {
+          "id": "securite_justice-1-d",
+          "text": "Donner davantage d’effectifs et de moyens à la police et à la justice pour faire face à la délinquance"
+        },
+        {
+          "id": "securite_justice-1-e",
+          "text": "Installer des caméras de surveillance dans les écoles, les crèches et les lieux d’accueil périscolaire"
+        },
+        {
+          "id": "securite_justice-1-f",
+          "text": "Appliquer une tolérance zéro face aux violences commises contre les personnes"
+        }
+      ]
+    },
+    {
+      "id": "laicite_republique-1",
+      "topicId": "laicite_republique",
+      "tier": "essentiel",
+      "step": 2,
+      "rev": 1,
+      "prompt": "Quelle approche de la laïcité privilégier ?",
+      "context": "Aujourd’hui : la loi de 1905 sépare les Églises et l’État, avec des exceptions locales comme en Alsace-Moselle ; les élèves de l’école publique ne peuvent pas porter de signes religieux ostensibles et les agents publics doivent rester neutres.",
+      "explainer": {
+        "summary": "La République est laïque, mais la façon d’appliquer ce principe divise. Les approches portent sur sa définition, sur l’extension ou non des interdictions de signes religieux, sur la place de la lutte contre les discriminations et sur les exceptions locales, comme en Alsace-Moselle.",
+        "points": [
+          {
+            "text": "La Constitution qualifie la République de « laïque » dès son article 1er, sans donner de définition du mot.",
+            "source": {
+              "title": "Texte intégral de la Constitution du 4 octobre 1958 en vigueur",
+              "url": "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/texte-integral-de-la-constitution-du-4-octobre-1958-en-vigueur",
+              "publisher": "Conseil constitutionnel"
+            }
+          },
+          {
+            "text": "En 2013, le Conseil constitutionnel a jugé qu’en proclamant la République « laïque », la Constitution n’avait pas « entendu remettre en cause » les règles particulières de certains territoires, comme l’Alsace-Moselle, où l’État rémunère des ministres du culte.",
+            "source": {
+              "title": "Décision n° 2012-297 QPC du 21 février 2013 (traitement des pasteurs dans le Bas-Rhin, le Haut-Rhin et la Moselle)",
+              "url": "https://www.conseil-constitutionnel.fr/decision/2013/2012297QPC.htm",
+              "date": "21 février 2013",
+              "publisher": "Conseil constitutionnel"
+            }
+          },
+          {
+            "text": "L’Observatoire de la laïcité, créé en 2007, a été supprimé en juin 2021. Depuis, un comité interministériel de la laïcité, présidé par le Premier ministre et réuni au moins une fois par an, coordonne l’action du gouvernement.",
+            "source": {
+              "title": "Décret n° 2021-716 du 4 juin 2021 instituant un comité interministériel de la laïcité",
+              "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000043604820",
+              "date": "4 juin 2021",
+              "publisher": "Légifrance"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "51 %",
+            "label": "des 18-59 ans se disent sans religion ; 29 % se déclarent catholiques, 10 % musulmans et 10 % d’une autre religion – France métropolitaine",
+            "date": "2019-2020",
+            "source": {
+              "title": "La diversité religieuse en France : transmissions intergénérationnelles et pratiques selon les origines (enquête Trajectoires et Origines 2)",
+              "url": "https://www.insee.fr/fr/statistiques/6793308?sommaire=6793391",
+              "date": "30 mars 2023",
+              "publisher": "Insee – Ined"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Sans religion",
+                  "value": 51
+                },
+                {
+                  "label": "Catholiques",
+                  "value": 29
+                },
+                {
+                  "label": "Musulmans",
+                  "value": 10
+                },
+                {
+                  "label": "Autre religion",
+                  "value": 10
+                }
+              ]
+            }
+          },
+          {
+            "value": "26 %",
+            "label": "des femmes musulmanes de 18 à 49 ans disent porter un voile, contre 18 % en 2008-2009 – France métropolitaine",
+            "date": "2019-2020",
+            "source": {
+              "title": "La diversité religieuse en France : transmissions intergénérationnelles et pratiques selon les origines – encadré « Qui porte le voile ? »",
+              "url": "https://www.insee.fr/fr/statistiques/6793308?sommaire=6793391",
+              "date": "30 mars 2023",
+              "publisher": "Insee – Ined"
+            },
+            "chart": {
+              "kind": "series",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "2008-2009",
+                  "value": 18
+                },
+                {
+                  "label": "2019-2020",
+                  "value": 26
+                }
+              ]
+            }
+          },
+          {
+            "value": "7 %",
+            "label": "des personnes ayant déclaré une discrimination ou un traitement inégalitaire au cours des cinq dernières années citent leur religion comme motif. C’est 30 % chez les immigrés et descendants d’immigrés du Maroc et de Tunisie, contre 2 % chez les personnes sans ascendance migratoire ni originaires d’outre-mer – France métropolitaine, 18-59 ans",
+            "date": "2019-2020",
+            "source": {
+              "title": "Immigrés et descendants d’immigrés en France – fiche Discriminations",
+              "url": "https://www.insee.fr/fr/statistiques/6793302?sommaire=6793391",
+              "date": "30 mars 2023",
+              "publisher": "Insee – Ined"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Ensemble des personnes",
+                  "value": 7
+                },
+                {
+                  "label": "Origine Maroc ou Tunisie",
+                  "value": 30
+                },
+                {
+                  "label": "Sans ascendance migratoire",
+                  "value": 2
+                }
+              ]
+            }
+          },
+          {
+            "value": "210 voix contre 81",
+            "label": "vote du Sénat sur une proposition de loi (texte d’origine parlementaire) interdisant les signes ou tenues manifestant ostensiblement une appartenance religieuse dans les compétitions sportives. Transmis à l’Assemblée nationale le 19 février 2025, le texte n’y avait pas été adopté au 3 octobre 2026",
+            "date": "18 février 2025",
+            "source": {
+              "title": "Proposition de loi visant à assurer le respect du principe de laïcité dans le sport – La loi en clair",
+              "url": "https://www.senat.fr/travaux-parlementaires/textes-legislatifs/la-loi-en-clair/proposition-de-loi-visant-a-assurer-le-respect-du-principe-de-laicite-dans-le-sport.html",
+              "date": "février 2025",
+              "publisher": "Sénat"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "voix",
+              "items": [
+                {
+                  "label": "Pour",
+                  "value": 210
+                },
+                {
+                  "label": "Contre",
+                  "value": 81
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "laicite_republique-1-a",
+          "text": "Créer une autorité indépendante chargée de la laïcité et inscrire une définition de la laïcité dans la Constitution"
+        },
+        {
+          "id": "laicite_republique-1-b",
+          "text": "Garantir la neutralité religieuse de l’école et de l’hôpital, en refusant tout aménagement pour motif religieux"
+        },
+        {
+          "id": "laicite_republique-1-c",
+          "text": "Mettre fin progressivement aux exceptions locales à la loi de 1905, comme le régime d’Alsace-Moselle"
+        },
+        {
+          "id": "laicite_republique-1-d",
+          "text": "Mettre l’accent sur la lutte contre les discriminations, y compris celles qui visent les musulmans"
+        },
+        {
+          "id": "laicite_republique-1-e",
+          "text": "Maintenir la liberté de porter le voile dans l’espace public et respecter le choix des femmes qui le portent"
+        },
+        {
+          "id": "laicite_republique-1-f",
+          "text": "Étendre l’interdiction des signes religieux à d’autres lieux, comme les sorties scolaires ou les compétitions sportives",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "numerique-1",
+      "topicId": "numerique",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelle priorité face au développement de l’intelligence artificielle (IA) ?",
+      "context": "Aujourd’hui : un règlement européen, en vigueur depuis 2024, encadre les usages de l’IA selon leur niveau de risque.",
+      "explainer": {
+        "summary": "L’intelligence artificielle se diffuse vite dans les entreprises et dans la vie quotidienne. Ses effets sur l’emploi restent difficiles à mesurer. Le désaccord porte sur la priorité : faire contribuer l’IA à la protection sociale, investir dans une IA publique ou européenne, négocier un traité international, ou s’en tenir aux règles européennes actuelles.",
+        "points": [
+          {
+            "text": "Le règlement européen sur l’IA classe les systèmes en quatre niveaux de risque. Les pratiques interdites le sont depuis le 2 février 2025, et les règles visant les grands modèles d’IA « à usage général » s’appliquent depuis le 2 août 2025. Après une révision entrée en vigueur le 27 juillet 2026, les obligations des systèmes « à haut risque » (biométrie, éducation, emploi, contrôle aux frontières…) s’appliqueront à partir du 2 décembre 2027.",
+            "source": {
+              "title": "Législation sur l’IA : cadre réglementaire et calendrier d’application",
+              "url": "https://digital-strategy.ec.europa.eu/fr/policies/regulatory-framework-ai",
+              "date": "2026-08-03",
+              "publisher": "Commission européenne"
+            }
+          },
+          {
+            "text": "Selon la Commission européenne, le premier traité international juridiquement contraignant sur l’IA est la convention-cadre du Conseil de l’Europe. Négociée aussi avec des États non européens (États-Unis, Canada, Japon…), elle vise à rendre l’IA compatible avec les droits humains, la démocratie et l’État de droit. Signée au nom de l’UE le 5 septembre 2024, elle y est mise en œuvre par le règlement européen sur l’IA.",
+            "source": {
+              "title": "Commission signs Council of Europe framework Convention on Artificial Intelligence",
+              "url": "https://digital-strategy.ec.europa.eu/en/news/commission-signs-council-europe-framework-convention-artificial-intelligence",
+              "date": "2024-09-05",
+              "publisher": "Commission européenne"
+            }
+          },
+          {
+            "text": "En février 2025, la Commission européenne a lancé InvestAI, qui vise à mobiliser 200 milliards d’euros d’investissements dans l’IA. Ce plan comprend un fonds de 20 milliards d’euros pour financer quatre « giga-fabriques » d’IA : de très grands centres de calcul destinés à entraîner les modèles les plus complexes.",
+            "source": {
+              "title": "L’UE lance l’initiative InvestAI, destinée à mobiliser 200 milliards d’euros d’investissements dans l’intelligence artificielle (IP/25/467)",
+              "url": "https://ec.europa.eu/commission/presscorner/detail/fr/ip_25_467",
+              "date": "2025-02-11",
+              "publisher": "Commission européenne"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "18,16 %",
+            "label": "Part des entreprises d’au moins 10 personnes utilisant au moins une technologie d’IA, France (9,91 % en 2024 ; Union européenne : 19,95 % en 2025). Champ : industrie, construction, commerce et principaux services marchands, hors finance",
+            "date": "2025",
+            "source": {
+              "title": "Use of artificial intelligence in enterprises (Statistics Explained)",
+              "url": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Use_of_artificial_intelligence_in_enterprises",
+              "date": "2026-06-02",
+              "publisher": "Eurostat"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "France, 2024",
+                  "value": 9.91
+                },
+                {
+                  "label": "France, 2025",
+                  "value": 18.16
+                },
+                {
+                  "label": "Union européenne, 2025",
+                  "value": 19.95
+                }
+              ]
+            }
+          },
+          {
+            "value": "37,5 %",
+            "label": "Part des personnes de 16 à 74 ans ayant utilisé un outil d’IA générative au cours des trois derniers mois, France (Union européenne : 32,7 %)",
+            "date": "2025 (article publié le 15 avril 2026)",
+            "source": {
+              "title": "Use of artificial intelligence by individuals (Statistics Explained)",
+              "url": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Use_of_artificial_intelligence_by_individuals",
+              "date": "2026-04-15",
+              "publisher": "Eurostat"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "France",
+                  "value": 37.5
+                },
+                {
+                  "label": "Union européenne",
+                  "value": 32.7
+                }
+              ]
+            }
+          },
+          {
+            "value": "34 %",
+            "label": "Part des emplois exposés, au moins en partie, à l’IA générative dans les pays à revenu élevé (11 % dans les pays à faible revenu ; un travailleur sur quatre dans le monde). Pour l’OIT, la plupart des métiers comportant des tâches qui exigent une intervention humaine, l’effet le plus probable est une transformation des emplois",
+            "date": "2025-05-20",
+            "source": {
+              "title": "Generative AI and jobs: A refined global index of occupational exposure (ILO Working Paper 140)",
+              "url": "https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure",
+              "date": "2025-05-20",
+              "publisher": "Organisation internationale du travail (OIT)"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Pays à revenu élevé",
+                  "value": 34
+                },
+                {
+                  "label": "Pays à faible revenu",
+                  "value": 11
+                }
+              ]
+            }
+          },
+          {
+            "value": "55,11 %",
+            "label": "Part des cotisations sociales dans les recettes de la protection sociale, France. Les contributions publiques en apportent 42,9 %, dont 29,95 % sous forme d’impôts affectés (réservés à ce financement)",
+            "date": "2024",
+            "source": {
+              "title": "Recettes de protection sociale par type (spr_rec_sumt)",
+              "url": "https://ec.europa.eu/eurostat/databrowser/view/spr_rec_sumt/default/table?lang=fr",
+              "date": "2026-10-01",
+              "publisher": "Eurostat"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Cotisations sociales",
+                  "value": 55.11
+                },
+                {
+                  "label": "Contributions publiques",
+                  "value": 42.9
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "numerique-1-a",
+          "text": "Faire contribuer l’IA au financement de la protection sociale, pour compenser les emplois qu’elle remplace"
+        },
+        {
+          "id": "numerique-1-b",
+          "text": "Développer une IA publique : recherche publique, modèles ouverts et capacités de calcul souveraines"
+        },
+        {
+          "id": "numerique-1-c",
+          "text": "Financer des solutions européennes pour réduire la dépendance aux géants étrangers du numérique"
+        },
+        {
+          "id": "numerique-1-d",
+          "text": "Négocier un traité international qui encadre les usages les plus risqués de l’intelligence artificielle"
+        },
+        {
+          "id": "numerique-1-e",
+          "text": "Laisser les entreprises développer l’IA librement, dans le seul cadre des règles européennes actuelles",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "immigration-2",
+      "topicId": "immigration",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Comment favoriser l’intégration des étrangers qui s’installent en France ?",
+      "context": "Aujourd’hui : les nouveaux arrivants signent un contrat d’intégration républicaine qui peut inclure une formation au français.",
+      "explainer": {
+        "summary": "L’intégration passe par la langue, l’emploi et l’accès aux droits. Les approches divergent sur ce qu’il faut exiger ou garantir aux nouveaux arrivants (cours de français, aide aux démarches, lutte contre les discriminations), sur l’accès à la nationalité et sur l’idée de réserver certaines aides aux étrangers installés depuis un certain temps.",
+        "points": [
+          {
+            "text": "Le contrat d’intégration républicaine dure un an. Le signataire s’engage à suivre une formation civique de 4 jours et, selon son niveau de français, jusqu’à 600 heures de cours. Depuis juillet 2025, l’Office français de l’immigration et de l’intégration (OFII) ouvre ces cours à tous les signataires qui n’ont pas le niveau A2 (élémentaire). La loi du 26 janvier 2024 exige ce niveau A2 pour une carte de séjour pluriannuelle, le niveau B1 (intermédiaire) pour une carte de résident, et la réussite d’un examen civique à partir de 2026.",
+            "source": {
+              "title": "L’intégration des étrangers en 2025 : 46 600 BPI ont été accompagnés par le programme Agir",
+              "url": "https://www.immigration.interieur.gouv.fr/chiffres-de-limmigration-en-france/lintegration-des-etrangers-en-2025-46-600-bpi-ont-ete-accompagnes-par-programme-agir",
+              "date": "2026-06-30",
+              "publisher": "Ministère de l’Intérieur – DGEF, service statistique (DSED)"
+            }
+          },
+          {
+            "text": "Certaines aides exigent déjà une durée de séjour. Pour toucher le RSA (revenu de solidarité active), un étranger non européen doit en principe détenir depuis au moins 5 ans un titre de séjour qui l’autorise à travailler. Cette condition ne s’applique pas, notamment, aux réfugiés, aux bénéficiaires de la protection subsidiaire, aux apatrides ni aux titulaires d’une carte de résident.",
+            "source": {
+              "title": "RSA : demandeur de 25 ans et plus",
+              "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F19778",
+              "date": "2026-04-01",
+              "publisher": "Service-Public.fr (DILA, Premier ministre)"
+            }
+          },
+          {
+            "text": "En avril 2024, le Conseil constitutionnel a admis qu’une durée de résidence ou d’activité puisse être exigée des étrangers en situation régulière pour certaines prestations sociales. Il a toutefois jugé disproportionné d’exiger des non-Européens 5 ans de résidence ou 30 mois d’activité professionnelle pour les allocations familiales, les aides au logement ou l’allocation personnalisée d’autonomie des personnes âgées.",
+            "source": {
+              "title": "Décision n° 2024-6 RIP du 11 avril 2024",
+              "url": "https://www.conseil-constitutionnel.fr/decision/2024/20246RIP.htm",
+              "date": "2024-04-11",
+              "publisher": "Conseil constitutionnel"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "102 871",
+            "label": "contrats d’intégration républicaine signés (– 10,1 % sur un an), dont 51,2 % avec une formation au français prescrite. Parmi les signataires formés, 67,6 % ont atteint le niveau A1 (débutant) en fin de formation (France, ressortissants de pays tiers).",
+            "date": "2025",
+            "source": {
+              "title": "L’intégration des étrangers en 2025 : 46 600 BPI ont été accompagnés par le programme Agir",
+              "url": "https://www.immigration.interieur.gouv.fr/chiffres-de-limmigration-en-france/lintegration-des-etrangers-en-2025-46-600-bpi-ont-ete-accompagnes-par-programme-agir",
+              "date": "2026-06-30",
+              "publisher": "Ministère de l’Intérieur – DGEF, d’après l’OFII"
+            }
+          },
+          {
+            "value": "62,4 % contre 69,8 %",
+            "label": "taux d’emploi des immigrés et des non-immigrés de 15 à 64 ans (France hors Mayotte)",
+            "date": "2024",
+            "source": {
+              "title": "Activité, emploi et chômage des immigrés de 2014 à 2024",
+              "url": "https://www.immigration.interieur.gouv.fr/documentation/etudes-et-statistiques/activite-emploi-et-chomage-des-immigres-de-2014-a-2024.html",
+              "date": "2025-10-22",
+              "publisher": "Ministère de l’Intérieur – DGEF, service statistique (DSED), d’après l’INSEE (enquête Emploi)"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Immigrés",
+                  "value": 62.4
+                },
+                {
+                  "label": "Non-immigrés",
+                  "value": 69.8
+                }
+              ]
+            }
+          },
+          {
+            "value": "22,8 % contre 33,3 %",
+            "label": "taux de rappel par les recruteurs de candidatures fictives au nom d’origine supposée maghrébine, contre des candidatures comparables sans ascendance migratoire supposée. Ce « testing » (envoi de candidatures fictives qui ne diffèrent que par le nom) a été mené pour la DARES sur 9 600 candidatures de diplômés ayant étudié et travaillé en France.",
+            "date": "décembre 2019 – avril 2021 (publié en 2023)",
+            "source": {
+              "title": "Les discriminations sur le marché du travail subies par les personnes d’origine maghrébine (Immigrés et descendants d’immigrés, édition 2023)",
+              "url": "https://www.insee.fr/fr/statistiques/6793310?sommaire=6793391",
+              "date": "2023-03-30",
+              "publisher": "INSEE Références (étude de la DARES)"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Origine supposée maghrébine",
+                  "value": 22.8
+                },
+                {
+                  "label": "Sans origine migratoire supposée",
+                  "value": 33.3
+                }
+              ]
+            }
+          },
+          {
+            "value": "42 246",
+            "label": "acquisitions de la nationalité française par décret (naturalisations et réintégrations), en baisse de 13,5 %, notamment après une circulaire du 2 mai 2025 qui a renforcé les conditions. Depuis le 1er janvier 2026, la loi exige aussi un niveau B2 (avancé) en français pour être naturalisé.",
+            "date": "2025",
+            "source": {
+              "title": "L’accès à la nationalité française pour l’année 2025 : moins d’acquisitions de la nationalité française par décret",
+              "url": "https://www.immigration.interieur.gouv.fr/chiffres-de-limmigration-en-france/lacces-a-nationalite-francaise-pour-lannee-2025-moins-dacquisitions-de-nationalite-francaise-par",
+              "date": "2026-06-30",
+              "publisher": "Ministère de l’Intérieur – DGEF, service statistique (DSED)"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "immigration-2-a",
+          "text": "Rendre obligatoire l’apprentissage du français et lutter contre les discriminations à l’embauche et au logement"
+        },
+        {
+          "id": "immigration-2-b",
+          "text": "Garantir à tous les nouveaux arrivants des cours de français et un guichet unique pour leurs démarches"
+        },
+        {
+          "id": "immigration-2-c",
+          "text": "Créer un service public de l’intégration et faciliter la naturalisation des étrangers qui parlent français"
+        },
+        {
+          "id": "immigration-2-d",
+          "text": "Conditionner l’accès des étrangers à certaines prestations sociales à une durée minimale de résidence",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "immigration-3",
+      "topicId": "immigration",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelle politique d’expulsion des étrangers en situation irrégulière ?",
+      "context": "Aujourd’hui : seule une minorité des obligations de quitter le territoire français (OQTF) est effectivement exécutée.",
+      "explainer": {
+        "summary": "Le débat porte sur la cible des expulsions : en priorité les auteurs de crimes ou d’atteintes graves, ou un nombre total plus élevé. Il porte aussi sur la coopération des pays d’origine, nécessaire pour les retours hors d’Europe, et sur la manière de l’obtenir.",
+        "points": [
+          {
+            "text": "Le « taux d’exécution » rapporte les éloignements réalisés (le terme administratif pour les expulsions) aux OQTF prononcées. Plusieurs facteurs pèsent sur ce taux : la loi impose une OQTF à chaque séjour irrégulier constaté, même sans perspective réelle de départ ; une partie est annulée par le juge (18 % en première instance en 2023) ; une même personne peut en recevoir plusieurs ; certains départs spontanés ne sont pas comptés.",
+            "source": {
+              "title": "Séance thématique de contrôle : « Les résultats de la politique d’éloignement des personnes sous obligation de quitter le territoire français (OQTF) »",
+              "url": "https://www.assemblee-nationale.fr/dyn/17/documents/cion_lois/l17n813203444_document.pdf",
+              "date": "2025-06",
+              "publisher": "Assemblée nationale – Commission des lois"
+            }
+          },
+          {
+            "text": "Depuis une circulaire du 3 août 2022, la rétention vise en priorité les étrangers qui menacent l’ordre public. Selon le ministère de l’Intérieur, 90 % des personnes placées en centre de rétention administrative (CRA) sont connues pour troubles à l’ordre public ou radicalisation. Les CRA comptent environ 2 000 places dans 26 centres. Pour les personnes retenues, 40 % des OQTF sont exécutées.",
+            "source": {
+              "title": "Séance thématique de contrôle : « Les résultats de la politique d’éloignement des personnes sous obligation de quitter le territoire français (OQTF) »",
+              "url": "https://www.assemblee-nationale.fr/dyn/17/documents/cion_lois/l17n813203444_document.pdf",
+              "date": "2025-06",
+              "publisher": "Assemblée nationale – Commission des lois"
+            }
+          },
+          {
+            "text": "Pour un éloignement forcé, le pays d’origine doit reconnaître son ressortissant, souvent en délivrant un laissez-passer consulaire. Selon la note de l’Assemblée, c’est l’obstacle principal dans de nombreux cas : certaines personnes refusent de coopérer pour établir leur identité, et certains consulats tardent ou refusent.",
+            "source": {
+              "title": "Séance thématique de contrôle : « Les résultats de la politique d’éloignement des personnes sous obligation de quitter le territoire français (OQTF) »",
+              "url": "https://www.assemblee-nationale.fr/dyn/17/documents/cion_lois/l17n813203444_document.pdf",
+              "date": "2025-06",
+              "publisher": "Assemblée nationale – Commission des lois"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "≈ 15 000 sur 130 000",
+            "label": "OQTF exécutées en 2024 (près de 15 000, contre environ 10 000 en 2022 et en 2023), rapportées aux OQTF prononcées chaque année (de l’ordre de 130 000) : environ une sur dix. Ce décompte de la commission des lois de l’Assemblée ne recouvre pas celui du ministère de l’Intérieur (éloignements forcés depuis la métropole, majeurs seulement). En nombre d’OQTF exécutées, la France est en tête des pays européens, à égalité avec l’Allemagne.",
+            "date": "2024",
+            "source": {
+              "title": "Séance thématique de contrôle : les résultats de la politique d’éloignement des personnes sous OQTF",
+              "url": "https://www.assemblee-nationale.fr/dyn/17/documents/cion_lois/l17n813203444_document.pdf",
+              "date": "2025-06",
+              "publisher": "Assemblée nationale, commission des lois"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 15000,
+              "total": 130000,
+              "whole": "OQTF prononcées"
+            }
+          },
+          {
+            "value": "137 550",
+            "label": "ordres de quitter le territoire délivrés en France à des ressortissants de pays tiers : le nombre le plus élevé de l’UE (28,0 % du total européen, devant l’Allemagne avec 55 240)",
+            "date": "2025",
+            "source": {
+              "title": "Enforcement of immigration legislation statistics",
+              "url": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Enforcement_of_immigration_legislation_statistics",
+              "date": "2026",
+              "publisher": "Eurostat (Commission européenne)"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "ordres",
+              "items": [
+                {
+                  "label": "France",
+                  "value": 137550
+                },
+                {
+                  "label": "Allemagne",
+                  "value": 55240
+                }
+              ]
+            }
+          },
+          {
+            "value": "14 133",
+            "label": "éloignements forcés réalisés, en hausse de 13,5 % sur un an (France métropolitaine, majeurs), dont 6 161 vers des pays hors de l’UE (43,6 %), les autres vers un État européen",
+            "date": "2025",
+            "source": {
+              "title": "Les éloignements d’étrangers en situation irrégulière en 2025 : une dynamique ascendante",
+              "url": "https://www.immigration.interieur.gouv.fr/chiffres-de-limmigration-en-france/eloignements-detrangers-en-situation-irreguliere-en-2025-dynamique-ascendante",
+              "date": "2026-06-30",
+              "publisher": "Ministère de l’Intérieur – DGEF, service statistique (DSED)"
+            },
+            "chart": {
+              "kind": "compare",
+              "items": [
+                {
+                  "label": "Éloignements forcés",
+                  "value": 14133
+                },
+                {
+                  "label": "Dont vers des pays hors de l’UE",
+                  "value": 6161
+                }
+              ]
+            }
+          },
+          {
+            "value": "30 %",
+            "label": "des laissez-passer consulaires demandés par les préfectures ont été délivrés à temps par les consulats",
+            "date": "2023",
+            "source": {
+              "title": "Séance thématique de contrôle : « Les résultats de la politique d’éloignement des personnes sous obligation de quitter le territoire français (OQTF) »",
+              "url": "https://www.assemblee-nationale.fr/dyn/17/documents/cion_lois/l17n813203444_document.pdf",
+              "date": "2025-06",
+              "publisher": "Assemblée nationale – Commission des lois"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 30,
+              "total": 100,
+              "unit": "%",
+              "whole": "des laissez-passer demandés"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "immigration-3-a",
+          "text": "Concentrer les moyens d’expulsion sur les étrangers auteurs de crimes ou d’atteintes graves aux personnes"
+        },
+        {
+          "id": "immigration-3-b",
+          "text": "Ouvrir des voies légales d’immigration de travail en échange de la coopération des pays d’origine sur les retours"
+        },
+        {
+          "id": "immigration-3-c",
+          "text": "Augmenter le nombre d’expulsions en fixant aux préfectures des objectifs chiffrés à atteindre chaque année",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "securite_justice-2",
+      "topicId": "securite_justice",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Comment lutter contre le trafic de drogue ?",
+      "context": "Aujourd’hui : l’usage de cannabis est interdit et peut être sanctionné par une amende forfaitaire.",
+      "explainer": {
+        "summary": "Le cannabis est interdit, mais le trafic de drogues rapporte des milliards d’euros aux réseaux criminels. Les approches divergent sur la façon de les affaiblir : maintenir l’interdiction et les amendes, cibler l’argent du trafic, légaliser une vente encadrée, ou confier la réflexion à des citoyens tirés au sort.",
+        "points": [
+          {
+            "text": "L’usage de stupéfiants est un délit puni d’un an de prison et de 3 750 € d’amende. Le paiement d’une amende forfaitaire peut mettre fin aux poursuites, y compris en cas de récidive : depuis le 20 août 2026, elle est de 500 € (400 € si elle est payée rapidement, 1 000 € en cas de retard).",
+            "source": {
+              "title": "Code de la santé publique, article L3421-1 (version issue de la loi n° 2026-798 du 18 août 2026, art. 25)",
+              "url": "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006072665/LEGISCTA000006171219/2026-10-03",
+              "date": "en vigueur depuis le 20 août 2026",
+              "publisher": "Légifrance"
+            }
+          },
+          {
+            "text": "La loi du 13 juin 2025 contre le narcotrafic a créé un parquet national anti-criminalité organisée (Pnaco), c’est-à-dire un service de procureurs spécialisés. Elle a aussi renforcé la lutte contre le blanchiment et facilité le gel (blocage) des avoirs des trafiquants.",
+            "source": {
+              "title": "Proposition de loi visant à sortir la France du piège du narcotrafic – La loi en clair",
+              "url": "https://www.senat.fr/travaux-parlementaires/textes-legislatifs/la-loi-en-clair/proposition-de-loi-visant-a-sortir-la-france-du-piege-du-narcotrafic.html",
+              "date": "juin 2025",
+              "publisher": "Sénat"
+            }
+          },
+          {
+            "text": "Légaliser, c’est autoriser et encadrer la production et la vente (âge minimal, lieux de vente, taxes). Dépénaliser, c’est seulement supprimer la sanction pénale de l’usage, sans créer de marché légal."
+          }
+        ],
+        "figures": [
+          {
+            "value": "10,8 %",
+            "label": "des 18-64 ans ont consommé du cannabis dans l’année, une proportion stable. À 17 ans, 29,9 % des jeunes en avaient déjà fumé en 2022 : c’est le niveau le plus bas mesuré depuis 2000, et 20 points de moins qu’en 2002 – France",
+            "date": "2023 (17 ans : 2022)",
+            "source": {
+              "title": "Cannabis (résine, herbe, huile, CBD) – synthèse des connaissances",
+              "url": "https://www.ofdt.fr/cannabis-resine-herbe-huile-cbd-synthese-des-connaissances-1724",
+              "publisher": "Observatoire français des drogues et des tendances addictives (OFDT)"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 10.8,
+              "total": 100,
+              "unit": "%",
+              "whole": "des 18-64 ans"
+            }
+          },
+          {
+            "value": "18,9 %",
+            "label": "des 18-34 ans ont consommé du cannabis dans l’année en France (enquête 2023), contre 15,3 % en moyenne chez les 15-34 ans de l’Union européenne. Seules l’Italie (21,5 %, enquête 2022) et l’Espagne (19,4 %, enquête 2024) affichent un niveau plus élevé",
+            "date": "enquête française de 2023 (rapport publié le 9 juin 2026)",
+            "source": {
+              "title": "European Drug Report 2026 – Cannabis: the current situation in Europe",
+              "url": "https://www.euda.europa.eu/publications/european-drug-report/2026/cannabis_en",
+              "date": "9 juin 2026",
+              "publisher": "Agence de l’Union européenne sur les drogues (EUDA)"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Italie (2022)",
+                  "value": 21.5
+                },
+                {
+                  "label": "Espagne (2024)",
+                  "value": 19.4
+                },
+                {
+                  "label": "France, 18-34 ans (2023)",
+                  "value": 18.9
+                },
+                {
+                  "label": "Moyenne UE, 15-34 ans",
+                  "value": 15.3
+                }
+              ]
+            }
+          },
+          {
+            "value": "3,5 Md€",
+            "label": "par an au minimum : chiffre d’affaires du trafic de drogues (toutes drogues) en France, estimation basse avancée par le ministre de l’Économie devant la commission d’enquête du Sénat",
+            "date": "2024",
+            "source": {
+              "title": "L’essentiel sur le rapport de la commission d’enquête sur l’impact du narcotrafic en France (rapport n° 588, 2023-2024)",
+              "url": "https://www.senat.fr/rap/r23-588-1/r23-588-1-syn.pdf",
+              "date": "7 mai 2024",
+              "publisher": "Sénat"
+            }
+          },
+          {
+            "value": "117 M€",
+            "label": "d’avoirs saisis en lien avec le trafic de stupéfiants, soit 14 % de l’ensemble des saisies de la police et de la gendarmerie",
+            "date": "2023",
+            "source": {
+              "title": "L’essentiel sur le rapport de la commission d’enquête sur l’impact du narcotrafic en France (rapport n° 588, 2023-2024)",
+              "url": "https://www.senat.fr/rap/r23-588-1/r23-588-1-syn.pdf",
+              "date": "7 mai 2024",
+              "publisher": "Sénat"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "securite_justice-2-a",
+          "text": "Légaliser et encadrer la vente de cannabis pour priver les réseaux de trafiquants de leurs revenus"
+        },
+        {
+          "id": "securite_justice-2-b",
+          "text": "Renforcer les enquêteurs spécialisés et saisir l’argent du trafic en luttant contre le blanchiment"
+        },
+        {
+          "id": "securite_justice-2-c",
+          "text": "Réunir des citoyens tirés au sort pour formuler des propositions sur la légalisation du cannabis"
+        },
+        {
+          "id": "securite_justice-2-d",
+          "text": "Maintenir l’interdiction du cannabis et continuer à sanctionner sa consommation par des amendes",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "securite_justice-3",
+      "topicId": "securite_justice",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelle orientation pour la justice pénale ?",
+      "context": "Aujourd’hui : les prisons françaises comptent nettement plus de détenus que de places.",
+      "explainer": {
+        "summary": "Les prisons sont surpeuplées et la France compte moins de juges par habitant que la médiane européenne. Les approches divergent sur la priorité : plus de peines hors de prison, des sanctions plus rapides et plus sévères, plus de magistrats, ou plus de places de prison.",
+        "points": [
+          {
+            "text": "Pour un délit, il y a « récidive légale » quand une personne déjà condamnée définitivement commet le même délit, ou un délit assimilé, dans les cinq ans qui suivent la fin ou la prescription de sa précédente peine. La peine maximale encourue (prison et amende) est alors doublée.",
+            "source": {
+              "title": "Code pénal, article 132-10",
+              "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006417367",
+              "date": "en vigueur depuis le 1er mars 1994",
+              "publisher": "Légifrance"
+            }
+          },
+          {
+            "text": "Le plan de 15 000 places de prison supplémentaires, annoncé en 2018, était réalisé à 36,1 % à l’automne 2025 (5 411 places nettes créées), selon la commission des finances du Sénat.",
+            "source": {
+              "title": "Projet de loi de finances pour 2026 : Justice – Rapport général n° 139 (2025-2026), tome III, annexe 17",
+              "url": "https://www.senat.fr/rap/l25-139-317/l25-139-317_mono.html",
+              "date": "24 novembre 2025",
+              "publisher": "Sénat – commission des finances"
+            }
+          },
+          {
+            "text": "La loi de programmation de la justice 2023-2027 prévoit 10 000 emplois supplémentaires au ministère, dont 1 500 magistrats et 1 800 greffiers (les agents qui assistent les magistrats).",
+            "source": {
+              "title": "Projet de loi de finances pour 2026 : Justice – Rapport général n° 139 (2025-2026), tome III, annexe 17",
+              "url": "https://www.senat.fr/rap/l25-139-317/l25-139-317_mono.html",
+              "date": "24 novembre 2025",
+              "publisher": "Sénat – commission des finances"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "142,1 %",
+            "label": "densité carcérale (détenus rapportés aux places) : 90 020 détenus pour 63 348 places, contre 134,7 % un an plus tôt ; 8 347 détenus dorment sur un matelas au sol – France entière",
+            "date": "1er septembre 2026",
+            "source": {
+              "title": "Mesure de l’incarcération – Indicateurs clés au 1er septembre 2026",
+              "url": "https://www.justice.gouv.fr/sites/default/files/2026-10/mesure_mensuelle_01092026.pdf",
+              "date": "octobre 2026",
+              "publisher": "Ministère de la Justice – Direction de l’administration pénitentiaire"
+            },
+            "chart": {
+              "kind": "compare",
+              "items": [
+                {
+                  "label": "Détenus",
+                  "value": 90020
+                },
+                {
+                  "label": "Places",
+                  "value": 63348
+                }
+              ]
+            }
+          },
+          {
+            "value": "20,4 %",
+            "label": "des personnes condamnées pour un délit étaient en récidive légale ; 24,1 % étaient « réitérantes », c’est-à-dire déjà condamnées pour un crime ou un délit dans les cinq années précédentes, sans être en récidive légale (données provisoires) – France",
+            "date": "2024",
+            "source": {
+              "title": "Les chiffres clés de la justice – Édition 2025 (p. 21)",
+              "url": "https://www.justice.gouv.fr/sites/default/files/2026-03/Chiffres_Cles_2025_corrV2.pdf",
+              "date": "édition 2025 (version corrigée mise en ligne en 2026)",
+              "publisher": "Ministère de la Justice – SSER"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "En récidive légale",
+                  "value": 20.4
+                },
+                {
+                  "label": "Réitérants",
+                  "value": 24.1
+                }
+              ]
+            }
+          },
+          {
+            "value": "14 488",
+            "label": "peines de travail d’intérêt général (TIG, un travail non rémunéré au profit de la collectivité) prononcées, et 121 057 peines de prison en tout ou partie ferme, sur 559 444 peines et mesures principales (données provisoires) – France",
+            "date": "2024",
+            "source": {
+              "title": "Les chiffres clés de la justice – Édition 2025 (p. 20)",
+              "url": "https://www.justice.gouv.fr/sites/default/files/2026-03/Chiffres_Cles_2025_corrV2.pdf",
+              "date": "édition 2025 (version corrigée mise en ligne en 2026)",
+              "publisher": "Ministère de la Justice – SSER"
+            },
+            "chart": {
+              "kind": "compare",
+              "items": [
+                {
+                  "label": "Ensemble des peines et mesures",
+                  "value": 559444
+                },
+                {
+                  "label": "Prison en tout ou partie ferme",
+                  "value": 121057
+                },
+                {
+                  "label": "Travail d’intérêt général",
+                  "value": 14488
+                }
+              ]
+            }
+          },
+          {
+            "value": "11,3",
+            "label": "juges professionnels pour 100 000 habitants en France, contre une médiane européenne de 17,6 (données de la Commission européenne pour l’efficacité de la justice du Conseil de l’Europe, reprises par le Sénat)",
+            "date": "2022",
+            "source": {
+              "title": "Projet de loi de finances pour 2026 : Justice – Rapport général n° 139 (2025-2026), tome III, annexe 17 (d’après CEPEJ, Systèmes judiciaires européens – rapport d’évaluation 2024)",
+              "url": "https://www.senat.fr/rap/l25-139-317/l25-139-317_mono.html",
+              "date": "24 novembre 2025",
+              "publisher": "Sénat – commission des finances"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "juges pour 100 000 habitants",
+              "items": [
+                {
+                  "label": "France",
+                  "value": 11.3
+                },
+                {
+                  "label": "Médiane européenne",
+                  "value": 17.6
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "securite_justice-3-a",
+          "text": "Développer les peines hors de prison, comme les travaux d’intérêt général, et la médiation entre auteurs et victimes"
+        },
+        {
+          "id": "securite_justice-3-b",
+          "text": "Sanctionner les délits de façon rapide et sévère, en particulier lorsque leur auteur est en récidive"
+        },
+        {
+          "id": "securite_justice-3-c",
+          "text": "Augmenter fortement le budget de la justice et le nombre de magistrats dans les tribunaux"
+        },
+        {
+          "id": "securite_justice-3-d",
+          "text": "Construire davantage de places de prison pour exécuter toutes les peines d’emprisonnement prononcées",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "securite_justice-4",
+      "topicId": "securite_justice",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Comment répondre aux blocages de lycées de l’automne 2026 ?",
+      "context": "Aujourd’hui : début octobre 2026, environ 400 lycées ont été bloqués et environ 2 000 interpellations ont eu lieu.",
+      "explainer": {
+        "summary": "Les blocages posent deux questions à la fois : comment répondre aux violences commises en marge, et quelle place donner à l’expression et aux revendications des lycéens. Les approches diffèrent par la priorité donnée à l’une ou à l’autre, et par l’attitude à adopter face aux blocages eux-mêmes.",
+        "points": [
+          {
+            "text": "Au lycée, les élèves disposent de la liberté d’information et d’expression, mais « l’exercice de ces libertés ne peut porter atteinte aux activités d’enseignement » (article L511-2 du code de l’éducation).",
+            "source": {
+              "title": "Code de l’éducation, article L511-2",
+              "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006525120",
+              "date": "en vigueur depuis le 22 juin 2000",
+              "publisher": "Légifrance"
+            }
+          },
+          {
+            "text": "La Convention internationale des droits de l’enfant (ONU, 1989), à laquelle la France est partie, reconnaît aux moins de 18 ans la « liberté de réunion pacifique ». Ce droit ne peut être restreint que par la loi, lorsque c’est nécessaire, notamment pour l’ordre public ou les droits d’autrui.",
+            "source": {
+              "title": "Convention relative aux droits de l’enfant (articles 1er et 15)",
+              "url": "https://www.ohchr.org/fr/instruments-mechanisms/instruments/convention-rights-child",
+              "date": "adoptée le 20 novembre 1989",
+              "publisher": "Haut-Commissariat des Nations unies aux droits de l’homme (HCDH)"
+            }
+          },
+          {
+            "text": "Chaque lycée public dispose d’un conseil des délégués pour la vie lycéenne : dix lycéens élus pour deux ans par l’ensemble des élèves, présidé par le chef d’établissement (article R421-43 du code de l’éducation).",
+            "source": {
+              "title": "Code de l’éducation, article R421-43",
+              "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000033124234",
+              "date": "en vigueur depuis le 19 septembre 2016",
+              "publisher": "Légifrance"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "2 261 051",
+            "label": "élèves en lycée (formations générales, technologiques et professionnelles), public et privé sous contrat – France",
+            "date": "rentrée 2025",
+            "source": {
+              "title": "Repères et références statistiques 2026 (fiche 4.01, p. 97)",
+              "url": "https://www.education.gouv.fr/sites/default/files/document/rers-2026-pdf-519880.pdf",
+              "date": "2026",
+              "publisher": "Ministère de l’Éducation nationale – DEPP"
+            }
+          },
+          {
+            "value": "1 650",
+            "label": "lycées publics d’enseignement général et technologique, dont 774 lycées polyvalents (qui proposent aussi la voie professionnelle), et 756 lycées professionnels publics. Le privé sous contrat compte en outre 873 lycées généraux et technologiques et 328 lycées professionnels – France",
+            "date": "rentrée 2025",
+            "source": {
+              "title": "Repères et références statistiques 2026 (fiche 2.04, p. 39)",
+              "url": "https://www.education.gouv.fr/sites/default/files/document/rers-2026-pdf-519880.pdf",
+              "date": "2026",
+              "publisher": "Ministère de l’Éducation nationale – DEPP"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "lycées",
+              "items": [
+                {
+                  "label": "Gén. et techno., publics",
+                  "value": 1650
+                },
+                {
+                  "label": "Professionnels, publics",
+                  "value": 756
+                },
+                {
+                  "label": "Gén. et techno., sous contrat",
+                  "value": 873
+                },
+                {
+                  "label": "Professionnels, sous contrat",
+                  "value": 328
+                }
+              ]
+            }
+          },
+          {
+            "value": "91 %",
+            "label": "des lycéens disent se sentir « bien » ou « tout à fait bien » dans leur lycée, et 59 % se disent « plutôt » ou « très » stressés par les examens ou les évaluations – France, lycées publics et privés sous contrat",
+            "date": "printemps 2023",
+            "source": {
+              "title": "Repères et références statistiques 2026 (fiche 2.13, p. 56)",
+              "url": "https://www.education.gouv.fr/sites/default/files/document/rers-2026-pdf-519880.pdf",
+              "date": "2026",
+              "publisher": "Ministère de l’Éducation nationale – DEPP"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 91,
+              "total": 100,
+              "unit": "%",
+              "whole": "des lycéens"
+            }
+          },
+          {
+            "value": "1 an et 7 500 €",
+            "label": "peine maximale encourue pour être entré ou s’être maintenu sans autorisation dans un établissement scolaire afin d’en troubler l’ordre ; le paiement d’une amende forfaitaire de 500 € peut aussi mettre fin aux poursuites",
+            "date": "en vigueur depuis le 26 janvier 2023",
+            "source": {
+              "title": "Code pénal, article 431-22",
+              "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000047053426",
+              "date": "version en vigueur depuis le 26 janvier 2023",
+              "publisher": "Légifrance"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "securite_justice-4-a",
+          "text": "Faire preuve de fermeté face aux violences commises en marge des blocages"
+        },
+        {
+          "id": "securite_justice-4-b",
+          "text": "Prendre au sérieux ce que vivent les lycéens plutôt que de centrer le débat sur les violences"
+        },
+        {
+          "id": "securite_justice-4-c",
+          "text": "Organiser l’expression des élèves dans chaque lycée tout en condamnant toute forme de violence"
+        },
+        {
+          "id": "securite_justice-4-d",
+          "text": "Défendre le droit des lycéens à manifester sans leur dicter leur conduite"
+        },
+        {
+          "id": "securite_justice-4-e",
+          "text": "Appeler les lycéens à cesser les blocages, jugés sans issue face au gouvernement actuel"
+        }
+      ]
+    },
+    {
+      "id": "laicite_republique-2",
+      "topicId": "laicite_republique",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Comment la France doit-elle aborder l’histoire de la colonisation ?",
+      "context": "Aujourd’hui : la France a reconnu plusieurs crimes commis pendant la guerre d’Algérie, sans présenter d’excuses officielles ; une commission mixte d’historiens français et algériens a été créée en 2022.",
+      "explainer": {
+        "summary": "Depuis 2021, l’État a pris plusieurs décisions sur la mémoire de la colonisation : rapport officiel, ouverture d’archives, lois de restitution. Reste à savoir quel rôle il doit jouer : créer une commission officielle, présenter des excuses officielles, ou laisser ce travail aux historiens.",
+        "points": [
+          {
+            "text": "En 2022, une loi a reconnu la « responsabilité » de la Nation du fait de « l’indignité des conditions d’accueil et de vie » réservées en France, après 1962, aux harkis et à leurs familles. Elle a aussi créé une réparation financière forfaitaire.",
+            "source": {
+              "title": "Loi n° 2022-229 du 23 février 2022 portant reconnaissance de la Nation envers les harkis",
+              "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000045220741",
+              "date": "23 février 2022",
+              "publisher": "Légifrance"
+            }
+          },
+          {
+            "text": "Depuis une loi du 26 décembre 2023, des restes humains conservés dans les collections publiques peuvent être restitués à un État qui le demande, à des fins funéraires, par un décret pris après avis du Conseil d’État, s’il s’agit de personnes mortes après l’an 1500.",
+            "source": {
+              "title": "Loi n° 2023-1251 du 26 décembre 2023 relative à la restitution de restes humains appartenant aux collections publiques",
+              "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000048668800",
+              "date": "26 décembre 2023",
+              "publisher": "Légifrance"
+            }
+          },
+          {
+            "text": "En 2005, une loi a demandé aux programmes scolaires de reconnaître « le rôle positif de la présence française outre-mer » ; la disposition a été abrogée par décret en 2006, le Conseil constitutionnel ayant jugé que le contenu des programmes ne relève pas de la loi. En 2008, une mission de l’Assemblée nationale a conclu que le rôle du Parlement n’est pas d’adopter des lois « qualifiant ou portant une appréciation sur des faits historiques », les résolutions étant selon elle un meilleur outil pour s’exprimer sur l’histoire.",
+            "source": {
+              "title": "Rapport d’information n° 1262 fait au nom de la mission d’information sur les questions mémorielles",
+              "url": "https://www.assemblee-nationale.fr/13/rap-info/i1262.asp",
+              "date": "18 novembre 2008",
+              "publisher": "Assemblée nationale"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "Une trentaine",
+            "label": "de préconisations dans le rapport remis en janvier 2021 au président de la République par un historien, à sa demande : commission « Mémoire et vérité », commémorations, restitution de l’épée de l’émir Abdelkader, transfert de certaines archives…",
+            "date": "20 janvier 2021",
+            "source": {
+              "title": "Les questions mémorielles portant sur la colonisation et la guerre d’Algérie",
+              "url": "https://www.vie-publique.fr/rapport/278186-rapport-stora-memoire-sur-la-colonisation-et-la-guerre-dalgerie",
+              "date": "20 janvier 2021",
+              "publisher": "vie-publique.fr (DILA) – rapport commandé par la Présidence de la République"
+            }
+          },
+          {
+            "value": "1954-1966",
+            "label": "période couverte par l’ouverture anticipée des archives d’enquêtes de police judiciaire et d’affaires judiciaires liées à la guerre d’Algérie (du 1er novembre 1954 au 31 décembre 1966)",
+            "date": "22 décembre 2021",
+            "source": {
+              "title": "Arrêté du 22 décembre 2021 portant ouverture d’archives relatives à la guerre d’Algérie",
+              "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000044546979",
+              "date": "22 décembre 2021",
+              "publisher": "Légifrance"
+            }
+          },
+          {
+            "value": "1815-1972",
+            "label": "période d’appropriation (vol, pillage, cession obtenue par contrainte ou violence) visée par la loi du 9 mai 2026 : les biens culturels publics concernés peuvent être restitués à un État qui le demande, par un décret pris après avis du Conseil d’État",
+            "date": "9 mai 2026",
+            "source": {
+              "title": "Loi n° 2026-351 du 9 mai 2026 relative à la restitution de biens culturels ayant fait l’objet d’une appropriation illicite (art. L. 115-10 à L. 115-16 du code du patrimoine)",
+              "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054049788",
+              "date": "9 mai 2026",
+              "publisher": "Légifrance"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "laicite_republique-2-a",
+          "text": "Créer une commission officielle chargée d’établir les faits de la colonisation et de favoriser la réconciliation"
+        },
+        {
+          "id": "laicite_republique-2-b",
+          "text": "Présenter des excuses officielles à l’Algérie, restituer des biens culturels et remettre les archives"
+        },
+        {
+          "id": "laicite_republique-2-c",
+          "text": "Laisser l’histoire de la colonisation aux historiens, sans démarche officielle de l’État",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "numerique-2",
+      "topicId": "numerique",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Comment protéger les enfants et les adolescents face aux écrans et aux réseaux sociaux ?",
+      "context": "Aujourd’hui : l’interdiction des réseaux sociaux avant 15 ans, votée en juillet 2026, a été censurée par le Conseil constitutionnel en août 2026.",
+      "explainer": {
+        "summary": "Les enfants accèdent tôt aux écrans et aux réseaux sociaux, et les autorités sanitaires documentent des risques pour le sommeil et la santé mentale des adolescents. Le désaccord porte sur l’outil : interdire les réseaux sociaux avant 15 ans, fixer des règles d’usage des écrans par âge, interdire une application précise, ou miser sur l’éducation et le contrôle parental.",
+        "points": [
+          {
+            "text": "Le Conseil constitutionnel admet que la protection des mineurs puisse justifier de limiter leur accès aux réseaux sociaux. Il a toutefois jugé que l’interdiction avant 15 ans portait une atteinte disproportionnée à la liberté d’expression et de communication. Elle visait tous les réseaux, sans tenir compte de leurs risques propres, et rien ne permettait aux parents de la lever ou de l’adapter. Elle imposait aussi à chacun, même majeur, de prouver son âge, sans garanties fixées par la loi pour protéger la vie privée.",
+            "source": {
+              "title": "Décision n° 2026-911 DC du 14 août 2026 – Loi visant à protéger les mineurs des risques auxquels les expose l’utilisation des réseaux sociaux",
+              "url": "https://www.conseil-constitutionnel.fr/decision/2026/2026911DC.htm",
+              "date": "2026-08-14",
+              "publisher": "Conseil constitutionnel"
+            }
+          },
+          {
+            "text": "En janvier 2026, l’Anses a publié une expertise fondée sur plus d’un millier d’études scientifiques. Elle relève des risques surtout pour la santé mentale des adolescents (sommeil altéré, dévalorisation de soi, contenus liés à des comportements à risque, cyberharcèlement), plus marqués chez les filles. Elle recommande d’agir d’abord sur la conception des réseaux et de faire respecter, avec une vérification fiable de l’âge, la limite de 13 ans prévue par le droit européen. Elle insiste aussi sur l’éducation au numérique et l’accompagnement parental.",
+            "source": {
+              "title": "Sécuriser les usages des réseaux sociaux pour protéger la santé des adolescents",
+              "url": "https://www.anses.fr/fr/actualite/securiser-usages-reseaux-sociaux-proteger-sante-adolescents",
+              "date": "2026-01-13",
+              "publisher": "Anses (Agence nationale de sécurité sanitaire)"
+            }
+          },
+          {
+            "text": "Les grandes plateformes relèvent aussi du droit européen. Le 6 février 2026, la Commission européenne a estimé, à titre préliminaire, que la conception « addictive » de TikTok (défilement infini, lecture automatique, notifications, recommandations très personnalisées) enfreint le règlement sur les services numériques. Ces conclusions ne préjugent pas de l’issue de l’enquête.",
+            "source": {
+              "title": "Commission preliminarily finds TikTok’s addictive design in breach of the Digital Services Act",
+              "url": "https://digital-strategy.ec.europa.eu/en/news/commission-preliminarily-finds-tiktoks-addictive-design-breach-digital-services-act",
+              "date": "2026-02-06",
+              "publisher": "Commission européenne"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "25 %",
+            "label": "Part des enfants de 9 à 11 ans ayant accès aux réseaux sociaux, alors que l’âge minimal d’inscription est de 13 ans en France (30 % des filles ; moins de 2 % des 3-5 ans). Enfants scolarisés en France hexagonale",
+            "date": "2022 (publié le 25 septembre 2025)",
+            "source": {
+              "title": "Temps d’écran des enfants de 3 à 11 ans : un usage précoce, quotidien et marqué par les inégalités sociales (étude Enabee)",
+              "url": "https://www.santepubliquefrance.fr/presse/temps-decran-des-enfants-de-3-a-11-ans-un-usage-precoce-quotidien-et-marque-par-les",
+              "date": "2025-09-25",
+              "publisher": "Santé publique France"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 25,
+              "total": 100,
+              "unit": "%",
+              "whole": "des enfants de 9 à 11 ans"
+            }
+          },
+          {
+            "value": "2 h 33",
+            "label": "Temps d’écran quotidien moyen des 9-11 ans sur leur temps de loisirs (1 h 22 chez les 3-5 ans). Enfants scolarisés en France hexagonale",
+            "date": "2022 (publié le 25 septembre 2025)",
+            "source": {
+              "title": "Temps d’écran des enfants de 3 à 11 ans : un usage précoce, quotidien et marqué par les inégalités sociales (étude Enabee)",
+              "url": "https://www.santepubliquefrance.fr/presse/temps-decran-des-enfants-de-3-a-11-ans-un-usage-precoce-quotidien-et-marque-par-les",
+              "date": "2025-09-25",
+              "publisher": "Santé publique France"
+            }
+          },
+          {
+            "value": "9 sur 10",
+            "label": "Parents d’enfants de 3 à 11 ans qui déclarent limiter « toujours » ou « souvent » leur temps d’écran. Le contrôle des contenus est moins répandu et baisse avec l’âge : 52 % des parents de 3-5 ans et 36 % de ceux de 9-11 ans empêchent « souvent » l’accès à certains contenus. France hexagonale",
+            "date": "2022 (publié le 25 septembre 2025)",
+            "source": {
+              "title": "Temps d’écran des enfants de 3 à 11 ans : un usage précoce, quotidien et marqué par les inégalités sociales (étude Enabee)",
+              "url": "https://www.santepubliquefrance.fr/presse/temps-decran-des-enfants-de-3-a-11-ans-un-usage-precoce-quotidien-et-marque-par-les",
+              "date": "2025-09-25",
+              "publisher": "Santé publique France"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 9,
+              "total": 10,
+              "whole": "parents d’enfants de 3 à 11 ans"
+            }
+          },
+          {
+            "value": "11 %",
+            "label": "Part des jeunes de 11, 13 et 15 ans présentant des signes d’usage problématique des réseaux sociaux, c’est-à-dire des symptômes proches de l’addiction : perte de contrôle, manque, activités délaissées (7 % en 2018 ; filles 13 %, garçons 9 %). Enquête HBSC auprès de près de 280 000 jeunes de 44 pays et régions d’Europe, d’Asie centrale et du Canada",
+            "date": "2022 (publié le 25 septembre 2024)",
+            "source": {
+              "title": "Teens, screens and mental health",
+              "url": "https://www.who.int/europe/news/item/25-09-2024-teens--screens-and-mental-health",
+              "date": "2024-09-25",
+              "publisher": "Organisation mondiale de la santé, bureau régional pour l’Europe"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Jeunes de 11, 13 et 15 ans",
+                  "value": 11
+                },
+                {
+                  "label": "Filles",
+                  "value": 13
+                },
+                {
+                  "label": "Garçons",
+                  "value": 9
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "numerique-2-a",
+          "text": "Interdire l’accès aux réseaux sociaux avant 15 ans, avec une vérification obligatoire de l’âge"
+        },
+        {
+          "id": "numerique-2-b",
+          "text": "Fixer des règles d’usage des écrans par âge : aucun écran avant 5 ans, pas de smartphone avant 15 ans"
+        },
+        {
+          "id": "numerique-2-c",
+          "text": "Interdire en France l’application de vidéos TikTok, pour tous les utilisateurs quel que soit leur âge"
+        },
+        {
+          "id": "numerique-2-d",
+          "text": "Miser sur l’éducation au numérique et le contrôle parental plutôt que sur des interdictions légales",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "numerique-3",
+      "topicId": "numerique",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Comment encadrer les grandes plateformes numériques ?",
+      "context": "Aujourd’hui : un règlement européen impose aux très grandes plateformes des obligations de modération et de transparence.",
+      "explainer": {
+        "summary": "Les très grandes plateformes sont surtout encadrées par le droit européen, que la Commission européenne fait appliquer. Le désaccord porte sur ce que la France doit y ajouter, ou non : un délit de désinformation et des limites à la concentration des médias, une contribution des plateformes à la culture et à la presse, ou la négociation plutôt que le rapport de force.",
+        "points": [
+          {
+            "text": "Le règlement européen sur les services numériques combine sanctions et engagements négociés. Au 31 août 2026, la Commission avait infligé des amendes à X (120 M€, décembre 2025), Temu (200 M€, mai 2026) et AliExpress (550 M€, juillet 2026). Elle a aussi accepté des engagements de TikTok sur la publicité (décembre 2025) et un plan d’action de X (juillet 2026).",
+            "source": {
+              "title": "Supervision des très grandes plateformes en ligne et moteurs de recherche désignés au titre du règlement sur les services numériques",
+              "url": "https://digital-strategy.ec.europa.eu/fr/policies/list-designated-vlops-and-vloses",
+              "date": "2026-08-31",
+              "publisher": "Commission européenne"
+            }
+          },
+          {
+            "text": "Contre les fausses informations en ligne, une loi de 2018 permet de saisir un juge en urgence (en référé). Pendant les trois mois qui précèdent le mois d’une élection générale ou d’un référendum, il peut en faire cesser la diffusion si elles risquent d’altérer la sincérité du scrutin. Le Conseil constitutionnel l’a admis à condition que le caractère inexact ou trompeur, comme le risque pour le scrutin, soit « manifeste ».",
+            "source": {
+              "title": "Décision n° 2018-773 DC du 20 décembre 2018 – Loi relative à la lutte contre la manipulation de l’information",
+              "url": "https://www.conseil-constitutionnel.fr/decision/2018/2018773DC.htm",
+              "date": "2018-12-20",
+              "publisher": "Conseil constitutionnel"
+            }
+          },
+          {
+            "text": "Une loi de 2019 a créé un « droit voisin » du droit d’auteur : les plateformes qui reprennent des contenus de presse doivent négocier leur rémunération avec les éditeurs et agences. Des accords conclus avec Meta ont expiré fin 2024 et début 2025 sans être renouvelés. Le 8 juillet 2026, l’Autorité de la concurrence a ordonné à Meta, en attendant sa décision sur le fond, de reprendre des négociations de bonne foi.",
+            "source": {
+              "title": "Droits voisins : l’Autorité de la concurrence prononce des mesures conservatoires et enjoint Meta de négocier de bonne foi avec les éditeurs et agences de presse",
+              "url": "https://www.autoritedelaconcurrence.fr/fr/communiques-de-presse/droits-voisins-lautorite-de-la-concurrence-prononce-des-mesures",
+              "date": "2026-07-08",
+              "publisher": "Autorité de la concurrence"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "45 millions",
+            "label": "Nombre d’utilisateurs mensuels dans l’UE au-delà duquel une plateforme ou un moteur de recherche est classé « très grand » et soumis aux règles les plus strictes du règlement européen sur les services numériques",
+            "date": "Règle en vigueur (page mise à jour le 19 mai 2026)",
+            "source": {
+              "title": "DSA : très grandes plateformes en ligne et moteurs de recherche",
+              "url": "https://digital-strategy.ec.europa.eu/fr/policies/dsa-vlops",
+              "date": "2026-05-19",
+              "publisher": "Commission européenne"
+            }
+          },
+          {
+            "value": "6 %",
+            "label": "Plafond des amendes prévues par le règlement européen sur les services numériques, en part du chiffre d’affaires annuel mondial de la plateforme",
+            "date": "Règle en vigueur (page mise à jour le 2 juillet 2026)",
+            "source": {
+              "title": "Le cadre d’application de la législation sur les services numériques",
+              "url": "https://digital-strategy.ec.europa.eu/fr/policies/dsa-enforcement",
+              "date": "2026-07-02",
+              "publisher": "Commission européenne"
+            }
+          },
+          {
+            "value": "20 %",
+            "label": "Part du chiffre d’affaires réalisé en France que les grandes plateformes de vidéo par abonnement (Netflix, Disney+, Amazon Prime Video…) doivent consacrer à la production d’œuvres (dont 80 % pour l’audiovisuel et 20 % pour le cinéma)",
+            "date": "Décret du 22 juin 2021 (conventions et notifications de décembre 2021)",
+            "source": {
+              "title": "Le régulateur intègre les principaux SMAD internationaux au système français de financement de la création",
+              "url": "https://www.arcom.fr/presse/le-regulateur-integre-les-principaux-smad-internationaux-au-systeme-francais-de-financement-de-la-creation",
+              "date": "2021-12-09",
+              "publisher": "Arcom (alors CSA)"
+            }
+          },
+          {
+            "value": "49 %",
+            "label": "Part maximale du capital ou des droits de vote qu’une même personne peut détenir dans une chaîne nationale de la TNT dont l’audience annuelle dépasse 8 % de l’audience totale de la télévision. C’est l’une des règles anti-concentration de la loi de 1986 sur la liberté de communication",
+            "date": "Règle en vigueur (rédaction du 27 octobre 2021, consultée le 3 octobre 2026)",
+            "source": {
+              "title": "Loi n° 86-1067 du 30 septembre 1986 relative à la liberté de communication – article 39",
+              "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000044260461",
+              "date": "2021-10-27",
+              "publisher": "Légifrance"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "numerique-3-a",
+          "text": "Créer un délit de désinformation organisée et limiter la concentration de la propriété des médias"
+        },
+        {
+          "id": "numerique-3-b",
+          "text": "Faire contribuer les plateformes au financement de la création culturelle et de la presse"
+        },
+        {
+          "id": "numerique-3-c",
+          "text": "Privilégier la négociation directe avec les dirigeants des plateformes plutôt que le rapport de force"
+        },
+        {
+          "id": "numerique-3-d",
+          "text": "S’en tenir aux règles européennes existantes, sans nouvelle loi nationale sur les plateformes",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "societe-1",
+      "topicId": "societe",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelle priorité pour la politique culturelle ?",
+      "context": "Aujourd’hui : le pass Culture accorde aux jeunes un crédit individuel pour leurs achats et sorties culturels ; l’audiovisuel public est financé par une part de la TVA depuis la suppression de la redevance en 2022.",
+      "explainer": {
+        "summary": "L’État soutient la culture par le budget du ministère, le financement de l’audiovisuel public, un crédit pour les jeunes et des obligations imposées aux diffuseurs. Le désaccord porte sur les priorités : plus de moyens, remplacer le crédit individuel des jeunes par des actions à l’école ou le maintenir, garantir l’audiovisuel public dans la Constitution, ou renforcer les quotas.",
+        "points": [
+          {
+            "text": "Le pass Culture individuel donne 50 € à 17 ans, puis 150 € à 18 ans, à utiliser en 3 ans. Un bonus de 50 € sous conditions (handicap, ressources) est annoncé. Une « part collective », gérée par les enseignants, finance aussi des activités d’éducation artistique et culturelle pour les élèves de la 6e à la terminale.",
+            "source": {
+              "title": "Le pass Culture, c’est quoi ?",
+              "url": "https://pass.culture.fr/le-pass-culture-cest-quoi",
+              "date": "consulté le 3 octobre 2026",
+              "publisher": "pass Culture (opérateur public du ministère de la Culture)"
+            }
+          },
+          {
+            "text": "À la télévision, les chaînes doivent consacrer au moins 60 % du temps de diffusion des œuvres audiovisuelles à des œuvres européennes, et au moins 40 % à des œuvres d’expression originale française (conçues d’abord en français). Pour les chaînes hertziennes, ces quotas valent aussi aux heures de grande écoute. Les films diffusés sont soumis à des proportions comparables (60 % et 40 %).",
+            "source": {
+              "title": "Les quotas à la télévision",
+              "url": "https://www.arcom.fr/nous-connaitre-nos-missions/promouvoir-et-proteger-la-creation/les-quotas-la-television",
+              "date": "consulté le 3 octobre 2026",
+              "publisher": "Arcom"
+            }
+          },
+          {
+            "text": "Une loi organique du 13 décembre 2024 (texte de rang supérieur aux lois ordinaires, mais inférieur à la Constitution) a pérennisé le financement de l’audiovisuel public par une part de la TVA. Le montant reste fixé chaque année par le Parlement, dans la loi de finances.",
+            "source": {
+              "title": "Projet de loi de finances pour 2026 : Médias, livre et industries culturelles – Avances à l’audiovisuel public (rapport général n° 139, tome III, annexe 18)",
+              "url": "https://www.senat.fr/rap/l25-139-318/l25-139-318_mono.html",
+              "date": "2025-11-24",
+              "publisher": "Sénat, commission des finances"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "3,745 Md€",
+            "label": "Crédits de paiement de la mission budgétaire « Culture » votés pour 2026 (patrimoines, création, transmission des savoirs, soutien du ministère ; l’audiovisuel public est financé à part)",
+            "date": "Loi de finances pour 2026 (texte définitif du 2 février 2026, promulgué le 19 février 2026)",
+            "source": {
+              "title": "Projet de loi de finances pour 2026 – Texte adopté n° 227 (texte définitif)",
+              "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17t0227_texte-adopte-seance",
+              "date": "2026-02-02",
+              "publisher": "Assemblée nationale"
+            }
+          },
+          {
+            "value": "3,863 Md€",
+            "label": "Crédits votés pour l’audiovisuel public pour 2026, dont 2,426 Md€ pour France Télévisions et 648 M€ pour Radio France (le reste pour Arte France, France Médias Monde, l’INA et TV5 Monde)",
+            "date": "Loi de finances pour 2026 (texte définitif du 2 février 2026, promulgué le 19 février 2026)",
+            "source": {
+              "title": "Projet de loi de finances pour 2026 – Texte adopté n° 227 (texte définitif)",
+              "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17t0227_texte-adopte-seance",
+              "date": "2026-02-02",
+              "publisher": "Assemblée nationale"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "Md€",
+              "items": [
+                {
+                  "label": "Audiovisuel public, total",
+                  "value": 3.863
+                },
+                {
+                  "label": "Dont France Télévisions",
+                  "value": 2.426
+                }
+              ]
+            }
+          },
+          {
+            "value": "75 %",
+            "label": "Part des jeunes ayant utilisé leur pass Culture individuel, quand le crédit à 18 ans était de 300 € (dépense moyenne : un peu plus de 250 €). Les 25 % restants se répartissent entre 16 % de non-inscrits, « les publics les moins familiers des pratiques culturelles » selon la Cour, et 9 % d’inscrits qui ne l’ont pas utilisé",
+            "date": "Fin août 2024 (rapport du 17 décembre 2024)",
+            "source": {
+              "title": "Premier bilan du pass Culture",
+              "url": "https://www.ccomptes.fr/fr/publications/premier-bilan-du-pass-culture",
+              "date": "2024-12-17",
+              "publisher": "Cour des comptes"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Ont utilisé leur pass",
+                  "value": 75
+                },
+                {
+                  "label": "Non-inscrits",
+                  "value": 16
+                },
+                {
+                  "label": "Inscrits sans l’utiliser",
+                  "value": 9
+                }
+              ]
+            }
+          },
+          {
+            "value": "72 %",
+            "label": "Part des élèves éligibles à la part collective du pass Culture (sorties, accueil d’un professionnel en classe…) ayant bénéficié d’au moins une action financée par elle",
+            "date": "Année scolaire 2023-2024",
+            "source": {
+              "title": "Projet de loi de finances pour 2026 : Culture (rapport général n° 139, tome III, annexe 7)",
+              "url": "https://www.senat.fr/rap/l25-139-37/l25-139-37_mono.html",
+              "date": "2025-11-24",
+              "publisher": "Sénat, commission des finances"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 72,
+              "total": 100,
+              "unit": "%",
+              "whole": "des élèves éligibles"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "societe-1-a",
+          "text": "Augmenter le budget public de la culture et créer un grand service public de la lecture"
+        },
+        {
+          "id": "societe-1-b",
+          "text": "Remplacer le crédit culturel individuel des jeunes par des interventions d’artistes dans les écoles"
+        },
+        {
+          "id": "societe-1-c",
+          "text": "Inscrire l’audiovisuel public dans la Constitution et lui garantir un financement stable"
+        },
+        {
+          "id": "societe-1-d",
+          "text": "Renforcer les quotas de diffusion d’œuvres françaises et européennes et le soutien au cinéma"
+        },
+        {
+          "id": "societe-1-e",
+          "text": "Maintenir le crédit individuel versé aux jeunes pour leurs achats et sorties culturels",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "solidarites-x1",
+      "topicId": "solidarites",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelle orientation donner à l’assurance chômage ?",
+      "context": "Aujourd’hui : les syndicats et le patronat négocient les règles de l’assurance chômage dans un cadre fixé par le gouvernement ; depuis 2023, la durée d’indemnisation est réduite quand le chômage est bas.",
+      "explainer": {
+        "summary": "L’assurance chômage verse un revenu de remplacement aux salariés qui perdent leur emploi. Le débat porte sur la durée et le niveau des allocations, sur les obligations et sanctions des demandeurs d’emploi, et sur le partage des décisions entre l’État, les syndicats et le patronat.",
+        "points": [
+          {
+            "text": "Avant chaque négociation, le Premier ministre envoie aux syndicats et au patronat un document de cadrage. Il fixe la trajectoire financière, le délai de la négociation et, le cas échéant, les objectifs d’évolution des règles. S’il n’y a pas d’accord, ou si l’État ne valide pas l’accord (procédure d’agrément), les règles sont fixées par décret.",
+            "source": {
+              "title": "Code du travail, articles L5422-20 et L5422-20-1",
+              "url": "https://www.legifrance.gouv.fr/codes/id/LEGISCTA000006189825",
+              "publisher": "Légifrance"
+            }
+          },
+          {
+            "text": "Règle actuelle : si le taux de chômage est inférieur à 9 % et n’a pas augmenté de 0,8 point en un trimestre, la durée d’indemnisation est réduite de 25 %. Avant 55 ans, elle est alors plafonnée à 548 jours (environ 18 mois), contre 730 jours (environ 24 mois) sinon.",
+            "source": {
+              "title": "Allocation chômage d’aide au retour à l’emploi (ARE) d’un salarié du secteur privé dont la fin de contrat de travail intervient à compter du 1er avril 2025",
+              "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F38881",
+              "date": "2026-07-23",
+              "publisher": "Service-public.gouv.fr (DILA)"
+            }
+          },
+          {
+            "text": "Depuis le 1er juin 2025, un demandeur d’emploi qui ne respecte pas son contrat d’engagement (les démarches convenues avec France Travail) peut voir suspendre au moins 30 % de son allocation pendant un à deux mois, puis un à quatre mois en cas de récidive. La suspension est levée s’il se remet en règle. Une suppression totale de l’allocation pendant quatre mois entraîne une radiation de la liste des demandeurs d’emploi pour la même durée.",
+            "source": {
+              "title": "Décret n° 2025-478 du 30 mai 2025 relatif aux sanctions applicables aux demandeurs d’emploi en cas de manquement à leurs obligations",
+              "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051672648",
+              "date": "2025-05-31",
+              "publisher": "Légifrance"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "8,3 %",
+            "label": "Taux de chômage au sens du Bureau international du travail (BIT), France (Mayotte comprise), 2e trimestre 2026 : +0,2 point sur le trimestre et +0,7 point sur un an",
+            "date": "T2 2026",
+            "source": {
+              "title": "Au deuxième trimestre 2026, le taux de chômage augmente de 0,2 point et atteint 8,3 % (Informations rapides n° 192)",
+              "url": "https://www.insee.fr/fr/statistiques/9032359",
+              "date": "2026-08-07",
+              "publisher": "Insee"
+            }
+          },
+          {
+            "value": "46,9 %",
+            "label": "Part des inscrits à France Travail en catégories A, B et C (tenus de chercher un emploi, sans emploi ou en activité réduite) effectivement indemnisés fin décembre 2025. 67,9 % ont un droit ouvert à indemnisation ; parmi eux, 69,0 % sont indemnisés",
+            "date": "2025-12-31",
+            "source": {
+              "title": "Part des demandeurs d’emploi indemnisables : situation au 31 décembre 2025 (n° 26.014)",
+              "url": "https://statistiques.francetravail.org/indem/indempub/229912",
+              "date": "2026-09-24",
+              "publisher": "France Travail, service statistique"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Ont un droit ouvert",
+                  "value": 67.9
+                },
+                {
+                  "label": "Effectivement indemnisés",
+                  "value": 46.9
+                }
+              ]
+            }
+          },
+          {
+            "value": "−2,3 Md€",
+            "label": "Solde de l’assurance chômage prévu pour 2026 par l’Unédic, qui gère le régime (+0,1 Md€ en 2025). L’Unédic attribue la baisse de ses recettes à des prélèvements de l’État et à des pertes de CSG. Sans nouveau prélèvement, elle prévoit +2,1 Md€ en 2027. Dette attendue fin 2026 : 61,5 Md€",
+            "date": "2026",
+            "source": {
+              "title": "Prévisions financières de l’Unédic, juin 2026",
+              "url": "https://www.unedic.org/publications/previsions-financieres-de-lunedic-juin-2026",
+              "date": "2026-06-17",
+              "publisher": "Unédic"
+            },
+            "chart": {
+              "kind": "series",
+              "unit": "Md€",
+              "items": [
+                {
+                  "label": "2025",
+                  "value": 0.1
+                },
+                {
+                  "label": "2026 (prévision)",
+                  "value": -2.3
+                }
+              ]
+            }
+          },
+          {
+            "value": "15 mois",
+            "label": "Durée maximale d’indemnisation après une rupture conventionnelle (fin du contrat décidée d’un commun accord entre employeur et salarié), avant 55 ans, en métropole, pour les contrats rompus depuis le 1er septembre 2026, contre 18 mois auparavant. Règle issue d’un avenant du 25 février 2026 à l’accord du 10 novembre 2023 sur l’assurance chômage, repris par la loi du 11 juin 2026",
+            "date": "2026-09-01",
+            "source": {
+              "title": "Rupture conventionnelle : ce qui change au 1er septembre 2026",
+              "url": "https://www.service-public.gouv.fr/particuliers/actualites/A18945",
+              "date": "2026-06-12",
+              "publisher": "Service-public.gouv.fr (DILA)"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "mois",
+              "items": [
+                {
+                  "label": "Auparavant",
+                  "value": 18
+                },
+                {
+                  "label": "Depuis le 1er septembre 2026",
+                  "value": 15
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "solidarites-x1-a",
+          "text": "Revenir sur les réformes récentes qui ont réduit la durée et le montant des allocations chômage"
+        },
+        {
+          "id": "solidarites-x1-b",
+          "text": "Laisser les syndicats et le patronat gérer seuls l’assurance chômage, sans cadrage de l’État"
+        },
+        {
+          "id": "solidarites-x1-c",
+          "text": "Limiter les sanctions contre les chômeurs et interdire leur radiation pour refus d’un emploi précaire"
+        },
+        {
+          "id": "solidarites-x1-d",
+          "text": "Maintenir la baisse de la durée d’indemnisation quand le chômage est bas, pour inciter à l’emploi",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "solidarites-x2",
+      "topicId": "solidarites",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelle évolution pour le revenu de solidarité active (RSA) et les autres minima sociaux ?",
+      "context": "Aujourd’hui : depuis 2025, les allocataires du RSA sont inscrits à France Travail et doivent en principe consacrer au moins 15 heures par semaine à des activités d’insertion.",
+      "explainer": {
+        "summary": "Le RSA garantit un revenu minimum ; il coexiste avec d’autres minima sociaux aux règles différentes. Le débat porte sur les contreparties exigées, le montant des allocations, la simplification des démarches et l’équilibre entre lutte contre la fraude et accès aux droits.",
+        "points": [
+          {
+            "text": "Chaque minimum social a ses propres règles d’accès et de calcul. Fin 2024, les minima sociaux (RSA, allocation aux adultes handicapés, allocation de solidarité spécifique pour les chômeurs en fin de droits, minimum vieillesse, etc.) comptaient 4,25 millions d’allocataires. En 2024, 33,3 Md€ ont été versés, soit 1,1 % du PIB.",
+            "source": {
+              "title": "Le nombre d’allocataires de minima sociaux augmente en 2024",
+              "url": "https://drees.solidarites-sante.gouv.fr/communique-de-presse/communique-de-presse/251204-nombre-allocataires-minima-sociaux",
+              "date": "2025-12-04",
+              "publisher": "DREES"
+            }
+          },
+          {
+            "text": "Depuis le 1er mars 2025, les déclarations trimestrielles de ressources des allocataires du RSA et de la prime d’activité sont préremplies. Les données viennent surtout des employeurs, des organismes de protection sociale et de l’administration fiscale. Auparavant, les allocataires remplissaient eux-mêmes ces déclarations.",
+            "source": {
+              "title": "Sécurité sociale 2026, chapitre XI : La fréquence des réformes à la CNAF et à la CNAV, un défi pour la mise en œuvre et la qualité de service (p. 365)",
+              "url": "https://www.ccomptes.fr/sites/default/files/2026-05/20260527-RALFSS-2026-11-Frequence-reformes-CNAF-et-CNAV.pdf",
+              "date": "2026-05-27",
+              "publisher": "Cour des comptes"
+            }
+          },
+          {
+            "text": "Sanctions : si un allocataire du RSA ne respecte pas son contrat d’engagement (les démarches d’insertion convenues), au moins 30 % de son allocation peut être suspendu pendant un à deux mois, puis un à quatre mois en cas de récidive. Pour un foyer de plusieurs personnes, la part suspendue ne peut dépasser 50 %. La suspension prend fin si l’allocataire se remet en règle.",
+            "source": {
+              "title": "Décret n° 2025-478 du 30 mai 2025 (art. R. 262-68 à R. 262-68-6 du code de l’action sociale et des familles)",
+              "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051672648",
+              "date": "2025-05-31",
+              "publisher": "Légifrance"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "651,69 €",
+            "label": "Montant mensuel du RSA pour une personne seule sans enfant ni autre ressource, en 2026. Un « forfait logement » de 78,20 € en est déduit si la personne touche une aide au logement, est logée gratuitement ou est propriétaire",
+            "date": "2026",
+            "source": {
+              "title": "RSA : demandeur de 25 ans et plus",
+              "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F19778",
+              "date": "2026-04-01",
+              "publisher": "Service-public.gouv.fr (DILA)"
+            }
+          },
+          {
+            "value": "1,89 million",
+            "label": "Foyers allocataires du RSA en juin 2026, soit +1,9 % sur un an",
+            "date": "juin 2026",
+            "source": {
+              "title": "Suivi mensuel des prestations de solidarité, édition d’août 2026",
+              "url": "https://drees.solidarites-sante.gouv.fr/communique-de-presse-jeux-de-donnees/jeux-de-donnees/260831-suivi-mensuel-des-prestations-de-solidarite-aout-2026",
+              "date": "2026-08-31",
+              "publisher": "DREES"
+            }
+          },
+          {
+            "value": "33 % à 37 %",
+            "label": "Part des foyers éligibles au RSA qui ne le perçoivent pas (non-recours), soit 560 000 foyers. France métropolitaine, logement ordinaire, fin 2021 : dernière mesure disponible",
+            "date": "fin 2021",
+            "source": {
+              "title": "Non-recours au RSA : plus d’un tiers des foyers éligibles ne le percevaient pas fin 2021 (Études et Résultats n° 1370)",
+              "url": "https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse/etudes-et-resultats/260506-non-recours-au-rsa-fin-2021",
+              "date": "2026-05-06",
+              "publisher": "DREES"
+            }
+          },
+          {
+            "value": "3,8 à 4,7 Md€",
+            "label": "Fraude estimée sur l’ensemble des prestations versées par les CAF (pas seulement le RSA), selon la dernière enquête de la CNAF. Fraudes détectées en 2025 : 509 M€",
+            "date": "dernière enquête CNAF, citée en 2026",
+            "source": {
+              "title": "Certification des comptes du régime général de sécurité sociale, exercice 2025 (synthèse, p. 5)",
+              "url": "https://www.ccomptes.fr/sites/default/files/2026-05/20260513-synthese-Certification-comptes-Securite-sociale-2025.pdf",
+              "date": "2026-05-13",
+              "publisher": "Cour des comptes"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "solidarites-x2-a",
+          "text": "Supprimer les heures d’activité exigées des allocataires du RSA pour en faire un droit sans condition"
+        },
+        {
+          "id": "solidarites-x2-b",
+          "text": "Fusionner les différents minima sociaux en une allocation unique aux règles et montants harmonisés"
+        },
+        {
+          "id": "solidarites-x2-c",
+          "text": "Verser automatiquement les aides sociales à ceux qui y ont droit, grâce à un dossier social unique"
+        },
+        {
+          "id": "solidarites-x2-d",
+          "text": "Revaloriser chaque année les minima sociaux au moins au rythme de la hausse des prix, sans gel"
+        },
+        {
+          "id": "solidarites-x2-e",
+          "text": "Durcir les contrôles et les sanctions contre la fraude aux aides, avec suspension des droits en cas d’indices sérieux",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "solidarites-x3",
+      "topicId": "solidarites",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelle priorité pour les droits des personnes handicapées ?",
+      "context": "Aujourd’hui : l’allocation aux adultes handicapés (AAH) est inférieure au seuil de pauvreté, et les demandes d’aides des personnes handicapées sont traitées par les maisons départementales des personnes handicapées (MDPH).",
+      "explainer": {
+        "summary": "L’allocation aux adultes handicapés (AAH) garantit un revenu minimum aux personnes dont le handicap limite l’accès à l’emploi ; les maisons départementales des personnes handicapées (MDPH) instruisent les demandes d’aides. Les approches mettent en avant des priorités différentes : le niveau de l’allocation, l’organisation des démarches, l’accompagnement scolaire et l’accessibilité.",
+        "points": [
+          {
+            "text": "L’AAH est ouverte à partir de 20 ans, ou de 16 ans pour un jeune qui n’est plus à la charge de ses parents. Il faut un taux d’incapacité d’au moins 80 %, ou de 50 à 79 % avec une restriction substantielle et durable d’accès à l’emploi. Depuis le 1er octobre 2023, son calcul ne tient plus compte des revenus du conjoint, sauf si l’ancien calcul est plus favorable.",
+            "source": {
+              "title": "Allocation aux adultes handicapés (AAH)",
+              "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F12242",
+              "date": "2026-09-14",
+              "publisher": "Service-public.gouv.fr (DILA)"
+            }
+          },
+          {
+            "text": "Les MDPH instruisent l’ensemble des demandes d’aides des enfants et des adultes handicapés : AAH, prestation de compensation du handicap, aide humaine à l’école, reconnaissance de travailleur handicapé, etc. En 2024, 1,8 million de personnes leur ont adressé une demande, soit 2,7 % de la population. L’aide humaine à la scolarisation représente 22 % des prestations et orientations attribuées aux enfants.",
+            "source": {
+              "title": "Chiffres clés de l’aide à l’autonomie 2026 (p. 16 et 17)",
+              "url": "https://www.cnsa.fr/sites/default/files/2026-06/PUB-CNSA-CC2026-WEB-ACCESS.pdf",
+              "date": "2026-06",
+              "publisher": "CNSA (branche autonomie de la Sécurité sociale)"
+            }
+          },
+          {
+            "text": "Logement : depuis la loi du 23 novembre 2018, dans les immeubles collectifs neufs, 20 % des logements, et au moins un, doivent être accessibles aux personnes handicapées. Les autres doivent être « évolutifs » : ils doivent pouvoir être rendus accessibles plus tard par des travaux simples.",
+            "source": {
+              "title": "Loi n° 2018-1021 du 23 novembre 2018 portant évolution du logement, de l’aménagement et du numérique, article 64",
+              "url": "https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000037639567",
+              "date": "2018-11-23",
+              "publisher": "Légifrance"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "1 041,59 €",
+            "label": "Montant mensuel maximal de l’AAH pour une personne sans autres ressources, en vigueur en septembre 2026",
+            "date": "2026",
+            "source": {
+              "title": "Allocation aux adultes handicapés (AAH)",
+              "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F12242",
+              "date": "2026-09-14",
+              "publisher": "Service-public.gouv.fr (DILA)"
+            }
+          },
+          {
+            "value": "1 337 €",
+            "label": "Seuil de pauvreté mensuel pour une personne seule (60 % du niveau de vie médian), France métropolitaine, 2024. Il se compare au revenu disponible, c’est-à-dire après impôts directs et prestations sociales, aides au logement comprises",
+            "date": "2024",
+            "source": {
+              "title": "L’essentiel sur… la pauvreté",
+              "url": "https://www.insee.fr/fr/statistiques/5759045",
+              "date": "2026-07-09",
+              "publisher": "Insee"
+            }
+          },
+          {
+            "value": "4,8 mois",
+            "label": "Délai moyen de traitement des demandes déposées en MDPH, en 2024",
+            "date": "2024",
+            "source": {
+              "title": "Chiffres clés de l’aide à l’autonomie 2026 (p. 17)",
+              "url": "https://www.cnsa.fr/sites/default/files/2026-06/PUB-CNSA-CC2026-WEB-ACCESS.pdf",
+              "date": "2026-06",
+              "publisher": "CNSA (branche autonomie de la Sécurité sociale)"
+            }
+          },
+          {
+            "value": "137 800",
+            "label": "Accompagnants d’élèves en situation de handicap (AESH) payés par l’Éducation nationale en 2025-2026, tous contractuels (France, personnes en activité au 30 novembre 2025). À la même rentrée, 593 300 élèves en situation de handicap étaient scolarisés, dont 88,8 % uniquement en milieu ordinaire, c’est-à-dire hors établissement spécialisé",
+            "date": "2025-2026",
+            "source": {
+              "title": "Repères et références statistiques 2026 (fiches 9.16, p. 370, et 1.07, p. 24)",
+              "url": "https://www.education.gouv.fr/sites/default/files/document/rers-2026-pdf-519880.pdf",
+              "date": "2026",
+              "publisher": "DEPP, ministère de l’Éducation nationale"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "solidarites-x3-a",
+          "text": "Porter l’allocation aux adultes handicapés au niveau du seuil de pauvreté et l’ouvrir dès 18 ans"
+        },
+        {
+          "id": "solidarites-x3-b",
+          "text": "Supprimer les maisons départementales des personnes handicapées et confier leurs missions à la Sécurité sociale"
+        },
+        {
+          "id": "solidarites-x3-c",
+          "text": "Augmenter la paie des accompagnants des élèves handicapés et leur donner un statut plus protecteur"
+        },
+        {
+          "id": "solidarites-x3-d",
+          "text": "Rendre accessibles aux personnes handicapées tous les transports en commun et tous les logements neufs"
+        }
+      ]
+    },
+    {
+      "id": "logement-x1",
+      "topicId": "logement",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelle politique pour les terrains à bâtir, les logements vides et la fiscalité des propriétaires ?",
+      "context": "Aujourd’hui : dans les villes où le logement manque, les logements vides depuis plus d’un an sont soumis à une taxe ; le prix des terrains à bâtir n’est pas encadré.",
+      "explainer": {
+        "summary": "La question touche trois sujets : le prix des terrains à bâtir, les logements vides et l’imposition des propriétaires qui louent. Les approches se partagent entre réguler ou taxer davantage, pour contenir les prix et remettre des logements sur le marché, et alléger les impôts des bailleurs pour relancer l’investissement locatif.",
+        "points": [
+          {
+            "text": "Un impôt vise aujourd’hui les patrimoines immobiliers importants : l’impôt sur la fortune immobilière (IFI). Il s’applique quand la valeur nette du patrimoine immobilier d’un foyer dépasse 1,3 M€, avec un barème progressif allant de 0,5 % à 1,5 % selon les tranches.",
+            "source": {
+              "title": "Calcul de l’impôt sur la fortune immobilière (IFI)",
+              "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F138",
+              "date": "2026-03-06",
+              "publisher": "Service-Public.fr (DILA)"
+            }
+          },
+          {
+            "text": "Dans les zones tendues (grandes agglomérations où la demande de logements dépasse nettement l’offre), un logement non meublé vide depuis au moins un an est taxé à 17 % de sa valeur locative cadastrale (le loyer théorique retenu par les impôts) la première année, puis à 34 %. Ailleurs, la commune peut instaurer sa propre taxe. Les deux taxes fusionneront à partir des impositions de 2027 (loi de finances pour 2026).",
+            "source": {
+              "title": "Taxe annuelle sur les logements vacants (TLV) et taxe d’habitation sur les logements vacants (THLV)",
+              "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F17293",
+              "date": "2025-06-11",
+              "publisher": "Service-Public.fr (DILA)"
+            }
+          },
+          {
+            "text": "Une commune peut déjà acheter en priorité un bien mis en vente (maison, immeuble, terrain), dans des zones qu’elle a délimitées à l’avance : c’est le droit de préemption. Il sert notamment à créer des logements et ne joue qu’au moment d’une vente.",
+            "source": {
+              "title": "Vente d’un bien immobilier situé dans une zone de préemption",
+              "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F16",
+              "date": "2025-12-23",
+              "publisher": "Service-Public.fr (DILA)"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "102 €/m²",
+            "label": "Prix moyen au m² d’un terrain acheté pour faire construire une maison individuelle, en hausse de 1,7 % sur un an. Par terrain, le prix moyen (95 000 €) baisse de 1,0 %, car les terrains sont plus petits",
+            "date": "2024",
+            "source": {
+              "title": "Le prix des terrains et du bâti pour les maisons individuelles en 2024",
+              "url": "https://www.statistiques.developpement-durable.gouv.fr/le-prix-des-terrains-et-du-bati-pour-les-maisons-individuelles-en-2024",
+              "date": "2025-11-27",
+              "publisher": "SDES – Enquête sur le prix des terrains à bâtir"
+            }
+          },
+          {
+            "value": "4 %",
+            "label": "des propriétaires possèdent cinq logements ou plus (seuil retenu par l’Insee) ; ils détiennent la moitié des logements loués appartenant à des particuliers (France hors Mayotte)",
+            "date": "2022",
+            "source": {
+              "title": "Un tiers des propriétaires possède deux logements ou plus – Insee Première n° 2046",
+              "url": "https://www.insee.fr/fr/statistiques/8538622",
+              "date": "2025-04-02",
+              "publisher": "Insee"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 4,
+              "total": 100,
+              "unit": "%",
+              "whole": "des propriétaires"
+            }
+          },
+          {
+            "value": "2,9 millions",
+            "label": "logements vacants, soit 7,6 % du parc, contre 8,1 % en 2019. Le chiffre inclut les logements simplement en attente d’un locataire ou d’un acheteur : selon l’Insee, une vacance de courte durée est inhérente au marché (France hors Mayotte, données provisoires)",
+            "date": "1er janvier 2026",
+            "source": {
+              "title": "Parc de logements au 1er janvier 2026 – Insee Focus n° 388",
+              "url": "https://www.insee.fr/fr/statistiques/9055697",
+              "date": "2026-09-30",
+              "publisher": "Insee"
+            }
+          },
+          {
+            "value": "2,2 Md€",
+            "label": "Aides publiques à l’investissement locatif privé (sur 45,9 Md€ d’aides au logement). Elles couvrent notamment le coût restant de la réduction d’impôt pour l’achat d’un logement neuf à louer, éteinte fin 2024 ; la loi de finances pour 2026 a créé un nouveau dispositif",
+            "date": "2025",
+            "source": {
+              "title": "Trésor-Éco n° 405 – Logement : des tensions structurelles pesant sur l’offre et la mobilité",
+              "url": "https://www.tresor.economie.gouv.fr/Articles/572b5c4f-81c1-4879-ba96-50962e878252/files/7b57ca30-411c-4af3-8785-01924c8ef73d",
+              "date": "2026-10",
+              "publisher": "Direction générale du Trésor"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 2.2,
+              "total": 45.9,
+              "unit": "Md€",
+              "whole": "d’aides au logement"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "logement-x1-a",
+          "text": "Encadrer le prix des terrains à bâtir pour en freiner la hausse"
+        },
+        {
+          "id": "logement-x1-b",
+          "text": "Taxer davantage les propriétaires qui possèdent quatre logements ou plus"
+        },
+        {
+          "id": "logement-x1-c",
+          "text": "Alourdir la taxe sur les logements vides et permettre aux communes de les acheter en priorité"
+        },
+        {
+          "id": "logement-x1-d",
+          "text": "Alléger les impôts des propriétaires bailleurs pour relancer l’investissement locatif",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "education-x1",
+      "topicId": "education",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelle priorité pour l’université et la recherche publique ?",
+      "context": "Aujourd’hui : l’accès aux formations de l’enseignement supérieur passe par la plateforme nationale Parcoursup, et une partie croissante du financement de la recherche publique est attribuée par appels à projets.",
+      "explainer": {
+        "summary": "Depuis 2010, le nombre d’étudiants a augmenté, dans le public comme dans le privé. Le débat porte sur la priorité : la procédure d’accès aux formations, le niveau et le mode de financement des universités et de la recherche, l’encadrement du privé ou la liberté laissée aux universités.",
+        "points": [
+          {
+            "text": "Une partie du financement de la recherche passe par des appels à projets : des équipes proposent un projet, et une agence choisit ceux qu’elle finance. En 2025, le principal appel de l’Agence nationale de la recherche (ANR) a retenu 1 737 projets sur 7 665 propositions éligibles, pour 834 millions d’euros.",
+            "source": {
+              "title": "Les résultats définitifs de l’Appel à projets générique (AAPG) 2025",
+              "url": "https://anr.fr/fr/actus/details/news/les-resultats-definitifs-de-lappel-a-projets-generique-aapg-2025/",
+              "date": "2026-06-08",
+              "publisher": "Agence nationale de la recherche (ANR)"
+            }
+          },
+          {
+            "text": "Pour l’année 2026-2027, les droits d’inscription à l’université publique d’un étudiant non boursier s’élèvent à 178 € par an en licence et 255 € en master (taux normal).",
+            "source": {
+              "title": "Coût d’une inscription dans l’enseignement supérieur – cas général",
+              "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F36520/2",
+              "date": "2026-08-20",
+              "publisher": "Service-Public.fr (DILA)"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "12 460 €",
+            "label": "dépense moyenne par étudiant à l’université en 2024 (euros constants, donnée provisoire) : moins qu’en 2010 (12 870 €), plus qu’en 2020 (11 540 €). Pour un élève de classe préparatoire aux grandes écoles, elle atteint 19 070 € (France, public et privé)",
+            "date": "2024",
+            "source": {
+              "title": "Repères et références statistiques 2026 (fiche 10.05, les dépenses par élève et par étudiant)",
+              "url": "https://www.education.gouv.fr/sites/default/files/document/rers-2026-pdf-519880.pdf",
+              "date": "2026-08",
+              "publisher": "Ministère de l’Éducation nationale – DEPP"
+            },
+            "chart": {
+              "kind": "series",
+              "unit": "€",
+              "items": [
+                {
+                  "label": "2010",
+                  "value": 12870
+                },
+                {
+                  "label": "2020",
+                  "value": 11540
+                },
+                {
+                  "label": "2024 (provisoire)",
+                  "value": 12460
+                }
+              ]
+            }
+          },
+          {
+            "value": "2,18 % du PIB",
+            "label": "consacrés à la recherche et développement réalisée en France, soit 61,5 Md€ (2,22 % en 2022). Les entreprises en réalisent 1,44 point, les administrations (État, enseignement supérieur, institutions sans but lucratif) 0,74 point",
+            "date": "2023",
+            "source": {
+              "title": "Repères et références statistiques 2026 (fiche 10.09, la recherche et le développement expérimental : vue d’ensemble)",
+              "url": "https://www.education.gouv.fr/sites/default/files/document/rers-2026-pdf-519880.pdf",
+              "date": "2026-08",
+              "publisher": "Ministère de l’Éducation nationale – DEPP / SIES"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "% du PIB",
+              "items": [
+                {
+                  "label": "Entreprises",
+                  "value": 1.44
+                },
+                {
+                  "label": "Administrations",
+                  "value": 0.74
+                }
+              ]
+            }
+          },
+          {
+            "value": "26 %",
+            "label": "des 3 049 600 étudiants sont inscrits dans l’enseignement supérieur privé, lucratif ou non (786 800). Depuis 2010, ses effectifs ont augmenté de 76,1 %, contre 19,0 % dans le public, en partie grâce à une meilleure collecte des données depuis 2016 ; en 2025, ils reculent de 1,7 %, quand le public progresse de 2,0 % (France)",
+            "date": "rentrée 2025",
+            "source": {
+              "title": "Repères et références statistiques 2026 (fiche 7.01, les effectifs du supérieur : évolution)",
+              "url": "https://www.education.gouv.fr/sites/default/files/document/rers-2026-pdf-519880.pdf",
+              "date": "2026-08",
+              "publisher": "Ministère de l’Éducation nationale – DEPP / SIES"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 26,
+              "total": 100,
+              "unit": "%",
+              "whole": "des étudiants"
+            }
+          },
+          {
+            "value": "94 %",
+            "label": "des bacheliers 2025 inscrits sur Parcoursup ont reçu au moins une proposition, un point de moins qu’en 2024 : 97 % en bac général, 92 % en bac technologique, 83 % en bac professionnel",
+            "date": "session 2025",
+            "source": {
+              "title": "Repères et références statistiques 2026 (fiche 7.20, les vœux d’orientation et propositions d’admission des nouveaux bacheliers)",
+              "url": "https://www.education.gouv.fr/sites/default/files/document/rers-2026-pdf-519880.pdf",
+              "date": "2026-08",
+              "publisher": "Ministère de l’Éducation nationale – DEPP / SIES"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Ensemble des bacheliers",
+                  "value": 94
+                },
+                {
+                  "label": "Bac général",
+                  "value": 97
+                },
+                {
+                  "label": "Bac technologique",
+                  "value": 92
+                },
+                {
+                  "label": "Bac professionnel",
+                  "value": 83
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "education-x1-a",
+          "text": "Supprimer Parcoursup au profit d’une autre procédure nationale d’affectation, plus transparente"
+        },
+        {
+          "id": "education-x1-b",
+          "text": "Augmenter fortement les moyens des universités par étudiant et le budget de la recherche publique"
+        },
+        {
+          "id": "education-x1-c",
+          "text": "Financer les laboratoires sur la durée plutôt que par des appels à projets de court terme"
+        },
+        {
+          "id": "education-x1-d",
+          "text": "Encadrer plus strictement les établissements d’enseignement supérieur privés à but lucratif"
+        },
+        {
+          "id": "education-x1-e",
+          "text": "Laisser les universités choisir leurs étudiants et fixer plus librement leurs frais d’inscription",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "education-x2",
+      "topicId": "education",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelle priorité pour améliorer les apprentissages des élèves à l’école ?",
+      "context": "Aujourd’hui : les écoliers français ont moins de jours de classe dans l’année que dans la plupart des pays européens, mais des journées plus longues.",
+      "explainer": {
+        "summary": "En CM1, les écoliers français ont des résultats en mathématiques inférieurs à la moyenne européenne, avec moins de jours de classe mais plus d’heures d’instruction qu’en moyenne dans l’OCDE. Le débat porte sur le levier prioritaire : l’organisation du temps, le contenu des enseignements ou l’aide aux élèves en difficulté.",
+        "points": [
+          {
+            "text": "Les vacances d’été françaises (environ 8 semaines) sont plus courtes qu’en moyenne dans l’OCDE (8,7) et dans 25 pays de l’UE (9,5). Mais avec au moins quatre autres périodes de congés, d’environ deux semaines chacune, le total atteint 16 semaines par an, contre 13,5 en moyenne dans l’OCDE (2025).",
+            "source": {
+              "title": "Regards sur l’éducation 2025 – note pays : France",
+              "url": "https://www.oecd.org/content/dam/oecd/fr/publications/reports/2025/09/education-at-a-glance-2025-country-notes_9749f4ff/france_0639c7fb/aca6dceb-fr.pdf",
+              "date": "2025-09",
+              "publisher": "OCDE"
+            }
+          },
+          {
+            "text": "À 15 ans, d’après l’enquête PISA 2025 de l’OCDE, les élèves français obtiennent des résultats proches de la moyenne de l’OCDE. Ces résultats comptent toutefois parmi les plus faibles jamais mesurés en France : depuis 2015, la part d’élèves sous le niveau de base a augmenté de 12 points en mathématiques.",
+            "source": {
+              "title": "Résultats du PISA 2025 (Volume I) – note pays : France",
+              "url": "https://www.oecd.org/content/dam/oecd/fr/publications/reports/2026/09/pisa-2025-results-volume-i-country-notes_88d1164e/france_69779694/9840dc6b-fr.pdf",
+              "date": "2026-09",
+              "publisher": "OCDE"
+            }
+          },
+          {
+            "text": "En CM1, l’écart en mathématiques entre élèves très favorisés et très défavorisés atteint 81 points (532 contre 451) dans l’enquête internationale TIMSS 2023. La France se classe ainsi parmi les pays de l’UE et de l’OCDE les plus inégalitaires sur ce point.",
+            "source": {
+              "title": "Repères et références statistiques 2026 (fiche 5.28, les performances des élèves de CM1 en mathématiques et en sciences selon l’enquête Timss)",
+              "url": "https://www.education.gouv.fr/sites/default/files/document/rers-2026-pdf-519880.pdf",
+              "date": "2026-08",
+              "publisher": "Ministère de l’Éducation nationale – DEPP"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "162 jours",
+            "label": "d’enseignement par an prévus par la réglementation pour un professeur des écoles du public (sur 36 semaines), contre 183 en moyenne dans l’OCDE et 178 dans 25 pays de l’UE membres de l’OCDE",
+            "date": "2025",
+            "source": {
+              "title": "Education at a Glance 2026 : OECD Indicators (indicateur D4, tableau D4.1)",
+              "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2026/09/education-at-a-glance-2026_3bce4131/b4968bbc-en.pdf",
+              "date": "2026-09",
+              "publisher": "OCDE"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "jours",
+              "items": [
+                {
+                  "label": "France",
+                  "value": 162
+                },
+                {
+                  "label": "Moyenne OCDE",
+                  "value": 183
+                },
+                {
+                  "label": "Moyenne de 25 pays de l’UE",
+                  "value": 178
+                }
+              ]
+            }
+          },
+          {
+            "value": "864 heures",
+            "label": "d’instruction obligatoire par an à l’école élémentaire en France, contre 804 heures en moyenne dans l’OCDE",
+            "date": "2025",
+            "source": {
+              "title": "Regards sur l’éducation 2025 – note pays : France",
+              "url": "https://www.oecd.org/content/dam/oecd/fr/publications/reports/2025/09/education-at-a-glance-2025-country-notes_9749f4ff/france_0639c7fb/aca6dceb-fr.pdf",
+              "date": "2025-09",
+              "publisher": "OCDE"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "heures",
+              "items": [
+                {
+                  "label": "France",
+                  "value": 864
+                },
+                {
+                  "label": "Moyenne OCDE",
+                  "value": 804
+                }
+              ]
+            }
+          },
+          {
+            "value": "59 %",
+            "label": "du temps d’instruction obligatoire à l’école élémentaire consacré au français (38 %) et aux mathématiques (21 %), contre 41 % en moyenne dans l’OCDE",
+            "date": "2025",
+            "source": {
+              "title": "Regards sur l’éducation 2025 – note pays : France",
+              "url": "https://www.oecd.org/content/dam/oecd/fr/publications/reports/2025/09/education-at-a-glance-2025-country-notes_9749f4ff/france_0639c7fb/aca6dceb-fr.pdf",
+              "date": "2025-09",
+              "publisher": "OCDE"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "France",
+                  "value": 59
+                },
+                {
+                  "label": "Moyenne OCDE",
+                  "value": 41
+                }
+              ]
+            }
+          },
+          {
+            "value": "484 points",
+            "label": "score moyen des élèves de CM1 en mathématiques à l’enquête internationale TIMSS, stable par rapport à 2019, contre 524 en moyenne dans les 22 pays de l’UE participants ; 15 % des élèves français n’atteignent pas le niveau le plus bas (France hors Mayotte)",
+            "date": "2023",
+            "source": {
+              "title": "Repères et références statistiques 2026 (fiche 5.28, les performances des élèves de CM1 en mathématiques et en sciences selon l’enquête Timss)",
+              "url": "https://www.education.gouv.fr/sites/default/files/document/rers-2026-pdf-519880.pdf",
+              "date": "2026-08",
+              "publisher": "Ministère de l’Éducation nationale – DEPP"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "education-x2-a",
+          "text": "Consacrer les matinées aux savoirs fondamentaux et les après-midis à d’autres activités"
+        },
+        {
+          "id": "education-x2-b",
+          "text": "Raccourcir les journées de classe en réduisant en contrepartie les vacances d’été"
+        },
+        {
+          "id": "education-x2-c",
+          "text": "Recentrer l’enseignement sur le français et le calcul, avec dictée et calcul mental"
+        },
+        {
+          "id": "education-x2-d",
+          "text": "Généraliser le tutorat et le soutien des élèves en difficulté pendant le temps scolaire"
+        }
+      ]
+    },
+    {
+      "id": "ecologie_energie-x1",
+      "topicId": "ecologie_energie",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelle priorité pour la gestion de l’eau ?",
+      "context": "Aujourd’hui : la distribution de l’eau potable est assurée, selon les communes, par une régie publique ou par une entreprise privée, et des projets de grandes retenues d’eau pour l’irrigation agricole sont contestés.",
+      "explainer": {
+        "summary": "L’eau du robinet est un service public local : chaque commune ou intercommunalité choisit de le gérer elle-même ou de le confier à un opérateur, et fixe le prix. Avec les sécheresses, le stockage d’eau pour l’irrigation agricole oppose aussi ceux qui veulent le développer et ceux qui veulent le limiter.",
+        "points": [
+          {
+            "text": "En régie, la collectivité gère elle-même le service. En délégation, elle en confie l’exploitation, par contrat, à un opérateur privé ou public, qui l’assure à ses risques financiers ; la collectivité garde la maîtrise du service. Une loi du 11 avril 2025 a rendu facultatif le transfert de ces compétences aux communautés de communes, sans revenir sur les transferts déjà faits.",
+            "source": {
+              "title": "Observatoire des services publics d’eau et d’assainissement – Rapport national 2026 (données 2024), version complète",
+              "url": "https://www.services.eaufrance.fr/cms/uploads/Rapport_Sispea_2024_VF_79c80d7b71.pdf",
+              "date": "2026-06",
+              "publisher": "Office français de la biodiversité (Sispea)"
+            }
+          },
+          {
+            "text": "Depuis une loi de décembre 2019, les services d’eau peuvent, sans y être obligés, adapter les tarifs aux revenus ou à la composition du foyer et aider au paiement des factures. La commune peut financer ces mesures sur son budget, dans la limite de 2 % des sommes hors taxes perçues pour l’eau ou l’assainissement. Les organismes de sécurité sociale et ceux qui gèrent les aides au logement transmettent les données permettant d’identifier les foyers concernés.",
+            "source": {
+              "title": "Loi n° 2019-1461 du 27 décembre 2019 relative à l’engagement dans la vie locale et à la proximité de l’action publique (article 15)",
+              "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000039681877",
+              "date": "2019-12-27",
+              "publisher": "Légifrance"
+            }
+          },
+          {
+            "text": "Les retenues dites « de substitution » stockent de l’eau en hiver pour irriguer en été, à la place de prélèvements estivaux. Le fonds hydraulique agricole, qui finance notamment leur déploiement, a vu son budget tripler entre 2024 et 2026. Selon l’étude Explore 2, citée par le Haut Conseil pour le climat, l’eau disponible en hiver sera très variable d’une année à l’autre, ce qui affectera ces réserves. D’ici 2030, le Plan eau vise −10 % de prélèvements tous secteurs confondus et leur stabilisation pour l’agriculture.",
+            "source": {
+              "title": "Rapport annuel 2026 – Chapitre 4 : suivi des émissions et des politiques publiques par secteur",
+              "url": "https://www.hautconseilclimat.fr/wp-content/uploads/2026/07/RANC2026-Chapitre-4.pdf",
+              "date": "2026-07-09",
+              "publisher": "Haut Conseil pour le climat"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "58 %",
+            "label": "Part de l’agriculture dans l’eau consommée (c’est-à-dire non restituée aux milieux), devant l’eau potable (26 %), le refroidissement des centrales (12 %) et l’industrie (4 %), en France métropolitaine",
+            "date": "moyenne 2010-2021",
+            "source": {
+              "title": "L’eau en France : ressource et utilisation – Extrait du Bilan environnemental 2024",
+              "url": "https://www.statistiques.developpement-durable.gouv.fr/leau-en-france-ressource-et-utilisation-synthese-des-connaissances-en-2024",
+              "date": "2025-02-04",
+              "publisher": "SDES, ministère de la Transition écologique"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Agriculture",
+                  "value": 58
+                },
+                {
+                  "label": "Eau potable",
+                  "value": 26
+                },
+                {
+                  "label": "Refroidissement des centrales",
+                  "value": 12
+                },
+                {
+                  "label": "Industrie",
+                  "value": 4
+                }
+              ]
+            }
+          },
+          {
+            "value": "environ 60 %",
+            "label": "Part de l’eau consommée dans l’année qui l’est de juin à août, alors que les cours d’eau ne transportent que 15 % du volume annuel à cette période (France métropolitaine)",
+            "date": "moyenne 2008-2021",
+            "source": {
+              "title": "L’eau en France : ressource et utilisation – Extrait du Bilan environnemental 2024",
+              "url": "https://www.statistiques.developpement-durable.gouv.fr/leau-en-france-ressource-et-utilisation-synthese-des-connaissances-en-2024",
+              "date": "2025-02-04",
+              "publisher": "SDES, ministère de la Transition écologique"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Eau consommée (juin à août)",
+                  "value": 60
+                },
+                {
+                  "label": "Cours d’eau (juin à août)",
+                  "value": 15
+                }
+              ]
+            }
+          },
+          {
+            "value": "48 %",
+            "label": "Part de la population desservie en eau potable par un service en régie. Les régies représentent 69 % des services ; les services délégués, moins nombreux (31 %), desservent 52 % de la population",
+            "date": "2024",
+            "source": {
+              "title": "Observatoire des services publics d’eau et d’assainissement – Rapport national 2026 (données 2024), version complète",
+              "url": "https://www.services.eaufrance.fr/cms/uploads/Rapport_Sispea_2024_VF_79c80d7b71.pdf",
+              "date": "2026-06",
+              "publisher": "Office français de la biodiversité (Sispea)"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 48,
+              "total": 100,
+              "unit": "%",
+              "whole": "de la population desservie"
+            }
+          },
+          {
+            "value": "4,89 €/m³",
+            "label": "Prix moyen TTC de l’eau et de l’assainissement, soit une facture moyenne de 586,80 € par an pour 120 m³. Il est de 4,81 €/m³ en régie et de 4,96 €/m³ en délégation : un écart de 3 %, qui s’est fortement réduit. Selon l’Observatoire, cet écart s’explique notamment par des services plus complexes, plus souvent délégués, et par des coûts que certaines régies n’imputent pas au budget de l’eau",
+            "date": "1er janvier 2025",
+            "source": {
+              "title": "Observatoire des services publics d’eau et d’assainissement – Rapport national 2026 (données 2024), synthèse",
+              "url": "https://www.services.eaufrance.fr/cms/uploads/Rapport_SISPEA_2024_resume_e9750182ae.pdf",
+              "date": "2026-06",
+              "publisher": "Office français de la biodiversité (Sispea)"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "€/m³",
+              "items": [
+                {
+                  "label": "En régie",
+                  "value": 4.81
+                },
+                {
+                  "label": "En délégation",
+                  "value": 4.96
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "ecologie_energie-x1-a",
+          "text": "Confier dans toutes les communes le traitement et la distribution de l’eau à une régie publique"
+        },
+        {
+          "id": "ecologie_energie-x1-b",
+          "text": "Interdire les grandes retenues d’eau pour l’irrigation et restaurer le cycle naturel de l’eau"
+        },
+        {
+          "id": "ecologie_energie-x1-c",
+          "text": "Instaurer une tarification sociale de l’eau, avec une aide automatique pour les foyers modestes"
+        },
+        {
+          "id": "ecologie_energie-x1-d",
+          "text": "Construire davantage de retenues d’eau pour sécuriser l’irrigation des cultures face aux sécheresses",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "ecologie_energie-x2",
+      "topicId": "ecologie_energie",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelle priorité pour protéger la population face aux canicules, aux incendies et aux catastrophes climatiques ?",
+      "context": "Aujourd’hui : le plan national d’adaptation au changement climatique, adopté en 2025, prépare la France à un réchauffement de 4 °C d’ici 2100.",
+      "explainer": {
+        "summary": "L’été 2026 a été le plus chaud mesuré en France depuis 1900, avec trois vagues de chaleur et de nombreux jours de danger très élevé d’incendie. Les approches diffèrent sur la priorité : adapter les bâtiments publics (en les climatisant ou en les rénovant), garantir l’indemnisation des dommages ou renforcer les moyens de secours.",
+        "points": [
+          {
+            "text": "Le régime « Cat-Nat », créé en 1982, est une garantie obligatoire ajoutée aux contrats d’assurance habitation et automobile. Il est financé par une surprime au même taux partout et s’appuie sur un réassureur public, la Caisse centrale de réassurance, garanti par l’État. Il couvre surtout les inondations, la sécheresse (fissures dues aux argiles) et les séismes ; tempêtes, grêle et incendies relèvent de l’assurance classique. Selon la Caisse centrale de réassurance, le coût des catastrophes naturelles pourrait augmenter de 47 % à 85 % en euros constants d’ici 2050.",
+            "source": {
+              "title": "L’assurance des catastrophes naturelles : un enjeu de soutenabilité financière",
+              "url": "https://www.ccomptes.fr/fr/publications/lassurance-des-catastrophes-naturelles-un-enjeu-de-soutenabilite-financiere",
+              "date": "2026-04-27",
+              "publisher": "Cour des comptes"
+            }
+          },
+          {
+            "text": "Les services d’incendie et de secours sont financés surtout par les collectivités locales, en premier lieu les départements (58 %). Leur budget, 5,6 Md€ en 2022, est près de six fois supérieur aux crédits de l’État pour la sécurité civile prévus en 2026. Selon la Fédération nationale des sapeurs-pompiers, citée par le Sénat, 3 des 12 Canadair de l’État étaient opérationnels à certains moments de l’été 2024. Deux appareils commandés en 2024 sont attendus en 2028 ; deux autres, prévus dans le projet de budget 2026, seraient livrés entre fin 2032 et 2033.",
+            "source": {
+              "title": "Projet de loi de finances pour 2026 : Sécurités (Sécurité civile) – rapport général",
+              "url": "https://www.senat.fr/rap/l25-139-328-2/l25-139-328-2_mono.html",
+              "date": "2025-11-24",
+              "publisher": "Sénat (commission des finances)"
+            }
+          },
+          {
+            "text": "En mai 2026, un épisode de chaleur précoce, en pleine période scolaire, a fait dépasser 30 °C sur près de 90 % du territoire, du jamais vu pour ce mois. Les recours aux soins d’urgence ont fortement augmenté dans toutes les classes d’âge, y compris chez les moins de 15 ans.",
+            "source": {
+              "title": "Rapport annuel 2026 – Chapitre 2 : impacts du changement climatique et bénéfices de l’adaptation",
+              "url": "https://www.hautconseilclimat.fr/wp-content/uploads/2026/07/RANC2026-Chapitre-2.pdf",
+              "date": "2026-07-09",
+              "publisher": "Haut Conseil pour le climat"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "53 jours",
+            "label": "Jours de vague de chaleur en France à l’été 2026, en trois épisodes, contre 33 à l’été 2022. C’est l’été le plus chaud mesuré depuis 1900 (+3,6 °C au-dessus de la normale), devant 2003 (+2,7 °C)",
+            "date": "été 2026",
+            "source": {
+              "title": "Bilan climatique de l’été 2026 (juin-juillet-août)",
+              "url": "https://meteofrance.com/presse/bilan-climatique-de-lete-2026-juin-juillet-aout",
+              "date": "2026-09-03",
+              "publisher": "Météo-France"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "jours",
+              "items": [
+                {
+                  "label": "Été 2026",
+                  "value": 53
+                },
+                {
+                  "label": "Été 2022",
+                  "value": 33
+                }
+              ]
+            }
+          },
+          {
+            "value": "au moins 5 764 décès",
+            "label": "Décès en excès (au-delà du nombre attendu, toutes causes) estimés pendant la canicule du 17 juin au 2 juillet 2026. Au moins 1 243 et 817 décès en excès ont été estimés pour les deux canicules suivantes. Estimations provisoires, France hexagonale",
+            "date": "été 2026",
+            "source": {
+              "title": "Canicule et santé : excès de mortalité durant l’épisode de canicule du 27 juillet au 20 août 2026",
+              "url": "https://www.santepubliquefrance.fr/climat/fortes-chaleurs-canicule/bulletin-national/canicule-et-sante-exces-de-mortalite-durant-lepisode-de-canicule-du-27-juillet-au-20-aout-2026",
+              "date": "2026-09-16",
+              "publisher": "Santé publique France"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "décès",
+              "items": [
+                {
+                  "label": "1re canicule",
+                  "value": 5764
+                },
+                {
+                  "label": "2e canicule",
+                  "value": 1243
+                },
+                {
+                  "label": "3e canicule",
+                  "value": 817
+                }
+              ]
+            }
+          },
+          {
+            "value": "de 12 % à 20 %",
+            "label": "Hausse au 1er janvier 2025 de la surprime « catastrophes naturelles » sur les contrats d’assurance habitation et professionnels (de 6 % à 9 % en automobile). Pour un particulier, son coût moyen passe d’environ 25 € à 40 € par an. La garantie couvre 100 % des professionnels et 97 % des habitations en métropole, nettement moins en outre-mer",
+            "date": "1er janvier 2025",
+            "source": {
+              "title": "L’assurance des catastrophes naturelles : un enjeu de soutenabilité financière (synthèse)",
+              "url": "https://www.ccomptes.fr/sites/default/files/2026-04/20260427-synthese-Assurance-des-catastrophes-naturelles.pdf",
+              "date": "2026-04-27",
+              "publisher": "Cour des comptes"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Avant le 1er janvier 2025",
+                  "value": 12
+                },
+                {
+                  "label": "À partir du 1er janvier 2025",
+                  "value": 20
+                }
+              ]
+            }
+          },
+          {
+            "value": "27 jours",
+            "label": "Jours de l’été 2026 où au moins un département était en danger très élevé (rouge) de feux de forêt, contre 13 en 2025. Selon Météo-France, 2026 sera l’année avec la plus grande surface brûlée jamais enregistrée",
+            "date": "été 2026 (bilan provisoire au 1er septembre)",
+            "source": {
+              "title": "Bilan climatique de l’été 2026 (juin-juillet-août)",
+              "url": "https://meteofrance.com/presse/bilan-climatique-de-lete-2026-juin-juillet-aout",
+              "date": "2026-09-03",
+              "publisher": "Météo-France"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "jours",
+              "items": [
+                {
+                  "label": "Été 2026",
+                  "value": 27
+                },
+                {
+                  "label": "2025",
+                  "value": 13
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "ecologie_energie-x2-a",
+          "text": "Climatiser les écoles, les hôpitaux et les autres bâtiments qui accueillent du public"
+        },
+        {
+          "id": "ecologie_energie-x2-b",
+          "text": "Rénover les écoles et aménager leurs cours pour mieux protéger les élèves de la chaleur"
+        },
+        {
+          "id": "ecologie_energie-x2-c",
+          "text": "Créer une assurance contre les risques climatiques garantie à tous et financée par les assureurs"
+        },
+        {
+          "id": "ecologie_energie-x2-d",
+          "text": "Renforcer fortement les effectifs et les équipements des pompiers et de la sécurité civile"
+        }
+      ]
+    },
+    {
+      "id": "territoires-x1",
+      "topicId": "territoires",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelle politique pour les salaires et les effectifs de la fonction publique ?",
+      "context": "Aujourd’hui : la paie de base des fonctionnaires dépend d’un « point d’indice » dont le gouvernement fixe la valeur, sans obligation de suivre la hausse des prix.",
+      "explainer": {
+        "summary": "La valeur du point d’indice, qui sert à calculer la paie de base des fonctionnaires, n’a pas changé depuis juillet 2023, alors que les prix ont continué d’augmenter. Les approches se partagent entre revaloriser toutes les paies, cibler les bas salaires, moins recourir aux contractuels et aux cabinets de conseil, ou réduire les effectifs pour contenir la dépense.",
+        "points": [
+          {
+            "text": "La paie de base d’un fonctionnaire (son « traitement ») est égale à son indice multiplié par la valeur du point, fixée par décret. Depuis la hausse de 1,5 % du 1er juillet 2023, le point vaut 59,0734 € par an. Les primes s’ajoutent à ce traitement de base.",
+            "source": {
+              "title": "Indice de traitement brut – grille indiciaire (ITB-GI), deuxième trimestre 2026 – Stats Rapides n° 140",
+              "url": "https://www.fonction-publique.gouv.fr/files/files/publications/stats-rapides/itb_gi_2026_t2.pdf",
+              "date": "2026-09",
+              "publisher": "DGAFP"
+            }
+          },
+          {
+            "text": "L’indice dépend du grade de l’agent et de son échelon dans ce grade. Pour un temps complet, le traitement minimum est de 1 801,73 € brut par mois, soit moins que le Smic brut (1 867,02 €) : une indemnité différentielle comble l’écart.",
+            "source": {
+              "title": "Traitement indiciaire dans la fonction publique",
+              "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F461",
+              "date": "2026-06-01",
+              "publisher": "Service-Public.fr (DILA)"
+            }
+          },
+          {
+            "text": "Selon une commission d’enquête du Sénat, les dépenses de conseil des ministères, au sens large, atteignaient 893,9 M€ en 2021, plus du double de leur niveau de 2018.",
+            "source": {
+              "title": "Rapport de la commission d’enquête sur l’influence des cabinets de conseil sur les politiques publiques, n° 578 (2021-2022)",
+              "url": "https://www.senat.fr/rap/r21-578-1/r21-578-1.html",
+              "date": "2022-03-16",
+              "publisher": "Sénat"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "0 % contre +2,1 %",
+            "label": "Évolution sur un an de la valeur du point d’indice, comparée à celle des prix à la consommation hors tabac, en moyenne sur le trimestre : 2e trimestre 2026 comparé au 2e trimestre 2025 (France hors Mayotte)",
+            "date": "2e trimestre 2026",
+            "source": {
+              "title": "Stats rapides n° 140 – Indice de traitement brut – grille indiciaire, 2e trimestre 2026 (septembre 2026)",
+              "url": "https://www.fonction-publique.gouv.fr/files/files/publications/stats-rapides/itb_gi_2026_t2.pdf",
+              "date": "2026-09",
+              "publisher": "DGAFP-SDessi"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Valeur du point d’indice",
+                  "value": 0
+                },
+                {
+                  "label": "Prix à la consommation",
+                  "value": 2.1
+                }
+              ]
+            }
+          },
+          {
+            "value": "2 652 €",
+            "label": "Salaire net mensuel moyen dans la fonction publique (en équivalent temps plein), en baisse de 0,7 % sur un an une fois l’inflation déduite. Dans le secteur privé : 2 735 €, en baisse de 0,8 % (France hors Mayotte ; pour le privé, hors apprentis, stagiaires, salariés agricoles et salariés des particuliers employeurs)",
+            "date": "2023",
+            "source": {
+              "title": "Rapport annuel sur l’état de la fonction publique – édition 2025",
+              "url": "https://www.fonction-publique.gouv.fr/files/files/publications/rapport-annuel/cc-2025-web.pdf",
+              "date": "2025-10",
+              "publisher": "DGAFP"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "€",
+              "items": [
+                {
+                  "label": "Fonction publique",
+                  "value": 2652
+                },
+                {
+                  "label": "Secteur privé",
+                  "value": 2735
+                }
+              ]
+            }
+          },
+          {
+            "value": "1 358 500",
+            "label": "agents contractuels dans la fonction publique, soit 23 % des 5,80 millions d’agents publics, en hausse de 4,9 % sur un an. L’emploi public représente un emploi sur cinq (France hors Mayotte)",
+            "date": "31 décembre 2023",
+            "source": {
+              "title": "Chiffres clés de la fonction publique, édition 2025",
+              "url": "https://www.fonction-publique.gouv.fr/files/files/publications/rapport-annuel/cc-2025-web.pdf",
+              "date": "2025-10",
+              "publisher": "DGAFP"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 23,
+              "total": 100,
+              "unit": "%",
+              "whole": "des agents publics"
+            }
+          },
+          {
+            "value": "370,0 Md€",
+            "label": "Rémunérations versées par l’ensemble des administrations publiques (État et organismes nationaux, collectivités locales, sécurité sociale), sur 1 714,2 Md€ de dépenses publiques (France)",
+            "date": "2025",
+            "source": {
+              "title": "Comptes de la Nation / comptes publics 2025",
+              "url": "https://www.insee.fr/fr/statistiques/8997691",
+              "date": "2026-08-28",
+              "publisher": "Insee"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 370,
+              "total": 1714.2,
+              "unit": "Md€",
+              "whole": "de dépenses publiques"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "territoires-x1-a",
+          "text": "Revaloriser chaque année la paie de base de tous les fonctionnaires au rythme des prix"
+        },
+        {
+          "id": "territoires-x1-b",
+          "text": "Augmenter d’au moins 10 % en cinq ans la paie de base de l’ensemble des fonctionnaires"
+        },
+        {
+          "id": "territoires-x1-c",
+          "text": "Concentrer les hausses de salaire sur les agents publics qui sont les moins bien payés"
+        },
+        {
+          "id": "territoires-x1-d",
+          "text": "Réduire le recours aux agents contractuels et aux cabinets de conseil privés dans l’administration"
+        },
+        {
+          "id": "territoires-x1-e",
+          "text": "Réduire le nombre d’agents publics pour diminuer les dépenses de fonctionnement de l’État",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "territoires-x2",
+      "topicId": "territoires",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelle évolution pour les pouvoirs et les moyens des collectivités locales ?",
+      "context": "Aujourd’hui : les communes, départements et régions réalisent plus de la moitié de l’investissement public, financé en partie par des dotations de l’État.",
+      "explainer": {
+        "summary": "Les collectivités (communes, départements, régions) gèrent de nombreux services de proximité et une large part de l’investissement public. Le débat porte sur leur autonomie fiscale, le niveau des dotations de l’État, leur droit d’adapter les règles nationales et la répartition des compétences avec l’État.",
+        "points": [
+          {
+            "text": "La Constitution prévoit que les collectivités « s’administrent librement » et peuvent adopter leurs propres règles pour exercer leurs compétences. Quand une loi ou un règlement l’a prévu, elles peuvent déroger aux règles nationales « à titre expérimental et pour un objet et une durée limités » (article 72).",
+            "source": {
+              "title": "Constitution du 4 octobre 1958, texte intégral en vigueur (articles 72 et 72-2)",
+              "url": "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/texte-integral-de-la-constitution-du-4-octobre-1958-en-vigueur",
+              "date": "2024-03-08",
+              "publisher": "Conseil constitutionnel"
+            }
+          },
+          {
+            "text": "Tout transfert de compétences entre l’État et les collectivités doit s’accompagner de ressources équivalentes. Leurs recettes propres doivent représenter une « part déterminante » de leurs ressources. La loi doit aussi prévoir une péréquation : une redistribution destinée à favoriser l’égalité entre collectivités (article 72-2).",
+            "source": {
+              "title": "Constitution du 4 octobre 1958, texte intégral en vigueur (articles 72 et 72-2)",
+              "url": "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/texte-integral-de-la-constitution-du-4-octobre-1958-en-vigueur",
+              "date": "2024-03-08",
+              "publisher": "Conseil constitutionnel"
+            }
+          },
+          {
+            "text": "En 2021, plusieurs impôts locaux ont disparu : la taxe d’habitation sur les résidences principales pour les communes, la taxe foncière sur les propriétés bâties pour les départements, la CVAE (un impôt sur les entreprises) pour les régions. Ces pertes ont été compensées notamment par des fractions de la TVA nationale.",
+            "source": {
+              "title": "Rapport de l’OFGL 2026 – Vue d’ensemble sur l’année 2025",
+              "url": "https://www.collectivites-locales.gouv.fr/files/files/Etudes-et-statistiques/OFGL/pre%20rapport%202026/1-%20Vue%20d%27ensemble.pdf",
+              "date": "2026",
+              "publisher": "Observatoire des finances et de la gestion publique locales (OFGL)"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "70,7 Md€",
+            "label": "Investissement des administrations publiques locales (collectivités et organismes locaux), en hausse de 3,4 % sur un an",
+            "date": "2025",
+            "source": {
+              "title": "Rapport de l’OFGL 2026 – Vue d’ensemble sur l’année 2025",
+              "url": "https://www.collectivites-locales.gouv.fr/files/files/Etudes-et-statistiques/OFGL/pre%20rapport%202026/1-%20Vue%20d%27ensemble.pdf",
+              "date": "2026",
+              "publisher": "Observatoire des finances et de la gestion publique locales (OFGL)"
+            }
+          },
+          {
+            "value": "38,2 Md€",
+            "label": "Dotations et autres concours financiers de l’État aux collectivités, en hausse de 0,4 % sur un an. Ils pèsent 16,8 % des recettes des communes, contre 6 % pour les régions",
+            "date": "2025",
+            "source": {
+              "title": "Rapport de l’OFGL 2026 – Vue d’ensemble sur l’année 2025",
+              "url": "https://www.collectivites-locales.gouv.fr/files/files/Etudes-et-statistiques/OFGL/pre%20rapport%202026/1-%20Vue%20d%27ensemble.pdf",
+              "date": "2026",
+              "publisher": "Observatoire des finances et de la gestion publique locales (OFGL)"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Part des recettes des communes",
+                  "value": 16.8
+                },
+                {
+                  "label": "Part des recettes des régions",
+                  "value": 6
+                }
+              ]
+            }
+          },
+          {
+            "value": "52,7 Md€",
+            "label": "Fractions de TVA nationale reversées aux collectivités, stables sur un an (+0,4 %) : c’est désormais leur première ressource fiscale",
+            "date": "2025",
+            "source": {
+              "title": "Rapport de l’OFGL 2026 – Vue d’ensemble sur l’année 2025",
+              "url": "https://www.collectivites-locales.gouv.fr/files/files/Etudes-et-statistiques/OFGL/pre%20rapport%202026/1-%20Vue%20d%27ensemble.pdf",
+              "date": "2026",
+              "publisher": "Observatoire des finances et de la gestion publique locales (OFGL)"
+            }
+          },
+          {
+            "value": "500 M€",
+            "label": "prélevés en 2025 sur les recettes fiscales de 1 924 communes et 141 intercommunalités (dispositif de lissage conjoncturel), restitués sur trois ans sauf 10 % réservés à la péréquation. S’y ajoutent 220 M€ prélevés sur 50 départements et 280 M€ sur 12 régions",
+            "date": "2025",
+            "source": {
+              "title": "Rapport de l’OFGL 2026 – Vue d’ensemble sur l’année 2025",
+              "url": "https://www.collectivites-locales.gouv.fr/files/files/Etudes-et-statistiques/OFGL/pre%20rapport%202026/1-%20Vue%20d%27ensemble.pdf",
+              "date": "2026",
+              "publisher": "Observatoire des finances et de la gestion publique locales (OFGL)"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "M€",
+              "items": [
+                {
+                  "label": "Communes et intercommunalités",
+                  "value": 500
+                },
+                {
+                  "label": "Départements",
+                  "value": 220
+                },
+                {
+                  "label": "Régions",
+                  "value": 280
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "territoires-x2-a",
+          "text": "Engager une nouvelle décentralisation qui clarifie les compétences et renforce l’autonomie fiscale locale"
+        },
+        {
+          "id": "territoires-x2-b",
+          "text": "Augmenter les moyens versés par l’État aux collectivités pour leurs services publics et leurs investissements"
+        },
+        {
+          "id": "territoires-x2-c",
+          "text": "Permettre aux collectivités d’adapter certaines lois et certains règlements aux réalités de leur territoire"
+        },
+        {
+          "id": "territoires-x2-d",
+          "text": "Rendre à l’État certaines compétences des collectivités pour garantir l’égalité entre les territoires",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "territoires-x3",
+      "topicId": "territoires",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Comment lutter contre la vie chère dans les outre-mer ?",
+      "context": "Aujourd’hui : selon l’Insee, l’alimentation coûte de 30 à 42 % plus cher dans les départements d’outre-mer que dans l’Hexagone ; un accord annuel, le « bouclier qualité-prix », y plafonne le prix d’un panier de produits, et une taxe locale, l’octroi de mer, s’applique aux produits importés.",
+      "explainer": {
+        "summary": "Les prix sont nettement plus élevés dans les départements d’outre-mer que dans l’Hexagone, et l’écart s’est accru dans les cinq DOM depuis 2015. Plusieurs causes sont avancées (éloignement et coût du transport, petits marchés, organisation de la distribution, fiscalité locale), d’où des remèdes très différents.",
+        "points": [
+          {
+            "text": "L’octroi de mer est une taxe locale sur les marchandises, dont les taux sont votés par la collectivité (160 délibérations en Martinique entre 2014 et 2022). Selon l’Autorité de la concurrence, une réforme d’ampleur supposerait de trouver de nouvelles recettes pour les collectivités et d’autres moyens de soutenir la production locale.",
+            "source": {
+              "title": "Avis 26-A-01 relatif aux marges des grossistes-importateurs et des distributeurs de produits alimentaires de première nécessité en Martinique",
+              "url": "https://www.autoritedelaconcurrence.fr/fr/avis/relatif-aux-marges-des-grossistes-importateurs-et-des-distributeurs-de-produits-alimentaires",
+              "date": "2026-02-10",
+              "publisher": "Autorité de la concurrence"
+            }
+          },
+          {
+            "text": "En Martinique, un protocole contre la vie chère a été signé le 16 octobre 2024. L’État a supprimé la TVA sur 69 familles de produits (6 000 références) et, pour garder un budget équilibré, l’a rétablie au taux normal de 8,5 % sur d’autres (informatique, smartphones). La collectivité a baissé l’octroi de mer sur 54 familles de produits et, comme le protocole le permettait, l’a relevé sur d’autres ; selon l’Autorité de la concurrence, cette hausse rapporte bien plus que la baisse ne coûte.",
+            "source": {
+              "title": "Avis 26-A-01 relatif aux marges des grossistes-importateurs et des distributeurs de produits alimentaires de première nécessité en Martinique",
+              "url": "https://www.autoritedelaconcurrence.fr/fr/avis/relatif-aux-marges-des-grossistes-importateurs-et-des-distributeurs-de-produits-alimentaires",
+              "date": "2026-02-10",
+              "publisher": "Autorité de la concurrence"
+            }
+          },
+          {
+            "text": "En février 2026, l’Autorité de la concurrence n’a pas constaté que les groupes de distribution étudiés en Martinique aient des marges notablement supérieures à celles de l’Hexagone. Elle relève toutefois que les intermédiaires en amont (grossistes-importateurs, centrales d’achat) sont plus rentables que les magasins, et que l’appartenance à de grands groupes diversifiés accroît la rentabilité dans des proportions difficiles à estimer. Une loi de 2012 interdit outre-mer les droits exclusifs d’importation ; selon l’Autorité, elle semble appliquée de manière variable en Martinique.",
+            "source": {
+              "title": "Avis 26-A-01 relatif aux marges des grossistes-importateurs et des distributeurs de produits alimentaires de première nécessité en Martinique",
+              "url": "https://www.autoritedelaconcurrence.fr/fr/avis/relatif-aux-marges-des-grossistes-importateurs-et-des-distributeurs-de-produits-alimentaires",
+              "date": "2026-02-10",
+              "publisher": "Autorité de la concurrence"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "+9 % à +16 %",
+            "label": "Écart des prix à la consommation avec la France métropolitaine, de La Réunion à la Guadeloupe. En Guadeloupe, l’écart était de +8,3 % en 2010",
+            "date": "2022",
+            "source": {
+              "title": "En 2022, les prix restent plus élevés dans les DOM qu’en France métropolitaine, en particulier pour les produits alimentaires – Insee Première n° 1958",
+              "url": "https://www.insee.fr/fr/statistiques/7648939",
+              "date": "2023-07-11",
+              "publisher": "Insee"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "La Réunion",
+                  "value": 9
+                },
+                {
+                  "label": "Guadeloupe",
+                  "value": 16
+                }
+              ]
+            }
+          },
+          {
+            "value": "33,3 %",
+            "label": "Part des frais d’approche (transport, logistique, stockage et taxes à l’entrée) dans le coût d’achat des marchandises importées par les distributeurs en Martinique. L’Autorité l’estimait à 28 % pour l’ensemble des départements et régions d’outre-mer en 2019. Principaux postes : logistique et port 12,8 %, transport maritime 10,9 %, octroi de mer 9,6 %",
+            "date": "Données jusqu’à 2024",
+            "source": {
+              "title": "Avis 26-A-01 relatif aux marges des grossistes-importateurs et des distributeurs de produits alimentaires de première nécessité en Martinique",
+              "url": "https://www.autoritedelaconcurrence.fr/fr/avis/relatif-aux-marges-des-grossistes-importateurs-et-des-distributeurs-de-produits-alimentaires",
+              "date": "2026-02-10",
+              "publisher": "Autorité de la concurrence"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 33.3,
+              "total": 100,
+              "unit": "%",
+              "whole": "du coût d’achat des marchandises importées"
+            }
+          },
+          {
+            "value": "346 M€",
+            "label": "Octroi de mer perçu en Martinique en 2022, contre 250 M€ en 2014 (de 637 € à 949 € par habitant), selon la Cour des comptes",
+            "date": "2022",
+            "source": {
+              "title": "Avis 26-A-01 relatif aux marges des grossistes-importateurs et des distributeurs de produits alimentaires de première nécessité en Martinique",
+              "url": "https://www.autoritedelaconcurrence.fr/fr/avis/relatif-aux-marges-des-grossistes-importateurs-et-des-distributeurs-de-produits-alimentaires",
+              "date": "2026-02-10",
+              "publisher": "Autorité de la concurrence"
+            },
+            "chart": {
+              "kind": "series",
+              "unit": "M€",
+              "items": [
+                {
+                  "label": "2014",
+                  "value": 250
+                },
+                {
+                  "label": "2022",
+                  "value": 346
+                }
+              ]
+            }
+          },
+          {
+            "value": "1,6 % à 4,4 %",
+            "label": "Marge nette des groupes de distribution alimentaire étudiés en Martinique, calculée sur les comptes consolidés de chaque groupe",
+            "date": "Données jusqu’à 2024",
+            "source": {
+              "title": "Avis 26-A-01 relatif aux marges des grossistes-importateurs et des distributeurs de produits alimentaires de première nécessité en Martinique",
+              "url": "https://www.autoritedelaconcurrence.fr/fr/avis/relatif-aux-marges-des-grossistes-importateurs-et-des-distributeurs-de-produits-alimentaires",
+              "date": "2026-02-10",
+              "publisher": "Autorité de la concurrence"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "territoires-x3-a",
+          "text": "Démanteler les grands groupes qui dominent l’importation et la distribution des produits"
+        },
+        {
+          "id": "territoires-x3-b",
+          "text": "Plafonner les prix des produits de première nécessité vendus dans les territoires d’outre-mer"
+        },
+        {
+          "id": "territoires-x3-c",
+          "text": "Contrôler les marges de la grande distribution et des entreprises de transport de marchandises"
+        },
+        {
+          "id": "territoires-x3-d",
+          "text": "Réformer l’octroi de mer et réduire le coût du transport des marchandises vers les outre-mer"
+        },
+        {
+          "id": "territoires-x3-e",
+          "text": "S’en tenir aux accords annuels de modération des prix négociés avec les distributeurs",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "sante-x1",
+      "topicId": "sante",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelle priorité pour la prévention en santé ?",
+      "context": "Aujourd’hui : l’affichage du Nutri-Score, une note nutritionnelle de A à E, sur les emballages alimentaires reste facultatif, et les dépenses de l’assurance maladie sont votées pour une seule année.",
+      "explainer": {
+        "summary": "La prévention cherche à éviter les maladies plutôt qu’à les soigner. Les approches divergent sur le levier à privilégier : l’étiquetage des aliments, le montant et la durée des budgets, ou la qualité de l’air dans les bâtiments publics.",
+        "points": [
+          {
+            "text": "Chaque année, à l’automne, le Parlement vote la loi de financement de la Sécurité sociale. Il fixe aussi chaque année l’objectif national de dépenses d’assurance maladie (Ondam). C’est un objectif de dépenses pour les soins de ville et l’hospitalisation, que la loi prévoit de ne pas dépasser.",
+            "source": {
+              "title": "Loi de financement de la sécurité sociale : présentation",
+              "url": "https://www.securite-sociale.fr/la-secu-en-detail/loi-de-financement/presentation",
+              "publisher": "Direction de la Sécurité sociale (securite-sociale.fr)"
+            }
+          },
+          {
+            "text": "Le Nutri-Score est affiché sur la base du volontariat : les entreprises qui le souhaitent s’enregistrent gratuitement auprès de Santé publique France. Le règlement européen n° 1169/2011 encadre l’étiquetage des aliments. Il permet ce type d’information nutritionnelle à titre volontaire, en plus de la déclaration nutritionnelle obligatoire.",
+            "source": {
+              "title": "Nutri-Score",
+              "url": "https://www.santepubliquefrance.fr/nutrition-et-activite-physique/nutri-score",
+              "date": "2026-03-19",
+              "publisher": "Santé publique France"
+            }
+          },
+          {
+            "text": "Depuis le 1er janvier 2023, les établissements qui accueillent des enfants (crèches, écoles, collèges, lycées, centres de loisirs) ont trois obligations. Ils doivent évaluer chaque année leur aération, avec une mesure du CO₂, et faire un autodiagnostic tous les quatre ans. Ils doivent aussi établir un plan d’actions.",
+            "source": {
+              "title": "Qualité de l’air intérieur",
+              "url": "https://www.ecologie.gouv.fr/politiques-publiques/qualite-lair-interieur",
+              "date": "2025-04-24",
+              "publisher": "Ministère de la Transition écologique"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "9,2 Md€",
+            "label": "de dépenses de prévention repérées dans les comptes de la santé en 2025 (+6,8 % en un an, du fait de la hausse des dépenses de vaccination). Une partie de la prévention faite en consultation est comptée dans les soins de ville ou d’hôpital.",
+            "date": "2025",
+            "source": {
+              "title": "Les dépenses de santé en 2025, édition 2026 – Fiche 27 : Les dépenses de prévention",
+              "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2026-09/CNS2026%20-%20Fiche%2027%20-%20Les%20d%C3%A9penses%20de%20pr%C3%A9vention.pdf",
+              "date": "2026-10-01",
+              "publisher": "DREES"
+            }
+          },
+          {
+            "value": "1 377 entreprises",
+            "label": "engagées dans la démarche Nutri-Score en France en juin 2024, contre 1 197 en juin 2023. Leurs marques représentent 62 % des volumes de ventes des produits transformés en grandes surfaces, une part stable depuis 2023.",
+            "date": "2024-06",
+            "source": {
+              "title": "Suivi du Nutri-Score par l’Oqali – Bilan annuel – Édition 2024",
+              "url": "https://www.oqali.fr/media/2025/01/OQALI-2024_Suivi-du-Nutri-Score.pdf",
+              "date": "2025-01",
+              "publisher": "Oqali (observatoire public de l’alimentation, INRAE-Anses)"
+            },
+            "chart": {
+              "kind": "series",
+              "unit": "entreprises",
+              "items": [
+                {
+                  "label": "Juin 2023",
+                  "value": 1197
+                },
+                {
+                  "label": "Juin 2024",
+                  "value": 1377
+                }
+              ]
+            }
+          },
+          {
+            "value": "près de 19 Md€ par an",
+            "label": "coût socio-économique estimé de la pollution de l’air intérieur en France. Cette estimation vient d’une étude exploratoire de l’Anses et de l’Observatoire de la qualité de l’air intérieur, publiée en avril 2014. Elle repose sur des données d’exposition de 2003-2005 et sur cinq polluants.",
+            "date": "2014-04",
+            "source": {
+              "title": "Coût socio-économique de la pollution de l’air intérieur",
+              "url": "https://www.oqei.fr/fr/campagnes/cout-socio-economique-de-la-pollution-de-l-air-interieur",
+              "date": "2014-04",
+              "publisher": "Observatoire de la qualité de l’environnement intérieur (OQEI, ex-OQAI)"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "sante-x1-a",
+          "text": "Rendre obligatoire l’affichage du Nutri-Score sur tous les aliments vendus emballés"
+        },
+        {
+          "id": "sante-x1-b",
+          "text": "Doubler la part des dépenses de santé qui est consacrée à la prévention des maladies"
+        },
+        {
+          "id": "sante-x1-c",
+          "text": "Voter le budget de la prévention pour plusieurs années, au lieu d’un vote chaque année"
+        },
+        {
+          "id": "sante-x1-d",
+          "text": "Améliorer l’air intérieur des écoles, hôpitaux et administrations : ventilation, filtration"
+        }
+      ]
+    },
+    {
+      "id": "agriculture-x1",
+      "topicId": "agriculture",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Comment améliorer le revenu des agriculteurs ?",
+      "context": "Aujourd’hui : les lois dites EGalim, issues des États généraux de l’alimentation de 2017, obligent à tenir compte des coûts de production dans les contrats agricoles, sans garantir de prix minimum.",
+      "explainer": {
+        "summary": "Les revenus agricoles varient fortement d’une année et d’une production à l’autre, et la dépense alimentaire se partage entre de nombreux maillons, de la ferme au magasin. Les approches divergent : garantir des prix planchers, encadrer les marges de l’industrie et de la distribution, rémunérer les pratiques écologiques ou mieux afficher l’origine.",
+        "points": [
+          {
+            "text": "Depuis le 1er janvier 2023, la loi EGalim 2 impose, sauf dérogations, un contrat écrit pour la vente d’un produit agricole, avec une clause de révision automatique du prix. Un décret peut aussi imposer un « tunnel de prix », c’est-à-dire des bornes minimale et maximale dans lesquelles le prix évolue : c’est le cas pour la viande bovine. Entre industriels et distributeurs, la part de la matière première agricole dans le prix n’est pas négociable.",
+            "source": {
+              "title": "Tout comprendre de la loi EGalim 2",
+              "url": "https://agriculture.gouv.fr/tout-comprendre-de-la-loi-egalim-2",
+              "date": "2023-04-13",
+              "publisher": "Ministère de l’Agriculture"
+            }
+          },
+          {
+            "text": "L’étiquetage de l’origine est encadré par le droit européen. Il est obligatoire pour certains produits : viande bovine, viandes fraîches ou surgelées de porc, mouton, chèvre et volaille, fruits et légumes, miel, poisson, huile d’olive. Pour les autres aliments, il ne l’est que si son absence risque de tromper le consommateur sur l’origine réelle.",
+            "source": {
+              "title": "Origin labelling",
+              "url": "https://food.ec.europa.eu/food-safety/labelling-and-nutrition/food-information-consumers-legislation/origin-labelling_en",
+              "publisher": "Commission européenne (DG Santé et sécurité alimentaire)"
+            }
+          },
+          {
+            "text": "Dans la PAC actuelle, l’« écorégime » est un paiement versé sur chaque hectare admissible, avec deux niveaux d’exigence, selon les pratiques de l’exploitation ou une certification comme l’agriculture biologique. S’y ajoutent des aides à la conversion bio et des mesures agroenvironnementales et climatiques.",
+            "source": {
+              "title": "La Politique agricole commune (PAC) 2023-2027 – présentation",
+              "url": "https://www.oise.gouv.fr/contenu/telechargement/76510/560311/file/Pr%C3%A9sentation%20Nouvelle%20PAC2023-2027.pdf",
+              "date": "2023-01-25",
+              "publisher": "Préfecture de l’Oise (direction départementale des territoires)"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "6,4 €",
+            "label": "Valeur ajoutée de l’agriculture française pour 100 € de dépenses alimentaires en France en 2021, contre 9,4 € pour les industries agroalimentaires et 18,8 € pour le commerce au sens large (grande distribution, petits commerces, grossistes…). La valeur des produits agricoles français incorporés, intrants compris, atteint 13,2 €. En 2021, les confinements ont encore favorisé le commerce alimentaire.",
+            "date": "2021",
+            "source": {
+              "title": "Rapport au Parlement 2026 de l’Observatoire de la formation des prix et des marges des produits alimentaires (chapitre 2, schémas 6 et 7)",
+              "url": "https://observatoire-prixmarges.franceagrimer.fr/sites/default/files/PDF/2026_rapport_ofpm_v2.pdf",
+              "date": "2026",
+              "publisher": "Observatoire de la formation des prix et des marges des produits alimentaires (FranceAgriMer)"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "€",
+              "items": [
+                {
+                  "label": "Agriculture",
+                  "value": 6.4
+                },
+                {
+                  "label": "Industries agroalimentaires",
+                  "value": 9.4
+                },
+                {
+                  "label": "Commerce",
+                  "value": 18.8
+                }
+              ]
+            }
+          },
+          {
+            "value": "1,1 €",
+            "label": "Marge nette moyenne des rayons alimentaires frais des grandes surfaces pour 100 € de chiffre d’affaires en 2024, c’est-à-dire ce qui reste après les achats, les frais de personnel, l’énergie, l’immobilier et l’impôt sur les sociétés. La marge brute est de 29,4 € (sept rayons, six enseignes).",
+            "date": "2024",
+            "source": {
+              "title": "Rapport au Parlement 2026 de l’Observatoire de la formation des prix et des marges des produits alimentaires (section 11, tableau 32)",
+              "url": "https://observatoire-prixmarges.franceagrimer.fr/sites/default/files/PDF/2026_rapport_ofpm_v2.pdf",
+              "date": "2026",
+              "publisher": "Observatoire de la formation des prix et des marges des produits alimentaires (FranceAgriMer)"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "€",
+              "items": [
+                {
+                  "label": "Marge brute",
+                  "value": 29.4
+                },
+                {
+                  "label": "Marge nette",
+                  "value": 1.1
+                }
+              ]
+            }
+          },
+          {
+            "value": "17,7 %",
+            "label": "Part des exploitants agricoles vivant sous le seuil de pauvreté en 2020, contre 14,4 % dans l’ensemble de la population (France métropolitaine). Leur niveau de vie moyen (27 500 €) est le même, mais plus dispersé : 31 300 € en moyenne dans les cultures, 23 300 € dans l’élevage.",
+            "date": "2020",
+            "source": {
+              "title": "Les exploitants agricoles vivent plus souvent sous le seuil de pauvreté que l’ensemble de la population (Emploi et revenus des indépendants, édition 2025)",
+              "url": "https://www.insee.fr/fr/statistiques/8376591?sommaire=8376600",
+              "date": "2025-05-21",
+              "publisher": "Insee"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Exploitants agricoles",
+                  "value": 17.7
+                },
+                {
+                  "label": "Ensemble de la population",
+                  "value": 14.4
+                }
+              ]
+            }
+          },
+          {
+            "value": "+10,4 %",
+            "label": "Évolution en 2025 de la valeur ajoutée agricole par emploi, en termes réels, après -12,0 % en 2024 (estimation provisoire)",
+            "date": "2025",
+            "source": {
+              "title": "Le compte provisoire de l’agriculture en 2025 – Les prix et les volumes rebondissent après la chute de 2024 (Insee Première n° 2116)",
+              "url": "https://www.insee.fr/fr/statistiques/9018334?sommaire=9019233",
+              "date": "2026-07-07",
+              "publisher": "Insee"
+            },
+            "chart": {
+              "kind": "series",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "2024",
+                  "value": -12
+                },
+                {
+                  "label": "2025",
+                  "value": 10.4
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "agriculture-x1-a",
+          "text": "Garantir aux agriculteurs des prix minimums couvrant leurs coûts de production"
+        },
+        {
+          "id": "agriculture-x1-b",
+          "text": "Encadrer les marges des industriels de l’agroalimentaire et de la grande distribution"
+        },
+        {
+          "id": "agriculture-x1-c",
+          "text": "Verser une aide au revenu aux agriculteurs qui passent à des pratiques écologiques"
+        },
+        {
+          "id": "agriculture-x1-d",
+          "text": "Afficher de façon très visible l’origine française des produits dans les magasins"
+        }
+      ]
+    },
+    {
+      "id": "fiscalite-x1",
+      "topicId": "fiscalite",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Comment imposer les revenus du capital et les bénéfices des entreprises ?",
+      "context": "Aujourd’hui : les dividendes et les intérêts sont en principe taxés à un taux forfaitaire d’environ 30 %, prélèvements sociaux compris, plutôt qu’au barème progressif de l’impôt sur le revenu.",
+      "explainer": {
+        "summary": "Les revenus de l’épargne (dividendes, intérêts) sont en principe taxés à un taux forfaitaire, et non au barème progressif appliqué aux salaires ; les entreprises, elles, paient l’impôt sur les sociétés sur leurs bénéfices. Le débat oppose l’égalité de traitement entre revenus du travail et du capital au souci de ne pas décourager l’épargne et l’investissement.",
+        "points": [
+          {
+            "text": "Taux forfaitaire : appelé prélèvement forfaitaire unique, il additionne 12,8 % d’impôt sur le revenu et des prélèvements sociaux, passés à 18,6 % au 1er janvier 2026. Certains placements suivent des règles particulières. Le contribuable peut choisir à la place le barème progressif : ses dividendes bénéficient alors d’un abattement de 40 % (seuls 60 % de leur montant sont imposés).",
+            "source": {
+              "title": "Impôt sur le revenu – Revenus d’épargne et de placement (revenus 2026)",
+              "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F34913/1_7",
+              "date": "2026-04-15",
+              "publisher": "Service-public.gouv.fr (DILA)"
+            }
+          },
+          {
+            "text": "Un comité d’évaluation placé auprès de France Stratégie a étudié ce taux, créé en 2018. Les dividendes déclarés par les ménages sont passés d’environ 14 Md€ (2013-2017) à 23 Md€ (2018-2020), ce qui, selon le comité, aurait compensé le coût de la réforme les premières années. Aucun effet n’a été détecté sur l’investissement et les salaires des entreprises les plus concernées. Les créations d’entreprises ont en revanche progressé plus vite dans les secteurs les plus favorisés par les réformes fiscales de 2018.",
+            "source": {
+              "title": "Comité d’évaluation des réformes de la fiscalité du capital – Rapport final (avis du comité)",
+              "url": "https://www.strategie-plan.gouv.fr/files/files/Publications/Rapport/fs-2023-rapport-isf-quatrieme_rapport_complet_17octobre_avis_0.pdf",
+              "date": "2023-10",
+              "publisher": "France Stratégie"
+            }
+          },
+          {
+            "text": "Contribution exceptionnelle : créée par la loi de finances pour 2025, elle s’ajoute à l’impôt sur les sociétés des entreprises réalisant au moins 1 Md€ de chiffre d’affaires. Son taux est de 20,6 % de cet impôt, et de 41,2 % au-delà de 3 Md€ de chiffre d’affaires. La loi de finances pour 2026 l’a prolongée d’un exercice comptable pour les entreprises d’au moins 1,5 Md€ de chiffre d’affaires.",
+            "source": {
+              "title": "IS – Contribution exceptionnelle sur les bénéfices des grandes entreprises (BOI-IS-AUT-60)",
+              "url": "https://bofip.impots.gouv.fr/bofip/14607-PGP.html/identifiant=BOI-IS-AUT-60-20260812",
+              "date": "2026-08-12",
+              "publisher": "BOFiP-Impôts (DGFiP)"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "96 %",
+            "label": "Part des dividendes déclarés par 1 % des foyers fiscaux (400 000 foyers sur 40 millions)",
+            "date": "2021",
+            "source": {
+              "title": "Comité d’évaluation des réformes de la fiscalité du capital – Rapport final (avis du comité)",
+              "url": "https://www.strategie-plan.gouv.fr/files/files/Publications/Rapport/fs-2023-rapport-isf-quatrieme_rapport_complet_17octobre_avis_0.pdf",
+              "date": "2023-10",
+              "publisher": "France Stratégie"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 96,
+              "total": 100,
+              "unit": "%",
+              "whole": "des dividendes déclarés"
+            }
+          },
+          {
+            "value": "1,2 Md€",
+            "label": "Rendement attendu de la hausse de la CSG (contribution sociale généralisée) de 9,2 % à 10,6 % sur une partie des revenus de l’épargne financière. La loi de financement de la Sécurité sociale pour 2026 prévoyait 1,5 Md€.",
+            "date": "2026 (prévision réestimée, mai 2026)",
+            "source": {
+              "title": "La sécurité sociale 2026 – RALFSS (p. 48)",
+              "url": "https://www.ccomptes.fr/sites/default/files/2026-05/20260527-RALFSS-2026_0.pdf",
+              "date": "2026-05-27",
+              "publisher": "Cour des comptes"
+            }
+          },
+          {
+            "value": "25 %",
+            "label": "Taux normal de l’impôt sur les sociétés, prélevé sur les bénéfices, qu’ils soient ensuite distribués en dividendes ou non. Sous conditions, un taux réduit de 15 % s’applique à la première tranche de bénéfice des PME.",
+            "date": "2026",
+            "source": {
+              "title": "Impôt sur les sociétés (IS) : taux, déclaration, paiement",
+              "url": "https://entreprendre.service-public.gouv.fr/vosdroits/F23575",
+              "date": "2026-02-17",
+              "publisher": "Entreprendre.service-public.gouv.fr (DILA)"
+            }
+          },
+          {
+            "value": "7,5 Md€",
+            "label": "Rendement de la contribution exceptionnelle sur les bénéfices des grandes entreprises. L’impôt sur les sociétés lui-même a rapporté 59,9 Md€ net à l’État la même année.",
+            "date": "2025",
+            "source": {
+              "title": "Exécution budgétaire 2025 des recettes fiscales nettes de l’État (§ 7.5 et tableau 14)",
+              "url": "https://www.budget.gouv.fr/documentation/file-download/33360",
+              "date": "2026-02",
+              "publisher": "Direction du Budget, DG Trésor, DGFiP (budget.gouv.fr)"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "Md€",
+              "items": [
+                {
+                  "label": "Contribution exceptionnelle",
+                  "value": 7.5
+                },
+                {
+                  "label": "Impôt sur les sociétés",
+                  "value": 59.9
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "fiscalite-x1-a",
+          "text": "Supprimer le taux forfaitaire et imposer les revenus du capital au barème progressif, comme les salaires"
+        },
+        {
+          "id": "fiscalite-x1-b",
+          "text": "Augmenter les prélèvements sociaux sur les revenus financiers pour financer la Sécurité sociale"
+        },
+        {
+          "id": "fiscalite-x1-c",
+          "text": "Taxer davantage les bénéfices des grandes entreprises, en particulier leurs profits exceptionnels"
+        },
+        {
+          "id": "fiscalite-x1-d",
+          "text": "Conserver le taux forfaitaire sur les revenus du capital pour encourager l’épargne et l’investissement",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "travail_salaires-x1",
+      "topicId": "travail_salaires",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelle évolution pour la durée et l’organisation du temps de travail ?",
+      "context": "Aujourd’hui : la durée légale du travail est de 35 heures par semaine ; au-delà, les heures supplémentaires sont majorées et, dans une certaine limite, exonérées d’impôt sur le revenu.",
+      "explainer": {
+        "summary": "Les 35 heures fixent le seuil à partir duquel on compte des heures supplémentaires, pas un plafond : la durée réellement travaillée varie beaucoup d’un salarié à l’autre. Les approches divergent : réorganiser la semaine, réduire peu à peu la durée du travail, donner plus de maîtrise aux salariés ou encourager les heures supplémentaires.",
+        "points": [
+          {
+            "text": "Sans accord collectif, les heures au-delà de 35 heures sont majorées de 25 % de la 36e à la 43e heure, puis de 50 %. Un accord peut fixer d’autres taux, d’au moins 10 %. Ces heures sont exonérées d’impôt sur le revenu jusqu’à 7 500 € par an (code général des impôts, art. 81 quater) et de cotisations salariales de retraite dans la limite de 11,31 % du salaire.",
+            "source": {
+              "title": "Heures supplémentaires d’un salarié du secteur privé",
+              "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2391",
+              "date": "2026-06-08",
+              "publisher": "Service-public.gouv.fr (DILA)"
+            }
+          },
+          {
+            "text": "La journée de travail est limitée à 10 heures, sauf dérogation (code du travail, art. L3121-18). Faire 35 heures en quatre jours suppose donc des journées de 8 h 45.",
+            "source": {
+              "title": "Article L3121-18 du code du travail",
+              "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000033020428",
+              "date": "2016-08-10",
+              "publisher": "Légifrance"
+            }
+          },
+          {
+            "text": "Le droit à la déconnexion est l’un des thèmes de la négociation annuelle sur la qualité de vie au travail. S’il n’y a pas d’accord, l’employeur en fixe les règles dans une charte, après avis du comité social et économique (code du travail, art. L2242-17).",
+            "source": {
+              "title": "Article L2242-17 du code du travail",
+              "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000043893940",
+              "date": "2022-03-31",
+              "publisher": "Légifrance"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "1 613 heures",
+            "label": "Durée annuelle moyenne travaillée en 2024 par les salariés du privé à temps complet dont le temps est compté en heures, contre 1 821 heures pour ceux au forfait en jours",
+            "date": "2024",
+            "source": {
+              "title": "Qui sont les salariés au forfait en jours et comment leur travail s’organise-t-il ? (Dares Analyses n° 20)",
+              "url": "https://dares.travail-emploi.gouv.fr/publication/qui-sont-les-salaries-au-forfait-en-jours-et-comment-leur-travail-sorganise-t-il",
+              "date": "2026-05-12",
+              "publisher": "Dares (ministère du Travail)"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "h",
+              "items": [
+                {
+                  "label": "Temps compté en heures",
+                  "value": 1613
+                },
+                {
+                  "label": "Forfait en jours",
+                  "value": 1821
+                }
+              ]
+            }
+          },
+          {
+            "value": "16,0 %",
+            "label": "Part des salariés du privé à temps complet au forfait annuel en jours en 2025 (2,5 millions de personnes). Leur temps de travail se compte en jours (218 au maximum par an), et non en heures : les 35 heures ne s’appliquent pas à eux.",
+            "date": "2025",
+            "source": {
+              "title": "Les salariés au forfait en jours (séries longues)",
+              "url": "https://dares.travail-emploi.gouv.fr/donnees/les-salaries-au-forfait-en-jours",
+              "date": "2026-07-16",
+              "publisher": "Dares (ministère du Travail)"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 16,
+              "total": 100,
+              "unit": "%",
+              "whole": "des salariés du privé à temps complet"
+            }
+          },
+          {
+            "value": "54 %",
+            "label": "Part des salariés du privé à temps complet, dont le temps est compté en heures, qui ont fait au moins une heure supplémentaire rémunérée en 2025. Ceux qui en ont fait en ont effectué 103 en moyenne (France hors Mayotte, hors intérim).",
+            "date": "2025",
+            "source": {
+              "title": "Les heures supplémentaires (données)",
+              "url": "https://dares.travail-emploi.gouv.fr/donnees/les-heures-supplementaires",
+              "date": "2026-07-10",
+              "publisher": "Dares (ministère du Travail)"
+            },
+            "chart": {
+              "kind": "part",
+              "value": 54,
+              "total": 100,
+              "unit": "%",
+              "whole": "des salariés au temps compté en heures"
+            }
+          },
+          {
+            "value": "1,50 €",
+            "label": "Somme que l’employeur déduit de ses cotisations patronales pour chaque heure supplémentaire dans une entreprise de moins de 20 salariés (0,50 € à partir de 20 salariés)",
+            "date": "2026",
+            "source": {
+              "title": "Déduction forfaitaire patronale",
+              "url": "https://www.urssaf.fr/accueil/employeur/beneficier-exonerations/exonerations-heures/deduction-forfaitaire-patronale.html",
+              "date": "2026-01-09",
+              "publisher": "Urssaf"
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "travail_salaires-x1-a",
+          "text": "Expérimenter la semaine de quatre jours en gardant le même nombre d’heures de travail"
+        },
+        {
+          "id": "travail_salaires-x1-b",
+          "text": "Expérimenter la semaine de quatre jours et réduire peu à peu la durée du travail, par la négociation"
+        },
+        {
+          "id": "travail_salaires-x1-c",
+          "text": "Donner aux salariés plus de maîtrise de leurs horaires et congés, et renforcer le droit à la déconnexion"
+        },
+        {
+          "id": "travail_salaires-x1-d",
+          "text": "Inciter à travailler davantage en exonérant plus largement les heures supplémentaires de cotisations",
+          "external": true
+        }
+      ]
+    },
+    {
+      "id": "egalite-x1",
+      "topicId": "egalite",
+      "tier": "approfondi",
+      "rev": 1,
+      "prompt": "Quelle priorité pour l’égalité entre les femmes et les hommes au travail et dans la famille ?",
+      "context": "Aujourd’hui : à temps de travail égal, le salaire moyen des femmes reste inférieur d’environ 14 % à celui des hommes dans le secteur privé, selon l’Insee.",
+      "explainer": {
+        "summary": "Une grande partie de l’écart de salaire entre femmes et hommes tient au temps de travail et aux emplois occupés. Cela pose la question du partage des tâches familiales et de la garde des enfants. Faut-il que l’État crée de nouvelles obligations (congés, garde, transparence des salaires) ou qu’il laisse entreprises et familles s’organiser ?",
+        "points": [
+          {
+            "text": "Le congé de maternité dure 16 semaines pour un premier ou un deuxième enfant (6 avant la naissance, 10 après). Au moins 8 semaines sont obligatoires, dont 6 après l’accouchement.",
+            "source": {
+              "title": "Congé de maternité d’une salariée du secteur privé",
+              "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2265",
+              "date": "2026-06-01",
+              "publisher": "Service-public.fr (DILA)"
+            }
+          },
+          {
+            "text": "Depuis le 1er juillet 2026, un congé supplémentaire de naissance existe pour les enfants nés à partir du 1er janvier 2026. Chaque parent peut, s’il le souhaite, prendre 1 ou 2 mois. Le premier mois est indemnisé à 70 % du salaire net, le second à 60 %.",
+            "source": {
+              "title": "Congé supplémentaire de naissance d’un salarié du secteur privé",
+              "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F39685",
+              "date": "2026-06-03",
+              "publisher": "Service-public.fr (DILA)"
+            }
+          },
+          {
+            "text": "Un projet de loi présenté le 10 septembre 2026 doit transposer une directive européenne de 2023. Il prévoit de remplacer l’index de l’égalité professionnelle, créé en 2019, par 7 indicateurs d’écart de salaire. Ces indicateurs seraient à déclarer dès 50 salariés. Le texte donnerait aussi à chaque salarié le droit de connaître la rémunération moyenne des femmes et des hommes de sa catégorie d’emploi.",
+            "source": {
+              "title": "Projet de loi portant sur la transposition de la directive sur l’égalité des rémunérations entre les femmes et les hommes (dossier de presse)",
+              "url": "https://www.fonction-publique.gouv.fr/files/files/Espace%20Presse/Amiel/DP_PJL_egalite_remuneration_transparence_salariale.pdf",
+              "date": "2026-09-10",
+              "publisher": "Gouvernement (dossier de presse)"
+            }
+          }
+        ],
+        "figures": [
+          {
+            "value": "21,8 %",
+            "label": "écart de revenu salarial annuel moyen entre femmes et hommes dans le secteur privé en 2024 (22 060 € contre 28 220 €), tous temps de travail confondus",
+            "date": "2024",
+            "source": {
+              "title": "Écart de salaire entre femmes et hommes en 2024 (Insee Focus n° 377)",
+              "url": "https://www.insee.fr/fr/statistiques/8743657",
+              "date": "2026-02-26",
+              "publisher": "Insee"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "€",
+              "items": [
+                {
+                  "label": "Femmes",
+                  "value": 22060
+                },
+                {
+                  "label": "Hommes",
+                  "value": 28220
+                }
+              ]
+            }
+          },
+          {
+            "value": "3,6 %",
+            "label": "écart de salaire en équivalent temps plein entre femmes et hommes qui occupent le même emploi dans le même établissement (secteur privé, 2024)",
+            "date": "2024",
+            "source": {
+              "title": "Écart de salaire entre femmes et hommes en 2024 (Insee Focus n° 377)",
+              "url": "https://www.insee.fr/fr/statistiques/8743657",
+              "date": "2026-02-26",
+              "publisher": "Insee"
+            }
+          },
+          {
+            "value": "25 jours",
+            "label": "durée du congé de paternité et d’accueil de l’enfant, ouvert au père ou à la personne qui vit en couple avec la mère (secteur privé, un enfant). 4 jours sont obligatoires et se prennent juste après les 3 jours ouvrables du congé de naissance.",
+            "date": "2026",
+            "source": {
+              "title": "Congé de paternité et d’accueil de l’enfant d’un salarié du secteur privé",
+              "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F3156",
+              "date": "2026-06-01",
+              "publisher": "Service-public.fr (DILA)"
+            }
+          },
+          {
+            "value": "56 %",
+            "label": "des enfants de moins de 3 ans sont gardés principalement par leurs parents en semaine (France métropolitaine, 2021). Si chaque famille avait obtenu son premier choix, cette part serait de 36 %. La part des enfants accueillis surtout en crèche ou dans un autre établissement passerait alors de 18 % à 35 %.",
+            "date": "2021",
+            "source": {
+              "title": "La part des enfants de moins de 3 ans confiés principalement à une assistante maternelle ou une crèche a presque doublé entre 2002 et 2021 (Études et résultats n° 1257)",
+              "url": "https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse/etudes-et-resultats/la-part-des-enfants-de-moins-de-3-ans-confies",
+              "date": "2023-02-14",
+              "publisher": "DREES"
+            },
+            "chart": {
+              "kind": "compare",
+              "unit": "%",
+              "items": [
+                {
+                  "label": "Parents, en 2021",
+                  "value": 56
+                },
+                {
+                  "label": "Parents, si premier choix",
+                  "value": 36
+                },
+                {
+                  "label": "Crèche, en 2021",
+                  "value": 18
+                },
+                {
+                  "label": "Crèche, si premier choix",
+                  "value": 35
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "approaches": [
+        {
+          "id": "egalite-x1-a",
+          "text": "Aligner le congé du second parent sur le congé de maternité, en durée comme en caractère obligatoire"
+        },
+        {
+          "id": "egalite-x1-b",
+          "text": "Garantir à chaque famille une solution de garde pour ses jeunes enfants, avec un droit de recours"
+        },
+        {
+          "id": "egalite-x1-c",
+          "text": "Rendre publics les écarts de salaire et revaloriser les métiers surtout exercés par des femmes"
+        },
+        {
+          "id": "egalite-x1-d",
+          "text": "Laisser les entreprises et les familles s’organiser librement, sans nouvelle obligation légale",
+          "external": true
+        }
+      ]
+    }
+  ],
+  "consensus": [
+    {
+      "topicId": "strategie",
+      "text": "Les cinq candidats jugent Jordan Bardella « disqualifié » après les accusations d’antisémitisme publiées par Mediapart et font de la défaite de l’extrême droite leur priorité."
+    },
+    {
+      "topicId": "strategie",
+      "text": "Les cinq candidats ont signé une charte commune (justice sociale, services publics, climat, lutte contre l’extrême droite et les discriminations) et se sont engagés à soutenir le vainqueur de la primaire."
+    },
+    {
+      "topicId": "travail_salaires",
+      "text": "Tous les candidats font de la hausse des bas salaires et du pouvoir d’achat une priorité ; ils divergent sur l’instrument."
+    },
+    {
+      "topicId": "fiscalite",
+      "text": "Tous veulent alourdir l’imposition des plus grandes fortunes ou des plus grosses successions ; ils divergent sur l’impôt à privilégier."
+    },
+    {
+      "topicId": "fiscalite",
+      "text": "Aucun candidat ne propose d’annuler la dette publique."
+    },
+    {
+      "topicId": "industrie_economie",
+      "text": "Tous font de la réindustrialisation une priorité ; ils divergent sur les outils et sur l’échelle, nationale ou européenne."
+    },
+    {
+      "topicId": "retraites",
+      "text": "Aucun des cinq candidats ne défend le report de l’âge légal à 64 ans issu de la réforme de 2023 ; la plupart veulent l’abroger ou le remplacer."
+    },
+    {
+      "topicId": "education",
+      "text": "Mieux payer les enseignants : trois candidats s’y engagent explicitement, un quatrième dénonce leur sous-paiement, et aucun ne s’y oppose."
+    },
+    {
+      "topicId": "agriculture",
+      "text": "Refuser la réintroduction dérogatoire des pesticides néonicotinoïdes prévue par les lois agricoles de 2025 et 2026 : position documentée chez quatre candidats (déclarations ou votes), aucune position contraire connue."
+    },
+    {
+      "topicId": "ecologie_energie",
+      "text": "Accélérer la rénovation énergétique des logements avec un soutien public renforcé : position documentée chez quatre candidats, aucune position contraire connue."
+    },
+    {
+      "topicId": "proche_orient",
+      "text": "Tous les candidats critiquent la politique du gouvernement israélien de Benyamin Netanyahou et défendent l’existence d’un État palestinien aux côtés d’Israël (la France a reconnu l’État de Palestine en septembre 2025)."
+    },
+    {
+      "topicId": "europe",
+      "text": "Aucun candidat ne propose de quitter l’Union européenne : les désaccords portent sur la manière de la réformer (plus d’intégration ou plus de marges nationales)."
+    },
+    {
+      "topicId": "laicite_republique",
+      "text": "Lutte contre l’antisémitisme : au débat du 1er octobre 2026, les cinq candidats ont jugé Jordan Bardella « disqualifié » après la publication d’écrits antisémites qui lui sont attribués."
+    }
+  ]
+}

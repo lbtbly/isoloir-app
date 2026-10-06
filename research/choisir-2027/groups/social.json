@@ -1,0 +1,1180 @@
+{
+  "group": "social",
+  "topics": [
+    "retraites",
+    "sante",
+    "education",
+    "logement"
+  ],
+  "candidates": [
+    {
+      "candidate": "Olivier Faure",
+      "affiliation": "Parti socialiste (Premier secrétaire depuis 2018, direction du parti confiée à Johanna Rolland pendant la campagne). Député de la 11e circonscription de Seine-et-Marne depuis 2012, conseiller municipal de Lieusaint depuis 2026.",
+      "overview": "Olivier Faure, premier secrétaire du PS, a officialisé sa candidature le 30 août 2026 au JT de 20h de TF1. Slogan : « Pour une France + juste ! ». Il défend une ligne qu'il présente lui-même comme « résolument de gauche » et « socialiste-écologique », exposée dans son livre-programme « La Loi du plus juste » (Robert Laffont, 17 septembre 2026) et dans sa profession de foi en quatre axes : Redresser la France, Vivre dignement, Réorienter l'économie, Préparer demain. Ses mesures phares sont redistributives : Smic à 1 700 € net, parité dividendes/salariés, retour à 62 ans, taxe Zucman, faire cotiser l'IA, encadrement généralisé des loyers, régularisation massive des travailleurs sans papiers et « règle d'or verte ». Sur la stratégie, il est l'artisan du NFP en 2024. Il a ensuite co-lancé une primaire unitaire de la gauche, puis perdu le vote interne du 9 juillet 2026 (44,5 % pour sa primaire ouverte). Il refuse toute alliance présidentielle ou gouvernementale avec LFI et Mélenchon, mais il est le seul grand candidat à défendre un rassemblement de toute la gauche aux législatives et les convergences parlementaires avec les Insoumis. À l'international, il utilise le mot « génocide » pour Gaza, ce qui l'oppose frontalement à Glucksmann et à Guedj, et il soutient l'Ukraine et la défense européenne. Sondages : environ 3,5 à 5 % (fin août-septembre 2026), loin derrière Glucksmann, le favori.",
+      "distinctive_vs_others": "1) Rapport à LFI. Faure est le seul des cinq à refuser d'exclure un rassemblement de toute la gauche, électeurs et forces insoumises compris, aux législatives. Il insiste sur les convergences parlementaires (« 80 % » de votes communs) tout en refusant une alliance présidentielle ou gouvernementale avec Mélenchon. Glucksmann exige la clarté et refuse toute alliance, Guedj l'accuse de « danse du ventre » devant LFI, et Royal et Maurel refusent de faire de Mélenchon le centre de la stratégie (LCP 23/09/2026 ; France 24 et L'essentiel 01/10/2026).\n\n2) Gaza. Avec Royal, il emploie le mot « génocide » ; Glucksmann (« Ce que tu fais est obscène ») et Guedj le refusent (France 24, franceinfo 01/10/2026). Il porte aussi une PPL interdisant les produits des colonies israéliennes (LCP 22/06/2026).\n\n3) Fiscalité et pouvoir d'achat. Il s'oppose frontalement à la baisse de CSG sur les salaires proposée par Glucksmann. Il défend le Smic à 1 700 €, la parité dividende/salariés, le refus de toute baisse de cotisations et la cotisation sur l'IA (franceinfo 01/10/2026 ; AFP 16-17/09/2026).\n\n4) Marqueurs « à gauche toute » pour un candidat issu de l'appareil. Il assume la régularisation massive (400 000 à 500 000), le mot « islamophobie », le « racisme structurel » dans la police, une commission vérité sur la colonisation et la légalisation du cannabis. Le projet du PS ne prévoyait pourtant qu'une convention citoyenne sur le cannabis (AFP 17/09 ; Politis 21/09/2026).\n\n5) Positionnement contre le centre. Il refuse un « Fillon 2 ou Macron 3 » et reproche à Glucksmann de s'entourer d'anciens macronistes (Politis 21/09 ; débat du 01/10).\n\n6) Nucléaire. Il propose 2 à 4 EPR2 seulement, avec priorité forte aux renouvelables (UFE 23/06/2026). C'est une position plus restrictive que celle des pro-nucléaires du PS et de la GRS (le positionnement précis de Maurel est à vérifier dans son propre dossier).\n\n7) Légitimité. Il est le seul candidat chef de parti en exercice. Il revendique d'avoir « repris le parti quand il était dans la poussière » mais a été désavoué par ses adhérents sur le format de la primaire (juillet 2026). Il est crédité d'environ 5 % des intentions de vote, loin derrière Glucksmann (environ 10-14 %).\n\nPoints communs : avec Maurel, il refuse l'annulation de la dette (LCP 23/09) ; tous les candidats jugent Bardella « disqualifié » après les révélations de Mediapart (01-02/10/2026).",
+      "signature_proposals": [
+        {
+          "proposal": "Retour de l'âge de départ à la retraite à 62 ans, financé notamment en faisant cotiser l'intelligence artificielle",
+          "topic_id": "retraites",
+          "source_url": "https://www.boursorama.com/actualite-economique/actualites/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions-e0f504871547edbc6960940d9c6e1fd9"
+        },
+        {
+          "proposal": "Des classes de 19 élèves maximum, une réelle mixité sociale et de meilleures conditions de travail pour les AESH",
+          "topic_id": "education",
+          "source_url": "https://www.franceinfo.fr/france/rentree/direct-rentree-des-classes-plus-de-11-millions-d-eleves-de-retour-dans-leurs-etablissements-sans-telephone-portable_8171747.html"
+        },
+        {
+          "proposal": "Généraliser l'encadrement des loyers, faciliter la réquisition des logements vacants en zone tendue, et créer un « bouclier logement » plafonnant le coût du logement à 30 % des revenus",
+          "topic_id": "logement",
+          "source_url": "https://edito.seloger.com/actualites/france/presidentielle-2027-faure-hollande-devoilent-leurs-pistes-logement-article-23779"
+        }
+      ],
+      "topics": [
+        {
+          "topic_id": "retraites",
+          "found": true,
+          "positions": [
+            {
+              "position": "Il veut revenir à un âge de départ à la retraite à 62 ans, ce qui implique d'abroger la réforme Borne de 2023.",
+              "kind": "proposition_explicite",
+              "short_quote": "Aucun candidat se revendiquant des socialistes ne saurait s'en éloigner",
+              "source_url": "https://www.boursorama.com/actualite-economique/actualites/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions-e0f504871547edbc6960940d9c6e1fd9",
+              "source_title": "Smic à 1.700 euros, régularisation des travailleurs sans papiers, retraites : Faure développe ses propositions (AFP / Boursorama)",
+              "source_date": "2026-09-16",
+              "confidence": "high"
+            },
+            {
+              "position": "Il veut faire cotiser l'intelligence artificielle (« dividende IA ») pour financer les retraites et la protection sociale, afin de compenser la baisse du nombre de cotisants liée à l'automatisation.",
+              "kind": "proposition_explicite",
+              "source_url": "https://www.france24.com/fr/info-en-continu/20260917-olivier-faure-%C3%A0-gauche-toute-pour-la-primaire",
+              "source_title": "Olivier Faure, « à gauche toute » pour la primaire (AFP / France 24)",
+              "source_date": "2026-09-17",
+              "details": "Selon 21news.be (26/09/2026), il ne donne ni taux ni seuil d'application : la mesure reste au stade du principe.",
+              "confidence": "high"
+            },
+            {
+              "position": "Il a voté pour la suspension de la réforme des retraites jusqu'au 1er janvier 2028 (âge gelé à 62 ans et 9 mois), obtenue lors de ses négociations avec le gouvernement Lecornu.",
+              "kind": "inference",
+              "source_url": "https://datan.fr/votes/legislature-17/vote_3684",
+              "source_title": "Datan – vote sur la suspension de la réforme des retraites (12/11/2025)",
+              "source_date": "2025-11-12",
+              "confidence": "high"
+            },
+            {
+              "position": "Le projet du PS qu'il dirige fixe la durée de cotisation à 43 annuités, modulable selon la pénibilité, et prévoit de réintégrer les quatre critères de pénibilité supprimés en 2018. Faure n'a pas détaillé la durée de cotisation dans sa campagne personnelle.",
+              "kind": "inference",
+              "source_url": "https://projet-socialiste.fr/projet/vivre-libres/",
+              "source_title": "Le Projet socialiste – Vivre libres",
+              "source_date": "2026",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "sante",
+          "found": true,
+          "positions": [
+            {
+              "position": "Développer fortement l'aide et les soins à domicile.",
+              "kind": "proposition_explicite",
+              "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+              "source_title": "Profession de foi d'Olivier Faure",
+              "source_date": "2026-09-24",
+              "confidence": "high"
+            },
+            {
+              "position": "Relocaliser la production des médicaments essentiels.",
+              "kind": "proposition_explicite",
+              "source_url": "https://avecfaure2027.fr/mes-propositions",
+              "source_title": "Mes propositions – Avec Olivier Faure 2027",
+              "source_date": "2026-09",
+              "confidence": "high"
+            },
+            {
+              "position": "Le projet du PS prévoit une « Grande Sécu » (reste à charge zéro), de porter la prévention de 4 % à 8 % des dépenses de santé et d'indemniser les proches aidants 365 jours au lieu de 66.",
+              "kind": "inference",
+              "source_url": "https://projet-socialiste.fr/projet/etre-en-securites/",
+              "source_title": "Le Projet socialiste – Être en sécurité(s)",
+              "source_date": "2026",
+              "confidence": "medium"
+            },
+            {
+              "position": "Il a voté pour le PLFSS 2026 (financement de la Sécurité sociale), qui intégrait la suspension de la réforme des retraites.",
+              "kind": "inference",
+              "source_url": "https://datan.fr/deputes/seine-et-marne-77/depute_olivier-faure/votes",
+              "source_title": "Datan – votes d'Olivier Faure",
+              "source_date": "2025-12-16",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "education",
+          "found": true,
+          "positions": [
+            {
+              "position": "Plafonner les classes à 19 élèves en profitant de la baisse démographique plutôt que de fermer des classes.",
+              "kind": "proposition_explicite",
+              "short_quote": "19 élèves par classe, réelle mixité, conditions de travail des AESH",
+              "source_url": "https://www.franceinfo.fr/france/rentree/direct-rentree-des-classes-plus-de-11-millions-d-eleves-de-retour-dans-leurs-etablissements-sans-telephone-portable_8171747.html",
+              "source_title": "Rentrée scolaire 2026 : Olivier Faure plaide pour revaloriser les enseignants (franceinfo, direct)",
+              "source_date": "2026-09-01",
+              "details": "Mesure présentée lors d'une visite à l'école des Ormes de Savigny-le-Temple. Un site agrégateur évoque un étalement sur 10 ans, non confirmé par une source primaire.",
+              "confidence": "high"
+            },
+            {
+              "position": "Augmenter les salaires des enseignants pour « redonner de la visibilité » au métier.",
+              "kind": "position_declaree",
+              "source_url": "https://www.franceinfo.fr/france/rentree/direct-rentree-des-classes-plus-de-11-millions-d-eleves-de-retour-dans-leurs-etablissements-sans-telephone-portable_8171747.html",
+              "source_title": "franceinfo, direct de la rentrée",
+              "source_date": "2026-09-01",
+              "details": "Aucun montant de revalorisation n'a été trouvé.",
+              "confidence": "high"
+            },
+            {
+              "position": "Assurer une réelle mixité sociale à l'école et améliorer les conditions de travail des AESH.",
+              "kind": "proposition_explicite",
+              "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+              "source_title": "Profession de foi d'Olivier Faure",
+              "source_date": "2026-09-24",
+              "details": "Les outils de mixité (carte scolaire, école privée sous contrat) ne sont pas précisés. Le projet du PS prévoit de « reprendre le contrôle » des écoles privées sous contrat.",
+              "confidence": "high"
+            },
+            {
+              "position": "Renforcer les aides au logement, au transport et à l'alimentation des étudiants.",
+              "kind": "proposition_explicite",
+              "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+              "source_title": "Profession de foi d'Olivier Faure",
+              "source_date": "2026-09-24",
+              "confidence": "high"
+            },
+            {
+              "position": "Sur les blocages de lycées, il refuse de réduire le débat aux violences ou à LFI et appelle à prendre au sérieux ce que vivent les lycéens.",
+              "kind": "position_declaree",
+              "source_url": "https://www.publicsenat.fr/actualites/politique/lelephant-dans-la-piece-lfi-sinvite-encore-dans-le-debat-de-la-primaire-socialiste",
+              "source_title": "« L'éléphant dans la pièce » : LFI s'invite encore dans le débat de la primaire socialiste (Public Sénat)",
+              "source_date": "2026-10-02",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "topic_id": "logement",
+          "found": true,
+          "positions": [
+            {
+              "position": "Généraliser l'encadrement des loyers et faciliter la réquisition des logements vacants en zone tendue.",
+              "kind": "proposition_explicite",
+              "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+              "source_title": "Profession de foi d'Olivier Faure",
+              "source_date": "2026-09-24",
+              "confidence": "high"
+            },
+            {
+              "position": "Créer un « bouclier logement » pour qu'aucun ménage du parc locatif privé ne consacre plus de 30 % de ses revenus au logement.",
+              "kind": "proposition_explicite",
+              "source_url": "https://edito.seloger.com/actualites/france/presidentielle-2027-faure-hollande-devoilent-leurs-pistes-logement-article-23779",
+              "source_title": "Présidentielle 2027 : Faure et Hollande dévoilent leurs pistes pour le logement (SeLoger)",
+              "source_date": "2026-09-28",
+              "details": "Mesure également citée par LCP lors du débat LCI du 23/09. Le mécanisme de financement n'est pas précisé.",
+              "confidence": "high"
+            },
+            {
+              "position": "Au congrès HLM de Bordeaux, il a défendu la régulation des prix du foncier et le soutien à l'accession à la propriété. Il a dénoncé le gel des APL comme un « nouvel affront » aux classes populaires et s'est opposé à la préférence nationale dans le logement social et à la suppression de la loi SRU proposées par le RN.",
+              "kind": "position_declaree",
+              "source_url": "https://www.batiweb.com/actualites/immobilier/congres-hlm-faure-hollande-logement-49329",
+              "source_title": "Au congrès HLM, Olivier Faure et François Hollande s'expriment sur le logement (Batiweb)",
+              "source_date": "2026-09-23",
+              "confidence": "high"
+            },
+            {
+              "position": "Le projet du PS prévoit qu'un tiers des constructions soient des logements sociaux et une taxe « anti-rente » à partir du 4e logement.",
+              "kind": "inference",
+              "source_url": "https://projet-socialiste.fr/projet/vivre-libres/",
+              "source_title": "Le Projet socialiste – Coût de la vie",
+              "source_date": "2026",
+              "details": "Aucun objectif chiffré personnel de construction de HLM n'a été trouvé.",
+              "confidence": "low"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "candidate": "Raphaël Glucksmann",
+      "affiliation": "Place publique (co-président), eurodéputé du groupe S&D depuis 2019, réélu en 2024 comme tête de liste PS-Place publique (13,8 %). Il est candidat de Place publique à la primaire « Choisir 2027 » organisée avec le PS (et, selon la page de Place publique, la GRS).",
+      "overview": "Raphaël Glucksmann, 46 ans, eurodéputé et co-président de Place publique, a déclaré sa candidature le 23 août 2026 sur TF1. Il défend une ligne sociale-démocrate, écologiste et fédéraliste européenne. Son marqueur stratégique est la rupture avec La France insoumise : aucun accord à la présidentielle ni aux législatives. Sa mesure phare de pouvoir d'achat est une baisse de la CSG (ou des prélèvements salariaux) pour augmenter le salaire net. Elle serait financée par une hausse de la fiscalité sur les « méga-héritages » (successions de plus de 2 M€, réforme du pacte Dutreil, 15 Md€ par an). Il propose aussi un plan de sauvetage de l'école publique, un service civique obligatoire de 10 mois et une convention citoyenne sur l'immigration. Il veut des « 100 jours de révolution écologique », confiés à Yannick Jadot, et un pro-nucléaire assumé accompagné d'un plan massif pour les renouvelables. En Europe, il veut un saut fédéral : fin du droit de veto et emprunt commun de 500 Md€ pour la défense. Sur la Russie, il tient la ligne la plus offensive : aide militaire accrue à l'Ukraine. Sur Gaza, il refuse le terme de « génocide » tout en s'opposant à Netanyahou et en défendant deux États. Son corpus programmatique repose sur l'« Acte I » de Place publique (42 chantiers, juin 2025), le livre « Nous avons encore envie. Pour un sursaut patriotique » (Allary, mai 2026), sa « lettre aux Français » (25 août 2026) et les débats de la primaire.",
+      "distinctive_vs_others": "(1) Alliances. C'est le seul candidat à exclure formellement tout accord avec LFI à la fois à la présidentielle et aux législatives, avec des candidats partout. Guedj est aussi hostile aux accords ; Faure défend des « convergences » (80 % de votes communs à l'Assemblée) ; Maurel soutient un front républicain incluant LFI face à Le Pen ; Royal refuse LFI mais aussi le centre (LCP, 24/09/2026). Il fait de cette « clarification » le cœur de sa candidature et accuse Faure d'« esprit de défaite ».\n\n(2) Pouvoir d'achat. Sa mesure phare, la baisse de la CSG sur les salaires financée par les méga-héritages, l'isole : Faure la juge limitée, Royal « dangereuse », Guedj y voit une menace pour la Sécurité sociale (débat du 01/10/2026). Sur les carburants, il défend une aide ciblée (chèque énergie triplé), là où Royal et Guedj proposent une baisse générale des taxes.\n\n(3) Retraites. Il ne fixe aucun âge légal : la réforme serait fondée sur la pénibilité et l'espérance de vie en bonne santé. Faure vise un retour à 62 ans ; Guedj veut une logique de durée de cotisation (Public Sénat, 30/09/2026 ; franceinfo, 30/09/2026).\n\n(4) International. C'est la ligne la plus offensive contre la Russie (protection du ciel ukrainien, hausse de l'aide), face à Royal qui prône l'équilibre et la négociation. Sur Gaza, il refuse le mot « génocide », comme Guedj, et s'oppose vivement à Faure et à Royal.\n\n(5) Europe. Il est le plus fédéraliste : fin du veto, traité de refondation d'ici 2030, emprunt de 500 Md€. Maurel prône au contraire la « démondialisation » et un « emprunt national » (LCP, 23/09/2026).\n\n(6) Profil. Seul candidat issu de Place publique et sans mandat national ni exécutif. Royal l'a qualifié de « stagiaire ». Il est soutenu par des figures du PS (Vallaud, Delga, Mayer-Rossignol, Delafosse) et par l'écologiste Yannick Jadot.\n\n(7) Propositions qui lui sont propres dans les sources consultées : service civique obligatoire de 10 mois, convention citoyenne sur l'immigration, extension de la dissuasion nucléaire française aux partenaires de l'UE, bannissement de TikTok.",
+      "signature_proposals": [
+        {
+          "proposal": "Plan de sauvetage de l'école publique sur 5 ans : moins d'élèves par classe en primaire, hausse planifiée des salaires enseignants, intégration du privé sous contrat à la carte scolaire.",
+          "topic_id": "education",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/fiscalite-ecole-immigration-ce-que-propose-raphael-glucksmann"
+        },
+        {
+          "proposal": "Service civique obligatoire de 10 mois pour tous les jeunes, avec une dimension militaire volontaire.",
+          "topic_id": "education",
+          "source_url": "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme"
+        },
+        {
+          "proposal": "Abroger la réforme des retraites de 2023 et refonder le système sur la pénibilité et l'espérance de vie en bonne santé plutôt que sur un âge légal unique.",
+          "topic_id": "retraites",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/reculer-ou-avancer-lage-legal-avec-ou-sans-capitalisation-ce-que-proposent-les-principaux-candidats-a-lelection-presidentielle-sur-les-retraites"
+        }
+      ],
+      "topics": [
+        {
+          "topic_id": "retraites",
+          "found": true,
+          "positions": [
+            {
+              "position": "Abroger la réforme des retraites de 2023 (report à 64 ans).",
+              "kind": "proposition_explicite",
+              "details": "Inscrit dans l'Acte I (juin 2025). Réaffirmé lors de la campagne de la primaire : premier débat LCI (23/09/2026), présentation devant le Medef, synthèses de LCP (16/09/2026) et Public Sénat (30/09/2026).",
+              "source_url": "https://www.senioractu.com/Pas-encore-retraite-Au-premier-debat-de-la-primaire-socialiste-Faure-et-Glucksmann-ont-promis-d-abroger-la-reforme-qui_a28076.html",
+              "source_title": "Au premier débat de la primaire socialiste, Faure et Glucksmann ont promis d'abroger la réforme (Senioractu)",
+              "source_date": "2026-09-24",
+              "confidence": "high"
+            },
+            {
+              "position": "Ne pas fixer un âge légal unique mais fonder la réforme sur la pénibilité et l'espérance de vie en bonne santé : certains devraient pouvoir partir à 60 ans, d'autres travailler davantage.",
+              "kind": "proposition_explicite",
+              "details": "Acte I, chantier 19 : « cesser la focalisation sur le seul âge légal ». En juin 2025, il disait que certains « doivent pouvoir partir à 60 ans, car ils sont cassés ». En septembre 2026 : « il faudra la fonder sur la pénibilité ». Il ne donne aucun paramètre chiffré (âge, durée de cotisation), contrairement à Faure (62 ans) ou Guedj (logique de durée de cotisation).",
+              "short_quote": "il faudra la fonder sur la pénibilité",
+              "source_url": "https://www.publicsenat.fr/actualites/politique/reculer-ou-avancer-lage-legal-avec-ou-sans-capitalisation-ce-que-proposent-les-principaux-candidats-a-lelection-presidentielle-sur-les-retraites",
+              "source_title": "Reculer ou avancer l'âge légal… ce que proposent les principaux candidats sur les retraites (Public Sénat)",
+              "source_date": "2026-09-30",
+              "confidence": "high"
+            },
+            {
+              "position": "Créer un Haut Conseil du pilotage des retraites où les partenaires sociaux seraient majoritaires. Lancer un plan pour augmenter le nombre de cotisants (emploi des seniors, immigration légale de travail, entrée plus rapide des jeunes dans l'emploi).",
+              "kind": "proposition_explicite",
+              "details": "Acte I, chantier 19, repris dans la synthèse de franceinfo (30/09/2026). Il dit vouloir « converger vers une simplification des régimes » et un meilleur équilibre budgétaire.",
+              "source_url": "https://www.franceinfo.fr/economie/retraite/reforme-des-retraites/changement-de-systeme-passage-a-60-ou-a-65-ans-capitalisation-que-proposent-les-principaux-candidats-a-l-election-presidentielle-pour-les-retraites_8215784.html",
+              "source_title": "Changement de système, passage à 60 ou à 65 ans, capitalisation... Que proposent les principaux candidats ? (franceinfo)",
+              "source_date": "2026-09-30",
+              "confidence": "high"
+            },
+            {
+              "position": "Le livre de mai 2026 appelle à une réforme « juste et ambitieuse » tenant compte des « bouleversements démographiques ». Le député Place publique Aurélien Rousseau évoque de « mixer l'âge et la durée de cotisation » et dit que certains devront « travailler plus longtemps ».",
+              "kind": "inference",
+              "details": "Position de l'entourage (Rousseau, dans Capital, 24/08/2026), non formulée telle quelle par Glucksmann. LFI (Manuel Bompard) l'accuse d'avoir « renoncé à l'abrogation ». Les sources hostiles (LFI, Révolution permanente) parlent d'un report au-delà de 64 ans pour certains, ce que les sources neutres ne confirment pas. L'ambiguïté porte sur le sens concret de l'abrogation.",
+              "source_url": "https://fr.finance.yahoo.com/actualites/r%C3%A9formes-retraites-propose-place-publique-154421508.html",
+              "source_title": "Réformes des retraites : que propose Place publique alors que Raphaël Glucksmann vient d'annoncer sa candidature ? (Capital)",
+              "source_date": "2026-08-24",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "sante",
+          "found": true,
+          "positions": [
+            {
+              "position": "Bâtir un modèle de santé coopératif piloté localement (projet territorial de santé). Multiplier centres et maisons de santé, dispensaires, permanences mobiles rurales et centres pour les « petites urgences ».",
+              "kind": "proposition_explicite",
+              "details": "Sur les déserts médicaux, l'Acte I parle de « soutenir l'installation » et d'encourager l'exercice mixte ville-hôpital. Il ne mentionne pas de régulation contraignante de l'installation des médecins : sa position sur la coercition reste inconnue.",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 23 « Bien soigner, partout ! » (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Contrer la financiarisation de la santé : fin de la tarification à l'acte à l'hôpital au profit d'un financement global, territorial et pluriannuel, et meilleure rémunération des soignants.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 23 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Sortir la prévention de l'ONDAM annuel, créer un fonds territorial de prévention et faire de la santé mentale des jeunes une priorité nationale.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 24 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Aller vers une Sécurité sociale unique fusionnant tous les régimes. Mutualiser les systèmes d'information de l'assurance maladie et des complémentaires.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantiers 23 et 25 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Démarchandiser les EHPAD et les crèches. Recentrer les EHPAD sur les personnes très dépendantes, développer des alternatives (résidences autonomie, béguinage) et créer une indemnité pour les aidants familiaux.",
+              "kind": "proposition_explicite",
+              "details": "La « démarchandisation des EHPAD et des crèches » figure dans la lettre aux Français (25/08/2026). Les autres éléments viennent de l'Acte I (chantiers 26 et 27).",
+              "source_url": "https://place-publique.eu/posts/2fgDdljEIy36rgxBjRyiQZ/raphael-glucksmann-sa-lettre-aux-francais",
+              "source_title": "Raphaël Glucksmann – Sa lettre aux Français (Place publique)",
+              "source_date": "2026-08-25",
+              "confidence": "high"
+            },
+            {
+              "position": "Opposition au doublement des franchises médicales (de 100 € à 200 €) proposé par le gouvernement Lecornu.",
+              "kind": "position_declaree",
+              "details": "Communiqué du parti Place publique, non signé personnellement par Glucksmann.",
+              "source_url": "https://place-publique.eu/posts/5alHI42mxxIp7GNFA9ImFX/franchises-medicales-s-lecornu-envoie-la-facture-du-deficit-aux-malades",
+              "source_title": "Franchises médicales : S. Lecornu envoie la facture du déficit aux malades (Place publique)",
+              "source_date": "2026-07-29",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "education",
+          "found": true,
+          "positions": [
+            {
+              "position": "Plan de sauvetage de l'école publique sur 5 ans : moins d'élèves par enseignant en primaire, revalorisation continue et planifiée des salaires de tous les enseignants, rénovation du bâti scolaire.",
+              "kind": "proposition_explicite",
+              "details": "Annoncé lors de la déclaration de candidature (TF1, 23/08/2026), issu de l'Acte I (chantier 33). L'Acte I prévoit aussi le tutorat sur le temps scolaire et un frein aux fermetures d'écoles rurales. Au débat du 01/10/2026, il a affirmé qu'un enseignant français du primaire est moins payé qu'un Slovène ou un Portugais : exact en parité de pouvoir d'achat selon franceinfo.",
+              "source_url": "https://www.publicsenat.fr/actualites/politique/fiscalite-ecole-immigration-ce-que-propose-raphael-glucksmann",
+              "source_title": "Fiscalité, école, immigration : ce que propose Raphaël Glucksmann (Public Sénat)",
+              "source_date": "2026-08-24",
+              "confidence": "high"
+            },
+            {
+              "position": "Intégrer les établissements privés sous contrat à la carte scolaire, pour appliquer la mixité sociale à tous les établissements financés par le contribuable.",
+              "kind": "proposition_explicite",
+              "details": "Acte I (chantier 33), repris dans le livre de mai 2026.",
+              "source_url": "https://www.lejdd.fr/politique/immigration-raphael-glucksmann-plaide-pour-une-convention-citoyenne-174735",
+              "source_title": "Immigration : Raphaël Glucksmann plaide pour une convention citoyenne (Le JDD)",
+              "source_date": "2026-05-24",
+              "confidence": "high"
+            },
+            {
+              "position": "Service civique obligatoire de 10 mois pour tous les jeunes (EHPAD, écoles, services publics, missions d'intérêt général). La dimension militaire resterait volontaire.",
+              "kind": "proposition_explicite",
+              "details": "Proposition du livre de mai 2026 (« contrat patriotique »). L'Acte I de 2025 parlait seulement de recréer un « rite de passage républicain » remplaçant le service militaire.",
+              "short_quote": "dix mois de leur vie à la Nation",
+              "source_url": "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme",
+              "source_title": "Présidentielle : Raphaël Glucksmann dévoile les premières lignes de son possible programme (LCP)",
+              "source_date": "2026-05-26",
+              "confidence": "high"
+            },
+            {
+              "position": "« Passeport pour l'émancipation » : garantir à chaque enfant des séjours collectifs (colonies, classes découvertes, séjour dans un pays de l'UE).",
+              "kind": "proposition_explicite",
+              "source_url": "https://www.publicsenat.fr/actualites/politique/fiscalite-ecole-immigration-ce-que-propose-raphael-glucksmann",
+              "source_title": "Fiscalité, école, immigration : ce que propose Raphaël Glucksmann (Public Sénat)",
+              "source_date": "2026-08-24",
+              "confidence": "high"
+            },
+            {
+              "position": "Repenser en profondeur Parcoursup par une concertation, mieux encadrer le supérieur privé lucratif, créer un « capital formation universel » et une aide contre l'éloignement géographique.",
+              "kind": "proposition_explicite",
+              "details": "Acte I, chantier 10. Également : module obligatoire « Médias et influence » au lycée, convention citoyenne pour l'École. Aucune position trouvée sur l'uniforme.",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantiers 10 et 34 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Juge les blocages de lycées « complètement irresponsables », tout en recentrant le débat sur l'état de l'éducation.",
+              "kind": "position_declaree",
+              "source_url": "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html",
+              "source_title": "Sept séquences à retenir du débat de la primaire de la gauche (franceinfo)",
+              "source_date": "2026-10-01",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "logement",
+          "found": true,
+          "positions": [
+            {
+              "position": "« Plan Marshall » du logement : fonds national pour aider les collectivités à acheter du foncier et objectifs annuels de construction de logements sociaux rehaussés, via des contrats territoriaux.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 31 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Encadrer les loyers dans les zones en grande tension.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 31 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Réguler davantage les meublés touristiques (modèles du Pays basque et de la Suisse) pour limiter les plateformes de type Airbnb.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 31 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Lutter contre la vacance : élargir le droit de préemption des collectivités sur les immeubles vides et taxer plus lourdement la vacance longue avec des barèmes progressifs. Aucune réquisition explicite n'est proposée.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 31 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Accession à la propriété via le Bail réel solidaire « de masse ». Abrogation de la loi Kasbarian, extension de Visale et programme « logement d'abord » contre le sans-abrisme.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 31 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "candidate": "Jérôme Guedj",
+      "affiliation": "Parti socialiste. Député de la 6e circonscription de l'Essonne depuis 2022, groupe Socialistes et apparentés, membre de la commission des affaires sociales. Ancien assistant parlementaire de Jean-Luc Mélenchon, élu en 2022 sous l'étiquette NUPES, il a refusé le label NFP en 2024. Il a déclaré sa candidature présidentielle hors primaire le 5 février 2026, puis a rejoint la primaire « Choisir 2027 » fin août 2026 (le 23 août selon Wikipédia FR). Il a annoncé ses parrainages le 15 septembre 2026.",
+      "overview": "Jérôme Guedj se présente comme le candidat d'une gauche « républicaine, universaliste, écologiste, européenne et laïque ». Son slogan est « La République, c'est nous ! », titre de son livre paru le 27 août 2026. Sa ligne stratégique est la plus anti-LFI des cinq candidats : aucune alliance avec La France insoumise, « plus jamais ». Il rappelle avoir refusé l'accord NFP en 2024 et assume un « compromis » avec le centre, voire avec une partie de la droite, face à l'extrême droite. Spécialiste des questions sociales, il fait de la « République du soin » sa première priorité : Sécurité sociale intégrale ou « Grande Sécu » (un seul payeur pour les soins essentiels), extension à tout le pays du régime local d'Alsace-Moselle, critères d'installation des médecins et financement du grand âge. Sur les retraites, il veut « sortir de l'âge légal » au profit d'un système fondé sur les annuités et la pénibilité, avec un âge du taux plein abaissé. Il accepte, sous conditions, une sous-indexation des pensions les plus élevées et une hausse de la CSG sur ces pensions. Côté recettes, il propose d'alourdir les droits de succession au-delà de 2 M€ (environ 10 Md€ par an pour l'autonomie) et un « ISF climatique ». Sur l'immigration, il veut une immigration « planifiée par le Parlement », avec apprentissage obligatoire de la langue. Sur la laïcité, il propose un Défenseur de la laïcité, autorité indépendante, et a reçu en juillet 2026 une mission du Premier ministre Lecornu. À l'international, il soutient fermement l'Ukraine et défend la solution à deux États. Il refuse le terme « génocide » pour Gaza et parle de crimes de guerre et de crimes contre l'humanité.",
+      "distinctive_vs_others": "1) Stratégie : avec Glucksmann, il porte la ligne la plus fermement anti-LFI (« plus jamais » d'alliance). Il va plus loin en accusant Faure et Royal de « soumission » à LFI et Faure d'une « danse du ventre permanente » (Orange/AFP 24/09/2026 ; LCP 01/10/2026). Il se dit le seul à avoir refusé l'accord NFP en 2024, alors que Maurel assume son élection de 2024 sous la bannière NFP (Public Sénat 24/09/2026). Il est aussi le seul à revendiquer explicitement un « compromis » avec le centre, « voire une partie de la droite » (AFP 17/09/2026).\n\n2) Retraites : c'est le seul des cinq, dans les sources consultées, à proposer de sortir de l'âge légal au profit des annuités et de la pénibilité (BFMTV/Capital 12/09/2026). Il accepte aussi, sous conditions, une sous-indexation des hautes pensions et une hausse de la CSG sur ces pensions (L'Opinion, août 2026 ; AFP 17/09/2026), ce qui le distingue d'une gauche attachée à l'indexation de toutes les pensions.\n\n3) Santé : il fait de la santé son marqueur. Il défend la Sécurité sociale intégrale ou « Grande Sécu » et se dit le « seul candidat » à avoir parlé de santé au débat LCI (X, 23/09/2026). Il veut étendre le régime d'Alsace-Moselle à tout le pays (Moselle TV 29/09/2026). Au débat du 01/10, il s'oppose à la baisse de CSG proposée par Glucksmann (Entrevue 02/10/2026).\n\n4) Immigration : sa ligne est plus restrictive que celle de Faure, qui prône une régularisation massive (500 000 régularisations ne le « choquent » pas, selon l'AFP). Guedj veut une immigration « planifiée par le Parlement » et critique « l'angélisme moral » de la gauche (AFP 17/09/2026).\n\n5) Laïcité : il est le candidat le plus identifié sur le sujet. Ancien secrétaire national du PS à la laïcité, il a reçu une mission Lecornu en juillet 2026 et a déposé la proposition de loi constitutionnelle n°2000 pour un Défenseur de la laïcité. Il combine fermeté face à l'islamisme et refus de l'interdiction du voile dans l'espace public (BFMTV 18/09 et 31/08/2026).\n\n6) Gaza : comme Glucksmann et contrairement à Faure et Royal, il refuse le mot « génocide ». Contrairement à Faure et Maurel, il ne demande pas la suspension de l'accord UE-Israël mais l'utilisation de ses leviers commerciaux contre le gouvernement israélien (Times of Israel 24/09/2026).\n\n7) Carburants : il rejoint Royal sur la baisse de la fiscalité et Maurel sur le plafonnement des marges des raffineurs (Public Sénat 24/09 ; Entrevue 02/10/2026).\n\n8) SMIC : son montant de 1 700 € est le même que celui de Faure (1 700 € net), ce qui le rend peu distinctif sur ce point.",
+      "signature_proposals": [
+        {
+          "proposal": "Sécurité sociale intégrale (« Grande Sécu ») : un seul payeur public pour les soins essentiels, sur le modèle du régime local d'Alsace-Moselle étendu à tout le pays, avec jusqu'à 5,4 Md€ d'économies de frais de gestion.",
+          "topic_id": "sante",
+          "source_url": "https://x.com/JeromeGuedj/status/2102873950988771608"
+        },
+        {
+          "proposal": "Retraites : sortir de l'âge légal comme critère central, avec un départ fondé sur les annuités cotisées et la pénibilité et un âge du taux plein abaissé (67 ans aujourd'hui).",
+          "topic_id": "retraites",
+          "source_url": "https://fr.finance.yahoo.com/actualites/veux-sortir-l%C3%A2ge-l%C3%A9gal-j%C3%A9r%C3%B4me-144747223.html"
+        },
+        {
+          "proposal": "École de l'émancipation : mieux former les enseignants, réduire les effectifs dans les territoires en difficulté, empêcher que la carte scolaire devienne une carte sociale.",
+          "topic_id": "education",
+          "source_url": "https://www.jeromeguedj2027.fr/"
+        }
+      ],
+      "topics": [
+        {
+          "topic_id": "retraites",
+          "found": true,
+          "positions": [
+            {
+              "position": "Veut « sortir de l'âge légal » comme critère central. L'âge légal est pour lui un « couperet » anxiogène : le départ reposerait d'abord sur le nombre d'annuités cotisées, avec une prise en compte réelle de la pénibilité.",
+              "kind": "proposition_explicite",
+              "short_quote": "Je veux sortir de l'âge légal",
+              "details": "Déclaré sur BFMTV le 11/09/2026. Il ne chiffre ni la durée de cotisation requise ni les critères de pénibilité.",
+              "source_url": "https://fr.finance.yahoo.com/actualites/veux-sortir-l%C3%A2ge-l%C3%A9gal-j%C3%A9r%C3%B4me-144747223.html",
+              "source_title": "« Je veux sortir de l'âge légal », Jérôme Guedj propose une retraite calculée sur les annuités et la pénibilité (Capital via Yahoo Finance)",
+              "source_date": "2026-09-12",
+              "confidence": "high"
+            },
+            {
+              "position": "Abaisser l'âge du taux plein (sans décote), fixé aujourd'hui à 67 ans.",
+              "kind": "proposition_explicite",
+              "details": "Le nouvel âge n'est pas précisé. Les paramètres seraient négociés avec les partenaires sociaux plutôt que tranchés au Parlement.",
+              "source_url": "https://fr.finance.yahoo.com/actualites/veux-sortir-l%C3%A2ge-l%C3%A9gal-j%C3%A9r%C3%B4me-144747223.html",
+              "source_title": "« Je veux sortir de l'âge légal »… (Capital via Yahoo Finance)",
+              "source_date": "2026-09-12",
+              "confidence": "high"
+            },
+            {
+              "position": "Rappelle avoir défendu la suspension de la réforme de 2023 (plutôt qu'une abrogation immédiate) pour rouvrir le débat lors de la présidentielle. Il privilégie la négociation avec les partenaires sociaux.",
+              "kind": "position_declaree",
+              "details": "Opposé à la réforme Borne de 2023, il a plaidé pour sa suspension lors des négociations budgétaires 2025. Il ne s'engage pas sur un retour à 62 ou 60 ans.",
+              "source_url": "https://renseignementeconomique.fr/guedj-propose-de-substituer-l-age-legal-par-les-annuites-et-la-penibilite-et-de-baisser-le-taux-plein",
+              "source_title": "Guedj propose de substituer l'âge légal par les annuités et la pénibilité et de baisser le taux plein (Renseignement Économique, d'après Capital)",
+              "source_date": "2026-09-12",
+              "confidence": "medium"
+            },
+            {
+              "position": "Faire contribuer davantage les retraités aisés : révision de la CSG sur les plus hautes pensions et sous-indexation ciblée, à condition que les héritages, les niches sociales des entreprises et les géants de l'IA contribuent aussi.",
+              "kind": "position_declaree",
+              "details": "Tribune dans L'Opinion (août 2026) et dépêche AFP du 17/09/2026. Seuils non précisés. C'est une inflexion pour la gauche, qui défendait l'indexation de toutes les pensions.",
+              "source_url": "https://www.senioractu.com/La-gauche-avait-jure-de-proteger-votre-pension-Jerome-Guedj-accepte-la-sous-indexation-a-condition-que-vos-heritiers_a27953.html",
+              "source_title": "La gauche avait juré de protéger votre pension : Jérôme Guedj accepte la sous-indexation… (Senioractu)",
+              "source_date": "2026-08-14",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "topic_id": "sante",
+          "found": true,
+          "positions": [
+            {
+              "position": "Créer une Sécurité sociale intégrale (« Grande Sécu ») : un seul payeur pour les soins essentiels, moins de doublons avec les complémentaires, jusqu'à 5,4 Md€ d'économies de frais de gestion. Les mutuelles et assurances privées seraient reléguées à « leur portion congrue ».",
+              "kind": "proposition_explicite",
+              "short_quote": "un seul payeur pour les soins essentiels",
+              "details": "Message posté le soir du débat LCI (23/09/2026), où il se dit le seul candidat à avoir parlé de santé. La dépêche AFP du 17/09/2026 en fait sa proposition phare.",
+              "source_url": "https://x.com/JeromeGuedj/status/2102873950988771608",
+              "source_title": "Message X de Jérôme Guedj (République du soin, Sécurité sociale intégrale)",
+              "source_date": "2026-09-23",
+              "confidence": "high"
+            },
+            {
+              "position": "Étendre à tout le pays le modèle du régime local d'assurance maladie d'Alsace-Moselle : une complémentaire publique obligatoire gérée par la Sécurité sociale.",
+              "kind": "proposition_explicite",
+              "details": "Il juge ce régime vertueux et durable depuis plus de 80 ans.",
+              "source_url": "https://moselle.tv/jerome-guedj-inspirons-nous-de-ce-que-la-moselle-a-ete-capable-de-faire-depuis-80-ans/",
+              "source_title": "Jérôme Guedj : « inspirons-nous de ce que la Moselle a été capable de faire depuis plus de 80 ans » (Moselle TV)",
+              "source_date": "2026-09-29",
+              "confidence": "high"
+            },
+            {
+              "position": "Corapporteur (avec Thibault Bazin, DR, et Thierry Frappé, RN) d'un rapport de la MECSS sur la répartition des dépenses entre assurance maladie obligatoire et complémentaire. Il y plaide pour hausser les taux de remboursement de base (« Sécurité sociale intégrale ou élargie »).",
+              "kind": "position_declaree",
+              "details": "Rapport adopté le 29/09/2026. Frais de gestion : 18,8 % des cotisations des complémentaires contre 2,7 % pour l'assurance maladie obligatoire.",
+              "source_url": "https://www.assemblee-nationale.fr/dyn/espace-presse/communiques-de-presse/2026/publication-du-rapport-d-information-sur-la-repartition-des-depenses-entre-l-assurance-maladie-obligatoire-et-l-assurance-maladie-complementaire",
+              "source_title": "Publication du rapport d'information sur la répartition des dépenses entre l'AMO et l'AMC (Assemblée nationale)",
+              "source_date": "2026-09-29",
+              "confidence": "high"
+            },
+            {
+              "position": "Lutter contre les déserts médicaux en fixant des critères pour l'installation des médecins (régulation de l'installation), en travaillant avec toutes les forces politiques.",
+              "kind": "position_declaree",
+              "details": "Les modalités (conventionnement sélectif, autorisation ARS) ne sont pas détaillées.",
+              "source_url": "https://moselle.tv/jerome-guedj-inspirons-nous-de-ce-que-la-moselle-a-ete-capable-de-faire-depuis-80-ans/",
+              "source_title": "Moselle TV, entretien Jérôme Guedj",
+              "source_date": "2026-09-29",
+              "confidence": "medium"
+            },
+            {
+              "position": "République du soin : la santé ne doit pas dépendre du lieu de vie. Il veut investir dans la prévention et les soins de proximité, renforcer l'hôpital public et garantir la dignité des personnes âgées.",
+              "kind": "proposition_explicite",
+              "short_quote": "La santé ne doit plus jamais dépendre de l'endroit où l'on vit",
+              "details": "Engagement n°1 du site de campagne.",
+              "source_url": "https://www.jeromeguedj2027.fr/",
+              "source_title": "Site de campagne Jérôme Guedj 2027 – 7 engagements",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Grand âge : financer la branche autonomie par la hausse des droits de succession (environ 10 Md€ par an). Il a par ailleurs défendu des ratios opposables de personnel par résident en EHPAD.",
+              "kind": "proposition_explicite",
+              "details": "Le financement de l'autonomie est sourcé (Entrevue, 30/09/2026). Les ratios opposables en EHPAD viennent de Wikipédia FR, sans source primaire vérifiée, et datent de propositions antérieures (vers 2023).",
+              "source_url": "https://entrevue.fr/entrevue/presidentielle-2027-jerome-guedj-veut-augmenter-les-droits-de-succession-au-dela-de-2-millions-deuros/",
+              "source_title": "Présidentielle 2027 : Jérôme Guedj veut augmenter les droits de succession au-delà de 2 millions d'euros (Entrevue)",
+              "source_date": "2026-09-30",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "education",
+          "found": true,
+          "positions": [
+            {
+              "position": "« École de l'émancipation » : concentrer l'effort là où c'est le plus nécessaire. Cela passe par mieux former les enseignants, réduire les effectifs par classe dans les territoires en difficulté et refuser que la carte scolaire devienne une carte sociale (mixité).",
+              "kind": "proposition_explicite",
+              "details": "Engagement n°5 du site de campagne. Pas de chiffres (salaires, nombre d'élèves par classe).",
+              "source_url": "https://www.jeromeguedj2027.fr/",
+              "source_title": "Site de campagne Jérôme Guedj 2027 – 7 engagements",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Voit dans la mobilisation lycéenne d'automne 2026 « un cri pour la défense des services publics » et propose de recueillir la parole des élèves dans chaque établissement. Il condamne toute violence et insiste sur le rôle de LFI dans les débordements.",
+              "kind": "position_declaree",
+              "short_quote": "aucune violence n'est acceptable",
+              "source_url": "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+              "source_title": "Ce qu'il faut retenir du deuxième débat de la primaire de gauche (LCP)",
+              "source_date": "2026-10-01",
+              "confidence": "high"
+            },
+            {
+              "position": "Laïcité à l'école : il a proposé de mieux former les enseignants à la laïcité, de mieux protéger ceux confrontés à des contestations et d'instaurer une journée nationale de la laïcité le 9 décembre (aujourd'hui en place).",
+              "kind": "proposition_explicite",
+              "details": "Propositions de décembre 2022, rappelées par LCP lors de sa nomination à la mission laïcité (juillet 2026).",
+              "source_url": "https://lcp.fr/actualites/le-depute-socialiste-jerome-guedj-charge-d-une-mission-sur-la-laicite-par-sebastien",
+              "source_title": "Le député socialiste Jérôme Guedj chargé d'une mission sur la laïcité par Sébastien Lecornu (LCP)",
+              "source_date": "2026-07",
+              "confidence": "medium"
+            },
+            {
+              "position": "Favorable à l'interdiction de l'abaya et du qamis à l'école lorsqu'ils sont portés de manière ostentatoire.",
+              "kind": "position_declaree",
+              "details": "Position rapportée par Wikipédia FR (vers 2023-2025), sans source primaire vérifiée ici.",
+              "source_url": "https://fr.wikipedia.org/wiki/J%C3%A9r%C3%B4me_Guedj",
+              "source_title": "Jérôme Guedj (Wikipédia FR)",
+              "confidence": "low"
+            }
+          ]
+        },
+        {
+          "topic_id": "logement",
+          "found": true,
+          "positions": [
+            {
+              "position": "Rénovation thermique massive des logements dans le cadre de l'« écologie du concret ». Il annonce une « politique du logement » et la lutte contre les discriminations au logement, sans mesure détaillée.",
+              "kind": "position_declaree",
+              "details": "Engagements n°6 et n°7 et lettre de campagne. Aucune position trouvée sur l'encadrement des loyers, les HLM, Airbnb ou les réquisitions.",
+              "source_url": "https://www.jeromeguedj2027.fr/",
+              "source_title": "Site de campagne Jérôme Guedj 2027 – 7 engagements",
+              "source_date": "2026",
+              "confidence": "medium"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "candidate": "Emmanuel Maurel",
+      "affiliation": "Gauche républicaine et socialiste (GRS), dont il est cofondateur (2018-2019) et animateur national. Député de la 3e circonscription du Val-d'Oise depuis juillet 2024, élu sous l'étiquette Nouveau Front populaire, il siège au groupe Gauche démocrate et républicaine (GDR, à direction communiste). Député européen de 2014 à 2024 (S&D, puis GUE/NGL après 2018). Membre du PS de 1990 à 2018.",
+      "overview": "Emmanuel Maurel se présente comme « passionnément républicain, résolument socialiste ». Il a déclaré sa candidature le 4 septembre 2026 sur franceinfo et porte une ligne de gauche républicaine, sociale et souverainiste résumée en trois mots : « démondialiser, démarchandiser, démocratiser ». Son programme est construit autour d'une relance productive financée par un grand emprunt national de 300 Md€, avec un retour de l'État stratège : ministère de l'Industrie, fonds souverain, nationalisations possibles, commande publique avec clauses de « contenu local ». Il prévoit aussi le retour des services publics de l'électricité, du rail, des autoroutes et de l'eau dans le giron public, ainsi que la sortie du marché européen de l'électricité. Sur le plan social, il propose un SMIC à 1 700 € net, l'indexation des salaires sur l'inflation, le retour de l'ISF, un PFU à 40 %, une taxe sur les patrimoines de plus de 100 M€ et la retraite à 62 ans. Il défend une laïcité « intransigeante », une Europe sans « saut fédéral » et sans extension de la majorité qualifiée en diplomatie, une France non alignée (il juge l'OTAN en « mort cérébrale ») et un budget de défense de 3 % du PIB. Sur les alliances, il reconnaît « un problème avec LFI, et notamment Mélenchon », refuse que la campagne devienne un référendum sur Mélenchon et exclut l'alliance avec la droite. Il assume enfin d'être un petit candidat : environ 1 % d'intentions de vote présidentielles selon un sondage cité par une source secondaire.",
+      "distinctive_vs_others": "1) Ligne souverainiste et « démondialisatrice ». C'est le seul des cinq à refuser tout « saut fédéral » et toute extension de la majorité qualifiée en diplomatie, à vouloir un rabais sur la contribution française au budget de l'UE, à combattre le « 28e régime », à remettre en cause la libre circulation des capitaux hors UE et à vouloir sortir du marché européen de l'électricité (programme, emmanuel-maurel.fr/programme). Il avait voté non à Maastricht (1992) et au TCE (2005) (Sud Radio, 23/09/2026). Il s'oppose à l'adhésion accélérée de l'Ukraine (Mediapart via GRS, 13/03/2024 ; vote du 12/03/2025, Datan n°973). Glucksmann, à l'opposé, porte une ligne pro-européenne.\n2) Diplomatie non alignée. Il assimile indépendance et non-alignement, juge l'OTAN en « mort cérébrale » et veut que la « dissuasion nucléaire avancée » de Macron soit « sérieusement questionnée » (programme). Il soutient l'aide militaire à l'Ukraine (débat du 01/10/2026) mais s'est abstenu sur la LPM, alors que le GDR votait contre (Datan n°6736 et 7905). Sur Gaza, il parle de « guerre criminelle » sans employer « génocide » et appelle au « sang-froid », à distance du clivage Faure/Glucksmann et Guedj sur ce mot (franceinfo et Figaro, 01/10/2026).\n3) Économie la plus interventionniste du lot. Grand emprunt de 300 Md€, nationalisations possibles, fonds souverain, ministère de l'Industrie, fin de la concurrence ferroviaire, autoroutes reprises par l'État, eau en régie (programme). Il propose l'ISF et un PFU à 40 % en plus de la taxe sur les patrimoines de plus de 100 M€, quand Faure met surtout en avant la taxe Zucman (LCP, 01/10/2026). Il traite d'« usine à gaz » la baisse de CSG de Glucksmann (franceinfo, 01/10/2026).\n4) École privée : il est le seul à écrire qu'« à plus long terme » les financements publics seront réservés à l'école publique (programme).\n5) Laïcité « intransigeante » (aucun « accommodement raisonnable ») associée à la régularisation des travailleurs sans-papiers et à la défense du droit du sol (programme).\n6) Position intermédiaire sur LFI. Il reconnaît « un problème avec LFI, et notamment Mélenchon » mais refuse le « référendum » sur Mélenchon et l'alliance avec la droite (LCP, 24/09/2026). Il promet l'union de la gauche et le front républicain si Le Pen gagne (LCP, 01/10/2026). Il se situe ainsi entre Glucksmann et Guedj (aucun accord avec LFI) et Faure (convergences), plus près de Royal dans l'agacement face à la question (franceinfo, 01/10/2026).\n7) Profil parlementaire singulier. Seul candidat élu au sein du groupe GDR, à direction communiste, il s'en est démarqué pour voter avec les socialistes la suspension de la réforme des retraites (12/11/2025) et le PLFSS 2026 (09/12/2025) (Datan n°3684 et 4696).\n8) Il est le seul candidat issu de la GRS, et non du PS ou de Place publique, et le moins bien placé dans les sondages (environ 1 % selon TIME France, source secondaire).",
+      "signature_proposals": [
+        {
+          "proposal": "Consolider la retraite à 62 ans et rétablir les critères de pénibilité.",
+          "topic_id": "retraites",
+          "source_url": "https://emmanuel-maurel.fr/programme/"
+        },
+        {
+          "proposal": "Supprimer la tarification à l'activité (T2A) à l'hôpital, augmenter les dotations d'au moins 4 % par an et faire reprendre par l'État une partie de la dette hospitalière.",
+          "topic_id": "sante",
+          "source_url": "https://emmanuel-maurel.fr/programme/"
+        },
+        {
+          "proposal": "750 000 logements sociaux en 5 ans, généralisation de l'encadrement des loyers et des prix du foncier.",
+          "topic_id": "logement",
+          "source_url": "https://emmanuel-maurel.fr/programme/"
+        },
+        {
+          "proposal": "Pondérer les dotations des écoles privées selon leur engagement en faveur de la mixité sociale, puis, « à plus long terme », réserver les financements publics à l'école publique.",
+          "topic_id": "education",
+          "source_url": "https://emmanuel-maurel.fr/programme/"
+        }
+      ],
+      "topics": [
+        {
+          "topic_id": "retraites",
+          "found": true,
+          "positions": [
+            {
+              "position": "Après la suspension de la réforme de 2023, consolider le droit à la retraite à 62 ans et rétablir les critères de pénibilité.",
+              "kind": "proposition_explicite",
+              "short_quote": "consolider le droit à la retraite à 62 ans",
+              "details": "Le programme ne dit rien de la durée de cotisation (172 trimestres), d'un retour à 60 ans ni du financement.",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "A voté pour la suspension de la réforme des retraites jusqu'au 1er janvier 2028, contre la position majoritaire de son groupe GDR.",
+              "kind": "inference",
+              "details": "Scrutin du 12/11/2025, adopté par 255 voix contre 146. Datan qualifie son vote de « rebelle » : le groupe GDR a voté contre (11 contre, 1 pour).",
+              "source_url": "https://datan.fr/votes/legislature-17/vote_3684",
+              "source_title": "Vote : Suspension de la réforme des retraites jusqu'au 1er janvier 2028 (Datan)",
+              "source_date": "2025-11-12",
+              "confidence": "high"
+            },
+            {
+              "position": "A voté la proposition de résolution du groupe GDR appelant à abroger la loi du 14 avril 2023 (âge légal à 64 ans).",
+              "kind": "inference",
+              "details": "Scrutin n°2257, adopté par 198 voix contre 35.",
+              "source_url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2257",
+              "source_title": "Analyse du scrutin n°2257 – Assemblée nationale",
+              "source_date": "2025-06-05",
+              "confidence": "high"
+            },
+            {
+              "position": "S'oppose à la retraite par capitalisation et défend le financement par cotisations sociales.",
+              "kind": "position_declaree",
+              "details": "Interview de déclaration de candidature sur franceinfo, connue par un résumé de la page vidéo.",
+              "source_url": "https://www.franceinfo.fr/replay-magazine/franceinfo/l-invite-politique/l-invite-politique-du-vendredi-04-septembre-2026_8167499.html",
+              "source_title": "L'invité politique franceinfo du 4 septembre 2026",
+              "source_date": "2026-09-04",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "sante",
+          "found": true,
+          "positions": [
+            {
+              "position": "Supprimer la tarification à l'activité (T2A) et financer l'hôpital selon les besoins de santé, les missions et les effectifs.",
+              "kind": "proposition_explicite",
+              "short_quote": "supprimer la tarification à l'activité (T2A)",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Augmenter d'au moins 4 % par an les dotations de la Sécurité sociale aux hôpitaux. L'État reprendrait la part de la dette hospitalière liée aux engagements non financés (Ségur, surcoûts énergétiques).",
+              "kind": "proposition_explicite",
+              "short_quote": "fixer à 4% minimum l'augmentation annuelle des dotations",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Médico-social (EHPAD, crèches) : réorienter l'argent public vers les structures publiques et associatives à but non lucratif, renforcer le cahier des charges et relever les taux d'encadrement.",
+              "kind": "proposition_explicite",
+              "short_quote": "Il faut tirer les leçons des scandales des crèches et des Ehpad privés",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Veut « faire respirer la Sécurité sociale ». A voté pour le PLFSS 2026 (compromis comprenant la suspension de la réforme des retraites), contre la majorité de son groupe.",
+              "kind": "inference",
+              "details": "Propos tenu au débat du 01/10/2026 (direct du Figaro). Vote du 09/12/2025 en nouvelle lecture du PLFSS 2026, « rebelle » selon Datan (GDR : 10 contre, 5 abstentions, 1 pour). Le programme ne traite ni des déserts médicaux, ni de la régulation de l'installation des médecins, ni des dépassements d'honoraires.",
+              "source_url": "https://datan.fr/votes/legislature-17/vote_4696",
+              "source_title": "Vote : Projet de loi de financement de la sécurité sociale pour 2026 (Datan)",
+              "source_date": "2025-12-09",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "topic_id": "education",
+          "found": true,
+          "positions": [
+            {
+              "position": "École privée : pondérer d'abord les dotations selon l'engagement des établissements en faveur de la mixité sociale, puis, à plus long terme, réserver les financements publics à l'école publique. Les moyens de l'éducation prioritaire seraient financés par cette « reconquête » sur le privé.",
+              "kind": "proposition_explicite",
+              "short_quote": "À plus long terme, les financements publics seront réservés à l'école publique.",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Augmenter substantiellement les salaires des enseignants, jugés parmi les plus bas d'Europe. Améliorer le statut et la rémunération des AESH, renforcer le climat scolaire, dédoubler les classes en éducation prioritaire et aligner celle-ci sur la géographie de la politique de la ville.",
+              "kind": "proposition_explicite",
+              "short_quote": "Les rémunérations des enseignants français sont aujourd'hui parmi les plus basses d'Europe.",
+              "details": "Le programme donne aussi la priorité aux savoirs fondamentaux (français, calcul, raisonnement) et prévoit de soutenir les lycées professionnels et les CFA.",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "A cosigné une tribune demandant la fermeture des écoles privées hors contrat et la conditionnalité des financements du privé sous contrat à des critères de mixité sociale.",
+              "kind": "position_declaree",
+              "details": "Tribune parue dans Libération le 20/03/2025, signée par 9 responsables PS, PCF et GRS, dont Lienemann et Maurel.",
+              "source_url": "https://g-r-s.fr/refaire-de-la-laicite-un-instrument-de-justice-sociale-et-de-cohesion-republicaine-tribune-parue-dans-liberation-le-jeudi-20-mars-2025/",
+              "source_title": "Refaire de la laïcité un instrument de justice sociale et de cohésion républicaine (tribune Libération, via GRS)",
+              "source_date": "2025-03-20",
+              "confidence": "medium"
+            },
+            {
+              "position": "Enseignement supérieur et recherche : au moins +30 % de dépense par étudiant, recherche publique à 1 % du PIB, crédit d'impôt recherche plus conditionné, restauration des libertés académiques. Création d'un « Réseau Descartes » de 40 universités francophones dans le monde (200 000 étudiants par an d'ici 2045).",
+              "kind": "proposition_explicite",
+              "short_quote": "réformer le crédit impôt recherche de façon à ce qu'il soit plus conditionné",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Mobilisation lycéenne : juge le mouvement légitime malgré les violences et dénonce sa récupération par la droite et l'extrême droite. Estime qu'un responsable politique n'a pas à dicter leur conduite aux lycéens.",
+              "kind": "position_declaree",
+              "short_quote": "délégitimer un mouvement qui est légitime",
+              "details": "Débat du 01/10/2026. Rien trouvé sur l'uniforme, Parcoursup, une allocation jeunes ou le service civique.",
+              "source_url": "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+              "source_title": "Ce qu'il faut retenir du deuxième débat de la primaire de gauche (LCP)",
+              "source_date": "2026-10-01",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "topic_id": "logement",
+          "found": true,
+          "positions": [
+            {
+              "position": "Construire 750 000 logements sociaux en 5 ans, en locatif comme en accession sociale à la propriété.",
+              "kind": "proposition_explicite",
+              "short_quote": "objectif de 750.000 logements sociaux en 5 ans",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Supprimer le prélèvement opéré sur les bailleurs HLM, généraliser la TVA à 5,5 % pour le logement social et voter une loi de programmation pluriannuelle territorialisée, concertée avec les collectivités.",
+              "kind": "proposition_explicite",
+              "short_quote": "suppression du prélèvement opéré sur les bailleurs HLM",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Généraliser l'encadrement des loyers et des prix du foncier et bloquer la spéculation sur les terrains constructibles, alors que la part du revenu consacrée au loyer est passée de 15-20 % à plus de 25 %.",
+              "kind": "proposition_explicite",
+              "short_quote": "généraliser l'encadrement des loyers et des prix du foncier",
+              "details": "Rien trouvé sur Airbnb, les meublés touristiques ou les réquisitions.",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "candidate": "Ségolène Royal",
+      "affiliation": "Parti socialiste. Candidate PS à la primaire « socialiste et démocratique » Choisir 2027, co-organisée par le PS, Place publique et la GRS. Présidente de l'Association France-Algérie depuis le 18 décembre 2025, où elle a succédé à Arnaud Montebourg. Ancienne ministre de l'Écologie (2014-2017), présidente de la COP21, présidente de Poitou-Charentes et finaliste de la présidentielle 2007. Soutiens identifiés : Luc Carvounas (maire d'Alfortville) et Béatrice Bellay (Wikipédia FR).",
+      "overview": "Ségolène Royal, 73 ans, a annoncé le 10 juillet 2026 sa candidature à la primaire du pôle socialiste. Elle la justifie par le risque d'arrivée au pouvoir de l'extrême droite. Elle dit agir « avec humilité, sans ego ». Son slogan, « La France tranquille et l'Ordre juste », reprend son concept de 2007. Elle le décline en cinq axes : ordre juste (pouvoir d'achat, emploi, services publics), urgence climatique (appliquer les décisions de la COP21), urgence énergétique pour les TPE/PME, artisans et agriculteurs, État fort (notamment contre les violences faites aux enfants) et France « puissance médiatrice ». Elle n'a pas publié de programme détaillé. Ses propositions concrètes connues sont surtout le retour de l'ISF « financière », un carburant ramené à 1,70 €/L par des baisses de taxes (TVA, accise européenne, CEE), des caméras « partout » dans les écoles, le périscolaire, les crèches et les Ehpad, une TVA allégée sur les aliments produits en France et une énergie à bas prix (jusqu'à demander la sortie du marché européen de l'électricité). Sur les retraites, elle refuse tout effort supplémentaire, notamment la désindexation, tant que l'ISF n'est pas rétabli et que le pays n'est pas réindustrialisé. Aucune déclaration de 2026 réclamant explicitement l'abrogation de la réforme de 2023 n'a été trouvée. Lors du débat LCI, elle s'est distinguée par une ligne de paix négociée en Ukraine, l'emploi du mot « génocide » pour Gaza et le refus d'exclure une alliance avec LFI aux législatives. Elle s'oppose fermement à l'interdiction du voile dans l'espace public. Sa campagne mise sur l'expérience : elle a qualifié Raphaël Glucksmann de « stagiaire », ce qui lui a valu un rappel à l'ordre de la commission d'organisation le 21/09/2026.",
+      "distinctive_vs_others": "1) International : c'est la seule des cinq à défendre au débat LCI (23/09/2026) une issue négociée avec la Russie, au nom d'une « paix juste et durable ». Glucksmann lui a opposé que Poutine ne veut pas négocier et qu'il faut « résister » (franceinfo, 23/09/2026). Ses propos de 2022 mettant en doute des informations ukrainiennes renforcent ce marqueur (La Libre, 17/11/2022).\n2. Gaza et antisémitisme : comme Faure, elle emploie le mot « génocide », que Glucksmann refuse. Elle est la seule à avoir appelé les « voix juives » à dénoncer la politique israélienne, ce que Guedj a qualifié d'« incroyable injonction » et que le CRIF a condamné (Planet, 24/09/2026 ; franceinfo, 23/09/2026).\n3. Alliances : elle refuse d'exclure un accord avec LFI aux législatives, contrairement à Glucksmann et Guedj (France 24, 23/09/2026). En 2023, elle proposait une liste d'union avec LFI ; en 2024, un gouvernement d'« union républicaine » ouvert au centre et à LR. Sa ligne d'alliance est donc fluctuante.\n4. Une campagne « ordre juste » à forte tonalité sécuritaire et protectrice : vidéosurveillance généralisée dans les écoles, crèches et Ehpad, « tolérance zéro » pour les violences faites aux enfants. C'est sa marque propre, sans équivalent repéré chez les autres candidats.\n5. Sur l'économie, elle mise sur des baisses de taxes immédiates pour le pouvoir d'achat (carburant à 1,70 €, TVA allégée sur l'alimentation française, taxes énergie des PME). Elle refuse un alourdissement fiscal général et limite la hausse d'impôts à l'ISF financier. Les autres candidats ont mis en avant dans le fact-check du 01/10/2026 d'autres sujets fiscaux : millionnaires non imposés et dividendes pour Faure, droits de succession pour Guedj (franceinfo Vrai ou Fake).\n6. Positionnement souverainiste sur l'énergie et l'Europe : sortie du marché européen de l'électricité, « Les règles européennes, on les change ». Cette ligne la rapproche davantage de Maurel (GRS) que de Glucksmann (Place publique), pro-européen.\n7. Laïcité : opposition frontale à l'interdiction du voile dans l'espace public (« Laissons les femmes tranquilles »), avec un argumentaire sur l'image de la France dans le monde musulman.\n8. Mémoire : excuses officielles à l'Algérie, en tant que présidente de l'Association France-Algérie.\n9. Style : elle revendique son expérience de gouvernement contre l'« inexpérience » de Glucksmann (« stagiaire »), ce qui lui a valu un rappel à l'ordre de la commission de la primaire. C'est la seule candidate sans programme écrit détaillé.",
+      "signature_proposals": [
+        {
+          "proposal": "Ne pas toucher aux retraites (ni désindexation, ni nouvelles économies) tant que l'ISF n'est pas rétabli et que le pays n'est pas réindustrialisé",
+          "topic_id": "retraites",
+          "source_url": "https://fr.finance.yahoo.com/actualites/veux-baisser-taxes-s%C3%A9gol%C3%A8ne-royal-090135153.html"
+        }
+      ],
+      "topics": [
+        {
+          "topic_id": "retraites",
+          "found": true,
+          "positions": [
+            {
+              "position": "Refuse tout débat sur de nouvelles économies sur les retraites tant que l'ISF financier n'est pas rétabli. Elle présente les pensions comme le patrimoine des travailleurs.",
+              "kind": "position_declaree",
+              "short_quote": "Les retraites, c'est le patrimoine de ceux qui n'en ont pas",
+              "source_url": "https://www.franceinfo.fr/elections/presidentielle/primaire-populaire-gauche/retraites-je-refuse-ce-debat-tant-que-la-question-du-retour-de-l-isf-n-est-pas-posee-affirme-segolene-royal-candidate-a-la-primaire-du-pole-socialiste_8170295.html",
+              "source_title": "Retraites : « Je refuse ce débat tant que la question du retour de l'ISF n'est pas posée » (franceinfo)",
+              "source_date": "2026-08-31",
+              "confidence": "high"
+            },
+            {
+              "position": "S'engage à ne pas réformer les retraites tant que le pays n'aura pas été réindustrialisé.",
+              "kind": "position_declaree",
+              "short_quote": "Je ne touche pas aux retraites tant que je n'ai pas réindustrialisé le pays",
+              "details": "RTL, 11/09/2026. Elle ne dit pas si elle abrogerait le report à 64 ans.",
+              "source_url": "https://fr.finance.yahoo.com/actualites/veux-baisser-taxes-s%C3%A9gol%C3%A8ne-royal-090135153.html",
+              "source_title": "« Je veux baisser les taxes » (Capital/Yahoo, d'après RTL)",
+              "source_date": "2026-09-13",
+              "confidence": "high"
+            },
+            {
+              "position": "S'oppose à toute désindexation ou sous-indexation des pensions, même pour les retraités dits « aisés » dont elle conteste la notion. Selon elle, les pensions ont déjà perdu du pouvoir d'achat face à la hausse de l'électricité (+40 %).",
+              "kind": "position_declaree",
+              "short_quote": "les retraites sont déjà désindexées",
+              "details": "Propos tenus sur LCI le 16/09/2026.",
+              "source_url": "https://fr.finance.yahoo.com/actualites/larnaque-cest-retraites-d%C3%A9j%C3%A0-d%C3%A9sindex%C3%A9es-170357900.html",
+              "source_title": "« L'arnaque c'est que les retraites sont déjà désindexées », affirme Ségolène Royal (Yahoo, d'après LCI)",
+              "source_date": "2026-09-16",
+              "confidence": "high"
+            },
+            {
+              "position": "Juge « une provocation » les 6 Md€ d'économies prévues sur les retraites.",
+              "kind": "position_declaree",
+              "short_quote": "C'est une provocation",
+              "details": "Seul le titre de l'article Europe 1 a pu être consulté (page bloquée, erreur 403). La date est probablement septembre 2026.",
+              "source_url": "https://www.europe1.fr/economie/6-milliards-deuros-deconomies-prevues-sur-les-retraites-cest-une-provocation-juge-segolene-royal-1078760",
+              "source_title": "6 milliards d'euros d'économies prévues sur les retraites ? « C'est une provocation », juge Ségolène Royal (Europe 1)",
+              "confidence": "medium"
+            },
+            {
+              "position": "Position antérieure, août 2024 : ne souhaitait pas abroger la réforme de 2023, mais la modifier pour en corriger les aspects « brutaux » et « inacceptables ».",
+              "kind": "position_declaree",
+              "details": "Évolution : en 2026, elle refuse de toucher aux retraites, mais aucune déclaration récente n'a été trouvée réclamant explicitement l'abrogation des 64 ans ou le retour à 62 ans. Un agrégateur (presi2027) l'affirme sans source primaire.",
+              "source_url": "https://www.aa.com.tr/fr/monde/france-s%C3%A9gol%C3%A8ne-royal-se-dit-disponible-pour-matignon/3317392",
+              "source_title": "France : Ségolène Royal se dit « disponible pour Matignon » (Anadolu)",
+              "source_date": "2024-08-30",
+              "confidence": "high"
+            },
+            {
+              "position": "A proposé en 2023 de sortir de la crise des retraites par un référendum d'initiative partagée (RIP). Sud Radio rapporte en 2026 qu'elle continue de défendre un RIP pour trancher la question.",
+              "kind": "position_declaree",
+              "details": "La proposition date de mars 2023. Le rappel de 2026 vient de Sud Radio, sans citation précise.",
+              "source_url": "https://www.franceinfo.fr/politique/segolene-royal/reforme-des-retraites-segolene-royal-prone-une-sortie-de-crise-par-un-referendum-d-initiative-partagee_5708666.html",
+              "source_title": "Réforme des retraites : Ségolène Royal prône une sortie de crise par « un référendum d'initiative partagée » (franceinfo)",
+              "source_date": "2023-03",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "sante",
+          "found": true,
+          "positions": [
+            {
+              "position": "Considère que les ARS et les structures administratives empilées coûtent 6 Md€ et constituent un gaspillage, alors que cette gestion revenait auparavant aux hôpitaux. Elle refuse de « baisser » les dépenses de santé, jugées essentielles.",
+              "kind": "position_declaree",
+              "details": "Elle ne dit pas explicitement si elle supprimerait les ARS.",
+              "source_url": "https://www.franceinfo.fr/politique/segolene-royal/budget-2026-pour-reduire-le-deficit-il-faut-lutter-contre-les-gaspillages-il-ne-faut-pas-baisser-les-depenses-essentielles-estime-segolene-royal_7582286.html",
+              "source_title": "Budget 2026 : « Pour réduire le déficit, il faut lutter contre les gaspillages » (franceinfo)",
+              "source_date": "2025-10-29",
+              "confidence": "medium"
+            },
+            {
+              "position": "Inscrit la santé parmi les domaines de l'« ordre juste », aux côtés de l'éducation et de la sécurité du quotidien.",
+              "kind": "position_declaree",
+              "details": "Orientation générale, sans mesure détaillée (déserts médicaux, dépassements d'honoraires, EHPAD : non trouvés).",
+              "source_url": "https://lcp.fr/actualites/presidentielle-2027-segolene-royal-annonce-sa-candidature-a-la-primaire-socialiste",
+              "source_title": "Présidentielle 2027 : Ségolène Royal annonce sa candidature (LCP)",
+              "source_date": "2026-07-10",
+              "confidence": "medium"
+            },
+            {
+              "position": "Veut installer des caméras dans les Ehpad, comme dans tous les lieux accueillant un « public fragile », « en accord avec les salariés ».",
+              "kind": "proposition_explicite",
+              "short_quote": "dans tous les lieux où il y a un accueil de public fragile",
+              "source_url": "https://actu.orange.fr/politique/violences-dans-le-periscolaire-segolene-royal-veut-installer-des-cameras-partout-dans-les-ecoles-magic-CNT000002rFJA5.html",
+              "source_title": "Violences dans le périscolaire : Ségolène Royal veut installer des caméras « partout » dans les écoles (6Médias/L'Express via Orange)",
+              "source_date": "2026-09-02",
+              "confidence": "high"
+            },
+            {
+              "position": "Défend la climatisation dans les écoles, les hôpitaux et les établissements d'accueil pour s'adapter aux canicules.",
+              "kind": "position_declaree",
+              "source_url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pour-2027-je-consulte-je-reflechis-si-je-peux-etre-utile-pourquoi-pas",
+              "source_title": "Ségolène Royal : « Pour 2027, je consulte, je réfléchis… » (Sud Radio)",
+              "source_date": "2026-07-03",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "education",
+          "found": true,
+          "positions": [
+            {
+              "position": "Dénonce la dégradation du métier d'enseignant, son « sous-paiement » et des recrutements « par speed dating ». Elle plaide implicitement pour une revalorisation.",
+              "kind": "position_declaree",
+              "short_quote": "des recrutements par speed dating",
+              "details": "Aucun montant ni calendrier de revalorisation n'a été annoncé.",
+              "source_url": "https://www.franceinfo.fr/elections/presidentielle/primaire-populaire-gauche/retraites-je-refuse-ce-debat-tant-que-la-question-du-retour-de-l-isf-n-est-pas-posee-affirme-segolene-royal-candidate-a-la-primaire-du-pole-socialiste_8170295.html",
+              "source_title": "Retraites : « Je refuse ce débat… » (franceinfo, Les 4 Vérités)",
+              "source_date": "2026-08-31",
+              "confidence": "high"
+            },
+            {
+              "position": "Veut installer des caméras de vidéosurveillance « partout » dans les écoles et les temps périscolaires pour prévenir les violences sur les enfants. Elle répondait à la crise du périscolaire parisien : 132 animateurs suspendus au premier semestre 2026, dont 52 pour violences sexuelles.",
+              "kind": "proposition_explicite",
+              "short_quote": "Il n'y aurait plus de passage à l'acte",
+              "details": "Elle propose l'extension aux crèches, aux Ehpad et chez les assistantes maternelles. Une proposition similaire sur les crèches, à l'automne 2025, avait été jugée « hors-sol » par le SNPPE, syndicat de la petite enfance (communiqué du 28/10/2025).",
+              "source_url": "https://actu.orange.fr/politique/violences-dans-le-periscolaire-segolene-royal-veut-installer-des-cameras-partout-dans-les-ecoles-magic-CNT000002rFJA5.html",
+              "source_title": "Violences dans le périscolaire : Ségolène Royal veut installer des caméras « partout » dans les écoles (Orange/L'Express)",
+              "source_date": "2026-09-02",
+              "confidence": "high"
+            },
+            {
+              "position": "Place la jeunesse au cœur de son discours. Elle parle d'une « génération dépossédée » et promet de garantir aux jeunes qu'ils n'auront pas à porter seuls le poids des crises ni la fatalité du déclin.",
+              "kind": "position_declaree",
+              "short_quote": "C'est la génération dépossédée",
+              "details": "Conclusion du débat France 2/France Inter du 01/10/2026 et meeting d'Alfortville du 22/09/2026. Aucune mesure précise n'a été trouvée sur l'allocation jeunes ou Parcoursup.",
+              "source_url": "https://www.franceinfo.fr/elections/presidentielle/direct-presidentielle-2027-suivez-le-debat-des-candidats-a-la-primaire-du-pole-socialiste-sur-france-2-et-france-inter-a-20h40_8218531.html",
+              "source_title": "Débat de la primaire de la gauche : revivez les échanges sur France 2 et France Inter (franceinfo)",
+              "source_date": "2026-10-01",
+              "confidence": "high"
+            },
+            {
+              "position": "S'est adressée aux lycéens mobilisés, dont les blocages avaient connu des débordements, en les appelant à cesser de « s'abîmer » face à un pouvoir qui ne leur donnera rien.",
+              "kind": "position_declaree",
+              "short_quote": "Ce pouvoir-là ne vous donnera rien, donc arrêtez de vous abîmer",
+              "source_url": "https://www.franceinfo.fr/elections/presidentielle/direct-presidentielle-2027-suivez-le-debat-des-candidats-a-la-primaire-du-pole-socialiste-sur-france-2-et-france-inter-a-20h40_8218531.html",
+              "source_title": "Débat de la primaire de la gauche (franceinfo, live)",
+              "source_date": "2026-10-01",
+              "confidence": "high"
+            },
+            {
+              "position": "Privilégie une approche pédagogique plutôt que répressive face aux tenues religieuses à l'école.",
+              "kind": "position_declaree",
+              "details": "Propos sur Sud Radio rapportés de façon résumée. Pas de citation exacte vérifiée.",
+              "source_url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pourquoi-pas-un-ticket-avec-dominique-de-villepin-pour-la-presidentielle",
+              "source_title": "Ségolène Royal : pourquoi pas un ticket avec Dominique de Villepin pour la présidentielle ? (Sud Radio)",
+              "source_date": "2025-12-11",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "logement",
+          "found": false,
+          "positions": []
+        }
+      ]
+    }
+  ],
+  "cleavages": [
+    {
+      "topic_id": "retraites",
+      "cleavage": "Âge de départ après la réforme de 2023 : retour à 62 ans, suppression de l'âge légal, ou refonte selon la pénibilité",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Revenir à un âge légal de 62 ans, avec une durée de cotisation modulée selon la pénibilité ou des critères de pénibilité rétablis",
+          "candidates": [
+            "Olivier Faure",
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://www.lagazettefrance.fr/article/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions",
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        },
+        {
+          "approach": "Supprimer la référence à un âge légal et ouvrir les droits selon la seule durée de cotisation et la pénibilité ; opposition totale à la capitalisation",
+          "candidates": [
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://elections2027.com/article/2026-09-11-jerome-guedj-veut-abolir-l-age-legal-de-depart-a-la-retraite",
+            "https://entrevue.fr/en/presidentielle-2027/primaire-socialiste-ou-en-sont-les-cinq-candidats-avant-le-premier-debat-de-ce-soir/"
+          ]
+        },
+        {
+          "approach": "Abroger la réforme de 2023 et refonder le système sur la pénibilité et l'espérance de vie en bonne santé, sans âge cible annoncé ; pilotage confié aux partenaires sociaux",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://entrevue.fr/en/presidentielle-2027/primaire-a-gauche-de-lukraine-aux-alliances-avec-lfi-les-desaccords-saffichent-lors-du-premier-debat-sur-lci/",
+            "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme",
+            "https://www.wikiglucksmann.fr/programme.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "sante",
+      "cleavage": "Mode de financement de la protection sociale : cotisations dédiées ou fiscalisation partielle, et place des complémentaires",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Transférer une partie du financement vers l'impôt : baisser la CSG et compenser par la fiscalité sur les successions",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://entrevue.fr/en/presidentielle-2027/primaire-a-gauche-lfi-gaza-pouvoir-dachat-ce-quil-faut-retenir-du-deuxieme-debat/"
+          ]
+        },
+        {
+          "approach": "Sanctuariser des ressources propres à la Sécurité sociale. Guedj veut une Sécu intégrale unique qui réduit le rôle des mutuelles et assureurs ; Maurel veut supprimer la T2A et augmenter les dotations hospitalières d'au moins 4 % par an",
+          "candidates": [
+            "Jérôme Guedj",
+            "Emmanuel Maurel",
+            "Ségolène Royal",
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://entrevue.fr/en/presidentielle-2027/primaire-socialiste-ou-en-sont-les-cinq-candidats-avant-le-premier-debat-de-ce-soir/",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://entrevue.fr/en/presidentielle-2027/primaire-a-gauche-lfi-gaza-pouvoir-dachat-ce-quil-faut-retenir-du-deuxieme-debat/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "cleavage": "Financement public de l'enseignement privé sous contrat",
+      "importance": "low",
+      "sides": [
+        {
+          "approach": "Pondérer les dotations du privé selon la mixité sociale, puis réserver à terme le financement public à l'école publique",
+          "candidates": [
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        },
+        {
+          "approach": "Imposer des obligations de mixité sociale à tous les établissements financés par l'argent public, privé compris, sans supprimer leur financement",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://www.lejdd.fr/politique/immigration-raphael-glucksmann-plaide-pour-une-convention-citoyenne-174735",
+            "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "cleavage": "Engagement de la jeunesse : service obligatoire ou dispositifs volontaires et d'insertion",
+      "importance": "low",
+      "sides": [
+        {
+          "approach": "Service civique universel et obligatoire de dix mois (EHPAD, écoles, services publics), avec volet militaire facultatif",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme",
+            "https://www.lejdd.fr/politique/immigration-raphael-glucksmann-plaide-pour-une-convention-citoyenne-174735"
+          ]
+        },
+        {
+          "approach": "Plan de 250 000 contrats d'alternance financés à 80 % par l'État dans les métiers de la transition écologique",
+          "candidates": [
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "logement",
+      "cleavage": "Logement : soutien au pouvoir d'achat des locataires ou production et encadrement massifs",
+      "importance": "low",
+      "sides": [
+        {
+          "approach": "\"Bouclier logement\" plafonnant le loyer à 30 % du budget du ménage",
+          "candidates": [
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats"
+          ]
+        },
+        {
+          "approach": "750 000 logements sociaux en cinq ans, encadrement des loyers généralisé, encadrement du prix du foncier, TVA à 5,5 % pour le logement social",
+          "candidates": [
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/",
+            "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats"
+          ]
+        }
+      ]
+    }
+  ],
+  "consensus": [
+    {
+      "topic_id": "retraites",
+      "point": "Aucun candidat dont la position est documentée ne défend la réforme de 2023 (64 ans) : retour à 62 ans pour Faure et Maurel, abrogation pour Glucksmann, suppression de l'âge légal pour Guedj. Pas de source pour Royal.",
+      "url": "https://entrevue.fr/en/presidentielle-2027/primaire-a-gauche-de-lukraine-aux-alliances-avec-lfi-les-desaccords-saffichent-lors-du-premier-debat-sur-lci/"
+    },
+    {
+      "topic_id": "education",
+      "point": "Les candidats s'accordent sur la revalorisation des salaires enseignants (Glucksmann et Maurel ont avancé des comparaisons internationales vérifiées par franceinfo).",
+      "url": "https://www.franceinfo.fr/vrai-ou-fake/vrai-ou-faux-salaire-des-enseignants-impot-sur-la-fortune-dividendes-on-a-verifie-six-affirmations-des-candidats-a-la-primaire-de-la-gauche-lors-de-leur-debat_8218897.html"
+    }
+  ],
+  "debates": [
+    {
+      "date": "2026-09-23",
+      "channel": "LCI (avec Le Parisien, animé par David Pujadas, environ 10 citoyens posant des questions)",
+      "summary": "Premier débat, près de 2 heures, en l'absence de Philippe Brun, exclu.\n- Carburants : Royal veut baisser les taxes (TVA à 10 %, suspension de l'accise sur le gazole, prix entre 1,50 et 1,70 €/l). Glucksmann veut tripler le chèque énergie de façon ciblée. Faure veut des aides ciblées et taxer les superprofits pétroliers. Maurel veut plafonner les marges des raffineurs et lancer un emprunt citoyen. Guedj veut plafonner les marges et créer un ISF climatique.\n- Salaires : Faure propose un SMIC à 1 700 € net, l'indexation jusqu'au salaire médian et un bouclier logement. Glucksmann propose de baisser la CSG, financée par les méga-héritages. Royal veut bloquer les prix des produits essentiels et revoir les aides aux entreprises.\n- Ukraine : clivage net entre Royal (négociation, casques bleus) et les quatre autres (soutien militaire). Glucksmann veut saisir les avoirs russes. Guedj s'interroge sur les risques d'une zone d'exclusion aérienne.\n- Gaza : Faure et Royal parlent de génocide, Glucksmann et Guedj refusent le terme. Quatre candidats veulent suspendre l'accord UE-Israël. Royal est vivement critiquée par Guedj et Glucksmann pour avoir appelé davantage de voix juives à dénoncer Gaza.\n- Dette : pas d'annulation. Royal envisage une exception pour la dette de la transition.\n- LFI : Glucksmann et Guedj excluent tout accord, même aux législatives. Faure, Royal et Maurel refusent de l'exclure. Faure lance : \"si vous ne voulez pas d'alliance avec la gauche...\"",
+      "url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats"
+    },
+    {
+      "date": "2026-10-01",
+      "channel": "France 2 / France Inter",
+      "summary": "Deuxième débat, plus de 2 heures.\n- Mobilisations lycéennes (environ 400 lycées bloqués, environ 2 000 interpellations) : Glucksmann demande de la fermeté. Faure appelle à \"regarder la lune\". Guedj et Royal accusent LFI de \"jouer avec le feu\". Maurel défend le droit de manifester.\n- Carburants : Royal et Guedj veulent des baisses de taxes. Glucksmann veut des aides ciblées. Maurel veut une TVA réduite sur l'électricité.\n- CSG : la proposition de Glucksmann de baisser la CSG est attaquée par tous les autres, qui y voient un danger pour la Sécurité sociale. Faure la juge provisoire.\n- Fiscalité : Faure promet la taxe Zucman, Royal l'ISF.\n- Bardella : unanimité pour le juger \"disqualifié\" après les révélations de Mediapart.\n- Ukraine : Royal propose de renouer le dialogue avec Poutine. Les autres s'y opposent, Guedj invoquant Munich.\n- Gaza : Faure s'engage à reconnaître un génocide. Glucksmann juge cette position \"obscène\". Guedj estime que le mot diabolise Israël. Royal cite des ministres israéliens.\n- LFI : Glucksmann réclame la rupture. Guedj dénonce la \"danse du ventre\" de Faure. Faure, Royal et Maurel déplorent l'obsession autour de LFI. Glucksmann regrette l'absence de l'écologie et insiste sur la défense européenne.",
+      "url": "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html"
+    },
+    {
+      "date": "2026-10-04",
+      "channel": "BFMTV",
+      "summary": "Troisième et dernier débat, programmé avant le premier tour. Il n'a pas encore eu lieu au 2 octobre 2026.",
+      "url": "https://lcp.fr/actualites/primaire-de-gauche-les-candidats-face-a-face-lors-d-un-premier-debat-televise-ce"
+    }
+  ]
+}

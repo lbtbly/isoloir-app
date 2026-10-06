@@ -1,0 +1,234 @@
+Rapport de génération des voix — 2026-10-05 18:11:12
+Commande : generate.py --voice aigue --only travail_salaires
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  travail-intro-01 — 5.02 s, F0 258.8 Hz, pauses entre phrases [0.3, 0.22, 0.35, 0.3] s
+    1. Votre salaire augmente.       1/3    245.1  +0.09   -2.4      —  0.0    4.3  0.83  1:245 2:248 3:262
+    2. Les prix aussi.               3/3    246.2  +0.17   +0.1   +0.6  2.4    5.7  1.12  1:305~ 2:300×! 3:246
+         prise 2 : respiration 0.00-0.16 s (net, +47 dB, confiance 0.89) [début | Les]
+    3. Au bout du compte, pouvez-v…   1/3    262.2  +1.26   +5.8   +1.1  3.0    6.6  1.29  1:262 2:336×! 3:364~?
+         prise 2 : respiration 0.11-0.32 s (net, +45 dB, confiance 0.91) [début | Au]
+         prise 3 : mot étiré « compte » 0.40-0.80 s (leger, +42 dB, confiance 0.71) [du | pouvez]
+         prise 3 : respiration 0.56-0.80 s (leger, +27 dB, confiance 0.50) [compte | pouvez]
+  travail-intro-02 — 5.17 s, F0 240.3 Hz, pauses entre phrases [0.3, 0.3, 0.18] s
+    1. C'est la question du pouvoi…   1/3    254.1  +0.72   +0.4   -0.1  0.0    7.4  1.44  1:254 2:298~ 3:233~
+    2. Il dépend du salaire net, c…   2/3    238.4  -0.39   -8.1   +0.8  0.0    7.1  1.39  1:232 2:238 3:240
+  travail-intro-03 — 9.12 s, F0 246.9 Hz, pauses entre phrases [0.17, 0.3] s
+    1. Le salaire minimum, le Smic…   3/3    249.1  +0.37   -3.2   +3.0  6.0    5.2  1.01  1:249 2:231 3:249
+    2. À temps plein, près de mill…   3/3    235.1  -0.63   -1.5   +0.9  3.2    5.7  1.12  1:228 2:234 3:235
+  travail-intro-04 — 10.98 s, F0 236.6 Hz, pauses entre phrases [0.26, 0.31, 0.36, 0.3] s
+    1. Les prix ont augmenté de tr…   3/3    231.7  -0.88   -2.4   +2.2  1.5    6.1  1.19  1:228 2:230 3:232
+    2. L'énergie, de vingt et un v…   3/3    242.2  -0.11   -1.9   +2.4  2.4    5.9  1.15  1:268~ 2:264~ 3:242
+    3. L'alimentation, de un virgu…   1/3    240.8  -0.21   -4.8   +1.1  1.9    5.7  1.11  1:241 2:277~? 3:227
+         prise 2 : mot étiré « cinq » 1.44-2.00 s (leger, confiance 0.45) [virgule | pour]
+  travail-intro-05 — 8.46 s, F0 242.0 Hz, pauses entre phrases [0.27, 0.35, 0.45] s
+    1. Et le salaire net moyen du …   4/4    244.3  +0.04   +8.1   +2.4  6.0    5.4  1.05  1:311~ 2:285~ 3:269~ 4:244
+    2. Moins un virgule trois pour…   3/3    241.2  -0.19   -7.2   +0.7  0.0    4.9  0.96  1:218~ 2:234 3:241
+  travail-intro-06 — 6.43 s, F0 242.2 Hz
+    1. En deux mille vingt-quatre,…   1/3    242.2  -0.11   -7.1   +1.6  6.0    5.5  1.08  1:242 2:228 3:269~
+  travail-intro-07 — 9.86 s, F0 254.0 Hz, pauses entre phrases [0.3, 0.35, 0.35, 0.36, 0.35] s
+    1. Alors, cinq questions.        2/3    253.7  +0.69   -4.9   +2.4  6.0    5.0  0.99  1:272~ 2:254 3:292~
+    2. Comment gagner en pouvoir d…   1/3    265.9  +1.50   +7.6   +0.9  6.0    6.2  1.21  1:266 2:271~ 3:278×
+    3. Comment faire progresser le…   5/5    252.7  +0.62   -3.5   +1.2  3.0    5.6  1.09  1:311~? 2:277×! 3:220~ 4:286×! 5:253
+         prise 1 : parole en trop 0.08-0.24 s (leger, +36 dB, confiance 0.61) [début | Comment]
+         prise 2 : rire 0.00-0.50 s (net, +55 dB, confiance 0.95) [début | Comment]
+         prise 4 : parole en trop 0.00-0.20 s (net, +54 dB, confiance 0.90) [début | Comment]
+    4. Comment partager les bénéfi…   2/3    244.9  +0.08   +5.0   +1.2  3.0    6.0  1.17  1:273~ 2:245 3:223~
+    5. Quels droits pour les salar…   1/3    248.1  +0.30   +0.9   +2.2  3.0    5.9  1.15  1:248 2:228 3:221~
+    6. Et quel temps de travail ?    1/3    249.2  +0.38   -0.2   -0.4  3.0    5.0  0.98  1:249 2:305~ 3:272~?
+         prise 3 : parole en trop 1.89-1.98 s (leger, +69 dB, confiance 0.78) [travail | fin]
+  travail-intro-08 — 2.10 s, F0 247.5 Hz
+    1. Ce sont les cinq sujets des…   1/3    247.5  +0.26   -3.1   +2.0  0.0    6.1  1.19  1:248 2:266~ 3:246×!
+         prise 3 : rire 0.48-1.68 s (net, +51 dB, confiance 0.95) [cinq | sujets]
+  travail-pouvoir-01 — 5.22 s, F0 255.8 Hz, pauses entre phrases [0.36, 0.22, 0.2] s
+    1. Comment acheter plus avec v…   4/4    261.5  +1.21   +0.5      —  3.0    6.1  1.20  1:283×! 2:246×! 3:245×! 4:262
+         prise 1 : rire 0.03-0.31 s (net, +68 dB, confiance 0.95) [début | Comment]
+         prise 2 : respiration 0.00-0.25 s (net, +60 dB, confiance 0.95) [début | Comment]
+         prise 2 : respiration 0.34-0.47 s (leger, +50 dB, confiance 0.84) [début | Comment]
+         prise 2 : respiration 0.55-0.73 s (net, +38 dB, confiance 0.70) [début | Comment]
+         prise 3 : rire 0.04-0.32 s (net, +46 dB, confiance 0.94) [début | Comment]
+    2. Deux voies : un salaire net…   3/3    255.1  +0.78   -2.6   -0.3  0.0    5.9  1.15  1:232 2:230 3:255
+  travail-pouvoir-02 — 10.97 s, F0 238.7 Hz, pauses entre phrases [0.27, 0.18, 0.35] s
+    1. Chaque premier janvier, le …   2/3    256.8  +0.90   -1.1   -1.2  2.6    6.1  1.19  1:211~ 2:257 3:240
+    2. S'y ajoute la moitié du gai…   1/3    227.0  -1.24   -2.1   +1.7  1.1    5.2  1.02  1:227 2:215~ 3:201~
+  travail-pouvoir-03 — 9.99 s, F0 251.8 Hz, pauses entre phrases [0.31, 0.32] s
+    1. En cours d'année, il augmen…   3/3    254.4  +0.74   -1.5   +3.9  2.1    5.7  1.12  1:227 2:269~ 3:254
+    2. Comme au premier juin deux …   2/3    253.7  +0.69   -1.7   +2.7  1.5    4.2  0.81  1:255 2:254 3:253~
+    3. Le gouvernement peut aussi …   2/3    239.0  -0.34   +1.1   +0.2  1.7    6.2  1.21  1:217~ 2:239 3:225
+      passage assemblé : rire 5.04-5.28 s (net, +44 dB, confiance 0.80) [Comme | au]
+      ⚠ son parasite dans le passage assemblé : rire 5.04-5.28 s (net, +44 dB, confiance 0.80) [Comme | au]
+  travail-pouvoir-04 — 12.09 s, F0 243.5 Hz, pauses entre phrases [0.22, 0.25, 0.31, 0.31, 0.33] s
+    1. À la hausse du premier nove…   2/3    240.4  -0.24   -0.3   +1.9  0.0    5.7  1.12  1:226 2:240 3:246~
+    2. C'est douze virgule quatre …   2/3    251.7  +0.55   -3.3   +2.9  0.3    4.8  0.94  1:266~ 2:252 3:281~
+  travail-pouvoir-05 — 7.82 s, F0 240.2 Hz, pauses entre phrases [0.3, 0.15] s
+    1. Le Smic est à douze euros t…   1/3    246.7  +0.20   -0.9   +0.1  3.3    5.7  1.10  1:247 2:224 3:252
+    2. À temps plein, un peu plus …   1/3    235.2  -0.62   -4.8   +3.8  0.9    5.9  1.16  1:235 2:222~ 3:251~
+  travail-pouvoir-06 — 12.35 s, F0 238.2 Hz, pauses entre phrases [0.26, 0.15, 0.32, 0.21, 0.3] s
+    1. L'écart : deux contribution…   2/3    246.2  +0.17   -8.3   +4.8  4.8    3.9  0.75  1:250 2:246 3:247
+    2. Les baisser augmente le net…   2/3    241.4  -0.17   -1.1   +2.0  6.0    5.9  1.15  1:263 2:241 3:239
+    3. Il faut alors compenser par…   3/3    225.6  -1.34   -2.5   +2.9  1.1    5.8  1.12  1:236~ 2:207~ 3:226
+  travail-pouvoir-07 — 10.17 s, F0 237.5 Hz, pauses entre phrases [0.66, 0.35, 0.15, 0.3, 0.15, 0.31] s
+    1. Et les prix ?                 3/7    271.1  +1.84   -5.0   +2.3  5.5    4.8  0.94  1:354~? 2:284×? 3:271~? 4:293~? 5:276~? 6:403×? 7:290×!
+         prise 1 : parole en trop 0.91-1.00 s (leger, +68 dB, confiance 0.76) [prix | fin]
+         prise 2 : parole en trop 0.93-1.02 s (leger, +48 dB, confiance 0.71) [prix | fin]
+         prise 3 : parole en trop 1.23-1.30 s (leger, +73 dB, confiance 0.83) [prix | fin]
+         prise 4 : respiration 0.98-1.06 s (leger, +48 dB, confiance 0.72) [prix | fin]
+         prise 5 : respiration 0.73-0.90 s (leger, +65 dB, confiance 0.87) [prix | fin]
+         prise 6 : parole en trop « Et » 0.00-0.40 s (leger, +60 dB, confiance 0.40) [début | les]
+         prise 7 : vocalise 0.08-0.62 s (net, +66 dB, confiance 0.95) [Et | les]
+         prise 7 : respiration 0.79-1.15 s (net, +46 dB, confiance 0.95) [Et | les]
+    2. En principe, ils sont libre…   2/3    229.2  -1.07   -0.4   -2.3  0.0    6.1  1.18  1:311×! 2:229 3:272~?
+         prise 1 : parole en trop 0.00-0.12 s (net, +52 dB, confiance 0.67) [début | En]
+         prise 3 : bruit 0.52-0.69 s (leger, +31 dB, confiance 0.61) [principe | ils]
+    3. Mais en cas de crise notamm…   2/3    235.3  -0.61   -3.2   +1.7  0.4    5.5  1.08  1:248~ 2:235 3:248
+    4. Pour six mois au plus.        1/3    258.2  +0.99   -5.2   +2.3  3.2    4.7  0.92  1:258 2:333~ 3:279~
+      passage assemblé : vocalise 1.23-1.30 s (leger, +54 dB, confiance 0.86) [prix | En]
+      passage assemblé : mot étiré « plus » 9.36-9.92 s (leger, confiance 0.43) [au | fin]
+      ⚠ phrase 1 : aucune prise acceptable : hauteur +1.84 dt de la cible
+  travail-pouvoir-08 — 11.94 s, F0 237.5 Hz, pauses entre phrases [0.3, 0.25, 0.18, 0.3, 0.3] s
+    1. Une hausse du Smic pèse d'a…   3/3    234.9  -0.64   -4.7   +1.9  5.2    4.3  0.85  1:235 2:211~ 3:235
+    2. Une baisse des prélèvements…   4/4    229.3  -1.06   -0.1   +1.9  4.7    6.3  1.23  1:219~? 2:274~ 3:214~ 4:229
+         prise 1 : respiration 0.85-1.04 s (leger, +23 dB, confiance 0.43) [prélèvements | sur]
+    3. Une baisse des prix, sur le…   2/3    239.2  -0.33   -8.2   +1.4  0.1    5.3  1.03  1:252 2:239 3:235
+    4. Alors, quel levier privilég…   1/3    248.1  +0.30   -1.2   +4.3  6.0    5.8  1.13  1:248 2:235 3:232
+  travail-salaires-01 — 3.82 s, F0 252.8 Hz, pauses entre phrases [0.31] s
+    1. Le Smic augmente automatiqu…   1/3    250.2  +0.45   -2.7      —  0.0    5.8  1.14  1:250 2:233 3:264
+    2. Mais les autres salaires, c…   3/3    253.1  +0.65   +7.0   +2.4  5.7    6.8  1.32  1:288~ 2:276× 3:253
+  travail-salaires-02 — 9.74 s, F0 234.3 Hz, pauses entre phrases [0.27, 0.18, 0.19, 0.3] s
+    1. Ils se négocient entre synd…   2/3    235.1  -0.63   -1.5   +0.1  0.0    5.7  1.11  1:227 2:235 3:224
+    2. Et la loi interdit de les f…   4/4    232.0  -0.86   +1.4   -1.1  1.5    6.6  1.28  1:230~ 2:271~ 3:269~ 4:232
+  travail-salaires-03 — 9.77 s, F0 243.7 Hz, pauses entre phrases [0.26, 0.35, 0.3, 0.19, 0.22] s
+    1. En deux mille vingt-deux et…   1/3    249.0  +0.37   -6.9   +0.3  0.0    6.3  1.24  1:249 2:236×! 3:234
+         prise 2 : respiration 5.60-5.76 s (net, +37 dB, confiance 0.73) [l'échelle | fin]
+    2. L'inflation, la hausse des …   2/3    234.9  -0.64   -1.2   +0.2  6.0    6.1  1.20  1:226 2:235 3:255
+  travail-salaires-04 — 11.08 s, F0 243.7 Hz, pauses entre phrases [0.23, 0.18, 0.32, 0.31, 0.31, 0.24] s
+    1. Fin juin deux mille vingt-s…   1/3    243.0  -0.06   -4.9   +2.1  1.2    5.6  1.10  1:243 2:229 3:227
+    2. Les prix, de un virgule sep…   6/6    246.2  +0.17   -2.1   +1.3  4.9    6.0  1.16  1:291×! 2:223~ 3:279~ 4:289~ 5:280~ 6:246
+         prise 1 : parole en trop 0.00-0.48 s (net, +52 dB, confiance 0.91) [début | Les]
+    3. Inflation déduite, un gain …   3/3    241.4  -0.17   -4.7   +0.4  2.1    5.4  1.06  1:303~ 2:263 3:241
+  travail-salaires-05 — 11.89 s, F0 240.6 Hz, pauses entre phrases [0.3, 0.33, 0.41] s
+    1. Chaque branche a sa grille …   2/3    237.0  -0.49   -3.1   +0.5  4.7    5.8  1.13  1:257 2:237 3:208~
+    2. Quand le Smic monte, le bas…   2/3    249.4  +0.39   -0.1   +3.4  3.1    5.9  1.16  1:262 2:249 3:234
+    3. Au premier juin deux mille …   2/3    241.2  -0.19   -2.4   +1.7  0.1    5.1  0.99  1:262~ 2:241 3:240
+  travail-salaires-06 — 10.16 s, F0 239.3 Hz, pauses entre phrases [0.3, 0.3] s
+    1. Selon le ministère, c'est h…   1/3    250.7  +0.48   -1.8   +5.0  2.4    6.3  1.23  1:251 2:274~ 3:215~
+    2. Le salaire versé, lui, rest…   3/3    250.2  +0.45   -1.4   +1.4  1.8    5.0  0.98  1:266 2:256 3:250
+    3. Et syndicats et employeurs …   1/3    227.8  -1.18   -2.7   +0.8  1.4    5.9  1.16  1:228 2:212~ 3:227
+  travail-salaires-07 — 4.36 s, F0 230.9 Hz
+    1. Alors, quelle place pour la…   2/3    230.9  -0.94   -1.9   +0.2  5.7    5.9  1.16  1:200~ 2:231 3:229
+  travail-partage-01 — 3.72 s, F0 243.8 Hz, pauses entre phrases [0.3] s
+    1. Une entreprise fait des bén…   3/3    252.0  +0.57   -0.4      —  0.0    7.3  1.42  1:258 2:260 3:252
+    2. Quelle part en revient à ce…   1/3    236.8  -0.50   +1.1   +2.5  3.4    6.0  1.17  1:237 2:224~ 3:281~
+  travail-partage-02 — 12.57 s, F0 248.3 Hz, pauses entre phrases [0.3, 0.33, 0.31, 0.3] s
+    1. La participation aux bénéfi…   2/3    239.6  -0.30   -6.0   +1.2  0.0    6.9  1.34  1:239 2:240 3:235
+    2. Depuis deux mille vingt-cin…   3/3    256.0  +0.85   -3.2   +5.1  6.0    6.0  1.17  1:260×! 2:281~? 3:256
+         prise 1 : bruit 0.96-1.19 s (net, +44 dB, confiance 0.86) [cinq | de]
+         prise 2 : respiration 3.36-3.66 s (leger, +15 dB, confiance 0.30) [aussi | il]
+    3. À une condition : trois ans…   3/3    244.6  +0.06   -2.1   +1.8  3.2    6.0  1.17  1:273~ 2:255 3:245
+  travail-partage-03 — 11.48 s, F0 241.8 Hz, pauses entre phrases [0.23, 0.2, 0.17, 0.31] s
+    1. Participation, intéressemen…   2/3    247.1  +0.23   -4.2   +0.8  2.1    5.4  1.05  1:227? 2:247? 3:231
+         prise 1 : respiration 3.07-3.20 s (leger, +48 dB, confiance 0.83) [salariale | en]
+         prise 2 : mot étiré « agriculture » 6.56-7.52 s (leger, +36 dB, confiance 0.30) [hors | étaient]
+    2. Quarante-six pour cent ont …   5/5    224.8  -1.40   -2.3   +0.5  4.2    5.8  1.13  1:295~ 2:288~ 3:247~ 4:302~ 5:225?
+         prise 5 : bruit 0.00-0.13 s (leger, +24 dB, confiance 0.44) [début | Quarante]
+      passage assemblé : rire 7.28-7.52 s (net, +29 dB, confiance 0.56) [agriculture | étaient]
+      passage assemblé : bruit 9.30-9.41 s (leger, +24 dB, confiance 0.43) [d'eux | Quarante]
+      ⚠ son parasite dans le passage assemblé : rire 7.28-7.52 s (net, +29 dB, confiance 0.56) [agriculture | étaient]
+  travail-partage-04 — 11.72 s, F0 244.5 Hz, pauses entre phrases [0.16, 0.17, 0.31, 0.19] s
+    1. Côté entreprises, le taux d…   3/3    244.0  +0.01   -8.0   +4.8  2.3    5.4  1.06  1:230 2:245~ 3:244
+    2. Pour les sociétés non finan…   1/3    244.7  +0.06   -4.6   +2.0  6.0    4.6  0.90  1:245 2:244×! 3:252
+         prise 2 : respiration 1.28-1.49 s (net, +44 dB, confiance 0.85) [financières | trente]
+         prise 2 : mot étiré « deux » 1.76-2.32 s (leger, confiance 0.42) [trente | virgule]
+  travail-partage-05 — 11.23 s, F0 243.4 Hz, pauses entre phrases [0.35, 0.2, 0.46, 0.32, 0.27, 0.18] s
+    1. Et dans les décisions ?       1/3    252.2  +0.59   +2.1   +1.8  6.0    6.8  1.33  1:252 2:263×! 3:292×?
+         prise 2 : bruit 1.34-1.54 s (net, +62 dB, confiance 0.86) [décisions | fin]
+         prise 3 : respiration 1.79-1.84 s (leger, +49 dB, confiance 0.44) [décisions | fin]
+    2. Dès mille salariés en Franc…   3/3    242.2  -0.11   -0.5   +0.5  0.0    6.9  1.34  1:237 2:233 3:242
+    3. Au moins un, et au moins de…   1/3    241.3  -0.18   -2.2   +2.4  0.5    6.0  1.17  1:241 2:252~ 3:251
+  travail-partage-06 — 9.11 s, F0 227.4 Hz, pauses entre phrases [0.23, 0.19, 0.3] s
+    1. En deux mille vingt-quatre,…   2/3    226.8  -1.25   -2.3   +3.0  2.2    6.4  1.25  1:227 2:227 3:256
+    2. Et un pour cent, plus de di…   2/3    232.9  -0.79   -2.5   +4.1  2.3    6.3  1.24  1:221~ 2:233 3:213~
+  travail-partage-07 — 7.87 s, F0 233.7 Hz, pauses entre phrases [0.33, 0.23] s
+    1. Aucune loi ne plafonne ces …   3/3    228.6  -1.11   -0.8   +3.1  2.5    5.9  1.15  1:224 2:247~ 3:229
+    2. Profits, décisions, écarts …   2/3    236.5  -0.53   -7.1   +2.9  3.8    4.8  0.94  1:246? 2:236 3:224
+         prise 1 : bruit 0.47-0.60 s (leger, +44 dB, confiance 0.72) [Profits | décisions]
+      passage assemblé : bruit 2.95-3.10 s (net, +42 dB, confiance 0.81) [Profits | décisions]
+      ⚠ son parasite dans le passage assemblé : bruit 2.95-3.10 s (net, +42 dB, confiance 0.81) [Profits | décisions]
+  travail-droits-01 — 3.66 s, F0 245.2 Hz, pauses entre phrases [0.3] s
+    1. Votre licenciement est jugé…   3/3    240.3  -0.25   -4.3      —  0.0    5.5  1.06  1:259 2:259 3:240
+    2. Combien pouvez-vous obtenir…   1/3    262.8  +1.30   -0.6   +5.8  6.0    7.8  1.53  1:263 2:265 3:357~
+  travail-droits-02 — 7.95 s, F0 235.5 Hz, pauses entre phrases [0.29, 0.3, 0.26] s
+    1. Depuis deux mille dix-sept,…   1/3    238.7  -0.37   -1.6   -1.0  0.0    5.5  1.06  1:239 2:216~ 3:211~
+    2. D'un à deux mois de salaire…   3/3    235.3  -0.61   -1.4   +1.4  1.6    6.3  1.23  1:231 2:227 3:235
+  travail-droits-03 — 7.26 s, F0 244.5 Hz, pauses entre phrases [0.3] s
+    1. Pas de barème pour un licen…   2/3    239.1  -0.34   -1.6   +1.8  1.4    6.1  1.19  1:198~ 2:239 3:222~
+    2. L'indemnité est alors d'au …   3/3    247.7  +0.27   -4.2   +1.5  1.6    5.1  1.00  1:232 2:219~ 3:248
+  travail-droits-04 — 10.31 s, F0 248.8 Hz, pauses entre phrases [0.21, 0.22, 0.33] s
+    1. Depuis deux mille dix-sept …   2/3    251.6  +0.55   -1.9   +2.9  4.2    6.3  1.24  1:237 2:252 3:217~
+    2. La branche prévaut dans tre…   2/3    247.2  +0.24   -7.4   +2.9  1.9    4.9  0.96  1:224 2:247 3:258
+  travail-droits-05 — 10.68 s, F0 243.3 Hz, pauses entre phrases [0.34, 0.26, 0.3, 0.31, 0.24] s
+    1. Les syndicats : en deux mil…   1/3    235.7  -0.58   -7.4   -1.7  6.0    6.6  1.28  1:236 2:261 3:220~
+    2. Sept virgule huit pour cent…   3/3    246.7  +0.20   -5.7   +3.5  6.0    5.5  1.07  1:239 2:233 3:247
+      passage assemblé : mot étiré « dix » 7.92-8.48 s (leger, confiance 0.46) [privé | huit]
+  travail-droits-06 — 10.53 s, F0 243.9 Hz, pauses entre phrases [0.32, 0.24, 0.15, 0.3] s
+    1. La santé au travail.          3/3    263.9  +1.37   -3.8   +5.9  5.7    5.7  1.12  1:301~ 2:212~ 3:264
+    2. En deux mille vingt-quatre,…   3/3    244.6  +0.06   -1.6   +2.5  3.8    6.3  1.22  1:272~ 2:252 3:245
+    3. Contre huit cent quarante e…   3/3    240.6  -0.23   -0.8   +3.5  1.6    5.7  1.10  1:260~ 2:264 3:241
+  travail-droits-07 — 9.43 s, F0 236.6 Hz, pauses entre phrases [0.3, 0.3] s
+    1. Les contrats courts, enfin.   3/3    259.7  +1.09   +0.5   +0.0  0.8    5.8  1.14  1:258~ 2:312~ 3:260
+    2. En deux mille vingt-cinq, C…   2/3    236.1  -0.56   -2.6   +2.2  0.0    5.0  0.98  1:219~ 2:236 3:269~
+    3. Une part en baisse depuis d…   3/3    229.8  -1.02   -3.9   +2.5  2.6    5.8  1.13  1:227 2:334~ 3:230
+  travail-droits-08 — 10.45 s, F0 241.6 Hz, pauses entre phrases [0.16, 0.16, 0.31, 0.16] s
+    1. Depuis deux mille vingt-deu…   2/3    243.5  -0.02   -5.4   +0.2  3.9    6.5  1.27  1:221~ 2:244 3:272×!
+         prise 3 : rire 0.56-0.80 s (net, +50 dB, confiance 0.91) [deux | vingt]
+    2. Leur contribution chômage v…   2/3    240.0  -0.27   -1.2   +2.1  5.4    4.8  0.94  1:232 2:240 3:233~
+  travail-droits-09 — 11.02 s, F0 244.2 Hz, pauses entre phrases [0.27, 0.3, 0.26, 0.33] s
+    1. Elle dépend du nombre de le…   3/3    245.9  +0.15   -1.5   +2.0  1.2    6.5  1.26  1:221~ 2:253 3:246
+    2. Protection des salariés d'u…   1/3    243.4  -0.03   -2.5   +2.1  4.5    5.3  1.04  1:243 2:227 3:256
+  travail-temps-01 — 4.56 s, F0 252.9 Hz, pauses entre phrases [0.31, 0.18] s
+    1. Trente-cinq heures par sema…   1/3    237.7  -0.44   -1.7      —  0.0    5.6  1.08  1:238 2:222~ 3:224~
+    2. Mais est-ce un plafond ?      2/3    257.2  +0.93   +2.2   +4.4  4.7    6.7  1.30  1:262 2:257 3:479×!
+         prise 3 : respiration 0.08-0.90 s (net, +52 dB, confiance 0.95) [Mais | ce]
+         prise 3 : mot étiré « est » 0.08-0.90 s (net, +46 dB, confiance 0.90) [Mais | ce]
+  travail-temps-02 — 11.60 s, F0 249.6 Hz, pauses entre phrases [0.18, 0.3, 0.3, 0.18] s
+    1. Non : c'est le seuil des he…   1/3    246.4  +0.18   -9.7   +0.4  0.0    4.5  0.89  1:246 2:232 3:238
+    2. Sans accord, elles sont pay…   1/3    257.2  +0.93   +0.0   +0.2  6.0    5.5  1.06  1:257 2:271~ 3:264
+    3. Un accord peut fixer d'autr…   3/3    248.7  +0.34   -9.8   +0.5  0.0    5.3  1.04  1:264 2:247 3:249
+  travail-temps-03 — 9.85 s, F0 242.5 Hz, pauses entre phrases [0.22, 0.31] s
+    1. Ces heures sont exonérées d…   2/3    245.3  +0.11   -2.3   +0.8  6.0    7.1  1.39  1:253 2:245 3:222~
+    2. Et l'employeur déduit de se…   1/3    241.3  -0.18   -7.3   +2.8  2.3    6.2  1.21  1:241 2:222~? 3:253
+         prise 2 : respiration 5.92-6.08 s (leger, +37 dB, confiance 0.67) [delà | fin]
+  travail-temps-04 — 9.20 s, F0 253.1 Hz, pauses entre phrases [0.3, 0.3] s
+    1. Prenons les salariés du pri…   3/3    259.5  +1.08   -3.8   +5.9  6.0    6.3  1.23  1:264 2:218~ 3:260
+    2. En deux mille vingt-cinq, c…   2/3    247.8  +0.28   -5.9   +2.8  3.8    6.1  1.18  1:256 2:248 3:270~
+    3. Ceux-là en ont fait cent tr…   2/3    252.5  +0.61   -3.4   +3.8  5.9    6.1  1.19  1:262 2:252 3:259×!
+         prise 3 : respiration 0.00-0.80 s (net, +48 dB, confiance 0.95) [début | là]
+         prise 3 : parole en trop « Ceux » 0.00-0.80 s (net, +56 dB, confiance 0.90) [début | là]
+  travail-temps-05 — 10.27 s, F0 240.7 Hz, pauses entre phrases [0.3, 0.31, 0.19] s
+    1. En deux mille vingt-cinq, s…   4/4    234.7  -0.66   -1.6   +5.0  3.4    6.0  1.18  1:232×! 2:245×! 3:255~? 4:235?
+         prise 1 : mot étiré « seize » 0.88-1.52 s (net, confiance 0.64) [cinq | pour]
+         prise 1 : mot manquant ou bâclé « cent » 1.52-1.60 s (leger, confiance 0.30) [pour | des]
+         prise 2 : mot étiré « seize » 0.96-1.68 s (net, confiance 0.69) [cinq | pour]
+         prise 2 : mot manquant ou bâclé « cent » 1.68-1.76 s (leger, confiance 0.30) [pour | des]
+         prise 3 : mot étiré « seize » 1.20-1.76 s (leger, confiance 0.45) [cinq | pour]
+         prise 4 : mot étiré « seize » 1.04-1.60 s (leger, confiance 0.51) [cinq | pour]
+         prise 4 : mot manquant ou bâclé « cent » 1.60-1.68 s (leger, confiance 0.30) [pour | des]
+    2. En deux mille vingt-quatre,…   2/3    243.0  -0.06   -2.6   +2.9  1.6    6.7  1.31  1:219~ 2:243 3:222~
+    3. Contre mille six cent treiz…   1/3    250.4  +0.46   -4.4   +2.5  2.6    5.1  0.99  1:250 2:272~ 3:266~
+      passage assemblé : mot étiré « seize » 1.04-1.60 s (leger, confiance 0.51) [cinq | pour]
+      passage assemblé : mot manquant ou bâclé « cent » 1.60-1.68 s (leger, confiance 0.30) [pour | des]
+  travail-temps-06 — 9.26 s, F0 244.5 Hz, pauses entre phrases [0.19, 0.3, 0.32, 0.15] s
+    1. La journée de travail est l…   1/3    251.3  +0.52   -5.5   +5.3  4.4    6.5  1.28  1:251 2:271~ 3:265
+    2. Faire trente-cinq heures en…   1/3    240.0  -0.27   -0.7   +2.4  5.5    5.9  1.16  1:240 2:252 3:276~
+    3. Alors, combien d'heures tra…   3/3    232.1  -0.85   -3.2   +3.5  3.6    7.3  1.42  1:229 2:231 3:232
+
+Alertes (4) :
+  aigue / travail-pouvoir-03 : son parasite dans le passage assemblé : rire 5.04-5.28 s (net, +44 dB, confiance 0.80) [Comme | au]
+  aigue / travail-pouvoir-07 : phrase 1 : aucune prise acceptable : hauteur +1.84 dt de la cible
+  aigue / travail-partage-03 : son parasite dans le passage assemblé : rire 7.28-7.52 s (net, +29 dB, confiance 0.56) [agriculture | étaient]
+  aigue / travail-partage-07 : son parasite dans le passage assemblé : bruit 2.95-3.10 s (net, +42 dB, confiance 0.81) [Profits | décisions]
+
+Temps : 3552 s pour 346 prise(s), 9.89 s de calcul par prise en moyenne (3.4 s d'audio) ; calcul d'une prise ≈ 0.11 s + 2.92 s par seconde d'audio. Détecteur de sons parasites : 0.175 s par prise en moyenne (au plus 0.97 s), 2% du calcul d'une prise.
+Estimation pour les 1013 passages (1856 phrases) (voix aiguë 3 prises, 5% de secours) : ~1168 min.

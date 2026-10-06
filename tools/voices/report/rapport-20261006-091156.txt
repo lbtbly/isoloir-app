@@ -1,0 +1,17 @@
+Rapport de génération des voix — 2026-10-06 09:10:46
+Commande : generate.py --segment agriculture-alimentation-02 --segment alliances-49-3-02 --voice aigue --force --seed 4049
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  agriculture-alimentation-02 — 6.31 s, F0 241.6 Hz
+    1. Non. Début deux mille vingt…   2/3    241.6  -0.16   -4.0   +1.3  0.0    4.9  0.95  1:237? 2:242 3:243
+         prise 1 : respiration 0.46-0.73 s (leger, +24 dB, confiance 0.44) [Non | Début]
+  alliances-49-3-02 — 5.15 s, F0 237.0 Hz
+    1. Oui. L'article quarante-neu…   3/3    237.0  -0.49   -2.3   +0.2  0.0    5.2  1.02  1:254? 2:279~ 3:237
+         prise 1 : respiration 4.64-4.83 s (leger, +35 dB, confiance 0.66) [vote | fin]
+
+Aucune alerte.
+
+Temps : 70 s pour 6 prise(s), 11.05 s de calcul par prise en moyenne (5.28 s d'audio) ; calcul d'une prise ≈ 0.43 s + 2.03 s par seconde d'audio. Détecteur de sons parasites : 0.114 s par prise en moyenne (au plus 0.13 s), 1% du calcul d'une prise.
+Estimation pour les 1013 passages (1853 phrases) (voix aiguë 3 prises, 0% de secours) : ~919 min.

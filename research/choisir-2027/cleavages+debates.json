@@ -1,0 +1,939 @@
+{
+  "facts_check": "VÉRIFICATION DES FAITS (au 2 octobre 2026)\n\n1) Organisateurs : la primaire \"Choisir 2027\" est organisée conjointement par le Parti socialiste, Place publique et la Gauche républicaine et socialiste (GRS). Confirmé par la page officielle de Place publique (https://place-publique.eu/pages/Croet4tWXmSbd5sL5upQF/choisir-2027), France 24 (16/09/2026) et Toute l'Europe (02/10/2026). Nuance : fin août, franceinfo (24/08/2026) ne citait encore que le PS et Place publique. La GRS a rejoint le dispositif ensuite. Le site choisir2027.org est resté inaccessible depuis mon outil (connexion refusée) : je n'ai donc pas pu le lire directement.\n\n2) Candidats : cinq candidatures ont été validées, ce qui confirme la liste donnée.\n- Olivier Faure : PS, premier secrétaire, député de Seine-et-Marne.\n- Raphaël Glucksmann : coprésident de Place publique, eurodéputé.\n- Jérôme Guedj : PS, député de l'Essonne.\n- Emmanuel Maurel : animateur national de la GRS, député du Val-d'Oise. Il siège dans le groupe GDR (communiste) à l'Assemblée.\n- Ségolène Royal : PS (elle a réadhéré en 2024), ancienne ministre, candidate en 2007. Elle préside l'Association France-Algérie depuis décembre 2025.\nDeux erreurs isolées dans les sources : le direct franceinfo du 01/10 rattache Glucksmann à \"Envergure\", et une dépêche associée le rattache à Place publique. Retenir Place publique.\n\n3) Philippe Brun : il a été exclu le 16/09/2026. Le bureau national du PS a ratifié les candidatures à l'unanimité, moins une voix contre et trois abstentions (Public Sénat, 16/09).\n- Motif : une ancienne collaboratrice l'accuse de harcèlement et de violences physiques, ainsi que d'emploi familial irrégulier (franceinfo, 16/09).\n- Brun conteste et annonce une plainte en dénonciation calomnieuse.\n- Recours : sa demande de réintégration en référé a été rejetée. Selon Public Sénat (24/09), la cour d'appel l'a aussi rejetée avant le premier débat.\n- Divergence de vocabulaire : une dépêche reprise par Boursorama parle de \"violences conjugales\", ce qui n'est pas cohérent avec franceinfo et Public Sénat. Retenir \"accusations de violences par une ex-collaboratrice\".\n- Autres candidatures non retenues faute de parrainages : Fabien Verdier et Maxime Legrand.\n\n4) Dates :\n- 1er tour : du 9 octobre à 8 h au 10 octobre à 20 h.\n- 2nd tour éventuel : du 16 octobre à 8 h au 17 octobre à 20 h. Résultats le 17 au soir.\n- Clôture des adhésions et inscriptions : 5 octobre pour le 1er tour, 12 octobre pour le 2nd.\n- Contradiction : entrevue.fr (16/09) donne \"10-11 et 17-18 octobre\". Cette source est isolée et contredite par franceinfo, Public Sénat, France 24, Place publique et le site de campagne Faure. C'est probablement une erreur.\n\n5) Règles de vote :\n- Scrutin uninominal majoritaire à deux tours, \"personnel et secret\".\n- Vote électronique en ligne, plus environ 1 000 points de vote physiques équipés de tablettes (France 24, Yahoo/AFP).\n- Électeurs : les adhérents à jour des trois organisations, ou toute personne qui verse une contribution/adhésion de 15 € (10 € en tarif social : étudiants, non-imposables, personnes précaires).\n- Signature d'une charte aux valeurs de justice sociale, écologique, humaniste et démocratique, avec engagement de soutenir le vainqueur.\n- Parrainages requis pour les candidats PS, une seule des options suivantes : 15 membres du Conseil national, ou 10 parlementaires, ou 50 maires, ou 50 conseillers régionaux/départementaux répartis géographiquement (Wikipédia, à recouper).\n- Contexte : le 9 juillet 2026, les adhérents PS ont rejeté à 55,5 % la proposition de Faure d'une primaire ouverte à 2 € liée à une primaire unitaire (Wikipédia EN, à recouper).\n- Participation estimée par Johanna Rolland : 70 000 à 100 000 votants.\n\n6) Débats télévisés :\n- 23/09/2026 sur LCI (David Pujadas, en partenariat avec Le Parisien, avec une dizaine de citoyens) : confirmé.\n- 01/10/2026 sur France 2 et France Inter : confirmé.\n- 04/10/2026 sur BFMTV : pas encore eu lieu.\n\n7) Autres points :\n- Wikipédia EN mentionne une primaire distincte de la \"gauche unitaire\" (Écologistes/Ruffin) le 11/10/2026. Ce point n'a pas été vérifié dans la presse française.\n- Le chiffre de régularisations attribué à Faure varie selon les sources. L'AFP (16/09) indique qu'environ 500 000 régularisations, comme en Espagne, ne le choquent pas. Wikipédia FR parle de 400 000.\n- Plusieurs \"comparateurs\" en ligne (monvote2027, laboussole2027, france-vote, presi2027) donnent des positions non sourcées et parfois contraires aux programmes officiels. Exemple : laboussole2027 présente Maurel comme opposé aux livraisons d'armes à l'Ukraine, alors que son programme officiel soutient l'aide militaire. Je les ai écartés.\n- wikiglucksmann.fr est un wiki non officiel (il le dit lui-même). Il est utilisé seulement en appoint, et c'est signalé à chaque fois.\n\nLacunes : je n'ai trouvé aucune position sourcée des cinq candidats sur la fin de vie, la PMA/GPA ou la Nouvelle-Calédonie/Corse. Les positions de Royal sur les retraites, l'immigration et l'Europe ne sont pas documentées par une source fiable. Celles de Guedj sur le nucléaire et l'Europe ne le sont pas non plus.",
+  "cleavages": [
+    {
+      "topic_id": "strategie",
+      "cleavage": "Accord électoral avec La France insoumise (législatives 2027, gouvernement)",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Exclure tout accord avec LFI, y compris aux législatives, et ne pas nommer de ministres LFI ; rompre clairement avec ce mouvement pour des raisons de fond et de stratégie électorale",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/elections/presidentielle/desaccords-sur-le-proche-orient-et-lfi-convergences-sur-les-salaires-ce-qu-il-faut-retenir-du-premier-debat-de-la-primaire-socialiste_8207438.html",
+            "https://www.boursorama.com/actualite-economique/actualites/premier-debat-de-la-primaire-segolene-royal-mise-en-difficulte-sur-l-ukraine-et-israel-e21d2d7af62d9df4eb32939e50d1a222",
+            "https://www.publicsenat.fr/actualites/politique/lelephant-dans-la-piece-lfi-sinvite-encore-dans-le-debat-de-la-primaire-socialiste",
+            "https://www.france24.com/fr/france/20261001-deuxieme-debat-primaire-gauche-possible-alliance-lfi-divise-genocide-gaza-glucksmann-faure"
+          ]
+        },
+        {
+          "approach": "Ne pas exclure un rassemblement de toute la gauche, LFI comprise, aux législatives face à l'extrême droite ; refuser de définir la campagne par rapport à LFI. Nuances : Royal refuse de se ranger derrière Mélenchon et privilégie écologistes et communistes ; Maurel juge le débat sur LFI piégé",
+          "candidates": [
+            "Olivier Faure",
+            "Ségolène Royal",
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/elections/presidentielle/desaccords-sur-le-proche-orient-et-lfi-convergences-sur-les-salaires-ce-qu-il-faut-retenir-du-premier-debat-de-la-primaire-socialiste_8207438.html",
+            "https://www.boursorama.com/actualite-economique/actualites/premier-debat-de-la-primaire-segolene-royal-mise-en-difficulte-sur-l-ukraine-et-israel-e21d2d7af62d9df4eb32939e50d1a222",
+            "https://lcp.fr/actualites/primaire-de-gauche-ce-qui-oppose-glucksmann-faure-royal-guedj-et-maurel-442266",
+            "https://entrevue.fr/en/presidentielle-2027/melenchon-na-pas-le-monopole-de-la-gauche-olivier-faure-veut-recentrer-la-primaire/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "strategie",
+      "cleavage": "Périmètre de la désignation : primaire fermée aux trois organisations ou ouverture à d'autres forces de gauche (Ruffin, Écologistes, primaire unitaire)",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Élargir le processus (primaire ouverte à 2 € liée à une primaire unitaire, ouverture à Ruffin ou Tondelier)",
+          "candidates": [
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/politique/ps/primaire-socialiste/info-franceinfo-une-centaine-de-responsables-socialistes-appellent-a-ouvrir-la-primaire-ps-place-publique-entre-autres-a-francois-ruffin_8183657.html",
+            "https://en.wikipedia.org/wiki/2026_French_Socialist_Party_presidential_primary"
+          ]
+        },
+        {
+          "approach": "Garder une primaire sociale-démocrate fermée, aux règles votées par les militants, sans les changer en cours de route",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/politique/ps/primaire-socialiste/info-franceinfo-une-centaine-de-responsables-socialistes-appellent-a-ouvrir-la-primaire-ps-place-publique-entre-autres-a-francois-ruffin_8183657.html",
+            "https://fr.wikipedia.org/wiki/J%C3%A9r%C3%B4me_Guedj"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "strategie",
+      "cleavage": "Partenaires de gouvernement : compromis possibles avec le centre et la droite modérée, ou priorité exclusive à l'union des gauches",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Assumer de chercher des compromis avec des forces centristes ou de droite modérée",
+          "candidates": [
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://entrevue.fr/en/presidentielle-2027/primaire-socialiste-ou-en-sont-les-cinq-candidats-avant-le-premier-debat-de-ce-soir/"
+          ]
+        },
+        {
+          "approach": "Construire un rapport de force à gauche (écologistes, communistes) et refuser une alliance avec le centre-droit",
+          "candidates": [
+            "Olivier Faure",
+            "Ségolène Royal",
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/elections/presidentielle/direct-presidentielle-2027-suivez-le-debat-des-candidats-a-la-primaire-du-pole-socialiste-sur-france-2-et-france-inter-a-20h40_8218531.html",
+            "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+            "https://www.publicsenat.fr/emission/bonjour-chez-vous/emmanuel-maurel-il-y-a-50-nuances-de-gauche-dans-le-pays-e0"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "fiscalite",
+      "cleavage": "Baisse de la CSG sur les salaires pour augmenter le salaire net",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Baisser la CSG salariale (environ 15 Md€, jusqu'à environ 200 € net par mois annoncés) et compenser par une hausse de la taxation des très gros héritages",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+            "https://fr.tradingview.com/news/afp:99040789ca9a3:0/",
+            "https://x.com/franceinter/status/2105747221232644214",
+            "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html"
+          ]
+        },
+        {
+          "approach": "Ne pas toucher à la CSG ni aux cotisations, vues comme du salaire différé finançant la protection sociale ; augmenter les salaires bruts par d'autres leviers",
+          "candidates": [
+            "Olivier Faure",
+            "Ségolène Royal",
+            "Jérôme Guedj",
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+            "https://entrevue.fr/en/presidentielle-2027/primaire-a-gauche-lfi-gaza-pouvoir-dachat-ce-quil-faut-retenir-du-deuxieme-debat/",
+            "https://www.franceinfo.fr/replay-magazine/franceinfo/l-invite-politique/l-invite-politique-du-vendredi-04-septembre-2026_8167499.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "fiscalite",
+      "cleavage": "Instrument privilégié pour taxer les plus fortunés : ISF général, impôt plancher sur les ultra-riches (taxe Zucman) ou taxation des successions",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Rétablir un impôt de solidarité sur la fortune. Maurel y ajoute une taxe spécifique sur les patrimoines au-delà de 100 M€ et un PFU porté de 30 à 40 %",
+          "candidates": [
+            "Ségolène Royal",
+            "Jérôme Guedj",
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+            "https://lcp.fr/actualites/primaire-de-gauche-ce-qui-oppose-glucksmann-faure-royal-guedj-et-maurel-442266",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://www.franceinfo.fr/politique/ps/primaire-socialiste/on-la-prend-tres-au-serieux-segolene-royal-peut-elle-creer-la-surprise-a-la-primaire-socialiste-vingt-ans-apres-son-echec-a-la-presidentielle_8184773.html"
+          ]
+        },
+        {
+          "approach": "Appliquer un impôt plancher de 2 % par an sur les patrimoines supérieurs à 100 M€ (taxe Zucman)",
+          "candidates": [
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+            "https://www.franceinfo.fr/elections/presidentielle/direct-presidentielle-2027-suivez-le-debat-des-candidats-a-la-primaire-du-pole-socialiste-sur-france-2-et-france-inter-a-20h40_8218531.html"
+          ]
+        },
+        {
+          "approach": "Mettre l'accent sur les grosses successions : les \"méga-héritages\" pour Glucksmann, qui renvoie la taxe des plus hauts patrimoines au niveau européen ; une hausse au-delà de 2 M€ pour Guedj, soit environ 10 Md€ par an affectés à la branche autonomie",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://fr.tradingview.com/news/afp:99040789ca9a3:0/",
+            "https://entrevue.fr/en/entrevue/presidentielle-2027-jerome-guedj-veut-augmenter-les-droits-de-succession-au-dela-de-2-millions-deuros/",
+            "https://www.wikiglucksmann.fr/programme.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "travail_salaires",
+      "cleavage": "Levier principal pour augmenter les salaires",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Hausse administrée du SMIC à 1 700 € net et indexation des salaires sur l'inflation (jusqu'au salaire médian pour Faure, automatique pour Maurel)",
+          "candidates": [
+            "Olivier Faure",
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+            "https://www.lagazettefrance.fr/article/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions",
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        },
+        {
+          "approach": "Augmenter le salaire net par une baisse de la CSG, plus un SMIC à 1 600 € net en deux ans (ce chiffre vient d'une source non officielle)",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/elections/presidentielle/desaccords-sur-le-proche-orient-et-lfi-convergences-sur-les-salaires-ce-qu-il-faut-retenir-du-premier-debat-de-la-primaire-socialiste_8207438.html",
+            "https://www.wikiglucksmann.fr/programme.html"
+          ]
+        },
+        {
+          "approach": "Négocier les salaires dans une conférence salariale et conditionner les aides publiques aux entreprises à des hausses de salaires",
+          "candidates": [
+            "Ségolène Royal",
+            "Jérôme Guedj",
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/elections/presidentielle/desaccords-sur-le-proche-orient-et-lfi-convergences-sur-les-salaires-ce-qu-il-faut-retenir-du-premier-debat-de-la-primaire-socialiste_8207438.html",
+            "https://www.lagazettefrance.fr/article/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "travail_salaires",
+      "cleavage": "Partage de la valeur et nouvelles sources de financement social",
+      "importance": "low",
+      "sides": [
+        {
+          "approach": "Pour chaque euro de dividende versé, au moins un euro pour les salariés ; faire cotiser l'intelligence artificielle pour financer retraites et protection sociale",
+          "candidates": [
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://www.lagazettefrance.fr/article/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions"
+          ]
+        },
+        {
+          "approach": "Intéressement obligatoire quand plus de la moitié du résultat va aux actionnaires ; au moins 30 % de salariés dans les conseils d'administration au-delà de 50 salariés ; bonus-malus sur les contrats précaires",
+          "candidates": [
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "retraites",
+      "cleavage": "Âge de départ après la réforme de 2023 : retour à 62 ans, suppression de l'âge légal, ou refonte selon la pénibilité",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Revenir à un âge légal de 62 ans, avec une durée de cotisation modulée selon la pénibilité ou des critères de pénibilité rétablis",
+          "candidates": [
+            "Olivier Faure",
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://www.lagazettefrance.fr/article/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions",
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        },
+        {
+          "approach": "Supprimer la référence à un âge légal et ouvrir les droits selon la seule durée de cotisation et la pénibilité ; opposition totale à la capitalisation",
+          "candidates": [
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://elections2027.com/article/2026-09-11-jerome-guedj-veut-abolir-l-age-legal-de-depart-a-la-retraite",
+            "https://entrevue.fr/en/presidentielle-2027/primaire-socialiste-ou-en-sont-les-cinq-candidats-avant-le-premier-debat-de-ce-soir/"
+          ]
+        },
+        {
+          "approach": "Abroger la réforme de 2023 et refonder le système sur la pénibilité et l'espérance de vie en bonne santé, sans âge cible annoncé ; pilotage confié aux partenaires sociaux",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://entrevue.fr/en/presidentielle-2027/primaire-a-gauche-de-lukraine-aux-alliances-avec-lfi-les-desaccords-saffichent-lors-du-premier-debat-sur-lci/",
+            "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme",
+            "https://www.wikiglucksmann.fr/programme.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "sante",
+      "cleavage": "Mode de financement de la protection sociale : cotisations dédiées ou fiscalisation partielle, et place des complémentaires",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Transférer une partie du financement vers l'impôt : baisser la CSG et compenser par la fiscalité sur les successions",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://entrevue.fr/en/presidentielle-2027/primaire-a-gauche-lfi-gaza-pouvoir-dachat-ce-quil-faut-retenir-du-deuxieme-debat/"
+          ]
+        },
+        {
+          "approach": "Sanctuariser des ressources propres à la Sécurité sociale. Guedj veut une Sécu intégrale unique qui réduit le rôle des mutuelles et assureurs ; Maurel veut supprimer la T2A et augmenter les dotations hospitalières d'au moins 4 % par an",
+          "candidates": [
+            "Jérôme Guedj",
+            "Emmanuel Maurel",
+            "Ségolène Royal",
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://entrevue.fr/en/presidentielle-2027/primaire-socialiste-ou-en-sont-les-cinq-candidats-avant-le-premier-debat-de-ce-soir/",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://entrevue.fr/en/presidentielle-2027/primaire-a-gauche-lfi-gaza-pouvoir-dachat-ce-quil-faut-retenir-du-deuxieme-debat/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "cleavage": "Financement public de l'enseignement privé sous contrat",
+      "importance": "low",
+      "sides": [
+        {
+          "approach": "Pondérer les dotations du privé selon la mixité sociale, puis réserver à terme le financement public à l'école publique",
+          "candidates": [
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        },
+        {
+          "approach": "Imposer des obligations de mixité sociale à tous les établissements financés par l'argent public, privé compris, sans supprimer leur financement",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://www.lejdd.fr/politique/immigration-raphael-glucksmann-plaide-pour-une-convention-citoyenne-174735",
+            "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "cleavage": "Engagement de la jeunesse : service obligatoire ou dispositifs volontaires et d'insertion",
+      "importance": "low",
+      "sides": [
+        {
+          "approach": "Service civique universel et obligatoire de dix mois (EHPAD, écoles, services publics), avec volet militaire facultatif",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme",
+            "https://www.lejdd.fr/politique/immigration-raphael-glucksmann-plaide-pour-une-convention-citoyenne-174735"
+          ]
+        },
+        {
+          "approach": "Plan de 250 000 contrats d'alternance financés à 80 % par l'État dans les métiers de la transition écologique",
+          "candidates": [
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "cleavage": "Réponse à la hausse des prix des carburants : baisse générale des taxes ou aides ciblées",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Baisser les taxes pour tous. Royal : suspendre l'accise sur le gazole, TVA à 10 % sur l'essence, prix stabilisé autour de 1,50 à 1,70 €/l. Guedj : baisse temporaire de TVA et plafonnement des marges",
+          "candidates": [
+            "Ségolène Royal",
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+            "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html",
+            "https://entrevue.fr/en/presidentielle-2027/primaire-a-gauche-lfi-gaza-pouvoir-dachat-ce-quil-faut-retenir-du-deuxieme-debat/"
+          ]
+        },
+        {
+          "approach": "Aider seulement les ménages modestes ou dépendants de la voiture (chèque énergie triplé pour Glucksmann), taxer les superprofits pétroliers (Faure) ; une aide générale creuserait la dette",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+            "https://entrevue.fr/en/presidentielle-2027/primaire-a-gauche-de-lukraine-aux-alliances-avec-lfi-les-desaccords-saffichent-lors-du-premier-debat-sur-lci/",
+            "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme"
+          ]
+        },
+        {
+          "approach": "Plafonner les marges des raffineurs, baisser la TVA sur l'électricité à 5,5 % et financer l'électrification par un emprunt national citoyen pour réduire la dépendance aux hydrocarbures",
+          "candidates": [
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+            "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "cleavage": "Place du nucléaire et organisation du marché de l'électricité",
+      "importance": "low",
+      "sides": [
+        {
+          "approach": "Construire de nouvelles capacités nucléaires avec l'hydroélectricité et les renouvelables ; sortir du marché européen de l'électricité et vendre au prix coûtant",
+          "candidates": [
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/",
+            "https://www.publicsenat.fr/emission/bonjour-chez-vous/emmanuel-maurel-il-y-a-50-nuances-de-gauche-dans-le-pays-e0"
+          ]
+        },
+        {
+          "approach": "Mix \"sans dogme\", nucléaire et renouvelables complémentaires, électrification massive, \"révolution écologique\" dans les 100 premiers jours ; pas d'engagement chiffré sur de nouveaux réacteurs (sources non officielles ou Wikipédia)",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://entrevue.fr/en/presidentielle-2027/primaire-socialiste-ou-en-sont-les-cinq-candidats-avant-le-premier-debat-de-ce-soir/",
+            "https://www.wikiglucksmann.fr/programme.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "cleavage": "Financement de la transition : endettement dédié ou fiscalité sur le patrimoine",
+      "importance": "low",
+      "sides": [
+        {
+          "approach": "Grand emprunt national (300 Md€ pour Maurel) ou traitement à part de la dette liée à la transition énergétique (Royal)",
+          "candidates": [
+            "Emmanuel Maurel",
+            "Ségolène Royal"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/",
+            "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats"
+          ]
+        },
+        {
+          "approach": "Instaurer un ISF climatique",
+          "candidates": [
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "cleavage": "Levier principal pour l'alimentation et l'agriculture",
+      "importance": "low",
+      "sides": [
+        {
+          "approach": "Créer une sécurité sociale de l'alimentation",
+          "candidates": [
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+            "https://www.franceinfo.fr/politique/ps/primaire-a-gauche/primaire-de-la-gauche-les-strategies-des-cinq-candidats-en-lice-pour-se-demarquer_8218912.html"
+          ]
+        },
+        {
+          "approach": "Souveraineté alimentaire par la relocalisation, la réduction des importations et un plafond à l'agrandissement des exploitations (1,5 fois la moyenne régionale)",
+          "candidates": [
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        },
+        {
+          "approach": "Réformer la PAC pour rémunérer les services écologiques et refuser l'accord Mercosur (source non officielle)",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://www.wikiglucksmann.fr/programme.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "cleavage": "Intégration européenne : approfondissement fédéral ou remise en cause des règles au nom de la souveraineté nationale",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Approfondir l'Union : fin du droit de veto, majorité qualifiée, emprunts communs (notamment pour la défense), nouveau traité de refondation, Ukraine dans l'UE",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme",
+            "https://lcp.fr/actualites/primaire-de-gauche-ce-qui-oppose-glucksmann-faure-royal-guedj-et-maurel-442266",
+            "https://www.wikiglucksmann.fr/programme.html"
+          ]
+        },
+        {
+          "approach": "Contester les directives de libéralisation, autoriser monopoles publics et prix régulés, sortir du marché européen de l'électricité, garder l'unanimité en défense et diplomatie, rejeter le \"28e régime\", obtenir un rabais sur la contribution française ; a voté non à Maastricht (1992) et au TCE (2005)",
+          "candidates": [
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/",
+            "https://www.sudradio.fr/politique/qui-est-emmanuel-maurel-le-cinquieme-candidat-a-la-primaire-de-la-gauche"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "international_defense",
+      "cleavage": "Guerre en Ukraine : négociation et médiation avec la Russie, ou soutien militaire renforcé à l'Ukraine",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Rouvrir le dialogue avec Moscou pour une paix \"juste et durable\", avec une France médiatrice ; Royal dit qu'elle aurait demandé des casques bleus à la frontière",
+          "candidates": [
+            "Ségolène Royal"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/elections/presidentielle/lors-du-premier-debat-de-la-primaire-socialiste-segolene-royal-mise-en-difficulte-sur-l-ukraine-et-israel_8207075.html",
+            "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html",
+            "https://lcp.fr/actualites/presidentielle-2027-segolene-royal-annonce-sa-candidature-a-la-primaire-socialiste"
+          ]
+        },
+        {
+          "approach": "Soutenir militairement l'Ukraine, pas de négociation sur sa tête, Poutine ne voulant pas négocier ; saisir les avoirs russes gelés (Glucksmann) ; risque d'un nouveau \"Munich\" (Guedj)",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Jérôme Guedj",
+            "Emmanuel Maurel",
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+            "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html",
+            "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "international_defense",
+      "cleavage": "Gaza : faut-il qualifier de génocide l'action de l'armée israélienne",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Employer le terme de génocide ; Faure s'engage à le reconnaître officiellement s'il est élu",
+          "candidates": [
+            "Olivier Faure",
+            "Ségolène Royal"
+          ],
+          "evidence_urls": [
+            "https://www.france24.com/fr/france/20261001-deuxieme-debat-primaire-gauche-possible-alliance-lfi-divise-genocide-gaza-glucksmann-faure",
+            "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+            "https://www.publicsenat.fr/actualites/politique/lelephant-dans-la-piece-lfi-sinvite-encore-dans-le-debat-de-la-primaire-socialiste"
+          ]
+        },
+        {
+          "approach": "Refuser ce terme, que la CPI n'a pas retenu, et parler de crimes de guerre et de crimes contre l'humanité, tout en condamnant les opérations israéliennes",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://www.france24.com/fr/france/20261001-deuxieme-debat-primaire-gauche-possible-alliance-lfi-divise-genocide-gaza-glucksmann-faure",
+            "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html",
+            "https://fr.wikipedia.org/wiki/J%C3%A9r%C3%B4me_Guedj"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "international_defense",
+      "cleavage": "Alliances militaires et dissuasion : défense européenne intégrée ou non-alignement",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Défense européenne financée par emprunt commun, économie de guerre, dissuasion nucléaire française étendue aux partenaires européens avec décision restant française (en partie source non officielle)",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme",
+            "https://www.wikiglucksmann.fr/programme.html"
+          ]
+        },
+        {
+          "approach": "Non-alignement et critique de l'OTAN, dissuasion strictement nationale, défense à 3 % du PIB (environ 100 Md€), unanimité maintenue en défense dans l'UE",
+          "candidates": [
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        },
+        {
+          "approach": "Rendre à la France un rôle de puissance médiatrice sur la scène internationale",
+          "candidates": [
+            "Ségolène Royal"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/presidentielle-2027-segolene-royal-annonce-sa-candidature-a-la-primaire-socialiste"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "institutions",
+      "cleavage": "Réforme des institutions : changer la règle électorale et constitutionnelle, rééquilibrer les pouvoirs, ou changer la pratique du pouvoir",
+      "importance": "low",
+      "sides": [
+        {
+          "approach": "Proportionnelle immédiate, fin du 49.3, convention citoyenne préparant une constituante, droit d'initiative citoyenne (source non officielle)",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://www.wikiglucksmann.fr/programme.html"
+          ]
+        },
+        {
+          "approach": "Limiter le présidentialisme et le droit de dissolution, renforcer le Parlement, instaurer une journée référendaire annuelle sur des questions citoyennes",
+          "candidates": [
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/",
+            "https://www.franceinfo.fr/replay-magazine/franceinfo/l-invite-politique/l-invite-politique-du-vendredi-04-septembre-2026_8167499.html"
+          ]
+        },
+        {
+          "approach": "Transformer la manière d'exercer le pouvoir : \"ordre juste\", État exemplaire, régler les problèmes avant qu'ils ne déclenchent des conflits sociaux",
+          "candidates": [
+            "Ségolène Royal"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/elections/presidentielle/direct-presidentielle-2027-suivez-le-debat-des-candidats-a-la-primaire-du-pole-socialiste-sur-france-2-et-france-inter-a-20h40_8218531.html",
+            "https://entrevue.fr/en/presidentielle-2027/primaire-socialiste-ou-en-sont-les-cinq-candidats-avant-le-premier-debat-de-ce-soir/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "cleavage": "Ordre public et police : accent sur la fermeté ou sur les dérives policières (débat sur les blocages lycéens et les contrôles au faciès)",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Fermeté contre les débordements des manifestations lycéennes ; Guedj et Royal reprochent à LFI de \"jouer avec le feu\" ; Royal propose des caméras dans tout l'environnement scolaire et une tolérance zéro contre les violences faites aux enfants",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Ségolène Royal",
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://www.publicsenat.fr/actualites/politique/lelephant-dans-la-piece-lfi-sinvite-encore-dans-le-debat-de-la-primaire-socialiste",
+            "https://www.franceinfo.fr/politique/ps/primaire-socialiste/on-la-prend-tres-au-serieux-segolene-royal-peut-elle-creer-la-surprise-a-la-primaire-socialiste-vingt-ans-apres-son-echec-a-la-presidentielle_8184773.html"
+          ]
+        },
+        {
+          "approach": "Privilégier le fond des revendications ; reconnaître les contrôles au faciès et les discriminations policières (Faure) ; défendre le droit de manifester et revoir la doctrine d'emploi de la force légitime, avec une police de proximité (Maurel)",
+          "candidates": [
+            "Olivier Faure",
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://www.publicsenat.fr/actualites/politique/lelephant-dans-la-piece-lfi-sinvite-encore-dans-le-debat-de-la-primaire-socialiste",
+            "https://www.lagazettefrance.fr/article/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions",
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "cleavage": "Politique migratoire : régularisation de masse, délibération citoyenne préalable ou planification par le Parlement",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Régulariser massivement les travailleurs sans papiers, dans l'ordre de 500 000 comme en Espagne (Wikipédia cite 400 000)",
+          "candidates": [
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://www.lagazettefrance.fr/article/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions",
+            "https://fr.wikipedia.org/wiki/Olivier_Faure"
+          ]
+        },
+        {
+          "approach": "Réunir une convention citoyenne tirée au sort avant toute nouvelle politique ; ni immigration zéro ni laisser-faire ; régularisation ciblée sur les métiers en tension",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://www.lejdd.fr/politique/immigration-raphael-glucksmann-plaide-pour-une-convention-citoyenne-174735",
+            "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme"
+          ]
+        },
+        {
+          "approach": "Faire planifier l'immigration par le Parlement selon les capacités d'accueil et les besoins économiques",
+          "candidates": [
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://entrevue.fr/en/presidentielle-2027/primaire-socialiste-ou-en-sont-les-cinq-candidats-avant-le-premier-debat-de-ce-soir/"
+          ]
+        },
+        {
+          "approach": "Régulariser les travailleurs sans papiers, réaffirmer le droit du sol, raccourcir les délais d'asile et de séjour, développer massivement l'apprentissage du français, concentrer les éloignements sur les auteurs de délits graves",
+          "candidates": [
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "laicite_republique",
+      "cleavage": "Accent sur la laïcité stricte ou sur la lutte contre les discriminations et le travail de mémoire",
+      "importance": "low",
+      "sides": [
+        {
+          "approach": "Faire de la laïcité un étendard. Guedj : autorité constitutionnelle indépendante de la laïcité, interdiction de l'abaya à l'école. Maurel : neutralité absolue des services publics, aucun \"accommodement raisonnable\"",
+          "candidates": [
+            "Jérôme Guedj",
+            "Emmanuel Maurel",
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://fr.wikipedia.org/wiki/J%C3%A9r%C3%B4me_Guedj",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://lcp.fr/actualites/primaire-de-gauche-ce-qui-oppose-glucksmann-faure-royal-guedj-et-maurel-442266"
+          ]
+        },
+        {
+          "approach": "Mettre en avant la lutte contre les discriminations : commission \"vérité et réconciliation\" sur la colonisation, reconnaissance des contrôles au faciès",
+          "candidates": [
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://www.lagazettefrance.fr/article/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "logement",
+      "cleavage": "Logement : soutien au pouvoir d'achat des locataires ou production et encadrement massifs",
+      "importance": "low",
+      "sides": [
+        {
+          "approach": "\"Bouclier logement\" plafonnant le loyer à 30 % du budget du ménage",
+          "candidates": [
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats"
+          ]
+        },
+        {
+          "approach": "750 000 logements sociaux en cinq ans, encadrement des loyers généralisé, encadrement du prix du foncier, TVA à 5,5 % pour le logement social",
+          "candidates": [
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/",
+            "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "industrie_economie",
+      "cleavage": "Réindustrialisation : démondialisation et protectionnisme national, préférence européenne, ou conditionnalité des aides",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "\"Démondialiser\" : protectionnisme solidaire, grand emprunt de 300 Md€, nationalisations possibles, clauses de contenu local dans les 170 Md€ de commande publique, fonds souverain, opposition aux grands accords de libre-échange",
+          "candidates": [
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/",
+            "https://www.franceinfo.fr/politique/ps/primaire-socialiste/le-depute-emmanuel-maurel-annonce-sa-candidature-a-la-primaire-socialiste-pour-l-election-presidentielle_8176532.html",
+            "https://www.sudradio.fr/politique/qui-est-emmanuel-maurel-le-cinquieme-candidat-a-la-primaire-de-la-gauche"
+          ]
+        },
+        {
+          "approach": "Réindustrialiser à l'échelle européenne : indépendance énergétique, technologique et industrielle, \"Buy European Act\"",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/primaire-de-gauche-ce-qui-oppose-glucksmann-faure-royal-guedj-et-maurel-442266",
+            "https://www.wikiglucksmann.fr/programme.html"
+          ]
+        },
+        {
+          "approach": "Remettre à plat les aides publiques aux entreprises (environ 160 à 170 Md€) et les conditionner, notamment aux hausses de salaires",
+          "candidates": [
+            "Ségolène Royal",
+            "Jérôme Guedj",
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+            "https://www.franceinfo.fr/elections/presidentielle/desaccords-sur-le-proche-orient-et-lfi-convergences-sur-les-salaires-ce-qu-il-faut-retenir-du-premier-debat-de-la-primaire-socialiste_8207438.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "numerique",
+      "cleavage": "Priorités numériques et IA",
+      "importance": "low",
+      "sides": [
+        {
+          "approach": "Faire cotiser l'IA pour financer retraites et protection sociale",
+          "candidates": [
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://www.lagazettefrance.fr/article/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions"
+          ]
+        },
+        {
+          "approach": "IA comme bien commun (recherche publique, modèles ouverts, calcul souverain), convention citoyenne sur l'IA, interdiction des smartphones avant 15 ans",
+          "candidates": [
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        },
+        {
+          "approach": "Interdire les réseaux sociaux avant 15 ans, bannir TikTok, stratégie d'IA souveraine (source non officielle)",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://www.wikiglucksmann.fr/programme.html"
+          ]
+        }
+      ]
+    }
+  ],
+  "consensus_points": [
+    {
+      "topic_id": "travail_salaires",
+      "point": "Large accord pour augmenter le SMIC et les bas salaires ; le désaccord porte sur l'instrument (indexation, conférence salariale, CSG, conditionnalité des aides).",
+      "url": "https://www.franceinfo.fr/elections/presidentielle/desaccords-sur-le-proche-orient-et-lfi-convergences-sur-les-salaires-ce-qu-il-faut-retenir-du-premier-debat-de-la-primaire-socialiste_8207438.html"
+    },
+    {
+      "topic_id": "fiscalite",
+      "point": "Face à la dette, accord pour chercher des recettes nouvelles sur les plus aisés et le capital plutôt que de couper dans les dépenses ; aucun ne défend une annulation unilatérale de la dette.",
+      "url": "https://www.franceinfo.fr/elections/presidentielle/desaccords-sur-le-proche-orient-et-lfi-convergences-sur-les-salaires-ce-qu-il-faut-retenir-du-premier-debat-de-la-primaire-socialiste_8207438.html"
+    },
+    {
+      "topic_id": "fiscalite",
+      "point": "Tous veulent alourdir l'imposition des très hauts patrimoines ou des très grosses successions (ISF, taxe Zucman ou méga-héritages selon le candidat).",
+      "url": "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme"
+    },
+    {
+      "topic_id": "international_defense",
+      "point": "Accord général pour remettre en cause ou suspendre l'accord d'association UE-Israël. Public Sénat le signale explicitement pour Faure, Glucksmann, Maurel et Royal.",
+      "url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats"
+    },
+    {
+      "topic_id": "strategie",
+      "point": "Tous jugent Jordan Bardella \"disqualifié\" après les accusations d'antisémitisme publiées par Mediapart, et se fixent pour priorité de battre l'extrême droite.",
+      "url": "https://www.france24.com/fr/france/20261001-deuxieme-debat-primaire-gauche-possible-alliance-lfi-divise-genocide-gaza-glucksmann-faure"
+    },
+    {
+      "topic_id": "strategie",
+      "point": "Tous ont signé une charte commune (justice sociale, services publics, climat, lutte contre l'extrême droite et les discriminations) et se sont engagés à soutenir le vainqueur.",
+      "url": "https://place-publique.eu/pages/Croet4tWXmSbd5sL5upQF/choisir-2027"
+    },
+    {
+      "topic_id": "retraites",
+      "point": "Aucun candidat dont la position est documentée ne défend la réforme de 2023 (64 ans) : retour à 62 ans pour Faure et Maurel, abrogation pour Glucksmann, suppression de l'âge légal pour Guedj. Pas de source pour Royal.",
+      "url": "https://entrevue.fr/en/presidentielle-2027/primaire-a-gauche-de-lukraine-aux-alliances-avec-lfi-les-desaccords-saffichent-lors-du-premier-debat-sur-lci/"
+    },
+    {
+      "topic_id": "education",
+      "point": "Les candidats s'accordent sur la revalorisation des salaires enseignants (Glucksmann et Maurel ont avancé des comparaisons internationales vérifiées par franceinfo).",
+      "url": "https://www.franceinfo.fr/vrai-ou-fake/vrai-ou-faux-salaire-des-enseignants-impot-sur-la-fortune-dividendes-on-a-verifie-six-affirmations-des-candidats-a-la-primaire-de-la-gauche-lors-de-leur-debat_8218897.html"
+    }
+  ],
+  "debates": [
+    {
+      "date": "2026-09-23",
+      "channel": "LCI (avec Le Parisien, animé par David Pujadas, environ 10 citoyens posant des questions)",
+      "summary": "Premier débat, près de 2 heures, en l'absence de Philippe Brun, exclu.\n- Carburants : Royal veut baisser les taxes (TVA à 10 %, suspension de l'accise sur le gazole, prix entre 1,50 et 1,70 €/l). Glucksmann veut tripler le chèque énergie de façon ciblée. Faure veut des aides ciblées et taxer les superprofits pétroliers. Maurel veut plafonner les marges des raffineurs et lancer un emprunt citoyen. Guedj veut plafonner les marges et créer un ISF climatique.\n- Salaires : Faure propose un SMIC à 1 700 € net, l'indexation jusqu'au salaire médian et un bouclier logement. Glucksmann propose de baisser la CSG, financée par les méga-héritages. Royal veut bloquer les prix des produits essentiels et revoir les aides aux entreprises.\n- Ukraine : clivage net entre Royal (négociation, casques bleus) et les quatre autres (soutien militaire). Glucksmann veut saisir les avoirs russes. Guedj s'interroge sur les risques d'une zone d'exclusion aérienne.\n- Gaza : Faure et Royal parlent de génocide, Glucksmann et Guedj refusent le terme. Quatre candidats veulent suspendre l'accord UE-Israël. Royal est vivement critiquée par Guedj et Glucksmann pour avoir appelé davantage de voix juives à dénoncer Gaza.\n- Dette : pas d'annulation. Royal envisage une exception pour la dette de la transition.\n- LFI : Glucksmann et Guedj excluent tout accord, même aux législatives. Faure, Royal et Maurel refusent de l'exclure. Faure lance : \"si vous ne voulez pas d'alliance avec la gauche...\"",
+      "url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats"
+    },
+    {
+      "date": "2026-10-01",
+      "channel": "France 2 / France Inter",
+      "summary": "Deuxième débat, plus de 2 heures.\n- Mobilisations lycéennes (environ 400 lycées bloqués, environ 2 000 interpellations) : Glucksmann demande de la fermeté. Faure appelle à \"regarder la lune\". Guedj et Royal accusent LFI de \"jouer avec le feu\". Maurel défend le droit de manifester.\n- Carburants : Royal et Guedj veulent des baisses de taxes. Glucksmann veut des aides ciblées. Maurel veut une TVA réduite sur l'électricité.\n- CSG : la proposition de Glucksmann de baisser la CSG est attaquée par tous les autres, qui y voient un danger pour la Sécurité sociale. Faure la juge provisoire.\n- Fiscalité : Faure promet la taxe Zucman, Royal l'ISF.\n- Bardella : unanimité pour le juger \"disqualifié\" après les révélations de Mediapart.\n- Ukraine : Royal propose de renouer le dialogue avec Poutine. Les autres s'y opposent, Guedj invoquant Munich.\n- Gaza : Faure s'engage à reconnaître un génocide. Glucksmann juge cette position \"obscène\". Guedj estime que le mot diabolise Israël. Royal cite des ministres israéliens.\n- LFI : Glucksmann réclame la rupture. Guedj dénonce la \"danse du ventre\" de Faure. Faure, Royal et Maurel déplorent l'obsession autour de LFI. Glucksmann regrette l'absence de l'écologie et insiste sur la défense européenne.",
+      "url": "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html"
+    },
+    {
+      "date": "2026-10-04",
+      "channel": "BFMTV",
+      "summary": "Troisième et dernier débat, programmé avant le premier tour. Il n'a pas encore eu lieu au 2 octobre 2026.",
+      "url": "https://lcp.fr/actualites/primaire-de-gauche-les-candidats-face-a-face-lors-d-un-premier-debat-televise-ce"
+    }
+  ],
+  "polls": [
+    {
+      "date": "2026-09-23/24 (publié le 29/09/2026)",
+      "institute": "Odoxa-Mascaret pour Public Sénat et la presse régionale (1 005 personnes)",
+      "results": "Cote de popularité (bonnes opinions), pas une intention de vote. Résultats sur l'ensemble des Français, puis entre parenthèses auprès des sympathisants de gauche :\n- Glucksmann : 20 % (38 %)\n- Royal : 16 % (32 %)\n- Faure : 11 % (29 %)\n- Guedj : 8 % (15 %)\n- Maurel : 4 % (9 %)",
+      "url": "https://www.publicsenat.fr/actualites/politique/sondage-les-cotes-de-popularite-de-marine-le-pen-et-dedouard-philippe-reculent-fortement-raphael-glucksmann-progresse"
+    },
+    {
+      "date": "vers le 30/09/2026",
+      "institute": "Ifop (repris par La Dépêche ; commanditaire non confirmé, peut-être Ifop-Fiducial pour Le Figaro, LCI et Sud Radio)",
+      "results": "Intentions de vote au 1er tour de la présidentielle, en testant chaque candidat de la primaire dans des hypothèses séparées. Ce n'est pas un sondage auprès des électeurs de la primaire.\n- Glucksmann : 7 à 13 % selon les hypothèses, 11 % dans l'hypothèse principale\n- Faure : 3 à 4 %\n- Guedj : environ 3 %\n- Royal : 1,5 % selon un agrégateur, 3 % selon un autre résumé\n- Maurel : 1 %\nChiffres à vérifier sur la notice Ifop.",
+      "url": "https://www.epocinfo.fr/ep2027.php"
+    },
+    {
+      "date": "2026-08-30 / 2026-09-16",
+      "institute": "Divers (cités par l'AFP et entrevue.fr)",
+      "results": "Dans les sondages présidentiels de fin août à mi-septembre, Faure est à environ 3,5 à 5 % et Glucksmann à 10 à 15 %. Je n'ai trouvé aucun sondage publié auprès du corps électoral de la primaire.",
+      "url": "https://www.lagazettefrance.fr/article/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions"
+    }
+  ]
+}

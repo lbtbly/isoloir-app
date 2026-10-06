@@ -1,0 +1,179 @@
+Rapport de génération des voix — 2026-10-06 00:18:18
+Commande : generate.py --voice aigue --only territoires
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  territoires-intro-01 — 3.96 s, F0 249.3 Hz
+    1. Un guichet, une école, une …   2/3    249.3  +0.39   -1.1      —  3.0    5.9  1.15  1:228 2:249 3:261
+  territoires-intro-02 — 6.71 s, F0 253.4 Hz, pauses entre phrases [0.17, 0.31] s
+    1. En deux mille vingt-trois, …   1/3    248.6  +0.34   -6.5   +1.9  0.0    6.6  1.29  1:249 2:221~ 3:250
+    2. Près d'un sur quatre.         1/7    323.4  +4.89   -3.4   +2.9  6.0    3.7  0.72  1:323~ 2:223× 3:419× 4:348~? 5:321×! 6:360~ 7:238×?
+         prise 4 : parole en trop 0.02-0.19 s (leger, +47 dB, confiance 0.76) [début | Près]
+         prise 5 : parole en trop 0.00-0.13 s (net, +44 dB, confiance 0.55) [début | Près]
+         prise 7 : respiration 0.92-1.00 s (leger, +57 dB, confiance 0.92) [quatre | fin]
+      ⚠ phrase 2 : aucune prise acceptable : hauteur +4.89 dt de la cible
+  territoires-intro-03 — 6.56 s, F0 244.2 Hz, pauses entre phrases [0.17, 0.32] s
+    1. Ces services, ce sont aussi…   2/3    244.2  +0.03   -8.6   -0.9  3.4    6.0  1.18  1:224 2:244 3:240×!
+         prise 3 : rire 0.00-0.24 s (net, +51 dB, confiance 0.95) [début | Ces]
+    2. L'emploi public, c'est un e…   2/3    244.1  +0.02   -6.6   +1.2  6.0    5.5  1.07  1:258 2:244 3:251
+  territoires-intro-04 — 8.68 s, F0 247.2 Hz, pauses entre phrases [0.3, 0.24, 0.18] s
+    1. Communes, départements et r…   4/4    240.5  -0.24   -0.6   +2.0  6.0    6.7  1.31  1:214~ 2:272~ 3:269~ 4:240
+    2. Avec les organismes locaux,…   2/3    249.7  +0.41   -2.6   +1.2  0.6    6.0  1.18  1:228 2:250 3:218~
+  territoires-intro-05 — 9.95 s, F0 246.6 Hz, pauses entre phrases [0.21, 0.3, 0.31, 0.21] s
+    1. Et dans les départements d'…   2/3    254.1  +0.72   -6.9   +3.1  2.6    5.6  1.08  1:225 2:254 3:257
+    2. En deux mille vingt-deux, l…   2/3    245.4  +0.11   -3.2   +2.4  6.0    5.9  1.16  1:233 2:245 3:249
+    3. De neuf pour cent à La Réun…   2/3    248.0  +0.30   -4.5   +2.8  3.2    5.7  1.12  1:287~ 2:248 3:233
+  territoires-intro-06 — 10.97 s, F0 249.4 Hz, pauses entre phrases [0.3, 0.35, 0.35, 0.35] s
+    1. Alors, quatre questions se …   2/3    250.8  +0.49   -7.7   +2.2  4.5    5.7  1.12  1:257 2:251 3:250
+    2. Comment garantir l'accès au…   2/3    238.7  -0.37   +3.0   +6.6  6.0    6.3  1.23  1:211~ 2:239 3:299~
+    3. Quels salaires et quels eff…   2/3    255.9  +0.84   -4.0   +4.2  3.0    7.5  1.46  1:259 2:256 3:266
+    4. Quels pouvoirs et quels moy…   3/3    246.4  +0.18   -1.7   +0.5  3.0    5.9  1.15  1:271~ 2:281~ 3:246
+    5. Comment lutter contre la vi…   2/3    245.8  +0.14   -0.9   +2.8  3.0    5.1  1.00  1:264 2:246 3:248
+  territoires-intro-07 — 2.36 s, F0 239.2 Hz
+    1. Ce sont les quatre sujets d…   2/3    239.2  -0.33   -4.7   +1.8  0.0    5.4  1.05  1:224 2:239 3:238
+  territoires-services-01 — 4.76 s, F0 243.2 Hz
+    1. Une question d'impôts, d'al…   1/3    243.2  -0.04   -1.8      —  3.0    5.8  1.13  1:243? 2:258 3:262
+         prise 1 : respiration 2.24-2.56 s (leger, +42 dB, confiance 0.75) [retraite | à]
+      passage assemblé : respiration 2.24-2.56 s (leger, +42 dB, confiance 0.75) [retraite | à]
+  territoires-services-02 — 8.65 s, F0 229.9 Hz, pauses entre phrases [0.3, 0.39] s
+    1. Depuis deux mille dix-neuf,…   4/4    227.2  -1.22   -2.9   -0.4  0.0    5.0  0.97  1:225×! 2:226×! 3:218~ 4:227
+         prise 1 : respiration 0.96-1.28 s (net, +47 dB, confiance 0.91) [neuf | les]
+         prise 2 : bruit 1.04-1.22 s (net, +27 dB, confiance 0.59) [neuf | les]
+    2. Objectif : un espace access…   1/3    239.9  -0.28   -3.0   +3.0  2.9    5.7  1.12  1:240 2:237 3:257~
+  territoires-services-03 — 5.26 s, F0 242.1 Hz, pauses entre phrases [0.35] s
+    1. Et les démarches ?            2/3    251.4  +0.53   +2.8   +1.0  6.0    4.3  0.84  1:225 2:251 3:319×!
+         prise 3 : respiration 0.00-0.27 s (net, +57 dB, confiance 0.84) [début | Et]
+    2. En deux mille vingt-trois, …   6/6    239.3  -0.32   -2.1   +2.1  0.0    7.7  1.51  1:221~ 2:251~ 3:267~ 4:218~ 5:268~ 6:239
+  territoires-services-04 — 11.74 s, F0 237.3 Hz, pauses entre phrases [0.36, 0.37, 0.21, 0.31, 0.22] s
+    1. Lesquelles ?                  7/7    192.4  -4.10   -1.6   -1.1  5.1    3.6  0.71  1:415~ 2:449× 3:210×! 4:377~? 5:326× 6:339×! 7:192~
+         prise 3 : respiration 0.80-1.17 s (net, +47 dB, confiance 0.62) [Lesquelles | fin]
+         prise 3 : claquement 1.40-1.43 s (leger, +58 dB, confiance 0.45) [Lesquelles | fin]
+         prise 4 : respiration 0.95-1.06 s (leger, +72 dB, confiance 0.95) [Lesquelles | fin]
+         prise 6 : respiration 0.04-0.16 s (leger, +54 dB, confiance 0.66) [début | Lesquelles]
+         prise 6 : parole en trop 0.98-1.22 s (net, +68 dB, confiance 0.82) [Lesquelles | fin]
+    2. Des délais d'attente trop l…   3/3    225.9  -1.32   -1.8   +3.0  0.0    5.5  1.07  1:262~ 2:253~ 3:226
+    3. Pas d'interlocuteur compéte…   4/4    259.0  +1.05   -7.9   +3.7  1.8    5.6  1.10  1:222~ 2:324~ 3:246~ 4:259
+    4. Pas de service près de chez…   3/3    231.2  -0.92   -3.5   -2.0  6.0    5.3  1.03  1:260 2:230 3:231
+      ⚠ phrase 1 : aucune prise acceptable : hauteur -4.10 dt de la cible
+  territoires-services-05 — 11.21 s, F0 243.5 Hz, pauses entre phrases [0.21, 0.3] s
+    1. Depuis mille neuf cent quat…   2/3    243.0  -0.06   -7.5   -0.8  3.5    5.8  1.13  1:239 2:243 3:229
+    2. Une dérogation est possible…   3/3    244.4  +0.04   -0.8   +2.5  6.0    6.6  1.29  1:250 2:228 3:244
+  territoires-services-06 — 8.55 s, F0 246.9 Hz, pauses entre phrases [0.33, 0.2, 0.34, 0.3] s
+    1. Le nombre de maternités a b…   1/3    241.0  -0.20   -1.7   +3.0  0.8    5.3  1.03  1:241 2:218×! 3:232
+         prise 2 : bruit 5.52-5.73 s (net, +39 dB, confiance 0.80) [dix | fin]
+    2. Puis quatre cent soixante e…   6/6    262.0  +1.25   -1.3   +3.7  1.7    6.6  1.29  1:272~ 2:224~ 3:221~ 4:267~ 5:209~ 6:262
+  territoires-services-07 — 4.89 s, F0 245.9 Hz
+    1. Selon la Cour des comptes, …   1/3    245.9  +0.15   -0.7   +2.5  1.3    5.6  1.10  1:246 2:282~ 3:207~
+  territoires-services-08 — 9.02 s, F0 235.6 Hz, pauses entre phrases [0.25, 0.3] s
+    1. Depuis deux mille vingt-deu…   3/3    232.9  -0.79   -1.7   +2.9  0.7    6.8  1.32  1:222~ 2:231 3:233
+    2. Cela vaut pour les cinq der…   2/3    241.2  -0.19   -2.7   +2.6  1.7    5.8  1.12  1:259 2:241 3:241
+  territoires-services-09 — 6.88 s, F0 246.3 Hz
+    1. Pour les maternités, deux e…   2/3    246.3  +0.18   -8.0   +2.4  2.7    5.9  1.16  1:221~ 2:246 3:230×!
+         prise 3 : vocalise 4.96-5.44 s (net, +34 dB, confiance 0.62) [côté | la]
+  territoires-services-10 — 3.94 s, F0 238.9 Hz
+    1. Alors, comment garantir l'a…   3/3    238.9  -0.35   -6.2   +3.9  6.0    5.3  1.04  1:226 2:220~ 3:239
+  territoires-agents-01 — 4.66 s, F0 246.2 Hz, pauses entre phrases [0.31, 0.29] s
+    1. La paie de base d'un foncti…   1/3    245.4  +0.11   -2.3      —  0.0    5.7  1.11  1:245 2:241 3:221~
+    2. Mais qui en fixe le montant…   4/4    249.6  +0.41   +1.4   +3.4  5.3    4.8  0.94  1:273~ 2:243×! 3:270~ 4:250
+         prise 2 : vocalise 0.28-0.54 s (net, +68 dB, confiance 0.94) [Mais | qui]
+  territoires-agents-02 — 8.51 s, F0 244.7 Hz, pauses entre phrases [0.33, 0.16, 0.31, 0.22] s
+    1. On la calcule en multiplian…   2/3    243.7  -0.01   -1.7   -0.4  0.0    5.8  1.14  1:241 2:244 3:250
+    2. C'est le traitement ; les p…   2/3    253.4  +0.67   -1.0   +0.7  1.7    5.5  1.08  1:272~ 2:253 3:221~
+  territoires-agents-03 — 10.95 s, F0 250.6 Hz, pauses entre phrases [0.32, 0.31, 0.15, 0.26] s
+    1. Dernière hausse du point : …   1/3    244.2  +0.03   -2.1   +2.0  1.0    5.5  1.07  1:244 2:265 3:249
+    2. Au deuxième trimestre deux …   3/3    255.3  +0.80   -5.7   +2.3  2.1    5.1  1.00  1:252×! 2:261×! 3:255
+         prise 1 : rire 2.88-3.20 s (net, +50 dB, confiance 0.90) [zéro | pour]
+         prise 1 : rire 4.72-5.12 s (net, +48 dB, confiance 0.95) [un | pour]
+         prise 2 : rire 4.64-4.88 s (net, +48 dB, confiance 0.89) [un | cent]
+  territoires-agents-04 — 10.48 s, F0 238.5 Hz, pauses entre phrases [0.22, 0.31] s
+    1. À temps complet, le traitem…   1/3    240.5  -0.24   -1.4   +1.0  5.7    5.7  1.11  1:240 2:233 3:237
+    2. C'est moins que le Smic bru…   3/3    237.4  -0.46   -6.2   +0.9  1.4    5.7  1.11  1:250 2:246? 3:237
+         prise 2 : bruit 1.20-1.31 s (leger, +37 dB, confiance 0.70) [brut | mille]
+  territoires-agents-05 — 11.07 s, F0 247.5 Hz, pauses entre phrases [0.3, 0.31, 0.3] s
+    1. En deux mille vingt-trois, …   1/3    247.9  +0.29   -4.3   +1.2  6.0    5.9  1.15  1:248 2:237 3:250
+    2. Dans le privé, deux mille s…   1/3    254.7  +0.76   -3.0   +3.1  4.3    7.5  1.46  1:255 2:273~ 3:272~
+    3. Inflation déduite, les deux…   2/3    230.9  -0.94   -2.5   +2.8  3.0    6.3  1.24  1:205~ 2:231 3:204~
+  territoires-agents-06 — 9.53 s, F0 245.7 Hz, pauses entre phrases [0.16, 0.3, 0.19, 0.17, 0.2] s
+    1. Fin deux mille vingt-trois,…   3/3    247.0  +0.23   -3.9   +4.3  2.5    6.7  1.30  1:272~ 2:258 3:247
+    2. Parmi eux, vingt-trois pour…   3/3    237.0  -0.49  -11.4   +3.9  3.9    5.4  1.05  1:228 2:272~ 3:237
+  territoires-agents-07 — 9.82 s, F0 226.1 Hz, pauses entre phrases [0.19, 0.3] s
+    1. En deux mille vingt-cinq, l…   1/3    229.1  -1.08   -2.1   +3.2  6.0    6.3  1.24  1:229 2:229~ 3:211~
+    2. C'est un peu plus d'un euro…   1/3    225.6  -1.34   -8.7   +1.5  2.1    6.1  1.19  1:226 2:254 3:273~
+  territoires-agents-08 — 6.06 s, F0 243.3 Hz
+    1. Le pouvoir d'achat des agen…   3/3    243.3  -0.04   -7.5   +2.7  6.0    5.8  1.14  1:215~ 2:228 3:243
+  territoires-agents-09 — 2.96 s, F0 247.5 Hz
+    1. Alors, quels salaires et qu…   1/3    247.5  +0.26   -1.8   +3.6  6.0    6.5  1.27  1:248 2:248 3:255
+  territoires-collectivites-01 — 5.57 s, F0 250.8 Hz
+    1. Votre commune, votre départ…   3/3    250.8  +0.49   +0.9      —  3.0    4.8  0.94  1:266 2:234 3:251
+  territoires-collectivites-02 — 10.33 s, F0 236.5 Hz, pauses entre phrases [0.33, 0.32, 0.18, 0.21, 0.16] s
+    1. La Constitution le dit : le…   2/3    245.5  +0.12   -2.4   +0.0  0.0    5.7  1.11  1:274~ 2:246 3:256
+    2. Si une loi ou un règlement …   1/3    234.1  -0.70   -5.2   +1.1  2.4    6.2  1.21  1:234 2:228 3:214~
+  territoires-collectivites-03 — 9.79 s, F0 251.2 Hz, pauses entre phrases [0.3] s
+    1. Quand l'État leur transfère…   1/3    248.8  +0.35   -6.2   +6.1  5.2    5.5  1.07  1:249 2:220~ 3:260
+    2. Et la loi doit prévoir une …   3/3    251.4  +0.53   -3.1   +2.2  6.0    5.9  1.15  1:207~ 2:252 3:251
+  territoires-collectivites-04 — 9.47 s, F0 245.4 Hz, pauses entre phrases [0.31] s
+    1. Les collectivités portent u…   3/3    249.5  +0.40   -6.0   +2.8  3.1    5.9  1.14  1:233 2:226 3:250
+    2. Avec les organismes locaux,…   2/3    244.2  +0.03   -2.6   +2.8  6.0    5.8  1.14  1:226 2:244 3:245
+  territoires-collectivites-05 — 11.82 s, F0 241.9 Hz, pauses entre phrases [0.24, 0.3, 0.3, 0.31, 0.2] s
+    1. En deux mille vingt et un, …   1/3    245.2  +0.10   -1.7   +0.9  2.6    7.7  1.51  1:245 2:239 3:218~
+    2. Pour les communes, la taxe …   3/3    241.5  -0.16   -2.7   +1.8  1.7    5.7  1.11  1:232 2:258? 3:242
+         prise 2 : respiration 3.28-3.44 s (leger, +37 dB, confiance 0.68) [principales | fin]
+    3. Pour les départements, la t…   1/3    238.1  -0.41   -2.9   +5.2  2.7    6.5  1.26  1:238 2:205~ 3:224
+    4. Pour les régions, la C.V.A.…   1/3    238.8  -0.36   -0.9   +2.8  2.9    7.7  1.50  1:239 2:280~ 3:261
+  territoires-collectivites-06 — 10.15 s, F0 245.5 Hz, pauses entre phrases [0.18, 0.3] s
+    1. Pour compenser, les collect…   1/3    244.3  +0.04   -7.9   +2.8  0.9    5.0  0.99  1:244 2:250 3:254?
+         prise 3 : respiration 0.74-0.95 s (leger, +20 dB, confiance 0.37) [compenser | les]
+    2. C'est désormais leur premiè…   4/4    254.2  +0.72   -3.7   +2.1  6.0    5.5  1.07  1:270~ 2:299~ 3:214~ 4:254
+  territoires-collectivites-07 — 10.39 s, F0 241.9 Hz, pauses entre phrases [0.34] s
+    1. L'État leur verse aussi des…   3/3    244.6  +0.06   -1.6   +2.1  3.7    5.9  1.14  1:229 2:234 3:245
+    2. Ces concours pèsent seize v…   3/3    236.3  -0.54   -7.0   +2.0  1.6    5.3  1.03  1:234 2:218~ 3:236
+  territoires-collectivites-08 — 7.26 s, F0 224.3 Hz
+    1. Le débat porte sur leur aut…   1/3    224.3  -1.44   -8.7   -0.1  6.0    6.1  1.19  1:224 2:221~ 3:219~
+  territoires-collectivites-09 — 3.44 s, F0 239.0 Hz
+    1. Alors, quels pouvoirs et qu…   3/3    239.0  -0.34   -3.8   +2.9  6.0    5.5  1.07  1:215~ 2:197~ 3:239
+  territoires-outre-mer-01 — 5.17 s, F0 243.1 Hz, pauses entre phrases [0.23, 0.3, 0.17] s
+    1. En Guadeloupe, en Martiniqu…   3/3    242.5  -0.09   -3.4      —  0.0    6.6  1.28  1:236~ 2:296~? 3:242
+         prise 2 : respiration 0.69-0.84 s (leger, +31 dB, confiance 0.63) [Guadeloupe | en]
+    2. Pourquoi ?                    4/4    257.5  +0.95   -2.8   +3.1  6.0    4.1  0.80  1:282~ 2:365×! 3:250×! 4:258?
+         prise 2 : parole en trop 0.00-0.24 s (net, +52 dB, confiance 0.87) [début | Pourquoi]
+         prise 3 : parole en trop 0.99-1.14 s (net, +70 dB, confiance 0.82) [Pourquoi | fin]
+         prise 4 : respiration 0.00-0.07 s (leger, +47 dB, confiance 0.53) [début | Pourquoi]
+      passage assemblé : respiration 4.18-4.25 s (leger, +31 dB, confiance 0.48) [l'Hexagone | Pourquoi]
+  territoires-outre-mer-02 — 9.36 s, F0 239.3 Hz, pauses entre phrases [0.23, 0.15, 0.31] s
+    1. En deux mille vingt-deux, l…   2/3    233.0  -0.78   -7.5   -0.0  0.0    6.4  1.24  1:262 2:233 3:226
+    2. Il y était de huit virgule …   1/3    247.4  +0.25   -2.8   +3.0  6.0    5.5  1.07  1:247 2:268×! 3:220~
+         prise 2 : bruit 2.00-2.17 s (net, +36 dB, confiance 0.75) [dix | fin]
+  territoires-outre-mer-03 — 7.80 s, F0 243.6 Hz
+    1. Plusieurs causes sont avanc…   1/3    243.6  -0.01   -2.0   +5.2  2.8    5.6  1.10  1:244 2:233×! 3:224
+         prise 2 : respiration 7.36-7.52 s (net, +39 dB, confiance 0.76) [locale | fin]
+  territoires-outre-mer-04 — 11.52 s, F0 235.2 Hz, pauses entre phrases [0.16, 0.3, 0.68] s
+    1. En Martinique, transport, l…   1/3    238.0  -0.42   +0.0   +1.9  2.0    4.9  0.96  1:238 2:211~ 3:236
+    2. Un tiers : les frais d'appr…   2/3    237.0  -0.49   -4.0   +1.2  0.0    4.5  0.88  1:242× 2:237 3:329×!
+         prise 3 : respiration 0.00-0.16 s (net, +43 dB, confiance 0.85) [début | Un]
+         prise 3 : rire 0.80-1.12 s (net, +55 dB, confiance 0.95) [tiers | les]
+  territoires-outre-mer-05 — 10.10 s, F0 241.3 Hz, pauses entre phrases [0.15, 0.18, 0.3, 0.19, 0.19] s
+    1. Parmi ces taxes, l'octroi d…   3/3    244.7  +0.06   -6.4   +3.7  4.0    5.3  1.03  1:243 2:261 3:245
+    2. En Martinique, il a rapport…   2/3    240.0  -0.27   -3.6   +2.1  6.0    6.3  1.23  1:226 2:240 3:219~
+  territoires-outre-mer-06 — 11.18 s, F0 240.8 Hz, pauses entre phrases [0.17, 0.32] s
+    1. Le seize octobre deux mille…   3/3    240.7  -0.22   -2.2   +1.4  3.6    5.5  1.07  1:231 2:257 3:241
+    2. L'État supprime la T.V.A. s…   3/3    243.0  -0.06   -5.8   +2.9  2.2    5.1  1.00  1:256 2:239 3:243
+  territoires-outre-mer-07 — 10.21 s, F0 236.5 Hz, pauses entre phrases [0.36, 0.26] s
+    1. En contrepartie, sur d'autr…   2/3    225.1  -1.38   -2.1   +1.6  5.8    5.2  1.02  1:210~ 2:225 3:216~
+    2. Selon l'Autorité de la conc…   5/5    245.6  +0.13   -1.3   +4.0  2.1    5.7  1.11  1:247~ 2:248~ 3:269~? 4:275~ 5:246
+         prise 3 : respiration 2.80-2.96 s (leger, +19 dB, confiance 0.35) [mer | rapporte]
+  territoires-outre-mer-08 — 9.84 s, F0 231.3 Hz, pauses entre phrases [0.3] s
+    1. Chez les distributeurs étud…   3/3    233.0  -0.78   -2.8   +1.6  1.3    6.5  1.26  1:248 2:222~ 3:233
+    2. Elle relève toutefois que l…   1/3    228.4  -1.13   -0.9   +2.5  2.8    6.9  1.35  1:228 2:225 3:219~
+  territoires-outre-mer-09 — 7.36 s, F0 233.4 Hz, pauses entre phrases [0.21, 0.3] s
+    1. Pour les uns, l'octroi de m…   2/3    225.3  -1.37   -7.2   +1.3  0.9    5.2  1.01  1:253~ 2:225 3:274~
+    2. Pour d'autres, il finance l…   3/3    247.0  +0.23   -3.6   +5.0  6.0    6.3  1.24  1:253 2:240 3:247
+  territoires-outre-mer-10 — 2.72 s, F0 240.0 Hz
+    1. Alors, comment lutter contr…   1/3    240.0  -0.27   -0.9   +4.8  6.0    5.5  1.07  1:240 2:246 3:216~
+
+Alertes (2) :
+  aigue / territoires-intro-02 : phrase 2 : aucune prise acceptable : hauteur +4.89 dt de la cible
+  aigue / territoires-services-04 : phrase 1 : aucune prise acceptable : hauteur -4.10 dt de la cible
+
+Temps : 2747 s pour 280 prise(s), 9.47 s de calcul par prise en moyenne (3.94 s d'audio) ; calcul d'une prise ≈ 0.47 s + 2.32 s par seconde d'audio. Détecteur de sons parasites : 0.153 s par prise en moyenne (au plus 0.371 s), 2% du calcul d'une prise.
+Estimation pour les 1013 passages (1856 phrases) (voix aiguë 3 prises, 9% de secours) : ~1022 min.

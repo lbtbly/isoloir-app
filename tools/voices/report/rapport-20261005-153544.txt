@@ -1,0 +1,146 @@
+Rapport de génération des voix — 2026-10-05 14:57:08
+Commande : generate.py --voice aigue --only egalite
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  egalite-intro-01 — 3.31 s, F0 236.6 Hz
+    1. Dans le secteur privé, sur …   3/3    236.6  -0.52   -8.1      —  3.0    6.4  1.24  1:258 2:241×! 3:237
+         prise 2 : parole en trop 0.02-0.35 s (net, +50 dB, confiance 0.87) [début | Dans]
+         prise 2 : respiration 1.92-2.16 s (leger, +18 dB, confiance 0.34) [année | les]
+  egalite-intro-02 — 6.01 s, F0 230.3 Hz
+    1. En deux mille vingt-quatre,…   1/3    230.3  -0.99   -2.6   -0.7  0.0    6.1  1.19  1:230 2:235×! 3:219~
+         prise 2 : respiration 0.00-0.27 s (net, +34 dB, confiance 0.74) [début | En]
+  egalite-intro-03 — 6.15 s, F0 235.0 Hz
+    1. Mais pour le même emploi, d…   3/3    235.0  -0.64  -10.6   +0.5  2.6    5.8  1.14  1:233 2:234 3:235
+  egalite-intro-04 — 5.48 s, F0 243.2 Hz, pauses entre phrases [0.31] s
+    1. Une grande partie de l'écar…   3/3    247.0  +0.23   -2.5   +1.3  6.0    7.3  1.42  1:232 2:251 3:247
+    2. D'où la question du partage…   2/3    230.2  -0.99   -1.2   +2.5  2.5    6.1  1.20  1:212~ 2:230 3:246~?
+         prise 3 : respiration 1.84-2.00 s (leger, +38 dB, confiance 0.69) [familiales | fin]
+  egalite-intro-05 — 7.35 s, F0 224.8 Hz
+    1. En France métropolitaine, e…   3/3    224.8  -1.40   -6.5   +1.2  1.2    5.4  1.05  1:210~ 2:221~ 3:225
+  egalite-intro-06 — 7.68 s, F0 241.4 Hz
+    1. À la naissance d'un premier…   3/3    241.4  -0.17   -8.7   +4.0  6.0    5.2  1.02  1:229 2:235 3:241
+  egalite-intro-07 — 6.37 s, F0 240.5 Hz
+    1. Depuis juillet deux mille v…   1/3    240.5  -0.24   -7.7   -0.8  6.0    5.7  1.11  1:240 2:238 3:235
+  egalite-intro-08 — 6.71 s, F0 236.8 Hz
+    1. Et un projet de loi, présen…   3/3    236.8  -0.50   -6.6   +1.0  6.0    6.1  1.20  1:232 2:221~ 3:237
+  egalite-intro-09 — 8.77 s, F0 242.0 Hz, pauses entre phrases [0.3, 0.36, 0.35, 0.35] s
+    1. Alors, quatre questions.      3/3    248.5  +0.33   -6.5   +1.8  6.0    4.5  0.88  1:343~ 2:232 3:248
+    2. D'où vient l'écart de salai…   3/3    259.1  +1.05   -3.8   +7.8  6.0    6.7  1.31  1:273~ 2:201~ 3:259
+    3. Comment partager les congés…   2/3    240.1  -0.26   +5.3   +1.1  3.0    6.1  1.19  1:282~ 2:240 3:265
+    4. Qui garde les jeunes enfant…   1/3    228.8  -1.10   +3.1   -0.4  3.0    6.2  1.22  1:229? 2:316~ 3:287~
+         prise 1 : parole en trop 0.01-0.11 s (leger, +37 dB, confiance 0.62) [début | Qui]
+    5. Et comment mesurer les écar…   1/3    234.7  -0.66   +5.1   +1.9  3.0    7.0  1.36  1:235 2:269~ 3:241
+  egalite-intro-10 — 2.57 s, F0 229.1 Hz
+    1. Ce sont les quatre sujets d…   3/3    229.1  -1.08   -3.2   +2.0  0.0    4.9  0.95  1:208~ 2:260~ 3:229
+  egalite-salaires-01 — 5.72 s, F0 250.0 Hz, pauses entre phrases [0.22, 0.23, 0.32] s
+    1. Écart de salaire entre femm…   3/3    251.1  +0.51   -9.4      —  0.0    5.4  1.06  1:227 2:221~ 3:251
+    2. De quel écart parle-t-on ?    3/3    248.5  +0.33   +3.8   +0.0  6.0    5.4  1.05  1:240×! 2:275~ 3:248
+         prise 1 : respiration 0.01-0.32 s (net, +37 dB, confiance 0.86) [début | De]
+  egalite-salaires-02 — 9.78 s, F0 249.0 Hz, pauses entre phrases [0.3, 0.16, 0.18] s
+    1. Premier chiffre, le revenu …   1/3    254.4  +0.74   -7.7   +1.8  0.0    5.5  1.07  1:254 2:251~ 3:260~
+    2. En deux mille vingt-quatre,…   1/3    246.5  +0.19   -6.4   +1.7  6.0    5.8  1.12  1:246 2:262 3:241
+  egalite-salaires-03 — 6.24 s, F0 238.2 Hz, pauses entre phrases [0.3, 0.15] s
+    1. Soit un écart de vingt et u…   3/3    237.3  -0.47   -5.6   +2.1  6.0    5.9  1.15  1:257 2:256 3:237
+    2. Ce chiffre compte tous les …   3/3    243.3  -0.04   -5.1   +3.1  5.6    5.4  1.06  1:262 2:292~ 3:243
+  egalite-salaires-04 — 5.37 s, F0 237.4 Hz
+    1. Une part de cet écart tient…   3/3    237.4  -0.46   -9.2   +0.5  5.1    5.9  1.15  1:236 2:226 3:237
+  egalite-salaires-05 — 4.16 s, F0 250.2 Hz
+    1. Une autre part tient aux em…   1/3    250.2  +0.45   -1.8   +1.1  6.0    5.7  1.11  1:250 2:228 3:256
+  egalite-salaires-06 — 5.56 s, F0 243.8 Hz
+    1. Pour le même emploi, dans l…   2/3    243.8  +0.00   -5.5   +0.2  1.8    6.5  1.28  1:247 2:244 3:256
+  egalite-salaires-07 — 8.55 s, F0 237.4 Hz, pauses entre phrases [0.32] s
+    1. D'un côté, le temps de trav…   3/3    237.1  -0.48   -2.6   +0.8  5.5    5.5  1.08  1:214~ 2:265 3:237?
+         prise 3 : respiration 0.55-0.70 s (leger, +15 dB, confiance 0.31) [côté | le]
+    2. De l'autre, pour le même em…   3/3    239.3  -0.32   -7.5   +1.4  2.6    6.0  1.16  1:274~ 2:248 3:239
+  egalite-salaires-08 — 5.61 s, F0 228.3 Hz
+    1. Et le temps de travail renv…   3/3    228.3  -1.14   -1.7   +2.5  6.0    5.8  1.13  1:220×! 2:215~ 3:228
+         prise 1 : rire 4.40-4.64 s (net, +50 dB, confiance 0.91) [des | enfants]
+  egalite-salaires-09 — 3.74 s, F0 229.3 Hz
+    1. Alors, quelle priorité pour…   2/3    229.3  -1.06   -6.7   +5.0  4.7    5.9  1.16  1:217~ 2:229 3:259
+  egalite-conges-01 — 4.35 s, F0 231.6 Hz, pauses entre phrases [0.32] s
+    1. Un enfant arrive.             4/7    217.6  -1.97   -1.3      —  0.0    4.7  0.92  1:381×! 2:358~ 3:318×! 4:218~ 5:292~ 6:244~ 7:313~
+         prise 1 : rire 0.64-1.12 s (net, +45 dB, confiance 0.95) [arrive | fin]
+         prise 3 : rire 0.08-0.48 s (net, +59 dB, confiance 0.95) [Un | enfant]
+    2. Combien de temps chaque par…   3/3    251.8  +0.56   -0.7   +5.0  4.3    6.0  1.17  1:275~ 2:253 3:252
+      ⚠ phrase 1 : aucune prise acceptable : hauteur -1.97 dt de la cible
+  egalite-conges-02 — 8.10 s, F0 237.2 Hz, pauses entre phrases [0.22, 0.15, 0.3, 0.24] s
+    1. Pour une salariée du privé,…   2/3    240.2  -0.26   -7.3   +0.9  0.0    6.5  1.27  1:244 2:240 3:273~
+    2. Soit six avant la naissance…   1/3    232.8  -0.80  -12.1   +1.0  6.0    4.8  0.95  1:233 2:283~ 3:221~
+  egalite-conges-03 — 3.34 s, F0 240.3 Hz
+    1. Au moins huit semaines sont…   1/3    240.3  -0.25   -1.6   +1.8  6.0    5.9  1.15  1:240 2:299×! 3:259
+         prise 2 : bruit 2.80-3.12 s (net, +43 dB, confiance 0.88) [six | après]
+  egalite-conges-04 — 6.21 s, F0 240.9 Hz
+    1. Pour l'autre parent, le pèr…   3/3    240.9  -0.21   -1.1   +2.0  1.6    6.0  1.16  1:233? 2:253 3:241
+         prise 1 : mot étiré « dure » 6.00-6.32 s (leger, +51 dB, confiance 0.32) [l'enfant | vingt]
+  egalite-conges-05 — 4.70 s, F0 242.7 Hz
+    1. Dont quatre jours obligatoi…   2/3    242.7  -0.08   -5.8   +0.2  1.1    5.5  1.07  1:244 2:243 3:250
+  egalite-conges-06 — 8.39 s, F0 242.5 Hz, pauses entre phrases [0.29, 0.31] s
+    1. Depuis le premier juillet d…   3/3    245.9  +0.15   -1.8   +3.9  5.8    6.0  1.18  1:221~ 2:248 3:246
+    2. Il vaut pour les enfants né…   3/3    239.5  -0.31   -0.6   +1.8  1.8    6.1  1.18  1:250 2:235 3:240
+  egalite-conges-07 — 8.04 s, F0 254.3 Hz, pauses entre phrases [0.18, 0.32] s
+    1. Chaque parent peut, s'il le…   1/3    240.3  -0.25   -8.7   +2.9  0.6    5.3  1.04  1:240 2:278~ 3:285~?
+         prise 3 : respiration 1.60-1.84 s (leger, +30 dB, confiance 0.56) [souhaite | prendre]
+    2. Le premier mois est indemni…   1/3    258.3  +1.00   -9.9   +2.8  6.0    6.1  1.19  1:258 2:270~ 3:267~
+  egalite-conges-08 — 6.18 s, F0 242.0 Hz, pauses entre phrases [0.3, 0.15, 0.26] s
+    1. D'un côté, des congés en pa…   2/3    243.0  -0.06   -2.0   +2.9  6.0    5.6  1.08  1:263 2:243 3:240~
+    2. De l'autre, des congés que …   1/3    241.8  -0.14   -1.3   +2.5  2.0    5.3  1.04  1:242 2:250 3:260
+  egalite-conges-09 — 3.72 s, F0 241.9 Hz
+    1. Alors, comment partager les…   2/3    241.9  -0.14   -7.5   +1.6  4.3    5.6  1.09  1:248 2:242 3:241
+  egalite-garde-01 — 3.85 s, F0 247.3 Hz, pauses entre phrases [0.3] s
+    1. Votre enfant n'a pas encore…   1/3    249.8  +0.42   -3.0      —  0.0    7.3  1.42  1:250 2:264~ 3:232
+    2. Du lundi au vendredi, qui l…   6/6    241.0  -0.20   -2.0   +5.8  6.0    5.5  1.07  1:280~ 2:287~ 3:207~ 4:280~ 5:352~ 6:241
+  egalite-garde-02 — 6.27 s, F0 236.7 Hz
+    1. En France métropolitaine, e…   1/3    236.7  -0.51   -4.2   +0.6  0.0    6.3  1.24  1:237 2:225 3:208~
+  egalite-garde-03 — 3.64 s, F0 250.2 Hz
+    1. Et dix-huit pour cent surto…   2/3    250.2  +0.45   -2.6   +6.6  4.2    6.0  1.17  1:228 2:250 3:226
+  egalite-garde-04 — 5.90 s, F0 252.8 Hz
+    1. Mais si chaque famille avai…   1/3    252.8  +0.63   -5.5   +2.7  2.6    6.4  1.25  1:253 2:225 3:220~
+  egalite-garde-05 — 7.49 s, F0 236.5 Hz, pauses entre phrases [0.21, 0.31] s
+    1. Une grande partie de l'écar…   3/3    232.3  -0.84   -7.9   +2.1  5.5    5.8  1.14  1:205~? 2:219~ 3:232
+         prise 1 : respiration 2.40-2.55 s (leger, +16 dB, confiance 0.31) [hommes | tient]
+    2. Cela pose aussi la question…   1/3    245.7  +0.13   -1.8   +4.9  6.0    6.3  1.23  1:246 2:250 3:248
+  egalite-garde-06 — 2.95 s, F0 239.3 Hz
+    1. Alors, qui garde les jeunes…   2/3    239.3  -0.32   -3.0   +2.4  4.8    5.8  1.12  1:251 2:239 3:223~
+  egalite-transparence-01 — 6.05 s, F0 244.1 Hz, pauses entre phrases [0.35, 0.36] s
+    1. Dans votre entreprise, femm…   3/3    242.2  -0.11   +3.4      —  3.0    4.7  0.92  1:253 2:269~? 3:242
+         prise 2 : respiration 1.68-1.92 s (leger, +15 dB, confiance 0.31) [hommes | sont]
+    2. Comment le savoir ?           6/7    254.8  +0.76   -2.4   +1.4  3.0    3.8  0.74  1:379×! 2:359×! 3:463×! 4:423×! 5:345×? 6:255×! 7:380×?
+         prise 1 : rire 0.16-0.96 s (net, +56 dB, confiance 0.95) [Comment | le]
+         prise 2 : respiration 0.00-0.24 s (leger, +44 dB, confiance 0.79) [début | Comment]
+         prise 2 : mot étiré « Comment » 0.00-0.56 s (net, +49 dB, confiance 0.88) [début | le]
+         prise 2 : parole en trop 0.88-1.36 s (net, +53 dB, confiance 0.93) [savoir | fin]
+         prise 3 : rire 0.16-0.80 s (net, +71 dB, confiance 0.95) [Comment | le]
+         prise 4 : rire 0.16-0.72 s (net, +74 dB, confiance 0.95) [Comment | le]
+         prise 5 : respiration 1.04-1.28 s (leger, +31 dB, confiance 0.61) [savoir | fin]
+         prise 6 : respiration 0.00-0.28 s (net, +71 dB, confiance 0.95) [début | Comment]
+         prise 7 : respiration 0.72-0.89 s (leger, +42 dB, confiance 0.61) [savoir | fin]
+      passage assemblé : respiration 4.32-4.60 s (net, +51 dB, confiance 0.95) [travail | Comment]
+      ⚠ phrase 2 : aucune prise sans défaut : son parasite (respiration 0.00-0.28 s)
+      ⚠ son parasite dans le passage assemblé : respiration 4.32-4.60 s (net, +51 dB, confiance 0.95) [travail | Comment]
+  egalite-transparence-02 — 10.72 s, F0 250.5 Hz, pauses entre phrases [0.3, 0.25] s
+    1. Prenez une femme et un homm…   2/3    250.1  +0.44   -7.5   +1.0  0.0    5.7  1.12  1:255 2:250 3:258
+    2. Selon l'Insee, en deux mill…   3/3    251.9  +0.57   -4.1   +3.5  6.0    5.2  1.01  1:219~ 2:257 3:252
+  egalite-transparence-03 — 10.55 s, F0 242.8 Hz, pauses entre phrases [0.3, 0.16] s
+    1. Depuis deux mille dix-neuf,…   2/3    242.5  -0.09   -4.3   +1.1  4.1    5.3  1.03  1:225~? 2:242 3:222~
+         prise 1 : bruit 0.96-1.27 s (leger, +24 dB, confiance 0.44) [neuf | il]
+    2. En deux mille vingt-trois, …   3/3    244.0  +0.01   -0.3   +3.0  4.3    5.8  1.14  1:223~ 2:241 3:244
+  egalite-transparence-04 — 5.16 s, F0 237.9 Hz
+    1. Pour l'inscrire dans la loi…   2/3    237.9  -0.42   -0.0   +2.5  0.3    6.0  1.18  1:235~ 2:238 3:240
+  egalite-transparence-05 — 5.76 s, F0 239.0 Hz
+    1. Il prévoit de remplacer l'i…   1/3    239.0  -0.34   -2.5   +2.9  0.0    5.5  1.08  1:239 2:215~ 3:224
+  egalite-transparence-06 — 5.90 s, F0 235.3 Hz
+    1. Et chaque salarié aurait le…   3/3    235.3  -0.61   -1.9   +1.3  2.5    5.9  1.16  1:226 2:217~ 3:235?
+         prise 3 : mot étiré « moyenne » 2.80-3.36 s (leger, confiance 0.46) [rémunération | des]
+      passage assemblé : mot étiré « moyenne » 2.80-3.36 s (leger, confiance 0.46) [rémunération | des]
+  egalite-transparence-07 — 4.00 s, F0 245.1 Hz
+    1. Alors, jusqu'où mesurer les…   2/3    245.1  +0.09   -1.6   +3.6  4.9    6.3  1.23  1:241 2:245 3:248
+
+Alertes (3) :
+  aigue / egalite-conges-01 : phrase 1 : aucune prise acceptable : hauteur -1.97 dt de la cible
+  aigue / egalite-transparence-01 : phrase 2 : aucune prise sans défaut : son parasite (respiration 0.00-0.28 s)
+  aigue / egalite-transparence-01 : son parasite dans le passage assemblé : respiration 4.32-4.60 s (net, +51 dB, confiance 0.95) [travail | Comment]
+
+Temps : 2316 s pour 191 prise(s), 11.53 s de calcul par prise en moyenne (3.68 s d'audio) ; calcul d'une prise ≈ -0.89 s + 3.43 s par seconde d'audio. Détecteur de sons parasites : 0.212 s par prise en moyenne (au plus 0.844 s), 2% du calcul d'une prise.
+Estimation pour les 1014 passages (1875 phrases) (voix aiguë 3 prises, 6% de secours) : ~1312 min.

@@ -1,0 +1,121 @@
+Rapport de génération des voix — 2026-10-05 20:00:53
+Commande : generate.py --voice aigue --only ukraine_russie
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  ukraine-intro-01 — 7.29 s, F0 242.3 Hz, pauses entre phrases [0.25, 0.3, 0.17] s
+    1. Le vingt-quatre février deu…   1/3    243.0  -0.06   -2.4      —  0.0    5.4  1.06  1:243 2:212~ 3:235
+    2. Plus de quatre ans après, l…   3/3    242.3  -0.11   -2.9   -0.0  2.4    5.8  1.14  1:195~ 2:250 3:242
+  ukraine-intro-02 — 10.40 s, F0 238.5 Hz, pauses entre phrases [0.22, 0.3] s
+    1. Une mission de l'Onu a véri…   1/3    244.5  +0.05   -0.6   +2.1  2.9    6.3  1.23  1:244 2:236 3:231
+    2. Selon elle, le bilan réel e…   5/5    234.9  -0.64   -2.2   +3.6  0.6    5.9  1.16  1:241~ 2:266~ 3:244~ 4:283~ 5:235
+  ukraine-intro-03 — 5.35 s, F0 245.4 Hz
+    1. En deux mille vingt-six, di…   1/3    245.4  +0.11   -2.5   +3.2  2.2    6.5  1.26  1:245 2:233 3:226
+  ukraine-intro-04 — 6.60 s, F0 244.0 Hz
+    1. Fin juillet deux mille ving…   2/3    244.0  +0.01   -0.6   +2.6  2.5    5.5  1.08  1:230 2:244 3:263?
+         prise 3 : respiration 3.69-3.83 s (leger, +22 dB, confiance 0.40) [d'Ukrainiens | étaient]
+  ukraine-intro-05 — 10.62 s, F0 242.8 Hz, pauses entre phrases [0.3] s
+    1. Depuis deux mille vingt-deu…   3/3    242.7  -0.08   -3.2   +2.9  0.6    5.1  0.99  1:233 2:234 3:243
+    2. Dont soixante-dix-sept virg…   3/3    244.7  +0.06   -1.2   +3.6  3.2    5.5  1.08  1:240 2:231 3:245
+  ukraine-intro-06 — 7.13 s, F0 242.5 Hz, pauses entre phrases [0.17, 0.3, 0.2] s
+    1. La France prend part à ce s…   3/3    231.3  -0.91   +0.2   +1.9  1.2    5.6  1.10  1:231 2:238~ 3:231
+    2. Et comme la Russie, elle es…   2/3    244.1  +0.02   -1.4   +1.6  0.0    6.6  1.28  1:252 2:244 3:226
+  ukraine-intro-07 — 3.28 s, F0 227.5 Hz
+    1. Sur l'attitude de la France…   2/3    227.5  -1.20   -4.9   +2.8  1.4    5.7  1.11  1:228 2:228 3:235~
+  ukraine-intro-08 — 6.17 s, F0 249.0 Hz, pauses entre phrases [0.3, 0.37, 0.35] s
+    1. Trois questions se posent.    1/3    239.9  -0.28   +1.3   +4.6  4.9    4.6  0.90  1:240 2:254~ 3:322~
+    2. Comment venir en aide aux c…   2/3    249.6  +0.41   -1.0   +4.7  3.0    6.2  1.22  1:310×! 2:250? 3:319~
+         prise 1 : rire 0.96-1.31 s (net, +53 dB, confiance 0.95) [aide | aux]
+         prise 2 : respiration 0.00-0.10 s (leger, +42 dB, confiance 0.75) [début | Comment]
+    3. Quelle aide apporter à l'Uk…   1/3    253.1  +0.65   -5.1   +5.5  3.0    6.5  1.26  1:253 2:217~ 3:196~
+    4. Et quelle place pour la dip…   2/3    240.2  -0.26   +3.1   +1.5  3.0    7.3  1.43  1:257~ 2:240 3:263
+      passage assemblé : respiration 1.40-1.50 s (leger, +42 dB, confiance 0.75) [posent | Comment]
+  ukraine-intro-09 — 2.22 s, F0 233.0 Hz
+    1. Les vidéos qui suivent les …   3/3    233.0  -0.78   -2.1   -0.2  0.0    5.9  1.15  1:227 2:260 3:233
+  ukraine-civils-01 — 3.58 s, F0 245.0 Hz, pauses entre phrases [0.36, 0.21] s
+    1. Dans une guerre, combien de…   1/3    230.1  -1.00   +0.9      —  3.0    5.8  1.14  1:230 2:274~ 3:279~
+    2. Et qui les compte ?           2/3    257.5  +0.95   +2.0   +1.5  3.0    5.1  1.00  1:262 2:258 3:435~?
+         prise 3 : respiration 0.54-0.80 s (leger, +48 dB, confiance 0.85) [les | compte]
+  ukraine-civils-02 — 5.39 s, F0 242.2 Hz, pauses entre phrases [0.22, 0.3] s
+    1. En Ukraine, une mission de …   1/3    237.8  -0.43   -2.0   -0.5  0.0    6.4  1.25  1:238 2:234 3:212~
+    2. Elle recense les victimes c…   3/3    244.9  +0.08   -3.0   +3.7  2.0    6.8  1.34  1:248 2:213~ 3:245
+  ukraine-civils-03 — 9.44 s, F0 233.5 Hz, pauses entre phrases [0.3, 0.33] s
+    1. Son bilan va du vingt-quatr…   1/3    235.3  -0.61   -1.8   +3.8  3.0    5.8  1.13  1:235 2:254~ 3:218~
+    2. Il compte dix-sept mille de…   2/3    233.0  -0.78   -1.0   +2.1  1.8    5.3  1.04  1:261~ 2:233 3:262~
+  ukraine-civils-04 — 4.77 s, F0 228.0 Hz
+    1. Selon elle, le bilan réel e…   6/6    228.0  -1.16   -1.0   +3.5  1.0    5.7  1.11  1:233~ 2:220~ 3:244~ 4:199~ 5:242~ 6:228
+  ukraine-civils-05 — 9.95 s, F0 235.4 Hz, pauses entre phrases [0.4, 0.26, 0.31] s
+    1. De janvier à août deux mill…   3/3    233.3  -0.76   -0.8   +2.9  1.0    6.1  1.19  1:223~ 2:256×! 3:233
+         prise 2 : bruit 1.60-1.81 s (net, +40 dB, confiance 0.85) [six | elle]
+    2. C'est cinquante-cinq pour c…   3/3    243.4  -0.03   -1.9   +3.5  0.8    6.2  1.21  1:217~ 2:230 3:243
+  ukraine-civils-06 — 7.87 s, F0 242.4 Hz, pauses entre phrases [0.25, 0.32] s
+    1. En août deux mille vingt-si…   1/3    241.9  -0.14   -5.9   +1.0  1.9    6.2  1.21  1:242 2:224 3:238
+    2. Surtout dans des villes élo…   3/3    244.1  +0.02   -2.6   +2.9  5.9    7.1  1.38  1:267~ 2:271~ 3:244
+  ukraine-civils-07 — 5.31 s, F0 234.4 Hz
+    1. Selon l'Onu, dix virgule hu…   3/3    234.4  -0.68   -2.1   +0.8  2.6    6.3  1.24  1:230 2:236 3:234
+  ukraine-civils-08 — 6.63 s, F0 247.3 Hz
+    1. Le plan de l'Onu et de ses …   2/3    247.3  +0.25   -2.7   +3.1  2.1    4.9  0.96  1:218~ 2:247 3:232
+  ukraine-civils-09 — 8.37 s, F0 251.1 Hz, pauses entre phrases [0.16, 0.3, 0.27] s
+    1. D'autres ont quitté le pays…   2/3    254.1  +0.72   -3.9   +1.8  2.7    5.7  1.12  1:213~ 2:254 3:263
+    2. Fin juillet deux mille ving…   2/3    248.9  +0.36   -7.2   +1.5  3.9    5.3  1.03  1:192~ 2:249 3:228
+  ukraine-civils-10 — 5.81 s, F0 245.7 Hz
+    1. Dont quarante-sept mille de…   2/3    245.7  +0.13   -5.3   +3.3  6.0    5.4  1.06  1:266×! 2:246 3:223~
+         prise 1 : respiration 5.92-6.11 s (net, +38 dB, confiance 0.75) [différente | fin]
+  ukraine-civils-11 — 3.48 s, F0 237.2 Hz
+    1. Alors, quelle aide apporter…   1/3    237.2  -0.48   -0.3   +2.9  6.0    6.3  1.22  1:237 2:228 3:225
+  ukraine-aide-01 — 4.72 s, F0 248.4 Hz, pauses entre phrases [0.31, 0.37] s
+    1. Depuis deux mille vingt-deu…   1/3    249.3  +0.39   -2.7      —  0.0    5.2  1.01  1:249 2:258 3:260
+    2. Combien, et sous quelle for…   4/4    242.4  -0.10   -6.9   +2.5  5.7    5.9  1.16  1:220~ 2:434×! 3:266~ 4:242
+         prise 2 : respiration 0.40-0.88 s (net, +55 dB, confiance 0.95) [Combien | sous]
+         prise 2 : mot étiré « et » 0.40-0.88 s (net, +54 dB, confiance 0.90) [Combien | sous]
+         prise 2 : mot étiré « forme » 1.20-1.65 s (leger, +41 dB, confiance 0.67) [quelle | fin]
+  ukraine-aide-02 — 7.22 s, F0 246.2 Hz
+    1. Selon la Commission europée…   3/3    246.2  +0.17   -3.7   +1.6  0.0    5.9  1.15  1:236 2:243 3:246
+  ukraine-aide-03 — 4.06 s, F0 251.3 Hz
+    1. Dont soixante-dix-sept virg…   1/3    251.3  +0.52   -5.3   +5.0  3.7    5.8  1.14  1:251 2:220~ 3:218~
+  ukraine-aide-04 — 6.86 s, F0 245.1 Hz
+    1. En février deux mille vingt…   2/3    245.1  +0.09   -2.5   +3.8  5.3    6.2  1.20  1:234 2:245 3:256
+  ukraine-aide-05 — 6.80 s, F0 235.4 Hz
+    1. Deux parts : soixante milli…   2/3    235.4  -0.61   -5.1   +0.8  2.5    4.9  0.96  1:213~ 2:235? 3:223~
+         prise 2 : mot étiré « budgétaire » 3.60-4.48 s (leger, +35 dB, confiance 0.30) [d'aide | pour]
+      passage assemblé : mot étiré « budgétaire » 3.60-4.48 s (leger, +35 dB, confiance 0.30) [d'aide | pour]
+  ukraine-aide-06 — 7.36 s, F0 244.9 Hz, pauses entre phrases [0.33, 0.16] s
+    1. Le soutien total vient de l…   3/3    242.4  -0.10   -2.9   +1.0  5.1    5.4  1.05  1:231 2:254 3:242
+    2. La France en fait partie : …   1/3    245.3  +0.11   -5.8   +2.0  2.9    5.6  1.10  1:245 2:248 3:232
+  ukraine-aide-07 — 2.81 s, F0 229.2 Hz
+    1. Alors, quelle aide à l'Ukra…   1/3    229.2  -1.07   -7.0   +2.6  6.0    6.1  1.20  1:229 2:259 3:282~?
+         prise 3 : respiration 0.02-0.16 s (leger, +53 dB, confiance 0.93) [début | Alors]
+  ukraine-diplomatie-01 — 3.44 s, F0 246.8 Hz, pauses entre phrases [0.3] s
+    1. Face à une guerre, il y a a…   3/3    238.7  -0.37   -2.9      —  0.0    7.2  1.41  1:222~ 2:243~ 3:239
+    2. Que peut faire l'Onu ?        3/7    279.6  +2.37   -2.4   +4.5  5.9    5.7  1.11  1:300~ 2:493×! 3:280~ 4:406×! 5:436×! 6:368×! 7:307~
+         prise 2 : vocalise « faire » 0.32-0.92 s (net, +67 dB, confiance 0.90) [peut | l'Onu]
+         prise 4 : respiration 0.08-0.32 s (net, +50 dB, confiance 0.94) [Que | peut]
+         prise 4 : bruit 0.96-1.30 s (net, +47 dB, confiance 0.95) [l'Onu | fin]
+         prise 5 : rire 0.16-0.86 s (net, +52 dB, confiance 0.95) [peut | faire]
+         prise 5 : respiration 1.36-1.54 s (leger, +36 dB, confiance 0.64) [l'Onu | fin]
+         prise 6 : vocalise « l'Onu » 0.48-0.83 s (net, +46 dB, confiance 0.30) [faire | fin]
+         prise 6 : parole en trop 0.89-1.06 s (leger, +54 dB, confiance 0.87) [l'Onu | fin]
+      ⚠ phrase 2 : aucune prise acceptable : hauteur +2.37 dt de la cible
+  ukraine-diplomatie-02 — 5.57 s, F0 229.6 Hz, pauses entre phrases [0.3] s
+    1. À l'Onu, le Conseil de sécu…   1/3    229.2  -1.07   -7.2   -2.9  0.0    6.4  1.25  1:229 2:210~ 3:266
+    2. Cinq pays y sont membres pe…   4/4    232.1  -0.85   -3.8   +2.1  6.0    5.2  1.02  1:268~ 2:220~ 3:212~ 4:232
+  ukraine-diplomatie-03 — 2.72 s, F0 250.7 Hz
+    1. La France et la Russie en f…   3/3    250.7  +0.48   -6.9   +2.5  3.8    6.2  1.21  1:220~ 2:276~ 3:251
+  ukraine-diplomatie-04 — 5.12 s, F0 247.7 Hz, pauses entre phrases [0.3] s
+    1. Le vote négatif d'un seul d…   3/3    246.6  +0.20   -4.8   -0.8  6.0    6.0  1.17  1:219~ 2:258 3:247
+    2. On parle de droit de veto.    4/4    249.0  +0.37   -1.9   +3.2  4.8    7.0  1.37  1:217~ 2:234~ 3:207~ 4:249
+  ukraine-diplomatie-05 — 4.17 s, F0 240.2 Hz
+    1. La France comme la Russie p…   2/3    240.2  -0.26   -2.0   -0.3  1.9    4.9  0.95  1:234 2:240 3:228
+  ukraine-diplomatie-06 — 6.24 s, F0 247.3 Hz
+    1. Aide militaire et financièr…   2/3    247.3  +0.25   -2.9   +2.0  2.0    6.1  1.19  1:235 2:247 3:232
+  ukraine-diplomatie-07 — 3.12 s, F0 232.6 Hz
+    1. Mais sur l'attitude à adopt…   3/3    232.6  -0.81   -1.4   +3.4  2.9    6.5  1.26  1:226 2:214~ 3:233
+  ukraine-diplomatie-08 — 3.33 s, F0 236.5 Hz
+    1. Alors, quelle stratégie fac…   1/3    236.5  -0.53   -1.8   +3.5  4.4    6.4  1.24  1:236 2:257 3:232
+
+Alertes (1) :
+  aigue / ukraine-diplomatie-01 : phrase 2 : aucune prise acceptable : hauteur +2.37 dt de la cible
+
+Temps : 1513 s pour 171 prise(s), 8.54 s de calcul par prise en moyenne (3.55 s d'audio) ; calcul d'une prise ≈ 0.48 s + 2.31 s par seconde d'audio. Détecteur de sons parasites : 0.143 s par prise en moyenne (au plus 0.557 s), 2% du calcul d'une prise.
+Estimation pour les 1013 passages (1856 phrases) (voix aiguë 3 prises, 8% de secours) : ~981 min.

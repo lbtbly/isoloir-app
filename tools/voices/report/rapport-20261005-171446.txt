@@ -1,0 +1,182 @@
+Rapport de génération des voix — 2026-10-05 16:21:04
+Commande : generate.py --voice aigue --only industrie_economie
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  industrie-intro-01 — 5.19 s, F0 250.1 Hz, pauses entre phrases [0.33, 0.3, 0.27] s
+    1. Une usine ouvre ici, une au…   3/3    252.3  +0.59   -2.4      —  0.0    5.2  1.02  1:310×! 2:363~ 3:252
+         prise 1 : rire 0.24-0.48 s (net, +46 dB, confiance 0.86) [usine | ouvre]
+    2. Au bout du compte, la Franc…   2/3    243.4  -0.03   +2.5   +0.3  5.4    6.2  1.22  1:234 2:243 3:240
+  industrie-intro-02 — 8.51 s, F0 234.7 Hz, pauses entre phrases [0.37, 0.31] s
+    1. En deux mille vingt-cinq, e…   1/3    236.0  -0.56   -2.3   +0.1  0.0    5.9  1.16  1:236 2:220~? 3:255
+         prise 2 : respiration 4.72-4.93 s (leger, +26 dB, confiance 0.50) [neuf | fin]
+    2. En deux mille vingt-quatre,…   4/4    228.3  -1.14   -7.7   +2.9  2.3    5.9  1.14  1:223~ 2:276~ 3:274×! 4:228
+         prise 3 : parole en trop 0.08-0.57 s (net, +46 dB, confiance 0.95) [début | En]
+  industrie-intro-03 — 11.42 s, F0 240.3 Hz, pauses entre phrases [0.29, 0.31, 0.22] s
+    1. Fin juin deux mille vingt-s…   3/3    243.3  -0.04   -4.5   +4.2  6.0    5.6  1.10  1:248 2:246 3:243
+    2. C'est zéro virgule cinq pou…   3/3    236.7  -0.51   -2.5   +0.9  4.5    5.3  1.03  1:233 2:224×! 3:237
+         prise 2 : respiration 5.12-5.34 s (net, +33 dB, confiance 0.70) [neuf | fin]
+      passage assemblé : bruit 10.88-11.10 s (leger, +28 dB, confiance 0.58) [neuf | fin]
+  industrie-intro-04 — 7.31 s, F0 247.8 Hz, pauses entre phrases [0.18, 0.34] s
+    1. Côté échanges, la France im…   1/3    256.1  +0.85   -8.5   +3.0  2.5    5.7  1.11  1:256 2:229 3:221~
+    2. En deux mille vingt-cinq, s…   2/3    245.7  +0.13   -5.1   +3.2  6.0    6.7  1.30  1:256 2:246 3:246
+  industrie-intro-05 — 10.23 s, F0 231.9 Hz, pauses entre phrases [0.31, 0.16, 0.3] s
+    1. Pour soutenir les entrepris…   2/3    233.1  -0.78   -3.6   +1.3  5.1    5.8  1.13  1:218~ 2:233 3:218~
+    2. En mai deux mille vingt-cin…   1/3    229.9  -1.02   -2.5   +2.3  3.6    6.0  1.16  1:230 2:222~ 3:217~
+  industrie-intro-06 — 6.76 s, F0 232.5 Hz
+    1. Certaines décisions se pren…   2/3    232.5  -0.82   -4.3   +2.5  2.5    5.7  1.12  1:230 2:232 3:222~
+  industrie-intro-07 — 9.76 s, F0 246.7 Hz, pauses entre phrases [0.3, 0.37, 0.35] s
+    1. Alors, trois questions se p…   1/3    246.5  +0.19   -3.7   +1.6  4.3    5.2  1.00  1:246 2:340~ 3:217~
+    2. Quelle stratégie pour réind…   4/4    254.5  +0.74   +3.0   +6.5  6.0    5.2  1.01  1:220~ 2:281~ 3:240×! 4:254
+         prise 3 : parole en trop 0.00-0.46 s (net, +41 dB, confiance 0.95) [début | Quelle]
+    3. Comment protéger la product…   2/3    248.3  +0.32   -1.6   +1.9  3.0    6.7  1.31  1:272~ 2:248 3:261
+    4. Et que faire des aides publ…   3/3    241.9  -0.14   -0.6   +2.2  3.0    6.2  1.21  1:214~ 2:203~ 3:242
+  industrie-intro-08 — 3.41 s, F0 243.0 Hz
+    1. Dans les vidéos suivantes, …   2/3    243.0  -0.06   -1.9   +1.8  0.0    6.0  1.18  1:234 2:243 3:250
+  industrie-etat-01 — 5.56 s, F0 246.7 Hz, pauses entre phrases [0.42, 0.31, 0.26] s
+    1. Certaines entreprises ont u…   3/3    246.6  +0.20   -0.1      —  0.0    6.5  1.26  1:255 2:228~ 3:247
+    2. Que détient-il, et que peut…   3/3    246.8  +0.21   +0.6   +2.8  3.1    5.7  1.11  1:216~ 2:273~ 3:247
+  industrie-etat-02 — 9.04 s, F0 235.7 Hz, pauses entre phrases [0.21, 0.31] s
+    1. Au trente juin deux mille v…   2/3    241.8  -0.14   -6.4   +1.9  0.0    5.8  1.13  1:279~ 2:242 3:242
+    2. Leur valeur était estimée à…   1/3    231.7  -0.88   -2.7   +1.0  6.0    5.9  1.15  1:232 2:208~ 3:213~
+  industrie-etat-03 — 7.91 s, F0 242.7 Hz, pauses entre phrases [0.3, 0.26] s
+    1. Les sociétés cotées en Bour…   2/3    243.7  -0.01   -3.5   +2.5  2.7    5.7  1.11  1:228 2:244 3:247
+    2. Un an plus tôt, l'ensemble …   2/3    242.1  -0.12   -4.6   +2.0  3.5    5.1  1.00  1:235 2:242 3:231
+  industrie-etat-04 — 11.01 s, F0 244.5 Hz, pauses entre phrases [0.31, 0.31, 0.32] s
+    1. Mais toute aide publique à …   2/3    236.2  -0.55   -1.9   +0.1  4.6    6.0  1.17  1:210~ 2:236 3:230
+    2. Les aides qui faussent la c…   3/3    248.1  +0.30   -4.6   +3.9  1.9    6.0  1.16  1:236 2:239 3:248
+    3. Avec des exceptions, comme …   3/3    249.6  +0.41   -0.8   +1.1  4.6    5.4  1.05  1:211~ 2:259 3:250
+  industrie-etat-05 — 7.81 s, F0 241.9 Hz, pauses entre phrases [0.31, 0.31] s
+    1. Quand l'État prend une part…   3/3    251.1  +0.51   -6.9   +1.6  0.8    6.6  1.29  1:233~ 2:248 3:251
+    2. C'est le cas s'il n'agit pa…   2/3    236.2  -0.55   -1.3   +1.3  6.0    6.8  1.32  1:216~ 2:236 3:212×
+  industrie-etat-06 — 3.35 s, F0 236.0 Hz
+    1. Alors, quelle place pour l'…   3/3    236.0  -0.56   -1.8   +3.0  4.3    5.7  1.12  1:220~ 2:231 3:236
+  industrie-energie-01 — 5.99 s, F0 255.8 Hz, pauses entre phrases [0.26, 0.22, 0.24, 0.31] s
+    1. Un atelier, un commerce, un…   2/3    247.9  +0.29   -8.3      —  0.0    6.2  1.20  1:277~ 2:248 3:221~
+    2. Combien, en France ?          1/7    268.0  +1.64   +1.7   +6.3  6.0    3.6  0.71  1:268~? 2:349~ 3:308~ 4:353×! 5:340~ 6:280×? 7:322×!
+         prise 1 : respiration 0.00-0.16 s (leger, +44 dB, confiance 0.79) [début | Combien]
+         prise 4 : parole en trop 0.01-1.52 s (net, +60 dB, confiance 0.95) [début | Combien]
+         prise 6 : respiration 2.17-2.28 s (leger, +72 dB, confiance 0.95) [France | fin]
+         prise 7 : bruit 1.12-1.22 s (net, +64 dB, confiance 0.93) [France | fin]
+      passage assemblé : respiration 4.57-4.72 s (leger, +46 dB, confiance 0.84) [électricité | Combien]
+      ⚠ phrase 2 : aucune prise acceptable : hauteur +1.64 dt de la cible
+  industrie-energie-02 — 11.01 s, F0 233.2 Hz, pauses entre phrases [0.3] s
+    1. Prenons les entreprises qui…   1/3    242.9  -0.06   -0.7   +2.1  0.0    6.6  1.29  1:243 2:267~ 3:239
+    2. Au second semestre deux mil…   5/5    229.8  -1.02   -6.8   +1.4  0.7    4.7  0.91  1:257~ 2:225×! 3:254×! 4:245×! 5:230
+         prise 2 : rire 0.00-0.48 s (net, +50 dB, confiance 0.95) [début | semestre]
+         prise 2 : vocalise 5.65-5.84 s (net, +53 dB, confiance 0.89) [hors | TVA]
+         prise 3 : bruit 2.04-2.16 s (leger, +35 dB, confiance 0.70) [cinq | elles]
+         prise 3 : respiration 6.71-6.88 s (net, +48 dB, confiance 0.90) [hors | TVA]
+         prise 3 : respiration 7.20-7.63 s (net, +45 dB, confiance 0.92) [TVA | et]
+         prise 4 : respiration 6.34-6.56 s (net, +53 dB, confiance 0.95) [hors | TVA]
+      passage assemblé : respiration 8.67-9.04 s (net, +50 dB, confiance 0.95) [hors | TVA]
+      ⚠ son parasite dans le passage assemblé : respiration 8.67-9.04 s (net, +50 dB, confiance 0.95) [hors | TVA]
+  industrie-energie-03 — 9.58 s, F0 241.2 Hz, pauses entre phrases [0.3] s
+    1. En deux mille dix-neuf, au …   1/3    242.4  -0.10   -2.5   +2.7  6.0    4.9  0.95  1:242 2:225×! 3:255
+         prise 2 : respiration 0.05-0.16 s (net, +54 dB, confiance 0.95) [début | En]
+    2. Dans l'Union européenne, la…   1/3    238.0  -0.42   -3.4   +1.2  2.5    5.8  1.14  1:238 2:235 3:206~
+  industrie-energie-04 — 11.25 s, F0 235.5 Hz, pauses entre phrases [0.3, 0.31, 0.2] s
+    1. Un dispositif donnait aux f…   1/3    234.9  -0.64   -1.4   +4.0  3.4    6.0  1.18  1:235 2:230? 3:234?
+         prise 2 : respiration 4.63-4.80 s (leger, +17 dB, confiance 0.33) [d'EDF | jusqu'au]
+         prise 3 : mot étiré « d'EDF » 4.24-4.80 s (leger, confiance 0.48) [nucléaire | jusqu'au]
+         prise 3 : respiration 4.80-5.00 s (leger, +18 dB, confiance 0.34) [d'EDF | jusqu'au]
+    2. Depuis, ils achètent sur le…   2/3    242.1  -0.12   -5.5   +2.6  1.4    5.8  1.12  1:253 2:242 3:230
+  industrie-energie-05 — 5.92 s, F0 238.0 Hz
+    1. Et un versement nucléaire u…   1/3    238.0  -0.42   -5.1   +1.6  5.5    6.1  1.19  1:238 2:232 3:221~
+  industrie-energie-06 — 4.31 s, F0 242.8 Hz
+    1. Alors, quelle place pour le…   3/3    242.8  -0.07   -6.7   +5.3  6.0    5.1  0.99  1:228 2:222~ 3:243?
+         prise 3 : respiration 0.38-0.52 s (leger, +15 dB, confiance 0.30) [Alors | quelle]
+      passage assemblé : respiration 0.38-0.52 s (leger, +15 dB, confiance 0.30) [Alors | quelle]
+  industrie-commerce-01 — 4.12 s, F0 247.3 Hz
+    1. Votre téléphone, vos vêteme…   3/3    247.3  +0.25   -1.8      —  3.0    5.3  1.04  1:257 2:219~ 3:247
+  industrie-commerce-02 — 11.19 s, F0 234.2 Hz, pauses entre phrases [0.31] s
+    1. En deux mille vingt-cinq, l…   3/3    238.3  -0.40   -3.1   +2.3  0.0    5.8  1.14  1:230 2:218~ 3:238
+    2. Son déficit commercial : so…   4/4    228.0  -1.16   -6.8   +4.4  3.1    4.8  0.95  1:256~ 2:269~ 3:252~ 4:228
+  industrie-commerce-03 — 8.27 s, F0 240.4 Hz, pauses entre phrases [0.15, 0.21, 0.3] s
+    1. En deux mille vingt-quatre,…   2/3    240.4  -0.24   -4.4   +2.1  6.0    5.9  1.15  1:233 2:240 3:216~
+    2. Plus de treize sur cent.      2/3    241.6  -0.16   -4.1   +1.8  4.4    5.0  0.97  1:299~ 2:242 3:270~
+  industrie-commerce-04 — 14.24 s, F0 236.7 Hz, pauses entre phrases [0.31, 0.18, 0.31] s
+    1. La politique commerciale re…   1/3    245.2  +0.10   -2.2   +2.1  4.1    6.5  1.26  1:245 2:259× 3:220~
+    2. Depuis le trente octobre de…   3/3    231.1  -0.93   -2.9   +0.3  2.2    5.8  1.13  1:222~ 2:221~ 3:231
+    3. De sept virgule huit à tren…   3/3    245.1  +0.09   -3.3   +0.6  2.9    4.8  0.94  1:236 2:256 3:245
+  industrie-commerce-05 — 9.83 s, F0 248.2 Hz, pauses entre phrases [0.31, 0.17] s
+    1. L'Union négocie aussi les a…   3/3    257.6  +0.95   -3.7   +1.2  3.3    6.8  1.33  1:271~ 2:253~ 3:258
+    2. Celui avec le Mercosur, Arg…   3/3    245.0  +0.09   -3.9   +1.7  3.7    5.2  1.02  1:235 2:234 3:245?
+         prise 3 : respiration 1.29-1.44 s (leger, +54 dB, confiance 0.92) [Mercosur | Argentine]
+  industrie-commerce-06 — 9.85 s, F0 237.2 Hz, pauses entre phrases [0.32, 0.16] s
+    1. Le vingt et un janvier deux…   2/3    235.0  -0.64   -2.3   +2.1  3.9    6.6  1.28  1:228 2:235 3:225
+    2. Au vingt-sept avril deux mi…   3/3    242.7  -0.08   -2.2   +2.7  2.3    5.9  1.15  1:262 2:260 3:243
+  industrie-commerce-07 — 6.32 s, F0 237.4 Hz, pauses entre phrases [0.3, 0.15] s
+    1. D'un côté, la France import…   3/3    241.2  -0.19   -1.4   +2.1  2.2    5.5  1.08  1:254~ 2:222~ 3:241
+    2. De l'autre, une partie de s…   3/3    235.0  -0.64   -6.7   +3.1  1.4    5.8  1.12  1:220~ 2:229 3:235
+  industrie-commerce-08 — 4.12 s, F0 245.3 Hz
+    1. Alors, comment protéger la …   1/3    245.3  +0.11   -5.2   +5.7  6.0    5.6  1.09  1:245 2:223~ 3:252
+  industrie-achats-01 — 6.73 s, F0 247.2 Hz, pauses entre phrases [0.27, 0.15, 0.3] s
+    1. Une cantine, un hôpital, un…   2/3    251.5  +0.54   -2.3      —  0.0    5.1  1.00  1:219~ 2:252? 3:218~
+         prise 2 : bruit 2.29-2.40 s (leger, +36 dB, confiance 0.68) [route | les]
+    2. Peuvent-ils les réserver au…   2/3    236.1  -0.56   +6.5   -0.2  5.3    6.5  1.27  1:293~ 2:236 3:266
+      passage assemblé : bruit 2.29-2.40 s (leger, +34 dB, confiance 0.66) [route | les]
+  industrie-achats-02 — 10.21 s, F0 242.4 Hz, pauses entre phrases [0.18, 0.21, 0.3, 0.27] s
+    1. En deux mille vingt-trois, …   1/3    249.8  +0.42   -4.2   +1.0  0.0    5.5  1.08  1:250 2:231 3:233?
+         prise 3 : respiration 0.02-0.16 s (leger, +46 dB, confiance 0.81) [début | En]
+    2. C'est six pour cent du P.I.…   3/3    227.9  -1.17   -2.8   +0.7  4.2    6.1  1.18  1:216~ 2:202~ 3:228
+  industrie-achats-03 — 6.28 s, F0 241.4 Hz
+    1. Tous contrats compris, la C…   1/3    241.4  -0.17   -6.0   +2.7  2.8    5.5  1.08  1:241 2:251 3:229
+  industrie-achats-04 — 4.86 s, F0 245.5 Hz
+    1. Mais le droit européen inte…   2/3    245.5  +0.12   -8.2   +4.2  6.0    6.0  1.17  1:226 2:246? 3:233
+         prise 2 : respiration 4.40-4.55 s (leger, +36 dB, confiance 0.68) [locales | fin]
+      passage assemblé : respiration 4.40-4.55 s (leger, +36 dB, confiance 0.68) [locales | fin]
+  industrie-achats-05 — 10.35 s, F0 233.5 Hz, pauses entre phrases [0.23, 0.3, 0.3] s
+    1. En revanche, les acheteurs …   2/3    226.9  -1.24   -7.8   +1.5  6.0    5.6  1.10  1:220~ 2:227 3:204~
+    2. Et fixer des exigences envi…   3/3    237.1  -0.48   -1.4   +2.8  6.0    6.6  1.29  1:230 2:219~ 3:237
+  industrie-achats-06 — 9.14 s, F0 237.0 Hz, pauses entre phrases [0.28, 0.31] s
+    1. En mars deux mille vingt-si…   1/3    241.9  -0.14   -1.3   +0.8  1.4    5.8  1.14  1:242 2:228 3:228
+    2. Dans certains achats et aid…   1/3    231.6  -0.89   -2.8   +1.3  1.3    5.8  1.13  1:232 2:222~ 3:227
+  industrie-achats-07 — 9.93 s, F0 239.3 Hz, pauses entre phrases [0.2, 0.2, 0.17, 0.15, 0.31] s
+    1. Sont visés l'acier, le cime…   1/3    246.1  +0.16   -2.5   +3.4  2.8    6.0  1.17  1:246 2:233 3:216~
+    2. Le texte doit être négocié …   1/3    234.7  -0.66   -3.3   -1.0  2.5    5.5  1.07  1:235 2:226 3:223~
+  industrie-achats-08 — 3.14 s, F0 236.3 Hz
+    1. Alors, quelle place donner …   2/3    236.3  -0.54   -0.2   +2.0  6.0    6.9  1.34  1:225 2:236 3:228
+  industrie-aides-01 — 5.84 s, F0 239.8 Hz, pauses entre phrases [0.24, 0.3, 0.2] s
+    1. Subventions, crédits d'impô…   2/3    234.2  -0.70   -8.3      —  0.0    5.4  1.05  1:262 2:234 3:218~
+    2. Combien, au total ?           5/5    255.8  +0.83   +8.2   +1.9  6.0    5.5  1.07  1:373×! 2:348×! 3:308× 4:403×! 5:256
+         prise 1 : rire 0.69-1.04 s (net, +50 dB, confiance 0.95) [total | fin]
+         prise 2 : rire 0.43-0.88 s (net, +68 dB, confiance 0.95) [Combien | au]
+         prise 4 : respiration 1.20-1.29 s (leger, +45 dB, confiance 0.67) [total | fin]
+         prise 4 : respiration 1.36-1.41 s (leger, +25 dB, confiance 0.31) [total | fin]
+         prise 4 : rire 1.62-1.95 s (net, +61 dB, confiance 0.95) [total | fin]
+  industrie-aides-02 — 8.83 s, F0 243.9 Hz, pauses entre phrases [0.36] s
+    1. Tout dépend de ce que l'on …   1/3    230.3  -0.99   -1.0   -1.6  0.0    7.0  1.37  1:230 2:228~ 3:272~
+    2. En mai deux mille vingt-cin…   2/3    246.7  +0.20   -4.3   +3.4  1.0    6.1  1.19  1:226 2:247 3:230
+  industrie-aides-03 — 10.65 s, F0 242.5 Hz, pauses entre phrases [0.33, 0.54] s
+    1. La commission d'enquête du …   1/3    242.8  -0.07   -2.7   +0.8  4.3    6.5  1.27  1:243 2:253? 3:246
+         prise 2 : respiration 2.14-2.32 s (leger, +18 dB, confiance 0.34) [large | qui]
+    2. Elle arrive à deux cent onz…   2/3    242.4  -0.10   -0.5   +3.7  2.7    5.0  0.97  1:235 2:242 3:225×
+  industrie-aides-04 — 13.48 s, F0 233.9 Hz, pauses entre phrases [0.19, 0.17, 0.31, 0.21] s
+    1. Les allègements généraux de…   1/3    235.8  -0.58   -1.6   +2.1  0.5    5.7  1.10  1:236 2:229 3:232
+    2. La hausse vient en partie d…   3/3    231.6  -0.89   -2.0   +3.1  1.6    6.5  1.26  1:261? 2:254~? 3:232
+         prise 1 : bruit 4.08-4.27 s (leger, +27 dB, confiance 0.52) [neuf | fin]
+         prise 2 : bruit 4.24-4.43 s (leger, +32 dB, confiance 0.64) [neuf | fin]
+  industrie-aides-05 — 7.85 s, F0 243.3 Hz, pauses entre phrases [0.35, 0.26, 0.3] s
+    1. Leur effet sur l'emploi ?     1/3    242.7  -0.08   +0.8   +0.9  5.0    6.1  1.20  1:243 2:235 3:322~
+    2. Selon les évaluations citée…   3/3    243.3  -0.04   -0.5   +0.2  0.0    6.1  1.20  1:236 2:258 3:243
+    3. Les études récentes sont pl…   2/3    243.3  -0.04   -1.2   +1.7  0.5    5.9  1.16  1:228 2:243 3:255~
+  industrie-aides-06 — 12.26 s, F0 236.9 Hz, pauses entre phrases [0.25, 0.15, 0.33, 0.26] s
+    1. Une simulation, pour un rap…   3/3    235.5  -0.60   -5.2   -0.5  1.2    6.6  1.29  1:227 2:210~ 3:236
+    2. Pour les salaires intermédi…   2/3    241.2  -0.19   -2.9   +1.8  5.2    6.1  1.19  1:216~ 2:241 3:228
+  industrie-aides-07 — 7.46 s, F0 243.4 Hz
+    1. Certaines aides ont des con…   1/3    243.4  -0.03  -11.4   +1.3  2.9    6.6  1.29  1:243 2:228 3:218~
+  industrie-aides-08 — 10.81 s, F0 241.6 Hz, pauses entre phrases [0.32, 0.31, 0.26, 0.25] s
+    1. Le débat porte aussi sur le…   1/3    245.6  +0.13   +0.1   +0.1  6.0    6.1  1.19  1:246 2:239 3:242~
+    2. En deux mille vingt-cinq, l…   2/3    235.0  -0.64   -3.1   +1.7  0.0    6.6  1.29  1:257 2:235 3:247~
+    3. C'est cinq virgule un pour …   3/3    246.6  +0.20   -7.6   +4.0  3.1    5.1  1.00  1:274~ 2:254 3:247
+  industrie-aides-09 — 3.50 s, F0 245.1 Hz
+    1. Alors, combien d'aides, pou…   1/3    245.1  +0.09   +0.7   +1.2  6.0    6.0  1.17  1:245 2:261 3:259
+
+Alertes (2) :
+  aigue / industrie-energie-01 : phrase 2 : aucune prise acceptable : hauteur +1.64 dt de la cible
+  aigue / industrie-energie-02 : son parasite dans le passage assemblé : respiration 8.67-9.04 s (net, +50 dB, confiance 0.95) [hors | TVA]
+
+Temps : 3222 s pour 263 prise(s), 11.77 s de calcul par prise en moyenne (4.09 s d'audio) ; calcul d'une prise ≈ 0.03 s + 2.92 s par seconde d'audio. Détecteur de sons parasites : 0.188 s par prise en moyenne (au plus 0.432 s), 2% du calcul d'une prise.
+Estimation pour les 1013 passages (1855 phrases) (voix aiguë 3 prises, 4% de secours) : ~1155 min.

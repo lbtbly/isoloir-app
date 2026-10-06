@@ -1,0 +1,173 @@
+Rapport de génération des voix — 2026-10-05 17:14:47
+Commande : generate.py --voice aigue --only sante
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  sante-intro-01 — 2.87 s, F0 254.7 Hz, pauses entre phrases [0.3, 0.27] s
+    1. Vous tombez malade.           3/3    256.4  +0.87   -2.2      —  0.0    6.0  1.18  1:265 2:248×? 3:256
+         prise 2 : parole en trop 0.00-0.18 s (leger, +61 dB, confiance 0.86) [début | Vous]
+         prise 2 : respiration 1.33-1.43 s (leger, +30 dB, confiance 0.39) [malade | fin]
+    2. Qui vous soigne, et qui pai…   1/3    249.1  +0.37   -2.6   +1.7  5.2    5.3  1.04  1:249 2:273~ 3:275~
+  sante-intro-02 — 6.19 s, F0 224.4 Hz
+    1. En deux mille vingt-cinq, s…   3/3    224.4  -1.44   -2.6   +0.2  0.0    5.7  1.11  1:252 2:231×! 3:224
+         prise 2 : bruit 5.28-5.53 s (net, +41 dB, confiance 0.84) [dix | fin]
+  sante-intro-03 — 12.05 s, F0 237.4 Hz, pauses entre phrases [0.16, 0.18, 0.32, 0.21, 0.43, 0.16] s
+    1. Vos soins sont souvent payé…   3/3    247.1  +0.23   -1.7   +4.1  2.6    6.0  1.18  1:214~ 2:232 3:247
+    2. Ce reste à payer, en deux m…   2/3    231.3  -0.91   -5.0   +1.9  1.7    4.9  0.95  1:230 2:231 3:223~
+  sante-intro-04 — 8.15 s, F0 250.3 Hz
+    1. Le grand âge, aussi : en de…   2/3    250.3  +0.46   -3.5   +4.9  5.0    5.0  0.97  1:259 2:250 3:222~
+  sante-intro-05 — 6.95 s, F0 239.8 Hz
+    1. Et pour éviter les maladies…   2/3    239.8  -0.29   -2.0   +2.6  3.5    6.0  1.17  1:230 2:240 3:254
+  sante-intro-06 — 7.71 s, F0 239.6 Hz, pauses entre phrases [0.3, 0.35, 0.35, 0.35] s
+    1. Alors, quatre questions se …   3/3    244.7  +0.06   +0.6   +1.3  2.0    4.5  0.88  1:223~ 2:204~ 3:245
+    2. Comment mieux accéder aux s…   7/7    268.2  +1.65   +0.9   +2.4  3.0    6.3  1.23  1:301~ 2:262×! 3:279~ 4:307~ 5:256×! 6:392×! 7:268~
+         prise 2 : respiration 0.02-0.16 s (net, +60 dB, confiance 0.95) [début | Comment]
+         prise 5 : respiration 0.00-0.32 s (leger, +42 dB, confiance 0.77) [début | mieux]
+         prise 5 : parole en trop « Comment » 0.00-0.32 s (net, +52 dB, confiance 0.90) [début | mieux]
+         prise 6 : respiration 0.00-0.16 s (net, +60 dB, confiance 0.95) [début | Comment]
+    3. Qui rembourse quoi ?          3/3    230.2  -0.99   +0.3   -2.3  3.0    5.5  1.07  1:283~ 2:211~ 3:230
+    4. Comment accompagner le gran…   1/3    232.1  -0.85   +5.4   +3.3  3.0    6.2  1.20  1:232 2:217~ 3:267~
+    5. Et quelle place pour la pré…   3/3    227.2  -1.22   -2.8   -0.5  3.0    6.5  1.27  1:226 2:226~ 3:227
+      ⚠ phrase 2 : aucune prise acceptable : hauteur +1.65 dt de la cible
+  sante-intro-07 — 3.37 s, F0 242.2 Hz
+    1. Dans les vidéos suivantes, …   2/3    242.2  -0.11   -7.2   +1.8  0.0    5.9  1.15  1:242 2:242 3:242
+  sante-acces-01 — 4.82 s, F0 253.6 Hz, pauses entre phrases [0.17, 0.3] s
+    1. Vous cherchez un médecin tr…   4/4    249.7  +0.41   -3.7      —  0.0    6.8  1.33  1:270~ 2:266~ 3:214~ 4:250
+    2. En trouverez-vous un près d…   5/5    263.4  +1.34   +3.0   +3.1  6.0    8.1  1.59  1:318~ 2:302× 3:272~ 4:210× 5:263
+  sante-acces-02 — 4.97 s, F0 258.1 Hz
+    1. En deux mille vingt-cinq, s…   1/3    258.1  +0.99   -2.6   +1.6  0.0    5.6  1.10  1:258 2:242×! 3:218~
+         prise 2 : bruit 4.80-5.01 s (net, +38 dB, confiance 0.83) [dix | fin]
+  sante-acces-03 — 7.03 s, F0 234.0 Hz, pauses entre phrases [0.3] s
+    1. Et cela dépend des lieux.     6/6    241.5  -0.16   -3.6   +2.2  2.6    6.2  1.22  1:276~? 2:332~? 3:231~? 4:283~ 5:220~ 6:242
+         prise 1 : respiration 0.00-0.32 s (leger, +43 dB, confiance 0.65) [début | cela]
+         prise 1 : parole en trop « Et » 0.00-0.32 s (leger, +44 dB, confiance 0.46) [début | cela]
+         prise 2 : bruit 0.03-0.08 s (leger, +34 dB, confiance 0.61) [début | Et]
+         prise 3 : parole en trop 1.09-1.14 s (leger, +45 dB, confiance 0.61) [lieux | fin]
+    2. Les dix pour cent d'habitan…   5/5    231.5  -0.90   -2.8   +3.4  3.6    6.5  1.26  1:223~ 2:219~ 3:223~ 4:221~ 5:232
+  sante-acces-04 — 11.51 s, F0 244.8 Hz, pauses entre phrases [0.44, 0.23, 0.31, 0.32] s
+    1. Premières installations de …   3/3    247.5  +0.26   -7.3   +5.5  2.8    5.3  1.03  1:220~ 2:229 3:248
+    2. Là où ils manquent le plus,…   1/3    242.2  -0.11   -0.8   +1.9  6.0    6.2  1.20  1:242 2:251 3:221~
+  sante-acces-05 — 9.66 s, F0 239.8 Hz, pauses entre phrases [0.15, 0.3, 0.27, 0.19] s
+    1. Une proposition de loi adop…   3/3    240.9  -0.21   -5.8   +2.5  0.8    6.7  1.30  1:226 2:257 3:241
+    2. De droit là où les médecins…   3/3    238.5  -0.38   -1.5   +1.7  5.8    6.9  1.35  1:221~ 2:218~ 3:238
+  sante-acces-06 — 8.90 s, F0 243.4 Hz, pauses entre phrases [0.26, 0.3, 0.21] s
+    1. En commission, les sénateur…   3/3    250.8  +0.49   +1.1   +2.5  1.5    6.6  1.29  1:228 2:220~ 3:251
+    2. Un généraliste qui s'instal…   2/3    242.5  -0.09   -9.0   +1.1  0.0    6.5  1.28  1:228 2:242 3:247
+  sante-acces-07 — 8.95 s, F0 255.1 Hz, pauses entre phrases [0.23, 0.31, 0.18, 0.24] s
+    1. L'examen au Sénat, commencé…   3/3    250.9  +0.50   -2.0   +1.1  6.0    5.3  1.04  1:237 2:228 3:251
+    2. Autorisation d'un côté, eng…   3/3    260.6  +1.15   -7.0   +2.1  2.0    5.5  1.08  1:299~ 2:312~ 3:261
+  sante-acces-08 — 9.75 s, F0 242.0 Hz, pauses entre phrases [0.3] s
+    1. Côté hôpital, en deux mille…   2/3    242.9  -0.06   -7.5   +1.4  6.0    6.1  1.20  1:254 2:243 3:231
+    2. C'est un tarif par séjour o…   3/3    232.1  -0.85   -2.0   +0.3  6.0    5.2  1.01  1:259 2:260 3:232
+  sante-acces-09 — 12.83 s, F0 241.1 Hz, pauses entre phrases [0.22, 0.3, 0.28, 0.3, 0.19] s
+    1. En deux mille vingt-cinq, p…   1/3    236.0  -0.56   -2.6   +4.1  2.0    5.8  1.13  1:236 2:238 3:232
+    2. Surtout faute de capacités …   3/3    249.3  +0.39   -5.7   +4.2  2.6    5.6  1.09  1:230 2:236 3:249
+  sante-acces-10 — 4.53 s, F0 244.8 Hz
+    1. Médecins, hôpital, médicame…   2/3    244.8  +0.07   +0.8   +0.5  6.0    6.4  1.25  1:242 2:245 3:267~
+  sante-remboursements-01 — 4.06 s, F0 240.9 Hz, pauses entre phrases [0.2, 0.3] s
+    1. Une consultation, des lunet…   2/3    246.5  +0.19   -1.2      —  0.0    4.9  0.96  1:209~ 2:246 3:224
+    2. Qui paie la facture ?         3/7    195.8  -3.80   +2.0   +2.9  4.2    6.5  1.27  1:322~ 2:341×! 3:196~ 4:310~ 5:278×! 6:326~ 7:381~
+         prise 2 : vocalise « facture » 0.72-1.36 s (net, +48 dB, confiance 0.30) [la | fin]
+         prise 5 : rire 0.08-0.32 s (net, +48 dB, confiance 0.85) [Qui | paie]
+      ⚠ phrase 2 : aucune prise acceptable : hauteur -3.80 dt de la cible
+  sante-remboursements-02 — 6.75 s, F0 227.1 Hz
+    1. La plupart des soins sont p…   1/3    227.1  -1.23   -1.8   +2.9  0.0    5.8  1.14  1:227 2:258~ 3:244~
+  sante-remboursements-03 — 8.90 s, F0 245.2 Hz, pauses entre phrases [0.3, 0.19] s
+    1. Les complémentaires paient …   1/3    248.2  +0.31   -3.1   +1.8  1.8    5.6  1.10  1:248 2:238? 3:264
+         prise 2 : respiration 0.00-0.24 s (leger, +34 dB, confiance 0.64) [début | Les]
+    2. Mais soixante-neuf pour cen…   1/3    240.2  -0.26   -3.5   +3.9  3.1    6.3  1.23  1:240 2:249 3:260
+  sante-remboursements-04 — 10.46 s, F0 236.6 Hz, pauses entre phrases [0.3, 0.43, 0.17] s
+    1. Reste ce que paient les mén…   2/3    242.4  -0.10   -2.7   +2.6  3.5    5.4  1.05  1:237 2:242 3:247
+    2. Moyenne de l'Union européen…   1/3    233.2  -0.77   -3.1   +1.6  2.7    6.1  1.19  1:233 2:227 3:227
+  sante-remboursements-05 — 4.76 s, F0 234.6 Hz
+    1. Tout employeur privé doit o…   2/3    234.6  -0.67   -8.4   +2.1  3.1    6.1  1.19  1:234 2:235 3:232
+  sante-remboursements-06 — 10.65 s, F0 243.6 Hz, pauses entre phrases [0.3] s
+    1. En deux mille vingt-trois, …   1/3    240.1  -0.26   -2.5   +2.1  6.0    6.9  1.34  1:240 2:250 3:236
+    2. Et onze pour cent la complé…   2/3    248.0  +0.30   -0.2   +2.8  2.5    6.3  1.24  1:216~ 2:248 3:236?
+         prise 3 : respiration 2.30-2.38 s (leger, +15 dB, confiance 0.30) [solidaire | réservée]
+  sante-remboursements-07 — 5.88 s, F0 243.8 Hz
+    1. Sans aucune complémentaire …   2/3    243.8  +0.00   -1.1   +0.8  0.2    5.9  1.15  1:207~ 2:244? 3:216~
+         prise 2 : respiration 3.30-3.51 s (leger, +18 dB, confiance 0.35) [population | sept]
+      passage assemblé : respiration 3.30-3.51 s (leger, +18 dB, confiance 0.35) [population | sept]
+  sante-remboursements-08 — 9.81 s, F0 248.1 Hz, pauses entre phrases [0.22, 0.3, 0.23, 0.22] s
+    1. Gérer tout cela coûte dix-s…   2/3    236.3  -0.54   -8.0   +2.6  1.1    5.4  1.05  1:264 2:236 3:228
+    2. Dont neuf virgule deux pour…   2/3    259.7  +1.09   -4.4   +2.8  6.0    4.9  0.96  1:266 2:260 3:225
+  sante-remboursements-09 — 11.57 s, F0 240.7 Hz, pauses entre phrases [0.21, 0.36, 0.23, 0.15] s
+    1. En deux mille vingt-deux, l…   2/3    248.6  +0.34   -3.6   +0.6  4.4    7.1  1.38  1:230 2:249 3:233
+    2. Dans l'un d'eux, la Sécurit…   2/3    228.9  -1.09   -2.9   +2.0  3.6    5.8  1.14  1:223~ 2:229 3:215~
+  sante-remboursements-10 — 11.75 s, F0 247.6 Hz, pauses entre phrases [0.21, 0.3] s
+    1. Selon ce chiffrage, dix-hui…   1/3    248.8  +0.35   -5.5   +4.0  2.9    5.2  1.01  1:249 2:230 3:233
+    2. Des prélèvements obligatoir…   2/3    244.0  +0.01   -2.6   +1.1  5.5    5.9  1.16  1:230 2:244 3:252
+  sante-remboursements-11 — 1.63 s, F0 255.1 Hz
+    1. Alors, qui doit payer quoi …   2/3    255.1  +0.78   -8.6   +3.1  5.6    4.6  0.90  1:305~? 2:255 3:205~
+         prise 1 : respiration 0.32-0.48 s (leger, +45 dB, confiance 0.58) [Alors | qui]
+  sante-age-01 — 5.72 s, F0 242.9 Hz, pauses entre phrases [0.33, 0.24] s
+    1. Un proche âgé ne peut plus …   2/3    244.7  +0.06   -1.8      —  0.0    3.9  0.76  1:220~ 2:245 3:235?
+         prise 3 : respiration 2.16-2.31 s (leger, +38 dB, confiance 0.71) [aide | fin]
+    2. Où l'accompagner : chez lui…   3/3    234.5  -0.67   -1.9   +1.9  4.8    6.8  1.34  1:212~ 2:258 3:234
+  sante-age-02 — 10.45 s, F0 240.6 Hz, pauses entre phrases [0.3, 0.46] s
+    1. Dès soixante ans, les dépar…   3/3    232.7  -0.81   -2.7   +2.2  0.0    6.8  1.33  1:221~ 2:210~ 3:233?
+         prise 3 : respiration 0.74-0.89 s (leger, +22 dB, confiance 0.40) [ans | les]
+    2. Fin deux mille vingt-quatre…   1/3    247.2  +0.24   -5.2   +4.1  2.7    4.4  0.86  1:247 2:258 3:258~
+      passage assemblé : respiration 0.74-0.89 s (leger, +22 dB, confiance 0.41) [ans | les]
+  sante-age-03 — 11.32 s, F0 243.6 Hz, pauses entre phrases [0.36, 0.2, 0.25, 0.31] s
+    1. Fin deux mille vingt-trois,…   2/3    249.8  +0.42   -1.9   +1.4  5.2    5.9  1.15  1:236 2:250 3:256
+    2. Près de la moitié dans le p…   1/3    232.2  -0.84   -2.0   -0.7  1.9    5.0  0.98  1:232 2:231 3:278~
+  sante-age-04 — 10.28 s, F0 239.1 Hz, pauses entre phrases [0.35, 0.32, 0.19] s
+    1. À la même date, six cent qu…   1/3    250.1  +0.44   -3.2   +1.9  2.0    5.8  1.12  1:250 2:260 3:230
+    2. C'est quatre virgule cinq p…   3/3    232.1  -0.85   -0.7   -0.4  3.2    6.8  1.32  1:230 2:255? 3:232
+         prise 2 : respiration 2.80-2.98 s (leger, +40 dB, confiance 0.77) [neuf | fin]
+    3. Et quatre-vingt-cinq pour c…   3/3    235.7  -0.58   -1.6   +3.2  0.7    6.7  1.31  1:258~ 2:239~ 3:236
+  sante-age-05 — 8.08 s, F0 243.9 Hz, pauses entre phrases [0.15, 0.3, 0.3] s
+    1. Selon la statistique publiq…   2/3    243.9  +0.01   -6.8   +3.5  1.6    6.8  1.33  1:260 2:244 3:256
+    2. Ou d'un recul de la perte d…   2/3    244.0  +0.01   -2.0   +1.3  6.0    7.1  1.39  1:243 2:244 3:212~
+  sante-age-06 — 10.79 s, F0 243.9 Hz, pauses entre phrases [0.23, 0.3] s
+    1. Fin deux mille vingt-quatre…   3/3    243.3  -0.04   -8.0   +4.5  2.0    5.9  1.16  1:220~ 2:235 3:243
+    2. Et quarante-quatre pour cen…   3/3    250.6  +0.48   -4.3   +5.1  6.0    6.3  1.23  1:220~ 2:220×! 3:251
+         prise 2 : respiration 0.89-1.12 s (net, +47 dB, confiance 0.95) [quatre | pour]
+  sante-age-07 — 11.61 s, F0 237.9 Hz, pauses entre phrases [0.3, 0.15, 0.26, 0.16, 0.32, 0.26, 0.3] s
+    1. Fin deux mille vingt-trois,…   2/3    241.6  -0.16   -1.5   +3.1  4.3    5.3  1.04  1:218~ 2:242 3:257
+    2. Dont vingt-neuf au chevet :…   3/3    225.9  -1.32   -1.1   +2.1  1.5    5.5  1.08  1:218×! 2:270~ 3:226?
+         prise 1 : mot étiré « au » 0.32-0.88 s (net, +55 dB, confiance 0.83) [neuf | chevet]
+         prise 1 : respiration 0.48-0.88 s (leger, +51 dB, confiance 0.66) [au | chevet]
+         prise 3 : respiration 4.56-4.76 s (leger, +36 dB, confiance 0.67) [neuf | fin]
+  sante-age-08 — 11.91 s, F0 226.2 Hz, pauses entre phrases [0.23, 0.32, 0.25] s
+    1. En deux mille vingt-quatre,…   1/3    226.3  -1.29   -6.6   +2.3  1.1    5.4  1.06  1:226 2:225 3:213~
+    2. Soixante-dix-neuf pour cent…   4/4    224.1  -1.46   -2.4   +1.9  6.0    6.6  1.29  1:241×! 2:281~ 3:223×! 4:224
+         prise 1 : respiration 0.72-0.96 s (net, +46 dB, confiance 0.95) [neuf | pour]
+         prise 3 : mot étiré « seize » 2.48-3.04 s (net, confiance 0.59) [sociale | pour]
+  sante-age-09 — 4.99 s, F0 243.1 Hz
+    1. Alors, où accompagner le gr…   1/3    243.1  -0.05   +2.3   +2.8  5.4    6.9  1.34  1:243 2:237 3:232
+  sante-prevention-01 — 6.22 s, F0 251.5 Hz
+    1. Mieux manger, respirer un a…   1/3    251.5  +0.54   -4.4      —  0.0    6.8  1.32  1:252 2:231 3:262
+  sante-prevention-02 — 11.90 s, F0 239.6 Hz, pauses entre phrases [0.17, 0.15, 0.3, 0.22] s
+    1. En deux mille vingt-cinq, l…   1/3    240.5  -0.24   -0.2   +0.8  4.4    6.3  1.24  1:240 2:234 3:224
+    2. C'est six virgule huit pour…   2/3    239.5  -0.31   -5.9   +1.8  0.2    5.1  0.99  1:250~ 2:240 3:254~
+  sante-prevention-03 — 8.71 s, F0 238.9 Hz, pauses entre phrases [0.17, 0.3, 0.2] s
+    1. Côté budget, les dépenses d…   2/3    233.1  -0.78   -7.7   +2.5  5.9    6.5  1.26  1:208~ 2:233 3:220~
+    2. Chaque automne, le Parlemen…   3/3    246.5  +0.19   -8.3   +6.3  6.0    5.7  1.11  1:212~ 2:234 3:246
+  sante-prevention-04 — 9.18 s, F0 248.1 Hz, pauses entre phrases [0.3, 0.22] s
+    1. Côté alimentation, le Nutri…   1/3    263.9  +1.37   -5.1   +3.8  6.0    5.8  1.13  1:264 2:251~ 3:267~
+    2. Le droit européen le permet…   1/3    241.8  -0.14   -3.5   +0.0  5.1    5.4  1.06  1:242 2:240 3:230
+  sante-prevention-05 — 11.98 s, F0 239.6 Hz, pauses entre phrases [0.3] s
+    1. En juin deux mille vingt-qu…   3/3    248.4  +0.32   +0.1   +2.8  3.5    5.4  1.06  1:226? 2:229 3:248
+         prise 1 : respiration 4.48-4.66 s (leger, +21 dB, confiance 0.40) [l'afficher | contre]
+    2. Leurs marques font soixante…   3/3    230.3  -0.99   -4.0   +0.6  0.0    5.3  1.03  1:230~ 2:247 3:230
+  sante-prevention-06 — 9.93 s, F0 235.4 Hz, pauses entre phrases [0.25, 0.15, 0.3] s
+    1. Côté air intérieur, depuis …   1/3    235.8  -0.58   -7.7   +2.0  4.0    5.4  1.06  1:236 2:230 3:264
+    2. Ils doivent aussi établir u…   3/3    233.6  -0.74   -1.4   +2.6  6.0    7.3  1.42  1:262 2:239~ 3:234
+  sante-prevention-07 — 10.35 s, F0 243.6 Hz, pauses entre phrases [0.31] s
+    1. La pollution de l'air intér…   1/3    233.6  -0.74   -1.9   +3.5  1.4    6.8  1.32  1:234 2:237 3:234
+    2. C'est l'estimation d'une ét…   3/3    249.4  +0.39   -6.0   +2.5  1.9    5.6  1.09  1:223~ 2:266~ 3:249?
+         prise 3 : respiration 3.20-3.44 s (leger, +32 dB, confiance 0.62) [quatorze | sur]
+      passage assemblé : respiration 7.52-7.76 s (leger, +31 dB, confiance 0.58) [quatorze | sur]
+  sante-prevention-08 — 4.74 s, F0 226.4 Hz
+    1. Budgets, alimentation, air …   2/3    226.4  -1.28   -7.1   +0.8  6.0    4.9  0.96  1:219~ 2:226 3:263
+
+Alertes (2) :
+  aigue / sante-intro-06 : phrase 2 : aucune prise acceptable : hauteur +1.65 dt de la cible
+  aigue / sante-remboursements-01 : phrase 2 : aucune prise acceptable : hauteur -3.80 dt de la cible
+
+Temps : 3384 s pour 260 prise(s), 12.5 s de calcul par prise en moyenne (4.22 s d'audio) ; calcul d'une prise ≈ 1.00 s + 2.77 s par seconde d'audio. Détecteur de sons parasites : 0.2 s par prise en moyenne (au plus 0.563 s), 2% du calcul d'une prise.
+Estimation pour les 1013 passages (1856 phrases) (voix aiguë 3 prises, 7% de secours) : ~1214 min.

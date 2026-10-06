@@ -1,0 +1,161 @@
+/* Isoloir : monde « Le dépouillement ».
+   Encres : l'imprimé (faits, formulaire, positions), le bleu bille (ce que l'utilisateur coche) et le
+   stylo rouge (ses lignes rouges). Les pourcentages d'affinité se lisent sur une échelle rouge → vert.
+   Le jaune autocopiant porte le double : l'image partagée (couleurs dans core/shareImage.ts) et, à l'écran, les aplats
+   qui le montrent (affiche du parcours, parcours du candidat, affiche du plus proche, premier panneau des suites).
+   Les quatre pastels du rideau (logo) habillent les autres aplats : un décor, jamais une donnée. */
+
+:root {
+  color-scheme: light;
+
+  /* Papier et encres */
+  --paper: #ffffff;
+  --print: #17191c;
+  --print-soft: #4a4f57;
+  --rule: #c9cbcf;
+  --rule-strong: #17191c;
+  --ink: #1f3bb3;
+  --on-print: #ffffff;
+  --focus: #1f3bb3;
+
+  /* Stylo rouge : les lignes rouges de l'utilisateur (approches rayées, candidats concernés) */
+  --red: #c90f1a;
+
+  /* Échelle d'affinité (texte sur papier ≥ 5:1, texte sur teinte ≥ 4,5:1) — oklch, rouge → vert */
+  --aff-tres-eloigne: #b7191c;
+  --aff-eloigne: #b44f00;
+  --aff-mitige: #636363;
+  --aff-proche: #53760e;
+  --aff-tres-proche: #00722e;
+  --aff-tres-eloigne-tint: #ffe6e2;
+  --aff-eloigne-tint: #ffece1;
+  --aff-mitige-tint: #eeeeee;
+  --aff-proche-tint: #ebf7de;
+  --aff-tres-proche-tint: #dcf7e1;
+
+  /* Jaune autocopiant : le double qu'on emporte (affiche, aperçu du parcours). Il ne change pas en sombre. */
+  --copy: #f2e7a6;
+  --copy-print: #1d1b10;
+  --copy-print-soft: #4f4823;
+  /* Sur le double jaune, en clair comme en sombre : l'encre et l'échelle claires */
+  --copy-ink: #1f3bb3;
+  --copy-red: #c90f1a;
+  --copy-aff-tres-eloigne: #b7191c;
+  --copy-aff-eloigne: #9c4400;
+  --copy-aff-mitige: #5a5a5a;
+  --copy-aff-proche: #4a690c;
+  --copy-aff-tres-proche: #00672a;
+
+  /* Les quatre pastels du rideau, en aplats : panneaux, fiches bristol. Mêmes teintes que le logo
+     (core/brand.ts, PASTELS), dans l'ordre du drapé : vert, rouge, jaune, bleu. Ensemble, ils couvrent
+     tout l'échiquier ; un seul ne désigne personne. Ils se distribuent toujours dans l'ordre, jamais
+     selon un candidat, un thème ou une famille d'idées, et ne disent rien d'un score (l'échelle
+     d'affinité garde ses propres teintes).
+     Éclaircis pour porter toutes les encres de la feuille à 4,5:1 au moins (imprimé 15:1, gris 7:1,
+     bille, rouge stylo, échelle d'affinité). Le bleu, plus soutenu pour rester bleu, porte imprimé, gris,
+     bille et rouge stylo, mais pas l'orangé-brun ni le vert olive en petit texte (4,3 et 4,4:1) : pas
+     de réglette ni de dépouillement sur un aplat bleu. */
+  --pastel-vert: #d5f9e0;
+  --pastel-rouge: #ffece7;
+  --pastel-jaune: #fbf1c7;
+  --pastel-bleu: #dcebff;
+
+  /* Typographie */
+  --font: 'Archivo Variable', 'Archivo', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --text: 1.0625rem;
+  --text-sm: 0.9375rem;
+  --text-xs: 0.8125rem;
+  --leading: 1.55;
+  --measure: 66ch;
+
+  /* Espacements : groupes serrés, séparations franches */
+  --s1: 0.25rem;
+  --s2: 0.5rem;
+  --s3: 0.75rem;
+  --s4: 1rem;
+  --s5: 1.5rem;
+  --s6: 2rem;
+  --s7: 3rem;
+  --s8: 4rem;
+
+  --gutter: clamp(1rem, 4.5vw, 2.5rem);
+  --sheet: 46rem;
+  --margin-col: 2.75rem;
+  --bar-h: 4.5rem;
+
+  /* Traits */
+  --hair: 1px;
+  --line: 1.5px;
+  --thick: 3px;
+
+  /* Mouvement : décélération exponentielle, jamais de rebond */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-stroke: 220ms;
+  --t-quick: 140ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* Papier carbone : la même feuille, vue en négatif */
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --paper: #111419;
+    --print: #e9eae5;
+    --print-soft: #aab0b8;
+    --rule: #333944;
+    --rule-strong: #e9eae5;
+    --ink: #9aaeff;
+    --on-print: #111419;
+    --focus: #9aaeff;
+    --red: #fa6863;
+    --aff-tres-eloigne: #f9786c;
+    --aff-eloigne: #f9a275;
+    --aff-mitige: #b1b1b1;
+    --aff-proche: #acd476;
+    --aff-tres-proche: #67d283;
+    --aff-tres-eloigne-tint: #47211d;
+    --aff-eloigne-tint: #402719;
+    --aff-mitige-tint: #262626;
+    --aff-proche-tint: #273219;
+    --aff-tres-proche-tint: #14361d;
+    /* Pastels en papier carbone : même teinte, aplat sombre ; toutes les encres claires y passent
+       4,5:1 au moins (imprimé 11:1, gris 6:1, rouge stylo 4,8:1) */
+    --pastel-vert: #1b3122;
+    --pastel-rouge: #3d241f;
+    --pastel-jaune: #322b13;
+    --pastel-bleu: #1e2c3f;
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --paper: #111419;
+  --print: #e9eae5;
+  --print-soft: #aab0b8;
+  --rule: #333944;
+  --rule-strong: #e9eae5;
+  --ink: #9aaeff;
+  --on-print: #111419;
+  --focus: #9aaeff;
+  --red: #fa6863;
+  --aff-tres-eloigne: #f9786c;
+  --aff-eloigne: #f9a275;
+  --aff-mitige: #b1b1b1;
+  --aff-proche: #acd476;
+  --aff-tres-proche: #67d283;
+  --aff-tres-eloigne-tint: #47211d;
+  --aff-eloigne-tint: #402719;
+  --aff-mitige-tint: #262626;
+  --aff-proche-tint: #273219;
+  --aff-tres-proche-tint: #14361d;
+  --pastel-vert: #1b3122;
+  --pastel-rouge: #3d241f;
+  --pastel-jaune: #322b13;
+  --pastel-bleu: #1e2c3f;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --t-stroke: 0ms;
+    --t-quick: 0ms;
+  }
+}

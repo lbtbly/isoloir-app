@@ -1,0 +1,1927 @@
+/* Comment marche Isoloir : le film, héros de l'accueil.
+   Chaque geste est une animation CSS dont le départ (--d) et la durée (--dur) sont écrits dans la
+   partition (src/ui/film). Les gestes ne jouent que dans la scène en cours (.is-play) ; ailleurs, et
+   dans les images fixes, la feuille montre directement l'état final. La pause fige tout.
+   Mêmes encres que la feuille : imprimé noir, tons de la réglette, stylo rouge, bleu bille qui compte,
+   jaune autocopiant pour le seul double. */
+
+@property --film-n {
+  syntax: '<integer>';
+  inherits: false;
+  initial-value: 0;
+}
+
+/* ——— La scène : sans cadre, elle fait partie de la page ; légende et image ——— */
+
+.film {
+  container: film / inline-size;
+}
+
+.film-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  gap: var(--s4);
+  overflow: hidden;
+}
+
+/* Les cinq scènes occupent la même place : le cadre prend la hauteur de la plus grande, rien ne saute */
+.film-scene {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+  min-width: 0;
+}
+
+.film-scene.is-off {
+  visibility: hidden;
+}
+
+/* Téléphone : le numéro devant le titre, la phrase dessous, l'image en dessous */
+.film-caption {
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: var(--s3);
+  align-items: baseline;
+  align-content: start;
+  min-width: 0;
+}
+
+.film-visual {
+  grid-row: 2;
+  align-self: start;
+  min-width: 0;
+}
+
+.film-art {
+  container: art / inline-size;
+  min-width: 0;
+}
+
+.film-n {
+  margin: 0;
+  font-weight: 850;
+  font-stretch: 70%;
+  font-size: 2.3rem;
+  line-height: 0.8;
+  font-variant-numeric: tabular-nums;
+}
+
+.film-h {
+  overflow-wrap: break-word;
+  margin: 0 0 var(--s2);
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: clamp(1.6rem, 8.2cqi, 2.4rem);
+  line-height: 1;
+  letter-spacing: -0.006em;
+  max-width: 15ch;
+}
+
+.film-p {
+  grid-column: 1 / -1;
+  margin: 0;
+  max-width: 36ch;
+  font-size: 1rem;
+  line-height: 1.42;
+}
+
+/* Le mot « idées », entouré au stylo dans le ton de « D'accord », comme sur l'accueil */
+.film-mark {
+  position: relative;
+  display: inline-block;
+}
+
+.film-loop {
+  position: absolute;
+  left: -16%;
+  top: -0.27em;
+  width: 132%;
+  height: auto;
+  aspect-ratio: 120 / 58;
+  overflow: visible;
+  pointer-events: none;
+  fill: none;
+  stroke: var(--aff-tres-proche);
+  stroke-width: 2.3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* L'appel final : sous l'affiche sur téléphone, sous la légende sur grand écran */
+.film-cta {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s2) var(--s4);
+  margin: var(--s4) 0 0;
+}
+
+.film-cta.is-wide {
+  display: none;
+}
+
+.film-cta .btn-primary {
+  max-width: 100%;
+  hyphens: auto;
+}
+
+.film-cta-note {
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+@container film (min-width: 48rem) {
+  /* Le héros remplit l'écran sous l'en-tête, en gardant les commandes visibles */
+  .film-stage {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    grid-template-rows: minmax(0, 1fr);
+    gap: var(--s7);
+    min-height: clamp(28rem, calc(100dvh - var(--header-real, 4rem) - 9rem), 44rem);
+  }
+
+  .film-caption {
+    display: block;
+    grid-row: 1;
+    grid-column: 1;
+    align-self: center;
+  }
+
+  .film-visual {
+    grid-row: 1;
+    grid-column: 2;
+    align-self: center;
+  }
+
+  .film-n {
+    font-size: 3.5rem;
+  }
+
+  .film-h {
+    font-size: clamp(2.4rem, 4.6cqi, 3.6rem);
+    margin: var(--s4) 0;
+  }
+
+  .film-p {
+    font-size: 1.1875rem;
+    line-height: 1.45;
+  }
+
+  .film-cta.is-wide {
+    display: flex;
+    margin-top: var(--s5);
+  }
+
+  .film-cta.is-narrow {
+    display: none;
+  }
+}
+
+/* ——— Gestes ——— */
+
+.film-scene.is-play .fa-fade {
+  animation: film-fade var(--dur, 450ms) var(--ease-out) var(--d, 0ms) both;
+}
+
+.film-scene.is-play .fa-rise {
+  animation: film-rise var(--dur, 550ms) var(--ease-out) var(--d, 0ms) both;
+}
+
+.film-scene.is-play .fa-grow {
+  transform-origin: left center;
+  animation: film-grow var(--dur, 600ms) var(--ease-out) var(--d, 0ms) both;
+}
+
+.film-scene.is-play .fa-stamp {
+  animation: film-stamp var(--dur, 350ms) var(--ease-out) var(--d, 0ms) both;
+}
+
+/* Un trait d'encre se dessine (pathLength = 1) */
+.film-scene.is-play .fa-draw,
+.film-scene.is-play .film-loop path,
+.film-scene.is-play .fr-loop path,
+.film-scene.is-play .fs-cross path,
+.film-scene.is-play .fd-flag path,
+.film-scene.is-play .fc-cross path {
+  stroke-dasharray: 1 2;
+  animation: film-draw var(--dur, 500ms) var(--ease-out) var(--d, 0ms) both;
+}
+
+/* La croix : le second trait part un peu après le premier */
+.film-scene.is-play .ink-cross .ink-second {
+  animation-delay: calc(var(--d, 0ms) + 140ms);
+}
+
+@keyframes film-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes film-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.6rem);
+  }
+}
+
+@keyframes film-grow {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes film-stamp {
+  from {
+    opacity: 0;
+    transform: scale(1.25);
+  }
+}
+
+@keyframes film-draw {
+  from {
+    stroke-dashoffset: 1.02;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Pause : tout se fige, les bâtons comme le reste */
+.film.is-paused *,
+.film.is-paused *::before,
+.film.is-paused *::after {
+  animation-play-state: paused !important;
+}
+
+/* Bâtons : même départ sans point d'encre */
+.film-scene.is-play .tally path.ink-draw {
+  stroke-dasharray: 1 2;
+  stroke-dashoffset: 1.02;
+}
+
+/* Hors de la scène en cours, les bâtons sont déjà tracés */
+.film-scene:not(.is-play) path.ink-draw {
+  animation: none;
+  stroke-dashoffset: 0;
+}
+
+/* Le bouton n'est atteignable qu'une fois visible */
+.film-scene.is-play .film-cta {
+  animation-name: film-rise-in;
+}
+
+@keyframes film-rise-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(0.6rem);
+  }
+}
+
+/* ——— 1 et 2. La feuille ——— */
+
+.fs {
+  --lc: 1.75rem;
+  --cw: 3.4rem;
+  font-size: 0.9375rem;
+  line-height: 1.35;
+}
+
+.fs-prompt {
+  margin: 0 0 var(--s3);
+  font-weight: 800;
+  font-stretch: 76%;
+  font-size: clamp(1.15rem, 5.6cqi, 1.75rem);
+  line-height: 1.08;
+}
+
+.fs-head {
+  display: none;
+}
+
+.fs-rows {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Filet fort au-dessus de la liste */
+.fs-rows::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  border-top: var(--line) solid var(--rule-strong);
+}
+
+.film-scene.is-play .fs-rows.fa-rule::before,
+.film-scene.is-play .fs-rows.fa-rule .fs-row::after {
+  transform-origin: left center;
+  animation: film-grow var(--dur, 600ms) var(--ease-out) var(--d, 0ms) both;
+}
+
+.fs-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--lc) minmax(0, 1fr);
+  grid-template-areas:
+    'letter text'
+    'letter who';
+  gap: 0.35rem var(--s3);
+  align-items: center;
+  padding: 0.6rem 0;
+}
+
+.fs-row::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-bottom: var(--hair) solid var(--rule);
+}
+
+.fs-row:last-child::after {
+  border-bottom: var(--line) solid var(--rule-strong);
+}
+
+.fs-letter {
+  grid-area: letter;
+  align-self: start;
+  font-weight: 800;
+  font-stretch: 80%;
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+
+.fs-text {
+  grid-area: text;
+  min-width: 0;
+}
+
+/* Qui porte l'approche : un nom imprimé, puis un point d'interrogation */
+.fs-who {
+  grid-area: who;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: start;
+  align-items: center;
+}
+
+.fs-who > * {
+  grid-area: 1 / 1;
+}
+
+.fs-named,
+.fs-flip-out,
+.fs-anon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  max-width: 100%;
+}
+
+.fs-chip {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 1.85rem;
+  height: 1.85rem;
+  border-radius: 999px;
+  background: var(--print);
+  color: var(--on-print);
+  font-weight: 800;
+  font-stretch: 80%;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.fs-chip.is-anon {
+  background: var(--paper);
+  color: var(--print);
+  border: var(--line) dashed var(--print);
+  font-size: 1rem;
+}
+
+.fs-name {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* La barre cède de la place quand la colonne se resserre (texte agrandi) */
+.fs-bar {
+  display: block;
+  flex: 0 1 auto;
+  width: 4.75rem;
+  min-width: 1.5rem;
+  height: 0.5rem;
+  border-radius: 1px;
+  background: var(--rule);
+}
+
+/* État final : le nom a basculé, il ne reste que le point d'interrogation */
+.fs-flip-out {
+  opacity: 0;
+  transform: rotateX(90deg);
+}
+
+.film-scene.is-play .fs-flip-out {
+  animation: film-flip-out var(--dur, 280ms) cubic-bezier(0.7, 0, 0.84, 0) var(--d, 0ms) both;
+}
+
+.film-scene.is-play .fs-flip-in {
+  animation: film-flip-in var(--dur, 340ms) var(--ease-out) var(--d, 0ms) both;
+}
+
+@keyframes film-flip-out {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+  to {
+    opacity: 0;
+    transform: rotateX(90deg);
+  }
+}
+
+@keyframes film-flip-in {
+  from {
+    opacity: 0;
+    transform: rotateX(-90deg);
+  }
+}
+
+/* Scène 2 : la réglette et la case « ligne rouge » */
+.fs.is-rating .fs-row {
+  grid-template-columns: var(--lc) minmax(0, 1fr) 2.75rem;
+  grid-template-areas:
+    'letter text text'
+    'letter ruler box';
+  row-gap: 0.1rem;
+  padding: 0.55rem 0 0.95rem;
+}
+
+.fs-legend {
+  display: grid;
+  grid-template-columns: var(--lc) minmax(0, 1fr) 2.75rem;
+  grid-template-areas: '. crans red';
+  column-gap: var(--s3);
+  align-items: end;
+  padding-bottom: 0.45rem;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  line-height: 1.12;
+}
+
+.fs-legend-crans {
+  grid-area: crans;
+  display: grid;
+  grid-template-columns: repeat(3, var(--cw));
+  align-items: end;
+  text-align: center;
+  font-stretch: 85%;
+}
+
+.fs-legend-crans span {
+  padding: 0 1px;
+  color: var(--tone);
+  hyphens: auto;
+}
+
+.fs-legend-crans [data-tone='mitige'] {
+  color: var(--print-soft);
+  font-weight: 400;
+}
+
+.fs-legend-red {
+  grid-area: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  text-align: center;
+  color: var(--red);
+}
+
+.fs-legend-red .icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  stroke-width: 2.2;
+}
+
+/* La rature de l'approche rayée : un trait rouge qui court sur le texte, ligne après ligne */
+.fs-row.is-redline .fs-strike {
+  color: var(--print-soft);
+  background: linear-gradient(var(--red), var(--red)) no-repeat 0 58% / 100% 2px;
+}
+
+.film-scene.is-play .fs-row.is-redline .fs-strike {
+  animation: film-strike var(--dur, 700ms) var(--ease-out) var(--d, 0ms) both;
+}
+
+@keyframes film-strike {
+  from {
+    color: var(--print);
+    background-size: 0% 2px;
+  }
+}
+
+.fs-box {
+  grid-area: box;
+  position: relative;
+  justify-self: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  color: var(--print);
+}
+
+.fs-row.is-redline .fs-box {
+  color: var(--red);
+}
+
+.film-scene.is-play .fs-row.is-redline .fs-box {
+  animation: film-to-red 200ms linear var(--d2, 0ms) both;
+}
+
+@keyframes film-to-red {
+  from {
+    color: var(--print);
+  }
+}
+
+.fs-box-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+.fs-cross {
+  position: absolute;
+  inset: 0;
+}
+
+.fs-cross .ink-cross {
+  stroke-width: 2.6;
+}
+
+/* La réglette du film : trois crans sur un filet ; le repère part du centre et se pose */
+.fr {
+  grid-area: ruler;
+  justify-self: start;
+  position: relative;
+  display: grid;
+  width: calc(3 * var(--cw));
+  grid-template-columns: repeat(3, var(--cw));
+  height: 2.5rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.fr-line {
+  position: absolute;
+  left: calc(var(--cw) / 2);
+  right: calc(var(--cw) / 2);
+  top: 50%;
+  border-top: var(--line) solid var(--print);
+}
+
+.fr-tick,
+.fr-open,
+.fr-mark {
+  grid-row: 1;
+}
+
+.fr-tick {
+  display: grid;
+}
+
+.fr-tick-line {
+  width: var(--line);
+  height: 1.15rem;
+  background: var(--print);
+}
+
+/* Le trait du cran choisi s'efface sous le repère, qui le remplace */
+.fr-tick-line.is-hit {
+  opacity: 0;
+}
+
+.film-scene.is-play .fr-tick-line.is-hit {
+  animation: film-out var(--dur, 200ms) linear var(--d, 0ms) both;
+}
+
+@keyframes film-out {
+  from {
+    opacity: 1;
+  }
+}
+
+.fr-tick.is-a {
+  grid-column: 1;
+}
+
+.fr-tick.is-c {
+  grid-column: 3;
+}
+
+.fr-open {
+  grid-column: 2;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--paper);
+  box-shadow: inset 0 0 0 var(--line) var(--print);
+}
+
+.fr-mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.fr.is-up .fr-mark {
+  --from: calc(-1 * var(--cw));
+  grid-column: 3;
+}
+
+.fr.is-down .fr-mark {
+  --from: var(--cw);
+  grid-column: 1;
+}
+
+.fr-dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--tone);
+}
+
+.fr-loop-at {
+  position: absolute;
+  inset: 0;
+}
+
+.ink.fr-loop {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-6deg);
+  stroke: var(--tone);
+  stroke-width: 2.1;
+}
+
+.film-scene.is-play .fr-mark {
+  animation: film-slide var(--dur, 560ms) var(--ease-out) var(--d, 0ms) both;
+}
+
+@keyframes film-slide {
+  0% {
+    opacity: 0;
+    transform: translateX(var(--from));
+  }
+  22% {
+    opacity: 1;
+    transform: translateX(var(--from));
+  }
+}
+
+.fr-word {
+  position: absolute;
+  top: calc(100% - 0.3rem);
+  font-size: var(--text-xs);
+  font-weight: 750;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--tone);
+}
+
+.fr.is-up .fr-word {
+  right: 0;
+}
+
+.fr.is-down .fr-word {
+  left: 0;
+}
+
+@container art (min-width: 30rem) {
+  .fs {
+    --lc: 2.25rem;
+    --cw: 3.75rem;
+    font-size: 1rem;
+  }
+
+  .fs-head {
+    display: grid;
+    grid-template-columns: var(--lc) minmax(0, 1fr) 9.5rem;
+    column-gap: var(--s3);
+    padding-bottom: 0.4rem;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    color: var(--print-soft);
+  }
+
+  .fs-head-who {
+    grid-column: 3;
+  }
+
+  .fs-row {
+    grid-template-columns: var(--lc) minmax(0, 1fr) 9.5rem;
+    grid-template-areas: 'letter text who';
+    padding: 0.95rem 0;
+  }
+
+  .fs-letter {
+    align-self: center;
+  }
+
+  .fs.is-rating .fs-row {
+    grid-template-columns: var(--lc) minmax(0, 1fr) calc(3 * var(--cw)) 3.5rem;
+    grid-template-areas: 'letter text ruler box';
+    padding: 0.8rem 0 1.15rem;
+  }
+
+  .fs-legend {
+    grid-template-columns: var(--lc) minmax(0, 1fr) calc(3 * var(--cw)) 3.5rem;
+    grid-template-areas: '. . crans red';
+  }
+}
+
+/* Image étroite (petit écran, texte agrandi) : la réglette passe sous la lettre et prend la largeur,
+   ses crans se resserrent avec le cadre */
+@container art (max-width: 16.4rem) {
+  .fs {
+    --lc: 1.4rem;
+  }
+
+  .fs-row,
+  .fs-legend {
+    column-gap: var(--s2);
+  }
+
+  .fs.is-rating {
+    --cw: min(3.4rem, calc((100cqi - 3rem - var(--s2)) / 3));
+  }
+
+  /* Un léger retrait : le repère, un peu plus large que son cran, ne touche pas le bord */
+  .fr,
+  .fs-legend-crans {
+    margin-left: 0.25rem;
+  }
+
+  .fs.is-rating .fs-row {
+    grid-template-areas:
+      'letter text text'
+      'ruler ruler box';
+  }
+
+  .fs-legend {
+    grid-template-areas: 'crans crans red';
+  }
+}
+
+/* Très étroite : la légende des crans n'y tient plus ; « D'accord » et « Pas d'accord » restent écrits
+   sous chaque repère. La pastille se réduit, le nom imprimé peut passer à la ligne, le repère suit la
+   taille des crans. */
+@container art (max-width: 12.5rem) {
+  .fs {
+    --lc: 1.25rem;
+  }
+
+  .fs-legend-crans {
+    display: none;
+  }
+
+  .fs-name {
+    white-space: normal;
+  }
+
+  .fs-named,
+  .fs-flip-out,
+  .fs-anon {
+    gap: 0.35rem;
+  }
+
+  .fs-chip {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  .fr-mark {
+    width: min(2.5rem, calc(var(--cw) + 0.3rem));
+    height: min(2.5rem, calc(var(--cw) + 0.3rem));
+  }
+}
+
+/* ——— 3. Le dépouillement ——— */
+
+.fd {
+  font-size: 0.9375rem;
+  line-height: 1.3;
+}
+
+.fd-head {
+  display: none;
+}
+
+.fd-rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: var(--line) solid var(--rule-strong);
+  border-bottom: var(--line) solid var(--rule-strong);
+}
+
+.fd-row {
+  display: grid;
+  grid-template-columns: 1.5rem minmax(0, 1fr) auto;
+  grid-template-areas:
+    'letter avis avis'
+    'arrow who pct'
+    '. tally pct';
+  gap: 0.25rem var(--s3);
+  align-items: center;
+  padding: 0.6rem 0;
+}
+
+.fd-row + .fd-row {
+  border-top: var(--hair) solid var(--rule);
+}
+
+.fd-letter {
+  grid-area: letter;
+  font-weight: 800;
+  font-stretch: 80%;
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+
+.fd-avis {
+  grid-area: avis;
+  min-width: 0;
+}
+
+.fd-avis .rating-mark {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+}
+
+.fd-arrow {
+  grid-area: arrow;
+  justify-self: start;
+  width: 1.5rem;
+  height: 1rem;
+  overflow: visible;
+  fill: none;
+  stroke: var(--print);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.fd-who {
+  grid-area: who;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.2rem 0.45rem;
+  min-width: 0;
+}
+
+.fd-chip {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: var(--print);
+  color: var(--on-print);
+  font-weight: 800;
+  font-stretch: 80%;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.fd-name {
+  font-weight: 750;
+}
+
+.fd-flag {
+  position: relative;
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+}
+
+.fd-why {
+  flex-basis: 100%;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--red);
+}
+
+.fd-tally {
+  grid-area: tally;
+  justify-self: start;
+  min-width: 0;
+}
+
+.fd-tally .tally {
+  justify-content: flex-start;
+}
+
+.fd-pct {
+  grid-area: pct;
+  justify-self: end;
+  align-self: start;
+  text-align: right;
+  color: var(--aff, var(--print));
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: 1.85rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Le pourcentage roule de 0 à sa valeur (une propriété enregistrée, animée comme le reste) */
+.fd-n {
+  --film-n: var(--to);
+  counter-reset: film-n var(--film-n);
+}
+
+.fd-n::before {
+  content: counter(film-n);
+}
+
+.film-scene.is-play .fd-n {
+  animation: film-count var(--dur, 1100ms) var(--ease-out) var(--d, 0ms) both;
+}
+
+@keyframes film-count {
+  from {
+    --film-n: 0;
+  }
+}
+
+.fd-unit {
+  margin-left: 0.08em;
+  font-size: 0.6em;
+  font-weight: 700;
+}
+
+.fd-band {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  font-stretch: 100%;
+}
+
+/* Le candidat qui porte l'approche rayée : signalé, classé après, score inchangé */
+.fd-row.is-flagged .fd-name {
+  color: var(--print-soft);
+}
+
+.fd-row.is-flagged .fd-n,
+.fd-row.is-flagged .fd-unit {
+  opacity: 0.75;
+}
+
+.fd-row.is-flagged .fd-tally {
+  opacity: 0.45;
+}
+
+.film-scene.is-play .fd-row.is-flagged .fd-unit,
+.film-scene.is-play .fd-row.is-flagged .fd-tally {
+  animation: film-dim 500ms var(--ease-out) var(--d2, 0ms) both;
+}
+
+.film-scene.is-play .fd-row.is-flagged .fd-name {
+  animation: film-soften 500ms var(--ease-out) var(--d2, 0ms) both;
+}
+
+@keyframes film-dim {
+  from {
+    opacity: 1;
+  }
+}
+
+@keyframes film-soften {
+  from {
+    color: var(--print);
+  }
+}
+
+.fd-note {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: var(--s3) 0 0;
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+@container art (min-width: 34rem) {
+  .fd {
+    font-size: 1rem;
+  }
+
+  .fd-head,
+  .fd-row {
+    display: grid;
+    grid-template-columns: 1.5rem 6.75rem 2.25rem minmax(0, 1fr) 7.9rem 5.25rem;
+    column-gap: var(--s3);
+  }
+
+  .fd-head {
+    padding-bottom: 0.4rem;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    color: var(--print-soft);
+  }
+
+  .fd-h-avis {
+    grid-column: 2;
+  }
+
+  .fd-h-who {
+    grid-column: 4;
+  }
+
+  .fd-h-aff {
+    grid-column: 5 / span 2;
+  }
+
+  .fd-row {
+    grid-template-areas: 'letter avis arrow who tally pct';
+    padding: 0.95rem 0;
+  }
+
+  .fd-avis .rating-mark {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .fd-arrow {
+    width: 2.25rem;
+    height: 1.25rem;
+  }
+
+  .fd-pct {
+    align-self: center;
+  }
+}
+
+/* Image très étroite : une seule colonne après la lettre. L'avis, le candidat, son affinité, puis ses
+   bâtons, qui passent à la ligne par paquets de cinq plutôt que d'être rognés */
+@container art (max-width: 12.5rem) {
+  .fd-row {
+    grid-template-columns: 1.5rem minmax(0, 1fr);
+    grid-template-areas:
+      'letter avis'
+      'arrow who'
+      '. pct'
+      '. tally';
+  }
+
+  .fd-avis .rating-mark {
+    flex-wrap: wrap;
+    row-gap: 0.15rem;
+  }
+
+  .fd-pct {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-self: start;
+    text-align: left;
+    white-space: normal;
+  }
+
+  .fd-unit {
+    margin-right: 0.45rem;
+  }
+
+  .fd-band {
+    margin-top: 0;
+    white-space: nowrap;
+  }
+
+  .fd-tally .tally {
+    flex-wrap: wrap;
+    row-gap: 0.3rem;
+  }
+}
+
+/* ——— 4. Rien ne part ——— */
+
+.fc {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+}
+
+.fc-net {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 2rem minmax(0, 1fr);
+  grid-template-rows: auto 3.5rem;
+  column-gap: var(--s3);
+  width: 100%;
+  align-items: center;
+}
+
+.fc-net-label {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  justify-self: center;
+  padding-bottom: 0.2rem;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--print-soft);
+}
+
+.fc-mode {
+  grid-column: 1;
+  grid-row: 2;
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  max-width: 100%;
+  font-size: var(--text-sm);
+  font-weight: 750;
+}
+
+.fc-arrow {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: center;
+  width: 1.5rem;
+  height: 3.5rem;
+  overflow: visible;
+  fill: none;
+  stroke: var(--print);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.fc-cross {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: center;
+  position: relative;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.fc-cross .ink-cross {
+  stroke-width: 2.8;
+}
+
+.fc-off {
+  grid-column: 3;
+  grid-row: 2;
+  justify-self: start;
+  font-size: var(--text-sm);
+  font-weight: 750;
+  color: var(--red);
+}
+
+/* L'isoloir : une tringle à double filet, un cadre, et dedans le téléphone */
+.fc-booth {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(100%, 23rem);
+  padding: var(--s4) var(--s4) var(--s3);
+  border: var(--line) solid var(--rule-strong);
+  border-top: var(--thick) solid var(--rule-strong);
+}
+
+.fc-booth::before {
+  content: '';
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  right: 0;
+  top: 3px;
+  border-top: var(--hair) solid var(--rule-strong);
+}
+
+.diagram.fc-phone {
+  width: 6rem;
+  max-width: none;
+  margin: 0;
+}
+
+.film-scene.is-play .fc-plane {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: film-stamp var(--dur, 320ms) var(--ease-out) var(--d, 0ms) both;
+}
+
+/* Le rideau se tire sur la tringle : les plis se déplient de gauche à droite */
+.fc-curtain {
+  position: absolute;
+  z-index: 2;
+  inset: 5px 0 2px;
+  background: var(--paper);
+  transform-origin: left center;
+}
+
+.film-scene.is-play .fc-curtain {
+  animation: film-curtain var(--dur, 1000ms) var(--ease-out) var(--d, 0ms) both;
+}
+
+@keyframes film-curtain {
+  from {
+    transform: scaleX(0.03);
+  }
+}
+
+.fc-pleats {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.fc-pleats path {
+  fill: none;
+  stroke: var(--print);
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+}
+
+.fc-tag {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: max-content;
+  max-width: calc(100% - 2rem);
+  padding: 0.3rem 0.7rem;
+  background: var(--paper);
+  border: var(--line) solid var(--print);
+  font-size: var(--text-sm);
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+.fc-tag .icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+@container art (min-width: 30rem) {
+  .diagram.fc-phone {
+    width: 8rem;
+  }
+
+  .fc-net {
+    grid-template-rows: auto 4.5rem;
+  }
+
+  .fc-arrow {
+    height: 4.5rem;
+  }
+}
+
+/* Image très étroite : la flèche passe à gauche, sous « Internet » ; « Mode avion » et « rien ne sort »
+   s'écrivent à côté d'elle, l'un sous l'autre */
+@container art (max-width: 12.5rem) {
+  .fc-net {
+    grid-template-columns: 2rem minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, auto) minmax(0, auto);
+    row-gap: 0.2rem;
+  }
+
+  .fc-net-label {
+    justify-self: start;
+  }
+
+  .fc-arrow,
+  .fc-cross {
+    grid-column: 1;
+    grid-row: 2 / 4;
+    align-self: end;
+  }
+
+  /* La croix reste au milieu de la flèche */
+  .fc-cross {
+    margin-bottom: 0.875rem;
+  }
+
+  .fc-mode,
+  .fc-off {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .fc-mode {
+    grid-row: 2;
+    align-self: end;
+  }
+
+  .fc-off {
+    grid-row: 3;
+    align-self: start;
+    padding-bottom: 0.6rem;
+  }
+}
+
+/* ——— 5. L'affiche : le double jaune sort de sous la feuille ——— */
+
+/* Téléphone : les deux feuilles se superposent dans le flux, la hauteur suit le contenu (texte agrandi
+   compris) ; la feuille s'arrête un peu au-dessus du bas du double */
+.fp {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+  max-width: 34rem;
+  margin-inline: auto;
+}
+
+.fp-sheet {
+  position: relative;
+  z-index: 1;
+  grid-area: 1 / 1;
+  width: 52%;
+  margin-bottom: 3rem;
+  overflow: hidden;
+  padding: 0.7rem 0.8rem;
+  background: var(--paper);
+  border: var(--line) solid var(--rule-strong);
+  box-shadow: inset 0 var(--thick) 0 var(--rule-strong);
+}
+
+.fp-brand {
+  margin: 0.25rem 0 0;
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: 1rem;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.fp-form {
+  margin: 0.1rem 0 0.6rem;
+  padding-bottom: 0.4rem;
+  border-bottom: var(--thick) double var(--rule-strong);
+  font-size: var(--text-xs);
+}
+
+.diagram.fp-lines {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.diagram.fp-lines line {
+  vector-effect: non-scaling-stroke;
+  stroke-width: 1.5px;
+}
+
+.diagram.fp-lines .dg-soft {
+  stroke-width: 4px;
+}
+
+.diagram.fp-lines .dg-red {
+  stroke-width: 2px;
+}
+
+/* Le double tourne de 2° : un peu d'air à droite pour que son coin ne soit pas rogné */
+.fp-copy {
+  position: relative;
+  z-index: 2;
+  grid-area: 1 / 1;
+  justify-self: end;
+  width: 72%;
+  margin: 1.25rem 0.4rem 0 0;
+  padding: var(--s4) var(--s4) var(--s3);
+  border: 2px solid var(--copy-print);
+  transform: rotate(-2deg);
+}
+
+.film-scene.is-play .fp-copy {
+  animation: film-copy var(--dur, 1100ms) var(--ease-out) var(--d, 0ms) both;
+}
+
+/* Il glisse de sous la feuille, puis se pose dessus */
+@keyframes film-copy {
+  0% {
+    z-index: 0;
+    transform: translate(-36%, -18%) rotate(0deg);
+  }
+  45% {
+    z-index: 0;
+  }
+  46% {
+    z-index: 2;
+  }
+  100% {
+    z-index: 2;
+  }
+}
+
+.fp-kicker {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.fp-title {
+  overflow-wrap: break-word;
+  hyphens: auto;
+  margin: 0.1rem 0 var(--s3);
+  font-weight: 850;
+  font-stretch: 70%;
+  font-size: clamp(1.6rem, 8cqi, 2.1rem);
+  line-height: 1;
+}
+
+.fp-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: var(--line) solid var(--copy-print);
+}
+
+/* Rang, nom, pourcentage ; s'ils ne tiennent pas sur une ligne, le pourcentage passe dessous, à droite
+   (le nom n'est jamais rogné) */
+.fp-list li {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--s2);
+  align-items: baseline;
+  padding: 0.3rem 0;
+  border-bottom: var(--hair) solid color-mix(in srgb, var(--copy-print) 35%, transparent);
+}
+
+.fp-rank,
+.fp-pct {
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: 1.2rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.fp-rank {
+  flex: none;
+  min-width: 1.1rem;
+}
+
+.fp-name {
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.fp-pct {
+  margin-left: auto;
+}
+
+.fp-foot {
+  margin: var(--s3) 0 0;
+  font-size: var(--text-xs);
+  color: var(--copy-print-soft);
+}
+
+/* Image étroite : la feuille n'est plus qu'une bande en haut, le double la recouvre presque entièrement */
+@container art (max-width: 16.4rem) {
+  .fp-sheet {
+    width: calc(100% - 1.5rem);
+    margin-bottom: 4rem;
+  }
+
+  /* Le double, plus haut que large, tourne moins : son coin reste dans le cadre */
+  .fp-copy {
+    width: calc(100% - 1.15rem);
+    margin-top: 3.5rem;
+    padding: var(--s3) 0.6rem var(--s2);
+    transform: rotate(-1deg);
+  }
+}
+
+/* Plus étroite encore : l'ordre de la liste dit le rang ; le titre se resserre un peu */
+@container art (max-width: 10rem) {
+  .fp-rank {
+    display: none;
+  }
+
+  .fp-title {
+    font-size: 1.4rem;
+  }
+}
+
+/* Grand cadre : la composition d'origine, à hauteur fixe ; le contenu y tient */
+@container art (min-width: 30rem) {
+  .fp {
+    display: block;
+    height: 21rem;
+  }
+
+  .fp-sheet {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 48%;
+    height: 80%;
+    margin: 0;
+  }
+
+  .fp-copy {
+    position: absolute;
+    right: 0.4rem;
+    bottom: 0;
+    width: 60%;
+    margin: 0;
+  }
+}
+
+/* ——— Grand cadre (ordinateur) : l'image prend l'échelle du film ——— */
+
+@container art (min-width: 38rem) {
+  .fs {
+    --lc: 2.5rem;
+    --cw: 4.25rem;
+    font-size: 1.125rem;
+  }
+
+  .fs-prompt {
+    margin-bottom: var(--s5);
+    font-size: 2.15rem;
+  }
+
+  .fs-head,
+  .fs-row {
+    grid-template-columns: var(--lc) minmax(0, 1fr) 11rem;
+  }
+
+  .fs-row {
+    padding: 1.15rem 0;
+  }
+
+  .fs-letter,
+  .fd-letter {
+    font-size: 1.4rem;
+  }
+
+  .fs-chip,
+  .fd-chip {
+    width: 2.4rem;
+    height: 2.4rem;
+    font-size: 0.875rem;
+  }
+
+  .fs-name {
+    font-size: 1.0625rem;
+  }
+
+  .fs-bar {
+    width: 5.5rem;
+  }
+
+  .fs-legend,
+  .fs.is-rating .fs-row {
+    grid-template-columns: var(--lc) minmax(0, 1fr) calc(3 * var(--cw)) 4rem;
+  }
+
+  .fs.is-rating .fs-row {
+    padding: 1rem 0 1.5rem;
+  }
+
+  .fs-legend {
+    font-size: 0.875rem;
+  }
+
+  .fr {
+    height: 3rem;
+  }
+
+  .fr-mark {
+    width: 2.9rem;
+    height: 2.9rem;
+  }
+
+  .fr-word {
+    font-size: 0.875rem;
+  }
+
+  .fs-box {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .fd {
+    font-size: 1.125rem;
+  }
+
+  .fd-head,
+  .fd-row {
+    grid-template-columns: 1.75rem 7.25rem 2.5rem minmax(0, 1fr) 9.4rem 6rem;
+  }
+
+  .fd-head {
+    font-size: 0.875rem;
+  }
+
+  .fd-row {
+    padding: 1.2rem 0;
+  }
+
+  .fd-pct {
+    font-size: 2.7rem;
+  }
+
+  .fd-band,
+  .fd-why {
+    font-size: 0.875rem;
+  }
+
+  .fd-tally .tally-group {
+    width: 2rem;
+    height: 1.8rem;
+  }
+
+  .fd-note {
+    margin-top: var(--s4);
+  }
+
+  .diagram.fc-phone {
+    width: 10rem;
+  }
+
+  .fc-booth {
+    width: min(100%, 28rem);
+  }
+
+  .fc-net {
+    grid-template-rows: auto 5.5rem;
+  }
+
+  .fc-arrow {
+    height: 5.5rem;
+  }
+
+  .fc-cross {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .fc-net-label,
+  .fc-mode,
+  .fc-off,
+  .fc-tag {
+    font-size: 1rem;
+  }
+
+  .fp {
+    max-width: 40rem;
+    height: 26rem;
+  }
+
+  .fp-copy {
+    padding: var(--s5) var(--s5) var(--s4);
+  }
+
+  .fp-title {
+    font-size: 2.6rem;
+  }
+
+  .fp-kicker {
+    font-size: 0.75rem;
+  }
+
+  .fp-rank,
+  .fp-pct {
+    font-size: 1.5rem;
+  }
+
+  .fp-name {
+    font-size: 1.125rem;
+  }
+
+  .fp-foot {
+    font-size: 0.875rem;
+  }
+}
+
+/* ——— Lecteur : lecture, pause, chapitres ——— */
+
+.film-controls {
+  container: controls / inline-size;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: var(--s3);
+  margin-top: var(--s3);
+}
+
+.film-play {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0 1rem 0 0.8rem;
+  background: var(--paper);
+  color: var(--print);
+  border: var(--line) solid var(--rule-strong);
+  border-radius: 0;
+  font-weight: 750;
+  font-stretch: 85%;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.film-play:active {
+  transform: translateY(1px);
+}
+
+.film-glyph {
+  width: 1.2rem;
+  height: 1.2rem;
+  stroke-width: 2.2;
+}
+
+/* Les chapitres suivent le bouton sur la même rangée tant qu'ils y tiennent, sinon passent dessous et
+   se partagent toute la largeur (à 320 px et texte à 200 %, chaque case garde 45 px de large) */
+.film-chapters {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  flex: 1 1 12rem;
+  gap: var(--s2);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Chaque chapitre est une règle numérotée : le filet se trace à l'encre pendant la scène */
+.film-chapter {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.35rem 0.1rem 0;
+  background: none;
+  border: 0;
+  border-top: var(--hair) solid var(--rule);
+  color: var(--print-soft);
+  font-size: var(--text-sm);
+  font-weight: 650;
+  text-align: left;
+  cursor: pointer;
+}
+
+.film-chapter.is-on,
+.film-chapter.is-done {
+  color: var(--print);
+}
+
+.film-chapter.is-done {
+  border-top: var(--thick) solid var(--rule-strong);
+  padding-top: calc(0.35rem - 2px);
+}
+
+.film-chapter.is-on {
+  font-weight: 800;
+}
+
+.film-chapter-n {
+  flex: none;
+  font-weight: 850;
+  font-stretch: 70%;
+  font-size: 1.35rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.film-chapter-t {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.film-chapter-run {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -2px;
+  height: var(--thick);
+  background: var(--rule-strong);
+  transform-origin: left center;
+  animation: film-grow var(--dur) linear both;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .film-play:hover {
+    background: color-mix(in srgb, var(--print) 6%, var(--paper));
+  }
+
+  .film-chapter:hover {
+    color: var(--print);
+  }
+
+  .film-chapter:hover .film-chapter-t {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.22em;
+  }
+}
+
+/* Étroit : les numéros seuls (le titre du chapitre reste annoncé) */
+@container film (max-width: 40rem) {
+  .film-controls {
+    gap: var(--s2);
+  }
+}
+
+/* Étroit (texte agrandi) : la flèche de l'appel final s'efface pour que le libellé tienne */
+@container film (max-width: 14rem) {
+  .film-cta .btn-primary {
+    padding-inline: var(--s3);
+  }
+
+  .film-cta .btn-primary .icon {
+    display: none;
+  }
+}
+
+@container controls (max-width: 46rem) {
+  .film-chapters {
+    gap: var(--s1);
+  }
+
+  .film-chapter {
+    justify-content: center;
+  }
+
+  .film-chapter-t {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+}
+
+@container controls (max-width: 21rem) {
+  .film-play {
+    padding: 0;
+  }
+
+  .film-play-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+/* ——— Exemple fictif ——— */
+
+.film-fiction {
+  margin: var(--s2) 0 0;
+  font-size: var(--text-xs);
+  color: var(--print-soft);
+}

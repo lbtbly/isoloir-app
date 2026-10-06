@@ -1,0 +1,175 @@
+Rapport de génération des voix — 2026-10-05 22:42:26
+Commande : generate.py --voice aigue --only numerique
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  numerique-intro-01 — 7.88 s, F0 238.3 Hz, pauses entre phrases [0.31, 0.32] s
+    1. Une intelligence artificiel…   1/3    248.6  +0.34   -2.3      —  0.0    5.6  1.09  1:249 2:228 3:235
+    2. Des vidéos qui défilent san…   2/3    224.9  -1.40   -2.7   +0.6  2.3    5.3  1.03  1:269×! 2:225 3:307~
+         prise 1 : parole en trop 0.00-0.38 s (net, +54 dB, confiance 0.93) [début | Des]
+    3. Qui fixe les règles de ces …   3/3    258.2  +0.99   +4.9   +3.5  5.7    5.5  1.08  1:206~ 2:265 3:258
+  numerique-intro-02 — 8.38 s, F0 231.9 Hz, pauses entre phrases [0.31] s
+    1. C'est l'I.A. dite générativ…   2/3    246.9  +0.22   -2.8   +0.8  0.0    5.2  1.02  1:249~ 2:247? 3:256
+         prise 2 : respiration 0.42-0.56 s (leger, +56 dB, confiance 0.95) [l'IA | dite]
+    2. En deux mille vingt-cinq, e…   3/3    227.9  -1.17   -7.9   +4.9  2.8    5.8  1.13  1:260~ 2:226? 3:228
+         prise 2 : mot étiré « France » 1.12-1.68 s (leger, confiance 0.48) [en | trente]
+      passage assemblé : respiration 0.42-0.56 s (leger, +55 dB, confiance 0.95) [l'IA | dite]
+  numerique-intro-03 — 6.84 s, F0 238.3 Hz, pauses entre phrases [0.3] s
+    1. L'intelligence artificielle…   2/3    239.1  -0.34   -5.8   +4.2  6.0    6.0  1.17  1:220~ 2:239 3:266~
+    2. Ses effets sur l'emploi res…   2/3    236.5  -0.53   -1.8   +4.3  5.8    6.3  1.23  1:241~ 2:236 3:260
+  numerique-intro-04 — 8.04 s, F0 240.8 Hz, pauses entre phrases [0.15, 0.31, 0.33, 0.3, 0.23] s
+    1. Les écrans arrivent tôt.      3/3    246.0  +0.16   +0.7   -0.2  1.8    5.7  1.12  1:218~ 2:252 3:246
+    2. En deux mille vingt-deux, u…   2/3    237.2  -0.48   -8.2   +0.3  0.0    6.8  1.32  1:262×! 2:237 3:233
+         prise 1 : respiration 0.00-0.23 s (net, +42 dB, confiance 0.81) [début | En]
+         prise 1 : bruit 0.32-0.40 s (leger, +22 dB, confiance 0.40) [début | En]
+         prise 1 : respiration 0.72-1.12 s (net, +40 dB, confiance 0.95) [début | En]
+    3. L'âge minimum pour s'y insc…   1/3    248.3  +0.32   -3.8   +2.5  6.0    4.5  0.89  1:248 2:259 3:259
+  numerique-intro-05 — 8.77 s, F0 236.3 Hz, pauses entre phrases [0.32] s
+    1. Les plateformes et moteurs …   1/3    233.1  -0.78   -1.5   +1.7  3.8    6.1  1.19  1:233 2:229 3:230
+    2. La Commission européenne le…   2/3    245.9  +0.15   -1.3   +2.8  1.5    7.1  1.38  1:267~ 2:246 3:248
+  numerique-intro-06 — 9.39 s, F0 251.6 Hz, pauses entre phrases [0.18, 0.31, 0.45, 0.36, 0.35, 0.36] s
+    1. Alors, quatre questions.      1/3    250.8  +0.49   -2.6   +0.9  1.3    4.6  0.90  1:251 2:296~ 3:237
+    2. Face à l'I.A., quelle prior…   3/3    231.1  -0.93   -5.4   +0.2  5.6    6.1  1.18  1:230 2:267~ 3:231
+    3. Comment protéger les enfant…   2/3    249.5  +0.40   -1.1   +1.4  3.0    6.4  1.25  1:454×! 2:250 3:230
+         prise 1 : parole en trop 0.00-0.31 s (net, +61 dB, confiance 0.94) [début | Comment]
+    4. Comment encadrer les platef…   1/3    260.7  +1.16   -0.6   +3.6  3.0    5.4  1.05  1:261 2:240~ 3:292~
+    5. Et quelles règles pour l'in…   1/3    257.5  +0.95   +0.4   +1.1  3.0    6.2  1.21  1:258 2:226 3:209~
+  numerique-intro-07 — 2.13 s, F0 235.5 Hz
+    1. Ce sont les quatre sujets d…   2/3    235.5  -0.60   -2.8   +1.6  0.0    6.1  1.19  1:225 2:236 3:268~
+  numerique-ia-01 — 6.88 s, F0 255.6 Hz, pauses entre phrases [0.3, 0.3, 0.15, 0.28, 0.31] s
+    1. Industrie, construction, co…   2/3    251.6  +0.55   -1.0      —  0.0    5.7  1.10  1:232 2:252 3:266
+    2. Que va-t-elle changer ?       3/3    265.7  +1.49   +7.5   +1.2  4.0    5.9  1.15  1:277~ 2:290~ 3:266
+  numerique-ia-02 — 9.12 s, F0 243.6 Hz, pauses entre phrases [0.3] s
+    1. En France, neuf virgule qua…   2/3    239.0  -0.34   -6.5   +1.0  0.0    5.4  1.05  1:216~ 2:239 3:220~
+    2. Et dix-huit virgule seize p…   1/3    255.7  +0.83   -0.9   +4.1  6.0    4.4  0.87  1:256 2:273×! 3:236×
+         prise 2 : parole en trop 0.00-1.40 s (net, +54 dB, confiance 0.95) [début | Et]
+  numerique-ia-03 — 7.19 s, F0 227.1 Hz
+    1. Selon l'Organisation intern…   1/3    227.1  -1.23   -7.4   +0.1  0.9    7.1  1.38  1:227 2:223~ 3:226
+  numerique-ia-04 — 7.87 s, F0 232.2 Hz, pauses entre phrases [0.19, 0.3] s
+    1. Pour l'O.I.T., la plupart d…   2/3    230.4  -0.98   -1.8   +2.8  6.0    5.5  1.07  1:225 2:230 3:227
+    2. L'effet le plus probable es…   1/3    235.1  -0.63   -2.0   +1.7  1.8    5.7  1.10  1:235 2:267~ 3:268~
+  numerique-ia-05 — 11.03 s, F0 245.8 Hz, pauses entre phrases [0.31, 0.3, 0.26] s
+    1. En France, en deux mille vi…   3/3    244.9  +0.08   -7.6   +1.3  2.0    5.2  1.01  1:249 2:263 3:245
+    2. Les contributions publiques…   1/3    247.1  +0.23  -10.1   +0.4  6.0    5.2  1.02  1:247 2:259 3:277~
+  numerique-ia-06 — 6.23 s, F0 240.3 Hz
+    1. Un règlement européen, en v…   1/3    240.3  -0.25   -7.0   -1.2  6.0    5.0  0.97  1:240? 2:229 3:225?
+         prise 1 : respiration 1.31-1.43 s (leger, +15 dB, confiance 0.30) [européen | en]
+         prise 3 : respiration 2.76-2.93 s (leger, +17 dB, confiance 0.33) [quatre | classe]
+      passage assemblé : respiration 1.31-1.43 s (leger, +15 dB, confiance 0.30) [européen | en]
+  numerique-ia-07 — 11.87 s, F0 237.3 Hz, pauses entre phrases [0.22, 0.3, 0.17] s
+    1. Des pratiques sont interdit…   1/3    236.3  -0.54   -6.6   +2.9  6.0    5.1  0.99  1:236 2:233 3:228
+    2. Les usages à haut risque, c…   1/3    238.0  -0.42   -3.1   +1.1  6.0    6.1  1.19  1:238 2:268~ 3:216~
+  numerique-ia-08 — 7.32 s, F0 239.3 Hz, pauses entre phrases [0.3] s
+    1. Une convention du Conseil d…   2/3    225.5  -1.35   -4.3   +1.0  3.1    8.0  1.56  1:222~ 2:226 3:214×
+    2. L'Union européenne l'a sign…   2/3    250.8  +0.49   -2.3   +3.1  4.3    5.9  1.15  1:222~ 2:251 3:232~
+  numerique-ia-09 — 10.20 s, F0 244.6 Hz, pauses entre phrases [0.3, 0.25, 0.15] s
+    1. Selon la Commission europée…   2/3    245.3  +0.11   -2.5   +1.7  2.3    6.3  1.22  1:246 2:245 3:224
+    2. Il vise à la rendre compati…   3/3    241.8  -0.14   -2.1   +2.5  2.5    5.9  1.15  1:224 2:253 3:242
+  numerique-ia-10 — 10.65 s, F0 241.6 Hz, pauses entre phrases [0.16, 0.15, 0.32] s
+    1. En février deux mille vingt…   3/3    241.8  -0.14   -1.5   +2.2  2.1    6.4  1.24  1:235×! 2:237 3:242
+         prise 1 : vocalise 3.40-3.59 s (net, +48 dB, confiance 0.90) [AI | pour]
+    2. Dont vingt milliards pour q…   1/3    241.2  -0.19   -1.4   +2.4  1.5    4.6  0.89  1:241 2:210~ 3:230
+  numerique-ia-11 — 2.88 s, F0 243.0 Hz
+    1. Alors, face à l'I.A., quell…   1/3    243.0  -0.06   -7.9   -0.3  4.4    5.9  1.15  1:243 2:260 3:225
+  numerique-ecrans-01 — 5.55 s, F0 245.3 Hz, pauses entre phrases [0.3] s
+    1. Dessins animés, jeux, vidéo…   3/3    245.3  +0.11   -2.1      —  0.0    4.9  0.96  1:221~ 2:217~ 3:245
+    2. Comment les protéger ?        7/7    242.0  -0.13   -1.8   +7.5  5.2    6.0  1.18  1:338×! 2:405~ 3:352~ 4:358~ 5:274~ 6:284~ 7:242
+         prise 1 : parole en trop 1.04-1.26 s (net, +46 dB, confiance 0.79) [protéger | fin]
+  numerique-ecrans-02 — 8.48 s, F0 242.3 Hz, pauses entre phrases [0.22, 0.3, 0.31] s
+    1. Sur leur temps de loisirs, …   3/3    237.3  -0.47   -8.2   +1.8  0.0    5.2  1.02  1:233 2:230 3:237
+    2. Les trois à cinq ans, une h…   4/4    263.9  +1.37   -4.5   +2.5  6.0    5.9  1.16  1:285~ 2:202×! 3:295~ 4:264
+         prise 2 : vocalise « une » 1.54-1.76 s (net, +60 dB, confiance 0.30) [ans | heure]
+  numerique-ecrans-03 — 5.83 s, F0 239.2 Hz, pauses entre phrases [0.31, 0.35, 0.16] s
+    1. Il faut treize ans pour s'i…   1/3    243.5  -0.02   -2.4   +2.8  4.5    6.1  1.19  1:244 2:221~ 3:248
+    2. Pourtant, vingt-cinq pour c…   2/3    235.8  -0.58   -8.1   +2.8  2.4    6.7  1.30  1:248 2:236 3:251
+  numerique-ecrans-04 — 6.34 s, F0 242.1 Hz, pauses entre phrases [0.3] s
+    1. Neuf parents sur dix disent…   2/3    246.2  +0.17   -4.2   +3.2  6.0    5.5  1.07  1:236 2:246 3:238
+    2. Le contrôle fréquent des co…   2/3    238.7  -0.37   -3.2   +2.4  4.2    5.3  1.03  1:231 2:239 3:237
+  numerique-ecrans-05 — 11.95 s, F0 239.1 Hz, pauses entre phrases [0.24, 0.15, 0.21, 0.3, 0.35, 0.46] s
+    1. Une enquête de l'O.M.S. int…   2/3    238.9  -0.35   -2.9   +3.9  3.2    5.1  0.99  1:253×! 2:239 3:237×!
+         prise 1 : bruit 0.88-1.11 s (net, +46 dB, confiance 0.91) [l'OMS | interroge]
+         prise 3 : bruit 0.80-1.18 s (net, +42 dB, confiance 0.93) [l'OMS | interroge]
+    2. En deux mille vingt-deux, o…   3/3    243.4  -0.03   -7.3   +4.1  2.9    6.0  1.17  1:261~ 2:233 3:243
+  numerique-ecrans-06 — 7.18 s, F0 237.6 Hz
+    1. En janvier deux mille vingt…   3/3    237.6  -0.45   -6.5   +1.6  6.0    5.5  1.08  1:235? 2:228×! 3:238
+         prise 1 : mot étiré « l'Anses » 1.68-2.24 s (leger, confiance 0.42) [six | l'agence]
+         prise 2 : mot étiré « l'Anses » 1.36-2.00 s (net, confiance 0.64) [six | l'agence]
+      passage assemblé : mot étiré « l'Anses » 1.60-2.24 s (leger, confiance 0.56) [six | l'agence]
+  numerique-ecrans-07 — 9.86 s, F0 240.7 Hz, pauses entre phrases [0.3, 0.2, 0.31] s
+    1. Elle recommande d'agir d'ab…   3/3    251.3  +0.52   -3.7   +3.7  6.0    6.5  1.26  1:265 2:232 3:251
+    2. Et de faire respecter la li…   3/3    243.7  -0.01   -1.5   +1.9  3.7    7.0  1.37  1:269~? 2:236 3:244
+         prise 1 : respiration 2.32-2.42 s (leger, +22 dB, confiance 0.40) [ans | avec]
+    3. Elle insiste aussi sur l'éd…   1/3    229.9  -1.02   -1.9   -0.2  1.5    7.8  1.52  1:230 2:227 3:222~
+  numerique-ecrans-08 — 10.66 s, F0 232.3 Hz, pauses entre phrases [0.3, 0.34] s
+    1. Une loi votée en juillet de…   1/3    233.1  -0.78   -0.2   +0.8  1.9    5.8  1.12  1:233 2:258 3:266
+    2. En août, le Conseil constit…   2/3    229.6  -1.04   -8.1   +2.5  0.2    6.6  1.28  1:222~ 2:230? 3:186~
+         prise 2 : mot étiré « août » 0.56-1.04 s (leger, confiance 0.43) [En | le]
+  numerique-ecrans-09 — 11.14 s, F0 237.4 Hz, pauses entre phrases [0.15, 0.3, 0.15, 0.3, 0.18] s
+    1. Protéger les mineurs peut j…   2/3    238.3  -0.40   -1.3   +3.5  6.0    5.9  1.15  1:214~ 2:238 3:225
+    2. Mais celle-ci visait tous l…   1/3    236.3  -0.54   -2.5   +1.1  1.3    7.0  1.37  1:236 2:226 3:250
+    3. Et chacun, même majeur, dev…   3/3    237.0  -0.49   -7.7   +0.7  2.5    5.2  1.01  1:239 2:274~ 3:237
+  numerique-ecrans-10 — 4.62 s, F0 238.4 Hz
+    1. Protéger les mineurs d'un c…   1/3    238.4  -0.39   -3.4   +2.4  6.0    6.5  1.27  1:238 2:223~ 3:256
+  numerique-ecrans-11 — 4.86 s, F0 250.4 Hz
+    1. Alors, qui doit agir, et co…   3/3    250.4  +0.46   -6.9   +2.6  6.0    4.6  0.90  1:222~ 2:237 3:250
+  numerique-plateformes-01 — 5.51 s, F0 242.3 Hz, pauses entre phrases [0.3] s
+    1. Réseaux sociaux, sites de v…   2/3    243.9  +0.01   -2.6      —  0.0    5.6  1.10  1:231 2:244 3:237
+    2. Qui les encadre ?             3/3    224.8  -1.40   -1.0   +4.6  5.6    5.2  1.01  1:228×! 2:236? 3:225
+         prise 1 : bruit 0.03-0.32 s (net, +49 dB, confiance 0.95) [début | Qui]
+         prise 2 : respiration 0.18-0.23 s (leger, +39 dB, confiance 0.37) [début | Qui]
+  numerique-plateformes-02 — 9.32 s, F0 237.9 Hz, pauses entre phrases [0.21, 0.3, 0.2] s
+    1. Au-delà de quarante-cinq mi…   5/5    225.7  -1.34   -2.4   +1.8  0.0    6.7  1.30  1:233~ 2:208~ 3:220~ 4:242~ 5:226
+    2. Elle a alors les obligation…   1/3    246.1  +0.16   -6.0   +3.3  2.4    6.0  1.18  1:246 2:238 3:223~
+  numerique-plateformes-03 — 7.42 s, F0 245.8 Hz, pauses entre phrases [0.3, 0.18] s
+    1. C'est le règlement européen…   2/3    251.3  +0.52   -2.0   +2.6  6.0    6.6  1.29  1:264 2:251 3:219~
+    2. La Commission européenne le…   3/3    241.3  -0.18   -7.7   +3.5  2.0    5.8  1.14  1:227 2:249 3:241
+  numerique-plateformes-04 — 9.61 s, F0 241.5 Hz, pauses entre phrases [0.15, 0.31, 0.21, 0.19] s
+    1. Au trente et un août deux m…   3/3    244.7  +0.06   -3.1   +2.2  6.0    5.5  1.08  1:229 2:246 3:245
+    2. À X, cent vingt millions d'…   2/3    237.9  -0.42   -3.5   +0.1  3.1    4.8  0.93  1:257 2:238 3:259
+  numerique-plateformes-05 — 4.37 s, F0 241.3 Hz
+    1. Le plafond d'une amende : s…   3/3    241.3  -0.18   -1.4   +2.7  3.5    5.8  1.14  1:232 2:227 3:241
+  numerique-plateformes-06 — 8.52 s, F0 241.8 Hz, pauses entre phrases [0.23, 0.3] s
+    1. Elle a aussi accepté des en…   3/3    247.1  +0.23  -10.1   +2.4  1.4    6.5  1.26  1:233 2:230 3:247
+    2. Puis un plan d'action de X,…   2/3    232.0  -0.86   -2.4   -2.1  6.0    4.0  0.79  1:231~ 2:232 3:215~
+  numerique-plateformes-07 — 13.43 s, F0 244.0 Hz, pauses entre phrases [0.32, 0.3, 0.2] s
+    1. En février deux mille vingt…   2/3    247.8  +0.28   -3.3   +1.2  2.4    5.7  1.10  1:242? 2:248 3:251?
+         prise 1 : respiration 6.08-6.24 s (leger, +40 dB, confiance 0.72) [TikTok | enfreint]
+         prise 3 : respiration 6.56-6.80 s (leger, +44 dB, confiance 0.78) [TikTok | enfreint]
+    2. En cause : défilement infin…   1/3    241.0  -0.20   -3.7   +1.4  3.3    5.7  1.11  1:241 2:238 3:228
+  numerique-plateformes-08 — 3.23 s, F0 243.8 Hz
+    1. Alors, comment faire respec…   3/3    243.8  +0.00   -0.8   +2.8  6.0    6.2  1.20  1:219~ 2:284~ 3:244
+  numerique-medias-01 — 4.50 s, F0 253.7 Hz, pauses entre phrases [0.3] s
+    1. Une fausse information circ…   3/3    255.7  +0.83   -2.9      —  0.0    6.9  1.34  1:218~ 2:257×! 3:256
+         prise 2 : bruit 0.00-0.40 s (net, +39 dB, confiance 0.95) [début | Une]
+    2. Peut-on en faire cesser la …   1/3    243.6  -0.01   +3.9   +3.8  5.9    7.0  1.37  1:244 2:241× 3:247
+  numerique-medias-02 — 12.25 s, F0 232.8 Hz, pauses entre phrases [0.19, 0.3, 0.18] s
+    1. Une loi de deux mille dix-h…   2/3    248.2  +0.31   -2.1   +1.0  0.0    5.9  1.16  1:230 2:248 3:217~
+    2. Pendant les trois mois qui …   1/3    224.2  -1.45   -5.1   -0.4  2.1    6.1  1.20  1:224 2:217~ 3:226?
+         prise 3 : respiration 3.68-4.08 s (leger, +37 dB, confiance 0.64) [référendum | un]
+  numerique-medias-03 — 7.19 s, F0 244.1 Hz
+    1. Le Conseil constitutionnel …   1/3    244.1  +0.02   -6.5   +3.1  5.1    6.0  1.18  1:244 2:247 3:226×!
+         prise 3 : respiration 4.64-4.88 s (net, +28 dB, confiance 0.59) [manifeste | comme]
+  numerique-medias-04 — 9.36 s, F0 235.2 Hz, pauses entre phrases [0.17, 0.3] s
+    1. Pour la presse, une loi de …   2/3    240.8  -0.21   -3.5   +2.4  6.0    5.5  1.08  1:242 2:241 3:229
+    2. Les plateformes qui reprenn…   2/3    231.2  -0.92   -2.7   +1.9  3.5    6.7  1.31  1:221~ 2:231 3:226
+  numerique-medias-05 — 12.74 s, F0 243.6 Hz, pauses entre phrases [0.31, 0.28, 0.18] s
+    1. Des accords avec Meta ont e…   1/3    248.1  +0.30   -8.9   +4.5  2.7    5.5  1.08  1:248 2:253×! 3:234
+         prise 2 : mot étiré « cinq » 3.92-4.48 s (leger, +38 dB, confiance 0.74) [vingt | sans]
+         prise 2 : respiration 4.16-4.48 s (net, +40 dB, confiance 0.79) [cinq | sans]
+    2. En juillet deux mille vingt…   1/3    240.3  -0.25   -2.9   +0.3  6.0    6.4  1.25  1:240 2:240 3:239
+  numerique-medias-06 — 8.97 s, F0 239.3 Hz, pauses entre phrases [0.31] s
+    1. Pour la création, les grand…   3/3    250.1  +0.44   -4.7   +3.9  2.9    6.5  1.27  1:235? 2:207×! 3:250
+         prise 1 : respiration 3.12-3.29 s (leger, +19 dB, confiance 0.36) [abonnement | ont]
+         prise 2 : respiration 1.01-1.28 s (net, +39 dB, confiance 0.83) [création | les]
+    2. Elles doivent consacrer vin…   3/3    229.9  -1.02   -2.4   +0.9  4.7    5.6  1.10  1:224 2:222~ 3:230
+  numerique-medias-07 — 10.40 s, F0 243.1 Hz, pauses entre phrases [0.32] s
+    1. Contre la concentration des…   1/3    243.6  -0.01   -1.4   +2.3  2.4    5.7  1.12  1:244 2:266~ 3:253
+    2. Personne ne peut détenir pl…   3/3    243.0  -0.06   -3.2   +4.2  1.4    5.7  1.10  1:204~ 2:227 3:243
+  numerique-medias-08 — 4.24 s, F0 254.4 Hz
+    1. Alors, quelles règles pour …   3/3    254.4  +0.74   -0.8   +3.6  6.0    5.7  1.11  1:214~ 2:216~ 3:254
+
+Aucune alerte.
+
+Temps : 2697 s pour 265 prise(s), 9.82 s de calcul par prise en moyenne (3.93 s d'audio) ; calcul d'une prise ≈ 0.25 s + 2.47 s par seconde d'audio. Détecteur de sons parasites : 0.162 s par prise en moyenne (au plus 0.598 s), 2% du calcul d'une prise.
+Estimation pour les 1013 passages (1856 phrases) (voix aiguë 3 prises, 3% de secours) : ~986 min.

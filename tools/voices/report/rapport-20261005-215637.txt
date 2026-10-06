@@ -1,0 +1,166 @@
+Rapport de génération des voix — 2026-10-05 21:08:40
+Commande : generate.py --voice aigue --only securite_justice
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  securite-intro-01 — 4.28 s, F0 246.0 Hz
+    1. En croisant un policier ou …   2/3    246.0  +0.16   +2.8      —  3.0    7.2  1.40  1:232 2:246 3:223~
+  securite-intro-02 — 10.37 s, F0 243.6 Hz, pauses entre phrases [0.26, 0.35, 0.3, 0.24] s
+    1. Selon le Défenseur des droi…   2/3    243.7  -0.01   -8.1   +1.2  0.0    5.7  1.11  1:260 2:244 3:250
+    2. Vingt-huit pour cent se dis…   1/3    242.4  -0.10   -4.0   +2.9  6.0    7.1  1.38  1:242 2:204~ 3:289~?
+         prise 3 : respiration 0.00-0.16 s (leger, +50 dB, confiance 0.91) [début | Vingt]
+  securite-intro-03 — 9.87 s, F0 244.1 Hz, pauses entre phrases [0.28, 0.19, 0.3] s
+    1. En deux mille vingt-cinq, l…   3/3    244.0  +0.01   -2.8   +1.6  4.0    5.6  1.10  1:236 2:238 3:244
+    2. Plus de la moitié dans le c…   4/4    245.2  +0.10   -2.1   +1.3  2.8    5.6  1.08  1:212~ 2:278~ 3:269~ 4:245
+  securite-intro-04 — 12.78 s, F0 234.1 Hz, pauses entre phrases [0.27, 0.3] s
+    1. Ces chiffres ne comptent qu…   3/3    238.0  -0.42   -9.1   +1.0  2.1    5.3  1.03  1:254 2:222~ 3:238
+    2. Selon le ministère de l'Int…   3/3    233.6  -0.74   -6.8   +2.3  6.0    5.7  1.11  1:215~ 2:219~ 3:234
+  securite-intro-05 — 7.82 s, F0 237.7 Hz
+    1. Le trafic de drogues, lui, …   2/3    237.7  -0.44   -3.1   +3.2  6.0    5.2  1.01  1:231 2:238 3:234
+  securite-intro-06 — 8.83 s, F0 243.5 Hz, pauses entre phrases [0.19, 0.3] s
+    1. Au premier septembre deux m…   2/3    246.7  +0.20   -4.0   +1.1  3.1    5.5  1.07  1:223~ 2:247 3:256
+    2. Plus de cent quarante-deux …   7/7    239.0  -0.34   -7.3   +5.7  4.0    5.9  1.15  1:276~ 2:257~ 3:295~ 4:265~ 5:211~ 6:220~ 7:239
+  securite-intro-07 — 9.89 s, F0 246.7 Hz, pauses entre phrases [0.3, 0.35, 0.37, 0.36] s
+    1. Alors, quatre questions se …   3/3    246.2  +0.17   -4.4   +5.2  6.0    4.5  0.88  1:222~ 2:276~? 3:246
+         prise 2 : respiration 0.40-0.55 s (leger, +29 dB, confiance 0.53) [Alors | quatre]
+    2. Quelle priorité pour la pol…   2/3    256.3  +0.87   -1.1   +6.3  6.0    5.5  1.08  1:292~ 2:256 3:281×!
+         prise 3 : respiration 0.09-0.71 s (net, +48 dB, confiance 0.95) [début | Quelle]
+    3. Comment lutter contre le tr…   1/3    241.7  -0.15   -0.5   +1.1  3.0    6.0  1.16  1:242 2:262 3:305×!
+         prise 3 : parole en trop 0.00-0.14 s (net, +51 dB, confiance 0.84) [début | Comment]
+    4. Quelle orientation pour la …   3/3    244.4  +0.04   -6.5   +1.5  3.0    6.2  1.21  1:269~ 2:253 3:244
+    5. Et comment répondre aux blo…   2/3    250.7  +0.48   +1.6   +4.9  3.0    6.2  1.20  1:323~ 2:251 3:262?
+         prise 3 : respiration 0.08-0.14 s (leger, +21 dB, confiance 0.39) [début | Et]
+  securite-intro-08 — 2.03 s, F0 227.6 Hz
+    1. Ce sont les quatre sujets d…   3/3    227.6  -1.19   +0.0   +1.1  0.0    6.5  1.27  1:281~ 2:230~ 3:228
+  securite-police-01 — 5.38 s, F0 242.1 Hz, pauses entre phrases [0.3, 0.2] s
+    1. Policiers et gendarmes patr…   1/3    241.1  -0.19   -7.3      —  0.0    4.4  0.85  1:241 2:230 3:222~
+    2. Avec quels moyens, et selon…   2/3    244.5  +0.05   -2.5   +2.4  6.0    5.8  1.14  1:270~ 2:244 3:235
+  securite-police-02 — 11.27 s, F0 249.2 Hz, pauses entre phrases [0.18, 0.3, 0.15, 0.35] s
+    1. Côté moyens, le Sénat relèv…   3/3    247.1  +0.23   -1.3   +1.9  0.0    5.8  1.12  1:265~ 2:228 3:247
+    2. Pour la police, trois mille…   3/3    249.8  +0.42   -5.5   +3.6  1.3    5.2  1.02  1:267~? 2:236~ 3:250
+         prise 1 : respiration 0.95-1.07 s (leger, +19 dB, confiance 0.36) [police | trois]
+  securite-police-03 — 7.97 s, F0 249.1 Hz, pauses entre phrases [0.15, 0.3, 0.2] s
+    1. Pour l'usage de leurs armes…   1/3    248.3  +0.32   -1.7   +2.9  5.5    5.3  1.04  1:248 2:264 3:269~
+    2. Et une condition : en cas d…   2/3    249.1  +0.37   -2.4   +1.8  1.7    6.3  1.24  1:236 2:249 3:222~
+  securite-police-04 — 13.11 s, F0 240.2 Hz, pauses entre phrases [0.42, 0.34, 0.31, 0.17, 0.21, 0.2] s
+    1. L'un de ces cas : un conduc…   2/3    243.0  -0.06   +1.3   +1.6  2.4    5.5  1.06  1:250 2:243 3:238
+    2. Il faut alors qu'on ne puis…   1/3    245.8  +0.14   -4.0   +1.9  0.0    7.1  1.39  1:246 2:237 3:260×
+    3. Et que ses occupants soient…   2/3    231.9  -0.87   -2.4   +0.6  4.0    6.4  1.25  1:231 2:232 3:213~
+  securite-police-05 — 11.40 s, F0 234.2 Hz, pauses entre phrases [0.33, 0.18, 0.33] s
+    1. Les contrôles d'identité on…   1/3    228.4  -1.13   -3.4   +1.0  2.4    5.3  1.04  1:228 2:225 3:226
+    2. Selon le Défenseur des droi…   1/3    242.4  -0.10   -4.2   +4.3  3.4    5.4  1.06  1:242 2:234 3:217~
+    3. En deux mille vingt-quatre,…   1/3    238.0  -0.42  -12.1   +1.3  4.2    4.7  0.92  1:238 2:320~ 3:258
+  securite-police-06 — 7.97 s, F0 227.9 Hz
+    1. Et selon la même enquête, l…   2/3    227.9  -1.17   -6.2   +0.1  6.0    5.8  1.13  1:224 2:228 3:227
+  securite-police-07 — 12.93 s, F0 230.8 Hz, pauses entre phrases [0.3, 0.31] s
+    1. Les caméras ont aussi leurs…   2/3    250.1  +0.44   -2.5   +3.4  6.0    6.2  1.22  1:257 2:250 3:252
+    2. Dans les établissements sco…   4/4    228.7  -1.11   -0.2   +3.5  2.5    6.2  1.20  1:255~ 2:218~ 3:275~ 4:229
+    3. Mais sauf cas exceptionnels…   3/3    229.3  -1.06   -5.3   +0.4  0.2    5.2  1.01  1:216~ 2:249~ 3:229
+  securite-police-08 — 8.60 s, F0 253.5 Hz, pauses entre phrases [0.2, 0.27, 0.32, 0.24, 0.15, 0.17, 0.36] s
+    1. D'un côté, les moyens : eff…   2/3    243.5  -0.02   -5.4   +3.1  5.3    5.3  1.03  1:237 2:244 3:224?
+         prise 3 : bruit 2.00-2.17 s (leger, +27 dB, confiance 0.53) [effectifs | caméras]
+    2. De l'autre, les pratiques :…   1/3    256.6  +0.89   -1.4   +1.3  5.4    4.6  0.91  1:257 2:228 3:263
+    3. Deux leviers, qui peuvent s…   3/3    254.6  +0.75   -2.2   +3.5  1.4    5.6  1.10  1:222~ 2:254~ 3:255
+  securite-police-09 — 3.40 s, F0 244.4 Hz
+    1. Alors, quelle priorité pour…   2/3    244.4  +0.04   -3.0   +2.2  5.2    6.6  1.30  1:256 2:244 3:280~
+  securite-drogues-01 — 5.92 s, F0 243.8 Hz, pauses entre phrases [0.31, 0.31] s
+    1. Le cannabis est interdit en…   1/3    243.6  -0.01   +0.7      —  0.0    6.0  1.17  1:244 2:226 3:277~
+    2. Mais le trafic de drogues f…   1/3    245.3  +0.11   -4.6   +2.1  0.0    6.5  1.26  1:245 2:256~ 3:244
+    3. Que pèse ce trafic ?          2/3    242.6  -0.09   -0.6   +6.1  6.0    5.4  1.06  1:323~ 2:243 3:478×!
+         prise 3 : parole en trop « Que » 0.00-0.32 s (leger, +55 dB, confiance 0.90) [début | pèse]
+         prise 3 : rire 0.48-1.04 s (net, +59 dB, confiance 0.95) [pèse | ce]
+         prise 3 : bruit 1.28-1.68 s (net, +40 dB, confiance 0.88) [trafic | fin]
+  securite-drogues-02 — 7.85 s, F0 245.9 Hz, pauses entre phrases [0.24, 0.3] s
+    1. Selon une estimation basse …   1/3    245.4  +0.11   -3.8   +0.2  0.0    6.0  1.18  1:245 2:270~ 3:215~
+    2. Toutes drogues confondues.    2/3    255.9  +0.84   -1.2   +3.5  3.8    7.1  1.39  1:279~ 2:256 3:325~
+  securite-drogues-03 — 8.22 s, F0 232.6 Hz, pauses entre phrases [0.31, 0.17] s
+    1. Côté consommation, dix virg…   1/3    232.6  -0.81   -1.9   +0.4  1.2    5.7  1.11  1:233 2:235 3:257
+    2. Un peu plus d'un sur dix, u…   1/3    243.0  -0.06   -7.0   +3.7  1.9    5.4  1.05  1:243 2:219~ 3:211~
+  securite-drogues-04 — 9.59 s, F0 243.2 Hz, pauses entre phrases [0.2, 0.3, 0.4] s
+    1. À dix-sept ans, vingt-neuf …   2/3    243.1  -0.05   -3.0   +4.6  6.0    5.8  1.12  1:234 2:243 3:237
+    2. C'est le niveau le plus bas…   3/3    243.3  -0.04   -3.0   +4.4  3.0    6.9  1.34  1:238 2:231 3:243
+  securite-drogues-05 — 10.42 s, F0 240.7 Hz, pauses entre phrases [0.22, 0.31] s
+    1. L'usage de stupéfiants est …   3/3    239.1  -0.34   -2.8   -0.0  3.0    6.2  1.20  1:238 2:251 3:239
+    2. Mais une amende forfaitaire…   3/3    244.5  +0.05   -6.7   +1.9  2.8    5.4  1.05  1:236 2:228 3:244
+      passage assemblé : respiration 9.12-9.36 s (leger, +32 dB, confiance 0.60) [deux | mille]
+  securite-drogues-06 — 13.97 s, F0 236.9 Hz, pauses entre phrases [0.3, 0.25, 0.15] s
+    1. La loi du treize juin deux …   1/3    241.4  -0.17   -7.1   +2.6  6.0    5.6  1.09  1:241 2:232 3:224
+    2. Elle renforce aussi la lutt…   2/3    230.7  -0.96   -3.6   +3.3  6.0    5.5  1.07  1:226 2:231 3:227
+  securite-drogues-07 — 8.14 s, F0 243.2 Hz, pauses entre phrases [0.36] s
+    1. En deux mille vingt-trois, …   3/3    251.6  +0.55   -4.3   +3.9  3.6    5.9  1.14  1:223~ 2:234 3:252
+    2. C'est quatorze pour cent de…   1/3    229.1  -1.08   -1.1   +0.8  4.3    7.3  1.42  1:229 2:202~ 3:213~
+  securite-drogues-08 — 5.46 s, F0 245.7 Hz, pauses entre phrases [0.3] s
+    1. D'un côté, moins de jeunes …   7/7    245.4  +0.11   -1.9   +3.7  1.1    5.8  1.13  1:254~ 2:261~ 3:266~ 4:252~ 5:259~ 6:240~ 7:245
+    2. De l'autre, le trafic rappo…   2/3    246.1  +0.16   -3.5   +1.6  1.9    5.5  1.08  1:268~ 2:246 3:216~
+  securite-drogues-09 — 3.06 s, F0 255.9 Hz
+    1. Alors, comment affaiblir le…   1/3    255.9  +0.84   -1.1   +4.9  6.0    5.5  1.08  1:256 2:218~ 3:226
+  securite-justice-01 — 4.76 s, F0 242.1 Hz, pauses entre phrases [0.31, 0.16] s
+    1. Une personne est condamnée …   2/3    247.0  +0.23   +0.1      —  0.0    6.4  1.25  1:236 2:247 3:263
+    2. Quelle peine reçoit-elle, e…   3/3    229.4  -1.05   -7.4   +0.2  3.0    5.4  1.05  1:275×! 2:260 3:229
+         prise 1 : rire 0.72-1.04 s (net, +48 dB, confiance 0.95) [reçoit | elle]
+  securite-justice-02 — 11.67 s, F0 241.2 Hz, pauses entre phrases [0.3] s
+    1. En deux mille vingt-quatre,…   1/3    242.8  -0.07   -7.6   +1.8  0.0    5.2  1.02  1:243 2:253 3:234
+    2. Dont cent vingt et un mille…   3/3    240.5  -0.24   -4.8   +1.2  6.0    4.7  0.92  1:281~? 2:249~ 3:240?
+         prise 1 : mot manquant ou bâclé « un » 1.12-1.28 s (leger, confiance 0.30) [et | mille]
+         prise 3 : respiration 2.48-2.70 s (leger, +20 dB, confiance 0.37) [prison | au]
+      passage assemblé : respiration 8.56-8.77 s (leger, +19 dB, confiance 0.36) [prison | au]
+  securite-justice-03 — 6.61 s, F0 230.7 Hz
+    1. Et quatorze mille quatre ce…   3/3    230.7  -0.96   -2.2   +1.4  4.8    6.3  1.23  1:227 2:208~ 3:231
+  securite-justice-04 — 7.64 s, F0 253.9 Hz, pauses entre phrases [0.34, 0.27] s
+    1. Au premier septembre deux m…   3/3    256.8  +0.90   -3.8   +3.6  2.2    5.8  1.14  1:252×! 2:272~ 3:257
+         prise 1 : bruit 4.96-5.15 s (net, +39 dB, confiance 0.82) [places | fin]
+    2. Un an plus tôt, cent trente…   1/3    247.8  +0.28   -7.8   +0.2  3.8    5.1  1.00  1:248 2:292~ 3:218~
+  securite-justice-05 — 8.13 s, F0 244.2 Hz, pauses entre phrases [0.31] s
+    1. Un plan de quinze mille pla…   2/3    248.1  +0.30   -3.9   +2.3  6.0    6.4  1.26  1:269~ 2:248 3:224
+    2. À l'automne deux mille ving…   2/3    240.1  -0.26   -8.9   +2.0  3.9    6.4  1.25  1:230 2:240 3:255
+  securite-justice-06 — 12.83 s, F0 234.1 Hz, pauses entre phrases [0.19, 0.18, 0.32, 0.19] s
+    1. En deux mille vingt-deux, l…   1/3    233.6  -0.74   -0.0   +0.1  6.0    5.9  1.16  1:234 2:258 3:231
+    2. La loi de programmation pou…   2/3    235.2  -0.62   -1.4   +0.4  0.0    5.1  1.00  1:230 2:235 3:249?
+         prise 3 : respiration 3.12-3.33 s (leger, +18 dB, confiance 0.35) [sept | prévoit]
+  securite-justice-07 — 10.24 s, F0 252.5 Hz, pauses entre phrases [0.31, 0.15, 0.32, 0.31, 0.15] s
+    1. Pour un délit, la récidive …   2/3    251.0  +0.50   -6.1   +2.5  1.4    5.9  1.16  1:236 2:251 3:238
+    2. La peine maximale encourue …   1/3    255.1  +0.78   -7.0   +3.9  6.0    5.5  1.08  1:255 2:224 3:227
+  securite-justice-08 — 11.70 s, F0 249.9 Hz, pauses entre phrases [0.31, 0.21] s
+    1. En deux mille vingt-quatre,…   1/3    248.0  +0.30   -7.1   +3.3  6.0    6.0  1.18  1:248 2:209×! 3:249
+         prise 2 : respiration 1.60-1.84 s (net, +43 dB, confiance 0.83) [virgule | pour]
+    2. Et vingt-quatre virgule un …   3/3    255.4  +0.80   -5.0   +2.4  6.0    5.7  1.11  1:226 2:227 3:255
+  securite-justice-09 — 4.32 s, F0 235.7 Hz, pauses entre phrases [0.29, 0.3, 0.26] s
+    1. D'un côté, des prisons surp…   3/3    224.7  -1.41   -1.4   -0.1  5.0    5.1  1.00  1:217~ 2:275~ 3:225
+    2. De l'autre, la récidive lég…   3/3    246.0  +0.16   -1.4   +2.2  1.4    5.8  1.13  1:227 2:228 3:246
+  securite-justice-10 — 2.22 s, F0 238.7 Hz
+    1. Alors, quelle orientation p…   2/3    238.7  -0.37   -8.5   +2.5  4.5    7.0  1.36  1:252 2:239 3:275~
+  securite-lycees-01 — 4.56 s, F0 247.8 Hz, pauses entre phrases [0.24, 0.31] s
+    1. À l'automne deux mille ving…   2/3    245.9  +0.15   -0.5      —  0.0    6.0  1.16  1:258 2:246 3:237
+    2. Comment répondre à ces bloc…   1/3    259.9  +1.11   -1.6   +4.2  3.5    6.0  1.17  1:260 2:211~ 3:231×!
+         prise 3 : respiration 0.00-0.16 s (net, +42 dB, confiance 0.81) [début | Comment]
+  securite-lycees-02 — 6.62 s, F0 239.8 Hz
+    1. À la rentrée deux mille vin…   1/3    239.8  -0.29   -6.8   +1.1  0.0    6.8  1.32  1:240 2:254~ 3:250
+  securite-lycees-03 — 11.06 s, F0 232.9 Hz, pauses entre phrases [0.28, 0.3] s
+    1. Au printemps deux mille vin…   2/3    241.2  -0.19   -9.1   +4.2  6.0    5.1  0.99  1:230 2:241 3:234
+    2. Et cinquante-neuf pour cent…   2/3    224.0  -1.47   -8.7   +3.0  6.0    6.2  1.20  1:211~ 2:224 3:212~
+  securite-lycees-04 — 8.17 s, F0 233.5 Hz, pauses entre phrases [0.3] s
+    1. Au lycée, les élèves ont la…   3/3    230.3  -0.99   -4.8   +1.6  6.0    7.2  1.42  1:268~ 2:226 3:230
+    2. Mais la loi précise que l'e…   3/3    242.0  -0.13   -3.8   +2.8  4.8    5.9  1.14  1:224 2:247 3:242
+  securite-lycees-05 — 11.77 s, F0 245.3 Hz, pauses entre phrases [0.24, 0.34] s
+    1. La Convention international…   1/3    247.0  +0.23   -7.9   +4.2  3.8    5.9  1.15  1:247 2:225? 3:235
+         prise 2 : respiration 2.31-2.44 s (leger, +17 dB, confiance 0.33) [l'enfant | qui]
+    2. Seule la loi peut la restre…   3/3    242.8  -0.07   -2.7   +2.5  6.0    5.6  1.09  1:222~ 2:242 3:243
+  securite-lycees-06 — 8.60 s, F0 247.3 Hz, pauses entre phrases [0.17, 0.17, 0.33] s
+    1. Et dans chaque lycée public…   3/3    249.2  +0.38   -5.9   +2.9  2.7    6.0  1.17  1:217~ 2:211~ 3:249?
+         prise 3 : respiration 6.24-6.39 s (leger, +34 dB, confiance 0.61) [élèves | fin]
+    2. Le chef d'établissement le …   3/3    238.2  -0.40   -3.6   +2.5  5.9    5.7  1.10  1:266 2:208~ 3:238
+  securite-lycees-07 — 12.32 s, F0 238.3 Hz, pauses entre phrases [0.31, 0.31] s
+    1. La loi punit le fait d'entr…   1/3    235.0  -0.64   -3.6   +4.5  3.6    5.8  1.14  1:235 2:222~ 3:234
+    2. Jusqu'à un an de prison et …   1/3    246.3  +0.18   -1.1   +2.9  3.6    6.0  1.16  1:246 2:240 3:254
+    3. Une amende forfaitaire de c…   3/3    242.2  -0.11   -1.4   +3.3  1.1    6.2  1.20  1:248~ 2:243~ 3:242
+  securite-lycees-08 — 6.03 s, F0 236.8 Hz, pauses entre phrases [0.26, 0.3, 0.16] s
+    1. D'un côté, des violences co…   3/3    233.4  -0.75   -1.4   -1.0  1.4    5.4  1.05  1:220~ 2:212~ 3:233
+    2. De l'autre, l'expression et…   3/3    243.3  -0.04   -0.6   +2.4  1.4    5.8  1.14  1:229~ 2:244~ 3:243
+  securite-lycees-09 — 1.93 s, F0 240.9 Hz
+    1. Alors, comment répondre aux…   2/3    240.9  -0.21   -1.4   +3.4  3.6    6.9  1.35  1:239~ 2:241 3:244~
+
+Aucune alerte.
+
+Temps : 2877 s pour 277 prise(s), 9.98 s de calcul par prise en moyenne (3.89 s d'audio) ; calcul d'une prise ≈ 0.59 s + 2.46 s par seconde d'audio. Détecteur de sons parasites : 0.167 s par prise en moyenne (au plus 0.604 s), 2% du calcul d'une prise.
+Estimation pour les 1013 passages (1856 phrases) (voix aiguë 3 prises, 4% de secours) : ~1029 min.

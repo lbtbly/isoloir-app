@@ -1,0 +1,202 @@
+Rapport de génération des voix — 2026-10-05 19:10:25
+Commande : generate.py --voice aigue --only fiscalite
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  impots-intro-01 — 6.24 s, F0 250.1 Hz, pauses entre phrases [0.26, 0.16, 0.31, 0.17] s
+    1. Impôts, cotisations sociale…   4/4    252.5  +0.61   -7.0      —  0.0    6.5  1.26  1:258×! 2:248×! 3:221~ 4:252
+         prise 1 : parole en trop 0.00-0.19 s (net, +40 dB, confiance 0.73) [début | Impôts]
+         prise 1 : bruit 0.27-0.44 s (leger, +28 dB, confiance 0.56) [début | Impôts]
+         prise 2 : respiration 0.09-0.29 s (net, +62 dB, confiance 0.95) [début | Impôts]
+         prise 2 : respiration 0.64-0.86 s (net, +43 dB, confiance 0.66) [début | Impôts]
+    2. Où va cet argent, et suffit…   1/3    243.8  +0.00   +6.5   +3.8  6.0    5.4  1.06  1:244 2:265 3:240
+  impots-intro-02 — 10.43 s, F0 238.6 Hz, pauses entre phrases [0.16, 0.3, 0.19, 0.2] s
+    1. En deux mille vingt-cinq, l…   2/3    238.1  -0.41   -3.9   +1.3  0.0    5.8  1.12  1:222~ 2:238 3:226
+    2. D'abord en prestations soci…   4/4    239.4  -0.32   -5.1   +3.4  3.9    5.3  1.04  1:217~? 2:221~ 3:301~ 4:239
+         prise 1 : bruit 2.06-2.19 s (leger, +43 dB, confiance 0.81) [retraites | chômage]
+  impots-intro-03 — 9.94 s, F0 236.3 Hz, pauses entre phrases [0.42, 0.33, 0.33] s
+    1. Ces dépenses valent cinquan…   2/3    236.2  -0.55   -1.6   +1.8  5.1    4.8  0.93  1:229 2:236 3:228
+    2. Les recettes, cinquante-deu…   6/6    235.5  -0.60   -0.6   +3.0  1.6    4.4  0.87  1:220~? 2:248~ 3:263~ 4:235~ 5:281~ 6:236
+         prise 1 : respiration 0.63-0.71 s (leger, +30 dB, confiance 0.57) [recettes | cinquante]
+    3. L'écart, c'est le déficit.    1/3    238.9  -0.35   -1.3   +2.3  0.6    5.2  1.00  1:239 2:227 3:260×
+  impots-intro-04 — 7.51 s, F0 246.0 Hz
+    1. Ces recettes sont surtout d…   2/3    246.0  +0.16   -1.8   +1.3  1.3    5.9  1.15  1:211~ 2:246 3:230
+  impots-intro-05 — 11.09 s, F0 236.7 Hz, pauses entre phrases [0.3, 0.31, 0.46] s
+    1. Et chaque déficit s'ajoute …   4/4    244.4  +0.04   -5.7   +2.6  1.8    5.9  1.15  1:274~ 2:352~ 3:288~ 4:244
+    2. Fin juin deux mille vingt-s…   2/3    240.7  -0.22   -7.3   +4.4  5.7    4.9  0.96  1:258 2:241 3:230
+    3. C'est cent dix-neuf pour ce…   3/3    231.6  -0.89   -8.6   +1.6  6.0    5.6  1.10  1:222~ 2:262 3:232
+  impots-intro-06 — 11.17 s, F0 250.8 Hz, pauses entre phrases [0.28, 0.31, 0.35, 0.35, 0.36, 0.36] s
+    1. Alors, cinq questions se po…   1/3    240.3  -0.25   -4.4   +2.0  6.0    4.4  0.86  1:240 2:271~ 3:240
+    2. Que faire face à la dette ?   2/3    261.5  +1.21   -6.5   +4.1  6.0    5.1  1.00  1:371×! 2:262 3:344~
+         prise 1 : rire 0.16-0.56 s (net, +57 dB, confiance 0.95) [faire | face]
+    3. Comment imposer les grandes…   1/3    229.0  -1.08   -1.3   +0.2  3.0    5.2  1.01  1:229 2:273~ 3:268~
+    4. Et les héritages ?            7/7    275.1  +2.09   +8.9   +4.8  3.0    6.2  1.20  1:373~? 2:214~ 3:286×! 4:192~ 5:344×! 6:312~ 7:275~
+         prise 1 : parole en trop « héritages » 0.32-0.86 s (leger, +65 dB, confiance 0.30) [les | fin]
+         prise 3 : parole en trop « héritages » 0.32-1.01 s (net, +41 dB, confiance 0.35) [les | fin]
+         prise 5 : parole en trop « héritages » 0.40-0.99 s (net, +48 dB, confiance 0.32) [les | fin]
+    5. Et le capital, les bénéfice…   1/3    256.0  +0.85   +3.9   -0.5  3.0    6.1  1.19  1:256 2:266~ 3:271~
+    6. À quoi affecter une recette…   2/3    251.2  +0.52   -0.6   +2.5  3.0    4.7  0.91  1:232 2:251 3:216~
+      ⚠ phrase 4 : aucune prise acceptable : hauteur +2.09 dt de la cible
+  impots-intro-07 — 2.26 s, F0 227.8 Hz
+    1. Ce sont les cinq sujets des…   1/3    227.8  -1.18   -2.3   +2.8  0.0    5.7  1.11  1:228 2:263×! 3:233~
+         prise 2 : parole en trop 0.02-0.32 s (net, +40 dB, confiance 0.71) [début | Ce]
+  impots-dette-01 — 7.78 s, F0 250.3 Hz, pauses entre phrases [0.17, 0.3, 0.28, 0.35] s
+    1. Quand les recettes publique…   1/3    257.0  +0.91   -2.3      —  0.0    5.9  1.14  1:257 2:299~ 3:259
+    2. Année après année, ces empr…   2/3    242.3  -0.11   -5.8   -2.9  2.3    6.2  1.22  1:218~ 2:242 3:262
+    3. Comment y faire face ?        6/6    259.2  +1.06   +1.1   +2.4  6.0    3.9  0.76  1:302×! 2:322~ 3:408~ 4:318~ 5:276~ 6:259
+         prise 1 : parole en trop 0.87-1.10 s (net, +55 dB, confiance 0.95) [face | fin]
+  impots-dette-02 — 10.93 s, F0 243.8 Hz, pauses entre phrases [0.26, 0.39, 0.42, 0.3] s
+    1. Et la dette a un coût : soi…   2/3    247.5  +0.26   -4.3   +2.7  0.0    6.0  1.18  1:226 2:248 3:220~
+    2. C'est onze virgule deux pou…   1/3    236.3  -0.54   -8.8   +0.0  4.3    5.0  0.97  1:236 2:255 3:253×!
+         prise 3 : rire 0.00-0.32 s (net, +48 dB, confiance 0.95) [début | C'est]
+  impots-dette-03 — 10.83 s, F0 241.4 Hz, pauses entre phrases [0.22, 0.29, 0.32, 0.26, 0.3, 0.3] s
+    1. Le déficit, lui, recule : c…   3/3    241.7  -0.15   -1.9   +2.6  6.0    5.1  0.99  1:246 2:227 3:242
+    2. Soit cent cinquante-deux vi…   2/3    241.6  -0.16   -2.6   +2.1  1.9    4.4  0.87  1:248 2:242 3:253
+  impots-dette-04 — 8.96 s, F0 249.5 Hz, pauses entre phrases [0.27, 0.3] s
+    1. Depuis juillet deux mille v…   2/3    249.3  +0.39   -7.0   +3.7  2.6    5.1  1.00  1:238 2:249 3:253
+    2. Elle doit le ramener sous t…   1/3    249.3  +0.39   -8.3   +2.0  6.0    6.5  1.27  1:249 2:287~ 3:254
+  impots-dette-05 — 12.37 s, F0 247.8 Hz, pauses entre phrases [0.31, 0.3, 0.15, 0.2] s
+    1. Le Gouvernement prévoit cin…   1/3    250.8  +0.49   -4.4   +4.3  6.0    5.8  1.14  1:251 2:252 3:257?
+         prise 3 : respiration 4.96-5.17 s (leger, +31 dB, confiance 0.59) [sept | fin]
+    2. Le Haut Conseil des finance…   2/3    243.1  -0.05   -7.0   +2.8  4.4    5.4  1.06  1:241? 2:243 3:242
+         prise 1 : respiration 3.60-4.00 s (leger, +29 dB, confiance 0.57) [neuf | très]
+  impots-dette-06 — 10.57 s, F0 243.5 Hz, pauses entre phrases [0.31, 0.2] s
+    1. Réduire le déficit freine l…   1/3    229.1  -1.08   -3.9   +0.2  6.0    5.8  1.14  1:229? 2:213~ 3:222~
+         prise 1 : respiration 2.40-2.52 s (leger, +16 dB, confiance 0.32) [intérêts | mais]
+    2. Emprunter davantage évite d…   1/3    255.8  +0.83   -1.8   +3.3  3.9    6.1  1.19  1:256 2:212~ 3:227
+  impots-dette-07 — 4.30 s, F0 233.9 Hz
+    1. Alors, face à la dette, que…   1/3    233.9  -0.72   -3.2   -1.4  4.8    4.4  0.86  1:234 2:271~ 3:255
+  impots-fortune-01 — 7.27 s, F0 242.2 Hz, pauses entre phrases [0.31, 0.17, 0.25, 0.31] s
+    1. Logement, épargne, placemen…   3/3    236.1  -0.56  -10.3      —  0.0    5.0  0.97  1:267~ 2:225 3:236
+    2. Et les plus grandes fortune…   1/3    265.1  +1.45   -1.2   +3.0  6.0    5.3  1.04  1:265 2:277~ 3:276~
+  impots-fortune-02 — 7.71 s, F0 238.3 Hz, pauses entre phrases [0.23, 0.3, 0.25] s
+    1. Les dix pour cent de ménage…   1/3    237.5  -0.45   -2.1   -1.6  0.0    6.1  1.18  1:238 2:228 3:240
+    2. Les un pour cent les mieux …   2/3    238.5  -0.38   -2.2   +2.0  2.1    5.6  1.10  1:252 2:238 3:212×!
+         prise 3 : bruit 1.63-1.84 s (net, +50 dB, confiance 0.95) [quinze | pour]
+  impots-fortune-03 — 12.55 s, F0 238.6 Hz, pauses entre phrases [0.25, 0.19, 0.31, 0.29, 0.4, 0.26] s
+    1. En deux mille dix-sept, l'i…   1/3    232.8  -0.80   -1.9   +2.0  2.2    6.1  1.18  1:233 2:237×! 3:220~
+         prise 2 : mot étiré « l'ISF » 2.96-3.68 s (net, confiance 0.69) [fortune | a]
+    2. En deux mille dix-huit, l'i…   2/3    241.0  -0.20   -3.2   +1.9  1.9    5.1  0.99  1:252 2:241 3:236
+  impots-fortune-04 — 8.03 s, F0 240.4 Hz, pauses entre phrases [0.3, 0.29] s
+    1. Cet impôt ne porte que sur …   1/3    228.6  -1.11   -4.1   +1.8  3.2    7.0  1.37  1:229 2:223~ 3:217~
+    2. En deux mille vingt-cinq, c…   1/3    242.1  -0.12   -1.2   +5.3  4.1    5.8  1.12  1:242 2:216~ 3:226~
+  impots-fortune-05 — 11.62 s, F0 238.9 Hz, pauses entre phrases [0.35, 0.15, 0.3] s
+    1. Ces impôts poussent-ils à p…   2/3    231.2  -0.92   +9.8   -1.1  4.2    5.5  1.06  1:326~ 2:231 3:265
+    2. Sous l'I.S.F., environ neuf…   1/3    244.4  +0.04   -4.0   +1.2  0.0    4.9  0.95  1:244? 2:221~ 3:225
+         prise 1 : mot étiré « l'ISF » 0.16-0.88 s (leger, confiance 0.53) [Sous | environ]
+    3. Sous l'I.F.I., qui touche m…   1/3    235.5  -0.60   -0.8   +1.9  4.0    5.5  1.07  1:236 2:256 3:276~
+      passage assemblé : mot étiré « l'ISF » 2.72-3.44 s (net, confiance 0.59) [Sous | environ]
+      ⚠ son parasite dans le passage assemblé : mot étiré « l'ISF » 2.72-3.44 s (net, confiance 0.59) [Sous | environ]
+  impots-fortune-06 — 11.67 s, F0 239.1 Hz, pauses entre phrases [0.28, 0.31, 0.39, 0.16] s
+    1. Pour le comité d'évaluation…   1/3    239.1  -0.34   -1.7   +2.6  0.8    5.6  1.09  1:239 2:258~ 3:214~
+    2. Selon une étude pour France…   2/3    237.8  -0.43   -3.3   +3.4  1.7    5.8  1.13  1:231 2:238 3:257
+  impots-fortune-07 — 8.18 s, F0 245.6 Hz, pauses entre phrases [0.22, 0.31] s
+    1. Pour les uns, les plus gran…   2/3    245.9  +0.15   -4.2   +3.9  3.3    6.0  1.18  1:221~ 2:246 3:207~
+    2. Pour d'autres, les taxer pl…   1/3    243.7  -0.01   -4.2   +1.0  4.2    6.0  1.18  1:244? 2:267~ 3:217~
+         prise 1 : respiration 2.48-2.68 s (leger, +15 dB, confiance 0.31) [l'investissement | ou]
+  impots-fortune-08 — 3.42 s, F0 252.3 Hz
+    1. Alors, comment imposer les …   3/3    252.3  +0.59   -1.5   +4.9  6.0    5.6  1.09  1:257 2:258 3:252
+  impots-heritages-01 — 5.50 s, F0 240.8 Hz, pauses entre phrases [0.26, 0.3, 0.31, 0.29] s
+    1. Quand vous héritez, une par…   2/3    239.0  -0.34   -2.2      —  0.0    7.4  1.44  1:237 2:239 3:276~
+    2. Qui les paie, et combien ?    2/3    245.1  +0.09   -1.0   +2.8  5.2    6.1  1.20  1:433×! 2:245 3:457×!
+         prise 1 : rire 0.08-0.62 s (net, +69 dB, confiance 0.95) [Qui | les]
+         prise 3 : mot étiré « et » 0.32-0.80 s (leger, confiance 0.52) [paie | combien]
+         prise 3 : respiration 0.96-1.21 s (net, +59 dB, confiance 0.95) [combien | fin]
+  impots-heritages-02 — 8.06 s, F0 253.1 Hz, pauses entre phrases [0.34, 0.3, 0.21] s
+    1. En deux mille vingt-cinq, i…   2/3    258.2  +0.99   -2.1   +2.1  0.0    6.5  1.27  1:271~ 2:258 3:260
+    2. Et cinq virgule un milliard…   2/3    245.8  +0.14   -1.8   +2.9  2.1    5.4  1.06  1:213~ 2:246 3:229
+  impots-heritages-03 — 8.84 s, F0 240.2 Hz, pauses entre phrases [0.31, 0.27] s
+    1. Sur trente-neuf États de l'…   3/3    237.3  -0.47   -8.6   +2.4  1.8    5.4  1.06  1:226? 2:236~? 3:237
+         prise 1 : mot étiré « l'OCDE » 1.04-1.76 s (leger, confiance 0.49) [de | ou]
+         prise 2 : mot étiré « l'OCDE » 1.04-1.68 s (leger, confiance 0.41) [de | ou]
+    2. En deux mille vingt et un, …   2/3    244.8  +0.07   -5.4   +3.0  6.0    5.1  1.00  1:234 2:245 3:243
+  impots-heritages-04 — 7.19 s, F0 244.7 Hz
+    1. Selon une simulation du Tré…   3/3    244.7  +0.06  -10.3   +1.6  5.4    5.7  1.11  1:250 2:249 3:245
+  impots-heritages-05 — 8.91 s, F0 244.8 Hz, pauses entre phrases [0.31, 0.23] s
+    1. Sur les successions de plus…   3/3    244.9  +0.08   -2.7   +2.0  6.0    6.3  1.24  1:246 2:237 3:245
+    2. Sans elles, plus de vingt p…   5/5    240.8  -0.21   -4.6   +4.2  2.7    5.3  1.04  1:323×! 2:272~ 3:276~ 4:314~ 5:241
+         prise 1 : mot étiré « elles » 0.16-0.53 s (net, +56 dB, confiance 0.55) [Sans | plus]
+  impots-heritages-06 — 8.01 s, F0 237.1 Hz, pauses entre phrases [0.3, 0.21] s
+    1. Pour les uns, la France tax…   2/3    229.1  -1.08   -3.7   +1.3  4.6    5.8  1.12  1:228 2:229 3:262
+    2. Pour d'autres, les plus gro…   3/3    242.3  -0.11   -6.9   +2.8  3.7    5.9  1.15  1:217~ 2:240 3:242
+  impots-heritages-07 — 4.12 s, F0 241.9 Hz
+    1. Alors, quelle place donner …   3/3    241.9  -0.14   -8.0   +1.1  6.0    5.0  0.98  1:247 2:230 3:242
+  impots-capital-01 — 6.84 s, F0 243.6 Hz, pauses entre phrases [0.35, 0.32] s
+    1. Votre salaire est imposé au…   3/3    245.3  +0.11   -3.5      —  0.0    6.3  1.23  1:220~ 2:222~ 3:245
+    2. Et les dividendes, les inté…   3/3    242.3  -0.11   +4.5   +1.9  6.0    7.6  1.48  1:248 2:279~ 3:242
+  impots-capital-02 — 10.44 s, F0 240.6 Hz, pauses entre phrases [0.31, 0.15] s
+    1. Depuis deux mille dix-huit,…   2/3    245.2  +0.10   -6.1   -0.1  0.0    6.0  1.18  1:221~ 2:245 3:233
+    2. Il additionne douze virgule…   3/3    236.9  -0.50   -3.5   +0.1  6.0    6.3  1.23  1:229 2:252 3:237
+  impots-capital-03 — 6.56 s, F0 242.3 Hz
+    1. En deux mille vingt et un, …   2/3    242.3  -0.11   -2.7   +3.3  3.5    5.8  1.13  1:247 2:242 3:237
+  impots-capital-04 — 9.75 s, F0 247.3 Hz, pauses entre phrases [0.23, 0.31, 0.22] s
+    1. Après la réforme, les divid…   1/3    240.3  -0.25   -2.4   +3.1  2.7    6.2  1.22  1:240 2:216~ 3:249
+    2. Selon le comité d'évaluatio…   3/3    255.0  +0.78   -2.8   +2.3  2.4    6.5  1.27  1:233 2:261~ 3:255
+  impots-capital-05 — 10.64 s, F0 235.4 Hz, pauses entre phrases [0.17, 0.3] s
+    1. Le comité n'a détecté aucun…   3/3    236.6  -0.52   -1.5   +1.4  2.8    6.4  1.25  1:233 2:235 3:237
+    2. Les créations d'entreprises…   3/3    234.0  -0.71   -2.6   +3.4  1.5    6.4  1.25  1:240 2:251 3:234
+  impots-capital-06 — 14.11 s, F0 242.6 Hz, pauses entre phrases [0.26, 0.31, 0.3] s
+    1. Les entreprises paient l'im…   3/3    239.3  -0.32   -2.4   +2.2  2.6    6.5  1.27  1:231 2:237 3:239
+    2. En deux mille vingt-cinq, c…   3/3    248.3  +0.32   -3.6   +4.0  2.4    5.5  1.07  1:253 2:230 3:248
+    3. Les plus grandes ont versé …   1/3    242.3  -0.11   -1.5   +2.6  3.6    5.1  1.00  1:242 2:238 3:248
+  impots-capital-07 — 6.77 s, F0 233.4 Hz, pauses entre phrases [0.3] s
+    1. Pour les uns, revenus du tr…   4/4    223.9  -1.47   -0.5   +0.9  1.5    6.8  1.32  1:218~ 2:217~ 3:259~ 4:224?
+         prise 4 : mot étiré « les » 0.08-0.48 s (leger, +46 dB, confiance 0.70) [Pour | uns]
+         prise 4 : respiration 0.16-0.48 s (leger, +32 dB, confiance 0.61) [les | uns]
+    2. Pour d'autres, il ne faut p…   1/3    240.0  -0.27   -0.3   +3.2  0.5    6.5  1.27  1:240 2:226 3:258
+      passage assemblé : mot étiré « les » 0.08-0.48 s (leger, +46 dB, confiance 0.65) [Pour | uns]
+      passage assemblé : respiration 0.16-0.48 s (leger, +31 dB, confiance 0.60) [les | uns]
+  impots-capital-08 — 3.77 s, F0 245.5 Hz
+    1. Alors, comment imposer les …   2/3    245.5  +0.12   -1.6   +4.0  3.3    6.7  1.31  1:235 2:246 3:246
+  impots-recettes-01 — 3.50 s, F0 248.9 Hz, pauses entre phrases [0.32] s
+    1. Un impôt rapporte davantage…   3/3    253.9  +0.70   -4.6      —  0.0    5.7  1.12  1:324~ 2:286~ 3:254
+    2. À quoi sert cet argent en p…   2/3    243.6  -0.01   -1.1   +3.0  6.0    4.9  0.95  1:268~ 2:244 3:266
+  impots-recettes-02 — 7.15 s, F0 237.0 Hz, pauses entre phrases [0.37, 0.15, 0.3] s
+    1. En règle générale, à l'ense…   3/3    237.4  -0.46   -7.6   -0.2  0.0    6.3  1.23  1:208~ 2:220~ 3:237
+    2. C'est la règle d'universali…   1/3    233.9  -0.72   -3.4   +0.3  6.0    6.3  1.24  1:234 2:287~ 3:311~
+  impots-recettes-03 — 13.90 s, F0 236.2 Hz, pauses entre phrases [0.25, 0.41] s
+    1. La Sécurité sociale, elle, …   3/3    236.3  -0.54   -0.9   +3.1  3.4    4.8  0.94  1:232 2:214~ 3:236
+    2. Depuis deux mille vingt-qua…   2/3    236.5  -0.53   -8.0   +1.5  0.9    5.1  0.99  1:223~ 2:236 3:222~
+  impots-recettes-04 — 8.76 s, F0 236.1 Hz
+    1. Une recette nouvelle peut d…   2/3    236.1  -0.56   -3.7   -0.1  6.0    4.9  0.96  1:223~ 2:236 3:235
+  impots-recettes-05 — 12.48 s, F0 236.3 Hz, pauses entre phrases [0.35, 0.35, 0.31, 0.35] s
+    1. Les prélèvements sur les sa…   3/3    237.9  -0.42   +9.3   -0.4  6.0    7.3  1.42  1:264? 2:335~ 3:238
+         prise 1 : respiration 1.20-1.35 s (leger, +47 dB, confiance 0.87) [salaires | fin]
+    2. En deux mille vingt-cinq, l…   1/3    233.5  -0.75   -0.3   +0.5  0.0    5.9  1.15  1:234 2:226 3:248~
+    3. Le grand âge ?                3/3    249.2  +0.38   -2.9   +0.9  3.3    3.9  0.75  1:298× 2:302× 3:249?
+         prise 3 : respiration 1.06-1.12 s (leger, +67 dB, confiance 0.77) [âge | fin]
+    4. La branche autonomie dépens…   2/3    238.0  -0.42   -5.1   -0.9  0.0    5.3  1.04  1:224 2:238 3:281~?
+         prise 3 : respiration 1.60-1.84 s (leger, +30 dB, confiance 0.56) [quarante | et]
+      passage assemblé : respiration 8.57-8.64 s (leger, +45 dB, confiance 0.80) [âge | La]
+  impots-recettes-06 — 13.25 s, F0 254.5 Hz, pauses entre phrases [0.35, 0.3, 0.29, 0.35] s
+    1. La transition climatique ?    2/3    248.3  +0.32   +5.1   +1.1  6.0    5.8  1.12  1:312~? 2:248 3:261
+         prise 1 : bruit 0.00-0.25 s (leger, +26 dB, confiance 0.49) [début | La]
+    2. Elle demanderait vingt-cinq…   3/3    257.9  +0.97   -5.1   +2.1  0.0    5.8  1.14  1:259~ 2:250~ 3:258?
+         prise 3 : respiration 3.84-4.16 s (leger, +24 dB, confiance 0.44) [an | à]
+    3. La dette ?                    4/7    249.7  +0.41   +1.4   +1.8  6.0    3.2  0.62  1:415×! 2:422×! 3:448×! 4:250×? 5:372×? 6:283×? 7:224×!
+         prise 1 : rire 0.08-0.40 s (net, +68 dB, confiance 0.95) [La | dette]
+         prise 2 : parole en trop 0.32-1.05 s (net, +49 dB, confiance 0.95) [dette | fin]
+         prise 3 : parole en trop 0.79-0.91 s (net, +62 dB, confiance 0.88) [dette | fin]
+         prise 4 : bruit 0.53-0.65 s (leger, +58 dB, confiance 0.66) [dette | fin]
+         prise 4 : parole en trop 0.95-1.06 s (leger, +67 dB, confiance 0.69) [dette | fin]
+         prise 5 : parole en trop 1.04-1.14 s (leger, +66 dB, confiance 0.74) [dette | fin]
+         prise 6 : bruit 0.55-0.68 s (leger, +54 dB, confiance 0.60) [dette | fin]
+         prise 7 : parole en trop 0.00-0.12 s (net, +52 dB, confiance 0.85) [début | La]
+         prise 7 : respiration 0.17-0.56 s (net, +45 dB, confiance 0.95) [début | La]
+         prise 7 : respiration 1.03-1.17 s (net, +35 dB, confiance 0.71) [dette | fin]
+    4. Soixante-quatre virgule sep…   3/3    247.7  +0.27   -3.5   -0.1  0.0    5.1  0.99  1:226 2:249 3:248
+      passage assemblé : respiration 5.60-5.92 s (leger, +24 dB, confiance 0.43) [an | à]
+      passage assemblé : bruit 8.92-9.05 s (leger, +38 dB, confiance 0.72) [dette | Soixante]
+      passage assemblé : vocalise 9.33-9.45 s (leger, +46 dB, confiance 0.73) [dette | Soixante]
+      ⚠ phrase 3 : aucune prise sans défaut : trop lente (3.2 syll/s, 0.62 × la référence)
+  impots-recettes-07 — 2.96 s, F0 242.6 Hz
+    1. Alors, à quoi affecter en p…   1/3    242.6  -0.09   -1.8   -0.3  6.0    6.8  1.32  1:243 2:250 3:260
+
+Alertes (3) :
+  aigue / impots-intro-06 : phrase 4 : aucune prise acceptable : hauteur +2.09 dt de la cible
+  aigue / impots-fortune-05 : son parasite dans le passage assemblé : mot étiré « l'ISF » 2.72-3.44 s (net, confiance 0.59) [Sous | environ]
+  aigue / impots-recettes-06 : phrase 3 : aucune prise sans défaut : trop lente (3.2 syll/s, 0.62 × la référence)
+
+Temps : 3027 s pour 293 prise(s), 9.97 s de calcul par prise en moyenne (3.76 s d'audio) ; calcul d'une prise ≈ 0.43 s + 2.58 s par seconde d'audio. Détecteur de sons parasites : 0.167 s par prise en moyenne (au plus 0.577 s), 2% du calcul d'une prise.
+Estimation pour les 1013 passages (1856 phrases) (voix aiguë 3 prises, 7% de secours) : ~1108 min.

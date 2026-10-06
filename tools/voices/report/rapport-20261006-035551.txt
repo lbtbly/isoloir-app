@@ -1,0 +1,153 @@
+Rapport de génération des voix — 2026-10-06 03:20:32
+Commande : generate.py --voice aigue --only strategie
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  alliances-intro-01 — 5.52 s, F0 242.7 Hz, pauses entre phrases [0.3] s
+    1. En deux mille vingt-sept, v…   1/3    240.8  -0.21   -2.0      —  0.0    6.5  1.27  1:241 2:230 3:232~
+    2. Pour gagner, puis pour gouv…   2/3    244.6  +0.06   -5.3   +1.9  5.0    6.8  1.34  1:250 2:245 3:332~
+  alliances-intro-02 — 6.05 s, F0 235.5 Hz
+    1. À la présidentielle, seuls …   1/3    235.5  -0.60   -7.2   -0.1  0.0    5.5  1.07  1:236 2:266~ 3:256
+  alliances-intro-03 — 11.02 s, F0 229.5 Hz, pauses entre phrases [0.21, 0.3] s
+    1. Aux législatives anticipées…   1/3    226.2  -1.30   -1.0   +1.4  6.0    6.4  1.25  1:226 2:219~ 3:206~
+    2. Au premier tour, ces candid…   1/3    233.3  -0.76   -5.7   +3.1  1.0    5.1  0.99  1:233 2:255~ 3:252~
+  alliances-intro-04 — 13.27 s, F0 241.1 Hz, pauses entre phrases [0.17, 0.31, 0.15, 0.3] s
+    1. Début octobre deux mille vi…   1/3    231.6  -0.89   -7.1   +3.5  5.7    5.2  1.02  1:232 2:217~ 3:229
+    2. S'y ajoutent quarante-sept …   3/3    246.7  +0.20   -7.5   +4.6  6.0    6.0  1.16  1:250 2:262 3:247
+    3. Aucun bloc n'a seul la majo…   1/3    252.2  +0.59   -6.1   +5.6  6.0    6.4  1.26  1:252 2:303×! 3:284~
+         prise 2 : rire 0.01-0.46 s (net, +49 dB, confiance 0.95) [début | Aucun]
+  alliances-intro-05 — 9.74 s, F0 241.4 Hz, pauses entre phrases [0.22, 0.3, 0.19] s
+    1. En décembre deux mille ving…   3/3    242.1  -0.12   -2.3   +2.1  6.0    6.0  1.16  1:235 2:255 3:242
+    2. En septembre deux mille vin…   3/3    240.9  -0.21   -2.1   +1.4  2.3    6.0  1.17  1:238 2:219~ 3:241
+  alliances-intro-06 — 7.90 s, F0 251.0 Hz, pauses entre phrases [0.3] s
+    1. Les pouvoirs de l'Assemblée…   3/3    251.6  +0.55   -7.3   +4.0  2.1    5.5  1.08  1:211~ 2:220~ 3:252
+    2. Des législatives en deux mi…   2/3    251.0  +0.50   -4.4   +3.9  6.0    6.3  1.24  1:223~ 2:251 3:232
+  alliances-intro-07 — 9.78 s, F0 251.3 Hz, pauses entre phrases [0.3, 0.2, 0.37, 0.35, 0.35, 0.36] s
+    1. Alors, quatre questions se …   5/5    224.8  -1.40   -6.2   +0.2  4.4    4.3  0.84  1:284~ 2:245~ 3:213~ 4:222~ 5:225
+    2. Pour deux mille vingt-sept,…   3/3    254.6  +0.75   -2.4   +7.3  6.0    5.2  1.01  1:247 2:265 3:255
+    3. Dissoudre l'Assemblée, ou n…   1/3    255.0  +0.78   +1.8   +0.4  3.0    6.5  1.28  1:255 2:223~ 3:275~
+    4. Avec qui gouverner ?          2/3    242.3  -0.11   -0.6   +2.1  3.0    7.6  1.48  1:278×! 2:242 3:228
+         prise 1 : respiration 1.02-1.14 s (net, +60 dB, confiance 0.94) [gouverner | fin]
+    5. Et comment faire adopter se…   3/3    255.5  +0.81   -6.6   +3.5  3.0    4.5  0.88  1:270~ 2:272~ 3:256
+  alliances-intro-08 — 2.13 s, F0 226.8 Hz
+    1. Ce sont les quatre sujets d…   3/3    226.8  -1.25   -0.5   +0.9  0.0    6.3  1.23  1:225 2:214~ 3:227
+  alliances-premier-tour-01 — 3.94 s, F0 240.7 Hz, pauses entre phrases [0.31] s
+    1. Vous votez au premier tour.   5/5    238.1  -0.41   -7.0      —  0.0    4.1  0.80  1:234~ 2:343×! 3:281~ 4:224~ 5:238
+         prise 2 : rire 0.16-0.49 s (net, +52 dB, confiance 0.95) [Vous | votez]
+    2. Mais qui pourra encore se p…   3/3    242.8  -0.07   -1.8   -0.2  6.0    8.0  1.56  1:218~ 2:232 3:243
+  alliances-premier-tour-02 — 5.39 s, F0 234.1 Hz
+    1. À la présidentielle, seuls …   3/3    234.1  -0.70   -3.4   +0.1  0.0    5.4  1.05  1:274~ 2:242 3:234
+  alliances-premier-tour-03 — 5.24 s, F0 239.3 Hz
+    1. Pour être élu, il faut ensu…   2/3    239.3  -0.32   -5.0   +3.0  3.4    6.1  1.20  1:236 2:239 3:252
+  alliances-premier-tour-04 — 7.60 s, F0 247.6 Hz, pauses entre phrases [0.17, 0.32] s
+    1. Aux législatives, pour se m…   3/3    248.4  +0.32   -7.4   +2.6  5.0    6.3  1.23  1:238 2:274~ 3:248
+    2. Soit un inscrit sur huit.     3/3    237.5  -0.45   -2.6   +7.6  6.0    5.4  1.05  1:280~ 2:229 3:238
+  alliances-premier-tour-05 — 4.10 s, F0 238.5 Hz
+    1. Si moins de deux candidats …   3/3    238.5  -0.38   -7.9   +3.3  2.6    5.8  1.14  1:236 2:259~ 3:238
+  alliances-premier-tour-06 — 11.62 s, F0 240.4 Hz, pauses entre phrases [0.23, 0.31, 0.16, 0.56] s
+    1. En deux mille vingt-quatre,…   1/3    242.8  -0.07   -7.2   +1.1  6.0    6.0  1.18  1:243 2:250 3:231
+    2. Au premier tour des législa…   2/3    238.0  -0.42   -3.8   +1.7  6.0    6.2  1.22  1:228 2:238 3:226
+  alliances-premier-tour-07 — 8.53 s, F0 238.3 Hz
+    1. Début octobre deux mille vi…   3/3    238.3  -0.40   -7.2   +2.4  3.8    5.1  0.99  1:232? 2:238? 3:238?
+         prise 1 : respiration 6.00-6.20 s (leger, +38 dB, confiance 0.70) [groupes | soixante]
+         prise 2 : respiration 1.72-1.83 s (leger, +15 dB, confiance 0.30) [six | les]
+         prise 3 : respiration 5.36-5.51 s (leger, +36 dB, confiance 0.66) [groupes | soixante]
+      passage assemblé : respiration 5.36-5.51 s (leger, +36 dB, confiance 0.66) [groupes | soixante]
+  alliances-premier-tour-08 — 6.19 s, F0 239.4 Hz, pauses entre phrases [0.21, 0.3, 0.17] s
+    1. Pour les uns, l'union aide …   1/3    242.0  -0.13   -2.5   +3.7  6.0    5.9  1.15  1:242 2:277~ 3:324~
+    2. Pour d'autres, elle gêne le…   3/3    235.6  -0.59   -1.5   +4.1  2.5    5.7  1.11  1:218~ 2:260 3:236
+  alliances-premier-tour-09 — 4.27 s, F0 239.6 Hz
+    1. Alors, pour les élections d…   2/3    239.6  -0.30   -0.3   +1.5  4.5    6.0  1.17  1:273~ 2:240 3:234
+  alliances-dissolution-01 — 5.07 s, F0 253.4 Hz, pauses entre phrases [0.31] s
+    1. En deux mille vingt-sept, v…   1/3    253.6  +0.68   -2.2      —  0.0    6.4  1.25  1:254 2:297~ 3:269~
+    2. Élirez-vous aussi de nouvea…   3/3    252.1  +0.58   -1.0   +1.6  5.2    7.4  1.45  1:277~ 2:295~ 3:252
+  alliances-dissolution-02 — 9.04 s, F0 242.0 Hz, pauses entre phrases [0.3, 0.3] s
+    1. Pas forcément.                6/7    247.6  +0.27   +0.6   -0.0  0.0    2.9  0.56  1:312×? 2:371×! 3:334×? 4:323×! 5:279×! 6:248× 7:271×!
+         prise 1 : respiration 0.84-1.04 s (leger, +40 dB, confiance 0.51) [forcément | fin]
+         prise 2 : respiration 0.64-1.05 s (net, +59 dB, confiance 0.95) [forcément | fin]
+         prise 3 : parole en trop 0.00-0.07 s (leger, +43 dB, confiance 0.71) [début | Pas]
+         prise 3 : respiration 1.03-1.10 s (leger, +43 dB, confiance 0.77) [forcément | fin]
+         prise 4 : vocalise « forcément » 0.32-1.07 s (net, +45 dB, confiance 0.30) [Pas | fin]
+         prise 5 : respiration 0.90-1.07 s (net, +64 dB, confiance 0.95) [forcément | fin]
+         prise 7 : parole en trop 0.96-1.06 s (net, +69 dB, confiance 0.89) [forcément | fin]
+    2. Les pouvoirs de l'Assemblée…   3/3    239.7  -0.29   -2.3   +0.3  0.0    6.3  1.23  1:260 2:247 3:240
+    3. Les législatives ont lieu d…   1/3    238.1  -0.41   -3.4   +3.5  2.3    6.0  1.16  1:238 2:236 3:263
+      ⚠ phrase 1 : aucune prise sans défaut : trop lente (2.9 syll/s, 0.56 × la référence)
+  alliances-dissolution-03 — 7.35 s, F0 246.7 Hz, pauses entre phrases [0.31] s
+    1. L'Assemblée actuelle a été …   2/3    245.1  +0.09   -3.8   +3.9  3.4    6.3  1.23  1:221~ 2:245 3:218~
+    2. Ses pouvoirs expirent donc …   3/3    251.1  +0.51   -4.2   +3.5  3.8    5.0  0.98  1:230 2:218~ 3:251
+  alliances-dissolution-04 — 7.30 s, F0 246.3 Hz
+    1. Pour voter plus tôt, il fau…   1/3    246.3  +0.18   -7.5   +1.1  4.2    5.8  1.14  1:246 2:227 3:248
+  alliances-dissolution-05 — 5.29 s, F0 251.2 Hz, pauses entre phrases [0.3] s
+    1. Le président élu en deux mi…   2/3    251.1  +0.51   -1.2   +2.2  6.0    6.0  1.18  1:274~ 2:251 3:266~
+    2. Vous éliriez alors de nouve…   2/3    254.2  +0.72   -1.0   +4.0  1.2    7.2  1.40  1:266~ 2:254 3:260~
+  alliances-dissolution-06 — 6.60 s, F0 238.7 Hz
+    1. Sinon, le gouvernement devr…   2/3    238.7  -0.37   -7.4   +1.4  1.0    5.6  1.10  1:267~ 2:239 3:230
+  alliances-dissolution-07 — 5.26 s, F0 246.8 Hz
+    1. Alors, en deux mille vingt-…   2/3    246.8  +0.21   -3.3   +2.1  6.0    5.5  1.08  1:232 2:247 3:229
+  alliances-majorite-01 — 3.02 s, F0 251.3 Hz
+    1. Un gouvernement peut-il res…   1/3    251.3  +0.52   +0.6      —  3.0    7.3  1.42  1:251 2:268~ 3:234
+  alliances-majorite-02 — 13.29 s, F0 233.3 Hz, pauses entre phrases [0.25, 0.25, 0.31, 0.16, 0.36] s
+    1. Début octobre deux mille vi…   3/3    230.5  -0.97   -6.8   -0.7  0.0    5.5  1.07  1:226 2:235×! 3:230
+         prise 2 : bruit 1.44-1.64 s (net, +40 dB, confiance 0.85) [six | l'Assemblée]
+    2. S'y ajoutent quarante-sept …   2/3    243.7  -0.01   -4.0   +5.7  6.0    5.9  1.15  1:259 2:244 3:221~?
+         prise 3 : bruit 2.32-2.44 s (leger, +43 dB, confiance 0.80) [droite | et]
+    3. Aucun bloc n'a donc seul la…   2/3    229.8  -1.02   -3.9   +1.9  4.0    6.5  1.27  1:184~ 2:230 3:216~
+  alliances-majorite-03 — 6.36 s, F0 230.7 Hz
+    1. Or un gouvernement tombe si…   2/3    230.7  -0.96   -2.9   +1.3  3.9    5.3  1.05  1:217~ 2:231 3:264
+  alliances-majorite-04 — 4.97 s, F0 229.6 Hz, pauses entre phrases [0.3] s
+    1. Seuls les votes pour la mot…   2/3    240.1  -0.26   -3.6   +2.7  2.9    5.4  1.06  1:240 2:240? 3:195~
+         prise 2 : parole en trop 0.01-0.24 s (leger, +48 dB, confiance 0.79) [début | Seuls]
+    2. S'abstenir revient donc à l…   3/3    225.6  -1.34   -2.6   +2.2  3.6    6.0  1.17  1:260 2:223~ 3:226
+      passage assemblé : parole en trop 0.01-0.24 s (leger, +48 dB, confiance 0.79) [début | Seuls]
+  alliances-majorite-05 — 9.98 s, F0 239.3 Hz, pauses entre phrases [0.4, 0.3, 0.15] s
+    1. En septembre deux mille vin…   3/3    234.3  -0.69   -6.8   +3.6  2.6    6.3  1.23  1:257 2:229 3:234
+    2. Il l'a perdue, par trois ce…   2/3    241.1  -0.19   -1.4   +3.4  6.0    4.8  0.94  1:251 2:241 3:234
+  alliances-majorite-06 — 6.56 s, F0 235.3 Hz
+    1. De mille neuf cent cinquant…   1/3    235.3  -0.61   -2.5   +0.8  1.4    5.8  1.14  1:235 2:223~ 3:248?
+         prise 3 : respiration 2.34-2.54 s (leger, +21 dB, confiance 0.39) [cinq | c'est]
+  alliances-majorite-07 — 8.99 s, F0 248.0 Hz, pauses entre phrases [0.31] s
+    1. En octobre deux mille vingt…   2/3    246.1  +0.16   -0.9   +2.5  2.5    4.8  0.93  1:258 2:246? 3:224
+         prise 2 : vocalise 4.80-5.12 s (leger, +39 dB, confiance 0.65) [voix | pour]
+    2. Le gouvernement est resté e…   3/3    258.0  +0.98   +1.3   +2.8  0.9    6.7  1.31  1:300×! 2:284~ 3:258
+         prise 1 : bruit 1.20-1.50 s (net, +54 dB, confiance 0.95) [place | fin]
+      passage assemblé : vocalise 4.80-5.12 s (leger, +36 dB, confiance 0.59) [voix | pour]
+  alliances-majorite-08 — 9.36 s, F0 237.5 Hz, pauses entre phrases [0.23, 0.19, 0.33, 0.2] s
+    1. S'allier au centre, voire à…   5/5    237.5  -0.45   -5.8   +0.4  0.0    6.0  1.17  1:223~ 2:219~ 3:219~ 4:214~ 5:238
+    2. S'en passer évite ces compr…   3/3    239.1  -0.34   -4.0   +2.4  5.8    6.2  1.21  1:239 2:255 3:239
+  alliances-majorite-09 — 4.10 s, F0 225.6 Hz
+    1. Alors, quelle attitude adop…   4/4    225.6  -1.34   -6.8   +1.8  6.0    6.3  1.24  1:212~ 2:223~ 3:208~ 4:226
+  alliances-49-3-01 — 2.80 s, F0 233.9 Hz
+    1. Un texte de loi peut-il êtr…   2/3    233.9  -0.72   +7.5      —  3.0    6.7  1.31  1:221~ 2:234 3:234
+  alliances-49-3-02 — 4.86 s, F0 237.5 Hz, pauses entre phrases [0.3] s
+    1. Oui.                          5/7    244.4  +0.04   +0.7   +0.1  0.0    4.3  0.85  1:337×? 2:276× 3:224× 4:312×! 5:244× 6:317× 7:298×?
+         prise 1 : parole en trop 0.75-0.86 s (leger, +72 dB, confiance 0.76) [Oui | fin]
+         prise 4 : parole en trop 0.79-1.05 s (net, +66 dB, confiance 0.73) [Oui | fin]
+         prise 7 : respiration 0.96-1.06 s (leger, +62 dB, confiance 0.69) [Oui | fin]
+    2. L'article quarante-neuf tro…   2/3    231.8  -0.87   -7.3   +0.1  0.0    5.5  1.07  1:231 2:232 3:236×!
+         prise 3 : respiration 3.84-4.10 s (net, +43 dB, confiance 0.85) [vote | fin]
+      ⚠ phrase 1 : aucune prise sans défaut : pas de parole
+  alliances-49-3-03 — 5.45 s, F0 228.0 Hz
+    1. Sauf si une motion de censu…   6/6    228.0  -1.16   -2.8   +2.6  6.0    6.2  1.21  1:198~ 2:221~ 3:190~ 4:214~ 5:220~ 6:228
+  alliances-49-3-04 — 5.74 s, F0 248.5 Hz
+    1. De mille neuf cent quatre-v…   1/3    248.5  +0.33   -9.4   +3.2  2.8    6.5  1.26  1:248 2:226 3:261
+  alliances-49-3-05 — 10.25 s, F0 238.7 Hz, pauses entre phrases [0.18, 0.31, 0.29] s
+    1. Une révision de la Constitu…   4/4    233.3  -0.76   -1.9   +1.8  6.0    6.5  1.26  1:251~ 2:246~ 3:277~ 4:233
+    2. Depuis, il ne vaut que pour…   1/3    245.1  +0.09   -2.1   +2.5  1.9    5.1  1.00  1:245 2:258~ 3:241
+  alliances-49-3-06 — 12.78 s, F0 242.8 Hz, pauses entre phrases [0.3, 0.32, 0.3] s
+    1. En décembre deux mille ving…   1/3    246.2  +0.17   -5.7   +0.9  2.1    6.3  1.22  1:246 2:233 3:233
+    2. Une motion de censure a alo…   3/3    244.2  +0.03   -3.2   +1.6  5.7    5.0  0.98  1:255 2:237 3:244
+    3. Il a été renversé.            5/7    208.8  -2.68   +0.7   -0.7  3.2    6.7  1.31  1:353~? 2:447~ 3:317~ 4:283~ 5:209~ 6:307~ 7:286~
+         prise 1 : respiration 0.88-1.08 s (leger, +48 dB, confiance 0.85) [renversé | fin]
+      ⚠ phrase 3 : aucune prise acceptable : hauteur -2.68 dt de la cible
+  alliances-49-3-07 — 3.65 s, F0 254.2 Hz
+    1. Alors, sans majorité absolu…   3/3    254.2  +0.72   -7.1   +4.1  3.0    6.1  1.19  1:255 2:254 3:254
+
+Alertes (3) :
+  aigue / alliances-dissolution-02 : phrase 1 : aucune prise sans défaut : trop lente (2.9 syll/s, 0.56 × la référence)
+  aigue / alliances-49-3-02 : phrase 1 : aucune prise sans défaut : pas de parole
+  aigue / alliances-49-3-06 : phrase 3 : aucune prise acceptable : hauteur -2.68 dt de la cible
+
+Temps : 2119 s pour 230 prise(s), 8.9 s de calcul par prise en moyenne (3.65 s d'audio) ; calcul d'une prise ≈ 0.53 s + 2.33 s par seconde d'audio. Détecteur de sons parasites : 0.144 s par prise en moyenne (au plus 0.298 s), 2% du calcul d'une prise.
+Estimation pour les 1013 passages (1856 phrases) (voix aiguë 3 prises, 11% de secours) : ~1014 min.

@@ -1,0 +1,882 @@
+{
+  "group": "ecologie",
+  "topics": [
+    "ecologie_energie",
+    "agriculture",
+    "territoires"
+  ],
+  "candidates": [
+    {
+      "candidate": "Olivier Faure",
+      "affiliation": "Parti socialiste (Premier secrétaire depuis 2018, direction du parti confiée à Johanna Rolland pendant la campagne). Député de la 11e circonscription de Seine-et-Marne depuis 2012, conseiller municipal de Lieusaint depuis 2026.",
+      "overview": "Olivier Faure, premier secrétaire du PS, a officialisé sa candidature le 30 août 2026 au JT de 20h de TF1. Slogan : « Pour une France + juste ! ». Il défend une ligne qu'il présente lui-même comme « résolument de gauche » et « socialiste-écologique », exposée dans son livre-programme « La Loi du plus juste » (Robert Laffont, 17 septembre 2026) et dans sa profession de foi en quatre axes : Redresser la France, Vivre dignement, Réorienter l'économie, Préparer demain. Ses mesures phares sont redistributives : Smic à 1 700 € net, parité dividendes/salariés, retour à 62 ans, taxe Zucman, faire cotiser l'IA, encadrement généralisé des loyers, régularisation massive des travailleurs sans papiers et « règle d'or verte ». Sur la stratégie, il est l'artisan du NFP en 2024. Il a ensuite co-lancé une primaire unitaire de la gauche, puis perdu le vote interne du 9 juillet 2026 (44,5 % pour sa primaire ouverte). Il refuse toute alliance présidentielle ou gouvernementale avec LFI et Mélenchon, mais il est le seul grand candidat à défendre un rassemblement de toute la gauche aux législatives et les convergences parlementaires avec les Insoumis. À l'international, il utilise le mot « génocide » pour Gaza, ce qui l'oppose frontalement à Glucksmann et à Guedj, et il soutient l'Ukraine et la défense européenne. Sondages : environ 3,5 à 5 % (fin août-septembre 2026), loin derrière Glucksmann, le favori.",
+      "distinctive_vs_others": "1) Rapport à LFI. Faure est le seul des cinq à refuser d'exclure un rassemblement de toute la gauche, électeurs et forces insoumises compris, aux législatives. Il insiste sur les convergences parlementaires (« 80 % » de votes communs) tout en refusant une alliance présidentielle ou gouvernementale avec Mélenchon. Glucksmann exige la clarté et refuse toute alliance, Guedj l'accuse de « danse du ventre » devant LFI, et Royal et Maurel refusent de faire de Mélenchon le centre de la stratégie (LCP 23/09/2026 ; France 24 et L'essentiel 01/10/2026).\n\n2) Gaza. Avec Royal, il emploie le mot « génocide » ; Glucksmann (« Ce que tu fais est obscène ») et Guedj le refusent (France 24, franceinfo 01/10/2026). Il porte aussi une PPL interdisant les produits des colonies israéliennes (LCP 22/06/2026).\n\n3) Fiscalité et pouvoir d'achat. Il s'oppose frontalement à la baisse de CSG sur les salaires proposée par Glucksmann. Il défend le Smic à 1 700 €, la parité dividende/salariés, le refus de toute baisse de cotisations et la cotisation sur l'IA (franceinfo 01/10/2026 ; AFP 16-17/09/2026).\n\n4) Marqueurs « à gauche toute » pour un candidat issu de l'appareil. Il assume la régularisation massive (400 000 à 500 000), le mot « islamophobie », le « racisme structurel » dans la police, une commission vérité sur la colonisation et la légalisation du cannabis. Le projet du PS ne prévoyait pourtant qu'une convention citoyenne sur le cannabis (AFP 17/09 ; Politis 21/09/2026).\n\n5) Positionnement contre le centre. Il refuse un « Fillon 2 ou Macron 3 » et reproche à Glucksmann de s'entourer d'anciens macronistes (Politis 21/09 ; débat du 01/10).\n\n6) Nucléaire. Il propose 2 à 4 EPR2 seulement, avec priorité forte aux renouvelables (UFE 23/06/2026). C'est une position plus restrictive que celle des pro-nucléaires du PS et de la GRS (le positionnement précis de Maurel est à vérifier dans son propre dossier).\n\n7) Légitimité. Il est le seul candidat chef de parti en exercice. Il revendique d'avoir « repris le parti quand il était dans la poussière » mais a été désavoué par ses adhérents sur le format de la primaire (juillet 2026). Il est crédité d'environ 5 % des intentions de vote, loin derrière Glucksmann (environ 10-14 %).\n\nPoints communs : avec Maurel, il refuse l'annulation de la dette (LCP 23/09) ; tous les candidats jugent Bardella « disqualifié » après les révélations de Mediapart (01-02/10/2026).",
+      "signature_proposals": [
+        {
+          "proposal": "« Règle d'or verte » : aucun budget, investissement ou aide publique hors des objectifs climat et biodiversité",
+          "topic_id": "ecologie_energie",
+          "source_url": "https://www.france24.com/fr/info-en-continu/20260917-olivier-faure-%C3%A0-gauche-toute-pour-la-primaire"
+        },
+        {
+          "proposal": "Créer une sécurité sociale de l'alimentation",
+          "topic_id": "agriculture",
+          "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf"
+        }
+      ],
+      "topics": [
+        {
+          "topic_id": "ecologie_energie",
+          "found": true,
+          "positions": [
+            {
+              "position": "Instaurer une « règle d'or verte » : aucun budget, investissement ou aide publique en dehors des objectifs de protection de la biodiversité et de lutte contre le changement climatique.",
+              "kind": "proposition_explicite",
+              "source_url": "https://www.france24.com/fr/info-en-continu/20260917-olivier-faure-%C3%A0-gauche-toute-pour-la-primaire",
+              "source_title": "Olivier Faure, « à gauche toute » pour la primaire (AFP / France 24)",
+              "source_date": "2026-09-17",
+              "confidence": "high"
+            },
+            {
+              "position": "Sur le nucléaire, il propose de construire 2 à 4 EPR2 au lieu du programme gouvernemental, en invoquant les déchets, la dépendance à l'uranium et les difficultés d'exportation. Il défend en parallèle tous les efforts possibles sur les renouvelables.",
+              "kind": "position_declaree",
+              "short_quote": "tout miser sur le cheval nucléaire",
+              "source_url": "https://www.sfen.org/rgn/presidentielle-2027-au-colloque-de-lufe-les-grands-partis-listent-leurs-positions-sur-le-nucleaire/",
+              "source_title": "[Présidentielle 2027] Au colloque de l'UFE, les grands partis listent leurs positions sur le nucléaire (SFEN/RGN)",
+              "source_date": "2026-07-02",
+              "details": "Propos tenus au colloque de l'UFE du 23 juin 2026. La formule du PS est « le nucléaire autant que nécessaire, les ENR autant que possible ». En 2023, il avait voté contre la loi d'accélération du nucléaire (Datan).",
+              "confidence": "high"
+            },
+            {
+              "position": "Financer massivement la rénovation énergétique des logements, faire de la transition écologique un grand chantier de réindustrialisation et viser la souveraineté énergétique.",
+              "kind": "proposition_explicite",
+              "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+              "source_title": "Profession de foi d'Olivier Faure",
+              "source_date": "2026-09-24",
+              "confidence": "high"
+            },
+            {
+              "position": "Créer un grand fonds national et européen aux ressources pérennes pour financer des investissements écologiques sur 20 à 30 ans. Suspendre les dividendes des entreprises non engagées dans la transformation écologique.",
+              "kind": "proposition_explicite",
+              "source_url": "https://www.france24.com/fr/france/20260829-présidentielle-2027-le-ps-divisé-olivier-faure-sous-la-pression-d-une-primaire-de-la-gauche",
+              "source_title": "Présidentielle 2027 : Olivier Faure sous pression face à un PS divisé (France 24, discours de Blois)",
+              "source_date": "2026-08-29",
+              "details": "Dans Politis (21/09), il cite aussi l'adaptation : végétaliser les cours d'école, climatiser les crèches, replanter des arbres.",
+              "confidence": "high"
+            },
+            {
+              "position": "Il presse le gouvernement de publier la PPE et de ne pas céder à l'extrême droite contre l'éolien et le solaire : selon lui, sans progrès des renouvelables, les fossiles deviennent l'alternative par défaut. Il critique la baisse des aides aux renouvelables dans le budget 2027.",
+              "kind": "position_declaree",
+              "source_url": "https://www.linfodurable.fr/energies-renouvelables-faure-demande-lecornu-de-tourner-le-dos-aux-sirenes-obscurantistes-54435",
+              "source_title": "Énergies renouvelables : Faure demande à Lecornu de « tourner le dos aux sirènes obscurantistes » (L'info durable)",
+              "source_date": "2026-02-06",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "topic_id": "agriculture",
+          "found": true,
+          "positions": [
+            {
+              "position": "Mettre en œuvre une préférence européenne pour l'agriculture, restaurer les cycles de l'eau et défendre l'agroécologie.",
+              "kind": "proposition_explicite",
+              "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+              "source_title": "Profession de foi d'Olivier Faure",
+              "source_date": "2026-09-24",
+              "confidence": "high"
+            },
+            {
+              "position": "Instaurer une sécurité sociale de l'alimentation, c'est-à-dire un fonds national permettant aux familles modestes d'acheter une alimentation de qualité à prix réduit. Il fait de la souveraineté alimentaire l'un de ses trois grands défis industriels.",
+              "kind": "proposition_explicite",
+              "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+              "source_title": "Profession de foi d'Olivier Faure",
+              "source_date": "2026-09-24",
+              "details": "Le fonds a été décrit à Blois (France 24, 29/08/2026). Le mode de financement n'est pas précisé.",
+              "confidence": "high"
+            },
+            {
+              "position": "Il a voté contre la loi Duplomb (8 juillet 2025) et contre le texte de la loi d'urgence agricole réautorisant un néonicotinoïde (20 juillet 2026).",
+              "kind": "inference",
+              "source_url": "https://datan.fr/votes/legislature-17/vote_2957",
+              "source_title": "Datan – vote sur la PPL visant à lever les contraintes à l'exercice du métier d'agriculteur",
+              "source_date": "2025-07-08",
+              "details": "Vote de 2026 : https://datan.fr/votes/legislature-17/vote_8427",
+              "confidence": "high"
+            },
+            {
+              "position": "Il a voté pour la résolution demandant au gouvernement de s'opposer à l'accord UE-Mercosur (27/11/2025). En janvier 2026, il a pourtant refusé de voter les motions de censure du RN et de LFI sur le Mercosur, jugeant « absurde » de censurer alors que Macron s'opposait à l'accord.",
+              "kind": "inference",
+              "source_url": "https://datan.fr/votes/legislature-17/vote_4244",
+              "source_title": "Datan – résolution contre l'accord UE-Mercosur",
+              "source_date": "2025-11-27",
+              "details": "Sur le refus de censure : https://www.epochtimes.fr/le-ps-dolivier-faure-refuse-les-motions-de-censure-du-rn-et-de-lfi-contre-laccord-mercosur-3150327.html (12/01/2026).",
+              "confidence": "high"
+            },
+            {
+              "position": "Sur les méga-bassines, il a dénoncé les violences de gendarmes filmées à Sainte-Soline (« voyous en uniforme ») et présente les manifestants comme des défenseurs du cycle de l'eau contre sa privatisation.",
+              "kind": "position_declaree",
+              "short_quote": "voyous en uniforme",
+              "source_url": "https://www.epochtimes.fr/voyous-en-uniforme-laurent-nunez-accuse-olivier-faure-de-jeter-en-pature-les-gendarmes-3330705.html",
+              "source_title": "« Voyous en uniforme » : Laurent Nuñez accuse Olivier Faure de « jeter en pâture » les gendarmes (Epoch Times)",
+              "source_date": "2026-08-21",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "territoires",
+          "found": true,
+          "positions": [
+            {
+              "position": "Il met en avant son ancrage d'élu d'un territoire de Seine-et-Marne d'où est parti le mouvement des Gilets jaunes, et a dit qu'il serait aux côtés des Français s'ils se soulevaient contre la vie chère.",
+              "kind": "position_declaree",
+              "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+              "source_title": "Profession de foi d'Olivier Faure",
+              "source_date": "2026-09-24",
+              "details": "Sur la vie chère : titre du Parisien, « Olivier Faure assure qu'il sera aux côtés des Gilets jaunes, s'ils se soulèvent » (13/09/2026).",
+              "confidence": "medium"
+            },
+            {
+              "position": "Sur la Nouvelle-Calédonie, il avait soutenu l'accord de Bougival en juillet 2025, puis le PS a refusé la réforme constitutionnelle. Il plaide désormais pour un nouvel accord inclusif et suffisamment large entre les forces calédoniennes, selon la méthode Matignon-Nouméa.",
+              "kind": "position_declaree",
+              "source_url": "https://la1ere.franceinfo.fr/nouvellecaledonie/presidentielle-2027-ce-que-proposent-les-principaux-candidats-pour-l-avenir-de-la-nouvelle-caledonie-1739837.html",
+              "source_title": "Présidentielle 2027 : ce que proposent les principaux candidats pour l'avenir de la Nouvelle-Calédonie (la1ere franceinfo)",
+              "source_date": "2026-09-19",
+              "details": "Il avait aussi voté contre la modification du corps électoral en mai 2024 (Datan).",
+              "confidence": "high"
+            },
+            {
+              "position": "Le projet du PS garantit aucun enfant à plus de 30 minutes d'un collège ou d'un lycée et aucune femme à plus de 45 minutes d'une maternité, l'absence de fermeture de service public rural sans concertation ni solution alternative, la lutte contre la vie chère outre-mer, un « Plan Marshall Mayotte », la ratification de la Charte des langues régionales et la recréation de la DATAR.",
+              "kind": "inference",
+              "source_url": "https://projet-socialiste.fr/projet/refaire-societe/",
+              "source_title": "Le Projet socialiste – Services publics et territoires",
+              "source_date": "2026",
+              "details": "Aucune position personnelle de Faure n'a été trouvée sur la Corse.",
+              "confidence": "medium"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "candidate": "Raphaël Glucksmann",
+      "affiliation": "Place publique (co-président), eurodéputé du groupe S&D depuis 2019, réélu en 2024 comme tête de liste PS-Place publique (13,8 %). Il est candidat de Place publique à la primaire « Choisir 2027 » organisée avec le PS (et, selon la page de Place publique, la GRS).",
+      "overview": "Raphaël Glucksmann, 46 ans, eurodéputé et co-président de Place publique, a déclaré sa candidature le 23 août 2026 sur TF1. Il défend une ligne sociale-démocrate, écologiste et fédéraliste européenne. Son marqueur stratégique est la rupture avec La France insoumise : aucun accord à la présidentielle ni aux législatives. Sa mesure phare de pouvoir d'achat est une baisse de la CSG (ou des prélèvements salariaux) pour augmenter le salaire net. Elle serait financée par une hausse de la fiscalité sur les « méga-héritages » (successions de plus de 2 M€, réforme du pacte Dutreil, 15 Md€ par an). Il propose aussi un plan de sauvetage de l'école publique, un service civique obligatoire de 10 mois et une convention citoyenne sur l'immigration. Il veut des « 100 jours de révolution écologique », confiés à Yannick Jadot, et un pro-nucléaire assumé accompagné d'un plan massif pour les renouvelables. En Europe, il veut un saut fédéral : fin du droit de veto et emprunt commun de 500 Md€ pour la défense. Sur la Russie, il tient la ligne la plus offensive : aide militaire accrue à l'Ukraine. Sur Gaza, il refuse le terme de « génocide » tout en s'opposant à Netanyahou et en défendant deux États. Son corpus programmatique repose sur l'« Acte I » de Place publique (42 chantiers, juin 2025), le livre « Nous avons encore envie. Pour un sursaut patriotique » (Allary, mai 2026), sa « lettre aux Français » (25 août 2026) et les débats de la primaire.",
+      "distinctive_vs_others": "(1) Alliances. C'est le seul candidat à exclure formellement tout accord avec LFI à la fois à la présidentielle et aux législatives, avec des candidats partout. Guedj est aussi hostile aux accords ; Faure défend des « convergences » (80 % de votes communs à l'Assemblée) ; Maurel soutient un front républicain incluant LFI face à Le Pen ; Royal refuse LFI mais aussi le centre (LCP, 24/09/2026). Il fait de cette « clarification » le cœur de sa candidature et accuse Faure d'« esprit de défaite ».\n\n(2) Pouvoir d'achat. Sa mesure phare, la baisse de la CSG sur les salaires financée par les méga-héritages, l'isole : Faure la juge limitée, Royal « dangereuse », Guedj y voit une menace pour la Sécurité sociale (débat du 01/10/2026). Sur les carburants, il défend une aide ciblée (chèque énergie triplé), là où Royal et Guedj proposent une baisse générale des taxes.\n\n(3) Retraites. Il ne fixe aucun âge légal : la réforme serait fondée sur la pénibilité et l'espérance de vie en bonne santé. Faure vise un retour à 62 ans ; Guedj veut une logique de durée de cotisation (Public Sénat, 30/09/2026 ; franceinfo, 30/09/2026).\n\n(4) International. C'est la ligne la plus offensive contre la Russie (protection du ciel ukrainien, hausse de l'aide), face à Royal qui prône l'équilibre et la négociation. Sur Gaza, il refuse le mot « génocide », comme Guedj, et s'oppose vivement à Faure et à Royal.\n\n(5) Europe. Il est le plus fédéraliste : fin du veto, traité de refondation d'ici 2030, emprunt de 500 Md€. Maurel prône au contraire la « démondialisation » et un « emprunt national » (LCP, 23/09/2026).\n\n(6) Profil. Seul candidat issu de Place publique et sans mandat national ni exécutif. Royal l'a qualifié de « stagiaire ». Il est soutenu par des figures du PS (Vallaud, Delga, Mayer-Rossignol, Delafosse) et par l'écologiste Yannick Jadot.\n\n(7) Propositions qui lui sont propres dans les sources consultées : service civique obligatoire de 10 mois, convention citoyenne sur l'immigration, extension de la dissuasion nucléaire française aux partenaires de l'UE, bannissement de TikTok.",
+      "signature_proposals": [
+        {
+          "proposal": "« 100 jours de révolution écologique » dès l'élection, préparés par Yannick Jadot, et leasing social de voiture électrique à environ 100 €/mois.",
+          "topic_id": "ecologie_energie",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/raphael-glucksmann-promet-que-la-gauche-peut-transformer-la-vie-des-francais_8199911.html"
+        }
+      ],
+      "topics": [
+        {
+          "topic_id": "ecologie_energie",
+          "found": true,
+          "positions": [
+            {
+              "position": "Conforter le nucléaire et construire de nouvelles unités dans les délais, avec un grand plan pluriannuel pour les renouvelables. La sortie du nucléaire est jugée irréaliste.",
+              "kind": "position_declaree",
+              "details": "Acte I, chantier 6 : « construction à temps de nouvelles unités ». Le nombre de réacteurs n'est pas précisé.",
+              "short_quote": "faire de la sortie du nucléaire un objectif est totalement irréaliste et suicidaire",
+              "source_url": "https://www.publicsenat.fr/actualites/politique/presidentielle-pas-candidat-pour-le-moment-raphael-glucksmann-trace-son-chemin-et-defend-sa-vision-pour-le-pays",
+              "source_title": "Présidentielle : pas candidat pour le moment, Raphaël Glucksmann trace son chemin (Public Sénat)",
+              "source_date": "2025-06-23",
+              "confidence": "high"
+            },
+            {
+              "position": "Faire de la « libération écologique » la priorité absolue, avec « 100 jours de révolution écologique » dès l'arrivée au pouvoir, préparés par Yannick Jadot.",
+              "kind": "proposition_explicite",
+              "details": "Meeting d'Aubervilliers (13/06/2026) et conférence de presse à Montpellier (18/09/2026). Au débat du 01/10/2026, il regrette que l'écologie n'ait pas été « mise au centre ».",
+              "source_url": "https://www.franceinfo.fr/elections/presidentielle/raphael-glucksmann-promet-que-la-gauche-peut-transformer-la-vie-des-francais_8199911.html",
+              "source_title": "Raphaël Glucksmann promet que la gauche peut « transformer la vie des Français » (franceinfo)",
+              "source_date": "2026-09-18",
+              "confidence": "high"
+            },
+            {
+              "position": "Leasing social de voitures électriques à environ 100 €/mois, notamment pour les gros rouleurs. Soutien à une filière française de la petite voiture électrique et relocalisation des batteries.",
+              "kind": "proposition_explicite",
+              "details": "Exemple cité : 100 000 aides-soignantes. L'Acte I fixe aussi un objectif de flottes 100 % électriques pour les grandes entreprises et les collectivités. Aucune position explicite trouvée sur la fin des moteurs thermiques en 2035.",
+              "source_url": "https://www.france24.com/fr/france/20260614-présidentielle-2027-en-meeting-glucksmann-veut-ramener-la-gauche-au-pouvoir",
+              "source_title": "Présidentielle 2027 : en meeting, Glucksmann veut ramener la gauche au pouvoir (France 24)",
+              "source_date": "2026-06-14",
+              "confidence": "high"
+            },
+            {
+              "position": "Indexer une partie de la facture d'électricité sur le coût de production nucléaire et renouvelable plutôt que sur le prix de marché. Annuler la hausse de la taxe sur l'électricité de 2024 et relancer MaPrimeRénov'.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 6 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Grande loi Climat : -90 % d'émissions en 2040 et neutralité en 2050. Loi anti-fast-fashion, score carbone obligatoire et fin des plastiques à usage unique d'ici 2030.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 11 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Transports : plan Rail national, retour des trains de nuit, « Ticket climat » national, et extension de l'interdiction des vols intérieurs quand une alternative ferroviaire existe.",
+              "kind": "proposition_explicite",
+              "details": "L'Acte I prévoit aussi un moratoire sur les grands projets autoroutiers et routiers de l'État pour les réexaminer, sans citer de projet précis (A69 non mentionnée), et l'affectation des recettes de péage à la mobilité durable.",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 12 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "agriculture",
+          "found": true,
+          "positions": [
+            {
+              "position": "S'opposer aux accords de libre-échange comme le Mercosur et imposer des « mesures miroirs » aux importations agricoles.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 14 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "high"
+            },
+            {
+              "position": "Opposition à la loi d'urgence agricole adoptée en juillet 2026, qui réautorise l'acétamipride et la flupyradifurone. Il réclame une réforme de la PAC, des revenus décents et un partage juste de l'eau.",
+              "kind": "position_declaree",
+              "details": "Il juge que la loi ne règle ni le problème des revenus paysans ni celui de la concurrence déloyale. Aucun communiqué spécifique sur la loi Duplomb de 2025 n'a été consulté.",
+              "short_quote": "Elle sacrifie l'écologie et la santé. C'est une impasse.",
+              "source_url": "https://place-publique.eu/posts/68jyTyNjDww1F2yvJ1c4St/reaction-de-raphael-glucksmann-suite-a-l-adoption-de-la-loi-d-urgence-agricole",
+              "source_title": "Réaction de Raphaël Glucksmann suite à l'adoption de la loi d'urgence agricole (Place publique)",
+              "source_date": "2026-07-21",
+              "confidence": "high"
+            },
+            {
+              "position": "Interdire les pesticides les plus nocifs (glyphosate, néonicotinoïdes), interdire les PFAS dans les objets du quotidien et créer des zones sans pesticides autour des captages et des écoles.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 15 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Réformer la PAC : sortir des aides à l'hectare et plafonner les aides comme en Espagne, au profit des petites fermes, des jeunes installés et de l'agroécologie. Créer un revenu de transition écologique.",
+              "kind": "proposition_explicite",
+              "details": "L'Acte I prévoit aussi des prix planchers rémunérateurs, la fin des contournements d'EGALIM, une autorité européenne de contrôle des prix alimentaires et l'interdiction de la vente à perte.",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 14 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Refuser les méga-bassines au profit de solutions locales concertées et transformer les comités de bassin en « Parlements de l'eau ». Tarification sociale de l'eau au-delà de 3 % des revenus.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 15 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "territoires",
+          "found": true,
+          "positions": [
+            {
+              "position": "Outre-mer : démanteler les conglomérats responsables de la vie chère, plafonner les prix des produits de première nécessité, aligner les tarifs télécoms et livres sur l'Hexagone, et flécher une part de l'octroi de mer vers l'investissement local.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 32 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Nouvelle-Calédonie : « renouer avec l'esprit des accords de Nouméa », par le dialogue et la co-construction politique.",
+              "kind": "proposition_explicite",
+              "details": "Formulation générale, sans position précise sur le corps électoral ni sur l'accord de Bougival. Aucune position trouvée sur la Corse.",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 32 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Services publics de proximité : garantir l'accès à la CAF, la CPAM, France Travail et aux impôts près de chez soi, et freiner les fermetures d'écoles rurales.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantiers 22 et 33 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Ruralité : service public de transport rural, trains légers en zones rurales, relance des Trains d'équilibre du territoire, interdiction des nouvelles méga-surfaces commerciales et défense du ZAN.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantiers 11 et 12 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "candidate": "Jérôme Guedj",
+      "affiliation": "Parti socialiste. Député de la 6e circonscription de l'Essonne depuis 2022, groupe Socialistes et apparentés, membre de la commission des affaires sociales. Ancien assistant parlementaire de Jean-Luc Mélenchon, élu en 2022 sous l'étiquette NUPES, il a refusé le label NFP en 2024. Il a déclaré sa candidature présidentielle hors primaire le 5 février 2026, puis a rejoint la primaire « Choisir 2027 » fin août 2026 (le 23 août selon Wikipédia FR). Il a annoncé ses parrainages le 15 septembre 2026.",
+      "overview": "Jérôme Guedj se présente comme le candidat d'une gauche « républicaine, universaliste, écologiste, européenne et laïque ». Son slogan est « La République, c'est nous ! », titre de son livre paru le 27 août 2026. Sa ligne stratégique est la plus anti-LFI des cinq candidats : aucune alliance avec La France insoumise, « plus jamais ». Il rappelle avoir refusé l'accord NFP en 2024 et assume un « compromis » avec le centre, voire avec une partie de la droite, face à l'extrême droite. Spécialiste des questions sociales, il fait de la « République du soin » sa première priorité : Sécurité sociale intégrale ou « Grande Sécu » (un seul payeur pour les soins essentiels), extension à tout le pays du régime local d'Alsace-Moselle, critères d'installation des médecins et financement du grand âge. Sur les retraites, il veut « sortir de l'âge légal » au profit d'un système fondé sur les annuités et la pénibilité, avec un âge du taux plein abaissé. Il accepte, sous conditions, une sous-indexation des pensions les plus élevées et une hausse de la CSG sur ces pensions. Côté recettes, il propose d'alourdir les droits de succession au-delà de 2 M€ (environ 10 Md€ par an pour l'autonomie) et un « ISF climatique ». Sur l'immigration, il veut une immigration « planifiée par le Parlement », avec apprentissage obligatoire de la langue. Sur la laïcité, il propose un Défenseur de la laïcité, autorité indépendante, et a reçu en juillet 2026 une mission du Premier ministre Lecornu. À l'international, il soutient fermement l'Ukraine et défend la solution à deux États. Il refuse le terme « génocide » pour Gaza et parle de crimes de guerre et de crimes contre l'humanité.",
+      "distinctive_vs_others": "1) Stratégie : avec Glucksmann, il porte la ligne la plus fermement anti-LFI (« plus jamais » d'alliance). Il va plus loin en accusant Faure et Royal de « soumission » à LFI et Faure d'une « danse du ventre permanente » (Orange/AFP 24/09/2026 ; LCP 01/10/2026). Il se dit le seul à avoir refusé l'accord NFP en 2024, alors que Maurel assume son élection de 2024 sous la bannière NFP (Public Sénat 24/09/2026). Il est aussi le seul à revendiquer explicitement un « compromis » avec le centre, « voire une partie de la droite » (AFP 17/09/2026).\n\n2) Retraites : c'est le seul des cinq, dans les sources consultées, à proposer de sortir de l'âge légal au profit des annuités et de la pénibilité (BFMTV/Capital 12/09/2026). Il accepte aussi, sous conditions, une sous-indexation des hautes pensions et une hausse de la CSG sur ces pensions (L'Opinion, août 2026 ; AFP 17/09/2026), ce qui le distingue d'une gauche attachée à l'indexation de toutes les pensions.\n\n3) Santé : il fait de la santé son marqueur. Il défend la Sécurité sociale intégrale ou « Grande Sécu » et se dit le « seul candidat » à avoir parlé de santé au débat LCI (X, 23/09/2026). Il veut étendre le régime d'Alsace-Moselle à tout le pays (Moselle TV 29/09/2026). Au débat du 01/10, il s'oppose à la baisse de CSG proposée par Glucksmann (Entrevue 02/10/2026).\n\n4) Immigration : sa ligne est plus restrictive que celle de Faure, qui prône une régularisation massive (500 000 régularisations ne le « choquent » pas, selon l'AFP). Guedj veut une immigration « planifiée par le Parlement » et critique « l'angélisme moral » de la gauche (AFP 17/09/2026).\n\n5) Laïcité : il est le candidat le plus identifié sur le sujet. Ancien secrétaire national du PS à la laïcité, il a reçu une mission Lecornu en juillet 2026 et a déposé la proposition de loi constitutionnelle n°2000 pour un Défenseur de la laïcité. Il combine fermeté face à l'islamisme et refus de l'interdiction du voile dans l'espace public (BFMTV 18/09 et 31/08/2026).\n\n6) Gaza : comme Glucksmann et contrairement à Faure et Royal, il refuse le mot « génocide ». Contrairement à Faure et Maurel, il ne demande pas la suspension de l'accord UE-Israël mais l'utilisation de ses leviers commerciaux contre le gouvernement israélien (Times of Israel 24/09/2026).\n\n7) Carburants : il rejoint Royal sur la baisse de la fiscalité et Maurel sur le plafonnement des marges des raffineurs (Public Sénat 24/09 ; Entrevue 02/10/2026).\n\n8) SMIC : son montant de 1 700 € est le même que celui de Faure (1 700 € net), ce qui le rend peu distinctif sur ce point.",
+      "signature_proposals": [
+        {
+          "proposal": "Carburants : baisse de la fiscalité, plafonnement des marges des raffineurs et « ISF climatique ».",
+          "topic_id": "ecologie_energie",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats"
+        }
+      ],
+      "topics": [
+        {
+          "topic_id": "ecologie_energie",
+          "found": true,
+          "positions": [
+            {
+              "position": "« Écologie du concret » : une transition planifiée et financée, juste et non punitive. Elle passe par une rénovation thermique massive des logements et des transports accessibles partout, l'effort pesant d'abord sur les plus gros pollueurs.",
+              "kind": "proposition_explicite",
+              "short_quote": "On ne sauvera pas le climat contre les Français, mais avec eux",
+              "details": "Engagement n°6 du site de campagne. La lettre parle d'une transition « juste et populaire » qui réconcilie industrie et sobriété.",
+              "source_url": "https://www.jeromeguedj2027.fr/",
+              "source_title": "Site de campagne Jérôme Guedj 2027 – 7 engagements",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Contre la flambée des carburants : plafonner les marges des raffineurs (comme Emmanuel Maurel) et réintroduire un « ISF climatique ».",
+              "kind": "proposition_explicite",
+              "details": "Débat LCI du 23/09/2026.",
+              "source_url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+              "source_title": "Primaire de la gauche : échanges tendus… Que retenir du 1er débat (Public Sénat)",
+              "source_date": "2026-09-24",
+              "confidence": "medium"
+            },
+            {
+              "position": "Baisser la fiscalité sur les carburants plutôt que verser des aides ciblées ; il juge que les prix élevés nourrissent le populisme.",
+              "kind": "proposition_explicite",
+              "details": "Moselle TV, 29/09/2026 ; débats des 23/09 et 01/10/2026.",
+              "source_url": "https://entrevue.fr/presidentielle-2027/primaire-a-gauche-lfi-gaza-pouvoir-dachat-ce-quil-faut-retenir-du-deuxieme-debat/",
+              "source_title": "Primaire à gauche : LFI, Gaza, pouvoir d'achat… ce qu'il faut retenir du deuxième débat (Entrevue)",
+              "source_date": "2026-10-02",
+              "confidence": "medium"
+            },
+            {
+              "position": "Souveraineté énergétique : un pays qui ne maîtrise plus son énergie n'est « plus tout à fait libre ». Il veut maîtriser les prix de l'énergie.",
+              "kind": "position_declaree",
+              "details": "Engagement n°4 du site et lettre. Aucune position vérifiée sur le nucléaire (nouveaux EPR ou sortie) : les agrégateurs se contredisent.",
+              "source_url": "https://www.jeromeguedj2027.fr/lettre",
+              "source_title": "Lettre / profession de foi de Jérôme Guedj (site de campagne)",
+              "source_date": "2026",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "agriculture",
+          "found": true,
+          "positions": [
+            {
+              "position": "Range la maîtrise de l'alimentation parmi les conditions de la souveraineté nationale (« La souveraineté, c'est la liberté »). Aucune mesure agricole précise n'a été trouvée (Mercosur, pesticides, loi Duplomb, revenus).",
+              "kind": "position_declaree",
+              "details": "Engagement n°4 du site de campagne. La position est générale et sans mesure concrète.",
+              "source_url": "https://www.jeromeguedj2027.fr/",
+              "source_title": "Site de campagne Jérôme Guedj 2027 – 7 engagements",
+              "source_date": "2026",
+              "confidence": "low"
+            }
+          ]
+        },
+        {
+          "topic_id": "territoires",
+          "found": true,
+          "positions": [
+            {
+              "position": "Garantir l'égalité territoriale dans l'accès aux soins et aux transports : santé indépendante du lieu de vie, transports accessibles partout, moins d'élèves par classe dans les territoires en difficulté.",
+              "kind": "proposition_explicite",
+              "details": "Engagements n°1, n°5 et n°6 du site. Aucune position trouvée sur l'Outre-mer, la Corse ou la Nouvelle-Calédonie.",
+              "source_url": "https://www.jeromeguedj2027.fr/",
+              "source_title": "Site de campagne Jérôme Guedj 2027 – 7 engagements",
+              "source_date": "2026",
+              "confidence": "medium"
+            },
+            {
+              "position": "Alsace-Moselle : ne pas remettre brutalement en cause le concordat, qui fait partie du droit français, et généraliser le régime local d'assurance maladie à tout le pays.",
+              "kind": "position_declaree",
+              "short_quote": "Le concordat est dans le droit français",
+              "source_url": "https://moselle.tv/jerome-guedj-inspirons-nous-de-ce-que-la-moselle-a-ete-capable-de-faire-depuis-80-ans/",
+              "source_title": "Moselle TV, entretien Jérôme Guedj",
+              "source_date": "2026-09-29",
+              "confidence": "high"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "candidate": "Emmanuel Maurel",
+      "affiliation": "Gauche républicaine et socialiste (GRS), dont il est cofondateur (2018-2019) et animateur national. Député de la 3e circonscription du Val-d'Oise depuis juillet 2024, élu sous l'étiquette Nouveau Front populaire, il siège au groupe Gauche démocrate et républicaine (GDR, à direction communiste). Député européen de 2014 à 2024 (S&D, puis GUE/NGL après 2018). Membre du PS de 1990 à 2018.",
+      "overview": "Emmanuel Maurel se présente comme « passionnément républicain, résolument socialiste ». Il a déclaré sa candidature le 4 septembre 2026 sur franceinfo et porte une ligne de gauche républicaine, sociale et souverainiste résumée en trois mots : « démondialiser, démarchandiser, démocratiser ». Son programme est construit autour d'une relance productive financée par un grand emprunt national de 300 Md€, avec un retour de l'État stratège : ministère de l'Industrie, fonds souverain, nationalisations possibles, commande publique avec clauses de « contenu local ». Il prévoit aussi le retour des services publics de l'électricité, du rail, des autoroutes et de l'eau dans le giron public, ainsi que la sortie du marché européen de l'électricité. Sur le plan social, il propose un SMIC à 1 700 € net, l'indexation des salaires sur l'inflation, le retour de l'ISF, un PFU à 40 %, une taxe sur les patrimoines de plus de 100 M€ et la retraite à 62 ans. Il défend une laïcité « intransigeante », une Europe sans « saut fédéral » et sans extension de la majorité qualifiée en diplomatie, une France non alignée (il juge l'OTAN en « mort cérébrale ») et un budget de défense de 3 % du PIB. Sur les alliances, il reconnaît « un problème avec LFI, et notamment Mélenchon », refuse que la campagne devienne un référendum sur Mélenchon et exclut l'alliance avec la droite. Il assume enfin d'être un petit candidat : environ 1 % d'intentions de vote présidentielles selon un sondage cité par une source secondaire.",
+      "distinctive_vs_others": "1) Ligne souverainiste et « démondialisatrice ». C'est le seul des cinq à refuser tout « saut fédéral » et toute extension de la majorité qualifiée en diplomatie, à vouloir un rabais sur la contribution française au budget de l'UE, à combattre le « 28e régime », à remettre en cause la libre circulation des capitaux hors UE et à vouloir sortir du marché européen de l'électricité (programme, emmanuel-maurel.fr/programme). Il avait voté non à Maastricht (1992) et au TCE (2005) (Sud Radio, 23/09/2026). Il s'oppose à l'adhésion accélérée de l'Ukraine (Mediapart via GRS, 13/03/2024 ; vote du 12/03/2025, Datan n°973). Glucksmann, à l'opposé, porte une ligne pro-européenne.\n2) Diplomatie non alignée. Il assimile indépendance et non-alignement, juge l'OTAN en « mort cérébrale » et veut que la « dissuasion nucléaire avancée » de Macron soit « sérieusement questionnée » (programme). Il soutient l'aide militaire à l'Ukraine (débat du 01/10/2026) mais s'est abstenu sur la LPM, alors que le GDR votait contre (Datan n°6736 et 7905). Sur Gaza, il parle de « guerre criminelle » sans employer « génocide » et appelle au « sang-froid », à distance du clivage Faure/Glucksmann et Guedj sur ce mot (franceinfo et Figaro, 01/10/2026).\n3) Économie la plus interventionniste du lot. Grand emprunt de 300 Md€, nationalisations possibles, fonds souverain, ministère de l'Industrie, fin de la concurrence ferroviaire, autoroutes reprises par l'État, eau en régie (programme). Il propose l'ISF et un PFU à 40 % en plus de la taxe sur les patrimoines de plus de 100 M€, quand Faure met surtout en avant la taxe Zucman (LCP, 01/10/2026). Il traite d'« usine à gaz » la baisse de CSG de Glucksmann (franceinfo, 01/10/2026).\n4) École privée : il est le seul à écrire qu'« à plus long terme » les financements publics seront réservés à l'école publique (programme).\n5) Laïcité « intransigeante » (aucun « accommodement raisonnable ») associée à la régularisation des travailleurs sans-papiers et à la défense du droit du sol (programme).\n6) Position intermédiaire sur LFI. Il reconnaît « un problème avec LFI, et notamment Mélenchon » mais refuse le « référendum » sur Mélenchon et l'alliance avec la droite (LCP, 24/09/2026). Il promet l'union de la gauche et le front républicain si Le Pen gagne (LCP, 01/10/2026). Il se situe ainsi entre Glucksmann et Guedj (aucun accord avec LFI) et Faure (convergences), plus près de Royal dans l'agacement face à la question (franceinfo, 01/10/2026).\n7) Profil parlementaire singulier. Seul candidat élu au sein du groupe GDR, à direction communiste, il s'en est démarqué pour voter avec les socialistes la suspension de la réforme des retraites (12/11/2025) et le PLFSS 2026 (09/12/2025) (Datan n°3684 et 4696).\n8) Il est le seul candidat issu de la GRS, et non du PS ou de Place publique, et le moins bien placé dans les sondages (environ 1 % selon TIME France, source secondaire).",
+      "signature_proposals": [
+        {
+          "proposal": "Sortir du marché européen de l'électricité, revenir à des tarifs fondés sur le coût de production avec une gouvernance publique intégrée, et baisser la TVA sur l'électricité (abonnement et consommation) à 5,5 %.",
+          "topic_id": "ecologie_energie",
+          "source_url": "https://emmanuel-maurel.fr/programme/"
+        }
+      ],
+      "topics": [
+        {
+          "topic_id": "ecologie_energie",
+          "found": true,
+          "positions": [
+            {
+              "position": "Bouquet électrique : construire de nouvelles capacités nucléaires, hydroélectriques et renouvelables, au service d'une électrification massive du pays.",
+              "kind": "proposition_explicite",
+              "details": "Ni le nombre de réacteurs (EPR2) ni d'objectifs chiffrés pour les renouvelables. Sur Public Sénat (21/09/2026), il défend aussi le développement du nucléaire et des renouvelables.",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Sortir du marché européen de l'électricité et redonner à la puissance publique le contrôle d'une filière intégrée (production, transport, distribution), avec des tarifs ajustés au prix de revient.",
+              "kind": "proposition_explicite",
+              "short_quote": "en sortant du marché européen qui crée une concurrence artificielle",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Face à la flambée des carburants, il préfère réduire la dépendance aux hydrocarbures : baisser la TVA sur l'électricité, présentée comme l'« acte un de l'électrification ».",
+              "kind": "position_declaree",
+              "short_quote": "ne plus être drogué aux hydrocarbures",
+              "details": "Débat du 01/10/2026. Royal et Guedj défendaient une baisse temporaire de la TVA sur les carburants, Glucksmann une aide ciblée.",
+              "source_url": "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+              "source_title": "Ce qu'il faut retenir du deuxième débat de la primaire de gauche (LCP)",
+              "source_date": "2026-10-01",
+              "confidence": "high"
+            },
+            {
+              "position": "Contre l'hyperconsommation : lutte contre la fast fashion (interdiction de la publicité, malus croissants), garantie légale portée de 2 à 5 ans pour les gros équipements, réseau d'ateliers de réparation et de reconditionnement, prime « économie durable » de 300 €.",
+              "kind": "proposition_explicite",
+              "short_quote": "lutte sans merci contre la fast fashion",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Biodiversité et adaptation : renforcer l'ONF, limiter les coupes rases, protéger intégralement 30 % des eaux territoriales contre la pêche industrielle, lutter contre les PFAS, les pesticides et les microplastiques, développer la climatisation et les réseaux de froid.",
+              "kind": "proposition_explicite",
+              "short_quote": "il faut développer la climatisation dans les immeubles",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Transports : mettre fin à la concurrence dans le ferroviaire et revenir à la péréquation. Reprendre les autoroutes à l'échéance des concessions et réorienter leurs profits vers les transports collectifs.",
+              "kind": "proposition_explicite",
+              "short_quote": "La concurrence dans le ferroviaire n'apporte rien de tangible aux voyageurs",
+              "details": "S'est abstenu, comme son groupe, sur un amendement rendant les ZFE facultatives (14/04/2026, rejeté).",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "topic_id": "agriculture",
+          "found": true,
+          "positions": [
+            {
+              "position": "Lutter contre la concentration foncière et la financiarisation des méga-exploitations : agrandissement plafonné à 1,5 fois la surface moyenne régionale.",
+              "kind": "proposition_explicite",
+              "short_quote": "seuil maximal d'extension à 1,5 fois la surface",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "A voté contre la loi Duplomb (texte de la CMP), qui comportait notamment la réintroduction dérogatoire de l'acétamipride.",
+              "kind": "inference",
+              "details": "Scrutin du 08/07/2025. Le groupe GDR a voté contre à l'unanimité (17 voix). Il avait aussi voté contre le projet de loi d'orientation pour la souveraineté agricole le 19/02/2025 (Datan).",
+              "source_url": "https://datan.fr/votes/legislature-17/vote_2957",
+              "source_title": "Vote : Loi Duplomb sur l'agriculture (Datan)",
+              "source_date": "2025-07-08",
+              "confidence": "high"
+            },
+            {
+              "position": "Opposé aux méga-accords de libre-échange (TAFTA, CETA, Mercosur) et partisan d'un « protectionnisme solidaire ».",
+              "kind": "position_declaree",
+              "details": "Position mise en avant dans sa biographie de campagne (il siégeait à la commission du commerce international du Parlement européen). Le mot « Mercosur » n'apparaît pas dans le programme 2026.",
+              "source_url": "https://emmanuel-maurel.fr/biographie/",
+              "source_title": "Biographie – Emmanuel Maurel",
+              "source_date": "2026",
+              "confidence": "medium"
+            },
+            {
+              "position": "Juge que l'adhésion de l'Ukraine à l'UE ferait courir des risques « considérables » à l'agriculture française (concurrence, produits interdits en Europe).",
+              "kind": "position_declaree",
+              "details": "Débat avec Chloé Ridel publié par Mediapart et repris par la GRS. Rien trouvé sur les pesticides en détail, la PAC, le revenu agricole ou les bassines.",
+              "source_url": "https://g-r-s.fr/lukraine-dans-lue-le-debat-entre-chloe-ridel-et-emmanuel-maurel-dans-mediapart/",
+              "source_title": "L'Ukraine dans l'UE ? Le débat entre Chloé Ridel et Emmanuel Maurel dans Mediapart (GRS)",
+              "source_date": "2024-03-13",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "territoires",
+          "found": true,
+          "positions": [
+            {
+              "position": "Plan de développement des services publics locaux, priorité aux « territoires abandonnés », collectivités assurant 70 % de l'investissement public, conférences annuelles de planification industrielle avec les collectivités.",
+              "kind": "proposition_explicite",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Outre-mer (« République archipélagique ») : accès universel à l'eau potable, aux soins, à la sécurité et au logement ; lutte contre la vie chère (rentes, coûts du fret, octroi de mer) ; autonomie énergétique ; économie bleue.",
+              "kind": "proposition_explicite",
+              "short_quote": "réformer les coûts de fret et l'octroi de mer",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Nouvelle-Calédonie : a voté contre la proposition de loi organique ouvrant le corps électoral provincial aux natifs (« régularisation des natifs »).",
+              "kind": "inference",
+              "details": "Adoptée par 386 voix contre 127 le 20/05/2026. Le groupe GDR a voté contre à l'unanimité. Rien trouvé sur la Corse.",
+              "source_url": "https://datan.fr/votes/legislature-17/vote_6753",
+              "source_title": "Vote : Régularisation des natifs dans le corps électoral de Nouvelle-Calédonie (Datan)",
+              "source_date": "2026-05-20",
+              "confidence": "high"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "candidate": "Ségolène Royal",
+      "affiliation": "Parti socialiste. Candidate PS à la primaire « socialiste et démocratique » Choisir 2027, co-organisée par le PS, Place publique et la GRS. Présidente de l'Association France-Algérie depuis le 18 décembre 2025, où elle a succédé à Arnaud Montebourg. Ancienne ministre de l'Écologie (2014-2017), présidente de la COP21, présidente de Poitou-Charentes et finaliste de la présidentielle 2007. Soutiens identifiés : Luc Carvounas (maire d'Alfortville) et Béatrice Bellay (Wikipédia FR).",
+      "overview": "Ségolène Royal, 73 ans, a annoncé le 10 juillet 2026 sa candidature à la primaire du pôle socialiste. Elle la justifie par le risque d'arrivée au pouvoir de l'extrême droite. Elle dit agir « avec humilité, sans ego ». Son slogan, « La France tranquille et l'Ordre juste », reprend son concept de 2007. Elle le décline en cinq axes : ordre juste (pouvoir d'achat, emploi, services publics), urgence climatique (appliquer les décisions de la COP21), urgence énergétique pour les TPE/PME, artisans et agriculteurs, État fort (notamment contre les violences faites aux enfants) et France « puissance médiatrice ». Elle n'a pas publié de programme détaillé. Ses propositions concrètes connues sont surtout le retour de l'ISF « financière », un carburant ramené à 1,70 €/L par des baisses de taxes (TVA, accise européenne, CEE), des caméras « partout » dans les écoles, le périscolaire, les crèches et les Ehpad, une TVA allégée sur les aliments produits en France et une énergie à bas prix (jusqu'à demander la sortie du marché européen de l'électricité). Sur les retraites, elle refuse tout effort supplémentaire, notamment la désindexation, tant que l'ISF n'est pas rétabli et que le pays n'est pas réindustrialisé. Aucune déclaration de 2026 réclamant explicitement l'abrogation de la réforme de 2023 n'a été trouvée. Lors du débat LCI, elle s'est distinguée par une ligne de paix négociée en Ukraine, l'emploi du mot « génocide » pour Gaza et le refus d'exclure une alliance avec LFI aux législatives. Elle s'oppose fermement à l'interdiction du voile dans l'espace public. Sa campagne mise sur l'expérience : elle a qualifié Raphaël Glucksmann de « stagiaire », ce qui lui a valu un rappel à l'ordre de la commission d'organisation le 21/09/2026.",
+      "distinctive_vs_others": "1) International : c'est la seule des cinq à défendre au débat LCI (23/09/2026) une issue négociée avec la Russie, au nom d'une « paix juste et durable ». Glucksmann lui a opposé que Poutine ne veut pas négocier et qu'il faut « résister » (franceinfo, 23/09/2026). Ses propos de 2022 mettant en doute des informations ukrainiennes renforcent ce marqueur (La Libre, 17/11/2022).\n2. Gaza et antisémitisme : comme Faure, elle emploie le mot « génocide », que Glucksmann refuse. Elle est la seule à avoir appelé les « voix juives » à dénoncer la politique israélienne, ce que Guedj a qualifié d'« incroyable injonction » et que le CRIF a condamné (Planet, 24/09/2026 ; franceinfo, 23/09/2026).\n3. Alliances : elle refuse d'exclure un accord avec LFI aux législatives, contrairement à Glucksmann et Guedj (France 24, 23/09/2026). En 2023, elle proposait une liste d'union avec LFI ; en 2024, un gouvernement d'« union républicaine » ouvert au centre et à LR. Sa ligne d'alliance est donc fluctuante.\n4. Une campagne « ordre juste » à forte tonalité sécuritaire et protectrice : vidéosurveillance généralisée dans les écoles, crèches et Ehpad, « tolérance zéro » pour les violences faites aux enfants. C'est sa marque propre, sans équivalent repéré chez les autres candidats.\n5. Sur l'économie, elle mise sur des baisses de taxes immédiates pour le pouvoir d'achat (carburant à 1,70 €, TVA allégée sur l'alimentation française, taxes énergie des PME). Elle refuse un alourdissement fiscal général et limite la hausse d'impôts à l'ISF financier. Les autres candidats ont mis en avant dans le fact-check du 01/10/2026 d'autres sujets fiscaux : millionnaires non imposés et dividendes pour Faure, droits de succession pour Guedj (franceinfo Vrai ou Fake).\n6. Positionnement souverainiste sur l'énergie et l'Europe : sortie du marché européen de l'électricité, « Les règles européennes, on les change ». Cette ligne la rapproche davantage de Maurel (GRS) que de Glucksmann (Place publique), pro-européen.\n7. Laïcité : opposition frontale à l'interdiction du voile dans l'espace public (« Laissons les femmes tranquilles »), avec un argumentaire sur l'image de la France dans le monde musulman.\n8. Mémoire : excuses officielles à l'Algérie, en tant que présidente de l'Association France-Algérie.\n9. Style : elle revendique son expérience de gouvernement contre l'« inexpérience » de Glucksmann (« stagiaire »), ce qui lui a valu un rappel à l'ordre de la commission de la primaire. C'est la seule candidate sans programme écrit détaillé.",
+      "signature_proposals": [
+        {
+          "proposal": "« Urgence énergétique » pour les TPE, PME, artisans et agriculteurs : baisse des taxes sur l'énergie, prix de l'électricité maîtrisés, sortie du marché européen de l'électricité",
+          "topic_id": "ecologie_energie",
+          "source_url": "https://lcp.fr/actualites/presidentielle-2027-segolene-royal-annonce-sa-candidature-a-la-primaire-socialiste"
+        },
+        {
+          "proposal": "TVA allégée sur les aliments produits en France",
+          "topic_id": "agriculture",
+          "source_url": "https://lesinguliersete.fr/segolene-royal-y-croit-encore-et-veut-faire-trembler-la-primaire-socialiste/"
+        },
+        {
+          "proposal": "Appliquer énergiquement les décisions de la COP21 et faire de la transition climatique la « colonne vertébrale » de la relance",
+          "topic_id": "ecologie_energie",
+          "source_url": "https://fr.finance.yahoo.com/actualites/veux-baisser-taxes-s%C3%A9gol%C3%A8ne-royal-090135153.html"
+        }
+      ],
+      "topics": [
+        {
+          "topic_id": "ecologie_energie",
+          "found": true,
+          "positions": [
+            {
+              "position": "Faire de l'urgence climatique une priorité et appliquer « énergiquement » les décisions de la COP21, qu'elle a présidée. Elle veut passer « à des décisions » génératrices d'activités et d'emplois.",
+              "kind": "position_declaree",
+              "details": "Axe de candidature du 10/07/2026, réaffirmé aux Journées d'été du PS le 29/08/2026.",
+              "source_url": "https://lcp.fr/actualites/presidentielle-2027-segolene-royal-annonce-sa-candidature-a-la-primaire-socialiste",
+              "source_title": "Présidentielle 2027 : Ségolène Royal annonce sa candidature (LCP)",
+              "source_date": "2026-07-10",
+              "confidence": "high"
+            },
+            {
+              "position": "Veut faire de la transition climatique la « colonne vertébrale » de la relance et lier la réindustrialisation aux investissements de transition.",
+              "kind": "position_declaree",
+              "short_quote": "colonne vertébrale",
+              "source_url": "https://fr.finance.yahoo.com/actualites/veux-baisser-taxes-s%C3%A9gol%C3%A8ne-royal-090135153.html",
+              "source_title": "« Je veux baisser les taxes » (Capital/Yahoo, d'après RTL)",
+              "source_date": "2026-09-13",
+              "confidence": "high"
+            },
+            {
+              "position": "Défend une énergie à bas prix pour les ménages et les entreprises. Elle rappelle avoir « bloqué le prix de l'électricité » en 2014 en tant que ministre.",
+              "kind": "position_declaree",
+              "source_url": "https://www.france24.com/fr/info-en-continu/20260829-aux-journ%C3%A9es-d-%C3%A9t%C3%A9-du-ps-s%C3%A9gol%C3%A8ne-royal-d%C3%A9fend-sa-candidature",
+              "source_title": "Aux Journées d'été du PS, Ségolène Royal défend sa candidature (France 24/AFP)",
+              "source_date": "2026-08-29",
+              "confidence": "high"
+            },
+            {
+              "position": "Demande que la France sorte « vite » du marché européen de l'électricité, accusé de gonfler les prix et de livrer les infrastructures aux « prédateurs » par l'ouverture à la concurrence. Elle cite l'Espagne en exemple.",
+              "kind": "position_declaree",
+              "short_quote": "La France doit sortir, et vite, du marché européen de l'électricité",
+              "details": "Messages sur X de mars 2025 et mars 2026, rapportés par Contrepoints le 12/03/2026. Son exemple espagnol est discutable : l'« exception ibérique » de 2022-2023 était un plafonnement temporaire, pas une sortie du marché.",
+              "source_url": "https://contrepoints.org/nucleaire-segolene-royal-ou-linconsequence-en-politique/",
+              "source_title": "Nucléaire : Ségolène Royal ou l'inconséquence en politique (Contrepoints)",
+              "source_date": "2026-03-12",
+              "confidence": "medium"
+            },
+            {
+              "position": "Nucléaire : affirme en mars 2026 n'avoir « jamais accepté » la diminution ou la fermeture « idéologique » des centrales. Ses positions ministérielles allaient dans l'autre sens : loi de transition énergétique de 2015 (50 % de nucléaire en 2025), fermeture de Fessenheim. Aucune position claire n'a été trouvée sur les nouveaux EPR2.",
+              "kind": "position_declaree",
+              "short_quote": "jamais accepté la diminution ou la fermeture idéologique des centrales",
+              "details": "Source d'opinion libérale, critique à son égard. Contradiction relevée par l'auteur.",
+              "source_url": "https://contrepoints.org/nucleaire-segolene-royal-ou-linconsequence-en-politique/",
+              "source_title": "Nucléaire : Ségolène Royal ou l'inconséquence en politique (Contrepoints)",
+              "source_date": "2026-03-12",
+              "confidence": "medium"
+            },
+            {
+              "position": "Défend le crédit d'impôt transition énergétique qu'elle avait créé, dont elle regrette le démantèlement, et l'adaptation aux canicules (climatisation des lieux publics sensibles). Sur Sud Radio en décembre 2025, elle s'est montrée sceptique sur la conduite du projet d'autoroute A69.",
+              "kind": "position_declaree",
+              "source_url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pour-2027-je-consulte-je-reflechis-si-je-peux-etre-utile-pourquoi-pas",
+              "source_title": "Ségolène Royal : « Pour 2027, je consulte, je réfléchis… » (Sud Radio)",
+              "source_date": "2026-07-03",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "agriculture",
+          "found": true,
+          "positions": [
+            {
+              "position": "S'oppose à la réintroduction de pesticides interdits (néonicotinoïdes), qu'elle juge moralement scandaleuse. Le débat porte sur la loi Duplomb et ses suites.",
+              "kind": "position_declaree",
+              "details": "Interview Sud Radio du 03/07/2026. En 2016, ministre, elle avait imposé des distances minimales d'épandage.",
+              "source_url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pour-2027-je-consulte-je-reflechis-si-je-peux-etre-utile-pourquoi-pas",
+              "source_title": "Ségolène Royal : « Pour 2027, je consulte, je réfléchis… » (Sud Radio)",
+              "source_date": "2026-07-03",
+              "confidence": "medium"
+            },
+            {
+              "position": "Dénonce la concurrence déloyale des importations produites avec des pesticides interdits en France. Elle demande un étiquetage bien visible des produits français en supermarché.",
+              "kind": "proposition_explicite",
+              "details": "Aucune prise de position explicite sur l'accord UE-Mercosur n'a été trouvée.",
+              "source_url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pour-2027-je-consulte-je-reflechis-si-je-peux-etre-utile-pourquoi-pas",
+              "source_title": "Ségolène Royal : « Pour 2027, je consulte, je réfléchis… » (Sud Radio)",
+              "source_date": "2026-07-03",
+              "confidence": "medium"
+            },
+            {
+              "position": "Instaurer une TVA allégée sur les aliments produits en France pour soutenir la production nationale.",
+              "kind": "proposition_explicite",
+              "source_url": "https://lesinguliersete.fr/segolene-royal-y-croit-encore-et-veut-faire-trembler-la-primaire-socialiste/",
+              "source_title": "Ségolène Royal y croit encore et veut faire trembler la primaire socialiste (Le Singulier)",
+              "source_date": "2026-09-04",
+              "confidence": "medium"
+            },
+            {
+              "position": "Inclut les exploitations agricoles dans l'« urgence énergétique » : mesures sur le coût de l'énergie pour les TPE, PME, artisans et agriculteurs.",
+              "kind": "proposition_explicite",
+              "source_url": "https://lapatrienews.dz/segolene-royal-candidate-a-lelysee-incarner-la-france-tranquille/",
+              "source_title": "Ségolène Royal candidate à l'Élysée : incarner « la France tranquille » (La Patrie News)",
+              "source_date": "2026-07-12",
+              "confidence": "medium"
+            },
+            {
+              "position": "A pris la défense d'agriculteurs mobilisés contre des incendies face à une préfète jugée « hors sol » et condescendante.",
+              "kind": "position_declaree",
+              "details": "Message sur X, daté d'environ fin juillet 2026 d'après l'identifiant du message. Seul l'extrait affiché dans les résultats de recherche a pu être lu.",
+              "source_url": "https://x.com/RoyalSegolene/status/2081733837038526557",
+              "source_title": "Ségolène Royal sur X (agriculteurs et préfète)",
+              "source_date": "2026-07",
+              "confidence": "low"
+            }
+          ]
+        },
+        {
+          "topic_id": "territoires",
+          "found": true,
+          "positions": [
+            {
+              "position": "Critique la suppression du corps préfectoral, qui permettrait selon elle de nommer « sans règles », et oppose la connaissance du terrain des agriculteurs à une préfète jugée « hors sol ».",
+              "kind": "position_declaree",
+              "details": "Message sur X, daté d'environ fin juillet 2026. Seul l'extrait visible dans les résultats de recherche a pu être lu. Aucune position trouvée sur la ruralité, les services publics de proximité, l'outre-mer, la Corse ou la Nouvelle-Calédonie.",
+              "source_url": "https://x.com/RoyalSegolene/status/2081733837038526557",
+              "source_title": "Ségolène Royal sur X (préfète et agriculteurs)",
+              "source_date": "2026-07",
+              "confidence": "low"
+            },
+            {
+              "position": "Selon le comparateur iFRAP, propose de réorganiser les administrations en fonction des territoires.",
+              "kind": "proposition_explicite",
+              "details": "Attribution sans source primaire citée.",
+              "source_url": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+              "source_title": "Comparateur Présidentielles 2027 (Fondation iFRAP)",
+              "confidence": "low"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "cleavages": [
+    {
+      "topic_id": "ecologie_energie",
+      "cleavage": "Réponse à la hausse des prix des carburants : baisse générale des taxes ou aides ciblées",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Baisser les taxes pour tous. Royal : suspendre l'accise sur le gazole, TVA à 10 % sur l'essence, prix stabilisé autour de 1,50 à 1,70 €/l. Guedj : baisse temporaire de TVA et plafonnement des marges",
+          "candidates": [
+            "Ségolène Royal",
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+            "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html",
+            "https://entrevue.fr/en/presidentielle-2027/primaire-a-gauche-lfi-gaza-pouvoir-dachat-ce-quil-faut-retenir-du-deuxieme-debat/"
+          ]
+        },
+        {
+          "approach": "Aider seulement les ménages modestes ou dépendants de la voiture (chèque énergie triplé pour Glucksmann), taxer les superprofits pétroliers (Faure) ; une aide générale creuserait la dette",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+            "https://entrevue.fr/en/presidentielle-2027/primaire-a-gauche-de-lukraine-aux-alliances-avec-lfi-les-desaccords-saffichent-lors-du-premier-debat-sur-lci/",
+            "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme"
+          ]
+        },
+        {
+          "approach": "Plafonner les marges des raffineurs, baisser la TVA sur l'électricité à 5,5 % et financer l'électrification par un emprunt national citoyen pour réduire la dépendance aux hydrocarbures",
+          "candidates": [
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+            "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "cleavage": "Place du nucléaire et organisation du marché de l'électricité",
+      "importance": "low",
+      "sides": [
+        {
+          "approach": "Construire de nouvelles capacités nucléaires avec l'hydroélectricité et les renouvelables ; sortir du marché européen de l'électricité et vendre au prix coûtant",
+          "candidates": [
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/",
+            "https://www.publicsenat.fr/emission/bonjour-chez-vous/emmanuel-maurel-il-y-a-50-nuances-de-gauche-dans-le-pays-e0"
+          ]
+        },
+        {
+          "approach": "Mix \"sans dogme\", nucléaire et renouvelables complémentaires, électrification massive, \"révolution écologique\" dans les 100 premiers jours ; pas d'engagement chiffré sur de nouveaux réacteurs (sources non officielles ou Wikipédia)",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://entrevue.fr/en/presidentielle-2027/primaire-socialiste-ou-en-sont-les-cinq-candidats-avant-le-premier-debat-de-ce-soir/",
+            "https://www.wikiglucksmann.fr/programme.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "cleavage": "Financement de la transition : endettement dédié ou fiscalité sur le patrimoine",
+      "importance": "low",
+      "sides": [
+        {
+          "approach": "Grand emprunt national (300 Md€ pour Maurel) ou traitement à part de la dette liée à la transition énergétique (Royal)",
+          "candidates": [
+            "Emmanuel Maurel",
+            "Ségolène Royal"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/",
+            "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats"
+          ]
+        },
+        {
+          "approach": "Instaurer un ISF climatique",
+          "candidates": [
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "cleavage": "Levier principal pour l'alimentation et l'agriculture",
+      "importance": "low",
+      "sides": [
+        {
+          "approach": "Créer une sécurité sociale de l'alimentation",
+          "candidates": [
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+            "https://www.franceinfo.fr/politique/ps/primaire-a-gauche/primaire-de-la-gauche-les-strategies-des-cinq-candidats-en-lice-pour-se-demarquer_8218912.html"
+          ]
+        },
+        {
+          "approach": "Souveraineté alimentaire par la relocalisation, la réduction des importations et un plafond à l'agrandissement des exploitations (1,5 fois la moyenne régionale)",
+          "candidates": [
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        },
+        {
+          "approach": "Réformer la PAC pour rémunérer les services écologiques et refuser l'accord Mercosur (source non officielle)",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://www.wikiglucksmann.fr/programme.html"
+          ]
+        }
+      ]
+    }
+  ],
+  "consensus": [],
+  "debates": [
+    {
+      "date": "2026-09-23",
+      "channel": "LCI (avec Le Parisien, animé par David Pujadas, environ 10 citoyens posant des questions)",
+      "summary": "Premier débat, près de 2 heures, en l'absence de Philippe Brun, exclu.\n- Carburants : Royal veut baisser les taxes (TVA à 10 %, suspension de l'accise sur le gazole, prix entre 1,50 et 1,70 €/l). Glucksmann veut tripler le chèque énergie de façon ciblée. Faure veut des aides ciblées et taxer les superprofits pétroliers. Maurel veut plafonner les marges des raffineurs et lancer un emprunt citoyen. Guedj veut plafonner les marges et créer un ISF climatique.\n- Salaires : Faure propose un SMIC à 1 700 € net, l'indexation jusqu'au salaire médian et un bouclier logement. Glucksmann propose de baisser la CSG, financée par les méga-héritages. Royal veut bloquer les prix des produits essentiels et revoir les aides aux entreprises.\n- Ukraine : clivage net entre Royal (négociation, casques bleus) et les quatre autres (soutien militaire). Glucksmann veut saisir les avoirs russes. Guedj s'interroge sur les risques d'une zone d'exclusion aérienne.\n- Gaza : Faure et Royal parlent de génocide, Glucksmann et Guedj refusent le terme. Quatre candidats veulent suspendre l'accord UE-Israël. Royal est vivement critiquée par Guedj et Glucksmann pour avoir appelé davantage de voix juives à dénoncer Gaza.\n- Dette : pas d'annulation. Royal envisage une exception pour la dette de la transition.\n- LFI : Glucksmann et Guedj excluent tout accord, même aux législatives. Faure, Royal et Maurel refusent de l'exclure. Faure lance : \"si vous ne voulez pas d'alliance avec la gauche...\"",
+      "url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats"
+    },
+    {
+      "date": "2026-10-01",
+      "channel": "France 2 / France Inter",
+      "summary": "Deuxième débat, plus de 2 heures.\n- Mobilisations lycéennes (environ 400 lycées bloqués, environ 2 000 interpellations) : Glucksmann demande de la fermeté. Faure appelle à \"regarder la lune\". Guedj et Royal accusent LFI de \"jouer avec le feu\". Maurel défend le droit de manifester.\n- Carburants : Royal et Guedj veulent des baisses de taxes. Glucksmann veut des aides ciblées. Maurel veut une TVA réduite sur l'électricité.\n- CSG : la proposition de Glucksmann de baisser la CSG est attaquée par tous les autres, qui y voient un danger pour la Sécurité sociale. Faure la juge provisoire.\n- Fiscalité : Faure promet la taxe Zucman, Royal l'ISF.\n- Bardella : unanimité pour le juger \"disqualifié\" après les révélations de Mediapart.\n- Ukraine : Royal propose de renouer le dialogue avec Poutine. Les autres s'y opposent, Guedj invoquant Munich.\n- Gaza : Faure s'engage à reconnaître un génocide. Glucksmann juge cette position \"obscène\". Guedj estime que le mot diabolise Israël. Royal cite des ministres israéliens.\n- LFI : Glucksmann réclame la rupture. Guedj dénonce la \"danse du ventre\" de Faure. Faure, Royal et Maurel déplorent l'obsession autour de LFI. Glucksmann regrette l'absence de l'écologie et insiste sur la défense européenne.",
+      "url": "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html"
+    },
+    {
+      "date": "2026-10-04",
+      "channel": "BFMTV",
+      "summary": "Troisième et dernier débat, programmé avant le premier tour. Il n'a pas encore eu lieu au 2 octobre 2026.",
+      "url": "https://lcp.fr/actualites/primaire-de-gauche-les-candidats-face-a-face-lors-d-un-premier-debat-televise-ce"
+    }
+  ]
+}

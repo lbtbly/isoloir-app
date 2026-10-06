@@ -1,0 +1,15 @@
+Rapport de génération des voix — 2026-10-06 09:27:04
+Commande : generate.py --segment institutions-intro-07 --voice aigue --force --seed 6061 --extra-takes 8
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  institutions-intro-07 — 9.24 s, F0 232.3 Hz, pauses entre phrases [0.22, 0.3, 0.2] s
+    1. Et vous, vous décidez surto…   2/3    244.9  +0.08   -0.7   +1.1  1.6    6.3  1.24  1:267~ 2:245 3:222~
+    2. Sous la Constitution de mil…   1/3    227.3  -1.21   -1.8   +1.3  0.7    6.0  1.16  1:227 2:242~ 3:260~
+
+Alertes (1) :
+  aigue / institutions-intro-07 : périmé, retiré de l'inventaire : texte de series.ts changé depuis l'enregistrement
+
+Temps : 57 s pour 6 prise(s), 9.01 s de calcul par prise en moyenne (4.24 s d'audio) ; calcul d'une prise ≈ 0.61 s + 2.01 s par seconde d'audio. Détecteur de sons parasites : 0.121 s par prise en moyenne (au plus 0.173 s), 1% du calcul d'une prise.
+Estimation pour les 1013 passages (1850 phrases) (voix aiguë 3 prises, 0% de secours) : ~785 min.

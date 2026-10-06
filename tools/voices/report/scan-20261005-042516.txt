@@ -1,0 +1,232 @@
+Contrôle des sons parasites — 2026-10-05 04:24:41
+Commande : generate.py --scan --listen /Users/lambertbouley/Claude/Politique/primaire-de-gauche/.impeccable/voix/controle-final-sons-reperes.m4a
+Détecteur : artefacts.py (alignement Qwen3-ForcedAligner, seuils étalonnés : voir artefacts.py et README.md). Net : à refaire ; léger : signalé seulement.
+
+aigue / retraites-intro-01 — 3.91 s : ok
+aigue / retraites-intro-02 — 5.56 s : léger
+    respiration 5.15-5.25 s (leger, +48 dB, confiance 0.86) [répartition | fin]
+aigue / retraites-intro-03 — 3.86 s : ok
+aigue / retraites-intro-04 — 8.17 s : ok
+aigue / retraites-intro-05 — 2.58 s : ok
+aigue / retraites-intro-06 — 9.55 s : ok
+aigue / retraites-intro-07 — 5.27 s : ok
+aigue / retraites-intro-08 — 8.22 s : ok
+aigue / retraites-intro-09 — 7.88 s : ok
+aigue / retraites-intro-10 — 2.11 s : ok
+aigue / retraites-age-01 — 4.60 s : léger
+    vocalise 2.24-2.56 s (leger, +34 dB, confiance 0.58) [compteurs | votre]
+aigue / retraites-age-02 — 3.81 s : ok
+aigue / retraites-age-03 — 5.28 s : ok
+aigue / retraites-age-04 — 7.48 s : ok
+aigue / retraites-age-05 — 7.48 s : ok
+aigue / retraites-age-06 — 5.22 s : ok
+aigue / retraites-age-07 — 6.56 s : ok
+aigue / retraites-age-08 — 8.30 s : ok
+aigue / retraites-age-09 — 7.17 s : léger
+    respiration 3.36-3.53 s (leger, +33 dB, confiance 0.59) [sociales | chômage]
+aigue / retraites-age-10 — 7.88 s : ok
+aigue / retraites-age-11 — 4.04 s : ok
+aigue / retraites-financement-01 — 4.82 s : ok
+aigue / retraites-financement-02 — 2.77 s : ok
+aigue / retraites-financement-03 — 5.65 s : ok
+aigue / retraites-financement-04 — 6.26 s : ok
+aigue / retraites-financement-05 — 4.21 s : ok
+aigue / retraites-financement-06 — 6.22 s : ok
+aigue / retraites-financement-07 — 5.44 s : ok
+aigue / retraites-financement-08 — 7.07 s : ok
+aigue / retraites-financement-09 — 8.54 s : ok
+aigue / retraites-financement-10 — 9.13 s : ok
+aigue / retraites-financement-11 — 3.55 s : ok
+aigue / retraites-financement-12 — 4.22 s : ok
+aigue / retraites-pensions-01 — 6.02 s : ok
+aigue / retraites-pensions-02 — 8.94 s : ok
+aigue / retraites-pensions-03 — 3.42 s : ok
+aigue / retraites-pensions-04 — 4.60 s : ok
+aigue / retraites-pensions-05 — 7.24 s : ok
+aigue / retraites-pensions-06 — 5.70 s : ok
+aigue / retraites-pensions-07 — 2.96 s : ok
+aigue / retraites-pensions-08 — 12.09 s : ok
+aigue / retraites-pensions-09 — 5.36 s : ok
+aigue / retraites-pensions-10 — 3.37 s : ok
+aigue / retraites-penibilite-01 — 6.19 s : ok
+aigue / retraites-penibilite-02 — 6.12 s : ok
+aigue / retraites-penibilite-03 — 8.20 s : ok
+aigue / retraites-penibilite-04 — 8.80 s : ok
+aigue / retraites-penibilite-05 — 7.27 s : ok
+aigue / retraites-penibilite-06 — 5.86 s : ok
+aigue / retraites-penibilite-07 — 7.97 s : ok
+aigue / retraites-penibilite-08 — 4.75 s : ok
+aigue / retraites-penibilite-09 — 7.77 s : ok
+aigue / retraites-penibilite-10 — 3.74 s : ok
+aigue / logement-intro-01 — 3.03 s : léger
+    parole en trop 0.00-0.16 s (leger, +46 dB, confiance 0.77) [début | Sur]
+aigue / logement-intro-02 — 6.79 s : ok
+aigue / logement-intro-03 — 10.54 s : ok
+aigue / logement-intro-04 — 9.40 s : ok
+aigue / logement-intro-05 — 8.62 s : ok
+aigue / logement-intro-06 — 6.98 s : ok
+aigue / logement-intro-07 — 3.70 s : ok
+aigue / logement-intro-08 — 3.03 s : ok
+aigue / logement-intro-09 — 2.77 s : ok
+aigue / logement-loyers-01 — 4.10 s : ok
+aigue / logement-loyers-02 — 7.04 s : ok
+aigue / logement-loyers-03 — 8.43 s : ok
+aigue / logement-loyers-04 — 11.37 s : léger
+    vocalise 1.40-1.47 s (leger, +38 dB, confiance 0.63) [ans | Sans]
+aigue / logement-loyers-05 — 7.09 s : ok
+aigue / logement-loyers-06 — 6.92 s : ok
+aigue / logement-loyers-07 — 7.44 s : ok
+aigue / logement-loyers-08 — 5.09 s : ok
+aigue / logement-loyers-09 — 1.88 s : ok
+aigue / logement-social-01 — 9.70 s : ok
+aigue / logement-social-02 — 5.11 s : ok
+aigue / logement-social-03 — 8.94 s : ok
+aigue / logement-social-04 — 4.80 s : léger
+    mot manquant ou bâclé « y » 0.00-0.08 s (leger, confiance 0.30) [Il | a]
+aigue / logement-social-05 — 6.80 s : ok
+aigue / logement-social-06 — 13.83 s : ok
+aigue / logement-social-07 — 7.77 s : ok
+aigue / logement-social-08 — 9.07 s : ok
+aigue / logement-social-09 — 1.73 s : ok
+aigue / logement-construire-01 — 6.19 s : ok
+aigue / logement-construire-02 — 6.56 s : ok
+aigue / logement-construire-03 — 10.95 s : ok
+aigue / logement-construire-04 — 6.96 s : ok
+aigue / logement-construire-05 — 12.25 s : ok
+aigue / logement-construire-06 — 5.17 s : ok
+aigue / logement-construire-07 — 11.85 s : ok
+aigue / logement-construire-08 — 2.80 s : ok
+aigue / logement-existant-01 — 2.96 s : ok
+aigue / logement-existant-02 — 4.15 s : ok
+aigue / logement-existant-03 — 8.46 s : ok
+aigue / logement-existant-04 — 8.03 s : ok
+aigue / logement-existant-05 — 7.20 s : ok
+aigue / logement-existant-06 — 13.87 s : ok
+aigue / logement-existant-07 — 7.27 s : ok
+aigue / logement-existant-08 — 12.51 s : ok
+aigue / logement-existant-09 — 2.39 s : ok
+grave / retraites-intro-01 — 3.91 s : ok
+grave / retraites-intro-02 — 6.11 s : ok
+grave / retraites-intro-03 — 4.54 s : ok
+grave / retraites-intro-04 — 7.04 s : ok
+grave / retraites-intro-05 — 3.00 s : ok
+grave / retraites-intro-06 — 10.22 s : ok
+grave / retraites-intro-07 — 4.47 s : ok
+grave / retraites-intro-08 — 8.45 s : léger
+    respiration 1.79-1.89 s (leger, +16 dB, confiance 0.32) [minimum | pour]
+grave / retraites-intro-09 — 7.91 s : ok
+grave / retraites-intro-10 — 2.03 s : ok
+grave / retraites-age-01 — 3.78 s : ok
+grave / retraites-age-02 — 4.87 s : ok
+grave / retraites-age-03 — 5.56 s : ok
+grave / retraites-age-04 — 7.16 s : léger
+    respiration 1.51-1.67 s (leger, +19 dB, confiance 0.36) [trois | relève]
+    respiration 4.35-4.48 s (leger, +24 dB, confiance 0.43) [ans | et]
+grave / retraites-age-05 — 7.59 s : ok
+grave / retraites-age-06 — 4.38 s : ok
+grave / retraites-age-07 — 6.68 s : léger
+    respiration 4.69-4.88 s (leger, +21 dB, confiance 0.39) [cotisations | et]
+grave / retraites-age-08 — 6.56 s : ok
+grave / retraites-age-09 — 8.21 s : ok
+grave / retraites-age-10 — 6.57 s : léger
+    respiration 4.84-5.02 s (leger, +19 dB, confiance 0.35) [hommes | onze]
+grave / retraites-age-11 — 3.64 s : ok
+grave / retraites-financement-01 — 4.75 s : ok
+grave / retraites-financement-02 — 2.36 s : ok
+grave / retraites-financement-03 — 5.10 s : ok
+grave / retraites-financement-04 — 5.94 s : léger
+    respiration 1.61-1.80 s (leger, +18 dB, confiance 0.35) [retraité | un]
+    respiration 3.34-3.50 s (leger, +15 dB, confiance 0.30) [cinq | et]
+grave / retraites-financement-05 — 5.20 s : ok
+grave / retraites-financement-06 — 5.39 s : ok
+grave / retraites-financement-07 — 5.51 s : ok
+grave / retraites-financement-08 — 7.95 s : ok
+grave / retraites-financement-09 — 8.58 s : ok
+grave / retraites-financement-10 — 9.09 s : ok
+grave / retraites-financement-11 — 3.86 s : ok
+grave / retraites-financement-12 — 3.83 s : ok
+grave / retraites-pensions-01 — 5.40 s : ok
+grave / retraites-pensions-02 — 8.86 s : ok
+grave / retraites-pensions-03 — 3.51 s : ok
+grave / retraites-pensions-04 — 4.73 s : ok
+grave / retraites-pensions-05 — 7.88 s : ok
+grave / retraites-pensions-06 — 6.26 s : ok
+grave / retraites-pensions-07 — 2.92 s : ok
+grave / retraites-pensions-08 — 11.83 s : ok
+grave / retraites-pensions-09 — 5.71 s : ok
+grave / retraites-pensions-10 — 3.46 s : ok
+grave / retraites-penibilite-01 — 5.89 s : ok
+grave / retraites-penibilite-02 — 6.52 s : ok
+grave / retraites-penibilite-03 — 8.25 s : léger
+    bruit 0.00-0.10 s (leger, +29 dB, confiance 0.57) [début | Un]
+grave / retraites-penibilite-04 — 6.76 s : léger
+    respiration 1.43-1.53 s (leger, +17 dB, confiance 0.33) [nuit | équipes]
+grave / retraites-penibilite-05 — 7.70 s : ok
+grave / retraites-penibilite-06 — 6.01 s : ok
+grave / retraites-penibilite-07 — 8.28 s : ok
+grave / retraites-penibilite-08 — 4.79 s : ok
+grave / retraites-penibilite-09 — 7.45 s : ok
+grave / retraites-penibilite-10 — 3.32 s : ok
+grave / logement-intro-01 — 2.92 s : ok
+grave / logement-intro-02 — 6.97 s : léger
+    respiration 1.60-1.82 s (leger, +26 dB, confiance 0.49) [privé | c'est]
+grave / logement-intro-03 — 9.89 s : ok
+grave / logement-intro-04 — 9.33 s : ok
+grave / logement-intro-05 — 9.22 s : ok
+grave / logement-intro-06 — 6.44 s : ok
+grave / logement-intro-07 — 4.04 s : ok
+grave / logement-intro-08 — 2.94 s : ok
+grave / logement-intro-09 — 3.89 s : léger
+    respiration 1.19-1.41 s (leger, +22 dB, confiance 0.40) [suivantes | on]
+grave / logement-loyers-01 — 3.84 s : ok
+grave / logement-loyers-02 — 6.54 s : ok
+grave / logement-loyers-03 — 9.21 s : ok
+grave / logement-loyers-04 — 9.43 s : léger
+    respiration 6.72-6.95 s (leger, +20 dB, confiance 0.37) [l'Assemblée | doit]
+grave / logement-loyers-05 — 8.00 s : ok
+grave / logement-loyers-06 — 7.60 s : ok
+grave / logement-loyers-07 — 6.95 s : ok
+grave / logement-loyers-08 — 5.35 s : ok
+grave / logement-loyers-09 — 2.05 s : ok
+grave / logement-social-01 — 7.87 s : ok
+grave / logement-social-02 — 5.21 s : ok
+grave / logement-social-03 — 9.94 s : ok
+grave / logement-social-04 — 5.73 s : ok
+grave / logement-social-05 — 7.75 s : ok
+grave / logement-social-06 — 14.03 s : léger
+    respiration 6.78-6.99 s (leger, +19 dB, confiance 0.37) [d'occupant | contre]
+    bruit 9.60-9.78 s (leger, +29 dB, confiance 0.59) [neuf | Ensuite]
+grave / logement-social-07 — 8.39 s : ok
+grave / logement-social-08 — 9.58 s : léger
+    respiration 2.46-2.65 s (leger, +20 dB, confiance 0.37) [décalages | la]
+grave / logement-social-09 — 1.63 s : ok
+grave / logement-construire-01 — 5.89 s : léger
+    respiration 1.12-1.28 s (leger, +26 dB, confiance 0.51) [monde | il]
+grave / logement-construire-02 — 7.08 s : ok
+grave / logement-construire-03 — 9.97 s : léger
+    respiration 3.70-3.88 s (leger, +17 dB, confiance 0.33) [quatre | et]
+grave / logement-construire-04 — 8.12 s : ok
+grave / logement-construire-05 — 13.56 s : ok
+grave / logement-construire-06 — 5.04 s : ok
+grave / logement-construire-07 — 11.22 s : léger
+    respiration 2.67-2.84 s (leger, +17 dB, confiance 0.32) [louer | il]
+grave / logement-construire-08 — 3.54 s : ok
+grave / logement-existant-01 — 2.83 s : ok
+grave / logement-existant-02 — 4.26 s : ok
+grave / logement-existant-03 — 8.55 s : léger
+    respiration 3.68-4.08 s (leger, +29 dB, confiance 0.56) [ans | environ]
+    respiration 5.92-6.24 s (leger, +28 dB, confiance 0.51) [privé | surtout]
+grave / logement-existant-04 — 8.13 s : ok
+grave / logement-existant-05 — 7.25 s : ok
+grave / logement-existant-06 — 14.58 s : léger
+    respiration 6.11-6.27 s (leger, +19 dB, confiance 0.36) [cinq | dont]
+grave / logement-existant-07 — 7.03 s : léger
+    respiration 3.72-3.88 s (leger, +16 dB, confiance 0.31) [cinq | F]
+grave / logement-existant-08 — 13.24 s : léger
+    respiration 1.36-1.60 s (leger, +23 dB, confiance 0.43) [factures | et]
+    respiration 2.65-2.85 s (leger, +23 dB, confiance 0.42) [Trésor | la]
+grave / logement-existant-09 — 2.55 s : ok
+
+À refaire (0) : aucun
+Temps : 34 s pour 194 passage(s), chargement du modèle d'alignement compris.
+Compilation d'écoute : /Users/lambertbouley/Claude/Politique/primaire-de-gauche/.impeccable/voix/controle-final-sons-reperes.m4a (30 extrait(s), liste dans /Users/lambertbouley/Claude/Politique/primaire-de-gauche/.impeccable/voix/controle-final-sons-reperes.txt)

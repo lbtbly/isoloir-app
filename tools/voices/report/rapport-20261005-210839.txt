@@ -1,0 +1,154 @@
+Rapport de génération des voix — 2026-10-05 20:26:07
+Commande : generate.py --voice aigue --only agriculture
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  agriculture-intro-01 — 6.60 s, F0 249.9 Hz, pauses entre phrases [0.3, 0.29, 0.24, 0.3, 0.18] s
+    1. Votre pain, votre lait, vos…   2/3    249.9  +0.43   -5.3      —  0.0    4.4  0.87  1:222~ 2:250 3:270~
+    2. Et ceux qui les produisent,…   1/3    246.3  +0.18   -3.0   -0.7  6.0    6.3  1.24  1:246 2:249 3:258
+  agriculture-intro-02 — 12.00 s, F0 232.4 Hz, pauses entre phrases [0.15, 0.3, 0.21] s
+    1. Les fermes sont de moins en…   3/3    234.4  -0.68   -4.0   -0.0  0.0    6.1  1.20  1:226 2:229 3:234
+    2. En deux mille vingt-trois, …   2/3    232.3  -0.84   -3.9   +3.2  4.0    4.6  0.89  1:228 2:232 3:234
+  agriculture-intro-03 — 10.52 s, F0 237.9 Hz, pauses entre phrases [0.28, 0.3] s
+    1. Côté revenus, en deux mille…   2/3    239.4  -0.32   -3.6   +2.9  3.9    5.9  1.16  1:221~ 2:239 3:226
+    2. Contre quatorze virgule qua…   2/3    233.5  -0.75   -0.9   +4.5  3.6    5.5  1.07  1:224 2:234 3:263
+  agriculture-intro-04 — 9.43 s, F0 225.9 Hz, pauses entre phrases [0.3, 0.3] s
+    1. En deux mille vingt-cinq, l…   3/3    223.6  -1.50   -7.7   +3.8  0.9    6.6  1.28  1:245~ 2:249~ 3:224
+    2. L'écart en sa faveur, deux …   3/3    227.5  -1.20   -2.7   +3.4  6.0    6.3  1.24  1:212~ 2:224×! 3:228
+         prise 2 : bruit 0.00-1.12 s (net, +44 dB, confiance 0.95) [début | en]
+         prise 2 : parole en trop « L'écart » 0.00-1.12 s (net, +52 dB, confiance 0.90) [début | en]
+  agriculture-intro-05 — 9.40 s, F0 251.8 Hz, pauses entre phrases [0.35, 0.2] s
+    1. Côté assiette : de la viand…   1/3    239.6  -0.30   +3.9   +2.2  5.7    5.3  1.04  1:240 2:250 3:219~
+    2. Début deux mille vingt-cinq…   3/3    263.6  +1.35   -1.9   +2.6  0.0    5.1  1.00  1:256~ 2:281~ 3:264
+  agriculture-intro-06 — 12.38 s, F0 248.0 Hz, pauses entre phrases [0.15, 0.3] s
+    1. La politique agricole commu…   1/3    249.4  +0.39   -6.8   +2.8  1.9    4.9  0.95  1:249? 2:224? 3:217~
+         prise 1 : respiration 8.64-8.87 s (leger, +33 dB, confiance 0.64) [sept | fin]
+         prise 2 : respiration 1.92-2.24 s (leger, +42 dB, confiance 0.74) [européenne | la]
+    2. Ses aides sont en grande pa…   1/3    240.3  -0.25   -4.0   +3.0  6.0    5.9  1.14  1:240 2:224 3:238
+      passage assemblé : respiration 8.71-8.87 s (leger, +33 dB, confiance 0.63) [sept | Ses]
+  agriculture-intro-07 — 7.20 s, F0 241.3 Hz, pauses entre phrases [0.32, 0.35] s
+    1. Alors, deux questions se po…   3/3    251.9  +0.57   -2.4   +2.1  4.0    4.8  0.94  1:226 2:274~ 3:252
+    2. Comment améliorer le revenu…   1/3    237.5  -0.45   -1.3   +3.3  5.4    7.6  1.49  1:238 2:233 3:234
+    3. Et quel levier privilégier …   2/3    246.6  +0.20   +2.0   +3.0  3.0    7.6  1.49  1:231 2:247 3:239
+  agriculture-intro-08 — 3.65 s, F0 246.7 Hz
+    1. Dans les vidéos suivantes, …   1/3    246.7  +0.20   -5.1   -0.9  0.0    5.9  1.14  1:247 2:247 3:250~
+  agriculture-revenu-01 — 6.01 s, F0 242.2 Hz
+    1. Des prix qui montent ou qui…   3/3    242.2  -0.11   -2.3      —  0.0    5.2  1.02  1:259 2:234 3:242
+  agriculture-revenu-02 — 11.43 s, F0 245.3 Hz, pauses entre phrases [0.28, 0.3, 0.26, 0.25] s
+    1. Pour suivre ces variations,…   1/3    251.0  +0.50   -3.5   +3.1  2.3    5.7  1.11  1:251 2:256 3:234
+    2. En simplifiant : ce que pro…   2/3    240.2  -0.26   -4.9   +1.3  3.5    5.3  1.04  1:210~ 2:240 3:217~
+  agriculture-revenu-03 — 8.75 s, F0 243.0 Hz, pauses entre phrases [0.37, 0.3] s
+    1. Hors inflation, elle a bais…   1/3    239.9  -0.28   -1.9   +2.2  4.9    5.3  1.04  1:240 2:209~ 3:265
+    2. Puis elle a augmenté de dix…   1/3    243.6  -0.01   -7.9   +1.0  1.9    6.2  1.20  1:244 2:232 3:234
+  agriculture-revenu-04 — 9.49 s, F0 245.8 Hz, pauses entre phrases [0.17, 0.15, 0.15, 0.3, 0.46] s
+    1. En deux mille vingt et en m…   3/3    246.7  +0.20   -7.7   +2.3  6.0    6.2  1.20  1:218~ 2:219~ 3:247
+    2. C'est plus que dans l'ensem…   1/3    238.7  -0.37   -3.3   +1.6  6.0    6.6  1.29  1:239 2:269~ 3:232
+  agriculture-revenu-05 — 9.77 s, F0 239.6 Hz, pauses entre phrases [0.3, 0.31, 0.15] s
+    1. Leur niveau de vie moyen es…   1/3    237.2  -0.48   -2.8   +1.0  3.3    5.5  1.08  1:237 2:234 3:276~
+    2. Mais les écarts sont plus g…   1/3    241.1  -0.19   -2.4   +1.4  2.8    6.0  1.18  1:241 2:267~ 3:232
+  agriculture-revenu-06 — 2.51 s, F0 237.7 Hz
+    1. Alors, comment améliorer le…   1/3    237.7  -0.44   -0.3   +2.6  5.4    7.4  1.45  1:238 2:266 3:218~
+  agriculture-prix-01 — 5.72 s, F0 240.0 Hz, pauses entre phrases [0.2, 0.3] s
+    1. Vous dépensez cent euros po…   1/3    242.1  -0.12   -2.1      —  0.0    7.6  1.48  1:242 2:216~ 3:206~
+    2. Combien en revient à ceux q…   3/3    239.5  -0.31   -3.6   +3.2  5.1    6.2  1.21  1:254 2:286~ 3:240
+  agriculture-prix-02 — 7.57 s, F0 241.8 Hz
+    1. En deux mille vingt et un, …   1/3    241.8  -0.14   -5.0   +1.3  0.0    5.7  1.11  1:242 2:239 3:245~
+  agriculture-prix-03 — 9.83 s, F0 239.8 Hz, pauses entre phrases [0.32, 0.18] s
+    1. Les industries agroalimenta…   2/3    224.8  -1.40   -3.2   +1.3  5.0    5.1  0.99  1:266~ 2:225 3:210~
+    2. Le commerce, grandes surfac…   1/3    247.3  +0.25   -7.5   +4.1  3.2    4.2  0.82  1:247 2:233 3:237
+  agriculture-prix-04 — 9.50 s, F0 235.8 Hz, pauses entre phrases [0.32] s
+    1. En comptant ce que les ferm…   2/3    228.1  -1.15   -3.3   +0.8  6.0    5.8  1.12  1:223~ 2:228 3:217~
+    2. Et en deux mille vingt et u…   1/3    249.1  +0.37   -1.5   +3.2  3.3    7.5  1.46  1:249 2:250 3:234
+  agriculture-prix-05 — 9.89 s, F0 237.4 Hz, pauses entre phrases [0.36, 0.22, 0.22, 0.3] s
+    1. Et les grandes surfaces ?     6/6    250.9  +0.50   +3.3   +2.1  4.5    5.3  1.04  1:276~ 2:279~ 3:197~ 4:307~ 5:308~ 6:251
+    2. Dans leurs rayons frais, en…   3/3    232.4  -0.83   -8.4   -1.8  0.0    5.2  1.02  1:277~ 2:264 3:232?
+         prise 3 : respiration 5.12-5.44 s (leger, +20 dB, confiance 0.37) [ventes | une]
+    3. C'est la marge brute.         3/3    253.3  +0.66   +1.5   +1.6  6.0    3.7  0.73  1:328~ 2:276~ 3:253
+      passage assemblé : respiration 6.48-6.80 s (leger, +24 dB, confiance 0.43) [ventes | une]
+  agriculture-prix-06 — 6.84 s, F0 248.7 Hz
+    1. Une fois payés aussi le per…   3/3    248.7  +0.34   -6.9   +1.0  0.0    5.5  1.08  1:224 2:231 3:249
+  agriculture-prix-07 — 9.38 s, F0 246.7 Hz, pauses entre phrases [0.15, 0.28, 0.3] s
+    1. Les lois Égalim, issues des…   1/3    243.6  -0.01   -1.9   +2.9  6.0    6.4  1.25  1:244 2:249 3:231
+    2. Sans garantir de prix minim…   5/5    250.2  +0.45   -3.8   +2.3  1.9    5.6  1.10  1:222~ 2:211~ 3:278~ 4:265~ 5:250
+  agriculture-prix-08 — 8.55 s, F0 249.6 Hz, pauses entre phrases [0.17, 0.16, 0.15, 0.3] s
+    1. Depuis deux mille vingt-tro…   3/3    245.4  +0.11   -1.7   +4.1  3.8    5.8  1.14  1:247 2:225 3:245
+    2. Avec une clause de révision…   1/3    252.4  +0.60   +1.5   +1.9  1.7    7.4  1.44  1:252 2:295~ 3:243~
+  agriculture-prix-09 — 6.78 s, F0 237.1 Hz
+    1. Pour la viande bovine, un d…   2/3    237.1  -0.48   -2.4   +0.3  0.0    5.8  1.13  1:201~ 2:237 3:261
+  agriculture-prix-10 — 5.65 s, F0 246.7 Hz
+    1. Et entre industriels et dis…   1/3    246.7  +0.20   -3.6   +3.0  2.4    5.5  1.06  1:247 2:226 3:235
+  agriculture-prix-11 — 2.49 s, F0 239.0 Hz
+    1. Alors, de la ferme au magas…   2/3    239.0  -0.34   -1.7   +0.4  6.0    6.9  1.35  1:254 2:239 3:289~
+  agriculture-aides-01 — 6.11 s, F0 252.8 Hz, pauses entre phrases [0.18, 0.3] s
+    1. Pour soutenir les agriculte…   1/3    255.5  +0.81   -7.1      —  0.0    6.4  1.25  1:256 2:225 3:202~
+    2. Comment ses aides sont-elle…   2/3    239.7  -0.29   +6.0   +1.8  6.0    7.0  1.36  1:292~ 2:240 3:248×
+  agriculture-aides-02 — 11.00 s, F0 233.6 Hz, pauses entre phrases [0.18, 0.3] s
+    1. De deux mille vingt-trois à…   3/3    232.8  -0.80   -8.7   +0.1  0.0    5.5  1.06  1:225? 2:227? 3:233
+         prise 1 : respiration 4.48-4.79 s (leger, +35 dB, confiance 0.64) [France | dont]
+         prise 2 : respiration 5.20-5.39 s (leger, +15 dB, confiance 0.30) [France | dont]
+    2. Ces aides sont en grande pa…   2/3    248.2  +0.31   +0.3   +2.0  6.0    5.9  1.16  1:273~ 2:248 3:220~
+  agriculture-aides-03 — 10.66 s, F0 228.9 Hz, pauses entre phrases [0.3, 0.38] s
+    1. Dans le détail, seize virgu…   3/3    227.8  -1.18   -4.2   +2.2  0.0    6.9  1.34  1:222~ 2:222~ 3:228
+    2. Cette aide à l'hectare dépe…   3/3    231.9  -0.87   -5.6   +4.4  4.2    6.2  1.22  1:228 2:225 3:232
+      passage assemblé : respiration 5.44-5.64 s (net, +50 dB, confiance 0.95) [l'hectare | dépend]
+      ⚠ son parasite dans le passage assemblé : respiration 5.44-5.64 s (net, +50 dB, confiance 0.95) [l'hectare | dépend]
+  agriculture-aides-04 — 9.24 s, F0 246.9 Hz, pauses entre phrases [0.33] s
+    1. Puis cinq virgule un millia…   1/3    238.0  -0.42   -3.1   +1.2  5.6    5.2  1.01  1:238 2:281~ 3:240
+    2. Et trois virgule quatre d'a…   2/3    256.7  +0.89   -8.4   +2.2  3.1    5.1  1.00  1:222~ 2:257 3:226?
+         prise 3 : respiration 3.60-3.76 s (leger, +18 dB, confiance 0.35) [petites | zéro]
+  agriculture-aides-05 — 10.46 s, F0 249.9 Hz, pauses entre phrases [0.3] s
+    1. La Pac de deux mille vingt-…   2/3    255.0  +0.78  -10.1   +0.0  6.0    5.5  1.07  1:276~ 2:255 3:260
+    2. En juillet deux mille vingt…   2/3    244.8  +0.07   -2.7   +3.5  6.0    6.9  1.34  1:232 2:245 3:234
+  agriculture-aides-06 — 7.73 s, F0 237.4 Hz
+    1. La Commission propose une a…   2/3    237.4  -0.46   -7.8   +2.3  2.7    6.1  1.19  1:231 2:237 3:252?
+         prise 3 : respiration 4.86-5.12 s (leger, +34 dB, confiance 0.61) [exploitations | avec]
+  agriculture-aides-07 — 3.03 s, F0 257.9 Hz
+    1. Alors, à qui verser ces aid…   3/3    257.9  +0.97   -2.8   +0.9  6.0    6.1  1.20  1:270~ 2:270~ 3:258
+  agriculture-importations-01 — 6.00 s, F0 241.0 Hz, pauses entre phrases [0.32] s
+    1. Dans votre assiette, il y a…   3/3    244.0  +0.01   -2.1      —  0.0    5.9  1.15  1:234 2:272~ 3:244
+    2. Doivent-ils respecter les m…   1/3    240.3  -0.25   -8.6   +2.9  5.1    5.7  1.11  1:240 2:263~ 3:291~?
+         prise 3 : respiration 2.24-2.40 s (leger, +39 dB, confiance 0.73) [Europe | fin]
+  agriculture-importations-02 — 9.45 s, F0 248.0 Hz, pauses entre phrases [0.27, 0.31] s
+    1. En deux mille vingt-cinq, l…   3/3    247.5  +0.26   -6.6   +1.0  0.0    6.0  1.17  1:235 2:210~? 3:248
+         prise 2 : mot étiré « cinq » 0.64-1.12 s (leger, confiance 0.40) [vingt | la]
+    2. C'est cinq milliards de moi…   2/3    249.6  +0.41   -9.8   +5.2  6.0    5.8  1.14  1:252 2:250 3:283~
+  agriculture-importations-03 — 8.27 s, F0 230.1 Hz
+    1. Les aliments importés doive…   2/3    230.1  -1.00   -2.0   -0.8  6.0    5.9  1.15  1:224 2:230 3:214~
+  agriculture-importations-04 — 7.14 s, F0 238.6 Hz
+    1. Mais leurs normes de produc…   1/3    238.6  -0.37   -3.9   +3.1  2.0    6.7  1.31  1:239 2:228 3:227
+  agriculture-importations-05 — 7.68 s, F0 245.5 Hz
+    1. L'accord commercial entre l…   3/3    245.5  +0.12   -2.2   +2.7  3.9    5.9  1.15  1:224 2:237 3:246
+  agriculture-importations-06 — 12.20 s, F0 237.1 Hz, pauses entre phrases [0.27, 0.33, 0.19, 0.27, 0.29] s
+    1. Selon le droit européen, l'…   1/3    234.3  -0.69   -3.8   +3.2  2.2    5.8  1.13  1:234 2:223~ 3:223~
+    2. Pour les autres, seulement …   3/3    242.0  -0.13   -1.9   +3.5  3.8    5.4  1.05  1:213~ 2:282~ 3:242
+      passage assemblé : respiration 9.08-9.21 s (leger, +15 dB, confiance 0.30) [autres | seulement]
+  agriculture-importations-07 — 4.10 s, F0 242.5 Hz
+    1. Alors, quelles règles pour …   3/3    242.5  -0.09   -1.5   +2.5  5.0    5.9  1.15  1:241 2:251 3:242
+  agriculture-alimentation-01 — 6.52 s, F0 231.7 Hz
+    1. Un repas avec de la viande,…   3/3    231.7  -0.88   -3.0      —  3.0    5.8  1.14  1:218~ 2:225 3:232
+  agriculture-alimentation-02 — 5.84 s, F0 248.1 Hz, pauses entre phrases [0.35, 0.3] s
+    1. Non.                          3/7      0.0  +0.00      —      —  0.0    2.5  0.49  1:219×! 2:395× 3:0× 4:343× 5:390×? 6:283× 7:337×?
+         prise 1 : respiration 0.45-0.65 s (leger, +28 dB, confiance 0.44) [Non | fin]
+         prise 1 : parole en trop 0.76-1.06 s (net, +45 dB, confiance 0.91) [Non | fin]
+         prise 5 : parole en trop 0.77-1.04 s (leger, +52 dB, confiance 0.51) [Non | fin]
+         prise 7 : parole en trop 0.88-1.02 s (leger, +69 dB, confiance 0.65) [Non | fin]
+    2. Début deux mille vingt-cinq…   1/3    248.6  +0.34   -3.6      —  0.0    5.8  1.12  1:249 2:288~ 3:227
+      ⚠ phrase 1 : aucune prise sans défaut : pas de parole, voix soufflée ou craquée (0 trames voisées/s, 0.00 × la médiane des prises)
+  agriculture-alimentation-03 — 7.18 s, F0 249.3 Hz, pauses entre phrases [0.36, 0.31, 0.17] s
+    1. En deux mille vingt, c'étai…   3/3    244.1  +0.02   -2.0   +4.8  3.6    4.9  0.95  1:269~ 2:240 3:244
+    2. Ce sont les personnes elles…   4/4    251.9  +0.57   -1.1   +3.0  2.0    5.6  1.10  1:246~ 2:228~ 3:218~ 4:252
+  agriculture-alimentation-04 — 6.70 s, F0 240.9 Hz
+    1. Côté prix, la plupart des a…   1/3    240.9  -0.21   -8.9   +1.2  1.1    5.0  0.98  1:241 2:221~ 3:248
+  agriculture-alimentation-05 — 9.24 s, F0 240.0 Hz, pauses entre phrases [0.27, 0.3, 0.24, 0.19] s
+    1. Certains en sont exclus, co…   2/3    235.9  -0.57   -1.9   +0.7  6.0    6.1  1.19  1:226 2:236 3:257
+    2. Et les plats préparés à con…   2/3    244.7  +0.06  -11.4   +2.9  1.9    6.2  1.20  1:252 2:245 3:236
+  agriculture-alimentation-06 — 3.85 s, F0 235.1 Hz
+    1. Alors, comment permettre à …   1/3    235.1  -0.63   +0.9   +0.2  6.0    5.7  1.12  1:235 2:268~ 3:256
+
+Alertes (2) :
+  aigue / agriculture-aides-03 : son parasite dans le passage assemblé : respiration 5.44-5.64 s (net, +50 dB, confiance 0.95) [l'hectare | dépend]
+  aigue / agriculture-alimentation-02 : phrase 1 : aucune prise sans défaut : pas de parole, voix soufflée ou craquée (0 trames voisées/s, 0.00 × la médiane des prises)
+
+Temps : 2552 s pour 235 prise(s), 10.5 s de calcul par prise en moyenne (4.36 s d'audio) ; calcul d'une prise ≈ 0.46 s + 2.34 s par seconde d'audio. Détecteur de sons parasites : 0.164 s par prise en moyenne (au plus 0.683 s), 2% du calcul d'une prise.
+Estimation pour les 1013 passages (1856 phrases) (voix aiguë 3 prises, 4% de secours) : ~974 min.

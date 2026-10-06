@@ -1,0 +1,172 @@
+Rapport de génération des voix — 2026-10-06 04:32:24
+Commande : generate.py --voice aigue --only institutions
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  institutions-intro-01 — 3.83 s, F0 247.2 Hz, pauses entre phrases [0.31, 0.19] s
+    1. Vous élisez un président et…   3/3    244.5  +0.05   +1.5      —  0.0    8.1  1.57  1:237 2:240 3:244
+    2. Mais ensuite, qui décide qu…   3/3    250.4  +0.46   -2.4   +0.6  3.0    5.0  0.98  1:234 2:309~ 3:250
+  institutions-intro-02 — 8.13 s, F0 244.0 Hz, pauses entre phrases [0.3, 0.29] s
+    1. La Constitution de mille ne…   3/3    245.5  +0.12   -1.2   +2.0  0.0    5.7  1.10  1:258 2:258 3:246
+    2. Il nomme le Premier ministr…   1/3    243.7  -0.01   +0.4   +3.6  1.2    6.0  1.16  1:244 2:232~ 3:255~
+  institutions-intro-03 — 5.69 s, F0 231.6 Hz, pauses entre phrases [0.15, 0.31, 0.17] s
+    1. Depuis mille neuf cent cinq…   2/3    234.9  -0.64   +0.8   +1.1  0.0    5.7  1.11  1:280~ 2:235 3:303~
+    2. La dernière, en deux mille …   3/3    224.3  -1.44   -1.9   +0.7  0.0    5.1  0.99  1:259 2:284~ 3:224
+  institutions-intro-04 — 9.04 s, F0 255.6 Hz, pauses entre phrases [0.24, 0.19, 0.32] s
+    1. Le gouvernement, lui, peut …   1/3    258.7  +1.03   -4.1   +3.3  1.9    5.5  1.07  1:259 2:230 3:264
+    2. Il a servi cent seize fois …   3/3    253.3  +0.66   -1.6   +1.1  4.1    4.9  0.95  1:230 2:270~ 3:253
+  institutions-intro-05 — 9.49 s, F0 241.4 Hz, pauses entre phrases [0.21, 0.3, 0.2, 0.26] s
+    1. Face à lui, l'Assemblée peu…   1/3    240.8  -0.21   -1.6   +3.2  1.6    6.8  1.32  1:241 2:268~ 3:238
+    2. C'est arrivé deux fois depu…   3/3    242.5  -0.09   -4.0   +2.4  1.6    5.6  1.09  1:223~? 2:256~ 3:242
+         prise 1 : bruit 2.41-2.52 s (leger, +42 dB, confiance 0.71) [huit | en]
+  institutions-intro-06 — 7.02 s, F0 234.0 Hz
+    1. Les règles elles-mêmes chan…   3/3    234.0  -0.71   -1.6   +1.7  4.0    5.8  1.12  1:257 2:224 3:234
+  institutions-intro-07 — 9.86 s, F0 239.4 Hz, pauses entre phrases [0.41, 0.35, 0.17, 0.3, 0.16] s
+    1. Et vous ?                     3/7    255.3  +0.80   +1.3   +3.0  4.6    3.4  0.66  1:227×! 2:444×! 3:255×! 4:287× 5:315×! 6:261×! 7:454×!
+         prise 1 : parole en trop 0.79-1.13 s (net, +68 dB, confiance 0.93) [vous | fin]
+         prise 2 : rire 0.08-0.40 s (net, +65 dB, confiance 0.95) [Et | vous]
+         prise 2 : respiration 0.56-0.98 s (net, +60 dB, confiance 0.95) [Et | vous]
+         prise 3 : bruit 0.92-1.06 s (net, +64 dB, confiance 0.81) [vous | fin]
+         prise 5 : respiration 0.77-0.98 s (net, +73 dB, confiance 0.91) [vous | fin]
+         prise 6 : parole en trop 0.88-1.14 s (net, +63 dB, confiance 0.95) [vous | fin]
+         prise 7 : rire 0.48-0.96 s (net, +65 dB, confiance 0.93) [vous | fin]
+    2. Vous décidez surtout en éli…   7/7    237.6  -0.45   -3.9   -1.1  0.0    6.4  1.25  1:261~ 2:249~ 3:256× 4:271~ 5:267~ 6:213~ 7:238
+    3. Sous la Constitution de mil…   3/3    238.8  -0.36   -1.5   +2.8  3.9    6.2  1.21  1:224~ 2:256 3:239
+      passage assemblé : bruit 0.92-1.06 s (net, +44 dB, confiance 0.86) [vous | Vous]
+      ⚠ phrase 1 : aucune prise sans défaut : trop lente (3.4 syll/s, 0.66 × la référence), son parasite (bruit 0.92-1.06 s)
+      ⚠ son parasite dans le passage assemblé : bruit 0.92-1.06 s (net, +44 dB, confiance 0.86) [vous | Vous]
+  institutions-intro-08 — 8.78 s, F0 247.0 Hz, pauses entre phrases [0.27, 0.31, 0.35, 0.35, 0.35] s
+    1. Alors, quatre questions se …   4/4    233.0  -0.78   -4.6   +1.1  1.5    4.8  0.94  1:305~ 2:270~ 3:248~ 4:233
+    2. Qui nomme et qui renverse u…   1/3    256.2  +0.86   +3.5   +8.9  6.0    6.5  1.28  1:256 2:281~ 3:307~
+    3. Quand un texte peut-il pass…   1/3    247.1  +0.23   -1.8   +0.9  3.0    5.6  1.10  1:247 2:217~ 3:247?
+         prise 3 : bruit 1.76-1.87 s (leger, +42 dB, confiance 0.79) [vote | fin]
+    4. Comment changer la Constitu…   2/3    250.0  +0.43   +1.2   +2.8  3.0    7.8  1.53  1:290~ 2:250 3:316~
+    5. Et quelle place pour les ci…   3/3    238.6  -0.37   -0.1   -0.6  3.0    5.8  1.13  1:258~ 2:207~ 3:239
+  institutions-intro-09 — 2.41 s, F0 248.0 Hz
+    1. Ce sont les quatre sujets d…   5/7    248.0  +0.30   -5.1   +3.2  0.0    5.3  1.03  1:256~ 2:246~ 3:223~ 4:264~ 5:248~ 6:296~ 7:259~
+      ⚠ phrase 1 : aucune prise acceptable : saut de +3.23 dt à l'enchaînement (tolérance de reprise 0.0 dt)
+  institutions-pouvoirs-01 — 3.91 s, F0 253.9 Hz, pauses entre phrases [0.3] s
+    1. Un nouveau Premier ministre…   2/3    261.0  +1.18   +0.7      —  0.0    7.3  1.44  1:266 2:261 3:246×
+    2. Les députés doivent-ils d'a…   2/3    248.3  +0.32   +0.8   +1.3  3.0    6.3  1.23  1:218~ 2:248 3:226
+  institutions-pouvoirs-02 — 4.63 s, F0 240.7 Hz
+    1. Non, le président le nomme …   1/3    240.7  -0.22   -2.9   +1.7  0.0    6.5  1.28  1:241 2:229 3:231
+  institutions-pouvoirs-03 — 6.88 s, F0 246.9 Hz, pauses entre phrases [0.3] s
+    1. Son gouvernement reste en p…   3/3    253.1  +0.65   -2.9   +4.3  2.9    6.2  1.21  1:235 2:223~ 3:253
+    2. Ou tant qu'elle ne lui refu…   1/3    244.2  +0.03   -3.4   +2.1  2.9    7.0  1.37  1:244 2:242 3:210~
+  institutions-pouvoirs-04 — 8.37 s, F0 238.4 Hz
+    1. Depuis mille neuf cent cinq…   2/3    238.4  -0.39   -8.6   -0.2  3.4    5.1  1.00  1:239? 2:238 3:231
+         prise 1 : bruit 1.53-1.65 s (leger, +36 dB, confiance 0.68) [huit | l'Assemblée]
+  institutions-pouvoirs-05 — 13.56 s, F0 240.0 Hz, pauses entre phrases [0.29, 0.31, 0.35, 0.34, 0.3, 0.17] s
+    1. En face, le président peut …   1/3    247.5  +0.26   -7.8   +1.2  6.0    5.6  1.08  1:248 2:232 3:218~
+    2. C'est arrivé six fois depui…   3/3    255.5  +0.81   -1.4   +4.4  6.0    6.8  1.33  1:269~ 2:277~ 3:256
+    3. En mille neuf cent soixante…   3/3    228.4  -1.13   -3.2   -0.3  1.4    5.1  1.00  1:258 2:242×! 3:228
+         prise 2 : rire 5.60-5.84 s (net, +36 dB, confiance 0.66) [cent | vingt]
+      passage assemblé : rire 2.46-2.88 s (net, +53 dB, confiance 0.95) [l'Assemblée | six]
+      passage assemblé : mot manquant ou bâclé « arrivé » 2.88-3.04 s (leger, confiance 0.30) [C'est | six]
+      ⚠ son parasite dans le passage assemblé : rire 2.46-2.88 s (net, +53 dB, confiance 0.95) [l'Assemblée | six]
+  institutions-pouvoirs-06 — 6.00 s, F0 238.4 Hz, pauses entre phrases [0.3] s
+    1. D'un côté, la capacité d'ag…   1/3    246.1  +0.16   +1.1   +2.9  3.2    6.2  1.22  1:246 2:256~ 3:270~
+    2. De l'autre, le poids du Par…   1/3    225.6  -1.34   -2.7   -0.2  0.0    4.7  0.91  1:226 2:253~ 3:255~
+  institutions-pouvoirs-07 — 3.98 s, F0 247.5 Hz
+    1. Alors, quel équilibre entre…   1/3    247.5  +0.26   -2.1   +6.4  5.7    6.0  1.18  1:248 2:219~ 3:225
+  institutions-49-3-01 — 3.15 s, F0 249.4 Hz
+    1. Une loi peut-elle être adop…   1/3    249.4  +0.39   +3.5      —  3.0    5.2  1.00  1:249 2:201~ 3:232
+  institutions-49-3-02 — 5.87 s, F0 241.0 Hz, pauses entre phrases [0.34] s
+    1. Oui, avec l'article quarant…   2/3    248.0  +0.30   -1.6   +1.1  0.0    7.1  1.39  1:270~ 2:248 3:260
+    2. Le gouvernement engage alor…   3/3    233.6  -0.74   -0.8   +4.2  1.6    5.8  1.14  1:263~ 2:274~ 3:234
+  institutions-49-3-03 — 4.64 s, F0 225.0 Hz
+    1. Le texte est alors considér…   3/3    225.0  -1.39   -0.5   +2.1  0.8    6.3  1.23  1:213~ 2:230~ 3:225
+  institutions-49-3-04 — 10.28 s, F0 247.7 Hz, pauses entre phrases [0.17, 0.31, 0.27] s
+    1. Avant la révision du vingt-…   1/3    252.4  +0.60   -5.0   +3.5  0.5    6.3  1.24  1:252 2:214~ 3:228?
+         prise 3 : bruit 4.09-4.24 s (leger, +28 dB, confiance 0.53) [limite | fin]
+    2. Depuis, il ne sert que pour…   3/3    236.6  -0.52   -6.9   +3.1  5.0    5.1  1.00  1:223~ 2:234 3:237
+  institutions-49-3-05 — 10.29 s, F0 242.8 Hz, pauses entre phrases [0.36, 0.23, 0.16] s
+    1. Entre mille neuf cent cinqu…   1/3    240.5  -0.24   -2.9   +2.7  6.0    4.6  0.90  1:240 2:268~ 3:253
+    2. Puis deux fois en janvier d…   3/3    245.0  +0.09   -1.7   +0.2  2.9    5.6  1.09  1:260 2:275~ 3:245
+  institutions-49-3-06 — 5.41 s, F0 243.7 Hz, pauses entre phrases [0.31, 0.17] s
+    1. D'un côté, la capacité du g…   1/3    238.3  -0.40   -3.2   +3.2  1.7    6.5  1.28  1:238 2:260 3:281~
+    2. De l'autre, le poids du vot…   2/3    248.8  +0.35   -1.7   +2.8  3.2    5.9  1.16  1:223~ 2:249 3:262
+  institutions-49-3-07 — 2.83 s, F0 245.5 Hz
+    1. Alors, quelle place donner …   1/3    245.5  +0.12   -2.6   +3.8  4.7    6.3  1.23  1:246 2:231 3:221~
+  institutions-constitution-01 — 5.81 s, F0 247.4 Hz, pauses entre phrases [0.2, 0.17, 0.33] s
+    1. La Constitution fixe les rè…   1/3    250.0  +0.43   -1.4      —  0.0    5.3  1.04  1:250 2:220~ 3:216~
+    2. Peut-on la changer ?          6/6    246.2  +0.17   +1.1   +3.1  4.4    4.8  0.93  1:222×! 2:372~ 3:448× 4:281~ 5:277~? 6:246
+         prise 1 : parole en trop 1.38-1.62 s (net, +64 dB, confiance 0.95) [changer | fin]
+         prise 5 : bruit 1.79-1.86 s (leger, +56 dB, confiance 0.67) [changer | fin]
+  institutions-constitution-02 — 4.32 s, F0 240.1 Hz
+    1. Oui, mais d'abord, l'Assemb…   2/3    240.1  -0.26   +0.4   +1.1  0.0    5.5  1.07  1:235 2:240 3:229
+  institutions-constitution-03 — 4.75 s, F0 236.4 Hz, pauses entre phrases [0.3, 0.23, 0.15] s
+    1. Ensuite, deux chemins pour …   1/3    230.5  -0.97   -1.5   +0.9  0.0    6.3  1.23  1:230 2:266 3:263
+    2. Le premier : un référendum,…   2/3    243.4  -0.03   -3.6   +3.1  1.5    6.4  1.25  1:254 2:243 3:252
+  institutions-constitution-04 — 5.70 s, F0 237.9 Hz, pauses entre phrases [0.3, 0.3] s
+    1. Le second : le Parlement ré…   1/3    242.9  -0.06   -3.2   +0.5  3.6    6.4  1.26  1:243 2:267~ 3:253
+    2. C'est possible pour un proj…   4/4    233.5  -0.75   -6.9   +3.0  3.2    5.9  1.14  1:252~ 2:220~ 3:215~ 4:234
+  institutions-constitution-05 — 6.20 s, F0 254.1 Hz, pauses entre phrases [0.15, 0.31, 0.23] s
+    1. Au Congrès, la révision doi…   2/3    251.1  +0.51   -2.8   +4.6  6.0    5.4  1.06  1:235 2:251 3:259
+    2. Soit soixante voix sur cent…   2/3    263.0  +1.31   -2.1   +3.4  2.8    4.0  0.78  1:285~ 2:263 3:263
+  institutions-constitution-06 — 7.34 s, F0 239.8 Hz, pauses entre phrases [0.16, 0.31, 0.32] s
+    1. Depuis mille neuf cent cinq…   3/3    238.6  -0.37   -5.0   +2.5  2.1    5.6  1.10  1:251? 2:265~? 3:239
+         prise 1 : bruit 0.00-0.06 s (leger, +34 dB, confiance 0.63) [début | Depuis]
+         prise 2 : bruit 1.26-1.39 s (leger, +35 dB, confiance 0.67) [huit | la]
+    2. La dernière fois, le huit m…   2/3    241.1  -0.19   -4.2   +2.8  5.0    4.7  0.93  1:278~ 2:241 3:232
+  institutions-constitution-07 — 3.46 s, F0 245.0 Hz, pauses entre phrases [0.35, 0.24] s
+    1. Alors, faut-il changer ces …   3/3    246.3  +0.18   -3.0   +4.2  6.0    5.8  1.12  1:317~ 2:264 3:246
+    2. Et si oui, par quel chemin …   5/5    233.8  -0.73   -3.8   +3.9  3.0    6.0  1.18  1:292~ 2:276~ 3:300~ 4:295~ 5:234
+  institutions-citoyens-01 — 3.28 s, F0 241.0 Hz
+    1. Entre deux élections, pouve…   1/3    241.0  -0.20   -1.2      —  3.0    5.7  1.10  1:241 2:213~ 3:290×!
+         prise 3 : respiration 0.00-0.16 s (leger, +35 dB, confiance 0.59) [début | Entre]
+         prise 3 : rire 0.40-0.64 s (net, +42 dB, confiance 0.78) [deux | élections]
+  institutions-citoyens-02 — 7.24 s, F0 242.6 Hz, pauses entre phrases [0.3] s
+    1. En France, vous décidez sur…   2/3    236.4  -0.53   -3.6   -0.9  0.0    7.7  1.51  1:216~ 2:236 3:212~
+    2. Et aucune procédure ne perm…   1/3    247.7  +0.27   -2.6   +3.9  3.6    5.7  1.11  1:248 2:228 3:231
+  institutions-citoyens-03 — 7.24 s, F0 243.5 Hz, pauses entre phrases [0.36, 0.3] s
+    1. Sous la Constitution de mil…   1/3    249.3  +0.39   -1.2   +3.7  2.6    6.2  1.21  1:249 2:217~ 3:234?
+         prise 3 : bruit 2.47-2.58 s (leger, +38 dB, confiance 0.72) [huit | il]
+    2. Le dernier date du vingt-ne…   3/3    237.5  -0.45   -1.2   +2.4  1.2    4.9  0.96  1:263~ 2:228 3:238
+  institutions-citoyens-04 — 9.02 s, F0 242.7 Hz, pauses entre phrases [0.32, 0.17] s
+    1. En deux mille, sur le quinq…   1/3    243.9  +0.01   -2.7   +3.5  1.2    6.0  1.17  1:244 2:255 3:239
+    2. En deux mille cinq, sur le …   3/3    241.9  -0.14   -7.0   +2.3  2.7    6.4  1.25  1:214~ 2:223~ 3:242
+  institutions-citoyens-05 — 7.09 s, F0 239.2 Hz, pauses entre phrases [0.3, 0.16] s
+    1. Il existe un référendum d'i…   1/3    246.9  +0.22   -1.6   +0.9  6.0    6.4  1.25  1:247 2:250 3:221~
+    2. Il faut d'abord un cinquièm…   2/3    234.6  -0.67   -8.4   +0.3  1.6    6.4  1.24  1:233 2:235 3:221~
+  institutions-citoyens-06 — 9.13 s, F0 237.7 Hz, pauses entre phrases [0.28, 0.31, 0.2] s
+    1. Entre les deux, le Conseil …   3/3    238.0  -0.42   -1.8   +0.8  6.0    5.5  1.07  1:218~ 2:237 3:238
+    2. Puis, si le Parlement ne l'…   3/3    237.5  -0.45   -1.9   +3.2  1.8    6.2  1.20  1:231 2:230 3:238
+  institutions-citoyens-07 — 8.72 s, F0 249.4 Hz, pauses entre phrases [0.3, 0.31] s
+    1. Depuis deux mille dix-neuf,…   1/3    249.8  +0.42   -3.6   +2.1  1.9    5.7  1.11  1:250? 2:232? 3:261
+         prise 1 : respiration 3.06-3.21 s (leger, +39 dB, confiance 0.73) [type | ont]
+         prise 2 : respiration 3.04-3.28 s (leger, +39 dB, confiance 0.73) [type | ont]
+    2. Pour six d'entre elles, jug…   1/3    248.3  +0.32   -3.6   +1.4  3.6    5.8  1.14  1:248 2:270~ 3:222~
+  institutions-citoyens-08 — 12.00 s, F0 243.8 Hz, pauses entre phrases [0.21, 0.17, 0.31, 0.26, 0.31, 0.2] s
+    1. Une seule, sur les aéroport…   1/3    242.9  -0.06   -3.5   +2.5  3.6    6.3  1.22  1:243 2:253 3:216~
+    2. En neuf mois : un million q…   2/3    249.4  +0.39   -1.7   +2.0  3.5    4.2  0.83  1:261 2:249 3:251
+    3. Moins d'un quart.             3/7    222.4  -1.59   +0.9   -2.2  1.7    4.2  0.81  1:237× 2:445×? 3:222~ 4:298×! 5:288~? 6:313×? 7:182~
+         prise 2 : respiration 1.35-1.42 s (leger, +66 dB, confiance 0.80) [quart | fin]
+         prise 4 : rire 0.16-0.40 s (net, +66 dB, confiance 0.91) [Moins | quart]
+         prise 4 : respiration 0.64-0.79 s (leger, +60 dB, confiance 0.80) [quart | fin]
+         prise 4 : parole en trop 1.12-1.23 s (net, +53 dB, confiance 0.66) [quart | fin]
+         prise 5 : parole en trop 1.38-1.52 s (leger, +74 dB, confiance 0.85) [quart | fin]
+         prise 6 : parole en trop 1.94-2.04 s (leger, +73 dB, confiance 0.83) [quart | fin]
+      ⚠ phrase 3 : aucune prise acceptable : hauteur -1.59 dt de la cible
+  institutions-citoyens-09 — 8.20 s, F0 251.8 Hz, pauses entre phrases [0.3, 0.33] s
+    1. Au niveau local, un référen…   3/3    253.1  +0.65   -2.8   +1.8  0.0    6.9  1.34  1:225 2:270~ 3:253
+    2. Au moins la moitié des insc…   2/3    250.6  +0.48   -1.3   +0.9  2.8    6.7  1.30  1:234 2:251 3:260
+  institutions-citoyens-10 — 8.38 s, F0 249.3 Hz, pauses entre phrases [0.19, 0.31] s
+    1. Pour la Convention citoyenn…   3/3    259.4  +1.07   -4.2   +2.7  1.3    6.2  1.22  1:226 2:273~ 3:259
+    2. Le vingt et un juin deux mi…   3/3    244.5  +0.05   -2.6   +3.0  4.2    6.2  1.22  1:224 2:247 3:244
+  institutions-citoyens-11 — 5.31 s, F0 238.0 Hz, pauses entre phrases [0.31, 0.3] s
+    1. D'un côté, des décisions pr…   1/3    234.6  -0.67   -1.6   +0.8  2.6    5.5  1.08  1:235 2:215~ 3:279~
+    2. De l'autre, des décisions p…   1/3    252.3  +0.59   +0.2   +3.3  1.6    6.5  1.27  1:252 2:253~ 3:259~
+  institutions-citoyens-12 — 2.80 s, F0 252.9 Hz
+    1. Alors, quelle place donner …   3/3    252.9  +0.63   -2.2   +3.0  3.0    7.0  1.37  1:275~ 2:231 3:253
+
+Alertes (5) :
+  aigue / institutions-intro-07 : phrase 1 : aucune prise sans défaut : trop lente (3.4 syll/s, 0.66 × la référence), son parasite (bruit 0.92-1.06 s)
+  aigue / institutions-intro-07 : son parasite dans le passage assemblé : bruit 0.92-1.06 s (net, +44 dB, confiance 0.86) [vous | Vous]
+  aigue / institutions-intro-09 : phrase 1 : aucune prise acceptable : saut de +3.23 dt à l'enchaînement (tolérance de reprise 0.0 dt)
+  aigue / institutions-pouvoirs-05 : son parasite dans le passage assemblé : rire 2.46-2.88 s (net, +53 dB, confiance 0.95) [l'Assemblée | six]
+  aigue / institutions-citoyens-08 : phrase 3 : aucune prise acceptable : hauteur -1.59 dt de la cible
+
+Temps : 2013 s pour 260 prise(s), 7.48 s de calcul par prise en moyenne (3.16 s d'audio) ; calcul d'une prise ≈ 0.52 s + 2.24 s par seconde d'audio. Détecteur de sons parasites : 0.118 s par prise en moyenne (au plus 0.264 s), 2% du calcul d'une prise.
+Estimation pour les 1013 passages (1856 phrases) (voix aiguë 3 prises, 10% de secours) : ~983 min.

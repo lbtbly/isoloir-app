@@ -1,0 +1,50 @@
+Rapport de génération des voix — 2026-10-04 23:10:03
+Commande : generate.py --voice grave --only retraites-intro --force --keep-takes --bitrate 128000
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix grave (v5b) — référence : F0 médiane 200.1 Hz (partie lue 190.9 Hz, fin -6.6 dt) ; cible 190.9 Hz ; débit articulé 4.76 syll/s ; 5 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères)
+  retraites-intro-01 — 3.91 s, F0 166.0 Hz, pauses entre phrases [0.3] s
+    1. Un jour, vous arrêterez de …   6/9    158.7  -3.20   -3.4      —  0.0    7.3  1.53  1:202× 2:168× 3:199× 4:221× 5:166× 6:159~ 7:116× 8:178× 9:139×
+    2. Qui vous versera alors votr…   7/7    178.3  -1.18   +0.1   +7.5  6.0    5.7  1.19  1:146~ 2:153× 3:230~ 4:135~ 5:135~ 6:292~ 7:178
+      ⚠ phrase 1 : aucune prise acceptable : hauteur -3.20 dt de la cible
+  retraites-intro-02 — 6.11 s, F0 180.5 Hz, pauses entre phrases [0.24, 0.3] s
+    1. Surtout ceux qui travailler…   4/5    180.2  -1.00   -3.9   +0.4  0.0    6.2  1.31  1:127~ 2:202 3:118× 4:180 5:129~
+    2. C'est la répartition.         4/5    193.7  +0.25   -9.8   +1.9  3.9    5.6  1.17  1:184 2:224~ 3:171~ 4:194 5:291~
+  retraites-intro-03 — 4.54 s, F0 186.7 Hz
+    1. Fin deux mille vingt-quatre…   6/6    186.7  -0.39   -3.5   +7.0  6.0    5.0  1.05  1:167~ 2:165~ 3:137~ 4:222~ 5:214~ 6:187
+  retraites-intro-04 — 7.04 s, F0 184.6 Hz, pauses entre phrases [0.3, 0.27] s
+    1. En deux mille vingt-cinq, l…   4/5    175.9  -1.42   -3.5   +5.1  3.5    7.1  1.48  1:135~ 2:217~ 3:156~ 4:176 5:210~
+    2. C'est quatorze virgule un p…   3/5    188.5  -0.22   -0.5   +5.9  3.5    5.7  1.19  1:219~ 2:165~ 3:188 4:209~ 5:166~
+  retraites-intro-05 — 3.00 s, F0 189.6 Hz
+    1. Environ un euro sur quatre …   1/5    189.6  -0.12   -4.3   +2.0  0.5    6.3  1.33  1:190 2:189 3:145~ 4:132~ 5:166~
+  retraites-intro-06 — 10.22 s, F0 194.8 Hz, pauses entre phrases [0.3, 0.3, 0.2, 0.3] s
+    1. Mais l'équilibre bouge.       1/5    186.8  -0.38   -7.9   +1.9  4.3    3.4  0.71  1:187 2:154~ 3:226× 4:198× 5:220×
+    2. En deux mille deux, deux vi…   3/5    205.4  +1.27   -7.7   +1.7  6.0    6.1  1.29  1:211~ 2:168~ 3:205 4:280~ 5:288~
+    3. En deux mille vingt-cinq, u…   4/5    186.4  -0.41   -5.8   +1.5  6.0    4.9  1.03  1:182 2:154~ 3:168~ 4:186 5:259~
+    4. En deux mille soixante-dix,…   5/5    197.7  +0.61   -4.5   +5.3  5.8    5.6  1.17  1:142~ 2:146~ 3:148~ 4:172~ 5:198
+  retraites-intro-07 — 4.47 s, F0 195.8 Hz
+    1. En deux mille vingt-cinq, i…   1/5    195.8  +0.44   -3.2   +5.7  4.5    6.3  1.32  1:196 2:212~ 3:171~ 4:226~ 5:216~
+  retraites-intro-08 — 8.45 s, F0 185.3 Hz, pauses entre phrases [0.15, 0.31] s
+    1. Pour partir, il faut avoir …   9/9    181.2  -0.90   -7.4   +2.0  3.2    6.0  1.27  1:133~ 2:148~ 3:172~ 4:131~ 5:161~ 6:142~ 7:99~ 8:234~ 9:181
+    2. En deux mille vingt-cinq, o…   3/5    194.5  +0.32   -6.0   +1.4  6.0    4.9  1.03  1:195 2:152~ 3:194 4:183 5:161~
+  retraites-intro-09 — 8.32 s, F0 198.1 Hz, pauses entre phrases [0.3, 0.36, 0.37, 0.58, 0.35] s
+    1. Alors, quatre questions se …   9/9    157.1  -3.37   -3.1   +9.3  6.0    4.6  0.97  1:286~ 2:139~ 3:133~ 4:260~ 5:227~ 6:269× 7:142~ 8:213~ 9:157~
+    2. À quel âge partir ?           4/5    201.5  +0.94   -7.6   +4.5  6.0    5.3  1.12  1:280~ 2:333~ 3:191× 4:202 5:168~
+    3. Qui paie, et comment ?        4/9    217.5  +2.26   -4.5   +2.0  3.0    4.0  0.84  1:211~ 2:251~ 3:222× 4:218~ 5:260× 6:265~ 7:388~ 8:356× 9:191×
+    4. Combien toucher ?             6/9    214.2  +1.99   -7.3   +4.8  3.0    5.2  1.09  1:162~ 2:318× 3:342~ 4:163~ 5:276~ 6:214~ 7:259~ 8:181~ 9:296~
+    5. Et comment tenir compte de …   1/5    191.7  +0.07   -3.8   +1.4  3.0    5.9  1.24  1:192 2:203 3:154~ 4:145~ 5:184
+      ⚠ phrase 1 : aucune prise acceptable : hauteur -3.37 dt de la cible, saut de +9.31 dt à l'enchaînement (tolérance de reprise 6.0 dt)
+      ⚠ phrase 3 : aucune prise acceptable : hauteur +2.26 dt de la cible
+      ⚠ phrase 4 : aucune prise acceptable : hauteur +1.99 dt de la cible
+  retraites-intro-10 — 2.03 s, F0 175.6 Hz
+    1. Ce sont les quatre sujets d…   2/5    175.6  -1.45   -1.2   -0.4  0.0    6.4  1.35  1:176~ 2:176 3:164~ 4:144~ 5:206~
+
+Alertes (4) :
+  grave / retraites-intro-01 : phrase 1 : aucune prise acceptable : hauteur -3.20 dt de la cible
+  grave / retraites-intro-09 : phrase 1 : aucune prise acceptable : hauteur -3.37 dt de la cible, saut de +9.31 dt à l'enchaînement (tolérance de reprise 6.0 dt)
+  grave / retraites-intro-09 : phrase 3 : aucune prise acceptable : hauteur +2.26 dt de la cible
+  grave / retraites-intro-09 : phrase 4 : aucune prise acceptable : hauteur +1.99 dt de la cible
+
+Temps : 883 s pour 128 prise(s), 6.69 s de calcul par prise en moyenne (2.5 s d'audio) ; calcul d'une prise ≈ 0.31 s + 2.56 s par seconde d'audio.
+Estimation pour les 97 passages (149 phrases) × 2 voix (aigue 3 prises + grave 5 prises, 22% de secours) : ~268 min.

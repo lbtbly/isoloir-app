@@ -1,0 +1,49 @@
+Contrôle des sons parasites — 2026-10-06 09:28:02
+Commande : generate.py --scan --voice aigue --only institutions
+Détecteur : artefacts.py (alignement Qwen3-ForcedAligner, seuils étalonnés : voir artefacts.py et README.md). Net : à refaire ; léger : signalé seulement.
+
+aigue / institutions-intro-01 — 3.83 s : ok
+aigue / institutions-intro-02 — 8.13 s : ok
+aigue / institutions-intro-03 — 5.69 s : ok
+aigue / institutions-intro-04 — 9.04 s : ok
+aigue / institutions-intro-05 — 9.49 s : ok
+aigue / institutions-intro-06 — 7.02 s : ok
+aigue / institutions-intro-07 — 9.24 s : ok
+aigue / institutions-intro-08 — 8.78 s : ok
+aigue / institutions-intro-09 — 2.41 s : ok
+aigue / institutions-pouvoirs-01 — 3.91 s : ok
+aigue / institutions-pouvoirs-02 — 4.63 s : ok
+aigue / institutions-pouvoirs-03 — 6.88 s : ok
+aigue / institutions-pouvoirs-04 — 8.37 s : ok
+aigue / institutions-pouvoirs-05 — 12.12 s : ok
+aigue / institutions-pouvoirs-06 — 6.00 s : ok
+aigue / institutions-pouvoirs-07 — 3.98 s : ok
+aigue / institutions-49-3-01 — 3.15 s : ok
+aigue / institutions-49-3-02 — 5.87 s : ok
+aigue / institutions-49-3-03 — 4.64 s : ok
+aigue / institutions-49-3-04 — 10.28 s : ok
+aigue / institutions-49-3-05 — 10.29 s : ok
+aigue / institutions-49-3-06 — 5.41 s : ok
+aigue / institutions-49-3-07 — 2.83 s : ok
+aigue / institutions-constitution-01 — 5.81 s : ok
+aigue / institutions-constitution-02 — 4.32 s : ok
+aigue / institutions-constitution-03 — 4.75 s : ok
+aigue / institutions-constitution-04 — 5.70 s : ok
+aigue / institutions-constitution-05 — 6.20 s : ok
+aigue / institutions-constitution-06 — 7.34 s : ok
+aigue / institutions-constitution-07 — 3.46 s : ok
+aigue / institutions-citoyens-01 — 3.28 s : ok
+aigue / institutions-citoyens-02 — 7.24 s : ok
+aigue / institutions-citoyens-03 — 7.24 s : ok
+aigue / institutions-citoyens-04 — 9.02 s : ok
+aigue / institutions-citoyens-05 — 7.09 s : ok
+aigue / institutions-citoyens-06 — 9.13 s : ok
+aigue / institutions-citoyens-07 — 8.72 s : ok
+aigue / institutions-citoyens-08 — 12.00 s : ok
+aigue / institutions-citoyens-09 — 8.20 s : ok
+aigue / institutions-citoyens-10 — 8.38 s : ok
+aigue / institutions-citoyens-11 — 5.31 s : ok
+aigue / institutions-citoyens-12 — 2.80 s : ok
+
+À refaire (0) : aucun
+Temps : 7 s pour 42 passage(s), chargement du modèle d'alignement compris.

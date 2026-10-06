@@ -1,0 +1,777 @@
+{
+  "group": "strategie_institutions",
+  "topics": [
+    "strategie",
+    "institutions"
+  ],
+  "candidates": [
+    {
+      "candidate": "Olivier Faure",
+      "affiliation": "Parti socialiste (Premier secrétaire depuis 2018, direction du parti confiée à Johanna Rolland pendant la campagne). Député de la 11e circonscription de Seine-et-Marne depuis 2012, conseiller municipal de Lieusaint depuis 2026.",
+      "overview": "Olivier Faure, premier secrétaire du PS, a officialisé sa candidature le 30 août 2026 au JT de 20h de TF1. Slogan : « Pour une France + juste ! ». Il défend une ligne qu'il présente lui-même comme « résolument de gauche » et « socialiste-écologique », exposée dans son livre-programme « La Loi du plus juste » (Robert Laffont, 17 septembre 2026) et dans sa profession de foi en quatre axes : Redresser la France, Vivre dignement, Réorienter l'économie, Préparer demain. Ses mesures phares sont redistributives : Smic à 1 700 € net, parité dividendes/salariés, retour à 62 ans, taxe Zucman, faire cotiser l'IA, encadrement généralisé des loyers, régularisation massive des travailleurs sans papiers et « règle d'or verte ». Sur la stratégie, il est l'artisan du NFP en 2024. Il a ensuite co-lancé une primaire unitaire de la gauche, puis perdu le vote interne du 9 juillet 2026 (44,5 % pour sa primaire ouverte). Il refuse toute alliance présidentielle ou gouvernementale avec LFI et Mélenchon, mais il est le seul grand candidat à défendre un rassemblement de toute la gauche aux législatives et les convergences parlementaires avec les Insoumis. À l'international, il utilise le mot « génocide » pour Gaza, ce qui l'oppose frontalement à Glucksmann et à Guedj, et il soutient l'Ukraine et la défense européenne. Sondages : environ 3,5 à 5 % (fin août-septembre 2026), loin derrière Glucksmann, le favori.",
+      "distinctive_vs_others": "1) Rapport à LFI. Faure est le seul des cinq à refuser d'exclure un rassemblement de toute la gauche, électeurs et forces insoumises compris, aux législatives. Il insiste sur les convergences parlementaires (« 80 % » de votes communs) tout en refusant une alliance présidentielle ou gouvernementale avec Mélenchon. Glucksmann exige la clarté et refuse toute alliance, Guedj l'accuse de « danse du ventre » devant LFI, et Royal et Maurel refusent de faire de Mélenchon le centre de la stratégie (LCP 23/09/2026 ; France 24 et L'essentiel 01/10/2026).\n\n2) Gaza. Avec Royal, il emploie le mot « génocide » ; Glucksmann (« Ce que tu fais est obscène ») et Guedj le refusent (France 24, franceinfo 01/10/2026). Il porte aussi une PPL interdisant les produits des colonies israéliennes (LCP 22/06/2026).\n\n3) Fiscalité et pouvoir d'achat. Il s'oppose frontalement à la baisse de CSG sur les salaires proposée par Glucksmann. Il défend le Smic à 1 700 €, la parité dividende/salariés, le refus de toute baisse de cotisations et la cotisation sur l'IA (franceinfo 01/10/2026 ; AFP 16-17/09/2026).\n\n4) Marqueurs « à gauche toute » pour un candidat issu de l'appareil. Il assume la régularisation massive (400 000 à 500 000), le mot « islamophobie », le « racisme structurel » dans la police, une commission vérité sur la colonisation et la légalisation du cannabis. Le projet du PS ne prévoyait pourtant qu'une convention citoyenne sur le cannabis (AFP 17/09 ; Politis 21/09/2026).\n\n5) Positionnement contre le centre. Il refuse un « Fillon 2 ou Macron 3 » et reproche à Glucksmann de s'entourer d'anciens macronistes (Politis 21/09 ; débat du 01/10).\n\n6) Nucléaire. Il propose 2 à 4 EPR2 seulement, avec priorité forte aux renouvelables (UFE 23/06/2026). C'est une position plus restrictive que celle des pro-nucléaires du PS et de la GRS (le positionnement précis de Maurel est à vérifier dans son propre dossier).\n\n7) Légitimité. Il est le seul candidat chef de parti en exercice. Il revendique d'avoir « repris le parti quand il était dans la poussière » mais a été désavoué par ses adhérents sur le format de la primaire (juillet 2026). Il est crédité d'environ 5 % des intentions de vote, loin derrière Glucksmann (environ 10-14 %).\n\nPoints communs : avec Maurel, il refuse l'annulation de la dette (LCP 23/09) ; tous les candidats jugent Bardella « disqualifié » après les révélations de Mediapart (01-02/10/2026).",
+      "signature_proposals": [],
+      "topics": [
+        {
+          "topic_id": "strategie",
+          "found": true,
+          "positions": [
+            {
+              "position": "Il présente le rassemblement de la gauche et des écologistes comme la seule méthode pour battre la droite et l'extrême droite, et se présente comme « l'architecte de l'union de la gauche et des écologistes ».",
+              "kind": "proposition_explicite",
+              "short_quote": "le rassemblement de la gauche et des écologistes est la seule méthode",
+              "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+              "source_title": "Profession de foi d'Olivier Faure – primaire Choisir 2027",
+              "source_date": "2026-09-24",
+              "confidence": "high"
+            },
+            {
+              "position": "Il refuse une alliance présidentielle avec Mélenchon et refuse de gouverner avec LFI, mais il met en avant les convergences de vote à l'Assemblée entre Insoumis, socialistes et écologistes. Il juge « inexcusables » les dérapages de Mélenchon sur l'antisémitisme.",
+              "kind": "position_declaree",
+              "source_url": "https://www.france24.com/fr/info-en-continu/20260917-olivier-faure-%C3%A0-gauche-toute-pour-la-primaire",
+              "source_title": "Olivier Faure, « à gauche toute » pour la primaire (AFP / France 24)",
+              "source_date": "2026-09-17",
+              "confidence": "high"
+            },
+            {
+              "position": "Lors des débats, il refuse d'exclure un rapprochement avec LFI aux législatives et plaide pour un « rassemblement de la gauche aux législatives ». Il rappelle que les socialistes votent « à 80 % » avec les Insoumis au Parlement et reproche aux autres candidats de stigmatiser les électeurs insoumis.",
+              "kind": "position_declaree",
+              "short_quote": "Arrêtons de cracher sur le reste de la gauche !",
+              "source_url": "https://www.france24.com/fr/france/20260923-primaire-de-la-gauche-lors-du-premier-débat-ségolène-royal-épinglée-sur-l-ukraine-et-israël",
+              "source_title": "Primaire de la gauche : débat poli, mais désaccords profonds sur Gaza et une alliance avec LFI (France 24)",
+              "source_date": "2026-09-23",
+              "details": "Lors du débat du 1er octobre, il dit être « le seul à pouvoir rassembler l'ensemble des forces de gauche ». Il s'agace que Mélenchon soit « l'éléphant dans la pièce » de chaque débat (L'essentiel / Public Sénat, 01-02/10/2026). Guedj l'accuse de faire « la danse du ventre » devant LFI ; Glucksmann lui reproche d'être « habité par l'esprit de défaite ».",
+              "confidence": "high"
+            },
+            {
+              "position": "Sur BFMTV, il a assuré qu'il n'y aurait pas d'accord national PS-LFI pour la présidentielle et les législatives de 2027, après les alliances locales PS-LFI de second tour aux municipales. Il a qualifié Mélenchon de « boulet » pour la gauche.",
+              "kind": "position_declaree",
+              "source_url": "https://www.franceinfo.fr/politique/elections-de-2027-il-n-y-aura-pas-d-accord-national-entre-le-ps-et-lfi-assure-le-socialiste-olivier-faure_7897622.html",
+              "source_title": "Il « n'y aura pas d'accord national » entre le PS et LFI pour 2027, assure Olivier Faure (franceinfo)",
+              "source_date": "2026-03-27",
+              "details": "Cette déclaration coexiste avec l'ouverture affichée en septembre 2026 à un rassemblement aux législatives : la frontière entre « pas d'accord national » et « rassemblement de la gauche » reste floue.",
+              "confidence": "high"
+            },
+            {
+              "position": "En avril 2026, il plaidait pour un mécanisme débouchant sur une candidature commune de la gauche hors LFI. Il avait co-lancé le 15 novembre 2025 une primaire unitaire avec Tondelier, Castets, Ruffin et Autain, puis défendu une primaire ouverte, rejetée le 9 juillet 2026 par les adhérents PS (55,5 % pour une primaire fermée).",
+              "kind": "position_declaree",
+              "short_quote": "un candidat commun de la gauche hors LFI",
+              "source_url": "https://actu.orange.fr/politique/presidentielle-olivier-faure-maintient-son-v-u-d-un-seul-candidat-a-gauche-toujours-sans-lfi-magic-CNT000002oXJMa.html",
+              "source_title": "Présidentielle : Olivier Faure maintient son vœu d'un « seul candidat » à gauche, toujours sans LFI (RTL via Orange)",
+              "source_date": "2026-04-30",
+              "details": "Résultat du vote interne : https://lcp.fr/actualites/presidentielle-le-ps-se-prononce-pour-une-primaire-fermee-un-desaveu-pour-olivier-faure (LCP, 10/07/2026).",
+              "confidence": "high"
+            },
+            {
+              "position": "Il rejette les candidatures centristes et toute alliance avec le centre ou la droite. Le socialisme est selon lui d'abord un rapport de force mis au service des plus vulnérables. Il cible Glucksmann et Hollande, et reproche à Glucksmann de s'entourer d'anciens macronistes.",
+              "kind": "position_declaree",
+              "short_quote": "nous n'avons pas besoin d'un Fillon 2 ou d'un Macron 3",
+              "source_url": "https://www.politis.fr/articles/2026/09/olivier-faure-je-ne-vois-pas-ce-qui-pourrait-conduire-vers-une-autre-decision-que-la-censure/",
+              "source_title": "Olivier Faure : « Je ne vois pas ce qui pourrait conduire vers une autre décision que la censure » (Politis)",
+              "source_date": "2026-09-21",
+              "confidence": "high"
+            },
+            {
+              "position": "Il annonce la censure du gouvernement Lecornu sur le budget 2027 si celui-ci n'évolue pas. Il cite comme motifs l'introduction d'une préférence nationale pour certaines prestations, la baisse des aides aux renouvelables et la réduction de la contribution française à l'UE. Fin 2025, il avait au contraire négocié avec Lecornu la suspension de la réforme des retraites et la non-censure.",
+              "kind": "position_declaree",
+              "short_quote": "Si rien ne change, nous censurerons",
+              "source_url": "https://fr.news.yahoo.com/sport/budget-2027-rien-ne-change-044402037.html",
+              "source_title": "Budget 2027 : « Si rien ne change, nous censurerons » (Yahoo Actualités)",
+              "source_date": "2026-09-27",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "topic_id": "institutions",
+          "found": true,
+          "positions": [
+            {
+              "position": "En mai 2025, il s'est dit opposé à l'instauration de la proportionnelle. Le projet du PS de 2026 prévoit pourtant un scrutin proportionnel inspiré du modèle allemand.",
+              "kind": "position_declaree",
+              "short_quote": "On ne résout pas une crise politique avec un mode de scrutin",
+              "source_url": "https://www.franceinfo.fr/politique/ps/congres-du-ps/instauration-de-la-proportionnelle-on-ne-resout-pas-une-crise-politique-avec-un-mode-de-scrutin-assume-olivier-faure_7261020.html",
+              "source_title": "Instauration de la proportionnelle : Olivier Faure assume (franceinfo)",
+              "source_date": "2025-05-20",
+              "details": "Aucune clarification de sa position personnelle pendant la campagne de 2026 n'a été trouvée.",
+              "confidence": "medium"
+            },
+            {
+              "position": "Le projet du PS qu'il dirige prévoit de supprimer le 49.3 (sauf textes financiers) et le vote bloqué, d'inverser le calendrier présidentielle/législatives, d'abaisser le droit de vote à 16 ans, de créer un RIC, d'abaisser le seuil du RIP à un million de signatures, d'accorder le droit de vote des étrangers extra-européens aux élections locales et de réformer le Conseil constitutionnel.",
+              "kind": "inference",
+              "source_url": "https://projet-socialiste.fr/projet/refaire-societe/",
+              "source_title": "Le Projet socialiste – La République démocratique du XXIe siècle",
+              "source_date": "2026",
+              "details": "Faure n'a pas mis ces réformes en avant dans sa profession de foi.",
+              "confidence": "medium"
+            },
+            {
+              "position": "Il a obtenu en 2025 que Lecornu renonce au 49.3 pour le budget 2026, puis a entrouvert la porte à son usage s'il était précédé d'un compromis. Lecornu a finalement utilisé le 49.3 en janvier 2026.",
+              "kind": "position_declaree",
+              "source_url": "https://www.publicsenat.fr/actualites/politique/budget-au-ps-le-retour-du-49-3-apparait-de-plus-en-plus-comme-une-porte-de-sortie",
+              "source_title": "Budget : au PS, le retour du 49.3 apparaît de plus en plus comme « une porte de sortie » (Public Sénat)",
+              "source_date": "2026-01-06",
+              "confidence": "high"
+            },
+            {
+              "position": "Il a dénoncé une « trumpisation » de la vie politique après l'annonce de la candidature de Marine Le Pen malgré sa condamnation.",
+              "kind": "position_declaree",
+              "source_url": "https://www.bfmtv.com/politique/parti-socialiste/olivier-faure-denonce-une-forme-de-trumpisation-de-la-vie-politique-apres-la-candidature-de-marine-le-pen_AN-202607090264.html",
+              "source_title": "Olivier Faure dénonce une « forme de trumpisation de la vie politique » (BFMTV)",
+              "source_date": "2026-07-08",
+              "details": "Source vérifiée uniquement par le titre et le chapô.",
+              "confidence": "low"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "candidate": "Raphaël Glucksmann",
+      "affiliation": "Place publique (co-président), eurodéputé du groupe S&D depuis 2019, réélu en 2024 comme tête de liste PS-Place publique (13,8 %). Il est candidat de Place publique à la primaire « Choisir 2027 » organisée avec le PS (et, selon la page de Place publique, la GRS).",
+      "overview": "Raphaël Glucksmann, 46 ans, eurodéputé et co-président de Place publique, a déclaré sa candidature le 23 août 2026 sur TF1. Il défend une ligne sociale-démocrate, écologiste et fédéraliste européenne. Son marqueur stratégique est la rupture avec La France insoumise : aucun accord à la présidentielle ni aux législatives. Sa mesure phare de pouvoir d'achat est une baisse de la CSG (ou des prélèvements salariaux) pour augmenter le salaire net. Elle serait financée par une hausse de la fiscalité sur les « méga-héritages » (successions de plus de 2 M€, réforme du pacte Dutreil, 15 Md€ par an). Il propose aussi un plan de sauvetage de l'école publique, un service civique obligatoire de 10 mois et une convention citoyenne sur l'immigration. Il veut des « 100 jours de révolution écologique », confiés à Yannick Jadot, et un pro-nucléaire assumé accompagné d'un plan massif pour les renouvelables. En Europe, il veut un saut fédéral : fin du droit de veto et emprunt commun de 500 Md€ pour la défense. Sur la Russie, il tient la ligne la plus offensive : aide militaire accrue à l'Ukraine. Sur Gaza, il refuse le terme de « génocide » tout en s'opposant à Netanyahou et en défendant deux États. Son corpus programmatique repose sur l'« Acte I » de Place publique (42 chantiers, juin 2025), le livre « Nous avons encore envie. Pour un sursaut patriotique » (Allary, mai 2026), sa « lettre aux Français » (25 août 2026) et les débats de la primaire.",
+      "distinctive_vs_others": "(1) Alliances. C'est le seul candidat à exclure formellement tout accord avec LFI à la fois à la présidentielle et aux législatives, avec des candidats partout. Guedj est aussi hostile aux accords ; Faure défend des « convergences » (80 % de votes communs à l'Assemblée) ; Maurel soutient un front républicain incluant LFI face à Le Pen ; Royal refuse LFI mais aussi le centre (LCP, 24/09/2026). Il fait de cette « clarification » le cœur de sa candidature et accuse Faure d'« esprit de défaite ».\n\n(2) Pouvoir d'achat. Sa mesure phare, la baisse de la CSG sur les salaires financée par les méga-héritages, l'isole : Faure la juge limitée, Royal « dangereuse », Guedj y voit une menace pour la Sécurité sociale (débat du 01/10/2026). Sur les carburants, il défend une aide ciblée (chèque énergie triplé), là où Royal et Guedj proposent une baisse générale des taxes.\n\n(3) Retraites. Il ne fixe aucun âge légal : la réforme serait fondée sur la pénibilité et l'espérance de vie en bonne santé. Faure vise un retour à 62 ans ; Guedj veut une logique de durée de cotisation (Public Sénat, 30/09/2026 ; franceinfo, 30/09/2026).\n\n(4) International. C'est la ligne la plus offensive contre la Russie (protection du ciel ukrainien, hausse de l'aide), face à Royal qui prône l'équilibre et la négociation. Sur Gaza, il refuse le mot « génocide », comme Guedj, et s'oppose vivement à Faure et à Royal.\n\n(5) Europe. Il est le plus fédéraliste : fin du veto, traité de refondation d'ici 2030, emprunt de 500 Md€. Maurel prône au contraire la « démondialisation » et un « emprunt national » (LCP, 23/09/2026).\n\n(6) Profil. Seul candidat issu de Place publique et sans mandat national ni exécutif. Royal l'a qualifié de « stagiaire ». Il est soutenu par des figures du PS (Vallaud, Delga, Mayer-Rossignol, Delafosse) et par l'écologiste Yannick Jadot.\n\n(7) Propositions qui lui sont propres dans les sources consultées : service civique obligatoire de 10 mois, convention citoyenne sur l'immigration, extension de la dissuasion nucléaire française aux partenaires de l'UE, bannissement de TikTok.",
+      "signature_proposals": [
+        {
+          "proposal": "Aucun accord avec La France insoumise, ni à la présidentielle ni aux législatives.",
+          "topic_id": "strategie",
+          "source_url": "https://lcp.fr/actualites/primaire-de-gauche-sur-les-accords-avec-lfi-la-fracture-eclate-entre-les-candidats"
+        },
+        {
+          "proposal": "Investiture du Premier ministre par l'Assemblée, censure constructive et fin du 49.3, avec proportionnelle immédiate.",
+          "topic_id": "institutions",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf"
+        }
+      ],
+      "topics": [
+        {
+          "topic_id": "strategie",
+          "found": true,
+          "positions": [
+            {
+              "position": "Aucun accord avec La France insoumise, ni à la présidentielle ni aux législatives : des candidats dans toutes les circonscriptions.",
+              "kind": "position_declaree",
+              "details": "Position tenue au premier débat de la primaire (LCI, 23/09/2026). Guedj est aussi hostile aux accords. Faure défend des « convergences » (les députés PS votent « 80 % » avec LFI). Maurel et Royal refusent de centrer la campagne sur Mélenchon sans fermer la porte de la même façon.",
+              "short_quote": "Il n'y aura pas d'accord à la présidentielle avec les insoumis, ni aux législatives",
+              "source_url": "https://lcp.fr/actualites/primaire-de-gauche-sur-les-accords-avec-lfi-la-fracture-eclate-entre-les-candidats",
+              "source_title": "Primaire de gauche : sur les accords avec LFI, la fracture éclate entre les candidats (LCP)",
+              "source_date": "2026-09-24",
+              "confidence": "high"
+            },
+            {
+              "position": "S'il gagne la primaire, il n'y aura « plus jamais » d'accord avec Jean-Luc Mélenchon. Il a qualifié ce dernier de « Jean-Marie Le Pen de notre époque » et accuse LFI de complaisance envers l'antisémitisme.",
+              "kind": "position_declaree",
+              "details": "Déclarations sur TF1 lors de l'annonce de candidature (23/08/2026). La formule « Jean-Marie Le Pen de notre époque » date de mars 2026, selon France 24. Au débat du 01/10/2026, il refuse toute alliance avec ceux « qui surfent sur des fièvres identitaires » et reproche à Faure de préparer un rapprochement.",
+              "source_url": "https://www.france24.com/fr/france/20260824-france-presidentielle-2027-raphael-glucksman-veut-remporter-primaire-socialiste-sur-une-ligne-anti-lfi",
+              "source_title": "Présidentielle 2027 : Raphaël Glucksmann veut remporter la primaire socialiste sur une ligne anti-LFI (France 24)",
+              "source_date": "2026-08-24",
+              "confidence": "high"
+            },
+            {
+              "position": "Pas d'union avec LFI, même dans les circonscriptions menacées par le RN. Il dit en revanche vouloir « œuvrer au front républicain au 2e tour ».",
+              "kind": "position_declaree",
+              "details": "Il propose une union « sociale, démocrate, écologiste et pro-européenne », sans LFI. Il juge le NFP de 2024 conclu « dans la hâte ». En juin 2024, il s'était au contraire prononcé pour un désistement républicain systématique face au RN en cas de triangulaire. On ne sait pas clairement s'il appellerait à se désister pour un candidat LFI face au RN.",
+              "source_url": "https://www.brut.media/fr/articles/legislatives-raphael-glucksmann-exclut-toute-union-avec-lfi-meme-pour-faire-barrage-au-rn",
+              "source_title": "Législatives : Raphaël Glucksmann exclut toute union avec LFI même pour faire barrage au RN (Brut)",
+              "source_date": "2025-11-17",
+              "confidence": "medium"
+            },
+            {
+              "position": "Aux municipales de 2026, Place publique a refusé toute fusion de listes avec LFI et retiré ses candidats des listes communes.",
+              "kind": "position_declaree",
+              "short_quote": "Avec Place publique, nous refusons toutes ces fusions sans exception avec LFI",
+              "source_url": "https://www.franceinfo.fr/replay-radio/8h30-fauvelle-dely/alliances-avec-lfi-front-antifasciste-le-8h30-franceinfo-de-raphael-glucksmann_7842077.html",
+              "source_title": "Alliances avec LFI, front antifasciste… Le 8h30 franceinfo de Raphaël Glucksmann",
+              "source_date": "2026-03-17",
+              "confidence": "high"
+            },
+            {
+              "position": "Rassemblement de la « gauche démocratique et écologique » : appel aux écologistes et aux communistes. Il a confié à Yannick Jadot la préparation d'un « état d'urgence écologique ».",
+              "kind": "position_declaree",
+              "details": "Soutiens annoncés : Boris Vallaud (président du groupe PS à l'Assemblée), Carole Delga, Nicolas Mayer-Rossignol, Michaël Delafosse et Yannick Jadot (franceinfo, 27/08/2026).",
+              "source_url": "https://www.france24.com/fr/france/20260823-rapha%C3%ABl-glucksmann-annonce-sa-candidature-%C3%A0-la-pr%C3%A9sidentielle-de-2027",
+              "source_title": "Raphaël Glucksmann annonce sa candidature à la présidentielle de 2027 (France 24)",
+              "source_date": "2026-08-23",
+              "confidence": "high"
+            },
+            {
+              "position": "Après avoir longtemps refusé une primaire, il participe finalement à la primaire PS–Place publique, selon un protocole adopté le 25/08/2026.",
+              "kind": "position_declaree",
+              "details": "Le 23/05/2025, il annonçait qu'il « ne participera pas à une primaire », jugée « mortifère » et productrice d'une « synthèse molle ». Il maintenait ce refus encore au meeting d'Aubervilliers (13/06/2026). Le protocole a été adopté par le PS (159 pour, 32 contre, 21 abstentions) et à l'unanimité par Place publique.",
+              "short_quote": "ne participera pas à une primaire",
+              "source_url": "https://www.franceinfo.fr/elections/presidentielle/presidentielle-2027-raphael-glucksmann-annonce-qu-il-ne-participera-pas-a-une-primaire-de-la-gauche_7268598.html",
+              "source_title": "Présidentielle 2027 : Raphaël Glucksmann annonce qu'il ne participera pas à une primaire de la gauche (franceinfo)",
+              "source_date": "2025-05-23",
+              "confidence": "high"
+            },
+            {
+              "position": "Rapport à l'exécutif : en 2025, il a fait de la taxe Zucman « la base de tout accord » de non-censure avec le gouvernement Lecornu. En septembre 2026, il indique qu'il soutiendrait probablement la censure du projet de budget 2027.",
+              "kind": "position_declaree",
+              "details": "France 24/AFP, 11/09/2025 ; « 8h30 franceinfo », 21/09/2026. Il qualifie de « régressives » les économies de 54 Md€ proposées par le gouvernement (franceinfo, 21/09/2026).",
+              "source_url": "https://www.franceinfo.fr/replay-radio/8h30-fauvelle-dely/prix-des-carburants-taxation-situation-internationale-budget-le-8h30-franceinfo-de-raphael-glucksmann_8180243.html",
+              "source_title": "Prix des carburants, taxation, situation internationale, budget... Le 8h30 franceinfo de Raphaël Glucksmann",
+              "source_date": "2026-09-21",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "institutions",
+          "found": true,
+          "positions": [
+            {
+              "position": "Investiture du Premier ministre par un vote de confiance de l'Assemblée et motion de censure « constructive », ce qui permettrait de supprimer le 49.3.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 20 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "high"
+            },
+            {
+              "position": "Instaurer immédiatement la proportionnelle, de préférence par circonscriptions régionales avec fléchage départemental des candidats.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 20 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "high"
+            },
+            {
+              "position": "Supprimer l'article 16 (pouvoirs exceptionnels) et l'article 40, et réformer le Conseil constitutionnel. Lancer une convention citoyenne préparant une assemblée constituante.",
+              "kind": "proposition_explicite",
+              "details": "Il ne parle pas de « VIe République » en tant que telle, mais d'une « régénération constitutionnelle » via une constituante. Formule : un Président « qui préside », un gouvernement « qui gouverne ».",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 20 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "high"
+            },
+            {
+              "position": "Droit d'initiative citoyenne pouvant déclencher des référendums locaux et nationaux, généralisation des conventions citoyennes et « bon pour la démocratie » pour le financement des partis.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 21 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Droit de vote à 16 ans, droit de vote des étrangers extra-communautaires aux élections locales et inscription automatique sur les listes électorales.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 21 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            },
+            {
+              "position": "Nouvelle loi de décentralisation et de clarification des compétences, loi pluriannuelle des finances locales et élection des conseils intercommunaux au suffrage universel direct.",
+              "kind": "proposition_explicite",
+              "details": "L'Acte I prévoit aussi : lutte contre le pantouflage, fin de la dépendance de l'État aux cabinets de conseil, observatoire de l'intégrité publique. Aucune position trouvée sur le cumul ou la limitation des mandats.",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantiers 21 et 22 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "candidate": "Jérôme Guedj",
+      "affiliation": "Parti socialiste. Député de la 6e circonscription de l'Essonne depuis 2022, groupe Socialistes et apparentés, membre de la commission des affaires sociales. Ancien assistant parlementaire de Jean-Luc Mélenchon, élu en 2022 sous l'étiquette NUPES, il a refusé le label NFP en 2024. Il a déclaré sa candidature présidentielle hors primaire le 5 février 2026, puis a rejoint la primaire « Choisir 2027 » fin août 2026 (le 23 août selon Wikipédia FR). Il a annoncé ses parrainages le 15 septembre 2026.",
+      "overview": "Jérôme Guedj se présente comme le candidat d'une gauche « républicaine, universaliste, écologiste, européenne et laïque ». Son slogan est « La République, c'est nous ! », titre de son livre paru le 27 août 2026. Sa ligne stratégique est la plus anti-LFI des cinq candidats : aucune alliance avec La France insoumise, « plus jamais ». Il rappelle avoir refusé l'accord NFP en 2024 et assume un « compromis » avec le centre, voire avec une partie de la droite, face à l'extrême droite. Spécialiste des questions sociales, il fait de la « République du soin » sa première priorité : Sécurité sociale intégrale ou « Grande Sécu » (un seul payeur pour les soins essentiels), extension à tout le pays du régime local d'Alsace-Moselle, critères d'installation des médecins et financement du grand âge. Sur les retraites, il veut « sortir de l'âge légal » au profit d'un système fondé sur les annuités et la pénibilité, avec un âge du taux plein abaissé. Il accepte, sous conditions, une sous-indexation des pensions les plus élevées et une hausse de la CSG sur ces pensions. Côté recettes, il propose d'alourdir les droits de succession au-delà de 2 M€ (environ 10 Md€ par an pour l'autonomie) et un « ISF climatique ». Sur l'immigration, il veut une immigration « planifiée par le Parlement », avec apprentissage obligatoire de la langue. Sur la laïcité, il propose un Défenseur de la laïcité, autorité indépendante, et a reçu en juillet 2026 une mission du Premier ministre Lecornu. À l'international, il soutient fermement l'Ukraine et défend la solution à deux États. Il refuse le terme « génocide » pour Gaza et parle de crimes de guerre et de crimes contre l'humanité.",
+      "distinctive_vs_others": "1) Stratégie : avec Glucksmann, il porte la ligne la plus fermement anti-LFI (« plus jamais » d'alliance). Il va plus loin en accusant Faure et Royal de « soumission » à LFI et Faure d'une « danse du ventre permanente » (Orange/AFP 24/09/2026 ; LCP 01/10/2026). Il se dit le seul à avoir refusé l'accord NFP en 2024, alors que Maurel assume son élection de 2024 sous la bannière NFP (Public Sénat 24/09/2026). Il est aussi le seul à revendiquer explicitement un « compromis » avec le centre, « voire une partie de la droite » (AFP 17/09/2026).\n\n2) Retraites : c'est le seul des cinq, dans les sources consultées, à proposer de sortir de l'âge légal au profit des annuités et de la pénibilité (BFMTV/Capital 12/09/2026). Il accepte aussi, sous conditions, une sous-indexation des hautes pensions et une hausse de la CSG sur ces pensions (L'Opinion, août 2026 ; AFP 17/09/2026), ce qui le distingue d'une gauche attachée à l'indexation de toutes les pensions.\n\n3) Santé : il fait de la santé son marqueur. Il défend la Sécurité sociale intégrale ou « Grande Sécu » et se dit le « seul candidat » à avoir parlé de santé au débat LCI (X, 23/09/2026). Il veut étendre le régime d'Alsace-Moselle à tout le pays (Moselle TV 29/09/2026). Au débat du 01/10, il s'oppose à la baisse de CSG proposée par Glucksmann (Entrevue 02/10/2026).\n\n4) Immigration : sa ligne est plus restrictive que celle de Faure, qui prône une régularisation massive (500 000 régularisations ne le « choquent » pas, selon l'AFP). Guedj veut une immigration « planifiée par le Parlement » et critique « l'angélisme moral » de la gauche (AFP 17/09/2026).\n\n5) Laïcité : il est le candidat le plus identifié sur le sujet. Ancien secrétaire national du PS à la laïcité, il a reçu une mission Lecornu en juillet 2026 et a déposé la proposition de loi constitutionnelle n°2000 pour un Défenseur de la laïcité. Il combine fermeté face à l'islamisme et refus de l'interdiction du voile dans l'espace public (BFMTV 18/09 et 31/08/2026).\n\n6) Gaza : comme Glucksmann et contrairement à Faure et Royal, il refuse le mot « génocide ». Contrairement à Faure et Maurel, il ne demande pas la suspension de l'accord UE-Israël mais l'utilisation de ses leviers commerciaux contre le gouvernement israélien (Times of Israel 24/09/2026).\n\n7) Carburants : il rejoint Royal sur la baisse de la fiscalité et Maurel sur le plafonnement des marges des raffineurs (Public Sénat 24/09 ; Entrevue 02/10/2026).\n\n8) SMIC : son montant de 1 700 € est le même que celui de Faure (1 700 € net), ce qui le rend peu distinctif sur ce point.",
+      "signature_proposals": [
+        {
+          "proposal": "Aucune alliance avec La France insoumise, « plus jamais », et compromis assumé avec le centre face à l'extrême droite.",
+          "topic_id": "strategie",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats"
+        }
+      ],
+      "topics": [
+        {
+          "topic_id": "strategie",
+          "found": true,
+          "positions": [
+            {
+              "position": "Refuse toute alliance avec LFI, y compris aux législatives, et jure de ne « plus jamais » s'allier avec ce mouvement. Il avertit qu'un second tour Le Pen-Mélenchon garantirait la victoire de l'extrême droite.",
+              "kind": "position_declaree",
+              "short_quote": "plus jamais",
+              "details": "Débat LCI du 23/09/2026. Il rappelle avoir été « le seul » à refuser l'accord en 2024 et somme Olivier Faure de clarifier la position du PS.",
+              "source_url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+              "source_title": "Primaire de la gauche : échanges tendus sur les alliances avec LFI, Gaza, Ukraine… Que retenir du 1er débat (Public Sénat)",
+              "source_date": "2026-09-24",
+              "confidence": "high"
+            },
+            {
+              "position": "Accuse Olivier Faure et Ségolène Royal de complaisance envers LFI : au premier débat, il leur reproche de « glisser dans la soumission » à LFI. Au second débat, il dénonce la « danse du ventre permanente » de Faure avec La France insoumise.",
+              "kind": "position_declaree",
+              "short_quote": "J'ai un problème avec la danse du ventre permanente",
+              "details": "Débats du 23/09/2026 (LCI) et du 01/10/2026 (France 2). Royal a répliqué : « Je ne me soumets à personne ». Il juge aussi « largement » révélateurs les accords municipaux passés avec LFI.",
+              "source_url": "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+              "source_title": "Mobilisation lycéenne, budget, situation internationale... Ce qu'il faut retenir du deuxième débat de la primaire de gauche (LCP)",
+              "source_date": "2026-10-01",
+              "confidence": "high"
+            },
+            {
+              "position": "Juge un « compromis » avec le centre, voire avec une partie de la droite, inévitable face à la montée de l'extrême droite. Il présente certaines mesures sur les retraites comme des éléments de ce compromis.",
+              "kind": "position_declaree",
+              "short_quote": "c'est un des éléments du compromis",
+              "details": "Il note que « Gabriel Attal va sur ce terrain » (CSG et désindexation des hautes pensions). Selon la dépêche AFP, une partie de ses proches soutient Glucksmann.",
+              "source_url": "https://www.boursorama.com/actualite-economique/actualites/primaire-a-gauche-guedj-veut-repousser-les-frontieres-du-ps-au-risque-de-l-isolement-0938091ba9ae98269b3524add32329ab",
+              "source_title": "Primaire à gauche: Guedj veut repousser les frontières du PS, au risque de l'isolement (AFP via Boursorama)",
+              "source_date": "2026-09-17",
+              "confidence": "high"
+            },
+            {
+              "position": "Qualifie Jean-Luc Mélenchon de « marche-pied » du Rassemblement national pour justifier son refus de toute alliance avec LFI.",
+              "kind": "position_declaree",
+              "short_quote": "le marche-pied du Rassemblement national",
+              "details": "Entretien lors du FIM de Metz.",
+              "source_url": "https://moselle.tv/jerome-guedj-inspirons-nous-de-ce-que-la-moselle-a-ete-capable-de-faire-depuis-80-ans/",
+              "source_title": "Jérôme Guedj : « inspirons-nous de ce que la Moselle a été capable de faire depuis plus de 80 ans » (Moselle TV)",
+              "source_date": "2026-09-29",
+              "confidence": "high"
+            },
+            {
+              "position": "Assume d'avoir soutenu des compromis budgétaires avec le gouvernement (refus de censure) pour éviter le « chaos » et permettre un vrai débat présidentiel, notamment sur l'IA et le financement de la protection sociale. Il refuse toute ambiguïté vis-à-vis de LFI.",
+              "kind": "position_declaree",
+              "details": "Déclaré lors de l'annonce de sa candidature, le 05/02/2026. Il y rappelait aussi son refus du label NFP en 2024.",
+              "source_url": "https://www.franceinfo.fr/politique/jerome-guedj-je-suis-candidat-a-l-election-presidentielle-pour-porter-une-ligne-politique_7786493.html",
+              "source_title": "Jérôme Guedj : « Je suis candidat à l'élection présidentielle pour porter une ligne politique » (franceinfo)",
+              "source_date": "2026-02-05",
+              "confidence": "medium"
+            },
+            {
+              "position": "A d'abord déclaré sa candidature présidentielle hors primaire, jugeant le processus « baroque » (il visait alors la primaire unitaire). Il a ensuite rejoint la primaire PS-Place publique-GRS et annoncé ses parrainages le 15/09/2026.",
+              "kind": "position_declaree",
+              "short_quote": "Je prendrai toute ma place dans cette primaire",
+              "details": "Annonce sur France Inter le 05/02/2026 ; ralliement fin août 2026 (le 23/08 selon Wikipédia FR, citation tirée de La Tribune Dimanche).",
+              "source_url": "https://www.franceinfo.fr/politique/ps/primaire-a-gauche/apres-olivier-faure-et-segolene-royal-les-deputes-jerome-guedj-et-philippe-brun-affirment-pouvoir-participer-a-la-primaire-socialiste_8194187.html",
+              "source_title": "Après Olivier Faure et Ségolène Royal, les députés Jérôme Guedj et Philippe Brun affirment pouvoir participer à la primaire socialiste (franceinfo)",
+              "source_date": "2026-09-15",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "topic_id": "institutions",
+          "found": false,
+          "positions": []
+        }
+      ]
+    },
+    {
+      "candidate": "Emmanuel Maurel",
+      "affiliation": "Gauche républicaine et socialiste (GRS), dont il est cofondateur (2018-2019) et animateur national. Député de la 3e circonscription du Val-d'Oise depuis juillet 2024, élu sous l'étiquette Nouveau Front populaire, il siège au groupe Gauche démocrate et républicaine (GDR, à direction communiste). Député européen de 2014 à 2024 (S&D, puis GUE/NGL après 2018). Membre du PS de 1990 à 2018.",
+      "overview": "Emmanuel Maurel se présente comme « passionnément républicain, résolument socialiste ». Il a déclaré sa candidature le 4 septembre 2026 sur franceinfo et porte une ligne de gauche républicaine, sociale et souverainiste résumée en trois mots : « démondialiser, démarchandiser, démocratiser ». Son programme est construit autour d'une relance productive financée par un grand emprunt national de 300 Md€, avec un retour de l'État stratège : ministère de l'Industrie, fonds souverain, nationalisations possibles, commande publique avec clauses de « contenu local ». Il prévoit aussi le retour des services publics de l'électricité, du rail, des autoroutes et de l'eau dans le giron public, ainsi que la sortie du marché européen de l'électricité. Sur le plan social, il propose un SMIC à 1 700 € net, l'indexation des salaires sur l'inflation, le retour de l'ISF, un PFU à 40 %, une taxe sur les patrimoines de plus de 100 M€ et la retraite à 62 ans. Il défend une laïcité « intransigeante », une Europe sans « saut fédéral » et sans extension de la majorité qualifiée en diplomatie, une France non alignée (il juge l'OTAN en « mort cérébrale ») et un budget de défense de 3 % du PIB. Sur les alliances, il reconnaît « un problème avec LFI, et notamment Mélenchon », refuse que la campagne devienne un référendum sur Mélenchon et exclut l'alliance avec la droite. Il assume enfin d'être un petit candidat : environ 1 % d'intentions de vote présidentielles selon un sondage cité par une source secondaire.",
+      "distinctive_vs_others": "1) Ligne souverainiste et « démondialisatrice ». C'est le seul des cinq à refuser tout « saut fédéral » et toute extension de la majorité qualifiée en diplomatie, à vouloir un rabais sur la contribution française au budget de l'UE, à combattre le « 28e régime », à remettre en cause la libre circulation des capitaux hors UE et à vouloir sortir du marché européen de l'électricité (programme, emmanuel-maurel.fr/programme). Il avait voté non à Maastricht (1992) et au TCE (2005) (Sud Radio, 23/09/2026). Il s'oppose à l'adhésion accélérée de l'Ukraine (Mediapart via GRS, 13/03/2024 ; vote du 12/03/2025, Datan n°973). Glucksmann, à l'opposé, porte une ligne pro-européenne.\n2) Diplomatie non alignée. Il assimile indépendance et non-alignement, juge l'OTAN en « mort cérébrale » et veut que la « dissuasion nucléaire avancée » de Macron soit « sérieusement questionnée » (programme). Il soutient l'aide militaire à l'Ukraine (débat du 01/10/2026) mais s'est abstenu sur la LPM, alors que le GDR votait contre (Datan n°6736 et 7905). Sur Gaza, il parle de « guerre criminelle » sans employer « génocide » et appelle au « sang-froid », à distance du clivage Faure/Glucksmann et Guedj sur ce mot (franceinfo et Figaro, 01/10/2026).\n3) Économie la plus interventionniste du lot. Grand emprunt de 300 Md€, nationalisations possibles, fonds souverain, ministère de l'Industrie, fin de la concurrence ferroviaire, autoroutes reprises par l'État, eau en régie (programme). Il propose l'ISF et un PFU à 40 % en plus de la taxe sur les patrimoines de plus de 100 M€, quand Faure met surtout en avant la taxe Zucman (LCP, 01/10/2026). Il traite d'« usine à gaz » la baisse de CSG de Glucksmann (franceinfo, 01/10/2026).\n4) École privée : il est le seul à écrire qu'« à plus long terme » les financements publics seront réservés à l'école publique (programme).\n5) Laïcité « intransigeante » (aucun « accommodement raisonnable ») associée à la régularisation des travailleurs sans-papiers et à la défense du droit du sol (programme).\n6) Position intermédiaire sur LFI. Il reconnaît « un problème avec LFI, et notamment Mélenchon » mais refuse le « référendum » sur Mélenchon et l'alliance avec la droite (LCP, 24/09/2026). Il promet l'union de la gauche et le front républicain si Le Pen gagne (LCP, 01/10/2026). Il se situe ainsi entre Glucksmann et Guedj (aucun accord avec LFI) et Faure (convergences), plus près de Royal dans l'agacement face à la question (franceinfo, 01/10/2026).\n7) Profil parlementaire singulier. Seul candidat élu au sein du groupe GDR, à direction communiste, il s'en est démarqué pour voter avec les socialistes la suspension de la réforme des retraites (12/11/2025) et le PLFSS 2026 (09/12/2025) (Datan n°3684 et 4696).\n8) Il est le seul candidat issu de la GRS, et non du PS ou de Place publique, et le moins bien placé dans les sondages (environ 1 % selon TIME France, source secondaire).",
+      "signature_proposals": [],
+      "topics": [
+        {
+          "topic_id": "strategie",
+          "found": true,
+          "positions": [
+            {
+              "position": "Refuse que la campagne de la primaire tourne au référendum sur Jean-Luc Mélenchon, tout en reconnaissant un problème avec LFI. Exclut une alliance avec la droite. Défendrait un « front républicain » si Marine Le Pen gagnait.",
+              "kind": "position_declaree",
+              "short_quote": "S'allier avec la droite n'est pas l'option que je préconise",
+              "details": "Propos tenus lors du premier débat de la primaire (LCI, 23/09/2026). Il dit aussi reconnaître « un problème avec LFI, et notamment Mélenchon ». Glucksmann et Guedj excluent tout accord avec LFI ; Faure plaide pour des « convergences ».",
+              "source_url": "https://lcp.fr/actualites/primaire-de-gauche-sur-les-accords-avec-lfi-la-fracture-eclate-entre-les-candidats",
+              "source_title": "Primaire de gauche : sur les accords avec LFI, la fracture éclate entre les candidats (LCP)",
+              "source_date": "2026-09-24",
+              "confidence": "high"
+            },
+            {
+              "position": "Juge le débat sur LFI dépassé (« Mélenchon […] c'est derrière nous »). En cas de victoire de Le Pen, promet à la fois l'union de la gauche et un front républicain.",
+              "kind": "position_declaree",
+              "short_quote": "Mélenchon de toute façon c'est sa dernière campagne, c'est derrière nous",
+              "details": "Débat France 2/France Inter du 01/10/2026. Il ajoute : « nous ferons non seulement l'union de la gauche, mais nous ferons le front républicain ». Avec Royal, il a exprimé son exaspération de devoir constamment se situer par rapport à LFI (franceinfo).",
+              "source_url": "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+              "source_title": "Ce qu'il faut retenir du deuxième débat de la primaire de gauche (LCP)",
+              "source_date": "2026-10-01",
+              "confidence": "high"
+            },
+            {
+              "position": "Distingue les dirigeants de LFI de leurs électeurs. Veut rassembler la gauche autour d'un projet plutôt que débattre de « LFI ou pas ».",
+              "kind": "position_declaree",
+              "details": "Entretien sur LCI rapporté par la GRS, son propre parti.",
+              "source_url": "https://g-r-s.fr/la-france-a-encore-des-choses-a-faire-et-a-dire-nous-pouvons-etonner-le-monde-emmanuel-maurel-sur-lci/",
+              "source_title": "« La France a encore des choses à faire et à dire ! » Emmanuel Maurel sur LCI (GRS)",
+              "source_date": "2026-09-21",
+              "confidence": "medium"
+            },
+            {
+              "position": "Constate la diversité de la gauche mais appelle à l'unir derrière un seul candidat et un projet cohérent face à l'extrême droite. Juge la victoire du RN évitable et croit possible d'atteindre le second tour.",
+              "kind": "position_declaree",
+              "short_quote": "Il y a 50 nuances de gauche dans le pays",
+              "details": "Public Sénat, 21/09/2026. Le 04/09/2026 sur franceinfo, il disait croire « profondément » qu'on peut « aller au deuxième tour et battre le Rassemblement national ». Il reconnaissait aussi ne pas être favori de la primaire, qu'il voit comme une occasion de faire passer des idées.",
+              "source_url": "https://www.publicsenat.fr/emission/bonjour-chez-vous/emmanuel-maurel-il-y-a-50-nuances-de-gauche-dans-le-pays-e0",
+              "source_title": "Emmanuel Maurel : « Il y a 50 nuances de gauche dans le pays » (Public Sénat)",
+              "source_date": "2026-09-21",
+              "confidence": "medium"
+            },
+            {
+              "position": "Est issu de l'union de la gauche avec LFI : élu député en 2024 sous l'étiquette NFP, il siège au groupe GDR (communistes et ultramarins). En 2019, il avait été élu eurodéputé sur la liste LFI.",
+              "kind": "inference",
+              "details": "Élu en 2024 avec 62,54 % sous la bannière NFP. Élu en 6e position sur la liste LFI aux européennes de 2019. En 2022, la GRS avait soutenu Montebourg puis Roussel. Selon Datan, il vote à 81 % comme LFI et à 84 % comme les écologistes (indicateurs de proximité).",
+              "source_url": "https://datan.fr/deputes/val-doise-95/depute_emmanuel-maurel",
+              "source_title": "Emmanuel Maurel – Activité parlementaire (Datan)",
+              "source_date": "2026-10-02",
+              "confidence": "medium"
+            },
+            {
+              "position": "Lors du débat du 01/10/2026, aurait refusé de dire qui il choisirait dans un second tour hypothétique Le Pen–Mélenchon.",
+              "kind": "position_declaree",
+              "details": "Information rapportée uniquement par un site secondaire (TIME France) ; non recoupée dans les comptes rendus de franceinfo ou de LCP.",
+              "source_url": "https://www.timefrance.fr/politique/primaire-a-gauche-cinq-candidats-des-lignes-divergentes-face-a-lfi/",
+              "source_title": "Primaire à gauche : cinq candidats, des lignes divergentes face à LFI (TIME France)",
+              "source_date": "2026-10-02",
+              "confidence": "low"
+            }
+          ]
+        },
+        {
+          "topic_id": "institutions",
+          "found": true,
+          "positions": [
+            {
+              "position": "Réduire les pouvoirs présidentiels : limiter, voire supprimer, le droit de dissolution et réduire le pouvoir de nomination du Président.",
+              "kind": "proposition_explicite",
+              "short_quote": "limiter, voire supprimer le droit de dissolution",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Instaurer une journée référendaire annuelle sur des questions d'initiative citoyenne et associer davantage les corps intermédiaires (associations, syndicats).",
+              "kind": "proposition_explicite",
+              "short_quote": "une journée annuelle référendaire",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Juge la Ve République « archaïque » et veut davantage de participation citoyenne et de vie parlementaire.",
+              "kind": "position_declaree",
+              "details": "Connu par un résumé de la page vidéo franceinfo. Pas de position explicite trouvée sur la VIe République, la proportionnelle ou le 49.3.",
+              "source_url": "https://www.franceinfo.fr/replay-magazine/franceinfo/l-invite-politique/l-invite-politique-du-vendredi-04-septembre-2026_8167499.html",
+              "source_title": "L'invité politique franceinfo du 4 septembre 2026",
+              "source_date": "2026-09-04",
+              "confidence": "medium"
+            },
+            {
+              "position": "Constitutionnaliser l'audiovisuel public et mieux inscrire le principe de laïcité dans la Constitution, avec un « Défenseur de la laïcité ».",
+              "kind": "proposition_explicite",
+              "details": "L'audiovisuel public figure dans le programme 2026. Le principe de laïcité et le Défenseur de la laïcité viennent de la tribune cosignée dans Libération le 20/03/2025.",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "medium"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "candidate": "Ségolène Royal",
+      "affiliation": "Parti socialiste. Candidate PS à la primaire « socialiste et démocratique » Choisir 2027, co-organisée par le PS, Place publique et la GRS. Présidente de l'Association France-Algérie depuis le 18 décembre 2025, où elle a succédé à Arnaud Montebourg. Ancienne ministre de l'Écologie (2014-2017), présidente de la COP21, présidente de Poitou-Charentes et finaliste de la présidentielle 2007. Soutiens identifiés : Luc Carvounas (maire d'Alfortville) et Béatrice Bellay (Wikipédia FR).",
+      "overview": "Ségolène Royal, 73 ans, a annoncé le 10 juillet 2026 sa candidature à la primaire du pôle socialiste. Elle la justifie par le risque d'arrivée au pouvoir de l'extrême droite. Elle dit agir « avec humilité, sans ego ». Son slogan, « La France tranquille et l'Ordre juste », reprend son concept de 2007. Elle le décline en cinq axes : ordre juste (pouvoir d'achat, emploi, services publics), urgence climatique (appliquer les décisions de la COP21), urgence énergétique pour les TPE/PME, artisans et agriculteurs, État fort (notamment contre les violences faites aux enfants) et France « puissance médiatrice ». Elle n'a pas publié de programme détaillé. Ses propositions concrètes connues sont surtout le retour de l'ISF « financière », un carburant ramené à 1,70 €/L par des baisses de taxes (TVA, accise européenne, CEE), des caméras « partout » dans les écoles, le périscolaire, les crèches et les Ehpad, une TVA allégée sur les aliments produits en France et une énergie à bas prix (jusqu'à demander la sortie du marché européen de l'électricité). Sur les retraites, elle refuse tout effort supplémentaire, notamment la désindexation, tant que l'ISF n'est pas rétabli et que le pays n'est pas réindustrialisé. Aucune déclaration de 2026 réclamant explicitement l'abrogation de la réforme de 2023 n'a été trouvée. Lors du débat LCI, elle s'est distinguée par une ligne de paix négociée en Ukraine, l'emploi du mot « génocide » pour Gaza et le refus d'exclure une alliance avec LFI aux législatives. Elle s'oppose fermement à l'interdiction du voile dans l'espace public. Sa campagne mise sur l'expérience : elle a qualifié Raphaël Glucksmann de « stagiaire », ce qui lui a valu un rappel à l'ordre de la commission d'organisation le 21/09/2026.",
+      "distinctive_vs_others": "1) International : c'est la seule des cinq à défendre au débat LCI (23/09/2026) une issue négociée avec la Russie, au nom d'une « paix juste et durable ». Glucksmann lui a opposé que Poutine ne veut pas négocier et qu'il faut « résister » (franceinfo, 23/09/2026). Ses propos de 2022 mettant en doute des informations ukrainiennes renforcent ce marqueur (La Libre, 17/11/2022).\n2. Gaza et antisémitisme : comme Faure, elle emploie le mot « génocide », que Glucksmann refuse. Elle est la seule à avoir appelé les « voix juives » à dénoncer la politique israélienne, ce que Guedj a qualifié d'« incroyable injonction » et que le CRIF a condamné (Planet, 24/09/2026 ; franceinfo, 23/09/2026).\n3. Alliances : elle refuse d'exclure un accord avec LFI aux législatives, contrairement à Glucksmann et Guedj (France 24, 23/09/2026). En 2023, elle proposait une liste d'union avec LFI ; en 2024, un gouvernement d'« union républicaine » ouvert au centre et à LR. Sa ligne d'alliance est donc fluctuante.\n4. Une campagne « ordre juste » à forte tonalité sécuritaire et protectrice : vidéosurveillance généralisée dans les écoles, crèches et Ehpad, « tolérance zéro » pour les violences faites aux enfants. C'est sa marque propre, sans équivalent repéré chez les autres candidats.\n5. Sur l'économie, elle mise sur des baisses de taxes immédiates pour le pouvoir d'achat (carburant à 1,70 €, TVA allégée sur l'alimentation française, taxes énergie des PME). Elle refuse un alourdissement fiscal général et limite la hausse d'impôts à l'ISF financier. Les autres candidats ont mis en avant dans le fact-check du 01/10/2026 d'autres sujets fiscaux : millionnaires non imposés et dividendes pour Faure, droits de succession pour Guedj (franceinfo Vrai ou Fake).\n6. Positionnement souverainiste sur l'énergie et l'Europe : sortie du marché européen de l'électricité, « Les règles européennes, on les change ». Cette ligne la rapproche davantage de Maurel (GRS) que de Glucksmann (Place publique), pro-européen.\n7. Laïcité : opposition frontale à l'interdiction du voile dans l'espace public (« Laissons les femmes tranquilles »), avec un argumentaire sur l'image de la France dans le monde musulman.\n8. Mémoire : excuses officielles à l'Algérie, en tant que présidente de l'Association France-Algérie.\n9. Style : elle revendique son expérience de gouvernement contre l'« inexpérience » de Glucksmann (« stagiaire »), ce qui lui a valu un rappel à l'ordre de la commission de la primaire. C'est la seule candidate sans programme écrit détaillé.",
+      "signature_proposals": [],
+      "topics": [
+        {
+          "topic_id": "strategie",
+          "found": true,
+          "positions": [
+            {
+              "position": "Refuse d'exclure un rapprochement ou une alliance avec La France insoumise pour les élections législatives. Elle a répondu à Jérôme Guedj, opposé à toute alliance, que refuser l'alliance avec la gauche revient à la faire avec la droite.",
+              "kind": "position_declaree",
+              "short_quote": "vous voulez la faire avec la droite",
+              "details": "Débat LCI du 23/09/2026. Selon France 24, Glucksmann et Guedj s'opposent fermement à toute alliance avec LFI ; Glucksmann a déclaré qu'« avec une alliance avec LFI, vous perdez ».",
+              "source_url": "https://www.france24.com/fr/france/20260923-primaire-de-la-gauche-lors-du-premier-d%C3%A9bat-s%C3%A9gol%C3%A8ne-royal-%C3%A9pingl%C3%A9e-sur-l-ukraine-et-isra%C3%ABl",
+              "source_title": "Primaire de la gauche : débat poli, mais désaccords profonds sur Gaza et une alliance avec LFI (France 24)",
+              "source_date": "2026-09-23",
+              "confidence": "high"
+            },
+            {
+              "position": "Ne tranche pas a priori la question d'une collaboration avec LFI et dit attendre l'avis des électeurs.",
+              "kind": "position_declaree",
+              "short_quote": "J'attends de voir ce que disent les électeurs",
+              "details": "Propos rapportés par un média secondaire. Ils sont cohérents avec le refus d'exclure LFI lors du débat du 23/09.",
+              "source_url": "https://media-web.fr/primaire-ps-et-si-cetait-segolene-royal/",
+              "source_title": "Primaire PS : et si c'était Ségolène Royal ? (Média Web)",
+              "source_date": "2026-09-03",
+              "confidence": "medium"
+            },
+            {
+              "position": "Se pose contre le centrisme et le macronisme, en prédisant l'effondrement d'un « centre mou social-démocrate mâtiné de macronisme ». Elle dénonce dix ans de gouvernement « par la peur ».",
+              "kind": "position_declaree",
+              "short_quote": "Le centre mou social-démocrate, mâtiné de macronisme, va s'effondrer",
+              "details": "Premier meeting de campagne, à Alfortville le 22/09/2026 (environ 600 personnes selon les organisateurs, 200 selon l'AFP).",
+              "source_url": "https://www.france24.com/fr/info-en-continu/20260922-pour-sa-premi%C3%A8re-r%C3%A9union-publique-s%C3%A9gol%C3%A8ne-royal-ressuscite-son-ordre-juste",
+              "source_title": "Pour sa première réunion publique, Ségolène Royal ressuscite son « ordre juste » (France 24/AFP)",
+              "source_date": "2026-09-22",
+              "confidence": "high"
+            },
+            {
+              "position": "Fait de l'expérience gouvernementale un critère central et attaque Raphaël Glucksmann, jugé inexpérimenté. Elle exige d'un présidentiable qu'il ait déjà dirigé une collectivité ou une structure. La commission d'organisation de la primaire l'a rappelée à l'ordre pour ces propos.",
+              "kind": "position_declaree",
+              "short_quote": "Vous ne mettez pas un stagiaire à la tête d'une entreprise",
+              "details": "Interview à Libération reprise par franceinfo le 20/09/2026. Rappel à l'ordre de la commission présidée par Patrick Mennucci le 21/09/2026, au nom de la charte qui interdit les attaques personnelles. Glucksmann a répliqué qu'elle « quémandait des postes depuis 45 ans » (Public Sénat).",
+              "source_url": "https://www.franceinfo.fr/politique/ps/primaire-a-gauche/vous-ne-mettez-pas-un-stagiaire-a-la-tete-d-une-entreprise-estime-segolene-royal-a-propos-de-la-candidature-de-raphael-glucksmann-a-la-presidentielle_8201996.html",
+              "source_title": "« Vous ne mettez pas un stagiaire à la tête d'une entreprise », estime Ségolène Royal (franceinfo)",
+              "source_date": "2026-09-20",
+              "confidence": "high"
+            },
+            {
+              "position": "Position antérieure, août 2024 : s'est dite « disponible pour Matignon ». Elle prônait alors un « gouvernement d'union républicaine » ouvert à des personnalités du centre et des Républicains, dirigé par des personnalités consensuelles non candidates à la présidentielle suivante.",
+              "kind": "position_declaree",
+              "details": "Ce positionnement d'ouverture au centre et à la droite républicaine contraste avec sa critique actuelle du « centre mou ».",
+              "source_url": "https://www.aa.com.tr/fr/monde/france-s%C3%A9gol%C3%A8ne-royal-se-dit-disponible-pour-matignon/3317392",
+              "source_title": "France : Ségolène Royal se dit « disponible pour Matignon » (Anadolu)",
+              "source_date": "2024-08-30",
+              "confidence": "high"
+            },
+            {
+              "position": "Position antérieure, août 2023 : avait proposé de conduire une liste d'union de toute la gauche, LFI comprise, aux européennes de 2024. Jean-Luc Mélenchon avait salué l'initiative ; le PS et EELV l'avaient accueillie froidement.",
+              "kind": "position_declaree",
+              "source_url": "https://www.france24.com/fr/france/20230827-jean-luc-m%C3%A9lenchon-soutient-l-aide-formidable-de-s%C3%A9gol%C3%A8ne-royal-pour-les-europ%C3%A9ennes",
+              "source_title": "Jean-Luc Mélenchon soutient « l'aide formidable » de Ségolène Royal pour les Européennes (France 24)",
+              "source_date": "2023-08-27",
+              "confidence": "high"
+            },
+            {
+              "position": "A jugé que la multiplication des candidatures n'est pas ce qu'attendent les Français. En décembre 2025, elle n'excluait pas un « ticket » avec Dominique de Villepin (« pourquoi pas »).",
+              "kind": "position_declaree",
+              "short_quote": "Pour 2027, je consulte, je réfléchis",
+              "details": "Interview Sud Radio du 03/07/2026, rapportée par Epoch Times. L'hypothèse Villepin a été évoquée sur Sud Radio le 11/12/2025.",
+              "source_url": "https://www.epochtimes.fr/peut-etre-que-le-temps-des-femmes-est-venu-segolene-royal-entretient-le-suspense-sur-une-eventuelle-candidature-aux-presidentielles-3299152.html",
+              "source_title": "« Peut-être que le temps des femmes est venu » : Ségolène Royal entretient le suspense (Epoch Times, d'après Sud Radio)",
+              "source_date": "2026-07-03",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "institutions",
+          "found": true,
+          "positions": [
+            {
+              "position": "Veut changer en profondeur le mode d'exercice du pouvoir et en finir avec la « politique par la peur ».",
+              "kind": "position_declaree",
+              "short_quote": "Il faut en finir avec la politique par la peur",
+              "details": "Aucune position précise n'a été trouvée sur la VIe République, la proportionnelle, le 49.3 ou la limitation des mandats en 2025-2026. La suppression du 49.3 figurait dans son programme de 2007.",
+              "source_url": "https://www.franceinfo.fr/elections/presidentielle/direct-presidentielle-2027-suivez-le-debat-des-candidats-a-la-primaire-du-pole-socialiste-sur-france-2-et-france-inter-a-20h40_8218531.html",
+              "source_title": "Débat de la primaire de la gauche (franceinfo, live)",
+              "source_date": "2026-10-01",
+              "confidence": "high"
+            },
+            {
+              "position": "Définit l'« ordre juste » comme le retour de règles, de droits et de devoirs, avec un État et des institutions de la République exemplaires. Elle prône la « reconstruction de la solidité de l'État » et un « État fort ».",
+              "kind": "position_declaree",
+              "short_quote": "remettre des règles, des droits et des devoirs",
+              "source_url": "https://www.france24.com/fr/info-en-continu/20260922-pour-sa-premi%C3%A8re-r%C3%A9union-publique-s%C3%A9gol%C3%A8ne-royal-ressuscite-son-ordre-juste",
+              "source_title": "Pour sa première réunion publique, Ségolène Royal ressuscite son « ordre juste » (France 24/AFP)",
+              "source_date": "2026-09-22",
+              "confidence": "high"
+            },
+            {
+              "position": "Veut réformer l'État en supprimant les doublons administratifs : environ 1 600 organismes en doublon avec les ministères, ainsi que des conseils et hauts comités.",
+              "kind": "proposition_explicite",
+              "source_url": "https://www.franceinfo.fr/politique/segolene-royal/budget-2026-pour-reduire-le-deficit-il-faut-lutter-contre-les-gaspillages-il-ne-faut-pas-baisser-les-depenses-essentielles-estime-segolene-royal_7582286.html",
+              "source_title": "Budget 2026 : « Pour réduire le déficit, il faut lutter contre les gaspillages » (franceinfo)",
+              "source_date": "2025-10-29",
+              "confidence": "medium"
+            },
+            {
+              "position": "Défend le recours au référendum d'initiative partagée pour trancher la question des retraites (proposition de 2023, rappelée en 2026).",
+              "kind": "position_declaree",
+              "source_url": "https://www.sudradio.fr/sud-radio/presidentielle-comment-la-revenante-segolene-royal-est-revenue-dans-le-jeu",
+              "source_title": "Présidentielle : comment Ségolène Royal est revenue dans le jeu (Sud Radio)",
+              "source_date": "2026-09-23",
+              "confidence": "medium"
+            },
+            {
+              "position": "A appelé Jordan Bardella à démissionner de son mandat de député européen.",
+              "kind": "position_declaree",
+              "short_quote": "Comment est-ce que cette imposture a pu durer aussi longtemps ?",
+              "source_url": "https://www.franceinfo.fr/elections/presidentielle/direct-presidentielle-2027-suivez-le-debat-des-candidats-a-la-primaire-du-pole-socialiste-sur-france-2-et-france-inter-a-20h40_8218531.html",
+              "source_title": "Débat de la primaire de la gauche (franceinfo, live)",
+              "source_date": "2026-10-01",
+              "confidence": "high"
+            },
+            {
+              "position": "A jugé trop élevée la participation de 15 € demandée aux non-adhérents pour voter à la primaire et préférait un tarif de 2 €.",
+              "kind": "position_declaree",
+              "details": "Wikipédia FR, sans note spécifique : à confirmer.",
+              "source_url": "https://fr.wikipedia.org/wiki/Primaire_pr%C3%A9sidentielle_socialiste_de_2026",
+              "source_title": "Primaire présidentielle socialiste de 2026 (Wikipédia)",
+              "confidence": "low"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "cleavages": [
+    {
+      "topic_id": "strategie",
+      "cleavage": "Accord électoral avec La France insoumise (législatives 2027, gouvernement)",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Exclure tout accord avec LFI, y compris aux législatives, et ne pas nommer de ministres LFI ; rompre clairement avec ce mouvement pour des raisons de fond et de stratégie électorale",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/elections/presidentielle/desaccords-sur-le-proche-orient-et-lfi-convergences-sur-les-salaires-ce-qu-il-faut-retenir-du-premier-debat-de-la-primaire-socialiste_8207438.html",
+            "https://www.boursorama.com/actualite-economique/actualites/premier-debat-de-la-primaire-segolene-royal-mise-en-difficulte-sur-l-ukraine-et-israel-e21d2d7af62d9df4eb32939e50d1a222",
+            "https://www.publicsenat.fr/actualites/politique/lelephant-dans-la-piece-lfi-sinvite-encore-dans-le-debat-de-la-primaire-socialiste",
+            "https://www.france24.com/fr/france/20261001-deuxieme-debat-primaire-gauche-possible-alliance-lfi-divise-genocide-gaza-glucksmann-faure"
+          ]
+        },
+        {
+          "approach": "Ne pas exclure un rassemblement de toute la gauche, LFI comprise, aux législatives face à l'extrême droite ; refuser de définir la campagne par rapport à LFI. Nuances : Royal refuse de se ranger derrière Mélenchon et privilégie écologistes et communistes ; Maurel juge le débat sur LFI piégé",
+          "candidates": [
+            "Olivier Faure",
+            "Ségolène Royal",
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/elections/presidentielle/desaccords-sur-le-proche-orient-et-lfi-convergences-sur-les-salaires-ce-qu-il-faut-retenir-du-premier-debat-de-la-primaire-socialiste_8207438.html",
+            "https://www.boursorama.com/actualite-economique/actualites/premier-debat-de-la-primaire-segolene-royal-mise-en-difficulte-sur-l-ukraine-et-israel-e21d2d7af62d9df4eb32939e50d1a222",
+            "https://lcp.fr/actualites/primaire-de-gauche-ce-qui-oppose-glucksmann-faure-royal-guedj-et-maurel-442266",
+            "https://entrevue.fr/en/presidentielle-2027/melenchon-na-pas-le-monopole-de-la-gauche-olivier-faure-veut-recentrer-la-primaire/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "strategie",
+      "cleavage": "Périmètre de la désignation : primaire fermée aux trois organisations ou ouverture à d'autres forces de gauche (Ruffin, Écologistes, primaire unitaire)",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Élargir le processus (primaire ouverte à 2 € liée à une primaire unitaire, ouverture à Ruffin ou Tondelier)",
+          "candidates": [
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/politique/ps/primaire-socialiste/info-franceinfo-une-centaine-de-responsables-socialistes-appellent-a-ouvrir-la-primaire-ps-place-publique-entre-autres-a-francois-ruffin_8183657.html",
+            "https://en.wikipedia.org/wiki/2026_French_Socialist_Party_presidential_primary"
+          ]
+        },
+        {
+          "approach": "Garder une primaire sociale-démocrate fermée, aux règles votées par les militants, sans les changer en cours de route",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/politique/ps/primaire-socialiste/info-franceinfo-une-centaine-de-responsables-socialistes-appellent-a-ouvrir-la-primaire-ps-place-publique-entre-autres-a-francois-ruffin_8183657.html",
+            "https://fr.wikipedia.org/wiki/J%C3%A9r%C3%B4me_Guedj"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "strategie",
+      "cleavage": "Partenaires de gouvernement : compromis possibles avec le centre et la droite modérée, ou priorité exclusive à l'union des gauches",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Assumer de chercher des compromis avec des forces centristes ou de droite modérée",
+          "candidates": [
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://entrevue.fr/en/presidentielle-2027/primaire-socialiste-ou-en-sont-les-cinq-candidats-avant-le-premier-debat-de-ce-soir/"
+          ]
+        },
+        {
+          "approach": "Construire un rapport de force à gauche (écologistes, communistes) et refuser une alliance avec le centre-droit",
+          "candidates": [
+            "Olivier Faure",
+            "Ségolène Royal",
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/elections/presidentielle/direct-presidentielle-2027-suivez-le-debat-des-candidats-a-la-primaire-du-pole-socialiste-sur-france-2-et-france-inter-a-20h40_8218531.html",
+            "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+            "https://www.publicsenat.fr/emission/bonjour-chez-vous/emmanuel-maurel-il-y-a-50-nuances-de-gauche-dans-le-pays-e0"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "institutions",
+      "cleavage": "Réforme des institutions : changer la règle électorale et constitutionnelle, rééquilibrer les pouvoirs, ou changer la pratique du pouvoir",
+      "importance": "low",
+      "sides": [
+        {
+          "approach": "Proportionnelle immédiate, fin du 49.3, convention citoyenne préparant une constituante, droit d'initiative citoyenne (source non officielle)",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://www.wikiglucksmann.fr/programme.html"
+          ]
+        },
+        {
+          "approach": "Limiter le présidentialisme et le droit de dissolution, renforcer le Parlement, instaurer une journée référendaire annuelle sur des questions citoyennes",
+          "candidates": [
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/",
+            "https://www.franceinfo.fr/replay-magazine/franceinfo/l-invite-politique/l-invite-politique-du-vendredi-04-septembre-2026_8167499.html"
+          ]
+        },
+        {
+          "approach": "Transformer la manière d'exercer le pouvoir : \"ordre juste\", État exemplaire, régler les problèmes avant qu'ils ne déclenchent des conflits sociaux",
+          "candidates": [
+            "Ségolène Royal"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/elections/presidentielle/direct-presidentielle-2027-suivez-le-debat-des-candidats-a-la-primaire-du-pole-socialiste-sur-france-2-et-france-inter-a-20h40_8218531.html",
+            "https://entrevue.fr/en/presidentielle-2027/primaire-socialiste-ou-en-sont-les-cinq-candidats-avant-le-premier-debat-de-ce-soir/"
+          ]
+        }
+      ]
+    }
+  ],
+  "consensus": [
+    {
+      "topic_id": "strategie",
+      "point": "Tous jugent Jordan Bardella \"disqualifié\" après les accusations d'antisémitisme publiées par Mediapart, et se fixent pour priorité de battre l'extrême droite.",
+      "url": "https://www.france24.com/fr/france/20261001-deuxieme-debat-primaire-gauche-possible-alliance-lfi-divise-genocide-gaza-glucksmann-faure"
+    },
+    {
+      "topic_id": "strategie",
+      "point": "Tous ont signé une charte commune (justice sociale, services publics, climat, lutte contre l'extrême droite et les discriminations) et se sont engagés à soutenir le vainqueur.",
+      "url": "https://place-publique.eu/pages/Croet4tWXmSbd5sL5upQF/choisir-2027"
+    }
+  ],
+  "debates": [
+    {
+      "date": "2026-09-23",
+      "channel": "LCI (avec Le Parisien, animé par David Pujadas, environ 10 citoyens posant des questions)",
+      "summary": "Premier débat, près de 2 heures, en l'absence de Philippe Brun, exclu.\n- Carburants : Royal veut baisser les taxes (TVA à 10 %, suspension de l'accise sur le gazole, prix entre 1,50 et 1,70 €/l). Glucksmann veut tripler le chèque énergie de façon ciblée. Faure veut des aides ciblées et taxer les superprofits pétroliers. Maurel veut plafonner les marges des raffineurs et lancer un emprunt citoyen. Guedj veut plafonner les marges et créer un ISF climatique.\n- Salaires : Faure propose un SMIC à 1 700 € net, l'indexation jusqu'au salaire médian et un bouclier logement. Glucksmann propose de baisser la CSG, financée par les méga-héritages. Royal veut bloquer les prix des produits essentiels et revoir les aides aux entreprises.\n- Ukraine : clivage net entre Royal (négociation, casques bleus) et les quatre autres (soutien militaire). Glucksmann veut saisir les avoirs russes. Guedj s'interroge sur les risques d'une zone d'exclusion aérienne.\n- Gaza : Faure et Royal parlent de génocide, Glucksmann et Guedj refusent le terme. Quatre candidats veulent suspendre l'accord UE-Israël. Royal est vivement critiquée par Guedj et Glucksmann pour avoir appelé davantage de voix juives à dénoncer Gaza.\n- Dette : pas d'annulation. Royal envisage une exception pour la dette de la transition.\n- LFI : Glucksmann et Guedj excluent tout accord, même aux législatives. Faure, Royal et Maurel refusent de l'exclure. Faure lance : \"si vous ne voulez pas d'alliance avec la gauche...\"",
+      "url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats"
+    },
+    {
+      "date": "2026-10-01",
+      "channel": "France 2 / France Inter",
+      "summary": "Deuxième débat, plus de 2 heures.\n- Mobilisations lycéennes (environ 400 lycées bloqués, environ 2 000 interpellations) : Glucksmann demande de la fermeté. Faure appelle à \"regarder la lune\". Guedj et Royal accusent LFI de \"jouer avec le feu\". Maurel défend le droit de manifester.\n- Carburants : Royal et Guedj veulent des baisses de taxes. Glucksmann veut des aides ciblées. Maurel veut une TVA réduite sur l'électricité.\n- CSG : la proposition de Glucksmann de baisser la CSG est attaquée par tous les autres, qui y voient un danger pour la Sécurité sociale. Faure la juge provisoire.\n- Fiscalité : Faure promet la taxe Zucman, Royal l'ISF.\n- Bardella : unanimité pour le juger \"disqualifié\" après les révélations de Mediapart.\n- Ukraine : Royal propose de renouer le dialogue avec Poutine. Les autres s'y opposent, Guedj invoquant Munich.\n- Gaza : Faure s'engage à reconnaître un génocide. Glucksmann juge cette position \"obscène\". Guedj estime que le mot diabolise Israël. Royal cite des ministres israéliens.\n- LFI : Glucksmann réclame la rupture. Guedj dénonce la \"danse du ventre\" de Faure. Faure, Royal et Maurel déplorent l'obsession autour de LFI. Glucksmann regrette l'absence de l'écologie et insiste sur la défense européenne.",
+      "url": "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html"
+    },
+    {
+      "date": "2026-10-04",
+      "channel": "BFMTV",
+      "summary": "Troisième et dernier débat, programmé avant le premier tour. Il n'a pas encore eu lieu au 2 octobre 2026.",
+      "url": "https://lcp.fr/actualites/primaire-de-gauche-les-candidats-face-a-face-lors-d-un-premier-debat-televise-ce"
+    }
+  ]
+}

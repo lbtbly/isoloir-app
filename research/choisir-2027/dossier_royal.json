@@ -1,0 +1,1045 @@
+{
+  "candidate": "Ségolène Royal",
+  "affiliation": "Parti socialiste. Candidate PS à la primaire « socialiste et démocratique » Choisir 2027, co-organisée par le PS, Place publique et la GRS. Présidente de l'Association France-Algérie depuis le 18 décembre 2025, où elle a succédé à Arnaud Montebourg. Ancienne ministre de l'Écologie (2014-2017), présidente de la COP21, présidente de Poitou-Charentes et finaliste de la présidentielle 2007. Soutiens identifiés : Luc Carvounas (maire d'Alfortville) et Béatrice Bellay (Wikipédia FR).",
+  "campaign_site": "Aucun site de campagne officiel n'a été trouvé. Le domaine segoleneroyal.eu est parqué (« domain may be for sale ») et segolene-royal.fr est un site parodique. Elle communique surtout par son compte X @RoyalSegolene (https://x.com/RoyalSegolene) et par des interviews (franceinfo, BFMTV-RMC, RTL, LCI, Sud Radio, Beur FM, Libération). Plusieurs médias et comparateurs (Le Singulier 04/09/2026, France 24 22/09/2026, presi2027.fr) relèvent qu'aucun programme détaillé ni document programmatique complet n'est publié. Un mouvement « L'Ordre juste » est mentionné par une source secondaire (Agoravox TV, 13/06/2026, non vérifié). Le site choisir2027.org était inaccessible (connexion refusée) lors de la recherche.",
+  "overview": "Ségolène Royal, 73 ans, a annoncé le 10 juillet 2026 sa candidature à la primaire du pôle socialiste. Elle la justifie par le risque d'arrivée au pouvoir de l'extrême droite. Elle dit agir « avec humilité, sans ego ». Son slogan, « La France tranquille et l'Ordre juste », reprend son concept de 2007. Elle le décline en cinq axes : ordre juste (pouvoir d'achat, emploi, services publics), urgence climatique (appliquer les décisions de la COP21), urgence énergétique pour les TPE/PME, artisans et agriculteurs, État fort (notamment contre les violences faites aux enfants) et France « puissance médiatrice ». Elle n'a pas publié de programme détaillé. Ses propositions concrètes connues sont surtout le retour de l'ISF « financière », un carburant ramené à 1,70 €/L par des baisses de taxes (TVA, accise européenne, CEE), des caméras « partout » dans les écoles, le périscolaire, les crèches et les Ehpad, une TVA allégée sur les aliments produits en France et une énergie à bas prix (jusqu'à demander la sortie du marché européen de l'électricité). Sur les retraites, elle refuse tout effort supplémentaire, notamment la désindexation, tant que l'ISF n'est pas rétabli et que le pays n'est pas réindustrialisé. Aucune déclaration de 2026 réclamant explicitement l'abrogation de la réforme de 2023 n'a été trouvée. Lors du débat LCI, elle s'est distinguée par une ligne de paix négociée en Ukraine, l'emploi du mot « génocide » pour Gaza et le refus d'exclure une alliance avec LFI aux législatives. Elle s'oppose fermement à l'interdiction du voile dans l'espace public. Sa campagne mise sur l'expérience : elle a qualifié Raphaël Glucksmann de « stagiaire », ce qui lui a valu un rappel à l'ordre de la commission d'organisation le 21/09/2026.",
+  "topics": [
+    {
+      "topic_id": "strategie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Refuse d'exclure un rapprochement ou une alliance avec La France insoumise pour les élections législatives. Elle a répondu à Jérôme Guedj, opposé à toute alliance, que refuser l'alliance avec la gauche revient à la faire avec la droite.",
+          "kind": "position_declaree",
+          "short_quote": "vous voulez la faire avec la droite",
+          "details": "Débat LCI du 23/09/2026. Selon France 24, Glucksmann et Guedj s'opposent fermement à toute alliance avec LFI ; Glucksmann a déclaré qu'« avec une alliance avec LFI, vous perdez ».",
+          "source_url": "https://www.france24.com/fr/france/20260923-primaire-de-la-gauche-lors-du-premier-d%C3%A9bat-s%C3%A9gol%C3%A8ne-royal-%C3%A9pingl%C3%A9e-sur-l-ukraine-et-isra%C3%ABl",
+          "source_title": "Primaire de la gauche : débat poli, mais désaccords profonds sur Gaza et une alliance avec LFI (France 24)",
+          "source_date": "2026-09-23",
+          "confidence": "high"
+        },
+        {
+          "position": "Ne tranche pas a priori la question d'une collaboration avec LFI et dit attendre l'avis des électeurs.",
+          "kind": "position_declaree",
+          "short_quote": "J'attends de voir ce que disent les électeurs",
+          "details": "Propos rapportés par un média secondaire. Ils sont cohérents avec le refus d'exclure LFI lors du débat du 23/09.",
+          "source_url": "https://media-web.fr/primaire-ps-et-si-cetait-segolene-royal/",
+          "source_title": "Primaire PS : et si c'était Ségolène Royal ? (Média Web)",
+          "source_date": "2026-09-03",
+          "confidence": "medium"
+        },
+        {
+          "position": "Se pose contre le centrisme et le macronisme, en prédisant l'effondrement d'un « centre mou social-démocrate mâtiné de macronisme ». Elle dénonce dix ans de gouvernement « par la peur ».",
+          "kind": "position_declaree",
+          "short_quote": "Le centre mou social-démocrate, mâtiné de macronisme, va s'effondrer",
+          "details": "Premier meeting de campagne, à Alfortville le 22/09/2026 (environ 600 personnes selon les organisateurs, 200 selon l'AFP).",
+          "source_url": "https://www.france24.com/fr/info-en-continu/20260922-pour-sa-premi%C3%A8re-r%C3%A9union-publique-s%C3%A9gol%C3%A8ne-royal-ressuscite-son-ordre-juste",
+          "source_title": "Pour sa première réunion publique, Ségolène Royal ressuscite son « ordre juste » (France 24/AFP)",
+          "source_date": "2026-09-22",
+          "confidence": "high"
+        },
+        {
+          "position": "Fait de l'expérience gouvernementale un critère central et attaque Raphaël Glucksmann, jugé inexpérimenté. Elle exige d'un présidentiable qu'il ait déjà dirigé une collectivité ou une structure. La commission d'organisation de la primaire l'a rappelée à l'ordre pour ces propos.",
+          "kind": "position_declaree",
+          "short_quote": "Vous ne mettez pas un stagiaire à la tête d'une entreprise",
+          "details": "Interview à Libération reprise par franceinfo le 20/09/2026. Rappel à l'ordre de la commission présidée par Patrick Mennucci le 21/09/2026, au nom de la charte qui interdit les attaques personnelles. Glucksmann a répliqué qu'elle « quémandait des postes depuis 45 ans » (Public Sénat).",
+          "source_url": "https://www.franceinfo.fr/politique/ps/primaire-a-gauche/vous-ne-mettez-pas-un-stagiaire-a-la-tete-d-une-entreprise-estime-segolene-royal-a-propos-de-la-candidature-de-raphael-glucksmann-a-la-presidentielle_8201996.html",
+          "source_title": "« Vous ne mettez pas un stagiaire à la tête d'une entreprise », estime Ségolène Royal (franceinfo)",
+          "source_date": "2026-09-20",
+          "confidence": "high"
+        },
+        {
+          "position": "Position antérieure, août 2024 : s'est dite « disponible pour Matignon ». Elle prônait alors un « gouvernement d'union républicaine » ouvert à des personnalités du centre et des Républicains, dirigé par des personnalités consensuelles non candidates à la présidentielle suivante.",
+          "kind": "position_declaree",
+          "details": "Ce positionnement d'ouverture au centre et à la droite républicaine contraste avec sa critique actuelle du « centre mou ».",
+          "source_url": "https://www.aa.com.tr/fr/monde/france-s%C3%A9gol%C3%A8ne-royal-se-dit-disponible-pour-matignon/3317392",
+          "source_title": "France : Ségolène Royal se dit « disponible pour Matignon » (Anadolu)",
+          "source_date": "2024-08-30",
+          "confidence": "high"
+        },
+        {
+          "position": "Position antérieure, août 2023 : avait proposé de conduire une liste d'union de toute la gauche, LFI comprise, aux européennes de 2024. Jean-Luc Mélenchon avait salué l'initiative ; le PS et EELV l'avaient accueillie froidement.",
+          "kind": "position_declaree",
+          "source_url": "https://www.france24.com/fr/france/20230827-jean-luc-m%C3%A9lenchon-soutient-l-aide-formidable-de-s%C3%A9gol%C3%A8ne-royal-pour-les-europ%C3%A9ennes",
+          "source_title": "Jean-Luc Mélenchon soutient « l'aide formidable » de Ségolène Royal pour les Européennes (France 24)",
+          "source_date": "2023-08-27",
+          "confidence": "high"
+        },
+        {
+          "position": "A jugé que la multiplication des candidatures n'est pas ce qu'attendent les Français. En décembre 2025, elle n'excluait pas un « ticket » avec Dominique de Villepin (« pourquoi pas »).",
+          "kind": "position_declaree",
+          "short_quote": "Pour 2027, je consulte, je réfléchis",
+          "details": "Interview Sud Radio du 03/07/2026, rapportée par Epoch Times. L'hypothèse Villepin a été évoquée sur Sud Radio le 11/12/2025.",
+          "source_url": "https://www.epochtimes.fr/peut-etre-que-le-temps-des-femmes-est-venu-segolene-royal-entretient-le-suspense-sur-une-eventuelle-candidature-aux-presidentielles-3299152.html",
+          "source_title": "« Peut-être que le temps des femmes est venu » : Ségolène Royal entretient le suspense (Epoch Times, d'après Sud Radio)",
+          "source_date": "2026-07-03",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "fiscalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Rétablir l'impôt de solidarité sur la fortune, sous la forme d'un « ISF financier » (sur le patrimoine financier), supprimé selon elle par « le couple Macron-Édouard Philippe ». Elle en fait le préalable à tout débat sur les retraites.",
+          "kind": "proposition_explicite",
+          "short_quote": "Ceux qui menacent les retraites sont ceux qui ont supprimé l'Impôt sur la fortune",
+          "details": "Interview « Les 4 Vérités » (France 2/franceinfo) du 31/08/2026. Le comparateur iFRAP lui attribue un rendement estimé entre 3 et 4 Md€, sans source citée. Au débat du 01/10/2026, elle a jugé « indécent » que l'ISF n'ait pas été rétabli « comme dans la plupart des pays ». Le Vrai ou Fake de franceinfo a jugé cette affirmation fausse : seule l'Espagne a rétabli son impôt sur la fortune (2011).",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/primaire-populaire-gauche/retraites-je-refuse-ce-debat-tant-que-la-question-du-retour-de-l-isf-n-est-pas-posee-affirme-segolene-royal-candidate-a-la-primaire-du-pole-socialiste_8170295.html",
+          "source_title": "Retraites : « Je refuse ce débat tant que la question du retour de l'ISF n'est pas posée » (franceinfo)",
+          "source_date": "2026-08-31",
+          "confidence": "high"
+        },
+        {
+          "position": "Ramener temporairement l'essence et le gazole à environ 1,70 €/L jusqu'au 31 décembre en cumulant trois leviers. Premier levier : une dérogation de Bruxelles sur l'accise minimale européenne, soit environ -33 centimes sur le gazole, comme l'a obtenu l'Espagne. Deuxième : une baisse de la TVA de 20 %. Troisième : un report des certificats d'économies d'énergie (CEE), soit environ -15 centimes. S'y ajoute la maîtrise des « marges spéculatives ».",
+          "kind": "proposition_explicite",
+          "short_quote": "Les espagnols ont obtenu cette autorisation, il faut la demander",
+          "details": "Annonce sur BFMTV le 24/09/2026, détaillée par Econostrum le 25/09/2026. Déjà formulée sur RTL le 11/09/2026 : « Je veux baisser les taxes », un litre ne doit pas « dépasser 1,70 euro ». Les médias soulignent un coût de plusieurs milliards d'euros pour les finances publiques.",
+          "source_url": "https://econostrum.info/carburant-a-170-euros-cette-taxe-europeenne-a/",
+          "source_title": "Carburant à 1,70 euros : cette « taxe européenne » à 33 centimes que Ségolène Royal veut supprimer (Econostrum)",
+          "source_date": "2026-09-25",
+          "confidence": "high"
+        },
+        {
+          "position": "Instaurer une TVA allégée sur les aliments produits en France.",
+          "kind": "proposition_explicite",
+          "short_quote": "une TVA allégée sur les aliments produits en France",
+          "details": "Taux et coût non précisés. Le dispositif soulève une question de compatibilité avec le droit européen de la TVA, non abordée par la candidate.",
+          "source_url": "https://lesinguliersete.fr/segolene-royal-y-croit-encore-et-veut-faire-trembler-la-primaire-socialiste/",
+          "source_title": "Ségolène Royal y croit encore et veut faire trembler la primaire socialiste (Le Singulier)",
+          "source_date": "2026-09-04",
+          "confidence": "medium"
+        },
+        {
+          "position": "Réduire le déficit par la lutte contre les « gaspillages » plutôt que par la baisse des dépenses essentielles (éducation, santé, climat, sécurité). Elle cible 160 Md€ d'aides aux entreprises accordées « sans conditions », environ 1 600 organismes faisant doublon avec les ministères et les ARS (6 Md€). Elle refuse un alourdissement fiscal général, estimant que la France paie déjà le plus d'impôts.",
+          "kind": "position_declaree",
+          "details": "Interview franceinfo lors de la sortie de son livre « Mais qui va garder les enfants ? » (Fayard, 29/10/2025). L'iFRAP lui attribue aussi la réduction du « train de vie de l'État et des institutions européennes » et la suppression des « conseils et hauts comités ».",
+          "source_url": "https://www.franceinfo.fr/politique/segolene-royal/budget-2026-pour-reduire-le-deficit-il-faut-lutter-contre-les-gaspillages-il-ne-faut-pas-baisser-les-depenses-essentielles-estime-segolene-royal_7582286.html",
+          "source_title": "Budget 2026 : « Pour réduire le déficit, il faut lutter contre les gaspillages » (franceinfo)",
+          "source_date": "2025-10-29",
+          "confidence": "high"
+        },
+        {
+          "position": "Décréter une « urgence énergétique » pour les TPE, PME, entreprises artisanales et agricoles, avec une baisse des taxes sur l'énergie et des prix de l'électricité maîtrisés.",
+          "kind": "proposition_explicite",
+          "details": "Fait partie des cinq axes annoncés le 10/07/2026. Le détail des taxes visées n'est pas chiffré.",
+          "source_url": "https://lcp.fr/actualites/presidentielle-2027-segolene-royal-annonce-sa-candidature-a-la-primaire-socialiste",
+          "source_title": "Présidentielle 2027 : Ségolène Royal annonce sa candidature à la primaire socialiste (LCP)",
+          "source_date": "2026-07-10",
+          "confidence": "medium"
+        },
+        {
+          "position": "Dénonce une dette et des déficits creusés « par incompétence » et la dette laissée aux générations futures. Elle ne fixe pas de trajectoire chiffrée de retour à l'équilibre.",
+          "kind": "position_declaree",
+          "details": "Interview RTL du 11/09/2026, rapportée par Capital.",
+          "source_url": "https://fr.finance.yahoo.com/actualites/veux-baisser-taxes-s%C3%A9gol%C3%A8ne-royal-090135153.html",
+          "source_title": "« Je veux baisser les taxes » : Ségolène Royal affirme qu'un litre d'essence ne doit pas « dépasser 1,70 euro » (Capital/Yahoo, d'après RTL)",
+          "source_date": "2026-09-13",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "travail_salaires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Fait du pouvoir d'achat une priorité : il s'agit de le restaurer et de relancer l'activité économique sans détruire les protections sociales.",
+          "kind": "position_declaree",
+          "details": "Fait partie des axes de candidature : pouvoir d'achat, emploi, services publics. Aucune mesure salariale chiffrée (SMIC, indexation) n'a été trouvée.",
+          "source_url": "https://www.tsa-algerie.com/presidentielles-francaises-2027-segolene-royal-la-candidate-aux-positions-tranchees/",
+          "source_title": "Présidentielles françaises 2027 : Ségolène Royal lance la mobilisation pour la primaire (TSA)",
+          "source_date": "2026-09-14",
+          "confidence": "medium"
+        },
+        {
+          "position": "Présente le plafonnement du carburant à 1,70 €/L comme une mesure de pouvoir d'achat et d'urgence, destinée à éviter un « cercle vicieux » de faillites.",
+          "kind": "proposition_explicite",
+          "short_quote": "Je veux baisser les taxes",
+          "details": "RTL, 11/09/2026. Voir aussi la fiche fiscalité.",
+          "source_url": "https://fr.finance.yahoo.com/actualites/veux-baisser-taxes-s%C3%A9gol%C3%A8ne-royal-090135153.html",
+          "source_title": "« Je veux baisser les taxes » (Capital/Yahoo, d'après RTL)",
+          "source_date": "2026-09-13",
+          "confidence": "high"
+        },
+        {
+          "position": "Promet une méthode d'apaisement social : répondre à chaque mécontentement. Elle affirme qu'il n'y aura pas de mouvement social si elle est élue et critique le « matraquage » des Gilets jaunes.",
+          "kind": "position_declaree",
+          "short_quote": "Chaque fois qu'il y a un mécontentement, y répondre",
+          "source_url": "https://www.parlons-politique.fr/elections/primaire-socialiste-2027-ce-que-la-candidature-de-segolene-royal-change-pour-les-electeurs-de-gauche_26192/",
+          "source_title": "Primaire socialiste 2027 : ce que la candidature de Ségolène Royal change pour les électeurs de gauche (Parlons Politique)",
+          "source_date": "2026-09-02",
+          "confidence": "medium"
+        },
+        {
+          "position": "Selon le comparateur iFRAP, propose d'aligner les salaires des employés des entreprises publiques sur ceux de la fonction publique.",
+          "kind": "proposition_explicite",
+          "details": "Attribution par l'iFRAP sans source primaire citée. Non retrouvée dans les médias : à vérifier.",
+          "source_url": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+          "source_title": "Comparateur Présidentielles 2027 (Fondation iFRAP)",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "retraites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Refuse tout débat sur de nouvelles économies sur les retraites tant que l'ISF financier n'est pas rétabli. Elle présente les pensions comme le patrimoine des travailleurs.",
+          "kind": "position_declaree",
+          "short_quote": "Les retraites, c'est le patrimoine de ceux qui n'en ont pas",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/primaire-populaire-gauche/retraites-je-refuse-ce-debat-tant-que-la-question-du-retour-de-l-isf-n-est-pas-posee-affirme-segolene-royal-candidate-a-la-primaire-du-pole-socialiste_8170295.html",
+          "source_title": "Retraites : « Je refuse ce débat tant que la question du retour de l'ISF n'est pas posée » (franceinfo)",
+          "source_date": "2026-08-31",
+          "confidence": "high"
+        },
+        {
+          "position": "S'engage à ne pas réformer les retraites tant que le pays n'aura pas été réindustrialisé.",
+          "kind": "position_declaree",
+          "short_quote": "Je ne touche pas aux retraites tant que je n'ai pas réindustrialisé le pays",
+          "details": "RTL, 11/09/2026. Elle ne dit pas si elle abrogerait le report à 64 ans.",
+          "source_url": "https://fr.finance.yahoo.com/actualites/veux-baisser-taxes-s%C3%A9gol%C3%A8ne-royal-090135153.html",
+          "source_title": "« Je veux baisser les taxes » (Capital/Yahoo, d'après RTL)",
+          "source_date": "2026-09-13",
+          "confidence": "high"
+        },
+        {
+          "position": "S'oppose à toute désindexation ou sous-indexation des pensions, même pour les retraités dits « aisés » dont elle conteste la notion. Selon elle, les pensions ont déjà perdu du pouvoir d'achat face à la hausse de l'électricité (+40 %).",
+          "kind": "position_declaree",
+          "short_quote": "les retraites sont déjà désindexées",
+          "details": "Propos tenus sur LCI le 16/09/2026.",
+          "source_url": "https://fr.finance.yahoo.com/actualites/larnaque-cest-retraites-d%C3%A9j%C3%A0-d%C3%A9sindex%C3%A9es-170357900.html",
+          "source_title": "« L'arnaque c'est que les retraites sont déjà désindexées », affirme Ségolène Royal (Yahoo, d'après LCI)",
+          "source_date": "2026-09-16",
+          "confidence": "high"
+        },
+        {
+          "position": "Juge « une provocation » les 6 Md€ d'économies prévues sur les retraites.",
+          "kind": "position_declaree",
+          "short_quote": "C'est une provocation",
+          "details": "Seul le titre de l'article Europe 1 a pu être consulté (page bloquée, erreur 403). La date est probablement septembre 2026.",
+          "source_url": "https://www.europe1.fr/economie/6-milliards-deuros-deconomies-prevues-sur-les-retraites-cest-une-provocation-juge-segolene-royal-1078760",
+          "source_title": "6 milliards d'euros d'économies prévues sur les retraites ? « C'est une provocation », juge Ségolène Royal (Europe 1)",
+          "confidence": "medium"
+        },
+        {
+          "position": "Position antérieure, août 2024 : ne souhaitait pas abroger la réforme de 2023, mais la modifier pour en corriger les aspects « brutaux » et « inacceptables ».",
+          "kind": "position_declaree",
+          "details": "Évolution : en 2026, elle refuse de toucher aux retraites, mais aucune déclaration récente n'a été trouvée réclamant explicitement l'abrogation des 64 ans ou le retour à 62 ans. Un agrégateur (presi2027) l'affirme sans source primaire.",
+          "source_url": "https://www.aa.com.tr/fr/monde/france-s%C3%A9gol%C3%A8ne-royal-se-dit-disponible-pour-matignon/3317392",
+          "source_title": "France : Ségolène Royal se dit « disponible pour Matignon » (Anadolu)",
+          "source_date": "2024-08-30",
+          "confidence": "high"
+        },
+        {
+          "position": "A proposé en 2023 de sortir de la crise des retraites par un référendum d'initiative partagée (RIP). Sud Radio rapporte en 2026 qu'elle continue de défendre un RIP pour trancher la question.",
+          "kind": "position_declaree",
+          "details": "La proposition date de mars 2023. Le rappel de 2026 vient de Sud Radio, sans citation précise.",
+          "source_url": "https://www.franceinfo.fr/politique/segolene-royal/reforme-des-retraites-segolene-royal-prone-une-sortie-de-crise-par-un-referendum-d-initiative-partagee_5708666.html",
+          "source_title": "Réforme des retraites : Ségolène Royal prône une sortie de crise par « un référendum d'initiative partagée » (franceinfo)",
+          "source_date": "2023-03",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "sante",
+      "found": true,
+      "positions": [
+        {
+          "position": "Considère que les ARS et les structures administratives empilées coûtent 6 Md€ et constituent un gaspillage, alors que cette gestion revenait auparavant aux hôpitaux. Elle refuse de « baisser » les dépenses de santé, jugées essentielles.",
+          "kind": "position_declaree",
+          "details": "Elle ne dit pas explicitement si elle supprimerait les ARS.",
+          "source_url": "https://www.franceinfo.fr/politique/segolene-royal/budget-2026-pour-reduire-le-deficit-il-faut-lutter-contre-les-gaspillages-il-ne-faut-pas-baisser-les-depenses-essentielles-estime-segolene-royal_7582286.html",
+          "source_title": "Budget 2026 : « Pour réduire le déficit, il faut lutter contre les gaspillages » (franceinfo)",
+          "source_date": "2025-10-29",
+          "confidence": "medium"
+        },
+        {
+          "position": "Inscrit la santé parmi les domaines de l'« ordre juste », aux côtés de l'éducation et de la sécurité du quotidien.",
+          "kind": "position_declaree",
+          "details": "Orientation générale, sans mesure détaillée (déserts médicaux, dépassements d'honoraires, EHPAD : non trouvés).",
+          "source_url": "https://lcp.fr/actualites/presidentielle-2027-segolene-royal-annonce-sa-candidature-a-la-primaire-socialiste",
+          "source_title": "Présidentielle 2027 : Ségolène Royal annonce sa candidature (LCP)",
+          "source_date": "2026-07-10",
+          "confidence": "medium"
+        },
+        {
+          "position": "Veut installer des caméras dans les Ehpad, comme dans tous les lieux accueillant un « public fragile », « en accord avec les salariés ».",
+          "kind": "proposition_explicite",
+          "short_quote": "dans tous les lieux où il y a un accueil de public fragile",
+          "source_url": "https://actu.orange.fr/politique/violences-dans-le-periscolaire-segolene-royal-veut-installer-des-cameras-partout-dans-les-ecoles-magic-CNT000002rFJA5.html",
+          "source_title": "Violences dans le périscolaire : Ségolène Royal veut installer des caméras « partout » dans les écoles (6Médias/L'Express via Orange)",
+          "source_date": "2026-09-02",
+          "confidence": "high"
+        },
+        {
+          "position": "Défend la climatisation dans les écoles, les hôpitaux et les établissements d'accueil pour s'adapter aux canicules.",
+          "kind": "position_declaree",
+          "source_url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pour-2027-je-consulte-je-reflechis-si-je-peux-etre-utile-pourquoi-pas",
+          "source_title": "Ségolène Royal : « Pour 2027, je consulte, je réfléchis… » (Sud Radio)",
+          "source_date": "2026-07-03",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "found": true,
+      "positions": [
+        {
+          "position": "Dénonce la dégradation du métier d'enseignant, son « sous-paiement » et des recrutements « par speed dating ». Elle plaide implicitement pour une revalorisation.",
+          "kind": "position_declaree",
+          "short_quote": "des recrutements par speed dating",
+          "details": "Aucun montant ni calendrier de revalorisation n'a été annoncé.",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/primaire-populaire-gauche/retraites-je-refuse-ce-debat-tant-que-la-question-du-retour-de-l-isf-n-est-pas-posee-affirme-segolene-royal-candidate-a-la-primaire-du-pole-socialiste_8170295.html",
+          "source_title": "Retraites : « Je refuse ce débat… » (franceinfo, Les 4 Vérités)",
+          "source_date": "2026-08-31",
+          "confidence": "high"
+        },
+        {
+          "position": "Veut installer des caméras de vidéosurveillance « partout » dans les écoles et les temps périscolaires pour prévenir les violences sur les enfants. Elle répondait à la crise du périscolaire parisien : 132 animateurs suspendus au premier semestre 2026, dont 52 pour violences sexuelles.",
+          "kind": "proposition_explicite",
+          "short_quote": "Il n'y aurait plus de passage à l'acte",
+          "details": "Elle propose l'extension aux crèches, aux Ehpad et chez les assistantes maternelles. Une proposition similaire sur les crèches, à l'automne 2025, avait été jugée « hors-sol » par le SNPPE, syndicat de la petite enfance (communiqué du 28/10/2025).",
+          "source_url": "https://actu.orange.fr/politique/violences-dans-le-periscolaire-segolene-royal-veut-installer-des-cameras-partout-dans-les-ecoles-magic-CNT000002rFJA5.html",
+          "source_title": "Violences dans le périscolaire : Ségolène Royal veut installer des caméras « partout » dans les écoles (Orange/L'Express)",
+          "source_date": "2026-09-02",
+          "confidence": "high"
+        },
+        {
+          "position": "Place la jeunesse au cœur de son discours. Elle parle d'une « génération dépossédée » et promet de garantir aux jeunes qu'ils n'auront pas à porter seuls le poids des crises ni la fatalité du déclin.",
+          "kind": "position_declaree",
+          "short_quote": "C'est la génération dépossédée",
+          "details": "Conclusion du débat France 2/France Inter du 01/10/2026 et meeting d'Alfortville du 22/09/2026. Aucune mesure précise n'a été trouvée sur l'allocation jeunes ou Parcoursup.",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/direct-presidentielle-2027-suivez-le-debat-des-candidats-a-la-primaire-du-pole-socialiste-sur-france-2-et-france-inter-a-20h40_8218531.html",
+          "source_title": "Débat de la primaire de la gauche : revivez les échanges sur France 2 et France Inter (franceinfo)",
+          "source_date": "2026-10-01",
+          "confidence": "high"
+        },
+        {
+          "position": "S'est adressée aux lycéens mobilisés, dont les blocages avaient connu des débordements, en les appelant à cesser de « s'abîmer » face à un pouvoir qui ne leur donnera rien.",
+          "kind": "position_declaree",
+          "short_quote": "Ce pouvoir-là ne vous donnera rien, donc arrêtez de vous abîmer",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/direct-presidentielle-2027-suivez-le-debat-des-candidats-a-la-primaire-du-pole-socialiste-sur-france-2-et-france-inter-a-20h40_8218531.html",
+          "source_title": "Débat de la primaire de la gauche (franceinfo, live)",
+          "source_date": "2026-10-01",
+          "confidence": "high"
+        },
+        {
+          "position": "Privilégie une approche pédagogique plutôt que répressive face aux tenues religieuses à l'école.",
+          "kind": "position_declaree",
+          "details": "Propos sur Sud Radio rapportés de façon résumée. Pas de citation exacte vérifiée.",
+          "source_url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pourquoi-pas-un-ticket-avec-dominique-de-villepin-pour-la-presidentielle",
+          "source_title": "Ségolène Royal : pourquoi pas un ticket avec Dominique de Villepin pour la présidentielle ? (Sud Radio)",
+          "source_date": "2025-12-11",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Faire de l'urgence climatique une priorité et appliquer « énergiquement » les décisions de la COP21, qu'elle a présidée. Elle veut passer « à des décisions » génératrices d'activités et d'emplois.",
+          "kind": "position_declaree",
+          "details": "Axe de candidature du 10/07/2026, réaffirmé aux Journées d'été du PS le 29/08/2026.",
+          "source_url": "https://lcp.fr/actualites/presidentielle-2027-segolene-royal-annonce-sa-candidature-a-la-primaire-socialiste",
+          "source_title": "Présidentielle 2027 : Ségolène Royal annonce sa candidature (LCP)",
+          "source_date": "2026-07-10",
+          "confidence": "high"
+        },
+        {
+          "position": "Veut faire de la transition climatique la « colonne vertébrale » de la relance et lier la réindustrialisation aux investissements de transition.",
+          "kind": "position_declaree",
+          "short_quote": "colonne vertébrale",
+          "source_url": "https://fr.finance.yahoo.com/actualites/veux-baisser-taxes-s%C3%A9gol%C3%A8ne-royal-090135153.html",
+          "source_title": "« Je veux baisser les taxes » (Capital/Yahoo, d'après RTL)",
+          "source_date": "2026-09-13",
+          "confidence": "high"
+        },
+        {
+          "position": "Défend une énergie à bas prix pour les ménages et les entreprises. Elle rappelle avoir « bloqué le prix de l'électricité » en 2014 en tant que ministre.",
+          "kind": "position_declaree",
+          "source_url": "https://www.france24.com/fr/info-en-continu/20260829-aux-journ%C3%A9es-d-%C3%A9t%C3%A9-du-ps-s%C3%A9gol%C3%A8ne-royal-d%C3%A9fend-sa-candidature",
+          "source_title": "Aux Journées d'été du PS, Ségolène Royal défend sa candidature (France 24/AFP)",
+          "source_date": "2026-08-29",
+          "confidence": "high"
+        },
+        {
+          "position": "Demande que la France sorte « vite » du marché européen de l'électricité, accusé de gonfler les prix et de livrer les infrastructures aux « prédateurs » par l'ouverture à la concurrence. Elle cite l'Espagne en exemple.",
+          "kind": "position_declaree",
+          "short_quote": "La France doit sortir, et vite, du marché européen de l'électricité",
+          "details": "Messages sur X de mars 2025 et mars 2026, rapportés par Contrepoints le 12/03/2026. Son exemple espagnol est discutable : l'« exception ibérique » de 2022-2023 était un plafonnement temporaire, pas une sortie du marché.",
+          "source_url": "https://contrepoints.org/nucleaire-segolene-royal-ou-linconsequence-en-politique/",
+          "source_title": "Nucléaire : Ségolène Royal ou l'inconséquence en politique (Contrepoints)",
+          "source_date": "2026-03-12",
+          "confidence": "medium"
+        },
+        {
+          "position": "Nucléaire : affirme en mars 2026 n'avoir « jamais accepté » la diminution ou la fermeture « idéologique » des centrales. Ses positions ministérielles allaient dans l'autre sens : loi de transition énergétique de 2015 (50 % de nucléaire en 2025), fermeture de Fessenheim. Aucune position claire n'a été trouvée sur les nouveaux EPR2.",
+          "kind": "position_declaree",
+          "short_quote": "jamais accepté la diminution ou la fermeture idéologique des centrales",
+          "details": "Source d'opinion libérale, critique à son égard. Contradiction relevée par l'auteur.",
+          "source_url": "https://contrepoints.org/nucleaire-segolene-royal-ou-linconsequence-en-politique/",
+          "source_title": "Nucléaire : Ségolène Royal ou l'inconséquence en politique (Contrepoints)",
+          "source_date": "2026-03-12",
+          "confidence": "medium"
+        },
+        {
+          "position": "Défend le crédit d'impôt transition énergétique qu'elle avait créé, dont elle regrette le démantèlement, et l'adaptation aux canicules (climatisation des lieux publics sensibles). Sur Sud Radio en décembre 2025, elle s'est montrée sceptique sur la conduite du projet d'autoroute A69.",
+          "kind": "position_declaree",
+          "source_url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pour-2027-je-consulte-je-reflechis-si-je-peux-etre-utile-pourquoi-pas",
+          "source_title": "Ségolène Royal : « Pour 2027, je consulte, je réfléchis… » (Sud Radio)",
+          "source_date": "2026-07-03",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "found": true,
+      "positions": [
+        {
+          "position": "S'oppose à la réintroduction de pesticides interdits (néonicotinoïdes), qu'elle juge moralement scandaleuse. Le débat porte sur la loi Duplomb et ses suites.",
+          "kind": "position_declaree",
+          "details": "Interview Sud Radio du 03/07/2026. En 2016, ministre, elle avait imposé des distances minimales d'épandage.",
+          "source_url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pour-2027-je-consulte-je-reflechis-si-je-peux-etre-utile-pourquoi-pas",
+          "source_title": "Ségolène Royal : « Pour 2027, je consulte, je réfléchis… » (Sud Radio)",
+          "source_date": "2026-07-03",
+          "confidence": "medium"
+        },
+        {
+          "position": "Dénonce la concurrence déloyale des importations produites avec des pesticides interdits en France. Elle demande un étiquetage bien visible des produits français en supermarché.",
+          "kind": "proposition_explicite",
+          "details": "Aucune prise de position explicite sur l'accord UE-Mercosur n'a été trouvée.",
+          "source_url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pour-2027-je-consulte-je-reflechis-si-je-peux-etre-utile-pourquoi-pas",
+          "source_title": "Ségolène Royal : « Pour 2027, je consulte, je réfléchis… » (Sud Radio)",
+          "source_date": "2026-07-03",
+          "confidence": "medium"
+        },
+        {
+          "position": "Instaurer une TVA allégée sur les aliments produits en France pour soutenir la production nationale.",
+          "kind": "proposition_explicite",
+          "source_url": "https://lesinguliersete.fr/segolene-royal-y-croit-encore-et-veut-faire-trembler-la-primaire-socialiste/",
+          "source_title": "Ségolène Royal y croit encore et veut faire trembler la primaire socialiste (Le Singulier)",
+          "source_date": "2026-09-04",
+          "confidence": "medium"
+        },
+        {
+          "position": "Inclut les exploitations agricoles dans l'« urgence énergétique » : mesures sur le coût de l'énergie pour les TPE, PME, artisans et agriculteurs.",
+          "kind": "proposition_explicite",
+          "source_url": "https://lapatrienews.dz/segolene-royal-candidate-a-lelysee-incarner-la-france-tranquille/",
+          "source_title": "Ségolène Royal candidate à l'Élysée : incarner « la France tranquille » (La Patrie News)",
+          "source_date": "2026-07-12",
+          "confidence": "medium"
+        },
+        {
+          "position": "A pris la défense d'agriculteurs mobilisés contre des incendies face à une préfète jugée « hors sol » et condescendante.",
+          "kind": "position_declaree",
+          "details": "Message sur X, daté d'environ fin juillet 2026 d'après l'identifiant du message. Seul l'extrait affiché dans les résultats de recherche a pu être lu.",
+          "source_url": "https://x.com/RoyalSegolene/status/2081733837038526557",
+          "source_title": "Ségolène Royal sur X (agriculteurs et préfète)",
+          "source_date": "2026-07",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Se dit prête à remettre en cause les règles européennes qui empêcheraient ses mesures, notamment la baisse des taxes sur les carburants.",
+          "kind": "position_declaree",
+          "short_quote": "Les règles européennes, on les change, ça suffit à un moment",
+          "source_url": "https://fr.finance.yahoo.com/actualites/veux-baisser-taxes-s%C3%A9gol%C3%A8ne-royal-090135153.html",
+          "source_title": "« Je veux baisser les taxes » (Capital/Yahoo, d'après RTL)",
+          "source_date": "2026-09-13",
+          "confidence": "high"
+        },
+        {
+          "position": "Demander à la Commission européenne une dérogation sur le niveau minimal d'accise de la directive sur la taxation de l'énergie, sur le modèle espagnol.",
+          "kind": "proposition_explicite",
+          "source_url": "https://econostrum.info/carburant-a-170-euros-cette-taxe-europeenne-a/",
+          "source_title": "Carburant à 1,70 euros : cette « taxe européenne » que Ségolène Royal veut supprimer (Econostrum)",
+          "source_date": "2026-09-25",
+          "confidence": "high"
+        },
+        {
+          "position": "Prône la sortie de la France du marché européen de l'électricité et critique Ursula von der Leyen sur la politique énergétique et nucléaire.",
+          "kind": "position_declaree",
+          "source_url": "https://contrepoints.org/nucleaire-segolene-royal-ou-linconsequence-en-politique/",
+          "source_title": "Nucléaire : Ségolène Royal ou l'inconséquence en politique (Contrepoints)",
+          "source_date": "2026-03-12",
+          "confidence": "medium"
+        },
+        {
+          "position": "Veut intégrer le coût carbone dans le prix des produits importés (ajustement carbone aux frontières) et rendre le commerce international responsable sur le plan environnemental.",
+          "kind": "position_declaree",
+          "source_url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pourquoi-pas-un-ticket-avec-dominique-de-villepin-pour-la-presidentielle",
+          "source_title": "Ségolène Royal : pourquoi pas un ticket avec Dominique de Villepin ? (Sud Radio)",
+          "source_date": "2025-12-11",
+          "confidence": "medium"
+        },
+        {
+          "position": "Selon le comparateur iFRAP, propose de diminuer le « train de vie » des institutions européennes.",
+          "kind": "proposition_explicite",
+          "details": "Attribution sans source primaire. Aucune position trouvée sur le fédéralisme, l'emprunt commun, l'élargissement à l'Ukraine ou l'unanimité.",
+          "source_url": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+          "source_title": "Comparateur Présidentielles 2027 (Fondation iFRAP)",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "international_defense",
+      "found": true,
+      "positions": [
+        {
+          "position": "Ukraine : prône une issue négociée avec la Russie pour « aider l'Ukraine à obtenir une paix juste et durable ». Elle rejette les accusations de complaisance envers Poutine, qu'elle qualifie de « caricatures » et de « procès d'intention ».",
+          "kind": "position_declaree",
+          "short_quote": "aider l'Ukraine à obtenir une paix juste et durable",
+          "details": "Débat LCI du 23/09/2026, où elle a été mise en difficulté. Glucksmann lui a opposé que Poutine n'a aucune intention de négocier et qu'il faut « résister, aider les Ukrainiens ». Elle n'a pris aucune position trouvée sur les livraisons d'armes ou l'envoi de troupes.",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/lors-du-premier-debat-de-la-primaire-socialiste-segolene-royal-mise-en-difficulte-sur-l-ukraine-et-israel_8207075.html",
+          "source_title": "Lors du premier débat de la primaire socialiste, Ségolène Royal mise en difficulté sur l'Ukraine et Israël (franceinfo)",
+          "source_date": "2026-09-23",
+          "confidence": "high"
+        },
+        {
+          "position": "Veut redonner à la France une « stature diplomatique » et un rôle de « puissance médiatrice » pour une paix durable.",
+          "kind": "proposition_explicite",
+          "short_quote": "puissance médiatrice",
+          "source_url": "https://lcp.fr/actualites/presidentielle-2027-segolene-royal-annonce-sa-candidature-a-la-primaire-socialiste",
+          "source_title": "Présidentielle 2027 : Ségolène Royal annonce sa candidature (LCP)",
+          "source_date": "2026-07-10",
+          "confidence": "high"
+        },
+        {
+          "position": "Antécédent, 2022 : avait mis en doute la véracité de certaines informations et images ukrainiennes (bombardement de la maternité de Marioupol, frappes) et appelé à une médiation rapide. Elle s'en est ensuite excusée, selon franceinfo. En 2026, elle affirme « avoir raison sur la Russie » (source secondaire).",
+          "kind": "position_declaree",
+          "details": "Propos de 2022 : BFMTV le 01/09/2022, tweets des 15-17/11/2022. Propos de 2026 rapportés par Agoravox TV le 13/06/2026 (fiabilité moyenne).",
+          "source_url": "https://www.lalibre.be/international/europe/guerre-ukraine-russie/2022/11/17/segolene-royal-se-fait-a-nouveau-remarquer-avec-des-propos-polemiques-sur-la-guerre-en-ukraine-HMLLJPAFNJEAFE6D7GM64G2VZY/",
+          "source_title": "Ségolène Royal se fait à nouveau remarquer avec des propos polémiques sur la guerre en Ukraine (La Libre)",
+          "source_date": "2022-11-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Gaza : estime qu'il faut qualifier la situation de génocide et accuse les dirigeants israéliens de vouloir éliminer la population.",
+          "kind": "position_declaree",
+          "short_quote": "Si les mots sont importants, il faut reconnaître le génocide",
+          "details": "Débat LCI du 23/09/2026. Faure emploie aussi le mot « génocide » ; Glucksmann le refuse et parle de « crimes de guerre ».",
+          "source_url": "https://www.planet.fr/voix-juives-segolene-royal-provoque-un-tolle-apres-ses-propos-sur-gaza.2999429.817022.html",
+          "source_title": "« Voix juives » : Ségolène Royal provoque un tollé après ses propos sur Gaza (Planet)",
+          "source_date": "2026-09-24",
+          "confidence": "high"
+        },
+        {
+          "position": "En mai 2025, reprochait à Emmanuel Macron de ne pas saisir le Conseil de sécurité de l'ONU pour décider de sanctions contre Benyamin Netanyahou. Elle fustigeait ceux qui envisagent de reconnaître l'État palestinien « quand tout aura été détruit », position qui implique une reconnaissance plus précoce.",
+          "kind": "position_declaree",
+          "details": "Message sur X du 10/05/2025. La France a reconnu l'État de Palestine en septembre 2025. Aucune position de 2026 trouvée sur des sanctions précises (accord UE-Israël, colonies).",
+          "source_url": "https://www.tunisienumerique.com/gaza-segolene-royal-fustige-linaction-de-macron-ce-nest-pas-ca-la-france/",
+          "source_title": "Gaza : Ségolène Royal fustige l'inaction de Macron, « ce n'est pas ça la France » (Tunisie Numérique)",
+          "source_date": "2025-05-10",
+          "confidence": "medium"
+        },
+        {
+          "position": "Algérie : demande que la France présente des excuses officielles pour les crimes de la colonisation et de la guerre d'Algérie. Elle y associe des mesures concrètes : restitution des biens culturels, remise des archives, étude des conséquences des essais nucléaires au Sahara et question des mines antipersonnel. Elle rejette la notion de « rente mémorielle » et défend une relation d'« État à État » sans conditions préalables.",
+          "kind": "proposition_explicite",
+          "short_quote": "On en a assez des demi-mots",
+          "details": "Elle s'exprime en tant que présidente de l'Association France-Algérie : discours du 17/01/2026 (Anadolu), Beur FM le 26/05/2026. Sur le journaliste Christophe Gleizes, détenu, elle privilégie la discrétion diplomatique (Sud Radio, 03/07/2026).",
+          "source_url": "https://www.aa.com.tr/fr/afrique/crise-entre-l-alg%C3%A9rie-et-la-france-s%C3%A9gol%C3%A8ne-royal-appelle-%C3%A0-la-reconnaissance-des-crimes-coloniaux/3803276",
+          "source_title": "Crise entre l'Algérie et la France : Ségolène Royal appelle à la reconnaissance des crimes coloniaux (Anadolu)",
+          "source_date": "2026-01-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "institutions",
+      "found": true,
+      "positions": [
+        {
+          "position": "Veut changer en profondeur le mode d'exercice du pouvoir et en finir avec la « politique par la peur ».",
+          "kind": "position_declaree",
+          "short_quote": "Il faut en finir avec la politique par la peur",
+          "details": "Aucune position précise n'a été trouvée sur la VIe République, la proportionnelle, le 49.3 ou la limitation des mandats en 2025-2026. La suppression du 49.3 figurait dans son programme de 2007.",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/direct-presidentielle-2027-suivez-le-debat-des-candidats-a-la-primaire-du-pole-socialiste-sur-france-2-et-france-inter-a-20h40_8218531.html",
+          "source_title": "Débat de la primaire de la gauche (franceinfo, live)",
+          "source_date": "2026-10-01",
+          "confidence": "high"
+        },
+        {
+          "position": "Définit l'« ordre juste » comme le retour de règles, de droits et de devoirs, avec un État et des institutions de la République exemplaires. Elle prône la « reconstruction de la solidité de l'État » et un « État fort ».",
+          "kind": "position_declaree",
+          "short_quote": "remettre des règles, des droits et des devoirs",
+          "source_url": "https://www.france24.com/fr/info-en-continu/20260922-pour-sa-premi%C3%A8re-r%C3%A9union-publique-s%C3%A9gol%C3%A8ne-royal-ressuscite-son-ordre-juste",
+          "source_title": "Pour sa première réunion publique, Ségolène Royal ressuscite son « ordre juste » (France 24/AFP)",
+          "source_date": "2026-09-22",
+          "confidence": "high"
+        },
+        {
+          "position": "Veut réformer l'État en supprimant les doublons administratifs : environ 1 600 organismes en doublon avec les ministères, ainsi que des conseils et hauts comités.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.franceinfo.fr/politique/segolene-royal/budget-2026-pour-reduire-le-deficit-il-faut-lutter-contre-les-gaspillages-il-ne-faut-pas-baisser-les-depenses-essentielles-estime-segolene-royal_7582286.html",
+          "source_title": "Budget 2026 : « Pour réduire le déficit, il faut lutter contre les gaspillages » (franceinfo)",
+          "source_date": "2025-10-29",
+          "confidence": "medium"
+        },
+        {
+          "position": "Défend le recours au référendum d'initiative partagée pour trancher la question des retraites (proposition de 2023, rappelée en 2026).",
+          "kind": "position_declaree",
+          "source_url": "https://www.sudradio.fr/sud-radio/presidentielle-comment-la-revenante-segolene-royal-est-revenue-dans-le-jeu",
+          "source_title": "Présidentielle : comment Ségolène Royal est revenue dans le jeu (Sud Radio)",
+          "source_date": "2026-09-23",
+          "confidence": "medium"
+        },
+        {
+          "position": "A appelé Jordan Bardella à démissionner de son mandat de député européen.",
+          "kind": "position_declaree",
+          "short_quote": "Comment est-ce que cette imposture a pu durer aussi longtemps ?",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/direct-presidentielle-2027-suivez-le-debat-des-candidats-a-la-primaire-du-pole-socialiste-sur-france-2-et-france-inter-a-20h40_8218531.html",
+          "source_title": "Débat de la primaire de la gauche (franceinfo, live)",
+          "source_date": "2026-10-01",
+          "confidence": "high"
+        },
+        {
+          "position": "A jugé trop élevée la participation de 15 € demandée aux non-adhérents pour voter à la primaire et préférait un tarif de 2 €.",
+          "kind": "position_declaree",
+          "details": "Wikipédia FR, sans note spécifique : à confirmer.",
+          "source_url": "https://fr.wikipedia.org/wiki/Primaire_pr%C3%A9sidentielle_socialiste_de_2026",
+          "source_title": "Primaire présidentielle socialiste de 2026 (Wikipédia)",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "found": true,
+      "positions": [
+        {
+          "position": "Installer des caméras de vidéosurveillance dans tous les lieux accueillant un public fragile (écoles, périscolaire, crèches, Ehpad, et jusque chez les assistantes maternelles), « en accord avec les salariés ».",
+          "kind": "proposition_explicite",
+          "short_quote": "Pourquoi ce n'est pas encore fait ?",
+          "source_url": "https://actu.orange.fr/politique/violences-dans-le-periscolaire-segolene-royal-veut-installer-des-cameras-partout-dans-les-ecoles-magic-CNT000002rFJA5.html",
+          "source_title": "Violences dans le périscolaire : Ségolène Royal veut installer des caméras « partout » (Orange/L'Express)",
+          "source_date": "2026-09-02",
+          "confidence": "high"
+        },
+        {
+          "position": "Promet la « tolérance zéro » pour les violences faites aux enfants et dénonce le silence sur la maltraitance et les abus sexuels.",
+          "kind": "proposition_explicite",
+          "short_quote": "zéro tolérance pour les violences faites aux enfants",
+          "source_url": "https://www.france24.com/fr/info-en-continu/20260829-aux-journ%C3%A9es-d-%C3%A9t%C3%A9-du-ps-s%C3%A9gol%C3%A8ne-royal-d%C3%A9fend-sa-candidature",
+          "source_title": "Aux Journées d'été du PS, Ségolène Royal défend sa candidature (France 24/AFP)",
+          "source_date": "2026-08-29",
+          "confidence": "high"
+        },
+        {
+          "position": "Plaide pour la prévention et l'éducation, des espaces d'audition adaptés aux enfants victimes et des sanctions immédiates. Elle a estimé que Gérald Darmanin « aurait dû démissionner » après des affaires de violences sur enfants.",
+          "kind": "position_declaree",
+          "short_quote": "aurait dû démissionner",
+          "source_url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pour-2027-je-consulte-je-reflechis-si-je-peux-etre-utile-pourquoi-pas",
+          "source_title": "Ségolène Royal : « Pour 2027, je consulte, je réfléchis… » (Sud Radio)",
+          "source_date": "2026-07-03",
+          "confidence": "medium"
+        },
+        {
+          "position": "Inscrit la « sécurité du quotidien » dans l'« ordre juste » et prône la tolérance zéro envers les agresseurs.",
+          "kind": "position_declaree",
+          "details": "Orientation générale. Aucune position trouvée sur la police de proximité, les effectifs, les prisons, le cannabis ou le narcotrafic.",
+          "source_url": "https://lcp.fr/actualites/presidentielle-2027-segolene-royal-annonce-sa-candidature-a-la-primaire-socialiste",
+          "source_title": "Présidentielle 2027 : Ségolène Royal annonce sa candidature (LCP)",
+          "source_date": "2026-07-10",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "found": true,
+      "positions": [
+        {
+          "position": "Critique le durcissement de la politique des visas, qui décourage selon elle les talents et les étudiants. Elle dénonce l'OQTF délivrée à un médecin urgentiste tunisien exerçant en France et rappelle que 6 000 médecins algériens exercent en France.",
+          "kind": "position_declaree",
+          "details": "Interview Beur FM (« Les Zinformés ») du 26/05/2026.",
+          "source_url": "https://www.beurfm.net/segolene-royal-plaide-pour-l-apaisement-avec-alger-et-remet-l-ordre-juste-dans-le-debat",
+          "source_title": "Ségolène Royal plaide pour l'apaisement avec Alger et remet « l'ordre juste » dans le débat (Beur FM)",
+          "source_date": "2026-05-26",
+          "confidence": "high"
+        },
+        {
+          "position": "Dénonce l'amalgame entre immigration et délinquance. Elle défend la possibilité pour les binationaux d'être « 100 % français » et « 100 % algériens » et pointe l'écart entre les discours et les guichets administratifs.",
+          "kind": "position_declaree",
+          "details": "Aucune position trouvée en 2025-2026 sur la régularisation des travailleurs sans papiers, l'AME, les quotas, le pacte asile-migration, le droit du sol ou le droit de vote des étrangers (ce dernier figurait dans son programme de 2007).",
+          "source_url": "https://www.beurfm.net/segolene-royal-plaide-pour-l-apaisement-avec-alger-et-remet-l-ordre-juste-dans-le-debat",
+          "source_title": "Ségolène Royal plaide pour l'apaisement avec Alger (Beur FM)",
+          "source_date": "2026-05-26",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "laicite_republique",
+      "found": true,
+      "positions": [
+        {
+          "position": "S'oppose à l'interdiction du voile dans l'espace public proposée par le RN. Elle prône l'éducation plutôt que la sanction et le respect du libre choix des femmes qui portent le foulard volontairement.",
+          "kind": "position_declaree",
+          "short_quote": "Laissons les femmes tranquilles",
+          "details": "BFMTV-RMC, 02/09/2026. Elle a suscité la polémique en déclarant préférer une femme portant un foulard à un « pédocriminel ». Elle a aussi prédit des « révoltes sociales dans les quartiers » en cas d'interdiction.",
+          "source_url": "https://www.beurfm.net/je-prefere-une-femme-qui-a-un-foulard-sur-la-tete-qu-un-pedophile-pedocriminel",
+          "source_title": "« Je préfère une femme qui a un foulard sur la tête […] qu'un pédophile, pédocriminel » ! (Beur FM, d'après BFMTV-RMC)",
+          "source_date": "2026-09-02",
+          "confidence": "high"
+        },
+        {
+          "position": "Qualifie la « chasse au foulard » de « diversion irresponsable », inapplicable et sans intérêt économique, la burqa étant déjà interdite. Selon elle, ce débat rend la France « risée du monde musulman » ; elle s'engage à ne pas mener cette politique si elle est élue.",
+          "kind": "position_declaree",
+          "short_quote": "c'est une diversion irresponsable",
+          "details": "BFMTV, 07/09/2026.",
+          "source_url": "https://www.tsa-algerie.com/france-segolene-royal-denonce-la-chasse-au-foulard/",
+          "source_title": "Projet du RN d'interdire le voile en France : Ségolène Royal dénonce la « chasse au foulard » (TSA)",
+          "source_date": "2026-09-08",
+          "confidence": "high"
+        },
+        {
+          "position": "Antisémitisme : estime que sa montée n'est pas due à Israël mais aux dirigeants israéliens actuels. Elle appelle davantage de voix israéliennes et juives à dénoncer la situation à Gaza pour freiner l'antisémitisme.",
+          "kind": "position_declaree",
+          "short_quote": "la montée de l'antisémitisme n'est pas due à Israël",
+          "details": "Débat LCI du 23/09/2026. Guedj a dénoncé une « incroyable injonction » qui essentialise le conflit ; Glucksmann et le président du CRIF Yonathan Arfi (« trahison de l'idéal républicain ») l'ont également critiquée. Elle a répondu en parlant de « caricatures ».",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/lors-du-premier-debat-de-la-primaire-socialiste-segolene-royal-mise-en-difficulte-sur-l-ukraine-et-israel_8207075.html",
+          "source_title": "Lors du premier débat de la primaire socialiste, Ségolène Royal mise en difficulté sur l'Ukraine et Israël (franceinfo)",
+          "source_date": "2026-09-23",
+          "confidence": "high"
+        },
+        {
+          "position": "Justifie sa candidature par la lutte contre l'extrême droite, en invoquant les risques de racisme, d'antisémitisme, de sexisme et d'homophobie.",
+          "kind": "position_declaree",
+          "source_url": "https://lcp.fr/actualites/presidentielle-2027-segolene-royal-annonce-sa-candidature-a-la-primaire-socialiste",
+          "source_title": "Présidentielle 2027 : Ségolène Royal annonce sa candidature (LCP)",
+          "source_date": "2026-07-10",
+          "confidence": "high"
+        },
+        {
+          "position": "Dénonce l'instrumentalisation du débat sur le voile (le « À bas le voile » de Bruno Retailleau jugé « insupportable ») et privilégie une approche pédagogique sur les tenues religieuses à l'école.",
+          "kind": "position_declaree",
+          "details": "Sud Radio, 11/12/2025 ; Anadolu, décembre 2025, dont le contenu n'a pas pu être lu intégralement.",
+          "source_url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pourquoi-pas-un-ticket-avec-dominique-de-villepin-pour-la-presidentielle",
+          "source_title": "Ségolène Royal : pourquoi pas un ticket avec Dominique de Villepin ? (Sud Radio)",
+          "source_date": "2025-12-11",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "logement",
+      "found": false,
+      "positions": []
+    },
+    {
+      "topic_id": "industrie_economie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Juge que les 160 Md€ d'aides aux entreprises accordées « sans conditions » sont un gaspillage à réduire : chaque euro public dépensé doit être utile.",
+          "kind": "position_declaree",
+          "details": "Elle ne détaille pas les critères de conditionnalité (emploi, salaires, climat).",
+          "source_url": "https://www.franceinfo.fr/politique/segolene-royal/budget-2026-pour-reduire-le-deficit-il-faut-lutter-contre-les-gaspillages-il-ne-faut-pas-baisser-les-depenses-essentielles-estime-segolene-royal_7582286.html",
+          "source_title": "Budget 2026 : « Pour réduire le déficit, il faut lutter contre les gaspillages » (franceinfo)",
+          "source_date": "2025-10-29",
+          "confidence": "high"
+        },
+        {
+          "position": "Fait de la réindustrialisation un préalable, adossée aux investissements de la transition climatique.",
+          "kind": "position_declaree",
+          "short_quote": "Je ne touche pas aux retraites tant que je n'ai pas réindustrialisé le pays",
+          "source_url": "https://fr.finance.yahoo.com/actualites/veux-baisser-taxes-s%C3%A9gol%C3%A8ne-royal-090135153.html",
+          "source_title": "« Je veux baisser les taxes » (Capital/Yahoo, d'après RTL)",
+          "source_date": "2026-09-13",
+          "confidence": "high"
+        },
+        {
+          "position": "Veut une « urgence énergétique » pour les TPE, PME et artisans afin d'éviter les faillites, citant notamment des boulangeries.",
+          "kind": "proposition_explicite",
+          "details": "Axe de candidature du 10/07/2026. En mars 2025, sur X, elle citait les faillites de boulangers et d'artisans pour réclamer une électricité moins chère.",
+          "source_url": "https://lcp.fr/actualites/presidentielle-2027-segolene-royal-annonce-sa-candidature-a-la-primaire-socialiste",
+          "source_title": "Présidentielle 2027 : Ségolène Royal annonce sa candidature (LCP)",
+          "source_date": "2026-07-10",
+          "confidence": "high"
+        },
+        {
+          "position": "Critique l'ouverture à la concurrence du secteur électrique, qui livrerait selon elle les infrastructures aux « prédateurs », et prône la sortie du marché européen de l'électricité.",
+          "kind": "position_declaree",
+          "details": "Aucune position trouvée sur des nationalisations ou sur le statut d'EDF.",
+          "source_url": "https://contrepoints.org/nucleaire-segolene-royal-ou-linconsequence-en-politique/",
+          "source_title": "Nucléaire : Ségolène Royal ou l'inconséquence en politique (Contrepoints)",
+          "source_date": "2026-03-12",
+          "confidence": "medium"
+        },
+        {
+          "position": "Veut intégrer le coût carbone dans le prix des produits importés, une forme de protection commerciale environnementale.",
+          "kind": "position_declaree",
+          "source_url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pourquoi-pas-un-ticket-avec-dominique-de-villepin-pour-la-presidentielle",
+          "source_title": "Ségolène Royal : pourquoi pas un ticket avec Dominique de Villepin ? (Sud Radio)",
+          "source_date": "2025-12-11",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "numerique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Soutient la restriction de l'accès des moins de 15 ans aux réseaux sociaux, comme en Australie, en dénonçant les dégâts des algorithmes sur la santé mentale des jeunes. Elle préfère négocier avec les plateformes, dont Elon Musk, plutôt que les affronter frontalement.",
+          "kind": "position_declaree",
+          "details": "Sud Radio, 11/12/2025. Aucune réaction trouvée à la loi de juillet 2026 sur l'interdiction aux moins de 15 ans, censurée par le Conseil constitutionnel le 14/08/2026, ni de position sur l'IA ou la souveraineté numérique.",
+          "source_url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pourquoi-pas-un-ticket-avec-dominique-de-villepin-pour-la-presidentielle",
+          "source_title": "Ségolène Royal : pourquoi pas un ticket avec Dominique de Villepin ? (Sud Radio)",
+          "source_date": "2025-12-11",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "societe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Promet la « tolérance zéro » pour les violences faites aux enfants et aux femmes, priorité affichée de sa démarche.",
+          "kind": "proposition_explicite",
+          "short_quote": "Tolérance zéro pour les violences faites aux enfants et aux femmes",
+          "source_url": "https://www.epochtimes.fr/peut-etre-que-le-temps-des-femmes-est-venu-segolene-royal-entretient-le-suspense-sur-une-eventuelle-candidature-aux-presidentielles-3299152.html",
+          "source_title": "« Peut-être que le temps des femmes est venu » (Epoch Times, d'après Sud Radio)",
+          "source_date": "2026-07-03",
+          "confidence": "medium"
+        },
+        {
+          "position": "Dénonce l'impunité des violences sexuelles, affirmant que plus de 90 % des viols aboutissent à un non-lieu. Elle s'oppose à la réouverture des maisons closes évoquée par le RN.",
+          "kind": "position_declaree",
+          "short_quote": "plus de 90% des viols aboutissent en non-lieu",
+          "details": "Chiffre avancé par la candidate, non vérifié ici.",
+          "source_url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pourquoi-pas-un-ticket-avec-dominique-de-villepin-pour-la-presidentielle",
+          "source_title": "Ségolène Royal : pourquoi pas un ticket avec Dominique de Villepin ? (Sud Radio)",
+          "source_date": "2025-12-11",
+          "confidence": "medium"
+        },
+        {
+          "position": "Défend l'idée que « le temps des femmes est venu » et veut placer les « valeurs féminines » (protection, soin, transmission) au cœur de l'action publique. C'est la thèse de son livre « Mais qui va garder les enfants ? » (Fayard, octobre 2025).",
+          "kind": "position_declaree",
+          "short_quote": "Peut-être que le temps des femmes est venu",
+          "source_url": "https://www.franceinfo.fr/politique/segolene-royal/budget-2026-pour-reduire-le-deficit-il-faut-lutter-contre-les-gaspillages-il-ne-faut-pas-baisser-les-depenses-essentielles-estime-segolene-royal_7582286.html",
+          "source_title": "Budget 2026 : « Pour réduire le déficit, il faut lutter contre les gaspillages » (franceinfo, présentation du livre)",
+          "source_date": "2025-10-29",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "territoires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Critique la suppression du corps préfectoral, qui permettrait selon elle de nommer « sans règles », et oppose la connaissance du terrain des agriculteurs à une préfète jugée « hors sol ».",
+          "kind": "position_declaree",
+          "details": "Message sur X, daté d'environ fin juillet 2026. Seul l'extrait visible dans les résultats de recherche a pu être lu. Aucune position trouvée sur la ruralité, les services publics de proximité, l'outre-mer, la Corse ou la Nouvelle-Calédonie.",
+          "source_url": "https://x.com/RoyalSegolene/status/2081733837038526557",
+          "source_title": "Ségolène Royal sur X (préfète et agriculteurs)",
+          "source_date": "2026-07",
+          "confidence": "low"
+        },
+        {
+          "position": "Selon le comparateur iFRAP, propose de réorganiser les administrations en fonction des territoires.",
+          "kind": "proposition_explicite",
+          "details": "Attribution sans source primaire citée.",
+          "source_url": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+          "source_title": "Comparateur Présidentielles 2027 (Fondation iFRAP)",
+          "confidence": "low"
+        }
+      ]
+    }
+  ],
+  "signature_proposals": [
+    {
+      "proposal": "Rétablir l'impôt de solidarité sur la fortune financière, comme préalable à tout débat sur les retraites",
+      "topic_id": "fiscalite",
+      "source_url": "https://www.franceinfo.fr/elections/presidentielle/primaire-populaire-gauche/retraites-je-refuse-ce-debat-tant-que-la-question-du-retour-de-l-isf-n-est-pas-posee-affirme-segolene-royal-candidate-a-la-primaire-du-pole-socialiste_8170295.html"
+    },
+    {
+      "proposal": "Ramener le carburant à environ 1,70 €/L jusqu'au 31 décembre : baisse de TVA, dérogation européenne sur l'accise minimale (-33 cts sur le gazole), report des CEE (-15 cts), maîtrise des marges",
+      "topic_id": "fiscalite",
+      "source_url": "https://econostrum.info/carburant-a-170-euros-cette-taxe-europeenne-a/"
+    },
+    {
+      "proposal": "Installer des caméras de vidéosurveillance « partout » : écoles, périscolaire, crèches, Ehpad et chez les assistantes maternelles",
+      "topic_id": "securite_justice",
+      "source_url": "https://actu.orange.fr/politique/violences-dans-le-periscolaire-segolene-royal-veut-installer-des-cameras-partout-dans-les-ecoles-magic-CNT000002rFJA5.html"
+    },
+    {
+      "proposal": "« Tolérance zéro » pour les violences faites aux enfants et aux femmes",
+      "topic_id": "securite_justice",
+      "source_url": "https://www.france24.com/fr/info-en-continu/20260829-aux-journ%C3%A9es-d-%C3%A9t%C3%A9-du-ps-s%C3%A9gol%C3%A8ne-royal-d%C3%A9fend-sa-candidature"
+    },
+    {
+      "proposal": "Ne pas toucher aux retraites (ni désindexation, ni nouvelles économies) tant que l'ISF n'est pas rétabli et que le pays n'est pas réindustrialisé",
+      "topic_id": "retraites",
+      "source_url": "https://fr.finance.yahoo.com/actualites/veux-baisser-taxes-s%C3%A9gol%C3%A8ne-royal-090135153.html"
+    },
+    {
+      "proposal": "« Urgence énergétique » pour les TPE, PME, artisans et agriculteurs : baisse des taxes sur l'énergie, prix de l'électricité maîtrisés, sortie du marché européen de l'électricité",
+      "topic_id": "ecologie_energie",
+      "source_url": "https://lcp.fr/actualites/presidentielle-2027-segolene-royal-annonce-sa-candidature-a-la-primaire-socialiste"
+    },
+    {
+      "proposal": "TVA allégée sur les aliments produits en France",
+      "topic_id": "agriculture",
+      "source_url": "https://lesinguliersete.fr/segolene-royal-y-croit-encore-et-veut-faire-trembler-la-primaire-socialiste/"
+    },
+    {
+      "proposal": "Réduire le déficit en coupant les « gaspillages » (160 Md€ d'aides aux entreprises sans conditions, organismes en doublon, coût des ARS) plutôt que les dépenses essentielles",
+      "topic_id": "fiscalite",
+      "source_url": "https://www.franceinfo.fr/politique/segolene-royal/budget-2026-pour-reduire-le-deficit-il-faut-lutter-contre-les-gaspillages-il-ne-faut-pas-baisser-les-depenses-essentielles-estime-segolene-royal_7582286.html"
+    },
+    {
+      "proposal": "Appliquer énergiquement les décisions de la COP21 et faire de la transition climatique la « colonne vertébrale » de la relance",
+      "topic_id": "ecologie_energie",
+      "source_url": "https://fr.finance.yahoo.com/actualites/veux-baisser-taxes-s%C3%A9gol%C3%A8ne-royal-090135153.html"
+    },
+    {
+      "proposal": "Faire de la France une « puissance médiatrice » et rechercher une paix négociée, « juste et durable », en Ukraine",
+      "topic_id": "international_defense",
+      "source_url": "https://www.franceinfo.fr/elections/presidentielle/lors-du-premier-debat-de-la-primaire-socialiste-segolene-royal-mise-en-difficulte-sur-l-ukraine-et-israel_8207075.html"
+    },
+    {
+      "proposal": "Excuses officielles de la France à l'Algérie pour la colonisation, avec restitution des biens culturels et des archives (dont celles des essais nucléaires)",
+      "topic_id": "international_defense",
+      "source_url": "https://www.aa.com.tr/fr/afrique/crise-entre-l-alg%C3%A9rie-et-la-france-s%C3%A9gol%C3%A8ne-royal-appelle-%C3%A0-la-reconnaissance-des-crimes-coloniaux/3803276"
+    },
+    {
+      "proposal": "Refus de toute interdiction du voile dans l'espace public (« Laissons les femmes tranquilles »)",
+      "topic_id": "laicite_republique",
+      "source_url": "https://www.tsa-algerie.com/france-segolene-royal-denonce-la-chasse-au-foulard/"
+    }
+  ],
+  "distinctive_vs_others": "1) International : c'est la seule des cinq à défendre au débat LCI (23/09/2026) une issue négociée avec la Russie, au nom d'une « paix juste et durable ». Glucksmann lui a opposé que Poutine ne veut pas négocier et qu'il faut « résister » (franceinfo, 23/09/2026). Ses propos de 2022 mettant en doute des informations ukrainiennes renforcent ce marqueur (La Libre, 17/11/2022).\n2. Gaza et antisémitisme : comme Faure, elle emploie le mot « génocide », que Glucksmann refuse. Elle est la seule à avoir appelé les « voix juives » à dénoncer la politique israélienne, ce que Guedj a qualifié d'« incroyable injonction » et que le CRIF a condamné (Planet, 24/09/2026 ; franceinfo, 23/09/2026).\n3. Alliances : elle refuse d'exclure un accord avec LFI aux législatives, contrairement à Glucksmann et Guedj (France 24, 23/09/2026). En 2023, elle proposait une liste d'union avec LFI ; en 2024, un gouvernement d'« union républicaine » ouvert au centre et à LR. Sa ligne d'alliance est donc fluctuante.\n4. Une campagne « ordre juste » à forte tonalité sécuritaire et protectrice : vidéosurveillance généralisée dans les écoles, crèches et Ehpad, « tolérance zéro » pour les violences faites aux enfants. C'est sa marque propre, sans équivalent repéré chez les autres candidats.\n5. Sur l'économie, elle mise sur des baisses de taxes immédiates pour le pouvoir d'achat (carburant à 1,70 €, TVA allégée sur l'alimentation française, taxes énergie des PME). Elle refuse un alourdissement fiscal général et limite la hausse d'impôts à l'ISF financier. Les autres candidats ont mis en avant dans le fact-check du 01/10/2026 d'autres sujets fiscaux : millionnaires non imposés et dividendes pour Faure, droits de succession pour Guedj (franceinfo Vrai ou Fake).\n6. Positionnement souverainiste sur l'énergie et l'Europe : sortie du marché européen de l'électricité, « Les règles européennes, on les change ». Cette ligne la rapproche davantage de Maurel (GRS) que de Glucksmann (Place publique), pro-européen.\n7. Laïcité : opposition frontale à l'interdiction du voile dans l'espace public (« Laissons les femmes tranquilles »), avec un argumentaire sur l'image de la France dans le monde musulman.\n8. Mémoire : excuses officielles à l'Algérie, en tant que présidente de l'Association France-Algérie.\n9. Style : elle revendique son expérience de gouvernement contre l'« inexpérience » de Glucksmann (« stagiaire »), ce qui lui a valu un rappel à l'ordre de la commission de la primaire. C'est la seule candidate sans programme écrit détaillé.",
+  "evolutions_and_contradictions": "- Retraites : en août 2024, elle voulait corriger les aspects « brutaux » de la réforme de 2023 sans l'abroger (Anadolu, 30/08/2024). En 2026, elle refuse d'y toucher tant que l'ISF n'est pas rétabli et que le pays n'est pas réindustrialisé (franceinfo 31/08/2026 ; RTL 11/09/2026). Elle n'a pris aucun engagement explicite d'abrogation ni de retour à 62 ans.\n- Alliances : en 2023, liste d'union avec LFI aux européennes ; en 2024, gouvernement d'« union républicaine » avec des figures du centre et de LR ; en décembre 2025, « ticket » avec Villepin envisageable ; en 2026, LFI non exclue aux législatives et critique du « centre mou mâtiné de macronisme ».\n- Nucléaire : ministre, elle a porté la loi de 2015 (objectif de 50 % de nucléaire en 2025) et salué la fermeture de Fessenheim en 2017. En mars 2026, elle affirme n'avoir « jamais accepté » la fermeture idéologique de centrales (Contrepoints, 12/03/2026).\n- Écologie et fiscalité énergétique : elle place l'urgence climatique et la COP21 au cœur de son projet, tout en proposant de fortes baisses de taxes sur les carburants et le report des CEE, des mesures qui renchérissent les énergies fossiles moins que prévu.\n- Europe : ancienne ministre pro-européenne, elle déclare désormais « Les règles européennes, on les change » et veut quitter le marché européen de l'électricité.\n- Fiscalité : en octobre 2025, elle refuse tout alourdissement fiscal (« la France paie déjà le plus d'impôts ») ; en 2026, elle exige le retour de l'ISF financier. Les deux positions sont compatibles mais montrent un ciblage étroit. Son affirmation selon laquelle la plupart des pays auraient rétabli l'ISF a été jugée fausse par franceinfo (01/10/2026).\n- Finances publiques : elle dénonce la dette laissée aux générations futures tout en proposant des baisses de TVA et d'accises coûteuses (plusieurs Md€) sans chiffrage de compensation.\n- Ukraine : propos de 2022 mettant en doute des informations ukrainiennes, suivis d'excuses ; en 2026, ligne de paix négociée et formule « j'ai raison sur la Russie » (Agoravox TV, juin 2026).\n- Libertés et sécurité : la vidéosurveillance généralisée, jusque chez les assistantes maternelles, contraste avec une ligne libérale sur le voile (« Laissons les femmes tranquilles »).\n- Candidature : en juillet 2026, elle jugeait que « la multiplication des candidatures n'est pas ce qu'attendent les Français », avant de se présenter à une primaire à cinq.\n- Vérification du contexte : les faits indiqués dans la consigne sont confirmés par franceinfo (16/09/2026), LCP (23/09/2026), Touteleurope (02/10/2026) et Wikipédia FR. Il y a bien cinq candidats, Philippe Brun a été exclu le 16/09 après des accusations de violences sexistes et sexuelles, le vote a lieu les 9-10 et 16-17 octobre, et les débats se tiennent le 23/09 (LCI), le 01/10 (France 2/France Inter) et le 04/10 (BFMTV). Divergences mineures relevées : franceinfo (16/09) ne cite comme organisateurs que le PS et Place publique, alors que Touteleurope et Wikipédia ajoutent la GRS. Des agrégateurs peu fiables donnent des dates erronées (1er tour les 10-11 et 2nd tour les 17-18 octobre) ou une date d'annonce erronée (02/09/2026 au lieu du 10/07/2026, sur elections2027.com).",
+  "open_questions": [
+    "Elle n'a publié aucun programme écrit ni profession de foi détaillée. Ses propositions proviennent d'interviews et de discours.",
+    "Retraites : abrogerait-elle le report à 64 ans ? Retour à 62 ans ? Durée de cotisation, pénibilité, financement ? Aucune déclaration explicite en 2026.",
+    "Travail : aucune position trouvée sur le SMIC, l'indexation des salaires, les 32h ou la semaine de 4 jours, l'assurance chômage ou le RSA.",
+    "Logement : aucune position trouvée (encadrement des loyers, HLM, meublés touristiques).",
+    "Défense : aucune position trouvée sur le budget militaire, l'OTAN, la dissuasion nucléaire européenne, la Chine ou les États-Unis/Trump. Sa position sur les livraisons d'armes à l'Ukraine reste floue.",
+    "Immigration : aucune position 2025-2026 trouvée sur la régularisation des travailleurs sans papiers, l'AME, le pacte asile-migration, le droit du sol ou le droit de vote des étrangers aux élections locales.",
+    "Justice : aucune position trouvée sur le cannabis, le narcotrafic, les prisons ou les effectifs de police.",
+    "Institutions : aucune position récente sur la VIe République, la proportionnelle, le 49.3, la limitation des mandats ou le RIC.",
+    "Société : aucune position trouvée sur la fin de vie et l'aide à mourir, la PMA/GPA, les droits LGBT ou l'audiovisuel public. Un agrégateur lui prête une opposition à l'aide à mourir sans source vérifiable.",
+    "Agriculture : aucune position explicite sur l'accord UE-Mercosur, la PAC ou les bassines.",
+    "Territoires : aucune position sur l'outre-mer, la Nouvelle-Calédonie ou la Corse.",
+    "Financement du carburant à 1,70 € et de la TVA allégée sur l'alimentation : coût et compensation non chiffrés ; compatibilité avec le droit européen incertaine.",
+    "Nucléaire : soutien ou non au programme de nouveaux EPR2 ?",
+    "LFI : conditions concrètes d'une éventuelle alliance aux législatives et attitude envers une candidature Mélenchon. Un agrégateur (headtopics, d'après BFMTV) lui prête un rejet de Mélenchon, ce qui contredit France 24 ; ce point n'a pas été vérifié.",
+    "Le comparateur iFRAP lui attribue des propositions sans source primaire : rendement de l'ISF financier de 3 à 4 Md€, alignement des salaires des entreprises publiques sur la fonction publique, réduction du train de vie des institutions européennes. À confirmer.",
+    "Le débat BFMTV du 04/10/2026 n'avait pas encore eu lieu au moment de la recherche. Les comptes rendus détaillés du débat du 01/10 sur ses positions économiques sont lacunaires."
+  ],
+  "programme_sources": [
+    {
+      "title": "Présidentielle 2027 : Ségolène Royal annonce sa candidature à la primaire socialiste (LCP)",
+      "url": "https://lcp.fr/actualites/presidentielle-2027-segolene-royal-annonce-sa-candidature-a-la-primaire-socialiste",
+      "date": "2026-07-10"
+    },
+    {
+      "title": "Ségolène Royal annonce qu'elle participera à la primaire socialiste (franceinfo)",
+      "url": "https://www.franceinfo.fr/elections/presidentielle/segolene-royal-annonce-qu-elle-participera-a-la-primaire-socialiste-en-vue-de-l-election-presidentielle_8102696.html",
+      "date": "2026-07-10"
+    },
+    {
+      "title": "Ségolène Royal candidate à l'Élysée : incarner « la France tranquille » (La Patrie News, cinq axes)",
+      "url": "https://lapatrienews.dz/segolene-royal-candidate-a-lelysee-incarner-la-france-tranquille/",
+      "date": "2026-07-12"
+    },
+    {
+      "title": "Aux Journées d'été du PS, Ségolène Royal défend sa candidature (France 24/AFP)",
+      "url": "https://www.france24.com/fr/info-en-continu/20260829-aux-journ%C3%A9es-d-%C3%A9t%C3%A9-du-ps-s%C3%A9gol%C3%A8ne-royal-d%C3%A9fend-sa-candidature",
+      "date": "2026-08-29"
+    },
+    {
+      "title": "Retraites : « Je refuse ce débat tant que la question du retour de l'ISF n'est pas posée » (franceinfo)",
+      "url": "https://www.franceinfo.fr/elections/presidentielle/primaire-populaire-gauche/retraites-je-refuse-ce-debat-tant-que-la-question-du-retour-de-l-isf-n-est-pas-posee-affirme-segolene-royal-candidate-a-la-primaire-du-pole-socialiste_8170295.html",
+      "date": "2026-08-31"
+    },
+    {
+      "title": "Violences dans le périscolaire : Ségolène Royal veut installer des caméras « partout » (Orange/L'Express)",
+      "url": "https://actu.orange.fr/politique/violences-dans-le-periscolaire-segolene-royal-veut-installer-des-cameras-partout-dans-les-ecoles-magic-CNT000002rFJA5.html",
+      "date": "2026-09-02"
+    },
+    {
+      "title": "« Je veux baisser les taxes » : Ségolène Royal et le litre à 1,70 € (Capital/Yahoo, d'après RTL)",
+      "url": "https://fr.finance.yahoo.com/actualites/veux-baisser-taxes-s%C3%A9gol%C3%A8ne-royal-090135153.html",
+      "date": "2026-09-13"
+    },
+    {
+      "title": "« Vous ne mettez pas un stagiaire à la tête d'une entreprise » (franceinfo, d'après Libération)",
+      "url": "https://www.franceinfo.fr/politique/ps/primaire-a-gauche/vous-ne-mettez-pas-un-stagiaire-a-la-tete-d-une-entreprise-estime-segolene-royal-a-propos-de-la-candidature-de-raphael-glucksmann-a-la-presidentielle_8201996.html",
+      "date": "2026-09-20"
+    },
+    {
+      "title": "Pour sa première réunion publique, Ségolène Royal ressuscite son « ordre juste » (France 24/AFP)",
+      "url": "https://www.france24.com/fr/info-en-continu/20260922-pour-sa-premi%C3%A8re-r%C3%A9union-publique-s%C3%A9gol%C3%A8ne-royal-ressuscite-son-ordre-juste",
+      "date": "2026-09-22"
+    },
+    {
+      "title": "Lors du premier débat de la primaire socialiste, Ségolène Royal mise en difficulté sur l'Ukraine et Israël (franceinfo)",
+      "url": "https://www.franceinfo.fr/elections/presidentielle/lors-du-premier-debat-de-la-primaire-socialiste-segolene-royal-mise-en-difficulte-sur-l-ukraine-et-israel_8207075.html",
+      "date": "2026-09-23"
+    },
+    {
+      "title": "Primaire de la gauche : débat poli, mais désaccords profonds sur Gaza et une alliance avec LFI (France 24)",
+      "url": "https://www.france24.com/fr/france/20260923-primaire-de-la-gauche-lors-du-premier-d%C3%A9bat-s%C3%A9gol%C3%A8ne-royal-%C3%A9pingl%C3%A9e-sur-l-ukraine-et-isra%C3%ABl",
+      "date": "2026-09-23"
+    },
+    {
+      "title": "Carburant à 1,70 euros : cette « taxe européenne » que Ségolène Royal veut supprimer (Econostrum, d'après BFMTV)",
+      "url": "https://econostrum.info/carburant-a-170-euros-cette-taxe-europeenne-a/",
+      "date": "2026-09-25"
+    },
+    {
+      "title": "Débat de la primaire de la gauche sur France 2 et France Inter (franceinfo, live)",
+      "url": "https://www.franceinfo.fr/elections/presidentielle/direct-presidentielle-2027-suivez-le-debat-des-candidats-a-la-primaire-du-pole-socialiste-sur-france-2-et-france-inter-a-20h40_8218531.html",
+      "date": "2026-10-01"
+    },
+    {
+      "title": "Vrai ou faux : six affirmations des candidats à la primaire de la gauche vérifiées (franceinfo)",
+      "url": "https://www.franceinfo.fr/vrai-ou-fake/vrai-ou-faux-salaire-des-enseignants-impot-sur-la-fortune-dividendes-on-a-verifie-six-affirmations-des-candidats-a-la-primaire-de-la-gauche-lors-de-leur-debat_8218897.html",
+      "date": "2026-10-02"
+    },
+    {
+      "title": "Budget 2026 : « Pour réduire le déficit, il faut lutter contre les gaspillages » (franceinfo ; livre « Mais qui va garder les enfants ? », Fayard)",
+      "url": "https://www.franceinfo.fr/politique/segolene-royal/budget-2026-pour-reduire-le-deficit-il-faut-lutter-contre-les-gaspillages-il-ne-faut-pas-baisser-les-depenses-essentielles-estime-segolene-royal_7582286.html",
+      "date": "2025-10-29"
+    },
+    {
+      "title": "Ségolène Royal : « Pour 2027, je consulte, je réfléchis… » (Sud Radio)",
+      "url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pour-2027-je-consulte-je-reflechis-si-je-peux-etre-utile-pourquoi-pas",
+      "date": "2026-07-03"
+    },
+    {
+      "title": "Ségolène Royal : pourquoi pas un ticket avec Dominique de Villepin ? (Sud Radio)",
+      "url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pourquoi-pas-un-ticket-avec-dominique-de-villepin-pour-la-presidentielle",
+      "date": "2025-12-11"
+    },
+    {
+      "title": "Cinq candidats participeront à la primaire de la gauche ; Philippe Brun exclu (franceinfo)",
+      "url": "https://www.franceinfo.fr/elections/presidentielle/cinq-candidats-participeront-a-la-primaire-de-la-gauche-pour-la-presidentielle-le-depute-philippe-brun-exclu-apres-des-accusations-de-violences_8194955.html",
+      "date": "2026-09-16"
+    },
+    {
+      "title": "Primaire présidentielle socialiste de 2026 (Wikipédia, point d'entrée)",
+      "url": "https://fr.wikipedia.org/wiki/Primaire_pr%C3%A9sidentielle_socialiste_de_2026",
+      "date": "2026-10-02"
+    }
+  ]
+}

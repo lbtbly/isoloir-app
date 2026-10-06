@@ -1,0 +1,2705 @@
+{
+  "result": {
+    "drafts": [
+      {
+        "group": "expansion",
+        "topics": [
+          {
+            "id": "solidarites",
+            "label": "Solidarités",
+            "description": "Minima sociaux, assurance chômage et droits des personnes handicapées."
+          },
+          {
+            "id": "egalite",
+            "label": "Égalité femmes-hommes",
+            "description": "Partage des responsabilités familiales et égalité salariale entre les femmes et les hommes."
+          }
+        ],
+        "questions": [
+          {
+            "id": "solidarites-x1",
+            "topicId": "solidarites",
+            "tier": "approfondi",
+            "prompt": "Quelle orientation donner à l’assurance chômage ?",
+            "context": "Aujourd’hui : les syndicats et le patronat négocient les règles de l’assurance chômage dans un cadre fixé par le gouvernement ; depuis 2023, la durée d’indemnisation est réduite quand le chômage est bas.",
+            "rationale": "Quatre candidats ont une position documentée. Glucksmann propose d’abroger la réforme Macron (a), Faure, via le projet du PS, de rendre la gestion aux seuls partenaires sociaux (b) et d’encadrer les sanctions (c). Maurel refuse toute nouvelle baisse des droits et critique la limitation à 18 mois (a compatible, rejet de d). Guedj critique le cadrage des négociations par l’exécutif (b compatible). L’approche externe d décrit la règle en vigueur. Royal : inconnue.",
+            "approaches": [
+              {
+                "id": "solidarites-x1-a",
+                "text": "Revenir sur les réformes récentes qui ont réduit la durée et le montant des allocations chômage",
+                "external": false
+              },
+              {
+                "id": "solidarites-x1-b",
+                "text": "Confier aux seuls syndicats et patronat la gestion de l’assurance chômage, sans cadrage de l’État",
+                "external": false
+              },
+              {
+                "id": "solidarites-x1-c",
+                "text": "Limiter les sanctions contre les chômeurs et interdire leur radiation pour refus d’un emploi précaire",
+                "external": false
+              },
+              {
+                "id": "solidarites-x1-d",
+                "text": "Maintenir la baisse de la durée d’indemnisation quand le chômage est bas, pour inciter à l’emploi",
+                "external": true
+              }
+            ],
+            "positions": [
+              {
+                "candidate": "glucksmann",
+                "approachId": "solidarites-x1-a",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "L’Acte I de Place publique, dont il est codirecteur de publication, propose d’abroger la réforme de l’assurance chômage menée sous Emmanuel Macron, jugée « injuste et inefficace » (chantier 25).",
+                "sources": [
+                  {
+                    "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (co-dir. publication A. Lalucq et R. Glucksmann)",
+                    "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+                    "date": "2025-06",
+                    "publisher": "Place publique"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "PDF extrait localement (88 p.). Page 4 : co-directeurs de publication Aurore Lalucq et Raphaël Glucksmann. Chantier 25 (p. 53) : « Abroger la réforme Macron de l’assurance chômage, injuste et inefficace. » Aucune contradiction trouvée dans le dossier 2026."
+              },
+              {
+                "candidate": "glucksmann",
+                "approachId": "solidarites-x1-d",
+                "weight": 0,
+                "rejects": true,
+                "nature": "inference",
+                "confidence": "medium",
+                "summary": "En proposant d’abroger « la réforme Macron » de l’assurance chômage, l’Acte I écarte implicitement la règle qui réduit la durée d’indemnisation quand le chômage est bas, issue des réformes de ce quinquennat.",
+                "sources": [
+                  {
+                    "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (co-dir. publication A. Lalucq et R. Glucksmann)",
+                    "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+                    "date": "2025-06",
+                    "publisher": "Place publique"
+                  }
+                ],
+                "verdict": "adjusted",
+                "note": "Le texte (chantier 25) dit seulement « abroger la réforme Macron de l’assurance chômage » sans préciser laquelle ni mentionner la modulation de la durée selon le taux de chômage. Le rejet de cette règle est donc déduit et non explicite : nature passée de proposition à inference."
+              },
+              {
+                "candidate": "faure",
+                "approachId": "solidarites-x1-b",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Le projet du PS, présenté par son site de campagne comme l’ensemble de ses propositions, prévoit de confier la gestion de l’assurance chômage aux seuls syndicats et organisations patronales, en supprimant les lettres de cadrage du gouvernement issues de la loi de 2018.",
+                "sources": [
+                  {
+                    "title": "Le Projet socialiste – Vivre libres, ch. 1 et 2 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/vivre-libres/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Chapitre 1 : « Confier la gestion de l’assurance chômage exclusivement aux organisations syndicales et patronales » via la suppression des lettres de cadrage de la loi Avenir professionnel de 2018. Vérifié aussi : sur avecfaure2027.fr/mes-propositions, le bouton « TOUTES LES PROPOSITIONS » renvoie vers projet-socialiste.fr/projet/."
+              },
+              {
+                "candidate": "faure",
+                "approachId": "solidarites-x1-c",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Le même projet prévoit d’encadrer strictement les radiations et les sanctions, d’interdire toute radiation pour refus d’un emploi considéré comme précaire, d’instaurer un barème national unique des sanctions et un recours humain suspensif face aux algorithmes de France Travail.",
+                "sources": [
+                  {
+                    "title": "Le Projet socialiste – Vivre libres, ch. 1 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/vivre-libres/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "adjusted",
+                "note": "Le texte du chapitre 1 reprend presque mot pour mot l’approche (« interdisant toute radiation pour refus d’un emploi considéré comme précaire »). C’est une proposition explicite : poids relevé de 1 à 2, selon la règle « 2 = proposition explicite »."
+              },
+              {
+                "candidate": "maurel",
+                "approachId": "solidarites-x1-a",
+                "weight": 1,
+                "rejects": false,
+                "nature": "inference",
+                "confidence": "medium",
+                "summary": "Son programme refuse toute nouvelle réduction des droits des chômeurs et rappelle que l’allocation a été rendue dégressive et limitée à 18 mois pour les moins de 55 ans, sans dire s’il reviendrait sur ces règles.",
+                "sources": [
+                  {
+                    "title": "Programme – Emmanuel Maurel 2027",
+                    "url": "https://emmanuel-maurel.fr/programme/",
+                    "date": "2026-09",
+                    "publisher": "emmanuel-maurel.fr"
+                  }
+                ],
+                "verdict": "adjusted",
+                "note": "Le programme rejette le projet de « réduire à nouveau les droits des chômeurs » et cite la dégressivité et la limite de 18 mois comme des faits. Il ne propose pas de revenir sur les réformes passées. La compatibilité avec l’approche est déduite : nature passée de declaration à inference. Le poids 1 est maintenu."
+              },
+              {
+                "candidate": "maurel",
+                "approachId": "solidarites-x1-d",
+                "weight": 0,
+                "rejects": true,
+                "nature": "inference",
+                "confidence": "low",
+                "summary": "Son programme refuse le « discours de culpabilisation des chômeurs » et toute nouvelle baisse de leurs droits, en citant la limitation de l’indemnisation à 18 mois pour les moins de 55 ans parmi les signes de leur précarité.",
+                "sources": [
+                  {
+                    "title": "Programme – Emmanuel Maurel 2027",
+                    "url": "https://emmanuel-maurel.fr/programme/",
+                    "date": "2026-09",
+                    "publisher": "emmanuel-maurel.fr"
+                  }
+                ],
+                "verdict": "adjusted",
+                "note": "La limite de 18 mois apparaît seulement entre parenthèses, comme un constat. Il n’existe ni critique explicite de la modulation selon la conjoncture, ni engagement à la supprimer. Le rejet ne vaut que par le refus de la logique d’incitation et de culpabilisation. Nature passée à inference, confiance abaissée à low, et la formule « il critique » a été retirée du résumé."
+              },
+              {
+                "candidate": "guedj",
+                "approachId": "solidarites-x1-b",
+                "weight": 1,
+                "rejects": false,
+                "nature": "inference",
+                "confidence": "low",
+                "summary": "En mars 2026, il relève que le cadrage de la négociation de l’assurance chômage par des documents gouvernementaux s’est renforcé et appelle à redonner un pouvoir réel à la négociation collective, sans proposer explicitement de supprimer ce cadrage.",
+                "sources": [
+                  {
+                    "title": "Trois questions à Jérôme Guedj (site du député)",
+                    "url": "https://www.jerome-guedj.fr/medias/trois-questions-a-jerome-guedj",
+                    "date": "2026-03-02",
+                    "publisher": "jerome-guedj.fr"
+                  }
+                ],
+                "verdict": "adjusted",
+                "note": "Page en JavaScript, lue via l’API publique Sanity du site (même contenu). La source LCI d’octobre 2025 a été retirée : elle mentionne seulement « la mise de côté de la réforme de l’assurance chômage » parmi des signaux d’ouverture, ce qui touche au niveau des droits et non à la gouvernance (elle pourrait éventuellement appuyer x1-a). L’approche (« seuls » partenaires sociaux, « sans cadrage de l’État ») va au-delà de ses propos : nature passée à inference, confiance abaissée à low."
+              }
+            ]
+          },
+          {
+            "id": "solidarites-x2",
+            "topicId": "solidarites",
+            "tier": "approfondi",
+            "prompt": "Quelle évolution pour le revenu de solidarité active (RSA) et les autres minima sociaux ?",
+            "context": "Aujourd’hui : depuis 2025, les allocataires du RSA sont inscrits à France Travail et doivent en principe consacrer au moins 15 heures par semaine à des activités d’insertion.",
+            "rationale": "Faure (projet du PS : RSA inconditionnel et automatique) et Glucksmann (minimum social unique, automatisation des droits) portent deux réformes différentes. Guedj refuse le gel des minima sociaux et les sanctions automatiques prévues par la loi contre la fraude ; Maurel a voté contre cette loi et contre un amendement durcissant les sanctions. L’approche externe e reprend la logique de ce texte. Royal : inconnue.",
+            "approaches": [
+              {
+                "id": "solidarites-x2-a",
+                "text": "Supprimer les heures d’activité exigées des allocataires du RSA pour en faire un droit sans condition",
+                "external": false
+              },
+              {
+                "id": "solidarites-x2-b",
+                "text": "Fusionner les différents minima sociaux en une allocation unique aux règles et montants harmonisés",
+                "external": false
+              },
+              {
+                "id": "solidarites-x2-c",
+                "text": "Verser automatiquement les aides sociales à ceux qui y ont droit, grâce à un dossier social unique",
+                "external": false
+              },
+              {
+                "id": "solidarites-x2-d",
+                "text": "Revaloriser chaque année les minima sociaux au moins au rythme de la hausse des prix, sans gel",
+                "external": false
+              },
+              {
+                "id": "solidarites-x2-e",
+                "text": "Durcir les contrôles et les sanctions contre la fraude aux aides, avec suspension des droits dès le soupçon",
+                "external": true
+              }
+            ],
+            "positions": [
+              {
+                "candidate": "faure",
+                "approachId": "solidarites-x2-a",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Le projet du PS, présenté par son site de campagne comme l’ensemble de ses propositions, prévoit de refonder le RSA pour le rendre inconditionnel et automatique, avec un droit universel et opposable à l’accompagnement.",
+                "sources": [
+                  {
+                    "title": "Le Projet socialiste – Refaire société, ch. 16 à 18 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/refaire-societe/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Chapitre 16 : « Refonder le RSA pour en garantir l’inconditionnalité et l’automaticité. » Les 15 heures d’activité ne sont pas citées, mais l’inconditionnalité correspond au « droit sans condition » de l’approche."
+              },
+              {
+                "candidate": "faure",
+                "approachId": "solidarites-x2-c",
+                "weight": 1,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Le même projet veut faire de la réduction du non-recours une priorité nationale en automatisant autant que possible l’accès aux droits, et prévoit un versement automatique du RSA, sans mentionner de dossier social unique.",
+                "sources": [
+                  {
+                    "title": "Le Projet socialiste – Refaire société, ch. 16 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/refaire-societe/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "adjusted",
+                "note": "Résumé corrigé : la mention des frais bancaires, sans rapport avec l’approche, a été remplacée par la proposition pertinente du chapitre 16 (« automatiser autant que possible l’accès aux droits »). Le texte ne contient aucun dossier social unique, d’où le maintien du poids 1."
+              },
+              {
+                "candidate": "glucksmann",
+                "approachId": "solidarites-x2-b",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "L’Acte I propose une grande conférence sociale pour aller vers un minimum social unique, accessible à tous, y compris aux moins de 25 ans, avec des droits et des montants harmonisés et une gestion unifiée.",
+                "sources": [
+                  {
+                    "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (co-dir. publication A. Lalucq et R. Glucksmann)",
+                    "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+                    "date": "2025-06",
+                    "publisher": "Place publique"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Chantier 25 (p. 53), formulation conforme."
+              },
+              {
+                "candidate": "glucksmann",
+                "approachId": "solidarites-x2-c",
+                "weight": 1,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "L’Acte I veut automatiser l’accès aux droits sociaux contre le non-recours, grâce à un dossier social unique partagé et à des guichets uniques de Sécurité sociale.",
+                "sources": [
+                  {
+                    "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (co-dir. publication A. Lalucq et R. Glucksmann)",
+                    "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+                    "date": "2025-06",
+                    "publisher": "Place publique"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Chantier 25 : « Automatiser l’accès aux droits avec un dossier social unique partagé ». Correspondance quasi littérale avec l’approche, qui pourrait justifier un poids 2. Le poids 1 (approche secondaire) reste défendable."
+              },
+              {
+                "candidate": "guedj",
+                "approachId": "solidarites-x2-d",
+                "weight": 1,
+                "rejects": false,
+                "nature": "declaration",
+                "confidence": "medium",
+                "summary": "Il a refusé le gel des prestations sociales et « l’affaiblissement des minima sociaux » prévus dans le budget 2026, puis s’est félicité en 2026 d’avoir évité une « année blanche » sur toutes les prestations, sans avancer de règle de revalorisation.",
+                "sources": [
+                  {
+                    "title": "« S’il n’y a pas de suspension de la réforme des retraites, il n’y a plus de gouvernement » – Europe 1 (site du député)",
+                    "url": "https://www.jerome-guedj.fr/medias/suspension-reforme-retraites-europe1-jerome-guedj-16-octobre-2025",
+                    "date": "2025-10-16",
+                    "publisher": "jerome-guedj.fr"
+                  },
+                  {
+                    "title": "Trois questions à Jérôme Guedj (site du député)",
+                    "url": "https://www.jerome-guedj.fr/medias/trois-questions-a-jerome-guedj",
+                    "date": "2026-03-02",
+                    "publisher": "jerome-guedj.fr"
+                  }
+                ],
+                "verdict": "adjusted",
+                "note": "Les deux pages ont été lues via l’API Sanity du site. Une source de 2026 a été ajoutée (année blanche évitée). La formule « il n’a pas de proposition propre sur le RSA » a été retirée du résumé : c’est une affirmation d’absence invérifiable ici."
+              },
+              {
+                "candidate": "guedj",
+                "approachId": "solidarites-x2-e",
+                "weight": 0,
+                "rejects": true,
+                "nature": "declaration",
+                "confidence": "high",
+                "summary": "Il a voté contre le projet de loi sur les fraudes sociales et fiscales (avril 2026) : il refuse les sanctions automatiques et la suspension d’indemnités sur simple suspicion, et veut traiter les allocataires « comme des citoyens ».",
+                "sources": [
+                  {
+                    "title": "Fraudes sociales et fiscales : ce que le gouvernement n’a pas osé faire (site du député)",
+                    "url": "https://www.jerome-guedj.fr/actus/fraudes-sociales-et-fiscales-ce-que-le-gouvernement-na-pas-ose-faire",
+                    "date": "2026-04-07",
+                    "publisher": "jerome-guedj.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Texte de son site, en première personne, daté du 7 avril 2026. Il dénonce les « sanctions automatiques » et la « suspension des indemnités sur simple suspicion »."
+              },
+              {
+                "candidate": "maurel",
+                "approachId": "solidarites-x2-e",
+                "weight": 0,
+                "rejects": true,
+                "nature": "inference",
+                "confidence": "medium",
+                "summary": "Le 30 mars 2026, il a voté contre un amendement du RN durcissant les sanctions de la fraude aux prestations sociales (amendes multiples des sommes indues, suspension des droits en cas de récidive).",
+                "sources": [
+                  {
+                    "title": "Datan – Renforcer les sanctions contre la fraude aux prestations sociales (vote n° 5868)",
+                    "url": "https://datan.fr/votes/legislature-17/vote_5868",
+                    "date": "2026-03-30",
+                    "publisher": "Datan"
+                  }
+                ],
+                "verdict": "adjusted",
+                "note": "Son vote CONTRE est confirmé sur Datan (seul votant du groupe GDR). Le résumé initial affirmait aussi un vote contre l’ensemble du projet de loi, ce que la source citée ne documente pas : mention retirée. L’amendement prévoit une suspension en cas de récidive et non sur soupçon, d’où la nature inference."
+              }
+            ]
+          },
+          {
+            "id": "solidarites-x3",
+            "topicId": "solidarites",
+            "tier": "approfondi",
+            "prompt": "Quelle priorité pour les droits des personnes handicapées ?",
+            "context": "Aujourd’hui : l’allocation aux adultes handicapés (AAH) reste inférieure au seuil de pauvreté, et les droits des personnes handicapées sont examinés par les maisons départementales des personnes handicapées (MDPH).",
+            "rationale": "Trois candidats ont des propositions précises et différentes : relever l’AAH (Faure, projet du PS), supprimer les MDPH au profit de la Sécurité sociale (Glucksmann), mieux payer les AESH (Maurel, et Faure dans sa profession de foi). Guedj promet une « politique ambitieuse d’inclusion » sans mesure : laissé inconnu. Royal : inconnue.",
+            "approaches": [
+              {
+                "id": "solidarites-x3-a",
+                "text": "Porter l’allocation aux adultes handicapés au niveau du seuil de pauvreté et l’ouvrir dès 18 ans",
+                "external": false
+              },
+              {
+                "id": "solidarites-x3-b",
+                "text": "Supprimer les maisons départementales du handicap et confier leurs missions à la Sécurité sociale",
+                "external": false
+              },
+              {
+                "id": "solidarites-x3-c",
+                "text": "Augmenter la paie des accompagnants des élèves handicapés et leur donner un statut plus protecteur",
+                "external": false
+              },
+              {
+                "id": "solidarites-x3-d",
+                "text": "Rendre accessibles aux personnes handicapées tous les transports en commun et tous les logements neufs",
+                "external": false
+              }
+            ],
+            "positions": [
+              {
+                "candidate": "faure",
+                "approachId": "solidarites-x3-a",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Le projet du PS, présenté par son site de campagne comme l’ensemble de ses propositions, prévoit de relever l’AAH au niveau du seuil de pauvreté, de l’ouvrir dès 18 ans et d’en préserver l’individualisation.",
+                "sources": [
+                  {
+                    "title": "Le Projet socialiste – S’épanouir à égalité, ch. 12 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/sepanouir-a-egalite/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Chapitre 12 : rehausser l’AAH au niveau du seuil de pauvreté, abaisser l’âge d’accès à 18 ans, préserver l’individualisation."
+              },
+              {
+                "candidate": "faure",
+                "approachId": "solidarites-x3-c",
+                "weight": 1,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "high",
+                "summary": "Sa profession de foi promet de meilleures conditions de travail aux AESH ; le projet du PS prévoit d’en recruter davantage, de mieux les payer et de sécuriser leur statut.",
+                "sources": [
+                  {
+                    "title": "Profession de foi d’Olivier Faure – primaire Choisir 2027",
+                    "url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+                    "date": "2026-09-24",
+                    "publisher": "Choisir 2027"
+                  },
+                  {
+                    "title": "Le Projet socialiste – S’épanouir à égalité, ch. 12 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/sepanouir-a-egalite/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "La profession de foi cite seulement les « conditions de travail des AESH » ; la rémunération et le statut viennent du projet du PS (ch. 12)."
+              },
+              {
+                "candidate": "glucksmann",
+                "approachId": "solidarites-x3-b",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "L’Acte I propose de supprimer les MDPH et de transférer leurs missions à la Sécurité sociale, avec un référent social unique (chantier 28).",
+                "sources": [
+                  {
+                    "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (co-dir. publication A. Lalucq et R. Glucksmann)",
+                    "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+                    "date": "2025-06",
+                    "publisher": "Place publique"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Chantier 28 (p. 58), formulation explicite."
+              },
+              {
+                "candidate": "glucksmann",
+                "approachId": "solidarites-x3-d",
+                "weight": 1,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "L’Acte I veut une accessibilité universelle, en priorité dans les transports en commun, et rétablir l’obligation d’accessibilité pour tous les logements neufs.",
+                "sources": [
+                  {
+                    "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (co-dir. publication A. Lalucq et R. Glucksmann)",
+                    "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+                    "date": "2025-06",
+                    "publisher": "Place publique"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Chantier 28 : « Prioriser l’accessibilité des transports en commun » et rétablir l’accessibilité universelle de tous les nouveaux logements."
+              },
+              {
+                "candidate": "maurel",
+                "approachId": "solidarites-x3-c",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "high",
+                "summary": "Son programme prévoit d’améliorer le statut et la rémunération des AESH, de mieux former les équipes et de réduire davantage les effectifs des classes qui accueillent un élève handicapé.",
+                "sources": [
+                  {
+                    "title": "Programme – Emmanuel Maurel 2027",
+                    "url": "https://emmanuel-maurel.fr/programme/",
+                    "date": "2026-09",
+                    "publisher": "emmanuel-maurel.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Texte : « Amélioration du statut et de la rémunération des AESH », réduction accrue des effectifs quand la classe compte un élève avec notification MDPH."
+              }
+            ]
+          },
+          {
+            "id": "logement-x1",
+            "topicId": "logement",
+            "tier": "approfondi",
+            "prompt": "Comment freiner la spéculation immobilière et remettre en usage les logements vides ?",
+            "context": "Aujourd’hui : dans les villes où le logement manque, les logements vides depuis plus d’un an sont soumis à une taxe ; le prix des terrains à bâtir n’est pas encadré.",
+            "rationale": "Maurel fait de l’encadrement du prix du foncier une mesure centrale, que Faure a aussi défendue au congrès HLM. Faure (projet du PS) propose une taxe sur les multipropriétaires dès le 4e logement ; Glucksmann préfère taxer la vacance et élargir la préemption, sans réquisition. Approche externe : alléger la fiscalité des bailleurs. Guedj et Royal : inconnus.",
+            "approaches": [
+              {
+                "id": "logement-x1-a",
+                "text": "Encadrer les prix des terrains à bâtir pour freiner la spéculation sur le foncier",
+                "external": false
+              },
+              {
+                "id": "logement-x1-b",
+                "text": "Taxer davantage les propriétaires de nombreux logements, à partir du quatrième",
+                "external": false
+              },
+              {
+                "id": "logement-x1-c",
+                "text": "Alourdir la taxe sur les logements vides et laisser les communes les racheter en priorité",
+                "external": false
+              },
+              {
+                "id": "logement-x1-d",
+                "text": "Alléger les impôts des propriétaires bailleurs pour relancer l’investissement locatif",
+                "external": true
+              }
+            ],
+            "positions": [
+              {
+                "candidate": "maurel",
+                "approachId": "logement-x1-a",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "high",
+                "summary": "Son programme veut encadrer les prix du foncier pour bloquer la spéculation sur les terrains constructibles, qui pèsent selon lui jusqu’à 40 % du coût de construction.",
+                "sources": [
+                  {
+                    "title": "Programme – Emmanuel Maurel 2027",
+                    "url": "https://emmanuel-maurel.fr/programme/",
+                    "date": "2026-09",
+                    "publisher": "emmanuel-maurel.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Texte : « généraliser l’encadrement des loyers et des prix du foncier » ; le foncier représenterait « jusqu’à 40 % du coût de construction »."
+              },
+              {
+                "candidate": "faure",
+                "approachId": "logement-x1-a",
+                "weight": 1,
+                "rejects": false,
+                "nature": "declaration",
+                "confidence": "high",
+                "summary": "Au congrès HLM de septembre 2026, il a défendu une régulation des prix du foncier et le soutien à l’accession à la propriété.",
+                "sources": [
+                  {
+                    "title": "Au congrès HLM, Olivier Faure et François Hollande s’expriment sur le logement (Batiweb)",
+                    "url": "https://www.batiweb.com/actualites/immobilier/congres-hlm-faure-hollande-logement-49329",
+                    "date": "2026-09-23",
+                    "publisher": "Batiweb"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Batiweb (congrès HLM de Bordeaux, 22-24 septembre 2026) : il défend « la régulation des prix du foncier ». À noter, hors lot : sa profession de foi propose de « faciliter la réquisition des logements vacants en zone tendue »."
+              },
+              {
+                "candidate": "faure",
+                "approachId": "logement-x1-b",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Le projet du PS, présenté par son site de campagne comme l’ensemble de ses propositions, prévoit une taxe « anti-rente » sur les multipropriétaires dès le quatrième logement, affectée au logement public et à la rénovation.",
+                "sources": [
+                  {
+                    "title": "Le Projet socialiste – Vivre libres, ch. 2 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/vivre-libres/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Chapitre 2 : taxe anti-rente « dès le quatrième logement (hors résidence principale) ». Les bailleurs à loyers conventionnés en sont exonérés et les recettes vont au logement public et à la rénovation thermique."
+              },
+              {
+                "candidate": "glucksmann",
+                "approachId": "logement-x1-c",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "L’Acte I propose d’élargir le droit de préemption des collectivités sur les immeubles vides ou dégradés et d’alourdir, avec des barèmes progressifs, la fiscalité de la vacance longue ; il ne prévoit pas de réquisition.",
+                "sources": [
+                  {
+                    "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (co-dir. publication A. Lalucq et R. Glucksmann)",
+                    "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+                    "date": "2025-06",
+                    "publisher": "Place publique"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Chantier 37 (p. 64) : élargir la préemption et renforcer la fiscalité sur la vacance longue « avec des barèmes progressifs et dissuasifs ». Le document ne mentionne aucune réquisition."
+              }
+            ]
+          },
+          {
+            "id": "education-x1",
+            "topicId": "education",
+            "tier": "approfondi",
+            "prompt": "Quelle priorité pour l’université et la recherche publique ?",
+            "context": "Aujourd’hui : l’accès aux formations de l’enseignement supérieur passe par la plateforme nationale Parcoursup, et une partie croissante du financement de la recherche publique est attribuée par appels à projets.",
+            "rationale": "Trois priorités distinctes : remplacer Parcoursup (Faure, projet du PS), augmenter massivement la dépense par étudiant et la recherche publique (Maurel), financer durablement les laboratoires plutôt que par appels à projets (Glucksmann). Faure et Maurel rejettent la hausse des frais d’inscription (approche externe e). Guedj fait de l’université une « grande priorité » sans mesure : laissé inconnu, comme Royal.",
+            "approaches": [
+              {
+                "id": "education-x1-a",
+                "text": "Remplacer Parcoursup par une procédure nationale d’affectation publique et transparente",
+                "external": false
+              },
+              {
+                "id": "education-x1-b",
+                "text": "Augmenter fortement la dépense par étudiant ainsi que le budget de la recherche publique",
+                "external": false
+              },
+              {
+                "id": "education-x1-c",
+                "text": "Financer les laboratoires sur la durée plutôt que par des appels à projets de court terme",
+                "external": false
+              },
+              {
+                "id": "education-x1-d",
+                "text": "Encadrer plus strictement les établissements d’enseignement supérieur privés à but lucratif",
+                "external": false
+              },
+              {
+                "id": "education-x1-e",
+                "text": "Laisser les universités choisir leurs étudiants et fixer plus librement leurs frais d’inscription",
+                "external": true
+              }
+            ],
+            "positions": [
+              {
+                "candidate": "faure",
+                "approachId": "education-x1-a",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Le projet du PS, présenté par son site de campagne comme l’ensemble de ses propositions, prévoit d’abroger Parcoursup au profit d’une procédure nationale publique et transparente.",
+                "sources": [
+                  {
+                    "title": "Le Projet socialiste – S’épanouir à égalité, ch. 11 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/sepanouir-a-egalite/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Chapitre 11 : abroger Parcoursup « au profit d’une procédure unique, nationale, publique, démocratique, transparente et humaine »."
+              },
+              {
+                "candidate": "faure",
+                "approachId": "education-x1-b",
+                "weight": 1,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Le projet du PS prévoit d’augmenter significativement les moyens des universités et des organismes de recherche, avec 20 000 postes créés en dix ans, et de porter la R&D à 3 % du PIB d’ici 2030, dont au moins 1 % pour la recherche publique.",
+                "sources": [
+                  {
+                    "title": "Le Projet socialiste – S’épanouir à égalité, ch. 11 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/sepanouir-a-egalite/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  },
+                  {
+                    "title": "Le Projet socialiste – Vivre libres, ch. 5 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/vivre-libres/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "adjusted",
+                "note": "L’objectif de 3 % du PIB d’ici 2030 ne figure pas dans « S’épanouir à égalité » mais dans « Vivre libres », chapitre 5 : source ajoutée. Les 20 000 postes (ch. 11) sont bien dans la source d’origine. Aucun chiffre de dépense par étudiant : le poids 1 est maintenu."
+              },
+              {
+                "candidate": "faure",
+                "approachId": "education-x1-e",
+                "weight": 0,
+                "rejects": true,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Le projet du PS prévoit de maintenir des droits d’inscription faibles, de réguler fermement le privé lucratif et d’abroger Parcoursup.",
+                "sources": [
+                  {
+                    "title": "Le Projet socialiste – S’épanouir à égalité, ch. 11 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/sepanouir-a-egalite/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Chapitre 11 : « Maintenir des droits d’inscription faibles », ce qui contredit directement des frais fixés librement. Sur la sélection, le texte veut seulement intégrer les filières sélectives aux universités, sans prise de position nette."
+              },
+              {
+                "candidate": "maurel",
+                "approachId": "education-x1-b",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "high",
+                "summary": "Son programme prévoit d’augmenter de 30 % la dépense par étudiant à l’université et de porter la recherche publique à 1 % du PIB, avec un crédit d’impôt recherche plus conditionné.",
+                "sources": [
+                  {
+                    "title": "Programme – Emmanuel Maurel 2027",
+                    "url": "https://emmanuel-maurel.fr/programme/",
+                    "date": "2026-09",
+                    "publisher": "emmanuel-maurel.fr"
+                  }
+                ],
+                "verdict": "adjusted",
+                "note": "Le texte dit « augmenter de 30 % la dépense par étudiant », et non « d’au moins 30 % » : résumé corrigé. Le reste est conforme."
+              },
+              {
+                "candidate": "maurel",
+                "approachId": "education-x1-e",
+                "weight": 0,
+                "rejects": true,
+                "nature": "inference",
+                "confidence": "low",
+                "summary": "Un communiqué de la GRS, son parti, approuve les lycéens qui se mobilisent contre la sélection, critique Parcoursup et les invite à obtenir la fin de la hausse des droits d’inscription en BTS et en classes préparatoires.",
+                "sources": [
+                  {
+                    "title": "GRS – Le gouvernement doit répondre aux aspirations légitimes des lycéens et des étudiants (communiqué)",
+                    "url": "https://g-r-s.fr/mouvement_lyceen-02-10-2026/",
+                    "date": "2026-10-02",
+                    "publisher": "g-r-s.fr"
+                  }
+                ],
+                "verdict": "adjusted",
+                "note": "Communiqué de parti signé Frédéric Faravel, qui ne cite pas Maurel nommément. Son programme ne dit rien de la sélection ni des frais d’inscription. Le rejet est donc attribué via le parti et non par une déclaration personnelle : nature passée à inference, confiance à low, et « il » retiré du résumé."
+              },
+              {
+                "candidate": "glucksmann",
+                "approachId": "education-x1-c",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "L’Acte I veut en finir avec les appels à projets de court terme au profit d’un financement durable des laboratoires, et mieux rémunérer chercheurs, ingénieurs et techniciens (chantier 9).",
+                "sources": [
+                  {
+                    "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (co-dir. publication A. Lalucq et R. Glucksmann)",
+                    "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+                    "date": "2025-06",
+                    "publisher": "Place publique"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Chantier 9 (p. 24), formulation conforme."
+              },
+              {
+                "candidate": "glucksmann",
+                "approachId": "education-x1-d",
+                "weight": 1,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "L’Acte I veut mieux encadrer le supérieur privé lucratif : transparence, contrôle pédagogique et aides publiques conditionnées (chantier 10).",
+                "sources": [
+                  {
+                    "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (co-dir. publication A. Lalucq et R. Glucksmann)",
+                    "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+                    "date": "2025-06",
+                    "publisher": "Place publique"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Chantier 10 (p. 25), formulation conforme."
+              }
+            ]
+          },
+          {
+            "id": "education-x2",
+            "topicId": "education",
+            "tier": "approfondi",
+            "prompt": "Quelle priorité pour améliorer les apprentissages des élèves à l’école ?",
+            "context": "Aujourd’hui : les écoliers français ont moins de jours de classe dans l’année que dans la plupart des pays européens, mais des journées plus longues.",
+            "rationale": "Quatre candidats portent chacun une priorité pédagogique différente : réorganiser la journée (Guedj), alléger les journées en raccourcissant l’été (Faure, projet du PS), recentrer sur les fondamentaux (Maurel), généraliser le tutorat (Glucksmann). Royal (« une école qui émancipe ») : inconnue.",
+            "approaches": [
+              {
+                "id": "education-x2-a",
+                "text": "Consacrer les matinées aux savoirs fondamentaux et les après-midis à d’autres activités",
+                "external": false
+              },
+              {
+                "id": "education-x2-b",
+                "text": "Raccourcir les journées de classe en réduisant en contrepartie les vacances d’été",
+                "external": false
+              },
+              {
+                "id": "education-x2-c",
+                "text": "Recentrer l’enseignement sur le français et le calcul, avec dictée et calcul mental",
+                "external": false
+              },
+              {
+                "id": "education-x2-d",
+                "text": "Généraliser le tutorat et le soutien des élèves en difficulté pendant le temps scolaire",
+                "external": false
+              }
+            ],
+            "positions": [
+              {
+                "candidate": "guedj",
+                "approachId": "education-x2-a",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "high",
+                "summary": "Sa profession de foi propose de réorganiser la journée scolaire : les savoirs fondamentaux le matin, « la vie l’après-midi », sans en préciser les modalités.",
+                "sources": [
+                  {
+                    "title": "Profession de foi de Jérôme Guedj (Choisir 2027)",
+                    "url": "https://choisir2027.fr/wp-content/uploads/2026/09/PF-Jerome-Guedj.pdf",
+                    "date": "2026-09-22",
+                    "publisher": "Choisir 2027"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "PDF lu : « les fondamentaux le matin, la vie l’après-midi »."
+              },
+              {
+                "candidate": "faure",
+                "approachId": "education-x2-b",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Le projet du PS, présenté par son site de campagne comme l’ensemble de ses propositions, prévoit de réduire la journée scolaire, sur cinq jours, en raccourcissant les vacances d’été.",
+                "sources": [
+                  {
+                    "title": "Le Projet socialiste – S’épanouir à égalité, ch. 11 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/sepanouir-a-egalite/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Chapitre 11 : réduire le temps scolaire quotidien sur cinq journées par semaine, en réduisant la durée des congés d’été."
+              },
+              {
+                "candidate": "maurel",
+                "approachId": "education-x2-c",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "high",
+                "summary": "Son programme donne la primauté aux savoirs fondamentaux (français, calcul, raisonnement logique) et défend le « par cœur », la dictée et le calcul mental.",
+                "sources": [
+                  {
+                    "title": "Programme – Emmanuel Maurel 2027",
+                    "url": "https://emmanuel-maurel.fr/programme/",
+                    "date": "2026-09",
+                    "publisher": "emmanuel-maurel.fr"
+                  }
+                ],
+                "verdict": "adjusted",
+                "note": "Contenu conforme. Il s’agit d’un point de son programme (« Le primat des savoirs fondamentaux ») et non d’une simple déclaration : nature passée de declaration à proposition."
+              },
+              {
+                "candidate": "glucksmann",
+                "approachId": "education-x2-d",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "L’Acte I prévoit du tutorat et un accompagnement à grande échelle sur le temps scolaire, ainsi qu’un temps de formation continue de droit pour les personnels (chantier 33).",
+                "sources": [
+                  {
+                    "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (co-dir. publication A. Lalucq et R. Glucksmann)",
+                    "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+                    "date": "2025-06",
+                    "publisher": "Place publique"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Chantier 33 (p. 68) : développer à grande échelle l’accompagnement et le tutorat sur temps scolaire, avec des adultes formés et rémunérés."
+              }
+            ]
+          },
+          {
+            "id": "ecologie_energie-x1",
+            "topicId": "ecologie_energie",
+            "tier": "approfondi",
+            "prompt": "Quelle priorité pour la gestion de l’eau ?",
+            "context": "Aujourd’hui : la distribution de l’eau potable est assurée, selon les communes, par une régie publique ou par une entreprise privée, et des projets de grandes retenues d’eau pour l’irrigation agricole sont contestés.",
+            "rationale": "Maurel veut l’eau en régie publique partout ; Faure (profession de foi et projet du PS) et Glucksmann rejettent les « méga-bassines », Glucksmann ajoutant une tarification sociale. L’approche externe d (plus de retenues pour l’irrigation) est rejetée par ces deux derniers. Guedj et Royal : inconnus.",
+            "approaches": [
+              {
+                "id": "ecologie_energie-x1-a",
+                "text": "Confier dans toutes les communes le traitement et la distribution de l’eau à une régie publique",
+                "external": false
+              },
+              {
+                "id": "ecologie_energie-x1-b",
+                "text": "Interdire les grandes retenues d’eau pour l’irrigation et restaurer le cycle naturel de l’eau",
+                "external": false
+              },
+              {
+                "id": "ecologie_energie-x1-c",
+                "text": "Instaurer une tarification sociale de l’eau, avec une aide automatique pour les foyers modestes",
+                "external": false
+              },
+              {
+                "id": "ecologie_energie-x1-d",
+                "text": "Construire davantage de retenues d’eau pour sécuriser l’irrigation des cultures face aux sécheresses",
+                "external": true
+              }
+            ],
+            "positions": [
+              {
+                "candidate": "maurel",
+                "approachId": "ecologie_energie-x1-a",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "high",
+                "summary": "Son programme prévoit le traitement et la distribution de l’eau en régie publique dans toutes les villes et collectivités, avec des normes sanitaires et des sanctions sévères contre les pollueurs.",
+                "sources": [
+                  {
+                    "title": "Programme – Emmanuel Maurel 2027",
+                    "url": "https://emmanuel-maurel.fr/programme/",
+                    "date": "2026-09",
+                    "publisher": "emmanuel-maurel.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Il plaide pour un service public de l’eau dans toutes les villes et collectivités, et pour la régie publique du traitement et de la distribution."
+              },
+              {
+                "candidate": "faure",
+                "approachId": "ecologie_energie-x1-b",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Sa profession de foi promet de restaurer les cycles de l’eau et de défendre l’agroécologie ; le projet du PS, présenté par son site de campagne comme l’ensemble de ses propositions, prévoit d’interdire les « méga-bassines ».",
+                "sources": [
+                  {
+                    "title": "Profession de foi d’Olivier Faure – primaire Choisir 2027",
+                    "url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+                    "date": "2026-09-24",
+                    "publisher": "Choisir 2027"
+                  },
+                  {
+                    "title": "Le Projet socialiste – Vivre avec la nature, ch. 15 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/vivre-avec-la-nature/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Profession de foi : « Restaurer les cycles de l’eau et défendre l’agroécologie ». Chapitre 15 du projet : solutions fondées sur la nature pour restaurer le cycle de l’eau, et « Interdire les méga-bassines »."
+              },
+              {
+                "candidate": "faure",
+                "approachId": "ecologie_energie-x1-d",
+                "weight": 0,
+                "rejects": true,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Le projet du PS prévoit d’interdire les « méga-bassines », ces grandes retenues d’eau destinées à l’irrigation.",
+                "sources": [
+                  {
+                    "title": "Le Projet socialiste – Vivre avec la nature, ch. 15 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/vivre-avec-la-nature/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Chapitre 15 : « Interdire les méga-bassines »."
+              },
+              {
+                "candidate": "glucksmann",
+                "approachId": "ecologie_energie-x1-b",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "L’Acte I refuse les « méga-bassines » au profit de solutions locales concertées avec les agriculteurs et prévoit une planification des prélèvements et des « Parlements de l’eau ».",
+                "sources": [
+                  {
+                    "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (co-dir. publication A. Lalucq et R. Glucksmann)",
+                    "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+                    "date": "2025-06",
+                    "publisher": "Place publique"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Chantier 15 (p. 35) : « Refuser les méga-bassines au profit de solutions locales ». Le texte dit « refuser » et non « interdire », et ne parle pas de restaurer le cycle de l’eau. Le refus explicite justifie toutefois le poids 2."
+              },
+              {
+                "candidate": "glucksmann",
+                "approachId": "ecologie_energie-x1-c",
+                "weight": 1,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "L’Acte I propose une tarification sociale de l’eau par les collectivités, avec une aide automatique pour les foyers dont la facture dépasse 3 % des revenus.",
+                "sources": [
+                  {
+                    "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (co-dir. publication A. Lalucq et R. Glucksmann)",
+                    "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+                    "date": "2025-06",
+                    "publisher": "Place publique"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Chantier 15, formulation conforme."
+              },
+              {
+                "candidate": "glucksmann",
+                "approachId": "ecologie_energie-x1-d",
+                "weight": 0,
+                "rejects": true,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "L’Acte I refuse les « méga-bassines » et leur préfère des solutions locales concertées avec les agriculteurs.",
+                "sources": [
+                  {
+                    "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (co-dir. publication A. Lalucq et R. Glucksmann)",
+                    "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+                    "date": "2025-06",
+                    "publisher": "Place publique"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Chantier 15 : refus explicite."
+              }
+            ]
+          },
+          {
+            "id": "ecologie_energie-x2",
+            "topicId": "ecologie_energie",
+            "tier": "approfondi",
+            "prompt": "Quelle priorité pour protéger la population face aux canicules, aux incendies et aux catastrophes climatiques ?",
+            "context": "Aujourd’hui : le plan national d’adaptation adopté en 2025 prépare la France à un réchauffement de 4 °C d’ici 2100.",
+            "rationale": "Maurel et Royal veulent climatiser les bâtiments accueillant du public ; Glucksmann propose une garantie universelle d’assurance climatique et la rénovation des écoles ; Faure, après les mégafeux, réclame des moyens considérables pour la sécurité civile, ce que Royal évoque aussi. Guedj : inconnu.",
+            "approaches": [
+              {
+                "id": "ecologie_energie-x2-a",
+                "text": "Climatiser les écoles, les hôpitaux et les autres bâtiments qui accueillent du public",
+                "external": false
+              },
+              {
+                "id": "ecologie_energie-x2-b",
+                "text": "Rénover les écoles et aménager leurs cours pour mieux protéger les élèves de la chaleur",
+                "external": false
+              },
+              {
+                "id": "ecologie_energie-x2-c",
+                "text": "Créer une assurance contre les risques climatiques garantie à tous et financée par les assureurs",
+                "external": false
+              },
+              {
+                "id": "ecologie_energie-x2-d",
+                "text": "Renforcer fortement les effectifs et les équipements des pompiers et de la sécurité civile",
+                "external": false
+              }
+            ],
+            "positions": [
+              {
+                "candidate": "maurel",
+                "approachId": "ecologie_energie-x2-a",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "high",
+                "summary": "Son programme veut développer la climatisation dans les immeubles, bureaux, bâtiments publics et hôpitaux, l’électricité étant selon lui décarbonée à 95 %, ainsi que les réseaux de froid urbain.",
+                "sources": [
+                  {
+                    "title": "Programme – Emmanuel Maurel 2027",
+                    "url": "https://emmanuel-maurel.fr/programme/",
+                    "date": "2026-09",
+                    "publisher": "emmanuel-maurel.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Texte : « oui, il faut développer la climatisation dans les immeubles, les bureaux, les édifices publics, les hôpitaux ». Il juge les réseaux de froid « bien meilleures » sur le plan environnemental. Les écoles ne sont pas nommées, mais elles relèvent des édifices publics."
+              },
+              {
+                "candidate": "royal",
+                "approachId": "ecologie_energie-x2-a",
+                "weight": 2,
+                "rejects": false,
+                "nature": "declaration",
+                "confidence": "medium",
+                "summary": "Sur Sud Radio en juillet 2026, elle a jugé la climatisation nécessaire dans les écoles, les hôpitaux et les EHPAD, là où c’est possible, tout en déplorant l’inertie sur l’isolation thermique et l’improvisation face aux canicules.",
+                "sources": [
+                  {
+                    "title": "Ségolène Royal : « Pour 2027, je consulte, je réfléchis… » (Sud Radio)",
+                    "url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pour-2027-je-consulte-je-reflechis-si-je-peux-etre-utile-pourquoi-pas",
+                    "date": "2026-07-03",
+                    "publisher": "Sud Radio"
+                  }
+                ],
+                "verdict": "adjusted",
+                "note": "Propos tenus en interview avant sa candidature, et non une proposition de programme : nature passée de proposition à declaration. Citation : « Là où il est possible de climatiser, il faut climatiser ». Elle ajoute que le débat ne doit pas occulter l’isolation thermique. Hors lot, elle évoque aussi la rénovation thermique « avec une priorité donnée aux écoles », ce qui touche l’approche x2-b."
+              },
+              {
+                "candidate": "royal",
+                "approachId": "ecologie_energie-x2-d",
+                "weight": 1,
+                "rejects": false,
+                "nature": "declaration",
+                "confidence": "medium",
+                "summary": "Sa lettre de campagne dénonce le manque de moyens des pompiers face aux incendies, sans mesure chiffrée.",
+                "sources": [
+                  {
+                    "title": "La lettre de Ségolène (segolene-ordrejuste.fr)",
+                    "url": "https://segolene-ordrejuste.fr/la-lettre-de-segolene",
+                    "date": "2026-09",
+                    "publisher": "segolene-ordrejuste.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Lettre de septembre 2026 : elle évoque « le désespoir des pompiers » face à la carence de moyens matériels et humains. Ce constat est compatible avec l’approche ; elle ne formule aucune proposition."
+              },
+              {
+                "candidate": "glucksmann",
+                "approachId": "ecologie_energie-x2-c",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "L’Acte I propose une garantie universelle d’assurance climatique financée par les assureurs, qui inciterait à la prévention et limiterait l’exposition dans les zones vulnérables.",
+                "sources": [
+                  {
+                    "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (co-dir. publication A. Lalucq et R. Glucksmann)",
+                    "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+                    "date": "2025-06",
+                    "publisher": "Place publique"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Page 28 : « Instaurer une Garantie Universelle d’Assurance Climatique, financée par les assurances »."
+              },
+              {
+                "candidate": "glucksmann",
+                "approachId": "ecologie_energie-x2-b",
+                "weight": 1,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "L’Acte I prévoit un vaste plan de rénovation des écoles adapté au climat, avec des espaces extérieurs aménagés contre la chaleur (chantier 33).",
+                "sources": [
+                  {
+                    "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (co-dir. publication A. Lalucq et R. Glucksmann)",
+                    "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+                    "date": "2025-06",
+                    "publisher": "Place publique"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Chantier 33 : rénover les écoles en intégrant les enjeux climatiques et aménager les espaces extérieurs contre la chaleur."
+              },
+              {
+                "candidate": "faure",
+                "approachId": "ecologie_energie-x2-d",
+                "weight": 2,
+                "rejects": false,
+                "nature": "declaration",
+                "confidence": "medium",
+                "summary": "Après les mégafeux, il réclame des moyens « considérables » pour la sécurité civile et propose aussi des pare-feu naturels, le recensement des personnes vulnérables et une culture du risque.",
+                "sources": [
+                  {
+                    "title": "Olivier Faure : « Je ne vois pas ce qui pourrait conduire vers une autre décision que la censure » (Politis)",
+                    "url": "https://www.politis.fr/articles/2026/09/olivier-faure-je-ne-vois-pas-ce-qui-pourrait-conduire-vers-une-autre-decision-que-la-censure/",
+                    "date": "2026-09-21",
+                    "publisher": "Politis"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Citation : « Il faut développer des moyens considérables pour la sécurité civile ». Il reprend la demande des pompiers (21 000 professionnels de plus, tenues, Canadair). À la relance, il déplace la réponse vers un fonds d’adaptation, d’où une confiance medium. Hors lot, il cite aussi la végétalisation des cours d’école et la climatisation des crèches."
+              }
+            ]
+          },
+          {
+            "id": "territoires-x1",
+            "topicId": "territoires",
+            "tier": "approfondi",
+            "prompt": "Quelle politique pour les salaires et les effectifs de la fonction publique ?",
+            "context": "Aujourd’hui : la paie de base des fonctionnaires dépend d’un « point d’indice » dont le gouvernement fixe la valeur, sans obligation de suivre la hausse des prix.",
+            "rationale": "Trois mécanismes de revalorisation s’opposent : indexation sur l’inflation (Glucksmann), hausse d’au moins 10 % sur le quinquennat (Maurel), hausse ciblée sur les catégories B et C (Faure, projet du PS). Les trois veulent aussi moins de contractuels ou de cabinets de conseil (d, poids 1). Approche externe : réduire les effectifs. Guedj : inconnu ; Royal : seule une source secondaire de confiance faible, non retenue.",
+            "approaches": [
+              {
+                "id": "territoires-x1-a",
+                "text": "Revaloriser chaque année la paie de base de tous les fonctionnaires au rythme des prix",
+                "external": false
+              },
+              {
+                "id": "territoires-x1-b",
+                "text": "Augmenter d’au moins 10 % en cinq ans la paie de base de l’ensemble des fonctionnaires",
+                "external": false
+              },
+              {
+                "id": "territoires-x1-c",
+                "text": "Concentrer les hausses de salaire sur les agents publics qui sont les moins bien payés",
+                "external": false
+              },
+              {
+                "id": "territoires-x1-d",
+                "text": "Réduire le recours aux contractuels et aux cabinets de conseil privés dans l’administration",
+                "external": false
+              },
+              {
+                "id": "territoires-x1-e",
+                "text": "Réduire le nombre d’agents publics pour diminuer les dépenses de fonctionnement de l’État",
+                "external": true
+              }
+            ],
+            "positions": [
+              {
+                "candidate": "glucksmann",
+                "approachId": "territoires-x1-a",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "L’Acte I propose de revaloriser durablement les rémunérations publiques, d’indexer le point d’indice sur l’inflation et de corriger les écarts entre ministères.",
+                "sources": [
+                  {
+                    "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (co-dir. publication A. Lalucq et R. Glucksmann)",
+                    "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+                    "date": "2025-06",
+                    "publisher": "Place publique"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Chantier 16 (p. 40) : point d’indice indexé « sur l’inflation »."
+              },
+              {
+                "candidate": "glucksmann",
+                "approachId": "territoires-x1-d",
+                "weight": 1,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "L’Acte I veut en finir avec la dépendance aux cabinets de conseil en encadrant strictement l’externalisation des missions stratégiques (chantier 22).",
+                "sources": [
+                  {
+                    "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (co-dir. publication A. Lalucq et R. Glucksmann)",
+                    "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+                    "date": "2025-06",
+                    "publisher": "Place publique"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Chantier 22 (p. 48). Rien sur les contractuels, d’où le poids 1 (correspondance partielle)."
+              },
+              {
+                "candidate": "maurel",
+                "approachId": "territoires-x1-b",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "high",
+                "summary": "Son programme prévoit de revaloriser le point d’indice de la fonction publique d’au moins 10 % sur le quinquennat.",
+                "sources": [
+                  {
+                    "title": "Programme – Emmanuel Maurel 2027",
+                    "url": "https://emmanuel-maurel.fr/programme/",
+                    "date": "2026-09",
+                    "publisher": "emmanuel-maurel.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Texte conforme : « d’au moins 10% sur le quinquennat »."
+              },
+              {
+                "candidate": "maurel",
+                "approachId": "territoires-x1-d",
+                "weight": 1,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "high",
+                "summary": "Son programme veut limiter le recours aux contractuels et mettre fin au recours permanent aux cabinets de conseil privés et à l’externalisation des missions de service public.",
+                "sources": [
+                  {
+                    "title": "Programme – Emmanuel Maurel 2027",
+                    "url": "https://emmanuel-maurel.fr/programme/",
+                    "date": "2026-09",
+                    "publisher": "emmanuel-maurel.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Texte : « limitant le recours à la contractualisation » et la fin du recours aux cabinets de conseil. Les deux volets de l’approche sont explicites (un poids 2 serait défendable)."
+              },
+              {
+                "candidate": "faure",
+                "approachId": "territoires-x1-c",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Le projet du PS, présenté par son site de campagne comme l’ensemble de ses propositions, prévoit d’augmenter le traitement des fonctionnaires par une revalorisation du point d’indice ciblée sur les catégories C et B.",
+                "sources": [
+                  {
+                    "title": "Le Projet socialiste – Vivre libres, ch. 1 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/vivre-libres/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "adjusted",
+                "note": "Mauvaise source corrigée : la mesure ne figure pas dans « Refaire société », qui parle seulement d’« augmenter les salaires » sans cible. Elle se trouve dans « Vivre libres », chapitre 1 : revalorisation du point d’indice « ciblée sur les catégories C et B ». Le contenu est confirmé."
+              },
+              {
+                "candidate": "faure",
+                "approachId": "territoires-x1-d",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Le projet du PS, présenté par son site de campagne comme l’ensemble de ses propositions, prévoit un plan de titularisation des contractuels qui répondent à des besoins permanents. Il veut limiter le recours au contrat aux métiers en tension et réduire le « recours excessif » aux cabinets de conseil privés.",
+                "sources": [
+                  {
+                    "title": "Le Projet socialiste – Refaire société, ch. 16 à 18 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/refaire-societe/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "adjusted",
+                "note": "Les deux moitiés de l’approche figurent explicitement dans le projet : les contractuels (section « Des services publics partout ») et les cabinets de conseil (section « Réformer l’État »). Pour les salaires, le projet dit seulement « augmenter les salaires », sans correspondre aux approches a, b ou c : d est donc son approche la plus précise sur cette question, d’où le poids passé à 2. J’ai vérifié que le bouton « TOUTES LES PROPOSITIONS » d’avecfaure2027.fr/mes-propositions renvoie bien vers projet-socialiste.fr/projet/."
+              }
+            ]
+          },
+          {
+            "id": "territoires-x2",
+            "topicId": "territoires",
+            "tier": "approfondi",
+            "prompt": "Quelle évolution pour les pouvoirs et les moyens des collectivités locales ?",
+            "context": "Aujourd’hui : les communes, départements et régions réalisent plus de la moitié de l’investissement public, financé en partie par des dotations de l’État.",
+            "rationale": "Faure (projet du PS) et Glucksmann veulent une nouvelle étape de décentralisation avec plus d’autonomie fiscale locale ; Maurel met l’accent sur les moyens que l’État verse aux collectivités. Approche externe : recentralisation. Guedj et Royal : aucune position suffisante.",
+            "approaches": [
+              {
+                "id": "territoires-x2-a",
+                "text": "Engager une nouvelle décentralisation qui clarifie les compétences et renforce l’autonomie fiscale locale",
+                "external": false
+              },
+              {
+                "id": "territoires-x2-b",
+                "text": "Augmenter les moyens versés par l’État aux collectivités pour leurs services publics et leurs investissements",
+                "external": false
+              },
+              {
+                "id": "territoires-x2-c",
+                "text": "Permettre aux collectivités d’adapter certaines lois et certains règlements aux réalités de leur territoire",
+                "external": false
+              },
+              {
+                "id": "territoires-x2-d",
+                "text": "Rendre à l’État certaines compétences des collectivités pour garantir l’égalité entre les territoires",
+                "external": true
+              }
+            ],
+            "positions": [
+              {
+                "candidate": "faure",
+                "approachId": "territoires-x2-a",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Le projet du PS, présenté par son site de campagne comme l’ensemble de ses propositions, prévoit un nouvel acte de décentralisation qui clarifie les compétences entre l’État et les collectivités, et une Contribution territoriale universelle pour leur autonomie fiscale.",
+                "sources": [
+                  {
+                    "title": "Le Projet socialiste – Refaire société, ch. 16 à 18 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/refaire-societe/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Section « Achever la décentralisation » : elle appelle à « engager un nouvel acte de décentralisation », à une clarification stricte des compétences et à la création de la CTU."
+              },
+              {
+                "candidate": "faure",
+                "approachId": "territoires-x2-c",
+                "weight": 1,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Le même projet veut élargir le pouvoir réglementaire des exécutifs locaux et le droit à la différenciation.",
+                "sources": [
+                  {
+                    "title": "Le Projet socialiste – Refaire société, ch. 16 à 18 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/refaire-societe/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Le texte veut développer la différenciation pour que les collectivités adaptent leurs compétences à leurs réalités locales, et étendre les pouvoirs réglementaires des présidents de région et de département et des maires."
+              },
+              {
+                "candidate": "glucksmann",
+                "approachId": "territoires-x2-a",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "L’Acte I propose une nouvelle loi de décentralisation qui clarifie les compétences des collectivités, une loi pluriannuelle des finances locales et un pouvoir d’imposition renforcé pour les collectivités.",
+                "sources": [
+                  {
+                    "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (co-dir. publication A. Lalucq et R. Glucksmann)",
+                    "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+                    "date": "2025-06",
+                    "publisher": "Place publique"
+                  }
+                ],
+                "verdict": "adjusted",
+                "note": "Le fond est confirmé (p. 47). J’ai retiré la parenthèse « pacte girondin » : l’expression vient de la p. 12, sur un « contrat de souveraineté » qui répartit les compétences entre niveaux européen, national et local, et non de la loi de décentralisation elle-même."
+              },
+              {
+                "candidate": "maurel",
+                "approachId": "territoires-x2-b",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Son programme rappelle que les collectivités portent, selon lui, 70 % de l’investissement public, dénonce la baisse de leurs dotations et s’engage à un plan de développement des services publics locaux.",
+                "sources": [
+                  {
+                    "title": "Programme – Emmanuel Maurel 2027",
+                    "url": "https://emmanuel-maurel.fr/programme/",
+                    "date": "2026-09",
+                    "publisher": "emmanuel-maurel.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Section « Les collectivités en première ligne » : il dénonce la baisse des dotations et les collectivités « étouffées financièrement », puis s’engage à lancer un plan de développement des services publics locaux. Le programme ne dit pas en toutes lettres « augmenter les dotations », mais c’est son approche principale sur ce sujet, d’où une confiance moyenne."
+              }
+            ]
+          },
+          {
+            "id": "territoires-x3",
+            "topicId": "territoires",
+            "tier": "approfondi",
+            "prompt": "Comment lutter contre la vie chère dans les outre-mer ?",
+            "context": "Aujourd’hui : selon l’Insee, l’alimentation coûte de 30 à 42 % plus cher dans les départements d’outre-mer que dans l’Hexagone, et une taxe locale, l’octroi de mer, s’applique aux produits importés.",
+            "rationale": "Trois leviers distincts : démanteler les concentrations (Glucksmann, qui veut aussi plafonner les prix), contrôler les marges de la distribution et du fret (Faure, projet du PS), réformer l’octroi de mer et le coût du fret (Maurel). L’approche externe e correspond au dispositif actuel du bouclier qualité-prix. Guedj et Royal : aucune mesure sur ce point.",
+            "approaches": [
+              {
+                "id": "territoires-x3-a",
+                "text": "Démanteler les grands groupes qui dominent l’importation et la distribution des produits",
+                "external": false
+              },
+              {
+                "id": "territoires-x3-b",
+                "text": "Plafonner les prix des produits de première nécessité vendus dans les territoires d’outre-mer",
+                "external": false
+              },
+              {
+                "id": "territoires-x3-c",
+                "text": "Contrôler les marges de la grande distribution et des entreprises de transport de marchandises",
+                "external": false
+              },
+              {
+                "id": "territoires-x3-d",
+                "text": "Réformer l’octroi de mer et réduire le coût du transport des marchandises vers les outre-mer",
+                "external": false
+              },
+              {
+                "id": "territoires-x3-e",
+                "text": "S’en tenir aux accords annuels de modération des prix négociés avec les distributeurs",
+                "external": true
+              }
+            ],
+            "positions": [
+              {
+                "candidate": "glucksmann",
+                "approachId": "territoires-x3-a",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "L’Acte I veut démanteler les conglomérats et les concentrations qui pèsent sur les prix outre-mer, en mobilisant les autorités de concurrence (chantier 32).",
+                "sources": [
+                  {
+                    "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (co-dir. publication A. Lalucq et R. Glucksmann)",
+                    "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+                    "date": "2025-06",
+                    "publisher": "Place publique"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "P. 65, chantier 32 « Renouer avec l’égalité en Outre-mer » : il veut démanteler les conglomérats et les concentrations à l’origine de la vie chère."
+              },
+              {
+                "candidate": "glucksmann",
+                "approachId": "territoires-x3-b",
+                "weight": 1,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "L’Acte I veut aussi plafonner les prix des biens de première nécessité, au-delà du bouclier qualité-prix.",
+                "sources": [
+                  {
+                    "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (co-dir. publication A. Lalucq et R. Glucksmann)",
+                    "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+                    "date": "2025-06",
+                    "publisher": "Place publique"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "La proposition est littérale (p. 65). Je garde le poids 1 comme approche secondaire, car x3-a est citée en premier dans le chantier."
+              },
+              {
+                "candidate": "faure",
+                "approachId": "territoires-x3-c",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Le projet du PS, présenté par son site de campagne comme l’ensemble de ses propositions, prévoit de réguler monopoles et importations outre-mer, notamment en contrôlant les marges de la grande distribution et des transporteurs.",
+                "sources": [
+                  {
+                    "title": "Le Projet socialiste – Refaire société, ch. 16 à 18 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/refaire-societe/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Section « L’égalité réelle pour les Français d’Outre-mer » : renforcer les contrôles sur les marges de la grande distribution et des transporteurs, et ajouter des clauses miroirs."
+              },
+              {
+                "candidate": "maurel",
+                "approachId": "territoires-x3-d",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "high",
+                "summary": "Son programme veut combattre la vie chère outre-mer en encadrant les rentes et en réformant les coûts du fret et l’octroi de mer.",
+                "sources": [
+                  {
+                    "title": "Programme – Emmanuel Maurel 2027",
+                    "url": "https://emmanuel-maurel.fr/programme/",
+                    "date": "2026-09",
+                    "publisher": "emmanuel-maurel.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Section « La France, une République archipélagique », formulation littérale."
+              },
+              {
+                "candidate": "maurel",
+                "approachId": "territoires-x3-c",
+                "weight": 1,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Son programme veut encadrer les rentes qui renchérissent les prix outre-mer.",
+                "sources": [
+                  {
+                    "title": "Programme – Emmanuel Maurel 2027",
+                    "url": "https://emmanuel-maurel.fr/programme/",
+                    "date": "2026-09",
+                    "publisher": "emmanuel-maurel.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "« Encadrer les rentes » est compatible avec un contrôle des marges, mais le programme ne nomme ni la grande distribution ni les transporteurs. Le poids 1 est donc justifié."
+              }
+            ]
+          },
+          {
+            "id": "sante-x1",
+            "topicId": "sante",
+            "tier": "approfondi",
+            "prompt": "Quelle priorité pour la prévention en santé ?",
+            "context": "Aujourd’hui : l’affichage du Nutri-Score sur les emballages alimentaires reste facultatif, et les dépenses de l’assurance maladie sont votées pour une seule année.",
+            "rationale": "Quatre candidats portent chacun une mesure de prévention différente : Nutri-Score obligatoire (Guedj, cosignataire d’une proposition de loi), doublement de la part de la prévention (Faure, projet du PS), programmation pluriannuelle hors budget annuel (Glucksmann), qualité de l’air intérieur (Maurel). Royal : inconnue.",
+            "approaches": [
+              {
+                "id": "sante-x1-a",
+                "text": "Rendre obligatoire l’affichage du Nutri-Score sur tous les aliments vendus emballés",
+                "external": false
+              },
+              {
+                "id": "sante-x1-b",
+                "text": "Doubler la part des dépenses de santé qui est consacrée à la prévention des maladies",
+                "external": false
+              },
+              {
+                "id": "sante-x1-c",
+                "text": "Voter le budget de la prévention pour plusieurs années, au lieu d’un vote chaque année",
+                "external": false
+              },
+              {
+                "id": "sante-x1-d",
+                "text": "Améliorer l’air intérieur des écoles, hôpitaux et administrations : ventilation, filtration",
+                "external": false
+              }
+            ],
+            "positions": [
+              {
+                "candidate": "guedj",
+                "approachId": "sante-x1-a",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "high",
+                "summary": "Il a cosigné la proposition de loi transpartisane n° 2599 qui rend le Nutri-Score obligatoire sur tous les emballages (hors AOP et IGP) et dans les publicités.",
+                "sources": [
+                  {
+                    "title": "Ma bataille pour le Nutri-Score obligatoire (site du député)",
+                    "url": "https://www.jerome-guedj.fr/actus/ma-bataille-pour-le-nutri-score-obligatoire-la-sante-nest-pas-une-option",
+                    "date": "2026-03-27",
+                    "publisher": "jerome-guedj.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Le site est une application JavaScript, donc la page brute est vide. J’ai lu l’article complet via l’API du CMS du site (même slug). Il confirme la PPL n° 2599, l’exception AOP/IGP et l’obligation dans la publicité."
+              },
+              {
+                "candidate": "guedj",
+                "approachId": "sante-x1-c",
+                "weight": 1,
+                "rejects": false,
+                "nature": "declaration",
+                "confidence": "medium",
+                "summary": "Il plaide pour une programmation pluriannuelle en santé, avec des objectifs évaluables et une stratégie qui combine prévention, qualité des soins et organisation. Selon lui, on ne peut pas tenir le système par la seule compression de l’offre.",
+                "sources": [
+                  {
+                    "title": "Trois questions à Jérôme Guedj (site du député)",
+                    "url": "https://www.jerome-guedj.fr/medias/trois-questions-a-jerome-guedj",
+                    "date": "2026-03-02",
+                    "publisher": "jerome-guedj.fr"
+                  }
+                ],
+                "verdict": "adjusted",
+                "note": "C’est un entretien, donc une déclaration et non une proposition. Le texte parle de « programmation pluriannuelle en santé », sans le mot « loi » ni d’objectifs propres à la prévention. Le poids 1 reste valable, puisqu’il s’agit de pluriannualité pour toute la santé, prévention comprise."
+              },
+              {
+                "candidate": "glucksmann",
+                "approachId": "sante-x1-c",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "L’Acte I propose de sortir la prévention de l’objectif annuel de dépenses de l’assurance maladie pour la programmer sur plusieurs années, avec un fonds territorial de prévention (chantier 24).",
+                "sources": [
+                  {
+                    "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (co-dir. publication A. Lalucq et R. Glucksmann)",
+                    "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+                    "date": "2025-06",
+                    "publisher": "Place publique"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "P. 52, chantier 24 : un plan de prévention « en sortant de l’ONDAM annuel » pour des politiques de long terme, et un fonds territorial de prévention."
+              },
+              {
+                "candidate": "glucksmann",
+                "approachId": "sante-x1-a",
+                "weight": 1,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "L’Acte I veut rendre le Nutri-Score obligatoire en France et dans l’Union européenne.",
+                "sources": [
+                  {
+                    "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (co-dir. publication A. Lalucq et R. Glucksmann)",
+                    "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+                    "date": "2025-06",
+                    "publisher": "Place publique"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "P. 34 : rendre obligatoire l’affichage du Nutri-Score à l’échelle nationale et européenne."
+              },
+              {
+                "candidate": "faure",
+                "approachId": "sante-x1-b",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Le projet du PS, présenté par son site de campagne comme l’ensemble de ses propositions, prévoit de porter la prévention de 4 % à 8 % des dépenses de santé.",
+                "sources": [
+                  {
+                    "title": "Le Projet socialiste – Être en sécurité(s), ch. 6 et 9 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/etre-en-securites/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Formulation littérale (section « Prévenir plutôt que guérir »). Hors de ce lot : le chapitre « Vivre libres » du même projet propose aussi un Nutri-Score obligatoire sur tous les produits et leur publicité, ce qui serait pertinent pour faure/sante-x1-a."
+              },
+              {
+                "candidate": "maurel",
+                "approachId": "sante-x1-d",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "high",
+                "summary": "Son programme fait de l’air intérieur une priorité dans les hôpitaux, établissements d’enseignement et administrations : capteurs, ventilation et filtration, financés notamment par des crédits aux collectivités.",
+                "sources": [
+                  {
+                    "title": "Programme – Emmanuel Maurel 2027",
+                    "url": "https://emmanuel-maurel.fr/programme/",
+                    "date": "2026-09",
+                    "publisher": "emmanuel-maurel.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Formulation littérale (section « Pour la République écologique »)."
+              }
+            ]
+          },
+          {
+            "id": "agriculture-x1",
+            "topicId": "agriculture",
+            "tier": "approfondi",
+            "prompt": "Comment mieux rémunérer les agriculteurs pour ce qu’ils produisent ?",
+            "context": "Aujourd’hui : les lois EGalim obligent à tenir compte des coûts de production dans les contrats agricoles, sans garantir de prix minimum.",
+            "rationale": "Faure (projet du PS) et Glucksmann veulent des prix minimums garantis ; Guedj insiste sur le partage de la valeur dans la chaîne alimentaire ; Royal sur l’étiquetage de l’origine française. Maurel : votes contre les lois agricoles et opposition au libre-échange, sans mesure sur les prix (déjà codé en agriculture-1).",
+            "approaches": [
+              {
+                "id": "agriculture-x1-a",
+                "text": "Garantir aux agriculteurs des prix minimums couvrant leurs coûts de production",
+                "external": false
+              },
+              {
+                "id": "agriculture-x1-b",
+                "text": "Encadrer les marges des industriels de l’agroalimentaire et de la grande distribution",
+                "external": false
+              },
+              {
+                "id": "agriculture-x1-c",
+                "text": "Verser un revenu de transition aux agriculteurs qui adoptent des pratiques écologiques",
+                "external": false
+              },
+              {
+                "id": "agriculture-x1-d",
+                "text": "Afficher de façon très visible l’origine française des produits dans les magasins",
+                "external": false
+              }
+            ],
+            "positions": [
+              {
+                "candidate": "faure",
+                "approachId": "agriculture-x1-a",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Le projet du PS, présenté par son site de campagne comme l’ensemble de ses propositions, prévoit des prix minimums garantis fondés sur les coûts de production réels et des prix planchers européens relevés.",
+                "sources": [
+                  {
+                    "title": "Le Projet socialiste – Vivre avec la nature, ch. 14 et 15 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/vivre-avec-la-nature/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Le chapitre 14 prévoit des prix minimums garantis fondés sur les coûts de production réels, et le chapitre sur la PAC veut relever les prix planchers européens."
+              },
+              {
+                "candidate": "faure",
+                "approachId": "agriculture-x1-b",
+                "weight": 1,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Le même projet veut encadrer les marges de l’agro-industrie et de la grande distribution.",
+                "sources": [
+                  {
+                    "title": "Le Projet socialiste – Vivre avec la nature, ch. 14 et 15 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/vivre-avec-la-nature/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "La même phrase que pour les prix minimums prévoit aussi l’encadrement des marges. Le poids 1 (approche secondaire) se défend."
+              },
+              {
+                "candidate": "glucksmann",
+                "approachId": "agriculture-x1-a",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "L’Acte I propose des prix planchers rémunérateurs, la fin des contournements de la loi EGalim et l’interdiction de la vente à perte.",
+                "sources": [
+                  {
+                    "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (co-dir. publication A. Lalucq et R. Glucksmann)",
+                    "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+                    "date": "2025-06",
+                    "publisher": "Place publique"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "P. 34. L’interdiction des ventes à perte passe par une autorité européenne de contrôle des prix alimentaires."
+              },
+              {
+                "candidate": "glucksmann",
+                "approachId": "agriculture-x1-c",
+                "weight": 1,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "L’Acte I propose un « revenu de transition écologique » pour les agriculteurs et pêcheurs qui passent au bio ou à des pratiques durables.",
+                "sources": [
+                  {
+                    "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (co-dir. publication A. Lalucq et R. Glucksmann)",
+                    "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+                    "date": "2025-06",
+                    "publisher": "Place publique"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "P. 34, formulation littérale. Le poids 1 est retenu comme approche secondaire derrière les prix planchers."
+              },
+              {
+                "candidate": "guedj",
+                "approachId": "agriculture-x1-b",
+                "weight": 1,
+                "rejects": false,
+                "nature": "declaration",
+                "confidence": "low",
+                "summary": "Il juge inacceptable que la valeur produite par les agriculteurs se perde ailleurs dans la chaîne alimentaire et veut leur garantir un revenu digne, sans proposer d’outil précis comme l’encadrement des marges.",
+                "sources": [
+                  {
+                    "title": "Au Salon de l’Agriculture : écouter, comprendre, agir (site du député)",
+                    "url": "https://www.jerome-guedj.fr/actus/au-salon-de-lagriculture-ecouter-comprendre-agir-pour-celles-et-ceux-qui-nous-nourrissent",
+                    "date": "2026-02-25",
+                    "publisher": "jerome-guedj.fr"
+                  }
+                ],
+                "verdict": "adjusted",
+                "note": "Texte lu via l’API du CMS du site. C’est un diagnostic sur le partage de la valeur, sans mesure. Il est compatible avec l’encadrement des marges mais ne l’énonce pas, d’où la confiance baissée à faible."
+              },
+              {
+                "candidate": "royal",
+                "approachId": "agriculture-x1-d",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Elle demande un étiquetage bien visible des produits français en magasin et dénonce la concurrence des importations produites avec des pesticides interdits en France.",
+                "sources": [
+                  {
+                    "title": "Ségolène Royal : « Pour 2027, je consulte, je réfléchis… » (Sud Radio)",
+                    "url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pour-2027-je-consulte-je-reflechis-si-je-peux-etre-utile-pourquoi-pas",
+                    "date": "2026-07-03",
+                    "publisher": "Sud Radio"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Elle demande à la grande distribution d’« identifier et d’isoler clairement » les produits d’origine française, avec un étiquetage visible. Date confirmée par la page : 3 juillet 2026."
+              }
+            ]
+          },
+          {
+            "id": "fiscalite-x1",
+            "topicId": "fiscalite",
+            "tier": "approfondi",
+            "prompt": "Comment imposer les revenus du capital et les bénéfices des entreprises ?",
+            "context": "Aujourd’hui : les dividendes et les intérêts sont en principe taxés à un taux forfaitaire d’environ 30 %, prélèvements sociaux compris, plutôt qu’au barème progressif de l’impôt sur le revenu.",
+            "rationale": "Faure (projet du PS) veut supprimer la flat tax ; Guedj met en avant la hausse des prélèvements sociaux sur les revenus financiers ; Glucksmann une taxation automatique des superprofits. Maurel a voté la suppression de l’abattement sur les dividendes (inférence). Approche externe : conserver le taux forfaitaire. Royal (ISF) : couverte par fiscalite-1.",
+            "approaches": [
+              {
+                "id": "fiscalite-x1-a",
+                "text": "Supprimer le taux forfaitaire et imposer les revenus du capital au barème, comme les salaires",
+                "external": false
+              },
+              {
+                "id": "fiscalite-x1-b",
+                "text": "Augmenter les prélèvements sociaux sur les revenus financiers pour financer la Sécurité sociale",
+                "external": false
+              },
+              {
+                "id": "fiscalite-x1-c",
+                "text": "Taxer davantage les bénéfices des grandes entreprises, en particulier leurs profits exceptionnels",
+                "external": false
+              },
+              {
+                "id": "fiscalite-x1-d",
+                "text": "Conserver le taux forfaitaire sur les revenus du capital pour encourager l’épargne et l’investissement",
+                "external": true
+              }
+            ],
+            "positions": [
+              {
+                "candidate": "faure",
+                "approachId": "fiscalite-x1-a",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Le projet du PS, présenté par son site de campagne comme l’ensemble de ses propositions, prévoit de supprimer le prélèvement forfaitaire unique et d’imposer les revenus financiers comme ceux du travail.",
+                "sources": [
+                  {
+                    "title": "Le Projet socialiste – Refaire société, ch. 16 à 18 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/refaire-societe/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Le projet veut réintégrer les revenus financiers dans l’impôt sur le revenu « afin qu’ils soient imposés comme les revenus du travail », et supprimer le PFU. Ces mesures sont présentées comme des objectifs pour des États généraux de la justice fiscale."
+              },
+              {
+                "candidate": "faure",
+                "approachId": "fiscalite-x1-c",
+                "weight": 1,
+                "rejects": false,
+                "nature": "declaration",
+                "confidence": "medium",
+                "summary": "Il s’oppose à la baisse de 3 Md€ de la taxe sur les grandes entreprises prévue au budget 2027 ; le projet du PS propose un impôt sur les sociétés progressif.",
+                "sources": [
+                  {
+                    "title": "Olivier Faure : « Je ne vois pas ce qui pourrait conduire vers une autre décision que la censure » (Politis)",
+                    "url": "https://www.politis.fr/articles/2026/09/olivier-faure-je-ne-vois-pas-ce-qui-pourrait-conduire-vers-une-autre-decision-que-la-censure/",
+                    "date": "2026-09-21",
+                    "publisher": "Politis"
+                  },
+                  {
+                    "title": "Le Projet socialiste – Refaire société, ch. 16 à 18 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/refaire-societe/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Politis : il critique l’engagement du gouvernement à baisser de 3 milliards la taxe sur les grandes entreprises. Le projet prévoit aussi un impôt minimal sur les bénéfices mondiaux des grands groupes. Rien sur les profits exceptionnels, donc le poids 1 est justifié."
+              },
+              {
+                "candidate": "faure",
+                "approachId": "fiscalite-x1-d",
+                "weight": 0,
+                "rejects": true,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Le projet du PS prévoit de supprimer le prélèvement forfaitaire unique sur les revenus du capital.",
+                "sources": [
+                  {
+                    "title": "Le Projet socialiste – Refaire société, ch. 16 à 18 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/refaire-societe/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Supprimer le PFU contredit directement le maintien du taux forfaitaire. Le rejet est fondé."
+              },
+              {
+                "candidate": "guedj",
+                "approachId": "fiscalite-x1-b",
+                "weight": 2,
+                "rejects": false,
+                "nature": "declaration",
+                "confidence": "medium",
+                "summary": "Il revendique la hausse de la taxation des revenus financiers obtenue dans la loi de financement de la Sécurité sociale 2026, au nom de l’universalité des droits et de la progressivité des contributions.",
+                "sources": [
+                  {
+                    "title": "Trois questions à Jérôme Guedj (site du député)",
+                    "url": "https://www.jerome-guedj.fr/medias/trois-questions-a-jerome-guedj",
+                    "date": "2026-03-02",
+                    "publisher": "jerome-guedj.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Texte lu via l’API du CMS. Il revendique d’avoir obtenu une « taxation accrue des revenus financiers pour financer la Sécu » et demande s’il faut mobiliser davantage le capital."
+              },
+              {
+                "candidate": "glucksmann",
+                "approachId": "fiscalite-x1-c",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "L’Acte I propose un mécanisme automatique de taxation des superprofits des multinationales et des « profiteurs de guerre ».",
+                "sources": [
+                  {
+                    "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (co-dir. publication A. Lalucq et R. Glucksmann)",
+                    "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+                    "date": "2025-06",
+                    "publisher": "Place publique"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "P. 85 (financement), formulation littérale. La même page prévoit aussi un effort fiscal nouveau ciblé sur les grands groupes."
+              }
+            ]
+          },
+          {
+            "id": "travail_salaires-x1",
+            "topicId": "travail_salaires",
+            "tier": "approfondi",
+            "prompt": "Faut-il changer la durée et l’organisation du temps de travail ?",
+            "context": "Aujourd’hui : la durée légale du travail est de 35 heures par semaine ; au-delà, les heures supplémentaires sont majorées et, dans une certaine limite, exonérées d’impôt sur le revenu.",
+            "rationale": "Guedj veut expérimenter la semaine de quatre jours sans réduire les heures ; le projet du PS (Faure) associe cette expérimentation à une réduction progressive du temps de travail et à de nouveaux droits sur les horaires et les congés. Maurel a voté contre l’extension de l’exonération des heures supplémentaires (approche externe). Glucksmann et Royal : aucune position trouvée.",
+            "approaches": [
+              {
+                "id": "travail_salaires-x1-a",
+                "text": "Expérimenter la semaine de quatre jours en gardant le même nombre d’heures de travail",
+                "external": false
+              },
+              {
+                "id": "travail_salaires-x1-b",
+                "text": "Expérimenter la semaine de quatre jours et réduire peu à peu la durée du travail, par la négociation",
+                "external": false
+              },
+              {
+                "id": "travail_salaires-x1-c",
+                "text": "Donner aux salariés plus de maîtrise de leurs horaires, de leurs congés et de leur déconnexion",
+                "external": false
+              },
+              {
+                "id": "travail_salaires-x1-d",
+                "text": "Inciter à travailler davantage en exonérant plus largement les heures supplémentaires de cotisations",
+                "external": true
+              }
+            ],
+            "positions": [
+              {
+                "candidate": "guedj",
+                "approachId": "travail_salaires-x1-a",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "high",
+                "summary": "Il propose d’expérimenter, sur la base du volontariat et de la négociation, la semaine de quatre jours sans réduction du temps de travail, pour réduire absentéisme et épuisement.",
+                "sources": [
+                  {
+                    "title": "« Je veux sortir de l’âge légal », Jérôme Guedj propose une retraite calculée sur les annuités et la pénibilité (Capital / Yahoo Finance)",
+                    "url": "https://fr.finance.yahoo.com/actualites/veux-sortir-l%C3%A2ge-l%C3%A9gal-j%C3%A9r%C3%B4me-144747223.html",
+                    "date": "2026-09-12",
+                    "publisher": "Capital / Yahoo Finance"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Formulation confirmée : les mêmes heures seraient réparties autrement. Article publié le 12 septembre 2026."
+              },
+              {
+                "candidate": "faure",
+                "approachId": "travail_salaires-x1-b",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Le projet du PS, présenté par son site de campagne comme l’ensemble de ses propositions, veut favoriser par la négociation sociale l’expérimentation de la semaine de quatre jours. Il prévoit aussi une réduction progressive du temps de travail, si les conditions économiques et sociales le permettent.",
+                "sources": [
+                  {
+                    "title": "Le Projet socialiste – Vivre libres, ch. 1 et 2 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/vivre-libres/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "adjusted",
+                "note": "Le fond est confirmé. Seule correction : la citation « lorsque les conditions le permettent » était tronquée, le texte dit « conditions économiques et sociales ». Je l’ai remplacée par une paraphrase."
+              },
+              {
+                "candidate": "faure",
+                "approachId": "travail_salaires-x1-c",
+                "weight": 1,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Le même projet prévoit un droit à la déconnexion sanctionné, un droit à la prévisibilité des horaires et limite à deux semaines les congés que l’employeur fixe seul.",
+                "sources": [
+                  {
+                    "title": "Le Projet socialiste – Vivre libres, ch. 1 et 2 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/vivre-libres/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Les trois mesures figurent bien dans la section sur la maîtrise du temps de travail."
+              },
+              {
+                "candidate": "maurel",
+                "approachId": "travail_salaires-x1-d",
+                "weight": 0,
+                "rejects": true,
+                "nature": "inference",
+                "confidence": "high",
+                "summary": "Il a voté contre l’amendement qui rétablissait l’exonération totale de cotisations patronales sur les heures supplémentaires (budget 2025). Son programme affirme que toute baisse des cotisations sociales « vide les caisses de la Sécurité sociale ».",
+                "sources": [
+                  {
+                    "title": "Datan – Renforcer la défiscalisation des heures supplémentaires (vote n° 30)",
+                    "url": "https://datan.fr/votes/legislature-17/vote_30",
+                    "date": "2024-10-23",
+                    "publisher": "Datan"
+                  },
+                  {
+                    "title": "Programme – Emmanuel Maurel 2027",
+                    "url": "https://emmanuel-maurel.fr/programme/",
+                    "date": "2026-09",
+                    "publisher": "emmanuel-maurel.fr"
+                  }
+                ],
+                "verdict": "adjusted",
+                "note": "Datan confirme son vote CONTRE l’amendement n° 671. J’ai ajouté le programme 2026, qui rejette par principe toute baisse des cotisations sociales : cela ancre le rejet dans la période 2025-2026. J’ai retiré la mention « pas d’engagement sur la durée du travail », inutile ici."
+              }
+            ]
+          },
+          {
+            "id": "egalite-x1",
+            "topicId": "egalite",
+            "tier": "approfondi",
+            "prompt": "Quelle priorité pour l’égalité entre les femmes et les hommes au travail et dans la famille ?",
+            "context": "Aujourd’hui : à temps de travail égal, le salaire moyen des femmes reste inférieur d’environ 14 % à celui des hommes dans le secteur privé, selon l’Insee.",
+            "rationale": "Hors violences sexuelles (quatre candidats soutiennent une loi intégrale : pas de clivage), trois priorités distinctes : congés parentaux égaux (Faure, projet du PS), droit opposable à la garde d’enfant (Glucksmann), transparence et revalorisation salariales (Maurel, Glucksmann et Faure en compatible, Guedj de façon générale). Royal : aucune mesure sur ces points.",
+            "approaches": [
+              {
+                "id": "egalite-x1-a",
+                "text": "Rendre le congé du second parent aussi long et aussi obligatoire que le congé de maternité",
+                "external": false
+              },
+              {
+                "id": "egalite-x1-b",
+                "text": "Garantir à chaque famille un droit opposable à une solution de garde pour ses jeunes enfants",
+                "external": false
+              },
+              {
+                "id": "egalite-x1-c",
+                "text": "Rendre publics les écarts de salaire et revaloriser les métiers surtout exercés par des femmes",
+                "external": false
+              },
+              {
+                "id": "egalite-x1-d",
+                "text": "Laisser les entreprises et les familles s’organiser librement, sans nouvelle obligation légale",
+                "external": true
+              }
+            ],
+            "positions": [
+              {
+                "candidate": "faure",
+                "approachId": "egalite-x1-a",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Le projet du PS, présenté par son site de campagne comme l’ensemble de ses propositions, prévoit des congés de paternité et de maternité égaux en durée et en obligation.",
+                "sources": [
+                  {
+                    "title": "Le Projet socialiste – S’épanouir à égalité, ch. 11 à 13 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/sepanouir-a-egalite/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Formulation littérale (« réellement égaux, en durée comme en obligation »). Hors de ce lot : la même phrase prévoit un service public de la petite enfance qui garantit une solution de garde à chaque enfant, ce qui serait pertinent pour egalite-x1-b."
+              },
+              {
+                "candidate": "faure",
+                "approachId": "egalite-x1-c",
+                "weight": 1,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "Le même projet prévoit de rendre publiques les grilles salariales au-delà de 50 salariés, de faire porter à l’employeur la preuve de non-discrimination et de conditionner les aides publiques à l’égalité salariale. Il veut aussi revaloriser les métiers féminisés.",
+                "sources": [
+                  {
+                    "title": "Le Projet socialiste – S’épanouir à égalité, ch. 11 à 13 (lié depuis avecfaure2027.fr)",
+                    "url": "https://projet-socialiste.fr/projet/sepanouir-a-egalite/",
+                    "date": "2026-06",
+                    "publisher": "projet-socialiste.fr"
+                  }
+                ],
+                "verdict": "adjusted",
+                "note": "Confirmé. J’ai ajouté au résumé la revalorisation des métiers féminisés (service et soin), présente dans le texte et qui correspond à la seconde moitié de l’approche. Le poids 1 est maintenu comme approche secondaire derrière x1-a."
+              },
+              {
+                "candidate": "glucksmann",
+                "approachId": "egalite-x1-b",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "L’Acte I propose un droit opposable à la garde d’enfant, un service public de la petite enfance et une réforme du congé parental pour plus d’égalité entre pères et mères.",
+                "sources": [
+                  {
+                    "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (co-dir. publication A. Lalucq et R. Glucksmann)",
+                    "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+                    "date": "2025-06",
+                    "publisher": "Place publique"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "P. 78, formulation littérale : « créer un droit opposable à la garde »."
+              },
+              {
+                "candidate": "glucksmann",
+                "approachId": "egalite-x1-c",
+                "weight": 1,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "medium",
+                "summary": "L’Acte I veut rendre transparents les écarts de salaire, durcir les sanctions et revaloriser les métiers féminisés.",
+                "sources": [
+                  {
+                    "title": "Acte I – Notre vision pour la France : les 42 chantiers de Place publique (co-dir. publication A. Lalucq et R. Glucksmann)",
+                    "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+                    "date": "2025-06",
+                    "publisher": "Place publique"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "P. 78, formulation littérale."
+              },
+              {
+                "candidate": "maurel",
+                "approachId": "egalite-x1-c",
+                "weight": 2,
+                "rejects": false,
+                "nature": "proposition",
+                "confidence": "high",
+                "summary": "Son programme prévoit la transparence des rémunérations, des aides publiques conditionnées à l’égalité salariale et la revalorisation des métiers les plus féminisés.",
+                "sources": [
+                  {
+                    "title": "Programme – Emmanuel Maurel 2027",
+                    "url": "https://emmanuel-maurel.fr/programme/",
+                    "date": "2026-09",
+                    "publisher": "emmanuel-maurel.fr"
+                  }
+                ],
+                "verdict": "confirmed",
+                "note": "Formulation littérale dans « Augmenter les salaires ! »."
+              },
+              {
+                "candidate": "guedj",
+                "approachId": "egalite-x1-c",
+                "weight": 1,
+                "rejects": false,
+                "nature": "declaration",
+                "confidence": "low",
+                "summary": "Il cite l’égalité salariale parmi les piliers de l’égalité entre femmes et hommes, sans détailler de mesure.",
+                "sources": [
+                  {
+                    "title": "Le 8 mars, un rappel : l’égalité entre les femmes et les hommes reste un combat (site du député)",
+                    "url": "https://www.jerome-guedj.fr/actus/le-8-mars-un-rappel-legalite-entre-les-femmes-et-les-hommes-reste-un-combat",
+                    "date": "2026-03-08",
+                    "publisher": "jerome-guedj.fr"
+                  }
+                ],
+                "verdict": "adjusted",
+                "note": "Texte lu via l’API du CMS. Il mentionne seulement l’égalité salariale comme « pilier essentiel », sans transparence ni revalorisation, et sa « priorité absolue » est la lutte contre les violences. L’attribution est compatible mais très vague : confiance baissée à faible."
+              }
+            ]
+          }
+        ],
+        "consensus": [],
+        "dropped": []
+      }
+    ],
+    "neutrality": {
+      "edits": [
+        {
+          "id": "solidarites-x2-e",
+          "field": "text",
+          "newText": "Durcir les contrôles et les sanctions contre la fraude aux aides, avec suspension des droits en cas d’indices sérieux",
+          "reason": "« dès le soupçon » reprend le cadrage des opposants au texte (le « sur simple suspicion » de Guedj). Une approche externe doit être formulée comme ses partisans la présenteraient, et le projet de loi parle d’« indices sérieux » de fraude. Le sens est inchangé (suspension avant preuve), donc les rejets de Guedj et de Maurel restent valables."
+        },
+        {
+          "id": "logement-x1",
+          "field": "prompt",
+          "newText": "Quelle politique pour les terrains à bâtir, les logements vides et la fiscalité des propriétaires ?",
+          "reason": "Le mot « spéculation » est connoté et l’ancienne question présuppose l’objectif. L’approche externe d (alléger les impôts des bailleurs) ne répondait donc pas à la question posée. La nouvelle formulation couvre les quatre approches de façon neutre."
+        },
+        {
+          "id": "logement-x1-a",
+          "field": "text",
+          "newText": "Encadrer le prix des terrains à bâtir pour en freiner la hausse",
+          "reason": "« freiner la spéculation sur le foncier » est connoté et proche de la formule-signature d’un programme (« bloquer la spéculation sur les terrains constructibles »). « foncier » est aussi du jargon. La mesure, encadrer le prix des terrains, est inchangée."
+        },
+        {
+          "id": "logement-x1-b",
+          "field": "text",
+          "newText": "Taxer davantage les propriétaires qui possèdent quatre logements ou plus",
+          "reason": "Clarté : « de nombreux logements, à partir du quatrième » est maladroit, puisque quatre ne fait pas « nombreux ». Le seuil et le sens sont conservés."
+        },
+        {
+          "id": "logement-x1-c",
+          "field": "text",
+          "newText": "Alourdir la taxe sur les logements vides et permettre aux communes de les acheter en priorité",
+          "reason": "« les racheter » est inexact : il s’agit d’un droit de préemption, donc d’acheter en priorité lors d’une vente. Le sens est inchangé."
+        },
+        {
+          "id": "solidarites-x1-b",
+          "field": "text",
+          "newText": "Laisser les syndicats et le patronat gérer seuls l’assurance chômage, sans cadrage de l’État",
+          "reason": "Correction grammaticale : il manquait l’article dans « aux seuls syndicats et patronat ». Le sens est inchangé : gestion paritaire seule, sans lettre de cadrage."
+        },
+        {
+          "id": "solidarites-x3",
+          "field": "context",
+          "newText": "Aujourd’hui : l’allocation aux adultes handicapés (AAH) est inférieure au seuil de pauvreté, et les demandes d’aides des personnes handicapées sont traitées par les maisons départementales des personnes handicapées (MDPH).",
+          "reason": "« reste inférieure » suggère un échec et oriente vers l’approche a : on garde un constat factuel. « les droits … sont examinés » est flou, d’où « les demandes d’aides … sont traitées »."
+        },
+        {
+          "id": "solidarites-x3-b",
+          "field": "text",
+          "newText": "Supprimer les maisons départementales des personnes handicapées et confier leurs missions à la Sécurité sociale",
+          "reason": "Cohérence avec le contexte : l’approche disait « maisons départementales du handicap » alors que le contexte nomme les « maisons départementales des personnes handicapées (MDPH) ». On reprend le nom exact. Le sens est inchangé."
+        },
+        {
+          "id": "education-x1-a",
+          "field": "text",
+          "newText": "Supprimer Parcoursup au profit d’une autre procédure nationale d’affectation, plus transparente",
+          "reason": "« procédure … publique et transparente » sous-entend que Parcoursup, déjà public et national, ne l’est pas : la formule est implicitement polémique et reprend un programme mot pour mot. Le sens est conservé : remplacement par une procédure nationale plus transparente."
+        },
+        {
+          "id": "education-x1-b",
+          "field": "text",
+          "newText": "Augmenter fortement les moyens des universités par étudiant et le budget de la recherche publique",
+          "reason": "« la dépense par étudiant » est un indicateur technique. On risquait aussi de le confondre avec les aides aux étudiants de education-3-c. La reformulation précise qu’il s’agit des moyens des établissements, sans changer le sens."
+        },
+        {
+          "id": "territoires-x1-d",
+          "field": "text",
+          "newText": "Réduire le recours aux agents contractuels et aux cabinets de conseil privés dans l’administration",
+          "reason": "Langage clair : « contractuels » seul est du jargon administratif. Le sens est inchangé."
+        },
+        {
+          "id": "territoires-x3",
+          "field": "context",
+          "newText": "Aujourd’hui : selon l’Insee, l’alimentation coûte de 30 à 42 % plus cher dans les départements d’outre-mer que dans l’Hexagone ; un accord annuel, le « bouclier qualité-prix », y plafonne le prix d’un panier de produits, et une taxe locale, l’octroi de mer, s’applique aux produits importés.",
+          "reason": "Équilibre de précision : l’approche externe e (accords annuels de modération des prix) et l’approche b renvoient au bouclier qualité-prix, que le contexte ne présentait pas. Le fait est établi depuis la loi de 2012 sur la régulation économique outre-mer."
+        },
+        {
+          "id": "sante-x1",
+          "field": "context",
+          "newText": "Aujourd’hui : l’affichage du Nutri-Score, une note nutritionnelle de A à E, sur les emballages alimentaires reste facultatif, et les dépenses de l’assurance maladie sont votées pour une seule année.",
+          "reason": "Nom de dispositif explicité pour les lecteurs qui ne le connaissent pas (langage clair)."
+        },
+        {
+          "id": "agriculture-x1",
+          "field": "prompt",
+          "newText": "Comment améliorer le revenu des agriculteurs ?",
+          "reason": "« pour ce qu’ils produisent » exclut de fait l’approche c (revenu lié aux pratiques écologiques, pas aux produits) et cadre la question sur les prix. La formulation neutre couvre les quatre approches."
+        },
+        {
+          "id": "agriculture-x1",
+          "field": "context",
+          "newText": "Aujourd’hui : les lois dites EGalim, issues des États généraux de l’alimentation de 2017, obligent à tenir compte des coûts de production dans les contrats agricoles, sans garantir de prix minimum.",
+          "reason": "Le sigle EGalim n’était pas explicité (règle des sigles explicités de PRODUCT.md)."
+        },
+        {
+          "id": "agriculture-x1-c",
+          "field": "text",
+          "newText": "Verser une aide au revenu aux agriculteurs qui passent à des pratiques écologiques",
+          "reason": "« revenu de transition » reprend presque mot pour mot l’intitulé d’une proposition (« revenu de transition écologique » de l’Acte I) : formulation-signature. Le sens est conservé : un revenu versé aux agriculteurs qui adoptent des pratiques écologiques."
+        },
+        {
+          "id": "travail_salaires-x1",
+          "field": "prompt",
+          "newText": "Quelle évolution pour la durée et l’organisation du temps de travail ?",
+          "reason": "« Faut-il changer… ? » appelle une réponse oui/non, alors que les quatre approches sont toutes des changements. On aligne sur le style « Quelle… ? » de la banque."
+        },
+        {
+          "id": "travail_salaires-x1-c",
+          "field": "text",
+          "newText": "Donner aux salariés plus de maîtrise de leurs horaires et congés, et renforcer le droit à la déconnexion",
+          "reason": "« maîtrise … de leur déconnexion » est incorrect. Le droit à la déconnexion existe déjà : la proposition vise à le renforcer. Le sens est inchangé et la longueur proche des autres approches."
+        },
+        {
+          "id": "egalite-x1-a",
+          "field": "text",
+          "newText": "Aligner le congé du second parent sur le congé de maternité, en durée comme en caractère obligatoire",
+          "reason": "« aussi obligatoire » est incorrect, car « obligatoire » ne se gradue pas. Le sens est conservé : congés égaux en durée et en obligation."
+        },
+        {
+          "id": "egalite-x1-b",
+          "field": "text",
+          "newText": "Garantir à chaque famille une solution de garde pour ses jeunes enfants, avec un droit de recours",
+          "reason": "« droit opposable » est un terme juridique peu compris, et il reprend l’intitulé exact d’une proposition de programme. « avec un droit de recours » en rend le sens (un droit que l’on peut faire valoir) en langage clair."
+        },
+        {
+          "id": "fiscalite-x1-a",
+          "field": "text",
+          "newText": "Supprimer le taux forfaitaire et imposer les revenus du capital au barème progressif, comme les salaires",
+          "reason": "« au barème » seul est du jargon. On reprend « barème progressif », le terme du contexte. Le sens est inchangé."
+        },
+        {
+          "id": "ecologie_energie-x2",
+          "field": "context",
+          "newText": "Aujourd’hui : le plan national d’adaptation au changement climatique, adopté en 2025, prépare la France à un réchauffement de 4 °C d’ici 2100.",
+          "reason": "Nom complet du plan (sinon « plan national d’adaptation » reste vague). Ajout d’une espace insécable entre « 4 » et « °C », que la fonction typo() de build-pack.mjs ne traite pas."
+        },
+        {
+          "id": "education",
+          "field": "description",
+          "newText": "Apprentissages et taille des classes, enseignement privé, université et recherche, mesures pour les jeunes.",
+          "reason": "Hors neutralité, optionnel. L’ancienne description (taille des classes, privé, jeunes) ne couvrait plus les nouvelles questions sur l’université, la recherche et les rythmes scolaires."
+        },
+        {
+          "id": "territoires",
+          "field": "description",
+          "newText": "Services publics et fonctionnaires, pouvoirs des collectivités locales, égalité entre les territoires et outre-mer.",
+          "reason": "Hors neutralité, optionnel. Le thème reçoit maintenant des questions sur la paie des fonctionnaires, la décentralisation et la vie chère outre-mer, que l’ancienne description n’annonçait pas."
+        },
+        {
+          "id": "sante",
+          "field": "description",
+          "newText": "Accès aux soins, prévention, place de la Sécurité sociale face aux complémentaires et accompagnement des personnes âgées dépendantes.",
+          "reason": "Hors neutralité, optionnel : ajout de la prévention, objet de la nouvelle question sante-x1."
+        },
+        {
+          "id": "travail_salaires",
+          "field": "description",
+          "newText": "Pouvoir d’achat, évolution des salaires, partage des bénéfices, temps de travail et droits des salariés.",
+          "reason": "Hors neutralité, optionnel : ajout du temps de travail, objet de la nouvelle question travail_salaires-x1."
+        },
+        {
+          "id": "ecologie_energie",
+          "field": "description",
+          "newText": "Prix de l’énergie, nucléaire, transition écologique, transports, gestion de l’eau et adaptation au climat.",
+          "reason": "Hors neutralité, optionnel : ajout de l’eau et de l’adaptation (nouvelles questions ecologie_energie-x1 et x2), en condensant le reste pour garder une longueur comparable."
+        }
+      ]
+    },
+    "gapFills": [
+      {
+        "candidate": "faure",
+        "approachId": "education-2-b",
+        "weight": 2,
+        "rejects": false,
+        "nature": "proposition",
+        "confidence": "medium",
+        "summary": "Sa profession de foi promet une « réelle mixité » à l’école ; le projet du PS, présenté par son site de campagne comme l’ensemble de ses propositions, prévoit de conditionner les contrats des écoles privées à des objectifs de mixité et de moduler leurs dotations selon l’indice de position sociale.",
+        "sources": [
+          {
+            "title": "Le Projet socialiste – S’épanouir à égalité, ch. 11 à 13 (lié depuis avecfaure2027.fr)",
+            "url": "https://projet-socialiste.fr/projet/sepanouir-a-egalite/",
+            "date": "2026-06",
+            "publisher": "projet-socialiste.fr"
+          },
+          {
+            "title": "Profession de foi d’Olivier Faure – primaire Choisir 2027",
+            "url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+            "date": "2026-09-24",
+            "publisher": "Choisir 2027"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Projet : conditionner les contrats d’association à des objectifs de mixité, moduler les dotations et prendre en compte l’IPS. La profession de foi (PDF retéléchargé, identique) dit « 19 élèves par classe, réelle mixité ».",
+        "questionId": "education-2"
+      },
+      {
+        "candidate": "faure",
+        "approachId": "education-2-c",
+        "weight": 1,
+        "rejects": false,
+        "nature": "proposition",
+        "confidence": "medium",
+        "summary": "Le même projet prévoit de redéfinir la carte scolaire en y incluant les établissements privés sous contrat.",
+        "sources": [
+          {
+            "title": "Le Projet socialiste – S’épanouir à égalité, ch. 11 à 13 (lié depuis avecfaure2027.fr)",
+            "url": "https://projet-socialiste.fr/projet/sepanouir-a-egalite/",
+            "date": "2026-06",
+            "publisher": "projet-socialiste.fr"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Le projet veut redéfinir la carte scolaire de manière concertée, avec la mixité sociale comme critère, « y compris pour l’enseignement privé sous contrat ».",
+        "questionId": "education-2"
+      },
+      {
+        "candidate": "faure",
+        "approachId": "numerique-3-b",
+        "weight": 2,
+        "rejects": false,
+        "nature": "proposition",
+        "confidence": "medium",
+        "summary": "Le projet du PS, présenté par son site de campagne comme l’ensemble de ses propositions, prévoit une taxe sur les grandes plateformes de vente en ligne au profit du livre, une contribution des plateformes de streaming à l’intermittence et des droits voisins effectifs, y compris face à l’IA.",
+        "sources": [
+          {
+            "title": "Le Projet socialiste – Refaire société, ch. 16 à 18 (lié depuis avecfaure2027.fr)",
+            "url": "https://projet-socialiste.fr/projet/refaire-societe/",
+            "date": "2026-06",
+            "publisher": "projet-socialiste.fr"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Le projet propose une « taxe Amazon » pour le livre, d’associer les plateformes de streaming au financement de l’intermittence, et de rendre effectifs les droits voisins y compris pour l’IA.",
+        "questionId": "numerique-3"
+      },
+      {
+        "candidate": "faure",
+        "approachId": "numerique-3-a",
+        "weight": 1,
+        "rejects": false,
+        "nature": "proposition",
+        "confidence": "medium",
+        "summary": "Le même projet prévoit un seuil unique contre la concentration des médias et un délit de trafic d’influence en matière de presse, mais pas de délit de désinformation.",
+        "sources": [
+          {
+            "title": "Le Projet socialiste – Refaire société, ch. 16 à 18 (lié depuis avecfaure2027.fr)",
+            "url": "https://projet-socialiste.fr/projet/refaire-societe/",
+            "date": "2026-06",
+            "publisher": "projet-socialiste.fr"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Le seuil anti-concentration transversal unique et le délit de trafic d’influence en matière de presse sont confirmés. Aucun délit de désinformation dans le texte : le poids 1 pour une demi-correspondance est correct.",
+        "questionId": "numerique-3"
+      },
+      {
+        "candidate": "faure",
+        "approachId": "ecologie_energie-6-d",
+        "weight": 2,
+        "rejects": false,
+        "nature": "proposition",
+        "confidence": "medium",
+        "summary": "Le projet du PS, présenté par son site de campagne comme l’ensemble de ses propositions, prévoit de nationaliser progressivement les autoroutes à la fin des concessions, via un établissement public, et de réinvestir leurs bénéfices dans l’entretien et la mobilité durable.",
+        "sources": [
+          {
+            "title": "Le Projet socialiste – Vivre libres, ch. 1 et 2 (lié depuis avecfaure2027.fr)",
+            "url": "https://projet-socialiste.fr/projet/vivre-libres/",
+            "date": "2026-06",
+            "publisher": "projet-socialiste.fr"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Le projet prévoit un EPIC « Routes de France » qui reprend les 9 000 km concédés à l’expiration des contrats et réinvestit les bénéfices.",
+        "questionId": "ecologie_energie-6"
+      },
+      {
+        "candidate": "faure",
+        "approachId": "ecologie_energie-6-c",
+        "weight": 1,
+        "rejects": false,
+        "nature": "proposition",
+        "confidence": "medium",
+        "summary": "Le même projet prévoit des trains de nuit, la réouverture de petites lignes et l’interdiction des vols intérieurs quand le train offre une alternative de moins de 4 heures.",
+        "sources": [
+          {
+            "title": "Le Projet socialiste – Vivre libres, ch. 1 et 2 (lié depuis avecfaure2027.fr)",
+            "url": "https://projet-socialiste.fr/projet/vivre-libres/",
+            "date": "2026-06",
+            "publisher": "projet-socialiste.fr"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Les trois éléments figurent bien dans la section mobilités.",
+        "questionId": "ecologie_energie-6"
+      },
+      {
+        "candidate": "faure",
+        "approachId": "securite_justice-3-c",
+        "weight": 2,
+        "rejects": false,
+        "nature": "proposition",
+        "confidence": "medium",
+        "summary": "Le projet du PS, présenté par son site de campagne comme l’ensemble de ses propositions, veut augmenter les moyens de la justice et pourvoir les postes vacants de magistrats et de greffiers. Il relève que la France compte 11,3 magistrats pour 100 000 habitants, contre 22 en moyenne en Europe.",
+        "sources": [
+          {
+            "title": "Le Projet socialiste – Être en sécurité(s), ch. 6 et 9 (lié depuis avecfaure2027.fr)",
+            "url": "https://projet-socialiste.fr/projet/etre-en-securites/",
+            "date": "2026-06",
+            "publisher": "projet-socialiste.fr"
+          }
+        ],
+        "verdict": "adjusted",
+        "note": "Précision : le plan de recrutement vise à « combler les vacances de postes » et non à atteindre la moyenne européenne, d’où un résumé corrigé. Le poids 2 est maintenu : c’est la première proposition du volet justice (« Augmenter les moyens de la Justice »).",
+        "questionId": "securite_justice-3"
+      },
+      {
+        "candidate": "faure",
+        "approachId": "securite_justice-3-a",
+        "weight": 1,
+        "rejects": false,
+        "nature": "proposition",
+        "confidence": "medium",
+        "summary": "Le même projet veut développer les peines alternatives en milieu ouvert et la justice restaurative ; il prévoit aussi de rénover les prisons et d’y créer des places au nom de la dignité de la détention.",
+        "sources": [
+          {
+            "title": "Le Projet socialiste – Être en sécurité(s), ch. 6 et 9 (lié depuis avecfaure2027.fr)",
+            "url": "https://projet-socialiste.fr/projet/etre-en-securites/",
+            "date": "2026-06",
+            "publisher": "projet-socialiste.fr"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Confirmé. Le projet veut aussi des alternatives à la détention pour les primo-délinquants.",
+        "questionId": "securite_justice-3"
+      },
+      {
+        "candidate": "guedj",
+        "approachId": "societe-1-d",
+        "weight": 1,
+        "rejects": false,
+        "nature": "declaration",
+        "confidence": "medium",
+        "summary": "Il défend le système français de financement du cinéma et l’exception culturelle, et demande au gouvernement de garantir ce financement face à l’emprise du groupe Bolloré ; il ne parle pas des quotas de diffusion.",
+        "sources": [
+          {
+            "title": "Le cinéma français doit être plus que jamais soutenu et préservé (site du député)",
+            "url": "https://www.jerome-guedj.fr/actus/le-cinema-francais-doit-etre-plus-que-jamais-soutenu-et-preserve",
+            "date": "2026-05-21",
+            "publisher": "jerome-guedj.fr"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Texte lu via l’API du CMS. Il défend le système existant plutôt que son renforcement : la correspondance est partielle et le poids 1 justifié.",
+        "questionId": "societe-1"
+      },
+      {
+        "candidate": "guedj",
+        "approachId": "ecologie_energie-2-a",
+        "weight": 1,
+        "rejects": false,
+        "nature": "declaration",
+        "confidence": "low",
+        "summary": "Sa profession de foi veut une Europe qui dépende « des énergies renouvelables et du nucléaire » plutôt que du charbon et du gaz russe, sans se prononcer sur de nouveaux réacteurs.",
+        "sources": [
+          {
+            "title": "Profession de foi de Jérôme Guedj (Choisir 2027)",
+            "url": "https://choisir2027.fr/wp-content/uploads/2026/09/PF-Jerome-Guedj.pdf",
+            "date": "2026-09-22",
+            "publisher": "Choisir 2027"
+          }
+        ],
+        "verdict": "adjusted",
+        "note": "Citation confirmée (PDF retéléchargé, identique à la copie locale). La phrase écarte la sortie du nucléaire mais ne tranche pas entre a et b : elle est aussi compatible avec « limiter les nouveaux réacteurs ». Confiance baissée à faible.",
+        "questionId": "ecologie_energie-2"
+      },
+      {
+        "candidate": "guedj",
+        "approachId": "securite_justice-2-b",
+        "weight": 2,
+        "rejects": false,
+        "nature": "proposition",
+        "confidence": "medium",
+        "summary": "Sa lettre de candidature veut renforcer les moyens de la police et de la justice et doter les services spécialisés de moyens contre les grands trafics. En 2025, il a soutenu dans la loi narcotrafic la lutte contre le blanchiment et une meilleure coordination des juridictions spécialisées.",
+        "sources": [
+          {
+            "title": "Lettre de candidature de Jérôme Guedj",
+            "url": "https://www.jeromeguedj2027.fr/lettre",
+            "date": "2026",
+            "publisher": "jeromeguedj2027.fr"
+          },
+          {
+            "title": "Face au narcotrafic, une République exigeante et fidèle à ses principes (site du député)",
+            "url": "https://www.jerome-guedj.fr/actus/face-au-narcotrafic-une-republique-exigeante-et-fidele-a-ses-principes",
+            "date": "2025-04-08",
+            "publisher": "jerome-guedj.fr"
+          }
+        ],
+        "verdict": "adjusted",
+        "note": "Le fond est confirmé. La citation « armer » était inexacte : la lettre parle de « l’armement des services spécialisés », je l’ai remplacée par une paraphrase. J’ai aussi retiré l’affirmation selon laquelle il ne s’est pas prononcé sur le cannabis : ces deux sources n’en parlent pas, mais cela ne prouve pas une absence de position.",
+        "questionId": "securite_justice-2"
+      },
+      {
+        "candidate": "guedj",
+        "approachId": "institutions-1-a",
+        "weight": 1,
+        "rejects": false,
+        "nature": "declaration",
+        "confidence": "medium",
+        "summary": "Il plaide pour gouverner sans 49.3, avec des majorités construites texte par texte ; il ne propose ni de supprimer cet article de la Constitution ni d’investiture du Premier ministre.",
+        "sources": [
+          {
+            "title": "France Info TV : « Essayez-nous » : pour sortir de l’impasse, assumons la culture du compromis (site du député)",
+            "url": "https://www.jerome-guedj.fr/medias/france-info-tv-essayez-nous-pour-sortir-de-limpasse-assumons-la-culture-du-compromis",
+            "date": "2025-10-06",
+            "publisher": "jerome-guedj.fr"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Texte lu via l’API du CMS. Il dit « Nous avons proposé de renoncer au 49.3 », un renoncement dans la pratique et non une réforme constitutionnelle : le poids 1 (compatible) est juste.",
+        "questionId": "institutions-1"
+      },
+      {
+        "candidate": "maurel",
+        "approachId": "ecologie_energie-5-c",
+        "weight": 1,
+        "rejects": false,
+        "nature": "proposition",
+        "confidence": "medium",
+        "summary": "Son programme lie électrification et revitalisation industrielle dans un plan d’investissement de 300 Md€. Il propose aussi à 250 000 jeunes chômeurs une formation en alternance dans les métiers de la transition, et refuse une transition qui fasse baisser le niveau de vie.",
+        "sources": [
+          {
+            "title": "Programme – Emmanuel Maurel 2027",
+            "url": "https://emmanuel-maurel.fr/programme/",
+            "date": "2026-09",
+            "publisher": "emmanuel-maurel.fr"
+          }
+        ],
+        "verdict": "adjusted",
+        "note": "Le contenu est confirmé : grand emprunt de 300 Md€, contrat de formation sur 3 ans payé au SMIC proposé à 250 000 jeunes. Nature corrigée de « declaration » en « proposition », car ce sont des mesures chiffrées du programme. Le poids 1 est maintenu : le programme met en avant la production plus que la transition comme moteur.",
+        "questionId": "ecologie_energie-5"
+      }
+    ]
+  }
+}

@@ -1,0 +1,768 @@
+{
+  "group": "monde",
+  "topics": [
+    "europe",
+    "international_defense"
+  ],
+  "candidates": [
+    {
+      "candidate": "Olivier Faure",
+      "affiliation": "Parti socialiste (Premier secrétaire depuis 2018, direction du parti confiée à Johanna Rolland pendant la campagne). Député de la 11e circonscription de Seine-et-Marne depuis 2012, conseiller municipal de Lieusaint depuis 2026.",
+      "overview": "Olivier Faure, premier secrétaire du PS, a officialisé sa candidature le 30 août 2026 au JT de 20h de TF1. Slogan : « Pour une France + juste ! ». Il défend une ligne qu'il présente lui-même comme « résolument de gauche » et « socialiste-écologique », exposée dans son livre-programme « La Loi du plus juste » (Robert Laffont, 17 septembre 2026) et dans sa profession de foi en quatre axes : Redresser la France, Vivre dignement, Réorienter l'économie, Préparer demain. Ses mesures phares sont redistributives : Smic à 1 700 € net, parité dividendes/salariés, retour à 62 ans, taxe Zucman, faire cotiser l'IA, encadrement généralisé des loyers, régularisation massive des travailleurs sans papiers et « règle d'or verte ». Sur la stratégie, il est l'artisan du NFP en 2024. Il a ensuite co-lancé une primaire unitaire de la gauche, puis perdu le vote interne du 9 juillet 2026 (44,5 % pour sa primaire ouverte). Il refuse toute alliance présidentielle ou gouvernementale avec LFI et Mélenchon, mais il est le seul grand candidat à défendre un rassemblement de toute la gauche aux législatives et les convergences parlementaires avec les Insoumis. À l'international, il utilise le mot « génocide » pour Gaza, ce qui l'oppose frontalement à Glucksmann et à Guedj, et il soutient l'Ukraine et la défense européenne. Sondages : environ 3,5 à 5 % (fin août-septembre 2026), loin derrière Glucksmann, le favori.",
+      "distinctive_vs_others": "1) Rapport à LFI. Faure est le seul des cinq à refuser d'exclure un rassemblement de toute la gauche, électeurs et forces insoumises compris, aux législatives. Il insiste sur les convergences parlementaires (« 80 % » de votes communs) tout en refusant une alliance présidentielle ou gouvernementale avec Mélenchon. Glucksmann exige la clarté et refuse toute alliance, Guedj l'accuse de « danse du ventre » devant LFI, et Royal et Maurel refusent de faire de Mélenchon le centre de la stratégie (LCP 23/09/2026 ; France 24 et L'essentiel 01/10/2026).\n\n2) Gaza. Avec Royal, il emploie le mot « génocide » ; Glucksmann (« Ce que tu fais est obscène ») et Guedj le refusent (France 24, franceinfo 01/10/2026). Il porte aussi une PPL interdisant les produits des colonies israéliennes (LCP 22/06/2026).\n\n3) Fiscalité et pouvoir d'achat. Il s'oppose frontalement à la baisse de CSG sur les salaires proposée par Glucksmann. Il défend le Smic à 1 700 €, la parité dividende/salariés, le refus de toute baisse de cotisations et la cotisation sur l'IA (franceinfo 01/10/2026 ; AFP 16-17/09/2026).\n\n4) Marqueurs « à gauche toute » pour un candidat issu de l'appareil. Il assume la régularisation massive (400 000 à 500 000), le mot « islamophobie », le « racisme structurel » dans la police, une commission vérité sur la colonisation et la légalisation du cannabis. Le projet du PS ne prévoyait pourtant qu'une convention citoyenne sur le cannabis (AFP 17/09 ; Politis 21/09/2026).\n\n5) Positionnement contre le centre. Il refuse un « Fillon 2 ou Macron 3 » et reproche à Glucksmann de s'entourer d'anciens macronistes (Politis 21/09 ; débat du 01/10).\n\n6) Nucléaire. Il propose 2 à 4 EPR2 seulement, avec priorité forte aux renouvelables (UFE 23/06/2026). C'est une position plus restrictive que celle des pro-nucléaires du PS et de la GRS (le positionnement précis de Maurel est à vérifier dans son propre dossier).\n\n7) Légitimité. Il est le seul candidat chef de parti en exercice. Il revendique d'avoir « repris le parti quand il était dans la poussière » mais a été désavoué par ses adhérents sur le format de la primaire (juillet 2026). Il est crédité d'environ 5 % des intentions de vote, loin derrière Glucksmann (environ 10-14 %).\n\nPoints communs : avec Maurel, il refuse l'annulation de la dette (LCP 23/09) ; tous les candidats jugent Bardella « disqualifié » après les révélations de Mediapart (01-02/10/2026).",
+      "signature_proposals": [],
+      "topics": [
+        {
+          "topic_id": "europe",
+          "found": true,
+          "positions": [
+            {
+              "position": "Il est attaché à la construction européenne, qu'il présente comme le prolongement de l'identité française, et veut défendre l'UE et le droit international sans « deux poids deux mesures ». Il reproche à LFI son euroscepticisme.",
+              "kind": "position_declaree",
+              "source_url": "https://www.politis.fr/articles/2026/09/olivier-faure-je-ne-vois-pas-ce-qui-pourrait-conduire-vers-une-autre-decision-que-la-censure/",
+              "source_title": "Entretien Politis",
+              "source_date": "2026-09-21",
+              "confidence": "medium"
+            },
+            {
+              "position": "Il s'oppose à la réduction de la contribution française au budget de l'UE prévue dans le projet de budget 2027 et en fait l'un des motifs d'une censure.",
+              "kind": "position_declaree",
+              "source_url": "https://fr.news.yahoo.com/sport/budget-2027-rien-ne-change-044402037.html",
+              "source_title": "Budget 2027 : « Si rien ne change, nous censurerons » (Yahoo Actualités)",
+              "source_date": "2026-09-27",
+              "confidence": "high"
+            },
+            {
+              "position": "Il défend une défense européenne à laquelle la France doit prendre toute sa part, y compris en posant la question du « parapluie nucléaire ». Il s'est dit « parfaitement » en accord avec Macron sur ce point.",
+              "kind": "position_declaree",
+              "source_url": "https://www.france24.com/fr/info-en-continu/20250303-d%C3%A9fense-europ%C3%A9enne-dissuasion-faure-se-retrouve-parfaitement-avec-macron",
+              "source_title": "Défense européenne, dissuasion… Faure « se retrouve parfaitement » avec Macron (AFP / France 24)",
+              "source_date": "2025-03-03",
+              "confidence": "high"
+            },
+            {
+              "position": "Le projet du PS qu'il dirige prévoit de réformer les règles budgétaires européennes au profit de l'investissement, un nouvel emprunt commun de 500 Md€, un budget européen porté à 3 % du PIB, le passage progressif à la majorité qualifiée et un protectionnisme sectoriel assumé (mesures miroirs, barrières douanières).",
+              "kind": "inference",
+              "source_url": "https://projet-socialiste.fr/projet/vivre-libres/",
+              "source_title": "Le Projet socialiste – chapitre 4 « Construire la souveraineté européenne »",
+              "source_date": "2026",
+              "details": "Faure n'a pas détaillé personnellement ces chiffres pendant la campagne de la primaire. Le projet ne tranche pas explicitement la question du fédéralisme.",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "international_defense",
+          "found": true,
+          "positions": [
+            {
+              "position": "Il qualifie de « génocide » l'action de l'armée israélienne à Gaza et défend ce terme comme nécessaire pour peser et faire cesser le massacre, en citant Pedro Sánchez. Il rappelle avoir employé ce mot avec Glucksmann à propos des Ouïghours.",
+              "kind": "position_declaree",
+              "short_quote": "Je ne comprends pas pourquoi on n'utilise pas les bons mots",
+              "source_url": "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html",
+              "source_title": "Sept séquences à retenir du débat de la primaire de la gauche (franceinfo)",
+              "source_date": "2026-10-01",
+              "details": "Royal emploie aussi ce terme. Glucksmann (« Ce que tu fais est obscène ») et Guedj le refusent et parlent de crimes contre l'humanité et de crimes de guerre.",
+              "confidence": "high"
+            },
+            {
+              "position": "Il demande la suspension immédiate des accords de coopération UE-Israël et un embargo sur les armes utilisées à Gaza et sur leurs composants.",
+              "kind": "position_declaree",
+              "source_url": "https://x.com/faureolivier/status/1927092457549742585",
+              "source_title": "Message d'Olivier Faure sur X",
+              "source_date": "2025-05-26",
+              "details": "La demande de suspension de l'accord d'association UE-Israël date au moins d'avril 2024 (Times of Israel, 26/04/2024). Le projet du PS prévoit aussi des sanctions contre les ministres de Netanyahou et les colons violents.",
+              "confidence": "high"
+            },
+            {
+              "position": "Il a déposé avec Sabrina Sebaihi (Écologistes) et Richard Ramos (MoDem) une proposition de loi transpartisane interdisant l'importation et la vente des produits fabriqués dans les colonies israéliennes, en s'appuyant sur l'avis de la CIJ de juillet 2024.",
+              "kind": "proposition_explicite",
+              "source_url": "https://lcp.fr/actualites/colonies-israeliennes-des-deputes-veulent-interdire-la-vente-de-certains-produits-en",
+              "source_title": "Colonies israéliennes : des députés veulent interdire la vente de certains produits en France (LCP)",
+              "source_date": "2026-06-22",
+              "confidence": "high"
+            },
+            {
+              "position": "Il juge la reconnaissance de l'État de Palestine « indispensable » et l'inscrit dans un mouvement européen coordonné.",
+              "kind": "position_declaree",
+              "source_url": "https://www.franceinfo.fr/replay-radio/8h30-fauvelle-dely/possible-reconnaissance-de-l-etat-palestinien-revirement-de-donald-trump-sur-les-droits-de-douane-le-8h30-franceinfo-d-olivier-faure_7153530.html",
+              "source_title": "Le « 8h30 franceinfo » d'Olivier Faure",
+              "source_date": "2025-04-10",
+              "confidence": "high"
+            },
+            {
+              "position": "Il soutient l'Ukraine : il présente ce conflit comme existentiel pour la sécurité européenne et reproche à Mélenchon de vouloir rouvrir le gazoduc Nord Stream avec la Russie.",
+              "kind": "position_declaree",
+              "source_url": "https://lcp.fr/actualites/accord-avec-lfi-moyen-orient-pouvoir-d-achat-ce-qu-il-faut-retenir-du-premier-debat-de",
+              "source_title": "Ce qu'il faut retenir du premier débat de la primaire de gauche (LCP)",
+              "source_date": "2026-09-23",
+              "details": "Le projet du PS prévoit de saisir les 210 Md€ d'avoirs publics russes immobilisés dans l'UE et de soutenir l'adhésion de l'Ukraine à l'UE. Aucune position personnelle sourcée n'a été trouvée sur l'envoi de troupes, un montant d'aide ou un pourcentage du PIB pour la défense.",
+              "confidence": "medium"
+            },
+            {
+              "position": "Lors d'une visite à Taïwan, où il a rencontré le président Lai Ching-te, il a affirmé que Taïwan est « un État, de fait » et défendu l'autonomie de l'île, ce qui le démarque de la ligne diplomatique française classique.",
+              "kind": "position_declaree",
+              "short_quote": "Taïwan est un État, de fait",
+              "source_url": "https://www.sudouest.fr/international/asie/taiwan/taiwan-est-un-etat-de-fait-le-patron-du-ps-olivier-faure-se-rend-sur-l-ile-ou-il-rencontrera-le-president-lai-ching-te-29170164.php",
+              "source_title": "« Taïwan est un État, de fait » : Olivier Faure se rend sur l'île (Sud Ouest)",
+              "source_date": "2026-05-21",
+              "details": "Source vérifiée uniquement par le titre et le chapô (article inaccessible), confirmés par un titre de Libération du 28/05/2026.",
+              "confidence": "medium"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "candidate": "Raphaël Glucksmann",
+      "affiliation": "Place publique (co-président), eurodéputé du groupe S&D depuis 2019, réélu en 2024 comme tête de liste PS-Place publique (13,8 %). Il est candidat de Place publique à la primaire « Choisir 2027 » organisée avec le PS (et, selon la page de Place publique, la GRS).",
+      "overview": "Raphaël Glucksmann, 46 ans, eurodéputé et co-président de Place publique, a déclaré sa candidature le 23 août 2026 sur TF1. Il défend une ligne sociale-démocrate, écologiste et fédéraliste européenne. Son marqueur stratégique est la rupture avec La France insoumise : aucun accord à la présidentielle ni aux législatives. Sa mesure phare de pouvoir d'achat est une baisse de la CSG (ou des prélèvements salariaux) pour augmenter le salaire net. Elle serait financée par une hausse de la fiscalité sur les « méga-héritages » (successions de plus de 2 M€, réforme du pacte Dutreil, 15 Md€ par an). Il propose aussi un plan de sauvetage de l'école publique, un service civique obligatoire de 10 mois et une convention citoyenne sur l'immigration. Il veut des « 100 jours de révolution écologique », confiés à Yannick Jadot, et un pro-nucléaire assumé accompagné d'un plan massif pour les renouvelables. En Europe, il veut un saut fédéral : fin du droit de veto et emprunt commun de 500 Md€ pour la défense. Sur la Russie, il tient la ligne la plus offensive : aide militaire accrue à l'Ukraine. Sur Gaza, il refuse le terme de « génocide » tout en s'opposant à Netanyahou et en défendant deux États. Son corpus programmatique repose sur l'« Acte I » de Place publique (42 chantiers, juin 2025), le livre « Nous avons encore envie. Pour un sursaut patriotique » (Allary, mai 2026), sa « lettre aux Français » (25 août 2026) et les débats de la primaire.",
+      "distinctive_vs_others": "(1) Alliances. C'est le seul candidat à exclure formellement tout accord avec LFI à la fois à la présidentielle et aux législatives, avec des candidats partout. Guedj est aussi hostile aux accords ; Faure défend des « convergences » (80 % de votes communs à l'Assemblée) ; Maurel soutient un front républicain incluant LFI face à Le Pen ; Royal refuse LFI mais aussi le centre (LCP, 24/09/2026). Il fait de cette « clarification » le cœur de sa candidature et accuse Faure d'« esprit de défaite ».\n\n(2) Pouvoir d'achat. Sa mesure phare, la baisse de la CSG sur les salaires financée par les méga-héritages, l'isole : Faure la juge limitée, Royal « dangereuse », Guedj y voit une menace pour la Sécurité sociale (débat du 01/10/2026). Sur les carburants, il défend une aide ciblée (chèque énergie triplé), là où Royal et Guedj proposent une baisse générale des taxes.\n\n(3) Retraites. Il ne fixe aucun âge légal : la réforme serait fondée sur la pénibilité et l'espérance de vie en bonne santé. Faure vise un retour à 62 ans ; Guedj veut une logique de durée de cotisation (Public Sénat, 30/09/2026 ; franceinfo, 30/09/2026).\n\n(4) International. C'est la ligne la plus offensive contre la Russie (protection du ciel ukrainien, hausse de l'aide), face à Royal qui prône l'équilibre et la négociation. Sur Gaza, il refuse le mot « génocide », comme Guedj, et s'oppose vivement à Faure et à Royal.\n\n(5) Europe. Il est le plus fédéraliste : fin du veto, traité de refondation d'ici 2030, emprunt de 500 Md€. Maurel prône au contraire la « démondialisation » et un « emprunt national » (LCP, 23/09/2026).\n\n(6) Profil. Seul candidat issu de Place publique et sans mandat national ni exécutif. Royal l'a qualifié de « stagiaire ». Il est soutenu par des figures du PS (Vallaud, Delga, Mayer-Rossignol, Delafosse) et par l'écologiste Yannick Jadot.\n\n(7) Propositions qui lui sont propres dans les sources consultées : service civique obligatoire de 10 mois, convention citoyenne sur l'immigration, extension de la dissuasion nucléaire française aux partenaires de l'UE, bannissement de TikTok.",
+      "signature_proposals": [
+        {
+          "proposal": "Saut fédéral européen : fin du droit de veto (majorité qualifiée) et emprunt commun, dont un fonds européen de défense de 500 Md€.",
+          "topic_id": "europe",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf"
+        }
+      ],
+      "topics": [
+        {
+          "topic_id": "europe",
+          "found": true,
+          "positions": [
+            {
+              "position": "Saut fédéral européen : supprimer le droit de veto, c'est-à-dire passer à la majorité qualifiée au Conseil européen.",
+              "kind": "proposition_explicite",
+              "details": "Livre de mai 2026 (« pacte de souveraineté » quasi fédéral). L'Acte I prévoit d'ici 2030 un « grand traité de réunification européenne » qui serait aussi une refondation institutionnelle : droit d'initiative législative pour le Parlement européen et Initiatives citoyennes européennes facilitées.",
+              "source_url": "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme",
+              "source_title": "Présidentielle : Raphaël Glucksmann dévoile les premières lignes de son possible programme (LCP)",
+              "source_date": "2026-05-26",
+              "confidence": "high"
+            },
+            {
+              "position": "Grand emprunt européen commun, notamment un fonds européen de défense de 500 Md€, dont les investissements seraient réservés aux productions européennes.",
+              "kind": "proposition_explicite",
+              "details": "Acte I, chantier 2 ; repris dans le livre de 2026. Le programme des européennes de 2024 évoquait un fonds de 100 Md€ et la mobilisation des 206 Md€ d'avoirs russes gelés pour l'Ukraine.",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 2 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "high"
+            },
+            {
+              "position": "Augmenter massivement le budget de l'UE avec de nouvelles ressources propres. Instaurer une taxation commune des hauts patrimoines et des multinationales.",
+              "kind": "proposition_explicite",
+              "details": "Acte I, chantier 3, et programme européen 2024 (ISF européen, taxe sur les superprofits).",
+              "source_url": "https://www.touteleurope.eu/vie-politique-des-etats-membres/elections-europeennes-2024-le-programme-de-raphael-glucksmann-et-de-la-liste-parti-socialiste-ps-place-publique-pp/",
+              "source_title": "Élections européennes 2024 : le programme de Raphaël Glucksmann (Toute l'Europe)",
+              "source_date": "2024-05",
+              "confidence": "medium"
+            },
+            {
+              "position": "Protectionnisme européen ciblé : « Buy European Act » réservant la commande publique aux productions européennes, clauses de sauvegarde, mesures miroirs, et remise en cause du dogme de la « concurrence libre et non faussée » pour faire émerger des champions européens.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantier 4 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "high"
+            },
+            {
+              "position": "Faire de la France « la locomotive de la puissance européenne naissante ». Proposer un « pacte girondin » clarifiant les compétences entre UE, État, régions et collectivités.",
+              "kind": "position_declaree",
+              "details": "L'élargissement n'est abordé que via le « traité de réunification » de 2030 et le soutien à l'Ukraine, la Moldavie et l'Arménie. Aucune position explicite et datée sur le calendrier d'adhésion de l'Ukraine. Aucune position détaillée sur les règles budgétaires européennes.",
+              "source_url": "https://place-publique.eu/posts/2fgDdljEIy36rgxBjRyiQZ/raphael-glucksmann-sa-lettre-aux-francais",
+              "source_title": "Raphaël Glucksmann – Sa lettre aux Français (Place publique)",
+              "source_date": "2026-08-25",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "international_defense",
+          "found": true,
+          "positions": [
+            {
+              "position": "Augmenter fortement l'aide militaire à l'Ukraine et protéger le ciel ukrainien, « comme cela a été fait avec les Émirats arabes unis ».",
+              "kind": "position_declaree",
+              "details": "C'est la ligne la plus offensive envers la Russie parmi les cinq candidats (LCP). Au débat du 01/10/2026, il s'oppose à la ligne de dialogue avec Poutine défendue par Royal. L'Acte I qualifie l'Ukraine de « première ligne de défense » et prévoit un soutien à la Moldavie et à l'Arménie. Aucune position vérifiée sur l'envoi de troupes françaises au sol.",
+              "source_url": "https://lcp.fr/actualites/accord-avec-lfi-moyen-orient-pouvoir-d-achat-ce-qu-il-faut-retenir-du-premier-debat-de",
+              "source_title": "Accord avec LFI, Moyen-Orient, pouvoir d'achat : ce qu'il faut retenir du premier débat de la primaire (LCP)",
+              "source_date": "2026-09-24",
+              "confidence": "high"
+            },
+            {
+              "position": "Refuse de qualifier de « génocide » les crimes d'Israël à Gaza, au motif que la CPI n'emploie pas ce terme. Se dit opposé à Netanyahou et favorable à deux États.",
+              "kind": "position_declaree",
+              "details": "À Faure, au débat France 2 du 01/10/2026 : « Ce que tu fais est obscène ». Au débat LCI, à Royal : « il faut faire attention aux mots » et « les Juifs ne sont en aucun cas responsables de la politique de Netanyahou ». Guedj partage ce refus ; Faure et Royal emploient ou défendent le mot.",
+              "short_quote": "Ce que tu fais est obscène",
+              "source_url": "https://www.20min.ch/fr/story/primaire-de-la-gauche-au-debat-glucksmann-et-faure-s-opposent-sur-l-alliance-avec-lfi-103642735",
+              "source_title": "Primaire de la gauche : au débat, Glucksmann et Faure s'opposent sur l'alliance avec LFI (20 minutes/AFP)",
+              "source_date": "2026-10-02",
+              "confidence": "high"
+            },
+            {
+              "position": "Reconnaître l'État de Palestine aux côtés d'Israël (proposé en 2025). Suspendre l'accord d'association UE-Israël et sanctionner les acteurs de la colonisation en Cisjordanie.",
+              "kind": "proposition_explicite",
+              "details": "Reconnaissance : Acte I, chantier 42 (juin 2025). Suspension de l'accord et sanctions : communiqué de Place publique du 21/08/2026, non signé nominativement. Aucune position trouvée sur un embargo sur les armes.",
+              "short_quote": "Sanctionner les acteurs de la colonisation illégale",
+              "source_url": "https://place-publique.eu/posts/2i0gWFYaKIzY29qXbIwzpP/l-europe-doit-s-elever-contre-la-colonisation-israelienne",
+              "source_title": "L'Europe doit s'élever contre la colonisation israélienne (Place publique)",
+              "source_date": "2026-08-21",
+              "confidence": "medium"
+            },
+            {
+              "position": "Proposer aux partenaires de l'UE d'étendre la dissuasion nucléaire française aux autres pays de l'Union, la France gardant seule la décision d'emploi.",
+              "kind": "proposition_explicite",
+              "details": "L'Acte I prévoit aussi : accélérer la production pour un conflit de haute intensité, de grands programmes de drones, un programme « cyber sentinelle », une réserve opérationnelle fortement augmentée et une adaptation de la LPM. Aucun objectif chiffré en % du PIB trouvé.",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantiers 1 et 2 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "high"
+            },
+            {
+              "position": "Rupture avec les États-Unis de Trump, présentés comme ayant basculé « du côté des tyrans ». Il a lancé en mars 2025 : « rendez-nous la statue de la Liberté ».",
+              "kind": "position_declaree",
+              "details": "Dans sa lettre aux Français (25/08/2026), il dénonce « les valets de Trump et de Poutine ». L'Acte I juge qu'on ne peut plus compter sur le « parapluie américain ». Aucune position explicite trouvée sur la sortie ou le maintien dans l'OTAN.",
+              "source_url": "https://www.yahoo.com/news/white-house-slams-french-mep-102356451.html",
+              "source_title": "White House slams French MEP's call to return Statue of Liberty (AFP via Yahoo)",
+              "source_date": "2025-03-17",
+              "confidence": "high"
+            },
+            {
+              "position": "Interdire immédiatement toute importation de gaz russe. Aide publique au développement portée progressivement à 0,7 % du RNB. Coalition internationale pour la démocratie.",
+              "kind": "proposition_explicite",
+              "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+              "source_title": "Acte I – chantiers 6 et 42 (Place publique)",
+              "source_date": "2025-06",
+              "confidence": "medium"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "candidate": "Jérôme Guedj",
+      "affiliation": "Parti socialiste. Député de la 6e circonscription de l'Essonne depuis 2022, groupe Socialistes et apparentés, membre de la commission des affaires sociales. Ancien assistant parlementaire de Jean-Luc Mélenchon, élu en 2022 sous l'étiquette NUPES, il a refusé le label NFP en 2024. Il a déclaré sa candidature présidentielle hors primaire le 5 février 2026, puis a rejoint la primaire « Choisir 2027 » fin août 2026 (le 23 août selon Wikipédia FR). Il a annoncé ses parrainages le 15 septembre 2026.",
+      "overview": "Jérôme Guedj se présente comme le candidat d'une gauche « républicaine, universaliste, écologiste, européenne et laïque ». Son slogan est « La République, c'est nous ! », titre de son livre paru le 27 août 2026. Sa ligne stratégique est la plus anti-LFI des cinq candidats : aucune alliance avec La France insoumise, « plus jamais ». Il rappelle avoir refusé l'accord NFP en 2024 et assume un « compromis » avec le centre, voire avec une partie de la droite, face à l'extrême droite. Spécialiste des questions sociales, il fait de la « République du soin » sa première priorité : Sécurité sociale intégrale ou « Grande Sécu » (un seul payeur pour les soins essentiels), extension à tout le pays du régime local d'Alsace-Moselle, critères d'installation des médecins et financement du grand âge. Sur les retraites, il veut « sortir de l'âge légal » au profit d'un système fondé sur les annuités et la pénibilité, avec un âge du taux plein abaissé. Il accepte, sous conditions, une sous-indexation des pensions les plus élevées et une hausse de la CSG sur ces pensions. Côté recettes, il propose d'alourdir les droits de succession au-delà de 2 M€ (environ 10 Md€ par an pour l'autonomie) et un « ISF climatique ». Sur l'immigration, il veut une immigration « planifiée par le Parlement », avec apprentissage obligatoire de la langue. Sur la laïcité, il propose un Défenseur de la laïcité, autorité indépendante, et a reçu en juillet 2026 une mission du Premier ministre Lecornu. À l'international, il soutient fermement l'Ukraine et défend la solution à deux États. Il refuse le terme « génocide » pour Gaza et parle de crimes de guerre et de crimes contre l'humanité.",
+      "distinctive_vs_others": "1) Stratégie : avec Glucksmann, il porte la ligne la plus fermement anti-LFI (« plus jamais » d'alliance). Il va plus loin en accusant Faure et Royal de « soumission » à LFI et Faure d'une « danse du ventre permanente » (Orange/AFP 24/09/2026 ; LCP 01/10/2026). Il se dit le seul à avoir refusé l'accord NFP en 2024, alors que Maurel assume son élection de 2024 sous la bannière NFP (Public Sénat 24/09/2026). Il est aussi le seul à revendiquer explicitement un « compromis » avec le centre, « voire une partie de la droite » (AFP 17/09/2026).\n\n2) Retraites : c'est le seul des cinq, dans les sources consultées, à proposer de sortir de l'âge légal au profit des annuités et de la pénibilité (BFMTV/Capital 12/09/2026). Il accepte aussi, sous conditions, une sous-indexation des hautes pensions et une hausse de la CSG sur ces pensions (L'Opinion, août 2026 ; AFP 17/09/2026), ce qui le distingue d'une gauche attachée à l'indexation de toutes les pensions.\n\n3) Santé : il fait de la santé son marqueur. Il défend la Sécurité sociale intégrale ou « Grande Sécu » et se dit le « seul candidat » à avoir parlé de santé au débat LCI (X, 23/09/2026). Il veut étendre le régime d'Alsace-Moselle à tout le pays (Moselle TV 29/09/2026). Au débat du 01/10, il s'oppose à la baisse de CSG proposée par Glucksmann (Entrevue 02/10/2026).\n\n4) Immigration : sa ligne est plus restrictive que celle de Faure, qui prône une régularisation massive (500 000 régularisations ne le « choquent » pas, selon l'AFP). Guedj veut une immigration « planifiée par le Parlement » et critique « l'angélisme moral » de la gauche (AFP 17/09/2026).\n\n5) Laïcité : il est le candidat le plus identifié sur le sujet. Ancien secrétaire national du PS à la laïcité, il a reçu une mission Lecornu en juillet 2026 et a déposé la proposition de loi constitutionnelle n°2000 pour un Défenseur de la laïcité. Il combine fermeté face à l'islamisme et refus de l'interdiction du voile dans l'espace public (BFMTV 18/09 et 31/08/2026).\n\n6) Gaza : comme Glucksmann et contrairement à Faure et Royal, il refuse le mot « génocide ». Contrairement à Faure et Maurel, il ne demande pas la suspension de l'accord UE-Israël mais l'utilisation de ses leviers commerciaux contre le gouvernement israélien (Times of Israel 24/09/2026).\n\n7) Carburants : il rejoint Royal sur la baisse de la fiscalité et Maurel sur le plafonnement des marges des raffineurs (Public Sénat 24/09 ; Entrevue 02/10/2026).\n\n8) SMIC : son montant de 1 700 € est le même que celui de Faure (1 700 € net), ce qui le rend peu distinctif sur ce point.",
+      "signature_proposals": [],
+      "topics": [
+        {
+          "topic_id": "europe",
+          "found": true,
+          "positions": [
+            {
+              "position": "Se revendique d'une gauche « européenne » et pro-européenne.",
+              "kind": "position_declaree",
+              "details": "Libération, 05/02/2026 (via Wikipédia), et Moselle TV, 29/09/2026. Pas de position trouvée sur le fédéralisme, les traités, l'unanimité ou l'élargissement.",
+              "source_url": "https://moselle.tv/jerome-guedj-inspirons-nous-de-ce-que-la-moselle-a-ete-capable-de-faire-depuis-80-ans/",
+              "source_title": "Moselle TV, entretien Jérôme Guedj",
+              "source_date": "2026-09-29",
+              "confidence": "high"
+            },
+            {
+              "position": "Veut une Europe « puissance », sociale et écologique, capable de se défendre, tout en défendant l'indépendance et la souveraineté françaises.",
+              "kind": "position_declaree",
+              "details": "Lettre de campagne et engagement n°4. La presse lui prête aussi des accents protectionnistes (Yahoo/HuffPost, 14/07/2026), sans mesure précise.",
+              "source_url": "https://www.jeromeguedj2027.fr/lettre",
+              "source_title": "Lettre / profession de foi de Jérôme Guedj",
+              "source_date": "2026",
+              "confidence": "medium"
+            },
+            {
+              "position": "Utiliser les instruments commerciaux de l'accord d'association UE-Israël comme levier de pression sur le gouvernement israélien, sans viser la société civile israélienne. Faure et Maurel, eux, demandent la suspension de l'accord.",
+              "kind": "position_declaree",
+              "source_url": "https://fr.timesofisrael.com/primaire-de-la-gauche-en-france-les-5-candidats-confrontent-leurs-positions-sur-israel-et-gaza/",
+              "source_title": "Primaire de la gauche en France : les 5 candidats confrontent leurs positions sur Israël et Gaza (Times of Israel)",
+              "source_date": "2026-09-24",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "topic_id": "international_defense",
+          "found": true,
+          "positions": [
+            {
+              "position": "Soutien ferme à l'Ukraine : un État qui occupe 20 % du territoire de son voisin menace tout le continent.",
+              "kind": "position_declaree",
+              "details": "Débat LCI du 23/09/2026, sur la même ligne que Glucksmann et Maurel. Pas de position trouvée sur l'envoi de troupes.",
+              "source_url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+              "source_title": "Primaire de la gauche : échanges tendus… Que retenir du 1er débat (Public Sénat)",
+              "source_date": "2026-09-24",
+              "confidence": "high"
+            },
+            {
+              "position": "Refuse qu'une négociation avec la Russie tourne à la capitulation, en invoquant Munich.",
+              "kind": "position_declaree",
+              "short_quote": "des paix munichoises qui préparent des guerres",
+              "source_url": "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+              "source_title": "Ce qu'il faut retenir du deuxième débat de la primaire de gauche (LCP)",
+              "source_date": "2026-10-01",
+              "confidence": "high"
+            },
+            {
+              "position": "Gaza : refuse le terme « génocide » et parle de « crimes de guerre et crimes contre l'humanité », comme la CPI. Il accuse Ségolène Royal d'« essentialiser » les Juifs de France en leur demandant de se désolidariser de Netanyahou.",
+              "kind": "position_declaree",
+              "details": "Débats des 23/09 et 01/10/2026. Même ligne que Glucksmann ; Faure et Royal emploient « génocide ».",
+              "source_url": "https://lcp.fr/actualites/debat-de-la-primaire-de-gauche-jerome-guedj-accuse-segolene-royal-d-essentialiser-les",
+              "source_title": "Débat de la primaire de gauche: Jérôme Guedj accuse Ségolène Royal d'« essentialiser » les Juifs de France (LCP)",
+              "source_date": "2026-09-24",
+              "confidence": "high"
+            },
+            {
+              "position": "Défend la solution à deux États (il se dit « enfant d'Oslo »). Il condamne le terrorisme du Hamas et la « fuite en avant nationaliste » du gouvernement Netanyahou, et soutient une coalition alternative en Israël.",
+              "kind": "position_declaree",
+              "short_quote": "enfant d'Oslo",
+              "details": "Premier déplacement de candidat en Israël et en Palestine du 8 au 13/06/2026 (Yaïr Golan, députés arabes israéliens, Autorité palestinienne).",
+              "source_url": "https://fr.timesofisrael.com/jerome-guedj-choisit-israel-et-les-territoires-palestiniens-comme-premier-voyage-de-campagne/",
+              "source_title": "Jérôme Guedj choisit Israël et les Territoires palestiniens comme premier voyage de campagne (Times of Israel)",
+              "source_date": "2026-06-02",
+              "confidence": "high"
+            },
+            {
+              "position": "Dit se présenter contre une « internationale réactionnaire » incarnée par Trump et Poutine.",
+              "kind": "position_declaree",
+              "details": "Déclaré lors de l'annonce de sa candidature.",
+              "source_url": "https://www.franceinfo.fr/politique/jerome-guedj-je-suis-candidat-a-l-election-presidentielle-pour-porter-une-ligne-politique_7786493.html",
+              "source_title": "Jérôme Guedj : « Je suis candidat… pour porter une ligne politique » (franceinfo)",
+              "source_date": "2026-02-05",
+              "confidence": "medium"
+            },
+            {
+              "position": "Estime que s'abstenir sur le soutien à l'Ukraine revient à de l'indifférence, « même » à être pro-Poutine, et refuse toute remise en cause des frontières en Europe.",
+              "kind": "position_declaree",
+              "details": "Entretien Europe 1-CNews lors d'un débat parlementaire sur l'Ukraine. Date non vérifiée (probablement 2024, page inaccessible).",
+              "source_url": "https://www.europe1.fr/politique/debat-sur-lukraine-labstention-est-une-indifference-cest-meme-etre-pro-poutine-juge-jerome-guedj-4235386",
+              "source_title": "Débat sur l'Ukraine : « L'abstention est une indifférence, c'est même être pro-Poutine », juge Jérôme Guedj (Europe 1)",
+              "confidence": "medium"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "candidate": "Emmanuel Maurel",
+      "affiliation": "Gauche républicaine et socialiste (GRS), dont il est cofondateur (2018-2019) et animateur national. Député de la 3e circonscription du Val-d'Oise depuis juillet 2024, élu sous l'étiquette Nouveau Front populaire, il siège au groupe Gauche démocrate et républicaine (GDR, à direction communiste). Député européen de 2014 à 2024 (S&D, puis GUE/NGL après 2018). Membre du PS de 1990 à 2018.",
+      "overview": "Emmanuel Maurel se présente comme « passionnément républicain, résolument socialiste ». Il a déclaré sa candidature le 4 septembre 2026 sur franceinfo et porte une ligne de gauche républicaine, sociale et souverainiste résumée en trois mots : « démondialiser, démarchandiser, démocratiser ». Son programme est construit autour d'une relance productive financée par un grand emprunt national de 300 Md€, avec un retour de l'État stratège : ministère de l'Industrie, fonds souverain, nationalisations possibles, commande publique avec clauses de « contenu local ». Il prévoit aussi le retour des services publics de l'électricité, du rail, des autoroutes et de l'eau dans le giron public, ainsi que la sortie du marché européen de l'électricité. Sur le plan social, il propose un SMIC à 1 700 € net, l'indexation des salaires sur l'inflation, le retour de l'ISF, un PFU à 40 %, une taxe sur les patrimoines de plus de 100 M€ et la retraite à 62 ans. Il défend une laïcité « intransigeante », une Europe sans « saut fédéral » et sans extension de la majorité qualifiée en diplomatie, une France non alignée (il juge l'OTAN en « mort cérébrale ») et un budget de défense de 3 % du PIB. Sur les alliances, il reconnaît « un problème avec LFI, et notamment Mélenchon », refuse que la campagne devienne un référendum sur Mélenchon et exclut l'alliance avec la droite. Il assume enfin d'être un petit candidat : environ 1 % d'intentions de vote présidentielles selon un sondage cité par une source secondaire.",
+      "distinctive_vs_others": "1) Ligne souverainiste et « démondialisatrice ». C'est le seul des cinq à refuser tout « saut fédéral » et toute extension de la majorité qualifiée en diplomatie, à vouloir un rabais sur la contribution française au budget de l'UE, à combattre le « 28e régime », à remettre en cause la libre circulation des capitaux hors UE et à vouloir sortir du marché européen de l'électricité (programme, emmanuel-maurel.fr/programme). Il avait voté non à Maastricht (1992) et au TCE (2005) (Sud Radio, 23/09/2026). Il s'oppose à l'adhésion accélérée de l'Ukraine (Mediapart via GRS, 13/03/2024 ; vote du 12/03/2025, Datan n°973). Glucksmann, à l'opposé, porte une ligne pro-européenne.\n2) Diplomatie non alignée. Il assimile indépendance et non-alignement, juge l'OTAN en « mort cérébrale » et veut que la « dissuasion nucléaire avancée » de Macron soit « sérieusement questionnée » (programme). Il soutient l'aide militaire à l'Ukraine (débat du 01/10/2026) mais s'est abstenu sur la LPM, alors que le GDR votait contre (Datan n°6736 et 7905). Sur Gaza, il parle de « guerre criminelle » sans employer « génocide » et appelle au « sang-froid », à distance du clivage Faure/Glucksmann et Guedj sur ce mot (franceinfo et Figaro, 01/10/2026).\n3) Économie la plus interventionniste du lot. Grand emprunt de 300 Md€, nationalisations possibles, fonds souverain, ministère de l'Industrie, fin de la concurrence ferroviaire, autoroutes reprises par l'État, eau en régie (programme). Il propose l'ISF et un PFU à 40 % en plus de la taxe sur les patrimoines de plus de 100 M€, quand Faure met surtout en avant la taxe Zucman (LCP, 01/10/2026). Il traite d'« usine à gaz » la baisse de CSG de Glucksmann (franceinfo, 01/10/2026).\n4) École privée : il est le seul à écrire qu'« à plus long terme » les financements publics seront réservés à l'école publique (programme).\n5) Laïcité « intransigeante » (aucun « accommodement raisonnable ») associée à la régularisation des travailleurs sans-papiers et à la défense du droit du sol (programme).\n6) Position intermédiaire sur LFI. Il reconnaît « un problème avec LFI, et notamment Mélenchon » mais refuse le « référendum » sur Mélenchon et l'alliance avec la droite (LCP, 24/09/2026). Il promet l'union de la gauche et le front républicain si Le Pen gagne (LCP, 01/10/2026). Il se situe ainsi entre Glucksmann et Guedj (aucun accord avec LFI) et Faure (convergences), plus près de Royal dans l'agacement face à la question (franceinfo, 01/10/2026).\n7) Profil parlementaire singulier. Seul candidat élu au sein du groupe GDR, à direction communiste, il s'en est démarqué pour voter avec les socialistes la suspension de la réforme des retraites (12/11/2025) et le PLFSS 2026 (09/12/2025) (Datan n°3684 et 4696).\n8) Il est le seul candidat issu de la GRS, et non du PS ou de Place publique, et le moins bien placé dans les sondages (environ 1 % selon TIME France, source secondaire).",
+      "signature_proposals": [
+        {
+          "proposal": "Budget de la défense à 3 % du PIB via une enveloppe de 100 Md€. Indépendance assimilée au non-alignement et remise en question de la « dissuasion nucléaire avancée ».",
+          "topic_id": "international_defense",
+          "source_url": "https://emmanuel-maurel.fr/programme/"
+        }
+      ],
+      "topics": [
+        {
+          "topic_id": "europe",
+          "found": true,
+          "positions": [
+            {
+              "position": "Opposé à tout « saut fédéral » et à toute extension du vote à la majorité qualifiée sur les questions diplomatiques et militaires.",
+              "kind": "proposition_explicite",
+              "short_quote": "contre toute extension du vote à la majorité qualifiée sur les questions diplomatiques",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "S'oppose au projet de « 28e régime », vu comme un contournement des législations nationales, et défend le principe de territorialité.",
+              "kind": "proposition_explicite",
+              "short_quote": "la tentative de contournement des législations nationales par le projet de « 28ème régime »",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Fin de l'austérité : relance budgétaire, investissements stratégiques financés par l'emprunt, investissements écologiques, technologiques et numériques sortis du calcul du déficit comme ceux de la défense.",
+              "kind": "proposition_explicite",
+              "short_quote": "L'Europe se condamnerait en poursuivant ses politiques d'austérité",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Renégocier la contribution française au budget de l'UE (passée de 23 à 28 Md€) pour obtenir un rabais comme l'Allemagne, l'Autriche, la Suède, le Danemark ou les Pays-Bas.",
+              "kind": "proposition_explicite",
+              "short_quote": "Je souhaite que la France obtienne elle aussi un rabais sur sa contribution",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Abandonner les directives de libéralisation des services publics (retour aux monopoles nationaux et aux prix régulés) et remettre en cause la libre circulation des capitaux hors UE.",
+              "kind": "proposition_explicite",
+              "short_quote": "remettant en cause le principe de libre-circulation du capital à l'extérieur de l'UE",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Contre une adhésion accélérée de l'Ukraine à l'UE : le pays ne remplit pas les critères, il préfère la Communauté politique européenne et redoute un dumping social et agricole. Il soutient en revanche l'aide militaire.",
+              "kind": "inference",
+              "details": "Le 12/03/2025, il a voté pour l'amendement supprimant la mention d'une adhésion de l'Ukraine dans une résolution européenne, puis s'est abstenu sur la résolution elle-même, alors que le groupe GDR votait contre (vote n°988). Position déjà exprimée dans Mediapart en mars 2024.",
+              "source_url": "https://datan.fr/votes/legislature-17/vote_973",
+              "source_title": "Vote : Supprimer la mention d'une adhésion de l'Ukraine à l'UE (Datan)",
+              "source_date": "2025-03-12",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "topic_id": "international_defense",
+          "found": true,
+          "positions": [
+            {
+              "position": "Budget de la défense porté à 3 % du PIB grâce à une enveloppe de 100 Md€ : munitions pour la haute intensité, capacités navales, terrestres et aéronavales, base industrielle de défense. Objectif : faire de la France la première puissance militaire européenne et garantir la crédibilité de la dissuasion.",
+              "kind": "proposition_explicite",
+              "short_quote": "je propose une enveloppe de 100 milliards d'euros",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Soutient sans réserve la politique européenne contre l'agression russe et veut continuer à aider l'Ukraine financièrement et militairement. Estime que Poutine ne veut pas négocier « pour l'instant » et que la France a perdu sa voix diplomatique.",
+              "kind": "position_declaree",
+              "short_quote": "Je pense qu'on doit continuer à aider l'Ukraine financièrement, militairement.",
+              "details": "Programme (« Je soutiens sans réserve les politiques convenues au niveau européen ») et débat du 01/10/2026 (direct du Figaro). franceinfo attribue la phrase sur Poutine à la fois à Glucksmann et à Maurel. Rien trouvé sur l'envoi de troupes ou les avoirs russes.",
+              "source_url": "https://www.centre-europe.com/en-direct-presidentielle-2027-faure-et-glucksmann-secharpent-sur-la-notion-de-genocide-a-gaza/",
+              "source_title": "EN DIRECT – débat de la primaire (direct du Figaro repris par Centre Europe)",
+              "source_date": "2026-10-01",
+              "confidence": "medium"
+            },
+            {
+              "position": "Assimile l'indépendance au non-alignement : pas de logique de « camps » ou de « blocs », juge l'OTAN en état de mort cérébrale, et estime que la « dissuasion nucléaire avancée » portée par Emmanuel Macron doit être sérieusement questionnée.",
+              "kind": "proposition_explicite",
+              "short_quote": "l'OTAN est en état de mort cérébrale",
+              "details": "Le programme ajoute que « Trump brûle d'en débrancher le respirateur ». Il ne dit rien de la Chine.",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Proche-Orient : condamne la « guerre criminelle » du gouvernement israélien en Palestine, la destruction de Gaza et le « dépeçage colonial » de la Cisjordanie. Demande la suspension de l'accord commercial UE-Israël. Se dit pour la reconnaissance de l'État de Palestine et pour la sécurité d'Israël.",
+              "kind": "proposition_explicite",
+              "short_quote": "Je suis pour la reconnaissance de l'État de la Palestine, pour la sécurité d'Israël",
+              "details": "Le programme n'emploie pas le mot « génocide ». Au débat du 01/10/2026, il a appelé à aborder ces questions « avec beaucoup de sang-froid », alors que Faure et Glucksmann s'opposaient sur ce terme. Il n'apparaît pas parmi les cosignataires de la résolution LFI n°1857 (22/09/2025) appelant à reconnaître un génocide à Gaza (inférence faible).",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "Iran et Liban : soutient la position française selon laquelle la guerre d'Iran « n'est pas la nôtre ». Exprime ses craintes pour le Liban, « pris en tenaille entre le Hezbollah et Netanyahu ». Propose une initiative méditerranéenne de co-développement avec le Maghreb et le Levant.",
+              "kind": "proposition_explicite",
+              "short_quote": "Je soutiens pleinement la position française sur la guerre d'Iran",
+              "source_url": "https://emmanuel-maurel.fr/programme/",
+              "source_title": "Programme – Emmanuel Maurel 2027",
+              "source_date": "2026",
+              "confidence": "high"
+            },
+            {
+              "position": "S'est abstenu sur l'actualisation de la loi de programmation militaire 2024-2030, alors que son groupe GDR votait contre.",
+              "kind": "inference",
+              "details": "Abstention en première lecture (19/05/2026 ; adopté par 440 voix contre 122) et lors du vote du 01/07/2026 (adopté par 375 voix contre 113), « rebelle » selon Datan dans les deux cas.",
+              "source_url": "https://datan.fr/votes/legislature-17/vote_7905",
+              "source_title": "Vote : Projet de loi actualisant la programmation militaire 2024-2030 (Datan)",
+              "source_date": "2026-07-01",
+              "confidence": "high"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "candidate": "Ségolène Royal",
+      "affiliation": "Parti socialiste. Candidate PS à la primaire « socialiste et démocratique » Choisir 2027, co-organisée par le PS, Place publique et la GRS. Présidente de l'Association France-Algérie depuis le 18 décembre 2025, où elle a succédé à Arnaud Montebourg. Ancienne ministre de l'Écologie (2014-2017), présidente de la COP21, présidente de Poitou-Charentes et finaliste de la présidentielle 2007. Soutiens identifiés : Luc Carvounas (maire d'Alfortville) et Béatrice Bellay (Wikipédia FR).",
+      "overview": "Ségolène Royal, 73 ans, a annoncé le 10 juillet 2026 sa candidature à la primaire du pôle socialiste. Elle la justifie par le risque d'arrivée au pouvoir de l'extrême droite. Elle dit agir « avec humilité, sans ego ». Son slogan, « La France tranquille et l'Ordre juste », reprend son concept de 2007. Elle le décline en cinq axes : ordre juste (pouvoir d'achat, emploi, services publics), urgence climatique (appliquer les décisions de la COP21), urgence énergétique pour les TPE/PME, artisans et agriculteurs, État fort (notamment contre les violences faites aux enfants) et France « puissance médiatrice ». Elle n'a pas publié de programme détaillé. Ses propositions concrètes connues sont surtout le retour de l'ISF « financière », un carburant ramené à 1,70 €/L par des baisses de taxes (TVA, accise européenne, CEE), des caméras « partout » dans les écoles, le périscolaire, les crèches et les Ehpad, une TVA allégée sur les aliments produits en France et une énergie à bas prix (jusqu'à demander la sortie du marché européen de l'électricité). Sur les retraites, elle refuse tout effort supplémentaire, notamment la désindexation, tant que l'ISF n'est pas rétabli et que le pays n'est pas réindustrialisé. Aucune déclaration de 2026 réclamant explicitement l'abrogation de la réforme de 2023 n'a été trouvée. Lors du débat LCI, elle s'est distinguée par une ligne de paix négociée en Ukraine, l'emploi du mot « génocide » pour Gaza et le refus d'exclure une alliance avec LFI aux législatives. Elle s'oppose fermement à l'interdiction du voile dans l'espace public. Sa campagne mise sur l'expérience : elle a qualifié Raphaël Glucksmann de « stagiaire », ce qui lui a valu un rappel à l'ordre de la commission d'organisation le 21/09/2026.",
+      "distinctive_vs_others": "1) International : c'est la seule des cinq à défendre au débat LCI (23/09/2026) une issue négociée avec la Russie, au nom d'une « paix juste et durable ». Glucksmann lui a opposé que Poutine ne veut pas négocier et qu'il faut « résister » (franceinfo, 23/09/2026). Ses propos de 2022 mettant en doute des informations ukrainiennes renforcent ce marqueur (La Libre, 17/11/2022).\n2. Gaza et antisémitisme : comme Faure, elle emploie le mot « génocide », que Glucksmann refuse. Elle est la seule à avoir appelé les « voix juives » à dénoncer la politique israélienne, ce que Guedj a qualifié d'« incroyable injonction » et que le CRIF a condamné (Planet, 24/09/2026 ; franceinfo, 23/09/2026).\n3. Alliances : elle refuse d'exclure un accord avec LFI aux législatives, contrairement à Glucksmann et Guedj (France 24, 23/09/2026). En 2023, elle proposait une liste d'union avec LFI ; en 2024, un gouvernement d'« union républicaine » ouvert au centre et à LR. Sa ligne d'alliance est donc fluctuante.\n4. Une campagne « ordre juste » à forte tonalité sécuritaire et protectrice : vidéosurveillance généralisée dans les écoles, crèches et Ehpad, « tolérance zéro » pour les violences faites aux enfants. C'est sa marque propre, sans équivalent repéré chez les autres candidats.\n5. Sur l'économie, elle mise sur des baisses de taxes immédiates pour le pouvoir d'achat (carburant à 1,70 €, TVA allégée sur l'alimentation française, taxes énergie des PME). Elle refuse un alourdissement fiscal général et limite la hausse d'impôts à l'ISF financier. Les autres candidats ont mis en avant dans le fact-check du 01/10/2026 d'autres sujets fiscaux : millionnaires non imposés et dividendes pour Faure, droits de succession pour Guedj (franceinfo Vrai ou Fake).\n6. Positionnement souverainiste sur l'énergie et l'Europe : sortie du marché européen de l'électricité, « Les règles européennes, on les change ». Cette ligne la rapproche davantage de Maurel (GRS) que de Glucksmann (Place publique), pro-européen.\n7. Laïcité : opposition frontale à l'interdiction du voile dans l'espace public (« Laissons les femmes tranquilles »), avec un argumentaire sur l'image de la France dans le monde musulman.\n8. Mémoire : excuses officielles à l'Algérie, en tant que présidente de l'Association France-Algérie.\n9. Style : elle revendique son expérience de gouvernement contre l'« inexpérience » de Glucksmann (« stagiaire »), ce qui lui a valu un rappel à l'ordre de la commission de la primaire. C'est la seule candidate sans programme écrit détaillé.",
+      "signature_proposals": [
+        {
+          "proposal": "Faire de la France une « puissance médiatrice » et rechercher une paix négociée, « juste et durable », en Ukraine",
+          "topic_id": "international_defense",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/lors-du-premier-debat-de-la-primaire-socialiste-segolene-royal-mise-en-difficulte-sur-l-ukraine-et-israel_8207075.html"
+        },
+        {
+          "proposal": "Excuses officielles de la France à l'Algérie pour la colonisation, avec restitution des biens culturels et des archives (dont celles des essais nucléaires)",
+          "topic_id": "international_defense",
+          "source_url": "https://www.aa.com.tr/fr/afrique/crise-entre-l-alg%C3%A9rie-et-la-france-s%C3%A9gol%C3%A8ne-royal-appelle-%C3%A0-la-reconnaissance-des-crimes-coloniaux/3803276"
+        }
+      ],
+      "topics": [
+        {
+          "topic_id": "europe",
+          "found": true,
+          "positions": [
+            {
+              "position": "Se dit prête à remettre en cause les règles européennes qui empêcheraient ses mesures, notamment la baisse des taxes sur les carburants.",
+              "kind": "position_declaree",
+              "short_quote": "Les règles européennes, on les change, ça suffit à un moment",
+              "source_url": "https://fr.finance.yahoo.com/actualites/veux-baisser-taxes-s%C3%A9gol%C3%A8ne-royal-090135153.html",
+              "source_title": "« Je veux baisser les taxes » (Capital/Yahoo, d'après RTL)",
+              "source_date": "2026-09-13",
+              "confidence": "high"
+            },
+            {
+              "position": "Demander à la Commission européenne une dérogation sur le niveau minimal d'accise de la directive sur la taxation de l'énergie, sur le modèle espagnol.",
+              "kind": "proposition_explicite",
+              "source_url": "https://econostrum.info/carburant-a-170-euros-cette-taxe-europeenne-a/",
+              "source_title": "Carburant à 1,70 euros : cette « taxe européenne » que Ségolène Royal veut supprimer (Econostrum)",
+              "source_date": "2026-09-25",
+              "confidence": "high"
+            },
+            {
+              "position": "Prône la sortie de la France du marché européen de l'électricité et critique Ursula von der Leyen sur la politique énergétique et nucléaire.",
+              "kind": "position_declaree",
+              "source_url": "https://contrepoints.org/nucleaire-segolene-royal-ou-linconsequence-en-politique/",
+              "source_title": "Nucléaire : Ségolène Royal ou l'inconséquence en politique (Contrepoints)",
+              "source_date": "2026-03-12",
+              "confidence": "medium"
+            },
+            {
+              "position": "Veut intégrer le coût carbone dans le prix des produits importés (ajustement carbone aux frontières) et rendre le commerce international responsable sur le plan environnemental.",
+              "kind": "position_declaree",
+              "source_url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pourquoi-pas-un-ticket-avec-dominique-de-villepin-pour-la-presidentielle",
+              "source_title": "Ségolène Royal : pourquoi pas un ticket avec Dominique de Villepin ? (Sud Radio)",
+              "source_date": "2025-12-11",
+              "confidence": "medium"
+            },
+            {
+              "position": "Selon le comparateur iFRAP, propose de diminuer le « train de vie » des institutions européennes.",
+              "kind": "proposition_explicite",
+              "details": "Attribution sans source primaire. Aucune position trouvée sur le fédéralisme, l'emprunt commun, l'élargissement à l'Ukraine ou l'unanimité.",
+              "source_url": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+              "source_title": "Comparateur Présidentielles 2027 (Fondation iFRAP)",
+              "confidence": "low"
+            }
+          ]
+        },
+        {
+          "topic_id": "international_defense",
+          "found": true,
+          "positions": [
+            {
+              "position": "Ukraine : prône une issue négociée avec la Russie pour « aider l'Ukraine à obtenir une paix juste et durable ». Elle rejette les accusations de complaisance envers Poutine, qu'elle qualifie de « caricatures » et de « procès d'intention ».",
+              "kind": "position_declaree",
+              "short_quote": "aider l'Ukraine à obtenir une paix juste et durable",
+              "details": "Débat LCI du 23/09/2026, où elle a été mise en difficulté. Glucksmann lui a opposé que Poutine n'a aucune intention de négocier et qu'il faut « résister, aider les Ukrainiens ». Elle n'a pris aucune position trouvée sur les livraisons d'armes ou l'envoi de troupes.",
+              "source_url": "https://www.franceinfo.fr/elections/presidentielle/lors-du-premier-debat-de-la-primaire-socialiste-segolene-royal-mise-en-difficulte-sur-l-ukraine-et-israel_8207075.html",
+              "source_title": "Lors du premier débat de la primaire socialiste, Ségolène Royal mise en difficulté sur l'Ukraine et Israël (franceinfo)",
+              "source_date": "2026-09-23",
+              "confidence": "high"
+            },
+            {
+              "position": "Veut redonner à la France une « stature diplomatique » et un rôle de « puissance médiatrice » pour une paix durable.",
+              "kind": "proposition_explicite",
+              "short_quote": "puissance médiatrice",
+              "source_url": "https://lcp.fr/actualites/presidentielle-2027-segolene-royal-annonce-sa-candidature-a-la-primaire-socialiste",
+              "source_title": "Présidentielle 2027 : Ségolène Royal annonce sa candidature (LCP)",
+              "source_date": "2026-07-10",
+              "confidence": "high"
+            },
+            {
+              "position": "Antécédent, 2022 : avait mis en doute la véracité de certaines informations et images ukrainiennes (bombardement de la maternité de Marioupol, frappes) et appelé à une médiation rapide. Elle s'en est ensuite excusée, selon franceinfo. En 2026, elle affirme « avoir raison sur la Russie » (source secondaire).",
+              "kind": "position_declaree",
+              "details": "Propos de 2022 : BFMTV le 01/09/2022, tweets des 15-17/11/2022. Propos de 2026 rapportés par Agoravox TV le 13/06/2026 (fiabilité moyenne).",
+              "source_url": "https://www.lalibre.be/international/europe/guerre-ukraine-russie/2022/11/17/segolene-royal-se-fait-a-nouveau-remarquer-avec-des-propos-polemiques-sur-la-guerre-en-ukraine-HMLLJPAFNJEAFE6D7GM64G2VZY/",
+              "source_title": "Ségolène Royal se fait à nouveau remarquer avec des propos polémiques sur la guerre en Ukraine (La Libre)",
+              "source_date": "2022-11-17",
+              "confidence": "high"
+            },
+            {
+              "position": "Gaza : estime qu'il faut qualifier la situation de génocide et accuse les dirigeants israéliens de vouloir éliminer la population.",
+              "kind": "position_declaree",
+              "short_quote": "Si les mots sont importants, il faut reconnaître le génocide",
+              "details": "Débat LCI du 23/09/2026. Faure emploie aussi le mot « génocide » ; Glucksmann le refuse et parle de « crimes de guerre ».",
+              "source_url": "https://www.planet.fr/voix-juives-segolene-royal-provoque-un-tolle-apres-ses-propos-sur-gaza.2999429.817022.html",
+              "source_title": "« Voix juives » : Ségolène Royal provoque un tollé après ses propos sur Gaza (Planet)",
+              "source_date": "2026-09-24",
+              "confidence": "high"
+            },
+            {
+              "position": "En mai 2025, reprochait à Emmanuel Macron de ne pas saisir le Conseil de sécurité de l'ONU pour décider de sanctions contre Benyamin Netanyahou. Elle fustigeait ceux qui envisagent de reconnaître l'État palestinien « quand tout aura été détruit », position qui implique une reconnaissance plus précoce.",
+              "kind": "position_declaree",
+              "details": "Message sur X du 10/05/2025. La France a reconnu l'État de Palestine en septembre 2025. Aucune position de 2026 trouvée sur des sanctions précises (accord UE-Israël, colonies).",
+              "source_url": "https://www.tunisienumerique.com/gaza-segolene-royal-fustige-linaction-de-macron-ce-nest-pas-ca-la-france/",
+              "source_title": "Gaza : Ségolène Royal fustige l'inaction de Macron, « ce n'est pas ça la France » (Tunisie Numérique)",
+              "source_date": "2025-05-10",
+              "confidence": "medium"
+            },
+            {
+              "position": "Algérie : demande que la France présente des excuses officielles pour les crimes de la colonisation et de la guerre d'Algérie. Elle y associe des mesures concrètes : restitution des biens culturels, remise des archives, étude des conséquences des essais nucléaires au Sahara et question des mines antipersonnel. Elle rejette la notion de « rente mémorielle » et défend une relation d'« État à État » sans conditions préalables.",
+              "kind": "proposition_explicite",
+              "short_quote": "On en a assez des demi-mots",
+              "details": "Elle s'exprime en tant que présidente de l'Association France-Algérie : discours du 17/01/2026 (Anadolu), Beur FM le 26/05/2026. Sur le journaliste Christophe Gleizes, détenu, elle privilégie la discrétion diplomatique (Sud Radio, 03/07/2026).",
+              "source_url": "https://www.aa.com.tr/fr/afrique/crise-entre-l-alg%C3%A9rie-et-la-france-s%C3%A9gol%C3%A8ne-royal-appelle-%C3%A0-la-reconnaissance-des-crimes-coloniaux/3803276",
+              "source_title": "Crise entre l'Algérie et la France : Ségolène Royal appelle à la reconnaissance des crimes coloniaux (Anadolu)",
+              "source_date": "2026-01-18",
+              "confidence": "high"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "cleavages": [
+    {
+      "topic_id": "europe",
+      "cleavage": "Intégration européenne : approfondissement fédéral ou remise en cause des règles au nom de la souveraineté nationale",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Approfondir l'Union : fin du droit de veto, majorité qualifiée, emprunts communs (notamment pour la défense), nouveau traité de refondation, Ukraine dans l'UE",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme",
+            "https://lcp.fr/actualites/primaire-de-gauche-ce-qui-oppose-glucksmann-faure-royal-guedj-et-maurel-442266",
+            "https://www.wikiglucksmann.fr/programme.html"
+          ]
+        },
+        {
+          "approach": "Contester les directives de libéralisation, autoriser monopoles publics et prix régulés, sortir du marché européen de l'électricité, garder l'unanimité en défense et diplomatie, rejeter le \"28e régime\", obtenir un rabais sur la contribution française ; a voté non à Maastricht (1992) et au TCE (2005)",
+          "candidates": [
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/",
+            "https://www.sudradio.fr/politique/qui-est-emmanuel-maurel-le-cinquieme-candidat-a-la-primaire-de-la-gauche"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "international_defense",
+      "cleavage": "Guerre en Ukraine : négociation et médiation avec la Russie, ou soutien militaire renforcé à l'Ukraine",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Rouvrir le dialogue avec Moscou pour une paix \"juste et durable\", avec une France médiatrice ; Royal dit qu'elle aurait demandé des casques bleus à la frontière",
+          "candidates": [
+            "Ségolène Royal"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/elections/presidentielle/lors-du-premier-debat-de-la-primaire-socialiste-segolene-royal-mise-en-difficulte-sur-l-ukraine-et-israel_8207075.html",
+            "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html",
+            "https://lcp.fr/actualites/presidentielle-2027-segolene-royal-annonce-sa-candidature-a-la-primaire-socialiste"
+          ]
+        },
+        {
+          "approach": "Soutenir militairement l'Ukraine, pas de négociation sur sa tête, Poutine ne voulant pas négocier ; saisir les avoirs russes gelés (Glucksmann) ; risque d'un nouveau \"Munich\" (Guedj)",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Jérôme Guedj",
+            "Emmanuel Maurel",
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+            "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html",
+            "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "international_defense",
+      "cleavage": "Gaza : faut-il qualifier de génocide l'action de l'armée israélienne",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Employer le terme de génocide ; Faure s'engage à le reconnaître officiellement s'il est élu",
+          "candidates": [
+            "Olivier Faure",
+            "Ségolène Royal"
+          ],
+          "evidence_urls": [
+            "https://www.france24.com/fr/france/20261001-deuxieme-debat-primaire-gauche-possible-alliance-lfi-divise-genocide-gaza-glucksmann-faure",
+            "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+            "https://www.publicsenat.fr/actualites/politique/lelephant-dans-la-piece-lfi-sinvite-encore-dans-le-debat-de-la-primaire-socialiste"
+          ]
+        },
+        {
+          "approach": "Refuser ce terme, que la CPI n'a pas retenu, et parler de crimes de guerre et de crimes contre l'humanité, tout en condamnant les opérations israéliennes",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://www.france24.com/fr/france/20261001-deuxieme-debat-primaire-gauche-possible-alliance-lfi-divise-genocide-gaza-glucksmann-faure",
+            "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html",
+            "https://fr.wikipedia.org/wiki/J%C3%A9r%C3%B4me_Guedj"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "international_defense",
+      "cleavage": "Alliances militaires et dissuasion : défense européenne intégrée ou non-alignement",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Défense européenne financée par emprunt commun, économie de guerre, dissuasion nucléaire française étendue aux partenaires européens avec décision restant française (en partie source non officielle)",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme",
+            "https://www.wikiglucksmann.fr/programme.html"
+          ]
+        },
+        {
+          "approach": "Non-alignement et critique de l'OTAN, dissuasion strictement nationale, défense à 3 % du PIB (environ 100 Md€), unanimité maintenue en défense dans l'UE",
+          "candidates": [
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        },
+        {
+          "approach": "Rendre à la France un rôle de puissance médiatrice sur la scène internationale",
+          "candidates": [
+            "Ségolène Royal"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/presidentielle-2027-segolene-royal-annonce-sa-candidature-a-la-primaire-socialiste"
+          ]
+        }
+      ]
+    }
+  ],
+  "consensus": [
+    {
+      "topic_id": "international_defense",
+      "point": "Accord général pour remettre en cause ou suspendre l'accord d'association UE-Israël. Public Sénat le signale explicitement pour Faure, Glucksmann, Maurel et Royal.",
+      "url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats"
+    }
+  ],
+  "debates": [
+    {
+      "date": "2026-09-23",
+      "channel": "LCI (avec Le Parisien, animé par David Pujadas, environ 10 citoyens posant des questions)",
+      "summary": "Premier débat, près de 2 heures, en l'absence de Philippe Brun, exclu.\n- Carburants : Royal veut baisser les taxes (TVA à 10 %, suspension de l'accise sur le gazole, prix entre 1,50 et 1,70 €/l). Glucksmann veut tripler le chèque énergie de façon ciblée. Faure veut des aides ciblées et taxer les superprofits pétroliers. Maurel veut plafonner les marges des raffineurs et lancer un emprunt citoyen. Guedj veut plafonner les marges et créer un ISF climatique.\n- Salaires : Faure propose un SMIC à 1 700 € net, l'indexation jusqu'au salaire médian et un bouclier logement. Glucksmann propose de baisser la CSG, financée par les méga-héritages. Royal veut bloquer les prix des produits essentiels et revoir les aides aux entreprises.\n- Ukraine : clivage net entre Royal (négociation, casques bleus) et les quatre autres (soutien militaire). Glucksmann veut saisir les avoirs russes. Guedj s'interroge sur les risques d'une zone d'exclusion aérienne.\n- Gaza : Faure et Royal parlent de génocide, Glucksmann et Guedj refusent le terme. Quatre candidats veulent suspendre l'accord UE-Israël. Royal est vivement critiquée par Guedj et Glucksmann pour avoir appelé davantage de voix juives à dénoncer Gaza.\n- Dette : pas d'annulation. Royal envisage une exception pour la dette de la transition.\n- LFI : Glucksmann et Guedj excluent tout accord, même aux législatives. Faure, Royal et Maurel refusent de l'exclure. Faure lance : \"si vous ne voulez pas d'alliance avec la gauche...\"",
+      "url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats"
+    },
+    {
+      "date": "2026-10-01",
+      "channel": "France 2 / France Inter",
+      "summary": "Deuxième débat, plus de 2 heures.\n- Mobilisations lycéennes (environ 400 lycées bloqués, environ 2 000 interpellations) : Glucksmann demande de la fermeté. Faure appelle à \"regarder la lune\". Guedj et Royal accusent LFI de \"jouer avec le feu\". Maurel défend le droit de manifester.\n- Carburants : Royal et Guedj veulent des baisses de taxes. Glucksmann veut des aides ciblées. Maurel veut une TVA réduite sur l'électricité.\n- CSG : la proposition de Glucksmann de baisser la CSG est attaquée par tous les autres, qui y voient un danger pour la Sécurité sociale. Faure la juge provisoire.\n- Fiscalité : Faure promet la taxe Zucman, Royal l'ISF.\n- Bardella : unanimité pour le juger \"disqualifié\" après les révélations de Mediapart.\n- Ukraine : Royal propose de renouer le dialogue avec Poutine. Les autres s'y opposent, Guedj invoquant Munich.\n- Gaza : Faure s'engage à reconnaître un génocide. Glucksmann juge cette position \"obscène\". Guedj estime que le mot diabolise Israël. Royal cite des ministres israéliens.\n- LFI : Glucksmann réclame la rupture. Guedj dénonce la \"danse du ventre\" de Faure. Faure, Royal et Maurel déplorent l'obsession autour de LFI. Glucksmann regrette l'absence de l'écologie et insiste sur la défense européenne.",
+      "url": "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html"
+    },
+    {
+      "date": "2026-10-04",
+      "channel": "BFMTV",
+      "summary": "Troisième et dernier débat, programmé avant le premier tour. Il n'a pas encore eu lieu au 2 octobre 2026.",
+      "url": "https://lcp.fr/actualites/primaire-de-gauche-les-candidats-face-a-face-lors-d-un-premier-debat-televise-ce"
+    }
+  ]
+}
