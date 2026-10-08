@@ -1,0 +1,725 @@
+add-approach travail_salaires-1-g
+add-approach finances_publiques-3-f
+add-approach travail_salaires-2-f
+add-approach fiscalite-2-g
+add-approach solidarites-1-g
+add-approach logement-4-f
+add-approach ecologie_energie-4-g
+add-approach europe-1-g
+add-approach laicite_republique-1-g
+add-approach ukraine_russie-1-g
+add-approach securite_justice-1-g
+add-approach securite_justice-2-g
+add-approach sante-1-g
+add-approach numerique-3-g
+add-approach travail_salaires-1-h
+add-approach fiscalite-1-f
+add-approach retraites-2-e
+add-approach sante-1-h
+add-approach logement-2-f
+add-approach education-1-g
+add-approach education-2-f
+add-approach agriculture-1-f
+add-approach territoires-1-f
+add-approach securite_justice-6-f
+add-approach proche_orient-1-g
+add-approach institutions-3-g
+add-approach sante-5-f
+add-approach institutions-1-g
+add-approach ukraine_russie-1-h
+add-approach finances_publiques-1-g
+add-approach travail_salaires-1-i
+add-approach sante-1-i
+add-approach logement-1-g
+add-approach education-1-h
+add-approach securite_justice-2-h
+add-approach ecologie_energie-7-f
+add-approach agriculture-3-f
+add-approach proche_orient-1-h
+add-approach societe-1-f
+add-approach securite_justice-6-g
+edit finances_publiques-1-e.text
+edit travail_salaires-1-d.text
+edit fiscalite-1-c.text
+edit defense-5-b.text
+edit sante-5-e.text
+edit travail_salaires-3-f.text
+edit finances_publiques-1-a.text
+edit industrie_economie-1-d.text
+edit egalite-1-e.text
+edit defense-2-c.text
+edit proche_orient-1-f.text
+edit proche_orient-2-c.text
+edit fiscalite-1.prompt
+edit fiscalite-1.context
+edit fiscalite-3.context
+edit ecologie_energie-1.context
+edit industrie_economie-1.context
+edit securite_justice-2.context
+edit proche_orient-1.context
+edit finances_publiques-2.context
+edit territoires-1.context
+edit sante-3.context
+edit education-1.context
+edit education-2.context
+edit immigration-3.context
+edit fiscalite-x1-e.text
+edit education-x1.context
+edit education-x1-c.text
+edit territoires-x4.context
+edit territoires-x5-d.text
+edit agriculture-x4-c.text
+edit agriculture-x4-e.text
+edit ecologie_energie-x9-c.text
+edit ecologie_energie-x9.prompt
+edit ukraine_russie-x3-b.text
+edit ukraine_russie-x3-c.text
+edit societe-x1-b.text
+edit europe-x5-e.text
+edit europe-x5-f.text
+edit securite_justice-x1-b.text
+edit institutions-x1-f.text
+edit territoires-x3.prompt
+edit droits_lgbtqia.label
+edit droits_lgbtqia.description
+edit travail_salaires-1-c.text
+edit immigration-1-d.text
+edit education-1-a.text
+edit securite_justice-4-b.text
+edit retraites-3-d.text
+gapfill securite_justice-2 philippe securite_justice-2-h
+gapfill immigration-6 philippe immigration-6-b
+gapfill territoires-2 philippe territoires-2-c
+gapfill numerique-2 philippe numerique-2-b
+gapfill defense-4 philippe defense-4-a
+gapfill solidarites-3 philippe solidarites-3-c
+gapfill ukraine_russie-1 philippe ukraine_russie-1-h
+gapfill logement-1 philippe logement-1-g
+gapfill education-1 philippe education-1-g
+gapfill agriculture-1 philippe agriculture-1-f
+gapfill solidarites-2 lepen solidarites-2-b
+gapfill industrie_economie-3 lepen industrie_economie-3-c
+gapfill finances_publiques-1 lepen finances_publiques-1-g
+gapfill ecologie_energie-7 lepen ecologie_energie-7-f
+gapfill immigration-3 lepen immigration-3-e
+gapfill agriculture-2 lepen agriculture-2-b
+gapfill education-1 lepen education-1-h
+gapfill industrie_economie-2 lepen industrie_economie-2-a
+gapfill europe-3 lepen europe-3-d
+gapfill ukraine_russie-1 lepen ukraine_russie-1-g
+gapfill defense-4 lepen defense-4-a
+gapfill numerique-2 lepen numerique-2-a
+gapfill securite_justice-6 lepen securite_justice-6-g
+gapfill laicite_republique-2 lepen laicite_republique-2-e
+gapfill travail_salaires-1 lepen travail_salaires-1-i
+gapfill ukraine_russie-1 lepen ukraine_russie-1-h
+gapfill numerique-2 melenchon numerique-2-e
+gapfill immigration-5 melenchon immigration-5-d
+gapfill finances_publiques-3 melenchon finances_publiques-3-f
+gapfill travail_salaires-2 melenchon travail_salaires-2-f
+gapfill ecologie_energie-4 melenchon ecologie_energie-4-g
+gapfill europe-1 melenchon europe-1-g
+gapfill agriculture-1 melenchon agriculture-1-f
+gapfill agriculture-3 melenchon agriculture-3-f
+gapfill proche_orient-1 melenchon proche_orient-1-h
+gapfill logement-2 melenchon logement-2-f
+gapfill sante-1 melenchon sante-1-i
+gapfill securite_justice-2 melenchon securite_justice-2-h
+gapfill sante-5 melenchon sante-5-f
+gapfill education-1 melenchon education-1-h
+gapfill retraites-2 melenchon retraites-2-e
+gapfill education-2 melenchon education-2-f
+gapfill proche_orient-2 retailleau proche_orient-2-c
+gapfill proche_orient-1 retailleau proche_orient-1-f
+gapfill egalite-3 retailleau egalite-3-e
+gapfill industrie_economie-3 retailleau industrie_economie-3-c
+gapfill agriculture-3 retailleau agriculture-3-e
+gapfill securite_justice-2 retailleau securite_justice-2-h
+gapfill finances_publiques-1 retailleau finances_publiques-1-g
+gapfill retraites-2 retailleau retraites-2-e
+gapfill agriculture-1 retailleau agriculture-1-f
+gapfill logement-4 retailleau logement-4-f
+gapfill logement-2 retailleau logement-2-f
+gapfill education-2 retailleau education-2-f
+gapfill solidarites-3 attal solidarites-3-a
+gapfill solidarites-3 attal solidarites-3-c
+gapfill immigration-3 attal immigration-3-d
+gapfill securite_justice-6 attal securite_justice-6-e
+gapfill securite_justice-6 attal securite_justice-6-g
+gapfill logement-4 attal logement-4-c
+gapfill education-5 attal education-5-c
+gapfill travail_salaires-4 attal travail_salaires-4-d
+gapfill sante-4 attal sante-4-d
+gapfill ecologie_energie-3 attal ecologie_energie-3-b
+gapfill travail_salaires-1 attal travail_salaires-1-h
+gapfill europe-1 attal europe-1-g
+gapfill securite_justice-1 attal securite_justice-1-g
+gapfill fiscalite-2 attal fiscalite-2-g
+gapfill ecologie_energie-7 attal ecologie_energie-7-f
+gapfill fiscalite-2 lisnard fiscalite-2-e
+gapfill fiscalite-2 lisnard fiscalite-2-d
+gapfill finances_publiques-2 lisnard finances_publiques-2-a
+gapfill industrie_economie-2 lisnard industrie_economie-2-d
+gapfill industrie_economie-2 lisnard industrie_economie-2-f
+gapfill sante-3 lisnard sante-3-d
+gapfill sante-4 lisnard sante-4-d
+gapfill logement-2 lisnard logement-2-a
+gapfill egalite-4 lisnard egalite-4-d
+gapfill numerique-1 lisnard numerique-1-a
+gapfill numerique-1 lisnard numerique-1-b
+gapfill numerique-4 lisnard numerique-4-e
+gapfill ecologie_energie-3 lisnard ecologie_energie-3-d
+gapfill ecologie_energie-6 lisnard ecologie_energie-6-d
+gapfill ecologie_energie-7 lisnard ecologie_energie-7-f
+gapfill institutions-2 lisnard institutions-2-e
+gapfill institutions-2 lisnard institutions-2-a
+gapfill finances_publiques-1 lisnard finances_publiques-1-g
+gapfill societe-1 lisnard societe-1-f
+gapfill agriculture-1 lisnard agriculture-1-f
+gapfill proche_orient-1 lisnard proche_orient-1-h
+gapfill travail_salaires-2 roussel travail_salaires-2-a
+gapfill logement-2 roussel logement-2-d
+gapfill logement-4 roussel logement-4-e
+gapfill sante-4 roussel sante-4-d
+gapfill securite_justice-4 roussel securite_justice-4-d
+gapfill immigration-5 roussel immigration-5-d
+gapfill immigration-5 roussel immigration-5-a
+gapfill numerique-3 roussel numerique-3-g
+gapfill agriculture-3 roussel agriculture-3-f
+gapfill finances_publiques-3 roussel finances_publiques-3-f
+gapfill education-1 roussel education-1-g
+gapfill laicite_republique-1 roussel laicite_republique-1-g
+gapfill ukraine_russie-1 roussel ukraine_russie-1-h
+gapfill proche_orient-1 roussel proche_orient-1-h
+gapfill securite_justice-2 roussel securite_justice-2-h
+gapfill education-2 roussel education-2-f
+gapfill finances_publiques-1 batho finances_publiques-1-g
+gapfill securite_justice-1 bouamrane securite_justice-1-g
+gapfill solidarites-1 bouamrane solidarites-1-d
+gapfill fiscalite-2 bouamrane fiscalite-2-a
+gapfill industrie_economie-2 bouamrane industrie_economie-2-a
+gapfill industrie_economie-3 bouamrane industrie_economie-3-c
+gapfill territoires-2 bouamrane territoires-2-c
+gapfill securite_justice-5 bouamrane securite_justice-5-e
+gapfill logement-1 bouamrane logement-1-g
+gapfill numerique-3 cazeneuve numerique-3-g
+gapfill logement-1 cazeneuve logement-1-g
+gapfill education-1 cazeneuve education-1-g
+gapfill securite_justice-1 cazeneuve securite_justice-1-g
+gapfill agriculture-1 cazeneuve agriculture-1-f
+gapfill ukraine_russie-2 cazeneuve ukraine_russie-2-a
+gapfill ukraine_russie-2 cazeneuve ukraine_russie-2-d
+gapfill defense-2 cazeneuve defense-2-d
+gapfill fiscalite-1 cazeneuve fiscalite-1-e
+gapfill education-2 cazeneuve education-2-a
+gapfill immigration-4 cazeneuve immigration-4-a
+gapfill industrie_economie-3 cazeneuve industrie_economie-3-c
+gapfill logement-4 cazeneuve logement-4-f
+gapfill finances_publiques-1 becht finances_publiques-1-g
+gapfill education-1 becht education-1-g
+gapfill education-1 becht education-1-c
+gapfill retraites-3 becht retraites-3-b
+gapfill retraites-3 becht retraites-3-a
+gapfill ukraine_russie-1 becht ukraine_russie-1-b
+gapfill institutions-2 dupontaignan institutions-2-e
+gapfill finances_publiques-2 dupontaignan finances_publiques-2-e
+gapfill numerique-2 dupontaignan numerique-2-e
+gapfill numerique-2 dupontaignan numerique-2-d
+gapfill numerique-2 dupontaignan numerique-2-a
+gapfill agriculture-3 dupontaignan agriculture-3-c
+gapfill societe-2 dupontaignan societe-2-c
+gapfill finances_publiques-1 dupontaignan finances_publiques-1-g
+gapfill territoires-1 dupontaignan territoires-1-f
+gapfill sante-1 dupontaignan sante-1-i
+gapfill education-1 dupontaignan education-1-h
+gapfill institutions-1 dupontaignan institutions-1-g
+gapfill institutions-3 dupontaignan institutions-3-g
+gapfill ukraine_russie-1 dupontaignan ukraine_russie-1-h
+gapfill retraites-1 arthaud retraites-1-b
+gapfill fiscalite-1 arthaud fiscalite-1-e
+gapfill fiscalite-2 arthaud fiscalite-2-g
+gapfill retraites-2 arthaud retraites-2-a
+gapfill sante-3 arthaud sante-3-b
+gapfill sante-4 arthaud sante-4-a
+gapfill logement-3 arthaud logement-3-e
+gapfill logement-3 arthaud logement-3-b
+gapfill logement-4 arthaud logement-4-f
+gapfill solidarites-2 arthaud solidarites-2-e
+gapfill egalite-2 arthaud egalite-2-b
+gapfill egalite-3 arthaud egalite-3-c
+gapfill societe-2 arthaud societe-2-a
+gapfill ecologie_energie-7 arthaud ecologie_energie-7-a
+gapfill ecologie_energie-7 arthaud ecologie_energie-7-e
+gapfill securite_justice-1 arthaud securite_justice-1-g
+gapfill securite_justice-1 arthaud securite_justice-1-a
+gapfill securite_justice-1 arthaud securite_justice-1-b
+gapfill securite_justice-2 arthaud securite_justice-2-f
+gapfill securite_justice-2 arthaud securite_justice-2-d
+gapfill securite_justice-2 arthaud securite_justice-2-h
+gapfill immigration-4 arthaud immigration-4-e
+gapfill immigration-4 arthaud immigration-4-a
+gapfill immigration-6 arthaud immigration-6-d
+gapfill immigration-6 arthaud immigration-6-b
+gapfill defense-3 arthaud defense-3-a
+gapfill sante-1 arthaud sante-1-g
+gapfill ecologie_energie-4 arthaud ecologie_energie-4-g
+gapfill laicite_republique-1 arthaud laicite_republique-1-g
+gapfill sante-5 arthaud sante-5-f
+gapfill ukraine_russie-1 arthaud ukraine_russie-1-h
+gapfill ukraine_russie-1 arthaud ukraine_russie-1-g
+gapfill proche_orient-1 arthaud proche_orient-1-h
+gapfill travail_salaires-1 arthaud travail_salaires-1-i
+gapfill finances_publiques-1 arthaud finances_publiques-1-g
+gapfill societe-1 arthaud societe-1-f
+gapfill retraites-1 asselineau retraites-1-f
+gapfill fiscalite-2 asselineau fiscalite-2-c
+gapfill finances_publiques-3 asselineau finances_publiques-3-f
+gapfill travail_salaires-4 asselineau travail_salaires-4-d
+gapfill retraites-3 asselineau retraites-3-a
+gapfill sante-1 asselineau sante-1-c
+gapfill sante-2 asselineau sante-2-c
+gapfill sante-5 asselineau sante-5-b
+gapfill solidarites-2 asselineau solidarites-2-a
+gapfill egalite-3 asselineau egalite-3-d
+gapfill droits_lgbtqia-1 asselineau droits_lgbtqia-1-c
+gapfill education-4 asselineau education-4-c
+gapfill education-5 asselineau education-5-c
+gapfill societe-1 asselineau societe-1-f
+gapfill societe-2 asselineau societe-2-c
+gapfill numerique-1 asselineau numerique-1-d
+gapfill ecologie_energie-1 asselineau ecologie_energie-1-a
+gapfill ecologie_energie-3 asselineau ecologie_energie-3-a
+gapfill ecologie_energie-3 asselineau ecologie_energie-3-c
+gapfill ecologie_energie-4 asselineau ecologie_energie-4-c
+gapfill ecologie_energie-5 asselineau ecologie_energie-5-c
+gapfill ecologie_energie-7 asselineau ecologie_energie-7-f
+gapfill agriculture-2 asselineau agriculture-2-d
+gapfill agriculture-3 asselineau agriculture-3-c
+gapfill securite_justice-1 asselineau securite_justice-1-a
+gapfill securite_justice-2 asselineau securite_justice-2-c
+gapfill europe-3 asselineau europe-3-b
+gapfill proche_orient-1 asselineau proche_orient-1-d
+gapfill proche_orient-1 asselineau proche_orient-1-h
+gapfill defense-2 asselineau defense-2-a
+gapfill institutions-2 asselineau institutions-2-d
+gapfill finances_publiques-3 philippot finances_publiques-3-b
+gapfill finances_publiques-1 philippot finances_publiques-1-g
+gapfill ecologie_energie-7 philippot ecologie_energie-7-f
+gapfill europe-1 philippot europe-1-g
+gapfill ukraine_russie-1 philippot ukraine_russie-1-g
+gapfill ukraine_russie-1 philippot ukraine_russie-1-h
+gapfill agriculture-1 philippot agriculture-1-f
+gapfill securite_justice-2 philippot securite_justice-2-h
+gapfill sante-5 philippot sante-5-f
+gapfill fiscalite-1 philippot fiscalite-1-a
+gapfill laicite_republique-1 philippot laicite_republique-1-b
+gapfill immigration-4 philippot immigration-4-a
+gapfill institutions-2 philippot institutions-2-a
+gapfill defense-2 philippot defense-2-a
+gapfill travail_salaires-3 philippot travail_salaires-3-a
+gapfill industrie_economie-2 kazib industrie_economie-2-e
+gapfill retraites-2 kazib retraites-2-a
+gapfill retraites-2 kazib retraites-2-e
+gapfill sante-2 kazib sante-2-a
+gapfill solidarites-3 kazib solidarites-3-e
+gapfill societe-1 kazib societe-1-e
+gapfill numerique-2 kazib numerique-2-e
+gapfill numerique-2 kazib numerique-2-a
+gapfill agriculture-2 kazib agriculture-2-c
+gapfill securite_justice-3 kazib securite_justice-3-c
+gapfill securite_justice-4 kazib securite_justice-4-e
+gapfill securite_justice-4 kazib securite_justice-4-b
+gapfill securite_justice-5 kazib securite_justice-5-b
+gapfill securite_justice-6 kazib securite_justice-6-g
+gapfill immigration-4 kazib immigration-4-e
+gapfill immigration-5 kazib immigration-5-d
+gapfill immigration-6 kazib immigration-6-d
+gapfill defense-3 kazib defense-3-e
+gapfill securite_justice-2 kazib securite_justice-2-h
+gapfill education-1 kazib education-1-h
+gapfill education-1 kazib education-1-a
+gapfill ukraine_russie-1 kazib ukraine_russie-1-h
+gapfill proche_orient-1 kazib proche_orient-1-h
+gapfill ecologie_energie-1 labib ecologie_energie-1-b
+gapfill ecologie_energie-2 labib ecologie_energie-2-f
+gapfill agriculture-1 labib agriculture-1-e
+gapfill securite_justice-1 labib securite_justice-1-f
+gapfill securite_justice-2 labib securite_justice-2-f
+gapfill securite_justice-2 labib securite_justice-2-h
+gapfill industrie_economie-2 labib industrie_economie-2-e
+gapfill ecologie_energie-7 labib ecologie_energie-7-a
+gapfill ecologie_energie-7 labib ecologie_energie-7-e
+gapfill europe-3 labib europe-3-b
+gapfill europe-3 labib europe-3-e
+gapfill securite_justice-3 labib securite_justice-3-f
+gapfill securite_justice-3 labib securite_justice-3-e
+gapfill securite_justice-4 labib securite_justice-4-e
+gapfill securite_justice-4 labib securite_justice-4-b
+gapfill numerique-1 labib numerique-1-e
+gapfill numerique-2 labib numerique-2-a
+gapfill egalite-4 labib egalite-4-c
+gapfill droits_lgbtqia-2 labib droits_lgbtqia-2-b
+gapfill laicite_republique-2 labib laicite_republique-2-b
+gapfill proche_orient-2 labib proche_orient-2-d
+gapfill proche_orient-2 labib proche_orient-2-b
+gapfill immigration-6 labib immigration-6-d
+gapfill education-3 labib education-3-c
+gapfill education-5 labib education-5-e
+gapfill societe-1 labib societe-1-e
+gapfill societe-1 labib societe-1-a
+gapfill societe-1 labib societe-1-f
+gapfill societe-2 labib societe-2-a
+gapfill sante-4 labib sante-4-a
+gapfill defense-3 labib defense-3-a
+gapfill defense-3 labib defense-3-e
+gapfill logement-4 labib logement-4-a
+gapfill logement-4 labib logement-4-f
+gapfill fiscalite-2 labib fiscalite-2-d
+gapfill fiscalite-2 labib fiscalite-2-g
+gapfill sante-3 labib sante-3-b
+gapfill sante-5 labib sante-5-c
+gapfill travail_salaires-1 labib travail_salaires-1-i
+gapfill travail_salaires-2 labib travail_salaires-2-f
+gapfill retraites-2 labib retraites-2-e
+gapfill education-1 labib education-1-h
+gapfill ukraine_russie-1 labib ukraine_russie-1-g
+gapfill ukraine_russie-1 labib ukraine_russie-1-h
+gapfill proche_orient-1 labib proche_orient-1-g
+gapfill proche_orient-1 labib proche_orient-1-h
+gapfill sante-1 labib sante-1-i
+gapfill europe-3 lalanne europe-3-b
+gapfill institutions-3 markovic institutions-3-a
+gapfill institutions-2 markovic institutions-2-a
+gapfill agriculture-1 markovic agriculture-1-c
+gapfill agriculture-1 markovic agriculture-1-d
+gapfill sante-4 markovic sante-4-e
+gapfill ecologie_energie-2 markovic ecologie_energie-2-e
+gapfill agriculture-3 markovic agriculture-3-f
+gapfill education-3 zemmour education-3-b
+gapfill institutions-3 zemmour institutions-3-d
+gapfill europe-3 zemmour europe-3-d
+gapfill defense-2 zemmour defense-2-b
+gapfill defense-2 zemmour defense-2-d
+gapfill agriculture-2 zemmour agriculture-2-b
+gapfill ecologie_energie-4 zemmour ecologie_energie-4-c
+gapfill ecologie_energie-7 zemmour ecologie_energie-7-f
+gapfill defense-1 zemmour defense-1-c
+gapfill securite_justice-2 zemmour securite_justice-2-d
+gapfill securite_justice-5 zemmour securite_justice-5-a
+gapfill securite_justice-3 zemmour securite_justice-3-b
+gapfill logement-4 zemmour logement-4-a
+gapfill solidarites-2 zemmour solidarites-2-b
+gapfill travail_salaires-2 zemmour travail_salaires-2-d
+gapfill travail_salaires-4 zemmour travail_salaires-4-d
+gapfill droits_lgbtqia-1 zemmour droits_lgbtqia-1-c
+gapfill ecologie_energie-5 zemmour ecologie_energie-5-a
+gapfill agriculture-3 zemmour agriculture-3-f
+gapfill defense-5 zemmour defense-5-d
+gapfill logement-1 zemmour logement-1-g
+gapfill ukraine_russie-1 bertrand ukraine_russie-1-b
+gapfill defense-4 bertrand defense-4-b
+gapfill travail_salaires-2 bertrand travail_salaires-2-e
+gapfill finances_publiques-1 bertrand finances_publiques-1-g
+gapfill industrie_economie-1 bertrand industrie_economie-1-b
+gapfill travail_salaires-1 batho travail_salaires-1-f
+gapfill securite_justice-1 batho securite_justice-1-e
+gapfill sante-1 batho sante-1-a
+gapfill solidarites-2 batho solidarites-2-a
+gapfill societe-x1 batho societe-x1-a
+gapfill securite_justice-5 batho securite_justice-5-b
+gapfill ecologie_energie-5 batho ecologie_energie-5-b
+gapfill ecologie_energie-5 batho ecologie_energie-5-a
+gapfill ecologie_energie-4 batho ecologie_energie-4-a
+gapfill ecologie_energie-4 batho ecologie_energie-4-c
+gapfill numerique-3 batho numerique-3-a
+gapfill numerique-3 batho numerique-3-d
+gapfill defense-3 batho defense-3-b
+gapfill defense-3 batho defense-3-e
+gapfill agriculture-3 batho agriculture-3-e
+gapfill finances_publiques-3 batho finances_publiques-3-a
+gapfill institutions-3 batho institutions-3-g
+gapfill education-1 batho education-1-b
+gapfill europe-2 bouamrane europe-2-a
+gapfill agriculture-x4 bouamrane agriculture-x4-e
+gapfill securite_justice-6 bouamrane securite_justice-6-e
+gapfill defense-2 bouamrane defense-2-d
+gapfill ecologie_energie-x9 becht ecologie_energie-x9-b
+gapfill ecologie_energie-6 becht ecologie_energie-6-d
+gapfill education-3 becht education-3-e
+gapfill ukraine_russie-x3 becht ukraine_russie-x3-c
+gapfill fiscalite-1 asselineau fiscalite-1-a
+gapfill laicite_republique-2 asselineau laicite_republique-2-c
+gapfill societe-x1 asselineau societe-x1-a
+gapfill numerique-4 asselineau numerique-4-a
+gapfill logement-1 asselineau logement-1-c
+gapfill securite_justice-4 asselineau securite_justice-4-d
+gapfill ecologie_energie-6 asselineau ecologie_energie-6-d
+gapfill defense-4 lalanne defense-4-a
+gapfill securite_justice-1 lalanne securite_justice-1-g
+reuse-refused-text retraites-1-b <- choisir-2027:retraites-1-a (43 % du texte modifié)
+reuse-refused-text travail_salaires-1-c <- choisir-2027:travail_salaires-1-b (52 % du texte modifié)
+reuse-refused-text travail_salaires-1-e <- choisir-2027:travail_salaires-1-c (23 % du texte modifié)
+reuse-refused-text travail_salaires-2-d <- choisir-2027:travail_salaires-x1-d (50 % du texte modifié)
+reuse-refused-text travail_salaires-3-f <- choisir-2027:travail_salaires-4-c (18 % du texte modifié)
+reuse-refused-text sante-1-b <- choisir-2027:sante-1-b (47 % du texte modifié)
+reuse-refused-text sante-1-d <- choisir-2027:sante-1-d (35 % du texte modifié)
+reuse-refused-text solidarites-1-d <- choisir-2027:solidarites-x2-d (16 % du texte modifié)
+reuse-refused-text solidarites-1-f <- choisir-2027:solidarites-x2-c (59 % du texte modifié)
+reuse-refused-text logement-1-c <- choisir-2027:logement-2-b (42 % du texte modifié)
+reuse-refused-text sante-2-a <- choisir-2027:sante-2-a (50 % du texte modifié)
+reuse-refused-text sante-4-c <- choisir-2027:sante-x1-c (69 % du texte modifié)
+reuse-refused-text sante-4-e <- choisir-2027:sante-x1-a (66 % du texte modifié)
+reuse-refused-text sante-5-b <- choisir-2027:sante-3-b (66 % du texte modifié)
+reuse-refused-text sante-5-d <- choisir-2027:sante-3-d (29 % du texte modifié)
+reuse-refused-text logement-2-d <- choisir-2027:logement-1-a (70 % du texte modifié)
+reuse-refused-text egalite-3-f <- choisir-2027:egalite-x1-d (38 % du texte modifié)
+reuse-refused-text ecologie_energie-1-a <- choisir-2027:ecologie_energie-1-a (18 % du texte modifié)
+reuse-refused-text ecologie_energie-1-b <- choisir-2027:ecologie_energie-1-b (32 % du texte modifié)
+reuse-refused-text ecologie_energie-1-c <- choisir-2027:ecologie_energie-1-c (17 % du texte modifié)
+reuse-refused-text territoires-1-a <- choisir-2027:territoires-1-a (23 % du texte modifié)
+reuse-refused-text ecologie_energie-6-a <- choisir-2027:ecologie_energie-x2-a (42 % du texte modifié)
+reuse-refused-text immigration-1-d <- choisir-2027:immigration-1-d (70 % du texte modifié)
+reuse-refused-text immigration-3-b <- choisir-2027:immigration-1-a (35 % du texte modifié)
+reuse-refused-text immigration-6-c <- choisir-2027:immigration-2-b (42 % du texte modifié)
+reuse-refused-text europe-1-a <- choisir-2027:europe-1-a (48 % du texte modifié)
+reuse-refused-text europe-2-c <- choisir-2027:europe-2-c (34 % du texte modifié)
+reuse-refused-text ukraine_russie-1-a <- choisir-2027:international_defense-1-a (43 % du texte modifié)
+reuse-refused-text ukraine_russie-1-b <- choisir-2027:international_defense-1-b (16 % du texte modifié)
+reuse-refused-text ukraine_russie-1-c <- choisir-2027:international_defense-1-c (50 % du texte modifié)
+reuse-refused-text proche_orient-1-b <- choisir-2027:international_defense-4-a (51 % du texte modifié)
+reuse-refused-text proche_orient-1-d <- choisir-2027:international_defense-4-d (69 % du texte modifié)
+reuse-refused-text defense-3-c <- choisir-2027:international_defense-5-b (42 % du texte modifié)
+reuse-refused-text defense-3-d <- choisir-2027:international_defense-5-c (49 % du texte modifié)
+reuse-refused-text defense-4-c <- choisir-2027:international_defense-3-b (40 % du texte modifié)
+reuse-position retraites-1 glucksmann retraites-1-d <- choisir-2027:retraites-1-c
+reuse-unmapped retraites-1 glucksmann choisir-2027:retraites-1-e
+reuse-position finances_publiques-1 faure finances_publiques-1-f <- choisir-2027:fiscalite-2-b
+reuse-position finances_publiques-1 glucksmann finances_publiques-1-f <- choisir-2027:fiscalite-2-b
+reuse-unmapped finances_publiques-1 glucksmann choisir-2027:fiscalite-2-c
+reuse-refused-main finances_publiques-1 guedj choisir-2027:fiscalite-2-c
+reuse-position finances_publiques-1 maurel finances_publiques-1-f <- choisir-2027:fiscalite-2-b
+reuse-position finances_publiques-1 maurel finances_publiques-1-d <- choisir-2027:fiscalite-2-d
+reuse-refused-main finances_publiques-1 royal choisir-2027:fiscalite-2-a
+reuse-position industrie_economie-1 faure industrie_economie-1-c <- choisir-2027:industrie_economie-3-b
+reuse-refused-main industrie_economie-1 glucksmann choisir-2027:industrie_economie-3-c
+reuse-position industrie_economie-1 guedj industrie_economie-1-f <- choisir-2027:industrie_economie-3-a
+reuse-position industrie_economie-1 guedj industrie_economie-1-c <- choisir-2027:industrie_economie-3-b
+reuse-position industrie_economie-1 maurel industrie_economie-1-c <- choisir-2027:industrie_economie-3-b
+reuse-position industrie_economie-1 royal industrie_economie-1-f <- choisir-2027:industrie_economie-3-a
+reuse-position industrie_economie-1 royal industrie_economie-1-c <- choisir-2027:industrie_economie-3-b
+reuse-position travail_salaires-1 faure travail_salaires-1-a <- choisir-2027:travail_salaires-1-a
+reuse-unmapped travail_salaires-1 faure choisir-2027:travail_salaires-1-b
+reuse-refused-main travail_salaires-1 glucksmann choisir-2027:travail_salaires-1-b
+reuse-position travail_salaires-1 guedj travail_salaires-1-a <- choisir-2027:travail_salaires-1-a
+reuse-unmapped travail_salaires-1 guedj choisir-2027:travail_salaires-1-b
+reuse-position travail_salaires-1 maurel travail_salaires-1-a <- choisir-2027:travail_salaires-1-a
+reuse-unmapped travail_salaires-1 maurel choisir-2027:travail_salaires-1-b
+reuse-unmapped travail_salaires-1 maurel choisir-2027:travail_salaires-1-c
+reuse-position fiscalite-1 faure fiscalite-1-b <- choisir-2027:fiscalite-1-b
+reuse-unmapped fiscalite-1 faure choisir-2027:fiscalite-1-c
+reuse-refused-main fiscalite-1 glucksmann choisir-2027:fiscalite-1-c
+reuse-refused-main fiscalite-1 guedj choisir-2027:fiscalite-1-c
+reuse-position fiscalite-1 maurel fiscalite-1-a <- choisir-2027:fiscalite-1-a
+reuse-position fiscalite-1 maurel fiscalite-1-b <- choisir-2027:fiscalite-1-b
+reuse-position fiscalite-1 royal fiscalite-1-a <- choisir-2027:fiscalite-1-a
+reuse-refused-main fiscalite-2 faure choisir-2027:fiscalite-1-b
+reuse-unmapped fiscalite-2 glucksmann choisir-2027:fiscalite-1-b
+reuse-position fiscalite-2 glucksmann fiscalite-2-a <- choisir-2027:fiscalite-1-c
+reuse-unmapped fiscalite-2 guedj choisir-2027:fiscalite-1-a
+reuse-position fiscalite-2 guedj fiscalite-2-a <- choisir-2027:fiscalite-1-c
+reuse-position travail_salaires-2 guedj travail_salaires-2-c <- choisir-2027:travail_salaires-x1-a
+reuse-position travail_salaires-3 maurel travail_salaires-3-a <- choisir-2027:travail_salaires-4-a
+reuse-unmapped travail_salaires-3 maurel choisir-2027:travail_salaires-4-d
+reuse-position travail_salaires-4 faure travail_salaires-4-a <- choisir-2027:travail_salaires-3-a
+reuse-position travail_salaires-4 faure travail_salaires-4-c <- choisir-2027:travail_salaires-3-c
+reuse-position travail_salaires-4 glucksmann travail_salaires-4-b <- choisir-2027:travail_salaires-3-b
+reuse-position travail_salaires-4 glucksmann travail_salaires-4-c <- choisir-2027:travail_salaires-3-c
+reuse-position travail_salaires-4 guedj travail_salaires-4-a <- choisir-2027:travail_salaires-3-a
+reuse-position travail_salaires-4 maurel travail_salaires-4-a <- choisir-2027:travail_salaires-3-a
+reuse-position travail_salaires-4 maurel travail_salaires-4-b <- choisir-2027:travail_salaires-3-b
+reuse-refused-main industrie_economie-2 maurel choisir-2027:industrie_economie-2-c
+reuse-position retraites-2 maurel retraites-2-a <- choisir-2027:retraites-2-e
+reuse-unmapped retraites-3 guedj choisir-2027:retraites-2-a
+reuse-position retraites-3 guedj retraites-3-b <- choisir-2027:retraites-2-c
+reuse-position retraites-3 royal retraites-3-b <- choisir-2027:retraites-2-c
+reuse-position retraites-3 royal retraites-3-a <- choisir-2027:retraites-2-d
+reuse-position sante-1 guedj sante-1-a <- choisir-2027:sante-1-a
+reuse-position solidarites-1 glucksmann solidarites-1-c <- choisir-2027:solidarites-x1-a
+reuse-unmapped solidarites-1 glucksmann choisir-2027:solidarites-x1-d
+reuse-position solidarites-1 maurel solidarites-1-c <- choisir-2027:solidarites-x1-a
+reuse-unmapped solidarites-1 maurel choisir-2027:solidarites-x1-d
+reuse-refused-main logement-1 faure choisir-2027:logement-2-a
+reuse-position logement-1 guedj logement-1-e <- choisir-2027:logement-2-c
+reuse-refused-main sante-2 guedj choisir-2027:sante-2-a
+reuse-refused-main sante-5 maurel choisir-2027:sante-3-a
+reuse-position logement-2 glucksmann logement-2-c <- choisir-2027:logement-1-b
+reuse-position egalite-2 faure egalite-2-a <- choisir-2027:egalite-x1-a
+reuse-unmapped egalite-2 faure choisir-2027:egalite-x1-c
+reuse-position education-2 faure education-2-b <- choisir-2027:education-2-b
+reuse-position education-2 faure education-2-c <- choisir-2027:education-2-c
+reuse-position education-2 glucksmann education-2-c <- choisir-2027:education-2-c
+reuse-position education-2 maurel education-2-a <- choisir-2027:education-2-a
+reuse-position education-2 maurel education-2-b <- choisir-2027:education-2-b
+reuse-refused-main education-4 faure choisir-2027:education-x1-a
+reuse-refused-main education-4 glucksmann choisir-2027:education-x1-c
+reuse-position education-4 maurel education-4-c <- choisir-2027:education-x1-b
+reuse-unmapped education-4 maurel choisir-2027:education-x1-e
+reuse-position education-5 faure education-5-b <- choisir-2027:education-3-c
+reuse-position societe-2 glucksmann societe-2-b <- choisir-2027:societe-1-b
+reuse-unmapped societe-2 glucksmann choisir-2027:societe-1-c
+reuse-unmapped societe-2 glucksmann choisir-2027:societe-1-e
+reuse-position societe-2 guedj societe-2-f <- choisir-2027:societe-1-d
+reuse-refused-main societe-2 maurel choisir-2027:societe-1-c
+reuse-position numerique-2 glucksmann numerique-2-a <- choisir-2027:numerique-2-a
+reuse-unmapped numerique-2 glucksmann choisir-2027:numerique-2-c
+reuse-position numerique-2 guedj numerique-2-a <- choisir-2027:numerique-2-a
+reuse-position numerique-2 maurel numerique-2-a <- choisir-2027:numerique-2-a
+reuse-position numerique-2 maurel numerique-2-b <- choisir-2027:numerique-2-b
+reuse-position numerique-2 royal numerique-2-a <- choisir-2027:numerique-2-a
+reuse-unmapped numerique-3 faure choisir-2027:numerique-3-a
+reuse-position numerique-3 faure numerique-3-c <- choisir-2027:numerique-3-b
+reuse-refused-main numerique-3 glucksmann choisir-2027:numerique-3-a
+reuse-position numerique-3 maurel numerique-3-c <- choisir-2027:numerique-3-b
+reuse-position ecologie_energie-2 glucksmann ecologie_energie-2-b <- choisir-2027:ecologie_energie-2-a
+reuse-position ecologie_energie-2 glucksmann ecologie_energie-2-d <- choisir-2027:ecologie_energie-2-c
+reuse-position ecologie_energie-2 guedj ecologie_energie-2-b <- choisir-2027:ecologie_energie-2-a
+reuse-position ecologie_energie-2 maurel ecologie_energie-2-b <- choisir-2027:ecologie_energie-2-a
+reuse-position ecologie_energie-3 glucksmann ecologie_energie-3-b <- choisir-2027:ecologie_energie-3-b
+reuse-position ecologie_energie-3 maurel ecologie_energie-3-a <- choisir-2027:ecologie_energie-3-a
+reuse-position ecologie_energie-3 maurel ecologie_energie-3-c <- choisir-2027:ecologie_energie-3-c
+reuse-position ecologie_energie-3 royal ecologie_energie-3-a <- choisir-2027:ecologie_energie-3-a
+reuse-refused-main ecologie_energie-4 faure choisir-2027:ecologie_energie-5-a
+reuse-refused-main ecologie_energie-4 glucksmann choisir-2027:ecologie_energie-5-b
+reuse-position ecologie_energie-4 maurel ecologie_energie-4-b <- choisir-2027:ecologie_energie-5-c
+reuse-position ecologie_energie-4 royal ecologie_energie-4-b <- choisir-2027:ecologie_energie-5-c
+reuse-position ecologie_energie-5 faure ecologie_energie-5-b <- choisir-2027:ecologie_energie-x1-b
+reuse-position ecologie_energie-5 faure ecologie_energie-5-a <- choisir-2027:ecologie_energie-x1-d
+reuse-position ecologie_energie-5 glucksmann ecologie_energie-5-b <- choisir-2027:ecologie_energie-x1-b
+reuse-position ecologie_energie-5 glucksmann ecologie_energie-5-e <- choisir-2027:ecologie_energie-x1-c
+reuse-position ecologie_energie-5 glucksmann ecologie_energie-5-a <- choisir-2027:ecologie_energie-x1-d
+reuse-position ecologie_energie-5 maurel ecologie_energie-5-c <- choisir-2027:ecologie_energie-x1-a
+reuse-position ecologie_energie-6 faure ecologie_energie-6-d <- choisir-2027:ecologie_energie-x2-d
+reuse-refused-main ecologie_energie-6 glucksmann choisir-2027:ecologie_energie-x2-c
+reuse-refused-main ecologie_energie-6 royal choisir-2027:ecologie_energie-x2-a
+reuse-position ecologie_energie-7 glucksmann ecologie_energie-7-c <- choisir-2027:ecologie_energie-6-a
+reuse-unmapped ecologie_energie-7 glucksmann choisir-2027:ecologie_energie-6-c
+reuse-refused-main ecologie_energie-7 maurel choisir-2027:ecologie_energie-6-b
+reuse-refused-main securite_justice-2 faure choisir-2027:securite_justice-1-a
+reuse-unmapped securite_justice-2 glucksmann choisir-2027:securite_justice-1-a
+reuse-position securite_justice-2 glucksmann securite_justice-2-c <- choisir-2027:securite_justice-1-b
+reuse-position securite_justice-3 faure securite_justice-3-c <- choisir-2027:securite_justice-2-a
+reuse-position securite_justice-3 glucksmann securite_justice-3-b <- choisir-2027:securite_justice-2-b
+reuse-position securite_justice-3 glucksmann securite_justice-3-d <- choisir-2027:securite_justice-2-c
+reuse-position securite_justice-3 guedj securite_justice-3-b <- choisir-2027:securite_justice-2-b
+reuse-position securite_justice-3 maurel securite_justice-3-b <- choisir-2027:securite_justice-2-b
+reuse-position securite_justice-4 royal securite_justice-4-f <- choisir-2027:securite_justice-1-e
+reuse-unmapped securite_justice-4 royal choisir-2027:securite_justice-1-f
+reuse-position europe-1 guedj europe-1-b <- choisir-2027:europe-1-b
+reuse-position europe-2 faure europe-2-a <- choisir-2027:europe-2-a
+reuse-unmapped europe-2 faure choisir-2027:europe-2-c
+reuse-position europe-2 glucksmann europe-2-a <- choisir-2027:europe-2-a
+reuse-position europe-2 maurel europe-2-b <- choisir-2027:europe-2-b
+reuse-unmapped europe-2 maurel choisir-2027:europe-2-c
+reuse-position europe-3 glucksmann europe-3-a <- choisir-2027:europe-3-a
+reuse-position europe-3 maurel europe-3-b <- choisir-2027:europe-3-b
+reuse-position proche_orient-1 guedj proche_orient-1-c <- choisir-2027:international_defense-4-b
+reuse-position defense-3 faure defense-3-a <- choisir-2027:international_defense-5-a
+reuse-position defense-3 glucksmann defense-3-a <- choisir-2027:international_defense-5-a
+reuse-position defense-4 faure defense-4-a <- choisir-2027:international_defense-3-a
+reuse-position defense-4 glucksmann defense-4-a <- choisir-2027:international_defense-3-a
+reuse-unmapped defense-4 glucksmann choisir-2027:international_defense-3-d
+reuse-position defense-4 guedj defense-4-a <- choisir-2027:international_defense-3-a
+reuse-refused-main defense-4 maurel choisir-2027:international_defense-3-e
+reuse-position institutions-3 faure institutions-3-a <- choisir-2027:institutions-2-a
+reuse-position institutions-3 glucksmann institutions-3-a <- choisir-2027:institutions-2-a
+reuse-unmapped institutions-3 glucksmann choisir-2027:institutions-2-d
+reuse-position laicite_republique-1 faure laicite_republique-1-d <- choisir-2027:laicite_republique-1-d
+reuse-position laicite_republique-2 faure laicite_republique-2-a <- choisir-2027:laicite_republique-2-a
+reuse-position laicite_republique-2 glucksmann laicite_republique-2-a <- choisir-2027:laicite_republique-2-a
+tier agriculture-1 -> essentiel
+tier fiscalite-1 -> approfondi
+tier sante-1 -> approfondi
+tier numerique-1 -> approfondi
+tier fiscalite-x1 -> essentiel
+position set finances_publiques-1 bouamrane finances_publiques-1-c
+position set travail_salaires-1 bertrand travail_salaires-1-c
+position set territoires-1 batho territoires-1-e
+position set immigration-1 cazeneuve immigration-1-d
+position set defense-1 attal defense-1-b
+position set defense-1 bouamrane defense-1-b
+position set institutions-1 philippot institutions-1-e
+position set laicite_republique-1 attal laicite_republique-1-a
+position set ecologie_energie-7 dupontaignan ecologie_energie-7-f
+position removed europe-x4 retailleau europe-x4-c
+reuse-question-reworded fiscalite-1 <- choisir-2027:fiscalite-1 (62 % de l'énoncé modifié)
+reuse-question-reworded travail_salaires-3 <- choisir-2027:travail_salaires-4 (40 % de l'énoncé modifié)
+reuse-question-reworded travail_salaires-4 <- choisir-2027:travail_salaires-3 (54 % de l'énoncé modifié)
+reuse-question-reworded industrie_economie-2 <- choisir-2027:industrie_economie-2 (38 % de l'énoncé modifié)
+reuse-question-reworded retraites-3 <- choisir-2027:retraites-2 (63 % de l'énoncé modifié)
+reuse-question-reworded solidarites-1 <- choisir-2027:solidarites-x1 (42 % de l'énoncé modifié)
+reuse-question-reworded sante-2 <- choisir-2027:sante-2 (42 % de l'énoncé modifié)
+reuse-question-reworded logement-2 <- choisir-2027:logement-1 (66 % de l'énoncé modifié)
+reuse-question-reworded egalite-2 <- choisir-2027:egalite-x1 (50 % de l'énoncé modifié)
+reuse-question-reworded ecologie_energie-2 <- choisir-2027:ecologie_energie-2 (24 % de l'énoncé modifié)
+reuse-question-reworded ecologie_energie-4 <- choisir-2027:ecologie_energie-5 (22 % de l'énoncé modifié)
+reuse-question-reworded territoires-2 <- choisir-2027:territoires-x2 (22 % de l'énoncé modifié)
+reuse-question-reworded immigration-6 <- choisir-2027:immigration-2 (29 % de l'énoncé modifié)
+reuse-question-reworded europe-3 <- choisir-2027:europe-3 (48 % de l'énoncé modifié)
+reuse-question-reworded proche_orient-1 <- choisir-2027:international_defense-4 (35 % de l'énoncé modifié)
+reuse-question-reworded defense-4 <- choisir-2027:international_defense-3 (45 % de l'énoncé modifié)
+charts 317
+reuse-explainer-local retraites-1
+reuse-explainer-local finances_publiques-1
+reuse-explainer-local industrie_economie-1
+reuse-explainer-local travail_salaires-1
+reuse-explainer-local fiscalite-1
+drop fiscalite-3
+reuse-explainer-local travail_salaires-2
+reuse-explainer-local travail_salaires-3
+reuse-explainer-local travail_salaires-4
+reuse-explainer-local industrie_economie-2
+reuse-explainer-local retraites-3
+reuse-explainer-local sante-1
+reuse-explainer-local solidarites-1
+reuse-explainer-local logement-1
+reuse-explainer-local sante-2
+reuse-explainer-local sante-4
+reuse-explainer-local sante-5
+reuse-explainer-local logement-2
+reuse-explainer-local egalite-2
+reuse-explainer-local education-2
+reuse-explainer-local education-4
+reuse-explainer-local societe-2
+reuse-explainer-local numerique-1
+reuse-explainer-local numerique-2
+reuse-explainer-local numerique-3
+reuse-explainer-local ecologie_energie-1
+reuse-explainer-local ecologie_energie-2
+reuse-explainer-local territoires-1
+reuse-explainer-local ecologie_energie-3
+reuse-explainer-local ecologie_energie-4
+reuse-explainer-local ecologie_energie-5
+reuse-explainer-local ecologie_energie-6
+reuse-explainer-local ecologie_energie-7
+reuse-explainer-local territoires-2
+reuse-explainer-local securite_justice-1
+reuse-explainer-local securite_justice-2
+reuse-explainer-local securite_justice-3
+reuse-explainer-local immigration-1
+reuse-explainer-local immigration-6
+reuse-explainer-local europe-1
+reuse-explainer-local europe-2
+reuse-explainer-local europe-3
+reuse-explainer-local ukraine_russie-1
+reuse-explainer-local proche_orient-1
+reuse-explainer-local defense-3
+reuse-explainer-local defense-4
+reuse-explainer-local institutions-1
+reuse-explainer-local institutions-3
+reuse-explainer-local laicite_republique-1
+reuse-explainer-local laicite_republique-2
+prepared faure 21 positions (non publié, --include faure pour le publier)
+prepared glucksmann 26 positions (non publié, --include glucksmann pour le publier)
+prepared guedj 16 positions (non publié, --include guedj pour le publier)
+prepared maurel 25 positions (non publié, --include maurel pour le publier)
+prepared royal 9 positions (non publié, --include royal pour le publier)

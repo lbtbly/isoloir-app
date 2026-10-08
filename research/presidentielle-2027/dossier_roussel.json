@@ -1,0 +1,1278 @@
+{
+  "candidate": "Fabien Roussel",
+  "affiliation": "Parti communiste français (PCF), secrétaire national depuis 2018 ; maire de Saint-Amand-les-Eaux (Nord), ancien député du Nord",
+  "campaign_site": "https://www.fabienroussel2027.fr/",
+  "declaration": {
+    "date": "2026-09-06",
+    "form": "Annonce au journal de 20 h de TF1, le soir même de son investiture par les adhérents du PCF : 72 % des voix lors d'un vote organisé du 3 au 6 septembre 2026. Slogan : « Vivre ! » (« mieux, ensemble, en paix »). Lancement de terrain au marché de Rungis le 8 septembre, puis discours à la Fête de l'Humanité le 12 septembre.",
+    "source_title": "Le communiste Fabien Roussel officialise sa candidature à l'élection présidentielle de 2027 pour défendre « un projet de rupture » (franceinfo) ; voir aussi LCP, « Fabien Roussel officiellement candidat du PCF à l'élection présidentielle de 2027 »",
+    "source_url": "https://www.franceinfo.fr/elections/presidentielle/le-communiste-fabien-roussel-officialise-sa-candidature-a-l-election-presidentielle-de-2027-pour-defendre-un-projet-de-rupture_8179856.html"
+  },
+  "overview": "Secrétaire national du PCF et maire de Saint-Amand-les-Eaux, Fabien Roussel se présente pour la deuxième fois, après 2,28 % des voix en 2022. Les adhérents du PCF l'ont investi le 6 septembre 2026 avec 72 % des voix, sur un « projet de rupture » porté par le slogan « Vivre ! ». Le travail et le pouvoir d'achat sont au centre de sa campagne : SMIC à 1 700 € net, hausse de 5 % de tous les salaires, retour de l'indexation automatique des salaires sur les prix (échelle mobile), retraite à 60 ans, rétablissement de l'ISF et cotisations sur les revenus financiers. Il défend une forte intervention publique : « nationalisation sanction » de TotalEnergies, retour d'EDF et d'Engie dans le giron public, nationalisation d'une grande banque, emprunt de 500 milliards d'euros sur cinq ans et planification écologique fondée sur le nucléaire et les renouvelables. Il revendique une « gauche du travail » qui se distingue sur trois points : un discours d'ordre (60 000 policiers, enquêteurs et douaniers de plus contre le narcotrafic), une laïcité affirmée, et le remplacement du RSA par un emploi ou une formation payés. À l'international, il veut sortir de l'OTAN, refuse la hausse des dépenses militaires et l'envoi de troupes en Ukraine, et demande un dialogue avec la Russie comme avec l'Ukraine. Il réclame un embargo sur les armes et des sanctions contre Israël. Il veut remettre en cause les traités européens et sortir du marché européen de l'électricité, sans proposer de quitter l'Union. Son programme détaillé n'est pas publié au 6 octobre 2026. Beaucoup de positions viennent donc de ses discours de 2025-2026 et des textes du 40e congrès du PCF (Lille, juillet 2026), qu'il a portés comme dirigeant.",
+  "topics": [
+    {
+      "topic_id": "institutions",
+      "found": true,
+      "positions": [
+        {
+          "position": "Passer à une nouvelle République (VIe République) pour rompre avec le présidentialisme. Le Parlement maîtriserait son ordre du jour et aurait plus de pouvoirs de contrôle et d'initiative. Le texte demande une proportionnelle « réelle », un référendum d'initiative citoyenne encadré, un droit de pétition effectif, et des conventions citoyennes dont les conclusions déboucheraient sur un projet de loi débattu au Parlement.",
+          "kind": "inference",
+          "details": "Texte d'orientation (« base commune ») adopté au 40e congrès du PCF, que Roussel a porté comme dirigeant. Il critique le quinquennat, l'inversion du calendrier électoral de 2002 et les articles 49.3 et 40 de la Constitution. Le PCF dit être opposé à la Ve République depuis 1958.",
+          "short_quote": "L'instauration d'une proportionnelle réelle [...] est indispensable",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        },
+        {
+          "position": "La priorité démocratique est d'abroger le 49.3. La proportionnelle aux législatives « n'est pas la priorité » des Français, plus préoccupés par le pouvoir d'achat.",
+          "kind": "position_declaree",
+          "details": "Propos tenus en mai 2025. Ils nuancent l'importance que le texte du parti donne à la proportionnelle.",
+          "short_quote": "l'urgence, c'est par exemple d'abroger le 49.3",
+          "source_title": "La proportionnelle n'est « pas la priorité » pour Fabien Roussel (AFP/France 24)",
+          "source_date": "2025-05-22",
+          "source_url": "https://www.france24.com/fr/info-en-continu/20250522-la-proportionnelle-n-est-pas-la-priorit%C3%A9-pour-fabien-roussel",
+          "confidence": "high"
+        },
+        {
+          "position": "Obliger les partis à présenter 50 % d'ouvriers et d'employés parmi leurs candidats aux législatives, pour que l'Assemblée ressemble davantage au monde du travail.",
+          "kind": "proposition_explicite",
+          "details": "Annonce faite dans le discours de la Fête de l'Humanité 2026.",
+          "short_quote": "Tous les partis seront tenus de présenter 50 % d'ouvriers, d'employés",
+          "source_title": "Fête de l'Humanité 2026 - discours de Fabien Roussel (pcf.fr)",
+          "source_date": "2026-09-12",
+          "source_url": "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+          "confidence": "high"
+        },
+        {
+          "position": "Placer la défense « sous contrôle exclusif du Parlement et du peuple ». Toute opération extérieure ou tout envoi de troupes exigerait un mandat de l'ONU et un vote du Parlement.",
+          "kind": "inference",
+          "details": "Texte du parti, repris par Roussel à propos de l'Ukraine. Il juge que l'armée professionnelle, « à la seule main du président », renforce le « césarisme » du pouvoir.",
+          "source_title": "Livret thématique « Paix & défense nationale » (PCF)",
+          "source_date": "2026-07-01",
+          "source_url": "https://assets.nationbuilder.com/pcf/pages/41211/attachments/original/1779954906/document_cahier_paix_ppp_stc.pdf?1779954906",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "laicite_republique",
+      "found": true,
+      "positions": [
+        {
+          "position": "S'est dit favorable, en mars 2025, à inscrire dans la loi les principes de la Charte olympique, qui proscrit toute manifestation religieuse ou politique dans le sport. Cela revient à soutenir l'interdiction du voile dans les compétitions sportives.",
+          "kind": "position_declaree",
+          "details": "Interview sur CNews le 25 mars 2025, pendant l'examen d'une proposition de loi LR. Il a comparé la question à l'interdiction des saluts nazis dans les stades. Ces propos ont été contestés au sein du PCF. La source citée ici est un article critique ; une vidéo Dailymotion (x9gs1xs) reprend sa formule.",
+          "short_quote": "Je suis pour qu'on inscrive les principes de la charte olympique",
+          "source_title": "Racisme anti-blanc, port du voile, salut nazi : retour sur une interview de Fabien Roussel accordée à CNews (Alternative communiste)",
+          "source_date": "2025-04-07",
+          "source_url": "https://www.alternative-communiste.fr/2025/04/07/racisme-anti-blanc-port-du-voile-salut-nazi-retour-sur-une-interview-de-fabien-roussel-accordee-a-cnews/",
+          "confidence": "medium"
+        },
+        {
+          "position": "Pour lui, la menace pour la République ne vient pas du voile mais du racisme, de l'antisémitisme et des discriminations. Il appelle à dénoncer immédiatement chaque geste raciste.",
+          "kind": "position_declaree",
+          "details": "Discours de candidat à la Fête de l'Humanité 2026. Le ton diffère de ses propos de mars 2025 sur le voile dans le sport.",
+          "short_quote": "ce n'est pas le voile qui menace la République, c'est le racisme",
+          "source_title": "Fête de l'Humanité 2026 - discours de Fabien Roussel (pcf.fr)",
+          "source_date": "2026-09-12",
+          "source_url": "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+          "confidence": "high"
+        },
+        {
+          "position": "Laïcité présentée comme « non négociable » : séparation stricte des Églises et de l'État, extinction progressive du Concordat d'Alsace-Moselle pour cesser de financer des cultes sur fonds publics, lutte contre les dérives communautaristes et les intégrismes, refus de stigmatiser les croyants.",
+          "kind": "inference",
+          "details": "Texte d'orientation du parti. Il défend aussi une conception de la nation fondée sur la citoyenneté, sans référence ethnique ou religieuse.",
+          "short_quote": "extinction progressive du Concordat en Alsace-Moselle",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        },
+        {
+          "position": "Mémoire : participer au travail de mémoire et chercher à réparer les crimes du colonialisme et de l'esclavage. Le texte défend un antiracisme universaliste qui rejette les « concurrences mémorielles ».",
+          "kind": "inference",
+          "details": "Texte du parti. Aucune mesure précise (excuses officielles, indemnisation, archives) n'est détaillée.",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        },
+        {
+          "position": "Rendre inéligibles les personnes condamnées pour racisme ou antisémitisme, et durcir la loi Gayssot de 1990, jusqu'à des peines de prison ou d'inéligibilité pour les élus.",
+          "kind": "proposition_explicite",
+          "details": "Déclaration « Antisémitisme : tolérance zéro ». Roussel rappelle avoir déposé une proposition de résolution en ce sens en 2022.",
+          "source_title": "Antisémitisme : tolérance zéro ! (Fabien Roussel, pcf.fr)",
+          "source_date": "2026-10-01",
+          "source_url": "https://www.pcf.fr/fabien_roussel_antisemitisme_tolerance_zero",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "fiscalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Rétablir l'impôt de solidarité sur la fortune (ISF).",
+          "kind": "proposition_explicite",
+          "details": "Annonce faite à la Fête de l'Humanité 2026, sans taux précisé. Une page programme non datée de pcf.fr parle d'un ISF « rétabli et triplé », sans confirmation pour 2027.",
+          "short_quote": "Oui, nous rétablirons l'impôt de solidarité sur la fortune",
+          "source_title": "Fête de l'Humanité 2026 - discours de Fabien Roussel (pcf.fr)",
+          "source_date": "2026-09-12",
+          "source_url": "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+          "confidence": "high"
+        },
+        {
+          "position": "Exonérer de droits de succession les héritages inférieurs à 200 000 € et taxer davantage les plus gros patrimoines transmis.",
+          "kind": "proposition_explicite",
+          "details": "Annonce faite à la Fête de l'Humanité 2026. Le barème pour les gros héritages n'est pas précisé.",
+          "short_quote": "nous exonérerons les héritages en dessous de 200 000 €",
+          "source_title": "Fête de l'Humanité 2026 - discours de Fabien Roussel (pcf.fr)",
+          "source_date": "2026-09-12",
+          "source_url": "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+          "confidence": "high"
+        },
+        {
+          "position": "Punir lourdement la grande fraude fiscale : prison ou déchéance des droits civiques pour les fraudeurs, sanctions contre l'évasion vers les paradis fiscaux.",
+          "kind": "proposition_explicite",
+          "details": "Les tracts de campagne de 2026 évaluent la fraude fiscale à 100 milliards d'euros de recettes perdues chaque année et en font une source de financement.",
+          "short_quote": "Ils passeront par la case prison ou la déchéance de leurs droits civiques",
+          "source_title": "Fête de l'Humanité 2026 - discours de Fabien Roussel (pcf.fr)",
+          "source_date": "2026-09-12",
+          "source_url": "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+          "confidence": "high"
+        },
+        {
+          "position": "Soutient la taxe Zucman, un impôt plancher sur les patrimoines de plus de 100 millions d'euros. Pour lui, les plus riches doivent contribuer à réduire le déficit.",
+          "kind": "position_declaree",
+          "details": "Il a qualifié Bernard Arnault de « champion de l'optimisation fiscale ».",
+          "short_quote": "Cette taxe c'est une bonne proposition que nous soutenons",
+          "source_title": "Taxe Zucman : « Bernard Arnault est un extrême financier [...] », dénonce Fabien Roussel (franceinfo)",
+          "source_date": "2025-09-21",
+          "source_url": "https://www.franceinfo.fr/economie/budget/taxe-zucman-bernard-arnault-est-un-extreme-financier-c-est-le-champion-de-l-optimisation-fiscale-denonce-fabien-roussel_7505566.html",
+          "confidence": "high"
+        },
+        {
+          "position": "S'oppose à la TVA sociale et aux hausses d'impôts sur la consommation, qui frappent d'abord les ménages modestes. Demande au contraire de baisser les taxes sur les carburants.",
+          "kind": "position_declaree",
+          "details": "En juin 2025, il a qualifié la TVA sociale d'« impôt des lâches ». À l'université d'été 2026, il a demandé la suppression de la nouvelle taxe sur l'essence ; à la Fête de l'Humanité, la baisse des taxes sur l'essence.",
+          "short_quote": "C'est l'impôt des lâches",
+          "source_title": "TVA sociale : « C'est l'impôt des lâches », attaque Fabien Roussel (franceinfo)",
+          "source_date": "2025-06-04",
+          "source_url": "https://www.franceinfo.fr/politique/fabien-roussel/tva-sociale-c-est-l-impot-des-laches-attaque-fabien-roussel-secretaire-national-du-pcf_7291131.html",
+          "confidence": "high"
+        },
+        {
+          "position": "Soumettre les revenus financiers et les dividendes à cotisation pour financer la Sécurité sociale et les retraites. Taxer davantage les revenus financiers des entreprises, des banques et des assurances.",
+          "kind": "proposition_explicite",
+          "details": "Annonce faite à la Fête de l'Humanité 2026. Un communiqué du PCF de juillet 2026 chiffre à environ 62 milliards d'euros le rendement possible d'un prélèvement sur les revenus financiers.",
+          "source_title": "Fête de l'Humanité 2026 - discours de Fabien Roussel (pcf.fr) ; Le FMI n'a pas à dicter la politique de la France (PCF)",
+          "source_date": "2026-09-12",
+          "source_url": "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "finances_publiques",
+      "found": true,
+      "positions": [
+        {
+          "position": "Emprunter 500 milliards d'euros sur cinq ans, via la Caisse des dépôts et Bpifrance, pour alimenter un « fonds d'avenir » (industrie, transition écologique, services publics).",
+          "kind": "proposition_explicite",
+          "details": "Annoncé à la Fête de l'Huma 31 (juin 2026), puis repris dans le discours de clôture du 40e congrès (« fonds d'avenir doté de 500 milliards d'euros »). Le plan climat est chiffré au même montant sur cinq ans.",
+          "short_quote": "la possibilité pour la France d'emprunter 500 milliards d'euros sur cinq ans",
+          "source_title": "Discours de Fabien Roussel - Fête de l'Huma 31 (pcf.fr)",
+          "source_date": "2026-06-02",
+          "source_url": "https://www.pcf.fr/discours_de_fabien_roussel_fete_huma_31",
+          "confidence": "high"
+        },
+        {
+          "position": "Refuser l'austérité : le PCF juge que le déficit vient des cadeaux fiscaux au capital et des intérêts versés aux marchés. Il s'oppose aux 54 milliards d'euros d'économies du budget 2027 (gel du point d'indice, arrêts maladie, emploi-formation, pensions).",
+          "kind": "inference",
+          "details": "Communiqué du parti sur le budget du gouvernement Lecornu. Il propose à la place un SMIC à 2 200 € brut, l'indexation des salaires et des pensions, et un plan emploi-climat de 60 milliards d'euros.",
+          "source_title": "Budget 2027 : Lecornu annonce une saignée sociale au service du capital (PCF)",
+          "source_date": "2026-09-18",
+          "source_url": "https://www.pcf.fr/budget_2027_lecornu_annonce_une_saignee_sociale_au_service_du_capital",
+          "confidence": "medium"
+        },
+        {
+          "position": "Conditionner les 211 milliards d'euros d'aides publiques annuelles aux entreprises à l'emploi, aux salaires et à l'écologie. Des commissions réunissant salariés, élus locaux et parlementaires en contrôleraient l'usage.",
+          "kind": "proposition_explicite",
+          "details": "Proposition présente dans les tracts de campagne 2026 (services publics, pompiers) et dans la base commune du 40e congrès.",
+          "source_title": "Tract « Services publics : notre richesse, notre avenir » (campagne Roussel 2027)",
+          "source_date": "2026-09",
+          "source_url": "https://assets.nationbuilder.com/pcf/pages/44585/attachments/original/1791210591/tract_service_public.pdf?1791210591",
+          "confidence": "high"
+        },
+        {
+          "position": "Renforcer l'État : recrutements massifs dans la fonction publique, titularisation des contractuels, et plan d'urgence pour l'hôpital, l'école, les transports, la justice et la sécurité.",
+          "kind": "proposition_explicite",
+          "details": "Le tract prévoit aussi une hausse de 30 % du point d'indice. Pour le financement, il cite les grandes fortunes, les revenus financiers, la lutte contre la fraude, et un pôle public bancaire refinancé à taux zéro par la BCE.",
+          "source_title": "Tract « Services publics : notre richesse, notre avenir » (campagne Roussel 2027)",
+          "source_date": "2026-09",
+          "source_url": "https://assets.nationbuilder.com/pcf/pages/44585/attachments/original/1791210591/tract_service_public.pdf?1791210591",
+          "confidence": "high"
+        },
+        {
+          "position": "Nationaliser une grande banque et développer un pôle public bancaire pour financer l'investissement à taux zéro, voire négatifs.",
+          "kind": "proposition_explicite",
+          "details": "Il souligne que l'État a versé 1 350 milliards d'euros d'intérêts depuis 1979. Au 40e congrès (juillet 2026), il parlait de « nationaliser les banques ».",
+          "short_quote": "nationaliser une grande banque",
+          "source_title": "Fête de l'Humanité 2026 - discours de Fabien Roussel (pcf.fr)",
+          "source_date": "2026-09-12",
+          "source_url": "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "travail_salaires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Porter le SMIC à 1 700 € net par mois et augmenter immédiatement tous les salaires de 5 %.",
+          "kind": "proposition_explicite",
+          "details": "Annonce faite à l'université d'été du PCF (Toulouse, mis en ligne le 26 août 2026). En septembre 2026, un communiqué du PCF parle d'un SMIC à 2 200 € brut, ce qui est cohérent. En juin 2026, il évoquait déjà une hausse de 5 % des salaires et des pensions.",
+          "short_quote": "Porter le SMIC à 1 700 € net",
+          "source_title": "Université d'été 2026 - Discours de Fabien Roussel (pcf.fr)",
+          "source_date": "2026-08-26",
+          "source_url": "https://www.pcf.fr/ue_26_discours_fr",
+          "confidence": "high"
+        },
+        {
+          "position": "Rétablir l'échelle mobile des salaires : tous les salaires augmenteraient automatiquement avec les prix.",
+          "kind": "proposition_explicite",
+          "details": "Il rappelle qu'aujourd'hui seul le SMIC est indexé sur l'inflation.",
+          "short_quote": "Rétablir l'échelle mobile des salaires",
+          "source_title": "Université d'été 2026 - Discours de Fabien Roussel (pcf.fr)",
+          "source_date": "2026-08-26",
+          "source_url": "https://www.pcf.fr/ue_26_discours_fr",
+          "confidence": "high"
+        },
+        {
+          "position": "Revaloriser immédiatement de 30 % le point d'indice des fonctionnaires.",
+          "kind": "proposition_explicite",
+          "details": "Proposition reprise dans le tract de campagne sur les services publics, avec la revalorisation des grilles et l'égalité professionnelle femmes-hommes.",
+          "short_quote": "Revalorisation immédiate de 30 % du point d'indice",
+          "source_title": "Université d'été 2026 - Discours de Fabien Roussel (pcf.fr)",
+          "source_date": "2026-08-26",
+          "source_url": "https://www.pcf.fr/ue_26_discours_fr",
+          "confidence": "high"
+        },
+        {
+          "position": "Abroger la loi Travail, rétablir les CHSCT et les délégués du personnel, et faire siéger autant de représentants des salariés que des actionnaires dans les conseils d'administration.",
+          "kind": "proposition_explicite",
+          "details": "Annonces faites à la Fête de l'Humanité 2026.",
+          "short_quote": "Nous abrogerons la loi Travail, cette loi indigne",
+          "source_title": "Fête de l'Humanité 2026 - discours de Fabien Roussel (pcf.fr)",
+          "source_date": "2026-09-12",
+          "source_url": "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+          "confidence": "high"
+        },
+        {
+          "position": "Réduire le temps de travail : le parti évoque une « nouvelle étape de réduction du temps de travail », combinée à une sécurité d'emploi et de formation. La semaine de 32 heures sans perte de salaire figure sur une page programme non datée du PCF.",
+          "kind": "inference",
+          "details": "Les 32 heures viennent du programme de 2022 et d'une page non datée de pcf.fr. Roussel ne les a pas confirmées dans ses discours de 2026.",
+          "source_title": "Programme PCF « Objectif 1 » (pcf.fr, non daté) ; Base commune du 40e congrès",
+          "source_date": "non daté",
+          "source_url": "https://www.pcf.fr/objectif_1",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "industrie_economie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Nationaliser TotalEnergies par une « nationalisation sanction » si le groupe ne baisse pas ses marges. Ramener EDF, GDF (Engie) et Total dans le secteur public, au sein d'un pôle public de l'énergie.",
+          "kind": "proposition_explicite",
+          "details": "En avril 2026, la nationalisation était conditionnée au refus de Total de baisser ses marges. À la Fête de l'Humanité de septembre 2026, il parle de « nationalisation sanction » et de rendre « illicites » les profits faits sur la guerre, avec une comparaison à Renault en 1945. En juin 2026 : « EDF, GDF, Total doivent redevenir des entreprises publiques nationales ».",
+          "short_quote": "EDF, GDF, Total doivent redevenir des entreprises publiques nationales",
+          "source_title": "Discours de Fabien Roussel - Fête de l'Huma 31 (pcf.fr)",
+          "source_date": "2026-06-02",
+          "source_url": "https://www.pcf.fr/discours_de_fabien_roussel_fete_huma_31",
+          "confidence": "high"
+        },
+        {
+          "position": "Moratoire sur les licenciements et les fermetures de sites, droit de préemption des salariés et des collectivités pour reprendre les entreprises menacées, et réforme des tribunaux des affaires économiques pour y faire entrer les salariés.",
+          "kind": "inference",
+          "details": "Texte d'orientation du parti. Il prévoit aussi des « nationalisations démocratiques ciblées » dans les secteurs prioritaires, gérées avec les salariés.",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        },
+        {
+          "position": "Relocaliser la production et reconstruire les filières stratégiques (chimie, métallurgie, sidérurgie). Défendre les sites menacés comme ArcelorMittal, Fibre Excellence et les fonderies.",
+          "kind": "position_declaree",
+          "details": "Il souligne que la France importe 92 % de son électronique et 87 % de ses vêtements. Il veut former massivement ingénieurs, techniciens et ouvriers.",
+          "source_title": "40e congrès : discours de clôture de Fabien Roussel (pcf.fr)",
+          "source_date": "2026-07-08",
+          "source_url": "https://www.pcf.fr/40e_congres_discours_de_cloture_de_fabien_roussel",
+          "confidence": "high"
+        },
+        {
+          "position": "Protection commerciale : interdire l'importation de tout produit agricole ou industriel dont la production est interdite en France ou dans l'UE. Remettre en cause les règles européennes de concurrence et d'aides d'État qui gênent une stratégie industrielle publique.",
+          "kind": "inference",
+          "details": "Texte du parti. Il prévoit aussi de conditionner l'argent public versé aux entreprises sous le contrôle de commissions mixtes.",
+          "short_quote": "une production [...] interdite sur le territoire [...] doit être interdite à l'import",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "retraites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Ramener l'âge légal de départ à 60 ans à taux plein.",
+          "kind": "proposition_explicite",
+          "details": "Dit dans le discours de juin 2026 ; la base commune du 40e congrès parle d'une retraite « dès 60 ans à taux plein ». La durée de cotisation exigée n'est pas précisée pour 2027. En 2022, le programme prévoyait 75 % du revenu net des dix meilleures années.",
+          "short_quote": "proposer la retraite à 60 ans plutôt que la repousser toujours plus",
+          "source_title": "Discours de Fabien Roussel - Fête de l'Huma 31 (pcf.fr)",
+          "source_date": "2026-06-02",
+          "source_url": "https://www.pcf.fr/discours_de_fabien_roussel_fete_huma_31",
+          "confidence": "high"
+        },
+        {
+          "position": "Aucune pension inférieure au SMIC, et fin du gel des pensions.",
+          "kind": "proposition_explicite",
+          "details": "Université d'été 2026. En 2022, le programme prévoyait une pension minimale de 1 200 € net.",
+          "short_quote": "plus aucune retraite en dessous du SMIC",
+          "source_title": "Université d'été 2026 - Discours de Fabien Roussel (pcf.fr)",
+          "source_date": "2026-08-26",
+          "source_url": "https://www.pcf.fr/ue_26_discours_fr",
+          "confidence": "high"
+        },
+        {
+          "position": "Financer la retraite par répartition en soumettant à cotisation les dividendes et les revenus financiers, avec une modulation des cotisations patronales. Refus de la capitalisation.",
+          "kind": "proposition_explicite",
+          "details": "Fête de l'Humanité 2026 et base commune. En 2022, il chiffrait à environ 30 milliards d'euros une contribution de 10 % sur les revenus financiers ; des économistes contestaient ce chiffre.",
+          "source_title": "Fête de l'Humanité 2026 - discours de Fabien Roussel (pcf.fr)",
+          "source_date": "2026-09-12",
+          "source_url": "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+          "confidence": "high"
+        },
+        {
+          "position": "A qualifié la suspension de la réforme de 2023 de « première victoire » et appelé à continuer jusqu'à son abrogation. Le parti veut une Sécurité sociale, retraites comprises, gérée par les travailleurs.",
+          "kind": "position_declaree",
+          "details": "Message publié sur X vers la mi-octobre 2025 (date approximative), connu par la version indexée du message. Les députés communistes s'étaient d'abord abstenus sur cette suspension, jugée insuffisante. La gestion par les salariés vient de la base commune de 2026.",
+          "short_quote": "Poursuivons le combat jusqu'à l'abrogation et pour un financement juste",
+          "source_title": "Fabien Roussel sur X (message sur la suspension de la réforme des retraites)",
+          "source_date": "2025-10",
+          "source_url": "https://twitter.com/Fabien_Roussel/status/1978094146217816291",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "sante",
+      "found": true,
+      "positions": [
+        {
+          "position": "Supprimer les franchises médicales, rembourser à 100 % les soins prescrits par la Sécurité sociale, mettre fin aux dépassements d'honoraires, et développer les hôpitaux publics et les centres de santé.",
+          "kind": "proposition_explicite",
+          "details": "Réaction au doublement du plafond annuel des franchises (de 100 à 200 €). Financement proposé : hausse des cotisations patronales, fin des exonérations, taxation des revenus financiers.",
+          "short_quote": "Ces franchises sont un véritable impôt sur la maladie",
+          "source_title": "Franchises médicales : le gouvernement choisit de faire payer les malades (Fabien Roussel, pcf.fr)",
+          "source_date": "2026-07-23",
+          "source_url": "https://www.pcf.fr/franchises_le_gouvernement_fait_payer_les_malades",
+          "confidence": "high"
+        },
+        {
+          "position": "Une Sécurité sociale qui prend en charge les soins à 100 %, y compris la perte d'autonomie (grand âge), au détriment des complémentaires. La santé mentale y serait pleinement intégrée.",
+          "kind": "inference",
+          "details": "Texte d'orientation du parti. La Sécurité sociale serait financée par plus de cotisations, dont une part prélevée sur les profits financiers.",
+          "short_quote": "prendre en charge les soins à 100 %, y compris la perte d'autonomie",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        },
+        {
+          "position": "Créer un pôle public du médicament et développer une industrie pharmaceutique et biomédicale sous contrôle public, pour réduire les dépendances.",
+          "kind": "inference",
+          "details": "Texte du parti.",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        },
+        {
+          "position": "A porté la loi sur la prise en charge des soins liés au cancer du sein, promulguée le 5 février 2025 après un vote à l'unanimité. Il exige la publication des décrets d'application.",
+          "kind": "proposition_explicite",
+          "details": "Selon le tract, environ 700 000 femmes paient encore un reste à charge moyen de 1 400 €.",
+          "source_title": "Tract « Octobre rose » (campagne Roussel 2027)",
+          "source_date": "2026-10",
+          "source_url": "https://assets.nationbuilder.com/pcf/pages/44581/attachments/original/1791209827/tract_octobre_rose2026.pdf?1791209827",
+          "confidence": "high"
+        },
+        {
+          "position": "Plus de soignants à l'hôpital et des budgets en hausse pour les hôpitaux et les EHPAD. Ces dépenses sont présentées comme prioritaires par rapport au budget militaire.",
+          "kind": "position_declaree",
+          "details": "Université d'été 2026, formule « moins d'obus, plus de sécu ». Aucun chiffre n'est donné sur les effectifs ni sur la régulation de l'installation des médecins.",
+          "source_title": "Université d'été 2026 - Discours de Fabien Roussel (pcf.fr)",
+          "source_date": "2026-08-26",
+          "source_url": "https://www.pcf.fr/ue_26_discours_fr",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "logement",
+      "found": true,
+      "positions": [
+        {
+          "position": "Faire du logement une « priorité nationale » soustraite au marché : grand plan de relance de la construction et de la rénovation thermique, et service public national du logement appuyé sur un pôle public financier et une maîtrise publique du foncier.",
+          "kind": "inference",
+          "details": "Texte d'orientation du parti. Aucun objectif chiffré de construction ni mesure sur les loyers (encadrement, blocage) n'a été trouvé pour 2026.",
+          "short_quote": "Le droit au logement doit redevenir une priorité nationale",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        },
+        {
+          "position": "« Plan Marshall » pour l'isolation des bâtiments : 20 milliards d'euros par an. 12 milliards iraient au parc privé (700 000 rénovations par an), 5 milliards aux bâtiments publics et 3 milliards au logement social.",
+          "kind": "inference",
+          "details": "Communiqué du PCF. Financement : changer le statut de l'Anah pour lui permettre d'emprunter, surtaxe sur les résidences secondaires (3 milliards) et sur l'immobilier de bureau (2 milliards).",
+          "source_title": "Il faut un plan Marshall pour l'isolation des bâtiments ! (PCF)",
+          "source_date": "2026-06-22",
+          "source_url": "https://www.pcf.fr/plan_marshall_isolation_batiments",
+          "confidence": "medium"
+        },
+        {
+          "position": "Installer 2 millions de pompes à chaleur par an dans les logements, dans le cadre du plan climat.",
+          "kind": "proposition_explicite",
+          "details": "Université d'été 2026 ; le discours de clôture du 40e congrès cite aussi la rénovation énergétique des logements.",
+          "short_quote": "Installer 2 millions de pompes à chaleur par an",
+          "source_title": "Université d'été 2026 - Discours de Fabien Roussel (pcf.fr)",
+          "source_date": "2026-08-26",
+          "source_url": "https://www.pcf.fr/ue_26_discours_fr",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "solidarites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Remplacer le RSA par une garantie d'emploi ou de formation pour chacun, payée au niveau d'un salaire plein plutôt qu'avec une indemnité d'environ 700 € par mois.",
+          "kind": "proposition_explicite",
+          "details": "Proposition présentée avec son livre « Le parti pris du travail » (avril 2025). Il estime que le RSA de longue durée a « détruit des familles ». La proposition a été critiquée à gauche.",
+          "source_title": "Fabien Roussel veut remplacer le RSA par un salaire en échange d'un emploi ou d'une formation proposés à chaque Français (franceinfo)",
+          "source_date": "2025-04-23",
+          "source_url": "https://www.franceinfo.fr/economie/emploi/fabien-roussel-veut-remplacer-le-rsa-par-un-salaire-en-echange-d-un-emploi-ou-d-une-formation-proposes-a-chaque-francais_7205565.html",
+          "confidence": "high"
+        },
+        {
+          "position": "Créer une « sécurité d'emploi et de formation » : alternance de périodes d'emploi et de formation avec maintien du revenu et des droits, pour éradiquer le chômage. Ce dispositif remplacerait à terme la logique actuelle de l'assurance chômage.",
+          "kind": "inference",
+          "details": "Proposition historique du PCF, réaffirmée dans le texte de 2026. Aucune mesure chiffrée sur l'indemnisation chômage n'a été trouvée.",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        },
+        {
+          "position": "Revenir à une politique familiale universelle, construire une société adaptée à tous les handicaps, et inscrire la protection de l'enfance dans la Constitution avec un service public unifié, 100 % public et gratuit.",
+          "kind": "inference",
+          "details": "Texte du parti. Une politique familiale universelle signifie des allocations non modulées selon les revenus. Dans une lettre d'août 2026, Roussel évoque aussi le statut des AESH (accompagnants d'élèves handicapés).",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        },
+        {
+          "position": "Lutter contre la pauvreté par les salaires et les pensions : il rappelle que 10 millions de personnes vivent sous le seuil de pauvreté et veut qu'aucune pension ne soit inférieure au SMIC.",
+          "kind": "position_declaree",
+          "details": "Thème central du site de campagne (« Vivre mieux ») et des discours de 2026. Aucune revalorisation chiffrée des minima sociaux n'a été trouvée.",
+          "source_title": "Site de campagne fabienroussel2027.fr ; Université d'été 2026",
+          "source_date": "2026-09",
+          "source_url": "https://www.fabienroussel2027.fr/",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "egalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Une loi intégrale contre les violences sexistes et sexuelles, dotée de 3 milliards d'euros.",
+          "kind": "proposition_explicite",
+          "details": "Le PCF soutient la loi-cadre intégrale portée par la Coalition féministe et enfantiste.",
+          "short_quote": "3 milliards d'euros pour une loi intégrale contre les violences",
+          "source_title": "Université d'été 2026 - Discours de Fabien Roussel (pcf.fr)",
+          "source_date": "2026-08-26",
+          "source_url": "https://www.pcf.fr/ue_26_discours_fr",
+          "confidence": "high"
+        },
+        {
+          "position": "Imposer l'égalité salariale, alors que l'écart cité est de 25 % au détriment des femmes, et lutter contre le temps partiel imposé.",
+          "kind": "position_declaree",
+          "details": "Le dispositif de contrainte (sanctions, contrôles) n'est pas précisé.",
+          "source_title": "40e congrès : discours de clôture de Fabien Roussel (pcf.fr)",
+          "source_date": "2026-07-08",
+          "source_url": "https://www.pcf.fr/40e_congres_discours_de_cloture_de_fabien_roussel",
+          "confidence": "high"
+        },
+        {
+          "position": "Droit à l'avortement effectif : IVG remboursée à 100 %, centres IVG partout, fin des fermetures de maternités, suppression de la double clause de conscience, contraception libre et gratuite, et alignement sur les pays européens les plus protecteurs.",
+          "kind": "proposition_explicite",
+          "details": "Tract de campagne pour la Journée internationale du droit à l'avortement.",
+          "source_title": "Tract « Pour le droit à l'avortement » (campagne Roussel 2027)",
+          "source_date": "2026-09-28",
+          "source_url": "https://assets.nationbuilder.com/pcf/pages/44580/attachments/original/1791209781/tract_IVG_28sept2026.pdf?1791209781",
+          "confidence": "high"
+        },
+        {
+          "position": "Abolition de la prostitution, lutte contre l'industrie pornographique, et maintien de l'interdiction de la GPA.",
+          "kind": "inference",
+          "details": "Base commune. À la Fête de l'Humanité 2026, Roussel a redit son refus de la GPA dans son passage sur une « République féministe ».",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "droits_lgbtqia",
+      "found": true,
+      "positions": [
+        {
+          "position": "Égalité pleine et entière pour les personnes LGBTQIA+, reconnaissance du droit de vivre librement son orientation sexuelle et son identité de genre, et refus de toute remise en cause de leurs droits.",
+          "kind": "inference",
+          "details": "Texte d'orientation du parti. Il ne contient aucune mesure précise sur l'état civil, la transidentité des mineurs, la filiation ou l'adoption.",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        },
+        {
+          "position": "Opposé à la gestation pour autrui (GPA).",
+          "kind": "position_declaree",
+          "details": "Il l'a redit à la Fête de l'Humanité 2026 ; la base commune parle du « maintien de l'interdiction de la GPA ».",
+          "short_quote": "en refusant la GPA",
+          "source_title": "Fête de l'Humanité 2026 - discours de Fabien Roussel (pcf.fr)",
+          "source_date": "2026-09-12",
+          "source_url": "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+          "confidence": "high"
+        },
+        {
+          "position": "Rendre effective l'éducation à la vie affective, relationnelle et sexuelle dans tous les établissements scolaires, avec les moyens nécessaires.",
+          "kind": "proposition_explicite",
+          "details": "Tract de campagne sur l'IVG.",
+          "source_title": "Tract « Pour le droit à l'avortement » (campagne Roussel 2027)",
+          "source_date": "2026-09-28",
+          "source_url": "https://assets.nationbuilder.com/pcf/pages/44580/attachments/original/1791209781/tract_IVG_28sept2026.pdf?1791209781",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "found": true,
+      "positions": [
+        {
+          "position": "Supprimer le financement public des écoles privées sous contrat, interdire les écoles hors contrat, et tendre vers un grand service public unifié de l'Éducation nationale.",
+          "kind": "inference",
+          "details": "Texte d'orientation du parti. Roussel ne l'a pas repris explicitement dans ses discours de campagne.",
+          "short_quote": "Nous portons la fin du financement public des écoles privées sous contrat",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        },
+        {
+          "position": "Rendre l'école obligatoire jusqu'à 18 ans, allonger le temps scolaire, baisser les effectifs par classe et retrouver les heures d'enseignement supprimées depuis quinze ans.",
+          "kind": "inference",
+          "details": "Texte du parti. Il prévoit aussi une éducation à l'image et au numérique.",
+          "short_quote": "Il revendique l'école obligatoire jusqu'à 18 ans",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        },
+        {
+          "position": "Profiter de la baisse démographique pour réduire le nombre d'élèves par classe plutôt que fermer des classes. Soutien à l'abrogation de Parcoursup et à un statut protecteur pour les stagiaires de lycée professionnel. Préférer l'investissement éducatif aux dépenses militaires.",
+          "kind": "proposition_explicite",
+          "details": "Tract de campagne soutenant les mobilisations lycéennes du 6 octobre 2026.",
+          "source_title": "Tract « La jeunesse mérite des réponses » (campagne Roussel 2027)",
+          "source_date": "2026-10",
+          "source_url": "https://assets.nationbuilder.com/pcf/pages/44587/attachments/original/1791210768/tract_lycee.pdf?1791210768",
+          "confidence": "high"
+        },
+        {
+          "position": "Recruter davantage d'enseignants, revaloriser les salaires et la formation initiale, et améliorer le statut des AESH.",
+          "kind": "position_declaree",
+          "details": "Lettre aux personnels de l'éducation, sans chiffres sur les postes ni les salaires.",
+          "short_quote": "We need more teachers",
+          "source_title": "Lettre de Fabien Roussel à celles et ceux qui font vivre l'école (pcf.fr)",
+          "source_date": "2026-08-28",
+          "source_url": "https://www.pcf.fr/lettre_de_fabien_roussel_celles_et_ceux_qui_font_vivre_lecole",
+          "confidence": "high"
+        },
+        {
+          "position": "Créer une allocation d'autonomie pendant les études. Le parti défend une recherche publique financée de façon pérenne et un enseignement supérieur sans sélection à l'entrée.",
+          "kind": "proposition_explicite",
+          "details": "Le montant n'est pas précisé en 2026 ; une page programme non datée de pcf.fr évoque 850 € par mois pour tous les étudiants. Le volet recherche et université vient de la base commune.",
+          "short_quote": "allocation autonomie pendant les études",
+          "source_title": "40e congrès : discours de clôture de Fabien Roussel (pcf.fr)",
+          "source_date": "2026-07-08",
+          "source_url": "https://www.pcf.fr/40e_congres_discours_de_cloture_de_fabien_roussel",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "societe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Garantir un service public de l'information et de l'audiovisuel fort, indépendant et accessible à tous, et protéger l'indépendance des rédactions face à la concentration des médias.",
+          "kind": "inference",
+          "details": "Texte d'orientation du parti. Aucune position précise de Roussel en 2025-2026 sur une réforme de la gouvernance de l'audiovisuel public n'a été trouvée.",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        },
+        {
+          "position": "Garantir des financements publics durables à la culture, sécuriser les équipes artistiques et techniques, et assurer aux artistes et auteurs une continuité de revenus quelle que soit leur discipline.",
+          "kind": "inference",
+          "details": "Texte du parti. Il veut protéger la création « de la domination des monopoles » et de l'industrie numérique américaine.",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        },
+        {
+          "position": "Défendre la liberté de création et de programmation contre les déprogrammations et suppressions de subventions décidées dans des communes RN.",
+          "kind": "inference",
+          "details": "Communiqué du parti appelant à des politiques publiques « puissantes » en faveur de la création.",
+          "source_title": "Le RN s'occupe de la culture : il veut la faire marcher au pas (PCF)",
+          "source_date": "2026-08-01",
+          "source_url": "https://www.pcf.fr/rn_veut_faire_marcher_au_pas_la_culture",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "numerique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Créer un pôle public du numérique fondé sur le logiciel libre. L'intelligence artificielle serait placée sous maîtrise collective et contrôle démocratique, contre les monopoles privés qui exploitent les données.",
+          "kind": "inference",
+          "details": "Texte du parti, qui défend aussi une souveraineté numérique française et européenne.",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        },
+        {
+          "position": "Opposition au capitalisme de plateforme, à l'hyper-surveillance et au pilotage des travailleurs par algorithme. Étendre la logique du service public au cyberespace.",
+          "kind": "inference",
+          "details": "Texte du parti.",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        },
+        {
+          "position": "Cybersécurité : renforcer les effectifs et le budget de l'ANSSI, consacrer 10 % des budgets des administrations défaillantes à leur sécurité, réduire la sous-traitance, et bâtir un service public numérique intégré (puces, plateformes, réseaux, hébergement).",
+          "kind": "inference",
+          "details": "Communiqué du parti publié après les cyberattaques contre la DGFiP et l'Éducation nationale.",
+          "source_title": "Sécurité numérique : le PCF exige un sursaut, pas une communication de crise",
+          "source_date": "2026-09-01",
+          "source_url": "https://www.pcf.fr/securite_numerique_sursaut",
+          "confidence": "medium"
+        },
+        {
+          "position": "Développer une éducation à l'image et au numérique face aux réseaux sociaux et aux IA génératives, pour former l'esprit critique.",
+          "kind": "inference",
+          "details": "Texte du parti. Aucune position n'a été trouvée sur une interdiction des réseaux sociaux aux mineurs ou sur la régulation des écrans.",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Doubler la production d'électricité pilotable et décarbonée, en combinant nucléaire et renouvelables.",
+          "kind": "proposition_explicite",
+          "details": "Fondé sur le plan climat « Empreinte 2050 » du PCF. Il vante « la puissance de l'atome ». Neutralité carbone visée en 2050.",
+          "short_quote": "Doubler la production d'électricité stable et décarbonée",
+          "source_title": "Université d'été 2026 - Discours de Fabien Roussel (pcf.fr)",
+          "source_date": "2026-08-26",
+          "source_url": "https://www.pcf.fr/ue_26_discours_fr",
+          "confidence": "high"
+        },
+        {
+          "position": "Sortir des énergies fossiles d'ici quinze ans, grâce à un plan climat de 500 milliards d'euros sur cinq ans. Le plan prévoit 2 millions de pompes à chaleur par an et 1 million de véhicules électriques par an vendus moins de 10 000 €.",
+          "kind": "proposition_explicite",
+          "details": "Sortie des fossiles annoncée à la Fête de l'Humanité 2026, chiffrages présentés à l'université d'été 2026. En janvier 2026, il s'est aussi opposé à l'exploitation pétrolière en Guyane.",
+          "short_quote": "planifiant enfin la sortie des énergies fossiles dans les quinze prochaines années",
+          "source_title": "Fête de l'Humanité 2026 - discours de Fabien Roussel ; Université d'été 2026 (pcf.fr)",
+          "source_date": "2026-09-12",
+          "source_url": "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+          "confidence": "high"
+        },
+        {
+          "position": "Baisser de 30 % les tarifs de l'électricité et du gaz pour les ménages et les entreprises, sortir du marché européen de l'électricité, et créer un pôle public de l'énergie (EDF, Engie, Total).",
+          "kind": "proposition_explicite",
+          "details": "Discours de juin et juillet 2026. La base commune propose de « ne pas appliquer » les directives européennes sur l'énergie.",
+          "short_quote": "baisse de 30 % des tarifs de l'électricité et du gaz",
+          "source_title": "40e congrès : discours de clôture de Fabien Roussel (pcf.fr)",
+          "source_date": "2026-07-08",
+          "source_url": "https://www.pcf.fr/40e_congres_discours_de_cloture_de_fabien_roussel",
+          "confidence": "high"
+        },
+        {
+          "position": "Carburants : plafonner le prix à 1,60 € le litre pendant la crise, bloquer les prix, encadrer les marges de raffinage, baisser les taxes de l'État, et nationaliser TotalEnergies si le groupe ne baisse pas ses marges.",
+          "kind": "proposition_explicite",
+          "details": "Proposition d'avril 2026 sur France Inter, reprise dans la semaine d'action du PCF du 5 au 11 octobre 2026. L'affiche de campagne dit « Blocage des prix ».",
+          "short_quote": "plafonner le prix des carburants à 1,60 euro",
+          "source_title": "Prix des carburants : Fabien Roussel propose de nationaliser TotalEnergies [...] (franceinfo)",
+          "source_date": "2026-04-01",
+          "source_url": "https://www.franceinfo.fr/economie/automobile/essence/prix-des-carburants-fabien-roussel-propose-de-nationaliser-totalenergies-si-le-groupe-ne-s-execute-pas-a-baisser-ses-marges_7908467.html",
+          "confidence": "high"
+        },
+        {
+          "position": "Transports : gratuité des transports publics dans les métropoles. Le parti veut aussi reconstituer une SNCF publique, unique et intégrée, et investir dans le fret ferroviaire, fluvial et maritime.",
+          "kind": "proposition_explicite",
+          "details": "Gratuité annoncée en juin 2026 et répétée au 40e congrès. Le volet ferroviaire vient de la base commune.",
+          "short_quote": "mettre en place la gratuité des transports publics dans les métropoles",
+          "source_title": "Discours de Fabien Roussel - Fête de l'Huma 31 (pcf.fr)",
+          "source_date": "2026-06-02",
+          "source_url": "https://www.pcf.fr/discours_de_fabien_roussel_fete_huma_31",
+          "confidence": "high"
+        },
+        {
+          "position": "Eau et adaptation au climat : l'eau est un bien commun à gérer publiquement selon une planification démocratique. Le PCF préfère des ouvrages publics de stockage à usages multiples aux projets privés, et veut adapter les écoles et les lieux publics aux canicules.",
+          "kind": "inference",
+          "details": "Communiqué du PCF sur la sécheresse ; climatisation et adaptation des lieux publics évoquées à l'université d'été 2026.",
+          "source_title": "Sécheresse et changement climatique : adapter notre agriculture et la gestion de l'eau (PCF)",
+          "source_date": "2026-08-15",
+          "source_url": "https://www.pcf.fr/secheresse_adapter_agriculture_gestion_eau",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "found": true,
+      "positions": [
+        {
+          "position": "Un « pacte d'avenir » avec les agriculteurs : installation massive de nouveaux agriculteurs, revenus garantis, système coopératif, refonte de la PAC, et renforcement de la recherche et de l'enseignement agricoles publics.",
+          "kind": "inference",
+          "details": "Texte d'orientation du parti. Roussel veut que la France redevienne une « grande nation agricole » (Fête de l'Humanité 2026).",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        },
+        {
+          "position": "Intervention publique sur les prix et les volumes, assurance publique contre les aléas climatiques et sanitaires, coefficient multiplicateur sur les prix, et conférences territoriales à la place des négociations commerciales.",
+          "kind": "inference",
+          "details": "Le PCF juge insuffisant le milliard d'euros d'aide d'urgence du gouvernement, puisque 82 % des exploitations ne sont pas assurées.",
+          "source_title": "Le milliard de Genevard ou comment gérer l'agriculture à la petite semaine (PCF)",
+          "source_date": "2026-09-09",
+          "source_url": "https://www.pcf.fr/le_milliard_de_genevard",
+          "confidence": "medium"
+        },
+        {
+          "position": "S'oppose à l'accord UE-Mercosur et aux accords de libre-échange agricoles. Veut interdire l'importation de produits dont la production est interdite en France ou dans l'UE.",
+          "kind": "inference",
+          "details": "Communiqué du PCF de septembre 2026 et base commune.",
+          "source_title": "Le milliard de Genevard ou comment gérer l'agriculture à la petite semaine (PCF)",
+          "source_date": "2026-09-09",
+          "source_url": "https://www.pcf.fr/le_milliard_de_genevard",
+          "confidence": "medium"
+        },
+        {
+          "position": "Transformation agroécologique : refus du brevetage du vivant et des semences, lutte contre l'artificialisation des sols, et planification alimentaire territoriale fondée sur les circuits courts.",
+          "kind": "inference",
+          "details": "Texte du parti. Aucune position n'a été trouvée sur le bien-être animal ou l'accès à l'alimentation (chèque, sécurité sociale de l'alimentation).",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "territoires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Garantir partout des services publics de proximité : plan d'urgence pour l'hôpital, l'école, les transports, la justice et la sécurité ; moyens supplémentaires pour les collectivités ; et pouvoirs donnés aux agents, aux usagers et aux élus pour définir les besoins.",
+          "kind": "proposition_explicite",
+          "details": "Tract de campagne sur les services publics. Le site de campagne insiste sur les territoires ruraux.",
+          "source_title": "Tract « Services publics : notre richesse, notre avenir » (campagne Roussel 2027)",
+          "source_date": "2026-09",
+          "source_url": "https://assets.nationbuilder.com/pcf/pages/44585/attachments/original/1791210591/tract_service_public.pdf?1791210591",
+          "confidence": "high"
+        },
+        {
+          "position": "Sécurité civile : recruter 21 000 sapeurs-pompiers professionnels supplémentaires, porter à 5 000 le nombre de camions de lutte contre les feux de forêt, créer une filière de bombardiers d'eau, renforcer les SDIS et créer un statut pour les volontaires.",
+          "kind": "proposition_explicite",
+          "details": "Tract de campagne. Financement : réduire les 211 milliards d'euros d'aides aux entreprises versées sans critères et lutter contre la fraude fiscale.",
+          "short_quote": "Recruter 21000 sapeurs-pompiers professionnels supplémentaires",
+          "source_title": "Tract « Des moyens pour nos pompiers » (campagne Roussel 2027)",
+          "source_date": "2026-09",
+          "source_url": "https://assets.nationbuilder.com/pcf/pages/44583/attachments/original/1791210341/tract_pompier.pdf?1791210341",
+          "confidence": "high"
+        },
+        {
+          "position": "Refus du « fédéralisme » et de la métropolisation : opposition au projet d'autonomie constitutionnelle de la Corse, défense des communes et des départements, et attachement à la continuité territoriale.",
+          "kind": "inference",
+          "details": "Texte d'orientation du parti, qui qualifie le projet corse d'« atteinte grave » à la conception de la nation.",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        },
+        {
+          "position": "Outre-mer : reconnaître le droit des peuples ultramarins à l'autodétermination, soutenir la revendication d'indépendance de la Kanaky (Nouvelle-Calédonie), et favoriser la coopération avec les pays voisins.",
+          "kind": "inference",
+          "details": "Texte du parti. Le PCF note un taux de pauvreté supérieur à 40 % outre-mer. Aucune mesure chiffrée contre la vie chère n'a été trouvée.",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "found": true,
+      "positions": [
+        {
+          "position": "Recruter 60 000 policiers, enquêteurs et douaniers supplémentaires pour mener un « combat sans merci » contre le narcotrafic.",
+          "kind": "proposition_explicite",
+          "details": "Annonce faite lors d'un meeting à Marseille après l'assassinat de Mehdi Kessaci. Coût estimé à 2,5 milliards d'euros « immédiatement ». Il juge les maires « démunis » face aux points de deal.",
+          "short_quote": "embaucher 60 000 agents de police, enquêteurs, douaniers",
+          "source_title": "Fabien Roussel veut 60 000 policiers et douaniers de plus pour mener « un combat sans merci » contre le narcotrafic (franceinfo)",
+          "source_date": "2025-11-23",
+          "source_url": "https://www.franceinfo.fr/societe/drogue/fabien-roussel-veut-60-000-policiers-et-douaniers-de-plus-pour-mener-un-combat-sans-merci-contre-le-narcotrafic_7635125.html",
+          "confidence": "high"
+        },
+        {
+          "position": "Soutien explicite aux forces de l'ordre : il dit que les communistes ne diront jamais « tout le monde déteste la police » et veut des gardiens de la paix « au service du peuple ».",
+          "kind": "position_declaree",
+          "details": "Démarcation revendiquée vis-à-vis de LFI.",
+          "source_title": "Fabien Roussel veut 60 000 policiers et douaniers de plus [...] (franceinfo)",
+          "source_date": "2025-11-23",
+          "source_url": "https://www.franceinfo.fr/societe/drogue/fabien-roussel-veut-60-000-policiers-et-douaniers-de-plus-pour-mener-un-combat-sans-merci-contre-le-narcotrafic_7635125.html",
+          "confidence": "high"
+        },
+        {
+          "position": "S'oppose à une présomption de légitime défense pour les policiers et gendarmes. Le PCF préfère une police « exemplaire », encadrée par le juge, et plus de moyens pour la justice.",
+          "kind": "inference",
+          "details": "Communiqué du parti.",
+          "short_quote": "une police républicaine, respectée parce qu'exemplaire",
+          "source_title": "Présomption de légitime défense : une remise en cause dangereuse de l'État de droit (PCF)",
+          "source_date": "2026-07-08",
+          "source_url": "https://www.pcf.fr/presomption_de_legitime_defense_une_remise_en_cause_dangereuse_de_letat_de_droit",
+          "confidence": "medium"
+        },
+        {
+          "position": "Prisons et peines : mettre fin à la surpopulation carcérale, développer les alternatives à l'incarcération et les aménagements de peine pour les personnes les moins dangereuses, renforcer la probation, et donner plus de moyens à la justice pour réduire les délais.",
+          "kind": "inference",
+          "details": "Texte d'orientation du parti. Il prévoit aussi une institution indépendante de recours contre les abus policiers et refuse que la police municipale devienne « le supplétif » de la police nationale. Aucune position récente n'a été trouvée sur le cannabis.",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "found": true,
+      "positions": [
+        {
+          "position": "Régulariser les travailleurs sans papiers et les familles dont les enfants sont scolarisés en France. Favoriser leur syndicalisation et leur participation à la vie sociale.",
+          "kind": "inference",
+          "details": "Texte d'orientation du parti. En 2022, Roussel candidat proposait déjà de régulariser « tous » les sans-papiers qui travaillent (Public Sénat, 2 février 2022).",
+          "short_quote": "la régularisation des travailleuses et travailleurs sans papiers",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        },
+        {
+          "position": "Opposition aux règles visant à expulser et à enfermer les migrants dans des centres de rétention, y compris hors du territoire (Pacte européen sur la migration et l'asile). Le texte demande aussi une enquête européenne sur Frontex.",
+          "kind": "inference",
+          "details": "Texte du parti. La formulation est plus radicale que les déclarations publiques passées de Roussel ; aucune déclaration de 2025-2026 du candidat sur les expulsions n'a été trouvée.",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        },
+        {
+          "position": "Défendre le droit du sol et le droit d'asile, accorder le droit de vote et d'éligibilité aux étrangers non européens aux élections locales, accueillir dignement par des voies sûres avec des dispositifs d'intégration ambitieux, et mettre à l'abri les mineurs non accompagnés.",
+          "kind": "inference",
+          "details": "Texte du parti.",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        },
+        {
+          "position": "Refuse de rendre les immigrés responsables de la désindustrialisation : selon lui, les fermetures d'usines (ArcelorMittal) viennent des choix du capital et des actionnaires.",
+          "kind": "position_declaree",
+          "details": "Discours de campagne de la Fête de l'Humanité 2026.",
+          "source_title": "Fête de l'Humanité 2026 - discours de Fabien Roussel (pcf.fr)",
+          "source_date": "2026-09-12",
+          "source_url": "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Remettre en cause les traités européens et la « logique capitaliste » de l'UE, pour une Europe de peuples et de nations « libres, souverains et associés » qui coopèrent à « géométrie choisie ». Aucun Frexit n'est proposé.",
+          "kind": "inference",
+          "details": "Base commune. Le congrès a chargé la direction d'organiser d'ici 2028 un débat interne sur le projet européen et la position du PCF envers l'UE. La ligne n'est donc pas totalement arrêtée.",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        },
+        {
+          "position": "Réorienter la création monétaire de la BCE vers un fonds européen de développement économique, social et écologique, et refinancer à taux zéro un pôle public bancaire.",
+          "kind": "proposition_explicite",
+          "details": "Proposition présente dans le tract de campagne sur les services publics et dans la base commune.",
+          "source_title": "Tract « Services publics : notre richesse, notre avenir » (campagne Roussel 2027)",
+          "source_date": "2026-09",
+          "source_url": "https://assets.nationbuilder.com/pcf/pages/44585/attachments/original/1791210591/tract_service_public.pdf?1791210591",
+          "confidence": "high"
+        },
+        {
+          "position": "Sortir du marché européen de l'électricité et ne pas appliquer les directives européennes de libéralisation de l'énergie.",
+          "kind": "proposition_explicite",
+          "details": "Discours de clôture du 40e congrès et base commune.",
+          "short_quote": "sortie du marché spéculatif européen de l'électricité",
+          "source_title": "40e congrès : discours de clôture de Fabien Roussel (pcf.fr)",
+          "source_date": "2026-07-08",
+          "source_url": "https://www.pcf.fr/40e_congres_discours_de_cloture_de_fabien_roussel",
+          "confidence": "high"
+        },
+        {
+          "position": "S'oppose à la militarisation de l'UE, à une armée européenne, au plan « ReArm Europe » et à un « fédéralisme » militarisé et nucléarisé. Opposition aussi à l'accord UE-Mercosur et au libre-échange « déloyal ».",
+          "kind": "position_declaree",
+          "details": "Déclaration de mars 2025 contre l'européanisation de la dissuasion, et base commune de 2026.",
+          "source_title": "Non à la marche à la guerre, oui à la sécurité collective (Fabien Roussel, pcf.fr)",
+          "source_date": "2025-03-05",
+          "source_url": "https://www.pcf.fr/reaction_intervention_macron_defense",
+          "confidence": "high"
+        },
+        {
+          "position": "Opposé à l'adhésion de l'Ukraine à l'UE comme à l'OTAN.",
+          "kind": "position_declaree",
+          "details": "Position connue par le titre d'un article d'Europe 1 (« nous ne pouvons pas accéder » à la demande de Kiev). La page n'a pas pu être lue (erreur 403) ; elle date probablement de 2023 ou 2024. Le refus de l'OTAN est confirmé par le livret PCF de 2026 (neutralité de l'Ukraine), pas celui de l'UE.",
+          "source_title": "Ukraine : pour Fabien Roussel, « nous ne pouvons pas accéder » à la demande de Kiev « de rentrer dans l'UE et l'Otan » (Europe 1)",
+          "source_date": "date non vérifiée (vers 2023-2024)",
+          "source_url": "https://www.europe1.fr/politique/ukraine-pour-fabien-roussel-nous-ne-pouvons-pas-acceder-a-la-demande-de-kiev-de-rentrer-dans-lue-et-lotan-4231855",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "ukraine_russie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Condamne l'agression russe, jugée « criminelle et injustifiable », mais estime qu'il n'y a pas de solution militaire, seulement une solution politique et diplomatique négociée.",
+          "kind": "position_declaree",
+          "details": "Il invoque « un million de victimes ». Il appelle à une désescalade militaire avec les BRICS et à une réunion du G20 pour éviter une troisième guerre mondiale.",
+          "source_title": "Non à la marche à la guerre, oui à la sécurité collective (Fabien Roussel, pcf.fr)",
+          "source_date": "2025-03-05",
+          "source_url": "https://www.pcf.fr/reaction_intervention_macron_defense",
+          "confidence": "high"
+        },
+        {
+          "position": "Opposé à l'envoi de troupes françaises et britanniques en Ukraine (« coalition des volontaires »), jugé facteur d'escalade entre trois puissances nucléaires. Propose à la place une force d'interposition sous mandat de l'ONU après un cessez-le-feu.",
+          "kind": "position_declaree",
+          "details": "Texte cosigné avec Stéphane Peu et Cécile Cukierman, et rapport au conseil national du 10 janvier 2026. Il oppose une « coalition des volontaires pour la paix » à celle de Macron.",
+          "short_quote": "Une force d'interposition sous mandat de l'ONU",
+          "source_title": "« Coalition des volontaires » : non à l'envoi de troupes françaises en Ukraine ! (pcf.fr)",
+          "source_date": "2026-01-08",
+          "source_url": "https://www.pcf.fr/coalition_des_volontaires_ukraine",
+          "confidence": "high"
+        },
+        {
+          "position": "Reproche à la France et à l'UE de n'avoir dialogué qu'avec Volodymyr Zelensky et pas avec Vladimir Poutine. Dénonce une « escalade guerrière de l'OTAN » et appelle à parler aux deux parties.",
+          "kind": "position_declaree",
+          "details": "Interview tendue sur France Inter avec Benjamin Duhamel. Ces propos lui ont valu de vives critiques.",
+          "short_quote": "escalade guerrière de l'OTAN",
+          "source_title": "« On peut arrêter là cette interview » : échanges tendus entre Benjamin Duhamel et Fabien Roussel sur France Inter (Puremédias)",
+          "source_date": "2026-09-21",
+          "source_url": "https://www.ozap.com/actu/on-peut-arreter-la-cette-interview-echanges-tendus-entre-benjamin-duhamel-et-fabien-roussel-sur-france-inter/657067",
+          "confidence": "high"
+        },
+        {
+          "position": "Paix fondée sur la neutralité de l'Ukraine (pas d'entrée dans l'OTAN), avec des garanties de sécurité de l'ONU et de l'OSCE. Le texte juge « inconditionnelle » la souveraineté de l'Ukraine dans ses frontières internationalement reconnues, mais prévoit aussi de consulter les populations concernées sous contrôle international.",
+          "kind": "inference",
+          "details": "Livret du parti. Il attribue en partie la guerre à l'élargissement de l'OTAN et au non-respect des accords de Minsk. La base commune reproche à l'UE de « prendre en charge le coût de la guerre ».",
+          "source_title": "Livret thématique « Paix & défense nationale » (PCF)",
+          "source_date": "2026-07-01",
+          "source_url": "https://assets.nationbuilder.com/pcf/pages/41211/attachments/original/1779954906/document_cahier_paix_ppp_stc.pdf?1779954906",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "proche_orient",
+      "found": true,
+      "positions": [
+        {
+          "position": "A salué la reconnaissance de l'État de Palestine par la France comme une première étape. Défend les frontières de 1967 avec Jérusalem-Est pour capitale, et une pleine capacité juridique de la Palestine devant la CPI et la CIJ.",
+          "kind": "position_declaree",
+          "details": "Il demandait aussi la libération des otages israéliens encore détenus à Gaza et qualifiait le gouvernement israélien d'« extrême droite ».",
+          "source_title": "Reconnaissance de l'État de Palestine par la France : une première étape nécessaire (Fabien Roussel, pcf.fr)",
+          "source_date": "2025-07-25",
+          "source_url": "https://www.pcf.fr/reconnaissance_etat_palestine",
+          "confidence": "high"
+        },
+        {
+          "position": "Demande un embargo strict et immédiat sur les armes et composants militaires vers Israël, la suspension de l'accord d'association UE-Israël, des sanctions économiques et l'application des mandats d'arrêt de la CPI.",
+          "kind": "proposition_explicite",
+          "details": "Tract de campagne pour la mobilisation du 10 octobre 2026. Il rappelle qu'environ 20 millions d'euros de matériel militaire sont exportés chaque année vers Israël. Il demande aussi un cessez-le-feu permanent, la levée du blocus de Gaza, le droit au retour des réfugiés et la libération de Marwan Barghouti.",
+          "short_quote": "Embargo strict et immédiat sur toutes les exportations, ventes et transits d'armes",
+          "source_title": "Tract « Paix et justice pour la Palestine » (campagne Roussel 2027)",
+          "source_date": "2026-10",
+          "source_url": "https://assets.nationbuilder.com/pcf/pages/44582/attachments/original/1791209863/tract_palestine_octobre2026.pdf?1791209863",
+          "confidence": "high"
+        },
+        {
+          "position": "Parle de « génocide » à Gaza ; le PCF milite pour que la France et l'UE reconnaissent ce génocide et pour que les responsables soient jugés.",
+          "kind": "position_declaree",
+          "details": "Il a lancé « Free Palestine » et dénoncé la poursuite du génocide à la Fête de l'Humanité 2026. Il parle aussi d'un « régime d'apartheid » imposé par l'extrême droite israélienne (clôture du congrès, juillet 2026).",
+          "source_title": "Fête de l'Humanité 2026 - discours de Fabien Roussel (pcf.fr)",
+          "source_date": "2026-09-12",
+          "source_url": "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+          "confidence": "high"
+        },
+        {
+          "position": "Interdire tous les produits importés des territoires palestiniens occupés et sanctionner les ressortissants français qui s'installent dans les colonies.",
+          "kind": "proposition_explicite",
+          "details": "Le livret PCF de 2026 ajoute le gel des avoirs des dirigeants israéliens, l'arrêt de toute relation commerciale avec Israël, et des poursuites pour crimes contre l'humanité contre les soldats et colons franco-israéliens.",
+          "short_quote": "Interdire tout produit importé provenant des territoires palestiniens occupés",
+          "source_title": "Université d'été 2026 - Discours de Fabien Roussel (pcf.fr)",
+          "source_date": "2026-08-26",
+          "source_url": "https://www.pcf.fr/ue_26_discours_fr",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "defense",
+      "found": true,
+      "positions": [
+        {
+          "position": "Sortir de l'OTAN : sortie immédiate du commandement intégré et dénonciation de l'article 5, puis sortie de l'Alliance pour la dissoudre. Il propose à la place un système de sécurité collective européen « de l'Atlantique à l'Oural ».",
+          "kind": "position_declaree",
+          "details": "Roussel l'a redit au conseil national du 10 janvier 2026, en jugant que les États-Unis de Trump ne sont plus des alliés fiables. Les étapes détaillées viennent du livret PCF « Paix & défense nationale » (juillet 2026).",
+          "short_quote": "Par la sortie immédiate de l'OTAN",
+          "source_title": "Rapport introductif de Fabien Roussel au CN du 10/01/2026 (pcf.fr)",
+          "source_date": "2026-01-10",
+          "source_url": "https://www.pcf.fr/rapport_introductif_de_fabien_roussel_au_cn_du_10_01_2026",
+          "confidence": "high"
+        },
+        {
+          "position": "Refuse de porter les dépenses militaires à 5 % du PIB et s'oppose aux 36 milliards d'euros supplémentaires prévus pour la défense d'ici 2030. Préfère financer la protection sociale (« moins d'obus, plus de sécu »).",
+          "kind": "position_declaree",
+          "details": "Il ne donne aucun niveau budgétaire alternatif. Le parti veut réorienter les crédits militaires « exclusivement » vers la défense du territoire et créer un pôle public national de défense.",
+          "short_quote": "Moins d'obus, plus de sécu",
+          "source_title": "Université d'été 2026 - Discours de Fabien Roussel (pcf.fr)",
+          "source_date": "2026-08-26",
+          "source_url": "https://www.pcf.fr/ue_26_discours_fr",
+          "confidence": "high"
+        },
+        {
+          "position": "Dissuasion nucléaire : pas de désarmement unilatéral ; l'outil serait entretenu et resterait totalement indépendant. Il refuse son « européanisation » (la « dissuasion avancée » de Macron), toute association avec l'arme britannique et tout déploiement hors du territoire. Objectif final : un désarmement multilatéral, avec la signature du traité d'interdiction des armes nucléaires (TIAN), d'abord comme observateur.",
+          "kind": "position_declaree",
+          "details": "Roussel a rejeté en mars 2025 l'extension du parapluie nucléaire à l'Europe. Le maintien de la dissuasion est précisé dans le livret PCF de juillet 2026.",
+          "short_quote": "Nous ne sommes pas favorables à un désarmement unilatéral de la France",
+          "source_title": "Livret thématique « Paix & défense nationale » (PCF) ; Non à la marche à la guerre (Roussel, 5 mars 2025)",
+          "source_date": "2026-07-01",
+          "source_url": "https://assets.nationbuilder.com/pcf/pages/41211/attachments/original/1779954906/document_cahier_paix_ppp_stc.pdf?1779954906",
+          "confidence": "medium"
+        },
+        {
+          "position": "Une défense centrée sur le territoire : opposition au nouveau porte-avions nucléaire, à une armée européenne, aux opérations extérieures sans mandat de l'ONU ni vote du Parlement, et au retrait des bases militaires en Afrique.",
+          "kind": "inference",
+          "details": "Base commune et livret du parti. Le texte prévoit aussi de reconstruire une base industrielle de défense sous contrôle de la nation.",
+          "source_title": "Base commune « Un communisme de conquêtes », 40e congrès du PCF",
+          "source_date": "2026-07",
+          "source_url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+          "confidence": "medium"
+        },
+        {
+          "position": "Service national : le PCF, historiquement favorable à une armée mixte (le seul parti opposé à la suspension du service militaire), veut rebâtir le lien armée-nation par une réserve volontaire repensée et refuse la « militarisation de la jeunesse ». Il critique le service militaire volontaire voulu par Macron.",
+          "kind": "inference",
+          "details": "Livret du parti. Aucune déclaration de Roussel n'a été trouvée sur le rétablissement d'un service obligatoire.",
+          "source_title": "Livret thématique « Paix & défense nationale » (PCF)",
+          "source_date": "2026-07-01",
+          "source_url": "https://assets.nationbuilder.com/pcf/pages/41211/attachments/original/1779954906/document_cahier_paix_ppp_stc.pdf?1779954906",
+          "confidence": "medium"
+        }
+      ]
+    }
+  ],
+  "signature_proposals": [
+    {
+      "proposal": "SMIC à 1 700 € net, +5 % pour tous les salaires et retour de l'indexation automatique des salaires sur les prix (échelle mobile)",
+      "topic_id": "travail_salaires",
+      "source_url": "https://www.pcf.fr/ue_26_discours_fr"
+    },
+    {
+      "proposal": "Hausse immédiate de 30 % du point d'indice des fonctionnaires",
+      "topic_id": "travail_salaires",
+      "source_url": "https://www.pcf.fr/ue_26_discours_fr"
+    },
+    {
+      "proposal": "Retraite à 60 ans à taux plein, aucune pension sous le SMIC, financement par cotisations sur les dividendes et revenus financiers",
+      "topic_id": "retraites",
+      "source_url": "https://www.pcf.fr/discours_de_fabien_roussel_fete_huma_31"
+    },
+    {
+      "proposal": "« Nationalisation sanction » de TotalEnergies et retour d'EDF, d'Engie et de Total dans un pôle public de l'énergie",
+      "topic_id": "industrie_economie",
+      "source_url": "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel"
+    },
+    {
+      "proposal": "Baisse de 30 % des tarifs de l'électricité et du gaz, sortie du marché européen de l'électricité, carburant plafonné à 1,60 €/l",
+      "topic_id": "ecologie_energie",
+      "source_url": "https://www.pcf.fr/40e_congres_discours_de_cloture_de_fabien_roussel"
+    },
+    {
+      "proposal": "Plan climat de 500 milliards d'euros sur cinq ans : électricité nucléaire et renouvelable doublée, sortie des fossiles en quinze ans, 2 millions de pompes à chaleur et 1 million de véhicules électriques à moins de 10 000 € par an",
+      "topic_id": "ecologie_energie",
+      "source_url": "https://www.pcf.fr/ue_26_discours_fr"
+    },
+    {
+      "proposal": "Rétablissement de l'ISF, héritages de moins de 200 000 € exonérés, prison ou déchéance des droits civiques pour les fraudeurs fiscaux",
+      "topic_id": "fiscalite",
+      "source_url": "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel"
+    },
+    {
+      "proposal": "60 000 policiers, enquêteurs et douaniers supplémentaires contre le narcotrafic (2,5 milliards d'euros)",
+      "topic_id": "securite_justice",
+      "source_url": "https://www.franceinfo.fr/societe/drogue/fabien-roussel-veut-60-000-policiers-et-douaniers-de-plus-pour-mener-un-combat-sans-merci-contre-le-narcotrafic_7635125.html"
+    },
+    {
+      "proposal": "Remplacer le RSA par un emploi ou une formation rémunérés à plein salaire",
+      "topic_id": "solidarites",
+      "source_url": "https://www.franceinfo.fr/economie/emploi/fabien-roussel-veut-remplacer-le-rsa-par-un-salaire-en-echange-d-un-emploi-ou-d-une-formation-proposes-a-chaque-francais_7205565.html"
+    },
+    {
+      "proposal": "Sortie de l'OTAN et refus de la hausse des dépenses militaires (« moins d'obus, plus de sécu »)",
+      "topic_id": "defense",
+      "source_url": "https://www.pcf.fr/rapport_introductif_de_fabien_roussel_au_cn_du_10_01_2026"
+    },
+    {
+      "proposal": "Gratuité des transports publics dans les métropoles",
+      "topic_id": "ecologie_energie",
+      "source_url": "https://www.pcf.fr/discours_de_fabien_roussel_fete_huma_31"
+    },
+    {
+      "proposal": "Obligation pour les partis de présenter 50 % d'ouvriers et d'employés aux législatives",
+      "topic_id": "institutions",
+      "source_url": "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel"
+    }
+  ],
+  "distinctive_vs_others": "1) Gauche favorable au nucléaire : Roussel veut doubler la production d'électricité décarbonée en combinant nucléaire et renouvelables (université d'été 2026, https://www.pcf.fr/ue_26_discours_fr). Il se distingue ainsi de Jean-Luc Mélenchon, dont le mouvement (LFI) défend historiquement une sortie du nucléaire, et des sensibilités écologistes (Delphine Batho). Il partage en revanche avec la droite et le RN l'attachement au nucléaire, mais dans un cadre de nationalisation (pôle public EDF-Engie-Total) et de sortie du marché européen de l'électricité.\n\n2) Discours de sécurité inhabituel à gauche : il propose 60 000 policiers, enquêteurs et douaniers de plus et refuse explicitement le slogan « tout le monde déteste la police » pour se démarquer de LFI (franceinfo, 23 novembre 2025). En mars 2025, il s'était aussi dit favorable à l'interdiction du voile dans les compétitions sportives, position partagée surtout à droite (Retailleau, RN), alors qu'Édouard Philippe jugeait une telle interdiction contraire à la laïcité. En septembre 2026, il a toutefois affirmé que « ce n'est pas le voile qui menace la République ».\n\n3) Une « gauche du travail » : remplacement du RSA par un emploi ou une formation payés (franceinfo, 23 avril 2025). La proposition est contestée à gauche ; Lutte ouvrière (Nathalie Arthaud) et Révolution permanente (Anasse Kazib) l'accusent de « courir après l'extrême droite » ou de ménager le patronat.\n\n4) Retraites : il veut un départ à 60 ans à taux plein. Selon franceinfo (30 septembre 2026, https://www.franceinfo.fr/economie/retraite/reforme-des-retraites/changement-de-systeme-passage-a-60-ou-a-65-ans-capitalisation-que-proposent-les-principaux-candidats-a-l-election-presidentielle-pour-les-retraites_8215784.html), Philippe propose 65 ans et de la capitalisation, Retailleau 63 à 65 ans et de la capitalisation pour les jeunes, Attal la suppression de l'âge légal et de la capitalisation, Le Pen 62 ans (60 pour les carrières longues), Mélenchon 60 ans avec 40 annuités. Roussel est proche de Mélenchon sur ce point.\n\n5) Politique étrangère : il veut sortir de l'OTAN (comme Mélenchon, Asselineau, Philippot ou Dupont-Aignan), mais sans quitter l'UE, contrairement à Asselineau et Philippot qui défendent le Frexit. Il veut seulement « remettre en cause les traités ». Sur l'Ukraine, il refuse l'envoi de troupes et appelle à dialoguer avec Poutine (France Inter, 21 septembre 2026), à l'opposé des candidats de la primaire de la gauche comme Raphaël Glucksmann et des candidats du centre et de la droite favorables au soutien militaire et à la « coalition des volontaires ». Il conserve pourtant la dissuasion nucléaire et refuse le désarmement unilatéral, ce qui le distingue d'une ligne pacifiste intégrale.\n\n6) Méthode : il fait campagne sur des mobilisations immédiates (ronds-points, stations-service, « nationalisation sanction » de Total) et sur des nationalisations, y compris d'une grande banque. Il se place à la gauche du PS et de Place publique sur l'économie, mais refuse la stratégie de LFI et a promis de ne pas polémiquer avec les autres candidats de gauche.",
+  "evolutions_and_contradictions": "- Voile et laïcité : en mars 2025 (CNews), il soutenait l'inscription dans la loi des principes de la Charte olympique, donc l'interdiction du voile dans les compétitions sportives, et affirmait que le « racisme anti-blanc existe ». À la Fête de l'Humanité de septembre 2026, il déclare que « ce n'est pas le voile qui menace la République, c'est le racisme ». Il n'a pas dit avoir renoncé à l'interdiction dans le sport.\n- Proportionnelle : le texte du 40e congrès la juge « indispensable », mais Roussel disait en mai 2025 qu'elle n'est « pas la priorité » des Français, contrairement à l'abrogation du 49.3.\n- SMIC : 1 500 € net dans le programme de 2022, 1 600 € net sur une page programme non datée de pcf.fr, puis 1 700 € net en août 2026 (soit environ 2 200 € brut dans un communiqué PCF de septembre 2026). La revendication monte avec l'inflation.\n- Total : en avril 2026, la nationalisation était conditionnelle (« si le groupe ne baisse pas ses marges »). En juin 2026, il dit qu'EDF, GDF et Total doivent redevenir publics. En septembre 2026, il parle de « nationalisation sanction ».\n- Banques : « nationaliser les banques » au congrès de juillet 2026, puis « une grande banque » en septembre 2026.\n- Dette : en septembre 2025, il dit que les plus riches doivent contribuer à réduire le déficit, ce qui reconnaît un objectif de réduction. Dans le même temps, le PCF juge que la dette n'est pas le problème, et Roussel propose d'emprunter 500 milliards d'euros sur cinq ans. Aucune trajectoire de déficit n'est donnée.\n- Ukraine : en mars 2025, il condamnait l'agression russe « criminelle et injustifiable ». En septembre 2026, il dénonce une « escalade guerrière de l'OTAN » et reproche à la France de ne pas avoir dialogué avec Poutine. Le livret du PCF affirme la souveraineté « inconditionnelle » de l'Ukraine dans ses frontières reconnues, tout en évoquant des consultations des populations sur leur appartenance future, ce qui est ambigu pour les territoires occupés.\n- Défense : il veut sortir de l'OTAN et reconstruire une défense indépendante (combler les lacunes de capacités, créer un pôle public de défense), mais refuse toute hausse budgétaire (5 % du PIB, +36 milliards d'euros) sans chiffrer le niveau nécessaire. Il maintient la dissuasion tout en voulant signer le TIAN (traité d'interdiction des armes nucléaires).\n- Immigration : la base commune de 2026 va loin (opposition aux centres de rétention et aux expulsions, vote des étrangers aux élections locales). Ses propres déclarations récentes sont plus discrètes, et il avait en 2023 un discours sur les frontières jugé droitier par une partie de la gauche (point mentionné par Wikipédia, non vérifié en détail).\n- Unité de la gauche : il promet de ne pas polémiquer avec les autres candidats de gauche, alors que le texte du congrès qu'il a porté critique durement LFI, accusée d'avoir fait tomber des mairies de gauche en 2026. LFI lui reproche d'avoir empêché la qualification de Mélenchon au second tour en 2022.\n- 32 heures : promesse du programme de 2022, absente de ses discours de 2026, où le texte du parti ne parle que d'une « nouvelle étape de réduction du temps de travail ».",
+  "open_questions": [
+    "Le programme présidentiel complet (projet « Vivre ! ») n'est pas publié au 6 octobre 2026. Les mesures viennent de discours, de tracts et des textes du 40e congrès.",
+    "Logement : aucune position trouvée sur l'encadrement ou le blocage des loyers, ni objectif chiffré de construction de logements sociaux pour 2027.",
+    "Fiscalité : quel taux et quel barème pour l'ISF rétabli (le « triplement » de l'ancien programme est-il maintenu) ? Barème des héritages au-dessus de 200 000 € ? Réforme de l'impôt sur le revenu et de l'impôt sur les sociétés ?",
+    "Finances publiques : aucune trajectoire de déficit ou de dette, ni chiffrage global du coût des mesures (SMIC, point d'indice +30 %, retraite à 60 ans, emprunt de 500 milliards d'euros).",
+    "Retraites : quelle durée de cotisation pour le taux plein à 60 ans ? Montant de la pension minimale en 2027 ?",
+    "Temps de travail : la semaine de 32 heures du programme 2022 est-elle maintenue ?",
+    "Défense : quel niveau de budget militaire juge-t-il suffisant ? Position personnelle sur le service militaire volontaire voulu par Macron et sur un éventuel service obligatoire ?",
+    "Ukraine : soutient-il la poursuite des livraisons d'armes et des sanctions contre la Russie ? Comment concilie-t-il intégrité territoriale et consultations des populations ?",
+    "Europe : position sur le budget de l'UE, l'élargissement (Ukraine, Moldavie, Balkans) et l'issue du débat interne du PCF prévu d'ici 2028.",
+    "Immigration : position personnelle actuelle sur les expulsions (OQTF), les quotas, le regroupement familial et l'AME. Reprend-il l'opposition totale aux centres de rétention inscrite dans le texte du parti ?",
+    "Laïcité : maintient-il en 2026 l'interdiction du voile dans les compétitions sportives défendue en 2025 ?",
+    "Numérique : position sur l'interdiction des réseaux sociaux aux moins de 15 ans, le temps d'écran et la régulation européenne des grandes plateformes (DSA, DMA) ?",
+    "Droits LGBTQIA+ : aucune position trouvée sur le changement de la mention du sexe à l'état civil, la transidentité des mineurs ou la filiation.",
+    "Culture : position sur la réforme de la gouvernance de l'audiovisuel public (holding) et sur son financement ?",
+    "Agriculture : position sur le bien-être animal, les pesticides et l'accès à l'alimentation (sécurité sociale de l'alimentation) ?",
+    "Santé : position sur la régulation de l'installation des médecins (déserts médicaux) ?",
+    "Sécurité : position sur le cannabis (dépénalisation ou légalisation) et sur l'armement des polices municipales ?"
+  ],
+  "programme_sources": [
+    {
+      "title": "Site de campagne « Vivre ! » - Fabien Roussel 2027 (axes Vivre mieux, heureux, ensemble, longtemps, en paix ; tracts et affiches)",
+      "url": "https://www.fabienroussel2027.fr/",
+      "date": "2026-09"
+    },
+    {
+      "title": "Base commune « Un communisme de conquêtes » adoptée au 40e congrès du PCF (Lille)",
+      "url": "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+      "date": "2026-07"
+    },
+    {
+      "title": "Livret thématique « Paix & défense nationale » (Les cahiers thématiques des Jours heureux, PCF)",
+      "url": "https://assets.nationbuilder.com/pcf/pages/41211/attachments/original/1779954906/document_cahier_paix_ppp_stc.pdf?1779954906",
+      "date": "2026-07-01"
+    },
+    {
+      "title": "Discours de clôture du 40e congrès du PCF",
+      "url": "https://www.pcf.fr/40e_congres_discours_de_cloture_de_fabien_roussel",
+      "date": "2026-07-08"
+    },
+    {
+      "title": "Discours de Fabien Roussel à l'université d'été du PCF (Toulouse)",
+      "url": "https://www.pcf.fr/ue_26_discours_fr",
+      "date": "2026-08-26"
+    },
+    {
+      "title": "Discours de Fabien Roussel à la Fête de l'Humanité 2026",
+      "url": "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+      "date": "2026-09-12"
+    },
+    {
+      "title": "Discours de Fabien Roussel - Fête de l'Huma 31",
+      "url": "https://www.pcf.fr/discours_de_fabien_roussel_fete_huma_31",
+      "date": "2026-06-02"
+    },
+    {
+      "title": "Tract de campagne « Services publics : notre richesse, notre avenir »",
+      "url": "https://assets.nationbuilder.com/pcf/pages/44585/attachments/original/1791210591/tract_service_public.pdf?1791210591",
+      "date": "2026-09"
+    },
+    {
+      "title": "Livre « Le parti pris du travail » (présentation et proposition sur le RSA, franceinfo)",
+      "url": "https://www.franceinfo.fr/economie/emploi/fabien-roussel-veut-remplacer-le-rsa-par-un-salaire-en-echange-d-un-emploi-ou-d-une-formation-proposes-a-chaque-francais_7205565.html",
+      "date": "2025-04-23"
+    },
+    {
+      "title": "Programme PCF « Objectif 1 » (page programme non datée, héritée de 2022)",
+      "url": "https://www.pcf.fr/objectif_1",
+      "date": "non daté"
+    }
+  ]
+}

@@ -5,8 +5,7 @@
 import { affinityBand } from '../../core/affinity'
 import { firstStepSize } from '../../core/order'
 import { strokesFor } from '../../core/score'
-import type { Rating } from '../../core/types'
-import { defaultElection } from '../../elections'
+import type { QuestionBank, Rating } from '../../core/types'
 
 /** Typographie française : espace insécable avant « : ; ! ? % » et à l'intérieur des guillemets */
 export const fr = (s: string) => s.replace(/ ([:;!?»%])/g, '\u00a0$1').replace(/« /g, '«\u00a0')
@@ -73,10 +72,12 @@ export const SCENES: Scene[] = [
   },
 ]
 
-/** L'appel final parle de questions, jamais de durée : la première tendance de l'élection en cours */
-const essential = defaultElection.bank.questions.filter(q => q.tier === 'essentiel')
-const step1 = firstStepSize(essential)
-export const CTA_NOTE = step1 > 0 ? `Une première tendance dès ${step1} questions.` : `Un résultat en ${essential.length} questions.`
+/** L'appel final parle de questions, jamais de durée : la première tendance de l'élection affichée */
+export function ctaNote(bank: QuestionBank): string {
+  const essential = bank.questions.filter(q => q.tier === 'essentiel')
+  const step1 = firstStepSize(essential)
+  return step1 > 0 ? `Une première tendance dès ${step1} questions.` : `Un résultat en ${essential.length} questions.`
+}
 
 /** La question fictive, reprise de la démonstration de l'accueil */
 export const QUESTION = fr('Comment organiser la semaine des écoliers ?')

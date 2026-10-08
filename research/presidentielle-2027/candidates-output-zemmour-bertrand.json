@@ -1,0 +1,739 @@
+{
+  "summary": "Candidate cards with the same structure for all (current role, dated and sourced declaration, past offices, origin; 5 to 6 sourced elements) and free-licence portraits only (Wikimedia Commons, Assemblée nationale, Sénat, European Parliament) with full credits; adversarial verification, harmonization, mechanical checks; nothing is downloaded",
+  "agentCount": 9,
+  "logs": [
+    "2 fiche(s), 2 portrait(s) libre(s), 0 sans portrait ; 0 défaut(s) à arbitrer"
+  ],
+  "result": {
+    "candidates": [
+      {
+        "id": "zemmour",
+        "name": "Éric Zemmour",
+        "initials": "ÉZ",
+        "affiliation": "Reconquête",
+        "role": "Président du parti Reconquête",
+        "declaredAt": "2026-09-17",
+        "declaration": {
+          "title": "Eric Zemmour, président du parti d’extrême droite Reconquête, annonce qu’il sera candidat à l’élection présidentielle",
+          "url": "https://www.franceinfo.fr/politique/eric-zemmour/eric-zemmour-president-du-parti-d-extreme-droite-reconquete-annonce-sa-candidature-a-l-election-presidentielle_8198141.html",
+          "publisher": "franceinfo",
+          "date": "2026-09-17"
+        },
+        "bio": [
+          {
+            "when": "Aujourd’hui",
+            "text": "Président du parti Reconquête.",
+            "source": {
+              "title": "Notre équipe — RECONQUÊTE",
+              "url": "https://www.parti-reconquete.fr/equipe",
+              "publisher": "Reconquête"
+            }
+          },
+          {
+            "when": "2026",
+            "text": "Annonce le 17 septembre 2026, dans un entretien sur BFMTV, qu’il sera candidat à l’élection présidentielle. Ce n’est pas une déclaration formelle : elle est attendue à l’automne, selon son entourage.",
+            "source": {
+              "title": "Eric Zemmour, président du parti d’extrême droite Reconquête, annonce qu’il sera candidat à l’élection présidentielle",
+              "url": "https://www.franceinfo.fr/politique/eric-zemmour/eric-zemmour-president-du-parti-d-extreme-droite-reconquete-annonce-sa-candidature-a-l-election-presidentielle_8198141.html",
+              "publisher": "franceinfo",
+              "date": "2026-09-17"
+            }
+          },
+          {
+            "when": "2022",
+            "text": "Candidat à l’élection présidentielle de 2022, puis aux élections législatives de la même année dans le Var, où il est battu.",
+            "source": {
+              "title": "Éric Zemmour – Actualité et info sur ICI",
+              "url": "https://www.ici.fr/personnes/eric-zemmour",
+              "publisher": "ICI (Radio France)"
+            }
+          },
+          {
+            "when": "2021",
+            "text": "Fonde le parti Reconquête le 5 décembre 2021.",
+            "source": {
+              "title": "Éric Zemmour – Actualité et info sur ICI",
+              "url": "https://www.ici.fr/personnes/eric-zemmour",
+              "publisher": "ICI (Radio France)"
+            }
+          },
+          {
+            "when": "1986-2021",
+            "text": "Journaliste au Quotidien de Paris dès 1986, puis au service politique du Figaro de 1996 à 2009 ; chroniqueur au Figaro Magazine jusqu’en 2021. À la télévision à partir de 2003, notamment sur iTélé et France 2.",
+            "source": {
+              "title": "Eric Zemmour : toute l’actualité et les infos sur Eric Zemmour du parti Reconquête à l’élection présidentielle 2022 : sa campagne, ses déclarations, les sondages...",
+              "url": "https://www.sudouest.fr/politique/eric-zemmour/",
+              "publisher": "Sud Ouest"
+            }
+          },
+          {
+            "when": "1958",
+            "text": "Né le 31 août 1958 à Montreuil (Seine-Saint-Denis). Diplômé de Sciences Po Paris en 1979, spécialité Service public, il choisit ensuite le journalisme.",
+            "source": {
+              "title": "Eric Zemmour : toute l’actualité et les infos sur Eric Zemmour du parti Reconquête à l’élection présidentielle 2022 : sa campagne, ses déclarations, les sondages...",
+              "url": "https://www.sudouest.fr/politique/eric-zemmour/",
+              "publisher": "Sud Ouest"
+            }
+          }
+        ],
+        "photo": {
+          "file": "zemmour.jpg",
+          "alt": "Portrait d’Éric Zemmour",
+          "credit": "ManoSolo13241324, 2026, licence CC0 1.0, recadrée",
+          "rightsUrl": "https://commons.wikimedia.org/wiki/File:%C3%89ric_Zemmour_et_%C3%89ric_Naulleau_2026.jpg",
+          "author": "ManoSolo13241324 (utilisateur de Wikimedia Commons, https://commons.wikimedia.org/wiki/User:ManoSolo13241324 ; source : travail personnel ; EXIF : Xiaomi 2201117TY, soit un Redmi Note 11)",
+          "title": "Éric Zemmour et Éric Naulleau 2026.jpg",
+          "license": {
+            "name": "CC0 1.0",
+            "url": "https://creativecommons.org/publicdomain/zero/1.0/deed.fr"
+          },
+          "changes": "recadrée en carré et réduite"
+        }
+      },
+      {
+        "id": "bertrand",
+        "name": "Xavier Bertrand",
+        "initials": "XB",
+        "affiliation": "Nous France",
+        "role": "Président du conseil régional des Hauts-de-France",
+        "declaredAt": "2026-08-27",
+        "declaration": {
+          "title": "« Je le serai » : Xavier Bertrand annonce être candidat à l’élection présidentielle et s’exprime sur d’éventuelles primaires",
+          "url": "https://france3-regions.franceinfo.fr/hauts-de-france/nord-0/lille/je-le-serai-xavier-bertrand-annonce-sa-candidature-a-l-election-presidentielle-et-s-exprime-sur-d-eventuelles-primaires-3407339.html",
+          "publisher": "France 3 Hauts-de-France",
+          "date": "2026-08-27"
+        },
+        "bio": [
+          {
+            "when": "Depuis 2016",
+            "text": "Président du conseil régional des Hauts-de-France depuis 2016.",
+            "source": {
+              "title": "« Je le serai » : Xavier Bertrand annonce être candidat à l’élection présidentielle et s’exprime sur d’éventuelles primaires",
+              "url": "https://france3-regions.franceinfo.fr/hauts-de-france/nord-0/lille/je-le-serai-xavier-bertrand-annonce-sa-candidature-a-l-election-presidentielle-et-s-exprime-sur-d-eventuelles-primaires-3407339.html",
+              "publisher": "France 3 Hauts-de-France",
+              "date": "2026-08-27"
+            }
+          },
+          {
+            "when": "2026",
+            "text": "Annonce le 27 août 2026, interrogé à l’université de rentrée du Medef, qu’il sera candidat à l’élection présidentielle. Ce n’est pas une déclaration formelle : il la prévoit à la fin de l’année, en candidat indépendant.",
+            "source": {
+              "title": "« Je le serai » : Xavier Bertrand annonce être candidat à l’élection présidentielle et s’exprime sur d’éventuelles primaires",
+              "url": "https://france3-regions.franceinfo.fr/hauts-de-france/nord-0/lille/je-le-serai-xavier-bertrand-annonce-sa-candidature-a-l-election-presidentielle-et-s-exprime-sur-d-eventuelles-primaires-3407339.html",
+              "publisher": "France 3 Hauts-de-France",
+              "date": "2026-08-27"
+            }
+          },
+          {
+            "when": "2017-2021",
+            "text": "Quitte Les Républicains en 2017 et y revient en 2021 pour se présenter à leur congrès de désignation pour l’élection présidentielle de 2022, où il arrive en quatrième position.",
+            "source": {
+              "title": "« Je le serai » : Xavier Bertrand annonce être candidat à l’élection présidentielle et s’exprime sur d’éventuelles primaires",
+              "url": "https://france3-regions.franceinfo.fr/hauts-de-france/nord-0/lille/je-le-serai-xavier-bertrand-annonce-sa-candidature-a-l-election-presidentielle-et-s-exprime-sur-d-eventuelles-primaires-3407339.html",
+              "publisher": "France 3 Hauts-de-France",
+              "date": "2026-08-27"
+            }
+          },
+          {
+            "when": "2005-2012",
+            "text": "Ministre de la Santé de 2005 à 2007, ministre du Travail de 2007 à 2009, puis ministre du Travail, de l’Emploi et de la Santé de 2010 à 2012. Élu maire de Saint-Quentin (Aisne) en 2010.",
+            "source": {
+              "title": "BERTRAND Xavier",
+              "url": "https://www.hautsdefrance.fr/elu/bertrand-xavier/",
+              "publisher": "Région Hauts-de-France"
+            }
+          },
+          {
+            "when": "2002-2016",
+            "text": "Député de l’Aisne de 2002 à 2004, en 2007, de 2009 à 2010, puis de 2012 à janvier 2016.",
+            "source": {
+              "title": "Xavier Bertrand - Base de données des députés français depuis 1789",
+              "url": "https://www2.assemblee-nationale.fr/sycomore/fiche/11024",
+              "publisher": "Assemblée nationale"
+            }
+          },
+          {
+            "when": "1965",
+            "text": "Né le 21 mars 1965 à Châlons-sur-Marne (Marne). Profession déclarée : agent d’assurance.",
+            "source": {
+              "title": "M. Xavier Bertrand - Mandat clos - Aisne (2e circonscription)",
+              "url": "https://www.assemblee-nationale.fr/dyn/deputes/PA267080",
+              "publisher": "Assemblée nationale"
+            }
+          }
+        ],
+        "photo": {
+          "file": "bertrand.jpg",
+          "alt": "Portrait de Xavier Bertrand",
+          "credit": "Antoine Jaussaud – © Union européenne, 2026, sous licence CC BY 4.0, recadrée",
+          "rightsUrl": "https://commons.wikimedia.org/wiki/File:Participation_of_Henna_Virkkunen,_in_the_Forum_InCyber_2026_(P-069323-00-10).jpg",
+          "author": "Antoine Jaussaud (photographe), CE – Service audiovisuel ; droits : © Union européenne, 2026. Selon la page source de la CE : « Producteur : CE - Service audiovisuel ; Photographe : Antoine Jaussaud ; Copyright Union européenne, 2026 ». Le champ Auteur de Commons (Artist) indique : « Europäische Kommission - Audiovisueller Dienst, Antoine Jaussaud, CE - Service audiovisuel, EC - Audiovisual Service, FACTSTORY ». Les EXIF/IPTC du fichier indiquent : Artist « Antoine Jaussaud », Credit « EU/Antoine Jaussaud », Source « EUROPEAN COMMISSION », Copyright « ©EU ».",
+          "title": "Participation of Henna Virkkunen, in the Forum InCyber 2026 (P-069323-00-10).jpg",
+          "license": {
+            "name": "CC BY 4.0",
+            "url": "https://creativecommons.org/licenses/by/4.0/deed.fr"
+          },
+          "changes": "recadrée en carré et réduite"
+        }
+      }
+    ],
+    "portraits": [
+      {
+        "candidateId": "zemmour",
+        "status": "licence libre",
+        "host": "wikimedia_commons",
+        "title": "Éric Zemmour et Éric Naulleau 2026.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b9/%C3%89ric_Zemmour_et_%C3%89ric_Naulleau_2026.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:%C3%89ric_Zemmour_et_%C3%89ric_Naulleau_2026.jpg",
+        "author": "ManoSolo13241324 (utilisateur de Wikimedia Commons, https://commons.wikimedia.org/wiki/User:ManoSolo13241324 ; source : travail personnel ; EXIF : Xiaomi 2201117TY, soit un Redmi Note 11)",
+        "license": {
+          "name": "CC0 1.0",
+          "url": "https://creativecommons.org/publicdomain/zero/1.0/deed.fr"
+        },
+        "shareAlike": false,
+        "rightsText": "Moi, en tant que détenteur des droits d’auteur sur cette œuvre, je la publie sous la licence suivante : Ce fichier est dans le domaine public selon les termes de la licence Creative Commons CC0 1.0 Universel. La personne qui a associé une œuvre avec cet acte l’a placée dans le domaine public en renonçant mondialement à tous ses droits sur cette œuvre en vertu des lois relatives au droit d’auteur, ainsi qu’à tous les droits juridiques connexes et voisins qu’elle possédait sur l’œuvre, sans autre limite que celles imposées par la loi. Vous pouvez copier, modifier, distribuer et utiliser cette œuvre, y compris à des fins commerciales, sans qu’il soit nécessaire d’en demander la permission.",
+        "credit": "ManoSolo13241324, 2026, licence CC0 1.0, recadrée",
+        "date": "2026-03-02 (EXIF DateTimeOriginal 2026:03:02 20:25:14, Xiaomi 2201117TY = Redmi Note 11 ; retouche EXIF DateTime 2026:03:22 17:53:37 avec Microsoft Photo Gallery, envoi sur Commons le 2026-03-22)",
+        "description": "Éric Zemmour, de face et souriant, à gauche sur l'image, avec Éric Naulleau à droite, dans le hall du Théâtre de Poche-Montparnasse à Paris, le lundi 2 mars 2026 (soir de représentation du spectacle « Judith Magre dit Aragon », où joue Naulleau).",
+        "width": 2491,
+        "height": 2699,
+        "bytes": 2382575,
+        "contentType": "image/jpeg",
+        "campaignMaterial": false,
+        "crop": "Zemmour est la personne de gauche sur l'image. J'ai mesuré sur la vignette de 960 px, puis ramené à l'original de 2491 × 2699 : haut des cheveux vers y ≈ 105, yeux vers y ≈ 565, menton vers y ≈ 870 ; oreilles d'environ x 315 à 930, centre du visage vers x ≈ 625. Le carré proposé, x 10–1210 et y 0–1200 (1200 px), est confirmé à l'œil. Le visage y est centré à l'horizontale et occupe la moitié haute. L'épaule de Naulleau commence vers x ≈ 1310 et l'affiche rose du théâtre se trouve vers x ≈ 1420–1700 : les deux restent hors du carré. Dans le carré, on voit le mur beige, le bord d'une porte rouge et le manteau sombre d'une personne de dos à gauche, en haut à droite la photo noir et blanc encadrée avec son petit cartel blanc (x ≈ 895–1210, coupée par le bord), et en bas l'écharpe verte, le pull rouge et la veste matelassée noire. Aucun logo, aucun slogan. Variante plus serrée, également possible : x 130–1110 et y 30–1010 (980 px), avec 75 px au-dessus des cheveux et 140 px sous le menton. Dans les deux cas, réduire ensuite à 400 × 400.",
+        "alternatives": [
+          "https://commons.wikimedia.org/wiki/File:%C3%89ric_zemmour_16.jpg et %C3%89ric_zemmour_18.jpg : CC BY-SA 4.0, 2026, compte Port!mimi!able créé le 06/09/2026, 12 photos de politiques versées en sept minutes, sans EXIF ni catégorie de sujet. Licence non fiable, écartées (non revérifié par moi).",
+          "https://commons.wikimedia.org/wiki/File:Portrait_d%27%C3%89ric_Zemmour,_avril_2022.jpg (P18 de Wikidata) : CC0, mais portrait posé de type campagne 2022, par une photographe intégrée à la campagne. Écarté par la règle sur les photos de campagne, et vieux de plus de 4 ans.",
+          "https://commons.wikimedia.org/wiki/File:%C3%89ric_zemmour_2023.jpg et %C3%89ric_Zemmour_2023_1.jpg : CC BY-SA 4.0, 2023, même auteur ManoSolo13241324. Dédicace devant une bâche promotionnelle du livre, visage petit.",
+          "https://commons.wikimedia.org/wiki/File:Marche_contre_l%27_antis%C3%A9mitisme_Paris_12-10-2023_-_9.jpg (et -8, -10, -12) : CC BY 4.0, 2023, Siren-Com. De profil ou yeux baissés, dans une foule.",
+          "https://commons.wikimedia.org/wiki/File:%C3%89ric_Zemmour_%C3%A0_Londres.20240127_190255_(2).jpg (série) : CC0, 2024, Rc1959. Réunion de Reconquête, décor de meeting.",
+          "https://commons.wikimedia.org/wiki/File:%C3%89lections_europ%C3%A9ennes_2024_en_France_11.jpg : CC0, 2024. Contexte de campagne européenne.",
+          "Photos de meetings 2022 (Agen, Trocadéro, Flickr Anh De France) et photos de 2008-2012 : campagne ou trop anciennes."
+        ],
+        "notes": [
+          "Conclusion : le portrait est confirmé. La licence, l'auteur, la date, l'identité de la personne, le fichier et la mention courte sont exacts. Je n'apporte que des précisions (description, cadrage, fiabilité de l'auteur) ; je ne corrige aucun droit.",
+          "API imageinfo (vérifiée le 06/10/2026) : LicenseShortName « CC0 », UsageTerms « Creative Commons Zero, Public Domain Dedication », AttributionRequired false, Artist ManoSolo13241324 (lien vers User:ManoSolo13241324), Credit « Travail personnel », DateTimeOriginal 2026-03-02 20:25:14, ImageDescription « Éric Zemmour et Éric Naulleau dans le hall du Théâtre de Poche-Montparnasse, le 2 mars 2026. », catégories Éric Zemmour, Éric Naulleau, CC-Zero, Self-published work. Wikitext : {{self|cc-zero}} et source {{own}}, sans aucun modèle de suppression, de litige ou de droit de la personnalité. La page Commons:Deletion requests/File:Éric Zemmour et Éric Naulleau 2026.jpg n'existe pas. L'historique ne contient que l'envoi du 22/03/2026 et un ajout de données structurées par SchlurcherBot (09/05/2026).",
+          "rightsText : comparé caractère par caractère au rendu en français de la page (action=parse&uselang=fr) ; il est identique, apostrophes typographiques comprises. Commons renvoie au deed.en du CC0 ; deed.fr existe aussi (HTTP 200) et suit l'usage des CREDITS.md déjà publiés.",
+          "HEAD sur imageUrl : HTTP/2 200, content-type image/jpeg, content-length 2382575, last-modified Sun, 22 Mar 2026 21:37:49 GMT, x-object-meta-sha1base36 r1y4bngjrwixkb45cf2jhnf6gsqh7ks. L'API donne 2491 × 2699 et le sha1 e79b01871198c0101ff58399d265452aee920a9c. Tout concorde avec la proposition.",
+          "EXIF (iiprop=metadata) : Make Xiaomi, Model 2201117TY (Redmi Note 11), Orientation 1, DateTimeOriginal et DateTimeDigitized 2026:03:02 20:25:14, puis DateTime 2026:03:22 17:53:37 et Software Microsoft Photo Gallery 16.4.3528.331. La photo a été retouchée (sans doute recadrée, d'où les dimensions non natives) le jour même de l'envoi. Ce sont les traces d'un cliché original pris au téléphone, et non d'une image reprise ailleurs.",
+          "Contexte vérifié : le 2 mars 2026 était un lundi, et Naulleau jouait « Judith Magre dit Aragon » au Théâtre de Poche-Montparnasse tous les lundis à 19 h, de novembre 2025 à juillet 2026 (fnacspectacles.com, theatreauvent.com, actualitte.com). La photo de 20:25, prise dans le hall, est donc celle d'un spectateur après une pièce de théâtre. Ce n'est ni un événement de campagne ou de parti, ni une photo d'agence ou de média. L'affiche rose de l'arrière-plan est celle du théâtre, et le recadrage l'exclut.",
+          "Identité contrôlée à l'œil sur la vignette de 960 px : Éric Zemmour à gauche, reconnaissable, de face, souriant et regardant l'objectif ; Éric Naulleau à droite (barbe grise, foulard bordeaux). J'ai corrigé l'ambiguïté « à sa gauche » de la description : Naulleau est à DROITE sur l'image, donc à la gauche de Zemmour.",
+          "Correction sur l'auteur, que la proposition présentait comme un « contributeur établi » sans réserve. Son compte global (domicile Commons, inscrit en 2016) n'est ni verrouillé ni bloqué sur Commons, mais il a des antécédents. 1) Il a été bloqué une semaine sur Commons en octobre 2019 (Taivo : « Uploading unfree files after warnings »). 2) Il est bloqué indéfiniment sur fr.wikipedia depuis le 21/10/2016 (5 modifications, « Compte créé pour vandaliser »). 3) Sa page de discussion compte de nombreuses demandes de suppression depuis 2018. Ce sont surtout des œuvres dérivées : affiches, statues, signatures, tombes, une peluche (Pedro Winter 2023, pour la marionnette Flat Eric). « Roger Waters 2023 3.jpg » a aussi été supprimé en 2023 faute de source et de licence. 4) « Paul Marques Duarte.jpg » a été supprimé en février 2026, à la demande de la personne photographiée lors d'un événement non public (ticket VRT 2026020910011553). 5) Le 01/03/2026, Xazyaqan lui a laissé un message l'accusant d'être un faux-nez de CompteInactif, un compte bloqué sur fr.wikipedia en 2016. Aucune requête de vérification (checkuser) n'existe sur Commons, et le compte n'est pas sanctionné.",
+          "Pourquoi ces antécédents ne créent pas de doute sur les droits de CETTE photo : ils portent sur des œuvres dérivées et sur la liberté de panorama, pas sur des photos d'autrui présentées comme personnelles. Ici, les EXIF d'origine du téléphone, la date de prise de vue, qui tombe un soir de représentation, et le style de photo souvenir prise avec des personnalités, que l'on retrouve dans ses autres envois (festivals, salles parisiennes), concordent avec un travail personnel. Le portrait de Dupont-Aignan déjà publié vient du même auteur.",
+          "Droit à l'image : Zemmour pose de face et sourit à l'objectif, dans le hall d'un théâtre ouvert au public. Son accord à la prise de vue est donc manifeste, et l'usage prévu est informatif (fiche de candidat). Ce n'est pas le cas de figure de la suppression « Paul Marques Duarte » (événement non public). La page Commons ne porte aucun modèle {{Personality rights}}, et CC0 ne couvre pas ce droit : je le signale sans en faire un motif de rejet.",
+          "Mention courte « ManoSolo13241324, 2026, licence CC0 1.0, recadrée » : elle est juste et suit le modèle publié pour dupontaignan.jpg. Le CC0 n'impose aucune mention ; shareAlike = false est correct.",
+          "Cadrage revérifié à l'œil, avec une grille de 100 px superposée sur la vignette dans le volet navigateur. Le carré x 10–1210 / y 0–1200 est confirmé, avec deux ajustements de mesure : menton vers y ≈ 870 (et non 880), centre du visage vers x ≈ 625 (et non 610). J'ai ajouté une variante plus serrée.",
+          "Méthode : je n'ai fait aucun curl -o ni wget, et je n'ai écrit aucun fichier dans le projet. Pour les en-têtes, j'ai seulement lancé un curl -sIL envoyé dans un pipe. J'ai regardé la vignette dans le volet navigateur, qui range ses captures d'écran dans le dossier tool-results de la session (fichiers temporaires de l'outil, hors du projet). Je n'ai pas revérifié en détail les alternatives : je les reprends de la proposition, en résumé.",
+          "À signaler à l'agent qui cherche Bertrand : le même compte récent et douteux (Port!mimi!able, créé le 06/09/2026) a versé « Xavier_Bertrand_9.jpg ». Il faut l'écarter, ou le vérifier avec la même prudence."
+        ]
+      },
+      {
+        "candidateId": "bertrand",
+        "status": "licence libre",
+        "host": "wikimedia_commons",
+        "title": "Participation of Henna Virkkunen, in the Forum InCyber 2026 (P-069323-00-10).jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Participation_of_Henna_Virkkunen%2C_in_the_Forum_InCyber_2026_%28P-069323-00-10%29.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Participation_of_Henna_Virkkunen,_in_the_Forum_InCyber_2026_(P-069323-00-10).jpg",
+        "author": "Antoine Jaussaud (photographe), CE – Service audiovisuel ; droits : © Union européenne, 2026. Selon la page source de la CE : « Producteur : CE - Service audiovisuel ; Photographe : Antoine Jaussaud ; Copyright Union européenne, 2026 ». Le champ Auteur de Commons (Artist) indique : « Europäische Kommission - Audiovisueller Dienst, Antoine Jaussaud, CE - Service audiovisuel, EC - Audiovisual Service, FACTSTORY ». Les EXIF/IPTC du fichier indiquent : Artist « Antoine Jaussaud », Credit « EU/Antoine Jaussaud », Source « EUROPEAN COMMISSION », Copyright « ©EU ».",
+        "license": {
+          "name": "CC BY 4.0",
+          "url": "https://creativecommons.org/licenses/by/4.0/deed.fr"
+        },
+        "shareAlike": false,
+        "date": "2026-03-31",
+        "credit": "Antoine Jaussaud – © Union européenne, 2026, sous licence CC BY 4.0, recadrée",
+        "rightsText": "Page Commons (uselang=fr), section « Conditions d’utilisation » : « Ce fichier provient du Service audiovisuel de la Commission européenne et est publié sous licence Creative Commons Attribution 4.0 International. À noter que le titulaire des droits d’auteur indiqué sur le site web doit être la Commission européenne, ses prédécesseurs (tels que la Commission des Communautés européennes - CCE) ou l’Union européenne. Ce fichier est disponible selon les termes de la licence Creative Commons Attribution 4.0 International. Attribution: © European Union, 2026 […] Cette image, qui provient de https://audiovisual.ec.europa.eu/en/media/photo/P-069323/00-10, a été vérifiée le 20 septembre 2026 par le relecteur OptimusPrimeBot, qui a confirmé qu'à cette date, elle était disponible sous les termes de cette licence. » API imageinfo : LicenseShortName « CC BY 4.0 », LicenseUrl « https://creativecommons.org/licenses/by/4.0 », Attribution « © European Union, 2026 », DateTimeOriginal « Taken on 31 March 2026 ». Page source de la CE (https://audiovisual.ec.europa.eu/fr/media/photo/P-069323/00-10, onglet « Conditions d'utilisation ») : « Source CE - Service audiovisuel ; Producteur : CE - Service audiovisuel ; Photographe : Antoine Jaussaud ; Copyright Union européenne, 2026 », puis « Veuillez consulter nos Conditions d'utilisation - Des restrictions supplémentaires peuvent s'appliquer. » Conditions d’utilisation de la CE (https://audiovisual.ec.europa.eu/fr/conditions-of-use) : « Sauf indication contraire (par exemple, dans une déclaration distincte concernant les droits d’auteur), les contenus figurant sur ce site internet et appartenant à l’UE font l’objet d’une licence Creative Commons Attribution 4.0 International (CC BY 4.0). Cela signifie que la réutilisation est autorisée moyennant citation appropriée de la source et indication claire de toutes les modifications. » et « Sauf indication contraire, la réutilisation d’œuvres sur lesquelles l’UE est titulaire de droits d’auteur est accompagnée de la déclaration suivante concernant les droits d’auteur: © Union européenne, 202X, sous licence CC BY 4.0 »",
+        "description": "Photo du Service audiovisuel de la Commission européenne : Xavier Bertrand, président du conseil régional des Hauts-de-France, debout, de face et souriant, à gauche de Henna Virkkunen (vice-présidente exécutive de la Commission européenne), devant des drapeaux français et européen, lors d'une réunion au Forum InCyber, Grand Palais de Lille, le 31 mars 2026.",
+        "crop": "L'original fait 3333 × 5000 px, en hauteur ; les deux personnes y sont en pied. Le visage de Bertrand, de face, se trouve dans le tiers gauche, centré vers x ≈ 1015 et y ≈ 1670. Repères relevés à l'écran sur la vignette de 1920 px (marge d'environ ±25 px) : haut des cheveux vers y ≈ 1400, menton vers y ≈ 1940–1960 (plus bas que les 1910 annoncés), tête avec les oreilles de x ≈ 805 à 1232. La bande bleue du drapeau français commence vers x ≈ 1480, et non 1460. Carré conseillé d'environ 880 px : x ≈ 560–1440, y ≈ 1230–2110, puis réduction à 400 × 400. Il laisse environ 40 px de marge avant le drapeau français. Le carré proposé (x 580–1460) passe aussi, mais avec seulement 20 px de marge. Ne pas dépasser x ≈ 1460 à droite ni y ≈ 2140 en bas : le micro-cravate noir est vers x ≈ 1247, y ≈ 2168. Dans le carré restent le mur bleuté éclairé, le pan blanc uni d'un drapeau derrière la tête (sans motif visible), le col de chemise, le nœud de la cravate bordeaux et le haut de la veste. Il n'y a ni logo ni texte.",
+        "width": 3333,
+        "height": 5000,
+        "bytes": 6675998,
+        "contentType": "image/jpeg",
+        "campaignMaterial": false,
+        "alternatives": [
+          "https://commons.wikimedia.org/wiki/File:Xavier_Bertrand_-_2025_(cropped).jpg (684 × 909), image P18 de Wikidata : CC BY 4.0, Claudio Centonze / European Union, 2025 / EC - Audiovisual Service, photo du 2025-04-08. Gros plan net, mais la licence n'est pas encore vérifiée sur Commons (catégorie « EC-Audiovisual Center review needed », constaté par l'API) et le fond est le drapeau européen. Elle reste le premier recours si la vérification aboutit.",
+          "https://commons.wikimedia.org/wiki/File:Visit_of_Xavier_Bertrand,_President_of_the_Regional_Council_of_Hauts-de-France,_to_the_EC_-_2025_(1).jpg (4000 × 2667), original des recadrages de 2025 : CC BY 4.0, Claudio Centonze, 2025-04-08 ; licence « review needed ».",
+          "https://commons.wikimedia.org/wiki/File:Xavier_Bertrand_(2025)_(cropped).jpg (924 × 1233) : CC BY 4.0, Claudio Centonze / © UE, 2025-04-08. Bertrand y est assis et regarde hors champ ; licence « review needed ».",
+          "https://commons.wikimedia.org/wiki/File:Xavier_Bertrand_-_2023_(cropped).jpg (744 × 1025) : CC BY 4.0, Mathieu Drean / © UE, 2023-09-21 ; licence « review needed » ; photo plus ancienne.",
+          "https://commons.wikimedia.org/wiki/File:Participation_of_Henna_Virkkunen,_in_the_Forum_InCyber_2026_(P-069323-00-09).jpg : même reportage, licence vérifiée, mais Bertrand est de profil, à une table de réunion.",
+          "Refusées, comme l'indiquait le premier chercheur : Xavier_Bertrand_9.jpg (CC BY-SA 4.0, compte Port!mimi!able, 2026-09-06 ; description « political figure in presentation », hors de la catégorie Xavier Bertrand ; paternité non vérifiable) ; 14_-_Xavier_Bertrand.jpg (2017) ; meeting Fillon à Belfort en 2017 ; « Political Assembly, Marseille » (photos du PPE, 2011) ; meeting UMP à Seloncourt en 2015 ; portraits de Nicolas Richoffer (2008-2011) ; Gove meets with Bertrand (licence OGL v3, hors liste) ; photo de l'Assemblée nationale (recadrage interdit).",
+          "Vues en plus, refusées : Xavier_Bertrand_dans_la_concession_NEDEY.jpg (CC BY-SA 4.0, Deudisc, 2015-01-30 ; plus de 5 ans, interview, catégorie « Unidentified people ») et la série 2021-10-21_manif-Belfort (CC BY 4.0, ComputerHotline : manifestation contre le pass sanitaire, pas un portrait)."
+        ],
+        "notes": [
+          "Vérifié et confirmé par l'API imageinfo : LicenseShortName « CC BY 4.0 », LicenseUrl https://creativecommons.org/licenses/by/4.0, Attribution « © European Union, 2026 », DateTimeOriginal « Taken on 31 March 2026 » (EXIF 2026:03:31 14:34:27). Taille 3333 × 5000, 6 675 998 octets, image/jpeg. Catégories : Xavier Bertrand, Admin reviewed EC-Audiovisual Center images, CC-BY-4.0, Forum InCyber 2026, France photographs taken on 2026-03-31.",
+          "Requête HEAD sur imageUrl : HTTP/2 200, content-type image/jpeg, content-length 6675998, last-modified Sun, 20 Sep 2026 20:18:40 GMT. Tout correspond à ce qui était annoncé.",
+          "Le wikitexte de la page Commons ne porte ni modèle de suppression ni avertissement de licence. Le modèle de licence est {{EC-Audiovisual Center|site=…/P-069323/00-10|user=OptimusPrimeBot|date=2026-09-20|year=2026}}.",
+          "À savoir : la revue de licence de Commons a été faite par le bot qui a aussi téléversé le fichier (OptimusPrimeBot) ; c'est une vérification automatique. J'ai donc vérifié moi-même à la source. L'onglet « Conditions d'utilisation » de la page CE P-069323/00-10, ouvert dans le navigateur, indique « Photographe : Antoine Jaussaud » et « Copyright Union européenne, 2026 ». Les conditions générales de la CE, en français, placent sous CC BY 4.0 les contenus qui appartiennent à l'UE. La licence est donc confirmée à la source.",
+          "Identité confirmée : la légende CE (« Xavier Bertrand, président du Conseil régional des Hauts-de-France, à gauche et Henna Virkkunen… »), la description IPTC en français, la description Commons et la catégorie Xavier Bertrand concordent. À l'écran, l'homme de gauche est bien Xavier Bertrand.",
+          "Source admise : fichier Wikimedia Commons sous CC BY 4.0, avec licence vérifiée. C'est une photo institutionnelle de la Commission européenne, prise lors d'une rencontre officielle. Ce n'est ni un visuel de campagne, ni une photo de parti, d'agence de presse ou de média. FACTSTORY, cité dans le champ Auteur, est un prestataire de production de la CE et non une agence de presse ; les droits appartiennent à l'UE.",
+          "Correction du recadrage : vu sur la vignette de 1920 px, le menton est plus bas (y ≈ 1940–1960) et le drapeau français commence vers x ≈ 1480. Je conseille de décaler le carré de 20 px vers la gauche, soit x 560–1440 et y 1230–2110, pour garder une marge avant le drapeau. Le visage est net, de face et souriant ; le grain dû aux ISO 8000 ne gêne pas à cette échelle.",
+          "Corrections rédactionnelles : le champ author est condensé et cite mot pour mot l'Artist de Commons et les EXIF. Le rightsText ajoute l'avertissement de la page source (« Des restrictions supplémentaires peuvent s'appliquer ») et la phrase « Toute réutilisation doit respecter le sens ou le message originel du contenu » n'y figure pas mais s'applique. La mention courte est conservée, car elle reprend mot pour mot la déclaration exigée par la CE (« © Union européenne, 2026, sous licence CC BY 4.0 »), précédée du photographe et suivie de « recadrée ». L'adresse du texte de licence (deed.fr) et shareAlike = false sont justes.",
+          "Réserve à mentionner dans les mentions légales. Les conditions de la CE excluent de la licence « les droits à l’image des personnes représentées », ainsi que les logos et les noms. Ici, il s'agit d'un responsable public photographié dans l'exercice de ses fonctions, et aucun logo ne figure dans le carré.",
+          "Méthode : pages Commons et CE lues avec curl ou dans le panneau navigateur ; vignettes de 960 et 1920 px affichées seulement à l'écran pour contrôler le cadrage. Je n'ai rien téléchargé ni écrit sur le disque.",
+          "Le fichier reste le plus récent des portraits de face de Bertrand dont la licence est vérifiée sur Commons. Une liste de la catégorie et une recherche dans l'espace fichiers, triées par date, ne montrent aucun fichier plus récent qui serait utilisable."
+        ]
+      }
+    ],
+    "downloads": [
+      {
+        "candidateId": "zemmour",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b9/%C3%89ric_Zemmour_et_%C3%89ric_Naulleau_2026.jpg",
+        "file": "src/elections/presidentielle-2027/media/zemmour.jpg",
+        "crop": "Zemmour est la personne de gauche sur l'image. J'ai mesuré sur la vignette de 960 px, puis ramené à l'original de 2491 × 2699 : haut des cheveux vers y ≈ 105, yeux vers y ≈ 565, menton vers y ≈ 870 ; oreilles d'environ x 315 à 930, centre du visage vers x ≈ 625. Le carré proposé, x 10–1210 et y 0–1200 (1200 px), est confirmé à l'œil. Le visage y est centré à l'horizontale et occupe la moitié haute. L'épaule de Naulleau commence vers x ≈ 1310 et l'affiche rose du théâtre se trouve vers x ≈ 1420–1700 : les deux restent hors du carré. Dans le carré, on voit le mur beige, le bord d'une porte rouge et le manteau sombre d'une personne de dos à gauche, en haut à droite la photo noir et blanc encadrée avec son petit cartel blanc (x ≈ 895–1210, coupée par le bord), et en bas l'écharpe verte, le pull rouge et la veste matelassée noire. Aucun logo, aucun slogan. Variante plus serrée, également possible : x 130–1110 et y 30–1010 (980 px), avec 75 px au-dessus des cheveux et 140 px sous le menton. Dans les deux cas, réduire ensuite à 400 × 400.",
+        "width": 2491,
+        "height": 2699,
+        "bytes": 2382575
+      },
+      {
+        "candidateId": "bertrand",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Participation_of_Henna_Virkkunen%2C_in_the_Forum_InCyber_2026_%28P-069323-00-10%29.jpg",
+        "file": "src/elections/presidentielle-2027/media/bertrand.jpg",
+        "crop": "L'original fait 3333 × 5000 px, en hauteur ; les deux personnes y sont en pied. Le visage de Bertrand, de face, se trouve dans le tiers gauche, centré vers x ≈ 1015 et y ≈ 1670. Repères relevés à l'écran sur la vignette de 1920 px (marge d'environ ±25 px) : haut des cheveux vers y ≈ 1400, menton vers y ≈ 1940–1960 (plus bas que les 1910 annoncés), tête avec les oreilles de x ≈ 805 à 1232. La bande bleue du drapeau français commence vers x ≈ 1480, et non 1460. Carré conseillé d'environ 880 px : x ≈ 560–1440, y ≈ 1230–2110, puis réduction à 400 × 400. Il laisse environ 40 px de marge avant le drapeau français. Le carré proposé (x 580–1460) passe aussi, mais avec seulement 20 px de marge. Ne pas dépasser x ≈ 1460 à droite ni y ≈ 2140 en bas : le micro-cravate noir est vers x ≈ 1247, y ≈ 2168. Dans le carré restent le mur bleuté éclairé, le pan blanc uni d'un drapeau derrière la tête (sans motif visible), le col de chemise, le nœud de la cravate bordeaux et le haut de la veste. Il n'y a ni logo ni texte.",
+        "width": 3333,
+        "height": 5000,
+        "bytes": 6675998
+      }
+    ],
+    "credits": {
+      "markdown": "## zemmour.jpg\n\n- Fichier d'origine : https://upload.wikimedia.org/wikipedia/commons/b/b9/%C3%89ric_Zemmour_et_%C3%89ric_Naulleau_2026.jpg (2491 × 2699 px)\n- Page de la licence : https://commons.wikimedia.org/wiki/File:%C3%89ric_Zemmour_et_%C3%89ric_Naulleau_2026.jpg\n- Auteur : ManoSolo13241324 (utilisateur de Wikimedia Commons, https://commons.wikimedia.org/wiki/User:ManoSolo13241324 ; source : travail personnel ; EXIF : Xiaomi 2201117TY, soit un Redmi Note 11)\n- Licence : CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/deed.fr)\n- Date de la photo : 2026-03-02 (EXIF DateTimeOriginal 2026:03:02 20:25:14, Xiaomi 2201117TY = Redmi Note 11 ; retouche EXIF DateTime 2026:03:22 17:53:37 avec Microsoft Photo Gallery, envoi sur Commons le 2026-03-22)\n- Mention affichée : ManoSolo13241324, 2026, licence CC0 1.0, recadrée\n- Transformations : recadrage carré centré sur le visage (Zemmour est la personne de gauche sur l'image. J'ai mesuré sur la vignette de 960 px, puis ramené à l'original de 2491 × 2699 : haut des cheveux vers y ≈ 105, yeux vers y ≈ 565, menton vers y ≈ 870 ; oreilles d'environ x 315 à 930, centre du visage vers x ≈ 625. Le carré proposé, x 10–1210 et y 0–1200 (1200 px), est confirmé à l'œil. Le visage y est centré à l'horizontale et occupe la moitié haute. L'épaule de Naulleau commence vers x ≈ 1310 et l'affiche rose du théâtre se trouve vers x ≈ 1420–1700 : les deux restent hors du carré. Dans le carré, on voit le mur beige, le bord d'une porte rouge et le manteau sombre d'une personne de dos à gauche, en haut à droite la photo noir et blanc encadrée avec son petit cartel blanc (x ≈ 895–1210, coupée par le bord), et en bas l'écharpe verte, le pull rouge et la veste matelassée noire. Aucun logo, aucun slogan. Variante plus serrée, également possible : x 130–1110 et y 30–1010 (980 px), avec 75 px au-dessus des cheveux et 140 px sous le menton. Dans les deux cas, réduire ensuite à 400 × 400.), réduction à 400 × 400 px\n\n## bertrand.jpg\n\n- Fichier d'origine : https://upload.wikimedia.org/wikipedia/commons/a/a9/Participation_of_Henna_Virkkunen%2C_in_the_Forum_InCyber_2026_%28P-069323-00-10%29.jpg (3333 × 5000 px)\n- Page de la licence : https://commons.wikimedia.org/wiki/File:Participation_of_Henna_Virkkunen,_in_the_Forum_InCyber_2026_(P-069323-00-10).jpg\n- Auteur : Antoine Jaussaud (photographe), CE – Service audiovisuel ; droits : © Union européenne, 2026. Selon la page source de la CE : « Producteur : CE - Service audiovisuel ; Photographe : Antoine Jaussaud ; Copyright Union européenne, 2026 ». Le champ Auteur de Commons (Artist) indique : « Europäische Kommission - Audiovisueller Dienst, Antoine Jaussaud, CE - Service audiovisuel, EC - Audiovisual Service, FACTSTORY ». Les EXIF/IPTC du fichier indiquent : Artist « Antoine Jaussaud », Credit « EU/Antoine Jaussaud », Source « EUROPEAN COMMISSION », Copyright « ©EU ».\n- Licence : CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/deed.fr)\n- Date de la photo : 2026-03-31\n- Mention affichée : Antoine Jaussaud – © Union européenne, 2026, sous licence CC BY 4.0, recadrée\n- Transformations : recadrage carré centré sur le visage (L'original fait 3333 × 5000 px, en hauteur ; les deux personnes y sont en pied. Le visage de Bertrand, de face, se trouve dans le tiers gauche, centré vers x ≈ 1015 et y ≈ 1670. Repères relevés à l'écran sur la vignette de 1920 px (marge d'environ ±25 px) : haut des cheveux vers y ≈ 1400, menton vers y ≈ 1940–1960 (plus bas que les 1910 annoncés), tête avec les oreilles de x ≈ 805 à 1232. La bande bleue du drapeau français commence vers x ≈ 1480, et non 1460. Carré conseillé d'environ 880 px : x ≈ 560–1440, y ≈ 1230–2110, puis réduction à 400 × 400. Il laisse environ 40 px de marge avant le drapeau français. Le carré proposé (x 580–1460) passe aussi, mais avec seulement 20 px de marge. Ne pas dépasser x ≈ 1460 à droite ni y ≈ 2140 en bas : le micro-cravate noir est vers x ≈ 1247, y ≈ 2168. Dans le carré restent le mur bleuté éclairé, le pan blanc uni d'un drapeau derrière la tête (sans motif visible), le col de chemise, le nœud de la cravate bordeaux et le haut de la veste. Il n'y a ni logo ni texte.), réduction à 400 × 400 px",
+      "sections": [
+        {
+          "candidateId": "zemmour",
+          "markdown": "## zemmour.jpg\n\n- Fichier d'origine : https://upload.wikimedia.org/wikipedia/commons/b/b9/%C3%89ric_Zemmour_et_%C3%89ric_Naulleau_2026.jpg (2491 × 2699 px)\n- Page de la licence : https://commons.wikimedia.org/wiki/File:%C3%89ric_Zemmour_et_%C3%89ric_Naulleau_2026.jpg\n- Auteur : ManoSolo13241324 (utilisateur de Wikimedia Commons, https://commons.wikimedia.org/wiki/User:ManoSolo13241324 ; source : travail personnel ; EXIF : Xiaomi 2201117TY, soit un Redmi Note 11)\n- Licence : CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/deed.fr)\n- Date de la photo : 2026-03-02 (EXIF DateTimeOriginal 2026:03:02 20:25:14, Xiaomi 2201117TY = Redmi Note 11 ; retouche EXIF DateTime 2026:03:22 17:53:37 avec Microsoft Photo Gallery, envoi sur Commons le 2026-03-22)\n- Mention affichée : ManoSolo13241324, 2026, licence CC0 1.0, recadrée\n- Transformations : recadrage carré centré sur le visage (Zemmour est la personne de gauche sur l'image. J'ai mesuré sur la vignette de 960 px, puis ramené à l'original de 2491 × 2699 : haut des cheveux vers y ≈ 105, yeux vers y ≈ 565, menton vers y ≈ 870 ; oreilles d'environ x 315 à 930, centre du visage vers x ≈ 625. Le carré proposé, x 10–1210 et y 0–1200 (1200 px), est confirmé à l'œil. Le visage y est centré à l'horizontale et occupe la moitié haute. L'épaule de Naulleau commence vers x ≈ 1310 et l'affiche rose du théâtre se trouve vers x ≈ 1420–1700 : les deux restent hors du carré. Dans le carré, on voit le mur beige, le bord d'une porte rouge et le manteau sombre d'une personne de dos à gauche, en haut à droite la photo noir et blanc encadrée avec son petit cartel blanc (x ≈ 895–1210, coupée par le bord), et en bas l'écharpe verte, le pull rouge et la veste matelassée noire. Aucun logo, aucun slogan. Variante plus serrée, également possible : x 130–1110 et y 30–1010 (980 px), avec 75 px au-dessus des cheveux et 140 px sous le menton. Dans les deux cas, réduire ensuite à 400 × 400.), réduction à 400 × 400 px"
+        },
+        {
+          "candidateId": "bertrand",
+          "markdown": "## bertrand.jpg\n\n- Fichier d'origine : https://upload.wikimedia.org/wikipedia/commons/a/a9/Participation_of_Henna_Virkkunen%2C_in_the_Forum_InCyber_2026_%28P-069323-00-10%29.jpg (3333 × 5000 px)\n- Page de la licence : https://commons.wikimedia.org/wiki/File:Participation_of_Henna_Virkkunen,_in_the_Forum_InCyber_2026_(P-069323-00-10).jpg\n- Auteur : Antoine Jaussaud (photographe), CE – Service audiovisuel ; droits : © Union européenne, 2026. Selon la page source de la CE : « Producteur : CE - Service audiovisuel ; Photographe : Antoine Jaussaud ; Copyright Union européenne, 2026 ». Le champ Auteur de Commons (Artist) indique : « Europäische Kommission - Audiovisueller Dienst, Antoine Jaussaud, CE - Service audiovisuel, EC - Audiovisual Service, FACTSTORY ». Les EXIF/IPTC du fichier indiquent : Artist « Antoine Jaussaud », Credit « EU/Antoine Jaussaud », Source « EUROPEAN COMMISSION », Copyright « ©EU ».\n- Licence : CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/deed.fr)\n- Date de la photo : 2026-03-31\n- Mention affichée : Antoine Jaussaud – © Union européenne, 2026, sous licence CC BY 4.0, recadrée\n- Transformations : recadrage carré centré sur le visage (L'original fait 3333 × 5000 px, en hauteur ; les deux personnes y sont en pied. Le visage de Bertrand, de face, se trouve dans le tiers gauche, centré vers x ≈ 1015 et y ≈ 1670. Repères relevés à l'écran sur la vignette de 1920 px (marge d'environ ±25 px) : haut des cheveux vers y ≈ 1400, menton vers y ≈ 1940–1960 (plus bas que les 1910 annoncés), tête avec les oreilles de x ≈ 805 à 1232. La bande bleue du drapeau français commence vers x ≈ 1480, et non 1460. Carré conseillé d'environ 880 px : x ≈ 560–1440, y ≈ 1230–2110, puis réduction à 400 × 400. Il laisse environ 40 px de marge avant le drapeau français. Le carré proposé (x 580–1460) passe aussi, mais avec seulement 20 px de marge. Ne pas dépasser x ≈ 1460 à droite ni y ≈ 2140 en bas : le micro-cravate noir est vers x ≈ 1247, y ≈ 2168. Dans le carré restent le mur bleuté éclairé, le pan blanc uni d'un drapeau derrière la tête (sans motif visible), le col de chemise, le nœud de la cravate bordeaux et le haut de la veste. Il n'y a ni logo ni texte.), réduction à 400 × 400 px"
+        }
+      ],
+      "withoutPortrait": []
+    },
+    "cards": [
+      {
+        "candidateId": "zemmour",
+        "name": "Éric Zemmour",
+        "initials": "ÉZ",
+        "affiliation": "Reconquête",
+        "role": "Président du parti Reconquête",
+        "campaignUrl": "",
+        "campaignEvidence": "Aucun site de campagne pour 2027 au 6 octobre 2026 (vérifié ce jour). Le site personnel https://www.ericzemmour.fr/ est encore celui de 2021-2022 : thème NationBuilder, lien de don marqué utm_medium=Z2022 et utm_source=ez2022, page « Parrainage » écrite avant la campagne de 2022 (« il est crédité de 14 à 19 % des voix », « Aujourd’hui, il se lance »), contenus datés au plus tard du 2 avril 2025, une bannière « Municipales 2026 », et aucune mention de 2027. Le citer comme site de campagne induirait en erreur. zemmour2027.fr et www.zemmour2027.fr répondent 404 ; zemmour2027.com et ericzemmour2027.fr ne répondent pas ; parti-reconquete.fr est une page de parti, sans page de candidature.",
+        "declaredAt": "2026-09-17",
+        "declaration": {
+          "title": "Eric Zemmour, président du parti d’extrême droite Reconquête, annonce qu’il sera candidat à l’élection présidentielle",
+          "url": "https://www.franceinfo.fr/politique/eric-zemmour/eric-zemmour-president-du-parti-d-extreme-droite-reconquete-annonce-sa-candidature-a-l-election-presidentielle_8198141.html",
+          "publisher": "franceinfo",
+          "date": "2026-09-17"
+        },
+        "declarationForm": "Entretien télévisé sur BFMTV, le jeudi 17 septembre 2026, au cours duquel il annonce sa candidature (« Je suis candidat à la présidence de la République »). Ce n’est pas une déclaration formelle de candidature : selon son entourage, elle devrait intervenir à l’automne 2026. Au 6 octobre 2026, elle n’a pas encore eu lieu (Toute l’Europe, page mise à jour le 5 octobre 2026).",
+        "bio": [
+          {
+            "kind": "fonction",
+            "when": "Aujourd’hui",
+            "text": "Président du parti Reconquête.",
+            "source": {
+              "title": "Notre équipe — RECONQUÊTE",
+              "url": "https://www.parti-reconquete.fr/equipe",
+              "publisher": "Reconquête"
+            }
+          },
+          {
+            "kind": "declaration",
+            "when": "2026",
+            "text": "Annonce le 17 septembre 2026, dans un entretien sur BFMTV, qu’il sera candidat à l’élection présidentielle. Ce n’est pas une déclaration formelle : elle est attendue à l’automne, selon son entourage.",
+            "source": {
+              "title": "Eric Zemmour, président du parti d’extrême droite Reconquête, annonce qu’il sera candidat à l’élection présidentielle",
+              "url": "https://www.franceinfo.fr/politique/eric-zemmour/eric-zemmour-president-du-parti-d-extreme-droite-reconquete-annonce-sa-candidature-a-l-election-presidentielle_8198141.html",
+              "publisher": "franceinfo",
+              "date": "2026-09-17"
+            }
+          },
+          {
+            "kind": "parcours",
+            "when": "2022",
+            "text": "Candidat à l’élection présidentielle de 2022, puis aux élections législatives de la même année dans le Var, où il est battu.",
+            "source": {
+              "title": "Éric Zemmour – Actualité et info sur ICI",
+              "url": "https://www.ici.fr/personnes/eric-zemmour",
+              "publisher": "ICI (Radio France)"
+            }
+          },
+          {
+            "kind": "parcours",
+            "when": "2021",
+            "text": "Fonde le parti Reconquête le 5 décembre 2021.",
+            "source": {
+              "title": "Éric Zemmour – Actualité et info sur ICI",
+              "url": "https://www.ici.fr/personnes/eric-zemmour",
+              "publisher": "ICI (Radio France)"
+            }
+          },
+          {
+            "kind": "parcours",
+            "when": "1986-2021",
+            "text": "Journaliste au Quotidien de Paris dès 1986, puis au service politique du Figaro de 1996 à 2009 ; chroniqueur au Figaro Magazine jusqu’en 2021. À la télévision à partir de 2003, notamment sur iTélé et France 2.",
+            "source": {
+              "title": "Eric Zemmour : toute l’actualité et les infos sur Eric Zemmour du parti Reconquête à l’élection présidentielle 2022 : sa campagne, ses déclarations, les sondages...",
+              "url": "https://www.sudouest.fr/politique/eric-zemmour/",
+              "publisher": "Sud Ouest"
+            }
+          },
+          {
+            "kind": "origine",
+            "when": "1958",
+            "text": "Né le 31 août 1958 à Montreuil (Seine-Saint-Denis). Diplômé de Sciences Po Paris en 1979, spécialité Service public, il choisit ensuite le journalisme.",
+            "source": {
+              "title": "Eric Zemmour : toute l’actualité et les infos sur Eric Zemmour du parti Reconquête à l’élection présidentielle 2022 : sa campagne, ses déclarations, les sondages...",
+              "url": "https://www.sudouest.fr/politique/eric-zemmour/",
+              "publisher": "Sud Ouest"
+            }
+          }
+        ],
+        "notes": [
+          "Correction de structure : l’élément « situation » est supprimé et son contenu est intégré à l’élément « declaration ». La règle réserve « situation » à un fait qui conditionne la candidature (éligibilité, décision de justice attendue). Le caractère non formel de l’annonce relève de la forme de la déclaration. La fiche compte désormais 5 éléments. Pour l’égalité de traitement, il faut appliquer la même règle à Xavier Bertrand, lui aussi dans l’attente d’une déclaration formelle (note de config.json) : mettre ce point dans l’élément « declaration », pas dans un élément « situation ».",
+          "Corrections de fond dans l’ancien élément « situation » : « doit intervenir » forçait le conditionnel de la source (« devrait intervenir ») ; « probablement dès octobre » est une prévision de l’entourage, déjà en partie dépassée au 6 octobre. Je les ai remplacés par « attendue à l’automne selon son entourage », que franceinfo dit mot pour mot.",
+          "Date de déclaration vérifiée : 2026-09-17, jeudi soir sur BFMTV. Je l’ai vérifiée dans trois articles ouverts moi-même : franceinfo (publié le 17/09/2026 à 23 h 30), LCP (17/09/2026 à 22 h 56) et Public Sénat (18/09/2026 à 10 h 29). Public Sénat attribue la précision à Zemmour lui-même : « pas encore une déclaration de candidature officielle ».",
+          "Source de la déclaration : je garde franceinfo plutôt que la source LCP de la configuration. LCP titre « Éric Zemmour officialise sa candidature », ce qui contredit la note de config.json (« déclaration formelle annoncée pour l’automne 2026 »). franceinfo écrit explicitement qu’il ne s’agit pas d’une déclaration formelle. Il faut mettre à jour declarationSource dans research/presidentielle-2027/config.json pour qu’il reste cohérent avec la fiche.",
+          "Pas de déclaration formelle au 6 octobre 2026. Toute l’Europe (dateModified 2026-10-05T10:53) écrit encore que l’annonce « ne constitue pas une déclaration formelle de candidature ». Plusieurs recherches n’ont rien trouvé de plus récent. Quand la déclaration formelle aura lieu, il faudra mettre à jour declaredAt (ou au moins le texte), declaration et l’élément « declaration ».",
+          "Fonction : j’ai rechargé parti-reconquete.fr/equipe le 6 octobre 2026. Le comité opérationnel indique « Éric Zemmour — Président ». La page n’est pas datée, d’où « Aujourd’hui ».",
+          "Parcours 2021-2022 : vérifié sur la page ICI (« fonde le parti Reconquête le 5 décembre 2021 », candidat en 2022, « battu dans le Var » aux législatives). J’ai reformulé « sans être élu » en « où il est battu », plus proche de la source et sans ambiguïté.",
+          "Parcours 1986-2021 et origine : vérifiés sur Sud Ouest (débuts en 1986 au Quotidien de Paris, service politique du Figaro de 1996 à 2009, chroniques au Figaro Magazine jusqu’en 2021, télévision dès 2003 sur iTélé puis France 2, naissance le 31 août 1958 à Montreuil, Sciences Po en 1979, spécialité Service public). Deux reformulations : « Débute à la télévision en 2003, notamment sur iTélé et France 2 » devient « À la télévision à partir de 2003… », parce que les débuts de 2003 ont eu lieu sur iTélé et non sur France 2 ; « il devient journaliste » devient « il choisit ensuite le journalisme », mot de la source. Sud Ouest mentionne aussi un retour au Figaro en 2013, non repris.",
+          "Lieu de naissance : Montreuil (Seine-Saint-Denis), confirmé à la fois par ICI et par Sud Ouest.",
+          "Sources : toutes en https, aucune ne vient de Wikipédia, et j’ai vérifié chaque titre d’après la balise <title> de la page. Il n’y a pas de page officielle (Assemblée nationale, Sénat, Parlement européen) puisqu’il n’a jamais exercé de mandat électif. Les pages ICI et Sud Ouest ne sont pas datées : la biographie de Sud Ouest date de la campagne de 2022, mais les faits repris ne sont pas périmés. Le titre de la source franceinfo contient « d’extrême droite » : il est repris tel que publié, comme pour les autres fiches.",
+          "campaignUrl laissé vide, après vérification ce jour : ericzemmour.fr est le site de la campagne de 2022 (lien de don Z2022, page de parrainage d’avant 2022, contenus de 2024-2025, rien sur 2027) ; zemmour2027.fr renvoie une erreur 404. C’est cohérent avec la règle appliquée à Asselineau, Cazeneuve et Lalanne.",
+          "Neutralité : pas de score de 2022, pas de condamnations judiciaires (aucune peine d’inéligibilité signalée, elles ne conditionnent donc pas la candidature) et aucun qualificatif. Tous les textes font 220 caractères ou moins, avec apostrophes typographiques.",
+          "Six éléments, comme Bertrand et 17 des 19 fiches publiées : l’élément « 2021-2022 » est scindé en « 2022 » (présidentielle, puis législatives dans le Var) et « 2021 » (fondation de Reconquête). Aucun fait ni aucune source n’est ajouté : les deux éléments gardent la page ICI, que j’ai relue le 6 octobre 2026 (« fonde le parti Reconquête le 5 décembre 2021 », candidature de 2022, « battu dans le Var »). C’est le schéma de la fiche publiée de Philippot (« Président du parti Les Patriotes », puis « Fonde le parti Les Patriotes »).",
+          "Fonction et role : « Président de Reconquête » devient « Président du parti Reconquête », sur le modèle de la fiche de Philippot. La source est inchangée (parti-reconquete.fr/equipe).",
+          "Déclaration : même construction que pour Bertrand (« Annonce le [date], [cadre], qu’il sera candidat à l’élection présidentielle. Ce n’est pas une déclaration formelle : … »). Le mot « Annonce » est gardé à la place du « Déclare sa candidature » des fiches publiées, parce qu’il n’y a pas eu de déclaration formelle ; la fiche publiée de Cazeneuve procède de la même façon. Relu sur franceinfo le 6 octobre 2026 : « Il ne s’agit cependant pas d’une déclaration formelle de candidature qui, selon son entourage, devrait intervenir au cours de cet automne ». 199 caractères.",
+          "Ni score ni rang de 2022 (franceinfo et ICI donnent 7,07 %) : les fiches publiées n’en donnent pas, et le score a aussi été retiré de la fiche de Bertrand.",
+          "Inchangés : declaredAt, declaration, campaignUrl (vide), campaignEvidence, declarationForm, ainsi que les éléments « 1986-2021 » et « origine » et leurs sources."
+        ],
+        "verified": true
+      },
+      {
+        "candidateId": "bertrand",
+        "name": "Xavier Bertrand",
+        "initials": "XB",
+        "affiliation": "Nous France",
+        "role": "Président du conseil régional des Hauts-de-France",
+        "campaignUrl": "",
+        "campaignEvidence": "Aucun site de campagne au 6 octobre 2026 (vérifié le 6 octobre 2026). xavierbertrand.fr et www.xavierbertrand.fr sont des domaines à vendre (page « Dovendi - Domain for sale »). xavierbertrand2027.fr, avecxavierbertrand.fr, xavier-bertrand.fr et bertrand2027.fr ne répondent pas. nousfrance.fr est actif : il a repris en août 2026 un entretien de Ouest-France. Mais c’est le site du mouvement Nous France : il n’a aucune page de candidature, et sa page d’accueil affiche encore le bandeau du congrès LR de décembre 2021. Selon la règle du projet (le site de campagne de la personne, pas une page de parti ou de mouvement), le champ reste vide.",
+        "declaredAt": "2026-08-27",
+        "declaration": {
+          "title": "« Je le serai » : Xavier Bertrand annonce être candidat à l’élection présidentielle et s’exprime sur d’éventuelles primaires",
+          "url": "https://france3-regions.franceinfo.fr/hauts-de-france/nord-0/lille/je-le-serai-xavier-bertrand-annonce-sa-candidature-a-l-election-presidentielle-et-s-exprime-sur-d-eventuelles-primaires-3407339.html",
+          "publisher": "France 3 Hauts-de-France",
+          "date": "2026-08-27"
+        },
+        "declarationForm": "Réponse à une question, lors d’un débat à l’université de rentrée du Medef, le 27 août 2026 (« Je le serai »). C’est une intention déclarée. Après la réunion, il précise devant la presse que « le moment n’est pas venu ». Il avait annoncé début août une déclaration officielle « à la fin de l’année, pas avant », comme candidat indépendant. Selon ICI, son équipe a indiqué à France Inter qu’il ne s’agissait pas d’une déclaration officielle.",
+        "bio": [
+          {
+            "kind": "fonction",
+            "when": "Depuis 2016",
+            "text": "Président du conseil régional des Hauts-de-France depuis 2016.",
+            "source": {
+              "title": "« Je le serai » : Xavier Bertrand annonce être candidat à l’élection présidentielle et s’exprime sur d’éventuelles primaires",
+              "url": "https://france3-regions.franceinfo.fr/hauts-de-france/nord-0/lille/je-le-serai-xavier-bertrand-annonce-sa-candidature-a-l-election-presidentielle-et-s-exprime-sur-d-eventuelles-primaires-3407339.html",
+              "publisher": "France 3 Hauts-de-France",
+              "date": "2026-08-27"
+            }
+          },
+          {
+            "kind": "declaration",
+            "when": "2026",
+            "text": "Annonce le 27 août 2026, interrogé à l’université de rentrée du Medef, qu’il sera candidat à l’élection présidentielle. Ce n’est pas une déclaration formelle : il la prévoit à la fin de l’année, en candidat indépendant.",
+            "source": {
+              "title": "« Je le serai » : Xavier Bertrand annonce être candidat à l’élection présidentielle et s’exprime sur d’éventuelles primaires",
+              "url": "https://france3-regions.franceinfo.fr/hauts-de-france/nord-0/lille/je-le-serai-xavier-bertrand-annonce-sa-candidature-a-l-election-presidentielle-et-s-exprime-sur-d-eventuelles-primaires-3407339.html",
+              "publisher": "France 3 Hauts-de-France",
+              "date": "2026-08-27"
+            }
+          },
+          {
+            "kind": "parcours",
+            "when": "2017-2021",
+            "text": "Quitte Les Républicains en 2017 et y revient en 2021 pour se présenter à leur congrès de désignation pour l’élection présidentielle de 2022, où il arrive en quatrième position.",
+            "source": {
+              "title": "« Je le serai » : Xavier Bertrand annonce être candidat à l’élection présidentielle et s’exprime sur d’éventuelles primaires",
+              "url": "https://france3-regions.franceinfo.fr/hauts-de-france/nord-0/lille/je-le-serai-xavier-bertrand-annonce-sa-candidature-a-l-election-presidentielle-et-s-exprime-sur-d-eventuelles-primaires-3407339.html",
+              "publisher": "France 3 Hauts-de-France",
+              "date": "2026-08-27"
+            }
+          },
+          {
+            "kind": "parcours",
+            "when": "2005-2012",
+            "text": "Ministre de la Santé de 2005 à 2007, ministre du Travail de 2007 à 2009, puis ministre du Travail, de l’Emploi et de la Santé de 2010 à 2012. Élu maire de Saint-Quentin (Aisne) en 2010.",
+            "source": {
+              "title": "BERTRAND Xavier",
+              "url": "https://www.hautsdefrance.fr/elu/bertrand-xavier/",
+              "publisher": "Région Hauts-de-France"
+            }
+          },
+          {
+            "kind": "parcours",
+            "when": "2002-2016",
+            "text": "Député de l’Aisne de 2002 à 2004, en 2007, de 2009 à 2010, puis de 2012 à janvier 2016.",
+            "source": {
+              "title": "Xavier Bertrand - Base de données des députés français depuis 1789",
+              "url": "https://www2.assemblee-nationale.fr/sycomore/fiche/11024",
+              "publisher": "Assemblée nationale"
+            }
+          },
+          {
+            "kind": "origine",
+            "when": "1965",
+            "text": "Né le 21 mars 1965 à Châlons-sur-Marne (Marne). Profession déclarée : agent d’assurance.",
+            "source": {
+              "title": "M. Xavier Bertrand - Mandat clos - Aisne (2e circonscription)",
+              "url": "https://www.assemblee-nationale.fr/dyn/deputes/PA267080",
+              "publisher": "Assemblée nationale"
+            }
+          }
+        ],
+        "notes": [
+          "Élément « situation » retiré. La règle le réserve à un fait qui conditionne la candidature elle-même (éligibilité, décision de justice attendue). Ni son appartenance aux Républicains ni le choix d’une candidature indépendante n’en relèvent. Ce qu’il disait a été réparti, avec sa source, ailleurs : la candidature indépendante et la déclaration officielle « à la fin de l’année » passent dans l’élément « declaration » (France 3) ; le départ de LR en 2017, le retour en 2021 et le congrès de 2021 deviennent un élément « parcours » (France 3). La source LCP-AFP n’est plus citée, mais elle confirme les mêmes faits.",
+          "Élément « fonction » : le repère « Depuis 2016 » ne figurait pas dans la source citée. La page de la Région du 2 juillet 2021 ne parle que de la réélection (« reconduit » pour 2021-2028, avec 110 voix sur 170). La source est remplacée par France 3 Hauts-de-France du 27 août 2026, qui écrit qu’il est « actuellement président de la Région Hauts-de-France depuis 2016 ». Aucune page officielle trouvée ne réunit 2016 et l’exercice en cours. La page de la Région du 6 janvier 2016 confirme son élection du 4 janvier 2016 à la tête de Nord-Pas-de-Calais-Picardie (116 voix). La déclaration HATVP de 2025 ne date le mandat en cours que de 06/2021.",
+          "Élément « député » corrigé. La fiche Sycomore ne dit pas que le mandat a été « interrompu pendant ses fonctions au Gouvernement » : elle donne seulement les périodes. Elles sont maintenant reprises telles quelles : du 19 juin 2002 au 30 avril 2004, du 20 juin au 19 juillet 2007, du 15 février 2009 au 15 décembre 2010, du 17 au 19 juin 2012, puis du 20 juin 2012 au 12 janvier 2016. La fiche PA267080 indique que ce dernier mandat s’est terminé par une démission.",
+          "Déclaration vérifiée. Date : 27 août 2026 (France 3, publié à 12 h 31 ; franceinfo, LCP-AFP et ICI le même jour). Cadre : un débat à l’université de rentrée du Medef, où il répond à une question. Le titre de la configuration est dépassé : le titre affiché (h1 et og:title) est « Je le serai » : Xavier Bertrand annonce être candidat à l’élection présidentielle et s’exprime sur d’éventuelles primaires. L’URL, qui garde l’ancien libellé, est inchangée. declarationForm corrigé : « aussitôt » remplacé par « après la réunion », comme l’écrit France 3, avec mention de la précision de son équipe rapportée par ICI.",
+          "Ce n’est pas une déclaration formelle : il dit lui-même que « le moment n’est pas venu », et une déclaration officielle est annoncée pour la fin de 2026. Aucune déclaration formelle n’a été trouvée au 6 octobre 2026.",
+          "Affiliation « Nous France » conservée : c’est le parti indiqué dans research/presidentielle-2027/config.json. Dans l’entretien de Ouest-France d’août 2026 repris par nousfrance.fr, il dit qu’il sera « un candidat indépendant » et qu’il s’appuie sur « mon mouvement Nous France ». LCP-AFP, franceinfo et ICI le présentent toujours comme membre des Républicains le 27 août 2026 ; c’est désormais dit dans le parcours (élément 2017-2021). Le candidat investi par LR est Bruno Retailleau.",
+          "Vérifiés sans changement : l’élément ministres et mairie, sur la page de la Région « BERTRAND Xavier » (Santé 2005-2007, Travail 2007-2009, Travail, Emploi et Santé 2010-2012, mairie de Saint-Quentin en 2010) ; l’élément « origine », sur la fiche PA267080 de l’Assemblée nationale (né le 21 mars 1965 à Châlons-sur-Marne, profession « Agent d’assurance »).",
+          "Non repris : les mandats locaux de la déclaration HATVP du 3 avril 2025 (conseiller municipal de Saint-Quentin depuis 06/2020, vice-président de l’agglomération du Saint-Quentinois depuis 07/2020), non revérifiés après les municipales de mars 2026 ; le poste de secrétaire général de l’UMP (janvier 2009-novembre 2010, cité par France 3) ; la formation, qu’aucune source officielle ne donne.",
+          "Pendant la vérification, un fichier temporaire (liste HATVP) a été écrit par erreur dans /private/tmp, puis supprimé aussitôt. Aucun fichier du projet n’a été modifié.",
+          "Déclaration : écrite sur le même modèle que pour Zemmour. Le cadre est ramené à « interrogé à l’université de rentrée du Medef », pour rester sous 220 caractères (219) et coller au texte de France 3, relu le 6 octobre 2026 : « interrogé pour savoir s’il serait candidat ». La phrase « Ce n’est pas une déclaration formelle » s’appuie sur la même source, qui le cite : « le moment n’est pas venu. On ne déclare pas sa candidature comme cela ». France 3 indique aussi qu’il se déclarerait « à la fin de l’année, pas avant » et qu’il sera « candidat indépendant ».",
+          "Parcours 2017-2021 : le score « 22,4 % des suffrages exprimés » est retiré. Aucune fiche publiée ne donne de score, et celui de Zemmour en 2022 ne figure pas dans sa fiche. Le rang (« quatrième position », mot pour mot sur France 3) est conservé, sinon le lecteur pourrait croire qu’il a été désigné candidat de LR en 2022.",
+          "Origine : « Agent d’assurance de profession » devient « Profession déclarée : agent d’assurance », la formule des fiches publiées dont la source est l’Assemblée nationale (Le Pen, Batho, Mélenchon). La source PA267080 est inchangée.",
+          "Six éléments, ordre fonction, declaration, parcours ×3, origine. Les parcours sont classés par année de début décroissante, comme dans les fiches publiées (Dupont-Aignan, Philippe). Pas d’élément « situation », comme pour Zemmour : aucun fait sourcé ne conditionne la candidature.",
+          "Inchangés : declaredAt, declaration, campaignUrl (vide), campaignEvidence, declarationForm, ainsi que les éléments fonction, ministres et mairie, et député, et leurs sources."
+        ],
+        "verified": true
+      }
+    ],
+    "issues": [],
+    "notes": [
+      "J’ai harmonisé les deux fiches avec les 19 fiches publiées dans src/elections/presidentielle-2027/candidates.ts, que j’ai seulement lu, sans le modifier. Les deux ont maintenant 6 éléments, dans cet ordre : fonction, declaration, parcours ×3, origine, sans élément « situation ». Les repères suivent le format publié : « Aujourd’hui » ou « Depuis AAAA », « 2026 », puis « AAAA » ou « AAAA-AAAA », et l’année de naissance.",
+      "Les deux déclarations ont la même construction : « Annonce le [date], [cadre], qu’il sera candidat à l’élection présidentielle. Ce n’est pas une déclaration formelle : [échéance attendue]. » Le verbe « Annonce » est gardé à la place de « Déclare sa candidature », parce qu’aucun des deux n’a encore fait de déclaration formelle au 6 octobre 2026. C’est le même traitement que la fiche publiée de Cazeneuve. Il faudra réécrire ces deux éléments, et sans doute declaredAt et declaration, quand les déclarations formelles auront lieu : à l’automne pour Zemmour selon son entourage, à la fin de l’année pour Bertrand.",
+      "Aucun fait ni aucune source n’est ajouté. J’ai relu le 6 octobre 2026 les trois sources sur lesquelles portent les reformulations : franceinfo (Zemmour), France 3 Hauts-de-France (Bertrand) et ICI (Zemmour). Les textes reformulés y restent exacts. Tous les éléments font 220 caractères ou moins (le plus long : 219) et utilisent l’apostrophe typographique.",
+      "Égalité de traitement des résultats : aucun score n’est cité (7,07 % pour Zemmour en 2022, 22,4 % au congrès LR pour Bertrand), comme dans les fiches publiées.",
+      "Le role de Zemmour devient « Président du parti Reconquête », sur le modèle de Philippot. Les autres champs hors bio (affiliation, campaignUrl, declaredAt, declaration, declarationForm, campaignEvidence) ne changent pas.",
+      "Points laissés par les vérificateurs, à traiter hors de cette harmonisation : mettre à jour declarationSource de Zemmour dans research/presidentielle-2027/config.json, où LCP titre « officialise », ce qui contredit la fiche ; mettre à jour le titre de déclaration de Bertrand dans la configuration ; et passer de « dix-neuf » à « vingt et une » fiches dans le commentaire d’en-tête de candidates.ts au moment de l’intégration."
+    ],
+    "skippedPending": []
+  },
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Research"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Verify"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 3,
+      "title": "Harmonize"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "card:zemmour",
+      "phaseIndex": 1,
+      "phaseTitle": "Research",
+      "agentId": "a394e8b7bdca296f9",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791287553661,
+      "queuedAt": 1791287553648,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "zemmour",
+      "promptPreview": "Projet : « Isoloir », boussole électorale indépendante et neutre pour l'élection : Élection présidentielle 2027 (aujourd'hui : 2026-10-06). Élection présidentielle française de 2027 : premier tour le 18 avril 2027, second tour le 2 mai 2027. Au 6 octobre 2026, 21 personnes se sont déclarées candidates, dont Éric Zemmour et Xavier Bertrand, qui ont annoncé leur candidature et doivent encore l’offic…",
+      "promptFramed": true,
+      "lastProgressAt": 1791288045033,
+      "tokens": 171445,
+      "toolCalls": 63,
+      "durationMs": 491371,
+      "resultPreview": "{\"candidateId\":\"zemmour\",\"name\":\"Éric Zemmour\",\"initials\":\"ÉZ\",\"affiliation\":\"Reconquête\",\"role\":\"Président de Reconquête\",\"campaignUrl\":\"\",\"campaignEvidence\":\"Aucun site de campagne pour 2027 au 6 octobre 2026. Le site officiel d’Éric Zemmour (https://www.ericzemmour.fr/, cité comme site officiel par Wikidata P856 et lié depuis parti-reconquete.fr pour les dons et l’agenda) est son site de campag…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "portrait:zemmour",
+      "phaseIndex": 1,
+      "phaseTitle": "Research",
+      "agentId": "a30fcf219977a486c",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791287553662,
+      "queuedAt": 1791287553649,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "licence libre",
+      "promptPreview": "Projet : « Isoloir », boussole électorale indépendante et neutre pour l'élection : Élection présidentielle 2027 (aujourd'hui : 2026-10-06). Chaque fiche de candidat montre un portrait SOUS LICENCE LIBRE, ou rien : le site affiche alors les initiales. Les images seront hébergées sur le site, recadrées en carré sur le visage et réduites à 400 × 400 px ; leurs crédits complets vont dans src/elections…",
+      "promptFramed": true,
+      "lastProgressAt": 1791287865583,
+      "tokens": 143441,
+      "toolCalls": 60,
+      "durationMs": 311921,
+      "resultPreview": "{\"status\":\"licence libre\",\"host\":\"wikimedia_commons\",\"title\":\"Éric Zemmour et Éric Naulleau 2026.jpg\",\"imageUrl\":\"https://upload.wikimedia.org/wikipedia/commons/b/b9/%C3%89ric_Zemmour_et_%C3%89ric_Naulleau_2026.jpg\",\"pageUrl\":\"https://commons.wikimedia.org/wiki/File:%C3%89ric_Zemmour_et_%C3%89ric_Naulleau_2026.jpg\",\"author\":\"ManoSolo13241324 (utilisateur de Wikimedia Commons, https://commons.wikim…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "card:bertrand",
+      "phaseIndex": 1,
+      "phaseTitle": "Research",
+      "agentId": "a68977f4ebccaff36",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791287553671,
+      "queuedAt": 1791287553670,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "bertrand",
+      "promptPreview": "Projet : « Isoloir », boussole électorale indépendante et neutre pour l'élection : Élection présidentielle 2027 (aujourd'hui : 2026-10-06). Élection présidentielle française de 2027 : premier tour le 18 avril 2027, second tour le 2 mai 2027. Au 6 octobre 2026, 21 personnes se sont déclarées candidates, dont Éric Zemmour et Xavier Bertrand, qui ont annoncé leur candidature et doivent encore l’offic…",
+      "promptFramed": true,
+      "lastProgressAt": 1791287989058,
+      "tokens": 144164,
+      "toolCalls": 55,
+      "durationMs": 434247,
+      "resultPreview": "{\"candidateId\":\"bertrand\",\"name\":\"Xavier Bertrand\",\"initials\":\"XB\",\"affiliation\":\"Nous France\",\"role\":\"Président du conseil régional des Hauts-de-France\",\"campaignUrl\":\"\",\"campaignEvidence\":\"Aucun site de campagne trouvé au 6 octobre 2026. xavierbertrand.fr est un domaine à vendre (page « Dovendi - Domain for sale »). xavierbertrand2027.fr et avecxavierbertrand.fr ne répondent pas. nousfrance.fr e…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 4,
+      "label": "portrait:bertrand",
+      "phaseIndex": 1,
+      "phaseTitle": "Research",
+      "agentId": "ae5d731cb8f767f5e",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791287553672,
+      "queuedAt": 1791287553670,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "licence libre",
+      "promptPreview": "Projet : « Isoloir », boussole électorale indépendante et neutre pour l'élection : Élection présidentielle 2027 (aujourd'hui : 2026-10-06). Chaque fiche de candidat montre un portrait SOUS LICENCE LIBRE, ou rien : le site affiche alors les initiales. Les images seront hébergées sur le site, recadrées en carré sur le visage et réduites à 400 × 400 px ; leurs crédits complets vont dans src/elections…",
+      "promptFramed": true,
+      "lastProgressAt": 1791288063698,
+      "tokens": 170852,
+      "toolCalls": 84,
+      "durationMs": 508955,
+      "resultPreview": "{\"status\":\"licence libre\",\"host\":\"wikimedia_commons\",\"title\":\"Participation of Henna Virkkunen, in the Forum InCyber 2026 (P-069323-00-10).jpg\",\"imageUrl\":\"https://upload.wikimedia.org/wikipedia/commons/a/a9/Participation_of_Henna_Virkkunen%2C_in_the_Forum_InCyber_2026_%28P-069323-00-10%29.jpg\",\"pageUrl\":\"https://commons.wikimedia.org/wiki/File:Participation_of_Henna_Virkkunen,_in_the_Forum_InCybe…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 5,
+      "label": "portrait-verify:zemmour",
+      "phaseIndex": 2,
+      "phaseTitle": "Verify",
+      "agentId": "a2d5ea58fc1948e11",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791287868178,
+      "queuedAt": 1791287868172,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "licence libre",
+      "promptPreview": "Projet : « Isoloir », boussole électorale indépendante et neutre pour l'élection : Élection présidentielle 2027 (aujourd'hui : 2026-10-06). Chaque fiche de candidat montre un portrait SOUS LICENCE LIBRE, ou rien : le site affiche alors les initiales. Les images seront hébergées sur le site, recadrées en carré sur le visage et réduites à 400 × 400 px ; leurs crédits complets vont dans src/elections…",
+      "promptFramed": true,
+      "lastProgressAt": 1791288178361,
+      "tokens": 127523,
+      "toolCalls": 30,
+      "durationMs": 310183,
+      "resultPreview": "{\"status\":\"licence libre\",\"host\":\"wikimedia_commons\",\"title\":\"Éric Zemmour et Éric Naulleau 2026.jpg\",\"imageUrl\":\"https://upload.wikimedia.org/wikipedia/commons/b/b9/%C3%89ric_Zemmour_et_%C3%89ric_Naulleau_2026.jpg\",\"pageUrl\":\"https://commons.wikimedia.org/wiki/File:%C3%89ric_Zemmour_et_%C3%89ric_Naulleau_2026.jpg\",\"author\":\"ManoSolo13241324 (utilisateur de Wikimedia Commons, https://commons.wikim…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 6,
+      "label": "card-verify:bertrand",
+      "phaseIndex": 2,
+      "phaseTitle": "Verify",
+      "agentId": "a17c30be24d5c5604",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791287991298,
+      "queuedAt": 1791287991293,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "bertrand",
+      "promptPreview": "Projet : « Isoloir », boussole électorale indépendante et neutre pour l'élection : Élection présidentielle 2027 (aujourd'hui : 2026-10-06). Élection présidentielle française de 2027 : premier tour le 18 avril 2027, second tour le 2 mai 2027. Au 6 octobre 2026, 21 personnes se sont déclarées candidates, dont Éric Zemmour et Xavier Bertrand, qui ont annoncé leur candidature et doivent encore l’offic…",
+      "promptFramed": true,
+      "lastProgressAt": 1791288500866,
+      "tokens": 148278,
+      "toolCalls": 37,
+      "durationMs": 509568,
+      "resultPreview": "{\"candidateId\":\"bertrand\",\"name\":\"Xavier Bertrand\",\"initials\":\"XB\",\"affiliation\":\"Nous France\",\"role\":\"Président du conseil régional des Hauts-de-France\",\"campaignUrl\":\"\",\"campaignEvidence\":\"Aucun site de campagne au 6 octobre 2026 (vérifié le 6 octobre 2026). xavierbertrand.fr et www.xavierbertrand.fr sont des domaines à vendre (page « Dovendi - Domain for sale »). xavierbertrand2027.fr, avecxavi…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 7,
+      "label": "card-verify:zemmour",
+      "phaseIndex": 2,
+      "phaseTitle": "Verify",
+      "agentId": "a39d5ecc63c7024f7",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791288046907,
+      "queuedAt": 1791288046901,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "zemmour",
+      "promptPreview": "Projet : « Isoloir », boussole électorale indépendante et neutre pour l'élection : Élection présidentielle 2027 (aujourd'hui : 2026-10-06). Élection présidentielle française de 2027 : premier tour le 18 avril 2027, second tour le 2 mai 2027. Au 6 octobre 2026, 21 personnes se sont déclarées candidates, dont Éric Zemmour et Xavier Bertrand, qui ont annoncé leur candidature et doivent encore l’offic…",
+      "promptFramed": true,
+      "lastProgressAt": 1791288333736,
+      "tokens": 136007,
+      "toolCalls": 32,
+      "durationMs": 286829,
+      "resultPreview": "{\"candidateId\":\"zemmour\",\"name\":\"Éric Zemmour\",\"initials\":\"ÉZ\",\"affiliation\":\"Reconquête\",\"role\":\"Président de Reconquête\",\"campaignUrl\":\"\",\"campaignEvidence\":\"Aucun site de campagne pour 2027 au 6 octobre 2026 (vérifié ce jour). Le site personnel https://www.ericzemmour.fr/ est encore celui de 2021-2022 : thème NationBuilder, lien de don marqué utm_medium=Z2022 et utm_source=ez2022, page « Parrai…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 8,
+      "label": "portrait-verify:bertrand",
+      "phaseIndex": 2,
+      "phaseTitle": "Verify",
+      "agentId": "ad80eef9d564dfb8d",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791288065893,
+      "queuedAt": 1791288065889,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "licence libre",
+      "promptPreview": "Projet : « Isoloir », boussole électorale indépendante et neutre pour l'élection : Élection présidentielle 2027 (aujourd'hui : 2026-10-06). Chaque fiche de candidat montre un portrait SOUS LICENCE LIBRE, ou rien : le site affiche alors les initiales. Les images seront hébergées sur le site, recadrées en carré sur le visage et réduites à 400 × 400 px ; leurs crédits complets vont dans src/elections…",
+      "promptFramed": true,
+      "lastProgressAt": 1791288316237,
+      "tokens": 127928,
+      "toolCalls": 33,
+      "durationMs": 250343,
+      "resultPreview": "{\"status\":\"licence libre\",\"host\":\"wikimedia_commons\",\"title\":\"Participation of Henna Virkkunen, in the Forum InCyber 2026 (P-069323-00-10).jpg\",\"imageUrl\":\"https://upload.wikimedia.org/wikipedia/commons/a/a9/Participation_of_Henna_Virkkunen%2C_in_the_Forum_InCyber_2026_%28P-069323-00-10%29.jpg\",\"pageUrl\":\"https://commons.wikimedia.org/wiki/File:Participation_of_Henna_Virkkunen,_in_the_Forum_InCybe…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 9,
+      "label": "harmonize",
+      "phaseIndex": 3,
+      "phaseTitle": "Harmonize",
+      "agentId": "af5f30a5081a62824",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1791288502896,
+      "queuedAt": 1791288502871,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "Projet : « Isoloir », boussole électorale indépendante et neutre pour l'élection : Élection présidentielle 2027 (aujourd'hui : 2026-10-06). Élection présidentielle française de 2027 : premier tour le 18 avril 2027, second tour le 2 mai 2027. Au 6 octobre 2026, 21 personnes se sont déclarées candidates, dont Éric Zemmour et Xavier Bertrand, qui ont annoncé leur candidature et doivent encore l’offic…",
+      "promptFramed": true,
+      "lastProgressAt": 1791288688811,
+      "tokens": 108369,
+      "toolCalls": 13,
+      "durationMs": 185915,
+      "resultPreview": "{\"cards\":[{\"candidateId\":\"zemmour\",\"name\":\"Éric Zemmour\",\"initials\":\"ÉZ\",\"affiliation\":\"Reconquête\",\"role\":\"Président du parti Reconquête\",\"campaignUrl\":\"\",\"campaignEvidence\":\"Aucun site de campagne pour 2027 au 6 octobre 2026 (vérifié ce jour). Le site personnel https://www.ericzemmour.fr/ est encore celui de 2021-2022 : thème NationBuilder, lien de don marqué utm_medium=Z2022 et utm_source=ez202…"
+    }
+  ],
+  "totalTokens": 1278007,
+  "totalToolCalls": 407
+}

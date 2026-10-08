@@ -1,0 +1,1412 @@
+{
+  "candidate": "Nicolas Dupont-Aignan",
+  "affiliation": "Debout la France (DLF), parti souverainiste dont il est le fondateur et le président ; ancien député de l'Essonne (1997-2024) et ancien maire de Yerres",
+  "campaign_site": "https://www.dupontaignan.fr/",
+  "declaration": {
+    "date": "2025-03-08",
+    "form": "Annonce lors d'un meeting devant ses militants (environ 1 000 personnes selon DLF) à Yerres (Essonne), sa quatrième candidature présidentielle. Candidature « officialisée » ensuite le 19 septembre 2026 lors de son discours de rentrée à Yerres (Fête de la Liberté) et dans un entretien au JDD.",
+    "source_title": "Présidentielle 2027 : le souverainiste Nicolas Dupont-Aignan se lance pour la 4e fois dans la course à l'Élysée (franceinfo, 08/03/2025)",
+    "source_url": "https://www.franceinfo.fr/politique/nicolas-dupont-aignan/le-souverainiste-nicolas-dupont-aignan-se-lance-pour-la-4e-fois-dans-la-course-a-l-elysee_7118136.html"
+  },
+  "overview": "Nicolas Dupont-Aignan, président de Debout la France, se présente pour la quatrième fois à la présidentielle (2,06 % en 2022). Il s'est déclaré le 8 mars 2025 à Yerres et a officialisé sa candidature le 19 septembre 2026. Sa ligne est souverainiste et gaulliste revendiquée. Sa mesure centrale est la sortie de l'Union européenne au profit d'une « Europe des nations libres » faite de coopérations à la carte. Il y ajoute la sortie du commandement intégré de l'OTAN et la fin de l'aide à l'Ukraine, avec une paix négociée qui inclut la neutralité de l'Ukraine et la levée des sanctions contre la Russie. Sur le plan intérieur, il veut davantage de démocratie directe : RIC à partir d'un million de signatures, référendums répétés, retour au septennat avec référendum révocatoire. Il défend une ligne d'ordre (40 000 places de prison, armée aux frontières, référendum sur la peine de mort pour les meurtriers d'enfants) et une forte restriction de l'immigration (sortie de Schengen, fin du droit du sol, suppression de l'AME, dénonciation de l'accord franco-algérien de 1968). En économie, il prône un « protectionnisme intelligent » : relocaliser 1 puis 2 millions d'emplois et réserver 75 % des achats publics aux produits français. Il promet aussi des baisses de taxes sur les carburants et l'électricité, la retraite à 62 ans et un capital de 10 000 € pour chaque nouveau-né français. Le programme détaillé est encore en cours d'actualisation par DLF : une partie des fiches thématiques date de 2025-2026, d'autres reprennent le programme de 2022.",
+  "programme_sources": [
+    {
+      "title": "Site de campagne « Dupont-Aignan 2027 » (7 priorités, interventions médias)",
+      "url": "https://www.dupontaignan.fr/",
+      "date": "2026"
+    },
+    {
+      "title": "Debout la France – Notre projet (32 fiches thématiques, « en cours d'actualisation pour 2027 »)",
+      "url": "https://www.debout-la-france.fr/notre-projet/",
+      "date": "2025-2026"
+    },
+    {
+      "title": "Discours de candidature du 8 mars 2025 à Yerres : « Je suis candidat pour rendre le pouvoir aux Français et rendre sa liberté à la France ! »",
+      "url": "https://www.debout-la-france.fr/actualite/je-suis-candidat-pour/",
+      "date": "2025-03-08 (publié le 2025-09-25)"
+    },
+    {
+      "title": "Discours de clôture du congrès DLF : « La Révolution du bon sens pour sauver la France ! »",
+      "url": "https://www.debout-la-france.fr/actualite/la-revolution-du-bon-sens-pour-sauver-la-france/",
+      "date": "2025-09-20"
+    },
+    {
+      "title": "Libérons la France ! · Discours de rentrée de Nicolas Dupont-Aignan (Yerres, Fête de la Liberté), transcription",
+      "url": "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+      "date": "2026-09-19"
+    },
+    {
+      "title": "Livre « 2027 : la liberté ou la mort » (Fayard)",
+      "url": "https://www.dupontaignan.fr/actualite/commandez-des-maintenant-le-nouveau-livre-de-nicolas-dupont-aignan/",
+      "date": "2026-04-22"
+    },
+    {
+      "title": "Livret DLF « Refonder et moraliser notre démocratie »",
+      "url": "https://www.debout-la-france.fr/projet/refonder-et-moraliser-notre-democratie/",
+      "date": "2026-06-09"
+    },
+    {
+      "title": "Livret DLF « Justice »",
+      "url": "https://www.debout-la-france.fr/projet/justice/",
+      "date": "2026-06-10"
+    },
+    {
+      "title": "Livret DLF « Sécurité »",
+      "url": "https://www.debout-la-france.fr/projet/securite/",
+      "date": "2025-10-31"
+    },
+    {
+      "title": "Livret DLF « Immigration et assimilation » (27 mesures)",
+      "url": "https://www.debout-la-france.fr/projet/immigration-et-assimilation/",
+      "date": "2026-03-03"
+    },
+    {
+      "title": "Brochure DLF « Logement » (30 mesures)",
+      "url": "https://www.debout-la-france.fr/projet/logement/",
+      "date": "2026-09-30"
+    },
+    {
+      "title": "Livret DLF « Famille » (24 mesures)",
+      "url": "https://www.debout-la-france.fr/projet/famille/",
+      "date": "2026-01-02"
+    },
+    {
+      "title": "Livret DLF « Agriculture » (15 mesures)",
+      "url": "https://www.debout-la-france.fr/projet/agriculture/",
+      "date": "2026-01-08"
+    },
+    {
+      "title": "Livret DLF « Automobilistes et motards »",
+      "url": "https://www.debout-la-france.fr/projet/transport-automobilistes/",
+      "date": "2026-01-02"
+    },
+    {
+      "title": "Livret DLF « Défense nationale »",
+      "url": "https://www.debout-la-france.fr/projet/defense/",
+      "date": "2025-04-15"
+    },
+    {
+      "title": "Livret DLF « Affaires étrangères »",
+      "url": "https://www.debout-la-france.fr/projet/affaires-etrangeres/",
+      "date": "2025-04-17"
+    },
+    {
+      "title": "Livret DLF « Intelligence artificielle » (25 mesures)",
+      "url": "https://www.debout-la-france.fr/projet/intelligence-artificielle/",
+      "date": "2025-05-12"
+    },
+    {
+      "title": "Livret DLF « Combat pour les femmes » (15 mesures)",
+      "url": "https://www.debout-la-france.fr/projet/combat-pour-les-femmes/",
+      "date": "2025-10-21"
+    },
+    {
+      "title": "Livret DLF « Produire en France » (10 mesures)",
+      "url": "https://www.debout-la-france.fr/projet/produire-en-france/",
+      "date": "2024-01"
+    },
+    {
+      "title": "Livret DLF « Équilibre du territoire et monde rural »",
+      "url": "https://www.debout-la-france.fr/projet/equilibre-territoire-monde-rural/",
+      "date": "2024"
+    }
+  ],
+  "signature_proposals": [
+    {
+      "proposal": "Sortir de l'Union européenne. Pendant un moratoire, la France suspend sa contribution, contrôle ses frontières et rétablit la primauté du droit national ; un référendum porte ensuite sur la sortie et sur un nouveau traité pour une « Europe des nations libres ». Il se présente comme « le seul candidat » à proposer cette sortie.",
+      "topic_id": "europe",
+      "source_url": "https://www.debout-la-france.fr/projet/refonder-et-moraliser-notre-democratie/"
+    },
+    {
+      "proposal": "Créer un référendum d'initiative citoyenne (RIC), législatif et constituant, déclenché à partir d'un million de signatures. Rendre le référendum obligatoire pour toute révision constitutionnelle. Revenir au septennat avec un référendum révocatoire à mi-mandat. Reconnaître le vote blanc.",
+      "topic_id": "institutions",
+      "source_url": "https://www.debout-la-france.fr/projet/refonder-et-moraliser-notre-democratie/"
+    },
+    {
+      "proposal": "Verser un capital de 10 000 € à chaque nouveau-né français, placé dans un fonds souverain « à la norvégienne » pour une retraite par capitalisation à 60 ans. Le financement viendrait de la moitié de la contribution nette de la France à l'UE.",
+      "topic_id": "solidarites",
+      "source_url": "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/"
+    },
+    {
+      "proposal": "Baisser les taxes sur les carburants de 40 à 50 centimes par litre : suppression de la TVA sur la TICPE et des certificats d'économie d'énergie, baisse des accises.",
+      "topic_id": "fiscalite",
+      "source_url": "https://www.sudradio.fr/linvite-politique/nicolas-dupont-aignan-la-position-du-rn-est-incomprehensible"
+    },
+    {
+      "proposal": "Sortir du marché européen de l'électricité et fixer un prix national adossé au coût du nucléaire d'EDF : -30 % promis en 2025, puis division du prix par deux en septembre 2026.",
+      "topic_id": "ecologie_energie",
+      "source_url": "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/"
+    },
+    {
+      "proposal": "« Protectionnisme intelligent » : relocaliser 2 millions d'emplois, réserver 50 % puis 75 % des achats publics aux produits français, imposer des droits de douane sélectifs, rendre obligatoire l'étiquetage de la part « fabriqué en France » et bloquer les investissements étrangers dans les entreprises stratégiques.",
+      "topic_id": "industrie_economie",
+      "source_url": "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/"
+    },
+    {
+      "proposal": "Arrêter toute aide financière à l'Ukraine et lever les sanctions contre la Russie. Négocier une paix fondée sur la neutralité et la démilitarisation de l'Ukraine, un référendum dans le Donbass, des forces de l'ONU et le retrait des troupes russes.",
+      "topic_id": "ukraine_russie",
+      "source_url": "https://www.dupontaignan.fr/actualite/president-jarreterai-toutes-subventions-a-lukraine-%c2%b7-bfmtv-21-09-26/"
+    },
+    {
+      "proposal": "Sortir du commandement intégré de l'OTAN et refuser tout partage de la dissuasion nucléaire avec l'UE.",
+      "topic_id": "defense",
+      "source_url": "https://www.debout-la-france.fr/projet/defense/"
+    },
+    {
+      "proposal": "Créer 40 000 places de prison, recruter 20 000 surveillants, 10 000 policiers et gendarmes et 10 000 douaniers, et déployer l'armée aux frontières.",
+      "topic_id": "securite_justice",
+      "source_url": "https://www.debout-la-france.fr/projet/securite/"
+    },
+    {
+      "proposal": "Organiser un référendum sur le rétablissement de la peine de mort pour les meurtriers d'enfants.",
+      "topic_id": "securite_justice",
+      "source_url": "https://www.dupontaignan.fr/actualite/pour-un-referendum-sur-la-peine-de-mort-pour-les-meurtriers-d-enfants/"
+    },
+    {
+      "proposal": "Supprimer le droit du sol par référendum, supprimer l'AME, sortir de Schengen et dénoncer l'accord franco-algérien de 1968.",
+      "topic_id": "immigration",
+      "source_url": "https://www.debout-la-france.fr/projet/immigration-et-assimilation/"
+    },
+    {
+      "proposal": "Fixer l'âge de départ à la retraite à 62 ans et maintenir l'indexation des pensions sur l'inflation.",
+      "topic_id": "retraites",
+      "source_url": "https://www.franceinfo.fr/replay-magazine/franceinfo/l-invite-politique/l-invite-politique-du-mardi-02-juin-2026_8001014.html"
+    }
+  ],
+  "topics": [
+    {
+      "topic_id": "institutions",
+      "found": true,
+      "positions": [
+        {
+          "position": "Créer un référendum d'initiative citoyenne (RIC), législatif et constituant, déclenché par un million d'électeurs, avec un débat obligatoire de 6 mois avant le vote.",
+          "kind": "proposition_explicite",
+          "details": "Mesure 1 du livret « Refonder et moraliser notre démocratie ». Le RIC à 1 million de signatures et le RIC constituant « inspiré du modèle suisse » sont repris dans les discours de 2025 et de 2026.",
+          "short_quote": "RIC à partir d'un million de signatures",
+          "source_url": "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+          "source_title": "Libérons la France ! · Discours de rentrée (Yerres)",
+          "source_date": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "position": "Revenir au septennat avec un référendum révocatoire d'initiative citoyenne à mi-mandat. Rendre le référendum obligatoire pour toute révision de la Constitution ou toute décision touchant l'indépendance nationale ou l'intégrité du territoire.",
+          "kind": "proposition_explicite",
+          "details": "Mesures 2 et 3 du livret DLF daté du 9 juin 2026.",
+          "short_quote": "Revenir au septennat avec la possibilité d'un référendum révocatoire",
+          "source_url": "https://www.debout-la-france.fr/projet/refonder-et-moraliser-notre-democratie/",
+          "source_title": "Livret DLF « Refonder et moraliser notre démocratie »",
+          "source_date": "2026-06-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Organiser cinq grands référendums pendant le quinquennat : sur l'UE et une nouvelle Europe des nations, sur la sécurité et le code pénal, sur l'école, sur le contrôle migratoire et sur les institutions. Permettre le référendum de l'article 11 dans tous les domaines.",
+          "kind": "proposition_explicite",
+          "details": "Annoncé dans le discours de candidature du 8 mars 2025. Le référendum de l'article 11 étendu à tous les domaines figure dans le discours de 2026.",
+          "source_url": "https://www.debout-la-france.fr/actualite/je-suis-candidat-pour/",
+          "source_title": "Je suis candidat pour rendre le pouvoir aux Français… (discours du 8 mars 2025)",
+          "source_date": "2025-03-08",
+          "confidence": "high"
+        },
+        {
+          "position": "Compter le vote blanc. S'il est majoritaire, l'élection est recommencée et les candidats battus ne peuvent pas se représenter. Conditionner l'activation de la carte Vitale à la participation au vote.",
+          "kind": "proposition_explicite",
+          "details": "Mesures 4 et 5 du livret de 2026. Le discours de 2025 évoque l'annulation de l'élection au-delà de 50 % de votes blancs.",
+          "source_url": "https://www.debout-la-france.fr/projet/refonder-et-moraliser-notre-democratie/",
+          "source_title": "Livret DLF « Refonder et moraliser notre démocratie »",
+          "source_date": "2026-06-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Réduire le nombre de parlementaires et leurs indemnités, supprimer le CESE et les privilèges des anciens présidents, et imposer un casier judiciaire vierge à tous les élus.",
+          "kind": "proposition_explicite",
+          "details": "Passer de 577 à 500 députés et de 348 à 300 sénateurs, baisser les indemnités de 25 % et les moduler selon la présence effective. Créer un statut de l'élu.",
+          "short_quote": "réduire leurs indemnités de 25%",
+          "source_url": "https://www.debout-la-france.fr/projet/refonder-et-moraliser-notre-democratie/",
+          "source_title": "Livret DLF « Refonder et moraliser notre démocratie »",
+          "source_date": "2026-06-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Il a appelé à la destitution d'Emmanuel Macron au titre de l'article 68 de la Constitution et l'a demandée aux parlementaires.",
+          "kind": "position_declaree",
+          "details": "Ses motifs : la hausse de la dette de plus de 1 000 Md€, des fermetures de chaînes de télévision, la « censure » des réseaux sociaux et le refus du résultat des législatives du 7 juillet 2024. Une lettre ouverte aux parlementaires a suivi en octobre 2025.",
+          "source_url": "https://www.debout-la-france.fr/actualite/la-revolution-du-bon-sens-pour-sauver-la-france/",
+          "source_title": "« La Révolution du bon sens pour sauver la France ! » (discours de clôture du congrès DLF)",
+          "source_date": "2025-09-20",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "laicite_republique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Interdire tous les signes religieux visibles dans le service public, y compris dans les universités et les hôpitaux, sans aucun accommodement. Les entreprises pourraient les interdire dans leur règlement intérieur.",
+          "kind": "proposition_explicite",
+          "details": "Mesure 20 du livret « Immigration et assimilation » (mars 2026). Le porte-parole rappelle cette mesure en septembre 2026 en y incluant les administrations et les écoles.",
+          "short_quote": "Interdire tous les signes religieux visibles dans le service public",
+          "source_url": "https://www.debout-la-france.fr/projet/immigration-et-assimilation/",
+          "source_title": "Livret DLF « Immigration et assimilation »",
+          "source_date": "2026-03-03",
+          "confidence": "high"
+        },
+        {
+          "position": "DLF refuse d'interdire ou de verbaliser le voile dans la rue : une telle mesure serait discriminatoire, inconstitutionnelle et contraire à la laïcité. Le parti défend une laïcité stricte dans les institutions et la liberté vestimentaire dans l'espace public.",
+          "kind": "position_declaree",
+          "details": "Tribune d'Alexis Villepelet, porte-parole de DLF, et non du candidat lui-même.",
+          "source_url": "https://www.debout-la-france.fr/actualite/ne-laissons-par-le-voile-masquer-lessentiel/",
+          "source_title": "Ne laissons pas le voile masquer l'essentiel",
+          "source_date": "2026-09-02",
+          "confidence": "medium"
+        },
+        {
+          "position": "Conditionner l'ouverture d'une mosquée à un serment de fidélité à la République signé par l'imam et par le président de l'association. Fermer les lieux de culte et associations qui refusent une « Charte de conformité de l'Islam ».",
+          "kind": "proposition_explicite",
+          "details": "Autres mesures du même livret : 10 ans de prison pour les « prédicateurs subversifs », suspension des aides sociales pour les récidivistes qui enfreignent la laïcité, peines planchers pour les violations des lois de la République et lever du drapeau mensuel dans les écoles.",
+          "source_url": "https://www.debout-la-france.fr/projet/immigration-et-assimilation/",
+          "source_title": "Livret DLF « Immigration et assimilation » (mesures 21 à 27)",
+          "source_date": "2026-03-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Étendre l'interdiction des signes religieux à l'ensemble de la communauté éducative.",
+          "kind": "proposition_explicite",
+          "details": "Mesure 28 de la fiche « Repenser l'école ». Cette page n'est pas datée et son contenu semble reprendre le programme de 2022.",
+          "source_url": "https://www.debout-la-france.fr/projet/instruction-publique/",
+          "source_title": "Fiche programme DLF « Repenser l'école de la République »",
+          "source_date": "non datée (consultée 2026-10)",
+          "confidence": "low"
+        },
+        {
+          "position": "Mémoire de la colonisation : DLF refuse toute repentance tout en reconnaissant que l'héritage colonial est un sujet sensible. Le parti veut sortir des discours de culpabilité postcoloniale et bâtir un partenariat d'intérêts mutuels avec l'Afrique.",
+          "kind": "proposition_explicite",
+          "details": "Le livret « Affaires étrangères » d'avril 2025 parle de mettre fin à la culpabilité postcoloniale. Le refus de repentance figure sur la fiche « Grand partenariat France-Afrique », qui n'est pas datée.",
+          "source_url": "https://www.debout-la-france.fr/projet/affaires-etrangeres/",
+          "source_title": "Livret DLF « Affaires étrangères »",
+          "source_date": "2025-04-17",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "fiscalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Baisser le prix des carburants de 40 à 50 centimes par litre en réduisant les taxes : supprimer la TVA appliquée sur la TICPE, supprimer les certificats d'économie d'énergie (CEE) et baisser les accises.",
+          "kind": "proposition_explicite",
+          "details": "Le chiffrage a varié : 30 centimes en mai 2026 (13 c de TVA sur taxe et 17 c de CEE), 40 centimes sur franceinfo le 19/09/2026, 50 centimes dans le discours du 19/09/2026 et sur Sud Radio le 20/09/2026 (15 c de CEE, 15 c de TVA sur taxe, 20 c d'accises).",
+          "short_quote": "baisser de 40 centimes par litre le prix du carburant",
+          "source_url": "https://www.sudradio.fr/linvite-politique/nicolas-dupont-aignan-la-position-du-rn-est-incomprehensible",
+          "source_title": "Nicolas Dupont-Aignan : « La position du RN est incompréhensible » (Sud Radio)",
+          "source_date": "2026-09-20",
+          "confidence": "high"
+        },
+        {
+          "position": "Supprimer tout droit de succession sur la résidence principale.",
+          "kind": "proposition_explicite",
+          "details": "Repris dans la brochure Logement de septembre 2026. Celle-ci propose aussi de relever de 100 000 € par bénéficiaire les abattements sur les donations.",
+          "short_quote": "Supprimer tout droit de successions sur la résidence principale",
+          "source_url": "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+          "source_title": "Libérons la France ! · Discours de rentrée",
+          "source_date": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "position": "Défiscaliser les heures supplémentaires et baisser les impôts de production.",
+          "kind": "proposition_explicite",
+          "short_quote": "Défiscaliser les heures supplémentaires",
+          "source_url": "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+          "source_title": "Libérons la France ! · Discours de rentrée",
+          "source_date": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "position": "Affecter la moitié des économies réalisées (contribution à l'UE, gaspillages) à la baisse des impôts et l'autre moitié au désendettement.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.debout-la-france.fr/actualite/je-suis-candidat-pour/",
+          "source_title": "Discours de candidature du 8 mars 2025",
+          "source_date": "2025-03-08",
+          "confidence": "high"
+        },
+        {
+          "position": "Fiscalité familiale : relever le quotient familial à 3 000 € par demi-part, rétablir des allocations familiales universelles et réduire les droits de succession pour les familles de 3 enfants et plus.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.debout-la-france.fr/projet/famille/",
+          "source_title": "Livret DLF « Famille »",
+          "source_date": "2026-01-02",
+          "confidence": "high"
+        },
+        {
+          "position": "Fiscalité des entreprises et du patrimoine : diviser par deux l'impôt sur les sociétés pour les bénéfices réinvestis en France et rétablir un impôt sur les « très grandes fortunes » hors résidence principale.",
+          "kind": "inference",
+          "details": "La baisse de l'IS figure dans le livret « Produire en France » de janvier 2024. L'impôt sur les très grandes fortunes figure sur la fiche « Économie, travail », non datée et appuyée sur des données de 2020-2021. Aucune reprise de cet impôt n'a été trouvée dans ses déclarations de 2025-2026.",
+          "source_url": "https://www.debout-la-france.fr/projet/economie-travail/",
+          "source_title": "Fiche programme DLF « Économie, travail »",
+          "source_date": "non datée (contenu ~2022)",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "finances_publiques",
+      "found": true,
+      "positions": [
+        {
+          "position": "Assainir les comptes publics en récupérant les « dizaines de milliards d'euros gaspillés ». Il reproche à la majorité sortante d'avoir alourdi la dette de plus de 1 000 Md€.",
+          "kind": "position_declaree",
+          "details": "Aucun objectif chiffré de déficit ou de dette n'a été trouvé.",
+          "source_url": "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+          "source_title": "Libérons la France ! · Discours de rentrée",
+          "source_date": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "position": "Supprimer la contribution nette de la France au budget européen et la réaffecter au désendettement, au capital de 10 000 € à la naissance, à l'agriculture, à la santé et au pouvoir d'achat.",
+          "kind": "proposition_explicite",
+          "details": "Montants avancés : environ 10 Md€ nets par an (fiche Affaires européennes), 16 Md€ (discours de septembre 2025), 15 Md€ d'économies en cas de sortie (franceinfo, 19/09/2026).",
+          "source_url": "https://www.franceinfo.fr/politique/nicolas-dupont-aignan/je-serai-le-seul-candidat-qui-propose-de-sortir-de-l-union-europeenne-dit-nicolas-dupont-aignan-qui-se-lance-dans-sa-quatrieme-campagne-presidentielle_8201024.html",
+          "source_title": "« Je serai le seul candidat qui propose de sortir de l'Union européenne »… (franceinfo)",
+          "source_date": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "position": "Diviser par 10 les dépenses de cabinets d'études et de conseil externes, avec justification obligatoire devant le Parlement, et replacer les agences de l'État sous l'autorité des ministères.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.debout-la-france.fr/actualite/je-suis-candidat-pour/",
+          "source_title": "Discours de candidature du 8 mars 2025",
+          "source_date": "2025-03-08",
+          "confidence": "high"
+        },
+        {
+          "position": "Il attribue la hausse de la dette à la faiblesse de l'investissement et de la croissance plutôt qu'à un excès de dépenses, et mise sur la relocalisation industrielle pour la réduire.",
+          "kind": "position_declaree",
+          "source_url": "https://www.debout-la-france.fr/actualite/la-revolution-du-bon-sens-pour-sauver-la-france/",
+          "source_title": "« La Révolution du bon sens pour sauver la France ! »",
+          "source_date": "2025-09-20",
+          "confidence": "medium"
+        },
+        {
+          "position": "Simplifier l'organisation de l'État en supprimant les régions, les intercommunalités forcées et le CESE. Il prévoit en parallèle de nouvelles dépenses régaliennes.",
+          "kind": "proposition_explicite",
+          "details": "Recrutements prévus : 10 000 policiers et gendarmes, 10 000 douaniers et 20 000 surveillants. Le budget de la justice passerait de 10,1 à 15 Md€.",
+          "source_url": "https://www.debout-la-france.fr/projet/justice/",
+          "source_title": "Livret DLF « Justice »",
+          "source_date": "2026-06-10",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "travail_salaires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Offrir un « 13e mois » à tous les salariés en réduisant les cotisations salariales, pour rapprocher le salaire net du brut.",
+          "kind": "proposition_explicite",
+          "details": "Une ancienne fiche (contenu ~2022) chiffrait cette hausse à 8 % pour les salaires jusqu'à 3 SMIC, sans hausse du coût du travail. Le financement n'est pas détaillé en 2025.",
+          "source_url": "https://www.debout-la-france.fr/actualite/la-revolution-du-bon-sens-pour-sauver-la-france/",
+          "source_title": "« La Révolution du bon sens pour sauver la France ! »",
+          "source_date": "2025-09-20",
+          "confidence": "medium"
+        },
+        {
+          "position": "Défiscaliser les heures supplémentaires et plafonner le cumul des aides sociales sous le niveau du SMIC pour que le travail paie davantage.",
+          "kind": "proposition_explicite",
+          "short_quote": "Plafonner le cumul des aides sociales en dessous du SMIC",
+          "source_url": "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+          "source_title": "Libérons la France ! · Discours de rentrée",
+          "source_date": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "position": "Développer l'intéressement et la participation des salariés au capital (« participation gaullienne »). Le livret de 2024 propose de baisser l'IS d'un point pour chaque tranche de 2 % du capital détenue par les salariés, dans la limite de 10 points.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.debout-la-france.fr/projet/produire-en-france/",
+          "source_title": "Livret DLF « Produire en France »",
+          "source_date": "2024-01",
+          "confidence": "medium"
+        },
+        {
+          "position": "DLF s'oppose au reste à charge de 350 € envisagé sur le compte personnel de formation (CPF) pour les formations jugées non prioritaires, et demande un CPF librement utilisable.",
+          "kind": "position_declaree",
+          "details": "Tribune du délégué national DLF à l'éducation et à la formation.",
+          "source_url": "https://www.debout-la-france.fr/actualite/nouveau-coup-de-massue-sur-le-cpf-un-malus-inacceptable-de-350-euros-et-le-retour-de-la-dictature-technocratique/",
+          "source_title": "Nouveau coup de massue sur le CPF",
+          "source_date": "2026-10-03",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "industrie_economie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Relocaliser 2 millions d'emplois grâce à un « protectionnisme intelligent ».",
+          "kind": "proposition_explicite",
+          "details": "Il parlait d'un million d'emplois en juin 2026 et dans le livret « Produire en France ». L'objectif est passé à deux millions dans le discours du 19/09/2026.",
+          "short_quote": "Relocaliser deux millions d'emplois",
+          "source_url": "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+          "source_title": "Libérons la France ! · Discours de rentrée",
+          "source_date": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "position": "Réserver d'abord 50 %, puis progressivement 75 % des achats publics aux produits français, en donnant la priorité aux PME.",
+          "kind": "proposition_explicite",
+          "details": "Le livret de 2024 chiffre ces achats publics à environ 200 Md€ par an.",
+          "short_quote": "50 pour cent puis progressivement 75 pour cent d'achats publics français",
+          "source_url": "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+          "source_title": "Libérons la France ! · Discours de rentrée",
+          "source_date": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "position": "Imposer des droits de douane nationaux sélectifs, temporaires et compensatoires, notamment sur les voitures électriques chinoises, les panneaux solaires et la fast fashion, et rendre obligatoire l'étiquetage de la part « fabriqué en France ».",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.debout-la-france.fr/actualite/je-suis-candidat-pour/",
+          "source_title": "Discours de candidature du 8 mars 2025",
+          "source_date": "2025-03-08",
+          "confidence": "high"
+        },
+        {
+          "position": "Créer un fonds de relocalisation et bloquer les investissements étrangers dans les entreprises stratégiques ou de pointe, via un décret Montebourg renforcé et des actions de préférence.",
+          "kind": "proposition_explicite",
+          "details": "Le livret de 2024 prévoit un fonds de 10 Md€ pour aider à implanter des usines en zones rurales et une division par deux de l'IS sur les bénéfices réinvestis en France.",
+          "source_url": "https://www.debout-la-france.fr/projet/produire-en-france/",
+          "source_title": "Livret DLF « Produire en France »",
+          "source_date": "2024-01",
+          "confidence": "medium"
+        },
+        {
+          "position": "Rompre les accords de libre-échange jugés déloyaux (Mercosur, CETA…), rétablir un veto français, supprimer la directive sur les travailleurs détachés et supprimer « la moitié » des normes européennes dès la première année.",
+          "kind": "proposition_explicite",
+          "details": "Le livret de 2024 estime que la fin de la directive sur les travailleurs détachés permettrait de récupérer 500 000 emplois.",
+          "source_url": "https://www.debout-la-france.fr/actualite/je-suis-candidat-pour/",
+          "source_title": "Discours de candidature du 8 mars 2025",
+          "source_date": "2025-03-08",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "retraites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il défend un âge légal de départ fixe à 62 ans, en opposition à la réforme de 2023 et à l'approche du RN fondée sur la durée de cotisation.",
+          "kind": "position_declaree",
+          "short_quote": "Je suis pour un âge fixe, à 62 ans",
+          "source_url": "https://www.franceinfo.fr/replay-magazine/franceinfo/l-invite-politique/l-invite-politique-du-mardi-02-juin-2026_8001014.html",
+          "source_title": "L'invité politique de franceinfo (transcription)",
+          "source_date": "2026-06-02",
+          "confidence": "high"
+        },
+        {
+          "position": "Maintenir l'indexation de toutes les pensions sur l'inflation. Il dénonce le gel des pensions comme une « spoliation » et qualifie les retraités de « vaches à lait du régime ».",
+          "kind": "proposition_explicite",
+          "short_quote": "Maintenir l'indexation des retraites sur l'inflation",
+          "source_url": "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+          "source_title": "Libérons la France ! · Discours de rentrée",
+          "source_date": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "position": "Ajouter un étage de capitalisation : un capital de 10 000 € versé à chaque nouveau-né français est placé dans un fonds souverain et garantit un complément de retraite à 60 ans.",
+          "kind": "proposition_explicite",
+          "details": "Financement annoncé : la moitié de la contribution nette à l'UE. franceinfo parle d'un « livret d'épargne-retraite ».",
+          "short_quote": "10 000 euros à chaque naissance, placés dans un fonds souverain",
+          "source_url": "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+          "source_title": "Libérons la France ! · Discours de rentrée",
+          "source_date": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "position": "Financer les retraites par l'emploi (1 million d'emplois), les cotisations récupérées sur les travailleurs détachés et la politique familiale. Exiger 10 ans de cotisation des étrangers pour toucher le minimum vieillesse (ASPA) et rétablir la demi-part fiscale des veuves.",
+          "kind": "inference",
+          "details": "Fiche « Retraites » non datée, dont le contenu remonte à ~2022 (données 2019).",
+          "source_url": "https://www.debout-la-france.fr/projet/retraites/",
+          "source_title": "Fiche programme DLF « Retraites »",
+          "source_date": "non datée (contenu ~2022)",
+          "confidence": "low"
+        },
+        {
+          "position": "Député en 2023, il a voté les motions de censure déposées contre l'adoption de la réforme des retraites par le 49.3.",
+          "kind": "inference",
+          "details": "Votes du 20/03/2023 en faveur des motions de censure transpartisane (Pancher) et RN.",
+          "source_url": "https://www.nosdeputes.fr/nicolas-dupont-aignan/votes",
+          "source_title": "NosDéputés.fr – votes de Nicolas Dupont-Aignan (XVIe législature)",
+          "source_date": "2023-03-20",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "sante",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il s'oppose fermement à la légalisation de l'aide à mourir, qu'il qualifie de « nouvel eugénisme » et de rupture de civilisation, et veut plutôt développer les soins palliatifs.",
+          "kind": "position_declaree",
+          "details": "En juillet 2026 sur BFMTV, il oppose ce texte au refus de la peine de mort pour les meurtriers. Le livret Famille 2026 prévoit de développer les unités de soins palliatifs.",
+          "source_url": "https://www.sudradio.fr/linvite-politique/aide-a-mourir-cest-de-leugenisme-on-liquidera-ceux-qui-coutent-trop-cher-denonce-nicolas-dupont-aignan",
+          "source_title": "Aide à mourir : « c'est de l'eugénisme ! » (Sud Radio)",
+          "source_date": "2025-05-30",
+          "confidence": "high"
+        },
+        {
+          "position": "Refonder un hôpital libéré de la bureaucratie et de l'influence des laboratoires pharmaceutiques, et rouvrir des maternités et des hôpitaux de proximité.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.debout-la-france.fr/actualite/la-revolution-du-bon-sens-pour-sauver-la-france/",
+          "source_title": "« La Révolution du bon sens pour sauver la France ! »",
+          "source_date": "2025-09-20",
+          "confidence": "high"
+        },
+        {
+          "position": "Lancer une réévaluation scientifique des médicaments et vaccins, notamment à ARN, présentés comme un « scandale », et lutter contre les conflits d'intérêts pharmaceutiques.",
+          "kind": "position_declaree",
+          "details": "Il cite la démarche de Robert F. Kennedy Jr. aux États-Unis. Une fiche DLF plus ancienne demande la réintégration des soignants suspendus et le rétablissement de leurs trimestres de retraite.",
+          "source_url": "https://www.debout-la-france.fr/actualite/la-revolution-du-bon-sens-pour-sauver-la-france/",
+          "source_title": "« La Révolution du bon sens pour sauver la France ! »",
+          "source_date": "2025-09-20",
+          "confidence": "high"
+        },
+        {
+          "position": "Supprimer l'aide médicale d'État (AME) et la remplacer par un dispensaire d'urgence par département pour les étrangers en situation irrégulière en attente d'expulsion.",
+          "kind": "proposition_explicite",
+          "short_quote": "Supprimer l'Aide Médicale d'État (AME)",
+          "source_url": "https://www.debout-la-france.fr/projet/immigration-et-assimilation/",
+          "source_title": "Livret DLF « Immigration et assimilation »",
+          "source_date": "2026-03-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Accès aux soins : un hôpital avec urgences, scanner et IRM à moins de 45 minutes de chaque habitant, et des bourses pour les étudiants en médecine qui s'engagent à exercer dans les zones sous-dotées.",
+          "kind": "proposition_explicite",
+          "details": "La fiche « Santé », non datée (~2022), ajoute : 12 000 places de médecine par an, remplacement des ARS par des directions départementales sous l'autorité du préfet, réanimation portée à 10 000 lits, 50 % de production en France pour les médicaments remboursés plus de 20 M€ par an, et maintien de la Sécurité sociale face aux complémentaires.",
+          "source_url": "https://www.debout-la-france.fr/projet/equilibre-territoire-monde-rural/",
+          "source_title": "Livret DLF « Équilibre du territoire et monde rural »",
+          "source_date": "2024",
+          "confidence": "medium"
+        },
+        {
+          "position": "Grand âge : augmenter de 25 % le taux d'encadrement en EHPAD (80 000 postes), doubler les unités de soins palliatifs, soutenir les aidants et porter le financement de la dépendance à 10 Md€ par an d'ici 2030.",
+          "kind": "inference",
+          "details": "Fiche « Dépendance et fin de vie », non datée, dont les échéances (« 6 Md€ en 2024 ») montrent qu'elle reprend le programme de 2022.",
+          "source_url": "https://www.debout-la-france.fr/projet/dependance-fin-de-vie/",
+          "source_title": "Fiche programme DLF « Dépendance et fin de vie »",
+          "source_date": "non datée (contenu ~2022)",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "logement",
+      "found": true,
+      "positions": [
+        {
+          "position": "Viser 75 % de ménages propriétaires (contre 57,4 % aujourd'hui) : PTZ élargi, retour des APL accession, abattement supplémentaire de 100 000 € sur les donations et suppression des droits de succession sur la résidence principale.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.debout-la-france.fr/projet/logement/",
+          "source_title": "Brochure DLF « Logement » (30 mesures)",
+          "source_date": "2026-09-30",
+          "confidence": "high"
+        },
+        {
+          "position": "Porter les mises en chantier de 281 100 (2023) à 400 000 logements par an d'ici 2028. Supprimer l'objectif de Zéro artificialisation nette (ZAN), transformer les bureaux vacants en logements et rétablir un dispositif fiscal de type Pinel.",
+          "kind": "proposition_explicite",
+          "short_quote": "mettre fin à l'objectif de Zéro Artificialisation Nette",
+          "source_url": "https://www.debout-la-france.fr/projet/logement/",
+          "source_title": "Brochure DLF « Logement »",
+          "source_date": "2026-09-30",
+          "confidence": "high"
+        },
+        {
+          "position": "Relancer le parc locatif privé en levant l'interdiction de louer les logements mal classés au DPE (5,2 millions classés F et G) et en créant une assurance universelle contre les loyers impayés (environ 1 % du loyer mensuel). Aucun encadrement des loyers n'est proposé.",
+          "kind": "proposition_explicite",
+          "details": "Autres mesures : encadrer les meublés de tourisme et réindexer les APL sur l'inflation.",
+          "short_quote": "Abandonner l'interdiction de location de logements sur la base du DPE",
+          "source_url": "https://www.debout-la-france.fr/projet/logement/",
+          "source_title": "Brochure DLF « Logement »",
+          "source_date": "2026-09-30",
+          "confidence": "high"
+        },
+        {
+          "position": "Réorienter le logement social vers les ménages les plus modestes et le parcours vers la propriété. Compter l'accession sociale dans le quota SRU, conditionner les nouveaux logements sociaux dans les communes déjà à plus de 50 % de HLM et lancer des « maisons à 1 € » en zone rurale.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.debout-la-france.fr/projet/logement/",
+          "source_title": "Brochure DLF « Logement »",
+          "source_date": "2026-09-30",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "solidarites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Politique nataliste : un capital de 10 000 € pour chaque nouveau-né français, placé dans un fonds souverain.",
+          "kind": "proposition_explicite",
+          "details": "Financé par la moitié de la contribution nette à l'UE. Selon franceinfo, la mesure concerne « tous les nouveau-nés français ».",
+          "source_url": "https://www.franceinfo.fr/politique/nicolas-dupont-aignan/je-serai-le-seul-candidat-qui-propose-de-sortir-de-l-union-europeenne-dit-nicolas-dupont-aignan-qui-se-lance-dans-sa-quatrieme-campagne-presidentielle_8201024.html",
+          "source_title": "« Je serai le seul candidat qui propose de sortir de l'Union européenne »… (franceinfo)",
+          "source_date": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "position": "Rétablir des allocations familiales universelles, sans condition de ressources, revalorisées et indexées sur l'inflation. Relever le quotient familial à 3 000 € par demi-part, créer 100 000 places de crèche en 5 ans et allonger le congé parental en le rémunérant mieux et en le partageant entre les parents.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.debout-la-france.fr/projet/famille/",
+          "source_title": "Livret DLF « Famille »",
+          "source_date": "2026-01-02",
+          "confidence": "high"
+        },
+        {
+          "position": "Plafonner le cumul des aides sociales en dessous du SMIC.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+          "source_title": "Libérons la France ! · Discours de rentrée",
+          "source_date": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "position": "Réserver les prestations non contributives aux Français : aucune aide sociale avant 5 ans de séjour régulier (2025), puis suppression pure et simple des aides non contributives pour les étrangers (RSA, allocations familiales, aides au logement) dans le livret de 2026.",
+          "kind": "proposition_explicite",
+          "details": "La position s'est durcie entre le discours du 8 mars 2025 et le livret de mars 2026.",
+          "short_quote": "Aucune aide sociale aux étrangers ne sera versée avant 5 ans",
+          "source_url": "https://www.debout-la-france.fr/projet/immigration-et-assimilation/",
+          "source_title": "Livret DLF « Immigration et assimilation » (mesure 14)",
+          "source_date": "2026-03-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Handicap : augmenter l'AAH de 200 € pour la porter au seuil de pauvreté (1 216 €), viser un quota de 6 % de travailleurs handicapés, créer assez de postes d'AESH (pas plus de 3 élèves par AESH) et consacrer 5 Md€ au handicap.",
+          "kind": "inference",
+          "details": "Fiche « Handicap » non datée, 28 mesures.",
+          "source_url": "https://www.debout-la-france.fr/projet/handicap/",
+          "source_title": "Fiche programme DLF « Handicap »",
+          "source_date": "non datée",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "egalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Violences conjugales : des juridictions dédiées qui traitent les dossiers en 72 heures, une formation obligatoire des magistrats, médecins et forces de l'ordre, et des peines minimales strictes pour les auteurs, sur le modèle espagnol.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.debout-la-france.fr/projet/combat-pour-les-femmes/",
+          "source_title": "Livret DLF « Combat pour les femmes » (15 mesures)",
+          "source_date": "2025-10-21",
+          "confidence": "high"
+        },
+        {
+          "position": "Protéger les victimes : un hébergement d'urgence dans chaque intercommunalité, des bracelets anti-rapprochement qui alertent la victime quand l'agresseur s'approche à moins de 2 km, et un accompagnement des victimes de la prostitution et de la traite.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.debout-la-france.fr/projet/combat-pour-les-femmes/",
+          "source_title": "Livret DLF « Combat pour les femmes »",
+          "source_date": "2025-10-21",
+          "confidence": "high"
+        },
+        {
+          "position": "Égalité professionnelle et partage des tâches : un label d'égalité salariale assorti d'avantages fiscaux (écart cité : 14,9 % à temps de travail égal), un congé parental jusqu'à 3 ans payé à 75 % du SMIC avec au moins 9 mois pour chaque parent, et un droit à la formation après la maternité.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.debout-la-france.fr/projet/combat-pour-les-femmes/",
+          "source_title": "Livret DLF « Combat pour les femmes »",
+          "source_date": "2025-10-21",
+          "confidence": "high"
+        },
+        {
+          "position": "Sanctionner les contenus et images misogynes, et renforcer l'information sur la contraception et l'accès des femmes aux soins.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.debout-la-france.fr/projet/combat-pour-les-femmes/",
+          "source_title": "Livret DLF « Combat pour les femmes »",
+          "source_date": "2025-10-21",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "droits_lgbtqia",
+      "found": true,
+      "positions": [
+        {
+          "position": "Interdire définitivement les transitions de genre médicales chez les mineurs et privilégier un accompagnement psychologique.",
+          "kind": "proposition_explicite",
+          "short_quote": "Interdire définitivement les transitions de genre médicales chez les mineurs",
+          "source_url": "https://www.debout-la-france.fr/projet/famille/",
+          "source_title": "Livret DLF « Famille » (mesure 12)",
+          "source_date": "2026-01-02",
+          "confidence": "high"
+        },
+        {
+          "position": "Refuser catégoriquement la gestation pour autrui (GPA).",
+          "kind": "proposition_explicite",
+          "short_quote": "Refuser catégoriquement la gestation pour autrui (GPA)",
+          "source_url": "https://www.debout-la-france.fr/projet/famille/",
+          "source_title": "Livret DLF « Famille » (mesure 13)",
+          "source_date": "2026-01-02",
+          "confidence": "high"
+        },
+        {
+          "position": "Il s'est opposé à la PMA pour toutes les femmes, au motif qu'elle priverait des enfants de leur filiation, et a voté contre la loi de bioéthique en lecture définitive le 29 juin 2021. Aucune position récente sur une éventuelle abrogation n'a été trouvée.",
+          "kind": "inference",
+          "details": "Tribune de septembre 2019 et vote de 2021, donc antérieurs à 2025.",
+          "source_url": "https://www.debout-la-france.fr/actualite/pma-pourquoi-je-ne-voterai-pas-une-loi-qui-prive-des-enfants-de-leur-filiation/",
+          "source_title": "PMA : Pourquoi je ne voterai pas une loi qui prive des enfants de leur filiation",
+          "source_date": "2019-09-25",
+          "confidence": "low"
+        },
+        {
+          "position": "Des cadres de DLF critiquent le programme d'éducation à la vie affective et sexuelle (EVARS), jugé plus proche de la « propagande » que de l'instruction, ainsi que les concepts d'identité non binaire.",
+          "kind": "inference",
+          "details": "Tribune d'Isabelle Nuel, déléguée nationale DLF, et non du candidat.",
+          "short_quote": "Avec le programme Evars on est plus près de la propagande",
+          "source_url": "https://www.debout-la-france.fr/actualite/liberte-notre-combat-pour-la-liberte/",
+          "source_title": "LIBERTÉ : Notre combat pour la Liberté",
+          "source_date": "2025-10-03",
+          "confidence": "low"
+        },
+        {
+          "position": "Des cadres de DLF demandent d'exclure les femmes transgenres des compétitions sportives féminines et approuvent le décret de Donald Trump sur ce point.",
+          "kind": "inference",
+          "details": "Tribunes de Benjamin-Victor Boucher (27/02/2025, puis 02/02/2026). Rien ne montre que le candidat a repris cette mesure.",
+          "source_url": "https://www.debout-la-france.fr/actualite/sport-feminin-donald-trump-defend-lequite-contre-linjustice-des-femmes-transgenre-s-en-competition/",
+          "source_title": "Sport féminin : Donald Trump défend l'équité…",
+          "source_date": "2025-02-27",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "found": true,
+      "positions": [
+        {
+          "position": "Reconstruire une « école publique des savoirs, de l'effort et du mérite » : uniforme obligatoire, retour des notes chiffrées et d'un vrai baccalauréat, dictée quotidienne à l'école primaire, exclusion des élèves violents et meilleure rémunération des enseignants les plus investis.",
+          "kind": "proposition_explicite",
+          "details": "Il prévoit aussi un référendum sur l'école (discours du 8 mars 2025). L'ancienne fiche programme présentait l'uniforme comme facultatif.",
+          "source_url": "https://www.debout-la-france.fr/actualite/la-revolution-du-bon-sens-pour-sauver-la-france/",
+          "source_title": "« La Révolution du bon sens pour sauver la France ! »",
+          "source_date": "2025-09-20",
+          "confidence": "high"
+        },
+        {
+          "position": "Priorité aux savoirs fondamentaux : passer de 9 à 15 heures de français par semaine en primaire, revenir à la méthode syllabique, augmenter tous les professeurs de 20 % (plus 20 % en échange d'heures de soutien), rétablir des écoles normales, viser 1 million d'apprentis et interdire le portable au primaire et au collège.",
+          "kind": "inference",
+          "details": "Fiche « Repenser l'école » non datée, qui reprend le programme de 2022 (40 mesures). Le programme 2027 est en cours d'actualisation.",
+          "source_url": "https://www.debout-la-france.fr/projet/instruction-publique/",
+          "source_title": "Fiche programme DLF « Repenser l'école de la République »",
+          "source_date": "non datée (contenu ~2022)",
+          "confidence": "low"
+        },
+        {
+          "position": "Créer des quotas d'étudiants étrangers par filière et supprimer les procédures d'admission dérogatoires aux concours des grandes écoles.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.debout-la-france.fr/projet/immigration-et-assimilation/",
+          "source_title": "Livret DLF « Immigration et assimilation » (mesures 7 et 25)",
+          "source_date": "2026-03-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Pour les jeunes : un service national civique obligatoire de trois mois à 18 ans, avec une option militaire volontaire d'un an.",
+          "kind": "proposition_explicite",
+          "short_quote": "un service national civique obligatoire de trois mois",
+          "source_url": "https://www.debout-la-france.fr/projet/defense/",
+          "source_title": "Livret DLF « Défense nationale »",
+          "source_date": "2025-04-15",
+          "confidence": "medium"
+        },
+        {
+          "position": "Enseignement supérieur : gratuité des études pour les étudiants français, refus de la sélection par tirage au sort, logements étudiants à loyer progressif et suppression des cotisations sociales sur les jobs étudiants.",
+          "kind": "inference",
+          "details": "Fiche « Enseignement supérieur » non datée.",
+          "source_url": "https://www.debout-la-france.fr/projet/enseignement-superieur/",
+          "source_title": "Fiche programme DLF « Enseignement supérieur »",
+          "source_date": "non datée",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "societe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Remplacer le financement public de l'audiovisuel par un « chèque citoyen » que chaque foyer fiscal attribue au média de son choix.",
+          "kind": "proposition_explicite",
+          "short_quote": "chèque citoyen, que chaque foyer fiscal pourra flécher vers le média",
+          "source_url": "https://www.debout-la-france.fr/actualite/je-suis-candidat-pour/",
+          "source_title": "Discours de candidature du 8 mars 2025",
+          "source_date": "2025-03-08",
+          "confidence": "high"
+        },
+        {
+          "position": "Réorganiser les médias en fondations pour garantir leur indépendance, et interdire aux propriétaires de médias de bénéficier de commandes publiques.",
+          "kind": "proposition_explicite",
+          "details": "La réorganisation en fondations figure dans le discours de 2026. L'interdiction des commandes publiques pour les propriétaires de médias figure dans le discours du 8 mars 2025.",
+          "short_quote": "une réorganisation des médias autour de fondations pour garantir leur indépendance",
+          "source_url": "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+          "source_title": "Libérons la France ! · Discours de rentrée",
+          "source_date": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "position": "Il dénonce les « fermetures de chaînes TV » (décision de l'Arcom sur C8) comme une atteinte au pluralisme et en fait l'un des motifs de sa demande de destitution.",
+          "kind": "position_declaree",
+          "source_url": "https://www.debout-la-france.fr/actualite/la-revolution-du-bon-sens-pour-sauver-la-france/",
+          "source_title": "« La Révolution du bon sens pour sauver la France ! »",
+          "source_date": "2025-09-20",
+          "confidence": "medium"
+        },
+        {
+          "position": "Culture et patrimoine : sanctuariser 1 % du budget de l'État pour la culture, consacrer 400 M€ par an à la restauration du patrimoine et créer un fonds pour le patrimoine rural. Imposer du théâtre classique en prime time sur France 2 et France 3, abroger Hadopi au profit d'une licence globale et ouvrir gratuitement les musées le dimanche aux résidents.",
+          "kind": "inference",
+          "details": "Fiche « Culture et patrimoine » non datée (données jusqu'en 2022).",
+          "source_url": "https://www.debout-la-france.fr/projet/culture-patrimoine/",
+          "source_title": "Fiche programme DLF « Culture et patrimoine »",
+          "source_date": "non datée (contenu ~2022)",
+          "confidence": "low"
+        },
+        {
+          "position": "Il a dénoncé le remplacement des vitraux de Notre-Dame comme un « caprice » d'Emmanuel Macron « à 4 millions d'euros ». franceinfo a corrigé : le budget est d'au moins 7 M€, les anciens vitraux seront conservés et exposés, et le projet vient de l'archevêque de Paris.",
+          "kind": "position_declaree",
+          "source_url": "https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/un-caprice-d-emmanuel-macron-a-4-millions-d-euros-attention-aux-fausses-informations-sur-le-remplacement-des-vitraux-de-notre-dame_7996721.html",
+          "source_title": "Le vrai du faux – vitraux de Notre-Dame (franceinfo)",
+          "source_date": "2026-05-25",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "numerique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il refuse ce qu'il appelle la « censure » des réseaux sociaux et le « contrôle social numérique » : euro numérique, identité numérique, portefeuille numérique, carnet de santé et permis de conduire numériques.",
+          "kind": "proposition_explicite",
+          "details": "La fiche « Affaires européennes » propose aussi d'inscrire l'argent liquide dans la Constitution pour garantir l'anonymat des dépenses.",
+          "source_url": "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+          "source_title": "Libérons la France ! · Discours de rentrée",
+          "source_date": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "position": "IA souveraine : un fonds souverain de plusieurs milliards sur le modèle norvégien, un cloud souverain ultra-sécurisé, une préférence nationale dans les marchés publics, une domiciliation fiscale obligatoire pour les géants de la tech et un contrôle strict des transferts de données.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.debout-la-france.fr/projet/intelligence-artificielle/",
+          "source_title": "Livret DLF « Intelligence artificielle » (25 mesures)",
+          "source_date": "2025-05-12",
+          "confidence": "high"
+        },
+        {
+          "position": "Encadrer l'IA : créer une Agence nationale d'éthique et de sécurité de l'IA, auditer systématiquement les modèles contre les biais, tracer les données d'entraînement, garantir le pluralisme idéologique des IA et donner à l'IA un statut juridique de « personne numérique » responsable.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.debout-la-france.fr/projet/intelligence-artificielle/",
+          "source_title": "Livret DLF « Intelligence artificielle »",
+          "source_date": "2025-05-12",
+          "confidence": "high"
+        },
+        {
+          "position": "DLF juge les règlements européens sur le numérique (DSA, DMA, RGPD, AI Act) punitifs plutôt qu'industriels et défend un « Small Business Act » numérique à la française.",
+          "kind": "inference",
+          "details": "Tribune de Lionel Mazurié, vice-président de DLF.",
+          "source_url": "https://www.debout-la-france.fr/actualite/souverainete-numerique-francaise-soumission-endemique-europeenne/",
+          "source_title": "Souveraineté numérique française = Soumission endémique européenne",
+          "source_date": "2025-09-05",
+          "confidence": "low"
+        },
+        {
+          "position": "Écrans à l'école : interdire le téléphone portable au primaire et au collège avec une sensibilisation aux dangers des réseaux sociaux, et limiter le numérique éducatif (TICE) au cours moyen.",
+          "kind": "inference",
+          "details": "Fiche école non datée (~2022). Aucune position trouvée sur l'interdiction des réseaux sociaux aux moins de 15 ans.",
+          "source_url": "https://www.debout-la-france.fr/projet/instruction-publique/",
+          "source_title": "Fiche programme DLF « Repenser l'école de la République »",
+          "source_date": "non datée",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Sortir du marché européen de l'électricité, unilatéralement « comme l'Espagne et le Portugal », et fixer un prix adossé au coût de revient du nucléaire d'EDF.",
+          "kind": "proposition_explicite",
+          "details": "Baisse promise de 30 % au minimum en mars 2025 et juin 2026, puis division du prix par deux dans le discours du 19/09/2026.",
+          "short_quote": "diviser par deux son prix",
+          "source_url": "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+          "source_title": "Libérons la France ! · Discours de rentrée",
+          "source_date": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "position": "Supprimer l'interdiction des voitures thermiques neuves en 2035, supprimer définitivement les ZFE, revenir à 90 km/h sur les routes départementales, renationaliser les autoroutes avec la fin des péages d'ici 2030, et supprimer la TVA sur la TICPE.",
+          "kind": "proposition_explicite",
+          "details": "Le livret propose aussi le ferroutage et l'interdiction des poids lourds de 7 h à 22 h les jours de grands départs.",
+          "short_quote": "Acter la suppression définitive des Zones à Faibles Émissions",
+          "source_url": "https://www.debout-la-france.fr/projet/transport-automobilistes/",
+          "source_title": "Livret DLF « Automobilistes et motards »",
+          "source_date": "2026-01-02",
+          "confidence": "high"
+        },
+        {
+          "position": "Abandonner l'interdiction de louer les passoires thermiques (DPE) et l'objectif de Zéro artificialisation nette.",
+          "kind": "proposition_explicite",
+          "details": "Annoncé dès le discours du 8 mars 2025 (abolition des ZFE et du DPE) et repris dans la brochure Logement de 2026.",
+          "source_url": "https://www.debout-la-france.fr/actualite/je-suis-candidat-pour/",
+          "source_title": "Discours de candidature du 8 mars 2025",
+          "source_date": "2025-03-08",
+          "confidence": "high"
+        },
+        {
+          "position": "Nucléaire : maintenir au moins 70 % d'électricité nucléaire, investir dans les réacteurs de 4e génération, le thorium et ITER. Il critique l'éolien, jugé intermittent et inefficace.",
+          "kind": "inference",
+          "details": "Fiche « Environnement et énergie » non datée, appuyée sur des données de 2019-2022. Elle prévoyait aussi de doubler le budget de l'isolation (de 3 à 6 Md€ par an) et une prime de remplacement des véhicules (1 Md€ par an).",
+          "short_quote": "maintenir le nucléaire à 70% de la production d'électricité minimum",
+          "source_url": "https://www.debout-la-france.fr/projet/environnement-energie/",
+          "source_title": "Fiche programme DLF « Environnement et énergie »",
+          "source_date": "non datée (contenu ~2022)",
+          "confidence": "low"
+        },
+        {
+          "position": "Député, il a voté contre la loi Climat et résilience en juillet 2021.",
+          "kind": "inference",
+          "source_url": "https://2017-2022.nosdeputes.fr/nicolas-dupont-aignan/votes",
+          "source_title": "NosDéputés.fr – votes (XVe législature), scrutin du 20/07/2021",
+          "source_date": "2021-07-20",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "found": true,
+      "positions": [
+        {
+          "position": "Sortir de la PAC et la remplacer par une politique agricole nationale simplifiée, avec des prix garantis (tunnel de prix minimum et maximum).",
+          "kind": "proposition_explicite",
+          "details": "Il a défendu ces prix garantis à la Foire de Verdun en septembre 2026.",
+          "source_url": "https://www.debout-la-france.fr/projet/agriculture/",
+          "source_title": "Livret DLF « Agriculture » (15 mesures)",
+          "source_date": "2026-01-08",
+          "confidence": "high"
+        },
+        {
+          "position": "Rompre les accords de libre-échange jugés déloyaux (Mercosur, CETA, Nouvelle-Zélande, Kenya, Chili, Ukraine), créer une exception agricole à l'OMC et protéger les éleveurs des importations produites avec hormones ou antibiotiques.",
+          "kind": "proposition_explicite",
+          "details": "« Annuler le Mercosur » (franceinfo, 02/06/2026). La protection des éleveurs figure dans le discours de septembre 2026.",
+          "source_url": "https://www.debout-la-france.fr/projet/agriculture/",
+          "source_title": "Livret DLF « Agriculture »",
+          "source_date": "2026-01-08",
+          "confidence": "high"
+        },
+        {
+          "position": "Alléger les charges des agriculteurs et faciliter leur installation : supprimer les cotisations sociales agricoles, rétablir l'avantage fiscal du GNR, exonérer de droits de succession les 100 premiers hectares transmis et faire garantir par l'État 50 % des prêts d'installation.",
+          "kind": "proposition_explicite",
+          "details": "Le livret prévoit aussi d'aligner les retraites agricoles des conjoints sur le régime général et de lutter contre l'accaparement des terres par des fonds.",
+          "source_url": "https://www.debout-la-france.fr/projet/agriculture/",
+          "source_title": "Livret DLF « Agriculture »",
+          "source_date": "2026-01-08",
+          "confidence": "high"
+        },
+        {
+          "position": "Réserver 50 % puis 80 % de la commande publique alimentaire aux producteurs français, rendre obligatoire l'étiquetage de l'origine et encourager les circuits courts.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.debout-la-france.fr/projet/agriculture/",
+          "source_title": "Livret DLF « Agriculture »",
+          "source_date": "2026-01-08",
+          "confidence": "high"
+        },
+        {
+          "position": "Bien-être animal : vidéosurveillance obligatoire dans tous les abattoirs, label « bien-être animal », fin de la consommation de viande de cheval, interdiction de l'expérimentation animale quand une alternative existe, et suppression de la TVA sur les frais vétérinaires.",
+          "kind": "inference",
+          "details": "Fiche « Bien-être animal » non datée (16 mesures).",
+          "source_url": "https://www.debout-la-france.fr/projet/bien-etre-animal/",
+          "source_title": "Fiche programme DLF « Bien-être animal »",
+          "source_date": "non datée",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "territoires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Supprimer les régions et les intercommunalités forcées, et réorganiser le territoire autour du couple commune-département (abrogation de la loi NOTRe et clause de compétence générale rendue aux communes).",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+          "source_title": "Libérons la France ! · Discours de rentrée",
+          "source_date": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "position": "Garantir l'égalité entre villes et campagnes : un hôpital à moins de 45 minutes, la fin des zones blanches de téléphonie et d'Internet, le maintien des petites lignes ferroviaires, l'arrêt des fermetures de classes rurales et des dotations renforcées pour les communes de moins de 5 000 habitants.",
+          "kind": "proposition_explicite",
+          "details": "Le livret prévoit aussi de taxer davantage les grandes surfaces au profit du commerce rural et de rétablir l'autorisation pour les surfaces commerciales de plus de 1 000 m². Le discours de 2026 promet une nouvelle péréquation tarifaire des services publics.",
+          "source_url": "https://www.debout-la-france.fr/projet/equilibre-territoire-monde-rural/",
+          "source_title": "Livret DLF « Équilibre du territoire et monde rural » (25 mesures)",
+          "source_date": "2024",
+          "confidence": "medium"
+        },
+        {
+          "position": "Outre-mer : diviser par deux le prix des billets d'avion vers l'Hexagone, réformer l'octroi de mer contre la vie chère, créer un ministère de la Mer et des Outre-mer, renforcer le contrôle des frontières en Guyane et à Mayotte, et aligner la densité médicale sur celle de l'Hexagone.",
+          "kind": "inference",
+          "details": "Fiche « Outre-mer » non datée.",
+          "source_url": "https://www.debout-la-france.fr/projet/outre-mer/",
+          "source_title": "Fiche programme DLF « Outre-mer »",
+          "source_date": "non datée",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "found": true,
+      "positions": [
+        {
+          "position": "Augmenter les effectifs et les pouvoirs des forces de l'ordre : +10 000 policiers et gendarmes et +10 000 douaniers et policiers aux frontières en 5 ans, présomption de légitime défense, recréation des Renseignements généraux, pouvoirs élargis pour les polices municipales et armée déployée aux frontières.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.debout-la-france.fr/projet/securite/",
+          "source_title": "Livret DLF « Sécurité » (30 mesures)",
+          "source_date": "2025-10-31",
+          "confidence": "high"
+        },
+        {
+          "position": "Prisons : créer 40 000 places et recruter 20 000 surveillants, placer l'administration pénitentiaire sous l'Intérieur et construire une prison ultra-sécurisée de 600 cellules en Guyane pour les gros trafiquants. Les détenus porteraient un uniforme et paieraient leurs frais d'incarcération par leur travail.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.debout-la-france.fr/projet/securite/",
+          "source_title": "Livret DLF « Sécurité »",
+          "source_date": "2025-10-31",
+          "confidence": "high"
+        },
+        {
+          "position": "Narcotrafic : décréter un état d'urgence, saisir les armes et fermer les frontières. Le livret Justice ajoute une peine minimale de 10 ans pour la détention d'armes de guerre liée au trafic ou au terrorisme.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.sudradio.fr/linvite-politique/nicolas-dupont-aignan-les-regles-de-lue-sont-devenues-une-prison-pour-la-france",
+          "source_title": "« Les règles de l'UE sont devenues une prison pour la France ! » (Sud Radio)",
+          "source_date": "2026-05-18",
+          "confidence": "high"
+        },
+        {
+          "position": "Politique pénale : abroger la règle de 2019 qui écarte la prison pour les peines de moins d'un an, rétablir et étendre les peines planchers, refondre le code pénal en 6 mois et allonger la prescription à 30 ans pour les crimes et 10 ans pour les délits. Rétablir les cours d'assises à la place des cours criminelles départementales, porter le budget de la justice de 10,1 à 15 Md€ et remplacer les syndicats de magistrats par des associations professionnelles.",
+          "kind": "proposition_explicite",
+          "details": "Il résume cette ligne ainsi : « un délit = une condamnation = une peine exécutée ». Il prévoit aussi un référendum sur le code pénal (discours du 8 mars 2025).",
+          "source_url": "https://www.debout-la-france.fr/projet/justice/",
+          "source_title": "Livret DLF « Justice » (18 mesures)",
+          "source_date": "2026-06-10",
+          "confidence": "high"
+        },
+        {
+          "position": "Organiser un référendum sur le rétablissement de la peine de mort pour les meurtriers d'enfants, avec une pétition lancée après le meurtre de la jeune Lyhanna.",
+          "kind": "proposition_explicite",
+          "details": "La peine de mort est aujourd'hui interdite par l'article 66-1 de la Constitution (depuis 2007).",
+          "short_quote": "La première mission de l'État est de protéger les innocents.",
+          "source_url": "https://www.dupontaignan.fr/actualite/pour-un-referendum-sur-la-peine-de-mort-pour-les-meurtriers-d-enfants/",
+          "source_title": "Pour un référendum sur la peine de mort pour les meurtriers d'enfants",
+          "source_date": "2026-06-11",
+          "confidence": "high"
+        },
+        {
+          "position": "Mineurs : des mesures coercitives réelles, dont l'isolement, pour les mineurs violents. En 2024, il demandait d'abaisser la majorité pénale à 15 ans.",
+          "kind": "proposition_explicite",
+          "details": "La majorité pénale à 15 ans date de mai 2024 (affaire Matisse) et n'est pas reprise explicitement dans le livret de 2025.",
+          "source_url": "https://www.debout-la-france.fr/actualite/affaire-matisse-je-demande-la-majorite-penale-a-15-ans/",
+          "source_title": "Affaire Matisse : je demande la majorité pénale à 15 ans",
+          "source_date": "2024-05-02",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "found": true,
+      "positions": [
+        {
+          "position": "Rétablir le contrôle des frontières nationales en sortant de l'espace Schengen et du pacte européen sur la migration et l'asile, en déployant l'armée aux frontières et en recrutant 10 000 agents spécialisés. Il veut aussi sortir de la directive européenne « retour ».",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.debout-la-france.fr/projet/immigration-et-assimilation/",
+          "source_title": "Livret DLF « Immigration et assimilation » (27 mesures)",
+          "source_date": "2026-03-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Rétablir le délit de séjour irrégulier (prison puis expulsion), interdire le mariage avec un étranger en situation irrégulière, limiter strictement le regroupement familial, renvoyer sans délai les mineurs isolés et expulser systématiquement les délinquants étrangers à la fin de leur peine (double peine automatique).",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.debout-la-france.fr/projet/immigration-et-assimilation/",
+          "source_title": "Livret DLF « Immigration et assimilation »",
+          "source_date": "2026-03-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Restreindre l'asile : demandes déposées uniquement aux frontières ou traitées en amont hors du territoire, assignation à résidence des demandeurs, application stricte de la Convention de Genève, retour des réfugiés de guerre une fois la paix rétablie et aucune régularisation des déboutés.",
+          "kind": "proposition_explicite",
+          "short_quote": "Restaurer le droit d'asile, un droit fondamental, strict et contrôlé",
+          "source_url": "https://www.debout-la-france.fr/projet/immigration-et-assimilation/",
+          "source_title": "Livret DLF « Immigration et assimilation » (mesure 8)",
+          "source_date": "2026-03-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Supprimer le droit du sol par référendum. Exiger au moins 10 ans de résidence pour la naturalisation, avec maîtrise de la langue, service civique de 3 mois et plafond annuel voté par le Parlement. Réserver le droit de vote aux Français.",
+          "kind": "proposition_explicite",
+          "short_quote": "Supprimer le droit du sol via un référendum",
+          "source_url": "https://www.debout-la-france.fr/projet/immigration-et-assimilation/",
+          "source_title": "Livret DLF « Immigration et assimilation » (mesures 17-19)",
+          "source_date": "2026-03-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Dénoncer l'accord franco-algérien de 1968 et supprimer l'aide au développement des pays qui refusent de reprendre leurs ressortissants expulsés.",
+          "kind": "proposition_explicite",
+          "short_quote": "L'accord de 1968 avec l'Algérie sera dénoncé",
+          "source_url": "https://www.debout-la-france.fr/actualite/je-suis-candidat-pour/",
+          "source_title": "Discours de candidature du 8 mars 2025",
+          "source_date": "2025-03-08",
+          "confidence": "high"
+        },
+        {
+          "position": "Supprimer l'AME et les aides sociales non contributives pour les étrangers, et créer une caisse d'assurance sociale propre aux étrangers qui travaillent en France, alimentée par les entreprises (modèle singapourien). L'immigration de travail serait conditionnée au taux de chômage.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.debout-la-france.fr/projet/immigration-et-assimilation/",
+          "source_title": "Livret DLF « Immigration et assimilation » (mesures 10, 13-15)",
+          "source_date": "2026-03-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Député, il s'est abstenu lors du vote final sur la loi immigration de décembre 2023, qu'il jugeait insuffisante.",
+          "kind": "inference",
+          "source_url": "https://www.nosdeputes.fr/nicolas-dupont-aignan/votes",
+          "source_title": "NosDéputés.fr – scrutin du 19/12/2023",
+          "source_date": "2023-12-19",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Sortir de l'Union européenne pour rapatrier les compétences au niveau national. Il se présente comme le seul candidat à le proposer et refuse pourtant le terme de « Frexit ».",
+          "kind": "proposition_explicite",
+          "short_quote": "Sortir de l'Union européenne pour rapatrier nos compétences au niveau national",
+          "source_url": "https://www.debout-la-france.fr/projet/refonder-et-moraliser-notre-democratie/",
+          "source_title": "Livret DLF « Refonder et moraliser notre démocratie » (mesure 6)",
+          "source_date": "2026-06-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Méthode : pendant un moratoire, la France cesse de payer sa contribution, contrôle ses frontières, rétablit la supériorité du droit national et n'applique plus le droit communautaire. Elle négocie un nouveau traité avec les pays volontaires, puis organise un référendum sur la sortie et sur ce traité.",
+          "kind": "proposition_explicite",
+          "details": "Moratoire de 6 mois dans le discours de septembre 2025, d'un an dans le livret de juin 2026. Il prévoit un Frexit unilatéral si la négociation échoue.",
+          "source_url": "https://www.debout-la-france.fr/projet/refonder-et-moraliser-notre-democratie/",
+          "source_title": "Livret DLF « Refonder et moraliser notre démocratie » (mesure 7)",
+          "source_date": "2026-06-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Remplacer l'UE par une « Europe des nations libres » : une organisation intergouvernementale légère fondée sur des coopérations concrètes à la carte (modèle Airbus).",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.debout-la-france.fr/actualite/la-revolution-du-bon-sens-pour-sauver-la-france/",
+          "source_title": "« La Révolution du bon sens pour sauver la France ! »",
+          "source_date": "2025-09-20",
+          "confidence": "high"
+        },
+        {
+          "position": "Supprimer la contribution nette au budget européen (environ 10 Md€ par an selon DLF), sortir de Schengen, du marché européen de l'électricité et de la PAC, rétablir la primauté du droit national et cesser d'appliquer la jurisprudence de la CJUE.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.debout-la-france.fr/projet/affaires-europeennes/",
+          "source_title": "Fiche programme DLF « Affaires européennes » (9 mesures)",
+          "source_date": "2026",
+          "confidence": "high"
+        },
+        {
+          "position": "Il s'oppose à l'élargissement de l'UE à l'Ukraine : un accord de paix devrait maintenir l'Ukraine hors de l'OTAN et de l'UE.",
+          "kind": "position_declaree",
+          "short_quote": "que l'Ukraine reste en dehors de l'OTAN et de l'Union européenne",
+          "source_url": "https://www.sudradio.fr/linvite-politique/nicolas-dupont-aignan-la-position-du-rn-est-incomprehensible",
+          "source_title": "Nicolas Dupont-Aignan : « La position du RN est incompréhensible » (Sud Radio)",
+          "source_date": "2026-09-20",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "ukraine_russie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Arrêter toutes les aides et subventions à l'Ukraine. Il chiffre l'engagement français à 40 Md€ et critique la part de 17 Md€ dans le prêt européen de 90 Md€.",
+          "kind": "proposition_explicite",
+          "details": "Le chiffre de 40 Md€ est avancé par le candidat. Dès janvier 2026, il jugeait plus urgent de « reconstruire notre justice » que de financer l'Ukraine.",
+          "source_url": "https://www.dupontaignan.fr/actualite/president-jarreterai-toutes-subventions-a-lukraine-%c2%b7-bfmtv-21-09-26/",
+          "source_title": "« Président, j'arrêterai toutes subventions à l'Ukraine ! » · BFMTV",
+          "source_date": "2026-09-21",
+          "confidence": "high"
+        },
+        {
+          "position": "Négocier la paix sur la base du plan qu'il dit avoir proposé le 7 mars 2022 : neutralité et démilitarisation de l'Ukraine, référendum dans le Donbass et forces de l'ONU autour des centrales nucléaires. En échange du maintien de l'Ukraine hors de l'OTAN et de l'UE, il demande le retrait des troupes russes.",
+          "kind": "proposition_explicite",
+          "details": "Il accuse Emmanuel Macron et Ursula von der Leyen de « saboter » la paix voulue, selon lui, par Donald Trump et Vladimir Poutine.",
+          "short_quote": "Neutralité et Démilitarisation de l'Ukraine, référendum au Donbass",
+          "source_url": "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+          "source_title": "Libérons la France ! · Discours de rentrée",
+          "source_date": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "position": "Lever les sanctions contre la Russie, qu'il juge contre-productives et ruineuses pour la France, relancer un partenariat avec Moscou et développer des coopérations « de l'Atlantique à l'Oural ».",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.debout-la-france.fr/projet/affaires-etrangeres/",
+          "source_title": "Livret DLF « Affaires étrangères »",
+          "source_date": "2025-04-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Il veut que la France soit neutre et serve de « réconciliateur » dans ce conflit, qu'il qualifie de « guerre civile tragique ». Il refuse d'envoyer des troupes françaises en Ukraine et préfère déployer l'armée aux frontières françaises.",
+          "kind": "position_declaree",
+          "short_quote": "Je ne fais confiance ni à Poutine, ni à Zelensky.",
+          "source_url": "https://www.sudradio.fr/linvite-politique/ukraine-nous-avons-la-chance-davoir-donald-trump-qui-veut-la-paix-affirme-nicolas-dupont-aignan",
+          "source_title": "Ukraine : « Nous avons la chance d'avoir Donald Trump qui veut la paix » (Sud Radio)",
+          "source_date": "2025-03-04",
+          "confidence": "high"
+        },
+        {
+          "position": "Député, il a voté contre la déclaration du gouvernement sur l'accord de sécurité franco-ukrainien le 12 mars 2024.",
+          "kind": "inference",
+          "source_url": "https://www.nosdeputes.fr/nicolas-dupont-aignan/votes",
+          "source_title": "NosDéputés.fr – scrutin du 12/03/2024",
+          "source_date": "2024-03-12",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "proche_orient",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il défend un cessez-le-feu et une solution à deux États, présentée comme « la seule voie possible » au Proche-Orient.",
+          "kind": "position_declaree",
+          "source_url": "https://www.debout-la-france.fr/actualite/la-revolution-du-bon-sens-pour-sauver-la-france/",
+          "source_title": "« La Révolution du bon sens pour sauver la France ! »",
+          "source_date": "2025-09-20",
+          "confidence": "high"
+        },
+        {
+          "position": "Il soutient un État palestinien à condition qu'il ne soit pas aux mains du Hamas et qu'une Autorité palestinienne reconnaisse Israël. Il condamne le massacre du 7 octobre, juge la situation à Rafah « abominable et inacceptable » et regrette que la France ne se fasse pas davantage entendre.",
+          "kind": "position_declaree",
+          "details": "Interview de mai 2024, donc antérieure à 2025. En 2014, il avait annoncé voter pour la résolution sur la reconnaissance de l'État palestinien.",
+          "source_url": "https://www.franceinfo.fr/replay-radio/19h20-politique/proche-orient-l-importation-de-ce-terrible-conflit-sur-le-sol-francais-serait-une-catastrophe-soutient-nicolas-dupont-aignan_6542288.html",
+          "source_title": "Proche-Orient : « L'importation de ce terrible conflit sur le sol français serait une catastrophe » (franceinfo)",
+          "source_date": "2024-05-28",
+          "confidence": "medium"
+        },
+        {
+          "position": "DLF réclame une voix française « équilibrée, indépendante et forte » : une paix qui garantisse la sécurité d'Israël et les aspirations palestiniennes, le respect du droit international et la protection des chrétiens d'Orient. Le parti critique les frappes américaines précipitées contre l'Iran.",
+          "kind": "position_declaree",
+          "source_url": "https://www.debout-la-france.fr/actualite/iran-la-france-doit-retrouver-une-voix-equilibree-independante-et-forte/",
+          "source_title": "Iran : la France doit retrouver une voix équilibrée, indépendante et forte (communiqué DLF)",
+          "source_date": "2025-06-24",
+          "confidence": "medium"
+        },
+        {
+          "position": "Il veut renouer le dialogue au Moyen-Orient et garantir la survie des chrétiens d'Orient. Le livret de 2025 vise une paix durable entre Israéliens et Palestiniens.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+          "source_title": "Libérons la France ! · Discours de rentrée",
+          "source_date": "2026-09-19",
+          "confidence": "medium"
+        },
+        {
+          "position": "Une tribune DLF de mars 2026 qualifie les opérations militaires américano-israéliennes de « guerre préventive » sans fondement en droit international et défend une prudence diplomatique gaullienne.",
+          "kind": "inference",
+          "details": "Tribune de Ghislain Tissot, délégué national DLF aux Français de l'étranger, et non du candidat.",
+          "source_url": "https://www.debout-la-france.fr/actualite/la-guerre-au-moyen-orient-selon-une-vision-gaullienne-droit-international-et-prudence-diplomatique/",
+          "source_title": "La guerre au Moyen-Orient selon une vision gaullienne",
+          "source_date": "2026-03-21",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "defense",
+      "found": true,
+      "positions": [
+        {
+          "position": "Sortir à nouveau du commandement intégré de l'OTAN pour retrouver l'indépendance stratégique, et ne conserver que des coopérations militaires à la carte.",
+          "kind": "proposition_explicite",
+          "short_quote": "Le retrait du commandement intégré de l'OTAN",
+          "source_url": "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+          "source_title": "Libérons la France ! · Discours de rentrée",
+          "source_date": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "position": "Porter le budget de la défense à 2,5 % du PIB.",
+          "kind": "proposition_explicite",
+          "details": "Le livret ne fixe pas d'échéance. Il a pourtant voté contre la LPM 2024-2030 en juillet 2023 et dénonce le réarmement face à la « menace russe », qu'il présente comme instrumentalisé.",
+          "short_quote": "le chiffre raisonnable de 2,5% du PIB",
+          "source_url": "https://www.debout-la-france.fr/projet/defense/",
+          "source_title": "Livret DLF « Défense nationale »",
+          "source_date": "2025-04-15",
+          "confidence": "medium"
+        },
+        {
+          "position": "Refuser tout partage ou européanisation de la dissuasion nucléaire française, ce qu'il qualifie de « haute trahison », et dénoncer son « accaparement » par la Commission européenne. Poursuivre les missiles hypersoniques et la simulation.",
+          "kind": "position_declaree",
+          "source_url": "https://www.debout-la-france.fr/actualite/je-suis-candidat-pour/",
+          "source_title": "Discours de candidature du 8 mars 2025",
+          "source_date": "2025-03-08",
+          "confidence": "high"
+        },
+        {
+          "position": "Mettre fin au programme européen d'avion de combat SCAF au profit d'un nouveau Rafale. Porter la flotte à 250 Rafale en 2030 et les frégates de 15 à 20, et accélérer un second porte-avions.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.debout-la-france.fr/projet/defense/",
+          "source_title": "Livret DLF « Défense nationale »",
+          "source_date": "2025-04-15",
+          "confidence": "medium"
+        },
+        {
+          "position": "Service national : un service civique obligatoire de 3 mois, un service militaire volontaire d'un an et une Garde nationale de 100 000 réservistes. Il juge le service militaire annoncé par Emmanuel Macron improvisé et sans moyens.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.debout-la-france.fr/actualite/service-militaire-a-quand-des-mesures-serieuses-et-realistes/",
+          "source_title": "Service militaire : à quand des mesures sérieuses et réalistes ? (communiqué signé N. Dupont-Aignan)",
+          "source_date": "2025-11-28",
+          "confidence": "high"
+        },
+        {
+          "position": "Député, il a voté contre l'ensemble de la loi de programmation militaire 2024-2030.",
+          "kind": "inference",
+          "source_url": "https://www.nosdeputes.fr/nicolas-dupont-aignan/votes",
+          "source_title": "NosDéputés.fr – scrutin du 12/07/2023",
+          "source_date": "2023-07-12",
+          "confidence": "medium"
+        }
+      ]
+    }
+  ],
+  "distinctive_vs_others": "1) Europe. Dupont-Aignan dit être « le seul candidat » à proposer la sortie de l'UE (franceinfo, 19/09/2026). Il se distingue nettement de Marine Le Pen et du RN : selon lui, Jordan Bardella et Marine Le Pen ne veulent pas quitter l'UE, et il juge leur position « incompréhensible » (Sud Radio, 18/05/2026 et 20/09/2026). Il se démarque aussi de Bruno Retailleau, à qui il reproche de promettre des réformes impossibles sans sortie de l'UE (franceinfo, 02/06/2026), ainsi que d'Édouard Philippe, de Gabriel Attal et des candidats de gauche. Mais François Asselineau et Florian Philippot, autres candidats déclarés, défendent eux aussi une sortie de l'UE. Philippot a d'ailleurs critiqué la multiplication des candidatures souverainistes (Sud Radio, 17/09/2025). Ce qui distingue Dupont-Aignan dans ce camp, c'est sa méthode en plusieurs temps (moratoire, renégociation, référendum, puis Frexit unilatéral en cas d'échec) et son projet d'« Europe des nations libres ». Il refuse le mot « Frexit » et se dit ouvert à travailler avec Philippot (Sud Radio, 18/05/2026). 2) Ukraine et OTAN. Il veut arrêter toute aide à l'Ukraine, lever les sanctions contre la Russie et sortir du seul commandement intégré de l'OTAN, pas de l'Alliance elle-même. Cela l'éloigne des candidats du bloc central et de la droite LR. 3) Démocratie directe. Il cumule RIC législatif et constituant à 1 million de signatures, cinq référendums dans le quinquennat, retour au septennat avec référendum révocatoire, vote blanc qui peut annuler une élection et carte Vitale conditionnée au vote (livret du 09/06/2026). 4) Mesures propres. Un capital de 10 000 € par nouveau-né français placé dans un fonds souverain pour la retraite, un référendum sur la peine de mort pour les meurtriers d'enfants (11/06/2026) et un chèque citoyen pour remplacer le financement public de l'audiovisuel (08/03/2025). 5) Mélange de lignes. Sur le régalien et l'immigration, il est proche de la droite dure : sortie de Schengen, fin du droit du sol, suppression de l'AME, dénonciation de l'accord de 1968. Sur l'économie et le social, il défend des positions dirigistes et protectrices : retraite à 62 ans, indexation des pensions, allocations familiales universelles, protectionnisme et prix agricoles garantis. Sur l'aide à mourir et les vaccins à ARN, il tient des positions conservatrices ou critiques.",
+  "evolutions_and_contradictions": "Europe : la position s'est durcie. Le 8 mars 2025, le Frexit était présenté comme un « escalier de secours », une « dernière solution » si les partenaires refusaient une Europe gaullienne (franceinfo, discours DLF). En septembre 2025, il propose de dissoudre l'UE avec un moratoire de 6 mois, puis un référendum, et un Frexit unilatéral en cas d'échec. Le livret de juin 2026 porte le moratoire à un an et affirme « sortir de l'UE ». En septembre 2026, il se dit le seul candidat de la sortie de l'UE, tout en rejetant le mot « Frexit ». La fiche « Affaires européennes » parle encore d'un « référendum sur l'appartenance ». Chiffrages variables : la baisse du prix de l'électricité passe de -30 % (mars 2025, juin 2026) à une division par deux (septembre 2026). Les emplois à relocaliser passent de 1 million (juin 2026) à 2 millions (septembre 2026). La baisse des carburants vaut 30 centimes (mai 2026), 40 centimes (franceinfo, 19/09/2026) puis 50 centimes (discours du même jour). La contribution nette à l'UE est estimée à 10, 15 ou 16 Md€ selon les documents. Aides sociales des étrangers : « aucune aide avant 5 ans de présence régulière » en mars et septembre 2025, puis suppression de toutes les aides non contributives dans le livret de mars 2026. Uniforme scolaire : facultatif dans l'ancienne fiche école, « imposé » dans le discours de septembre 2025. Défense : le livret vise 2,5 % du PIB, mais il a voté contre la LPM 2024-2030 et dénonce le réarmement face à la Russie. Dette : en septembre 2025, il l'attribue surtout au manque de croissance, puis en 2026 il insiste sur l'assainissement des comptes et les « milliards gaspillés ». Il juge la peine de mort souhaitable pour les meurtriers d'enfants tout en combattant l'aide à mourir au nom de la protection de la vie, et il oppose lui-même les deux sujets. Sur la scène politique, il avait soutenu Marine Le Pen au second tour de 2017 et voulait une « coalition des patriotes » en 2023-2024, mais il attaque désormais le RN sur l'Europe. Enfin, DLF indique que son programme 2027 est « en cours d'actualisation » : plusieurs fiches (santé, école, économie, environnement, retraites) reprennent encore le programme de 2022.",
+  "open_questions": [
+    "Quelle est sa position sur l'euro : retour au franc, monnaie commune ou maintien ? Il insiste sur la « maîtrise de la monnaie » sans préciser.",
+    "Comment ses mesures seraient-elles financées et quel est leur coût global : baisse de 40-50 c/l des carburants, électricité divisée par deux, 10 000 € par naissance, 40 000 places de prison, 13e mois par baisse des cotisations ? Aucune trajectoire de déficit ou de dette n'a été publiée.",
+    "Que pense-t-il de la reconnaissance de l'État de Palestine par la France en septembre 2025 et de la conduite de la guerre à Gaza en 2025-2026 ? Ses positions précises datent surtout de 2024.",
+    "Est-il favorable à l'interdiction des réseaux sociaux aux moins de 15 ans, débattue en 2026 ?",
+    "Veut-il revenir sur la PMA pour toutes les femmes ? Il s'y était opposé en 2019-2021, mais aucune position récente n'a été trouvée.",
+    "Que propose-t-il sur l'assurance chômage, le RSA, le temps de travail (35 heures) et l'encadrement des loyers ?",
+    "Comment rendre compatible un référendum sur la peine de mort avec l'article 66-1 de la Constitution et les engagements européens et internationaux de la France ?",
+    "Le budget de 2,5 % du PIB pour la défense est-il maintenu, compte tenu de ses critiques du réarmement ? Le service civique de 3 mois serait-il vraiment obligatoire ?",
+    "Le service militaire volontaire d'un an serait-il cumulable avec un nouveau service national universel ?",
+    "Quand sera publié le programme 2027 définitif et actualisé ? Les fiches santé, école, économie, environnement et retraites datent de ~2022."
+  ]
+}

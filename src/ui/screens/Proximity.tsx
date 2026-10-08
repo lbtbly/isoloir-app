@@ -16,6 +16,8 @@ import { Icon } from '../components/Icon'
 import { Initials, InitialsSample, type Mark } from '../components/Initials'
 import { RatingMark } from '../components/RatingRuler'
 import { formatDate, hostOf } from '../format'
+import { isMany } from '../many'
+import { link } from '../nav'
 
 interface Props {
   pack: ElectionPack
@@ -80,14 +82,15 @@ export function Proximity({ pack, state }: Props) {
 
         <RevealLegend />
 
-        <dl class="key">
+        {/* Une vingtaine de candidats : la liste passe en colonnes */}
+        <dl class={`key${isMany(people.length) ? ' is-many' : ''}`}>
           {people.map(c => (
             <div key={c.id}>
               <dt>
                 <Initials candidate={c} />
               </dt>
               <dd>
-                <a href={`#/candidat/${c.id}`}>{c.name}</a>
+                <a href={link(`/candidat/${c.id}`)}>{c.name}</a>
               </dd>
             </div>
           ))}
@@ -151,12 +154,12 @@ export function Proximity({ pack, state }: Props) {
       <SiteFooter />
       <nav class="action-bar" aria-label="Suite">
         <div class="action-bar-inner">
-          <a class="btn-text" href="#/resultats">
+          <a class="btn-text" href={link('/resultats')}>
             <Icon name="arrow-left" />
             Résultats
           </a>
           <span />
-          <a class="btn-primary" href="#/approfondir">
+          <a class="btn-primary" href={link('/approfondir')}>
             Approfondir
             <Icon name="arrow-right" />
           </a>

@@ -1,5 +1,5 @@
 import { useState } from 'preact/hooks'
-import { go } from '../../app'
+import { go } from '../nav'
 import { hasOpinion } from '../../core/answers'
 import type { SessionState } from '../../core/storage'
 import type { ElectionPack, Question, TopicWeights } from '../../core/types'

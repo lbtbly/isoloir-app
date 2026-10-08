@@ -1,0 +1,585 @@
+{
+  "candidate": "Olivier Faure",
+  "topics": [
+    {
+      "topic_id": "finances_publiques",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il veut redresser les comptes publics sans politique d'austérité. Selon lui, une consolidation brutale qui frapperait l'investissement public, les services publics ou les ménages modestes pèserait sur l'activité et sur les recettes, et rendrait encore plus difficile la stabilisation de la dette.",
+          "kind": "position_declaree",
+          "short_quote": "Le redressement des comptes publics doit être juste, crédible et non récessif",
+          "source_url": "https://www.politis.fr/articles/2026/09/olivier-faure-je-ne-vois-pas-ce-qui-pourrait-conduire-vers-une-autre-decision-que-la-censure/",
+          "source_title": "Olivier Faure : « Je ne vois pas ce qui pourrait conduire vers une autre décision que la censure » (Politis)",
+          "source_date": "2026-09-21",
+          "details": "Il répondait à la question « Comment résorber la dette ? ». Il reproche au gouvernement de faire porter l'effort sur les fonctionnaires, les retraités, les malades, les étrangers et les collectivités. Il rappelle que les collectivités représentent 18 % de la dépense publique mais portent près de 70 % de l'investissement public civil. Pour lui, la dette vient surtout des « cadeaux fiscaux », qu'il évalue à plus de 60 Md€ par an depuis dix ans. Aucune cible chiffrée de déficit ou de dette n'a été trouvée dans ses documents de campagne.",
+          "confidence": "high"
+        },
+        {
+          "position": "Pour réduire la dette, il mise sur de nouvelles recettes plutôt que sur des baisses de dépenses : imposer les gros héritages et instaurer la taxe Zucman, soit 2 % par an sur les patrimoines de plus de 100 M€.",
+          "kind": "proposition_explicite",
+          "short_quote": "Oui il y aura une taxe Zucman",
+          "source_url": "https://www.franceinfo.fr/economie/crise/crise-de-la-dette/que-proposent-les-candidats-a-la-presidentielle-pour-reduire-la-dette-publique_8215481.html",
+          "source_title": "Que proposent les candidats à la présidentielle pour réduire la dette publique ? (franceinfo)",
+          "source_date": "2026-09-29",
+          "details": "La citation vient du débat France 2 / France Inter du 1er octobre 2026 (LCP, https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme). Franceinfo classe Faure, avec Glucksmann, parmi les candidats qui privilégient la hausse des recettes. Sur les carburants, il défend des mesures « possibles sans toucher au budget de l'État », en agissant sur les marges des producteurs et des raffineurs plutôt qu'en baissant les taxes.",
+          "confidence": "high"
+        },
+        {
+          "position": "Il rejette l'annulation de la dette publique proposée par Mélenchon (« mettre au feu » les dettes détenues par les banques centrales). Il juge cette option irréaliste, car elle supposerait un accord européen.",
+          "kind": "position_declaree",
+          "short_quote": "Cela suppose d'avoir un accord des Européens, ce qui est très compliqué",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+          "source_title": "Primaire de la gauche : échanges tendus sur les alliances avec LFI, Gaza, Ukraine… Que retenir du 1er débat (Public Sénat)",
+          "source_date": "2026-09-24",
+          "details": "Propos tenus lors du débat LCI du 23/09/2026. LCP (23/09/2026) indique qu'il privilégie des pistes « réalisables » et les recettes fiscales.",
+          "confidence": "high"
+        },
+        {
+          "position": "Le contre-budget 2027 des députés socialistes, présenté pendant sa campagne, prévoit 39,5 Md€ de recettes nouvelles pour 22 Md€ de dépenses nouvelles. Ce solde améliore le déficit d'environ 17,5 Md€.",
+          "kind": "inference",
+          "source_url": "https://www.journaldunet.com/business/action-publique/1554951-le-parti-socialiste-propose-un-contre-budget-pour-2027-a-l-assemblee-nationale/",
+          "source_title": "Le Parti socialiste propose un contre-budget pour 2027 à l'Assemblée nationale (Journal du Net)",
+          "source_date": "2026-09-16",
+          "details": "Recettes prévues : taxe Zucman (environ 15 Md€), CSG sur les très gros héritages (environ 10 Md€), taxe sur les géants du numérique (environ 10 Md€). Dépenses prévues : climat, accès aux soins, 3 Md€ pour la loi contre les violences sexuelles, agriculture et éducation. Selon Selectra (16/09/2026), les socialistes revendiquent une baisse du déficit de 24 Md€ (0,8 point de PIB), effets de croissance compris ; ce chiffrage n'est pas vérifié. Le document du groupe PS « Les 7 priorités des socialistes pour le budget 2027 » (24/09/2026) affirme vouloir financer ces mesures « tout en réduisant le déficit ». Faure est député PS, mais il s'agit d'un document de groupe, pas de son programme personnel.",
+          "confidence": "medium"
+        },
+        {
+          "position": "À l'été 2025, sous sa direction, le PS a présenté un contre-budget 2026. L'effort de redressement y était limité à 21,7 Md€, contre 44 Md€ dans le plan Bayrou, avec environ 27 Md€ d'impôts supplémentaires sur les plus aisés et les entreprises et 19 Md€ de dépenses nouvelles. Faure s'engageait à ne pas utiliser le 49.3 s'il gouvernait.",
+          "kind": "inference",
+          "short_quote": "Nous prenons l'engagement de ne pas utiliser l'article 49.3",
+          "source_url": "https://www.franceinfo.fr/replay-radio/l-edito-politique/edito-le-ps-represente-t-il-reellement-une-alternative-en-cas-de-chute-du-gouvernement-bayrou_7442716.html",
+          "source_title": "Le PS représente-t-il réellement une alternative en cas de chute du gouvernement Bayrou ? (franceinfo)",
+          "source_date": "2025-09-02",
+          "details": "La citation sur le 49.3 vient de franceinfo (30/08/2025, https://www.franceinfo.fr/politique/gouvernement-de-francois-bayrou/olivier-faure-vise-matignon-alliances-et-contre-budget-au-programme_7463464.html), qui parle de 14 Md€ d'économies. Les deux chiffres (21,7 Md€ d'effort total, 14 Md€ d'économies) ne mesurent pas la même chose. Aucune année cible de retour à 3 % de déficit n'a été trouvée.",
+          "confidence": "medium"
+        },
+        {
+          "position": "Il a voté contre la partie recettes du projet de loi de finances 2026 (21/11/2025), rejetée quasi unanimement. En janvier 2026, il a ensuite renoncé à censurer le budget adopté par 49.3, après avoir obtenu des concessions : prolongation de la surtaxe sur les grandes entreprises (environ 8 Md€), hausse de la prime d'activité, repas à 1 € pour les étudiants.",
+          "kind": "inference",
+          "short_quote": "les conditions seront remplies, donc nous ne censurons pas le gouvernement",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/budget-une-victoire-politique-pour-le-ps-et-olivier-faure",
+          "source_title": "Budget : une « victoire politique » pour le PS et Olivier Faure ? (Public Sénat)",
+          "source_date": "2026-01-20",
+          "details": "Vote sur les recettes du PLF 2026 : https://datan.fr/votes/legislature-17/vote_4241 (404 voix contre, 1 pour). Il avait aussi voté contre la loi de programmation des finances publiques 2023-2027 (25/10/2022, https://datan.fr/votes/legislature-16/vote_361). Aucune position personnelle sur la baisse des effectifs de l'État n'a été trouvée : il dénonce seulement l'effort demandé aux fonctionnaires.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "solidarites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Pour ne pas censurer le budget 2026, il a obtenu du gouvernement Lecornu une hausse de la prime d'activité et des repas à 1 € pour tous les étudiants.",
+          "kind": "position_declaree",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/budget-une-victoire-politique-pour-le-ps-et-olivier-faure",
+          "source_title": "Budget : une « victoire politique » pour le PS et Olivier Faure ? (Public Sénat)",
+          "source_date": "2026-01-20",
+          "details": "Le montant de la hausse de la prime d'activité n'est pas précisé dans l'article.",
+          "confidence": "high"
+        },
+        {
+          "position": "Le groupe socialiste a fait supprimer, par un amendement adopté par 308 voix contre 99, le gel des pensions et des prestations sociales (allocations familiales, minima sociaux, aides au logement) prévu en 2026 dans le budget de la Sécurité sociale. C'était l'une des contreparties négociées par le PS de Faure.",
+          "kind": "inference",
+          "source_url": "https://www.franceinfo.fr/economie/budget/budget-de-la-securite-sociale-l-assemblee-nationale-rejette-largement-le-gel-des-pensions-de-retraites-et-des-minima-sociaux_7612064.html",
+          "source_title": "Budget de la Sécurité sociale : l'Assemblée nationale rejette largement le gel des pensions de retraite et des minima sociaux (franceinfo)",
+          "source_date": "2025-11-12",
+          "details": "Boris Vallaud, alors président du groupe, a revendiqué l'amendement. Le vote individuel de Faure sur cet amendement n'a pas été vérifié. Il a voté pour le PLFSS 2026 définitif (16/12/2025).",
+          "confidence": "medium"
+        },
+        {
+          "position": "Il dénonce un budget 2027 qui fait porter l'effort sur les retraités, les malades (hausse des franchises médicales) et les étrangers. Il s'oppose notamment à la « préférence nationale » et au délai de carence pour les prestations sociales versées aux étrangers.",
+          "kind": "position_declaree",
+          "short_quote": "Tout augmente sauf les salaires",
+          "source_url": "https://www.politis.fr/articles/2026/09/olivier-faure-je-ne-vois-pas-ce-qui-pourrait-conduire-vers-une-autre-decision-que-la-censure/",
+          "source_title": "Entretien Politis",
+          "source_date": "2026-09-21",
+          "details": "Il cite la hausse de 40 % des franchises médicales et celle des forfaits hospitaliers. Le gel des APL est qualifié de « nouvel affront » (congrès HLM, Batiweb, 23/09/2026, déjà au dossier logement).",
+          "confidence": "high"
+        },
+        {
+          "position": "Le projet du PS qu'il dirige prévoit de refonder le RSA pour le rendre inconditionnel et automatique, et de créer un « revenu d'autonomie » pour les 18-25 ans contre la grande pauvreté. Il prévoit aussi de généraliser « Territoire zéro chômeur de longue durée ».",
+          "kind": "inference",
+          "short_quote": "Refonder le RSA pour en garantir l'inconditionnalité et l'automaticité",
+          "source_url": "https://projet-socialiste.fr/projet/refaire-societe/",
+          "source_title": "Le Projet socialiste – chapitre 16 « Recréer du commun »",
+          "source_date": "2026",
+          "details": "Faure n'a pas repris ces mesures dans sa profession de foi. En 2023, le groupe socialiste a voté contre la loi « plein emploi », qui conditionnait le RSA à 15 heures d'activité (https://datan.fr/votes/legislature-16/vote_2965). Le vote individuel de Faure n'apparaît pas sur la page consultée. En 2021, il avait voté pour l'ouverture du RSA aux moins de 25 ans (https://datan.fr/votes/legislature-15/vote_3434).",
+          "confidence": "medium"
+        },
+        {
+          "position": "Sur l'assurance chômage, le projet du PS prévoit d'en confier la gestion aux seuls syndicats et patronat, de supprimer les lettres de cadrage gouvernementales, de garantir le versement automatique de l'allocation et d'encadrer strictement les radiations et sanctions.",
+          "kind": "inference",
+          "source_url": "https://projet-socialiste.fr/projet/vivre-libres/",
+          "source_title": "Le Projet socialiste – chapitre 1 « Vivre libres »",
+          "source_date": "2026",
+          "details": "Aucune déclaration personnelle récente de Faure sur l'assurance chômage n'a été trouvée.",
+          "confidence": "medium"
+        },
+        {
+          "position": "Handicap et familles : le projet du PS prévoit de préserver l'individualisation de l'AAH, d'augmenter fortement le nombre d'AESH et de créer un grand service public de la petite enfance. Faure promet personnellement de meilleures conditions de travail pour les AESH et un fort développement de l'aide et des soins à domicile.",
+          "kind": "inference",
+          "short_quote": "Préserver l'individualisation de l'Allocation Adultes Handicapés (AAH)",
+          "source_url": "https://projet-socialiste.fr/projet/sepanouir-a-egalite/",
+          "source_title": "Le Projet socialiste – « S'épanouir à égalité » (chapitres 10 et 12)",
+          "source_date": "2026",
+          "details": "Les engagements personnels sur les AESH et l'aide à domicile figurent dans sa profession de foi (https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf). Aucune position personnelle de Faure n'a été trouvée sur la natalité ou les allocations familiales.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "egalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Après les accusations visant le député Philippe Brun, il défend la mise à l'écart conservatoire de celui-ci au nom de l'exemplarité. Il estime que la gauche féministe ne doit pas reculer et reproche à LFI d'avoir relativisé les violences dans l'affaire Quatennens.",
+          "kind": "position_declaree",
+          "short_quote": "Le premier réflexe doit être de croire les femmes",
+          "source_url": "https://www.politis.fr/articles/2026/09/olivier-faure-je-ne-vois-pas-ce-qui-pourrait-conduire-vers-une-autre-decision-que-la-censure/",
+          "source_title": "Entretien Politis",
+          "source_date": "2026-09-21",
+          "confidence": "high"
+        },
+        {
+          "position": "Il soutient la loi « intégrale » contre les violences sexistes et sexuelles, dont la rapporteure est la députée PS Céline Thiébault-Martinez. Il a participé en septembre 2026 à une mobilisation place Vendôme pour son adoption. Le contre-budget 2027 des députés PS y consacre 3 Md€.",
+          "kind": "inference",
+          "source_url": "https://www.tf1.fr/tmc/quotidien-avec-yann-barthes/videos/karim-bouamrane-marine-tondelier-olivier-faure-tous-a-la-manif-contre-les-violences-faites-aux-femmes-et-aux-enfants-12682435.html",
+          "source_title": "Karim Bouamrane, Marine Tondelier, Olivier Faure : tous à la manif contre les violences faites aux femmes et aux enfants (Quotidien, TMC)",
+          "source_date": "2026-09-08",
+          "details": "Sa présence n'est vérifiée que par le titre et l'extrait de la vidéo, inaccessible. Le chiffre de 3 Md€ vient du Journal du Net (16/09/2026). La lutte contre les violences sexistes et sexuelles figure parmi les 7 priorités budgétaires du groupe PS (24/09/2026). Le texte est examiné à l'Assemblée depuis le 1er octobre 2026.",
+          "confidence": "medium"
+        },
+        {
+          "position": "Le projet du PS prévoit 2,6 Md€ par an contre les violences sexistes et sexuelles, et l'inversion de la charge de la preuve en matière de discrimination salariale : l'employeur devra démontrer l'absence de discrimination. Il prévoit aussi la publication des grilles salariales dans les entreprises de plus de 50 salariés, ainsi que des congés de maternité et de paternité égaux en durée comme en obligation.",
+          "kind": "inference",
+          "short_quote": "Mobiliser 2,6 milliards d'euros par an pour lutter contre les VSS",
+          "source_url": "https://projet-socialiste.fr/projet/sepanouir-a-egalite/",
+          "source_title": "Le Projet socialiste – chapitre 13 « Abolir le patriarcat »",
+          "source_date": "2026",
+          "details": "Le projet prévoit aussi le jugement des viols aux assises, un IVG « universel et gratuit », un congé « santé reproductive » et des protections menstruelles gratuites. Faure n'a pas repris personnellement ces mesures chiffrées dans ses documents de campagne.",
+          "confidence": "medium"
+        },
+        {
+          "position": "Il a voté pour l'inscription de l'IVG dans la Constitution (mars 2024) et pour la proposition de loi organique harmonisant le scrutin municipal pour garantir la parité (avril 2025).",
+          "kind": "inference",
+          "source_url": "https://datan.fr/votes/legislature-17/vote_1304",
+          "source_title": "Datan – PPL organique visant à harmoniser le mode de scrutin aux élections municipales pour garantir la parité",
+          "source_date": "2025-04-07",
+          "details": "Vote IVG : fiche Datan des votes de Faure (https://datan.fr/deputes/seine-et-marne-77/depute_olivier-faure/votes).",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "droits_lgbtqia",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il a voté pour la loi de bioéthique, qui ouvre la PMA aux couples de femmes et aux femmes seules, lors de sa lecture définitive.",
+          "kind": "inference",
+          "source_url": "https://datan.fr/votes/legislature-15/vote_3855",
+          "source_title": "Datan – projet de loi relatif à la bioéthique (lecture définitive)",
+          "source_date": "2021-06-29",
+          "confidence": "high"
+        },
+        {
+          "position": "Il a voté pour la loi de reconnaissance et de réparation envers les personnes condamnées pour homosexualité entre 1942 et 1982.",
+          "kind": "inference",
+          "source_url": "https://datan.fr/votes/legislature-16/vote_3436",
+          "source_title": "Datan – PPL portant reconnaissance de la Nation et réparation des préjudices subis par les personnes condamnées pour homosexualité",
+          "source_date": "2024-03-06",
+          "confidence": "high"
+        },
+        {
+          "position": "Le projet du PS qu'il dirige refuse et veut interdire la GPA. Il veut en même temps sécuriser la reconnaissance juridique de toutes les familles LGBTQIA+, y compris des enfants nés par GPA (pratiquée à l'étranger) ou par PMA, et en situation de coparentalité ou de multiparentalité.",
+          "kind": "inference",
+          "short_quote": "Refuser et interdire la GPA (gestation pour autrui)",
+          "source_url": "https://projet-socialiste.fr/projet/sepanouir-a-egalite/",
+          "source_title": "Le Projet socialiste – chapitre 13 (GPA) et chapitre 17 « Faire peuple » (familles LGBTQIA+)",
+          "source_date": "2026",
+          "details": "La reconnaissance des familles figure au chapitre 17 (https://projet-socialiste.fr/projet/refaire-societe/). Aucune déclaration personnelle de Faure sur la GPA n'a été trouvée. Libération titrait en mars 2024 que le PS était « prêt à redébattre de la GPA » (article inaccessible). Le projet de 2026 tranche pour l'interdiction.",
+          "confidence": "medium"
+        },
+        {
+          "position": "Le projet du PS prévoit de déjudiciariser le changement de la mention du genre à l'état civil par une procédure administrative, d'interdire les thérapies de conversion en Europe, notamment pour les personnes trans, et de lancer un plan contre la haine LGBTQIA+ à l'école. Il prévoit aussi d'augmenter le budget de l'éducation à la vie affective, relationnelle et sexuelle (EVARS).",
+          "kind": "inference",
+          "short_quote": "déjudiciarisant la procédure de rectification de la mention du genre à l'état civil",
+          "source_url": "https://projet-socialiste.fr/projet/refaire-societe/",
+          "source_title": "Le Projet socialiste – chapitre 17 « Faire peuple »",
+          "source_date": "2026",
+          "details": "La mesure sur l'EVARS figure au chapitre 13 (https://projet-socialiste.fr/projet/sepanouir-a-egalite/). Aucune position personnelle de Faure n'a été trouvée sur la transidentité des mineurs : le projet prévoit seulement d'accompagner les mineurs victimes de ruptures familiales.",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "societe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il s'engage à renforcer le financement public de la culture et de la création.",
+          "kind": "proposition_explicite",
+          "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+          "source_title": "Profession de foi d'Olivier Faure – primaire Choisir 2027",
+          "source_date": "2026-09-24",
+          "details": "Engagement repris sur https://avecfaure2027.fr/mes-propositions. Aucun montant ni pourcentage du budget n'est précisé.",
+          "confidence": "high"
+        },
+        {
+          "position": "Créer un grand service public de la lecture.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.france24.com/fr/france/20260829-présidentielle-2027-le-ps-divisé-olivier-faure-sous-la-pression-d-une-primaire-de-la-gauche",
+          "source_title": "Présidentielle 2027 : Olivier Faure sous pression face à un PS divisé (France 24, discours de Blois)",
+          "source_date": "2026-08-29",
+          "confidence": "high"
+        },
+        {
+          "position": "Le projet du PS prévoit de renoncer définitivement à la holding et à la fusion de l'audiovisuel public, et de sécuriser le financement de celui-ci par une contribution universelle et progressive selon les revenus. Il prévoit aussi de renforcer l'Arcom pour garantir le pluralisme.",
+          "kind": "inference",
+          "short_quote": "Renoncer définitivement au projet délétère de holding et de fusion de l'audiovisuel public",
+          "source_url": "https://projet-socialiste.fr/projet/refaire-societe/",
+          "source_title": "Le Projet socialiste – chapitre 18 « La République démocratique »",
+          "source_date": "2026",
+          "details": "Le 30/06/2025, le groupe socialiste a voté la motion de rejet préalable de la réforme Dati de l'audiovisuel public (https://datan.fr/votes/legislature-17/vote_2873). Faure ne figure pas parmi les votants. Le PLF 2027 prévoit une baisse de la dotation de France Télévisions (Contexte, 10/2026), mais aucune réaction personnelle de Faure n'a été trouvée.",
+          "confidence": "medium"
+        },
+        {
+          "position": "Le projet du PS vise 2 % du budget pour la culture et l'information, audiovisuel public compris. Il prévoit de préserver l'intermittence en faisant contribuer les plateformes de streaming à son financement, et vise l'éducation artistique et culturelle pour 100 % des classes.",
+          "kind": "inference",
+          "short_quote": "Aller vers 2 % du budget à la culture et l'information",
+          "source_url": "https://projet-socialiste.fr/projet/refaire-societe/",
+          "source_title": "Le Projet socialiste – chapitre 16 « Recréer du commun »",
+          "source_date": "2026",
+          "confidence": "medium"
+        },
+        {
+          "position": "Au Festival d'Avignon en juillet 2026, il a présenté la culture comme un combat prioritaire. Il a jugé que le débat culturel devait être central dans la présidentielle et a détaillé un programme culturel.",
+          "kind": "position_declaree",
+          "short_quote": "Le débat sur la culture doit être central",
+          "source_url": "https://www.ledauphine.com/politique/2026/07/22/olivier-faure-au-festival-d-avignon-le-debat-sur-la-culture-doit-etre-central",
+          "source_title": "Vaucluse. Olivier Faure au Festival d'Avignon : « Le débat sur la culture doit être central » (Le Dauphiné Libéré)",
+          "source_date": "2026-07-22",
+          "details": "Seuls les titres et les extraits ont pu être consultés : articles du Dauphiné (21-22/07/2026) et de La Provence (« Protéger et développer la culture pour tous », 21/07 ; « érige la culture en combat prioritaire », 23/07). Le contenu détaillé du programme culturel présenté à Avignon n'a pas pu être vérifié.",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "found": true,
+      "positions": [
+        {
+          "position": "En janvier 2026, il a refusé de voter les motions de censure du RN et de LFI sur l'accord UE-Mercosur, qu'il juge absurdes au moment où Macron s'opposait à l'accord, tout en reprochant au président ses variations. Il avait voté en novembre 2025 la résolution demandant au gouvernement de s'opposer à l'accord.",
+          "kind": "position_declaree",
+          "short_quote": "ce que l'on peut reprocher à Emmanuel Macron, c'est d'avoir beaucoup varié",
+          "source_url": "https://www.franceinfo.fr/politique/le-parti-socialiste-ne-votera-pas-les-motions-de-censure-du-rn-et-de-lfi-sur-le-mercosur-affirme-olivier-faure_7734994.html",
+          "source_title": "Le Parti socialiste ne votera pas les motions de censure du RN et de LFI sur le Mercosur, affirme Olivier Faure (franceinfo)",
+          "source_date": "2026-01-11",
+          "details": "Vote de la résolution : https://datan.fr/votes/legislature-17/vote_4244 (27/11/2025, 244 voix pour). Le projet du PS demande de « refuser l'accord UE-Mercosur » et tout accord sans réciprocité des normes sociales, sanitaires et environnementales.",
+          "confidence": "high"
+        },
+        {
+          "position": "Le projet du PS prévoit des prix minimums garantis fondés sur les coûts de production réels, l'encadrement des marges de l'agro-industrie et de la grande distribution, et une PAC ciblée sur l'emploi plutôt que sur la surface, avec un plafonnement des aides à l'hectare à 100 000 €. Il prévoit aussi une grande loi foncière, l'interdiction du glyphosate et des produits les plus toxiques, et le refus du retour des néonicotinoïdes.",
+          "kind": "inference",
+          "short_quote": "Instaurer des prix minimums garantis basés sur les coûts de production réels",
+          "source_url": "https://projet-socialiste.fr/projet/vivre-avec-la-nature/",
+          "source_title": "Le Projet socialiste – chapitre 14 « Une agriculture durable et un revenu digne »",
+          "source_date": "2026",
+          "details": "Votes de Faure cohérents avec ces orientations : pour l'interdiction du glyphosate (2018), contre la prolongation des néonicotinoïdes (06/10/2020, https://datan.fr/votes/legislature-15/vote_2940), contre la loi Duplomb (2025) et la loi d'urgence agricole (2026), ces deux derniers votes figurant déjà au dossier.",
+          "confidence": "medium"
+        },
+        {
+          "position": "Bien-être animal : le projet du PS prévoit de mettre fin à l'élevage en cage en accompagnant la reconversion des éleveurs, d'interdire l'abattage sans étourdissement préalable et de réduire les cadences en abattoir. Il prévoit aussi d'encadrer la chasse, d'interdire les animaux sauvages dans les établissements itinérants et de financer des alternatives à l'expérimentation animale.",
+          "kind": "inference",
+          "short_quote": "interdire l'abattage sans étourdissement préalable",
+          "source_url": "https://projet-socialiste.fr/projet/vivre-avec-la-nature/",
+          "source_title": "Le Projet socialiste – chapitre 15 « Pour une écologie populaire »",
+          "source_date": "2026",
+          "details": "Faure n'a pas repris ces mesures personnellement. Aucune position n'a été trouvée sur la corrida.",
+          "confidence": "medium"
+        },
+        {
+          "position": "Il a voté pour l'interdiction des animaux sauvages dans les cirques itinérants et des cétacés dans les delphinariums.",
+          "kind": "inference",
+          "source_url": "https://datan.fr/votes/legislature-15/vote_3341",
+          "source_title": "Datan – Interdire la détention d'animaux sauvages dans les cirques itinérants et de cétacés dans les zoos",
+          "source_date": "2021-01-29",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il présente la construction européenne comme nécessaire, car les problèmes ne peuvent plus se résoudre au seul niveau national. Il reproche à Mélenchon et à LFI leur euroscepticisme et leur « deux poids deux mesures » sur le droit international.",
+          "kind": "position_declaree",
+          "source_url": "https://www.politis.fr/articles/2026/09/olivier-faure-je-ne-vois-pas-ce-qui-pourrait-conduire-vers-une-autre-decision-que-la-censure/",
+          "source_title": "Entretien Politis",
+          "source_date": "2026-09-21",
+          "details": "Dans le même entretien, il critique l'engagement du gouvernement à réduire la contribution française au budget de l'UE, l'un des motifs de censure du budget 2027. Le dossier existant cite pour ce point un lien Yahoo désormais inaccessible.",
+          "confidence": "high"
+        },
+        {
+          "position": "Il veut une préférence européenne pour l'agriculture et la création d'un grand fonds national et européen, doté de ressources permanentes, pour financer la transition écologique sur 20 à 30 ans.",
+          "kind": "proposition_explicite",
+          "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+          "source_title": "Profession de foi d'Olivier Faure – primaire Choisir 2027",
+          "source_date": "2026-09-24",
+          "details": "Le fonds a été annoncé au discours de Blois (France 24, 29/08/2026).",
+          "confidence": "high"
+        },
+        {
+          "position": "Il défend une défense européenne renforcée et veut reposer la question du « parapluie nucléaire » français pour l'Europe. Il s'est dit en accord avec Macron sur ce point.",
+          "kind": "position_declaree",
+          "source_url": "https://www.franceinfo.fr/monde/europe/manifestations-en-ukraine/le-depart-de-volodymyr-zelensky-n-est-pas-une-question-les-europeens-font-bloc-autour-du-peuple-ukrainien-affirme-le-patron-du-ps_7107360.html",
+          "source_title": "Guerre en Ukraine : « Les Européens font bloc autour du peuple ukrainien », affirme le patron du PS (franceinfo)",
+          "source_date": "2025-03-03",
+          "details": "Au débat BFMTV du 4/10/2026, il a de nouveau plaidé pour renforcer la défense européenne, en la finançant notamment par la saisie des avoirs russes (LCP, 05/10/2026).",
+          "confidence": "high"
+        },
+        {
+          "position": "Le projet du PS qu'il dirige prévoit de tripler le budget européen pour le porter à 3 % du PIB européen grâce à de nouvelles ressources propres, et de lancer un nouvel emprunt commun de 500 Md€. Il prévoit aussi de remplacer progressivement le veto par la majorité qualifiée, de réformer les règles budgétaires au profit de l'investissement, et de soumettre tout nouvel élargissement à une convergence sociale.",
+          "kind": "inference",
+          "short_quote": "Soumettre tout nouvel élargissement de l'Union européenne à une convergence sociale",
+          "source_url": "https://projet-socialiste.fr/projet/vivre-libres/",
+          "source_title": "Le Projet socialiste – chapitre 4 « Construire la souveraineté européenne »",
+          "source_date": "2026",
+          "details": "Ressources propres envisagées : droits de douane relevés sur les filières stratégiques, imposition minimale des grandes fortunes, taxe sur les produits financiers et les paris en ligne. Le projet soutient aussi l'adhésion de l'Ukraine à l'UE (chapitre « Pacifier le monde »). Faure ne remet pas en cause l'appartenance de la France à l'UE.",
+          "confidence": "medium"
+        },
+        {
+          "position": "Sur l'UE-Mercosur, il soutient le refus de l'accord : il a voté la résolution d'opposition de novembre 2025, mais a refusé en janvier 2026 de censurer le gouvernement sur ce sujet.",
+          "kind": "inference",
+          "source_url": "https://datan.fr/votes/legislature-17/vote_4244",
+          "source_title": "Datan – résolution invitant le gouvernement à s'opposer à l'accord UE-Mercosur",
+          "source_date": "2025-11-27",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "ukraine_russie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il appelle à une solidarité sans équivoque avec Kiev et juge que l'avenir de l'Europe se joue en Ukraine. Une médiation française ne serait envisageable que si Zelensky la demande. Selon lui, le Kremlin teste la lassitude des Européens.",
+          "kind": "position_declaree",
+          "short_quote": "L'Ukraine, c'est l'Europe",
+          "source_url": "https://www.taurillon.org/la-primaire-socialiste-et-le-bapteme-du-feu-sur-la-guerre-en-ukraine",
+          "source_title": "Primaire socialiste : les positions des candidats sur l'Ukraine (Le Taurillon)",
+          "source_date": "2026-10-06",
+          "details": "Propos tenus lors des débats télévisés de la primaire. Au débat LCI du 23/09 : « Si nous ne comprenons pas que c'est aux portes de l'Europe que se joue notre avenir, nous ne comprenons rien » (LCP, 23/09/2026).",
+          "confidence": "high"
+        },
+        {
+          "position": "Il admet qu'il faudra un jour négocier avec la Russie, mais refuse toute capitulation : les négociations devront se faire avec les Ukrainiens.",
+          "kind": "position_declaree",
+          "short_quote": "négocier, ce n'est pas capituler",
+          "source_url": "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+          "source_title": "Mobilisation lycéenne, budget, situation internationale : ce qu'il faut retenir du deuxième débat de la primaire de gauche (LCP)",
+          "source_date": "2026-10-01",
+          "confidence": "high"
+        },
+        {
+          "position": "Il propose de saisir les avoirs publics russes immobilisés pour financer le soutien à l'Ukraine et renforcer la défense européenne. Il estime que la menace russe dépasse l'Ukraine.",
+          "kind": "proposition_explicite",
+          "short_quote": "les ambitions de Vladimir Poutine ne se limitent pas à l'Ukraine",
+          "source_url": "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat",
+          "source_title": "Glucksmann face à Royal, divisions sur LFI, lycées… Ce qu'il faut retenir du dernier débat de la primaire socialiste (LCP)",
+          "source_date": "2026-10-05",
+          "details": "Débat BFMTV du 4/10/2026. Le projet du PS chiffre ces avoirs à 210 Md€ et fait du retour des enfants ukrainiens déportés un préalable aux négociations. Une vérification BFMTV a jugé faux son affirmation selon laquelle « les Américains ne financent plus l'effort ukrainien » (Yahoo/BFMTV, 04/10/2026). Aucune position n'a été trouvée sur l'envoi de troupes européennes ou une zone d'exclusion aérienne, que défend Glucksmann.",
+          "confidence": "high"
+        },
+        {
+          "position": "Il reproche à Mélenchon de vouloir rouvrir le gazoduc Nord Stream avec la Russie.",
+          "kind": "position_declaree",
+          "source_url": "https://www.politis.fr/articles/2026/09/olivier-faure-je-ne-vois-pas-ce-qui-pourrait-conduire-vers-une-autre-decision-que-la-censure/",
+          "source_title": "Entretien Politis",
+          "source_date": "2026-09-21",
+          "confidence": "high"
+        },
+        {
+          "position": "En mars 2025, il s'est aligné sur Macron (proposition de trêve partielle d'un mois, européens faisant bloc derrière l'Ukraine) et a accusé Trump de chercher à délégitimer Zelensky.",
+          "kind": "position_declaree",
+          "short_quote": "faire bloc avec les Ukrainiens",
+          "source_url": "https://www.franceinfo.fr/monde/europe/manifestations-en-ukraine/le-depart-de-volodymyr-zelensky-n-est-pas-une-question-les-europeens-font-bloc-autour-du-peuple-ukrainien-affirme-le-patron-du-ps_7107360.html",
+          "source_title": "Guerre en Ukraine : « Les Européens font bloc autour du peuple ukrainien », affirme le patron du PS (franceinfo)",
+          "source_date": "2025-03-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Il a voté pour la déclaration du gouvernement sur la stratégie d'aide à l'Ukraine (accord de sécurité franco-ukrainien, 12/03/2024) et pour la résolution de soutien à l'Ukraine condamnant la guerre russe (30/11/2022).",
+          "kind": "inference",
+          "source_url": "https://datan.fr/votes/legislature-16/vote_3461",
+          "source_title": "Datan – Déclaration du gouvernement sur la stratégie d'aide à l'Ukraine",
+          "source_date": "2024-03-12",
+          "details": "Résolution de 2022 : https://datan.fr/votes/legislature-16/vote_652. Selon des titres de presse (février 2026), il s'est rendu en Ukraine pour le quatrième anniversaire de l'invasion, et une tribune signée de lui est parue dans L'Obs (24/02/2026) sous le titre « La Russie mène deux guerres, l'une en Ukraine, l'autre contre nos démocraties ». Ces articles n'ont pas pu être consultés.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "proche_orient",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il qualifie de « génocide » l'action de l'armée israélienne à Gaza et s'engage, s'il est élu, à dénoncer un génocide au nom de la Convention de 1948, sur le modèle de Pedro Sánchez.",
+          "kind": "proposition_explicite",
+          "short_quote": "je dénoncerai un génocide parce qu'il faut que les mots soient employés",
+          "source_url": "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+          "source_title": "Ce qu'il faut retenir du deuxième débat de la primaire de gauche (LCP)",
+          "source_date": "2026-10-01",
+          "details": "Il emploie ce mot depuis mai 2025. Selon lui, un dirigeant doit « prévenir, pas constater quand c'est trop tard », et les faits sont documentés par des ONG et des voix israéliennes (Public Sénat, 01/10/2026). Glucksmann et Guedj refusent ce terme, Royal l'emploie.",
+          "confidence": "high"
+        },
+        {
+          "position": "Il demande la suspension de l'accord d'association UE-Israël et un embargo sur les armes utilisées à Gaza. Le projet du PS ajoute des sanctions contre les ministres de Netanyahou et les colons violents, un cessez-le-feu permanent, la démilitarisation du Hamas et une solution à deux États.",
+          "kind": "position_declaree",
+          "source_url": "https://x.com/faureolivier/status/1927092457549742585",
+          "source_title": "Message d'Olivier Faure sur X",
+          "source_date": "2025-05-26",
+          "details": "Projet du PS : https://projet-socialiste.fr/projet/pacifier-le-monde/ (« embargo strict sur les exportations d'armes vers Israël »).",
+          "confidence": "high"
+        },
+        {
+          "position": "Il a déposé avec Sabrina Sebaihi (Écologistes) et Richard Ramos (MoDem) une proposition de loi transpartisane interdisant l'importation et la vente des produits des colonies israéliennes.",
+          "kind": "proposition_explicite",
+          "source_url": "https://lcp.fr/actualites/colonies-israeliennes-des-deputes-veulent-interdire-la-vente-de-certains-produits-en",
+          "source_title": "Colonies israéliennes : des députés veulent interdire la vente de certains produits en France (LCP)",
+          "source_date": "2026-06-22",
+          "confidence": "high"
+        },
+        {
+          "position": "Il soutient la reconnaissance de l'État de Palestine par la France, qu'il réclamait à Macron, et a appelé les mairies à hisser le drapeau palestinien le 22 septembre 2025. Cet appel a provoqué une polémique, notamment après un message mettant en parallèle le Nouvel An juif et « l'an 1 » de l'État palestinien.",
+          "kind": "position_declaree",
+          "source_url": "https://www.franceinfo.fr/monde/proche-orient/israel-palestine/reconnaissance-de-l-etat-de-palestine-olivier-faure-appelle-a-faire-flotter-le-drapeau-palestinien-sur-les-mairies-et-suscite-la-polemique_7493638.html",
+          "source_title": "Reconnaissance de l'État de Palestine : Olivier Faure appelle à faire flotter le drapeau palestinien sur les mairies et suscite la polémique (franceinfo)",
+          "source_date": "2025-09-15",
+          "details": "Sur la polémique interne au PS : franceinfo, 18/09/2025 (https://www.franceinfo.fr/politique/ps/un-tweet-d-olivier-faure-sur-le-conflit-israelo-palestinien-continue-de-faire-polemique-au-sien-du-parti-socialiste_7499329.html). Le 07/07/2025, il défendait une solution à deux États assurant une sécurité mutuelle et la fin de la colonisation (franceinfo).",
+          "confidence": "high"
+        },
+        {
+          "position": "Il a qualifié de « raciste » la loi de la Knesset instaurant la peine de mort pour les Palestiniens auteurs d'attaques meurtrières. Selon lui, elle ne surprend que ceux qui ont fermé les yeux sur le « génocide » à Gaza.",
+          "kind": "position_declaree",
+          "short_quote": "Cette loi raciste du gouvernement d'extrême droite israélien",
+          "source_url": "https://www.publicsenat.fr/actualites/international/peine-de-mort-ciblant-les-palestiniens-la-gauche-francaise-denonce",
+          "source_title": "Peine de mort ciblant les Palestiniens : la gauche française dénonce (Public Sénat)",
+          "source_date": "2026-03-31",
+          "confidence": "high"
+        },
+        {
+          "position": "Il refuse que la France soit cobelligérante dans la guerre lancée par Israël et les États-Unis contre l'Iran, qu'il juge illégale. Il demande que les actions françaises se limitent à la protection des ressortissants, des bases et des alliés, et réclame un débat parlementaire.",
+          "kind": "position_declaree",
+          "short_quote": "que la France ne soit pas cobelligérante",
+          "source_url": "https://www.franceinfo.fr/replay-radio/8h30-fauvelle-dely/boris-vallaud-crise-energetique-moyen-orient-l-interview-d-olivier-faure_7967030.html",
+          "source_title": "Boris Vallaud, crise énergétique, Moyen-Orient... l'interview d'Olivier Faure (franceinfo)",
+          "source_date": "2026-05-11",
+          "details": "Voir aussi franceinfo, 10/03/2026 : https://www.franceinfo.fr/monde/iran/guerre-entre-les-etats-unis-israel-et-l-iran/guerre-au-moyen-orient-olivier-faure-demande-au-premier-ministre-de-la-clarte-sur-les-intentions-de-la-france_7857911.html",
+          "confidence": "high"
+        },
+        {
+          "position": "Il a fait voter le groupe socialiste contre la proposition de loi Yadan sur l'antisémitisme. Il juge que ce texte manque sa cible, qu'il assimile les Juifs de France à l'État d'Israël et qu'il menace la liberté de critiquer le gouvernement Netanyahou.",
+          "kind": "position_declaree",
+          "short_quote": "Le groupe socialiste votera contre la PPL Yadan",
+          "source_url": "https://www.franceinfo.fr/politique/ps/les-socialistes-annoncent-qu-ils-voteront-contre-la-proposition-de-loi-yadan-annonce-olivier-faure-alors-que-la-petition-avoisine-500-000-signatures_7921139.html",
+          "source_title": "Les socialistes annoncent qu'ils voteront contre la proposition de loi Yadan (franceinfo)",
+          "source_date": "2026-04-07",
+          "details": "En 2024, il estimait que la place de Netanyahou était « devant la CPI » (franceinfo, 31/05/2024).",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "defense",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il a voté pour l'actualisation de la loi de programmation militaire 2024-2030 : 36 Md€ supplémentaires sur 2026-2030 et une cible de 2,5 % du PIB consacrés à la défense en 2030. LFI, les Écologistes et la GDR ont voté contre.",
+          "kind": "inference",
+          "source_url": "https://datan.fr/votes/legislature-17/vote_6736",
+          "source_title": "Datan – Projet de loi actualisant la programmation militaire pour les années 2024 à 2030",
+          "source_date": "2026-05-19",
+          "details": "Le texte a été adopté par 440 voix contre 122. Son contenu est détaillé par le JDD (https://www.lejdd.fr/Societe/defense-ce-que-contient-le-projet-de-loi-de-programmation-militaire-approuve-par-lassemblee-174633) : hausse des stocks de munitions (+8,5 Md€) et des drones (+2 Md€). En 2023, il s'était abstenu, comme son groupe, sur la LPM initiale 2024-2030 (https://datan.fr/votes/legislature-16/vote_1778). Aucune cible personnelle de budget de défense (% du PIB) n'a été trouvée.",
+          "confidence": "high"
+        },
+        {
+          "position": "Il veut reposer la question du « parapluie nucléaire » français pour l'Europe. Pour financer le réarmement européen, il en appelle au « patriotisme fiscal » des plus aisés.",
+          "kind": "position_declaree",
+          "source_url": "https://www.franceinfo.fr/monde/europe/manifestations-en-ukraine/le-depart-de-volodymyr-zelensky-n-est-pas-une-question-les-europeens-font-bloc-autour-du-peuple-ukrainien-affirme-le-patron-du-ps_7107360.html",
+          "source_title": "Guerre en Ukraine : « Les Européens font bloc autour du peuple ukrainien », affirme le patron du PS (franceinfo)",
+          "source_date": "2025-03-03",
+          "details": "Il se démarquait alors de François Hollande. Aucune réaction personnelle n'a été trouvée sur la « dissuasion avancée » annoncée par Macron le 2 mars 2026.",
+          "confidence": "high"
+        },
+        {
+          "position": "Il s'oppose à l'orientation de l'épargne du Livret A vers l'industrie de défense, au motif que ces fonds servent au logement social.",
+          "kind": "position_declaree",
+          "short_quote": "ce n'est pas le bon moyen",
+          "source_url": "https://www.franceinfo.fr/economie/votre-argent/livret-a/flechage-du-livret-a-vers-la-defense-ce-n-est-pas-le-bon-moyen-selon-olivier-faure_6419560.html",
+          "source_title": "Fléchage du Livret A vers la défense : « Ce n'est pas le bon moyen », selon Olivier Faure (franceinfo)",
+          "source_date": "2024-03-12",
+          "confidence": "medium"
+        },
+        {
+          "position": "Il propose de financer le renforcement de la défense européenne et l'aide à l'Ukraine par la saisie des avoirs publics russes immobilisés.",
+          "kind": "proposition_explicite",
+          "source_url": "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat",
+          "source_title": "Ce qu'il faut retenir du dernier débat de la primaire socialiste (LCP)",
+          "source_date": "2026-10-05",
+          "details": "Le projet du PS veut « renforcer et européaniser notre défense nationale » et rappelle que la sécurité internationale « ne peut pas se résumer à la dissuasion militaire » (https://projet-socialiste.fr/projet/pacifier-le-monde/).",
+          "confidence": "high"
+        },
+        {
+          "position": "OTAN : il a voté pour la ratification de l'adhésion de la Finlande et de la Suède à l'OTAN (2022). Il s'opposait alors à la sortie de l'OTAN proposée par LFI.",
+          "kind": "inference",
+          "source_url": "https://datan.fr/votes/legislature-16/vote_184",
+          "source_title": "Datan – ratification des protocoles d'accession de la Finlande et de la Suède au Traité de l'Atlantique Nord",
+          "source_date": "2022-08-02",
+          "details": "Aucune position récente (2025-2026) n'a été trouvée sur l'OTAN, le commandement intégré ou le service national et militaire volontaire annoncé fin 2025. Le refus de la sortie de l'OTAN voulue par LFI (2022) est mentionné par Wikipédia, utilisé comme point d'entrée.",
+          "confidence": "medium"
+        }
+      ]
+    }
+  ],
+  "updates": [
+    {
+      "topic_id": "retraites",
+      "change": "Au débat BFMTV du 4/10/2026, il a précisé son engagement : « abrogation immédiate » de la réforme Borne et retour à 62 ans. Il veut aussi abaisser l'âge du taux plein (annulation de la décote), aujourd'hui de 67 ans, à 66 ou 65 ans. Le dossier ne mentionne pas l'âge du taux plein.",
+      "source_url": "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat"
+    },
+    {
+      "topic_id": "education",
+      "change": "Au débat du 4/10/2026, il a proposé des états généraux de l'éducation par académie. Il propose aussi de continuer à financer l'enseignement privé sous contrat à condition qu'il y ait de la mixité sociale, en lui appliquant la carte scolaire. Cela précise la ligne « réelle mixité » du dossier.",
+      "source_url": "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat"
+    },
+    {
+      "topic_id": "strategie",
+      "change": "Le 4/10, face aux accusations de passerelles avec LFI (Guedj), il a répondu qu'« on ne peut pas prétendre rassembler le pays » en rendant la gauche « irréconciliable ». Le 5/10 sur France 2, il a dit vouloir rassembler « de Ruffin à Glucksmann » et a demandé à Glucksmann de clarifier ses alliances. Il fixe à 100 000 votants le seuil de succès de la primaire. Par ailleurs, le lien Yahoo cité pour « Si rien ne change, nous censurerons » renvoie désormais une erreur 404. Sources de remplacement possibles : CNews (https://www.cnews.fr/france/2026-09-27/si-rien-ne-change-nous-censurerons-olivier-faure-balaie-un-possible-compromis-sur) ou Le Figaro (26/09/2026).",
+      "source_url": "https://www.franceinfo.fr/politique/primaire-socialiste-100-000-votants-ca-serait-un-succes-estime-olivier-faure-candidat-et-premier-secretaire-du-ps_8222950.html"
+    },
+    {
+      "topic_id": "fiscalite",
+      "change": "Le taux et le seuil de sa taxe Zucman sont désormais explicites : 2 % sur les patrimoines au-delà de 100 M€ (débat du 1/10, franceinfo du 29/09). Le dossier les disait absents des documents de campagne. Au débat du 4/10, il a relativisé un retour de l'ISF (« ce ne sont que trois milliards ») face aux 44 Md€ de baisses d'impôts proposées par Royal, alors qu'il réclamait en 2024 le retour de l'ISF (15 Md€). Nuance sur la CSG : il a critiqué la baisse de CSG de Glucksmann, mesure selon lui trop provisoire pour un quinquennat, mais le contre-budget 2027 des députés PS (16/09) prévoit lui-même une CSG progressive, abaissée pour les bas salaires.",
+      "source_url": "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme"
+    },
+    {
+      "topic_id": "securite_justice",
+      "change": "Au débat du 4/10/2026, il a condamné la répression policière des manifestations lycéennes : « On ne tire pas à bout portant sur des enfants ». Le PS a appelé à manifester aux côtés des lycéens et étudiants le 6 octobre 2026.",
+      "source_url": "https://actu.orange.fr/videos/politique/excuses-de-raphael-glucksmann-a-segolene-royal-colere-lyceenne-guerre-en-ukraine-les-temps-forts-du-dernier-debat-entre-les-candidats-de-la-primaire-ps-CNT000002sjDYo.html"
+    },
+    {
+      "topic_id": "international_defense",
+      "change": "Ce thème est désormais réparti entre ukraine_russie, proche_orient et defense. Fait nouveau depuis le 2/10 : au débat du 4/10, il a proposé de saisir les avoirs publics russes pour financer l'aide à l'Ukraine et la défense européenne. Une vérification BFMTV a jugé fausse son affirmation selon laquelle « les Américains ne financent plus l'effort ukrainien », ainsi que celle classant le Niger parmi les principaux producteurs d'uranium.",
+      "source_url": "https://fr.news.yahoo.com/%C3%A9conomie-ukraine-%C3%A9nergie-fiscalit%C3%A9-retour-221908119.html"
+    },
+    {
+      "topic_id": "agriculture",
+      "change": "Ce n'est pas un changement de position, mais une source plus solide : son refus de censurer le gouvernement sur le Mercosur, sourcé dans le dossier par Epoch Times, est confirmé par franceinfo (11/01/2026), avec sa critique des « variations » de Macron.",
+      "source_url": "https://www.franceinfo.fr/politique/le-parti-socialiste-ne-votera-pas-les-motions-de-censure-du-rn-et-de-lfi-sur-le-mercosur-affirme-olivier-faure_7734994.html"
+    }
+  ]
+}

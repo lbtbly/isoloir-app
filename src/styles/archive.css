@@ -1,0 +1,44 @@
+/* ——— Élection archivée ———
+   Le bandeau : une ligne imprimée sous le double filet de l'en-tête, dans le flux (il défile avec la feuille et ne
+   masque rien). Petit corps, noir d'imprimerie, un filet fin dessous ; aucune couleur : une archive n'est ni une
+   alerte ni une erreur. L'encart de l'accueil : un cadre au filet, comme les avis de la feuille (.notice). */
+
+.archive-banner {
+  padding: 0 var(--gutter);
+  font-size: var(--text-sm);
+  line-height: 1.45;
+  color: var(--print);
+}
+
+.archive-banner-inner {
+  /* La largeur du texte de la feuille ; le double filet de l'en-tête déborde de 5px sur le haut */
+  max-width: calc(var(--frame) - 2 * var(--gutter));
+  margin: 0 auto;
+  padding: calc(5px + var(--s2)) 0 var(--s2);
+  border-bottom: var(--hair) solid var(--rule-strong);
+}
+
+.archive-callout {
+  max-width: var(--measure);
+  margin: var(--s5) 0 0;
+  padding: var(--s3) var(--s4);
+  border: var(--line) solid var(--rule-strong);
+  font-size: var(--text-sm);
+}
+
+.archive-callout h2 {
+  margin: 0 0 var(--s2);
+  font-size: 1.125rem;
+  font-weight: 800;
+  font-stretch: 80%;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.archive-callout p {
+  margin: 0 0 var(--s2);
+}
+
+.archive-callout p:last-child {
+  margin-bottom: 0;
+}

@@ -2,13 +2,13 @@
 // corrections, conditions d'utilisation, crédits, licences, liens externes. Le fond s'appuie sur
 // research/juridique/inventaire-2026-10-04.md ; l'identité et le contact viennent de src/core/legal.ts.
 import { useMemo } from 'preact/hooks'
-import { go } from '../../app'
+import { go, link } from '../nav'
 import { APP_NAME } from '../../core/app'
 import { DELAI_VERIFICATION, EDITEUR, HEBERGEUR, MISE_A_JOUR } from '../../core/legal'
 import { THIRD_PARTY } from '../../core/notices'
 import { seededShuffle } from '../../core/rng'
 import type { ElectionPack } from '../../core/types'
-import { AI_METHOD_HREF } from '../components/AiLabel'
+import { AI_METHOD_PATH } from '../components/AiLabel'
 import { ExternalLink } from '../components/ExternalLink'
 import { FormHeader } from '../components/FormHeader'
 import { SiteFooter } from '../components/SiteFooter'
@@ -36,6 +36,13 @@ const CC_BY_4 = 'https://creativecommons.org/licenses/by/4.0/deed.fr'
 const DAY_LONG = new Intl.DateTimeFormat('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'Europe/Paris' })
 const HOUR = new Intl.DateTimeFormat('fr-FR', { hour: 'numeric', hourCycle: 'h23', timeZone: 'Europe/Paris' })
 
+/** Jour de Paris, « samedi 1er mai », sans coupure */
+function dayOf(d: Date): string {
+  return DAY_LONG.format(d)
+    .replace(/^(\S+ )1 /, (_, weekday: string) => `${weekday}1er `)
+    .replace(/ /g, '\u00a0')
+}
+
 /** Heure de Paris, « 20 h » */
 function hourOf(d: Date): string {
   return `${HOUR.formatToParts(d).find(p => p.type === 'hour')?.value ?? ''}\u00a0h`
@@ -48,7 +55,14 @@ function hourOf(d: Date): string {
 export function freezeWindow(round: { start: string; end: string }): string {
   const eve = new Date(new Date(round.start).getTime() - 24 * 3600 * 1000)
   const end = new Date(round.end)
-  return `du ${DAY_LONG.format(eve).replace(/ /g, '\u00a0')}, 0\u00a0h, au ${DAY_LONG.format(end).replace(/ /g, '\u00a0')}, ${hourOf(end)}`
+  return `du ${dayOf(eve)}, 0\u00a0h, au ${dayOf(end)}, ${hourOf(end)}`
+}
+
+/** Une période de gel donnée telle quelle par l'élection (freezeWindows) : « du vendredi 16 avril, 0 h, au dimanche 18 avril, 20 h » */
+export function freezePeriod(period: { start: string; end: string }): string {
+  const start = new Date(period.start)
+  const end = new Date(period.end)
+  return `du ${dayOf(start)}, ${hourOf(start)}, au ${dayOf(end)}, ${hourOf(end)}`
 }
 
 /** « CC BY-SA 4.0 » ne se coupe pas en fin de ligne */
@@ -79,6 +93,10 @@ export function Legal({ pack, seed }: { pack: ElectionPack; seed: string }) {
   const { election, candidates } = pack
   // Les candidats, comme partout où ils ne sont pas classés, dans un ordre tiré au hasard pour chacun
   const people = useMemo(() => seededShuffle(candidates, `${seed}:credits`).filter(c => c.photo), [candidates, seed])
+  // Périodes de gel : celles que l'élection fixe elle-même (vote outre-mer la veille, par exemple), sinon de la
+  // veille de chaque tour, 0 h, à sa clôture
+  const frozen = election.freezeWindows?.length ? election.freezeWindows.map(freezePeriod) : election.rounds.map(freezeWindow)
+  const site = election.copy.officialSite
 
   return (
     <div class="screen screen-read legal-page">
@@ -98,8 +116,10 @@ export function Legal({ pack, seed }: { pack: ElectionPack; seed: string }) {
             Éditeur et directeur de la publication
           </SectionTitle>
           <p>
-            {APP_NAME} est édité par un citoyen, à titre personnel, sans lien avec les organisateurs de la primaire, les
-            partis ni les candidats, et sans financement. L’éditeur est aussi le directeur de la publication.
+            {/* Les phrases qui reçoivent un texte de l'élection sont d'un seul tenant (un seul nœud de texte, comme
+                avant le passage à plusieurs élections) : la mise en page de la primaire reste la même au pixel près */}
+            {APP_NAME}
+            {` est édité par un citoyen, à titre personnel, ${election.copy.independence.legal}, et sans financement. L’éditeur est aussi le directeur de la publication.`}
           </p>
           <dl class="legal-fields">
             <div>
@@ -172,7 +192,7 @@ export function Legal({ pack, seed }: { pack: ElectionPack; seed: string }) {
           </dl>
           <p>
             Ce que l’hébergeur voit de votre visite est décrit dans la{' '}
-            <a href="#/confidentialite">notice de confidentialité</a>.
+            <a href={link('/confidentialite')}>notice de confidentialité</a>.
           </p>
         </section>
 
@@ -196,7 +216,7 @@ export function Legal({ pack, seed }: { pack: ElectionPack; seed: string }) {
             </li>
             <li>
               <strong>Trace.</strong> Chaque correction est datée dans le journal des données, en bas de la page{' '}
-              <a href="#/methode">Méthode et sources</a>.
+              <a href={link('/methode')}>Méthode et sources</a>.
             </li>
           </ul>
 
@@ -238,13 +258,13 @@ export function Legal({ pack, seed }: { pack: ElectionPack; seed: string }) {
           </p>
 
           <h3>Pendant les jours de vote</h3>
-          {election.rounds.length ? (
+          {frozen.length ? (
             <p>
               Les données sont gelées{' '}
-              {election.rounds.map((r, i) => (
-                <span key={r.label}>
-                  {i > 0 ? (i === election.rounds.length - 1 ? ', puis ' : ', ') : ''}
-                  {freezeWindow(r)}
+              {frozen.map((period, i) => (
+                <span key={period}>
+                  {i > 0 ? (i === frozen.length - 1 ? ', puis ' : ', ') : ''}
+                  {period}
                 </span>
               ))}
               . Pendant ces périodes, aucune nouvelle position et aucun changement de fond ne sont publiés. Seules
@@ -270,7 +290,7 @@ export function Legal({ pack, seed }: { pack: ElectionPack; seed: string }) {
             </li>
             <li>
               <strong>Un résultat indicatif.</strong> Le résultat dépend des questions retenues et de la{' '}
-              <a href="#/methode">méthode publiée</a>. Ce n’est ni une consigne de vote, ni un conseil. {APP_NAME}{' '}
+              <a href={link('/methode')}>méthode publiée</a>. Ce n’est ni une consigne de vote, ni un conseil. {APP_NAME}{' '}
               n’est pas un sondage&nbsp;: il ne recueille les réponses de personne et ne publie aucun résultat d’ensemble.
             </li>
             <li>
@@ -298,9 +318,7 @@ export function Legal({ pack, seed }: { pack: ElectionPack; seed: string }) {
             Crédits
           </SectionTitle>
           <p>
-            Les portraits des candidats sont des photos sous licence libre, ou dont la réutilisation est autorisée,
-            recadrées en carré et réduites. Les photos des sites de campagne et du site de la primaire ne sont pas
-            reprises.
+            {`Les portraits des candidats sont des photos sous licence libre, ou dont la réutilisation est autorisée, recadrées en carré et réduites. Les photos des sites de campagne${site ? ` et ${site.photos}` : ''} ne sont pas reprises.`}
           </p>
           <ul class="credits">
             {people.map(c => {
@@ -365,7 +383,7 @@ export function Legal({ pack, seed }: { pack: ElectionPack; seed: string }) {
                   leurs sources, par une IA elle aussi&nbsp;; ils ne sont pas relus un par un par une personne, et
                   chacun porte une mention qui le signale là où il apparaît. Une erreur se signale comme
                   indiqué à la <SectionLink id="ml-reponse">rubrique&nbsp;{n('ml-reponse')}</SectionLink>. Aucune IA ne
-                  tourne pendant la visite. Le détail est dans la rubrique <a href={AI_METHOD_HREF}>Usage de l’IA</a> de
+                  tourne pendant la visite. Le détail est dans la rubrique <a href={link(AI_METHOD_PATH)}>Usage de l’IA</a> de
                   la notice Méthode et sources.
                 </p>
               </div>
@@ -437,26 +455,28 @@ export function Legal({ pack, seed }: { pack: ElectionPack; seed: string }) {
             Liens externes
           </SectionTitle>
           <p>
-            Les liens vers les sources, les sites des candidats et celui de la primaire s’ouvrent dans un nouvel onglet,
-            sans transmettre l’adresse de la page d’origine. Ces sites ont leurs propres conditions et leurs propres
-            règles de confidentialité&nbsp;; {APP_NAME} n’en contrôle pas le contenu.
+            {`Les liens vers les sources${site ? `, les sites des candidats et ${site.links}` : ' et les sites des candidats'} s’ouvrent dans un nouvel onglet, sans transmettre l’adresse de la page d’origine. Ces sites ont leurs propres conditions et leurs propres règles de confidentialité\u00a0; `}
+            {APP_NAME} n’en contrôle pas le contenu.
           </p>
-          <p>
-            {APP_NAME} cite le nom de l’élection, {election.name.charAt(0).toLowerCase() + election.name.slice(1)}
-            {election.officialUrl ? (
-              <>
-                , et son site officiel,{' '}
-                <ExternalLink href={election.officialUrl}>{election.officialUrl.replace(/^https?:\/\//, '')}</ExternalLink>
-                ,
-              </>
-            ) : null}{' '}
-            pour les désigner. Il n’a aucun lien avec ses organisateurs.
-          </p>
+          {/* Une élection organisée par des partis (une primaire) : son nom et son site sont les leurs */}
+          {election.organizers.length || election.officialUrl ? (
+            <p>
+              {APP_NAME} cite le nom de l’élection, {election.name.charAt(0).toLowerCase() + election.name.slice(1)}
+              {election.officialUrl ? (
+                <>
+                  , et son site officiel,{' '}
+                  <ExternalLink href={election.officialUrl}>{election.officialUrl.replace(/^https?:\/\//, '')}</ExternalLink>
+                  ,
+                </>
+              ) : null}{' '}
+              {`pour ${election.officialUrl ? 'les' : 'la'} désigner.${election.organizers.length ? ' Il n’a aucun lien avec ses organisateurs.' : ''}`}
+            </p>
+          ) : null}
         </section>
 
         <p class="small legal-date">
-          Page mise à jour le {formatDate(MISE_A_JOUR)}. Voir aussi la <a href="#/confidentialite">notice de
-          confidentialité</a> et <a href="#/methode">la méthode</a>.
+          Page mise à jour le {formatDate(MISE_A_JOUR)}. Voir aussi la <a href={link('/confidentialite')}>notice de
+          confidentialité</a> et <a href={link('/methode')}>la méthode</a>.
         </p>
       </main>
       <SiteFooter />

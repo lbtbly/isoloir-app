@@ -4,7 +4,7 @@
 import { RATING_LABELS } from './answers'
 import { APP_NAME } from './app'
 import { staleQuestions } from './revisions'
-import { displayScore, METHOD_VERSION, type Results } from './score'
+import { displayScore, knownQuestions, METHOD_VERSION, type Results } from './score'
 import { sanitizeState, type SessionState } from './storage'
 import type { ElectionPack } from './types'
 
@@ -29,13 +29,26 @@ export interface ExportFile {
   }[]
   results: {
     candidat: string
+    /** Score affiché ; hors classement, à titre indicatif seulement */
     affinite: number | null
-    rang: number
+    /** null : hors classement */
+    rang: number | null
     exAequo: boolean
+    /** Présent (true) seulement pour un candidat hors classement : connu sur trop peu de questions pour être classé */
+    horsClassement?: true
     questionsConnues: number
     questionsNotees: number
     lignesRougesFranchies: number
   }[]
+  /**
+   * Candidats non classés (election.ranking.excluded) : ni score ni rang, seulement le motif et ce que l'on sait
+   * d'eux. Présent seulement quand l'élection en désigne parmi les candidats du résultat.
+   */
+  nonClasses?: {
+    motif: string
+    depuis: string
+    candidats: { candidat: string; questionsConnuesDansLaBanque: number; questionsDeLaBanque: number }[]
+  }
 }
 
 export function buildExport(pack: ElectionPack, state: SessionState, results: Results, now = new Date()): ExportFile {
@@ -65,15 +78,42 @@ export function buildExport(pack: ElectionPack, state: SessionState, results: Re
     note: `Fichier généré sur votre appareil par ${APP_NAME}. Il contient vos opinions politiques : ne le partagez qu’en connaissance de cause.`,
     state,
     readable,
-    results: results.ranking.map(r => ({
-      candidat: name.get(r.candidateId) ?? r.candidateId,
-      affinite: displayScore(r.score),
-      rang: r.rank,
-      exAequo: r.tied,
-      questionsConnues: r.known,
-      questionsNotees: r.answered,
-      lignesRougesFranchies: r.dealbreakers.filter(d => d.level === 'touche').length,
-    })),
+    results: [
+      ...results.ranking.map(r => ({
+        candidat: name.get(r.candidateId) ?? r.candidateId,
+        affinite: displayScore(r.score),
+        rang: r.rank,
+        exAequo: r.tied,
+        questionsConnues: r.known,
+        questionsNotees: r.answered,
+        lignesRougesFranchies: r.dealbreakers.filter(d => d.level === 'touche').length,
+      })),
+      // Hors classement (élections qui l'activent) : à la suite, sans rang
+      ...results.unranked.map(r => ({
+        candidat: name.get(r.candidateId) ?? r.candidateId,
+        affinite: displayScore(r.score),
+        rang: null,
+        exAequo: false,
+        horsClassement: true as const,
+        questionsConnues: r.known,
+        questionsNotees: r.answered,
+        lignesRougesFranchies: r.dealbreakers.filter(d => d.level === 'touche').length,
+      })),
+    ],
+    // Non classés : à part, sans score ni rang
+    ...(results.excluded.length && pack.election.ranking?.excluded
+      ? {
+          nonClasses: {
+            motif: pack.election.ranking.excluded.reason,
+            depuis: pack.election.ranking.excluded.since,
+            candidats: results.excluded.map(id => ({
+              candidat: name.get(id) ?? id,
+              questionsConnuesDansLaBanque: knownQuestions(pack, id),
+              questionsDeLaBanque: pack.bank.questions.length,
+            })),
+          },
+        }
+      : {}),
   }
 }
 

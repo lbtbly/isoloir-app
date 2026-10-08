@@ -1,0 +1,896 @@
+{
+  "group": "savoirs",
+  "cleavages": [
+    {
+      "topic_id": "education",
+      "importance": "high",
+      "cleavage": "Financement public de l'enseignement privé sous contrat et liberté de choix de l'école : faut-il lever les limites aux moyens du privé, conditionner ce financement à la mixité sociale, ou y mettre fin ?",
+      "sides": [
+        {
+          "approach": "Rendre aux familles le libre choix de l'école. Le financement public suivrait l'élève, dans le public comme dans le privé (« chèque-éducation », carte scolaire supprimée), ou la règle implicite qui plafonne à 20 % les moyens publics du privé sous contrat serait supprimée.",
+          "candidates": [
+            "David Lisnard",
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://www.unenouvelleenergie.fr/notre-programme/education/",
+            "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf"
+          ]
+        },
+        {
+          "approach": "Garder le financement du privé sous contrat, mais l'assortir d'obligations de mixité sociale : intégration à la carte scolaire, ou malus et pénalités pour les établissements qui ségrèguent ou évincent les élèves en difficulté (avec abrogation de la loi Carle).",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://www.lejdd.fr/politique/immigration-raphael-glucksmann-plaide-pour-une-convention-citoyenne-174735",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://web.archive.org/web/20260504205622/https://melenchon2027.fr/programme2025/livre/chapitre5/s3/"
+          ]
+        },
+        {
+          "approach": "Réserver l'argent public à la seule école publique, tout de suite ou à terme. Pour Maurel, les dotations seraient d'abord modulées selon la mixité. D'autres vont jusqu'à un service public unifié ou à une nationalisation du privé. Pour Roussel et Kazib, c'est une inférence tirée des textes de leurs partis.",
+          "candidates": [
+            "Emmanuel Maurel",
+            "Fabien Roussel",
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/",
+            "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+            "https://www.revolutionpermanente.fr/Municipales-2026-casse-de-l-ecole-tri-social-militarisme-quel-programme-pour-l-education"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "importance": "high",
+      "cleavage": "Collège unique et orientation des élèves : faut-il trier plus tôt selon le niveau (examen d'entrée en 6e, groupes de niveau, brevet obligatoire), ou garder un tronc commun et allonger la scolarité ?",
+      "sides": [
+        {
+          "approach": "En finir avec le collège unique. Un examen ou un certificat conditionnerait l'entrée en 6e, des groupes de niveau seraient créés en français et en mathématiques, le brevet deviendrait obligatoire pour entrer au lycée et des parcours différenciés (dont l'apprentissage) seraient proposés dès 14 ans.",
+          "candidates": [
+            "Bruno Retailleau",
+            "Gabriel Attal",
+            "David Lisnard",
+            "Florian Philippot"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf",
+            "https://attalpresident.fr/actualites/dans-le-monde-gabriel-attal-devoile-son-projet-pour-faire-notre-ecole-la-meilleure-d-europe",
+            "https://www.unenouvelleenergie.fr/lettre-aux-idologues-qui-ont-sacrifi-lcole-franaise/",
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf"
+          ]
+        },
+        {
+          "approach": "Garder un tronc commun et abroger les groupes de niveau (« Choc des savoirs »). La scolarité serait obligatoire jusqu'à 18 ans et le cadre national rétabli (bac national). Pour Roussel et Kazib, c'est une inférence tirée des textes de leurs partis.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Fabien Roussel",
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260504205622/https://melenchon2027.fr/programme2025/livre/chapitre5/s3/",
+            "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+            "https://www.revolutionpermanente.fr/Municipales-2026-casse-de-l-ecole-tri-social-militarisme-quel-programme-pour-l-education"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "importance": "medium",
+      "cleavage": "Accès à l'université : sélection à l'entrée ou accès libre et gratuit ? Que faire de Parcoursup ?",
+      "sides": [
+        {
+          "approach": "Autoriser les universités à choisir leurs étudiants selon les résultats, la motivation et leurs capacités d'accueil, grâce à un Parcoursup refondé en outil de sélection, et relever le niveau du baccalauréat.",
+          "candidates": [
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf"
+          ]
+        },
+        {
+          "approach": "Supprimer Parcoursup et garantir l'accès sans sélection à la formation choisie. Pour Mélenchon, l'enseignement supérieur deviendrait aussi gratuit, de la licence au doctorat.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Fabien Roussel",
+            "Anasse Kazib",
+            "Selma Labib"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260509163514/https://melenchon2027.fr/programme2025/livre/chapitre5/s6/",
+            "https://assets.nationbuilder.com/pcf/pages/44587/attachments/original/1791210768/tract_lycee.pdf?1791210768",
+            "https://www.revolutionpermanente.fr/Municipales-2026-casse-de-l-ecole-tri-social-militarisme-quel-programme-pour-l-education",
+            "https://npa-revolutionnaires.org/articles/extraits-de-lintervention-de-selma-labib"
+          ]
+        },
+        {
+          "approach": "Revoir Parcoursup en profondeur par la concertation, mieux encadrer l'enseignement supérieur privé à but lucratif et aider les étudiants éloignés géographiquement.",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "importance": "medium",
+      "cleavage": "Étudiants étrangers : limiter leur accès et donner la priorité aux nationaux, ou ne faire aucune différence selon la nationalité ?",
+      "sides": [
+        {
+          "approach": "Instaurer des quotas d'étudiants étrangers par filière et par pays, et réserver en priorité les logements étudiants aux étudiants français.",
+          "candidates": [
+            "Nicolas Dupont-Aignan",
+            "Marine Le Pen"
+          ],
+          "evidence_urls": [
+            "https://www.debout-la-france.fr/projet/immigration-et-assimilation/",
+            "https://fr.euronews.com/2026/09/13/marine-le-pen-a-henin-beaumont-un-meeting-pour-faire-oublier-les-polemiques"
+          ]
+        },
+        {
+          "approach": "Ne faire aucune différence selon la nationalité : rendre l'enseignement supérieur gratuit pour tous, quelle que soit la nationalité, et refuser des frais d'inscription plus élevés pour les étudiants étrangers.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Selma Labib"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260509163514/https://melenchon2027.fr/programme2025/livre/chapitre5/s6/",
+            "https://npa-revolutionnaires.org/articles/intervention-de-selma-labib-a-la-fete-de-lhumanite-2026"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "importance": "medium",
+      "cleavage": "Ressources des étudiants et des jeunes : revenu universel d'autonomie, aides ciblées ou prêt garanti ?",
+      "sides": [
+        {
+          "approach": "Verser à tous les étudiants ou jeunes autonomes un revenu ou une allocation d'autonomie. Les montants vont du seuil de pauvreté au niveau du SMIC.",
+          "candidates": [
+            "Anasse Kazib",
+            "Fabien Roussel",
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+            "https://www.pcf.fr/40e_congres_discours_de_cloture_de_fabien_roussel",
+            "https://web.archive.org/web/20260509163335/https://melenchon2027.fr/programme2025/livre/chapitre10/s3/"
+          ]
+        },
+        {
+          "approach": "Cibler les aides : au moins 2 000 € de plus pour les boursiers pendant leurs deux premières années, ou des aides renforcées au logement, au transport et à l'alimentation des étudiants.",
+          "candidates": [
+            "Bernard Cazeneuve",
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+            "https://avecfaure2027.fr/mes-propositions"
+          ]
+        },
+        {
+          "approach": "Créer un prêt étudiant garanti par l'État.",
+          "candidates": [
+            "Olivier Becht"
+          ],
+          "evidence_urls": [
+            "https://becht2027.fr/projet-france/les-5-refondations/refondation-sociale/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "importance": "medium",
+      "cleavage": "Autonomie des établissements ou pilotage national de l'Éducation nationale.",
+      "sides": [
+        {
+          "approach": "Donner aux chefs d'établissement la main sur les méthodes, les horaires, la discipline et parfois le recrutement des enseignants, et évaluer publiquement chaque établissement. Retailleau prévoit 1 000 établissements publics « innovants » ; Lisnard, un corps unique d'enseignants contractuels.",
+          "candidates": [
+            "Édouard Philippe",
+            "David Lisnard",
+            "Bruno Retailleau",
+            "Gabriel Attal"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/presidentielle-salaires-des-enseignants-sanctions-pour-les-parents-ce-que-propose",
+            "https://www.unenouvelleenergie.fr/notre-programme/education/",
+            "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf",
+            "https://attalpresident.fr/actualites/dans-le-monde-gabriel-attal-devoile-son-projet-pour-faire-notre-ecole-la-meilleure-d-europe"
+          ]
+        },
+        {
+          "approach": "Renforcer le cadre national : un pilotage national assumé avec des directives appliquées partout, un baccalauréat national rétabli et l'abrogation des réformes qui ont différencié les parcours.",
+          "candidates": [
+            "Florian Philippot",
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+            "https://web.archive.org/web/20260504205622/https://melenchon2027.fr/programme2025/livre/chapitre5/s3/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "importance": "medium",
+      "cleavage": "Climat scolaire : faut-il d'abord renforcer les sanctions, ou d'abord les moyens humains ?",
+      "sides": [
+        {
+          "approach": "Renforcer les sanctions : établissements ou structures disciplinaires pour les élèves exclus à répétition, conseils de discipline dès le primaire avec un barème national, amende pour les parents d'enfants harceleurs ou absentéistes, exclusion des élèves violents, uniforme obligatoire.",
+          "candidates": [
+            "Bruno Retailleau",
+            "Gabriel Attal",
+            "Édouard Philippe",
+            "David Lisnard",
+            "Nicolas Dupont-Aignan"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf",
+            "https://attalpresident.fr/actualites/lci-gabriel-attal-defend-un-projet-de-rupture-pour-repondre-aux-grands-defis-du-pays",
+            "https://lcp.fr/actualites/presidentielle-salaires-des-enseignants-sanctions-pour-les-parents-ce-que-propose",
+            "https://www.unenouvelleenergie.fr/il-faut-vite-remettre-de-lordre-au-service-de-la-liberte/",
+            "https://www.debout-la-france.fr/actualite/la-revolution-du-bon-sens-pour-sauver-la-france/"
+          ]
+        },
+        {
+          "approach": "Recruter d'abord : enseignants, infirmières, psychologues, AESH. Ces candidats refusent aussi toute présence policière ou militaire dans les établissements.",
+          "candidates": [
+            "Anasse Kazib",
+            "Nathalie Arthaud"
+          ],
+          "evidence_urls": [
+            "https://www.revolutionpermanente.fr/Municipales-2026-casse-de-l-ecole-tri-social-militarisme-quel-programme-pour-l-education",
+            "https://lutte-ouvriere.org/portail/editoriaux/vive-mobilisation-lyceenne-faisons-naitre-travailleurs-mardi-6-octobre-mobilises-197642.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "importance": "medium",
+      "cleavage": "Service national pour les jeunes : le rendre obligatoire, ou refuser tout dispositif jugé militarisant ?",
+      "sides": [
+        {
+          "approach": "Rendre obligatoire un service civique ou national pour tous les jeunes : 10 mois de missions d'intérêt général pour Glucksmann, 3 mois à 18 ans pour Dupont-Aignan. Le volet militaire resterait volontaire.",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Nicolas Dupont-Aignan"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme",
+            "https://www.debout-la-france.fr/projet/defense/"
+          ]
+        },
+        {
+          "approach": "Refuser le service national (SNU) et toute « militarisation » de l'école et des universités, vus comme une préparation de la jeunesse à la guerre.",
+          "candidates": [
+            "Anasse Kazib",
+            "Nathalie Arthaud",
+            "Selma Labib"
+          ],
+          "evidence_urls": [
+            "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+            "https://www.lutte-ouvriere.org/portail/brochures/meeting-26-septembre-2026-discours-nathalie-arthaud-197446.html",
+            "https://npa-revolutionnaires.org/articles/education-nationale-contre-la-militarisation-les-revendications-du-personnel"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "importance": "low",
+      "cleavage": "Effectifs par classe : baisse générale, baisse ciblée, ou priorité aux salaires grâce à la baisse du nombre d'élèves ?",
+      "sides": [
+        {
+          "approach": "Profiter de la baisse démographique pour réduire les effectifs dans toutes les classes, souvent avec un objectif d'environ 19 à 20 élèves (en primaire au moins).",
+          "candidates": [
+            "Gabriel Attal",
+            "Olivier Faure",
+            "Jean-Luc Mélenchon",
+            "Raphaël Glucksmann",
+            "Fabien Roussel",
+            "Édouard Philippe"
+          ],
+          "evidence_urls": [
+            "https://attalpresident.fr/actualites/dans-le-monde-gabriel-attal-devoile-son-projet-pour-faire-notre-ecole-la-meilleure-d-europe",
+            "https://avecfaure2027.fr/mes-propositions",
+            "https://web.archive.org/web/20260504205622/https://melenchon2027.fr/programme2025/livre/chapitre5/s3/",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://assets.nationbuilder.com/pcf/pages/44587/attachments/original/1791210768/tract_lycee.pdf?1791210768",
+            "https://www.franceinfo.fr/elections/presidentielle/presidentielle-2027-le-candidat-horizons-edouard-philippe-veut-augmenter-de-20-la-remuneration-moyenne-des-enseignants-sur-un-quinquennat_8159927.html"
+          ]
+        },
+        {
+          "approach": "Concentrer la baisse des effectifs sur l'éducation prioritaire et les territoires en difficulté (dédoublements).",
+          "candidates": [
+            "Jérôme Guedj",
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://www.jeromeguedj2027.fr/",
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        },
+        {
+          "approach": "Consacrer d'abord les économies liées à la baisse du nombre d'élèves à la hausse des salaires (+135 € à +300 € nets par mois), et réorganiser l'offre scolaire en concertation avec les communes plutôt que de fermer des classes à l'aveugle.",
+          "candidates": [
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "importance": "low",
+      "cleavage": "Instruction en dehors du cadre public ou sous contrat : faut-il élargir l'instruction en famille, ou fermer les écoles hors contrat ?",
+      "sides": [
+        {
+          "approach": "Revenir sur les restrictions de l'instruction en famille, au moins jusqu'à 6 ans. L'éducation des enfants relève d'abord des familles.",
+          "candidates": [
+            "Florian Philippot",
+            "Bruno Retailleau",
+            "Francis Lalanne"
+          ],
+          "evidence_urls": [
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+            "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf",
+            "https://dieudolalanne2027.com/programme"
+          ]
+        },
+        {
+          "approach": "Fermer les écoles privées hors contrat. Pour Roussel, c'est une inférence tirée du texte de son parti ; pour Maurel, une tribune cosignée en 2025.",
+          "candidates": [
+            "Fabien Roussel",
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+            "https://g-r-s.fr/refaire-de-la-laicite-un-instrument-de-justice-sociale-et-de-cohesion-republicaine-tribune-parue-dans-liberation-le-jeudi-20-mars-2025/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "importance": "low",
+      "cleavage": "Uniforme à l'école : l'imposer partout, laisser chaque établissement décider, ou arrêter l'expérimentation ?",
+      "sides": [
+        {
+          "approach": "Rendre l'uniforme obligatoire dans le cadre d'une école du mérite et de l'effort.",
+          "candidates": [
+            "Nicolas Dupont-Aignan"
+          ],
+          "evidence_urls": [
+            "https://www.debout-la-france.fr/actualite/la-revolution-du-bon-sens-pour-sauver-la-france/"
+          ]
+        },
+        {
+          "approach": "Laisser chaque chef d'établissement décider, entre autres, de l'uniforme.",
+          "candidates": [
+            "Édouard Philippe"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/presidentielle-salaires-des-enseignants-sanctions-pour-les-parents-ce-que-propose"
+          ]
+        },
+        {
+          "approach": "Suspendre l'expérimentation de l'uniforme.",
+          "candidates": [
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260504205622/https://melenchon2027.fr/programme2025/livre/chapitre5/s3/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "societe",
+      "importance": "high",
+      "cleavage": "Avenir de l'audiovisuel public : privatisation totale ou partielle, financement laissé au choix de chaque foyer, ou renforcement avec un financement stable et garanti ?",
+      "sides": [
+        {
+          "approach": "Privatiser tout ou partie de l'audiovisuel public. Lisnard veut privatiser France 2 et ne garder que deux chaînes publiques, l'une de proximité, l'autre culturelle et internationale. Le parti de Le Pen demande un débat sur la privatisation, et le président de la commission d'enquête de 2026 lui attribue cet objectif.",
+          "candidates": [
+            "Marine Le Pen",
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://rassemblementnational.fr/communiques/pour-la-privatisation-de-laudiovisuel-public",
+            "https://www.franceinfo.fr/economie/medias/france-televisions/l-objectif-etait-de-preparer-les-esprits-a-la-privatisation-de-l-audiovisuel-public-deplore-le-president-de-la-commission-d-enquete_7984472.html",
+            "https://www.unenouvelleenergie.fr/david-lisnard-sur-franceinfo-le-probleme-francais-est-devenu-un-probleme-de-suradministration-et-dimpuissance-publique/"
+          ]
+        },
+        {
+          "approach": "Supprimer le financement public de l'audiovisuel et les aides à la presse, et les remplacer par un « chèque citoyen » que chaque foyer attribue au média de son choix.",
+          "candidates": [
+            "Nicolas Dupont-Aignan"
+          ],
+          "evidence_urls": [
+            "https://www.debout-la-france.fr/actualite/je-suis-candidat-pour/"
+          ]
+        },
+        {
+          "approach": "Préserver et renforcer l'audiovisuel public par un financement stable ou une contribution dédiée, des garanties d'indépendance (jusqu'à l'inscrire dans la Constitution ou faire nommer ses présidents par le Parlement) et le refus des coupes et des regroupements. Pour Roussel, Arthaud et Kazib, c'est une inférence tirée des textes de leurs partis.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Raphaël Glucksmann",
+            "Emmanuel Maurel",
+            "Fabien Roussel",
+            "Nathalie Arthaud",
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260503193829/https://melenchon2027.fr/programme2025/livre/chapitre1/s6/",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+            "https://www.lutte-ouvriere.org/journal/article/audiovisuel-public-greve-massive-185518.html",
+            "https://www.revolutionpermanente.fr/Rapport-sur-l-audiovisuel-public-un-manifeste-d-extreme-droite-qui-pave-la-voie-a-la-privatisation"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "societe",
+      "importance": "medium",
+      "cleavage": "Régulation des médias : renforcer les règles contre la concentration, ou réduire l'intervention publique (aides à la presse, autorité de régulation) ?",
+      "sides": [
+        {
+          "approach": "Fixer par la loi des limites à la concentration des médias, réformer la loi de 1986, démanteler les grands groupes ou transformer les médias en fondations, et interdire les commandes publiques à leurs propriétaires.",
+          "candidates": [
+            "Bernard Cazeneuve",
+            "Jean-Luc Mélenchon",
+            "Raphaël Glucksmann",
+            "Nicolas Dupont-Aignan"
+          ],
+          "evidence_urls": [
+            "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+            "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/"
+          ]
+        },
+        {
+          "approach": "Supprimer toutes les subventions publiques à la presse ainsi que l'autorité de régulation de l'audiovisuel (Arcom).",
+          "candidates": [
+            "Florian Philippot"
+          ],
+          "evidence_urls": [
+            "https://les-patriotes.fr/pour-la-suppression-des-subventions-publiques-a-la-presse/",
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "societe",
+      "importance": "medium",
+      "cleavage": "Priorités de la politique culturelle : plus d'argent pour la création, priorité au patrimoine et à la culture française, ou subventions liées à des résultats ?",
+      "sides": [
+        {
+          "approach": "Augmenter nettement le financement public de la culture et de la création (jusqu'à 1 % du PIB pour Mélenchon) et sécuriser les artistes (intermittents, CNC, continuité de revenus). Pour Roussel, c'est une inférence tirée du texte de son parti.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Olivier Faure",
+            "Emmanuel Maurel",
+            "Fabien Roussel"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260509164005/https://melenchon2027.fr/programme2025/livre/chapitre11/s1/",
+            "https://avecfaure2027.fr/mes-propositions",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf"
+          ]
+        },
+        {
+          "approach": "Donner la priorité à la restauration du patrimoine et à la transmission de la culture française (grands textes, histoire de l'art, « le Beau »), et faciliter le mécénat. Pour Asselineau et Dupont-Aignan, ce sont des programmes anciens (environ 2022).",
+          "candidates": [
+            "Florian Philippot",
+            "François Asselineau",
+            "Nicolas Dupont-Aignan"
+          ],
+          "evidence_urls": [
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+            "https://www.upr.fr/notre-programme/programme-2022",
+            "https://www.debout-la-france.fr/projet/culture-patrimoine/"
+          ]
+        },
+        {
+          "approach": "Refuser les « chèques en blanc » : contrôler les résultats des institutions culturelles (programmation, public), supprimer les quotas jugés idéologiques dans les aides et exiger le pluralisme.",
+          "candidates": [
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://www.unenouvelleenergie.fr/une-politique-culturelle-ambitieuse-ne-doit-pas-etre-un-cheque-en-blanc-donne-a-un-microcosme/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "numerique",
+      "importance": "high",
+      "cleavage": "Réseaux sociaux et mineurs : interdire l'accès aux moins de 15 ans avec vérification d'âge, ou s'attaquer à d'autres leviers (mécanismes des plateformes, parents), voire refuser l'interdiction au nom des libertés ? La loi votée en juillet 2026 a été censurée par le Conseil constitutionnel le 14 août 2026.",
+      "sides": [
+        {
+          "approach": "Interdire les réseaux sociaux aux moins de 15 ans avec vérification de l'âge. Attal veut un référendum depuis la censure ; Glucksmann veut aussi bannir TikTok ; Maurel ajoute « pas de smartphone avant 15 ans ». Pour Becht et Batho, la position est déduite de leur vote du texte final.",
+          "candidates": [
+            "Gabriel Attal",
+            "Raphaël Glucksmann",
+            "Ségolène Royal",
+            "Emmanuel Maurel",
+            "Olivier Becht",
+            "Delphine Batho"
+          ],
+          "evidence_urls": [
+            "https://attalpresident.fr/actualites/dans-la-tribune-dimanche-gabriel-attal-veut-un-referendum-pour-interdire-les-reseaux-sociaux-aux-moins-de-15-ans",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://www.sudradio.fr/linvite-politique/segolene-royal-pourquoi-pas-un-ticket-avec-dominique-de-villepin-pour-la-presidentielle",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://datan.fr/votes/legislature-17/vote_8431"
+          ]
+        },
+        {
+          "approach": "Ne pas interdire, mais bannir pour les mineurs les mécanismes jugés addictifs (défilement infini, notifications, publicité ciblée), renforcer le contrôle parental et former à l'esprit critique.",
+          "candidates": [
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://www.unenouvelleenergie.fr/reseaux-sociaux-linterdiction-est-le-dernier-refuge-de-limpuissance-publique/"
+          ]
+        },
+        {
+          "approach": "S'opposer à l'interdiction, jugée liberticide (vérification d'identité, fin de l'anonymat, surveillance) ou inefficace, et parfois promettre son abrogation. Pour Mélenchon, la position est déduite du vote contre de son groupe ; pour Arthaud et Kazib, elle vient des publications de leurs organisations.",
+          "candidates": [
+            "Florian Philippot",
+            "François Asselineau",
+            "Anasse Kazib",
+            "Jean-Luc Mélenchon",
+            "Nathalie Arthaud"
+          ],
+          "evidence_urls": [
+            "https://les-patriotes.fr/non-au-pass-numerique/",
+            "https://upr.fr/analyses/macron-felicite-le-vietnam-pour-sa-censure-des-reseaux-sociaux",
+            "https://www.revolutionpermanente.fr/Mise-au-pas-de-la-jeunesse-l-interdiction-de-reseaux-sociaux-aux-moins-de-15-ans-definitivement",
+            "https://www.assemblee-nationale.fr/dyn/17/scrutins/8431",
+            "https://www.lutte-ouvriere.org/journal/article/reseaux-sociaux-macron-protecteur-jeunesse-191005.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "numerique",
+      "importance": "high",
+      "cleavage": "Encadrement de l'intelligence artificielle : alléger les règles européennes pour innover, durcir l'encadrement, ou placer l'IA sous contrôle public ou collectif ?",
+      "sides": [
+        {
+          "approach": "Réviser ou simplifier les règles européennes (AI Act, RGPD, DSA, DMA), jugées pénalisantes pour les entreprises européennes. Retailleau propose aussi trois ans de dérogation pour les projets stratégiques et de ne jamais aller au-delà des règles européennes.",
+          "candidates": [
+            "Gabriel Attal",
+            "Édouard Philippe",
+            "Bruno Retailleau",
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://attalpresident.fr/actualites/gabriel-attal-appelle-a-une-rupture-economique-dans-les-echos",
+            "https://www.maddyness.com/2026/06/16/edouard-philippe-candidat-a-la-presidentielle-lia-nest-plus-un-sujet-de-specialistes-cest-une-question-de-pouvoir-de-prosperite-et-de-liberte/",
+            "https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf",
+            "https://www.unenouvelleenergie.fr/les-robots-le-pape-lia-et-nous-le-nouveau-livre-de-david-lisnard-en-precommande/"
+          ]
+        },
+        {
+          "approach": "Renforcer l'encadrement : une autorité ou agence capable de contrôler les systèmes avant leur déploiement, l'audit des modèles, l'interdiction de certains usages (identification biométrique, notation des personnes) et un traité international sur les usages à haut risque.",
+          "candidates": [
+            "Bernard Cazeneuve",
+            "Jean-Luc Mélenchon",
+            "Emmanuel Maurel",
+            "Raphaël Glucksmann",
+            "Nicolas Dupont-Aignan"
+          ],
+          "evidence_urls": [
+            "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+            "https://web.archive.org/web/20260509171223/https://melenchon2027.fr/programme2025/livre/chapitre18/s5/",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://www.debout-la-france.fr/projet/intelligence-artificielle/"
+          ]
+        },
+        {
+          "approach": "Retirer l'IA aux intérêts privés : un pôle public fondé sur le logiciel libre, voire l'expropriation des entreprises du secteur, et l'usage des gains de productivité pour réduire le temps de travail sans perte de salaire. Pour Roussel et Kazib, c'est une inférence tirée des textes de leurs partis.",
+          "candidates": [
+            "Fabien Roussel",
+            "Anasse Kazib",
+            "Nathalie Arthaud"
+          ],
+          "evidence_urls": [
+            "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+            "https://www.revolutionpermanente.fr/Pouvoir-inhumain-Intelligence-artificielle-capitalisme-et-lutte-pour-le-communisme",
+            "https://www.lutte-ouvriere.org/portail/brochures/meeting-26-septembre-2026-discours-nathalie-arthaud-197446.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "numerique",
+      "importance": "high",
+      "cleavage": "Modération des contenus en ligne : supprimer les règles jugées liberticides, ou renforcer la lutte contre la désinformation et la manipulation ?",
+      "sides": [
+        {
+          "approach": "Abroger les textes qui encadrent la parole en ligne (règlement européen DSA, loi contre la haine en ligne), interdire la « censure » par les plateformes et refuser l'identité numérique et l'euro numérique.",
+          "candidates": [
+            "Florian Philippot",
+            "Francis Lalanne",
+            "Nicolas Dupont-Aignan",
+            "François Asselineau"
+          ],
+          "evidence_urls": [
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+            "https://www.epochtimes.fr/francis-lalanne-lance-sa-campagne-pour-la-presidentielle-2027-avec-le-frexit-au-coeur-de-son-programme-3329293.html",
+            "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+            "https://upr.fr/analyses/macron-felicite-le-vietnam-pour-sa-censure-des-reseaux-sociaux"
+          ]
+        },
+        {
+          "approach": "Renforcer la lutte contre la désinformation et les manipulations : délit de désinformation organisée, service de vigilance contre les ingérences étrangères (VIGINUM) renforcé, transparence imposée aux algorithmes, levée de l'anonymat pour faire appliquer la loi.",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Bruno Retailleau",
+            "Gabriel Attal",
+            "Ségolène Royal"
+          ],
+          "evidence_urls": [
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf",
+            "https://attalpresident.fr/actualites/lci-gabriel-attal-defend-un-projet-de-rupture-pour-repondre-aux-grands-defis-du-pays",
+            "https://www.sudradio.fr/linvite-politique/segolene-royal-pourquoi-pas-un-ticket-avec-dominique-de-villepin-pour-la-presidentielle"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "numerique",
+      "importance": "medium",
+      "cleavage": "Intelligence artificielle à l'école : en tenir les élèves éloignés, ou en équiper massivement élèves et enseignants ?",
+      "sides": [
+        {
+          "approach": "Tenir les jeunes élèves à l'écart de l'IA : « zéro IA avant le collège » (Philippe), aucune exposition directe avant le lycée et zéro écran au primaire (Retailleau), école « sanctuaire sans IA » (Philippot).",
+          "candidates": [
+            "Édouard Philippe",
+            "Bruno Retailleau",
+            "Florian Philippot"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/presidentielle-salaires-des-enseignants-sanctions-pour-les-parents-ce-que-propose",
+            "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf",
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf"
+          ]
+        },
+        {
+          "approach": "Équiper et former massivement : un assistant IA sécurisé pour chaque élève, l'apprentissage des « prompts » et la formation de tous les enseignants (Attal) ; un service public de l'IA éducative et 100 000 enseignants formés d'ici 2030 (Cazeneuve).",
+          "candidates": [
+            "Gabriel Attal",
+            "Bernard Cazeneuve"
+          ],
+          "evidence_urls": [
+            "https://attalpresident.fr/actualites/dans-le-monde-gabriel-attal-devoile-son-projet-pour-faire-notre-ecole-la-meilleure-d-europe",
+            "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "numerique",
+      "importance": "medium",
+      "cleavage": "Puissance de calcul et centres de données : accélérer fortement, ou conditionner leur implantation à leur empreinte écologique ?",
+      "sides": [
+        {
+          "approach": "Multiplier la puissance de calcul : doubler la capacité en 5 ans, viser 1 GW de centres de données souverains en 2030 puis 4 GW, ou porter la part européenne de la puissance de calcul mondiale de 3 % à 20 % grâce à une politique commune de l'IA financée par de la dette européenne.",
+          "candidates": [
+            "Bruno Retailleau",
+            "Édouard Philippe",
+            "Gabriel Attal"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf",
+            "https://www.maddyness.com/2026/06/16/edouard-philippe-candidat-a-la-presidentielle-lia-nest-plus-un-sujet-de-specialistes-cest-une-question-de-pouvoir-de-prosperite-et-de-liberte/",
+            "https://attalpresident.fr/actualites/gabriel-attal-appelle-a-une-rupture-economique-dans-les-echos"
+          ]
+        },
+        {
+          "approach": "Encadrer l'essor des centres de données au nom de leur consommation d'eau et d'énergie : soumettre leur construction à autorisation, refuser que la France devienne la « plaque tournante » des data centers de l'IA.",
+          "candidates": [
+            "Delphine Batho",
+            "Jean-Luc Mélenchon",
+            "Nathalie Arthaud"
+          ],
+          "evidence_urls": [
+            "https://www.generationecologie.fr/2026/06/22/quelle-politique-energetique-pour-la-france/",
+            "https://web.archive.org/web/20260509171223/https://melenchon2027.fr/programme2025/livre/chapitre18/s5/",
+            "https://www.lutte-ouvriere.org/portail/brochures/meeting-26-septembre-2026-discours-nathalie-arthaud-197446.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "numerique",
+      "importance": "medium",
+      "cleavage": "IA dans l'administration : la généraliser pour simplifier les démarches, ou garantir d'abord un recours humain et limiter les décisions automatisées ?",
+      "sides": [
+        {
+          "approach": "Mettre l'IA au cœur des services publics : un assistant administratif unique pour chaque Français (« Marianne »), un plan de transformation piloté par un directeur technique de l'État, une IA chargée d'accélérer l'instruction des dossiers.",
+          "candidates": [
+            "Bruno Retailleau",
+            "Édouard Philippe",
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf",
+            "https://www.maddyness.com/2026/06/16/edouard-philippe-candidat-a-la-presidentielle-lia-nest-plus-un-sujet-de-specialistes-cest-une-question-de-pouvoir-de-prosperite-et-de-liberte/",
+            "https://www.unenouvelleenergie.fr/app/uploads/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf"
+          ]
+        },
+        {
+          "approach": "Garantir un « droit de recours à l'intelligence humaine » : aucun refus d'aide ou de titre sans examen par un agent. Interdire l'IA pour attribuer les droits sociaux et garder des guichets et des formulaires papier.",
+          "candidates": [
+            "Bernard Cazeneuve",
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+            "https://web.archive.org/web/20260509162042/https://melenchon2027.fr/programme2025/livre/chapitre18/s4/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "numerique",
+      "importance": "medium",
+      "cleavage": "Fiscalité du numérique : faire davantage payer les géants du numérique et de l'IA, ou utiliser des avantages fiscaux pour diffuser ces technologies ?",
+      "sides": [
+        {
+          "approach": "Faire davantage contribuer les géants du numérique et de l'IA : relever la taxe sur les services numériques, créer un « dividende IA » pour financer la protection sociale, taxer les profits du numérique pour financer la formation ou la création, obliger les géants à être domiciliés fiscalement en France.",
+          "candidates": [
+            "Olivier Faure",
+            "Raphaël Glucksmann",
+            "Jérôme Guedj",
+            "Emmanuel Maurel",
+            "Bernard Cazeneuve",
+            "Nicolas Dupont-Aignan"
+          ],
+          "evidence_urls": [
+            "https://www.21news.be/olivier-faure-dans-une-entreprise-ou-il-y-a-dix-comptables-demain-avec-lia-il-ny-en-aura-peut-etre-plus-quun-seul/",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://lcp.fr/actualites/budget-2027-vers-un-gel-partiel-des-pensions-de-retraites-440455",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://la-convention.fr/discours_de_bernard_cazeneuve_cergy_pontoise_dimanche_16_novembre_2025",
+            "https://www.debout-la-france.fr/projet/intelligence-artificielle/"
+          ]
+        },
+        {
+          "approach": "Recourir à des incitations fiscales pour accélérer la diffusion du numérique et de l'IA dans les entreprises : crédits d'impôt pour l'adoption de l'IA dans les PME et ETI, suramortissement pour la numérisation et la robotisation.",
+          "candidates": [
+            "Gabriel Attal",
+            "Marine Le Pen"
+          ],
+          "evidence_urls": [
+            "https://attalpresident.fr/actualites/gabriel-attal-appelle-a-une-rupture-economique-dans-les-echos",
+            "https://www.franceinfo.fr/elections/presidentielle/direct-attal-le-pen-melenchon-philippe-suivez-le-premier-debat-de-la-presidentielle-organise-par-le-medef-entre-sept-candidats-declares_8162033.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "numerique",
+      "importance": "medium",
+      "cleavage": "Comment construire la souveraineté numérique : par des infrastructures publiques et le logiciel libre, ou par la commande publique au profit de champions privés français et européens ?",
+      "sides": [
+        {
+          "approach": "Bâtir des infrastructures publiques : cloud public et logiciels libres, données publiques hébergées sur des serveurs publics, sortie de l'État des services des GAFAM en 3 à 5 ans, fonds souverain pour des alternatives libres. Pour Roussel, c'est une inférence tirée du texte de son parti.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Florian Philippot",
+            "Raphaël Glucksmann",
+            "Fabien Roussel"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260509171223/https://melenchon2027.fr/programme2025/livre/chapitre18/s5/",
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf"
+          ]
+        },
+        {
+          "approach": "Orienter la commande publique vers des champions français et européens (« Buy European Tech Act », « Buy European First », préférence nationale) et soutenir des entreprises comme Mistral.",
+          "candidates": [
+            "Édouard Philippe",
+            "Bruno Retailleau",
+            "Gabriel Attal",
+            "Nicolas Dupont-Aignan"
+          ],
+          "evidence_urls": [
+            "https://www.maddyness.com/2026/06/16/edouard-philippe-candidat-a-la-presidentielle-lia-nest-plus-un-sujet-de-specialistes-cest-une-question-de-pouvoir-de-prosperite-et-de-liberte/",
+            "https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf",
+            "https://attalpresident.fr/actualites/gabriel-attal-appelle-a-une-rupture-economique-dans-les-echos",
+            "https://www.debout-la-france.fr/projet/intelligence-artificielle/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "numerique",
+      "importance": "low",
+      "cleavage": "Téléphone portable dans les établissements scolaires : l'interdire jusqu'à la fin du lycée, ou refuser une interdiction jugée répressive ?",
+      "sides": [
+        {
+          "approach": "Interdire le téléphone portable dans les établissements, jusqu'à la fin du lycée pour Retailleau, et supprimer les écrans à l'école primaire.",
+          "candidates": [
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf"
+          ]
+        },
+        {
+          "approach": "Refuser l'interdiction des téléphones au lycée, jugée répressive. C'est une inférence tirée d'une publication de l'organisation du candidat.",
+          "candidates": [
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://www.revolutionpermanente.fr/Interdiction-des-telephones-dans-les-lycees-une-mesure-repressive-qui-vise-a-discipliner-les-eleves"
+          ]
+        }
+      ]
+    }
+  ],
+  "consensus_points": [
+    {
+      "topic_id": "education",
+      "point": "Augmenter la rémunération des enseignants fait l'objet d'un très large accord, de la gauche à la droite : +20 % sur le quinquennat (Philippe, et Lisnard sous condition), +200 à +500 € nets par mois (Attal), +135 à +300 € (Retailleau), hausse non chiffrée chez Faure, Glucksmann, Maurel, Mélenchon, Roussel, Royal, Cazeneuve, Becht, Philippot et Dupont-Aignan. Les désaccords portent sur le montant, le financement et les contreparties, pas sur le principe.",
+      "url": "https://www.franceinfo.fr/elections/presidentielle/presidentielle-2027-le-candidat-horizons-edouard-philippe-veut-augmenter-de-20-la-remuneration-moyenne-des-enseignants-sur-un-quinquennat_8159927.html"
+    },
+    {
+      "topic_id": "education",
+      "point": "Presque tous ceux qui s'expriment veulent utiliser la baisse démographique pour éviter de fermer des classes à l'aveugle ou pour réduire les effectifs, et non pour faire des économies sèches (Attal, Philippe, Faure, Mélenchon, Roussel ; Retailleau refuse aussi les fermetures « aveugles »).",
+      "url": "https://assets.nationbuilder.com/pcf/pages/44587/attachments/original/1791210768/tract_lycee.pdf?1791210768"
+    },
+    {
+      "topic_id": "education",
+      "point": "Recentrer le primaire sur lire, écrire et compter est une priorité partagée par Philippe, Retailleau, Lisnard, Cazeneuve, Philippot et Dupont-Aignan. Aucun candidat ne s'y oppose explicitement.",
+      "url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants"
+    },
+    {
+      "topic_id": "societe",
+      "point": "Développer l'éducation artistique et culturelle à l'école fait consensus : « Classe Culture » dotée d'un budget (Retailleau), éducation artistique de la maternelle au lycée (Lisnard), artistes intervenant à l'école (Glucksmann), activité artistique gratuite jusqu'à 18 ans (Becht), enseignement du goût et du patrimoine (Philippot), accès des enfants des quartiers au cinéma et au théâtre (Bouamrane).",
+      "url": "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf"
+    },
+    {
+      "topic_id": "societe",
+      "point": "La défense de l'exception culturelle et du soutien public au cinéma est partagée par des candidats de bords différents : Maurel (quotas, CNC), Philippot (souveraineté culturelle), Retailleau (aides au cinéma sanctuarisées).",
+      "url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf"
+    },
+    {
+      "topic_id": "numerique",
+      "point": "Réduire la dépendance aux géants américains (et chinois) du numérique fait quasi consensus : « colonie numérique » à éviter (Retailleau), « décolonisation numérique » (Mélenchon), sortie des GAFAM (Glucksmann, Philippot), IA souveraine (Attal, Philippe, Becht, Bouamrane, Dupont-Aignan, Batho). Les candidats divergent sur la méthode, pas sur l'objectif.",
+      "url": "https://republicains.fr/actualites/2026/01/05/refuser-la-dependance-numerique-culturelle-defendre-lindependance-europeenne/"
+    },
+    {
+      "topic_id": "numerique",
+      "point": "Les candidats reconnaissent largement que les mécanismes addictifs et les algorithmes des réseaux sociaux nuisent aux mineurs, y compris parmi les opposants à l'interdiction (Lisnard veut bannir ces mécanismes pour les mineurs). Le désaccord porte sur l'interdiction par l'âge et la vérification d'identité.",
+      "url": "https://www.unenouvelleenergie.fr/reseaux-sociaux-linterdiction-est-le-dernier-refuge-de-limpuissance-publique/"
+    }
+  ]
+}

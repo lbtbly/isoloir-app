@@ -1,0 +1,1196 @@
+{
+  "candidate": "Florian Philippot",
+  "affiliation": "Les Patriotes (président-fondateur du parti, créé en 2017 après son départ du Front national)",
+  "campaign_site": "Aucun site de campagne dédié trouvé au 6 octobre 2026. Site du parti : https://les-patriotes.fr/ (programme : https://les-patriotes.fr/projetpourlafrance/)",
+  "declaration": {
+    "date": "2026-05-09",
+    "form": "Annonce télévisée dans l'émission « Les 4 Vérités » (France 2, samedi matin). Il se déclare candidat, mais dit qu'il se retirerait au profit de Philippe de Villiers si celui-ci se présentait (« Je me rangerai derrière sa candidature », selon le JDD). Le même jour, il dénonce aussi le système des parrainages d'élus.",
+    "source_title": "2027 : Florian Philippot annonce sa candidature pour l'élection présidentielle (Le Journal du Dimanche)",
+    "source_url": "https://www.lejdd.fr/politique/2027-florian-philippot-annonce-sa-candidature-pour-lelection-presidentielle-173496"
+  },
+  "overview": "Florian Philippot est l'ancien vice-président du Front national (jusqu'en 2017) et a été député européen de 2014 à 2019. Il préside Les Patriotes et s'est déclaré candidat le 9 mai 2026 sur France 2. Il dit qu'il se retirerait si Philippe de Villiers se présentait. Sa ligne est un souverainisme complet. La sortie de l'Union européenne par l'article 50 (le « Frexit ») est présentée comme la « clé de voûte » de son projet. Elle va avec la sortie de l'euro (retour au franc), de Schengen, de la CEDH, de l'OTAN et de l'OMS. En économie, il défend un « protectionnisme intelligent », la planification et le retour à des monopoles publics (EDF, rail). Il veut aussi renationaliser les autoroutes, sortir du marché européen de l'électricité et baisser les taxes sur les carburants. Sur l'Ukraine, il demande l'arrêt de toute aide militaire et financière, la levée des sanctions énergétiques contre la Russie et une « initiative de paix » ; il refuse aussi tout engagement militaire français contre l'Iran. Issu de la mobilisation contre le passe sanitaire, il défend la « liberté vaccinale » et la sortie de l'OMS. Il s'oppose à l'identité numérique, à l'euro numérique et à l'interdiction des réseaux sociaux aux moins de 15 ans. Sur l'immigration et la sécurité, il veut des flux « extrêmement limités », l'assimilation, le retour des peines planchers et la fin de l'excuse de minorité automatique. Son programme de référence est le livret des Patriotes « Les grandes orientations pour un projet patriote – édition 2026-2027 », mis en ligne en septembre 2026.",
+  "programme_sources": [
+    {
+      "title": "Les Patriotes – Les grandes orientations pour un projet patriote, édition 2026-2027, suivi de « Le Frexit en 10 questions » (PDF « Projet pour la France 2026 v2 », 19 pages)",
+      "url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+      "date": "2026-09"
+    },
+    {
+      "title": "Les Patriotes – page « Projet pour la France »",
+      "url": "https://les-patriotes.fr/projetpourlafrance/",
+      "date": "2026-09-30"
+    },
+    {
+      "title": "Charte des Patriotes (présentée en novembre 2017, toujours en ligne)",
+      "url": "https://les-patriotes.fr/notre-charte-des-patriotes/",
+      "date": "2017-11-07"
+    },
+    {
+      "title": "Florian Philippot : « La question du Frexit sera au cœur de la présidentielle » (Le JDD)",
+      "url": "https://www.lejdd.fr/politique/florian-philippot-la-question-du-frexit-sera-au-coeur-de-la-presidentielle-168537",
+      "date": "2026-03-12"
+    },
+    {
+      "title": "2027 : Florian Philippot annonce sa candidature pour l'élection présidentielle (Le JDD)",
+      "url": "https://www.lejdd.fr/politique/2027-florian-philippot-annonce-sa-candidature-pour-lelection-presidentielle-173496",
+      "date": "2026-05-09"
+    },
+    {
+      "title": "Les Patriotes – pétitions du mouvement (positions 2025-2026)",
+      "url": "https://les-patriotes.fr/category/petitions/",
+      "date": "2026-10"
+    }
+  ],
+  "signature_proposals": [
+    {
+      "proposal": "Frexit : déclencher l'article 50 du traité sur l'Union européenne dès l'élection, en supprimant le titre XV de la Constitution (par le Congrès, par référendum ou par une nouvelle Constitution).",
+      "topic_id": "europe",
+      "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf"
+    },
+    {
+      "proposal": "Sortir de l'euro avec un « nouveau franc » (1 euro = 1 nouveau franc), conversion de la dette selon la lex monetae, contrôle temporaire des capitaux et financement direct de l'État par la Banque de France.",
+      "topic_id": "industrie_economie",
+      "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf"
+    },
+    {
+      "proposal": "Quitter l'OTAN, refuser toute armée européenne et ne pas partager la dissuasion nucléaire.",
+      "topic_id": "defense",
+      "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf"
+    },
+    {
+      "proposal": "Quitter Schengen et la CEDH, dissoudre Frontex, appliquer les OQTF par des renvois immédiats, mettre fin à l'immigration de travail et aux travailleurs détachés.",
+      "topic_id": "immigration",
+      "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf"
+    },
+    {
+      "proposal": "Créer un référendum d'initiative citoyenne (RIC) sur tout sujet, inscrit dans la Constitution, et ne réviser la Constitution que par référendum (fin de la révision par le Congrès).",
+      "topic_id": "institutions",
+      "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf"
+    },
+    {
+      "proposal": "Quitter le marché européen de l'électricité, rétablir le monopole public d'EDF, investir massivement dans le nucléaire et décréter un moratoire total sur les éoliennes, avec démantèlement de celles déjà installées.",
+      "topic_id": "ecologie_energie",
+      "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf"
+    },
+    {
+      "proposal": "Baisser immédiatement les accises sur les carburants de 20 centimes par litre et passer la TVA sur les carburants de 20 % à 5,5 %.",
+      "topic_id": "fiscalite",
+      "source_url": "https://les-patriotes.fr/pour-ladoption-immediate-dun-plan-durgence-energetique-en-france-en-8-points/"
+    },
+    {
+      "proposal": "Couper tout financement de la guerre en Ukraine, lever les sanctions énergétiques contre la Russie et lancer une initiative française de paix.",
+      "topic_id": "ukraine_russie",
+      "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf"
+    },
+    {
+      "proposal": "Sortir de l'OMS, dénoncer le traité mondial sur les pandémies et garantir une « liberté vaccinale » pour tous, soignants compris.",
+      "topic_id": "sante",
+      "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf"
+    },
+    {
+      "proposal": "Remplacer la PAC par une « Politique agricole française » : prix planchers, fin des accords de libre-échange (Mercosur) et quotas ou droits de douane possibles, y compris face aux pays européens.",
+      "topic_id": "agriculture",
+      "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf"
+    },
+    {
+      "proposal": "Souveraineté numérique : sortie programmée des GAFAM en 3 ans, données sensibles de l'État hébergées sur des serveurs publics ou contrôlés par l'ANSSI, création d'un Commissariat à la souveraineté numérique.",
+      "topic_id": "numerique",
+      "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf"
+    },
+    {
+      "proposal": "Renationaliser les autoroutes et rétablir les monopoles publics dans le rail et l'énergie.",
+      "topic_id": "territoires",
+      "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf"
+    }
+  ],
+  "topics": [
+    {
+      "topic_id": "institutions",
+      "found": true,
+      "positions": [
+        {
+          "position": "Créer un référendum d'initiative citoyenne (RIC) sur tout sujet et l'inscrire dans la Constitution.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Rubrique « Démocratie, institutions, corruption » du livret 2026-2027.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Ne permettre la révision de la Constitution que par référendum, et donc supprimer la révision par le Congrès.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Même rubrique. Le Frexit, lui, passerait par la suppression du titre XV de la Constitution, au choix par vote du Congrès, par référendum ou par une nouvelle Constitution (« Le Frexit en 10 questions », question 3).",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Rendre inéligibles à vie et interdire de toute charge publique les élus et responsables publics condamnés définitivement pour corruption ; lutter contre les conflits d'intérêts.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Remplacer les 500 parrainages d'élus de la présidentielle par des parrainages citoyens : 100 000 signatures venant d'au moins 50 départements, par une loi organique.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Pétition du parti, non datée (publiée vers début 2025), qui s'appuie sur la commission Jospin de 2012. Le 9 mai 2026, en se déclarant candidat, Philippot a de nouveau critiqué le système des parrainages d'élus (JDD).",
+          "source_url": "https://les-patriotes.fr/parrainages-citoyens/",
+          "source_title": "Élection présidentielle : passons aux parrainages citoyens ! (Les Patriotes)",
+          "source_date": "2025"
+        },
+        {
+          "position": "Demande le départ d'Emmanuel Macron, par démission ou par destitution au titre de l'article 68 de la Constitution.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Plusieurs pétitions du parti en 2024-2025 (« Macron doit partir », « Macron destitution », soutien à la motion de destitution).",
+          "source_url": "https://les-patriotes.fr/macron-doit-partir/",
+          "source_title": "Macron doit partir ! (Les Patriotes)",
+          "source_date": "2025"
+        },
+        {
+          "position": "Charte de 2017 : généraliser la proportionnelle, multiplier les référendums, y compris d'initiative populaire, et supprimer le Sénat, le CESE et les conseils régionaux.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Charte du parti présentée en novembre 2017 et toujours en ligne. Ces points (proportionnelle, suppression du Sénat) ne figurent pas dans le livret 2026-2027.",
+          "source_url": "https://les-patriotes.fr/notre-charte-des-patriotes/",
+          "source_title": "Charte des Patriotes",
+          "source_date": "2017-11-07"
+        }
+      ]
+    },
+    {
+      "topic_id": "laicite_republique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Faire de la laïcité, de l'universalisme et de l'assimilation les piliers de l'école républicaine, avec une éducation civique exigeante à tous les niveaux du secondaire.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Rubrique « École » : l'école ne doit « ni flatter les particularismes, ni importer des idéologies militantes ».",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Conditionner l'accès à la nationalité ou aux droits civiques à la maîtrise du français, à la connaissance de l'histoire de France et à l'adhésion aux valeurs fondamentales (« faire de l'assimilation une exigence nationale »).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Interdire l'abattage rituel sans étourdissement.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Rubrique « Écologie et protection animale ».",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Défend le maintien du lundi de Pâques et du 8 mai comme jours fériés, au nom de leur portée religieuse et mémorielle.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Réponse au plan Bayrou du 15 juillet 2025, qui prévoyait de supprimer ces deux jours fériés.",
+          "source_url": "https://les-patriotes.fr/non-a-la-suppression-des-2-jours-feries-lundi-de-paques-et-8-mai/",
+          "source_title": "Non à la suppression des 2 jours fériés : lundi de Pâques et 8 mai ! (Les Patriotes)",
+          "source_date": "2025-07"
+        },
+        {
+          "position": "Charte de 2017 : respect de la laïcité, y compris à l'université et dans les entreprises, et lutte contre l'islamisme.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Charte de 2017. Aucune proposition précise trouvée pour 2025-2026 sur les signes religieux.",
+          "source_url": "https://les-patriotes.fr/notre-charte-des-patriotes/",
+          "source_title": "Charte des Patriotes",
+          "source_date": "2017-11-07"
+        },
+        {
+          "position": "Mémoire de la colonisation : en 2017, il a jugé « irresponsables » les propos d'Emmanuel Macron qualifiant la colonisation de crime contre l'humanité.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Position ancienne (février 2017, alors au FN), connue par le titre d'une vidéo TF1 Info ; contenu de la vidéo non consulté. Rien trouvé de récent sur ce sujet.",
+          "source_url": "https://www.tf1info.fr/politique/elections/presidentielle/video-la-colonisation-un-crime-contre-l-humanite-des-propos-irresponsables-juge-florian-philippot-2026181.html",
+          "source_title": "La colonisation, \"un crime contre l'humanité\" ? Des propos \"irresponsables\", juge Florian Philippot (TF1 Info)",
+          "source_date": "2017-02-16"
+        }
+      ]
+    },
+    {
+      "topic_id": "fiscalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Principes fiscaux : alléger l'impôt des classes moyennes, des indépendants et des petites entreprises, lutter contre l'optimisation fiscale des grands groupes, moins taxer les petits héritages et taxer la concurrence internationale déloyale.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Aucun barème ni montant chiffré n'est donné.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Redresser les finances publiques sans augmenter le niveau d'imposition, jugé record (prélèvements obligatoires à 48 % du PIB).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Carburants : baisser tout de suite les accises de 20 centimes par litre, passer la TVA de 20 % à 5,5 % (ce qui suppose de sortir de l'UE), puis bloquer temporairement les prix si besoin.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Plan d'urgence énergétique en 8 points, publié en 2026 (date non affichée). Philippot a repris la baisse de la TVA sur les carburants en se déclarant candidat le 9 mai 2026 (JDD). Le 3 octobre 2026, le parti réclamait encore une « baisse immédiate des taxes ».",
+          "source_url": "https://les-patriotes.fr/pour-ladoption-immediate-dun-plan-durgence-energetique-en-france-en-8-points/",
+          "source_title": "Pour l'adoption immédiate d'un plan d'urgence énergétique en France en 8 points (Les Patriotes)",
+          "source_date": "2026"
+        },
+        {
+          "position": "Récupérer des recettes grâce à la lutte contre la fraude : 20 Md€ par an sur la fraude fiscale (40 % de 60 à 80 Md€) et 5 Md€ par an sur la fraude sociale.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le tableau des recettes vise 74,8 Md€ par an au total, dont 3,5 Md€ de droits de douane aujourd'hui versés à l'UE, 7 Md€ de droits de douane supplémentaires de 10 % (Chine, Mercosur…) et 30 Md€ attendus d'une croissance de 3 %.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Charte de 2017 : rétablir l'ISF pour les plus riches et baisser la TVA à mesure de la croissance.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Charte de 2017. Le rétablissement de l'ISF n'est pas repris explicitement dans le livret 2026-2027.",
+          "short_quote": "notamment par le rétablissement de l'ISF",
+          "source_url": "https://les-patriotes.fr/notre-charte-des-patriotes/",
+          "source_title": "Charte des Patriotes",
+          "source_date": "2017-11-07"
+        }
+      ]
+    },
+    {
+      "topic_id": "finances_publiques",
+      "found": true,
+      "positions": [
+        {
+          "position": "Réduire le train de vie de l'État : viser les ministères « non régaliens » et les régimes spéciaux des élus, supprimer les dépenses inutiles, les aides mal ciblées et des structures jugées inutiles (par exemple l'Arcom), tout en maintenant l'investissement dans les infrastructures et la production.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le livret fait ce constat : dette de 3 305 Md€ (plus de 113 % du PIB), charge d'intérêts d'environ 55 Md€ en 2025, déficit de 170 Md€ en 2024.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Économiser 60 Md€ par an : 15 Md€ de contribution nette à l'UE, 30 Md€ par la suppression des doublons dans la fonction publique territoriale (sur 60 Md€ de potentiel), 10 Md€ sur le coût attribué à l'immigration et 5 Md€ sur le soutien aux énergies alternatives et le bouclier énergétique.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Tableau « Économies possibles » du livret.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Abroger la « loi de 1973 » pour que l'État puisse emprunter à taux modéré directement auprès de la Banque de France, et créer une Caisse nationale pour l'équipement et la réindustrialisation (crédit public).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Lié à la sortie de l'euro. Selon le livret, la dette serait convertie en francs (lex monetae) et remboursée dans la nouvelle monnaie.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Mettre fin aux plans d'austérité, attribués aux critères de Maastricht et aux recommandations de la Commission européenne.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        }
+      ]
+    },
+    {
+      "topic_id": "travail_salaires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Mettre fin à l'immigration de travail et à la directive européenne sur les travailleurs détachés, accusées de tirer les salaires vers le bas.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le livret avance 300 millions de journées travaillées par des travailleurs détachés, soit selon lui 1 million d'emplois perdus en 10 ans.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Annuler les réformes récentes qui ont réduit les indemnités chômage, et rétablir et préserver l'« État-providence » une fois la France sortie de l'UE.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "S'oppose à la suppression de jours fériés (lundi de Pâques, 8 mai), y voyant une injustice et une « violence sociale » envers les travailleurs.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "source_url": "https://les-patriotes.fr/non-a-la-suppression-des-2-jours-feries-lundi-de-paques-et-8-mai/",
+          "source_title": "Non à la suppression des 2 jours fériés (Les Patriotes)",
+          "source_date": "2025-07"
+        },
+        {
+          "position": "Charte de 2017 : plein emploi et « revenus convenables pour tous » ; à travail égal, salaire égal.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Charte de 2017. Aucune proposition chiffrée récente trouvée sur le SMIC ou les salaires.",
+          "source_url": "https://les-patriotes.fr/notre-charte-des-patriotes/",
+          "source_title": "Charte des Patriotes",
+          "source_date": "2017-11-07"
+        }
+      ]
+    },
+    {
+      "topic_id": "industrie_economie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Sortir de l'euro et créer un nouveau franc (1 euro = 1 nouveau franc), avec flottement contrôlé et dévaluation possible pour relancer la compétitivité, contrôle temporaire des capitaux et reprise en main de la Banque de France.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "« Le Frexit en 10 questions », question 6 : une grande loi monétaire organiserait la conversion automatique des comptes, des salaires et des dettes.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Mettre en place une planification économique et un « protectionnisme intelligent » : sortir des accords de libre-échange signés par l'UE, appliquer des droits de douane ciblés (+10 % sur la Chine, le Mercosur, etc.) et relancer de grands projets d'« État stratège ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Soutenir artisans, TPE et PME par une politique sociale et fiscale très avantageuse, des incitations à rester ou à revenir en France et une simplification administrative drastique.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Renationaliser les autoroutes et rétablir des monopoles publics dans le rail et l'énergie.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "Renationaliser les autoroutes.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Demande l'annulation (moratoire) de la facturation électronique obligatoire pour les entreprises, prévue en septembre 2026, en invoquant les fuites de données de l'administration.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Pétition rédigée après une fuite de données à la DGFiP en juin 2026.",
+          "source_url": "https://les-patriotes.fr/fuite-de-donnees-letat-doit-immediatement-annuler-la-facturation-electronique-et-le-pass-numerique-prevus-en-septembre-2026/",
+          "source_title": "Fuite de données : l'État doit immédiatement annuler la facturation électronique et le pass numérique (Les Patriotes)",
+          "source_date": "2026"
+        }
+      ]
+    },
+    {
+      "topic_id": "retraites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Baisser l'âge de départ à la retraite, si les Français le souhaitent, une fois la France libérée des contraintes européennes. Il cite en exemple la Suisse, qui a refusé par référendum de relever l'âge de départ et a voté une 13e rente.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Aucun âge cible n'est chiffré dans le livret 2026-2027.",
+          "short_quote": "Baisser l'âge de départ à la retraite.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Rejette les réformes des retraites jugées imposées par Bruxelles (critères de Maastricht) et critique les projets de relèvement de l'âge légal (66,5 ans est évoqué).",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Pétition non datée, probablement de 2025, qui oppose le financement des guerres aux sacrifices demandés sur la santé et les retraites.",
+          "source_url": "https://les-patriotes.fr/les-francais-se-levent-pour-la-paix/",
+          "source_title": "Les Français se lèvent pour la Paix ! (Les Patriotes)",
+          "source_date": "2025"
+        },
+        {
+          "position": "Charte de 2017 : pérenniser la retraite par répartition et augmenter les petites retraites.",
+          "kind": "inference",
+          "confidence": "low",
+          "source_url": "https://les-patriotes.fr/notre-charte-des-patriotes/",
+          "source_title": "Charte des Patriotes",
+          "source_date": "2017-11-07"
+        }
+      ]
+    },
+    {
+      "topic_id": "sante",
+      "found": true,
+      "positions": [
+        {
+          "position": "Supprimer les agences régionales de santé (ARS), réduire la bureaucratie hospitalière et redéployer les effectifs vers les postes soignants, avec un ratio personnel/patients adapté.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "Il faut supprimer les ARS (Agences régionales de santé).",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Investir massivement dans des centres de santé locaux équipés pour les soins courants et les urgences non vitales, et recentrer l'hôpital sur les pathologies lourdes. Annuler les fermetures de lits et les déremboursements de médicaments jugés imposés par Bruxelles.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Garantir une « liberté vaccinale » pour tous, soignants compris, et abroger l'obligation de vaccination contre la grippe des soignants, des salariés d'EHPAD et des étudiants en santé. Le parti demande aussi l'interdiction des vaccins à ARN messager.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Livret 2026-2027 et pétition du 20 juillet 2026, qui menace de « désobéissance civique collective ». La pétition sur l'ARN messager n'est pas datée (2025-2026).",
+          "short_quote": "Assurer une liberté vaccinale pour tous les citoyens et les soignants.",
+          "source_url": "https://les-patriotes.fr/non-a-la-nouvelle-vaccination-obligatoire/",
+          "source_title": "Non à la nouvelle vaccination obligatoire ! (Les Patriotes)",
+          "source_date": "2026-07-20"
+        },
+        {
+          "position": "Sortir de l'OMS et dénoncer le traité mondial sur les pandémies ; supprimer le Conseil de l'Ordre des médecins ; aider les essais cliniques sur d'anciennes molécules ; ne plus « diaboliser » les thérapies non conventionnelles.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "S'oppose à la loi sur l'« aide à mourir » et réclame à la place une loi « aide à vivre » : soins palliatifs renforcés, recrutement de personnel formé, traitement de la douleur et soutien aux familles.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Pétition publiée après le vote en première lecture à l'Assemblée (mai 2025). Le livret 2026 refuse aussi toute incitation à l'euthanasie des personnes handicapées. En juin 2026, Philippot a participé à une initiative commune contre l'euthanasie.",
+          "source_url": "https://les-patriotes.fr/contre-la-loi-aide-a-mourir-et-pour-une-grande-loi-aide-a-vivre/",
+          "source_title": "Contre la loi « aide à mourir » et pour une grande loi « aide à vivre » ! (Les Patriotes)",
+          "source_date": "2025-05-27"
+        },
+        {
+          "position": "Stocker les données de santé de façon décentralisée (par exemple sur la carte Vitale), consultables seulement avec l'accord explicite du patient. Créer dans les maisons de retraite des unités pour personnes handicapées vieillissantes, accessibles dès 55 ans.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Charte de 2017 (inférence) : généraliser le tiers payant et créer une branche « dépendance » de la Sécurité sociale.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        }
+      ]
+    },
+    {
+      "topic_id": "logement",
+      "found": true,
+      "positions": [
+        {
+          "position": "Garantir à chaque jeune sortant de l'Aide sociale à l'enfance (ASE) à 18 ans un accompagnement vers l'autonomie, avec une solution de logement.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Pouvoir réviser le droit au logement social des familles de mineurs récidivistes, comme moyen de dissuasion.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Rubrique « Sécurité, justice ».",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Charte de 2017 : objectif général de « mettre fin au mal-logement », sans mesure précise.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Aucune proposition récente trouvée sur les loyers ou la construction.",
+          "source_url": "https://les-patriotes.fr/notre-charte-des-patriotes/",
+          "source_title": "Charte des Patriotes",
+          "source_date": "2017-11-07"
+        }
+      ]
+    },
+    {
+      "topic_id": "solidarites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Handicap : mieux payer, former et soutenir les métiers d'accompagnement (dont les AESH), créer des places de crèche adaptées aux enfants handicapés, simplifier la reconnaissance du handicap avec un interlocuteur unique et développer les lieux de répit pour les aidants.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Refonder entièrement l'Aide sociale à l'enfance en retirant cette compétence aux départements au profit de l'État, avec des inspections régulières et inopinées des structures et familles d'accueil.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Conditionner les prestations sociales des parents de mineurs récidivistes, avec suspension possible des aides.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Annuler les réformes qui ont réduit les indemnités chômage.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Charte de 2017 : politique familiale « généreuse » (allocations, crèches, garde à domicile, assistantes maternelles) ; aide médicale d'État (AME) supprimée et remplacée par une prise en charge des seules urgences vitales.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Aucun chiffrage récent trouvé sur la natalité ou les minima sociaux.",
+          "source_url": "https://les-patriotes.fr/notre-charte-des-patriotes/",
+          "source_title": "Charte des Patriotes",
+          "source_date": "2017-11-07"
+        }
+      ]
+    },
+    {
+      "topic_id": "egalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Charte de 2017 : « à travail égal salaire égal », et garantie de la sécurité, de la liberté et de la tranquillité des femmes partout et à tout moment.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Charte de 2017. Le livret 2026-2027 ne contient aucune rubrique sur l'égalité femmes-hommes ; aucune mesure récente trouvée sur l'égalité salariale, les congés parentaux ou les violences faites aux femmes.",
+          "short_quote": "à travail égal salaire égal",
+          "source_url": "https://les-patriotes.fr/notre-charte-des-patriotes/",
+          "source_title": "Charte des Patriotes",
+          "source_date": "2017-11-07"
+        }
+      ]
+    },
+    {
+      "topic_id": "droits_lgbtqia",
+      "found": true,
+      "positions": [
+        {
+          "position": "Charte de 2017 : le mouvement dit respecter les « derniers choix de société » comme le mariage pour tous.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Charte de 2017, toujours en ligne. Rien sur la PMA, la GPA, la filiation ou la transidentité dans la charte ni dans le livret 2026-2027.",
+          "short_quote": "respectent les derniers choix de société comme le mariage pour tous",
+          "source_url": "https://les-patriotes.fr/notre-charte-des-patriotes/",
+          "source_title": "Charte des Patriotes",
+          "source_date": "2017-11-07"
+        },
+        {
+          "position": "Dénonce le « wokisme », décrit comme l'idéologie d'une « ultra-minorité » et une « tyrannie des minorités », à propos de la cérémonie d'ouverture des JO de Paris 2024.",
+          "kind": "position_declaree",
+          "confidence": "low",
+          "details": "Pétition de l'été 2024. Elle ne contient aucune mesure législative sur les droits des personnes LGBTQIA+. Le livret 2026 demande seulement que l'école n'« importe » pas d'« idéologies militantes ».",
+          "source_url": "https://les-patriotes.fr/non-au-wokisme-oui-au-patriotisme/",
+          "source_title": "Non au wokisme, oui au patriotisme ! (Les Patriotes)",
+          "source_date": "2024-07"
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "found": true,
+      "positions": [
+        {
+          "position": "Recentrer le primaire sur les savoirs fondamentaux (français, calcul, histoire, géographie, sciences), en consacrant la moitié du temps scolaire du primaire à la maîtrise du français.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le livret affirme que près de 40 % des élèves entrent au collège sans maîtriser correctement la lecture et l'écriture.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "En finir avec le collège unique : parcours différenciés dès 14 ans, y compris vers l'apprentissage, et revalorisation de la voie professionnelle.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Restaurer l'autorité des professeurs, revaloriser leur carrière et leur salaire, recentrer leur formation sur les disciplines et assumer un pilotage national de l'Éducation nationale.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Revenir sur les restrictions de l'instruction en famille (« école à la maison ») décidées sous Emmanuel Macron.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Faire de l'école un « sanctuaire sans IA », mais former massivement au numérique dès le lycée (« citoyens-codeurs ») et soutenir fortement la recherche française en intelligence artificielle.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "L'École devra demeurer un sanctuaire sans IA",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        }
+      ]
+    },
+    {
+      "topic_id": "societe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Réaffirmer la culture française comme socle commun, recentrer l'école et les médias sur sa transmission (histoire de l'art, patrimoine, grands textes) et défendre l'exception culturelle dans les instances internationales.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Donner la priorité aux budgets culturels pour la restauration du patrimoine bâti menacé, simplifier le mécénat et remettre le « Beau » au cœur de l'architecture et de l'urbanisme.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Supprimer toutes les subventions publiques à la presse.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "La pétition cite les aides perçues en 2023 (Le Parisien 12,4 M€, Le Figaro 10,6 M€…). Elle n'est pas datée (2024-2025).",
+          "source_url": "https://les-patriotes.fr/pour-la-suppression-des-subventions-publiques-a-la-presse/",
+          "source_title": "Pour la suppression des subventions publiques à la presse ! (Les Patriotes)",
+          "source_date": "2025"
+        },
+        {
+          "position": "Supprimer l'Arcom, citée parmi les « structures inutiles ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Aucune position explicite trouvée sur l'avenir de l'audiovisuel public (France Télévisions, Radio France) ni sur son financement.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        }
+      ]
+    },
+    {
+      "topic_id": "numerique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Sortie programmée des GAFAM en 3 ans pour l'État, hébergement de toutes les données stratégiques sur des serveurs publics ou contrôlés par l'ANSSI, code source des outils publics libre et auditable.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "Une sortie programmée des GAFAM en 3 ans est nécessaire.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Adopter une grande loi sur la souveraineté numérique et créer un Commissariat à la souveraineté numérique. Faire de la France une grande puissance de l'IA (soutien à la recherche, aux entreprises françaises et aux capacités de calcul), avec une réflexion sur les effets de l'IA sur l'emploi.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "S'oppose à l'interdiction des réseaux sociaux aux moins de 15 ans (loi du 26 janvier 2026) et au « pass numérique » de vérification d'âge, qu'il juge porteur de surveillance généralisée. Il préfère la responsabilité parentale et des sanctions renforcées contre les pédocriminels.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Pétitions de 2025 (« Macron veut interdire les réseaux sociaux : on refuse ! ») et de 2026 (« NON au Pass Numérique ! »).",
+          "source_url": "https://les-patriotes.fr/non-au-pass-numerique/",
+          "source_title": "NON au Pass Numérique ! (Les Patriotes)",
+          "source_date": "2026"
+        },
+        {
+          "position": "Supprimer les lois qui restreignent la liberté d'expression, dont le règlement européen DSA, et refuser l'identité numérique européenne et l'euro numérique.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le livret propose aussi d'interdire toute monnaie numérique de banque centrale, de sanctuariser l'argent liquide et de soutenir les cryptomonnaies. En juillet 2026, le parti s'est opposé à une proposition sénatoriale contre les « ingérences intérieures ».",
+          "short_quote": "Les lois restreignant la liberté d'expression doivent être supprimées.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Quitter le marché européen de l'électricité pour ne plus indexer le prix sur le gaz. Le livret affirme que cela diviserait par trois le prix de l'électricité.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Rétablir le monopole public national d'EDF, investir massivement dans le nucléaire de nouvelle génération et l'hydroélectricité, et empêcher l'ouverture à la concurrence des barrages.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "Rétablir le monopole public national d'EDF.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Moratoire total et définitif sur les éoliennes terrestres et en mer, avec un plan de démantèlement et de recyclage de celles déjà installées.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "En finir avec les éoliennes sur terre et en mer.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Maintenir la vente de voitures thermiques au-delà de 2035 et supprimer les zones à faibles émissions (ZFE), jugées injustes pour les ménages modestes.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Livret 2026 pour les voitures thermiques ; pétition « Stop aux ZFE ! » du 1er janvier 2025.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Plan d'urgence énergétique : lever les sanctions énergétiques contre la Russie, aider spécifiquement agriculteurs et pêcheurs (carburants, pneus, engrais) et exploiter des ressources nationales (pétrole en Guyane et à Mayotte, hydrogène blanc en Lorraine).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/pour-ladoption-immediate-dun-plan-durgence-energetique-en-france-en-8-points/",
+          "source_title": "Pour l'adoption immédiate d'un plan d'urgence énergétique en France en 8 points (Les Patriotes)",
+          "source_date": "2026"
+        },
+        {
+          "position": "Une écologie fondée sur les circuits courts et le protectionnisme, et un grand plan national de protection de la faune et de la flore : sanctuarisation des espaces naturels, replantation des haies bocagères, lutte contre l'artificialisation des sols.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le 12 mars 2026 (JDD), Philippot a aussi dénoncé les directives européennes sur les renouvelables (RED3) et la programmation énergétique (PPE3). Aucune proposition spécifique trouvée sur l'eau ou l'adaptation au climat.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "found": true,
+      "positions": [
+        {
+          "position": "Supprimer la PAC et la remplacer par une « Politique agricole française » (PAF) fondée sur les circuits courts, la qualité, le bio et la permaculture, sans normes européennes comme la jachère obligatoire.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le livret rappelle que les agriculteurs français perçoivent en moyenne 9 Md€ par an de la PAC, financés selon lui à 100 % par la France.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Rétablir des prix planchers pour garantir un revenu décent, en taxant aux frontières les produits importés qui n'en ont pas, ce qui suppose de sortir de l'UE.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Mettre fin aux accords de libre-échange (dont l'accord UE-Mercosur) et pouvoir instaurer des quotas ou des barrières douanières, y compris contre des pays européens (fruits et légumes espagnols, porc et lait allemands…).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le parti a aussi appelé au boycott de Michel-Édouard Leclerc, favorable au Mercosur (pétition 2025-2026).",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "S'oppose à l'abattage systématique des troupeaux face à la dermatose nodulaire et défend d'autres solutions ; refuse les NGT (« nouveaux OGM ») sans information du consommateur ; veut bannir les insectes de l'alimentation.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Pétitions de fin 2025 et 2026, et livret 2026-2027.",
+          "source_url": "https://les-patriotes.fr/non-a-labattage-massif-du-cheptel-francais/",
+          "source_title": "Non à l'abattage massif du cheptel français ! (Les Patriotes)",
+          "source_date": "2025"
+        },
+        {
+          "position": "Bien-être animal : interdire l'abattage rituel sans étourdissement, mieux soutenir les refuges et refuser l'expérimentation animale quand des alternatives existent.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        }
+      ]
+    },
+    {
+      "topic_id": "territoires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Supprimer les « doublons » de la fonction publique territoriale, avec 30 Md€ d'économies annuelles visées (sur un potentiel estimé à 60 Md€).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Les structures concernées ne sont pas précisées.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Recentraliser l'Aide sociale à l'enfance (retirée aux départements), supprimer les ARS et renforcer le maillage territorial de centres de santé de proximité.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Outre-mer : lutter contre la vie chère (circuits courts, production locale, aide au fret maritime, encadrement plus strict des prix de première nécessité, lutte contre les monopoles, fiscalité revue), lancer un plan national d'investissement (eau, électricité, numérique, santé) et proposer la départementalisation aux territoires qui la souhaitent.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le livret indique que la vie coûte 30 à 40 % plus cher outre-mer qu'en métropole.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Refuse catégoriquement la création d'un État de Nouvelle-Calédonie doté d'une nationalité propre. En juillet 2025, il a dénoncé l'accord de Bougival comme menant à l'indépendance.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://www.lejdd.fr/politique/depecage-de-la-france-forfaiture-haute-trahison-les-souverainistes-sinsurgent-contre-laccord-sur-lavenir-de-la-nouvelle-caledonie-160134",
+          "source_title": "« Dépeçage de la France », « forfaiture », « haute trahison »… Les souverainistes s'insurgent contre l'accord sur l'avenir de la Nouvelle-Calédonie (Le JDD)",
+          "source_date": "2025-07-13"
+        },
+        {
+          "position": "Rétablir les monopoles publics dans le rail et l'énergie, et renationaliser les autoroutes.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Charte de 2017 (inférence) : suppression des conseils régionaux et revalorisation du rôle des communes et des maires.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "found": true,
+      "positions": [
+        {
+          "position": "Recréer une police de proximité implantée dans les quartiers sensibles, avec des commissariats de proximité et l'appui de forces spécialisées (RAID, CRS) ; recentrer les policiers sur la prévention, le maintien de l'ordre et la lutte contre la délinquance.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Justice des mineurs : jugement et sanction simultanés, excuse de minorité appliquée seulement si le juge la motive spécialement, et jugement comme des adultes pour les actes les plus graves.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "qui tue comme un adulte doit être jugé comme un adulte",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Réinstaurer les peines planchers, sanctionner dès la première infraction et revenir sur les réductions automatiques de peine.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Construire les « dizaines de milliers » de places de prison manquantes et expulser les détenus étrangers (25 % des détenus selon le livret).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Faire de la lutte contre la pédocriminalité une grande cause nationale : peines alourdies, castration chimique automatique en cas de récidive, contrôle préalable et périodique des antécédents de tout adulte au contact de mineurs, et commission d'enquête parlementaire sur le volet français de l'affaire Epstein.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Responsabiliser les familles de mineurs récidivistes (suspension d'aides, révision du droit au logement social et, dans les cas les plus graves, expulsion de toute la famille du territoire) et coordonner police, justice, éducation et collectivités.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Aucune position spécifique trouvée sur le trafic de drogue.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "found": true,
+      "positions": [
+        {
+          "position": "Mettre fin à l'« immigration massive » en revenant à des flux « extrêmement limités ». Les étrangers voulant vivre en France devraient choisir entre une « parfaite assimilation » et le départ.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Rétablir des frontières nationales en quittant l'espace Schengen et l'UE, dissoudre Frontex et échapper au Pacte européen sur la migration et l'asile.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le livret oppose explicitement cette position à celle du RN, qui selon lui a renoncé à dénoncer Schengen et veut renforcer Frontex.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Dénoncer la Convention européenne des droits de l'homme (quitter la CEDH), notamment pour pouvoir remettre en cause le regroupement familial, et adopter des lois limitant le « gouvernement des juges ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Renvoyer les clandestins et appliquer les OQTF avec des renvois immédiats, sans le délai de départ volontaire de 7 à 30 jours prévu par la directive « retour » ; être ferme avec les pays d'origine et de transit.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Mettre fin à l'immigration de travail, conditionner la nationalité à la maîtrise du français, à la connaissance de l'histoire et à l'adhésion aux valeurs, et expulser les détenus étrangers.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Économie visée : 10 Md€ par an sur le coût attribué à l'immigration. Charte de 2017 (inférence) : suppression de l'AME, remplacée par une prise en charge des seules urgences vitales.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Frexit : sortir de l'Union européenne par l'article 50 du TUE, le plus tôt possible après l'élection, en supprimant le titre XV de la Constitution. Il refuse toute renégociation des traités, jugeant l'UE « irréformable ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "« Le Frexit en 10 questions » : récupération quasi immédiate des compétences régaliennes (monnaie, énergie, agriculture), puis plusieurs années d'adaptation du droit. Le 12 mars 2026, il prévoyait que le Frexit serait « au cœur de la présidentielle » (JDD).",
+          "short_quote": "Le Frexit est ainsi la clé de voûte du projet des Patriotes",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Quitter toutes les instances supranationales : UE, euro, Schengen, CEDH, OTAN, OMS.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Budget européen : le Frexit supprimerait la contribution française (31,1 Md€ prévus en 2026), soit un gain net estimé à environ 15 Md€ par an, voire plus de 20 Md€ après 2028. Il dénonce la hausse de 40 % du budget européen 2028-2034.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Après le Frexit : maintenir les coopérations utiles avec les voisins européens, en ouvrir de nouvelles avec l'Asie, l'Amérique du Sud et le Moyen-Orient, et demander aux institutions européennes de quitter le territoire français (siège du Parlement à Strasbourg réaffecté).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Sortir du marché unique et de ses règles de concurrence (électricité, barrages, libre-échange), refuser l'euro numérique et l'identité numérique européenne. Le parti a aussi appelé les maires à retirer le drapeau européen des mairies.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Rien n'est dit sur l'élargissement, sauf la critique de « l'élargissement qui se poursuit à l'Est » comme facteur de coût.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        }
+      ]
+    },
+    {
+      "topic_id": "ukraine_russie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Couper tous les financements à l'Ukraine, présentés comme perdus dans la corruption, et cesser d'« entretenir » la guerre.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le livret cite un plan européen de 50 Md€ dont 10 Md€ à la charge de la France. Pétition « Plus un euro pour l'Ukraine ! » de novembre 2025.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Arrêter immédiatement tout soutien militaire et financier français à l'Ukraine, sortir de l'UE et de l'OTAN pour « choisir la Paix » et pousser à une négociation.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/appel-national-pour-la-paix/",
+          "source_title": "Appel national pour la Paix ! (Les Patriotes)",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Lever les sanctions énergétiques contre la Russie pour avoir accès à des hydrocarbures moins chers.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Point 4 du plan d'urgence énergétique (2026), repris lors de la déclaration de candidature du 9 mai 2026 (JDD).",
+          "source_url": "https://les-patriotes.fr/pour-ladoption-immediate-dun-plan-durgence-energetique-en-france-en-8-points/",
+          "source_title": "Pour l'adoption immédiate d'un plan d'urgence énergétique en France en 8 points (Les Patriotes)",
+          "source_date": "2026"
+        },
+        {
+          "position": "Refuse l'envoi de soldats français en Ukraine, y compris dans une force de garantie de 6 000 à 8 000 hommes annoncée par l'Élysée.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/pas-de-troupes-francaises-ni-en-ukraine-ni-au-groenland/",
+          "source_title": "Pas de troupes françaises, ni en Ukraine ni au Groenland ! (Les Patriotes)",
+          "source_date": "2026-01-20"
+        },
+        {
+          "position": "Se présente comme défenseur d'une « position gaulliste de paix » et récuse l'étiquette prorusse, après le rassemblement d'Arras du 12 septembre 2026.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Franceinfo relève que six intervenants étaient d'anciens chroniqueurs ou invités réguliers de RT. Le 12 mars 2026, il accusait l'UE de prolonger la guerre pour faire avancer un agenda fédéraliste (JDD).",
+          "source_url": "https://www.franceinfo.fr/vrai-ou-fake/ce-qu-on-fait-subir-a-la-russie-est-probablement-excessif-un-rassemblement-prorusse-organise-par-les-patriotes-a-arras_8200733.html",
+          "source_title": "« Ce qu'on fait subir à la Russie est probablement excessif » : un rassemblement prorusse organisé par Les Patriotes à Arras ? (franceinfo)",
+          "source_date": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "topic_id": "proche_orient",
+      "found": true,
+      "positions": [
+        {
+          "position": "Refuse tout engagement militaire de la France dans la guerre israélo-américaine contre l'Iran et appelle à une désescalade diplomatique.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Pétition du 1er mars 2026 : il invoque les 400 000 Français vivant dans la région, le risque d'attentats et la hausse des prix de l'énergie. Point 7 du plan d'urgence énergétique ; repris le 9 mai 2026 (JDD).",
+          "source_url": "https://les-patriotes.fr/la-france-ne-doit-pas-sengager-dans-la-guerre-diran/",
+          "source_title": "La France ne doit pas s'engager dans la guerre d'Iran (Les Patriotes)",
+          "source_date": "2026-03-01"
+        },
+        {
+          "position": "La France doit retrouver un rôle historique de médiateur pour la paix au Moyen-Orient, par le dialogue et la diplomatie, avec une politique étrangère indépendante des États-Unis et de l'OTAN.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "details": "Rubrique « Guerre et paix » du livret, et pétition d'avril 2024 après l'attaque iranienne contre Israël. Aucune position trouvée sur la guerre à Gaza, la reconnaissance de l'État de Palestine ou les relations avec le gouvernement israélien.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        }
+      ]
+    },
+    {
+      "topic_id": "defense",
+      "found": true,
+      "positions": [
+        {
+          "position": "Quitter l'OTAN, jugée contraire à l'indépendance française : elle exposerait la France à des conflits « qui ne sont pas les nôtres ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "Quitter l'OTAN.",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Rejeter la création d'une armée européenne et les nouvelles compétences de l'UE en défense (fonds européen de 100 Md€ pour des achats groupés d'armement, industrie européenne de l'armement).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "source_title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Garder la dissuasion nucléaire strictement française : refus de la partager ou d'associer d'autres pays à la définition des « intérêts vitaux ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Livret 2026 et pétition de mars 2025 contre l'« européanisation » de la dissuasion.",
+          "source_url": "https://les-patriotes.fr/non-a-leuropeanisation-de-la-dissuasion-nucleaire-francaise/",
+          "source_title": "NON à l'européanisation de la dissuasion nucléaire française ! (Les Patriotes)",
+          "source_date": "2025-03"
+        },
+        {
+          "position": "Refuse le déploiement de soldats français en Ukraine et au Groenland (au moins 200 soldats évoqués), et demande que l'article 35 de la Constitution (vote du Parlement sur l'engagement militaire) soit respecté.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://les-patriotes.fr/pas-de-troupes-francaises-ni-en-ukraine-ni-au-groenland/",
+          "source_title": "Pas de troupes françaises, ni en Ukraine ni au Groenland ! (Les Patriotes)",
+          "source_date": "2026-01-20"
+        },
+        {
+          "position": "Charte de 2017 : consacrer immédiatement 3 % du PIB à la défense et tendre vers 4 %.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Charte de 2017. Ce chiffrage n'est pas repris dans le livret 2026-2027. Aucune position trouvée sur le service national, sauf l'opposition à une conscription décidée par l'UE (pétition de 2024).",
+          "short_quote": "consacrer immédiatement 3 % de notre PIB au budget de la Défense",
+          "source_url": "https://les-patriotes.fr/notre-charte-des-patriotes/",
+          "source_title": "Charte des Patriotes",
+          "source_date": "2017-11-07"
+        }
+      ]
+    }
+  ],
+  "distinctive_vs_others": "1) Il propose de sortir de toutes les organisations supranationales à la fois : UE (article 50), euro (nouveau franc 1 pour 1), Schengen, CEDH, OTAN et OMS, et refuse toute renégociation des traités (livret 2026-2027 : https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf).\n\n2) Il se démarque nettement de Marine Le Pen. Son livret reproche au RN d'avoir renoncé à la sortie de l'UE et à la dénonciation de Schengen, et de vouloir renforcer Frontex, quand lui veut le dissoudre.\n\n3) Sur le Frexit, il partage une partie de sa ligne avec François Asselineau (UPR) et Nicolas Dupont-Aignan. Selon un titre du Figaro du 24 avril 2026 (non lu), Dupont-Aignan appelle aussi à sortir de l'UE. Dupont-Aignan a pris la parole au rassemblement d'Arras de Philippot et y a défendu une Ukraine « zone démilitarisée neutre » (franceinfo, 19 septembre 2026 : https://www.franceinfo.fr/vrai-ou-fake/ce-qu-on-fait-subir-a-la-russie-est-probablement-excessif-un-rassemblement-prorusse-organise-par-les-patriotes-a-arras_8200733.html). Philippot plaide pour une « primaire des souverainistes » (https://les-patriotes.fr/appel-a-la-primaire-des-souverainistes/). Il est le seul déclaré à conditionner sa candidature au choix d'un non-candidat : il se retirerait si Philippe de Villiers se présentait (JDD, 9 mai 2026).\n\n4) Il est très marqué sur les questions sanitaires et de libertés publiques, plus que les autres candidats déclarés : « liberté vaccinale », abrogation de l'obligation vaccinale contre la grippe des soignants, interdiction demandée des vaccins à ARN messager, sortie de l'OMS, suppression du Conseil de l'Ordre et des ARS. Il s'oppose aussi à l'interdiction des réseaux sociaux aux moins de 15 ans, au DSA, à l'identité numérique européenne et à l'euro numérique, et soutient les cryptomonnaies.\n\n5) Il demande l'arrêt de toute aide à l'Ukraine et la levée des sanctions énergétiques contre la Russie, ce qui le sépare de candidats comme Glucksmann, Attal ou Retailleau. Les positions précises de ces derniers n'ont pas été vérifiées dans cette recherche.\n\n6) En économie, il associe un discours de « justice fiscale » (classes moyennes, PME, petits héritages) à des mesures de planification et de renationalisation (EDF, rail, autoroutes) et à un protectionnisme qui vise aussi les pays européens. Il ajoute un moratoire total sur les éoliennes et leur démantèlement.",
+  "evolutions_and_contradictions": "Parcours : vice-président du FN jusqu'en 2017, il a fondé Les Patriotes en 2017. Sa charte de novembre 2017 est toujours en ligne. En 2022, il était candidat mais n'a pas obtenu les parrainages ; il a rallié Nicolas Dupont-Aignan en mars 2022. Aux européennes de 2024, sa liste commune avec Jean-Frédéric Poisson a obtenu 0,93 %. Le 9 mai 2026, il se déclare candidat tout en se disant prêt à se retirer pour Philippe de Villiers. Sa candidature est donc présentée comme conditionnelle.\n\nÉcarts entre la charte de 2017 et le livret 2026-2027 :\n- Plusieurs engagements de 2017 ne sont plus repris en 2026 : rétablissement de l'ISF, proportionnelle généralisée, suppression du Sénat et des conseils régionaux, budget de défense à 3 % puis 4 % du PIB, tiers payant généralisé, respect du mariage pour tous. On ne sait pas s'ils sont abandonnés ou simplement omis.\n- Retraites : à l'époque du FN, il défendait le retour à 60 ans (Wikipédia). Le livret 2026 dit seulement « baisser l'âge de départ », sans chiffre.\n- Depuis 2020, ses priorités se sont déplacées vers la contestation des mesures sanitaires (passe, vaccins, OMS), les libertés numériques et l'opposition à l'aide à l'Ukraine.\n\nTensions internes au livret 2026 :\n- Il promet de redresser les finances publiques sans hausse d'impôts, mais aussi de baisser les taxes sur les carburants (TVA à 5,5 %), d'investir massivement dans le nucléaire, de revaloriser les enseignants et les AESH et de construire des dizaines de milliers de places de prison. Le chiffrage repose sur des hypothèses volontaristes : 3 % de croissance, 40 % de la fraude fiscale et sociale récupérée, 30 Md€ d'économies sur les « doublons » territoriaux.\n- La contribution à l'UE est donnée à 31,1 Md€ bruts, mais seulement 15 Md€ nets sont comptés en économies.\n- Il fait de la protection de l'enfance une « grande cause » tout en refusant la vérification d'âge sur les réseaux sociaux.\n- Sur le Moyen-Orient, il prône la paix et la désescalade sans aucune position connue sur Gaza.\n\nContexte : franceinfo (19 septembre 2026) relève la présence d'anciens intervenants de RT à son rassemblement d'Arras ; il récuse l'étiquette prorusse.",
+  "open_questions": [
+    "Quel âge légal de départ à la retraite vise-t-il précisément (le livret 2026 dit seulement « baisser l'âge ») et comment le finance-t-il ?",
+    "Maintient-il le rétablissement de l'ISF, la proportionnelle et la suppression du Sénat prévus par la charte de 2017, absents du livret 2026-2027 ?",
+    "Quelle est sa position sur la guerre à Gaza, la reconnaissance de l'État de Palestine et les relations avec le gouvernement israélien (rien trouvé) ?",
+    "Quel budget de défense vise-t-il en 2026-2027 (la charte de 2017 disait 3 % puis 4 % du PIB) et quelle est sa position sur un service national ?",
+    "Quelles mesures sur les salaires et le SMIC, le partage de la valeur et le temps de travail (rien de chiffré trouvé) ?",
+    "Quelles positions sur le logement (loyers, construction), l'égalité femmes-hommes et les violences faites aux femmes (rien de récent trouvé) ?",
+    "Quelles positions sur la PMA, la GPA, la filiation et la transidentité des mineurs (rien trouvé ; seule la charte de 2017 mentionne le mariage pour tous) ?",
+    "Quel avenir pour l'audiovisuel public (France Télévisions, Radio France) et son financement ?",
+    "Le Frexit passerait-il par un référendum ou directement par l'article 50 et un vote du Congrès ? Le livret laisse trois options ouvertes.",
+    "Ira-t-il jusqu'au bout ou se retirera-t-il, au profit de Philippe de Villiers ou d'un candidat issu d'une « primaire des souverainistes » ? Obtiendra-t-il les 500 parrainages avant le 12 mars 2027 ?",
+    "Quelles propositions sur le trafic de drogue et l'adaptation au changement climatique (eau, sécheresses), non traités dans le livret ?"
+  ]
+}

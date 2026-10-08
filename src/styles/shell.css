@@ -1,0 +1,11 @@
+/* Chargement d'une élection (App) : rien ne s'affiche pendant un court instant, pour qu'un chargement rapide
+   ne fasse pas d'éclair, puis l'en-tête et la ligne d'état apparaissent d'un coup (aucun mouvement). */
+.shell-loading {
+  animation: shell-late 0s linear 450ms backwards;
+}
+
+@keyframes shell-late {
+  from {
+    visibility: hidden;
+  }
+}

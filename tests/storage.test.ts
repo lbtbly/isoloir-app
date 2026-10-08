@@ -1,8 +1,8 @@
-import { describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import { buildExport, parseImport } from '../src/core/exportData'
 import { currentAnswers, staleQuestions } from '../src/core/revisions'
 import { computeResults } from '../src/core/score'
-import { essentialComplete, freshState, migrateAnswers, sanitizeState } from '../src/core/storage'
+import { essentialComplete, freshState, hasSaved, migrateAnswers, sanitizeState } from '../src/core/storage'
 import type { ElectionPack } from '../src/core/types'
 import { pack } from './fixture'
 
@@ -158,5 +158,25 @@ describe('révisions des questions', () => {
       expect(back.state.answers.q1).toEqual(answers.q1)
     }
     expect(sanitizeState(file.state, p)?.answers.q1).toEqual(answers.q1)
+  })
+})
+
+describe('hasSaved', () => {
+  afterEach(() => vi.unstubAllGlobals())
+
+  it('dit si cet appareil garde une feuille pour une élection, sans la lire', () => {
+    const store = new Map<string, string>([['isoloir:choisir-2027', '{}']])
+    vi.stubGlobal('localStorage', { getItem: (k: string) => store.get(k) ?? null })
+    expect(hasSaved('choisir-2027')).toBe(true)
+    expect(hasSaved('presidentielle-2027')).toBe(false)
+  })
+
+  it('stockage bloqué : rien d’enregistré', () => {
+    vi.stubGlobal('localStorage', {
+      getItem: () => {
+        throw new Error('bloqué')
+      },
+    })
+    expect(hasSaved('choisir-2027')).toBe(false)
   })
 })

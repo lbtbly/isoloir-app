@@ -1,0 +1,1085 @@
+{
+  "candidate": "Marine Le Pen",
+  "affiliation": "Rassemblement national (présidente du groupe RN à l'Assemblée nationale). Campagne menée en « ticket » avec Jordan Bardella, président du RN, présenté comme son futur Premier ministre.",
+  "campaign_site": "https://www.marinelepen.com/",
+  "declaration": {
+    "date": "2026-07-07",
+    "form": "Annonce au journal de 20 h de TF1, quelques heures après l'arrêt de la cour d'appel de Paris (affaire des assistants parlementaires européens) : 3 ans de prison dont 1 an ferme aménageable sous bracelet, 100 000 € d'amende, 45 mois d'inéligibilité dont 30 avec sursis. Les 15 mois fermes ayant pris fin le 30 juin 2026, elle est éligible. Elle annonce le même soir un pourvoi en cassation et déclare : « Ce soir, je suis candidate à l'élection présidentielle ».",
+    "source_url": "https://www.france24.com/fr/france/20260707-marine-le-pen-annonce-%C3%AAtre-candidate-%C3%A0-la-pr%C3%A9sidentielle-et-va-se-pourvoir-en-cassation",
+    "source_title": "France 24 – Marine Le Pen annonce être candidate à la présidentielle et va se pourvoir en cassation"
+  },
+  "overview": "Présidente du groupe RN à l'Assemblée, Marine Le Pen a annoncé sa candidature le 7 juillet 2026 sur TF1. C'était quelques heures après sa condamnation en appel, assortie d'une inéligibilité réduite à 15 mois fermes, déjà purgés. Un pourvoi en cassation est en cours, avec une décision attendue avant le premier tour. Elle fait campagne en binôme avec Jordan Bardella, annoncé comme Premier ministre. Aucun programme complet n'est publié. Son projet se lit dans son discours de rentrée à Hénin-Beaumont (13 septembre 2026), une tribune dans L'Opinion (1er octobre) et la présentation de sa trajectoire budgétaire et de son contre-budget (6 octobre). Le cœur en est la « priorité nationale » (logement social, APL, emploi, prestations) et un référendum constitutionnel sur l'immigration. Un second référendum porterait sur une loi contre les « idéologies islamistes », avec une interdiction progressive du voile. En économie, elle associe l'âge légal à 62 ans (60 ans pour les carrières commencées avant 20 ans) à des baisses de TVA sur l'énergie et des impôts de production. Elle y ajoute, chose nouvelle pour son camp, une promesse de rigueur : 140 Md€ nets d'économies d'ici 2032 et une « règle d'or » budgétaire adoptée par référendum. À l'international, elle veut arrêter l'aide financière à l'Ukraine tout en continuant la formation et les livraisons de matériel. Elle veut aussi sortir du commandement intégré de l'OTAN, mais pas tant que dure la guerre, et refuse de partager la dissuasion nucléaire. Elle ne demande plus la sortie de l'UE : elle veut réduire la contribution française et défendre le droit de veto des États.",
+  "programme_sources": [
+    {
+      "title": "Discours de rentrée à Hénin-Beaumont (priorité nationale, logement) – compte rendu France 3",
+      "url": "https://france3-regions.franceinfo.fr/hauts-de-france/pas-calais/lens/marine-le-pen-fait-sa-rentree-politique-a-henin-beaumont-et-met-la-priorite-nationale-au-c-ur-de-son-programme-pour-la-presidentielle-de-2027-3416348.html",
+      "date": "2026-09-13"
+    },
+    {
+      "title": "Lettre ouverte aux professionnels de l'immobilier et propositions logement – Journal de l'Agence",
+      "url": "https://www.journaldelagence.com/1413717-presidentielle-2027-quelles-sont-les-propositions-de-marine-le-pen-sur-le-logement",
+      "date": "2026-09-22"
+    },
+    {
+      "title": "Tribune dans L'Opinion sur la « règle d'or » budgétaire – analyse LCP",
+      "url": "https://lcp.fr/actualites/budget-comment-fonctionnerait-la-regle-d-or-que-marine-le-pen-veut-faire-adopter-par",
+      "date": "2026-10-02"
+    },
+    {
+      "title": "Conférence de presse Le Pen–Bardella : trajectoire budgétaire et contre-budget (franceinfo)",
+      "url": "https://www.franceinfo.fr/elections/presidentielle/presidentielle-2027-marine-le-pen-promet-140-milliards-d-euros-nets-d-economies-d-ici-a-2032_8224807.html",
+      "date": "2026-10-06"
+    },
+    {
+      "title": "Même conférence de presse – France 24 (retraites, capitalisation, baisses d'impôts)",
+      "url": "https://www.france24.com/fr/france/20261006-pr%C3%A9sidentielle-2027-marine-le-pen-promet-140-milliards-d-euros-nets-d-%C3%A9conomies-d-ici-5-ans",
+      "date": "2026-10-06"
+    },
+    {
+      "title": "Débat du Medef entre sept candidats – ce qu'il faut retenir (franceinfo)",
+      "url": "https://www.franceinfo.fr/elections/presidentielle/dette-publique-retraites-reindustrialisation-ce-qu-il-faut-retenir-du-premier-debat-des-principaux-candidats-a-la-presidentielle_8165342.html",
+      "date": "2026-08-27"
+    },
+    {
+      "title": "Interview LCI : voile, référendums (franceinfo/AFP)",
+      "url": "https://www.franceinfo.fr/politique/marine-le-pen/marine-le-pen-souhaite-interdire-le-voile-islamique-de-maniere-progressive_8196287.html",
+      "date": "2026-09-16"
+    },
+    {
+      "title": "Entretien Politico (Playbook Paris) : Ukraine, OTAN – repris par le Kyiv Post",
+      "url": "https://www.kyivpost.com/post/85353",
+      "date": "2026-09-24"
+    },
+    {
+      "title": "Contre-budget 2026 du groupe RN (document PDF ; analyse Public Sénat ci-contre)",
+      "url": "https://rassemblementnational.fr/documents/GRN-CONTRE-BUDGET-2026.pdf",
+      "date": "2025-10"
+    },
+    {
+      "title": "Public Sénat – analyse chiffrée du contre-budget RN 2026",
+      "url": "https://www.publicsenat.fr/actualites/economie/contre-budget-du-rn-des-propositions-qui-manquent-de-credibilite-economique-mais-trahissent-une-veritable-coherence-doctrinale",
+      "date": "2025-10-24"
+    },
+    {
+      "title": "Programme présidentiel 2022 chiffré par l'Institut Montaigne (référence antérieure, inférence seulement)",
+      "url": "https://www.institutmontaigne.org/presidentielle-2022/marine-le-pen",
+      "date": "2022-04"
+    }
+  ],
+  "topics": [
+    {
+      "topic_id": "institutions",
+      "found": true,
+      "positions": [
+        {
+          "position": "Faire réviser la Constitution directement par référendum, sans vote préalable du Parlement. Un premier référendum porterait sur l'immigration, puis un second sur la lutte contre les « idéologies islamistes ». Elle soutient que le Conseil constitutionnel ne peut pas faire obstacle à la volonté populaire et invoque le précédent du général de Gaulle.",
+          "kind": "proposition_explicite",
+          "details": "Annoncé sur LCI (16-17 septembre 2026). Le référendum sur l'islamisme n'aurait pas lieu juste après l'élection mais après celui sur l'immigration. Des constitutionnalistes contestent l'usage de l'article 11 pour réviser la Constitution.",
+          "source_url": "https://www.lejdd.fr/politique/voile-mosquees-freres-musulmans-marine-le-pen-promet-un-referendum-sur-la-lutte-contre-lislamisme-183690",
+          "source_title": "Le JDD – Voile, mosquées, Frères musulmans… Marine Le Pen promet un référendum sur la « lutte contre l'islamisme »",
+          "source_date": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Inscrire dans la Constitution, par référendum, une « règle d'or » qui imposerait chaque année au gouvernement et au Parlement un déficit maximal. Le Haut Conseil des finances publiques validerait les hypothèses, et seule une majorité des 3/5 pourrait autoriser une dérogation.",
+          "kind": "proposition_explicite",
+          "details": "Tribune dans L'Opinion du 1er octobre 2026. Les dérogations sont prévues en cas de tensions géopolitiques, de crise énergétique ou de risque de récession. Le Conseil constitutionnel contrôlerait la sincérité des lois de finances.",
+          "source_url": "https://lcp.fr/actualites/budget-comment-fonctionnerait-la-regle-d-or-que-marine-le-pen-veut-faire-adopter-par",
+          "source_title": "LCP – Budget : comment fonctionnerait la « règle d'or » que Marine Le Pen veut faire adopter par référendum",
+          "source_date": "2026-10-02",
+          "confidence": "high"
+        },
+        {
+          "position": "Soutien à la proportionnelle aux législatives, mais avec une prime majoritaire pour la liste arrivée en tête, à la différence de la proportionnelle intégrale défendue par François Bayrou.",
+          "kind": "position_declaree",
+          "details": "Exprimé lors des consultations de Matignon sur le mode de scrutin. Argument avancé : la tripolarisation de la vie politique empêche de dégager une majorité.",
+          "source_url": "https://www.arabnews.fr/france/proportionnelle-bayrou-consulte-mais-les-avis-divergent-502122",
+          "source_title": "Arab News FR – Proportionnelle : Bayrou consulte mais les avis divergent",
+          "source_date": "2025-04-30",
+          "confidence": "medium"
+        },
+        {
+          "position": "Fonctionnement en « couple » exécutif : si elle est élue, Jordan Bardella sera Premier ministre.",
+          "kind": "position_declaree",
+          "details": "Annoncé le soir de la déclaration de candidature. L'entourage parle d'un « ticket » à l'américaine.",
+          "source_url": "https://www.franceinfo.fr/politique/front-national/affaire-des-assistants-fn-au-parlement-europeen/il-va-accepter-sans-probleme-la-decision-de-marine-le-pen-comment-jordan-bardella-et-la-candidate-du-rn-vont-ils-faire-campagne-en-binome-en-2027_8098388.html",
+          "source_title": "franceinfo – Comment Jordan Bardella et la candidate du RN vont-ils faire campagne en binôme en 2027 ?",
+          "source_date": "2026-07-08",
+          "confidence": "high"
+        },
+        {
+          "position": "Programme 2022 : un mandat présidentiel de 7 ans non renouvelable, la proportionnelle pour au moins deux tiers des sièges de députés et un référendum d'initiative citoyenne à 500 000 signatures. Une mesure adoptée par référendum ne pourrait être abrogée que par un autre référendum.",
+          "kind": "inference",
+          "details": "Propositions de 2022, non confirmées à ce jour pour 2027.",
+          "source_url": "https://www.ici.fr/infos/politique/presidentielle-referendum-septennat-proportionnelle-marine-le-pen-propositions-democratie-1649767796",
+          "source_title": "ICI – Marine Le Pen propose plus de référendums et la proportionnelle aux législatives",
+          "source_date": "2022-04",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "laicite_republique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Soumettre à référendum une « grande loi de lutte contre les idéologies islamistes ». Elle comprendrait la pénalisation du voile islamique dans l'espace public.",
+          "kind": "proposition_explicite",
+          "short_quote": "pénalisation du voile islamiste dans l'espace public",
+          "details": "Annoncé sur X le 31 août 2026, au lendemain d'une relance de la mesure par Jean-Philippe Tanguy. Bardella parle d'un « deuxième référendum » dans le quinquennat.",
+          "source_url": "https://www.france24.com/fr/france/20260831-le-rn-remet-l-interdiction-du-port-du-voile-dans-le-d%C3%A9bat-et-promet-un-r%C3%A9f%C3%A9rendum",
+          "source_title": "France 24 – Le RN remet l'interdiction du port du voile dans le débat et promet un référendum",
+          "source_date": "2026-08-31",
+          "confidence": "high"
+        },
+        {
+          "position": "Interdire le voile progressivement. On commencerait par décret dans les universités, les sorties scolaires, les fédérations sportives et les bâtiments publics, avec pour objectif final l'interdiction générale.",
+          "kind": "proposition_explicite",
+          "short_quote": "L'objectif sera d'interdire le voile",
+          "details": "Interview sur LCI. Elle présente le voile comme le signe d'une idéologie islamiste « totalitaire » qui fait pression sur les femmes.",
+          "source_url": "https://www.franceinfo.fr/politique/marine-le-pen/marine-le-pen-souhaite-interdire-le-voile-islamique-de-maniere-progressive_8196287.html",
+          "source_title": "franceinfo – Marine Le Pen souhaite interdire le voile islamique de manière progressive",
+          "source_date": "2026-09-16",
+          "confidence": "high"
+        },
+        {
+          "position": "Dans le même texte référendaire : contrôler le financement des mosquées, viser les mosquées « radicales » et les imams tenant des propos jugés inadmissibles, couper les financements étrangers et interdire les Frères musulmans.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.lejdd.fr/politique/voile-mosquees-freres-musulmans-marine-le-pen-promet-un-referendum-sur-la-lutte-contre-lislamisme-183690",
+          "source_title": "Le JDD – Marine Le Pen promet un référendum sur la « lutte contre l'islamisme »",
+          "source_date": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Elle maintient l'interdiction du voile dans l'espace public contre l'avis de Jordan Bardella. Celui-ci la juge « intenable » et refuse une « police du vêtement » ; il préfère étendre l'interdiction des signes religieux à la sphère publique.",
+          "kind": "position_declaree",
+          "details": "Les deux se sont opposés lors de réunions du projet présidentiel mi-juillet 2026. Plusieurs députés RN doutent de l'intérêt de la mesure.",
+          "source_url": "https://actu.orange.fr/france/elle-n-abandonnera-jamais-marine-le-pen-et-son-totem-de-l-interdiction-du-port-du-voile-magicExpress-CNT000002rG56I.html",
+          "source_title": "Orange Actualités (AFP) – Marine Le Pen et son totem de l'interdiction du port du voile",
+          "source_date": "2026-09-02",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "fiscalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Baisser les impôts de 30 Md€ nets sur cinq ans, sans aucune hausse d'impôt pour les ménages ni pour les entreprises.",
+          "kind": "proposition_explicite",
+          "details": "Annoncé avec la trajectoire budgétaire du 6 octobre 2026. Lors du débat sur le budget 2027, elle avait déjà posé comme condition qu'il n'y ait « aucune hausse d'impôt ».",
+          "source_url": "https://www.france24.com/fr/france/20261006-pr%C3%A9sidentielle-2027-marine-le-pen-promet-140-milliards-d-euros-nets-d-%C3%A9conomies-d-ici-5-ans",
+          "source_title": "France 24 – Marine Le Pen promet « 140 milliards d'euros nets d'économies » d'ici 5 ans",
+          "source_date": "2026-10-06",
+          "confidence": "high"
+        },
+        {
+          "position": "Baisser la TVA sur le gaz, l'électricité, les carburants, le bois et le fioul, et supprimer la TVA sur les produits de première nécessité.",
+          "kind": "proposition_explicite",
+          "details": "Annoncé lors du contre-budget du 6 octobre 2026. Dans le contre-budget 2026 (octobre 2025), la mesure prévoyait un taux zéro sur 100 produits essentiels et un taux réduit sur l'énergie, pour un coût de plus de 14 Md€. En 2022, elle proposait de ramener la TVA sur l'énergie de 20 % à 5,5 %.",
+          "source_url": "https://www.cnews.fr/france/2026-10-06/baisse-de-la-tva-preference-nationale-simplification-administrative-que-contient",
+          "source_title": "CNews – Baisse de la TVA, préférence nationale, simplification administrative… ce que contient le contre-budget du RN",
+          "source_date": "2026-10-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Baisser les impôts de production (CVAE, CFE, C3S) d'environ 16,2 Md€, dans le cadre d'un « choc de compétitivité fiscale ».",
+          "kind": "proposition_explicite",
+          "details": "Chiffre du contre-budget RN, repris en octobre 2026. Au débat du Medef, elle a aussi proposé de supprimer ou de reporter environ 130 impôts qu'elle juge « improductifs ».",
+          "source_url": "https://www.publicsenat.fr/actualites/economie/contre-budget-du-rn-des-propositions-qui-manquent-de-credibilite-economique-mais-trahissent-une-veritable-coherence-doctrinale",
+          "source_title": "Public Sénat – Contre-budget du RN : des propositions qui manquent de crédibilité économique",
+          "source_date": "2025-10-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Réserver le pacte Dutreil (avantage fiscal sur la transmission d'entreprises familiales) aux entreprises qui continuent de produire en France pendant au moins dix ans.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/dette-publique-retraites-reindustrialisation-ce-qu-il-faut-retenir-du-premier-debat-des-principaux-candidats-a-la-presidentielle_8165342.html",
+          "source_title": "franceinfo – Ce qu'il faut retenir du premier débat des principaux candidats (Medef)",
+          "source_date": "2026-08-27",
+          "confidence": "high"
+        },
+        {
+          "position": "Fiscalité du capital (contre-budget 2026 du groupe RN) : remplacer l'IFI par un impôt sur la fortune financière d'environ 4 Md€, relever de 33 % la taxe sur les rachats d'actions (environ 8,4 Md€) et rétablir l'exit tax.",
+          "kind": "inference",
+          "details": "Document du groupe parlementaire présidé par Marine Le Pen (octobre 2025). Le RN s'était abstenu en février 2025 sur la taxe Zucman, puis s'y est opposé à l'automne 2025. Le 31 octobre 2025, il a voté l'« impôt sur la fortune improductive » (amendement MoDem).",
+          "source_url": "https://www.publicsenat.fr/actualites/economie/contre-budget-du-rn-des-propositions-qui-manquent-de-credibilite-economique-mais-trahissent-une-veritable-coherence-doctrinale",
+          "source_title": "Public Sénat – Contre-budget du RN",
+          "source_date": "2025-10-24",
+          "confidence": "medium"
+        },
+        {
+          "position": "Programme 2022 : exonérer d'impôt sur le revenu tous les moins de 30 ans.",
+          "kind": "inference",
+          "details": "Coût estimé à 3,7 Md€ par an par l'Institut Montaigne. Mesure non reconfirmée explicitement pour 2027.",
+          "source_url": "https://www.institutmontaigne.org/expressions/les-quatre-points-retenir-du-programme-de-marine-le-pen",
+          "source_title": "Institut Montaigne – Les quatre points à retenir du programme de Marine Le Pen (2022)",
+          "source_date": "2022-04-20",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "finances_publiques",
+      "found": true,
+      "positions": [
+        {
+          "position": "Réaliser 140 Md€ nets d'économies d'ici 2032 par rapport à 2026, avec : retour à l'équilibre primaire en 18 mois, déficit public sous 3 % du PIB en 2030 et dette ramenée à 112 % du PIB.",
+          "kind": "proposition_explicite",
+          "short_quote": "la France court vers le défaut",
+          "details": "Conférence de presse avec Jordan Bardella. Les annonces précédentes (tribune, débat du Medef) parlaient de 125 Md€ de réduction du déficit sur cinq ans.",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/presidentielle-2027-marine-le-pen-promet-140-milliards-d-euros-nets-d-economies-d-ici-a-2032_8224807.html",
+          "source_title": "franceinfo – Marine Le Pen promet « 140 milliards d'euros nets d'économies » d'ici à 2032",
+          "source_date": "2026-10-06",
+          "confidence": "high"
+        },
+        {
+          "position": "Règle d'or constitutionnelle : le déficit annuel devrait rester sous le seuil qui stabilise la dette. Les plafonds annoncés vont de 4,9 % du PIB en 2027 à 2,9 % en 2032 puis 2,4 % en 2033, avec l'objectif de passer sous 60 % de dette.",
+          "kind": "proposition_explicite",
+          "details": "Plafonds cités par LCP : 4,9 % en 2027, 4,4 % en 2028, 3,9 % en 2030, 3,4 % en 2031, 2,9 % en 2032, 2,4 % en 2033. Elle annonce un plan d'économies d'au moins 4 % du PIB. Les sources se contredisent : Planet évoque un plafond de 3 %, Focus-news 2,4 % dès 2027. Elle reconnaît que son camp était auparavant hostile à toute règle d'or.",
+          "source_url": "https://lcp.fr/actualites/budget-comment-fonctionnerait-la-regle-d-or-que-marine-le-pen-veut-faire-adopter-par",
+          "source_title": "LCP – Budget : comment fonctionnerait la « règle d'or » de Marine Le Pen",
+          "source_date": "2026-10-02",
+          "confidence": "high"
+        },
+        {
+          "position": "Origine des économies : priorité nationale (environ 15 Md€ la première année, 24 Md€ en année pleine), fin de la reconduction automatique des dépenses, simplification administrative, lutte contre la fraude et baisse de la contribution à l'UE.",
+          "kind": "proposition_explicite",
+          "details": "Montants de la priorité nationale rapportés par la presse ; le détail poste par poste n'était pas accessible dans les comptes rendus consultés.",
+          "source_url": "https://www.cnews.fr/france/2026-10-06/baisse-de-la-tva-preference-nationale-simplification-administrative-que-contient",
+          "source_title": "CNews – Ce que contient le contre-budget du RN",
+          "source_date": "2026-10-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Contre-budget 2026 du groupe RN (environ 36 Md€ d'économies). Principaux postes : −11,9 Md€ liés à l'immigration, −8,7 Md€ de contribution à l'UE, −7,7 Md€ sur les agences et opérateurs de l'État, −5 Md€ de dotations de fonctionnement aux collectivités et −3,2 Md€ de subventions aux associations.",
+          "kind": "inference",
+          "details": "Document d'octobre 2025, antérieur à la déclaration de candidature. Des économistes cités jugent l'ensemble peu crédible.",
+          "source_url": "https://www.publicsenat.fr/actualites/economie/contre-budget-du-rn-des-propositions-qui-manquent-de-credibilite-economique-mais-trahissent-une-veritable-coherence-doctrinale",
+          "source_title": "Public Sénat – Contre-budget du RN",
+          "source_date": "2025-10-24",
+          "confidence": "medium"
+        },
+        {
+          "position": "Pour le budget 2027 du gouvernement, elle préfère un budget « imparfait » à une loi spéciale. Ses conditions pour ne pas censurer : aucune hausse d'impôt, des économies avant tout, pas de gel des pensions.",
+          "kind": "position_declaree",
+          "source_url": "https://lcp.fr/actualites/budget-2027-marine-le-pen-prefere-un-budget-imparfait-a-une-loi-speciale-et-pose-les",
+          "source_title": "LCP – Budget 2027 : Marine Le Pen préfère un budget « imparfait » à une loi spéciale",
+          "source_date": "2026-09-14",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "travail_salaires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Supprimer les cotisations retraite et chômage pour les seniors qui ont tous leurs trimestres et continuent de travailler, afin de les inciter à rester en emploi.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.franceinfo.fr/economie/retraite/reforme-des-retraites/changement-de-systeme-passage-a-60-ou-a-65-ans-capitalisation-que-proposent-les-principaux-candidats-a-l-election-presidentielle-pour-les-retraites_8215784.html",
+          "source_title": "franceinfo – Que proposent les principaux candidats pour les retraites ?",
+          "source_date": "2026-09-30",
+          "confidence": "medium"
+        },
+        {
+          "position": "Soutenir le pouvoir d'achat surtout par la baisse de la fiscalité indirecte (TVA sur l'énergie et les produits de première nécessité), et refuser le gel des pensions et des prestations.",
+          "kind": "position_declaree",
+          "details": "Le contre-budget 2026 prévoyait 3,61 Md€ pour dégeler les prestations sociales.",
+          "source_url": "https://lcp.fr/actualites/budget-2027-marine-le-pen-prefere-un-budget-imparfait-a-une-loi-speciale-et-pose-les",
+          "source_title": "LCP – Budget 2027 : Marine Le Pen pose les conditions d'une non-censure",
+          "source_date": "2026-09-14",
+          "confidence": "medium"
+        },
+        {
+          "position": "Baisser les « dépenses contraintes » des entreprises, en particulier l'énergie, pour réduire leurs coûts.",
+          "kind": "position_declaree",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/dette-publique-retraites-reindustrialisation-ce-qu-il-faut-retenir-du-premier-debat-des-principaux-candidats-a-la-presidentielle_8165342.html",
+          "source_title": "franceinfo – Débat du Medef : ce qu'il faut retenir",
+          "source_date": "2026-08-27",
+          "confidence": "medium"
+        },
+        {
+          "position": "Programme 2022 : exonérer de cotisations patronales les hausses de salaire de 10 % pour les rémunérations jusqu'à 3 SMIC.",
+          "kind": "inference",
+          "details": "Coût estimé à 10,5 Md€ par an (Institut Montaigne). Non reconfirmé pour 2027 dans les sources consultées.",
+          "source_url": "https://www.institutmontaigne.org/expressions/les-quatre-points-retenir-du-programme-de-marine-le-pen",
+          "source_title": "Institut Montaigne – Les quatre points à retenir du programme de Marine Le Pen (2022)",
+          "source_date": "2022-04-20",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "industrie_economie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Traiter toute implantation industrielle comme un « projet d'intérêt national majeur », pour accélérer les procédures, et supprimer des « milliers » de normes jugées inutiles.",
+          "kind": "proposition_explicite",
+          "short_quote": "projet d'intérêt national majeur",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/dette-publique-retraites-reindustrialisation-ce-qu-il-faut-retenir-du-premier-debat-des-principaux-candidats-a-la-presidentielle_8165342.html",
+          "source_title": "franceinfo – Débat du Medef : ce qu'il faut retenir",
+          "source_date": "2026-08-27",
+          "confidence": "high"
+        },
+        {
+          "position": "Un « choc de compétitivité fiscale », assorti d'une commande publique orientée vers les entreprises implantées en France.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/dette-publique-retraites-reindustrialisation-ce-qu-il-faut-retenir-du-premier-debat-des-principaux-candidats-a-la-presidentielle_8165342.html",
+          "source_title": "franceinfo – Débat du Medef",
+          "source_date": "2026-08-27",
+          "confidence": "high"
+        },
+        {
+          "position": "Créer un suramortissement fiscal pour aider les entreprises à se robotiser et à se numériser. Elle annonce à la fois un plan de relance et un plan d'économies « massifs ».",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/direct-attal-le-pen-melenchon-philippe-suivez-le-premier-debat-de-la-presidentielle-organise-par-le-medef-entre-sept-candidats-declares_8162033.html",
+          "source_title": "franceinfo – Direct du premier débat de la présidentielle organisé par le Medef",
+          "source_date": "2026-08-27",
+          "confidence": "medium"
+        },
+        {
+          "position": "Protection commerciale : opposition à l'accord UE-Mercosur. En janvier 2026, le RN a déposé une motion de censure contre le gouvernement Lecornu sur ce dossier.",
+          "kind": "inference",
+          "details": "Motion annoncée par Jordan Bardella et rejetée le 14 janvier 2026.",
+          "source_url": "https://www.franceinfo.fr/politique/parlement-francais/assemblee-nationale/le-risque-me-semble-plus-concret-sur-le-budget-pourquoi-les-motions-de-censure-contre-l-accord-ue-mercosur-n-ont-aucune-chance-d-etre-votees_7738882.html",
+          "source_title": "franceinfo – Pourquoi les motions de censure contre l'accord UE-Mercosur n'ont aucune chance d'être votées",
+          "source_date": "2026-01-14",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "retraites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Rétablir l'âge légal à 62 ans, avec un objectif de 42 années de cotisation. Départ à 60 ans pour ceux qui ont commencé à travailler avant 20 ans et ont cotisé 40 ans.",
+          "kind": "proposition_explicite",
+          "details": "Elle maintient cette ligne malgré des divergences avec Jordan Bardella.",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/dette-publique-retraites-reindustrialisation-ce-qu-il-faut-retenir-du-premier-debat-des-principaux-candidats-a-la-presidentielle_8165342.html",
+          "source_title": "franceinfo – Débat du Medef : ce qu'il faut retenir",
+          "source_date": "2026-08-27",
+          "confidence": "high"
+        },
+        {
+          "position": "Elle chiffre sa réforme à 9 Md€ par an en année pleine, financés par la fin de l'immigration, la lutte contre la fraude et 15 à 20 Md€ d'économies obtenues en corrigeant le système actuel.",
+          "kind": "proposition_explicite",
+          "short_quote": "neuf milliards d'euros en année pleine",
+          "details": "L'Institut Montaigne évalue le coût entre 23 et 38 Md€.",
+          "source_url": "https://www.franceinfo.fr/economie/retraite/reforme-des-retraites/changement-de-systeme-passage-a-60-ou-a-65-ans-capitalisation-que-proposent-les-principaux-candidats-a-l-election-presidentielle-pour-les-retraites_8215784.html",
+          "source_title": "franceinfo – Que proposent les principaux candidats pour les retraites ?",
+          "source_date": "2026-09-30",
+          "confidence": "high"
+        },
+        {
+          "position": "Créer un « véritable pilier de capitalisation » à côté du système par répartition.",
+          "kind": "proposition_explicite",
+          "short_quote": "véritable pilier de capitalisation",
+          "details": "Annonce du 6 octobre 2026, sans détails de fonctionnement. Le 30 septembre, franceinfo notait encore que la capitalisation était absente du programme RN.",
+          "source_url": "https://www.france24.com/fr/france/20261006-pr%C3%A9sidentielle-2027-marine-le-pen-promet-140-milliards-d-euros-nets-d-%C3%A9conomies-d-ici-5-ans",
+          "source_title": "France 24 – Marine Le Pen promet « 140 milliards d'euros nets d'économies »",
+          "source_date": "2026-10-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Refuser le gel des pensions et la suppression des avantages fiscaux des retraités : ce sont des lignes rouges pour le budget 2027.",
+          "kind": "position_declaree",
+          "details": "Lignes rouges détaillées par Jean-Philippe Tanguy, au nom du groupe présidé par Marine Le Pen.",
+          "source_url": "https://lcp.fr/actualites/budget-2027-marine-le-pen-prefere-un-budget-imparfait-a-une-loi-speciale-et-pose-les",
+          "source_title": "LCP – Budget 2027 : Marine Le Pen pose les conditions d'une non-censure",
+          "source_date": "2026-09-14",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "sante",
+      "found": true,
+      "positions": [
+        {
+          "position": "Opposée au texte créant une aide à mourir, faute de « garde-fous » sur le consentement et le respect des soignants. Elle soutient en revanche pleinement le développement massif des soins palliatifs. Liberté de vote laissée aux députés RN.",
+          "kind": "position_declaree",
+          "source_url": "https://actu.orange.fr/politique/fin-de-vie-opposee-au-texte-sur-l-aide-a-mourir-marine-le-pen-denonce-un-manque-de-garde-fous-magic-CNT000002iIS18.html",
+          "source_title": "Orange Actualités – Fin de vie : opposée au texte sur l'aide à mourir, Marine Le Pen dénonce un manque de garde-fous",
+          "source_date": "2025-05-13",
+          "confidence": "high"
+        },
+        {
+          "position": "Aucun engagement à abroger la loi sur l'aide à mourir, adoptée définitivement le 15 juillet 2026. Son porte-parole évoque une simple vérification de l'absence d'abus.",
+          "kind": "position_declaree",
+          "source_url": "https://www.franceinfo.fr/societe/euthanasie/presidentielle-2027-les-candidats-hostiles-a-la-loi-sur-la-fin-de-vie-vont-ils-promettre-de-l-abroger_8108582.html",
+          "source_title": "franceinfo – Les candidats hostiles à la loi sur la fin de vie vont-ils promettre de l'abroger ?",
+          "source_date": "2026-07-17",
+          "confidence": "medium"
+        },
+        {
+          "position": "Remplacer l'Aide médicale de l'État par une aide médicale d'urgence limitée aux soins vitaux, avec environ 1,3 Md€ d'économies attendues.",
+          "kind": "inference",
+          "details": "Contre-budget 2026 du groupe RN ; mesure déjà présente dans le programme 2022.",
+          "source_url": "https://www.publicsenat.fr/actualites/economie/contre-budget-du-rn-des-propositions-qui-manquent-de-credibilite-economique-mais-trahissent-une-veritable-coherence-doctrinale",
+          "source_title": "Public Sénat – Contre-budget du RN",
+          "source_date": "2025-10-24",
+          "confidence": "medium"
+        },
+        {
+          "position": "Programme santé 2022 : supprimer les ARS, limiter les postes administratifs à 10 % à l'hôpital et geler les fermetures de lits. Il prévoyait aussi +10 % de salaire pour les infirmiers, 10 000 places de formation supplémentaires, des incitations à l'installation dans les déserts médicaux et 300 € par mois pour les aidants.",
+          "kind": "inference",
+          "details": "Programme 2022, non reconfirmé pour 2027.",
+          "source_url": "https://www.sfmu.org/fr/actualites/actualites-de-l-urgences/gouvernance-revalorisations-des-soignants-deserts-medicaux-marine-le-pen-presente-son-programme-sante/new_id/68078",
+          "source_title": "SFMU/APM – Marine Le Pen présente son programme santé",
+          "source_date": "2022-01-20",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "logement",
+      "found": true,
+      "positions": [
+        {
+          "position": "Appliquer la « priorité nationale » à l'attribution des logements sociaux et des places en résidence étudiante, et réserver les APL aux Français.",
+          "kind": "proposition_explicite",
+          "details": "Le logement est présenté comme l'un des grands chantiers du quinquennat. La conformité à la Constitution n'est pas tranchée.",
+          "source_url": "https://france3-regions.franceinfo.fr/hauts-de-france/pas-calais/lens/marine-le-pen-fait-sa-rentree-politique-a-henin-beaumont-et-met-la-priorite-nationale-au-c-ur-de-son-programme-pour-la-presidentielle-de-2027-3416348.html",
+          "source_title": "France 3 – Marine Le Pen fait sa rentrée à Hénin-Beaumont et met la priorité nationale au cœur de son programme",
+          "source_date": "2026-09-13",
+          "confidence": "high"
+        },
+        {
+          "position": "Abroger la loi SRU (quotas de logements sociaux), supprimer l'objectif « zéro artificialisation nette » (ZAN) tout en préservant les terres agricoles, et supprimer les contraintes liées au DPE.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.journaldelagence.com/1413717-presidentielle-2027-quelles-sont-les-propositions-de-marine-le-pen-sur-le-logement",
+          "source_title": "Journal de l'Agence – Les propositions de Marine Le Pen sur le logement",
+          "source_date": "2026-09-22",
+          "confidence": "high"
+        },
+        {
+          "position": "Libérer la construction : simplifier les normes, réduire les délais, céder gratuitement du foncier public (État, collectivités, grandes entreprises publiques) et transformer des bureaux vides en logements.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.journaldelagence.com/1413717-presidentielle-2027-quelles-sont-les-propositions-de-marine-le-pen-sur-le-logement",
+          "source_title": "Journal de l'Agence – Les propositions de Marine Le Pen sur le logement",
+          "source_date": "2026-09-22",
+          "confidence": "high"
+        },
+        {
+          "position": "Remplacer MaPrimeRénov' par un dispositif « 100 % Rénov » de prêts à taux zéro pour les travaux.",
+          "kind": "proposition_explicite",
+          "source_url": "https://france3-regions.franceinfo.fr/hauts-de-france/pas-calais/lens/marine-le-pen-fait-sa-rentree-politique-a-henin-beaumont-et-met-la-priorite-nationale-au-c-ur-de-son-programme-pour-la-presidentielle-de-2027-3416348.html",
+          "source_title": "France 3 – Discours d'Hénin-Beaumont",
+          "source_date": "2026-09-13",
+          "confidence": "high"
+        },
+        {
+          "position": "Faciliter l'accession à la propriété : revoir les critères du crédit immobilier, allonger la durée maximale des prêts, rendre obligatoire la portabilité du prêt et réduire à 15 ans le délai d'exonération des plus-values.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.journaldelagence.com/1413717-presidentielle-2027-quelles-sont-les-propositions-de-marine-le-pen-sur-le-logement",
+          "source_title": "Journal de l'Agence – Les propositions de Marine Le Pen sur le logement",
+          "source_date": "2026-09-22",
+          "confidence": "high"
+        },
+        {
+          "position": "Durcir la lutte contre les squats, expulser des logements sociaux les familles de délinquants et permettre la vente d'une partie des HLM à des Français.",
+          "kind": "proposition_explicite",
+          "source_url": "https://france3-regions.franceinfo.fr/hauts-de-france/pas-calais/lens/marine-le-pen-fait-sa-rentree-politique-a-henin-beaumont-et-met-la-priorite-nationale-au-c-ur-de-son-programme-pour-la-presidentielle-de-2027-3416348.html",
+          "source_title": "France 3 – Discours d'Hénin-Beaumont",
+          "source_date": "2026-09-13",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "solidarites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Réserver les prestations non contributives (RSA, minimum vieillesse…) aux Français et aux étrangers ayant travaillé au moins 5 ans à temps plein en France.",
+          "kind": "inference",
+          "details": "Inscrit au contre-budget 2026 du groupe RN, avec 6,1 Md€ d'économies attendues. La mesure figurait déjà dans le programme 2022 (2,5 Md€ selon l'Institut Montaigne). La « priorité nationale » reste centrale en 2026.",
+          "source_url": "https://www.publicsenat.fr/actualites/economie/contre-budget-du-rn-des-propositions-qui-manquent-de-credibilite-economique-mais-trahissent-une-veritable-coherence-doctrinale",
+          "source_title": "Public Sénat – Contre-budget du RN",
+          "source_date": "2025-10-24",
+          "confidence": "medium"
+        },
+        {
+          "position": "Réserver les APL aux Français.",
+          "kind": "proposition_explicite",
+          "source_url": "https://france3-regions.franceinfo.fr/hauts-de-france/pas-calais/lens/marine-le-pen-fait-sa-rentree-politique-a-henin-beaumont-et-met-la-priorite-nationale-au-c-ur-de-son-programme-pour-la-presidentielle-de-2027-3416348.html",
+          "source_title": "France 3 – Discours d'Hénin-Beaumont",
+          "source_date": "2026-09-13",
+          "confidence": "high"
+        },
+        {
+          "position": "Dégeler et indexer les prestations sociales et les pensions (3,61 Md€ prévus pour le dégel dans le contre-budget 2026).",
+          "kind": "inference",
+          "source_url": "https://www.publicsenat.fr/actualites/economie/contre-budget-du-rn-des-propositions-qui-manquent-de-credibilite-economique-mais-trahissent-une-veritable-coherence-doctrinale",
+          "source_title": "Public Sénat – Contre-budget du RN",
+          "source_date": "2025-10-24",
+          "confidence": "medium"
+        },
+        {
+          "position": "Programme 2022 (famille et natalité) : réserver les allocations familiales aux ménages dont au moins un parent est français, accorder des prêts à taux zéro jusqu'à 100 000 € aux jeunes ménages, transformés en don à la naissance du 3e enfant, et verser 300 € par mois aux aidants.",
+          "kind": "inference",
+          "details": "Mesures de 2022, non reconfirmées explicitement pour 2027.",
+          "source_url": "https://www.institutmontaigne.org/presidentielle-2022/marine-le-pen",
+          "source_title": "Institut Montaigne – Programme 2022 de Marine Le Pen chiffré",
+          "source_date": "2022-04",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "egalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Elle justifie l'interdiction du voile par la défense de la liberté et de la dignité des femmes, présentant le voile comme le signe d'une idéologie islamiste qui fait pression sur elles.",
+          "kind": "position_declaree",
+          "source_url": "https://www.franceinfo.fr/politique/marine-le-pen/marine-le-pen-souhaite-interdire-le-voile-islamique-de-maniere-progressive_8196287.html",
+          "source_title": "franceinfo – Marine Le Pen souhaite interdire le voile islamique de manière progressive",
+          "source_date": "2026-09-16",
+          "confidence": "medium"
+        },
+        {
+          "position": "Loi « intégrale » contre les violences sexuelles et intrafamiliales : le groupe RN s'est abstenu en commission (23 septembre 2026). Il cherche à rendre obligatoire l'interdiction du territoire pour les étrangers condamnés pour violences sexuelles et s'oppose aux protections de séjour des victimes sans papiers.",
+          "kind": "inference",
+          "details": "Votes et amendements du groupe présidé par Marine Le Pen (Sophie Blanc, Thomas Ménagé). Elle ne s'est pas exprimée personnellement sur le texte dans les sources consultées.",
+          "source_url": "https://lcp.fr/actualites/loi-integrale-contre-les-violences-sexuelles-les-offensives-du-rn-sur-l-immigration",
+          "source_title": "LCP – Loi intégrale contre les violences sexuelles : les offensives du RN sur l'immigration",
+          "source_date": "2026-10-03",
+          "confidence": "medium"
+        },
+        {
+          "position": "IVG dans la Constitution : en 2023, elle se demandait si c'était « l'urgence ». Au Congrès de mars 2024, son groupe s'est divisé (11 votes contre, 31 abstentions ou non-votants, le reste pour).",
+          "kind": "inference",
+          "details": "Position antérieure à 2025 ; son vote personnel n'est pas précisé dans la source consultée.",
+          "source_url": "https://www.franceinfo.fr/societe/ivg/infographies-inscription-de-l-ivg-dans-la-constitution-comment-ont-vote-vos-deputes-et-senateurs-reunis-en-congres-a-versailles_6403870.html",
+          "source_title": "franceinfo – IVG dans la Constitution : comment ont voté vos députés et sénateurs",
+          "source_date": "2024-03-04",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "droits_lgbtqia",
+      "found": true,
+      "positions": [
+        {
+          "position": "Selon une analyse militante (Bon Pote), le groupe RN a voté contre la plupart des mesures relatives aux droits LGBT à l'Assemblée de 2022 à 2026. Il s'est notamment opposé aux protections liées à l'identité de genre (prisons, contrôles de sécurité, sport), avec seulement 12 % de votes favorables.",
+          "kind": "inference",
+          "details": "Source militante ; ce sont les votes du groupe, et non des déclarations de Marine Le Pen. À vérifier sur les scrutins publics.",
+          "source_url": "https://bonpote.com/le-rn-ennemi-public-n1-des-lgbt-a-lassemblee-nationale/",
+          "source_title": "Bon Pote – Le RN, ennemi public n°1 des LGBT à l'Assemblée nationale",
+          "source_date": "2026-06-25",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "found": true,
+      "positions": [
+        {
+          "position": "Interdire par décret le voile à l'université et lors des sorties scolaires, première étape d'une interdiction plus large.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.franceinfo.fr/politique/marine-le-pen/marine-le-pen-souhaite-interdire-le-voile-islamique-de-maniere-progressive_8196287.html",
+          "source_title": "franceinfo – Marine Le Pen souhaite interdire le voile islamique de manière progressive",
+          "source_date": "2026-09-16",
+          "confidence": "high"
+        },
+        {
+          "position": "Donner la priorité aux étudiants français pour l'accès aux résidences étudiantes.",
+          "kind": "proposition_explicite",
+          "source_url": "https://fr.euronews.com/2026/09/13/marine-le-pen-a-henin-beaumont-un-meeting-pour-faire-oublier-les-polemiques",
+          "source_title": "Euronews – Marine Le Pen à Hénin-Beaumont : un meeting pour faire oublier les polémiques",
+          "source_date": "2026-09-13",
+          "confidence": "high"
+        },
+        {
+          "position": "Programme 2022 : limiter les classes à 20 élèves en primaire et 30 dans le secondaire, augmenter les salaires des enseignants (5,8 Md€ par an d'ici 2027) et exonérer d'impôt sur le revenu les moins de 30 ans.",
+          "kind": "inference",
+          "details": "Aucune proposition éducative détaillée pour 2027 trouvée dans les sources consultées ; les comparatifs de presse sur l'école (août 2026) ne mentionnent pas de mesure RN précise.",
+          "source_url": "https://www.institutmontaigne.org/presidentielle-2022/marine-le-pen",
+          "source_title": "Institut Montaigne – Programme 2022 de Marine Le Pen chiffré",
+          "source_date": "2022-04",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "societe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Privatiser l'audiovisuel public (France Télévisions). Le RN invoque les déficits, une partialité supposée et l'absence de contrôle des dépenses.",
+          "kind": "position_declaree",
+          "details": "Communiqué du RN. Selon le président de la commission d'enquête sur l'audiovisuel public, Marine Le Pen et Jordan Bardella avaient dit vouloir privatiser avant même la publication du rapport Alloncle (UDR) en 2026.",
+          "source_url": "https://rassemblementnational.fr/communiques/pour-la-privatisation-de-laudiovisuel-public",
+          "source_title": "Rassemblement national – Pour la privatisation de l'audiovisuel public !",
+          "source_date": "2025-09-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Le rapport Alloncle, proche de son camp, propose 1 Md€ d'économies, des fusions de chaînes et des nominations contrôlées par l'Élysée. Ses opposants y voient une préparation à la privatisation.",
+          "kind": "inference",
+          "source_url": "https://www.franceinfo.fr/economie/medias/france-televisions/l-objectif-etait-de-preparer-les-esprits-a-la-privatisation-de-l-audiovisuel-public-deplore-le-president-de-la-commission-d-enquete_7984472.html",
+          "source_title": "franceinfo – « L'objectif était de préparer les esprits à la privatisation de l'audiovisuel public »",
+          "source_date": "2026-05-05",
+          "confidence": "low"
+        },
+        {
+          "position": "Programme 2022 : privatiser France Télévisions et Radio France pour supprimer la redevance, en gardant publics Arte, France Médias Monde, l'INA et TV5 Monde.",
+          "kind": "inference",
+          "source_url": "https://www.institutmontaigne.org/presidentielle-2022/marine-le-pen/supprimer-la-redevance-audiovisuelle-grace-a-la-privatisation-des-principales-chaines-de-laudiovisuel-public/",
+          "source_title": "Institut Montaigne – Supprimer la redevance grâce à la privatisation de l'audiovisuel public (2022)",
+          "source_date": "2022-04",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "numerique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Le groupe RN a voté avec la majorité gouvernementale l'article interdisant les réseaux sociaux aux moins de 15 ans (adopté en première lecture par 116 voix contre 23 ; LFI contre, PS majoritairement abstentionniste).",
+          "kind": "inference",
+          "details": "Vote du groupe présidé par Marine Le Pen. Après la censure de la loi par le Conseil constitutionnel (14 août 2026), aucune déclaration personnelle de sa part n'a été trouvée. Des articles de juillet 2026 évoquent une « volte-face » du RN sur le sujet, sans précision.",
+          "source_url": "https://www.franceinfo.fr/internet/reseaux-sociaux/l-assemblee-nationale-adopte-l-article-phare-d-un-texte-interdisant-les-reseaux-sociaux-aux-moins-de-15-ans_7766495.html",
+          "source_title": "franceinfo – L'Assemblée adopte l'interdiction des réseaux sociaux aux moins de 15 ans en première lecture",
+          "source_date": "2026-01-26",
+          "confidence": "medium"
+        },
+        {
+          "position": "Créer un suramortissement fiscal pour la numérisation et la robotisation des entreprises.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/direct-attal-le-pen-melenchon-philippe-suivez-le-premier-debat-de-la-presidentielle-organise-par-le-medef-entre-sept-candidats-declares_8162033.html",
+          "source_title": "franceinfo – Direct du débat du Medef",
+          "source_date": "2026-08-27",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "found": true,
+      "positions": [
+        {
+          "position": "« Plan climatisation » de 40 Md€ : 20 Md€ pour climatiser les bâtiments publics (hôpitaux, écoles et EHPAD d'abord) et 20 Md€ de prêts à taux zéro pour les logements privés (mensualités plafonnées à 20 € sur 10 ans).",
+          "kind": "proposition_explicite",
+          "details": "Lancé après l'appel de Marine Le Pen au début de la canicule de juin 2026 et présenté le 30 juin. Le RN parle d'« écologie pragmatique » misant sur la technologie.",
+          "source_url": "https://www.franceinfo.fr/environnement/evenements-meteorologiques-extremes/vagues-de-chaleur-canicules/pour-un-parti-il-est-difficile-d-annoncer-qu-il-ne-croit-pas-au-rechauffement-climatique-comment-le-rn-tente-de-rafraichir-son-image-sur-l-ecologie-en-soutenant-la-climatisation_8086415.html",
+          "source_title": "franceinfo – Comment le RN, avec son « plan climatisation », tente de rafraîchir son image sur l'écologie",
+          "source_date": "2026-07-01",
+          "confidence": "high"
+        },
+        {
+          "position": "Baisser la TVA sur l'électricité, le gaz, les carburants, le bois et le fioul.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.cnews.fr/france/2026-10-06/baisse-de-la-tva-preference-nationale-simplification-administrative-que-contient",
+          "source_title": "CNews – Ce que contient le contre-budget du RN",
+          "source_date": "2026-10-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Moratoire sur l'éolien et le solaire : le RN a voté l'amendement LR instaurant un moratoire de trois ans sur les nouvelles installations éoliennes et photovoltaïques. Il a aussi menacé de censure le gouvernement si la PPE était publiée par décret.",
+          "kind": "inference",
+          "details": "Vote du 19 juin 2025, la loi Gremillet ayant ensuite été rejetée le 24 juin. En 2022, elle proposait de démanteler progressivement les éoliennes et de miser sur le nucléaire (nouveaux EPR, réouverture de Fessenheim).",
+          "source_url": "https://www.aefinfo.fr/depeche/733400-proposition-de-loi-gremillet-les-deputes-votent-un-moratoire-sur-les-nouvelles-installations-solaire-et-eoliennes",
+          "source_title": "AEF info – PPL Gremillet : les députés votent un moratoire sur les nouvelles installations solaires et éoliennes",
+          "source_date": "2025-06-19",
+          "confidence": "medium"
+        },
+        {
+          "position": "Demander à l'UE de laisser les États baisser les taxes sur les carburants (suspension des accises minimales, révision de la directive TVA) et d'abandonner le marché carbone ETS2 prévu en 2028.",
+          "kind": "inference",
+          "details": "Communiqué de la délégation RN au Parlement européen (Jean-Paul Garraud).",
+          "source_url": "https://rassemblementnational.fr/communiques/carburants-que-bruxelles-laisse-enfin-les-etats-baisser-les-taxes",
+          "source_title": "Rassemblement national – Carburants : que Bruxelles laisse enfin les États baisser les taxes",
+          "source_date": "2026-09-24",
+          "confidence": "medium"
+        },
+        {
+          "position": "Sortir du marché européen de l'électricité et revenir à des prix réglementés de l'électricité et du gaz.",
+          "kind": "inference",
+          "details": "Proposition de la campagne 2022. Selon Bloomberg (29 septembre 2026), un député RN plaide pour des prix de l'électricité réglementés pendant 10 ans.",
+          "source_url": "https://lessurligneurs.eu/marine-le-pen-souhaite-que-la-france-sorte-du-marche-europeen-de-lelectricite/",
+          "source_title": "Les Surligneurs – Marine Le Pen souhaite que la France sorte du marché européen de l'électricité",
+          "source_date": "2022-04-21",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "found": true,
+      "positions": [
+        {
+          "position": "Rejet de l'accord UE-Mercosur, présenté comme une menace pour les agriculteurs. Le RN a déposé une motion de censure contre le gouvernement Lecornu en janvier 2026, alors même que la France avait voté contre l'accord.",
+          "kind": "inference",
+          "details": "Motion annoncée par Jordan Bardella, président du RN. En décembre 2025, Marine Le Pen appelait publiquement à dire « non » au Mercosur plutôt qu'à le repousser, selon plusieurs médias non consultés directement.",
+          "source_url": "https://www.franceinfo.fr/politique/parlement-francais/assemblee-nationale/le-risque-me-semble-plus-concret-sur-le-budget-pourquoi-les-motions-de-censure-contre-l-accord-ue-mercosur-n-ont-aucune-chance-d-etre-votees_7738882.html",
+          "source_title": "franceinfo – Pourquoi les motions de censure contre l'accord UE-Mercosur n'ont aucune chance d'être votées",
+          "source_date": "2026-01-14",
+          "confidence": "medium"
+        },
+        {
+          "position": "Supprimer l'objectif ZAN tout en affirmant vouloir préserver les terres agricoles.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.journaldelagence.com/1413717-presidentielle-2027-quelles-sont-les-propositions-de-marine-le-pen-sur-le-logement",
+          "source_title": "Journal de l'Agence – Les propositions de Marine Le Pen sur le logement",
+          "source_date": "2026-09-22",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "territoires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Nouvelle-Calédonie : prolonger 40 ans le cadre de l'accord de Nouméa, jusqu'en 2065, avant un éventuel nouveau choix. Elle propose aussi une base militaire interarmées renforcée (6 patrouilleurs, drones), la renégociation du pacte nickel et l'étude de petits réacteurs nucléaires (SMR).",
+          "kind": "proposition_explicite",
+          "source_url": "https://la1ere.franceinfo.fr/nouvellecaledonie/avenir-de-la-nouvelle-caledonie-marine-le-pen-expose-ses-propositions-1598532.html",
+          "source_title": "Outre-mer la 1ère – Avenir de la Nouvelle-Calédonie : Marine Le Pen expose ses propositions",
+          "source_date": "2025-06-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Elle juge l'accord de Bougival « profondément ambigu ». Elle met en garde contre une contagion à d'autres outre-mer et contre la création d'une nationalité calédonienne, et le RN envisage de ne pas voter la révision constitutionnelle.",
+          "kind": "position_declaree",
+          "short_quote": "profondément ambigu",
+          "details": "En juin 2026, elle a déclaré ne pas « transiger » avec les compétences régaliennes. En mars 2026, le RN a déposé une motion de rejet de la réforme.",
+          "source_url": "https://www.franceinfo.fr/france/nouvelle-caledonie/nouvelle-caledonie-marine-le-pen-denonce-un-accord-profondement-ambigu-et-un-exercice-d-equilibrisme-juridique_7375045.html",
+          "source_title": "franceinfo – Nouvelle-Calédonie : Marine Le Pen dénonce un accord « profondément ambigu »",
+          "source_date": "2025-07-13",
+          "confidence": "high"
+        },
+        {
+          "position": "Donner plus de latitude aux communes sur leur foncier en supprimant le ZAN, et céder gratuitement du foncier public (État, collectivités) pour construire.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.journaldelagence.com/1413717-presidentielle-2027-quelles-sont-les-propositions-de-marine-le-pen-sur-le-logement",
+          "source_title": "Journal de l'Agence – Les propositions de Marine Le Pen sur le logement",
+          "source_date": "2026-09-22",
+          "confidence": "medium"
+        },
+        {
+          "position": "Collectivités : le contre-budget 2026 du groupe RN prévoyait de réduire de 5 Md€ les dotations de fonctionnement des collectivités.",
+          "kind": "inference",
+          "details": "Le détail du contre-budget d'octobre 2026 pour les collectivités n'a pas pu être vérifié.",
+          "source_url": "https://www.publicsenat.fr/actualites/economie/contre-budget-du-rn-des-propositions-qui-manquent-de-credibilite-economique-mais-trahissent-une-veritable-coherence-doctrinale",
+          "source_title": "Public Sénat – Contre-budget du RN",
+          "source_date": "2025-10-24",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "found": true,
+      "positions": [
+        {
+          "position": "Présomption de légitime défense pour les forces de l'ordre : les députés RN ont voté la proposition de loi adoptée le 7 juillet 2026 (313 voix pour), selon laquelle les policiers et gendarmes sont présumés avoir agi conformément à la loi en faisant usage de leur arme.",
+          "kind": "inference",
+          "details": "Vote unanime des députés RN normands ; le vote global du groupe est déduit. La mesure figurait déjà dans le programme 2022.",
+          "source_url": "https://france3-regions.franceinfo.fr/normandie/presomption-de-legitime-defense-de-la-police-ce-qu-ont-vote-les-deputes-normands-sur-la-proposition-de-loi-controversee-3420599.html",
+          "source_title": "France 3 Normandie – Présomption de légitime défense : ce qu'ont voté les députés normands",
+          "source_date": "2026-09-21",
+          "confidence": "medium"
+        },
+        {
+          "position": "Rendre obligatoire l'interdiction définitive du territoire pour les étrangers condamnés pour des violences sexuelles passibles d'au moins 5 ans de prison, et supprimer l'interdiction d'expulser pendant une procédure.",
+          "kind": "inference",
+          "details": "Amendements RN à la loi intégrale (Thomas Ménagé).",
+          "source_url": "https://lcp.fr/actualites/loi-integrale-contre-les-violences-sexuelles-les-offensives-du-rn-sur-l-immigration",
+          "source_title": "LCP – Loi intégrale : les offensives du RN sur l'immigration",
+          "source_date": "2026-10-03",
+          "confidence": "medium"
+        },
+        {
+          "position": "Programme pénal 2022 : 85 000 places de prison en 2027, peines planchers, perpétuité réelle et doublement des magistrats. Il prévoyait aussi l'expulsion des délinquants étrangers, la présomption de légitime défense et des peines proportionnelles aux quantités de drogue saisies.",
+          "kind": "inference",
+          "details": "Programme 2022, non reconfirmé explicitement pour 2027 dans les sources consultées.",
+          "source_url": "https://www.institutmontaigne.org/presidentielle-2022/marine-le-pen/atteindre-85-000-places-de-prison-en-2027/",
+          "source_title": "Institut Montaigne – Atteindre 85 000 places de prison en 2027 (programme 2022)",
+          "source_date": "2022-04",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "found": true,
+      "positions": [
+        {
+          "position": "Premier référendum du quinquennat : une révision constitutionnelle pour restreindre l'immigration, avant celui sur les idéologies islamistes.",
+          "kind": "proposition_explicite",
+          "details": "Le contenu détaillé pour 2027 n'est pas publié. En 2021-2022, le projet comprenait la fin du droit du sol et du regroupement familial, la priorité nationale et un droit d'asile plus restrictif, à approuver en bloc.",
+          "source_url": "https://www.euronews.com/my-europe/2026/09/17/fact-check-will-marine-le-pen-hold-a-frexit-referendum-if-she-becomes-president-of-france",
+          "source_title": "Euronews – Fact check : Marine Le Pen organisera-t-elle un référendum sur le Frexit ?",
+          "source_date": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "position": "« Priorité nationale » dans l'accès au logement social, aux APL, aux résidences étudiantes et à l'emploi. Elle en fait la clé de voûte de son programme.",
+          "kind": "proposition_explicite",
+          "details": "Elle la présente comme bénéficiant aux Français quelles que soient leur couleur de peau, leur religion ou leur origine. Économie annoncée : environ 15 Md€ la première année et 24 Md€ en année pleine. Sa compatibilité avec la Constitution et le droit de l'UE est contestée.",
+          "source_url": "https://france3-regions.franceinfo.fr/hauts-de-france/pas-calais/lens/marine-le-pen-fait-sa-rentree-politique-a-henin-beaumont-et-met-la-priorite-nationale-au-c-ur-de-son-programme-pour-la-presidentielle-de-2027-3416348.html",
+          "source_title": "France 3 – Discours d'Hénin-Beaumont",
+          "source_date": "2026-09-13",
+          "confidence": "high"
+        },
+        {
+          "position": "Dénoncer l'accord franco-algérien de 1968 : la résolution RN a été adoptée à une voix près (185 contre 184), la première de l'histoire du groupe. Marine Le Pen juge que rien ne justifie de maintenir cette convention.",
+          "kind": "proposition_explicite",
+          "details": "Résolution symbolique, soutenue aussi par l'UDR, une partie de LR et d'Horizons et 2 LIOT.",
+          "source_url": "https://fr.euronews.com/2025/10/30/accord-franco-algerien-de-1968-lassemblee-nationale-adopte-une-resolution-du-rn-a-une-voix",
+          "source_title": "Euronews – Accord franco-algérien de 1968 : l'Assemblée adopte une résolution du RN à une voix",
+          "source_date": "2025-10-30",
+          "confidence": "high"
+        },
+        {
+          "position": "Couper environ 11,9 Md€ de dépenses liées à l'immigration : conditionner les prestations non contributives à 5 ans de travail et remplacer l'AME par une aide médicale d'urgence.",
+          "kind": "inference",
+          "source_url": "https://www.publicsenat.fr/actualites/economie/contre-budget-du-rn-des-propositions-qui-manquent-de-credibilite-economique-mais-trahissent-une-veritable-coherence-doctrinale",
+          "source_title": "Public Sénat – Contre-budget du RN",
+          "source_date": "2025-10-24",
+          "confidence": "medium"
+        },
+        {
+          "position": "Le référendum sur l'immigration soumettrait aux Français un projet de loi complet, à accepter ou rejeter en bloc, et constitutionnaliserait certains principes migratoires.",
+          "kind": "inference",
+          "details": "Présentation de 2021 par son conseiller Philippe Olivier.",
+          "source_url": "https://www.franceinfo.fr/politique/marine-le-pen/immigration-le-referendum-annonce-par-marine-le-pen-serait-un-arbitrage-de-l-ensemble-du-peuple-d-apres-son-conseiller-special_4786617.html",
+          "source_title": "franceinfo – Immigration : le référendum annoncé par Marine Le Pen serait « un arbitrage de l'ensemble du peuple »",
+          "source_date": "2021-09-28",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Pas de Frexit ni de référendum de sortie de l'UE. Depuis 2022, elle veut réformer l'Union de l'intérieur en lui retirant une grande partie de ses pouvoirs.",
+          "kind": "position_declaree",
+          "source_url": "https://www.euronews.com/my-europe/2026/09/17/fact-check-will-marine-le-pen-hold-a-frexit-referendum-if-she-becomes-president-of-france",
+          "source_title": "Euronews – Fact check : Marine Le Pen et le Frexit",
+          "source_date": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Réduire la contribution française au budget de l'UE : −8,7 Md€ dans le contre-budget 2026 ; 5 Md€ par an « à récupérer » selon le porte-parole Laurent Jacobelli.",
+          "kind": "inference",
+          "details": "En juin 2026, Jordan Bardella a parlé de réduire de moitié la contribution nette. Un fact-check rappelle que le cadre financier 2021-2027 empêche une baisse unilatérale et expose à des sanctions, par exemple sur les aides de la PAC.",
+          "source_url": "https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/vrai-ou-faux-la-france-peut-elle-diminuer-sa-contribution-au-budget-europeen-comme-l-affirme-le-rn_7468174.html",
+          "source_title": "franceinfo – Vrai ou faux : la France peut-elle diminuer sa contribution au budget européen ?",
+          "source_date": "2025-09-16",
+          "confidence": "medium"
+        },
+        {
+          "position": "S'opposer au passage de l'unanimité à la majorité qualifiée (via les « clauses passerelles ») en matière de sanctions, de politique étrangère et de défense. Le RN conteste aussi la logique d'élargissement (Ukraine, Moldavie, Monténégro, Albanie).",
+          "kind": "inference",
+          "details": "Communiqué de la délégation RN au Parlement européen.",
+          "source_url": "https://rassemblementnational.fr/communiques/droit-de-veto-pour-elargir-leurope-bruxelles-veut-retrecir-la-voix-des-etats",
+          "source_title": "Rassemblement national – Droit de veto : pour élargir l'Europe, Bruxelles veut rétrécir la voix des États",
+          "source_date": "2026-10-05",
+          "confidence": "medium"
+        },
+        {
+          "position": "Obtenir de l'UE la liberté de baisser les taxes sur les carburants et l'abandon de l'ETS2.",
+          "kind": "inference",
+          "source_url": "https://rassemblementnational.fr/communiques/carburants-que-bruxelles-laisse-enfin-les-etats-baisser-les-taxes",
+          "source_title": "Rassemblement national – Carburants : que Bruxelles laisse enfin les États baisser les taxes",
+          "source_date": "2026-09-24",
+          "confidence": "medium"
+        },
+        {
+          "position": "Rejet de l'accord commercial UE-Mercosur (motion de censure RN en janvier 2026).",
+          "kind": "inference",
+          "source_url": "https://www.franceinfo.fr/politique/parlement-francais/assemblee-nationale/le-risque-me-semble-plus-concret-sur-le-budget-pourquoi-les-motions-de-censure-contre-l-accord-ue-mercosur-n-ont-aucune-chance-d-etre-votees_7738882.html",
+          "source_title": "franceinfo – Motions de censure contre l'accord UE-Mercosur",
+          "source_date": "2026-01-14",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "ukraine_russie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Arrêter l'aide financière à l'Ukraine, à cause de l'état des finances publiques françaises, tout en continuant à former les soldats et l'encadrement ukrainiens et à fournir de l'aide matérielle militaire.",
+          "kind": "proposition_explicite",
+          "details": "Entretien avec Politico (Playbook Paris), où elle dit regretter de ne plus pouvoir aider financièrement. Selon le Kiel Institute, l'aide bilatérale française atteint 7,91 Md€ (dont 6,23 Md€ militaires) entre 2022 et juin 2026.",
+          "source_url": "https://www.franceinfo.fr/monde/europe/manifestations-en-ukraine/combien-coute-l-aide-de-la-france-a-l-ukraine-remise-en-cause-par-marine-le-pen-et-le-rn_8209307.html",
+          "source_title": "franceinfo – Combien coûte l'aide de la France à l'Ukraine, remise en cause par Marine Le Pen et le RN ?",
+          "source_date": "2026-09-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Elle condamne dans un communiqué commun avec Bardella les actes hostiles de la Russie (mise sous administration russe d'actifs français, actions hybrides) et affirme que la politique étrangère se décide à Paris. Elle demande un débat sur le niveau et les conditions de l'aide financière à l'Ukraine.",
+          "kind": "position_declaree",
+          "short_quote": "La politique étrangère de la France se décide à Paris",
+          "source_url": "https://rassemblementnational.fr/communiques/communique_rn",
+          "source_title": "Rassemblement national – Communiqué de Marine Le Pen et Jordan Bardella",
+          "source_date": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "position": "Elle dit avoir toujours condamné l'agression russe et privilégie des négociations de paix. Elle conteste que la France soit « en guerre » contre la Russie.",
+          "kind": "position_declaree",
+          "source_url": "https://kyivindependent.com/bardella-or-le-pen-what-frances-far-right-choice-means-for-ukraine/",
+          "source_title": "Kyiv Independent – Bardella or Le Pen: what France's far-right choice means for Ukraine",
+          "source_date": "2026-07-07",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "proche_orient",
+      "found": true,
+      "positions": [
+        {
+          "position": "Opposée à la reconnaissance de l'État de Palestine par la France : selon elle, elle légitime les auteurs du 7-Octobre alors que des otages restent détenus, et constitue une faute politique et morale.",
+          "kind": "position_declaree",
+          "short_quote": "légitime les massacreurs du 7 octobre",
+          "source_url": "https://www.publicsenat.fr/actualites/international/reconnaissance-de-letat-de-palestine-par-macron-la-droite-fustige-la-duplicite-du-president-la-gauche-salue-une-decision-moralement-necessaire",
+          "source_title": "Public Sénat – Reconnaissance de l'État de Palestine par Macron : réactions",
+          "source_date": "2025-07-25",
+          "confidence": "high"
+        },
+        {
+          "position": "Favorable en principe à deux États, mais elle juge le moment de la reconnaissance « catastrophique » et refuse un « État terroriste » aux portes d'Israël. Elle met au défi les critiques d'Israël de proposer un moyen d'éliminer le Hamas.",
+          "kind": "position_declaree",
+          "details": "Interview CNews de septembre 2025. Elle y attribue la décision de Macron à des calculs électoraux.",
+          "source_url": "https://israj.media-j.com/article/40458/reconnaissance-dun-etat-palestinien-un-signal-catastrophique-selon-marine-le-pen",
+          "source_title": "Israj – Reconnaissance d'un État palestinien : « un signal catastrophique » selon Marine Le Pen",
+          "source_date": "2025-09-16",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "defense",
+      "found": true,
+      "positions": [
+        {
+          "position": "Sortir du commandement intégré de l'OTAN tout en restant dans l'Alliance, mais pas « tant qu'il y a une guerre aux portes de l'Europe ».",
+          "kind": "proposition_explicite",
+          "details": "Annoncé sur BFMTV en mai 2026, puis reporté dans le temps lors de l'entretien avec Politico du 24 septembre 2026.",
+          "source_url": "https://www.kyivpost.com/post/85353",
+          "source_title": "Kyiv Post – Le Pen rules out Ukraine funding (entretien Politico)",
+          "source_date": "2026-09-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Refuser de partager la dissuasion nucléaire française avec d'autres pays européens. Elle qualifie la « dissuasion avancée » de Macron, ouverte à la Lettonie, de simple « communication ».",
+          "kind": "position_declaree",
+          "source_url": "https://actu.orange.fr/politique/dissuasion-nucleaire-marine-le-pen-s-oppose-fermement-au-partage-de-l-arsenal-avec-l-europe-magic-CNT000002s6eg7.html",
+          "source_title": "Orange Actualités – Dissuasion nucléaire : Marine Le Pen s'oppose fermement au partage de l'arsenal avec l'Europe",
+          "source_date": "2026-09-25",
+          "confidence": "high"
+        },
+        {
+          "position": "Soutien à la hausse du budget militaire, à condition qu'elle renforce la souveraineté française. Aucun objectif chiffré en % du PIB trouvé ; le programme 2022 visait 55 Md€ en 2027.",
+          "kind": "position_declaree",
+          "source_url": "https://www.boursorama.com/bourse/actualites/presidentielle-2027-vers-un-trou-d-air-pour-la-defense-francaise-e6113c901ea917e509ad075f7c482a56",
+          "source_title": "Boursorama – Présidentielle 2027 : vers un trou d'air pour la défense française ?",
+          "source_date": "2026-10-05",
+          "confidence": "medium"
+        },
+        {
+          "position": "Renforcer la présence militaire dans le Pacifique avec une base interarmées en Nouvelle-Calédonie (6 patrouilleurs, drones de surveillance).",
+          "kind": "proposition_explicite",
+          "source_url": "https://la1ere.franceinfo.fr/nouvellecaledonie/avenir-de-la-nouvelle-caledonie-marine-le-pen-expose-ses-propositions-1598532.html",
+          "source_title": "Outre-mer la 1ère – Marine Le Pen expose ses propositions pour la Nouvelle-Calédonie",
+          "source_date": "2025-06-24",
+          "confidence": "medium"
+        }
+      ]
+    }
+  ],
+  "signature_proposals": [
+    {
+      "proposal": "« Priorité nationale » : accès prioritaire des Français au logement social, aux résidences étudiantes et à l'emploi ; APL réservées aux Français ; prestations non contributives conditionnées à 5 ans de travail pour les étrangers.",
+      "topic_id": "immigration",
+      "source_url": "https://france3-regions.franceinfo.fr/hauts-de-france/pas-calais/lens/marine-le-pen-fait-sa-rentree-politique-a-henin-beaumont-et-met-la-priorite-nationale-au-c-ur-de-son-programme-pour-la-presidentielle-de-2027-3416348.html"
+    },
+    {
+      "proposal": "Révision constitutionnelle sur l'immigration soumise à référendum, comme premier référendum du quinquennat.",
+      "topic_id": "immigration",
+      "source_url": "https://www.lejdd.fr/politique/voile-mosquees-freres-musulmans-marine-le-pen-promet-un-referendum-sur-la-lutte-contre-lislamisme-183690"
+    },
+    {
+      "proposal": "Référendum sur une loi contre les « idéologies islamistes » : interdiction progressive du voile (université, sorties scolaires, fédérations sportives, bâtiments publics, puis espace public), contrôle du financement des mosquées, interdiction des Frères musulmans.",
+      "topic_id": "laicite_republique",
+      "source_url": "https://www.franceinfo.fr/politique/marine-le-pen/marine-le-pen-souhaite-interdire-le-voile-islamique-de-maniere-progressive_8196287.html"
+    },
+    {
+      "proposal": "« Règle d'or » budgétaire inscrite dans la Constitution par référendum, 140 Md€ nets d'économies d'ici 2032 et déficit sous 3 % en 2030.",
+      "topic_id": "finances_publiques",
+      "source_url": "https://www.franceinfo.fr/elections/presidentielle/presidentielle-2027-marine-le-pen-promet-140-milliards-d-euros-nets-d-economies-d-ici-a-2032_8224807.html"
+    },
+    {
+      "proposal": "Âge légal de départ à 62 ans ; 60 ans avec 40 annuités pour ceux qui ont commencé avant 20 ans ; coût annoncé de 9 Md€ par an ; création d'un pilier de capitalisation.",
+      "topic_id": "retraites",
+      "source_url": "https://www.franceinfo.fr/economie/retraite/reforme-des-retraites/changement-de-systeme-passage-a-60-ou-a-65-ans-capitalisation-que-proposent-les-principaux-candidats-a-l-election-presidentielle-pour-les-retraites_8215784.html"
+    },
+    {
+      "proposal": "Baisse de la TVA sur le gaz, l'électricité, les carburants, le bois et le fioul ; suppression de la TVA sur les produits de première nécessité.",
+      "topic_id": "fiscalite",
+      "source_url": "https://www.cnews.fr/france/2026-10-06/baisse-de-la-tva-preference-nationale-simplification-administrative-que-contient"
+    },
+    {
+      "proposal": "« Choc de compétitivité » : baisse d'environ 16 Md€ des impôts de production, implantations industrielles traitées en « projets d'intérêt national majeur », suppression de milliers de normes.",
+      "topic_id": "industrie_economie",
+      "source_url": "https://www.franceinfo.fr/elections/presidentielle/dette-publique-retraites-reindustrialisation-ce-qu-il-faut-retenir-du-premier-debat-des-principaux-candidats-a-la-presidentielle_8165342.html"
+    },
+    {
+      "proposal": "Logement : abrogation de la loi SRU, suppression du ZAN et des contraintes liées au DPE, prêts à taux zéro « 100 % Rénov », cession gratuite de foncier public.",
+      "topic_id": "logement",
+      "source_url": "https://www.journaldelagence.com/1413717-presidentielle-2027-quelles-sont-les-propositions-de-marine-le-pen-sur-le-logement"
+    },
+    {
+      "proposal": "Arrêt de l'aide financière à l'Ukraine, en maintenant la formation et l'aide matérielle militaire.",
+      "topic_id": "ukraine_russie",
+      "source_url": "https://www.franceinfo.fr/monde/europe/manifestations-en-ukraine/combien-coute-l-aide-de-la-france-a-l-ukraine-remise-en-cause-par-marine-le-pen-et-le-rn_8209307.html"
+    },
+    {
+      "proposal": "Sortie du commandement intégré de l'OTAN, mais pas tant que dure la guerre en Europe ; refus de partager la dissuasion nucléaire.",
+      "topic_id": "defense",
+      "source_url": "https://actu.orange.fr/politique/dissuasion-nucleaire-marine-le-pen-s-oppose-fermement-au-partage-de-l-arsenal-avec-l-europe-magic-CNT000002s6eg7.html"
+    },
+    {
+      "proposal": "« Plan climatisation » de 40 Md€ (bâtiments publics, puis prêts à taux zéro pour les logements privés).",
+      "topic_id": "ecologie_energie",
+      "source_url": "https://www.franceinfo.fr/environnement/evenements-meteorologiques-extremes/vagues-de-chaleur-canicules/pour-un-parti-il-est-difficile-d-annoncer-qu-il-ne-croit-pas-au-rechauffement-climatique-comment-le-rn-tente-de-rafraichir-son-image-sur-l-ecologie-en-soutenant-la-climatisation_8086415.html"
+    },
+    {
+      "proposal": "Réduction de la contribution française au budget de l'UE et défense du droit de veto des États, sans sortie de l'Union.",
+      "topic_id": "europe",
+      "source_url": "https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/vrai-ou-faux-la-france-peut-elle-diminuer-sa-contribution-au-budget-europeen-comme-l-affirme-le-rn_7468174.html"
+    }
+  ],
+  "distinctive_vs_others": "Retraites : elle propose 62 ans, et 60 ans pour ceux qui ont commencé avant 20 ans. Elle se situe entre Jean-Luc Mélenchon (retour progressif à 60 ans, 40 annuités) et la droite et le centre : Édouard Philippe (65 ans, 45 annuités), Bruno Retailleau (63 ans minimum, 65 ans pour le taux plein, capitalisation pour les jeunes) et Gabriel Attal (suppression de l'âge légal, capitalisation dès la naissance) (franceinfo, 30/09/2026 : https://www.franceinfo.fr/economie/retraite/reforme-des-retraites/changement-de-systeme-passage-a-60-ou-a-65-ans-capitalisation-que-proposent-les-principaux-candidats-a-l-election-presidentielle-pour-les-retraites_8215784.html).\n\nImmigration : elle est la seule à faire de la « priorité nationale » fondée sur la nationalité la clé de voûte de son programme. Bruno Retailleau, qui veut lui aussi supprimer le droit du sol par référendum, préfère conditionner les aides à une durée de résidence (Orange/AFP : https://actu.orange.fr/politique/presidentielle-2027-marine-le-pen-et-la-priorite-nationale-recit-d-une-bataille-culturelle-magicExpress-CNT000002s0dcX.html).\n\nLaïcité : elle propose d'interdire le voile dans tout l'espace public par référendum, une ligne que son propre allié Jordan Bardella juge « intenable » (https://actu.orange.fr/france/elle-n-abandonnera-jamais-marine-le-pen-et-son-totem-de-l-interdiction-du-port-du-voile-magicExpress-CNT000002rG56I.html).\n\nDéfense et OTAN : elle veut sortir du commandement intégré de l'OTAN mais rester dans l'Alliance, et cesser l'aide financière à l'Ukraine tout en continuant l'aide matérielle. Jean-Luc Mélenchon veut quitter entièrement l'OTAN et nationaliser l'industrie de défense. Édouard Philippe est atlantiste, soutient l'Ukraine et vise 3 % du PIB pour la défense (Boursorama, 05/10/2026 : https://www.boursorama.com/bourse/actualites/presidentielle-2027-vers-un-trou-d-air-pour-la-defense-francaise-e6113c901ea917e509ad075f7c482a56).\n\nFinances publiques : contrairement à Retailleau (suppression de 250 000 à 300 000 postes de fonctionnaires), elle n'annonce pas de baisse chiffrée des effectifs. Elle mise sur la priorité nationale, l'immigration, la fraude, les agences de l'État et la contribution à l'UE, et associe des économies (140 Md€ nets) à des baisses d'impôts (30 Md€ nets) (franceinfo débat Medef : https://www.franceinfo.fr/elections/presidentielle/dette-publique-retraites-reindustrialisation-ce-qu-il-faut-retenir-du-premier-debat-des-principaux-candidats-a-la-presidentielle_8165342.html).\n\nEurope : à la différence des candidats souverainistes historiquement favorables à une sortie de l'UE (François Asselineau, Florian Philippot), elle a renoncé au Frexit au profit d'une réforme de l'Union de l'intérieur (Euronews, 17/09/2026 : https://www.euronews.com/my-europe/2026/09/17/fact-check-will-marine-le-pen-hold-a-frexit-referendum-if-she-becomes-president-of-france).\n\nÉnergie et climat : elle combine nucléaire, hostilité à l'éolien et au solaire (vote du moratoire en 2025), baisse de la TVA sur l'énergie et un plan climatisation de 40 Md€. Son approche technologique de l'adaptation contraste avec celle des écologistes, dont Delphine Batho.\n\nInstitutions : elle prévoit des révisions constitutionnelles par référendum direct (article 11), sans le Parlement, une voie que des constitutionnalistes jugent contraire à la Constitution.",
+  "evolutions_and_contradictions": "Budget : le RN qualifiait la « règle d'or » de « carcan austéritaire » en 2012. Marine Le Pen la propose désormais par référendum et reconnaît le revirement. Les chiffres changent selon les annonces : 125 Md€ de réduction du déficit (tribune, débat du Medef), puis 140 Md€ nets d'économies et 30 Md€ nets de baisses d'impôts (6 octobre). Le calendrier aussi : déficit sous 3 % en 2030 dans le contre-budget, alors que les plafonds de la règle d'or cités par LCP prévoient 3,9 % en 2030 et 2,9 % en 2032.\n\nRetraites : la ligne « 62 ans, 60 ans pour les carrières longues » est maintenue contre celle de Jordan Bardella, plus libérale. Le 6 octobre 2026, elle ajoute un « véritable pilier de capitalisation », absent du programme quelques jours plus tôt. Le coût annoncé (9 Md€) est très inférieur aux estimations de l'Institut Montaigne (23 à 38 Md€).\n\nFiscalité du patrimoine : le RN s'est abstenu sur la taxe Zucman en février 2025, s'y est opposé à l'automne 2025 au profit de son impôt sur la fortune financière, puis a voté l'« impôt sur la fortune improductive ».\n\nOTAN : la sortie du commandement intégré, réaffirmée en mai 2026, est repoussée en septembre « tant qu'il y a une guerre ».\n\nRussie et Ukraine : elle condamne désormais explicitement les actes hostiles de Moscou (communiqué du 19 septembre 2026), mais veut cesser l'aide financière à Kiev.\n\nEurope : elle a abandonné la sortie de l'UE et de l'euro, défendue en 2012 et 2017.\n\nClimat : la climatisation et le réchauffement climatique étaient absents des programmes de 2017 et 2022 ; elle propose désormais un plan de 40 Md€.\n\nFin de vie : elle a voté contre la loi mais ne s'engage pas à l'abroger.\n\nVoile : elle en fait un « totem » contre l'avis de Jordan Bardella, son futur Premier ministre, ce qui crée une divergence interne affichée.\n\nAudiovisuel public : la privatisation est affirmée en 2025, mais des doutes internes sont rapportés au printemps 2026.\n\nLe RN a voté l'interdiction des réseaux sociaux aux moins de 15 ans en janvier 2026 ; une « volte-face » est évoquée par certains médias en juillet 2026, sans précision.",
+  "open_questions": [
+    "Pourvoi en cassation : la décision, attendue avant le 18 avril 2027, pourrait remettre en cause son éligibilité et entraîner un remplacement par Jordan Bardella.",
+    "Aucun programme présidentiel complet n'est publié : le détail poste par poste des 140 Md€ d'économies et des 30 Md€ de baisses d'impôts reste à préciser.",
+    "Faisabilité juridique d'une révision constitutionnelle par référendum (article 11) sans le Parlement, sur l'immigration puis sur l'islamisme et le voile, et réaction du Conseil constitutionnel.",
+    "Compatibilité de la « priorité nationale » avec la Constitution, la CEDH et le droit de l'UE ; contenu exact du référendum sur l'immigration en 2027 (droit du sol, regroupement familial, asile).",
+    "Retraites : fonctionnement et financement du « pilier de capitalisation » annoncé le 6 octobre 2026 ; écart entre le coût annoncé (9 Md€) et les évaluations extérieures.",
+    "Montant visé de baisse de la contribution française au budget de l'UE (8,7 Md€ ? moitié de la contribution nette ?) et conséquences pour la PAC.",
+    "Énergie : le moratoire sur l'éolien et le solaire et la sortie du marché européen de l'électricité figureront-ils dans le programme 2027 ?",
+    "Défense : aucun objectif chiffré de budget militaire (% du PIB) ni position sur le service national n'ont été trouvés.",
+    "Pas de position récente trouvée sur l'école (taille des classes, enseignement privé, salaires des enseignants), sur la mémoire de la colonisation ni sur la culture hors audiovisuel public.",
+    "Droits LGBTQIA+ (PMA pour toutes, GPA, transidentité des mineurs, éducation à la sexualité) : seules des positions anciennes et des votes du groupe ont été trouvés ; pas de déclaration récente de la candidate.",
+    "Le RN maintient-il la privatisation de France Télévisions et Radio France malgré les doutes internes rapportés en 2026 ?",
+    "Mesures concrètes contre le narcotrafic et objectifs carcéraux pour 2027 : le programme pénal de 2022 (85 000 places de prison, peines planchers) n'a pas été reconfirmé explicitement.",
+    "Le partage des rôles avec Jordan Bardella, visé fin septembre 2026 par des révélations de Mediapart qu'il dément, et l'arbitrage de leurs divergences (voile, retraites, économie)."
+  ]
+}

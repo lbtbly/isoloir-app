@@ -1,0 +1,1063 @@
+{
+  "group": "ecologie",
+  "cleavages": [
+    {
+      "topic_id": "ecologie_energie",
+      "cleavage": "Place du nucléaire dans la production d'électricité : relance massive, complément des renouvelables, relance limitée, sortie ou référendum",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Faire du nucléaire le pilier prioritaire : prolonger les réacteurs existants (jusqu'à 60 ou 80 ans), lancer de nouvelles séries d'EPR (jusqu'à 14 au total, ou 8 de plus que les 6 déjà prévus selon les propositions), petits réacteurs modulaires et réacteurs de 4e génération ; viser 70 % d'électricité nucléaire ou plus",
+          "candidates": [
+            "Bruno Retailleau",
+            "Gabriel Attal",
+            "David Lisnard",
+            "Marine Le Pen",
+            "Nicolas Dupont-Aignan",
+            "Florian Philippot"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/wp-content/uploads/2026/05/LR_Electricite_vFF070626.pdf",
+            "https://attalpresident.fr/actualites/gabriel-attal-presente-un-plan-de-desendettement-et-un-messmer-ii-pour-sortir-des-dependances-francaises",
+            "https://www.unenouvelleenergie.fr/questions/quel-candidat-veut-construire-de-nouveaux-reacteurs-nucleaires/",
+            "https://www.sfen.org/rgn/presidentielle-2027-au-colloque-de-lufe-les-grands-partis-listent-leurs-positions-sur-le-nucleaire/",
+            "https://www.debout-la-france.fr/projet/environnement-energie/",
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf"
+          ]
+        },
+        {
+          "approach": "Garder le nucléaire comme socle et le développer (prolongation et/ou nouveaux réacteurs, petits réacteurs) en parallèle d'un fort développement des renouvelables ; certains visent le doublement de la production pilotable décarbonée",
+          "candidates": [
+            "Édouard Philippe",
+            "Raphaël Glucksmann",
+            "Fabien Roussel",
+            "Emmanuel Maurel",
+            "Bernard Cazeneuve",
+            "Olivier Becht",
+            "Karim Bouamrane",
+            "Ségolène Royal"
+          ],
+          "evidence_urls": [
+            "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante",
+            "https://www.publicsenat.fr/actualites/politique/presidentielle-pas-candidat-pour-le-moment-raphael-glucksmann-trace-son-chemin-et-defend-sa-vision-pour-le-pays",
+            "https://www.pcf.fr/ue_26_discours_fr",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+            "https://becht2027.fr/projet-france/les-5-refondations/refondation-energie/",
+            "https://oumma.com/karim-bouamrane-defie-melenchon-et-vise-le-second-tour-de-la-presidentielle-2027/",
+            "https://contrepoints.org/nucleaire-segolene-royal-ou-linconsequence-en-politique/"
+          ]
+        },
+        {
+          "approach": "Relance limitée : 2 à 4 nouveaux réacteurs seulement (déchets, dépendance à l'uranium, difficultés à l'export), avec un effort maximal sur les renouvelables",
+          "candidates": [
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://www.sfen.org/rgn/presidentielle-2027-au-colloque-de-lufe-les-grands-partis-listent-leurs-positions-sur-le-nucleaire/"
+          ]
+        },
+        {
+          "approach": "Sortir progressivement du nucléaire : abandonner les projets d'EPR, planifier la fermeture et la reconversion des sites, et atteindre 100 % d'énergies renouvelables en 2050",
+          "candidates": [
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260505191953/https://melenchon2027.fr/programme2025/livre/chapitre13/s3/"
+          ]
+        },
+        {
+          "approach": "Faire de la sobriété la priorité (diviser par deux la consommation d'énergie) et miser sur les renouvelables locales et l'autoconsommation, avec une réserve de longue date envers la relance du nucléaire",
+          "candidates": [
+            "Delphine Batho"
+          ],
+          "evidence_urls": [
+            "https://www.generationecologie.fr/2026/06/22/quelle-politique-energetique-pour-la-france/",
+            "https://reporterre.net/Delphine-Batho-La-decroissance-est-le-seul-projet-politique-reellement-alternatif"
+          ]
+        },
+        {
+          "approach": "Ne pas trancher soi-même : soumettre l'avenir du nucléaire à un grand débat puis à un référendum national",
+          "candidates": [
+            "François Asselineau",
+            "Mira Markovic"
+          ],
+          "evidence_urls": [
+            "https://upr.fr/",
+            "https://parti-animaliste.fr/programme-legislatives"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "cleavage": "Avenir de l'éolien et du solaire : arrêt du soutien public, développement aux côtés du nucléaire ou 100 % renouvelables",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Cesser de soutenir l'éolien et le solaire : plus de subventions ni d'appels d'offres pour de nouvelles capacités, moratoire sur les nouvelles installations, voire démantèlement progressif des éoliennes existantes",
+          "candidates": [
+            "Bruno Retailleau",
+            "Florian Philippot",
+            "Marine Le Pen",
+            "Nicolas Dupont-Aignan"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/wp-content/uploads/2026/05/LR_Electricite_vFF070626.pdf",
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+            "https://www.aefinfo.fr/depeche/733400-proposition-de-loi-gremillet-les-deputes-votent-un-moratoire-sur-les-nouvelles-installations-solaire-et-eoliennes",
+            "https://www.debout-la-france.fr/projet/environnement-energie/"
+          ]
+        },
+        {
+          "approach": "Neutralité technologique : fixer des objectifs sans imposer de technologie, en mettant fin aux régimes dérogatoires dont bénéficient les renouvelables intermittentes",
+          "candidates": [
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://www.unenouvelleenergie.fr/questions/quel-candidat-defend-une-ecologie-pragmatique-et-non-punitive/"
+          ]
+        },
+        {
+          "approach": "Continuer à développer les renouvelables de façon planifiée (programmation énergétique publiée, plans pluriannuels, géothermie, stockage) en complément du nucléaire",
+          "candidates": [
+            "Olivier Faure",
+            "Raphaël Glucksmann",
+            "Gabriel Attal",
+            "Édouard Philippe",
+            "Fabien Roussel",
+            "Emmanuel Maurel",
+            "Olivier Becht",
+            "Bernard Cazeneuve"
+          ],
+          "evidence_urls": [
+            "https://www.linfodurable.fr/energies-renouvelables-faure-demande-lecornu-de-tourner-le-dos-aux-sirenes-obscurantistes-54435",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://attalpresident.fr/actualites/face-aux-canicules-gabriel-attal-veut-faire-de-la-geoenergie-le-grand-projet-energetique-de-la-france-du-xxie-siecle",
+            "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante",
+            "https://www.pcf.fr/ue_26_discours_fr",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://becht2027.fr/projet-france/les-5-refondations/refondation-energie/",
+            "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599"
+          ]
+        },
+        {
+          "approach": "Viser à terme une électricité 100 % renouvelable, portée par la sobriété, les boucles locales d'énergie et l'autoconsommation collective",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Delphine Batho"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260505191953/https://melenchon2027.fr/programme2025/livre/chapitre13/s3/",
+            "https://www.generationecologie.fr/2026/06/22/quelle-politique-energetique-pour-la-france/"
+          ]
+        },
+        {
+          "approach": "Encadrer strictement l'éolien pour protéger la faune et les riverains (référendum local et distance de 5 km pour toute nouvelle éolienne)",
+          "candidates": [
+            "Mira Markovic"
+          ],
+          "evidence_urls": [
+            "https://parti-animaliste.fr/programme-legislatives"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "cleavage": "Prix de l'électricité : sortir du marché européen ou réformer la formation des prix dans le cadre européen",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Sortir du marché européen de l'électricité et revenir à des tarifs réglementés calculés sur les coûts de production (notamment nucléaires), avec un opérateur public intégré ; baisses promises de 30 % à 50 % ou plus des factures",
+          "candidates": [
+            "Nicolas Dupont-Aignan",
+            "Florian Philippot",
+            "Fabien Roussel",
+            "Emmanuel Maurel",
+            "Ségolène Royal",
+            "Jean-Luc Mélenchon",
+            "Marine Le Pen"
+          ],
+          "evidence_urls": [
+            "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+            "https://les-patriotes.fr/pour-ladoption-immediate-dun-plan-durgence-energetique-en-france-en-8-points/",
+            "https://www.pcf.fr/40e_congres_discours_de_cloture_de_fabien_roussel",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://contrepoints.org/nucleaire-segolene-royal-ou-linconsequence-en-politique/",
+            "https://web.archive.org/web/20260505191953/https://melenchon2027.fr/programme2025/livre/chapitre13/s3/",
+            "https://www.sfen.org/rgn/presidentielle-2027-au-colloque-de-lufe-les-grands-partis-listent-leurs-positions-sur-le-nucleaire/",
+            "https://lessurligneurs.eu/marine-le-pen-souhaite-que-la-france-sorte-du-marche-europeen-de-lelectricite/"
+          ]
+        },
+        {
+          "approach": "Rester dans le cadre européen mais réformer la formation du prix : régulation de l'accès à la production nucléaire après la fin du tarif historique, indexation d'une partie de la facture sur les coûts de production, contrats de long terme, prix cible (vers 75 €/MWh) et suppression de certaines charges",
+          "candidates": [
+            "Bruno Retailleau",
+            "Gabriel Attal",
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/wp-content/uploads/2026/05/LR_Electricite_vFF070626.pdf",
+            "https://attalpresident.fr/actualites/gabriel-attal-presente-un-plan-de-desendettement-et-un-messmer-ii-pour-sortir-des-dependances-francaises",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf"
+          ]
+        },
+        {
+          "approach": "Exproprier sans indemnité l'ensemble du secteur de l'énergie et le placer sous le contrôle des travailleurs",
+          "candidates": [
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://www.revolutionpermanente.fr/28h-expropriation-des-secteurs-strategiques-RP-presente-les-premieres-mesures-de-sa-candidature",
+            "https://anasse2027.fr/programme/depliant-anasse-2027.pdf"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "cleavage": "Réponse à la flambée des prix des carburants (2026) : baisse générale des taxes, aides ciblées, blocage des prix et des marges, ou sortie accélérée du pétrole",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Baisser de façon générale les taxes et prélèvements sur les carburants (TVA, accises, certificats d'économies d'énergie), y compris en demandant à l'UE de lever ses règles minimales",
+          "candidates": [
+            "Marine Le Pen",
+            "Florian Philippot",
+            "Nicolas Dupont-Aignan",
+            "Francis Lalanne",
+            "Jérôme Guedj",
+            "Ségolène Royal",
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://rassemblementnational.fr/communiques/carburants-que-bruxelles-laisse-enfin-les-etats-baisser-les-taxes",
+            "https://www.cnews.fr/france/2026-10-06/baisse-de-la-tva-preference-nationale-simplification-administrative-que-contient",
+            "https://les-patriotes.fr/pour-ladoption-immediate-dun-plan-durgence-energetique-en-france-en-8-points/",
+            "https://www.debout-la-france.fr/projet/transport-automobilistes/",
+            "https://dieudolalanne2027.com/programme",
+            "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+            "https://www.unenouvelleenergie.fr/david-lisnard-sur-franceinfo-le-probleme-francais-est-devenu-un-probleme-de-suradministration-et-dimpuissance-publique/"
+          ]
+        },
+        {
+          "approach": "Aides ciblées sur les ménages qui dépendent de la voiture (gros rouleurs, actifs ruraux), financées par des économies plutôt que par la dette, au lieu d'une baisse générale des taxes",
+          "candidates": [
+            "Édouard Philippe",
+            "Raphaël Glucksmann",
+            "Gabriel Attal"
+          ],
+          "evidence_urls": [
+            "https://actu.orange.fr/politique/edouard-philippe-veut-supprimer-7000-postes-de-fonctionnaires-pour-maintenir-les-aides-au-carburant-magic-CNT000002s7m7H.html",
+            "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+            "https://attalpresident.fr/actualites/gabriel-attal-20h-tf1-quatre-chantiers-capitaux-pour-la-france"
+          ]
+        },
+        {
+          "approach": "Faire payer les compagnies pétrolières : bloquer ou plafonner les prix à la pompe (par exemple 1,60 € le litre), encadrer les marges de raffinage, voire nationaliser ou exproprier les groupes pétroliers ; pour certains, refus de baisser les taxes",
+          "candidates": [
+            "Fabien Roussel",
+            "Jean-Luc Mélenchon",
+            "Nathalie Arthaud",
+            "Olivier Faure",
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/economie/automobile/essence/prix-des-carburants-fabien-roussel-propose-de-nationaliser-totalenergies-si-le-groupe-ne-s-execute-pas-a-baisser-ses-marges_7908467.html",
+            "https://linsoumission.fr/2026/05/11/melenchon-la-tribune-dimanche/",
+            "https://lutte-ouvriere.org/portail/editoriaux/carburants-prix-budget-stop-racket-197249.html",
+            "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+            "https://www.revolutionpermanente.fr/Carburant-austerite-XXL-la-COLERE-sociale-prete-a-EXPLOSER-Edito-d-Anasse-Kazib"
+          ]
+        },
+        {
+          "approach": "Réduire la dépendance au pétrole plutôt que subventionner le carburant : baisser le prix ou la TVA de l'électricité, développer transports collectifs (gratuité, cars ruraux) et leasing électrique social, carburants de synthèse à long terme",
+          "candidates": [
+            "Emmanuel Maurel",
+            "Olivier Becht",
+            "Delphine Batho"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+            "https://www.ici.fr/emissions/l-invite-d-ici-matin-ici-alsace/prix-des-carburants-il-faut-des-mesures-a-court-terme-et-a-plus-long-terme-estime-olivier-becht-7105511",
+            "https://www.generationecologie.fr/2026/04/10/prix-de-lessence-a-la-pompe-lurgence-dagir/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "cleavage": "Ambition climatique : planification contraignante, écologie d'adaptation « non punitive », écologie libérale ou rupture avec le capitalisme",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Planification écologique avec des objectifs rapides et chiffrés de baisse des émissions (−65 % en 2030, division par deux en dix ans ou −90 % en 2040), sortie des énergies fossiles en une quinzaine d'années et investissements publics massifs (jusqu'à 200 à 500 Md€) ; conditionner les budgets publics aux objectifs climat",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Raphaël Glucksmann",
+            "Gabriel Attal",
+            "Fabien Roussel",
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260505185059/https://melenchon2027.fr/programme2025/livre/chapitre12/s1/",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://attalpresident.fr/programme/dette-ecologique",
+            "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+            "https://www.france24.com/fr/info-en-continu/20260917-olivier-faure-%C3%A0-gauche-toute-pour-la-primaire"
+          ]
+        },
+        {
+          "approach": "Écologie « d'adaptation » ou « pragmatique », refusant l'écologie « punitive » : priorité à l'adaptation, à l'innovation, au nucléaire et à la production en France plutôt qu'aux normes et contraintes",
+          "candidates": [
+            "Bruno Retailleau",
+            "David Lisnard",
+            "Marine Le Pen"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/actualites/2026/08/09/face-au-rechauffement-climatique-adapter-la-france-plutot-que-punir/",
+            "https://www.unenouvelleenergie.fr/questions/quel-candidat-defend-une-ecologie-pragmatique-et-non-punitive/",
+            "https://www.franceinfo.fr/environnement/evenements-meteorologiques-extremes/vagues-de-chaleur-canicules/pour-un-parti-il-est-difficile-d-annoncer-qu-il-ne-croit-pas-au-rechauffement-climatique-comment-le-rn-tente-de-rafraichir-son-image-sur-l-ecologie-en-soutenant-la-climatisation_8086415.html"
+          ]
+        },
+        {
+          "approach": "Écologie « populaire » et planifiée, ni punitive ni dans le déni : rénovation thermique massive des logements et des écoles, transports collectifs là où ils manquent, effort porté d'abord par les plus gros pollueurs",
+          "candidates": [
+            "Bernard Cazeneuve",
+            "Jérôme Guedj",
+            "Karim Bouamrane"
+          ],
+          "evidence_urls": [
+            "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+            "https://www.jeromeguedj2027.fr/",
+            "https://www.lafrancehumaineetforte.fr/manifeste.html"
+          ]
+        },
+        {
+          "approach": "Approche libérale et ciblée : prix du carbone aux frontières européennes, captage du carbone, action concentrée sur le fret, la rénovation et l'industrie lourde, fonds unique d'adaptation (2 Md€ par an)",
+          "candidates": [
+            "Édouard Philippe"
+          ],
+          "evidence_urls": [
+            "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante",
+            "https://www.franceinfo.fr/elections/presidentielle/edouard-philippe-souhaite-doter-la-france-d-une-veritable-politique-de-securite-climatique_8197976.html"
+          ]
+        },
+        {
+          "approach": "La crise climatique est produite par le capitalisme : planifier démocratiquement la production en expropriant les grands groupes, et faire payer les profits des pétroliers",
+          "candidates": [
+            "Nathalie Arthaud",
+            "Anasse Kazib",
+            "Selma Labib"
+          ],
+          "evidence_urls": [
+            "https://lutte-ouvriere.org/portail/editoriaux/politique-ecologique-consequente-cest-renverser-capitalisme-195906.html",
+            "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+            "https://npa-revolutionnaires.org/articles/intervention-de-selma-labib-a-la-fete-de-lhumanite-2026"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "cleavage": "Gestion de l'eau : faciliter le stockage pour l'irrigation ou stopper les méga-bassines au profit d'un partage sobre et public",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Faciliter les retenues et le stockage d'eau pour l'agriculture (intérêt général majeur, « silence vaut accord » après 6 mois, environ 400 projets à débloquer, petites retenues), et la réutilisation des eaux usées traitées",
+          "candidates": [
+            "Bruno Retailleau",
+            "David Lisnard",
+            "Édouard Philippe",
+            "Gabriel Attal"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/wp-content/uploads/2026/03/LR_Agriculture.pdf",
+            "https://www.unenouvelleenergie.fr/a-la-foire-de-chalons-david-lisnard-defend-une-agriculture-liberee-des-impots-de-production-et-de-la-bureaucratie/",
+            "https://www.boursorama.com/actualite-economique/actualites/acceptons-l-idee-qu-il-faut-stocker-l-eau-dit-edouard-philippe-aupres-des-agriculteurs-1d3ef8838bfa378653fcf86282b1c4c5",
+            "https://attalpresident.fr/actualites/gabriel-attal-plan-eau-argeles-sur-mer"
+          ]
+        },
+        {
+          "approach": "Moratoire ou refus des méga-bassines, jugées au profit d'une minorité d'exploitants ; partage sobre et démocratique de l'eau, gestion publique (régies), solutions fondées sur la nature",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Raphaël Glucksmann",
+            "Nathalie Arthaud",
+            "Delphine Batho",
+            "Mira Markovic",
+            "Selma Labib"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260509164437/https://melenchon2027.fr/programme2025/livre/chapitre14/s2/",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://lutte-ouvriere.org/portail/editoriaux/politique-ecologique-consequente-cest-renverser-capitalisme-195906.html",
+            "https://www.generationecologie.fr/2026/01/20/eau-un-moratoire-contraire-a-letat-de-droit/",
+            "https://parti-animaliste.fr/news/communique-de-presse/loi-durgence-agricole-lurgence-nest-pas-de-reautoriser-des-pesticides-mais-de-preparer-lagriculture-de-demain",
+            "https://npa-revolutionnaires.org/articles/loi-durgence-agricole-lagriculture-capitaliste-nous-emmene-droit-dans-le-mur-le-gouvernement-accelere"
+          ]
+        },
+        {
+          "approach": "Accepter le stockage, mais par des ouvrages publics à usages multiples sous planification démocratique, plutôt que par des projets privés",
+          "candidates": [
+            "Fabien Roussel"
+          ],
+          "evidence_urls": [
+            "https://www.pcf.fr/secheresse_adapter_agriculture_gestion_eau"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "cleavage": "Voiture et pollution : supprimer les contraintes (ZFE, fin des moteurs thermiques en 2035), les suspendre ou accompagner l'électrification",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Supprimer les zones à faibles émissions (ZFE) ou leur obligation nationale ; pour certains, revenir aussi sur l'interdiction de vente des voitures thermiques neuves en 2035",
+          "candidates": [
+            "Nicolas Dupont-Aignan",
+            "Florian Philippot",
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://www.debout-la-france.fr/projet/transport-automobilistes/",
+            "https://www.debout-la-france.fr/actualite/je-suis-candidat-pour/",
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+            "https://www.unenouvelleenergie.fr/lappel-des-maires-contre-les-zfe-nous-refusons-que-lecologie-simpose-au-mepris-de-certains-citoyens/"
+          ]
+        },
+        {
+          "approach": "Suspendre les ZFE dans leur forme actuelle, jugées socialement injustes, tout en limitant la taille et le poids des SUV et en développant les alternatives à la voiture individuelle",
+          "candidates": [
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260509162946/https://melenchon2027.fr/programme2025/livre/chapitre13/s2/"
+          ]
+        },
+        {
+          "approach": "Accélérer le passage à la voiture électrique par des aides : leasing social (y compris d'occasion, autour de 100 € par mois), voitures électriques à moins de 10 000 €, bornes de recharge",
+          "candidates": [
+            "Gabriel Attal",
+            "Raphaël Glucksmann",
+            "Fabien Roussel"
+          ],
+          "evidence_urls": [
+            "https://attalpresident.fr/actualites/gabriel-attal-presente-un-plan-de-desendettement-et-un-messmer-ii-pour-sortir-des-dependances-francaises",
+            "https://www.france24.com/fr/france/20260614-présidentielle-2027-en-meeting-glucksmann-veut-ramener-la-gauche-au-pouvoir",
+            "https://www.pcf.fr/ue_26_discours_fr"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "cleavage": "Adaptation aux canicules : plan de climatisation ou priorité à la végétalisation et au bâti",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Climatiser massivement les bâtiments accueillant des publics fragiles (écoles, crèches, hôpitaux, EHPAD) et aider les ménages à s'équiper (jusqu'à un plan de 40 Md€ ou un « droit à la climatisation »)",
+          "candidates": [
+            "Marine Le Pen",
+            "Gabriel Attal",
+            "Bruno Retailleau",
+            "Édouard Philippe",
+            "Emmanuel Maurel",
+            "Ségolène Royal"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/environnement/evenements-meteorologiques-extremes/vagues-de-chaleur-canicules/pour-un-parti-il-est-difficile-d-annoncer-qu-il-ne-croit-pas-au-rechauffement-climatique-comment-le-rn-tente-de-rafraichir-son-image-sur-l-ecologie-en-soutenant-la-climatisation_8086415.html",
+            "https://attalpresident.fr/actualites/face-aux-canicules-gabriel-attal-veut-faire-de-la-geoenergie-le-grand-projet-energetique-de-la-france-du-xxie-siecle",
+            "https://republicains.fr/actualites/2026/08/09/face-au-rechauffement-climatique-adapter-la-france-plutot-que-punir/",
+            "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://www.sudradio.fr/linvite-politique/segolene-royal-pour-2027-je-consulte-je-reflechis-si-je-peux-etre-utile-pourquoi-pas"
+          ]
+        },
+        {
+          "approach": "Privilégier la végétalisation (quota minimal d'espaces verts par commune), l'adaptation du bâti et les lieux rafraîchis plutôt qu'un plan de climatisation",
+          "candidates": [
+            "Karim Bouamrane",
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://www.sudradio.fr/linvite-politique/karim-bouamrane-je-nirai-pas-a-la-primaire-du-parti-socialiste",
+            "https://melenchon.fr/2026/07/22/une-nouvelle-gauche-daction-a-surgi-elle-est-faite-dinsoumis-et-de-verts-tous-ecologistes-interview-reporterre/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "cleavage": "Place de l'environnement dans la Constitution : retirer le principe de précaution ou renforcer les règles écologiques",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Retirer le principe de précaution de la Constitution et le remplacer par un principe de responsabilité, la protection de l'environnement relevant de la loi",
+          "candidates": [
+            "Bruno Retailleau",
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/wp-content/uploads/2026/03/LR_Agriculture.pdf",
+            "https://www.unenouvelleenergie.fr/app/uploads/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf"
+          ]
+        },
+        {
+          "approach": "Inscrire une « règle verte » dans la Constitution (ne pas prélever plus que ce que la nature peut reconstituer) et l'eau comme bien commun",
+          "candidates": [
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260505185059/https://melenchon2027.fr/programme2025/livre/chapitre12/s1/"
+          ]
+        },
+        {
+          "approach": "Instaurer une « règle d'or verte » : aucun budget, investissement ni aide publique contraire aux objectifs climat et biodiversité",
+          "candidates": [
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://www.france24.com/fr/info-en-continu/20260917-olivier-faure-%C3%A0-gauche-toute-pour-la-primaire"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "cleavage": "Pesticides interdits en France (néonicotinoïdes dont l'acétamipride, glyphosate) : réautoriser par alignement européen ou maintenir et étendre les interdictions",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Aligner les règles françaises sur le minimum européen, sans « surtransposition » : réautoriser les pesticides permis ailleurs dans l'UE (comme l'acétamipride), abandonner l'objectif de −50 % de pesticides ; votes favorables aux lois de 2025 et 2026 allant dans ce sens",
+          "candidates": [
+            "Bruno Retailleau",
+            "David Lisnard",
+            "Marine Le Pen",
+            "Gabriel Attal",
+            "Édouard Philippe"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/wp-content/uploads/2026/03/LR_Agriculture.pdf",
+            "https://www.unenouvelleenergie.fr/il-faut-sortir-de-cet-etat-providence-qui-est-un-aspirateur-a-pauvrete/",
+            "https://datan.fr/votes/legislature-17/vote_8427",
+            "https://datan.fr/votes/legislature-17/vote_2957",
+            "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere"
+          ]
+        },
+        {
+          "approach": "Maintenir les interdictions et sortir des pesticides les plus dangereux (glyphosate, néonicotinoïdes), interdire l'importation de produits traités avec ces substances ; votes contre la réautorisation de l'acétamipride",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Raphaël Glucksmann",
+            "Delphine Batho",
+            "Olivier Faure",
+            "Jérôme Guedj",
+            "Emmanuel Maurel",
+            "Ségolène Royal",
+            "Olivier Becht",
+            "Mira Markovic",
+            "Nathalie Arthaud",
+            "Selma Labib"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260505180609/https://melenchon2027.fr/programme2025/livre/chapitre13/s5/",
+            "https://place-publique.eu/posts/68jyTyNjDww1F2yvJ1c4St/reaction-de-raphael-glucksmann-suite-a-l-adoption-de-la-loi-d-urgence-agricole",
+            "https://datan.fr/votes/legislature-17/vote_8427",
+            "https://datan.fr/votes/legislature-17/vote_2957",
+            "https://www.sudradio.fr/linvite-politique/segolene-royal-pour-2027-je-consulte-je-reflechis-si-je-peux-etre-utile-pourquoi-pas",
+            "https://parti-animaliste.fr/news/communique-de-presse/loi-durgence-agricole-lurgence-nest-pas-de-reautoriser-des-pesticides-mais-de-preparer-lagriculture-de-demain",
+            "https://lutte-ouvriere.org/portail/editoriaux/politique-ecologique-consequente-cest-renverser-capitalisme-195906.html",
+            "https://npa-revolutionnaires.org/articles/loi-durgence-agricole-lagriculture-capitaliste-nous-emmene-droit-dans-le-mur-le-gouvernement-accelere"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "cleavage": "Protéger les agriculteurs des importations : sortir de la politique agricole commune, réciprocité dans le cadre européen, protectionnisme assumé ou critique anticapitaliste",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Sortir de la politique agricole commune (voire de l'UE) pour une politique agricole nationale : aides versées directement, prix garantis, rupture des accords de libre-échange, droits de douane ou quotas, y compris face à des pays européens",
+          "candidates": [
+            "Nicolas Dupont-Aignan",
+            "Florian Philippot",
+            "François Asselineau"
+          ],
+          "evidence_urls": [
+            "https://www.debout-la-france.fr/projet/agriculture/",
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+            "https://upr.fr/drp/les-agriculteurs-desesperes-comment-sauver-notre-agriculture-familiale"
+          ]
+        },
+        {
+          "approach": "Rester dans la politique agricole commune et le marché unique, en exigeant la réciprocité des normes pour les produits importés (clauses ou mesures miroirs, contrôles renforcés, préférence européenne) et en réorientant la PAC",
+          "candidates": [
+            "Bruno Retailleau",
+            "David Lisnard",
+            "Raphaël Glucksmann",
+            "Delphine Batho",
+            "Karim Bouamrane",
+            "Olivier Faure",
+            "Bernard Cazeneuve"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/wp-content/uploads/2026/03/LR_Agriculture.pdf",
+            "https://www.unenouvelleenergie.fr/notre-programme/agriculture/",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://www.generationecologie.fr/2026/01/09/accord-avec-le-mercosur-la-france-doit-saisir-la-cour-de-justice-de-lunion-europeenne/",
+            "https://www.lafrancehumaineetforte.fr/manifeste.html",
+            "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+            "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599"
+          ]
+        },
+        {
+          "approach": "Protectionnisme assumé contre le libre-échange (« démondialiser ») : interdire les importations produites avec des substances interdites, prix minimum d'entrée, clause de sauvegarde, quitte à déroger aux règles européennes",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Emmanuel Maurel",
+            "Fabien Roussel"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260505180609/https://melenchon2027.fr/programme2025/livre/chapitre13/s5/",
+            "https://melenchon.fr/2026/07/22/une-nouvelle-gauche-daction-a-surgi-elle-est-faite-dinsoumis-et-de-verts-tous-ecologistes-interview-reporterre/",
+            "https://choisir2027.fr/wp-content/uploads/2026/09/Profession-de-foi-Emmanuel-Maurel.pdf",
+            "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf"
+          ]
+        },
+        {
+          "approach": "Le protectionnisme est une impasse : la crise agricole vient de l'agro-industrie, des banques et de la grande distribution, et appelle une alliance des petits paysans avec les salariés",
+          "candidates": [
+            "Nathalie Arthaud",
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://www.lutte-ouvriere.org/journal/article/paysans-crise-vient-loin-190822.html",
+            "https://www.revolutionpermanente.fr/Contre-l-accord-UE-Mercosur-le-protectionnisme-est-une-impasse"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "cleavage": "Revenu des agriculteurs : réguler les prix et les marges, ou alléger charges, impôts et normes",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Garantir des prix rémunérateurs par l'intervention publique : prix planchers ou « tunnel de prix », interdiction de la vente à perte, encadrement des marges de l'agro-industrie et de la distribution, filières à prix garantis",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Fabien Roussel",
+            "Raphaël Glucksmann",
+            "Nicolas Dupont-Aignan",
+            "Florian Philippot",
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260505180609/https://melenchon2027.fr/programme2025/livre/chapitre13/s5/",
+            "https://www.pcf.fr/le_milliard_de_genevard",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://www.debout-la-france.fr/projet/agriculture/",
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+            "https://g-r-s.fr/refonder-notre-agriculture-en-instaurant-un-regime-agricole-complementaire-livret-thematique-issu-du-congres-daubervilliers/"
+          ]
+        },
+        {
+          "approach": "Améliorer la compétitivité en allégeant les charges et les impôts de production, en simplifiant et en marquant une pause dans les normes, la négociation commerciale (Egalim) protégeant le prix des matières premières",
+          "candidates": [
+            "David Lisnard",
+            "Bruno Retailleau",
+            "Gabriel Attal",
+            "Édouard Philippe",
+            "Olivier Becht"
+          ],
+          "evidence_urls": [
+            "https://www.unenouvelleenergie.fr/a-la-foire-de-chalons-david-lisnard-defend-une-agriculture-liberee-des-impots-de-production-et-de-la-bureaucratie/",
+            "https://republicains.fr/wp-content/uploads/2026/03/LR_Agriculture.pdf",
+            "https://attalpresident.fr/actualites/gabriel-attal-au-contact-du-monde-agricole-et-de-ceux-qui-font-vivre-nos-territoires-a-la-foire-de-chalons",
+            "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
+            "https://becht2024.fr/wp-content/uploads/2026/08/Rapport-Amenagement-du-territoire-_-Olivier-Becht.pdf"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "cleavage": "Élevage et condition animale : sortir de l'élevage intensif, interdire les pratiques jugées cruelles, mesures ciblées ou moderniser et agrandir les élevages",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Sortir de l'élevage intensif en finançant la reconversion des éleveurs, interdire la chasse et la corrida, donner aux animaux un statut juridique distinct des biens et réduire fortement la consommation de produits animaux (−40 % en 2030)",
+          "candidates": [
+            "Mira Markovic"
+          ],
+          "evidence_urls": [
+            "https://fr.news.yahoo.com/sport/pr%C3%A9sidentielle-2027-candidate-parti-animaliste-092813187.html",
+            "https://parti-animaliste.fr/"
+          ]
+        },
+        {
+          "approach": "Interdire progressivement l'élevage en cage ou en batterie et l'élevage pour la fourrure, durcir les règles de transport des animaux ; pour certains, interdire aussi les fermes-usines, la corrida et la chasse à courre",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260509165425/https://melenchon2027.fr/programme2025/livre/chapitre14/s5/",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf"
+          ]
+        },
+        {
+          "approach": "Mesures ciblées : lutte contre l'abandon et la maltraitance des animaux de compagnie (sanctions dès le premier acte, fichier national), contrôle des abattoirs (vidéosurveillance, étourdissement obligatoire)",
+          "candidates": [
+            "Gabriel Attal",
+            "Nicolas Dupont-Aignan",
+            "Florian Philippot"
+          ],
+          "evidence_urls": [
+            "https://attalpresident.fr/actualites/gabriel-attal-a-la-spa-de-plaisir-premieres-propositions-contre-labandon-animal",
+            "https://www.debout-la-france.fr/projet/bien-etre-animal/",
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf"
+          ]
+        },
+        {
+          "approach": "Moderniser et agrandir les élevages en alignant les seuils environnementaux des installations sur le minimum européen",
+          "candidates": [
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/wp-content/uploads/2026/03/LR_Agriculture.pdf"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "cleavage": "Accès à une alimentation de qualité : dispositif social de type « sécurité sociale de l'alimentation » ou soutien fiscal et public à la production nationale",
+      "importance": "low",
+      "sides": [
+        {
+          "approach": "Créer ou expérimenter une « sécurité sociale de l'alimentation » ou un fonds national (ou une « carte vitale alimentaire ») pour que les familles modestes achètent une alimentation de qualité ; cantines plus bio et locales",
+          "candidates": [
+            "Olivier Faure",
+            "Jean-Luc Mélenchon",
+            "Raphaël Glucksmann",
+            "Karim Bouamrane"
+          ],
+          "evidence_urls": [
+            "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+            "https://web.archive.org/web/20260509170957/https://melenchon2027.fr/programme2025/livre/chapitre15/s4/",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://www.sudradio.fr/linvite-politique/karim-bouamrane-lfi-se-nourrit-de-la-ghettoisation-matin-midi-et-soir"
+          ]
+        },
+        {
+          "approach": "Soutenir d'abord la production nationale : TVA allégée sur les aliments produits en France, part réservée (50 % puis 80 %) aux producteurs français dans la commande publique, étiquetage obligatoire de l'origine",
+          "candidates": [
+            "Ségolène Royal",
+            "Nicolas Dupont-Aignan"
+          ],
+          "evidence_urls": [
+            "https://lesinguliersete.fr/segolene-royal-y-croit-encore-et-veut-faire-trembler-la-primaire-socialiste/",
+            "https://www.debout-la-france.fr/projet/agriculture/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "territoires",
+      "cleavage": "Organisation territoriale : supprimer les régions, fusionner des échelons, redécouper, approfondir la décentralisation ou défendre l'unité contre la différenciation",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Supprimer les régions (conseils régionaux) et les intercommunalités imposées, recentrer l'organisation sur le couple commune-département",
+          "candidates": [
+            "Nicolas Dupont-Aignan",
+            "François Asselineau"
+          ],
+          "evidence_urls": [
+            "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+            "https://upr.fr/actualites/discours-de-rentree-2026-de-francois-asselineau-la-liberation-nationale"
+          ]
+        },
+        {
+          "approach": "Fusionner ou supprimer un échelon (départements et régions réunis en une cinquantaine de « provinces », ou suppression d'un échelon) et donner aux élus locaux, d'abord aux maires, de vrais pouvoirs, y compris réglementaires",
+          "candidates": [
+            "David Lisnard",
+            "Gabriel Attal",
+            "Olivier Becht"
+          ],
+          "evidence_urls": [
+            "https://www.unenouvelleenergie.fr/app/uploads/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf",
+            "https://www.unenouvelleenergie.fr/questions/que-propose-david-lisnard-pour-decentraliser-la-france/",
+            "https://attalpresident.fr/actualites/lci-gabriel-attal-defend-un-projet-de-rupture-pour-repondre-aux-grands-defis-du-pays",
+            "https://www.lejdd.fr/politique/exclusif-gabriel-attal-je-propose-la-plus-grande-reforme-institutionnelle-depuis-1958-180333",
+            "https://becht2027.fr/projet-france/les-5-refondations/refondation-democratique-territoriale/"
+          ]
+        },
+        {
+          "approach": "Redessiner la carte : remplacer les régions par des « écorégions » fondées sur les bassins versants, supprimer les grandes régions et les métropoles, abroger la loi NOTRe et faire de la commune la cellule de base",
+          "candidates": [
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260509165822/https://melenchon2027.fr/programme2025/livre/chapitre3/s2/",
+            "https://melenchon.fr/2026/07/22/une-nouvelle-gauche-daction-a-surgi-elle-est-faite-dinsoumis-et-de-verts-tous-ecologistes-interview-reporterre/"
+          ]
+        },
+        {
+          "approach": "Nouvelle étape de décentralisation par clarification et transfert de compétences (« qui paie co-décide », chef de file par politique), sans suppression d'échelon annoncée",
+          "candidates": [
+            "Bruno Retailleau",
+            "Bernard Cazeneuve",
+            "Delphine Batho"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf",
+            "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+            "https://www.ici.fr/emissions/l-invite-de-ici-poitou/delphine-batho-candidate-en-2027-les-francaises-aspirent-a-des-idees-nouvelles-et-a-des-forces-nouvelles-6628651"
+          ]
+        },
+        {
+          "approach": "Défendre l'unité et l'égalité républicaines contre la différenciation : refus du « fédéralisme » et de la métropolisation, défense des communes et départements, voire recentralisation de certaines compétences (aide sociale à l'enfance)",
+          "candidates": [
+            "Fabien Roussel",
+            "Florian Philippot"
+          ],
+          "evidence_urls": [
+            "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "territoires",
+      "cleavage": "Avenir de la Nouvelle-Calédonie : indépendance, compromis négocié ou maintien sans statut d'État",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Accompagner la Nouvelle-Calédonie (Kanaky) vers l'indépendance ou reconnaître le droit à l'autodétermination des peuples des outre-mer (calendrier évoqué : indépendance au 1er janvier 2028)",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Fabien Roussel",
+            "Anasse Kazib",
+            "Nathalie Arthaud"
+          ],
+          "evidence_urls": [
+            "https://la1ere.franceinfo.fr/nouvellecaledonie/presidentielle-2027-ce-que-proposent-les-principaux-candidats-pour-l-avenir-de-la-nouvelle-caledonie-1739837.html",
+            "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/",
+            "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+            "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+            "https://lutte-ouvriere.org/portail/communiques/non-politique-coloniale-nouvelle-caledonie-166933.html"
+          ]
+        },
+        {
+          "approach": "Rechercher un compromis négocié entre toutes les forces calédoniennes, dans l'esprit des accords de Matignon-Nouméa ou en défendant l'accord de Bougival (2025)",
+          "candidates": [
+            "Gabriel Attal",
+            "Olivier Faure",
+            "Raphaël Glucksmann",
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://la1ere.franceinfo.fr/nouvellecaledonie/presidentielle-2027-ce-que-proposent-les-principaux-candidats-pour-l-avenir-de-la-nouvelle-caledonie-1739837.html",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf"
+          ]
+        },
+        {
+          "approach": "Maintenir la Nouvelle-Calédonie dans la France sans État ni nationalité calédonienne, en s'appuyant sur les trois référendums ; geler la question institutionnelle pour plusieurs décennies (jusqu'à 40 ans)",
+          "candidates": [
+            "Marine Le Pen",
+            "Florian Philippot",
+            "François Asselineau"
+          ],
+          "evidence_urls": [
+            "https://la1ere.franceinfo.fr/nouvellecaledonie/avenir-de-la-nouvelle-caledonie-marine-le-pen-expose-ses-propositions-1598532.html",
+            "https://www.franceinfo.fr/france/nouvelle-caledonie/nouvelle-caledonie-marine-le-pen-denonce-un-accord-profondement-ambigu-et-un-exercice-d-equilibrisme-juridique_7375045.html",
+            "https://www.lejdd.fr/politique/depecage-de-la-france-forfaiture-haute-trahison-les-souverainistes-sinsurgent-contre-laccord-sur-lavenir-de-la-nouvelle-caledonie-160134",
+            "https://upr.fr/analyses/par-haine-de-la-france-melenchon-meprise-le-vote-des-neo-caledoniens"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "territoires",
+      "cleavage": "Autonomie de la Corse et différenciation territoriale : accorder une autonomie inscrite dans la Constitution ou refuser les statuts d'exception",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Accorder à la Corse une autonomie inscrite dans la Constitution (vote pour la révision du 23 juin 2026) et ouvrir l'autonomie à d'autres territoires qui la demandent",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Gabriel Attal",
+            "Olivier Faure",
+            "Delphine Batho",
+            "Olivier Becht"
+          ],
+          "evidence_urls": [
+            "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/",
+            "https://datan.fr/votes/legislature-17/vote_7454"
+          ]
+        },
+        {
+          "approach": "Refuser l'autonomie constitutionnelle de la Corse et toute décentralisation « à la carte » ou statut d'exception, au nom d'une même loi pour tous (vote contre ou opposition déclarée)",
+          "candidates": [
+            "Marine Le Pen",
+            "Jérôme Guedj",
+            "Emmanuel Maurel",
+            "Fabien Roussel",
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://datan.fr/votes/legislature-17/vote_7454",
+            "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+            "https://www.unenouvelleenergie.fr/app/uploads/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "territoires",
+      "cleavage": "Moyens des collectivités et des services publics de proximité : réinvestir et garantir des temps d'accès, ou faire participer les collectivités aux économies",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Réinvestir dans les services publics locaux : temps d'accès maximal garanti (15 à 30 minutes, hôpital à moins de 45 minutes), réouverture d'accueils physiques, dotations relevées ou indexées, plans d'investissement par département (100 M€ chacun)",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Fabien Roussel",
+            "Nicolas Dupont-Aignan",
+            "Olivier Becht",
+            "Emmanuel Maurel",
+            "Raphaël Glucksmann",
+            "Bernard Cazeneuve",
+            "Karim Bouamrane",
+            "Nathalie Arthaud",
+            "Anasse Kazib",
+            "Selma Labib",
+            "Francis Lalanne"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260608122417/https://melenchon2027.fr/programme2025/livre/chapitre7/s1/",
+            "https://assets.nationbuilder.com/pcf/pages/44585/attachments/original/1791210591/tract_service_public.pdf?1791210591",
+            "https://www.debout-la-france.fr/projet/equilibre-territoire-monde-rural/",
+            "https://becht2027.fr/projet-france/les-5-refondations/refondation-democratique-territoriale/",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+            "https://www.franceinfo.fr/replay-magazine/franceinfo/l-invite-politique/l-invite-politique-du-jeudi-17-juillet-2025_7382146.html",
+            "https://www.lutte-ouvriere.org/journal/article/departements-ressources-baisse-188760.html",
+            "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+            "https://npa-revolutionnaires.org/articles/intervention-de-selma-conductrice-de-bus-31-ans-une-travailleuse-communiste-revolutionnaire-qui-portera-la-voix-de-celles-et-ceux-qui-ne-baisseront-jamais-la-tete-a-lelection-rein",
+            "https://dieudolalanne2027.com/programme"
+          ]
+        },
+        {
+          "approach": "Faire participer l'État et les collectivités à l'effort d'économies : réduire les doublons et les effectifs, baisser certaines dotations, redéployer des agents vers l'accueil grâce au numérique et à l'IA",
+          "candidates": [
+            "Édouard Philippe",
+            "Bruno Retailleau",
+            "Gabriel Attal",
+            "Florian Philippot",
+            "Marine Le Pen"
+          ],
+          "evidence_urls": [
+            "https://fr.euronews.com/my-europe/2026/07/05/premier-meeting-de-campagne-pour-edouard-philippe-linteret-des-enfants-sera-sa-boussole",
+            "https://acteurspublics.fr/articles/presidentielle-bruno-retailleau-souhaite-redeployer-125-000-fonctionnaires-sur-le-terrain-grace-a-lia/",
+            "https://attalpresident.fr/actualites/lci-gabriel-attal-defend-un-projet-de-rupture-pour-repondre-aux-grands-defis-du-pays",
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+            "https://www.publicsenat.fr/actualites/economie/contre-budget-du-rn-des-propositions-qui-manquent-de-credibilite-economique-mais-trahissent-une-veritable-coherence-doctrinale"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "territoires",
+      "cleavage": "Artificialisation des sols : supprimer l'objectif « zéro artificialisation nette » (ZAN), l'assouplir ou le maintenir",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Supprimer le ZAN pour rendre aux communes la maîtrise de leur foncier et permettre l'extension des bâtiments agricoles et des logements",
+          "candidates": [
+            "Marine Le Pen",
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://www.journaldelagence.com/1413717-presidentielle-2027-quelles-sont-les-propositions-de-marine-le-pen-sur-le-logement",
+            "https://republicains.fr/wp-content/uploads/2026/03/LR_Agriculture.pdf"
+          ]
+        },
+        {
+          "approach": "Garder l'objectif mais assouplir ou moduler son application selon les territoires (bassins industriels, friches), jugée inapplicable en l'état pour les communes",
+          "candidates": [
+            "David Lisnard",
+            "Olivier Becht"
+          ],
+          "evidence_urls": [
+            "https://www.unenouvelleenergie.fr/questions/quel-candidat-defend-une-ecologie-pragmatique-et-non-punitive/",
+            "https://becht2024.fr/wp-content/uploads/2026/08/Rapport-Amenagement-du-territoire-_-Olivier-Becht.pdf"
+          ]
+        },
+        {
+          "approach": "Défendre résolument le ZAN, voire l'appliquer dès 2027, et lutter contre l'artificialisation pour protéger terres agricoles et espaces naturels",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Jean-Luc Mélenchon",
+            "Fabien Roussel"
+          ],
+          "evidence_urls": [
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://web.archive.org/web/20260505180609/https://melenchon2027.fr/programme2025/livre/chapitre13/s5/",
+            "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf"
+          ]
+        }
+      ]
+    }
+  ],
+  "consensus_points": [
+    {
+      "topic_id": "ecologie_energie",
+      "point": "Électrifier massivement les usages (transports, chauffage, industrie) : tous les courants représentés au colloque de l'Union française de l'électricité (23 juin 2026) partagent ce cap ; le désaccord porte sur la part du nucléaire et des renouvelables.",
+      "url": "https://www.sfen.org/rgn/presidentielle-2027-au-colloque-de-lufe-les-grands-partis-listent-leurs-positions-sur-le-nucleaire/"
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "point": "Renforcer les moyens de lutte contre les feux de forêt après l'été 2026 (bombardiers d'eau ou « Canadair », recrutement de pompiers) : demandé par des candidats de tous bords, de É. Philippe à F. Roussel, N. Arthaud ou S. Labib ; seuls le financement et l'ampleur diffèrent.",
+      "url": "https://www.franceinfo.fr/elections/presidentielle/edouard-philippe-souhaite-doter-la-france-d-une-veritable-politique-de-securite-climatique_8197976.html"
+    },
+    {
+      "topic_id": "agriculture",
+      "point": "Rejet de l'accord UE-Mercosur : la résolution demandant au gouvernement de s'y opposer a été adoptée le 27/11/2025 par 244 voix contre 1 (seul le groupe présidentiel s'est abstenu) ; la quasi-totalité des candidats qui se sont exprimés y sont opposés.",
+      "url": "https://datan.fr/votes/legislature-17/vote_4244"
+    },
+    {
+      "topic_id": "agriculture",
+      "point": "Exiger des produits importés le respect des normes imposées aux agriculteurs français (réciprocité, clauses miroirs, refus des produits traités avec des substances interdites en France) : revendiqué d'un bout à l'autre de l'échiquier ; le désaccord porte sur le cadre (UE ou sortie de la PAC).",
+      "url": "https://republicains.fr/wp-content/uploads/2026/03/LR_Agriculture.pdf"
+    },
+    {
+      "topic_id": "agriculture",
+      "point": "Faciliter l'installation des jeunes agriculteurs et la transmission des exploitations (foncier, fiscalité de la transmission, prêts garantis), alors qu'environ 170 000 départs à la retraite sont attendus d'ici 2030.",
+      "url": "https://becht2024.fr/wp-content/uploads/2026/08/Rapport-Amenagement-du-territoire-_-Olivier-Becht.pdf"
+    },
+    {
+      "topic_id": "territoires",
+      "point": "Lutter contre la vie chère dans les outre-mer (encadrement des prix de première nécessité, coût du fret, octroi de mer, monopoles) : proposé de manière convergente par des candidats très différents.",
+      "url": "https://emmanuel-maurel.fr/programme/"
+    },
+    {
+      "topic_id": "territoires",
+      "point": "Garantir l'accès aux services publics essentiels (école, santé, guichets) dans les territoires ruraux et ne plus fermer de classes ou de services sans concertation : objectif affiché par presque tous ; le désaccord porte sur les moyens budgétaires.",
+      "url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599"
+    },
+    {
+      "topic_id": "territoires",
+      "point": "Donner davantage de pouvoir et de confiance aux maires, présentés comme l'échelon le plus légitime : thème commun à la plupart des candidats, du « maire élu le plus puissant » à la « commune cellule de base ».",
+      "url": "https://www.lejdd.fr/politique/exclusif-gabriel-attal-je-propose-la-plus-grande-reforme-institutionnelle-depuis-1958-180333"
+    }
+  ]
+}

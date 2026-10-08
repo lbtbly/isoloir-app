@@ -1,0 +1,1245 @@
+{
+  "group": "economie",
+  "cleavages": [
+    {
+      "topic_id": "retraites",
+      "cleavage": "Âge de départ : faut-il ramener l'âge minimal à 60 ou 62 ans, garder 64 ans, aller vers 65 ans, ou cesser de raisonner par un âge légal unique ?",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Abroger le report à 64 ans et ramener le départ à 60 ans à taux plein (voire plus tôt pour les métiers pénibles), avec une durée de cotisation de 40 ans ou moins.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Fabien Roussel",
+            "Anasse Kazib",
+            "Selma Labib"
+          ],
+          "evidence_urls": [
+            "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/",
+            "https://web.archive.org/web/20260509173421/https://melenchon2027.fr/programme2025/livre/chapitre8/s8/",
+            "https://www.pcf.fr/discours_de_fabien_roussel_fete_huma_31",
+            "https://www.revolutionpermanente.fr/28h-expropriation-des-secteurs-strategiques-RP-presente-les-premieres-mesures-de-sa-candidature",
+            "https://npa-revolutionnaires.org/a-propos",
+            "https://npa-revolutionnaires.org/articles/intervention-de-selma-labib-a-la-fete-de-lhumanite-2026"
+          ]
+        },
+        {
+          "approach": "Revenir à un âge légal de 62 ans, avec un départ plus tôt pour ceux qui ont commencé à travailler jeunes.",
+          "candidates": [
+            "Marine Le Pen",
+            "Olivier Faure",
+            "Emmanuel Maurel",
+            "Nicolas Dupont-Aignan"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/economie/retraite/reforme-des-retraites/changement-de-systeme-passage-a-60-ou-a-65-ans-capitalisation-que-proposent-les-principaux-candidats-a-l-election-presidentielle-pour-les-retraites_8215784.html",
+            "https://www.boursorama.com/actualite-economique/actualites/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions-e0f504871547edbc6960940d9c6e1fd9",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://www.franceinfo.fr/replay-magazine/franceinfo/l-invite-politique/l-invite-politique-du-mardi-02-juin-2026_8001014.html"
+          ]
+        },
+        {
+          "approach": "Ne plus faire d'un âge légal unique le levier central : moduler le départ selon la durée cotisée, la pénibilité et le parcours (le report à 64 ans étant abrogé ou non prolongé).",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Jérôme Guedj",
+            "Bernard Cazeneuve",
+            "Karim Bouamrane"
+          ],
+          "evidence_urls": [
+            "https://www.publicsenat.fr/actualites/politique/reculer-ou-avancer-lage-legal-avec-ou-sans-capitalisation-ce-que-proposent-les-principaux-candidats-a-lelection-presidentielle-sur-les-retraites",
+            "https://fr.finance.yahoo.com/actualites/veux-sortir-l%C3%A2ge-l%C3%A9gal-j%C3%A9r%C3%B4me-144747223.html",
+            "https://assets.nationbuilder.com/laconvention/pages/2513/attachments/original/1784135398/Synthese_mesuresVfinale.pdf?1784135398",
+            "https://oumma.com/karim-bouamrane-defie-melenchon-et-vise-le-second-tour-de-la-presidentielle-2027/",
+            "https://www.sudradio.fr/linvite-politique/ps-arretons-de-sacraliser-la-loose-affirme-karim-bouamrane"
+          ]
+        },
+        {
+          "approach": "Conserver la réforme de 2023 (64 ans), puis transformer le système (durée de cotisation seule avec décote et surcote, ou bascule partielle vers la capitalisation) plutôt que fixer un nouvel âge.",
+          "candidates": [
+            "Gabriel Attal",
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://attalpresident.fr/actualites/gabriel-attal-veut-remettre-l-exigence-au-coeur-de-l-ecole-et-transformer-le-modele-francais-sur-france-info",
+            "https://www.lejdd.fr/politique/retraites-ce-que-proposent-les-candidats-a-la-presidentielle-184728",
+            "https://www.unenouvelleenergie.fr/questions/quel-age-de-depart-a-la-retraite-david-lisnard-defend-il/"
+          ]
+        },
+        {
+          "approach": "Faire de 65 ans le nouveau pivot (âge légal avec 45 annuités, ou âge du taux plein avec une décote avant), lié le cas échéant à l'espérance de vie, avec des exceptions pour les carrières longues et pénibles.",
+          "candidates": [
+            "Édouard Philippe",
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/elections/presidentielle/age-de-depart-a-65-ans-45-annuites-de-cotisation-edouard-philippe-candidat-horizons-a-la-presidentielle-devoile-son-projet-de-reforme-des-retraites_8214737.html",
+            "https://www.franceinfo.fr/politique/bruno-retailleau/s-il-est-elu-bruno-retailleau-veut-instaurer-un-age-minimal-de-depart-a-la-retraite-a-63-ans-le-taux-plein-a-65_8205254.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "retraites",
+      "cleavage": "Capitalisation : ajouter un étage de retraite par capitalisation à côté de la répartition, ou rester en répartition exclusive ?",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Ajouter un pilier de capitalisation, obligatoire ou fortement encouragé (fonds collectif, compte d'épargne retraite, capital versé à la naissance), en complément de la répartition.",
+          "candidates": [
+            "Édouard Philippe",
+            "Bruno Retailleau",
+            "Gabriel Attal",
+            "David Lisnard",
+            "Marine Le Pen",
+            "Nicolas Dupont-Aignan"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/economie/retraite/reforme-des-retraites/changement-de-systeme-passage-a-60-ou-a-65-ans-capitalisation-que-proposent-les-principaux-candidats-a-l-election-presidentielle-pour-les-retraites_8215784.html",
+            "https://www.journaldunet.com/business/action-publique/1555605-edouard-philippe-devoile-son-projet-de-reforme-des-retraites-pour-la-presidentielle-2027-prevoyant-un-depart-a-65-ans-et-45-annuites/",
+            "https://attalpresident.fr/actualites/aux-assises-de-l-afer-gabriel-attal-defend-une-epargne-qui-finance-l-economie-francaise",
+            "https://www.unenouvelleenergie.fr/questions/david-lisnard-est-il-favorable-a-la-retraite-par-capitalisation/",
+            "https://www.france24.com/fr/france/20261006-pr%C3%A9sidentielle-2027-marine-le-pen-promet-140-milliards-d-euros-nets-d-%C3%A9conomies-d-ici-5-ans",
+            "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/"
+          ]
+        },
+        {
+          "approach": "Financer les pensions uniquement par la répartition et les cotisations, et refuser toute part de capitalisation.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Fabien Roussel",
+            "Emmanuel Maurel",
+            "Selma Labib"
+          ],
+          "evidence_urls": [
+            "https://linsoumission.fr/2026/05/11/melenchon-la-tribune-dimanche/",
+            "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+            "https://www.franceinfo.fr/replay-magazine/franceinfo/l-invite-politique/l-invite-politique-du-vendredi-04-septembre-2026_8167499.html",
+            "https://npa-revolutionnaires.org/articles/intervention-de-selma-labib-a-la-fete-de-lhumanite-2026"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "retraites",
+      "cleavage": "Revalorisation des pensions : faire contribuer davantage les retraités aisés (sous-indexation, CSG, gel temporaire) ou garantir l'indexation de toutes les pensions ?",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Faire contribuer davantage les retraités les plus aisés : revalorisation inférieure à l'inflation au-delà d'un seuil, hausse de CSG, fin d'avantages fiscaux ou gel temporaire des prestations hors petites pensions.",
+          "candidates": [
+            "David Lisnard",
+            "Jérôme Guedj",
+            "Édouard Philippe",
+            "Gabriel Attal",
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://www.unenouvelleenergie.fr/questions/david-lisnard-est-il-favorable-a-la-retraite-par-capitalisation/",
+            "https://www.senioractu.com/La-gauche-avait-jure-de-proteger-votre-pension-Jerome-Guedj-accepte-la-sous-indexation-a-condition-que-vos-heritiers_a27953.html",
+            "https://fr.euronews.com/my-europe/2026/07/05/premier-meeting-de-campagne-pour-edouard-philippe-linteret-des-enfants-sera-sa-boussole",
+            "https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf"
+          ]
+        },
+        {
+          "approach": "Garantir l'indexation de toutes les pensions sur l'inflation (ou sur les salaires), refuser tout gel ou sous-indexation, et relever les petites pensions.",
+          "candidates": [
+            "Marine Le Pen",
+            "Nicolas Dupont-Aignan",
+            "Ségolène Royal",
+            "Fabien Roussel",
+            "Nathalie Arthaud",
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/budget-2027-marine-le-pen-prefere-un-budget-imparfait-a-une-loi-speciale-et-pose-les",
+            "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+            "https://fr.finance.yahoo.com/actualites/larnaque-cest-retraites-d%C3%A9j%C3%A0-d%C3%A9sindex%C3%A9es-170357900.html",
+            "https://www.pcf.fr/ue_26_discours_fr",
+            "https://lutte-ouvriere.org/portail/editoriaux/29-septembre-apres-faisons-eclater-colere-197439.html",
+            "https://web.archive.org/web/20260509173421/https://melenchon2027.fr/programme2025/livre/chapitre8/s8/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "retraites",
+      "cleavage": "Financement du système : nouvelles contributions sur le capital, allongement de l'activité, ou économies prises hors du système ?",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Créer de nouvelles ressources : cotisations sur les dividendes, les revenus financiers ou la valeur produite par l'intelligence artificielle, hausse progressive des cotisations.",
+          "candidates": [
+            "Fabien Roussel",
+            "Jean-Luc Mélenchon",
+            "Olivier Faure",
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+            "https://web.archive.org/web/20260509173421/https://melenchon2027.fr/programme2025/livre/chapitre8/s8/",
+            "https://www.france24.com/fr/info-en-continu/20260917-olivier-faure-%C3%A0-gauche-toute-pour-la-primaire",
+            "https://lcp.fr/actualites/budget-2027-vers-un-gel-partiel-des-pensions-de-retraites-440455"
+          ]
+        },
+        {
+          "approach": "Allonger la durée d'activité pour équilibrer le système et dégager des économies chiffrées (30 à 40 Md€) qui profitent aussi aux finances publiques.",
+          "candidates": [
+            "Édouard Philippe",
+            "Bruno Retailleau",
+            "Gabriel Attal"
+          ],
+          "evidence_urls": [
+            "https://www.journaldunet.com/business/action-publique/1555605-edouard-philippe-devoile-son-projet-de-reforme-des-retraites-pour-la-presidentielle-2027-prevoyant-un-depart-a-65-ans-et-45-annuites/",
+            "https://www.publicsenat.fr/actualites/politique/reculer-ou-avancer-lage-legal-avec-ou-sans-capitalisation-ce-que-proposent-les-principaux-candidats-a-lelection-presidentielle-sur-les-retraites",
+            "https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037"
+          ]
+        },
+        {
+          "approach": "Financer un départ plus précoce par des économies trouvées hors du système (immigration, lutte contre la fraude) et par des corrections internes.",
+          "candidates": [
+            "Marine Le Pen"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/economie/retraite/reforme-des-retraites/changement-de-systeme-passage-a-60-ou-a-65-ans-capitalisation-que-proposent-les-principaux-candidats-a-l-election-presidentielle-pour-les-retraites_8215784.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "fiscalite",
+      "cleavage": "Imposition des grands patrimoines : rétablir un impôt sur la fortune ou créer un impôt plancher de 2 % sur les patrimoines de plus de 100 M€, ou ne pas alourdir la fiscalité du patrimoine ?",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Rétablir un impôt sur la fortune (classique, financier ou climatique) et/ou instaurer un impôt plancher de 2 % sur les patrimoines de plus de 100 M€.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Fabien Roussel",
+            "Emmanuel Maurel",
+            "Olivier Faure",
+            "Raphaël Glucksmann",
+            "Jérôme Guedj",
+            "Ségolène Royal",
+            "Delphine Batho"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260509163143/https://melenchon2027.fr/programme2025/livre/chapitre6/s5/",
+            "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://datan.fr/votes/legislature-17/vote_3300",
+            "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+            "https://www.france24.com/fr/info-en-continu/20250911-taxe-zucman-c-est-non-pour-larcher-la-base-de-tout-accord-pour-glucksmann",
+            "https://www.jerome-guedj.fr/pour-une-justice-fiscale-defendre-la-taxe-zucman-pour-preserver-les-classes-moyennes-et-populaires/",
+            "https://www.franceinfo.fr/elections/presidentielle/primaire-populaire-gauche/retraites-je-refuse-ce-debat-tant-que-la-question-du-retour-de-l-isf-n-est-pas-posee-affirme-segolene-royal-candidate-a-la-primaire-du-pole-socialiste_8170295.html",
+            "https://www.generationecologie.fr/2025/07/16/budget-le-moment-de-cecite/"
+          ]
+        },
+        {
+          "approach": "Remplacer l'impôt sur la fortune immobilière par un impôt ciblé sur la fortune financière, sans impôt plancher sur les très hauts patrimoines.",
+          "candidates": [
+            "Marine Le Pen"
+          ],
+          "evidence_urls": [
+            "https://www.publicsenat.fr/actualites/economie/contre-budget-du-rn-des-propositions-qui-manquent-de-credibilite-economique-mais-trahissent-une-veritable-coherence-doctrinale",
+            "https://datan.fr/votes/legislature-17/vote_3300"
+          ]
+        },
+        {
+          "approach": "Ne pas alourdir la fiscalité du patrimoine : opposition à l'impôt plancher sur les grandes fortunes, maintien de la suppression de l'impôt sur la fortune, pas de hausse d'impôts.",
+          "candidates": [
+            "Gabriel Attal",
+            "Édouard Philippe",
+            "David Lisnard",
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://attalpresident.fr/actualites/a-la-ref-gabriel-attal-grand-gagnant-du-premier-debat-de-la-presidentielle-2027",
+            "https://datan.fr/votes/legislature-17/vote_3300",
+            "https://www.immomatin.com/franchise/reseaux-franchise/renforcer-le-droit-du-proprietaire-pour-fluidifier-le-marche-edouard-philippe-congres-fnaim-2025.html",
+            "https://www.unenouvelleenergie.fr/taxe-zucman-les-francais-meritent-mieux-que-des-illusions-fiscales/",
+            "https://republicains.fr/actualites/2026/08/26/je-serai-le-president-qui-baissera-les-impots-de-succession/"
+          ]
+        },
+        {
+          "approach": "Faire davantage contribuer les très grandes fortunes et les rentes financières, sans instrument arrêté (ni taux ni retour explicite d'un impôt sur la fortune).",
+          "candidates": [
+            "Bernard Cazeneuve",
+            "Karim Bouamrane"
+          ],
+          "evidence_urls": [
+            "https://assets.nationbuilder.com/laconvention/pages/2513/attachments/original/1784135398/Synthese_mesuresVfinale.pdf?1784135398",
+            "https://www.franceinfo.fr/replay-magazine/franceinfo/l-invite-politique/l-invite-politique-du-jeudi-17-juillet-2025_7382146.html",
+            "https://www.franceinfo.fr/replay-magazine/franceinfo/l-invite-politique/l-invite-politique-du-mercredi-24-juin-2026_8043938.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "fiscalite",
+      "cleavage": "Héritages : taxer davantage les gros héritages (au-delà d'environ 2 M€), ou alléger les droits de succession et de donation ?",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Alourdir la taxation des plus gros héritages (1 % des successions, au-delà d'environ 2 M€), voire plafonner l'héritage, en exonérant éventuellement les petites transmissions.",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Jérôme Guedj",
+            "Olivier Faure",
+            "Jean-Luc Mélenchon",
+            "Fabien Roussel"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/heritages-et-droits-de-succession-que-proposent-les-candidats-a-l-election",
+            "https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/augmenter-les-salaires-en-taxant-les-plus-gros-heritages-la-proposition-de-raphael-glucksmann-est-elle-realiste_8076284.html",
+            "https://entrevue.fr/entrevue/presidentielle-2027-jerome-guedj-veut-augmenter-les-droits-de-succession-au-dela-de-2-millions-deuros/",
+            "https://web.archive.org/web/20260509163143/https://melenchon2027.fr/programme2025/livre/chapitre6/s5/",
+            "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel"
+          ]
+        },
+        {
+          "approach": "Alléger les droits de succession et de donation : relever fortement les abattements sur les donations, exonérer la résidence principale ou les transmissions des classes moyennes, refuser toute hausse.",
+          "candidates": [
+            "Bruno Retailleau",
+            "Édouard Philippe",
+            "Gabriel Attal",
+            "Marine Le Pen",
+            "Nicolas Dupont-Aignan",
+            "Florian Philippot"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/heritages-et-droits-de-succession-que-proposent-les-candidats-a-l-election",
+            "https://republicains.fr/actualites/2026/08/26/je-serai-le-president-qui-baissera-les-impots-de-succession/",
+            "https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf",
+            "https://attalpresident.fr/actualites/aux-assises-de-l-afer-gabriel-attal-defend-une-epargne-qui-finance-l-economie-francaise",
+            "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "fiscalite",
+      "cleavage": "Niveau global des prélèvements : baisser nettement impôts et cotisations, augmenter les recettes prélevées sur le capital et les hauts revenus, ou déplacer la charge à niveau à peu près constant ?",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Baisser nettement les prélèvements (de 30 à plus de 100 Md€ d'impôts ou de cotisations), sans aucune hausse d'impôt, financé par des baisses de dépenses.",
+          "candidates": [
+            "Marine Le Pen",
+            "David Lisnard",
+            "Bruno Retailleau",
+            "Gabriel Attal",
+            "Édouard Philippe",
+            "Nicolas Dupont-Aignan",
+            "Florian Philippot",
+            "Francis Lalanne"
+          ],
+          "evidence_urls": [
+            "https://www.france24.com/fr/france/20261006-pr%C3%A9sidentielle-2027-marine-le-pen-promet-140-milliards-d-euros-nets-d-%C3%A9conomies-d-ici-5-ans",
+            "https://www.unenouvelleenergie.fr/questions/david-lisnard-veut-il-baisser-les-impots/",
+            "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf",
+            "https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037",
+            "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
+            "https://www.debout-la-france.fr/actualite/je-suis-candidat-pour/",
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+            "https://dieudolalanne2027.com/programme"
+          ]
+        },
+        {
+          "approach": "Augmenter fortement la contribution du capital, des profits et des hauts revenus (impôt sur le revenu plus progressif, cotisations sur les revenus financiers, prise sur les profits) pour financer salaires et services publics.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Fabien Roussel",
+            "Emmanuel Maurel",
+            "Olivier Faure",
+            "Nathalie Arthaud"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260509163143/https://melenchon2027.fr/programme2025/livre/chapitre6/s5/",
+            "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://lcp.fr/actualites/accord-avec-lfi-moyen-orient-pouvoir-d-achat-ce-qu-il-faut-retenir-du-premier-debat-de",
+            "https://lutte-ouvriere.org/portail/editoriaux/face-mensonges-patronaux-affirmer-interets-travailleurs-196842.html"
+          ]
+        },
+        {
+          "approach": "Rééquilibrer la charge entre travail et capital sans alourdissement général : simplifier l'impôt, réduire les niches, transférer d'un prélèvement à l'autre (par exemple taxer les gros héritages pour baisser l'impôt sur les salaires).",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Bernard Cazeneuve",
+            "Olivier Becht",
+            "Ségolène Royal"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/augmenter-les-salaires-en-taxant-les-plus-gros-heritages-la-proposition-de-raphael-glucksmann-est-elle-realiste_8076284.html",
+            "https://assets.nationbuilder.com/laconvention/pages/2513/attachments/original/1784135398/Synthese_mesuresVfinale.pdf?1784135398",
+            "https://becht2024.fr/wp-content/uploads/2026/08/Rapport-Amenagement-du-territoire-_-Olivier-Becht.pdf",
+            "https://www.franceinfo.fr/politique/segolene-royal/budget-2026-pour-reduire-le-deficit-il-faut-lutter-contre-les-gaspillages-il-ne-faut-pas-baisser-les-depenses-essentielles-estime-segolene-royal_7582286.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "fiscalite",
+      "cleavage": "Carburants et énergie : baisser les taxes pour tous (TVA, accises, certificats d'économie d'énergie), verser des aides ciblées, ou faire payer les compagnies pétrolières ?",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Baisser les taxes sur les carburants et l'énergie pour tous (TVA réduite, baisse des accises, suppression des certificats d'économie d'énergie), jusqu'à 30 à 50 centimes par litre.",
+          "candidates": [
+            "Marine Le Pen",
+            "Nicolas Dupont-Aignan",
+            "Florian Philippot",
+            "Ségolène Royal",
+            "Jérôme Guedj",
+            "Fabien Roussel",
+            "Bruno Retailleau",
+            "Francis Lalanne"
+          ],
+          "evidence_urls": [
+            "https://www.cnews.fr/france/2026-10-06/baisse-de-la-tva-preference-nationale-simplification-administrative-que-contient",
+            "https://www.sudradio.fr/linvite-politique/nicolas-dupont-aignan-la-position-du-rn-est-incomprehensible",
+            "https://les-patriotes.fr/pour-ladoption-immediate-dun-plan-durgence-energetique-en-france-en-8-points/",
+            "https://econostrum.info/carburant-a-170-euros-cette-taxe-europeenne-a/",
+            "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html",
+            "https://www.pcf.fr/ue_26_discours_fr",
+            "https://www.cnews.fr/france/2026-09-16/carburants-bruno-retailleau-appelle-le-gouvernement-supprimer-la-taxe-sur-les",
+            "https://dieudolalanne2027.com/programme"
+          ]
+        },
+        {
+          "approach": "Privilégier des aides ciblées (chèque énergie élargi, prime carburant versée par l'employeur, aide aux gros rouleurs) plutôt qu'une baisse générale des taxes, jugée coûteuse.",
+          "candidates": [
+            "Gabriel Attal",
+            "Raphaël Glucksmann",
+            "Olivier Faure",
+            "Édouard Philippe"
+          ],
+          "evidence_urls": [
+            "https://attalpresident.fr/actualites/gabriel-attal-sur-bfm-tv-le-plus-juste-c-est-d-accompagner-ceux-qui-travaillent",
+            "https://actu.orange.fr/politique/carburant-raphael-glucksmann-propose-de-tripler-le-cheque-energie-et-de-l-etendre-aux-classes-moyennes-magic-CNT000002rZCN7.html",
+            "https://www.capital.fr/economie-politique/prix-des-carburants-les-aides-ciblees-on-peut-les-doubler-affirme-olivier-faure-1530239",
+            "https://actu.orange.fr/politique/edouard-philippe-veut-supprimer-7000-postes-de-fonctionnaires-pour-maintenir-les-aides-au-carburant-magic-CNT000002s7m7H.html"
+          ]
+        },
+        {
+          "approach": "Plutôt que baisser les taxes, bloquer les prix et faire payer les compagnies pétrolières (encadrement des marges, prise sur les profits).",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Nathalie Arthaud"
+          ],
+          "evidence_urls": [
+            "https://linsoumission.fr/2026/05/11/melenchon-la-tribune-dimanche/",
+            "https://lutte-ouvriere.org/portail/editoriaux/carburants-prix-budget-stop-racket-197249.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "fiscalite",
+      "cleavage": "Revenus du capital : maintenir le prélèvement forfaitaire unique de 30 % et une fiscalité allégée sur l'épargne, ou imposer le capital comme le travail ?",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Maintenir le prélèvement forfaitaire unique, ne pas alourdir la fiscalité de l'épargne (assurance-vie, plan d'épargne en actions) et poursuivre la baisse de l'impôt sur les sociétés.",
+          "candidates": [
+            "Gabriel Attal",
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://attalpresident.fr/actualites/a-la-ref-gabriel-attal-grand-gagnant-du-premier-debat-de-la-presidentielle-2027",
+            "https://www.unenouvelleenergie.fr/david-lisnard-aux-assises-de-lafer-etre-proprietaire-cest-etre-libre-et-responsable/"
+          ]
+        },
+        {
+          "approach": "Supprimer ou relever le prélèvement forfaitaire unique (par exemple de 30 % à 40 %) pour taxer davantage les revenus du capital, et rendre l'impôt sur le revenu plus progressif.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260509163143/https://melenchon2027.fr/programme2025/livre/chapitre6/s5/",
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "finances_publiques",
+      "cleavage": "Ampleur et méthode du redressement budgétaire : fortes économies sans hausse d'impôts, effort partagé avec hausse des recettes, refus de l'austérité, ou économies ciblées sur la contribution européenne ?",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Réduire fortement la dépense publique, sans hausse d'impôts (de 120 à 200 Md€ d'économies, déficit sous 3 % puis équilibre), en réformant notamment les dépenses sociales.",
+          "candidates": [
+            "Gabriel Attal",
+            "Marine Le Pen",
+            "David Lisnard",
+            "Bruno Retailleau",
+            "Édouard Philippe",
+            "Olivier Becht"
+          ],
+          "evidence_urls": [
+            "https://attalpresident.fr/actualites/gabriel-attal-presente-un-plan-de-desendettement-et-un-messmer-ii-pour-sortir-des-dependances-francaises",
+            "https://www.franceinfo.fr/elections/presidentielle/presidentielle-2027-marine-le-pen-promet-140-milliards-d-euros-nets-d-economies-d-ici-a-2032_8224807.html",
+            "https://www.unenouvelleenergie.fr/questions/que-ferait-david-lisnard-des-200-milliards-d-economies/",
+            "https://www.ifrap.org/comparateurs/presidentielles-2027",
+            "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
+            "https://becht2027.fr/olivier-becht/ses-convictions/"
+          ]
+        },
+        {
+          "approach": "Redresser les comptes en répartissant l'effort selon les moyens : nouvelles recettes sur les plus aisés, révision des aides aux entreprises et lutte contre les gaspillages, sans couper les dépenses jugées essentielles.",
+          "candidates": [
+            "Olivier Faure",
+            "Raphaël Glucksmann",
+            "Jérôme Guedj",
+            "Bernard Cazeneuve",
+            "Ségolène Royal"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/accord-avec-lfi-moyen-orient-pouvoir-d-achat-ce-qu-il-faut-retenir-du-premier-debat-de",
+            "https://fr.tradingview.com/news/afp:99040789ca9a3:0/",
+            "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+            "https://www.crif.org/articles/entretiens/2026-10-05/bernard-cazeneuve-jappelle-a-une-coalition-des-engages/",
+            "https://www.franceinfo.fr/politique/segolene-royal/budget-2026-pour-reduire-le-deficit-il-faut-lutter-contre-les-gaspillages-il-ne-faut-pas-baisser-les-depenses-essentielles-estime-segolene-royal_7582286.html"
+          ]
+        },
+        {
+          "approach": "Refuser les plans d'économies et augmenter fortement l'investissement et les services publics, financés par l'emprunt public (plans de 200 à 500 Md€) ou par une prise sur les profits.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Fabien Roussel",
+            "Emmanuel Maurel",
+            "Nathalie Arthaud",
+            "Selma Labib",
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://melenchon.fr/2026/09/05/la-dette-sans-tabou/",
+            "https://web.archive.org/web/20260509175554/https://melenchon2027.fr/programme2025/livre/chapitre9/s1/",
+            "https://www.pcf.fr/discours_de_fabien_roussel_fete_huma_31",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://lutte-ouvriere.org/portail/editoriaux/dette-budget-inflation-capitalistes-encaissent-travailleurs-paient-196520.html",
+            "https://npa-revolutionnaires.org/articles/un-projet-de-budget-pour-nous-serrer-la-ceinture-tous-ensemble-preparons-la-riposte",
+            "https://anasse2027.fr/programme"
+          ]
+        },
+        {
+          "approach": "Dégager des marges par des économies ciblées (fin de la contribution au budget européen, suppression d'échelons et de doublons) tout en refusant une austérité générale et en misant sur la croissance.",
+          "candidates": [
+            "Florian Philippot",
+            "François Asselineau",
+            "Nicolas Dupont-Aignan"
+          ],
+          "evidence_urls": [
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+            "https://upr.fr/medias/francois-asselineau-invite-de-nicolas-stoquer-sur-gp-tv-01-10-2026",
+            "https://www.franceinfo.fr/politique/nicolas-dupont-aignan/je-serai-le-seul-candidat-qui-propose-de-sortir-de-l-union-europeenne-dit-nicolas-dupont-aignan-qui-se-lance-dans-sa-quatrieme-campagne-presidentielle_8201024.html",
+            "https://www.debout-la-france.fr/actualite/je-suis-candidat-pour/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "finances_publiques",
+      "cleavage": "Traitement de la dette : la rembourser normalement en la réduisant, neutraliser la part détenue par la Banque centrale européenne, ou en renationaliser le financement ?",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Honorer toute la dette sur les marchés et la réduire par le retour à l'équilibre (primaire puis global), en refusant toute annulation.",
+          "candidates": [
+            "Édouard Philippe",
+            "Olivier Faure",
+            "Gabriel Attal",
+            "Marine Le Pen",
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://www.publicsenat.fr/actualites/politique/dette-retraites-fiscalite-que-retenir-du-premier-debat-des-candidats-a-lelection-presidentielle",
+            "https://lcp.fr/actualites/accord-avec-lfi-moyen-orient-pouvoir-d-achat-ce-qu-il-faut-retenir-du-premier-debat-de",
+            "https://attalpresident.fr/actualites/aux-assises-de-l-afer-gabriel-attal-defend-une-epargne-qui-finance-l-economie-francaise",
+            "https://www.france24.com/fr/france/20261006-pr%C3%A9sidentielle-2027-marine-le-pen-promet-140-milliards-d-euros-nets-d-%C3%A9conomies-d-ici-5-ans",
+            "https://www.publicsenat.fr/actualites/politique/https-www-publicsenat-fr-actualites-politique-je-serai-le-president-de-lordre-de-la-justice-et-de-la-fierte-francaise-bruno-retailleau-se-declare-candidat-a-la-presidentielle-de-2027"
+          ]
+        },
+        {
+          "approach": "Neutraliser la part de la dette détenue par la Banque centrale européenne (environ un cinquième, transformée en dette perpétuelle à taux nul) avec d'autres pays endettés, et mener un audit de la dette.",
+          "candidates": [
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://melenchon.fr/2026/09/05/la-dette-sans-tabou/",
+            "https://www.franceinfo.fr/economie/crise/crise-de-la-dette/que-proposent-les-candidats-a-la-presidentielle-pour-reduire-la-dette-publique_8215481.html"
+          ]
+        },
+        {
+          "approach": "Renationaliser le financement de la dette : emprunt national réservé aux Français, ou financement par une banque centrale nationale avec retour au franc.",
+          "candidates": [
+            "Florian Philippot",
+            "François Asselineau",
+            "Francis Lalanne"
+          ],
+          "evidence_urls": [
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+            "https://upr.fr/actualites/discours-de-rentree-2026-de-francois-asselineau-la-liberation-nationale",
+            "https://france-libre.fr/nos-themes-et-valeurs/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "finances_publiques",
+      "cleavage": "Effectifs publics : réduire le nombre d'agents par non-remplacement de départs, ou recruter et revaloriser la fonction publique ?",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Réduire les effectifs par non-remplacement de départs et départs volontaires (de quelques milliers à plus de 100 000 postes), en épargnant les fonctions de terrain et en misant sur l'intelligence artificielle.",
+          "candidates": [
+            "Gabriel Attal",
+            "Bruno Retailleau",
+            "David Lisnard",
+            "Édouard Philippe",
+            "Olivier Becht"
+          ],
+          "evidence_urls": [
+            "https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037",
+            "https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf",
+            "https://www.unenouvelleenergie.fr/questions/quel-candidat-veut-reduire-le-nombre-de-fonctionnaires/",
+            "https://actu.orange.fr/politique/edouard-philippe-veut-supprimer-7000-postes-de-fonctionnaires-pour-maintenir-les-aides-au-carburant-magic-CNT000002s7m7H.html",
+            "https://becht2024.fr/wp-content/uploads/2026/08/Rapport-Amenagement-du-territoire-_-Olivier-Becht.pdf"
+          ]
+        },
+        {
+          "approach": "Recruter massivement, titulariser les contractuels et revaloriser le point d'indice (de 10 % à 30 %), ou du moins refuser les suppressions de postes.",
+          "candidates": [
+            "Fabien Roussel",
+            "Jean-Luc Mélenchon",
+            "Emmanuel Maurel",
+            "Nathalie Arthaud",
+            "Selma Labib",
+            "François Asselineau"
+          ],
+          "evidence_urls": [
+            "https://assets.nationbuilder.com/pcf/pages/44585/attachments/original/1791210591/tract_service_public.pdf?1791210591",
+            "https://web.archive.org/web/20260509175554/https://melenchon2027.fr/programme2025/livre/chapitre9/s1/",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://lutte-ouvriere.org/portail/editoriaux/faut-mettre-leconomie-sous-controle-travailleurs-189196.html",
+            "https://npa-revolutionnaires.org/articles/le-budget-2027-pro-patronal-et-ses-consequences",
+            "https://upr.fr/medias/francois-asselineau-invite-de-nicolas-stoquer-sur-gp-tv-01-10-2026"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "finances_publiques",
+      "cleavage": "Statut des fonctionnaires : réserver le statut à certaines fonctions et recruter les autres sous contrat, ou maintenir et étendre le statut ?",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Rapprocher le statut des fonctionnaires du droit du travail privé, ou le réserver aux fonctions régaliennes et aux grands corps en recrutant les nouveaux entrants sous contrat.",
+          "candidates": [
+            "David Lisnard",
+            "Olivier Becht",
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://www.unenouvelleenergie.fr/le-manifeste-liberal-de-david-lisnard-pour-2027/",
+            "https://becht2024.fr/wp-content/uploads/2026/08/Rapport-Amenagement-du-territoire-_-Olivier-Becht.pdf",
+            "https://www.publicsenat.fr/actualites/politique/dette-retraites-fiscalite-que-retenir-du-premier-debat-des-candidats-a-lelection-presidentielle"
+          ]
+        },
+        {
+          "approach": "Titulariser les agents précaires et limiter le recours aux contrats dans la fonction publique.",
+          "candidates": [
+            "Fabien Roussel",
+            "Jean-Luc Mélenchon",
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://assets.nationbuilder.com/pcf/pages/44585/attachments/original/1791210591/tract_service_public.pdf?1791210591",
+            "https://web.archive.org/web/20260509175554/https://melenchon2027.fr/programme2025/livre/chapitre9/s1/",
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "finances_publiques",
+      "cleavage": "Règles budgétaires : inscrire une règle d'or dans la Constitution, la limiter aux comptes sociaux, ou rejeter les contraintes de déficit ?",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Inscrire dans la Constitution (éventuellement par référendum) une règle d'or limitant le déficit et imposant la baisse de la dette.",
+          "candidates": [
+            "Édouard Philippe",
+            "Gabriel Attal",
+            "Marine Le Pen",
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
+            "https://attalpresident.fr/actualites/gabriel-attal-presente-un-plan-de-desendettement-et-un-messmer-ii-pour-sortir-des-dependances-francaises",
+            "https://lcp.fr/actualites/budget-comment-fonctionnerait-la-regle-d-or-que-marine-le-pen-veut-faire-adopter-par",
+            "https://www.ifrap.org/comparateurs/presidentielles-2027"
+          ]
+        },
+        {
+          "approach": "Appliquer une règle d'or aux seuls comptes sociaux (maladie, vieillesse, autonomie), appréciée sur cinq ans, avec compensation intégrale des exonérations de cotisations.",
+          "candidates": [
+            "Bernard Cazeneuve"
+          ],
+          "evidence_urls": [
+            "https://assets.nationbuilder.com/laconvention/pages/2513/attachments/original/1784135398/Synthese_mesuresVfinale.pdf?1784135398"
+          ]
+        },
+        {
+          "approach": "Rejeter les contraintes de déficit héritées des règles européennes, jugées sources d'austérité, au profit de l'investissement.",
+          "candidates": [
+            "Florian Philippot",
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+            "https://melenchon.fr/2026/09/05/la-dette-sans-tabou/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "finances_publiques",
+      "cleavage": "Organisation de l'État : supprimer ou fusionner agences, opérateurs et échelons territoriaux, ou préserver les agences d'expertise ?",
+      "importance": "low",
+      "sides": [
+        {
+          "approach": "Supprimer, regrouper ou privatiser des agences et opérateurs de l'État, et supprimer un échelon territorial (régions ou autre).",
+          "candidates": [
+            "Édouard Philippe",
+            "David Lisnard",
+            "Marine Le Pen",
+            "Gabriel Attal",
+            "Nicolas Dupont-Aignan",
+            "François Asselineau"
+          ],
+          "evidence_urls": [
+            "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
+            "https://www.unenouvelleenergie.fr/app/uploads/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf",
+            "https://www.publicsenat.fr/actualites/economie/contre-budget-du-rn-des-propositions-qui-manquent-de-credibilite-economique-mais-trahissent-une-veritable-coherence-doctrinale",
+            "https://attalpresident.fr/actualites/lci-gabriel-attal-defend-un-projet-de-rupture-pour-repondre-aux-grands-defis-du-pays",
+            "https://www.debout-la-france.fr/projet/justice/",
+            "https://upr.fr/actualites/discours-de-rentree-2026-de-francois-asselineau-la-liberation-nationale"
+          ]
+        },
+        {
+          "approach": "Préserver les agences d'expertise indépendantes (notamment environnementales) contre leur démantèlement au nom de la simplification.",
+          "candidates": [
+            "Delphine Batho"
+          ],
+          "evidence_urls": [
+            "https://www.generationecologie.fr/2026/04/08/vive-lademe-non-a-son-demantelement/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "travail_salaires",
+      "cleavage": "Comment augmenter les salaires : hausse légale du SMIC, baisse des cotisations sur la fiche de paie, ou transfert fiscal vers le salaire net ?",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Porter le SMIC à environ 1 700 € net par décision publique et pousser les autres salaires par la négociation (conférence salariale, aides conditionnées, indexation).",
+          "candidates": [
+            "Olivier Faure",
+            "Jérôme Guedj",
+            "Emmanuel Maurel",
+            "Fabien Roussel",
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://www.france24.com/fr/info-en-continu/20260917-olivier-faure-%C3%A0-gauche-toute-pour-la-primaire",
+            "https://www.boursorama.com/actualite-economique/actualites/primaire-a-gauche-guedj-veut-repousser-les-frontieres-du-ps-au-risque-de-l-isolement-0938091ba9ae98269b3524add32329ab",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://www.pcf.fr/ue_26_discours_fr",
+            "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/"
+          ]
+        },
+        {
+          "approach": "Porter le revenu minimum à 2 000-2 200 € net, augmenter tous les salaires de 400 à 500 € et les indexer automatiquement sur les prix, en prenant sur les profits.",
+          "candidates": [
+            "Nathalie Arthaud",
+            "Selma Labib",
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://www.lutte-ouvriere.org/portail/brochures/meeting-26-septembre-2026-discours-nathalie-arthaud-197446.html",
+            "https://npa-revolutionnaires.org/articles/intervention-de-selma-labib-a-la-fete-de-lhumanite-2026",
+            "https://www.revolutionpermanente.fr/28h-expropriation-des-secteurs-strategiques-RP-presente-les-premieres-mesures-de-sa-candidature"
+          ]
+        },
+        {
+          "approach": "Augmenter le salaire net en supprimant des cotisations sociales sur la fiche de paie (de 200 à 400 € par mois selon les projets), sans hausse du coût du travail, financé par des économies.",
+          "candidates": [
+            "Gabriel Attal",
+            "David Lisnard",
+            "Bruno Retailleau",
+            "Nicolas Dupont-Aignan",
+            "Édouard Philippe"
+          ],
+          "evidence_urls": [
+            "https://attalpresident.fr/actualites/dans-le-telegramme-gabriel-attal-veut-un-choc-de-salaires-et-instaurer-le-droit-au-brut",
+            "https://www.unenouvelleenergie.fr/questions/comment-david-lisnard-veut-il-augmenter-les-salaires-sans-augmenter-le-cout-du-travail/",
+            "https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf",
+            "https://www.debout-la-france.fr/actualite/la-revolution-du-bon-sens-pour-sauver-la-france/",
+            "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere"
+          ]
+        },
+        {
+          "approach": "Baisser la CSG sur les salaires pour augmenter le net, en compensant à l'euro près par une taxation des très gros héritages.",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html",
+            "https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/augmenter-les-salaires-en-taxant-les-plus-gros-heritages-la-proposition-de-raphael-glucksmann-est-elle-realiste_8076284.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "travail_salaires",
+      "cleavage": "Temps de travail : réduire la durée du travail sans perte de salaire, ou augmenter le volume de travail (heures supplémentaires sans cotisations, assouplissement des 35 heures) ?",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Réduire la durée du travail sans perte de salaire (35 heures effectives, 32 heures ou moins, partage du travail entre tous), avec davantage de congés.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Anasse Kazib",
+            "Selma Labib",
+            "Nathalie Arthaud"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260509184931/https://melenchon2027.fr/programme2025/livre/chapitre8/s2/",
+            "https://www.revolutionpermanente.fr/28h-expropriation-des-secteurs-strategiques-RP-presente-les-premieres-mesures-de-sa-candidature",
+            "https://npa-revolutionnaires.org/articles/intervention-de-selma-labib-a-la-fete-de-lhumanite-2026",
+            "https://www.lutte-ouvriere.org/portail/brochures/meeting-26-septembre-2026-discours-nathalie-arthaud-197446.html"
+          ]
+        },
+        {
+          "approach": "Augmenter le volume de travail : heures au-delà d'un seuil exonérées de cotisations ou d'impôt, plafond d'heures supplémentaires supprimé, 35 heures dépassées par accord.",
+          "candidates": [
+            "Bruno Retailleau",
+            "Gabriel Attal",
+            "Édouard Philippe",
+            "Nicolas Dupont-Aignan",
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/actualites/2026/05/02/priorite-travail-france-35h-salaires-retraites/",
+            "https://attalpresident.fr/programme/travail-salaires",
+            "https://fr.finance.yahoo.com/actualites/va-t-travailler-longtemps-edouard-121704327.html",
+            "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+            "https://www.unenouvelleenergie.fr/notre-programme/reussir-une-nouvelle-ambition-francaise/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "travail_salaires",
+      "cleavage": "Droit du travail : réécrire le Code du travail en donnant la primauté à l'accord d'entreprise, ou rétablir et renforcer les protections des salariés ?",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Réécrire le Code du travail autour de quelques grands principes, laisser le reste aux accords d'entreprise ou de branche et alléger les obligations liées aux seuils d'effectifs.",
+          "candidates": [
+            "Bruno Retailleau",
+            "Gabriel Attal",
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf",
+            "https://attalpresident.fr/actualites/a-la-ref-gabriel-attal-grand-gagnant-du-premier-debat-de-la-presidentielle-2027",
+            "https://www.unenouvelleenergie.fr/notre-programme/reussir-une-nouvelle-ambition-francaise/"
+          ]
+        },
+        {
+          "approach": "Rétablir et renforcer les protections : abroger les réformes du travail de 2016-2017, rétablir les comités d'hygiène et de sécurité, donner la primauté à la branche ou au principe de faveur, limiter la précarité.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Fabien Roussel",
+            "Emmanuel Maurel",
+            "Raphaël Glucksmann",
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260509162625/https://melenchon2027.fr/programme2025/livre/chapitre8/s3/",
+            "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+            "https://emmanuel-maurel.fr/lettre-aux-militants/",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://anasse2027.fr/programme"
+          ]
+        },
+        {
+          "approach": "Remplacer CDD et CDI par un contrat de travail unique, transférable, dont les droits croissent avec l'ancienneté.",
+          "candidates": [
+            "Olivier Becht"
+          ],
+          "evidence_urls": [
+            "https://becht2027.fr/projet-france/les-5-refondations/refondation-sociale/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "travail_salaires",
+      "cleavage": "Partage de la valeur : imposer un lien entre dividendes et rémunération des salariés ou une codétermination, simplement encourager l'épargne salariale, ou placer les entreprises sous contrôle des travailleurs ?",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Rendre le partage obligatoire : pour chaque euro de dividende, au moins autant pour les salariés ; dividendes plafonnés ; écarts de rémunération limités.",
+          "candidates": [
+            "Olivier Faure",
+            "Emmanuel Maurel",
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://web.archive.org/web/20260509163756/https://melenchon2027.fr/programme2025/livre/chapitre8/s4/"
+          ]
+        },
+        {
+          "approach": "Donner aux salariés une place forte dans les conseils d'administration (administrateurs salariés dès 100 salariés, jusqu'à la parité avec les actionnaires).",
+          "candidates": [
+            "Fabien Roussel",
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf"
+          ]
+        },
+        {
+          "approach": "Encourager intéressement, participation et actionnariat salarié par des avantages fiscaux ou des actions gratuites, sans obligation nouvelle, en partie orientés vers l'épargne retraite.",
+          "candidates": [
+            "Bruno Retailleau",
+            "Gabriel Attal",
+            "David Lisnard",
+            "Nicolas Dupont-Aignan"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf",
+            "https://attalpresident.fr/actualites/aux-assises-de-l-afer-gabriel-attal-defend-une-epargne-qui-finance-l-economie-francaise",
+            "https://www.unenouvelleenergie.fr/lequipe-de-france-du-bon-sens-david-lisnard-lance-la-bataille-de-2027/",
+            "https://www.debout-la-france.fr/projet/produire-en-france/"
+          ]
+        },
+        {
+          "approach": "Lever le secret des comptes des entreprises et placer la production sous le contrôle des travailleurs, à terme en propriété collective.",
+          "candidates": [
+            "Nathalie Arthaud",
+            "Selma Labib"
+          ],
+          "evidence_urls": [
+            "https://www.lutte-ouvriere.org/portail/brochures/meeting-26-septembre-2026-discours-nathalie-arthaud-197446.html",
+            "https://npa-revolutionnaires.org/articles/intervention-de-selma-conductrice-de-bus-31-ans-une-travailleuse-communiste-revolutionnaire-qui-portera-la-voix-de-celles-et-ceux-qui-ne-baisseront-jamais-la-tete-a-lelection-rein"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "industrie_economie",
+      "cleavage": "Aides publiques aux entreprises (environ 200 Md€ par an) : les échanger contre une baisse des impôts de production, baisser impôts et charges en gardant des outils ciblés, les conditionner à l'emploi et aux salaires, ou les supprimer pour les grands groupes ?",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Supprimer une large part des aides aux entreprises (jusqu'à 50 Md€) en échange d'une baisse équivalente des impôts de production.",
+          "candidates": [
+            "Édouard Philippe",
+            "David Lisnard",
+            "Bernard Cazeneuve"
+          ],
+          "evidence_urls": [
+            "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
+            "https://www.unenouvelleenergie.fr/il-faut-liberer-lindustrie/",
+            "https://assets.nationbuilder.com/laconvention/pages/2513/attachments/original/1784135398/Synthese_mesuresVfinale.pdf?1784135398"
+          ]
+        },
+        {
+          "approach": "Baisser fortement les impôts de production et le coût du travail (de 15 à 40 Md€), en gardant des outils ciblés (suramortissement, crédit d'impôt, fonds de robotisation).",
+          "candidates": [
+            "Bruno Retailleau",
+            "Marine Le Pen",
+            "Gabriel Attal",
+            "Nicolas Dupont-Aignan"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf",
+            "https://www.publicsenat.fr/actualites/economie/contre-budget-du-rn-des-propositions-qui-manquent-de-credibilite-economique-mais-trahissent-une-veritable-coherence-doctrinale",
+            "https://www.franceinfo.fr/elections/presidentielle/dette-publique-retraites-reindustrialisation-ce-qu-il-faut-retenir-du-premier-debat-des-principaux-candidats-a-la-presidentielle_8165342.html",
+            "https://attalpresident.fr/actualites/gabriel-attal-appelle-a-une-rupture-economique-dans-les-echos",
+            "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/"
+          ]
+        },
+        {
+          "approach": "Conditionner les aides à l'emploi, aux salaires, à l'investissement et à l'écologie, avec contrôle et remboursement en cas de manquement, et supprimer celles jugées inefficaces.",
+          "candidates": [
+            "Olivier Faure",
+            "Raphaël Glucksmann",
+            "Emmanuel Maurel",
+            "Fabien Roussel",
+            "Jean-Luc Mélenchon",
+            "Ségolène Royal"
+          ],
+          "evidence_urls": [
+            "https://www.boursorama.com/actualite-economique/actualites/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions-e0f504871547edbc6960940d9c6e1fd9",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://g-r-s.fr/agir-contre-la-finance-sans-visage-pour-sauver-notre-outil-industriel/",
+            "https://assets.nationbuilder.com/pcf/pages/44585/attachments/original/1791210591/tract_service_public.pdf?1791210591",
+            "https://web.archive.org/web/20260509162142/https://melenchon2027.fr/programme2025/livre/chapitre9/s2/",
+            "https://www.franceinfo.fr/politique/segolene-royal/budget-2026-pour-reduire-le-deficit-il-faut-lutter-contre-les-gaspillages-il-ne-faut-pas-baisser-les-depenses-essentielles-estime-segolene-royal_7582286.html"
+          ]
+        },
+        {
+          "approach": "Supprimer les aides aux grands groupes et interdire les licenciements, sous peine de réquisition ou d'expropriation.",
+          "candidates": [
+            "Nathalie Arthaud",
+            "Selma Labib",
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://lutte-ouvriere.org/portail/editoriaux/interdiction-licenciements-sous-peine-requisition-184019.html",
+            "https://lyonbondyblog.fr/LBB/selma-labib-cest-nous-qui-produisons-tout-donc-cest-a-nous-de-decider-de-tout-dans-cette-societe/",
+            "https://www.revolutionpermanente.fr/28h-expropriation-des-secteurs-strategiques-RP-presente-les-premieres-mesures-de-sa-candidature"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "industrie_economie",
+      "cleavage": "Protection commerciale : à l'échelle européenne, à l'échelle nationale (droits de douane français, commande publique réservée aux produits français), par un protectionnisme écologique et social, ou pas de protectionnisme ?",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Protéger à l'échelle européenne : préférence européenne dans la commande publique, réciprocité dans les accords, ajustement carbone aux frontières, barrières ciblées face à la Chine, transferts de technologie imposés.",
+          "candidates": [
+            "Gabriel Attal",
+            "Édouard Philippe",
+            "Bruno Retailleau",
+            "Raphaël Glucksmann",
+            "Bernard Cazeneuve",
+            "Ségolène Royal"
+          ],
+          "evidence_urls": [
+            "https://attalpresident.fr/actualites/gabriel-attal-a-reims-batir-les-etats-unis-d-europe-pour-retrouver-notre-puissance",
+            "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
+            "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://assets.nationbuilder.com/laconvention/pages/2513/attachments/original/1784135398/Synthese_mesuresVfinale.pdf?1784135398",
+            "https://www.sudradio.fr/linvite-politique/segolene-royal-pourquoi-pas-un-ticket-avec-dominique-de-villepin-pour-la-presidentielle"
+          ]
+        },
+        {
+          "approach": "Protéger d'abord au niveau national : commande publique réservée aux entreprises ou produits français, droits de douane nationaux, sortie des accords de libre-échange (voire de l'Union européenne).",
+          "candidates": [
+            "Nicolas Dupont-Aignan",
+            "Florian Philippot",
+            "François Asselineau",
+            "Marine Le Pen"
+          ],
+          "evidence_urls": [
+            "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+            "https://www.aa.com.tr/fr/monde/francois-asselineau-accuse-emmanuel-macron-d-accompagner-le-déclassement-de-la-france/3964864",
+            "https://www.franceinfo.fr/elections/presidentielle/dette-publique-retraites-reindustrialisation-ce-qu-il-faut-retenir-du-premier-debat-des-principaux-candidats-a-la-presidentielle_8165342.html",
+            "https://www.franceinfo.fr/politique/parlement-francais/assemblee-nationale/le-risque-me-semble-plus-concret-sur-le-budget-pourquoi-les-motions-de-censure-contre-l-accord-ue-mercosur-n-ont-aucune-chance-d-etre-votees_7738882.html"
+          ]
+        },
+        {
+          "approach": "Protectionnisme fondé sur des critères écologiques et sociaux : mesures antidumping, taxe kilométrique aux frontières, interdiction d'importer ce qui est interdit de produire en France, clauses de contenu local dans la commande publique.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Fabien Roussel",
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260509162142/https://melenchon2027.fr/programme2025/livre/chapitre9/s2/",
+            "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        },
+        {
+          "approach": "Refuser le protectionnisme, jugé facteur de guerre commerciale entre capitalistes, sans se ranger derrière les industriels nationaux.",
+          "candidates": [
+            "Nathalie Arthaud"
+          ],
+          "evidence_urls": [
+            "https://lutte-ouvriere.org/portail/editoriaux/campagne-contre-shein-mise-condition-anti-chinoise-188523.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "industrie_economie",
+      "cleavage": "Propriété des entreprises stratégiques : nationaliser avec indemnisation, exproprier sans indemnité, ou laisser l'État agir par la commande publique, l'épargne et les contrats ?",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Nationaliser ou renationaliser des entreprises et secteurs stratégiques (sidérurgie, énergie, banques, autoroutes, rail) et revenir sur des privatisations.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Fabien Roussel",
+            "Emmanuel Maurel",
+            "Florian Philippot",
+            "Francis Lalanne"
+          ],
+          "evidence_urls": [
+            "https://melenchon.fr/2026/06/11/sauvons-lacier-francais-sauvons-nos-emplois-nationalisons-arcelormittal/",
+            "https://web.archive.org/web/20260509144103/https://melenchon2027.fr/programme2025/livre/chapitre2/s2/",
+            "https://www.pcf.fr/discours_de_fabien_roussel_fete_huma_31",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+            "https://dieudolalanne2027.com/programme"
+          ]
+        },
+        {
+          "approach": "Exproprier sans indemnité ni rachat les grands groupes et secteurs stratégiques, et les placer sous le contrôle des travailleurs.",
+          "candidates": [
+            "Nathalie Arthaud",
+            "Anasse Kazib",
+            "Selma Labib"
+          ],
+          "evidence_urls": [
+            "https://lutte-ouvriere.org/portail/editoriaux/dette-budget-inflation-capitalistes-encaissent-travailleurs-paient-196520.html",
+            "https://www.revolutionpermanente.fr/28h-expropriation-des-secteurs-strategiques-RP-presente-les-premieres-mesures-de-sa-candidature",
+            "https://npa-revolutionnaires.org/articles/intervention-de-selma-conductrice-de-bus-31-ans-une-travailleuse-communiste-revolutionnaire-qui-portera-la-voix-de-celles-et-ceux-qui-ne-baisseront-jamais-la-tete-a-lelection-rein"
+          ]
+        },
+        {
+          "approach": "Pas de nationalisation : l'État oriente l'économie par la commande publique, les contrats, l'orientation de l'épargne vers les entreprises, voire la privatisation de certains opérateurs publics.",
+          "candidates": [
+            "Gabriel Attal",
+            "Édouard Philippe",
+            "Bruno Retailleau",
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://attalpresident.fr/actualites/gabriel-attal-appelle-a-une-rupture-economique-dans-les-echos",
+            "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
+            "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf",
+            "https://www.unenouvelleenergie.fr/il-faut-liberer-lindustrie/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "industrie_economie",
+      "cleavage": "Normes et réglementation des entreprises : supprimer massivement des normes, ou préserver et renforcer les obligations sociales et environnementales des entreprises ?",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Supprimer massivement des normes : moratoire, une norme créée pour une ou deux supprimées, fin de la surtransposition des règles européennes, principe de précaution remplacé par un principe de responsabilité, procédures accélérées pour les projets industriels.",
+          "candidates": [
+            "Bruno Retailleau",
+            "David Lisnard",
+            "Édouard Philippe",
+            "Marine Le Pen",
+            "Olivier Becht",
+            "Bernard Cazeneuve",
+            "Gabriel Attal",
+            "Nicolas Dupont-Aignan"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf",
+            "https://www.unenouvelleenergie.fr/a-benfeld-david-lisnard-appelle-a-liberer-le-pays-devant-plus-de-1-200-personnes/",
+            "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
+            "https://www.franceinfo.fr/elections/presidentielle/dette-publique-retraites-reindustrialisation-ce-qu-il-faut-retenir-du-premier-debat-des-principaux-candidats-a-la-presidentielle_8165342.html",
+            "https://becht2024.fr/wp-content/uploads/2026/08/Rapport-Amenagement-du-territoire-_-Olivier-Becht.pdf",
+            "https://assets.nationbuilder.com/laconvention/pages/2513/attachments/original/1784135398/Synthese_mesuresVfinale.pdf?1784135398",
+            "https://www.debout-la-france.fr/actualite/je-suis-candidat-pour/"
+          ]
+        },
+        {
+          "approach": "Défendre les normes et les obligations des entreprises (devoir de vigilance, reporting extra-financier, protections environnementales) contre les textes de simplification.",
+          "candidates": [
+            "Delphine Batho",
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://www.generationecologie.fr/2025/11/19/responsabilite-des-entreprises-leurope-capitule-face-aux-lobbies/",
+            "https://datan.fr/votes/legislature-17/vote_6184",
+            "https://www.franceinfo.fr/elections/presidentielle/dette-publique-retraites-reindustrialisation-ce-qu-il-faut-retenir-du-premier-debat-des-principaux-candidats-a-la-presidentielle_8165342.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "industrie_economie",
+      "cleavage": "Finalité de l'économie : faire de la croissance et de la productivité la priorité, ou sortir de l'objectif de croissance du PIB ?",
+      "importance": "low",
+      "sides": [
+        {
+          "approach": "Faire de la croissance et des gains de productivité (innovation, intelligence artificielle, production) la priorité pour financer le modèle social.",
+          "candidates": [
+            "Gabriel Attal",
+            "Jérôme Guedj",
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://attalpresident.fr/actualites/a-la-ref-gabriel-attal-grand-gagnant-du-premier-debat-de-la-presidentielle-2027",
+            "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+            "https://www.unenouvelleenergie.fr/il-faut-liberer-lindustrie/"
+          ]
+        },
+        {
+          "approach": "Abandonner l'objectif de croissance du PIB, jugé incompatible avec la sécurité climatique, et réorienter vers une économie utile, locale et résiliente.",
+          "candidates": [
+            "Delphine Batho"
+          ],
+          "evidence_urls": [
+            "https://www.generationecologie.fr/newsletter/je-suis-candidate-a-lelection-presidentielle-pour-reconstruire-une-ecologie-capable-de-gouverner/"
+          ]
+        }
+      ]
+    }
+  ],
+  "consensus_points": [
+    {
+      "topic_id": "retraites",
+      "point": "Aucun candidat déclaré ne propose de remplacer entièrement la répartition : même les partisans d'un étage de capitalisation la présentent comme le socle du système.",
+      "url": "https://www.franceinfo.fr/elections/presidentielle/age-de-depart-a-65-ans-45-annuites-de-cotisation-edouard-philippe-candidat-horizons-a-la-presidentielle-devoile-son-projet-de-reforme-des-retraites_8214737.html"
+    },
+    {
+      "topic_id": "retraites",
+      "point": "Quel que soit l'âge retenu, presque tous prévoient des départs anticipés pour les carrières longues et les métiers pénibles (de 55 à 64 ans selon les projets).",
+      "url": "https://www.franceinfo.fr/economie/retraite/reforme-des-retraites/changement-de-systeme-passage-a-60-ou-a-65-ans-capitalisation-que-proposent-les-principaux-candidats-a-l-election-presidentielle-pour-les-retraites_8215784.html"
+    },
+    {
+      "topic_id": "retraites",
+      "point": "Relever le taux d'emploi des seniors est un objectif largement partagé (exonérations, retraite progressive, lutte contre les discriminations), même si les moyens diffèrent.",
+      "url": "https://assets.nationbuilder.com/laconvention/pages/2513/attachments/original/1784135398/Synthese_mesuresVfinale.pdf?1784135398"
+    },
+    {
+      "topic_id": "industrie_economie",
+      "point": "La réindustrialisation et la réduction des dépendances stratégiques (énergie, médicaments, numérique, composants) sont revendiquées par presque tous les candidats ; le désaccord porte sur les outils.",
+      "url": "https://www.franceinfo.fr/elections/presidentielle/dette-publique-retraites-reindustrialisation-ce-qu-il-faut-retenir-du-premier-debat-des-principaux-candidats-a-la-presidentielle_8165342.html"
+    },
+    {
+      "topic_id": "industrie_economie",
+      "point": "Orienter la commande publique vers la production locale, française ou européenne fait largement consensus ; le clivage porte sur l'échelle (nationale ou européenne) et l'intensité.",
+      "url": "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf"
+    },
+    {
+      "topic_id": "industrie_economie",
+      "point": "Garantir une électricité moins chère et plus stable aux entreprises, notamment industrielles, est un objectif commun à la plupart des candidats.",
+      "url": "https://attalpresident.fr/actualites/gabriel-attal-presente-un-plan-de-desendettement-et-un-messmer-ii-pour-sortir-des-dependances-francaises"
+    },
+    {
+      "topic_id": "fiscalite",
+      "point": "Le renforcement de la lutte contre la fraude et l'évasion fiscales est mis en avant par des candidats de tous horizons ; il discrimine peu.",
+      "url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf"
+    }
+  ]
+}

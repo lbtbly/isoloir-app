@@ -75,22 +75,48 @@ Les quatre pastels de l'interface (`--pastel-*` dans `src/styles/tokens.css`) so
 
 ## Ajouter une élection
 
-1. Créer `src/elections/<id>/` qui exporte un `ElectionPack` (`election`, `candidates`, `bank`, `positions`), puis l'ajouter à `src/elections/index.ts`.
-2. Renseigner `forbiddenTerms` : partis des candidats, slogans, noms de mesures signatures. Les tests vérifient qu'aucun ne figure dans les questions.
-3. Produire les données avec les workflows de `tools/workflows/`, à adapter : liste des candidats, thèmes, quotas.
-   - `1-research.js` : un dossier sourcé par candidat, les lignes de fracture et la méthodologie.
-   - `2-question-bank.js` : questions neutres et matrice des positions par groupe de thèmes, fact-check adversarial de chaque attribution, contrôle de neutralité et critique de complétude (passes menées par une IA).
+1. **Configuration.** Créer `research/<id>/config.json`, source unique des outils de données. Modèle complet : `research/presidentielle-2027/config.json`, avec l'identifiant, la date et le contexte, les `candidates[]`, les `topics[]`, les `groups[]` et leurs quotas, `forbiddenTerms` et les seuils de qualité.
+   - Chaque candidat a un `id`, un nom, des initiales, un parti et sa déclaration. `pendingPrimary: true` marque un candidat en attente, comme le gagnant d'une primaire pas encore connu. `reuseDossier` reprend un dossier de recherche existant.
+   - L'ordre des candidats est celui de `positions.ts`.
+   - La primaire, construite avant ce paramétrage, n'a qu'une configuration minimale : identifiant, candidats et contexte (lu par `7-spectrum-review.js` quand elle sert d'élection source).
+2. **Pack.** Créer `src/elections/<id>/`, qui exporte un `ElectionPack` (`election`, `candidates`, `bank`, `positions`, et `videoScope` s'il reprend des vidéos). L'inscrire ensuite au registre `src/elections/index.ts`.
+   - Renseigner `forbiddenTerms` : partis des candidats, slogans, noms de mesures signatures. Les tests vérifient qu'aucun ne figure dans les questions.
+3. **Données.** Les workflows de `tools/workflows/` reçoivent `config.json` en `args`, complété de `root`, la racine absolue du dépôt. La suite exacte des commandes, pour la présidentielle, est dans `research/presidentielle-2027/PIPELINE.md`.
+   - `1-research.js` : un dossier sourcé par candidat, les lignes de fracture par famille de thèmes et la vérification des faits.
+   - `2-question-bank.js` : questions neutres et matrice des positions par groupe de thèmes. Une IA mène le fact-check adversarial de chaque attribution, le contrôle de neutralité et la critique de complétude.
    - `3-bank-expansion.js` : exploitation des documents officiels (professions de foi, programmes), questions approfondies supplémentaires, compléments de positions inconnues, nouveau fact-check.
-4. Puis :
+   - `4-explainers.js` : contexte et chiffres clés vérifiés des questions nouvelles ou retouchées, avec leurs graphiques, fusionnés par `tools/merge-explainers.mjs`.
+   - `5-candidates.js` : fiches des candidats (même structure pour tous) et portraits sous licence libre ; rien n'est téléchargé.
+   - `6-add-candidate.js` : place un candidat de plus sur la banque existante. Sa sortie se range dans `research/<id>/add-candidate/<candidat>.json`, au format documenté en tête de `tools/build-pack.mjs`.
+   - `7-spectrum-review.js` : relecture par trois sensibilités politiques des explications et séries vidéo reprises d'une autre élection.
+4. **Construction.**
    ```bash
    node tools/extract-journal.mjs <journal.jsonl> research/<id>
    node tools/split-research.mjs research/<id>
+   node tools/build-reuse.mjs research/<id>   # si l'élection reprend une élection déjà construite
    node tools/merge-expansion.mjs <sortie-extension.json> research/<id>/expansion-merged.json
-   node tools/build-pack.mjs <sortie-workflow.json> research/<id> src/elections/<id> research/<id>/expansion-merged.json
+   node tools/build-pack.mjs <sortie-workflow.json> research/<id> src/elections/<id> research/<id>/expansion-merged.json [--include <ids>]
+   node tools/pipeline-helpers.mjs check-log research/<id>   # journal de build-pack : données perdues, lignes à examiner
+   node tools/audit-pack.mjs <id>                            # équilibre, couverture, distinction deux à deux
    pnpm test
    pnpm build && node tools/capture.mjs   # captures de revue dans .impeccable/review/
    ```
-   `research/<id>/decisions.json` consigne les arbitrages éditoriaux : changements de niveau, suppressions, refus de reformulation, corrections de positions, `step1`, la liste des questions du premier temps (la première tendance), et `lastInStep`, les questions qui ferment toujours leur temps au lieu d'être placées au hasard (ici la question sur LFI, dernière du premier temps).
+   `build-pack` écrit `src/elections/<id>/bank.ts` et `positions.ts`, avec l'en-tête « généré depuis research/<id> ». Il écrit aussi `research/<id>/bank.json`, `revisions.json` et `build-log.txt`, le journal de chaque opération à relire. Dans `research/<id>/`, il lit :
+   - `config.json` (obligatoire) : les identifiants et l'ordre des candidats.
+   - `decisions.json` : les arbitrages éditoriaux. On y trouve les changements de niveau, les suppressions, les refus de reformulation, les corrections de positions et `consensusTopicChanges`, le thème d'un point d'accord renommé ou scindé. On y trouve aussi `step1`, la liste des questions du premier temps (la première tendance), et `lastInStep`, les questions qui ferment toujours leur temps au lieu d'être placées au hasard (pour la primaire, la question sur LFI, dernière du premier temps).
+   - `explainers.json` et `explainer-charts.json` : le contexte et les chiffres clés de chaque question.
+   - `reuse.json` (facultatif) : la reprise d'une élection déjà construite, dont `from` donne l'identifiant. `tools/build-reuse.mjs` l'écrit d'après les champs `reuseOf` de la sortie de `2-question-bank.js`.
+     - `questions` relie les questions identiques : leur explication et ses graphiques sont repris quand `explainers.json` n'en donne pas.
+     - `approaches` relie les approches identiques : les positions déjà vérifiées des candidats de la primaire sont reprises si le texte n'a changé que sur la forme et si aucune position plus récente n'existe. Chaque reprise est notée `reuse-position` dans le journal.
+     - `videoTopics` liste les séries vidéo montrées pour cette élection, sous le thème d'ici. Avec ce fichier, `build-pack` écrit aussi `src/elections/<id>/videos.ts` (`export const videoScope`).
+   - `add-candidate/<candidat>.json` (facultatif) : les positions vérifiées d'un candidat ajouté. Elles ne complètent que les questions où il n'a encore aucune position.
+
+   Un candidat `pendingPrimary` est préparé mais pas publié : ses positions sont rangées sous `prepared` dans `research/<id>/bank.json`, et il reste absent de `positions.ts`. Le soir du résultat, `--include <gagnant>` le publie, sans rien relancer d'autre.
+
+   La primaire se reconstruit à l'identique, sans aucune différence avec les fichiers versionnés :
+   ```bash
+   node tools/build-pack.mjs research/choisir-2027/question-bank-output.json research/choisir-2027 src/elections/choisir-2027 research/choisir-2027/expansion-merged.json
+   ```
 
 ## Versions des questions
 

@@ -1,0 +1,1163 @@
+{
+  "candidate": "François Asselineau",
+  "affiliation": "Union populaire républicaine (UPR), parti qu'il a fondé et qu'il préside depuis le 25 mars 2007",
+  "campaign_site": "https://upr.fr",
+  "declaration": {
+    "date": "2023-08-31",
+    "form": "Annonce dans un entretien au Dauphiné libéré (« J'essaierai de nouveau d'être candidat à la présidentielle de 2027 »). Le lancement officiel de la campagne a eu lieu le 21 mars 2026 à Paris, lors des 19 ans de l'UPR, avec la nomination de Marc Parigot comme directeur de campagne. Le discours de rentrée « La Libération nationale » a été publié le 30 septembre 2026, à l'issue de l'université d'automne de Vallères (Indre-et-Loire). Au 6 octobre 2026, il cherche encore ses 500 parrainages : en 2022, il n'en avait obtenu que 293.",
+    "source_title": "Le Dauphiné libéré, « François Asselineau : J'essaierai de nouveau d'être candidat à la présidentielle de 2027 » (31/08/2023) ; UPR, « 19 ans de l'UPR : François Asselineau lance sa campagne présidentielle 2027 » (21/03/2026)",
+    "source_url": "https://www.ledauphine.com/politique/2023/08/31/francois-asselineau-j-essaierai-de-nouveau-d-etre-candidat-a-la-presidentielle-de-2027"
+  },
+  "overview": "François Asselineau, énarque et inspecteur général des finances, fonde l'UPR en 2007. Il en est à sa troisième tentative présidentielle : 0,92 % en 2017, puis faute de parrainages en 2022. Son projet repose sur une « triple libération » : sortir de l'Union européenne par l'article 50 dès la première semaine, sans référendum préalable ; sortir de l'euro et revenir au franc ; sortir de l'OTAN par l'article 13. Il en fait le préalable à toutes ses autres mesures, comme le rétablissement du contrôle des capitaux et des frontières. Il se dit « ni de gauche ni de droite » et invoque le programme du Conseil national de la Résistance (CNR). Il mêle des mesures sociales et étatistes (hausse du SMIC, renationalisations, défense des services publics et de la retraite par répartition, emprunt national réservé aux Français pour racheter la dette) à des positions souverainistes et conservatrices : arrêt « le plus possible » des flux migratoires, assimilation, inscription d'une « République laïque de tradition chrétienne » dans la Constitution, opposition à la loi sur l'aide à mourir. En politique étrangère, il veut arrêter toute aide à l'Ukraine, critique les sanctions contre la Russie et défend une diplomatie « d'équilibre ». Il dit qu'Israël doit respecter le droit international et soutient une solution à deux États. Son programme 2027 est annoncé « en cours d'élaboration » : beaucoup de mesures détaillées proviennent encore du programme de 2022.",
+  "programme_sources": [
+    {
+      "title": "UPR – Notre programme (programme 2027 « en cours d'élaboration », liens vers les programmes 2022, 2017 et 2012)",
+      "url": "https://www.upr.fr/notre-programme",
+      "date": "consulté le 2026-10-06"
+    },
+    {
+      "title": "Discours de rentrée 2026 de François Asselineau : la Libération nationale",
+      "url": "https://upr.fr/actualites/discours-de-rentree-2026-de-francois-asselineau-la-liberation-nationale",
+      "date": "2026-09-30"
+    },
+    {
+      "title": "19 ans de l'UPR : François Asselineau lance sa campagne présidentielle 2027 et nomme Marc Parigot directeur de campagne",
+      "url": "https://upr.fr/militantisme/19-ans-de-lupr-francois-asselineau-lance-sa-campagne-presidentielle-2027-et-nomme-marc-parigot-directeur-de-campagne",
+      "date": "2026-03-21"
+    },
+    {
+      "title": "François Asselineau reçoit Georges Kuzmanovic (Fréquence populaire) – mesures des cent premiers jours",
+      "url": "https://upr.fr/medias/francois-asselineau-recoit-georges-kuzmanovic-de-frequence-populaire-11-09-2026",
+      "date": "2026-09-11"
+    },
+    {
+      "title": "Programme présidentiel 2022 de François Asselineau (27 engagements)",
+      "url": "https://www.upr.fr/notre-programme/programme-2022",
+      "date": "2021-10 / 2022-02"
+    },
+    {
+      "title": "Programme présidentiel 2017 de l'UPR",
+      "url": "https://www.upr.fr/notre-programme/programme-2017",
+      "date": "2017"
+    },
+    {
+      "title": "UPR – Le Frexit (page doctrinale)",
+      "url": "https://upr.fr/le-frexit",
+      "date": "non datée (contenu de l'ère 2017)"
+    },
+    {
+      "title": "UPR – Nos fondamentaux",
+      "url": "https://upr.fr/nos-fondamentaux",
+      "date": "consulté le 2026-10-06"
+    },
+    {
+      "title": "Charte fondatrice de l'UPR",
+      "url": "https://upr.fr/charte-fondatrice",
+      "date": "2007-03-25"
+    }
+  ],
+  "signature_proposals": [
+    {
+      "proposal": "Frexit : notifier l'activation de l'article 50 du traité sur l'Union européenne dès la première semaine du mandat, sans référendum préalable, puis négocier la sortie pendant deux ans.",
+      "topic_id": "europe",
+      "source_url": "https://upr.fr/actualites/discours-de-rentree-2026-de-francois-asselineau-la-liberation-nationale"
+    },
+    {
+      "proposal": "Sortir de l'euro et revenir au franc, avec une conversion « un nouveau franc pour un euro » ; il anticipe une dépréciation d'environ 15 % face au dollar.",
+      "topic_id": "europe",
+      "source_url": "https://upr.fr/medias/francois-asselineau-invite-de-nicolas-stoquer-sur-gp-tv-01-10-2026"
+    },
+    {
+      "proposal": "Rétablir le contrôle des mouvements de capitaux, ainsi que les contrôles aux frontières nationales pour les personnes et les marchandises.",
+      "topic_id": "industrie_economie",
+      "source_url": "https://upr.fr/actualites/discours-de-rentree-2026-de-francois-asselineau-la-liberation-nationale"
+    },
+    {
+      "proposal": "Sortir de l'OTAN en notifiant le retrait aux États-Unis selon l'article 13 du traité de l'Atlantique Nord, avec une dissuasion nucléaire « strictement nationale ».",
+      "topic_id": "defense",
+      "source_url": "https://upr.fr/actualites/discours-de-rentree-2026-de-francois-asselineau-la-liberation-nationale"
+    },
+    {
+      "proposal": "Arrêter immédiatement tout versement d'aide financière et militaire à l'Ukraine.",
+      "topic_id": "ukraine_russie",
+      "source_url": "https://upr.fr/actualites/discours-de-rentree-2026-de-francois-asselineau-la-liberation-nationale"
+    },
+    {
+      "proposal": "Lancer un grand emprunt national réservé aux Français pour racheter la dette publique.",
+      "topic_id": "finances_publiques",
+      "source_url": "https://upr.fr/actualites/discours-de-rentree-2026-de-francois-asselineau-la-liberation-nationale"
+    },
+    {
+      "proposal": "Instaurer le référendum d'initiative citoyenne (RIC) et organiser de grands référendums sur l'immigration, la dette et le nucléaire.",
+      "topic_id": "institutions",
+      "source_url": "https://upr.fr/"
+    },
+    {
+      "proposal": "Faire inscrire par référendum dans la Constitution que la France est une « République laïque de tradition chrétienne ».",
+      "topic_id": "laicite_republique",
+      "source_url": "https://upr.fr/medias/francois-asselineau-invite-delise-blaise-sur-tvl-26-09-2026"
+    },
+    {
+      "proposal": "Supprimer les régions (environ 6 milliards d'euros d'économies selon l'UPR) et la moitié des conseillers départementaux, réduire le nombre de députés et de sénateurs (de 348 à 100 sénateurs), et diviser par deux le budget de la présidence.",
+      "topic_id": "territoires",
+      "source_url": "https://upr.fr/actualites/discours-de-rentree-2026-de-francois-asselineau-la-liberation-nationale"
+    },
+    {
+      "proposal": "Revaloriser le salaire minimum dans les cent premiers jours, avec une baisse ciblée des cotisations sociales pour les PME.",
+      "topic_id": "travail_salaires",
+      "source_url": "https://upr.fr/medias/francois-asselineau-recoit-georges-kuzmanovic-de-frequence-populaire-11-09-2026"
+    },
+    {
+      "proposal": "Inscrire la liberté d'expression dans la Constitution sur le modèle du premier amendement américain, et abroger dès 2027 la loi interdisant les réseaux sociaux aux moins de 15 ans avec vérification d'identité.",
+      "topic_id": "numerique",
+      "source_url": "https://upr.fr/analyses/macron-felicite-le-vietnam-pour-sa-censure-des-reseaux-sociaux"
+    }
+  ],
+  "topics": [
+    {
+      "topic_id": "institutions",
+      "found": true,
+      "positions": [
+        {
+          "position": "Instaurer le référendum d'initiative citoyenne (RIC).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Mesure annoncée dans le discours de lancement de la campagne « Libération nationale ». Ses modalités (seuil de signatures, domaines) ne sont pas précisées. En 2021, le Label RIC jugeait déjà la version 2022 sans consistance (40/300).",
+          "source_url": "https://upr.fr/actualites/discours-de-rentree-2026-de-francois-asselineau-la-liberation-nationale",
+          "source_title": "Discours de rentrée 2026 de François Asselineau : la Libération nationale",
+          "source_date": "2026-09-30"
+        },
+        {
+          "position": "Organiser de « grands référendums » sur l'immigration, la dette et le nucléaire.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "details": "Affiché sur la page d'accueil du site pendant la campagne 2027. Les questions qui seraient posées ne sont pas précisées.",
+          "source_url": "https://upr.fr/",
+          "source_title": "UPR – page d'accueil (campagne 2027)",
+          "source_date": "2026-10-06"
+        },
+        {
+          "position": "Réduire le nombre de députés et de sénateurs, avec 100 sénateurs au lieu de 348 sur le modèle des États-Unis.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le discours de rentrée annonce la réduction du nombre de parlementaires ; le chiffre de 100 sénateurs est donné sur Radio Courtoisie. Aucun chiffre de députés n'est donné pour 2027 (le programme 2022 prévoyait 500 au lieu de 577).",
+          "source_url": "https://upr.fr/medias/francois-asselineau-invite-de-richard-de-seze-sur-radio-courtoisie-28-09-2026",
+          "source_title": "François Asselineau invité de Richard de Sèze sur Radio Courtoisie",
+          "source_date": "2026-09-28"
+        },
+        {
+          "position": "Inscrire la liberté d'expression dans la Constitution sur le modèle du premier amendement américain, diviser par deux le budget de la présidence et imposer à tous les candidats un questionnaire de transparence.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le questionnaire porterait notamment sur les nationalités, les liens avec des cercles internationaux et l'appartenance à des sociétés de pensée ou à des loges maçonniques.",
+          "short_quote": "division par deux du budget de la présidence",
+          "source_url": "https://upr.fr/actualites/discours-de-rentree-2026-de-francois-asselineau-la-liberation-nationale",
+          "source_title": "Discours de rentrée 2026 de François Asselineau : la Libération nationale",
+          "source_date": "2026-09-30"
+        },
+        {
+          "position": "Critique le Conseil constitutionnel, accusé de « gouvernement des juges » parce que neuf juges non élus censurent des lois votées.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Analyse UPR publiée après la censure de l'allongement de 90 à 210 jours de la rétention administrative (loi dite Retailleau). En 2022, il proposait de remplacer le Conseil par une « véritable Cour constitutionnelle » composée de professionnels.",
+          "source_url": "https://upr.fr/analyses/comment-le-conseil-constitutionnel-vide-de-sens-la-democratie",
+          "source_title": "Comment le Conseil constitutionnel vide de sens la démocratie",
+          "source_date": "2025-08-08"
+        },
+        {
+          "position": "Programme 2022 : revenir au septennat présidentiel, réduire le mandat des députés à 4 ans, passer de 577 à 500 députés (35 % de parlementaires en moins), introduire une proportionnelle partielle aux législatives et créer une Cour constitutionnelle de professionnels.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme de 2022, antérieur à 2025. Ces mesures n'ont pas toutes été reprises en 2026.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        },
+        {
+          "position": "Programme 2017 : reconnaître pleinement le vote blanc avec un pouvoir révocatoire, et créer un référendum d'initiative populaire ou citoyenne en toutes matières (constituant, abrogatoire, révocatoire, législatif).",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme 2017, ancien. La page « Le Frexit » reprend aussi la reconnaissance du vote blanc.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2017",
+          "source_title": "Programme présidentiel 2017 de l'UPR",
+          "source_date": "2017"
+        }
+      ]
+    },
+    {
+      "topic_id": "laicite_republique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Soumettre à référendum l'inscription dans la Constitution que la France est une « République laïque de tradition chrétienne ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Mesure annoncée dans le discours de rentrée et détaillée sur TV Libertés. En septembre 2026, un internaute lui a demandé de la distinguer de la « tradition judéo-chrétienne » invoquée par Bruno Retailleau.",
+          "short_quote": "République laïque de tradition chrétienne",
+          "source_url": "https://upr.fr/medias/francois-asselineau-invite-delise-blaise-sur-tvl-26-09-2026",
+          "source_title": "François Asselineau invité d'Élise Blaise sur TVL",
+          "source_date": "2026-09-26"
+        },
+        {
+          "position": "Défend l'assimilation plutôt que l'intégration : les étrangers doivent devenir français, parler français et se comporter comme des Français ; la religion reste dans la sphère privée.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Entretien à l'agence Anadolu.",
+          "short_quote": "L'assimilation, c'est que les gens deviennent français",
+          "source_url": "https://www.aa.com.tr/fr/monde/francois-asselineau-accuse-emmanuel-macron-d-accompagner-le-déclassement-de-la-france/3964864",
+          "source_title": "Anadolu – François Asselineau accuse Emmanuel Macron d'accompagner le déclassement de la France",
+          "source_date": "2026-06-12"
+        },
+        {
+          "position": "Programme 2022 : assumer à la fois la tradition laïque des Lumières et la tradition chrétienne, supprimer les subventions publiques aux groupes jugés communautaristes, et réserver la naturalisation aux personnes qui manifestent une volonté d'assimilation.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Engagement 16 du programme 2022, « Préserver l'identité nationale ». Programme antérieur à 2025.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        },
+        {
+          "position": "La charte fondatrice proclame l'attachement à la laïcité et refuse « tout extrémisme, tout racisme et tout communautarisme ».",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Texte de 2007. Aucune position sur la mémoire de la colonisation ni sur les signes religieux à l'école n'a été trouvée dans les sources consultées.",
+          "source_url": "https://upr.fr/charte-fondatrice",
+          "source_title": "Charte fondatrice de l'UPR",
+          "source_date": "2007-03-25"
+        }
+      ]
+    },
+    {
+      "topic_id": "fiscalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Lutter contre les délocalisations et l'évasion fiscale des grands groupes.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "details": "Mesure annoncée dans le discours de rentrée, sans chiffrage pour 2027.",
+          "short_quote": "lutter contre les délocalisations et l'évasion fiscale des grands groupes",
+          "source_url": "https://upr.fr/actualites/discours-de-rentree-2026-de-francois-asselineau-la-liberation-nationale",
+          "source_title": "Discours de rentrée 2026 de François Asselineau : la Libération nationale",
+          "source_date": "2026-09-30"
+        },
+        {
+          "position": "Rétablir le contrôle des mouvements de capitaux pour mettre fin aux « profits indécents des milliardaires », plutôt que de créer de nouveaux impôts sur le patrimoine.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Sur TV Finance, il présente ce contrôle comme fondamental. Aucune prise de position sur la taxe Zucman ou sur un impôt sur la fortune n'a été trouvée pour 2025-2026.",
+          "source_url": "https://upr.fr/medias/francois-asselineau-face-a-charles-sannat-sur-tv-finance-27-02-2026",
+          "source_title": "François Asselineau face à Charles Sannat sur TV Finance",
+          "source_date": "2026-02-27"
+        },
+        {
+          "position": "Baisser l'impôt sur les entreprises et le coût du travail pour réindustrialiser, à condition de sortir d'abord de l'euro et de l'UE.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Analyse UPR de septembre 2024, sans chiffres.",
+          "source_url": "https://upr.fr/analyses/comment-faire-pour-reindustrialiser-la-france",
+          "source_title": "Comment faire pour réindustrialiser la France ?",
+          "source_date": "2024-09-02"
+        },
+        {
+          "position": "Programme 2022 : créer deux tranches d'impôt sur le revenu au-delà de 250 000 € et de 500 000 € par an, baisser la TVA sur une large gamme de produits courants, mettre fin à la double taxation des carburants, baisser de 5 points les droits de succession sous 300 000 € par héritier, et lancer un plan contre la fraude et l'optimisation fiscales (évaluées à 60-80 milliards d'euros par an).",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Engagement 6 (« soulager les classes moyennes ») et engagement 5 du programme 2022. Non réaffirmé en 2026 dans les sources consultées.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        }
+      ]
+    },
+    {
+      "topic_id": "finances_publiques",
+      "found": true,
+      "positions": [
+        {
+          "position": "Lancer un grand emprunt national réservé aux Français pour racheter la dette publique.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Il souhaite que la dette soit davantage détenue par les Français. Taux, montant et modalités ne sont pas précisés.",
+          "short_quote": "grand emprunt national réservé aux Français pour racheter la dette publique",
+          "source_url": "https://upr.fr/actualites/discours-de-rentree-2026-de-francois-asselineau-la-liberation-nationale",
+          "source_title": "Discours de rentrée 2026 de François Asselineau : la Libération nationale",
+          "source_date": "2026-09-30"
+        },
+        {
+          "position": "Refuse les suppressions massives de postes de fonctionnaires, jugées contre-productives pour les recettes publiques, et donne la priorité au retour de la croissance plutôt qu'aux coupes budgétaires.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Il cite le taux d'emprunt français à 10 ans de 4,83 % et un écart de 123 points de base avec l'Allemagne.",
+          "source_url": "https://upr.fr/medias/francois-asselineau-invite-de-nicolas-stoquer-sur-gp-tv-01-10-2026",
+          "source_title": "François Asselineau invité de Nicolas Stoquer sur GP-TV",
+          "source_date": "2026-10-01"
+        },
+        {
+          "position": "Cesser toute contribution au budget de l'UE : la France ne doit pas verser « le moindre euro ». Il juge les réductions partielles insuffisantes.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Selon l'UPR, la contribution nette passerait de 13 milliards d'euros par an à environ 18 milliards (18,1 milliards selon l'analyse du 4 septembre, 18,5 milliards sur Radio Courtoisie) dans le cadre financier 2028-2034, soit 127 milliards sur la période.",
+          "short_quote": "n'a pas à verser le moindre euro",
+          "source_url": "https://upr.fr/analyses/laveu-de-lecornu-la-france-asphyxiee-par-le-budget-de-lue",
+          "source_title": "L'aveu de Lecornu : la France asphyxiée par le budget de l'UE",
+          "source_date": "2026-09-15"
+        },
+        {
+          "position": "Réaliser des économies de structure : supprimer les régions (environ 6 milliards d'euros selon l'UPR), supprimer la moitié des conseillers départementaux et diviser par deux le budget de la présidence.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Mesures du discours de rentrée 2026.",
+          "source_url": "https://upr.fr/actualites/discours-de-rentree-2026-de-francois-asselineau-la-liberation-nationale",
+          "source_title": "Discours de rentrée 2026 de François Asselineau : la Libération nationale",
+          "source_date": "2026-09-30"
+        },
+        {
+          "position": "Promet, s'il arrive au pouvoir, des poursuites pénales pour « faillite frauduleuse » contre les dirigeants qu'il tient pour responsables de la dégradation des finances publiques (Macron, Philippe, Attal).",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Réaction à la dégradation de la note de la France par Scope Ratings (de AA- à A+). L'UPR parle d'une crise de la dette « imminente ».",
+          "short_quote": "nous poursuivrons pénalement tous ces messieurs pour faillite frauduleuse",
+          "source_url": "https://upr.fr/analyses/scope-ratings-degrade-la-note-de-la-france-de-aa-a-a",
+          "source_title": "Scope Ratings dégrade la note de la France de AA- à A+",
+          "source_date": "2026-09-18"
+        },
+        {
+          "position": "Programme 2022 : réaliser 27 milliards d'euros d'économies par an, présentés comme « le plus grand plan d'économies budgétaires des 50 dernières années », sans dégrader les services publics.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Engagement 4 du programme 2022. L'ancienne page « Le Frexit » chiffrait à 34 milliards par an les économies attendues de la sortie de l'UE.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        }
+      ]
+    },
+    {
+      "topic_id": "travail_salaires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Revaloriser le salaire minimum dans les cent premiers jours, avec une baisse ciblée des cotisations sociales pour les petites et moyennes entreprises.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Cinquième des cinq mesures prioritaires des cent premiers jours. Le montant de la hausse n'est pas précisé pour 2027.",
+          "source_url": "https://upr.fr/medias/francois-asselineau-recoit-georges-kuzmanovic-de-frequence-populaire-11-09-2026",
+          "source_title": "François Asselineau reçoit Georges Kuzmanovic de Fréquence populaire",
+          "source_date": "2026-09-11"
+        },
+        {
+          "position": "Promet une hausse du SMIC et un allègement des charges des PME, estimant que le niveau de vie des travailleurs s'est effondré.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Entretien Anadolu : il promet aussi des droits de douane ciblés et un contrôle des capitaux.",
+          "short_quote": "ont vu leur niveau de vie dégringoler",
+          "source_url": "https://www.aa.com.tr/fr/monde/francois-asselineau-accuse-emmanuel-macron-d-accompagner-le-déclassement-de-la-france/3964864",
+          "source_title": "Anadolu – François Asselineau accuse Emmanuel Macron d'accompagner le déclassement de la France",
+          "source_date": "2026-06-12"
+        },
+        {
+          "position": "Programme 2022 : SMIC brut +24 % sur le quinquennat (+4,4 % par an en moyenne), charges patronales des PME réduites de 50 %, objectif d'un million de chômeurs de catégorie A en moins en trois ans.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Engagements 1 à 3 du programme 2022. Chiffres non confirmés pour 2027.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        },
+        {
+          "position": "Programme 2022 : développer la participation des travailleurs au capital des entreprises.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Rien n'a été trouvé sur le temps de travail (35 heures), le droit de grève ou le droit du licenciement.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        }
+      ]
+    },
+    {
+      "topic_id": "industrie_economie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Rétablir le contrôle des mouvements de capitaux, supprimé en 1986 par l'Acte unique, qu'il désigne comme la cause principale de la désindustrialisation.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Il cite une industrie passée de 27-28 % du PIB dans les années 1970 à environ 9 % aujourd'hui (Anadolu, juin 2026). Ce contrôle fait partie de sa définition du Frexit.",
+          "source_url": "https://upr.fr/medias/francois-asselineau-invite-de-richard-de-seze-sur-radio-courtoisie-28-09-2026",
+          "source_title": "François Asselineau invité de Richard de Sèze sur Radio Courtoisie",
+          "source_date": "2026-09-28"
+        },
+        {
+          "position": "Instaurer des droits de douane ciblés une fois la France sortie de l'UE.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "details": "Mesure citée par Anadolu dans la liste de ses promesses, sans précision sur les secteurs ou les taux.",
+          "source_url": "https://www.aa.com.tr/fr/monde/francois-asselineau-accuse-emmanuel-macron-d-accompagner-le-déclassement-de-la-france/3964864",
+          "source_title": "Anadolu – François Asselineau accuse Emmanuel Macron d'accompagner le déclassement de la France",
+          "source_date": "2026-06-12"
+        },
+        {
+          "position": "S'oppose aux accords de libre-échange négociés par la Commission européenne (Mercosur, Australie) et au marché unique, qu'il juge destructeurs d'emplois et de l'élevage. Il veut que la France négocie seule ses accords commerciaux, par exemple avec les États-Unis.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "En août 2025, à propos de l'accord Trump-von der Leyen (15 % de droits de douane), il défend une négociation bilatérale sur le modèle du Royaume-Uni après le Brexit.",
+          "source_url": "https://upr.fr/medias/francois-asselineau-invite-de-nicolas-stoquer-sur-gp-tv-01-10-2026",
+          "source_title": "François Asselineau invité de Nicolas Stoquer sur GP-TV",
+          "source_date": "2026-10-01"
+        },
+        {
+          "position": "S'oppose à la cession d'entreprises stratégiques à des fonds étrangers, par exemple la vente d'Everllence (groupes électrogènes de secours pour sous-marins et centrales) au fonds américain Bain.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "L'UPR y voit une « guerre hybride » venant de Washington et cite le précédent d'Alstom.",
+          "source_url": "https://upr.fr/analyses/guerre-hybride-macron-brade-une-entreprise-strategique-de-plus",
+          "source_title": "Guerre hybride : Macron brade une entreprise stratégique de plus",
+          "source_date": "2026-09-20"
+        },
+        {
+          "position": "Programme 2022 : renationaliser EDF, Enedis, le gaz, l'eau, La Poste, les autoroutes, TDF, la RATP et la SNCF, et favoriser la reprise de sites de production en coopératives.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme 2022, dans la référence revendiquée au CNR. La page d'accueil 2026 évoque toujours la protection des services publics.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        }
+      ]
+    },
+    {
+      "topic_id": "retraites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Arrêter tout report de l'âge légal, plafonner la durée de cotisation à 41 annuités et inscrire la retraite par répartition dans la Constitution, en refusant la capitalisation jugée dangereuse.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Communiqué de juin 2021 préparant le programme 2022. Aucune prise de position 2025-2026 n'a été trouvée sur le retour à 62 ans ou sur la suspension de la réforme de 2023.",
+          "source_url": "https://www.upr.fr/communiques-de-presse/le-programme-de-francois-asselineau-pour-les-retraites/",
+          "source_title": "Le programme de François Asselineau pour les retraites",
+          "source_date": "2021-06-09"
+        },
+        {
+          "position": "Programme 2022 : sauvegarder la répartition et l'inscrire dans la Constitution, et instaurer une garantie d'État du pouvoir d'achat des retraités, avec des pensions revalorisées chaque année au moins au niveau de l'inflation.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Engagement 18. Ce programme précise que la capitalisation complémentaire facultative « sera naturellement préservée », ce qui nuance le communiqué de 2021.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        },
+        {
+          "position": "Programme 2017 : arrêter immédiatement la hausse du nombre d'annuités (plafonné à 41) et le report de l'âge légal ; minimum vieillesse de 950 € par mois.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Le minimum vieillesse de 950 € figure sur la page « Le Frexit », non datée (ère 2017).",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2017",
+          "source_title": "Programme présidentiel 2017 de l'UPR",
+          "source_date": "2017"
+        }
+      ]
+    },
+    {
+      "topic_id": "sante",
+      "found": true,
+      "positions": [
+        {
+          "position": "S'oppose au projet de loi sur la fin de vie (aide à mourir) et exige un référendum.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Il redoute une dérive vers une euthanasie « de confort » ou un suicide assisté généralisé, invoque l'héritage chrétien et le serment d'Hippocrate, et évoque des risques pour les mineurs et les malades psychiatriques. L'article attribue aussi le texte à l'influence du Grand Orient.",
+          "short_quote": "exige un référendum afin que le peuple puisse se prononcer",
+          "source_url": "https://upr.fr/analyses/qui-pousse-a-la-loi-euthanasie",
+          "source_title": "Qui pousse à la loi euthanasie ?",
+          "source_date": "2025-05-26"
+        },
+        {
+          "position": "Réitère son opposition au texte sur l'euthanasie, qualifié de « monstrueux projet de loi », estimant qu'il ouvre bien plus que des cas exceptionnels.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "L'article compare le texte au programme nazi Aktion T4.",
+          "source_url": "https://upr.fr/analyses/le-monstrueux-projet-de-loi-sur-leuthanasie",
+          "source_title": "Le monstrueux projet de loi sur l'euthanasie",
+          "source_date": "2026-06-29"
+        },
+        {
+          "position": "Critique les vaccins à ARN messager contre le Covid, qu'il présente comme expérimentaux, au nom du consentement éclairé, et s'oppose aux obligations vaccinales.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Article d'hommage au médecin américain Kirk Moore. Il s'inscrit dans une ligne critique de la gestion du Covid, du passe sanitaire et des vaccins, documentée depuis 2020.",
+          "source_url": "https://upr.fr/essentiels/hommage-au-docteur-kirk-moore-veritable-resistant",
+          "source_title": "Hommage au docteur Kirk Moore, véritable résistant",
+          "source_date": "2026-08-13"
+        },
+        {
+          "position": "Programme 2022 : budget de l'hôpital public +15 % dès le premier budget, réouverture de 30 000 lits (objectif 265 000 lits dont 25 000 de réanimation), moratoire sur la fermeture d'hôpitaux et de maternités, majoration de 20 % des actes dans les déserts médicaux, fin des déremboursements.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Engagement 11 du programme 2022. Il prévoyait aussi d'interdire la privatisation de la Sécurité sociale et de créer un grand pôle public de recherche et de production de médicaments.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        },
+        {
+          "position": "Programme 2022 : veiller à ce que les EHPAD n'économisent pas au détriment de la santé et de la dignité des résidents, et privilégier le maintien à domicile.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Engagement 19 (« Plan handicap et autonomie »). Aucune mesure chiffrée sur la dépendance ni sur la place des complémentaires santé n'a été trouvée.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        },
+        {
+          "position": "Programme 2017 : réaffirmer « la Sécurité sociale publique pour tous » et l'inscrire dans la Constitution.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme 2017, ancien.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2017",
+          "source_title": "Programme présidentiel 2017 de l'UPR",
+          "source_date": "2017"
+        }
+      ]
+    },
+    {
+      "topic_id": "logement",
+      "found": true,
+      "positions": [
+        {
+          "position": "Programme 2022 : mettre en chantier 80 000 logements de plus par an (400 000 sur le quinquennat) en plus de ceux déjà prévus, et favoriser l'accession à la propriété.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Engagement 20. Aucune proposition sur le logement n'a été trouvée pour 2025-2026.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        },
+        {
+          "position": "Programme 2022 : limiter les achats immobiliers par des fonds ou des particuliers étrangers en zone tendue, et allonger de 48 heures à 7 jours le délai pendant lequel les squatteurs peuvent être expulsés sur simple recours à la force publique.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Aucune mesure sur l'encadrement des loyers n'a été trouvée.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        }
+      ]
+    },
+    {
+      "topic_id": "solidarites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Attribue la hausse de la pauvreté (15,4 % fin 2024, record selon l'Insee) à l'appartenance à l'UE et à l'euro, et en fait un argument pour le Frexit.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Aucune proposition récente n'a été trouvée sur le RSA, l'assurance chômage ou les minima sociaux.",
+          "short_quote": "Il existe un lien direct entre notre appartenance à l'UE et à l'euro",
+          "source_url": "https://upr.fr/analyses/record-historique-de-pauvrete-en-france",
+          "source_title": "Record historique de pauvreté en France",
+          "source_date": "2026-07-12"
+        },
+        {
+          "position": "Programme 2022 : allocations familiales dès le premier enfant, revalorisées de 10 % pour le deuxième et de 15 % pour le troisième ; plan de 150 000 places de crèche en 5 ans, au nom du renouvellement des générations.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Engagement 17 (« Famille : assurer l'avenir »).",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        },
+        {
+          "position": "Programme 2022 : revaloriser de 20 % l'allocation aux adultes handicapés (AAH) et la calculer sans tenir compte des revenus du conjoint.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Engagement 19.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        },
+        {
+          "position": "Assurer un minimum vieillesse de 950 € par mois.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Page doctrinale « Le Frexit », non datée (ère 2017).",
+          "source_url": "https://upr.fr/le-frexit",
+          "source_title": "UPR – Le Frexit",
+          "source_date": "non datée"
+        }
+      ]
+    },
+    {
+      "topic_id": "egalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Programme 2022 : un abattement supplémentaire de 5 % pour les entreprises qui respectent scrupuleusement l'égalité salariale entre femmes et hommes.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme 2022. Aucune prise de position 2025-2026 n'a été trouvée sur l'égalité femmes-hommes.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        },
+        {
+          "position": "Programme 2022 : faire appliquer les dispositions protégeant les femmes victimes de violences (traitement de toutes les plaintes, éloignement du conjoint violent, bracelets anti-rapprochement).",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Aucune mesure sur le partage des responsabilités familiales n'a été trouvée.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        }
+      ]
+    },
+    {
+      "topic_id": "droits_lgbtqia",
+      "found": false,
+      "positions": []
+    },
+    {
+      "topic_id": "education",
+      "found": true,
+      "positions": [
+        {
+          "position": "Explique le recul de la France au classement PISA par les écrans, le déclin de l'écriture manuscrite, les faibles salaires des enseignants et la baisse générale de l'exigence et de l'effort.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "C'est un diagnostic plutôt qu'un programme : aucune mesure chiffrée (taille des classes, salaires) n'est annoncée pour 2027.",
+          "short_quote": "un effondrement du discernement",
+          "source_url": "https://upr.fr/medias/francois-asselineau-invite-de-richard-de-seze-sur-radio-courtoisie-28-09-2026",
+          "source_title": "François Asselineau invité de Richard de Sèze sur Radio Courtoisie",
+          "source_date": "2026-09-28"
+        },
+        {
+          "position": "Programme 2022 : consacrer au moins 80 % du temps scolaire du primaire aux savoirs fondamentaux, appliquer strictement l'interdiction du portable en cours, rétablir notation et classement, favoriser des vêtements neutres et sanctionner immédiatement toute agression contre un enseignant.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Engagement 8 (« Reconstruire l'école »). Rien n'a été trouvé sur l'enseignement privé.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        },
+        {
+          "position": "Programme 2022 : imposer que les cours de l'enseignement supérieur soient donnés en français, promouvoir la publication de la recherche en français et investir dans la recherche.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Engagements 8 et 10.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        }
+      ]
+    },
+    {
+      "topic_id": "societe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Dénonce les aides publiques à la presse privée appartenant à de grandes fortunes, notamment 135,7 millions d'euros versés au Parisien (groupe de Bernard Arnault) entre 2017 et 2026.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "L'article ne propose aucune réforme des aides à la presse.",
+          "source_url": "https://upr.fr/actualites/le-scandale-absolu-des-subventions-que-macron-donne-au-torchon-de-bernard-arnault",
+          "source_title": "Le scandale absolu des subventions que Macron donne au torchon de Bernard Arnault",
+          "source_date": "2026-10-02"
+        },
+        {
+          "position": "Programme 2022 : multiplier par 10 les fonds des grands projets de restauration du patrimoine (de 130 millions d'euros en 2019 à 1,3 milliard en 2025) et imposer par la loi à tous les médias audiovisuels, publics et privés, la diffusion d'un nombre suffisant de films français.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Engagement 9 (« Culture : priorité patrimoine »).",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        },
+        {
+          "position": "Programme 2017 : créer un service public de l'information indépendant, renationaliser TF1 et TDF, et transformer le CSA en cour professionnelle.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme 2017, ancien. Aucune position 2025-2026 n'a été trouvée sur la redevance ou une holding de l'audiovisuel public.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2017",
+          "source_title": "Programme présidentiel 2017 de l'UPR",
+          "source_date": "2017"
+        }
+      ]
+    },
+    {
+      "topic_id": "numerique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Abroger dès 2027 la loi interdisant les réseaux sociaux aux moins de 15 ans, qu'il juge liberticide : elle impose une vérification d'identité, s'applique même avec l'accord des parents et serait inefficace.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "L'UPR cite l'Australie, où plus de 85 % des moins de 15 ans contourneraient l'interdiction. Elle craint un fichage des opinions politiques et reproche au RN de s'être abstenu (analyse du 22 juillet 2026).",
+          "source_url": "https://upr.fr/analyses/macron-felicite-le-vietnam-pour-sa-censure-des-reseaux-sociaux",
+          "source_title": "Macron félicite le Vietnam pour sa censure des réseaux sociaux",
+          "source_date": "2026-07-25"
+        },
+        {
+          "position": "S'oppose au règlement européen imposant dans les véhicules neufs une caméra qui surveille le regard du conducteur, au nom des libertés et de la protection des données.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Règlement (UE) 2019/2144, applicable depuis juillet 2026 ; l'UPR compare l'UE à l'univers de « 1984 ».",
+          "source_url": "https://upr.fr/analyses/lue-impose-une-camera-dans-tout-nouveau-vehicule-pour-surveiller-le-regard-du-conducteur-en-continu",
+          "source_title": "L'UE impose une caméra dans tout nouveau véhicule pour surveiller le regard du conducteur en continu",
+          "source_date": "2026-07-10"
+        },
+        {
+          "position": "S'inquiète des dérives de l'intelligence artificielle et approuve l'encyclique du pape sur le sujet.",
+          "kind": "position_declaree",
+          "confidence": "low",
+          "details": "Simple mention dans une émission, sans proposition d'encadrement de l'IA.",
+          "source_url": "https://upr.fr/medias/francois-asselineau-invite-de-nicolas-stoquer-sur-gp-tv-01-06-2026",
+          "source_title": "François Asselineau invité de Nicolas Stoquer sur GP-TV",
+          "source_date": "2026-06-01"
+        },
+        {
+          "position": "Programme 2022 : taxer les géants du numérique (GAFAM) sur les profits réalisés en France, interdire aux plateformes d'utiliser leurs conditions d'utilisation pour censurer des responsables politiques, inscrire dans la loi la neutralité du net et interdire la surveillance généralisée.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Engagement 25 (« L'internet libre et souverain »). L'inscription de la liberté d'expression façon premier amendement, annoncée en 2026, prolonge ces mesures.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Soumettre la question du nucléaire à un « grand référendum ».",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "details": "Affiché sur la page d'accueil en 2026. Sa propre préférence (maintien, développement ou sortie du nucléaire) n'est pas indiquée dans les sources consultées.",
+          "source_url": "https://upr.fr/",
+          "source_title": "UPR – page d'accueil (campagne 2027)",
+          "source_date": "2026-10-06"
+        },
+        {
+          "position": "Programme 2017 : référendum sur la production d'électricité, en particulier nucléaire, avec des questions à choix multiples.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Point 120 du programme 2017.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2017",
+          "source_title": "Programme présidentiel 2017 de l'UPR",
+          "source_date": "2017"
+        },
+        {
+          "position": "Programme 2022 : renationaliser EDF, abandonner le projet « Hercule » de découpage et geler les tarifs de l'électricité et du gaz pendant au moins les deux premières années du mandat.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "La recherche sur l'énergie de fusion nucléaire figurait aussi parmi les priorités de recherche.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        },
+        {
+          "position": "Programme 2022 : porter à 70 % la part du rail pour le fret sur les axes prioritaires (Paris-Marseille/Montpellier, Paris-Bordeaux, Paris-Belgique), interdire la fermeture des petites lignes, imposer un moratoire de 5 ans sur les zones commerciales en périphérie des villes de moins de 30 000 habitants, renationaliser les autoroutes et baisser les péages de 10 %.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Engagement 14 (« La relocalisation écologique »). Aucune position récente n'a été trouvée sur les objectifs climatiques, les renouvelables, l'eau ou l'adaptation.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "found": true,
+      "positions": [
+        {
+          "position": "Le Frexit permettrait de remplacer la PAC par des aides versées directement aux agriculteurs, sans passer par Bruxelles. Il dénonce 17 accords de libre-échange (Mercosur, Ukraine, CETA…) qui détruiraient les filières bovine, céréalière et laitière.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Il cite le passage de 4,5 millions d'agriculteurs en 1945 à moins de 300 000 aujourd'hui, et dénonce aussi le rachat de terres par l'agro-industrie et des fonds étrangers.",
+          "source_url": "https://upr.fr/drp/les-agriculteurs-desesperes-comment-sauver-notre-agriculture-familiale",
+          "source_title": "Les agriculteurs désespérés : comment sauver notre agriculture familiale ?",
+          "source_date": "2026-02-17"
+        },
+        {
+          "position": "S'oppose à l'accord UE-Mercosur, qu'il qualifie de trahison : dans l'UE, la France ne peut pas imposer ses intérêts agricoles face à l'Allemagne et à l'Italie.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Position répétée en décembre 2025 (GP-TV), en janvier 2026 (Radio Courtoisie) et en octobre 2026.",
+          "source_url": "https://upr.fr/medias/francois-asselineau-invite-de-richard-de-seze-sur-radio-courtoisie-23-01-2026",
+          "source_title": "François Asselineau invité de Richard de Sèze sur Radio Courtoisie",
+          "source_date": "2026-01-23"
+        },
+        {
+          "position": "Juge que rester dans l'UE condamne l'agriculture familiale. Il qualifie l'entrée de l'Ukraine dans l'UE de « bombe atomique » pour l'agriculture française.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Le 5 janvier 2026, il a adressé une lettre ouverte aux cinq grands syndicats agricoles, qu'il accuse de ne pas remettre en cause les traités.",
+          "short_quote": "rester dans l'UE condamne l'agriculture familiale française",
+          "source_url": "https://upr.fr/medias/francois-asselineau-invite-de-clemence-houdiakova-sur-tocsin-14-01-2026",
+          "source_title": "François Asselineau invité de Clémence Houdiakova sur Tocsin",
+          "source_date": "2026-01-14"
+        },
+        {
+          "position": "Programme 2022 : augmenter de 25 % le revenu des agriculteurs sur le quinquennat, interdire les élevages en batterie et les fermes industrielles de type « ferme des 1 000 vaches », et interdire les pesticides dangereux comme le glyphosate.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Engagement 15. La page « Le Frexit » (ère 2017) prévoit aussi d'interdire les OGM, y compris dans l'alimentation animale.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        }
+      ]
+    },
+    {
+      "topic_id": "territoires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Supprimer purement et simplement les régions (environ 6 milliards d'euros d'économies selon l'UPR) ainsi que la moitié des conseillers départementaux.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Mesures annoncées dans le discours de rentrée 2026.",
+          "short_quote": "suppression pure et simple des régions",
+          "source_url": "https://upr.fr/actualites/discours-de-rentree-2026-de-francois-asselineau-la-liberation-nationale",
+          "source_title": "Discours de rentrée 2026 de François Asselineau : la Libération nationale",
+          "source_date": "2026-09-30"
+        },
+        {
+          "position": "Rétablir dans les petites communes le scrutin de liste avec panachage, et s'opposer à la disparition des petites communes au profit de grandes intercommunalités.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Selon l'UPR, l'obligation de scrutin de liste paritaire dans les communes de moins de 1 000 habitants a fait passer les communes à liste unique d'environ 3 000 à 25 000. En février 2026, il s'est aussi opposé à la fusion des communes.",
+          "source_url": "https://upr.fr/analyses/la-strategie-vicieuse-pour-faire-disparaitre-les-petites-communes-et-la-democratie",
+          "source_title": "La stratégie vicieuse pour faire disparaître les petites communes et la démocratie",
+          "source_date": "2026-03-14"
+        },
+        {
+          "position": "S'oppose à l'indépendance de la Nouvelle-Calédonie et critique le gel du corps électoral, en s'appuyant sur les trois référendums favorables au maintien dans la France.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Il met aussi en avant l'importance du nickel et de la zone maritime, et critique le soutien de Jean-Luc Mélenchon à l'indépendance kanak.",
+          "source_url": "https://upr.fr/analyses/par-haine-de-la-france-melenchon-meprise-le-vote-des-neo-caledoniens",
+          "source_title": "Par haine de la France, Mélenchon méprise le vote des Néo-Calédoniens",
+          "source_date": "2026-07-11"
+        },
+        {
+          "position": "Programme 2022 : investir massivement 15 milliards d'euros dans les outre-mer, imposer un moratoire sur la fermeture des hôpitaux publics et des maternités, interdire la fermeture des petites lignes ferroviaires et rétablir un service public de proximité.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Engagements 7 et 21 du programme 2022.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "found": true,
+      "positions": [
+        {
+          "position": "Critique la censure par le Conseil constitutionnel de l'allongement de 90 à 210 jours de la rétention administrative des étrangers, en invoquant l'exaspération des Français face aux crimes commis par des migrants en situation irrégulière.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Il soutient donc implicitement cet allongement. Aucune proposition récente n'a été trouvée sur la police, le narcotrafic ou les prisons.",
+          "source_url": "https://upr.fr/analyses/comment-le-conseil-constitutionnel-vide-de-sens-la-democratie",
+          "source_title": "Comment le Conseil constitutionnel vide de sens la démocratie",
+          "source_date": "2025-08-08"
+        },
+        {
+          "position": "Programme 2022 : augmenter de 20 % les budgets de la police et de la justice, rétablir des peines planchers croissantes pour les récidivistes, et recourir à des peines de prison même courtes dès la première atteinte violente, y compris pour les cambriolages et le trafic de stupéfiants.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Engagement 23 du programme 2022.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        },
+        {
+          "position": "Programme 2022 : rendre obligatoires le travail ou la formation en prison, conditionner les remises de peine, créer la perpétuité incompressible pour les crimes terroristes et déchoir de la nationalité les personnes ayant rejoint une entreprise terroriste à l'étranger.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Engagements 23 et 24.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "found": true,
+      "positions": [
+        {
+          "position": "Arrêter « le plus possible » les flux migratoires et favoriser l'assimilation des étrangers à la République.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Entretien à l'agence Anadolu.",
+          "short_quote": "arrêter le plus possible les flux migratoires",
+          "source_url": "https://www.aa.com.tr/fr/monde/francois-asselineau-accuse-emmanuel-macron-d-accompagner-le-déclassement-de-la-france/3964864",
+          "source_title": "Anadolu – François Asselineau accuse Emmanuel Macron d'accompagner le déclassement de la France",
+          "source_date": "2026-06-12"
+        },
+        {
+          "position": "Rétablir les contrôles aux frontières nationales dans les cent premiers jours.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Quatrième des cinq mesures prioritaires. Le discours de rentrée parle de contrôles frontaliers « pour les flux humains, de marchandises et de capitaux ».",
+          "source_url": "https://upr.fr/medias/francois-asselineau-recoit-georges-kuzmanovic-de-frequence-populaire-11-09-2026",
+          "source_title": "François Asselineau reçoit Georges Kuzmanovic de Fréquence populaire",
+          "source_date": "2026-09-11"
+        },
+        {
+          "position": "Estime qu'aucune reprise en main des frontières n'est possible sans sortir de l'UE, de l'espace Schengen et de l'euro, l'article 67 du TFUE interdisant les contrôles aux frontières intérieures.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Propos tenus à propos de la crise migratoire de Ceuta (juillet 2026). Lors du débat sur la « remigration » avec Jean-Yves Le Gallou (4 juillet 2026), il a fait du Frexit le préalable à toute politique migratoire.",
+          "source_url": "https://upr.fr/medias/francois-asselineau-invite-daxelle-le-gal-sur-tocsin-11-08-2026",
+          "source_title": "François Asselineau invité d'Axelle Le Gal sur Tocsin",
+          "source_date": "2026-08-13"
+        },
+        {
+          "position": "Organiser un « grand référendum » sur l'immigration.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "details": "Affiché sur la page d'accueil en 2026. La question posée n'est pas précisée ; en 2022, le référendum devait porter sur le regroupement familial et le droit du sol.",
+          "source_url": "https://upr.fr/",
+          "source_title": "UPR – page d'accueil (campagne 2027)",
+          "source_date": "2026-10-06"
+        },
+        {
+          "position": "Programme 2022 : référendum sur le regroupement familial et les modifications du droit du sol ; taux effectif d'expulsions porté à 75 % minimum ; sortie de Schengen ; dénonciation du pacte de Marrakech (2018) ; retrait de certains articles de la Convention européenne des droits de l'homme ; naturalisation réservée aux personnes manifestant une claire volonté d'assimilation.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Engagement 22 (« Contrôler l'immigration »). Rien n'a été trouvé sur l'AME ou le droit d'asile dans ce programme.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Notifier l'activation de l'article 50 du traité sur l'Union européenne dès la première semaine du mandat, en refusant tout référendum préalable.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Il compare la négociation de sortie, qui dure deux ans, à une procédure de divorce (GP-TV, 1er octobre 2026). Le Frexit comprend la sortie des traités, la sortie de l'euro et le retour du contrôle des capitaux.",
+          "short_quote": "Il refuse l'idée d'un référendum préalable",
+          "source_url": "https://upr.fr/actualites/discours-de-rentree-2026-de-francois-asselineau-la-liberation-nationale",
+          "source_title": "Discours de rentrée 2026 de François Asselineau : la Libération nationale",
+          "source_date": "2026-09-30"
+        },
+        {
+          "position": "Sortir de l'euro avec un nouveau franc à parité « un nouveau franc pour un euro », en anticipant une dépréciation d'environ 15 % face au dollar pour soutenir les exportations.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le 11 septembre 2026, il parlait d'ouvrir des négociations de sortie de l'euro « en lien avec la question de la dette publique ». Selon lui, l'euro est surévalué pour la France.",
+          "short_quote": "un nouveau franc pour un euro",
+          "source_url": "https://upr.fr/medias/francois-asselineau-invite-de-nicolas-stoquer-sur-gp-tv-01-10-2026",
+          "source_title": "François Asselineau invité de Nicolas Stoquer sur GP-TV",
+          "source_date": "2026-10-01"
+        },
+        {
+          "position": "S'oppose à tout élargissement de l'UE (Albanie, Moldavie, Monténégro, Ukraine). L'UPR affirme qu'il est le seul candidat dans ce cas.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Il juge que l'entrée de l'Ukraine ruinerait l'agriculture familiale et les finances publiques ; il évalue la reconstruction à 3 000 milliards de dollars (GP-TV, 1er juin 2026).",
+          "source_url": "https://upr.fr/analyses/marta-kos-annonce-nos-fiancailles-avec-quatre-nouveaux-etats-de-lue",
+          "source_title": "Marta Kos annonce nos fiançailles avec quatre nouveaux États de l'UE",
+          "source_date": "2026-07-18"
+        },
+        {
+          "position": "Refuse de verser la contribution française au budget européen, dont il chiffre la hausse de 13 à environ 18 milliards d'euros nets par an pour 2028-2034, et craint une fusion des fonds de la PAC.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Selon l'UPR, la contribution atteindrait 127 milliards d'euros nets sur 2028-2034.",
+          "source_url": "https://upr.fr/analyses/budget-de-lue-2028-2034-la-france-encore-arnaquee",
+          "source_title": "Budget de l'UE 2028-2034 : la France encore arnaquée",
+          "source_date": "2026-09-04"
+        },
+        {
+          "position": "Rejette toute stratégie de réforme de l'UE de l'intérieur (« alter-européisme » du RN et de ses alliés), qu'il juge mathématiquement impossible puisque la révision des traités exige l'unanimité des 27.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Analyse UPR publiée après la défaite électorale de Viktor Orbán en 2026.",
+          "source_url": "https://upr.fr/analyses/la-defaite-cinglante-dorban-confirme-confirme-limpasse-de-la-strategie-alter-europeiste-de-lextreme-droite-francaise",
+          "source_title": "La défaite cinglante d'Orbán confirme l'impasse de la stratégie alter-européiste de l'extrême droite française",
+          "source_date": "2026-04-14"
+        }
+      ]
+    },
+    {
+      "topic_id": "ukraine_russie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Arrêter immédiatement tout versement d'aide financière et militaire à l'Ukraine.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Mesure du discours de lancement de la campagne.",
+          "short_quote": "arrêt immédiat de tout versement d'aides financières et militaires à l'Ukraine",
+          "source_url": "https://upr.fr/actualites/discours-de-rentree-2026-de-francois-asselineau-la-liberation-nationale",
+          "source_title": "Discours de rentrée 2026 de François Asselineau : la Libération nationale",
+          "source_date": "2026-09-30"
+        },
+        {
+          "position": "Estime que son appartenance à l'UE entraîne la France dans un conflit russo-ukrainien qui ne la concerne pas, et défend une diplomatie gaullienne d'équilibre, en citant la Turquie comme modèle.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Entretien à l'agence Anadolu.",
+          "short_quote": "un conflit qui, fondamentalement, ne nous regarde pas",
+          "source_url": "https://www.aa.com.tr/fr/monde/francois-asselineau-accuse-emmanuel-macron-d-accompagner-le-déclassement-de-la-france/3964864",
+          "source_title": "Anadolu – François Asselineau accuse Emmanuel Macron d'accompagner le déclassement de la France",
+          "source_date": "2026-06-12"
+        },
+        {
+          "position": "Juge que l'argent versé à un système ukrainien gangrené par la corruption ne changera pas l'issue militaire, et souligne l'épuisement des forces de Kiev.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Il critique aussi les « discours bellicistes » d'Emmanuel Macron.",
+          "short_quote": "ne changera pas l'issue militaire",
+          "source_url": "https://www.upr.fr/medias/francois-asselineau-invite-de-nicolas-stoquer-sur-gp-tv-24-12-2025/",
+          "source_title": "François Asselineau invité de Nicolas Stoquer sur GP-TV",
+          "source_date": "2025-12-24"
+        },
+        {
+          "position": "S'oppose aux sanctions contre la Russie, aux effets « boomerang » selon lui, et notamment aux droits de douane de 500 % sur le pétrole russe envisagés en 2025. Le programme 2022 prévoyait déjà de mettre fin à ces sanctions.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Analyse UPR du 15 mai 2025, confirmée sur GP-TV le 13 juillet 2026. Il conteste aussi l'idée d'une menace russe imminente (juillet 2026). Aucune position n'a été trouvée sur les avoirs russes gelés.",
+          "source_url": "https://upr.fr/analyses/des-sanctions-pour-prendre-la-russie-a-la-gorge",
+          "source_title": "Des sanctions pour prendre la Russie à la gorge",
+          "source_date": "2025-05-15"
+        },
+        {
+          "position": "Dénonce comme une opération coordonnée les accusations d'ingérence russe portées par plusieurs responsables politiques (Philippe, Glucksmann, Attal), et critique la ligne de l'UE envers la Russie, jugée irresponsable.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Il juge « probable » une prise d'Odessa par la Russie.",
+          "source_url": "https://upr.fr/medias/francois-asselineau-invite-de-nicolas-stoquer-sur-gp-tv-12-08-2026",
+          "source_title": "François Asselineau invité de Nicolas Stoquer sur GP-TV",
+          "source_date": "2026-08-12"
+        }
+      ]
+    },
+    {
+      "topic_id": "proche_orient",
+      "found": true,
+      "positions": [
+        {
+          "position": "Estime qu'Israël ne peut pas « piétiner le droit international ». Il défend une solution à deux États et des sanctions contre Israël quand ce pays « se comporte mal ».",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Il dénonce un « deux poids deux mesures », notamment l'autorisation de survol accordée à l'avion de Benyamin Netanyahou.",
+          "short_quote": "ne peut pas s'arroger le droit de piétiner le droit international",
+          "source_url": "https://www.aa.com.tr/fr/monde/francois-asselineau-accuse-emmanuel-macron-d-accompagner-le-déclassement-de-la-france/3964864",
+          "source_title": "Anadolu – François Asselineau accuse Emmanuel Macron d'accompagner le déclassement de la France",
+          "source_date": "2026-06-12"
+        },
+        {
+          "position": "Plaide pour une position française neutre, indépendante, tournée vers la paix et respectueuse du droit international, dans la tradition gaullienne (après les frappes israéliennes sur l'Iran de juin 2025).",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Cette analyse ne traite pas directement de Gaza.",
+          "source_url": "https://upr.fr/analyses/israel-iran-que-doit-faire-la-france",
+          "source_title": "Israël-Iran : que doit faire la France ?",
+          "source_date": "2025-06-16"
+        },
+        {
+          "position": "Juge que Netanyahou et sa coalition d'extrême droite ne représentent pas l'opinion de tous les Israéliens.",
+          "kind": "position_declaree",
+          "confidence": "low",
+          "details": "L'article s'appuie sur un sondage i24News ; il sert surtout à opposer la liberté de la presse israélienne à la situation française.",
+          "source_url": "https://upr.fr/analyses/sondage-i24news-netanyahou-battu-en-cas-delections-legislatives",
+          "source_title": "Sondage i24News : Netanyahou battu en cas d'élections législatives",
+          "source_date": "2026-06-17"
+        },
+        {
+          "position": "Demande l'expulsion de l'ambassadeur américain Charles Kushner, qui avait critiqué la France sur l'antisémitisme et sur sa décision de reconnaître l'État de Palestine.",
+          "kind": "position_declaree",
+          "confidence": "low",
+          "details": "Cette demande ne vaut pas soutien explicite à la reconnaissance de l'État de Palestine par la France : aucune déclaration claire sur ce point n'a été trouvée.",
+          "source_url": "https://upr.fr/analyses/lambassadeur-kushner-doit-etre-declare-persona-non-grata",
+          "source_title": "L'ambassadeur Kushner doit être déclaré persona non grata",
+          "source_date": "2025-08"
+        }
+      ]
+    },
+    {
+      "topic_id": "defense",
+      "found": true,
+      "positions": [
+        {
+          "position": "Notifier immédiatement la sortie de l'OTAN au Département d'État américain, en application de l'article 13 du traité de l'Atlantique Nord.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Mesure des cent premiers jours (Fréquence populaire, 11 septembre 2026), reprise dans le discours de rentrée.",
+          "source_url": "https://upr.fr/actualites/discours-de-rentree-2026-de-francois-asselineau-la-liberation-nationale",
+          "source_title": "Discours de rentrée 2026 de François Asselineau : la Libération nationale",
+          "source_date": "2026-09-30"
+        },
+        {
+          "position": "Revenir à la doctrine gaullienne d'une dissuasion nucléaire « strictement nationale ». Selon lui, c'est l'équilibre de la terreur nucléaire, et non l'UE, qui a garanti la paix en Europe occidentale.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Il rejette aussi le mythe de « l'Europe puissance » (Radio Courtoisie, janvier 2026) ; voir aussi son entretien sur Omerta du 22 septembre 2026.",
+          "short_quote": "dissuasion strictement nationale",
+          "source_url": "https://upr.fr/medias/francois-asselineau-invite-de-nicolas-stoquer-sur-gp-tv-01-10-2026",
+          "source_title": "François Asselineau invité de Nicolas Stoquer sur GP-TV",
+          "source_date": "2026-10-01"
+        },
+        {
+          "position": "Privilégier une industrie d'armement purement nationale plutôt que les programmes européens intégrés : il voit dans l'échec du SCAF franco-allemand la preuve de leur faillite.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "L'UPR estime que la France a perdu une quinzaine d'années et des centaines de millions d'euros. Elle critique aussi le financement européen d'achats d'armes américains par la Pologne (février 2026).",
+          "source_url": "https://upr.fr/essentiels/mort-officielle-du-scaf-apres-16-ans-de-palabres-et-des-centaines-de-millions-deuros-gaches",
+          "source_title": "Mort officielle du SCAF après 16 ans de palabres et des centaines de millions d'euros gâchés",
+          "source_date": "2026-06-08"
+        },
+        {
+          "position": "Reproche à Emmanuel Macron d'avoir envoyé des moyens militaires en Arabie saoudite sans consulter le Parlement, ce qui violerait l'article 35 de la Constitution.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Propos tenus sur TV Libertés.",
+          "source_url": "https://upr.fr/medias/francois-asselineau-invite-delise-blaise-sur-tvl-26-09-2026",
+          "source_title": "François Asselineau invité d'Élise Blaise sur TVL",
+          "source_date": "2026-09-26"
+        },
+        {
+          "position": "Programme 2022 : porter le budget de la défense à au moins 3 % du PIB sur le quinquennat, et inscrire dans la Constitution le caractère incessible du siège permanent de la France au Conseil de sécurité de l'ONU.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Engagement 26 du programme 2022. Aucune cible budgétaire n'a été trouvée pour 2027, ni de position sur le service national.",
+          "source_url": "https://www.upr.fr/notre-programme/programme-2022",
+          "source_title": "Programme présidentiel 2022 de François Asselineau",
+          "source_date": "2022"
+        }
+      ]
+    }
+  ],
+  "distinctive_vs_others": "Asselineau est le seul candidat déclaré à réclamer en même temps la sortie de l'UE, de l'euro et de l'OTAN, dès la première semaine (article 50 du traité sur l'Union européenne et article 13 du traité de l'Atlantique Nord), sans référendum préalable (https://upr.fr/actualites/discours-de-rentree-2026-de-francois-asselineau-la-liberation-nationale). Florian Philippot défend lui aussi le Frexit, mais Asselineau fait de cette « triple libération » la condition de toutes ses autres mesures et refuse les alliances. Face à Marine Le Pen et au RN, il dénonce une « transition européiste » (https://upr.fr/analyses/le-rn-acheve-sa-transition-europeiste), juge vaine la stratégie consistant à réformer l'UE de l'intérieur (https://upr.fr/analyses/la-defaite-cinglante-dorban-confirme-confirme-limpasse-de-la-strategie-alter-europeiste-de-lextreme-droite-francaise), et lui reproche son abstention sur la loi interdisant les réseaux sociaux aux moins de 15 ans, que lui veut abroger (https://upr.fr/analyses/macron-felicite-le-vietnam-pour-sa-censure-des-reseaux-sociaux). Face à Édouard Philippe, Gabriel Attal, Bruno Retailleau et David Lisnard, il s'oppose à l'aide à l'Ukraine, aux sanctions contre la Russie et à l'élargissement de l'UE ; l'UPR affirme qu'il est le seul candidat opposé à cet élargissement (https://upr.fr/analyses/marta-kos-annonce-nos-fiancailles-avec-quatre-nouveaux-etats-de-lue). Il accuse Philippe, Attal et Glucksmann d'appartenir à des réseaux atlantistes (https://upr.fr/medias/francois-asselineau-invite-de-nicolas-stoquer-sur-gp-tv-12-08-2026). Contrairement à Retailleau, qui parle de tradition « judéo-chrétienne », il propose d'inscrire une « République laïque de tradition chrétienne » dans la Constitution (https://upr.fr/medias/francois-asselineau-invite-delise-blaise-sur-tvl-26-09-2026). Face à Jean-Luc Mélenchon, Fabien Roussel ou Nathalie Arthaud, il partage la hausse du SMIC, les renationalisations et la défense des services publics, mais s'en sépare sur l'immigration (arrêt « le plus possible » des flux, assimilation, référendum), sur la fin de vie (opposition à l'aide à mourir, avec demande de référendum) et sur la Nouvelle-Calédonie (opposition à l'indépendance défendue par Mélenchon) (https://upr.fr/analyses/par-haine-de-la-france-melenchon-meprise-le-vote-des-neo-caledoniens). Il se distingue aussi par des mesures de démocratie et de transparence peu reprises ailleurs : RIC, grands référendums sur l'immigration, la dette et le nucléaire, questionnaire obligatoire pour les candidats sur leur appartenance à des loges maçonniques, liberté d'expression sur le modèle du premier amendement américain. Enfin, il propose de financer la dette par un emprunt réservé aux Français et refuse les suppressions massives de postes de fonctionnaires, contrairement aux candidats de la droite et du centre qui prônent la baisse des effectifs.",
+  "evolutions_and_contradictions": "1) Programme : la page officielle annonce un programme 2027 « en cours d'élaboration ». La plupart des mesures chiffrées (SMIC +24 %, PME -50 % de charges, 30 000 lits, 80 000 logements par an, défense à 3 % du PIB) viennent du programme 2022 et n'ont pas toutes été reconfirmées. 2) Sociétal : la charte de 2007 demande d'écarter les « questions accessoires » qui divisent. Pourtant, en 2025-2026, il prend des positions marquées sur la fin de vie (référendum, texte qualifié de « monstrueux »), la vaccination (critique de l'ARN messager) et l'identité (« République laïque de tradition chrétienne »). C'est un glissement vers des thèmes conservateurs et identitaires. 3) Immigration : longtemps jugée « réservée » sur ce sujet par des observateurs (Le Monde diplomatique cité par Wikipédia), sa ligne s'est durcie : référendum sur le regroupement familial et le droit du sol, 75 % d'expulsions effectives en 2022 ; en 2026, arrêt « le plus possible » des flux et soutien implicite à une rétention allongée. Il continue toutefois de faire du Frexit le préalable à tout, y compris face aux partisans de la « remigration ». 4) Démocratie directe : il promet le RIC et plusieurs grands référendums, mais refuse un référendum préalable sur la sortie de l'UE. Le Label RIC (2021) et Solution démocratique (2026) jugent son RIC flou. 5) Retraites : le communiqué de 2021 refuse la capitalisation comme « dangereuse », alors que le programme 2022 préserve une capitalisation complémentaire facultative. 6) Euro : le programme 2022 parle d'« abandon » de l'euro ; en septembre 2026, il évoque une « négociation » de sortie liée à la dette et une conversion à parité de un pour un. 7) Chiffrages variables : économies du Frexit évaluées à 34 milliards d'euros par an (page ancienne), 27 milliards (2022) ; contribution nette future à l'UE de 18,1 ou 18,5 milliards selon les sources UPR de 2026.",
+  "open_questions": [
+    "Date de publication et contenu du programme présidentiel 2027 (annoncé « en cours d'élaboration » ; la question lui a été posée en direct en septembre 2026).",
+    "Retraites : âge légal visé (62 ans ? autre ?) et position sur la suspension de la réforme de 2023 ; aucune déclaration 2025-2026 trouvée.",
+    "Formulation des « grands référendums » sur l'immigration, la dette et le nucléaire, et sa propre préférence sur le nucléaire (maintien, relance ou réduction).",
+    "Ampleur de la hausse du SMIC pour 2027 (le +24 % de 2022 n'a pas été reconfirmé) et taille de la baisse des cotisations des PME.",
+    "Modalités concrètes de la sortie de l'euro : sort de la dette libellée en euros, protection de l'épargne, rôle de la Banque de France, calendrier.",
+    "Nombre de députés visé et mode de scrutin (proportionnelle partielle ?) pour 2027.",
+    "Proche-Orient : position explicite sur la reconnaissance de l'État de Palestine par la France et sur Gaza (embargo sur les armes, accord UE-Israël).",
+    "Climat et transition écologique : objectifs de réduction des émissions, renouvelables, eau, adaptation ; rien trouvé de récent.",
+    "Droits LGBTQIA+ (PMA, GPA, changement d'état civil) : aucune position trouvée ; la charte écarte les sujets jugés clivants.",
+    "Mémoire de la colonisation et signes religieux à l'école ou dans l'espace public : non abordés dans les sources consultées.",
+    "Défense : cible budgétaire pour 2027 (3 % du PIB en 2022 ?) et position sur le service national.",
+    "Logement, santé, dépendance, assurance chômage : les mesures connues datent de 2022 ; leur actualisation est inconnue.",
+    "Capacité à réunir les 500 parrainages avant le 12 mars 2027 (293 seulement en 2022)."
+  ]
+}

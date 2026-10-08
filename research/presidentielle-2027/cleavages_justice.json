@@ -1,0 +1,454 @@
+{
+  "group": "justice",
+  "cleavages": [
+    {
+      "topic_id": "securite_justice",
+      "importance": "high",
+      "cleavage": "Cannabis : faut-il légaliser l'usage récréatif pour priver les réseaux de leur marché, confier d'abord la question à une convention citoyenne, ou maintenir l'interdiction en ciblant davantage les consommateurs ? Remarques : la position de Jean-Luc Mélenchon vient du programme 2025 de son mouvement (chapitre « Addictions et drogues »). Olivier Faure s'est dit favorable à la légalisation dans Politis le 21/09/2026 ; quelques jours plus tôt, il jugeait seulement que « la question doit être posée », et le projet de son parti renvoie à une convention citoyenne.",
+      "sides": [
+        {
+          "approach": "Légaliser le cannabis récréatif dans un cadre contrôlé par l'État (licences ou monopole public de production et de vente). Les recettes iraient à la prévention. L'effort policier et douanier serait concentré sur les filières.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://www.newsweed.fr/legalisation-cannabis-lfi-probleme-thc/",
+            "https://www.ladepeche.fr/2026/09/20/presidentielle-2027-ce-que-proposent-les-candidats-dans-la-lutte-contre-le-trafic-de-drogue-13554505.php",
+            "https://www.politis.fr/articles/2026/09/olivier-faure-je-ne-vois-pas-ce-qui-pourrait-conduire-vers-une-autre-decision-que-la-censure/",
+            "https://www.newsweed.fr/ps-porter-legalisation-cannabis/"
+          ]
+        },
+        {
+          "approach": "Ne pas trancher d'emblée : confier la politique des drogues, et notamment la légalisation, à une convention citoyenne. Ne plus faire de l'incarcération des consommateurs une priorité.",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://www.ladepeche.fr/2026/09/20/presidentielle-2027-ce-que-proposent-les-candidats-dans-la-lutte-contre-le-trafic-de-drogue-13554505.php"
+          ]
+        },
+        {
+          "approach": "Maintenir l'interdiction et accroître la pression sur les consommateurs, jugés coresponsables du trafic. Cela passe par des amendes réellement recouvrées, des opérations de contrôle dans les lieux festifs et le signalement des agents publics consommateurs à leur employeur. Ces candidats refusent toute légalisation.",
+          "candidates": [
+            "Marine Le Pen",
+            "Édouard Philippe",
+            "Bruno Retailleau",
+            "Fabien Roussel",
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://www.ladepeche.fr/2026/09/20/presidentielle-2027-ce-que-proposent-les-candidats-dans-la-lutte-contre-le-trafic-de-drogue-13554505.php",
+            "https://www.bfmtv.com/politique/elections/presidentielle/etat-d-urgence-sorte-de-fiche-s-financiere-durcissement-des-peines-edouard-philippe-precise-les-contours-de-son-plan-narcotrafic_AD-202605220358.html",
+            "https://www.lopinion.fr/politique/quest-ce-que-letat-durgence-narcotrafic-promis-par-edouard-philippe",
+            "https://www.rtl.fr/actu/politique/il-y-a-du-sang-dans-chaque-barrette-de-shit-sur-rtl-roussel-reclame-le-renfort-de-60-000-agents-de-la-fonction-publique-pour-lutter-contre-le-narcotrafic-7900567769",
+            "https://www.tf1info.fr/politique/il-ne-s-agit-pas-de-stigmatiser-les-festivaliers-david-lisnard-veut-des-operations-antidrogues-durant-le-festival-de-cannes-2437583.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "importance": "high",
+      "cleavage": "Usage des armes par les forces de l'ordre : faut-il présumer légitime le tir d'un policier ou d'un gendarme ? Une proposition de loi en ce sens a été adoptée par l'Assemblée le 7/07/2026 (313 voix contre 199) et attend son examen au Sénat. Remarques : pour les députés, la position est déduite de leur vote (scrutin n°7987). Pour Nathalie Arthaud et Selma Labib, elle vient d'articles publiés par leurs organisations.",
+      "sides": [
+        {
+          "approach": "Instaurer une présomption d'usage légitime de l'arme, qui ne tomberait que devant une preuve contraire. Les agents ne seraient plus traités d'emblée en suspects, ni placés systématiquement en garde à vue.",
+          "candidates": [
+            "Marine Le Pen",
+            "Gabriel Attal",
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://datan.fr/votes/legislature-17/vote_7987",
+            "https://www.lejdd.fr/politique/bruno-retailleau-je-mettrai-fin-a-la-justice-militante-incarnee-par-le-syndicat-de-la-magistrature-179592",
+            "https://www.humanite.fr/societe/assa-traore/loi-permis-de-tuer-comment-une-vieille-revendication-de-jean-marie-le-pen-sest-imposee-en-pire-a-lassemblee"
+          ]
+        },
+        {
+          "approach": "S'opposer à cette présomption et garder un examen au cas par cas de chaque tir. Le texte est jugé inutile ou dangereux : il entraverait les enquêtes et risquerait d'augmenter le nombre de morts.",
+          "candidates": [
+            "Olivier Faure",
+            "Jérôme Guedj",
+            "Emmanuel Maurel",
+            "Ségolène Royal",
+            "Jean-Luc Mélenchon",
+            "Nathalie Arthaud",
+            "Selma Labib",
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://datan.fr/votes/legislature-17/vote_7987",
+            "https://www.bfmtv.com/replay-emissions/le-grand-oral-2027/video-presomption-de-legitime-defense-cette-loi-est-inutile-estime-segolene-royal-candidate-a-la-primaire-socialiste_VN-202609200284.html",
+            "https://www.lanouvellerepublique.fr/a-la-une/plus-de-10-000-personnes-dans-la-rue-contre-la-loi-de-presomption-de-legitime-defense-appelee-permis-de-tuer-par-ses-opposants-1789922609",
+            "https://lutte-ouvriere.org/journal/article/presomption-legitime-defense-droit-tuer-195814.html",
+            "https://npa-revolutionnaires.org/articles/la-loi-permis-de-tuer-pour-les-policiers-et-les-gendarmes-adoptee",
+            "https://www.revolutionpermanente.fr/Il-faut-dissoudre-la-police-municipale-de-Carcassonne-Billet-d-Anasse-Kazib"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "importance": "high",
+      "cleavage": "Maintien de l'ordre et contrôle de la police : faut-il restreindre les armes et méthodes d'intervention et confier le contrôle des policiers à une autorité extérieure, ou renforcer les moyens matériels et juridiques des forces de l'ordre ? Le débat est ravivé par les blessures graves de lycéens en septembre-octobre 2026. Remarque : pour Jean-Luc Mélenchon, la position vient du programme de son mouvement, résumé par la presse.",
+      "sides": [
+        {
+          "approach": "Refonte profonde de la police : interdire les LBD, les grenades de désencerclement et les pistolets à impulsion électrique. Dissoudre les brigades d'intervention spécialisées au profit d'une police de proximité, remplacer les inspections internes par une autorité indépendante et abroger les lois qui ont élargi l'usage des armes. Le plus radical fixe pour horizon une société sans police.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://www.valeursactuelles.com/politique/presidentielle-2027-dissolution-de-la-bac-et-de-ligpn-interdiction-du-lbd-le-programme-choc-de-lfi-pour-reformer-la-police",
+            "https://melenchon.fr/2026/10/03/le-6-octobre-avec-et-en-protection-de-la-jeunesse/",
+            "https://www.franceinfo.fr/societe/education/blocage-des-lycees/entourer-les-manifestations-pour-proteger-jean-luc-melenchon-en-appelle-aux-parents-face-au-dechainement-de-violences-policieres_8221414.html",
+            "https://www.revolutionpermanente.fr/Il-faut-dissoudre-la-police-municipale-de-Carcassonne-Billet-d-Anasse-Kazib"
+          ]
+        },
+        {
+          "approach": "Mieux encadrer sans remettre en cause l'institution : revoir la doctrine et les consignes du maintien de l'ordre, et généraliser les récépissés de contrôle d'identité. Rendre le contrôle des forces de l'ordre plus indépendant et relancer une police de proximité, tout en condamnant aussi les violences contre les policiers.",
+          "candidates": [
+            "Olivier Faure",
+            "Raphaël Glucksmann",
+            "Emmanuel Maurel",
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://www.france24.com/fr/info-en-continu/20260917-olivier-faure-%C3%A0-gauche-toute-pour-la-primaire",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://www.sudouest.fr/politique/education/blocus-des-lycees-edouard-geffray-gabriel-attal-raphael-glucksmann-les-reactions-politiques-se-multiplient-ce-mercredi-matin-30847355.php",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat"
+          ]
+        },
+        {
+          "approach": "Soutenir et réarmer les forces de l'ordre : renforcer leurs moyens matériels et juridiques et sanctionner plus durement les violences contre policiers et gendarmes, par exemple avec des peines minimales. Ces candidats imputent les débordements aux manifestants et à ceux qui les encouragent.",
+          "candidates": [
+            "Marine Le Pen",
+            "Bruno Retailleau",
+            "Gabriel Attal",
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://rmc.bfmtv.com/actualites/politique/david-lisnard-veut-plus-de-policiers-sur-le-terrain-moins-dans-les-bureaux_AV-202610010610.html",
+            "https://www.europe1.fr/politique/objectif-elysee-2027-sil-est-elu-bruno-retailleau-souhaite-instaurer-des-peines-minimales-1064336",
+            "https://www.sudouest.fr/politique/education/blocus-des-lycees-edouard-geffray-gabriel-attal-raphael-glucksmann-les-reactions-politiques-se-multiplient-ce-mercredi-matin-30847355.php",
+            "https://www.unenouvelleenergie.fr/menaces-contre-le-maire-dales-david-lisnard-appelle-a-une-reponse-penale-a-la-hauteur-du-narcotrafic/",
+            "https://datan.fr/votes/legislature-17/vote_7987"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "importance": "high",
+      "cleavage": "Narcotrafic : faut-il un régime d'exception inspiré de l'antiterrorisme, ou bien renforcer les moyens d'enquête du droit commun, la traque financière et la présence policière ? Le régime d'exception prévoit un état d'urgence localisé, le bouclage de quartiers et la reconnaissance faciale.",
+      "sides": [
+        {
+          "approach": "Créer un « état d'urgence » contre le narcotrafic, limité dans le temps et l'espace et placé sous contrôle du juge. Il ouvrirait la voie à des perquisitions administratives et à la reconnaissance faciale, et prévoit selon les cas le bouclage 24 h sur 24 de 50 à 60 quartiers (avec coupure des télécommunications) et une détention provisoire allongée. Le régime pénal des grands trafiquants serait aligné sur celui des terroristes, au besoin par une révision constitutionnelle.",
+          "candidates": [
+            "Édouard Philippe",
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://www.bfmtv.com/politique/elections/presidentielle/etat-d-urgence-sorte-de-fiche-s-financiere-durcissement-des-peines-edouard-philippe-precise-les-contours-de-son-plan-narcotrafic_AD-202605220358.html",
+            "https://www.lopinion.fr/politique/quest-ce-que-letat-durgence-narcotrafic-promis-par-edouard-philippe",
+            "https://www.midilibre.fr/2026/09/07/reprendre-le-controle-edouard-philippe-a-ales-pour-soutenir-christophe-rivenq-et-detailler-ses-propositions-face-au-narcotrafic-13539740.php",
+            "https://www.bfmtv.com/politique/les-republicains/une-menace-pour-notre-etat-bruno-retailleau-presente-son-plan-d-urgence-anti-trafics-pour-la-presidentielle-2027_AD-202604230520.html"
+          ]
+        },
+        {
+          "approach": "Renforcer le droit commun sans régime d'exception. Cela suppose beaucoup plus d'enquêteurs, de douaniers et une police judiciaire spécialisée (jusqu'à 60 000 agents supplémentaires chez l'un), la lutte contre le blanchiment et la coopération européenne. S'y ajoutent une police de proximité et la rénovation des quartiers touchés.",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Bernard Cazeneuve",
+            "Fabien Roussel",
+            "Jean-Luc Mélenchon",
+            "Karim Bouamrane"
+          ],
+          "evidence_urls": [
+            "https://www.ladepeche.fr/2026/09/20/presidentielle-2027-ce-que-proposent-les-candidats-dans-la-lutte-contre-le-trafic-de-drogue-13554505.php",
+            "https://www.destimed.fr/grand-entretien-bernard-cazeneuve-la-seule-urgence-aujourdhui-est-dempecher-la-victoire-du-rassemblement-national/",
+            "https://www.sudouest.fr/politique/narcotrafic-fabien-roussel-veut-60-000-policiers-et-douaniers-de-plus-pour-mener-un-combat-sans-merci-26830291.php",
+            "https://www.lopinion.fr/politique/karim-bouamrane-leradication-des-points-de-deal-ne-sert-a-rien-si-elle-ne-va-pas-de-pair-avec-une-rehabilitation-des-quartiers"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "importance": "high",
+      "cleavage": "Peines et prisons : faut-il imposer des peines minimales et construire massivement des places de prison, durcir surtout l'exécution des peines, ou faire de la prison un dernier recours face à une surpopulation record (environ 90 000 détenus) ? Remarque : Marine Le Pen a soutenu des mesures du même ordre, mais les propositions chiffrées de cette ligne (peines minimales, places de prison) ont été formulées par Jordan Bardella.",
+      "sides": [
+        {
+          "approach": "Instaurer des peines minimales obligatoires, en particulier pour les agresseurs de policiers, de gendarmes ou de pompiers et pour les trafiquants récidivistes. Supprimer les remises de peine pour les crimes les plus graves et augmenter fortement les places de prison (30 000 de plus chez l'un). Pour ces candidats, la protection de la société doit primer sur la réinsertion.",
+          "candidates": [
+            "Bruno Retailleau",
+            "Marine Le Pen",
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://www.europe1.fr/politique/objectif-elysee-2027-sil-est-elu-bruno-retailleau-souhaite-instaurer-des-peines-minimales-1064336",
+            "https://www.bfmtv.com/politique/elections/presidentielle/mort-de-lyhanna-peines-minimales-loi-integrale-les-propositions-des-presidentiables-pour-lutter-contre-les-violences-sexuelles_AD-202606130201.html",
+            "https://lcp.fr/actualites/affaire-lyhanna-marine-le-pen-denonce-une-longue-derive-dans-le-fonctionnement-de-la",
+            "https://www.ladepeche.fr/2026/09/20/presidentielle-2027-ce-que-proposent-les-candidats-dans-la-lutte-contre-le-trafic-de-drogue-13554505.php",
+            "https://www.unenouvelleenergie.fr/menaces-contre-le-maire-dales-david-lisnard-appelle-a-une-reponse-penale-a-la-hauteur-du-narcotrafic/"
+          ]
+        },
+        {
+          "approach": "Alourdir certaines peines et rendre leur exécution plus rapide et plus certaine, notamment en supprimant le juge d'application des peines. Recruter massivement dans la justice (3 000 magistrats et greffiers chez l'un).",
+          "candidates": [
+            "Gabriel Attal",
+            "Édouard Philippe"
+          ],
+          "evidence_urls": [
+            "https://www.bfmtv.com/politique/elections/presidentielle/mort-de-lyhanna-peines-minimales-loi-integrale-les-propositions-des-presidentiables-pour-lutter-contre-les-violences-sexuelles_AD-202606130201.html",
+            "https://www.france24.com/fr/info-en-continu/20260613-lyhanna-les-propositions-des-pr%C3%A9sidentiables"
+          ]
+        },
+        {
+          "approach": "La prison ne doit pas être la réponse par défaut : réduire le recours aux comparutions immédiates, développer les travaux d'intérêt général et la justice restaurative. Il s'agit aussi d'adapter les peines pour résorber la surpopulation carcérale, jugée génératrice de récidive, tout en exigeant que les peines prononcées soient exécutées.",
+          "candidates": [
+            "Bernard Cazeneuve",
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://www.revuepolitique.fr/tenir-la-promesse-de-la-france-bernard-cazeneuve/",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "importance": "medium",
+      "cleavage": "Justice des mineurs : faut-il la durcir (majorité pénale abaissée, courtes peines dès le premier délit grave, comparution immédiate, détention provisoire allongée) ou privilégier l'éducation et la prévention ?",
+      "sides": [
+        {
+          "approach": "Durcir la réponse pénale aux mineurs. Les propositions vont d'une majorité pénale abaissée à 15 ans avec de courtes peines (environ 15 jours) dès le premier délit grave, à la fin de l'atténuation automatique des peines pour les 16-18 ans récidivistes. Elles incluent aussi la comparution immédiate, une détention provisoire portée à un an et des lieux d'enfermement spécifiques pour mineurs.",
+          "candidates": [
+            "Bruno Retailleau",
+            "Gabriel Attal",
+            "David Lisnard",
+            "Édouard Philippe"
+          ],
+          "evidence_urls": [
+            "https://www.europe1.fr/politique/en-direct-droit-du-sol-immigration-ecole-ce-quil-faut-retenir-de-lentretien-de-bruno-retailleau-dans-objectif-elysee-2027-1064093",
+            "https://www.rtl.fr/actu/politique/la-fete-ne-peut-pas-etre-la-casse-gabriel-attal-appelle-sur-rtl-a-durcir-la-justice-des-mineurs-apres-les-violences-qui-ont-suivi-le-sacre-du-psg-7900641599",
+            "https://www.unenouvelleenergie.fr/menaces-contre-le-maire-dales-david-lisnard-appelle-a-une-reponse-penale-a-la-hauteur-du-narcotrafic/",
+            "https://www.ladepeche.fr/2026/09/20/presidentielle-2027-ce-que-proposent-les-candidats-dans-la-lutte-contre-le-trafic-de-drogue-13554505.php"
+          ]
+        },
+        {
+          "approach": "Donner la priorité à l'éducation, à la prévention et à l'insertion (formation, « seconde chance »). Ces candidats jugent que l'entassement des jeunes en détention fabrique de la récidive.",
+          "candidates": [
+            "Bernard Cazeneuve",
+            "Ségolène Royal"
+          ],
+          "evidence_urls": [
+            "https://www.revuepolitique.fr/tenir-la-promesse-de-la-france-bernard-cazeneuve/",
+            "https://www.lefigaro.fr/automobile/rodeos-urbains-segolene-royal-preconise-de-sortir-les-jeunes-des-quartiers-et-de-les-former-a-la-mecanique-20260612"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "importance": "medium",
+      "cleavage": "Après l'affaire Lyhanna (juin 2026), comment répondre aux crimes sexuels sur enfants : par des sanctions maximales (jusqu'à un référendum sur la peine de mort) ou d'abord par des moyens d'enquête et une loi globale (« loi intégrale ») ? Remarque : pour Marine Le Pen, la position vient de son parti, qui défend la perpétuité réelle et dit ne pas proposer la peine de mort, tout en annonçant qu'il respecterait le résultat d'un référendum d'initiative citoyenne. Les votes datent du scrutin n°8429 du 21/07/2026, qui rétablit la perpétuité pour les viols en série sur mineurs.",
+      "sides": [
+        {
+          "approach": "Rouvrir par référendum le débat sur le rétablissement de la peine de mort pour les crimes contre les enfants.",
+          "candidates": [
+            "Nicolas Dupont-Aignan"
+          ],
+          "evidence_urls": [
+            "https://www.europe1.fr/politique/affaire-lyhanna-il-faut-rouvrir-le-debat-par-un-referendum-sur-la-peine-de-mort-pour-les-crimes-sur-les-enfants-estime-nicolas-dupont-aignan-951662",
+            "https://www.cnews.fr/videos/france/2026-07-20/honteux-les-reactions-politiques-saccumulent-apres-le-rejet-de-la"
+          ]
+        },
+        {
+          "approach": "Alourdir les peines maximales sans peine de mort : perpétuité, voire perpétuité réelle, pour les criminels sexuels sur mineurs. Les propositions incluent une castration chimique obligatoire pour les plus dangereux et un traitement des pédocriminels aligné sur celui des terroristes.",
+          "candidates": [
+            "Marine Le Pen",
+            "Bruno Retailleau",
+            "Gabriel Attal"
+          ],
+          "evidence_urls": [
+            "https://www.publicsenat.fr/actualites/politique/affaire-lyhanna-que-proposent-les-partis-face-aux-dysfonctionnements-de-la-justice",
+            "https://www.franceinfo.fr/faits-divers/affaire-lyhanna-si-la-peine-de-mort-sort-d-un-referendum-nous-respecterons-la-volonte-populaire-indique-le-rn-laurent-jacobelli_8060987.html",
+            "https://www.bfmtv.com/politique/mort-de-lyhanna-bruno-retailleau-veut-une-castration-chimique-obligatoire-pour-les-pedocriminels-la-gauche-juge-la-mesure-inefficace-seule_AV-202606100929.html",
+            "https://www.lejdd.fr/politique/gabriel-attal-souhaite-aligner-le-traitement-des-pedocriminels-sur-celui-des-terroristes-176274",
+            "https://datan.fr/votes/legislature-17/vote_8429"
+          ]
+        },
+        {
+          "approach": "Donner la priorité aux moyens et à l'organisation : magistrats et enquêteurs supplémentaires (y compris le rappel de magistrats retraités volontaires), juridictions spécialisées, « loi intégrale » et suivi des auteurs (bracelet). L'alourdissement des peines est jugé peu efficace.",
+          "candidates": [
+            "Olivier Faure",
+            "Jean-Luc Mélenchon",
+            "Bernard Cazeneuve"
+          ],
+          "evidence_urls": [
+            "https://www.bfmtv.com/politique/mort-de-lyhanna-bruno-retailleau-veut-une-castration-chimique-obligatoire-pour-les-pedocriminels-la-gauche-juge-la-mesure-inefficace-seule_AV-202606100929.html",
+            "https://www.bfmtv.com/politique/elections/presidentielle/mort-de-lyhanna-peines-minimales-loi-integrale-les-propositions-des-presidentiables-pour-lutter-contre-les-violences-sexuelles_AD-202606130201.html",
+            "https://www.france24.com/fr/info-en-continu/20260613-lyhanna-les-propositions-des-pr%C3%A9sidentiables"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "importance": "medium",
+      "cleavage": "Statut des magistrats : faut-il renforcer leur encadrement politique et disciplinaire (instructions du ministre aux procureurs, discipline ouverte à des citoyens, fin du syndicalisme judiciaire) ou consolider l'indépendance de la justice ?",
+      "sides": [
+        {
+          "approach": "Renforcer l'encadrement des magistrats. Les propositions vont d'une cour disciplinaire comprenant des citoyens tirés au sort, qui remplacerait en partie le Conseil supérieur de la magistrature, au remplacement des syndicats par des associations professionnelles après révision constitutionnelle, voire à l'interdiction d'un syndicat. Elles prévoient aussi de rétablir les instructions individuelles du ministre aux procureurs.",
+          "candidates": [
+            "Bruno Retailleau",
+            "David Lisnard",
+            "Édouard Philippe"
+          ],
+          "evidence_urls": [
+            "https://www.lejdd.fr/politique/bruno-retailleau-je-mettrai-fin-a-la-justice-militante-incarnee-par-le-syndicat-de-la-magistrature-179592",
+            "https://www.publicsenat.fr/actualites/politique/affaire-lyhanna-que-proposent-les-partis-face-aux-dysfonctionnements-de-la-justice",
+            "https://www.bfmtv.com/politique/horizons/affaire-lyhanna-edouard-philippe-affirme-que-le-ministre-de-la-justice-devrait-pouvoir-donner-des-instructions-individuelles-aux-procureurs_AD-202606130331.html"
+          ]
+        },
+        {
+          "approach": "Garantir une indépendance de la justice « sans arrière-pensée » et protéger les magistrats contre les intimidations. Ce camp attribue d'abord les dysfonctionnements au manque de moyens plutôt qu'aux magistrats.",
+          "candidates": [
+            "Bernard Cazeneuve"
+          ],
+          "evidence_urls": [
+            "https://www.revuepolitique.fr/tenir-la-promesse-de-la-france-bernard-cazeneuve/",
+            "https://www.destimed.fr/grand-entretien-bernard-cazeneuve-la-seule-urgence-aujourdhui-est-dempecher-la-victoire-du-rassemblement-national/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "importance": "medium",
+      "cleavage": "Polices municipales et surveillance : faut-il étendre et armer les polices municipales et généraliser la vidéoprotection, jusqu'à la reconnaissance faciale ciblée, ou limiter leur armement et interdire la reconnaissance faciale ? Remarque : pour Jean-Luc Mélenchon, la position vient du programme de son mouvement et de la pratique de ses maires.",
+      "sides": [
+        {
+          "approach": "Étendre les dispositifs de sécurité locale : polices municipales nombreuses et armées, caméras généralisées, y compris dans les écoles, crèches et Ehpad. L'un y ajoute une reconnaissance faciale ciblée dans des zones et pour une durée limitées.",
+          "candidates": [
+            "David Lisnard",
+            "Karim Bouamrane",
+            "Fabien Roussel",
+            "Ségolène Royal",
+            "Édouard Philippe"
+          ],
+          "evidence_urls": [
+            "https://rmc.bfmtv.com/actualites/politique/david-lisnard-veut-plus-de-policiers-sur-le-terrain-moins-dans-les-bureaux_AV-202610010610.html",
+            "https://lcp.fr/actualites/presidentielle-2027-qui-est-karim-bouamrane-le-maire-socialiste-de-saint-ouen-et-nouveau",
+            "https://www.rtl.fr/actu/politique/il-y-a-du-sang-dans-chaque-barrette-de-shit-sur-rtl-roussel-reclame-le-renfort-de-60-000-agents-de-la-fonction-publique-pour-lutter-contre-le-narcotrafic-7900567769",
+            "https://actu.orange.fr/politique/violences-dans-le-periscolaire-segolene-royal-veut-installer-des-cameras-partout-dans-les-ecoles-magic-CNT000002rFJA5.html",
+            "https://www.lopinion.fr/politique/quest-ce-que-letat-durgence-narcotrafic-promis-par-edouard-philippe"
+          ]
+        },
+        {
+          "approach": "Refuser tout armement létal supplémentaire des policiers municipaux, privilégier la médiation et la présence humaine, et interdire la reconnaissance faciale dans l'espace public. Le plus radical réclame la dissolution d'une police municipale.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://www.valeursactuelles.com/politique/presidentielle-2027-dissolution-de-la-bac-et-de-ligpn-interdiction-du-lbd-le-programme-choc-de-lfi-pour-reformer-la-police",
+            "https://www.revolutionpermanente.fr/Il-faut-dissoudre-la-police-municipale-de-Carcassonne-Billet-d-Anasse-Kazib"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "importance": "medium",
+      "cleavage": "Votes de juillet 2026 sur deux textes : la loi « Ripost » (ordre public : délit d'inhalation de protoxyde d'azote, peines alourdies pour les rodéos et les free parties) et la loi « justice criminelle et respect des victimes ». Positions déduites des votes des candidats députés (scrutins n°8433 et n°7980). Remarque : Delphine Batho a voté contre la loi Ripost, mais elle avait été la seule députée écologiste à voter la loi contre le narcotrafic de 2025.",
+      "sides": [
+        {
+          "approach": "Voter pour ces textes, présentés comme un « choc d'autorité » et un moyen d'accélérer la justice.",
+          "candidates": [
+            "Gabriel Attal",
+            "Marine Le Pen",
+            "Olivier Becht"
+          ],
+          "evidence_urls": [
+            "https://datan.fr/votes/legislature-17/vote_8433",
+            "https://datan.fr/votes/legislature-17/vote_7980",
+            "https://www.ladepeche.fr/2026/07/22/loi-ripost-le-parlement-adopte-le-texte-porte-par-le-ministre-de-linterieur-laurent-nunez-qui-durcit-les-regles-sur-le-protoxyde-dazote-les-free-13478959.php"
+          ]
+        },
+        {
+          "approach": "Voter contre ces textes, jugés expéditifs, attentatoires aux libertés ou inefficaces sans moyens supplémentaires.",
+          "candidates": [
+            "Olivier Faure",
+            "Jérôme Guedj",
+            "Emmanuel Maurel",
+            "Delphine Batho"
+          ],
+          "evidence_urls": [
+            "https://datan.fr/votes/legislature-17/vote_8433",
+            "https://datan.fr/votes/legislature-17/vote_7980",
+            "https://datan.fr/deputes/deux-sevres-79/depute_delphine-batho/votes",
+            "https://www.timefrance.fr/politique/les-visages-des-presidentielles-2027-delphine-batho-lecologiste-inclassable/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "importance": "low",
+      "cleavage": "Place de la police dans la société : faut-il renforcer et redéployer les effectifs, ou considérer la police comme une institution à désarmer puis à faire disparaître ?",
+      "sides": [
+        {
+          "approach": "Renforcer et redéployer les effectifs : jusqu'à 60 000 policiers, gendarmes et douaniers de plus chez l'un, la moitié des forces sur la voie publique chez un autre. Une police de proximité dotée d'effectifs dédiés et formés.",
+          "candidates": [
+            "Fabien Roussel",
+            "David Lisnard",
+            "Bernard Cazeneuve"
+          ],
+          "evidence_urls": [
+            "https://www.sudouest.fr/politique/narcotrafic-fabien-roussel-veut-60-000-policiers-et-douaniers-de-plus-pour-mener-un-combat-sans-merci-26830291.php",
+            "https://rmc.bfmtv.com/actualites/politique/david-lisnard-veut-plus-de-policiers-sur-le-terrain-moins-dans-les-bureaux_AV-202610010610.html",
+            "https://www.revuepolitique.fr/tenir-la-promesse-de-la-france-bernard-cazeneuve/"
+          ]
+        },
+        {
+          "approach": "Voir la police comme une institution au service de l'ordre social existant. Il s'agirait de la désarmer, de dissoudre ses unités spéciales et, à terme, de construire une société sans police.",
+          "candidates": [
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://www.revolutionpermanente.fr/Il-faut-dissoudre-la-police-municipale-de-Carcassonne-Billet-d-Anasse-Kazib"
+          ]
+        }
+      ]
+    }
+  ],
+  "consensus_points": [
+    {
+      "topic_id": "securite_justice",
+      "point": "Augmenter les moyens de la justice (recrutement de magistrats, de greffiers et d'enquêteurs) est réclamé de la gauche à la droite, y compris par ceux qui insistent surtout sur la sévérité des peines. Ce sujet distingue peu les candidats.",
+      "url": "https://www.bfmtv.com/politique/elections/presidentielle/mort-de-lyhanna-peines-minimales-loi-integrale-les-propositions-des-presidentiables-pour-lutter-contre-les-violences-sexuelles_AD-202606130201.html"
+    },
+    {
+      "topic_id": "securite_justice",
+      "point": "Frapper les réseaux de narcotrafic au portefeuille (saisie des avoirs, lutte contre le blanchiment, suivi des flux financiers) et renforcer police judiciaire et douanes : ces mesures figurent dans presque tous les projets, quelle que soit la position sur le cannabis.",
+      "url": "https://www.ladepeche.fr/2026/09/20/presidentielle-2027-ce-que-proposent-les-candidats-dans-la-lutte-contre-le-trafic-de-drogue-13554505.php"
+    },
+    {
+      "topic_id": "securite_justice",
+      "point": "Remettre davantage de policiers sur le terrain plutôt que dans les tâches administratives fait largement consensus, à l'exception des candidats qui contestent l'institution policière elle-même.",
+      "url": "https://rmc.bfmtv.com/actualites/politique/david-lisnard-veut-plus-de-policiers-sur-le-terrain-moins-dans-les-bureaux_AV-202610010610.html"
+    },
+    {
+      "topic_id": "securite_justice",
+      "point": "Tous les candidats ont affiché leur solidarité avec les maires menacés par les trafiquants, comme celui d'Alès, exfiltré par le RAID en juillet 2026. Les désaccords portent sur les outils juridiques à adopter, pas sur ce soutien.",
+      "url": "https://www.unenouvelleenergie.fr/menaces-contre-le-maire-dales-david-lisnard-appelle-a-une-reponse-penale-a-la-hauteur-du-narcotrafic/"
+    }
+  ]
+}

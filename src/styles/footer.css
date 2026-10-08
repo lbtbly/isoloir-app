@@ -45,6 +45,11 @@
   max-width: var(--measure);
 }
 
+/* Une adresse affichée en entier (« www.conseil-constitutionnel.fr ») passe à la ligne plutôt que de déborder */
+.site-foot-text a {
+  overflow-wrap: anywhere;
+}
+
 .site-foot-text p {
   margin: 0;
 }

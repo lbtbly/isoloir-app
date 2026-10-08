@@ -3,6 +3,8 @@
 // logo de public/brand recadré sur sa boîte serrée (core/brand.ts). Rien n'est chargé du réseau.
 // L'essentiel (logo, accroche, promesse) tient dans le carré central de 630 px, que WhatsApp ou Signal
 // découpent pour leurs vignettes compactes ; les côtés portent les bâtons et le rideau de la marque.
+// La promesse nomme l'élection par défaut du registre (src/elections/index.ts) : à refaire quand elle change, avec
+// la description de l'image dans index.html (vite.config.ts, shareMeta), qui en reprend le texte.
 // Usage : node tools/build-og.mjs [sortie.png]   (par défaut public/og.png, 1200 × 630)
 import { chromium } from 'playwright-core'
 import { readFileSync, statSync } from 'node:fs'
@@ -11,6 +13,13 @@ import { DRAPE_ORDER, LOGO, drapeColors, viewBoxOf } from '../src/core/brand.ts'
 
 const W = 1200
 const H = 630
+
+// L'élection par défaut : l'entrée du registre dont « slug: '' » suit « id » (comme vite.config.ts), puis ses
+// informations (election.ts n'importe que des types : Node l'exécute tel quel)
+const registry = readFileSync(new URL('../src/elections/index.ts', import.meta.url), 'utf8')
+const defaults = [...registry.matchAll(/\bid: '([a-z0-9-]+)',\s*slug: '([^']*)'/g)].filter(m => m[2] === '').map(m => m[1])
+if (defaults.length !== 1) throw new Error(`src/elections/index.ts : ${defaults.length} élection(s) par défaut trouvée(s), une attendue`)
+const { election } = await import(new URL(`../src/elections/${defaults[0]}/election.ts`, import.meta.url).href)
 const out = process.argv[2] ?? fileURLToPath(new URL('../public/og.png', import.meta.url))
 
 // Couleurs du site (tokens.css) : papier, noir d'imprimerie, et les tons de la réglette
@@ -154,7 +163,7 @@ h1 {
     ${logo}
     <div class="rules"></div>
     <h1>Pointez les<br /><span class="mark">idées<svg viewBox="0 0 120 58" aria-hidden="true"><path d="${TITLE_LOOP}" /></svg></span> qui vous<br />ressemblent.</h1>
-    <p class="promise">${fr('Primaire « Choisir 2027 » : des idées sans le nom des candidats.')} <strong>Vos réponses restent chez vous.</strong></p>
+    <p class="promise">${fr(`${election.name} : des idées sans le nom des candidats.`)} <strong>Vos réponses restent chez vous.</strong></p>
   </div>
   <div class="right" aria-hidden="true">${drape}</div>
 </div>

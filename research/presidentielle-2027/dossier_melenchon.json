@@ -1,0 +1,1292 @@
+{
+  "candidate": "Jean-Luc Mélenchon",
+  "affiliation": "La France insoumise (LFI) ; soutiens déclarés : Parti de gauche, NPA-L'Anticapitaliste, Les Verts populaires, REV, PEPS (selon Wikipédia, liste des candidatures 2027)",
+  "campaign_site": "https://melenchon2027.fr/",
+  "declaration": {
+    "date": "2026-05-03",
+    "form": "Annonce au journal de 20 h de TF1 (« Oui, je suis candidat »), après la proposition de son nom le matin même par l'intergroupe des parlementaires et maires insoumis ; validation par plus de 150 000 parrainages citoyens en moins de 24 h ; « Lettre au peuple de France » publiée le 5 mai 2026 ; meeting de lancement de campagne à Saint-Denis le 7 juin 2026.",
+    "source_title": "Jean-Luc Mélenchon officiellement candidat à la présidentielle 2027, sa quatrième tentative (Le HuffPost)",
+    "source_url": "https://www.huffingtonpost.fr/politique/article/jean-luc-melenchon-officiellement-candidat-a-la-presidentielle-2027-sa-quatrieme-tentative_263337.html"
+  },
+  "overview": "Jean-Luc Mélenchon, 74 ans, fondateur de La France insoumise, est candidat pour la quatrième fois après 2012 (11,10 %), 2017 (19,58 %) et 2022 (21,95 %). Il a refusé de participer à la primaire de la gauche et fait campagne seul sur le programme « L'Avenir en commun » : la version 2025 sert de base, une nouvelle édition est annoncée pour le 6 novembre 2026. Il propose une rupture institutionnelle avec une Assemblée constituante pour une 6e République, le référendum d'initiative citoyenne et un référendum révocatoire pour tous les élus. Sur le plan économique et social, il défend la retraite à 60 ans, un Smic à 1 700 € (annoncé en juin 2026), un « état d'urgence sociale » qui bloquerait les prix, les marges et les loyers, une fiscalité beaucoup plus progressive (14 tranches, ISF climatique, taxe Zucman) et la « congélation » de la dette publique détenue par la BCE. Son volet écologique est une planification qui vise 100 % d'énergies renouvelables en 2050 et la sortie du nucléaire, avec des renationalisations (EDF, SNCF, autoroutes). En politique étrangère, il prône le non-alignement, la sortie de l'OTAN, des sanctions contre le gouvernement israélien et un cessez-le-feu négocié en Ukraine ; il refuse l'« économie de guerre ». Face à l'Union européenne, il prévoit de renégocier les traités et de désobéir aux règles qui bloquent son programme, sans proposer de sortie de l'UE dans les sources consultées. Il présente le Rassemblement national comme son « adversaire principal ».",
+  "topics": [
+    {
+      "topic_id": "institutions",
+      "found": true,
+      "positions": [
+        {
+          "position": "Passer à une 6e République par une Assemblée constituante, convoquée par un référendum (article 11). Ce référendum fixerait aussi le mode de désignation des constituants : mode de scrutin, parité, tirage au sort, incompatibilités. Le projet de Constitution serait ensuite soumis à référendum.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Aucun parlementaire des anciennes assemblées ne pourrait siéger à la Constituante, et ses délégués ne pourraient pas se présenter aux élections suivantes. Le projet serait soumis à référendum après deux ans de travaux ; en cas de « non », la Constituante reprendrait ses travaux.",
+          "short_quote": "Convoquer une Constituante pour passer à la 6e République",
+          "source_url": "https://web.archive.org/web/20260504144538/https://melenchon2027.fr/programme2025/livre/chapitre1/s1/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Réunir une Assemblée constituante pour passer à la 6e République",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Instaurer un régime parlementaire stable : Assemblée nationale élue à la proportionnelle (par une simple loi), suppression des « votes forcés » comme l'article 49.3, gouvernement réellement responsable devant le Parlement.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "La proportionnelle passerait par la loi ; la suppression du 49.3 relèverait de la Constituante. Le programme met en avant le recours au 49.3 « 24 fois depuis 2022 ».",
+          "source_url": "https://web.archive.org/web/20260503200420/https://melenchon2027.fr/programme2025/livre/chapitre1/s2/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Abolir la monarchie présidentielle",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Créer un référendum d'initiative citoyenne (RIC) qui permettrait de révoquer des élus, de proposer ou d'abroger une loi et de modifier la Constitution. Accorder le droit de vote à 16 ans. Rendre le référendum obligatoire pour toute révision de la Constitution et pour tout nouveau traité européen.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Autres mesures : reconnaissance du vote blanc, vote obligatoire et seuil minimal de suffrages exprimés pour valider une élection ; parrainages citoyens possibles à la place des 500 signatures d'élus ; non-cumul des mandats, y compris dans le temps ; loi d'amnistie pour les syndicalistes, les Gilets jaunes et d'autres militants condamnés ; statut de l'article 74 pour la Corse.",
+          "source_url": "https://web.archive.org/web/20260503192349/https://melenchon2027.fr/programme2025/livre/faire-la-revolution-citoyenne/chapitre1-3/s4/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Une République permettant l'intervention populaire",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Discours de lancement de campagne : la « souveraineté permanente du peuple » serait le principe central de la 6e République. Elle passerait par le référendum citoyen, y compris un référendum révocatoire qui vaudrait du conseiller municipal jusqu'au président de la République. La commune et ses conseils de quartier deviendraient la base de la démocratie.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Il annonce aussi une « nouvelle structure fédératrice de la nation » et des régions entièrement redécoupées autour des bassins versants des fleuves.",
+          "short_quote": "En avant vers la sixième République.",
+          "source_url": "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/",
+          "source_title": "Le discours de Jean-Luc Mélenchon à Saint-Denis pour ouvrir la campagne présidentielle des insoumis",
+          "source_date": "2026-06-07"
+        },
+        {
+          "position": "Après la démission du gouvernement Lecornu en octobre 2025, LFI a demandé la destitution d'Emmanuel Macron et réclamé son départ, au nom du rejet de la « monarchie présidentielle ».",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Information tirée du titre d'une publication de son blog (vidéo). La lettre du 5 mai 2026 reproche aussi au président d'avoir nié le résultat des législatives de 2024.",
+          "source_url": "https://melenchon.fr/2025/10/06/demission-de-lecornu-lfi-demande-la-destitution-de-macron/",
+          "source_title": "Démission de Lecornu : LFI demande la destitution de Macron (melenchon.fr)",
+          "source_date": "2025-10-06"
+        }
+      ]
+    },
+    {
+      "topic_id": "laicite_republique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Appliquer strictement la loi de 1905. Selon le programme, la laïcité ne doit jamais servir à montrer du doigt les croyants d'une religion, comme cela a été fait récemment contre les musulmans. Il propose d'abroger le concordat d'Alsace-Moselle et les statuts particuliers des cultes en outre-mer, et de refuser tout financement public des édifices religieux, des activités cultuelles et des établissements confessionnels.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Autres mesures : interdire aux élus, ministres et préfets d'assister ès qualités à des cérémonies religieuses ; refuser au président le titre de chanoine de Latran ; garantir une école publique laïque dans chaque commune ; renforcer la Miviludes ; « combattre tous les communautarismes ».",
+          "short_quote": "La laïcité interdit l’ingérence des religions dans les affaires publiques.",
+          "source_url": "https://web.archive.org/web/20260503193416/https://melenchon2027.fr/programme2025/livre/faire-la-revolution-citoyenne/chapitre1-3/s5/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Une République laïque",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Abroger la loi dite contre le « séparatisme » et le contrat d'engagement républicain. Lancer un plan interministériel contre l'islamophobie et l'antisémitisme et renforcer la protection des mosquées et des synagogues.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le même chapitre prévoit le récépissé de contrôle d'identité et l'expérimentation des dossiers anonymes.",
+          "source_url": "https://web.archive.org/web/20260504184814/https://melenchon2027.fr/programme2025/livre/chapitre10/s2/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Une République universaliste contre le racisme et les discriminations",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Mémoire de la colonisation et de l'esclavage : reconnaître le massacre du 17 octobre 1961 comme un crime d'État, avec une journée nationale ; ouvrir les archives des guerres de décolonisation ; accepter de discuter les demandes de restitution de biens culturels issus de la colonisation ; faire du 4 février un jour férié en mémoire des victimes de l'esclavage.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le programme prévoit aussi d'enseigner l'histoire des outre-mer dans les programmes nationaux.",
+          "source_url": "https://web.archive.org/web/20260504184814/https://melenchon2027.fr/programme2025/livre/chapitre10/s2/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Une République universaliste contre le racisme et les discriminations",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Opposition à l'interdiction du voile dans l'espace public, assortie d'une amende, que propose le RN. Il y voit des « obsessions sexistes et islamophobes » destinées à diviser le peuple.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Réaction sur X rapportée par L'Insoumission (média de LFI) après l'annonce du RN, le 30 août 2026.",
+          "source_url": "https://linsoumission.fr/2026/08/31/rn-voile-amende-presidentielle/",
+          "source_title": "L'Insoumission – Le RN veut verbaliser le port du voile (réaction de J.-L. Mélenchon)",
+          "source_date": "2026-08-31"
+        },
+        {
+          "position": "Il dénonce une « islamophobie diffusée à jet continu » qui porterait atteinte à la liberté de conscience, et réfute les accusations de communautarisme contre son concept de « nouvelle France » et de créolisation.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/",
+          "source_title": "Discours de Saint-Denis (lancement de campagne)",
+          "source_date": "2026-06-07"
+        }
+      ]
+    },
+    {
+      "topic_id": "fiscalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Rendre l'impôt sur le revenu plus progressif avec 14 tranches (contre 5 aujourd'hui), et faire de même pour la CSG. Supprimer la flat tax pour imposer les revenus du capital comme ceux du travail. Rétablir l'exit tax et créer une taxe permanente sur les superprofits dans tous les secteurs.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Autres mesures : réduire et transformer les niches fiscales (réductions d'impôt converties en crédits d'impôt) ; créer un impôt universel pour lutter contre l'exil fiscal ; supprimer la convention judiciaire d'intérêt public en matière de fraude fiscale.",
+          "source_url": "https://web.archive.org/web/20260509163143/https://melenchon2027.fr/programme2025/livre/chapitre6/s5/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Faire la révolution fiscale",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Patrimoine et héritage : rétablir l'ISF avec un volet climatique, créer une garantie d'impôt de 2 % sur le patrimoine des milliardaires (taxe Zucman), taxer davantage les gros héritages en cumulant dons et héritages sur toute la vie, et instaurer un héritage maximal de 12 millions d'euros.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le plafond de 12 M€ correspond à 100 fois le patrimoine net médian. Le programme prévoit aussi une taxe foncière progressive selon le patrimoine total et, côté logement, un plafond de cinq logements transmissibles par héritage.",
+          "source_url": "https://web.archive.org/web/20260509163143/https://melenchon2027.fr/programme2025/livre/chapitre6/s5/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Faire la révolution fiscale",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Entreprises et consommation : impôt sur les sociétés progressif selon le niveau et l'usage des bénéfices, pour favoriser l'investissement plutôt que les dividendes. Baisse de la TVA sur les produits de première nécessité, financée par une « TVA grand luxe ». Fin du quotient conjugal et remplacement du quotient familial par un crédit d'impôt par enfant.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://web.archive.org/web/20260509163143/https://melenchon2027.fr/programme2025/livre/chapitre6/s5/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Faire la révolution fiscale",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Contre-budget 2026 de LFI : taxe Zucman d'au moins 2 % sur les patrimoines de plus de 100 M€ (20 Md€), seconde taxe Zucman sur les multinationales (26 Md€), ISF climatique (15 Md€), impôt sur l'héritage avec héritage maximal (10 Md€) et rétablissement de la CVAE (11 Md€).",
+          "kind": "inference",
+          "confidence": "medium",
+          "details": "Contre-budget présenté par les députés LFI en octobre 2025, et non par le candidat lui-même : 183 Md€ de recettes pour 168 Md€ de dépenses.",
+          "source_url": "https://linsoumission.fr/2025/10/23/contre-budget-lfi-2026/",
+          "source_title": "L'Insoumission – Le contre-budget de LFI pour 2026",
+          "source_date": "2025-10-23"
+        },
+        {
+          "position": "Refus de la « TVA sociale » qu'il attribue aux gouvernements Macron. Il veut rééquilibrer les comptes de la Sécurité sociale en réorganisant ses ressources.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "source_url": "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/",
+          "source_title": "Discours de Saint-Denis (lancement de campagne)",
+          "source_date": "2026-06-07"
+        }
+      ]
+    },
+    {
+      "topic_id": "finances_publiques",
+      "found": true,
+      "positions": [
+        {
+          "position": "« Congeler » ou annuler la part de la dette publique détenue par la BCE, c'est-à-dire la transformer en dette perpétuelle à taux nul ou faible. Il présente cette mesure comme compatible avec l'article 123 du traité et veut la porter avec d'autres pays très endettés.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Il évoque un cinquième de la dette française et une alliance avec l'Italie, l'Espagne, la Grèce et la Belgique. La note de l'Institut La Boétie, qu'il copréside, chiffre cette part à environ 600 Md€.",
+          "short_quote": "inventer la dissuasion financière",
+          "source_url": "https://melenchon.fr/2026/09/05/la-dette-sans-tabou/",
+          "source_title": "La dette sans tabou (tribune publiée sur Mediapart)",
+          "source_date": "2026-09-04"
+        },
+        {
+          "position": "Programme : audit citoyen de la dette pour en identifier la part « illégitime » et préparer un réaménagement négocié. Rachat de dette publique par la BCE et autorisation de découvert des États auprès d'elle. Rétablissement d'un circuit du Trésor (obligation pour les banques de détenir des bons du Trésor). Fin des obligations indexées sur l'inflation (OATi).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le programme prévoit aussi de sortir la « dette Covid » des comptes de la Sécurité sociale et de réformer la CADES (18 Md€ par an).",
+          "source_url": "https://web.archive.org/web/20260507064705/https://melenchon2027.fr/programme2025/livre/chapitre6/s4/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Refuser le chantage : annuler la dette publique",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Pour dégager des marges budgétaires : supprimer les aides aux entreprises accordées sans contrepartie (chiffrées à 211 Md€) ou les conditionner, et mobiliser l'épargne (environ 800 Md€ à la Caisse des dépôts et 2 000 Md€ d'assurance-vie).",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Discours à la Fête de l'Humanité, rapporté par le média de LFI.",
+          "source_url": "https://linsoumission.fr/2026/09/15/fete-huma-melenchon-lfi-2026/",
+          "source_title": "L'Insoumission – À la Fête de l'Humanité, discours de Jean-Luc Mélenchon",
+          "source_date": "2026-09-15"
+        },
+        {
+          "position": "Refus des politiques d'austérité. Le contre-budget LFI se veut excédentaire (183 Md€ de recettes pour 168 Md€ de dépenses nouvelles) et promet un déficit sous 3 % au bout de cinq ans grâce aux effets de la relance.",
+          "kind": "inference",
+          "confidence": "medium",
+          "details": "La promesse de déficit vient d'Éric Coquerel, président LFI de la commission des finances, et non du candidat.",
+          "source_url": "https://linsoumission.fr/2025/10/23/contre-budget-lfi-2026/",
+          "source_title": "L'Insoumission – Le contre-budget de LFI pour 2026",
+          "source_date": "2025-10-23"
+        },
+        {
+          "position": "Fonction publique et État : titulariser les précaires des trois fonctions publiques, augmenter le point d'indice de 10 % et inscrire son dégel dans la loi, compenser cette hausse pour les collectivités. Lancer un plan de 200 Md€ d'investissements écologiquement et socialement utiles.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Mesures tirées des chapitres « Créer un état d'urgence sociale », « Un emploi stable pour chacun » et « Investir pour lancer la bifurcation ».",
+          "source_url": "https://web.archive.org/web/20260509175554/https://melenchon2027.fr/programme2025/livre/chapitre9/s1/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Créer un état d'urgence sociale",
+          "source_date": "2025-01"
+        }
+      ]
+    },
+    {
+      "topic_id": "travail_salaires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Porter le Smic à 1 700 euros.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Annoncé au meeting de lancement de campagne. Le discours ne précise ni s'il s'agit d'un montant net ou brut, ni le calendrier. Le programme 2025 et le contre-budget d'octobre 2025 retenaient 1 600 € net.",
+          "short_quote": "Le Smic passera à 1 700 euros.",
+          "source_url": "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/",
+          "source_title": "Discours de Saint-Denis (lancement de campagne)",
+          "source_date": "2026-06-07"
+        },
+        {
+          "position": "Programme 2025 : Smic à 1 600 € net immédiatement et indexation de tous les salaires sur l'inflation, dans le privé comme dans le public. Salaire maximal limitant l'écart de 1 à 20 dans l'entreprise. Dividendes plafonnés au montant de la part des bénéfices versée aux salariés. Interdiction des parachutes dorés, des retraites chapeaux et des stock-options.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le programme prévoit aussi une conférence sociale sur les salaires et la revalorisation des métiers à majorité féminine.",
+          "short_quote": "Porter immédiatement le SMIC mensuel à 1600 euros net",
+          "source_url": "https://web.archive.org/web/20260509163756/https://melenchon2027.fr/programme2025/livre/chapitre8/s4/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Augmenter les salaires et réduire les inégalités salariales",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "« État d'urgence sociale » dès 2027 : blocage des prix des produits de première nécessité, des marges et des loyers ; hausse du Smic ; nouvelle négociation annuelle obligatoire sur les salaires ; rétablissement de l'échelle mobile des salaires ; cantine scolaire bio et gratuite.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://linsoumission.fr/2026/09/15/fete-huma-melenchon-lfi-2026/",
+          "source_title": "L'Insoumission – À la Fête de l'Humanité, discours de Jean-Luc Mélenchon",
+          "source_date": "2026-09-15"
+        },
+        {
+          "position": "Bloquer par décret les prix des carburants et encadrer les marges des raffineurs face au choc pétrolier lié à la guerre contre l'Iran.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "La note de l'Institut La Boétie (16 avril 2026) donne en exemple un plafond de 1,70 €/L, sur la base de l'article L410-2 du Code de commerce.",
+          "short_quote": "L’urgence, c’est le blocage des prix des carburants",
+          "source_url": "https://linsoumission.fr/2026/05/11/melenchon-la-tribune-dimanche/",
+          "source_title": "Interview de Jean-Luc Mélenchon à La Tribune Dimanche (republiée par L'Insoumission)",
+          "source_date": "2026-05-11"
+        },
+        {
+          "position": "Temps de travail : rétablir réellement les 35 heures (heures supplémentaires majorées de 25 % pour les quatre premières puis de 50 %), passer aux 32 heures dans les métiers pénibles ou de nuit, créer une 6e semaine de congés payés et revenir sur les autorisations de travail le dimanche.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "En 2026, il défend aussi les jours fériés, notamment le 1er Mai, contre les projets de suppression (note de l'Institut La Boétie du 3 juin 2026). Il critique les deux jours de carence « d'ordre public » attribués à Édouard Philippe (blog, 19 septembre 2026).",
+          "source_url": "https://web.archive.org/web/20260509184931/https://melenchon2027.fr/programme2025/livre/chapitre8/s2/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Réduire le temps de travail",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Droits des salariés : abroger les ordonnances Pénicaud et la loi El Khomri et rétablir le principe de faveur. Plafonner les contrats précaires à 10 % des effectifs dans les PME et à 5 % dans les grandes entreprises. Instaurer une présomption de salariat pour les travailleurs des plateformes. Donner au CSE un droit de veto suspensif sur les licenciements et réserver au moins un tiers des sièges aux salariés dans les instances de décision.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://web.archive.org/web/20260509162625/https://melenchon2027.fr/programme2025/livre/chapitre8/s3/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Un emploi stable pour chacun",
+          "source_date": "2025-01"
+        }
+      ]
+    },
+    {
+      "topic_id": "industrie_economie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Relocaliser les productions essentielles : mesures antidumping d'urgence (sidérurgie, automobile, pharmacie), contrôle systématique des investissements étrangers, droits de douane fondés sur des critères écologiques et taxe kilométrique aux frontières. Conditionner les aides publiques aux grandes entreprises à des objectifs sociaux, écologiques et fiscaux, avec remboursement si ces objectifs ne sont pas tenus.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le programme prévoit aussi des critères de localisation dans la commande publique, une révision du code des marchés publics en faveur de l'ESS et des entreprises locales, une renégociation du cadre de l'OMC, et des réquisitions en cas de délocalisation.",
+          "source_url": "https://web.archive.org/web/20260509162142/https://melenchon2027.fr/programme2025/livre/chapitre9/s2/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Réindustrialiser et relocaliser",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Nationaliser ArcelorMittal France pour sauver la sidérurgie française. Les députés LFI ont voté pour leur proposition de loi en deuxième lecture (45 voix pour) le 11 juin 2026.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Rassemblement du 11 juin 2026 ; scrutin n° 7380 de l'Assemblée nationale.",
+          "source_url": "https://melenchon.fr/2026/06/11/sauvons-lacier-francais-sauvons-nos-emplois-nationalisons-arcelormittal/",
+          "source_title": "Sauvons l'acier français, sauvons nos emplois : nationalisons ArcelorMittal ! (melenchon.fr)",
+          "source_date": "2026-06-11"
+        },
+        {
+          "position": "Revenir sur les privatisations (aéroports, autoroutes, Française des Jeux). Créer des pôles publics dans les secteurs stratégiques (médicament, transports, banque, énergie, armement). Décréter un moratoire sur les partenariats public-privé et rendre effectif le droit de réquisition des entreprises d'intérêt général.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://web.archive.org/web/20260509144103/https://melenchon2027.fr/programme2025/livre/chapitre2/s2/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Mettre fin au pillage économique de la Nation",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Définanciariser l'économie : moduler l'impôt sur les sociétés selon l'usage des bénéfices, interdire de verser plus de dividendes que de bénéfices, interdire les licenciements boursiers dans les entreprises qui versent des dividendes ou reçoivent des aides publiques, et mettre fin à la cotation en continu.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://web.archive.org/web/20260509175149/https://melenchon2027.fr/programme2025/livre/chapitre6/s3/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Définanciariser l'économie réelle",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Créer des « stocks publics tampons » de matières premières essentielles (pétrole, céréales…) pour stabiliser les prix en temps de crise, au niveau national et, si possible, international.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Mesure présentée dans son discours à la Braderie de Lille le 5 septembre 2026, puis détaillée par une note de l'Institut La Boétie.",
+          "source_url": "https://melenchon.fr/2026/09/18/pourquoi-faut-il-constituer-des-stocks-publics-de-matieres-premieres-essentielles-pour-stabiliser-les-prix-comme-le-propose-jean-luc-melenchon/",
+          "source_title": "Pourquoi faut-il constituer des « stocks publics » de matières premières essentielles ? (melenchon.fr)",
+          "source_date": "2026-09-18"
+        },
+        {
+          "position": "Proposer un « pacte productif » aux TPE-PME, avec notamment une modification des règles de représentativité patronale avancée conjointement avec des organisations du petit patronat.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Colloque de l'Institut La Boétie du 24 janvier 2026. Le contenu détaillé du pacte n'a pas été consulté.",
+          "source_url": "https://melenchon.fr/2026/01/25/les-insoumis-et-le-patronat-des-pme-proposent-ensemble-de-changer-les-regles-de-la-representativite-patronale/",
+          "source_title": "Les insoumis et le patronat des PME proposent ensemble de changer les règles de la représentativité patronale (melenchon.fr)",
+          "source_date": "2026-01-25"
+        }
+      ]
+    },
+    {
+      "topic_id": "retraites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Abroger la réforme qui a porté l'âge de départ à 64 ans et rétablir la retraite à 60 ans à taux plein après 40 annuités. Porter au minimum au niveau du Smic toutes les pensions pour une carrière complète, et le minimum vieillesse au niveau du seuil de pauvreté.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Financement : hausse du taux de cotisation vieillesse de 0,25 point par an pendant le quinquennat, et cotisations sur les dividendes, l'intéressement, la participation, l'épargne salariale et les revenus financiers des entreprises. Autres mesures : indexation des pensions sur les salaires, suppression de la décote, validation de trimestres pour les allocataires du RSA.",
+          "source_url": "https://web.archive.org/web/20260509173421/https://melenchon2027.fr/programme2025/livre/chapitre8/s8/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Garantir une retraite digne",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Dans son discours de juin 2026, l'objectif est formulé en deux temps : abroger d'abord la réforme des 64 ans, puis revenir à 60 ans.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "short_quote": "puis le retour à 60 ans",
+          "source_url": "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/",
+          "source_title": "Discours de Saint-Denis (lancement de campagne)",
+          "source_date": "2026-06-07"
+        },
+        {
+          "position": "Défense exclusive de la retraite par répartition et rejet de la capitalisation. Pour le financement, il propose de partager la richesse « privatisée » et d'augmenter la population active, par l'immigration et la reprise de la natalité, plutôt que de travailler plus longtemps.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "short_quote": "il n’y a pas d’alternative à la retraite par répartition",
+          "source_url": "https://linsoumission.fr/2026/05/11/melenchon-la-tribune-dimanche/",
+          "source_title": "Interview à La Tribune Dimanche (republiée par L'Insoumission)",
+          "source_date": "2026-05-11"
+        },
+        {
+          "position": "Refus de la simple « suspension » de la réforme de 2023 inscrite au PLFSS 2026, que LFI qualifie de « fumisterie » et à laquelle elle oppose l'abrogation. Les députés LFI ont voté contre le PLFSS 2026 en nouvelle lecture (71 voix contre).",
+          "kind": "inference",
+          "confidence": "medium",
+          "details": "Scrutin n° 4696 du 9 décembre 2025 (https://www.assemblee-nationale.fr/dyn/17/scrutins/4696). Vote du groupe LFI, et non du candidat.",
+          "source_url": "https://linsoumission.fr/2025/10/23/contre-budget-lfi-2026/",
+          "source_title": "L'Insoumission – Contre-budget LFI 2026 et réforme des retraites",
+          "source_date": "2025-10-23"
+        }
+      ]
+    },
+    {
+      "topic_id": "sante",
+      "found": true,
+      "positions": [
+        {
+          "position": "« 100 % Sécu » : rembourser à 100 % les soins prescrits et intégrer les mutuelles dans la Sécurité sociale. Rouvrir des urgences, des maternités et des EHPAD publics à moins de 30 minutes de chaque Français. Remplacer l'ONDAM par un objectif fondé sur les besoins (ONBAM). Abroger la hausse des franchises médicales de 2024.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Contre les déserts médicaux : recrutement de médecins publics, réseau public de centres de santé, régulation de l'installation des médecins, permanence des soins obligatoire. Le programme prévoit aussi un plan de santé mentale (réouverture de lits de psychiatrie) et un plan de dépistage du VIH.",
+          "source_url": "https://web.archive.org/web/20260506110604/https://melenchon2027.fr/programme2025/livre/chapitre15/s2/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Faire passer la santé d'abord",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Créer une « Sécurité sociale intégrale » gérée par ses cotisants et étendre le principe de la Sécu à d'autres domaines. Il fait de la santé une « nouvelle frontière de l'humanité » et cible les « maladies écologiques » : cancers, diabète, infertilité, pesticides, polluants éternels.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Il cite le coût des cancers pour la Sécurité sociale (23 Md€ par an) et celui de la malbouffe (19 Md€ par an). Il propose d'interdire les polluants cancérigènes et le glyphosate. En mai 2026, il évoque un volet « défi santé » dans le programme.",
+          "source_url": "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/",
+          "source_title": "Discours de Saint-Denis (lancement de campagne)",
+          "source_date": "2026-06-07"
+        },
+        {
+          "position": "Créer un pôle public du médicament chargé de relocaliser la production, de constituer une réserve stratégique et de contrôler les prix. Nationaliser certaines filiales critiques (le Doliprane est cité). Interdire les brevets sur les médicaments nécessaires en cas d'urgence sanitaire.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://web.archive.org/web/20260506195317/https://melenchon2027.fr/programme2025/livre/chapitre15/s1/",
+          "source_title": "L'Avenir en commun (éd. 2025) – S'organiser pour faire face aux pandémies",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Grand âge : créer un service public de la dépendance pour favoriser le maintien à domicile, ouvrir 10 000 places par an pendant cinq ans en EHPAD publics, recruter au moins 210 000 personnes et collectiviser les EHPAD privés à but lucratif.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://web.archive.org/web/20260509172649/https://melenchon2027.fr/programme2025/livre/chapitre10/s4/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Faire face collectivement à la perte d'autonomie",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Fin de vie : inscrire dans la Constitution le droit de mourir dans la dignité, y compris avec assistance, ainsi que l'accès garanti aux soins palliatifs. Les députés LFI ont voté la loi sur l'aide à mourir en lecture définitive (61 pour, 2 contre, 3 abstentions).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Scrutin n° 8280 du 15 juillet 2026 (https://www.assemblee-nationale.fr/dyn/17/scrutins/8280).",
+          "source_url": "https://web.archive.org/web/20260507121554/https://melenchon2027.fr/programme2025/livre/chapitre4/s1/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Une nouvelle étape des libertés",
+          "source_date": "2025-01"
+        }
+      ]
+    },
+    {
+      "topic_id": "logement",
+      "found": true,
+      "positions": [
+        {
+          "position": "Construire 200 000 logements publics par an pendant cinq ans aux normes écologiques. Encadrer les loyers partout et les faire baisser dans les grandes villes. Créer une garantie universelle des loyers. Interdire les expulsions locatives sans relogement et abroger la loi Kasbarian.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Autres mesures : quota SRU relevé à 30 % (dont 5 % de résidences étudiantes et de foyers de jeunes travailleurs) ; locations de type Airbnb limitées à 60 jours par an et fin de la niche fiscale des meublés de tourisme ; réquisition des logements vides ; permis de louer obligatoire ; taxe progressive sur les grosses transactions immobilières ; plafond de cinq logements transmissibles par héritage.",
+          "source_url": "https://web.archive.org/web/20260504115058/https://melenchon2027.fr/programme2025/livre/chapitre7/s5/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Garantir le droit au logement",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Bloquer les loyers dans le cadre de l'« état d'urgence sociale ».",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://linsoumission.fr/2026/09/15/fete-huma-melenchon-lfi-2026/",
+          "source_title": "L'Insoumission – À la Fête de l'Humanité, discours de Jean-Luc Mélenchon",
+          "source_date": "2026-09-15"
+        },
+        {
+          "position": "Augmenter les APL de 10 %.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://web.archive.org/web/20260509175554/https://melenchon2027.fr/programme2025/livre/chapitre9/s1/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Créer un état d'urgence sociale",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Rénovation : isoler au moins 700 000 logements par an, interdire réellement la location des passoires thermiques, cibler les aides selon les revenus et créer un guichet unique public. En 2026, il insiste sur la transformation du bâti pour l'adapter aux canicules.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Dans l'entretien à Reporterre (22 juillet 2026), il juge la climatisation nécessaire dans les EHPAD et les écoles, mais estime que la réponse de fond est la transformation du bâti.",
+          "source_url": "https://web.archive.org/web/20260505191953/https://melenchon2027.fr/programme2025/livre/chapitre13/s3/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Organiser le 100 % d'énergies renouvelables en 2050 et la rénovation énergétique",
+          "source_date": "2025-01"
+        }
+      ]
+    },
+    {
+      "topic_id": "solidarites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Créer une « garantie d'autonomie » qui porterait le revenu mensuel de chaque personne au seuil de pauvreté (1 216 € pour une personne seule). Viser zéro sans-abri.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Autres mesures : première tranche gratuite d'électricité, d'eau et de gaz ; plafonnement des frais bancaires ; automatisation des prestations contre le non-recours ; interdiction de la notation des allocataires ; protections périodiques gratuites.",
+          "source_url": "https://web.archive.org/web/20260511104541/https://melenchon2027.fr/programme2025/livre/chapitre7/s4/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Éradiquer la pauvreté",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Assurance chômage : abroger les réformes Macron, indemniser dès le premier jour, supprimer l'obligation d'accepter une « offre raisonnable d'emploi » et abroger la loi France Travail ainsi que les 15 heures d'activité hebdomadaire imposées aux allocataires du RSA.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://web.archive.org/web/20260509165301/https://melenchon2027.fr/programme2025/livre/chapitre8/s5/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Rétablir une assurance-chômage protectrice",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Garantie d'emploi : tout chômeur de longue durée pourrait être embauché au moins au Smic revalorisé dans un secteur d'urgence (transition écologique, action sociale), sur la base du volontariat.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://web.archive.org/web/20260504183130/https://melenchon2027.fr/programme2025/livre/chapitre8/s1/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Établir la garantie d'emploi",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Handicap : porter l'AAH au niveau du Smic, imposer 100 % de logements neufs accessibles (en revenant sur la loi ELAN), donner le statut de salarié aux travailleurs d'ESAT et créer un corps de fonctionnaires pour les AESH.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://web.archive.org/web/20260509164500/https://melenchon2027.fr/programme2025/livre/chapitre10/s5/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Lever les obstacles à l'autonomie des personnes handicapées",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Familles et natalité : créer un service public de la petite enfance avec 500 000 places en crèche sur cinq ans, gratuité des crèches publiques et gel des ouvertures de places dans le privé lucratif. Il fait de la dénatalité un « nouveau défi », mais estime qu'on ne peut pas ordonner aux gens d'avoir des enfants et que leur verser des chèques ne suffira pas.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "details": "Le programme prévoit aussi de remplacer le quotient familial par un crédit d'impôt par enfant et de « déconjugaliser » l'allocation de soutien familial. Sur la natalité, voir aussi l'interview à La Tribune Dimanche (https://linsoumission.fr/2026/05/11/melenchon-la-tribune-dimanche/) et la lettre du 5 mai 2026.",
+          "source_url": "https://web.archive.org/web/20260509171623/https://melenchon2027.fr/programme2025/livre/chapitre5/s2/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Faire le service public de la petite enfance",
+          "source_date": "2025-01"
+        }
+      ]
+    },
+    {
+      "topic_id": "egalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Adopter une loi contre le sexisme et les violences faites aux femmes, avec les 2,6 Md€ demandés par les associations (formation, places d'hébergement). Imposer la parité dans les institutions. Durcir les sanctions financières et pénales contre les entreprises qui ne respectent pas l'égalité salariale, notamment par le refus de marchés publics.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Autres mesures : commission salariée de contrôle de l'égalité dans l'entreprise, revalorisation des métiers féminisés, lutte contre le temps partiel contraint, suppression de la double clause de conscience pour l'IVG, abolition de la prostitution, reconnaissance des violences obstétricales.",
+          "source_url": "https://web.archive.org/web/20260509162725/https://melenchon2027.fr/programme2025/livre/chapitre10/s1/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Réaliser l'égalité entre les femmes et les hommes",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Partage des responsabilités familiales : créer un congé d'accueil de l'enfant identique et obligatoire pour les deux parents. Soutenir les mères isolées en déconjugalisant et en revalorisant l'allocation de soutien familial et en défiscalisant les pensions alimentaires.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://web.archive.org/web/20260509162725/https://melenchon2027.fr/programme2025/livre/chapitre10/s1/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Réaliser l'égalité entre les femmes et les hommes",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Proposer une « loi de lutte globale » contre la pédocriminalité et les féminicides.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/",
+          "source_title": "Discours de Saint-Denis (lancement de campagne)",
+          "source_date": "2026-06-07"
+        },
+        {
+          "position": "Inscrire le consentement dans la définition pénale du viol et des agressions sexuelles, et lutter contre la correctionnalisation des viols.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://web.archive.org/web/20260514081442/https://melenchon2027.fr/programme2025/livre/chapitre7/s7/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Une politique de justice efficace",
+          "source_date": "2025-01"
+        }
+      ]
+    },
+    {
+      "topic_id": "droits_lgbtqia",
+      "found": true,
+      "positions": [
+        {
+          "position": "Déjudiciariser le changement de la mention du sexe à l'état civil, qui deviendrait libre et gratuit devant un officier d'état civil. Pour les mineurs, l'accord d'un seul des parents suffirait.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://web.archive.org/web/20260507121554/https://melenchon2027.fr/programme2025/livre/chapitre4/s1/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Une nouvelle étape des libertés et de l'émancipation individuelle",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Refuser la gestation pour autrui (GPA). Faire de la filiation par reconnaissance le principe par défaut, en plaçant l'intérêt supérieur de l'enfant au premier rang.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le programme prévoit d'inscrire dans la Constitution la non-marchandisation du corps humain et de créer une nouvelle forme d'adoption sociale (« partenariat social »).",
+          "source_url": "https://web.archive.org/web/20260507121554/https://melenchon2027.fr/programme2025/livre/chapitre4/s1/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Une nouvelle étape des libertés et de l'émancipation individuelle",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "PMA : augmenter les moyens pour réduire les délais, ouvrir suffisamment de centres et rendre la PMA réellement accessible aux personnes trans.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le programme prévoit aussi un plan d'éradication des violences anti-LGBTI et une application effective de l'interdiction des thérapies de conversion.",
+          "source_url": "https://web.archive.org/web/20260507121554/https://melenchon2027.fr/programme2025/livre/chapitre4/s1/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Une nouvelle étape des libertés et de l'émancipation individuelle",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Garantir les trois séances annuelles d'éducation à la vie affective et sexuelle au collège et au lycée. Elles aborderaient le consentement, l'orientation sexuelle, l'identité de genre et la lutte contre les LGBTIphobies.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Dans le sport, le programme prévoit un plan contre les LGBT-phobies et l'inclusion des personnes trans.",
+          "source_url": "https://web.archive.org/web/20260504205622/https://melenchon2027.fr/programme2025/livre/chapitre5/s3/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Reconstruire une école globale",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Face à « une demande de liberté dans l'attribution des genres », il propose d'étendre les droits de la personne à disposer d'elle-même.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/",
+          "source_title": "Discours de Saint-Denis (lancement de campagne)",
+          "source_date": "2026-06-07"
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "found": true,
+      "positions": [
+        {
+          "position": "Gratuité réelle de l'école publique : cantine, transport, périscolaire, manuels et fournitures. Réduire partout les effectifs par classe sous la moyenne européenne (19 élèves), en priorité en maternelle et en éducation prioritaire. Étendre la scolarité obligatoire à 18 ans.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Autres mesures : abroger le « Choc des savoirs » et les groupes de niveau ; suspendre l'expérimentation de l'uniforme ; nouvelle carte scolaire contre la ségrégation ; rattrapage du gel du point d'indice des enseignants et fin du Pacte ; restauration du bac national ; 100 % de bio et de local dans les cantines.",
+          "source_url": "https://web.archive.org/web/20260504205622/https://melenchon2027.fr/programme2025/livre/chapitre5/s3/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Reconstruire une école globale pour l'égalité et l'émancipation",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Enseignement privé : abolir ses « privilèges » et abroger la loi Carle. Appliquer un malus au financement des établissements sous contrat qui contribuent à la ségrégation scolaire, pénaliser ceux qui évincent les élèves en difficulté et interdire les subventions facultatives des collectivités.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://web.archive.org/web/20260504205622/https://melenchon2027.fr/programme2025/livre/chapitre5/s3/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Reconstruire une école globale",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Université et recherche : démanteler Parcoursup et garantir l'accès sans sélection à la formation choisie. Rendre l'enseignement supérieur gratuit, de la licence au doctorat, quelle que soit la nationalité. Abroger la loi LRU et la loi de programmation de la recherche. Supprimer le crédit d'impôt recherche au profit des universités et l'Agence nationale de la recherche.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le programme prévoit aussi 15 000 logements étudiants supplémentaires par an, la suppression de la CVEC et la titularisation des précaires de la recherche.",
+          "source_url": "https://web.archive.org/web/20260509163514/https://melenchon2027.fr/programme2025/livre/chapitre5/s6/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Refonder l'enseignement supérieur",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Dès la rentrée 2027, augmenter fortement les dépenses d'éducation : titulariser les précaires, recruter des professeurs et relever leur traitement, créer des écoles universitaires des métiers de l'éducation avec pré-recrutement, rendre gratuites les cantines et les fournitures, rénover les locaux.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Communiqué publié après les résultats PISA ; il y conteste la pertinence de ce classement.",
+          "source_url": "https://melenchon.fr/2026/09/09/deluge-dhypocrisie-a-propos-des-resultats-du-classement-pisa/",
+          "source_title": "Déluge d'hypocrisie à propos des résultats du classement Pisa (communiqué)",
+          "source_date": "2026-09-09"
+        },
+        {
+          "position": "Jeunesse : garantie d'autonomie au-dessus du seuil de pauvreté pour les jeunes détachés du foyer fiscal de leurs parents, repas à 1 € dans les restaurants du CROUS, et « emploi spécifique jeune » de cinq ans dans le secteur non marchand. En 2026, il propose un office pour l'autonomie des jeunes qui remplacerait 28 administrations.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "L'office pour l'autonomie des jeunes a été annoncé dans le discours de Saint-Denis du 7 juin 2026. Il soutient aussi les mobilisations lycéennes et étudiantes du 6 octobre 2026.",
+          "source_url": "https://web.archive.org/web/20260509163335/https://melenchon2027.fr/programme2025/livre/chapitre10/s3/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Construire l'autonomie des jeunes",
+          "source_date": "2025-01"
+        }
+      ]
+    },
+    {
+      "topic_id": "societe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Porter le budget de l'art, de la culture et de la création à 1 % du PIB par an. Étendre la gratuité des musées. Réorienter les moyens du Pass Culture vers des projets collectifs et l'éducation populaire.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Autres mesures : « domaine public commun » financé par une redevance sur les droits patrimoniaux après le décès de l'auteur ; amélioration et extension du régime des intermittents ; accès des artistes-auteurs à l'assurance chômage ; suppression des privilèges fiscaux du mécénat ; encadrement de l'IA générative dans la culture.",
+          "source_url": "https://web.archive.org/web/20260509164005/https://melenchon2027.fr/programme2025/livre/chapitre11/s1/",
+          "source_title": "L'Avenir en commun (éd. 2025) – La bifurcation dans les arts et la culture",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Audiovisuel public : garantir son indépendance et son financement par une contribution audiovisuelle dédiée, universelle et progressive. Faire élire par le Parlement les présidents de France Télévisions et de Radio France. Donner aux usagers des droits sur la gouvernance.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le programme prévoit aussi une loi anti-concentration étendue à tous les supports, un statut juridique pour les rédactions, une lutte contre les « procédures bâillons » et l'interdiction des sondages dans les jours précédant un scrutin.",
+          "source_url": "https://web.archive.org/web/20260503193829/https://melenchon2027.fr/programme2025/livre/chapitre1/s6/",
+          "source_title": "L'Avenir en commun (éd. 2025) – La Révolution citoyenne dans les médias",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Première loi du mandat : démanteler les « trusts médiatico-culturels » et rendre le pouvoir aux usagers sous forme de propriété collective. Il dénonce le fait que neuf milliardaires possèdent 90 % des médias.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "short_quote": "« Zappez Bolloré ! »",
+          "source_url": "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/",
+          "source_title": "Discours de Saint-Denis (lancement de campagne)",
+          "source_date": "2026-06-07"
+        },
+        {
+          "position": "Opposition à la réforme de l'audiovisuel public (holding commune) : les députés LFI ont voté pour la motion de rejet préalable déposée par les écologistes (37 voix pour).",
+          "kind": "inference",
+          "confidence": "medium",
+          "details": "Scrutin n° 2873 du 30 juin 2025. Vote du groupe LFI, et non du candidat.",
+          "source_url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2873",
+          "source_title": "Assemblée nationale – Scrutin n° 2873 (réforme de l'audiovisuel public)",
+          "source_date": "2025-06-30"
+        }
+      ]
+    },
+    {
+      "topic_id": "numerique",
+      "found": true,
+      "positions": [
+        {
+          "position": "« Décolonisation numérique » vis-à-vis des États-Unis : souveraineté complète sur le stockage des données, les supercalculateurs, les câbles et les systèmes d'intelligence artificielle, et soutien à l'ordinateur quantique.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Une note de l'Institut La Boétie du 16 juin 2026 détaille la dépendance aux GAFAM (environ 54 Md€ par an pour la France) et critique l'usage de l'IA pour la surveillance des travailleurs et à des fins militaires.",
+          "short_quote": "la décolonisation numérique vis-à-vis des États-Unis d’Amérique",
+          "source_url": "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/",
+          "source_title": "Discours de Saint-Denis (lancement de campagne)",
+          "source_date": "2026-06-07"
+        },
+        {
+          "position": "Créer une mission nationale de maîtrise de l'intelligence artificielle. Interdire certains usages de l'IA et du big data : identification biométrique, surveillance pour l'attribution des droits sociaux, gestion des flux migratoires, notation des individus pour le crédit. Imposer une autorisation pour la construction des data centers.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Souveraineté numérique : neutralité du Net, infrastructures de télécoms sous contrôle public, cloud public, agence publique et usage généralisé des logiciels libres, hébergement en France des données publiques, refus de la « censure privée » des GAFAM, fonderie française de microprocesseurs. En septembre 2026, il plaide aussi pour une régulation mondiale de l'IA.",
+          "source_url": "https://web.archive.org/web/20260509171223/https://melenchon2027.fr/programme2025/livre/chapitre18/s5/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Garantir la souveraineté numérique de la France",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Garantir un accès minimal gratuit à Internet, la fibre partout, le droit au chiffrement inscrit dans la Constitution et le maintien de guichets et de formulaires papier. Donner à la CNIL les moyens de lutter contre les discriminations algorithmiques.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://web.archive.org/web/20260509162042/https://melenchon2027.fr/programme2025/livre/chapitre18/s4/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Affirmer le caractère d'intérêt général de la révolution numérique",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Protection des mineurs : les députés LFI ont voté contre la loi qui interdit l'accès aux réseaux sociaux avant 15 ans et limite les horaires entre 15 et 18 ans. Votes contre en première lecture (19 voix, 26 janvier 2026) et sur le texte de commission mixte paritaire (63 voix, 21 juillet 2026) ; LFI avait aussi déposé une motion de rejet.",
+          "kind": "inference",
+          "confidence": "medium",
+          "details": "Vote du groupe LFI ; aucune déclaration de J.-L. Mélenchon sur ce texte n'a été trouvée. Scrutins n° 5192 et n° 8431 ; motion de rejet n° 5156. Le programme ne contient pas de mesure explicite sur les écrans des mineurs.",
+          "source_url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/8431",
+          "source_title": "Assemblée nationale – Scrutin n° 8431 (protéger les mineurs des réseaux sociaux, texte de CMP)",
+          "source_date": "2026-07-21"
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Sortir du nucléaire et planifier 100 % d'énergies renouvelables en 2050 : abandon des projets d'EPR, démantèlement et reconversion des sites, arrêt des subventions aux énergies fossiles.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Autres mesures : renationaliser EDF et Engie au sein d'un pôle public de l'énergie ; stopper la privatisation des barrages ; annuler la libéralisation des marchés de l'électricité et du gaz ; rétablir des tarifs réglementés calculés sur les coûts de production, avec gratuité des premières quantités ; annuler les hausses du gaz depuis 2017 ; isoler 700 000 logements par an ; abroger la fusion ASN-IRSN.",
+          "source_url": "https://web.archive.org/web/20260505191953/https://melenchon2027.fr/programme2025/livre/chapitre13/s3/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Organiser le 100 % d'énergies renouvelables en 2050",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Inscrire la « règle verte » dans la Constitution (ne pas prélever davantage que ce que la nature peut reconstituer). Viser une baisse de 65 % des émissions de gaz à effet de serre en 2030, adopter des lois-cadres de planification écologique et imposer une comptabilité carbone aux entreprises.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le programme prévoit aussi un crime climatique de dissimulation des émissions, un moratoire sur les « grands projets inutiles » et un plan de 200 Md€ d'investissements.",
+          "source_url": "https://web.archive.org/web/20260505185059/https://melenchon2027.fr/programme2025/livre/chapitre12/s1/",
+          "source_title": "L'Avenir en commun (éd. 2025) – La bifurcation écologique pour une société de l'harmonie",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Transports : renationaliser la SNCF et refuser la mise en concurrence, rouvrir des lignes et relancer le fret ferroviaire, supprimer les vols intérieurs quand le train fait le trajet en moins de 4 heures, renationaliser les autoroutes, décréter un moratoire sur les ZFE dans leur forme actuelle et limiter la taille et le poids des SUV.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "En juillet 2026, il s'oppose au canal Seine-Nord Europe (entretien à Reporterre).",
+          "source_url": "https://web.archive.org/web/20260509162946/https://melenchon2027.fr/programme2025/livre/chapitre13/s2/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Développer les transports publics écologiques",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Eau : adopter une « règle bleue », inscrire l'eau comme bien commun dans la Constitution et organiser une gestion 100 % publique en régies. Rendre gratuits les mètres cubes indispensables, supprimer l'abonnement et instaurer une tarification progressive. Décréter un moratoire sur les méga-bassines.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://web.archive.org/web/20260509164437/https://melenchon2027.fr/programme2025/livre/chapitre14/s2/",
+          "source_title": "L'Avenir en commun (éd. 2025) – L'eau, enjeu central pour l'Humanité",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Adaptation au climat : remplacer les régions actuelles par des « écorégions » découpées selon les sous-bassins versants. Elles géreraient le cycle de l'eau, les sols, la biodiversité, les forêts, l'air, les mobilités et la prévention des risques climatiques.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Annoncé début juillet 2026. Il ne retient pas un découpage limité aux sept grands bassins des agences de l'eau.",
+          "source_url": "https://melenchon.fr/2026/07/22/une-nouvelle-gauche-daction-a-surgi-elle-est-faite-dinsoumis-et-de-verts-tous-ecologistes-interview-reporterre/",
+          "source_title": "Interview Reporterre (republiée sur melenchon.fr)",
+          "source_date": "2026-07-22"
+        },
+        {
+          "position": "Face au choc pétrolier de 2026 : bloquer les prix des carburants et « sortir au plus vite de la civilisation du pétrole ».",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://linsoumission.fr/2026/05/11/melenchon-la-tribune-dimanche/",
+          "source_title": "Interview à La Tribune Dimanche (republiée par L'Insoumission)",
+          "source_date": "2026-05-11"
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "found": true,
+      "positions": [
+        {
+          "position": "Relocaliser une agriculture écologique et paysanne et créer 300 000 emplois agricoles. Garantir des prix planchers, interdire la vente à perte, refondre la PAC, engager une réforme agraire et appliquer le « zéro artificialisation nette » dès 2027.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Autres mesures : interdire immédiatement le glyphosate et les néonicotinoïdes, ainsi que l'importation de produits qui en contiennent ; activer la clause de sauvegarde et un prix minimum d'entrée face à la concurrence déloyale ; encadrer les marges de l'agro-industrie et de la grande distribution par des coefficients multiplicateurs ; mettre en place une caisse de défaisance pour les dettes des agriculteurs convertis au bio.",
+          "source_url": "https://web.archive.org/web/20260505180609/https://melenchon2027.fr/programme2025/livre/chapitre13/s5/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Souveraineté alimentaire et révolution agricole",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Opposition à l'accord UE-Mercosur, présenté comme une menace pour la santé publique et l'agriculture. Il demande à Emmanuel Macron de dire « non ». Les députés LFI ont voté leur résolution contre la ratification (25 voix pour, 30 janvier 2025).",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Scrutin n° 691. En décembre 2025, il réclame aussi des alternatives à l'abattage total des troupeaux touchés par la dermatose nodulaire contagieuse.",
+          "source_url": "https://melenchon.fr/2025/12/16/alerte-lagriculture-est-notre-affaire-a-tous/",
+          "source_title": "Alerte ! L'agriculture est notre affaire à tous ! (melenchon.fr)",
+          "source_date": "2025-12-16"
+        },
+        {
+          "position": "Bloquer l'importation des produits agricoles traités avec des substances interdites en France et changer le modèle agricole pour permettre à tous de manger sainement.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/",
+          "source_title": "Discours de Saint-Denis (lancement de campagne)",
+          "source_date": "2026-06-07"
+        },
+        {
+          "position": "Opposition à la loi Duplomb (« lever les contraintes à l'exercice du métier d'agriculteur ») : les députés LFI ont voté contre le texte de CMP (71 voix contre, 8 juillet 2025).",
+          "kind": "inference",
+          "confidence": "medium",
+          "details": "Scrutin n° 2957. Vote du groupe LFI. Il a aussi critiqué cette loi sur son blog (« L'été Duplomb-Handala », juillet 2025).",
+          "source_url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2957",
+          "source_title": "Assemblée nationale – Scrutin n° 2957 (loi Duplomb, texte de CMP)",
+          "source_date": "2025-07-08"
+        },
+        {
+          "position": "Alimentation et bien-être animal : expérimenter une « sécurité sociale de l'alimentation », bloquer le prix de cinq fruits et légumes de saison, passer la restauration collective à 100 % de bio et de local. Interdire les fermes-usines, l'élevage en batterie, la fourrure, la corrida et la chasse à courre, et limiter la durée du transport des animaux vivants.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Sources : chapitre « En finir avec la malbouffe » (https://web.archive.org/web/20260509170957/https://melenchon2027.fr/programme2025/livre/chapitre15/s4/) et chapitre « Rompre avec la maltraitance animale ».",
+          "source_url": "https://web.archive.org/web/20260509165425/https://melenchon2027.fr/programme2025/livre/chapitre14/s5/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Rompre avec la maltraitance animale",
+          "source_date": "2025-01"
+        }
+      ]
+    },
+    {
+      "topic_id": "territoires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Garantir une distance maximale de 15 à 30 minutes, en voiture ou en transport collectif, entre tout lieu d'habitation et les services publics essentiels (école, gare, hôpital, poste). Faire du département l'échelon de ce maillage et rouvrir des accueils physiques.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le programme prévoit aussi des états généraux des quartiers populaires et des espaces ruraux, et des dotations renforcées pour les territoires en retard.",
+          "source_url": "https://web.archive.org/web/20260608122417/https://melenchon2027.fr/programme2025/livre/chapitre7/s1/",
+          "source_title": "L'Avenir en commun (éd. 2025) – L'égalité des populations par la démocratie et les services publics",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Faire de la commune la cellule de base de la démocratie : abroger la loi NOTRe, supprimer les « mégarégions » et les métropoles, mettre fin à l'appartenance obligatoire à une intercommunalité, refuser les fusions forcées, indexer la DGF sur l'inflation et créer un fonds pour les communes rurales.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://web.archive.org/web/20260509165822/https://melenchon2027.fr/programme2025/livre/chapitre3/s2/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Une République affirmant le rôle central des communes",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Corse et outre-mer : accompagner la Corse vers l'« autonomie étendue » qu'elle demande. Il annonce que la Nouvelle-Calédonie-Kanaky « ira vers l'indépendance » et ouvre l'autonomie aux autres territoires lorsque leurs populations la souhaitent, au rythme qu'elles choisissent.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Les députés LFI ont voté pour le projet de loi constitutionnelle « pour une Corse autonome au sein de la République » (60 pour, 2 contre ; scrutin n° 7454 du 23 juin 2026). Le programme 2025 prévoyait par ailleurs d'« interdire le droit à la différenciation » sur le continent.",
+          "short_quote": "la Nouvelle-Calédonie-Kanaky ira vers l’indépendance",
+          "source_url": "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/",
+          "source_title": "Discours de Saint-Denis (lancement de campagne)",
+          "source_date": "2026-06-07"
+        },
+        {
+          "position": "Outre-mer : plan pluriannuel d'investissement dans les services publics, encadrement des prix et des marges sur les produits de première nécessité, continuité territoriale à tarifs réglementés, 50 % de recrutements locaux dans la fonction publique, accès à l'eau potable « quoi qu'il en coûte » et réparation intégrale pour les victimes du chlordécone.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://web.archive.org/web/20260608122423/https://melenchon2027.fr/programme2025/livre/chapitre7/s2/",
+          "source_title": "L'Avenir en commun (éd. 2025) – En finir avec l'abandon des Outre-mer",
+          "source_date": "2025-01"
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il juge les politiques sécuritaires en échec et refuse une « société de surveillance permanente ». Il veut restructurer « de la cave au grenier » la politique de sécurité et la police, et concentrer l'action sur le crime organisé international, la corruption, la délinquance financière, l'argent de la drogue et la traite.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Il refuse d'assimiler révoltes sociales ou immigration à la délinquance et souligne le manque de moyens de la justice et de la police judiciaire.",
+          "short_quote": "nous refusons de vivre dans une société de surveillance permanente",
+          "source_url": "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/",
+          "source_title": "Discours de Saint-Denis (lancement de campagne)",
+          "source_date": "2026-06-07"
+        },
+        {
+          "position": "Refonder la police : formation de deux ans pour les gardiens de la paix ; interdiction des tasers, des grenades de désencerclement, des LBD 40, du plaquage ventral et de la « nasse » ; abrogation de la loi de 2017 sur le refus d'obtempérer ; remplacement de l'IGPN et de l'IGGN par une autorité indépendante rattachée au Défenseur des droits ; récépissé de contrôle d'identité.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le programme prévoit aussi une commission « Vérité et Justice » sur les violences policières mortelles ou mutilantes et le retour au code de déontologie de 1986. Le livre comporte un chapitre « police de proximité » qui n'a pas pu être consulté.",
+          "source_url": "https://web.archive.org/web/20260506213321/https://melenchon2027.fr/programme2025/livre/chapitre4/s3/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Refonder une police républicaine",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Drogues : légaliser et encadrer le cannabis récréatif par un monopole d'État, affecter les taxes à la prévention, confier le pilotage de la politique des drogues au ministère de la Santé, et renforcer les enquêteurs de police et des douanes contre les filières.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://web.archive.org/web/20260509161819/https://melenchon2027.fr/programme2025/livre/chapitre15/s3/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Addictions et drogues : il faut changer de stratégie",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Justice et prisons : faire voter chaque année par le Parlement les orientations de la politique pénale, interdire les instructions individuelles du gouvernement, mettre en place un mécanisme contraignant de régulation carcérale contre la surpopulation, doubler les effectifs contre la délinquance financière, supprimer le « verrou de Bercy » et rattacher la police judiciaire à l'autorité judiciaire.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://web.archive.org/web/20260514081442/https://melenchon2027.fr/programme2025/livre/chapitre7/s7/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Une politique de justice efficace",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Votes du groupe LFI : contre la présomption de légitime défense pour les forces de l'ordre (le « permis de tuer XXL » selon Mélenchon ; 69 voix contre, 7 juillet 2026), contre la loi « narcotrafic » (60 voix contre, 29 avril 2025), contre la loi sur la justice des mineurs (67 voix contre, 13 mai 2025) et contre la loi sur la sûreté dans les transports (53 voix contre, 18 mars 2025).",
+          "kind": "inference",
+          "confidence": "medium",
+          "details": "Scrutins n° 7987, 1473, 1624 et 1041. Votes des députés LFI. Mélenchon a réagi publiquement au vote du 7 juillet 2026 (vidéo « ALERTE : l'Assemblée vote le permis de tuer XXL »).",
+          "source_url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/7987",
+          "source_title": "Assemblée nationale – Scrutin n° 7987 (présomption de légitime défense des forces de l'ordre)",
+          "source_date": "2026-07-07"
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "found": true,
+      "positions": [
+        {
+          "position": "Politique migratoire « humaniste » : régulariser les travailleurs, les étudiants et les parents d'enfants scolarisés ; faire de la carte de séjour de dix ans le titre de référence ; faciliter l'accès aux visas ; abroger les dernières lois asile et immigration ; garantir l'AME.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Autres mesures : suspendre le règlement de Dublin et renégocier les accords du Touquet ; sortir de « l'impasse » de Schengen et de Frontex ; mettre fin au délit de solidarité ; refuser la tutelle du ministère de l'Intérieur sur l'OFPRA ; créer un statut de « détresse environnementale » ; ouvrir des structures d'accueil en nombre suffisant ; s'attaquer aux causes des départs (guerres, accords commerciaux, climat).",
+          "source_url": "https://web.archive.org/web/20260509165151/https://melenchon2027.fr/programme2025/livre/chapitre16/s7/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Pour une politique migratoire humaniste et réaliste",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Nationalité : rétablir le droit du sol intégral sur tout le territoire, Mayotte comprise, et faciliter l'accès à la nationalité. Accorder le droit de vote aux étrangers aux élections locales. En 2026, il oppose ce principe à la proposition de Jordan Bardella de supprimer le droit du sol.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Programme, chapitre 10 section 2 (https://web.archive.org/web/20260504184814/https://melenchon2027.fr/programme2025/livre/chapitre10/s2/), et discours de Saint-Denis.",
+          "short_quote": "Né en France ? Français ! Pas touche !",
+          "source_url": "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/",
+          "source_title": "Discours de Saint-Denis (lancement de campagne)",
+          "source_date": "2026-06-07"
+        },
+        {
+          "position": "« Nouvelle France » et créolisation : il souligne qu'un Français sur trois est immigré ou descendant d'immigré et défend cette réalité contre les « obsédés de la race ». Il juge qu'on ne peut pas traiter les migrants comme des « pions » au service de la démographie, et dénonce un « délire racialiste » dans le débat français.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Voir aussi la note « Qu'est-ce que la nouvelle France ? » (30 mars 2026) et l'interview à La Tribune Dimanche (https://linsoumission.fr/2026/05/11/melenchon-la-tribune-dimanche/).",
+          "source_url": "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/",
+          "source_title": "Discours de Saint-Denis (lancement de campagne)",
+          "source_date": "2026-06-07"
+        },
+        {
+          "position": "Opposition à la dénonciation des accords franco-algériens de 1968 (qui encadrent l'immigration algérienne) : les députés LFI ont voté contre la résolution du RN (52 voix contre, 30 octobre 2025).",
+          "kind": "inference",
+          "confidence": "medium",
+          "details": "Scrutin n° 3260. Mélenchon a publié le même jour « France-Algérie : nous voulons vivre en paix ».",
+          "source_url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/3260",
+          "source_title": "Assemblée nationale – Scrutin n° 3260 (dénonciation des accords franco-algériens de 1968)",
+          "source_date": "2025-10-30"
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Stratégie « plan A / plan B ». Plan A : rupture concertée avec les traités et négociation de nouveaux textes soumis à référendum (souveraineté budgétaire, modification du statut de la BCE, harmonisation sociale et écologique, protectionnisme écologique, droit aux aides d'État et aux monopoles publics). Plan B : appliquer immédiatement le programme en assumant la confrontation et en désobéissant aux règles bloquantes.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Règles visées : libre-échange, concurrence, carcan budgétaire, libre circulation des capitaux, PAC, travail détaché, paradis fiscaux, Europe de la défense, statut de la BCE.",
+          "source_url": "https://web.archive.org/web/20260504010828/https://melenchon2027.fr/programme2025/livre/chapitre17/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Chapitre 17 : Europe",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Utiliser le veto de la France contre tout nouvel accord de libre-échange (Mercosur, y compris révisé, Chili, Mexique, Inde, Indonésie…) et contre tout nouvel élargissement sans harmonisation sociale, fiscale et environnementale préalable. Conditionner la contribution française au budget de l'UE.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Désobéissance : abroger les accords en vigueur avec la Nouvelle-Zélande, le Canada et le Japon ; cesser d'appliquer la directive sur le détachement des travailleurs, les règles budgétaires, les règles de concurrence et la libre circulation des capitaux ; se retirer de l'Europe de la défense ; faire primer la Constitution de la 6e République avec un principe de non-régression (voir https://web.archive.org/web/20260509172930/https://melenchon2027.fr/programme2025/livre/chapitre17/s2/).",
+          "source_url": "https://web.archive.org/web/20260509163557/https://melenchon2027.fr/programme2025/livre/chapitre17/s1/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Utiliser tous les leviers d'action face aux institutions européennes",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Il juge les traités européens « obsolètes » et annonce un moratoire sur toutes les directives contraires au mandat populaire, avec notamment le blocage du statut de travailleur détaché. Il refuse les accords avec le Mercosur et l'Inde ainsi que l'« économie de guerre ». Il voit dans la crise de l'UE l'occasion de proposer une Europe débarrassée des principes libéraux.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "short_quote": "Les traités européens sont obsolètes !",
+          "source_url": "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/",
+          "source_title": "Discours de Saint-Denis (lancement de campagne)",
+          "source_date": "2026-06-07"
+        },
+        {
+          "position": "Maintien dans l'UE : aucune des sources consultées ne propose de quitter l'Union européenne. Il cherche des alliances (Italie, Espagne, Grèce, Belgique) pour changer les règles, notamment sur la dette détenue par la BCE.",
+          "kind": "inference",
+          "confidence": "medium",
+          "details": "Déduction tirée du programme 2025 et de la tribune du 4 septembre 2026 ; pas de déclaration explicite récente sur l'appartenance à l'UE.",
+          "source_url": "https://melenchon.fr/2026/09/05/la-dette-sans-tabou/",
+          "source_title": "La dette sans tabou (tribune Mediapart reprise sur melenchon.fr)",
+          "source_date": "2026-09-04"
+        }
+      ]
+    },
+    {
+      "topic_id": "ukraine_russie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Programme : créer un cadre diplomatique pour obtenir un cessez-le-feu, le retrait des troupes russes et des négociations de paix durable. Une fois la paix revenue, bâtir un cadre paneuropéen de sécurité avec des garanties pour tous les pays d'Europe centrale et orientale.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le programme demande aussi la protection des centrales nucléaires ukrainiennes par l'ONU et l'AIEA.",
+          "source_url": "https://web.archive.org/web/20260505171740/https://melenchon2027.fr/programme2025/livre/chapitre16/s4/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Agir pour le respect du droit international contre les guerres",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Avant le sommet Trump-Poutine d'août 2025, il écrit que la Russie est « une composante de l'Europe » et que le scénario de 2008 d'adhésion de l'Ukraine et de la Géorgie à l'OTAN était une « véritable déclaration de guerre à la Russie ». Il estime que l'Ukraine ne peut plus gagner, que le mandat de Volodymyr Zelensky est « fini », et rappelle sa proposition d'une conférence des frontières sous l'égide de l'OSCE.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Ces propos ont été critiqués comme reprenant le discours russe (Mediapart, cité par Wikipédia).",
+          "short_quote": "Poutine a gagné la guerre",
+          "source_url": "https://melenchon.fr/2025/08/14/en-alaska-le-debut-cruel-dun-nouvel-ordre-du-monde/",
+          "source_title": "En Alaska, le début cruel d'un nouvel ordre du monde (blog)",
+          "source_date": "2025-08-14"
+        },
+        {
+          "position": "En campagne, il affirme qu'il faut obtenir le retrait russe d'Ukraine et refuse d'« absoudre » la Russie ou de se tourner vers Moscou ou Pékin. Il dédie son meeting de lancement aux peuples qui résistent à un envahisseur, dont l'Ukraine.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Dédicace prononcée au meeting de Saint-Denis le 7 juin 2026.",
+          "short_quote": "on bataille pour que les Russes se retirent d’Ukraine",
+          "source_url": "https://linsoumission.fr/2026/05/11/melenchon-la-tribune-dimanche/",
+          "source_title": "Interview à La Tribune Dimanche (republiée par L'Insoumission)",
+          "source_date": "2026-05-11"
+        },
+        {
+          "position": "Les députés LFI ont voté contre la résolution européenne appelant à renforcer le soutien à l'Ukraine (45 voix contre, 12 mars 2025). LFI dénonce l'« économie de guerre » et plaide pour une paix négociée sous l'égide de l'OSCE, avec des garanties de sécurité mutuelles pour l'Ukraine et la Russie.",
+          "kind": "inference",
+          "confidence": "medium",
+          "details": "Scrutin n° 988 (https://www.assemblee-nationale.fr/dyn/17/scrutins/988). Vote du groupe LFI ; la position OSCE est exposée par le média de LFI.",
+          "source_url": "https://linsoumission.fr/2025/03/06/ukraine-russie-macron-guerre/",
+          "source_title": "L'Insoumission – Ukraine/Russie : Macron prépare la France à l'économie de guerre",
+          "source_date": "2025-03-06"
+        }
+      ]
+    },
+    {
+      "topic_id": "proche_orient",
+      "found": true,
+      "positions": [
+        {
+          "position": "Exiger un cessez-le-feu durable à Gaza et au Liban, la fin du blocus de Gaza et de l'annexion de la Cisjordanie et du Golan. Sanctionner le gouvernement Netanyahou, interrompre les accords de coopération économique avec Israël, décréter un embargo sur les armes et reconnaître l'État de Palestine.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le programme soutient aussi l'action de l'ONU et de l'UNRWA en Palestine.",
+          "source_url": "https://web.archive.org/web/20260505171740/https://melenchon2027.fr/programme2025/livre/chapitre16/s4/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Agir pour le respect du droit international contre les guerres",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Il qualifie de génocide la guerre menée à Gaza. En juillet 2025, il juge tardive la reconnaissance de la Palestine annoncée par Emmanuel Macron pour septembre et réclame des actes : soutien aux flottilles, éventuellement escortées par la Marine nationale, et approvisionnement direct de Gaza.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "short_quote": "est presque un non-évènement",
+          "source_url": "https://melenchon.fr/2025/07/25/gaza-decider-a-moitie-cest-creuser-un-tombeau/",
+          "source_title": "Gaza : décider à moitié, c'est creuser un tombeau (blog)",
+          "source_date": "2025-07-25"
+        },
+        {
+          "position": "Suspendre les accords commerciaux de l'UE avec Israël et interdire aux États-Unis d'utiliser les bases aériennes françaises pour leurs opérations au Proche-Orient ; former un « front du refus » contre la guerre menée par les États-Unis et Israël contre l'Iran.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Une note de l'Institut La Boétie (septembre 2026) ajoute le refus des livraisons d'armes aux « régimes génocidaires » et du survol du territoire par des « criminels de guerre ». Au meeting de Saint-Denis, il propose un tribunal international pour les génocidaires et les criminels de guerre.",
+          "source_url": "https://linsoumission.fr/2026/05/11/melenchon-la-tribune-dimanche/",
+          "source_title": "Interview à La Tribune Dimanche (republiée par L'Insoumission)",
+          "source_date": "2026-05-11"
+        },
+        {
+          "position": "Le 25 juin 2026, devant le tribunal de Paris, il conteste le délit d'apologie du terrorisme et estime que la qualification terroriste des attaques du 7 octobre 2023 peut se discuter au regard du droit international. Il précise que cela n'a jamais signifié approuver des méthodes visant des civils sans défense.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Intervention lors d'un rassemblement de soutien à Anasse Kazib. Trois rescapés français ont ensuite porté plainte contre lui pour apologie du terrorisme (Libération, 29 juin 2026).",
+          "short_quote": "est une affaire qui se discute",
+          "source_url": "https://www.20minutes.fr/politique/4231442-20260626-attaque-7-octobre-melenchon-caractere-terroriste-massacres-affaire-discute",
+          "source_title": "20 Minutes – Attaque du 7-Octobre : Mélenchon juge que le caractère terroriste des massacres est une « affaire qui se discute »",
+          "source_date": "2026-06-26"
+        }
+      ]
+    },
+    {
+      "topic_id": "defense",
+      "found": true,
+      "positions": [
+        {
+          "position": "Se retirer immédiatement du commandement intégré de l'OTAN, puis de l'organisation elle-même par étapes. Refuser toute alliance militaire permanente, y compris en Asie-Pacifique, et adopter une diplomatie non alignée.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Une note de l'Institut La Boétie (28 septembre 2026) qualifie l'OTAN d'« organisation archaïque » et cite la période 1966-2009 hors du commandement intégré.",
+          "short_quote": "Se retirer immédiatement du commandement intégré de l’OTAN",
+          "source_url": "https://web.archive.org/web/20260508181920/https://melenchon2027.fr/programme2025/livre/chapitre16/s1/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Assumer l'indépendance de la France dans le monde",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Opposition à l'actualisation de la loi de programmation militaire en 2026 : selon lui, elle prépare les guerres du passé alors que les guerres modernes se jouent dans l'espace, le numérique, les drones et les missiles. Les députés LFI ont voté contre (71 voix contre en première lecture le 19 mai 2026, puis contre le texte de CMP).",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Scrutins n° 6736 et n° 7905. Le programme prévoit un nouveau livre blanc et une LPM centrée sur l'indépendance, un pôle public de l'armement, la priorité au matériel français et les technologies de rupture (drones, IA).",
+          "short_quote": "Cette loi peut permettre de remporter la bataille d’Alésia",
+          "source_url": "https://linsoumission.fr/2026/05/11/melenchon-la-tribune-dimanche/",
+          "source_title": "Interview à La Tribune Dimanche (republiée par L'Insoumission)",
+          "source_date": "2026-05-11"
+        },
+        {
+          "position": "Dissuasion : créer un « Commissariat à la dissuasion de demain » chargé d'étudier des alternatives au nucléaire, relancer le désarmement nucléaire et conventionnel, et participer comme observateur au traité d'interdiction des armes nucléaires (TIAN). Il défend aussi une « dissuasion spatiale », « ni nucléaire ni létale ».",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "details": "Le programme ne prévoit pas l'abandon de la dissuasion nucléaire actuelle. En mai 2026, il évoque les « limites de la stratégie de la dissuasion ». La dissuasion spatiale figure dans son communiqué sur la visite de l'usine Dassault (20 janvier 2026).",
+          "source_url": "https://web.archive.org/web/20260506102638/https://melenchon2027.fr/programme2025/livre/chapitre16/s2/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Construire une défense souveraine au service de la paix",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Service national : conscription citoyenne obligatoire de neuf mois pour les femmes et les hommes de moins de 25 ans, rémunérée au Smic revalorisé. Elle comprendrait une formation militaire initiale (avec droit à l'objection de conscience) et des tâches d'utilité publique. Abroger le SNU et créer une garde nationale sous commandement civil.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "La conscription inclurait un bilan de santé, une remise à niveau et le permis de conduire gratuit. Un service militaire serait une composante optionnelle.",
+          "source_url": "https://web.archive.org/web/20260508153107/https://melenchon2027.fr/programme2025/livre/chapitre5/s7/",
+          "source_title": "L'Avenir en commun (éd. 2025) – Créer une conscription pour le secours collectif",
+          "source_date": "2025-01"
+        },
+        {
+          "position": "Industrie d'armement : soutien à Dassault dans son refus de l'accord franco-allemand sur l'avion de combat du futur, sauf sous leadership français. Aucun organe européen ne doit contrôler les équipements stratégiques français. Il soutient le projet d'avion spatial.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://melenchon.fr/2026/01/20/communique-de-jean-luc-melenchon-visite-de-lusine-dassault-de-cergy/",
+          "source_title": "Communiqué de Jean-Luc Mélenchon – Visite de l'usine Dassault de Cergy",
+          "source_date": "2026-01-20"
+        }
+      ]
+    }
+  ],
+  "signature_proposals": [
+    {
+      "proposal": "Assemblée constituante pour une 6e République, avec référendum d'initiative citoyenne et référendum révocatoire pour tous les élus, président compris",
+      "topic_id": "institutions",
+      "source_url": "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/"
+    },
+    {
+      "proposal": "Smic porté à 1 700 € (1 600 € net dans le programme 2025)",
+      "topic_id": "travail_salaires",
+      "source_url": "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/"
+    },
+    {
+      "proposal": "« État d'urgence sociale » : blocage des prix des produits de première nécessité et des carburants, des marges et des loyers ; échelle mobile des salaires",
+      "topic_id": "travail_salaires",
+      "source_url": "https://linsoumission.fr/2026/09/15/fete-huma-melenchon-lfi-2026/"
+    },
+    {
+      "proposal": "Abrogation de la réforme des 64 ans et retour à la retraite à 60 ans avec 40 annuités ; aucune pension inférieure au Smic pour une carrière complète",
+      "topic_id": "retraites",
+      "source_url": "https://web.archive.org/web/20260509173421/https://melenchon2027.fr/programme2025/livre/chapitre8/s8/"
+    },
+    {
+      "proposal": "Révolution fiscale : impôt sur le revenu à 14 tranches, ISF climatique, taxe Zucman de 2 %, suppression de la flat tax, héritage plafonné à 12 M€",
+      "topic_id": "fiscalite",
+      "source_url": "https://web.archive.org/web/20260509163143/https://melenchon2027.fr/programme2025/livre/chapitre6/s5/"
+    },
+    {
+      "proposal": "« Congélation » de la dette publique détenue par la BCE (environ un cinquième de la dette française)",
+      "topic_id": "finances_publiques",
+      "source_url": "https://melenchon.fr/2026/09/05/la-dette-sans-tabou/"
+    },
+    {
+      "proposal": "Planification écologique : 100 % d'énergies renouvelables en 2050, sortie du nucléaire, renationalisation d'EDF et d'Engie, règle verte dans la Constitution, plan de 200 Md€",
+      "topic_id": "ecologie_energie",
+      "source_url": "https://web.archive.org/web/20260505191953/https://melenchon2027.fr/programme2025/livre/chapitre13/s3/"
+    },
+    {
+      "proposal": "« 100 % Sécu » et Sécurité sociale intégrale gérée par ses cotisants",
+      "topic_id": "sante",
+      "source_url": "https://web.archive.org/web/20260506110604/https://melenchon2027.fr/programme2025/livre/chapitre15/s2/"
+    },
+    {
+      "proposal": "200 000 logements publics par an pendant cinq ans et encadrement des loyers partout, à la baisse dans les grandes villes",
+      "topic_id": "logement",
+      "source_url": "https://web.archive.org/web/20260504115058/https://melenchon2027.fr/programme2025/livre/chapitre7/s5/"
+    },
+    {
+      "proposal": "Garantie d'autonomie : aucun revenu sous le seuil de pauvreté (1 216 € pour une personne seule)",
+      "topic_id": "solidarites",
+      "source_url": "https://web.archive.org/web/20260511104541/https://melenchon2027.fr/programme2025/livre/chapitre7/s4/"
+    },
+    {
+      "proposal": "Sortie du commandement intégré de l'OTAN puis de l'organisation ; diplomatie non alignée",
+      "topic_id": "defense",
+      "source_url": "https://web.archive.org/web/20260508181920/https://melenchon2027.fr/programme2025/livre/chapitre16/s1/"
+    },
+    {
+      "proposal": "Sanctions contre le gouvernement Netanyahou, embargo sur les armes et suspension des accords commerciaux UE-Israël",
+      "topic_id": "proche_orient",
+      "source_url": "https://web.archive.org/web/20260505171740/https://melenchon2027.fr/programme2025/livre/chapitre16/s4/"
+    }
+  ],
+  "distinctive_vs_others": "Les traits ci-dessous viennent de ses propres sources ; les comparaisons avec les autres candidats doivent être recoupées avec leurs dossiers respectifs.\n\n1. Institutions. Il est le seul à faire d'une Assemblée constituante, convoquée par référendum, la première étape d'une 6e République, avec un référendum révocatoire applicable jusqu'au président (discours de Saint-Denis, https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/).\n\n2. Retraites. Il veut revenir à 60 ans avec 40 annuités, à rebours des candidats de droite et du centre. Il attaque nommément Édouard Philippe, « l'homme de la retraite à 67 ans », et ses deux jours de carence (https://melenchon.fr/2026/09/19/edouard-philippe-lopen-bar-des-reactionnaires-contre-les-salaries/).\n\n3. Énergie. Il combine la sortie du nucléaire (abandon des EPR) et l'objectif de 100 % d'énergies renouvelables en 2050 (https://web.archive.org/web/20260505191953/https://melenchon2027.fr/programme2025/livre/chapitre13/s3/). Ce point le sépare notamment des candidats qui défendent l'atome.\n\n4. Europe. Il refuse le Frexit que prônent l'UPR (François Asselineau) et Les Patriotes (Florian Philippot), mais propose de désobéir aux traités, d'opposer un veto aux accords de libre-échange et à l'élargissement, et de conditionner la contribution française au budget de l'UE (https://web.archive.org/web/20260509172930/https://melenchon2027.fr/programme2025/livre/chapitre17/s2/).\n\n5. Dette. Sa proposition de « congeler » la dette détenue par la BCE lui est propre ; elle a même suscité une réponse publique du président de la Bundesbank (https://melenchon.fr/2026/09/05/la-dette-sans-tabou/).\n\n6. Défense. Il veut sortir de l'OTAN et a fait voter son groupe contre l'actualisation de la loi de programmation militaire (scrutin n° 6736).\n\n7. Gaza. Il qualifie la guerre de génocide et réclame un embargo sur les armes et la suspension des accords UE-Israël.\n\n8. Ukraine. Sa ligne est controversée : en 2025, il présentait l'élargissement de l'OTAN comme une « déclaration de guerre » à la Russie et affirmait que Poutine avait gagné ; en 2026, il dit se battre pour le retrait russe (https://melenchon.fr/2025/08/14/en-alaska-le-debut-cruel-dun-nouvel-ordre-du-monde/).\n\n9. Identité et laïcité. Il revendique la « nouvelle France » créolisée et le droit du sol intégral, en opposition frontale au RN, qui veut supprimer le droit du sol et verbaliser le port du voile dans l'espace public (https://linsoumission.fr/2026/08/31/rn-voile-amende-presidentielle/).\n\n10. Sécurité. Il défend la légalisation du cannabis sous monopole d'État et le désarmement partiel de la police (interdiction des LBD et des tasers), à l'opposé des candidats de droite.\n\n11. Stratégie à gauche. Contrairement aux participants de la primaire « Choisir 2027 », il a refusé toute primaire (« La primaire est finie ») et se présente comme le seul candidat de gauche capable d'atteindre le second tour face au RN.",
+  "evolutions_and_contradictions": "1. Smic. 1 400 € net en 2022, 1 600 € net dans le programme 2025 et le contre-budget d'octobre 2025, puis « 1 700 euros » au meeting du 7 juin 2026, sans préciser s'il s'agit de net ou de brut.\n\n2. Retraites. Le programme 2025 promettait de rétablir « immédiatement » les 60 ans. En juin 2026, le discours parle d'abord d'abroger les 64 ans, « puis » de revenir à 60 ans : le séquençage est nouveau.\n\n3. Ukraine. En août 2025, il écrit que la Russie est « une composante de l'Europe », que le scénario d'adhésion de l'Ukraine à l'OTAN de 2008 était une « déclaration de guerre », que « Poutine a gagné la guerre » et que le mandat de Zelensky est « fini ». En mai-juin 2026, il dit au contraire se battre pour le retrait des troupes russes et dédie son meeting à l'Ukraine qui « résiste contre un envahisseur ». Le programme conserve l'objectif de cessez-le-feu et de retrait russe.\n\n4. Dissuasion. Il la qualifiait autrefois d'« élément essentiel » de la protection du pays, mais à dépasser à terme. Le programme 2025 crée un commissariat pour penser des alternatives au nucléaire et vise l'adhésion au TIAN comme observateur ; en 2026, il évoque les « limites » de la dissuasion et promeut une « dissuasion spatiale ».\n\n5. Candidature. Il répétait depuis 2022 vouloir être remplacé (« faites mieux ») ; il est candidat pour la quatrième fois et soutient que le « remplacement a eu lieu » à la tête du mouvement.\n\n6. Union de la gauche. Initiateur de la NUPES et du NFP, il refuse en 2026 la primaire de la gauche, déclare « la primaire est finie » et acte « l'échec de la recomposition unitaire ».\n\n7. Territoires. Le programme 2025 veut « interdire le droit à la différenciation » entre territoires, mais en 2026 il soutient l'autonomie étendue de la Corse (vote LFI pour le projet constitutionnel) et annonce l'indépendance de la Nouvelle-Calédonie-Kanaky. Le programme se bornait à « respecter les référendums ».\n\n8. 7 octobre. Sa déclaration du 25 juin 2026 sur la qualification terroriste du 7-Octobre a relancé les accusations contre LFI et donné lieu à une plainte ; il affirme ne pas approuver les méthodes visant des civils.\n\n9. Défense. Il veut quitter l'OTAN et s'oppose à la LPM, tout en soutenant l'industrie d'armement nationale (Rafale, refus de l'avion franco-allemand sauf sous leadership français).",
+  "open_questions": [
+    "Le programme définitif (nouvelle édition de L'Avenir en commun, « 1 069 mesures » en six chapitres, présentée les 6-7 novembre 2026) pourrait modifier, chiffrer ou retirer des mesures de l'édition 2025 utilisée ici.",
+    "Smic à 1 700 € : net ou brut ? Selon quel calendrier, et avec quelles compensations pour les TPE-PME ?",
+    "Retraite à 60 ans : quel calendrier après l'abrogation des 64 ans, et quel chiffrage détaillé ?",
+    "Ukraine : quelle position sur les livraisons d'armes, l'utilisation des avoirs russes gelés, l'adhésion de l'Ukraine à l'UE et le tracé des frontières ? Les déclarations de 2025 et de 2026 divergent.",
+    "Dissuasion nucléaire : maintien de l'arsenal actuel ou remplacement progressif ? Que recouvre concrètement la « dissuasion spatiale » ?",
+    "Calendrier de sortie du nucléaire civil et sort du parc existant avant 2050.",
+    "Union européenne : comment s'articuleraient la « désobéissance » et d'éventuelles sanctions européennes, et quelle serait l'attitude en cas d'échec du « plan A » ?",
+    "Immigration : ampleur des régularisations envisagées et politique d'éloignement (OQTF), non détaillée dans les sources consultées.",
+    "Protection des mineurs face aux écrans : quelle alternative à l'interdiction des réseaux sociaux avant 15 ans, contre laquelle LFI a voté ?",
+    "Sécurité : contenu précis de la restructuration « de la cave au grenier » de la police ; le chapitre « police de proximité » du programme n'a pas pu être consulté.",
+    "Écorégions : nombre et découpage exacts, articulation avec les départements et les communes.",
+    "Financement global : chiffrage officiel du programme 2027 au-delà du contre-budget LFI 2026."
+  ],
+  "programme_sources": [
+    {
+      "title": "L'Avenir en commun, édition 2025 (programme de LFI porté par la candidature ; sommaire en ligne, sections consultées via web.archive.org)",
+      "url": "https://melenchon2027.fr/programme2025/livre/",
+      "date": "2025-01"
+    },
+    {
+      "title": "Mélenchon 2027 – Découvrir le programme (annonce de la nouvelle édition : 1 069 mesures, en librairie le 6 novembre)",
+      "url": "https://melenchon2027.fr/programme/decouvrir/",
+      "date": "2026"
+    },
+    {
+      "title": "LCP – Le programme remanié de la « Nouvelle France » de Jean-Luc Mélenchon sera présenté début novembre",
+      "url": "https://lcp.fr/actualites/presidentielle-le-programme-remanie-de-la-nouvelle-france-de-jean-luc-melenchon-sera",
+      "date": "2026-09-23"
+    },
+    {
+      "title": "Lettre au peuple de France (texte intégral publié par L'Insoumission)",
+      "url": "https://linsoumission.fr/2026/05/05/melenchon-lettre-peuple-france/",
+      "date": "2026-05-05"
+    },
+    {
+      "title": "Discours de lancement de campagne à Saint-Denis",
+      "url": "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/",
+      "date": "2026-06-07"
+    },
+    {
+      "title": "Interview à La Tribune Dimanche (republiée par L'Insoumission)",
+      "url": "https://linsoumission.fr/2026/05/11/melenchon-la-tribune-dimanche/",
+      "date": "2026-05-11"
+    },
+    {
+      "title": "La dette sans tabou (tribune Mediapart)",
+      "url": "https://melenchon.fr/2026/09/05/la-dette-sans-tabou/",
+      "date": "2026-09-04"
+    },
+    {
+      "title": "Fête de l'Humanité 2026 – état d'urgence sociale (L'Insoumission)",
+      "url": "https://linsoumission.fr/2026/09/15/fete-huma-melenchon-lfi-2026/",
+      "date": "2026-09-15"
+    },
+    {
+      "title": "Contre-budget LFI 2026 (L'Insoumission)",
+      "url": "https://linsoumission.fr/2025/10/23/contre-budget-lfi-2026/",
+      "date": "2025-10-23"
+    },
+    {
+      "title": "Note de l'Institut La Boétie – Quelle doctrine géopolitique pour faire face au suprémacisme ?",
+      "url": "https://melenchon.fr/2026/09/28/quelle-doctrine-geopolitique-pour-faire-face-au-supremacisme/",
+      "date": "2026-09-28"
+    }
+  ]
+}

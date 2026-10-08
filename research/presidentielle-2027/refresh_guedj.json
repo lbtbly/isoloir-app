@@ -1,0 +1,412 @@
+{
+  "candidate": "Jérôme Guedj",
+  "topics": [
+    {
+      "topic_id": "finances_publiques",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il veut restaurer les comptes publics au nom de l'indépendance du pays : un pays surendetté est dépendant. Pour lui, la rigueur de gestion va de pair avec la justice et passe par une lutte « sans concession » contre la fraude fiscale, l'évasion, les rentes et les privilèges.",
+          "kind": "position_declaree",
+          "short_quote": "un pays surendetté est un pays dépendant",
+          "details": "Lettre de candidature sur le site de campagne, non datée (2026). Aucune cible chiffrée de déficit ou de dette, ni calendrier de retour sous les 3 %, n'a été trouvé.",
+          "source_url": "https://www.jeromeguedj2027.fr/lettre",
+          "source_title": "Lettre / profession de foi de Jérôme Guedj (site de campagne)",
+          "source_date": "2026",
+          "confidence": "high"
+        },
+        {
+          "position": "Résorber la dette suppose la justice fiscale : l'effort ne doit pas reposer seulement sur des économies demandées « toujours aux mêmes ». Il pointe aussi des gaspillages et des dépenses redondantes dans la Sécurité sociale.",
+          "kind": "position_declaree",
+          "short_quote": "les efforts ne peuvent pas seulement être supportés par des économies",
+          "details": "Débat LCI du 23/09/2026, repris au débat du 01/10/2026 (« redresser dans la justice »). Pas de montant d'économies global ni de cible de déficit.",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+          "source_title": "Primaire de la gauche : échanges tendus sur les alliances avec LFI, Gaza, Ukraine… que retenir du 1er débat (Public Sénat)",
+          "source_date": "2026-09-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Il présente la Sécurité sociale intégrale (« Grande Sécu », un seul payeur public) comme une source d'économies : jusqu'à 5,4 Md€ de frais de gestion, en supprimant les doublons entre assurance maladie et complémentaires.",
+          "kind": "proposition_explicite",
+          "details": "Le chiffre de 5,4 Md€ est sa propre estimation (message X du 23/09/2026). Le rapport MECSS qu'il a corédigé (29/09/2026) relève des frais de gestion de 18,8 % des cotisations pour les complémentaires, contre 2,7 % pour l'assurance maladie obligatoire. Le coût net de la réforme n'est pas chiffré.",
+          "source_url": "https://x.com/JeromeGuedj/status/2102873950988771608",
+          "source_title": "Message X de Jérôme Guedj (République du soin, Sécurité sociale intégrale)",
+          "source_date": "2026-09-23",
+          "confidence": "medium"
+        },
+        {
+          "position": "Côté recettes, il veut des ressources nouvelles et affectées : hausse des droits de succession au-delà de 2 M€ transmis (environ 10 Md€ par an pour la branche autonomie). Il accepte aussi, sous condition, un effort des retraités aisés (CSG relevée sur les plus hautes pensions, sous-indexation ciblée), à condition que les héritages, les niches sociales des entreprises et les géants de l'IA contribuent aussi.",
+          "kind": "proposition_explicite",
+          "details": "Annonce aux Assises de l'Afer (29/09/2026) ; tribune dans L'Opinion (août 2026) sur les pensions. Le barème et les seuils ne sont pas précisés.",
+          "source_url": "https://entrevue.fr/entrevue/presidentielle-2027-jerome-guedj-veut-augmenter-les-droits-de-succession-au-dela-de-2-millions-deuros/",
+          "source_title": "Présidentielle 2027 : Jérôme Guedj veut augmenter les droits de succession au-delà de 2 millions d'euros (Entrevue)",
+          "source_date": "2026-09-30",
+          "confidence": "high"
+        },
+        {
+          "position": "Estime qu'il faut répartir l'effort budgétaire, dans le contexte du budget 2027 du gouvernement Lecornu (54 Md€ d'effort annoncé).",
+          "kind": "position_declaree",
+          "short_quote": "Il faut répartir l'effort budgétaire",
+          "details": "Seuls le titre et le chapeau de la page ont pu être lus (Grande interview Europe 1-CNews avec Laurence Ferrari, vers le 23/09/2026). Le contenu détaillé n'est pas vérifié.",
+          "source_url": "https://www.europe1.fr/emissions/la-grande-interview-europe-1-cnews/il-faut-repartir-leffort-budgetaire-estime-jerome-guedj-1094534",
+          "source_title": "« Il faut répartir l'effort budgétaire », estime Jérôme Guedj (Europe 1)",
+          "source_date": "2026-09",
+          "confidence": "medium"
+        },
+        {
+          "position": "A voté pour le projet de loi de financement de la sécurité sociale pour 2026 en lecture définitive, texte qui comprenait la suspension de la réforme des retraites.",
+          "kind": "inference",
+          "details": "Scrutin n°4758 du 16/12/2025 : 247 pour, 232 contre, 90 abstentions. Guedj figure parmi les 64 socialistes « pour ».",
+          "source_url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/4758",
+          "source_title": "Scrutin public n°4758 – PLFSS 2026, lecture définitive (Assemblée nationale)",
+          "source_date": "2025-12-16",
+          "confidence": "high"
+        },
+        {
+          "position": "A voté contre la première partie (recettes) du projet de loi de finances pour 2026 en première lecture.",
+          "kind": "inference",
+          "details": "Scrutin n°4241 du 21/11/2025, rejet quasi unanime (1 pour, 404 contre, 84 abstentions) : ce vote distingue peu les positions.",
+          "source_url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/4241",
+          "source_title": "Scrutin public n°4241 – première partie du PLF 2026 (Assemblée nationale)",
+          "source_date": "2025-11-21",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "solidarites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Verser les allocations familiales dès le premier enfant (elles ne sont aujourd'hui versées qu'à partir du deuxième).",
+          "kind": "proposition_explicite",
+          "short_quote": "des allocations familiales dès le premier enfant",
+          "details": "Débat BFMTV du 04/10/2026, reprise dans un message X le même jour (cité par Tripalio le 05/10/2026). Montant, condition de ressources et coût non précisés.",
+          "source_url": "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat",
+          "source_title": "Glucksmann face à Royal, divisions sur LFI, lycées… Ce qu'il faut retenir du dernier débat de la primaire socialiste (LCP)",
+          "source_date": "2026-10-05",
+          "confidence": "high"
+        },
+        {
+          "position": "Créer un statut spécifique de la monoparentalité, avec des mesures sur le logement et la garde des enfants.",
+          "kind": "proposition_explicite",
+          "details": "Débat BFMTV du 04/10/2026, en réponse à une question sur les familles monoparentales. Le contenu précis du statut n'est pas détaillé.",
+          "source_url": "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat",
+          "source_title": "Glucksmann face à Royal, divisions sur LFI, lycées… Ce qu'il faut retenir du dernier débat de la primaire socialiste (LCP)",
+          "source_date": "2026-10-05",
+          "confidence": "high"
+        },
+        {
+          "position": "Financer la branche autonomie de la Sécurité sociale (grand âge et perte d'autonomie) par la hausse des droits de succession au-delà de 2 M€, soit environ 10 Md€ par an.",
+          "kind": "proposition_explicite",
+          "details": "Même mesure que dans le thème fiscalité. Aucune mesure spécifique sur l'AAH ou les droits des personnes handicapées n'a été trouvée.",
+          "source_url": "https://entrevue.fr/entrevue/presidentielle-2027-jerome-guedj-veut-augmenter-les-droits-de-succession-au-dela-de-2-millions-deuros/",
+          "source_title": "Présidentielle 2027 : Jérôme Guedj veut augmenter les droits de succession au-delà de 2 millions d'euros (Entrevue)",
+          "source_date": "2026-09-30",
+          "confidence": "high"
+        },
+        {
+          "position": "S'est abstenu sur le projet de loi transposant l'avenant n°3 (25/02/2026) au protocole d'accord sur l'assurance chômage, comme la majorité de son groupe.",
+          "kind": "inference",
+          "details": "Scrutin n°7260 du 02/06/2026 (deuxième lecture) : 353 pour, 114 contre, 37 abstentions. Le contenu de l'avenant n'a pas été vérifié ici. Aucune déclaration personnelle trouvée sur l'assurance chômage ou le RSA en 2025-2026.",
+          "source_url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/7260",
+          "source_title": "Scrutin public n°7260 – transposition de l'avenant n°3 au protocole d'accord relatif à l'assurance chômage (Assemblée nationale)",
+          "source_date": "2026-06-02",
+          "confidence": "medium"
+        },
+        {
+          "position": "A voté pour la proposition de loi visant à mieux protéger et accompagner les parents d'enfants atteints d'un cancer, d'une maladie grave ou d'un handicap.",
+          "kind": "inference",
+          "details": "Deuxième lecture, 02/06/2026, adoptée à l'unanimité des votants : vote peu discriminant.",
+          "source_url": "https://datan.fr/votes/legislature-17/vote_7270",
+          "source_title": "Vote n°7270 – PPL protection des parents d'enfants malades ou handicapés (Datan)",
+          "source_date": "2026-06-02",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "egalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il a cosigné avec Laurence Rossignol et Philippe Brun une contribution au congrès du PS qui se revendique féministe. Elle demande un budget de 2,6 Md€ pour le ministère chargé de l'Égalité femmes-hommes et dit adopter « l'angle de vue des femmes » dans tout le texte. Ses signataires se disent opposés au relativisme culturel, en particulier pour ce qui concerne les femmes.",
+          "kind": "inference",
+          "details": "Contribution « Le nouveau socialisme démocratique, féministe, populaire et universaliste », présentée le 02/04/2025. C'est un texte collectif, pas un programme présidentiel. Aucune position personnelle récente trouvée sur l'égalité salariale, le congé parental ou les violences faites aux femmes.",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/congres-du-ps-laurence-rossignol-philippe-brun-et-jerome-guedj-presentent-leur-contribution-democratique-feministe-populaire-et-universaliste",
+          "source_title": "Congrès du PS : Laurence Rossignol, Philippe Brun et Jérôme Guedj présentent leur contribution « démocratique, féministe, populaire et universaliste » (Public Sénat)",
+          "source_date": "2025-04-02",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "droits_lgbtqia",
+      "found": true,
+      "positions": [
+        {
+          "position": "A voté pour la proposition de loi de reconnaissance par la Nation et de réparation des préjudices des personnes condamnées pour homosexualité entre 1942 et 1982.",
+          "kind": "inference",
+          "details": "Scrutin n°3436 du 06/03/2024, adopté à l'unanimité (331 pour) : vote ancien et peu discriminant. Aucune position récente trouvée sur la PMA, la GPA, la filiation, le changement d'état civil, les mineurs trans ou l'éducation à la sexualité. Wikipédia FR mentionne un soutien ancien (vers 2011-2013) à l'homoparentalité et au mariage pour tous, non vérifié dans une source primaire.",
+          "source_url": "https://www.assemblee-nationale.fr/dyn/16/scrutins/3436",
+          "source_title": "Scrutin public n°3436 – PPL réparation des personnes condamnées pour homosexualité (Assemblée nationale)",
+          "source_date": "2024-03-06",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "societe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Place la culture parmi les priorités nationales, aux côtés de l'éducation, de la recherche et de l'université.",
+          "kind": "position_declaree",
+          "short_quote": "la culture et l'université doivent redevenir les priorités",
+          "details": "Lettre de candidature, sans mesure concrète ni chiffre. Aucune position trouvée sur l'audiovisuel public : il ne figure pas parmi les votants de la motion de rejet de la réforme Dati (holding France Médias), adoptée le 30/06/2025 (scrutin n°2873).",
+          "source_url": "https://www.jeromeguedj2027.fr/lettre",
+          "source_title": "Lettre / profession de foi de Jérôme Guedj (site de campagne)",
+          "source_date": "2026",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "found": true,
+      "positions": [
+        {
+          "position": "A voté contre le projet de loi d'urgence pour la protection et la souveraineté agricoles. Le texte final contient un article controversé autorisant le retour, sous dérogation, de l'acétamipride (néonicotinoïde).",
+          "kind": "inference",
+          "details": "Scrutin n°8427 du 20/07/2026 (texte de CMP) : 296 pour, 224 contre, 41 abstentions. Groupe socialiste quasi unanimement contre. Contexte : LCP, 21/07/2026.",
+          "source_url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/8427",
+          "source_title": "Scrutin public n°8427 – projet de loi d'urgence pour la protection et la souveraineté agricoles (Assemblée nationale)",
+          "source_date": "2026-07-20",
+          "confidence": "high"
+        },
+        {
+          "position": "A voté contre la loi Duplomb (« lever les contraintes à l'exercice du métier d'agriculteur »), qui réintroduisait notamment l'acétamipride.",
+          "kind": "inference",
+          "details": "Scrutin n°2957 du 08/07/2025 : 316 pour, 223 contre, 25 abstentions.",
+          "source_url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/2957",
+          "source_title": "Scrutin public n°2957 – PPL visant à lever les contraintes à l'exercice du métier d'agriculteur (Assemblée nationale)",
+          "source_date": "2025-07-08",
+          "confidence": "high"
+        },
+        {
+          "position": "A voté contre la loi d'orientation pour la souveraineté alimentaire et agricole et le renouvellement des générations en agriculture.",
+          "kind": "inference",
+          "details": "Scrutin n°844 du 19/02/2025 (texte de CMP) : 369 pour, 160 contre, 2 abstentions. Il figure parmi les socialistes « contre ».",
+          "source_url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/844",
+          "source_title": "Scrutin public n°844 – loi d'orientation pour la souveraineté alimentaire et agricole (Assemblée nationale)",
+          "source_date": "2025-02-19",
+          "confidence": "high"
+        },
+        {
+          "position": "A voté pour la proposition de loi écologiste instaurant des prix planchers, pour que les prix d'achat aux agriculteurs ne descendent pas sous les coûts de production, avec un fonds pour la transition agroécologique.",
+          "kind": "inference",
+          "details": "Scrutin n°3653 du 04/04/2024 (PPL Marie Pochon) : 89 pour, 66 contre. Vote antérieur à 2025. Aucune position personnelle trouvée sur le Mercosur, la PAC ou le bien-être animal.",
+          "source_url": "https://www.assemblee-nationale.fr/dyn/16/scrutins/3653",
+          "source_title": "Scrutin public n°3653 – PPL garantir un revenu digne aux agriculteurs (Assemblée nationale)",
+          "source_date": "2024-04-04",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Veut une « Europe puissance », sociale et écologique, au service des citoyens plutôt que des marchés. Elle doit défendre le droit international, la paix et la coopération entre les peuples.",
+          "kind": "position_declaree",
+          "short_quote": "une puissance au service des citoyens, pas des marchés",
+          "details": "Lettre de candidature. Aucune position trouvée sur le budget de l'UE, l'unanimité, les règles budgétaires ou le fédéralisme. Il ne remet pas en cause l'appartenance à l'UE.",
+          "source_url": "https://www.jeromeguedj2027.fr/lettre",
+          "source_title": "Lettre / profession de foi de Jérôme Guedj (site de campagne)",
+          "source_date": "2026",
+          "confidence": "high"
+        },
+        {
+          "position": "Favorable à la perspective d'adhésion de l'Ukraine à l'UE : il a voté contre l'amendement d'Éric Ciotti qui supprimait cette mention de la résolution de soutien à l'Ukraine.",
+          "kind": "inference",
+          "details": "Scrutin n°973 du 12/03/2025 : amendement rejeté par 122 voix contre 119. La résolution adoptée demande aux institutions européennes d'« accompagner » le processus d'adhésion. La page du scrutin sur le site de l'Assemblée était indisponible ; vote vérifié sur Datan.",
+          "source_url": "https://datan.fr/votes/legislature-17/vote_973",
+          "source_title": "Vote n°973 – Supprimer la mention d'une adhésion de l'Ukraine à l'UE (Datan)",
+          "source_date": "2025-03-12",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "ukraine_russie",
+      "found": true,
+      "positions": [
+        {
+          "position": "La France doit continuer à financer l'Ukraine et à lui livrer des armes, pour qu'elle puisse décider elle-même des conditions d'un cessez-le-feu et du rétablissement de sa souveraineté. Il dit vouloir que l'Ukraine gagne cette guerre.",
+          "kind": "position_declaree",
+          "short_quote": "C'est notre sécurité qui se joue là-bas",
+          "details": "Débat BFMTV du 04/10/2026. Propos concordants chez Échos Plus, Le Taurillon (06/10/2026) et dans le compte rendu de BFMTV (« gagne cette guerre », lu en extrait seulement). Pas de position trouvée sur l'envoi de troupes au sol ni sur un montant d'aide.",
+          "source_url": "https://echosplus.com/2026/10/05/retraites-ukraine-lfi-les-points-daccord-et-les-lignes-de-fracture-de-la-primaire-a-gauche",
+          "source_title": "Retraites, Ukraine, LFI : les points d'accord et les lignes de fracture de la primaire à gauche (Échos Plus)",
+          "source_date": "2026-10-05",
+          "confidence": "high"
+        },
+        {
+          "position": "Rejette l'ouverture d'une négociation avec Poutine défendue par Ségolène Royal : un discours « naïf », selon lui, qui rendrait possible l'annexion d'une partie du territoire ukrainien et mènerait à une « paix munichoise ». Il exige une position « sans concession et sans ambivalence » face aux idées « poutinistes ».",
+          "kind": "position_declaree",
+          "short_quote": "C'est un discours que je trouve naïf",
+          "details": "Débat BFMTV du 04/10/2026. Il a aussi qualifié ce discours de « louable mais un peu sirupeux ». Même ligne qu'aux débats du 01/10 (« paix munichoises ») et du 23/09.",
+          "source_url": "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat",
+          "source_title": "Glucksmann face à Royal, divisions sur LFI, lycées… Ce qu'il faut retenir du dernier débat de la primaire socialiste (LCP)",
+          "source_date": "2026-10-05",
+          "confidence": "high"
+        },
+        {
+          "position": "Doute de la zone d'exclusion aérienne (« no fly zone ») défendue par Raphaël Glucksmann, qu'il voit comme une déclaration de confrontation directe et ouverte avec la Russie.",
+          "kind": "position_declaree",
+          "details": "Article du Taurillon (Jeunes Européens) signé Shanel Guitton, qui ne précise pas lequel des trois débats est concerné.",
+          "source_url": "https://www.taurillon.org/la-primaire-socialiste-et-le-bapteme-du-feu-sur-la-guerre-en-ukraine",
+          "source_title": "La primaire socialiste et le baptême du feu sur la guerre en Ukraine (Le Taurillon)",
+          "source_date": "2026-10-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "A voté pour la résolution européenne appelant à renforcer le soutien à l'Ukraine. Elle demande de saisir environ 235 Md€ d'avoirs russes gelés pour financer l'aide militaire et la reconstruction, et d'accompagner l'adhésion de l'Ukraine à l'UE.",
+          "kind": "inference",
+          "details": "Scrutin n°988 du 12/03/2025 : 288 pour, 54 contre, 132 abstentions. Contenu de la résolution d'après LCP (13/03/2025).",
+          "source_url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/988",
+          "source_title": "Scrutin public n°988 – PPRE appelant au renforcement du soutien à l'Ukraine (Assemblée nationale)",
+          "source_date": "2025-03-12",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "proche_orient",
+      "found": true,
+      "positions": [
+        {
+          "position": "Gaza : refuse le terme « génocide » et s'en tient aux qualifications retenues par la justice internationale, crimes de guerre et crimes contre l'humanité.",
+          "kind": "position_declaree",
+          "short_quote": "j'utilise les termes que la justice consacre",
+          "details": "Débats des 23/09 et 01/10/2026. Faure et Royal emploient « génocide ».",
+          "source_url": "https://fr.timesofisrael.com/primaire-de-la-gauche-en-france-les-5-candidats-confrontent-leurs-positions-sur-israel-et-gaza/",
+          "source_title": "Primaire de la gauche en France : les 5 candidats confrontent leurs positions sur Israël et Gaza (Times of Israel)",
+          "source_date": "2026-09-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Mettre les instruments commerciaux de l'accord d'association UE-Israël « dans la balance » pour faire pression sur le gouvernement israélien. Il refuse en revanche de boycotter les universitaires et les artistes israéliens.",
+          "kind": "position_declaree",
+          "short_quote": "ça ne peut pas être boycotter les universitaires, les artistes",
+          "details": "Débat du 23/09/2026. Il ne demande pas explicitement la suspension de l'accord, contrairement à Faure et Maurel. Pas de position trouvée sur un embargo sur les armes.",
+          "source_url": "https://fr.timesofisrael.com/primaire-de-la-gauche-en-france-les-5-candidats-confrontent-leurs-positions-sur-israel-et-gaza/",
+          "source_title": "Primaire de la gauche en France : les 5 candidats confrontent leurs positions sur Israël et Gaza (Times of Israel)",
+          "source_date": "2026-09-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Ne s'oppose pas à la reconnaissance de l'État de Palestine, une « intention sans doute louable » selon lui. Il a critiqué l'appel d'Olivier Faure à pavoiser les mairies du drapeau palestinien le 22/09/2025, une « injonction » qui « piège les maires ». Il aurait préféré voir les drapeaux israélien et palestinien côte à côte.",
+          "kind": "position_declaree",
+          "short_quote": "intention sans doute louable",
+          "details": "Septembre 2025, au moment de la reconnaissance par la France. Soutien mesuré, sans engagement plus précis.",
+          "source_url": "https://fr.timesofisrael.com/ps-faure-a-cree-un-puissant-malaise-chez-les-juifs-et-au-dela-selon-guedj/",
+          "source_title": "PS : Faure « a créé un puissant malaise » chez les Juifs et au-delà, selon Guedj (Times of Israel)",
+          "source_date": "2025-09-17",
+          "confidence": "medium"
+        },
+        {
+          "position": "Attaché « indéfectiblement » à la solution à deux États, il se dit « enfant d'Oslo ». Il dénonce la « fuite en avant nationaliste » du gouvernement Netanyahou et soutient l'émergence d'une coalition alternative en Israël, dont Les Démocrates de Yaïr Golan.",
+          "kind": "position_declaree",
+          "short_quote": "enfant d'Oslo",
+          "details": "Premier déplacement de candidat en Israël et en Cisjordanie (juin 2026), avec des représentants de l'Autorité palestinienne et des acteurs du dialogue israélo-palestinien. « Enfant d'Oslo » vient du débat du 23/09/2026.",
+          "source_url": "https://fr.timesofisrael.com/jerome-guedj-choisit-israel-et-les-territoires-palestiniens-comme-premier-voyage-de-campagne/",
+          "source_title": "Jérôme Guedj choisit Israël et les Territoires palestiniens comme premier voyage de campagne (Times of Israel)",
+          "source_date": "2026-06-02",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "defense",
+      "found": true,
+      "positions": [
+        {
+          "position": "A voté pour l'actualisation de la loi de programmation militaire. Elle ajoute 36 Md€ d'ici 2030 (436 Md€ sur 2024-2030), vise environ 2,5 % du PIB pour la défense en 2030 et met l'accent sur les munitions et les drones.",
+          "kind": "inference",
+          "details": "Scrutin n°7905 du 01/07/2026 sur l'ensemble du texte : 375 pour, 113 contre, 2 abstentions. Selon LCP, le groupe socialiste a voté pour, avec des réserves sur l'impact budgétaire.",
+          "source_url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/7905",
+          "source_title": "Scrutin public n°7905 – projet de loi actualisant la programmation militaire 2024-2030 (Assemblée nationale)",
+          "source_date": "2026-07-01",
+          "confidence": "high"
+        },
+        {
+          "position": "Veut une politique de défense « assumée », qui garantisse l'indépendance, la liberté et la souveraineté de la France, et une Europe capable de se défendre. Son engagement n°4 inclut le renforcement de la défense européenne.",
+          "kind": "position_declaree",
+          "short_quote": "Notre politique de défense doit être assumée",
+          "details": "Lettre de candidature et engagement n°4 du site. Aucune position trouvée sur la dissuasion nucléaire (y compris sa dimension européenne), l'OTAN aujourd'hui ou le service national.",
+          "source_url": "https://www.jeromeguedj2027.fr/lettre",
+          "source_title": "Lettre / profession de foi de Jérôme Guedj (site de campagne)",
+          "source_date": "2026",
+          "confidence": "high"
+        },
+        {
+          "position": "Préparer le pays à la guerre hybride, cybersécurité en tête, est selon lui l'un des chantiers du futur président. Il rappelle que le socialisme est lié au pacifisme mais aussi au combat contre les nationalismes.",
+          "kind": "position_declaree",
+          "details": "Débat LCI du 23/09/2026.",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+          "source_title": "Primaire de la gauche : échanges tendus… que retenir du 1er débat (Public Sénat)",
+          "source_date": "2026-09-24",
+          "confidence": "high"
+        },
+        {
+          "position": "A voté pour la ratification de l'adhésion de la Finlande et de la Suède à l'OTAN.",
+          "kind": "inference",
+          "details": "Scrutin n°184 du 02/08/2022 : 209 pour, 46 contre, 53 abstentions. Vote ancien. Il a aussi voté pour la LPM 2024-2030 en 2023 (selon Datan). Aucune déclaration récente trouvée sur l'OTAN.",
+          "source_url": "https://www.assemblee-nationale.fr/dyn/16/scrutins/184",
+          "source_title": "Scrutin public n°184 – ratification de l'adhésion de la Finlande et de la Suède à l'OTAN (Assemblée nationale)",
+          "source_date": "2022-08-02",
+          "confidence": "low"
+        }
+      ]
+    }
+  ],
+  "updates": [
+    {
+      "topic_id": "retraites",
+      "change": "Précision au débat BFMTV du 04/10/2026. Il veut abaisser l'âge du taux plein de 67 à 66 ou 65 ans (le dossier le disait non précisé). Interrogé par Sophie Binet (CGT), il est le seul des cinq à ne pas s'engager sur un retour à 62 ans : il refuse « le principe d'un âge légal pivot » et veut un nombre de trimestres modulé par la pénibilité, poste par poste.",
+      "source_url": "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat"
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "change": "Au débat du 04/10/2026, il juge le nucléaire « incontournable » tout en voulant aussi développer les renouvelables, ce qui répond à la question ouverte du dossier. Il propose aussi « une voiture électrique pour tous, à 10 ou 15 000 euros ».",
+      "source_url": "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat"
+    },
+    {
+      "topic_id": "immigration",
+      "change": "Précision du 04/10/2026 : il veut une loi de programmation de l'immigration fondée sur une « préférence travail » selon les secteurs en tension. Il refuse le mot « quotas », qui suggérerait selon lui une sélection par nationalité.",
+      "source_url": "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat"
+    },
+    {
+      "topic_id": "education",
+      "change": "Ajouts du 04/10/2026 : mieux rémunérer les enseignants et rénover les bâtiments scolaires, en plus de la baisse des effectifs par classe. Face à la mobilisation lycéenne, il propose des temps de dialogue dans chaque établissement et une révision des consignes de maintien de l'ordre.",
+      "source_url": "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat"
+    },
+    {
+      "topic_id": "strategie",
+      "change": "Le 04/10/2026, il conteste être prêt à une « alliance avec la droite » (il accuse Faure de mentir en lisant son livre). Il parle plutôt de « compromis républicains » rendus nécessaires par l'absence de majorité naturelle. Il qualifie aussi Mélenchon de « boulet » pour la gauche face au RN.",
+      "source_url": "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat"
+    },
+    {
+      "topic_id": "sante",
+      "change": "La formulation s'élargit : le 04/10/2026, il défend une « Sécurité sociale intégrale » couvrant la totalité des frais de santé (« une Sécu qui rembourse 100 % des soins », message X du 04/10). Le dossier parlait d'un seul payeur pour les « soins essentiels » ; le périmètre exact reste à confirmer.",
+      "source_url": "https://presse.tripalio.fr/grande-secu-jerome-guedj-remet-une-piece/"
+    },
+    {
+      "topic_id": "international_defense",
+      "change": "Nouveaux éléments sur l'Ukraine (04-06/10/2026) : poursuivre le financement et les livraisons d'armes pour que Kiev fixe elle-même les conditions d'un cessez-le-feu, et doutes sur la « no fly zone » de Glucksmann. Il voit aussi un discours « naïf », menant à une « paix munichoise », dans l'appel de Royal à négocier avec Poutine. Le détail figure dans les thèmes ukraine_russie et defense.",
+      "source_url": "https://www.taurillon.org/la-primaire-socialiste-et-le-bapteme-du-feu-sur-la-guerre-en-ukraine"
+    }
+  ]
+}

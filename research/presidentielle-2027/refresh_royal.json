@@ -1,0 +1,520 @@
+{
+  "candidate": "Ségolène Royal",
+  "topics": [
+    {
+      "topic_id": "finances_publiques",
+      "found": true,
+      "positions": [
+        {
+          "position": "Estime que le déficit budgétaire tient davantage à un manque de recettes qu'à un excès de dépenses. Pour le budget 2027, elle recommande de reconduire tranquillement le budget de l'année précédente plutôt que d'imposer de nouvelles économies, qu'elle qualifie de « budget de provocation ». Elle veut en priorité réduire les aides publiques aux entreprises qui versent des dividendes et baisser immédiatement les taxes sur l'essence.",
+          "kind": "position_declaree",
+          "source_url": "https://www.franceinfo.fr/replay-magazine/franceinfo/l-invite-politique/l-invite-politique-du-vendredi-18-septembre-2026_8182292.html",
+          "source_title": "« C'est un budget de provocation », estime Ségolène Royal à propos des annonces de Sébastien Lecornu (franceinfo, L'invité politique)",
+          "source_date": "2026-09-18",
+          "confidence": "high",
+          "short_quote": "le déficit budgétaire vient plus du manque de recettes que des dépenses",
+          "details": "Elle réagissait au plan d'effort de 54 Md€ du gouvernement Lecornu : gel du point d'indice, gel des APL étudiantes, environ 6 Md€ demandés aux retraités. Elle oppose à ce plan les 61 Md€ de dividendes versés depuis avril et les 150 Md€ d'aides publiques aux entreprises. Si le gouvernement accepte ces mesures, elle ne voit pas de raison de voter la censure."
+        },
+        {
+          "position": "Refuse l'annulation de la dette publique proposée par LFI, au motif qu'agiter cette idée fait monter les taux d'intérêt et fragilise le pays. Elle propose plutôt une dette « reconduite » ou « perpétuelle », portée par la BCE et réservée aux investissements de transition climatique, qu'elle juge productifs.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.capital.fr/economie-politique/a-chaque-fois-le-taux-d-interet-monte-segolene-royal-contre-une-annulation-de-la-dette-1530443",
+          "source_title": "« A chaque fois, le taux d'intérêt monte » : Ségolène Royal contre une annulation de la dette (Capital)",
+          "source_date": "2026-09-24",
+          "confidence": "high",
+          "short_quote": "Annuler la dette, c'est non",
+          "details": "Premier débat de la primaire, sur LCI, le 23/09/2026. Elle avait développé la même idée sur BFMTV le 10/09/2026 (Capital, 11/09/2026) : selon elle, la BCE ne détient qu'environ 18 % de la dette française et l'étranger environ 60 %, ce qui rend un défaut dangereux pour la monnaie. Elle cite les « dettes perpétuelles contre le dérèglement climatique » comme une « bonne dépense ». Le dispositif n'est pas chiffré."
+        },
+        {
+          "position": "Dénonce 1 500 Md€ de dette supplémentaire accumulés alors que les services publics se dégradent, et demande au pouvoir d'expliquer où est passé l'argent.",
+          "kind": "position_declaree",
+          "source_url": "https://www.capital.fr/economie-politique/ou-est-passe-l-argent-segolene-royal-pointe-les-1-500-milliards-de-dette-1530066",
+          "source_title": "« Où est passé l'argent ? », Ségolène Royal pointe les 1 500 milliards de dette (Capital, d'après BFMTV)",
+          "source_date": "2026-09-11",
+          "confidence": "high",
+          "short_quote": "Où est passé l'argent ?",
+          "details": "BFMTV, 10/09/2026. Elle cite la dégradation de la santé et de l'école, les faillites et la hausse des impôts."
+        },
+        {
+          "position": "Fait d'une réforme en profondeur de l'État le préalable à toute hausse d'impôts. Elle vise la superposition des strates administratives, la suppression des hauts comités, le train de vie des agences (voitures, chauffeurs, déplacements) et l'alignement des salaires des entreprises publiques sur ceux de la fonction publique. Une fois cet effort fait, de nouveaux impôts pourraient selon elle devenir légitimes.",
+          "kind": "proposition_explicite",
+          "source_url": "https://acteurspublics.fr/articles/segolene-royal-veut-reformer-letat-avant-daugmenter-les-impots/",
+          "source_title": "Ségolène Royal veut réformer l'État avant d'augmenter les impôts (Acteurs publics)",
+          "source_date": "2026-09-24",
+          "confidence": "high",
+          "short_quote": "On ne fera pas l'économie d'une réforme en profondeur du fonctionnement de l'État",
+          "details": "Débat LCI du 23/09/2026. Elle reconnaît que ces mesures ne représentent « pas énormément d'argent ». Elle critique aussi le redécoupage des régions sous François Hollande. Aucun objectif chiffré d'effectifs ou de dépense publique n'a été trouvé. Ces propos complètent son interview franceinfo du 29/10/2025, déjà au dossier (environ 1 600 organismes en doublon, 160 Md€ d'aides aux entreprises)."
+        },
+        {
+          "position": "A critiqué, lors du budget 2026, la « surenchère sur les impôts » des députés socialistes. Selon elle, ils auraient dû se contenter de la suspension de la réforme des retraites et renvoyer les hausses d'impôts à la campagne présidentielle, car l'instabilité fiscale inquiète les entreprises et nuit à l'emploi.",
+          "kind": "position_declaree",
+          "source_url": "https://www.capital.fr/economie-politique/il-fallait-sarreter-a-la-suspension-de-la-reforme-des-retraites-segolene-royal-critique-la-surenchere-sur-les-impots-1520637",
+          "source_title": "« Il fallait s'arrêter à la suspension de la réforme des retraites » : Ségolène Royal critique la « surenchère sur les impôts » (Capital, d'après TF1)",
+          "source_date": "2025-11-10",
+          "confidence": "high",
+          "short_quote": "je ne serais jamais allée jusqu'à cette surenchère sur les impôts",
+          "details": "Le 10/12/2025, elle a déclaré sur France 24 (« Mardi politique ») que, si elle était députée, elle voterait le budget de la Sécurité sociale 2026, saluant la « responsabilité » du PS : https://www.france24.com/fr/%C3%A9missions/mardi-politique/20251210-s%C3%A9gol%C3%A8ne-royal-si-j-%C3%A9tais-d%C3%A9put%C3%A9e-je-voterai-pour-le-budget-de-la-s%C3%A9curit%C3%A9-sociale (seul le résumé de la page a pu être lu)."
+        },
+        {
+          "position": "Discours ambivalent sur la gravité de la dette. Fin 2025, elle appelait à ne plus inquiéter les Français avec la dette : selon elle, celle-ci représente environ un an de production et le problème vient d'un argent mal réparti. En octobre 2026, elle affirme au contraire que la France est « au bord de la faillite » et qu'une grave crise financière se profile.",
+          "kind": "position_declaree",
+          "source_url": "https://www.femmeactuelle.fr/actu/news-actu/il-n-est-pas-impossible-que-je-sois-candidate-a-l-election-presidentielle-segolene-royal-detaille-un-projet-politique-centre-sur-la-jeunesse-2201093",
+          "source_title": "« Il n'est pas impossible que je sois candidate à l'élection présidentielle » : Ségolène Royal détaille un projet politique centré sur la jeunesse (Femme Actuelle)",
+          "source_date": "2025-11-19",
+          "confidence": "high",
+          "short_quote": "Il faut arrêter d'inquiéter avec la dette",
+          "details": "Évolution récente : au débat BFMTV du 04/10/2026, elle a déclaré que « la France quand même est au bord de la faillite » (Capital, 05/10/2026 : https://www.capital.fr/economie-politique/aucune-raison-de-s-en-prendre-aux-retraites-segolene-royal-conditionne-tout-au-retour-de-l-isf-1530732). Sur franceinfo le 06/10/2026, elle parle d'une « très grave situation financière ». Dans les deux cas, elle refuse de faire peser l'effort sur les retraités tant que l'ISF n'est pas rétabli. En janvier 2026 (RFI), elle décrivait une « dette générationnelle » à la fois financière, écologique et morale."
+        }
+      ]
+    },
+    {
+      "topic_id": "solidarites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Juge « grave » la chute de la natalité et déplore l'absence de réaction nationale. Elle y voit plusieurs causes : stérilité masculine, hausse de la mortalité périnatale, délabrement des services publics, crise du logement. Elle rejette l'expression de « réarmement démographique » d'Emmanuel Macron et estime que les hommes devraient cesser de parler de natalité, la décision revenant aux femmes.",
+          "kind": "position_declaree",
+          "source_url": "https://www.rfi.fr/fr/podcasts/l-atelier-politique/20260117-s%C3%A9gol%C3%A8ne-royal-il-faut-que-les-hommes-arr%C3%AAtent-de-parler-de-natalit%C3%A9",
+          "source_title": "Ségolène Royal : « Il faut que les hommes arrêtent de parler de natalité » (RFI, L'Atelier politique)",
+          "source_date": "2026-01-17",
+          "confidence": "high",
+          "short_quote": "Il faut que les hommes arrêtent de parler de natalité",
+          "details": "Interview liée à son livre « Mais qui va garder les enfants ? » (Fayard, octobre 2025). Aucune position trouvée sur les minima sociaux (RSA), l'assurance chômage, les droits des personnes handicapées (AAH) ou le montant des allocations familiales."
+        },
+        {
+          "position": "Propose une consultation de fertilité vers 20 ans, remboursée par la Sécurité sociale, et une éducation à la parentalité dès la classe de 3e, sur le modèle nordique. Elle veut aussi diffuser des règles de base aux jeunes parents (livret de maternité, vidéos) sur la prévention des abus sexuels et la limitation des écrans. Selon elle, la Constitution aurait plutôt dû consacrer un droit à donner naissance à des enfants désirés.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.femmeactuelle.fr/actu/news-actu/il-n-est-pas-impossible-que-je-sois-candidate-a-l-election-presidentielle-segolene-royal-detaille-un-projet-politique-centre-sur-la-jeunesse-2201093",
+          "source_title": "Ségolène Royal détaille un projet politique centré sur la jeunesse (Femme Actuelle)",
+          "source_date": "2025-11-19",
+          "confidence": "high",
+          "short_quote": "Je suis pour la création d'une consultation de fertilité",
+          "details": "Elle dit que la France est revenue au niveau de natalité de 1925 (1,62 enfant par femme). Sa remarque sur le « droit à donner naissance » vient juste après un rappel de l'inscription de l'IVG dans la Constitution. Elle ne demande pas de revenir sur cette inscription."
+        },
+        {
+          "position": "Veut créer des maisons de la parentalité et former les parents, en s'appuyant sur les Semaines des parents et la médiation familiale qu'elle avait lancées comme ministre. Elle propose un « pacte des générations ».",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.parismatch.com/actu/politique/des-cameras-dans-les-classes-et-les-creches-la-proposition-choc-de-segolene-royal-258794",
+          "source_title": "Des caméras dans les classes et les crèches ? La proposition choc de Ségolène Royal (Paris Match)",
+          "source_date": "2025-10-23",
+          "confidence": "medium",
+          "details": "Propositions tirées de son livre « Mais qui va garder les enfants ? ». L'article est réservé aux abonnés : seul l'extrait public a été lu."
+        },
+        {
+          "position": "Refuse de créer un statut spécifique pour les familles monoparentales, ce qui reviendrait selon elle à en faire un modèle. Elles bénéficient déjà des allocations familiales et des aides au logement. Elle ne veut aucune distinction entre familles classiques, homoparentales ou monoparentales, seul l'intérêt de l'enfant devant compter.",
+          "kind": "position_declaree",
+          "source_url": "https://www.femmeactuelle.fr/actu/news-actu/il-n-est-pas-impossible-que-je-sois-candidate-a-l-election-presidentielle-segolene-royal-detaille-un-projet-politique-centre-sur-la-jeunesse-2201093",
+          "source_title": "Ségolène Royal détaille un projet politique centré sur la jeunesse (Femme Actuelle)",
+          "source_date": "2025-11-19",
+          "confidence": "high",
+          "short_quote": "Qu'elle soit classique, homoparentale ou monoparentale"
+        },
+        {
+          "position": "Relie la protection des retraites à la natalité : selon elle, faire peur aux retraités pousse les jeunes à ne plus avoir d'enfants. Elle refuse toute baisse des pensions tant que l'ISF n'est pas rétabli.",
+          "kind": "position_declaree",
+          "source_url": "https://www.capital.fr/economie-politique/aucune-raison-de-s-en-prendre-aux-retraites-segolene-royal-conditionne-tout-au-retour-de-l-isf-1530732",
+          "source_title": "« Aucune raison de s'en prendre aux retraités », Ségolène Royal conditionne tout au retour de l'ISF (Capital)",
+          "source_date": "2026-10-05",
+          "confidence": "high",
+          "short_quote": "Si on n'a pas de retraite, on n'aura pas d'enfants",
+          "details": "Débat BFMTV du 04/10/2026."
+        },
+        {
+          "position": "Veut revaloriser les métiers du soin et de la santé mentale, et lancer des « chantiers de jeunes » pour les jeunes en errance. Exemple cité : encadrer les adeptes de rodéos urbains et les former à la réparation de deux-roues plutôt que de broyer leurs engins.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.femmeactuelle.fr/actu/news-actu/il-n-est-pas-impossible-que-je-sois-candidate-a-l-election-presidentielle-segolene-royal-detaille-un-projet-politique-centre-sur-la-jeunesse-2201093",
+          "source_title": "Ségolène Royal détaille un projet politique centré sur la jeunesse (Femme Actuelle)",
+          "source_date": "2025-11-19",
+          "confidence": "medium",
+          "details": "Le Figaro du 07/01/2026 rapporte une variante : une « école de cascadeurs » pour encadrer les rodéos urbains. Aucun chiffrage."
+        }
+      ]
+    },
+    {
+      "topic_id": "egalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Plaide pour l'égalité salariale entre femmes et hommes, qui augmenterait selon elle les cotisations. Elle rappelle que la retraite moyenne des femmes est de 1 200 € pour s'opposer à toute ponction sur les retraités.",
+          "kind": "position_declaree",
+          "source_url": "https://www.capital.fr/votre-retraite/on-est-riche-a-1-200-euros-segolene-royal-a-une-autre-solution-que-de-taxer-les-retraites-1530154",
+          "source_title": "« On est riche à 1 200 euros ? », Ségolène Royal a une autre solution que de taxer les retraités (Capital, d'après Europe 1/CNews)",
+          "source_date": "2026-09-15",
+          "confidence": "high",
+          "short_quote": "On est riche à 1 200 euros ?",
+          "details": "Aucune mesure concrète trouvée (sanctions, transparence salariale, loi). Dans la même interview, elle propose de pouvoir « travailler plus longtemps à la carte »."
+        },
+        {
+          "position": "Défend la mixité des pouvoirs : selon elle, un équilibre entre femmes et hommes aux responsabilités réduirait les conflits. Elle dénonce un « virilisme toxique » en politique, le distingue d'une « virilité positive » qu'elle juge nécessaire et évoque une « mère de la nation ».",
+          "kind": "position_declaree",
+          "source_url": "https://www.rfi.fr/fr/podcasts/l-atelier-politique/20260117-s%C3%A9gol%C3%A8ne-royal-il-faut-que-les-hommes-arr%C3%AAtent-de-parler-de-natalit%C3%A9",
+          "source_title": "Ségolène Royal : « Il faut que les hommes arrêtent de parler de natalité » (RFI)",
+          "source_date": "2026-01-17",
+          "confidence": "high",
+          "details": "Elle déplore le très petit nombre de femmes aux responsabilités et d'équipes mixtes. Elle refuse de « déconstruire » la masculinité à la manière de Sandrine Rousseau."
+        },
+        {
+          "position": "Sur le partage des responsabilités familiales, observe des progrès chez les jeunes couples (rôle des pères, tâches ménagères). Elle constate en revanche que les violences faites aux femmes n'ont pas reculé, en partie à cause de la pornographie accessible par les réseaux sociaux, et appelle à un effort d'éducation.",
+          "kind": "position_declaree",
+          "source_url": "https://www.femmeactuelle.fr/actu/news-actu/il-n-est-pas-impossible-que-je-sois-candidate-a-l-election-presidentielle-segolene-royal-detaille-un-projet-politique-centre-sur-la-jeunesse-2201093",
+          "source_title": "Ségolène Royal détaille un projet politique centré sur la jeunesse (Femme Actuelle)",
+          "source_date": "2025-11-19",
+          "confidence": "medium",
+          "details": "Aucune mesure chiffrée sur le congé parental ou le congé de naissance n'a été trouvée. Le dossier contient déjà sa promesse de « tolérance zéro » pour les violences faites aux femmes et aux enfants, ainsi que son affirmation selon laquelle plus de 90 % des viols aboutissent à un non-lieu (Sud Radio, 2025)."
+        },
+        {
+          "position": "A affiché publiquement son soutien aux femmes accusant Patrick Bruel de violences sexuelles, en appelant à les croire toutes et à ce que la peur change de camp.",
+          "kind": "position_declaree",
+          "source_url": "https://www.journaldesfemmes.fr/people/magazine/3266633-actualite-infos-people-france-mai-zazie-sloane-bruel/3267003-segolene-royal",
+          "source_title": "Ségolène Royal atomise Patrick Bruel : « la peur doit changer de camp » (Journal des Femmes, d'après son message sur X)",
+          "source_date": "2026-05-29",
+          "confidence": "medium",
+          "short_quote": "Victimes de Patrick Bruel, on vous croit. Toutes."
+        },
+        {
+          "position": "Défend l'accès gratuit à la contraception pour les lycéennes et les étudiantes, et rappelle avoir introduit la pilule du lendemain dans les lycées. Elle fait de la contraception le premier droit et juge que l'IVG n'est « pas l'idéal », mais le plus souvent la conséquence d'un échec de contraception.",
+          "kind": "position_declaree",
+          "source_url": "https://www.melty.fr/people/le-temps-est-venu-segolene-royal-72-ans-appelle-a-redefinir-le-role-des-femmes-au-foyer-en-societe-et-en-politique-2288069.html",
+          "source_title": "« Le temps est venu » : Ségolène Royal appelle à redéfinir le rôle des femmes en société, au foyer et en politique (Melty)",
+          "source_date": "2026-01-09",
+          "confidence": "medium",
+          "short_quote": "l'idéal ce n'est pas une IVG"
+        },
+        {
+          "position": "Dénonce le sexisme en politique. Elle a qualifié d'« agression à connotation sexuelle » des propos privés de Raphaël Glucksmann l'accusant d'avoir fait « la danse du ventre » devant Emmanuel Macron, et refuse tout vocabulaire de « soumission » à son égard.",
+          "kind": "position_declaree",
+          "source_url": "https://www.20minutes.fr/politique/4248735-20261004-primaire-gauche-soumise-personne-segolene-royal-face-sexisme-politique",
+          "source_title": "« Je ne suis soumise à personne »… Ségolène Royal face au sexisme en politique (20 Minutes)",
+          "source_date": "2026-10-04",
+          "confidence": "high",
+          "short_quote": "La soumission, c'est le patriarcat",
+          "details": "Débat BFMTV du 04/10/2026 : Raphaël Glucksmann s'est dit « désolé » (BFMTV, 04/10/2026). Elle dénonce un double standard : une femme qui aurait dissous l'Assemblée ou envoyé la police devant les lycées aurait été traitée de « dingue »."
+        },
+        {
+          "position": "Pour le Panthéon, cite Louise Michel, Gisèle Halimi et Berty Albrecht, et souhaite atteindre la parité.",
+          "kind": "position_declaree",
+          "source_url": "https://www.elle.fr/Societe/Interviews/Le-questionnaire-Pop-Pol-de-Segolene-Royal-4527541",
+          "source_title": "Le questionnaire « Pop & Pol » de Ségolène Royal (ELLE)",
+          "source_date": "2026-08-26",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "droits_lgbtqia",
+      "found": true,
+      "positions": [
+        {
+          "position": "Refuse toute distinction entre familles « classiques », homoparentales ou monoparentales : seul compte l'intérêt de l'enfant.",
+          "kind": "position_declaree",
+          "source_url": "https://www.femmeactuelle.fr/actu/news-actu/il-n-est-pas-impossible-que-je-sois-candidate-a-l-election-presidentielle-segolene-royal-detaille-un-projet-politique-centre-sur-la-jeunesse-2201093",
+          "source_title": "Ségolène Royal détaille un projet politique centré sur la jeunesse (Femme Actuelle)",
+          "source_date": "2025-11-19",
+          "confidence": "medium",
+          "short_quote": "Qu'elle soit classique, homoparentale ou monoparentale",
+          "details": "Propos tenu à propos d'un éventuel statut des familles monoparentales, et non dans un débat sur la filiation ou l'adoption. Aucune position trouvée sur la PMA, la GPA ou le changement de la mention du sexe à l'état civil."
+        },
+        {
+          "position": "A attribué, en mars 2024, l'augmentation des cas de dysphorie de genre chez les mineurs aux perturbateurs endocriniens, dont le glyphosate, en affirmant que ce lien était « prouvé ». CheckNews (Libération) a examiné le fondement de cette affirmation.",
+          "kind": "position_declaree",
+          "source_url": "https://www.valeursactuelles.com/politique/hausse-des-cas-de-transitions-de-genre-chez-les-mineurs-segolene-royal-met-en-cause-le-glyphosate",
+          "source_title": "Hausse des cas de transitions de genre chez les mineurs : Ségolène Royal met en cause… le glyphosate (Valeurs actuelles, d'après BFMTV)",
+          "source_date": "2024-03-20",
+          "confidence": "medium",
+          "short_quote": "l'augmentation de ces cas est due aux perturbateurs endocriniens",
+          "details": "Propos tenus sur BFMTV le 19/03/2024, antérieurs à 2025. Libération CheckNews (21/03/2024) a examiné ses sources : https://www.liberation.fr/checknews/transidentite-sur-quoi-sappuie-segolene-royal-pour-affirmer-que-laugmentation-des-cas-est-due-au-glyphosate-et-aux-perturbateurs-endocriniens-20240321_636TRON2ABEUVHWTEH6EAYABSI/ (inaccessible, seul le titre a été lu). Elle n'a pris position ni sur les traitements médicaux des mineurs trans ni sur la proposition de loi sénatoriale de 2024."
+        },
+        {
+          "position": "Soutient l'éducation à la sexualité à l'école et veut y adjoindre une éducation à la parentalité, dès la 3e.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.melty.fr/people/le-temps-est-venu-segolene-royal-72-ans-appelle-a-redefinir-le-role-des-femmes-au-foyer-en-societe-et-en-politique-2288069.html",
+          "source_title": "« Le temps est venu » : Ségolène Royal appelle à redéfinir le rôle des femmes (Melty)",
+          "source_date": "2026-01-09",
+          "confidence": "medium",
+          "details": "Elle veut donner l'éducation à la parentalité « en même temps que l'éducation à la sexualité ». Comme ministre de l'Enseignement scolaire, elle avait fait diffuser dans les écoles le livret « Mon corps, c'est mon corps » (RFI, 17/01/2026)."
+        },
+        {
+          "position": "Justifie sa candidature par la lutte contre l'extrême droite, dont elle redoute notamment les risques d'homophobie, de racisme, d'antisémitisme et de sexisme.",
+          "kind": "inference",
+          "source_url": "https://lcp.fr/actualites/presidentielle-2027-segolene-royal-annonce-sa-candidature-a-la-primaire-socialiste",
+          "source_title": "Présidentielle 2027 : Ségolène Royal annonce sa candidature à la primaire socialiste (LCP)",
+          "source_date": "2026-07-10",
+          "confidence": "low",
+          "details": "Simple mention de l'homophobie dans sa déclaration de candidature : aucune mesure concrète contre les discriminations anti-LGBTQIA+ n'a été trouvée."
+        }
+      ]
+    },
+    {
+      "topic_id": "societe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Défend un « droit à la beauté » pour tous les enfants. Elle juge le contact avec la création artistique crucial, notamment pour les enfants en échec scolaire, et regrette que la période du Covid n'ait pas été mise à profit pour diffuser de la musique dans les rues.",
+          "kind": "position_declaree",
+          "source_url": "https://www.rfi.fr/fr/podcasts/l-atelier-politique/20260117-s%C3%A9gol%C3%A8ne-royal-il-faut-que-les-hommes-arr%C3%AAtent-de-parler-de-natalit%C3%A9",
+          "source_title": "Ségolène Royal : « Il faut que les hommes arrêtent de parler de natalité » (RFI)",
+          "source_date": "2026-01-17",
+          "confidence": "medium",
+          "short_quote": "droit à la beauté",
+          "details": "Thème développé dans son livre « Mais qui va garder les enfants ? » (Paris Match, 23/10/2025). Elle souhaite aussi que l'école célèbre « la réussite, le bien, le beau », et pas seulement des minutes de silence (Femme Actuelle, 19/11/2025). Aucune position trouvée sur l'audiovisuel public (holding, financement, privatisation), le budget de la culture, le soutien à la création ou le statut des intermittents."
+        },
+        {
+          "position": "S'oppose au projet de nouveau pavillon d'entrée de l'Assemblée nationale (environ 50 M€). Elle y voit une « débauche d'argent public » et une forme de privatisation d'un monument historique, au nom de la défense du patrimoine.",
+          "kind": "position_declaree",
+          "source_url": "https://www.lefigaro.fr/culture/patrimoine/joeystarr-et-segolene-royal-se-mobilisent-contre-le-projet-de-nouveau-pavillon-d-entree-de-l-assemblee-nationale-20260804",
+          "source_title": "JoeyStarr et Ségolène Royal se mobilisent contre le projet de nouveau pavillon d'entrée de l'Assemblée nationale (Le Figaro)",
+          "source_date": "2026-08-04",
+          "confidence": "high",
+          "short_quote": "Cette débauche d'argent public est en effet scandaleuse et doit cesser",
+          "details": "Message publié sur les réseaux sociaux. Elle compare le coût à l'équivalent en climatiseurs pour les écoles et les hôpitaux."
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "found": true,
+      "positions": [
+        {
+          "position": "A signé la pétition pour l'abrogation de la loi Duplomb, qui réintroduisait un néonicotinoïde. Elle estime que cette loi détruit la petite agriculture.",
+          "kind": "position_declaree",
+          "source_url": "https://www.bfmtv.com/politique/video-loi-duplomb-ils-sont-en-train-de-detruire-la-petite-agriculture-lance-segolene-royal_VN-202507210482.html",
+          "source_title": "Loi Duplomb : « Ils sont en train de détruire la petite agriculture », lance Ségolène Royal (BFMTV)",
+          "source_date": "2025-07-21",
+          "confidence": "high",
+          "short_quote": "Ils sont en train de détruire la petite agriculture",
+          "details": "La pétition dépassait alors 1,4 million de signatures. Cette prise de position complète celle de Sud Radio (03/07/2026), déjà au dossier."
+        },
+        {
+          "position": "Refuse de réautoriser le glyphosate et les néonicotinoïdes au motif que d'autres pays européens les utilisent. Selon elle, ce sont les partenaires européens qui doivent s'aligner sur la France, qui conquerrait des parts de marché grâce à la meilleure alimentation possible.",
+          "kind": "position_declaree",
+          "source_url": "https://www.parismatch.com/actu/politique/des-cameras-dans-les-classes-et-les-creches-la-proposition-choc-de-segolene-royal-258794",
+          "source_title": "Des caméras dans les classes et les crèches ? La proposition choc de Ségolène Royal (Paris Match)",
+          "source_date": "2025-10-23",
+          "confidence": "high",
+          "short_quote": "les pays européens s'aligneront sur la France",
+          "details": "Dans Femme Actuelle (19/11/2025), elle affirme avoir « supprimé » le glyphosate et les néonicotinoïdes comme ministre, réintroduits selon elle sous la pression des lobbies. Elle cite des effets dans les régions viticoles : puberté précoce, baisse de la fertilité, cancers de la prostate."
+        },
+        {
+          "position": "Voit dans la transition climatique l'occasion de sortir de l'agriculture intensive, de replanter et de créer des filières locales, par exemple la laine de mouton pour l'isolation des bâtiments, sur le modèle du chanvre en Poitou-Charentes.",
+          "kind": "position_declaree",
+          "source_url": "https://www.femmeactuelle.fr/actu/news-actu/il-n-est-pas-impossible-que-je-sois-candidate-a-l-election-presidentielle-segolene-royal-detaille-un-projet-politique-centre-sur-la-jeunesse-2201093",
+          "source_title": "Ségolène Royal détaille un projet politique centré sur la jeunesse (Femme Actuelle)",
+          "source_date": "2025-11-19",
+          "confidence": "medium",
+          "details": "Aucune position trouvée sur l'accord UE-Mercosur, la PAC, le revenu agricole, l'accès à l'alimentation (chèque alimentaire, sécurité sociale de l'alimentation) ou le bien-être animal (élevage intensif, corrida, chasse). Elle s'est rendue à la foire de Châlons le 04/09/2026 sans déclaration agricole rapportée. Elle n'a pas été signalée parmi les candidats attendus au Sommet de l'élevage (octobre 2026)."
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Propose que la BCE prolonge indéfiniment une partie de la dette publique (dette « perpétuelle ») pour financer la lutte contre le dérèglement climatique, en rappelant que la BCE l'a déjà fait pendant le Covid.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.capital.fr/economie-politique/ou-est-passe-l-argent-segolene-royal-pointe-les-1-500-milliards-de-dette-1530066",
+          "source_title": "« Où est passé l'argent ? », Ségolène Royal pointe les 1 500 milliards de dette (Capital, d'après BFMTV)",
+          "source_date": "2026-09-11",
+          "confidence": "high",
+          "details": "Répété au débat LCI du 23/09/2026 (Capital, 24/09/2026). Aucun mécanisme précis ni montant."
+        },
+        {
+          "position": "Veut que les partenaires européens s'alignent sur les normes françaises les plus protectrices, en matière de pesticides et d'alimentation, plutôt que la France s'aligne sur eux.",
+          "kind": "position_declaree",
+          "source_url": "https://www.parismatch.com/actu/politique/des-cameras-dans-les-classes-et-les-creches-la-proposition-choc-de-segolene-royal-258794",
+          "source_title": "Des caméras dans les classes et les crèches ? La proposition choc de Ségolène Royal (Paris Match)",
+          "source_date": "2025-10-23",
+          "confidence": "medium",
+          "details": "Le dossier contient déjà : « Les règles européennes, on les change » (RTL, 11/09/2026), la dérogation demandée sur l'accise minimale des carburants, la sortie du marché européen de l'électricité et la critique d'Ursula von der Leyen. Aucune position trouvée sur le budget de l'UE, le fédéralisme, l'emprunt commun, l'élargissement (Ukraine, Balkans), l'unanimité ou le maintien dans l'UE. Aucun appel à sortir de l'Union n'a été trouvé."
+        }
+      ]
+    },
+    {
+      "topic_id": "ukraine_russie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Veut maintenir la défense de l'Ukraine tout en consacrant un effort équivalent à arrêter la guerre par la négociation. Au débat BFMTV, les cinq candidats ont été décrits comme unanimes pour maintenir l'aide à l'Ukraine.",
+          "kind": "position_declaree",
+          "source_url": "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat",
+          "source_title": "Glucksmann face à Royal, divisions sur LFI, lycées… Ce qu'il faut retenir du dernier débat de la primaire socialiste (LCP)",
+          "source_date": "2026-10-05",
+          "confidence": "high",
+          "short_quote": "Il faut maintenir la défense de l'Ukraine",
+          "details": "Débat BFMTV du 04/10/2026. BFMTV (04/10/2026) note que les candidats sont « unanimes » pour maintenir l'aide, face au RN qui veut l'arrêter. Aucune position explicite trouvée sur les livraisons d'armes, la saisie des avoirs russes gelés ou l'envoi de troupes."
+        },
+        {
+          "position": "Propose de garder le dialogue avec la Russie et de créer une « commission permanente de négociation ». Elle reproche des positions « jusqu'au-boutistes » à certains concurrents, visant implicitement Raphaël Glucksmann.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.lefigaro.fr/elections/presidentielles/blocus-des-lycees-echanges-muscles-sur-gaza-rapport-a-lfi-ce-qu-il-faut-retenir-du-deuxieme-debat-de-la-primaire-de-la-gauche-20261001",
+          "source_title": "Blocus des lycées, échanges musclés sur Gaza, rapport à LFI : ce qu'il faut retenir du deuxième débat de la primaire de la gauche (Le Figaro)",
+          "source_date": "2026-10-01",
+          "confidence": "high",
+          "short_quote": "commission permanente de négociation",
+          "details": "Débat France 2 du 01/10/2026, confirmé par LCP (01/10/2026). Le Figaro la décrit « seule contre tous » sur l'Ukraine. La composition et le mandat de cette commission ne sont pas précisés."
+        },
+        {
+          "position": "Ouvre la porte à un dialogue direct avec Vladimir Poutine. Ses concurrents la jugent isolée : Jérôme Guedj parle d'un choix « naïf » pouvant coûter des territoires à l'Ukraine, Emmanuel Maurel décrit Poutine comme un prédateur qui ne veut pas négocier.",
+          "kind": "position_declaree",
+          "source_url": "https://www.20minutes.fr/politique/4251221-20261005-presidentielle-2027-lfi-ukraine-retraites-lycees-faut-retenir-dernier-debat-primaire-gauche",
+          "source_title": "Présidentielle 2027 : LFI, Ukraine, retraites, lycées… Ce qu'il faut retenir du dernier débat de la primaire à gauche (20 Minutes/AFP)",
+          "source_date": "2026-10-05",
+          "confidence": "high",
+          "details": "Débat BFMTV du 04/10/2026. Lors du débat LCI du 23/09/2026, elle avait déclaré « Il faut tenter » et déploré d'être traitée de « poutinolâtre » dès qu'elle parle de paix (RTL, 24/09/2026)."
+        },
+        {
+          "position": "Promet que les Français ne seront pas obligés d'aller combattre en Ukraine et n'auront pas à craindre une troisième guerre mondiale.",
+          "kind": "position_declaree",
+          "source_url": "https://www.bfmtv.com/politique/elections/presidentielle/video-segolene-royal-vos-enfants-avec-moi-ne-seront-pas-obliges-d-aller-se-faire-tuer-en-ukraine-ni-d-avoir-peur-d-une-troisieme-guerre-mondiale_VN-202610040444.html",
+          "source_title": "Ségolène Royal : « Vos enfants, avec moi, ne seront pas obligés d'aller se faire tuer en Ukraine ni d'avoir peur d'une Troisième Guerre mondiale » (BFMTV)",
+          "source_date": "2026-10-04",
+          "confidence": "high",
+          "short_quote": "Vos enfants, avec moi, ne seront pas obligés d'aller se faire tuer en Ukraine",
+          "details": "Seul le titre de la vidéo a pu être lu. Jérôme Guedj a jugé ce discours « louable mais un peu sirupeux » (BFMTV, 04/10/2026)."
+        },
+        {
+          "position": "Qualifie la Russie d'adversaire de l'Europe. Elle estime toutefois que la guerre aurait pu être évitée, et qu'au pouvoir elle aurait demandé le déploiement de Casques bleus à la frontière pour empêcher l'invasion. Elle prône un équilibre permanent entre force de défense et force de négociation.",
+          "kind": "position_declaree",
+          "source_url": "https://www.taurillon.org/la-primaire-socialiste-et-le-bapteme-du-feu-sur-la-guerre-en-ukraine",
+          "source_title": "Primaire socialiste : les positions des candidats sur l'Ukraine (Le Taurillon)",
+          "source_date": "2026-10-06",
+          "confidence": "medium",
+          "short_quote": "cette guerre aurait pu ne pas exister",
+          "details": "Synthèse des trois débats de la primaire par Le Taurillon, média des Jeunes Européens. Elle y rejette le « jusqu'au boutisme de la guerre »."
+        },
+        {
+          "position": "Affirme n'avoir jamais contesté les crimes de guerre commis par la Russie en Ukraine, en réponse aux rappels de ses propos de 2022.",
+          "kind": "position_declaree",
+          "source_url": "https://www.bfmtv.com/replay-emissions/le-grand-oral-2027/video-je-n-ai-jamais-mis-en-cause-les-crimes-de-guerre-commis-par-la-russie-en-ukraine-assure-segolene-royal-candidate-a-la-primaire-socialiste_VN-202609200290.html",
+          "source_title": "« Je n'ai jamais mis en cause les crimes de guerre commis par la Russie en Ukraine », assure Ségolène Royal (BFMTV, Le Grand Oral 2027)",
+          "source_date": "2026-09-20",
+          "confidence": "high",
+          "short_quote": "Je n'ai jamais mis en cause les crimes de guerre commis par la Russie",
+          "details": "Seul le titre de la vidéo a pu être lu. Pour mémoire, le dossier signale ses propos de 2022 mettant en doute certaines informations ukrainiennes, suivis d'excuses."
+        }
+      ]
+    },
+    {
+      "topic_id": "proche_orient",
+      "found": true,
+      "positions": [
+        {
+          "position": "Qualifie de génocide la situation à Gaza et presse ses concurrents de reconnaître ce terme. Elle accuse les dirigeants israéliens de vouloir éliminer la population et d'empêcher la reconstruction de Gaza.",
+          "kind": "position_declaree",
+          "source_url": "https://www.rtl.fr/actu/politique/propos-de-segolene-royal-sur-israel-le-crif-condamne-une-trahison-de-l-ideal-republicain-la-socialiste-evoque-une-parole-deformee-7900676545",
+          "source_title": "Propos de Ségolène Royal sur Israël : le Crif condamne une « trahison de l'idéal républicain », la socialiste évoque « une parole déformée » (RTL)",
+          "source_date": "2026-09-24",
+          "confidence": "high",
+          "short_quote": "Si les mots sont importants, il faut reconnaître le génocide",
+          "details": "Débat LCI du 23/09/2026, en réponse à Raphaël Glucksmann, qui parle de crimes de guerre et de crimes contre l'humanité. Olivier Faure emploie aussi le mot « génocide ». Au débat France 2 du 01/10/2026, elle a dénoncé les ministres israéliens qui revendiquent une intention génocidaire et appelé à « la solidarité avec les peuples » (LCP, 01/10/2026)."
+        },
+        {
+          "position": "Attribue la montée de l'antisémitisme en France aux « actuels dirigeants » d'Israël, et non à Israël ou aux Juifs. Elle souhaite que davantage de voix israéliennes et juives dénoncent la situation à Gaza. Après le tollé, elle a précisé vouloir soutenir les Israéliens qui s'opposent au « criminel de guerre Netanyahu » et nié essentialiser les Français juifs.",
+          "kind": "position_declaree",
+          "source_url": "https://www.rtl.fr/actu/politique/propos-de-segolene-royal-sur-israel-le-crif-condamne-une-trahison-de-l-ideal-republicain-la-socialiste-evoque-une-parole-deformee-7900676545",
+          "source_title": "Propos de Ségolène Royal sur Israël : le Crif condamne une « trahison de l'idéal républicain » (RTL)",
+          "source_date": "2026-09-24",
+          "confidence": "high",
+          "short_quote": "régime du criminel de guerre Netanyahu",
+          "details": "Le Crif, la Fondation du judaïsme français, l'UEJF, Aurore Bergé, Jérôme Guedj et Raphaël Glucksmann ont condamné ses propos initiaux. Selon le Times of Israel (24/09/2026), elle a aussi rappelé sa solidarité avec Israël après le 7 octobre. En revanche, ce n'est pas elle mais Olivier Faure qui a proposé au débat de suspendre l'accord d'association UE-Israël et d'interdire le commerce avec les colonies. Aucune proposition de sanctions concrètes (embargo sur les armes, accord UE-Israël) n'a été trouvée de sa part en 2026."
+        },
+        {
+          "position": "En mai 2025, reprochait à Emmanuel Macron de ne pas saisir le Conseil de sécurité de l'ONU pour obtenir des sanctions contre Benyamin Netanyahou. Elle critiquait ceux qui envisageaient de reconnaître l'État de Palestine « quand tout aura été détruit », ce qui implique qu'elle souhaitait une reconnaissance plus rapide.",
+          "kind": "position_declaree",
+          "source_url": "https://www.tunisienumerique.com/gaza-segolene-royal-fustige-linaction-de-macron-ce-nest-pas-ca-la-france/",
+          "source_title": "Gaza : Ségolène Royal fustige l'inaction de Macron, « ce n'est pas ça la France » (Tunisie Numérique)",
+          "source_date": "2025-05-10",
+          "confidence": "medium",
+          "details": "Message sur X du 10/05/2025, déjà au dossier. La France a reconnu l'État de Palestine en septembre 2025. Aucune position de 2026 trouvée sur les modalités (frontières, Autorité palestinienne, Hamas)."
+        }
+      ]
+    },
+    {
+      "topic_id": "defense",
+      "found": true,
+      "positions": [
+        {
+          "position": "A rejeté le discours du chef d'état-major Fabien Mandon, qui disait qu'il fallait « accepter de perdre nos enfants ». Selon elle, la France, membre permanent du Conseil de sécurité, doit être un acteur de paix et non de guerre. Elle a demandé à Emmanuel Macron de s'expliquer, en suggérant qu'une entrée en guerre pourrait servir de prétexte à ne pas tenir la présidentielle.",
+          "kind": "position_declaree",
+          "source_url": "https://infoccitanie.fr/segolene-royal-si-la-france-entre-en-guerre-il-ny-aura-pas-delection-presidentielle/",
+          "source_title": "Ségolène Royal : « Si la France entre en guerre, il n'y aura pas d'élection présidentielle » (InfOccitanie, d'après CNews)",
+          "source_date": "2025-11-21",
+          "confidence": "high",
+          "short_quote": "La France doit être acteur de paix et pas acteur de guerre",
+          "details": "L'Heure des pros (CNews), 20/11/2025. Elle juge qu'on n'a pas le droit de faire peur à la nation ni de plonger les jeunes dans l'anxiété, au risque d'aggraver l'effondrement de la natalité. Le Point (21/11/2025) la range parmi les responsables « pacifistes », avec Mélenchon et Roussel (article non lu, payant)."
+        },
+        {
+          "position": "Accuse Emmanuel Macron de faire peur aux Français avec la menace russe. Elle a jugé que la réception des oppositions à l'Élysée sur cette menace relevait d'une « opération de communication », reprenant le terme d'Éric Ciotti.",
+          "kind": "position_declaree",
+          "source_url": "https://www.bfmtv.com/replay-emissions/le-grand-oral-2027/video-menace-russe-emmanuel-macron-fait-peur-aux-gens-affirme-segolene-royal-candidate-a-la-primaire-socialiste_VN-202609200288.html",
+          "source_title": "Menace russe : « Emmanuel Macron fait peur aux gens », affirme Ségolène Royal (BFMTV, Le Grand Oral 2027)",
+          "source_date": "2026-09-20",
+          "confidence": "medium",
+          "short_quote": "Emmanuel Macron fait peur aux gens",
+          "details": "Seuls les titres des vidéos ont pu être lus. Seconde vidéo, même date : https://www.bfmtv.com/replay-emissions/le-grand-oral-2027/video-menace-russe-je-suis-d-accord-avec-eric-ciotti-c-est-une-operation-de-communication-de-la-part-de-l-elysee-estime-segolene-royal-candidate-a-la-primaire-socialiste-apres-qu-emmanuel-macron-a-recu-les-oppositions_VN-202609200287.html"
+        },
+        {
+          "position": "Dénonce chez les dirigeants masculins un « virilisme toxique » et une « fascination pour la guerre ». Selon elle, plus les hommes politiques sont impopulaires, plus ils parlent de guerre, et le choix de négocier est trop souvent écarté au profit de l'affrontement.",
+          "kind": "position_declaree",
+          "source_url": "https://www.rfi.fr/fr/podcasts/l-atelier-politique/20260117-s%C3%A9gol%C3%A8ne-royal-il-faut-que-les-hommes-arr%C3%AAtent-de-parler-de-natalit%C3%A9",
+          "source_title": "Ségolène Royal : « Il faut que les hommes arrêtent de parler de natalité » (RFI)",
+          "source_date": "2026-01-17",
+          "confidence": "medium",
+          "details": "Repris dans 20 Minutes (04/10/2026). Il s'agit d'une orientation générale. Aucune position trouvée sur le budget militaire (loi de programmation, objectif de PIB), l'OTAN, la dissuasion nucléaire (y compris sa dimension européenne), la défense européenne ou le service national."
+        },
+        {
+          "position": "Dénonce la logique de « Far West » de Donald Trump, qui convoite le Groenland pour ses ressources fossiles. Elle déplore l'absence de politique française sur les pôles et estime que la France pourrait jouer les médiateurs, dans le respect de la volonté d'indépendance des Groenlandais.",
+          "kind": "position_declaree",
+          "source_url": "https://www.challenges.fr/politique/il-ny-a-plus-de-politique-francaise-sur-les-poles-le-cri-dalarme-de-segolene-royal-sur-le-groenland_636103",
+          "source_title": "« Il n'y a plus de politique française sur les pôles » : le cri d'alarme de Ségolène Royal sur le Groenland (Challenges)",
+          "source_date": "2026-01-09",
+          "confidence": "medium",
+          "short_quote": "Il n'y a plus de politique française sur les pôles",
+          "details": "Interview en tant qu'ancienne ambassadrice chargée des pôles. Seuls le chapeau et le résumé, accessibles sans abonnement, ont été lus."
+        }
+      ]
+    }
+  ],
+  "updates": [
+    {
+      "topic_id": "strategie",
+      "change": "Précision sur les alliances : le refus d'exclure LFI ne signifie pas un ralliement. Le 20/09/2026 sur BFMTV, elle juge « hors de question de se mettre derrière Jean-Luc Mélenchon ». Au débat du 01/10/2026, elle se dit capable de bâtir vite une alliance avec les partis de gauche, les écologistes et le PCF (Le Figaro, 01/10). Le 04/10/2026, elle accuse Raphaël Glucksmann de mener un « hold-up » sur le PS et d'accabler LFI pour « justifier l'alliance avec la droite » (BFMTV, 20 Minutes).",
+      "source_url": "https://www.bfmtv.com/politique/elections/presidentielle/colere-lyceenne-retraites-guerre-en-ukraine-ce-qu-il-faut-retenir-du-dernier-debat-entre-les-candidats-de-la-primaire-sociale-democrate-sur-bfmtv_AN-202610040470.html"
+    },
+    {
+      "topic_id": "immigration",
+      "change": "Nouvelle position explicite, débat BFMTV du 04/10/2026 : elle régulariserait les travailleurs sans papiers (« Je régularise ceux qui travaillent ») et dénonce l'hypocrisie de laisser en situation irrégulière des salariés que des patrons ont fait venir. Cela répond à une question restée ouverte dans le dossier.",
+      "source_url": "https://www.20minutes.fr/politique/4251221-20261005-presidentielle-2027-lfi-ukraine-retraites-lycees-faut-retenir-dernier-debat-primaire-gauche"
+    },
+    {
+      "topic_id": "fiscalite",
+      "change": "Débat du 04/10/2026 : elle annonce que son combat fiscal sera « la lutte contre la fraude fiscale », avec l'aide de l'intelligence artificielle, en plus du retour de l'ISF financier. Divergence de source : Le Figaro (01/10) lui prête un litre de carburant ramené à « 1,6 euro », alors que toutes les autres sources indiquent 1,70 €. Il s'agit probablement d'une erreur : conserver 1,70 €.",
+      "source_url": "https://www.20minutes.fr/politique/4251221-20261005-presidentielle-2027-lfi-ukraine-retraites-lycees-faut-retenir-dernier-debat-primaire-gauche"
+    },
+    {
+      "topic_id": "retraites",
+      "change": "Réaffirmé le 04/10/2026 : pas de baisse des retraites tant que l'ISF n'est pas rétabli. Elle lie désormais la peur sur les retraites à la baisse de la natalité et cite 61 Md€ de dividendes. Sur Europe 1 le 15/09/2026, elle avait proposé de « travailler plus longtemps à la carte » pour les personnes en bonne santé, en affirmant que l'emploi des seniors au chômage équilibrerait presque le système. Toujours aucun engagement explicite sur l'abrogation de la réforme de 2023 ni sur l'âge de 62 ans, contrairement à Faure, Glucksmann et Maurel.",
+      "source_url": "https://www.capital.fr/economie-politique/aucune-raison-de-s-en-prendre-aux-retraites-segolene-royal-conditionne-tout-au-retour-de-l-isf-1530732"
+    },
+    {
+      "topic_id": "international_defense",
+      "change": "Ukraine : sa ligne se précise. Le 01/10/2026, elle propose une « commission permanente de négociation » ; le 04/10/2026, elle déclare qu'il faut « maintenir la défense de l'Ukraine » tout en faisant le même effort pour arrêter la guerre, et ouvre la porte à un dialogue avec Poutine. Algérie, France Inter le 05/10/2026 : elle refuse de qualifier l'Algérie de régime autoritaire (« Et la France, c'est quoi la France ? ») et plaide pour un rapprochement, notamment pour le gaz algérien.",
+      "source_url": "https://www.franceinfo.fr/societe/education/blocage-des-lycees/il-faut-aimer-les-jeunes-au-lieu-de-les-frapper-lance-segolene-royal-apres-les-violences-en-marge-des-manifestations-lyceennes_8223013.html"
+    },
+    {
+      "topic_id": "securite_justice",
+      "change": "Mobilisation lycéenne, 05 et 06/10/2026 : elle dénonce la « violence » et la « cruauté » de la répression policière contre des lycéens (mineurs menottés, environ 200 blessés selon elle). Elle exige que la doctrine de proportionnalité du maintien de l'ordre soit respectée et lance « Il faut aimer les jeunes au lieu de les frapper ». Cette ligne critique envers la police nuance la tonalité sécuritaire du dossier (« ordre juste », caméras).",
+      "source_url": "https://www.franceinfo.fr/replay-magazine/franceinfo/l-invite-politique/mobilisation-lyceenne-les-violences-urbaines-naissent-de-la-provocation-estime-segolene-royal-qui-critique-la-repression-du-gouvernement_8194655.html"
+    },
+    {
+      "topic_id": "institutions",
+      "change": "LCP, « Quai n°8 », diffusé le 02/10/2026 : elle estime que les institutions ne sont pas responsables des abus de pouvoir et qu'il faut « habiter autrement les institutions ». Cela suggère qu'elle ne porte pas de projet de VIe République.",
+      "source_url": "https://tvmag.lefigaro.fr/programme-tv/ce-soir-tele/quai-numero-8-lcp-quand-segolene-royal-parie-sur-la-fraternite-20261002"
+    },
+    {
+      "topic_id": "travail_salaires",
+      "change": "Confirmation par une source primaire de la proposition que l'iFRAP lui attribuait sans source : au débat LCI du 23/09/2026, elle a bien demandé pourquoi les salaires des entreprises publiques ne sont pas alignés sur ceux de la fonction publique (Acteurs publics, 24/09/2026).",
+      "source_url": "https://acteurspublics.fr/articles/segolene-royal-veut-reformer-letat-avant-daugmenter-les-impots/"
+    }
+  ]
+}

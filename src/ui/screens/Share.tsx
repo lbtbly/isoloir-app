@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'preact/hooks'
 import { downloadBlob } from '../../core/exportData'
 import { displayScore, type Results } from '../../core/score'
-import { canvasToJpeg, renderShareImage, shareFileName } from '../../core/shareImage'
+import { canvasToJpeg, flaggedCount, offPosterText, othersText, posterRanking, renderShareImage, shareFileName } from '../../core/shareImage'
 import type { SessionState } from '../../core/storage'
 import type { ElectionPack } from '../../core/types'
 import { FormHeader } from '../components/FormHeader'
 import { SiteFooter } from '../components/SiteFooter'
 import { Icon } from '../components/Icon'
+import { link } from '../nav'
 
 interface Props {
   pack: ElectionPack
@@ -44,12 +45,20 @@ export function Share({ pack, results }: Props) {
 
   const file = blob ? new File([blob], shareFileName(pack), { type: 'image/jpeg' }) : null
   const names = new Map(pack.candidates.map(c => [c.id, c.name]))
-  const sorted = showFlags
-    ? results.ranking
-    : results.ranking.slice().sort((a, b) => (displayScore(b.score) ?? -1) - (displayScore(a.score) ?? -1))
-  const alt = `Affiche « Mon dépouillement », ${pack.election.shortName}, sur ${results.answered} réponses : ${sorted
+  // Le texte de remplacement dit ce que montre l'image : les mêmes lignes, les autres candidats en une fois, puis
+  // le nombre de candidats hors classement et non classés (seuls les classés sont sur l'affiche)
+  const { shown, others } = posterRanking(results, showFlags)
+  const othersFlagged = showFlags ? flaggedCount(others) : 0
+  const othersAlt = others.length
+    ? `, et ${othersText(others)}${othersFlagged ? `, dont ${othersFlagged} marqué${othersFlagged > 1 ? 's' : ''} d’une croix` : ''}`
+    : ''
+  const listed = shown
     .map(r => `${names.get(r.candidateId)} ${displayScore(r.score) ?? '–'} %${showFlags && !r.compatible ? ' (croix)' : ''}`)
-    .join(', ')}.`
+    .join(', ')
+  const off = offPosterText(results.unranked.length, results.excluded.length)
+  const alt = `Affiche « Mon dépouillement », ${pack.election.shortName}, sur ${results.answered} réponses${
+    listed ? ` : ${listed}${othersAlt}` : ''
+  }.${off ? ` ${off}.` : ''}`
   const canShare =
     !!file && typeof navigator.canShare === 'function' && navigator.canShare({ files: [file] })
 
@@ -96,7 +105,7 @@ export function Share({ pack, results }: Props) {
       <SiteFooter />
       <nav class="action-bar" aria-label="Partager">
         <div class="action-bar-inner">
-          <a class="btn-text" href="#/resultats">
+          <a class="btn-text" href={link('/resultats')}>
             <Icon name="arrow-left" />
             Résultats
           </a>

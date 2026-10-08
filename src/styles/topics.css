@@ -444,6 +444,8 @@
 
 
 .topic-fiche-context {
+  /* Un mot long (« intercommunalités ») sur un écran étroit au texte agrandi passe à la ligne sans déborder */
+  overflow-wrap: break-word;
   margin: var(--s3) 0 0;
   max-width: var(--measure);
   color: var(--print-soft);

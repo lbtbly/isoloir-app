@@ -1,0 +1,1232 @@
+{
+  "candidate": "David Lisnard",
+  "affiliation": "Nouvelle Énergie (mouvement qu'il a fondé en 2014 et qu'il préside). Il a quitté Les Républicains le 31 mars 2026. Maire de Cannes depuis 2014, réélu en mars 2026, et président de l'Association des maires de France (AMF) depuis novembre 2021.",
+  "campaign_site": "https://www.lisnard2027.fr/ (page d'attente « le site de campagne ouvre prochainement », qui renvoie au programme publié sur https://www.unenouvelleenergie.fr/notre-programme/)",
+  "declaration": {
+    "date": "2026-03-31",
+    "form": "Entretien au journal de 20 h de France 2 (avec Léa Salamé). Il y annonce sa candidature (« Je suis candidat ») et son départ de LR, en réclamant une « grande primaire ouverte » de la droite et du centre. Il avait déjà dit « Oui, j'irai » lors de son meeting de la Mutualité le 20 janvier 2026. Le lancement de campagne a eu lieu au meeting de Saint-Raphaël le 3 juillet 2026.",
+    "source_title": "Le maire de Cannes, David Lisnard, annonce sa candidature à l'élection présidentielle et officialise son départ des Républicains (franceinfo)",
+    "source_url": "https://www.franceinfo.fr/elections/presidentielle/le-maire-de-cannes-david-lisnard-annonce-sa-candidature-a-l-election-presidentielle-et-officialise-son-depart-des-republicains_7907063.html"
+  },
+  "overview": "David Lisnard se présente comme le candidat d'une droite libérale, d'ordre et décentralisatrice. Il résume son projet par une « révolution de la liberté » et par le passage de l'« État-providence » à un « État-performance ». Il prévoit 80 milliards d'euros de baisse de la dépense publique la première année et au moins 200 milliards par an en fin de quinquennat (son objectif initial était de 300). Ces économies seraient réparties ainsi : 60 % rendus aux actifs en salaire net par une baisse des cotisations, 20 % pour baisser les impôts de production, 20 % pour réduire la dette. Sur les retraites, il ne veut pas revenir sur la réforme de 2023 et propose d'ajouter un étage de capitalisation obligatoire et collectif. Sur les institutions, il propose le retour au septennat, un référendum ouvert à tous les sujets (article 11), un « remise à sa place » du Conseil constitutionnel et une révision de l'article 55 de la Constitution pour faire primer la loi sur la CEDH. Sa ligne sur l'immigration et la sécurité est très restrictive : immigration « divisée au moins par huit », rétablissement du délit de séjour irrégulier, suppression de l'AME, 20 000 places de prison, majorité pénale à 16 ans. Il défend aussi le remplacement des départements et des régions par une cinquantaine de provinces, une école du libre choix (fin de la carte scolaire et du collège unique), un programme nucléaire (6 EPR, petits réacteurs SMR) et une écologie « non punitive » sans principe de précaution dans la Constitution. Il reste attaché à l'Union européenne et à l'OTAN, soutient l'Ukraine et s'oppose à la reconnaissance de l'État de Palestine. Le programme publié sur le site de Nouvelle Énergie n'est pas daté et n'est pas encore un document de campagne consolidé. Il est complété par des discours (Bayeux, Saint-Raphaël), des tribunes et une foire aux questions mise à jour le 3 octobre 2026.",
+  "programme_sources": [
+    {
+      "title": "Le programme de David Lisnard (Nouvelle Énergie) : 3 axes et pages thématiques (éducation, sécurité, santé, agriculture, immigration), non daté",
+      "url": "https://www.unenouvelleenergie.fr/notre-programme/"
+    },
+    {
+      "title": "Foire aux questions « Vos questions » (réponses sourcées par thème), mise à jour le 3 octobre 2026",
+      "url": "https://www.unenouvelleenergie.fr/questions/",
+      "date": "2026-10-03"
+    },
+    {
+      "title": "Discours de David Lisnard à Bayeux sur les institutions (PDF)",
+      "url": "https://www.unenouvelleenergie.fr/app/uploads/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf",
+      "date": "2026-06-17"
+    },
+    {
+      "title": "À Saint-Raphaël, David Lisnard lance sa campagne pour « faire gagner la France qui fait » (meeting du 3 juillet 2026)",
+      "url": "https://www.unenouvelleenergie.fr/a-saint-raphael-david-lisnard-lance-sa-campagne-pour-faire-gagner-la-france-qui-fait/",
+      "date": "2026-07-10"
+    },
+    {
+      "title": "Le « manifeste libéral » de David Lisnard pour 2027 (Le Point), à propos du livre « Ainsi va la France. Manifeste libéral » (L'Observatoire, 12 mars 2025)",
+      "url": "https://www.unenouvelleenergie.fr/le-manifeste-liberal-de-david-lisnard-pour-2027/",
+      "date": "2025-03-07"
+    },
+    {
+      "title": "« Les robots, le Pape, l'IA et nous », livre de David Lisnard et Romain Marsily (Fayard, parution le 28 octobre 2026)",
+      "url": "https://www.unenouvelleenergie.fr/les-robots-le-pape-lia-et-nous-le-nouveau-livre-de-david-lisnard-en-precommande/",
+      "date": "2026-10"
+    },
+    {
+      "title": "Programme thématique Immigration (Nouvelle Énergie), non daté",
+      "url": "https://www.unenouvelleenergie.fr/notre-programme/immigration/"
+    },
+    {
+      "title": "Programme thématique Sécurité (Nouvelle Énergie), non daté",
+      "url": "https://www.unenouvelleenergie.fr/notre-programme/securite/"
+    },
+    {
+      "title": "Programme thématique Santé (Nouvelle Énergie), non daté",
+      "url": "https://www.unenouvelleenergie.fr/notre-programme/sante/"
+    },
+    {
+      "title": "Programme thématique Éducation (Nouvelle Énergie), non daté",
+      "url": "https://www.unenouvelleenergie.fr/notre-programme/education/"
+    },
+    {
+      "title": "Programme thématique Agriculture (Nouvelle Énergie), non daté",
+      "url": "https://www.unenouvelleenergie.fr/notre-programme/agriculture/"
+    },
+    {
+      "title": "Axe « Réussir une nouvelle ambition française » (économie, travail, retraites, logement, famille), non daté",
+      "url": "https://www.unenouvelleenergie.fr/notre-programme/reussir-une-nouvelle-ambition-francaise/"
+    },
+    {
+      "title": "Axe « Être maître de notre destin » (finances publiques, État, Europe), non daté",
+      "url": "https://www.unenouvelleenergie.fr/notre-programme/etre-maitre-de-notre-destin/"
+    },
+    {
+      "title": "Axe « Générer un renouveau civique » (école, décentralisation, écologie), non daté",
+      "url": "https://www.unenouvelleenergie.fr/notre-programme/generer-un-renouveau-civique/"
+    },
+    {
+      "title": "Grand entretien du Diplomate : « Quelle stratégie pour la France dans le nouveau désordre mondial ? »",
+      "url": "https://lediplomate.media/exclusif-grand-entretien-david-lisnard-strategie-france-dans-nouveau-desordre-mondial/",
+      "date": "2026-06-29"
+    }
+  ],
+  "signature_proposals": [
+    {
+      "proposal": "Baisser la dépense publique de 80 milliards d'euros dès la première année et d'au moins 200 milliards par an en fin de quinquennat. Répartition annoncée : 60 % (120 milliards) en salaire net, 20 % (40 milliards) en baisse des impôts de production, 20 % (40 milliards) pour la dette.",
+      "topic_id": "finances_publiques",
+      "source_url": "https://www.unenouvelleenergie.fr/questions/que-ferait-david-lisnard-des-200-milliards-d-economies/"
+    },
+    {
+      "proposal": "« Cotiser moins pour gagner plus » : supprimer des cotisations sociales des deux côtés de la fiche de paie pour gagner environ 400 euros net par mois et par salarié (au moins 200 euros dans un premier temps), sans hausse du coût du travail.",
+      "topic_id": "travail_salaires",
+      "source_url": "https://www.unenouvelleenergie.fr/questions/que-propose-david-lisnard-pour-le-pouvoir-d-achat/"
+    },
+    {
+      "proposal": "Ajouter à la répartition un étage de retraite par capitalisation, obligatoire, collectif, négocié par branche et universel. Il serait amorcé en ne revalorisant plus les pensions au-dessus de 2 000 euros par mois et en supprimant l'abattement fiscal de 10 % sur les pensions.",
+      "topic_id": "retraites",
+      "source_url": "https://www.unenouvelleenergie.fr/questions/david-lisnard-est-il-favorable-a-la-retraite-par-capitalisation/"
+    },
+    {
+      "proposal": "Rétablir le septennat, ouvrir le référendum de l'article 11 à tous les sujets, rendre praticable le référendum d'initiative populaire et réviser l'article 55 pour que la loi française prime sur l'interprétation de la CEDH.",
+      "topic_id": "institutions",
+      "source_url": "https://www.unenouvelleenergie.fr/app/uploads/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf"
+    },
+    {
+      "proposal": "Diviser l'immigration « au moins par huit », rétablir le délit de séjour irrégulier et supprimer l'aide médicale d'État pour la remplacer par une aide d'urgence.",
+      "topic_id": "immigration",
+      "source_url": "https://www.unenouvelleenergie.fr/questions/que-propose-david-lisnard-sur-l-immigration/"
+    },
+    {
+      "proposal": "Construire 20 000 places de prison, instaurer la perpétuité réelle, faire exécuter intégralement les peines, abaisser la majorité pénale à 16 ans et rétablir la responsabilité des magistrats.",
+      "topic_id": "securite_justice",
+      "source_url": "https://www.unenouvelleenergie.fr/questions/quel-candidat-veut-que-les-peines-soient-reellement-executees/"
+    },
+    {
+      "proposal": "Supprimer la carte scolaire et le collège unique. Le financement public suivrait l'élève (« chèque-éducation », que l'école soit publique ou privée) et les chefs d'établissement recruteraient leurs équipes.",
+      "topic_id": "education",
+      "source_url": "https://www.unenouvelleenergie.fr/notre-programme/education/"
+    },
+    {
+      "proposal": "Remplacer les départements et les régions par une cinquantaine de provinces et donner un véritable pouvoir réglementaire aux collectivités, hors domaine régalien.",
+      "topic_id": "territoires",
+      "source_url": "https://www.unenouvelleenergie.fr/app/uploads/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf"
+    },
+    {
+      "proposal": "Regrouper toutes les aides sociales en une allocation unique plafonnée à un pourcentage du SMIC, pour qu'un travail à temps plein rapporte au moins 500 euros de plus que l'inactivité.",
+      "topic_id": "solidarites",
+      "source_url": "https://www.unenouvelleenergie.fr/questions/quel-candidat-veut-regrouper-les-aides-sociales-en-une-allocation-unique/"
+    },
+    {
+      "proposal": "Relancer le nucléaire : arrêter le démantèlement, prolonger les réacteurs jusqu'à 60 ans, construire une première série de 6 EPR, développer les petits réacteurs (SMR) et la fusion. Sortir le principe de précaution de la Constitution.",
+      "topic_id": "ecologie_energie",
+      "source_url": "https://www.unenouvelleenergie.fr/questions/quel-candidat-veut-construire-de-nouveaux-reacteurs-nucleaires/"
+    },
+    {
+      "proposal": "Supprimer les agences régionales de santé (ARS) et ouvrir l'accès direct, remboursé, aux infirmiers, kinésithérapeutes, sages-femmes et pharmaciens.",
+      "topic_id": "sante",
+      "source_url": "https://www.unenouvelleenergie.fr/sante-david-lisnard-devoile-son-plan-daction-rapide-inspire-des-ordonnances-de-1958/"
+    },
+    {
+      "proposal": "Privatiser France 2 et ne garder que deux grandes chaînes publiques, l'une de proximité et l'autre culturelle et internationale.",
+      "topic_id": "societe",
+      "source_url": "https://www.unenouvelleenergie.fr/david-lisnard-sur-franceinfo-le-probleme-francais-est-devenu-un-probleme-de-suradministration-et-dimpuissance-publique/"
+    }
+  ],
+  "topics": [
+    {
+      "topic_id": "institutions",
+      "found": true,
+      "positions": [
+        {
+          "position": "Rétablir le septennat. Le président redeviendrait l'arbitre prévu par l'article 5 : « le Président présidera », le gouvernement gouvernera, l'Assemblée légiférera, et le Sénat serait recentré sur l'évaluation des politiques publiques.",
+          "kind": "proposition_explicite",
+          "short_quote": "Le septennat sera rétabli.",
+          "details": "La durée de renouvelabilité du mandat n'est pas précisée. Il juge que le quinquennat « a dénaturé la présidence ».",
+          "source_url": "https://www.unenouvelleenergie.fr/app/uploads/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf",
+          "source_title": "Discours de David Lisnard à Bayeux",
+          "source_date": "2026-06-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Ouvrir le référendum de l'article 11 à tous les sujets (immigration, école, justice, dépense publique). À terme, permettre de réviser la Constitution directement par référendum, et instituer un référendum d'initiative populaire praticable, avec un seuil de signatures atteignable et un vote garanti.",
+          "kind": "proposition_explicite",
+          "short_quote": "tout sujet pourra être soumis au pays",
+          "details": "Le seuil de signatures n'est pas chiffré. La mesure a été reprise au meeting de Saint-Raphaël du 3 juillet 2026.",
+          "source_url": "https://www.unenouvelleenergie.fr/app/uploads/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf",
+          "source_title": "Discours de David Lisnard à Bayeux",
+          "source_date": "2026-06-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Limiter le Conseil constitutionnel. Son contrôle porterait sur la lettre des articles de la Constitution. Le préambule de 1946 et la Charte de l'environnement ne serviraient plus de base à une censure. Le référendum permettrait de passer outre une censure fondée sur le préambule.",
+          "kind": "proposition_explicite",
+          "details": "Il relève qu'une disposition sur trois soumise au Conseil est censurée. Il cite comme exemples les censures sur les ZFE, la loi immigration et la loi Duplomb.",
+          "source_url": "https://www.unenouvelleenergie.fr/app/uploads/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf",
+          "source_title": "Discours de David Lisnard à Bayeux",
+          "source_date": "2026-06-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Soumettre les nominations à la tête du Conseil constitutionnel, de la Cour des comptes, de la Banque de France, du Conseil d'État et des autorités de régulation à l'approbation de l'Assemblée nationale, à une majorité qualifiée.",
+          "kind": "proposition_explicite",
+          "details": "Il vise la fin des « nominations de complaisance ». Le niveau de la majorité qualifiée n'est pas précisé.",
+          "source_url": "https://www.unenouvelleenergie.fr/app/uploads/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf",
+          "source_title": "Discours de David Lisnard à Bayeux",
+          "source_date": "2026-06-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Réviser l'article 55 de la Constitution : lorsque le Parlement a décidé de s'écarter de la Convention européenne des droits de l'homme sur un point précis, la loi française s'appliquerait.",
+          "kind": "proposition_explicite",
+          "details": "Il cite d'abord l'immigration. Le programme thématique Immigration prévoit aussi de « sortir de la CEDH en dernier recours ».",
+          "source_url": "https://www.unenouvelleenergie.fr/app/uploads/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf",
+          "source_title": "Discours de David Lisnard à Bayeux",
+          "source_date": "2026-06-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Selon le programme du parti : une « règle d'or » budgétaire limitée aux dépenses de fonctionnement, un domaine d'initiative législative réservé au Parlement, une « cité gouvernementale » regroupant ministres et administrations centrales, et une étude d'impact obligatoire avant toute nouvelle norme.",
+          "kind": "proposition_explicite",
+          "details": "Page de programme non datée, dont le contenu est peut-être antérieur à 2025. Ces mesures n'ont pas été reprises explicitement dans les discours de 2026.",
+          "source_url": "https://www.unenouvelleenergie.fr/notre-programme/etre-maitre-de-notre-destin/",
+          "source_title": "Être maître de notre destin (programme Nouvelle Énergie)",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "laicite_republique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Interdire le voile à l'université, interdire les Frères musulmans, contrôler les écoles hors contrat et expulser les prêcheurs radicaux.",
+          "kind": "proposition_explicite",
+          "details": "Volet « lutte contre le narcotrafic et l'islamisme » du programme Sécurité (non daté). Il a réaffirmé en septembre 2026 vouloir la neutralité religieuse dans les universités et les écoles (CNews/Europe 1, 3 septembre 2026).",
+          "source_url": "https://www.unenouvelleenergie.fr/notre-programme/securite/",
+          "source_title": "Programme Sécurité (Nouvelle Énergie)",
+          "confidence": "high"
+        },
+        {
+          "position": "Aucun signe religieux ostensible là où la République instruit, juge ou administre. Il considère le voile à l'université, le burkini et les prières de rue comme des marqueurs islamistes. Il défend la présence des crèches de Noël contre un « deux poids deux mesures ».",
+          "kind": "position_declaree",
+          "details": "Tribune « Ne faisons pas de la laïcité un renoncement » (Rupture-mag). Il y voit la laïcité comme un moyen au service de la liberté et y rejette le multiculturalisme.",
+          "source_url": "https://www.unenouvelleenergie.fr/ne-faisons-pas-de-la-laicite-un-renoncement/",
+          "source_title": "Ne faisons pas de la laïcité un renoncement",
+          "source_date": "2025-12-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Il critique la proposition du RN de sanctionner le port du voile dans tout l'espace public, qu'il juge relever de la « politique politicienne ». Tout en redisant son opposition au voile, il dit préférer s'attaquer aux « dynamiques islamistes ».",
+          "kind": "position_declaree",
+          "short_quote": "Il faut casser les ressorts de l'islamisme",
+          "details": "Réaction diffusée par Europe 1 en 2026 (date exacte non vérifiée). Sur BFMTV, le 8 septembre 2026, il a parlé de « fracasser » les dynamiques islamistes. Il n'a pas proposé explicitement d'interdire le voile dans tout l'espace public.",
+          "source_url": "https://www.europe1.fr/politique/il-faut-casser-les-ressorts-de-lislamisme-david-lisnard-reagit-a-la-proposition-du-rn-de-sanctionner-le-port-du-voile-dans-lespace-public-1052360",
+          "source_title": "« Il faut casser les ressorts de l'islamisme » : David Lisnard réagit à la proposition du RN (Europe 1)",
+          "source_date": "2026",
+          "confidence": "medium"
+        },
+        {
+          "position": "Il défend une laïcité ferme et reconnaît à chaque religion sa place à condition qu'elle respecte les règles de la République et le mode de vie français.",
+          "kind": "position_declaree",
+          "source_url": "https://lhemicycle.com/2026/08/31/islam-politique-un-sujet-bien-parti-pour-devenir-central-en-2027/",
+          "source_title": "Islam politique : un sujet bien parti pour devenir central en 2027 (L'Hémicycle)",
+          "source_date": "2026-08-31",
+          "confidence": "medium"
+        },
+        {
+          "position": "Mémoire : enseigner l'histoire « telle qu'elle est », sans « récits concurrents », et transmettre obligatoirement la culture française (« une même loi, une même langue, une seule nation »).",
+          "kind": "position_declaree",
+          "details": "Aucune prise de position explicite trouvée sur la mémoire de la colonisation, sauf la dénonciation de l'accord franco-algérien de 1968 (classée en immigration).",
+          "source_url": "https://www.unenouvelleenergie.fr/questions/quelles-sont-les-propositions-de-david-lisnard-pour-l-ecole/",
+          "source_title": "Quelles sont les propositions de David Lisnard pour l'école ? (cite Europe 1, 25 juillet 2025, et i24NEWS, 11 juin 2026)",
+          "source_date": "2026-10-03",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "fiscalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Priorité à la baisse des cotisations sociales, à hauteur de 120 milliards d'euros, pour augmenter le salaire net. Il refuse toute baisse d'impôt financée par la dette : la dépense doit baisser d'abord.",
+          "kind": "proposition_explicite",
+          "details": "Source citée : entretien vidéo du 21 janvier 2026. Comme exemple, il avance une baisse de 3,6 % de la fiscalité à Cannes.",
+          "source_url": "https://www.unenouvelleenergie.fr/questions/david-lisnard-veut-il-baisser-les-impots/",
+          "source_title": "David Lisnard veut-il baisser les impôts ?",
+          "source_date": "2026-10-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Baisser les impôts de production de 40 milliards d'euros, en commençant par supprimer la C3S. Le programme du parti prévoit de les diviser par deux, de 2 % à 1 % du PIB, en supprimant la C3S et la CVAE (11,5 milliards).",
+          "kind": "proposition_explicite",
+          "details": "Les 40 milliards correspondent aux 20 % des économies réservés à ce poste.",
+          "source_url": "https://www.unenouvelleenergie.fr/questions/que-ferait-david-lisnard-des-200-milliards-d-economies/",
+          "source_title": "Que ferait David Lisnard des 200 milliards d'économies ?",
+          "source_date": "2026-10-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Opposé à la taxe Zucman sur les très hauts patrimoines. Selon lui, la solution n'est pas d'augmenter les impôts mais de libérer les énergies économiques.",
+          "kind": "position_declaree",
+          "short_quote": "cette taxe est une illusion fiscale",
+          "source_url": "https://www.unenouvelleenergie.fr/taxe-zucman-les-francais-meritent-mieux-que-des-illusions-fiscales/",
+          "source_title": "Taxe Zucman : les Français méritent mieux que des illusions fiscales (L'Opinion)",
+          "source_date": "2025-09-18",
+          "confidence": "high"
+        },
+        {
+          "position": "Il s'engage à ne pas alourdir la fiscalité de l'assurance-vie, à rendre le PEA plus compétitif et à cesser de « taxer l'argent déjà taxé ».",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.unenouvelleenergie.fr/david-lisnard-aux-assises-de-lafer-etre-proprietaire-cest-etre-libre-et-responsable/",
+          "source_title": "David Lisnard aux Assises de l'AFER",
+          "source_date": "2026-09-29",
+          "confidence": "high"
+        },
+        {
+          "position": "Supprimer l'abattement fiscal de 10 % sur les pensions pour financer l'amorçage de la capitalisation. Déplafonner le quotient familial (programme du parti).",
+          "kind": "proposition_explicite",
+          "details": "L'abattement de 10 % figure dans la FAQ de 2026. Le déplafonnement du quotient familial figure dans le programme non daté.",
+          "source_url": "https://www.unenouvelleenergie.fr/questions/david-lisnard-est-il-favorable-a-la-retraite-par-capitalisation/",
+          "source_title": "David Lisnard est-il favorable à la retraite par capitalisation ?",
+          "source_date": "2026-10-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Selon le programme du parti, une TVA « compétitivité / relocalisation » pourrait être créée progressivement sur 12 ans jusqu'à un taux unique, par exemple de 25 %, en contrepartie d'une baisse des charges sociales.",
+          "kind": "proposition_explicite",
+          "details": "Page non datée, au conditionnel. Mesure non reprise dans les interventions de 2026 : son actualité est incertaine.",
+          "source_url": "https://www.unenouvelleenergie.fr/notre-programme/reussir-une-nouvelle-ambition-francaise/",
+          "source_title": "Réussir une nouvelle ambition française (programme Nouvelle Énergie)",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "finances_publiques",
+      "found": true,
+      "positions": [
+        {
+          "position": "Réduire la dépense de 80 milliards d'euros la première année puis d'au moins 200 milliards par an en fin de quinquennat. Il avait d'abord fixé l'objectif à 300 milliards. 40 milliards iraient au désendettement.",
+          "kind": "proposition_explicite",
+          "details": "Clé de répartition annoncée avant les économies : 60 % salaires nets, 20 % impôts de production, 20 % dette. L'objectif de 300 milliards est rapporté par Le Figaro le 22 janvier 2026.",
+          "source_url": "https://www.unenouvelleenergie.fr/questions/que-propose-david-lisnard-face-a-la-dette-publique/",
+          "source_title": "Que propose David Lisnard face à la dette publique ?",
+          "source_date": "2026-10-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Ramener la dépense publique sous 50 % du PIB en dix ans. Le programme du parti prévoit une baisse de 8 points de PIB en 10 ans.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.unenouvelleenergie.fr/le-manifeste-liberal-de-david-lisnard-pour-2027/",
+          "source_title": "Le « manifeste libéral » de David Lisnard pour 2027 (Le Point)",
+          "source_date": "2025-03-07",
+          "confidence": "high"
+        },
+        {
+          "position": "Ne plus remplacer l'ensemble des quelque 500 000 départs annuels de fonctionnaires, en commençant par les fonctions administratives, sans licenciement. Redéployer les moyens vers les policiers, magistrats et soignants.",
+          "kind": "proposition_explicite",
+          "short_quote": "ne remplaçant plus l'ensemble des cinq cent mille départs annuels",
+          "details": "Le nombre net de postes supprimés n'est pas chiffré. Le programme du parti évoquait aussi le passage de 450 000 fonctionnaires « des bureaux vers le terrain ».",
+          "source_url": "https://www.unenouvelleenergie.fr/questions/quel-candidat-veut-reduire-le-nombre-de-fonctionnaires/",
+          "source_title": "Quel candidat veut réduire le nombre de fonctionnaires ?",
+          "source_date": "2026-10-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Supprimer les agences et opérateurs redondants : l'État compte plus de 1 200 agences, avec environ 100 milliards d'euros de budget annuel et 500 000 agents. Recentrer l'État sur sécurité, justice, défense et diplomatie.",
+          "kind": "proposition_explicite",
+          "details": "Il vise notamment les directions régionales de l'environnement (DREAL), les directions départementales des territoires et de la mer (DDTM) et les ARS. Il prévoit aussi de réécrire entièrement trois codes : marchés publics, impôts et travail.",
+          "source_url": "https://www.unenouvelleenergie.fr/app/uploads/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf",
+          "source_title": "Discours de David Lisnard à Bayeux",
+          "source_date": "2026-06-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Plafonner certaines prestations sociales et ne plus revaloriser selon l'inflation les pensions supérieures à 2 000 euros par mois.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.unenouvelleenergie.fr/questions/quelles-economies-david-lisnard-propose-t-il-et-ou-exactement/",
+          "source_title": "Quelles économies David Lisnard propose-t-il, et où exactement ? (cite Sud Radio, 11 juin 2025)",
+          "source_date": "2026-10-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Aligner progressivement le statut des fonctionnaires sur celui des salariés du privé.",
+          "kind": "proposition_explicite",
+          "details": "Formulé dans le manifeste de mars 2025, non repris explicitement en 2026. Le programme Éducation prévoit aussi un « corps unique d'enseignants contractuels ».",
+          "source_url": "https://www.unenouvelleenergie.fr/le-manifeste-liberal-de-david-lisnard-pour-2027/",
+          "source_title": "Le « manifeste libéral » de David Lisnard pour 2027 (Le Point)",
+          "source_date": "2025-03-07",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "travail_salaires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Augmenter le salaire net d'environ 400 euros par mois (au moins 200 euros dans un premier temps) en supprimant des cotisations des deux côtés de la fiche de paie, sans alourdir le coût du travail.",
+          "kind": "proposition_explicite",
+          "short_quote": "cotiser moins pour gagner plus",
+          "details": "Les cotisations visées (maladie, famille, chômage…) ne sont pas précisées. Il annonce plus de 10 % de hausse du salaire net médian. Le palier de 200 euros a été annoncé au meeting de Saint-Raphaël.",
+          "source_url": "https://www.unenouvelleenergie.fr/questions/comment-david-lisnard-veut-il-augmenter-les-salaires-sans-augmenter-le-cout-du-travail/",
+          "source_title": "Comment David Lisnard veut-il augmenter les salaires sans augmenter le coût du travail ?",
+          "source_date": "2026-10-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Un emploi à temps plein doit rapporter au moins 500 euros de plus que l'aide sociale maximale.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.unenouvelleenergie.fr/a-benfeld-david-lisnard-appelle-a-liberer-le-pays-devant-plus-de-1-200-personnes/",
+          "source_title": "À Benfeld, David Lisnard appelle à libérer le pays",
+          "source_date": "2026-09-25",
+          "confidence": "high"
+        },
+        {
+          "position": "Créer un contrat de travail unique pour les nouveaux emplois, qui fusionnerait CDI et CDD avec des indemnités de licenciement progressives. Assouplir le code du travail, puis le réécrire entièrement.",
+          "kind": "proposition_explicite",
+          "details": "Le contrat unique figure dans le programme non daté. La réécriture du code du travail (4 000 pages) a été annoncée à Saint-Raphaël en juillet 2026. Le programme veut aussi augmenter la « quantité de travail » par Français, sans abroger explicitement les 35 heures.",
+          "source_url": "https://www.unenouvelleenergie.fr/notre-programme/reussir-une-nouvelle-ambition-francaise/",
+          "source_title": "Réussir une nouvelle ambition française (programme Nouvelle Énergie)",
+          "confidence": "medium"
+        },
+        {
+          "position": "Créer des charges patronales négatives pour l'embauche de personnes au RSA depuis plus de 2 ans. Supprimer les charges des employeurs à domicile au niveau du SMIC.",
+          "kind": "proposition_explicite",
+          "details": "Programme non daté.",
+          "source_url": "https://www.unenouvelleenergie.fr/notre-programme/reussir-une-nouvelle-ambition-francaise/",
+          "source_title": "Réussir une nouvelle ambition française (programme Nouvelle Énergie)",
+          "confidence": "medium"
+        },
+        {
+          "position": "Développer un « capitalisme populaire » : distribuer gratuitement des actions aux salariés pour qu'ils deviennent copropriétaires des grandes entreprises.",
+          "kind": "proposition_explicite",
+          "details": "Annoncé au campus « La Gagne » à Cannes le 29 août 2026. Les modalités ne sont pas précisées.",
+          "source_url": "https://www.unenouvelleenergie.fr/lequipe-de-france-du-bon-sens-david-lisnard-lance-la-bataille-de-2027/",
+          "source_title": "L'équipe de France du bon sens : David Lisnard lance la bataille de 2027",
+          "source_date": "2026-09-01",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "industrie_economie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Opposé aux aides publiques aux entreprises, qui selon lui créent bureaucratie et contrôles. Il veut cesser de subventionner les entreprises pour compenser les charges et baisser directement fiscalité et charges.",
+          "kind": "position_declaree",
+          "short_quote": "Je suis contre les aides publiques aux entreprises",
+          "details": "Débat à la Rencontre des entrepreneurs de France du MEDEF. Il dénonce aussi les 2 milliards d'euros par an versés aux cabinets de conseil.",
+          "source_url": "https://www.unenouvelleenergie.fr/il-faut-liberer-lindustrie/",
+          "source_title": "Il faut libérer l'industrie",
+          "source_date": "2026-08-28",
+          "confidence": "high"
+        },
+        {
+          "position": "Réindustrialiser en « libérant le foncier, le capital et le travail », en baissant les impôts de production, en levant les obstacles administratifs aux implantations industrielles et en remplaçant le principe de précaution par un principe de responsabilité.",
+          "kind": "position_declaree",
+          "source_url": "https://www.unenouvelleenergie.fr/il-faut-liberer-lindustrie/",
+          "source_title": "Il faut libérer l'industrie",
+          "source_date": "2026-08-28",
+          "confidence": "high"
+        },
+        {
+          "position": "Interdire les surtranspositions des normes européennes, et déréguler les marchés publics, la fiscalité, le droit du travail et l'urbanisme. Créer un « droit de contester » : une règle reconnue absurde serait supprimée pour tous.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.unenouvelleenergie.fr/a-benfeld-david-lisnard-appelle-a-liberer-le-pays-devant-plus-de-1-200-personnes/",
+          "source_title": "À Benfeld, David Lisnard appelle à libérer le pays",
+          "source_date": "2026-09-25",
+          "confidence": "high"
+        },
+        {
+          "position": "Réduire les dépendances stratégiques européennes (98 % des composants critiques, 95 % des batteries et 90 % des panneaux solaires importés) en concentrant l'investissement sur quelques secteurs clés plutôt que de tout financer.",
+          "kind": "position_declaree",
+          "source_url": "https://www.unenouvelleenergie.fr/leurope-connaitra-t-elle-au-xxie-siecle-le-destin-de-la-chine-au-xixe-siecle/",
+          "source_title": "L'Europe connaîtra-t-elle au XXIe siècle le destin de la Chine au XIXe siècle ? (Les Échos)",
+          "source_date": "2025-12-23",
+          "confidence": "medium"
+        },
+        {
+          "position": "Selon le programme du parti : des pôles industriels autour de la robotique, de l'énergie, de la cybersécurité, de l'IA et des sciences des données, et un consortium pharmaceutique européen sur le modèle d'Airbus pour relocaliser la production de médicaments.",
+          "kind": "proposition_explicite",
+          "details": "Pages de programme non datées.",
+          "source_url": "https://www.unenouvelleenergie.fr/notre-programme/sante/",
+          "source_title": "Programme Santé (Nouvelle Énergie)",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "retraites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Ajouter à la répartition un étage de capitalisation obligatoire, collectif, négocié branche par branche et universel, qui ne remplacerait la répartition qu'en partie. Objectif : que chacun devienne « propriétaire de sa retraite ».",
+          "kind": "proposition_explicite",
+          "details": "Il défend cette proposition depuis 2018. Elle a été réaffirmée à Saint-Raphaël (juillet 2026) et aux Assises de l'AFER (septembre 2026).",
+          "source_url": "https://www.unenouvelleenergie.fr/questions/david-lisnard-est-il-favorable-a-la-retraite-par-capitalisation/",
+          "source_title": "David Lisnard est-il favorable à la retraite par capitalisation ?",
+          "source_date": "2026-10-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Financer la transition en ne revalorisant plus selon l'inflation les pensions supérieures à 2 000 euros par mois et en supprimant l'abattement fiscal de 10 % sur les pensions, au nom de l'équité entre générations.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.unenouvelleenergie.fr/questions/david-lisnard-est-il-favorable-a-la-retraite-par-capitalisation/",
+          "source_title": "David Lisnard est-il favorable à la retraite par capitalisation ?",
+          "source_date": "2026-10-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Ne pas revenir sur la réforme de 2023, qu'il juge pourtant insuffisante (une « réformette » qui ne joue que sur l'âge). Il a cité « l'abandon de la réforme des retraites » parmi ses raisons de quitter LR.",
+          "kind": "position_declaree",
+          "details": "La FAQ du 3 octobre 2026 indique qu'il ne propose pas d'âge légal précis. Elle cite franceinfo (9 octobre 2024).",
+          "source_url": "https://www.unenouvelleenergie.fr/questions/quel-age-de-depart-a-la-retraite-david-lisnard-defend-il/",
+          "source_title": "Quel âge de départ à la retraite David Lisnard défend-il ?",
+          "source_date": "2026-10-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Selon le programme du parti : âge légal de 65 ans (« impératif national urgent »), socle de pension par répartition pour tous dès 65 ans, complété par un minimum vieillesse de 1 000 euros par mois, bascule progressive en environ 8 tranches, et une capitalisation cible de 116 milliards d'euros (environ 40 % des retraites) gérée par une agence publique unifiée.",
+          "kind": "proposition_explicite",
+          "details": "Page non datée, en contradiction avec la FAQ d'octobre 2026 qui dit qu'il n'avance pas d'âge précis. En mars 2025, le manifeste parlait de deux tiers de répartition, un tiers de capitalisation et d'un socle d'environ 1 200 euros.",
+          "source_url": "https://www.unenouvelleenergie.fr/notre-programme/reussir-une-nouvelle-ambition-francaise/",
+          "source_title": "Réussir une nouvelle ambition française (programme Nouvelle Énergie)",
+          "confidence": "low"
+        },
+        {
+          "position": "Système cible visé : deux tiers de répartition et un tiers de capitalisation, avec un socle minimal de pension d'environ 1 200 euros par mois financé par répartition. La capitalisation serait alimentée par un transfert de cotisations salariales et patronales.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.unenouvelleenergie.fr/le-manifeste-liberal-de-david-lisnard-pour-2027/",
+          "source_title": "Le « manifeste libéral » de David Lisnard pour 2027 (Le Point)",
+          "source_date": "2025-03-07",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "sante",
+      "found": true,
+      "positions": [
+        {
+          "position": "Supprimer les ARS et confier l'organisation de la santé aux élus locaux et aux préfets. Les maires présideraient les conseils d'administration des hôpitaux et l'offre serait organisée au niveau du canton.",
+          "kind": "proposition_explicite",
+          "details": "Plan santé présenté le 7 mai 2026, qui reprend le programme Santé. Il veut généraliser les maisons de santé pluridisciplinaires dans chaque canton.",
+          "source_url": "https://www.unenouvelleenergie.fr/sante-david-lisnard-devoile-son-plan-daction-rapide-inspire-des-ordonnances-de-1958/",
+          "source_title": "Santé : David Lisnard dévoile son plan d'action rapide inspiré des ordonnances de 1958",
+          "source_date": "2026-05-07",
+          "confidence": "high"
+        },
+        {
+          "position": "Accès direct, remboursé, aux infirmiers, kinésithérapeutes, sages-femmes et pharmaciens. Dossier médical partagé obligatoire. Loi de programmation annuelle de la santé sur le modèle de la loi de programmation militaire.",
+          "kind": "proposition_explicite",
+          "details": "Selon lui, la crise vient de l'organisation et non d'un manque d'argent (333 milliards d'euros de dépenses, 12 % du PIB).",
+          "source_url": "https://www.unenouvelleenergie.fr/sante-david-lisnard-devoile-son-plan-daction-rapide-inspire-des-ordonnances-de-1958/",
+          "source_title": "Santé : David Lisnard dévoile son plan d'action rapide inspiré des ordonnances de 1958",
+          "source_date": "2026-05-07",
+          "confidence": "high"
+        },
+        {
+          "position": "Opposé à toute régulation contraignante de l'installation des médecins. Il préfère ouvrir davantage les études de médecine et rendre l'exercice libéral plus attractif.",
+          "kind": "position_declaree",
+          "short_quote": "Plus on mettra des contraintes sur les médecins, plus ils se barrent",
+          "details": "Propos tenus sur BFMTV le 7 mai 2025. Le programme prévoit aussi un « conventionnement différencié » qui rembourserait mieux les actes en zone sous-dotée.",
+          "source_url": "https://www.unenouvelleenergie.fr/questions/comment-david-lisnard-compte-t-il-lutter-contre-les-deserts-medicaux/",
+          "source_title": "Comment David Lisnard compte-t-il lutter contre les déserts médicaux ?",
+          "source_date": "2026-10-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Doubler le nombre de places en études de médecine d'ici 2030, sortir les études de médecine de Parcoursup, permettre un exercice supervisé dès la 5e année et revaloriser les salaires selon les responsabilités.",
+          "kind": "proposition_explicite",
+          "details": "Programme Santé non daté.",
+          "source_url": "https://www.unenouvelleenergie.fr/notre-programme/sante/",
+          "source_title": "Programme Santé (Nouvelle Énergie)",
+          "confidence": "medium"
+        },
+        {
+          "position": "Supprimer l'aide médicale d'État (AME) pour la remplacer par une aide d'urgence (700 millions d'euros d'économies annoncés).",
+          "kind": "proposition_explicite",
+          "details": "Rien de précis n'a été trouvé sur le grand âge, la dépendance ou le partage entre Sécurité sociale et complémentaires.",
+          "source_url": "https://www.unenouvelleenergie.fr/notre-programme/immigration/",
+          "source_title": "Programme Immigration (Nouvelle Énergie)",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "logement",
+      "found": true,
+      "positions": [
+        {
+          "position": "Lever la surcharge réglementaire du logement (DPE, ZAN, loi SRU, pénalités) et redonner confiance aux propriétaires bailleurs pour relancer la construction : environ 280 000 logements par an aujourd'hui, contre près de 500 000 autrefois.",
+          "kind": "proposition_explicite",
+          "short_quote": "Si vous voulez des locataires, il faut des propriétaires",
+          "source_url": "https://www.unenouvelleenergie.fr/david-lisnard-sur-bfmtv-il-faut-une-rupture-franche-et-forte-pour-redresser-la-france/",
+          "source_title": "David Lisnard sur BFMTV : « Il faut une rupture franche et forte pour redresser la France »",
+          "source_date": "2026-09-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Supprimer l'article 55 de la loi SRU, qui impose 20 à 25 % de logements sociaux par commune, et le remplacer par un objectif portant sur le flux de logements construits.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.unenouvelleenergie.fr/notre-programme/reussir-une-nouvelle-ambition-francaise/",
+          "source_title": "Réussir une nouvelle ambition française (programme Nouvelle Énergie)",
+          "confidence": "medium"
+        },
+        {
+          "position": "Juge le dispositif Zéro artificialisation nette (ZAN) « inapplicable » pour les communes et veut simplifier les règles de construction en laissant décider au niveau local.",
+          "kind": "position_declaree",
+          "source_url": "https://www.unenouvelleenergie.fr/questions/quel-candidat-defend-une-ecologie-pragmatique-et-non-punitive/",
+          "source_title": "Quel candidat défend une écologie pragmatique et non punitive ?",
+          "source_date": "2026-10-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Retirer le logement social aux personnes condamnées pour délinquance.",
+          "kind": "proposition_explicite",
+          "details": "Annoncé au meeting de Saint-Raphaël en juillet 2026. Aucune position explicite trouvée sur l'encadrement des loyers. Sa chronique de 2022 critique l'« idéologie collectiviste » qui pénalise investisseurs et propriétaires.",
+          "source_url": "https://www.unenouvelleenergie.fr/questions/quel-candidat-veut-regrouper-les-aides-sociales-en-une-allocation-unique/",
+          "source_title": "Quel candidat veut regrouper les aides sociales en une allocation unique ?",
+          "source_date": "2026-10-03",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "solidarites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Regrouper l'ensemble des aides sociales en une allocation unique, plafonnée à un pourcentage du SMIC, pour que le travail rapporte toujours plus que l'inactivité (au moins 500 euros d'écart).",
+          "kind": "proposition_explicite",
+          "details": "Annoncé à Saint-Raphaël (juillet 2026) et sur Instagram (26 septembre 2026). Le pourcentage du SMIC n'est pas précisé.",
+          "source_url": "https://www.unenouvelleenergie.fr/questions/quel-candidat-veut-regrouper-les-aides-sociales-en-une-allocation-unique/",
+          "source_title": "Quel candidat veut regrouper les aides sociales en une allocation unique ?",
+          "source_date": "2026-10-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Supprimer les aides sociales aux personnes condamnées pour délinquance, ne plus verser de prestations non contributives à l'étranger, et les réserver aux étrangers en situation régulière depuis au moins cinq ans.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.unenouvelleenergie.fr/notre-programme/immigration/",
+          "source_title": "Programme Immigration (Nouvelle Énergie)",
+          "confidence": "high"
+        },
+        {
+          "position": "Natalité : une allocation familiale universelle de 150 euros par mois dès la naissance du premier enfant, sans condition de ressources, et une prime de naissance de 2 500 euros en deux versements. Pour les étrangers, ces allocations seraient soumises à cinq ans de résidence.",
+          "kind": "proposition_explicite",
+          "details": "Tribune cosignée avec le député Renaissance Charles Rodwell (Atlantico). Elle propose aussi de simplifier les prestations familiales, d'assouplir le congé parental et d'améliorer l'accès aux modes de garde.",
+          "source_url": "https://www.unenouvelleenergie.fr/redresser-la-natalite-un-enjeu-national/",
+          "source_title": "Redresser la natalité : un enjeu national (Atlantico)",
+          "source_date": "2025-06-11",
+          "confidence": "medium"
+        },
+        {
+          "position": "Déplafonner le quotient familial et investir dans les structures d'accueil de la petite enfance (programme du parti).",
+          "kind": "proposition_explicite",
+          "details": "Programme non daté. Rien de précis n'a été trouvé sur l'assurance chômage ni sur le handicap.",
+          "source_url": "https://www.unenouvelleenergie.fr/notre-programme/reussir-une-nouvelle-ambition-francaise/",
+          "source_title": "Réussir une nouvelle ambition française (programme Nouvelle Énergie)",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "egalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Critique du « néo-féminisme », présenté comme allant « contre les femmes ».",
+          "kind": "position_declaree",
+          "details": "Seul le titre et le chapeau de la chronique sont accessibles. Le contenu détaillé n'a pas été vérifié. Aucune proposition trouvée sur l'égalité salariale ou les violences faites aux femmes.",
+          "source_url": "https://www.unenouvelleenergie.fr/journee-internationale-des-droits-des-femmes-le-neo-feminisme-contre-les-femmes/",
+          "source_title": "Journée internationale des droits des femmes : le néo-féminisme contre les femmes (chronique, L'Opinion)",
+          "source_date": "2024-03-07",
+          "confidence": "low"
+        },
+        {
+          "position": "Assouplir le congé parental et améliorer l'accès aux modes de garde dans le cadre d'une politique nataliste.",
+          "kind": "proposition_explicite",
+          "details": "Mesure pensée pour la natalité plutôt que pour le partage des tâches entre femmes et hommes.",
+          "source_url": "https://www.unenouvelleenergie.fr/redresser-la-natalite-un-enjeu-national/",
+          "source_title": "Redresser la natalité : un enjeu national (Atlantico)",
+          "source_date": "2025-06-11",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "droits_lgbtqia",
+      "found": false,
+      "positions": []
+    },
+    {
+      "topic_id": "education",
+      "found": true,
+      "positions": [
+        {
+          "position": "Supprimer la carte scolaire et instaurer un libre choix réel de l'école. Le financement public suivrait l'élève (« chèque-éducation »), que la famille choisisse le public ou le privé.",
+          "kind": "proposition_explicite",
+          "short_quote": "L'enseignement privé n'est pas le problème. Il est souvent la réponse",
+          "details": "Repris sur RMC le 15 avril 2026 et sur TikTok le 25 mai 2026.",
+          "source_url": "https://www.unenouvelleenergie.fr/notre-programme/education/",
+          "source_title": "Programme Éducation (Nouvelle Énergie)",
+          "confidence": "high"
+        },
+        {
+          "position": "Supprimer le collège unique (retour à des filières), revenir à la méthode syllabique, à la mémorisation, à la grammaire et au calcul, et redonner leur place aux humanités (latin, grec, philosophie).",
+          "kind": "proposition_explicite",
+          "details": "Tribune « Lettre aux idéologues qui ont sacrifié l'école française » (JDD). La suppression du collège unique a aussi été annoncée à Saint-Raphaël.",
+          "source_url": "https://www.unenouvelleenergie.fr/lettre-aux-idologues-qui-ont-sacrifi-lcole-franaise/",
+          "source_title": "Lettre aux idéologues qui ont sacrifié l'école française (JDD)",
+          "source_date": "2026-09-14",
+          "confidence": "high"
+        },
+        {
+          "position": "Augmenter de 20 % la rémunération des enseignants en cinq ans, sous condition d'une réorganisation profonde. Créer progressivement un corps unique d'enseignants contractuels recrutés sur concours national. Laisser les chefs d'établissement recruter et gérer leurs équipes, et refuser les élèves qui nuisent au collectif.",
+          "kind": "proposition_explicite",
+          "details": "Programme non daté.",
+          "source_url": "https://www.unenouvelleenergie.fr/notre-programme/education/",
+          "source_title": "Programme Éducation (Nouvelle Énergie)",
+          "confidence": "medium"
+        },
+        {
+          "position": "Créer un certificat de fin de primaire obligatoire pour entrer au collège, des classes d'excellence en mathématiques et sciences dans chaque académie, davantage d'internats d'excellence, et renforcer lycées professionnels et CFA en lien avec les entreprises.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.unenouvelleenergie.fr/notre-programme/education/",
+          "source_title": "Programme Éducation (Nouvelle Énergie)",
+          "confidence": "medium"
+        },
+        {
+          "position": "Rétablir l'autorité et créer des structures disciplinaires pour retirer des classes les élèves violents. Sur les manifestations lycéennes et étudiantes, faire intervenir la police tôt pour en extraire les casseurs.",
+          "kind": "position_declaree",
+          "source_url": "https://www.unenouvelleenergie.fr/il-faut-vite-remettre-de-lordre-au-service-de-la-liberte/",
+          "source_title": "Il faut vite remettre de l'ordre au service de la liberté (CNews)",
+          "source_date": "2026-10-05",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "societe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Réformer en profondeur l'audiovisuel public : fusionner des structures, fermer les chaînes redondantes, privatiser France 2 et garder deux chaînes publiques (l'une de proximité, l'autre culturelle et internationale).",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.unenouvelleenergie.fr/david-lisnard-sur-franceinfo-le-probleme-francais-est-devenu-un-probleme-de-suradministration-et-dimpuissance-publique/",
+          "source_title": "David Lisnard sur franceinfo : « Le problème français est devenu un problème de suradministration… »",
+          "source_date": "2026-05-06",
+          "confidence": "high"
+        },
+        {
+          "position": "Une politique culturelle ambitieuse ne doit pas être « un chèque en blanc ». Il veut supprimer les quotas idéologiques dans les financements publics, contrôler les résultats des institutions culturelles (programmation, diffusion, public) et généraliser l'éducation artistique de la maternelle au lycée.",
+          "kind": "position_declaree",
+          "short_quote": "La création est libre et la liberté d'expression doit être totale",
+          "source_url": "https://www.unenouvelleenergie.fr/une-politique-culturelle-ambitieuse-ne-doit-pas-etre-un-cheque-en-blanc-donne-a-un-microcosme/",
+          "source_title": "Une politique culturelle ambitieuse ne doit pas être un chèque en blanc donné à un microcosme (Le Figaro)",
+          "source_date": "2026-05-29",
+          "confidence": "high"
+        },
+        {
+          "position": "L'audiovisuel public doit servir l'ensemble des contribuables et respecter le pluralisme, y compris l'expression des idées de droite.",
+          "kind": "position_declaree",
+          "source_url": "https://www.unenouvelleenergie.fr/david-lisnard-sur-cnews-et-europe-1-je-veux-une-alternative-pas-simplement-une-alternance/",
+          "source_title": "David Lisnard sur CNews et Europe 1 : « Je veux une alternative, pas simplement une alternance »",
+          "source_date": "2026-09-03",
+          "confidence": "medium"
+        },
+        {
+          "position": "L'argent public ne doit pas financer des spectacles hostiles aux valeurs républicaines.",
+          "kind": "position_declaree",
+          "details": "Tribune ancienne, cosignée avec Déborah Münzer (Le Figaro).",
+          "source_url": "https://www.unenouvelleenergie.fr/largent-public-na-pas-a-financer-des-spectacles-hostiles-aux-valeurs-republicaines/",
+          "source_title": "L'argent public n'a pas à financer des spectacles hostiles aux valeurs républicaines (Le Figaro)",
+          "source_date": "2023-04-27",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "numerique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Opposé à l'interdiction des réseaux sociaux aux moins de 15 ans. Il préfère s'attaquer aux mécanismes « prédateurs » des plateformes (défilement infini, notifications intrusives, publicité ciblée), miser sur l'autorité parentale et former à l'esprit critique.",
+          "kind": "position_declaree",
+          "short_quote": "L'interdiction est ici une réponse du siècle dernier",
+          "details": "Tribune cosignée avec Constance Nebbula (Les Échos). Il doute de l'efficacité de la vérification d'âge (VPN) et y voit un risque de surveillance de masse.",
+          "source_url": "https://www.unenouvelleenergie.fr/reseaux-sociaux-linterdiction-est-le-dernier-refuge-de-limpuissance-publique/",
+          "source_title": "Réseaux sociaux : l'interdiction est le dernier refuge de l'impuissance publique (Les Échos)",
+          "source_date": "2026-02-11",
+          "confidence": "high"
+        },
+        {
+          "position": "Mettre l'intelligence artificielle au cœur de l'efficacité de l'État, pour accélérer l'instruction des dossiers et décharger les agents, avec des données et des serveurs sous maîtrise souveraine.",
+          "kind": "proposition_explicite",
+          "short_quote": "Ce qui valait hier pour l'atome vaut aujourd'hui pour l'intelligence artificielle.",
+          "source_url": "https://www.unenouvelleenergie.fr/app/uploads/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf",
+          "source_title": "Discours de David Lisnard à Bayeux",
+          "source_date": "2026-06-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Embrasser la révolution de l'IA et de la robotique plutôt que la subir, selon les principes « produire plutôt que subir » et « libérer plutôt qu'administrer » : soutenir chercheurs, entrepreneurs et ingénieurs plutôt que multiplier les restrictions.",
+          "kind": "position_declaree",
+          "details": "Livre « Les robots, le Pape, l'IA et nous » (Fayard, 28 octobre 2026), avec Romain Marsily. Aucune position détaillée trouvée sur la réglementation européenne (AI Act, DSA).",
+          "source_url": "https://www.unenouvelleenergie.fr/les-robots-le-pape-lia-et-nous-le-nouveau-livre-de-david-lisnard-en-precommande/",
+          "source_title": "Les robots, le Pape, l'IA et nous : le nouveau livre de David Lisnard en précommande",
+          "source_date": "2026-10",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Programme nucléaire : arrêter le démantèlement, prolonger les réacteurs existants jusqu'à 60 ans, construire une première série de 6 EPR, renouveler le parc avec des petits réacteurs (SMR) et financer la 4e génération et la fusion.",
+          "kind": "proposition_explicite",
+          "details": "Il défend une électricité nucléaire « décarbonée et pilotable », condition de la souveraineté, notamment pour l'IA. Il veut aussi relancer l'hydroélectricité (Saint-Raphaël).",
+          "source_url": "https://www.unenouvelleenergie.fr/questions/quel-candidat-veut-construire-de-nouveaux-reacteurs-nucleaires/",
+          "source_title": "Quel candidat veut construire de nouveaux réacteurs nucléaires ?",
+          "source_date": "2026-10-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Retirer le principe de précaution de la Constitution et le remplacer par un principe de responsabilité. La protection de l'environnement relèverait de la loi.",
+          "kind": "proposition_explicite",
+          "short_quote": "Le principe de précaution sortira de la Constitution",
+          "source_url": "https://www.unenouvelleenergie.fr/app/uploads/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf",
+          "source_title": "Discours de David Lisnard à Bayeux",
+          "source_date": "2026-06-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Supprimer l'obligation nationale de créer des zones à faibles émissions (ZFE) et refuser une écologie « punitive » imposée au mépris de certains citoyens.",
+          "kind": "position_declaree",
+          "details": "Appel de maires publié dans Le Figaro les 27 et 28 mars 2025. Il juge aussi le ZAN « inapplicable ».",
+          "source_url": "https://www.unenouvelleenergie.fr/lappel-des-maires-contre-les-zfe-nous-refusons-que-lecologie-simpose-au-mepris-de-certains-citoyens/",
+          "source_title": "L'appel des maires contre les ZFE (Le Figaro)",
+          "source_date": "2025-03-27",
+          "confidence": "high"
+        },
+        {
+          "position": "Suspendre temporairement les certificats d'économies d'énergie (CEE) pour faire baisser les prix à la pompe d'environ 17 centimes par litre, sans creuser la dette.",
+          "kind": "proposition_explicite",
+          "details": "Réitéré sur franceinfo le 17 septembre 2026, avec des aides temporaires aux professionnels touchés comme les pêcheurs.",
+          "source_url": "https://www.unenouvelleenergie.fr/david-lisnard-sur-franceinfo-le-probleme-francais-est-devenu-un-probleme-de-suradministration-et-dimpuissance-publique/",
+          "source_title": "David Lisnard sur franceinfo (6 mai 2026)",
+          "source_date": "2026-05-06",
+          "confidence": "high"
+        },
+        {
+          "position": "Une écologie d'objectifs plutôt que de moyens (« neutralité scientifique ») : critique des énergies renouvelables intermittentes, fin des énergies renouvelables « dérogatoires », autorisation de réutiliser les eaux usées traitées. Le programme prévoit aussi une fiscalité verte « pollueur-payeur » à prélèvement total constant, redistribuée aux perdants.",
+          "kind": "position_declaree",
+          "details": "Le volet fiscalité verte vient du programme non daté. Les positions sur l'eau et les ENR sont reprises dans la FAQ d'octobre 2026.",
+          "source_url": "https://www.unenouvelleenergie.fr/questions/quel-candidat-defend-une-ecologie-pragmatique-et-non-punitive/",
+          "source_title": "Quel candidat défend une écologie pragmatique et non punitive ?",
+          "source_date": "2026-10-03",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "found": true,
+      "positions": [
+        {
+          "position": "Supprimer les impôts de production sur l'agriculture et reporter les charges sociales et fiscales sur la valeur ajoutée. Créer une épargne de précaution défiscalisée contre les aléas et un crédit d'impôt pour la transmission des exploitations.",
+          "kind": "proposition_explicite",
+          "details": "Il relève que les charges sociales d'un agriculteur français sont de 45 %, contre 15 % pour un concurrent espagnol.",
+          "source_url": "https://www.unenouvelleenergie.fr/a-la-foire-de-chalons-david-lisnard-defend-une-agriculture-liberee-des-impots-de-production-et-de-la-bureaucratie/",
+          "source_title": "À la foire de Châlons, David Lisnard défend une agriculture libérée des impôts de production et de la bureaucratie",
+          "source_date": "2026-09-02",
+          "confidence": "high"
+        },
+        {
+          "position": "Eau : débloquer environ 400 projets de stockage d'eau en attente, appliquer la règle du « silence vaut accord » au bout de 6 mois si les seuils hydrologiques sont respectés, et conditionner les aides à l'efficacité de l'irrigation.",
+          "kind": "proposition_explicite",
+          "details": "Le programme Agriculture dit « oui aux bassines ».",
+          "source_url": "https://www.unenouvelleenergie.fr/a-la-foire-de-chalons-david-lisnard-defend-une-agriculture-liberee-des-impots-de-production-et-de-la-bureaucratie/",
+          "source_title": "À la foire de Châlons, David Lisnard défend une agriculture libérée des impôts de production et de la bureaucratie",
+          "source_date": "2026-09-02",
+          "confidence": "high"
+        },
+        {
+          "position": "En finir avec les surtranspositions françaises, imposer des clauses miroirs aux produits importés, réorienter la PAC vers la souveraineté alimentaire, autoriser les nouvelles techniques génomiques (NTG) et encadrer les produits phytosanitaires sur une base scientifique.",
+          "kind": "proposition_explicite",
+          "details": "Programme Agriculture non daté. Aucune position explicite trouvée sur le Mercosur ni sur le bien-être animal.",
+          "source_url": "https://www.unenouvelleenergie.fr/notre-programme/agriculture/",
+          "source_title": "Programme Agriculture (Nouvelle Énergie)",
+          "confidence": "medium"
+        },
+        {
+          "position": "Il dit qu'il aurait voté la loi Duplomb (qui prévoyait notamment la réintroduction dérogatoire d'un pesticide, l'acétamipride) et refuse les interdictions sans fondement scientifique.",
+          "kind": "position_declaree",
+          "source_url": "https://www.unenouvelleenergie.fr/il-faut-sortir-de-cet-etat-providence-qui-est-un-aspirateur-a-pauvrete/",
+          "source_title": "Il faut sortir de cet État-providence qui est un aspirateur à pauvreté (Midi Libre)",
+          "source_date": "2026-08-07",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "territoires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Fusionner départements et régions en une cinquantaine de provinces aux compétences claires et entières, sur le modèle de la carte proposée par Michel Debré en 1947.",
+          "kind": "proposition_explicite",
+          "short_quote": "Départements et régions seront réunis en une cinquantaine de provinces",
+          "details": "Le programme antérieur parlait de « 40 ou 50 provinces » et d'une architecture État / Province / bloc communal soumise à référendum.",
+          "source_url": "https://www.unenouvelleenergie.fr/app/uploads/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf",
+          "source_title": "Discours de David Lisnard à Bayeux",
+          "source_date": "2026-06-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Transférer aux collectivités un véritable pouvoir réglementaire hors domaine régalien : la loi fixerait les objectifs et les élus locaux les modalités, sous la sanction des électeurs. Faire de la subsidiarité une règle constitutionnelle et de la commune le socle, en mettant fin à l'« intercommunalité subie ».",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.unenouvelleenergie.fr/questions/que-propose-david-lisnard-pour-decentraliser-la-france/",
+          "source_title": "Que propose David Lisnard pour décentraliser la France ?",
+          "source_date": "2026-10-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Outre-mer : les mêmes libertés locales étendues pour tous les territoires. Il refuse toute décentralisation « asymétrique » ou « à la carte » et tout statut d'exception négocié sous la pression.",
+          "kind": "position_declaree",
+          "short_quote": "Il n'y aura pas de décentralisation asymétrique",
+          "source_url": "https://www.unenouvelleenergie.fr/app/uploads/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf",
+          "source_title": "Discours de David Lisnard à Bayeux",
+          "source_date": "2026-06-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Renforcer l'autonomie financière et la responsabilité fiscale des collectivités, qu'il présente comme gérant bien (8 % seulement de la dette publique).",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.unenouvelleenergie.fr/a-benfeld-david-lisnard-appelle-a-liberer-le-pays-devant-plus-de-1-200-personnes/",
+          "source_title": "À Benfeld, David Lisnard appelle à libérer le pays",
+          "source_date": "2026-09-25",
+          "confidence": "medium"
+        },
+        {
+          "position": "Services de proximité (programme du parti) : des maisons de santé dans chaque canton, et l'objectif que chaque zone rurale soit à moins de 20 minutes d'une ville moyenne et chaque ville moyenne à moins d'1 h 30 d'une métropole régionale.",
+          "kind": "proposition_explicite",
+          "details": "Programme non daté.",
+          "source_url": "https://www.unenouvelleenergie.fr/notre-programme/generer-un-renouveau-civique/",
+          "source_title": "Générer un renouveau civique (programme Nouvelle Énergie)",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "found": true,
+      "positions": [
+        {
+          "position": "Construire 20 000 places de prison, instaurer la perpétuité réelle et faire exécuter intégralement les peines prononcées.",
+          "kind": "proposition_explicite",
+          "short_quote": "Nous construirons enfin les vingt mille places de prison",
+          "source_url": "https://www.unenouvelleenergie.fr/questions/quel-candidat-propose-de-construire-des-places-de-prison/",
+          "source_title": "Quel candidat propose de construire des places de prison ?",
+          "source_date": "2026-10-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Mineurs : abaisser la majorité pénale à 16 ans, inverser l'excuse de minorité dès 13 ans et la supprimer pour les crimes, créer des internats disciplinaires fermés et appliquer des travaux d'intérêt général dès le premier délit. Les parents solvables paieraient la réparation des dommages causés par leurs enfants.",
+          "kind": "proposition_explicite",
+          "details": "Mesures du programme Sécurité, reprises à Saint-Raphaël (juillet 2026) et sur Facebook (29 septembre 2026).",
+          "source_url": "https://www.unenouvelleenergie.fr/notre-programme/securite/",
+          "source_title": "Programme Sécurité (Nouvelle Énergie)",
+          "confidence": "high"
+        },
+        {
+          "position": "Rétablir la responsabilité des magistrats et interdire ou dissoudre le Syndicat de la magistrature, tout en acceptant le syndicalisme des magistrats s'il n'est pas politisé.",
+          "kind": "proposition_explicite",
+          "short_quote": "Nous rétablirons évidemment la responsabilité des magistrats",
+          "details": "Annoncé à Saint-Raphaël en juillet 2026, réitéré sur CNews le 5 octobre 2026. Les modalités ne sont pas précisées.",
+          "source_url": "https://www.unenouvelleenergie.fr/questions/quel-candidat-propose-de-retablir-la-responsabilite-des-magistrats/",
+          "source_title": "Quel candidat propose de rétablir la responsabilité des magistrats ?",
+          "source_date": "2026-10-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Rétablir les peines planchers pour les récidivistes, supprimer les réductions de peine automatiques, sanctionner dès la première infraction et doubler les effectifs des juridictions correctionnelles (le programme parle aussi de doubler le nombre de procureurs).",
+          "kind": "proposition_explicite",
+          "details": "Programme non daté.",
+          "source_url": "https://www.unenouvelleenergie.fr/notre-programme/securite/",
+          "source_title": "Programme Sécurité (Nouvelle Énergie)",
+          "confidence": "medium"
+        },
+        {
+          "position": "Polices municipales : donner plus de pouvoirs aux communes volontaires, leur laisser le choix de l'armement, leur ouvrir certains fichiers sous le contrôle du juge et élargir les amendes forfaitaires délictuelles. Porter la présence des forces de l'ordre sur le terrain de 37 % à au moins 50 % du temps en réduisant leurs tâches administratives.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.unenouvelleenergie.fr/questions/quelles-sont-les-propositions-de-david-lisnard-sur-la-securite/",
+          "source_title": "Quelles sont les propositions de David Lisnard sur la sécurité ?",
+          "source_date": "2026-10-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Narcotrafic : une politique pénale beaucoup plus ferme envers les trafiquants, y compris mineurs, davantage de places de prison et de magistrats, des cellules antistupéfiants locales, des saisies ciblées et l'infiltration numérique des réseaux.",
+          "kind": "proposition_explicite",
+          "details": "Il cite le rapport Blanc : 220 000 membres des forces de l'ordre face à 250 000 trafiquants. Aucune position trouvée sur la légalisation du cannabis.",
+          "source_url": "https://www.unenouvelleenergie.fr/questions/que-propose-david-lisnard-face-au-narcotrafic/",
+          "source_title": "Que propose David Lisnard face au narcotrafic ?",
+          "source_date": "2026-10-03",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "found": true,
+      "positions": [
+        {
+          "position": "« Couper le robinet » : diviser l'immigration « au moins par huit ». Il dénonce environ 500 000 titres de séjour supplémentaires par an, une « immigration de peuplement » selon lui. Le programme prévoit de diviser par huit la délivrance de titres de séjour.",
+          "kind": "proposition_explicite",
+          "short_quote": "Couper le robinet de l'immigration, la diviser au moins par huit",
+          "details": "Propos tenus le 3 septembre 2026 (CNews/Europe 1). Il estime que l'essentiel de l'immigration illégale vient de titres légaux expirés.",
+          "source_url": "https://www.unenouvelleenergie.fr/questions/que-propose-david-lisnard-sur-l-immigration/",
+          "source_title": "Que propose David Lisnard sur l'immigration ?",
+          "source_date": "2026-10-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Rétablir le délit de séjour irrégulier, supprimé fin 2012. Allonger la rétention administrative à 24 mois, construire davantage de centres de rétention et expulser systématiquement les étrangers condamnés pour crimes graves et les fichés pour radicalisation.",
+          "kind": "proposition_explicite",
+          "details": "Il affirme que « 95 % des expulsions n'ont pas lieu » (Sud Radio, 2023).",
+          "source_url": "https://www.unenouvelleenergie.fr/notre-programme/immigration/",
+          "source_title": "Programme Immigration (Nouvelle Énergie)",
+          "confidence": "high"
+        },
+        {
+          "position": "Traiter les demandes d'asile dans les consulats à l'étranger ou dans des centres hors du territoire. Fixer des quotas d'immigration de travail qualifiée. Conditionner le regroupement familial à des ressources et à des tests d'intégration. Mettre fin à l'automaticité du droit du sol.",
+          "kind": "proposition_explicite",
+          "details": "Quotas « démocratiques » et centres d'asile hors du territoire repris sur CNews/Europe 1 le 3 septembre 2026.",
+          "source_url": "https://www.unenouvelleenergie.fr/notre-programme/immigration/",
+          "source_title": "Programme Immigration (Nouvelle Énergie)",
+          "confidence": "high"
+        },
+        {
+          "position": "Supprimer l'AME, remplacée par une aide d'urgence (700 millions d'euros d'économies), et réserver les prestations non contributives aux étrangers en situation régulière depuis au moins 5 ans.",
+          "kind": "proposition_explicite",
+          "short_quote": "Nous supprimons l'aide médicale d'État",
+          "source_url": "https://www.unenouvelleenergie.fr/questions/quel-candidat-propose-de-supprimer-l-aide-medicale-d-etat/",
+          "source_title": "Quel candidat propose de supprimer l'aide médicale d'État ?",
+          "source_date": "2026-10-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Dénoncer l'accord franco-algérien de 1968, hiérarchiser les visas et faire pression sur les pays qui ne reprennent pas leurs ressortissants (visas, transferts d'argent, aide au développement).",
+          "kind": "proposition_explicite",
+          "details": "Il dit rechercher une relation « d'égal à égal » avec l'Algérie, sans rupture « théâtrale ».",
+          "source_url": "https://lediplomate.media/exclusif-grand-entretien-david-lisnard-strategie-france-dans-nouveau-desordre-mondial/",
+          "source_title": "Grand entretien du Diplomate avec David Lisnard",
+          "source_date": "2026-06-29",
+          "confidence": "high"
+        },
+        {
+          "position": "Organiser un référendum sur l'immigration après avoir élargi l'article 11. Faire primer la loi française sur la CEDH (révision de l'article 55, sortie en dernier recours). Obtenir de l'UE une dérogation aux règles communes d'asile et d'immigration, comme le Danemark.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.unenouvelleenergie.fr/questions/quel-candidat-propose-un-referendum-sur-l-immigration/",
+          "source_title": "Quel candidat propose un référendum sur l'immigration ?",
+          "source_date": "2026-10-03",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Rester dans l'Union européenne tout en défendant la seule souveraineté nationale : il qualifie la « souveraineté européenne » d'oxymore et veut libérer l'Europe de la bureaucratie.",
+          "kind": "position_declaree",
+          "short_quote": "Nous n'avons pas vocation à sortir de l'Europe.",
+          "source_url": "https://www.unenouvelleenergie.fr/app/uploads/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf",
+          "source_title": "Discours de David Lisnard à Bayeux",
+          "source_date": "2026-06-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Obtenir pour la France une dérogation aux règles européennes communes en matière d'asile et d'immigration, sur le modèle du Danemark. Selon lui, une simple révision constitutionnelle ne suffit pas face au droit de l'UE.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.unenouvelleenergie.fr/app/uploads/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf",
+          "source_title": "Discours de David Lisnard à Bayeux",
+          "source_date": "2026-06-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Selon le programme du parti : renégocier les traités pour redistribuer les compétences, soumettre au référendum les conflits de souveraineté, recentrer l'UE sur les domaines où elle apporte une valeur ajoutée (espace, données, énergie décarbonée, technologies de rupture, recherche médicale) et conditionner les fonds de cohésion au respect de l'État de droit.",
+          "kind": "proposition_explicite",
+          "details": "Page non datée.",
+          "source_url": "https://www.unenouvelleenergie.fr/notre-programme/etre-maitre-de-notre-destin/",
+          "source_title": "Être maître de notre destin (programme Nouvelle Énergie)",
+          "confidence": "medium"
+        },
+        {
+          "position": "Interdire les surtranspositions de normes européennes. L'UE doit renoncer à sa « dérive dirigiste, bureaucratique et idéologique ».",
+          "kind": "position_declaree",
+          "details": "Tribune du Figaro du 10 mai 2024, cosignée avec Hervé Novelli et Charles Millon. L'interdiction des surtranspositions a été reprise à Benfeld le 25 septembre 2026. Aucune position trouvée sur le budget de l'UE ni sur l'élargissement.",
+          "source_url": "https://www.unenouvelleenergie.fr/elections-europeennes-lunion-europeenne-doit-secarter-de-sa-derive-dirigiste-bureaucratique-et-ideologique/",
+          "source_title": "L'Union européenne doit s'écarter de sa dérive dirigiste, bureaucratique et idéologique (Le Figaro)",
+          "source_date": "2024-05-10",
+          "confidence": "medium"
+        },
+        {
+          "position": "Refuser que Bruxelles pilote la défense, qui doit relever exclusivement des États. Il est réservé sur un endettement commun européen pour la défense.",
+          "kind": "position_declaree",
+          "source_url": "https://lediplomate.media/david-lisnard-souverainete-europeenne/",
+          "source_title": "David Lisnard : « La souveraineté européenne n'existe pas ! » (Le Diplomate)",
+          "source_date": "2025-03-22",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "ukraine_russie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Soutenir l'Ukraine dans le cadre de l'OTAN et en renforçant la base industrielle de défense européenne, tout en renouant un « dialogue structuré » avec la Russie, comme pendant la guerre froide, « sans rien lui céder ».",
+          "kind": "position_declaree",
+          "details": "Il voit la Russie comme un voisin durable avec qui il faudra parler. Il ne dit rien de précis sur les troupes, l'adhésion de l'Ukraine à l'UE ou les avoirs russes gelés.",
+          "source_url": "https://lediplomate.media/exclusif-grand-entretien-david-lisnard-strategie-france-dans-nouveau-desordre-mondial/",
+          "source_title": "Grand entretien du Diplomate avec David Lisnard",
+          "source_date": "2026-06-29",
+          "confidence": "high"
+        },
+        {
+          "position": "Aider l'Ukraine à retrouver un rapport de force qui lui permette de négocier, en évitant une confrontation directe avec la Russie.",
+          "kind": "position_declaree",
+          "short_quote": "Aider l'Ukraine à restaurer une position de force pour négocier",
+          "source_url": "https://lediplomate.media/david-lisnard-souverainete-europeenne/",
+          "source_title": "David Lisnard : « La souveraineté européenne n'existe pas ! » (Le Diplomate)",
+          "source_date": "2025-03-22",
+          "confidence": "medium"
+        },
+        {
+          "position": "En 2024, il appelait à ne pas faiblir dans le soutien à l'Ukraine et à passer à une « économie de guerre » européenne. Il qualifiait la Russie d'empire expansionniste, au sein d'un « axe » avec l'Iran et la Chine. Il critiquait l'évocation par Emmanuel Macron de troupes au sol, qui avait selon lui affaibli l'Occident.",
+          "kind": "position_declaree",
+          "details": "Positions de 2024, plus anciennes, utiles pour mesurer l'évolution. Premier maire français à se rendre en Ukraine en 2022, il a mené plusieurs actions humanitaires comme président de l'AMF.",
+          "source_url": "https://www.sudradio.fr/linvite-politique/ukraine-emmanuel-macron-a-affaibli-la-position-de-loccident-juge-david-lisnard",
+          "source_title": "Ukraine : Emmanuel Macron « a affaibli la position de l'Occident », juge David Lisnard (Sud Radio)",
+          "source_date": "2024-02-29",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "proche_orient",
+      "found": true,
+      "positions": [
+        {
+          "position": "Opposé à la reconnaissance de l'État de Palestine par la France en septembre 2025, qu'il juge prématurée et « sans contrepartie » : un État sans frontières, sans gouvernement unifié et dominé par le Hamas. Selon lui, elle a affaibli la voix de la France.",
+          "kind": "position_declaree",
+          "details": "Il compare cette reconnaissance à l'esprit de « Munich » (tribune Rupture-mag, 7 octobre 2025). Il a redit cette critique dans Le Diplomate le 29 juin 2026.",
+          "source_url": "https://www.crif.org/articles/entretiens/2025-11-03/david-lisnard-le-plan-de-paix-a-gaza-est-conditionne-au-desarmement-du-hamas-qui-est-une-organisation-terroriste-militarisee-antisemite-qui-refuse-la-coexistence-et-instrumentalise-cynique/",
+          "source_title": "Entretien de David Lisnard au CRIF sur le plan de paix à Gaza",
+          "source_date": "2025-11-03",
+          "confidence": "high"
+        },
+        {
+          "position": "La solution à deux États reste l'horizon, mais seulement comme étape finale d'un processus diplomatique rigoureux, avec un accord régional garantissant la sécurité absolue d'Israël.",
+          "kind": "position_declaree",
+          "source_url": "https://www.crif.org/articles/entretiens/2025-11-03/david-lisnard-le-plan-de-paix-a-gaza-est-conditionne-au-desarmement-du-hamas-qui-est-une-organisation-terroriste-militarisee-antisemite-qui-refuse-la-coexistence-et-instrumentalise-cynique/",
+          "source_title": "Entretien de David Lisnard au CRIF sur le plan de paix à Gaza",
+          "source_date": "2025-11-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Selon lui, le plan de paix à Gaza doit suivre trois étapes : libération des otages, désarmement complet du Hamas (qu'il qualifie d'organisation terroriste et antisémite), puis nouvelle gouvernance à Gaza.",
+          "kind": "position_declaree",
+          "short_quote": "conditionné au désarmement du Hamas",
+          "source_url": "https://www.crif.org/articles/entretiens/2025-11-03/david-lisnard-le-plan-de-paix-a-gaza-est-conditionne-au-desarmement-du-hamas-qui-est-une-organisation-terroriste-militarisee-antisemite-qui-refuse-la-coexistence-et-instrumentalise-cynique/",
+          "source_title": "Entretien de David Lisnard au CRIF sur le plan de paix à Gaza",
+          "source_date": "2025-11-03",
+          "confidence": "high"
+        },
+        {
+          "position": "Il reconnaît le droit d'Israël à se défendre et critique l'exclusion d'un partenaire de défense d'un salon d'armement, visant l'exclusion d'entreprises israéliennes. Il fait de l'arme nucléaire iranienne une « ligne rouge absolue ».",
+          "kind": "position_declaree",
+          "details": "Dans sa tribune d'octobre 2025, il admet aussi que des critiques des actions du gouvernement israélien à Gaza et en Cisjordanie peuvent être légitimes, sans proposer de mesure à l'égard de ce gouvernement.",
+          "source_url": "https://lediplomate.media/exclusif-grand-entretien-david-lisnard-strategie-france-dans-nouveau-desordre-mondial/",
+          "source_title": "Grand entretien du Diplomate avec David Lisnard",
+          "source_date": "2026-06-29",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "defense",
+      "found": true,
+      "positions": [
+        {
+          "position": "Rétablir un service militaire universel et obligatoire, court (environ 3 mois, pour des raisons budgétaires), en caserne et en uniforme, pour aguerrir les jeunes et renforcer le sentiment national.",
+          "kind": "proposition_explicite",
+          "short_quote": "un retour du service militaire est nécessaire",
+          "source_url": "https://www.unenouvelleenergie.fr/une-experience-formatrice-quil-ne-faut-pas-idealiser-david-lisnard-raconte-son-service-militaire/",
+          "source_title": "« Une expérience formatrice qu'il ne faut pas idéaliser » : David Lisnard raconte son service militaire (Paris Match)",
+          "source_date": "2025-12-12",
+          "confidence": "high"
+        },
+        {
+          "position": "La dissuasion nucléaire française ne se partage pas et ne se négocie pas. Il accepte le dialogue avec les partenaires européens mais met en garde contre le stationnement d'armes nucléaires sur un sol étranger.",
+          "kind": "position_declaree",
+          "short_quote": "La dissuasion nucléaire française ne se partage pas, ne se négocie pas",
+          "details": "Réaction au discours présidentiel sur la dissuasion (L'Opinion). Il chiffre 3 % du PIB à environ 100 milliards d'euros par an et 3,5 % en 2035 à environ 120 milliards, et juge que la réforme de l'État doit précéder le financement du réarmement.",
+          "source_url": "https://www.unenouvelleenergie.fr/dissuasion-nucleaire-ce-que-le-discours-du-president-de-la-republique-dit-et-ce-quil-ne-dit-pas/",
+          "source_title": "Dissuasion nucléaire : ce que le discours du président de la République dit et ce qu'il ne dit pas (L'Opinion)",
+          "source_date": "2026-03-06",
+          "confidence": "high"
+        },
+        {
+          "position": "Porter le budget de la défense à au moins 3,5 % du PIB.",
+          "kind": "proposition_explicite",
+          "short_quote": "Porter son budget de la défense à 3,5 % du PIB",
+          "details": "Formulé en mars 2025. En 2026, il cite la mise à jour de la loi de programmation militaire (2,5 % du PIB en 2030) sans fixer de nouvelle cible chiffrée pour son quinquennat.",
+          "source_url": "https://lediplomate.media/david-lisnard-souverainete-europeenne/",
+          "source_title": "David Lisnard : « La souveraineté européenne n'existe pas ! » (Le Diplomate)",
+          "source_date": "2025-03-22",
+          "confidence": "medium"
+        },
+        {
+          "position": "OTAN : un cadre de sécurité partagée nécessaire, une solidarité atlantique sans alignement réflexe et une alliance « lucide et sélective » avec les États-Unis. Il veut un réarmement européen fondé sur la commande publique et la base industrielle, la défense restant une compétence nationale.",
+          "kind": "position_declaree",
+          "source_url": "https://lediplomate.media/exclusif-grand-entretien-david-lisnard-strategie-france-dans-nouveau-desordre-mondial/",
+          "source_title": "Grand entretien du Diplomate avec David Lisnard",
+          "source_date": "2026-06-29",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "distinctive_vs_others": "1) Libéralisme économique. C'est le candidat déclaré dont le programme de baisse de la dépense est le plus chiffré et le plus fort : 80 milliards d'euros la première année, au moins 200 milliards par an ensuite (https://www.unenouvelleenergie.fr/questions/que-ferait-david-lisnard-des-200-milliards-d-economies/). Il est hostile aux aides publiques aux entreprises (https://www.unenouvelleenergie.fr/il-faut-liberer-lindustrie/) et à la taxe Zucman, que soutiennent les candidats de gauche (https://www.unenouvelleenergie.fr/taxe-zucman-les-francais-meritent-mieux-que-des-illusions-fiscales/).\n2) Retraites. Il refuse de revenir sur la réforme de 2023 et veut ajouter un étage de capitalisation obligatoire, financé notamment en ne revalorisant plus les pensions au-dessus de 2 000 euros (https://www.unenouvelleenergie.fr/questions/david-lisnard-est-il-favorable-a-la-retraite-par-capitalisation/). Il se démarque ainsi des candidats qui veulent abroger la réforme ou abaisser l'âge de départ. Il a quitté LR en dénonçant notamment « l'abandon de la réforme des retraites » (franceinfo, 31 mars 2026).\n3) Institutions. Ses propositions sont parmi les plus détaillées : septennat, article 11 ouvert à tous les sujets, référendum pour passer outre une censure du Conseil constitutionnel fondée sur le préambule, nominations approuvées par l'Assemblée à majorité qualifiée, Sénat recentré sur l'évaluation, environ 50 provinces à la place des départements et régions (discours de Bayeux, https://www.unenouvelleenergie.fr/app/uploads/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf). Ce profil de maire et de président de l'AMF le distingue par l'accent mis sur la décentralisation et le pouvoir réglementaire local.\n4) Immigration et Europe. Son objectif chiffré est très restrictif : diviser l'immigration « au moins par huit », primauté de la loi sur la CEDH. Mais il veut l'obtenir par une dérogation européenne à la danoise, sans sortir de l'UE (« Nous n'avons pas vocation à sortir de l'Europe »). Cela le sépare des candidats souverainistes favorables à une sortie de l'UE, comme François Asselineau ou Florian Philippot.\n5) Laïcité. Il est pour l'interdiction du voile à l'université et l'interdiction des Frères musulmans, mais critique la proposition du RN de sanctionner le voile dans tout l'espace public (Europe 1, 2026).\n6) Numérique. Il s'oppose explicitement à l'interdiction des réseaux sociaux aux moins de 15 ans, défendue dans le camp présidentiel, et préfère encadrer les mécanismes addictifs des plateformes (Les Échos, 11 février 2026).\n7) International. Il est atlantiste et soutient l'Ukraine dans le cadre de l'OTAN, tout en prônant un dialogue structuré avec la Russie (Le Diplomate, 29 juin 2026). Il est opposé à la reconnaissance de l'État de Palestine, à la différence des candidats de gauche. Il défend une dissuasion nucléaire non partageable et un service militaire obligatoire d'environ 3 mois.\n8) Stratégie. Il réclame une grande primaire ouverte de la droite et du centre (« quart de finale avant la demi-finale »), qui le mettrait face notamment à Bruno Retailleau, Édouard Philippe et Gabriel Attal. Il refuse de gouverner avec « ceux qui ont détruit le pays » et vise le « macronisme » (https://www.unenouvelleenergie.fr/lequipe-de-france-du-bon-sens-david-lisnard-lance-la-bataille-de-2027/).",
+  "evolutions_and_contradictions": "- Âge de la retraite. La page programme du parti (non datée) fait de 65 ans un « impératif national urgent », alors que la FAQ mise à jour le 3 octobre 2026 indique qu'il ne propose pas d'âge légal précis. Le montant du socle de pension varie aussi : 1 000 euros dans le programme, environ 1 200 euros dans le manifeste de mars 2025. La part de capitalisation aussi : un tiers dans le manifeste, environ 40 % (116 milliards d'euros) dans le programme.\n- Économies. L'objectif est passé de « 300 milliards » (Le Figaro, 22 janvier 2026) à « au moins 200 milliards » par an en fin de quinquennat, avec 80 milliards la première année.\n- Fonctionnaires. Le manifeste de 2025 prévoit un alignement progressif du statut sur le privé, et le programme Éducation un corps unique d'enseignants contractuels. En 2026, le discours met surtout l'accent sur le non-remplacement des départs, sans licenciement, et sur la hausse de la rémunération des agents de terrain.\n- Défense. Il demandait 3,5 % du PIB en mars 2025. En mars et juin 2026, il insiste sur le fait que la réforme de l'État doit précéder le financement du réarmement, sans fixer de nouvelle cible chiffrée.\n- Ukraine. En 2024, il parlait d'« économie de guerre » et de soutien sans faiblesse. En 2025-2026, il insiste davantage sur la négociation en position de force et sur un dialogue structuré avec la Russie.\n- Candidature. Il annonce en janvier 2025 vouloir concourir à une primaire, dit « Oui, j'irai » le 20 janvier 2026, déclare formellement sa candidature le 31 mars 2026 et quitte LR. Il continue pourtant de réclamer une primaire ouverte de la droite et du centre, sans dire clairement s'il se retirerait en cas de défaite.\n- AME. Le programme Immigration prévoit de la remplacer par une aide d'urgence (700 millions d'euros d'économies). La FAQ d'octobre 2026, qui reprend le meeting de Saint-Raphaël, parle seulement de suppression.\n- Date du meeting de Saint-Raphaël. La presse et le parti indiquent le vendredi 3 juillet 2026, mais les pages FAQ citent le « 4 juillet 2026 ».\n- Natalité. Ses propositions de 2025 ont été cosignées avec un député Renaissance, Charles Rodwell, alors qu'en 2026 il fait de l'élimination du « macronisme » un objectif de la primaire.",
+  "open_questions": [
+    "Quel âge légal de départ à la retraite défend-il : statu quo à 64 ans ou 65 ans, comme dans le programme du parti ? Quel montant pour le socle de pension par répartition : 1 000 ou 1 200 euros ?",
+    "Quelles cotisations seraient supprimées pour dégager +400 euros net (maladie, famille, chômage), et comment la Sécurité sociale serait-elle compensée ?",
+    "À quel pourcentage du SMIC serait plafonnée l'allocation sociale unique, et quelles prestations y entreraient (APL, AAH, allocations familiales) ?",
+    "Quel seuil de signatures pour le référendum d'initiative populaire ? Le septennat serait-il renouvelable ?",
+    "Quelle cible de budget de défense, en % du PIB, pour le quinquennat ?",
+    "La TVA « compétitivité / relocalisation » (jusqu'à environ 25 %) figurant dans le programme du parti est-elle toujours d'actualité ?",
+    "Aucune proposition trouvée sur l'assurance chômage, le handicap, le grand âge et la dépendance, ni le partage entre Sécurité sociale et complémentaires.",
+    "Aucune position trouvée sur la PMA, la GPA, la filiation, la transidentité ou l'éducation à la sexualité.",
+    "Aucune position trouvée sur l'égalité salariale ou les violences faites aux femmes au niveau national.",
+    "Positions non précisées sur le Mercosur, le budget de l'UE, l'élargissement (Ukraine, Balkans) et l'encadrement des loyers.",
+    "Accord franco-algérien de 1968 : dénonciation unilatérale ou renégociation ?",
+    "Calendrier de publication du programme de campagne consolidé (le site lisnard2027.fr annonce une ouverture prochaine) et attitude en cas de défaite à une primaire de la droite et du centre."
+  ]
+}

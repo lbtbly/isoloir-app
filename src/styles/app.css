@@ -1484,6 +1484,27 @@ path.ink-draw {
   font-size: var(--text-sm);
 }
 
+/* Élection nombreuse : les candidats en colonnes (deux au téléphone, de 12rem au-delà), plutôt qu'une longue
+   file qui passe à la ligne */
+.key.is-many {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s2) var(--s3);
+}
+
+.key.is-many dd {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  line-height: 1.25;
+}
+
+@media (min-width: 40rem) {
+  .key.is-many {
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    column-gap: var(--s4);
+  }
+}
+
 .initials {
   display: inline-flex;
   align-items: center;
@@ -2072,6 +2093,144 @@ path.ink-draw {
 @media (min-width: 64rem) {
   .people-panels {
     grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+/* Élection nombreuse (plus de 8 candidats). Au téléphone, une liste de formulaire : une ligne compacte par
+   candidat, sur papier, entre filets (une pile de vingt aplats pastel ne se lirait plus) ; le portrait à gauche,
+   la flèche à droite, toute la ligne mène à la fiche. Dès 40rem, des panneaux plus petits, autant de colonnes de
+   13rem que la largeur en permet. */
+.people-panels.is-many {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  border-top: var(--line) solid var(--rule-strong);
+  border-bottom: var(--line) solid var(--rule-strong);
+}
+
+.people-panels.is-many .people-panel {
+  background: none;
+  box-shadow: none;
+}
+
+.people-panels.is-many .people-panel + .people-panel {
+  border-top: var(--hair) solid var(--rule);
+}
+
+.people-panels.is-many .people-panel-link {
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr) auto;
+  grid-template-areas:
+    'portrait name go'
+    'portrait role go'
+    'portrait meta go'
+    'portrait count go';
+  align-content: start;
+  column-gap: var(--s3);
+  row-gap: 0.15rem;
+  padding: var(--s3) 0;
+}
+
+.people-panels.is-many .portrait {
+  grid-area: portrait;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 0;
+}
+
+.people-panels.is-many .portrait.is-initials {
+  font-size: 1.15rem;
+}
+
+.people-panels.is-many .people-panel-name {
+  grid-area: name;
+  font-size: 1.45rem;
+}
+
+.people-panels.is-many .people-panel-role {
+  grid-area: role;
+}
+
+.people-panels.is-many .people-panel-meta {
+  grid-area: meta;
+}
+
+.people-panels.is-many .people-panel-count {
+  grid-area: count;
+  margin: 0;
+  padding: 0;
+}
+
+.people-panels.is-many .count-figure {
+  font-size: 1.25em;
+}
+
+.people-panels.is-many .people-panel-go {
+  grid-area: go;
+  align-self: center;
+  margin: 0;
+}
+
+/* Au téléphone, le libellé reste lu dans le nom du lien ; la flèche suffit à l'œil */
+@media (max-width: 39.99rem) {
+  .people-panels.is-many .people-panel-go-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .people-panels.is-many .people-panel-go .icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+@media (min-width: 40rem) {
+  .people-panels.is-many {
+    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+    gap: var(--s4);
+    border: 0;
+  }
+
+  .people-panels.is-many .people-panel {
+    background: var(--panel);
+    box-shadow: inset 0 var(--thick) 0 var(--rule-strong);
+  }
+
+  .people-panels.is-many .people-panel + .people-panel {
+    border-top: 0;
+  }
+
+  .people-panels.is-many .people-panel-link {
+    display: flex;
+    padding: var(--s4) var(--s4) var(--s3);
+  }
+
+  .people-panels.is-many .portrait {
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-bottom: var(--s2);
+  }
+
+  .people-panels.is-many .portrait.is-initials {
+    font-size: 1.4rem;
+  }
+
+  .people-panels.is-many .people-panel-name {
+    font-size: 1.6rem;
+  }
+
+  .people-panels.is-many .people-panel-count {
+    margin-top: auto;
+    padding-top: var(--s3);
+  }
+
+  .people-panels.is-many .people-panel-go {
+    align-self: flex-start;
+    margin-top: var(--s2);
   }
 }
 
@@ -3688,6 +3847,60 @@ line.dg-thick {
   }
 }
 
+/* Élection nombreuse (plus de 8 candidats) : tous restent montrés, dans le même ordre tiré au hasard, en
+   petits portraits sur trois colonnes au téléphone, cinq puis six sur grand écran */
+.people-strip.is-many {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--s5) var(--s3);
+}
+
+.people-strip.is-many .people-card {
+  gap: var(--s1);
+}
+
+.people-strip.is-many .portrait.is-strip {
+  /* Jamais plus large que sa colonne : avec un texte agrandi, le portrait rapetisse au lieu de déborder */
+  width: min(4.5rem, 100%);
+  height: auto;
+  aspect-ratio: 1;
+}
+
+.people-strip.is-many .portrait.is-strip.is-initials {
+  font-size: 1.4rem;
+}
+
+.people-strip.is-many .people-name {
+  font-size: 1rem;
+  line-height: 1.15;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 48rem) {
+  .people-strip.is-many {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: var(--s5) var(--s4);
+  }
+
+  .people-strip.is-many .portrait.is-strip {
+    width: min(5.5rem, 100%);
+  }
+
+  .people-strip.is-many .portrait.is-strip.is-initials {
+    font-size: 1.6rem;
+  }
+
+  .people-strip.is-many .people-name {
+    font-size: 1.0625rem;
+  }
+}
+
+@media (min-width: 72rem) {
+  .people-strip.is-many {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
 @media (hover: hover) and (pointer: fine) {
   .people-card:hover .people-name {
     text-decoration: underline;
@@ -4608,6 +4821,165 @@ details[open] > summary .summary-label {
   color: var(--print-soft);
 }
 
+/* Règle « hors classement » : aucun candidat assez connu pour être classé */
+.board-empty {
+  max-width: var(--measure);
+  margin: 0;
+  padding: var(--s4) 0;
+  border-top: var(--line) solid var(--rule-strong);
+  border-bottom: var(--line) solid var(--rule-strong);
+}
+
+/* Hors classement : sous le classement, une liste de formulaire plus discrète. Ni rang, ni bâtons, ni couleur de
+   palier (rien qui ressemble au classement) ; la couverture et le score indicatif en petit corps gris */
+.unranked {
+  margin-top: var(--s7);
+}
+
+.unranked-title {
+  overflow-wrap: anywhere;
+  margin: 0 0 var(--s2);
+  font-weight: 800;
+  font-stretch: 78%;
+  font-size: clamp(1.3rem, 4.5vw, 1.6rem);
+  line-height: 1.1;
+}
+
+.unranked-lede {
+  max-width: var(--measure);
+  margin: 0 0 var(--s4);
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.unranked-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: var(--line) solid var(--rule-strong);
+  border-bottom: var(--line) solid var(--rule-strong);
+}
+
+.unranked-item {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  grid-template-areas:
+    'photo who'
+    '. meta';
+  align-items: center;
+  column-gap: var(--s3);
+  padding: var(--s3) 0;
+}
+
+.unranked-item + .unranked-item {
+  border-top: var(--hair) solid var(--rule);
+}
+
+.unranked-item > .portrait {
+  grid-area: photo;
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.unranked-item > .portrait.is-initials {
+  font-size: 0.85rem;
+}
+
+.unranked-who {
+  grid-area: who;
+  display: grid;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.unranked-name {
+  color: var(--print);
+  font-weight: 750;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.unranked-item.is-flagged .unranked-name {
+  color: var(--print-soft);
+}
+
+.unranked-party {
+  font-size: var(--text-xs);
+  color: var(--print-soft);
+}
+
+.unranked-meta {
+  grid-area: meta;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--s3);
+  margin: var(--s1) 0 0;
+  font-size: var(--text-xs);
+  color: var(--print-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.unranked-score {
+  font-weight: 650;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .unranked-name:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.15em;
+  }
+}
+
+/* Large : la couverture et le score indicatif à droite du nom, sur la même ligne */
+@media (min-width: 48rem) {
+  .unranked-item {
+    grid-template-columns: 2.25rem minmax(0, 1fr) auto;
+    grid-template-areas: 'photo who meta';
+  }
+
+  .unranked-meta {
+    justify-content: flex-end;
+    margin: 0;
+    text-align: right;
+  }
+}
+
+/* Non classés (election.ranking.excluded) : la même liste discrète, sans aucun score ; la raison suit le titre, en
+   plus léger, pour que le titre se lise comme une phrase */
+.unranked + .excluded {
+  margin-top: var(--s6);
+}
+
+.excluded-why {
+  font-weight: 600;
+  color: var(--print-soft);
+}
+
+/* Fiche d'un candidat non classé : un repère discret sous ses liens, petit corps gris */
+.unscored-mark {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s2);
+  max-width: var(--measure);
+  margin: var(--s3) 0 0;
+  font-size: var(--text-sm);
+  line-height: 1.4;
+  color: var(--print-soft);
+}
+
+.unscored-mark .icon {
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.15em;
+}
+
+.unscored-mark a {
+  color: inherit;
+  font-weight: 650;
+}
+
 /* Par thème et « ce qui les sépare », côte à côte sur grand écran */
 .results-split {
   display: grid;
@@ -4645,6 +5017,60 @@ details[open] > summary .summary-label {
 
 .pv-grid thead th:not(:first-child) {
   text-align: center;
+}
+
+/* Élection nombreuse : la grille montre d'abord les premiers du classement ; « Comparer les N candidats »
+   les montre tous, la colonne des thèmes fixe pendant que les candidats défilent dessous */
+.grid-columns {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 var(--s3);
+  margin: 0 0 var(--s2);
+  font-size: var(--text-sm);
+}
+
+.grid-columns .btn-text {
+  font-weight: 750;
+}
+
+/* La zone qui défile reste dans la colonne du texte : rien ne passe à gauche de la colonne fixe, une colonne
+   coupée à droite dit qu'il en reste, et le contour de focus (la zone se focalise pour défiler au clavier) se
+   trace en entier dans la gouttière */
+.grid-scroll.is-all {
+  margin-inline: 0;
+  padding-inline: 0;
+}
+
+/* Bordures propres à chaque cellule : en bordures fusionnées, celles de la colonne fixe resteraient à leur place
+   et défileraient sans elle */
+.grid-scroll.is-all .pv-grid {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.grid-scroll.is-all .pv-grid th[scope='row'],
+.grid-scroll.is-all .pv-grid thead th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  min-width: 8.5rem;
+  /* À gauche, la place de l'étoile, qui déborde sinon de la zone (sa cible tactile reste entière) */
+  padding-inline: 0.4rem var(--s2);
+  background: var(--paper);
+  /* Un filet fin borde la colonne fixe */
+  box-shadow: inset calc(-1 * var(--hair)) 0 0 var(--rule);
+}
+
+.grid-scroll.is-all .pv-grid tr.is-priority th[scope='row'] {
+  background: var(--paper);
+}
+
+/* Toute la largeur pour la grille complète : « Ce qui les sépare » passe dessous */
+@media (min-width: 64rem) {
+  .results-split.is-grid-all {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .why-pair {

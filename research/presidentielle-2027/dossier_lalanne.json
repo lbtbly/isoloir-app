@@ -1,0 +1,808 @@
+{
+  "candidate": "Francis Lalanne",
+  "affiliation": "France Libre : association et mouvement « citoyen » présidé par Francis Lalanne, avec Dieudonné M'bala M'bala comme vice-président. Lalanne a quitté la présidence en juillet 2026 pour se présenter. Sa campagne s'appelle « Dieudo Lalanne 2027 » et se présente sous le slogan « Pour une France libre, souveraine, juste et solaire ». Dieudonné la soutient et la presse le présente comme le futur Premier ministre.",
+  "campaign_site": "https://dieudolalanne2027.com",
+  "declaration": {
+    "date": "2026-08-19",
+    "form": "Communiqué de presse publié le mercredi 19 août 2026, sous la bannière du mouvement France Libre. Il a été suivi d'un meeting de lancement le samedi 22 août 2026 au Théâtre Galabru, à Montmartre (Paris 18e). Le site de campagne fonctionnait déjà depuis juin-juillet 2026. France Libre précise que Lalanne a démissionné de sa présidence en juillet 2026 pour être candidat. Selon franceinfo et le Conseil d'État, son inéligibilité de 18 mois, prononcée le 17 avril 2025 pour défaut de compte de campagne aux européennes de 2024, prend fin vers le 17 octobre 2026.",
+    "source_url": "https://www.franceinfo.fr/elections/presidentielle/presidentielle-2027-le-chanteur-francis-lalanne-officiellement-candidat-premier-meeting-vendredi-a-paris_8153588.html",
+    "source_title": "Présidentielle 2027 : le chanteur Francis Lalanne annonce être candidat, premier meeting vendredi à Paris (franceinfo)"
+  },
+  "overview": "Francis Lalanne, chanteur et écrivain de 68 ans, a déclaré sa candidature le 19 août 2026. Il porte une ligne souverainiste et « anti-système », dans le prolongement de son engagement chez les Gilets jaunes (2018-2019) puis contre les mesures sanitaires liées au Covid. Son programme de campagne compte neuf axes. Il prévoit un « Frexit organisé », la sortie de l'OTAN, le retour au franc et la reprise en main de la Banque de France. Il veut inscrire dans la Constitution un référendum d'initiative citoyenne (RIC) « en toutes matières » et créer une assemblée constituante. Il promet aussi la « liberté d'expression totale » : l'AFP précise qu'il s'agit d'abroger les lois Pleven, Gayssot et Avia. Il veut mettre fin au pass et aux obligations médicales et interdire dans la Constitution toute discrimination fondée sur le statut médical. Sur l'économie, il annonce une baisse radicale des impôts, surtout des taxes sur les carburants, la gratuité des transports publics et un soutien aux TPE-PME. Il prévoit aussi des nationalisations et l'alignement du salaire des élus sur le salaire moyen. Aucun chiffrage ni financement n'est publié. En politique étrangère, il veut retirer les troupes françaises des zones de guerre, cesser de subventionner les pays en guerre et rétablir l'« amitié franco-russe via les BRICS ». Depuis 2025, il multiplie les gestes favorables au Kremlin, dont un clip tourné à Moscou et un texte de louanges à Vladimir Poutine. Plusieurs médias, dont Le Point, rapportent qu'il veut nommer Dieudonné Premier ministre. Sa campagne est cependant restée muette sur les retraites, le logement, l'égalité femmes-hommes, les droits LGBTQIA+, le Proche-Orient et l'immigration (au-delà de la « maîtrise des frontières »).",
+  "programme_sources": [
+    {
+      "title": "Programme – Dieudo Lalanne 2027 (9 axes : Souveraineté, Paix, Liberté, Démocratie, Stop Impôts, Stop au business d'État, Sécurité, Terroir, International)",
+      "url": "https://dieudolalanne2027.com/programme",
+      "date": "non daté (consulté le 2026-10-06)"
+    },
+    {
+      "title": "Meeting Dieudo / Lalanne du 22 août : ce qu'il faut retenir",
+      "url": "https://dieudolalanne2027.com/meeting-dieudo-lalanne-du-22-aout-ce-quil-faut-retenir/",
+      "date": "2026-08-27"
+    },
+    {
+      "title": "Site de campagne Dieudo Lalanne 2027 (accueil, présentation des candidats)",
+      "url": "https://dieudolalanne2027.com",
+      "date": "consulté le 2026-10-06"
+    },
+    {
+      "title": "France Libre – Nos thèmes et valeurs (programme du mouvement présidé par F. Lalanne)",
+      "url": "https://france-libre.fr/nos-themes-et-valeurs/",
+      "date": "non daté (site © 2026)"
+    },
+    {
+      "title": "France Libre – Une bougie pour la paix (position sur la guerre en Ukraine)",
+      "url": "https://france-libre.fr/une-bougie-pour-la-paix/",
+      "date": "non daté"
+    },
+    {
+      "title": "France Libre – Le poète et le Président : une leçon venue de Moscou (texte signé Francis Lalanne)",
+      "url": "https://france-libre.fr/le-poete-et-le-president-une-lecon-venue-de-moscou/",
+      "date": "2025-10-06"
+    },
+    {
+      "title": "Présidentielle: Francis Lalanne en meeting samedi pour lancer sa campagne (AFP / France 24)",
+      "url": "https://www.france24.com/fr/info-en-continu/20260819-présidentielle-francis-lalanne-en-meeting-samedi-pour-lancer-sa-campagne",
+      "date": "2026-08-19"
+    },
+    {
+      "title": "Francis Lalanne lance sa campagne pour la présidentielle 2027 avec le Frexit au cœur de son programme (Epoch Times)",
+      "url": "https://www.epochtimes.fr/francis-lalanne-lance-sa-campagne-pour-la-presidentielle-2027-avec-le-frexit-au-coeur-de-son-programme-3329293.html",
+      "date": "2026-08-19"
+    },
+    {
+      "title": "« Une rupture avec le système » : Francis Lalanne officialise sa candidature pour 2027 (JDD)",
+      "url": "https://www.lejdd.fr/politique/une-rupture-avec-le-systeme-francis-lalanne-officialise-sa-candidature-pour-2027-181428",
+      "date": "2026-08-19"
+    }
+  ],
+  "signature_proposals": [
+    {
+      "proposal": "« Frexit organisé » : sortir de l'Union européenne pour « retrouver la maîtrise de nos lois et de nos frontières ».",
+      "topic_id": "europe",
+      "source_url": "https://dieudolalanne2027.com/programme"
+    },
+    {
+      "proposal": "Retour au franc et reprise en main de la Banque de France (« souveraineté monétaire »).",
+      "topic_id": "europe",
+      "source_url": "https://dieudolalanne2027.com/programme"
+    },
+    {
+      "proposal": "Sortie de l'OTAN pour retrouver une « indépendance militaire et diplomatique » et refuser les « guerres impérialistes ».",
+      "topic_id": "defense",
+      "source_url": "https://dieudolalanne2027.com/programme"
+    },
+    {
+      "proposal": "Inscription dans la Constitution d'un référendum d'initiative citoyenne (RIC) en toutes matières, et création d'une assemblée constituante.",
+      "topic_id": "institutions",
+      "source_url": "https://dieudolalanne2027.com/programme"
+    },
+    {
+      "proposal": "Caméras filmant les réunions du Conseil des ministres, au nom de la transparence des décisions gouvernementales.",
+      "topic_id": "institutions",
+      "source_url": "https://dieudolalanne2027.com/programme"
+    },
+    {
+      "proposal": "Fin du pass et des obligations médicales, interdiction inscrite dans la Constitution de toute discrimination fondée sur le statut médical, et reconnaissance des médecines alternatives.",
+      "topic_id": "sante",
+      "source_url": "https://www.france24.com/fr/info-en-continu/20260819-présidentielle-francis-lalanne-en-meeting-samedi-pour-lancer-sa-campagne"
+    },
+    {
+      "proposal": "Abrogation des lois jugées « liberticides », dont, selon l'AFP, les lois Pleven (antiracisme), Gayssot (négationnisme) et Avia (haine en ligne).",
+      "topic_id": "laicite_republique",
+      "source_url": "https://www.france24.com/fr/info-en-continu/20260819-présidentielle-francis-lalanne-en-meeting-samedi-pour-lancer-sa-campagne"
+    },
+    {
+      "proposal": "Baisse radicale des impôts, en particulier des taxes sur les carburants (montants non précisés).",
+      "topic_id": "fiscalite",
+      "source_url": "https://dieudolalanne2027.com/programme"
+    },
+    {
+      "proposal": "Gratuité des transports publics (financement non précisé).",
+      "topic_id": "ecologie_energie",
+      "source_url": "https://dieudolalanne2027.com/programme"
+    },
+    {
+      "proposal": "Alignement du salaire de tous les élus sur le salaire moyen des Français et baisse de la rémunération annuelle des hauts fonctionnaires.",
+      "topic_id": "finances_publiques",
+      "source_url": "https://dieudolalanne2027.com/programme"
+    },
+    {
+      "proposal": "Caméras dont les enregistrements seraient consultables par huissier, dans toutes les salles d'audience, dans les bureaux de déposition et sur les policiers en intervention.",
+      "topic_id": "securite_justice",
+      "source_url": "https://dieudolalanne2027.com/programme"
+    },
+    {
+      "proposal": "Fin des subventions aux pays en guerre « pour soutenir un pays contre un autre », et rétablissement de l'« amitié franco-russe via les BRICS ».",
+      "topic_id": "ukraine_russie",
+      "source_url": "https://dieudolalanne2027.com/programme"
+    }
+  ],
+  "topics": [
+    {
+      "topic_id": "institutions",
+      "found": true,
+      "positions": [
+        {
+          "position": "Inscrire dans la Constitution un référendum d'initiative citoyenne (RIC) « en toutes matières ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Axe 4 « Démocratie » du programme. Aucun seuil de signatures ni modalité n'est précisé. Le communiqué de candidature parle d'une « démocratie plus directe et participative » (franceinfo, JDD, 19/08/2026).",
+          "short_quote": "Inscription du RIC en toutes matières dans la Constitution",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        },
+        {
+          "position": "Créer une assemblée constituante, en plus du RIC.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "details": "Figure dans le compte rendu du meeting du 22 août publié sur le site de campagne. Ni la composition, ni le mode de désignation, ni le calendrier ne sont précisés.",
+          "short_quote": "Création d'une assemblée constituante et mise en place du RIC",
+          "source_url": "https://dieudolalanne2027.com/meeting-dieudo-lalanne-du-22-aout-ce-quil-faut-retenir/",
+          "source_title": "Meeting Dieudo / Lalanne du 22 août : ce qu'il faut retenir",
+          "source_date": "2026-08-27"
+        },
+        {
+          "position": "Rendre transparentes les décisions gouvernementales, notamment en filmant les réunions du Conseil des ministres, et « bloquer » les lobbys et la « soumission » aux intérêts étrangers et aux multinationales.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Axe 4 « Démocratie ». Aucun dispositif juridique de contrôle des lobbys n'est détaillé.",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        },
+        {
+          "position": "Le programme de son mouvement veut que le peuple désigne et puisse révoquer, au suffrage universel, les présidents de « toutes les institutions essentielles ». Pour lui, le référendum est la seule voie qui légitime les lois. Il prévoit aussi des assemblées citoyennes physiques et numériques.",
+          "kind": "inference",
+          "confidence": "medium",
+          "details": "Programme non daté de l'association France Libre, présidée par Lalanne jusqu'en juillet 2026. La page Programme de la campagne renvoie vers ce texte pour le détail.",
+          "short_quote": "par le suffrage universel et révocatoire",
+          "source_url": "https://france-libre.fr/nos-themes-et-valeurs/",
+          "source_title": "France Libre – Nos thèmes et valeurs",
+          "source_date": "non daté"
+        },
+        {
+          "position": "Veut nommer Dieudonné Premier ministre s'il est élu.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Annoncé lors du meeting du 22 août 2026, selon Le Point (titre et adresse de l'article : « veut nommer Dieudonné Premier ministre ») et Wikipédia. Le site de campagne présente seulement Dieudonné comme « soutien », sans fonction. L'article du Point n'a pas pu être lu en entier.",
+          "source_url": "https://www.lepoint.fr/politique/presidentielle-2027-francis-lalanne-veut-nommer-dieudonne-premier-ministre-S22UKX7EWNCT7FPCKCDIRIDEAM/",
+          "source_title": "« Dieudonné n'est pas éligible, mais c'est l'élu » : le sidérant meeting présidentiel de Francis Lalanne (Le Point)",
+          "source_date": "2026-08-23"
+        },
+        {
+          "position": "Appelle à la destitution d'Emmanuel Macron, qu'il qualifie de « tyran ».",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Texte signé Francis Lalanne, publié par France Libre en octobre 2025. Il s'inscrit dans la suite de sa tribune de janvier 2021 dans FranceSoir, qui demandait l'intervention de l'armée contre le pouvoir. L'enquête ouverte alors a été classée sans suite (source : Wikipédia).",
+          "short_quote": "Mettre à bas le tyran par sa destitution",
+          "source_url": "https://france-libre.fr/le-poete-et-le-president-une-lecon-venue-de-moscou/",
+          "source_title": "Le poète et le Président : une leçon venue de Moscou (France Libre, signé F. Lalanne)",
+          "source_date": "2025-10-06"
+        },
+        {
+          "position": "En 2024, il disait que les élus de sa liste n'auraient aucun pouvoir de décision propre, celui-ci revenant à une « assemblée citoyenne ». Le duo décrivait alors la République comme le contraire de la démocratie.",
+          "kind": "position_declaree",
+          "confidence": "low",
+          "details": "Propos tenus pendant la campagne européenne de 2024 (avant la période 2025-2026). En septembre 2026, Le Dauphiné a titré sur le slogan « À bas la République et vive la France », sans que l'article ait pu être consulté.",
+          "source_url": "https://www.franceinfo.fr/elections/europeennes/elections-europeennes-francis-lalanne-et-dieudonne-font-liste-commune_6494735.html",
+          "source_title": "Elections européennes : Francis Lalanne et Dieudonné font liste commune (franceinfo)",
+          "source_date": "2024-04-18"
+        }
+      ]
+    },
+    {
+      "topic_id": "laicite_republique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Abroger les lois jugées « liberticides qui musèlent le débat public ». Selon l'AFP, sont visées la loi Pleven contre le racisme, la loi Gayssot contre le négationnisme et la loi Avia contre la haine en ligne.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le programme en ligne parle seulement d'« abrogation des lois liberticides ». Les trois lois sont citées par l'AFP (France 24), l'Epoch Times et BFMTV d'après le communiqué de campagne. La loi Gayssot (1990) punit la contestation des crimes contre l'humanité, donc la négation de la Shoah. La loi Pleven (1972) réprime la provocation à la haine raciale.",
+          "short_quote": "Abrogation des lois liberticides qui musèlent le débat public",
+          "source_url": "https://www.france24.com/fr/info-en-continu/20260819-présidentielle-francis-lalanne-en-meeting-samedi-pour-lancer-sa-campagne",
+          "source_title": "Présidentielle: Francis Lalanne en meeting samedi pour lancer sa campagne (AFP/France 24)",
+          "source_date": "2026-08-19"
+        },
+        {
+          "position": "Dans ses relations avec l'Afrique, se dit opposé à la « politique coloniale ». Il propose une politique « partenariale et fraternelle », tout en revendiquant la « restauration de la France-Afrique ».",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "details": "Axe 9 « International ». Le texte ne contient pas de position sur la mémoire de la colonisation (excuses, réparations, archives). Rien non plus sur la laïcité ou les signes religieux.",
+          "short_quote": "Restauration de la France-Afrique, en opposition avec la politique coloniale",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        }
+      ]
+    },
+    {
+      "topic_id": "fiscalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Baisser radicalement les impôts, et surtout les taxes sur les carburants.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Axe 5 « Stop Impôts ! ». Ni montant, ni impôt précisément visé, ni compensation budgétaire.",
+          "short_quote": "Baisse radicale des impôts et surtout des taxes sur les carburants",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        },
+        {
+          "position": "Baisser fortement les charges des TPE-PME et des artisans.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Axe 5. Aucun chiffrage.",
+          "short_quote": "Baisse drastique des charges",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        },
+        {
+          "position": "Rejette la facturation électronique, qu'il range parmi les outils de « contrôle social ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Axe 3 « Liberté ». Vise implicitement la généralisation de la facturation électronique entre entreprises, sans dire comment il reviendrait dessus.",
+          "short_quote": "Refus du contrôle social, que ce soit par la facturation électronique",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        },
+        {
+          "position": "Le mouvement France Libre accuse les traités européens de favoriser l'évasion fiscale et réclame une « justice fiscale ».",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme non daté du mouvement. Constat sans mesure fiscale précise : rien sur l'impôt sur le revenu, le patrimoine, les successions ou les sociétés.",
+          "source_url": "https://france-libre.fr/nos-themes-et-valeurs/",
+          "source_title": "France Libre – Nos thèmes et valeurs",
+          "source_date": "non daté"
+        }
+      ]
+    },
+    {
+      "topic_id": "finances_publiques",
+      "found": true,
+      "positions": [
+        {
+          "position": "Aligner le salaire de tous les élus sur le salaire moyen des Français et réduire la rémunération annuelle des hauts fonctionnaires, au nom de la « chasse au gaspillage ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Axe 6 « Stop au business d'État ! ». Aucun montant d'économies annoncé.",
+          "short_quote": "alignement du salaire de tous les élus sur le salaire moyen des Français",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        },
+        {
+          "position": "Veut que la France reprenne le contrôle de sa dette, de ses finances publiques et de l'émission de monnaie, ce qui passe par le retour au franc et la reprise en main de la Banque de France.",
+          "kind": "inference",
+          "confidence": "medium",
+          "details": "S'appuie sur le programme de France Libre (section Économie) et sur l'axe « Souveraineté » de la campagne. Aucun objectif de déficit ou de dette. Le texte ne dit pas comment seraient financées la baisse « radicale » des impôts et la gratuité des transports.",
+          "short_quote": "reprenne le contrôle de sa dette, de ses finances publiques",
+          "source_url": "https://france-libre.fr/nos-themes-et-valeurs/",
+          "source_title": "France Libre – Nos thèmes et valeurs",
+          "source_date": "non daté"
+        },
+        {
+          "position": "Mettre fin aux subventions versées à des pays en guerre pour soutenir l'un contre l'autre. France Libre qualifie ces dépenses en Ukraine de « détournement d'argent public ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Axe 2 « Paix » du programme. La qualification de « détournement » vient de la page « Une bougie pour la paix » de France Libre.",
+          "short_quote": "Fin des subventions allouées à des pays en guerre",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        }
+      ]
+    },
+    {
+      "topic_id": "travail_salaires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Son mouvement dénonce la mise en concurrence des travailleurs européens par les multinationales, qui ferait baisser salaires et systèmes sociaux, avec la complicité des responsables politiques.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Simple constat tiré du programme non daté de France Libre. Aucune mesure sur le SMIC, les salaires, le temps de travail, le partage de la valeur ou le droit du travail n'a été trouvée dans le programme de campagne 2027.",
+          "source_url": "https://france-libre.fr/nos-themes-et-valeurs/",
+          "source_title": "France Libre – Nos thèmes et valeurs",
+          "source_date": "non daté"
+        }
+      ]
+    },
+    {
+      "topic_id": "industrie_economie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Soutenir les TPE, les PME et les artisans, et mettre fin à la « concurrence déloyale des multinationales ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Axe 5. Les outils (droits de douane, fiscalité, marchés publics) ne sont pas précisés.",
+          "short_quote": "fin de la concurrence déloyale des multinationales",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        },
+        {
+          "position": "Nationaliser les entreprises « à vocation sociale » qui rapportent à l'État, et récupérer le patrimoine national cédé au privé.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Axe 6. Aucune entreprise ni aucun secteur n'est nommé.",
+          "short_quote": "Nationalisation des entreprises à vocation sociale et assurant un profit à l'État",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        },
+        {
+          "position": "Garder les monopoles stratégiques sous contrôle public et légiférer contre le « capitalisme de connivence ». Il veut aussi réévaluer les échanges internationaux selon des critères de commerce équitable et protéger le savoir-faire des artisans et des inventeurs face aux multinationales.",
+          "kind": "inference",
+          "confidence": "medium",
+          "details": "Section Économie du programme de France Libre (non daté), vers laquelle renvoie la page Programme de la campagne.",
+          "source_url": "https://france-libre.fr/nos-themes-et-valeurs/",
+          "source_title": "France Libre – Nos thèmes et valeurs",
+          "source_date": "non daté"
+        },
+        {
+          "position": "Encourager les modèles monétaires alternatifs : monnaies locales, « monnaie fondante », « monnaie pleine ».",
+          "kind": "inference",
+          "confidence": "medium",
+          "details": "Programme de France Libre, à mettre en regard du retour au franc proposé dans le programme de campagne.",
+          "source_url": "https://france-libre.fr/nos-themes-et-valeurs/",
+          "source_title": "France Libre – Nos thèmes et valeurs",
+          "source_date": "non daté"
+        }
+      ]
+    },
+    {
+      "topic_id": "retraites",
+      "found": false,
+      "positions": []
+    },
+    {
+      "topic_id": "sante",
+      "found": true,
+      "positions": [
+        {
+          "position": "Supprimer le pass et les obligations médicales, et interdire dans la Constitution toute discrimination fondée sur le statut médical.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Axe 3 « Liberté ». Vise notamment les obligations vaccinales. Le texte ne dit pas si les onze vaccins obligatoires des enfants seraient supprimés. La Montagne a titré sur la « fin des vaccins obligatoires » (23/08/2026), article non consulté.",
+          "short_quote": "Interdiction constitutionnelle de toute discrimination basée sur le statut médical",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        },
+        {
+          "position": "Reconnaître les médecines alternatives.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "details": "Rapporté par l'AFP d'après le communiqué de campagne. Absent de la page Programme du site. Ni le remboursement ni l'encadrement ne sont précisés.",
+          "short_quote": "reconnaissance des médecines alternatives",
+          "source_url": "https://www.france24.com/fr/info-en-continu/20260819-présidentielle-francis-lalanne-en-meeting-samedi-pour-lancer-sa-campagne",
+          "source_title": "Présidentielle: Francis Lalanne en meeting samedi pour lancer sa campagne (AFP/France 24)",
+          "source_date": "2026-08-19"
+        },
+        {
+          "position": "France Libre cite la « liberté vaccinale » et les déserts médicaux parmi ses thèmes de campagne locaux.",
+          "kind": "position_declaree",
+          "confidence": "low",
+          "details": "Page d'appel aux candidatures pour les municipales de 2026. Aucune mesure sur l'accès aux soins, la Sécurité sociale, les complémentaires ou la dépendance.",
+          "source_url": "https://france-libre.fr/elections-municipales-2026/",
+          "source_title": "France Libre – Élections municipales 2026",
+          "source_date": "non daté (2025-2026)"
+        }
+      ]
+    },
+    {
+      "topic_id": "logement",
+      "found": false,
+      "positions": []
+    },
+    {
+      "topic_id": "solidarites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Son mouvement veut réduire les placements d'enfants. Il en dénombre 400 000, dont beaucoup pour des « motifs légers ». Il veut aussi encadrer les services sociaux et revenir à « l'esprit de l'ordonnance de 1945 ».",
+          "kind": "inference",
+          "confidence": "medium",
+          "details": "Section « La Protection des Enfants » du programme de France Libre (non daté). Le chiffre de 400 000 est celui du mouvement, non vérifié. L'ordonnance du 2 février 1945 porte sur l'enfance délinquante. Rien sur les minima sociaux, l'assurance chômage, le handicap ou la natalité.",
+          "short_quote": "400 000 enfants sont placés",
+          "source_url": "https://france-libre.fr/nos-themes-et-valeurs/",
+          "source_title": "France Libre – Nos thèmes et valeurs",
+          "source_date": "non daté"
+        }
+      ]
+    },
+    {
+      "topic_id": "egalite",
+      "found": false,
+      "positions": []
+    },
+    {
+      "topic_id": "droits_lgbtqia",
+      "found": false,
+      "positions": []
+    },
+    {
+      "topic_id": "education",
+      "found": true,
+      "positions": [
+        {
+          "position": "S'oppose à « l'intrusion de l'État dans la sphère privée » : les enfants doivent être éduqués par leur famille.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Axe 3 « Liberté ». Le compte rendu du meeting parle d'un refus du contrôle de l'État sur l'éducation des enfants. Le texte ne dit pas s'il s'agit de rétablir la libre instruction en famille ou de limiter les contenus scolaires.",
+          "short_quote": "Les enfants doivent être éduqués par leur famille",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        },
+        {
+          "position": "Pour son mouvement, l'éducation des enfants revient aux familles et non à l'État. Il demande que les parents soient consultés sur les programmes scolaires.",
+          "kind": "inference",
+          "confidence": "medium",
+          "details": "Programme de France Libre (non daté). Rien sur la taille des classes, l'enseignement privé, l'université, la recherche ou les mesures pour les jeunes.",
+          "short_quote": "L'éducation des enfants revient à leurs familles",
+          "source_url": "https://france-libre.fr/nos-themes-et-valeurs/",
+          "source_title": "France Libre – Nos thèmes et valeurs",
+          "source_date": "non daté"
+        }
+      ]
+    },
+    {
+      "topic_id": "societe",
+      "found": false,
+      "positions": []
+    },
+    {
+      "topic_id": "numerique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Abroger la loi Avia sur la haine en ligne, au nom de la « liberté d'expression totale ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Citée par l'AFP, l'Epoch Times et BFMTV parmi les lois à abroger. La loi du 24 juin 2020 a été largement censurée par le Conseil constitutionnel : la portée concrète de cette abrogation reste donc floue. Rien sur l'intelligence artificielle, la protection des mineurs face aux écrans ou la régulation des grandes plateformes.",
+          "source_url": "https://www.epochtimes.fr/francis-lalanne-lance-sa-campagne-pour-la-presidentielle-2027-avec-le-frexit-au-coeur-de-son-programme-3329293.html",
+          "source_title": "Francis Lalanne lance sa campagne pour la présidentielle 2027 avec le Frexit au cœur de son programme (Epoch Times)",
+          "source_date": "2026-08-19"
+        },
+        {
+          "position": "Rejette le « flicage systématique des citoyens » et les outils de contrôle social comme la facturation électronique.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Axe 3 « Liberté ». Aucun dispositif de surveillance n'est nommé, en dehors de la facturation électronique et du pass sanitaire.",
+          "short_quote": "le flicage systématique des citoyens",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Rendre les transports publics gratuits.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Axe 5 « Stop Impôts ! ». Ni le périmètre (urbain, TER, TGV), ni le coût, ni le financement ne sont précisés.",
+          "short_quote": "gratuité des transports publics",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        },
+        {
+          "position": "Baisser fortement les taxes sur les carburants.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Axe 5. Rien sur le nucléaire, les renouvelables, le prix de l'électricité, l'eau ou l'adaptation au climat.",
+          "short_quote": "surtout des taxes sur les carburants",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        },
+        {
+          "position": "Son mouvement fait de la nature « notre bien le plus précieux ». Il défend la biodiversité, la réduction des gaspillages et la lutte contre les monocultures industrielles.",
+          "kind": "inference",
+          "confidence": "medium",
+          "details": "Section « Le Respect du Vivant » de France Libre (non datée). Le programme de campagne parle d'une société « respectueuse du vivant ».",
+          "source_url": "https://france-libre.fr/nos-themes-et-valeurs/",
+          "source_title": "France Libre – Nos thèmes et valeurs",
+          "source_date": "non daté"
+        },
+        {
+          "position": "Son mouvement a fait campagne pour la libération de Paul Watson et contre la chasse illégale à la baleine.",
+          "kind": "position_declaree",
+          "confidence": "low",
+          "details": "Page France Libre de décembre 2024, antérieure à la campagne. C'est un engagement militant, pas une mesure de programme.",
+          "source_url": "https://france-libre.fr/liberation-de-paul-watson/",
+          "source_title": "France Libre – Libération de Paul Watson",
+          "source_date": "2024-12-22"
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "found": true,
+      "positions": [
+        {
+          "position": "Refondre la politique agricole à partir des revendications des petits exploitants, « et pas des syndicats européens ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Axe 8 « Terroir ! » du programme et compte rendu du meeting. Aucun instrument précis : rien sur la PAC, les prix ou les revenus.",
+          "short_quote": "sur la base des revendications des petits exploitants",
+          "source_url": "https://dieudolalanne2027.com/meeting-dieudo-lalanne-du-22-aout-ce-quil-faut-retenir/",
+          "source_title": "Meeting Dieudo / Lalanne du 22 août : ce qu'il faut retenir",
+          "source_date": "2026-08-27"
+        },
+        {
+          "position": "Viser la souveraineté alimentaire : la France doit pouvoir se nourrir elle-même. Il défend aussi une « liberté agricole », c'est-à-dire le droit de chacun de cultiver et d'élever.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Axe 8. Rien de précis sur les importations ni sur les accords de libre-échange, au-delà de la sortie de l'UE.",
+          "short_quote": "notre pays doit être capable de se nourrir lui-même",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        },
+        {
+          "position": "Son mouvement s'oppose aux « lobbies des semences » et aux OGM. Il veut préserver le foncier agricole face aux multinationales et privilégier les polycultures plutôt que les monocultures.",
+          "kind": "inference",
+          "confidence": "medium",
+          "details": "Section « Le Respect du Vivant » de France Libre (non datée).",
+          "source_url": "https://france-libre.fr/nos-themes-et-valeurs/",
+          "source_title": "France Libre – Nos thèmes et valeurs",
+          "source_date": "non daté"
+        },
+        {
+          "position": "S'est présenté comme « animaliste » aux législatives de 2022. Aucune mesure sur le bien-être animal n'apparaît dans le programme de 2027.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Étiquette de candidature en Charente en 2022 (« animaliste, écologiste, souverainiste, France Libre »), selon Wikipédia. Position ancienne, non reprise en 2026.",
+          "source_url": "https://fr.wikipedia.org/wiki/Francis_Lalanne",
+          "source_title": "Francis Lalanne – Wikipédia",
+          "source_date": "consulté 2026-10-06"
+        }
+      ]
+    },
+    {
+      "topic_id": "territoires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Restaurer le service public et récupérer le patrimoine national cédé à des entreprises privées.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Axe 6. Aucune mesure précise sur les services de proximité, les compétences des collectivités ou l'outre-mer.",
+          "short_quote": "Restauration du Service public",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        },
+        {
+          "position": "Pour les municipales, son mouvement met en avant les taxes, la bureaucratie, les amendes, l'insécurité et les déserts médicaux, sans programme local détaillé.",
+          "kind": "position_declaree",
+          "confidence": "low",
+          "details": "Page de recrutement de candidats pour les municipales de 2026.",
+          "source_url": "https://france-libre.fr/elections-municipales-2026/",
+          "source_title": "France Libre – Élections municipales 2026",
+          "source_date": "non daté (2025-2026)"
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "found": true,
+      "positions": [
+        {
+          "position": "Refondre la justice sur les principes d'indépendance et de séparation des pouvoirs. Le communiqué de candidature parle d'une « réforme profonde de la justice ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Axe 7 « Sécurité ! » du programme, et communiqué rapporté par franceinfo et le JDD le 19/08/2026. Pas de mesure institutionnelle précise, par exemple sur le Conseil supérieur de la magistrature ou le parquet.",
+          "short_quote": "Refonte de la Justice sur le principe de l'indépendance",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        },
+        {
+          "position": "Augmenter les effectifs consacrés à la lutte contre la pédocriminalité et contre les trafics.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Axe 7. Aucun chiffre d'effectifs. Rien sur la politique pénale générale ni sur les prisons.",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        },
+        {
+          "position": "Installer des caméras dans toutes les salles d'audience et tous les bureaux de déposition, et équiper les policiers en intervention. Les enregistrements seraient consultables par huissier.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Axe 7.",
+          "short_quote": "aux enregistrements consultables par huissiers",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        },
+        {
+          "position": "Son mouvement réclame davantage de moyens pour une justice plus simple et plus rapide, qui serve de contre-pouvoir. Il promet de « neutraliser les traîtres et les corrompus par les voies judiciaires ».",
+          "kind": "inference",
+          "confidence": "medium",
+          "details": "Programme non daté de France Libre, sections « La Justice » et « La reprise en main de notre Pays ».",
+          "source_url": "https://france-libre.fr/nos-themes-et-valeurs/",
+          "source_title": "France Libre – Nos thèmes et valeurs",
+          "source_date": "non daté"
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "found": true,
+      "positions": [
+        {
+          "position": "Présente la sortie de l'UE comme le moyen de « retrouver la maîtrise de nos frontières ». Aucune mesure migratoire n'est détaillée : ni asile, ni régularisations, ni nationalité, ni expulsions.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Seule mention qui touche à l'immigration dans le programme 2027, à l'axe 1 « Souveraineté ». Il s'est d'ailleurs engagé pour les migrants par le passé : album « Sans papiers », chanson « Plus jamais ça » en 2015 (source : Wikipédia).",
+          "short_quote": "retrouver la maîtrise de nos lois et de nos frontières",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "found": true,
+      "positions": [
+        {
+          "position": "« Frexit organisé » : quitter l'Union européenne.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Premier axe du programme et thème central selon l'AFP et l'Epoch Times. Ni la procédure (référendum, article 50) ni le calendrier ne sont précisés.",
+          "short_quote": "Frexit organisé : Sortie de l'Union Européenne",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        },
+        {
+          "position": "Quitter l'euro, revenir au franc et reprendre en main la Banque de France.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Axe 1. Rien sur les modalités de conversion ni sur la dette libellée en euros.",
+          "short_quote": "Retour au Franc et reprise en main de la Banque de France",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        },
+        {
+          "position": "Son mouvement reproche aux traités européens de favoriser le libre-échange, les dérégulations monétaires et l'évasion fiscale, et de mettre en concurrence les travailleurs.",
+          "kind": "inference",
+          "confidence": "medium",
+          "details": "Section Économie du programme de France Libre (non daté).",
+          "source_url": "https://france-libre.fr/nos-themes-et-valeurs/",
+          "source_title": "France Libre – Nos thèmes et valeurs",
+          "source_date": "non daté"
+        }
+      ]
+    },
+    {
+      "topic_id": "ukraine_russie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Cesser de subventionner les pays en guerre « pour soutenir un pays contre un autre ». En pratique, cela reviendrait à arrêter l'aide à l'Ukraine.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Axe 2 « Paix ». Le programme ne nomme pas l'Ukraine. Le lien découle des positions de France Libre (voir ci-dessous).",
+          "short_quote": "Fin des subventions allouées à des pays en guerre",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        },
+        {
+          "position": "Rétablir « l'amitié franco-russe » en se rapprochant des BRICS.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Axe 9 « International ». Le texte ne dit pas si la France demanderait à rejoindre les BRICS.",
+          "short_quote": "restauration de l'amitié franco-russe via les BRICS",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        },
+        {
+          "position": "Son mouvement qualifie l'implication de la France dans la guerre en Ukraine d'« escroquerie intellectuelle », de détournement d'argent public et d'abus constitutionnel.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Page « Une bougie pour la paix » de France Libre (non datée), campagne pacifiste née de l'opposition à la politique française en Ukraine.",
+          "short_quote": "une escroquerie intellectuelle, une aberration historique",
+          "source_url": "https://france-libre.fr/une-bougie-pour-la-paix/",
+          "source_title": "France Libre – Une bougie pour la paix",
+          "source_date": "non daté"
+        },
+        {
+          "position": "Fait l'éloge de Vladimir Poutine, qu'il appelle « l'Aigle », et accuse l'Occident de réécrire l'histoire. Il appelle à rétablir l'amitié franco-russe.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Texte et poème signés Francis Lalanne. S'y ajoutent un déplacement à Moscou autour du 9 mai 2025 avec un entretien à Sputnik (page France Libre « Célébrations moscovites », 12/05/2025), le clip « Ma Russie » tourné devant le Kremlin (juin 2025) et un portrait dédicacé de Poutine remis par l'ambassadeur de Russie (juillet 2025, 20 Minutes).",
+          "short_quote": "l'Amitié Franco Russe enfin soit rétablie",
+          "source_url": "https://france-libre.fr/le-poete-et-le-president-une-lecon-venue-de-moscou/",
+          "source_title": "Le poète et le Président : une leçon venue de Moscou (France Libre, signé F. Lalanne)",
+          "source_date": "2025-10-06"
+        },
+        {
+          "position": "A reçu en juillet 2025 un portrait dédicacé de Vladimir Poutine, présenté comme une reconnaissance de son engagement prorusse.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Information reprise par 20 Minutes, BFMTV, Le Figaro et La Dépêche le 17/07/2025. Seuls les titres ont été vérifiés, par flux d'actualités. C'est un geste, pas une proposition.",
+          "source_url": "https://www.20minutes.fr/arts-stars/people/4164068-20250717-francis-lalanne-recu-portrait-dedicace-vladimir-poutine-dedicace-dirigeant-russe",
+          "source_title": "Francis Lalanne a reçu un portrait dédicacé de Vladimir Poutine (20 Minutes)",
+          "source_date": "2025-07-17"
+        }
+      ]
+    },
+    {
+      "topic_id": "proche_orient",
+      "found": false,
+      "positions": []
+    },
+    {
+      "topic_id": "defense",
+      "found": true,
+      "positions": [
+        {
+          "position": "Quitter l'OTAN pour retrouver une « indépendance militaire et diplomatique » et ne plus participer aux « guerres impérialistes ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Mesure présente dans les axes 1 et 2. Rien sur le budget militaire, la dissuasion nucléaire ou le service national.",
+          "short_quote": "refuser de participer aux guerres impérialistes",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        },
+        {
+          "position": "Retirer les troupes françaises engagées à l'étranger sur des territoires en guerre.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Axe 2 « Paix ». Ni les opérations visées ni le calendrier ne sont précisés.",
+          "short_quote": "Retrait des troupes françaises intervenant à l'étranger",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        },
+        {
+          "position": "Réorienter la diplomatie : développer la francophonie, nouer un partenariat « fraternel » avec l'Afrique et se rapprocher de la Russie et des BRICS. Son mouvement présente les États-Unis comme se conduisant en ennemis de la France.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "details": "Axe 9 du programme de campagne. La critique des États-Unis vient de la section « Vivre en Paix » de France Libre (non datée).",
+          "source_url": "https://dieudolalanne2027.com/programme",
+          "source_title": "Programme – Dieudo Lalanne 2027",
+          "source_date": "non daté (consulté 2026-10-06)"
+        }
+      ]
+    }
+  ],
+  "distinctive_vs_others": "Points relevés uniquement à partir des sources de ce dossier. Les comparaisons avec les autres candidats restent à vérifier dans leurs propres dossiers.\n1) Un ticket avec Dieudonné. Lalanne est le seul candidat déclaré à faire campagne en duo avec Dieudonné, condamné à de nombreuses reprises, et à annoncer qu'il le nommerait Premier ministre (Le Point, 23/08/2026 ; site dieudolalanne2027.com).\n2) L'abrogation des lois Pleven, Gayssot et Avia, au nom d'une « liberté d'expression totale » (AFP/France 24, Epoch Times, 19/08/2026). Nous n'avons pas trouvé d'autre candidat déclaré proposant explicitement d'abroger la loi Gayssot.\n3) Un alignement prorusse assumé : « amitié franco-russe via les BRICS » (programme), éloge écrit de Poutine signé par lui (France Libre, oct. 2025), présence à Moscou le 9 mai 2025.\n4) Sortie de l'UE, de l'OTAN et retour au franc. Cette ligne le rapproche des souverainistes François Asselineau et Florian Philippot, sous réserve de vérification dans leurs dossiers. Il s'en distingue par l'ajout d'une assemblée constituante et d'un RIC « en toutes matières » (programme).\n5) Des mesures de transparence rares : caméras au Conseil des ministres, dans toutes les salles d'audience, dans les bureaux de déposition et sur les policiers en intervention (programme).\n6) En santé : interdiction dans la Constitution de toute discrimination fondée sur le statut médical et reconnaissance des médecines alternatives (programme ; AFP).\n7) Un mélange inhabituel de mesures : baisse « radicale » des impôts et des taxes sur les carburants, mais aussi gratuité des transports publics, nationalisations et alignement du salaire des élus sur le salaire moyen, sans aucun chiffrage (programme).\n8) La primauté de la famille sur l'État en matière d'éducation (programme ; France Libre).\nSources : https://dieudolalanne2027.com/programme ; https://www.france24.com/fr/info-en-continu/20260819-présidentielle-francis-lalanne-en-meeting-samedi-pour-lancer-sa-campagne ; https://france-libre.fr/le-poete-et-le-president-une-lecon-venue-de-moscou/ ; https://www.lepoint.fr/politique/presidentielle-2027-francis-lalanne-veut-nommer-dieudonne-premier-ministre-S22UKX7EWNCT7FPCKCDIRIDEAM/",
+  "evolutions_and_contradictions": "Trajectoire (d'après Wikipédia et les sources qu'elle cite) :\n- Des années 1980 aux années 2010, engagement humaniste, écologiste et antiraciste. Il est candidat avec le Mouvement écologiste indépendant en 2007, figure sur une liste divers gauche à Montauban en 2008 et conduit l'Alliance écologiste indépendante aux européennes de 2009.\n- En 2015, il soutient les migrants (album « Sans papiers », chanson « Plus jamais ça »).\n- En 2019, il conduit la liste Gilets jaunes « Alliance jaune » aux européennes (0,53 %).\n- Pendant le Covid, il prend des positions antivaccin. En janvier 2021, sa tribune dans FranceSoir appelle l'armée à mettre fin au mandat d'Emmanuel Macron (enquête classée sans suite).\n- En 2022, il appelle à voter Marine Le Pen au second tour pour faire barrage à Macron (JDD, 17/04/2022). Il est candidat aux législatives en Charente comme « animaliste, écologiste, souverainiste ».\n- En 2024, il forme une liste commune avec Dieudonné aux européennes (« France libre », 0,02 % selon le ministère et Wikipédia, 0,04 % selon franceinfo).\n- En 2025, il affiche publiquement son soutien au Kremlin.\n- En janvier 2026, il tente une candidature municipale à Lyon sur une liste du micro-parti d'extrême droite Spartacus. Elle est refusée car il était inéligible (tribunal administratif de Lyon, 26/02/2026).\n\nContradictions ou tensions :\n1) Il revendique la « restauration de la France-Afrique » tout en se disant opposé à la « politique coloniale ». L'expression « Françafrique » désigne d'ordinaire des réseaux néocoloniaux.\n2) Ses engagements antiracistes et pro-migrants passés contrastent avec la volonté d'abroger la loi Pleven contre le racisme, avec l'objectif de « maîtrise des frontières » et avec la tentative municipale sur une liste d'extrême droite.\n3) Une baisse « radicale » des impôts est annoncée en même temps que la gratuité des transports, des nationalisations et la restauration des services publics, sans financement.\n4) Le site présente Dieudonné comme un simple « soutien » qui « ne sera pas candidat ». Mais France Libre parle de Lalanne comme du « colistier de Dieudonné », et la presse rapporte que Dieudonné serait Premier ministre.\n5) Son mouvement dit que le président ne peut pas décider des lois. Pourtant, le programme repose sur des réformes constitutionnelles lourdes : RIC, interdiction constitutionnelle des discriminations médicales, assemblée constituante.\n6) Il était inéligible jusqu'au 17 octobre 2026 environ (Conseil d'État, 17/04/2025) mais a lancé sa campagne avant cette date. Il sera juridiquement éligible au moment des parrainages.",
+  "open_questions": [
+    "Comment se ferait le « Frexit organisé » (référendum, article 50, calendrier) et la sortie de l'euro (conversion, dette en euros) ?",
+    "Comment seraient financées la baisse « radicale » des impôts, la gratuité des transports publics et les nationalisations ? Aucun chiffrage n'est publié.",
+    "Quel serait le mécanisme du RIC « en toutes matières » (seuils de signatures, matières révocatoires ou constitutionnelles) et quel rôle aurait l'assemblée constituante (composition, mode de désignation) ?",
+    "Quel serait le statut réel de Dieudonné : simple soutien selon le site, futur Premier ministre selon la presse, « colistier » selon France Libre ?",
+    "La fin des « obligations médicales » supprimerait-elle aussi les onze vaccins obligatoires des enfants ? Les médecines alternatives seraient-elles remboursées ?",
+    "L'éducation « par la famille » signifie-t-elle rétablir la libre instruction en famille ou retirer certains enseignements du programme scolaire ?",
+    "Quelles seraient les modalités de la « restauration de l'amitié franco-russe via les BRICS » : adhésion aux BRICS, levée des sanctions, position sur l'intégrité territoriale de l'Ukraine ?",
+    "Aucune position trouvée sur Israël et Gaza ni sur la reconnaissance de l'État de Palestine.",
+    "Aucune position trouvée sur les retraites (âge de départ), le logement, l'égalité femmes-hommes, les droits LGBTQIA+, la laïcité, l'audiovisuel public, l'IA, le nucléaire et les renouvelables, ni sur le budget de la défense et la dissuasion.",
+    "Politique migratoire au-delà de la « maîtrise des frontières » : asile, régularisations, nationalité, expulsions ?",
+    "Pourra-t-il réunir les 500 parrainages d'élus d'ici le 12 mars 2027 ? Lui-même, Le Figaro et France 24 soulignent cette condition.",
+    "Le programme en ligne n'est pas daté et renvoie vers celui de France Libre (aussi non daté) : quelle version fait foi pour 2027 ?"
+  ]
+}

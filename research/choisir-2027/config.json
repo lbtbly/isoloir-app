@@ -1,0 +1,15 @@
+{
+  "_note": "Configuration minimale de la primaire « Choisir 2027 », en archive : tools/build-pack.mjs y lit l’identifiant et les candidats (ordre de positions.ts) ; tools/workflows/7-spectrum-review.js y lit name, context et contextDate quand elle sert d’élection source (reuse.json). La recherche de la primaire a été faite avant le paramétrage des workflows (voir research/presidentielle-2027/config.json pour une configuration complète).",
+  "id": "choisir-2027",
+  "name": "Primaire « Choisir 2027 »",
+  "shortName": "Primaire Choisir 2027",
+  "contextDate": "2026-10-02",
+  "context": "Primaire de la gauche « Choisir 2027 » (Parti socialiste, Place publique, Gauche républicaine et socialiste), vote les 9-10 et 16-17 octobre 2026 entre Olivier Faure, Raphaël Glucksmann, Jérôme Guedj, Emmanuel Maurel et Ségolène Royal : un débat interne à la gauche, données arrêtées au 2 octobre 2026.",
+  "candidates": [
+    { "id": "faure", "name": "Olivier Faure", "initials": "OF", "party": "Parti socialiste" },
+    { "id": "glucksmann", "name": "Raphaël Glucksmann", "initials": "RG", "party": "Place publique" },
+    { "id": "guedj", "name": "Jérôme Guedj", "initials": "JG", "party": "Parti socialiste" },
+    { "id": "maurel", "name": "Emmanuel Maurel", "initials": "EM", "party": "Gauche républicaine et socialiste" },
+    { "id": "royal", "name": "Ségolène Royal", "initials": "SR", "party": "Parti socialiste" }
+  ]
+}

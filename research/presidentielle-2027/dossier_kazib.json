@@ -1,0 +1,1075 @@
+{
+  "candidate": "Anasse Kazib",
+  "affiliation": "Révolution permanente (organisation trotskiste issue d'une scission du NPA, fondée fin 2022) ; cheminot, syndicaliste SUD-Rail, porte-parole de RP",
+  "campaign_site": "https://anasse2027.fr/",
+  "declaration": {
+    "date": "2026-06-01",
+    "form": "Clip vidéo de campagne et texte publiés par Révolution permanente le lundi 1er juin 2026, présentant « une candidature ouvrière, communiste et révolutionnaire ». Lancement de la recherche des 500 parrainages le 9 juin 2026 ; meeting annoncé le 7 novembre 2026 à Paris (Espace Charenton).",
+    "source_title": "Présidentielle 2027 : le cheminot Anasse Kazib annonce sa candidature (franceinfo) ; Présidentielle 2027 : Anasse Kazib veut faire entendre la voix de la nouvelle classe ouvrière (Révolution permanente)",
+    "source_url": "https://www.franceinfo.fr/elections/presidentielle/presidentielle-2027-le-cheminot-anasse-kazib-annonce-sa-candidature_8040020.html"
+  },
+  "overview": "Anasse Kazib, 39 ans, cheminot et syndicaliste SUD-Rail originaire de Sarcelles, est le candidat de Révolution permanente (RP). Il a déclaré sa candidature le 1er juin 2026 et la présente comme « ouvrière, communiste et révolutionnaire ». Il avait déjà tenté de se présenter en 2022, mais n'avait réuni qu'environ 160 parrainages. Le programme complet pour 2027 est annoncé « en cours d'élaboration ». À ce jour, la campagne s'appuie sur un dépliant de 4 pages (septembre 2026) organisé en six axes, ainsi que sur des textes de RP. Les mesures phares sont le SMIC à 2 000 € net, une hausse de 500 € de tous les salaires, la semaine de 28 h sans baisse de salaire, la retraite à 60 ans, l'interdiction des licenciements et l'expropriation sans indemnité des secteurs stratégiques (énergie, transports, banques, santé) sous contrôle des travailleurs. Sur le plan politique, il défend la régularisation de tous les sans-papiers et l'abrogation des lois qu'il qualifie d'islamophobes, à commencer par celle de 2004 sur les signes religieux à l'école. Il demande aussi la dissolution des corps spéciaux de police et la fin de la Ve République, avec la suppression de la présidence, du Sénat et du Conseil constitutionnel au profit d'une assemblée unique révocable. En matière internationale, son ligne est antimilitariste : zéro budget militaire, démantèlement de l'industrie d'armement, retrait des troupes françaises à l'étranger. Il soutient la libération de la Palestine et de la Kanaky, et défend la défaite des États-Unis et d'Israël dans leur guerre contre l'Iran. Il se démarque explicitement de LFI, à qui il reproche une stratégie institutionnelle et un compromis avec le patronat, et de Lutte ouvrière. Il est poursuivi pour « apologie du terrorisme » pour des propos tenus après le 7 octobre 2023 ; le procès a été renvoyé le 25 juin 2026.",
+  "topics": [
+    {
+      "topic_id": "institutions",
+      "found": true,
+      "positions": [
+        {
+          "position": "Supprimer la présidence de la République, le Sénat et le Conseil constitutionnel. Les remplacer par une assemblée unique qui exercerait à la fois le pouvoir législatif et le pouvoir exécutif. Ses membres seraient élus pour deux ans, révocables et payés au salaire médian.",
+          "kind": "proposition_explicite",
+          "details": "Texte de déclaration de candidature. Pas de mention d'un mode de scrutin précis (proportionnelle) ni du référendum ou du RIC.",
+          "short_quote": "payés au salaire médian, comme un professeur ou une infirmière",
+          "source_url": "https://www.revolutionpermanente.fr/Presidentielle-2027-Anasse-Kazib-veut-faire-entendre-la-voix-de-la-nouvelle-classe-ouvriere",
+          "source_title": "Présidentielle 2027 : Anasse Kazib veut faire entendre la voix de la nouvelle classe ouvrière",
+          "source_date": "2026-06-01",
+          "confidence": "high"
+        },
+        {
+          "position": "Le dépliant de campagne inscrit la fin de la Ve République, du Sénat et de la fonction présidentielle dans l'axe « Affronter l'autoritarisme et le racisme d'État ».",
+          "kind": "proposition_explicite",
+          "short_quote": "Fin de la Ve République, du Sénat et de la figure présidentielle.",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 » (6 axes)",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Il dénonce l'obligation des 500 parrainages comme un « verrou anti-démocratique » qui servirait à faire taire les candidatures indépendantes ou subversives.",
+          "kind": "position_declaree",
+          "details": "RP rappelle que le seuil a été porté à 500 en 1981. En 2022, la campagne avait obtenu 165 signatures.",
+          "short_quote": "verrou anti-démocratique des 500 parrainages",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Il fait passer le changement par la mobilisation et l'auto-organisation des travailleurs plutôt que par les urnes. L'objectif est un « gouvernement ouvrier » et une société « dirigée par en bas », à production planifiée démocratiquement.",
+          "kind": "position_declaree",
+          "source_url": "https://www.revolutionpermanente.fr/Presidentielle-2027-Anasse-Kazib-veut-faire-entendre-la-voix-de-la-nouvelle-classe-ouvriere",
+          "source_title": "Présidentielle 2027 : Anasse Kazib veut faire entendre la voix de la nouvelle classe ouvrière",
+          "source_date": "2026-06-01",
+          "confidence": "high"
+        },
+        {
+          "position": "RP reproche à la VIe République de Jean-Luc Mélenchon de conserver un président élu au suffrage universel. RP propose au contraire une assemblée unique élue, aux élus révocables et payés au salaire médian.",
+          "kind": "inference",
+          "details": "Article de RP datant de la campagne 2022.",
+          "source_url": "https://www.revolutionpermanente.fr/Melenchon-pour-le-maintien-de-la-figure-presidentielle-une-VIeme-Republique-vraiment",
+          "source_title": "Mélenchon pour le maintien de la figure présidentielle : une « VIème République », vraiment ?",
+          "source_date": "2022-03-24",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "laicite_republique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Abroger toutes les lois « sécuritaires, racistes et islamophobes », à commencer par la loi de 2004 sur les signes religieux à l'école et jusqu'à la loi « séparatisme » de 2021.",
+          "kind": "proposition_explicite",
+          "short_quote": "à commencer par la loi de 2004",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Abroger l'interdiction de l'abaya à l'école, mesure de Gabriel Attal qu'il qualifie de raciste. Il veut aller plus loin que LFI, dont il critique la conception « républicaine » de la laïcité.",
+          "kind": "position_declaree",
+          "details": "Réaction à Marine Le Pen, qui critiquait Mathilde Panot. Selon lui, la loi de 2004 a servi de base aux politiques anti-musulmanes qui ont suivi. Il demande de démanteler cet arsenal et de revenir sur les dissolutions d'associations musulmanes.",
+          "short_quote": "Il faut l'abroger ainsi que toutes les lois islamophobes",
+          "source_url": "https://www.revolutionpermanente.fr/Anasse-Kazib-sur-l-interdiction-de-l-abaya-Il-faut-l-abroger-ainsi-que-toutes-les-lois-islamophobes",
+          "source_title": "Anasse Kazib sur l'interdiction de l'abaya : « Il faut l'abroger ainsi que toutes les lois islamophobes »",
+          "source_date": "2026-09-07",
+          "confidence": "high"
+        },
+        {
+          "position": "Mémoire coloniale : il dénonce le colonialisme et l'impérialisme français. Il se dit héritier des luttes anticoloniales et anti-impérialistes et réclame l'autodétermination des peuples sous domination française.",
+          "kind": "position_declaree",
+          "details": "Formules du dépliant (« À bas le colonialisme et l'impérialisme français ! ») et déclaration du 25 juin 2026 devant le tribunal.",
+          "short_quote": "À bas le colonialisme et l'impérialisme français !",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "RP reproche à Lutte ouvrière de s'être adaptée aux idées dominantes « laïcardes ». En 2022 déjà, la campagne de Kazib s'opposait aux positions de LO sur le voile.",
+          "kind": "position_declaree",
+          "source_url": "https://www.revolutionpermanente.fr/Presidentielle-2027-Anasse-Kazib-veut-faire-entendre-la-voix-de-la-nouvelle-classe-ouvriere",
+          "source_title": "Présidentielle 2027 : Anasse Kazib veut faire entendre la voix de la nouvelle classe ouvrière",
+          "source_date": "2026-06-01",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "fiscalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Supprimer les aides publiques aux grandes entreprises.",
+          "kind": "proposition_explicite",
+          "details": "Aucun montant ni calendrier. Des articles de RP évaluent les aides publiques aux entreprises à plus de 160 milliards d'euros par an.",
+          "short_quote": "Suppression des aides publiques aux grandes entreprises.",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Faire financer par le patronat un revenu étudiant égal au SMIC. Le mécanisme (cotisation ou taxe) n'est pas précisé.",
+          "kind": "proposition_explicite",
+          "short_quote": "Revenu étudiant à hauteur du SMIC, financé par le patronat.",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Aucun programme fiscal détaillé. RP juge la taxe Zucman (2 % minimum sur les patrimoines de plus de 100 M€) insuffisante, même avec un taux plus élevé. RP propose plutôt d'exproprier le système bancaire, de nationaliser le crédit sous contrôle ouvrier, de supprimer le secret commercial et d'ouvrir les comptes des entreprises.",
+          "kind": "inference",
+          "details": "Article signé par une rédactrice de RP, pas par le candidat.",
+          "source_url": "https://www.revolutionpermanente.fr/Taxe-Zucman-pour-faire-payer-les-riches-il-faut-s-attaquer-aux-profits-du-patronat",
+          "source_title": "Taxe Zucman : pour « faire payer les riches », il faut s'attaquer aux profits du patronat",
+          "source_date": "2025-09-23",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "finances_publiques",
+      "found": true,
+      "positions": [
+        {
+          "position": "Supprimer les budgets militaires et réaffecter l'argent à la santé, à l'éducation et à la gratuité des transports.",
+          "kind": "proposition_explicite",
+          "short_quote": "L'argent de la guerre doit financer la santé, l'éducation et des transports gratuits",
+          "source_url": "https://www.revolutionpermanente.fr/28h-expropriation-des-secteurs-strategiques-RP-presente-les-premieres-mesures-de-sa-candidature",
+          "source_title": "28h, expropriation des secteurs stratégiques... : RP présente les premières mesures de sa candidature",
+          "source_date": "2026-09-16",
+          "confidence": "high"
+        },
+        {
+          "position": "Investir massivement dans les services publics et les placer sous le contrôle des travailleurs. Imposer l'embauche de tous les précaires, y compris les contractuels.",
+          "kind": "proposition_explicite",
+          "details": "Aucun chiffrage ni nombre de postes.",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Il s'oppose à « l'austérité XXL » du budget Lecornu, dans un contexte de hausse des prix du carburant et de l'alimentation.",
+          "kind": "position_declaree",
+          "source_url": "https://www.revolutionpermanente.fr/Carburant-austerite-XXL-la-COLERE-sociale-prete-a-EXPLOSER-Edito-d-Anasse-Kazib",
+          "source_title": "Carburant, austérité XXL : la colère sociale prête à exploser ? Édito d'Anasse Kazib",
+          "source_date": "2026-09-26",
+          "confidence": "high"
+        },
+        {
+          "position": "Dette publique : RP estime que ce n'est pas aux travailleurs de payer une dette qui résulterait des aides au patronat. RP préfère des expropriations et la nationalisation des banques sous contrôle ouvrier. Aucune proposition chiffrée du candidat (annulation, audit) n'a été trouvée.",
+          "kind": "inference",
+          "source_url": "https://www.revolutionpermanente.fr/Austerite-ce-n-est-pas-aux-travailleurs-et-aux-classes-populaires-de-payer-pour-la-dette-des",
+          "source_title": "Austérité : ce n'est pas aux travailleurs et aux classes populaires de payer pour la dette des patrons !",
+          "source_date": "2024-10-09",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "travail_salaires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Porter le SMIC à 2 000 € net, augmenter tous les salaires de 500 € et les indexer sur l'inflation. Revaloriser toutes les allocations.",
+          "kind": "proposition_explicite",
+          "short_quote": "SMIC à 2000 € net",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 » (axe « Vivre, et plus survivre »)",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Partager le travail entre tous pour passer à la semaine de 28 heures, sans baisse de salaire.",
+          "kind": "proposition_explicite",
+          "details": "Présentée comme la mesure centrale de la campagne. Le texte de déclaration en fait un moyen de supprimer le chômage.",
+          "short_quote": "semaine de 28h sans baisse de salaire",
+          "source_url": "https://www.revolutionpermanente.fr/28h-expropriation-des-secteurs-strategiques-RP-presente-les-premieres-mesures-de-sa-candidature",
+          "source_title": "28h, expropriation des secteurs stratégiques... : RP présente les premières mesures de sa candidature",
+          "source_date": "2026-09-16",
+          "confidence": "high"
+        },
+        {
+          "position": "Interdire les licenciements et les suppressions de postes.",
+          "kind": "proposition_explicite",
+          "short_quote": "Interdiction des licenciements.",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Mettre fin à la sous-traitance et généraliser le CDI. Embaucher tous les précaires (CDD, intérimaires, contractuels). Appliquer le principe « même travail, même salaire ».",
+          "kind": "proposition_explicite",
+          "short_quote": "Même travail, même salaire.",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Exproprier les entreprises qui refuseraient d'appliquer ces mesures sociales.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.revolutionpermanente.fr/Presidentielle-2027-Anasse-Kazib-veut-faire-entendre-la-voix-de-la-nouvelle-classe-ouvriere",
+          "source_title": "Présidentielle 2027 : Anasse Kazib veut faire entendre la voix de la nouvelle classe ouvrière",
+          "source_date": "2026-06-01",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "industrie_economie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Exproprier sans indemnité ni rachat les secteurs stratégiques (énergie, transports, banques, santé…) et les placer sous le contrôle des travailleurs.",
+          "kind": "proposition_explicite",
+          "short_quote": "sans indemnité ni rachat",
+          "source_url": "https://www.revolutionpermanente.fr/Presidentielle-2027-Anasse-Kazib-veut-faire-entendre-la-voix-de-la-nouvelle-classe-ouvriere",
+          "source_title": "Présidentielle 2027 : Anasse Kazib veut faire entendre la voix de la nouvelle classe ouvrière",
+          "source_date": "2026-06-01",
+          "confidence": "high"
+        },
+        {
+          "position": "Exproprier les groupes bancaires, accorder des prêts à taux zéro et supprimer les agios.",
+          "kind": "proposition_explicite",
+          "short_quote": "Expropriation des groupes bancaires, prêts à taux 0 et fin des agios.",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Planifier démocratiquement l'économie, au service des besoins et dans le respect de l'environnement.",
+          "kind": "proposition_explicite",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 » (axe « Face au capitalisme, un horizon communiste »)",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Démanteler l'industrie d'armement française et reconvertir sa production.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.revolutionpermanente.fr/28h-expropriation-des-secteurs-strategiques-RP-presente-les-premieres-mesures-de-sa-candidature",
+          "source_title": "28h, expropriation des secteurs stratégiques... : RP présente les premières mesures de sa candidature",
+          "source_date": "2026-09-16",
+          "confidence": "high"
+        },
+        {
+          "position": "Il prône l'affrontement avec le MEDEF et le « patronat radicalisé ». Il reproche aux autres candidats de présenter leur programme devant le grand patronat.",
+          "kind": "position_declaree",
+          "details": "Au lancement de campagne à Toulouse, l'exemple cité est celui des baisses de salaires chez Airbus.",
+          "source_url": "https://www.revolutionpermanente.fr/Resolution-de-rentree-en-FINIR-avec-le-MEDEF-Anasse-Kazib-2027",
+          "source_title": "Résolution de rentrée : en finir avec le MEDEF - Anasse Kazib 2027",
+          "source_date": "2026-09-10",
+          "confidence": "medium"
+        },
+        {
+          "position": "Protection commerciale : RP s'oppose à l'accord UE-Mercosur mais juge le protectionnisme « une impasse ». RP propose plutôt l'alliance des petits producteurs avec le mouvement ouvrier.",
+          "kind": "inference",
+          "source_url": "https://www.revolutionpermanente.fr/Contre-l-accord-UE-Mercosur-le-protectionnisme-est-une-impasse",
+          "source_title": "Contre l'accord UE-Mercosur, le protectionnisme est une impasse",
+          "source_date": "2025-12-16",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "retraites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Retraite à 60 ans, et à 55 ans pour les métiers pénibles, sans condition d'annuités.",
+          "kind": "proposition_explicite",
+          "details": "Aucune précision sur le financement ni sur le niveau des pensions.",
+          "short_quote": "sans conditions d'annuité",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "RP qualifie la suspension de la réforme de 2023 par le gouvernement Lecornu d'« arnaque » financée par la sous-indexation des pensions. RP réclame l'abrogation totale de la réforme et la retraite à 60 ans.",
+          "kind": "inference",
+          "source_url": "https://www.revolutionpermanente.fr/Retraites-le-gouvernement-veut-financer-l-arnaque-de-la-suspension-en-s-attaquant-aux-pensions",
+          "source_title": "Retraites : le gouvernement veut financer l'arnaque de la « suspension » en s'attaquant aux pensions",
+          "source_date": "2025-10-24",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "sante",
+      "found": true,
+      "positions": [
+        {
+          "position": "Exproprier le secteur de la santé sans indemnité et le placer sous le contrôle des travailleurs.",
+          "kind": "proposition_explicite",
+          "short_quote": "exproprier les secteurs stratégiques comme l'énergie ou la santé",
+          "source_url": "https://www.revolutionpermanente.fr/Presidentielle-2027-Anasse-Kazib-veut-faire-entendre-la-voix-de-la-nouvelle-classe-ouvriere",
+          "source_title": "Présidentielle 2027 : Anasse Kazib veut faire entendre la voix de la nouvelle classe ouvrière",
+          "source_date": "2026-06-01",
+          "confidence": "high"
+        },
+        {
+          "position": "Financer massivement la santé, notamment en y transférant l'argent consacré aux dépenses militaires.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.revolutionpermanente.fr/28h-expropriation-des-secteurs-strategiques-RP-presente-les-premieres-mesures-de-sa-candidature",
+          "source_title": "28h, expropriation des secteurs stratégiques... : RP présente les premières mesures de sa candidature",
+          "source_date": "2026-09-16",
+          "confidence": "high"
+        },
+        {
+          "position": "RP dénonce la hausse des tarifs des mutuelles et le transfert de dépenses de la Sécurité sociale vers les complémentaires. RP réclame la gratuité des soins pour tous, l'expropriation sans indemnité de l'industrie pharmaceutique et la fin des brevets médicaux.",
+          "kind": "inference",
+          "source_url": "https://www.revolutionpermanente.fr/Securite-sociale-le-prix-des-mutuelles-va-encore-augmenter-en-2026",
+          "source_title": "Sécurité sociale : le prix des mutuelles va (encore) augmenter en 2026",
+          "source_date": "2025-12-17",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "logement",
+      "found": true,
+      "positions": [
+        {
+          "position": "Exproprier les logements vides, plafonner et geler les loyers.",
+          "kind": "proposition_explicite",
+          "short_quote": "Expropriation des logements vides, plafonnement et gel des loyers.",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Programme municipal de RP (Paris, 2026) : réquisition sans indemnité des logements vides, baisse puis gel des loyers, interdiction des expulsions, annulation des dettes locatives, rénovation financée par les profits immobiliers, opposition aux locations de courte durée de type Airbnb.",
+          "kind": "inference",
+          "source_url": "https://www.revolutionpermanente.fr/Requisition-des-logements-vides-a-Paris-quel-programme-face-a-l-hypocrisie-du-PS-et-aux-illusions",
+          "source_title": "Réquisition des logements vides à Paris : quel programme face à l'hypocrisie du PS et aux illusions de LFI ?",
+          "source_date": "2026-03-12",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "solidarites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Revaloriser toutes les allocations, sans montant précisé.",
+          "kind": "proposition_explicite",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Créer un revenu étudiant égal au SMIC, financé par le patronat.",
+          "kind": "proposition_explicite",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Supprimer le chômage en partageant le temps de travail et en imposant l'embauche des précaires, plutôt que par l'assurance chômage.",
+          "kind": "proposition_explicite",
+          "short_quote": "en répartissant le temps de travail entre toutes et tous",
+          "source_url": "https://www.revolutionpermanente.fr/Presidentielle-2027-Anasse-Kazib-veut-faire-entendre-la-voix-de-la-nouvelle-classe-ouvriere",
+          "source_title": "Présidentielle 2027 : Anasse Kazib veut faire entendre la voix de la nouvelle classe ouvrière",
+          "source_date": "2026-06-01",
+          "confidence": "high"
+        },
+        {
+          "position": "Socialiser intégralement le travail domestique, présenté comme le levier de la politique familiale.",
+          "kind": "proposition_explicite",
+          "details": "Rien sur la natalité ni sur les prestations familiales en tant que telles.",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Le validisme figure parmi les oppressions que subit la classe ouvrière. Aucune mesure précise sur le handicap n'a été trouvée.",
+          "kind": "position_declaree",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "egalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Créer, sur les lieux de travail et d'études, des commissions de lutte contre les violences sexistes et sexuelles indépendantes des directions.",
+          "kind": "proposition_explicite",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 » (axe « Unifier la nouvelle classe ouvrière »)",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Avortement libre et gratuit.",
+          "kind": "proposition_explicite",
+          "short_quote": "Avortement, PMA, transitions libres et gratuits.",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Socialiser intégralement le travail domestique pour mettre fin à la « double journée » des femmes.",
+          "kind": "proposition_explicite",
+          "short_quote": "Socialisation intégrale du travail domestique.",
+          "source_url": "https://www.revolutionpermanente.fr/28h-expropriation-des-secteurs-strategiques-RP-presente-les-premieres-mesures-de-sa-candidature",
+          "source_title": "28h, expropriation des secteurs stratégiques... : RP présente les premières mesures de sa candidature",
+          "source_date": "2026-09-16",
+          "confidence": "high"
+        },
+        {
+          "position": "Appliquer le principe général « même travail, même salaire ». Aucun dispositif spécifique d'égalité salariale femmes-hommes n'est détaillé.",
+          "kind": "proposition_explicite",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "droits_lgbtqia",
+      "found": true,
+      "positions": [
+        {
+          "position": "PMA et transitions de genre libres et gratuites.",
+          "kind": "proposition_explicite",
+          "details": "Pas de précision sur l'accès des mineurs, l'état civil ou la GPA.",
+          "short_quote": "Avortement, PMA, transitions libres et gratuits.",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Les « LGBTphobies » sont rangées parmi les oppressions que subit la classe ouvrière, décrite comme diverse, notamment LGBT.",
+          "kind": "position_declaree",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "medium"
+        },
+        {
+          "position": "RP s'est opposé à la proposition de loi sénatoriale (LR) restreignant les transitions des mineurs. RP réclame des transitions gratuites, aucune restriction sur les bloqueurs de puberté et un changement d'état civil simplifié.",
+          "kind": "inference",
+          "source_url": "https://www.revolutionpermanente.fr/La-proposition-de-loi-anti-trans-adoptee-au-Senat-un-nouveau-cap-dans-l-offensive-reactionnaire",
+          "source_title": "La proposition de loi anti-trans adoptée au Sénat : un nouveau cap dans l'offensive réactionnaire",
+          "source_date": "2024-05-29",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "found": true,
+      "positions": [
+        {
+          "position": "Créer un revenu étudiant égal au SMIC, financé par le patronat.",
+          "kind": "proposition_explicite",
+          "short_quote": "Revenu étudiant à hauteur du SMIC, financé par le patronat.",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Refuser le SNU et la militarisation des écoles et des universités.",
+          "kind": "proposition_explicite",
+          "short_quote": "Non au SNU et à la militarisation de nos écoles et de nos facs.",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Il soutient la révolte lycéenne d'octobre 2026 et appelle le mouvement ouvrier à la rejoindre, jusqu'à la grève générale. Il défend une école radicalement différente, sous le contrôle des travailleurs et des élèves, et non au service du grand patronat.",
+          "kind": "position_declaree",
+          "source_url": "https://www.revolutionpermanente.fr/De-la-REVOLTE-LYCEENNNE-a-la-GREVE-GENERALE-Edito-d-Anasse-Kazib",
+          "source_title": "De la révolte lycéenne à la grève générale ? Édito d'Anasse Kazib",
+          "source_date": "2026-10-05",
+          "confidence": "medium"
+        },
+        {
+          "position": "Programme éducation de RP pour les municipales 2026 : 15 élèves maximum par classe ; titularisation de tous les personnels ; nationalisation sans indemnité de l'enseignement privé et fin de son financement public ; suppression de Parcoursup et des groupes de besoins ; gratuité de la cantine, des fournitures et des transports ; police et armée hors des écoles.",
+          "kind": "inference",
+          "details": "Texte de RP Éducation. Il prévoit un salaire minimum de 1 800 € et 400 € d'augmentation, des chiffres différents de ceux du dépliant présidentiel (2 000 € et 500 €).",
+          "source_url": "https://www.revolutionpermanente.fr/Municipales-2026-casse-de-l-ecole-tri-social-militarisme-quel-programme-pour-l-education",
+          "source_title": "Municipales 2026 : casse de l'école, tri social, militarisme… quel programme pour l'éducation ?",
+          "source_date": "2026-01-14",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "societe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Aucune proposition du candidat sur la culture. RP s'est opposé au projet de holding « France Médias » (Rachida Dati) et aux coupes budgétaires dans l'audiovisuel public. RP soutient les grèves des salariés et propose que les nominations, y compris à l'ARCOM, soient contrôlées par les travailleurs.",
+          "kind": "inference",
+          "source_url": "https://www.revolutionpermanente.fr/Audiovisuel-public-pour-faire-reculer-Dati-et-l-extreme-droite-il-faudra-amplifier-la-mobilisation",
+          "source_title": "Audiovisuel public : pour faire reculer Dati et l'extrême droite, il faudra amplifier la mobilisation",
+          "source_date": "2025-07-01",
+          "confidence": "low"
+        },
+        {
+          "position": "RP voit dans le rapport parlementaire de 2026 (1 Md€ d'économies sur un budget de 4 Md€, fermeture de France 4 et de Mouv') un pas vers la privatisation de l'audiovisuel public. RP critique aussi l'influence des groupes privés comme Bolloré.",
+          "kind": "inference",
+          "source_url": "https://www.revolutionpermanente.fr/Rapport-sur-l-audiovisuel-public-un-manifeste-d-extreme-droite-qui-pave-la-voie-a-la-privatisation",
+          "source_title": "Rapport sur l'audiovisuel public : un manifeste d'extrême droite qui pave la voie à la privatisation",
+          "source_date": "2026-05-06",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "numerique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Aucune proposition du candidat sur le numérique. RP s'oppose à la loi interdisant les réseaux sociaux aux moins de 15 ans, définitivement adoptée en 2026, en raison de la vérification d'âge et de la surveillance. RP propose plutôt de recruter massivement des personnels de santé mentale et des enseignants.",
+          "kind": "inference",
+          "source_url": "https://www.revolutionpermanente.fr/Mise-au-pas-de-la-jeunesse-l-interdiction-de-reseaux-sociaux-aux-moins-de-15-ans-definitivement",
+          "source_title": "Mise au pas de la jeunesse : l'interdiction de réseaux sociaux aux moins de 15 ans définitivement adoptée",
+          "source_date": "2026-07-21",
+          "confidence": "low"
+        },
+        {
+          "position": "RP s'oppose à l'interdiction des téléphones dans les lycées, qu'il juge répressive.",
+          "kind": "inference",
+          "source_url": "https://www.revolutionpermanente.fr/Interdiction-des-telephones-dans-les-lycees-une-mesure-repressive-qui-vise-a-discipliner-les-eleves",
+          "source_title": "Interdiction des téléphones dans les lycées : une mesure répressive qui vise à discipliner les élèves",
+          "source_date": "2026-09-07",
+          "confidence": "low"
+        },
+        {
+          "position": "Intelligence artificielle : RP présente l'IA comme un outil du capital. RP prône l'expropriation des entreprises de l'IA et dénonce la vidéosurveillance algorithmique et la reconnaissance faciale policière, ainsi que le lobbying de la France sur l'AI Act.",
+          "kind": "inference",
+          "source_url": "https://www.revolutionpermanente.fr/Pouvoir-inhumain-Intelligence-artificielle-capitalisme-et-lutte-pour-le-communisme",
+          "source_title": "« Pouvoir inhumain ». Intelligence artificielle, capitalisme et lutte pour le communisme",
+          "source_date": "2025-02-12",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Exproprier sans indemnité le secteur de l'énergie et le placer sous le contrôle des travailleurs.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.revolutionpermanente.fr/Presidentielle-2027-Anasse-Kazib-veut-faire-entendre-la-voix-de-la-nouvelle-classe-ouvriere",
+          "source_title": "Présidentielle 2027 : Anasse Kazib veut faire entendre la voix de la nouvelle classe ouvrière",
+          "source_date": "2026-06-01",
+          "confidence": "high"
+        },
+        {
+          "position": "Rendre les transports gratuits.",
+          "kind": "proposition_explicite",
+          "short_quote": "les transports, qui devraient être gratuits",
+          "source_url": "https://www.revolutionpermanente.fr/Presidentielle-2027-Anasse-Kazib-veut-faire-entendre-la-voix-de-la-nouvelle-classe-ouvriere",
+          "source_title": "Présidentielle 2027 : Anasse Kazib veut faire entendre la voix de la nouvelle classe ouvrière",
+          "source_date": "2026-06-01",
+          "confidence": "high"
+        },
+        {
+          "position": "Planifier démocratiquement la production dans le respect de l'environnement. Créer des comités de travailleurs, de scientifiques et de riverains pour coordonner la dépollution des sols et de l'eau.",
+          "kind": "proposition_explicite",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Il présente la crise écologique comme un produit du capitalisme. Il cite les canicules et les méga-feux de l'été 2026 et rejette « l'écologie de guerre ».",
+          "kind": "position_declaree",
+          "source_url": "https://www.revolutionpermanente.fr/28h-expropriation-des-secteurs-strategiques-RP-presente-les-premieres-mesures-de-sa-candidature",
+          "source_title": "28h, expropriation des secteurs stratégiques... : RP présente les premières mesures de sa candidature",
+          "source_date": "2026-09-16",
+          "confidence": "high"
+        },
+        {
+          "position": "Il dénonce la hausse du prix du carburant, sans mesure chiffrée sur les prix de l'énergie. Aucune position trouvée sur le nucléaire civil ou les renouvelables.",
+          "kind": "position_declaree",
+          "source_url": "https://www.revolutionpermanente.fr/Carburant-austerite-XXL-la-COLERE-sociale-prete-a-EXPLOSER-Edito-d-Anasse-Kazib",
+          "source_title": "Carburant, austérité XXL : la colère sociale prête à exploser ? Édito d'Anasse Kazib",
+          "source_date": "2026-09-26",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "found": true,
+      "positions": [
+        {
+          "position": "Le dépliant compte les « luttes paysannes » parmi les mobilisations des classes populaires depuis dix ans. Il ne contient aucune mesure agricole.",
+          "kind": "position_declaree",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "low"
+        },
+        {
+          "position": "RP s'oppose à l'accord UE-Mercosur mais rejette le protectionnisme. RP accuse l'agro-industrie et les monopoles logistiques d'en tirer profit et appelle à allier petits producteurs et mouvement ouvrier.",
+          "kind": "inference",
+          "source_url": "https://www.revolutionpermanente.fr/Contre-l-accord-UE-Mercosur-le-protectionnisme-est-une-impasse",
+          "source_title": "Contre l'accord UE-Mercosur, le protectionnisme est une impasse",
+          "source_date": "2025-12-16",
+          "confidence": "low"
+        },
+        {
+          "position": "Lors du mouvement agricole de 2024, RP a jugé légitime la colère des petits agriculteurs et dénoncé la FNSEA et l'agro-industrie. RP proposait un moratoire sur les dettes des agriculteurs et la nationalisation du crédit agricole sous contrôle ouvrier.",
+          "kind": "inference",
+          "source_url": "https://www.revolutionpermanente.fr/La-colere-des-petits-agriculteurs-est-legitime-il-faut-degager-la-FNSEA-et-se-lier-aux-ouvriers",
+          "source_title": "La colère des petits agriculteurs est légitime : il faut dégager la FNSEA et se lier aux ouvriers",
+          "source_date": "2024-01-24",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "territoires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Libération de la Kanaky et autodétermination de tous les peuples sous domination française. Fin des « régimes d'exception ». Expropriation des grands groupes qui maintiennent des territoires entiers dans la misère.",
+          "kind": "proposition_explicite",
+          "details": "L'article sur les premières mesures ne nomme pas les territoires concernés ; la Kanaky est nommée dans le dépliant.",
+          "short_quote": "expropriation des grands groupes qui maintiennent des territoires entiers dans la misère",
+          "source_url": "https://www.revolutionpermanente.fr/28h-expropriation-des-secteurs-strategiques-RP-presente-les-premieres-mesures-de-sa-candidature",
+          "source_title": "28h, expropriation des secteurs stratégiques... : RP présente les premières mesures de sa candidature",
+          "source_date": "2026-09-16",
+          "confidence": "high"
+        },
+        {
+          "position": "Investir massivement dans les services publics sous contrôle des travailleurs et rendre les transports gratuits. Rien sur les pouvoirs des collectivités locales.",
+          "kind": "proposition_explicite",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "RP juge l'accord de Bougival (Nouvelle-Calédonie) comme « un piège » colonial. RP réclame l'indépendance, l'amnistie des prisonniers kanak de 2024 et le retrait des forces françaises.",
+          "kind": "inference",
+          "source_url": "https://www.revolutionpermanente.fr/Accord-de-Bougival-un-piege-au-service-du-maintien-de-la-domination-coloniale-en-Kanaky",
+          "source_title": "Accord de Bougival : un piège au service du maintien de la domination coloniale en Kanaky",
+          "source_date": "2025-07-18",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "found": true,
+      "positions": [
+        {
+          "position": "Dissoudre immédiatement tous les corps spéciaux de police. Les unités visées ne sont pas nommées.",
+          "kind": "proposition_explicite",
+          "short_quote": "Dissolution des corps spéciaux de police.",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Abroger l'ensemble des lois sécuritaires et autoritaires.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.revolutionpermanente.fr/Presidentielle-2027-Anasse-Kazib-veut-faire-entendre-la-voix-de-la-nouvelle-classe-ouvriere",
+          "source_title": "Présidentielle 2027 : Anasse Kazib veut faire entendre la voix de la nouvelle classe ouvrière",
+          "source_date": "2026-06-01",
+          "confidence": "high"
+        },
+        {
+          "position": "Amnistier tous les manifestants, jeunes des quartiers populaires et syndicalistes réprimés.",
+          "kind": "proposition_explicite",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Drogue : RP critique la loi « narcotrafic » et la « guerre à la drogue ». RP prône la légalisation des drogues, à commencer par le cannabis, accompagnée de prévention et d'éducation.",
+          "kind": "inference",
+          "source_url": "https://www.revolutionpermanente.fr/Union-nationale-contre-le-narcotrafic-l-Etat-lance-la-machine-a-instrumentalisation-securitaire",
+          "source_title": "« Union nationale » contre le narcotrafic : l'État lance la machine à instrumentalisation sécuritaire",
+          "source_date": "2025-11-21",
+          "confidence": "low"
+        },
+        {
+          "position": "RP voit dans la police une institution qui défend l'ordre établi. RP rejette la « police de proximité » proposée à gauche et estime que la sécurité peut être assurée par la population elle-même.",
+          "kind": "inference",
+          "details": "Article de 2023 qui présente le programme de Kazib comme plus proche de l'abolition que de la réforme de la police.",
+          "source_url": "https://www.revolutionpermanente.fr/Police-de-proximite-quand-la-gauche-veut-nous-faire-aimer-la-police",
+          "source_title": "« Police de proximité » : quand la gauche veut nous faire aimer la police",
+          "source_date": "2023-07-13",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "found": true,
+      "positions": [
+        {
+          "position": "Régulariser tous les sans-papiers.",
+          "kind": "proposition_explicite",
+          "details": "Mesure déjà présente en 2022.",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Liberté de circulation et d'installation. Cela implique de renoncer aux politiques d'expulsion, sans mesure détaillée sur l'asile ou la nationalité.",
+          "kind": "proposition_explicite",
+          "short_quote": "liberté de circulation et d'installation",
+          "source_url": "https://www.revolutionpermanente.fr/28h-expropriation-des-secteurs-strategiques-RP-presente-les-premieres-mesures-de-sa-candidature",
+          "source_title": "28h, expropriation des secteurs stratégiques... : RP présente les premières mesures de sa candidature",
+          "source_date": "2026-09-16",
+          "confidence": "high"
+        },
+        {
+          "position": "Il rejette les divisions racistes entre travailleurs français et immigrés et dénonce le « racisme d'État ». Il accuse le RN de dresser les catégories populaires les unes contre les autres.",
+          "kind": "position_declaree",
+          "source_url": "https://www.revolutionpermanente.fr/Presidentielle-2027-Anasse-Kazib-veut-faire-entendre-la-voix-de-la-nouvelle-classe-ouvriere",
+          "source_title": "Présidentielle 2027 : Anasse Kazib veut faire entendre la voix de la nouvelle classe ouvrière",
+          "source_date": "2026-06-01",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Aucune déclaration du candidat sur l'Union européenne n'a été trouvée. RP qualifie l'UE d'impérialiste et a pour mot d'ordre « Ni OTAN, ni Union européenne, ni Poutine ».",
+          "kind": "inference",
+          "source_url": "https://www.revolutionpermanente.fr/L-imperialisme-europeen-n-est-pas-un-allie-de-l-Ukraine-2",
+          "source_title": "L'impérialisme européen n'est pas un allié de l'Ukraine",
+          "source_date": "2025-05-17",
+          "confidence": "low"
+        },
+        {
+          "position": "RP dénonce les plans de militarisation de l'UE (stratégie industrielle de défense, réarmement), jugés incompatibles avec les règles budgétaires et payés par les travailleurs.",
+          "kind": "inference",
+          "source_url": "https://www.revolutionpermanente.fr/Projet-strategique-de-defense-europeenne-l-UE-propose-un-plan-de-militarisation-coordonne",
+          "source_title": "« Projet stratégique de défense européenne » : l'UE propose un plan de militarisation coordonné",
+          "source_date": "2024-04-09",
+          "confidence": "low"
+        },
+        {
+          "position": "Dans un texte de 2019 (avant la fondation de RP), le courant rejetait le Frexit au profit d'« États-Unis socialistes d'Europe ».",
+          "kind": "inference",
+          "details": "Texte ancien et antérieur à RP. Aucune confirmation récente.",
+          "source_url": "https://www.revolutionpermanente.fr/Le-Frexit-le-retour-aux-frontieres-nationales-une-solution",
+          "source_title": "Le Frexit : le retour aux frontières nationales, une solution ?",
+          "source_date": "2019-05-15",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "ukraine_russie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Le mot d'ordre général « pas un euro pour la guerre » et le retrait des troupes françaises à l'étranger laissent supposer une opposition à l'effort militaire français, y compris pour l'Ukraine. Aucune déclaration du candidat spécifique à l'Ukraine n'a été trouvée pour 2025-2026.",
+          "kind": "inference",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "low"
+        },
+        {
+          "position": "RP s'oppose au déploiement de « plusieurs milliers » de soldats français en Ukraine dans le cadre de la coalition des volontaires, y voyant une escalade et une avancée de l'OTAN.",
+          "kind": "inference",
+          "source_url": "https://www.revolutionpermanente.fr/Sommet-belliciste-a-Paris-Macron-veut-deployer-plusieurs-milliers-de-soldats-en-Ukraine",
+          "source_title": "Sommet belliciste à Paris : Macron veut déployer « plusieurs milliers » de soldats en Ukraine",
+          "source_date": "2026-01-07",
+          "confidence": "low"
+        },
+        {
+          "position": "RP qualifie l'invasion russe de « réactionnaire » mais refuse de soutenir l'OTAN et l'UE. Pour RP, les livraisons d'armes et l'aide occidentale servent à vassaliser l'Ukraine. Mot d'ordre : « Ni OTAN, ni UE, ni Poutine ».",
+          "kind": "inference",
+          "source_url": "https://www.revolutionpermanente.fr/L-imperialisme-europeen-n-est-pas-un-allie-de-l-Ukraine-2",
+          "source_title": "L'impérialisme européen n'est pas un allié de l'Ukraine",
+          "source_date": "2025-05-17",
+          "confidence": "low"
+        },
+        {
+          "position": "En 2022, la campagne de Kazib s'était démarquée de Philippe Poutou en refusant les sanctions contre la Russie, jugées nuisibles aux classes populaires russes et ukrainiennes.",
+          "kind": "position_declaree",
+          "details": "Position de 2022, non réaffirmée en 2026.",
+          "source_url": "https://www.revolutionpermanente.fr/Anasse-2022-malgre-les-obstacles-une-campagne-qui-pose-des-jalons-pour-un-renouveau-de-l-extreme",
+          "source_title": "Anasse 2022 : malgré les obstacles, une campagne qui pose des jalons pour un renouveau de l'extrême-gauche",
+          "source_date": "2022",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "proche_orient",
+      "found": true,
+      "positions": [
+        {
+          "position": "Lutter pour la libération de la Palestine. Il parle de génocide à Gaza et dénonce les massacres de l'armée israélienne au Sud-Liban.",
+          "kind": "proposition_explicite",
+          "short_quote": "Lutte pour la libération de la Palestine",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 »",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Défendre la défaite des États-Unis et d'Israël dans leur guerre contre l'Iran. Retirer le porte-avions Charles-de-Gaulle du détroit d'Ormuz.",
+          "kind": "proposition_explicite",
+          "short_quote": "défense de la défaite des États-Unis et d'Israël dans leur guerre contre l'Iran",
+          "source_url": "https://www.revolutionpermanente.fr/Presidentielle-2027-Anasse-Kazib-veut-faire-entendre-la-voix-de-la-nouvelle-classe-ouvriere",
+          "source_title": "Présidentielle 2027 : Anasse Kazib veut faire entendre la voix de la nouvelle classe ouvrière",
+          "source_date": "2026-06-01",
+          "confidence": "high"
+        },
+        {
+          "position": "Il est poursuivi pour « apologie du terrorisme » pour des propos tenus après le 7 octobre 2023, à la suite d'une plainte de Jeunesse française juive. Il revendique de « faire entrer dans le tribunal » le soutien au peuple palestinien. Le procès du 25 juin 2026 a été renvoyé après la transmission d'une QPC à la Cour de cassation.",
+          "kind": "position_declaree",
+          "source_url": "https://www.revolutionpermanente.fr/Au-proces-d-Anasse-Kazib-une-premiere-victoire-contre-les-proces-baillons-des-soutiens-de-la",
+          "source_title": "Au procès d'Anasse Kazib, une première victoire contre les procès-bâillons des soutiens de la Palestine",
+          "source_date": "2026-06-25",
+          "confidence": "medium"
+        },
+        {
+          "position": "RP rejette la solution à deux États et juge la reconnaissance de la Palestine par Macron symbolique, voire « une impasse ». RP prône un État unique, laïque, ouvrier et socialiste sur toute la Palestine historique, avec droit au retour. RP réclame un embargo sur les armes et la fin du soutien français à Israël.",
+          "kind": "inference",
+          "source_url": "https://www.revolutionpermanente.fr/LFI-et-la-reconnaissance-de-la-Palestine-une-victoire-morale-vraiment",
+          "source_title": "LFI et la reconnaissance de la Palestine : une « victoire morale », vraiment ?",
+          "source_date": "2025-07-28",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "defense",
+      "found": true,
+      "positions": [
+        {
+          "position": "Aucun financement militaire : supprimer les budgets militaires et réaffecter l'argent aux services publics.",
+          "kind": "proposition_explicite",
+          "short_quote": "Pas un euro pour la guerre",
+          "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+          "source_title": "Dépliant « Anasse 2027 » (axe « Contre la militarisation & l'impérialisme »)",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Démanteler la « machine de guerre » française, c'est-à-dire l'industrie d'armement du 2e exportateur mondial, avec reconversion.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.revolutionpermanente.fr/28h-expropriation-des-secteurs-strategiques-RP-presente-les-premieres-mesures-de-sa-candidature",
+          "source_title": "28h, expropriation des secteurs stratégiques... : RP présente les premières mesures de sa candidature",
+          "source_date": "2026-09-16",
+          "confidence": "high"
+        },
+        {
+          "position": "Fermer toutes les bases militaires françaises à l'étranger et retirer toutes les troupes françaises.",
+          "kind": "proposition_explicite",
+          "short_quote": "Retrait des troupes françaises à l'étranger.",
+          "source_url": "https://www.revolutionpermanente.fr/Presidentielle-2027-Anasse-Kazib-veut-faire-entendre-la-voix-de-la-nouvelle-classe-ouvriere",
+          "source_title": "Présidentielle 2027 : Anasse Kazib veut faire entendre la voix de la nouvelle classe ouvrière",
+          "source_date": "2026-06-01",
+          "confidence": "high"
+        },
+        {
+          "position": "Refuser le SNU et la militarisation de la jeunesse. RP rejette toute forme de service militaire, aussi bien le service volontaire de Macron que la « conscription citoyenne » de LFI.",
+          "kind": "proposition_explicite",
+          "details": "Le refus du SNU figure dans le dépliant. Le rejet de la conscription citoyenne de LFI vient d'un article de RP (27/11/2025), et relève donc de l'inférence.",
+          "source_url": "https://www.revolutionpermanente.fr/Conscription-citoyenne-obligatoire-le-projet-de-LFI-ne-vaut-pas-mieux-que-le-service-militaire-de",
+          "source_title": "« Conscription citoyenne » obligatoire : le projet de LFI ne vaut pas mieux que le service militaire de Macron",
+          "source_date": "2025-11-27",
+          "confidence": "medium"
+        },
+        {
+          "position": "Dissuasion nucléaire : RP propose de démanteler l'arme nucléaire, symbole selon lui d'une « monarchie nucléaire ». RP s'oppose au partage européen de la dissuasion française. Aucune déclaration du candidat lui-même.",
+          "kind": "inference",
+          "source_url": "https://www.revolutionpermanente.fr/La-Ve-Republique-une-monarchie-nucleaire-au-service-de-l-imperialisme-francais",
+          "source_title": "La Ve République, une monarchie nucléaire au service de l'impérialisme français",
+          "source_date": "2025-03-22",
+          "confidence": "low"
+        },
+        {
+          "position": "OTAN : aucune proposition explicite du candidat sur une sortie. RP est hostile à l'OTAN (« Ni OTAN, ni UE, ni Poutine »).",
+          "kind": "inference",
+          "source_url": "https://www.revolutionpermanente.fr/L-imperialisme-europeen-n-est-pas-un-allie-de-l-Ukraine-2",
+          "source_title": "L'impérialisme européen n'est pas un allié de l'Ukraine",
+          "source_date": "2025-05-17",
+          "confidence": "low"
+        }
+      ]
+    }
+  ],
+  "signature_proposals": [
+    {
+      "proposal": "SMIC à 2 000 € net, hausse de 500 € de tous les salaires, indexation sur l'inflation et revalorisation de toutes les allocations.",
+      "topic_id": "travail_salaires",
+      "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf"
+    },
+    {
+      "proposal": "Semaine de 28 heures sans baisse de salaire, par le partage du travail, et interdiction des licenciements.",
+      "topic_id": "travail_salaires",
+      "source_url": "https://www.revolutionpermanente.fr/28h-expropriation-des-secteurs-strategiques-RP-presente-les-premieres-mesures-de-sa-candidature"
+    },
+    {
+      "proposal": "Retraite à 60 ans, 55 ans pour les métiers pénibles, sans condition d'annuités.",
+      "topic_id": "retraites",
+      "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf"
+    },
+    {
+      "proposal": "Expropriation sans indemnité ni rachat des secteurs stratégiques (énergie, transports, banques, santé) sous contrôle des travailleurs ; suppression des aides publiques aux grandes entreprises.",
+      "topic_id": "industrie_economie",
+      "source_url": "https://www.revolutionpermanente.fr/Presidentielle-2027-Anasse-Kazib-veut-faire-entendre-la-voix-de-la-nouvelle-classe-ouvriere"
+    },
+    {
+      "proposal": "Fin de la Ve République : suppression de la présidence, du Sénat et du Conseil constitutionnel ; assemblée unique d'élus pour deux ans, révocables et payés au salaire médian.",
+      "topic_id": "institutions",
+      "source_url": "https://www.revolutionpermanente.fr/Presidentielle-2027-Anasse-Kazib-veut-faire-entendre-la-voix-de-la-nouvelle-classe-ouvriere"
+    },
+    {
+      "proposal": "Régularisation de tous les sans-papiers et liberté de circulation et d'installation.",
+      "topic_id": "immigration",
+      "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf"
+    },
+    {
+      "proposal": "Abrogation de toutes les lois sécuritaires et « islamophobes », à commencer par la loi de 2004 sur les signes religieux et jusqu'à la loi « séparatisme ».",
+      "topic_id": "laicite_republique",
+      "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf"
+    },
+    {
+      "proposal": "« Pas un euro pour la guerre » : suppression des budgets militaires, démantèlement de l'industrie d'armement, fermeture des bases et retrait des troupes françaises à l'étranger.",
+      "topic_id": "defense",
+      "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf"
+    },
+    {
+      "proposal": "Dissolution des corps spéciaux de police et amnistie des manifestants, jeunes des quartiers populaires et syndicalistes réprimés.",
+      "topic_id": "securite_justice",
+      "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf"
+    },
+    {
+      "proposal": "Expropriation des logements vides, plafonnement et gel des loyers ; expropriation des banques avec prêts à taux zéro.",
+      "topic_id": "logement",
+      "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf"
+    },
+    {
+      "proposal": "Revenu étudiant égal au SMIC, financé par le patronat ; refus du SNU et de la militarisation des écoles.",
+      "topic_id": "education",
+      "source_url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf"
+    },
+    {
+      "proposal": "Libération de la Palestine et de la Kanaky ; défense de la défaite des États-Unis et d'Israël face à l'Iran ; retrait du Charles-de-Gaulle du détroit d'Ormuz.",
+      "topic_id": "proche_orient",
+      "source_url": "https://www.revolutionpermanente.fr/Presidentielle-2027-Anasse-Kazib-veut-faire-entendre-la-voix-de-la-nouvelle-classe-ouvriere"
+    }
+  ],
+  "distinctive_vs_others": "1) Il est candidat à une fonction qu'il veut supprimer. Il propose d'abolir la présidence, le Sénat et le Conseil constitutionnel au profit d'une assemblée unique révocable, dont les élus seraient payés au salaire médian. RP oppose cette proposition à la VIe République de Jean-Luc Mélenchon, qui conserve un président élu (source RP du 24/03/2022 ; déclaration du 01/06/2026).\n\n2) Ses mesures sociales sont les plus étendues relevées : SMIC à 2 000 € net, +500 € pour tous, 28 h hebdomadaires, retraite à 60 ans sans condition d'annuités, interdiction des licenciements, expropriation sans indemnité des secteurs stratégiques. Il oppose explicitement l'expropriation de TotalEnergies à l'encadrement des marges proposé par LFI (déclaration du 01/06/2026). Il reproche à LFI une stratégie institutionnelle et un « compromis avec le grand patronat » (dépliant de septembre 2026).\n\n3) Par rapport à Nathalie Arthaud (LO), autre candidature trotskiste, il met au centre les oppressions : racisme d'État, islamophobie, LGBTphobies, validisme. Il demande l'abrogation de la loi de 2004 et des interdictions de l'abaya. RP reproche à LO une approche « trade-unioniste » et des « adaptations laïcardes » (01/06/2026). En 2022 déjà, il s'opposait à LO sur le voile.\n\n4) Il se démarque de tous les autres candidats déclarés en défendant ouvertement la défaite des États-Unis et d'Israël dans la guerre contre l'Iran. Il demande aussi le retrait du Charles-de-Gaulle d'Ormuz, la fermeture de toutes les bases et le retrait de toutes les troupes françaises à l'étranger, ainsi que le démantèlement de l'industrie d'armement (« pas un euro pour la guerre »). Cette ligne va à l'opposé du réarmement défendu par Philippe, Retailleau, Attal ou Le Pen. RP rejette aussi la « conscription citoyenne » de LFI (27/11/2025).\n\n5) Sur la Palestine, RP rejette la solution à deux États défendue notamment par LFI et prône un État unique, laïque et socialiste (RP, 28/07/2025). Il est lui-même poursuivi pour apologie du terrorisme.\n\n6) Il revendique une identité de « candidat ouvrier » (cheminot) et une campagne tournée vers la grève générale et l'auto-organisation, plus que vers l'exercice du pouvoir institutionnel (édito du 05/10/2026).",
+  "evolutions_and_contradictions": "- Hausse des chiffres par rapport à 2022 : le programme de 2022 (RP, 19/11/2021) prévoyait un SMIC à 1 800 € net et +300 € pour tous les salaires. En 2026, c'est 2 000 € net et +500 €. La régularisation des sans-papiers et l'expropriation des secteurs stratégiques sont maintenues.\n\n- Écart de chiffres interne : le programme éducation de RP pour les municipales 2026 (14/01/2026) mentionne un salaire minimum de 1 800 € et 400 € d'augmentation pour les personnels, contre 2 000 € et 500 € dans le dépliant présidentiel.\n\n- Ukraine : la ligne du parti a glissé. En 2022, RP parlait d'une « guerre réactionnaire d'oppression nationale » menée par la Russie, tout en refusant l'alignement sur l'OTAN. En 2025, des articles de RP décrivent plutôt une « guerre par procuration entre deux camps réactionnaires » et relativisent la « menace russe ». Le candidat lui-même ne s'est pas exprimé spécifiquement sur le sujet en 2025-2026.\n\n- Contexte : il avait été écarté au profit de Philippe Poutou pour la candidature NPA de 2022, puis a cofondé RP fin 2022. En 2022, il n'a réuni qu'environ 160 à 165 parrainages. En 2026, RP revendique « plusieurs dizaines » de promesses et environ 1 000 élus rencontrés (RP, 09/06/2026).\n\n- Ambivalence stratégique : il se présente à l'élection présidentielle tout en contestant l'existence même de la fonction présidentielle et en privilégiant la grève générale.",
+  "open_questions": [
+    "Le programme complet 2027 est annoncé « en cours d'élaboration » (anasse2027.fr/programme). Aucun chiffrage ni plan de financement n'a été publié.",
+    "Fiscalité : aucune mesure fiscale chiffrée (impôt sur le revenu, patrimoine, héritage, TVA, impôt sur les sociétés). Seule la critique de la taxe Zucman par RP est connue.",
+    "Dette publique : aucune position explicite du candidat (annulation, audit, non-paiement).",
+    "Union européenne : rien du candidat sur le maintien dans l'UE, l'euro, le budget européen ou l'élargissement. Seuls des textes du parti, dont un antérieur à RP (2019), rejettent le Frexit.",
+    "OTAN et dissuasion nucléaire : pas de déclaration explicite du candidat sur une sortie de l'OTAN ni sur le démantèlement de l'arsenal nucléaire. Seuls existent des articles de RP.",
+    "Ukraine : pas de position personnelle récente sur l'aide militaire, les sanctions ou un éventuel accord de paix.",
+    "Nucléaire civil, renouvelables, prix de l'électricité, eau et adaptation au climat : aucune position trouvée.",
+    "Agriculture, alimentation et bien-être animal : aucune mesure du candidat.",
+    "Grand âge et dépendance, natalité, handicap, assurance chômage : non traités au-delà de formules générales.",
+    "Culture, audiovisuel public et numérique (IA, plateformes, écrans) : uniquement des positions d'articles de RP, rien du candidat.",
+    "GPA, filiation, transition des mineurs : seuls « PMA et transitions libres et gratuites » figurent au programme.",
+    "Référendum, RIC et mode de scrutin de l'assemblée unique : non précisés.",
+    "Parrainages : la candidature dépend de l'obtention des 500 parrainages avant le 12 mars 2027 (échec en 2022).",
+    "Procès pour apologie du terrorisme : renvoyé le 25 juin 2026 après transmission d'une QPC à la Cour de cassation ; issue et calendrier inconnus."
+  ],
+  "programme_sources": [
+    {
+      "title": "Anasse Kazib 2027 - Programme (6 axes ; programme complet « en cours d'élaboration »)",
+      "url": "https://anasse2027.fr/programme",
+      "date": "2026-09"
+    },
+    {
+      "title": "Dépliant de campagne « Anasse 2027 » (4 pages, PDF)",
+      "url": "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+      "date": "2026-09"
+    },
+    {
+      "title": "Présidentielle 2027 : Anasse Kazib veut faire entendre la voix de la nouvelle classe ouvrière (texte de déclaration)",
+      "url": "https://www.revolutionpermanente.fr/Presidentielle-2027-Anasse-Kazib-veut-faire-entendre-la-voix-de-la-nouvelle-classe-ouvriere",
+      "date": "2026-06-01"
+    },
+    {
+      "title": "Anasse Kazib 2027 : une candidature ouvrière, communiste et révolutionnaire à la présidentielle (annonce et clip)",
+      "url": "https://www.revolutionpermanente.fr/Anasse-Kazib-2027-une-candidature-ouvriere-communiste-et-revolutionnaire-a-la-presidentielle",
+      "date": "2026-06-01"
+    },
+    {
+      "title": "Présidentielle 2027 : le cheminot Anasse Kazib annonce sa candidature (franceinfo)",
+      "url": "https://www.franceinfo.fr/elections/presidentielle/presidentielle-2027-le-cheminot-anasse-kazib-annonce-sa-candidature_8040020.html",
+      "date": "2026-06-01"
+    },
+    {
+      "title": "28h, expropriation des secteurs stratégiques... : RP présente les premières mesures de sa candidature",
+      "url": "https://www.revolutionpermanente.fr/28h-expropriation-des-secteurs-strategiques-RP-presente-les-premieres-mesures-de-sa-candidature",
+      "date": "2026-09-16"
+    },
+    {
+      "title": "Anasse Kazib sur l'interdiction de l'abaya : « Il faut l'abroger ainsi que toutes les lois islamophobes »",
+      "url": "https://www.revolutionpermanente.fr/Anasse-Kazib-sur-l-interdiction-de-l-abaya-Il-faut-l-abroger-ainsi-que-toutes-les-lois-islamophobes",
+      "date": "2026-09-07"
+    },
+    {
+      "title": "« S'affronter au patronat radicalisé » : à Toulouse, Révolution Permanente lance la campagne d'Anasse Kazib",
+      "url": "https://www.revolutionpermanente.fr/S-affronter-au-patronat-radicalise-a-Toulouse-Revolution-Permanente-lance-la-campagne-d-Anasse",
+      "date": "2026-09"
+    },
+    {
+      "title": "De la révolte lycéenne à la grève générale ? Édito d'Anasse Kazib",
+      "url": "https://www.revolutionpermanente.fr/De-la-REVOLTE-LYCEENNNE-a-la-GREVE-GENERALE-Edito-d-Anasse-Kazib",
+      "date": "2026-10-05"
+    },
+    {
+      "title": "« On peut arracher les 500 parrainages » : la campagne d'Anasse Kazib est lancée",
+      "url": "https://www.revolutionpermanente.fr/On-peut-arracher-les-500-parrainages-la-campagne-d-Anasse-Kazib-est-lancee-rejoignez-nous",
+      "date": "2026-06-09"
+    },
+    {
+      "title": "Anasse Kazib 2022 : découvrez le programme de la campagne (programme précédent)",
+      "url": "https://www.revolutionpermanente.fr/Anasse-Kazib-2022-decouvrez-le-programme-de-la-campagne",
+      "date": "2021-11-19"
+    }
+  ]
+}

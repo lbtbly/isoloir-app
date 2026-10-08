@@ -22,6 +22,7 @@ export const rej = (extra: Partial<Position> = {}): Position => ({
 export const pack: ElectionPack = {
   election: {
     id: 'test',
+    kind: 'primaire',
     name: 'Élection de test',
     shortName: 'Test',
     organizers: [],
@@ -31,6 +32,16 @@ export const pack: ElectionPack = {
     finalists: null,
     notes: [],
     changelog: [],
+    copy: {
+      theName: 'l’élection de test',
+      atName: 'à l’élection de test',
+      independence: { footer: 'sans lien', method: 'sans lien', legal: 'sans lien' },
+      sources: 'sources de test',
+      closeGapReason: 'Les candidats sont proches',
+      step1Reason: 'sont des questions de test',
+      officialPageLabel: 'Page officielle',
+      shareDescription: 'Élection de test',
+    },
   },
   candidates: [
     { id: 'a', name: 'Alice A', initials: 'AA', affiliation: 'X', role: 'r' },

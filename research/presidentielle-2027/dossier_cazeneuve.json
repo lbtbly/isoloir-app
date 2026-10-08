@@ -1,0 +1,1281 @@
+{
+  "candidate": "Bernard Cazeneuve",
+  "affiliation": "La Convention (mouvement social-démocrate fondé en 2023, qu'il préside). Soutiens affichés sur son site de campagne : Parti radical de gauche, Mouvement des citoyens, En Commun, Fédération progressiste, Inventer à gauche, Collectif des sociaux-démocrates, Télémaque. Ancien membre du PS, qu'il a quitté en 2022 après 35 ans en refusant l'alliance avec LFI. Ancien Premier ministre (2016-2017) et ministre de l'Intérieur (2014-2016) de François Hollande.",
+  "campaign_site": "https://bc2027.fr/",
+  "declaration": {
+    "date": "2026-07-16",
+    "form": "Entretien au Parisien publié en ligne le 16 juillet 2026, dont le titre reprend sa phrase « C'est par un contrat qui me lie aux Français que je présente ma candidature ». Il accompagne la publication d'une lettre-programme de 86 pages, « Tenir la promesse de la France », datée du 15 juillet 2026. Il y décline la primaire de la gauche (PS, Place publique). Le statut reste ambigu. La lettre elle-même dit « je n'écris pas pour ajouter mon nom à la liste des prétendants ». Son équipe a ensuite précisé qu'il n'était « pas encore officiellement candidat » (France 24, 25/08/2026). Il a pourtant déclaré « Mon objectif est de devenir président de la République » (Marianne, 29/07/2026) et cherche ses parrainages depuis septembre 2026. Plusieurs reprises de presse datent l'annonce du 17 juillet.",
+    "source_url": "https://www.lemonde.fr/politique/article/2026/07/16/presidentielle-2027-bernard-cazeneuve-se-declare-candidat-dans-un-entretien-au-parisien-et-decline-la-primaire-socialiste_6723827_823448.html",
+    "source_title": "Présidentielle 2027 : Bernard Cazeneuve se déclare candidat dans un entretien au « Parisien » et décline la primaire socialiste (Le Monde, 16/07/2026)"
+  },
+  "overview": "Bernard Cazeneuve, né en 1963, a été Premier ministre (décembre 2016-mai 2017) et ministre de l'Intérieur (2014-2016) de François Hollande. Il a quitté le PS en 2022 en refusant l'alliance avec LFI, puis a lancé en 2023 La Convention, un mouvement qui se dit « social-démocrate, républicain, humaniste et écologique ». Le 16 juillet 2026, dans un entretien au Parisien accompagnant une lettre-programme de 86 pages (« Tenir la promesse de la France », datée du 15 juillet), il « présente sa candidature » mais décline la primaire PS-Place publique. Son entourage a ensuite indiqué qu'il n'était pas encore officiellement candidat ; il cherche ses parrainages. Le projet s'organise en trois tâches. D'abord protéger les vies : enfance, sécurité, santé, retraites et « règle d'or sociale ». Ensuite remettre l'État en état : retour au septennat, dose de proportionnelle, justice, décentralisation, simplification des normes, justice fiscale et maîtrise de la dette. Enfin rebâtir trois souverainetés : productive (réindustrialisation, nucléaire), éducative et extérieure (réarmement, Europe). Il se réclame d'une gauche « républicaine, sociale, européenne et réformiste ». Il revendique la sécurité comme thème de gauche et la fermeté contre l'immigration irrégulière. Il renvoie dos à dos l'extrême droite et LFI, qu'il appelle « les deux dégagismes ». Il appelle à une « coalition des engagés » allant de la gauche non sectaire au centre et à la droite modérée. Il refuse explicitement toute promesse chiffrée de pouvoir d'achat ; ses rares engagements chiffrés portent sur la jeunesse (avance de 3 000 €, aide supplémentaire de 2 000 € pour les boursiers).",
+  "topics": [
+    {
+      "topic_id": "institutions",
+      "found": true,
+      "positions": [
+        {
+          "position": "Rétablir le septennat pour rendre au président un rôle d'arbitre et de garant du pacte républicain.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Selon lui, la cause de l'affaissement des institutions est « l'ego-présidentialisme ». Le quinquennat, calé sur le calendrier législatif, aurait transformé le président en chef de la majorité. Il écarte un changement de régime (« grand fracas institutionnel ») et préfère corriger la Ve République par la loi et la pratique. La lettre ne dit pas si le septennat serait renouvelable.",
+          "short_quote": "Il faut pour cela rétablir le septennat",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France » (86 p.)",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Le Premier ministre engagerait systématiquement sa responsabilité devant le Parlement « lorsque les circonstances l'exigent », d'abord à son entrée en fonction, et conduirait effectivement la politique de la Nation.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Il s'agit de redonner au chef du gouvernement un rôle conforme à la lettre de la Constitution.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Imposer une discipline dans l'usage du 49.3, des ordonnances et des procédures accélérées, jugés employés « au-delà de toute raison ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le but est de rééquilibrer les rapports entre exécutif et législatif. La lettre ne donne ni plafond ni réforme constitutionnelle précise.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Introduire une dose de proportionnelle au scrutin législatif pour un Parlement plus représentatif et plus tourné vers le compromis.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "La part de proportionnelle n'est pas précisée.",
+          "short_quote": "Introduire une dose de proportionnelle dans le mode de scrutin législatif",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Simplifier la fabrique de la loi, à commencer par les textes budgétaires, et l'ouvrir davantage à la participation des citoyens.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Aucun dispositif précis n'est détaillé : rien sur le référendum ou le RIC, ni sur une convention citoyenne.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Défendre les contre-pouvoirs : indépendance et moyens de la justice, magistrats protégés contre les intimidations, autorités indépendantes, presse, et réhabilitation des corps intermédiaires (syndicats, associations, chambres consulaires).",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "short_quote": "Un pouvoir qui s'irrite des contre-pouvoirs n'est pas seulement désagréable.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        }
+      ]
+    },
+    {
+      "topic_id": "laicite_republique",
+      "found": true,
+      "positions": [
+        {
+          "position": "La laïcité est un principe de liberté et de séparation entre les Églises et l'État, pas une « religion civile » contre les religions. Il refuse qu'elle soit instrumentalisée, soit comme arme contre l'islam, soit abandonnée par crainte de paraître hostile à cette religion.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Il la décrit comme « un joyau à protéger des manipulations et du cynisme ». Aucune position trouvée sur des signes religieux précis (voile, abaya, accompagnatrices scolaires).",
+          "short_quote": "la foi des uns ne doit pas faire la loi des autres",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "À l'école, la laïcité est une civilité qui s'apprend, et non une contrainte administrative. Il faut transmettre la mémoire de Samuel Paty et de Dominique Bernard.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Dans son discours de Cergy (novembre 2025), il défendait déjà « une éducation laïque » formant des citoyens libres.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Il rejette deux « erreurs symétriques » : l'universalisme de façade qui nie les inégalités réelles, et l'assignation identitaire qui enferme les personnes discriminées. Il défend des règles communes et une langue commune, sans exiger l'uniformité.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Il vise ceux qui veulent exclure une partie des Français au nom d'une « identité fantasmée » et ceux qui projettent une addition de communautés séparées.",
+          "short_quote": "Vivre ensemble ne signifie pas vivre identiques.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "L'antisémitisme est pour lui le « baromètre » de la santé morale de la nation. Il juge sa résurgence depuis le 7 octobre 2023 « triste, honteuse et intolérable ». Il voit dans une partie de l'antisionisme une forme nouvelle de l'antisémitisme.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Il refuse toute hiérarchie des souffrances. Il a repris ces thèmes dans un entretien au Crif (octobre 2026).",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        }
+      ]
+    },
+    {
+      "topic_id": "fiscalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Faire réellement contribuer les très grandes fortunes, les plus hauts revenus du capital et les rentes financières qui ne financent ni l'innovation ni l'investissement productif.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "L'instrument n'est pas précisé : la lettre ne parle ni de retour de l'ISF, ni de taxe Zucman, ni de taux. Dans son discours de Cergy (2025), il lie la contribution des plus hauts revenus au refus de « tarir la source de l'investissement ».",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Rééquilibrer la taxation entre le travail et le capital.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Il présente ce rééquilibrage comme un « long chantier, sans doute ingrat », sans calendrier ni chiffrage.",
+          "short_quote": "Le travail ne doit pas être davantage taxé que le capital.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Baisser les impôts de production, jugés plus élevés que chez les voisins, en finançant cette baisse par une réduction des aides fiscales, au profit de toute la chaîne productive (ETI, PME, TPE).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Pour lui, une fiscalité juste « n'est pas punitive » et ne doit pas décourager l'investissement ni pousser l'actionnariat des entreprises à l'étranger.",
+          "short_quote": "Une fiscalité juste n'est pas punitive",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Simplifier l'impôt : moins de dérogations, moins de niches, moins de complexité.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Selon lui, les choix fiscaux faits depuis 2017 ont privé l'État de recettes et expliquent une large part des 1 400 Md€ de dette supplémentaire : suppression de l'ISF et de la taxe d'habitation, flat tax, « quoi qu'il en coûte » sans contreparties, bouclier énergétique non ciblé.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Il chiffre les allègements consentis aux plus riches à plus de 5 Md€ par an et les exonérations de cotisations patronales à 80 Md€ en 2024 (66 Md€ en 2017). Il ne propose pas explicitement de rétablir l'ISF ni la taxe d'habitation.",
+          "short_quote": "Il a simplement changé de poche.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Il pose comme fondements du pacte fiscal l'annualité, la non-rétroactivité et l'intelligibilité de l'impôt, qu'il juge devenu « un labyrinthe ».",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://la-convention.fr/discours_de_bernard_cazeneuve_cergy_pontoise_dimanche_16_novembre_2025",
+          "source_title": "Discours de Bernard Cazeneuve à Cergy-Pontoise (La Convention)",
+          "source_date": "2025-11-16"
+        }
+      ]
+    },
+    {
+      "topic_id": "finances_publiques",
+      "found": true,
+      "positions": [
+        {
+          "position": "Mettre en place une « règle d'or sociale » fondée sur quatre principes.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Premier principe : rétablir pleinement la loi Veil de 1994, c'est-à-dire compenser à l'euro près à la Sécurité sociale toute exonération de cotisations (parts salariale et patronale, heures supplémentaires, primes). Cette compensation serait indexée sur les salaires et rétroactive depuis 2019. Deuxième principe : apprécier l'équilibre sur un cycle de cinq ans, avec retour à l'équilibre sous dix ans au plus après une crise majeure. Troisième principe : limiter la règle aux branches maladie, vieillesse et autonomie, la famille et les minima sociaux restant au budget de l'État. Quatrième principe : des garanties de respect (rapport du gouvernement au Parlement dès que les comptes se dégradent, avis du Haut Conseil des finances publiques, loi annuelle d'approbation des comptes sociaux distincte du budget de l'État).",
+          "short_quote": "un sanctuaire que rien ne peut entamer",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Il prône « vérité budgétaire » et maîtrise de la dette. Celle-ci atteignait 117,5 % du PIB au 1er trimestre 2026, soit 19 points de plus qu'en 2017, contre environ 86 % en moyenne dans la zone euro. Ses intérêts sont devenus le premier poste du budget de l'État.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Il veut choisir clairement ce qui doit être financé et ce qui ne doit plus l'être, sans donner de cible chiffrée de déficit ni de montant d'économies. Il juge la dette « moralement inéquitable » envers les générations futures.",
+          "short_quote": "Ses intérêts représentent le premier poste du budget de l'État",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Selon lui, l'État est coûteux et emploie plus de fonctionnaires qu'aucun État comparable de l'UE, tout en protégeant moins. Il veut rendre à la haute fonction publique sa vocation de service, contre le pantouflage, avec des passerelles régulées vers le privé, les collectivités, le monde associatif et la recherche.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Il ne propose aucun objectif chiffré de réduction des effectifs.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Lancer une revue systématique des normes, avec obligation de compensation : deux normes supprimées pour une norme créée.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Il critique la surtransposition des directives européennes et relève que le Code du travail a doublé de volume en vingt ans.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Méthode revendiquée, reprise de Mendès France : « le politique d'abord, l'expert ensuite ». Il refuse un « empilement de mesures » adossé à des financements de façade et dit s'appuyer sur plus de 150 experts.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "En octobre 2026, il rappelle une dette de 119 % du PIB et des taux d'emprunt à 10 ans au plus haut depuis un quart de siècle. Il plaide pour un effort de redressement réparti équitablement selon les moyens de chacun.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://www.crif.org/articles/entretiens/2026-10-05/bernard-cazeneuve-jappelle-a-une-coalition-des-engages/",
+          "source_title": "Bernard Cazeneuve : « j'appelle à une coalition des engagés » (entretien, Crif)",
+          "source_date": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "topic_id": "travail_salaires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il refuse toute « formule magique » sur le pouvoir d'achat. Celui-ci se reconstruirait par une logique d'ensemble : un travail qui paie, des loyers soutenables, une facture d'énergie maîtrisée, des services publics qui allègent les dépenses contraintes, une fiscalité mieux répartie et la relance par le plan École-Climat-Solidarité.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Aucune mesure sur le SMIC, l'indexation des salaires ou le partage de la valeur.",
+          "short_quote": "Quiconque le promet ment, ou ne sait pas.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Selon lui, les Français travaillent collectivement moins que leurs voisins (entrée tardive des jeunes, sortie précoce des seniors), sans être moins productifs. Atteindre le taux d'emploi allemand des 55-64 ans représenterait 800 000 emplois.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Il en fait le socle de sa « coalition des producteurs » : ouvriers, agriculteurs, artisans, employés, cadres, fonctionnaires, retraités et personnes en formation ou sans emploi.",
+          "short_quote": "la coalition des producteurs",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Refaire du CDI la norme pour les jeunes, encadrer le recours abusif aux stages, généraliser l'apprentissage dès le premier cycle universitaire, protéger les transitions professionnelles « à la scandinave » et garantir la formation tout au long de la vie.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Faire du déploiement des outils d'intelligence artificielle dans l'entreprise un objet de délibération collective.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Il estime que l'IA désorganise le travail plus qu'elle ne le supprime, y compris pour les professions qualifiées.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Créer un revenu universel de formation pour ceux qui changent de voie, et un droit à la qualification continue financé par une contribution sur les profits du numérique.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Ces deux mesures annoncées à Cergy (novembre 2025) ne sont pas reprises en ces termes dans la lettre de juillet 2026.",
+          "source_url": "https://la-convention.fr/discours_de_bernard_cazeneuve_cergy_pontoise_dimanche_16_novembre_2025",
+          "source_title": "Discours de Bernard Cazeneuve à Cergy-Pontoise (La Convention)",
+          "source_date": "2025-11-16"
+        },
+        {
+          "position": "La Convention proposait en 2023 une conférence sur les salaires réunissant patronat, syndicats et organisations de jeunes, ainsi qu'une prise en charge patronale élargie des frais de trajet des salariés obligés d'utiliser leur voiture.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Document du mouvement datant de septembre 2023, non repris dans la lettre de 2026.",
+          "source_url": "https://la-convention.fr/3_propositions_contre_la_vie_chere",
+          "source_title": "Trois propositions contre la vie chère (La Convention)",
+          "source_date": "2023-09"
+        }
+      ]
+    },
+    {
+      "topic_id": "industrie_economie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Lancer un plan de réindustrialisation sur dix ans : filières stratégiques sécurisées par l'État, règles stables, incitations fiscales ciblées sur la recherche et les investissements productifs.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Il rappelle que 2,5 millions d'emplois industriels ont disparu en un demi-siècle. Il juge que l'Europe doit s'unir face à la Chine qui investit et aux États-Unis qui se replient.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Développer des « territoires productifs » : écoles de métiers, centres de recherche appliquée, zones d'activité décarbonées et connectées, financements innovants associant les collectivités. Il veut aussi revaloriser les métiers manuels et faire de l'apprentissage une filière d'excellence.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "L'intelligence de la main doit, en France, retrouver toute sa valeur.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Au niveau européen : une politique industrielle commune, une doctrine de la concurrence moins dogmatique et une approche commerciale moins naïve.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Aucun instrument de protection commerciale précis n'est nommé.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Baisser les impôts de production en réduisant les aides fiscales, et soutenir les grandes entreprises exportatrices ainsi que leur chaîne de sous-traitants.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "La France compterait parmi les cinq pays les moins industrialisés d'Europe au regard de son PIB. Il prône un plan décennal, de l'investissement européen, une énergie abondante et décarbonée et un effort massif de formation et de recherche.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://la-convention.fr/discours_de_bernard_cazeneuve_cergy_pontoise_dimanche_16_novembre_2025",
+          "source_title": "Discours de Bernard Cazeneuve à Cergy-Pontoise (La Convention)",
+          "source_date": "2025-11-16"
+        }
+      ]
+    },
+    {
+      "topic_id": "retraites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Consolider le système par répartition, qu'il juge le seul juste, et le réformer avec les partenaires sociaux, sans la « brutalité » des dernières réformes.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "short_quote": "sans cette brutalité qui a tant abîmé la confiance",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Faire de la durée de cotisation le levier principal plutôt qu'un nouveau recul de l'âge légal, en reprenant, « sur des bases nouvelles et négociées », la trajectoire d'allongement engagée en 2014.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "La réforme de 2014 (loi Touraine, sous Hollande) portait progressivement la durée requise à 43 ans pour les générations nées à partir de 1973. La lettre ne fixe ni âge légal cible (64 ou 62 ans) ni nouvelle durée chiffrée.",
+          "short_quote": "Plutôt que de reculer encore l'âge légal",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Rétablir le compte pénibilité pour quatre facteurs (postures pénibles, port de charges, vibrations, risques chimiques), avec droit au départ anticipé.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Ces critères avaient été retirés en 2017.",
+          "short_quote": "doivent retrouver le droit à un départ anticipé",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Rendre sa cohérence au dispositif carrières longues, « durci sans nécessité » : ceux qui ont commencé à 16 ou 18 ans doivent partir avant ceux qui ont étudié jusqu'à 25 ans.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Pour l'emploi des seniors, dont le taux est inférieur de 15 points aux meilleurs pays européens : aménagement des postes, retraites progressives, sanctions contre les discriminations à l'embauche, accompagnement des transitions et liberté de travailler plus longtemps pour qui le souhaite.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Corriger les pensions des femmes pénalisées par des carrières interrompues, et soumettre la branche vieillesse à la « règle d'or sociale » (équilibre sur cinq ans, exonérations compensées).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2513/attachments/original/1784135398/Synthese_mesuresVfinale.pdf?1784135398",
+          "source_title": "Tenir la promesse de la France – synthèse et liste des 30 propositions",
+          "source_date": "2026-07-15"
+        }
+      ]
+    },
+    {
+      "topic_id": "sante",
+      "found": true,
+      "positions": [
+        {
+          "position": "Restaurer le sens des métiers du soin et la reconnaissance due aux soignants dans tous les territoires. Selon lui, la crise de l'hôpital est autant une crise de vocation qu'une crise budgétaire.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Il constate un accès aux soins dégradé partout (médecin traitant, spécialistes, urgences désorganisées). Aucune mesure chiffrée : rien sur la régulation de l'installation des médecins, le numerus apertus ou le budget de l'Assurance maladie.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Faire de la santé mentale une grande cause nationale, en formant les personnels de santé et de l'Éducation nationale.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Plus d'un jeune sur cinq déclare des symptômes dépressifs ; la psychiatrie est saturée et les pédopsychiatres manquent.",
+          "short_quote": "l'épreuve silencieuse de la société française",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Prendre en charge le grand âge, la dépendance et le soutien aux aidants familiaux, en garantissant la soutenabilité financière pour les familles les plus modestes.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Il évoque le débat éthique sur la fin de vie sans prendre position sur l'aide à mourir. Aucun montant ni mode de financement de la dépendance.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Il défend la Sécurité sociale comme un « bien commun » et critique les mesures prises au nom du déficit : hausse des franchises médicales, gel des pensions, désindexation des allocations, allongement des délais de carence.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Sa réponse est la règle d'or sociale (compensation intégrale des exonérations). Rien sur la répartition entre Sécurité sociale et complémentaires.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Combattre la désertification médicale, l'une des trois priorités « Reconstruire » de sa démarche.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Sans mesure précise sur le site de campagne.",
+          "source_url": "https://bc2027.fr/ma-demarche",
+          "source_title": "Ma démarche – site de campagne bc2027.fr",
+          "source_date": "2026-10"
+        }
+      ]
+    },
+    {
+      "topic_id": "logement",
+      "found": true,
+      "positions": [
+        {
+          "position": "Selon lui, la crise du logement résulte de choix politiques : désinvestissement du logement social, spéculation, renoncement à réguler. Il la qualifie de « scandale passé sous silence ».",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Il souligne que des familles consacrent plus de la moitié de leurs revenus au loyer et que des soignants, enseignants ou policiers ne trouvent pas à se loger.",
+          "short_quote": "Le logement est devenu, en France, un scandale passé sous silence.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Lancer un grand plan, à la fois social et écologique, de constructions et de rénovations pour faire baisser les prix, avec des mécanismes innovants d'accession à la propriété.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Pas de nombre de logements, pas d'encadrement des loyers explicite, pas de mesure sur les meublés touristiques dans la lettre de 2026.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Lancer un plan national pour le logement des jeunes, pour que chacun puisse habiter près de son lieu d'études ou de travail.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://la-convention.fr/discours_de_bernard_cazeneuve_cergy_pontoise_dimanche_16_novembre_2025",
+          "source_title": "Discours de Bernard Cazeneuve à Cergy-Pontoise (La Convention)",
+          "source_date": "2025-11-16"
+        },
+        {
+          "position": "La Convention proposait de construire 300 000 à 500 000 logements par an et de développer le bail réel solidaire, le « logement abordable contractualisable » et les options d'achat dans le parc social. Elle proposait aussi d'accroître les aides à la rénovation énergétique et d'instaurer un bonus pour transformer des bureaux en logements. Elle dénonçait la baisse des APL depuis 2017.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Document du mouvement issu de sa convention de Saint-Brieuc (octobre 2023), non repris en détail dans la lettre de 2026.",
+          "source_url": "https://la-convention.fr/nos_propositions_pour_le_logement",
+          "source_title": "Nos propositions pour le logement (La Convention)",
+          "source_date": "2023-10"
+        }
+      ]
+    },
+    {
+      "topic_id": "solidarites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Simplifier, unifier et automatiser les aides fondamentales pour lutter contre le non-recours et la précarité quotidienne.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Pas de montant ni d'architecture précise (allocation sociale unique, versement à la source, etc.).",
+          "short_quote": "Simplifier, unifier, automatiser les aides fondamentales relève désormais de l'urgence.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Créer une « avance jeunesse » de 3 000 € pour les 18-24 ans sans diplôme ni emploi, sous conditions de ressources, que les collectivités pourront compléter.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Il rappelle que les 18-24 ans ont un taux de pauvreté presque double de la moyenne et sont exclus du RSA jusqu'à 25 ans. Il ne propose pas pour autant d'ouvrir le RSA aux moins de 25 ans.",
+          "short_quote": "Cette avance jeunesse n'est pas une aumône, mais un droit",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Refonder une politique familiale « qui ne pénalise plus l'envie d'élever des enfants », avec une prise en charge ambitieuse de la petite enfance.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Il ajoute un cadre national unifié pour l'accueil des jeunes enfants : compétences vérifiées, personnels suffisants et mieux payés, inspections régulières sur critères publics. Aucune mesure chiffrée sur les allocations familiales ou la natalité.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Garder la politique familiale et les minima sociaux dans le budget de l'État, hors de la règle d'or sociale, pour qu'ils puissent jouer un rôle d'amortisseur quand la conjoncture se retourne.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Protéger les transitions professionnelles « comme les Scandinaves » et garantir la formation tout au long de la vie.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Rien de précis sur les règles de l'assurance chômage (durée, montant, gouvernance) ni sur le handicap.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        }
+      ]
+    },
+    {
+      "topic_id": "egalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Faire du féminisme l'inspiration des grandes politiques publiques. La lutte contre les violences et les féminicides en est la priorité : un féminicide tous les trois jours, des plaintes sans suite, des hébergements d'urgence manquants, des dispositifs d'alerte saturés.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Aucun budget ni mesure législative précise (ordonnances de protection, juridiction spécialisée, etc.).",
+          "short_quote": "Il ne peut y avoir d'égalité réelle, sans que le féminisme inspire",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Résorber les écarts de salaire que les lois n'ont pas réussi à combler, briser les plafonds de verre dans les responsabilités économiques et politiques, et corriger les retraites des femmes pénalisées par des carrières interrompues.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Aucun mécanisme nouveau n'est décrit (sanctions, index, congés parentaux partagés).",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2513/attachments/original/1784135398/Synthese_mesuresVfinale.pdf?1784135398",
+          "source_title": "Tenir la promesse de la France – synthèse et liste des 30 propositions",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "L'égalité entre femmes et hommes est une condition non négociable de l'intégration des étrangers. Sur son site de campagne, il la présente comme une « exigence républicaine ».",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        }
+      ]
+    },
+    {
+      "topic_id": "droits_lgbtqia",
+      "found": false,
+      "positions": []
+    },
+    {
+      "topic_id": "education",
+      "found": true,
+      "positions": [
+        {
+          "position": "Des enseignants mieux formés, mieux payés et mieux considérés, présentés comme la première place de l'école.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Pas de montant de revalorisation. Aucune position trouvée sur la taille des classes.",
+          "short_quote": "Ils doivent être mieux formés, mieux payés, mieux considérés.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Recentrer l'école sur les savoirs fondamentaux (lire, écrire, compter, comprendre) et revenir aux Humanités, avec un effort égal en sciences et en mathématiques. Il propose l'éthique des données et l'esprit critique dès le collège, et la philosophie dès la Seconde.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Son site de campagne cite le recul de la France en mathématiques comme priorité.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Former massivement les enseignants au numérique, avec un objectif de 100 000 enseignants formés d'ici 2030. Créer un service public de l'intelligence artificielle éducative et des laboratoires où sciences et humanités se parlent.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le chiffre de 100 000 vient du discours de Cergy (novembre 2025) ; le service public de l'IA éducative est repris dans la lettre de 2026.",
+          "source_url": "https://la-convention.fr/discours_de_bernard_cazeneuve_cergy_pontoise_dimanche_16_novembre_2025",
+          "source_title": "Discours de Bernard Cazeneuve à Cergy-Pontoise (La Convention)",
+          "source_date": "2025-11-16"
+        },
+        {
+          "position": "Lutter contre la ségrégation scolaire. Selon lui, le problème n'est pas la coexistence du public et du privé, mais « l'évitement organisé » et l'entre-soi.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Aucune mesure précise sur le financement ou les obligations de mixité du privé sous contrat.",
+          "short_quote": "Le vrai problème, c'est l'évitement organisé",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Pour les jeunes : simplifier le « labyrinthe » des aides et verser au moins 2 000 € d'aide supplémentaire à chaque étudiant boursier pendant ses deux premières années, là où le décrochage est le plus fort.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Garantir partout l'égalité d'accès à des formations numériques de qualité : un enfant de cadre y a trois fois plus de chances d'accès qu'un enfant d'ouvrier.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        }
+      ]
+    },
+    {
+      "topic_id": "societe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Fixer par la loi des limites à la concentration capitalistique des médias (presse écrite, audiovisuel, édition), face au sentiment que se constituent des « machines de guerre idéologiques ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Aucun seuil précis. Aucune position trouvée sur l'avenir de l'audiovisuel public (holding, financement, privatisation).",
+          "short_quote": "fixer des limites à la concentration capitalistique des médias",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Il voit la culture comme une chaîne de transmission (citant Léon Blum). L'école doit transmettre les « œuvres de l'esprit », dans le cadre d'un retour aux Humanités.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Rien sur le soutien à la création, le budget de la Culture ou le pass Culture. Il évoque l'inquiétude des auteurs face à l'IA générative sans faire de proposition.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        }
+      ]
+    },
+    {
+      "topic_id": "numerique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Créer un « droit de recours à l'intelligence humaine » : aucun refus d'aide, de place ou de titre ne pourrait être décidé sans qu'un agent l'examine, l'explique et en réponde, dans un délai opposable.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Il vise les algorithmes publics de contrôle et de tri, qui pèsent davantage sur les plus modestes.",
+          "short_quote": "La machine instruit ; l'homme tranche",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Transformer l'INESIA (institut d'évaluation et de sécurité de l'IA) en véritable autorité, dotée d'un statut, de moyens et d'un pouvoir contraignant, qui évaluerait les systèmes les plus puissants avant leur déploiement puis les suivrait.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "La France appliquerait ces garanties dans ses services publics sans attendre le calendrier européen.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Développer la puissance de calcul non par des fonds publics mais en faisant revenir l'épargne européenne, en s'appuyant sur les chercheurs et l'électricité nucléaire. Les usages non marchands (hôpital, école, État) seraient prioritaires et les données des Français stockées en Europe, sous droit européen.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Financer un droit à la qualification continue par une contribution sur les profits du numérique.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Aucune mesure trouvée sur la protection des mineurs face aux écrans ou aux réseaux sociaux (âge minimal, interdiction) ni sur la régulation des grandes plateformes, hormis un constat sur la propension des réseaux sociaux à « tout brouiller ».",
+          "source_url": "https://la-convention.fr/discours_de_bernard_cazeneuve_cergy_pontoise_dimanche_16_novembre_2025",
+          "source_title": "Discours de Bernard Cazeneuve à Cergy-Pontoise (La Convention)",
+          "source_date": "2025-11-16"
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Assumer la filière électronucléaire et planifier le renouvellement du parc.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "À Cergy (2025), il parlait d'une « complémentarité du nucléaire et des énergies renouvelables ». Le nombre de réacteurs n'est pas précisé.",
+          "short_quote": "Il serait irresponsable de s'en passer.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Rationaliser les investissements dans les renouvelables, électrifier les usages et sortir des énergies fossiles, dont il souligne le poids sur le pouvoir d'achat lors de la crise pétrolière liée à la guerre au Moyen-Orient.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Pas d'objectifs chiffrés. Pas de mécanisme précis sur le prix de l'électricité, seulement l'objectif d'une « facture d'énergie maîtrisée ».",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Défendre une « écologie populaire et planifiée », ni punitive ni dans le déni : rénovation massive des logements, transports collectifs dans les territoires qui en manquent, agriculture qui protège ses sols, commande publique réellement durable.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "la décroissance n'est pas une réponse à la planète",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Lancer un plan École-Climat-Solidarité sur dix ans : rénover les établissements scolaires au plus haut standard climatique, désimperméabiliser et planter les cours pour en faire des îlots de fraîcheur ouverts au quartier. Il le présente comme les « grands travaux » de la prochaine majorité, créant des centaines de milliers d'emplois.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le plan s'accompagne d'une filière française et européenne du bâtiment écologique. Le coût n'est pas chiffré.",
+          "short_quote": "rendre la France vivable pour les Français",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Créer une « DATAR du climat » rattachée au Premier ministre, pour cartographier les vulnérabilités de chaque région et organiser dans la durée l'effort public d'adaptation, en coordination avec l'investissement privé.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Rien de spécifique sur la gestion de l'eau, sauf l'accès à l'eau potable à Mayotte.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "found": true,
+      "positions": [
+        {
+          "position": "Faire de la souveraineté alimentaire une priorité et garantir des « prix dignes » aux producteurs, face à la concurrence déloyale, aux normes européennes non appliquées par les voisins, aux charges et aux distributeurs qui imposent leurs prix.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Aucune mention explicite du Mercosur ni d'outils précis (prix plancher, clauses miroirs, Egalim).",
+          "short_quote": "Soutenir l'agriculture n'est pas céder à un lobby.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Préserver le foncier agricole face à l'artificialisation et à la spéculation, et en garantir l'accès à ceux qui veulent en vivre.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Il juge la production intensive destructrice de l'environnement et de la biodiversité comme une impasse, et veut accompagner les exploitants vers des exploitations « plus sobres et plus sûres ». Il souligne le lien entre ce qui est répandu dans les champs et la santé.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Rien sur les pesticides nommément ni sur le bien-être animal.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Rendre la commande publique réellement durable, avec des exigences sanitaires, sociales et environnementales qui contrebalancent le « low-cost ».",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        }
+      ]
+    },
+    {
+      "topic_id": "territoires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Refonder la décentralisation : clarifier « qui fait quoi » entre État et collectivités et confier aux territoires une part significative des décisions qui les concernent.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Il juge la France l'un des pays les plus centralisés d'Europe. À Cergy (2025), il appelait à « un nouvel élan décentralisateur ». Pas de schéma institutionnel précis (suppression d'échelons, fiscalité locale).",
+          "short_quote": "finit par ne plus être nulle part",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Garantir une présence égale de l'État sur tout le territoire, contre la fermeture des classes, le départ non remplacé des médecins et la fermeture des guichets.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Pour l'outre-mer : même attention, mêmes investissements et même exigence que dans l'Hexagone, avec un changement de regard et de méthode. Il cite l'eau potable à Mayotte, l'insécurité en Guyane et la crise en Nouvelle-Calédonie.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Aucune position sur le statut de la Nouvelle-Calédonie.",
+          "short_quote": "la même attention, les mêmes investissements, la même exigence",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Créer une DATAR du climat et des « territoires productifs » (écoles de métiers, zones d'activité décarbonées) pour les villes moyennes, les régions ouvrières et les campagnes.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2513/attachments/original/1784135398/Synthese_mesuresVfinale.pdf?1784135398",
+          "source_title": "Tenir la promesse de la France – synthèse et liste des 30 propositions",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Dialoguer en priorité avec les maires et les élus locaux, qu'il présente comme les « premiers recours » et les « derniers remparts », et réduire les fractures entre métropole et outre-mer, centres-villes et périphéries.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "source_url": "https://bc2027.fr/ma-demarche",
+          "source_title": "Ma démarche – site de campagne bc2027.fr",
+          "source_date": "2026-10"
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "found": true,
+      "positions": [
+        {
+          "position": "Selon lui, la sécurité est due au peuple et n'est pas un thème de droite. Il veut une police de proximité dotée d'effectifs dédiés et formés.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Aucun chiffre d'effectifs.",
+          "short_quote": "La sécurité n'est pas un thème de droite",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Contre le narcotrafic et la criminalité organisée : unités spécialisées, peines réellement exécutées, coopération européenne renforcée, Parquet européen aux compétences élargies, gel des avoirs et traque des financements.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "la réponse de la République doit être implacable",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Investir dans la prévention (école, structures de prévention, dispositifs de seconde chance) : selon lui, une politique de sécurité qui néglige la prévention est condamnée à l'échec.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Lancer une mobilisation sans précédent pour la protection de l'enfance : aucune plainte pour violences faites à un enfant sans réponse, rappel autant que nécessaire de magistrats retraités volontaires pour reprendre les dossiers en souffrance, et restauration des capacités d'investigation (temps long, spécialisation).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Il rappelle qu'un enquêteur gérait en moyenne 130 dossiers en 2024.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Donner à la justice des moyens et une indépendance reconnue, et sortir du « tout-comparution immédiate » et de la prison par défaut. Les comparutions immédiates sont passées de 31 000 en 2001 à près de 50 000 en 2021 ; il y voit une cause de surpopulation carcérale et une « fabrique de récidives et d'islamisme carcéral ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Il veut aussi clarifier les missions de la justice (protéger l'ordre collectif au pénal, servir les droits de chacun au civil) et la rapprocher des citoyens. Aucune mesure sur le nombre de places de prison.",
+          "short_quote": "La prison ne peut pas être la réponse par défaut.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Il reproche au gouvernement la remise en liberté d'une cinquantaine de mineurs poursuivis pour des faits graves, faute d'avoir corrigé à temps une loi censurée par le Conseil constitutionnel. Il appelle à investir dans l'investigation, la spécialisation et la stabilité des forces plutôt que dans des « priorités » par circulaire.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "short_quote": "La fermeté n'est pas une posture.",
+          "source_url": "https://bc2027.fr/actualites/quand-l-etat-se-paie-de-mots",
+          "source_title": "Quand l'État se paie de mots (note, bc2027.fr)",
+          "source_date": "2026-07-01"
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "found": true,
+      "positions": [
+        {
+          "position": "Une politique migratoire fondée sur trois principes indissociables. Humanité : le droit d'asile comme engagement de civilisation. Intégration : apprendre le français, respecter les lois communes et l'égalité femmes-hommes. Fermeté : lutte sans faiblesse contre l'immigration irrégulière et démantèlement des filières criminelles.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Aucune mesure chiffrée ni technique : rien sur les quotas, l'AME, le droit de la nationalité, les OQTF, les régularisations ou le regroupement familial.",
+          "short_quote": "un engagement de civilisation",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Penser la politique migratoire à l'échelle du continent européen.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Selon lui, l'immigration est une question réelle et complexe, mal traitée par ceux qui la nient comme par ceux qui l'instrumentalisent. Elle doit être traitée dans le cadre des principes et des lois de la République, adossée à un État qui fonctionne et à une Europe qui décide.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "short_quote": "lutter sans faiblesse contre l'immigration irrégulière",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Mettre fin à la règle de l'unanimité au profit du vote à la majorité pour tout ce qui peut l'être.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "le levier de ceux qui veulent paralyser le continent depuis l'intérieur",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Réformer les règles budgétaires européennes, jugées « ordolibérales » et responsables d'une Europe qui se contracte, et mener une politique industrielle commune.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "La lettre ne dit pas s'il veut un emprunt commun, de nouvelles ressources propres ou un montant pour le budget de l'UE.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Une doctrine de la concurrence moins dogmatique et une politique commerciale moins naïve face à la Chine et aux États-Unis de Donald Trump.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Une Europe vue comme une « communauté puissante de nations » et un projet de protection, pas seulement un marché harmonisé. Elle devrait se doter d'une défense crédible et d'une politique migratoire continentale.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Engagement européen sans ambiguïté sur le maintien dans l'UE. Aucune position trouvée sur l'élargissement (Ukraine, Balkans).",
+          "short_quote": "Un contrat, en somme, plutôt qu'un cadre de contraintes.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Élargir les compétences du Parquet européen à la lutte contre les trafics et la criminalité organisée.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2513/attachments/original/1784135398/Synthese_mesuresVfinale.pdf?1784135398",
+          "source_title": "Tenir la promesse de la France – synthèse et liste des 30 propositions",
+          "source_date": "2026-07-15"
+        }
+      ]
+    },
+    {
+      "topic_id": "ukraine_russie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Selon lui, la défense de l'Ukraine, qui « résiste courageusement », est indissociable de l'idée d'un continent libre. Un conflit de haute intensité n'est plus une hypothèse d'école.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Aucun engagement précis : rien sur l'envoi de troupes, les avoirs russes gelés, l'adhésion de l'Ukraine à l'UE ou à l'OTAN, ni sur un montant d'aide.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Il décrit la menace russe sur le flanc oriental de l'Europe comme brutale, cynique et déterminée.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "short_quote": "défendre l'Ukraine, c'est défendre l'idée même d'un continent libre",
+          "source_url": "https://la-convention.fr/discours_de_bernard_cazeneuve_cergy_pontoise_dimanche_16_novembre_2025",
+          "source_title": "Discours de Bernard Cazeneuve à Cergy-Pontoise (La Convention)",
+          "source_date": "2025-11-16"
+        },
+        {
+          "position": "Reconnaître les « préoccupations légitimes » des partenaires de l'Est et du Nord face à la Russie, dans une architecture européenne de sécurité qui inclut une réflexion sur l'apport de la dissuasion française.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        }
+      ]
+    },
+    {
+      "topic_id": "proche_orient",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il condamne la politique du gouvernement Netanyahou, qui « par sa violence et ses crimes » ruinerait la perspective d'une paix à deux États.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Rien sur des sanctions contre le gouvernement israélien, la suspension d'accords UE-Israël ou les livraisons d'armes.",
+          "short_quote": "ruine la perspective d'une paix à deux États",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "La France doit à la fois vouloir la sécurité d'Israël et exiger un État pour les Palestiniens, sans hiérarchiser les souffrances.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Pas de position explicite trouvée sur les modalités de la reconnaissance de l'État de Palestine ni sur ses frontières.",
+          "short_quote": "ni à exiger un État pour les Palestiniens",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Il dénonce les souffrances « intolérables » infligées aux populations de Gaza et de Cisjordanie, dont il attribue la responsabilité au comportement « condamnable » du gouvernement israélien. Il refuse que cette émotion serve à justifier l'antisémitisme.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "À Cergy (2025), il évoquait « l'obligation morale » de mettre fin à la souffrance des populations de Gaza.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Il juge que le régime de Téhéran tire sa puissance de l'instabilité qu'il entretient au Proche-Orient.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        }
+      ]
+    },
+    {
+      "topic_id": "defense",
+      "found": true,
+      "positions": [
+        {
+          "position": "Réarmer à proportion de la menace et rendre aux forces les moyens qui leur manquent, la protection américaine n'étant « plus garantie ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Aucun objectif chiffré de budget (part du PIB, loi de programmation). À Cergy (2025), il présentait le réarmement comme un moyen d'éviter la guerre.",
+          "short_quote": "réarmer, à proportion de la menace",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Rester dans l'OTAN sans rien y abdiquer, et contribuer à l'Europe de la défense sans prétendre s'y substituer.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "Demeurer dans l'OTAN, sans rien y abdiquer",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Consolider l'industrie de défense et planifier les coopérations européennes, en privilégiant les productions nationales et continentales.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Engager, y compris avec le Royaume-Uni, une réflexion sur ce que la dissuasion nucléaire française peut apporter à la sécurité européenne, et coordonner la défense antimissile du continent.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Il ne dit pas s'il envisage un partage de la décision ou un déploiement d'armes à l'étranger.",
+          "short_quote": "ce que notre dissuasion peut y apporter",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Ouvrir une réserve citoyenne plus ambitieuse à davantage de Français, « non pour militariser la société » mais pour retisser le lien entre la Nation et ses armées.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Aucun service national obligatoire n'est proposé. En octobre 2026, il évoque un « esprit de défense » développé par l'école, une réserve renforcée et l'engagement de la jeunesse.",
+          "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "source_title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "source_date": "2026-07-15"
+        }
+      ]
+    }
+  ],
+  "signature_proposals": [
+    {
+      "proposal": "Rétablir le septennat, faire engager au Premier ministre sa responsabilité dès son entrée en fonction, encadrer le 49.3 et les ordonnances, introduire une dose de proportionnelle",
+      "topic_id": "institutions",
+      "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599"
+    },
+    {
+      "proposal": "Règle d'or sociale : loi Veil rétablie (exonérations compensées à l'euro près, rétroactivement depuis 2019), équilibre sur 5 ans pour les branches maladie, vieillesse et autonomie, contrôle du Haut Conseil des finances publiques",
+      "topic_id": "finances_publiques",
+      "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599"
+    },
+    {
+      "proposal": "Retraites : durée de cotisation plutôt que recul de l'âge légal (reprise négociée de la trajectoire de 2014), pénibilité rétablie, carrières longues corrigées",
+      "topic_id": "retraites",
+      "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599"
+    },
+    {
+      "proposal": "Avance jeunesse de 3 000 € pour les 18-24 ans sans diplôme ni emploi (sous conditions de ressources) et au moins 2 000 € d'aide supplémentaire aux boursiers pendant leurs deux premières années",
+      "topic_id": "solidarites",
+      "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599"
+    },
+    {
+      "proposal": "Plan École-Climat-Solidarité sur 10 ans (rénovation des écoles, cours-oasis) piloté par une « DATAR du climat » rattachée au Premier ministre",
+      "topic_id": "ecologie_energie",
+      "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599"
+    },
+    {
+      "proposal": "Droit de recours à l'intelligence humaine contre toute décision administrative défavorable instruite par algorithme, et INESIA transformée en autorité contraignante d'évaluation de l'IA",
+      "topic_id": "numerique",
+      "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599"
+    },
+    {
+      "proposal": "Protection de l'enfance : aucune plainte pour violences sur enfant sans réponse, rappel de magistrats retraités volontaires, cadre national unifié pour l'accueil de la petite enfance",
+      "topic_id": "securite_justice",
+      "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599"
+    },
+    {
+      "proposal": "Justice fiscale : taxer réellement les très grandes fortunes et les rentes, rééquilibrer travail et capital, baisser les impôts de production en réduisant les aides fiscales",
+      "topic_id": "fiscalite",
+      "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599"
+    },
+    {
+      "proposal": "Plan de réindustrialisation sur dix ans et filière nucléaire assumée avec renouvellement planifié du parc",
+      "topic_id": "industrie_economie",
+      "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599"
+    },
+    {
+      "proposal": "Fin de la règle de l'unanimité dans l'UE au profit du vote à la majorité",
+      "topic_id": "europe",
+      "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599"
+    },
+    {
+      "proposal": "Réarmement « à proportion de la menace », réflexion sur l'apport de la dissuasion française à l'Europe (y compris avec le Royaume-Uni), réserve citoyenne élargie",
+      "topic_id": "defense",
+      "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599"
+    },
+    {
+      "proposal": "Simplification normative : revue systématique des normes, deux supprimées pour une créée",
+      "topic_id": "finances_publiques",
+      "source_url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599"
+    }
+  ],
+  "distinctive_vs_others": "1) Positionnement : c'est le seul candidat déclaré issu de la social-démocratie de gouvernement à rester hors de la primaire PS-Place publique. Il juge que cette primaire porte « plus de risques de divisions que d'opportunités » (Crif, 05/10/2026). Il propose une « coalition des engagés » ouverte « au centre, à la droite modérée » et à la gauche non sectaire (https://www.crif.org/articles/entretiens/2026-10-05/bernard-cazeneuve-jappelle-a-une-coalition-des-engages/). Il était présent à la rentrée du MoDem en septembre 2026, tout en restant réservé sur une primaire du centre (AFP, https://www.boursorama.com/actualite-economique/actualites/rentree-du-modem-bayrou-evoque-a-nouveau-une-primaire-en-presence-de-cazeneuve-f79351d6499a0eae47ab5a07d13bb6ad). Il se distingue ainsi de Fabien Roussel, Delphine Batho ou Karim Bouamrane, ancrés à gauche, et d'Édouard Philippe, Gabriel Attal, Bruno Retailleau ou David Lisnard, issus du centre et de la droite. 2) Les « deux dégagismes » : il renvoie dos à dos l'extrême droite (Le Pen) et LFI (Mélenchon), qu'il accuse de se nourrir l'un l'autre. Il annonce qu'il combattra « jusqu'au bout » l'« illusion » portée par LFI (lettre du 15/07/2026). Cette symétrie le sépare de la gauche unitaire et lui a valu des critiques d'Éric Coquerel (LFI) en juillet 2026. 3) Retraites : il retient la durée de cotisation comme levier principal, sans nouveau recul de l'âge, avec pénibilité et carrières longues. C'est une voie médiane entre le relèvement de l'âge à 65 ans et de la durée à 45 ans annoncé par Édouard Philippe (franceinfo, https://www.franceinfo.fr/elections/presidentielle/) et les propositions de retour en arrière sur l'âge portées à gauche et au RN. 4) Il propose une « règle d'or sociale » propre à son projet : compensation rétroactive des exonérations depuis 2019, équilibre sur cinq ans, avis du Haut Conseil des finances publiques. 5) Institutions : il veut revenir au septennat. Selon L'Express (26/07/2026), Marine Le Pen défend aussi ce retour ; il y ajoute une dose de proportionnelle et la responsabilité systématique du Premier ministre, sans changement de régime ni VIe République (à la différence de LFI). 6) Il revendique à gauche un discours sur la sécurité (« pas un thème de droite ») nourri de son passage à l'Intérieur (2014-2016). Il assume aussi le nucléaire (« irresponsable de s'en passer »), qui l'oppose aux candidats favorables à une sortie du nucléaire. 7) Europe et défense : il est fédéraliste pragmatique (fin de l'unanimité, politique industrielle commune) et propose de rester dans l'OTAN « sans rien y abdiquer », avec une réflexion sur l'européanisation de la dissuasion avec le Royaume-Uni. Il s'oppose en cela aux candidats souverainistes ou favorables au Frexit (François Asselineau, Florian Philippot, Nicolas Dupont-Aignan) et à ceux qui veulent sortir du commandement intégré de l'OTAN. 8) Il refuse délibérément toute promesse chiffrée sur le pouvoir d'achat (« Quiconque le promet ment, ou ne sait pas ») et ne propose ni hausse du SMIC ni taxe Zucman explicite. 9) Il est, avec Édouard Philippe et Gabriel Attal, l'un des trois anciens Premiers ministres de la Ve République dans la course.",
+  "evolutions_and_contradictions": "Statut de candidature ambigu, la principale incertitude. Fin avril 2026, il se dit « prêt à être candidat » (Le Figaro, 28/04/2026). Le 16 juillet, il « présente sa candidature » au Parisien, alors que sa lettre affirme ne pas écrire « pour ajouter mon nom à la liste des prétendants ». Ensuite, son équipe précise qu'il n'est « pas encore officiellement candidat » (France 24, 25/08/2026). Il affirme pourtant « Mon objectif est de devenir président » (Marianne, 29/07/2026) et cherche ses 500 parrainages (septembre 2026). Début octobre, il parle encore d'une candidature conditionnée à ce que son projet « rencontre les circonstances » (BFMTV via Yahoo, 04/10/2026). Primaire : en novembre 2025 à Cergy, il remerciait Raphaël Glucksmann, François Hollande et Carole Delga de leur présence et affichait un front commun. En juillet 2026, il refuse la primaire PS-Place publique où concourt Glucksmann, la qualifie de « mortifère » en septembre et espère qu'il ne reste qu'un seul candidat social-démocrate. Positionnement : il revendique la gauche (« gauche républicaine, sociale, européenne et réformiste ») mais tend la main au centre et à la droite modérée (coalition des engagés, rentrée du MoDem). Fiscalité : il impute la dérive de la dette à la suppression de l'ISF, de la taxe d'habitation et à la flat tax, sans proposer explicitement de les rétablir. Il prône à la fois la taxation des très grandes fortunes et une fiscalité « pas punitive ». Selon Contexte (29/04/2026), il a critiqué le « très grand nombre de taxes nouvelles » du programme du PS. Selon Mediapart (21/06/2026), le cabinet d'avocats dont il est associé conseillerait des contribuables aisés sur une expatriation fiscale au Luxembourg ; Actu.fr a évoqué des « contradictions » avec son discours. Ces éléments ne sont connus que par les titres de presse et n'ont pas pu être vérifiés. Retraites : sa référence à la « trajectoire de 2014 » prolonge la réforme Touraine du quinquennat Hollande, dont il fut ministre ; c'est une position cohérente avec son passé gouvernemental. Le discours de Cergy (2025) contenait des mesures (revenu universel de formation, contribution sur les profits du numérique, 100 000 enseignants formés à l'IA d'ici 2030) qui ne sont pas toutes reprises dans la lettre de 2026.",
+  "open_questions": [
+    "Date de déclaration : le Parisien et Le Monde la datent du 16 juillet 2026 (le 17 selon plusieurs reprises), mais son équipe a ensuite dit qu'il n'était « pas encore officiellement candidat ». Ira-t-il au bout, et obtiendra-t-il les 500 parrainages d'ici le 12 mars 2027 ?",
+    "Retraites : quel âge légal conserverait-il (64 ans ? 62 ans ?) après la suspension de la réforme de 2023, et quelle durée de cotisation cible ?",
+    "Fiscalité : quel instrument pour taxer les « très grandes fortunes » (ISF rétabli, taxe Zucman, impôt minimum, autre) ? Avec quels taux et quel rendement ?",
+    "Finances publiques : aucune trajectoire chiffrée de déficit, ni montant d'économies, ni objectif d'effectifs publics.",
+    "Salaires : aucune position trouvée sur le SMIC, l'indexation ou le partage de la valeur.",
+    "Fin de vie : il évoque le débat éthique sans se prononcer sur l'aide à mourir.",
+    "Droits LGBTQIA+ (PMA, GPA, filiation, transidentité, éducation à la sexualité) : aucune position trouvée.",
+    "Audiovisuel public et politique culturelle : aucune position sur la réforme ou le financement de l'audiovisuel public.",
+    "Numérique : aucune mesure trouvée sur les écrans et les réseaux sociaux pour les mineurs ni sur la régulation des grandes plateformes.",
+    "Immigration : aucune mesure précise (AME, quotas, nationalité, OQTF, régularisations).",
+    "Laïcité : aucune position sur les signes religieux précis ni sur la mémoire de la colonisation.",
+    "Ukraine : envoi de troupes de réassurance, avoirs russes gelés, adhésion à l'UE, montant de l'aide ?",
+    "Proche-Orient : sanctions contre le gouvernement israélien, embargo sur les armes, accord UE-Israël ? Aucune position explicite trouvée.",
+    "Défense : objectif de budget en part du PIB ? Service national ?",
+    "Agriculture : position sur l'accord UE-Mercosur et sur le bien-être animal non trouvée.",
+    "Énergie : position sur le prix de l'électricité et le marché européen non vérifiée ; un article de Politico (05/08/2026), inaccessible, le décrit jouant « sa propre partition » à gauche.",
+    "Les entretiens au Parisien (16/07), à Marianne (29/07), à BFMTV (20/07) et à Ouest-France (13/09/2026) n'ont pu être lus qu'à travers des reprises (accès bloqué) ; des propositions supplémentaires peuvent y figurer."
+  ],
+  "programme_sources": [
+    {
+      "title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France » – texte intégral, 86 pages, avec la liste des 30 propositions (pp. 77-85)",
+      "url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+      "date": "2026-07-15"
+    },
+    {
+      "title": "Tenir la promesse de la France – synthèse de 8 pages et liste des propositions",
+      "url": "https://assets.nationbuilder.com/laconvention/pages/2513/attachments/original/1784135398/Synthese_mesuresVfinale.pdf?1784135398",
+      "date": "2026-07-15"
+    },
+    {
+      "title": "Tenir la promesse de la France – Bernard Cazeneuve (reproduction intégrale, Revue politique et parlementaire)",
+      "url": "https://www.revuepolitique.fr/tenir-la-promesse-de-la-france-bernard-cazeneuve/",
+      "date": "2026-07-24"
+    },
+    {
+      "title": "Site de campagne bc2027.fr (« La France, ensemble ») – Ma démarche",
+      "url": "https://bc2027.fr/ma-demarche",
+      "date": "2026-10"
+    },
+    {
+      "title": "Note « Quand l'État se paie de mots » (bc2027.fr)",
+      "url": "https://bc2027.fr/actualites/quand-l-etat-se-paie-de-mots",
+      "date": "2026-07-01"
+    },
+    {
+      "title": "Discours de Bernard Cazeneuve à Cergy-Pontoise (La Convention)",
+      "url": "https://la-convention.fr/discours_de_bernard_cazeneuve_cergy_pontoise_dimanche_16_novembre_2025",
+      "date": "2025-11-16"
+    },
+    {
+      "title": "Entretien au Crif : « j'appelle à une coalition des engagés »",
+      "url": "https://www.crif.org/articles/entretiens/2026-10-05/bernard-cazeneuve-jappelle-a-une-coalition-des-engages/",
+      "date": "2026-10-05"
+    },
+    {
+      "title": "franceinfo – « Si je peux être utile, je le serai » : Bernard Cazeneuve s'adresse aux Français",
+      "url": "https://www.franceinfo.fr/elections/presidentielle/si-je-peux-etre-utile-je-le-serai-bernard-cazeneuve-s-adresse-aux-francais-mais-maintient-le-suspense-sur-une-candidature-a-la-presidentielle-2027_8110241.html",
+      "date": "2026-07-16"
+    },
+    {
+      "title": "Public Sénat – La candidature de Bernard Cazeneuve traduit la difficulté de notre personnel politique à se renouveler",
+      "url": "https://www.publicsenat.fr/actualites/politique/presidentielle-2027-la-candidature-de-bernard-cazeneuve-traduit-la-difficulte-de-notre-personnel-politique-a-se-renouveler",
+      "date": "2026-07-17"
+    },
+    {
+      "title": "Journal du Net – « Mon objectif est de devenir président de la République » (reprise de l'entretien à Marianne)",
+      "url": "https://www.journaldunet.com/business/action-publique/1553249-bernard-cazeneuve-mon-objectif-est-de-devenir-president-de-la-republique/",
+      "date": "2026-07-30"
+    },
+    {
+      "title": "La Convention – Nos propositions pour le logement (convention de Saint-Brieuc)",
+      "url": "https://la-convention.fr/nos_propositions_pour_le_logement",
+      "date": "2023-10"
+    },
+    {
+      "title": "La Convention – Trois propositions contre la vie chère",
+      "url": "https://la-convention.fr/3_propositions_contre_la_vie_chere",
+      "date": "2023-09"
+    }
+  ]
+}

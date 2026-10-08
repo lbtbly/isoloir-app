@@ -1,30 +1,35 @@
 import type { ComponentChildren } from 'preact'
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks'
-import { go } from '../../app'
+import { go, link } from '../nav'
 import { affinityBand, AFFINITY_BANDS, bandRange } from '../../core/affinity'
 import { hasOpinion } from '../../core/answers'
 import { buildExport, downloadBlob, exportFileName } from '../../core/exportData'
 import { currentAnswers } from '../../core/revisions'
+import { comparePath } from '../../core/routes'
+import { prepareCompare } from '../compare/load'
 import {
   CLOSE_GAP,
   computeResults,
   displayScore,
+  knownQuestions,
   methodPeers,
   POINTS_PER_STROKE,
   strokesFor,
   type AgreementTally,
   type CandidateResult,
   type Results as ResultsData,
+  type UnrankedResult,
 } from '../../core/score'
 import type { SessionState } from '../../core/storage'
-import type { Candidate, ElectionPack, Question, TopicId, TopicWeights } from '../../core/types'
+import type { Candidate, CandidateId, ElectionPack, Question, TopicId, TopicWeights } from '../../core/types'
 import { ConfirmErase } from '../components/ConfirmErase'
 import { FormHeader } from '../components/FormHeader'
 import { SiteFooter } from '../components/SiteFooter'
 import { Icon } from '../components/Icon'
 import { Portrait } from '../components/Portrait'
 import { Tally } from '../components/Tally'
-import { percent } from '../format'
+import { percent, shareText } from '../format'
+import { isMany } from '../many'
 import { useOnline } from '../useOnline'
 import { MAX_PRIORITIES } from './Priorities'
 
@@ -43,6 +48,9 @@ interface Props {
 
 /** Au-delà de ce nombre de lignes rouges, on rappelle l'effet d'exclusion */
 const MANY_RED_LINES = 5
+
+/** Élection nombreuse : la grille par thème montre d'abord ce nombre de candidats, les premiers du classement */
+const GRID_FIRST = 5
 
 type Snapshot = SessionState['lastSeenRanking']
 
@@ -79,7 +87,11 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
   }, [bank])
   const questionById = useMemo(() => new Map(bank.questions.map(q => [q.id, q])), [bank])
 
+  // « Comparer mes premiers » s'ouvre d'ici : l'écran de comparaison se prépare dès que le navigateur a un moment
+  useEffect(() => prepareCompare(), [])
   const [finalistsOnly, setFinalistsOnly] = useState(false)
+  // Grille par thème d'une élection nombreuse : tous les candidats, à la demande
+  const [allColumns, setAllColumns] = useState(false)
   // Classement vu à la visite précédente : les changements restent marqués jusqu'à être vus
   const [previous] = useState(state.lastSeenRanking)
   const list = useRef<HTMLOListElement>(null)
@@ -94,6 +106,10 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
   )
   const results = finalistResults ?? allResults
   const ranking = results.ranking
+  // Hors classement (élections qui l'activent) : connus sur trop peu de vos réponses, montrés sous le classement
+  const unranked = results.unranked
+  // Des candidats hors du classement (hors classement ou non classés) : les phrases disent « classés »
+  const someOff = unranked.length > 0 || results.excluded.length > 0
   const compatible = ranking.filter(r => r.compatible || results.allIncompatible)
   const incompatible = results.allIncompatible ? [] : ranking.filter(r => !r.compatible)
   const [first, second] = ranking
@@ -224,7 +240,7 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
         </span>
         <Portrait candidate={c} size="row" decorative />
         <div class="board-who">
-          <a class="board-name" href={`#/candidat/${c.id}`}>
+          <a class="board-name" href={link(`/candidat/${c.id}`)}>
             {c.name}
           </a>
           <span class="board-party">{c.affiliation}</span>
@@ -292,7 +308,7 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
             Le dépouillement compte vos avis. Placez au moins un repère sur une approche pour obtenir un résultat.
           </p>
           <p>
-            <a class="btn-primary" href="#/feuille/1">
+            <a class="btn-primary" href={link('/feuille/1')}>
               Remplir la feuille
               <Icon name="arrow-right" />
             </a>
@@ -304,8 +320,14 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
   }
 
   const topicRows = bank.topics.filter(t => ranking.some(r => r.topicScores[t.id] !== null && r.topicScores[t.id] !== undefined))
+  // Une vingtaine de colonnes ne se lit plus : d'abord les premiers de votre classement, tous sur demande
+  const manyColumns = isMany(ranking.length)
+  const gridAll = manyColumns && allColumns
+  const columns = manyColumns && !allColumns ? ranking.slice(0, GRID_FIRST) : ranking
   const notes = [
-    results.allIncompatible ? <>Aucun candidat ne respecte toutes vos lignes rouges : ils sont classés du moins au plus concerné.</> : null,
+    results.allIncompatible ? (
+      <>Aucun candidat{someOff ? ' classé' : ''} ne respecte toutes vos lignes rouges : ils sont classés du moins au plus concerné.</>
+    ) : null,
     results.close && first && second ? (
       provisional ? (
         <>
@@ -315,7 +337,7 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
       ) : (
         <>
           {byId.get(first.candidateId)?.name} et {byId.get(second.candidateId)?.name} sont à moins de {CLOSE_GAP} points : l’écart
-          n’est pas significatif. <a href="#/approfondir">Approfondir pour les départager</a>
+          n’est pas significatif. <a href={link('/approfondir')}>Approfondir pour les départager</a>
         </>
       )
     ) : null,
@@ -338,7 +360,7 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
   // Les suites, en panneaux : la première est l'action principale de la barre du bas. Tant que le résultat
   // est provisoire, seul « Qui porte quoi » est proposé : l'action principale est de continuer.
   const whoHolds = {
-    href: '#/proximite',
+    href: link('/proximite'),
     icon: 'list',
     title: 'Qui porte quoi',
     desc: provisional
@@ -347,9 +369,9 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
   }
   const next = [
     whoHolds,
-    { href: '#/partager', icon: 'share', title: 'Partager l’image', desc: 'Votre affiche en JPG, fabriquée sur cet appareil.' },
+    { href: link('/partager'), icon: 'share', title: 'Partager l’image', desc: 'Votre affiche en JPG, fabriquée sur cet appareil.' },
     {
-      href: '#/approfondir',
+      href: link('/approfondir'),
       icon: 'deepen',
       title: 'Approfondir',
       desc:
@@ -357,7 +379,7 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
           ? `${answeredDeep} question${answeredDeep > 1 ? 's' : ''} de plus déjà pointée${answeredDeep > 1 ? 's' : ''} : d’autres thèmes à creuser.`
           : `Jusqu’à ${deepCount} questions de plus, par thème.`,
     },
-    { href: '#/candidats', icon: 'arrow-right', title: 'Les candidats', desc: 'Parcours, site de campagne et toutes leurs positions.' },
+    { href: link('/candidats'), icon: 'arrow-right', title: 'Les candidats', desc: 'Parcours, site de campagne et toutes leurs positions.' },
   ]
 
   return (
@@ -413,7 +435,7 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
                   <a href="#topics-title" onClick={jumpTo('topics-title')}>
                     {chosen.length ? 'Changer' : 'Choisir'} dans «&nbsp;Par thème&nbsp;»
                   </a>
-                  <a href="#/priorites">Tous les thèmes</a>
+                  <a href={link('/priorites')}>Tous les thèmes</a>
                 </p>
                 <p class="prio-status" role="status">
                   {note?.where === 'top' ? noteText : ''}
@@ -424,7 +446,7 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
               <p class="notice" role="status">
                 {stale.length} question{stale.length > 1 ? 's ont' : ' a'} changé depuis vos réponses : le résultat est
                 calculé sans {stale.length > 1 ? 'elles' : 'elle'} en attendant.{' '}
-                <a href="#/revision">{stale.length > 1 ? 'Les revoir' : 'La revoir'}</a>
+                <a href={link('/revision')}>{stale.length > 1 ? 'Les revoir' : 'La revoir'}</a>
               </p>
             ) : null}
             {state.dataUpdatedFrom ? (
@@ -444,7 +466,7 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
             {provisional ? null : <Reading neutral />}
           </div>
           {provisional ? (
-            <Trend seen={essential.length - unseen.length} total={essential.length} left={unseen.length} href={`#${refineHref}`} />
+            <Trend seen={essential.length - unseen.length} total={essential.length} left={unseen.length} href={link(refineHref)} />
           ) : (
             <Leader ranking={ranking} results={results} byId={byId} />
           )}
@@ -463,25 +485,51 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
             ) : null}
           </div>
           {provisional ? <Reading /> : null}
-          <ol class="board-list" ref={list} aria-label={provisional ? 'Tendance par affinité' : 'Classement par affinité'}>
-            {compatible.map(row)}
-            {incompatible.length ? (
-              <li class="pv-divider">
-                <Icon name="cross" class="flag-mark" />
-                <span>Franchissent au moins une de vos lignes rouges</span>
-              </li>
-            ) : null}
-            {incompatible.map((r, i) => row(r, compatible.length + i))}
-          </ol>
-          <ul class="syn-scale" aria-label="Échelle de lecture">
-            {AFFINITY_BANDS.map(b => (
-              <li key={b.key} class={`aff-${b.key}`}>
-                <span class="swatch" aria-hidden="true" />
-                {b.label}
-                {provisional ? null : <span class="syn-range"> {bandRange(b)}</span>}
-              </li>
-            ))}
-          </ul>
+          {ranking.length ? (
+            <ol class="board-list" ref={list} aria-label={provisional ? 'Tendance par affinité' : 'Classement par affinité'}>
+              {compatible.map(row)}
+              {incompatible.length ? (
+                <li class="pv-divider">
+                  <Icon name="cross" class="flag-mark" />
+                  <span>Franchissent au moins une de vos lignes rouges</span>
+                </li>
+              ) : null}
+              {incompatible.map((r, i) => row(r, compatible.length + i))}
+            </ol>
+          ) : (
+            // Règle « hors classement » : aucun candidat n'est assez connu sur ces réponses pour être classé
+            <p class="board-empty">
+              Aucun candidat n’est connu sur au moins {shareText(results.minCoverageShare ?? 0.5)} de vos réponses&nbsp;: pas
+              de classement pour l’instant. D’autres réponses peuvent le permettre.
+            </p>
+          )}
+          {ranking.length ? (
+            <ul class="syn-scale" aria-label="Échelle de lecture">
+              {AFFINITY_BANDS.map(b => (
+                <li key={b.key} class={`aff-${b.key}`}>
+                  <span class="swatch" aria-hidden="true" />
+                  {b.label}
+                  {provisional ? null : <span class="syn-range"> {bandRange(b)}</span>}
+                </li>
+              ))}
+            </ul>
+          ) : null}
+          {/* Raccourci vers la comparaison : leurs positions côte à côte, thème par thème (pas pendant la tendance,
+              dont l'ordre n'est pas encore un résultat) */}
+          {provisional || ranking.length < 2 ? null : (
+            <p class="board-compare">
+              <a class="btn-text" href={link(comparePath(ranking.slice(0, 2).map(r => r.candidateId)))}>
+                <Icon name="compare" />
+                Comparer mes 2 premiers
+              </a>
+              {ranking.length > 2 ? (
+                <a class="btn-text" href={link(comparePath(ranking.slice(0, 3).map(r => r.candidateId)))}>
+                  <Icon name="compare" />
+                  Comparer mes 3 premiers
+                </a>
+              ) : null}
+            </p>
+          )}
           {notes.length ? (
             <ul class="callouts">
               {notes.map((n, i) => (
@@ -494,10 +542,15 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
           ) : null}
         </section>
 
-        {provisional ? null : <Agreement results={results} byId={byId} />}
+        <Unranked items={unranked} minShare={results.minCoverageShare} provisional={provisional} byId={byId} />
 
-        {provisional ? null : (
-          <div class="results-split">
+        {/* Non classés de l'élection : toujours nommés, sans score, même pendant la tendance */}
+        <Excluded pack={pack} ids={results.excluded} byId={byId} />
+
+        {provisional || !ranking.length ? null : <Agreement results={results} byId={byId} />}
+
+        {provisional || !ranking.length ? null : (
+          <div class={`results-split${gridAll ? ' is-grid-all' : ''}`}>
             <section class="block topics-block" aria-labelledby="topics-title">
               <h2 id="topics-title" class="section-title" tabIndex={-1}>
                 Par thème
@@ -512,12 +565,32 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
               <p class="prio-status" role="status">
                 {note?.where === 'grid' ? noteText : ''}
               </p>
-              <div class="grid-scroll">
-                <table class="pv-grid">
+              {manyColumns ? (
+                <p class="grid-columns">
+                  <span>
+                    {gridAll
+                      ? `Les ${ranking.length}\u00a0candidats${someOff ? ' classés' : ''}, dans l’ordre de votre classement.`
+                      : `Les ${GRID_FIRST}\u00a0premiers de votre classement.`}
+                  </span>{' '}
+                  <button type="button" class="btn-text" aria-controls="topic-grid" onClick={() => setAllColumns(!allColumns)}>
+                    {gridAll
+                      ? `Revenir aux ${GRID_FIRST}\u00a0premiers`
+                      : `Comparer les ${ranking.length}\u00a0candidats${someOff ? ' classés' : ''}`}
+                  </button>
+                </p>
+              ) : null}
+              {/* Tous les candidats : la grille défile ; au clavier aussi, d'où la zone focalisable et nommée */}
+              <div
+                class={`grid-scroll${gridAll ? ' is-all' : ''}`}
+                {...(gridAll
+                  ? { role: 'region', 'aria-label': `Par thème, tous les candidats${someOff ? ' classés' : ''}`, tabIndex: 0 }
+                  : {})}
+              >
+                <table class="pv-grid" id="topic-grid">
                   <thead>
                     <tr>
                       <th scope="col">Thème</th>
-                      {ranking.map(r => {
+                      {columns.map(r => {
                         const c = byId.get(r.candidateId)!
                         return (
                           <th scope="col" key={r.candidateId}>
@@ -555,7 +628,7 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
                             </span>
                           ) : null}
                         </th>
-                        {ranking.map(r => {
+                        {columns.map(r => {
                           const v = r.topicScores[t.id] ?? null
                           const b = affinityBand(v)
                           return (
@@ -590,7 +663,7 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
                 <ol class="why-list">
                   {results.why.map((w, i) => (
                     <li key={w.questionId}>
-                      <a href="#/proximite" onClick={() => sessionStorageSafeSet('isoloir-focus', w.questionId)}>
+                      <a href={link('/proximite')} onClick={() => sessionStorageSafeSet('isoloir-focus', w.questionId)}>
                         <span class="why-n" aria-hidden="true">
                           {i + 1}
                         </span>
@@ -629,12 +702,15 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
               <li>Pas une consigne de vote : le résultat dépend des sujets retenus et de la méthode.</li>
               <li>
                 Positions arrêtées au {election.dataFrozenAt.split('-').reverse().join('/')}. Une position inconnue sort du
-                calcul ; un candidat connu sur peu de vos réponses est ramené vers 50 %.
+                calcul ; un candidat connu sur peu de vos réponses est ramené vers 50 %
+                {results.minCoverageShare === null
+                  ? '.'
+                  : `, et sur moins de ${shareText(results.minCoverageShare)}, il n’est pas classé.`}
               </li>
               <li>L’outil ignore la personnalité, l’expérience et la capacité à rassembler.</li>
             </ul>
             <p class="small">
-              <a href="#/methode">Méthode et sources</a>
+              <a href={link('/methode')}>Méthode et sources</a>
             </p>
           </section>
           <section class="your-data" aria-labelledby="data-title">
@@ -662,25 +738,25 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
       {/* Barre du bas : l'action principale, et deux raccourcis toujours visibles */}
       <nav class="action-bar results-bar" aria-label="Suite">
         <div class="action-bar-inner">
-          <a class="btn-text bar-home" href="#/">
+          <a class="btn-text bar-home" href={link('/')}>
             <Icon name="arrow-left" />
             <span class="btn-label">Accueil</span>
           </a>
           <div class="bar-shortcuts">
             {/* Pas d'affiche à partager tant que ce n'est qu'une tendance */}
             {provisional ? null : (
-              <a class="bar-mini" href="#/partager">
+              <a class="bar-mini" href={link('/partager')}>
                 <Icon name="share" />
                 <span>Partager</span>
               </a>
             )}
             {provisional ? (
-              <a class="bar-mini" href="#/proximite">
+              <a class="bar-mini" href={link('/proximite')}>
                 <Icon name="list" />
                 <span>Qui porte quoi</span>
               </a>
             ) : (
-              <a class="bar-mini" href="#/approfondir">
+              <a class="bar-mini" href={link('/approfondir')}>
                 <Icon name="deepen" />
                 <span>Approfondir</span>
               </a>
@@ -713,7 +789,7 @@ function Reading({ neutral }: { neutral?: boolean }) {
       <span>
         <span class="mini-tally" aria-hidden="true" />1 bâton = {POINTS_PER_STROKE} points
       </span>
-      <a href="#/methode">La méthode</a>
+      <a href={link('/methode')}>La méthode</a>
     </p>
   )
 }
@@ -791,7 +867,8 @@ function Leader({
   if (!first || first.score === null) return null
   const c = byId.get(first.candidateId)!
   const b = affinityBand(first.score)
-  const crossing = ranking.filter(r => !r.compatible).length
+  // Hors classement compris : la phrase compte tous les candidats qui franchissent une ligne rouge
+  const crossing = [...ranking, ...results.unranked].filter(r => !r.compatible).length
   return (
     <section class="leader on-copy" aria-labelledby="leader-title">
       <Portrait candidate={c} size="id" decorative />
@@ -800,7 +877,7 @@ function Leader({
           <span class="leader-lead">
             {results.allIncompatible ? 'Le moins concerné par vos lignes rouges' : 'Le plus proche de vos idées'}
           </span>
-          <a class="leader-name" href={`#/candidat/${c.id}`}>
+          <a class="leader-name" href={link(`/candidat/${c.id}`)}>
             {c.name}
           </a>
         </h2>
@@ -824,6 +901,124 @@ function Leader({
           </p>
         ) : null}
       </div>
+    </section>
+  )
+}
+
+/**
+ * Hors classement (élections qui l'activent) : les candidats connus sur trop peu de vos réponses, sous le classement,
+ * dans un ordre tiré au hasard. Ni rang, ni bâtons, ni couleur de palier : seulement la couverture, et le score dit
+ * indicatif (aucun pourcentage pendant la tendance). Le nom mène à la fiche, comme au classement.
+ */
+function Unranked({
+  items,
+  minShare,
+  provisional,
+  byId,
+}: {
+  items: UnrankedResult[]
+  minShare: number | null
+  provisional: boolean
+  byId: Map<string, Candidate>
+}) {
+  if (!items.length || minShare === null) return null
+  const one = items.length === 1
+  return (
+    <section class="unranked" aria-labelledby="unranked-title">
+      <h2 id="unranked-title" class="unranked-title">
+        Trop peu de positions connues pour {one ? 'le' : 'les'} classer
+      </h2>
+      <p class="unranked-lede">
+        {`${one ? 'Sa' : 'Leur'} position est connue sur moins de ${shareText(minShare)} de vos réponses. Calculé sur si peu de questions, un score varie trop pour être comparé aux autres`}
+        {provisional ? '.' : `\u00a0: ${one ? 'le sien' : 'le leur'} est donné à titre indicatif.`}
+        {one ? null : ' Ordre tiré au hasard.'}{' '}
+        <a href={link('/methode/hors-classement')}>La règle, dans la méthode</a>
+      </p>
+      <ul class="unranked-list">
+        {items.map(r => {
+          const c = byId.get(r.candidateId)!
+          const touched = r.dealbreakers.length
+          const flagged = !r.compatible
+          return (
+            <li key={r.candidateId} class={`unranked-item${flagged ? ' is-flagged' : ''}`}>
+              <Portrait candidate={c} size="small" decorative />
+              <div class="unranked-who">
+                <a class="unranked-name" href={link(`/candidat/${c.id}`)}>
+                  {c.name}
+                </a>
+                <span class="unranked-party">{c.affiliation}</span>
+              </div>
+              <p class="unranked-meta">
+                <span>
+                  Connu sur {r.known} de vos {r.answered} réponses
+                </span>
+                {/* Les éléments sont séparés à l'écran par l'espacement ; à la lecture vocale, par une virgule */}
+                {!provisional && r.score !== null ? (
+                  <span class="unranked-score">
+                    <span class="sr-only">, </span>Score indicatif&nbsp;: {displayScore(r.score)}&nbsp;%
+                  </span>
+                ) : null}
+                {touched ? (
+                  <span class="unranked-flag">
+                    <span class="sr-only">, </span>
+                    <Icon name="cross" class="flag-mark" />
+                    {r.dealbreakers.some(d => d.level === 'touche') ? 'Franchit' : 'Pourrait franchir'}{' '}
+                    {touched > 1 ? `${touched} de vos lignes rouges` : 'une de vos lignes rouges'}
+                  </span>
+                ) : null}
+              </p>
+            </li>
+          )
+        })}
+      </ul>
+    </section>
+  )
+}
+
+/**
+ * Non classés (election.ranking.excluded) : sortis du calcul par décision, positions connues sur trop peu de
+ * questions. Toujours nommés sous le classement, dans un ordre tiré au hasard, avec la seule chose que l'on mesure
+ * d'eux : sur combien de questions de la banque leur position est connue. Ni score, ni rang, ni bâtons, ni ligne
+ * rouge. Le nom mène à la fiche, comme au classement.
+ */
+function Excluded({ pack, ids, byId }: { pack: ElectionPack; ids: CandidateId[]; byId: Map<string, Candidate> }) {
+  const known = useMemo(() => new Map(ids.map(id => [id, knownQuestions(pack, id)])), [pack, ids])
+  if (!ids.length) return null
+  const one = ids.length === 1
+  const total = pack.bank.questions.length
+  return (
+    <section class="unranked excluded" aria-labelledby="excluded-title">
+      <h2 id="excluded-title" class="unranked-title">
+        {one ? '1\u00a0candidat n’est pas classé' : `${ids.length}\u00a0candidats ne sont pas classés`}
+        <span class="excluded-why">
+          &nbsp;: {one ? 'sa position est connue' : 'leurs positions sont connues'} sur trop peu de questions
+        </span>
+      </h2>
+      <p class="unranked-lede">
+        {one
+          ? 'Il n’a ni score ni rang, quelles que soient vos réponses. Sa fiche et ses positions restent consultables\u00a0; la liste sera revue à mesure que ses positions seront connues.'
+          : 'Ils n’ont ni score ni rang, quelles que soient vos réponses. Leurs fiches et leurs positions restent consultables\u00a0; la liste sera revue à mesure que leurs positions seront connues. Ordre tiré au hasard.'}{' '}
+        <a href={link('/methode/non-classes')}>La règle, dans la méthode</a>
+      </p>
+      <ul class="unranked-list">
+        {ids.map(id => {
+          const c = byId.get(id)!
+          return (
+            <li key={id} class="unranked-item">
+              <Portrait candidate={c} size="small" decorative />
+              <div class="unranked-who">
+                <a class="unranked-name" href={link(`/candidat/${c.id}`)}>
+                  {c.name}
+                </a>
+                <span class="unranked-party">{c.affiliation}</span>
+              </div>
+              <p class="unranked-meta">
+                Connu sur {known.get(id)} des {total}&nbsp;questions de la banque
+              </p>
+            </li>
+          )
+        })}
+      </ul>
     </section>
   )
 }

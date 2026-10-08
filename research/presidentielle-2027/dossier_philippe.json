@@ -1,0 +1,1217 @@
+{
+  "candidate": "Édouard Philippe",
+  "affiliation": "Horizons, parti qu'il a fondé. Il a quitté la présidence exécutive du parti au 1er octobre 2026 pour mener une campagne de « rassemblement de la droite et du centre », avec un comité de campagne baptisé « Avec Édouard ».",
+  "campaign_site": "https://www.edouardphilippe.fr/",
+  "declaration": {
+    "date": "2024-09-03",
+    "form": "Entretien à l'hebdomadaire Le Point, publié en ligne le mardi 3 septembre 2024 au soir : « Je serai candidat à la prochaine élection présidentielle ». Il y annonce que ce qu'il proposera « sera massif ». Il a relancé sa candidature au conseil national d'Horizons à Reims le 10 mai 2026, puis lors de son premier meeting à Paris (Adidas Arena) le 5 juillet 2026, sous le slogan « Croire en nous ».",
+    "source_url": "https://www.franceinfo.fr/politique/edouard-philippe/presidentielle-2027-edouard-philippe-se-declare-candidat-et-acte-sa-rupture-avec-emmanuel-macron_6762466.html",
+    "source_title": "Présidentielle 2027 : Édouard Philippe se déclare candidat et acte sa rupture avec Emmanuel Macron (franceinfo, 3 septembre 2024)"
+  },
+  "overview": "Ancien Premier ministre d'Emmanuel Macron (2017-2020), maire du Havre réélu en mars 2026 et fondateur d'Horizons, Édouard Philippe se présente comme le candidat du rassemblement de la droite et du centre. Il a rompu avec Emmanuel Macron après la dissolution de 2024 et lui a demandé en octobre 2025 d'organiser une présidentielle anticipée. Son projet tient en quatre axes : « France plus sûre », « plus attentive à ses enfants », « plus prospère » et « plus conquérante ». Il repose sur le redressement des comptes (déficit ramené de plus de 5 % à 2 % du PIB, règle d'or inscrite dans la Constitution), une politique de l'offre (50 Md€ de baisse des impôts de production compensés par 50 Md€ d'aides aux entreprises en moins, aucune nouvelle norme ni aucun nouvel impôt pendant le quinquennat) et la conviction qu'il faut « travailler plus ». Sa mesure phare est la retraite à 65 ans avec 45 annuités, complétée par un pilier de capitalisation. Sur la sécurité et la justice, il propose des peines planchers, la suppression du juge d'application des peines, un « état d'urgence narcotrafic » et le retour des instructions individuelles du garde des Sceaux aux procureurs. En matière d'immigration, il veut dénoncer l'accord franco-algérien de 1968, instaurer des quotas et prendre des mesures d'exception à Mayotte, tout en refusant un moratoire général sur l'immigration légale. Il place l'école au centre de son projet (+20 % de rémunération moyenne pour les enseignants, autonomie des établissements). Il défend une ligne pro-européenne et pro-ukrainienne (il œuvrerait pour l'entrée de l'Ukraine dans l'OTAN) et veut « massifier » les armées. Sur la laïcité, il défend la neutralité de l'État : il refuse d'interdire le voile dans l'espace public mais soutient l'interdiction des signes religieux à l'école. Pour gouverner, il prévoit une dissolution et des référendums dès 2027 ainsi que des ordonnances, mais refuse d'élargir le champ de l'article 11.",
+  "topics": [
+    {
+      "topic_id": "institutions",
+      "found": true,
+      "positions": [
+        {
+          "position": "Méthode annoncée en cas de victoire : dissoudre l'Assemblée nationale et organiser des référendums en même temps que les législatives de juin. Trois sujets sont prévus : une dose de capitalisation pour les retraites, une règle d'or budgétaire et une habilitation à légiférer par ordonnances sur la santé, l'éducation et la justice.",
+          "kind": "proposition_explicite",
+          "details": "Présenté au congrès d'Horizons à Lille (mars 2025). Le second référendum devait aussi porter sur « l'organisation administrative du pays ». En mai 2026, il s'est montré moins affirmatif sur le référendum « retraites » (voir position suivante).",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/presidentielle-pourquoi-edouard-philippe-nest-pas-la-pour-beurrer-les-tartines",
+          "source_title": "Présidentielle : pourquoi Edouard Philippe n'est « pas là pour beurrer les tartines » (Public Sénat)",
+          "source_date": "2025-03-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Il confirme un référendum sur une « règle d'or » budgétaire dès 2027, mais hésite désormais sur un référendum consacré aux retraites.",
+          "kind": "position_declaree",
+          "details": "Propos tenus sur France Inter, rapportés par l'Opinion (titre et chapô consultés uniquement). Le programme en ligne mentionne « inscrire dans la Constitution une règle d'or ».",
+          "source_url": "https://www.lopinion.fr/politique/referendum-sur-les-retraites-les-hesitations-dedouard-philippe",
+          "source_title": "Référendum sur les retraites : les hésitations d'Edouard Philippe (l'Opinion)",
+          "source_date": "2026-05-28",
+          "confidence": "medium"
+        },
+        {
+          "position": "Il accepte de recourir au référendum, mais refuse de réviser la Constitution pour élargir le champ de l'article 11, par exemple à l'immigration comme le propose Bruno Retailleau. Il refuse aussi qu'un référendum permette de passer outre une décision du Conseil constitutionnel, et veut que toute révision passe par l'article 89 et le Parlement.",
+          "kind": "position_declaree",
+          "short_quote": "Ne dénigrons pas un système qui […] vérifie que le Parlement écrit bien la loi",
+          "details": "Entretien sur franceinfo le 8 septembre 2026, repris par Ouest-France, Le Figaro et Epoch Times.",
+          "source_url": "https://www.ouest-france.fr/elections/presidentielle/presidentielle-2027-referendum-etat-de-droit-edouard-philippe-marque-sa-difference-avec-bruno-retailleau-2f20273a-ab60-11f1-8346-c9d5c99462af",
+          "source_title": "Référendum, État de droit : Edouard Philippe marque sa différence avec Bruno Retailleau (Ouest-France)",
+          "source_date": "2026-09-08",
+          "confidence": "high"
+        },
+        {
+          "position": "Il est opposé à la proportionnelle aux législatives : selon lui, elle prolongerait « l'absence de majorité » et distendrait le lien entre électeur et député. Il défend le scrutin majoritaire.",
+          "kind": "position_declaree",
+          "details": "Déclaration faite après un entretien à Matignon avec François Bayrou, alors Premier ministre.",
+          "source_url": "https://www.france24.com/fr/info-en-continu/20250522-edouard-philippe-d%C3%A9favorable-%C3%A0-la-proportionnelle-qui-conduirait-%C3%A0-une-absence-de-majorit%C3%A9",
+          "source_title": "Edouard Philippe « défavorable » à la proportionnelle qui conduirait à une « absence de majorité » (France 24/AFP)",
+          "source_date": "2025-05-22",
+          "confidence": "high"
+        },
+        {
+          "position": "Il a appelé Emmanuel Macron à organiser une présidentielle anticipée en quittant ses fonctions de manière « ordonnée » une fois le budget 2026 adopté, sans démission immédiate.",
+          "kind": "position_declaree",
+          "details": "Appel lancé sur RTL le 7 octobre 2025 et réitéré le 16 octobre 2025.",
+          "source_url": "https://lcp.fr/actualites/election-presidentielle-anticipee-reclamee-par-edouard-philippe-quelles-sont-les-regles",
+          "source_title": "Élection présidentielle anticipée réclamée par Édouard Philippe : quelles sont les règles ? (LCP)",
+          "source_date": "2025-10-07",
+          "confidence": "medium"
+        },
+        {
+          "position": "Il veut assouplir le non-cumul des mandats : un parlementaire pourrait exercer un mandat exécutif local secondaire (adjoint au maire, vice-président de département, de région ou d'intercommunalité), mais pas celui de maire ou de président d'exécutif.",
+          "kind": "inference",
+          "details": "Proposition de loi du groupe Horizons à l'Assemblée (député Henri Alfandari), février 2024. La position personnelle de Philippe n'est pas explicitée dans la source.",
+          "source_url": "https://lcp.fr/actualites/cumul-des-mandats-les-deputes-du-parti-d-edouard-philippe-veulent-fortement-assouplir-l",
+          "source_title": "Cumul des mandats : les députés du parti d'Édouard Philippe veulent fortement assouplir l'interdiction (LCP)",
+          "source_date": "2024-02-13",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "laicite_republique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il combat la proposition du RN d'un référendum pour interdire le voile islamique dans l'espace public, qu'il juge « inconstitutionnelle et scandaleuse ». Il dit ne pas être à l'aise avec le voile sans vouloir l'interdire, et définit la laïcité comme l'absolue neutralité de la puissance publique et des fonctionnaires.",
+          "kind": "position_declaree",
+          "short_quote": "ça ne veut pas dire que je veux l'interdire",
+          "details": "Propos tenus sur France Inter. Il précise : « Je ne veux pas entrer dans une confrontation avec mes compatriotes français de confession musulmane. »",
+          "source_url": "https://www.franceinfo.fr/societe/religion/sanctionner-le-port-du-voile-edouard-philippe-juge-la-proposition-du-rn-inconstitutionnelle-et-scandaleuse_8173319.html",
+          "source_title": "Sanctionner le port du voile : Edouard Philippe juge la proposition du RN « inconstitutionnelle et scandaleuse » (franceinfo)",
+          "source_date": "2026-09-02",
+          "confidence": "high"
+        },
+        {
+          "position": "Il défend la loi interdisant les signes religieux à l'école et l'interdiction de l'abaya. Il qualifie de « trahison de la laïcité » la proposition de LFI de revenir dessus.",
+          "kind": "position_declaree",
+          "short_quote": "une trahison de la laïcité",
+          "details": "Déclaration faite à Alès le 7 septembre 2026, en réaction à Mathilde Panot (LFI).",
+          "source_url": "https://fr.news.yahoo.com/abaya-%C3%A0-l%C3%A9cole-lfi-accus%C3%A9e-204519400.html",
+          "source_title": "Abaya à l'école : LFI accusée de « trahir » la laïcité en voulant revenir sur l'interdiction (AFP via Yahoo)",
+          "source_date": "2026-09-07",
+          "confidence": "high"
+        },
+        {
+          "position": "Selon lui, interdire de façon générale et absolue le voile dans le sport serait contraire à la laïcité. Une règle spécifique pourrait toutefois se justifier pour les sportifs qui portent les couleurs de la France.",
+          "kind": "position_declaree",
+          "details": "Entretien sur CNews. Une restriction générale n'est justifiable, selon lui, que si elle est le seul moyen de prévenir un trouble à l'ordre public.",
+          "source_url": "https://www.aa.com.tr/fr/monde/%C3%A9douard-philippe-interdire-le-voile-dans-le-sport-serait-contraire-%C3%A0-la-la%C3%AFcit%C3%A9/3513196",
+          "source_title": "Édouard Philippe : « Interdire le voile dans le sport serait contraire à la laïcité » (Anadolu, d'après CNews)",
+          "source_date": "2025-03-18",
+          "confidence": "medium"
+        },
+        {
+          "position": "Mémoire coloniale : à la question « la colonisation est-elle un crime ? », il a répondu « non ». Il a réitéré à La Réunion qu'il y a eu des crimes pendant la colonisation, mais que la qualifier en un mot de crime serait réducteur.",
+          "kind": "position_declaree",
+          "details": "Réponse donnée sur LCI (émission « Objectif 2027 », 8 décembre 2025, face à Jean-Michel Aphatie), puis réaffirmée sur Antenne Réunion fin août 2026. Elle a suscité des critiques, dont celle de députés réunionnais.",
+          "source_url": "https://imazpress.com/selection-de-la-redaction/-la-reunion-douard-philippe-reaffirme-que-la-colonisation-n-est-pas-un-crime",
+          "source_title": "À La Réunion, Édouard Philippe réaffirme que la colonisation n'est pas un crime (Imaz Press)",
+          "source_date": "2026-08-26",
+          "confidence": "high"
+        },
+        {
+          "position": "Pour l'intégration, il veut s'appuyer sur la langue, le travail et les valeurs républicaines.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure",
+          "source_title": "Pour une France plus sûre – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "fiscalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "« Pacte fiscal » : 50 Md€ de baisse des impôts de production, compensés par la suppression de 50 Md€ d'« aides publiques improductives » aux entreprises.",
+          "kind": "proposition_explicite",
+          "short_quote": "50 Md€ de baisses d'impôts de production contre 50 Md€ d'aides",
+          "details": "Mesure du programme, défendue au débat du Medef le 27 août 2026. La liste des impôts et des aides concernés n'est pas détaillée dans les sources consultées.",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
+          "source_title": "Pour une France plus prospère – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "Moratoire sur la durée du quinquennat : aucune nouvelle norme et aucun nouvel impôt.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
+          "source_title": "Pour une France plus prospère – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "Héritage : il refuse d'alourdir les droits de succession et préfère faciliter les transmissions « plus vite et plus tôt ». Il veut relever fortement les plafonds de donation aux enfants et petits-enfants pendant les trois premières années du quinquennat, et maintenir le pacte Dutreil.",
+          "kind": "proposition_explicite",
+          "details": "Propos tenus à l'AFP, sans montant chiffré. Ses équipes ont parlé de doubler certains abattements, sans précision.",
+          "source_url": "https://lcp.fr/actualites/heritages-et-droits-de-succession-que-proposent-les-candidats-a-l-election",
+          "source_title": "Héritages et droits de succession : que proposent les candidats à l'élection présidentielle ? (LCP)",
+          "source_date": "2026-08-27",
+          "confidence": "high"
+        },
+        {
+          "position": "Une part fiscale entière dès le 2e enfant, au lieu du 3e aujourd'hui.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants",
+          "source_title": "Pour une France plus attentive à ses enfants – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "Il demande de cesser de « punir fiscalement » les propriétaires bailleurs et juge l'IFI pénalisant pour ceux qui épargnent dans l'immobilier.",
+          "kind": "position_declaree",
+          "details": "Discours au congrès de la FNAIM.",
+          "source_url": "https://www.immomatin.com/franchise/reseaux-franchise/renforcer-le-droit-du-proprietaire-pour-fluidifier-le-marche-edouard-philippe-congres-fnaim-2025.html",
+          "source_title": "« Renforcer le droit du propriétaire pour fluidifier le marché » (Immo Matin)",
+          "source_date": "2025-12-08",
+          "confidence": "medium"
+        },
+        {
+          "position": "Opposition à la « taxe Zucman » (2 % par an sur les patrimoines de plus de 100 M€) : le groupe Horizons a voté contre à l'Assemblée.",
+          "kind": "inference",
+          "details": "Vote n°3300 du 31 octobre 2025 (PLF 2026) : 0 voix pour, 21 contre et 1 abstention dans le groupe Horizons. Aucune déclaration personnelle de Philippe sur cette taxe n'a été trouvée.",
+          "source_url": "https://datan.fr/votes/legislature-17/vote_3300",
+          "source_title": "Vote Assemblée nationale : instaurer la taxe Zucman (Datan)",
+          "source_date": "2025-10-31",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "finances_publiques",
+      "found": true,
+      "positions": [
+        {
+          "position": "Ramener le déficit public de plus de 5 % à 2 % du PIB d'ici la fin du quinquennat, et inscrire une règle d'or dans la Constitution.",
+          "kind": "proposition_explicite",
+          "short_quote": "de plus de 5 % à 2 % du PIB en fin de quinquennat",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
+          "source_title": "Pour une France plus prospère – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "Réorganiser l'État : regrouper ou privatiser des agences et opérateurs publics et simplifier les procédures. L'État, ses agences et les collectivités doivent « se serrer la ceinture ».",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
+          "source_title": "Pour une France plus prospère – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "Effectifs publics : ne recruter que 123 000 agents en 2027 au lieu de remplacer les 130 000 départs, soit environ 7 000 postes en moins. L'objectif est de financer une aide carburant ciblée de 450 M€ sans recourir à la dette.",
+          "kind": "proposition_explicite",
+          "details": "Aide de 100 € pour 5,5 millions de « gros rouleurs ». Les secteurs concernés par les non-remplacements ne sont pas précisés.",
+          "source_url": "https://actu.orange.fr/politique/edouard-philippe-veut-supprimer-7000-postes-de-fonctionnaires-pour-maintenir-les-aides-au-carburant-magic-CNT000002s7m7H.html",
+          "source_title": "Édouard Philippe veut supprimer 7000 postes de fonctionnaires pour maintenir les aides au carburant (Orange/AFP)",
+          "source_date": "2026-09-26",
+          "confidence": "high"
+        },
+        {
+          "position": "Réduire la dette par l'allongement de la durée du travail et la réforme de l'État, sans hausse d'impôts. Aucun montant global d'économies n'est chiffré, contrairement à Gabriel Attal (150 Md€) ou au RN (125 Md€).",
+          "kind": "position_declaree",
+          "details": "Il chiffre en revanche sa réforme des retraites à environ 30 Md€ par an en régime de croisière, dont 10 Md€ pour les retraites et 20 Md€ pour les finances publiques.",
+          "source_url": "https://www.franceinfo.fr/economie/crise/crise-de-la-dette/que-proposent-les-candidats-a-la-presidentielle-pour-reduire-la-dette-publique_8215481.html",
+          "source_title": "Que proposent les candidats à la présidentielle pour réduire la dette publique ? (franceinfo)",
+          "source_date": "2026-09-29",
+          "confidence": "high"
+        },
+        {
+          "position": "Il rejette l'annulation d'une partie de la dette proposée par Jean-Luc Mélenchon : la France finirait « interdit bancaire » et cela remettrait en cause les règles européennes.",
+          "kind": "position_declaree",
+          "short_quote": "la France finisse interdit bancaire",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/dette-retraites-fiscalite-que-retenir-du-premier-debat-des-candidats-a-lelection-presidentielle",
+          "source_title": "Dette, retraites, fiscalité… que retenir du premier débat des candidats (Public Sénat)",
+          "source_date": "2026-08-27",
+          "confidence": "high"
+        },
+        {
+          "position": "Il redoute « l'étranglement » de la dette et une crise financière en cas de choc extérieur. Il critique le budget 2027 du gouvernement Lecornu, qui chercherait à « rogner un peu » partout, et a qualifié de désastreuse la suspension de la réforme des retraites de 2023.",
+          "kind": "position_declaree",
+          "details": "Propos tenus sur LCI le 1er octobre 2026. En 2025, il avait aussi menacé de voter contre le budget de la Sécurité sociale 2026, jugé « dangereux ».",
+          "source_url": "https://www.moneyvox.fr/actu/110597/edouard-philippe-craint-etranglement-de-la-dette-ou-un-choc-exterieur",
+          "source_title": "Edouard Philippe craint « l'étranglement » de la dette ou un « choc extérieur » (MoneyVox/AFP)",
+          "source_date": "2026-10-01",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "travail_salaires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Les Français doivent travailler plus longtemps dans la semaine, dans l'année et peut-être dans la vie. Il juge les 35 heures « une très mauvaise idée », mais estime que revenir aux 39 heures ne serait pas forcément mieux et veut laisser de la liberté dans l'organisation du temps de travail.",
+          "kind": "position_declaree",
+          "short_quote": "plus longtemps dans la semaine, dans l'année et peut-être dans la vie",
+          "details": "Propos tenus sur RTL et rapportés par Capital. Il n'a pas annoncé d'abrogation formelle des 35 heures.",
+          "source_url": "https://fr.finance.yahoo.com/actualites/va-t-travailler-longtemps-edouard-121704327.html",
+          "source_title": "Va-t-on « travailler plus longtemps » ? Edouard Philippe favorable à l'abrogation des 35 heures (Capital via Yahoo)",
+          "source_date": "2025-06-25",
+          "confidence": "high"
+        },
+        {
+          "position": "Rééquilibrer le financement de la protection sociale pour augmenter le salaire net des actifs.",
+          "kind": "proposition_explicite",
+          "details": "Le mode de financement n'est pas précisé (CSG, TVA ou autre).",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
+          "source_title": "Pour une France plus prospère – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "medium"
+        },
+        {
+          "position": "Arrêts maladie : il veut mettre fin à « l'open bar ». Le premier ou les deux premiers jours d'un arrêt ponctuel ne seraient plus indemnisés, et un délai incompressible de 3 à 6 mois serait imposé entre un arrêt maladie et une rupture conventionnelle.",
+          "kind": "proposition_explicite",
+          "details": "Il invoque une hausse d'environ 40 % de la valeur des arrêts maladie entre 2019 et 2025 et cite l'Espagne en exemple. Propos tenus à l'AFP avant le débat du Medef.",
+          "source_url": "https://www.lequotidiendesentreprises.fr/politique/chomage-edouard-philippe-veut-limiter-lindemnisation-a-12-mois/",
+          "source_title": "Chômage : Édouard Philippe veut limiter l'indemnisation à 12 mois (QDE/AFP)",
+          "source_date": "2026-08-27",
+          "confidence": "high"
+        },
+        {
+          "position": "Créer un « droit à la reconversion » pour les salariés dont le métier est menacé par l'intelligence artificielle, et adapter la formation continue.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante",
+          "source_title": "Pour une France plus conquérante – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "industrie_economie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Politique de l'offre : baisser de 50 Md€ les impôts de production en supprimant 50 Md€ d'aides aux entreprises, et réduire drastiquement les normes, au-delà d'une simple « simplification ».",
+          "kind": "proposition_explicite",
+          "details": "Présenté au débat du Medef (27 août 2026). Le moratoire normatif et fiscal figure au programme.",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/dette-retraites-fiscalite-que-retenir-du-premier-debat-des-candidats-a-lelection-presidentielle",
+          "source_title": "Dette, retraites, fiscalité… que retenir du premier débat des candidats (Public Sénat)",
+          "source_date": "2026-08-27",
+          "confidence": "high"
+        },
+        {
+          "position": "Protection européenne des secteurs stratégiques : imposer aux entreprises étrangères des transferts de technologie, des quotas de production et des coentreprises. Créer aussi un « Buy European Tech Act » pour des achats technologiques groupés entre États.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
+          "source_title": "Pour une France plus prospère – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "Financer l'innovation par l'épargne : créer un « livret capital France » et mobiliser la future capitalisation retraite au profit des champions technologiques. Il veut aussi bâtir un « TSMC européen » des semi-conducteurs et soutenir Mistral AI par la commande publique.",
+          "kind": "proposition_explicite",
+          "details": "Il souhaite réorienter vers l'Europe une partie des 35 000 Md€ d'épargne européenne, dont une partie est aujourd'hui placée aux États-Unis.",
+          "source_url": "https://www.maddyness.com/2026/06/16/edouard-philippe-candidat-a-la-presidentielle-lia-nest-plus-un-sujet-de-specialistes-cest-une-question-de-pouvoir-de-prosperite-et-de-liberte/",
+          "source_title": "Édouard Philippe : « L'IA n'est plus un sujet de spécialistes… » (Maddyness)",
+          "source_date": "2026-06-16",
+          "confidence": "high"
+        },
+        {
+          "position": "Former davantage d'ingénieurs : de 40 000 à 100 000 par an en cinq ans.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante",
+          "source_title": "Pour une France plus conquérante – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "Donner aux acteurs français et européens un accès préférentiel à l'énergie décarbonée.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante",
+          "source_title": "Pour une France plus conquérante – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "retraites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Porter progressivement l'âge légal de départ à 65 ans (contre 62 ans et 9 mois aujourd'hui) et la durée de cotisation à 45 annuités, en moins de dix ans. La réforme de 2023, suspendue en 2025, serait reprise puis prolongée.",
+          "kind": "proposition_explicite",
+          "short_quote": "porter progressivement […] l'âge de départ à 65 ans",
+          "details": "Présenté dans une vidéo du 29 septembre 2026. L'âge d'annulation de la décote reste fixé à 67 ans.",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/age-de-depart-a-65-ans-45-annuites-de-cotisation-edouard-philippe-candidat-horizons-a-la-presidentielle-devoile-son-projet-de-reforme-des-retraites_8214737.html",
+          "source_title": "Age de départ à 65 ans, 45 annuités de cotisation… Edouard Philippe dévoile son projet de réforme des retraites (franceinfo)",
+          "source_date": "2026-09-29",
+          "confidence": "high"
+        },
+        {
+          "position": "Départs anticipés : selon lui, « un Français sur trois » pourrait partir entre 60 et 64 ans (carrières longues, métiers pénibles). Les départs à 55 ans (handicap), 60 ans (incapacité permanente) et 62 ans (invalidité) seraient maintenus.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.france24.com/fr/info-en-continu/20260929-age-de-d%C3%A9part-%C3%A0-65-ans-45-annuit%C3%A9s-de-cotisation-%C3%A9douard-philippe-d%C3%A9voile-son-projet-de-r%C3%A9forme-des-retraites",
+          "source_title": "Présidentielle : Édouard Philippe abat sa carte retraites (France 24/AFP)",
+          "source_date": "2026-09-29",
+          "confidence": "high"
+        },
+        {
+          "position": "Ajouter un pilier de capitalisation qui représenterait 10 à 15 % des pensions d'ici 15 ans. Il comprendrait un fonds collectif obligatoire, alimenté notamment par les excédents de l'Agirc-Arrco et présenté comme neutre pour le coût du travail, ainsi qu'un plan d'épargne-retraite généralisé, doté de 500 € par l'État à la signature du premier contrat de travail.",
+          "kind": "proposition_explicite",
+          "details": "L'économie attendue est d'environ 30 Md€ par an en régime de croisière (10 Md€ pour les retraites, 20 Md€ pour les finances publiques).",
+          "source_url": "https://www.journaldunet.com/business/action-publique/1555605-edouard-philippe-devoile-son-projet-de-reforme-des-retraites-pour-la-presidentielle-2027-prevoyant-un-depart-a-65-ans-et-45-annuites/",
+          "source_title": "Edouard Philippe dévoile son projet de réforme des retraites… 65 ans et 45 annuités (Journal du Net)",
+          "source_date": "2026-09-29",
+          "confidence": "high"
+        },
+        {
+          "position": "Gouvernance : une fois l'équilibre rétabli, le système serait confié aux partenaires sociaux, tenus par une « règle d'or » d'équilibre. Ils pourraient redéfinir les critères de pénibilité et les aménagements de fin de carrière.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.journaldunet.com/business/action-publique/1555605-edouard-philippe-devoile-son-projet-de-reforme-des-retraites-pour-la-presidentielle-2027-prevoyant-un-depart-a-65-ans-et-45-annuites/",
+          "source_title": "Edouard Philippe dévoile son projet de réforme des retraites (Journal du Net)",
+          "source_date": "2026-09-29",
+          "confidence": "high"
+        },
+        {
+          "position": "Les retraités devront « contribuer davantage » au financement du modèle social.",
+          "kind": "position_declaree",
+          "details": "Annoncé au meeting du 5 juillet 2026, sans modalités précises (CSG, abattement ou indexation non précisés).",
+          "source_url": "https://fr.euronews.com/my-europe/2026/07/05/premier-meeting-de-campagne-pour-edouard-philippe-linteret-des-enfants-sera-sa-boussole",
+          "source_title": "Premier meeting de campagne pour Édouard Philippe : « l'intérêt des enfants » sera sa « boussole » (Euronews)",
+          "source_date": "2026-07-05",
+          "confidence": "medium"
+        },
+        {
+          "position": "Version antérieure (mars 2025) : regrouper les régimes en trois (privé, public, indépendants), à l'équilibre, avec une dose de capitalisation collective, le tout adopté par référendum.",
+          "kind": "position_declaree",
+          "details": "Proposition du congrès de Lille. Le projet de septembre 2026 ne reprend pas explicitement les trois régimes.",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/presidentielle-pourquoi-edouard-philippe-nest-pas-la-pour-beurrer-les-tartines",
+          "source_title": "Présidentielle : pourquoi Edouard Philippe n'est « pas là pour beurrer les tartines » (Public Sénat)",
+          "source_date": "2025-03-17",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "sante",
+      "found": true,
+      "positions": [
+        {
+          "position": "Stabiliser les dépenses de santé grâce à la prévention et à l'innovation, plutôt que par des moyens supplémentaires.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
+          "source_title": "Pour une France plus prospère – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "medium"
+        },
+        {
+          "position": "Pour améliorer l'accès aux soins, il mise sur davantage de prévention et sur l'intelligence artificielle (consultations, prescriptions, lecture d'imagerie).",
+          "kind": "position_declaree",
+          "details": "Entretien au média Legend. Début octobre 2026, son plan santé détaillé n'était pas encore publié.",
+          "source_url": "https://www.lequotidiendumedecin.fr/sante-societe/politique-de-sante/edouard-philippe-mise-sur-davantage-de-prevention-et-de-recours-lia-pour-ameliorer-lacces-aux-soins",
+          "source_title": "Édouard Philippe mise sur davantage de prévention et de recours à l'IA pour améliorer l'accès aux soins (Le Quotidien du Médecin)",
+          "source_date": "2025-09-29",
+          "confidence": "medium"
+        },
+        {
+          "position": "Réformer la santé par ordonnances, avec une habilitation donnée par référendum.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/presidentielle-pourquoi-edouard-philippe-nest-pas-la-pour-beurrer-les-tartines",
+          "source_title": "Présidentielle : pourquoi Edouard Philippe n'est « pas là pour beurrer les tartines » (Public Sénat)",
+          "source_date": "2025-03-17",
+          "confidence": "medium"
+        },
+        {
+          "position": "Fin de vie : à titre personnel, il juge qu'aider quelqu'un à mourir peut être « normal et sain » (il a évoqué la mort de son père), mais il ne souhaite pas inscrire l'aide à mourir dans la loi, qui poserait des problèmes « d'une complexité redoutable ».",
+          "kind": "position_declaree",
+          "source_url": "https://actu.orange.fr/politique/fin-de-vie-edouard-philippe-se-confie-sur-son-parcours-personnel-sans-etre-pour-une-inscription-dans-la-loi-magic-CNT000002hd3Ip.html",
+          "source_title": "Fin de vie : Édouard Philippe se confie sur son parcours personnel sans être pour une inscription dans la loi (Orange/AFP)",
+          "source_date": "2025-01-27",
+          "confidence": "high"
+        },
+        {
+          "position": "Arrêts de travail : instaurer un ou deux jours de carence non indemnisés pour les arrêts ponctuels, contre ce qu'il appelle « l'open bar » des arrêts.",
+          "kind": "proposition_explicite",
+          "details": "La vérification de franceinfo nuance son diagnostic : les téléconsultations ne représentent que 2 à 4 % des arrêts.",
+          "source_url": "https://www.franceinfo.fr/sante/les-arrets-de-travail-courts-sont-ils-prescrits-en-open-bar-comme-l-affirme-edouard-philippe_8166740.html",
+          "source_title": "Les arrêts de travail courts sont-ils prescrits en « open bar » comme l'affirme Edouard Philippe ? (franceinfo)",
+          "source_date": "2026-08-28",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "logement",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il s'oppose à l'encadrement des loyers. Il cite un économiste pour qui c'est « le moyen le plus efficace, sauf bombardement, pour détruire une ville ».",
+          "kind": "position_declaree",
+          "details": "Discours au congrès de la FNAIM. Son argument : empêcher les prix d'équilibrer l'offre et la demande crée des problèmes.",
+          "source_url": "https://www.immomatin.com/franchise/reseaux-franchise/renforcer-le-droit-du-proprietaire-pour-fluidifier-le-marche-edouard-philippe-congres-fnaim-2025.html",
+          "source_title": "« Renforcer le droit du propriétaire pour fluidifier le marché » (Immo Matin)",
+          "source_date": "2025-12-08",
+          "confidence": "high"
+        },
+        {
+          "position": "Renforcer les droits des propriétaires : accélérer les procédures judiciaires et sécuriser la récupération des logements en cas d'impayés, pour inciter à remettre des biens en location.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.empruntis.com/financement/actualites/logement-pistes-edouard-philippe-sortir-crise-20373.php",
+          "source_title": "Logement : les pistes d'Édouard Philippe pour sortir de la crise (Empruntis)",
+          "source_date": "2025-12-10",
+          "confidence": "high"
+        },
+        {
+          "position": "Suspendre temporairement la notion d'« indécence énergétique » de la loi Climat et résilience (interdictions de louer les logements les moins bien classés), pour stabiliser le marché locatif.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.immomatin.com/franchise/reseaux-franchise/renforcer-le-droit-du-proprietaire-pour-fluidifier-le-marche-edouard-philippe-congres-fnaim-2025.html",
+          "source_title": "« Renforcer le droit du propriétaire pour fluidifier le marché » (Immo Matin)",
+          "source_date": "2025-12-08",
+          "confidence": "medium"
+        },
+        {
+          "position": "Créer un prêt à taux zéro à chaque naissance pour aider les familles qui s'agrandissent à déménager.",
+          "kind": "proposition_explicite",
+          "details": "En décembre 2025, il évoquait un PTZ conditionné à un 2e ou 3e enfant.",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants",
+          "source_title": "Pour une France plus attentive à ses enfants – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "solidarites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Assurance chômage : limiter l'indemnisation à 12 mois maximum pour les moins de 50 ans, contre 18 mois aujourd'hui pour les moins de 55 ans, sur le modèle allemand.",
+          "kind": "proposition_explicite",
+          "short_quote": "faire comme l'Allemagne",
+          "source_url": "https://www.lequotidiendesentreprises.fr/politique/chomage-edouard-philippe-veut-limiter-lindemnisation-a-12-mois/",
+          "source_title": "Chômage : Édouard Philippe veut limiter l'indemnisation à 12 mois (QDE/AFP)",
+          "source_date": "2026-08-27",
+          "confidence": "high"
+        },
+        {
+          "position": "Nouvelle politique familiale : fusionner les dispositifs existants en une aide financière unique et universelle, accorder une part fiscale entière dès le 2e enfant et un PTZ à chaque naissance.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants",
+          "source_title": "Pour une France plus attentive à ses enfants – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "Créer un « temps partiel parental » : travailler à 80 % payé 100 % pendant deux mois à la sortie du congé parental.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants",
+          "source_title": "Pour une France plus attentive à ses enfants – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "Maintenir le départ à la retraite dès 55 ans pour les personnes handicapées dans sa réforme.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.france24.com/fr/info-en-continu/20260929-age-de-d%C3%A9part-%C3%A0-65-ans-45-annuit%C3%A9s-de-cotisation-%C3%A9douard-philippe-d%C3%A9voile-son-projet-de-r%C3%A9forme-des-retraites",
+          "source_title": "Présidentielle : Édouard Philippe abat sa carte retraites (France 24/AFP)",
+          "source_date": "2026-09-29",
+          "confidence": "high"
+        },
+        {
+          "position": "Permettre au juge de priver les narcotrafiquants des prestations de solidarité (RSA, allocations) par une peine complémentaire, et recouvrer de force les amendes sur les prestations sociales.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.france24.com/fr/info-en-continu/20260907-en-campagne-%C3%A0-al%C3%A8s-edouard-philippe-pr%C3%B4ne-un-%C3%A9tat-d-urgence-narcotrafic",
+          "source_title": "En campagne à Alès, Edouard Philippe prône un « état d'urgence narcotrafic » (France 24/AFP)",
+          "source_date": "2026-09-07",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "egalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Lutter contre le proxénétisme en ligne en faisant fermer les sites qui le tolèrent.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants",
+          "source_title": "Pour une France plus attentive à ses enfants – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "medium"
+        },
+        {
+          "position": "Il juge « absurde » l'éviction de salariées de la tour Eiffel lors d'un événement privé hindou, et rappelle que les visiteurs viennent dans « un pays qui a des règles ».",
+          "kind": "position_declaree",
+          "source_url": "https://www.franceinfo.fr/politique/edouard-philippe/edouard-philippe-denonce-une-decision-absurde-apres-l-eviction-de-salariees-de-la-tour-eiffel-lors-d-un-evenement-hindou_8182721.html",
+          "source_title": "Edouard Philippe dénonce une décision « absurde » après l'éviction de salariées de la tour Eiffel (franceinfo)",
+          "source_date": "2026-09-08",
+          "confidence": "high"
+        },
+        {
+          "position": "Faciliter le retour à l'emploi après un congé parental (temps partiel à 80 % payé 100 % pendant deux mois) et réformer le congé parental.",
+          "kind": "proposition_explicite",
+          "details": "Mesure présentée comme familiale, pas explicitement comme une mesure d'égalité femmes-hommes.",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants",
+          "source_title": "Pour une France plus attentive à ses enfants – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "droits_lgbtqia",
+      "found": true,
+      "positions": [
+        {
+          "position": "PMA : après s'y être longtemps opposé, il s'est dit en 2018 « plutôt favorable » à l'ouverture de la PMA aux couples de femmes et aux femmes seules. Il s'interrogeait sur des règles de remboursement pour éviter les abus.",
+          "kind": "position_declaree",
+          "details": "Déclaration de 2018, quand il était Premier ministre (L'Émission politique, France 2). Son gouvernement a ensuite porté le projet de loi bioéthique. Aucune déclaration récente n'a été trouvée.",
+          "source_url": "https://genethique.org/edouard-philippe-plutot-favorable-a-la-pma-pour-toutes/",
+          "source_title": "Edouard Philippe plutôt favorable à la « PMA pour toutes » (Gènéthique)",
+          "source_date": "2018-09-28",
+          "confidence": "low"
+        },
+        {
+          "position": "Il s'est dit opposé à la GPA en 2018.",
+          "kind": "position_declaree",
+          "details": "Déclaration ancienne, sans confirmation récente trouvée.",
+          "source_url": "https://genethique.org/edouard-philippe-plutot-favorable-a-la-pma-pour-toutes/",
+          "source_title": "Edouard Philippe plutôt favorable à la « PMA pour toutes » (Gènéthique)",
+          "source_date": "2018-09-28",
+          "confidence": "low"
+        },
+        {
+          "position": "Il s'est abstenu, comme député UMP, lors du vote de la loi ouvrant le mariage aux couples de même sexe (23 avril 2013).",
+          "kind": "inference",
+          "details": "Vote ancien. Aucune déclaration 2025-2026 trouvée sur la filiation, la transidentité ou l'éducation à la sexualité.",
+          "source_url": "https://www.lejdd.fr/Politique/mariage-pour-tous-loi-renseignement-qua-vote-edouard-philippe-a-lassemblee-3331199",
+          "source_title": "Mariage pour tous, loi renseignement… Qu'a voté Edouard Philippe à l'Assemblée ? (Le JDD)",
+          "source_date": "2017-05",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "found": true,
+      "positions": [
+        {
+          "position": "Augmenter de 20 % la rémunération moyenne des enseignants sur le quinquennat, pour atteindre au moins la moyenne européenne, notamment en milieu de carrière. Le financement viendrait de la baisse d'environ un million d'élèves, qui permettrait aussi de continuer à réduire les effectifs par classe.",
+          "kind": "proposition_explicite",
+          "short_quote": "une augmentation de 20 % de la rémunération moyenne",
+          "details": "Entretien au Figaro du 24 août 2026.",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/presidentielle-2027-le-candidat-horizons-edouard-philippe-veut-augmenter-de-20-la-remuneration-moyenne-des-enseignants-sur-un-quinquennat_8159927.html",
+          "source_title": "Présidentielle 2027 : Edouard Philippe veut augmenter de 20 % la rémunération moyenne des enseignants (franceinfo)",
+          "source_date": "2026-08-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Autonomie des chefs d'établissement sur les méthodes, les horaires, l'uniforme, la discipline et l'évaluation. Ils pourraient ajouter des heures d'enseignement et avancer la rentrée d'une ou deux semaines pour les élèves qui en ont besoin.",
+          "kind": "proposition_explicite",
+          "source_url": "https://lcp.fr/actualites/presidentielle-salaires-des-enseignants-sanctions-pour-les-parents-ce-que-propose",
+          "source_title": "Présidentielle : salaires des enseignants, sanctions pour les parents… Ce que propose Édouard Philippe pour l'école (LCP)",
+          "source_date": "2026-08-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Nouveaux rythmes scolaires : journées plus courtes, plus de sport et de culture, vacances d'été raccourcies. À l'école primaire, priorité à lire, écrire et compter.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants",
+          "source_title": "Pour une France plus attentive à ses enfants – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "Créer une « amende de responsabilisation scolaire », sur le modèle britannique, pour les parents d'enfants harceleurs, perturbateurs ou absentéistes et pour les parents violents. Les maires pourraient sanctionner les atteintes à la « sérénité de l'école ».",
+          "kind": "proposition_explicite",
+          "source_url": "https://lcp.fr/actualites/presidentielle-salaires-des-enseignants-sanctions-pour-les-parents-ce-que-propose",
+          "source_title": "Ce que propose Édouard Philippe pour l'école (LCP)",
+          "source_date": "2026-08-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Intelligence artificielle à l'école : « zéro IA avant le collège », puis formation progressive. Création d'un service public de soutien scolaire combinant un assistant IA et des « brigades » d'anciens professeurs et d'étudiants.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants",
+          "source_title": "Pour une France plus attentive à ses enfants – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "Il promet une « refonte massive de l'école », peut-être « la plus importante depuis Jules Ferry », et veut l'engager par ordonnances habilitées par référendum.",
+          "kind": "position_declaree",
+          "source_url": "https://www.franceinfo.fr/politique/edouard-philippe/reportage-je-vais-me-battre-encore-et-encore-edouard-philippe-fixe-le-cap-de-sa-campagne-presidentielle-lors-de-son-premier-meeting-a-paris_8092415.html",
+          "source_title": "« Je vais me battre encore et encore » : Edouard Philippe fixe le cap de sa campagne (franceinfo)",
+          "source_date": "2026-07-05",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "societe",
+      "found": false,
+      "positions": []
+    },
+    {
+      "topic_id": "numerique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Construire une infrastructure européenne souveraine d'IA : doubler la capacité de calcul en cinq ans (réseau GENCI, supercalculateurs Jean Zay et Alice Recoque), soutenir les champions français comme Mistral par la commande publique et créer un « Buy European Tech Act ».",
+          "kind": "proposition_explicite",
+          "short_quote": "doublement de la capacité de calcul en cinq ans",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante",
+          "source_title": "Pour une France plus conquérante – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "Simplifier le cadre juridique européen du numérique (AI Act, DSA, DMA, RGPD, Data Act), qu'il juge favorable aux géants déjà installés, tout en défendant une IA « transparente, démocratique, éthique ».",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.maddyness.com/2026/06/16/edouard-philippe-candidat-a-la-presidentielle-lia-nest-plus-un-sujet-de-specialistes-cest-une-question-de-pouvoir-de-prosperite-et-de-liberte/",
+          "source_title": "Édouard Philippe : « L'IA n'est plus un sujet de spécialistes… » (Maddyness)",
+          "source_date": "2026-06-16",
+          "confidence": "high"
+        },
+        {
+          "position": "Lancer un grand plan de transformation des services publics par l'IA, piloté par un directeur technique (CTO) de l'État.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.maddyness.com/2026/06/16/edouard-philippe-candidat-a-la-presidentielle-lia-nest-plus-un-sujet-de-specialistes-cest-une-question-de-pouvoir-de-prosperite-et-de-liberte/",
+          "source_title": "Édouard Philippe : « L'IA n'est plus un sujet de spécialistes… » (Maddyness)",
+          "source_date": "2026-06-16",
+          "confidence": "high"
+        },
+        {
+          "position": "Protection des mineurs : « zéro IA avant le collège » et fermeture des sites qui tolèrent le proxénétisme en ligne.",
+          "kind": "proposition_explicite",
+          "details": "Aucune position trouvée sur l'interdiction des réseaux sociaux aux moins de 15 ans, adoptée en juillet 2026 puis censurée par le Conseil constitutionnel en août 2026.",
+          "source_url": "https://lcp.fr/actualites/presidentielle-salaires-des-enseignants-sanctions-pour-les-parents-ce-que-propose",
+          "source_title": "Ce que propose Édouard Philippe pour l'école (LCP)",
+          "source_date": "2026-08-24",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Relancer le nucléaire, développer les renouvelables et électrifier les usages. L'action climatique serait concentrée sur le fret, la rénovation et la grande industrie, avec un prix du carbone aux frontières européennes et des investissements massifs dans le captage de carbone.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante",
+          "source_title": "Pour une France plus conquérante – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "« Politique de sécurité climatique » : un fonds unique d'adaptation de 2 Md€ par an, la production d'un « Canadair français » pendant le quinquennat, une journée nationale d'alerte et trois plans (baignade, adaptation des infrastructures, montagne).",
+          "kind": "proposition_explicite",
+          "short_quote": "on peut choisir la France qui y fera face",
+          "details": "Discours aux Ponts-de-Cé (Maine-et-Loire). Il se dit libéral en écologie : pas d'adaptation réussie sans économie de marché, selon Le Monde.",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/edouard-philippe-souhaite-doter-la-france-d-une-veritable-politique-de-securite-climatique_8197976.html",
+          "source_title": "Édouard Philippe souhaite doter la France d'une « véritable politique de sécurité climatique » (franceinfo)",
+          "source_date": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Adaptation : climatiser massivement les lieux qui accueillent des personnes fragiles, doubler le Fonds vert, multiplier les plantations d'arbres et créer une « DATAR 2.0 » comme opérateur unique de l'adaptation.",
+          "kind": "proposition_explicite",
+          "short_quote": "Doubler le montant du Fonds vert",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante",
+          "source_title": "Pour une France plus conquérante – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "Eau : développer le stockage de l'eau pour l'agriculture.",
+          "kind": "position_declaree",
+          "short_quote": "Acceptons l'idée qu'il faut stocker l'eau",
+          "details": "Déclaration à la foire de Châlons-en-Champagne. Seuls le titre et le chapô de la dépêche AFP ont été consultés.",
+          "source_url": "https://www.boursorama.com/actualite-economique/actualites/acceptons-l-idee-qu-il-faut-stocker-l-eau-dit-edouard-philippe-aupres-des-agriculteurs-1d3ef8838bfa378653fcf86282b1c4c5",
+          "source_title": "« Acceptons l'idée qu'il faut stocker l'eau », dit Édouard Philippe auprès des agriculteurs (AFP via Boursorama)",
+          "source_date": "2026-08-31",
+          "confidence": "medium"
+        },
+        {
+          "position": "Prix des carburants : il soutient une aide carburant ciblée (100 € pour 5,5 millions de « gros rouleurs », soit 450 M€), financée par des économies sur les effectifs publics plutôt que par la dette.",
+          "kind": "position_declaree",
+          "source_url": "https://actu.orange.fr/politique/edouard-philippe-veut-supprimer-7000-postes-de-fonctionnaires-pour-maintenir-les-aides-au-carburant-magic-CNT000002s7m7H.html",
+          "source_title": "Édouard Philippe veut supprimer 7000 postes de fonctionnaires pour maintenir les aides au carburant (Orange/AFP)",
+          "source_date": "2026-09-26",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "found": true,
+      "positions": [
+        {
+          "position": "Aucune « surtransposition » des normes européennes en agriculture.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
+          "source_title": "Pour une France plus prospère – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "Créer 100 « territoires de souveraineté alimentaire ».",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
+          "source_title": "Pour une France plus prospère – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "Inscrire le développement agricole dans la Charte de l'environnement.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
+          "source_title": "Pour une France plus prospère – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "Développer le stockage de l'eau, présenté comme indispensable pour l'agriculture.",
+          "kind": "position_declaree",
+          "source_url": "https://www.boursorama.com/actualite-economique/actualites/acceptons-l-idee-qu-il-faut-stocker-l-eau-dit-edouard-philippe-aupres-des-agriculteurs-1d3ef8838bfa378653fcf86282b1c4c5",
+          "source_title": "« Acceptons l'idée qu'il faut stocker l'eau », dit Édouard Philippe auprès des agriculteurs (AFP via Boursorama)",
+          "source_date": "2026-08-31",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "territoires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Donner aux maires un pouvoir de sanction pénale pour les petites infractions, ainsi que le pouvoir de sanctionner les atteintes à la sérénité de l'école.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure",
+          "source_title": "Pour une France plus sûre – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "Créer une « DATAR 2.0 », opérateur unique de l'adaptation climatique des territoires, et doubler le Fonds vert, qui finance les projets des collectivités.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante",
+          "source_title": "Pour une France plus conquérante – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "Mayotte : « fermer les vannes de l'immigration », condition préalable selon lui à une reconstruction efficace après le cyclone Chido. Il prévoit de suspendre les demandes d'asile, le droit du sol et le regroupement familial dans l'archipel.",
+          "kind": "proposition_explicite",
+          "short_quote": "fermer les vannes de l'immigration",
+          "source_url": "https://www.franceinfo.fr/politique/edouard-philippe/edouard-philippe-fait-sa-rentree-politique-a-mayotte-et-promet-de-mettre-fin-a-l-appel-d-air-de-l-immigration_8156786.html",
+          "source_title": "En visite à Mayotte, Edouard Philippe souhaite mettre fin à l'« appel d'air » de l'immigration (franceinfo)",
+          "source_date": "2026-08-21",
+          "confidence": "high"
+        },
+        {
+          "position": "Outre-mer : suspendre pendant plusieurs années l'examen des demandes d'asile à Mayotte et en Guyane, et doubler le nombre de navires de la Marine aux Antilles.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.franceinfo.fr/societe/immigration/apres-l-afflux-de-migrants-a-ceuta-edouard-philippe-propose-des-mesures-pour-limiter-l-immigration-et-les-regularisations-de-sans-papiers-dans-l-union-europeenne_8141837.html",
+          "source_title": "Après l'afflux de migrants à Ceuta, Edouard Philippe propose des mesures pour limiter l'immigration (franceinfo)",
+          "source_date": "2026-08-10",
+          "confidence": "high"
+        },
+        {
+          "position": "L'État, ses agences et les collectivités doivent « se serrer la ceinture et donner l'exemple ». En 2025, il voulait soumettre l'organisation administrative du pays à référendum.",
+          "kind": "position_declaree",
+          "details": "Le contenu de cette réforme territoriale n'est pas précisé.",
+          "source_url": "https://fr.euronews.com/my-europe/2026/07/05/premier-meeting-de-campagne-pour-edouard-philippe-linteret-des-enfants-sera-sa-boussole",
+          "source_title": "Premier meeting de campagne pour Édouard Philippe (Euronews)",
+          "source_date": "2026-07-05",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "found": true,
+      "positions": [
+        {
+          "position": "Réforme pénale : courtes peines inspirées des pays nordiques, peines planchers pour les infractions les plus graves et suppression du juge d'application des peines.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure",
+          "source_title": "Pour une France plus sûre – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "Magistrature et parquet : réviser la formation et la sélection des magistrats, renforcer leur responsabilité et revoir la composition du CSM. Il veut aussi accroître l'autorité du garde des Sceaux sur le parquet, notamment en rétablissant les instructions individuelles aux procureurs supprimées par la loi Taubira de 2013.",
+          "kind": "proposition_explicite",
+          "short_quote": "Le parquet doit rester sous l'autorité du garde des Sceaux",
+          "details": "Annoncé dans un entretien au Parisien après l'affaire Lyhanna.",
+          "source_url": "https://www.liberation.fr/politique/independance-des-procureurs-edouard-philippe-veut-revenir-sur-une-loi-de-taubira-20260613_KU73R5EJMNE7FIH5RQ6I6V55NQ/",
+          "source_title": "Indépendance des procureurs : Edouard Philippe veut revenir sur une loi de Taubira (Libération)",
+          "source_date": "2026-06-13",
+          "confidence": "high"
+        },
+        {
+          "position": "Créer un « état d'urgence narcotrafic » inspiré de l'antiterrorisme : perquisitions administratives et reconnaissance faciale ciblée dans une ville ou une agglomération pour une durée donnée. Il prévoit aussi une « fiche S financière » pour surveiller les actifs des trafiquants.",
+          "kind": "proposition_explicite",
+          "short_quote": "état d'urgence narcotrafic",
+          "source_url": "https://www.france24.com/fr/info-en-continu/20260907-en-campagne-%C3%A0-al%C3%A8s-edouard-philippe-pr%C3%B4ne-un-%C3%A9tat-d-urgence-narcotrafic",
+          "source_title": "En campagne à Alès, Edouard Philippe prône un « état d'urgence narcotrafic » (France 24/AFP)",
+          "source_date": "2026-09-07",
+          "confidence": "high"
+        },
+        {
+          "position": "« Choc de fermeté » contre le narcotrafic : aligner le régime pénal des grands trafiquants sur celui des terroristes, lever l'excuse de minorité, permettre la comparution immédiate des mineurs et créer des établissements de réinsertion spécialisés. Il prévoit aussi de mobiliser la DGSI, de cribler les fonctions sensibles et d'organiser des opérations « place nette » en discothèques et festivals.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure",
+          "source_title": "Pour une France plus sûre – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "Protection des enfants : mesure de protection immédiate dès qu'une plainte concerne un mineur, « droit de savoir » inspiré de la Sarah's law britannique, imprescriptibilité des crimes sur mineurs et certificats d'honorabilité généralisés dans le périscolaire.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants",
+          "source_title": "Pour une France plus attentive à ses enfants – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "Il juge inacceptable que des agents publics (professeurs, conducteurs de train) consomment des drogues et propose qu'ils soient signalés. Il insiste sur la responsabilité des consommateurs.",
+          "kind": "position_declaree",
+          "source_url": "https://www.france24.com/fr/info-en-continu/20260907-en-campagne-%C3%A0-al%C3%A8s-edouard-philippe-pr%C3%B4ne-un-%C3%A9tat-d-urgence-narcotrafic",
+          "source_title": "En campagne à Alès, Edouard Philippe prône un « état d'urgence narcotrafic » (France 24/AFP)",
+          "source_date": "2026-09-07",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "found": true,
+      "positions": [
+        {
+          "position": "Dénoncer l'accord franco-algérien de 1968, instaurer des quotas migratoires et restreindre le regroupement familial.",
+          "kind": "proposition_explicite",
+          "details": "En août 2026 (texte publié dans Le Figaro), il parlait aussi de renégocier l'accord en utilisant « tous les instruments » : visas, aide au développement, accords commerciaux.",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure",
+          "source_title": "Pour une France plus sûre – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "Mettre fin au « dévoiement de l'asile » grâce à une liste des pays sûrs votée chaque année par le Parlement, et expulser immédiatement les étrangers délinquants en supprimant leurs aides.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure",
+          "source_title": "Pour une France plus sûre – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "À l'échelle européenne : un « verrou Schengen » interdisant à un État de procéder seul à des régularisations massives, un régime d'urgence permettant de suspendre les nouvelles demandes d'asile lors des crises migratoires, des sanctions européennes contre les passeurs (gel d'avoirs, interdictions de voyager) et des procédures de retour renforcées.",
+          "kind": "proposition_explicite",
+          "details": "Texte publié dans Le Figaro après l'afflux de migrants à Ceuta.",
+          "source_url": "https://www.franceinfo.fr/societe/immigration/apres-l-afflux-de-migrants-a-ceuta-edouard-philippe-propose-des-mesures-pour-limiter-l-immigration-et-les-regularisations-de-sans-papiers-dans-l-union-europeenne_8141837.html",
+          "source_title": "Après l'afflux de migrants à Ceuta, Edouard Philippe propose des mesures pour limiter l'immigration (franceinfo)",
+          "source_date": "2026-08-10",
+          "confidence": "high"
+        },
+        {
+          "position": "Mayotte : suspendre l'enregistrement des nouvelles demandes d'asile pendant le quinquennat et le droit du sol pendant plusieurs années (mesure propre à l'archipel), instaurer un moratoire sur l'immigration familiale et créer un centre de retour français en Afrique de l'Est, dans le cadre de la nouvelle réglementation européenne.",
+          "kind": "proposition_explicite",
+          "source_url": "https://fr.news.yahoo.com/%C3%A0-mayotte-%C3%A9douard-philippe-place-074217498.html",
+          "source_title": "À Mayotte, Édouard Philippe place l'immigration au cœur de sa campagne pour 2027 (Euronews via Yahoo)",
+          "source_date": "2026-08-21",
+          "confidence": "high"
+        },
+        {
+          "position": "Il refuse un moratoire général sur l'immigration légale et veut continuer à accueillir des étudiants étrangers et des professionnels de santé.",
+          "kind": "position_declaree",
+          "details": "Propos tenus lors d'un débat à Sens le 29 août 2026, alors que Gérald Darmanin lui demande d'être « beaucoup plus ferme sur l'immigration ». Son allié Laurent Marcangeli a déclaré que « ce ne sera pas l'immigration zéro ».",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/retraites-immigration-le-ralliement-de-gerald-darmanin-a-edouard-philippe-pour-la-presidentielle-assorti-de-conditions_8169110.html",
+          "source_title": "Retraites, immigration... Le ralliement de Gérald Darmanin à Édouard Philippe assorti de conditions (franceinfo)",
+          "source_date": "2026-08-30",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Approfondir le marché unique en supprimant les spécifications nationales qui fonctionnent comme des droits de douane, et construire une union européenne des marchés de capitaux capable de rivaliser avec les États-Unis.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
+          "source_title": "Pour une France plus prospère – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "Protéger le marché européen dans les secteurs stratégiques : transferts de technologie, quotas de production et coentreprises imposés aux acteurs étrangers. Il propose aussi un prix du carbone aux frontières de l'UE et un « Buy European Tech Act ».",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
+          "source_title": "Pour une France plus prospère – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "Simplifier les règles européennes du numérique et de l'IA (AI Act, DSA, DMA, RGPD), qu'il juge trop lourdes.",
+          "kind": "proposition_explicite",
+          "source_url": "https://www.maddyness.com/2026/06/16/edouard-philippe-candidat-a-la-presidentielle-lia-nest-plus-un-sujet-de-specialistes-cest-une-question-de-pouvoir-de-prosperite-et-de-liberte/",
+          "source_title": "Édouard Philippe : « L'IA n'est plus un sujet de spécialistes… » (Maddyness)",
+          "source_date": "2026-06-16",
+          "confidence": "high"
+        },
+        {
+          "position": "Il s'oppose à l'annulation d'une partie de la dette française détenue par la BCE, au nom du respect des règles européennes auxquelles la France a souscrit.",
+          "kind": "position_declaree",
+          "source_url": "https://www.touteleurope.eu/economie-et-social/presidentielle-2027-dette-retraites-et-place-de-l-europe-que-retenir-du-premier-debat-entre-les-principaux-candidats/",
+          "source_title": "Présidentielle 2027 : dette, retraites et place de l'Europe… que retenir du premier débat (Toute l'Europe)",
+          "source_date": "2026-08-28",
+          "confidence": "high"
+        },
+        {
+          "position": "Il veut traiter une partie de la politique migratoire au niveau européen (« verrou Schengen », sanctions européennes contre les passeurs, centres de retour prévus par la nouvelle réglementation de l'UE). Rien n'indique qu'il remette en cause l'appartenance à l'UE.",
+          "kind": "position_declaree",
+          "source_url": "https://www.franceinfo.fr/societe/immigration/apres-l-afflux-de-migrants-a-ceuta-edouard-philippe-propose-des-mesures-pour-limiter-l-immigration-et-les-regularisations-de-sans-papiers-dans-l-union-europeenne_8141837.html",
+          "source_title": "Après l'afflux de migrants à Ceuta, Edouard Philippe propose des mesures (franceinfo)",
+          "source_date": "2026-08-10",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "ukraine_russie",
+      "found": true,
+      "positions": [
+        {
+          "position": "À Kiev, il s'est engagé auprès de Volodymyr Zelensky à œuvrer pour l'intégration de l'Ukraine dans l'OTAN, « meilleure garantie de sécurité ». Il soutient aussi le déploiement de troupes européennes en Ukraine après le conflit pour dissuader toute nouvelle attaque russe.",
+          "kind": "position_declaree",
+          "details": "Il a dit vouloir rester aux côtés de l'Ukraine « jusqu'à ce que les conditions de la paix soient réunies » et au-delà. L'adhésion de l'Ukraine à l'UE a également été évoquée.",
+          "source_url": "https://fr.euronews.com/2026/05/26/edouard-philippe-a-rencontre-volodymyr-zelensky-a-kyiv",
+          "source_title": "Édouard Philippe a rencontré Volodymyr Zelensky à Kyiv (Euronews)",
+          "source_date": "2026-05-26",
+          "confidence": "high"
+        },
+        {
+          "position": "Il accuse Marine Le Pen et le RN, partisans de « couper le robinet » de l'aide à l'Ukraine, d'être « la voix de la faiblesse et de l'alignement coupable » sur la Russie.",
+          "kind": "position_declaree",
+          "short_quote": "la voix de la faiblesse et de l'alignement coupable",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/on-coupe-le-robinet-marine-le-pen-et-edouard-philippe-s-affrontent-par-tweets-interposes-sur-l-aide-a-l-ukraine_8178434.html",
+          "source_title": "« On coupe le robinet » : Marine Le Pen et Edouard Philippe s'affrontent sur l'aide à l'Ukraine (franceinfo)",
+          "source_date": "2026-09-05",
+          "confidence": "high"
+        },
+        {
+          "position": "Il a qualifié de « trahison » la suspension de l'aide militaire américaine à l'Ukraine décidée par Donald Trump, et d'« embuscade » la réunion Trump-Zelensky.",
+          "kind": "position_declaree",
+          "source_url": "https://www.franceinfo.fr/monde/europe/manifestations-en-ukraine/suspension-de-l-aide-americaine-en-ukraine-la-decision-americaine-est-une-trahison-estime-edouard-philippe_7109238.html",
+          "source_title": "Suspension de l'aide américaine en Ukraine : « La décision américaine est une trahison », estime Édouard Philippe (franceinfo)",
+          "source_date": "2025-03-04",
+          "confidence": "high"
+        },
+        {
+          "position": "Face à la « menace russe », il veut augmenter le volume des forces françaises, notamment par un service militaire volontaire.",
+          "kind": "proposition_explicite",
+          "details": "Entretien au Figaro en mars 2025, repris par Sud Ouest et Le Parisien (titres et chapôs consultés).",
+          "source_url": "https://www.sudouest.fr/politique/edouard-philippe/nous-devons-augmenter-le-volume-de-nos-forces-edouard-philippe-propose-un-service-militaire-volontaire-23641704.php",
+          "source_title": "« Nous devons augmenter le volume de nos forces » : Édouard Philippe propose un service militaire « volontaire » (Sud Ouest)",
+          "source_date": "2025-03-14",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "proche_orient",
+      "found": true,
+      "positions": [
+        {
+          "position": "Il a émis des réserves sur le calendrier de la reconnaissance de l'État de Palestine annoncée par Emmanuel Macron. Il jugeait le « bon moment » incertain tant que les otages n'étaient pas libérés, qu'il n'y avait pas de cessez-le-feu et que le Hamas restait actif. Il voyait dans cette reconnaissance un « pari » essentiellement symbolique.",
+          "kind": "position_declaree",
+          "short_quote": "Est-ce le bon moment ? C'est pour le moins incertain",
+          "details": "Il admettait que la Palestine devra être reconnue à terme, de préférence avec d'autres grandes nations pour que la décision ait un effet. Aucune position plus récente (2026) n'a été trouvée.",
+          "source_url": "https://actu.orange.fr/politique/reconnaissance-de-la-palestine-edouard-philippe-emet-des-reserves-magic-CNT000002jKbdQ.html",
+          "source_title": "Reconnaissance de la Palestine : Édouard Philippe émet des réserves (Orange/AFP)",
+          "source_date": "2025-07-25",
+          "confidence": "high"
+        },
+        {
+          "position": "En novembre 2023, avec Bernard Cazeneuve, il avait mis en garde contre « des opérations militaires disproportionnées » à Gaza. Il avait aussi déclaré : « Israël est en guerre et dans la guerre, il y a des morts ».",
+          "kind": "position_declaree",
+          "details": "Déclarations anciennes, connues seulement par les titres du HuffPost (5 novembre 2023) et de Sud Ouest (12 novembre 2023).",
+          "source_url": "https://www.leparisien.fr/international/reconnaissance-de-letat-de-palestine-edouard-philippe-nest-pas-sur-quil-sagisse-du-bon-moment-25-07-2025-6SMNILB3XFGDLNR7LQV3PSESBI.php",
+          "source_title": "Reconnaissance de l'État de Palestine : Édouard Philippe n'est pas sûr qu'il s'agisse du « bon moment » (Le Parisien)",
+          "source_date": "2025-07-25",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "defense",
+      "found": true,
+      "positions": [
+        {
+          "position": "« Massification » des armées : passer de 45 000 à 250 000 réservistes et de 3 000 à 50 000 places par an de service militaire volontaire, sur fond d'une nouvelle loi de programmation militaire de « massification ».",
+          "kind": "proposition_explicite",
+          "details": "Défendu aussi au salon Eurosatory en juin 2026 (nombre de réservistes multiplié par 5).",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure",
+          "source_title": "Pour une France plus sûre – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "Lancer un grand plan munitions (de 100 000 à 700 000 obus par an), massifier la production et l'achat de drones tactiques, et doubler le nombre de navires aux Antilles.",
+          "kind": "proposition_explicite",
+          "short_quote": "Lancer un grand plan munitions",
+          "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure",
+          "source_title": "Pour une France plus sûre – programme Avec Édouard 2027",
+          "source_date": "2026-10-06 (consultation)",
+          "confidence": "high"
+        },
+        {
+          "position": "OTAN : il soutient l'adhésion de l'Ukraine à l'Alliance et un déploiement européen de réassurance après la guerre. Il ne remet pas en cause l'appartenance de la France à l'OTAN.",
+          "kind": "position_declaree",
+          "source_url": "https://fr.euronews.com/2026/05/26/edouard-philippe-a-rencontre-volodymyr-zelensky-a-kyiv",
+          "source_title": "Édouard Philippe a rencontré Volodymyr Zelensky à Kyiv (Euronews)",
+          "source_date": "2026-05-26",
+          "confidence": "medium"
+        },
+        {
+          "position": "Proposition de service militaire volontaire face à la menace russe (et non d'un service obligatoire).",
+          "kind": "proposition_explicite",
+          "details": "Entretien au Figaro du 14 mars 2025. Aucun objectif chiffré de budget de défense en % du PIB n'a été trouvé dans les sources primaires consultées.",
+          "source_url": "https://www.sudouest.fr/politique/edouard-philippe/nous-devons-augmenter-le-volume-de-nos-forces-edouard-philippe-propose-un-service-militaire-volontaire-23641704.php",
+          "source_title": "« Nous devons augmenter le volume de nos forces » : Édouard Philippe propose un service militaire « volontaire » (Sud Ouest)",
+          "source_date": "2025-03-14",
+          "confidence": "medium"
+        }
+      ]
+    }
+  ],
+  "signature_proposals": [
+    {
+      "proposal": "Retraite à 65 ans et 45 annuités atteintes en moins de dix ans, complétées par un pilier de capitalisation (10 à 15 % des pensions en 15 ans, 500 € versés par l'État sur un plan d'épargne-retraite au premier contrat de travail).",
+      "topic_id": "retraites",
+      "source_url": "https://www.franceinfo.fr/elections/presidentielle/age-de-depart-a-65-ans-45-annuites-de-cotisation-edouard-philippe-candidat-horizons-a-la-presidentielle-devoile-son-projet-de-reforme-des-retraites_8214737.html"
+    },
+    {
+      "proposal": "« Pacte fiscal » : 50 Md€ de baisse des impôts de production contre 50 Md€ d'aides aux entreprises en moins, avec un moratoire sur les nouvelles normes et les nouveaux impôts pendant le quinquennat.",
+      "topic_id": "fiscalite",
+      "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere"
+    },
+    {
+      "proposal": "Déficit ramené à 2 % du PIB en fin de quinquennat et règle d'or budgétaire inscrite dans la Constitution, de préférence par référendum dès 2027.",
+      "topic_id": "finances_publiques",
+      "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere"
+    },
+    {
+      "proposal": "Dissolution de l'Assemblée dès l'élection, référendums et ordonnances pour réformer rapidement la santé, l'éducation et la justice.",
+      "topic_id": "institutions",
+      "source_url": "https://www.publicsenat.fr/actualites/politique/presidentielle-pourquoi-edouard-philippe-nest-pas-la-pour-beurrer-les-tartines"
+    },
+    {
+      "proposal": "+20 % de rémunération moyenne pour les enseignants sur le quinquennat, autonomie des chefs d'établissement, vacances d'été raccourcies et « zéro IA avant le collège ».",
+      "topic_id": "education",
+      "source_url": "https://www.franceinfo.fr/elections/presidentielle/presidentielle-2027-le-candidat-horizons-edouard-philippe-veut-augmenter-de-20-la-remuneration-moyenne-des-enseignants-sur-un-quinquennat_8159927.html"
+    },
+    {
+      "proposal": "« État d'urgence narcotrafic » (perquisitions administratives, reconnaissance faciale), « fiche S financière » et peines planchers.",
+      "topic_id": "securite_justice",
+      "source_url": "https://www.france24.com/fr/info-en-continu/20260907-en-campagne-%C3%A0-al%C3%A8s-edouard-philippe-pr%C3%B4ne-un-%C3%A9tat-d-urgence-narcotrafic"
+    },
+    {
+      "proposal": "Indemnisation chômage limitée à 12 mois pour les moins de 50 ans, sur le modèle allemand, et un ou deux jours de carence pour les arrêts maladie courts.",
+      "topic_id": "solidarites",
+      "source_url": "https://www.lequotidiendesentreprises.fr/politique/chomage-edouard-philippe-veut-limiter-lindemnisation-a-12-mois/"
+    },
+    {
+      "proposal": "Dénonciation de l'accord franco-algérien de 1968, quotas migratoires, « verrou Schengen » contre les régularisations massives, et suspension de l'asile et du droit du sol à Mayotte.",
+      "topic_id": "immigration",
+      "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
+    },
+    {
+      "proposal": "« Massification » des armées : 250 000 réservistes, 50 000 places par an de service militaire volontaire et 700 000 obus produits par an.",
+      "topic_id": "defense",
+      "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure"
+    },
+    {
+      "proposal": "Part fiscale entière dès le 2e enfant, aide familiale unique et universelle, PTZ à chaque naissance.",
+      "topic_id": "solidarites",
+      "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants"
+    },
+    {
+      "proposal": "Fonds unique d'adaptation climatique de 2 Md€ par an, « Canadair français », Fonds vert doublé et « DATAR 2.0 ».",
+      "topic_id": "ecologie_energie",
+      "source_url": "https://www.franceinfo.fr/elections/presidentielle/edouard-philippe-souhaite-doter-la-france-d-une-veveritable-politique-de-securite-climatique_8197976.html"
+    },
+    {
+      "proposal": "IA souveraine : capacité de calcul doublée en cinq ans, 100 000 ingénieurs formés par an et « Buy European Tech Act ».",
+      "topic_id": "numerique",
+      "source_url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante"
+    }
+  ],
+  "distinctive_vs_others": "Retraites :\n- Il est le seul grand candidat à relever à la fois l'âge légal (65 ans) et la durée de cotisation (45 annuités).\n- Marine Le Pen veut revenir à 62 ans (60 ans pour les carrières longues), et Jean-Luc Mélenchon vise 62 puis 60 ans pour 40 annuités.\n- Bruno Retailleau propose un âge minimal de 63 ans et le taux plein à 65 ans, avec de la capitalisation pour les jeunes.\n- Gabriel Attal veut supprimer l'âge légal au profit de la seule durée de cotisation.\n- Les candidats de la primaire de gauche veulent revenir sur la réforme de 2023.\n- Source : franceinfo, comparatif du 29-30 septembre 2026 (https://www.franceinfo.fr/economie/retraite/reforme-des-retraites/changement-de-systeme-passage-a-60-ou-a-65-ans-capitalisation-que-proposent-les-principaux-candidats-a-l-election-presidentielle-pour-les-retraites_8215784.html).\n\nDette :\n- Philippe ne chiffre pas un total d'économies, à la différence de Gabriel Attal (150 Md€) ou du RN (125 Md€).\n- Il s'oppose frontalement à l'annulation de dette proposée par Jean-Luc Mélenchon.\n- Il s'oppose aussi aux hausses de taxation sur l'héritage et le patrimoine défendues à gauche, par exemple par Olivier Faure (https://www.franceinfo.fr/economie/crise/crise-de-la-dette/que-proposent-les-candidats-a-la-presidentielle-pour-reduire-la-dette-publique_8215481.html).\n\nInstitutions (avec Bruno Retailleau, à droite) :\n- Les deux sont à l'aise avec le référendum.\n- Mais Philippe refuse d'élargir l'article 11 (par exemple à l'immigration) et de contourner le Conseil constitutionnel par référendum. Il défend l'État de droit (Ouest-France, 8 septembre 2026).\n- À noter : la proposition d'abroger le principe de précaution entendue au débat du Medef était celle de Retailleau, pas celle de Philippe (Toute l'Europe, 28 août 2026).\n\nLaïcité (face à Marine Le Pen) :\n- Il combat le projet de référendum du RN visant à interdire le voile dans l'espace public, qu'il juge inconstitutionnel.\n- Il s'oppose à LFI, qui veut réautoriser l'abaya à l'école.\n\nUkraine :\n- Il se distingue du RN (« couper le robinet ») et des souverainistes (Nicolas Dupont-Aignan, Florian Philippot, François Asselineau).\n- Il prône l'adhésion de l'Ukraine à l'OTAN et des troupes européennes de réassurance après la guerre.\n\nEurope :\n- Il est pro-européen, à l'opposé des partisans d'une sortie de l'UE (François Asselineau, Florian Philippot).\n- Il reste plus intergouvernemental et « marché unique / protection stratégique » que Gabriel Attal, qui plaide pour des « États-Unis d'Europe ».\n\nImmigration :\n- Il est plus dur que la gauche (accord de 1968, quotas, Mayotte), mais refuse le moratoire général sur l'immigration légale réclamé plus à droite.\n- Dominique de Villepin a dénoncé sa « surenchère ».\n\nAssurance chômage :\n- Philippe revendique la limite de 12 mois pour les moins de 50 ans.\n- Gabriel Attal affirme avoir défendu des idées proches.\n\nLaïcité et mémoire :\n- Il refuse de qualifier la colonisation de crime, à l'inverse de la position exprimée par Emmanuel Macron en 2017 et de la gauche.",
+  "evolutions_and_contradictions": "Retraites :\n- Longtemps associé à la retraite à 67 ans (entretien à Challenges en 2021), il retient en septembre 2026 un âge de 65 ans avec 45 annuités, tout en gardant l'annulation de la décote à 67 ans.\n- En mars 2025, il proposait trois régimes (privé, public, indépendants) adoptés par référendum. En mai 2026, il hésitait sur ce référendum « retraites ».\n- Il s'est opposé à la suspension de la réforme de 2023, portée par le gouvernement Lecornu.\n\nRelation avec Emmanuel Macron :\n- Premier ministre de 2017 à 2020, il rompt après la dissolution de 2024.\n- En octobre 2025, il réclame une présidentielle anticipée.\n- Fin 2025, il menace de voter contre le budget de la Sécurité sociale.\n\nAccord franco-algérien de 1968 :\n- En 2023, il voulait le « renégocier ».\n- Son programme 2026 parle de le « dénoncer ».\n- En août 2026, il évoquait encore une renégociation par tous les leviers. La ligne finale reste ambiguë.\n\nImmigration :\n- Son discours s'est nettement durci en 2026 (Mayotte, suspension de l'asile).\n- Il refuse pourtant un moratoire général sur l'immigration légale, ce qui le met en tension avec son soutien Gérald Darmanin.\n\nLaïcité :\n- Il dit ne pas être « à l'aise » avec le voile, mais s'oppose à son interdiction dans l'espace public et dans le sport, tout en défendant les interdictions à l'école.\n\nSociétal :\n- Il s'est abstenu sur le mariage pour tous en 2013 et s'est longtemps opposé à la PMA pour toutes, avant de s'y dire « plutôt favorable » en 2018.\n- Sur la fin de vie, il revendique une conviction intime favorable à l'aide à mourir, mais refuse de l'inscrire dans la loi.\n\nFinances publiques :\n- Il promet un déficit de 2 % du PIB et un moratoire fiscal, tout en proposant 50 Md€ de baisse d'impôts de production (compensés par 50 Md€ d'aides en moins), +20 % de rémunération pour les enseignants et une aide carburant.\n- Une baisse de l'impôt sur le revenu serait aussi à l'étude (l'Opinion, 2 octobre 2026). Le chiffrage d'ensemble n'est pas publié.\n- Des critiques rappellent son bilan à Matignon : déficit de 2,4 % en 2019, baisse de la dépense surtout due aux taux d'intérêt (Observatoire Hexagone).\n\nÉnergie (à vérifier) :\n- Il veut aujourd'hui relancer le nucléaire.\n- Sous son gouvernement, la programmation pluriannuelle de l'énergie de 2020 prévoyait la fermeture de réacteurs, dont Fessenheim. Ce point est de notoriété publique mais n'a pas été re-sourcé dans cette recherche.\n\nParti :\n- Il a quitté la présidence exécutive d'Horizons au 1er octobre 2026.\n- Il propose 577 candidatures uniques aux législatives et un parti unique de la droite et du centre après l'élection.\n\nContexte judiciaire :\n- Il est visé par une enquête du Parquet national financier (soupçons de détournement de fonds publics au Havre, juge saisi en mai 2026).\n- Il a déclaré qu'aucune décision non définitive ne l'empêcherait d'être candidat.",
+  "open_questions": [
+    "Défense : aucun objectif chiffré de budget (en % du PIB) n'a été trouvé dans les sources primaires, ni de position détaillée sur la dissuasion nucléaire ou sa dimension européenne.",
+    "Numérique : position inconnue sur l'interdiction des réseaux sociaux aux moins de 15 ans, après la censure de la loi par le Conseil constitutionnel en août 2026 et l'appel de Gabriel Attal à un référendum.",
+    "Culture et audiovisuel public : aucune proposition trouvée (avenir de France Télévisions et Radio France, holding, financement, politique culturelle). Horizons a une note « Rendre la culture accessible à tous », dont le contenu n'est pas consulté.",
+    "Santé : le plan détaillé n'est pas publié (Sécurité sociale face aux complémentaires, déserts médicaux, franchises, grand âge et dépendance, AME).",
+    "Retraités : les modalités de la « contribution accrue » annoncée ne sont pas précisées (CSG, abattement de 10 %, indexation des pensions).",
+    "Fiscalité : la baisse de l'impôt sur le revenu « à l'étude » (l'Opinion, 2 octobre 2026) n'est pas confirmée. Aucun engagement explicite trouvé sur une TVA sociale. La liste des impôts de production supprimés et des 50 Md€ d'aides visées n'est pas détaillée.",
+    "Finances publiques : aucun montant global d'économies ni de trajectoire annuelle détaillée.",
+    "Accord franco-algérien de 1968 : dénonciation pure et simple ou renégociation ?",
+    "Référendum sur les retraites : est-il maintenu, ou seul celui sur la règle d'or l'est-il ?",
+    "Proche-Orient : aucune position actualisée depuis la reconnaissance de la Palestine par la France (septembre 2025) sur Gaza, le gouvernement israélien ou d'éventuelles sanctions.",
+    "Agriculture : positions inconnues sur l'accord UE-Mercosur, la loi Duplomb, les pesticides, le revenu agricole et le bien-être animal.",
+    "Logement : pas d'objectif de construction ni de position sur le logement social.",
+    "Égalité femmes-hommes et LGBTQIA+ : aucune proposition récente sur l'égalité salariale, les violences conjugales (loi intégrale en débat à l'automne 2026), la filiation, la transidentité ou l'éducation à la sexualité.",
+    "Territoires : le contenu de la réforme de « l'organisation administrative du pays » envisagée par référendum (décentralisation, strates de collectivités) n'est pas précisé.",
+    "Universités et recherche : pas de position sur la sélection, les frais d'inscription ou le budget de la recherche."
+  ],
+  "programme_sources": [
+    {
+      "title": "Avec Édouard 2027 – site de campagne (accueil)",
+      "url": "https://www.edouardphilippe.fr/",
+      "date": "2026-10-06 (consultation)"
+    },
+    {
+      "title": "Pour une France plus sûre (justice, narcotrafic, immigration, armées)",
+      "url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure",
+      "date": "2026-10-06 (consultation)"
+    },
+    {
+      "title": "Pour une France plus attentive à ses enfants (protection de l'enfance, école, famille)",
+      "url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants",
+      "date": "2026-10-06 (consultation)"
+    },
+    {
+      "title": "Pour une France plus prospère (fiscalité, comptes publics, retraites, agriculture, Europe)",
+      "url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
+      "date": "2026-10-06 (consultation)"
+    },
+    {
+      "title": "Pour une France plus conquérante (IA, écologie, adaptation)",
+      "url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante",
+      "date": "2026-10-06 (consultation)"
+    },
+    {
+      "title": "Retraites : la réforme que je propose aux Français",
+      "url": "https://www.edouardphilippe.fr/actualites/retraites-la-reforme-que-je-propose-aux-francais",
+      "date": "2026-09-29"
+    },
+    {
+      "title": "Horizons – Les Notes (notes programmatiques du parti, accès sur demande)",
+      "url": "https://horizonsleparti.fr/les-notes/"
+    },
+    {
+      "title": "Discours du congrès Horizons de Lille : méthode (dissolution, référendums, ordonnances), compte rendu Public Sénat",
+      "url": "https://www.publicsenat.fr/actualites/politique/presidentielle-pourquoi-edouard-philippe-nest-pas-la-pour-beurrer-les-tartines",
+      "date": "2025-03-17"
+    },
+    {
+      "title": "Entretien Maddyness sur l'IA (programme numérique et souveraineté)",
+      "url": "https://www.maddyness.com/2026/06/16/edouard-philippe-candidat-a-la-presidentielle-lia-nest-plus-un-sujet-de-specialistes-cest-une-question-de-pouvoir-de-prosperite-et-de-liberte/",
+      "date": "2026-06-16"
+    }
+  ]
+}

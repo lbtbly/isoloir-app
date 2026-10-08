@@ -1,0 +1,1203 @@
+{
+  "candidate": "Gabriel Attal",
+  "affiliation": "Renaissance (secrétaire général du parti ; président du groupe Ensemble pour la République à l'Assemblée nationale ; ancien Premier ministre, janvier-septembre 2024)",
+  "campaign_site": "https://attalpresident.fr",
+  "declaration": {
+    "date": "2026-05-22",
+    "form": "Allocution d'environ cinq minutes prononcée en direct depuis le village de Mur-de-Barrez (Aveyron), suivie d'un échange avec les habitants. Renaissance l'avait désigné candidat le 13 mai 2026. Le livre « En homme libre » (L'Observatoire, 23 avril 2026) a précédé l'annonce, et un premier meeting a suivi le 30 mai 2026 au Parc des expositions de Paris.",
+    "source_title": "« J'aime passionnément la France et j'aime profondément les Français » : Gabriel Attal se déclare candidat à l'élection présidentielle de 2027 (franceinfo)",
+    "source_url": "https://www.franceinfo.fr/elections/presidentielle/j-aime-passionnement-la-france-et-j-aime-profondement-les-francais-gabriel-attal-se-declare-candidat-a-l-election-presidentielle-de-2027_8020769.html"
+  },
+  "overview": "Gabriel Attal, ancien Premier ministre et secrétaire général de Renaissance, s'est déclaré candidat le 22 mai 2026. Son projet repose sur quatre « chantiers capitaux » (école, salaires, frontières, intelligence artificielle) et deux « dettes à résorber » (la dette publique et la « dette écologique »). Il se fixe pour objectif de faire de la France « la première puissance d'Europe » en dix ans. Sur le plan économique, il défend une ligne libérale : aucune hausse d'impôts, 150 milliards d'euros d'économies dont deux tiers sur les dépenses sociales, un retour à l'équilibre budgétaire en 2037 et une baisse des cotisations salariales pour rapprocher le salaire net du brut. Sur les retraites, il propose de supprimer l'âge légal au profit d'un système universel fondé sur la durée de cotisation, avec une part de capitalisation. Sur les sujets régaliens, sa ligne est ferme : quotas d'immigration votés par le Parlement autour d'une « préférence travail », suppression du juge de l'application des peines, comparution immédiate pour les mineurs et maintien de l'interdiction de l'abaya. Il se montre en revanche ouvert sur certains sujets de société, comme la GPA « éthique » ou l'aide à mourir. Fortement pro-européen, il veut bâtir des « États-Unis d'Europe » avec un noyau dur de pays, soutenir l'Ukraine (y compris par la saisie des avoirs russes gelés) et réformer les institutions : 350 députés, 200 sénateurs et un référendum chaque année.",
+  "programme_sources": [
+    {
+      "title": "Site de campagne – Mes chantiers capitaux (programme)",
+      "url": "https://attalpresident.fr/programme",
+      "date": "2026"
+    },
+    {
+      "title": "Programme – École",
+      "url": "https://attalpresident.fr/programme/education",
+      "date": "2026"
+    },
+    {
+      "title": "Programme – Travail & salaires",
+      "url": "https://attalpresident.fr/programme/travail-salaires",
+      "date": "2026"
+    },
+    {
+      "title": "Programme – Frontières",
+      "url": "https://attalpresident.fr/programme/frontieres",
+      "date": "2026"
+    },
+    {
+      "title": "Programme – Intelligence artificielle",
+      "url": "https://attalpresident.fr/programme/intelligence-artificielle",
+      "date": "2026"
+    },
+    {
+      "title": "Programme – Dette de l'État",
+      "url": "https://attalpresident.fr/programme/dette-de-letat",
+      "date": "2026"
+    },
+    {
+      "title": "Programme – Dette écologique",
+      "url": "https://attalpresident.fr/programme/dette-ecologique",
+      "date": "2026"
+    },
+    {
+      "title": "Gabriel Attal présente un plan de désendettement et un « Messmer II »",
+      "url": "https://attalpresident.fr/actualites/gabriel-attal-presente-un-plan-de-desendettement-et-un-messmer-ii-pour-sortir-des-dependances-francaises",
+      "date": "2026-09-23"
+    },
+    {
+      "title": "EXCLUSIF. Gabriel Attal : « Je propose la plus grande réforme institutionnelle depuis 1958 » (JDD)",
+      "url": "https://www.lejdd.fr/politique/exclusif-gabriel-attal-je-propose-la-plus-grande-reforme-institutionnelle-depuis-1958-180333",
+      "date": "2026-08-01"
+    },
+    {
+      "title": "Dans Le Monde : Gabriel Attal dévoile son projet pour faire notre École la meilleure d'Europe",
+      "url": "https://attalpresident.fr/actualites/dans-le-monde-gabriel-attal-devoile-son-projet-pour-faire-notre-ecole-la-meilleure-d-europe",
+      "date": "2026-08-25"
+    },
+    {
+      "title": "Gabriel Attal à Reims : bâtir les États-Unis d'Europe",
+      "url": "https://attalpresident.fr/actualites/gabriel-attal-a-reims-batir-les-etats-unis-d-europe-pour-retrouver-notre-puissance",
+      "date": "2026-09-17"
+    },
+    {
+      "title": "Gabriel Attal appelle à une « Nouvelle Justice » dans Le Figaro",
+      "url": "https://attalpresident.fr/actualites/gabriel-attal-dans-le-figaro-appelle-a-une-nouvelle-justice",
+      "date": "2026-06-12"
+    },
+    {
+      "title": "Gabriel Attal appelle à une rupture économique dans Les Échos",
+      "url": "https://attalpresident.fr/actualites/gabriel-attal-appelle-a-une-rupture-economique-dans-les-echos",
+      "date": "2026-06-17"
+    },
+    {
+      "title": "Dans Le Parisien, Gabriel Attal vise le zéro déficit en 2037",
+      "url": "https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037",
+      "date": "2026-07-03"
+    },
+    {
+      "title": "Livre « En homme libre » (Éditions de l'Observatoire)",
+      "url": "https://editions-observatoire.com/livre/En-homme-libre/650",
+      "date": "2026-04-23"
+    },
+    {
+      "title": "Retraites : avant le débat sur la suspension de la réforme, Gabriel Attal prône une « véritable révolution » (LCP)",
+      "url": "https://lcp.fr/actualites/retraites-avant-le-debat-sur-la-suspension-de-la-reforme-gabriel-attal-prone-une",
+      "date": "2025-11-10"
+    }
+  ],
+  "signature_proposals": [
+    {
+      "proposal": "Supprimer l'âge légal de départ en retraite et créer un système universel fondé sur la seule durée de cotisation, avec décote ou surcote selon le moment du départ et un pilier de capitalisation (1 000 € versés par l'État à chaque nouveau-né sur un compte d'épargne retraite).",
+      "topic_id": "retraites",
+      "source_url": "https://attalpresident.fr/actualites/a-la-ref-gabriel-attal-grand-gagnant-du-premier-debat-de-la-presidentielle-2027"
+    },
+    {
+      "proposal": "« Choc des salaires » et « droit au brut » : baisser les cotisations salariales, en finançant cette baisse par des économies sur le modèle social, pour gagner environ 250 € nets par mois au salaire médian (2 200 €), soit l'équivalent d'un treizième mois.",
+      "topic_id": "travail_salaires",
+      "source_url": "https://attalpresident.fr/actualites/dans-le-telegramme-gabriel-attal-veut-un-choc-de-salaires-et-instaurer-le-droit-au-brut"
+    },
+    {
+      "proposal": "École : moins de 20 élèves par classe en primaire, certificat d'études à l'entrée en 6e, brevet obligatoire pour entrer au lycée, groupes de niveau en français et en mathématiques, et hausse de salaire des enseignants de 200 à 500 € nets par mois.",
+      "topic_id": "education",
+      "source_url": "https://attalpresident.fr/actualites/dans-le-monde-gabriel-attal-devoile-son-projet-pour-faire-notre-ecole-la-meilleure-d-europe"
+    },
+    {
+      "proposal": "Instaurer une « préférence travail » dans la politique migratoire : quotas limitatifs votés tous les deux ans par le Parlement, par métier, par secteur et par origine géographique, après évaluation des besoins par les partenaires sociaux.",
+      "topic_id": "immigration",
+      "source_url": "https://www.lejdd.fr/politique/immigration-gabriel-attal-propose-des-quotas-par-metier-et-par-origine-geographique-180879"
+    },
+    {
+      "proposal": "Mener « la plus grande réforme institutionnelle depuis 1958 » : passer à 350 députés et 200 sénateurs, et organiser un référendum chaque année lors d'une journée dédiée.",
+      "topic_id": "institutions",
+      "source_url": "https://www.journaldunet.com/business/action-publique/1553335-gabriel-attal-promet-la-plus-grande-reforme-institutionnelle-depuis-1958-s-il-est-elu-president/"
+    },
+    {
+      "proposal": "Plan de désendettement : 150 Md€ d'économies (deux tiers sur les dépenses sociales), déficit sous 3 % avant la fin du mandat, équilibre en 2037, et règle d'or budgétaire inscrite dans la Constitution.",
+      "topic_id": "finances_publiques",
+      "source_url": "https://attalpresident.fr/actualites/gabriel-attal-presente-un-plan-de-desendettement-et-un-messmer-ii-pour-sortir-des-dependances-francaises"
+    },
+    {
+      "proposal": "Plan « France 2040 » pour l'intelligence artificielle : 200 Md€ sur dix ans, financés à parts égales par le public et le privé, et formation de 20 millions d'actifs à l'IA d'ici 2030.",
+      "topic_id": "numerique",
+      "source_url": "https://attalpresident.fr/actualites/gabriel-attal-appelle-a-une-rupture-economique-dans-les-echos"
+    },
+    {
+      "proposal": "Interdire les réseaux sociaux aux moins de 15 ans et soumettre cette interdiction à un référendum après la décision du Conseil constitutionnel du 14 août 2026.",
+      "topic_id": "numerique",
+      "source_url": "https://attalpresident.fr/actualites/dans-la-tribune-dimanche-gabriel-attal-veut-un-referendum-pour-interdire-les-reseaux-sociaux-aux-moins-de-15-ans"
+    },
+    {
+      "proposal": "Plan énergétique « Messmer II » : ramener la part des énergies fossiles sous 30 % en 2035, sécuriser la construction de 14 EPR, viser une électricité à 75 €/MWh (moins de 50 €/MWh pour les industries exposées) et diviser par deux les émissions en dix ans.",
+      "topic_id": "ecologie_energie",
+      "source_url": "https://attalpresident.fr/actualites/gabriel-attal-presente-un-plan-de-desendettement-et-un-messmer-ii-pour-sortir-des-dependances-francaises"
+    },
+    {
+      "proposal": "Bâtir des « États-Unis d'Europe » avec un noyau dur de pays : économie unique, harmonisation fiscale et sociale, marché unique des capitaux, préférence européenne et président élu au suffrage universel à l'échelle européenne.",
+      "topic_id": "europe",
+      "source_url": "https://attalpresident.fr/actualites/gabriel-attal-a-reims-batir-les-etats-unis-d-europe-pour-retrouver-notre-puissance"
+    },
+    {
+      "proposal": "« Nouvelle Justice » : supprimer le juge de l'application des peines et les aménagements de peine automatiques, instaurer la perpétuité réelle pour les violeurs en série, rendre imprescriptibles les crimes sexuels sur mineurs et recruter 3 000 magistrats et greffiers.",
+      "topic_id": "securite_justice",
+      "source_url": "https://attalpresident.fr/actualites/gabriel-attal-dans-le-figaro-appelle-a-une-nouvelle-justice"
+    },
+    {
+      "proposal": "Légaliser une GPA « éthique », sans transaction commerciale, en rupture avec la ligne rouge fixée par Emmanuel Macron.",
+      "topic_id": "droits_lgbtqia",
+      "source_url": "https://www.franceinfo.fr/replay-radio/l-edito-politique/edito-avec-la-gpa-gabriel-attal-veut-s-emparer-du-totem-des-reformes-disruptives_7998872.html"
+    }
+  ],
+  "topics": [
+    {
+      "topic_id": "institutions",
+      "found": true,
+      "positions": [
+        {
+          "position": "Réduire le nombre de parlementaires de 577 à 350 députés et de 348 à 200 sénateurs, au nom de l'efficacité et d'économies de plusieurs centaines de millions d'euros par an.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Présentée comme « la plus grande réforme institutionnelle depuis 1958 », qui suppose une révision constitutionnelle. L'interview est parue dans le JDD.",
+          "source_url": "https://www.journaldunet.com/business/action-publique/1553335-gabriel-attal-promet-la-plus-grande-reforme-institutionnelle-depuis-1958-s-il-est-elu-president/",
+          "source_title": "Gabriel Attal propose de ramener le nombre de députés à 350 et celui des sénateurs à 200 et d'organiser un référendum chaque année (JDN)",
+          "source_date": "2026-08-03"
+        },
+        {
+          "position": "Organiser un référendum chaque année lors d'une « journée référendaire », avec plusieurs questions préparées avec les forces politiques et les partenaires sociaux ; faciliter le recours au référendum par révision constitutionnelle et permettre aux maires d'organiser des référendums locaux.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "un référendum soit organisé chaque année",
+          "source_url": "https://www.lejdd.fr/politique/exclusif-gabriel-attal-je-propose-la-plus-grande-reforme-institutionnelle-depuis-1958-180333",
+          "source_title": "EXCLUSIF. Gabriel Attal : « Je propose la plus grande réforme institutionnelle depuis 1958 » (JDD)",
+          "source_date": "2026-08-01"
+        },
+        {
+          "position": "Inscrire dans la Constitution un « principe de rapidité » administrative : réponse aux porteurs de projet en deux mois au plus, le silence de l'administration valant accord, et recours limités à 18 mois au total. Instaurer aussi un « spoil system à la française » dans la haute administration.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Lors du débat de la REF, il a aussi évoqué « un seul recours par projet » sur le modèle de la reconstruction de Notre-Dame.",
+          "source_url": "https://www.lejdd.fr/politique/exclusif-gabriel-attal-je-propose-la-plus-grande-reforme-institutionnelle-depuis-1958-180333",
+          "source_title": "EXCLUSIF. Gabriel Attal : « Je propose la plus grande réforme institutionnelle depuis 1958 » (JDD)",
+          "source_date": "2026-08-01"
+        },
+        {
+          "position": "Inscrire dans la Constitution, par référendum, une « règle d'or » budgétaire sur le modèle allemand. Le gouvernement démissionnerait automatiquement en cas de dérapage trois années de suite, et un ministre qui dépasse son enveloppe serait révoqué.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037",
+          "source_title": "Dans Le Parisien, Gabriel Attal vise le zéro déficit en 2037",
+          "source_date": "2026-07-03"
+        },
+        {
+          "position": "Réservé sur la proportionnelle aux législatives : en 2025, il jugeait le scrutin majoritaire actuel « le moins pire » des modes de scrutin.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Position exprimée à Matignon le 1er mai 2025, avec Pierre Cazeneuve, face au projet de François Bayrou. Aucune position sur le mode de scrutin n'a été trouvée dans son programme de 2026, alors que la réduction à 350 députés supposerait un nouveau découpage.",
+          "source_url": "https://www.franceinfo.fr/politique/proportionnelle-aux-elections-legislatives-qu-en-pensent-les-differents-partis-politiques_7271859.html",
+          "source_title": "Proportionnelle aux élections législatives : qu'en pensent les différents partis politiques ? (franceinfo)",
+          "source_date": "2025-05-26"
+        }
+      ]
+    },
+    {
+      "topic_id": "laicite_republique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Maintenir l'interdiction de l'abaya et du qamis à l'école, qu'il a décidée comme ministre de l'Éducation en 2023. Il accuse LFI de vouloir abroger la loi de 2004 sur les signes religieux à l'école.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-veut-remettre-l-exigence-au-coeur-de-l-ecole-et-transformer-le-modele-francais-sur-france-info",
+          "source_title": "Gabriel Attal veut remettre l'exigence au cœur de l'École (France Info)",
+          "source_date": "2026-09-09"
+        },
+        {
+          "position": "Interdire le port du voile aux mineures de moins de 15 ans dans l'espace public et créer un délit de « contrainte au port du voile » visant les parents qui l'imposent à leurs filles.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "details": "Proposition de Renaissance portée par Attal en mai 2025, justifiée par l'égalité femmes-hommes et la protection de l'enfance, avec une « voie de passage constitutionnelle » revendiquée. Elle a été contestée au sein même de son parti. Sa reprise dans le programme présidentiel de 2026 n'a pas été vérifiée.",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/gabriel-attal-propose-dinterdire-le-voile-pour-les-moins-de-15-ans-et-souhaite-une-nouvelle-loi-separatisme",
+          "source_title": "Gabriel Attal propose d'interdire le voile pour les moins de 15 ans et souhaite une nouvelle loi séparatisme (Public Sénat)",
+          "source_date": "2025-05-21"
+        },
+        {
+          "position": "Adopter une deuxième loi contre le séparatisme, avec un « délit de communautarisme » visant ceux qui refusent les lois de la République.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/gabriel-attal-propose-dinterdire-le-voile-pour-les-moins-de-15-ans-et-souhaite-une-nouvelle-loi-separatisme",
+          "source_title": "Gabriel Attal propose d'interdire le voile pour les moins de 15 ans et souhaite une nouvelle loi séparatisme (Public Sénat)",
+          "source_date": "2025-05-21"
+        },
+        {
+          "position": "Mémoire de la colonisation : il appelle à sortir des « procès en culpabilisation » et de la « rente mémorielle » dans la relation avec l'Algérie. Selon lui, sa génération, qui n'a pas connu la guerre d'Algérie, peut nouer une relation « normale, dépassionnée ».",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Tribune publiée dans Le Figaro en janvier 2025, dans un contexte de tensions avec Alger (détention de Boualem Sansal).",
+          "source_url": "https://www.lagazettefrance.fr/article/gabriel-attal-appelle-a-denoncer-l-accord-franco-algerien-de-1968",
+          "source_title": "Gabriel Attal appelle à « dénoncer l'accord franco-algérien de 1968 » (AFP / La Gazette France)",
+          "source_date": "2025-01-10"
+        },
+        {
+          "position": "Dénonce un climat devenu « irrespirable » pour les Français juifs et condamne l'antisémitisme d'où qu'il vienne, y compris certains propos d'élus du RN.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-sur-cnews-et-europe-1-il-faut-proposer-aux-francais-un-projet-d-espoir",
+          "source_title": "Gabriel Attal sur CNEWS et Europe 1",
+          "source_date": "2026-09-30"
+        }
+      ]
+    },
+    {
+      "topic_id": "fiscalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Aucune hausse d'impôts pendant le quinquennat, annulation des taxes votées depuis la dissolution de 2024 et poursuite de la baisse des impôts de production.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "Aucune hausse d'impôts",
+          "source_url": "https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037",
+          "source_title": "Dans Le Parisien, Gabriel Attal vise le zéro déficit en 2037",
+          "source_date": "2026-07-03"
+        },
+        {
+          "position": "Défend la baisse de l'impôt sur les sociétés (de 33 % à 25 %), le prélèvement forfaitaire unique (flat tax) et la suppression de l'ISF. Veut achever la suppression de la CVAE et faire voter dès 2027 une loi de stabilité fiscale sur dix ans.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/a-la-ref-gabriel-attal-grand-gagnant-du-premier-debat-de-la-presidentielle-2027",
+          "source_title": "À La REF : Gabriel Attal au premier débat de la présidentielle 2027",
+          "source_date": "2026-08-27"
+        },
+        {
+          "position": "Refuse toute hausse de la fiscalité sur les successions et sur l'assurance-vie. Veut faciliter les donations de leur vivant, notamment aux petits-enfants, et orienter l'assurance-vie vers les PME françaises.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Il a aussi refusé d'augmenter les droits de succession lors de l'interview sur LCI du 25 août 2026.",
+          "source_url": "https://attalpresident.fr/actualites/aux-assises-de-l-afer-gabriel-attal-defend-une-epargne-qui-finance-l-economie-francaise",
+          "source_title": "Aux Assises de l'AFER, Gabriel Attal défend une épargne qui finance l'économie française",
+          "source_date": "2026-09-29"
+        },
+        {
+          "position": "Baisser les cotisations salariales pour rapprocher le salaire net du brut, en finançant la baisse par des économies sur l'assurance chômage, les indemnités journalières et les retraites plutôt que par de nouveaux impôts.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-veut-liberer-l-acces-au-logement-et-relancer-le-secteur-du-batiment",
+          "source_title": "Gabriel Attal veut libérer l'accès au logement et relancer le secteur du bâtiment (Batimat)",
+          "source_date": "2026-09-28"
+        },
+        {
+          "position": "Face à la hausse des carburants, préfère des aides ciblées aux actifs qui dépendent de leur voiture, avec exonération de charges et d'impôts pour les aides versées par les employeurs, plutôt qu'une baisse générale des taxes.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-sur-bfm-tv-le-plus-juste-c-est-d-accompagner-ceux-qui-travaillent",
+          "source_title": "Gabriel Attal sur BFM TV : « Le plus juste, c'est d'accompagner ceux qui travaillent »",
+          "source_date": "2026-09-21"
+        },
+        {
+          "position": "Opposé à la « taxe Zucman » (impôt plancher de 2 % sur les patrimoines de plus de 100 M€) : le bloc central, dont son groupe EPR, a voté contre lors du budget 2026.",
+          "kind": "inference",
+          "confidence": "medium",
+          "details": "Rejet le 31 octobre 2025 à l'Assemblée. La source parle de l'opposition du « bloc central » sans détailler le vote nominatif d'Attal.",
+          "source_url": "https://fr.euronews.com/2025/10/31/budget-2026-la-taxe-zucman-enterree-par-lassemblee-nationale-un-echec-pour-le-ps",
+          "source_title": "Budget 2026 : la taxe Zucman enterrée par l'Assemblée nationale (Euronews)",
+          "source_date": "2025-10-31"
+        }
+      ]
+    },
+    {
+      "topic_id": "finances_publiques",
+      "found": true,
+      "positions": [
+        {
+          "position": "Plan de désendettement de 150 Md€ d'économies, dont deux tiers sur les dépenses sociales : déficit sous 3 % du PIB avant la fin du mandat, équilibre des comptes sociaux en 2032 et équilibre global des finances publiques en 2037.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le déficit est estimé à 5,4 % du PIB en 2026. Le plan prévoit une loi de programmation économique, fiscale et énergétique sur dix ans. Le 25 août 2026 (LCI), le montant avancé était de 120 Md€ sur cinq ans.",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-presente-un-plan-de-desendettement-et-un-messmer-ii-pour-sortir-des-dependances-francaises",
+          "source_title": "Gabriel Attal présente un plan de désendettement et un « Messmer II »",
+          "source_date": "2026-09-23"
+        },
+        {
+          "position": "Activer un « frein d'urgence » budgétaire de 15 Md€ dès son arrivée à l'Élysée.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-dans-le-parisien-rassemblement-jeunesse-et-dette",
+          "source_title": "Gabriel Attal dans Le Parisien : rassemblement, jeunesse et dette",
+          "source_date": "2026-10-04"
+        },
+        {
+          "position": "Faire du budget 2028 une « année blanche » : gel temporaire des prestations sociales (sauf pour les petites retraites), économies de 5 Md€ par une réforme de l'assurance chômage et plan contre les arrêts maladie.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037",
+          "source_title": "Dans Le Parisien, Gabriel Attal vise le zéro déficit en 2037",
+          "source_date": "2026-07-03"
+        },
+        {
+          "position": "Supprimer 100 000 postes dans l'État et les collectivités, par des départs volontaires accompagnés de primes et par le non-remplacement de départs. L'Éducation, les Armées, la Justice et l'Intérieur seraient épargnés, et l'IA serait déployée massivement dans l'administration.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037",
+          "source_title": "Dans Le Parisien, Gabriel Attal vise le zéro déficit en 2037",
+          "source_date": "2026-07-03"
+        },
+        {
+          "position": "Supprimer un échelon de collectivité territoriale. Seules trois dépenses seraient prioritaires : l'éducation, l'écologie et la défense.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "source_url": "https://attalpresident.fr/actualites/lci-gabriel-attal-defend-un-projet-de-rupture-pour-repondre-aux-grands-defis-du-pays",
+          "source_title": "LCI : Gabriel Attal défend un projet de rupture",
+          "source_date": "2026-08-25"
+        },
+        {
+          "position": "Refuse de mobiliser l'épargne des Français pour rembourser la dette publique.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/aux-assises-de-l-afer-gabriel-attal-defend-une-epargne-qui-finance-l-economie-francaise",
+          "source_title": "Aux Assises de l'AFER",
+          "source_date": "2026-09-29"
+        }
+      ]
+    },
+    {
+      "topic_id": "travail_salaires",
+      "found": true,
+      "positions": [
+        {
+          "position": "« Choc des salaires » et « droit au brut » : supprimer des cotisations salariales pour gagner environ 250 € nets par mois au salaire médian (2 200 €), soit l'équivalent d'un treizième mois pour les classes moyennes, dès le début du mandat.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Financement annoncé par des économies sur le modèle social et par des gains de productivité grâce à l'IA. Il cite un salaire médian qui atteindrait 3 300 € nets avec une productivité « à l'américaine ».",
+          "source_url": "https://attalpresident.fr/actualites/dans-le-telegramme-gabriel-attal-veut-un-choc-de-salaires-et-instaurer-le-droit-au-brut",
+          "source_title": "Dans Le Télégramme : Gabriel Attal veut un choc de salaires et instaurer le droit au brut",
+          "source_date": "2026-07-22"
+        },
+        {
+          "position": "Supprimer le plafond annuel d'heures supplémentaires (aujourd'hui 220 heures par salarié) et encourager la semaine de quatre jours là où c'est possible.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/programme/travail-salaires",
+          "source_title": "Programme – Travail & salaires",
+          "source_date": "2026"
+        },
+        {
+          "position": "Remplacer le Code du travail par une « Constitution du travail » d'au plus 50 pages, fondée sur de grands principes, qui laisserait plus de liberté aux branches et aux entreprises.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/a-la-ref-gabriel-attal-grand-gagnant-du-premier-debat-de-la-presidentielle-2027",
+          "source_title": "À La REF : premier débat de la présidentielle 2027",
+          "source_date": "2026-08-27"
+        },
+        {
+          "position": "Orienter obligatoirement 50 % de l'intéressement et de la participation vers des plans d'épargne retraite.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/aux-assises-de-l-afer-gabriel-attal-defend-une-epargne-qui-finance-l-economie-francaise",
+          "source_title": "Aux Assises de l'AFER",
+          "source_date": "2026-09-29"
+        },
+        {
+          "position": "Financer les 3 Md€ qui manquent pour les modes de garde d'enfants, notamment par un livret d'épargne dédié, et former 200 000 professionnels de la petite enfance d'ici 2030 pour faciliter l'emploi des parents.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/programme/travail-salaires",
+          "source_title": "Programme – Travail & salaires",
+          "source_date": "2026"
+        },
+        {
+          "position": "Réduire la durée initiale des études pour favoriser l'entrée plus précoce des jeunes sur le marché du travail, en citant un taux d'emploi des jeunes de 34,5 % en France contre 50 % en Allemagne.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "source_url": "https://attalpresident.fr/programme/travail-salaires",
+          "source_title": "Programme – Travail & salaires",
+          "source_date": "2026"
+        }
+      ]
+    },
+    {
+      "topic_id": "industrie_economie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Plan « France 2040 » : 200 Md€ sur dix ans pour l'IA et la souveraineté technologique, financés à parts égales par le public et le privé, avec l'objectif de faire de la France la première puissance européenne de l'IA.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-appelle-a-une-rupture-economique-dans-les-echos",
+          "source_title": "Gabriel Attal appelle à une rupture économique dans Les Échos",
+          "source_date": "2026-06-17"
+        },
+        {
+          "position": "Remplacer la culture de la subvention par des contrats et de la commande publique (modèle SpaceX), créer un crédit d'impôt productivité pour aider les PME et ETI à adopter l'IA, et soutenir Mistral et d'autres acteurs nationaux.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-appelle-a-une-rupture-economique-dans-les-echos",
+          "source_title": "Gabriel Attal appelle à une rupture économique dans Les Échos",
+          "source_date": "2026-06-17"
+        },
+        {
+          "position": "Garantir un prix de l'électricité à 75 €/MWh, et des contrats à moins de 50 €/MWh pour les industries exposées à la concurrence.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-presente-un-plan-de-desendettement-et-un-messmer-ii-pour-sortir-des-dependances-francaises",
+          "source_title": "Plan de désendettement et « Messmer II »",
+          "source_date": "2026-09-23"
+        },
+        {
+          "position": "Assumer une « préférence européenne », une politique industrielle européenne par filières, une commande publique massive et douze grands projets technologiques européens (IA, espace, santé, décarbonation).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-a-reims-batir-les-etats-unis-d-europe-pour-retrouver-notre-puissance",
+          "source_title": "Gabriel Attal à Reims : bâtir les États-Unis d'Europe",
+          "source_date": "2026-09-17"
+        },
+        {
+          "position": "Stratégie tournée vers la croissance plutôt que la redistribution (« faire grossir le gâteau »), avec trois défis identifiés : le moral des entrepreneurs, la concurrence chinoise et la révolution de l'IA. Il promet aussi une protection économique face à la guerre commerciale mondiale.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Aucune position précise trouvée sur l'accord UE-Mercosur ni sur des droits de douane.",
+          "source_url": "https://attalpresident.fr/actualites/a-la-ref-gabriel-attal-grand-gagnant-du-premier-debat-de-la-presidentielle-2027",
+          "source_title": "À La REF : premier débat de la présidentielle 2027",
+          "source_date": "2026-08-27"
+        }
+      ]
+    },
+    {
+      "topic_id": "retraites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Supprimer l'âge légal de départ et ne garder que la durée de cotisation : partir plus tôt avec une pension réduite ou plus tard avec une pension majorée.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "on n'en est plus à bouger des critères",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-veut-remettre-l-exigence-au-coeur-de-l-ecole-et-transformer-le-modele-francais-sur-france-info",
+          "source_title": "Gabriel Attal sur France Info",
+          "source_date": "2026-09-09"
+        },
+        {
+          "position": "Système universel où « un euro cotisé ouvre les mêmes droits » quel que soit le régime. Il s'appliquerait automatiquement aux nouveaux entrants, les actifs actuels pouvant choisir d'y passer.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "un euro cotisé ouvre les mêmes droits",
+          "details": "Une proposition de loi a été annoncée en novembre 2025.",
+          "source_url": "https://lcp.fr/actualites/retraites-avant-le-debat-sur-la-suspension-de-la-reforme-gabriel-attal-prone-une",
+          "source_title": "Retraites : avant le débat sur la suspension de la réforme, Gabriel Attal prône une « véritable révolution » (LCP)",
+          "source_date": "2025-11-10"
+        },
+        {
+          "position": "Introduire un pilier de capitalisation : 1 000 € versés par l'État à la naissance sur un compte d'épargne retraite que les proches peuvent compléter jusqu'aux 18 ans de l'enfant (coût estimé : 660 M€ par an), et 50 % de l'intéressement et de la participation orientés vers l'épargne retraite.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/aux-assises-de-l-afer-gabriel-attal-defend-une-epargne-qui-finance-l-economie-francaise",
+          "source_title": "Aux Assises de l'AFER",
+          "source_date": "2026-09-29"
+        },
+        {
+          "position": "Reprendre le calendrier de la réforme de 2023 (suspendue fin 2025) jusqu'en 2030, puis basculer vers le système universel.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "details": "Rapporté par le JDD dans un comparatif des candidats et confirmé par le compte rendu du débat de la REF publié par la campagne.",
+          "source_url": "https://www.lejdd.fr/politique/retraites-ce-que-proposent-les-candidats-a-la-presidentielle-184728",
+          "source_title": "Retraites : ce que proposent les candidats à la présidentielle (JDD)",
+          "source_date": "2026-09-29"
+        },
+        {
+          "position": "En novembre 2025, son groupe a choisi l'abstention sur la suspension de la réforme Borne, qu'il jugeait relever « du passé », pour laisser passer le compromis tout en défendant un nouveau système.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://lcp.fr/actualites/retraites-avant-le-debat-sur-la-suspension-de-la-reforme-gabriel-attal-prone-une",
+          "source_title": "LCP",
+          "source_date": "2025-11-10"
+        }
+      ]
+    },
+    {
+      "topic_id": "sante",
+      "found": true,
+      "positions": [
+        {
+          "position": "Soutient la loi sur la fin de vie adoptée définitivement en juillet 2026 : une aide à mourir « très strictement encadrée » pour les adultes atteints d'une maladie grave et incurable, avec clause de conscience pour les soignants. Promet un investissement massif dans les soins palliatifs (unités dans les zones sous-dotées, formation, soins à domicile).",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-fin-de-vie-l-aboutissement-d-un-long-chemin-et-la-consecration-d-un-droit-nouveau",
+          "source_title": "Gabriel Attal – Fin de vie : l'aboutissement d'un long chemin",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Réaliser des économies sur la santé dans le cadre de la réforme du modèle social, avec un plan contre les arrêts maladie et une baisse des dépenses d'indemnités journalières.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "details": "Aucun chiffre détaillé n'a été trouvé pour le volet santé des 150 Md€ d'économies.",
+          "source_url": "https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037",
+          "source_title": "Dans Le Parisien, Gabriel Attal vise le zéro déficit en 2037",
+          "source_date": "2026-07-03"
+        },
+        {
+          "position": "Proposer à chaque Français un assistant médical fondé sur l'IA, dans le cadre de sa stratégie d'IA souveraine.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-dans-politico-europe-ukraine-ia-et-finances-publiques-quatre-priorites-pour-preparer-la-france-de-demain",
+          "source_title": "Gabriel Attal dans POLITICO",
+          "source_date": "2026-09-24"
+        },
+        {
+          "position": "Face aux canicules, lancer un plan de climatisation et de rafraîchissement ciblé en priorité sur les écoles et les EHPAD. Rejette l'idée d'un « congé climatique » financé par la Sécurité sociale.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-a-tarbes-la-geoenergie-pour-adapter-la-france-aux-grandes-canicules",
+          "source_title": "Gabriel Attal à Tarbes",
+          "source_date": "2026-06-21"
+        }
+      ]
+    },
+    {
+      "topic_id": "logement",
+      "found": true,
+      "positions": [
+        {
+          "position": "Créer un véritable statut du bailleur privé, simplifier massivement les règles de construction, permettre aux locataires du parc social d'acheter leur logement et inciter les maires qui autorisent de nouveaux logements.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/a-la-ref-gabriel-attal-grand-gagnant-du-premier-debat-de-la-presidentielle-2027",
+          "source_title": "À La REF : premier débat de la présidentielle 2027",
+          "source_date": "2026-08-27"
+        },
+        {
+          "position": "Relancer le marché du logement en levant les freins à la construction et à l'investissement, et donner plus de marges de manœuvre aux maires.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-veut-liberer-l-acces-au-logement-et-relancer-le-secteur-du-batiment",
+          "source_title": "Gabriel Attal veut libérer l'accès au logement et relancer le secteur du bâtiment (Batimat)",
+          "source_date": "2026-09-28"
+        },
+        {
+          "position": "Rénovation énergétique : une loi de programmation sur cinq ans pour stabiliser le cadre, un accès simplifié au label RGE et une lutte renforcée contre la fraude. Former une nouvelle génération d'artisans du bâtiment.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Aucune mesure trouvée sur l'encadrement des loyers ni sur un objectif chiffré de construction.",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-veut-liberer-l-acces-au-logement-et-relancer-le-secteur-du-batiment",
+          "source_title": "Batimat",
+          "source_date": "2026-09-28"
+        }
+      ]
+    },
+    {
+      "topic_id": "solidarites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Geler temporairement les prestations sociales en 2028 (« année blanche »), sauf les petites retraites, et réformer à nouveau l'assurance chômage pour 5 Md€ d'économies, en privilégiant l'incitation à l'activité.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/dans-le-parisien-gabriel-attal-vise-le-zero-deficit-en-2037",
+          "source_title": "Dans Le Parisien, Gabriel Attal vise le zéro déficit en 2037",
+          "source_date": "2026-07-03"
+        },
+        {
+          "position": "Familles monoparentales : défiscaliser les pensions alimentaires reçues pour les enfants, verser automatiquement les pensions dès la séparation, créer un « droit au répit » (garde en soirée, le week-end ou en urgence) via les CAF et les collectivités, et une carte « famille monoparentale » donnant des avantages (transports, culture, loisirs).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-annonce-ses-premieres-mesures-pour-les-familles-monoparentales-a-la-premiere-universite-d-ete",
+          "source_title": "Gabriel Attal annonce ses premières mesures pour les familles monoparentales",
+          "source_date": "2026-08-28"
+        },
+        {
+          "position": "Handicap : créer un véritable corps professionnel des AESH (accompagnants d'élèves en situation de handicap), avec des perspectives de carrière au sein de l'Éducation nationale.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/france-2-gabriel-attal-fait-de-l-ecole-une-priorite-pour-preparer-l-avenir-du-pays",
+          "source_title": "France 2 : Gabriel Attal fait de l'École une priorité",
+          "source_date": "2026-09-01"
+        },
+        {
+          "position": "Politique familiale : 3 Md€ pour les modes de garde et 200 000 professionnels de la petite enfance formés d'ici 2030, plus 1 000 € versés à chaque nouveau-né sur un compte d'épargne.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/programme/travail-salaires",
+          "source_title": "Programme – Travail & salaires",
+          "source_date": "2026"
+        }
+      ]
+    },
+    {
+      "topic_id": "egalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Adopter une « loi intégrale » contre les violences faites aux femmes et aux enfants, et enseigner dès le plus jeune âge le respect de l'intégrité corporelle.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-dans-le-figaro-appelle-a-une-nouvelle-justice",
+          "source_title": "Gabriel Attal appelle à une « Nouvelle Justice » dans Le Figaro",
+          "source_date": "2026-06-12"
+        },
+        {
+          "position": "Accélérer le traitement des plaintes : premiers actes d'enquête dans les 48 heures et procédures traitées en moins de trois mois.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-dans-le-figaro-appelle-a-une-nouvelle-justice",
+          "source_title": "Nouvelle Justice (Le Figaro)",
+          "source_date": "2026-06-12"
+        },
+        {
+          "position": "Soutenir les parents seuls (plus de 80 % sont des mères) par la défiscalisation des pensions alimentaires, leur versement automatique et un droit au répit.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-annonce-ses-premieres-mesures-pour-les-familles-monoparentales-a-la-premiere-universite-d-ete",
+          "source_title": "Mesures pour les familles monoparentales",
+          "source_date": "2026-08-28"
+        },
+        {
+          "position": "Étendre la responsabilité parentale (notamment en cas de violences urbaines) aux deux parents, « pas seulement aux mères ».",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Aucune mesure spécifique trouvée sur l'égalité salariale entre femmes et hommes.",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-sur-bfm-tv-la-france-a-toujours-un-role-a-jouer-c-est-sa-mission-c-est-son-destin",
+          "source_title": "Gabriel Attal sur BFM TV",
+          "source_date": "2026-06-15"
+        }
+      ]
+    },
+    {
+      "topic_id": "droits_lgbtqia",
+      "found": true,
+      "positions": [
+        {
+          "position": "Favorable à la légalisation d'une GPA « éthique », sans transaction commerciale, position défendue dans son livre et au début de sa campagne en rupture avec la « ligne rouge » d'Emmanuel Macron. Il souhaite laisser la liberté de vote sur les sujets bioéthiques.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Il souligne que 300 à 500 couples français ont recours chaque année à une GPA à l'étranger. La date de publication de l'édito franceinfo est approximative (mai 2026).",
+          "source_url": "https://www.franceinfo.fr/replay-radio/l-edito-politique/edito-avec-la-gpa-gabriel-attal-veut-s-emparer-du-totem-des-reformes-disruptives_7998872.html",
+          "source_title": "Édito. Avec la GPA, Gabriel Attal veut s'emparer du totem des réformes « disruptives » (franceinfo)",
+          "source_date": "2026-05"
+        },
+        {
+          "position": "En août 2025, il voulait mettre la GPA éthique au cœur des débats internes de Renaissance et la présentait notamment comme une mesure de natalité.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Source consultée via un résumé de recherche (CNews), sans lecture intégrale de l'article.",
+          "source_url": "https://www.cnews.fr/france/2025-08-22/gabriel-attal-veut-evoquer-la-legalisation-de-la-gestation-pour-autrui-ethique",
+          "source_title": "Gabriel Attal veut évoquer la légalisation de la gestation pour autrui éthique avec son parti (CNews)",
+          "source_date": "2025-08-22"
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "found": true,
+      "positions": [
+        {
+          "position": "Moins de 20 élèves par classe en moyenne en primaire, en profitant de la baisse démographique plutôt que de fermer des classes. Baisser aussi les effectifs au collège et au lycée pour recréer des postes de remplaçants.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/dans-le-monde-gabriel-attal-devoile-son-projet-pour-faire-notre-ecole-la-meilleure-d-europe",
+          "source_title": "Dans Le Monde : Gabriel Attal dévoile son projet pour l'École",
+          "source_date": "2026-08-25"
+        },
+        {
+          "position": "Exigence scolaire : certificat d'études à l'entrée en 6e, brevet obligatoire pour entrer au lycée, « année passerelle » pour les élèves qui n'ont pas le niveau, retour du redoublement (notamment en CP) et généralisation des groupes de niveau en français et en mathématiques.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/lci-gabriel-attal-defend-un-projet-de-rupture-pour-repondre-aux-grands-defis-du-pays",
+          "source_title": "LCI : Gabriel Attal défend un projet de rupture",
+          "source_date": "2026-08-25"
+        },
+        {
+          "position": "Augmenter tous les enseignants d'au moins 200 € nets par mois, et jusqu'à 500 € en milieu de carrière. Nommer un ministre de l'Éducation pour cinq ans (numéro 2 du gouvernement) et faire voter une loi de programmation en 2027.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/dans-le-monde-gabriel-attal-devoile-son-projet-pour-faire-notre-ecole-la-meilleure-d-europe",
+          "source_title": "Dans Le Monde : projet pour l'École",
+          "source_date": "2026-08-25"
+        },
+        {
+          "position": "Fermer 100 collèges jugés « ghettos scolaires ». Créer des conseils de discipline dès le primaire et un barème national de sanctions.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "source_url": "https://attalpresident.fr/actualites/lci-gabriel-attal-defend-un-projet-de-rupture-pour-repondre-aux-grands-defis-du-pays",
+          "source_title": "LCI",
+          "source_date": "2026-08-25"
+        },
+        {
+          "position": "Former 100 % des enseignants à l'IA, donner à chaque élève un assistant IA gratuit et sécurisé, et lancer un « Plan Voltaire » de 30 minutes quotidiennes d'esprit critique et d'analyse des sources.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/dans-le-monde-gabriel-attal-devoile-son-projet-pour-faire-notre-ecole-la-meilleure-d-europe",
+          "source_title": "Dans Le Monde : projet pour l'École",
+          "source_date": "2026-08-25"
+        },
+        {
+          "position": "Rétablir le « Choc des savoirs », mener un combat « acharné » contre le harcèlement et viser un retour de la France parmi les premières places du classement PISA en dix ans.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Aucune position trouvée sur l'enseignement privé. Il évoque une réforme de l'enseignement supérieur sans détail chiffré.",
+          "source_url": "https://attalpresident.fr/programme/education",
+          "source_title": "Programme – École",
+          "source_date": "2026"
+        }
+      ]
+    },
+    {
+      "topic_id": "societe",
+      "found": false,
+      "positions": []
+    },
+    {
+      "topic_id": "numerique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Interdire les réseaux sociaux aux moins de 15 ans. Une loi portée par son groupe a été adoptée en juillet 2026, avec entrée en vigueur au 1er septembre 2026 et vérification d'âge par un tiers sécurisé.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/interdiction-des-reseaux-sociaux-aux-moins-de-15-ans-une-victoire-decisive-pour-proteger-notre-jeunesse",
+          "source_title": "Interdiction des réseaux sociaux aux moins de 15 ans : une victoire décisive",
+          "source_date": "2026-07-21"
+        },
+        {
+          "position": "Après la décision du Conseil constitutionnel du 14 août 2026, soumettre l'interdiction des réseaux sociaux aux moins de 15 ans à un référendum au titre de l'article 11.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/dans-la-tribune-dimanche-gabriel-attal-veut-un-referendum-pour-interdire-les-reseaux-sociaux-aux-moins-de-15-ans",
+          "source_title": "Dans La Tribune Dimanche : Gabriel Attal veut un référendum",
+          "source_date": "2026-08-16"
+        },
+        {
+          "position": "Ne pas interdire X ni d'autres plateformes, mais imposer la transparence de leurs algorithmes.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "source_url": "https://attalpresident.fr/actualites/lci-gabriel-attal-defend-un-projet-de-rupture-pour-repondre-aux-grands-defis-du-pays",
+          "source_title": "LCI",
+          "source_date": "2026-08-25"
+        },
+        {
+          "position": "Réviser l'AI Act européen, jugé trop restrictif. Créer une politique européenne commune de l'IA sur le modèle de la PAC, financée par un endettement commun, pour porter la part européenne de la puissance de calcul mondiale de 3 % à 20 %.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-appelle-a-une-rupture-economique-dans-les-echos",
+          "source_title": "Les Échos",
+          "source_date": "2026-06-17"
+        },
+        {
+          "position": "Réguler l'IA au niveau international sur le modèle de l'encadrement du nucléaire, et miser sur une IA souveraine (soutien à Mistral, maîtrise de toute la chaîne de valeur).",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-dans-politico-europe-ukraine-ia-et-finances-publiques-quatre-priorites-pour-preparer-la-france-de-demain",
+          "source_title": "POLITICO",
+          "source_date": "2026-09-24"
+        },
+        {
+          "position": "Former 20 millions d'actifs à l'IA d'ici 2030 et rendre l'apprentissage des « prompts » obligatoire à l'école.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-sur-france-info-ia-pouvoir-d-achat-et-climat-au-coeur-de-sa-campagne",
+          "source_title": "Gabriel Attal sur France Info : IA, pouvoir d'achat et climat",
+          "source_date": "2026-06-18"
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Plan « Messmer II » : faire passer la part des énergies fossiles de 60 % de la consommation à 40 % à court terme puis sous 30 % en 2035, avec la neutralité carbone en 2050.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-presente-un-plan-de-desendettement-et-un-messmer-ii-pour-sortir-des-dependances-francaises",
+          "source_title": "Plan de désendettement et « Messmer II »",
+          "source_date": "2026-09-23"
+        },
+        {
+          "position": "Nucléaire : sécuriser la construction de 14 EPR et atteindre un rythme d'un réacteur par an, tout en développant les énergies renouvelables.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Lors du meeting du 30 mai 2026, il a promis d'investir à la fois dans le nucléaire et dans les renouvelables.",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-presente-un-plan-de-desendettement-et-un-messmer-ii-pour-sortir-des-dependances-francaises",
+          "source_title": "« Messmer II »",
+          "source_date": "2026-09-23"
+        },
+        {
+          "position": "Diviser par deux les émissions de gaz à effet de serre en dix ans, en passant d'une baisse annuelle de 1,8 % à 5 % d'ici 2030.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/programme/dette-ecologique",
+          "source_title": "Programme – Dette écologique",
+          "source_date": "2026"
+        },
+        {
+          "position": "Électrifier les usages : leasing social élargi aux véhicules électriques d'occasion, leasing de pompes à chaleur et de géothermie, déploiement massif des bornes de recharge, électrification des poids lourds et prix de l'électricité visé à 75 €/MWh.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-presente-un-plan-de-desendettement-et-un-messmer-ii-pour-sortir-des-dependances-francaises",
+          "source_title": "« Messmer II »",
+          "source_date": "2026-09-23"
+        },
+        {
+          "position": "Multiplier par cinq la production de géoénergie d'ici 2035, en doublant les subventions à 160 M€ par an à budget constant, et créer un « droit à la climatisation » en levant les blocages administratifs.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/face-aux-canicules-gabriel-attal-veut-faire-de-la-geoenergie-le-grand-projet-energetique-de-la-france-du-xxie-siecle",
+          "source_title": "Face aux canicules, Gabriel Attal veut faire de la géoénergie le grand projet énergétique",
+          "source_date": "2026-06-25"
+        },
+        {
+          "position": "Plan eau : réparer les 500 réseaux les plus vétustes pour économiser 1 000 milliards de litres par an d'ici 2035, bouclier tarifaire pour les besoins essentiels, dépistage des PFAS, petites retenues d'eau, réutilisation des eaux usées et création d'un ministère de l'Eau, par redéploiement de crédits existants.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-plan-eau-argeles-sur-mer",
+          "source_title": "En déplacement à Argelès-sur-Mer, Gabriel Attal fait de l'eau une priorité nationale",
+          "source_date": "2026-08-10"
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "found": true,
+      "positions": [
+        {
+          "position": "Permettre aux agriculteurs de « vivre de leur travail » plutôt que des aides, faciliter le stockage de l'eau et réduire les normes qui pèsent sur les exploitations.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-au-contact-du-monde-agricole-et-de-ceux-qui-font-vivre-nos-territoires-a-la-foire-de-chalons",
+          "source_title": "Gabriel Attal à la Foire de Châlons",
+          "source_date": "2026-08-30"
+        },
+        {
+          "position": "Plan en trois piliers : améliorer le revenu, simplifier et renforcer les moyens de production, investir dans l'avenir (renouvellement des générations, accompagnement des jeunes agriculteurs, contrats d'adaptation au climat, PAC renforcée).",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "details": "Il met en avant les mesures prises comme Premier ministre en 2024 (fiscalité du gazole non routier, dispositif TO-DE pour les saisonniers). Aucune position trouvée sur le Mercosur ni sur les pesticides.",
+          "source_url": "https://attalpresident.fr/actualites/metz-magny-gabriel-attal-veut-preparer-l-avenir-de-l-agriculture-francaise",
+          "source_title": "Metz-Magny : Gabriel Attal veut préparer l'avenir de l'agriculture française",
+          "source_date": "2026-09-11"
+        },
+        {
+          "position": "Bien-être animal : supprimer les salons du chiot et du chaton, sanctionner les animaleries qui contournent l'interdiction de vendre chiens et chats, mieux encadrer la vente en ligne, créer une amende forfaitaire délictuelle dès le premier acte de maltraitance et un fichier national des personnes interdites de détenir un animal.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "Tu maltraites, on te fait payer",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-a-la-spa-de-plaisir-premieres-propositions-contre-labandon-animal",
+          "source_title": "À la SPA de Plaisir, premières propositions pour la protection animale",
+          "source_date": "2026-07-31"
+        },
+        {
+          "position": "Soutenir de petites retenues d'eau intégrées au paysage pour les agriculteurs, en voulant « sortir du dogmatisme ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-plan-eau-argeles-sur-mer",
+          "source_title": "Plan eau (Argelès-sur-Mer)",
+          "source_date": "2026-08-10"
+        }
+      ]
+    },
+    {
+      "topic_id": "territoires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Nouvelle organisation territoriale pour « déparisianiser » la France : le maire deviendrait l'élu le plus puissant et l'État se recentrerait sur ses missions régaliennes.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "faire du maire l'élu le plus puissant",
+          "source_url": "https://www.lejdd.fr/politique/exclusif-gabriel-attal-je-propose-la-plus-grande-reforme-institutionnelle-depuis-1958-180333",
+          "source_title": "JDD – réforme institutionnelle",
+          "source_date": "2026-08-01"
+        },
+        {
+          "position": "Supprimer un échelon de collectivité territoriale, sans préciser lequel.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "source_url": "https://attalpresident.fr/actualites/lci-gabriel-attal-defend-un-projet-de-rupture-pour-repondre-aux-grands-defis-du-pays",
+          "source_title": "LCI",
+          "source_date": "2026-08-25"
+        },
+        {
+          "position": "Occupations illégales par les gens du voyage : dossier administratif obligatoire par convoi, registre national des groupes de plus de 20 caravanes, facturation des terrains occupés, délit de maintien illicite et décision du juge sous 48 heures.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/en-vendee-gabriel-attal-exige-le-respect-du-droit-par-tous-face-aux-occupations-illegales-des-gens-du-voyage-et-fait-des-propositions",
+          "source_title": "En Vendée, Gabriel Attal fait des propositions face aux occupations illégales",
+          "source_date": "2026-08-04"
+        },
+        {
+          "position": "Aider de façon ciblée les actifs, notamment ruraux, qui dépendent de leur voiture.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Aucune position spécifique trouvée sur les outre-mer ni sur les services publics de proximité.",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-20h-tf1-quatre-chantiers-capitaux-pour-la-france",
+          "source_title": "Gabriel Attal au 20H de TF1",
+          "source_date": "2026-05-23"
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "found": true,
+      "positions": [
+        {
+          "position": "Supprimer le juge de l'application des peines et les aménagements de peine automatiques (libération sous contrainte, remises automatiques), et réécrire le Code de procédure pénale.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "Le jugement doit être appliqué, point barre.",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-sur-bfm-tv-sa-strategie-de-rupture-pour-rebatir-la-justice-et-proteger-les-enfants",
+          "source_title": "Gabriel Attal sur BFM TV : rebâtir la justice et protéger les enfants",
+          "source_date": "2026-06-10"
+        },
+        {
+          "position": "Perpétuité réelle pour les viols en série, imprescriptibilité des crimes sexuels sur mineurs, création d'un parquet national contre la pédocriminalité et extension de l'attestation d'honorabilité à tous les employeurs en contact avec des enfants.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-dans-le-figaro-appelle-a-une-nouvelle-justice",
+          "source_title": "Nouvelle Justice (Le Figaro)",
+          "source_date": "2026-06-12"
+        },
+        {
+          "position": "Recruter 3 000 magistrats et greffiers, construire de nouvelles places de prison par une loi d'exception inspirée de Notre-Dame (opérations d'intérêt national) et déployer l'IA dans la justice (« zéro papier »).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-dans-le-figaro-appelle-a-une-nouvelle-justice",
+          "source_title": "Nouvelle Justice (Le Figaro)",
+          "source_date": "2026-06-12"
+        },
+        {
+          "position": "Délinquance des mineurs : comparution immédiate pour les mineurs, remise en cause de l'« excuse de minorité » pour les actes graves, responsabilité financière des parents et principe « tu casses, tu répares ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "Tu casses, tu répares",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-rtl-autorite-ecole-retraites-rassemblement-campagne",
+          "source_title": "Gabriel Attal sur RTL : autorité, école, retraites",
+          "source_date": "2026-06-01"
+        },
+        {
+          "position": "Favorable à un état d'urgence contre le narcotrafic, comme Bruno Retailleau et Édouard Philippe.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Propos rapportés depuis une interview au Parisien. Les modalités précises n'ont pas été trouvées.",
+          "source_url": "https://actu.orange.fr/politique/presidentielle-2027-gabriel-attal-revele-les-premieres-lignes-de-son-programme-magic-CNT000002pzsbo.html",
+          "source_title": "Présidentielle 2027 : Gabriel Attal révèle les premières lignes de son programme (6Medias/Orange)",
+          "source_date": "2026-05-24"
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "found": true,
+      "positions": [
+        {
+          "position": "« Accueillir moins pour accueillir mieux » : faire de l'immigration de travail le premier motif d'immigration, et réduire l'immigration familiale et étudiante.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "short_quote": "accueillir moins pour accueillir mieux",
+          "source_url": "https://www.lejdd.fr/politique/immigration-gabriel-attal-propose-des-quotas-par-metier-et-par-origine-geographique-180879",
+          "source_title": "Immigration : Gabriel Attal propose des quotas « par métier » et « par origine géographique » (JDD)",
+          "source_date": "2026-08-10"
+        },
+        {
+          "position": "Quotas limitatifs votés tous les deux ans par le Parlement, par métier, secteur et origine géographique, après identification des besoins par les partenaires sociaux. Inscrire une « préférence travail » dans la Constitution.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/lci-gabriel-attal-defend-un-projet-de-rupture-pour-repondre-aux-grands-defis-du-pays",
+          "source_title": "LCI : Gabriel Attal défend un projet de rupture",
+          "source_date": "2026-08-25"
+        },
+        {
+          "position": "Système d'admission inspiré du Canada : emploi stable, logement, maîtrise du français, connaissance et respect des valeurs républicaines.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/programme/frontieres",
+          "source_title": "Programme – Frontières",
+          "source_date": "2026"
+        },
+        {
+          "position": "Durcir les conditions du regroupement familial, notamment en allongeant la durée de résidence exigée.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "details": "Aucun seuil chiffré trouvé.",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-france-inter-election-presidentielle",
+          "source_title": "Gabriel Attal sur France Inter",
+          "source_date": "2026-05-26"
+        },
+        {
+          "position": "Renforcer la coordination de Schengen, mais refuser les centres de renvoi dans des pays tiers.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "source_url": "https://attalpresident.fr/actualites/lci-gabriel-attal-defend-un-projet-de-rupture-pour-repondre-aux-grands-defis-du-pays",
+          "source_title": "LCI",
+          "source_date": "2026-08-25"
+        },
+        {
+          "position": "Dénoncer ou renégocier l'accord franco-algérien de 1968, réduire le nombre de visas accordés aux Algériens et revenir sur l'accord de 2007 sur les passeports diplomatiques.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "details": "Tribune au Figaro de janvier 2025. Le 30 octobre 2025, son groupe était opposé à la résolution du RN visant à dénoncer l'accord, adoptée à une voix près, et a été critiqué pour son absence lors du vote.",
+          "source_url": "https://www.lagazettefrance.fr/article/gabriel-attal-appelle-a-denoncer-l-accord-franco-algerien-de-1968",
+          "source_title": "Gabriel Attal appelle à « dénoncer l'accord franco-algérien de 1968 » (AFP)",
+          "source_date": "2025-01-10"
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Bâtir des « États-Unis d'Europe » : une fusion économique, technologique et écologique entre un noyau dur de pays (Allemagne, Italie, Benelux, Espagne, Portugal, pays nordiques et baltes, Pologne), ouverte notamment au Royaume-Uni. Ce ne serait pas un nouvel État.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-a-reims-batir-les-etats-unis-d-europe-pour-retrouver-notre-puissance",
+          "source_title": "Gabriel Attal à Reims : bâtir les États-Unis d'Europe",
+          "source_date": "2026-09-17"
+        },
+        {
+          "position": "Harmoniser droit du travail et fiscalité au sein de ce noyau, avec union bancaire, marché unique des capitaux, régulateur européen unique, produit d'épargne européen, dette commune pour l'adaptation climatique et président élu au suffrage universel à l'échelle européenne.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "faire une économie unique",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-a-reims-batir-les-etats-unis-d-europe-pour-retrouver-notre-puissance",
+          "source_title": "Reims",
+          "source_date": "2026-09-17"
+        },
+        {
+          "position": "Remplacer l'unanimité par une « Europe des coalitions » où les États volontaires avancent ensemble par thème, et préparer le retour du Royaume-Uni dans l'UE.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-pour-le-retour-du-royaume-uni-dans-l-union-europeenne-dans-le-figaro",
+          "source_title": "Gabriel Attal pour le retour du Royaume-Uni dans l'Union européenne (Le Figaro)",
+          "source_date": "2026-06-24"
+        },
+        {
+          "position": "Créer une politique commune de l'IA financée par le budget européen et par l'endettement commun.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Aucune position trouvée sur le montant du budget de l'UE, l'élargissement ou l'adhésion de l'Ukraine.",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-dans-les-yvelines-l-intelligence-artificielle-au-service-de-l-exception-agricole",
+          "source_title": "Gabriel Attal dans les Yvelines",
+          "source_date": "2026-06-19"
+        }
+      ]
+    },
+    {
+      "topic_id": "ukraine_russie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Poursuivre l'aide militaire à l'Ukraine, en particulier les systèmes de défense aérienne coordonnés au niveau européen, et saisir les avoirs russes gelés pour financer la reconstruction et l'effort de guerre.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "Soutenir l'Ukraine, c'est investir pour la France.",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-dans-politico-europe-ukraine-ia-et-finances-publiques-quatre-priorites-pour-preparer-la-france-de-demain",
+          "source_title": "Gabriel Attal dans POLITICO",
+          "source_date": "2026-09-24"
+        },
+        {
+          "position": "Autoriser l'usage d'armes pour des frappes défensives en profondeur sur le territoire russe. Une participation française à la défense du ciel ukrainien serait possible selon la situation militaire et la coordination européenne.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "source_url": "https://attalpresident.fr/actualites/lci-gabriel-attal-defend-un-projet-de-rupture-pour-repondre-aux-grands-defis-du-pays",
+          "source_title": "LCI",
+          "source_date": "2026-08-25"
+        },
+        {
+          "position": "Reconnaître les cyberattaques et la désinformation russes comme des formes d'agression, et maintenir les sanctions contre la Russie.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "source_url": "https://attalpresident.fr/actualites/lci-gabriel-attal-defend-un-projet-de-rupture-pour-repondre-aux-grands-defis-du-pays",
+          "source_title": "LCI",
+          "source_date": "2026-08-25"
+        },
+        {
+          "position": "Accuse Marine Le Pen d'agir comme un « proxy de la Russie ».",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/gabriel-attal-sur-rtl-je-suis-candidat-pour-gagner-cette-election-presidentielle",
+          "source_title": "Gabriel Attal sur RTL",
+          "source_date": "2026-09-25"
+        }
+      ]
+    },
+    {
+      "topic_id": "proche_orient",
+      "found": true,
+      "positions": [
+        {
+          "position": "Comme Premier ministre en 2024, il jugeait la reconnaissance d'un État palestinien « pas un tabou », à condition qu'elle soit « utile au processus » de paix. Il ne la jugeait pas opportune à ce moment-là.",
+          "kind": "position_declaree",
+          "confidence": "low",
+          "details": "Position ancienne (mai 2024), exprimée au nom du gouvernement, avant la reconnaissance de la Palestine par Emmanuel Macron en septembre 2025. Aucune position de candidat (2025-2026) n'a été trouvée sur Gaza, la Palestine ou le gouvernement israélien.",
+          "source_url": "https://www.publicsenat.fr/actualites/parlementaire/gaza-la-reconnaissance-dun-etat-palestinien-nest-pas-un-tabou-mais-doit-etre-utile-au-processus-declare-gabriel-attal",
+          "source_title": "Gaza : la reconnaissance d'un État palestinien n'est « pas un tabou », mais doit être « utile au processus » (Public Sénat)",
+          "source_date": "2024-05-29"
+        },
+        {
+          "position": "En 2024, il qualifiait la situation à Gaza de « drame humanitaire », demandait à Israël de laisser entrer l'aide humanitaire et réclamait un cessez-le-feu ainsi que la libération des otages. Il affirmait que les armes utilisées par Israël n'étaient pas françaises.",
+          "kind": "position_declaree",
+          "confidence": "low",
+          "details": "Position ancienne de chef de gouvernement, non actualisée.",
+          "source_url": "https://www.publicsenat.fr/actualites/parlementaire/gaza-la-reconnaissance-dun-etat-palestinien-nest-pas-un-tabou-mais-doit-etre-utile-au-processus-declare-gabriel-attal",
+          "source_title": "Public Sénat",
+          "source_date": "2024-05-29"
+        }
+      ]
+    },
+    {
+      "topic_id": "defense",
+      "found": true,
+      "positions": [
+        {
+          "position": "Proposer « deux boucliers » : un dôme européen antimissile et anti-drones, et l'extension du parapluie nucléaire français comme garantie à l'échelle du continent.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/eurosatory-gabriel-attal-presente-sa-strategie-de-souverainete-technologique-et-d-independance-europeenne-au-salon",
+          "source_title": "Eurosatory : souveraineté technologique et indépendance européenne pour notre défense",
+          "source_date": "2026-06-16"
+        },
+        {
+          "position": "Réduire de moitié la dépendance aux chaînes d'approvisionnement extra-européennes, créer une « DARPA européenne » et simplifier la commande publique de défense pour les PME.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/eurosatory-gabriel-attal-presente-sa-strategie-de-souverainete-technologique-et-d-independance-europeenne-au-salon",
+          "source_title": "Eurosatory",
+          "source_date": "2026-06-16"
+        },
+        {
+          "position": "Publier un nouveau Livre blanc de la défense en 2027, auditer les programmes d'armement, investir dans les drones et l'IA, et revoir le programme SCAF.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://attalpresident.fr/actualites/aux-rencontres-economiques-d-aix-en-provence-gabriel-attal-appelle-la-france-a-preparer-les-guerres-de-demain",
+          "source_title": "Aux Rencontres économiques d'Aix, Gabriel Attal appelle la France à préparer les guerres de demain",
+          "source_date": "2026-07-03"
+        },
+        {
+          "position": "Faire de la défense l'une des trois seules dépenses prioritaires, avec l'éducation et l'écologie, malgré le plan d'économies.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "details": "Aucun objectif chiffré (en % du PIB) n'a été trouvé, ni de position sur l'OTAN ou le service national.",
+          "source_url": "https://attalpresident.fr/programme/dette-de-letat",
+          "source_title": "Programme – Dette de l'État",
+          "source_date": "2026"
+        }
+      ]
+    }
+  ],
+  "distinctive_vs_others": "Gabriel Attal se distingue des autres candidats déclarés sur plusieurs points.\n\n- **Retraites.** Il est le seul grand candidat à proposer de supprimer l'âge légal. Les autres fixent un âge : Édouard Philippe 65 ans avec 45 années de cotisation, Bruno Retailleau 63 ans (taux plein à 65 ans), Marine Le Pen 62 ans et Jean-Luc Mélenchon 60 ans. Sources : https://www.lejdd.fr/politique/retraites-ce-que-proposent-les-candidats-a-la-presidentielle-184728 et https://lcp.fr/actualites/retraites-avant-le-debat-sur-la-suspension-de-la-reforme-gabriel-attal-prone-une\n- **Concurrence avec Philippe.** Dans le bloc central, il oppose son « optimisme » au discours de rigueur d'Édouard Philippe (« je laisse à d'autres le sang et les larmes »). Il qualifie le plan retraites de Philippe de « mesures de soins palliatifs ». Source : https://www.franceinfo.fr/politique/direct-election-presidentielle-2027-gabriel-attal-tient-son-premier-meeting-de-campagne-a-paris-a-14-heures_8036864.html\n- **Europe.** Son projet d'« États-Unis d'Europe » (harmonisation fiscale et sociale, président européen élu au suffrage universel, retour du Royaume-Uni) est le plus fédéraliste des candidats déclarés. Il s'oppose aux candidats souverainistes ou favorables à une sortie de l'UE (Le Pen, Dupont-Aignan, Asselineau, Philippot). Source : https://attalpresident.fr/actualites/gabriel-attal-a-reims-batir-les-etats-unis-d-europe-pour-retrouver-notre-puissance\n- **GPA.** Il est favorable à une GPA « éthique », en rupture avec la ligne rouge d'Emmanuel Macron et avec la prudence d'Édouard Philippe. Source : https://www.franceinfo.fr/replay-radio/l-edito-politique/edito-avec-la-gpa-gabriel-attal-veut-s-emparer-du-totem-des-reformes-disruptives_7998872.html\n- **Immigration.** Il défend une « préférence travail » avec des quotas votés par le Parlement. C'est une approche par l'immigration choisie, différente de l'immigration zéro et de l'option des « centres de renvoi », qu'il refuse explicitement. Sources : https://www.lejdd.fr/politique/immigration-gabriel-attal-propose-des-quotas-par-metier-et-par-origine-geographique-180879 et https://attalpresident.fr/actualites/lci-gabriel-attal-defend-un-projet-de-rupture-pour-repondre-aux-grands-defis-du-pays\n- **Fiscalité.** Il refuse toute hausse d'impôts, y compris sur les successions, et défend la flat tax et la suppression de l'ISF. Il s'oppose ainsi aux candidats de gauche favorables à la taxation des hauts patrimoines. Il mise sur une baisse des cotisations salariales (« droit au brut ») financée par des économies sociales. Source : https://attalpresident.fr/actualites/a-la-ref-gabriel-attal-grand-gagnant-du-premier-debat-de-la-presidentielle-2027\n- **Institutions.** Il propose de ramener le Parlement à 350 députés et 200 sénateurs, d'organiser un référendum chaque année et de supprimer le juge de l'application des peines. Source : https://www.lejdd.fr/politique/exclusif-gabriel-attal-je-propose-la-plus-grande-reforme-institutionnelle-depuis-1958-180333\n- **IA.** Elle est l'un de ses quatre chantiers prioritaires, avec un plan de 200 Md€. Source : https://attalpresident.fr/actualites/gabriel-attal-appelle-a-une-rupture-economique-dans-les-echos\n- **Ukraine.** Son soutien est très offensif : saisie des avoirs russes gelés, autorisation de frappes en profondeur. Il présente Marine Le Pen comme un « proxy de la Russie ». Source : https://attalpresident.fr/actualites/gabriel-attal-sur-rtl-je-suis-candidat-pour-gagner-cette-election-presidentielle\n- **Stratégie.** Il revendique une coalition allant des électeurs de Raphaël Glucksmann à ceux de la droite républicaine (titre du Parisien, 3 octobre 2026, article non consulté en entier).",
+  "evolutions_and_contradictions": "- **Retraites.** Comme ministre puis Premier ministre, il a défendu la réforme de 2023 (âge porté à 64 ans). En novembre 2025, son groupe s'est abstenu sur la suspension de cette réforme. En 2026, il propose de supprimer l'âge légal tout en reprenant le calendrier de la réforme Borne jusqu'en 2030 : les deux logiques coexistent sans articulation claire.\n- **Montant des économies.** Il est passé de 120 Md€ sur cinq ans (LCI, 25 août 2026) à « 120 à 150 Md€ » (Le Parisien, juillet 2026), puis à 150 Md€ (plan du 23 septembre 2026). L'objectif d'un déficit sous 3 % est situé tantôt « en 2032 », tantôt « avant la fin du mandat ».\n- **Promesses coûteuses et économies.** Il promet de ne pas augmenter les impôts et de baisser les cotisations, tout en augmentant les enseignants de 200 à 500 € nets par mois et en finançant 3 Md€ pour la garde d'enfants et 1 000 € par naissance. Le financement repose sur des économies sociales non détaillées. La gauche (Humanité, Observatoire de la justice fiscale) qualifie le « choc des salaires » d'« arnaque ».\n- **Voile.** En mai 2025, la proposition d'interdire le voile aux moins de 15 ans dans l'espace public lui a valu d'être accusé de rejoindre des positions qu'il critiquait chez le RN. Elle a aussi été contestée au sein de Renaissance. Sa reprise dans le programme de 2026 n'est pas confirmée.\n- **Algérie.** En janvier 2025, il appelait à dénoncer l'accord franco-algérien de 1968. Mais lors du vote de la résolution du RN sur ce sujet (30 octobre 2025), son groupe s'y est opposé et a été critiqué pour son absence ; la résolution a été adoptée à une voix près.\n- **GPA.** Sa position assumée le place en rupture avec Emmanuel Macron, dont il est issu.\n- **Fonction publique.** Les 100 000 postes supprimés sont présentés tantôt comme des « départs volontaires » accompagnés de primes, tantôt comme des suppressions incluant du non-remplacement, alors que l'Éducation, les Armées, la Justice et l'Intérieur seraient épargnés.\n- **Faisabilité juridique.** Plusieurs propositions posent des questions constitutionnelles : suppression du juge de l'application des peines, voile des mineures, référendum sur les réseaux sociaux après la décision du Conseil constitutionnel du 14 août 2026.\n- **Proportionnelle.** Il s'y montrait réservé en 2025 et la question n'apparaît pas dans sa réforme de 2026, alors que la réduction à 350 députés imposerait un redécoupage.",
+  "open_questions": [
+    "Proche-Orient : aucune position de candidat trouvée (2025-2026) sur Gaza, la reconnaissance de la Palestine par la France (septembre 2025) ou les relations avec le gouvernement Nétanyahou. Un article de Libération du 1er juillet 2026, titré sur son « indulgence » envers Nétanyahou, n'a pas pu être consulté.",
+    "Culture et audiovisuel public : aucune proposition trouvée (holding, financement, privatisation). Seul indice : selon des titres de presse du 27 avril 2026, il souhaitait la publication du rapport Alloncle et ses députés se sont abstenus.",
+    "Santé : rien de précis sur l'accès aux soins, les déserts médicaux, les franchises, le partage entre Sécurité sociale et complémentaires, ni sur le financement de la dépendance des personnes âgées.",
+    "Défense : aucun objectif budgétaire en % du PIB, aucune position sur l'OTAN ni sur le service national (volontaire ou obligatoire).",
+    "Droits LGBTQIA+ : hors GPA, aucune position trouvée sur la filiation, le changement d'état civil, les mineurs trans ou l'éducation à la sexualité.",
+    "Industrie et agriculture : aucune position explicite trouvée sur l'accord UE-Mercosur ni sur des mesures de protection commerciale chiffrées.",
+    "Outre-mer et services publics de proximité : rien de précis ; on ne sait pas quel échelon de collectivité serait supprimé.",
+    "Enseignement privé et université : pas de position détaillée.",
+    "Le chiffrage et la ventilation des 150 Md€ d'économies et le coût de la baisse des cotisations salariales ne sont pas publiés en détail.",
+    "Plusieurs mesures attribuées par des sites agrégateurs (ÉlyséeScope) n'ont pas été vérifiées dans des sources primaires : vote obligatoire à 16 ans, interdiction de la chasse à courre et de la corrida, mutuelle publique à 1 € par jour, « principe de progrès » remplaçant le principe de précaution. Elles ne doivent pas être retenues sans confirmation.",
+    "Le meeting de Lyon du 10 octobre 2026 pourrait apporter de nouvelles propositions (décentralisation, santé), annoncées pour « l'automne »."
+  ]
+}

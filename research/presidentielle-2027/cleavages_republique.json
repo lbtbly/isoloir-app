@@ -1,0 +1,469 @@
+{
+  "group": "republique",
+  "cleavages": [
+    {
+      "topic_id": "institutions",
+      "cleavage": "Mode de scrutin aux élections législatives : passer à la proportionnelle, en introduire seulement une dose, ou garder le scrutin majoritaire à deux tours ?",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Élire l'essentiel ou la totalité des députés à la proportionnelle (intégrale par département, par grandes régions, ou généralisée), pour que chaque courant soit représenté selon son poids électoral.",
+          "candidates": [
+            "Marine Le Pen",
+            "Jean-Luc Mélenchon",
+            "Raphaël Glucksmann",
+            "Florian Philippot"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/proportionnelle-aux-legislatives-francois-bayrou-consulte-les-avis-divergent-sur-le",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://les-patriotes.fr/notre-charte-des-patriotes/"
+          ]
+        },
+        {
+          "approach": "Introduire seulement une dose (une part partielle) de proportionnelle, en conservant majoritairement le scrutin majoritaire.",
+          "candidates": [
+            "Bernard Cazeneuve",
+            "François Asselineau"
+          ],
+          "evidence_urls": [
+            "https://www.la-convention.fr/lettre",
+            "https://upr.fr/notre-programme/programme-2022"
+          ]
+        },
+        {
+          "approach": "Conserver le scrutin majoritaire uninominal, jugé garant de majorités stables et du lien entre le député et les électeurs de sa circonscription.",
+          "candidates": [
+            "Bruno Retailleau",
+            "Édouard Philippe",
+            "Gabriel Attal"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/proportionnelle-aux-legislatives-francois-bayrou-consulte-les-avis-divergent-sur-le"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "institutions",
+      "cleavage": "Référendum, Conseil constitutionnel et État de droit : le peuple doit-il pouvoir trancher toute question et passer outre le juge constitutionnel, ou le référendum doit-il rester dans le cadre constitutionnel actuel ?",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Réviser la Constitution pour pouvoir soumettre à référendum toute question législative (y compris immigration et politique pénale), permettre au peuple de passer outre une censure du Conseil constitutionnel et faire primer la Constitution ou le droit national sur le droit européen et les juridictions internationales.",
+          "candidates": [
+            "Bruno Retailleau",
+            "David Lisnard",
+            "Nicolas Dupont-Aignan",
+            "François Asselineau"
+          ],
+          "evidence_urls": [
+            "https://www.bfmtv.com/politique/elections/presidentielle/presidentielle-2027-pour-donner-le-dernier-mot-aux-francais-bruno-retailleau-defend-une-revision-constitutionnelle_AD-202609020807.html",
+            "https://www.lejdd.fr/politique/le-peuple-face-aux-juges-la-bataille-du-dernier-mot-182691",
+            "https://www.epochtimes.fr/programme-presidentiel-2027-david-lisnard-adresse-une-facture-symbolique-a-gabriel-attal-pour-plagiat-3320322.html",
+            "https://www.unenouvelleenergie.fr/notre-programme/etre-maitre-de-notre-destin/",
+            "https://www.debout-la-france.fr/projet/refonder-et-moraliser-notre-democratie/",
+            "https://upr.fr/actualites/discours-de-rentree-2026-de-francois-asselineau-la-liberation-nationale"
+          ]
+        },
+        {
+          "approach": "Dès l'élection, réviser largement la Constitution (immigration, priorité nationale, primauté du droit national) par un référendum convoqué au titre de l'article 11, sans vote préalable des deux chambres du Parlement.",
+          "candidates": [
+            "Marine Le Pen"
+          ],
+          "evidence_urls": [
+            "https://www.france24.com/fr/info-en-continu/20260905-en-r%C3%A9visant-la-constitution-par-r%C3%A9f%C3%A9rendum-le-rn-au-pouvoir-ouvrirait-une-crise-majeure",
+            "https://www.epochtimes.fr/elue-presidente-marine-le-pen-convoquerait-demblee-un-referendum-pour-reviser-largement-la-constitution-3341213.html"
+          ]
+        },
+        {
+          "approach": "Utiliser davantage le référendum mais dans le champ actuel de la Constitution, ne la réviser que par la procédure parlementaire (article 89) et respecter les décisions du Conseil constitutionnel.",
+          "candidates": [
+            "Édouard Philippe",
+            "Gabriel Attal"
+          ],
+          "evidence_urls": [
+            "https://www.lefigaro.fr/elections/presidentielles/candidats/presidentielle-2027-referendum-etat-de-droit-edouard-philippe-marque-sa-difference-avec-bruno-retailleau-20260908",
+            "https://www.epochtimes.fr/etat-de-droit-immigration-et-referendum-pour-2027-edouard-philippe-affiche-ses-differences-avec-bruno-retailleau-3343374.html",
+            "https://www.lopinion.fr/politique/retailleau-charge-letat-de-droit-attal-et-philippe-temporisent",
+            "https://www.la-croix.com/reseaux-sociaux-attal-alimente-le-debat-sur-le-referendum-20260816"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "institutions",
+      "cleavage": "Équilibre des pouvoirs : écrire une nouvelle Constitution, réduire les pouvoirs du président dans la Ve République, revenir au septennat, ou préserver l'exécutif de 1958 en le modernisant ?",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Convoquer une assemblée constituante pour rédiger une nouvelle Constitution, donnant un rôle central au Parlement et aux citoyens (y compris par une convention citoyenne préparatoire).",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf"
+          ]
+        },
+        {
+          "approach": "Rester dans la Ve République mais réduire fortement les pouvoirs du président au profit du gouvernement et du Parlement : limiter ou supprimer le droit de dissolution, réduire le pouvoir de nomination, supprimer le 49.3 (hors textes financiers), « abolir le présidentialisme ».",
+          "candidates": [
+            "Emmanuel Maurel",
+            "Olivier Faure",
+            "Delphine Batho"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/",
+            "https://projet-socialiste.fr/projet/refaire-societe/",
+            "https://www.generationecologie.fr/a-propos/generation-ecologie/nos-valeurs/"
+          ]
+        },
+        {
+          "approach": "Rétablir un mandat présidentiel de sept ans (septennat), selon les cas assorti d'un référendum révocatoire à mi-mandat, et redonner au Premier ministre un rôle de responsable devant le Parlement.",
+          "candidates": [
+            "Bernard Cazeneuve",
+            "Nicolas Dupont-Aignan",
+            "François Asselineau"
+          ],
+          "evidence_urls": [
+            "https://www.la-convention.fr/lettre",
+            "https://www.debout-la-france.fr/projet/refonder-et-moraliser-notre-democratie/",
+            "https://upr.fr/notre-programme/programme-2022"
+          ]
+        },
+        {
+          "approach": "Conserver la Ve République et son exécutif, en revenant à l'esprit de 1958 ou en la modernisant : référendums réguliers, réduction du nombre de parlementaires (jusqu'à 350 députés et 200 sénateurs dans une proposition), décentralisation, révision du pouvoir de nomination.",
+          "candidates": [
+            "Bruno Retailleau",
+            "David Lisnard",
+            "Édouard Philippe",
+            "Gabriel Attal"
+          ],
+          "evidence_urls": [
+            "https://www.bfmtv.com/politique/elections/presidentielle/presidentielle-2027-pour-donner-le-dernier-mot-aux-francais-bruno-retailleau-defend-une-revision-constitutionnelle_AD-202609020807.html",
+            "https://www.lefigaro.fr/elections/presidentielles/a-bayeux-david-lisnard-invoque-l-esprit-de-resistance-pour-reconstruire-la-france-20260617",
+            "https://www.lefigaro.fr/elections/presidentielles/candidats/presidentielle-2027-referendum-etat-de-droit-edouard-philippe-marque-sa-difference-avec-bruno-retailleau-20260908",
+            "https://www.lejdd.fr/politique/exclusif-gabriel-attal-je-propose-la-plus-grande-reforme-institutionnelle-depuis-1958-180333",
+            "https://www.journaldunet.com/business/action-publique/1553335-gabriel-attal-promet-la-plus-grande-reforme-institutionnelle-depuis-1958-s-il-est-elu-president/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "institutions",
+      "cleavage": "Qui déclenche le référendum : les citoyens eux-mêmes (avec ou sans révocation des élus) ou le président et le gouvernement ?",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Instaurer un référendum d'initiative citoyenne (RIC) contraignant, portant sur les lois et la Constitution, pour certains assorti d'un référendum révocatoire visant tout élu, président compris (seuil proposé par l'un : 1 million de signatures).",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Nicolas Dupont-Aignan",
+            "François Asselineau",
+            "Florian Philippot"
+          ],
+          "evidence_urls": [
+            "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/",
+            "https://www.debout-la-france.fr/projet/refonder-et-moraliser-notre-democratie/",
+            "https://upr.fr/actualites/discours-de-rentree-2026-de-francois-asselineau-la-liberation-nationale",
+            "https://les-patriotes.fr/notre-charte-des-patriotes/"
+          ]
+        },
+        {
+          "approach": "Élargir l'initiative citoyenne de façon encadrée, sans révocation des élus : abaisser le seuil du référendum d'initiative partagée (1 million de signatures dans un projet), droit d'initiative citoyenne pouvant déclencher un référendum, questions d'initiative citoyenne lors d'une journée référendaire annuelle.",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Emmanuel Maurel",
+            "Olivier Faure",
+            "Ségolène Royal"
+          ],
+          "evidence_urls": [
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://projet-socialiste.fr/projet/refaire-societe/",
+            "https://www.sudradio.fr/sud-radio/presidentielle-comment-la-revenante-segolene-royal-est-revenue-dans-le-jeu"
+          ]
+        },
+        {
+          "approach": "Multiplier les référendums à l'initiative du président ou du gouvernement (journée référendaire annuelle à questions multiples, référendums thématiques sur l'immigration ou d'autres lois), avec au plus un assouplissement limité du référendum d'initiative partagée (2,5 millions de signatures dans une proposition).",
+          "candidates": [
+            "Gabriel Attal",
+            "Marine Le Pen",
+            "Bruno Retailleau",
+            "Édouard Philippe"
+          ],
+          "evidence_urls": [
+            "https://www.journaldunet.com/business/action-publique/1553335-gabriel-attal-promet-la-plus-grande-reforme-institutionnelle-depuis-1958-s-il-est-elu-president/",
+            "https://www.france24.com/fr/france/20260831-le-rn-remet-l-interdiction-du-port-du-voile-dans-le-débat-et-promet-un-référendum",
+            "https://www.bfmtv.com/politique/elections/presidentielle/presidentielle-2027-pour-donner-le-dernier-mot-aux-francais-bruno-retailleau-defend-une-revision-constitutionnelle_AD-202609020807.html",
+            "https://www.lefigaro.fr/elections/presidentielles/candidats/presidentielle-2027-referendum-etat-de-droit-edouard-philippe-marque-sa-difference-avec-bruno-retailleau-20260908"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "institutions",
+      "cleavage": "Pluralisme politique : faut-il pouvoir interdire un parti d'opposition accusé d'appeler à l'insurrection ?",
+      "importance": "low",
+      "sides": [
+        {
+          "approach": "Étudier l'interdiction d'un parti représenté au Parlement, accusé d'attiser les violences lors des blocages de lycées d'octobre 2026.",
+          "candidates": [
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://www.lemonde.fr/politique/article/2026/10/01/blocage-des-lycees-bruno-retailleau-propose-l-interdiction-de-lfi-qui-appelle-a-la-sedition-jean-luc-melenchon-lui-repond_6786472_823449.html",
+            "https://www.20minutes.fr/politique/4250713-20261002-retailleau-lfi-dissoudre-parti-politique-opposition-possibilite-juridique-tres-encadree"
+          ]
+        },
+        {
+          "approach": "Rejeter cette proposition d'interdiction d'un parti d'opposition.",
+          "candidates": [
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://www.lemonde.fr/politique/article/2026/10/01/blocage-des-lycees-bruno-retailleau-propose-l-interdiction-de-lfi-qui-appelle-a-la-sedition-jean-luc-melenchon-lui-repond_6786472_823449.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "laicite_republique",
+      "cleavage": "Port du voile islamique par les femmes majeures hors de l'école : interdiction générale dans l'espace public, interdictions ciblées, statu quo ou abrogation des interdictions existantes ?",
+      "importance": "high",
+      "sides": [
+        {
+          "approach": "Interdire le voile islamique dans tout l'espace public, par étapes (d'abord universités, sorties scolaires, fédérations sportives, bâtiments publics) et après un référendum, avec une amende en cas d'infraction.",
+          "candidates": [
+            "Marine Le Pen"
+          ],
+          "evidence_urls": [
+            "https://www.france24.com/fr/france/20260831-le-rn-remet-l-interdiction-du-port-du-voile-dans-le-débat-et-promet-un-référendum",
+            "https://www.boursorama.com/actualite-economique/actualites/interdiction-du-voile-le-pen-veut-le-faire-de-maniere-progressive-89be5c3dd6a4576a6c37778c23ba52a6"
+          ]
+        },
+        {
+          "approach": "Refuser une interdiction générale, jugée inapplicable, mais interdire le voile dans des lieux ou pour des publics ciblés : accompagnatrices de sorties scolaires, compétitions sportives, universités, usagers de certains services publics, ou mineures de moins de 15 ans.",
+          "candidates": [
+            "Bruno Retailleau",
+            "David Lisnard",
+            "Nicolas Dupont-Aignan",
+            "Gabriel Attal"
+          ],
+          "evidence_urls": [
+            "https://www.lefigaro.fr/politique/du-populisme-et-de-la-demagogie-bruno-retailleau-denonce-la-proposition-du-rn-d-interdire-le-voile-dans-l-espace-public-20260901",
+            "https://www.bfmtv.com/politique/elections/presidentielle/direct-presidentielle-bruno-retailleau-fait-sa-rentree-le-rn-sous-le-feu-des-critiques_LN-202609060097.html",
+            "https://www.europe1.fr/politique/il-faut-casser-les-ressorts-de-lislamisme-david-lisnard-reagit-a-la-proposition-du-rn-de-sanctionner-le-port-du-voile-dans-lespace-public-1052360",
+            "https://www.debout-la-france.fr/projet/immigration-et-assimilation/",
+            "https://www.franceinfo.fr/politique/gabriel-attal/gabriel-attal-veut-interdire-le-port-du-voile-pour-les-mineures-de-moins-de-15-ans-et-creer-un-delit-de-communautarisme_7263732.html"
+          ]
+        },
+        {
+          "approach": "Ne créer aucune nouvelle interdiction pour les femmes majeures : appliquer les lois existantes (école, voile intégral) au nom de la liberté religieuse et du libre choix des femmes, la laïcité n'étant pas une « police des vêtements ».",
+          "candidates": [
+            "Édouard Philippe",
+            "Raphaël Glucksmann",
+            "Jérôme Guedj",
+            "Ségolène Royal",
+            "Olivier Faure",
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://www.france24.com/fr/france/20260831-le-rn-remet-l-interdiction-du-port-du-voile-dans-le-débat-et-promet-un-référendum",
+            "https://www.lefigaro.fr/elections/presidentielles/candidats/la-laicite-ce-n-est-pas-la-police-des-vetements-glucksmann-accuse-le-rn-de-vouloir-relancer-les-fievres-identitaires-avec-l-interdiction-du-port-du-voile-20260904",
+            "https://www.titrespresse.com/20058212603/jerome-guedj-pen",
+            "https://www.tsa-algerie.com/france-segolene-royal-denonce-la-chasse-au-foulard/",
+            "https://www.bfmtv.com/politique/elections/presidentielle/direct-presidentielle-bruno-retailleau-fait-sa-rentree-le-rn-sous-le-feu-des-critiques_LN-202609060097.html",
+            "https://www.lefigaro.fr/politique/populisme-police-du-vetement-desaccord-radical-la-classe-politique-s-insurge-contre-la-sanction-du-rn-sur-le-port-du-voile-20260901"
+          ]
+        },
+        {
+          "approach": "Abroger les interdictions existantes jugées discriminatoires : loi de 2004 sur les signes religieux à l'école, interdiction de l'abaya, loi « séparatisme » de 2021.",
+          "candidates": [
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://www.revolutionpermanente.fr/Anasse-Kazib-sur-l-interdiction-de-l-abaya-Il-faut-l-abroger-ainsi-que-toutes-les-lois-islamophobes"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "laicite_republique",
+      "cleavage": "Tenues religieuses à l'école publique : maintenir l'interdiction de l'abaya (2023) et la loi de 2004, réautoriser l'abaya, ou tout abroger ?",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Maintenir l'interdiction de l'abaya et la loi de 2004 interdisant les signes religieux ostensibles à l'école, jugée bonne et bien appliquée.",
+          "candidates": [
+            "Marine Le Pen",
+            "Édouard Philippe",
+            "Gabriel Attal",
+            "Ségolène Royal"
+          ],
+          "evidence_urls": [
+            "https://www.boursorama.com/actualite-economique/actualites/abaya-a-l-ecole-lfi-accusee-de-trahir-la-laicite-en-voulant-revenir-sur-l-interdiction-a10c1fbb2445837147b11c7f432209e9",
+            "https://www.lefigaro.fr/elections/presidentielles/une-trahison-de-la-laicite-edouard-philippe-consterne-par-la-proposition-de-lfi-de-revenir-sur-l-interdiction-de-l-abaya-a-l-ecole-20260907"
+          ]
+        },
+        {
+          "approach": "Réautoriser l'abaya, considérée comme une tenue sans caractère religieux, tout en conservant l'interdiction des signes religieux à l'école.",
+          "candidates": [
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://www.boursorama.com/actualite-economique/actualites/abaya-a-l-ecole-lfi-accusee-de-trahir-la-laicite-en-voulant-revenir-sur-l-interdiction-a10c1fbb2445837147b11c7f432209e9",
+            "https://www.revolutionpermanente.fr/Face-a-l-offensive-islamophobe-contre-le-voile-abroger-toutes-les-lois-qui-ont-pave-la-voie-au-RN"
+          ]
+        },
+        {
+          "approach": "Abroger à la fois l'interdiction de l'abaya et la loi de 2004 sur les signes religieux à l'école.",
+          "candidates": [
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://www.revolutionpermanente.fr/Anasse-Kazib-sur-l-interdiction-de-l-abaya-Il-faut-l-abroger-ainsi-que-toutes-les-lois-islamophobes"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "laicite_republique",
+      "cleavage": "Mémoire de la colonisation : reconnaître officiellement ses crimes et conséquences, ou refuser toute démarche de « repentance » ?",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Reconnaître officiellement les crimes et les conséquences de la colonisation : qualification de crime contre l'humanité, commission vérité et réconciliation, fondation et musée de l'histoire coloniale, « geste de reconnaissance » envers l'Algérie.",
+          "candidates": [
+            "Olivier Faure",
+            "Ségolène Royal",
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://www.boursorama.com/actualite-economique/actualites/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions-e0f504871547edbc6960940d9c6e1fd9",
+            "https://projet-socialiste.fr/projet/refaire-societe/",
+            "https://www.bfmtv.com/international/afrique/algerie/de-retour-d-algerie-segolene-royal-estime-que-les-consequences-dramatiques-de-la-colonisation-n-ont-jamais-ete-reconnues_AD-202602020316.html",
+            "https://www.lejdd.fr/politique/vous-avez-ete-les-colons-la-nouvelle-diatribe-pro-algerie-de-jean-luc-melenchon-165736"
+          ]
+        },
+        {
+          "approach": "Refuser la « culpabilisation » et la « rente mémorielle » et chercher une relation avec l'Algérie « normale, dépassionnée », sans démarche d'excuses.",
+          "candidates": [
+            "Gabriel Attal"
+          ],
+          "evidence_urls": [
+            "https://www.europe1.fr/politique/gabriel-attal-appelle-denoncer-laccord-franco-algerien-de-1968-238850"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "laicite_republique",
+      "cleavage": "Réponse à l'islamisme : créer de nouveaux délits et fermer lieux de culte ou associations, privilégier la lutte contre les discriminations, ou abroger les lois existantes ?",
+      "importance": "medium",
+      "sides": [
+        {
+          "approach": "Créer de nouveaux outils pénaux et administratifs : délit d'entrisme ou de « communautarisme », délit de contrainte au port du voile, fermeture de lieux de culte et d'associations, loi référendaire contre les « idéologies islamistes », interdiction de tenues qualifiées d'« uniformes islamistes ».",
+          "candidates": [
+            "Bruno Retailleau",
+            "Gabriel Attal",
+            "Marine Le Pen",
+            "Nicolas Dupont-Aignan",
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://www.lefigaro.fr/politique/du-populisme-et-de-la-demagogie-bruno-retailleau-denonce-la-proposition-du-rn-d-interdire-le-voile-dans-l-espace-public-20260901",
+            "https://www.franceinfo.fr/politique/gabriel-attal/gabriel-attal-veut-interdire-le-port-du-voile-pour-les-mineures-de-moins-de-15-ans-et-creer-un-delit-de-communautarisme_7263732.html",
+            "https://www.lefigaro.fr/politique/voile-fermeture-de-mosquees-expulsions-ces-mesures-contre-l-islamisme-que-le-rn-veut-proposer-par-referendum-20260901",
+            "https://www.debout-la-france.fr/projet/immigration-et-assimilation/",
+            "https://www.europe1.fr/politique/il-faut-casser-les-ressorts-de-lislamisme-david-lisnard-reagit-a-la-proposition-du-rn-de-sanctionner-le-port-du-voile-dans-lespace-public-1052360"
+          ]
+        },
+        {
+          "approach": "S'appuyer sur les lois existantes et l'éducation, faire de la lutte contre les discriminations et la haine antimusulmane une priorité, et refuser des mesures perçues comme visant une religion.",
+          "candidates": [
+            "Olivier Faure",
+            "Jérôme Guedj",
+            "Raphaël Glucksmann",
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://projet-socialiste.fr/projet/refaire-societe/",
+            "https://www.france24.com/fr/info-en-continu/20260917-olivier-faure-%C3%A0-gauche-toute-pour-la-primaire",
+            "https://entrevue.fr/presidentielle-2027/jerome-guedj-lislam-est-compatible-avec-la-republique/",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://www.lefigaro.fr/politique/populisme-police-du-vetement-desaccord-radical-la-classe-politique-s-insurge-contre-la-sanction-du-rn-sur-le-port-du-voile-20260901"
+          ]
+        },
+        {
+          "approach": "Abroger la loi « séparatisme » de 2021 et annuler les dissolutions d'organisations musulmanes et antiracistes.",
+          "candidates": [
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://www.revolutionpermanente.fr/Anasse-Kazib-sur-l-interdiction-de-l-abaya-Il-faut-l-abroger-ainsi-que-toutes-les-lois-islamophobes"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "laicite_republique",
+      "cleavage": "Cadre juridique de la laïcité : nouvelles garanties institutionnelles, référence à l'héritage chrétien, ou fin des régimes dérogatoires ?",
+      "importance": "low",
+      "sides": [
+        {
+          "approach": "Créer un « Défenseur de la laïcité » (autorité indépendante ou rattachée au Défenseur des droits) et, pour certains, inscrire une définition de la laïcité dans la Constitution.",
+          "candidates": [
+            "Jérôme Guedj",
+            "Emmanuel Maurel",
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://www.assemblee-nationale.fr/dyn/17/textes/l17b2000_proposition-loi",
+            "https://g-r-s.fr/refaire-de-la-laicite-un-instrument-de-justice-sociale-et-de-cohesion-republicaine-tribune-parue-dans-liberation-le-jeudi-20-mars-2025/",
+            "https://projet-socialiste.fr/projet/refaire-societe/"
+          ]
+        },
+        {
+          "approach": "Inscrire dans la Constitution que la France est une « République laïque de tradition chrétienne ».",
+          "candidates": [
+            "François Asselineau"
+          ],
+          "evidence_urls": [
+            "https://upr.fr/actualites/discours-de-rentree-2026-de-francois-asselineau-la-liberation-nationale"
+          ]
+        },
+        {
+          "approach": "Abolir progressivement les régimes dérogatoires à la loi de 1905, dont le régime concordataire d'Alsace-Moselle.",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://www.lejdd.fr/Societe/alsace-moselle-le-concordat-de-1801-est-il-menace-185226"
+          ]
+        }
+      ]
+    }
+  ],
+  "consensus_points": [
+    {
+      "topic_id": "institutions",
+      "point": "Presque tous les candidats qui se sont exprimés veulent recourir davantage au référendum (le dernier date de 2005), y compris les plus prudents. Ils divergent sur son champ, sur qui le déclenche et sur son rapport au Conseil constitutionnel.",
+      "url": "https://www.lefigaro.fr/elections/presidentielles/candidats/presidentielle-2027-referendum-etat-de-droit-edouard-philippe-marque-sa-difference-avec-bruno-retailleau-20260908"
+    },
+    {
+      "topic_id": "institutions",
+      "point": "La plupart des candidats annoncent une révision constitutionnelle d'ampleur en début de mandat, qu'il s'agisse d'une nouvelle Constitution, d'une « grande réforme institutionnelle » ou d'un « pacte constitutionnel ». Ces projets n'ont pas le même contenu.",
+      "url": "https://www.lindependant.fr/2026/09/15/ledito-du-16-septembre-le-populisme-constitutionnel-sera-a-la-mode-pour-lelection-presidentielle-13552374.php"
+    },
+    {
+      "topic_id": "laicite_republique",
+      "point": "La quasi-totalité des candidats qui se sont exprimés défendent la loi de 2004 interdisant les signes religieux ostensibles à l'école publique, y compris ceux qui veulent réautoriser l'abaya. Un seul candidat en demande l'abrogation.",
+      "url": "https://www.lefigaro.fr/elections/presidentielles/une-trahison-de-la-laicite-edouard-philippe-consterne-par-la-proposition-de-lfi-de-revenir-sur-l-interdiction-de-l-abaya-a-l-ecole-20260907"
+    }
+  ]
+}

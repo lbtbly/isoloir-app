@@ -1,7 +1,8 @@
 // Les séries de vidéos « Les sujets » : un thème, une série ; l'introduction, puis un approfondissement par
-// levier. Une série par fichier, series/<thème>.ts (null tant qu'elle n'est pas écrite), rassemblées dans
-// l'ordre des familles de thèmes par series/index.ts. Ce module garde l'adresse publique des séries : le
-// lecteur, la page des vidéos, les tests et le générateur des voix lisent VIDEO_SERIES ici.
+// levier. Une série par fichier, series/<thème>.ts (null tant qu'elle n'est pas écrite), rassemblées par
+// series/index.ts. Ce module garde l'adresse publique des séries telles qu'écrites (identifiants de la
+// primaire) : les tests et le générateur des voix lisent VIDEO_SERIES ici ; le site, lui, passe par le catalogue
+// (catalog.ts), qui les réétiquette pour l'élection affichée (scope.ts).
 // Guide d'écriture d'une série (structure, ton, neutralité, chiffres, « spoken », identifiants, planches) :
 // GUIDE-SERIES.md. Textes vérifiés contre les fiches des questions (question.explainer dans
 // src/elections/choisir-2027/bank.ts, research/choisir-2027/explainers.json) et contre leurs sources.
