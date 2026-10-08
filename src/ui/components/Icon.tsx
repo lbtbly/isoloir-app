@@ -19,6 +19,16 @@ const PATHS: Record<string, string> = {
   scissors: 'M6 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM8.5 7.5L20 18M8.5 16.5L20 6',
   // Étoile d'un thème prioritaire : remplie d'encre quand le thème compte double
   star: 'M12 3.6l2.55 5.2 5.7.83-4.13 4.02.98 5.68L12 16.65l-5.1 2.68.98-5.68-4.13-4.02 5.7-.83z',
+  // Comparer : deux colonnes côte à côte
+  compare: 'M4.5 5h5.5v14H4.5zM14 5h5.5v14H14z',
+  // Plus : ajouter (un candidat à la comparaison)
+  plus: 'M12 5v14M5 12h14',
+  // Relations entre deux candidats (page « Comparer ») : des signes imprimés, doublés d'un mot partout où ils paraissent
+  'rel-same': 'M5 9h14M5 15h14',
+  'rel-close': 'M4.5 9.6c2.5-2.2 5-2.2 7.5 0s5 2.2 7.5 0M4.5 15.6c2.5-2.2 5-2.2 7.5 0s5 2.2 7.5 0',
+  'rel-different': 'M5 9h14M5 15h14M15 4.5L9 19.5',
+  'rel-opposed': 'M10 12H3M6.5 8.5L3 12l3.5 3.5M14 12h7M17.5 8.5L21 12l-3.5 3.5',
+  'rel-unknown': 'M9 9.2a3 3 0 1 1 4.2 2.75c-.75.33-1.2 1-1.2 1.8V15M12 18.6v.2',
   plane:
     'M12 2.8c.8 0 1.4.7 1.4 1.6v5l7.1 4.2v2l-7.1-2.1v4.2l2.3 1.8v1.7L12 20.3l-3.7.9v-1.7l2.3-1.8v-4.2l-7.1 2.1v-2l7.1-4.2v-5c0-.9.6-1.6 1.4-1.6z',
 }

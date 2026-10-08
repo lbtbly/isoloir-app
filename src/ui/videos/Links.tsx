@@ -5,7 +5,8 @@
 // Ni approche ni candidat : comme les fiches, les vidéos racontent l'enjeu et les chiffres.
 
 import { Glyph } from './Glyph'
-import { openVideo, VIDEOS_PAGE } from './Host'
+import { link } from '../nav'
+import { openVideo, VIDEOS_PATH } from './Host'
 import { useVideoCatalog } from './load'
 import { durationLabel } from './model'
 import '../../styles/videos-page.css'
@@ -112,7 +113,7 @@ export function VideoFeedEntry({
           Regarder les vidéos
         </button>
         {page ? (
-          <a class="btn-text video-feed-all" href={VIDEOS_PAGE}>
+          <a class="btn-text video-feed-all" href={link(VIDEOS_PATH)}>
             Toutes les séries
           </a>
         ) : null}

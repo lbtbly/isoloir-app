@@ -11,6 +11,11 @@
 // - Lissage vers 50 % quand peu de questions sont connues : (S·n + k·0,5) / (n + k), k = 2.
 // - Lignes rouges : filtre visible, pas de pénalité. Les candidats qui portent une approche
 //   jugée inacceptable sont classés après les autres, score inchangé.
+// - Hors classement (élections qui l'activent, election.ranking) : un candidat connu sur moins de
+//   minCoverageShare des questions comptées n'est pas classé ; son score reste calculé, à titre indicatif.
+//   Rangs, ex aequo, écart significatif, stabilité et « ce qui les sépare » ne portent que sur les classés.
+// - Non classés (élections qui en désignent, election.ranking.excluded) : candidats sortis du calcul par décision
+//   du propriétaire, positions connues sur trop peu de questions. Aucun score, aucun rang : ils ne sont pas calculés.
 
 import { hasOpinion } from './answers'
 import { seededShuffle } from './rng'
@@ -144,6 +149,8 @@ export interface CandidateResult {
   known: number
   /** Nombre de questions notées par l'utilisateur */
   answered: number
+  /** Part des questions comptées où sa position est connue : known / answered, entre 0 et 1 (0 sans réponse) */
+  coverage: number
   partialData: boolean
   topicScores: Record<TopicId, number | null>
   questions: QuestionDetail[]
@@ -164,8 +171,24 @@ export interface WhyItem {
   delta: number
 }
 
+/** Candidat hors classement : ni rang ni ex aequo, son score n'est donné qu'à titre indicatif */
+export type UnrankedResult = Omit<CandidateResult, 'rank' | 'tied'>
+
 export interface Results {
+  /** Le classement : les candidats classés, du plus au moins proche (tous, sans règle de classement) */
   ranking: CandidateResult[]
+  /**
+   * Non classés (election.ranking.excluded), parmi les candidats demandés : sortis du calcul, sans score ni rang,
+   * dans un ordre tiré au hasard (graine de l'utilisateur) ; toujours vide pour une élection qui n'en désigne pas
+   */
+  excluded: CandidateId[]
+  /**
+   * Hors classement : candidats connus sur trop peu des questions comptées (règle election.ranking), dans un
+   * ordre tiré au hasard (graine de l'utilisateur) ; toujours vide pour une élection sans cette règle
+   */
+  unranked: UnrankedResult[]
+  /** Part minimale des questions comptées où un candidat doit être connu pour être classé ; null : pas de règle */
+  minCoverageShare: number | null
   answered: number
   /** Nombre total de lignes rouges posées */
   redLineCount: number
@@ -247,6 +270,7 @@ function scoreCandidate(
     rawScore: raw === null ? null : raw * 100,
     known,
     answered,
+    coverage: answered > 0 ? known / answered : 0,
     partialData: answered > 0 && known / answered < PARTIAL_COVERAGE,
     topicScores,
     questions,
@@ -281,9 +305,42 @@ export const displayScore = (score: number | null) => (score === null ? null : M
 export const POINTS_PER_STROKE = 5
 export const strokesFor = (score: number | null) => (score === null ? 0 : Math.round(score / POINTS_PER_STROKE))
 
+/** Part minimale des questions comptées où un candidat doit être connu pour être classé ; null : tous classés */
+export const minCoverageShare = (pack: ElectionPack): number | null => pack.election.ranking?.minCoverageShare ?? null
+
+/** Candidats non classés de l'élection (election.ranking.excluded), sortis du calcul ; vide sans décision */
+export const excludedIds = (pack: Pick<ElectionPack, 'election'>): readonly CandidateId[] => pack.election.ranking?.excluded?.ids ?? []
+
+/** Non classé : sorti du calcul par décision (election.ranking.excluded), sans score ni rang */
+export const isExcluded = (pack: Pick<ElectionPack, 'election'>, candidateId: CandidateId): boolean =>
+  excludedIds(pack).includes(candidateId)
+
 /**
- * Calcule le classement complet. Tous les candidats sont toujours renvoyés.
- * Les ex aequo sont ordonnés au hasard (graine de l'utilisateur), jamais par l'ordre du code.
+ * Questions de la banque où le calcul retient une position du candidat : une approche qu'il porte ou rejette
+ * explicitement, position vérifiée (une position seulement probable ne compte pas). C'est « Position connue » du
+ * comparateur, et le chiffre donné pour chaque candidat non classé.
+ */
+export function knownQuestions(pack: Pick<ElectionPack, 'bank' | 'positions'>, candidateId: CandidateId): number {
+  const table = pack.positions[candidateId]
+  return pack.bank.questions.filter(q => q.approaches.some(a => stance(table?.[a.id]) !== 0)).length
+}
+
+/**
+ * Classé ou hors classement. Sans règle (minShare null), ou tant que rien n'est noté, tout candidat est classé ;
+ * sinon il doit être connu sur au moins minShare des questions comptées (la moitié : 3 sur 6 suffit, 2 sur 5 non).
+ */
+export function isRanked(r: Pick<CandidateResult, 'known' | 'answered'>, minShare: number | null): boolean {
+  if (minShare === null || r.answered === 0) return true
+  // La part se compare au seuil à un epsilon près : un candidat pile au seuil n'en sort pas sur un arrondi flottant
+  return r.known / r.answered >= minShare - 1e-9
+}
+
+/**
+ * Calcule le classement. Tous les candidats demandés sont toujours renvoyés : dans le classement, hors classement
+ * quand l'élection a une règle de classement (election.ranking.minCoverageShare) et qu'ils sont connus sur trop peu
+ * de vos réponses, ou parmi les non classés (election.ranking.excluded), qui ne sont pas calculés du tout.
+ * Les ex aequo sont ordonnés au hasard (graine de l'utilisateur), jamais par l'ordre du code ; les candidats hors
+ * classement et les non classés le sont aussi.
  */
 export function computeResults(
   pack: ElectionPack,
@@ -292,8 +349,16 @@ export function computeResults(
   seed: string,
   candidateIds: CandidateId[] = pack.candidates.map(c => c.id),
 ): Results {
-  const base = candidateIds.map(id => scoreCandidate(pack, answers, weights, id, pack.positions))
-  const shuffled = seededShuffle(base, `${seed}:ties`)
+  // Non classés : écartés avant tout calcul. Sans décision, la liste est la même, dans le même ordre : le tirage des
+  // ex aequo, donc le classement de la primaire, ne change pas
+  const out = new Set(excludedIds(pack))
+  const excluded = seededShuffle(candidateIds.filter(id => out.has(id)), `${seed}:excluded`)
+  const base = candidateIds.filter(id => !out.has(id)).map(id => scoreCandidate(pack, answers, weights, id, pack.positions))
+  const minShare = minCoverageShare(pack)
+  // Sans règle, « shuffled » garde tous les candidats, dans le même ordre : le classement de la primaire ne change pas
+  const all = seededShuffle(base, `${seed}:ties`)
+  const shuffled = all.filter(r => isRanked(r, minShare))
+  const unranked: UnrankedResult[] = all.filter(r => !isRanked(r, minShare)).map(r => ({ ...r, compatible: firmHits(r) === 0 }))
   const allIncompatible = shuffled.length > 0 && shuffled.every(r => firmHits(r) > 0)
 
   const sortKey = (r: (typeof base)[number]) => [
@@ -321,7 +386,8 @@ export function computeResults(
     ranking.push({ ...r, compatible: firmHits(r) === 0, rank, tied: !!same })
   })
 
-  const answered = ranking[0]?.answered ?? 0
+  // Le même pour tous les candidats ; pris avant le partage, pour le cas où aucun n'est classé (ni même calculé)
+  const answered = base[0]?.answered ?? pack.bank.questions.filter(q => hasOpinion(answers[q.id])).length
   const redLineCount = Object.values(answers).reduce((n, a) => n + (a.skipped ? 0 : a.redLines.length), 0)
 
   const [first, second] = ranking
@@ -351,5 +417,5 @@ export function computeResults(
     why.splice(3)
   }
 
-  return { ranking, answered, redLineCount, close, stable, allIncompatible, why, weights }
+  return { ranking, excluded, unranked, minCoverageShare: minShare, answered, redLineCount, close, stable, allIncompatible, why, weights }
 }

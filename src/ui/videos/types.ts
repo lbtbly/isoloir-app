@@ -16,7 +16,11 @@ import type { ComponentChildren, JSX } from 'preact'
 
 /* ——— Les données ——— */
 
-/** Une série : toutes les vidéos d'un thème, l'introduction d'abord */
+/**
+ * Une série : toutes les vidéos d'un thème, l'introduction d'abord. Écrite pour la banque de la primaire
+ * « Choisir 2027 » (ses thèmes, ses familles, ses questions) ; scopeSeries (scope.ts) la réétiquette pour
+ * l'élection affichée.
+ */
 export interface VideoSeries {
   /** Thème de la banque (bank.topics) : « retraites » */
   topicId: string
@@ -38,6 +42,12 @@ export interface VideoScript {
   kind: VideoKind
   /** Questions de la banque dont la vidéo éclaire l'enjeu ; la première mène à « Voir la fiche » */
   questionIds: string[]
+  /**
+   * La question dont « Voir la fiche » ouvre la fiche, dans l'élection affichée. Posée par scopeSeries
+   * (scope.ts), jamais écrite dans une série : la première question traduite qui a sa fiche, sinon la
+   * première fiche du thème. Absente (séries brutes) : la première de « questionIds ».
+   */
+  fiche?: string
   /** Titre, 45 signes au plus : « À quel âge partir à la retraite ? » */
   title: string
   /** Nom court dans la série, pour le repère et le sommaire : « Âge de départ » (« Introduction » pour l'intro) */

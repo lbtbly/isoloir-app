@@ -1,6 +1,6 @@
 // Notice de confidentialité : d'abord la preuve en schémas (vos réponses restent sur l'appareil), puis la
 // notice point par point (RGPD, art. 13 et 14) selon le plan de research/juridique/inventaire-2026-10-04.md, § 4.
-import { go } from '../../app'
+import { go, link } from '../nav'
 import { APP_NAME } from '../../core/app'
 import { CONTACT_MESSAGERIE, EDITEUR, HEBERGEUR, MISE_A_JOUR } from '../../core/legal'
 import { STORAGE_PREFIX } from '../../core/storage'
@@ -128,6 +128,12 @@ export function Privacy({ eraseAll }: { eraseAll: () => void }) {
             (Cache Storage) garde la copie hors ligne.
           </p>
           <p>
+            Les candidats que vous choisissez de comparer ne sont enregistrés nulle part&nbsp;: ils restent en mémoire le
+            temps de la visite (un rechargement les oublie), et dans l’adresse de la page de comparaison, après le
+            «&nbsp;#&nbsp;», que le navigateur n’envoie jamais au site&nbsp;; il la garde seulement dans son historique,
+            comme toute adresse visitée.
+          </p>
+          <p>
             Ces stockages servent seulement au service que vous demandez&nbsp;: reprendre votre feuille là où vous
             l’avez laissée, et ouvrir le site sans réseau. Rien n’en est
             transmis, ni au site ni à un tiers. La loi
@@ -182,7 +188,7 @@ export function Privacy({ eraseAll }: { eraseAll: () => void }) {
             traite&nbsp;: les journaux de l’hébergeur, les informations publiques sur les candidats et sur les
             personnes citées dans leur parcours ou dans les sources, et les messages que vous lui écrivez. Pour le
             joindre&nbsp;: <ContactLink subject={`${APP_NAME} : données personnelles`} />. Son adresse postale figure
-            dans les <a href="#/mentions-legales">mentions légales</a>.
+            dans les <a href={link('/mentions-legales')}>mentions légales</a>.
           </p>
           <p>
             <strong>Vos réponses ne sont pas concernées.</strong> Elles restent sur votre appareil et l’éditeur n’y a
@@ -230,7 +236,7 @@ export function Privacy({ eraseAll }: { eraseAll: () => void }) {
               <dt>Qui le reçoit</dt>
               <dd>
                 {HEBERGEUR.nom}, qui héberge le site (coordonnées dans les{' '}
-                <a href="#/mentions-legales">mentions légales</a>). Vercel traite aussi ces données pour son propre
+                <a href={link('/mentions-legales')}>mentions légales</a>). Vercel traite aussi ces données pour son propre
                 compte, comme responsable de traitement, selon{' '}
                 <ExternalLink href={HEBERGEUR.confidentialite}>sa notice de confidentialité</ExternalLink>.
               </dd>
@@ -294,7 +300,7 @@ export function Privacy({ eraseAll }: { eraseAll: () => void }) {
               <dd>
                 De sources publiques, citées à chaque position&nbsp;: professions de foi, programmes, débats, interviews,
                 votes. Les portraits sont sous licence libre ou à réutilisation autorisée (voir la rubrique
-                «&nbsp;Crédits&nbsp;» des <a href="#/mentions-legales">mentions légales</a>).
+                «&nbsp;Crédits&nbsp;» des <a href={link('/mentions-legales')}>mentions légales</a>).
               </dd>
             </div>
             <div>

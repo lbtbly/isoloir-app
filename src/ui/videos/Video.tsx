@@ -12,6 +12,7 @@ import { Captions } from './Captions'
 import { Glyph } from './Glyph'
 import { useNarration } from './narration'
 import type { Piste, VideoContext, VideoMeta, VideoScript } from './types'
+import { link } from '../nav'
 
 export interface VideoApi {
   /** Pause, lecture, ou « Revoir » à la fin */
@@ -243,7 +244,9 @@ export function Video(p: Props) {
           <Glyph name="sources" />
           <span class="vp-ctl-label">Sources</span>
         </button>
-        <a class="vp-ctl" href={`#/sujets/${script.questionIds[0] ?? ''}`} onClick={() => p.onLeave?.(index)}>
+        {/* La fiche de la question, ou, si aucune question de l'élection ne lui correspond, la première du thème
+            (scope.ts) */}
+        <a class="vp-ctl" href={link(`/sujets/${script.fiche ?? script.questionIds[0] ?? ''}`)} onClick={() => p.onLeave?.(index)}>
           <Glyph name="fiche" />
           <span class="vp-ctl-label">Voir la fiche</span>
         </a>

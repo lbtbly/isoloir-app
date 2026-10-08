@@ -1,0 +1,788 @@
+{
+  "group": "immigration",
+  "cleavages": [
+    {
+      "topic_id": "immigration",
+      "importance": "high",
+      "cleavage": "Orientation générale : combien d'immigration faut-il accueillir ? Les uns veulent arrêter ou réduire très fortement les entrées, les autres veulent seulement les trier et les plafonner, d'autres encore les planifier sans viser de baisse, ouvrir davantage, ou instaurer la libre circulation.",
+      "sides": [
+        {
+          "approach": "Réduire très fortement les entrées, voire les arrêter presque toutes. Moyens cités : révision constitutionnelle ou référendum, fin de certaines voies d'accès (regroupement familial, immigration de travail). Lisnard veut diviser les titres de séjour « au moins par huit » ; Philippot vise des flux « extrêmement limités » ; Asselineau veut arrêter les flux « le plus possible ».",
+          "candidates": [
+            "Marine Le Pen",
+            "Bruno Retailleau",
+            "David Lisnard",
+            "Nicolas Dupont-Aignan",
+            "Florian Philippot",
+            "François Asselineau"
+          ],
+          "evidence_urls": [
+            "https://www.epochtimes.fr/elue-presidente-marine-le-pen-convoquerait-demblee-un-referendum-pour-reviser-largement-la-constitution-3341213.html",
+            "https://www.euronews.com/my-europe/2026/09/17/fact-check-will-marine-le-pen-hold-a-frexit-referendum-if-she-becomes-president-of-france",
+            "https://republicains.fr/actualites/2026/02/12/je-suis-candidat-a-lelection-presidentielle/",
+            "https://www.unenouvelleenergie.fr/questions/que-propose-david-lisnard-sur-l-immigration/",
+            "https://www.debout-la-france.fr/projet/immigration-et-assimilation/",
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+            "https://www.aa.com.tr/fr/monde/francois-asselineau-accuse-emmanuel-macron-d-accompagner-le-déclassement-de-la-france/3964864"
+          ]
+        },
+        {
+          "approach": "Réduire et sélectionner, sans moratoire général. Quotas votés par le Parlement, priorité à l'immigration de travail, moins d'immigration familiale et étudiante, sélection au mérite ou par points sur le modèle canadien. Les étudiants et les soignants étrangers resteraient accueillis.",
+          "candidates": [
+            "Édouard Philippe",
+            "Gabriel Attal",
+            "Olivier Becht"
+          ],
+          "evidence_urls": [
+            "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure",
+            "https://www.franceinfo.fr/elections/presidentielle/retraites-immigration-le-ralliement-de-gerald-darmanin-a-edouard-philippe-pour-la-presidentielle-assorti-de-conditions_8169110.html",
+            "https://www.lejdd.fr/politique/immigration-gabriel-attal-propose-des-quotas-par-metier-et-par-origine-geographique-180879",
+            "https://attalpresident.fr/programme/frontieres",
+            "https://becht2027.fr/projet-france/les-5-refondations/refondation-securite/"
+          ]
+        },
+        {
+          "approach": "Maîtriser et planifier l'immigration selon les besoins et les capacités d'accueil, sans objectif chiffré de baisse. Trois volets : un accueil digne, une intégration exigeante (langue, lois communes) et de la fermeté contre l'immigration irrégulière. Ni « immigration zéro » ni droit universel à s'installer.",
+          "candidates": [
+            "Bernard Cazeneuve",
+            "Karim Bouamrane",
+            "Jérôme Guedj",
+            "Emmanuel Maurel",
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+            "https://www.lafrancehumaineetforte.fr/manifeste.html",
+            "https://www.jeromeguedj2027.fr/",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme"
+          ]
+        },
+        {
+          "approach": "Élargir l'accueil : régularisations à grande échelle, titres de séjour plus stables, visas plus faciles, voies légales sécurisées, abrogation des dernières lois restrictives. Pour Roussel, il s'agit du texte d'orientation de son parti.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Olivier Faure",
+            "Fabien Roussel"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260509165151/https://melenchon2027.fr/programme2025/livre/chapitre16/s7/",
+            "https://www.boursorama.com/actualite-economique/actualites/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions-e0f504871547edbc6960940d9c6e1fd9",
+            "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf"
+          ]
+        },
+        {
+          "approach": "Liberté de circulation et d'installation pour tous, ouverture des frontières et régularisation de tous les sans-papiers.",
+          "candidates": [
+            "Nathalie Arthaud",
+            "Anasse Kazib",
+            "Selma Labib"
+          ],
+          "evidence_urls": [
+            "https://www.lutte-ouvriere.org/portail/brochures/fete-lutte-ouvriere-2026-discours-nathalie-arthaud-dimanche-194655.html",
+            "https://www.revolutionpermanente.fr/28h-expropriation-des-secteurs-strategiques-RP-presente-les-premieres-mesures-de-sa-candidature",
+            "https://npa-revolutionnaires.org/articles/intervention-de-selma-labib-a-la-fete-de-lhumanite-2026"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "importance": "high",
+      "cleavage": "Régularisation des étrangers sans papiers : de la régularisation générale à la pénalisation du séjour irrégulier.",
+      "sides": [
+        {
+          "approach": "Régulariser tous les sans-papiers, sans condition.",
+          "candidates": [
+            "Nathalie Arthaud",
+            "Anasse Kazib",
+            "Selma Labib"
+          ],
+          "evidence_urls": [
+            "https://www.lutte-ouvriere.org/portail/brochures/fete-lutte-ouvriere-2026-discours-nathalie-arthaud-dimanche-194655.html",
+            "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+            "https://npa-revolutionnaires.org/articles/intervention-de-selma-labib-a-la-fete-de-lhumanite-2026"
+          ]
+        },
+        {
+          "approach": "Régulariser largement les travailleurs sans papiers, parfois aussi des étudiants et des parents d'enfants scolarisés. Faure cite le modèle espagnol (« 500 000 régularisations » ne le choquent pas). Le projet de son parti prévoit un titre de séjour dès six mois de contrat de travail. Glucksmann veut régulariser les travailleurs des métiers en tension. Pour Roussel, c'est le texte d'orientation de son parti.",
+          "candidates": [
+            "Olivier Faure",
+            "Jean-Luc Mélenchon",
+            "Fabien Roussel",
+            "Raphaël Glucksmann",
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://www.boursorama.com/actualite-economique/actualites/smic-a-1-700-euros-regularisation-des-travailleurs-sans-papiers-retraites-faure-developpe-ses-propositions-e0f504871547edbc6960940d9c6e1fd9",
+            "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat",
+            "https://projet-socialiste.fr/projet/refaire-societe/",
+            "https://web.archive.org/web/20260509165151/https://melenchon2027.fr/programme2025/livre/chapitre16/s7/",
+            "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        },
+        {
+          "approach": "Régulariser au cas par cas des personnes sous obligation de quitter le territoire (OQTF) qui travaillent et contribuent à l'économie, par exemple dans la restauration ou le bâtiment. Reconduire à la frontière les autres personnes en situation irrégulière.",
+          "candidates": [
+            "Karim Bouamrane"
+          ],
+          "evidence_urls": [
+            "https://entrevue.fr/presidentielle-2027/immigration-oqtf-voile-karim-bouamrane-appelle-la-gauche-a-sortir-du-deni"
+          ]
+        },
+        {
+          "approach": "Encadrer les régularisations à l'échelle européenne. Un « verrou Schengen » ou une coordination renforcée empêcherait un État de régulariser massivement seul. Priorité à l'expulsion de ceux qui n'ont pas le droit de rester.",
+          "candidates": [
+            "Édouard Philippe",
+            "Gabriel Attal",
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/societe/immigration/apres-l-afflux-de-migrants-a-ceuta-edouard-philippe-propose-des-mesures-pour-limiter-l-immigration-et-les-regularisations-de-sans-papiers-dans-l-union-europeenne_8141837.html",
+            "https://attalpresident.fr/actualites/lci-gabriel-attal-defend-un-projet-de-rupture-pour-repondre-aux-grands-defis-du-pays",
+            "https://republicains.fr/actualites/2026/09/02/en-france-la-seule-cour-supreme-cest-le-peuple-je-lui-donnerai-le-dernier-mot/"
+          ]
+        },
+        {
+          "approach": "Aucune régularisation et pénalisation du séjour irrégulier. Rétablir le délit de séjour irrégulier (prison puis expulsion), ne pas régulariser les déboutés de l'asile, renvoyer immédiatement les étrangers en situation irrégulière.",
+          "candidates": [
+            "David Lisnard",
+            "Nicolas Dupont-Aignan",
+            "Florian Philippot"
+          ],
+          "evidence_urls": [
+            "https://www.unenouvelleenergie.fr/notre-programme/immigration/",
+            "https://www.debout-la-france.fr/projet/immigration-et-assimilation/",
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "importance": "high",
+      "cleavage": "Droit du sol : faut-il le supprimer pour les enfants nés en France de parents étrangers, le restreindre localement ou le maintenir ?",
+      "sides": [
+        {
+          "approach": "Supprimer le droit du sol, ou son automaticité, sur tout le territoire, souvent par référendum ou révision constitutionnelle. La nationalité serait réservée à la filiation et à une naturalisation au mérite.",
+          "candidates": [
+            "Marine Le Pen",
+            "Bruno Retailleau",
+            "Nicolas Dupont-Aignan",
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://fr.news.yahoo.com/relation-marine-pen-referendum-limmigration-181042565.html",
+            "https://www.epochtimes.fr/elue-presidente-marine-le-pen-convoquerait-demblee-un-referendum-pour-reviser-largement-la-constitution-3341213.html",
+            "https://datan.fr/votes/legislature-17/vote_697",
+            "https://republicains.fr/actualites/2026/09/02/en-france-la-seule-cour-supreme-cest-le-peuple-je-lui-donnerai-le-dernier-mot/",
+            "https://www.debout-la-france.fr/projet/immigration-et-assimilation/",
+            "https://www.unenouvelleenergie.fr/notre-programme/immigration/"
+          ]
+        },
+        {
+          "approach": "Garder le droit du sol au niveau national et réserver les restrictions à Mayotte. Philippe propose de l'y suspendre plusieurs années. Attal a voté contre sa suppression totale à Mayotte en février 2025.",
+          "candidates": [
+            "Édouard Philippe",
+            "Gabriel Attal"
+          ],
+          "evidence_urls": [
+            "https://fr.news.yahoo.com/%C3%A0-mayotte-%C3%A9douard-philippe-place-074217498.html",
+            "https://datan.fr/votes/legislature-17/vote_697"
+          ]
+        },
+        {
+          "approach": "Défendre le droit du sol comme pilier du pacte civique, voire le rétablir intégralement, Mayotte comprise (Mélenchon). Pour Faure et Guedj, la position est déduite de leur vote contre sa suppression à Mayotte en 2025. Pour Roussel, elle vient du texte d'orientation de son parti.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Emmanuel Maurel",
+            "Fabien Roussel",
+            "Olivier Faure",
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/",
+            "https://web.archive.org/web/20260504184814/https://melenchon2027.fr/programme2025/livre/chapitre10/s2/",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+            "https://datan.fr/votes/legislature-17/vote_697"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "importance": "high",
+      "cleavage": "Accès des étrangers aux prestations sociales : priorité nationale, délai de résidence exigé ou égalité de traitement. Le débat est relancé par le délai de carence prévu dans le budget 2027.",
+      "sides": [
+        {
+          "approach": "Inscrire une « priorité nationale » dans la Constitution, par référendum : logement social, APL, aides sociales et emploi. Le contre-budget de 2025 conditionnait aussi les prestations non contributives à 5 ans de travail à temps plein.",
+          "candidates": [
+            "Marine Le Pen"
+          ],
+          "evidence_urls": [
+            "https://france3-regions.franceinfo.fr/hauts-de-france/pas-calais/lens/marine-le-pen-fait-sa-rentree-politique-a-henin-beaumont-et-met-la-priorite-nationale-au-c-ur-de-son-programme-pour-la-presidentielle-de-2027-3416348.html",
+            "https://fr.news.yahoo.com/relation-marine-pen-referendum-limmigration-181042565.html",
+            "https://www.publicsenat.fr/actualites/economie/contre-budget-du-rn-des-propositions-qui-manquent-de-credibilite-economique-mais-trahissent-une-veritable-coherence-doctrinale"
+          ]
+        },
+        {
+          "approach": "Supprimer les aides sociales non contributives pour les étrangers, ou au moins pendant leurs 5 premières années de séjour régulier. Créer une caisse d'assurance sociale propre aux étrangers qui travaillent, financée par les entreprises.",
+          "candidates": [
+            "Nicolas Dupont-Aignan"
+          ],
+          "evidence_urls": [
+            "https://www.debout-la-france.fr/projet/immigration-et-assimilation/",
+            "https://www.debout-la-france.fr/actualite/je-suis-candidat-pour/"
+          ]
+        },
+        {
+          "approach": "Réserver les prestations non contributives (aides familiales, minima) aux étrangers en situation régulière depuis au moins 5 ans, avec en plus une condition d'activité chez Retailleau.",
+          "candidates": [
+            "David Lisnard",
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://www.unenouvelleenergie.fr/notre-programme/immigration/",
+            "https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf"
+          ]
+        },
+        {
+          "approach": "Refuser toute préférence nationale et tout délai de carence visant les étrangers. Défendre l'égalité d'accès aux droits sociaux entre travailleurs français et immigrés.",
+          "candidates": [
+            "Olivier Faure",
+            "Nathalie Arthaud",
+            "Selma Labib"
+          ],
+          "evidence_urls": [
+            "https://www.politis.fr/articles/2026/09/olivier-faure-je-ne-vois-pas-ce-qui-pourrait-conduire-vers-une-autre-decision-que-la-censure/",
+            "https://lutte-ouvriere.org/portail/editoriaux/non-guerre-entre-travailleurs-197063.html",
+            "https://npa-revolutionnaires.org/articles/intervention-de-selma-labib-a-la-fete-de-lhumanite-2026"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "importance": "high",
+      "cleavage": "Cadre européen (Schengen, pacte asile et migration, Dublin, Frontex) : faut-il en sortir, s'en affranchir en partie, le renforcer ou le réorienter ?",
+      "sides": [
+        {
+          "approach": "Sortir de l'espace Schengen, et pour certains de l'Union européenne, pour rétablir des contrôles permanents aux frontières nationales. Échapper au pacte asile et migration ; Philippot veut aussi dissoudre Frontex. Dupont-Aignan prévoit l'armée aux frontières et 10 000 agents.",
+          "candidates": [
+            "Nicolas Dupont-Aignan",
+            "Florian Philippot",
+            "François Asselineau",
+            "Francis Lalanne"
+          ],
+          "evidence_urls": [
+            "https://www.debout-la-france.fr/projet/immigration-et-assimilation/",
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+            "https://upr.fr/medias/francois-asselineau-invite-daxelle-le-gal-sur-tocsin-11-08-2026",
+            "https://dieudolalanne2027.com/programme"
+          ]
+        },
+        {
+          "approach": "Rester dans l'Union mais reprendre la main nationalement. Pistes avancées : réserver la libre circulation de Schengen aux Européens, obtenir des dérogations sur le modèle danois, faire primer le droit national sur le droit européen et la jurisprudence européenne.",
+          "candidates": [
+            "Bruno Retailleau",
+            "David Lisnard",
+            "Marine Le Pen"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/actualites/2026/08/02/lespace-schengen-doit-etre-reserve-aux-europeens/",
+            "https://republicains.fr/actualites/2026/09/02/en-france-la-seule-cour-supreme-cest-le-peuple-je-lui-donnerai-le-dernier-mot/",
+            "https://www.unenouvelleenergie.fr/questions/quel-candidat-propose-un-referendum-sur-l-immigration/",
+            "https://www.epochtimes.fr/elue-presidente-marine-le-pen-convoquerait-demblee-un-referendum-pour-reviser-largement-la-constitution-3341213.html"
+          ]
+        },
+        {
+          "approach": "Renforcer le cadre européen commun pour mieux contrôler. Mesures citées : un « verrou Schengen », un régime d'urgence pour suspendre l'asile en cas de crise, des sanctions européennes contre les passeurs, l'application du règlement retour et des décisions européennes à la majorité.",
+          "candidates": [
+            "Édouard Philippe",
+            "Gabriel Attal",
+            "Bernard Cazeneuve"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/societe/immigration/apres-l-afflux-de-migrants-a-ceuta-edouard-philippe-propose-des-mesures-pour-limiter-l-immigration-et-les-regularisations-de-sans-papiers-dans-l-union-europeenne_8141837.html",
+            "https://attalpresident.fr/actualites/lci-gabriel-attal-defend-un-projet-de-rupture-pour-repondre-aux-grands-defis-du-pays",
+            "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599"
+          ]
+        },
+        {
+          "approach": "Réorienter le cadre européen vers la solidarité. Remplacer ou suspendre Dublin par une répartition obligatoire des demandeurs d'asile, harmoniser l'asile, créer une force européenne de sauvetage en mer, sortir de « l'impasse » Frontex. Pour Faure, la position s'appuie sur le projet de son parti.",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Olivier Faure",
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://projet-socialiste.fr/projet/refaire-societe/",
+            "https://web.archive.org/web/20260509165151/https://melenchon2027.fr/programme2025/livre/chapitre16/s7/"
+          ]
+        },
+        {
+          "approach": "Rejeter le pacte asile et migration et le règlement retour, vus comme une politique d'enfermement et d'expulsion, au nom de la liberté de circulation ou de l'accueil. Pour Roussel, la position vient du texte de son parti, qui demande aussi une enquête sur Frontex.",
+          "candidates": [
+            "Nathalie Arthaud",
+            "Selma Labib",
+            "Fabien Roussel"
+          ],
+          "evidence_urls": [
+            "https://www.lutte-ouvriere.org/journal/article/union-europeenne-honteuse-chasse-migrants-195307.html",
+            "https://npa-revolutionnaires.org/articles/resolution-du-cpn-du-npa-revolutionnaires-des-6-et-7-juin-2026-situation-interieure",
+            "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "importance": "high",
+      "cleavage": "Qui doit trancher la politique migratoire ? Un référendum (avec révision constitutionnelle), une sortie de la Convention européenne des droits de l'homme, le Parlement ou une convention citoyenne.",
+      "sides": [
+        {
+          "approach": "Soumettre la politique migratoire au peuple par référendum. Cela passe souvent par une révision constitutionnelle ou un élargissement de l'article 11, pour lever les obstacles constitutionnels et européens. Pour Le Pen, ce serait le premier référendum du quinquennat. Lisnard envisage une sortie de la Convention européenne des droits de l'homme en dernier recours.",
+          "candidates": [
+            "Marine Le Pen",
+            "Bruno Retailleau",
+            "David Lisnard",
+            "Nicolas Dupont-Aignan",
+            "François Asselineau"
+          ],
+          "evidence_urls": [
+            "https://www.euronews.com/my-europe/2026/09/17/fact-check-will-marine-le-pen-hold-a-frexit-referendum-if-she-becomes-president-of-france",
+            "https://republicains.fr/actualites/2026/09/02/en-france-la-seule-cour-supreme-cest-le-peuple-je-lui-donnerai-le-dernier-mot/",
+            "https://www.unenouvelleenergie.fr/questions/quel-candidat-propose-un-referendum-sur-l-immigration/",
+            "https://www.debout-la-france.fr/actualite/je-suis-candidat-pour/",
+            "https://upr.fr/"
+          ]
+        },
+        {
+          "approach": "Dénoncer la Convention européenne des droits de l'homme, pour pouvoir décider seul de l'accueil, des expulsions et du regroupement familial.",
+          "candidates": [
+            "Florian Philippot"
+          ],
+          "evidence_urls": [
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf"
+          ]
+        },
+        {
+          "approach": "Laisser le Parlement décider, sans réviser la Constitution pour ouvrir le référendum aux questions migratoires. Il voterait des quotas tous les deux ans, une liste annuelle de pays sûrs ou une loi de programmation de l'immigration.",
+          "candidates": [
+            "Édouard Philippe",
+            "Gabriel Attal",
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://entrevue.fr/presidentielle-2027/presidentielle-2027-le-referendum-sur-limmigration-creuse-le-fosse-entre-bruno-retailleau-et-edouard-philippe/",
+            "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure",
+            "https://attalpresident.fr/actualites/lci-gabriel-attal-defend-un-projet-de-rupture-pour-repondre-aux-grands-defis-du-pays",
+            "https://www.jeromeguedj2027.fr/"
+          ]
+        },
+        {
+          "approach": "Réunir une convention citoyenne tirée au sort, confrontée aux données démographiques, économiques et de sécurité, dont les propositions seraient soumises au Parlement.",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "importance": "medium",
+      "cleavage": "Aide médicale d'État (AME), qui finance les soins des étrangers en situation irrégulière : la supprimer, la réduire ou la maintenir.",
+      "sides": [
+        {
+          "approach": "Supprimer l'AME et la remplacer par une aide limitée aux urgences. Lisnard en attend 700 M€ d'économies ; le contre-budget de 2025 de la candidate en prévoyait 1,3 Md€.",
+          "candidates": [
+            "Marine Le Pen",
+            "David Lisnard",
+            "Nicolas Dupont-Aignan"
+          ],
+          "evidence_urls": [
+            "https://www.publicsenat.fr/actualites/economie/contre-budget-du-rn-des-propositions-qui-manquent-de-credibilite-economique-mais-trahissent-une-veritable-coherence-doctrinale",
+            "https://www.unenouvelleenergie.fr/notre-programme/immigration/",
+            "https://www.debout-la-france.fr/projet/immigration-et-assimilation/"
+          ]
+        },
+        {
+          "approach": "Garder un dispositif mais en finir avec la gratuité totale des soins : moins de bénéficiaires et un panier de soins réduit.",
+          "candidates": [
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://www.planet.fr/politique-limiter-le-nombre-de-fonctionnaires-retraite-par-capitalisation-les-premieres-propositions-de-bruno-retailleau-pour-2027.2987506.29334.html"
+          ]
+        },
+        {
+          "approach": "Maintenir et garantir l'AME. Pour Faure, la position vient du projet de son parti.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260509165151/https://melenchon2027.fr/programme2025/livre/chapitre16/s7/",
+            "https://projet-socialiste.fr/projet/refaire-societe/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "importance": "medium",
+      "cleavage": "Expulsions et rétention administrative : durcir fortement, renforcer l'application dans le cadre actuel, cibler les cas graves, ou renoncer aux expulsions.",
+      "sides": [
+        {
+          "approach": "Durcir fortement. Mesures citées : délit de séjour irrégulier, rétention jusqu'à 24 mois, nouveaux centres de rétention, expulsion systématique des étrangers condamnés, renvoi immédiat sans délai de départ volontaire, interdiction du mariage pour les étrangers sous OQTF.",
+          "candidates": [
+            "David Lisnard",
+            "Nicolas Dupont-Aignan",
+            "Florian Philippot",
+            "Marine Le Pen",
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://www.unenouvelleenergie.fr/notre-programme/immigration/",
+            "https://www.debout-la-france.fr/projet/immigration-et-assimilation/",
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+            "https://fr.news.yahoo.com/relation-marine-pen-referendum-limmigration-181042565.html",
+            "https://republicains.fr/actualites/2026/09/02/en-france-la-seule-cour-supreme-cest-le-peuple-je-lui-donnerai-le-dernier-mot/"
+          ]
+        },
+        {
+          "approach": "Mieux appliquer les éloignements avec les outils existants ou européens : expulser immédiatement les délinquants étrangers, recourir au règlement retour, être ferme contre l'immigration irrégulière. Attal et Becht ont voté la loi de juin 2026 sur la rétention administrative.",
+          "candidates": [
+            "Édouard Philippe",
+            "Gabriel Attal",
+            "Olivier Becht",
+            "Bernard Cazeneuve",
+            "Karim Bouamrane"
+          ],
+          "evidence_urls": [
+            "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure",
+            "https://datan.fr/votes/legislature-17/vote_7405",
+            "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+            "https://www.lafrancehumaineetforte.fr/manifeste.html"
+          ]
+        },
+        {
+          "approach": "Concentrer les éloignements sur les auteurs d'infractions graves et en finir avec la « politique du chiffre » sur les OQTF, tout en appliquant celles qui sont prononcées. Faure et Guedj ont voté contre la loi de juin 2026 sur la rétention.",
+          "candidates": [
+            "Emmanuel Maurel",
+            "Raphaël Glucksmann",
+            "Olivier Faure",
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://datan.fr/votes/legislature-17/vote_7405"
+          ]
+        },
+        {
+          "approach": "Renoncer aux expulsions et à la rétention en centres de rétention administrative (CRA), dans une logique de liberté de circulation.",
+          "candidates": [
+            "Nathalie Arthaud",
+            "Anasse Kazib",
+            "Selma Labib"
+          ],
+          "evidence_urls": [
+            "https://www.lutte-ouvriere.org/portail/brochures/fete-lutte-ouvriere-2026-discours-nathalie-arthaud-dimanche-194655.html",
+            "https://www.revolutionpermanente.fr/28h-expropriation-des-secteurs-strategiques-RP-presente-les-premieres-mesures-de-sa-candidature",
+            "https://npa-revolutionnaires.org/articles/resolution-du-cpn-du-npa-revolutionnaires-des-6-et-7-juin-2026-situation-interieure"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "importance": "medium",
+      "cleavage": "Externalisation de l'asile et des retours : faut-il examiner les demandes ou retenir les personnes expulsables hors du territoire, dans des pays tiers ?",
+      "sides": [
+        {
+          "approach": "Faire déposer et examiner les demandes d'asile hors du territoire (ambassades, consulats, centres à l'étranger) ou à la frontière. Pour Dupont-Aignan, assignation à résidence des demandeurs en attendant la décision.",
+          "candidates": [
+            "Marine Le Pen",
+            "David Lisnard",
+            "Nicolas Dupont-Aignan"
+          ],
+          "evidence_urls": [
+            "https://fr.news.yahoo.com/relation-marine-pen-referendum-limmigration-181042565.html",
+            "https://www.unenouvelleenergie.fr/notre-programme/immigration/",
+            "https://www.debout-la-france.fr/projet/immigration-et-assimilation/"
+          ]
+        },
+        {
+          "approach": "Utiliser les centres de retour dans des pays tiers prévus par le règlement européen, dont un centre français en Afrique de l'Est. Suspendre temporairement l'asile en cas de crise ou dans les territoires saturés (Mayotte, Guyane). Faire voter chaque année par le Parlement une liste de pays sûrs.",
+          "candidates": [
+            "Édouard Philippe"
+          ],
+          "evidence_urls": [
+            "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure",
+            "https://fr.news.yahoo.com/%C3%A0-mayotte-%C3%A9douard-philippe-place-074217498.html",
+            "https://www.franceinfo.fr/societe/immigration/apres-l-afflux-de-migrants-a-ceuta-edouard-philippe-propose-des-mesures-pour-limiter-l-immigration-et-les-regularisations-de-sans-papiers-dans-l-union-europeenne_8141837.html"
+          ]
+        },
+        {
+          "approach": "Refuser les centres de renvoi dans des pays tiers, jugés coûteux et créant une dépendance envers ces États, tout en réduisant l'immigration.",
+          "candidates": [
+            "Gabriel Attal"
+          ],
+          "evidence_urls": [
+            "https://attalpresident.fr/actualites/lci-gabriel-attal-defend-un-projet-de-rupture-pour-repondre-aux-grands-defis-du-pays"
+          ]
+        },
+        {
+          "approach": "Refuser l'externalisation et les « hubs de retour », et améliorer l'accueil sur le territoire : droit de travailler dès le dépôt de la demande d'asile, 30 000 places d'hébergement (projet du parti de Faure), délais d'instruction raccourcis. Pour Roussel, la position vient du texte de son parti.",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Olivier Faure",
+            "Emmanuel Maurel",
+            "Fabien Roussel",
+            "Nathalie Arthaud"
+          ],
+          "evidence_urls": [
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://projet-socialiste.fr/projet/refaire-societe/",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+            "https://www.lutte-ouvriere.org/journal/article/union-europeenne-honteuse-chasse-migrants-195307.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "importance": "medium",
+      "cleavage": "Accord franco-algérien de 1968, qui donne un régime de séjour particulier aux Algériens : le dénoncer ou privilégier le dialogue avec Alger.",
+      "sides": [
+        {
+          "approach": "Dénoncer l'accord de 1968 et appliquer le droit commun aux Algériens. Utiliser comme leviers les visas, l'aide au développement et le commerce. Attal parlait en janvier 2025 de dénoncer l'accord ; Lisnard veut le dénoncer, même si son programme parle de renégocier.",
+          "candidates": [
+            "Marine Le Pen",
+            "Bruno Retailleau",
+            "Édouard Philippe",
+            "David Lisnard",
+            "Nicolas Dupont-Aignan",
+            "Gabriel Attal"
+          ],
+          "evidence_urls": [
+            "https://www.assemblee-nationale.fr/dyn/17/scrutins/3260",
+            "https://republicains.fr/actualites/2026/05/02/bruno-retailleau-interview-algerie-macron/",
+            "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure",
+            "https://lediplomate.media/exclusif-grand-entretien-david-lisnard-strategie-france-dans-nouveau-desordre-mondial/",
+            "https://www.debout-la-france.fr/actualite/je-suis-candidat-pour/",
+            "https://www.lagazettefrance.fr/article/gabriel-attal-appelle-a-denoncer-l-accord-franco-algerien-de-1968"
+          ]
+        },
+        {
+          "approach": "Ne pas dénoncer l'accord et privilégier l'apaisement et le dialogue avec l'Algérie. Faure et Guedj ont voté contre la résolution de dénonciation d'octobre 2025, tout comme le groupe de Mélenchon ; Royal et Bouamrane dénoncent l'escalade des tensions.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Olivier Faure",
+            "Jérôme Guedj",
+            "Ségolène Royal",
+            "Karim Bouamrane"
+          ],
+          "evidence_urls": [
+            "https://www.assemblee-nationale.fr/dyn/17/scrutins/3260",
+            "https://datan.fr/votes/legislature-17/vote_3260",
+            "https://www.beurfm.net/segolene-royal-plaide-pour-l-apaisement-avec-alger-et-remet-l-ordre-juste-dans-le-debat",
+            "https://entrevue.fr/presidentielle-2027/immigration-oqtf-voile-karim-bouamrane-appelle-la-gauche-a-sortir-du-deni"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "importance": "medium",
+      "cleavage": "Regroupement familial et stabilité du séjour des étrangers en situation régulière.",
+      "sides": [
+        {
+          "approach": "Mettre fin au regroupement familial, par référendum ou en quittant la Convention européenne des droits de l'homme.",
+          "candidates": [
+            "Marine Le Pen",
+            "Florian Philippot"
+          ],
+          "evidence_urls": [
+            "https://www.epochtimes.fr/elue-presidente-marine-le-pen-convoquerait-demblee-un-referendum-pour-reviser-largement-la-constitution-3341213.html",
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf"
+          ]
+        },
+        {
+          "approach": "Restreindre le regroupement familial : conditions de ressources, tests d'intégration, durée de résidence plus longue, baisse « drastique » des volumes. Philippe propose en plus un moratoire à Mayotte.",
+          "candidates": [
+            "Édouard Philippe",
+            "Gabriel Attal",
+            "Bruno Retailleau",
+            "David Lisnard",
+            "Nicolas Dupont-Aignan"
+          ],
+          "evidence_urls": [
+            "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure",
+            "https://attalpresident.fr/programme/frontieres",
+            "https://entrevue.fr/presidentielle-2027/presidentielle-2027-le-referendum-sur-limmigration-creuse-le-fosse-entre-bruno-retailleau-et-edouard-philippe/",
+            "https://www.unenouvelleenergie.fr/notre-programme/immigration/",
+            "https://www.debout-la-france.fr/projet/immigration-et-assimilation/"
+          ]
+        },
+        {
+          "approach": "Stabiliser le séjour des étrangers en situation régulière : faire de la carte pluriannuelle ou de la carte de 10 ans le titre de référence, créer une carte de résident permanent, inverser la charge de la preuve lors des renouvellements, abroger la loi immigration de 2024.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Raphaël Glucksmann",
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260509165151/https://melenchon2027.fr/programme2025/livre/chapitre16/s7/",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://www.jeromeguedj2027.fr/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "importance": "medium",
+      "cleavage": "Immigration de travail : y mettre fin, la piloter par des quotas ou une planification, ou ouvrir des voies légales.",
+      "sides": [
+        {
+          "approach": "Mettre fin à l'immigration de travail (et au détachement de travailleurs), ou la subordonner strictement au taux de chômage.",
+          "candidates": [
+            "Florian Philippot",
+            "Nicolas Dupont-Aignan"
+          ],
+          "evidence_urls": [
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+            "https://www.debout-la-france.fr/projet/immigration-et-assimilation/"
+          ]
+        },
+        {
+          "approach": "Faire de l'immigration de travail le premier motif d'entrée, avec des quotas plafonnés votés par le Parlement. Attal les veut par métier, secteur et origine géographique, tous les deux ans, et une « préférence travail » dans la Constitution. Lisnard cible le travail qualifié ; Becht parle d'une sélection au mérite.",
+          "candidates": [
+            "Gabriel Attal",
+            "Édouard Philippe",
+            "David Lisnard",
+            "Olivier Becht"
+          ],
+          "evidence_urls": [
+            "https://attalpresident.fr/actualites/lci-gabriel-attal-defend-un-projet-de-rupture-pour-repondre-aux-grands-defis-du-pays",
+            "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure",
+            "https://www.unenouvelleenergie.fr/notre-programme/immigration/",
+            "https://becht2027.fr/projet-france/les-5-refondations/refondation-securite/"
+          ]
+        },
+        {
+          "approach": "Planifier l'immigration de travail par une loi votée au Parlement, selon les besoins des secteurs, sans quotas par nationalité. Rendre d'abord les métiers en tension plus attractifs.",
+          "candidates": [
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://www.jeromeguedj2027.fr/",
+            "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat"
+          ]
+        },
+        {
+          "approach": "Ouvrir des voies légales et sécurisées d'immigration de travail, avec des accords bilatéraux de mobilité circulaire, et régulariser par le travail : un titre de séjour dès 6 mois de contrat dans le projet du parti de Faure.",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://projet-socialiste.fr/projet/refaire-societe/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "importance": "low",
+      "cleavage": "Naturalisation : exiger davantage (assimilation, durée, plafond) ou faciliter l'accès à la nationalité.",
+      "sides": [
+        {
+          "approach": "Durcir l'accès à la nationalité : elle se mérite par l'assimilation. Dupont-Aignan exige au moins 10 ans de résidence, un service civique de 3 mois et un plafond annuel voté par le Parlement ; Philippot exige la maîtrise du français, la connaissance de l'histoire et l'adhésion aux valeurs.",
+          "candidates": [
+            "Bruno Retailleau",
+            "Nicolas Dupont-Aignan",
+            "Florian Philippot"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/actualites/2026/09/02/en-france-la-seule-cour-supreme-cest-le-peuple-je-lui-donnerai-le-dernier-mot/",
+            "https://www.debout-la-france.fr/projet/immigration-et-assimilation/",
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf"
+          ]
+        },
+        {
+          "approach": "Faciliter la naturalisation pour les personnes qui parlent français, adhèrent aux principes républicains ou contribuent par leur travail.",
+          "candidates": [
+            "Emmanuel Maurel",
+            "Jérôme Guedj",
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/",
+            "https://www.jeromeguedj2027.fr/",
+            "https://web.archive.org/web/20260504184814/https://melenchon2027.fr/programme2025/livre/chapitre10/s2/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "importance": "low",
+      "cleavage": "Droit de vote des étrangers non européens aux élections locales.",
+      "sides": [
+        {
+          "approach": "Accorder le droit de vote (voire l'éligibilité) aux élections locales aux étrangers non européens résidant en France. Pour Glucksmann, c'est dans son programme de 2025 ; pour Roussel, dans le texte de son parti.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Raphaël Glucksmann",
+            "Fabien Roussel",
+            "Selma Labib"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260504184814/https://melenchon2027.fr/programme2025/livre/chapitre10/s2/",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+            "https://lematindalgerie.com/selma-labib-porte-parole-du-npa-revolutionnaires-cest-nous-qui-travaillons-cest-nous-qui-decidons/"
+          ]
+        },
+        {
+          "approach": "Réserver le droit de vote aux citoyens français.",
+          "candidates": [
+            "Nicolas Dupont-Aignan"
+          ],
+          "evidence_urls": [
+            "https://www.debout-la-france.fr/projet/immigration-et-assimilation/"
+          ]
+        }
+      ]
+    }
+  ],
+  "consensus_points": [
+    {
+      "topic_id": "immigration",
+      "point": "Presque tous les candidats qui détaillent une politique d'intégration placent l'apprentissage du français au centre, comme condition ou comme levier. Cela vaut aussi bien pour Cazeneuve, Philippe, Attal, Becht, Guedj, Maurel et Glucksmann (cours universels jusqu'au niveau A2) que pour Philippot et Dupont-Aignan (condition de la naturalisation). Les candidats favorables à la libre circulation n'abordent pas ce sujet.",
+      "url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599"
+    },
+    {
+      "topic_id": "immigration",
+      "point": "Aucun candidat ne propose de supprimer le principe du droit d'asile. Même les plus restrictifs parlent de le « restaurer » ou de le recentrer, par exemple Dupont-Aignan avec un asile « strict et contrôlé ». Les désaccords portent sur les modalités : lieu de dépôt (hors du territoire ou en France), suspension temporaire en cas de crise ou outre-mer, conditions d'accueil, droit au travail des demandeurs.",
+      "url": "https://www.debout-la-france.fr/projet/immigration-et-assimilation/"
+    },
+    {
+      "topic_id": "immigration",
+      "point": "Du centre-gauche à la droite, les candidats veulent conditionner la coopération avec les pays d'origine (visas, aide au développement, accords) à la réadmission de leurs ressortissants expulsés. C'est le cas de Glucksmann (visas multi-entrées liés aux laissez-passer consulaires), Bouamrane, Philippe, Attal, Retailleau, Lisnard, Dupont-Aignan et Philippot. Seuls les candidats favorables à la liberté de circulation rejettent cette logique.",
+      "url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf"
+    }
+  ]
+}

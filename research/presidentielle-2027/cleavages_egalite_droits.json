@@ -1,0 +1,355 @@
+{
+  "group": "Égalité et droits (egalite, droits_lgbtqia) — Présidentielle 2027, état au 6 octobre 2026",
+  "cleavages": [
+    {
+      "topic_id": "droits_lgbtqia",
+      "importance": "high",
+      "cleavage": "Gestation pour autrui (GPA) : faut-il ouvrir en France une GPA dite « éthique » (non commerciale, encadrée par l'État) ou maintenir, voire durcir, l'interdiction ?",
+      "sides": [
+        {
+          "approach": "Ouvrir le débat puis légaliser une GPA « éthique », altruiste et strictement encadrée, en refusant toute GPA commerciale. Gabriel Attal en a fait une proposition de campagne (août 2025, puis mai 2026), annoncée comme un débat suivi d'un vote interne à son parti. Raphaël Glucksmann a déclaré en avril 2024 y être favorable lorsqu'elle n'est pas commerciale ; c'est une déclaration antérieure à 2025, sans confirmation récente trouvée.",
+          "candidates": [
+            "Gabriel Attal",
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://www.lejdd.fr/Societe/gpa-derriere-le-debat-politique-la-bataille-juridique-176478",
+            "https://fr.news.yahoo.com/l%C3%A9galisation-gpa-porte-parole-gouvernement-045737784.html",
+            "https://www.msn.com/fr-fr/actualite/other/marche-des-fiert%C3%A9s-%C3%A0-six-mois-de-la-pr%C3%A9sidentielle-lautorisation-de-la-gpa-en-france-toujours-dans-le-d%C3%A9bat/ar-AA2dtoBA",
+            "https://tetu.com/2024/04/26/gpa-ethique-gestation-pour-autrui-raphael-glucksmann-ps-elections-europeennes/"
+          ]
+        },
+        {
+          "approach": "Maintenir l'interdiction de toute GPA, y compris sous une forme dite « éthique » ou altruiste, au nom de la non-marchandisation du corps des femmes. Positions : Bruno Retailleau en août 2025 (il qualifie la « GPA éthique » de tromperie sémantique) ; David Lisnard, signataire en mai 2026 d'une tribune transpartisane selon laquelle la GPA éthique n'existe pas ; Jean-Luc Mélenchon, dont le programme de 2021 prévoit de « refuser la GPA » (mise à jour attendue en novembre 2026) ; Marine Le Pen, qui a qualifié la GPA de « dérive mortelle » (propos de 2022 rapportés par BFM en octobre 2026).",
+          "candidates": [
+            "Bruno Retailleau",
+            "David Lisnard",
+            "Jean-Luc Mélenchon",
+            "Marine Le Pen"
+          ],
+          "evidence_urls": [
+            "https://www.lejdd.fr/Societe/gpa-bruno-retailleau-fustige-la-proposition-de-gabriel-attal-161222",
+            "https://www.msn.com/fr-fr/actualite/france/la-gpa-%C3%A9thique-n-existe-pas-d%C3%A9clarent-15-personnalit%C3%A9s-politiques-du-ps-%C3%A0-lr-autour-de-la-ministre-aurore-berg%C3%A9/ar-AA24hXUP",
+            "https://www.msn.com/fr-fr/actualite/other/marche-des-fiert%C3%A9s-%C3%A0-six-mois-de-la-pr%C3%A9sidentielle-lautorisation-de-la-gpa-en-france-toujours-dans-le-d%C3%A9bat/ar-AA2dtoBA",
+            "https://laec.fr/section/56/une-nouvelle-etape-des-libertes-et-de-lemancipation-individuelle"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "droits_lgbtqia",
+      "importance": "medium",
+      "cleavage": "Filiation des enfants nés d'une GPA à l'étranger : la faciliter au nom de l'intérêt de l'enfant, ou refuser que le fait accompli contourne l'interdiction ? Le sujet est relancé par l'arrêt de la Cour de cassation du 3 juillet 2026, qui impose de reconnaître les jugements étrangers de filiation.",
+      "sides": [
+        {
+          "approach": "Maintenir l'interdiction de la GPA tout en reconnaissant pleinement en droit français la filiation des enfants nés à l'étranger. Jean-Luc Mélenchon a assumé cette position « paradoxale » en 2021 (propos rapportés par BFM en octobre 2026). Position ancienne, non réitérée en 2025-2026 à notre connaissance.",
+          "candidates": [
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://www.msn.com/fr-fr/actualite/other/marche-des-fiert%C3%A9s-%C3%A0-six-mois-de-la-pr%C3%A9sidentielle-lautorisation-de-la-gpa-en-france-toujours-dans-le-d%C3%A9bat/ar-AA2dtoBA",
+            "https://www.lejdd.fr/Societe/gpa-la-france-devra-reconnaitre-sous-conditions-les-decisions-de-filiation-prononcees-a-letranger-178041"
+          ]
+        },
+        {
+          "approach": "Refuser que la reconnaissance juridique des filiations obtenues par GPA à l'étranger vide l'interdiction de sa portée : le droit ne doit pas « s'incliner devant le fait ». C'est le titre d'une tribune de Bruno Retailleau en 2019. Inférence : aucune déclaration de 2025-2026 trouvée sur l'arrêt de juillet 2026.",
+          "candidates": [
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://www.lefigaro.fr/vox/societe/retailleau-sur-la-gpa-l-etat-de-droit-ne-doit-pas-s-incliner-devant-l-etat-de-fait-20191014"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "droits_lgbtqia",
+      "importance": "medium",
+      "cleavage": "Transidentité : faut-il faciliter l'autodétermination (changement de la mention du sexe à l'état civil, accès à la PMA) ou encadrer strictement les parcours médicaux de transition, en particulier chez les mineurs ?",
+      "sides": [
+        {
+          "approach": "Permettre un changement de prénom et de mention du sexe libre, gratuit et simplifié devant un officier d'état civil, et ouvrir la PMA aux personnes trans. C'est le programme de Jean-Luc Mélenchon dans sa version de 2021 ; une nouvelle version est attendue le 6 novembre 2026.",
+          "candidates": [
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://laec.fr/section/56/une-nouvelle-etape-des-libertes-et-de-lemancipation-individuelle"
+          ]
+        },
+        {
+          "approach": "Interdire par la loi, avant 18 ans, les traitements hormonaux qui développent les caractères sexuels secondaires et la chirurgie de réassignation. Les bloqueurs de puberté ne seraient permis que dans des centres de référence, après un délai de deux ans et l'avis d'une équipe pluridisciplinaire. Les infractions seraient punies de 2 ans d'emprisonnement et 30 000 € d'amende. Proposition de loi adoptée au Sénat le 28 mai 2024 (180 voix contre 136), avec le vote pour de Bruno Retailleau ; le texte reste en attente à l'Assemblée.",
+          "candidates": [
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://www.senat.fr/scrutin-public/2023/scr2023-204.html",
+            "https://www.senat.fr/leg/tas23-138.html",
+            "https://www.senat.fr/dossier-legislatif/ppl23-435.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "droits_lgbtqia",
+      "importance": "low",
+      "cleavage": "Acquis sur la PMA et la famille (PMA pour toutes, filiation, adoption) : les étendre et les sanctuariser, les accepter tels quels, ou s'y opposer sur le principe ?",
+      "sides": [
+        {
+          "approach": "Étendre ces droits : PMA ouverte aux personnes trans et financée, filiation établie par défaut sur reconnaissance, adoption plénière ouverte à tous les couples, mariés ou pacsés. Programme de Jean-Luc Mélenchon, version 2021.",
+          "candidates": [
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://laec.fr/section/56/une-nouvelle-etape-des-libertes-et-de-lemancipation-individuelle",
+            "https://laec.fr/section/55/realiser-legalite-entre-les-femmes-et-les-hommes"
+          ]
+        },
+        {
+          "approach": "Sanctuariser les droits acquis en inscrivant dans la Constitution un « principe de non-régression sociétale » : aucune loi ne pourrait revenir sur un progrès déjà obtenu. Proposition de Gabriel Attal (septembre 2025) ; les droits visés ne sont pas énumérés.",
+          "candidates": [
+            "Gabriel Attal"
+          ],
+          "evidence_urls": [
+            "https://www.lejdd.fr/politique/principe-de-non-regression-societale-inscrit-dans-la-constitution-la-proposition-choc-de-gabriel-attal-fait-des-vagues-162160"
+          ]
+        },
+        {
+          "approach": "Ne pas revenir sur la PMA ouverte aux couples de femmes et aux femmes seules, après s'y être opposé. Marine Le Pen a déclaré en mars 2022 n'avoir pas vocation à s'y opposer. Position de 2022, non réactualisée.",
+          "candidates": [
+            "Marine Le Pen"
+          ],
+          "evidence_urls": [
+            "https://www.lemonde.fr/election-presidentielle-2022/article/2022/03/31/presidentielle-2022-derriere-la-normalisation-de-marine-le-pen-un-projet-qui-reste-d-extreme-droite_6119942_6059010.html",
+            "https://fr.wikipedia.org/wiki/Marine_Le_Pen"
+          ]
+        },
+        {
+          "approach": "Opposition de principe à l'ouverture de la PMA aux couples de femmes et aux femmes seules : Bruno Retailleau a voté contre l'article 1 de la loi de bioéthique au Sénat le 2 février 2021. Aucune proposition d'abrogation n'a été trouvée dans son programme de 2026.",
+          "candidates": [
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://www.senat.fr/scrutin-public/2020/scr2020-70.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "droits_lgbtqia",
+      "importance": "low",
+      "cleavage": "Éducation à la vie affective et sexuelle à l'école (programme EVARS, appliqué depuis la rentrée 2025) : l'approfondir, notamment sur l'identité de genre, ou réduire ces enseignements transversaux au profit des savoirs fondamentaux ?",
+      "sides": [
+        {
+          "approach": "Une éducation complète à la sexualité et au genre à tous les niveaux, avec des moyens supplémentaires. Le programme EVARS est jugé trop timide, notamment parce que la transphobie a été retirée et l'identité de genre renvoyée au lycée. Position de l'organisation d'Anasse Kazib (février 2025) ; inférence au niveau du parti.",
+          "candidates": [
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://www.revolutionpermanente.fr/Education-sexuelle-a-l-ecole-l-EVARS-un-programme-de-compromis-avec-l-extreme-droite"
+          ]
+        },
+        {
+          "approach": "Recentrer le temps scolaire sur les savoirs fondamentaux en mettant fin à la « dispersion des éducations à », dont les heures iraient au français, au calcul et à l'anglais. Mesure de Bruno Retailleau (mise à jour du 22 septembre 2026). Le texte ne cite pas explicitement l'EVARS : le rattachement est une inférence.",
+          "candidates": [
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://www.avecretailleau.fr/projet/mesure/liberer-les-etablissements-et-rendre-aux-familles-la"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "egalite",
+      "importance": "high",
+      "cleavage": "La proposition de « loi intégrale » contre les violences sexistes et sexuelles, en débat à l'Assemblée jusqu'au 9 octobre 2026 : 69 articles, juridictions et unités de police spécialisées, autorité indépendante. Faut-il soutenir ce compromis, exiger davantage de moyens et de prévention, ou s'en démarquer ? Le financement oppose un socle de 1,5 Md€ annoncé par le gouvernement à environ 3 Md€ par an réclamés par la coalition féministe.",
+      "sides": [
+        {
+          "approach": "Soutenir le texte transpartisan de compromis : justice et police spécialisées, autorité indépendante chargée de publier chaque année les chiffres des féminicides, obligations d'enquête interne pour les employeurs, protection des victimes. Inférence : le texte est cosigné par 240 députés de huit groupes, dont ceux des partis de ces candidats ; son autrice est députée du parti d'Olivier Faure.",
+          "candidates": [
+            "Olivier Faure",
+            "Jérôme Guedj",
+            "Gabriel Attal",
+            "Édouard Philippe",
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/politique/parlement-francais/assemblee-nationale/le-projet-de-loi-integrale-sur-les-violences-faites-aux-enfants-et-aux-femmes-entame-son-parcours-a-l-assemblee_8180510.html",
+            "https://www.boursorama.com/actualite-economique/actualites/a-l-assemblee-l-examen-de-la-loi-integrale-contre-les-violences-sexuelles-demarre-par-le-volet-judiciaire-379df8535ef4f773dbeaf7d6b67bd2a0"
+          ]
+        },
+        {
+          "approach": "Réclamer une « loi globale » plus ambitieuse, avec environ 3 Md€ par an et un volet prévention renforcé. Le texte actuel est jugé incomplet, et l'aggravation des peines est refusée comme inefficace. Jean-Luc Mélenchon a demandé en juin 2026 une loi globale contre la pédocriminalité et les féminicides ; ses députés n'ont pas cosigné le texte et réservent leur vote final.",
+          "candidates": [
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://www.msn.com/fr-fr/actualite/other/avec-la-loi-integrale-contre-les-violences-sexistes-et-sexuelles-la-strategie-a-double-tranchant-de-lfi/ar-AA2djBnv",
+            "https://la1ere.franceinfo.fr/violences-sexuelles-ce-que-la-proposition-de-loi-pourrait-changer-en-outre-mer-1744185.html"
+          ]
+        },
+        {
+          "approach": "Ne pas cosigner le texte et s'abstenir en commission (vote du 23 septembre 2026), en contestant ses dispositions sur le séjour des étrangers. Les amendements défendus portent sur les peines minimales, les téléphones grave danger et l'expulsion des étrangers condamnés. Inférence à partir de la position du groupe parlementaire du parti de Marine Le Pen.",
+          "candidates": [
+            "Marine Le Pen"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/loi-integrale-contre-les-violences-sexuelles-les-offensives-du-rn-sur-l-immigration",
+            "https://www.boursorama.com/actualite-economique/actualites/violences-sexistes-et-sexuelles-premier-feu-vert-a-l-assemblee-pour-la-loi-integrale-69a50b847d21f0deea85cd93155ca0c8"
+          ]
+        },
+        {
+          "approach": "Rejeter une approche centrée sur la police et la justice et lui préférer des transformations sociales : socialisation du travail domestique, crèches gratuites, logement immédiat des victimes, sécurité économique et régularisation des sans-papiers, financées par un transfert massif de budgets. Position de l'organisation d'Anasse Kazib (25 septembre 2026) ; inférence au niveau du parti.",
+          "candidates": [
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://www.revolutionpermanente.fr/Loi-integrale-peut-on-reellement-combattre-les-violences-patriarcales-avec-plus-de-police-et-de"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "egalite",
+      "importance": "medium",
+      "cleavage": "Contre les violences sexuelles, faut-il d'abord durcir et allonger la réponse pénale (imprescriptibilité, peines minimales, interdictions définitives) ou privilégier la prévention et l'accompagnement ?",
+      "sides": [
+        {
+          "approach": "Durcir et étendre la réponse pénale et les contrôles. Édouard Philippe (programme 2026) : imprescriptibilité des crimes sur mineurs, « principe de précaution pénal » avec mesures de protection immédiates à chaque plainte concernant un enfant, droit pour les parents de connaître les antécédents des adultes au contact de leurs enfants. Bruno Retailleau (24 septembre 2026) : contrôle systématique des adultes au contact d'enfants et interdiction définitive d'exercer après une condamnation pour violences sexuelles sur mineur. Pour Marine Le Pen, inférence à partir des amendements de son groupe en faveur de peines minimales.",
+          "candidates": [
+            "Édouard Philippe",
+            "Bruno Retailleau",
+            "Marine Le Pen"
+          ],
+          "evidence_urls": [
+            "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants",
+            "https://www.avecretailleau.fr/projet/mesure/refaire-de-l-ecole-un-sanctuaire-restaurer-l-autorite-et",
+            "https://lcp.fr/actualites/loi-integrale-contre-les-violences-sexuelles-les-offensives-du-rn-sur-l-immigration"
+          ]
+        },
+        {
+          "approach": "Donner la priorité à la prévention, à la formation, à l'hébergement et aux moyens. L'aggravation de peines jugées déjà suffisantes n'aurait jamais réduit les violences. Position du mouvement de Jean-Luc Mélenchon en 2026 ; dans son programme de 2021, il prévoyait déjà un plan d'un milliard d'euros.",
+          "candidates": [
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://www.msn.com/fr-fr/actualite/other/avec-la-loi-integrale-contre-les-violences-sexistes-et-sexuelles-la-strategie-a-double-tranchant-de-lfi/ar-AA2djBnv",
+            "https://laec.fr/section/55/realiser-legalite-entre-les-femmes-et-les-hommes"
+          ]
+        },
+        {
+          "approach": "Abandonner la logique pénale au profit de réponses matérielles et collectives. Position de l'organisation d'Anasse Kazib ; inférence au niveau du parti.",
+          "candidates": [
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://www.revolutionpermanente.fr/Loi-integrale-peut-on-reellement-combattre-les-violences-patriarcales-avec-plus-de-police-et-de"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "egalite",
+      "importance": "medium",
+      "cleavage": "Victimes étrangères de violences sexuelles : faut-il les protéger de l'expulsion lorsqu'elles portent plainte (article 62 de la loi intégrale : pas d'OQTF pendant l'instruction de leur demande de séjour, titre de séjour, autorisation de travail) ?",
+      "sides": [
+        {
+          "approach": "Protéger les victimes étrangères de l'éloignement et leur ouvrir séjour et travail, y compris sans plainte formelle selon certains, voire régulariser l'ensemble des sans-papiers. Inférence à partir des positions des groupes et organisations de ces candidats.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://www.lejdd.fr/Societe/violences-sexuelles-pourquoi-larticle-62-de-la-loi-integrale-ravive-le-debat-sur-les-oqtf-184749",
+            "https://www.revolutionpermanente.fr/Loi-integrale-peut-on-reellement-combattre-les-violences-patriarcales-avec-plus-de-police-et-de"
+          ]
+        },
+        {
+          "approach": "Refuser qu'une plainte bloque une mesure d'éloignement, ce qui créerait selon eux une nouvelle filière d'immigration. Rendre obligatoire l'interdiction définitive du territoire pour les étrangers condamnés pour infraction sexuelle passible d'au moins 5 ans. Inférence à partir des amendements du groupe parlementaire du parti de Marine Le Pen.",
+          "candidates": [
+            "Marine Le Pen"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/loi-integrale-contre-les-violences-sexuelles-les-offensives-du-rn-sur-l-immigration"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "egalite",
+      "importance": "medium",
+      "cleavage": "Définition pénale du viol fondée sur l'absence de consentement « libre et éclairé, spécifique, préalable et révocable » (loi du 6 novembre 2025) : un progrès à conserver ou une réforme contestée ?",
+      "sides": [
+        {
+          "approach": "Soutenir cette définition : Gabriel Attal a voté pour en première lecture (1er avril 2025) et pour le texte final (23 octobre 2025) ; Jérôme Guedj a voté pour le texte final. Pour Jean-Luc Mélenchon et Édouard Philippe, inférence : leurs groupes ont voté pour aux deux lectures.",
+          "candidates": [
+            "Gabriel Attal",
+            "Jérôme Guedj",
+            "Jean-Luc Mélenchon",
+            "Édouard Philippe"
+          ],
+          "evidence_urls": [
+            "https://www.assemblee-nationale.fr/dyn/17/scrutins/1202",
+            "https://www.assemblee-nationale.fr/dyn/17/scrutins/3061"
+          ]
+        },
+        {
+          "approach": "S'opposer à cette réécriture : le groupe parlementaire du parti de Marine Le Pen a voté contre (41 contre en première lecture ; 27 contre et 3 abstentions sur le texte final). Marine Le Pen n'a pas voté personnellement : inférence de faible confiance.",
+          "candidates": [
+            "Marine Le Pen"
+          ],
+          "evidence_urls": [
+            "https://www.assemblee-nationale.fr/dyn/17/scrutins/1202",
+            "https://www.assemblee-nationale.fr/dyn/17/scrutins/3061"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "egalite",
+      "importance": "medium",
+      "cleavage": "Partage des responsabilités familiales : faut-il imposer l'égalité entre les parents (congés identiques et non transférables) ou laisser les familles libres de répartir des congés allongés ? Depuis le 1er juillet 2026, un congé supplémentaire de naissance de 1 à 2 mois par parent existe déjà.",
+      "sides": [
+        {
+          "approach": "Allonger les congés parentaux et les rendre identiques pour les deux parents (programme de Jean-Luc Mélenchon, version 2021).",
+          "candidates": [
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://laec.fr/section/55/realiser-legalite-entre-les-femmes-et-les-hommes"
+          ]
+        },
+        {
+          "approach": "Prolonger le congé de naissance jusqu'aux six mois de l'enfant, soit environ 7 semaines indemnisées à 70 % du salaire dans la limite du plafond de la Sécurité sociale, pour un coût d'environ 700 M€ par an. Le congé serait ouvert à l'un ou l'autre parent et facultatif : le partage est rendu possible, pas imposé (Bruno Retailleau, mise à jour du 12 septembre 2026).",
+          "candidates": [
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://www.avecretailleau.fr/projet/mesure/prolonger-le-conge-jusqu-aux-six-mois-de-l-enfant"
+          ]
+        },
+        {
+          "approach": "Faciliter la reprise du travail par un « temps partiel parental » : travailler à 80 % payé 100 % pendant 2 mois (Édouard Philippe, programme 2026). Le texte ne précise pas de règle de partage entre parents.",
+          "candidates": [
+            "Édouard Philippe"
+          ],
+          "evidence_urls": [
+            "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants"
+          ]
+        }
+      ]
+    }
+  ],
+  "consensus_points": [
+    {
+      "topic_id": "droits_lgbtqia",
+      "point": "Parmi les candidats qui se sont exprimés, aucun ne défend une GPA commerciale. Même les partisans d'une ouverture (Gabriel Attal, Raphaël Glucksmann) la conditionnent à un cadre non marchand et strictement encadré ; le désaccord porte sur la GPA dite « éthique » ou altruiste. L'entourage d'Attal reconnaît toutefois que la question de la rétribution des mères porteuses reste ouverte.",
+      "url": "https://tetu.com/2024/04/26/gpa-ethique-gestation-pour-autrui-raphael-glucksmann-ps-elections-europeennes/"
+    },
+    {
+      "topic_id": "egalite",
+      "point": "La lutte contre les violences sexistes et sexuelles est affichée comme prioritaire par toutes les forces représentées à l'Assemblée. La loi intégrale a été approuvée en commission le 23 septembre 2026 sans aucun vote contre, une partie des groupes s'étant abstenue. Les désaccords portent sur les moyens, le volet pénal et le volet migratoire, pas sur l'objectif.",
+      "url": "https://www.boursorama.com/actualite-economique/actualites/violences-sexistes-et-sexuelles-premier-feu-vert-a-l-assemblee-pour-la-loi-integrale-69a50b847d21f0deea85cd93155ca0c8"
+    }
+  ]
+}

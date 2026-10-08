@@ -1,0 +1,44 @@
+{
+  "_note": "Brouillon tiré de la critique du workflow : à relire, arbitrer et compléter par le propriétaire, puis à fusionner dans decisions.json",
+  "tierChanges": [
+    {
+      "questionId": "agriculture-1",
+      "newTier": "essentiel"
+    },
+    {
+      "questionId": "fiscalite-1",
+      "newTier": "essentiel"
+    },
+    {
+      "questionId": "sante-1",
+      "newTier": "approfondi"
+    },
+    {
+      "questionId": "numerique-1",
+      "newTier": "approfondi"
+    }
+  ],
+  "drops": [
+    "fiscalite-3"
+  ],
+  "step1": [
+    "europe-1",
+    "finances_publiques-1",
+    "industrie_economie-1",
+    "travail_salaires-1",
+    "ecologie_energie-2",
+    "agriculture-1",
+    "territoires-1",
+    "immigration-1",
+    "defense-1",
+    "institutions-1"
+  ],
+  "lastInStep": [],
+  "edits": [],
+  "rejectEdits": [],
+  "addApproaches": [],
+  "dropApproaches": [],
+  "positions": [],
+  "movePositions": [],
+  "externalFlags": []
+}

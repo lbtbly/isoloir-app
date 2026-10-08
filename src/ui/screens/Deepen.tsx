@@ -1,4 +1,4 @@
-import { go } from '../../app'
+import { go, link } from '../nav'
 import { orderedQuestions } from '../../core/order'
 import { isAnswered } from '../../core/answers'
 import { effectiveWeight, type Results } from '../../core/score'
@@ -110,7 +110,7 @@ export function Deepen({ pack, state, results, update }: Props) {
       <SiteFooter />
       <nav class="action-bar" aria-label="Navigation">
         <div class="action-bar-inner">
-          <a class="btn-text" href="#/resultats">
+          <a class="btn-text" href={link('/resultats')}>
             <Icon name="arrow-left" />
             Résultats
           </a>

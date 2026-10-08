@@ -35,6 +35,7 @@ import { durationLabel, markerOf, partOf, placeOf } from './model'
 import { PISTE } from './pistes'
 import type { VideoContext, VideoMeta, VideoScript, VideoSegment, VideoSeries } from './types'
 import { Video, type VideoApi } from './Video'
+import { link } from '../nav'
 import '../../styles/videos.css'
 
 interface Props {
@@ -674,10 +675,11 @@ export function VideoPlayer({
                 ))}
               </ol>
               <p class="vp-sheet-more">
-                {current.script.questionIds.map(id => {
+                {/* Sans question de l'élection pour cette vidéo : la fiche du thème que montre « Voir la fiche » */}
+                {(current.script.questionIds.length ? current.script.questionIds : [current.script.fiche ?? '']).map(id => {
                   const q = bank.questions.find(x => x.id === id)
                   return q ? (
-                    <a key={id} href={`#/sujets/${id}`} onClick={() => leave(current.script.id, api.current?.index ?? 0)}>
+                    <a key={id} href={link(`/sujets/${id}`)} onClick={() => leave(current.script.id, api.current?.index ?? 0)}>
                       {`Voir la fiche\u00a0: ${q.prompt}`}
                     </a>
                   ) : null
@@ -874,7 +876,7 @@ function Empty({ family, active, onLeave }: { family: Family; active: boolean; o
           {`Thèmes\u00a0: ${family.topics.map(t => t.label).join(', ')}. Leurs fiches écrites, avec les chiffres et les sources, sont sur la page «\u00a0Les sujets\u00a0».`}
         </p>
         {family.sample ? (
-          <a class="vp-empty-link" href={`#/sujets/${family.sample}`} onClick={onLeave}>
+          <a class="vp-empty-link" href={link(`/sujets/${family.sample}`)} onClick={onLeave}>
             Lire les fiches
             <Glyph name="next" />
           </a>

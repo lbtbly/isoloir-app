@@ -1,0 +1,874 @@
+{
+  "result": {
+    "drafts": [
+      {
+        "group": "expansion",
+        "topics": [],
+        "questions": [],
+        "consensus": [],
+        "dropped": []
+      }
+    ],
+    "neutrality": {
+      "edits": []
+    },
+    "gapFills": [
+      {
+        "candidate": "batho",
+        "approachId": "travail_salaires-1-f",
+        "weight": 1,
+        "rejects": false,
+        "nature": "inference",
+        "confidence": "low",
+        "summary": "Son parti dénonce la « non reconnaissance des métiers du lien et de l'humain », et une tribune publiée sur son site relève les moindres salaires des filières à prédominance féminine, sans mesure salariale proposée.",
+        "sources": [
+          {
+            "title": "Soutien à la mobilisation syndicale du 18 septembre",
+            "url": "https://www.generationecologie.fr/2025/09/17/soutien-a-la-mobilisation-syndicale-du-18-septembre/",
+            "date": "2025-09-17",
+            "publisher": "Génération écologie"
+          },
+          {
+            "title": "10 novembre : les femmes commencent à travailler gratuitement !",
+            "url": "https://www.generationecologie.fr/2025/11/10/10-nov-les-femmes-commencent-a-travailler-gratuitement/",
+            "date": "2025-11-10",
+            "publisher": "Génération écologie"
+          }
+        ],
+        "verdict": "adjusted",
+        "note": "Confiance abaissée medium→low. Le communiqué du 17/09/2025 cite seulement, parmi les griefs, la non-reconnaissance des « métiers du lien et de l'humain » (pas « du soin ») ; il ne propose aucune revalorisation salariale ni levier de pouvoir d'achat. Le texte du 10/11/2025 est une tribune de Cécile Faure (commission écoféminisme), centrée sur l'égalité salariale femmes-hommes et la conditionnalité des financements publics, pas sur une revalorisation prioritaire de métiers. Le dossier note d'ailleurs « ni SMIC, ni salaires ». Compatible mais trop indirect pour une confiance medium.",
+        "questionId": "travail_salaires-1"
+      },
+      {
+        "candidate": "batho",
+        "approachId": "securite_justice-1-e",
+        "weight": 0,
+        "rejects": true,
+        "nature": "inference",
+        "confidence": "medium",
+        "summary": "Députée, elle a voté contre la loi de 2025 prolongeant la rétention des étrangers condamnés pour des faits graves et pour la suppression de l'article d'une proposition de loi de 2024 facilitant l'expulsion des étrangers jugés menaçants pour l'ordre public.",
+        "sources": [
+          {
+            "title": "Vote n°2958 – maintien en rétention des personnes condamnées pour des faits d'une particulière gravité",
+            "url": "https://datan.fr/votes/legislature-17/vote_2958",
+            "date": "2025-07-08",
+            "publisher": "Datan"
+          },
+          {
+            "title": "Vote n°218 – Assouplir les conditions d'expulsion des étrangers constituant une menace grave pour l'ordre public",
+            "url": "https://datan.fr/votes/legislature-17/vote_218",
+            "date": "2024-10-31",
+            "publisher": "Datan"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Datan vérifié : vote n°2958 (08/07/2025, PPL rétention, 1re lecture) Batho CONTRE ; vote n°218 (31/10/2024) = amendement n°1 de suppression de l'article 1er de la PPL assouplissant les expulsions, Batho POUR. Votes alignés sur son groupe ; le rejet d'une expulsion systématique en est une inférence raisonnable. Le dossier ne relève aucune déclaration sur l'immigration depuis 2023, d'où la nature inférence.",
+        "questionId": "securite_justice-1"
+      },
+      {
+        "candidate": "batho",
+        "approachId": "sante-1-a",
+        "weight": 1,
+        "rejects": false,
+        "nature": "inference",
+        "confidence": "high",
+        "summary": "Députée, elle a voté la proposition de loi transpartisane contre les déserts médicaux qui régule l'installation des médecins (7 mai 2025), et son parti réclame la fin des déserts médicaux.",
+        "sources": [
+          {
+            "title": "Vote n°1607 – proposition de loi visant à lutter contre les déserts médicaux, d'initiative transpartisane",
+            "url": "https://datan.fr/votes/legislature-17/vote_1607",
+            "date": "2025-05-07",
+            "publisher": "Datan"
+          },
+          {
+            "title": "Incidence record du cancer en France : agir enfin sur les causes !",
+            "url": "https://www.generationecologie.fr/2025/10/27/incidence-record-du-cancer-en-france-agir-enfin-sur-les-causes/",
+            "date": "2025-10-27",
+            "publisher": "Génération écologie"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Datan : vote sur l'ensemble de la PPL transpartisane (Garot) du 07/05/2025, Batho POUR. La mesure phare de ce texte (article 1er) est la régulation de l'installation des médecins. L'article du 27/10/2025 (Édith Lecherbonnier, collaboratrice de la députée) demande « la fin des déserts médicaux » sans parler d'installation : simple appoint. Poids 1, inférence : conforme.",
+        "questionId": "sante-1"
+      },
+      {
+        "candidate": "batho",
+        "approachId": "solidarites-2-a",
+        "weight": 1,
+        "rejects": false,
+        "nature": "inference",
+        "confidence": "medium",
+        "summary": "Députée, elle a voté en juin 2025 la proposition de loi versant les allocations familiales dès le premier enfant, sans s'être exprimée sur leur modulation selon les revenus.",
+        "sources": [
+          {
+            "title": "Vote n°2272 – proposition de loi visant à accorder le versement des allocations familiales dès le premier enfant",
+            "url": "https://datan.fr/votes/legislature-17/vote_2272",
+            "date": "2025-06-05",
+            "publisher": "Datan"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Datan : vote sur l'ensemble de la PPL (05/06/2025, 1re lecture, adoptée 103-17), Batho POUR (loyale à son groupe). Soutien vérifié sur le cœur de l'approche (dès le premier enfant). Le volet « quels que soient leurs revenus » n'est pas établi, ce que la summary signale : le poids 1 reste adapté.",
+        "questionId": "solidarites-2"
+      },
+      {
+        "candidate": "batho",
+        "approachId": "societe-x1-a",
+        "weight": 1,
+        "rejects": false,
+        "nature": "inference",
+        "confidence": "medium",
+        "summary": "Députée, elle a voté en février 2026 l'article 1er de la proposition de loi visant à empêcher la constitution de monopoles économiques dans les médias d'information, sans prise de position connue sur l'édition.",
+        "sources": [
+          {
+            "title": "Vote n°5412 – proposition de loi visant à empêcher la constitution de monopoles économiques dans le secteur des médias d'information (article 1er)",
+            "url": "https://datan.fr/votes/legislature-17/vote_5412",
+            "date": "2026-02-12",
+            "publisher": "Datan"
+          },
+          {
+            "title": "Scrutin n°5412",
+            "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/5412",
+            "date": "2026-02-12",
+            "publisher": "Assemblée nationale"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Datan : vote n°5412 (12/02/2026) sur l'article 1er de la PPL anti-monopoles dans les médias d'information, Batho POUR. Ce vote va dans le sens d'un durcissement des règles contre la concentration. L'extension à l'édition n'est pas couverte, ce que la summary précise : le poids 1 en inférence est justifié. Page AN non relue : Datan suffit.",
+        "questionId": "societe-x1"
+      },
+      {
+        "candidate": "batho",
+        "approachId": "securite_justice-5-b",
+        "weight": 0,
+        "rejects": true,
+        "nature": "inference",
+        "confidence": "medium",
+        "summary": "Députée, elle a voté contre la loi de 2025 renforçant l'autorité de la justice à l'égard des mineurs délinquants, qui prévoyait notamment leur comparution immédiate et une remise en cause de l'excuse de minorité.",
+        "sources": [
+          {
+            "title": "Vote n°1624 – Restaurer l'autorité de la justice à l'égard des mineurs délinquants et de leurs parents",
+            "url": "https://datan.fr/votes/legislature-17/vote_1624",
+            "date": "2025-05-13",
+            "publisher": "Datan"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Datan : vote final sur le texte de CMP (13/05/2025, adopté 341-187), Batho CONTRE. Le contenu de la loi Attal (comparution immédiate des mineurs, dérogations à l'excuse de minorité) est attesté par ailleurs dans la banque. Même base et même traitement que le rejet attribué à Mélenchon sur cette approche.",
+        "questionId": "securite_justice-5"
+      },
+      {
+        "candidate": "batho",
+        "approachId": "ecologie_energie-5-b",
+        "weight": 1,
+        "rejects": false,
+        "nature": "inference",
+        "confidence": "medium",
+        "summary": "Son parti qualifie les méga-bassines de « symboles de la maladaptation » et défend la régénération des cycles naturels de l'eau et les solutions fondées sur la nature, sans demander explicitement l'interdiction des grandes retenues.",
+        "sources": [
+          {
+            "title": "Loi d'urgence agricole : la grande régression !",
+            "url": "https://www.generationecologie.fr/2026/05/21/loi-durgence-agricole-la-grande-regression/",
+            "date": "2026-05-21",
+            "publisher": "Génération écologie"
+          },
+          {
+            "title": "Eau : un « moratoire » contraire à l'État de droit",
+            "url": "https://www.generationecologie.fr/2026/01/20/eau-un-moratoire-contraire-a-letat-de-droit/",
+            "date": "2026-01-20",
+            "publisher": "Génération écologie"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Les deux communiqués du parti (2026) qualifient les méga-bassines de symboles de « maladaptation » et défendent les solutions fondées sur la nature et les cycles naturels de l'eau. Aucun ne demande d'interdiction ni de moratoire, ce que la summary signale : le poids 1 (compatible) est le bon. Programme récent du parti d'une petite candidate : confiance medium recevable.",
+        "questionId": "ecologie_energie-5"
+      },
+      {
+        "candidate": "batho",
+        "approachId": "ecologie_energie-5-a",
+        "weight": 0,
+        "rejects": true,
+        "nature": "inference",
+        "confidence": "medium",
+        "summary": "Son parti reproche à la loi Duplomb (2025) de généraliser la « mal-adaptation » par le stockage de l'eau pour l'irrigation et à la loi d'urgence agricole (2026) de faciliter les méga-bassines, jugées symboles de « maladaptation ».",
+        "sources": [
+          {
+            "title": "Loi d'urgence agricole : la grande régression !",
+            "url": "https://www.generationecologie.fr/2026/05/21/loi-durgence-agricole-la-grande-regression/",
+            "date": "2026-05-21",
+            "publisher": "Génération écologie"
+          },
+          {
+            "title": "Loi Duplomb adoptée : la bataille de la santé environnementale doit s'amplifier",
+            "url": "https://www.generationecologie.fr/2025/07/09/loi-duplomb-adoptee-la-bataille-de-la-sante-environnementale-doit-samplifier/",
+            "date": "2025-07-09",
+            "publisher": "Génération écologie"
+          },
+          {
+            "title": "Eau : un « moratoire » contraire à l'État de droit",
+            "url": "https://www.generationecologie.fr/2026/01/20/eau-un-moratoire-contraire-a-letat-de-droit/",
+            "date": "2026-01-20",
+            "publisher": "Génération écologie"
+          }
+        ],
+        "verdict": "adjusted",
+        "note": "Le rejet est confirmé. Seule la summary est reformulée : le texte du 20/01/2026 ne fait que constater (sans le reprocher explicitement) que les ouvrages de stockage sont présumés d'« intérêt général majeur ». La critique explicite du stockage pour l'irrigation se trouve dans le communiqué du 09/07/2025 sur la loi Duplomb (« généralise la mal-adaptation »), ajouté comme source.",
+        "questionId": "ecologie_energie-5"
+      },
+      {
+        "candidate": "batho",
+        "approachId": "ecologie_energie-4-a",
+        "weight": 1,
+        "rejects": false,
+        "nature": "declaration",
+        "confidence": "medium",
+        "summary": "Elle veut mener la sortie des énergies fossiles « tambour battant » et diviser par deux la consommation d'énergie, et son parti réclame un plan de sortie complète des fossiles, sans calendrier chiffré.",
+        "sources": [
+          {
+            "title": "Que doivent penser les écologistes de la guerre ?",
+            "url": "https://www.generationecologie.fr/2025/03/15/que-doivent-penser-les-ecologistes-de-la-guerre-3/",
+            "date": "2025-03-15",
+            "publisher": "Génération écologie"
+          },
+          {
+            "title": "Prix de l'essence à la pompe : l'urgence d'agir !",
+            "url": "https://www.generationecologie.fr/2026/04/10/prix-de-lessence-a-la-pompe-lurgence-dagir/",
+            "date": "2026-04-10",
+            "publisher": "Génération écologie"
+          },
+          {
+            "title": "Quelle politique énergétique pour la France ?",
+            "url": "https://www.generationecologie.fr/2026/06/22/quelle-politique-energetique-pour-la-france/",
+            "date": "2026-06-22",
+            "publisher": "Génération écologie"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Éléments vérifiés : « tambour battant » (intervention de Batho, 13/03/2025) ; en juin 2026, « aucun scénario de neutralité carbone qui ne commence par diviser par deux la consommation d'énergie », dans un plaidoyer pour la décroissance énergétique ; le communiqué du parti (10/04/2026) appelle à « un plan de sortie complète des énergies fossiles ». Aucune échéance chiffrée, d'où le poids 1 (compatible) et non 2.",
+        "questionId": "ecologie_energie-4"
+      },
+      {
+        "candidate": "batho",
+        "approachId": "ecologie_energie-4-c",
+        "weight": 0,
+        "rejects": true,
+        "nature": "inference",
+        "confidence": "medium",
+        "summary": "Elle s'inscrit en faux contre une approche qui concentre le débat énergétique sur les modes de production sans interroger les besoins, et son parti qualifie le technosolutionnisme de « pari aveugle ».",
+        "sources": [
+          {
+            "title": "Quelle politique énergétique pour la France ?",
+            "url": "https://www.generationecologie.fr/2026/06/22/quelle-politique-energetique-pour-la-france/",
+            "date": "2026-06-22",
+            "publisher": "Génération écologie"
+          },
+          {
+            "title": "Eau : un « moratoire » contraire à l'État de droit",
+            "url": "https://www.generationecologie.fr/2026/01/20/eau-un-moratoire-contraire-a-letat-de-droit/",
+            "date": "2026-01-20",
+            "publisher": "Génération écologie"
+          }
+        ],
+        "verdict": "adjusted",
+        "note": "Citation vérifiée (22/06/2026) : elle rejette une approche centrée sur la production qui n'interroge pas les besoins. Le rejet de l'approche c est solide, mais il suppose une transposition : elle ne parle ni d'« innovation » ni de « normes et taxes », et le « pari aveugle » vise le technosolutionnisme en matière d'eau et d'agriculture. Nature corrigée : déclaration → inférence.",
+        "questionId": "ecologie_energie-4"
+      },
+      {
+        "candidate": "batho",
+        "approachId": "numerique-3-a",
+        "weight": 1,
+        "rejects": false,
+        "nature": "declaration",
+        "confidence": "medium",
+        "summary": "Elle juge la question du numérique « absolument centrale » pour la sécurité européenne et cite en exemple les manipulations de l'élection roumaine, sans détailler de mesure.",
+        "sources": [
+          {
+            "title": "Que doivent penser les écologistes de la guerre ?",
+            "url": "https://www.generationecologie.fr/2025/03/15/que-doivent-penser-les-ecologistes-de-la-guerre-3/",
+            "date": "2025-03-15",
+            "publisher": "Génération écologie"
+          }
+        ],
+        "verdict": "adjusted",
+        "note": "Vérifié dans sa transcription du 13/03/2025 : elle juge la question numérique « absolument centrale, fondamentale », cite la manipulation de l'élection roumaine et la dépendance aux plateformes américaines. La formule « régulation démocratique du numérique » de la summary initiale n'a pas pu être vérifiée : summary reformulée au plus près de la source. Poids 1 (compatible) maintenu.",
+        "questionId": "numerique-3"
+      },
+      {
+        "candidate": "batho",
+        "approachId": "numerique-3-d",
+        "weight": 0,
+        "rejects": true,
+        "nature": "declaration",
+        "confidence": "medium",
+        "summary": "Elle dénonce le chantage de l'administration Trump contre la réglementation européenne du numérique et juge cette régulation centrale pour la souveraineté.",
+        "sources": [
+          {
+            "title": "Que doivent penser les écologistes de la guerre ?",
+            "url": "https://www.generationecologie.fr/2025/03/15/que-doivent-penser-les-ecologistes-de-la-guerre-3/",
+            "date": "2025-03-15",
+            "publisher": "Génération écologie"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Vérifié : elle dénonce le « chantage » de l'administration Trump contre la réglementation numérique européenne et fait de l'autonomie réglementaire numérique un enjeu de souveraineté. Défendre ces règles revient directement à rejeter l'abrogation du DSA.",
+        "questionId": "numerique-3"
+      },
+      {
+        "candidate": "batho",
+        "approachId": "defense-3-b",
+        "weight": 1,
+        "rejects": false,
+        "nature": "declaration",
+        "confidence": "medium",
+        "summary": "Elle juge que le débat sur la protection de l'Europe par la dissuasion française n'a de sens que dans une défense européenne strictement indépendante des États-Unis, sans se prononcer sur le partage de la décision.",
+        "sources": [
+          {
+            "title": "Ni Trump, ni Poutine : en tant qu'écologistes, nous prendrons toute notre part à l'effort de défense du pays et de l'Europe",
+            "url": "https://www.generationecologie.fr/2025/03/05/ni-trump-ni-poutine-en-tant-quecologistes-nous-prendrons-toute-notre-part-a-leffort-de-defense-du-pays-et-de-leurope/",
+            "date": "2025-03-05",
+            "publisher": "Génération écologie"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Communiqué signé par Batho (05/03/2025), vérifié mot pour mot : elle accepte, sous condition d'indépendance vis-à-vis des États-Unis, l'ouverture du débat stratégique sur la protection de l'Europe par la dissuasion française. Cela correspond à la logique de dialogue de l'approche b, sans engagement d'extension (a) ni position sur la décision : le poids 1 convient.",
+        "questionId": "defense-3"
+      },
+      {
+        "candidate": "batho",
+        "approachId": "defense-3-e",
+        "weight": 0,
+        "rejects": true,
+        "nature": "inference",
+        "confidence": "medium",
+        "summary": "Elle veut « renforcer notre dissuasion militaire » et juge légitime, dans une défense européenne indépendante des États-Unis, le débat sur la protection de l'Europe par la dissuasion nucléaire française.",
+        "sources": [
+          {
+            "title": "Oui à la défense contre les menaces du nouveau Yalta des prédateurs",
+            "url": "https://www.generationecologie.fr/2025/12/10/oui-la-defense-contre-les-menaces-du-nouveau-yalta-des-predateurs/",
+            "date": "2025-12-10",
+            "publisher": "Génération écologie"
+          },
+          {
+            "title": "Ni Trump, ni Poutine : en tant qu'écologistes, nous prendrons toute notre part à l'effort de défense du pays et de l'Europe",
+            "url": "https://www.generationecologie.fr/2025/03/05/ni-trump-ni-poutine-en-tant-quecologistes-nous-prendrons-toute-notre-part-a-leffort-de-defense-du-pays-et-de-leurope/",
+            "date": "2025-03-05",
+            "publisher": "Génération écologie"
+          },
+          {
+            "title": "Que doivent penser les écologistes de la guerre ?",
+            "url": "https://www.generationecologie.fr/2025/03/15/que-doivent-penser-les-ecologistes-de-la-guerre-3/",
+            "date": "2025-03-15",
+            "publisher": "Génération écologie"
+          }
+        ],
+        "verdict": "adjusted",
+        "note": "Le rejet est confirmé : le texte qu'elle signe le 10/12/2025 veut « renforcer notre dissuasion militaire », et celui du 05/03/2025 présente la dissuasion nucléaire comme un outil de protection de l'Europe. La formule « principal atout stratégique » de la summary initiale n'est pas vérifiée, d'où la summary reformulée. La source de mars 2025 a été ajoutée. Nature passée à inférence : aucune phrase ne rejette explicitement le désarmement unilatéral.",
+        "questionId": "defense-3"
+      },
+      {
+        "candidate": "batho",
+        "approachId": "agriculture-3-e",
+        "weight": 0,
+        "rejects": true,
+        "nature": "inference",
+        "confidence": "medium",
+        "summary": "Son parti dénonce la libéralisation de l'agrandissement des élevages industriels par la loi Duplomb et l'allègement des procédures d'installation de ces élevages par la loi d'urgence agricole, en invoquant notamment le bien-être animal.",
+        "sources": [
+          {
+            "title": "Loi d'urgence agricole : la grande régression !",
+            "url": "https://www.generationecologie.fr/2026/05/21/loi-durgence-agricole-la-grande-regression/",
+            "date": "2026-05-21",
+            "publisher": "Génération écologie"
+          },
+          {
+            "title": "Loi Duplomb adoptée : la bataille de la santé environnementale doit s'amplifier",
+            "url": "https://www.generationecologie.fr/2025/07/09/loi-duplomb-adoptee-la-bataille-de-la-sante-environnementale-doit-samplifier/",
+            "date": "2025-07-09",
+            "publisher": "Génération écologie"
+          }
+        ],
+        "verdict": "adjusted",
+        "note": "Rejet solide : le communiqué du 09/07/2025 reproche à la loi Duplomb de libéraliser l'agrandissement des élevages industriels, et celui du 21/05/2026 dénonce l'allègement des procédures pour ces installations « malgré » les risques sanitaires et le bien-être animal. Summary corrigée : le mot « mégafermes » ne figure pas dans les sources lues.",
+        "questionId": "agriculture-3"
+      },
+      {
+        "candidate": "batho",
+        "approachId": "finances_publiques-3-a",
+        "weight": 0,
+        "rejects": true,
+        "nature": "inference",
+        "confidence": "low",
+        "summary": "Une tribune d'une responsable de son parti critique la tentation de supprimer des postes jugés inutiles et de voir les fonctionnaires comme une charge, et elle dénonce un modèle qui réclame « toujours plus de démantèlement de l'État ».",
+        "sources": [
+          {
+            "title": "Face au chaos institutionnel : écologie ou autoritarisme",
+            "url": "https://www.generationecologie.fr/2025/10/01/face-au-chaos-institutionnel-ecologie-ou-autoritarisme/",
+            "date": "2025-10-01",
+            "publisher": "Génération écologie"
+          },
+          {
+            "title": "L'esprit du Titanic",
+            "url": "https://www.generationecologie.fr/2025/08/26/lesprit-du-titanic/",
+            "date": "2025-08-26",
+            "publisher": "Génération écologie"
+          }
+        ],
+        "verdict": "adjusted",
+        "note": "Confiance abaissée medium→low. « Face au chaos institutionnel » est une tribune de Laure Haag (animatrice du réseau des élus), pas un texte programmatique, et les « postes jugés inutiles » y visent aussi bien les élus que les fonctionnaires. « L'esprit du Titanic », signé par Batho, dénonce le « démantèlement de l'État » en termes généraux, sans parler d'effectifs. Le communiqué « Budget : le moment de cécité » (16/07/2025), consulté en complément, ne mentionne pas non plus le non-remplacement des départs. Rejet plausible, mais non établi sur le nombre d'agents.",
+        "questionId": "finances_publiques-3"
+      },
+      {
+        "candidate": "batho",
+        "approachId": "institutions-3-g",
+        "weight": 1,
+        "rejects": false,
+        "nature": "inference",
+        "confidence": "low",
+        "summary": "Une responsable de son parti appelle à créer des espaces de délibération citoyenne sur les enjeux de long terme, sans mentionner le tirage au sort.",
+        "sources": [
+          {
+            "title": "Face au chaos institutionnel : écologie ou autoritarisme",
+            "url": "https://www.generationecologie.fr/2025/10/01/face-au-chaos-institutionnel-ecologie-ou-autoritarisme/",
+            "date": "2025-10-01",
+            "publisher": "Génération écologie"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Vérifié : la tribune de Laure Haag appelle à « créer des espaces de délibération citoyenne sur les enjeux de long terme », sans conventions ni tirage au sort. La confiance low (non comptée) est la bonne pour une tribune non reprise par la candidate.",
+        "questionId": "institutions-3"
+      },
+      {
+        "candidate": "batho",
+        "approachId": "education-1-b",
+        "weight": 1,
+        "rejects": false,
+        "nature": "inference",
+        "confidence": "low",
+        "summary": "Un article d'adhérent publié par son parti propose des classes moins chargées et une meilleure rémunération des enseignants, sans reprise par la candidate.",
+        "sources": [
+          {
+            "title": "Les lycées mobilisés : écoutons la jeunesse !",
+            "url": "https://www.generationecologie.fr/2026/10/06/les-lycees-mobilises-ecoutons-la-jeunesse/",
+            "date": "2026-10-06",
+            "publisher": "Génération écologie"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Vérifié : l'article de Damien Adras, adhérent des Deux-Sèvres, prône des classes « avec des effectifs moins chargés », relève le manque de personnels et veut valoriser la rémunération des enseignants. Simple article d'adhérent : la confiance low (non comptée) est la bonne.",
+        "questionId": "education-1"
+      },
+      {
+        "candidate": "bouamrane",
+        "approachId": "europe-2-a",
+        "weight": 1,
+        "rejects": false,
+        "nature": "declaration",
+        "confidence": "medium",
+        "summary": "En mars 2025, il se disait plus partisan d'un emprunt européen, mutualisé entre les Vingt-Sept, que d'un financement national pour l'effort de défense ; il n'y évoquait pas d'impôts européens.",
+        "sources": [
+          {
+            "title": "Avec Karim Bouamrane, maire PS de Saint Ouen (Sud Radio, L'invité politique, transcription)",
+            "url": "https://www.sudradio.fr/emission/le-petit-dejeuner-politique-sudradio-388",
+            "date": "2025-03-20",
+            "publisher": "Sud Radio"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Source relue (20/03/2025) : « Je suis plus partisan d'un emprunt européen », emprunt « mutualisé », coordination à 27. Cela correspond au volet « emprunts communs » de l'approche, pas aux impôts européens ni explicitement à un budget de l'Union plus important : le poids 1 (compatible) est le bon niveau. Position de 2025, dans la fenêtre. Aucune autre attribution de Bouamrane sur europe-2. Résumé légèrement reformulé, sans changement de fond.",
+        "questionId": "europe-2"
+      },
+      {
+        "candidate": "bouamrane",
+        "approachId": "agriculture-x4-e",
+        "weight": 1,
+        "rejects": false,
+        "nature": "proposition",
+        "confidence": "low",
+        "summary": "Il propose une « carte Vitale alimentaire » destinée aux ménages les plus fragiles, financée notamment par une taxe sur les produits ultra-transformés et réservée à des produits conventionnés issus de pratiques durables. Ce n'est pas une allocation versée à chacun.",
+        "sources": [
+          {
+            "title": "OPINION. « Du bon et du beau accessible pour tous : c'est ça la vraie gauche ! », par Karim Bouamrane",
+            "url": "https://www.latribune.fr/article/la-tribune-dimanche/opinions/88721332883171/opinion-du-bon-et-du-beau-accessible-pour-tous-c-est-ca-la-vraie-gauche-par-karim-bouamrane",
+            "date": "2026-05-03",
+            "publisher": "La Tribune Dimanche"
+          },
+          {
+            "title": "Karim Bouamrane : « LFI se nourrit de la ghettoïsation matin, midi et soir »",
+            "url": "https://www.sudradio.fr/linvite-politique/karim-bouamrane-lfi-se-nourrit-de-la-ghettoisation-matin-midi-et-soir",
+            "date": "2026-05-06",
+            "publisher": "Sud Radio"
+          }
+        ],
+        "verdict": "adjusted",
+        "note": "Confiance abaissée de medium à low, pour deux raisons. (1) Fond : l'approche e est universelle (« Verser à chacun »), alors que le résumé proposé décrit lui-même une carte « réservée aux ménages les plus fragiles », donc un dispositif ciblé et différent. Le critère « productions locales » n'est pas non plus établi : il s'agit de « pratiques durables ». (2) Vérification : La Tribune est inaccessible (refus de récupération, et archive.org aussi). Sud Radio (06/05/2026) confirme seulement que le projet de « carte vitale alimentaire » existe, sans préciser ni public, ni financement, ni produits. Les détails ne reposent que sur les notes internes d'un agent précédent (expansion-output.json). Le dossier du candidat signale d'ailleurs que, pour cette tribune, seuls le titre et le chapeau ont pu être consultés. L'attribution est gardée pour traçabilité mais ne compte pas, et la marque « external » de l'approche e reste cohérente.",
+        "questionId": "agriculture-x4"
+      },
+      {
+        "candidate": "bouamrane",
+        "approachId": "securite_justice-6-e",
+        "weight": 1,
+        "rejects": false,
+        "nature": "inference",
+        "confidence": "low",
+        "summary": "À propos du narcotrafic, il a réclamé davantage de moyens pour la police, la justice et les collectivités ; il n'a rien dit de précis sur l'indépendance, le statut ou la discipline des magistrats.",
+        "sources": [
+          {
+            "title": "Narcotrafic : « Il faut plus de moyens pour avoir une politique féconde et productive », estime Karim Bouamrane",
+            "url": "https://www.franceinfo.fr/replay-radio/8h30-fauvelle-dely/narcotrafic-il-faut-plus-de-moyens-pour-avoir-une-politique-feconde-et-productive-estime-karim-bouamrane-le-maire-de-saint-ouen_7603115.html",
+            "date": "2025-11-22",
+            "publisher": "franceinfo"
+          },
+          {
+            "title": "Karim Bouamrane : « Je n'irai pas à la primaire » du Parti socialiste",
+            "url": "https://www.sudradio.fr/linvite-politique/karim-bouamrane-je-nirai-pas-a-la-primaire-du-parti-socialiste",
+            "date": "2026-07-02",
+            "publisher": "Sud Radio"
+          }
+        ],
+        "verdict": "adjusted",
+        "note": "Confiance abaissée de medium à low et source Oumma retirée : relue, elle ne dit rien sur la justice française ni les magistrats. Franceinfo (22/11/2025) ne soutient que le volet « moyens », et seulement dans le contexte du narcotrafic : plus de moyens pour la police, la justice et les collectivités. Sud Radio (02/07/2026) : il refuse de commenter l'affaire judiciaire d'un maire voisin, mais ce n'est pas une position sur l'indépendance des magistrats ni sur leur protection contre les pressions. La question porte sur l'indépendance et la responsabilité des magistrats, et le cœur de l'approche e n'est pas sourcé. Une inférence de confiance medium le rendrait « connu » sur un sujet qu'il n'a pas abordé, d'où la baisse à low. Pour comparaison, Roussel et Cazeneuve sont attribués sur des textes qui évoquent explicitement l'indépendance.",
+        "questionId": "securite_justice-6"
+      },
+      {
+        "candidate": "bouamrane",
+        "approachId": "defense-2-d",
+        "weight": 0,
+        "rejects": true,
+        "nature": "declaration",
+        "confidence": "high",
+        "summary": "Son manifeste promet d'augmenter l'effort de défense, il défend une hausse importante des dépenses militaires et refuse d'opposer dépenses sociales et militaires, sans fixer d'objectif en part du PIB.",
+        "sources": [
+          {
+            "title": "Le manifeste de Karim Bouamrane – « Une France humaine. Une France forte. »",
+            "url": "https://www.lafrancehumaineetforte.fr/manifeste.html",
+            "date": "2026-09-09",
+            "publisher": "La France humaine et forte"
+          },
+          {
+            "title": "Karim Bouamrane défie Mélenchon et vise le second tour de la présidentielle 2027",
+            "url": "https://oumma.com/karim-bouamrane-defie-melenchon-et-vise-le-second-tour-de-la-presidentielle-2027/",
+            "date": "2026-07-02",
+            "publisher": "Oumma"
+          },
+          {
+            "title": "Avec Karim Bouamrane, maire PS de Saint Ouen (Sud Radio, L'invité politique, transcription)",
+            "url": "https://www.sudradio.fr/emission/le-petit-dejeuner-politique-sudradio-388",
+            "date": "2025-03-20",
+            "publisher": "Sud Radio"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Manifeste relu : « J'augmenterai l'effort de défense » et « nos soldats méritent les moyens de leur mission ». Oumma (02/07/2026) : il défend une augmentation importante des dépenses de défense. Sud Radio (20/03/2025) ajoute « Il ne faut pas opposer le social et le militaire », ce qui contredit directement l'arbitrage de l'approche d (armées contre services publics). Le rejet est donc net. Faute de chiffre, il ne peut pas être placé sur a ou b. Même traitement que Cazeneuve sur defense-2-d. Résumé complété avec la source Sud Radio.",
+        "questionId": "defense-2"
+      },
+      {
+        "candidate": "becht",
+        "approachId": "ecologie_energie-x9-b",
+        "weight": 2,
+        "rejects": false,
+        "nature": "proposition",
+        "confidence": "high",
+        "summary": "Son programme veut ouvrir une « période de prospérité et de croissance verte » dans une économie libérée des énergies fossiles. Il s'appuie pour cela sur les carburants de synthèse décarbonés, un mix associant nucléaire, renouvelables et stockage, et des filières d'avenir comme les véhicules propres ou l'acier et l'aluminium verts. La neutralité carbone serait atteinte en avance sur les objectifs européens.",
+        "sources": [
+          {
+            "title": "Le Projet France – becht2027.fr",
+            "url": "https://becht2027.fr/projet-france/",
+            "date": "2026-09",
+            "publisher": "Site de campagne d’Olivier Becht"
+          },
+          {
+            "title": "L’énergie – becht2027.fr",
+            "url": "https://becht2027.fr/projet-france/les-5-refondations/refondation-energie/",
+            "date": "2026-09",
+            "publisher": "Site de campagne d’Olivier Becht"
+          },
+          {
+            "title": "Dossier de presse « Le Projet France » – Axe 1",
+            "url": "https://becht2027.fr/wp-content/uploads/2026/09/dossier_presse_4p-A4.pdf",
+            "date": "2026-09-24",
+            "publisher": "Site de campagne d’Olivier Becht"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Vérifié sur les trois sources. Le dossier de presse (axe 1, texte extrait) fixe l'objectif d'ouvrir « une période de prospérité et de croissance verte » sans énergies fossiles. La page Énergie confirme la neutralité carbone « en avance de phase » sur les objectifs européens, le mix nucléaire, renouvelables et stockage, ainsi que les filières de l'« économie de la Vie ». Aucune mention de sobriété ni de décroissance. C'est une croissance verte appuyée sur la technologie, ce qui correspond exactement à l'approche b. Le résumé a été réduit à des faits vérifiés : l'agroécologie, citée seulement par le dossier interne, est retirée.",
+        "questionId": "ecologie_energie-x9"
+      },
+      {
+        "candidate": "becht",
+        "approachId": "ecologie_energie-6-d",
+        "weight": 1,
+        "rejects": false,
+        "nature": "inference",
+        "confidence": "low",
+        "summary": "Son rapport d’août 2026 propose de renforcer significativement les réserves militaires et civiles et de développer des réserves communales de sécurité civile dans les communes volontaires. Il présente ces mesures comme un outil de résilience face aux crises et aux menaces, sans viser les pompiers ni les risques climatiques.",
+        "sources": [
+          {
+            "title": "Rapport « Refaire Nation », II.C",
+            "url": "https://becht2024.fr/wp-content/uploads/2026/08/Rapport-Amenagement-du-territoire-_-Olivier-Becht.pdf",
+            "date": "2026-08",
+            "publisher": "Site d’Olivier Becht"
+          }
+        ],
+        "verdict": "adjusted",
+        "note": "Le texte du rapport (II.C, p. 41) confirme la proposition. Elle relève toutefois d'une « culture de la résilience » face aux menaces stratégiques et aux opérations d'influence, et non de la protection contre les canicules, incendies ou catastrophes climatiques. Elle ne porte pas sur les effectifs ou les équipements des pompiers. Le lien avec cette question est donc une inférence : nature passée de proposition à inference. Poids 1 et confiance low maintenus.",
+        "questionId": "ecologie_energie-6"
+      },
+      {
+        "candidate": "becht",
+        "approachId": "education-3-e",
+        "weight": 1,
+        "rejects": false,
+        "nature": "inference",
+        "confidence": "low",
+        "summary": "Son programme législatif de 2024 prévoyait de donner plus d’autonomie aux établissements scolaires pour adapter les outils pédagogiques aux besoins des enfants ; aucune position de campagne de 2026 sur l’organisation du collège n’a été trouvée.",
+        "sources": [
+          {
+            "title": "becht2024.fr – Nos engagements (législatives 2024)",
+            "url": "https://becht2024.fr/",
+            "date": "2024-06",
+            "publisher": "Site d’Olivier Becht"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Le programme de 2024 sur becht2024.fr contient bien la promesse de donner plus d'autonomie aux établissements scolaires. L'approche e est la plus proche, et rien dans les sources de 2026 ne la contredit : ni groupes de niveau, ni filières, ni examen d'entrée dans le rapport ou sur le site de campagne. Le rapport défend par ailleurs la subsidiarité. Comme la source date d'avant la campagne et porte sur les outils pédagogiques plutôt que sur l'organisation des classes, l'attribution reste une inférence de poids 1 en confiance low.",
+        "questionId": "education-3"
+      },
+      {
+        "candidate": "becht",
+        "approachId": "ukraine_russie-x3-c",
+        "weight": 1,
+        "rejects": false,
+        "nature": "inference",
+        "confidence": "low",
+        "summary": "En 2024, il refusait l’envoi de troupes françaises au sol en Ukraine tout en voulant poursuivre l’aide matérielle européenne ; aucune position actualisée sur les garanties de sécurité après un cessez-le-feu n’a été trouvée.",
+        "sources": [
+          {
+            "title": "becht2024.fr – Nos engagements (législatives 2024)",
+            "url": "https://becht2024.fr/",
+            "date": "2024-06",
+            "publisher": "Site d’Olivier Becht"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "La page de 2024 dit explicitement qu'il faut refuser d'envoyer des troupes françaises au sol en Ukraine et poursuivre l'aide matérielle européenne. Cela correspond à l'approche c. Le rapport de 2026 ne parle de l'Ukraine qu'en diagnostic (I.B) et ne dit rien d'une force de réassurance après un cessez-le-feu. Comme la position est antérieure à la campagne et au contexte de 2026, l'attribution reste une inférence de poids 1 en confiance low.",
+        "questionId": "ukraine_russie-x3"
+      },
+      {
+        "candidate": "asselineau",
+        "approachId": "fiscalite-1-a",
+        "weight": 1,
+        "rejects": false,
+        "nature": "inference",
+        "confidence": "low",
+        "summary": "Le site de son parti qualifie d'« injuste » la suppression de l'impôt sur la fortune en 2018 sans proposer de le rétablir, et son programme de 2022 prévoyait à la place de nouvelles tranches d'impôt sur le revenu et un impôt exceptionnel sur les très grandes fortunes enrichies pendant la crise du Covid-19.",
+        "sources": [
+          {
+            "title": "Matraquage médiatique intensif au profit de Philippe",
+            "url": "https://upr.fr/analyses/matraquage-mediatique-intensif-au-profit-de-philippe",
+            "date": "2026-09-18",
+            "publisher": "UPR"
+          },
+          {
+            "title": "Programme présidentiel et législatif 2022 (PDF)",
+            "url": "https://upr.fr/post-img/uploads/2022/10/20220215_Programme-presi-leg-2022.pdf",
+            "date": "2022-02-15",
+            "publisher": "UPR"
+          }
+        ],
+        "verdict": "adjusted",
+        "note": "Confiance abaissée de medium à low. L'article de 2026 contient bien « la suppression injuste de l'ISF le 1er janvier 2018 », mais seulement dans une liste de reproches faits à Philippe, sans aucune proposition. Il existe un contre-indice : le programme de 2022, rédigé après la suppression, ne prévoyait pas de rétablir l'ISF mais deux nouvelles tranches d'IR au-delà de 250 000 et 500 000 euros, plus un impôt exceptionnel de solidarité sur quelques dizaines de très grandes fortunes, vérifié par OCR du PDF. Le dossier note aussi qu'aucune position sur un impôt sur la fortune n'a été trouvée pour 2025-2026. Le rétablissement de l'ISF d'avant 2018 reste compatible, sans plus.",
+        "questionId": "fiscalite-1"
+      },
+      {
+        "candidate": "asselineau",
+        "approachId": "laicite_republique-2-c",
+        "weight": 1,
+        "rejects": false,
+        "nature": "inference",
+        "confidence": "medium",
+        "summary": "Le site de son parti qualifie de crimes la colonisation et l'esclavage commis par la France en Haïti, mais reproche à Jean-Luc Mélenchon de diviser les Français et appelle à rappeler aussi la grandeur de la France, au nom de la concorde entre citoyens de toutes origines.",
+        "sources": [
+          {
+            "title": "L'histoire sélective de Mélenchon",
+            "url": "https://upr.fr/analyses/lhistoire-selective-de-melenchon",
+            "date": "2025-08-23",
+            "publisher": "UPR"
+          }
+        ],
+        "verdict": "adjusted",
+        "note": "L'approche et le poids sont maintenus, le résumé est resserré sur ce que la page dit vérifiablement. L'article (UPR, 23/08/2025) qualifie de « crimes honteux » la colonisation et l'esclavage en Haïti et note que les excuses ont déjà été présentées. Il oppose au discours de Mélenchon la concorde entre citoyens « quelles que soient leurs origines » et le rappel de la grandeur de la France. Il ne propose rien sur l'enseignement, d'où une simple inférence de poids 1. L'approche d ne convient pas, puisque la colonisation elle-même y est qualifiée de crime. L'approche e est contredite par la mention des excuses déjà présentées. La formule « assumer les pires moments » du résumé proposé n'a pas été vérifiée et a été retirée.",
+        "questionId": "laicite_republique-2"
+      },
+      {
+        "candidate": "asselineau",
+        "approachId": "societe-x1-a",
+        "weight": 1,
+        "rejects": false,
+        "nature": "inference",
+        "confidence": "medium",
+        "summary": "Son programme de 2022 prévoyait d'interdire la concentration des médias entre les mains de grands groupes, et en mai 2026 il présente comme un problème le fait que Vincent Bolloré possède à la fois des médias et un institut de sondage.",
+        "sources": [
+          {
+            "title": "Programme présidentiel 2022 de François Asselineau",
+            "url": "https://www.upr.fr/notre-programme/programme-2022",
+            "date": "2022-02-15",
+            "publisher": "UPR"
+          },
+          {
+            "title": "François Asselineau invité de Nicolas Stoquer sur GP-TV – 04/05/2026",
+            "url": "https://upr.fr/medias/francois-asselineau-invite-de-nicolas-stoquer-sur-gp-tv-04-05-2026",
+            "date": "2026-05-05",
+            "publisher": "UPR"
+          }
+        ],
+        "verdict": "adjusted",
+        "note": "La source « Basculement historique des Français vers les réseaux sociaux » (17/06/2026) a été retirée : elle ne parle ni de milliardaires, ni de Bolloré, ni de concentration. Le résumé est corrigé, car seul Bolloré est cité et non des milliardaires au pluriel. Le programme de 2022 (page et PDF) dit textuellement « nous interdirons en conséquence la concentration des médias dans les mains de grands groupes ». La page GP-TV du 05/05/2026 critique le fait que Bolloré détienne médias et institut de sondage, ce qui montre une continuité récente et justifie medium pour une inférence de poids 1. L'extension à tous les supports, édition comprise, n'est pas documentée.",
+        "questionId": "societe-x1"
+      },
+      {
+        "candidate": "asselineau",
+        "approachId": "numerique-4-a",
+        "weight": 1,
+        "rejects": false,
+        "nature": "inference",
+        "confidence": "medium",
+        "summary": "Il compte la place des écrans parmi les causes du recul de la France au classement PISA, et son programme de 2022 prévoyait de limiter les écrans à l'école et au collège aux seuls cours où ils sont strictement nécessaires.",
+        "sources": [
+          {
+            "title": "François Asselineau invité de Richard de Sèze sur Radio Courtoisie – 28/09/2026",
+            "url": "https://upr.fr/medias/francois-asselineau-invite-de-richard-de-seze-sur-radio-courtoisie-28-09-2026",
+            "date": "2026-09-28",
+            "publisher": "UPR"
+          },
+          {
+            "title": "Programme présidentiel 2022 de François Asselineau",
+            "url": "https://www.upr.fr/notre-programme/programme-2022",
+            "date": "2022-02-15",
+            "publisher": "UPR"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "La page du 28/09/2026 range bien la place des écrans parmi les causes du recul au classement PISA, sans proposer de mesure. Le programme de 2022 dit « Le rôle des écrans sera très réduit et limité aux seuls cours pour lesquels ils sont strictement nécessaires », ce qui a été vérifié sur la page et par OCR du PDF. Le volet IA de l'approche n'est pas documenté : on reste à une inférence de poids 1 (compatible). La confiance medium tient au diagnostic de 2026, qui reconduit l'orientation de 2022.",
+        "questionId": "numerique-4"
+      },
+      {
+        "candidate": "asselineau",
+        "approachId": "logement-1-c",
+        "weight": 1,
+        "rejects": false,
+        "nature": "inference",
+        "confidence": "low",
+        "summary": "Son programme de 2022 prévoyait de mettre en chantier 80 000 logements de plus par an, en programmes sociaux en partie vendus en accession à la propriété et financés en partie par l'arrêt de la contribution européenne.",
+        "sources": [
+          {
+            "title": "Programme présidentiel 2022 de François Asselineau",
+            "url": "https://www.upr.fr/notre-programme/programme-2022",
+            "date": "2022-02-15",
+            "publisher": "UPR"
+          },
+          {
+            "title": "Programme présidentiel et législatif 2022 (PDF)",
+            "url": "https://upr.fr/post-img/uploads/2022/10/20220215_Programme-presi-leg-2022.pdf",
+            "date": "2022-02-15",
+            "publisher": "UPR"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Vérifié par OCR du PDF (engagement 20) : 80 000 logements par an mis en chantier en supplément, en partie financés par les fonds non versés à l'UE. Le texte précise « Il s'agira de programmes sociaux dont une part significative sera vendue en dispositifs d'accession à la propriété ». Le programme date de 2022 et le dossier ne relève aucune proposition logement pour 2025-2026 : inférence de poids 1, confiance low, comme proposé.",
+        "questionId": "logement-1"
+      },
+      {
+        "candidate": "asselineau",
+        "approachId": "securite_justice-4-d",
+        "weight": 1,
+        "rejects": false,
+        "nature": "inference",
+        "confidence": "low",
+        "summary": "Son programme de 2022 prévoyait qu'une enquête soit ouverte après tout signalement de violence physique ou sexuelle commise sur un enfant, avec des budgets de la police et de la justice en hausse de 20 %.",
+        "sources": [
+          {
+            "title": "Programme présidentiel 2022 de François Asselineau",
+            "url": "https://www.upr.fr/notre-programme/programme-2022",
+            "date": "2022-02-15",
+            "publisher": "UPR"
+          },
+          {
+            "title": "Programme présidentiel et législatif 2022 (PDF)",
+            "url": "https://upr.fr/post-img/uploads/2022/10/20220215_Programme-presi-leg-2022.pdf",
+            "date": "2022-02-15",
+            "publisher": "UPR"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Vérifié par OCR du PDF : « nous veillerons également à ce qu'une enquête soit diligentée après tout signalement » de violence physique ou sexuelle sur un enfant. La page du programme confirme la hausse de 20 % des budgets de la justice et de la police. Rien n'est dit sur des enquêteurs ou magistrats spécialisés : on reste à une compatibilité de poids 1. Programme de 2022, donc confiance low.",
+        "questionId": "securite_justice-4"
+      },
+      {
+        "candidate": "asselineau",
+        "approachId": "ecologie_energie-6-d",
+        "weight": 1,
+        "rejects": false,
+        "nature": "inference",
+        "confidence": "low",
+        "summary": "Le site de son parti reproche à Emmanuel Macron d'avoir subventionné Le Parisien plutôt que d'acheter les trois Canadairs qui, selon lui, ont cruellement manqué contre les feux de forêt.",
+        "sources": [
+          {
+            "title": "Le scandale absolu des subventions que Macron donne au torchon de Bernard Arnault",
+            "url": "https://upr.fr/actualites/le-scandale-absolu-des-subventions-que-macron-donne-au-torchon-de-bernard-arnault",
+            "date": "2026-10-02",
+            "publisher": "UPR"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "L'article (UPR, 02/10/2026) porte sur les aides publiques au Parisien. Il compare leur montant à « l'achat de 3 Canadairs » qui « ont manqué si cruellement chaque été » contre les feux de forêt, sans proposition explicite sur les pompiers ou la sécurité civile. Il s'agit d'une simple comparaison rhétorique : l'inférence de poids 1 en confiance low (non comptée) reste acceptable, mais ne doit pas être relevée.",
+        "questionId": "ecologie_energie-6"
+      },
+      {
+        "candidate": "lalanne",
+        "approachId": "defense-4-a",
+        "weight": 0,
+        "rejects": true,
+        "nature": "inference",
+        "confidence": "medium",
+        "summary": "Il veut quitter l’Union européenne et l’OTAN pour retrouver une « indépendance militaire et diplomatique », ce qui exclut une défense européenne commune, mais ne s’est pas prononcé sur les programmes d’armement européens.",
+        "sources": [
+          {
+            "title": "Le Projet 2027 – Dieudo Lalanne 2027",
+            "url": "https://dieudolalanne2027.com/programme",
+            "publisher": "Site de campagne de Francis Lalanne",
+            "date": "consultée le 2026-10-07"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Le programme actuel contient à la fois le « Frexit organisé » et la sortie de l’OTAN pour « retrouver notre indépendance militaire et diplomatique ». Quitter l’UE exclut de fait sa défense commune (SAFE, achats et financements partagés), donc le rejet de l’approche a en inférence est fondé. C’est le même niveau que l’inférence de rejet déjà codée pour Le Pen. Aucune attribution sur b, c ou d : le programme ne parle ni du budget des armées ni d’une industrie nationale. Summary ramené à une phrase.",
+        "questionId": "defense-4"
+      },
+      {
+        "candidate": "lalanne",
+        "approachId": "securite_justice-1-g",
+        "weight": 1,
+        "rejects": false,
+        "nature": "inference",
+        "confidence": "medium",
+        "summary": "Le mouvement France Libre, qu’il a présidé jusqu’en juillet 2026 et vers lequel renvoie son programme, réclame plus de moyens pour une justice plus simple et plus rapide, sans chiffrer de recrutements ni parler de la sortie de prison.",
+        "sources": [
+          {
+            "title": "France Libre – Nos thèmes et valeurs",
+            "url": "https://france-libre.fr/nos-themes-et-valeurs/",
+            "publisher": "France Libre",
+            "date": "2025-05-20"
+          },
+          {
+            "title": "Le Projet 2027 – Dieudo Lalanne 2027",
+            "url": "https://dieudolalanne2027.com/programme",
+            "publisher": "Site de campagne de Francis Lalanne",
+            "date": "consultée le 2026-10-07"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Sur la page France Libre, mise en ligne le 19/05/2025 et modifiée le 13/07/2025, le mouvement s’alarme des faibles moyens de la justice. Il veut que ces moyens permettent la simplification, la célérité et la qualité de l’instruction. La page de programme de 2026 y renvoie pour « plus de détails ». C’est une version plus faible que l’approche g : rien sur un recrutement massif ni sur les conseillers d’insertion. Le poids 1 en inference medium suit le précédent de la banque, où Bouamrane, Cazeneuve et Arthaud sont codés de la même façon pour avoir réclamé plus de moyens. Le volet justice du programme 2026 (refonte sur l’indépendance et la séparation des pouvoirs, caméras dans les salles d’audience) ne contredit pas cette lecture. Summary ramené à une phrase.",
+        "questionId": "securite_justice-1"
+      }
+    ]
+  }
+}

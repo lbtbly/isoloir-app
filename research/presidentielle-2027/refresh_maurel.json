@@ -1,0 +1,568 @@
+{
+  "candidate": "Emmanuel Maurel",
+  "topics": [
+    {
+      "topic_id": "finances_publiques",
+      "found": true,
+      "positions": [
+        {
+          "position": "Financer un plan d'investissement de 300 Md€ (réindustrialisation, électrification, recherche, formation) par un grand emprunt national. Il présente cette dette comme de la « bonne dette » qui rapportera plus qu'elle ne coûtera, et comme une dette « relocalisée », puisque 55 % de la dette française est aujourd'hui détenue à l'étranger.",
+          "kind": "proposition_explicite",
+          "short_quote": "de la bonne dette, consacrée aux investissements d'avenir",
+          "details": "Le programme ne donne aucune trajectoire de déficit ou de dette, aucun objectif de niveau de dépense publique, et ne précise ni le taux ni la durée de l'emprunt, ni s'il serait volontaire.",
+          "source_url": "https://emmanuel-maurel.fr/programme/",
+          "source_title": "Programme – Emmanuel Maurel 2027 (chapitre 01 « Redresser la France »)",
+          "source_date": "2026",
+          "confidence": "high"
+        },
+        {
+          "position": "L'emprunt serait un « emprunt populaire » adossé à l'épargne des Français (6 500 Md€) et aux 9 000 Md€ qui seront transmis en héritage d'ici 2040. Pour dégager des recettes, il se dit favorable à la taxe Zucman et à une contribution supplémentaire sur les méga-héritages.",
+          "kind": "position_declaree",
+          "short_quote": "c'est de la dette relocalisée, détenue par des Français pour des projets français",
+          "details": "Entretien au Nouvel Obs (propos recueillis par Rémy Dodet), repris sur le site de la GRS. L'emprunt doit aussi financer « l'indépendance militaire ».",
+          "source_url": "https://g-r-s.fr/la-gauche-doit-rehabiliter-la-lenteur-lattention-aux-etres-et-la-beaute-emmanuel-maurel-candidat-a-la-primaire-de-la-gauche-socialiste-dans-le-nouvel-obs/",
+          "source_title": "« La gauche doit réhabiliter la lenteur, l'attention aux êtres et la beauté » – Emmanuel Maurel dans le Nouvel Obs (GRS)",
+          "source_date": "2026-09-15",
+          "confidence": "medium"
+        },
+        {
+          "position": "Selon lui, le déficit vient d'un manque de recettes (baisses d'impôts pour les plus aisés, niches comme le crédit d'impôt recherche) et non d'un excès de dépenses. Il met en garde contre des coupes qui rendraient le budget récessif.",
+          "kind": "position_declaree",
+          "short_quote": "un problème non pas de dépenses, mais surtout de recettes",
+          "details": "Interview sur LCI du 09/09/2024, antérieure à 2025. Il y relevait un déficit de 5,6 % du PIB au lieu des 4,4 % prévus. Son parti tient la même ligne en 2025 : un communiqué GRS du 26/08/2025 juge le plan Bayrou de 44 Md€ d'économies « contre-productif ».",
+          "source_url": "https://g-r-s.fr/barnier-represente-la-continuite-avec-les-politiques-budgetaires-macronistes-emmanuel-maurel-sur-lci/",
+          "source_title": "« Barnier représente la continuité avec les politiques budgétaires macronistes » – Emmanuel Maurel sur LCI (GRS)",
+          "source_date": "2024-09-09",
+          "confidence": "medium"
+        },
+        {
+          "position": "Rejette les budgets d'économies des gouvernements Bayrou puis Lecornu, qu'il juge injustes car ils demandent des efforts aux plus modestes et épargnent les plus riches.",
+          "kind": "position_declaree",
+          "short_quote": "Demander beaucoup à ceux qui ont peu",
+          "details": "Intervention sur RFI/France 24 de juillet 2025 contre le budget Bayrou 2026, rapportée par la GRS. Au débat du 01/10/2026, il dit à propos du budget Lecornu qu'on demande des efforts « sauf à ceux qui devraient en faire ». Le 21/11/2025, il a voté contre la partie recettes du PLF 2026, rejetée par 404 voix contre 1 (Datan n°4241).",
+          "source_url": "https://g-r-s.fr/budget-2026-bayrou-dur-avec-les-faibles-faibles-avec-les-puissants/",
+          "source_title": "Budget 2026 : Bayrou dur avec les faibles, faibles avec les puissants (GRS)",
+          "source_date": "2025-07-16",
+          "confidence": "medium"
+        },
+        {
+          "position": "Accepte les compromis budgétaires dans une Assemblée sans majorité : il a voté le PLFSS 2026, contre la majorité de son groupe GDR, en estimant qu'un budget amendé valait mieux qu'un rejet.",
+          "kind": "position_declaree",
+          "short_quote": "J'envie les collègues parlementaires qui n'ont que des certitudes",
+          "details": "Texte signé par Maurel. Il met en avant les gains obtenus : ONDAM porté à 3 % au lieu de 1,6 % (dont 4 Md€ de plus pour l'hôpital), ni gel des pensions ni gel des prestations, légère hausse de la CSG sur le capital, compensation par l'État des exonérations de cotisations. Il juge l'ensemble « insuffisant ».",
+          "source_url": "https://g-r-s.fr/a-propos-du-budget-de-la-secu-adopte-le-9-decembre-2025/",
+          "source_title": "À propos du budget de la Sécu, adopté le 9 décembre 2025 (Emmanuel Maurel, GRS)",
+          "source_date": "2025-12-12",
+          "confidence": "high"
+        },
+        {
+          "position": "Règles budgétaires européennes : en finir avec l'austérité, relancer par le budget et la politique monétaire, et sortir du calcul du déficit les investissements écologiques, technologiques et numériques, comme c'est déjà le cas pour la défense.",
+          "kind": "proposition_explicite",
+          "short_quote": "L'Europe se condamnerait en poursuivant ses politiques d'austérité",
+          "source_url": "https://emmanuel-maurel.fr/programme/",
+          "source_title": "Programme – Emmanuel Maurel 2027 (chapitre 08 « Union européenne »)",
+          "source_date": "2026",
+          "confidence": "high"
+        },
+        {
+          "position": "État et fonction publique : aucune baisse d'effectifs proposée. Il veut au contraire limiter les contractuels (un quart des agents), mettre fin au recours permanent aux cabinets de conseil et au « new public management », revaloriser le point d'indice d'au moins 10 % sur le quinquennat, et recruter des contrôleurs des finances publiques et des magistrats.",
+          "kind": "proposition_explicite",
+          "short_quote": "le recours permanent à des cabinets de conseil privés est une dérive",
+          "details": "Le programme ne chiffre pas le coût global de ces mesures. La GRS (texte de Joffrey Robécourt, 18/07/2025) s'est opposée au non-remplacement d'un fonctionnaire sur trois envisagé par F. Bayrou.",
+          "source_url": "https://emmanuel-maurel.fr/programme/",
+          "source_title": "Programme – Emmanuel Maurel 2027 (chapitre 03 « Des agents publics considérés et respectés »)",
+          "source_date": "2026",
+          "confidence": "high"
+        },
+        {
+          "position": "Position de son parti : la puissance publique souffre de l'épuisement de ses recettes plus que du niveau de ses dépenses. Aucun budget n'est possible sans revenir sur les cadeaux fiscaux aux ultra-riches et sur les 211 Md€ annuels d'aides et de dépenses fiscales.",
+          "kind": "inference",
+          "details": "Communiqué de la GRS (rédigé par Frédéric Faravel) appelant à rejeter la confiance à F. Bayrou le 08/09/2025. C'est un texte du parti, non signé par Maurel.",
+          "source_url": "https://g-r-s.fr/bayrou-a-joue-avec-linteret-du-pays-il-a-perdu/",
+          "source_title": "Bayrou a joué avec l'intérêt du pays, il a perdu (communiqué GRS)",
+          "source_date": "2025-08-26",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "solidarites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Faire des familles monoparentales un « enjeu de mobilisation nationale », alors que 34 % d'entre elles vivent sous le seuil de pauvreté : défiscaliser les pensions alimentaires, augmenter l'allocation de soutien familial (ASF) et indexer les salaires sur l'inflation.",
+          "kind": "proposition_explicite",
+          "short_quote": "enjeu de mobilisation nationale",
+          "details": "Dernier débat de la primaire (BFMTV, 04/10/2026). Le montant de la hausse de l'ASF n'est pas précisé.",
+          "source_url": "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat",
+          "source_title": "Glucksmann face à Royal, divisions sur LFI, lycées… Ce qu'il faut retenir du dernier débat de la primaire socialiste (LCP)",
+          "source_date": "2026-10-05",
+          "confidence": "high"
+        },
+        {
+          "position": "Assurance chômage : il dénonce un système qui protège mal (60 % des inscrits à France Travail sans indemnité, une indemnité moyenne d'à peine 1 000 € rendue dégressive et plafonnée à 18 mois pour les moins de 55 ans). Il répond par un plan pour 250 000 jeunes chômeurs (alternance de 3 ans payée au SMIC, prise en charge à 80 % par l'État) et par un bonus-malus sur les cotisations.",
+          "kind": "proposition_explicite",
+          "short_quote": "60% des inscrits à France Travail ne touchent pas d'indemnité",
+          "details": "Le programme ne s'engage pas explicitement à annuler les réformes de l'assurance chômage et ne dit rien du RSA ni de l'allocation sociale unique. Le bonus-malus figure dans la Lettre aux militants.",
+          "source_url": "https://emmanuel-maurel.fr/programme/",
+          "source_title": "Programme – Emmanuel Maurel 2027 (chapitre 03 « Lutter contre le chômage »)",
+          "source_date": "2026",
+          "confidence": "high"
+        },
+        {
+          "position": "Se félicite que le compromis du PLFSS 2026 qu'il a voté n'ait gelé ni les pensions ni les prestations sociales, et n'ait pas doublé les franchises médicales.",
+          "kind": "position_declaree",
+          "short_quote": "ni gel des pensions, ni gel des prestations sociales",
+          "source_url": "https://g-r-s.fr/a-propos-du-budget-de-la-secu-adopte-le-9-decembre-2025/",
+          "source_title": "À propos du budget de la Sécu, adopté le 9 décembre 2025 (Emmanuel Maurel, GRS)",
+          "source_date": "2025-12-12",
+          "confidence": "high"
+        },
+        {
+          "position": "A voté contre un amendement RN durcissant les sanctions pénales contre la fraude aux prestations sociales, avec suspension des droits sociaux en cas de récidive.",
+          "kind": "inference",
+          "details": "Amendement n°777 de David Magnier au projet de loi contre les fraudes sociales et fiscales, adopté par 27 voix contre 24. Les groupes GDR, SOC et LFI ont voté contre.",
+          "source_url": "https://datan.fr/votes/legislature-17/vote_5868",
+          "source_title": "Vote : Renforcer les sanctions contre la fraude aux prestations sociales (Datan)",
+          "source_date": "2026-03-30",
+          "confidence": "high"
+        },
+        {
+          "position": "Handicap : faire un effort important pour les élèves en situation de handicap, améliorer le statut et la rémunération des AESH et renforcer leur formation.",
+          "kind": "proposition_explicite",
+          "short_quote": "Amélioration du statut et de la rémunération des AESH",
+          "details": "Rien trouvé sur l'AAH, la PCH ou l'accessibilité au-delà de l'école.",
+          "source_url": "https://emmanuel-maurel.fr/programme/",
+          "source_title": "Programme – Emmanuel Maurel 2027 (chapitre 06 « Sauver l'Éducation nationale »)",
+          "source_date": "2026",
+          "confidence": "high"
+        },
+        {
+          "position": "A dénoncé la suppression par la Région Île-de-France (Valérie Pécresse) de 2 M€ d'aides aux personnes handicapées (aménagement du logement, fauteuils roulants), qui privait 2 000 Franciliens d'un soutien matériel.",
+          "kind": "position_declaree",
+          "short_quote": "Ces économies faites sur le dos des Franciliens les plus vulnérables sont intolérables",
+          "details": "Texte signé par Maurel. Il rappelle aussi la baisse de 15 % des places de formation pour travailleurs handicapés décidée début 2025.",
+          "source_url": "https://g-r-s.fr/maisons-departementales-pour-les-personnes-handicapees-mdph-la-tres-grande-faute-de-valerie-pecresse/",
+          "source_title": "MDPH : la très grande faute de Valérie Pécresse (Emmanuel Maurel, GRS)",
+          "source_date": "2025-09-25",
+          "confidence": "high"
+        },
+        {
+          "position": "Petite enfance et grand âge : réorienter l'argent public vers les crèches et EHPAD publics ou associatifs à but non lucratif, renforcer leur cahier des charges et relever les taux d'encadrement.",
+          "kind": "proposition_explicite",
+          "short_quote": "Il faut tirer les leçons des scandales des crèches et des Ehpad privés",
+          "details": "Rien trouvé sur les allocations familiales, la natalité, le congé parental ou de naissance.",
+          "source_url": "https://emmanuel-maurel.fr/programme/",
+          "source_title": "Programme – Emmanuel Maurel 2027 (chapitre 04 « Démarchandiser »)",
+          "source_date": "2026",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "egalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Égalité salariale entre femmes et hommes : transparence des salaires, aides publiques aux entreprises conditionnées à l'égalité, revalorisation des métiers les plus féminisés.",
+          "kind": "proposition_explicite",
+          "short_quote": "transparence, conditionnement des aides publiques, revalorisation des métiers les plus féminisés",
+          "details": "Le programme ne fixe ni chiffre ni sanction. Rien trouvé sur le congé paternité ou parental ni sur le partage des tâches. Ses propositions pour les familles monoparentales sont classées dans « solidarites ».",
+          "source_url": "https://emmanuel-maurel.fr/programme/",
+          "source_title": "Programme – Emmanuel Maurel 2027 (chapitre 03 « Augmenter les salaires »)",
+          "source_date": "2026",
+          "confidence": "high"
+        },
+        {
+          "position": "Soutient la loi intégrale en préparation contre les délits et crimes sexuels visant les femmes et les enfants, avec plus de soutien aux victimes, aux associations et aux forces de l'ordre, et une « tolérance zéro » envers les violences.",
+          "kind": "proposition_explicite",
+          "details": "L'Assemblée a commencé le 02/10/2026 l'examen de la proposition de loi apportant une réponse intégrale aux violences sexuelles et sexistes. Maurel ne figure pas parmi les votants des scrutins publics de ce jour-là (ex. n°8506). Il n'a pas non plus pris part au vote du 01/04/2025 sur la définition pénale du viol fondée sur le non-consentement, où le groupe GDR s'est abstenu (Datan n°1202).",
+          "source_url": "https://emmanuel-maurel.fr/programme/",
+          "source_title": "Programme – Emmanuel Maurel 2027 (chapitre 07 « Pour la loi intégrale contre les délits et crimes sexuels »)",
+          "source_date": "2026",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "droits_lgbtqia",
+      "found": false,
+      "positions": []
+    },
+    {
+      "topic_id": "societe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Culture : défendre l'exception culturelle et le modèle de financement du cinéma, maintenir les quotas de diffusion d'œuvres françaises et européennes, préserver les moyens du CNC pour les « films du milieu », défendre le régime des intermittents et sanctuariser le prix unique du livre.",
+          "kind": "proposition_explicite",
+          "short_quote": "Défendre le régime des intermittents du spectacle!",
+          "source_url": "https://emmanuel-maurel.fr/programme/",
+          "source_title": "Programme – Emmanuel Maurel 2027 (volet culture)",
+          "source_date": "2026",
+          "confidence": "high"
+        },
+        {
+          "position": "Inscrire l'audiovisuel public dans la Constitution et y renforcer la place des programmes à fort contenu culturel, comme les documentaires, en recourant moins aux producteurs privés d'émissions.",
+          "kind": "proposition_explicite",
+          "short_quote": "je propose d'inscrire l'audiovisuel public dans la Constitution",
+          "details": "Le programme ne dit rien du mode de financement (budget de l'État, ressource affectée) ni d'une holding France Médias.",
+          "source_url": "https://emmanuel-maurel.fr/programme/",
+          "source_title": "Programme – Emmanuel Maurel 2027",
+          "source_date": "2026",
+          "confidence": "high"
+        },
+        {
+          "position": "Membre de la commission d'enquête sur l'audiovisuel public, il en a contesté le rapport (rapporteur Charles Alloncle), notamment la proposition de réduire d'un milliard d'euros les ressources de l'audiovisuel public. Il juge ce rapport orienté et appelle à améliorer le service public plutôt qu'à le démanteler.",
+          "kind": "position_declaree",
+          "short_quote": "L'avenir de l'audiovisuel public aurait mérité un autre rapport",
+          "details": "Textes signés par Maurel (le second avec Frédéric Faravel, 05/05/2026, « Améliorer le service public de l'audiovisuel, oui, le démanteler, non ! »). Il y présente France Télévisions comme un acteur central d'une filière de 20 Md€ et 340 000 emplois face aux plateformes américaines.",
+          "source_url": "https://g-r-s.fr/commission-denquete-sur-laudiovisuel-public-une-occasion-manquee/",
+          "source_title": "Commission d'enquête sur l'audiovisuel public : une occasion manquée (Emmanuel Maurel, GRS)",
+          "source_date": "2026-04-27",
+          "confidence": "high"
+        },
+        {
+          "position": "Soutien à la création face à l'IA : il est rapporteur à l'Assemblée d'une proposition de loi venue du Sénat qui instaure une présomption d'utilisation des œuvres culturelles par les fournisseurs d'IA, pour obliger à rémunérer les créateurs. Son programme veut aussi que l'IA générative paie des droits et que les plateformes (type YouTube) contribuent au financement de la création.",
+          "kind": "proposition_explicite",
+          "short_quote": "L'IA générative doit payer les droits sur ces œuvres",
+          "details": "Texte adopté en commission des affaires culturelles le 02/06/2026 (communiqué GRS du 03/06/2026). Date d'examen en séance non trouvée.",
+          "source_url": "https://g-r-s.fr/premiere-etape-franchie-a-lassemblee-nationale-pour-la-proposition-de-loi-sur-la-presomption-dutilisation-des-contenus-culturels-par-lia/",
+          "source_title": "Première étape franchie à l'Assemblée nationale pour la PPL sur la présomption d'utilisation des contenus culturels par l'IA (GRS)",
+          "source_date": "2026-06-03",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "found": true,
+      "positions": [
+        {
+          "position": "Retrouver la souveraineté agricole en rompant avec le libre-échange généralisé (« démondialiser ») : la France, ancienne grande puissance agricole, importe désormais légumes, fruits et viande.",
+          "kind": "position_declaree",
+          "short_quote": "Nous étions une grande puissance agricole",
+          "details": "Programme et profession de foi de la primaire (septembre 2026) : le libre-échange généralisé « ruine des territoires entiers ».",
+          "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Profession-de-foi-Emmanuel-Maurel.pdf",
+          "source_title": "Profession de foi d'Emmanuel Maurel – « La gauche au rendez-vous du sursaut français » (Choisir 2027)",
+          "source_date": "2026-09",
+          "confidence": "high"
+        },
+        {
+          "position": "Contre la concentration foncière et la financiarisation : l'agrandissement d'une exploitation serait plafonné à 1,5 fois la surface agricole utile moyenne de la région.",
+          "kind": "proposition_explicite",
+          "short_quote": "fixer le seuil maximal d'extension à 1,5 fois la surface",
+          "details": "Selon le programme, 73 % de la SAU est exploitée par de grandes exploitations de plus de 100 ha.",
+          "source_url": "https://emmanuel-maurel.fr/programme/",
+          "source_title": "Programme – Emmanuel Maurel 2027 (« Démarchandiser les terres »)",
+          "source_date": "2026",
+          "confidence": "high"
+        },
+        {
+          "position": "Opposé à l'accord UE-Mercosur, qu'il demande de rejeter : il accuse Ursula von der Leyen d'outrepasser ses pouvoirs et dénonce une concurrence déloyale pour les producteurs français, avec des inquiétudes économiques et sanitaires qu'il juge légitimes.",
+          "kind": "position_declaree",
+          "short_quote": "outrepasser ses pouvoirs",
+          "details": "Invité de « Chaque voix compte » (LCP-AN) le 18/12/2025, émission résumée par la GRS. Le 26/11/2024, il a voté pour la déclaration du gouvernement sur les négociations de l'accord UE-Mercosur (débat article 50-1, Datan n°456). Le mot « Mercosur » n'apparaît pas dans son programme 2026.",
+          "source_url": "https://g-r-s.fr/chaque-voix-compte-veut-on-sacrifier-lagriculture-francaise-emmanuel-maurel-sur-lcp-an/",
+          "source_title": "« Chaque voix compte » : veut-on sacrifier l'agriculture française ? Emmanuel Maurel sur LCP-AN (GRS)",
+          "source_date": "2025-12-19",
+          "confidence": "medium"
+        },
+        {
+          "position": "Refuse une adhésion accélérée de l'Ukraine à l'UE notamment pour protéger les agriculteurs français, qui ne doivent pas devenir la variable d'ajustement, et la souveraineté alimentaire.",
+          "kind": "position_declaree",
+          "short_quote": "Une telle adhésion provoquerait des déséquilibres financiers et économiques insolubles",
+          "source_url": "https://g-r-s.fr/proteger-leurope-et-soutenir-lukraine-ne-justifie-pas-daccelerer-son-adhesion-a-lue/",
+          "source_title": "Protéger l'Europe et soutenir l'Ukraine ne justifie pas d'accélérer son adhésion à l'UE ! (Emmanuel Maurel, GRS)",
+          "source_date": "2025-03-13",
+          "confidence": "high"
+        },
+        {
+          "position": "Votes : contre la loi Duplomb (08/07/2025) et contre le projet de loi d'orientation pour la souveraineté agricole (19/02/2025). Il n'a pas pris part au vote final de la loi d'urgence agricole réautorisant l'acétamipride (20/07/2026), que son groupe GDR a rejetée.",
+          "kind": "inference",
+          "details": "Loi d'urgence pour la protection et la souveraineté agricoles adoptée par 296 voix contre 224 (Datan n°8427) ; Maurel absent de la liste des votants. Il n'a pas non plus voté l'amendement plafonnant à 40 % les marges de la grande distribution (17/03/2025, Datan n°1020).",
+          "source_url": "https://datan.fr/votes/legislature-17/vote_2957",
+          "source_title": "Vote : Loi Duplomb sur l'agriculture (Datan)",
+          "source_date": "2025-07-08",
+          "confidence": "high"
+        },
+        {
+          "position": "Programme de son parti : créer un « régime agricole complémentaire » inspiré des AOC. Les agriculteurs volontaires s'organiseraient en filières pour négocier des prix garantis et des cahiers des charges stricts sous supervision de l'État, avec une production réservée au marché national.",
+          "kind": "inference",
+          "details": "Livret thématique issu du congrès GRS d'Aubervilliers (juin 2026), dont Maurel est l'animateur national. Le dispositif ne figure pas tel quel dans son programme de candidat. Le financement n'est pas chiffré.",
+          "source_url": "https://g-r-s.fr/refonder-notre-agriculture-en-instaurant-un-regime-agricole-complementaire-livret-thematique-issu-du-congres-daubervilliers/",
+          "source_title": "Refonder notre agriculture en instaurant un régime agricole complémentaire (livret GRS)",
+          "source_date": "2026-08-10",
+          "confidence": "medium"
+        },
+        {
+          "position": "Accès à l'alimentation : en 2025, la GRS écrivait ne pas croire à la « sécurité sociale de l'alimentation » comme réponse à la crise agricole.",
+          "kind": "inference",
+          "short_quote": "nous ne pensons pas qu'elle passe par la sécurité sociale de l'alimentation",
+          "details": "Éditorial de la GRS (Frédéric Faravel) au moment du Salon de l'agriculture, où Maurel était présent. Ce n'est pas une déclaration personnelle. Rien trouvé sur le bien-être animal, la PAC en détail ou Egalim.",
+          "source_url": "https://g-r-s.fr/lagriculture-a-besoin-dune-alternative/",
+          "source_title": "L'agriculture a besoin d'une alternative (édito GRS)",
+          "source_date": "2025-02-28",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Réorienter l'Union européenne sans la quitter : refus de tout « saut fédéral » et de toute extension du vote à la majorité qualifiée sur les questions diplomatiques et militaires.",
+          "kind": "proposition_explicite",
+          "short_quote": "vacciner contre toute tentation d'un « saut fédéral »",
+          "details": "Le programme reproche à l'UE de ne pas savoir sortir de sa « matrice néolibérale » et demande des renégociations. Il ne propose ni sortie de l'UE ni sortie de l'euro : son maintien dans l'Union est une déduction, aucune phrase ne l'affirme. Il a voté non à Maastricht et au TCE (rappelé sur Sud Radio le 23/09/2026, selon le dossier existant).",
+          "source_url": "https://emmanuel-maurel.fr/programme/",
+          "source_title": "Programme – Emmanuel Maurel 2027 (chapitre 08 « Union européenne »)",
+          "source_date": "2026",
+          "confidence": "high"
+        },
+        {
+          "position": "Budget de l'UE : renégocier la contribution française, passée de 23 Md€ en 2025 à 28 Md€, pour obtenir un rabais comme l'Allemagne, l'Autriche, la Suède, le Danemark et les Pays-Bas.",
+          "kind": "proposition_explicite",
+          "short_quote": "Je souhaite que la France obtienne elle aussi un rabais",
+          "details": "Il rappelle que la France a reçu 45 Md€ du plan de relance post-Covid, bien moins que l'Italie, l'Espagne ou la Pologne.",
+          "source_url": "https://emmanuel-maurel.fr/programme/",
+          "source_title": "Programme – Emmanuel Maurel 2027",
+          "source_date": "2026",
+          "confidence": "high"
+        },
+        {
+          "position": "Marché unique : renoncer aux directives de libéralisation des services publics (retour à des monopoles nationaux et à des prix régulés), sortir du marché européen de l'électricité, remettre en cause la libre circulation des capitaux hors UE et s'opposer au « 28e régime » pour les entreprises.",
+          "kind": "proposition_explicite",
+          "short_quote": "renonçant aux directives visant à libéraliser les services publics",
+          "source_url": "https://emmanuel-maurel.fr/programme/",
+          "source_title": "Programme – Emmanuel Maurel 2027",
+          "source_date": "2026",
+          "confidence": "high"
+        },
+        {
+          "position": "Politique commerciale : il est l'auteur de la proposition de résolution européenne rejetant l'accord commercial UE-États-Unis du 27/07/2025, adoptée par l'Assemblée le 04/02/2026 par 83 voix contre 7. Il a qualifié de « jour sombre » l'approbation de cet accord par le Parlement européen.",
+          "kind": "position_declaree",
+          "short_quote": "Le continent européen se comporte comme un véritable paillasson",
+          "details": "Scrutin n°5313 (Datan). Communiqué du 30/03/2026 : il dénonce 15 % de droits sur les exportations européennes contre 0 % dans l'autre sens, plus 600 Md€ d'investissements et 750 Md€ d'achats d'hydrocarbures promis aux États-Unis. Entretiens Marianne (05/08/2025) et LVSL (29/08/2025) : le Parlement européen « doit censurer la Commission von der Leyen », l'instrument anti-coercition aurait dû être activé, et il regrette l'abandon de la taxe GAFAM européenne.",
+          "source_url": "https://datan.fr/votes/legislature-17/vote_5313",
+          "source_title": "Vote : Rejeter le projet d'accord sur les droits de douane et le commerce UE-États-Unis (Datan)",
+          "source_date": "2026-02-04",
+          "confidence": "high"
+        },
+        {
+          "position": "Élargissement : contre une adhésion accélérée de l'Ukraine, jugée source de déséquilibres financiers et agricoles. Il estime qu'aucun élargissement ne doit se faire sans consulter les peuples.",
+          "kind": "position_declaree",
+          "short_quote": "Toute volonté d'accélérer l'histoire sans les consulter serait vouée à l'échec",
+          "details": "Le 12/03/2025, il a voté pour l'amendement supprimant la mention d'une adhésion de l'Ukraine dans la résolution européenne (Datan n°973, rejeté), puis s'est abstenu sur la résolution. Rien trouvé sur la Moldavie ou les Balkans.",
+          "source_url": "https://g-r-s.fr/proteger-leurope-et-soutenir-lukraine-ne-justifie-pas-daccelerer-son-adhesion-a-lue/",
+          "source_title": "Protéger l'Europe et soutenir l'Ukraine ne justifie pas d'accélérer son adhésion à l'UE ! (Emmanuel Maurel, GRS)",
+          "source_date": "2025-03-13",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "ukraine_russie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Soutient sans réserve les politiques européennes contre la guerre d'agression russe et veut continuer à aider l'Ukraine financièrement et militairement.",
+          "kind": "proposition_explicite",
+          "short_quote": "soutiens sans réserve les politiques convenues au niveau européen",
+          "source_url": "https://emmanuel-maurel.fr/programme/",
+          "source_title": "Programme – Emmanuel Maurel 2027 (chapitre 09 « France libre et indépendante »)",
+          "source_date": "2026",
+          "confidence": "high"
+        },
+        {
+          "position": "Estime que Poutine ne veut pas négocier pour l'instant et que ses ambitions ne s'arrêtent pas à l'Ukraine. Il juge aussi que la France a perdu sa voix diplomatique et doit la retrouver.",
+          "kind": "position_declaree",
+          "short_quote": "Il n'y a aucun signe tangible",
+          "details": "Débat France 2/France Inter du 01/10/2026 (direct du Figaro repris par Centre Europe ; franceinfo cite : « Vladimir Poutine, pour l'instant, ne veut pas négocier »). Au débat LCI du 23/09/2026, il partageait l'avis de Glucksmann sur ce point, contre l'approche de Ségolène Royal favorable à une « paix juste et durable » (franceinfo, 24/09/2026).",
+          "source_url": "https://www.centre-europe.com/en-direct-presidentielle-2027-faure-et-glucksmann-secharpent-sur-la-notion-de-genocide-a-gaza/",
+          "source_title": "EN DIRECT – débat de la primaire de la gauche (direct du Figaro repris par Centre Europe)",
+          "source_date": "2026-10-01",
+          "confidence": "medium"
+        },
+        {
+          "position": "Au dernier débat, il prend ses distances avec la comparaison de Jérôme Guedj avec Munich et dit comprendre Ségolène Royal qui plaide pour un effort de paix, tout en répétant que Poutine ne veut pas dialoguer.",
+          "kind": "position_declaree",
+          "short_quote": "Vladimir Poutine ne veut pas dialoguer",
+          "details": "Débat BFMTV du 04/10/2026. Faure y propose de saisir les avoirs russes ; aucune position de Maurel n'a été trouvée sur ce point ni sur l'envoi de troupes de réassurance.",
+          "source_url": "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat",
+          "source_title": "Glucksmann face à Royal, divisions sur LFI, lycées… Ce qu'il faut retenir du dernier débat de la primaire socialiste (LCP)",
+          "source_date": "2026-10-05",
+          "confidence": "high"
+        },
+        {
+          "position": "En 2025, il plaidait pour une paix juste et durable avec des garanties de sécurité suffisantes pour dissuader la Russie. Il saluait la proposition américano-ukrainienne de cessez-le-feu et voulait une UE « émancipée de la tutelle américaine ».",
+          "kind": "position_declaree",
+          "short_quote": "assortie de garanties de sécurité suffisantes pour dissuader la Russie",
+          "source_url": "https://g-r-s.fr/proteger-leurope-et-soutenir-lukraine-ne-justifie-pas-daccelerer-son-adhesion-a-lue/",
+          "source_title": "Protéger l'Europe et soutenir l'Ukraine ne justifie pas d'accélérer son adhésion à l'UE ! (Emmanuel Maurel, GRS)",
+          "source_date": "2025-03-13",
+          "confidence": "high"
+        },
+        {
+          "position": "Votes du 12/03/2025 sur la résolution européenne de soutien à l'Ukraine : pour l'amendement condamnant la minimisation de la responsabilité russe, puis abstention sur l'ensemble du texte, alors que son groupe GDR votait contre.",
+          "kind": "inference",
+          "details": "Amendement n°65 adopté par 111 voix et 81 abstentions (Datan n°968). Résolution adoptée par 288 voix contre 54 (Datan n°988) : elle appelait notamment à saisir les avoirs russes, à bâtir une défense européenne et à cesser les importations de gaz russe. Il a motivé son abstention par son refus d'une adhésion accélérée de l'Ukraine.",
+          "source_url": "https://datan.fr/votes/legislature-17/vote_988",
+          "source_title": "Vote : Proposition de résolution européenne appelant au renforcement du soutien à l'Ukraine (Datan)",
+          "source_date": "2025-03-12",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "proche_orient",
+      "found": true,
+      "positions": [
+        {
+          "position": "Condamne la « guerre criminelle » du gouvernement israélien en Palestine, la destruction de Gaza et les massacres de civils. Il veut que la France, après avoir reconnu l'État de Palestine, agisse plus fermement contre le « dépeçage colonial » de la Cisjordanie, et demande la suspension de l'accord commercial UE-Israël.",
+          "kind": "proposition_explicite",
+          "short_quote": "guerre criminelle en Palestine",
+          "details": "Le programme n'emploie pas le mot « génocide ». Il ne parle ni d'embargo sur les armes ni de sanctions individuelles.",
+          "source_url": "https://emmanuel-maurel.fr/programme/",
+          "source_title": "Programme – Emmanuel Maurel 2027 (chapitre 09)",
+          "source_date": "2026",
+          "confidence": "high"
+        },
+        {
+          "position": "Défend à la fois l'État de Palestine et la sécurité d'Israël. Il appelle à condamner plus fortement la colonisation en Cisjordanie et à traiter ces questions avec sang-froid, sans prendre part à la querelle sur le mot « génocide ».",
+          "kind": "position_declaree",
+          "short_quote": "pour la reconnaissance de l'État de la Palestine et pour la sécurité d'Israël",
+          "details": "Débat du 01/10/2026, où Faure et Glucksmann s'opposaient sur le terme « génocide ». Il y a aussi exprimé sa solidarité avec les Iraniens « pris en tenaille ».",
+          "source_url": "https://www.centre-europe.com/en-direct-presidentielle-2027-faure-et-glucksmann-secharpent-sur-la-notion-de-genocide-a-gaza/",
+          "source_title": "EN DIRECT – débat de la primaire de la gauche (direct du Figaro repris par Centre Europe)",
+          "source_date": "2026-10-01",
+          "confidence": "medium"
+        },
+        {
+          "position": "A salué la reconnaissance de l'État de Palestine par la France (22/09/2025), étape vers la solution à deux États. Il condamne les massacres antisémites du Hamas du 7 octobre 2023 et les crimes du gouvernement Netanyahu à Gaza. Pour lui, la libération des otages, l'arrêt des hostilités à Gaza et l'arrêt de la colonisation sont des préalables.",
+          "kind": "position_declaree",
+          "short_quote": "un pas en avant très important vers la solution à deux États",
+          "details": "Texte signé par Maurel. Il souhaite aussi prolonger l'initiative franco-saoudienne portée à l'ONU.",
+          "source_url": "https://g-r-s.fr/la-necessaire-reconnaissance-de-letat-de-palestine/",
+          "source_title": "La nécessaire reconnaissance de l'État de Palestine (Emmanuel Maurel, GRS)",
+          "source_date": "2025-09-23",
+          "confidence": "high"
+        },
+        {
+          "position": "Position de son parti : sanctions internationales contre les responsables de la colonisation, embargo sur les armes servant à la répression, deux États sur les frontières de 1967 avec garantie de la sécurité d'Israël.",
+          "kind": "inference",
+          "details": "Textes de Frédéric Faravel (GRS), non signés par Maurel (23/01/2026 sur la Cisjordanie ; 07/10/2025). Le texte du 07/10/2025 qualifie de « génocidaires » les motivations des ministres Smotrich et Ben Gvir, ce que Maurel n'a pas repris lui-même. Le 13/04/2026, la GRS a critiqué la PPL Yadan, estimant qu'elle confond critique du gouvernement israélien et antisémitisme. Vote personnel de Maurel sur ce texte non trouvé.",
+          "source_url": "https://g-r-s.fr/cisjordanie-occupee-annexion-et-nettoyage-ethnique-rampant/",
+          "source_title": "Cisjordanie occupée : annexion et nettoyage ethnique rampants (GRS)",
+          "source_date": "2026-01-23",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "defense",
+      "found": true,
+      "positions": [
+        {
+          "position": "Porter le budget de la défense à 3 % du PIB grâce à une enveloppe de 100 Md€ : munitions pour la haute intensité, capacités navales, terrestres et aéronavales, commande publique de long terme pour l'industrie de défense. Objectif : que la France reste la première puissance militaire européenne. La LPM devra être « améliorée ».",
+          "kind": "proposition_explicite",
+          "short_quote": "je propose une enveloppe de 100 milliards d'euros",
+          "source_url": "https://emmanuel-maurel.fr/programme/",
+          "source_title": "Programme – Emmanuel Maurel 2027 (chapitre 09)",
+          "source_date": "2026",
+          "confidence": "high"
+        },
+        {
+          "position": "Alliances : il assimile indépendance et non-alignement, juge l'OTAN en état de « mort cérébrale » et ne croit pas à une « Europe de la défense », qu'il assimile à une OTAN sans les États-Unis.",
+          "kind": "proposition_explicite",
+          "short_quote": "l'OTAN est en état de mort cérébrale",
+          "details": "Le programme ne propose pas explicitement de quitter l'OTAN ni son commandement intégré.",
+          "source_url": "https://emmanuel-maurel.fr/programme/",
+          "source_title": "Programme – Emmanuel Maurel 2027 (chapitre 09)",
+          "source_date": "2026",
+          "confidence": "high"
+        },
+        {
+          "position": "Dissuasion nucléaire : il veut garantir sa crédibilité mais juge que le concept de « dissuasion nucléaire avancée » porté par Emmanuel Macron doit être sérieusement questionné.",
+          "kind": "proposition_explicite",
+          "short_quote": "doit être sérieusement questionné",
+          "source_url": "https://emmanuel-maurel.fr/programme/",
+          "source_title": "Programme – Emmanuel Maurel 2027 (chapitre 09)",
+          "source_date": "2026",
+          "confidence": "high"
+        },
+        {
+          "position": "A voté contre l'amendement invitant l'UE à bâtir une défense européenne indépendante pouvant déboucher sur des forces armées européennes.",
+          "kind": "inference",
+          "details": "Amendement n°4 de Charles Sitzenstuhl à la résolution sur l'Ukraine, adopté par 110 voix contre 92 (Datan n°977). GDR et LFI contre, SOC pour.",
+          "source_url": "https://datan.fr/votes/legislature-17/vote_977",
+          "source_title": "Vote : Appeler l'UE à bâtir une défense européenne (Datan)",
+          "source_date": "2025-03-12",
+          "confidence": "high"
+        },
+        {
+          "position": "S'est abstenu sur l'actualisation de la LPM 2024-2030, en première lecture comme au vote final, alors que son groupe GDR votait contre.",
+          "kind": "inference",
+          "details": "Votes du 19/05/2026 (Datan n°6736) et du 01/07/2026 (adopté par 375 voix contre 113). Aucune explication de vote retrouvée.",
+          "source_url": "https://datan.fr/votes/legislature-17/vote_7905",
+          "source_title": "Vote : Projet de loi actualisant la programmation militaire 2024-2030 (Datan)",
+          "source_date": "2026-07-01",
+          "confidence": "high"
+        },
+        {
+          "position": "Souveraineté industrielle de défense : protéger les entreprises stratégiques contre les rachats étrangers et refuser d'acheter massivement des armes américaines, comme le prévoit l'accord Trump-von der Leyen.",
+          "kind": "position_declaree",
+          "short_quote": "Ce serait une catastrophe, voire une folie",
+          "details": "Intervention à l'Assemblée du 04/03/2025 (« les Américains font leurs courses en France », publiée par la GRS le 06/03/2025) et entretien à Marianne du 05/08/2025. Rien trouvé sur le service national ou le service militaire volontaire.",
+          "source_url": "https://g-r-s.fr/accord-trump-von-der-leyen-pour-emmanuel-maurel-leurope-se-comporte-comme-un-paillasson-face-aux-exigences-de-trump-entretien-dans-marianne/",
+          "source_title": "Accord Trump-von der Leyen : « l'Europe se comporte comme un paillasson » – Emmanuel Maurel dans Marianne (GRS)",
+          "source_date": "2025-08-08",
+          "confidence": "medium"
+        }
+      ]
+    }
+  ],
+  "updates": [
+    {
+      "topic_id": "strategie",
+      "change": "Débat BFMTV du 04/10/2026 : il rappelle que tous les candidats ont signé une charte de soutien au vainqueur et répète que si Marine Le Pen gagne, « on sera tous unis » contre une majorité RN. Ce débat est donc vérifié : il a bien eu lieu le dimanche 4 octobre (le dossier le marquait « non vérifié »). LCP (06/10/2026) compte 140 282 inscrits pour le premier tour.",
+      "source_url": "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat"
+    },
+    {
+      "topic_id": "retraites",
+      "change": "Au débat du 04/10/2026, il confirme la retraite à 62 ans (« J'en reste aux 62 ans », « celle-ci on la garde »), se dit hostile à la retraite par capitalisation et favorable à l'abrogation de la réforme Borne. Il cite la retraite à 60 ans pour les carrières longues obtenue sous Hollande, sans en faire un engagement chiffré.",
+      "source_url": "https://www.franceinfo.fr/politique/ps/primaire-a-gauche/invectives-retraites-soutien-aux-lyceens-ce-qu-il-faut-retenir-du-dernier-debat-de-la-primaire-socialiste_8222563.html"
+    },
+    {
+      "topic_id": "education",
+      "change": "Nouveau (04/10/2026) : il propose d'abroger Parcoursup, qu'il juge source de stress, et de revenir sur la réforme du lycée et du bac de 2019, qui a supprimé les filières ES, S et L. Le dossier indiquait « rien trouvé sur Parcoursup ». Sur l'école privée, il précise que l'argent public doit aller « prioritairement, et à long terme exclusivement » à l'enseignement public, ce qui confirme la position du programme.",
+      "source_url": "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat"
+    },
+    {
+      "topic_id": "international_defense",
+      "change": "Ukraine, nuance au débat du 04/10/2026 : il prend ses distances avec la comparaison de Guedj avec Munich et dit « comprendre » Ségolène Royal, qui veut un effort pour arrêter la guerre, tout en répétant que Poutine ne veut pas dialoguer. Le 23/09, il s'opposait plus nettement à l'approche de Royal.",
+      "source_url": "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat"
+    },
+    {
+      "topic_id": "international_defense",
+      "change": "Correction d'attribution, sans changement de position : la phrase « Je suis pour la reconnaissance de l'État de la Palestine, pour la sécurité d'Israël », attribuée au programme dans le dossier, vient du débat du 01/10/2026. Le programme écrit plutôt que la France, « après avoir reconnu l'Etat de Palestine », doit agir contre le « dépeçage colonial » de la Cisjordanie.",
+      "source_url": "https://www.centre-europe.com/en-direct-presidentielle-2027-faure-et-glucksmann-secharpent-sur-la-notion-de-genocide-a-gaza/"
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "change": "Débat du 04/10/2026 : il fait de l'électrification des usages la priorité, soutient le nucléaire avec les renouvelables, et se prononce pour le leasing social des voitures électriques (point nouveau).",
+      "source_url": "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat"
+    },
+    {
+      "topic_id": "travail_salaires",
+      "change": "Nouveau (04/10/2026) : pour les familles monoparentales, il propose de défiscaliser les pensions alimentaires, d'augmenter l'ASF et d'indexer les salaires sur l'inflation (détails dans « solidarites »). Le dossier disait « rien sur le RSA » ; c'est toujours le cas.",
+      "source_url": "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat"
+    },
+    {
+      "topic_id": "societe",
+      "change": "Sources à ajouter, sans changement de position : la profession de foi officielle de la primaire (PDF Choisir 2027, septembre 2026) et ses textes de 2026 sur l'audiovisuel public (commission d'enquête, refus d'une baisse d'1 Md€) et sur l'IA et le droit d'auteur, dont il est rapporteur (détails dans « societe »).",
+      "source_url": "https://choisir2027.fr/wp-content/uploads/2026/09/Profession-de-foi-Emmanuel-Maurel.pdf"
+    }
+  ]
+}

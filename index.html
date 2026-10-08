@@ -12,23 +12,24 @@
     <link rel="icon" href="./icon-192.png" type="image/png" sizes="192x192" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
-    <!-- Aperçu des liens partagés (WhatsApp, Signal, iMessage…) : adresses absolues, lues par les applications, jamais chargées par la page -->
+    <!-- Aperçu des liens partagés (WhatsApp, Signal, iMessage…) : adresses absolues, lues par les applications, jamais chargées par la page.
+         {{…}} : textes de l’élection par défaut, posés par Vite (vite.config.ts, shareMeta) -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Isoloir" />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:url" content="https://isoloir.vercel.app/" />
     <meta property="og:title" content="Isoloir : pointez les idées qui vous ressemblent" />
-    <meta property="og:description" content="Outil indépendant pour la primaire « Choisir 2027 » : jugez des idées présentées sans le nom des candidats, et voyez de qui vous êtes proche. Vos réponses restent chez vous." />
+    <meta property="og:description" content="{{shareDescription}}" />
     <meta property="og:image" content="https://isoloir.vercel.app/og.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Isoloir. « Pointez les idées qui vous ressemblent. » Primaire « Choisir 2027 » : des idées présentées sans le nom des candidats. Vos réponses restent chez vous." />
+    <meta property="og:image:alt" content="{{shareImageAlt}}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Isoloir : pointez les idées qui vous ressemblent" />
-    <meta name="twitter:description" content="Outil indépendant pour la primaire « Choisir 2027 » : jugez des idées présentées sans le nom des candidats, et voyez de qui vous êtes proche. Vos réponses restent chez vous." />
+    <meta name="twitter:description" content="{{shareDescription}}" />
     <meta name="twitter:image" content="https://isoloir.vercel.app/og.png" />
-    <meta name="twitter:image:alt" content="Isoloir. « Pointez les idées qui vous ressemblent. » Primaire « Choisir 2027 » : des idées présentées sans le nom des candidats. Vos réponses restent chez vous." />
+    <meta name="twitter:image:alt" content="{{shareImageAlt}}" />
     <title>Isoloir</title>
   </head>
   <body>

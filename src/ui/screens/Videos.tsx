@@ -16,6 +16,7 @@ import { openVideo } from '../videos/Host'
 import { VideoFeedEntry } from '../videos/Links'
 import { useVideoCatalog } from '../videos/load'
 import { durationLabel, partOf, placeOf } from '../videos/model'
+import { link } from '../nav'
 import '../../styles/videos-page.css'
 
 const plural = (n: number, word: string) => `${n}\u00a0${word}${n > 1 ? 's' : ''}`
@@ -47,8 +48,8 @@ export function Videos({ pack, state, essential }: Props) {
   const firstOpen = essential.findIndex(q => !state.answers[q.id])
   const done = essential.length > 0 && seen === essential.length
   const start = done
-    ? { href: '#/resultats', label: 'Voir mon dépouillement' }
-    : { href: `#/feuille/${(firstOpen < 0 ? 0 : firstOpen) + 1}`, label: seen ? 'Reprendre la feuille' : 'Commencer la feuille' }
+    ? { href: link('/resultats'), label: 'Voir mon dépouillement' }
+    : { href: link(`/feuille/${(firstOpen < 0 ? 0 : firstOpen) + 1}`), label: seen ? 'Reprendre la feuille' : 'Commencer la feuille' }
 
   let place = 0
   return (
@@ -126,7 +127,7 @@ export function Videos({ pack, state, essential }: Props) {
               {without.length > 5
                 ? `${without.length}\u00a0thèmes n’ont pas encore de vidéo. Leurs fiches écrites, avec les chiffres et les sources, sont dans `
                 : `Pas encore de vidéo pour ${without.length > 1 ? 'ces thèmes' : 'ce thème'}\u00a0: ${without.join(', ')}. ${without.length > 1 ? 'Leurs fiches écrites' : 'Ses fiches écrites'}, avec les chiffres et les sources, sont dans `}
-              <a href="#/sujets">Les sujets</a>.
+              <a href={link('/sujets')}>Les sujets</a>.
             </p>
           ) : null}
         </div>
@@ -134,7 +135,7 @@ export function Videos({ pack, state, essential }: Props) {
       <SiteFooter />
       <nav class="action-bar" aria-label="Suite">
         <div class="action-bar-inner">
-          <a class="btn-text" href="#/">
+          <a class="btn-text" href={link('/')}>
             <Icon name="arrow-left" />
             <span class="btn-label">Accueil</span>
           </a>

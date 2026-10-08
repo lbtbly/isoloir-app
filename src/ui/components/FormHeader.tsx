@@ -1,7 +1,10 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'preact/hooks'
 import { APP_NAME } from '../../core/app'
+import { currentPath, link } from '../nav'
+import { videosShown } from '../videos/load'
 import '../../styles/brand.css'
 import { Curtain } from './Airplane'
+import { ArchiveBanner } from './ArchiveBanner'
 import { Icon } from './Icon'
 import { Logo } from './Logo'
 
@@ -20,18 +23,25 @@ interface Props {
   action?: { href: string; label: string; short: string }
 }
 
-/** Le menu principal : les pages de consultation, ouvertes à tout moment, sans rien changer à la feuille */
+/**
+ * Le menu principal : les pages de consultation, ouvertes à tout moment, sans rien changer à la feuille. Chemins
+ * dans l'élection affichée (link) ; « page » et « within » se lisent sur le chemin sans préfixe d'élection.
+ */
 const MENU = [
-  { href: '#/sujets', label: 'Les sujets', hint: 'Le contexte chiffré de chaque question', page: /^#\/sujets(\/|$)/, within: null },
-  { href: '#/videos', label: 'Les vidéos', hint: 'Chaque thème en courtes vidéos sous-titrées', page: /^#\/videos(\/|$)/, within: null },
-  { href: '#/candidats', label: 'Les candidats', hint: 'Leur parcours et leurs positions sourcées', page: /^#\/candidats\/?$/, within: /^#\/candidat\// },
+  { path: '/sujets', label: 'Les sujets', hint: 'Le contexte chiffré de chaque question', page: /^\/sujets(\/|$)/, within: null },
+  { path: '/videos', label: 'Les vidéos', hint: 'Chaque thème en courtes vidéos sous-titrées', page: /^\/videos(\/|$)/, within: null },
+  // La comparaison est une page des candidats : leur entrée la marque, sans entrée de plus dans l'en-tête
+  { path: '/candidats', label: 'Les candidats', hint: 'Leur parcours, leurs positions sourcées, et les comparer', page: /^\/candidats\/?$/, within: /^\/(candidat|comparer)(\/|$)/ },
 ]
+
+/** Les entrées du menu pour l'élection affichée : « Les vidéos » seulement si elle en montre (videos/load.ts) */
+const menuItems = () => MENU.filter(item => item.path !== '/videos' || videosShown())
 
 /** Lien courant : « page » sur la page elle-même, « true » sur une de ses fiches (fiche d'un candidat) */
 function currentOf(item: { page: RegExp; within: RegExp | null }): 'page' | 'true' | undefined {
-  const hash = typeof location === 'undefined' ? '' : location.hash
-  if (item.page.test(hash)) return 'page'
-  return item.within?.test(hash) ? 'true' : undefined
+  const path = currentPath()
+  if (item.page.test(path)) return 'page'
+  return item.within?.test(path) ? 'true' : undefined
 }
 
 /** Pictogramme du bouton : trois filets, une croix une fois ouvert */
@@ -94,9 +104,9 @@ function MenuButton() {
       </button>
       <div class="menu-panel" id="menu-principal" hidden={!open}>
         <ul class="menu-panel-list">
-          {MENU.map(item => (
-            <li key={item.href}>
-              <a href={item.href} aria-current={currentOf(item)} onClick={() => setOpen(false)}>
+          {menuItems().map(item => (
+            <li key={item.path}>
+              <a href={link(item.path)} aria-current={currentOf(item)} onClick={() => setOpen(false)}>
                 <span class="menu-panel-label">{item.label}</span>
                 <span class="menu-panel-hint">{item.hint}</span>
                 <Icon name="arrow-right" />
@@ -151,44 +161,48 @@ function useFit(row: { current: HTMLDivElement | null }, label?: string, short?:
 /**
  * En-tête de formulaire pré-imprimé, fixé en haut de la feuille. La même rangée partout : le logo, le menu,
  * et selon la page le repère de la feuille ou, sur l'accueil, le nom du scrutin et l'appel principal. Le
- * nom de la page n'y figure pas : la page le porte déjà.
+ * nom de la page n'y figure pas : la page le porte déjà. Dans une élection archivée, le bandeau d'archive suit
+ * l'en-tête, dans le flux de la page (il ne colle pas en haut).
  */
 export function FormHeader({ title, locator, home, action }: Props) {
   const row = useRef<HTMLDivElement>(null)
   useFit(row, action?.label, action?.short)
   return (
-    <header class="form-header">
-      <div class="form-header-inner" ref={row}>
-        {/* Le logo, et le pictogramme seul quand la place manque (brand.css) ; le nom est porté par le lien */}
-        <a class="brand" href="#/" aria-label={home ? APP_NAME : `${APP_NAME}, retour à l’accueil`}>
-          <Logo layout="horizontal" />
-          <Logo layout="mark" />
-        </a>
-        {home && title ? <span class="form-scrutin">{title}</span> : null}
-        {/* Sur grand écran, le menu en ligne après la marque ; ailleurs, le bouton « Menu » (une seule des deux
-            navigations est affichée, l'autre est retirée de l'arbre d'accessibilité) */}
-        <nav class="main-nav" aria-label="Menu principal">
-          <ul>
-            {MENU.map(item => (
-              <li key={item.href}>
-                <a href={item.href} aria-current={currentOf(item)}>
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        {locator ? <span class="form-locator">{locator}</span> : null}
-        <MenuButton />
-        {action ? (
-          <a class="btn-primary header-cta" href={action.href}>
-            <span class="cta-long">{action.label}</span>
-            <span class="cta-short">{action.short}</span>
-            <Icon name="arrow-right" />
+    <>
+      <header class="form-header">
+        <div class="form-header-inner" ref={row}>
+          {/* Le logo, et le pictogramme seul quand la place manque (brand.css) ; le nom est porté par le lien */}
+          <a class="brand" href={link('/')} aria-label={home ? APP_NAME : `${APP_NAME}, retour à l’accueil`}>
+            <Logo layout="horizontal" />
+            <Logo layout="mark" />
           </a>
-        ) : null}
-      </div>
-      <Curtain />
-    </header>
+          {home && title ? <span class="form-scrutin">{title}</span> : null}
+          {/* Sur grand écran, le menu en ligne après la marque ; ailleurs, le bouton « Menu » (une seule des deux
+              navigations est affichée, l'autre est retirée de l'arbre d'accessibilité) */}
+          <nav class="main-nav" aria-label="Menu principal">
+            <ul>
+              {menuItems().map(item => (
+                <li key={item.path}>
+                  <a href={link(item.path)} aria-current={currentOf(item)}>
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          {locator ? <span class="form-locator">{locator}</span> : null}
+          <MenuButton />
+          {action ? (
+            <a class="btn-primary header-cta" href={action.href}>
+              <span class="cta-long">{action.label}</span>
+              <span class="cta-short">{action.short}</span>
+              <Icon name="arrow-right" />
+            </a>
+          ) : null}
+        </div>
+        <Curtain />
+      </header>
+      <ArchiveBanner />
+    </>
   )
 }

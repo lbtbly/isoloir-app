@@ -18,13 +18,14 @@
 
 import { APP_NAME, REPORT_URL } from '../../core/app'
 import { Icon } from './Icon'
+import { link } from '../nav'
 import '../../styles/ai-label.css'
 
 /** Ce que l'étiquette accompagne : le texte de la mention et de son explication en dépend */
 export type AiKind = 'feuille' | 'fiche' | 'fiches' | 'positions' | 'resumes' | 'parcours' | 'texte' | 'video' | 'videos'
 
-/** Rubrique « Usage de l'IA » de la notice Méthode et sources (ancre stable) */
-export const AI_METHOD_HREF = '#/methode/ia'
+/** Rubrique « Usage de l'IA » de la notice Méthode et sources (ancre stable), en chemin : link(AI_METHOD_PATH) */
+export const AI_METHOD_PATH = '/methode/ia'
 
 /** La mention visible : le constat en noir, la précision en gris */
 const LABEL: Record<AiKind, { lead: string; rest?: string }> = {
@@ -121,11 +122,11 @@ export function AiNote({ kind, voice, onLeave }: { kind: AiKind; voice?: boolean
       </p>
       <p>
         Une erreur&nbsp;?{' '}
-        <a href={REPORT_URL || '#/mentions-legales'} onClick={REPORT_URL ? undefined : onLeave}>
+        <a href={REPORT_URL || link('/mentions-legales')} onClick={REPORT_URL ? undefined : onLeave}>
           Signalez-la
         </a>
         .{' '}
-        <a href={AI_METHOD_HREF} onClick={onLeave}>
+        <a href={link(AI_METHOD_PATH)} onClick={onLeave}>
           L’usage de l’IA dans {APP_NAME}
         </a>
       </p>
@@ -142,7 +143,7 @@ export function AiLabel({ kind, more = 'bulle', voice, onLeave, class: c }: Prop
         {more === 'lien' ? (
           <>
             <Sep />
-            <a class="ai-label-link" href={AI_METHOD_HREF} onClick={onLeave}>
+            <a class="ai-label-link" href={link(AI_METHOD_PATH)} onClick={onLeave}>
               En savoir plus
             </a>
           </>

@@ -6,6 +6,7 @@ import { useRef } from 'preact/hooks'
 import { useOnline } from '../useOnline'
 import { AirplaneDiagram } from './Diagrams'
 import { Icon } from './Icon'
+import { link } from '../nav'
 
 const HOW = [
   { device: 'iPhone', how: 'balayez vers le bas depuis le coin supérieur droit, puis touchez l’avion.' },
@@ -71,7 +72,7 @@ export function PrivacyButton() {
           <AirplaneDiagram />
           <HowTo />
           <p class="dialog-actions">
-            <a href="#/confidentialite" onClick={close}>
+            <a href={link('/confidentialite')} onClick={close}>
               Tout savoir sur la confidentialité
             </a>
             <button type="button" class="btn-primary" onClick={close} autofocus>

@@ -3,6 +3,7 @@
 // Lancé automatiquement après `pnpm build`.
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs'
 import { join } from 'node:path'
+import { pathToFileURL } from 'node:url'
 
 const dist = 'dist'
 const html = readFileSync(join(dist, 'index.html'), 'utf8')
@@ -26,6 +27,9 @@ const FORBIDDEN = [/navigator\.sendBeacon/, /RTCPeerConnection/, /new WebSocket/
 for (const f of readdirSync(join(dist, 'assets')).filter(f => f.endsWith('.js'))) {
   const js = readFileSync(join(dist, 'assets', f), 'utf8')
   for (const re of FORBIDDEN) if (re.test(js)) fail(`${f} contient ${re}`)
+  // L'élection factice de 20 candidats (tests/fixtures/many-candidates.ts, #/essai-20/) ne sert qu'au serveur de
+  // développement : ni son entrée de registre ni ses données n'entrent dans le build
+  if (/many-candidates|['"`]essai-20['"`]|Esquisse-Montclar/.test(js)) fail(`${f} contient l’élection factice de développement (#/essai-20/)`)
 }
 for (const f of readdirSync(join(dist, 'assets')).filter(f => f.endsWith('.css'))) {
   const css = readFileSync(join(dist, 'assets', f), 'utf8')
@@ -81,7 +85,101 @@ for (const [voice, videos] of Object.entries(inventory.voices ?? {})) {
   }
 }
 
+// JS initial : le code que toute visite exécute à l'ouverture (le script de la page et ce qu'il importe
+// statiquement). Les données des élections (questions, positions, candidats) n'y sont pas : chacune est un
+// fichier à part, chargé à la demande (src/elections/index.ts) ; celle de l'élection par défaut est
+// préchargée par la page (modulepreload), en parallèle.
+// Budget : 241,7 ko mesurés le 6 octobre 2026, après la sortie des données (909 ko avant), plus 15 % de marge.
+// Le dépasser, c'est d'abord se demander ce qui est entré dans le code de toutes les visites, avant de relever le plafond.
+const INITIAL_JS_BUDGET = 278_000
+const entry = html.match(/<script type="module"[^>]*src="\.\/(assets\/[^"]+\.js)"/)?.[1]
+const initial = []
+const visitJs = file => {
+  if (initial.includes(file) || !existsSync(join(dist, file))) return
+  initial.push(file)
+  const code = readFileSync(join(dist, file), 'utf8')
+  // Imports statiques seulement (« from"./x.js" », « import"./x.js" ») : un import() est chargé à la demande
+  for (const m of code.matchAll(/(?:from|import)\s*["']\.\/([^"']+\.js)["']/g)) visitJs(join('assets', m[1]))
+}
+if (!entry) fail('script principal introuvable dans dist/index.html')
+else visitJs(entry)
+const initialBytes = initial.reduce((t, f) => t + statSync(join(dist, f)).size, 0)
+if (initialBytes > INITIAL_JS_BUDGET) {
+  fail(`JS initial de ${(initialBytes / 1000).toFixed(1)} ko (${initial.join(', ')}) : budget de ${INITIAL_JS_BUDGET / 1000} ko dépassé`)
+}
+// Aucun texte de la banque dans le JS initial : ni énoncé ni approche, de chaque élection du site
+// (src/elections/<id>/bank.ts) ou en préparation (research/<id>/bank.json, écrit par tools/build-pack.mjs)
+const initialCode = initial.map(f => readFileSync(join(dist, f), 'utf8')).join('\n')
+const dirsOf = root => (existsSync(root) ? readdirSync(root, { withFileTypes: true }).filter(d => d.isDirectory()).map(d => d.name) : [])
+const bankTexts = new Map() // texte → élection
+for (const id of dirsOf('src/elections')) {
+  const bankFile = join('src/elections', id, 'bank.ts')
+  if (!existsSync(bankFile)) continue
+  for (const m of readFileSync(bankFile, 'utf8').matchAll(/"(prompt|text)": ("(?:[^"\\]|\\.)*")/g)) bankTexts.set(JSON.parse(m[2]), id)
+}
+for (const id of dirsOf('research')) {
+  const file = join('research', id, 'bank.json')
+  if (!existsSync(file)) continue
+  try {
+    for (const q of JSON.parse(readFileSync(file, 'utf8')).bank?.questions ?? []) {
+      bankTexts.set(q.prompt, id)
+      for (const a of q.approaches ?? []) bankTexts.set(a.text, id)
+    }
+  } catch {
+    console.warn(`⚠ ${file} illisible : ses textes ne sont pas cherchés dans le JS initial`)
+  }
+}
+let prompts = 0
+for (const [text, id] of bankTexts) {
+  // Les textes courts (« Oui », « Non ») peuvent se trouver ailleurs dans le code : seules les phrases comptent
+  if (typeof text !== 'string' || text.length < 25) continue
+  prompts++
+  if (initialCode.includes(text)) fail(`JS initial : contient « ${text} » (banque de ${id}), qui doit rester dans le fichier de l'élection`)
+}
+if (!prompts) fail('aucun texte de question trouvé dans src/elections/*/bank.ts ni research/*/bank.json : contrôle du JS initial impossible')
+// L'élection par défaut (registre : « id: '…', slug: '' ») : ses données sont préchargées par la page, et la
+// description de partage de la page est la sienne (copy.shareDescription de son election.ts)
+const registry = readFileSync('src/elections/index.ts', 'utf8')
+const defaults = [...registry.matchAll(/\bid: '([a-z0-9-]+)',\s*slug: '([^']*)'/g)].filter(m => m[2] === '').map(m => m[1])
+if (defaults.length !== 1) fail(`src/elections/index.ts : ${defaults.length} élection(s) par défaut trouvée(s), une attendue`)
+else {
+  const id = defaults[0]
+  const preloaded = [...html.matchAll(/<link rel="modulepreload"[^>]*href="\.\/(assets\/[^"]+)"/g)].map(m => m[1])
+  if (!preloaded.some(f => new RegExp(`^assets/${id}-[\\w-]+\\.js$`).test(f))) fail(`les données de l’élection par défaut (${id}) ne sont pas préchargées par dist/index.html`)
+  // Vite annonce lui-même les fichiers que le script principal importe directement (un fichier commun à lui et à
+  // un écran chargé à la demande, comme la comparaison) : ce préchargement-là les fait venir en même temps que lui.
+  // Le préchargement des données, lui, ne doit rien reprendre de ce que charge déjà le script principal.
+  const direct = entry ? [...readFileSync(join(dist, entry), 'utf8').matchAll(/(?:from|import)\s*["']\.\/([^"']+\.js)["']/g)].map(m => join('assets', m[1])) : []
+  if (preloaded.some(f => initial.includes(f) && !direct.includes(f))) fail('dist/index.html précharge un fichier déjà chargé par le script principal')
+  // election.ts n'importe que des types : Node l'exécute tel quel (comme vite.config.ts, qui pose ces textes)
+  let election = null
+  try {
+    ;({ election } = await import(pathToFileURL(join('src/elections', id, 'election.ts')).href))
+  } catch (e) {
+    fail(`${id}/election.ts illisible par Node (il ne doit importer que des types) : ${e.message}`)
+  }
+  const share = election?.copy?.shareDescription
+  if (election && !share) fail(`${id}/election.ts : copy.shareDescription absente`)
+  else if (share) {
+    const decode = s => s.replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&')
+    for (const name of ['property="og:description"', 'name="twitter:description"']) {
+      const content = html.match(new RegExp(`<meta ${name} content="([^"]*)"`))?.[1]
+      if (content === undefined) fail(`dist/index.html : balise ${name} absente`)
+      else if (decode(content) !== share) fail(`dist/index.html : ${name} diffère de la description de partage de ${id} (copy.shareDescription)`)
+    }
+    // La description de l'image d'aperçu nomme la même élection que public/og.png (tools/build-og.mjs)
+    for (const name of ['property="og:image:alt"', 'name="twitter:image:alt"']) {
+      const content = html.match(new RegExp(`<meta ${name} content="([^"]*)"`))?.[1]
+      if (content === undefined) fail(`dist/index.html : balise ${name} absente`)
+      else if (!decode(content).includes(`${election.name}\u00a0:`)) fail(`dist/index.html : ${name} ne nomme pas l’élection par défaut (${election.name})`)
+    }
+  }
+}
+// Aucun texte d'élection laissé à poser dans la page (index.html : {{…}}, remplacés par vite.config.ts)
+for (const m of html.matchAll(/\{\{(\w+)\}\}/g)) fail(`dist/index.html : {{${m[1]}}} n’a pas été remplacé`)
+
 if (!process.exitCode) console.log('✓ dist vérifié : CSP stricte, aucune API d’envoi, aucune ressource externe, service worker limité aux fichiers du site')
+if (initialBytes) console.log(`  JS initial : ${(initialBytes / 1000).toFixed(1)} ko sur ${INITIAL_JS_BUDGET / 1000} ko permis (${initial.join(', ')}), sans aucun des ${prompts} textes des banques`)
 
 // Voix des vidéos : un avertissement pour un fichier livré mais pas inscrit (jamais lu, poids inutile)
 const unlisted = [...shipped].filter(k => !inscribed.has(k))

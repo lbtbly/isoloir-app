@@ -34,6 +34,18 @@ export function storageKey(electionId: string): string {
   return `${STORAGE_PREFIX}${electionId}`
 }
 
+/**
+ * Cet appareil garde-t-il une feuille pour cette élection ? Une feuille vierge n'est jamais enregistrée
+ * (saveState) : une sauvegarde présente veut dire qu'on y a répondu. Rien n'est lu ni validé ici.
+ */
+export function hasSaved(electionId: string): boolean {
+  try {
+    return globalThis.localStorage?.getItem(storageKey(electionId)) != null
+  } catch {
+    return false
+  }
+}
+
 export function freshState(electionId: string, dataVersion: string): SessionState {
   return {
     format: FORMAT,
@@ -128,7 +140,10 @@ export function sanitizeState(raw: unknown, pack: ElectionPack): SessionState | 
     ? [...new Set(raw.deepTopics.filter((t): t is string => typeof t === 'string' && topicIds.has(t)))]
     : []
   const versionChanged = typeof raw.dataVersion === 'string' && raw.dataVersion !== dataVersion
-  const known = new Set(pack.candidates.map(c => c.id))
+  // Un candidat non classé (election.ranking.excluded) n'a pas de score : un classement mémorisé avant la décision
+  // (ou venu d'un double importé) ne doit pas en garder, ni le recopier dans le prochain double
+  const off = new Set(pack.election.ranking?.excluded?.ids ?? [])
+  const known = new Set(pack.candidates.map(c => c.id).filter(id => !off.has(id)))
   const seen = new Set<string>()
   const lastSeenRanking =
     !versionChanged && Array.isArray(raw.lastSeenRanking)

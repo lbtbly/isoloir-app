@@ -1,0 +1,1323 @@
+{
+  "candidate": "Bruno Retailleau",
+  "affiliation": "Les Républicains (LR), président du parti ; sénateur de Vendée ; ancien ministre de l'Intérieur (sept. 2024 - oct. 2025)",
+  "campaign_site": "https://republicains.fr/ (site du parti, qui héberge les livrets « Nos propositions pour la France » ; aucun site de campagne dédié n'a été trouvé)",
+  "declaration": {
+    "date": "2026-02-12",
+    "form": "Message adressé aux parlementaires et adhérents LR, puis lettre publiée sur republicains.fr. Suivent une vidéo d'environ 9 minutes diffusée à 18 h sur les réseaux sociaux (YouTube), un passage au 20 h de TF1 et un entretien au Figaro Magazine. Les adhérents LR l'ont ensuite désigné candidat le 19 avril 2026, avec 73,8 % des voix et environ 60 % de participation : c'est la date indiquée dans la commande, mais la déclaration elle-même date du 12 février.",
+    "source_title": "« Je suis candidat à l'élection présidentielle » (republicains.fr) ; Public Sénat, « Je serai le Président de l'ordre, de la justice et de la fierté française » ; France 24, 12/02/2026 et 19/04/2026",
+    "source_url": "https://republicains.fr/actualites/2026/02/12/je-suis-candidat-a-lelection-presidentielle/"
+  },
+  "overview": "Bruno Retailleau est sénateur de Vendée, président des Républicains depuis 2025 et a été ministre de l'Intérieur de septembre 2024 à octobre 2025. Il s'est déclaré candidat le 12 février 2026 et les adhérents LR l'ont désigné le 19 avril 2026 avec 73,8 % des voix. Il résume sa ligne par trois mots : l'ordre, la justice et la fierté française. Sur le plan régalien et identitaire, il propose une réduction « drastique » de l'immigration, l'abolition du droit du sol, une « révolution » de la justice pénale avec des peines minimales obligatoires, une laïcité « sans accommodement » et l'inscription des « racines judéo-chrétiennes » dans une Charte constitutionnelle. Sur le plan économique, il veut rompre avec le « social-étatisme » : 40 Md€ de baisse des prélèvements sur la production, un seuil « zéro cotisation » au-delà de 1 623 heures par an, un plafond des aides sociales à 70 % du Smic, des départs de fonctionnaires non remplacés grâce à l'IA et une déréglementation massive. Sa méthode centrale est le référendum : un pacte constitutionnel serait soumis aux Français dès la rentrée 2027 pour élargir l'article 11, permettre de passer outre une censure du Conseil constitutionnel et créer un « bouclier » contre certaines jurisprudences européennes. En énergie, il mise sur le nucléaire (EPR2, réacteurs prolongés à 80 ans) et veut arrêter les subventions aux nouvelles capacités éoliennes et solaires. En défense, il vise 100 Md€ de budget en fin de quinquennat et refuse tout partage de la dissuasion. Le projet est publié sous forme de livrets thématiques LR, de décembre 2025 à septembre 2026. Au 6 octobre 2026, il n'y a pas de programme unifié, et rien de complet n'est publié sur la santé, la culture ou l'international.",
+  "topics": [
+    {
+      "topic_id": "institutions",
+      "found": true,
+      "positions": [
+        {
+          "position": "Faire voter dès le début du mandat un « pacte constitutionnel » : passage au Parlement puis référendum à la rentrée 2027. Le pacte comprend une loi de révision constitutionnelle et une « Charte de l'ordre républicain », bâtie sur le modèle de la Charte de l'environnement.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "je soumettrai ce pacte constitutionnel à un référendum dès la rentrée 2027",
+          "details": "Il présente ce chantier comme « la mère des batailles ». Il veut rendre le « dernier mot » au peuple face aux juges. Entretien au Figaro du 2 septembre 2026.",
+          "source_url": "https://republicains.fr/actualites/2026/09/02/en-france-la-seule-cour-supreme-cest-le-peuple-je-lui-donnerai-le-dernier-mot/",
+          "source_title": "« En France, la seule cour suprême, c'est le peuple. Je lui donnerai le dernier mot » (entretien au Figaro)",
+          "source_date": "2026-09-02"
+        },
+        {
+          "position": "Élargir le champ du référendum de l'article 11 à « toute question législative », notamment l'immigration, la sécurité, la politique pénale et l'éducation.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Sa proposition de loi constitutionnelle de 2023 ne visait que les questions migratoires. Il l'avait retirée de l'ordre du jour du Sénat en décembre 2023, faute de majorité.",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/presidentielle-2027-bruno-retailleau-veut-renverser-la-table-avec-une-profonde-reforme-constitutionnelle",
+          "source_title": "Public Sénat – Présidentielle 2027 : Bruno Retailleau veut « renverser la table » avec une profonde réforme constitutionnelle",
+          "source_date": "2026-09-03"
+        },
+        {
+          "position": "Abaisser à environ 2,5 millions le nombre de soutiens citoyens nécessaires au référendum d'initiative partagée (RIP), contre un dixième des électeurs aujourd'hui (près de 5 millions).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://laclepublique.fr/national/articles/2026/2026-09-05-retailleau-reforme-constitutionnelle/",
+          "source_title": "La Clé publique – Retailleau : ce que sa réforme constitutionnelle changerait",
+          "source_date": "2026-09-05"
+        },
+        {
+          "position": "Quand le Conseil constitutionnel censure une loi votée par le Parlement, le président pourrait la soumettre au référendum ou au Congrès pour « censurer la censure ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Des juristes cités par Public Sénat parlent d'une « révolution copernicienne ». L'un d'eux juge ce mécanisme « complètement fantasmé ».",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/presidentielle-2027-bruno-retailleau-propose-une-revolution-copernicienne-dans-laquelle-la-constitution-ne-serait-plus-le-bouclier-qui-prote",
+          "source_title": "Public Sénat – « Bruno Retailleau propose une révolution copernicienne »",
+          "source_date": "2026-09-03"
+        },
+        {
+          "position": "Créer un « bouclier constitutionnel » : une loi organique pourrait écarter des jurisprudences européennes jugées contraires aux « intérêts fondamentaux » de la France, notamment sur l'expulsion d'étrangers. Le droit de l'Union ne primerait que s'il respecte la Constitution et la subsidiarité.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://laclepublique.fr/national/articles/2026/2026-09-05-retailleau-reforme-constitutionnelle/",
+          "source_title": "La Clé publique – Retailleau : ce que sa réforme constitutionnelle changerait",
+          "source_date": "2026-09-05"
+        },
+        {
+          "position": "Opposition « très ferme » à la proportionnelle aux législatives. Selon lui, elle déstabiliserait la Ve République et couperait le lien entre le député et son territoire. Ministre de l'Intérieur à l'époque, il a menacé de quitter le gouvernement si un projet de loi sur la proportionnelle était présenté.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/hostile-a-la-proportionnelle-bruno-retailleau-necarte-pas-une-demission-du-gouvernement",
+          "source_title": "Public Sénat – Hostile à la proportionnelle, Bruno Retailleau n'écarte pas une démission du gouvernement",
+          "source_date": "2025-06-02"
+        }
+      ]
+    },
+    {
+      "topic_id": "laicite_republique",
+      "found": true,
+      "positions": [
+        {
+          "position": "La Charte de l'ordre républicain, à valeur constitutionnelle, reconnaîtrait les « racines judéo-chrétiennes » de la France et engagerait à combattre « toute forme de séparatisme et d'entrisme religieux ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "Cette charte reconnaîtra les racines judéo-chrétiennes de la France",
+          "source_url": "https://republicains.fr/actualites/2026/09/02/en-france-la-seule-cour-supreme-cest-le-peuple-je-lui-donnerai-le-dernier-mot/",
+          "source_title": "Entretien au Figaro repris sur republicains.fr",
+          "source_date": "2026-09-02"
+        },
+        {
+          "position": "Appliquer la laïcité à l'école « sans accommodement ». La neutralité de la loi de 2004 serait étendue aux accompagnateurs de sorties scolaires, et le port de l'uniforme serait encouragé.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le livret parle de « faire vivre une identité commune ». Il veut aussi des poursuites systématiques contre les auteurs d'agressions de professeurs et rompre avec le « pas de vague ».",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf",
+          "source_title": "LR – Éducation : Pour une école de la transmission, de l'égalité des chances, de l'autorité et de la liberté",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Chaque famille signerait un contrat d'engagement : respect des programmes, de la laïcité et de l'autorité des professeurs. La signature conditionnerait l'admission de l'élève, et son non-respect pourrait entraîner l'exclusion.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf",
+          "source_title": "LR – Éducation (livret)",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Mémoire de la colonisation : il reproche à Emmanuel Macron de céder aux « chantages mémoriels » de l'Algérie. Il critique une repentance excessive en citant Paul Ricœur (l'excès de mémoire comme « pathologie »).",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "short_quote": "Emmanuel Macron est l'otage consentant des chantages mémoriels du gouvernement algérien",
+          "source_url": "https://republicains.fr/actualites/2026/05/02/bruno-retailleau-interview-algerie-macron/",
+          "source_title": "Entretien au JDD repris sur republicains.fr",
+          "source_date": "2026-05-02"
+        },
+        {
+          "position": "En 2023, il a porté une proposition de loi constitutionnelle (non adoptée) selon laquelle nul ne pourrait invoquer son origine ou sa religion pour échapper aux règles communes.",
+          "kind": "inference",
+          "confidence": "medium",
+          "details": "Texte déposé au Sénat le 25 mai 2023, retiré de l'ordre du jour en décembre 2023. C'est un texte antérieur à la campagne.",
+          "source_url": "https://www.senat.fr/travaux-parlementaires/textes-legislatifs/la-loi-en-clair/proposition-de-loi-constitutionnelle-relative-a-la-souverainete-de-la-france-a-la-nationalite-a-limmigration-et-a-lasile.html",
+          "source_title": "Sénat – Proposition de loi constitutionnelle relative à la souveraineté de la France, à la nationalité, à l'immigration et à l'asile",
+          "source_date": "2023-05-25"
+        }
+      ]
+    },
+    {
+      "topic_id": "fiscalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Pas de hausse d'impôts. Le problème serait que l'État dépense trop, pas qu'il taxe trop peu. Il refuse d'alourdir les droits sur les grosses successions (taux de 45 % au-delà d'environ 2 M€) et s'engage à baisser les droits de succession.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Réponse aux propositions de la CFDT, de Raphaël Glucksmann et de LFI sur la taxation des héritages.",
+          "source_url": "https://republicains.fr/actualites/2026/08/26/je-serai-le-president-qui-baissera-les-impots-de-succession/",
+          "source_title": "« Je serai le président qui baissera les impôts de succession »",
+          "source_date": "2026-08-26"
+        },
+        {
+          "position": "« Choc fiscal » de 40 Md€ dès le début du quinquennat. Plus de 25 Md€ porteraient sur le coût du travail : seuil « zéro cotisation » et baisse des cotisations patronales non contributives. Environ 15 Md€ porteraient sur les impôts de production : suppression de la C3S (5,3 Md€) et de la CVAE (4,3 Md€), exonération de la part industrielle de la CFE (1,9 Md€), réforme du forfait social (2,8 Md€).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Il promet la stabilité de ce cadre fiscal pendant au moins 5 ans. Le crédit d'impôt recherche serait sanctuarisé, avec une lutte renforcée contre les abus. Le livret estime le « handicap » fiscal des entreprises à 67 Md€ et vise une baisse de 60 %.",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf",
+          "source_title": "LR – Produire plus pour vivre mieux (livret)",
+          "source_date": "2026-02"
+        },
+        {
+          "position": "Transmission du capital productif : les droits de donation et de succession seraient calculés au moment de la transmission, mais leur paiement serait reporté tant que l'entreprise n'est pas cédée. Le dispositif exclut les structures purement patrimoniales.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "tant qu'il n'y a pas de cession, il n'y a pas d'imposition",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf",
+          "source_title": "LR – Produire plus pour vivre mieux (proposition 11)",
+          "source_date": "2026-02"
+        },
+        {
+          "position": "« Choc de transmission » limité à 3 ans : dons familiaux exonérés jusqu'à 150 000 € pour un bénéficiaire de moins de 30 ans et 100 000 € pour un bénéficiaire de moins de 40 ans. Le plafond actuel est de 31 865 € pour les dons d'argent. La mesure s'appliquerait aussi aux transmissions immobilières.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf",
+          "source_title": "LR – Une politique pour toutes les familles de France (livret)",
+          "source_date": "2026-04"
+        },
+        {
+          "position": "Réduction d'impôt pour les familles qui achètent leur résidence principale : 50 % des intérêts d'emprunt avec un enfant mineur, 75 % avec deux, 100 % à partir de trois. Elle est plafonnée à 400 €, plus 400 € par enfant.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf",
+          "source_title": "LR – Une politique pour toutes les familles de France (proposition 4)",
+          "source_date": "2026-04"
+        },
+        {
+          "position": "Le quotient familial, les allocations familiales et d'autres aides seraient fusionnés dans un « Revenu familial » de 240 € par mois et par enfant. Il serait versé par la DGFiP, en déduction de l'impôt prélevé à la source, à budget constant.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Les dispositifs supprimés coûtent 41 Md€, le Revenu familial coûterait 40,3 Md€. Le livret affirme que cela réduirait d'environ 25 Md€ les prestations versées par les CAF et la MSA « tout en diminuant d'autant la pression fiscale ».",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf",
+          "source_title": "LR – Une politique pour toutes les familles de France (proposition 1)",
+          "source_date": "2026-04"
+        },
+        {
+          "position": "Supprimer les certificats d'économie d'énergie (CEE) sur l'électricité, soit environ 5 % de baisse de la facture, et sur les carburants, soit environ 15 à 17 centimes par litre. Il refuse de baisser la TVA sur les carburants.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "details": "Le volet électricité est écrit dans le livret LR (confiance élevée). Le chiffrage carburant vient de la presse (CNews, 15-16 septembre 2026). Il a critiqué la TVA à 5,5 % proposée par Marine Le Pen, qui coûterait selon lui « 15 milliards » sans financement.",
+          "source_url": "https://www.cnews.fr/france/2026-09-16/carburants-bruno-retailleau-appelle-le-gouvernement-supprimer-la-taxe-sur-les",
+          "source_title": "CNews – Carburants : Bruno Retailleau appelle le gouvernement à supprimer la taxe sur les certificats d'économie d'énergie",
+          "source_date": "2026-09-16"
+        }
+      ]
+    },
+    {
+      "topic_id": "finances_publiques",
+      "found": true,
+      "positions": [
+        {
+          "position": "L'équilibre budgétaire comme principe : l'État ne doit pas dépenser plus qu'il ne gagne. Il veut redresser les finances publiques par la baisse des dépenses, pas par l'impôt.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "short_quote": "L'État ne peut pas dépenser plus que ce qu'il gagne",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/https-www-publicsenat-fr-actualites-politique-je-serai-le-president-de-lordre-de-la-justice-et-de-la-fierte-francaise-bruno-retailleau-se-declare-candidat-a-la-presidentielle-de-2027",
+          "source_title": "Public Sénat – Bruno Retailleau se déclare candidat",
+          "source_date": "2026-02-12"
+        },
+        {
+          "position": "Redresser les finances publiques de 120 Md€ d'ici 2032, uniquement par la baisse des dépenses, et inscrire une « règle d'or » budgétaire dans la révision constitutionnelle soumise à référendum en 2027.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "details": "Source secondaire : le comparateur de la Fondation IFRAP. Il ne donne ni la date ni la source primaire de ces engagements.",
+          "source_url": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+          "source_title": "Fondation IFRAP – Comparateur Présidentielles 2027",
+          "source_date": "2026"
+        },
+        {
+          "position": "Grâce à l'IA, mobiliser l'équivalent de 250 000 agents publics d'ici 2032. D'un côté, 125 000 départs à la retraite non remplacés (moins d'un sur cinq), soit environ 7,5 Md€ de masse salariale en moins. De l'autre, 125 000 agents redéployés du back-office vers le terrain. L'économie nette visée est d'environ 15 Md€ par an.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Répartition des 125 000 redéploiements selon Acteurs publics : 18 000 policiers et gendarmes, 35 000 ETP dans l'enseignement, 20 000 à l'hôpital, 6 000 dans la justice, 46 000 dans l'accueil des usagers. Il prévoit un assistant administratif unique « Marianne » et un ministre délégué à l'IA. Les chiffres varient selon les sources : l'IFRAP mentionne 250 000 à 300 000 postes supprimés.",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf",
+          "source_title": "LR – L'IA au service des Français (livret)",
+          "source_date": "2026-07"
+        },
+        {
+          "position": "Baisser de 10 % l'aide publique au développement (1,2 Md€ d'économies), réduire les dotations aux agences de l'État et réduire l'aide médicale d'État (AME).",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "source_url": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+          "source_title": "Fondation IFRAP – Comparateur Présidentielles 2027",
+          "source_date": "2026"
+        },
+        {
+          "position": "Réformes sociales chiffrées entre 28,5 et 31,7 Md€ par an : assurance chômage 12,5-15,7 Md€, Compte social unique et lutte contre la fraude 10 Md€, RIA 2 Md€, impôt sur les sociétés 4 Md€. Ces gains seraient entièrement restitués aux salariés et aux entreprises, et non affectés au désendettement.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf",
+          "source_title": "LR – Travail gagnant (livret)",
+          "source_date": "2025-12 (présenté le 2026-01-07)"
+        },
+        {
+          "position": "Aucune économie sur l'école : la baisse démographique (1,7 million d'élèves en moins en dix ans) libérerait plus de 3 Md€ par an, à taux d'encadrement constant. Cet argent financerait la revalorisation des professeurs.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf",
+          "source_title": "LR – Éducation (livret)",
+          "source_date": "2026-09"
+        }
+      ]
+    },
+    {
+      "topic_id": "travail_salaires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Seuil « zéro cotisation » fixé à 1 623 heures par an, contre 1 607 heures aujourd'hui (deux jours de plus). Au-delà, les heures seraient exonérées de toutes cotisations salariales et patronales. La CSG et la CRDS resteraient dues, l'exonération d'impôt sur le revenu des heures supplémentaires serait maintenue, et le temps de travail serait annualisé.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le coût horaire de ces heures baisserait d'environ 35 % pour l'employeur. Exemple du livret : un salarié au salaire médian qui travaille 37,5 heures par semaine gagnerait environ 230 € nets de plus par mois. Lors du débat du Medef (28 août 2026), il a présenté la mesure comme une exonération au-delà de 36 heures par semaine.",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf",
+          "source_title": "LR – Travail gagnant",
+          "source_date": "2025-12 (présenté le 2026-01-07)"
+        },
+        {
+          "position": "Rendre au moins 30 Md€ par an : moitié aux salariés en pouvoir d'achat (environ 500 € par an au salaire médian), moitié aux entreprises par une baisse du coût du travail dès la première heure.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf",
+          "source_title": "LR – Travail gagnant",
+          "source_date": "2025-12"
+        },
+        {
+          "position": "Réécrire le Code du travail autour de 50 principes auxquels on ne pourrait pas déroger. Le reste deviendrait supplétif : l'accord d'entreprise, ou à défaut de branche, primerait. Les accords pourraient aussi être validés par le CSE ou par un référendum à l'initiative de l'employeur. L'extension automatique des accords de branche serait abandonnée, sauf sur quelques thèmes comme les minima.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf",
+          "source_title": "LR – Produire plus (proposition 2)",
+          "source_date": "2026-02"
+        },
+        {
+          "position": "Parmi les 50 normes à supprimer : relever de 50 à 100 salariés le seuil de toutes les obligations ; ne rendre le CSE obligatoire qu'à partir de 50 salariés (sauf accord) ; transformer l'obligation de sécurité « de résultat » de l'employeur en obligation de moyens. Il veut aussi supprimer le minimum légal de 24 heures par semaine pour le temps partiel, sauf accord collectif.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf",
+          "source_title": "LR – Produire plus (proposition 1) et Travail gagnant",
+          "source_date": "2026-02"
+        },
+        {
+          "position": "Partage de la valeur : exonérer de forfait social l'intéressement, la participation au-delà du minimum légal et l'épargne retraite individuelle. Le forfait social resterait à 20 % sur la participation légale obligatoire.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf",
+          "source_title": "LR – Produire plus (proposition 5)",
+          "source_date": "2026-02"
+        },
+        {
+          "position": "Dépasser les 35 heures par la négociation dans l'entreprise ou la branche, avec des heures sans cotisations au-delà du seuil, plutôt que par une abrogation directe.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Le JDD du 23 septembre 2026 évoque une « suppression des 35 heures ». La formulation exacte n'a pas pu être vérifiée dans une source primaire.",
+          "source_url": "https://republicains.fr/actualites/2026/05/02/priorite-travail-france-35h-salaires-retraites/",
+          "source_title": "« Instaurons la priorité travail »",
+          "source_date": "2026-05-02"
+        }
+      ]
+    },
+    {
+      "topic_id": "industrie_economie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Supprimer dès le lendemain de l'élection les 50 règles qui pèsent le plus sur les entreprises. Exemples : principe de non-régression environnementale, remplacement du principe de précaution par un principe de responsabilité, moratoire sur les interdictions (plastiques, PFAS) qui vont au-delà des règlements européens. Ensuite : règle du « un pour un » en euros, étude d'impact opposable, « test PME » et autorité indépendante dotée d'un droit de veto sur les nouvelles normes.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Il s'engage à ne jamais imposer plus que ce que l'Europe exige, donc pas de sur-transposition.",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf",
+          "source_title": "LR – Produire plus pour vivre mieux",
+          "source_date": "2026-02"
+        },
+        {
+          "position": "Créer un « Fonds France Production » de 600 M€ par an, piloté par les régions, pour financer la robotisation et l'équipement productif. S'y ajouterait un sur-amortissement fiscal. Selon le livret, les aides directes aux entreprises sont souvent inefficaces, mais leur réduction ne suffirait pas à financer la baisse d'impôts.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf",
+          "source_title": "LR – Produire plus (proposition 8)",
+          "source_date": "2026-02"
+        },
+        {
+          "position": "Rétablir une concurrence équitable : clauses de réciprocité dans tous les accords commerciaux et au moins 50 % des contrôles consacrés aux produits importés, à effectifs constants. Il veut aussi étendre le mécanisme d'ajustement carbone aux frontières aux produits transformés, conditionner l'accès au marché européen à une production sur le sol européen et mobiliser la commande publique (« Buy European First »).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf",
+          "source_title": "LR – Produire plus (proposition 7)",
+          "source_date": "2026-02"
+        },
+        {
+          "position": "Électricité pour l'industrie : remplacer le Versement nucléaire universel par un contrat long terme (type Exeltium) garantissant jusqu'à 30 TWh par an pendant 15 ans à prix négocié. Objectif : jusqu'à -10 % sur le prix de fourniture et -5 à -10 % sur le tarif de réseau à moyen terme.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf",
+          "source_title": "LR – Produire plus (proposition 6)",
+          "source_date": "2026-02"
+        },
+        {
+          "position": "Orienter l'épargne des Français vers les fonds propres des entreprises. Chaque actif aurait un compte d'épargne retraite, ce qui constituerait à terme environ 1 000 Md€ de capital productif. Objectif affiché : résorber tout le déficit commercial en cinq ans.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf",
+          "source_title": "LR – Produire plus (proposition 12)",
+          "source_date": "2026-02"
+        }
+      ]
+    },
+    {
+      "topic_id": "retraites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Âge minimal de départ fixé à 63 ans et taux plein automatique à 65 ans, au lieu de 67, même sans tous les trimestres. Décote de 7 % par an pour un départ avant 65 ans.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Annoncé sur LCI. Les partenaires sociaux seraient consultés pour définir des exceptions pour les métiers pénibles.",
+          "source_url": "https://www.franceinfo.fr/politique/bruno-retailleau/s-il-est-elu-bruno-retailleau-veut-instaurer-un-age-minimal-de-depart-a-la-retraite-a-63-ans-le-taux-plein-a-65_8205254.html",
+          "source_title": "franceinfo – S'il est élu, Bruno Retailleau veut instaurer un âge minimal de départ à la retraite à 63 ans, et le taux plein à 65 ans",
+          "source_date": "2026-09-22"
+        },
+        {
+          "position": "Lier automatiquement l'âge du taux plein à l'évolution de l'espérance de vie.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://www.lejdd.fr/politique/presidentielle-bruno-retailleau-devoile-sa-reforme-choc-des-retraites-184203",
+          "source_title": "JDD – Présidentielle : Bruno Retailleau dévoile sa réforme choc des retraites",
+          "source_date": "2026-09-23"
+        },
+        {
+          "position": "Introduire une part de capitalisation pour les jeunes, représentant d'abord 25 à 30 % de leur pension, en complément de la répartition. Chaque actif aurait un compte d'épargne retraite à gestion paritaire, alimenté notamment par l'intéressement et la participation.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://www.franceinfo.fr/politique/bruno-retailleau/s-il-est-elu-bruno-retailleau-veut-instaurer-un-age-minimal-de-depart-a-la-retraite-a-63-ans-le-taux-plein-a-65_8205254.html",
+          "source_title": "franceinfo, 22/09/2026 ; LR – Produire plus (proposition 12)",
+          "source_date": "2026-09-22"
+        },
+        {
+          "position": "Objectif de 40 Md€ d'économies cumulées sur cinq ans, en préservant la répartition.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/reculer-ou-avancer-lage-legal-avec-ou-sans-capitalisation-ce-que-proposent-les-principaux-candidats-a-lelection-presidentielle-sur-les-retraites",
+          "source_title": "Public Sénat – Ce que proposent les principaux candidats sur les retraites",
+          "source_date": "2026-09-30"
+        },
+        {
+          "position": "Seniors : avant l'âge légal, exonération des cotisations retraite et chômage pour ceux qui ont tous leurs trimestres. Après l'âge légal, un cumul emploi-retraite « rénové » remplacerait la surcote : exonération de cotisations, pension réduite de 30 % du revenu d'activité, suppression du délai de carence de six mois.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf",
+          "source_title": "LR – Travail gagnant (proposition 3)",
+          "source_date": "2025-12"
+        },
+        {
+          "position": "Avant de chiffrer son projet, il avait annoncé qu'il assumerait de reculer l'âge légal et laissé entendre qu'il dépasserait 64 ans.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "short_quote": "Contrairement à beaucoup d'autres, j'assumerai le fait de repousser l'âge légal",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/retraites-contrairement-a-beaucoup-d-autres-j-assumerai-le-fait-de-repousser-l-age-legal-lance-bruno-retailleau-candidat-lr-a-l-election-presidentielle_8166161.html",
+          "source_title": "franceinfo – Débat du Medef",
+          "source_date": "2026-08-28"
+        }
+      ]
+    },
+    {
+      "topic_id": "sante",
+      "found": true,
+      "positions": [
+        {
+          "position": "Réduire le nombre de bénéficiaires de l'aide médicale d'État (AME) et réduire le panier de soins qu'elle couvre.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "details": "Rapporté par l'IFRAP (2026) et, en 2025, par Planet.fr d'après un entretien au Figaro Magazine. Ce dernier mentionnait aussi une hausse des franchises médicales.",
+          "source_url": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+          "source_title": "Fondation IFRAP – Comparateur Présidentielles 2027",
+          "source_date": "2026"
+        },
+        {
+          "position": "Hausse des franchises médicales.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Propos antérieurs à la déclaration de candidature. Source secondaire.",
+          "source_url": "https://www.planet.fr/politique-limiter-le-nombre-de-fonctionnaires-retraite-par-capitalisation-les-premieres-propositions-de-bruno-retailleau-pour-2027.2987506.29334.html",
+          "source_title": "Planet.fr (d'après Le Figaro Magazine) – les premières propositions de Bruno Retailleau pour 2027",
+          "source_date": "2025-08-29"
+        },
+        {
+          "position": "Opposé à la légalisation de l'aide à mourir : la réponse à la souffrance ne doit pas être la mort.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "short_quote": "Une grande nation ne répond pas à la souffrance par la mort",
+          "source_url": "https://republicains.fr/actualites/2026/07/15/une-grande-nation-ne-repond-pas-a-la-souffrance-par-la-mort/",
+          "source_title": "« Une grande nation ne répond pas à la souffrance par la mort »",
+          "source_date": "2026-07-15"
+        },
+        {
+          "position": "Redéployer vers l'hôpital 20 000 équivalents temps plein libérés par l'IA. Développer des IA médicales françaises entraînées sur les données de santé nationales, hébergées en Europe (norme SecNumCloud). Selon le livret, une infirmière récupérerait deux heures de soin par jour.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf",
+          "source_title": "LR – L'IA au service des Français",
+          "source_date": "2026-07"
+        },
+        {
+          "position": "Confier la santé scolaire aux départements. Le livret famille annonce que la lutte contre l'infertilité figurera dans un « programme santé » à venir.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf",
+          "source_title": "LR – Éducation ; LR – Famille",
+          "source_date": "2026-09"
+        }
+      ]
+    },
+    {
+      "topic_id": "logement",
+      "found": true,
+      "positions": [
+        {
+          "position": "Produire 1 million de logements supplémentaires en cinq ans par un « choc d'offre ». Les gisements cités : 350 000 logements grâce au statut de bailleur privé, 150 000 par transformation de bureaux, etc.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/05/LR_Logement.pdf",
+          "source_title": "LR – Se loger mieux et moins cher (livret)",
+          "source_date": "2026-05"
+        },
+        {
+          "position": "Abroger le « zéro artificialisation nette » (ZAN). Une loi d'urgence inspirée de la loi Notre-Dame diviserait par deux les délais de construction et encadrerait les recours. Le maire redeviendrait le décideur en urbanisme, et chaque commune recevrait 9 000 € de TVA par logement neuf.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/05/LR_Logement.pdf",
+          "source_title": "LR – Se loger mieux et moins cher",
+          "source_date": "2026-05"
+        },
+        {
+          "position": "Supprimer l'encadrement des loyers prévu par la loi ELAN : le loyer serait fixé librement à la signature du bail. Mettre fin aux interdictions de louer liées au DPE, qui resterait seulement informatif (environ 450 000 logements préservés selon le livret).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "Nous supprimerons l'encadrement des loyers.",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/05/LR_Logement.pdf",
+          "source_title": "LR – Se loger mieux et moins cher",
+          "source_date": "2026-05"
+        },
+        {
+          "position": "Supprimer les quotas de 20 % et 25 % de logements sociaux imposés par la loi SRU et éteindre progressivement le DALO. Le logement social serait réservé en priorité aux personnes qui travaillent, surtout les familles, avec un réexamen tous les cinq ans. Action Logement serait recentré sur les salariés (contingent préfectoral ramené à 5 %).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/05/LR_Logement.pdf",
+          "source_title": "LR – Se loger mieux et moins cher ; LR – Famille (proposition 3)",
+          "source_date": "2026-05"
+        },
+        {
+          "position": "Accession à la propriété : vendre 10 % du parc HLM à ses locataires (environ 86 000 logements) avec une décote de 20 %. Développer le bail réel solidaire. Permettre le transfert d'un prêt immobilier d'un bien à l'autre. Rendre les intérêts d'emprunt déductibles pour les familles.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/05/LR_Logement.pdf",
+          "source_title": "LR – Se loger mieux et moins cher",
+          "source_date": "2026-05"
+        },
+        {
+          "position": "Bailleurs privés : amortissement de 4 % par an de la valeur du bâti, ou option pour un prélèvement forfaitaire de 30 % sur les loyers. Tolérance zéro contre le squat : expulsion administrative sous dix jours. Impayés de loyer : contravention, expulsion en référé, et exécution sous 30 jours, faute de quoi l'État indemniserait le propriétaire.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/05/LR_Logement.pdf",
+          "source_title": "LR – Se loger mieux et moins cher",
+          "source_date": "2026-05"
+        }
+      ]
+    },
+    {
+      "topic_id": "solidarites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Créer un Compte social unique qui recense toutes les aides non contributives (État, CAF, collectivités). Le total des aides ne pourrait pas dépasser 70 % du Smic net par adulte, sauf en cas de handicap, de dépendance ou pour les personnes âgées.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Économie estimée à 10 Md€ par an, lutte contre la fraude comprise. Exemple du livret : un couple sans emploi avec deux enfants perdrait 410 € par mois.",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf",
+          "source_title": "LR – Travail gagnant (proposition 4)",
+          "source_date": "2025-12 (présenté le 2026-01-07)"
+        },
+        {
+          "position": "Remplacer le RSA, la prime d'activité et l'ASS par un « Revenu d'incitation à l'activité » (RIA). Un adulte de moins de 65 ans en situation régulière toucherait un socle de 300 € par mois. S'y ajouteraient 250 € s'il justifie de 15 heures d'activité par semaine (formation, recherche d'emploi). En cas de reprise d'emploi, l'allocation baisserait de 30 % du salaire, et elle s'arrêterait au-delà de 1 833 € de revenus.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf",
+          "source_title": "LR – Travail gagnant (proposition 2)",
+          "source_date": "2025-12"
+        },
+        {
+          "position": "Assurance chômage : appliquer les règles de juin 2024 (durée maximale ramenée de 18 à 15 mois). Arrêter l'indemnisation au troisième refus d'une offre raisonnable. Après une rupture conventionnelle, limiter l'indemnisation à six mois et la plafonner. Calculer l'allocation des frontaliers sur un salaire français, accélérer la dégressivité au-dessus de 3 000 € nets et porter la durée minimale de rechargement des droits à 9 ou 12 mois.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "l'allocation chômage doit être un filet de sécurité, pas un choix de vie",
+          "details": "Économies estimées entre 12,5 et 15,7 Md€ par an.",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf",
+          "source_title": "LR – Travail gagnant (proposition 5)",
+          "source_date": "2025-12"
+        },
+        {
+          "position": "Créer un « Revenu familial » universel de 240 € par mois et par enfant, dès le premier enfant et jusqu'à 18 ans, qui remplacerait 12 dispositifs. Il serait doublé (480 €) pour le troisième enfant mineur. La PAJE, l'ASF, les APL et l'AEEH seraient maintenues.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Pour les étrangers, le Revenu familial exigerait 5 ans de résidence régulière et d'activité professionnelle. Le juge pourrait le suspendre en cas de « défaillance éducative ». Le livret présente la politique familiale comme une réponse à l'« hiver démographique » (1,56 enfant par femme).",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf",
+          "source_title": "LR – Une politique pour toutes les familles de France",
+          "source_date": "2026-04"
+        },
+        {
+          "position": "Garde d'enfants : aligner les micro-crèches sur le régime plus souple des maisons d'assistantes maternelles (MAM). Supprimer le plafond de 500 000 € du crédit d'impôt famille. Relever de 2 421 € à 7 000 € par an l'exonération sur l'aide de l'employeur pour la garde d'enfant. Coût estimé : 800 M€.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf",
+          "source_title": "LR – Famille (proposition 6)",
+          "source_date": "2026-04"
+        },
+        {
+          "position": "Handicap : faire de l'accompagnement des élèves en situation de handicap (AESH) « un vrai métier » et refonder l'école inclusive.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf",
+          "source_title": "LR – Éducation (proposition 9)",
+          "source_date": "2026-09"
+        }
+      ]
+    },
+    {
+      "topic_id": "egalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Prolonger le congé de naissance jusqu'aux six mois de l'enfant, au choix de l'un ou l'autre parent. Il serait facultatif, indemnisé à 70 % du salaire antérieur dans la limite du plafond de la Sécurité sociale, avec retour garanti sur le poste. Coût estimé : environ 700 M€.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf",
+          "source_title": "LR – Famille (proposition 5)",
+          "source_date": "2026-04"
+        },
+        {
+          "position": "Développer l'offre privée de garde pour favoriser l'emploi des mères. Le livret cite un taux d'emploi de 71 % pour les mères en couple et de 49 % pour les mères seules, et vise environ 40 000 mères supplémentaires en emploi (équivalent temps plein).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf",
+          "source_title": "LR – Famille (proposition 6)",
+          "source_date": "2026-04"
+        },
+        {
+          "position": "Sujet connexe (droits des femmes) : au Sénat, il a voté contre l'inscription de l'IVG dans la Constitution.",
+          "kind": "inference",
+          "confidence": "high",
+          "details": "Scrutin n°136 du 28 février 2024 : adopté par 267 voix contre 50. C'est un vote antérieur à la campagne. Aucune proposition de 2025-2026 n'a été trouvée sur l'égalité salariale ou les violences conjugales.",
+          "source_url": "https://www.senat.fr/scrutin-public/2023/scr2023-136.html",
+          "source_title": "Sénat – Scrutin n°136, projet de loi constitutionnelle relatif à la liberté de recourir à l'IVG",
+          "source_date": "2024-02-28"
+        }
+      ]
+    },
+    {
+      "topic_id": "droits_lgbtqia",
+      "found": true,
+      "positions": [
+        {
+          "position": "A voté pour la proposition de loi sénatoriale LR qui encadre les traitements médicaux des mineurs en questionnement de genre (restriction des bloqueurs de puberté et des traitements hormonaux).",
+          "kind": "inference",
+          "confidence": "high",
+          "details": "Adoptée par le Sénat par 180 voix contre 136. Il a aussi voté contre la suppression de l'article 1er (scrutin n°203). Le vote est certain ; le détail du contenu est donné avec une confiance moyenne.",
+          "source_url": "https://www.senat.fr/scrutin-public/2023/scr2023-204.html",
+          "source_title": "Sénat – Scrutin n°204, PPL visant à encadrer les pratiques médicales mises en œuvre dans la prise en charge des mineurs en questionnement de genre",
+          "source_date": "2024-05-28"
+        },
+        {
+          "position": "Opposé à la gestation pour autrui (GPA) sous toutes ses formes.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Source secondaire (Planet.fr, d'après un entretien au Figaro Magazine), antérieure à la déclaration de candidature. Aucune position récente trouvée sur la PMA, la filiation ou le changement d'état civil.",
+          "source_url": "https://www.planet.fr/politique-limiter-le-nombre-de-fonctionnaires-retraite-par-capitalisation-les-premieres-propositions-de-bruno-retailleau-pour-2027.2987506.29334.html",
+          "source_title": "Planet.fr – les premières propositions de Bruno Retailleau pour 2027",
+          "source_date": "2025-08-29"
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "found": true,
+      "positions": [
+        {
+          "position": "Augmenter le traitement des professeurs, et non les primes : +135 € nets par mois en début de carrière et environ +300 € en milieu de carrière. La hausse serait financée par la baisse démographique, sans impôt nouveau.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf",
+          "source_title": "LR – Éducation (proposition 1)",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Fin du « collège unique » : examen d'entrée en 6e et groupes de niveau. Retour de la note chiffrée, brevet obligatoire pour entrer au lycée, bac « substantiellement » relevé. Les universités pourraient sélectionner leurs étudiants via un Parcoursup refondé qui tiendrait compte des notes du bac.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf",
+          "source_title": "LR – Éducation (propositions 3 et 8)",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Primaire recentré sur lire, écrire, compter, l'histoire-géographie de France et l'anglais, au détriment des « éducations à ». Un quart d'heure de lecture par jour. Vacances ramenées à la moyenne européenne. Diplômes remis chaque année le 14 juillet.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf",
+          "source_title": "LR – Éducation",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Liberté scolaire : 1 000 « établissements publics innovants » d'ici 2032 et autonomie pour tous les autres, avec le libre choix de l'école rendu aux familles. Fin de la règle des « 80/20 », qui limite à 20 % les moyens publics alloués au privé sous contrat. Instruction en famille libre jusqu'à 6 ans. Une agence d'évaluation et de certification des établissements serait créée sur le modèle britannique de l'Ofsted.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "Mille écoles libres dans l'école publique.",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf",
+          "source_title": "LR – Éducation (propositions 6 et 7)",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Discipline : au moins un établissement disciplinaire par académie pour les élèves exclus à répétition. En cas de harcèlement, c'est le harceleur qui change d'établissement. Les professeurs auraient le statut de dépositaires de l'autorité publique (peines aggravées pour leurs agresseurs).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "c'est le harceleur qui part, jamais le harcelé",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf",
+          "source_title": "LR – Éducation (proposition 10)",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Formation des maîtres : une École normale du professorat par académie, avec des concours régionalisés après la licence, et une seconde voie de recrutement pour les professionnels du privé. Voie professionnelle confiée aux régions et aux entreprises, apprentissage dès 14 ans. Une « Réserve nationale des sciences » ferait intervenir des volontaires dans les classes.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf",
+          "source_title": "LR – Éducation (propositions 2, 3, 4)",
+          "source_date": "2026-09"
+        }
+      ]
+    },
+    {
+      "topic_id": "societe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Créer dans chaque école et chaque établissement une « Classe Culture » pilotée par les professeurs et dotée d'un budget propre : sorties, ateliers, rencontres avec des artistes.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf",
+          "source_title": "LR – Éducation (proposition 3)",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Sanctuariser les aides publiques au cinéma, au même titre que celles aux autres secteurs jugés « fragiles ou stratégiques ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf",
+          "source_title": "LR – Produire plus (proposition 5)",
+          "source_date": "2026-02"
+        },
+        {
+          "position": "Critique l'audiovisuel public, qu'il accuse de « banaliser » La France insoumise.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Seul le titre et la vidéo d'un passage télévisé sont disponibles. Aucune proposition trouvée sur le financement, la gouvernance ou une privatisation de l'audiovisuel public. LR consultait encore ses adhérents sur la culture en mai 2026 : programme culturel non publié.",
+          "source_url": "https://republicains.fr/actualites/2026/04/08/le-service-public-banalise-la-france-insoumise/",
+          "source_title": "« Le service public banalise la France insoumise »",
+          "source_date": "2026-04-08"
+        },
+        {
+          "position": "Le parti s'oppose au projet de « labellisation » des médias évoqué par Emmanuel Macron, qu'il présente comme une menace pour la liberté d'expression.",
+          "kind": "inference",
+          "confidence": "medium",
+          "details": "Pétition portée par le parti LR, sans attribution personnelle à Bruno Retailleau.",
+          "source_url": "https://republicains.fr/actualites/2025/12/02/medias-oui-a-la-liberte-non-a-la-labellisation/",
+          "source_title": "Pétition LR : oui à la liberté, non à la labellisation",
+          "source_date": "2025-12-02"
+        }
+      ]
+    },
+    {
+      "topic_id": "numerique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Plan IA : un ministre délégué chargé de l'IA, un assistant administratif « Marianne » pour chaque Français, des data centers souverains (environ 1 GW en 2030, 4 GW vers 2035-2038), l'hébergement des données sensibles en Europe (norme SecNumCloud), un compartiment IA à Bpifrance, le doublement du nombre d'ingénieurs spécialisés et la préférence « Buy European First » dans la commande publique.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Next évalue l'investissement à environ 23 Md€ sur le quinquennat ; un autre média parle de 25 Md€.",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf",
+          "source_title": "LR – L'IA au service des Français",
+          "source_date": "2026-07"
+        },
+        {
+          "position": "Ne jamais imposer plus que les règles européennes. Instaurer un régime expérimental de dérogation de trois ans au RGPD et à l'AI Act pour les projets d'IA « à fort enjeu stratégique ». Recentrer la CNIL sur la protection des mineurs et des publics vulnérables et sur les abus des grandes plateformes.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf",
+          "source_title": "LR – L'IA au service des Français",
+          "source_date": "2026-07"
+        },
+        {
+          "position": "Protection des mineurs : zéro écran à l'école primaire, téléphone portable interdit dans les établissements jusqu'à la fin du lycée, IA utilisée comme outil pédagogique seulement à partir du lycée.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le 8 septembre 2026, à la télévision, il a parlé de « pas d'IA avant le collège ». Aucune position trouvée sur l'interdiction des réseaux sociaux aux moins de 15 ans, censurée par le Conseil constitutionnel en août 2026.",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf",
+          "source_title": "LR – Éducation (propositions 5 et 10)",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Grandes plateformes : les GAFAM, en « quasi-monopole », menacent de faire de l'Europe une « colonie numérique ». Il défend les règles européennes face aux pressions américaines.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/actualites/2026/01/05/refuser-la-dependance-numerique-culturelle-defendre-lindependance-europeenne/",
+          "source_title": "« Refuser la dépendance numérique culturelle, défendre l'indépendance européenne »",
+          "source_date": "2026-01-05"
+        },
+        {
+          "position": "Lancer un « plan Vauban numérique » piloté par une ANSSI renforcée et renforcer VIGINUM contre les campagnes de désinformation venues de l'étranger.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf",
+          "source_title": "LR – L'IA au service des Français",
+          "source_date": "2026-07"
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Nucléaire : prolonger les réacteurs existants jusqu'à 80 ans, maîtriser les coûts des 6 EPR2 et commander 8 EPR2 supplémentaires dans les deux premières années si le chantier avance bien. Relancer le réacteur à neutrons rapides de 4e génération et ajouter jusqu'à 4 GW d'hydroélectricité, dont des stations de pompage (STEP).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/05/LR_Electricite_vFF070626.pdf",
+          "source_title": "LR – Électricité : baisser la facture des Français, c'est possible !",
+          "source_date": "2026-06"
+        },
+        {
+          "position": "Ne plus subventionner de nouvelles capacités éoliennes et solaires en métropole (plus d'appels d'offres). Abroger la programmation pluriannuelle de l'énergie (PPE 3) et bloquer l'« European Grid Package ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/05/LR_Electricite_vFF070626.pdf",
+          "source_title": "LR – Électricité",
+          "source_date": "2026-06"
+        },
+        {
+          "position": "Baisser la facture d'électricité de 5 % immédiatement (suppression des CEE), puis de 5 à 10 % de plus à partir de 2030. Décorréler le prix de l'électricité de celui du gaz.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/05/LR_Electricite_vFF070626.pdf",
+          "source_title": "LR – Électricité",
+          "source_date": "2026-06"
+        },
+        {
+          "position": "Une écologie « d'adaptation » plutôt que « punitive » : stockage d'eau reconnu d'intérêt général majeur, réutilisation massive des eaux usées, climatisation des écoles, crèches, hôpitaux et EHPAD, géothermie. Il veut aussi remplacer le principe de précaution par un principe de responsabilité.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/actualites/2026/08/09/face-au-rechauffement-climatique-adapter-la-france-plutot-que-punir/",
+          "source_title": "« Face au réchauffement climatique, adapter la France plutôt que punir »",
+          "source_date": "2026-08-09"
+        },
+        {
+          "position": "Produire en France serait la meilleure solution écologique, car cela évite d'importer des émissions. Il veut supprimer l'Office français de la biodiversité (OFB).",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/actualites/2026/09/16/produire-en-france-la-meilleure-des-solutions-ecologiques/",
+          "source_title": "« Produire en France, la meilleure des solutions écologiques »",
+          "source_date": "2026-09-16"
+        },
+        {
+          "position": "Suppression des zones à faibles émissions (ZFE), défendue par LR au Parlement.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Position portée par le sénateur LR Rémy Pointereau (seul le titre de l'article a été vérifié), non attribuée personnellement au candidat. Aucune position trouvée sur les transports en commun ou la voiture thermique en 2035.",
+          "source_url": "https://republicains.fr/actualites/2026/01/23/suppression-des-zfe-adoption-du-test-pme-et-sortie-des-projets-industriels-du-zan-linterview-de-remy-pointereau/",
+          "source_title": "Suppression des ZFE, adoption du test PME et sortie des projets industriels du ZAN – interview de Rémy Pointereau",
+          "source_date": "2026-01-23"
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "found": true,
+      "positions": [
+        {
+          "position": "Inscrire dans la Constitution l'agriculture comme « intérêt fondamental de la Nation », avec un principe de non-régression du potentiel agricole. Supprimer le principe de précaution de la Charte de l'environnement par référendum.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Objectif assumé par le livret : qu'un texte comme la loi Duplomb ne puisse plus être censuré.",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/03/LR_Agriculture.pdf",
+          "source_title": "LR – Réarmer notre agriculture",
+          "source_date": "2026-03"
+        },
+        {
+          "position": "Supprimer l'OFB : la police de l'environnement passerait à la gendarmerie et l'ONCFS serait rétabli. L'ANSES autoriserait automatiquement un produit déjà autorisé ailleurs en Europe (reconnaissance mutuelle). Réautoriser certains néonicotinoïdes, dont l'acétamipride. Abandonner l'objectif de -50 % de pesticides du plan Ecophyto et intégrer les nouvelles techniques génomiques (NGT).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/03/LR_Agriculture.pdf",
+          "source_title": "LR – Réarmer notre agriculture",
+          "source_date": "2026-03"
+        },
+        {
+          "position": "Eau : reconnaître le stockage d'eau agricole comme d'intérêt général majeur et supprimer les projets de territoire pour la gestion de l'eau (PTGE). Imposer des délais d'instruction au-delà desquels le silence de l'administration vaut accord. Couper tout financement public des associations qui organisent l'« agribashing », les recours dilatoires ou la violence.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/03/LR_Agriculture.pdf",
+          "source_title": "LR – Réarmer notre agriculture",
+          "source_date": "2026-03"
+        },
+        {
+          "position": "Revenu des agriculteurs : sanctuariser le prix des matières premières agricoles dans les négociations (lois Egalim renforcées, date butoir au 31 décembre) et faire de la PAC un outil de souveraineté.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/03/LR_Agriculture.pdf",
+          "source_title": "LR – Réarmer notre agriculture (propositions 9 et 10)",
+          "source_date": "2026-03"
+        },
+        {
+          "position": "Produits importés : clauses de réciprocité dans tous les accords commerciaux et au moins 50 % des contrôles consacrés aux importations. Opposition à l'intégration de l'Ukraine au marché agricole européen.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Aucune position trouvée sur le bien-être animal ni, explicitement, sur l'accord UE-Mercosur.",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/03/LR_Agriculture.pdf",
+          "source_title": "LR – Réarmer notre agriculture (proposition 10)",
+          "source_date": "2026-03"
+        }
+      ]
+    },
+    {
+      "topic_id": "territoires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Redonner la main aux maires : décision en urbanisme, 9 000 € de TVA reversés par logement neuf, fin des quotas de la loi SRU.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/05/LR_Logement.pdf",
+          "source_title": "LR – Se loger mieux et moins cher",
+          "source_date": "2026-05"
+        },
+        {
+          "position": "Décentralisation selon le principe « qui paie co-décide » : les régions recevraient le développement économique (Fonds France Production), la formation professionnelle, la voie professionnelle et l'orientation ; les départements, la santé scolaire.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf",
+          "source_title": "LR – Éducation (proposition 7) ; LR – Produire plus (proposition 8)",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Dans les communes rurales, aucune classe ne fermerait sans consultation obligatoire du conseil municipal. La carte scolaire du primaire deviendrait pluriannuelle et négociée avec les communes.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf",
+          "source_title": "LR – Éducation (proposition 7)",
+          "source_date": "2026-09"
+        },
+        {
+          "position": "Services publics de proximité : 46 000 agents redéployés vers l'accueil des usagers (mairies, guichets de l'État) grâce à l'IA, et un assistant administratif « Marianne » pour les démarches en ligne.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "source_url": "https://acteurspublics.fr/articles/presidentielle-bruno-retailleau-souhaite-redeployer-125-000-fonctionnaires-sur-le-terrain-grace-a-lia/",
+          "source_title": "Acteurs publics – Bruno Retailleau souhaite redéployer 125 000 fonctionnaires sur le terrain grâce à l'IA",
+          "source_date": "2026-07"
+        },
+        {
+          "position": "Outre-mer : remplacer la production d'électricité au diesel (300 à 400 €/MWh) par des micro-STEP et des batteries pour réduire la CSPE. Pour Mayotte, il invoque la limitation du droit du sol déjà en vigueur comme modèle pour la métropole.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "details": "Aucune position trouvée sur la Nouvelle-Calédonie ni sur la vie chère outre-mer.",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/05/LR_Electricite_vFF070626.pdf",
+          "source_title": "LR – Électricité (proposition 3)",
+          "source_date": "2026-06"
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "found": true,
+      "positions": [
+        {
+          "position": "Instaurer un « état d'urgence anti-trafics » dans 50 à 60 quartiers. Ces quartiers seraient bouclés 24 heures sur 24 avec contrôle des entrées et sorties, et pourraient recevoir des blindés de gendarmerie (Centaure). Les télécommunications pourraient y être coupées. S'y ajouteraient des perquisitions administratives et la saisie des avoirs des trafiquants. La Constitution serait révisée pour permettre ces mesures.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le volet judiciaire prévoit une détention provisoire plus longue et des sanctions plus sévères pour les mineurs : courtes peines de prison dès le premier délit.",
+          "source_url": "https://www.franceinfo.fr/politique/bruno-retailleau/en-campagne-pour-la-presidentielle-2027-bruno-retailleau-veut-boucler-les-quartiers-du-narcotrafic_7959272.html",
+          "source_title": "franceinfo – Bruno Retailleau veut « boucler » les quartiers du narcotrafic",
+          "source_date": "2026-04-23"
+        },
+        {
+          "position": "Rendre obligatoires les peines minimales, en les inscrivant dans la Charte de l'ordre républicain. Organiser un référendum sur une « révolution de la justice pénale ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "Je veux qu'elles soient désormais obligatoires",
+          "details": "Dès septembre 2025, il défendait la prison directe pour quiconque frappe un policier ou un pompier.",
+          "source_url": "https://republicains.fr/actualites/2026/09/02/en-france-la-seule-cour-supreme-cest-le-peuple-je-lui-donnerai-le-dernier-mot/",
+          "source_title": "Entretien au Figaro repris sur republicains.fr",
+          "source_date": "2026-09-02"
+        },
+        {
+          "position": "Créer une « cour disciplinaire de la magistrature » qui remplacerait le Conseil supérieur de la magistrature pour sanctionner les juges. Elle réunirait des magistrats, des citoyens tirés au sort et des personnalités qualifiées, et ne serait pas présidée par un magistrat. Les justiciables, la hiérarchie des magistrats ou le ministre de la Justice pourraient la saisir.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/actualites/2026/06/06/il-faut-creer-une-cour-disciplinaire-de-la-magistrature/",
+          "source_title": "« Il faut créer une cour disciplinaire de la magistrature »",
+          "source_date": "2026-06-06"
+        },
+        {
+          "position": "Permettre au juge d'imposer une castration chimique sans le consentement des criminels sexuels les plus dangereux, en plus de la prison et d'un suivi renforcé.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://www.france24.com/fr/info-en-continu/20260610-criminels-sexuels-retailleau-propose-la-castration-chimique-la-gauche-sceptique",
+          "source_title": "France 24 (AFP) – Criminels sexuels : Retailleau propose la castration chimique",
+          "source_date": "2026-06-10"
+        },
+        {
+          "position": "Supprimer le juge de l'application des peines, abroger la loi Belloubet (aménagement des peines) et recourir à la reconnaissance faciale.",
+          "kind": "proposition_explicite",
+          "confidence": "medium",
+          "details": "Rapporté par le comparateur IFRAP et par Planet.fr. Aucune source primaire datée n'a été trouvée.",
+          "source_url": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+          "source_title": "Fondation IFRAP – Comparateur Présidentielles 2027",
+          "source_date": "2026"
+        },
+        {
+          "position": "Redéployer 18 000 policiers et gendarmes du travail administratif vers la voie publique et l'investigation grâce à l'IA. Déployer la vidéo « intelligente » dans un cadre strict.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf",
+          "source_title": "LR – L'IA au service des Français",
+          "source_date": "2026-07"
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "found": true,
+      "positions": [
+        {
+          "position": "Réduire « drastiquement » l'immigration légale et illégale par une loi soumise à référendum après révision constitutionnelle. Selon lui, l'immigration est devenue un « fardeau ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "l'immigration n'est pas une chance",
+          "source_url": "https://republicains.fr/actualites/2026/02/12/je-suis-candidat-a-lelection-presidentielle/",
+          "source_title": "« Je suis candidat à l'élection présidentielle »",
+          "source_date": "2026-02-12"
+        },
+        {
+          "position": "Abolir le droit du sol, conditionner la nationalité à l'assimilation et supprimer le droit au mariage pour les étrangers sous OQTF.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "abolir le droit du sol et revenir à l'assimilation",
+          "details": "Le 9 septembre 2026, sur CNews et Europe 1, il a déclaré : « On ne peut pas devenir Français par hasard ». Il cite Mayotte en exemple.",
+          "source_url": "https://republicains.fr/actualites/2026/09/02/en-france-la-seule-cour-supreme-cest-le-peuple-je-lui-donnerai-le-dernier-mot/",
+          "source_title": "Entretien au Figaro repris sur republicains.fr",
+          "source_date": "2026-09-02"
+        },
+        {
+          "position": "Conditions de séjour et aides : les étrangers devraient justifier de 5 ans de résidence régulière et d'activité pour bénéficier pleinement des aides familiales. Le RIA serait réservé aux personnes en situation régulière, et l'AME réduite. Le regroupement familial serait réduit « drastiquement ».",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf",
+          "source_title": "LR – Famille ; LR – Travail gagnant",
+          "source_date": "2026-04"
+        },
+        {
+          "position": "Algérie : dénoncer « au plus vite » l'accord franco-algérien de 1968 et appliquer le droit commun aux ressortissants algériens.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/actualites/2026/05/02/bruno-retailleau-interview-algerie-macron/",
+          "source_title": "Entretien au JDD repris sur republicains.fr",
+          "source_date": "2026-05-02"
+        },
+        {
+          "position": "Réserver Schengen à la libre circulation des Européens, avec des visas valables seulement dans le pays qui les délivre. Conditionner l'aide au développement et les préférences commerciales à la coopération des pays d'origine sur les retours, et suspendre les visas des pays qui ne coopèrent pas.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "Je propose de revenir à l'inspiration première du système Schengen",
+          "source_url": "https://republicains.fr/actualites/2026/08/02/lespace-schengen-doit-etre-reserve-aux-europeens/",
+          "source_title": "« L'espace Schengen doit être réservé aux Européens ! »",
+          "source_date": "2026-08-02"
+        },
+        {
+          "position": "Son texte constitutionnel de 2023 prévoyait des plafonds annuels de titres de séjour votés par le Parlement et le traitement des demandes d'asile à la frontière ou dans les postes diplomatiques. Ministre de l'Intérieur, il a signé en janvier 2025 une circulaire qui porte de 5 à 7 ans la présence exigée pour une régularisation exceptionnelle.",
+          "kind": "inference",
+          "confidence": "medium",
+          "details": "Ce sont des textes et des actes antérieurs à la campagne. Public Sénat (3 septembre 2026) évoque des plafonds migratoires dans la future Charte, mais l'extrait vérifié du Figaro ne les mentionne pas.",
+          "source_url": "https://www.senat.fr/travaux-parlementaires/textes-legislatifs/la-loi-en-clair/proposition-de-loi-constitutionnelle-relative-a-la-souverainete-de-la-france-a-la-nationalite-a-limmigration-et-a-lasile.html",
+          "source_title": "Sénat – PPL constitutionnelle souveraineté, nationalité, immigration, asile ; Amnesty – circulaire Retailleau (23/01/2025)",
+          "source_date": "2023-05-25"
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Primauté du droit national sous conditions : le droit de l'Union ne primerait que s'il respecte la Constitution et le principe de subsidiarité. Une loi organique pourrait écarter les jurisprudences européennes contraires aux intérêts fondamentaux de la France.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Aucune proposition de sortie de l'UE n'a été trouvée. Des constitutionnalistes cités par Public Sénat estiment que ce mécanisme pourrait mener à un conflit majeur avec l'UE.",
+          "source_url": "https://republicains.fr/actualites/2026/09/02/en-france-la-seule-cour-supreme-cest-le-peuple-je-lui-donnerai-le-dernier-mot/",
+          "source_title": "Entretien au Figaro repris sur republicains.fr",
+          "source_date": "2026-09-02"
+        },
+        {
+          "position": "Réserver Schengen aux Européens. En juillet 2026, il a demandé de suspendre la libre circulation avec l'Espagne après sa régularisation de près d'un million de migrants.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/actualites/2026/07/31/la-libre-circulation-des-personnes-en-europe-doit-etre-suspendue-pour-lespagne/",
+          "source_title": "« La libre-circulation des personnes en Europe doit être suspendue pour l'Espagne »",
+          "source_date": "2026-07-31"
+        },
+        {
+          "position": "Interdire par loi organique toute sur-transposition des directives européennes et installer une cellule de veille réglementaire à Bruxelles pour peser en amont des textes.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf",
+          "source_title": "LR – Produire plus (proposition 3)",
+          "source_date": "2026-02"
+        },
+        {
+          "position": "Énergie : faire respecter la souveraineté de la France sur son mix énergétique (subsidiarité), bloquer l'« European Grid Package » (730 Md€) et refuser toute évolution qui réduirait l'avantage électrique français.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/05/LR_Electricite_vFF070626.pdf",
+          "source_title": "LR – Électricité (proposition 9)",
+          "source_date": "2026-06"
+        },
+        {
+          "position": "Commerce : réciprocité dans tous les accords, extension du mécanisme d'ajustement carbone aux frontières, accès au marché européen conditionné à une production sur le sol de l'UE. Refus d'intégrer l'Ukraine au marché agricole européen.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Aucune position trouvée sur le budget de l'UE ni sur l'élargissement en général.",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/03/LR_Agriculture.pdf",
+          "source_title": "LR – Réarmer notre agriculture ; LR – Produire plus",
+          "source_date": "2026-03"
+        }
+      ]
+    },
+    {
+      "topic_id": "ukraine_russie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Soutien affiché à l'Ukraine : la résistance ukrainienne face à l'« agression russe » est pour lui « une leçon et un symbole ». Il décrit le conflit comme celui de « la nation contre l'empire ».",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Aucune proposition chiffrée trouvée sur l'aide militaire, l'envoi de troupes de réassurance ou les avoirs russes gelés.",
+          "source_url": "https://republicains.fr/actualites/2026/07/14/lunite-nationale-premiere-de-nos-armes/",
+          "source_title": "Tribune « L'unité nationale, première de nos armes »",
+          "source_date": "2026-07-14"
+        },
+        {
+          "position": "Au Sénat, il a voté pour la déclaration du gouvernement sur l'accord de sécurité franco-ukrainien.",
+          "kind": "inference",
+          "confidence": "high",
+          "details": "Adoptée par 293 voix contre 22. C'est un vote antérieur à la campagne.",
+          "source_url": "https://www.senat.fr/scrutin-public/2023/scr2023-155.html",
+          "source_title": "Sénat – Scrutin n°155, déclaration sur l'accord de sécurité franco-ukrainien",
+          "source_date": "2024-03-13"
+        },
+        {
+          "position": "S'opposer à l'intégration de l'Ukraine au marché agricole européen, en raison des écarts de coûts de production et du risque de dilution des aides de la PAC.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/wp-content/uploads/2026/03/LR_Agriculture.pdf",
+          "source_title": "LR – Réarmer notre agriculture (proposition 10)",
+          "source_date": "2026-03"
+        }
+      ]
+    },
+    {
+      "topic_id": "proche_orient",
+      "found": false,
+      "positions": []
+    },
+    {
+      "topic_id": "defense",
+      "found": true,
+      "positions": [
+        {
+          "position": "Porter le budget des armées à 100 Md€ à la fin du quinquennat, sur une trajectoire « sincère et sanctuarisée » de loi de programmation militaire.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "short_quote": "atteindre 100 milliards d'euros à la fin du quinquennat",
+          "details": "Des sites agrégateurs parlent de 3 % du PIB, chiffre absent de la tribune.",
+          "source_url": "https://republicains.fr/actualites/2026/07/14/lunite-nationale-premiere-de-nos-armes/",
+          "source_title": "Tribune « L'unité nationale, première de nos armes »",
+          "source_date": "2026-07-14"
+        },
+        {
+          "position": "Une dissuasion nucléaire strictement nationale, qui ne se partage pas. Il critique l'ouverture d'Emmanuel Macron à un débat européen sur la dissuasion.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "short_quote": "une prérogative strictement nationale",
+          "source_url": "https://republicains.fr/actualites/2026/03/01/la-dissuasion-nucleaire-francaise-ne-se-partage-pas/",
+          "source_title": "« La dissuasion nucléaire française ne se partage pas » (JDD)",
+          "source_date": "2026-03-01"
+        },
+        {
+          "position": "Rester dans l'OTAN, une sortie étant selon lui un « cadeau inespéré » aux adversaires, tout en « européanisant » l'Alliance. Défense européenne intergouvernementale plutôt que fédérale : traités bilatéraux sur le modèle du traité de Nancy avec la Pologne, et production européenne d'armement.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "source_url": "https://republicains.fr/actualites/2026/07/14/lunite-nationale-premiere-de-nos-armes/",
+          "source_title": "Tribune « L'unité nationale, première de nos armes »",
+          "source_date": "2026-07-14"
+        },
+        {
+          "position": "Créer une « vraie force de réserve territorialisée » de soldats-citoyens formés et équipés, avec un statut de réserviste attractif. Multiplier par cinq les moyens consacrés à l'IA de défense (cyber, drones, robotique, quantique).",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Aucune position trouvée sur un service national obligatoire ou sur le SNU.",
+          "source_url": "https://republicains.fr/actualites/2026/07/14/lunite-nationale-premiere-de-nos-armes/",
+          "source_title": "Tribune du 14 juillet 2026 ; LR – L'IA au service des Français",
+          "source_date": "2026-07-14"
+        }
+      ]
+    }
+  ],
+  "signature_proposals": [
+    {
+      "proposal": "Pacte constitutionnel soumis à référendum dès la rentrée 2027 : article 11 étendu à « toute question législative », RIP à 2,5 millions de soutiens, possibilité de passer outre une censure du Conseil constitutionnel, Charte de l'ordre républicain.",
+      "topic_id": "institutions",
+      "source_url": "https://republicains.fr/actualites/2026/09/02/en-france-la-seule-cour-supreme-cest-le-peuple-je-lui-donnerai-le-dernier-mot/"
+    },
+    {
+      "proposal": "Référendum pour réduire « drastiquement » l'immigration : abolition du droit du sol, regroupement familial réduit, 5 ans de résidence et d'activité exigés pour les aides familiales.",
+      "topic_id": "immigration",
+      "source_url": "https://republicains.fr/actualites/2026/02/12/je-suis-candidat-a-lelection-presidentielle/"
+    },
+    {
+      "proposal": "Seuil « zéro cotisation » : heures travaillées au-delà de 1 623 heures par an exonérées de toutes cotisations sociales.",
+      "topic_id": "travail_salaires",
+      "source_url": "https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf"
+    },
+    {
+      "proposal": "Compte social unique : cumul des aides plafonné à 70 % du Smic net par adulte. Revenu d'incitation à l'activité (300 € + 250 € contre 15 heures d'activité par semaine) à la place du RSA, de la prime d'activité et de l'ASS.",
+      "topic_id": "solidarites",
+      "source_url": "https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf"
+    },
+    {
+      "proposal": "Retraites : âge minimal de 63 ans, taux plein automatique à 65 ans, décote de 7 % par an, et 25 à 30 % de capitalisation pour les jeunes.",
+      "topic_id": "retraites",
+      "source_url": "https://www.franceinfo.fr/politique/bruno-retailleau/s-il-est-elu-bruno-retailleau-veut-instaurer-un-age-minimal-de-depart-a-la-retraite-a-63-ans-le-taux-plein-a-65_8205254.html"
+    },
+    {
+      "proposal": "« État d'urgence anti-trafics » : 50 à 60 quartiers bouclés 24 heures sur 24, après révision de la Constitution.",
+      "topic_id": "securite_justice",
+      "source_url": "https://www.franceinfo.fr/politique/bruno-retailleau/en-campagne-pour-la-presidentielle-2027-bruno-retailleau-veut-boucler-les-quartiers-du-narcotrafic_7959272.html"
+    },
+    {
+      "proposal": "Peines minimales obligatoires et cour disciplinaire de la magistrature comprenant des citoyens tirés au sort.",
+      "topic_id": "securite_justice",
+      "source_url": "https://republicains.fr/actualites/2026/06/06/il-faut-creer-une-cour-disciplinaire-de-la-magistrature/"
+    },
+    {
+      "proposal": "Choc fiscal de 40 Md€ sur la production : plus de 25 Md€ de baisse du coût du travail et environ 15 Md€ d'impôts de production supprimés (C3S, CVAE, part industrielle de la CFE).",
+      "topic_id": "fiscalite",
+      "source_url": "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf"
+    },
+    {
+      "proposal": "Revenu familial universel de 240 € par mois et par enfant, doublé pour le troisième enfant.",
+      "topic_id": "solidarites",
+      "source_url": "https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf"
+    },
+    {
+      "proposal": "1 million de logements supplémentaires en 5 ans : suppression du ZAN, de l'encadrement des loyers et des quotas SRU.",
+      "topic_id": "logement",
+      "source_url": "https://republicains.fr/wp-content/uploads/2026/05/LR_Logement.pdf"
+    },
+    {
+      "proposal": "IA dans l'État : 125 000 départs non remplacés et 125 000 agents redéployés sur le terrain, assistant « Marianne », environ 15 Md€ d'économies nettes par an.",
+      "topic_id": "finances_publiques",
+      "source_url": "https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf"
+    },
+    {
+      "proposal": "Fin des subventions aux nouvelles capacités éoliennes et solaires, réacteurs nucléaires prolongés à 80 ans, 8 EPR2 supplémentaires possibles, facture d'électricité réduite de 5 % puis de 5 à 10 %.",
+      "topic_id": "ecologie_energie",
+      "source_url": "https://republicains.fr/wp-content/uploads/2026/05/LR_Electricite_vFF070626.pdf"
+    }
+  ],
+  "distinctive_vs_others": "Méthode référendaire et constitutionnelle. C'est le seul candidat de la droite et du centre à vouloir changer la Constitution pour soumettre l'immigration (droit du sol, regroupement familial) au référendum et donner au peuple ou au Congrès le « dernier mot » sur une censure du Conseil constitutionnel. Édouard Philippe refuse de modifier la Constitution dans ce seul but (Entrevue : https://entrevue.fr/presidentielle-2027/presidentielle-2027-le-referendum-sur-limmigration-creuse-le-fosse-entre-bruno-retailleau-et-edouard-philippe/). Selon franceinfo, Retailleau oppose son approche à celle, plus administrative, de Philippe sur le Conseil constitutionnel (https://www.franceinfo.fr/politique/bruno-retailleau/une-difference-de-nature-avec-edouard-philippe-bruno-retailleau-rejette-l-idee-d-un-rassemblement-de-la-droite-pour-l-election-presidentielle_8195303.html, 16/09/2026).\n\nPositionnement. Il refuse tout rassemblement avec Philippe : « Cette élection présidentielle ne se gagnera pas au centre ». Il se place à la fois contre le « bloc central » et contre les « démagogues » Mélenchon et Le Pen.\n\nFace au RN. Il assume une ligne régalienne et identitaire proche (droit du sol, référendum, Algérie), mais il s'en distingue sur l'économie. Il a critiqué la TVA à 5,5 % sur les carburants proposée par Marine Le Pen (« 15 milliards » non financés) et dit qu'« elle ruinera le pays » (franceinfo, 08/07/2026). Sur les retraites, il propose un âge minimal de 63 ans et un taux plein à 65 ans, quand Marine Le Pen veut revenir à 62 ans (Public Sénat, 30/09/2026 : https://www.publicsenat.fr/actualites/politique/reculer-ou-avancer-lage-legal-avec-ou-sans-capitalisation-ce-que-proposent-les-principaux-candidats-a-lelection-presidentielle-sur-les-retraites). Il défend le maintien dans l'OTAN, qu'il ne faut pas quitter selon sa tribune du 14/07/2026.\n\nFace à Philippe et Attal. Philippe veut un âge légal à 65 ans en dix ans et 45 ans de cotisation. Attal veut un système fondé sur la durée de cotisation et un plan de 150 Md€ d'économies (franceinfo, 29/09/2026). Sur l'IA, Attal propose un investissement massif de 200 Md€, alors que Retailleau défend une approche d'« État stratège » centrée sur l'administration (ministre de l'IA, « Marianne »), selon Technomedia (09/2026).\n\nSpécificités. Il est le seul à proposer, dans ses livrets :\n- un Compte social unique plafonnant les aides à 70 % du Smic ;\n- un Revenu familial universel de 240 € par enfant qui remplace le quotient familial ;\n- la suppression du principe de précaution de la Constitution ;\n- la suppression de l'OFB ;\n- la fin des subventions aux nouveaux projets éoliens et solaires ;\n- la reconnaissance des « racines judéo-chrétiennes » dans une charte constitutionnelle ;\n- la castration chimique imposable sans consentement ;\n- une cour disciplinaire des magistrats incluant des citoyens tirés au sort.\n\nFace à la gauche (Mélenchon, Roussel, Arthaud, Kazib, Batho, Bouamrane, Cazeneuve). Il s'oppose frontalement à toute hausse de la fiscalité du patrimoine et des successions, contrairement à Olivier Faure (taxe Zucman) ou à Raphaël Glucksmann, auxquels il répond directement (26/08/2026).\n\nLes positions de David Lisnard, Nicolas Dupont-Aignan, Florian Philippot, François Asselineau et des autres petits candidats n'ont pas été comparées dans les sources consultées.",
+  "evolutions_and_contradictions": "1) Date de candidature. Il s'est déclaré le 12/02/2026. Le 19/04/2026 correspond seulement à sa désignation par les adhérents LR (73,8 %).\n\n2) Retraites. Le 28/08/2026, au débat du Medef, il promet d'« assumer » le recul de l'âge légal et laisse entendre qu'il dépasserait 64 ans. Le 22/09/2026, il fixe finalement un âge minimal à 63 ans avec un taux plein à 65 ans et une décote de 7 % par an. L'âge plancher annoncé est donc plus bas que prévu, mais l'âge du taux plein sert de levier.\n\n3) Fonctionnaires. Le livret IA (07/2026) prévoit 125 000 départs non remplacés, plus 125 000 agents redéployés. Le comparateur IFRAP mentionne 250 000 à 300 000 postes supprimés. Le JDD (23/09/2026) évoque 600 000 postes sur deux quinquennats, chiffre non vérifié. Les chiffrages ne sont donc pas stabilisés.\n\n4) IA à l'école. Le livret Éducation (09/2026) la réserve au lycée. À la télévision le 08/09/2026, il dit « pas d'IA avant le collège ».\n\n5) Défense. Sa tribune du 14/07/2026 fixe 100 Md€ en fin de quinquennat. Certains agrégateurs lui attribuent 3 % du PIB, chiffre non retrouvé en source primaire.\n\n6) Référendum. Sa proposition de loi constitutionnelle de 2023 limitait l'extension de l'article 11 à l'immigration, et il l'avait retirée faute de majorité au Sénat. Il élargit désormais à « toute question législative » et ajoute un mécanisme pour passer outre le Conseil constitutionnel.\n\n7) Rapport au macronisme. Il a été ministre de l'Intérieur des gouvernements Barnier, Bayrou et Lecornu (sept. 2024 - oct. 2025). Il revendique aujourd'hui une « rupture franche » et refuse d'être « assimilé au macronisme » (15/04/2026).\n\n8) Numérique. Il défend les règles européennes face aux GAFAM et aux États-Unis (01/2026), mais propose une dérogation de trois ans au RGPD et à l'AI Act pour les projets d'IA stratégiques (07/2026).\n\n9) Budget. Les quelque 30 Md€ d'économies sociales sont intégralement rendus aux salariés et aux entreprises, et le choc fiscal coûte 40 Md€. La réduction du déficit repose donc sur des baisses de dépenses (120 Md€ d'ici 2032 selon l'IFRAP) qui ne sont pas toutes détaillées dans les livrets.\n\n10) 35 heures. Le livret parle de dépasser les 35 heures par la négociation et les heures sans cotisations. Le JDD évoque leur « suppression ».",
+  "open_questions": [
+    "Santé : le livret famille annonce un « programme santé », introuvable au 06/10/2026. Rien n'est publié sur les déserts médicaux, l'hôpital, le rôle des complémentaires ou la prise en charge de la dépendance et du grand âge.",
+    "Israël et Gaza : aucune position sourcée trouvée sur la guerre à Gaza, la reconnaissance de l'État de Palestine par la France ou les relations avec le gouvernement israélien.",
+    "Ukraine et Russie : aucune position chiffrée sur l'aide militaire, l'envoi de troupes de réassurance, les avoirs russes gelés ou l'adhésion de l'Ukraine à l'UE, en dehors du volet agricole.",
+    "Audiovisuel public : il critique un biais, mais rien n'est dit sur une privatisation, une holding ou le financement. La consultation culture des adhérents LR (mai 2026) n'a pas encore abouti à un programme.",
+    "Droits LGBTQIA+ : aucune position récente sur la PMA, la filiation, le changement de sexe à l'état civil, la lutte contre les discriminations ou l'éducation à la sexualité à l'école.",
+    "Égalité femmes-hommes : rien sur l'égalité salariale ni sur les violences conjugales.",
+    "Immigration : aucun plafond chiffré (Public Sénat évoque des plafonds dans la Charte, sans chiffre), et le contenu précis de l'AME réduite n'est pas connu. Les textes exacts des référendums ne sont pas publiés.",
+    "Trajectoire de déficit et de dette (année de retour sous 3 %, niveau de dette visé) : rien n'a été trouvé en source primaire.",
+    "Smic, salaires minimaux, conditions de travail : aucune proposition trouvée.",
+    "Transports, ZFE (position du candidat lui-même), interdiction des voitures thermiques en 2035 : aucune position trouvée.",
+    "Bien-être animal, Mercosur (explicitement), budget européen, élargissement de l'UE : aucune position trouvée.",
+    "Outre-mer : aucune position trouvée sur la Nouvelle-Calédonie ni sur la vie chère.",
+    "Voile dans l'espace public (proposé par le RN), au sport ou à l'université : aucune position sourcée trouvée.",
+    "Service national ou SNU : non abordé, au-delà de la réserve territorialisée.",
+    "Réseaux sociaux et moins de 15 ans : sa position après la censure par le Conseil constitutionnel (août 2026) n'est pas connue.",
+    "Les livrets sont publiés par le parti LR : leur reprise intégrale dans le programme présidentiel final reste à confirmer."
+  ],
+  "programme_sources": [
+    {
+      "title": "Déclaration de candidature : « Je suis candidat à l'élection présidentielle » (republicains.fr)",
+      "url": "https://republicains.fr/actualites/2026/02/12/je-suis-candidat-a-lelection-presidentielle/",
+      "date": "2026-02-12"
+    },
+    {
+      "title": "LR – Travail gagnant : nos propositions pour la France (livret)",
+      "url": "https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf",
+      "date": "2025-12 (présenté le 2026-01-07)"
+    },
+    {
+      "title": "LR – Produire plus pour vivre mieux (livret)",
+      "url": "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf",
+      "date": "2026-02"
+    },
+    {
+      "title": "LR – Réarmer notre agriculture (livret)",
+      "url": "https://republicains.fr/wp-content/uploads/2026/03/LR_Agriculture.pdf",
+      "date": "2026-03"
+    },
+    {
+      "title": "LR – Une politique pour toutes les familles de France (livret)",
+      "url": "https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf",
+      "date": "2026-04"
+    },
+    {
+      "title": "LR – Se loger mieux et moins cher (livret)",
+      "url": "https://republicains.fr/wp-content/uploads/2026/05/LR_Logement.pdf",
+      "date": "2026-05"
+    },
+    {
+      "title": "LR – Électricité : baisser la facture des Français, c'est possible ! (livret)",
+      "url": "https://republicains.fr/wp-content/uploads/2026/05/LR_Electricite_vFF070626.pdf",
+      "date": "2026-06"
+    },
+    {
+      "title": "LR – L'IA au service des Français (livret)",
+      "url": "https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf",
+      "date": "2026-07"
+    },
+    {
+      "title": "LR – Éducation : pour une école de la transmission, de l'égalité des chances, de l'autorité et de la liberté (livret)",
+      "url": "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf",
+      "date": "2026-09"
+    },
+    {
+      "title": "LR – page « Nos propositions » (index des livrets et notes techniques)",
+      "url": "https://republicains.fr/nos-propositions/"
+    },
+    {
+      "title": "Entretien au Figaro sur le pacte constitutionnel et la Charte de l'ordre républicain",
+      "url": "https://republicains.fr/actualites/2026/09/02/en-france-la-seule-cour-supreme-cest-le-peuple-je-lui-donnerai-le-dernier-mot/",
+      "date": "2026-09-02"
+    },
+    {
+      "title": "franceinfo – Retraites : âge minimal 63 ans, taux plein 65 ans",
+      "url": "https://www.franceinfo.fr/politique/bruno-retailleau/s-il-est-elu-bruno-retailleau-veut-instaurer-un-age-minimal-de-depart-a-la-retraite-a-63-ans-le-taux-plein-a-65_8205254.html",
+      "date": "2026-09-22"
+    },
+    {
+      "title": "franceinfo – Bruno Retailleau veut « boucler » les quartiers du narcotrafic",
+      "url": "https://www.franceinfo.fr/politique/bruno-retailleau/en-campagne-pour-la-presidentielle-2027-bruno-retailleau-veut-boucler-les-quartiers-du-narcotrafic_7959272.html",
+      "date": "2026-04-23"
+    },
+    {
+      "title": "Tribune « L'unité nationale, première de nos armes » (défense)",
+      "url": "https://republicains.fr/actualites/2026/07/14/lunite-nationale-premiere-de-nos-armes/",
+      "date": "2026-07-14"
+    },
+    {
+      "title": "« L'espace Schengen doit être réservé aux Européens ! »",
+      "url": "https://republicains.fr/actualites/2026/08/02/lespace-schengen-doit-etre-reserve-aux-europeens/",
+      "date": "2026-08-02"
+    },
+    {
+      "title": "France 24 – Bruno Retailleau désigné candidat des Républicains (73,8 %)",
+      "url": "https://www.france24.com/fr/france/20260419-pr%C3%A9sidentielle-2027-bruno-retailleau-d%C3%A9sign%C3%A9-candidat-des-r%C3%A9publicains-une-primaire-%C3%A9cart%C3%A9e",
+      "date": "2026-04-19"
+    }
+  ]
+}

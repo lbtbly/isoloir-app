@@ -1,0 +1,1084 @@
+{
+  "group": "monde",
+  "cleavages": [
+    {
+      "topic_id": "europe",
+      "importance": "high",
+      "cleavage": "Faut-il rester dans l'Union européenne ou en sortir ?",
+      "sides": [
+        {
+          "approach": "Quitter l'Union européenne, et pour certains l'euro : soit tout de suite par l'article 50, soit après un moratoire et un référendum. Les compétences reviendraient à la France, avec des coopérations au cas par cas entre nations.",
+          "candidates": [
+            "François Asselineau",
+            "Florian Philippot",
+            "Nicolas Dupont-Aignan",
+            "Francis Lalanne"
+          ],
+          "evidence_urls": [
+            "https://upr.fr/actualites/discours-de-rentree-2026-de-francois-asselineau-la-liberation-nationale",
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+            "https://www.debout-la-france.fr/projet/refonder-et-moraliser-notre-democratie/",
+            "https://dieudolalanne2027.com/programme"
+          ]
+        },
+        {
+          "approach": "Rester dans l'Union européenne et dans l'euro, que ce soit pour l'approfondir, la réorienter ou lui reprendre des compétences.",
+          "candidates": [
+            "Marine Le Pen",
+            "Édouard Philippe",
+            "Gabriel Attal",
+            "Bruno Retailleau",
+            "David Lisnard",
+            "Jean-Luc Mélenchon",
+            "Fabien Roussel",
+            "Delphine Batho",
+            "Karim Bouamrane",
+            "Bernard Cazeneuve",
+            "Olivier Becht",
+            "Olivier Faure",
+            "Raphaël Glucksmann",
+            "Jérôme Guedj",
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://www.euronews.com/my-europe/2026/09/17/fact-check-will-marine-le-pen-hold-a-frexit-referendum-if-she-becomes-president-of-france",
+            "https://www.unenouvelleenergie.fr/app/uploads/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf",
+            "https://melenchon.fr/2026/09/05/la-dette-sans-tabou/",
+            "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+            "https://attalpresident.fr/actualites/gabriel-attal-a-reims-batir-les-etats-unis-d-europe-pour-retrouver-notre-puissance",
+            "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
+            "https://republicains.fr/actualites/2026/09/02/en-france-la-seule-cour-supreme-cest-le-peuple-je-lui-donnerai-le-dernier-mot/",
+            "https://www.generationecologie.fr/a-propos/generation-ecologie/nos-valeurs/",
+            "https://www.lafrancehumaineetforte.fr/manifeste.html",
+            "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+            "https://becht2027.fr/olivier-becht/ses-convictions/",
+            "https://www.politis.fr/articles/2026/09/olivier-faure-je-ne-vois-pas-ce-qui-pourrait-conduire-vers-une-autre-decision-que-la-censure/",
+            "https://librejournal.fr/article/glucksmann-se-devoile/",
+            "https://moselle.tv/jerome-guedj-inspirons-nous-de-ce-que-la-moselle-a-ete-capable-de-faire-depuis-80-ans/",
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        },
+        {
+          "approach": "Rejeter à la fois l'Union européenne actuelle, vue comme un instrument du patronat, et le retour aux frontières nationales. Ces candidats défendent l'union des travailleurs par-delà les frontières plutôt qu'une sortie.",
+          "candidates": [
+            "Nathalie Arthaud",
+            "Selma Labib",
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://www.lutte-ouvriere.org/portail/qui-sommes-nous/qui-sommes-nous-nos-idees-et-positions-politiques-quitter-lunion-europeenne-et-retrouver-de-la-souverainete-une-diversion-et-un-mensonge",
+            "https://npa-revolutionnaires.org/articles/la-grande-braderie-de-lille-marquee-par-le-lancement-de-la-campagne-presidentielle",
+            "https://npa-revolutionnaires.org/articles/pour-un-monde-sans-frontieres-ni-patrons-urgence-revolution",
+            "https://www.revolutionpermanente.fr/Le-Frexit-le-retour-aux-frontieres-nationales-une-solution",
+            "https://www.revolutionpermanente.fr/L-imperialisme-europeen-n-est-pas-un-allie-de-l-Ukraine-2"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "importance": "high",
+      "cleavage": "Pour qui reste dans l'UE, dans quelle direction la transformer ? Trois pistes : plus d'intégration, plus de pouvoirs rendus aux États, ou une rupture avec ses règles économiques actuelles.",
+      "sides": [
+        {
+          "approach": "Approfondir l'intégration : vote à la majorité plutôt qu'à l'unanimité, budget ou dette communs, marché des capitaux unifié. Un noyau d'États volontaires pourrait avancer plus vite.",
+          "candidates": [
+            "Gabriel Attal",
+            "Raphaël Glucksmann",
+            "Olivier Faure",
+            "Bernard Cazeneuve",
+            "Édouard Philippe"
+          ],
+          "evidence_urls": [
+            "https://attalpresident.fr/actualites/gabriel-attal-a-reims-batir-les-etats-unis-d-europe-pour-retrouver-notre-puissance",
+            "https://attalpresident.fr/actualites/gabriel-attal-pour-le-retour-du-royaume-uni-dans-l-union-europeenne-dans-le-figaro",
+            "https://librejournal.fr/article/glucksmann-se-devoile/",
+            "https://projet-socialiste.fr/projet/vivre-libres/",
+            "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+            "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere"
+          ]
+        },
+        {
+          "approach": "Rendre des pouvoirs aux États : garder le droit de veto, faire primer sous conditions le droit national sur le droit européen, interdire les surtranspositions et renégocier la répartition des compétences.",
+          "candidates": [
+            "Marine Le Pen",
+            "Bruno Retailleau",
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://rassemblementnational.fr/communiques/droit-de-veto-pour-elargir-leurope-bruxelles-veut-retrecir-la-voix-des-etats",
+            "https://www.euronews.com/my-europe/2026/09/17/fact-check-will-marine-le-pen-hold-a-frexit-referendum-if-she-becomes-president-of-france",
+            "https://republicains.fr/actualites/2026/09/02/en-france-la-seule-cour-supreme-cest-le-peuple-je-lui-donnerai-le-dernier-mot/",
+            "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf",
+            "https://www.unenouvelleenergie.fr/notre-programme/etre-maitre-de-notre-destin/",
+            "https://www.unenouvelleenergie.fr/app/uploads/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf"
+          ]
+        },
+        {
+          "approach": "Rompre avec les règles économiques actuelles de l'UE, quitte à renégocier les traités ou à cesser de les appliquer. Seraient visés le libre-échange, la libéralisation des services publics, le marché européen de l'électricité et les règles budgétaires.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Fabien Roussel",
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/",
+            "https://web.archive.org/web/20260504010828/https://melenchon2027.fr/programme2025/livre/chapitre17/",
+            "https://www.pcf.fr/40e_congres_discours_de_cloture_de_fabien_roussel",
+            "https://po.pcf.fr/wp-content/uploads/sites/40/2026/07/Base-commune.pdf",
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "importance": "medium",
+      "cleavage": "Faut-il augmenter le budget de l'Union ou réduire ce que la France y verse ?",
+      "sides": [
+        {
+          "approach": "Augmenter nettement le budget européen grâce à de nouvelles ressources propres et à des emprunts communs pour l'investissement, le climat ou l'IA.",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Olivier Faure",
+            "Gabriel Attal"
+          ],
+          "evidence_urls": [
+            "https://howtheyvote.eu/votes/190026",
+            "https://projet-socialiste.fr/projet/vivre-libres/",
+            "https://attalpresident.fr/actualites/gabriel-attal-a-reims-batir-les-etats-unis-d-europe-pour-retrouver-notre-puissance"
+          ]
+        },
+        {
+          "approach": "Rester dans l'UE mais réduire la contribution française, la renégocier pour obtenir un rabais ou la conditionner.",
+          "candidates": [
+            "Marine Le Pen",
+            "Emmanuel Maurel",
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/vrai-ou-faux-la-france-peut-elle-diminuer-sa-contribution-au-budget-europeen-comme-l-affirme-le-rn_7468174.html",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://web.archive.org/web/20260509163557/https://melenchon2027.fr/programme2025/livre/chapitre17/s1/"
+          ]
+        },
+        {
+          "approach": "Ne plus rien verser du tout : soit en cessant de payer, soit en quittant l'Union.",
+          "candidates": [
+            "François Asselineau",
+            "Nicolas Dupont-Aignan",
+            "Florian Philippot"
+          ],
+          "evidence_urls": [
+            "https://upr.fr/analyses/budget-de-lue-2028-2034-la-france-encore-arnaquee",
+            "https://www.debout-la-france.fr/projet/affaires-europeennes/",
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "importance": "medium",
+      "cleavage": "Faut-il élargir l'Union, notamment à l'Ukraine ?",
+      "sides": [
+        {
+          "approach": "Être favorable à l'élargissement, Ukraine comprise, à condition de réformer d'abord les institutions, par exemple en généralisant la majorité qualifiée.",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Olivier Faure",
+            "Delphine Batho"
+          ],
+          "evidence_urls": [
+            "https://howtheyvote.eu/votes/186518",
+            "https://projet-socialiste.fr/projet/vivre-libres/",
+            "https://www.generationecologie.fr/2026/04/13/generation-ecologie-salue-la-victoire-de-la-democratie-et-de-letat-de-droit-en-hongrie/"
+          ]
+        },
+        {
+          "approach": "Refuser une adhésion accélérée. Tout élargissement serait soumis à une harmonisation sociale et fiscale préalable ou à la consultation des peuples. Il faudrait aussi protéger l'agriculture française, par exemple en tenant l'Ukraine à l'écart du marché agricole européen.",
+          "candidates": [
+            "Emmanuel Maurel",
+            "Jean-Luc Mélenchon",
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://g-r-s.fr/proteger-leurope-et-soutenir-lukraine-ne-justifie-pas-daccelerer-son-adhesion-a-lue/",
+            "https://web.archive.org/web/20260509163557/https://melenchon2027.fr/programme2025/livre/chapitre17/s1/",
+            "https://republicains.fr/wp-content/uploads/2026/03/LR_Agriculture.pdf"
+          ]
+        },
+        {
+          "approach": "S'opposer à l'élargissement, en particulier à l'entrée de l'Ukraine, jugée trop coûteuse pour l'agriculture et les finances publiques.",
+          "candidates": [
+            "François Asselineau",
+            "Nicolas Dupont-Aignan",
+            "Marine Le Pen",
+            "Florian Philippot"
+          ],
+          "evidence_urls": [
+            "https://upr.fr/analyses/marta-kos-annonce-nos-fiancailles-avec-quatre-nouveaux-etats-de-lue",
+            "https://www.sudradio.fr/linvite-politique/nicolas-dupont-aignan-la-position-du-rn-est-incomprehensible",
+            "https://rassemblementnational.fr/communiques/droit-de-veto-pour-elargir-leurope-bruxelles-veut-retrecir-la-voix-des-etats",
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "importance": "low",
+      "cleavage": "Faut-il faire jouer la Banque centrale européenne sur la dette publique ou respecter les règles actuelles ?",
+      "sides": [
+        {
+          "approach": "Mettre la BCE à contribution : annuler la part de dette française qu'elle détient, la transformer en dette perpétuelle, ou orienter sa création monétaire vers un fonds d'investissement social et écologique.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Ségolène Royal",
+            "Fabien Roussel"
+          ],
+          "evidence_urls": [
+            "https://www.touteleurope.eu/economie-et-social/presidentielle-2027-dette-retraites-et-place-de-l-europe-que-retenir-du-premier-debat-entre-les-principaux-candidats/",
+            "https://melenchon.fr/2026/09/05/la-dette-sans-tabou/",
+            "https://www.capital.fr/economie-politique/ou-est-passe-l-argent-segolene-royal-pointe-les-1-500-milliards-de-dette-1530066",
+            "https://assets.nationbuilder.com/pcf/pages/44585/attachments/original/1791210591/tract_service_public.pdf?1791210591"
+          ]
+        },
+        {
+          "approach": "Refuser d'annuler la dette détenue par la BCE, par respect des règles européennes et pour garder la confiance des créanciers.",
+          "candidates": [
+            "Édouard Philippe"
+          ],
+          "evidence_urls": [
+            "https://www.touteleurope.eu/economie-et-social/presidentielle-2027-dette-retraites-et-place-de-l-europe-que-retenir-du-premier-debat-entre-les-principaux-candidats/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "ukraine_russie",
+      "importance": "high",
+      "cleavage": "Faut-il continuer à aider l'Ukraine, et jusqu'où ?",
+      "sides": [
+        {
+          "approach": "Renforcer l'aide militaire, notamment la défense aérienne, et la financer en saisissant les avoirs russes gelés en Europe.",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Olivier Faure",
+            "Gabriel Attal",
+            "Delphine Batho",
+            "Édouard Philippe"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat",
+            "https://lcp.fr/actualites/accord-avec-lfi-moyen-orient-pouvoir-d-achat-ce-qu-il-faut-retenir-du-premier-debat-de",
+            "https://attalpresident.fr/actualites/gabriel-attal-dans-politico-europe-ukraine-ia-et-finances-publiques-quatre-priorites-pour-preparer-la-france-de-demain",
+            "https://www.generationecologie.fr/2026/02/24/soutien-indefectible-a-la-resistance-de-lukraine/",
+            "https://fr.euronews.com/2026/05/26/edouard-philippe-a-rencontre-volodymyr-zelensky-a-kyiv",
+            "https://www.franceinfo.fr/elections/presidentielle/on-coupe-le-robinet-marine-le-pen-et-edouard-philippe-s-affrontent-par-tweets-interposes-sur-l-aide-a-l-ukraine_8178434.html"
+          ]
+        },
+        {
+          "approach": "Maintenir l'aide financière et militaire, sans proposer de l'étendre ou sans chiffrer d'engagement nouveau.",
+          "candidates": [
+            "Emmanuel Maurel",
+            "Jérôme Guedj",
+            "Ségolène Royal",
+            "Bernard Cazeneuve",
+            "Bruno Retailleau",
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/",
+            "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+            "https://www.taurillon.org/la-primaire-socialiste-et-le-bapteme-du-feu-sur-la-guerre-en-ukraine",
+            "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat",
+            "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+            "https://republicains.fr/actualites/2026/07/14/lunite-nationale-premiere-de-nos-armes/",
+            "https://lediplomate.media/exclusif-grand-entretien-david-lisnard-strategie-france-dans-nouveau-desordre-mondial/"
+          ]
+        },
+        {
+          "approach": "Arrêter l'aide financière, jugée hors de portée vu l'état des finances publiques, mais continuer à former l'armée ukrainienne et à lui fournir du matériel.",
+          "candidates": [
+            "Marine Le Pen"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/monde/europe/manifestations-en-ukraine/combien-coute-l-aide-de-la-france-a-l-ukraine-remise-en-cause-par-marine-le-pen-et-le-rn_8209307.html",
+            "https://www.kyivpost.com/post/85353"
+          ]
+        },
+        {
+          "approach": "Arrêter dès l'élection toute aide financière et militaire à l'Ukraine.",
+          "candidates": [
+            "François Asselineau",
+            "Nicolas Dupont-Aignan",
+            "Florian Philippot",
+            "Francis Lalanne"
+          ],
+          "evidence_urls": [
+            "https://upr.fr/actualites/discours-de-rentree-2026-de-francois-asselineau-la-liberation-nationale",
+            "https://www.dupontaignan.fr/actualite/president-jarreterai-toutes-subventions-a-lukraine-%c2%b7-bfmtv-21-09-26/",
+            "https://les-patriotes.fr/appel-national-pour-la-paix/",
+            "https://dieudolalanne2027.com/programme"
+          ]
+        },
+        {
+          "approach": "Ne soutenir militairement aucun camp, la guerre étant vue comme un affrontement entre puissances. Ces candidats refusent tout crédit militaire et appellent les travailleurs russes et ukrainiens à se retourner contre leurs dirigeants.",
+          "candidates": [
+            "Nathalie Arthaud",
+            "Selma Labib",
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://www.lutte-ouvriere.org/portail/brochures/meeting-26-septembre-2026-discours-nathalie-arthaud-197446.html",
+            "https://www.lutte-ouvriere.org/mensuel/article/guerre-ukraine-escalade-sans-fin-197035.html",
+            "https://npa-revolutionnaires.org/articles/intervention-de-selma-labib-a-la-fete-de-lhumanite-2026",
+            "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+            "https://www.revolutionpermanente.fr/L-imperialisme-europeen-n-est-pas-un-allie-de-l-Ukraine-2"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "ukraine_russie",
+      "importance": "high",
+      "cleavage": "Quelle relation avoir avec la Russie : fermeté, dialogue ou rapprochement ?",
+      "sides": [
+        {
+          "approach": "Rester ferme : maintenir les sanctions et ne négocier qu'avec les Ukrainiens, pour éviter une paix qui ressemblerait à une capitulation. La Russie est vue comme une menace pour toute l'Europe.",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Jérôme Guedj",
+            "Olivier Faure",
+            "Emmanuel Maurel",
+            "Gabriel Attal",
+            "Delphine Batho",
+            "Édouard Philippe",
+            "Bernard Cazeneuve",
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+            "https://www.centre-europe.com/en-direct-presidentielle-2027-faure-et-glucksmann-secharpent-sur-la-notion-de-genocide-a-gaza/",
+            "https://attalpresident.fr/actualites/lci-gabriel-attal-defend-un-projet-de-rupture-pour-repondre-aux-grands-defis-du-pays",
+            "https://www.generationecologie.fr/2025/03/15/que-doivent-penser-les-ecologistes-de-la-guerre-3/",
+            "https://www.franceinfo.fr/elections/presidentielle/on-coupe-le-robinet-marine-le-pen-et-edouard-philippe-s-affrontent-par-tweets-interposes-sur-l-aide-a-l-ukraine_8178434.html",
+            "https://la-convention.fr/discours_de_bernard_cazeneuve_cergy_pontoise_dimanche_16_novembre_2025",
+            "https://republicains.fr/actualites/2026/07/14/lunite-nationale-premiere-de-nos-armes/"
+          ]
+        },
+        {
+          "approach": "Continuer à soutenir l'Ukraine tout en rouvrant un canal de dialogue permanent avec Moscou, sur le modèle de la guerre froide, ou par une commission permanente de négociation.",
+          "candidates": [
+            "Ségolène Royal",
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://www.lefigaro.fr/elections/presidentielles/blocus-des-lycees-echanges-muscles-sur-gaza-rapport-a-lfi-ce-qu-il-faut-retenir-du-deuxieme-debat-de-la-primaire-de-la-gauche-20261001",
+            "https://www.20minutes.fr/politique/4251221-20261005-presidentielle-2027-lfi-ukraine-retraites-lycees-faut-retenir-dernier-debat-primaire-gauche",
+            "https://lediplomate.media/exclusif-grand-entretien-david-lisnard-strategie-france-dans-nouveau-desordre-mondial/"
+          ]
+        },
+        {
+          "approach": "Donner la priorité à une paix négociée dans un cadre multilatéral (ONU, OSCE) : cessez-le-feu, retrait des troupes russes, puis système de sécurité européen incluant la Russie. Ces candidats s'opposent à l'escalade et à l'« économie de guerre ».",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Fabien Roussel"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260505171740/https://melenchon2027.fr/programme2025/livre/chapitre16/s4/",
+            "https://melenchon.fr/2025/08/14/en-alaska-le-debut-cruel-dun-nouvel-ordre-du-monde/",
+            "https://www.pcf.fr/reaction_intervention_macron_defense",
+            "https://www.pcf.fr/coalition_des_volontaires_ukraine"
+          ]
+        },
+        {
+          "approach": "Rendre la France neutre dans ce conflit, lever les sanctions contre la Russie et renouer avec elle un partenariat, notamment énergétique.",
+          "candidates": [
+            "Nicolas Dupont-Aignan",
+            "François Asselineau",
+            "Florian Philippot",
+            "Francis Lalanne"
+          ],
+          "evidence_urls": [
+            "https://www.debout-la-france.fr/projet/affaires-etrangeres/",
+            "https://upr.fr/analyses/des-sanctions-pour-prendre-la-russie-a-la-gorge",
+            "https://les-patriotes.fr/pour-ladoption-immediate-dun-plan-durgence-energetique-en-france-en-8-points/",
+            "https://dieudolalanne2027.com/programme"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "ukraine_russie",
+      "importance": "medium",
+      "cleavage": "Quelles garanties de sécurité offrir à l'Ukraine, et faut-il y engager des soldats français ?",
+      "sides": [
+        {
+          "approach": "Offrir des garanties militaires occidentales : entrée dans l'OTAN, troupes européennes de réassurance après le conflit, voire participation à la défense du ciel ukrainien.",
+          "candidates": [
+            "Édouard Philippe",
+            "Raphaël Glucksmann",
+            "Gabriel Attal"
+          ],
+          "evidence_urls": [
+            "https://fr.euronews.com/2026/05/26/edouard-philippe-a-rencontre-volodymyr-zelensky-a-kyiv",
+            "https://lcp.fr/actualites/accord-avec-lfi-moyen-orient-pouvoir-d-achat-ce-qu-il-faut-retenir-du-premier-debat-de",
+            "https://attalpresident.fr/actualites/lci-gabriel-attal-defend-un-projet-de-rupture-pour-repondre-aux-grands-defis-du-pays"
+          ]
+        },
+        {
+          "approach": "Continuer à armer l'Ukraine sans affrontement direct avec la Russie, et donc sans zone d'exclusion aérienne.",
+          "candidates": [
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://www.taurillon.org/la-primaire-socialiste-et-le-bapteme-du-feu-sur-la-guerre-en-ukraine"
+          ]
+        },
+        {
+          "approach": "Ne pas envoyer de soldats français, et confier la sécurité à une force d'interposition de l'ONU ou à un cadre multilatéral, avec pour certains une Ukraine neutre, hors de l'OTAN.",
+          "candidates": [
+            "Fabien Roussel",
+            "Jean-Luc Mélenchon",
+            "Nicolas Dupont-Aignan",
+            "Ségolène Royal"
+          ],
+          "evidence_urls": [
+            "https://www.pcf.fr/coalition_des_volontaires_ukraine",
+            "https://assets.nationbuilder.com/pcf/pages/41211/attachments/original/1779954906/document_cahier_paix_ppp_stc.pdf?1779954906",
+            "https://melenchon.fr/2025/08/14/en-alaska-le-debut-cruel-dun-nouvel-ordre-du-monde/",
+            "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+            "https://www.taurillon.org/la-primaire-socialiste-et-le-bapteme-du-feu-sur-la-guerre-en-ukraine",
+            "https://www.bfmtv.com/politique/elections/presidentielle/video-segolene-royal-vos-enfants-avec-moi-ne-seront-pas-obliges-d-aller-se-faire-tuer-en-ukraine-ni-d-avoir-peur-d-une-troisieme-guerre-mondiale_VN-202610040444.html"
+          ]
+        },
+        {
+          "approach": "Refuser tout déploiement de soldats français en Ukraine et sur le flanc est de l'Europe, sans proposer de garantie de sécurité.",
+          "candidates": [
+            "Florian Philippot",
+            "Nathalie Arthaud",
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://les-patriotes.fr/pas-de-troupes-francaises-ni-en-ukraine-ni-au-groenland/",
+            "https://www.lutte-ouvriere.org/portail/brochures/meeting-26-septembre-2026-discours-nathalie-arthaud-197446.html",
+            "https://www.revolutionpermanente.fr/Sommet-belliciste-a-Paris-Macron-veut-deployer-plusieurs-milliers-de-soldats-en-Ukraine"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "proche_orient",
+      "importance": "high",
+      "cleavage": "Quelles mesures prendre contre le gouvernement israélien après la guerre à Gaza et face à la colonisation ?",
+      "sides": [
+        {
+          "approach": "Imposer un embargo sur les armes à destination d'Israël, suspendre les accords entre l'UE et Israël, adopter des sanctions et appliquer les mandats d'arrêt de la Cour pénale internationale.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Fabien Roussel",
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://web.archive.org/web/20260505171740/https://melenchon2027.fr/programme2025/livre/chapitre16/s4/",
+            "https://assets.nationbuilder.com/pcf/pages/44582/attachments/original/1791209863/tract_palestine_octobre2026.pdf?1791209863",
+            "https://x.com/faureolivier/status/1927092457549742585",
+            "https://projet-socialiste.fr/projet/pacifier-le-monde/"
+          ]
+        },
+        {
+          "approach": "Suspendre l'accord d'association UE-Israël, sanctionner le gouvernement et les colons, interdire les produits des colonies, sans réclamer d'embargo général sur les armes.",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://israj.media-j.com/article/70174/raphael-glucksmann-qualifie-netanyahou-de-boucher-et-appelle-a-des-sanctions-contre-lui",
+            "https://fr.timesofisrael.com/primaire-de-la-gauche-en-france-les-5-candidats-confrontent-leurs-positions-sur-israel-et-gaza/",
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        },
+        {
+          "approach": "Utiliser les leviers commerciaux de l'accord UE-Israël pour faire pression sur le gouvernement, sans viser la société civile ni le monde universitaire israéliens.",
+          "candidates": [
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://fr.timesofisrael.com/primaire-de-la-gauche-en-france-les-5-candidats-confrontent-leurs-positions-sur-israel-et-gaza/"
+          ]
+        },
+        {
+          "approach": "Condamner la politique du gouvernement israélien sans mesure nationale ou européenne précise. Certains s'en tiennent à appliquer les mandats de la CPI ou à passer par l'ONU.",
+          "candidates": [
+            "Bernard Cazeneuve",
+            "Karim Bouamrane",
+            "Delphine Batho",
+            "Ségolène Royal",
+            "François Asselineau"
+          ],
+          "evidence_urls": [
+            "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+            "https://oumma.com/karim-bouamrane-defie-melenchon-et-vise-le-second-tour-de-la-presidentielle-2027/",
+            "https://www.generationecologie.fr/2025/09/23/generation-ecologie-salue-la-reconnaissance-de-letat-palestinien-par-la-france/",
+            "https://www.tunisienumerique.com/gaza-segolene-royal-fustige-linaction-de-macron-ce-nest-pas-ca-la-france/",
+            "https://www.aa.com.tr/fr/monde/francois-asselineau-accuse-emmanuel-macron-d-accompagner-le-déclassement-de-la-france/3964864"
+          ]
+        },
+        {
+          "approach": "Mettre fin à tout soutien économique et militaire de la France à Israël et retirer les forces françaises de la région.",
+          "candidates": [
+            "Nathalie Arthaud",
+            "Selma Labib",
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://www.lutte-ouvriere.org/portail/brochures/meeting-27-septembre-2025-discours-nathalie-arthaud-187347.html",
+            "https://npa-revolutionnaires.org/articles/communique-presidentielle-2027-selma-labib-une-candidature-ouvriere-et-revolutionnaire-soutenue-par-gael-quirante",
+            "https://www.revolutionpermanente.fr/LFI-et-la-reconnaissance-de-la-Palestine-une-victoire-morale-vraiment"
+          ]
+        },
+        {
+          "approach": "Défendre le droit d'Israël à se défendre et faire de la libération des otages et du désarmement du Hamas les préalables à la paix, sans sanctions contre Israël.",
+          "candidates": [
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://www.crif.org/articles/entretiens/2025-11-03/david-lisnard-le-plan-de-paix-a-gaza-est-conditionne-au-desarmement-du-hamas-qui-est-une-organisation-terroriste-militarisee-antisemite-qui-refuse-la-coexistence-et-instrumentalise-cynique/",
+            "https://lediplomate.media/exclusif-grand-entretien-david-lisnard-strategie-france-dans-nouveau-desordre-mondial/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "proche_orient",
+      "importance": "high",
+      "cleavage": "Reconnaissance de l'État de Palestine (décidée par la France en septembre 2025) : nécessaire, prématurée, ou dépassée par un autre projet que deux États ?",
+      "sides": [
+        {
+          "approach": "Approuver la reconnaissance de l'État de Palestine, voire la juger trop tardive, en vue de deux États.",
+          "candidates": [
+            "Olivier Faure",
+            "Raphaël Glucksmann",
+            "Emmanuel Maurel",
+            "Fabien Roussel",
+            "Jean-Luc Mélenchon",
+            "Ségolène Royal",
+            "Delphine Batho",
+            "Karim Bouamrane",
+            "Bernard Cazeneuve"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/monde/proche-orient/israel-palestine/reconnaissance-de-l-etat-de-palestine-olivier-faure-appelle-a-faire-flotter-le-drapeau-palestinien-sur-les-mairies-et-suscite-la-polemique_7493638.html",
+            "https://www.publicsenat.fr/actualites/politique/lelephant-dans-la-piece-lfi-sinvite-encore-dans-le-debat-de-la-primaire-socialiste",
+            "https://g-r-s.fr/la-necessaire-reconnaissance-de-letat-de-palestine/",
+            "https://www.pcf.fr/reconnaissance_etat_palestine",
+            "https://melenchon.fr/2025/07/25/gaza-decider-a-moitie-cest-creuser-un-tombeau/",
+            "https://www.tunisienumerique.com/gaza-segolene-royal-fustige-linaction-de-macron-ce-nest-pas-ca-la-france/",
+            "https://www.generationecologie.fr/2025/09/23/generation-ecologie-salue-la-reconnaissance-de-letat-palestinien-par-la-france/",
+            "https://www.latribune.fr/la-tribune-dimanche/politique/karim-bouamrane-maire-ps-de-saint-ouen-93-je-hisserai-les-drapeaux-de-la-palestine-d-israel-et-de-la-france-1032837.html",
+            "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599"
+          ]
+        },
+        {
+          "approach": "Juger cette reconnaissance prématurée, voire fautive, tant que les otages ne sont pas libérés et que le Hamas reste actif. Une solution à deux États n'est envisagée qu'au terme d'un processus garantissant la sécurité d'Israël.",
+          "candidates": [
+            "Marine Le Pen",
+            "David Lisnard",
+            "Édouard Philippe"
+          ],
+          "evidence_urls": [
+            "https://www.publicsenat.fr/actualites/international/reconnaissance-de-letat-de-palestine-par-macron-la-droite-fustige-la-duplicite-du-president-la-gauche-salue-une-decision-moralement-necessaire",
+            "https://israj.media-j.com/article/40458/reconnaissance-dun-etat-palestinien-un-signal-catastrophique-selon-marine-le-pen",
+            "https://www.crif.org/articles/entretiens/2025-11-03/david-lisnard-le-plan-de-paix-a-gaza-est-conditionne-au-desarmement-du-hamas-qui-est-une-organisation-terroriste-militarisee-antisemite-qui-refuse-la-coexistence-et-instrumentalise-cynique/",
+            "https://actu.orange.fr/politique/reconnaissance-de-la-palestine-edouard-philippe-emet-des-reserves-magic-CNT000002jKbdQ.html"
+          ]
+        },
+        {
+          "approach": "Rejeter la solution à deux États, jugée une impasse, et défendre un cadre commun à toute la région avec les mêmes droits pour tous les peuples (fédération ou État unique).",
+          "candidates": [
+            "Nathalie Arthaud",
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://lutte-ouvriere.org/portail/editoriaux/etat-palestinien-reconnaissance-allures-denterrement-187173.html",
+            "https://www.revolutionpermanente.fr/LFI-et-la-reconnaissance-de-la-Palestine-une-victoire-morale-vraiment"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "proche_orient",
+      "importance": "medium",
+      "cleavage": "Faut-il qualifier de « génocide » la guerre menée par Israël à Gaza ?",
+      "sides": [
+        {
+          "approach": "Parler de génocide et vouloir que la France le reconnaisse ou le dénonce officiellement, par exemple au titre de la Convention de 1948.",
+          "candidates": [
+            "Olivier Faure",
+            "Ségolène Royal",
+            "Jean-Luc Mélenchon",
+            "Fabien Roussel",
+            "Nathalie Arthaud",
+            "Selma Labib",
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+            "https://www.rtl.fr/actu/politique/propos-de-segolene-royal-sur-israel-le-crif-condamne-une-trahison-de-l-ideal-republicain-la-socialiste-evoque-une-parole-deformee-7900676545",
+            "https://melenchon.fr/2026/06/07/meeting-de-jean-luc-melenchon-a-saint-denis/",
+            "https://www.pcf.fr/fete_de_lhumanite_2026_discours_de_fabien_roussel",
+            "https://lutte-ouvriere.org/portail/editoriaux/gaza-genocide-dont-grandes-puissances-complices-186017.html",
+            "https://npa-revolutionnaires.org/articles/communique-presidentielle-2027-selma-labib-une-candidature-ouvriere-et-revolutionnaire-soutenue-par-gael-quirante",
+            "https://anasse2027.fr/programme/depliant-anasse-2027.pdf"
+          ]
+        },
+        {
+          "approach": "Refuser le mot « génocide », que la Cour pénale internationale n'emploie pas, et parler de crimes de guerre et de crimes contre l'humanité.",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Jérôme Guedj"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+            "https://fr.timesofisrael.com/primaire-de-la-gauche-en-france-les-5-candidats-confrontent-leurs-positions-sur-israel-et-gaza/"
+          ]
+        },
+        {
+          "approach": "Ne pas prendre parti dans ce débat sur les mots, tout en dénonçant les propos de ministres israéliens qui évoquent une volonté d'extermination.",
+          "candidates": [
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://www.centre-europe.com/en-direct-presidentielle-2027-faure-et-glucksmann-secharpent-sur-la-notion-de-genocide-a-gaza/",
+            "https://fr.timesofisrael.com/primaire-de-la-gauche-en-france-les-5-candidats-confrontent-leurs-positions-sur-israel-et-gaza/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "proche_orient",
+      "importance": "low",
+      "cleavage": "Face à la guerre des États-Unis et d'Israël contre l'Iran, quel rôle pour la France ?",
+      "sides": [
+        {
+          "approach": "Refuser que la France prenne part au conflit : se limiter à protéger les ressortissants et les bases, chercher la désescalade et retrouver un rôle de médiateur.",
+          "candidates": [
+            "Olivier Faure",
+            "Florian Philippot",
+            "Emmanuel Maurel",
+            "Nicolas Dupont-Aignan",
+            "François Asselineau"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/replay-radio/8h30-fauvelle-dely/boris-vallaud-crise-energetique-moyen-orient-l-interview-d-olivier-faure_7967030.html",
+            "https://les-patriotes.fr/la-france-ne-doit-pas-sengager-dans-la-guerre-diran/",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://www.debout-la-france.fr/actualite/iran-la-france-doit-retrouver-une-voix-equilibree-independante-et-forte/",
+            "https://upr.fr/analyses/israel-iran-que-doit-faire-la-france"
+          ]
+        },
+        {
+          "approach": "Retirer les forces françaises du Moyen-Orient (porte-avions, avions de combat) ou interdire aux États-Unis d'utiliser les bases françaises, et s'opposer activement à cette guerre.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Nathalie Arthaud",
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://linsoumission.fr/2026/05/11/melenchon-la-tribune-dimanche/",
+            "https://lutte-ouvriere.org/portail/editoriaux/troupes-francaises-hors-moyen-orient-bas-guerre-imperialiste-192972.html",
+            "https://www.revolutionpermanente.fr/Presidentielle-2027-Anasse-Kazib-veut-faire-entendre-la-voix-de-la-nouvelle-classe-ouvriere"
+          ]
+        },
+        {
+          "approach": "Faire de l'accès de l'Iran à l'arme nucléaire une ligne rouge absolue et reconnaître à Israël le droit de se défendre.",
+          "candidates": [
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://lediplomate.media/exclusif-grand-entretien-david-lisnard-strategie-france-dans-nouveau-desordre-mondial/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "defense",
+      "importance": "high",
+      "cleavage": "La France doit-elle rester dans l'OTAN ?",
+      "sides": [
+        {
+          "approach": "Quitter l'OTAN : tout de suite, ou en sortant d'abord du commandement intégré puis de l'Alliance, au profit du non-alignement ou d'une sécurité collective européenne.",
+          "candidates": [
+            "François Asselineau",
+            "Florian Philippot",
+            "Francis Lalanne",
+            "Jean-Luc Mélenchon",
+            "Fabien Roussel"
+          ],
+          "evidence_urls": [
+            "https://upr.fr/actualites/discours-de-rentree-2026-de-francois-asselineau-la-liberation-nationale",
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+            "https://dieudolalanne2027.com/programme",
+            "https://web.archive.org/web/20260508181920/https://melenchon2027.fr/programme2025/livre/chapitre16/s1/",
+            "https://www.boursorama.com/bourse/actualites/presidentielle-2027-vers-un-trou-d-air-pour-la-defense-francaise-e6113c901ea917e509ad075f7c482a56",
+            "https://www.pcf.fr/rapport_introductif_de_fabien_roussel_au_cn_du_10_01_2026"
+          ]
+        },
+        {
+          "approach": "Rester dans l'Alliance mais quitter son commandement militaire intégré. Pour l'une, cette sortie est repoussée tant que la guerre dure aux portes de l'Europe.",
+          "candidates": [
+            "Marine Le Pen",
+            "Nicolas Dupont-Aignan"
+          ],
+          "evidence_urls": [
+            "https://www.kyivpost.com/post/85353",
+            "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+            "https://www.debout-la-france.fr/projet/defense/"
+          ]
+        },
+        {
+          "approach": "Rester pleinement dans l'OTAN tout en y donnant plus de poids aux Européens, sans s'aligner systématiquement sur Washington.",
+          "candidates": [
+            "Bruno Retailleau",
+            "Bernard Cazeneuve",
+            "David Lisnard",
+            "Édouard Philippe"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/actualites/2026/07/14/lunite-nationale-premiere-de-nos-armes/",
+            "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+            "https://lediplomate.media/exclusif-grand-entretien-david-lisnard-strategie-france-dans-nouveau-desordre-mondial/",
+            "https://fr.euronews.com/2026/05/26/edouard-philippe-a-rencontre-volodymyr-zelensky-a-kyiv",
+            "https://www.boursorama.com/bourse/actualites/presidentielle-2027-vers-un-trou-d-air-pour-la-defense-francaise-e6113c901ea917e509ad075f7c482a56"
+          ]
+        },
+        {
+          "approach": "Juger l'OTAN dépassée face au revirement américain et miser sur l'indépendance (non-alignement ou défense européenne autonome), sans demander explicitement d'en sortir.",
+          "candidates": [
+            "Emmanuel Maurel",
+            "Delphine Batho"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/",
+            "https://www.generationecologie.fr/2025/03/15/que-doivent-penser-les-ecologistes-de-la-guerre-3/"
+          ]
+        },
+        {
+          "approach": "Rejeter à la fois l'OTAN et une défense européenne, toutes deux vues comme des instruments de guerre au service des grandes puissances.",
+          "candidates": [
+            "Nathalie Arthaud",
+            "Selma Labib",
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://lutte-ouvriere.org/portail/editoriaux/alliance-atlantique-europeenne-brigandage-182196.html",
+            "https://npa-revolutionnaires.org/articles/le-capitalisme-cest-la-guerre-pour-avoir-la-paix-il-faut-le-renverser",
+            "https://www.revolutionpermanente.fr/L-imperialisme-europeen-n-est-pas-un-allie-de-l-Ukraine-2"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "defense",
+      "importance": "high",
+      "cleavage": "Combien dépenser pour les armées ?",
+      "sides": [
+        {
+          "approach": "Viser un objectif chiffré élevé, au-delà de la trajectoire votée : au moins 3 % du PIB, ou environ 100 Md€ par an à la fin du quinquennat.",
+          "candidates": [
+            "Bruno Retailleau",
+            "Emmanuel Maurel",
+            "Édouard Philippe",
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/actualites/2026/07/14/lunite-nationale-premiere-de-nos-armes/",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://www.boursorama.com/bourse/actualites/presidentielle-2027-vers-un-trou-d-air-pour-la-defense-francaise-e6113c901ea917e509ad075f7c482a56",
+            "https://lediplomate.media/david-lisnard-souverainete-europeenne/"
+          ]
+        },
+        {
+          "approach": "Augmenter l'effort sans cible plus ambitieuse que la trajectoire votée en 2026 (environ 2,5 % du PIB en 2030), ou en le portant en partie à l'échelle européenne.",
+          "candidates": [
+            "Gabriel Attal",
+            "Marine Le Pen",
+            "Olivier Faure",
+            "Jérôme Guedj",
+            "Delphine Batho",
+            "Olivier Becht",
+            "Karim Bouamrane",
+            "Bernard Cazeneuve",
+            "Nicolas Dupont-Aignan",
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://attalpresident.fr/programme/dette-de-letat",
+            "https://www.boursorama.com/bourse/actualites/presidentielle-2027-vers-un-trou-d-air-pour-la-defense-francaise-e6113c901ea917e509ad075f7c482a56",
+            "https://datan.fr/votes/legislature-17/vote_6736",
+            "https://datan.fr/votes/legislature-17/vote_7905",
+            "https://www.generationecologie.fr/2025/12/10/oui-la-defense-contre-les-menaces-du-nouveau-yalta-des-predateurs/",
+            "https://www.lafrancehumaineetforte.fr/manifeste.html",
+            "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+            "https://www.debout-la-france.fr/projet/defense/",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf"
+          ]
+        },
+        {
+          "approach": "S'opposer à la hausse prévue (36 Md€ de plus d'ici 2030) et réorienter la stratégie : défense du territoire, espace, numérique, industrie d'armement publique, plutôt que plus de dépenses.",
+          "candidates": [
+            "Fabien Roussel",
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://www.pcf.fr/ue_26_discours_fr",
+            "https://linsoumission.fr/2026/05/11/melenchon-la-tribune-dimanche/",
+            "https://www.boursorama.com/bourse/actualites/presidentielle-2027-vers-un-trou-d-air-pour-la-defense-francaise-e6113c901ea917e509ad075f7c482a56"
+          ]
+        },
+        {
+          "approach": "Réduire fortement ou supprimer les budgets militaires, démanteler l'industrie d'armement et consacrer l'argent aux services publics.",
+          "candidates": [
+            "Nathalie Arthaud",
+            "Anasse Kazib",
+            "Selma Labib"
+          ],
+          "evidence_urls": [
+            "https://lutte-ouvriere.org/portail/editoriaux/euro-larmee-homme-guerre-182538.html",
+            "https://anasse2027.fr/programme/depliant-anasse-2027.pdf",
+            "https://npa-revolutionnaires.org/articles/intervention-de-selma-labib-a-la-fete-de-lhumanite-2026"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "defense",
+      "importance": "medium",
+      "cleavage": "La dissuasion nucléaire française doit-elle aussi protéger les autres pays européens ?",
+      "sides": [
+        {
+          "approach": "Étendre la protection de la dissuasion française aux partenaires européens, la France gardant seule la décision d'emploi, dans un pacte de sécurité européen.",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Gabriel Attal",
+            "Olivier Faure",
+            "Bernard Cazeneuve"
+          ],
+          "evidence_urls": [
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://attalpresident.fr/actualites/eurosatory-gabriel-attal-presente-sa-strategie-de-souverainete-technologique-et-d-independance-europeenne-au-salon",
+            "https://www.franceinfo.fr/monde/europe/manifestations-en-ukraine/le-depart-de-volodymyr-zelensky-n-est-pas-une-question-les-europeens-font-bloc-autour-du-peuple-ukrainien-affirme-le-patron-du-ps_7107360.html",
+            "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599"
+          ]
+        },
+        {
+          "approach": "Garder une dissuasion strictement nationale : ni partage, ni européanisation, ni stationnement d'armes à l'étranger. La « dissuasion avancée » lancée en 2026 est refusée ou remise en question.",
+          "candidates": [
+            "Bruno Retailleau",
+            "Marine Le Pen",
+            "David Lisnard",
+            "Nicolas Dupont-Aignan",
+            "Florian Philippot",
+            "François Asselineau",
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/actualites/2026/03/01/la-dissuasion-nucleaire-francaise-ne-se-partage-pas/",
+            "https://actu.orange.fr/politique/dissuasion-nucleaire-marine-le-pen-s-oppose-fermement-au-partage-de-l-arsenal-avec-l-europe-magic-CNT000002s6eg7.html",
+            "https://www.unenouvelleenergie.fr/dissuasion-nucleaire-ce-que-le-discours-du-president-de-la-republique-dit-et-ce-quil-ne-dit-pas/",
+            "https://www.debout-la-france.fr/actualite/je-suis-candidat-pour/",
+            "https://les-patriotes.fr/non-a-leuropeanisation-de-la-dissuasion-nucleaire-francaise/",
+            "https://upr.fr/medias/francois-asselineau-invite-de-nicolas-stoquer-sur-gp-tv-01-10-2026",
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        },
+        {
+          "approach": "Garder la dissuasion pour l'instant, sans l'européaniser, mais viser un désarmement nucléaire multilatéral : rejoindre comme observateur le traité d'interdiction des armes nucléaires et étudier des alternatives à l'arme nucléaire.",
+          "candidates": [
+            "Fabien Roussel",
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://assets.nationbuilder.com/pcf/pages/41211/attachments/original/1779954906/document_cahier_paix_ppp_stc.pdf?1779954906",
+            "https://web.archive.org/web/20260506102638/https://melenchon2027.fr/programme2025/livre/chapitre16/s2/"
+          ]
+        },
+        {
+          "approach": "Rejeter la dissuasion nucléaire elle-même et démanteler l'arsenal.",
+          "candidates": [
+            "Nathalie Arthaud",
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://www.lutte-ouvriere.org/journal/article/nucleaire-terroristes-complet-veston-192258.html",
+            "https://www.revolutionpermanente.fr/La-Ve-Republique-une-monarchie-nucleaire-au-service-de-l-imperialisme-francais"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "defense",
+      "importance": "medium",
+      "cleavage": "Défense européenne : la bâtir et la financer en commun, ou s'en tenir à des coopérations entre États ?",
+      "sides": [
+        {
+          "approach": "Bâtir une défense européenne autonome financée en commun : fonds ou emprunt européen, bouclier antimissile européen, priorité aux productions européennes, voire pilotage politique à l'échelle de l'UE.",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Gabriel Attal",
+            "Olivier Faure",
+            "Delphine Batho",
+            "Bernard Cazeneuve",
+            "Olivier Becht",
+            "Karim Bouamrane"
+          ],
+          "evidence_urls": [
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://howtheyvote.eu/votes/172867",
+            "https://attalpresident.fr/actualites/eurosatory-gabriel-attal-presente-sa-strategie-de-souverainete-technologique-et-d-independance-europeenne-au-salon",
+            "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat",
+            "https://www.generationecologie.fr/2025/12/10/oui-la-defense-contre-les-menaces-du-nouveau-yalta-des-predateurs/",
+            "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+            "https://becht2027.fr/projet-france/les-5-refondations/refondation-securite/",
+            "https://oumma.com/karim-bouamrane-defie-melenchon-et-vise-le-second-tour-de-la-presidentielle-2027/"
+          ]
+        },
+        {
+          "approach": "Garder la défense comme compétence nationale : coopérations au cas par cas ou traités bilatéraux, priorité à l'industrie française, refus d'une armée européenne et des programmes communs pilotés par Bruxelles.",
+          "candidates": [
+            "Bruno Retailleau",
+            "David Lisnard",
+            "Emmanuel Maurel",
+            "Nicolas Dupont-Aignan",
+            "François Asselineau",
+            "Florian Philippot",
+            "Fabien Roussel",
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://republicains.fr/actualites/2026/07/14/lunite-nationale-premiere-de-nos-armes/",
+            "https://lediplomate.media/david-lisnard-souverainete-europeenne/",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://datan.fr/votes/legislature-17/vote_977",
+            "https://www.debout-la-france.fr/projet/defense/",
+            "https://upr.fr/essentiels/mort-officielle-du-scaf-apres-16-ans-de-palabres-et-des-centaines-de-millions-deuros-gaches",
+            "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+            "https://www.pcf.fr/reaction_intervention_macron_defense",
+            "https://melenchon.fr/2026/01/20/communique-de-jean-luc-melenchon-visite-de-lusine-dassault-de-cergy/"
+          ]
+        },
+        {
+          "approach": "Rejeter tout réarmement, européen comme national, présenté comme profitant aux industriels de l'armement.",
+          "candidates": [
+            "Nathalie Arthaud",
+            "Selma Labib",
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://lutte-ouvriere.org/portail/editoriaux/alliance-atlantique-europeenne-brigandage-182196.html",
+            "https://npa-revolutionnaires.org/articles/le-capitalisme-cest-la-guerre-pour-avoir-la-paix-il-faut-le-renverser",
+            "https://www.revolutionpermanente.fr/Projet-strategique-de-defense-europeenne-l-UE-propose-un-plan-de-militarisation-coordonne"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "defense",
+      "importance": "medium",
+      "cleavage": "Faut-il rendre un service national obligatoire, et doit-il être militaire ?",
+      "sides": [
+        {
+          "approach": "Rétablir un service obligatoire pour tous les jeunes avec une formation militaire : soit un service militaire court en caserne, soit une conscription citoyenne rémunérée qui comprend une formation militaire initiale.",
+          "candidates": [
+            "David Lisnard",
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://www.unenouvelleenergie.fr/une-experience-formatrice-quil-ne-faut-pas-idealiser-david-lisnard-raconte-son-service-militaire/",
+            "https://web.archive.org/web/20260508153107/https://melenchon2027.fr/programme2025/livre/chapitre5/s7/"
+          ]
+        },
+        {
+          "approach": "Rendre obligatoire un service civique (de 3 à 10 mois selon les projets), le service militaire restant volontaire.",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Nicolas Dupont-Aignan",
+            "Olivier Becht"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme",
+            "https://www.debout-la-france.fr/actualite/service-militaire-a-quand-des-mesures-serieuses-et-realistes/",
+            "https://becht2024.fr/wp-content/uploads/2026/08/Rapport-Amenagement-du-territoire-_-Olivier-Becht.pdf"
+          ]
+        },
+        {
+          "approach": "Pas d'obligation : développer fortement les réserves et le service militaire volontaire, par exemple 250 000 réservistes et 50 000 volontaires par an.",
+          "candidates": [
+            "Édouard Philippe",
+            "Bruno Retailleau",
+            "Bernard Cazeneuve",
+            "Fabien Roussel"
+          ],
+          "evidence_urls": [
+            "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure",
+            "https://republicains.fr/actualites/2026/07/14/lunite-nationale-premiere-de-nos-armes/",
+            "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+            "https://assets.nationbuilder.com/pcf/pages/41211/attachments/original/1779954906/document_cahier_paix_ppp_stc.pdf?1779954906"
+          ]
+        },
+        {
+          "approach": "Refuser toute forme de service militaire, volontaire ou obligatoire, et la militarisation de la jeunesse.",
+          "candidates": [
+            "Nathalie Arthaud",
+            "Selma Labib",
+            "Anasse Kazib"
+          ],
+          "evidence_urls": [
+            "https://lutte-ouvriere.org/portail/editoriaux/galonnes-cherchent-chair-canon-188858.html",
+            "https://npa-revolutionnaires.org/articles/intervention-de-selma-labib-a-la-fete-de-lhumanite-2026",
+            "https://www.revolutionpermanente.fr/Conscription-citoyenne-obligatoire-le-projet-de-LFI-ne-vaut-pas-mieux-que-le-service-militaire-de"
+          ]
+        }
+      ]
+    }
+  ],
+  "consensus_points": [
+    {
+      "topic_id": "europe",
+      "point": "Presque tous les candidats, y compris les plus libéraux, veulent une politique commerciale européenne plus protectrice : réciprocité, mesures miroirs, prix du carbone aux frontières, préférence européenne dans les secteurs stratégiques. Aucun ne défend le libre-échange tel qu'il se pratique aujourd'hui.",
+      "url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere"
+    },
+    {
+      "topic_id": "europe",
+      "point": "Parmi les candidats qui veulent rester dans l'Union, aucun ne propose de quitter l'euro. La sortie de la monnaie unique, autrefois défendue par une candidate, n'est plus portée que par des candidats qui veulent aussi quitter l'UE.",
+      "url": "https://www.euronews.com/my-europe/2026/09/17/fact-check-will-marine-le-pen-hold-a-frexit-referendum-if-she-becomes-president-of-france"
+    },
+    {
+      "topic_id": "ukraine_russie",
+      "point": "Presque tous les candidats disent condamner l'invasion russe, y compris certains qui veulent cesser l'aide financière à l'Ukraine ou ne soutenir aucun camp. Seuls quelques-uns, partisans d'un rapprochement avec Moscou, évitent cette condamnation.",
+      "url": "https://kyivindependent.com/bardella-or-le-pen-what-frances-far-right-choice-means-for-ukraine/"
+    },
+    {
+      "topic_id": "ukraine_russie",
+      "point": "Les cinq candidats de la primaire de la gauche (Faure, Glucksmann, Guedj, Maurel, Royal) sont unanimes pour maintenir l'aide à l'Ukraine. Ils divergent seulement sur la place à donner à la négociation avec la Russie.",
+      "url": "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat"
+    },
+    {
+      "topic_id": "proche_orient",
+      "point": "Presque tous les candidats qui s'expriment se réfèrent à une solution à deux États, même ceux qui ont jugé la reconnaissance de 2025 prématurée. Seuls deux candidats la rejettent au profit d'un cadre unique aux droits égaux.",
+      "url": "https://fr.timesofisrael.com/primaire-de-la-gauche-en-france-les-5-candidats-confrontent-leurs-positions-sur-israel-et-gaza/"
+    },
+    {
+      "topic_id": "defense",
+      "point": "Hormis trois candidats (Arthaud, Kazib, Labib), aucun ne propose de baisser le budget des armées. L'actualisation de la loi de programmation militaire a été adoptée le 1er juillet 2026 par 375 voix contre 113.",
+      "url": "https://datan.fr/votes/legislature-17/vote_7905"
+    },
+    {
+      "topic_id": "defense",
+      "point": "Presque tous veulent conserver la dissuasion nucléaire, y compris ceux qui veulent quitter l'OTAN, qui la veulent strictement nationale. Deux candidats seulement envisagent de la démanteler, et deux autres visent un désarmement multilatéral à long terme.",
+      "url": "https://republicains.fr/actualites/2026/03/01/la-dissuasion-nucleaire-francaise-ne-se-partage-pas/"
+    }
+  ]
+}

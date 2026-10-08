@@ -8,18 +8,20 @@
 // vidéo et le passage dans cette entrée, et « retour » la rouvre là où on l'avait laissée, par-dessus la même
 // page. Une adresse directe, #/videos/<vidéo>, ouvre la page « Les sujets en vidéo » avec le lecteur sur cette
 // vidéo (l'adresse redevient #/videos, l'entrée du lecteur vient par-dessus : « retour » ou × mènent à la page).
-// Le lecteur et le catalogue se chargent à la demande (load.ts).
+// Le lecteur et le catalogue se chargent à la demande (load.ts) ; le catalogue donne les séries de l'élection
+// affichée (setVideoScope, fixé par app.tsx).
 
 import { useEffect, useRef, useState } from 'preact/hooks'
 import type { ElectionPack } from '../../core/types'
+import { link } from '../nav'
 import { LECTEUR, isPlayerEntry, savePlayer, savedPlayer } from './history'
 import { catalogNow, loadCatalog, loadPlayer, type PlayerModule, type VideoCatalog } from './load'
 
 type Open = (id: string, from: HTMLElement | null) => void
 let handler: Open | null = null
 
-/** Adresse de la page « Les sujets en vidéo » */
-export const VIDEOS_PAGE = '#/videos'
+/** Chemin de la page « Les sujets en vidéo », dans l'élection affichée : link(VIDEOS_PATH) */
+export const VIDEOS_PATH = '/videos'
 
 /**
  * Ouvre le lecteur sur une vidéo, par-dessus la page. À appeler dans le geste de la personne (le son s'y
@@ -119,9 +121,9 @@ export function VideoHost({ pack, start }: { pack: ElectionPack; start?: string 
     loadCatalog()
       .then(c => {
         if (!alive || now.current.opened) return
-        history.replaceState(null, '', VIDEOS_PAGE)
+        history.replaceState(null, '', link(VIDEOS_PATH))
         if (!c.videoById(start)) return
-        history.pushState({ [LECTEUR]: true, vpVideo: start, vpSegment: 0 }, '', VIDEOS_PAGE)
+        history.pushState({ [LECTEUR]: true, vpVideo: start, vpSegment: 0 }, '', link(VIDEOS_PATH))
         from.current = null
         where.current = location.hash
         setOpened({ id: start, resume: true, segment: 0, n: ++opening })
@@ -183,7 +185,7 @@ export function VideoHost({ pack, start }: { pack: ElectionPack; start?: string 
   return (
     <Player
       key={opened.n}
-      series={catalog.VIDEO_SERIES}
+      series={catalog.videoSeries()}
       bank={bank}
       groups={groups}
       start={opened.id}

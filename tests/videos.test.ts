@@ -1,39 +1,55 @@
 // Vidéos « Les sujets » : intégrité des séries (structure, identifiants, chiffres, sources, voix, neutralité,
-// typographie, planches), repères de série, et chronologie sans voix (sous-titres seuls). Tout est vérifié de
-// façon générique, pour chaque série présente ou à venir (une par fichier, src/ui/videos/series/<thème>.ts ;
-// règles d'écriture : src/ui/videos/GUIDE-SERIES.md). Les voix enregistrées (chemins, empreinte, inventaire,
-// voix unique) : voices.test.ts ; les planches dessinées : piste-c.test.ts.
+// typographie, planches), séries de chaque élection (périmètre vidéo, scope.ts), repères de série, et
+// chronologie sans voix (sous-titres seuls). Tout est vérifié de façon générique, pour chaque série présente ou à
+// venir (une par fichier, src/ui/videos/series/<thème>.ts ; règles d'écriture : src/ui/videos/GUIDE-SERIES.md)
+// et pour chaque élection (src/elections/all.ts). Les voix enregistrées (chemins, empreinte, inventaire, voix
+// unique) : voices.test.ts ; les planches dessinées : piste-c.test.ts ; le catalogue du site : video-site.test.ts.
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { choisir2027 } from '../src/elections/choisir-2027'
+import type { ElectionPack } from '../src/core/types'
+import { elections } from '../src/elections/all'
 import { audioPath, GAP_MS, segmentMs } from '../src/ui/videos/audio'
 import { chartOf, durationLabel, holdMs, markerOf, wordsOf } from '../src/ui/videos/model'
 import { Narrator, type NarrationState } from '../src/ui/videos/narration'
 import { PLANCHES_BY_TOPIC } from '../src/ui/videos/pistes/planches'
+import { scopeSeries } from '../src/ui/videos/scope'
 import { SERIES_BY_TOPIC, VIDEO_SERIES } from '../src/ui/videos/series'
 
-const { bank, candidates } = choisir2027
-const groups = choisir2027.topicGroups ?? []
+/** L'élection pour laquelle les séries sont écrites : leurs thèmes, familles et questions sont ceux de sa banque */
+const source = elections.find(p => p.election.id === 'choisir-2027')!
+const { bank } = source
+const groups = source.topicGroups ?? []
 const videos = VIDEO_SERIES.flatMap(s => s.videos)
 const segments = videos.flatMap(v => v.segments.map(s => ({ video: v, segment: s })))
 const fold = (s: string) => s.toLowerCase().replace(/[\u00a0\u202f]/g, ' ')
 const norm = (s: string) => s.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase()
+
+/** Les familles de thèmes d'une élection, comme les lisent les pages et le catalogue */
+const groupsOf = (pack: ElectionPack) => pack.topicGroups ?? pack.bank.topics.map(t => ({ id: t.id, label: t.label, topicIds: [t.id] }))
+/** Les séries telles que les montre une élection */
+const scopedOf = (pack: ElectionPack) => scopeSeries(VIDEO_SERIES, pack.videoScope, groupsOf(pack), pack.bank)
+
+/**
+ * Ce qui porte le nom d'un parti sans le désigner, retiré du texte avant de chercher les partis (texte normalisé) :
+ * « la Convention internationale des droits de l'enfant », « la Convention citoyenne pour le climat »
+ */
+const NOT_A_PARTY = /\bla convention (internationale|citoyenne|europeenne)\b/g
 
 /** Passages au plus par série (GUIDE-SERIES.md) ; Retraites, validée avant la règle, garde ses 53 passages */
 const MAX_PER_SERIES = 45
 const VALIDATED_BEFORE_RULE: Record<string, number> = { retraites: 53 }
 
 describe('séries de vidéos', () => {
-  it('un fichier par thème de la banque ; chaque série écrite porte le thème de son fichier', () => {
+  it('un fichier par thème de la banque de la primaire ; chaque série écrite porte le thème de son fichier', () => {
     expect(Object.keys(SERIES_BY_TOPIC).sort()).toEqual(bank.topics.map(t => t.id).sort())
     for (const [topicId, s] of Object.entries(SERIES_BY_TOPIC)) if (s) expect(s.topicId, topicId).toBe(topicId)
   })
 
-  it('séries rangées dans l’ordre des familles, puis des thèmes dans leur famille (groups.ts)', () => {
+  it('telles qu’écrites, rangées dans l’ordre des familles de la primaire, puis des thèmes dans leur famille', () => {
     const order = groups.flatMap(g => g.topicIds)
     expect(VIDEO_SERIES.map(s => s.topicId)).toEqual(order.filter(id => SERIES_BY_TOPIC[id]))
   })
 
-  it('une série par thème, rangée dans la famille de son thème, l’introduction d’abord', () => {
+  it('une série par thème, écrite sous le nom et dans la famille de son thème (primaire), l’introduction d’abord', () => {
     const topics = VIDEO_SERIES.map(s => s.topicId)
     expect(new Set(topics).size).toBe(topics.length)
     for (const s of VIDEO_SERIES) {
@@ -88,9 +104,11 @@ describe('séries de vidéos', () => {
     for (const a of prefixes) for (const b of prefixes) if (a !== b) expect(b.startsWith(`${a}-`), `${a} / ${b}`).toBe(false)
   })
 
-  it('chaque vidéo mène à des questions de son thème et cite des sources complètes', () => {
+  it('chaque vidéo mène à des questions de son thème (primaire) et cite des sources complètes', () => {
     for (const s of VIDEO_SERIES) {
       for (const v of s.videos) {
+        // « fiche » se calcule pour l'élection affichée (scope.ts) : une série ne l'écrit jamais
+        expect(v.fiche, v.id).toBeUndefined()
         expect(v.questionIds.length, v.id).toBeGreaterThan(0)
         for (const q of v.questionIds) {
           const question = bank.questions.find(x => x.id === q)
@@ -106,7 +124,7 @@ describe('séries de vidéos', () => {
     }
   })
 
-  it('exhaustivité : chaque thème a sa série, chaque question au moins un approfondissement', () => {
+  it('exhaustivité (primaire) : chaque thème a sa série, chaque question au moins un approfondissement', () => {
     expect(bank.topics.filter(t => !SERIES_BY_TOPIC[t.id]).map(t => t.id)).toEqual([])
     const deep = new Set(videos.filter(v => v.kind === 'deep').flatMap(v => v.questionIds))
     expect(bank.questions.filter(q => !deep.has(q.id)).map(q => q.id)).toEqual([])
@@ -145,15 +163,30 @@ describe('séries de vidéos', () => {
     }
   })
 
-  it('neutralité : aucun candidat, aucun parti, aucun appel à donner son avis dans ce qui est dit ou titré', () => {
-    const names = candidates.flatMap(c => [c.name.split(' ').slice(1).join(' '), c.affiliation]).filter(n => n.length > 3).map(norm)
+  it('neutralité : aucun candidat ni parti d’aucune élection, aucun appel à donner son avis dans ce qui est dit ou titré', () => {
+    // Noms de famille et partis des candidats de toutes les élections, en mots entiers (« Le Pen », pas « le pense »),
+    // hors les partis qui sont aussi des mots courants (forbiddenTermsAllow : « La Convention » des droits de l'enfant)
+    const allowed = new Set(elections.flatMap(p => p.election.forbiddenTermsAllow ?? []).map(norm))
+    const names = [
+      ...new Set(
+        elections
+          .flatMap(p => p.candidates)
+          .flatMap(c => [c.name.split(' ').slice(1).join(' '), c.affiliation])
+          .filter(n => n.length > 3)
+          .map(norm),
+      ),
+    ].filter(n => !allowed.has(n))
+    const word = (n: string) => new RegExp(`(^|[^\\p{L}\\p{N}])${n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}($|[^\\p{L}\\p{N}])`, 'u')
+    const patterns = names.map(n => ({ n, re: word(n) }))
     for (const v of videos) {
       const texts = [v.title, v.short, ...v.segments.flatMap(s => [s.say, s.spoken ?? '', s.alt ?? '', s.figure?.label ?? ''])]
       for (const t of texts) {
-        for (const n of names) expect(norm(t).includes(n), `${v.id} cite « ${n} »`).toBe(false)
+        // Un nom de parti qui est aussi celui d'un texte ou d'une instance n'est pas un parti
+        const text = norm(t).replace(NOT_A_PARTY, ' ')
+        for (const { n, re } of patterns) expect(re.test(text), `${v.id} cite « ${n} »`).toBe(false)
         expect(/donnez votre avis|isoloir/i.test(t), `${v.id} : « ${t} »`).toBe(false)
         // Sigles de partis et d'alliances, en capitales (« PS », pas « ps » dans un mot)
-        expect(/\b(PS|LFI|PCF|EELV|RN|LR|NFP|NUPES|Nupes|GRS|UDI|MoDem)\b/.test(t), `${v.id} : « ${t} »`).toBe(false)
+        expect(/\b(PS|LFI|PCF|EELV|RN|LR|NFP|NUPES|Nupes|GRS|UDI|MoDem|DLF|UPR|NPA)\b/.test(t), `${v.id} : « ${t} »`).toBe(false)
       }
     }
   })
@@ -179,6 +212,81 @@ describe('séries de vidéos', () => {
       const ids = new Set(SERIES_BY_TOPIC[topicId]?.videos.flatMap(v => v.segments.map(s => s.id)) ?? [])
       expect(Object.keys(boards).filter(id => !ids.has(id)), topicId).toEqual([])
     }
+  })
+})
+
+describe.each(elections.map(p => [p.election.id, p] as const))('séries montrées pour %s', (_id, pack) => {
+  const scoped = scopedOf(pack)
+  const topics = new Map(pack.bank.topics.map(t => [t.id, t]))
+  const questions = new Map(pack.bank.questions.map(q => [q.id, q]))
+  const groups = groupsOf(pack)
+
+  it('périmètre vidéo : des séries et des questions écrites, vers des thèmes et des questions de la banque', () => {
+    const scope = pack.videoScope
+    if (!scope) return
+    const sourceQuestions = new Set(bank.questions.map(q => q.id))
+    for (const [serie, topicId] of Object.entries(scope.topics)) {
+      expect(SERIES_BY_TOPIC[serie], `série « ${serie} »`).toBeTruthy()
+      expect(topics.has(topicId), `${serie} → thème « ${topicId} »`).toBe(true)
+    }
+    // Deux séries sous un même thème : seule la première serait montrée
+    const targets = Object.values(scope.topics)
+    expect(targets.length, 'thèmes en double').toBe(new Set(targets).size)
+    for (const [there, here] of Object.entries(scope.questions)) {
+      expect(sourceQuestions.has(there), `question source « ${there} »`).toBe(true)
+      expect(questions.has(here), `${there} → question « ${here} »`).toBe(true)
+    }
+  })
+
+  it('une série par thème de la banque, sous son nom et dans sa famille, rangées dans l’ordre des familles', () => {
+    const ids = scoped.map(s => s.topicId)
+    expect(new Set(ids).size).toBe(ids.length)
+    const order = groups.flatMap(g => g.topicIds)
+    expect(ids).toEqual(order.filter(id => ids.includes(id)))
+    for (const s of scoped) {
+      expect(s.label, s.topicId).toBe(topics.get(s.topicId)?.label)
+      expect(groups.find(g => g.topicIds.includes(s.topicId))?.id, s.topicId).toBe(s.familyId)
+    }
+    // Sans périmètre, chaque série écrite est montrée ; avec, celles de « topics » seulement
+    const expected = pack.videoScope ? Object.keys(pack.videoScope.topics).length : VIDEO_SERIES.length
+    expect(scoped.length).toBe(expected)
+  })
+
+  it('chaque vidéo mène à des questions de son thème, et « Voir la fiche » à une fiche de ce thème', () => {
+    for (const s of scoped) {
+      for (const v of s.videos) {
+        expect(new Set(v.questionIds).size, v.id).toBe(v.questionIds.length)
+        for (const id of v.questionIds) expect(questions.get(id)?.topicId, `${v.id} → ${id}`).toBe(s.topicId)
+        const fiche = v.fiche ? questions.get(v.fiche) : undefined
+        expect(fiche?.explainer, `${v.id} : fiche « ${v.fiche} »`).toBeTruthy()
+        expect(fiche?.topicId, `${v.id} : fiche « ${v.fiche} »`).toBe(s.topicId)
+      }
+    }
+  })
+
+  it('vidéos et passages gardent les identifiants des séries écrites (les fichiers de la voix)', () => {
+    for (const s of scoped) {
+      for (const v of s.videos) {
+        const written = videos.find(x => x.id === v.id)
+        expect(written, v.id).toBeTruthy()
+        expect(v.segments, v.id).toBe(written?.segments)
+        expect(v.title, v.id).toBe(written?.title)
+      }
+    }
+  })
+})
+
+describe('séries de la primaire, pour laquelle elles sont écrites', () => {
+  it('sans périmètre vidéo, rien ne change : les séries telles qu’écrites, « Voir la fiche » sur leur première question', () => {
+    expect(source.videoScope).toBeUndefined()
+    const scoped = scopedOf(source)
+    expect(scoped.map(s => s.topicId)).toEqual(VIDEO_SERIES.map(s => s.topicId))
+    scoped.forEach((s, i) => {
+      const written = VIDEO_SERIES[i]!
+      // toEqual ne compte pas une propriété « undefined » : « fiche » mise à part, tout est identique
+      expect({ ...s, videos: s.videos.map(v => ({ ...v, fiche: undefined })) }, s.topicId).toEqual(written)
+      s.videos.forEach(v => expect(v.fiche, v.id).toBe(v.questionIds[0]))
+    })
   })
 })
 

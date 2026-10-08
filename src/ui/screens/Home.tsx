@@ -1,12 +1,13 @@
 import { useMemo, useRef, useState } from 'preact/hooks'
-import { go } from '../../app'
+import { go, link } from '../nav'
 import { firstStepSize } from '../../core/order'
 import { isAnswered } from '../../core/answers'
 import { MAX_IMPORT_BYTES, parseImport } from '../../core/exportData'
 import type { SessionState } from '../../core/storage'
-import type { ElectionPack, Question } from '../../core/types'
-import { AI_METHOD_HREF } from '../components/AiLabel'
+import type { ElectionPack, Question, Round } from '../../core/types'
+import { AI_METHOD_PATH } from '../components/AiLabel'
 import { AirplaneSection } from '../components/Airplane'
+import { ArchiveCallout } from '../components/ArchiveCallout'
 import { ConfirmErase } from '../components/ConfirmErase'
 import { ExternalLink } from '../components/ExternalLink'
 import { FormHeader } from '../components/FormHeader'
@@ -14,12 +15,22 @@ import { Icon } from '../components/Icon'
 import { Journey } from '../components/Journey'
 import { SiteFooter } from '../components/SiteFooter'
 import { FilmPlayer } from '../film/Player'
-import { CTA_NOTE } from '../film/script'
+import { ctaNote as ctaNoteOf } from '../film/script'
 import { BlindDiagram, FlowDiagram, MethodDiagram } from '../components/Diagrams'
 import { Stamp } from '../components/Stamp'
 import { seededShuffle } from '../../core/rng'
 import { formatDayRange, formatMoment } from '../format'
 import { useReveal } from '../useReveal'
+import { isMany } from '../many'
+
+const DAY_MONTH = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', timeZone: 'Europe/Paris' })
+
+/** Les jours d'un tour : « 9 et 10 octobre » sur deux jours, « 18 avril » (ou « 1er mai ») sur un seul */
+function roundDays(round: Round): string {
+  const end = DAY_MONTH.format(new Date(round.end))
+  if (DAY_MONTH.format(new Date(round.start)) !== end) return formatDayRange(round.start, round.end)
+  return end.replace(/^1 /, '1er ')
+}
 
 interface Props {
   pack: ElectionPack
@@ -99,7 +110,7 @@ export function Home({ pack, state, essential, stale, setState, eraseAll, saved 
   const audit = election.audit
   // Ordre tiré au hasard par personne, comme partout où les candidats ne sont pas classés
   const people = useMemo(() => seededShuffle(pack.candidates, `${state.seed}:people`), [pack.candidates, state.seed])
-  const startHref = done ? '#/resultats' : `#/feuille/${(firstOpen < 0 ? 0 : firstOpen) + 1}`
+  const startHref = done ? link('/resultats') : link(`/feuille/${(firstOpen < 0 ? 0 : firstOpen) + 1}`)
   const startLabel = done
     ? 'Voir mon dépouillement'
     : added
@@ -132,7 +143,7 @@ export function Home({ pack, state, essential, stale, setState, eraseAll, saved 
         <li class="trust-ai">
           <Icon name="info" />
           <span>
-            Textes rédigés par IA, vérifiés automa&shy;tique&shy;ment&nbsp;: <a href={AI_METHOD_HREF}>en savoir plus</a>
+            Textes rédigés par IA, vérifiés automa&shy;tique&shy;ment&nbsp;: <a href={link(AI_METHOD_PATH)}>en savoir plus</a>
           </span>
         </li>
       </ul>
@@ -144,7 +155,7 @@ export function Home({ pack, state, essential, stale, setState, eraseAll, saved 
 
   // La note sous l'appel final du film : la promesse au premier passage ; ensuite, l'état de la feuille
   // est dit sous le film, pour tout le monde et à tout moment
-  const ctaNote = started ? '' : CTA_NOTE
+  const ctaNote = started ? '' : ctaNoteOf(pack.bank)
   const shortLabel = done ? 'Mon dépouillement' : added ? 'Répondre' : started ? 'Reprendre' : 'Commencer'
 
   return (
@@ -160,20 +171,23 @@ export function Home({ pack, state, essential, stale, setState, eraseAll, saved 
           <FilmPlayer cta={{ href: startHref, label: startLabel, note: ctaNote }} />
         </section>
 
+        {/* Une élection archivée encore en vote, ou dont cet appareil garde une feuille : où la retrouver */}
+        <ArchiveCallout electionId={election.id} />
+
         {started || stale.length > 0 ? (
           <div class="home-status">
             {done && state.essentialDoneAt ? (
               <p class="progress-note done-note">
                 Vous avez répondu aux {essential.length} questions le{' '}
                 <time dateTime={state.essentialDoneAt}>{formatMoment(state.essentialDoneAt)}</time>.{' '}
-                <a href="#/resultats">Voir mon dépouillement</a>
+                <a href={link('/resultats')}>Voir mon dépouillement</a>
               </p>
             ) : added ? (
               <p class="notice" role="status">
                 {added > 1 ? `${added} questions ont été ajoutées` : 'Une question a été ajoutée'} au questionnaire depuis vos
                 réponses du <time dateTime={state.essentialDoneAt!}>{formatMoment(state.essentialDoneAt)}</time>. Vos autres
                 réponses sont gardées ; votre dépouillement reste visible en attendant.{' '}
-                <a href="#/resultats">Voir mon dépouillement</a>
+                <a href={link('/resultats')}>Voir mon dépouillement</a>
               </p>
             ) : started ? (
               <p class="progress-note">
@@ -181,7 +195,7 @@ export function Home({ pack, state, essential, stale, setState, eraseAll, saved 
                 {step1Done && !done ? (
                   <>
                     {' '}
-                    <a href="#/resultats">Voir la tendance</a>
+                    <a href={link('/resultats')}>Voir la tendance</a>
                   </>
                 ) : null}
               </p>
@@ -189,7 +203,7 @@ export function Home({ pack, state, essential, stale, setState, eraseAll, saved 
             {stale.length > 0 ? (
               <p class="notice" role="status">
                 {stale.length} question{stale.length > 1 ? 's ont' : ' a'} changé depuis vos réponses.{' '}
-                <a href="#/revision">{stale.length > 1 ? 'Les revoir' : 'La revoir'}</a>
+                <a href={link('/revision')}>{stale.length > 1 ? 'Les revoir' : 'La revoir'}</a>
               </p>
             ) : null}
           </div>
@@ -213,12 +227,13 @@ export function Home({ pack, state, essential, stale, setState, eraseAll, saved 
                 <li>Chaque formulation est vérifiée automatiquement pour ne trahir aucun candidat.</li>
                 {audit ? (
                   <li>
-                    Testé sur {audit.profiles.toLocaleString('fr-FR')} profils au hasard : chaque candidat arrive premier dans{' '}
-                    {audit.minShare} à {audit.maxShare} % des cas.
+                    Testé sur {audit.profiles.toLocaleString('fr-FR')} profils au hasard : chaque candidat
+                    {election.ranking?.excluded ? ' (hors les non classés)' : null} arrive premier dans {audit.minShare} à{' '}
+                    {audit.maxShare} % des cas.
                   </li>
                 ) : null}
               </ul>
-              <a class="g-link" href="#/methode">
+              <a class="g-link" href={link('/methode')}>
                 La méthode de calcul
               </a>
             </article>
@@ -233,7 +248,7 @@ export function Home({ pack, state, essential, stale, setState, eraseAll, saved 
                 <li>Une position douteuse devient « inconnue » : jamais de supposition.</li>
                 <li>Chaque source est consultable après le dépouillement.</li>
               </ul>
-              <a class="g-link" href="#/methode">
+              <a class="g-link" href={link('/methode')}>
                 Méthode et sources
               </a>
             </article>
@@ -248,7 +263,7 @@ export function Home({ pack, state, essential, stale, setState, eraseAll, saved 
                 </li>
                 <li>Vous seul décidez de télécharger ou de partager votre résultat.</li>
               </ul>
-              <a class="g-link" href="#/confidentialite">
+              <a class="g-link" href={link('/confidentialite')}>
                 Comment c’est garanti
               </a>
             </article>
@@ -263,10 +278,14 @@ export function Home({ pack, state, essential, stale, setState, eraseAll, saved 
             Leur parcours, leur site de campagne et chacune de leurs positions, avec ses sources. Pour un résultat sans a
             priori, répondez d’abord : les approches du questionnaire sont présentées sans nom.
           </p>
-          <ul class="people-strip" aria-label="Candidats, dans un ordre tiré au hasard">
+          {/* Une vingtaine de candidats : petits portraits, plus de colonnes, et toujours tous, dans le même ordre tiré au hasard */}
+          <ul
+            class={`people-strip${isMany(people.length) ? ' is-many' : ''}`}
+            aria-label="Candidats, dans un ordre tiré au hasard"
+          >
             {people.map(c => (
               <li key={c.id}>
-                <a href={`#/candidat/${c.id}`} class="people-card">
+                <a href={link(`/candidat/${c.id}`)} class="people-card">
                   {c.photo ? (
                     <img class="portrait is-strip" src={c.photo.src} alt="" loading="lazy" />
                   ) : (
@@ -279,7 +298,7 @@ export function Home({ pack, state, essential, stale, setState, eraseAll, saved 
               </li>
             ))}
           </ul>
-          <a class="g-link" href="#/candidats">
+          <a class="g-link" href={link('/candidats')}>
             Tous les candidats et leurs positions
           </a>
         </section>
@@ -287,7 +306,7 @@ export function Home({ pack, state, essential, stale, setState, eraseAll, saved 
         <section class="home-more" aria-label="Autres actions">
           <div class="link-row">
             {done ? (
-              <a class="btn-text" href={`#/feuille/1`}>
+              <a class="btn-text" href={link(`/feuille/1`)}>
                 Relire la feuille
               </a>
             ) : null}
@@ -334,7 +353,7 @@ export function Home({ pack, state, essential, stale, setState, eraseAll, saved 
             {election.rounds.map((r, i) => (
               <span key={r.label}>
                 {i > 0 ? '\u00a0; ' : ''}
-                {r.label} {formatDayRange(r.start, r.end)}
+                {r.label} {roundDays(r)}
               </span>
             ))}
             {election.officialUrl ? (

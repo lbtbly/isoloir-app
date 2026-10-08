@@ -52,6 +52,10 @@ export interface Candidate {
   photo?: CandidateMedia
   /** Visuel de bandeau repris de son site de campagne */
   banner?: CandidateMedia
+  /** Date de la déclaration de candidature, AAAA-MM-JJ */
+  declaredAt?: string
+  /** Source de la déclaration de candidature */
+  declaration?: Source
 }
 
 export interface Topic {
@@ -155,8 +159,130 @@ export interface Round {
   end: string
 }
 
+/** Nature du scrutin : les textes et les seuils qui en dépendent sont dans « copy » et « checks » */
+export type ElectionKind = 'primaire' | 'presidentielle'
+
+/**
+ * Phrases propres à une élection, reprises telles quelles par les écrans (typographie française comprise :
+ * espaces insécables, apostrophes courbes). Chaque champ dit la phrase qui l'encadre.
+ */
+export interface ElectionCopy {
+  /** Nom avec son article, en cours de phrase : « la primaire « Choisir 2027 » » */
+  theName: string
+  /** Nom précédé de « à la… » (ou « à l'… ») : « {N} candidats se présentent {atName}. » (Les candidats) */
+  atName: string
+  /** Mention d'indépendance, chaque fois à partir de « sans lien avec » */
+  independence: {
+    /** Pied de page : « Outil indépendant, édité par un citoyen, {footer}. » */
+    footer: string
+    /** Méthode : « Outil édité par un citoyen, à titre personnel, {method}, et sans financement. » */
+    method: string
+    /** Mentions légales : « Isoloir est édité par un citoyen, à titre personnel, {legal}, et sans financement. » */
+    legal: string
+  }
+  /** Les sources des positions : « {N} attributions s'appuient sur {M} sources publiques : {sources}. » (Méthode) */
+  sources: string
+  /**
+   * Le site officiel de l'élection, nommé dans les mentions légales, absent s'il n'y en a pas :
+   * « Les photos des sites de campagne et {photos} ne sont pas reprises. » (Crédits) et
+   * « Les liens vers les sources, les sites des candidats et {links} s'ouvrent dans un nouvel onglet… » (Liens externes)
+   */
+  officialSite?: { photos: string; links: string }
+  /** Pourquoi un petit écart n'est pas significatif : « {closeGapReason} : un écart de moins de N points n'est pas significatif » (Méthode) */
+  closeGapReason: string
+  /**
+   * Sur quoi portent les questions qui ouvrent la feuille, sans rien dire de la couverture (Méthode la calcule) :
+   * « Les {N} premières {step1Reason}, la position de chaque candidat y est connue, et elles ont été retenues
+   * parce qu’elles ne favorisent personne… » ; ex. « portent sur les grands désaccords de la primaire »
+   */
+  step1Reason: string
+  /** Libellé du lien vers la page d'un candidat sur le site officiel de l'élection (Candidate.website) */
+  officialPageLabel: string
+  /**
+   * Description de partage (balises Open Graph et Twitter de index.html, image d'aperçu). Celle de l'élection par
+   * défaut est posée au build : vite.config.ts, tools/build-og.mjs et tools/check-dist.mjs lisent election.ts tel
+   * quel avec Node, qui efface les types ; ce fichier ne doit donc importer que des types.
+   */
+  shareDescription: string
+}
+
+/**
+ * Seuils des tests d'intégrité de la banque (tests/packs.test.ts). Absents, les tests appliquent ceux de la
+ * primaire. Les parts sont des fractions (0,85 = 85 %).
+ */
+export interface ElectionChecks {
+  /** Premier dépouillement */
+  step1?: {
+    /** Nombre de questions */
+    count: number
+    /** Part minimale des candidats dont la position est connue, sur chaque question */
+    minKnownShare: number
+    /** Nombre minimal de ces questions sur lesquelles chaque candidat est connu */
+    minKnownPerCandidate: number
+    /**
+     * Candidats exemptés de la seule règle minKnownPerCandidate, par décision du propriétaire (candidature
+     * centrée sur une cause unique, par exemple) ; toutes les autres règles s'appliquent à eux
+     */
+    exempt?: string[]
+  }
+  /** Questionnaire rapide */
+  quick?: {
+    min: number
+    max: number
+    /** Part minimale des candidats connus, sur chaque question */
+    minKnownShare: number
+    /** Part minimale des questions sur lesquelles chaque candidat est connu */
+    minCandidateShare: number
+    /** Écart maximal, en nombre de questions connues, entre le candidat le mieux et le moins bien couvert */
+    maxSpread: number
+  }
+  /** Banque complète */
+  bank?: {
+    min: number
+    max: number
+    approachesMin: number
+    approachesMax: number
+    /** Part maximale des positions principales connues qu'une même approche peut réunir */
+    maxMainShare: number
+    /**
+     * Portée de maxMainShare : 'all' (défaut) pour toute la banque ; 'quick' pour le questionnaire rapide seulement,
+     * les questions approfondies au-dessus du seuil étant signalées sans bloquer (accord réel entre candidats)
+     */
+    maxMainShareScope?: 'all' | 'quick'
+    /** Part minimale des questions sur lesquelles chaque candidat est connu */
+    minCandidateShare: number
+  }
+  /**
+   * Audit sur profils aléatoires : la part des premières places de chaque candidat reste entre 100/n ÷ a
+   * et 100/n × b, donnés en [a, b] pour le premier dépouillement et pour le questionnaire rapide
+   */
+  audit?: { step1: [number, number]; quick: [number, number] }
+}
+
+/**
+ * Candidats non classés, par décision du propriétaire : leurs positions sont connues sur trop peu de questions pour
+ * qu'un score ait du sens. Ils restent sur le site (liste et fiches des candidats, comparateur, positions connues),
+ * mais n'ont ni score ni rang, nulle part : ni au classement, ni hors classement, ni dans les ex aequo, la sensibilité
+ * à la méthode, les lignes rouges du classement ou l'image partagée. Liste propre à l'élection et révisable (un
+ * candidat y revient quand ses positions sont connues) ; les tests et tools/audit-pack.mjs mesurent l'équilibre du
+ * score sur les seuls candidats notés. research/<id>/config.json la reprend (scoringExcluded, mêmes identifiants).
+ */
+export interface ScoringExclusion {
+  /** Identifiants des candidats non classés */
+  ids: CandidateId[]
+  /**
+   * Motif factuel, le même pour tous, en début de phrase sans majuscule ni point final (Méthode, double JSON) :
+   * « positions connues sur trop peu de questions ». Le chiffre de chacun est donné à côté, d'après les données ;
+   * le motif n'avance aucune cause (programme non publié, candidature centrée sur une cause…).
+   */
+  reason: string
+  /** Date de la décision, AAAA-MM-JJ */
+  since: string
+}
+
 export interface ElectionInfo {
   id: string
+  kind: ElectionKind
   name: string
   /** Libellé court, utilisé dans l'image partagée */
   shortName: string
@@ -173,6 +299,11 @@ export interface ElectionInfo {
   notes: string[]
   /** Termes interdits dans les textes des questions (partis des candidats, slogans) : vérifiés par les tests */
   forbiddenTerms?: string[]
+  /**
+   * Exceptions aux termes interdits : noms de partis qui sont aussi des mots courants (« Renaissance »,
+   * « Ensemble »), jamais cherchés, même quand ils sont l'étiquette d'un candidat (vérifiées par les tests)
+   */
+  forbiddenTermsAllow?: string[]
   /** Audit de biais publié : part des premières places sur des profils aléatoires (vérifiée par les tests) */
   audit?: { profiles: number; minShare: number; maxShare: number }
   /**
@@ -181,6 +312,26 @@ export interface ElectionInfo {
    */
   revisionTracking?: boolean
   changelog: { date: string; text: string }[]
+  /** Phrases propres à l'élection */
+  copy: ElectionCopy
+  /** Questionnaire rapide : nombre de questions du premier dépouillement */
+  quick?: { step1: number }
+  /**
+   * Règle de classement, absente : tous les candidats sont classés (primaire). minCoverageShare (fraction, 0,5 =
+   * la moitié) : un candidat connu sur moins de cette part des questions comptées (notées avec au moins un avis)
+   * est « hors classement », montré sous le classement avec son score à titre indicatif (Résultats, Méthode, image
+   * partagée). Raison : un score calculé sur peu de questions varie trop, et finit premier par simple hasard.
+   * excluded : candidats sortis du calcul par décision du propriétaire (voir ScoringExclusion).
+   */
+  ranking?: { minCoverageShare?: number; excluded?: ScoringExclusion }
+  /** Seuils des tests d'intégrité ; absents, ceux de la primaire */
+  checks?: ElectionChecks
+  /** Périodes où les données ne doivent pas changer (veille et jours de vote), ISO 8601 */
+  freezeWindows?: { start: string; end: string }[]
+  /** Élection passée, gardée en archive : depuis quand (AAAA-MM-JJ) et la note affichée */
+  archived?: { since: string; note: string }
+  /** Annonces en attente (candidature attendue, résultat à venir), affichées telles quelles */
+  pending?: string[]
 }
 
 /** Famille de thèmes, pour filtrer les fiches des candidats */
@@ -197,6 +348,12 @@ export interface ElectionPack {
   positions: PositionTable
   /** Familles de thèmes ; à défaut, chaque thème forme sa propre famille */
   topicGroups?: TopicGroup[]
+  /**
+   * Séries vidéo reprises d'une autre élection : identifiant de thème ou de question des séries
+   * (src/ui/videos/series/) → identifiant dans cette élection. Un thème de série absent de « topics »
+   * n'est pas montré. Absent : les séries sont prises telles quelles (leurs identifiants sont ceux de l'élection).
+   */
+  videoScope?: { topics: Record<string, string>; questions: Record<string, string> }
 }
 
 /**

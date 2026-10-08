@@ -17,6 +17,7 @@ import { Icon } from '../components/Icon'
 import { Explainer } from '../questionnaire/Explainer'
 import { QuestionVideos, TopicVideo, VideoFeedEntry } from '../videos/Links'
 import { useStickyFilters } from '../useStickyFilters'
+import { link } from '../nav'
 import '../../styles/topics.css'
 
 interface Props {
@@ -103,7 +104,7 @@ export function Topics({ pack, state, essential, anchor }: Props) {
   const jump = (e: MouseEvent, id: string) => {
     if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
     e.preventDefault()
-    history.replaceState(null, '', `#/sujets/${id}`)
+    history.replaceState(null, '', link(`/sujets/${id}`))
     if (!wide()) {
       // Le sommaire se replie avant la mesure : sinon le défilement doux vise une position périmée
       if (toc.current) toc.current.open = false
@@ -117,8 +118,8 @@ export function Topics({ pack, state, essential, anchor }: Props) {
   const firstOpen = essential.findIndex(q => !state.answers[q.id])
   const done = essential.length > 0 && seen === essential.length
   const start = done
-    ? { href: '#/resultats', label: 'Voir mon dépouillement' }
-    : { href: `#/feuille/${(firstOpen < 0 ? 0 : firstOpen) + 1}`, label: seen ? 'Reprendre la feuille' : 'Commencer la feuille' }
+    ? { href: link('/resultats'), label: 'Voir mon dépouillement' }
+    : { href: link(`/feuille/${(firstOpen < 0 ? 0 : firstOpen) + 1}`), label: seen ? 'Reprendre la feuille' : 'Commencer la feuille' }
 
   return (
     <div class="screen screen-wide screen-topics">
@@ -208,7 +209,7 @@ export function Topics({ pack, state, essential, anchor }: Props) {
                         <ul>
                           {questions.map(q => (
                             <li key={q.id}>
-                              <a href={`#/sujets/${q.id}`} onClick={e => jump(e, q.id)}>
+                              <a href={link(`/sujets/${q.id}`)} onClick={e => jump(e, q.id)}>
                                 {q.prompt}
                               </a>
                             </li>
@@ -258,7 +259,7 @@ export function Topics({ pack, state, essential, anchor }: Props) {
       <SiteFooter />
       <nav class="action-bar" aria-label="Suite">
         <div class="action-bar-inner">
-          <a class="btn-text" href="#/">
+          <a class="btn-text" href={link('/')}>
             <Icon name="arrow-left" />
             <span class="btn-label">Accueil</span>
           </a>

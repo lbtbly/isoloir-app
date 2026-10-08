@@ -1,0 +1,665 @@
+{
+  "id": "presidentielle-2027",
+  "name": "Élection présidentielle 2027",
+  "shortName": "Présidentielle 2027",
+  "contextDate": "2026-10-06",
+  "context": "Élection présidentielle française de 2027 : premier tour le dimanche 18 avril 2027, second tour le dimanche 2 mai 2027 (le samedi précédent dans une partie de l’outre-mer et sur le continent américain). Parrainages jusqu’au vendredi 12 mars 2027 à 18 h ; liste officielle du Conseil constitutionnel attendue vers le 16 mars 2027 : d’ici là, aucun candidat n’est « officiel », on parle de candidats déclarés. Au 6 octobre 2026, 21 personnes se sont déclarées candidates (dont Éric Zemmour et Xavier Bertrand, qui ont annoncé leur candidature et doivent encore l’officialiser formellement) ; la primaire de la gauche « Choisir 2027 » (PS, Place publique, GRS) désigne la ou le sien les 9-10 et 16-17 octobre 2026 parmi Olivier Faure, Raphaël Glucksmann, Jérôme Guedj, Emmanuel Maurel et Ségolène Royal. Beaucoup de programmes ne sont pas encore publiés : on s’appuie sur les déclarations publiques récentes (2025-2026), les propositions de loi, les votes et les programmes récents des partis.",
+  "rounds": [
+    {
+      "label": "Premier tour",
+      "start": "2027-04-17",
+      "end": "2027-04-18"
+    },
+    {
+      "label": "Second tour",
+      "start": "2027-05-01",
+      "end": "2027-05-02"
+    }
+  ],
+  "freezeWindows": [
+    {
+      "start": "2027-04-16T00:00:00+02:00",
+      "end": "2027-04-18T20:00:00+02:00"
+    },
+    {
+      "start": "2027-04-30T00:00:00+02:00",
+      "end": "2027-05-02T20:00:00+02:00"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "philippe",
+      "name": "Édouard Philippe",
+      "initials": "ÉP",
+      "party": "Horizons",
+      "declaredAt": "2024-09-03",
+      "declarationSource": {
+        "title": "L’ancien Premier ministre Édouard Philippe annonce être candidat à la prochaine élection présidentielle",
+        "url": "https://www.franceinfo.fr/politique/edouard-philippe/l-ancien-premier-ministre-edouard-philippe-annonce-etre-candidat-a-la-prochaine-election-presidentielle_6761212.html",
+        "publisher": "franceinfo",
+        "date": "2024-09-03"
+      },
+      "docs": []
+    },
+    {
+      "id": "lepen",
+      "name": "Marine Le Pen",
+      "initials": "MLP",
+      "party": "Rassemblement national",
+      "declaredAt": "2026-07-07",
+      "declarationSource": {
+        "title": "Procès des assistants du RN : Marine Le Pen condamnée en appel mais éligible à l’élection présidentielle 2027",
+        "url": "https://www.touteleurope.eu/vie-politique-des-etats-membres/proces-des-assistants-du-rn-marine-le-pen-condamnee-en-appel-mais-eligible-a-l-election-presidentielle-2027/",
+        "publisher": "Toute l’Europe",
+        "date": "2026-07-07"
+      },
+      "note": "Éligible après l’arrêt d’appel du 7 juillet 2026 ; pourvoi en cassation, décision attendue avant le 18 avril 2027.",
+      "docs": []
+    },
+    {
+      "id": "melenchon",
+      "name": "Jean-Luc Mélenchon",
+      "initials": "JLM",
+      "party": "La France insoumise",
+      "declaredAt": "2026-05-03",
+      "declarationSource": {
+        "title": "Jean-Luc Mélenchon officialise sa candidature pour 2027",
+        "url": "https://lcp.fr/actualites/presidentielle-jean-luc-melenchon-officialise-sa-candidature-pour-2027-435851",
+        "publisher": "LCP",
+        "date": "2026-05-03"
+      },
+      "docs": []
+    },
+    {
+      "id": "retailleau",
+      "name": "Bruno Retailleau",
+      "initials": "BR",
+      "party": "Les Républicains",
+      "declaredAt": "2026-04-19",
+      "declarationSource": {
+        "title": "Présidentielle 2027 : Bruno Retailleau désigné candidat des Républicains, une primaire écartée",
+        "url": "https://www.france24.com/fr/france/20260419-pr%C3%A9sidentielle-2027-bruno-retailleau-d%C3%A9sign%C3%A9-candidat-des-r%C3%A9publicains-une-primaire-%C3%A9cart%C3%A9e",
+        "publisher": "France 24",
+        "date": "2026-04-19"
+      },
+      "docs": []
+    },
+    {
+      "id": "attal",
+      "name": "Gabriel Attal",
+      "initials": "GA",
+      "party": "Renaissance",
+      "declaredAt": "2026-05-22",
+      "declarationSource": {
+        "title": "Gabriel Attal se déclare candidat à l’élection présidentielle de 2027",
+        "url": "https://www.franceinfo.fr/elections/presidentielle/j-aime-passionnement-la-france-et-j-aime-profondement-les-francais-gabriel-attal-se-declare-candidat-a-l-election-presidentielle-de-2027_8020769.html",
+        "publisher": "franceinfo",
+        "date": "2026-05-22"
+      },
+      "docs": []
+    },
+    {
+      "id": "lisnard",
+      "name": "David Lisnard",
+      "initials": "DL",
+      "party": "Nouvelle Énergie",
+      "declaredAt": "2026-03-31",
+      "declarationSource": null,
+      "docs": []
+    },
+    {
+      "id": "roussel",
+      "name": "Fabien Roussel",
+      "initials": "FR",
+      "party": "Parti communiste français",
+      "declaredAt": "2026-09-06",
+      "declarationSource": {
+        "title": "Présidentielle 2027 : Fabien Roussel officialise sa candidature avec le PCF",
+        "url": "https://www.france24.com/fr/france/20260906-pr%C3%A9sidentielle-2027-fabien-roussel-officialise-sa-candidature-avec-le-pcf",
+        "publisher": "France 24",
+        "date": "2026-09-06"
+      },
+      "docs": []
+    },
+    {
+      "id": "batho",
+      "name": "Delphine Batho",
+      "initials": "DB",
+      "party": "Génération écologie",
+      "declaredAt": "2025-11-25",
+      "declarationSource": {
+        "title": "Delphine Batho : « Je suis candidate à l’élection présidentielle pour reconstruire une écologie capable de gouverner »",
+        "url": "https://www.francebleu.fr/nouvelle-aquitaine/deux-sevres-79/delphine-batho-je-suis-candidate-a-l-election-presidentielle-pour-reconstruire-une-ecologie-capable-de-gouverner-4864803",
+        "publisher": "ICI (France Bleu)",
+        "date": "2025-11-26"
+      },
+      "docs": []
+    },
+    {
+      "id": "bouamrane",
+      "name": "Karim Bouamrane",
+      "initials": "KB",
+      "party": "La France humaine et forte",
+      "declaredAt": "2026-06-09",
+      "declarationSource": {
+        "title": "Karim Bouamrane, le maire socialiste de Saint-Ouen, annonce sa candidature à la présidentielle 2027",
+        "url": "https://france3-regions.franceinfo.fr/paris-ile-de-france/seine-saint-denis/je-ferai-tout-pour-qu-il-y-ait-un-bulletin-karim-bouamrane-le-maire-socialiste-de-saint-ouen-annonce-sa-candidature-a-la-presidentielle-2027-3364996.html",
+        "publisher": "France 3 Paris Île-de-France",
+        "date": "2026-06-09"
+      },
+      "docs": []
+    },
+    {
+      "id": "cazeneuve",
+      "name": "Bernard Cazeneuve",
+      "initials": "BC",
+      "party": "La Convention",
+      "declaredAt": "2026-07-16",
+      "declarationSource": {
+        "title": "Présidentielle 2027 : l’ancien Premier ministre Bernard Cazeneuve annonce sa candidature",
+        "url": "https://actu.orange.fr/france/presidentielle-2027-l-ancien-premier-ministre-bernard-cazeneuve-annonce-sa-candidature-magic-CNT000002qxP1P.html",
+        "publisher": "Orange Actu (Le Parisien)",
+        "date": "2026-07-17"
+      },
+      "docs": []
+    },
+    {
+      "id": "becht",
+      "name": "Olivier Becht",
+      "initials": "OB",
+      "party": "Sans investiture de parti",
+      "declaredAt": "2026-09-24",
+      "declarationSource": {
+        "title": "« Quand on n’a aucune chance, il faut la saisir » : l’ancien ministre Olivier Becht annonce sa candidature à la présidentielle",
+        "url": "https://www.lejdd.fr/politique/quand-on-na-aucune-chance-il-faut-la-saisir-lancien-ministre-olivier-becht-annonce-sa-candidature-a-la-presidentielle-184281",
+        "publisher": "Le JDD",
+        "date": "2026-09-24"
+      },
+      "docs": []
+    },
+    {
+      "id": "dupontaignan",
+      "name": "Nicolas Dupont-Aignan",
+      "initials": "NDA",
+      "party": "Debout la France",
+      "declaredAt": "2025-03-08",
+      "declarationSource": {
+        "title": "Élection présidentielle 2027 : Nicolas Dupont-Aignan se lance dans la course à l’Élysée",
+        "url": "https://actu.orange.fr/france/election-presidentielle-2027-nicolas-dupont-aignan-se-lance-dans-la-course-a-l-elysee-magic-CNT000002hNChM.html",
+        "publisher": "Orange Actu",
+        "date": "2025-03-08"
+      },
+      "docs": []
+    },
+    {
+      "id": "arthaud",
+      "name": "Nathalie Arthaud",
+      "initials": "NA",
+      "party": "Lutte ouvrière",
+      "declaredAt": "2025-12-08",
+      "declarationSource": {
+        "title": "Présidentielle 2027 : soutenez la campagne de Nathalie Arthaud",
+        "url": "https://www.lutte-ouvriere.org/portail/journal/presidentielle-2027-soutenez-campagne-nathalie-arthaud-196575.html",
+        "publisher": "Lutte ouvrière",
+        "date": "2025-12-08"
+      },
+      "docs": []
+    },
+    {
+      "id": "asselineau",
+      "name": "François Asselineau",
+      "initials": "FA",
+      "party": "Union populaire républicaine",
+      "declaredAt": "2023-08-31",
+      "declarationSource": null,
+      "docs": []
+    },
+    {
+      "id": "philippot",
+      "name": "Florian Philippot",
+      "initials": "FP",
+      "party": "Les Patriotes",
+      "declaredAt": "2026-05-09",
+      "declarationSource": {
+        "title": "Présidentielle 2027 : Florian Philippot, président du parti Les Patriotes, se déclare candidat",
+        "url": "https://www.ici.fr/grand-est/moselle-57/forbach/presidentielle-2027-florian-philippot-president-du-parti-les-patriotes-se-declare-candidat-8886754",
+        "publisher": "ICI",
+        "date": "2026-05-09"
+      },
+      "docs": []
+    },
+    {
+      "id": "kazib",
+      "name": "Anasse Kazib",
+      "initials": "AK",
+      "party": "Révolution permanente",
+      "declaredAt": "2026-06-01",
+      "declarationSource": null,
+      "docs": []
+    },
+    {
+      "id": "labib",
+      "name": "Selma Labib",
+      "initials": "SL",
+      "party": "NPA-Révolutionnaires",
+      "declaredAt": "2026-06-17",
+      "declarationSource": {
+        "title": "Présidentielle : Selma Labib, une candidate ouvrière et révolutionnaire",
+        "url": "https://npa-revolutionnaires.org/articles/presidentielle-selma-labib-une-candidate-ouvriere-et-revolutionnaire",
+        "publisher": "NPA-Révolutionnaires",
+        "date": "2026-06-17"
+      },
+      "docs": []
+    },
+    {
+      "id": "lalanne",
+      "name": "Francis Lalanne",
+      "initials": "FL",
+      "party": "France Libre",
+      "declaredAt": "2026-08-19",
+      "declarationSource": {
+        "title": "Francis Lalanne officiellement candidat à la présidentielle 2027",
+        "url": "https://www.lalibre.be/international/europe/2026/08/19/francis-lalanne-officiellement-candidat-a-la-presidentielle-2027-IYHINYS4IJG43AHUFIS2XZVX54/",
+        "publisher": "La Libre Belgique",
+        "date": "2026-08-19"
+      },
+      "docs": []
+    },
+    {
+      "id": "markovic",
+      "name": "Mira Markovic",
+      "initials": "MM",
+      "party": "Parti animaliste",
+      "declaredAt": "2026-10-02",
+      "declarationSource": {
+        "title": "Présidentielle 2027 : « Si nous ne sommes pas là, personne ne parle des animaux »",
+        "url": "https://www.cnews.fr/france/2026-10-02/presidentielle-2027-si-nous-ne-sommes-pas-la-personne-ne-parle-des-animaux",
+        "publisher": "CNews",
+        "date": "2026-10-02"
+      },
+      "docs": []
+    },
+    {
+      "id": "zemmour",
+      "name": "Éric Zemmour",
+      "initials": "ÉZ",
+      "party": "Reconquête",
+      "declaredAt": "2026-09-17",
+      "declarationSource": {
+        "title": "Présidentielle 2027 : Éric Zemmour officialise sa candidature",
+        "url": "https://lcp.fr/actualites/presidentielle-2027-eric-zemmour-officialise-sa-candidature-441871",
+        "publisher": "LCP",
+        "date": "2026-09-17"
+      },
+      "note": "A annoncé sur BFMTV le 17 septembre 2026 qu’il « sera candidat » ; déclaration formelle annoncée pour l’automne 2026.",
+      "docs": []
+    },
+    {
+      "id": "bertrand",
+      "name": "Xavier Bertrand",
+      "initials": "XB",
+      "party": "Nous France",
+      "declaredAt": "2026-08-27",
+      "declarationSource": {
+        "title": "« Je le serai » : Xavier Bertrand annonce sa candidature à l’élection présidentielle",
+        "url": "https://france3-regions.franceinfo.fr/hauts-de-france/nord-0/lille/je-le-serai-xavier-bertrand-annonce-sa-candidature-a-l-election-presidentielle-et-s-exprime-sur-d-eventuelles-primaires-3407339.html",
+        "publisher": "France 3 Hauts-de-France",
+        "date": "2026-08-27"
+      },
+      "note": "Président de la région Hauts-de-France, membre des Républicains, candidat sans passer par une primaire ni par la désignation de LR ; déclaration formelle annoncée plus tard.",
+      "docs": []
+    },
+    {
+      "id": "faure",
+      "name": "Olivier Faure",
+      "initials": "OF",
+      "party": "Parti socialiste",
+      "pendingPrimary": true,
+      "reuseDossier": "research/choisir-2027/dossier_faure.json",
+      "docs": []
+    },
+    {
+      "id": "glucksmann",
+      "name": "Raphaël Glucksmann",
+      "initials": "RG",
+      "party": "Place publique",
+      "pendingPrimary": true,
+      "reuseDossier": "research/choisir-2027/dossier_glucksmann.json",
+      "docs": []
+    },
+    {
+      "id": "guedj",
+      "name": "Jérôme Guedj",
+      "initials": "JG",
+      "party": "Parti socialiste",
+      "pendingPrimary": true,
+      "reuseDossier": "research/choisir-2027/dossier_guedj.json",
+      "docs": []
+    },
+    {
+      "id": "maurel",
+      "name": "Emmanuel Maurel",
+      "initials": "EM",
+      "party": "Gauche républicaine et socialiste",
+      "pendingPrimary": true,
+      "reuseDossier": "research/choisir-2027/dossier_maurel.json",
+      "docs": []
+    },
+    {
+      "id": "royal",
+      "name": "Ségolène Royal",
+      "initials": "SR",
+      "party": "Parti socialiste",
+      "pendingPrimary": true,
+      "reuseDossier": "research/choisir-2027/dossier_royal.json",
+      "docs": []
+    }
+  ],
+  "topics": [
+    {
+      "id": "institutions",
+      "label": "Institutions",
+      "description": "Équilibre des pouvoirs entre président, gouvernement et Parlement, mode de scrutin, référendum et place des citoyens dans la décision.",
+      "reuse": true
+    },
+    {
+      "id": "laicite_republique",
+      "label": "Laïcité et mémoire",
+      "description": "Conception de la laïcité, signes religieux, laïcité à l’école et mémoire de la colonisation.",
+      "reuse": true
+    },
+    {
+      "id": "fiscalite",
+      "label": "Impôts",
+      "description": "Niveau et répartition des impôts et des prélèvements : revenus, patrimoine, héritages, entreprises, consommation.",
+      "reuse": true
+    },
+    {
+      "id": "finances_publiques",
+      "label": "Dette et dépenses publiques",
+      "description": "Déficit et dette publics, niveau de la dépense publique, effectifs et organisation de l’État.",
+      "reuse": false
+    },
+    {
+      "id": "travail_salaires",
+      "label": "Salaires et travail",
+      "description": "Pouvoir d’achat, évolution des salaires, partage des bénéfices, temps de travail et droits des salariés.",
+      "reuse": true
+    },
+    {
+      "id": "industrie_economie",
+      "label": "Industrie et entreprises",
+      "description": "Stratégie de réindustrialisation, protection commerciale, aides publiques et règles pour les entreprises.",
+      "reuse": true
+    },
+    {
+      "id": "retraites",
+      "label": "Retraites",
+      "description": "Âge de départ, financement des pensions et partage des décisions sur le système de retraite.",
+      "reuse": true
+    },
+    {
+      "id": "sante",
+      "label": "Santé et grand âge",
+      "description": "Accès aux soins, prévention, place de la Sécurité sociale face aux complémentaires et accompagnement des personnes âgées dépendantes.",
+      "reuse": true
+    },
+    {
+      "id": "logement",
+      "label": "Logement",
+      "description": "Loyers, construction et leviers pour rendre le logement plus abordable.",
+      "reuse": true
+    },
+    {
+      "id": "solidarites",
+      "label": "Solidarités et familles",
+      "description": "Minima sociaux, assurance chômage, droits des personnes handicapées, politique familiale et natalité.",
+      "reuse": true
+    },
+    {
+      "id": "egalite",
+      "label": "Égalité femmes-hommes",
+      "description": "Partage des responsabilités familiales, égalité salariale et lutte contre les violences faites aux femmes.",
+      "reuse": true
+    },
+    {
+      "id": "droits_lgbtqia",
+      "label": "Bioéthique et droits des personnes LGBTQIA+",
+      "description": "Bioéthique de la procréation (procréation médicalement assistée, gestation pour autrui), filiation et adoption, changement de la mention du sexe à l’état civil, transidentité des mineurs, lutte contre les discriminations et éducation à la sexualité à l’école.",
+      "reuse": false
+    },
+    {
+      "id": "education",
+      "label": "École et jeunesse",
+      "description": "Apprentissages et taille des classes, enseignement privé, université et recherche, mesures pour les jeunes.",
+      "reuse": true
+    },
+    {
+      "id": "societe",
+      "label": "Culture et audiovisuel public",
+      "description": "Priorités de la politique culturelle, avenir de l’audiovisuel public et soutien à la création.",
+      "reuse": true
+    },
+    {
+      "id": "numerique",
+      "label": "Numérique",
+      "description": "Intelligence artificielle, protection des mineurs face aux écrans et encadrement des grandes plateformes.",
+      "reuse": true
+    },
+    {
+      "id": "ecologie_energie",
+      "label": "Écologie, énergie et transports",
+      "description": "Prix de l’énergie, nucléaire et renouvelables, transition écologique, transports, gestion de l’eau et adaptation au climat.",
+      "reuse": true
+    },
+    {
+      "id": "agriculture",
+      "label": "Agriculture, alimentation et animaux",
+      "description": "Soutien aux agriculteurs, accès à l’alimentation, concurrence des produits importés et bien-être animal.",
+      "reuse": true
+    },
+    {
+      "id": "territoires",
+      "label": "Territoires et services publics",
+      "description": "Services publics de proximité, pouvoirs des collectivités locales, égalité entre les territoires et outre-mer.",
+      "reuse": true
+    },
+    {
+      "id": "securite_justice",
+      "label": "Sécurité et justice",
+      "description": "Police et gendarmerie, lutte contre la délinquance et le trafic de drogue, politique pénale et prisons.",
+      "reuse": true
+    },
+    {
+      "id": "immigration",
+      "label": "Immigration",
+      "description": "Orientation de la politique migratoire, droit d’asile, intégration des étrangers, nationalité et expulsions.",
+      "reuse": true
+    },
+    {
+      "id": "europe",
+      "label": "Europe",
+      "description": "Orientation de la construction européenne, budget de l’Union, règles du marché unique, élargissement, et maintien ou non dans l’Union européenne.",
+      "reuse": true
+    },
+    {
+      "id": "ukraine_russie",
+      "label": "Ukraine et Russie",
+      "description": "Soutien à l’Ukraine et relation avec la Russie.",
+      "reuse": true
+    },
+    {
+      "id": "proche_orient",
+      "label": "Israël et Gaza",
+      "description": "Position de la France sur la guerre à Gaza, l’État de Palestine et les relations avec le gouvernement israélien.",
+      "reuse": true
+    },
+    {
+      "id": "defense",
+      "label": "Défense",
+      "description": "Budget et stratégie militaires, alliances dont l’OTAN, dissuasion nucléaire et service national.",
+      "reuse": true
+    }
+  ],
+  "groups": [
+    {
+      "id": "economie",
+      "label": "Travail et économie",
+      "topicIds": [
+        "travail_salaires",
+        "fiscalite",
+        "finances_publiques",
+        "industrie_economie",
+        "retraites"
+      ]
+    },
+    {
+      "id": "social",
+      "label": "Santé, logement, solidarités",
+      "topicIds": [
+        "sante",
+        "logement",
+        "solidarites"
+      ]
+    },
+    {
+      "id": "egalite_droits",
+      "label": "Égalité et droits",
+      "topicIds": [
+        "egalite",
+        "droits_lgbtqia"
+      ]
+    },
+    {
+      "id": "savoirs",
+      "label": "École, culture, numérique",
+      "topicIds": [
+        "education",
+        "societe",
+        "numerique"
+      ]
+    },
+    {
+      "id": "ecologie",
+      "label": "Écologie et territoires",
+      "topicIds": [
+        "ecologie_energie",
+        "agriculture",
+        "territoires"
+      ]
+    },
+    {
+      "id": "justice",
+      "label": "Sécurité et justice",
+      "topicIds": [
+        "securite_justice"
+      ]
+    },
+    {
+      "id": "immigration",
+      "label": "Immigration",
+      "topicIds": [
+        "immigration"
+      ]
+    },
+    {
+      "id": "monde",
+      "label": "Europe et monde",
+      "topicIds": [
+        "europe",
+        "ukraine_russie",
+        "proche_orient",
+        "defense"
+      ]
+    },
+    {
+      "id": "republique",
+      "label": "République et vie politique",
+      "topicIds": [
+        "institutions",
+        "laicite_republique"
+      ]
+    }
+  ],
+  "forbiddenTerms": [
+    "Rassemblement national",
+    "RN",
+    "France insoumise",
+    "LFI",
+    "Les Républicains",
+    "Horizons",
+    "Parti communiste",
+    "PCF",
+    "Génération écologie",
+    "Lutte ouvrière",
+    "Debout la France",
+    "UPR",
+    "Les Patriotes",
+    "Révolution permanente",
+    "NPA",
+    "France Libre",
+    "Parti animaliste",
+    "Nouvelle Énergie",
+    "La France humaine et forte",
+    "Parti socialiste",
+    "Place publique",
+    "Reconquête",
+    "Écologistes",
+    "Nouveau Front populaire",
+    "NFP",
+    "macronie",
+    "extrême droite",
+    "extrême gauche",
+    "Nous France"
+  ],
+  "forbiddenTermsAllow": [
+    "Renaissance",
+    "La Convention",
+    "Ensemble"
+  ],
+  "quality": {
+    "step1": {
+      "count": 10,
+      "minKnownShare": 0.85,
+      "minKnownPerCandidate": 8,
+      "exempt": [
+        "markovic"
+      ]
+    },
+    "quick": {
+      "min": 22,
+      "max": 26,
+      "minKnownShare": 0.75,
+      "minCandidateShare": 0.7,
+      "maxSpread": 6
+    },
+    "bank": {
+      "min": 85,
+      "max": 100,
+      "approachesMin": 4,
+      "approachesMax": 9,
+      "maxMainShare": 0.6,
+      "maxMainShareScope": "quick",
+      "minCandidateShare": 0.4
+    },
+    "audit": {
+      "step1": [
+        3,
+        2
+      ],
+      "quick": [
+        4,
+        2.5
+      ]
+    }
+  },
+  "scoringExcluded": [
+    "asselineau",
+    "batho",
+    "becht",
+    "bertrand",
+    "bouamrane",
+    "lalanne",
+    "markovic"
+  ]
+}

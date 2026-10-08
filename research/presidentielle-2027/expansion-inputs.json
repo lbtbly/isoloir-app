@@ -1,0 +1,271 @@
+{
+  "subjects": [
+    {
+      "topicId": "territoires",
+      "subject": "Autonomie de la Corse et différenciation territoriale",
+      "proposal": "Question approfondie : « Faut-il accorder à la Corse une autonomie inscrite dans la Constitution ? » Approches : accorder à la Corse une autonomie avec un pouvoir législatif propre, après un référendum local ; accorder une autonomie encadrée, sans pouvoir législatif ; refuser tout statut constitutionnel particulier pour la Corse ; ouvrir la même faculté de différenciation à d’autres régions qui la demandent. Contexte à établir sur source : état de la révision constitutionnelle engagée en 2026."
+    },
+    {
+      "topicId": "territoires",
+      "subject": "Avenir de la Nouvelle-Calédonie",
+      "proposal": "Question approfondie : « Quel avenir institutionnel pour la Nouvelle-Calédonie ? » Approches : accompagner la Nouvelle-Calédonie vers l’indépendance ; appliquer un compromis négocié entre toutes les forces politiques calédoniennes ; prolonger durablement le cadre actuel au sein de la République ; maintenir la Nouvelle-Calédonie dans la France, sans État ni nationalité calédonienne. Contexte à établir sur source : accords en discussion et calendrier local."
+    },
+    {
+      "topicId": "territoires",
+      "subject": "Artificialisation des sols (objectif de zéro artificialisation nette)",
+      "proposal": "Question approfondie : « Que faire de l’objectif de zéro artificialisation nette des sols ? » Approches : supprimer cet objectif et rendre la décision aux élus locaux ; l’assouplir selon les territoires (friches, communes rurales, projets industriels) ; maintenir l’objectif et son calendrier ; le renforcer pour mieux protéger les terres agricoles et naturelles. Rattachée aux territoires (thème sous-représenté), plutôt qu’au logement ; ne pas doubler ecologie_energie-4-d (levée d’obligations écologiques)."
+    },
+    {
+      "topicId": "immigration",
+      "subject": "Aide médicale d’État (AME)",
+      "proposal": "Question approfondie : « Que faire de l’aide médicale d’État, qui prend en charge les soins des étrangers en situation irrégulière ? » Approches : la supprimer et la remplacer par une aide limitée aux soins urgents ; réduire les soins couverts et durcir les conditions d’accès ; la maintenir dans sa forme actuelle ; l’intégrer à l’assurance maladie commune. Rattachée à l’immigration, où la ligne de fracture la range (la famille santé l’y avait renvoyée) ; question ajoutée, sans retirer immigration-6."
+    },
+    {
+      "topicId": "europe",
+      "subject": "Élargissement de l’Union européenne, notamment à l’Ukraine",
+      "proposal": "Question approfondie : « Faut-il élargir l’Union européenne, notamment à l’Ukraine ? » Approches : accueillir l’Ukraine et les autres pays candidats après une réforme des règles de décision de l’Union ; accepter l’élargissement à terme, sans adhésion accélérée et après une harmonisation préalable (agriculture, normes, salaires) ; refuser tout nouvel élargissement. Fracture transversale : des candidats éloignés refusent tous deux une adhésion accélérée."
+    },
+    {
+      "topicId": "ukraine_russie",
+      "subject": "Garanties de sécurité pour l’Ukraine et envoi de soldats français",
+      "proposal": "Question approfondie : « Quelles garanties de sécurité offrir à l’Ukraine après un cessez-le-feu ? » Approches : déployer en Ukraine une force européenne de réassurance, avec des soldats français ; armer durablement l’Ukraine, sans envoyer de soldats ; confier l’interposition à une force des Nations unies, sans soldats français ; n’accorder aucune garantie ni aucun déploiement. Distincte de l’aide (ukraine_russie-1) et de la relation avec la Russie (ukraine_russie-2) ; à articuler avec l’approche ajoutée ukraine_russie-1-h (force européenne après un cessez-le-feu) pour éviter un double compte."
+    },
+    {
+      "topicId": "ecologie_energie",
+      "subject": "Fin des voitures thermiques neuves en 2035 et zones à faibles émissions",
+      "proposal": "Question approfondie : « Quelle politique pour la voiture individuelle ? » Approches : supprimer l’interdiction de vente des voitures thermiques neuves en 2035 et les zones à faibles émissions ; suspendre ou assouplir les zones à faibles émissions, en gardant l’échéance de 2035 ; maintenir l’échéance de 2035 et aider les ménages modestes à passer à l’électrique, par exemple par une location à prix réduit ; réduire la place de la voiture en développant les transports collectifs, voire leur gratuité. À articuler avec ecologie_energie-7 (approches c et f, cette dernière ajoutée) et ecologie_energie-4-d, pour éviter les doublons."
+    },
+    {
+      "topicId": "agriculture",
+      "subject": "Revenu des agriculteurs : prix planchers ou allègements",
+      "proposal": "Question approfondie : « Comment garantir le revenu des agriculteurs ? » Approches : fixer par l’État des prix planchers d’achat aux producteurs ; encadrer les marges de l’industrie agroalimentaire et de la grande distribution ; baisser les charges, les impôts de production et les normes qui pèsent sur les exploitations ; créer une sécurité sociale de l’alimentation qui oriente les achats vers les productions locales. Distincte de agriculture-1 (importations)."
+    },
+    {
+      "topicId": "societe",
+      "subject": "Concentration des médias",
+      "proposal": "Question approfondie : « Faut-il limiter la concentration des médias ? » Approches : abaisser les plafonds de concentration, quitte à imposer des cessions aux grands groupes ; garantir par la loi l’indépendance des rédactions face à leurs actionnaires ; supprimer les aides publiques à la presse et l’autorité de régulation de l’audiovisuel ; conserver les règles actuelles. societe-1 ne traite que de l’audiovisuel public."
+    },
+    {
+      "topicId": "europe",
+      "subject": "Relation avec les États-Unis (droits de douane, Groenland, dépendance stratégique)",
+      "proposal": "Question approfondie : « Quelle attitude adopter face aux États-Unis ? » Approches : rester un allié proche des États-Unis, sans alignement systématique ; affirmer l’autonomie européenne, jusqu’à une riposte commerciale commune aux droits de douane ; diversifier les partenariats en se rapprochant d’autres puissances ; adopter une diplomatie non alignée, hors de toute alliance avec eux. Rattachée à l’Europe comme le propose la critique (riposte commerciale et autonomie stratégique se décident à l’échelle européenne), faute de thème de politique étrangère générale ; ne pas doubler defense-1 (OTAN)."
+    },
+    {
+      "topicId": "immigration",
+      "subject": "Accord franco-algérien de 1968",
+      "proposal": "Question approfondie : « Que faire de l’accord franco-algérien de 1968 sur l’entrée et le séjour des Algériens ? » Approches, scindées comme le demande la critique : dénoncer l’accord unilatéralement ; le renégocier pour rapprocher les Algériens du droit commun des étrangers ; le maintenir en privilégiant le dialogue avec l’Algérie. Risque de question dominée (la dénonciation réunit environ 6 des 8 approches principales connues) : départager « dénoncer » et « renégocier » sur source, sans scission artificielle."
+    },
+    {
+      "topicId": "education",
+      "subject": "Climat scolaire : sanctions ou moyens humains",
+      "proposal": "Question approfondie : « Quelle priorité face aux violences et aux exclusions à l’école ? » Approches : accueillir les élèves violents dans des établissements ou des classes spécialisés et durcir les sanctions ; recruter des surveillants, infirmiers, psychologues et assistants sociaux scolaires ; rendre les parents financièrement responsables, par des amendes ou la suspension d’aides. Complète education-1, centrée sur l’organisation ; à articuler avec l’approche ajoutée education-1-h (autorité) et securite_justice-5-c (responsabilité des parents)."
+    },
+    {
+      "topicId": "ecologie_energie",
+      "subject": "Croissance ou sobriété",
+      "proposal": "Question approfondie : « Faut-il continuer à viser la croissance de l’économie ? » Approches : faire de la croissance la priorité, pour financer les services publics et la transition ; viser une croissance compatible avec la baisse des émissions, grâce à l’innovation ; abandonner l’objectif de croissance du produit intérieur brut et organiser la sobriété. Peu de positions sourcées dans les dossiers (fracture jugée faible) : chercher en priorité les candidats qui s’expriment sur l’objectif de croissance."
+    }
+  ],
+  "addedApproaches": [
+    {
+      "questionId": "travail_salaires-1",
+      "approachId": "travail_salaires-1-g",
+      "text": "Conditionner les allègements de cotisations patronales à des hausses de salaires négociées dans chaque branche"
+    },
+    {
+      "questionId": "finances_publiques-3",
+      "approachId": "finances_publiques-3-f",
+      "text": "Augmenter les effectifs dans les services en tension (soins, école, justice) et revaloriser les salaires publics"
+    },
+    {
+      "questionId": "travail_salaires-2",
+      "approachId": "travail_salaires-2-f",
+      "text": "Aller progressivement vers les 32 heures par la négociation, avec des aides aux entreprises qui embauchent"
+    },
+    {
+      "questionId": "fiscalite-2",
+      "approachId": "fiscalite-2-g",
+      "text": "Réduire les exonérations sur la transmission d’entreprises et l’assurance-vie, surtout pour les plus gros héritages"
+    },
+    {
+      "questionId": "solidarites-1",
+      "approachId": "solidarites-1-g",
+      "text": "Ouvrir les minima sociaux aux jeunes dès 18 ans et les relever jusqu’au seuil de pauvreté"
+    },
+    {
+      "questionId": "logement-4",
+      "approachId": "logement-4-f",
+      "text": "Garder l’obligation actuelle et alourdir les pénalités des communes qui ne la respectent pas"
+    },
+    {
+      "questionId": "ecologie_energie-4",
+      "approachId": "ecologie_energie-4-g",
+      "text": "Faire porter l’effort d’abord sur les plus gros émetteurs : ménages les plus aisés, jets privés, grandes entreprises"
+    },
+    {
+      "questionId": "europe-1",
+      "approachId": "europe-1-g",
+      "text": "Bâtir une Europe sociale : salaire minimum européen, harmonisation fiscale, lutte contre le dumping social"
+    },
+    {
+      "questionId": "laicite_republique-1",
+      "approachId": "laicite_republique-1-g",
+      "text": "Appliquer la loi de 1905 sur tout le territoire, en mettant fin au régime concordataire d’Alsace-Moselle"
+    },
+    {
+      "questionId": "ukraine_russie-1",
+      "approachId": "ukraine_russie-1-g",
+      "text": "Continuer d’aider l’Ukraine à se défendre tout en réunissant une conférence de paix sous l’égide des Nations unies"
+    },
+    {
+      "questionId": "securite_justice-1",
+      "approachId": "securite_justice-1-g",
+      "text": "Recruter massivement magistrats, greffiers et conseillers d’insertion, pour juger plus vite et préparer la sortie de prison"
+    },
+    {
+      "questionId": "securite_justice-2",
+      "approachId": "securite_justice-2-g",
+      "text": "Remettre un récépissé à chaque personne contrôlée, pour lutter contre les contrôles d’identité discriminatoires"
+    },
+    {
+      "questionId": "sante-1",
+      "approachId": "sante-1-g",
+      "text": "Former beaucoup plus de médecins et de soignants en ouvrant fortement les places en études de santé"
+    },
+    {
+      "questionId": "numerique-3",
+      "approachId": "numerique-3-g",
+      "text": "Taxer davantage les grandes plateformes numériques et les démanteler en cas d’abus de position dominante"
+    },
+    {
+      "questionId": "travail_salaires-1",
+      "approachId": "travail_salaires-1-h",
+      "text": "Revoir les allègements de cotisations pour qu’une hausse de salaire au-dessus du SMIC profite davantage au salarié"
+    },
+    {
+      "questionId": "fiscalite-1",
+      "approachId": "fiscalite-1-f",
+      "text": "Remplacer l’impôt annuel sur le patrimoine immobilier par un impôt sur les biens peu productifs : logements vacants, biens de luxe, liquidités"
+    },
+    {
+      "questionId": "retraites-2",
+      "approachId": "retraites-2-e",
+      "text": "Encourager l’épargne retraite volontaire et d’entreprise par des avantages fiscaux, sans la rendre obligatoire"
+    },
+    {
+      "questionId": "sante-1",
+      "approachId": "sante-1-h",
+      "text": "Faire exercer les internes en fin de cursus dans les territoires qui manquent de médecins"
+    },
+    {
+      "questionId": "logement-2",
+      "approachId": "logement-2-f",
+      "text": "Prolonger l’encadrement des loyers dans les seules villes volontaires, sans l’imposer ailleurs"
+    },
+    {
+      "questionId": "education-1",
+      "approachId": "education-1-g",
+      "text": "Rendre le métier d’enseignant plus attractif : salaires revalorisés, formation et concours dès la licence"
+    },
+    {
+      "questionId": "education-2",
+      "approachId": "education-2-f",
+      "text": "Maintenir les règles actuelles de financement des écoles privées sous contrat, en renforçant les contrôles de l’État"
+    },
+    {
+      "questionId": "agriculture-1",
+      "approachId": "agriculture-1-f",
+      "text": "Accepter les accords de libre-échange agricoles s’ils imposent aux importations les normes européennes de production"
+    },
+    {
+      "questionId": "territoires-1",
+      "approachId": "territoires-1-f",
+      "text": "Multiplier les guichets de proximité qui regroupent les démarches de plusieurs administrations"
+    },
+    {
+      "questionId": "securite_justice-6",
+      "approachId": "securite_justice-6-f",
+      "text": "Faire nommer les procureurs sur avis conforme du Conseil supérieur de la magistrature, comme les juges"
+    },
+    {
+      "questionId": "proche_orient-1",
+      "approachId": "proche_orient-1-g",
+      "text": "Sanctionner individuellement les colons violents et les ministres israéliens qui les soutiennent, sans suspendre l’accord d’association"
+    },
+    {
+      "questionId": "institutions-3",
+      "approachId": "institutions-3-g",
+      "text": "Associer des citoyens tirés au sort à la préparation des grandes réformes, par des conventions citoyennes"
+    },
+    {
+      "questionId": "sante-5",
+      "approachId": "sante-5-f",
+      "text": "Financer la perte d’autonomie par une ressource dédiée, comme une seconde journée de solidarité travaillée"
+    },
+    {
+      "questionId": "institutions-1",
+      "approachId": "institutions-1-g",
+      "text": "Réduire le nombre de députés et de sénateurs et limiter le nombre de mandats successifs d’un même élu"
+    },
+    {
+      "questionId": "ukraine_russie-1",
+      "approachId": "ukraine_russie-1-h",
+      "text": "Garantir la sécurité de l’Ukraine après un cessez-le-feu, avec une force européenne déployée sur son sol"
+    },
+    {
+      "questionId": "finances_publiques-1",
+      "approachId": "finances_publiques-1-g",
+      "text": "Économiser d’abord sur le fonctionnement de l’État en supprimant agences et doublons administratifs, sans hausse d’impôts"
+    },
+    {
+      "questionId": "travail_salaires-1",
+      "approachId": "travail_salaires-1-i",
+      "text": "Exonérer de cotisations patronales les hausses de salaire accordées par les entreprises"
+    },
+    {
+      "questionId": "sante-1",
+      "approachId": "sante-1-i",
+      "text": "Inciter financièrement les médecins à s’installer dans les territoires qui en manquent, sans contraindre leur installation"
+    },
+    {
+      "questionId": "logement-1",
+      "approachId": "logement-1-g",
+      "text": "Faciliter l’accession à la propriété : prêt à taux zéro élargi, vente de logements sociaux à leurs occupants"
+    },
+    {
+      "questionId": "education-1",
+      "approachId": "education-1-h",
+      "text": "Renforcer l’autorité à l’école : uniforme, sanctions contre les élèves perturbateurs, soutien aux enseignants"
+    },
+    {
+      "questionId": "securite_justice-2",
+      "approachId": "securite_justice-2-h",
+      "text": "Étendre les pouvoirs des polices municipales et multiplier les caméras de surveillance, y compris avec analyse automatique des images"
+    },
+    {
+      "questionId": "ecologie_energie-7",
+      "approachId": "ecologie_energie-7-f",
+      "text": "Revenir sur la fin programmée des voitures neuves à moteur thermique et ne plus restreindre l’usage de la voiture"
+    },
+    {
+      "questionId": "agriculture-3",
+      "approachId": "agriculture-3-f",
+      "text": "Préserver la chasse, l’élevage et les traditions rurales, sans nouvelles interdictions"
+    },
+    {
+      "questionId": "proche_orient-1",
+      "approachId": "proche_orient-1-h",
+      "text": "Maintenir l’accord d’association et la coopération avec Israël, sans sanctions, en soutenant le plan de paix pour Gaza"
+    },
+    {
+      "questionId": "societe-1",
+      "approachId": "societe-1-f",
+      "text": "Conserver un audiovisuel public en contrôlant davantage le pluralisme et l’équilibre politique de ses programmes"
+    },
+    {
+      "questionId": "securite_justice-6",
+      "approachId": "securite_justice-6-g",
+      "text": "Supprimer l’exécution immédiate des peines d’inéligibilité, pour qu’un élu condamné puisse d’abord faire appel"
+    }
+  ]
+}

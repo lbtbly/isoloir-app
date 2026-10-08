@@ -44,7 +44,8 @@ export const SANTE: Record<string, Board> = { 'sante-intro-01': intro01, /* … 
 ```
 
 Le nom de la constante est l'identifiant du thème en capitales (`TRAVAIL_SALAIRES`, `PROCHE_ORIENT`…), déjà
-écrit dans les deux fichiers. `series/index.ts` range la série dans le fil (ordre des familles de `groups.ts`) ;
+écrit dans les deux fichiers. `series/index.ts` l'ajoute au catalogue, et chaque élection la range dans son fil
+(ordre de ses familles) et la montre sous ses thèmes et ses questions (`scope.ts`) ;
 `planches/index.ts` fusionne les planches. Un passage sans planche prend le dessin générique, mais le test
 `tests/piste-c.test.ts` exige une planche **par passage**, qui ne rend pas `null`.
 
@@ -77,7 +78,9 @@ pas sur ce point, restez dans les fiches.
   une à trois phrases courtes, 4 à 12 secondes à l'oral. Une vidéo dure de 45 s à 1 min 30.
 - **Titre** (`title`) : 45 signes au plus, une question ou un groupe nominal (« À quel âge partir à la
   retraite ? », « Encadrer les loyers »). `register: 'vous'` partout.
-- `questionIds` : les questions **de votre thème** que la vidéo éclaire (la première mène à « Voir la fiche »).
+- `questionIds` : les questions **de votre thème** que la vidéo éclaire (la première mène à « Voir la fiche »),
+  avec les identifiants de la banque de la primaire. Une autre élection qui reprend la série les traduit par
+  son périmètre vidéo (`videoScope`, `scope.ts`) ; n'écrivez jamais `fiche`, calculé pour l'élection affichée.
 - `visual` de chaque passage : `hook` (accroche), `point` (une idée), `figure` (un chiffre, avec `figure`),
   `timeline` (des dates), `compare` (deux côtés, deux grandeurs), `question`, `outro` (fin d'introduction).
 - `draw` : une phrase qui dit le dessin voulu (jamais montrée) ; gardez-la d'accord avec la planche.
@@ -449,8 +452,9 @@ node tools/videos-snap.mjs .impeccable/videos-snap/<thème> <thème>            
 node tools/videos-snap.mjs .impeccable/videos-snap/<thème> <thème> --planche --formats petit,grand
 ```
 
-- `tests/videos.test.ts` vérifie, pour toutes les séries : thème et famille, `short` de l'introduction, 6 à 12
-  passages par vidéo, 45 par série, titres de 45 signes au plus, identifiants, questions du thème, sources en
+- `tests/videos.test.ts` vérifie, pour toutes les séries et pour chaque élection qui les montre : thème et
+  famille, `short` de l'introduction, 6 à 12 passages par vidéo, 45 par série, titres de 45 signes au plus,
+  identifiants, questions du thème et fiche de « Voir la fiche », sources en
   `https://`, `emphasis` présents dans le `say`, `figure.sourceIndex` valide, `chart` lisible, `spoken`
   (présent dès qu'il y a un chiffre, sans chiffre ni insécable), noms de candidats et de partis, typographie,
   planches rattachées à un passage de la série. `tests/piste-c.test.ts` : une planche par passage, qui ne rend

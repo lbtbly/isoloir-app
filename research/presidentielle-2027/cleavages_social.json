@@ -1,0 +1,522 @@
+{
+  "group": "social",
+  "cleavages": [
+    {
+      "topic_id": "sante",
+      "importance": "high",
+      "cleavage": "Déserts médicaux : faut-il encadrer la liberté d'installation des médecins libéraux, ou seulement les inciter à s'installer dans les zones sous-dotées ?",
+      "sides": [
+        {
+          "approach": "Réguler l'installation : autorisation préalable, ou interdiction des nouvelles installations dans les zones déjà bien pourvues, pour orienter les médecins vers les territoires sous-dotés.",
+          "candidates": [
+            "Jérôme Guedj",
+            "Olivier Faure",
+            "Jean-Luc Mélenchon",
+            "Fabien Roussel"
+          ],
+          "evidence_urls": [
+            "https://moselle.tv/jerome-guedj-inspirons-nous-de-ce-que-la-moselle-a-ete-capable-de-faire-depuis-80-ans/",
+            "https://projet-socialiste.fr/projet/etre-en-securites/",
+            "https://lcp.fr/actualites/deserts-medicaux-l-assemblee-adopte-la-proposition-de-loi-qui-prevoit-de-reguler-l"
+          ]
+        },
+        {
+          "approach": "Garder la liberté d'installation et attirer les médecins par des incitations : actes mieux rémunérés ou mieux remboursés en zone sous-dotée, maisons de santé, formation de beaucoup plus de médecins.",
+          "candidates": [
+            "Marine Le Pen",
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://lcp.fr/actualites/deserts-medicaux-l-assemblee-adopte-la-proposition-de-loi-qui-prevoit-de-reguler-l",
+            "https://www.unenouvelleenergie.fr/notre-programme/sante/",
+            "https://www.bfmtv.com/economie/economie-social/david-lisnard-veut-en-finir-avec-le-systeme-de-mabouls-dans-la-sante-qui-oblige-les-francais-a-partir-a-l-etranger-pour-effectuer-leurs-etudes-de-medecine_AD-202605050791.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "sante",
+      "importance": "high",
+      "cleavage": "Reste à charge, arrêts maladie et rôle des complémentaires : faut-il responsabiliser davantage les assurés, ou étendre la prise en charge par la Sécurité sociale ?",
+      "sides": [
+        {
+          "approach": "Maîtriser la dépense d'indemnités journalières : un ou deux jours de carence non indemnisés et non compensables pour les arrêts courts, contrôle renforcé d'une dépense jugée hors de contrôle (+40 % entre 2019 et 2025 selon ces candidats).",
+          "candidates": [
+            "Édouard Philippe",
+            "Gabriel Attal"
+          ],
+          "evidence_urls": [
+            "https://www.france24.com/fr/info-en-continu/20260827-indemnisation-du-ch%C3%B4mage-arr%C3%AAts-de-travail-pacte-dutreil-le-message-d-%C3%A9douard-philippe-aux-entrepreneurs",
+            "https://www.huffingtonpost.fr/politique/article/apres-l-ecole-gabriel-attal-et-edouard-philippe-en-pleine-surenchere-sur-le-chomage-et-pas-seulement_312974.html"
+          ]
+        },
+        {
+          "approach": "Refuser les économies faites sur les malades : pas de restriction des arrêts maladie, pas de hausse des franchises médicales.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://www.ladepeche.fr/2026/09/24/vrai-ou-faux-arrets-maladie-les-francais-en-posent-ils-vraiment-moins-que-leurs-voisins-europeens-comme-laffirme-jean-luc-melenchon-13564597.php",
+            "https://place-publique.eu/posts/5alHI42mxxIp7GNFA9ImFX/franchises-medicales-s-lecornu-envoie-la-facture-du-deficit-aux-malades"
+          ]
+        },
+        {
+          "approach": "Aller vers une prise en charge intégrale des soins essentiels par une Sécurité sociale élargie ou une mutuelle publique (reste à charge zéro), qui réduirait fortement le rôle des complémentaires privées.",
+          "candidates": [
+            "Jérôme Guedj",
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://moselle.tv/jerome-guedj-inspirons-nous-de-ce-que-la-moselle-a-ete-capable-de-faire-depuis-80-ans/",
+            "https://www.argusdelassurance.com/assurance-de-personnes/presidentielle-2027-face-aux-tarifs-insupportables-des-complementaires-sante-le-candidat-a-lelysee-jerome-guedj-prone-la-mutuelle-publique.BFNDIJT5RRFNBAEQFPR53COKWE.html",
+            "https://projet-socialiste.fr/projet/etre-en-securites/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "sante",
+      "importance": "low",
+      "cleavage": "Hôpital et pilotage du système de santé : faut-il réduire l'administration, ou augmenter les moyens publics et changer le mode de financement ?",
+      "sides": [
+        {
+          "approach": "Réduire la bureaucratie sanitaire : supprimer les agences régionales de santé, confier leurs missions aux préfets et aux élus, baisser la part des personnels non soignants dans les hôpitaux.",
+          "candidates": [
+            "David Lisnard",
+            "Marine Le Pen"
+          ],
+          "evidence_urls": [
+            "https://www.unenouvelleenergie.fr/notre-programme/sante/",
+            "https://www.bfmtv.com/economie/economie-social/david-lisnard-veut-en-finir-avec-le-systeme-de-mabouls-dans-la-sante-qui-oblige-les-francais-a-partir-a-l-etranger-pour-effectuer-leurs-etudes-de-medecine_AD-202605050791.html"
+          ]
+        },
+        {
+          "approach": "Financer l'hôpital selon les besoins de santé, et non plus selon l'activité : fin de la tarification à l'activité, dotations pluriannuelles ou territoriales, hausse garantie des moyens (au moins +4 % par an pour l'un d'eux).",
+          "candidates": [
+            "Emmanuel Maurel",
+            "Raphaël Glucksmann",
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://emmanuel-maurel.fr/programme/",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+            "https://projet-socialiste.fr/projet/etre-en-securites/"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "logement",
+      "importance": "high",
+      "cleavage": "Encadrement des loyers (expérimentation qui prend fin en novembre 2026) : faut-il le pérenniser et l'étendre, ou le supprimer ?",
+      "sides": [
+        {
+          "approach": "Pérenniser l'encadrement des loyers et l'étendre, parfois à toutes les communes, en plafonnant la part du revenu consacrée au loyer (20 % pour l'un des candidats).",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Fabien Roussel",
+            "Olivier Faure",
+            "Emmanuel Maurel",
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://www.lesechos.fr/elections/programmes-dechiffres/loyers-encadres-requisitions-subventions-jean-luc-melenchon-devoile-a-son-tour-ses-propositions-pour-le-logement-2254039",
+            "https://edito.seloger.com/actualites/france/presidentielle-2027-propositions-de-fabien-roussel-logement-article-23785.html",
+            "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+            "https://emmanuel-maurel.fr/programme/",
+            "https://www.lefigaro.fr/politique/loi-sru-encadrement-des-loyers-passoires-thermiques-les-positions-des-candidats-a-la-presidentielle-sur-le-logement-20260914"
+          ]
+        },
+        {
+          "approach": "Supprimer l'encadrement des loyers : le loyer se fixe librement entre bailleur et locataire, et c'est la hausse de l'offre qui doit modérer les prix.",
+          "candidates": [
+            "Bruno Retailleau",
+            "Édouard Philippe"
+          ],
+          "evidence_urls": [
+            "https://www.avecretailleau.fr/projet/mesure/supprimer-l-encadrement-des-loyers",
+            "https://www.immomatin.com/franchise/reseaux-franchise/renforcer-le-droit-du-proprietaire-pour-fluidifier-le-marche-edouard-philippe-congres-fnaim-2025.html",
+            "https://www.lefigaro.fr/politique/loi-sru-encadrement-des-loyers-passoires-thermiques-les-positions-des-candidats-a-la-presidentielle-sur-le-logement-20260914"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "logement",
+      "importance": "high",
+      "cleavage": "Obligation de 20 à 25 % de logements sociaux par commune (loi SRU) : faut-il la supprimer, l'assouplir ou la renforcer ?",
+      "sides": [
+        {
+          "approach": "Abroger l'obligation légale de logements sociaux par commune, jugée inefficace.",
+          "candidates": [
+            "Marine Le Pen",
+            "David Lisnard"
+          ],
+          "evidence_urls": [
+            "https://www.france24.com/fr/info-en-continu/20260913-le-pen-veut-mettre-la-priorit%C3%A9-nationale-au-centre-d-un-grand-chantier-sur-le-logement",
+            "https://www.unenouvelleenergie.fr/notre-programme/reussir-une-nouvelle-ambition-francaise/",
+            "https://edito.seloger.com/actualites/france/presidentielle-2027-c-quoi-loi-sru-marine-pen-veut-abroger-article-23759.html"
+          ]
+        },
+        {
+          "approach": "Assouplir les quotas uniformes : contrats fondés sur les besoins locaux, logements intermédiaires comptés dans les quotas, plus de pouvoir aux maires dans l'attribution.",
+          "candidates": [
+            "Bruno Retailleau",
+            "Gabriel Attal"
+          ],
+          "evidence_urls": [
+            "https://www.avecretailleau.fr/projet/mesure/construire-des-logements-sociaux-selon-les-besoins-locaux",
+            "https://www.bfmtv.com/immobilier/normes-renovation-energetique-investissements-attal-le-pen-et-melenchon-interpeles-sur-la-crise-du-logement-et-la-grande-souffrance-du-batiment_AD-202609280759.html",
+            "https://www.lefigaro.fr/politique/loi-sru-encadrement-des-loyers-passoires-thermiques-les-positions-des-candidats-a-la-presidentielle-sur-le-logement-20260914"
+          ]
+        },
+        {
+          "approach": "Garder l'obligation et relever les objectifs : jusqu'à 30 % de logements sociaux, un tiers de logements sociaux dans la construction neuve, sanctions renforcées contre les communes qui ne respectent pas la loi, environ 200 000 logements sociaux par an.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Fabien Roussel",
+            "Olivier Faure",
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://www.lejdd.fr/politique/logements-sociaux-ce-que-proposent-les-candidats-a-la-presidentielle-183471",
+            "https://edito.seloger.com/actualites/france/presidentielle-2027-propositions-de-fabien-roussel-logement-article-23785.html",
+            "https://www.batiweb.com/actualites/immobilier/congres-hlm-faure-hollande-logement-49329",
+            "https://www.lefigaro.fr/politique/loi-sru-encadrement-des-loyers-passoires-thermiques-les-positions-des-candidats-a-la-presidentielle-sur-le-logement-20260914"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "logement",
+      "importance": "high",
+      "cleavage": "Attribution des logements sociaux et des aides au logement : faut-il y introduire un critère de nationalité ou d'activité ?",
+      "sides": [
+        {
+          "approach": "Donner la priorité aux ressortissants français pour les logements sociaux, les logements étudiants et les aides personnelles au logement ; vendre une partie des HLM à leurs locataires français.",
+          "candidates": [
+            "Marine Le Pen"
+          ],
+          "evidence_urls": [
+            "https://www.france24.com/fr/info-en-continu/20260913-le-pen-veut-mettre-la-priorit%C3%A9-nationale-au-centre-d-un-grand-chantier-sur-le-logement",
+            "https://www.linternaute.com/actualite/politique/11302867-le-plan-logement-de-marine-le-pen-seme-la-discorde/"
+          ]
+        },
+        {
+          "approach": "Réserver le logement social aux actifs et aux familles avec enfants dont les revenus sont inférieurs à la médiane, sans critère de nationalité ; permettre aux locataires HLM d'acheter leur logement.",
+          "candidates": [
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://www.avecretailleau.fr/projet/mesure/logement-social-priorite-aux-actifs-et-aux-familles",
+            "https://www.avecretailleau.fr/projet/mesure/vendre-leur-logement-aux-locataires-hlm-qui-le-souhaitent"
+          ]
+        },
+        {
+          "approach": "Attribuer les logements selon les besoins, sans aucune priorité de nationalité, et augmenter fortement la construction de logements sociaux.",
+          "candidates": [
+            "Olivier Faure",
+            "Fabien Roussel"
+          ],
+          "evidence_urls": [
+            "https://www.linternaute.com/actualite/politique/11302867-le-plan-logement-de-marine-le-pen-seme-la-discorde/",
+            "https://edito.seloger.com/actualites/france/presidentielle-2027-propositions-de-fabien-roussel-logement-article-23785.html",
+            "https://www.batiweb.com/actualites/immobilier/congres-hlm-faure-hollande-logement-49329"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "logement",
+      "importance": "medium",
+      "cleavage": "Passoires thermiques et diagnostic de performance énergétique (DPE) : faut-il garder l'interdiction de louer les logements énergivores ?",
+      "sides": [
+        {
+          "approach": "Supprimer le DPE ou le réduire à une simple information, en levant les interdictions de louer les logements les plus énergivores ; financer la rénovation par des prêts plutôt que par des subventions (pour l'une d'eux).",
+          "candidates": [
+            "Marine Le Pen",
+            "Bruno Retailleau",
+            "Édouard Philippe"
+          ],
+          "evidence_urls": [
+            "https://www.lefigaro.fr/politique/loi-sru-encadrement-des-loyers-passoires-thermiques-les-positions-des-candidats-a-la-presidentielle-sur-le-logement-20260914",
+            "https://www.avecretailleau.fr/projet/mesure/lever-les-interdictions-de-louer-liees-au-dpe",
+            "https://www.immomatin.com/franchise/reseaux-franchise/renforcer-le-droit-du-proprietaire-pour-fluidifier-le-marche-edouard-philippe-congres-fnaim-2025.html",
+            "https://www.bfmtv.com/immobilier/normes-renovation-energetique-investissements-attal-le-pen-et-melenchon-interpeles-sur-la-crise-du-logement-et-la-grande-souffrance-du-batiment_AD-202609280759.html"
+          ]
+        },
+        {
+          "approach": "Revoir les DPE et simplifier les normes, tout en stabilisant les aides à la rénovation sur cinq ans par une loi de programmation.",
+          "candidates": [
+            "Gabriel Attal"
+          ],
+          "evidence_urls": [
+            "https://www.bfmtv.com/immobilier/normes-renovation-energetique-investissements-attal-le-pen-et-melenchon-interpeles-sur-la-crise-du-logement-et-la-grande-souffrance-du-batiment_AD-202609280759.html",
+            "https://attalpresident.fr/actualites/gabriel-attal-veut-liberer-l-acces-au-logement-et-relancer-le-secteur-du-batiment"
+          ]
+        },
+        {
+          "approach": "Rendre la rénovation obligatoire avant toute mise en location, avec un plan public massif : au moins 700 000 logements rénovés par an et 12 Md€ d'investissement public supplémentaire par an.",
+          "candidates": [
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://www.lefigaro.fr/politique/loi-sru-encadrement-des-loyers-passoires-thermiques-les-positions-des-candidats-a-la-presidentielle-sur-le-logement-20260914",
+            "https://actu.orange.fr/politique/presidentielle-vous-allez-vous-retrousser-les-manches-jean-luc-melenchon-compte-sur-le-secteur-du-btp-pour-son-plan-de-deux-millions-de-nouveaux-logements-magic-CNT000002s6ZhW.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "logement",
+      "importance": "medium",
+      "cleavage": "Squats, impayés et expulsions : faut-il renforcer les droits des propriétaires, ou la protection des locataires ?",
+      "sides": [
+        {
+          "approach": "Renforcer les droits des propriétaires : expulsions accélérées en cas de squat ou d'impayés (10 jours au plus pour l'un d'eux), indemnisation par l'État si la décision n'est pas exécutée, maintien ou reprise de la loi anti-squat de 2023.",
+          "candidates": [
+            "Bruno Retailleau",
+            "Édouard Philippe",
+            "Gabriel Attal"
+          ],
+          "evidence_urls": [
+            "https://www.avecretailleau.fr/projet/mesure/accelerer-les-expulsions-pour-squat-ou-impayes",
+            "https://www.immomatin.com/franchise/reseaux-franchise/renforcer-le-droit-du-proprietaire-pour-fluidifier-le-marche-edouard-philippe-congres-fnaim-2025.html",
+            "https://www.bfmtv.com/immobilier/un-grand-plantage-economique-dans-le-macronisme-gabriel-attal-etrille-la-politique-du-logement-menee-depuis-2017-qu-il-n-a-jamais-vraiment-comprise_AN-202609280727.html"
+          ]
+        },
+        {
+          "approach": "Protéger les locataires en difficulté : pas d'expulsion sans solution de relogement, interdiction des saisies et des coupures d'énergie, abrogation de la loi anti-squat de 2023.",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Fabien Roussel",
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://www.lejdd.fr/politique/logements-sociaux-ce-que-proposent-les-candidats-a-la-presidentielle-183471",
+            "https://edito.seloger.com/actualites/france/presidentielle-2027-propositions-de-fabien-roussel-logement-article-23785.html",
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "logement",
+      "importance": "medium",
+      "cleavage": "Propriétaires bailleurs et logements vacants : faut-il alléger la fiscalité de l'investissement locatif, ou taxer la multipropriété et mobiliser les logements vides ?",
+      "sides": [
+        {
+          "approach": "Alléger la fiscalité des bailleurs pour relancer l'investissement locatif : statut du bailleur privé, amortissement de 4 % par an, stabilité fiscale, moins d'impôt sur le patrimoine immobilier.",
+          "candidates": [
+            "Bruno Retailleau",
+            "Édouard Philippe",
+            "Gabriel Attal"
+          ],
+          "evidence_urls": [
+            "https://www.avecretailleau.fr/projet/mesure/alleger-l-impot-sur-les-loyers",
+            "https://www.immomatin.com/franchise/reseaux-franchise/renforcer-le-droit-du-proprietaire-pour-fluidifier-le-marche-edouard-philippe-congres-fnaim-2025.html",
+            "https://www.bfmtv.com/immobilier/un-grand-plantage-economique-dans-le-macronisme-gabriel-attal-etrille-la-politique-du-logement-menee-depuis-2017-qu-il-n-a-jamais-vraiment-comprise_AN-202609280727.html"
+          ]
+        },
+        {
+          "approach": "Mobiliser les logements vacants par la réquisition, facilitée en zone tendue, et taxer la multipropriété à partir du quatrième logement (hors résidence principale).",
+          "candidates": [
+            "Jean-Luc Mélenchon",
+            "Olivier Faure"
+          ],
+          "evidence_urls": [
+            "https://www.lesechos.fr/elections/programmes-dechiffres/loyers-encadres-requisitions-subventions-jean-luc-melenchon-devoile-a-son-tour-ses-propositions-pour-le-logement-2254039",
+            "https://choisir2027.fr/wp-content/uploads/2026/09/Prof.foi_A4_OF-1.pdf",
+            "https://projet-socialiste.fr/projet/vivre-libres/"
+          ]
+        },
+        {
+          "approach": "Mobiliser les logements vacants sans réquisition : taxation progressive de la vacance longue, droit de préemption élargi pour les collectivités, régulation des meublés touristiques.",
+          "candidates": [
+            "Raphaël Glucksmann"
+          ],
+          "evidence_urls": [
+            "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "solidarites",
+      "importance": "high",
+      "cleavage": "Assurance chômage : faut-il raccourcir et durcir l'indemnisation, ou rendre le régime plus protecteur ?",
+      "sides": [
+        {
+          "approach": "Réduire la durée maximale d'indemnisation (12 mois pour les moins de 50 ans, ou 15 mois), allonger la durée de travail nécessaire pour ouvrir des droits (8 mois sur 20), plafonner les allocations élevées, mettre fin aux droits après trois refus d'offre raisonnable.",
+          "candidates": [
+            "Édouard Philippe",
+            "Gabriel Attal",
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://www.france24.com/fr/info-en-continu/20260827-indemnisation-du-ch%C3%B4mage-arr%C3%AAts-de-travail-pacte-dutreil-le-message-d-%C3%A9douard-philippe-aux-entrepreneurs",
+            "https://www.huffingtonpost.fr/politique/article/apres-l-ecole-gabriel-attal-et-edouard-philippe-en-pleine-surenchere-sur-le-chomage-et-pas-seulement_312974.html",
+            "https://www.avecretailleau.fr/projet/mesure/reduire-les-durees-et-plafonner-les-allocations-chomage",
+            "https://attalpresident.fr/programme/travail-salaires"
+          ]
+        },
+        {
+          "approach": "Rendre l'assurance chômage plus protectrice : revenir sur les réductions de droits (dont celle visant les ruptures conventionnelles en 2026), indemniser dès la fin du contrat, supprimer l'obligation d'accepter une offre raisonnable d'emploi.",
+          "candidates": [
+            "Jean-Luc Mélenchon"
+          ],
+          "evidence_urls": [
+            "https://laec.fr/section/40/retablir-une-assurance-chomage-protectrice",
+            "https://www.midilibre.fr/2026/06/02/assurance-chomage-le-parlement-acte-definitivement-la-reduction-de-la-duree-dindemnisation-en-cas-de-rupture-conventionnelle-13399882.php"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "solidarites",
+      "importance": "medium",
+      "cleavage": "RSA et minima sociaux : faut-il les fusionner et les plafonner sous condition d'activité, ou garantir un emploi rémunéré ?",
+      "sides": [
+        {
+          "approach": "Fusionner le RSA, la prime d'activité et l'allocation de solidarité spécifique en un revenu d'incitation (300 € par mois, plus 250 € à partir de 15 heures mensuelles de formation ou de recherche d'emploi). Plafonner le total des aides non contributives à 70 % du SMIC par adulte.",
+          "candidates": [
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://www.avecretailleau.fr/projet/mesure/faire-gagner-plus-a-ceux-qui-reprennent-un-emploi",
+            "https://www.avecretailleau.fr/projet/mesure/plafonner-les-aides-sociales-a-70-du-smic"
+          ]
+        },
+        {
+          "approach": "Remplacer le RSA par une garantie d'emploi ou de formation : chacun se voit proposer un travail ou une formation payés comme un salaire à temps plein.",
+          "candidates": [
+            "Fabien Roussel"
+          ],
+          "evidence_urls": [
+            "https://www.franceinfo.fr/economie/emploi/fabien-roussel-veut-remplacer-le-rsa-par-un-salaire-en-echange-d-un-emploi-ou-d-une-formation-proposes-a-chaque-francais_7205565.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "solidarites",
+      "importance": "high",
+      "cleavage": "Accès des étrangers aux prestations sociales : faut-il le réserver ou le conditionner selon la nationalité ou la durée de séjour ?",
+      "sides": [
+        {
+          "approach": "Instaurer une priorité nationale dans l'accès à l'emploi, au logement et aux prestations sociales. Les candidats en attendent 15 Md€ d'économies la première année, puis 24 Md€ par an.",
+          "candidates": [
+            "Marine Le Pen"
+          ],
+          "evidence_urls": [
+            "https://www.cnews.fr/france/2026-10-06/baisse-de-la-tva-preference-nationale-simplification-administrative-que-contient",
+            "https://www.france24.com/fr/info-en-continu/20260913-le-pen-veut-mettre-la-priorit%C3%A9-nationale-au-centre-d-un-grand-chantier-sur-le-logement"
+          ]
+        },
+        {
+          "approach": "Réserver les prestations sociales des étrangers à ceux qui ont cinq ans de séjour régulier et d'activité en France, en l'inscrivant dans la Constitution par référendum.",
+          "candidates": [
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://www.avecretailleau.fr/projet/mesure/conditionner-les-prestations-sociales-a-cinq-ans-de-sejour"
+          ]
+        },
+        {
+          "approach": "Refuser toute priorité ou condition de nationalité dans l'accès aux droits sociaux et au logement social.",
+          "candidates": [
+            "Olivier Faure",
+            "Fabien Roussel"
+          ],
+          "evidence_urls": [
+            "https://www.linternaute.com/actualite/politique/11302867-le-plan-logement-de-marine-le-pen-seme-la-discorde/",
+            "https://edito.seloger.com/actualites/france/presidentielle-2027-propositions-de-fabien-roussel-logement-article-23785.html"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "solidarites",
+      "importance": "medium",
+      "cleavage": "Politique familiale et natalité : verser plus d'argent aux familles, ou développer les modes de garde ? Qui doit gérer crèches et EHPAD ?",
+      "sides": [
+        {
+          "approach": "Remplacer les aides actuelles par une allocation universelle de 240 € par mois et par enfant dès le premier, doublée à partir du troisième, réservée aux résidents réguliers ayant cinq ans d'activité.",
+          "candidates": [
+            "Bruno Retailleau"
+          ],
+          "evidence_urls": [
+            "https://www.avecretailleau.fr/projet/mesure/verser-240-euros-par-mois-par-enfant-mineur",
+            "https://www.avecretailleau.fr/projet/mesure/doubler-le-revenu-familial-pour-le-troisieme-enfant"
+          ]
+        },
+        {
+          "approach": "Soutenir la natalité par la fiscalité et des aides ciblées : part fiscale pleine dès le deuxième enfant, aide au troisième enfant, plafond du quotient familial relevé, capital versé à chaque naissance.",
+          "candidates": [
+            "Marine Le Pen",
+            "David Lisnard",
+            "Nicolas Dupont-Aignan"
+          ],
+          "evidence_urls": [
+            "https://www.cnews.fr/france/2026-10-06/baisse-de-la-tva-preference-nationale-simplification-administrative-que-contient",
+            "https://www.unenouvelleenergie.fr/notre-programme/reussir-une-nouvelle-ambition-francaise/",
+            "https://www.europe1.fr/politique/restaurer-la-confiance-nicolas-dupont-aignan-propose-un-capital-de-10000-euros-pour-chaque-nouveau-ne-garantissant-un-minimum-retraite-par-capitalisation-1081169"
+          ]
+        },
+        {
+          "approach": "Donner la priorité aux modes de garde : places en crèche financées par un nouveau livret d'épargne (besoin estimé à 3 Md€), 200 000 professionnels de la petite enfance formés d'ici 2030.",
+          "candidates": [
+            "Gabriel Attal"
+          ],
+          "evidence_urls": [
+            "https://attalpresident.fr/programme/travail-salaires"
+          ]
+        },
+        {
+          "approach": "Sortir l'accueil des jeunes enfants et des personnes âgées de la logique lucrative : orienter l'argent public vers les crèches et EHPAD publics ou associatifs, et relever les taux d'encadrement.",
+          "candidates": [
+            "Raphaël Glucksmann",
+            "Emmanuel Maurel"
+          ],
+          "evidence_urls": [
+            "https://place-publique.eu/posts/2fgDdljEIy36rgxBjRyiQZ/raphael-glucksmann-sa-lettre-aux-francais",
+            "https://emmanuel-maurel.fr/programme/"
+          ]
+        }
+      ]
+    }
+  ],
+  "consensus_points": [
+    {
+      "topic_id": "sante",
+      "point": "Il faut former beaucoup plus de médecins en France (l'un des candidats veut doubler le nombre d'étudiants d'ici 2030). Le numerus apertus a été supprimé en 2025 et aucun candidat ne défend une limitation des places.",
+      "url": "https://www.bfmtv.com/economie/economie-social/david-lisnard-veut-en-finir-avec-le-systeme-de-mabouls-dans-la-sante-qui-oblige-les-francais-a-partir-a-l-etranger-pour-effectuer-leurs-etudes-de-medecine_AD-202605050791.html"
+    },
+    {
+      "topic_id": "sante",
+      "point": "Les proches aidants doivent être davantage soutenus : 2 Md€ de plus dans un contre-budget, congé porté de 66 à 365 jours dans un autre programme, indemnité dans un troisième.",
+      "url": "https://www.cnews.fr/france/2026-10-06/baisse-de-la-tva-preference-nationale-simplification-administrative-que-contient"
+    },
+    {
+      "topic_id": "sante",
+      "point": "Il faut relocaliser ou européaniser la production des médicaments essentiels pour limiter les pénuries.",
+      "url": "https://www.unenouvelleenergie.fr/notre-programme/sante/"
+    },
+    {
+      "topic_id": "logement",
+      "point": "Tous jugent la crise du logement urgente et veulent relancer fortement la construction (jusqu'à 400 000 logements par an pour l'un d'eux). Le désaccord porte sur les moyens : normes, aides publiques ou marché.",
+      "url": "https://www.bfmtv.com/immobilier/normes-renovation-energetique-investissements-attal-le-pen-et-melenchon-interpeles-sur-la-crise-du-logement-et-la-grande-souffrance-du-batiment_AD-202609280759.html"
+    },
+    {
+      "topic_id": "logement",
+      "point": "Transformer les bureaux et bâtiments vacants en logements fait consensus de la droite à la gauche.",
+      "url": "https://www.avecretailleau.fr/projet/theme/logement"
+    },
+    {
+      "topic_id": "logement",
+      "point": "Tous font de la rénovation énergétique des logements une priorité. Le désaccord porte sur les outils : subventions ou prêts, obligation ou simple incitation.",
+      "url": "https://www.lefigaro.fr/politique/loi-sru-encadrement-des-loyers-passoires-thermiques-les-positions-des-candidats-a-la-presidentielle-sur-le-logement-20260914"
+    }
+  ]
+}

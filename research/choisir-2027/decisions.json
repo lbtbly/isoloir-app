@@ -39,6 +39,13 @@
       "topicId": "defense"
     }
   ],
+  "consensusTopicChanges": [
+    {
+      "from": "international_defense",
+      "to": "proche_orient"
+    }
+  ],
+  "_consensusTopicChanges_note": "Le thème international_defense a été scindé (topicChanges) ; son seul point d’accord porte sur Israël et Gaza. Ce renvoi était codé en dur dans tools/build-pack.mjs jusqu’au 6 octobre 2026.",
   "tierChanges": [
     {
       "questionId": "strategie-2",

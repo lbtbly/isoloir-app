@@ -1,0 +1,133 @@
+[
+  {
+    "id": "fiscalite-1",
+    "from": "choisir-2027/fiscalite-1",
+    "note": "énoncé reformulé pour cette élection : adapter l’explication reprise"
+  },
+  "fiscalite-2",
+  "finances_publiques-2",
+  "finances_publiques-3",
+  {
+    "id": "travail_salaires-3",
+    "from": "choisir-2027/travail_salaires-4",
+    "note": "énoncé reformulé pour cette élection : adapter l’explication reprise"
+  },
+  {
+    "id": "travail_salaires-4",
+    "from": "choisir-2027/travail_salaires-3",
+    "note": "énoncé reformulé pour cette élection : adapter l’explication reprise"
+  },
+  {
+    "id": "industrie_economie-2",
+    "from": "choisir-2027/industrie_economie-2",
+    "note": "énoncé reformulé pour cette élection : adapter l’explication reprise"
+  },
+  "industrie_economie-3",
+  "retraites-2",
+  {
+    "id": "retraites-3",
+    "from": "choisir-2027/retraites-2",
+    "note": "énoncé reformulé pour cette élection : adapter l’explication reprise"
+  },
+  {
+    "id": "solidarites-1",
+    "from": "choisir-2027/solidarites-x1",
+    "note": "énoncé reformulé pour cette élection : adapter l’explication reprise"
+  },
+  {
+    "id": "sante-2",
+    "from": "choisir-2027/sante-2",
+    "note": "énoncé reformulé pour cette élection : adapter l’explication reprise"
+  },
+  "sante-3",
+  {
+    "id": "logement-2",
+    "from": "choisir-2027/logement-1",
+    "note": "énoncé reformulé pour cette élection : adapter l’explication reprise"
+  },
+  "logement-3",
+  "logement-4",
+  "solidarites-2",
+  "solidarites-3",
+  "egalite-1",
+  {
+    "id": "egalite-2",
+    "from": "choisir-2027/egalite-x1",
+    "note": "énoncé reformulé pour cette élection : adapter l’explication reprise"
+  },
+  "egalite-3",
+  "egalite-4",
+  "droits_lgbtqia-1",
+  "droits_lgbtqia-2",
+  "education-1",
+  "education-3",
+  "education-5",
+  "societe-1",
+  "numerique-4",
+  {
+    "id": "ecologie_energie-2",
+    "from": "choisir-2027/ecologie_energie-2",
+    "note": "énoncé reformulé pour cette élection : adapter l’explication reprise"
+  },
+  {
+    "id": "ecologie_energie-4",
+    "from": "choisir-2027/ecologie_energie-5",
+    "note": "énoncé reformulé pour cette élection : adapter l’explication reprise"
+  },
+  "agriculture-1",
+  "agriculture-2",
+  "agriculture-3",
+  {
+    "id": "territoires-2",
+    "from": "choisir-2027/territoires-x2",
+    "note": "énoncé reformulé pour cette élection : adapter l’explication reprise"
+  },
+  "securite_justice-4",
+  "securite_justice-5",
+  "securite_justice-6",
+  "immigration-2",
+  "immigration-3",
+  "immigration-4",
+  "immigration-5",
+  {
+    "id": "immigration-6",
+    "from": "choisir-2027/immigration-2",
+    "note": "énoncé reformulé pour cette élection : adapter l’explication reprise"
+  },
+  {
+    "id": "europe-3",
+    "from": "choisir-2027/europe-3",
+    "note": "énoncé reformulé pour cette élection : adapter l’explication reprise"
+  },
+  "ukraine_russie-2",
+  {
+    "id": "proche_orient-1",
+    "from": "choisir-2027/international_defense-4",
+    "note": "énoncé reformulé pour cette élection : adapter l’explication reprise"
+  },
+  "proche_orient-2",
+  "defense-1",
+  "defense-2",
+  {
+    "id": "defense-4",
+    "from": "choisir-2027/international_defense-3",
+    "note": "énoncé reformulé pour cette élection : adapter l’explication reprise"
+  },
+  "defense-5",
+  "institutions-2",
+  "fiscalite-x1",
+  "education-x1",
+  "societe-x1",
+  "territoires-x3",
+  "territoires-x4",
+  "territoires-x5",
+  "agriculture-x4",
+  "ecologie_energie-x9",
+  "securite_justice-x1",
+  "immigration-x1",
+  "immigration-x2",
+  "europe-x4",
+  "ukraine_russie-x3",
+  "europe-x5",
+  "institutions-x1"
+]

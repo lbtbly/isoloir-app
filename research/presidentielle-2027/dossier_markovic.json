@@ -1,0 +1,848 @@
+{
+  "candidate": "Mira Markovic (Mira Douchka Markovic, connue jusqu'en 2026 sous le nom de Douchka Markovic)",
+  "affiliation": "Parti animaliste : cofondatrice (2016), coprésidente et porte-parole",
+  "campaign_site": "Aucun site de campagne dédié trouvé au 6 octobre 2026. Site du parti : https://parti-animaliste.fr/ (pétition pour un ministère : https://b.parti-animaliste.fr/)",
+  "declaration": {
+    "date": "2026-10-02",
+    "form": "Le Parti animaliste l'a présentée comme candidate lors d'une conférence de presse à Paris, le vendredi 2 octobre 2026 à 14 h 30, au French Theory (18 rue Cujas, 5e arrondissement), puis l'a annoncé par un communiqué. Elle doit encore réunir les 500 parrainages.",
+    "source_title": "Mira Markovic représentera le Parti animaliste à la présidentielle (communiqué du Parti animaliste, 2 octobre 2026) ; lieu de l'annonce : Presse Agence, 25-27 septembre 2026",
+    "source_url": "https://parti-animaliste.fr/news/communique-de-presse/mira-markovic-representera-le-parti-animaliste-a-la-presidentielle"
+  },
+  "overview": "Mira (Douchka) Markovic, 48 ans, est cofondatrice en 2016 du Parti animaliste, dont elle est coprésidente et porte-parole. Ancienne psychologue (17 ans dans le médico-social), elle a été élue dans le 18e arrondissement de Paris puis conseillère de Paris. La liste Wikipédia des conseillers de Paris 2020-2026 la classe au Groupe écologiste de Paris. Le parti l'a présentée comme candidate le 2 octobre 2026. Elle porte une candidature monothématique, qui se veut « transpartisane », « ni de droite ni de gauche », et qu'elle qualifie elle-même de « candidature de témoignage » pour donner une voix aux animaux. Ses priorités affichées sont les suivantes : un ministère indépendant de la Condition animale, la sortie de l'élevage intensif avec un accompagnement financier des éleveurs, la sortie des animaux du régime juridique des biens, l'interdiction de la chasse et de la corrida, et l'intégration des animaux dans les plans ORSEC. Au 6 octobre 2026, aucun programme présidentiel n'est publié. Le corpus disponible comprend le programme national 2022 du parti, le programme des européennes 2024 et les communiqués de 2026. Au-delà de la cause animale, ces textes touchent la démocratie (RIC, proportionnelle, vote blanc), la fiscalité (TVA modulée selon l'origine animale ou végétale des produits), la santé (« Une seule santé », nutrition végétale) et l'écologie (pesticides, eau, espaces en libre évolution). Aucune position n'a été trouvée sur les retraites, la dette, l'immigration, la défense, l'Ukraine ou le Proche-Orient. Le parti revendique environ 4 000 adhérents, environ 500 000 voix aux européennes de 2019 et 2024, et 28 élus municipaux en mars 2026. Sa prédécesseure Hélène Thouy n'avait obtenu que 139 parrainages en 2022.",
+  "topics": [
+    {
+      "topic_id": "institutions",
+      "found": true,
+      "positions": [
+        {
+          "position": "Créer un ministère de la Condition animale indépendant des autres ministères. C'est la première priorité affichée de la candidature.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Le parti fait signer une pétition pour ce ministère (b.parti-animaliste.fr). Il y cite un sondage YouGov de 2021 : près des deux tiers des Français seraient favorables à ce ministère. Le programme 2022 prévoyait un « ministre d'État à la Protection animale », une autorité administrative indépendante pouvant visiter sans prévenir élevages et abattoirs, et un Observatoire national de la protection animale.",
+          "short_quote": "Défendre les animaux est un progrès pour la France.",
+          "source_url": "https://parti-animaliste.fr/news/communique-de-presse/mira-markovic-representera-le-parti-animaliste-a-la-presidentielle",
+          "source_title": "Mira Markovic représentera le Parti animaliste à la présidentielle",
+          "source_date": "2026-10-02"
+        },
+        {
+          "position": "Instaurer un référendum d'initiative citoyenne (RIC) législatif et abrogatoire, en toutes matières y compris la condition animale, déclenché par un million de signatures.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Mesure du programme national du parti de 2022 (législatives), antérieur à la candidature, que celle-ci n'a pas reprise à ce jour.",
+          "short_quote": "avec un seuil d'un million de signatures",
+          "source_url": "https://parti-animaliste.fr/programme-legislatives",
+          "source_title": "Programme national du Parti animaliste (législatives 2022)",
+          "source_date": "2022"
+        },
+        {
+          "position": "Élire les députés à la proportionnelle et reconnaître le vote blanc comme suffrage exprimé.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme 2022, section « Reprendre espoir en notre démocratie ». Pour les européennes, le programme 2024 demande une proportionnelle intégrale sans seuil et un remboursement des frais de campagne dès 2 %.",
+          "source_url": "https://parti-animaliste.fr/programme-legislatives",
+          "source_title": "Programme national du Parti animaliste (législatives 2022)",
+          "source_date": "2022"
+        },
+        {
+          "position": "Adosser à la Constitution une Charte de la protection animale qui reconnaît les animaux comme des êtres sensibles.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme 2022, section « Institutionnaliser la protection animale ».",
+          "source_url": "https://parti-animaliste.fr/programme-legislatives",
+          "source_title": "Programme national du Parti animaliste (législatives 2022)",
+          "source_date": "2022"
+        },
+        {
+          "position": "Renforcer la transparence de l'administration : pouvoir de sanction et d'astreinte pour la CADA, protection des lanceurs d'alerte et de leurs sources, enseignement civique et politique sanctionné par une épreuve aux examens.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme 2022.",
+          "source_url": "https://parti-animaliste.fr/programme-legislatives",
+          "source_title": "Programme national du Parti animaliste (législatives 2022)",
+          "source_date": "2022"
+        }
+      ]
+    },
+    {
+      "topic_id": "laicite_republique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Interdire l'abattage sans étourdissement préalable. Cela supprime de fait la dérogation dont bénéficie l'abattage rituel.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Le programme 2022 ne vise pas explicitement les cultes. Le programme européen 2024 demande d'interdire toute mise à mort sans insensibilisation préalable, ainsi que l'importation et la vente de viande d'animaux abattus sans insensibilisation. Rien n'a été trouvé sur la laïcité au sens strict, les signes religieux ou la mémoire de la colonisation.",
+          "source_url": "https://parti-animaliste.fr/programme-legislatives",
+          "source_title": "Programme national du Parti animaliste (législatives 2022)",
+          "source_date": "2022"
+        },
+        {
+          "position": "Retirer de l'article 13 du traité sur le fonctionnement de l'UE la clause qui permet de déroger au bien-être animal au nom des rites religieux, des traditions culturelles et des patrimoines régionaux.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme des européennes 2024, partie « Pour une Europe plus démocratique ». La même logique vise la corrida, pratique dite de tradition locale.",
+          "source_url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+          "source_title": "Les animaux au cœur de la société – synthèse du programme, élections européennes du 9 juin 2024",
+          "source_date": "2024-05"
+        }
+      ]
+    },
+    {
+      "topic_id": "fiscalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Moduler la TVA selon l'origine des produits : 0 % sur les aliments végétaux, 20 % sur les produits animaux destinés à l'alimentation humaine ou animale, 30 % sur les produits d'origine animale non alimentaires.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme 2022, section « Produire des richesses dans le respect de tous ». Le programme européen 2024 se contente de demander aux États un taux réduit sur les aliments végétaux, sur l'alimentation des animaux de compagnie et sur les actes vétérinaires.",
+          "short_quote": "TVA à 0 % pour les produits alimentaires végétaux",
+          "source_url": "https://parti-animaliste.fr/programme-legislatives",
+          "source_title": "Programme national du Parti animaliste (législatives 2022)",
+          "source_date": "2022"
+        },
+        {
+          "position": "Créer un crédit d'impôt pour la stérilisation et l'identification des animaux de compagnie, afin de lever le frein financier.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Communiqué du parti de juin 2026 sur les abandons (300 000 animaux abandonnés chaque été selon le parti). Le programme 2022 prévoyait aussi des crédits d'impôt pour le bénévolat associatif et la garde d'animaux par un assistant agréé.",
+          "source_url": "https://parti-animaliste.fr/news/communique-de-presse/pendant-que-la-france-regarde-la-coupe-du-monde-300-000-animaux-abandonnes",
+          "source_title": "Pendant que la France regarde la Coupe du monde, 300 000 animaux abandonnés",
+          "source_date": "2026-06-28"
+        },
+        {
+          "position": "Fiscalité écologique et sanitaire : intégrer l'élevage dans la taxe carbone européenne, taxer les activités à haut risque pandémique, taxer les produits en plastique vierge, supprimer les avantages fiscaux sur le carburant de la pêche.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme des européennes 2024. Aucune position trouvée sur l'impôt sur le revenu, le patrimoine, les successions ou l'impôt sur les sociétés.",
+          "source_url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+          "source_title": "Synthèse du programme, élections européennes 2024",
+          "source_date": "2024-05"
+        }
+      ]
+    },
+    {
+      "topic_id": "finances_publiques",
+      "found": false,
+      "positions": []
+    },
+    {
+      "topic_id": "travail_salaires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Améliorer les conditions de travail en abattoir : diviser les cadences par deux, faire tourner les postes dans les abattoirs de plus de 50 salariés, prévenir les troubles musculo-squelettiques, ouvrir un droit à une formation de reconversion après 12 mois dans l'entreprise.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme des européennes 2024, partie « Pour une société apaisée ». Aucune position trouvée sur le SMIC, les salaires, le temps de travail ou le partage de la valeur.",
+          "source_url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+          "source_title": "Synthèse du programme, élections européennes 2024",
+          "source_date": "2024-05"
+        },
+        {
+          "position": "Accorder un jour de congé pour deuil en cas de perte d'un animal de compagnie identifié.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme 2022, section « Protéger la famille ».",
+          "source_url": "https://parti-animaliste.fr/programme-legislatives",
+          "source_title": "Programme national du Parti animaliste (législatives 2022)",
+          "source_date": "2022"
+        }
+      ]
+    },
+    {
+      "topic_id": "industrie_economie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Protéger le marché agricole : préférence communautaire et protectionnisme alimentaire face aux pays tiers, droits de douane sur les produits issus de l'élevage intensif ou de la déforestation, clauses miroirs. L'importateur devrait prouver qu'il respecte les normes européennes.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme des européennes 2024. En 2026, le parti critique aussi la dépendance aux importations qui alimentent l'élevage intensif (communiqué du 28 juin 2026). Aucune position spécifique trouvée sur l'accord UE-Mercosur.",
+          "source_url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+          "source_title": "Synthèse du programme, élections européennes 2024",
+          "source_date": "2024-05"
+        },
+        {
+          "position": "Soutenir les filières végétales : exonérer de charges pendant 2 ans les entreprises créées dans les alternatives végétales, investir dans les fruits, légumes, céréales et légumineuses, développer cuir et textiles végétaux.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme 2022, section « Développer les filières d'avenir ».",
+          "source_url": "https://parti-animaliste.fr/programme-legislatives",
+          "source_title": "Programme national du Parti animaliste (législatives 2022)",
+          "source_date": "2022"
+        },
+        {
+          "position": "Interdire les brevets sur les organismes vivants, animaux comme végétaux.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme 2022.",
+          "source_url": "https://parti-animaliste.fr/programme-legislatives",
+          "source_title": "Programme national du Parti animaliste (législatives 2022)",
+          "source_date": "2022"
+        },
+        {
+          "position": "Interdire la production et le commerce de fourrure dans l'UE, avec un plan de reconversion des fourreurs et tanneurs. Réduire de 50 % la production de fibres animales d'ici 2030 et interdire la destruction des textiles invendus.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme des européennes 2024, partie « Pour un panier éthique ».",
+          "source_url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+          "source_title": "Synthèse du programme, élections européennes 2024",
+          "source_date": "2024-05"
+        }
+      ]
+    },
+    {
+      "topic_id": "retraites",
+      "found": false,
+      "positions": []
+    },
+    {
+      "topic_id": "sante",
+      "found": true,
+      "positions": [
+        {
+          "position": "Approche « Une seule santé » contre les zoonoses : interdire l'importation et l'exportation d'animaux sauvages, mettre fin aux animaux de compagnie exotiques, sortir de l'élevage intensif, que le parti juge propice aux pandémies.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme 2022 (section « Éviter l'épidémie de pandémies ») et programme des européennes 2024.",
+          "source_url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+          "source_title": "Synthèse du programme, élections européennes 2024",
+          "source_date": "2024-05"
+        },
+        {
+          "position": "Promouvoir l'alimentation végétale : former les soignants à la nutrition végétale et rembourser intégralement une consultation annuelle chez un nutritionniste formé à cette nutrition.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme 2022. Aucune position trouvée sur l'accès aux soins, les déserts médicaux ou la place de la Sécurité sociale face aux complémentaires.",
+          "source_url": "https://parti-animaliste.fr/programme-legislatives",
+          "source_title": "Programme national du Parti animaliste (législatives 2022)",
+          "source_date": "2022"
+        },
+        {
+          "position": "Interdire les nitrites et nitrates dans l'alimentation. Réduire de 70 % d'ici 2030 les ventes d'antimicrobiens destinés à l'élevage et à l'aquaculture.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme des européennes 2024.",
+          "source_url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+          "source_title": "Synthèse du programme, élections européennes 2024",
+          "source_date": "2024-05"
+        },
+        {
+          "position": "Sortir de l'expérimentation animale : feuille de route européenne, interdiction d'ici 2034 dans la réglementation des produits chimiques, au moins 450 millions d'euros sur cinq ans pour les méthodes alternatives.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme des européennes 2024. Il prévoit aussi d'interdire immédiatement les procédures sévères ou modérées sur les primates, les chiens et les chats.",
+          "source_url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+          "source_title": "Synthèse du programme, élections européennes 2024",
+          "source_date": "2024-05"
+        },
+        {
+          "position": "Grand âge : admettre les animaux de compagnie dans toutes les structures d'hébergement, EHPAD compris.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme 2022. C'est la seule mesure trouvée sur le grand âge ; rien sur la dépendance ni sur son financement.",
+          "source_url": "https://parti-animaliste.fr/programme-legislatives",
+          "source_title": "Programme national du Parti animaliste (législatives 2022)",
+          "source_date": "2022"
+        }
+      ]
+    },
+    {
+      "topic_id": "logement",
+      "found": true,
+      "positions": [
+        {
+          "position": "Accepter les animaux de compagnie dans les hébergements d'urgence et toutes les structures d'hébergement.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme 2022. Aucune position trouvée sur les loyers, la construction ou le coût du logement.",
+          "source_url": "https://parti-animaliste.fr/programme-legislatives",
+          "source_title": "Programme national du Parti animaliste (législatives 2022)",
+          "source_date": "2022"
+        },
+        {
+          "position": "Urbanisme favorable aux animaux : pousser les États à exiger, pour toute construction ou rénovation à partir de R+2, des aménagements pour les animaux urbains et des espaces verts couvrant au moins un quart de l'emprise au sol.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme des européennes 2024. Le programme 2022 demandait aussi des clôtures perméables à la petite faune dans les documents d'urbanisme.",
+          "source_url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+          "source_title": "Synthèse du programme, élections européennes 2024",
+          "source_date": "2024-05"
+        }
+      ]
+    },
+    {
+      "topic_id": "solidarites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Créer une couverture des soins vétérinaires pour les ménages modestes : prise en charge universelle, avec un plafond d'actes par an, pour les animaux identifiés des personnes sous un seuil de revenu.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme 2022. Le programme européen 2024 propose plutôt de subventionner l'assurance vétérinaire et de définir un panier de soins minimal. Aucune position trouvée sur les minima sociaux, l'assurance chômage, le handicap ou la politique familiale.",
+          "source_url": "https://parti-animaliste.fr/programme-legislatives",
+          "source_title": "Programme national du Parti animaliste (législatives 2022)",
+          "source_date": "2022"
+        },
+        {
+          "position": "Ouvrir dans les centres urbains des « pensions » pour les animaux des personnes sans-abri, afin qu'elles puissent se soigner et faire leurs démarches.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme des européennes 2024.",
+          "source_url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+          "source_title": "Synthèse du programme, élections européennes 2024",
+          "source_date": "2024-05"
+        }
+      ]
+    },
+    {
+      "topic_id": "egalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Interdire progressivement la détention d'armes à feu, présentée comme une source de féminicides. Exceptions : personnes chargées de missions de sécurité publique et clubs de tir.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme des européennes 2024. Il demande aussi un fichier européen des décès par arme à feu.",
+          "source_url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+          "source_title": "Synthèse du programme, élections européennes 2024",
+          "source_date": "2024-05"
+        },
+        {
+          "position": "Violences intrafamiliales : guichet unique pour les plaintes (parents, enfants, animaux), hébergements d'urgence qui acceptent les animaux des victimes de violences conjugales, meilleure formation au recueil de la parole des victimes.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme des européennes 2024, concept d'« une seule violence ». Aucune position trouvée sur l'égalité salariale ou le partage des tâches familiales.",
+          "source_url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+          "source_title": "Synthèse du programme, élections européennes 2024",
+          "source_date": "2024-05"
+        },
+        {
+          "position": "Rendre imprescriptibles les crimes et délits sexuels.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme des européennes 2024.",
+          "source_url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+          "source_title": "Synthèse du programme, élections européennes 2024",
+          "source_date": "2024-05"
+        }
+      ]
+    },
+    {
+      "topic_id": "droits_lgbtqia",
+      "found": false,
+      "positions": []
+    },
+    {
+      "topic_id": "education",
+      "found": true,
+      "positions": [
+        {
+          "position": "Enseigner le respect des animaux à tous les niveaux : éthologie au collège et au lycée, cours de cuisine végétale du CP au bac, interdiction de la dissection en primaire et en secondaire.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme 2022, section « Éduquer à l'éthique et au respect de l'autre ». Il prévoit aussi d'interdire les interventions promotionnelles privées, chasse ou produits animaux, à l'école. Aucune position trouvée sur la taille des classes, l'enseignement privé ou le financement des universités.",
+          "source_url": "https://parti-animaliste.fr/programme-legislatives",
+          "source_title": "Programme national du Parti animaliste (législatives 2022)",
+          "source_date": "2022"
+        },
+        {
+          "position": "Végétaliser les cantines : une alternative végétale à chaque repas et un repas d'origine végétale au moins un jour sur deux.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme 2022. La version européenne 2024 demande un menu végétalien quotidien en option, un menu végétalien hebdomadaire pour tous, et des laits et yaourts végétaux dans le programme européen « Lait à l'école ».",
+          "source_url": "https://parti-animaliste.fr/programme-legislatives",
+          "source_title": "Programme national du Parti animaliste (législatives 2022)",
+          "source_date": "2022"
+        },
+        {
+          "position": "Interdire dès maintenant la participation des mineurs à la chasse et créer un cours sur la sensibilité animale qui aborde les dangers de la chasse et de la corrida.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme des européennes 2024.",
+          "source_url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+          "source_title": "Synthèse du programme, élections européennes 2024",
+          "source_date": "2024-05"
+        },
+        {
+          "position": "Supérieur et recherche : ne plus utiliser d'animaux dans les cursus d'ici 2029, garantir l'objection de conscience des étudiants, financer la recherche sur les méthodes sans animaux.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme des européennes 2024. Le programme 2022 ajoute un enseignement civique et politique dans tous les cursus, avec épreuve aux examens.",
+          "source_url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+          "source_title": "Synthèse du programme, élections européennes 2024",
+          "source_date": "2024-05"
+        }
+      ]
+    },
+    {
+      "topic_id": "societe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Abolir la corrida. Elle fait partie des « pratiques cruelles » à interdire selon la déclaration de candidature.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "Le communiqué du 2 octobre 2026 cite « la fin des pratiques cruelles (chasse, corrida) ». Le 17 avril 2026, le coprésident Eddine Ariztegui demande l'abolition, juge que les spectacles taurins pèsent sur les budgets publics et réclame la relaxe de Jeremstar et de militants de PETA poursuivis. Le programme 2022 prévoyait de supprimer les dérogations du Code pénal pour la corrida et les combats de coqs.",
+          "short_quote": "Le Parti animaliste demande l'abolition de la corrida",
+          "source_url": "https://parti-animaliste.fr/news/communique-de-presse/corrida-le-parti-animaliste-denonce-la-triple-impasse-dune-pratique-a-lagonie",
+          "source_title": "Corrida : le Parti animaliste dénonce la triple impasse d'une pratique à l'agonie",
+          "source_date": "2026-04-17"
+        },
+        {
+          "position": "Divertissements avec animaux : interdire les animaux dans les cirques et spectacles, transformer zoos et aquariums en réserves et sanctuaires, interdire la pêche de loisir et les courses hippiques professionnelles.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme 2022, section « Se divertir sans se pervertir ». Le programme européen 2024 demande aussi la fin des subventions européennes aux élevages de taureaux destinés à la tauromachie. Aucune position trouvée sur l'audiovisuel public ou le soutien à la création.",
+          "source_url": "https://parti-animaliste.fr/programme-legislatives",
+          "source_title": "Programme national du Parti animaliste (législatives 2022)",
+          "source_date": "2022"
+        },
+        {
+          "position": "Cétacés captifs : moratoire sur les transferts, stratégie nationale de sortie de la captivité coordonnée au niveau européen, création de sanctuaires marins, publication des textes d'application de la loi de 2021.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Communiqué du parti, porté par la coprésidente Béatrice Canel-Dépitre, après le transfert de huit dauphins de Marineland vers l'Espagne en juillet 2026.",
+          "source_url": "https://parti-animaliste.fr/news/communique-de-presse/transfert-des-dauphins-de-marineland-un-scandale-annonce-qui-revele-lechec-de-letat",
+          "source_title": "Transfert des dauphins de Marineland : un scandale annoncé qui révèle l'échec de l'État",
+          "source_date": "2026-07-27"
+        }
+      ]
+    },
+    {
+      "topic_id": "numerique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Interdire la vente d'animaux sur internet et contrôler la traçabilité des ventes de chiens et chats en ligne.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme des européennes 2024. Aucune position trouvée sur l'intelligence artificielle, les écrans et les mineurs, ou l'encadrement général des plateformes.",
+          "source_url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+          "source_title": "Synthèse du programme, élections européennes 2024",
+          "source_date": "2024-05"
+        },
+        {
+          "position": "Obliger hébergeurs et fournisseurs d'accès à retirer rapidement les contenus zoopornographiques, et adopter une directive européenne contre la zoophilie.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme des européennes 2024.",
+          "source_url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+          "source_title": "Synthèse du programme, élections européennes 2024",
+          "source_date": "2024-05"
+        },
+        {
+          "position": "Encadrer la publicité pour les produits animaux sur le modèle du tabac et de l'alcool, et sanctionner les images trompeuses d'animaux.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme des européennes 2024, partie « Pour un panier éthique ».",
+          "source_url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+          "source_title": "Synthèse du programme, élections européennes 2024",
+          "source_date": "2024-05"
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Pas de position tranchée sur le nucléaire : les grands choix énergétiques (avenir du nucléaire, renouvelables, véhicules thermiques) seraient soumis à un grand débat national puis à un référendum.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme 2022, section démocratie.",
+          "source_url": "https://parti-animaliste.fr/programme-legislatives",
+          "source_title": "Programme national du Parti animaliste (législatives 2022)",
+          "source_date": "2022"
+        },
+        {
+          "position": "Encadrer l'éolien au nom de la faune : référendum local pour toute éolienne ou antenne relais à moins de 5 km des habitations, interdiction à moins de 5 km des zones en libre évolution. Supprimer la présomption de « raison impérative d'intérêt public majeur » dont bénéficient les renouvelables pour déroger à la protection des espèces.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme 2022 pour le seuil de 5 km ; programme des européennes 2024 pour la présomption et le financement de recherches sur l'impact des éoliennes sur les oiseaux et chauves-souris.",
+          "source_url": "https://parti-animaliste.fr/programme-legislatives",
+          "source_title": "Programme national du Parti animaliste (législatives 2022)",
+          "source_date": "2022"
+        },
+        {
+          "position": "Contre la réautorisation de l'acétamipride et de la flupyradifurone par la loi d'urgence agricole, et pour l'interdiction d'importer des produits traités avec ces pesticides. Contre les mégabassines.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Communiqué porté par la coprésidente Béatrice Canel-Dépitre. Le programme européen 2024 visait −50 % de pesticides d'ici 2030 (par rapport à 2015-2017) et le non-renouvellement du glyphosate.",
+          "source_url": "https://parti-animaliste.fr/news/communique-de-presse/loi-durgence-agricole-lurgence-nest-pas-de-reautoriser-des-pesticides-mais-de-preparer-lagriculture-de-demain",
+          "source_title": "Loi d'urgence agricole : l'urgence n'est pas de réautoriser des pesticides, mais de préparer l'agriculture de demain",
+          "source_date": "2026-07-22"
+        },
+        {
+          "position": "Adapter la politique de la faune aux crises climatiques : suspendre la chasse anticipée et reporter l'ouverture 2026-2027 dans les territoires touchés par canicules, sécheresses et incendies, évaluer de façon indépendante les populations, lancer un plan d'urgence pour la faune (zones humides, accès à l'eau).",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Lettre ouverte du parti au Premier ministre et aux ministres de la Transition écologique et de l'Agriculture.",
+          "source_url": "https://parti-animaliste.fr/news/communique-de-presse/lettre-ouverte-canicules-a-repetition-incendies-secheresses-la-chasse-doit-etre-suspendue",
+          "source_title": "Lettre ouverte – Canicules à répétition, incendies, sécheresses : la chasse doit être suspendue",
+          "source_date": "2026-08-17"
+        },
+        {
+          "position": "Sobriété et biodiversité : directive européenne de sobriété énergétique, −20 % de consommation finale d'énergie dans l'UE d'ici 2030, 20 % des terres et 40 % des mers de l'UE protégées de toute extraction d'ici 2030, interdiction des PFAS dans les produits de consommation.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme des européennes 2024. Le programme 2022 visait d'ici 2030 la libre évolution de 10 % de la métropole, 30 % de la Guyane et 30 % des espaces maritimes. Peu de mesures sur les transports, hormis des infrastructures pour le vélo et la marche.",
+          "source_url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+          "source_title": "Synthèse du programme, élections européennes 2024",
+          "source_date": "2024-05"
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "found": true,
+      "positions": [
+        {
+          "position": "Sortir de l'élevage intensif en accompagnant financièrement les éleveurs qui se reconvertissent.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "C'est l'une des priorités de la candidature selon le communiqué et la presse (Ouest-France, HuffPost). Le calendrier a varié : fin de l'élevage intensif en 2027 dans le programme 2022, interdiction des élevages intensifs et industriels à l'horizon 2030 avec moratoire immédiat au-delà de 150 UGB dans le programme européen 2024. Le programme 2022 prévoyait le rachat de la dette des éleveurs par l'État et des prêts à 0 %.",
+          "source_url": "https://www.msn.com/fr-fr/actualite/other/pr%C3%A9sidentielle-2027-le-parti-animaliste-annonce-la-candidature-de-mira-markovic/ar-AA2dqW55",
+          "source_title": "Présidentielle 2027 : le Parti animaliste annonce la candidature de Mira Markovic (Ouest-France, repris par MSN)",
+          "source_date": "2026-10-02"
+        },
+        {
+          "position": "Interdire la chasse et supprimer le classement ESOD, avec uniquement des méthodes non létales contre les dégâts aux cultures.",
+          "kind": "position_declaree",
+          "confidence": "high",
+          "details": "La chasse fait partie des « pratiques cruelles » à interdire selon la déclaration de candidature. Le parti organise des marches pour son interdiction les 10 et 17 octobre 2026 ; il estime que 20 à 38 millions d'animaux sont tués chaque année. Le 25 août 2026, il a réclamé la fin du classement ESOD. Les programmes de 2022 et 2024 prévoient l'interdiction de toute forme de chasse, la fin des lâchers et de l'agrainage.",
+          "source_url": "https://savoir-animal.fr/action-nationale-coordonnee-pour-interdiction-de-la-chasse/",
+          "source_title": "Action nationale coordonnée pour l'interdiction de la chasse (communiqué du Parti animaliste)",
+          "source_date": "2026-09-30"
+        },
+        {
+          "position": "Sortir les animaux du régime juridique des biens et leur donner un statut propre, avec des règles adaptées à chaque catégorie.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Priorité citée par Ouest-France et le HuffPost lors de la déclaration. Le programme 2022 prévoyait déjà un statut juridique tenant compte des spécificités des animaux.",
+          "source_url": "https://fr.news.yahoo.com/sport/pr%C3%A9sidentielle-2027-candidate-parti-animaliste-092813187.html",
+          "source_title": "Pour la présidentielle 2027, la candidate du Parti animaliste, Mira Markovic, cherche les 500 parrainages (HuffPost, repris par Yahoo)",
+          "source_date": "2026-10-02"
+        },
+        {
+          "position": "Réduire la consommation de produits d'origine animale de 40 % d'ici 2030 et de 70 % d'ici 2050.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Objectif affiché dans la FAQ de la page d'accueil du parti (date de rédaction inconnue). Il remplace des objectifs plus rapides : −50 % d'ici 2027 (programme 2022), −50 % d'ici 2029-2030 et −50 % d'animaux terrestres élevés dans l'UE d'ici 2035 (programme européen 2024).",
+          "source_url": "https://parti-animaliste.fr/",
+          "source_title": "Parti animaliste – page d'accueil (FAQ « Le Parti animaliste ne s'adresse-t-il qu'aux végétariens ou vegans ? »)",
+          "source_date": "2026"
+        },
+        {
+          "position": "Contre la loi d'urgence agricole de 2026 (agrandissement des élevages, intensification). Pour une agriculture végétale résiliente au climat et des moyens non létaux face au loup, comme les clôtures adaptées sur le modèle italien.",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Communiqué du parti. Il souligne que des milliers d'exploitations disparaissent et que les agriculteurs vivent mal de leur travail.",
+          "source_url": "https://parti-animaliste.fr/news/communique-de-presse/loi-durgence-agricole-une-fuite-en-avant-qui-ne-protege-ni-les-agriculteurs-ni-les-animaux-ni-notre-souverainete",
+          "source_title": "Loi d'urgence agricole, une fuite en avant qui ne protège ni les agriculteurs, ni les animaux, ni notre souveraineté",
+          "source_date": "2026-06-28"
+        },
+        {
+          "position": "Réorienter les aides de la PAC vers les productions végétales pour l'alimentation humaine et les petits cultivateurs. Protéger les prix agricoles par la préférence communautaire et les clauses miroirs. Interdire importations et exportations de produits animaux à l'horizon 2040.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme des européennes 2024. Il prévoit aussi de supprimer les aides calculées par animal et par hectare et de créer des centrales d'achat de petits cultivateurs.",
+          "source_url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+          "source_title": "Synthèse du programme, élections européennes 2024",
+          "source_date": "2024-05"
+        },
+        {
+          "position": "Transport et abattage : 8 h de transport maximum (4 h pour les oiseaux et lapins), fin des exportations d'animaux vivants hors UE, étourdissement obligatoire y compris pour les poissons, caméras dans les abattoirs, fin des cages et du gavage.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programmes 2022 et 2024. Pour la pêche : interdiction de la pêche industrielle (navires de plus de 12 m) d'ici 2030 et moratoire sur les nouvelles piscicultures.",
+          "source_url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+          "source_title": "Synthèse du programme, élections européennes 2024",
+          "source_date": "2024-05"
+        }
+      ]
+    },
+    {
+      "topic_id": "territoires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Intégrer systématiquement tous les animaux (sauvages, d'élevage, de compagnie) aux plans ORSEC : coordination départementale entre services de l'État, secours, vétérinaires et associations, protocoles d'évacuation, formation des secours, fonds national d'urgence pour les structures d'accueil.",
+          "kind": "proposition_explicite",
+          "confidence": "high",
+          "details": "Priorité de la déclaration de candidature du 2 octobre 2026, détaillée dans une lettre ouverte au Premier ministre le 28 juillet 2026. Aucune position trouvée sur les services publics de proximité ou la décentralisation.",
+          "source_url": "https://parti-animaliste.fr/news/communique-de-presse/lettre-ouverte-au-premier-ministre-au-ministre-de-linterieur-a-la-ministre-de-lagriculture-et-de-la-souverainete-alimentaire-et-a-la-ministre-de-la-transition-ecologique",
+          "source_title": "Lettre ouverte au Premier ministre, au ministre de l'Intérieur, à la ministre de l'Agriculture et à la ministre de la Transition écologique",
+          "source_date": "2026-07-28"
+        },
+        {
+          "position": "Rôle des collectivités : stérilisation des chats libres organisée et financée via les communes (avec une dotation de l'État dans la version 2022), un centre de soins pour la faune sauvage dans chaque département.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programmes 2022 et européen 2024.",
+          "source_url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+          "source_title": "Synthèse du programme, élections européennes 2024",
+          "source_date": "2024-05"
+        },
+        {
+          "position": "Outre-mer : placer 30 % de la surface terrestre de la Guyane en libre évolution d'ici 2030.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme 2022. C'est la seule mesure ultramarine trouvée.",
+          "source_url": "https://parti-animaliste.fr/programme-legislatives",
+          "source_title": "Programme national du Parti animaliste (législatives 2022)",
+          "source_date": "2022"
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "found": true,
+      "positions": [
+        {
+          "position": "Spécialiser police et justice : unités de police et de gendarmerie dédiées à la protection animale dans chaque département, parquets spécialisés dans chaque tribunal judiciaire.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme 2022, section « Institutionnaliser la protection animale ». Aucune position trouvée sur le trafic de drogue, les effectifs de police ou les prisons.",
+          "source_url": "https://parti-animaliste.fr/programme-legislatives",
+          "source_title": "Programme national du Parti animaliste (législatives 2022)",
+          "source_date": "2022"
+        },
+        {
+          "position": "Durcir la répression de la maltraitance animale : toutes les infractions deviennent des délits, 3 ans de prison et 75 000 € d'amende pour les mauvais traitements commis par un professionnel, fichier des auteurs, droit pour les associations de se porter partie civile.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme 2022. Le programme européen 2024 ajoute un fichier européen des personnes condamnées pour cruauté envers humains ou animaux et l'interdiction de détenir un animal pour ces condamnés.",
+          "source_url": "https://parti-animaliste.fr/programme-legislatives",
+          "source_title": "Programme national du Parti animaliste (législatives 2022)",
+          "source_date": "2022"
+        },
+        {
+          "position": "Interdire la détention d'armes à feu par les civils, hors missions de sécurité publique, et leur vente aux particuliers.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme 2022. En 2024, le programme européen parle d'une interdiction progressive et ajoute une exception pour les clubs de tir.",
+          "source_url": "https://parti-animaliste.fr/programme-legislatives",
+          "source_title": "Programme national du Parti animaliste (législatives 2022)",
+          "source_date": "2022"
+        },
+        {
+          "position": "Lier maltraitance animale et violences humaines (« une seule violence ») : fichiers et statistiques croisés, cellule commune protection de l'enfance et parquet animalier, vidéosurveillance de tous les lieux où des animaux souffrent (abattoirs, laboratoires, arènes…).",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programmes 2022 et européen 2024.",
+          "source_url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+          "source_title": "Synthèse du programme, élections européennes 2024",
+          "source_date": "2024-05"
+        },
+        {
+          "position": "Demander la relaxe de militants poursuivis pour des actions anti-corrida (Jeremstar et des militants de PETA).",
+          "kind": "position_declaree",
+          "confidence": "medium",
+          "details": "Communiqué du coprésident Eddine Ariztegui.",
+          "source_url": "https://parti-animaliste.fr/news/communique-de-presse/corrida-le-parti-animaliste-denonce-la-triple-impasse-dune-pratique-a-lagonie",
+          "source_title": "Corrida : le Parti animaliste dénonce la triple impasse d'une pratique à l'agonie",
+          "source_date": "2026-04-17"
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "found": false,
+      "positions": []
+    },
+    {
+      "topic_id": "europe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Réformer les traités pour donner à l'UE une compétence explicite en protection animale : supprimer les dérogations de l'article 13 du traité sur le fonctionnement de l'UE, inscrire la protection animale dans la Charte des droits fondamentaux, permettre aux États de déroger au marché intérieur en faveur de l'alimentation végétale.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme des européennes 2024. C'est une logique de renforcement de l'UE sur ces sujets. Aucune position trouvée sur l'élargissement ni sur une sortie de l'UE, que rien n'évoque.",
+          "source_url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+          "source_title": "Synthèse du programme, élections européennes 2024",
+          "source_date": "2024-05"
+        },
+        {
+          "position": "Démocratiser l'UE : donner l'initiative législative au Parlement européen, inscrire à son ordre du jour toute proposition soutenue par un dixième des eurodéputés ou un million de citoyens, adopter une proportionnelle intégrale sans seuil, rembourser les frais de campagne dès 2 %.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme des européennes 2024.",
+          "source_url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+          "source_title": "Synthèse du programme, élections européennes 2024",
+          "source_date": "2024-05"
+        },
+        {
+          "position": "Encadrer le lobbying européen : commission d'enquête, publication en données ouvertes des rencontres avec les lobbyistes, interdiction des cadeaux, délai de carence avant de rejoindre le privé.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme des européennes 2024.",
+          "source_url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+          "source_title": "Synthèse du programme, élections européennes 2024",
+          "source_date": "2024-05"
+        },
+        {
+          "position": "Budget et institutions : réorienter la PAC et la politique de la pêche vers le respect des animaux et de l'environnement, créer un budget dédié à la protection animale, un commissaire et une agence européenne de défense des animaux. Imposer des sanctions commerciales au Japon, à la Norvège, à l'Islande et aux Féroé pour la chasse aux cétacés.",
+          "kind": "inference",
+          "confidence": "low",
+          "details": "Programme des européennes 2024.",
+          "source_url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+          "source_title": "Synthèse du programme, élections européennes 2024",
+          "source_date": "2024-05"
+        }
+      ]
+    },
+    {
+      "topic_id": "ukraine_russie",
+      "found": false,
+      "positions": []
+    },
+    {
+      "topic_id": "proche_orient",
+      "found": false,
+      "positions": []
+    },
+    {
+      "topic_id": "defense",
+      "found": false,
+      "positions": []
+    }
+  ],
+  "signature_proposals": [
+    {
+      "proposal": "Créer un ministère de la Condition animale indépendant des autres ministères",
+      "topic_id": "institutions",
+      "source_url": "https://parti-animaliste.fr/news/communique-de-presse/mira-markovic-representera-le-parti-animaliste-a-la-presidentielle"
+    },
+    {
+      "proposal": "Sortir de l'élevage intensif en accompagnant financièrement les éleveurs qui se reconvertissent",
+      "topic_id": "agriculture",
+      "source_url": "https://www.msn.com/fr-fr/actualite/other/pr%C3%A9sidentielle-2027-le-parti-animaliste-annonce-la-candidature-de-mira-markovic/ar-AA2dqW55"
+    },
+    {
+      "proposal": "Interdire la chasse (marches nationales pour son interdiction les 10 et 17 octobre 2026) et supprimer le classement ESOD",
+      "topic_id": "agriculture",
+      "source_url": "https://savoir-animal.fr/action-nationale-coordonnee-pour-interdiction-de-la-chasse/"
+    },
+    {
+      "proposal": "Abolir la corrida",
+      "topic_id": "societe",
+      "source_url": "https://parti-animaliste.fr/news/communique-de-presse/corrida-le-parti-animaliste-denonce-la-triple-impasse-dune-pratique-a-lagonie"
+    },
+    {
+      "proposal": "Sortir les animaux du régime juridique des biens",
+      "topic_id": "agriculture",
+      "source_url": "https://fr.news.yahoo.com/sport/pr%C3%A9sidentielle-2027-candidate-parti-animaliste-092813187.html"
+    },
+    {
+      "proposal": "Intégrer tous les animaux aux plans ORSEC et créer un fonds national d'urgence pour les animaux victimes de catastrophes",
+      "topic_id": "territoires",
+      "source_url": "https://parti-animaliste.fr/news/communique-de-presse/lettre-ouverte-au-premier-ministre-au-ministre-de-linterieur-a-la-ministre-de-lagriculture-et-de-la-souverainete-alimentaire-et-a-la-ministre-de-la-transition-ecologique"
+    },
+    {
+      "proposal": "Réduire la consommation de produits d'origine animale de 40 % d'ici 2030 et de 70 % d'ici 2050",
+      "topic_id": "agriculture",
+      "source_url": "https://parti-animaliste.fr/"
+    },
+    {
+      "proposal": "Suspendre la chasse dans les territoires touchés par canicules, sécheresses et incendies, et lancer un plan d'urgence pour la faune",
+      "topic_id": "ecologie_energie",
+      "source_url": "https://parti-animaliste.fr/news/communique-de-presse/lettre-ouverte-canicules-a-repetition-incendies-secheresses-la-chasse-doit-etre-suspendue"
+    },
+    {
+      "proposal": "TVA à 0 % sur les aliments végétaux, à 20 % sur les produits alimentaires d'origine animale et à 30 % sur les produits animaux non alimentaires (programme du parti de 2022)",
+      "topic_id": "fiscalite",
+      "source_url": "https://parti-animaliste.fr/programme-legislatives"
+    },
+    {
+      "proposal": "RIC législatif et abrogatoire en toutes matières, déclenché par un million de signatures (programme du parti de 2022)",
+      "topic_id": "institutions",
+      "source_url": "https://parti-animaliste.fr/programme-legislatives"
+    }
+  ],
+  "distinctive_vs_others": "1) C'est la seule candidature déclarée portée par un parti monothématique consacré à la cause animale. Elle assume une « candidature de témoignage » pour que les animaux aient « une voix » (Ouest-France, 2 octobre 2026, repris par MSN : https://www.msn.com/fr-fr/actualite/other/pr%C3%A9sidentielle-2027-le-parti-animaliste-annonce-la-candidature-de-mira-markovic/ar-AA2dqW55). Son slogan est « Si nous ne sommes pas là, personne ne parle des animaux » (CNews, 2 octobre 2026). Tous les autres candidats déclarés présentent des programmes généralistes. Elle n'a exprimé aucune position sur les retraites, la dette, l'immigration, la défense, l'Ukraine ou Gaza.\n2) Elle se dit « transpartisane », « ni de droite ni de gauche » (HuffPost via Yahoo : https://fr.news.yahoo.com/sport/pr%C3%A9sidentielle-2027-candidate-parti-animaliste-092813187.html). Aux municipales de 2026, le parti a eu 28 élus : 18 sur des listes de gauche, 10 sur des listes de droite ou du centre, dont celle d'Édouard Philippe au Havre. Mira Markovic a justifié ce choix : « Peu importe la couleur politique » (Reporterre, 26 mars 2026 : https://reporterre.net/Des-sujets-ni-de-droite-ni-de-gauche-le-Parti-animaliste-fait-une-percee-aux-municipales). Elle reproche à la droite d'avoir soutenu la loi Duplomb et à la gauche de faire passer les animaux après les priorités humaines.\n3) Sa marque programmatique est le niveau d'exigence sur les sujets animaux : interdiction totale de la chasse et de la corrida, ministère indépendant de la Condition animale, sortie des animaux du régime des biens, sortie de l'élevage intensif, TVA modulée selon l'origine animale ou végétale des produits (communiqué du 2 octobre 2026 : https://parti-animaliste.fr/news/communique-de-presse/mira-markovic-representera-le-parti-animaliste-a-la-presidentielle ; programme : https://parti-animaliste.fr/programme-legislatives). Ce dossier ne compare pas ces mesures, sources à l'appui, avec celles des autres candidats. La Provence a consacré le 3 octobre 2026 un comparatif au bien-être animal, qui n'a pas pu être lu.\n4) Sur l'énergie, contrairement aux candidats qui tranchent sur le nucléaire, le programme du parti renvoie la question à un débat national puis à un référendum. Il est méfiant envers l'éolien au nom de la faune : référendum local pour toute éolienne à moins de 5 km des habitations (programme 2022).",
+  "evolutions_and_contradictions": "- Nom : la candidate s'appelait jusqu'ici publiquement Douchka Markovic (son nom complet est Mira Douchka Markovic, d'après la page « Bureau » du parti). Elle fait campagne sous le prénom Mira. Attention à l'homonymie avec Mirjana « Mira » Marković, veuve de Slobodan Milošević morte en 2019 : elle crée des confusions dans les recherches.\n- Mandats : le communiqué de candidature la dit « conseillère de Paris de 2014 à 2020 ». Or la liste Wikipédia des conseillers de Paris 2020-2026 la mentionne (18e, Groupe écologiste de Paris, Parti animaliste), et la liste 2014-2020 ne la mentionne pas. Son intervention de juillet 2022 au Conseil de Paris, où elle proposait de dire « surmulots » plutôt que « rats », confirme un mandat après 2020. Les dates exactes restent incertaines.\n- EELV : selon le HuffPost (octobre 2026), elle a quitté Europe Écologie-Les Verts, alors dirigé par Cécile Duflot, à cause de l'influence de la Confédération paysanne. La biographie du parti dit pourtant qu'elle a cofondé la commission condition animale d'EELV en 2015. Entre 2020 et 2026, elle a siégé au Groupe écologiste de Paris tout en appartenant au Parti animaliste. La chronologie n'est pas claire.\n- Objectifs revus à la baisse : la fin de l'élevage intensif était prévue en 2027 (programme 2022), puis en 2030 (programme européen 2024). La baisse de la consommation de produits animaux est passée de −50 % d'ici 2027 (2022) à −50 % d'ici 2029-2030 (2024), puis à −40 % d'ici 2030 et −70 % d'ici 2050 (FAQ actuelle du site).\n- Armes à feu : interdiction de détention pour les civils en 2022, interdiction « progressive » avec exception pour les clubs de tir en 2024.\n- Alliances : le parti se dit « transpartisan » et a envoyé des élus sur des listes de droite en 2026. Il combat pourtant la loi Duplomb, soutenue par la droite ; Mira Markovic a jugé cette situation « extrêmement triste » (Reporterre).\n- Ton : elle annonce une campagne « plus directe dans les dénonciations » tout en parlant de « candidature de témoignage ». Le parti dit avoir les « caisses vides » (selon Hélène Thouy) et doit trouver 500 parrainages, alors qu'Hélène Thouy n'en avait obtenu que 139 en 2022.",
+  "open_questions": [
+    "Le parti publiera-t-il un programme présidentiel 2027 ? Le corpus actuel date de 2022 (programme national) et de 2024 (européennes) ; seuls les quatre ou cinq axes animaliers ont été confirmés le 2 octobre 2026.",
+    "Prendra-t-elle position sur les sujets non animaliers (retraites, fiscalité générale, dette, immigration, Ukraine, Gaza, défense, OTAN, laïcité, droits LGBTQIA+), ou la candidature restera-t-elle monothématique ?",
+    "Quel calendrier pour la sortie de l'élevage intensif (2027, 2030 ou plus tard) et quel coût pour le rachat de la dette des éleveurs et leur reconversion ?",
+    "L'interdiction de la chasse serait-elle immédiate et totale, ou passerait-elle par des étapes (dimanche, mineurs, ESOD, suspensions en période de crise climatique) ?",
+    "Quelle position sur le nucléaire et les renouvelables au-delà d'un référendum sur les choix énergétiques ?",
+    "Quelle position précise sur l'accord UE-Mercosur, entré en vigueur en 2026, au-delà des clauses miroirs ?",
+    "Les mesures TVA du programme 2022 (0 % sur le végétal, 20-30 % sur les produits animaux) et le RIC à un million de signatures sont-ils maintenus en 2027 ?",
+    "Obtiendra-t-elle les 500 parrainages avant le 12 mars 2027, et comment la campagne sera-t-elle financée ?",
+    "Quelle est la chronologie exacte de ses mandats parisiens (2014-2020 ou 2020-2026) et de son départ d'EELV ?",
+    "Donnera-t-elle une consigne de vote pour le second tour, compte tenu de la ligne « ni droite ni gauche » ?"
+  ],
+  "programme_sources": [
+    {
+      "title": "Mira Markovic représentera le Parti animaliste à la présidentielle (communiqué de candidature)",
+      "url": "https://parti-animaliste.fr/news/communique-de-presse/mira-markovic-representera-le-parti-animaliste-a-la-presidentielle",
+      "date": "2026-10-02"
+    },
+    {
+      "title": "Programme national du Parti animaliste (législatives 2022, « Sauver les animaux et nous sauver nous-mêmes »)",
+      "url": "https://parti-animaliste.fr/programme-legislatives",
+      "date": "2022"
+    },
+    {
+      "title": "Les animaux au cœur de la société – synthèse du programme, élections européennes du 9 juin 2024",
+      "url": "https://parti-animaliste.fr/wp-content/uploads/2024/05/programme-europeennes-2024.pdf",
+      "date": "2024-05"
+    },
+    {
+      "title": "Page Programmes du Parti animaliste",
+      "url": "https://parti-animaliste.fr/programme"
+    },
+    {
+      "title": "Pétition pour un ministère de la Condition animale",
+      "url": "https://b.parti-animaliste.fr/"
+    },
+    {
+      "title": "Bureau national du Parti animaliste (biographie de Douchka Markovic)",
+      "url": "https://parti-animaliste.fr/bureau"
+    },
+    {
+      "title": "Pour la présidentielle 2027, la candidate du Parti animaliste, Mira Markovic, cherche les 500 parrainages (HuffPost, repris par Yahoo)",
+      "url": "https://fr.news.yahoo.com/sport/pr%C3%A9sidentielle-2027-candidate-parti-animaliste-092813187.html",
+      "date": "2026-10-02"
+    },
+    {
+      "title": "Présidentielle 2027 : le Parti animaliste annonce la candidature de Mira Markovic (Ouest-France, repris par MSN)",
+      "url": "https://www.msn.com/fr-fr/actualite/other/pr%C3%A9sidentielle-2027-le-parti-animaliste-annonce-la-candidature-de-mira-markovic/ar-AA2dqW55",
+      "date": "2026-10-02"
+    },
+    {
+      "title": "Des sujets « ni de droite ni de gauche » : le Parti animaliste fait une percée aux municipales (Reporterre)",
+      "url": "https://reporterre.net/Des-sujets-ni-de-droite-ni-de-gauche-le-Parti-animaliste-fait-une-percee-aux-municipales",
+      "date": "2026-03-26"
+    },
+    {
+      "title": "Lettre ouverte – Canicules à répétition, incendies, sécheresses : la chasse doit être suspendue",
+      "url": "https://parti-animaliste.fr/news/communique-de-presse/lettre-ouverte-canicules-a-repetition-incendies-secheresses-la-chasse-doit-etre-suspendue",
+      "date": "2026-08-17"
+    },
+    {
+      "title": "Lettre ouverte au Premier ministre et aux ministres (animaux et plans ORSEC)",
+      "url": "https://parti-animaliste.fr/news/communique-de-presse/lettre-ouverte-au-premier-ministre-au-ministre-de-linterieur-a-la-ministre-de-lagriculture-et-de-la-souverainete-alimentaire-et-a-la-ministre-de-la-transition-ecologique",
+      "date": "2026-07-28"
+    },
+    {
+      "title": "Loi d'urgence agricole : l'urgence n'est pas de réautoriser des pesticides",
+      "url": "https://parti-animaliste.fr/news/communique-de-presse/loi-durgence-agricole-lurgence-nest-pas-de-reautoriser-des-pesticides-mais-de-preparer-lagriculture-de-demain",
+      "date": "2026-07-22"
+    },
+    {
+      "title": "Action nationale coordonnée pour l'interdiction de la chasse (Savoir Animal)",
+      "url": "https://savoir-animal.fr/action-nationale-coordonnee-pour-interdiction-de-la-chasse/",
+      "date": "2026-09-30"
+    },
+    {
+      "title": "ESOD : après les incendies et l'autorisation de la chasse, le gouvernement autorise encore la tuerie massive d'animaux sauvages",
+      "url": "https://parti-animaliste.fr/news/communique-de-presse/esod-incendies-chasse-massacre",
+      "date": "2026-08-25"
+    }
+  ]
+}

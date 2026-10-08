@@ -23,6 +23,11 @@ export function percent(score: number | null): string {
   return score === null ? '–' : `${Math.round(score)}`
 }
 
+/** Une part, après « moins de » : 0,5 → « la moitié », sinon en pourcentage (0,4 → « 40 % ») */
+export function shareText(share: number): string {
+  return Math.abs(share - 0.5) < 1e-9 ? 'la moitié' : `${Math.round(share * 100)}\u00a0%`
+}
+
 /** Nom de domaine lisible d'une URL de source */
 export function hostOf(url: string): string {
   try {

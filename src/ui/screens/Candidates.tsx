@@ -3,7 +3,7 @@
 // utilise est consultable ici. Le questionnaire, lui, reste anonyme.
 // Même grammaire que l'accueil : un héros, puis des fiches bristol en colonnes, toute la largeur.
 
-import { useMemo, useRef, useState } from 'preact/hooks'
+import { useEffect, useMemo, useRef, useState } from 'preact/hooks'
 import { ratingOf } from '../../core/answers'
 import { seededShuffle } from '../../core/rng'
 import type { SessionState } from '../../core/storage'
@@ -19,6 +19,13 @@ import { RatingMark } from '../components/RatingRuler'
 import { formatDate, hostOf } from '../format'
 import { useMasonry } from '../useMasonry'
 import { useStickyFilters } from '../useStickyFilters'
+import { link } from '../nav'
+import { isMany } from '../many'
+import { comparePath } from '../../core/routes'
+import { isExcluded, knownQuestions } from '../../core/score'
+import { CompareBar, CompareToggle } from '../compare/Tray'
+import { MAX_COMPARED_WORDS } from '../compare/selection'
+import { prepareCompare } from '../compare/load'
 
 const NATURE: Record<Position['nature'], string> = {
   proposition: 'proposition',
@@ -58,6 +65,8 @@ export function CandidatesIndex({ pack, state }: IndexProps) {
     () => new Map(candidates.map(c => [c.id, Object.keys(positions[c.id] ?? {}).length])),
     [candidates, positions],
   )
+  // La comparaison s'ouvre d'ici : son écran se prépare dès que le navigateur a un moment
+  useEffect(() => prepareCompare(), [])
   return (
     <div class="screen screen-wide">
       <FormHeader title="Les candidats" right={election.shortName} />
@@ -68,19 +77,33 @@ export function CandidatesIndex({ pack, state }: IndexProps) {
           </h1>
           <div>
             <p class="lede">
-              {candidates.length} candidats se présentent à la {election.name.replace(/^Primaire/, 'primaire')}. Pour
-              chacun : son parcours, son site de campagne, et chacune de ses positions avec ses sources.
+              {candidates.length} candidats se présentent {election.copy.atName}. Pour chacun : son parcours, son site
+              de campagne, et chacune de ses positions avec ses sources.
             </p>
+            {/* Annonces en attente (une candidature attendue, un résultat à venir), telles que l'élection les donne */}
+            {election.pending?.map(text => (
+              <p class="small" key={text}>
+                {text}
+              </p>
+            ))}
             <p class="small">
               Pour un résultat sans a priori, répondez d’abord au questionnaire : les approches y sont présentées sans
               nom. Les candidats sont présentés ici dans un ordre tiré au hasard.
             </p>
+            <p class="people-compare">
+              Pour en comparer de deux à {MAX_COMPARED_WORDS}, cochez «&nbsp;Comparer&nbsp;» sous leur nom, puis «&nbsp;Voir la
+              comparaison&nbsp;» en bas de l’écran, ou <a href={link('/comparer')}>ouvrez le comparateur</a>.
+            </p>
           </div>
         </div>
-        <ul class="people-panels" aria-label="Candidats, dans un ordre tiré au hasard">
+        {/* Une vingtaine de candidats : des panneaux plus petits, en lignes compactes sur téléphone */}
+        <ul
+          class={`people-panels${isMany(people.length) ? ' is-many' : ''}`}
+          aria-label="Candidats, dans un ordre tiré au hasard"
+        >
           {people.map(c => (
             <li key={c.id} class="people-panel">
-              <a class="people-panel-link" href={`#/candidat/${c.id}`}>
+              <a class="people-panel-link" href={link(`/candidat/${c.id}`)}>
                 <Portrait candidate={c} size="strip" />
                 <span class="people-panel-name">{c.name}</span>
                 <span class="people-panel-role">{c.role}</span>
@@ -89,28 +112,31 @@ export function CandidatesIndex({ pack, state }: IndexProps) {
                   <span class="count-figure">{counts.get(c.id)}</span> positions sourcées
                 </span>
                 <span class="people-panel-go">
-                  Voir sa fiche
+                  <span class="people-panel-go-label">Voir sa fiche</span>
                   <Icon name="arrow-right" />
                 </span>
               </a>
+              {/* Hors du lien de la fiche : la case ajoute le candidat au plateau de comparaison */}
+              <div class="people-panel-compare">
+                <CompareToggle electionId={election.id} candidate={c} />
+              </div>
             </li>
           ))}
         </ul>
       </main>
       <SiteFooter />
-      <nav class="action-bar" aria-label="Suite">
-        <div class="action-bar-inner">
-          <a class="btn-text" href="#/">
-            <Icon name="arrow-left" />
-            <span class="btn-label">Accueil</span>
-          </a>
-          <span />
-          <a class="btn-primary" href="#/feuille/1">
-            Commencer la feuille
-            <Icon name="arrow-right" />
-          </a>
-        </div>
-      </nav>
+      {/* La barre du bas devient le plateau de comparaison dès qu'un candidat est coché */}
+      <CompareBar pack={pack}>
+        <a class="btn-text" href={link('/')}>
+          <Icon name="arrow-left" />
+          <span class="btn-label">Accueil</span>
+        </a>
+        <span />
+        <a class="btn-primary" href={link('/feuille/1')}>
+          Commencer la feuille
+          <Icon name="arrow-right" />
+        </a>
+      </CompareBar>
     </div>
   )
 }
@@ -156,6 +182,7 @@ export function CandidatePage({ pack, candidateId, state }: PageProps) {
     return out
   }, [groups, bank, table])
 
+  useEffect(() => prepareCompare(), [])
   const [filter, setFilter] = useState<string | null>(null)
   const [mine, setMine] = useState(false)
   const shown = filter ? cards.filter(x => x.group.id === filter) : cards
@@ -178,7 +205,7 @@ export function CandidatePage({ pack, candidateId, state }: PageProps) {
             Candidat introuvable
           </h1>
           <p>
-            <a href="#/candidats">Voir les candidats</a>
+            <a href={link('/candidats')}>Voir les candidats</a>
           </p>
         </main>
         <SiteFooter />
@@ -187,6 +214,8 @@ export function CandidatePage({ pack, candidateId, state }: PageProps) {
   }
   const total = Object.keys(table).length
   const knownQuestions = cards.reduce((n, x) => n + x.known.length, 0)
+  // Non classé (election.ranking.excluded) : ni score ni rang
+  const unscored = isExcluded(pack, c.id)
   const themes = cards.filter(x => x.known.length).length
   /** Change de famille ; si la barre colle déjà en haut, on remonte au début des fiches */
   const pick = (id: string | null) => {
@@ -215,8 +244,11 @@ export function CandidatePage({ pack, candidateId, state }: PageProps) {
               <p class="fiche-affiliation">{c.affiliation}</p>
               <p class="fiche-links">
                 {c.campaignUrl ? <ExternalLink href={c.campaignUrl}>Site de campagne</ExternalLink> : null}
-                {c.website ? <ExternalLink href={c.website}>Page sur le site de la primaire</ExternalLink> : null}
+                {c.website ? <ExternalLink href={c.website}>{election.copy.officialPageLabel}</ExternalLink> : null}
               </p>
+              {/* Non classé (election.ranking.excluded) : un repère discret, le même pour chacun ; rien d'autre ne change */}
+              {unscored ? <UnscoredMark pack={pack} candidateId={c.id} /> : null}
+              <CompareControls pack={pack} candidate={c} seed={state.seed} />
             </div>
           </div>
           {c.bio?.length ? (
@@ -249,7 +281,7 @@ export function CandidatePage({ pack, candidateId, state }: PageProps) {
               </>
             ) : null}
             <ExternalLink href={c.photo.rightsUrl}>source</ExternalLink>,{' '}
-            <a href="#/mentions-legales">crédits</a>)
+            <a href={link('/mentions-legales')}>crédits</a>)
           </p>
         ) : null}
 
@@ -260,8 +292,10 @@ export function CandidatePage({ pack, candidateId, state }: PageProps) {
             </h2>
             <p class="positions-count">
               <span class="count-figure">{total}</span> positions sourcées sur {knownQuestions} questions, dans {themes}{' '}
-              thèmes. Ce sont exactement celles qu’utilise le calcul ; une position douteuse est retirée plutôt que
-              supposée.
+              {/* Non classé : le calcul ne s'en sert pas, la phrase ne doit pas dire le contraire */}
+              {unscored
+                ? 'thèmes. Elles n’entrent pas dans le calcul tant que ce candidat n’est pas classé\u00a0; une position douteuse est retirée plutôt que supposée.'
+                : 'thèmes. Ce sont exactement celles qu’utilise le calcul ; une position douteuse est retirée plutôt que supposée.'}
             </p>
             <AiLabel kind="positions" class="positions-ai" />
           </div>
@@ -335,19 +369,71 @@ export function CandidatePage({ pack, candidateId, state }: PageProps) {
         </section>
       </main>
       <SiteFooter />
-      <nav class="action-bar" aria-label="Suite">
-        <div class="action-bar-inner">
-          <a class="btn-text" href="#/candidats">
-            <Icon name="arrow-left" />
-            <span class="btn-label">Les candidats</span>
-          </a>
-          <span />
-          <a class="btn-primary" href="#/feuille/1">
-            Commencer la feuille
-            <Icon name="arrow-right" />
-          </a>
-        </div>
-      </nav>
+      <CompareBar pack={pack}>
+        <a class="btn-text" href={link('/candidats')}>
+          <Icon name="arrow-left" />
+          <span class="btn-label">Les candidats</span>
+        </a>
+        <span />
+        <a class="btn-primary" href={link('/feuille/1')}>
+          Commencer la feuille
+          <Icon name="arrow-right" />
+        </a>
+      </CompareBar>
+    </div>
+  )
+}
+
+/**
+ * Candidat non classé : pourquoi il n'a ni score ni rang, avec le chiffre, et le lien vers la règle. Le chiffre ne
+ * compte pas les positions probables : il peut être plus bas que celui des « positions sourcées » de la fiche
+ */
+function UnscoredMark({ pack, candidateId }: { pack: ElectionPack; candidateId: string }) {
+  return (
+    <p class="unscored-mark">
+      <Icon name="info" />
+      <span>
+        Non classé dans les résultats&nbsp;: positions connues sur {knownQuestions(pack, candidateId)} des{' '}
+        {pack.bank.questions.length}&nbsp;questions, positions probables non comptées.{' '}
+        <a href={link('/methode/non-classes')}>La règle, dans la méthode</a>
+      </span>
+    </p>
+  )
+}
+
+/**
+ * Comparer depuis la fiche : la case qui l'ajoute au plateau, et « Comparer avec… », qui ouvre la comparaison de
+ * ce candidat avec un autre au choix (les autres dans l'ordre tiré au hasard pour cette personne)
+ */
+function CompareControls({ pack, candidate, seed }: { pack: ElectionPack; candidate: Candidate; seed: string }) {
+  const others = useMemo(
+    () => seededShuffle(pack.candidates, `${seed}:people`).filter(x => x.id !== candidate.id),
+    [pack.candidates, seed, candidate.id],
+  )
+  if (!others.length) return null
+  return (
+    <div class="fiche-compare">
+      <CompareToggle electionId={pack.election.id} candidate={candidate} />
+      <details class="compare-with">
+        <summary>
+          <Icon name="chevron" class="disclosure" />
+          <span class="summary-label">Comparer avec…</span>
+        </summary>
+        <ul class="compare-with-list" aria-label={`Comparer ${candidate.name} avec`}>
+          {others.map(o => (
+            <li key={o.id}>
+              <a href={link(comparePath([candidate.id, o.id]))}>
+                <Portrait candidate={o} size="small" decorative />
+                <span>
+                  <span class="compare-with-name">{o.name}</span>
+                  <span class="sr-only"> : comparer avec {candidate.name}</span>
+                </span>
+                <Icon name="arrow-right" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </details>
     </div>
   )
 }

@@ -1,0 +1,588 @@
+{
+  "candidate": "Raphaël Glucksmann",
+  "topics": [
+    {
+      "topic_id": "finances_publiques",
+      "found": true,
+      "positions": [
+        {
+          "position": "Redresser les finances publiques par une « trajectoire crédible de désendettement ». Le financement combinerait des économies ciblées (dépenses et niches fiscales jugées inefficaces) et des recettes nouvelles prélevées sur les très hauts patrimoines et les grands groupes. Aucun objectif chiffré de déficit n'est fixé.",
+          "kind": "proposition_explicite",
+          "details": "Acte I, « chantier cadre » (« Retrouver les moyens d'agir, financer nos ambitions »). Le texte prévoit un « mix responsable d'économies ciblées et de recettes nouvelles » et un audit sur l'absence de gaspillage avant tout investissement supplémentaire. Il assume aussi un « réinvestissement stratégique de la puissance publique » (sécurité, services publics, transition écologique). Le texte ne donne aucun objectif chiffré de déficit, de dette ou de niveau de dépense publique. Il ne dit rien des règles budgétaires européennes ni d'une règle d'or.",
+          "short_quote": "une trajectoire crédible de désendettement",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – Notre vision pour la France, chantier cadre (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Réduire et réorienter les aides publiques aux entreprises, qu'il évalue à 211 Md€ de « cadeaux fiscaux ou d'exonération ».",
+          "kind": "position_declaree",
+          "details": "Cité par franceinfo dans son comparatif sur la réduction de la dette (29/09/2026). Il s'appuie sur un ancien ministre de l'Économie selon qui on ne sait plus à quoi servent ces fonds. Le montant qui serait réorienté et sa destination ne sont pas précisés. L'Acte I (2025) prévoyait déjà de conditionner les aides aux entreprises et de plafonner le crédit d'impôt recherche des grands groupes.",
+          "short_quote": "On va les réorienter",
+          "source_url": "https://www.franceinfo.fr/economie/crise/crise-de-la-dette/que-proposent-les-candidats-a-la-presidentielle-pour-reduire-la-dette-publique_8215481.html",
+          "source_title": "Que proposent les candidats à la présidentielle pour réduire la dette publique ? (franceinfo)",
+          "source_date": "2026-09-29",
+          "confidence": "high"
+        },
+        {
+          "position": "Ne pas financer ses mesures, notamment la hausse du salaire net, par l'aggravation de la dette ni par « la casse du modèle social ». Il défend une « trajectoire fiscale stable ».",
+          "kind": "position_declaree",
+          "details": "Débat organisé par le Medef le 27/08/2026, selon le direct franceinfo et une dépêche AFP. Il y affirme aussi : « c'est la droite qui a cramé la caisse ». Il dit financer ses mesures salariales par la taxation des « méga-héritages ».",
+          "short_quote": "c'est la droite qui a cramé la caisse",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/direct-attal-le-pen-melenchon-philippe-suivez-le-premier-debat-de-la-presidentielle-organise-par-le-medef-entre-sept-candidats-declares_8162033.html",
+          "source_title": "Direct : premier débat de la présidentielle organisé par le Medef (franceinfo)",
+          "source_date": "2026-08-27",
+          "confidence": "medium"
+        },
+        {
+          "position": "Au premier débat de la primaire, il se dit d'accord avec Ségolène Royal sur la dette et affirme qu'elle a moins augmenté sous les derniers gouvernements de gauche que sous les gouvernements libéraux.",
+          "kind": "position_declaree",
+          "details": "Débat LCI du 23/09/2026. Public Sénat résume l'échange comme un accord sur une réduction de la dette passant par la justice fiscale. Aucune mesure d'économie chiffrée n'est avancée.",
+          "short_quote": "La dette s'est moins creusée sous les derniers gouvernements de gauche",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+          "source_title": "Primaire de la gauche : échanges tendus sur les alliances avec LFI, Gaza, Ukraine… Que retenir du 1er débat (Public Sénat)",
+          "source_date": "2026-09-24",
+          "confidence": "medium"
+        },
+        {
+          "position": "Opposition au projet de budget 2027 du gouvernement Lecornu (54 Md€ d'économies), qu'il qualifie de « budget de régression sociale ».",
+          "kind": "position_declaree",
+          "details": "Propos tenus aux Rencontres de la gauche de Bram (19/09/2026), selon le titre d'une vidéo Figaro Live. Le 21/09/2026 sur franceinfo, il indique qu'il soutiendra « vraisemblablement » la censure du budget. Il ne présente pas de contre-budget chiffré.",
+          "short_quote": "un budget de régression sociale",
+          "source_url": "https://video.lefigaro.fr/figaro/politique/le-budget-presente-par-sebastien-lecornu-est-un-budget-de-regression-sociale-soutient-raphael-glucksmann-20260919",
+          "source_title": "Le budget présenté par Sébastien Lecornu est « un budget de régression sociale », soutient Raphaël Glucksmann (Figaro Live)",
+          "source_date": "2026-09-19",
+          "confidence": "medium"
+        },
+        {
+          "position": "Effectifs et organisation de l'État : pas de réduction globale des effectifs. Il veut revaloriser les salaires des agents, indexer le point d'indice sur l'inflation et recruter « là où les besoins sont criants ». Il veut aussi mettre fin aux « logiques néo-managériales » et à la dépendance de l'État aux cabinets de conseil.",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantiers 16 et 22. S'y ajoutent la garantie d'accès de proximité à la CAF, la CPAM, France Travail et aux impôts, la lutte contre le pantouflage et un observatoire de l'intégrité publique. Son livre de mai 2026 prévoit, pour l'Éducation nationale, plus de personnels dans les classes et moins de postes administratifs (LCP, 26/05/2026). Aucun objectif chiffré sur le nombre de fonctionnaires.",
+          "short_quote": "recruter là où les besoins sont criants",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantiers 16 et 22 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Il a signé en 2020 une tribune en faveur de l'annulation de la dette publique détenue par la BCE. En 2026, il n'en fait pas une proposition de campagne, et la co-présidente de son parti juge que ce n'est « pas le bon moment ».",
+          "kind": "inference",
+          "details": "Jean-Luc Mélenchon a ressorti cette tribune fin août 2026, selon 20 Minutes et Le Parisien (27/08/2026). Selon le HuffPost, la tribune date de septembre 2020. Glucksmann n'a pas réagi publiquement au débat du Medef, et Aurore Lalucq, qui l'avait aussi défendue en 2020, s'oppose désormais à la proposition de LFI. On ne dispose d'aucune déclaration récente de Glucksmann lui-même sur ce point.",
+          "source_url": "https://fr.news.yahoo.com/sport/l-annulation-dette-voulue-lfi-105408424.html",
+          "source_title": "L'annulation de la dette voulue par LFI creuse les divergences entre PS et Place publique (HuffPost via Yahoo)",
+          "source_date": "2026-08-28",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "solidarites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Abroger la réforme Macron de l'assurance chômage. Ouvrir une grande conférence sociale pour créer un minimum social unique, accessible aussi aux moins de 25 ans, avec des droits, montants et règles d'accès harmonisés et une gestion unifiée.",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantier 25. Le minimum social unique associerait l'État, les collectivités, les syndicats et les associations. Aucun montant n'est fixé. Aucune position trouvée sur la conditionnalité du RSA (heures d'activité). Ces mesures n'ont pas été réaffirmées explicitement dans les comptes rendus de la campagne de 2026 consultés.",
+          "short_quote": "un minimum social unique, accessible à toutes et tous",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 25 « Faire vivre le projet solidaire de protection sociale » (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Automatiser l'accès aux droits sociaux pour lutter contre le non-recours : dossier social unique partagé entre les acteurs, guichets uniques intégrés à des « maisons France Solidarité », et à terme une Sécurité sociale unique fusionnant les régimes.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 25 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Handicap : un référent social unique tout au long de la vie et la suppression des MDPH, dont les missions seraient transférées à la Sécurité sociale. Il veut une accessibilité universelle étendue aux handicaps cognitifs, sensoriels et mentaux, et rétablir l'obligation d'accessibilité pour tous les logements neufs.",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantier 28 : priorité à l'accessibilité des transports en commun, accessibilité des processus électoraux, adaptation des institutions aux élus handicapés. Le chantier 18 prévoit de renforcer l'inclusion des travailleurs handicapés. Aucune position trouvée sur le montant de l'AAH. Au Parlement européen, il a voté pour la résolution sur la stratégie de l'UE en faveur des droits des personnes handicapées après 2024 (27/11/2025, adoptée par 490 voix contre 9).",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 28 « Adapter la société au handicap » (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Proches aidants : renforcer leurs droits et leur statut, créer un service de relais et de répit (dont le « baluchonnage »), et travailler à une indemnité d'aidant familial pour ceux qui réduisent ou arrêtent leur activité.",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantier 26. Le texte souligne que les aidants sont en majorité des femmes. Il prévoit aussi de recentrer les EHPAD sur les personnes très dépendantes. Aucun montant n'est fixé pour l'indemnité.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 26 « Permettre à tous de vieillir dignement » (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Petite enfance et familles : « démarchandiser » les crèches, investir dans un service public de la petite enfance, créer un droit opposable à la garde et réformer le congé parental pour mieux le partager entre les parents.",
+          "kind": "proposition_explicite",
+          "details": "La démarchandisation des crèches figure dans sa lettre aux Français (25/08/2026). L'Acte I (chantiers 27 et 38) prévoit un encadrement strict des crèches privées avec un statut de crèches « sous contrat », et des places en crèche pour les mères éloignées de l'emploi. Aucune position trouvée sur la natalité en tant que telle, les allocations familiales ou le quotient familial.",
+          "source_url": "https://place-publique.eu/posts/2fgDdljEIy36rgxBjRyiQZ/raphael-glucksmann-sa-lettre-aux-francais",
+          "source_title": "Raphaël Glucksmann – Sa lettre aux Français (Place publique)",
+          "source_date": "2026-08-25",
+          "confidence": "high"
+        },
+        {
+          "position": "Protection de l'enfance : un co-pilotage renforcé entre l'État et les départements, un contrôle indépendant avec sanctions pour les départements défaillants, et une protection de l'enfance sortie de toute logique de profit.",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantier 27 : application immédiate d'un socle minimal d'encadrement, nombre maximal de mesures suivies par chaque professionnel de l'ASE, revalorisation des travailleurs sociaux.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 27 « Enfance en péril » (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Au Parlement européen, il a voté pour la résolution demandant une nouvelle stratégie européenne de lutte contre la pauvreté.",
+          "kind": "inference",
+          "details": "Vote du 12/02/2026, résolution adoptée par 385 voix contre 141 et 53 abstentions. C'est un vote d'eurodéputé, pas une mesure de son programme présidentiel.",
+          "source_url": "https://howtheyvote.eu/votes/184393",
+          "source_title": "Developing a new EU anti-poverty strategy – vote du Parlement européen (HowTheyVote.eu)",
+          "source_date": "2026-02-12",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "egalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Grand plan contre les violences sexistes et sexuelles inspiré de l'Espagne, doté d'1 Md€ : unités spécialisées contre les violences conjugales, coordination entre parquet, services sociaux et associations, ordonnances de protection accélérées, bracelets anti-rapprochement généralisés.",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantier 38. Le 07/09/2026, il a rejoint place Vendôme une manifestation pour une « loi intégrale » en faveur des femmes et des enfants victimes de violences sexuelles (Le Figaro, 08/09/2026). Il n'a pas présenté de texte de loi intégrale détaillé.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 38 « Bâtir un pacte d'égalité pour les droits des femmes » (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Participation, le 07/09/2026, à un rassemblement pour une « loi intégrale » contre les violences sexuelles faites aux femmes et aux enfants.",
+          "kind": "inference",
+          "details": "Le soutien à une loi intégrale se déduit ici de sa présence au rassemblement, aux côtés d'autres candidats, place Vendôme à Paris. Il y a été pris à partie par une manifestante. Aucun contenu législatif précis n'est rapporté.",
+          "source_url": "https://www.lefigaro.fr/politique/vous-ne-faites-pas-de-bien-a-la-gauche-barrez-vous-raphael-glucksmann-pris-a-partie-par-une-manifestante-a-paris-lundi-soir-20260908",
+          "source_title": "« Vous ne faites pas de bien à la gauche, barrez-vous ! » : Raphaël Glucksmann pris à partie par une manifestante (Le Figaro)",
+          "source_date": "2026-09-08",
+          "confidence": "medium"
+        },
+        {
+          "position": "Égalité salariale : rendre transparents les écarts de rémunération, durcir les sanctions contre les employeurs discriminants et revaloriser les métiers féminisés.",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantier 38. Aucun objectif chiffré ni calendrier.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 38 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Partage des responsabilités familiales : réformer le congé parental pour plus d'égalité entre les femmes et les hommes, créer un droit opposable à la garde d'enfant et indemniser les proches aidants, majoritairement des femmes.",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantiers 26 et 38. La durée et l'indemnisation du congé parental réformé ne sont pas précisées.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantiers 26 et 38 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Inscrire dans la loi qu'un acte de pénétration sexuelle non consenti est un viol, et défendre une définition européenne du viol fondée sur le consentement.",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantier 38. Au Parlement européen, il a voté pour la résolution sur l'importance des législations sur le viol fondées sur le consentement (28/04/2026, adoptée par 447 voix contre 160). En France, la définition pénale du viol fondée sur le consentement a été adoptée fin 2025.",
+          "source_url": "https://howtheyvote.eu/votes/189914",
+          "source_title": "Importance of consent-based rape legislation in the EU – vote du Parlement européen (HowTheyVote.eu)",
+          "source_date": "2026-04-28",
+          "confidence": "medium"
+        },
+        {
+          "position": "Droits et santé des femmes : contraception gratuite, remboursement des protections périodiques, congé menstruel (avec possibilité de télétravail), recherche sur l'endométriose, droit à l'IVG inscrit dans la Charte des droits fondamentaux de l'UE et « clause de l'Européenne la plus favorisée ».",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantier 38. Au Parlement européen, il a voté pour la stratégie pour l'égalité entre les femmes et les hommes 2025 (13/11/2025, adoptée par 310 voix contre 222). Il a aussi voté pour la résolution sur l'initiative citoyenne « My Voice, My Choice » en faveur d'un avortement sûr et accessible (17/12/2025, adoptée par 358 voix contre 202).",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 38 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "droits_lgbtqia",
+      "found": true,
+      "positions": [
+        {
+          "position": "Aligner les droits à la filiation des couples LGBTQIA+ sur ceux des couples hétérosexuels, « en universalisant les droits ».",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantier 39. Le texte ne détaille pas les modalités (adoption, reconnaissance conjointe anticipée, etc.). Aucune position trouvée sur la GPA : un article de BFMTV du 03/10/2026 sur la GPA dans la campagne ne lui attribue aucune position.",
+          "short_quote": "en universalisant les droits",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 39 « Défendre les droits des personnes LGBTQIA+ » (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Au niveau européen : reconnaissance transfrontalière des filiations et des unions, harmonisation « ambitieuse » des législations sur la PMA, inscription des crimes et discours de haine dans la liste des infractions de l'UE, et interdiction des thérapies de conversion dans toute l'Union.",
+          "kind": "proposition_explicite",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 39 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Garantir le droit à l'autodétermination de genre et encadrer les parcours de transition pour assurer liberté, sécurité et accès aux soins.",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantier 39. Le texte ne précise ni la procédure de changement de la mention du sexe à l'état civil ni le cas des mineurs. Aucune position trouvée sur la transidentité des mineurs.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 39 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Lutte contre les discriminations : coordination nationale entre ministères et instances de défense des droits, associations LGBTQIA+ associées aux politiques publiques, réseau national de centres et d'archives LGBTQIA+, et défense des droits LGBTQIA+ dans la diplomatie française et européenne.",
+          "kind": "position_declaree",
+          "details": "Le communiqué de Place publique du 03/10/2026, jour de la Marche des fiertés à Paris, appelle à reconnaître « la diversité des familles » et cite la répression en Turquie et au Sénégal. Ce communiqué du parti n'est pas signé nominativement par Glucksmann et ne contient pas de mesure chiffrée. L'Acte I (chantier 42) prévoit aussi de soutenir la dépénalisation de l'homosexualité dans le monde. Aucune position trouvée sur l'éducation à la sexualité (EVARS) à l'école.",
+          "source_url": "https://place-publique.eu/posts/3XezlvxtSkBJ0WTLiJtWnq/droits-lgbtqia-l-egalite-est-le-socle-d-un-commun-retrouve-et-la-condition-d-une-puissance-collective",
+          "source_title": "Droits LGBTQIA+ – L'égalité est le socle d'un commun retrouvé (Place publique)",
+          "source_date": "2026-10-03",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "societe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Faire adopter, comme premier acte du quinquennat, une loi de programmation « éducation et culture » fixant le cadre pour cinq ans. Il juge que plus personne ne se soucie de la culture, alors qu'elle participe de la « fabrique citoyenne ».",
+          "kind": "proposition_explicite",
+          "details": "Entretien aux « Grandes Gueules » (RMC), le 05/10/2026. Il y promet aussi de n'avoir qu'un seul ministre de l'Éducation sur cinq ans. Aucun montant n'est fixé.",
+          "short_quote": "une loi de programmation éducation et culture",
+          "source_url": "https://rmc.bfmtv.com/actualites/politique/presidentielle-2027-je-n-aurais-qu-un-ministre-de-l-education-promet-raphael-glucksmann-en-cas-de-victoire_AV-202610050580.html",
+          "source_title": "Présidentielle 2027 : « Je n'aurais qu'un ministre de l'Éducation », promet Raphaël Glucksmann (RMC)",
+          "source_date": "2026-10-05",
+          "confidence": "high"
+        },
+        {
+          "position": "Renforcer le service public de l'audiovisuel et l'indépendance des médias, avec un financement stable. Financer la presse par une taxe sur les géants du numérique et réformer la loi de 1986 pour limiter la concentration des médias.",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantier 21, qui prévoit aussi un délit de désinformation organisée dans la loi de 1881. Aucune position trouvée sur la réforme de la gouvernance de l'audiovisuel public (holding), sur une redevance ou sur une privatisation.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 21 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Politique culturelle de proximité : un Pacte d'aménagement culturel du territoire (PACT) avec les collectivités et une déconcentration renforcée du ministère. À l'école primaire, un enseignement artistique régulier avec les conservatoires. Supprimer la part individuelle du pass Culture pour financer des artistes intervenant en milieu scolaire.",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantiers 34 et 35 : fonds national pluriannuel pour l'éducation populaire (MJC, centres sociaux, tiers-lieux), grande agence publique de diplomatie culturelle (Instituts et Alliances françaises), coopération mémorielle sur la colonisation et diversification des noms de rues.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 35 « Retrouver une politique culturelle ambitieuse » (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Soutien à la création : une loi sur le statut des artistes-auteurs (continuité de revenus, droits sociaux) et la protection du droit d'auteur face à l'IA générative. Un « pacte culturel » pour mieux redistribuer les profits du secteur privé et freiner le dumping social, et l'extension de l'exception culturelle à l'échelle européenne.",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantier 35 : doublement du budget du programme Europe Créative, statut européen protecteur pour les actifs culturels, exclusion de la culture de tout accord de libre-échange.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 35 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "found": true,
+      "positions": [
+        {
+          "position": "Condition animale : porter au niveau européen la disparition par étapes de l'élevage en cage, l'interdiction de l'élevage pour la fourrure et des règles plus strictes sur le transport des animaux. Moderniser les abattoirs et soutenir les abattoirs mobiles.",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantier 13 : reconnaissance de l'abattage rituel avec étourdissement non irréversible, comme en Belgique ; moratoire sur la chasse des espèces menacées (liste rouge UICN) ; plan pour les animaux de compagnie ; meilleures conditions dans les zoos ; réduction de l'usage d'animaux dans la recherche. Au Parlement européen, il a voté pour le règlement sur le bien-être et la traçabilité des chiens et des chats (19/06/2025 et 28/04/2026).",
+          "short_quote": "disparition par étape de l'élevage en cage",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 13 « Prendre à bras le corps la question de la condition animale » (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Accès à l'alimentation : faire de la cantine le lieu d'une alimentation saine, locale et bio (avec plus d'options végétariennes) et soutenir les expérimentations locales de Sécurité sociale de l'alimentation. Rendre le Nutri-score obligatoire et taxer davantage les boissons trop sucrées.",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantier 14 : Plan national pour l'alimentation solidaire (récupération des invendus), prix planchers rémunérateurs, fin des contournements d'EGalim. Pêche : exclusion des méga-chalutiers des eaux côtières et quotas plus favorables à la pêche artisanale.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 14 « Soutenir celles et ceux qui nourrissent la France » (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Mercosur : au Parlement européen, il a voté pour la saisine de la Cour de justice de l'UE sur la compatibilité de l'accord UE-Mercosur avec les traités, ce qui retarde sa ratification.",
+          "kind": "inference",
+          "details": "Vote du 21/01/2026, adopté par 334 voix contre 324 et 11 abstentions. Il s'est abstenu sur la clause de sauvegarde bilatérale pour les produits agricoles (16/12/2025 et 10/02/2026). Un titre de La Lettre (15/07/2025) évoquait déjà une « manœuvre » de Glucksmann et Majdouline Sbaï contre l'accord ; l'article n'a pas été lu. Le programme européen de 2024 demandait d'exclure l'agriculture des accords de libre-échange.",
+          "source_url": "https://howtheyvote.eu/votes/183884",
+          "source_title": "Request for opinion from the Court of Justice on the compatibility with the Treaties of the proposed EU-Mercosur Partnership Agreement – vote du Parlement européen (HowTheyVote.eu)",
+          "source_date": "2026-01-21",
+          "confidence": "high"
+        },
+        {
+          "position": "Votes environnementaux liés à l'agriculture au Parlement européen : contre l'abaissement du statut de protection du loup et contre l'accord qui reporte et allège le règlement européen contre la déforestation importée.",
+          "kind": "inference",
+          "details": "Loup : vote contre le 08/05/2025 (proposition adoptée par 371 voix contre 162). Déforestation (EUDR) : vote contre l'accord provisoire le 17/12/2025 (adopté par 405 voix contre 242). Il a voté pour la résolution sur l'avenir de l'agriculture et la PAC après 2027 (10/09/2025, adoptée par 393 voix contre 145).",
+          "source_url": "https://howtheyvote.eu/votes/176241",
+          "source_title": "The protection status of the wolf (Canis lupus) – vote du Parlement européen (HowTheyVote.eu)",
+          "source_date": "2025-05-08",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Europe fédérale assumée : construire un « pacte de souveraineté » européen (défense, énergie, biens stratégiques, technologies) et faire de la France la locomotive d'une « puissance européenne ». Aucune remise en cause de l'appartenance à l'UE.",
+          "kind": "position_declaree",
+          "details": "Livre de mai 2026, selon Libre Journal (25/05/2026). LCP le présente comme « partisan d'une Europe fédérale » (23/09/2026). Le maintien dans l'UE n'est jamais mis en question dans les sources consultées.",
+          "source_url": "https://librejournal.fr/article/glucksmann-se-devoile/",
+          "source_title": "Glucksmann se dévoile (Libre Journal)",
+          "source_date": "2026-05-25",
+          "confidence": "medium"
+        },
+        {
+          "position": "Budget de l'Union : l'augmenter « massivement » grâce à de nouvelles ressources propres. Au Parlement européen, il a voté pour le rapport intermédiaire du Parlement sur le cadre financier pluriannuel 2028-2034.",
+          "kind": "inference",
+          "details": "Vote du 28/04/2026, adopté par 370 voix contre 201. L'Acte I (chantier 3) ne chiffre pas le budget. Le programme européen PS-Place publique de 2024, qu'il conduisait, proposait de porter le budget de l'UE à 5 % du PIB des États membres, contre environ 1 % (Toute l'Europe, 24/05/2024) ; cet objectif n'a pas été réaffirmé en 2025-2026.",
+          "source_url": "https://howtheyvote.eu/votes/190026",
+          "source_title": "Interim report on the proposal for the multiannual financial framework for 2028-2034 – vote du Parlement européen (HowTheyVote.eu)",
+          "source_date": "2026-04-28",
+          "confidence": "medium"
+        },
+        {
+          "position": "Élargissement : favorable, à condition de réformer les institutions (traité de « réunification » et de refondation d'ici 2030, avec la majorité qualifiée). Il a voté pour la stratégie d'élargissement de l'UE et pour la résolution sur les conséquences institutionnelles de l'élargissement.",
+          "kind": "inference",
+          "details": "Votes au Parlement européen : stratégie d'élargissement (11/03/2026, adoptée par 385 voix contre 147) ; conséquences institutionnelles de l'élargissement (22/10/2025, adoptée par 310 voix contre 277) ; rapport 2025 sur l'Ukraine, pays candidat (08/07/2026) ; rapports sur la Moldavie et le Monténégro. Aucune déclaration datée sur un calendrier d'adhésion de l'Ukraine.",
+          "source_url": "https://howtheyvote.eu/votes/186518",
+          "source_title": "EU enlargement strategy – vote du Parlement européen (HowTheyVote.eu)",
+          "source_date": "2026-03-11",
+          "confidence": "medium"
+        },
+        {
+          "position": "Marché unique : remettre en cause le dogme de la « concurrence libre et non faussée », harmoniser les normes sociales, sanitaires et environnementales pour mettre fin à la concurrence déloyale au sein du marché unique, et imposer des mesures miroirs aux importations.",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantiers 4 et 14. Il a voté contre l'accord douanier UE–États-Unis réduisant les droits sur certains produits américains (16/06/2026, adopté par 440 voix contre 151).",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantiers 4 et 14 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "État de droit : il a voté pour la résolution constatant un risque clair de violation grave des valeurs de l'Union par la Hongrie (procédure de l'article 7).",
+          "kind": "inference",
+          "details": "Vote du 25/11/2025, adopté par 415 voix contre 193.",
+          "source_url": "https://howtheyvote.eu/votes/181511",
+          "source_title": "Existence of a clear risk of a serious breach by Hungary of the values on which the Union is founded – vote du Parlement européen (HowTheyVote.eu)",
+          "source_date": "2025-11-25",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "ukraine_russie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Renforcer l'aide à l'Ukraine, car l'avenir de toute l'Europe s'y joue. Il présente la guerre comme dirigée contre l'Europe entière.",
+          "kind": "position_declaree",
+          "details": "Débat BFMTV du 04/10/2026 ; LCP rapporte qu'il veut « renforcer » l'aide. Au débat du 23/09/2026, il disait : « Ce n'est pas une guerre contre l'Ukraine, c'est une guerre contre l'Europe », en citant une attaque de drones à Leipzig et un « terrorisme d'État » russe (Public Sénat). Les cinq candidats soutiennent la poursuite de l'aide.",
+          "short_quote": "nous sommes tous ciblés",
+          "source_url": "https://www.bfmtv.com/politique/elections/presidentielle/colere-lyceenne-retraites-guerre-en-ukraine-ce-qu-il-faut-retenir-du-dernier-debat-entre-les-candidats-de-la-primaire-sociale-democrate-sur-bfmtv_AN-202610040470.html",
+          "source_title": "Colère lycéenne, retraites, guerre en Ukraine… Ce qu'il faut retenir du dernier débat de la primaire sociale-démocrate (BFMTV)",
+          "source_date": "2026-10-04",
+          "confidence": "high"
+        },
+        {
+          "position": "Saisir les avoirs publics russes gelés en Europe pour financer le soutien à l'Ukraine.",
+          "kind": "proposition_explicite",
+          "details": "Réaffirmé aux débats du 23/09/2026 (Public Sénat) et du 04/10/2026 (BFMTV, LCP). Olivier Faure et Emmanuel Maurel le proposent aussi. Le programme européen de 2024 parlait de mobiliser la totalité des 206 Md€ d'avoirs russes gelés.",
+          "source_url": "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat",
+          "source_title": "Glucksmann face à Royal, divisions sur LFI, lycées… Ce qu'il faut retenir du dernier débat (LCP)",
+          "source_date": "2026-10-05",
+          "confidence": "high"
+        },
+        {
+          "position": "Refus de la ligne de dialogue et de négociation avec Vladimir Poutine défendue par Ségolène Royal. Il veut que la France soit le « leader de l'opposition européenne à Poutine », estimant que la faiblesse invite à l'agression.",
+          "kind": "position_declaree",
+          "details": "Débat France 2 / France Inter du 01/10/2026. Il y cite un drone russe chargé d'explosifs visant l'aéroport de Leipzig. Royal plaide pour une « commission permanente de négociation » ; Faure estime que « négocier, ce n'est pas capituler ».",
+          "short_quote": "la faiblesse crée l'invitation à l'agression",
+          "source_url": "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+          "source_title": "Mobilisation lycéenne, budget, situation internationale… Ce qu'il faut retenir du deuxième débat (LCP)",
+          "source_date": "2026-10-01",
+          "confidence": "high"
+        },
+        {
+          "position": "Augmenter l'aide militaire et protéger le ciel ukrainien, « comme cela a été fait avec les Émirats arabes unis ».",
+          "kind": "position_declaree",
+          "details": "LCP y voit la ligne la plus offensive envers la Russie parmi les cinq candidats. L'Acte I prévoit d'« augmenter drastiquement » l'aide militaire à l'Ukraine, présentée comme « notre première ligne de défense », et de soutenir la Moldavie et l'Arménie. Aucune position vérifiée sur l'envoi de troupes françaises ou européennes en Ukraine.",
+          "source_url": "https://lcp.fr/actualites/accord-avec-lfi-moyen-orient-pouvoir-d-achat-ce-qu-il-faut-retenir-du-premier-debat-de",
+          "source_title": "Accord avec LFI, Moyen-Orient, pouvoir d'achat : ce qu'il faut retenir du premier débat de la primaire (LCP)",
+          "source_date": "2026-09-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Au Parlement européen, il a voté pour le prêt de soutien à l'Ukraine 2026-2027, pour la résolution sur « quatre ans de guerre d'agression » et une paix juste, et pour la sortie progressive des importations de gaz russe.",
+          "kind": "inference",
+          "details": "Prêt de soutien à l'Ukraine, coopération renforcée (11/02/2026, adopté par 458 voix contre 140). Résolution sur quatre ans de guerre (24/02/2026, adoptée par 437 voix contre 82). Fin des importations de gaz russe (17/12/2025, adopté par 500 voix contre 120). Rapport 2025 sur l'Ukraine, pays candidat (08/07/2026). L'Acte I demande d'interdire immédiatement toute importation de gaz russe.",
+          "source_url": "https://howtheyvote.eu/votes/184699",
+          "source_title": "Regulation implementing enhanced cooperation on the establishment of the Ukraine Support Loan for 2026 and 2027 – vote du Parlement européen (HowTheyVote.eu)",
+          "source_date": "2026-02-11",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "proche_orient",
+      "found": true,
+      "positions": [
+        {
+          "position": "Refuse de qualifier de « génocide » la guerre d'Israël à Gaza, au motif que la Cour pénale internationale n'emploie pas ce terme. Il parle de crimes de guerre et de crimes contre l'humanité.",
+          "kind": "position_declaree",
+          "details": "Au débat du 01/10/2026, il lance à Olivier Faure : « Ce que tu fais est obscène ». Au débat du 23/09/2026, il appelle à « faire attention aux mots ». Faure et Royal emploient le mot « génocide » ; Guedj le refuse aussi.",
+          "short_quote": "un mot qui n'est pas reconnu par la Cour pénale internationale",
+          "source_url": "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+          "source_title": "Mobilisation lycéenne, budget, situation internationale… Ce qu'il faut retenir du deuxième débat (LCP)",
+          "source_date": "2026-10-01",
+          "confidence": "high"
+        },
+        {
+          "position": "Sanctionner le gouvernement Netanyahou, en commençant par dénoncer l'accord d'association entre l'UE et Israël. Il qualifie Netanyahou et ses alliés de « bouchers » et la colonisation en Cisjordanie de « purification ethnique ».",
+          "kind": "position_declaree",
+          "details": "Débat LCI du 23/09/2026 : « S'il n'y a pas de sanctions contre quelqu'un comme Netanyahou, il va aller de plus en plus loin. » Un communiqué de Place publique (21/08/2026) demandait déjà de suspendre l'accord d'association et de sanctionner les acteurs de la colonisation. Aucune position trouvée sur un embargo sur les armes.",
+          "short_quote": "dénoncer l'accord d'association entre l'UE et Israël",
+          "source_url": "https://israj.media-j.com/article/70174/raphael-glucksmann-qualifie-netanyahou-de-boucher-et-appelle-a-des-sanctions-contre-lui",
+          "source_title": "Raphaël Glucksmann qualifie Netanyahou de « boucher » et appelle à des sanctions contre lui (israj.media-j)",
+          "source_date": "2026-09-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Interdire en Europe les produits issus des colonies israéliennes de Cisjordanie, un combat qu'il dit mener « depuis des années » au Parlement européen.",
+          "kind": "position_declaree",
+          "source_url": "https://fr.timesofisrael.com/primaire-de-la-gauche-en-france-les-5-candidats-confrontent-leurs-positions-sur-israel-et-gaza/",
+          "source_title": "Primaire de la gauche en France : les 5 candidats confrontent leurs positions sur Israël et Gaza (The Times of Israel)",
+          "source_date": "2026-09-24",
+          "confidence": "high"
+        },
+        {
+          "position": "Solution à deux États et État de Palestine aux côtés d'Israël. Il veut que Netanyahou « paie pour ses crimes » et que cesse « le calvaire des Palestiniens à Gaza ».",
+          "kind": "position_declaree",
+          "details": "Débat du 01/10/2026 (Public Sénat). L'Acte I (juin 2025, chantier 42) demandait de « reconnaître enfin un État palestinien aux côtés d'Israël » ; la France l'a reconnu en septembre 2025. Aucune position trouvée sur le Hamas ou les conditions d'un cessez-le-feu.",
+          "source_url": "https://www.publicsenat.fr/actualites/politique/lelephant-dans-la-piece-lfi-sinvite-encore-dans-le-debat-de-la-primaire-socialiste",
+          "source_title": "« L'éléphant dans la pièce » : LFI s'invite encore dans le débat de la primaire socialiste (Public Sénat)",
+          "source_date": "2026-10-01",
+          "confidence": "high"
+        },
+        {
+          "position": "Refuser de rendre les Juifs de France responsables de la politique du gouvernement israélien, au nom de la lutte contre l'antisémitisme.",
+          "kind": "position_declaree",
+          "details": "Réponse à Ségolène Royal, qui appelait des « voix juives » à s'élever contre la guerre (débat LCI, 23/09/2026). Il déclare aussi : « Les Juifs ne sont en aucun cas responsables de la politique de Netanyahou » (LCP).",
+          "short_quote": "Un Français juif n'a rien à voir avec Netanyahu",
+          "source_url": "https://fr.timesofisrael.com/primaire-de-la-gauche-en-france-les-5-candidats-confrontent-leurs-positions-sur-israel-et-gaza/",
+          "source_title": "Primaire de la gauche en France : les 5 candidats confrontent leurs positions sur Israël et Gaza (The Times of Israel)",
+          "source_date": "2026-09-24",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "defense",
+      "found": true,
+      "positions": [
+        {
+          "position": "Une Europe capable de se défendre, « y compris seule », grâce à une défense européenne « souveraine, autonome ». Il prévient que le prochain président devra peut-être affronter une guerre sur le sol de l'UE.",
+          "kind": "position_declaree",
+          "details": "Débat BFMTV du 04/10/2026 (franceinfo, BFMTV ; titre du Parisien du 05/10/2026 pour la mise en garde sur la guerre). L'Acte I estime qu'on ne peut plus compter sur le « parapluie américain ». En février 2025, une tribune signée de lui dans Le Monde était titrée : « Jamais la menace d'une guerre à l'intérieur des frontières de l'UE et de l'OTAN n'a été aussi élevée ». Aucune position explicite trouvée sur le maintien ou la sortie de l'OTAN, ni sur son commandement intégré.",
+          "short_quote": "être capable de se défendre, y compris seule",
+          "source_url": "https://www.franceinfo.fr/politique/ps/primaire-a-gauche/invectives-retraites-soutien-aux-lyceens-ce-qu-il-faut-retenir-du-dernier-debat-de-la-primaire-socialiste_8222563.html",
+          "source_title": "Invectives, retraites, soutien aux lycéens... Ce qu'il faut retenir du dernier débat de la primaire socialiste (franceinfo)",
+          "source_date": "2026-10-04",
+          "confidence": "high"
+        },
+        {
+          "position": "Fonds européen de défense de 500 Md€ financé par un emprunt commun, réservé aux productions européennes. Pilotage politique européen de la production et des exportations d'armement.",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantier 2. Aucun objectif de budget militaire national en % du PIB n'a été trouvé.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 2 « Bâtir la défense européenne » (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "high"
+        },
+        {
+          "position": "Dissuasion nucléaire : proposer aux partenaires de l'UE d'étendre la dissuasion française aux autres pays de l'Union, la France gardant seule la décision d'emploi, comme pilier d'un « grand pacte de sécurité européen ».",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantier 2 (juin 2025). Depuis mars 2026, la France mène une initiative de « dissuasion avancée » avec dix pays européens ; aucune réaction de Glucksmann à cette initiative n'a été trouvée.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 2 (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "high"
+        },
+        {
+          "position": "Adapter l'armée à la guerre de haute intensité : accélérer la production industrielle avec des contrats de long terme, lancer de grands programmes de drones, de spatial et d'IA, un programme « cyber sentinelle », et « augmenter drastiquement » la réserve opérationnelle.",
+          "kind": "proposition_explicite",
+          "details": "Acte I, chantier 1, qui prévoit d'adapter la loi de programmation militaire aux menaces. Aucun montant n'est fixé.",
+          "source_url": "https://place-publique.eu/document/3Ari5O0s5O1L4iK1uyUhI0/pp-acte-un.pdf",
+          "source_title": "Acte I – chantier 1 « Adapter la défense française à la guerre contemporaine » (Place publique)",
+          "source_date": "2025-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Service national : un service civique obligatoire de 10 mois pour tous les jeunes (EHPAD, écoles, services publics, associations). Le volet militaire resterait volontaire.",
+          "kind": "proposition_explicite",
+          "details": "Livre de mai 2026. Évolution par rapport à l'Acte I (2025), qui proposait seulement de recréer un « rite de passage républicain » autour de la majorité pour remplacer le service militaire. Un service national militaire volontaire, lancé par Emmanuel Macron, a démarré en septembre 2026 ; aucune réaction de Glucksmann à ce dispositif n'a été trouvée.",
+          "short_quote": "dix mois de leur vie à la nation",
+          "source_url": "https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme",
+          "source_title": "Présidentielle : Raphaël Glucksmann dévoile les premières lignes de son possible programme (LCP)",
+          "source_date": "2026-05-26",
+          "confidence": "high"
+        },
+        {
+          "position": "Au Parlement européen, il a voté pour les principaux textes de réarmement européen : Livre blanc sur l'avenir de la défense européenne, programme industriel EDIP, incitations budgétaires du plan ReArm Europe et omnibus « préparation de la défense ».",
+          "kind": "inference",
+          "details": "Livre blanc (12/03/2025, adopté par 419 voix contre 204). EDIP (25/11/2025, 457 contre 148). ReArm Europe (16/12/2025, 519 contre 119). Omnibus défense (16/09/2026, 530 contre 125). Rapport annuel 2025 sur la politique de sécurité et de défense commune (21/01/2026).",
+          "source_url": "https://howtheyvote.eu/votes/172867",
+          "source_title": "White paper on the future of European defence – vote du Parlement européen (HowTheyVote.eu)",
+          "source_date": "2025-03-12",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "updates": [
+    {
+      "topic_id": "retraites",
+      "change": "Changement. Au débat BFMTV du 04/10/2026, il fixe pour la première fois un âge : abroger la réforme de 2023, revenir à 62 ans et ne pas introduire de capitalisation (« on ne pourra pas faire 60 ans, donc ce sera 62 ans »). Le dossier indiquait qu'il ne donnait aucun paramètre chiffré et évoquait un départ à 60 ans pour certains métiers pénibles. Faure et Maurel défendent aussi 62 ans ; Guedj refuse tout âge pivot. LCP (05/10/2026) et 20 Minutes (05/10/2026) confirment.",
+      "source_url": "https://www.bfmtv.com/politique/elections/presidentielle/colere-lyceenne-retraites-guerre-en-ukraine-ce-qu-il-faut-retenir-du-dernier-debat-entre-les-candidats-de-la-primaire-sociale-democrate-sur-bfmtv_AN-202610040470.html"
+    },
+    {
+      "topic_id": "strategie",
+      "change": "Précision. Le 04/10/2026, il dit n'avoir « aucune intention de diluer la famille sociale-démocrate, ni dans le mélenchonisme ni dans la droite », en réponse à Royal qui l'accuse de préparer une alliance avec la droite. Le même week-end, ses soutiens ont rejeté la « grande coalition » proposée par Gabriel Attal (« Même pas en rêve », franceinfo, 04/10/2026). Il refuse donc désormais explicitement une alliance avec le camp macroniste, en plus du refus de LFI.",
+      "source_url": "https://www.20minutes.fr/politique/4251221-20261005-presidentielle-2027-lfi-ukraine-retraites-lycees-faut-retenir-dernier-debat-primaire-gauche"
+    },
+    {
+      "topic_id": "education",
+      "change": "Précision. Le 05/10/2026 sur RMC, il conditionne les subventions publiques aux établissements privés au respect de critères stricts de mixité sociale, sans quotas, en plus de leur intégration à la carte scolaire. Il annonce comme premier acte une loi de programmation « éducation et culture » sur cinq ans et promet un seul ministre de l'Éducation pendant tout le quinquennat. Au débat du 04/10/2026, il appelle à être « inflexibles avec les casseurs » des mobilisations lycéennes et à augmenter les salaires des enseignants.",
+      "source_url": "https://rmc.bfmtv.com/actualites/politique/presidentielle-2027-je-n-aurais-qu-un-ministre-de-l-education-promet-raphael-glucksmann-en-cas-de-victoire_AV-202610050580.html"
+    },
+    {
+      "topic_id": "immigration",
+      "change": "Réaffirmation. Au débat du 04/10/2026, il confirme la régularisation des travailleurs sans papiers (« Nous le ferons et ce sera populaire »). Il juge que « l'immigration zéro, c'est l'effondrement de l'économie française » (20 Minutes) et appelle à ne plus avoir peur des « diktats » du RN.",
+      "source_url": "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat"
+    },
+    {
+      "topic_id": "fiscalite",
+      "change": "Précision partielle sur une question ouverte du dossier. Au débat du 04/10/2026, 20 Minutes rapporte qu'il a défendu la taxation des méga-héritages, des superprofits « et des plus hauts patrimoines ». L'instrument visant les hauts patrimoines (taxe Zucman ou autre) n'est pas précisé.",
+      "source_url": "https://www.20minutes.fr/politique/4251221-20261005-presidentielle-2027-lfi-ukraine-retraites-lycees-faut-retenir-dernier-debat-primaire-gauche"
+    },
+    {
+      "topic_id": "international_defense",
+      "change": "Complément. Le 04/10/2026, il demande de saisir les avoirs publics russes gelés pour financer l'aide à l'Ukraine et de construire une défense européenne « souveraine, autonome », capable de défendre l'Europe « y compris seule ». Toujours aucune position vérifiée sur l'envoi de troupes en Ukraine ni sur l'OTAN.",
+      "source_url": "https://www.franceinfo.fr/politique/ps/primaire-a-gauche/invectives-retraites-soutien-aux-lyceens-ce-qu-il-faut-retenir-du-dernier-debat-de-la-primaire-socialiste_8222563.html"
+    }
+  ]
+}

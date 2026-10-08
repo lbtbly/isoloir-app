@@ -1,0 +1,1264 @@
+{
+  "agriculture-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment protéger les agriculteurs face aux produits importés ?",
+    "approaches": {
+      "agriculture-1-a": "Sortir de la politique agricole commune pour une politique nationale, avec des droits de douane aux frontières",
+      "agriculture-1-b": "Aligner les normes agricoles françaises sur les règles européennes, sans exigence supplémentaire",
+      "agriculture-1-c": "Rester dans la politique agricole commune et s’opposer au niveau européen aux accords de libre-échange agricoles",
+      "agriculture-1-d": "Interdire d’office les importations non conformes aux normes françaises, quitte à déroger aux règles européennes",
+      "agriculture-1-e": "Soutenir les petits paysans face à l’agro-industrie et à la grande distribution plutôt que miser sur le protectionnisme",
+      "agriculture-1-f": "Accepter les accords de libre-échange agricoles s’ils imposent aux importations les normes européennes de production"
+    }
+  },
+  "agriculture-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle règle pour les pesticides interdits en France mais autorisés ailleurs en Europe ?",
+    "approaches": {
+      "agriculture-2-a": "Autoriser en France tout pesticide autorisé ailleurs dans l’Union européenne",
+      "agriculture-2-b": "Accorder des dérogations limitées dans le temps aux cultures sans solution de remplacement",
+      "agriculture-2-c": "Maintenir toutes les interdictions françaises actuelles, sans aucune dérogation",
+      "agriculture-2-d": "Interdire aussi le glyphosate et l’importation de produits traités avec des pesticides interdits"
+    }
+  },
+  "agriculture-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité pour la protection des animaux ?",
+    "approaches": {
+      "agriculture-3-a": "Sortir de l’élevage intensif en finançant la reconversion des éleveurs, et interdire la chasse",
+      "agriculture-3-b": "Interdire progressivement l’élevage en cage, les fermes-usines, la fourrure et la corrida",
+      "agriculture-3-c": "Sanctionner plus durement l’abandon et la maltraitance des animaux de compagnie",
+      "agriculture-3-d": "Rendre obligatoire l’étourdissement des animaux avant tout abattage, y compris rituel",
+      "agriculture-3-e": "Laisser les élevages s’agrandir et se moderniser, sans nouvelles normes de bien-être animal",
+      "agriculture-3-f": "Préserver la chasse, l’élevage et les traditions rurales, sans nouvelles interdictions"
+    }
+  },
+  "agriculture-x4": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment garantir le revenu des agriculteurs ?",
+    "approaches": {
+      "agriculture-x4-a": "Fixer par l’État des prix planchers garantis aux producteurs, au moins égaux à leurs coûts de production",
+      "agriculture-x4-b": "Encadrer les marges de l’industrie agroalimentaire et de la grande distribution sur les produits agricoles",
+      "agriculture-x4-c": "Alléger les cotisations, les impôts de production et les normes applicables aux exploitations agricoles",
+      "agriculture-x4-d": "Renforcer les règles qui protègent le prix agricole dans les négociations avec l’industrie et la distribution",
+      "agriculture-x4-e": "Verser à chacun une allocation réservée à l’achat d’aliments conventionnés, en privilégiant les productions locales"
+    }
+  },
+  "defense-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle place pour la France dans l’OTAN ?",
+    "approaches": {
+      "defense-1-a": "Rester pleinement dans l’OTAN, y compris dans son commandement intégré, en y donnant plus de poids aux Européens",
+      "defense-1-b": "Rester dans l’OTAN mais bâtir une défense européenne capable de protéger l’Europe sans les États-Unis",
+      "defense-1-c": "Quitter le commandement militaire intégré de l’OTAN, comme entre 1966 et 2009, en restant membre de l’Alliance",
+      "defense-1-d": "Quitter l’OTAN, immédiatement ou par étapes, pour une diplomatie non alignée ou une sécurité collective européenne",
+      "defense-1-e": "Rejeter à la fois l’OTAN et la défense européenne, au nom du refus de toute alliance militaire entre puissances"
+    }
+  },
+  "defense-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quel budget pour les armées ?",
+    "approaches": {
+      "defense-2-a": "Porter le budget des armées à au moins 3 % du PIB, soit environ 100 milliards d’euros par an, d’ici la fin du quinquennat",
+      "defense-2-b": "Porter le budget des armées à environ 2,5 % du PIB en 2030, comme le prévoit la loi votée en 2026",
+      "defense-2-c": "Renoncer à la hausse de 36 milliards prévue d’ici 2030 et réorienter les crédits vers la défense du territoire, l’espace et le numérique",
+      "defense-2-d": "Réduire fortement le budget militaire, voire le supprimer, et consacrer cet argent aux services publics"
+    }
+  },
+  "defense-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quel rôle pour la dissuasion nucléaire française en Europe ?",
+    "approaches": {
+      "defense-3-a": "Étendre la protection nucléaire française aux autres pays de l’Union, la France gardant seule la décision",
+      "defense-3-b": "Garder seule la décision tout en ouvrant un dialogue avec les Européens sur ce que la dissuasion apporte à leur sécurité",
+      "defense-3-c": "Réserver la dissuasion à la seule protection de la France, sans partage avec d’autres pays ni armes stationnées à l’étranger",
+      "defense-3-d": "Garder l’arme nucléaire pour l’instant et œuvrer à un désarmement nucléaire négocié entre toutes les puissances",
+      "defense-3-e": "Renoncer à la dissuasion nucléaire et démanteler l’arsenal français, sans attendre un accord entre puissances"
+    }
+  },
+  "defense-4": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle place pour l’Europe dans la défense de la France ?",
+    "approaches": {
+      "defense-4-a": "Bâtir une défense européenne commune, avec des achats d’armement et des financements partagés",
+      "defense-4-b": "Coopérer entre États au cas par cas, par des traités bilatéraux et des programmes choisis, la défense restant nationale",
+      "defense-4-c": "Renforcer en priorité l’armée française et refuser les programmes européens au profit d’une industrie nationale",
+      "defense-4-d": "Refuser tout réarmement, européen comme national, et reconvertir l’industrie d’armement vers d’autres productions"
+    }
+  },
+  "defense-5": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quel service national pour les jeunes ?",
+    "approaches": {
+      "defense-5-a": "Rétablir un service militaire obligatoire et court pour tous les jeunes, en caserne et en uniforme",
+      "defense-5-b": "Créer un service national obligatoire et rémunéré, mêlant formation militaire initiale et missions civiles",
+      "defense-5-c": "Rendre obligatoire un service civique pour tous les jeunes, le service militaire restant volontaire",
+      "defense-5-d": "Développer fortement la réserve et le service militaire volontaire, sans rétablir d’obligation",
+      "defense-5-e": "Refuser toute forme de service militaire, volontaire ou obligatoire, et la militarisation de la jeunesse"
+    }
+  },
+  "droits_lgbtqia-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Faut-il autoriser la gestation pour autrui (GPA) en France ?",
+    "approaches": {
+      "droits_lgbtqia-1-a": "Autoriser en France une GPA sans transaction commerciale, strictement encadrée par l’État",
+      "droits_lgbtqia-1-b": "Maintenir l’interdiction en France tout en reconnaissant la filiation des enfants nés d’une GPA à l’étranger",
+      "droits_lgbtqia-1-c": "Maintenir l’interdiction de toute GPA en France, y compris une GPA sans transaction commerciale",
+      "droits_lgbtqia-1-d": "Maintenir l’interdiction et limiter la reconnaissance des filiations établies par une GPA à l’étranger"
+    }
+  },
+  "droits_lgbtqia-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelles règles pour les transitions de genre, en particulier chez les mineurs ?",
+    "approaches": {
+      "droits_lgbtqia-2-a": "Permettre de changer la mention du sexe sur simple déclaration en mairie, y compris pour un mineur avec l’accord d’un parent",
+      "droits_lgbtqia-2-b": "Rendre les transitions de genre libres et gratuites, avec une prise en charge intégrale par l’Assurance maladie",
+      "droits_lgbtqia-2-c": "Simplifier les démarches pour les adultes et réserver les traitements des mineurs à des équipes médicales spécialisées",
+      "droits_lgbtqia-2-d": "Interdire avant 18 ans les traitements hormonaux et la chirurgie de transition, au profit d’un suivi psychologique"
+    }
+  },
+  "ecologie_energie-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Face à la hausse des prix des carburants, quelle réponse privilégier ?",
+    "approaches": {
+      "ecologie_energie-1-a": "Baisser pour tous les automobilistes les taxes et prélèvements sur l’essence et le gazole",
+      "ecologie_energie-1-b": "Faire payer le secteur pétrolier en bloquant les prix, en plafonnant ses marges ou en taxant ses profits",
+      "ecologie_energie-1-c": "Réserver les aides aux ménages modestes et à ceux qui dépendent de leur voiture pour travailler",
+      "ecologie_energie-1-d": "Placer les groupes pétroliers et énergétiques sous propriété publique pour décider des prix",
+      "ecologie_energie-1-e": "Baisser le prix de l’électricité et développer les transports collectifs pour réduire l’usage du pétrole"
+    }
+  },
+  "ecologie_energie-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle place donner au nucléaire et aux renouvelables dans la production d’électricité ?",
+    "approaches": {
+      "ecologie_energie-2-a": "Miser d’abord sur le nucléaire et cesser de soutenir le développement de nouvelles éoliennes",
+      "ecologie_energie-2-b": "Construire de nouveaux réacteurs nucléaires tout en développant les énergies renouvelables",
+      "ecologie_energie-2-c": "Faire de la baisse de la consommation d’énergie la priorité, avec des renouvelables produites localement",
+      "ecologie_energie-2-d": "Sortir progressivement du nucléaire en le remplaçant par les énergies renouvelables",
+      "ecologie_energie-2-e": "Laisser les citoyens décider de l’avenir du nucléaire par un référendum national",
+      "ecologie_energie-2-f": "Exproprier les grandes entreprises de l’énergie et planifier collectivement la production"
+    }
+  },
+  "ecologie_energie-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment agir sur le prix de l’électricité ?",
+    "approaches": {
+      "ecologie_energie-3-a": "Sortir la France du marché européen de l’électricité pour fixer les prix au niveau national",
+      "ecologie_energie-3-b": "Rester dans le marché européen en calculant une partie de la facture sur les coûts de production",
+      "ecologie_energie-3-c": "Placer la production, le transport et la distribution d’électricité sous un contrôle public unique",
+      "ecologie_energie-3-d": "Baisser les taxes et prélèvements qui s’ajoutent à la facture d’électricité, dont la taxe sur la valeur ajoutée",
+      "ecologie_energie-3-e": "Conserver les règles actuelles du marché européen de l’électricité, réformées en 2024"
+    }
+  },
+  "ecologie_energie-4": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quel principe doit guider en priorité la politique climatique ?",
+    "approaches": {
+      "ecologie_energie-4-a": "Diviser par deux les émissions en dix ans et sortir des énergies fossiles en une quinzaine d’années",
+      "ecologie_energie-4-b": "Faire de la transition écologique le moteur de la relance industrielle et de la création d’emplois",
+      "ecologie_energie-4-c": "Miser sur l’innovation et la production en France plutôt que sur de nouvelles normes et taxes",
+      "ecologie_energie-4-d": "Lever des obligations comme les zones à faibles émissions ou l’interdiction de louer les logements mal isolés",
+      "ecologie_energie-4-e": "Cibler l’industrie lourde, le fret et la rénovation, avec un prix du carbone aux frontières de l’Europe",
+      "ecologie_energie-4-f": "Planifier collectivement l’économie en expropriant les grands groupes industriels et énergétiques",
+      "ecologie_energie-4-g": "Faire porter l’effort d’abord sur les plus gros émetteurs : ménages les plus aisés, jets privés, grandes entreprises"
+    }
+  },
+  "ecologie_energie-5": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité pour la gestion de l’eau ?",
+    "approaches": {
+      "ecologie_energie-5-a": "Construire davantage de retenues d’eau pour sécuriser l’irrigation des cultures face aux sécheresses",
+      "ecologie_energie-5-b": "Interdire les grandes retenues d’eau pour l’irrigation et restaurer le cycle naturel de l’eau",
+      "ecologie_energie-5-c": "Confier dans toutes les communes le traitement et la distribution de l’eau à une régie publique",
+      "ecologie_energie-5-d": "Réparer en priorité les réseaux d’eau qui fuient et réutiliser davantage les eaux usées traitées",
+      "ecologie_energie-5-e": "Instaurer une tarification sociale de l’eau, avec une aide automatique pour les foyers modestes"
+    }
+  },
+  "ecologie_energie-6": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité pour protéger la population face aux canicules, aux incendies et aux catastrophes climatiques ?",
+    "approaches": {
+      "ecologie_energie-6-a": "Climatiser les écoles, les hôpitaux et les maisons de retraite, et aider les ménages à s’équiper",
+      "ecologie_energie-6-b": "Rénover les écoles et aménager leurs cours pour mieux protéger les élèves de la chaleur",
+      "ecologie_energie-6-c": "Végétaliser les villes en imposant à chaque commune une part minimale d’espaces verts",
+      "ecologie_energie-6-d": "Renforcer fortement les effectifs et les équipements des pompiers et de la sécurité civile",
+      "ecologie_energie-6-e": "Confier l’adaptation à un organisme unique doté d’un budget pluriannuel garanti"
+    }
+  },
+  "ecologie_energie-7": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelles priorités pour les transports et les déplacements ?",
+    "approaches": {
+      "ecologie_energie-7-a": "Rendre les transports en commun gratuits, au moins dans les grandes agglomérations",
+      "ecologie_energie-7-b": "Confier de nouveau le rail à un opérateur public unique et reprendre les autoroutes aux sociétés privées",
+      "ecologie_energie-7-c": "Proposer aux ménages modestes la location de voitures électriques à prix réduit",
+      "ecologie_energie-7-d": "Rénover le réseau ferroviaire par un grand plan d’investissement, des petites lignes au fret",
+      "ecologie_energie-7-e": "Poursuivre l’ouverture des lignes ferroviaires à la concurrence entre plusieurs opérateurs",
+      "ecologie_energie-7-f": "Revenir sur la fin programmée des voitures neuves à moteur thermique et ne plus restreindre l’usage de la voiture"
+    }
+  },
+  "ecologie_energie-x9": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle place donner à la croissance économique ?",
+    "approaches": {
+      "ecologie_energie-x9-a": "Faire de la croissance économique la priorité, pour créer des richesses et financer les services publics",
+      "ecologie_energie-x9-b": "Viser une croissance qui réduit les émissions, grâce à l’innovation et aux technologies bas carbone",
+      "ecologie_energie-x9-c": "Abandonner l’objectif de croissance du produit intérieur brut et réduire les consommations d’énergie et de matières",
+      "ecologie_energie-x9-d": "Planifier collectivement la production selon les besoins et les limites de la planète, plutôt que selon le marché"
+    }
+  },
+  "education-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité pour l’école ?",
+    "approaches": {
+      "education-1-a": "Accroître l’exigence scolaire : notes chiffrées, examens de passage, groupes de niveau, voire fin du collège unique",
+      "education-1-b": "Baisser nettement le nombre d’élèves par classe et recruter les enseignants et personnels qui manquent",
+      "education-1-c": "Donner aux chefs d’établissement une large autonomie sur les méthodes, les horaires et l’organisation",
+      "education-1-d": "Laisser les familles choisir leur école, publique ou privée, avec un financement public qui suit l’élève",
+      "education-1-e": "Renforcer la mixité sociale entre établissements, pour que chaque école accueille des élèves de tous milieux",
+      "education-1-f": "Donner aux familles un rôle central : instruction à la maison facilitée et droit de regard sur les programmes",
+      "education-1-g": "Rendre le métier d’enseignant plus attractif : salaires revalorisés, formation et concours dès la licence",
+      "education-1-h": "Renforcer l’autorité à l’école : uniforme, sanctions contre les élèves perturbateurs, soutien aux enseignants"
+    }
+  },
+  "education-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelles règles pour le financement public des écoles privées sous contrat ?",
+    "approaches": {
+      "education-2-a": "Réserver à terme l’argent public de l’enseignement aux seules écoles publiques",
+      "education-2-b": "Moduler l’argent public versé aux écoles privées selon leur mixité sociale",
+      "education-2-c": "Intégrer les écoles privées sous contrat à la carte scolaire pour y imposer la mixité sociale",
+      "education-2-d": "Supprimer la carte scolaire et faire suivre l’argent public par l’élève, en école publique ou privée",
+      "education-2-e": "Supprimer la règle tacite qui plafonne la part des moyens publics allouée au privé sous contrat",
+      "education-2-f": "Maintenir les règles actuelles de financement des écoles privées sous contrat, en renforçant les contrôles de l’État"
+    }
+  },
+  "education-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment organiser la scolarité au collège ?",
+    "approaches": {
+      "education-3-a": "Instaurer un examen d’entrée en 6e et des groupes de niveau en français et en mathématiques",
+      "education-3-b": "Remplacer le collège unique par des filières différenciées, dont l’apprentissage dès 14 ans",
+      "education-3-c": "Garder le même enseignement pour tous jusqu’en 3e et supprimer les groupes de niveau",
+      "education-3-d": "Rendre l’école obligatoire jusqu’à 18 ans pour garder tous les jeunes en formation",
+      "education-3-e": "Laisser chaque établissement organiser ses classes et le soutien aux élèves selon leurs besoins"
+    }
+  },
+  "education-4": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité pour l’université et la recherche publique ?",
+    "approaches": {
+      "education-4-a": "Laisser les universités sélectionner leurs étudiants selon leurs résultats et leurs capacités d’accueil",
+      "education-4-b": "Supprimer Parcoursup et garantir à chaque bachelier l’accès sans sélection à la formation de son choix",
+      "education-4-c": "Augmenter fortement les moyens des universités par étudiant et le budget de la recherche publique",
+      "education-4-d": "Limiter le nombre d’étudiants étrangers et leur faire payer davantage le coût de leurs études",
+      "education-4-e": "Encadrer plus strictement les établissements d’enseignement supérieur privés à but lucratif"
+    }
+  },
+  "education-5": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment aider les étudiants à vivre pendant leurs études ?",
+    "approaches": {
+      "education-5-a": "Verser à chaque étudiant une allocation d’autonomie, quel que soit le revenu de ses parents",
+      "education-5-b": "Augmenter les aides aux étudiants pour le logement, les transports et l’alimentation",
+      "education-5-c": "Augmenter nettement les bourses des étudiants modestes pendant leurs premières années",
+      "education-5-d": "Créer un prêt garanti par l’État pour que chaque étudiant puisse financer ses études",
+      "education-5-e": "Donner la priorité aux étudiants français pour obtenir une place en résidence étudiante"
+    }
+  },
+  "education-x1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité face à la violence et au harcèlement à l’école ?",
+    "approaches": {
+      "education-x1-a": "Durcir les sanctions et placer les élèves violents ou exclus à répétition dans des établissements spécialisés",
+      "education-x1-b": "Recruter davantage de surveillants, d’infirmiers, de médecins et de psychologues scolaires dans chaque établissement",
+      "education-x1-c": "Sanctionner les parents des élèves en cause par des amendes, la suspension de certaines allocations ou la réparation des dégâts",
+      "education-x1-d": "Supprimer les punitions et les conseils de discipline et retirer la police et la vidéosurveillance des établissements",
+      "education-x1-e": "Associer élèves et parents aux décisions des établissements et y développer le dialogue pour prévenir les conflits"
+    }
+  },
+  "egalite-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité pour lutter contre les violences sexistes et sexuelles faites aux femmes et aux enfants ?",
+    "approaches": {
+      "egalite-1-a": "Porter les moyens publics au niveau réclamé par les associations, en priorité pour la prévention, l’hébergement et la formation",
+      "egalite-1-b": "Spécialiser la police et la justice sur ces violences, avec des unités et juridictions dédiées, pour traiter vite chaque plainte",
+      "egalite-1-c": "Alourdir les peines des auteurs et contrôler systématiquement les antécédents des adultes qui travaillent auprès d’enfants",
+      "egalite-1-d": "Interdire définitivement le territoire français à tout étranger condamné pour des violences sexuelles, sans exception",
+      "egalite-1-e": "Privilégier des réponses sociales plutôt que pénales : commissions indépendantes sur les lieux de travail, logement et revenus pour les victimes"
+    }
+  },
+  "egalite-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité pour le partage des responsabilités familiales ?",
+    "approaches": {
+      "egalite-2-a": "Aligner le congé du second parent sur le congé de maternité, en durée comme en caractère obligatoire",
+      "egalite-2-b": "Allonger nettement le congé parental, mieux le rémunérer et en réserver une part à chaque parent",
+      "egalite-2-c": "Prolonger le congé de naissance et laisser les parents choisir librement lequel des deux le prend",
+      "egalite-2-d": "Faciliter la reprise du travail après un congé parental, par un temps partiel payé à taux plein",
+      "egalite-2-e": "Soutenir en priorité les parents seuls : versement automatique des pensions alimentaires, aide à la garde",
+      "egalite-2-f": "Confier à des services publics gratuits la garde des enfants et une large part des tâches domestiques"
+    }
+  },
+  "egalite-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment agir sur les écarts de salaire et de retraite entre les femmes et les hommes ?",
+    "approaches": {
+      "egalite-3-a": "Sanctionner financièrement les employeurs qui ne respectent pas l’égalité salariale, jusqu’à l’exclusion des marchés publics",
+      "egalite-3-b": "Rendre publics les écarts de salaire de chaque entreprise et réserver les aides publiques à celles qui respectent l’égalité",
+      "egalite-3-c": "Revaloriser les salaires des métiers surtout exercés par des femmes et limiter le temps partiel imposé par l’employeur",
+      "egalite-3-d": "Accorder un label et des avantages fiscaux aux entreprises qui garantissent l’égalité salariale entre femmes et hommes",
+      "egalite-3-e": "Améliorer les retraites des femmes pénalisées par des carrières interrompues, avec des règles de calcul plus favorables",
+      "egalite-3-f": "Laisser les entreprises s’organiser librement dans le cadre des règles actuelles, sans nouvelle obligation légale"
+    }
+  },
+  "egalite-4": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle politique pour l’accès à l’interruption volontaire de grossesse (IVG) ?",
+    "approaches": {
+      "egalite-4-a": "Allonger le délai légal pour avorter au-delà des 14 semaines de grossesse aujourd’hui autorisées",
+      "egalite-4-b": "Supprimer la clause de conscience propre à l’IVG, qui s’ajoute à celle dont disposent déjà tous les médecins",
+      "egalite-4-c": "Garantir partout un lieu pratiquant l’IVG à proximité, en mettant fin aux fermetures de maternités",
+      "egalite-4-d": "Conserver le cadre légal actuel de l’IVG, sans allonger les délais ni modifier les conditions d’accès",
+      "egalite-4-e": "Donner la priorité à l’information sur la contraception, pour prévenir les grossesses non désirées",
+      "egalite-4-f": "Inscrire le droit à l’avortement dans la Charte des droits fondamentaux de l’Union européenne"
+    }
+  },
+  "europe-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle direction donner à la construction européenne ?",
+    "approaches": {
+      "europe-1-a": "Supprimer le droit de veto des États et aller vers une Europe fédérale, au besoin avec un noyau de pays volontaires",
+      "europe-1-b": "Renforcer l’Union dans la défense, l’industrie et l’écologie, tout en préservant la souveraineté des nations",
+      "europe-1-c": "Rendre des pouvoirs aux États : primauté du droit national sous conditions, droit de veto garanti, compétences de l’Union réduites",
+      "europe-1-d": "Renégocier les traités pour sortir des règles de concurrence, de libre-échange et de déficit, et sinon cesser de les appliquer",
+      "europe-1-e": "Quitter l’Union européenne, soit tout de suite, soit après une négociation et un référendum sur la sortie",
+      "europe-1-f": "Combattre à la fois l’Union actuelle et le retour aux frontières nationales, en unissant les travailleurs de toute l’Europe",
+      "europe-1-g": "Bâtir une Europe sociale : salaire minimum européen, harmonisation fiscale, lutte contre le dumping social"
+    }
+  },
+  "europe-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle politique budgétaire pour l’Union européenne ?",
+    "approaches": {
+      "europe-2-a": "Doter l’Union d’un budget plus important, financé par des emprunts communs et des impôts européens",
+      "europe-2-b": "Assouplir les règles européennes de déficit pour que chaque État puisse emprunter et investir",
+      "europe-2-c": "Réduire la contribution de la France au budget européen, ou la conditionner, en la renégociant avec les autres États",
+      "europe-2-d": "Cesser de verser toute contribution au budget européen, en la suspendant ou en quittant l’Union",
+      "europe-2-e": "Respecter les règles budgétaires européennes actuelles, en refusant d’annuler la dette détenue par la Banque centrale européenne",
+      "europe-2-f": "Mobiliser la Banque centrale européenne pour financer l’investissement public ou alléger la dette qu’elle détient"
+    }
+  },
+  "europe-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment faire évoluer les règles du marché unique européen ?",
+    "approaches": {
+      "europe-3-a": "Assouplir les règles européennes de concurrence pour faire émerger de grandes entreprises européennes",
+      "europe-3-b": "Revenir sur l’ouverture à la concurrence pour rétablir des monopoles publics nationaux à prix réglementés",
+      "europe-3-c": "Approfondir le marché unique : supprimer les règles nationales qui freinent les échanges, unifier les marchés de capitaux",
+      "europe-3-d": "Alléger les normes européennes et interdire leur surtransposition, c’est-à-dire leur durcissement en droit français",
+      "europe-3-e": "Conserver les règles de concurrence actuelles et l’ouverture des services publics à la concurrence"
+    }
+  },
+  "europe-x4": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Faut-il élargir l’Union européenne, notamment à l’Ukraine ?",
+    "approaches": {
+      "europe-x4-a": "Accueillir l’Ukraine et les autres pays candidats après avoir réformé les règles de décision de l’Union",
+      "europe-x4-b": "Accueillir l’Ukraine et les autres pays candidats dès qu’ils remplissent les critères, sans attendre de réforme",
+      "europe-x4-c": "Accepter l’élargissement à terme, sans adhésion accélérée, après une harmonisation sociale, fiscale et agricole",
+      "europe-x4-d": "Refuser tout nouvel élargissement de l’Union européenne, en particulier l’adhésion de l’Ukraine"
+    }
+  },
+  "europe-x5": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle relation la France doit-elle avoir avec les États-Unis ?",
+    "approaches": {
+      "europe-x5-a": "Resserrer l’alliance avec les États-Unis et régler les différends commerciaux par la négociation, sans représailles",
+      "europe-x5-b": "Rester l’allié des États-Unis sans s’aligner sur eux, en défendant fermement les intérêts européens face à leurs pressions",
+      "europe-x5-c": "Rendre l’Europe autonome des États-Unis pour sa défense et ses technologies, en réduisant ses dépendances envers eux",
+      "europe-x5-d": "Diversifier les partenariats de la France, notamment avec la Russie et les pays émergents, pour réduire le poids des États-Unis",
+      "europe-x5-e": "Ne nouer d’alliance privilégiée ni avec les États-Unis ni avec aucune autre puissance, en restant à l’écart de tous les blocs",
+      "europe-x5-f": "Refuser de prendre parti entre puissances rivales, américaine comme européennes, au nom de la solidarité internationale des travailleurs"
+    }
+  },
+  "finances_publiques-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle stratégie pour les finances publiques face à la dette ?",
+    "approaches": {
+      "finances_publiques-1-a": "Réduire fortement la dépense publique, prestations sociales et effectifs publics compris, sans hausse d’impôts",
+      "finances_publiques-1-b": "Économiser en priorité sur l’immigration, l’aide internationale et la contribution européenne, sans hausse d’impôts",
+      "finances_publiques-1-c": "Répartir l’effort entre économies ciblées et nouveaux impôts sur les plus aisés et les grandes entreprises",
+      "finances_publiques-1-d": "Emprunter pour investir massivement dans l’industrie et la transition écologique, plutôt que de réduire les dépenses",
+      "finances_publiques-1-e": "Augmenter les dépenses de services publics en les finançant par un prélèvement sur les profits des entreprises",
+      "finances_publiques-1-f": "Réduire le déficit surtout par de nouveaux impôts sur les plus hauts patrimoines et sur le capital",
+      "finances_publiques-1-g": "Économiser d’abord sur le fonctionnement de l’État en supprimant agences et doublons administratifs, sans hausse d’impôts"
+    }
+  },
+  "finances_publiques-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelles règles pour l’endettement de l’État ?",
+    "approaches": {
+      "finances_publiques-2-a": "Inscrire dans la Constitution une règle d’or qui limite le déficit et impose de réduire la dette",
+      "finances_publiques-2-b": "Imposer l’équilibre aux seuls comptes de la Sécurité sociale, apprécié sur un cycle de cinq ans",
+      "finances_publiques-2-c": "Ne plus compter dans le déficit les investissements écologiques et industriels, financés par l’emprunt",
+      "finances_publiques-2-d": "Faire porter par la Banque centrale européenne une partie de la dette, sous forme de dette perpétuelle",
+      "finances_publiques-2-e": "Revenir à une monnaie nationale et faire financer l’État directement par la Banque de France",
+      "finances_publiques-2-f": "Racheter la dette publique détenue à l’étranger grâce à un grand emprunt réservé aux Français"
+    }
+  },
+  "finances_publiques-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle évolution pour le nombre d’agents publics ?",
+    "approaches": {
+      "finances_publiques-3-a": "Réduire fortement les effectifs en ne remplaçant pas une grande partie des départs, sauf sur le terrain",
+      "finances_publiques-3-b": "Réduire un peu les effectifs administratifs et redéployer des postes vers les services en tension",
+      "finances_publiques-3-c": "Stabiliser le nombre d’agents publics et recruter en priorité là où les besoins sont les plus forts",
+      "finances_publiques-3-d": "Recruter massivement, titulariser les agents contractuels et augmenter fortement les salaires publics",
+      "finances_publiques-3-e": "Recruter les nouveaux agents sous contrat, en réservant le statut de fonctionnaire à certaines fonctions",
+      "finances_publiques-3-f": "Augmenter les effectifs dans les services en tension (soins, école, justice) et revaloriser les salaires publics"
+    }
+  },
+  "fiscalite-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle imposition pour les grands patrimoines ?",
+    "approaches": {
+      "fiscalite-1-a": "Rétablir un impôt annuel sur la fortune incluant les placements financiers, comme avant 2018",
+      "fiscalite-1-b": "Créer un impôt minimum de 2 % par an sur les patrimoines de plus de 100 millions d’euros",
+      "fiscalite-1-c": "Remplacer l’impôt annuel sur le patrimoine immobilier par un impôt portant sur les seuls placements financiers",
+      "fiscalite-1-d": "Plutôt qu’un impôt sur le patrimoine, taxer davantage les revenus du capital et freiner l’évasion fiscale",
+      "fiscalite-1-e": "Ne pas alourdir l’imposition du patrimoine, voire alléger l’impôt actuel sur la fortune immobilière",
+      "fiscalite-1-f": "Remplacer l’impôt annuel sur le patrimoine immobilier par un impôt sur les biens peu productifs : logements vacants, biens de luxe, liquidités"
+    }
+  },
+  "fiscalite-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment imposer les héritages et les donations ?",
+    "approaches": {
+      "fiscalite-2-a": "Taxer davantage les plus grosses successions, au-delà d’environ 2 millions d’euros transmis",
+      "fiscalite-2-b": "Plafonner le montant total qu’une personne peut recevoir en héritage et en dons au cours de sa vie",
+      "fiscalite-2-c": "Alléger les droits sur les héritages modestes et moyens, par exemple sur la résidence principale",
+      "fiscalite-2-d": "Relever fortement les montants que l’on peut donner sans impôt de son vivant, sans alourdir les successions",
+      "fiscalite-2-e": "Supprimer entièrement les droits de succession et de donation, quel que soit le montant transmis",
+      "fiscalite-2-f": "Réserver l’avantage fiscal sur la transmission d’entreprises familiales à celles qui produisent en France",
+      "fiscalite-2-g": "Réduire les exonérations sur la transmission d’entreprises et l’assurance-vie, surtout pour les plus gros héritages"
+    }
+  },
+  "fiscalite-x1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle évolution pour le niveau global des impôts et des cotisations ?",
+    "approaches": {
+      "fiscalite-x1-a": "Baisser nettement les impôts et les cotisations, en finançant cette baisse par des économies sur les dépenses",
+      "fiscalite-x1-b": "Maintenir le niveau actuel des impôts, sans hausse ni forte baisse, avec des règles fiscales stables et simplifiées",
+      "fiscalite-x1-c": "Garder le même niveau global d’impôts, mais alléger la charge sur le travail et taxer davantage le capital",
+      "fiscalite-x1-d": "Augmenter les recettes en taxant davantage les plus hauts revenus, les grandes fortunes et les grandes entreprises",
+      "fiscalite-x1-e": "Exproprier les grands groupes et les grandes fortunes pour en faire une propriété collective, plutôt que de seulement les taxer"
+    }
+  },
+  "immigration-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle orientation donner à la politique d’immigration ?",
+    "approaches": {
+      "immigration-1-a": "Faire baisser le nombre d’étrangers présents en organisant le départ d’une partie de ceux déjà installés",
+      "immigration-1-b": "Réduire très fortement le nombre d’étrangers admis chaque année à s’installer en France",
+      "immigration-1-c": "Réduire les entrées et choisir les étrangers admis selon l’emploi, la langue et l’intégration",
+      "immigration-1-d": "Maîtriser l’immigration en conciliant droit d’asile, intégration et fermeté contre l’immigration irrégulière, sans objectif chiffré",
+      "immigration-1-e": "Élargir les voies d’entrée légales en facilitant les visas et en allongeant la durée des titres de séjour",
+      "immigration-1-f": "Instaurer la liberté de circulation et d’installation pour toutes les personnes migrantes"
+    }
+  },
+  "immigration-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quel rôle donner à l’Union européenne dans le contrôle des frontières et l’asile ?",
+    "approaches": {
+      "immigration-2-a": "Sortir de l’espace Schengen pour rétablir des contrôles permanents aux frontières nationales",
+      "immigration-2-b": "Rester dans l’Union européenne en faisant primer le droit national sur ses règles d’asile et de circulation",
+      "immigration-2-c": "Renforcer les règles communes de l’Union sur les frontières extérieures, l’asile et les retours",
+      "immigration-2-d": "Répartir les demandeurs d’asile entre pays européens au lieu de confier leur dossier au pays d’arrivée",
+      "immigration-2-e": "Abandonner le pacte européen sur la migration et l’asile et ses règles de rétention et d’expulsion"
+    }
+  },
+  "immigration-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Que faire des étrangers en situation irrégulière présents en France ?",
+    "approaches": {
+      "immigration-3-a": "Régulariser toutes les personnes sans titre de séjour et renoncer aux expulsions",
+      "immigration-3-b": "Régulariser à grande échelle les travailleurs sans titre de séjour et les parents d’enfants scolarisés",
+      "immigration-3-c": "Régulariser au cas par cas ceux qui travaillent et reconduire les autres à la frontière",
+      "immigration-3-d": "Limiter les régularisations et faire exécuter davantage les obligations de quitter le territoire",
+      "immigration-3-e": "Faire du séjour irrégulier un délit et expulser sans délai les étrangers sans titre de séjour"
+    }
+  },
+  "immigration-4": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle règle de nationalité pour les enfants nés en France de parents étrangers ?",
+    "approaches": {
+      "immigration-4-a": "Supprimer le droit du sol : la nationalité ne passerait plus que par la filiation ou la naturalisation",
+      "immigration-4-b": "Mettre fin à l’acquisition automatique : le jeune devrait demander la nationalité à l’adolescence",
+      "immigration-4-c": "Garder le droit du sol dans l’Hexagone et le suspendre pendant plusieurs années à Mayotte",
+      "immigration-4-d": "Maintenir le droit du sol selon les règles actuelles, sans nouvelle restriction",
+      "immigration-4-e": "Appliquer les mêmes règles de droit du sol partout, en levant les conditions propres à Mayotte"
+    }
+  },
+  "immigration-5": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quel accès aux aides sociales pour les étrangers en situation régulière ?",
+    "approaches": {
+      "immigration-5-a": "Donner aux Français la priorité pour le logement social et l’emploi, et leur réserver les aides au logement",
+      "immigration-5-b": "Supprimer pour les étrangers toutes les aides sociales qui ne sont pas financées par des cotisations",
+      "immigration-5-c": "Exiger plusieurs années de séjour régulier, voire d’activité, avant d’ouvrir ces aides aux étrangers",
+      "immigration-5-d": "Garantir aux étrangers en situation régulière le même accès aux aides sociales que les Français",
+      "immigration-5-e": "Conserver les règles actuelles, qui imposent une durée de séjour pour certaines aides seulement"
+    }
+  },
+  "immigration-6": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle politique d’intégration pour les étrangers qui s’installent en France ?",
+    "approaches": {
+      "immigration-6-a": "Exiger l’assimilation : que les étrangers adoptent la langue, les usages et le mode de vie français",
+      "immigration-6-b": "Conditionner l’admission et le séjour à la maîtrise du français et au respect des valeurs républicaines",
+      "immigration-6-c": "Garantir à tous les arrivants des cours de français et un accompagnement, et lutter contre les discriminations",
+      "immigration-6-d": "Faciliter l’installation durable par des titres de séjour de longue durée et une naturalisation simplifiée"
+    }
+  },
+  "immigration-x1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Que faire de l’aide médicale de l’État (AME), qui prend en charge les soins des étrangers sans titre de séjour ?",
+    "approaches": {
+      "immigration-x1-a": "Supprimer l’AME et ne prendre en charge que les soins urgents des étrangers sans titre de séjour",
+      "immigration-x1-b": "Réduire la liste des soins couverts par l’AME et le nombre de personnes qui peuvent en bénéficier",
+      "immigration-x1-c": "Maintenir l’AME en soumettant davantage de soins à un accord préalable et en renforçant les contrôles",
+      "immigration-x1-d": "Maintenir l’AME dans sa forme actuelle, qui couvre l’essentiel des soins sous conditions de ressources",
+      "immigration-x1-e": "Fondre l’AME dans l’assurance maladie commune, ouverte à toute personne qui réside en France"
+    }
+  },
+  "immigration-x2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Que faire de l’accord franco-algérien de 1968 sur l’entrée et le séjour des Algériens ?",
+    "approaches": {
+      "immigration-x2-a": "Mettre fin à l’accord et ne plus délivrer de visas aux Algériens, sans négocier avec l’Algérie",
+      "immigration-x2-b": "Dénoncer l’accord unilatéralement pour soumettre les Algériens au droit commun des étrangers",
+      "immigration-x2-c": "Renégocier l’accord avec l’Algérie pour rapprocher les Algériens du droit commun des étrangers",
+      "immigration-x2-d": "Conserver l’accord en l’état et apaiser la relation avec l’Algérie en privilégiant le dialogue"
+    }
+  },
+  "industrie_economie-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Que faire des aides publiques aux entreprises ?",
+    "approaches": {
+      "industrie_economie-1-a": "En supprimer une large part et baisser d’autant les impôts de production payés par les entreprises",
+      "industrie_economie-1-b": "Baisser fortement les impôts de production et les cotisations patronales, en gardant des aides ciblées",
+      "industrie_economie-1-c": "Les conditionner à des engagements sur les salaires, l’emploi, l’investissement ou le climat",
+      "industrie_economie-1-d": "Les recentrer sur les petites entreprises et les artisans, par des baisses de prélèvements ciblées",
+      "industrie_economie-1-e": "Supprimer les aides aux grands groupes et interdire les licenciements, sous peine de réquisition",
+      "industrie_economie-1-f": "Réduire nettement leur montant, en supprimant celles accordées sans contrepartie, pour baisser le déficit"
+    }
+  },
+  "industrie_economie-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle politique commerciale face à la concurrence internationale ?",
+    "approaches": {
+      "industrie_economie-2-a": "Bâtir une préférence européenne : achats publics européens, réciprocité, barrières ciblées face à la Chine",
+      "industrie_economie-2-b": "Relever fortement les droits de douane à l’entrée de l’Union européenne, sur une large gamme de produits",
+      "industrie_economie-2-c": "Rétablir des droits de douane nationaux et sortir des accords de libre-échange signés par l’Union européenne",
+      "industrie_economie-2-d": "Protéger selon des critères écologiques et sociaux : interdire d’importer ce qu’il est interdit de produire ici",
+      "industrie_economie-2-e": "Refuser tout protectionnisme, national comme européen, et imposer le maintien des emplois existants",
+      "industrie_economie-2-f": "Poursuivre l’ouverture commerciale par des accords de libre-échange négociés par l’Union européenne"
+    }
+  },
+  "industrie_economie-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quel rôle pour l’État dans le capital des entreprises stratégiques ?",
+    "approaches": {
+      "industrie_economie-3-a": "Nationaliser des entreprises et secteurs stratégiques : énergie, sidérurgie, banques, autoroutes",
+      "industrie_economie-3-b": "Exproprier sans indemnité les grands groupes et les placer sous le contrôle de leurs salariés",
+      "industrie_economie-3-c": "Bloquer les rachats étrangers d’entreprises sensibles et entrer au capital de sociétés clés si besoin",
+      "industrie_economie-3-d": "Limiter le rôle de l’État à celui de client et de régulateur, voire privatiser certains opérateurs"
+    }
+  },
+  "institutions-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle évolution des institutions privilégier ?",
+    "approaches": {
+      "institutions-1-a": "Faire rédiger une nouvelle Constitution par une assemblée constituante, élue ou tirée au sort",
+      "institutions-1-b": "Remplacer les institutions actuelles, présidence et Sénat compris, par un pouvoir des travailleurs",
+      "institutions-1-c": "Donner l’essentiel du pouvoir au Parlement et au Premier ministre, en réduisant celui du président",
+      "institutions-1-d": "Rétablir un mandat présidentiel de sept ans, distinct du calendrier des élections législatives",
+      "institutions-1-e": "Permettre au peuple par référendum, ou au Parlement, de passer outre une censure du Conseil constitutionnel",
+      "institutions-1-f": "Garder les pouvoirs actuels du président et du Parlement, en recourant davantage au référendum",
+      "institutions-1-g": "Réduire le nombre de députés et de sénateurs et limiter le nombre de mandats successifs d’un même élu"
+    }
+  },
+  "institutions-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment élire les députés ?",
+    "approaches": {
+      "institutions-2-a": "Élire tous les députés à la proportionnelle, sur des listes départementales ou régionales",
+      "institutions-2-b": "Élire les députés à la proportionnelle, avec une prime en sièges pour la liste arrivée en tête",
+      "institutions-2-c": "Élire la moitié des députés en circonscription et répartir l’ensemble des sièges à la proportionnelle",
+      "institutions-2-d": "Garder l’élection en circonscription pour la plupart des députés et en élire une partie à la proportionnelle",
+      "institutions-2-e": "Garder l’élection de chaque député au scrutin majoritaire à deux tours dans sa circonscription"
+    }
+  },
+  "institutions-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle place donner aux citoyens dans les décisions publiques ?",
+    "approaches": {
+      "institutions-3-a": "Créer un droit d’initiative citoyenne permettant de déclencher des référendums locaux et nationaux",
+      "institutions-3-b": "Permettre aux électeurs de révoquer un élu en cours de mandat par référendum, président compris",
+      "institutions-3-c": "Abaisser le nombre de signatures nécessaires pour organiser un référendum d’initiative partagée",
+      "institutions-3-d": "Permettre au président de soumettre tout sujet au référendum, y compris l’immigration ou la Constitution",
+      "institutions-3-e": "Organiser régulièrement des référendums à plusieurs questions, à l’initiative du président ou du gouvernement",
+      "institutions-3-f": "Laisser les décisions aux parlementaires élus et réserver le référendum à des circonstances exceptionnelles",
+      "institutions-3-g": "Associer des citoyens tirés au sort à la préparation des grandes réformes, par des conventions citoyennes"
+    }
+  },
+  "institutions-x1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quel rôle donner au Conseil constitutionnel ?",
+    "approaches": {
+      "institutions-x1-a": "Supprimer le Conseil constitutionnel, dans le cadre d’un changement complet des institutions",
+      "institutions-x1-b": "Permettre au Parlement, à une majorité renforcée, de maintenir une loi censurée par le Conseil constitutionnel",
+      "institutions-x1-c": "Permettre aux électeurs, par référendum, de maintenir une loi censurée par le Conseil constitutionnel",
+      "institutions-x1-d": "Limiter les textes sur lesquels s’appuie le Conseil constitutionnel, ou supprimer les recours des justiciables",
+      "institutions-x1-e": "Faire approuver les nominations au Conseil constitutionnel par une majorité renforcée de parlementaires",
+      "institutions-x1-f": "Conserver le rôle actuel du Conseil constitutionnel, sans permettre de maintenir une loi qu’il a censurée"
+    }
+  },
+  "laicite_republique-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle approche de la laïcité privilégier ?",
+    "approaches": {
+      "laicite_republique-1-a": "Interdire le port du voile islamique dans tout l’espace public, sous peine d’amende",
+      "laicite_republique-1-b": "Étendre l’interdiction des signes religieux à d’autres lieux ou créer de nouveaux délits contre l’islamisme",
+      "laicite_republique-1-c": "Conserver les règles actuelles sur les signes religieux, sans y ajouter de nouvelle interdiction",
+      "laicite_republique-1-d": "Mettre l’accent sur la lutte contre les discriminations, y compris celles qui visent les musulmans",
+      "laicite_republique-1-e": "Abroger la loi de 2021 qui renforce le contrôle des associations et des lieux de culte",
+      "laicite_republique-1-f": "Reconnaître dans la Constitution l’héritage chrétien ou judéo-chrétien de la France, à côté de la laïcité",
+      "laicite_republique-1-g": "Appliquer la loi de 1905 sur tout le territoire, en mettant fin au régime concordataire d’Alsace-Moselle"
+    }
+  },
+  "laicite_republique-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment la France doit-elle aborder l’histoire de la colonisation ?",
+    "approaches": {
+      "laicite_republique-2-a": "Créer une commission officielle chargée d’établir les faits de la colonisation et de favoriser la réconciliation",
+      "laicite_republique-2-b": "Reconnaître officiellement les crimes de la colonisation, ouvrir les archives et restituer des biens culturels",
+      "laicite_republique-2-c": "Enseigner une histoire nationale commune, sans concurrence des mémoires entre groupes",
+      "laicite_republique-2-d": "Reconnaître les crimes commis pendant la colonisation, sans qualifier la colonisation elle-même de crime",
+      "laicite_republique-2-e": "Refuser toute excuse officielle pour la colonisation et dépassionner la relation avec l’Algérie",
+      "laicite_republique-2-f": "Mettre en avant dans le discours officiel ce que la colonisation a apporté aux pays colonisés"
+    }
+  },
+  "logement-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quel levier prioritaire face à la crise du logement ?",
+    "approaches": {
+      "logement-1-a": "Simplifier les normes de construction et assouplir les règles d’urbanisme et d’usage des sols",
+      "logement-1-b": "Attirer l’investissement locatif privé en allégeant la fiscalité des bailleurs et en renforçant leurs droits",
+      "logement-1-c": "Construire beaucoup plus de logements sociaux et publics, avec davantage de financements publics",
+      "logement-1-d": "Encadrer strictement les loyers, voire les geler, et réquisitionner les logements vides",
+      "logement-1-e": "Faire de la rénovation énergétique des logements la priorité, pour réduire les charges des ménages",
+      "logement-1-f": "Attribuer en priorité aux Français les logements sociaux et leur réserver les aides au logement",
+      "logement-1-g": "Faciliter l’accession à la propriété : prêt à taux zéro élargi, vente de logements sociaux à leurs occupants"
+    }
+  },
+  "logement-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelles règles pour les loyers et les impayés de loyer ?",
+    "approaches": {
+      "logement-2-a": "Supprimer l’encadrement des loyers et accélérer les expulsions en cas d’impayés ou d’occupation illégale",
+      "logement-2-b": "Créer une assurance publique contre les loyers impayés, pour inciter les propriétaires à louer",
+      "logement-2-c": "Étendre l’encadrement des loyers à toutes les zones où le manque de logements est le plus fort",
+      "logement-2-d": "Encadrer les loyers partout en France et interdire les expulsions sans solution de relogement",
+      "logement-2-e": "Geler ou baisser les loyers, annuler les dettes de loyer et interdire toutes les expulsions",
+      "logement-2-f": "Prolonger l’encadrement des loyers dans les seules villes volontaires, sans l’imposer ailleurs"
+    }
+  },
+  "logement-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle règle pour les logements mal isolés et leur rénovation ?",
+    "approaches": {
+      "logement-3-a": "Lever les interdictions de louer liées au diagnostic énergétique, qui deviendrait une simple information",
+      "logement-3-b": "Suspendre pendant quelques années ces interdictions de louer, le temps de relancer l’offre locative",
+      "logement-3-c": "Réduire les subventions publiques à la rénovation, en les remplaçant au besoin par des prêts à taux zéro",
+      "logement-3-d": "Stabiliser les règles et les aides à la rénovation pendant cinq ans, par une loi de programmation",
+      "logement-3-e": "Garder les interdictions de louer et lancer un plan public de rénovation massive des logements"
+    }
+  },
+  "logement-4": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Que faire de l’obligation de logements sociaux imposée aux communes ?",
+    "approaches": {
+      "logement-4-a": "Supprimer l’obligation de logements sociaux par commune et rendre la décision aux maires",
+      "logement-4-b": "Remplacer le pourcentage imposé par des objectifs de construction de logements fixés selon les besoins",
+      "logement-4-c": "Garder l’obligation, mais y compter aussi les logements vendus à prix réduit aux ménages modestes",
+      "logement-4-d": "Garder l’obligation et rendre inéligibles les maires des communes qui ne la respectent pas",
+      "logement-4-e": "Relever l’obligation à 30 % de logements sociaux, en y incluant des résidences pour étudiants",
+      "logement-4-f": "Garder l’obligation actuelle et alourdir les pénalités des communes qui ne la respectent pas"
+    }
+  },
+  "numerique-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité face au développement de l’intelligence artificielle (IA) ?",
+    "approaches": {
+      "numerique-1-a": "Alléger les règles européennes sur l’IA et les données pour laisser les entreprises innover plus vite",
+      "numerique-1-b": "Investir massivement dans la puissance de calcul et dans des entreprises françaises ou européennes de l’IA",
+      "numerique-1-c": "Accorder des avantages fiscaux aux entreprises qui investissent dans l’IA, le numérique ou les robots",
+      "numerique-1-d": "Soumettre les IA les plus puissantes au contrôle d’une autorité publique et interdire certains usages",
+      "numerique-1-e": "Placer le développement de l’IA sous contrôle public, au service de besoins collectifs comme la santé",
+      "numerique-1-f": "Limiter l’implantation des centres de données selon leur consommation d’eau et d’électricité"
+    }
+  },
+  "numerique-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment protéger les enfants et les adolescents face aux écrans et aux réseaux sociaux ?",
+    "approaches": {
+      "numerique-2-a": "Interdire l’accès aux réseaux sociaux avant 15 ans, avec une vérification obligatoire de l’âge",
+      "numerique-2-b": "Fixer des règles d’usage des écrans par âge : aucun écran avant 5 ans, pas de smartphone avant 15 ans",
+      "numerique-2-c": "Interdire pour les mineurs le défilement infini, les notifications et la publicité ciblée",
+      "numerique-2-d": "Miser sur l’éducation au numérique et le contrôle parental plutôt que sur des interdictions légales",
+      "numerique-2-e": "Refuser toute interdiction selon l’âge et toute vérification d’identité en ligne, au nom des libertés"
+    }
+  },
+  "numerique-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment encadrer les grandes plateformes numériques ?",
+    "approaches": {
+      "numerique-3-a": "Renforcer la lutte contre la désinformation et les ingérences étrangères diffusées sur les plateformes",
+      "numerique-3-b": "Imposer aux plateformes la transparence de leurs algorithmes, sans interdire de réseau social",
+      "numerique-3-c": "Faire contribuer les plateformes au financement de la création culturelle et de la presse",
+      "numerique-3-d": "Abroger le règlement européen sur les services numériques et les lois qui encadrent la parole en ligne",
+      "numerique-3-e": "Inscrire dans la Constitution une liberté d’expression aussi étendue que celle des États-Unis",
+      "numerique-3-f": "Interdire aux plateformes de supprimer d’elles-mêmes des contenus ou des comptes qui respectent la loi",
+      "numerique-3-g": "Taxer davantage les grandes plateformes numériques et les démanteler en cas d’abus de position dominante"
+    }
+  },
+  "numerique-4": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle place pour l’intelligence artificielle (IA) et les écrans à l’école ?",
+    "approaches": {
+      "numerique-4-a": "Tenir l’IA à l’écart des élèves jusqu’au collège ou au lycée et retirer les écrans de l’école primaire",
+      "numerique-4-b": "Doter chaque élève d’un assistant d’IA sécurisé et rendre obligatoire l’apprentissage de son usage",
+      "numerique-4-c": "Former tous les enfants à l’usage de l’IA dès le plus jeune âge, à l’école et en dehors",
+      "numerique-4-d": "Créer un service public de l’IA éducative et former tous les enseignants à ces outils",
+      "numerique-4-e": "Développer à l’école l’esprit critique face aux écrans, aux réseaux sociaux et aux contenus d’IA"
+    }
+  },
+  "proche_orient-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle politique mener envers le gouvernement israélien ?",
+    "approaches": {
+      "proche_orient-1-a": "Décréter un embargo sur les armes vers Israël, suspendre l’accord d’association et adopter des sanctions économiques",
+      "proche_orient-1-b": "Suspendre l’accord d’association entre l’Union européenne et Israël et interdire les produits des colonies israéliennes",
+      "proche_orient-1-c": "Utiliser les clauses commerciales de l’accord avec Israël pour viser son gouvernement, sans suspendre l’accord",
+      "proche_orient-1-d": "Faire appliquer les mandats d’arrêt de la Cour pénale internationale et saisir le Conseil de sécurité des Nations unies",
+      "proche_orient-1-e": "Mettre fin à tout soutien économique et militaire de la France à Israël et retirer les forces françaises de la région",
+      "proche_orient-1-f": "Défendre le droit d’Israël à se défendre et faire du désarmement du Hamas le préalable à la paix",
+      "proche_orient-1-g": "Sanctionner individuellement les colons violents et les ministres israéliens qui les soutiennent, sans suspendre l’accord d’association",
+      "proche_orient-1-h": "Maintenir l’accord d’association et la coopération avec Israël, sans sanctions, en soutenant le plan de paix pour Gaza"
+    }
+  },
+  "proche_orient-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle position sur l’État de Palestine ?",
+    "approaches": {
+      "proche_orient-2-a": "Approuver cette reconnaissance comme une première étape et exiger la fin de l’occupation et de la colonisation",
+      "proche_orient-2-b": "Approuver cette reconnaissance en liant l’État palestinien à la sécurité d’Israël et à la mise à l’écart du Hamas",
+      "proche_orient-2-c": "Juger cette reconnaissance prématurée, décidée avant la libération des otages et alors que le Hamas restait actif",
+      "proche_orient-2-d": "Défendre un État unique ou une fédération sur toute la région, avec les mêmes droits pour tous ses habitants"
+    }
+  },
+  "retraites-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle suite donner à la réforme des retraites de 2023 ?",
+    "approaches": {
+      "retraites-1-a": "Ramener l’âge légal à 60 ans à taux plein, sans allonger la durée de cotisation",
+      "retraites-1-b": "Ramener l’âge légal de départ à 62 ans, avec un départ plus tôt pour les carrières longues",
+      "retraites-1-c": "Faire de la durée cotisée, modulée selon la pénibilité, le critère principal de départ plutôt que l’âge",
+      "retraites-1-d": "Fixer des âges de départ différents selon la pénibilité et l’espérance de vie en bonne santé",
+      "retraites-1-e": "Supprimer l’âge légal : partir au choix, avec une pension réduite ou majorée selon la durée cotisée",
+      "retraites-1-f": "Reprendre le report à 64 ans, voire aller au-delà : 65 ans ou un âge lié à l’espérance de vie"
+    }
+  },
+  "retraites-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle place pour la capitalisation dans les retraites ?",
+    "approaches": {
+      "retraites-2-a": "Financer les retraites par les cotisations sociales et écarter toute part de retraite par capitalisation",
+      "retraites-2-b": "Ajouter un étage obligatoire de retraite par capitalisation, géré collectivement, à côté de la répartition",
+      "retraites-2-c": "Verser à chaque enfant, dès sa naissance, un capital public placé jusqu’à sa retraite",
+      "retraites-2-d": "Remplacer progressivement la répartition par la capitalisation, sur plusieurs décennies",
+      "retraites-2-e": "Encourager l’épargne retraite volontaire et d’entreprise par des avantages fiscaux, sans la rendre obligatoire"
+    }
+  },
+  "retraites-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment faire évoluer le montant des pensions de retraite ?",
+    "approaches": {
+      "retraites-3-a": "Revaloriser chaque année toutes les pensions au rythme de l’inflation, y compris les plus élevées",
+      "retraites-3-b": "Demander plus aux retraités aisés : hausse de leur CSG et pensions revalorisées moins vite que l’inflation",
+      "retraites-3-c": "Geler temporairement les pensions et les prestations sociales, en épargnant les plus petites retraites",
+      "retraites-3-d": "Indexer les pensions sur les salaires et garantir au moins le SMIC à toute pension d’une carrière complète"
+    }
+  },
+  "sante-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité pour améliorer l’accès aux soins ?",
+    "approaches": {
+      "sante-1-a": "Encadrer l’installation des médecins pour les orienter vers les territoires qui en manquent",
+      "sante-1-b": "Ouvrir partout des centres de santé publics et rouvrir des hôpitaux et maternités de proximité",
+      "sante-1-c": "Augmenter chaque année le budget de l’hôpital public et recruter massivement des soignants",
+      "sante-1-d": "Supprimer les agences régionales de santé et reporter leurs moyens vers les soins",
+      "sante-1-e": "Permettre de consulter directement pharmaciens, infirmiers et kinésithérapeutes pour les soins courants",
+      "sante-1-f": "Recourir à l’intelligence artificielle pour faciliter l’accès aux soins et libérer du temps médical",
+      "sante-1-g": "Former beaucoup plus de médecins et de soignants en ouvrant fortement les places en études de santé",
+      "sante-1-h": "Faire exercer les internes en fin de cursus dans les territoires qui manquent de médecins",
+      "sante-1-i": "Inciter financièrement les médecins à s’installer dans les territoires qui en manquent, sans contraindre leur installation"
+    }
+  },
+  "sante-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quel rôle pour la Sécurité sociale dans le remboursement des soins ?",
+    "approaches": {
+      "sante-2-a": "Faire rembourser à 100 % les soins prescrits par la Sécurité sociale, qui intégrerait les complémentaires",
+      "sante-2-b": "Créer partout une complémentaire santé publique et obligatoire, gérée par la Sécurité sociale",
+      "sante-2-c": "Maintenir le niveau de remboursement actuel, sans hausse des franchises ni déremboursements",
+      "sante-2-d": "Moduler ce qui reste à payer par les patients selon leurs revenus, les plus aisés payant davantage",
+      "sante-2-e": "Réduire l’indemnisation des arrêts maladie courts et augmenter les franchises payées par les patients",
+      "sante-2-f": "Stabiliser les dépenses de santé par une meilleure organisation et la prévention, sans moyens supplémentaires"
+    }
+  },
+  "sante-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle politique pour la fin de vie ?",
+    "approaches": {
+      "sante-3-a": "Inscrire dans la Constitution le droit de mourir dans la dignité, y compris avec une assistance",
+      "sante-3-b": "Appliquer la loi de 2026 sur l’aide à mourir et développer en parallèle les soins palliatifs",
+      "sante-3-c": "Contrôler l’application de la loi de 2026 pour prévenir les abus, en donnant la priorité aux soins palliatifs",
+      "sante-3-d": "Refuser l’aide à mourir et développer à la place les soins palliatifs et le traitement de la douleur",
+      "sante-3-e": "Soumettre l’aide à mourir à un référendum, pour que les citoyens tranchent eux-mêmes la question"
+    }
+  },
+  "sante-4": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité pour la prévention en santé ?",
+    "approaches": {
+      "sante-4-a": "Interdire les pesticides et polluants classés cancérigènes pour réduire les maladies environnementales",
+      "sante-4-b": "Supprimer les obligations vaccinales et réexaminer la sécurité des vaccins à ARN messager",
+      "sante-4-c": "Investir beaucoup plus dans la prévention, avec un budget voté pour plusieurs années",
+      "sante-4-d": "Faire de la santé mentale une grande cause nationale, avec un plan pour la psychiatrie",
+      "sante-4-e": "Rendre obligatoire sur tous les aliments emballés l’affichage d’une note nutritionnelle de A à E"
+    }
+  },
+  "sante-5": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité pour accompagner les personnes âgées en perte d’autonomie ?",
+    "approaches": {
+      "sante-5-a": "Créer un service public de la dépendance et placer sous gestion publique les EHPAD à but lucratif",
+      "sante-5-b": "Privilégier le maintien à domicile, avec plus de soins à domicile et un congé rémunéré pour les aidants",
+      "sante-5-c": "Imposer dans tous les EHPAD un nombre minimal de soignants par résident, pour renforcer les effectifs",
+      "sante-5-d": "Installer des caméras dans les EHPAD, avec l’accord des salariés, pour prévenir les maltraitances",
+      "sante-5-e": "Automatiser les tâches physiques en EHPAD, pour réduire le recours à la main-d’œuvre immigrée",
+      "sante-5-f": "Financer la perte d’autonomie par une ressource dédiée, comme une seconde journée de solidarité travaillée"
+    }
+  },
+  "securite_justice-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle orientation pour la justice pénale ?",
+    "approaches": {
+      "securite_justice-1-a": "Instaurer des peines minimales obligatoires, notamment pour les récidivistes et les infractions les plus graves",
+      "securite_justice-1-b": "Construire davantage de places de prison pour exécuter toutes les peines d’emprisonnement prononcées",
+      "securite_justice-1-c": "Juger et sanctionner beaucoup plus vite, quitte à prononcer des peines plus courtes mais exécutées sans délai",
+      "securite_justice-1-d": "Réduire le recours à la prison, grâce aux peines alternatives ou à un plafond légal du nombre de détenus",
+      "securite_justice-1-e": "Expulser systématiquement les étrangers condamnés, y compris ceux qui purgent une peine de prison",
+      "securite_justice-1-f": "Abroger les lois qui ont durci le droit pénal ces dernières années et amnistier les manifestants condamnés",
+      "securite_justice-1-g": "Recruter massivement magistrats, greffiers et conseillers d’insertion, pour juger plus vite et préparer la sortie de prison"
+    }
+  },
+  "securite_justice-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité pour la police et la sécurité du quotidien ?",
+    "approaches": {
+      "securite_justice-2-a": "Recruter davantage de policiers, de gendarmes, de douaniers et d’enquêteurs, notamment pour des unités spécialisées",
+      "securite_justice-2-b": "Redéployer sur la voie publique les policiers et les gendarmes aujourd’hui occupés à des tâches administratives",
+      "securite_justice-2-c": "Recréer une police de proximité, tournée vers la prévention, la médiation et le contact avec les habitants",
+      "securite_justice-2-d": "Renforcer la protection juridique des agents qui font usage de leur arme, jusqu’à présumer la légitime défense",
+      "securite_justice-2-e": "Revoir les règles d’usage de la force et confier le contrôle des policiers à une autorité indépendante",
+      "securite_justice-2-f": "Dissoudre les unités spéciales de police et abroger les lois qui ont étendu les pouvoirs des forces de l’ordre",
+      "securite_justice-2-g": "Remettre un récépissé à chaque personne contrôlée, pour lutter contre les contrôles d’identité discriminatoires",
+      "securite_justice-2-h": "Étendre les pouvoirs des polices municipales et multiplier les caméras de surveillance, y compris avec analyse automatique des images"
+    }
+  },
+  "securite_justice-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment lutter contre le trafic de drogue ?",
+    "approaches": {
+      "securite_justice-3-a": "Instaurer un état d’urgence contre le trafic, limité dans le temps et l’espace, avec perquisitions administratives",
+      "securite_justice-3-b": "Renforcer les enquêteurs spécialisés et saisir l’argent du trafic en luttant contre le blanchiment",
+      "securite_justice-3-c": "Légaliser et encadrer la vente de cannabis pour priver les réseaux de trafiquants de leurs revenus",
+      "securite_justice-3-d": "Réunir des citoyens tirés au sort pour formuler des propositions sur la légalisation du cannabis",
+      "securite_justice-3-e": "Accroître la pression sur les consommateurs, avec des amendes réellement recouvrées et des contrôles accrus",
+      "securite_justice-3-f": "Investir durablement dans les quartiers touchés, par l’aménagement urbain, les services publics et l’emploi des jeunes"
+    }
+  },
+  "securite_justice-4": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment répondre aux violences, notamment sexuelles, commises contre des enfants ?",
+    "approaches": {
+      "securite_justice-4-a": "Soumettre à référendum le rétablissement de la peine de mort pour les auteurs de meurtres d’enfants",
+      "securite_justice-4-b": "Alourdir les peines par la perpétuité réelle, l’imprescriptibilité ou une castration chimique imposée aux plus dangereux",
+      "securite_justice-4-c": "Ficher les auteurs et contrôler les antécédents de tous les adultes qui travaillent au contact d’enfants",
+      "securite_justice-4-d": "Traiter sans délai toutes les plaintes, grâce à des enquêteurs et des magistrats spécialisés supplémentaires",
+      "securite_justice-4-e": "Donner la priorité à la protection de l’enfance et à la prévention plutôt qu’à l’alourdissement des peines",
+      "securite_justice-4-f": "Installer des caméras de surveillance dans les écoles, les crèches et les lieux d’accueil périscolaire"
+    }
+  },
+  "securite_justice-5": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment répondre à la délinquance des mineurs ?",
+    "approaches": {
+      "securite_justice-5-a": "Abaisser l’âge de la majorité pénale afin de juger les mineurs les plus âgés comme des adultes",
+      "securite_justice-5-b": "Juger les mineurs plus vite et plus sévèrement, sans atténuation automatique de la peine liée à leur âge",
+      "securite_justice-5-c": "Rendre les parents responsables, en leur faisant payer les dégâts de leurs enfants ou en suspendant certaines aides",
+      "securite_justice-5-d": "Placer les jeunes délinquants dans des internats ou des centres fermés, avec travail, formation et discipline",
+      "securite_justice-5-e": "Donner la priorité à l’éducation, à la prévention et à l’insertion des jeunes, avec des dispositifs de seconde chance"
+    }
+  },
+  "securite_justice-6": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelles règles pour l’indépendance et la responsabilité des magistrats ?",
+    "approaches": {
+      "securite_justice-6-a": "Confier la discipline des magistrats à une cour comprenant des citoyens tirés au sort, saisissable par les justiciables",
+      "securite_justice-6-b": "Permettre de nouveau au ministre de la Justice de donner des instructions aux procureurs dans une affaire précise",
+      "securite_justice-6-c": "Restreindre le syndicalisme des magistrats, par la dissolution d’un syndicat ou le passage à des associations",
+      "securite_justice-6-d": "Interdire toute instruction du gouvernement aux procureurs et faire voter la politique pénale par le Parlement",
+      "securite_justice-6-e": "Garantir l’indépendance et les moyens de la justice, et protéger les magistrats contre les pressions",
+      "securite_justice-6-f": "Faire nommer les procureurs sur avis conforme du Conseil supérieur de la magistrature, comme les juges",
+      "securite_justice-6-g": "Supprimer l’exécution immédiate des peines d’inéligibilité, pour qu’un élu condamné puisse d’abord faire appel"
+    }
+  },
+  "securite_justice-x1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quel rôle donner aux polices municipales ?",
+    "approaches": {
+      "securite_justice-x1-a": "Faire des polices municipales armées la règle dans les villes moyennes et grandes, avec contrôles d’identité et accès aux fichiers",
+      "securite_justice-x1-b": "Confier aux policiers municipaux de nouveaux pouvoirs contre les trafics et les incivilités : amendes, saisies, accès aux fichiers",
+      "securite_justice-x1-c": "Laisser chaque commune libre d’armer sa police municipale et de lui confier de nouveaux pouvoirs, sans aucune obligation",
+      "securite_justice-x1-d": "Ne pas étendre les pouvoirs des polices municipales ni généraliser leur armement, et miser sur la médiation et la prévention",
+      "securite_justice-x1-e": "Désarmer les polices municipales existantes et renoncer à en créer de nouvelles comme à étendre leurs missions"
+    }
+  },
+  "societe-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quel avenir pour l’audiovisuel public ?",
+    "approaches": {
+      "societe-1-a": "Privatiser l’essentiel de l’audiovisuel public, à commencer par les chaînes de télévision",
+      "societe-1-b": "Privatiser une partie des chaînes publiques et n’en garder que deux, l’une locale, l’autre culturelle",
+      "societe-1-c": "Remplacer son financement public par un chèque que chaque foyer attribue au média de son choix",
+      "societe-1-d": "Conserver un audiovisuel public en réformant ses structures et en réduisant ses coûts",
+      "societe-1-e": "Garantir son financement et ses effectifs, sans fusion de sociétés, et renforcer son indépendance",
+      "societe-1-f": "Conserver un audiovisuel public en contrôlant davantage le pluralisme et l’équilibre politique de ses programmes"
+    }
+  },
+  "societe-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité pour la politique culturelle ?",
+    "approaches": {
+      "societe-2-a": "Augmenter nettement le budget public de la culture et sécuriser les revenus des artistes",
+      "societe-2-b": "Remplacer le crédit culturel individuel des jeunes par des interventions d’artistes dans les écoles",
+      "societe-2-c": "Donner la priorité à la restauration du patrimoine et à la transmission de la culture française",
+      "societe-2-d": "Lier les subventions culturelles à des résultats mesurés (public, diffusion) et au pluralisme",
+      "societe-2-e": "Réduire les subventions publiques au cinéma, à la presse et à certaines associations",
+      "societe-2-f": "Renforcer les quotas de diffusion d’œuvres françaises et européennes et le soutien au cinéma"
+    }
+  },
+  "societe-x1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelles règles pour la concentration et l’indépendance des médias ?",
+    "approaches": {
+      "societe-x1-a": "Durcir les règles contre la concentration des médias et les étendre à tous les supports, édition comprise",
+      "societe-x1-b": "Rendre les rédactions indépendantes de leurs actionnaires, par un statut dédié ou une détention par des fondations",
+      "societe-x1-c": "Supprimer les aides publiques versées à la presse ainsi que l’autorité chargée de réguler l’audiovisuel",
+      "societe-x1-d": "Conserver les règles actuelles sur la concentration, sans nouvelle contrainte pour les propriétaires de médias"
+    }
+  },
+  "solidarites-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle orientation pour l’assurance chômage et les minima sociaux ?",
+    "approaches": {
+      "solidarites-1-a": "Réaliser des économies sur l’assurance chômage, en raccourcissant notamment la durée d’indemnisation",
+      "solidarites-1-b": "Encadrer davantage les aides sociales : total plafonné sous le SMIC, activité exigée ou durée limitée",
+      "solidarites-1-c": "Revenir sur les réformes récentes qui ont réduit la durée et le montant des allocations chômage",
+      "solidarites-1-d": "Revaloriser chaque année toutes les allocations au moins au rythme de la hausse des prix, sans gel",
+      "solidarites-1-e": "Garantir à chaque personne sans emploi un emploi ou une formation payés au niveau d’un salaire",
+      "solidarites-1-f": "Simplifier et verser automatiquement les aides sociales à toutes les personnes qui y ont droit",
+      "solidarites-1-g": "Ouvrir les minima sociaux aux jeunes dès 18 ans et les relever jusqu’au seuil de pauvreté"
+    }
+  },
+  "solidarites-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle priorité pour la politique familiale ?",
+    "approaches": {
+      "solidarites-2-a": "Verser des allocations familiales dès le premier enfant, à toutes les familles quels que soient leurs revenus",
+      "solidarites-2-b": "Augmenter l’avantage fiscal accordé pour chaque enfant (quotient familial), surtout dès le deuxième",
+      "solidarites-2-c": "Aider en priorité les familles monoparentales : pensions alimentaires défiscalisées et versées sans délai",
+      "solidarites-2-d": "Créer beaucoup plus de places en crèche et former massivement des professionnels de la petite enfance",
+      "solidarites-2-e": "Bâtir un service public gratuit de la petite enfance, en réservant l’argent public aux crèches non lucratives",
+      "solidarites-2-f": "Mieux préparer à la parentalité : maisons des parents, consultation de fertilité remboursée vers 20 ans"
+    }
+  },
+  "solidarites-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle réforme pour la protection de l’enfance ?",
+    "approaches": {
+      "solidarites-3-a": "Confier l’aide sociale à l’enfance à l’État, à la place des départements, avec des inspections inopinées",
+      "solidarites-3-b": "Laisser la gestion aux départements, sous un contrôle indépendant qui sanctionne les défaillances",
+      "solidarites-3-c": "Faire de la protection de l’enfance la première priorité de l’action publique pendant cinq ans",
+      "solidarites-3-d": "Réduire le nombre de placements d’enfants hors de leur famille et mieux encadrer les services sociaux",
+      "solidarites-3-e": "Inscrire la protection de l’enfance dans la Constitution, avec un service entièrement public"
+    }
+  },
+  "territoires-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment garantir l’accès aux services publics dans tous les territoires ?",
+    "approaches": {
+      "territoires-1-a": "Fixer par la loi des temps d’accès maximum aux services publics essentiels et encadrer les fermetures",
+      "territoires-1-b": "Investir massivement dans les services publics et revenir sur leur ouverture au privé et à la concurrence",
+      "territoires-1-c": "Recourir au numérique et à l’intelligence artificielle pour réduire les effectifs et renforcer l’accueil",
+      "territoires-1-d": "Faire participer les collectivités aux économies en supprimant des doublons et en réduisant leurs dotations",
+      "territoires-1-e": "Confier davantage de services de proximité aux collectivités, avec plus d’autonomie financière",
+      "territoires-1-f": "Multiplier les guichets de proximité qui regroupent les démarches de plusieurs administrations"
+    }
+  },
+  "territoires-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle évolution pour l’organisation et les pouvoirs des collectivités locales ?",
+    "approaches": {
+      "territoires-2-a": "Supprimer les régions et recentrer l’organisation locale sur les communes et les départements",
+      "territoires-2-b": "Supprimer ou fusionner un échelon de collectivités et donner davantage de pouvoirs aux élus locaux",
+      "territoires-2-c": "Transférer de nouvelles compétences aux collectivités en clarifiant le partage des rôles avec l’État",
+      "territoires-2-d": "Redécouper les régions selon les bassins des fleuves et des rivières, et supprimer les métropoles",
+      "territoires-2-e": "Rendre à l’État certaines compétences des collectivités pour garantir l’égalité entre les territoires"
+    }
+  },
+  "territoires-x3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quel statut donner à la Corse ?",
+    "approaches": {
+      "territoires-x3-a": "Inscrire l’autonomie de la Corse dans la Constitution, avec le pouvoir d’adapter certaines lois, après un vote des Corses",
+      "territoires-x3-b": "Accorder à la Corse une autonomie encadrée, sans lui donner le pouvoir d’adapter elle-même les lois",
+      "territoires-x3-c": "Refuser tout nouveau statut pour la Corse, afin que les mêmes lois s’appliquent sur tout le territoire",
+      "territoires-x3-d": "Étendre les libertés locales de toutes les collectivités, plutôt que de créer un statut propre à la Corse",
+      "territoires-x3-e": "Permettre à d’autres régions ou territoires qui le demandent d’obtenir eux aussi des pouvoirs propres"
+    }
+  },
+  "territoires-x4": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quel avenir institutionnel pour la Nouvelle-Calédonie ?",
+    "approaches": {
+      "territoires-x4-a": "Accompagner la Nouvelle-Calédonie vers l’indépendance, en organisant le transfert des pouvoirs de l’État",
+      "territoires-x4-b": "Appliquer l’accord signé en 2025, qui crée un État et une nationalité calédoniens au sein de la République",
+      "territoires-x4-c": "Reprendre la négociation entre toutes les forces calédoniennes pour aboutir à un nouvel accord global",
+      "territoires-x4-d": "Prolonger le cadre actuel pendant plusieurs décennies, en donnant la priorité au redressement économique",
+      "territoires-x4-e": "Maintenir définitivement la Nouvelle-Calédonie dans la France, sans nouveau référendum sur l’indépendance"
+    }
+  },
+  "territoires-x5": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Que faire de l’objectif de zéro artificialisation nette des sols ?",
+    "approaches": {
+      "territoires-x5-a": "Supprimer cet objectif et laisser chaque commune décider de l’usage de ses terrains",
+      "territoires-x5-b": "Assouplir cet objectif selon les territoires, par exemple pour les friches ou les projets industriels",
+      "territoires-x5-c": "Maintenir cet objectif et son calendrier actuel, sans l’assouplir ni en avancer l’échéance",
+      "territoires-x5-d": "Renforcer cet objectif et l’appliquer plus tôt, en construisant moins sur les terres agricoles et naturelles"
+    }
+  },
+  "travail_salaires-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quel levier privilégier pour augmenter le pouvoir d’achat des salariés ?",
+    "approaches": {
+      "travail_salaires-1-a": "Relever nettement le salaire minimum (SMIC) par décision de l’État, au-delà de ce qu’impose l’inflation",
+      "travail_salaires-1-b": "Augmenter tous les salaires et les indexer automatiquement sur la hausse des prix",
+      "travail_salaires-1-c": "Baisser les prélèvements payés par les salariés (cotisations, CSG ou impôt sur le revenu) pour augmenter leur revenu net",
+      "travail_salaires-1-d": "Exonérer de prélèvements les heures supplémentaires, pour augmenter le revenu des salariés qui en font",
+      "travail_salaires-1-e": "Faire baisser les prix des produits de première nécessité et de l’énergie, par un blocage ou des baisses de taxes",
+      "travail_salaires-1-f": "Revaloriser en priorité les salaires des métiers peu rémunérés du soin, des services et de l’industrie",
+      "travail_salaires-1-g": "Conditionner les allègements de cotisations patronales à des hausses de salaires négociées dans chaque branche",
+      "travail_salaires-1-h": "Revoir les allègements de cotisations pour qu’une hausse de salaire au-dessus du SMIC profite davantage au salarié",
+      "travail_salaires-1-i": "Exonérer de cotisations patronales les hausses de salaire accordées par les entreprises"
+    }
+  },
+  "travail_salaires-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle évolution pour la durée et l’organisation du temps de travail ?",
+    "approaches": {
+      "travail_salaires-2-a": "Réduire fortement la durée du travail pour tous, sans perte de salaire, afin de partager l’emploi",
+      "travail_salaires-2-b": "Faire respecter réellement les 35 heures, mieux payer les heures supplémentaires et ajouter des congés",
+      "travail_salaires-2-c": "Expérimenter la semaine de quatre jours en gardant le même nombre d’heures de travail",
+      "travail_salaires-2-d": "Inciter à travailler davantage : heures supplémentaires sans plafond et exonérées de prélèvements",
+      "travail_salaires-2-e": "Laisser chaque entreprise fixer sa durée du travail par accord, au-delà des 35 heures si besoin",
+      "travail_salaires-2-f": "Aller progressivement vers les 32 heures par la négociation, avec des aides aux entreprises qui embauchent"
+    }
+  },
+  "travail_salaires-3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle orientation pour le droit du travail ?",
+    "approaches": {
+      "travail_salaires-3-a": "Revenir sur les ordonnances de 2017 : recréer les CHSCT, déplafonner les indemnités pour licenciement injustifié",
+      "travail_salaires-3-b": "Réécrire le Code du travail autour de quelques grands principes et laisser le reste aux accords d’entreprise",
+      "travail_salaires-3-c": "Remplacer les contrats à durée déterminée et indéterminée par un contrat unique, aux droits croissant avec l’ancienneté",
+      "travail_salaires-3-d": "Interdire les licenciements et les suppressions de postes, sous peine de réquisition de l’entreprise",
+      "travail_salaires-3-e": "Limiter les contrats courts et encadrer les stages pour refaire du contrat à durée indéterminée la norme",
+      "travail_salaires-3-f": "Faire de la santé au travail la priorité : reconnaître l’épuisement professionnel, viser la fin des accidents mortels au travail"
+    }
+  },
+  "travail_salaires-4": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Comment associer les salariés aux bénéfices et aux décisions des entreprises ?",
+    "approaches": {
+      "travail_salaires-4-a": "Obliger les entreprises qui versent des dividendes à reverser aussi une part des profits aux salariés",
+      "travail_salaires-4-b": "Faire siéger des représentants des salariés dans les conseils d’administration dès 50 à 100 salariés",
+      "travail_salaires-4-c": "Plafonner l’écart entre la plus haute et la plus basse rémunération dans chaque entreprise",
+      "travail_salaires-4-d": "Encourager l’intéressement, la participation et l’actionnariat salarié par des avantages fiscaux",
+      "travail_salaires-4-e": "Lever le secret des comptes des entreprises et placer la production sous le contrôle des salariés"
+    }
+  },
+  "ukraine_russie-1": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle stratégie face à la guerre menée par la Russie en Ukraine ?",
+    "approaches": {
+      "ukraine_russie-1-a": "Augmenter fortement l’aide militaire à l’Ukraine, défense aérienne comprise, en la finançant par les avoirs russes gelés",
+      "ukraine_russie-1-b": "Continuer l’aide militaire et financière à l’Ukraine tant que la Russie refuse de négocier une paix durable",
+      "ukraine_russie-1-c": "Donner la priorité à une négociation de paix immédiate plutôt qu’à l’effort militaire, la France servant de médiatrice",
+      "ukraine_russie-1-d": "Arrêter l’aide financière à l’Ukraine pour raisons budgétaires, en gardant la formation de ses soldats et l’aide en matériel",
+      "ukraine_russie-1-e": "Arrêter dès le début du mandat toute aide financière et militaire de la France à l’Ukraine, matériel compris",
+      "ukraine_russie-1-f": "Refuser de soutenir militairement l’un ou l’autre camp et appeler les travailleurs russes et ukrainiens à s’unir contre la guerre",
+      "ukraine_russie-1-g": "Continuer d’aider l’Ukraine à se défendre tout en réunissant une conférence de paix sous l’égide des Nations unies",
+      "ukraine_russie-1-h": "Garantir la sécurité de l’Ukraine après un cessez-le-feu, avec une force européenne déployée sur son sol"
+    }
+  },
+  "ukraine_russie-2": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelle relation avoir avec la Russie ?",
+    "approaches": {
+      "ukraine_russie-2-a": "Maintenir les sanctions contre la Russie et laisser l’Ukraine fixer elle-même les conditions de la paix",
+      "ukraine_russie-2-b": "Soutenir l’Ukraine tout en rouvrant un dialogue régulier avec Moscou, comme pendant la guerre froide",
+      "ukraine_russie-2-c": "Obtenir un cessez-le-feu sous l’égide des Nations unies, puis bâtir un système de sécurité européen qui inclue la Russie",
+      "ukraine_russie-2-d": "Rester neutre dans ce conflit, lever les sanctions contre la Russie et renouer un partenariat avec elle, notamment pour l’énergie",
+      "ukraine_russie-2-e": "Refuser de soutenir l’un ou l’autre gouvernement et appeler les travailleurs russes et ukrainiens à rejeter la guerre"
+    }
+  },
+  "ukraine_russie-x3": {
+    "rev": 1,
+    "minor": 0,
+    "prompt": "Quelles garanties de sécurité offrir à l’Ukraine, et faut-il y engager des soldats français ?",
+    "approaches": {
+      "ukraine_russie-x3-a": "Déployer en Ukraine une force européenne avec des soldats français après un cessez-le-feu, voire protéger son ciel",
+      "ukraine_russie-x3-b": "Faire entrer l’Ukraine dans l’OTAN, pour qu’elle bénéficie de la clause de défense collective de l’Alliance",
+      "ukraine_russie-x3-c": "Continuer d’armer et de former l’armée ukrainienne pour qu’elle assure sa défense, sans soldats français sur son sol",
+      "ukraine_russie-x3-d": "Garantir la sécurité de l’Ukraine par un accord sous l’égide de l’ONU ou de l’OSCE, l’Ukraine restant hors de l’OTAN",
+      "ukraine_russie-x3-e": "Refuser tout engagement militaire de la France en Ukraine, ni soldats français ni garanties de sécurité"
+    }
+  }
+}

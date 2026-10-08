@@ -1,15 +1,19 @@
 import { useEffect, useMemo } from 'preact/hooks'
-import { go } from '../../app'
+import { go, link } from '../nav'
 import { APP_NAME, REPORT_URL } from '../../core/app'
-import { CLOSE_GAP, effectiveWeight, METHOD_VERSION, PARTIAL_COVERAGE, SMOOTHING_K } from '../../core/score'
-import type { ElectionPack } from '../../core/types'
+import { CLOSE_GAP, effectiveWeight, knownQuestions, METHOD_VERSION, PARTIAL_COVERAGE, SMOOTHING_K } from '../../core/score'
+import type { ElectionPack, Question } from '../../core/types'
 import { ExternalLink } from '../components/ExternalLink'
 import { FormHeader } from '../components/FormHeader'
 import { SiteFooter } from '../components/SiteFooter'
 import { Icon } from '../components/Icon'
 import { SectionLink, goToSection } from '../components/LegalBits'
-import { formatDate } from '../format'
+import { formatDate, shareText } from '../format'
+import { hasVideos } from '../videos/load'
 import '../../styles/ai-label.css'
+
+/** « A », « A et B », « A, B et C » */
+const joinNames = (names: string[]) => (names.length < 2 ? (names[0] ?? '') : `${names.slice(0, -1).join(', ')} et ${names.at(-1)}`)
 
 /** Règlement européen sur l'intelligence artificielle, sur EUR-Lex */
 const AI_ACT = 'https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32024R1689'
@@ -33,8 +37,44 @@ export function Method({ pack, anchor }: { pack: ElectionPack; /** Rubrique à m
     const sizes = bank.questions.map(q => q.approaches.length)
     return { essential, deep, entries, sources: sources.size, external, min: Math.min(...sizes), max: Math.max(...sizes) }
   }, [bank, positions, candidates])
-  const step1 = bank.questions.filter(q => q.step === 1).length
+  // Non classés (election.ranking.excluded) : sortis du calcul ; ce que l'on sait d'eux, dit d'après les données
+  const exclusion = election.ranking?.excluded ?? null
+  const unscored = useMemo(() => {
+    if (!exclusion) return null
+    const off = new Set(exclusion.ids)
+    const lastName = (name: string) => name.split(' ').slice(1).join(' ') || name
+    const people = candidates
+      .filter(c => off.has(c.id))
+      .sort((a, b) => lastName(a.name).localeCompare(lastName(b.name), 'fr'))
+    const known = people.map(c => knownQuestions(pack, c.id))
+    const others = candidates.filter(c => !off.has(c.id)).map(c => knownQuestions(pack, c.id))
+    return {
+      names: people.map(c => c.name),
+      low: Math.min(...known),
+      high: Math.max(...known),
+      // Le moins connu des candidats classables
+      floor: others.length ? Math.min(...others) : null,
+    }
+  }, [exclusion, candidates, pack])
+  const step1Questions = useMemo(() => bank.questions.filter(q => q.step === 1), [bank])
+  const step1 = step1Questions.length
   const closing = bank.questions.filter(q => q.last && q.tier === 'essentiel')
+  // Ce que l'on sait des candidats sur les questions du premier temps, dit d'après les données
+  const step1Coverage = useMemo(() => {
+    const known = (cid: string, q: Question) => q.approaches.some(a => effectiveWeight(positions[cid]?.[a.id]) > 0)
+    const n = candidates.length
+    const leastPerQuestion = Math.min(...step1Questions.map(q => candidates.filter(c => known(c.id, q)).length))
+    if (leastPerQuestion >= n) return 'la position de chaque candidat y est connue'
+    // Couverture par candidat : celle des candidats classables, les non classés n'ayant pas de score
+    const off = new Set(exclusion?.ids ?? [])
+    const leastPerCandidate = Math.min(...candidates.filter(c => !off.has(c.id)).map(c => step1Questions.filter(q => known(c.id, q)).length))
+    return (
+      `sur chacune, la position d’au moins ${leastPerQuestion} candidats sur ${n} est connue ` +
+      `(chaque candidat${off.size ? ', hors les non classés,' : ''} l’est sur au moins ${leastPerCandidate} d’entre elles)`
+    )
+  }, [step1Questions, candidates, positions, exclusion])
+  // Les tests refusent dans les questions les noms des candidats et ceux des partis : de la primaire, ses organisateurs
+  const parties = election.kind === 'primaire' ? 'de parti organisateur' : 'de parti'
 
   // Arrivée par un lien « En savoir plus » (#/methode/ia) : la rubrique vient sous l'en-tête, une fois la page
   // posée (après le focus du titre que donne le routeur), et son titre prend le focus
@@ -62,10 +102,10 @@ export function Method({ pack, anchor }: { pack: ElectionPack; /** Rubrique à m
         <p>
           {stats.essential} questions forment le questionnaire rapide et {stats.deep} le questionnaire approfondi.
           Chacune porte sur un désaccord documenté entre candidats ; les sujets sur lesquels tous s’accordent sont
-          affichés à part, sans être notés. Chaque question propose de {stats.min} à {stats.max} approches rédigées sans
-          nom, sans slogan et sans formule propre à un candidat, avec une structure et une longueur comparables. Elles
-          ont été rédigées par une IA, puis vérifiées automatiquement&nbsp;: par une IA, et par des tests qui refusent
-          tout nom de candidat, de parti organisateur ou slogan.{' '}
+          affichés à part, sans être notés. Chaque question propose de {stats.min} à {stats.max}
+          {/* Les phrases qui reçoivent un texte de l'élection sont d'un seul tenant (un seul nœud de texte, comme
+              avant le passage à plusieurs élections) : la mise en page de la primaire reste la même au pixel près */}
+          {` approches rédigées sans nom, sans slogan et sans formule propre à un candidat, avec une structure et une longueur comparables. Elles ont été rédigées par une IA, puis vérifiées automatiquement\u00a0: par une IA, et par des tests qui refusent tout nom de candidat, ${parties} ou slogan.`}{' '}
           {stats.external} approche{stats.external > 1 ? 's ne sont portées' : ' n’est portée'} par aucun candidat de
           façon vérifiée : elles permettent d’exprimer une préférence qui n’est pas au programme et ne favorisent
           personne.
@@ -85,16 +125,12 @@ export function Method({ pack, anchor }: { pack: ElectionPack; /** Rubrique à m
 
         <h2>Les positions des candidats</h2>
         <p>
-          {stats.entries} attributions s’appuient sur {stats.sources} sources publiques : professions de foi publiées
-          sur le site officiel de la primaire, programmes, débats télévisés, interviews et votes. Chaque attribution
-          indique sa nature (proposition, déclaration ou déduction) et sa ou ses sources datées. Les positions ont été
-          recherchées et résumées par une IA&nbsp;; chacune a ensuite été vérifiée automatiquement contre sa source, par
-          une seconde passe d’IA distincte de la rédaction, sans relecture humaine une par une. Une attribution douteuse
-          est retirée&nbsp;: la position devient alors inconnue plutôt que supposée.
+          {stats.entries} attributions s’appuient sur {stats.sources}
+          {` sources publiques : ${election.copy.sources}. Chaque attribution indique sa nature (proposition, déclaration ou déduction) et sa ou ses sources datées. Les positions ont été recherchées et résumées par une IA\u00a0; chacune a ensuite été vérifiée automatiquement contre sa source, par une seconde passe d’IA distincte de la rédaction, sans relecture humaine une par une. Une attribution douteuse est retirée\u00a0: la position devient alors inconnue plutôt que supposée.`}
         </p>
         <p>
           Positions arrêtées au {formatDate(election.dataFrozenAt)}. {election.notes.join(' ')} Toutes les positions sont
-          consultables candidat par candidat, avec leurs sources, dans <a href="#/candidats">Les candidats</a>.
+          consultables candidat par candidat, avec leurs sources, dans <a href={link('/candidats')}>Les candidats</a>.
         </p>
 
         <h2>Votre avis</h2>
@@ -107,10 +143,8 @@ export function Method({ pack, anchor }: { pack: ElectionPack; /** Rubrique à m
         {step1 ? (
           <p>
             Le questionnaire rapide se fait en deux temps : {step1} questions donnent une première tendance, puis{' '}
-            {stats.essential - step1} autres l’affinent jusqu’au dépouillement complet. Les {step1} premières portent sur
-            les grands désaccords de la primaire, la position de chaque candidat y est connue, et elles ont été retenues
-            parce qu’elles ne favorisent personne : sur des profils tirés au hasard, chaque candidat arrive premier dans
-            une part comparable des cas.
+            {stats.essential - step1} autres l’affinent jusqu’au dépouillement complet. Les {step1}
+            {` premières ${election.copy.step1Reason}, ${step1Coverage}, et elles ont été retenues parce qu’elles ne favorisent personne : sur des profils tirés au hasard, chaque candidat${exclusion ? ' (hors les non classés)' : ''} arrive premier dans une part comparable des cas.`}
           </p>
         ) : null}
 
@@ -148,6 +182,40 @@ export function Method({ pack, anchor }: { pack: ElectionPack; /** Rubrique à m
           {Math.round(PARTIAL_COVERAGE * 100)} % de vos réponses est signalé « données partielles ».
         </p>
 
+        {/* Décision propre à l'élection (election.ranking.excluded) ; lien direct : #/methode/non-classes */}
+        {exclusion && unscored ? (
+          <>
+            <h2 id="non-classes" tabIndex={-1}>
+              Les candidats non classés
+            </h2>
+            <p>
+              {`Pour cette élection, ${unscored.names.length > 1 ? `${unscored.names.length}\u00a0candidats ne sont pas classés` : 'un candidat n’est pas classé'}, depuis le ${formatDate(exclusion.since)}\u00a0: ${joinNames(unscored.names)}. ${unscored.names.length > 1 ? 'Le même motif vaut pour chacun' : 'Le motif'}, «\u00a0${exclusion.reason}\u00a0». ${unscored.names.length > 1 ? 'Ils n’ont' : 'Il n’a'} ni score ni rang, quelles que soient vos réponses\u00a0: ni au classement, ni parmi les candidats hors classement, et ${unscored.names.length > 1 ? 'ils n’entrent' : 'il n’entre'} dans aucune comparaison du résultat (ex aequo, écart significatif, méthode simplifiée, lignes rouges). Le résultat ${unscored.names.length > 1 ? 'les nomme' : 'le nomme'} sous le classement, avec le nombre de questions où ${unscored.names.length > 1 ? 'la position de chacun' : 'sa position'} est connue\u00a0; l’image à partager ${unscored.names.length > 1 ? 'ne donne que leur nombre' : 'le compte, sans le nommer'}. ${unscored.names.length > 1 ? 'Leurs fiches, leurs positions' : 'Sa fiche, ses positions'} connues, avec leurs sources, et le comparateur restent à votre disposition.`}
+            </p>
+            <p>
+              {`Une question compte comme connue quand le calcul y retient une position du candidat\u00a0: une approche qu’il porte ou qu’il rejette explicitement, vérifiée contre sa source\u00a0; une position seulement probable, signalée sur sa fiche, ne compte pas. ${unscored.names.length > 1 ? `La position des candidats non classés est connue sur ${unscored.low === unscored.high ? unscored.low : `${unscored.low} à ${unscored.high}`} des ${bank.questions.length}\u00a0questions de la banque, selon le candidat` : `La position de ce candidat est connue sur ${unscored.high} des ${bank.questions.length}\u00a0questions de la banque`}${unscored.floor === null ? '' : `\u00a0; celle de chacun des autres, sur au moins ${unscored.floor}`}. Sur si peu de questions, un score dirait surtout le hasard de celles auxquelles vous avez répondu.`}
+            </p>
+            <p>
+              {`La liste est propre à cette élection et révisable\u00a0: un candidat la quitte dès que ses positions sont connues sur assez de questions, par exemple quand son programme est publié. Chaque changement est daté dans le `}
+              <SectionLink id="journal">journal des données</SectionLink>.
+            </p>
+          </>
+        ) : null}
+
+        {/* Règle propre aux élections qui l'activent (election.ranking.minCoverageShare) ; lien direct : #/methode/hors-classement */}
+        {election.ranking?.minCoverageShare != null ? (
+          <>
+            <h2 id="hors-classement" tabIndex={-1}>
+              Les candidats hors classement
+            </h2>
+            <p>
+              {`Pour cette élection, ${exclusion ? 'parmi les autres candidats, ' : ''}un candidat dont la position est connue sur moins de ${shareText(election.ranking.minCoverageShare)} de vos réponses (les questions où vous avez donné au moins un avis) n’est pas classé. Il apparaît sous le classement, dans une liste à part, «\u00a0Trop peu de positions connues pour les classer\u00a0»\u00a0: pour chacun, le nombre de vos réponses sur lesquelles sa position est connue et son score, donné à titre indicatif, sans rang ni bâtons. Ces candidats sont présentés dans un ordre tiré au hasard\u00a0; l’image à partager ne donne que leur nombre.`}
+            </p>
+            <p>
+              {`La raison\u00a0: un score calculé sur peu de questions varie beaucoup. Connu sur deux ou trois de vos réponses, un candidat peut obtenir un score très haut ou très bas par le seul jeu de ces quelques questions, et le lissage vers 50\u00a0% ne suffit pas à corriger cet écart. Sur des profils de réponses tirés au hasard, un candidat connu sur très peu de questions arrivait ainsi premier bien plus souvent que les autres, sans que ses idées y soient pour rien. Les ex aequo, l’écart significatif, la comparaison avec la méthode simplifiée et «\u00a0Ce qui les sépare\u00a0» ne portent que sur les candidats classés.`}
+            </p>
+          </>
+        ) : null}
+
         <h2>Les lignes rouges</h2>
         <p>
           Une ligne rouge place l’approche sur « pas d’accord », compté comme tout autre avis, et ajoute un filtre : les
@@ -160,10 +228,10 @@ export function Method({ pack, anchor }: { pack: ElectionPack; /** Rubrique à m
 
         <h2>Lire le résultat</h2>
         <p>
-          Les candidats d’une même primaire sont proches : un écart de moins de {CLOSE_GAP} points n’est pas
-          significatif et il est signalé. Le résultat est aussi recalculé avec une méthode simplifiée (approches
-          principales approuvées moins approches principales désapprouvées), parmi les candidats d’un même groupe ; si
-          le premier change, l’outil l’indique. Les ex aequo sont affichés comme tels, dans un ordre tiré au hasard. Ce
+          {`${election.copy.closeGapReason} : un écart de moins de `}
+          {CLOSE_GAP} points n’est pas significatif et il est signalé. Le résultat est aussi recalculé avec une méthode
+          simplifiée (approches principales approuvées moins approches principales désapprouvées), parmi les candidats
+          d’un même groupe ; si le premier change, l’outil l’indique. Les ex aequo sont affichés comme tels, dans un ordre tiré au hasard. Ce
           n’est pas une consigne de vote : l’outil ignore la personnalité, l’expérience et la capacité à rassembler.
         </p>
         <p>
@@ -198,17 +266,17 @@ export function Method({ pack, anchor }: { pack: ElectionPack; /** Rubrique à m
             </li>
             <li>Rédiger les questions et leurs approches.</li>
             <li>
-              Rédiger les fiches de contexte («&nbsp;Comprendre l’enjeu&nbsp;», page <a href="#/sujets">Les sujets</a>)
+              Rédiger les fiches de contexte («&nbsp;Comprendre l’enjeu&nbsp;», page <a href={link('/sujets')}>Les sujets</a>)
               et leurs chiffres clés.
             </li>
             <li>Rédiger les résumés des positions des candidats et leur parcours.</li>
+            {hasVideos(pack) ? (
+              <li>
+                Rédiger les textes des vidéos (page <a href={link('/videos')}>Les sujets en vidéo</a>).
+              </li>
+            ) : null}
             <li>
-              Rédiger les textes des vidéos (page <a href="#/videos">Les sujets en vidéo</a>).
-            </li>
-            <li>
-              Les vérifier automatiquement&nbsp;: une seconde passe, menée elle aussi par une IA, compare chaque position
-              et chaque chiffre à sa source, et chaque formulation au principe de neutralité. Des tests automatiques
-              refusent en plus tout nom de candidat, de parti organisateur ou slogan dans les questions.
+              {`Les vérifier automatiquement\u00a0: une seconde passe, menée elle aussi par une IA, compare chaque position et chaque chiffre à sa source, et chaque formulation au principe de neutralité. Des tests automatiques refusent en plus tout nom de candidat, ${parties} ou slogan dans les questions.`}
             </li>
           </ul>
 
@@ -222,7 +290,7 @@ export function Method({ pack, anchor }: { pack: ElectionPack; /** Rubrique à m
           <p>
             Aucune IA ne tourne pendant votre visite. Le score suit les règles écrites décrites plus haut et se calcule
             sur votre appareil&nbsp;; aucun conseil n’est généré pour vous, et vos réponses ne sont envoyées à aucune IA,
-            ni ailleurs (voir la <a href="#/confidentialite">notice de confidentialité</a>).
+            ni ailleurs (voir la <a href={link('/confidentialite')}>notice de confidentialité</a>).
           </p>
 
           <h3>La voix des vidéos</h3>
@@ -248,7 +316,7 @@ export function Method({ pack, anchor }: { pack: ElectionPack; /** Rubrique à m
             ) : (
               'La marche à suivre pour la signaler, droit de réponse compris, est dans les '
             )}
-            <a href="#/mentions-legales">mentions légales</a>&nbsp;; chaque correction est datée dans le{' '}
+            <a href={link('/mentions-legales')}>mentions légales</a>&nbsp;; chaque correction est datée dans le{' '}
             <SectionLink id="journal">journal des données</SectionLink>.
           </p>
           <p class="small">
@@ -260,9 +328,7 @@ export function Method({ pack, anchor }: { pack: ElectionPack; /** Rubrique à m
 
         <h2>Indépendance</h2>
         <p>
-          Outil édité par un citoyen, à titre personnel, sans lien avec le Parti socialiste, Place publique, la Gauche
-          républicaine et socialiste, le site de la primaire ni les équipes des candidats, et sans financement. Le code
-          exécuté par votre navigateur peut être inspecté&nbsp;; il sera publié sous licence MIT.
+          {`Outil édité par un citoyen, à titre personnel, ${election.copy.independence.method}, et sans financement. Le code exécuté par votre navigateur peut être inspecté\u00a0; il sera publié sous licence MIT.`}
         </p>
 
         <h2 id="journal" tabIndex={-1}>

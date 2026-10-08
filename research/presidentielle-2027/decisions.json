@@ -1,0 +1,630 @@
+{
+  "_note": "Décisions du propriétaire du 7 octobre 2026 sur la sortie de 2-question-bank.js (research/presidentielle-2027/question-bank-output.json), appliquées par tools/build-pack.mjs. Chaque nouvelle attribution renvoie à une source déjà présente dans les dossiers de recherche (dossier_<id>.json).",
+  "tierChanges": [
+    {
+      "questionId": "agriculture-1",
+      "newTier": "essentiel"
+    },
+    {
+      "questionId": "fiscalite-1",
+      "newTier": "approfondi"
+    },
+    {
+      "questionId": "sante-1",
+      "newTier": "approfondi"
+    },
+    {
+      "questionId": "numerique-1",
+      "newTier": "approfondi"
+    },
+    {
+      "questionId": "fiscalite-x1",
+      "newTier": "essentiel"
+    }
+  ],
+  "_tierChanges_note": "Décision 2 (7 octobre 2026) : recommandations de la critique de 2-question-bank.js, agriculture-1 en essentiel ; sante-1 (14 candidats connus) et numerique-1 (15) en approfondi. Décision 3 (7 octobre 2026, décisions par défaut du propriétaire, critique de 3-bank-expansion.js) : fiscalite-1 revient en approfondi (11 candidats connus sur 21, sous le seuil de 16 du questionnaire rapide ; pas d’approche pour la gauche qui veut exproprier plutôt que taxer) et la question nouvelle fiscalite-x1 passe en essentiel (19 connus ; l’approche principale la plus partagée en réunit 40 %, 6 sur 15) : le thème Impôts reste au questionnaire rapide, qui garde 22 questions. Non appliquée : la « solution de repli uniquement par changements de niveau » décrite dans les issues de la critique (numerique-1, defense-4 et institutions-3 en essentiel ; logement-1, securite_justice-1 et laicite_republique-1 en approfondi). La critique ne la met pas dans ses tierChanges et ne la recommande pas ; elle sortirait le logement et la laïcité du questionnaire rapide et ne rendrait pas les règles conformes tant que Markovic n’est pas exemptée au questionnaire rapide (1 question connue sur 22, écart de couverture de 21 pour 6 permis).",
+  "drops": [
+    "fiscalite-3",
+    "laicite_republique-x1",
+    "ecologie_energie-x8"
+  ],
+  "_drops_note": "fiscalite-3 (décision 2) double ecologie_energie-1 (carburants). Ses attributions sourcées y figurent déjà sur l’approche correspondante (TVA ou accise → a, compagnies pétrolières → b, aides ciblées → c, électricité → e) : rien à reporter. Décision 3 : doublons signalés par la relecture et la critique de 3-bank-expansion.js, déjà écartés par tools/merge-expansion.mjs (neutrality.duplicates) et inscrits ici pour mémoire. laicite_republique-x1 ≈ laicite_republique-1 (même fracture sur les signes religieux) : correspondances exactes x1-a = 1-a (voile interdit dans tout l’espace public) et x1-e = 1-c (règles actuelles). Seule attribution sourcée reportée : le rejet de 1-a par Attal (voir positions) ; les autres porteurs de x1-a et x1-e y ont déjà une position (Le Pen et Zemmour 1-a ; rejets de Philippe, Lisnard, Dupont-Aignan, Mélenchon, Roussel, Bouamrane, Arthaud, Kazib et Labib ; Philippe, Bouamrane et Cazeneuve 1-c). Non reportés : le rejet de 1-a par Retailleau (vérification « unverifiable ») ; x1-e d’Arthaud (inférence low, et elle a déjà un poids 1 sur 1-g). Perdues faute d’approche équivalente : x1-b, x1-c et x1-d sont des cas particuliers de 1-b, non des équivalents (leurs porteurs, Le Pen, Dupont-Aignan, Lisnard, Retailleau, Bertrand et Attal, sont déjà sur 1-b) ; x1-f (lever l’interdiction de l’abaya, voire celle des signes religieux à l’école) n’a pas d’équivalent : Mélenchon (2), Kazib (2) et les rejets de Philippe et Attal sont perdus. ecologie_energie-x8 ≈ ecologie_energie-7 : x8-a = 7-f (revenir sur la fin des voitures thermiques neuves et ne plus restreindre la voiture). Reportée : Dupont-Aignan, poids 2 (voir positions) ; Le Pen, Asselineau, Philippot et Zemmour sont déjà sur 7-f. Perdues faute d’approche équivalente sur ecologie_energie-7 : x8-b (Lisnard 2, obligation nationale de ZFE supprimée, chaque agglomération décide ; la levée des ZFE relève de ecologie_energie-4-d, où Lisnard est déjà en poids 2), x8-c (Mélenchon 2, Roussel 1 low : suspendre les ZFE tant que les ménages modestes n’ont pas d’alternative), x8-d (Attal 1 : maintenir ZFE et 2035 avec aide aux ménages modestes ; Attal est déjà sur 7-c) et x8-e (Mélenchon 1, Batho 1 : abaisser les vitesses, limiter le poids des véhicules).",
+  "step1": [
+    "finances_publiques-1",
+    "industrie_economie-1",
+    "travail_salaires-1",
+    "ecologie_energie-2",
+    "territoires-1",
+    "agriculture-1",
+    "immigration-1",
+    "europe-1",
+    "defense-1",
+    "institutions-1"
+  ],
+  "_step1_note": "Décision 3 : liste conforme de la critique de 3-bank-expansion.js, identique à celle de la décision 2. Après les compléments, chaque question est connue pour 18 à 20 candidats sur 21 (seuil 18) et chaque candidat non exempté sur au moins 8 questions : agriculture-1 gagne Labib (e) et Markovic (c) ; Becht atteint 8 grâce à finances_publiques-1-g. Marge nulle : Batho, Becht, Bertrand, Bouamrane, Cazeneuve et Lalanne sont exactement à 8. Markovic est exemptée de la couverture par candidat (quality.step1.exempt). La critique a cherché toutes les combinaisons de 10 questions essentielles, fiscalite-x1 comprise : aucune ne porte le minimum au-dessus de 8. Si un complément tombe, fiscalite-x1 peut remplacer defense-1 ou institutions-1.",
+  "lastInStep": [],
+  "addApproaches": [
+    {
+      "questionId": "travail_salaires-1",
+      "id": "travail_salaires-1-g",
+      "text": "Conditionner les allègements de cotisations patronales à des hausses de salaires négociées dans chaque branche"
+    },
+    {
+      "questionId": "finances_publiques-3",
+      "id": "finances_publiques-3-f",
+      "text": "Augmenter les effectifs dans les services en tension (soins, école, justice) et revaloriser les salaires publics"
+    },
+    {
+      "questionId": "travail_salaires-2",
+      "id": "travail_salaires-2-f",
+      "text": "Aller progressivement vers les 32 heures par la négociation, avec des aides aux entreprises qui embauchent"
+    },
+    {
+      "questionId": "fiscalite-2",
+      "id": "fiscalite-2-g",
+      "text": "Réduire les exonérations sur la transmission d’entreprises et l’assurance-vie, surtout pour les plus gros héritages"
+    },
+    {
+      "questionId": "solidarites-1",
+      "id": "solidarites-1-g",
+      "text": "Ouvrir les minima sociaux aux jeunes dès 18 ans et les relever jusqu’au seuil de pauvreté"
+    },
+    {
+      "questionId": "logement-4",
+      "id": "logement-4-f",
+      "text": "Garder l’obligation actuelle et alourdir les pénalités des communes qui ne la respectent pas"
+    },
+    {
+      "questionId": "ecologie_energie-4",
+      "id": "ecologie_energie-4-g",
+      "text": "Faire porter l’effort d’abord sur les plus gros émetteurs : ménages les plus aisés, jets privés, grandes entreprises"
+    },
+    {
+      "questionId": "europe-1",
+      "id": "europe-1-g",
+      "text": "Bâtir une Europe sociale : salaire minimum européen, harmonisation fiscale, lutte contre le dumping social"
+    },
+    {
+      "questionId": "laicite_republique-1",
+      "id": "laicite_republique-1-g",
+      "text": "Appliquer la loi de 1905 sur tout le territoire, en mettant fin au régime concordataire d’Alsace-Moselle"
+    },
+    {
+      "questionId": "ukraine_russie-1",
+      "id": "ukraine_russie-1-g",
+      "text": "Continuer d’aider l’Ukraine à se défendre tout en réunissant une conférence de paix sous l’égide des Nations unies"
+    },
+    {
+      "questionId": "securite_justice-1",
+      "id": "securite_justice-1-g",
+      "text": "Recruter massivement magistrats, greffiers et conseillers d’insertion, pour juger plus vite et préparer la sortie de prison"
+    },
+    {
+      "questionId": "securite_justice-2",
+      "id": "securite_justice-2-g",
+      "text": "Remettre un récépissé à chaque personne contrôlée, pour lutter contre les contrôles d’identité discriminatoires"
+    },
+    {
+      "questionId": "sante-1",
+      "id": "sante-1-g",
+      "text": "Former beaucoup plus de médecins et de soignants en ouvrant fortement les places en études de santé"
+    },
+    {
+      "questionId": "numerique-3",
+      "id": "numerique-3-g",
+      "text": "Taxer davantage les grandes plateformes numériques et les démanteler en cas d’abus de position dominante"
+    },
+    {
+      "questionId": "travail_salaires-1",
+      "id": "travail_salaires-1-h",
+      "text": "Revoir les allègements de cotisations pour qu’une hausse de salaire au-dessus du SMIC profite davantage au salarié"
+    },
+    {
+      "questionId": "fiscalite-1",
+      "id": "fiscalite-1-f",
+      "text": "Remplacer l’impôt annuel sur le patrimoine immobilier par un impôt sur les biens peu productifs : logements vacants, biens de luxe, liquidités"
+    },
+    {
+      "questionId": "retraites-2",
+      "id": "retraites-2-e",
+      "text": "Encourager l’épargne retraite volontaire et d’entreprise par des avantages fiscaux, sans la rendre obligatoire"
+    },
+    {
+      "questionId": "sante-1",
+      "id": "sante-1-h",
+      "text": "Faire exercer les internes en fin de cursus dans les territoires qui manquent de médecins"
+    },
+    {
+      "questionId": "logement-2",
+      "id": "logement-2-f",
+      "text": "Prolonger l’encadrement des loyers dans les seules villes volontaires, sans l’imposer ailleurs"
+    },
+    {
+      "questionId": "education-1",
+      "id": "education-1-g",
+      "text": "Rendre le métier d’enseignant plus attractif : salaires revalorisés, formation et concours dès la licence"
+    },
+    {
+      "questionId": "education-2",
+      "id": "education-2-f",
+      "text": "Maintenir les règles actuelles de financement des écoles privées sous contrat, en renforçant les contrôles de l’État"
+    },
+    {
+      "questionId": "agriculture-1",
+      "id": "agriculture-1-f",
+      "text": "Accepter les accords de libre-échange agricoles s’ils imposent aux importations les normes européennes de production"
+    },
+    {
+      "questionId": "territoires-1",
+      "id": "territoires-1-f",
+      "text": "Multiplier les guichets de proximité qui regroupent les démarches de plusieurs administrations"
+    },
+    {
+      "questionId": "securite_justice-6",
+      "id": "securite_justice-6-f",
+      "text": "Faire nommer les procureurs sur avis conforme du Conseil supérieur de la magistrature, comme les juges"
+    },
+    {
+      "questionId": "proche_orient-1",
+      "id": "proche_orient-1-g",
+      "text": "Sanctionner individuellement les colons violents et les ministres israéliens qui les soutiennent, sans suspendre l’accord d’association"
+    },
+    {
+      "questionId": "institutions-3",
+      "id": "institutions-3-g",
+      "text": "Associer des citoyens tirés au sort à la préparation des grandes réformes, par des conventions citoyennes"
+    },
+    {
+      "questionId": "sante-5",
+      "id": "sante-5-f",
+      "text": "Financer la perte d’autonomie par une ressource dédiée, comme une seconde journée de solidarité travaillée"
+    },
+    {
+      "questionId": "institutions-1",
+      "id": "institutions-1-g",
+      "text": "Réduire le nombre de députés et de sénateurs et limiter le nombre de mandats successifs d’un même élu"
+    },
+    {
+      "questionId": "ukraine_russie-1",
+      "id": "ukraine_russie-1-h",
+      "text": "Garantir la sécurité de l’Ukraine après un cessez-le-feu, avec une force européenne déployée sur son sol"
+    },
+    {
+      "questionId": "finances_publiques-1",
+      "id": "finances_publiques-1-g",
+      "text": "Économiser d’abord sur le fonctionnement de l’État en supprimant agences et doublons administratifs, sans hausse d’impôts"
+    },
+    {
+      "questionId": "travail_salaires-1",
+      "id": "travail_salaires-1-i",
+      "text": "Exonérer de cotisations patronales les hausses de salaire accordées par les entreprises"
+    },
+    {
+      "questionId": "sante-1",
+      "id": "sante-1-i",
+      "text": "Inciter financièrement les médecins à s’installer dans les territoires qui en manquent, sans contraindre leur installation"
+    },
+    {
+      "questionId": "logement-1",
+      "id": "logement-1-g",
+      "text": "Faciliter l’accession à la propriété : prêt à taux zéro élargi, vente de logements sociaux à leurs occupants"
+    },
+    {
+      "questionId": "education-1",
+      "id": "education-1-h",
+      "text": "Renforcer l’autorité à l’école : uniforme, sanctions contre les élèves perturbateurs, soutien aux enseignants"
+    },
+    {
+      "questionId": "securite_justice-2",
+      "id": "securite_justice-2-h",
+      "text": "Étendre les pouvoirs des polices municipales et multiplier les caméras de surveillance, y compris avec analyse automatique des images"
+    },
+    {
+      "questionId": "ecologie_energie-7",
+      "id": "ecologie_energie-7-f",
+      "text": "Revenir sur la fin programmée des voitures neuves à moteur thermique et ne plus restreindre l’usage de la voiture"
+    },
+    {
+      "questionId": "agriculture-3",
+      "id": "agriculture-3-f",
+      "text": "Préserver la chasse, l’élevage et les traditions rurales, sans nouvelles interdictions"
+    },
+    {
+      "questionId": "proche_orient-1",
+      "id": "proche_orient-1-h",
+      "text": "Maintenir l’accord d’association et la coopération avec Israël, sans sanctions, en soutenant le plan de paix pour Gaza"
+    },
+    {
+      "questionId": "societe-1",
+      "id": "societe-1-f",
+      "text": "Conserver un audiovisuel public en contrôlant davantage le pluralisme et l’équilibre politique de ses programmes"
+    },
+    {
+      "questionId": "securite_justice-6",
+      "id": "securite_justice-6-g",
+      "text": "Supprimer l’exécution immédiate des peines d’inéligibilité, pour qu’un élu condamné puisse d’abord faire appel"
+    }
+  ],
+  "_addApproaches_note": "Les 40 approches manquantes des relecteurs de gauche (14), du centre (15) et de droite (11), sans position : l’extension (3-bank-expansion.js) les attribuera, sources à l’appui ; une approche restée sans candidat sera marquée external. Identifiants : lettres suivantes de chaque question, dans l’ordre gauche, centre, droite. Sur sante-1, « former davantage de médecins » ne figure que dans g : h (internes en fin de cursus) et i (incitations sans contrainte, face à a) en sont distinguées, pour que les trois restent des alternatives et non trois variantes de la même mesure. Liste : research/presidentielle-2027/expansion-inputs.json.",
+  "edits": [
+    {
+      "id": "droits_lgbtqia",
+      "field": "label",
+      "newText": "Bioéthique et droits des personnes LGBTQIA+"
+    },
+    {
+      "id": "droits_lgbtqia",
+      "field": "description",
+      "newText": "Bioéthique de la procréation (procréation médicalement assistée, gestation pour autrui), filiation et adoption, changement de la mention du sexe à l’état civil, transidentité des mineurs, lutte contre les discriminations et éducation à la sexualité à l’école."
+    },
+    {
+      "id": "travail_salaires-1-c",
+      "field": "text",
+      "newText": "Baisser les prélèvements payés par les salariés (cotisations, CSG ou impôt sur le revenu) pour augmenter leur revenu net"
+    },
+    {
+      "id": "immigration-1-d",
+      "field": "text",
+      "newText": "Maîtriser l’immigration en conciliant droit d’asile, intégration et fermeté contre l’immigration irrégulière, sans objectif chiffré"
+    },
+    {
+      "id": "education-1-a",
+      "field": "text",
+      "newText": "Accroître l’exigence scolaire : notes chiffrées, examens de passage, groupes de niveau, voire fin du collège unique"
+    },
+    {
+      "id": "securite_justice-4-b",
+      "field": "text",
+      "newText": "Alourdir les peines par la perpétuité réelle, l’imprescriptibilité ou une castration chimique imposée aux plus dangereux"
+    },
+    {
+      "id": "retraites-3-d",
+      "field": "text",
+      "newText": "Indexer les pensions sur les salaires et garantir au moins le SMIC à toute pension d’une carrière complète"
+    }
+  ],
+  "_edits_note": {
+    "droits_lgbtqia.label": "Décision du propriétaire (7 octobre 2026), proposée par la relecture (proposals.topicEdits) : la PMA et la GPA relèvent des lois de bioéthique ; l’intitulé garde chaque cadrage.",
+    "droits_lgbtqia.description": "Description accordée au nouvel intitulé (même liste de sujets, bioéthique nommée).",
+    "travail_salaires-1-c.text": "Proposition de la critique, condition de l’étape 1 : la baisse de l’impôt sur le revenu des premières tranches (Bertrand) n’avait pas de place. Élargissement : les porteurs actuels (cotisations ou CSG) restent couverts. Texte déjà à plus de 15 % de l’approche reprise de la primaire, la reprise n’en change pas.",
+    "immigration-1-d.text": "Proposition de la critique, condition de l’étape 1 : l’ancien texte (« Planifier l’immigration selon les capacités d’accueil et les besoins de l’économie, sans viser de baisse ») reposait sur une négation que personne ne revendique, et la vérification y a réfuté Cazeneuve. Bouamrane reste compatible (poids 1). La reprise de la primaire était déjà refusée (texte modifié à 44 %).",
+    "education-1-a.text": "Attribution contestée (relecteur de droite) et corrigée sur source : les sources d’Attal (w2) proposent certificat d’études, brevet obligatoire, redoublement et groupes de niveau, pas la fin du collège unique. « Voire » garde Retailleau, Philippot et Lisnard ; le rejet de Mélenchon (examens de passage, groupes de niveau) reste juste.",
+    "securite_justice-4-b.text": "Attribution contestée (relecteur de droite) et corrigée sur source : aucun porteur ne soutient les trois mesures (Attal : perpétuité réelle et imprescriptibilité ; Retailleau : castration chimique ; Philippe : imprescriptibilité). « Ou » rend l’approche exacte pour chacun, sans changer les poids.",
+    "retraites-3-d.text": "Attribution contestée (relecteur de gauche) et corrigée sur source : le programme de Mélenchon (w2) dit « toutes les pensions pour une carrière complète ». Roussel, Labib et Arthaud, qui veulent un plancher pour toutes les pensions, restent compatibles."
+  },
+  "rejectEdits": [],
+  "dropApproaches": [],
+  "positions": [
+    {
+      "questionId": "finances_publiques-1",
+      "candidate": "bouamrane",
+      "approachId": "finances_publiques-1-c",
+      "weight": 1,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "Il regrettait en juillet 2025 que les très grandes fortunes ne soient pas imposées sans attendre et citait les aides aux entreprises comme piste de financement ; son manifeste de 2026 veut réduire les doublons administratifs.",
+      "sources": [
+        {
+          "title": "L’invité politique de franceinfo, 17 juillet 2025",
+          "url": "https://www.franceinfo.fr/replay-magazine/franceinfo/l-invite-politique/l-invite-politique-du-jeudi-17-juillet-2025_7382146.html",
+          "date": "2025-07-17",
+          "publisher": "franceinfo"
+        },
+        {
+          "title": "Le manifeste de Karim Bouamrane",
+          "url": "https://www.lafrancehumaineetforte.fr/manifeste.html",
+          "date": "2026-09-09",
+          "publisher": "lafrancehumaineetforte.fr"
+        }
+      ],
+      "verdict": "added",
+      "note": "Dossier : il regrettait l’absence de taxation immédiate des grandes fortunes et citait les quelque 200 milliards d’aides aux entreprises comme pistes de financement (franceinfo, confiance moyenne) ; le manifeste veut « réduire les doublons et les superpositions de structures ». Effort partagé entre économies ciblées et impôts sur les plus aisés, sans chiffrage : poids 1."
+    },
+    {
+      "questionId": "travail_salaires-1",
+      "candidate": "bertrand",
+      "approachId": "travail_salaires-1-c",
+      "weight": 1,
+      "rejects": false,
+      "nature": "proposition",
+      "confidence": "medium",
+      "summary": "Il fait du pouvoir d’achat sa « toute première priorité » et veut baisser l’impôt sur le revenu « pour les premières tranches », sans montant ni calendrier.",
+      "sources": [
+        {
+          "title": "Xavier Bertrand se présente comme le candidat des classes moyennes contre les extrêmes (AFP, repris par Nous France)",
+          "url": "https://www.nousfrance.fr/2025/10/xavier-bertrand-se-presente-comme-le-candidat-des-classes-moyennes-contre-les-extremes-afp/",
+          "date": "2025-10-25",
+          "publisher": "Nous France"
+        },
+        {
+          "title": "Ouest-France, Granville (repris par Nous France)",
+          "url": "https://www.nousfrance.fr/2026/08/on-a-beaucoup-de-points-communs-entre-la-normandie-et-les-hauts-de-france-xavier-bertrand-de-passage-a-granville-ouest-france/",
+          "date": "2026-08-21",
+          "publisher": "Nous France"
+        }
+      ],
+      "verdict": "added",
+      "note": "Dossier : baisse de l’impôt sur le revenu « pour les premières tranches » (AFP, confiance haute) ; pouvoir d’achat « toute première priorité » (Ouest-France). Rattachée à c, élargie aux prélèvements fiscaux des salariés (decisions.edits) ; mesure sans montant : poids 1."
+    },
+    {
+      "questionId": "territoires-1",
+      "candidate": "batho",
+      "approachId": "territoires-1-e",
+      "weight": 1,
+      "rejects": false,
+      "nature": "inference",
+      "confidence": "medium",
+      "summary": "Elle propose une « République terrestre » qui redonne du pouvoir au local et aux territoires, ancrée dans les communes, sans préciser les compétences ni les finances des collectivités.",
+      "sources": [
+        {
+          "title": "L’invité d’ICI Poitou : Delphine Batho",
+          "url": "https://www.ici.fr/emissions/l-invite-de-ici-poitou/delphine-batho-candidate-en-2027-les-francaises-aspirent-a-des-idees-nouvelles-et-a-des-forces-nouvelles-6628651",
+          "date": "2026-09-14",
+          "publisher": "ICI Poitou"
+        },
+        {
+          "title": "À Auxerre, Delphine Batho veut remettre l’écologie dans la vraie vie",
+          "url": "https://www.presse-evasion.fr/article/a-auxerre-delphine-batho-veut-remettre-l-ecologie-dans-la-vraie-vie",
+          "date": "2026-09-08",
+          "publisher": "Presse Évasion"
+        }
+      ],
+      "verdict": "added",
+      "note": "Dossier : « République terrestre » qui redonne du pouvoir au local et aux territoires (ICI Poitou, confiance haute) ; république « plus concrète », ancrée dans les communes (Auxerre). Les modalités (compétences, finances locales) ne sont pas précisées : inférence, poids 1."
+    },
+    {
+      "questionId": "immigration-1",
+      "candidate": "cazeneuve",
+      "approachId": "immigration-1-d",
+      "weight": 2,
+      "rejects": false,
+      "nature": "proposition",
+      "confidence": "high",
+      "summary": "Il fonde sa politique migratoire sur « trois principes indissociables » : le droit d’asile, l’intégration et la fermeté contre l’immigration irrégulière, à penser à l’échelle européenne, sans mesure chiffrée.",
+      "sources": [
+        {
+          "title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "date": "2026-07-15",
+          "publisher": "La Convention"
+        }
+      ],
+      "verdict": "added",
+      "note": "Dossier (lettre du 15 juillet 2026, confiance haute) : « trois principes indissociables », humanité (le droit d’asile, « un engagement de civilisation »), intégration et fermeté (« lutter sans faiblesse contre l’immigration irrégulière »), politique « à l’échelle du continent européen », aucune mesure chiffrée. La vérification avait réfuté son rattachement à l’ancien texte de d (planifier selon les capacités d’accueil et les besoins de l’économie) ; d est reformulée comme le proposait la critique (decisions.edits) et décrit alors exactement sa position : poids 2."
+    },
+    {
+      "questionId": "defense-1",
+      "candidate": "attal",
+      "approachId": "defense-1-b",
+      "weight": 1,
+      "rejects": false,
+      "nature": "inference",
+      "confidence": "medium",
+      "summary": "Il défend une défense européenne plus indépendante : un dôme européen antimissile et anti-drones, la protection nucléaire française étendue au continent et une dépendance réduite de moitié aux approvisionnements hors d’Europe ; aucune position trouvée sur l’OTAN.",
+      "sources": [
+        {
+          "title": "Eurosatory : souveraineté technologique et indépendance européenne pour notre défense",
+          "url": "https://attalpresident.fr/actualites/eurosatory-gabriel-attal-presente-sa-strategie-de-souverainete-technologique-et-d-independance-europeenne-au-salon",
+          "date": "2026-06-16",
+          "publisher": "attalpresident.fr"
+        }
+      ],
+      "verdict": "added",
+      "note": "Dossier : « deux boucliers » (dôme européen, parapluie nucléaire français à l’échelle du continent) et dépendance aux chaînes extra-européennes réduite de moitié (confiance haute). Rien sur l’OTAN : inférence, poids 1."
+    },
+    {
+      "questionId": "defense-1",
+      "candidate": "bouamrane",
+      "approachId": "defense-1-b",
+      "weight": 1,
+      "rejects": false,
+      "nature": "inference",
+      "confidence": "medium",
+      "summary": "Il défend une « augmentation importante » des dépenses de défense et une souveraineté européenne en la matière ; aucune position trouvée sur l’OTAN.",
+      "sources": [
+        {
+          "title": "Karim Bouamrane défie Mélenchon et vise le second tour de la présidentielle 2027",
+          "url": "https://oumma.com/karim-bouamrane-defie-melenchon-et-vise-le-second-tour-de-la-presidentielle-2027/",
+          "date": "2026-07-02",
+          "publisher": "Oumma"
+        },
+        {
+          "title": "Le manifeste de Karim Bouamrane",
+          "url": "https://www.lafrancehumaineetforte.fr/manifeste.html",
+          "date": "2026-09-09",
+          "publisher": "lafrancehumaineetforte.fr"
+        }
+      ],
+      "verdict": "added",
+      "note": "Dossier : « augmentation importante » des dépenses de défense et « souveraineté européenne » en la matière (Oumma, confiance moyenne) ; hausse de l’effort de défense (manifeste). Rien sur l’OTAN : inférence, poids 1."
+    },
+    {
+      "questionId": "institutions-1",
+      "candidate": "philippot",
+      "approachId": "institutions-1-e",
+      "weight": 1,
+      "rejects": false,
+      "nature": "inference",
+      "confidence": "medium",
+      "summary": "Il veut que la Constitution ne puisse être révisée que par référendum, inscrire un référendum d’initiative citoyenne sur tout sujet et limiter par la loi le « gouvernement des juges », sans détailler de mécanisme face à une censure du Conseil constitutionnel.",
+      "sources": [
+        {
+          "title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
+          "url": "https://les-patriotes.fr/wp-content/uploads/2026/09/Projet-pour-la-France-2026-v2.pdf",
+          "date": "2026-09",
+          "publisher": "les-patriotes.fr"
+        }
+      ],
+      "verdict": "added",
+      "note": "Dossier (livret 2026-2027, confiance haute) : révision de la Constitution « que par référendum », RIC sur tout sujet inscrit dans la Constitution, lois limitant le « gouvernement des juges ». Le dernier mot donné au peuple sur le juge constitutionnel est déduit, comme pour Le Pen (poids 1) : inférence, poids 1."
+    },
+    {
+      "questionId": "laicite_republique-1",
+      "candidate": "attal",
+      "approachId": "laicite_republique-1-a",
+      "weight": 0,
+      "rejects": true,
+      "nature": "declaration",
+      "confidence": "high",
+      "summary": "Il refuse une interdiction générale du voile pour les femmes adultes.",
+      "sources": [
+        {
+          "title": "BFM TV : Gabriel Attal veut changer de modèle pour redonner de la puissance à la France",
+          "url": "https://attalpresident.fr/actualites/bfm-tv-gabriel-attal-veut-changer-de-modele-pour-redonner-de-la-puissance-a-la-france",
+          "date": "2026-09-06",
+          "publisher": "Campagne Gabriel Attal"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Reportée de laicite_republique-x1-a (doublon écarté, même texte à « sous peine d’amende » près). La page dit vouloir garantir la liberté de croire « sans instaurer d’interdiction générale du voile »."
+    },
+    {
+      "questionId": "ecologie_energie-7",
+      "candidate": "dupontaignan",
+      "approachId": "ecologie_energie-7-f",
+      "weight": 2,
+      "rejects": false,
+      "nature": "proposition",
+      "confidence": "high",
+      "summary": "Il veut supprimer l’interdiction des voitures thermiques neuves en 2035 et supprimer les zones à faibles émissions, qu’il qualifie de zones d’exclusion des automobilistes.",
+      "sources": [
+        {
+          "title": "Livret « Automobilistes et motards »",
+          "url": "https://www.debout-la-france.fr/projet/transport-automobilistes/",
+          "date": "2026-01-02"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Reportée de ecologie_energie-x8-a (doublon écarté, approche équivalente selon la critique). Mesure 13 : « Supprimer l’interdiction des véhicules thermiques à horizon 2035 » ; mesure 7 contre les ZFE. Le discours de candidature (8/03/2025) annonce aussi l’abolition des ZFE."
+    },
+    {
+      "questionId": "europe-x4",
+      "candidate": "retailleau",
+      "approachId": "europe-x4-c",
+      "remove": true,
+      "note": "Retirée (décision 3) : contestée par les relecteurs du centre et de droite. La vérification la garde en inférence, mais sa propre note dit que la source (livret agricole, refus d’intégrer l’Ukraine au marché agricole européen) « ne dit pas qu’il accepte l’élargissement à terme », cœur de l’approche c ; le même refus est aussi compatible avec d. Une attribution fausse est pire qu’une inconnue : Retailleau reste inconnu sur europe-x4."
+    }
+  ],
+  "_positions_note": "Attributions dont dépend l’étape 1, relevées par la critique et vérifiées dans les dossiers (citations dans « note »). Retirées le 7 octobre 2026 après contre-vérification, parce que la vérification de 2-question-bank.js les avait réfutées et qu’aucune source nouvelle ne les justifie : Attal sur agriculture-1-b (la source ne parle que de simplifier les normes, ni d’importations ni de règles européennes) et Becht sur finances_publiques-1-a (il rejette une « compression brutale » et annonce de nouvelles dépenses sociales ; sa position, réformer l’État sans hausse d’impôts, relève de l’approche ajoutée finances_publiques-1-g, laissée à l’extension comme les 39 autres). Cazeneuve, réfuté sur l’ancien texte de immigration-1-d, est placé sur sa reformulation. Les attributions contestées par les relecteurs sans appui dans les sources sont laissées telles quelles. Décision 3 (7 octobre 2026) : report de deux attributions des doublons écartés (rejet de laicite_republique-1-a par Attal, ecologie_energie-7-f en poids 2 pour Dupont-Aignan ; voir _drops_note), et retrait de Retailleau sur europe-x4-c (source qui ne porte pas sur l’adhésion). Le report de Dupont-Aignan sur 7-f revient au reclassement que son explorateur proposait (« ecologie_energie-7 b → f », f en poids 2 et b gardé en poids 1) : il découle ici de la règle des doublons, pas de la liste des reclassements, que la décision 3 n’applique pas (_decision3_note). Les autres attributions contestées par les relecteurs de 3-bank-expansion.js sont gardées : la vérification les a confirmées sur des sources lues hors des dossiers (Mélenchon europe-x5-d, entretien du 22 juillet 2026 ; Arthaud et Mélenchon securite_justice-x1-d ; Retailleau territoires-x4-b et -e ; Le Pen, rejet de territoires-x3-a, vote du 23 juin 2026 ; Cazeneuve fiscalite-x1-c et -d ; Attal fiscalite-x1-a et education-x1-a ; Philippot fiscalite-x1-b ; Lalanne fiscalite-x1-a ; Roussel ecologie_energie-x9-d ; Mélenchon territoires-x3-e et territoires-x4-a ; Lisnard territoires-x5-b) ou les a déjà ramenées à une inférence de poids 1 (Labib education-x1-d, Bertrand education-x1-e, compatibilité partielle) ; elles restent à relire par le propriétaire.",
+  "movePositions": [],
+  "externalFlags": [
+    {
+      "approachId": "industrie_economie-2-f",
+      "external": false
+    },
+    {
+      "approachId": "sante-4-e",
+      "external": false
+    },
+    {
+      "approachId": "egalite-4-f",
+      "external": false
+    },
+    {
+      "approachId": "education-4-e",
+      "external": false
+    },
+    {
+      "approachId": "numerique-2-b",
+      "external": false
+    },
+    {
+      "approachId": "agriculture-2-b",
+      "external": false
+    },
+    {
+      "approachId": "agriculture-3-e",
+      "external": false
+    },
+    {
+      "approachId": "ukraine_russie-x3-c",
+      "external": false
+    },
+    {
+      "approachId": "travail_salaires-1-g",
+      "external": true
+    },
+    {
+      "approachId": "solidarites-1-g",
+      "external": true
+    },
+    {
+      "approachId": "securite_justice-2-g",
+      "external": true
+    },
+    {
+      "approachId": "fiscalite-1-f",
+      "external": true
+    },
+    {
+      "approachId": "retraites-2-e",
+      "external": true
+    },
+    {
+      "approachId": "sante-1-h",
+      "external": true
+    },
+    {
+      "approachId": "logement-2-f",
+      "external": true
+    },
+    {
+      "approachId": "education-2-f",
+      "external": true
+    },
+    {
+      "approachId": "securite_justice-6-f",
+      "external": true
+    },
+    {
+      "approachId": "proche_orient-1-g",
+      "external": true
+    },
+    {
+      "approachId": "institutions-3-g",
+      "external": true
+    },
+    {
+      "approachId": "sante-5-f",
+      "external": true
+    },
+    {
+      "approachId": "travail_salaires-1-i",
+      "external": true
+    },
+    {
+      "approachId": "agriculture-3-f",
+      "external": true
+    }
+  ],
+  "_externalFlags_note": "Décision 3 : approches marquées external (« portée par aucun candidat », compté dans la page Méthode) alors qu’un candidat y est désormais placé avec une confiance medium ou high, par les compléments sourcés de 3-bank-expansion.js : industrie_economie-2-f (Lisnard), sante-4-e (Markovic), egalite-4-f et education-4-e (Mélenchon), numerique-2-b (Philippe), agriculture-2-b (Le Pen, Zemmour), agriculture-3-e (Retailleau), ukraine_russie-x3-c (Le Pen, incohérence relevée par les trois relecteurs). La marque est retirée ; aucune attribution n’est modifiée. Et, comme l’annonçait la décision 2 (_addApproaches_note : « une approche restée sans candidat sera marquée external »), les 14 approches ajoutées que l’extension n’a attribuées à personne (aucun poids en confiance medium ou high ; parfois seulement des rejets ou des poids low) sont marquées external : travail_salaires-1-g et -i, solidarites-1-g, securite_justice-2-g, fiscalite-1-f, retraites-2-e, sante-1-h, logement-2-f, education-2-f, securite_justice-6-f, proche_orient-1-g, institutions-3-g, sante-5-f, agriculture-3-f. Six questions ont ainsi deux approches external : travail_salaires-1 (g et i, toutes deux marquées ici ; question de l’étape 1), logement-2, education-2, proche_orient-1, institutions-3 et sante-5, au-delà de la règle de conception des workflows (une au plus) ; l’audit ne la contrôle pas. Si le propriétaire le préfère, ces 14 approches peuvent aller dans dropApproaches, ce qui réduirait aussi le nombre de questions à plus de 6 approches (contrôle bank-approaches). Deux d’entre elles ont un reclassement proposé en attente (Mélenchon : solidarites-1-e → g, securite_justice-2-c → g) : s’il est retenu, retirer la marque.",
+  "_decision3_note": {
+    "source": "Décision 3 (7 octobre 2026), décisions par défaut demandées par le propriétaire pour avancer, sur la sortie de 3-bank-expansion.js (research/presidentielle-2027/expansion-output.json, fusionnée dans expansion-merged.json). Choix détaillés dans _tierChanges_note, _step1_note, _drops_note, _positions_note et _externalFlags_note.",
+    "reformulations": "Les 17 reformulations retenues par l’arbitre (reviews.arbitrage.edits = neutrality.edits) sont appliquées telles quelles par build-pack depuis expansion-merged.json : fiscalite-x1-e, education-x1 (contexte), education-x1-c, territoires-x4 (contexte), territoires-x5-d, agriculture-x4-c et -e, ecologie_energie-x9 (énoncé) et -c, ukraine_russie-x3-b et -c, societe-x1-b, europe-x5-e et -f, securite_justice-x1-b, institutions-x1-f, territoires-x3 (énoncé). Les propositions écartées par l’arbitre (reviews.arbitrage.rejected) ne figurent pas dans la sortie : rien à mettre dans rejectEdits.",
+    "doublons": "Report des attributions par decisions.positions et non par movePositions : movePositions ne déplace une position qu’à l’intérieur d’une même question, et merge-expansion a déjà retiré les deux doublons de expansion-merged.json.",
+    "reclassementsNonAppliques": [
+      "melenchon : solidarites-1-e (poids 1) → solidarites-1-g (« garantie d’autonomie » au seuil de pauvreté, jeunes compris)",
+      "melenchon : securite_justice-2-c (poids 1) → securite_justice-2-g (récépissé de contrôle d’identité, explicite dans le programme)",
+      "retailleau : education-1-c (poids 1) → education-1-g (concours régionalisés après la licence) ; retraites-2-b → retraites-2-e (étage « complémentaire et volontaire », à vérifier)",
+      "lepen : retraites-2-b (poids 1) à réexaminer : ni le caractère obligatoire (b) ni l’avantage fiscal (e) ne sont établis",
+      "attal : securite_justice-2-d (poids 1) → securite_justice-2-h (pouvoirs d’OPJ, police municipale armée, vidéoprotection algorithmique)",
+      "lisnard : securite_justice-2-a (poids 1) → securite_justice-2-h ; sante-1-d (poids 2) → sante-1-g (doubler le nombre d’étudiants formés d’ici 2030)",
+      "roussel : securite_justice-1-d (poids 1) → securite_justice-1-g, en poids 2 (« plus de magistrats »)",
+      "bouamrane : agriculture-1-c (poids 1) → agriculture-1-f (réciprocité des normes, pas d’opposition déclarée aux accords) ; question de l’étape 1",
+      "cazeneuve : education-1-e (poids 2) → education-1-g (enseignants en première place), e gardée en poids 1",
+      "becht : sante-1-e (poids 1) → sante-1-g (former davantage de soignants, relever les quotas)",
+      "dupontaignan : logement-1-a (poids 2) → logement-1-g (75 % de propriétaires, accession) ; industrie_economie-1-b (poids 1) → c en poids 2 (baisses réservées aux entreprises qui investissent en France) ; ecologie_energie-7-b → f : déjà réalisé par le report du doublon ecologie_energie-x8 (voir _positions_note)",
+      "philippot : finances_publiques-1-b (poids 2) → finances_publiques-1-g (train de vie de l’État d’abord ; doublons territoriaux 30 Md€ sur 60) ; question de l’étape 1",
+      "lalanne : finances_publiques-1-b (poids 1) → finances_publiques-1-g (« chasse au gaspillage ») ; industrie_economie-2-d (poids 1, low) à remplacer par -c (inférence, poids 1), suggestion de la vérification",
+      "bertrand : laicite_republique-1-b de poids 1 à poids 2 ; finances_publiques-3-a de poids 1 à poids 2",
+      "markovic : industrie_economie-2-d de poids 1 (inference, low, programme européen 2024) à poids 2 en confiance medium (« RECLASSEMENT PROPOSÉ » par son explorateur : communiqués du 22 juillet 2026 et du 12 novembre 2025). S’il est retenu après vérification, Markovic devient connue sur industrie_economie-2 et se distingue d’Arthaud, Labib et Zemmour (3 des 9 paires indistinguables de l’audit)",
+      "arthaud : finances_publiques-3-d de poids 1 (inference) à poids 2, proposition, confiance high (« renfort proposé », éditorial signé)",
+      "Pistes notées « possibles » par les explorateurs, sans proposition ferme : melenchon laicite_republique-1-d → 1-g (abrogation du concordat) et education-1-e → 1-g ; kazib laicite_republique-2-b de inference à proposition ; philippe europe-1-b de inference à declaration (discours du 5 juillet 2026)"
+    ],
+    "sujetsImposes": "Les 13 sujets de expansion-inputs.json ont une question dans la banque, sauf un qui n’a plus de question propre : la voiture (fin des thermiques neuves en 2035, ZFE), ecologie_energie-x8, écartée comme doublon de ecologie_energie-7 (approches 7-c et 7-f) et de ecologie_energie-4-d (levée des ZFE) ; les nuances « assouplir ou suspendre les ZFE en gardant 2035 » et « réduire la place de la voiture » sont perdues. Questions : territoires-x3 (Corse), territoires-x4 (Nouvelle-Calédonie), territoires-x5 (ZAN), immigration-x1 (AME), europe-x4 (élargissement), ukraine_russie-x3 (garanties), agriculture-x4 (revenu agricole), societe-x1 (médias), europe-x5 (États-Unis), immigration-x2 (accord de 1968), education-x1 (climat scolaire), ecologie_energie-x9 (croissance). Trois restent sous le minimum de conception de 9 candidats connus, gardées parce qu’imposées : territoires-x5 (6), societe-x1 (6), europe-x4 (4).",
+    "sujetsAbsentsDeLaCritique": "Non ajoutés (il faudrait un thème ou une question nouvelle et une relance) : politique africaine et aide au développement ; guerre de 2026 entre les États-Unis, Israël et l’Iran (Ormuz) ; libertés publiques et dissolutions ; monnaie (euro, argent liquide, euro numérique) ; sport (priorité faible). La fin de vie est déjà couverte par sante-3.",
+    "approchesManquantes": "Les approches manquantes proposées par les relecteurs sur les questions nouvelles (neutrality.proposals.missingApproaches : societe-x1, education-x1, territoires-x4, agriculture-x4, ecologie_energie-x9, securite_justice-x1, institutions-x1, fiscalite-x1, europe-x4, ecologie_energie-x8) ne sont pas ajoutées : hors décisions par défaut, et plusieurs questions dépasseraient 6 approches.",
+    "aDeciderParLeProprietaire": "Exemption de Markovic au questionnaire rapide et à la couverture de la banque (proposition de la critique, à porter dans quality et dans tools/audit-pack.mjs et tests/packs.test.ts) ; 18 questions à plus de 6 approches (contrôle bank-approaches), conséquence des 40 approches ajoutées ; 6 questions au-delà de 60 % d’approches principales (solidarites-3, droits_lgbtqia-1, numerique-2, proche_orient-2, immigration-x2, europe-x4) ; recoupements partiels acceptés par défaut : securite_justice-x1 et securite_justice-2-h, ukraine_russie-x3 et ukraine_russie-1-h, institutions-x1 et institutions-1-e. Recalcul de la vérification indépendante (audit-pack sur une copie) : la solution de repli de la critique (numerique-1, defense-4, institutions-3 en essentiel ; logement-1, securite_justice-1, laicite_republique-1 en approfondi) porte bien chaque candidat hors Markovic à 16 sur 22 au moins (écart 6 hors Markovic, étape 1 inchangée), mais elle fait sortir Markovic de la fourchette des profils aléatoires au questionnaire rapide (15,1 % de 1res places pour 11,9 % permis, contre 10,3 % aujourd’hui) : même avec une exemption de couverture, elle ne passe pas l’audit, et elle sort le logement et la laïcité du questionnaire rapide. Sans exemption, aucun changement de niveau raisonnable ne suffit : Markovic n’est connue que sur 7 questions de la banque (agriculture-1, la seule essentielle, puis sante-4, ecologie_energie-5, agriculture-2, agriculture-3, institutions-2 et institutions-3), loin des 16 exigées."
+  }
+}

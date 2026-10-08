@@ -1,0 +1,2611 @@
+{
+  "election": "presidentielle-2027",
+  "sources": {
+    "bank": "src/elections/presidentielle-2027/bank.ts",
+    "positions": "src/elections/presidentielle-2027/positions.ts",
+    "candidates": "src/elections/presidentielle-2027/candidates.ts",
+    "quality": "research/presidentielle-2027/config.json (quality)"
+  },
+  "counts": {
+    "candidates": 21,
+    "scored": 14,
+    "topics": 24,
+    "questions": 100,
+    "quick": 22,
+    "step1": 10
+  },
+  "quality": {
+    "step1": {
+      "count": 10,
+      "minKnownShare": 0.85,
+      "minKnownPerCandidate": 8,
+      "exempt": [
+        "markovic"
+      ]
+    },
+    "quick": {
+      "min": 22,
+      "max": 26,
+      "minKnownShare": 0.75,
+      "minCandidateShare": 0.7,
+      "maxSpread": 6
+    },
+    "bank": {
+      "min": 85,
+      "max": 100,
+      "approachesMin": 4,
+      "approachesMax": 9,
+      "maxMainShare": 0.6,
+      "maxMainShareScope": "quick",
+      "minCandidateShare": 0.4
+    },
+    "audit": {
+      "step1": [
+        3,
+        2
+      ],
+      "quick": [
+        4,
+        2.5
+      ]
+    }
+  },
+  "profiles": 3000,
+  "shares": {
+    "step1": {
+      "arthaud": 4.2,
+      "attal": 9.5,
+      "cazeneuve": 11.4,
+      "dupontaignan": 6.5,
+      "kazib": 7.3,
+      "labib": 3.9,
+      "lepen": 7.1,
+      "lisnard": 6.3,
+      "melenchon": 6.3,
+      "philippe": 8.5,
+      "philippot": 7.7,
+      "retailleau": 6.1,
+      "roussel": 8.4,
+      "zemmour": 6.8
+    },
+    "quick": {
+      "arthaud": 5.7,
+      "attal": 7.5,
+      "cazeneuve": 10.1,
+      "dupontaignan": 5,
+      "kazib": 6.1,
+      "labib": 5.3,
+      "lepen": 7.5,
+      "lisnard": 7.2,
+      "melenchon": 6.1,
+      "philippe": 8.9,
+      "philippot": 8.2,
+      "retailleau": 5.7,
+      "roussel": 8.4,
+      "zemmour": 8.5
+    },
+    "bank": {
+      "arthaud": 6.9,
+      "attal": 7.4,
+      "cazeneuve": 11.1,
+      "dupontaignan": 4.5,
+      "kazib": 7.7,
+      "labib": 5.8,
+      "lepen": 11,
+      "lisnard": 4.1,
+      "melenchon": 2.9,
+      "philippe": 6.8,
+      "philippot": 10.3,
+      "retailleau": 6,
+      "roussel": 5.7,
+      "zemmour": 9.9
+    }
+  },
+  "bounds": {
+    "step1": {
+      "min": 2.38,
+      "max": 14.29
+    },
+    "quick": {
+      "min": 1.79,
+      "max": 17.86
+    }
+  },
+  "coverage": {
+    "arthaud": {
+      "name": "Nathalie Arthaud",
+      "initials": "NA",
+      "step1": {
+        "known": 10,
+        "total": 10,
+        "share": 1
+      },
+      "quick": {
+        "known": 22,
+        "total": 22,
+        "share": 1
+      },
+      "bank": {
+        "known": 72,
+        "total": 100,
+        "share": 0.72
+      }
+    },
+    "attal": {
+      "name": "Gabriel Attal",
+      "initials": "GA",
+      "step1": {
+        "known": 9,
+        "total": 10,
+        "share": 0.9
+      },
+      "quick": {
+        "known": 21,
+        "total": 22,
+        "share": 0.955
+      },
+      "bank": {
+        "known": 77,
+        "total": 100,
+        "share": 0.77
+      }
+    },
+    "cazeneuve": {
+      "name": "Bernard Cazeneuve",
+      "initials": "BC",
+      "step1": {
+        "known": 8,
+        "total": 10,
+        "share": 0.8
+      },
+      "quick": {
+        "known": 20,
+        "total": 22,
+        "share": 0.909
+      },
+      "bank": {
+        "known": 55,
+        "total": 100,
+        "share": 0.55
+      }
+    },
+    "dupontaignan": {
+      "name": "Nicolas Dupont-Aignan",
+      "initials": "NDA",
+      "step1": {
+        "known": 10,
+        "total": 10,
+        "share": 1
+      },
+      "quick": {
+        "known": 22,
+        "total": 22,
+        "share": 1
+      },
+      "bank": {
+        "known": 88,
+        "total": 100,
+        "share": 0.88
+      }
+    },
+    "kazib": {
+      "name": "Anasse Kazib",
+      "initials": "AK",
+      "step1": {
+        "known": 10,
+        "total": 10,
+        "share": 1
+      },
+      "quick": {
+        "known": 22,
+        "total": 22,
+        "share": 1
+      },
+      "bank": {
+        "known": 70,
+        "total": 100,
+        "share": 0.7
+      }
+    },
+    "labib": {
+      "name": "Selma Labib",
+      "initials": "SL",
+      "step1": {
+        "known": 10,
+        "total": 10,
+        "share": 1
+      },
+      "quick": {
+        "known": 22,
+        "total": 22,
+        "share": 1
+      },
+      "bank": {
+        "known": 66,
+        "total": 100,
+        "share": 0.66
+      }
+    },
+    "lepen": {
+      "name": "Marine Le Pen",
+      "initials": "MLP",
+      "step1": {
+        "known": 10,
+        "total": 10,
+        "share": 1
+      },
+      "quick": {
+        "known": 22,
+        "total": 22,
+        "share": 1
+      },
+      "bank": {
+        "known": 62,
+        "total": 100,
+        "share": 0.62
+      }
+    },
+    "lisnard": {
+      "name": "David Lisnard",
+      "initials": "DL",
+      "step1": {
+        "known": 10,
+        "total": 10,
+        "share": 1
+      },
+      "quick": {
+        "known": 21,
+        "total": 22,
+        "share": 0.955
+      },
+      "bank": {
+        "known": 83,
+        "total": 100,
+        "share": 0.83
+      }
+    },
+    "melenchon": {
+      "name": "Jean-Luc Mélenchon",
+      "initials": "JLM",
+      "step1": {
+        "known": 10,
+        "total": 10,
+        "share": 1
+      },
+      "quick": {
+        "known": 22,
+        "total": 22,
+        "share": 1
+      },
+      "bank": {
+        "known": 97,
+        "total": 100,
+        "share": 0.97
+      }
+    },
+    "philippe": {
+      "name": "Édouard Philippe",
+      "initials": "ÉP",
+      "step1": {
+        "known": 10,
+        "total": 10,
+        "share": 1
+      },
+      "quick": {
+        "known": 22,
+        "total": 22,
+        "share": 1
+      },
+      "bank": {
+        "known": 68,
+        "total": 100,
+        "share": 0.68
+      }
+    },
+    "philippot": {
+      "name": "Florian Philippot",
+      "initials": "FP",
+      "step1": {
+        "known": 10,
+        "total": 10,
+        "share": 1
+      },
+      "quick": {
+        "known": 20,
+        "total": 22,
+        "share": 0.909
+      },
+      "bank": {
+        "known": 59,
+        "total": 100,
+        "share": 0.59
+      }
+    },
+    "retailleau": {
+      "name": "Bruno Retailleau",
+      "initials": "BR",
+      "step1": {
+        "known": 10,
+        "total": 10,
+        "share": 1
+      },
+      "quick": {
+        "known": 22,
+        "total": 22,
+        "share": 1
+      },
+      "bank": {
+        "known": 83,
+        "total": 100,
+        "share": 0.83
+      }
+    },
+    "roussel": {
+      "name": "Fabien Roussel",
+      "initials": "FR",
+      "step1": {
+        "known": 10,
+        "total": 10,
+        "share": 1
+      },
+      "quick": {
+        "known": 22,
+        "total": 22,
+        "share": 1
+      },
+      "bank": {
+        "known": 83,
+        "total": 100,
+        "share": 0.83
+      }
+    },
+    "zemmour": {
+      "name": "Éric Zemmour",
+      "initials": "ÉZ",
+      "step1": {
+        "known": 9,
+        "total": 10,
+        "share": 0.9
+      },
+      "quick": {
+        "known": 20,
+        "total": 22,
+        "share": 0.909
+      },
+      "bank": {
+        "known": 58,
+        "total": 100,
+        "share": 0.58
+      }
+    }
+  },
+  "excluded": {
+    "from": "src/elections/presidentielle-2027/election.ts (ranking.excluded), élection au registre",
+    "ids": [
+      "asselineau",
+      "batho",
+      "becht",
+      "bertrand",
+      "bouamrane",
+      "lalanne",
+      "markovic"
+    ],
+    "reason": "positions connues sur trop peu de questions",
+    "since": "2026-10-07",
+    "candidates": {
+      "asselineau": {
+        "name": "François Asselineau",
+        "initials": "FA",
+        "step1": {
+          "known": 10,
+          "total": 10,
+          "share": 1
+        },
+        "quick": {
+          "known": 14,
+          "total": 22,
+          "share": 0.636
+        },
+        "bank": {
+          "known": 44,
+          "total": 100,
+          "share": 0.44
+        },
+        "counted": {
+          "known": 46,
+          "total": 100
+        }
+      },
+      "batho": {
+        "name": "Delphine Batho",
+        "initials": "DB",
+        "step1": {
+          "known": 8,
+          "total": 10,
+          "share": 0.8
+        },
+        "quick": {
+          "known": 15,
+          "total": 22,
+          "share": 0.682
+        },
+        "bank": {
+          "known": 43,
+          "total": 100,
+          "share": 0.43
+        },
+        "counted": {
+          "known": 47,
+          "total": 100
+        }
+      },
+      "becht": {
+        "name": "Olivier Becht",
+        "initials": "OB",
+        "step1": {
+          "known": 8,
+          "total": 10,
+          "share": 0.8
+        },
+        "quick": {
+          "known": 15,
+          "total": 22,
+          "share": 0.682
+        },
+        "bank": {
+          "known": 45,
+          "total": 100,
+          "share": 0.45
+        },
+        "counted": {
+          "known": 46,
+          "total": 100
+        }
+      },
+      "bertrand": {
+        "name": "Xavier Bertrand",
+        "initials": "XB",
+        "step1": {
+          "known": 8,
+          "total": 10,
+          "share": 0.8
+        },
+        "quick": {
+          "known": 16,
+          "total": 22,
+          "share": 0.727
+        },
+        "bank": {
+          "known": 44,
+          "total": 100,
+          "share": 0.44
+        },
+        "counted": {
+          "known": 44,
+          "total": 100
+        }
+      },
+      "bouamrane": {
+        "name": "Karim Bouamrane",
+        "initials": "KB",
+        "step1": {
+          "known": 8,
+          "total": 10,
+          "share": 0.8
+        },
+        "quick": {
+          "known": 17,
+          "total": 22,
+          "share": 0.773
+        },
+        "bank": {
+          "known": 37,
+          "total": 100,
+          "share": 0.37
+        },
+        "counted": {
+          "known": 39,
+          "total": 100
+        }
+      },
+      "lalanne": {
+        "name": "Francis Lalanne",
+        "initials": "FL",
+        "step1": {
+          "known": 8,
+          "total": 10,
+          "share": 0.8
+        },
+        "quick": {
+          "known": 16,
+          "total": 22,
+          "share": 0.727
+        },
+        "bank": {
+          "known": 31,
+          "total": 100,
+          "share": 0.31
+        },
+        "counted": {
+          "known": 32,
+          "total": 100
+        }
+      },
+      "markovic": {
+        "name": "Mira Markovic",
+        "initials": "MM",
+        "step1": {
+          "known": 1,
+          "total": 10,
+          "share": 0.1
+        },
+        "quick": {
+          "known": 1,
+          "total": 22,
+          "share": 0.045
+        },
+        "bank": {
+          "known": 7,
+          "total": 100,
+          "share": 0.07
+        },
+        "counted": {
+          "known": 7,
+          "total": 100
+        }
+      }
+    }
+  },
+  "knownDistribution": {
+    "step1": {
+      "100 %": 7,
+      "85-99 %": 3,
+      "75-84 %": 0,
+      "50-74 %": 0,
+      "< 50 %": 0
+    },
+    "quick": {
+      "100 %": 15,
+      "85-99 %": 7,
+      "75-84 %": 0,
+      "50-74 %": 0,
+      "< 50 %": 0
+    },
+    "bank": {
+      "100 %": 17,
+      "85-99 %": 17,
+      "75-84 %": 8,
+      "50-74 %": 48,
+      "< 50 %": 10
+    }
+  },
+  "mainShare": {
+    "median": 0.4,
+    "max": 1
+  },
+  "questions": [
+    {
+      "id": "retraites-1",
+      "topicId": "retraites",
+      "tier": "essentiel",
+      "step": 2,
+      "approaches": 6,
+      "known": 14,
+      "knownShare": 1,
+      "knownAll": 17,
+      "mains": 11,
+      "maxMain": {
+        "approachId": "retraites-1-f",
+        "count": 4,
+        "share": 0.364
+      }
+    },
+    {
+      "id": "finances_publiques-1",
+      "topicId": "finances_publiques",
+      "tier": "essentiel",
+      "step": 1,
+      "approaches": 7,
+      "known": 14,
+      "knownShare": 1,
+      "knownAll": 20,
+      "mains": 10,
+      "maxMain": {
+        "approachId": "finances_publiques-1-b",
+        "count": 4,
+        "share": 0.4
+      }
+    },
+    {
+      "id": "industrie_economie-1",
+      "topicId": "industrie_economie",
+      "tier": "essentiel",
+      "step": 1,
+      "approaches": 6,
+      "known": 14,
+      "knownShare": 1,
+      "knownAll": 18,
+      "mains": 9,
+      "maxMain": {
+        "approachId": "industrie_economie-1-e",
+        "count": 2,
+        "share": 0.222
+      }
+    },
+    {
+      "id": "travail_salaires-1",
+      "topicId": "travail_salaires",
+      "tier": "essentiel",
+      "step": 1,
+      "approaches": 9,
+      "known": 13,
+      "knownShare": 0.929,
+      "knownAll": 18,
+      "mains": 10,
+      "maxMain": {
+        "approachId": "travail_salaires-1-b",
+        "count": 3,
+        "share": 0.3
+      }
+    },
+    {
+      "id": "fiscalite-1",
+      "topicId": "fiscalite",
+      "tier": "approfondi",
+      "approaches": 6,
+      "known": 8,
+      "knownShare": 0.571,
+      "knownAll": 11,
+      "mains": 5,
+      "maxMain": {
+        "approachId": "fiscalite-1-e",
+        "count": 3,
+        "share": 0.6
+      }
+    },
+    {
+      "id": "fiscalite-2",
+      "topicId": "fiscalite",
+      "tier": "approfondi",
+      "approaches": 7,
+      "known": 11,
+      "knownShare": 0.786,
+      "knownAll": 12,
+      "mains": 8,
+      "maxMain": {
+        "approachId": "fiscalite-2-d",
+        "count": 3,
+        "share": 0.375
+      }
+    },
+    {
+      "id": "finances_publiques-2",
+      "topicId": "finances_publiques",
+      "tier": "approfondi",
+      "approaches": 6,
+      "known": 10,
+      "knownShare": 0.714,
+      "knownAll": 13,
+      "mains": 8,
+      "maxMain": {
+        "approachId": "finances_publiques-2-a",
+        "count": 4,
+        "share": 0.5
+      }
+    },
+    {
+      "id": "finances_publiques-3",
+      "topicId": "finances_publiques",
+      "tier": "approfondi",
+      "approaches": 6,
+      "known": 10,
+      "knownShare": 0.714,
+      "knownAll": 12,
+      "mains": 6,
+      "maxMain": {
+        "approachId": "finances_publiques-3-a",
+        "count": 4,
+        "share": 0.667
+      }
+    },
+    {
+      "id": "travail_salaires-2",
+      "topicId": "travail_salaires",
+      "tier": "approfondi",
+      "approaches": 6,
+      "known": 9,
+      "knownShare": 0.643,
+      "knownAll": 10,
+      "mains": 6,
+      "maxMain": {
+        "approachId": "travail_salaires-2-a",
+        "count": 3,
+        "share": 0.5
+      }
+    },
+    {
+      "id": "travail_salaires-3",
+      "topicId": "travail_salaires",
+      "tier": "approfondi",
+      "approaches": 6,
+      "known": 9,
+      "knownShare": 0.643,
+      "knownAll": 10,
+      "mains": 9,
+      "maxMain": {
+        "approachId": "travail_salaires-3-d",
+        "count": 3,
+        "share": 0.333
+      }
+    },
+    {
+      "id": "travail_salaires-4",
+      "topicId": "travail_salaires",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 9,
+      "knownShare": 0.643,
+      "knownAll": 9,
+      "mains": 7,
+      "maxMain": {
+        "approachId": "travail_salaires-4-d",
+        "count": 3,
+        "share": 0.429
+      }
+    },
+    {
+      "id": "industrie_economie-2",
+      "topicId": "industrie_economie",
+      "tier": "approfondi",
+      "approaches": 6,
+      "known": 14,
+      "knownShare": 1,
+      "knownAll": 18,
+      "mains": 10,
+      "maxMain": {
+        "approachId": "industrie_economie-2-a",
+        "count": 3,
+        "share": 0.3
+      }
+    },
+    {
+      "id": "industrie_economie-3",
+      "topicId": "industrie_economie",
+      "tier": "approfondi",
+      "approaches": 4,
+      "known": 10,
+      "knownShare": 0.714,
+      "knownAll": 13,
+      "mains": 6,
+      "maxMain": {
+        "approachId": "industrie_economie-3-a",
+        "count": 3,
+        "share": 0.5
+      }
+    },
+    {
+      "id": "retraites-2",
+      "topicId": "retraites",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 13,
+      "knownShare": 0.929,
+      "knownAll": 14,
+      "mains": 9,
+      "maxMain": {
+        "approachId": "retraites-2-a",
+        "count": 3,
+        "share": 0.333
+      }
+    },
+    {
+      "id": "retraites-3",
+      "topicId": "retraites",
+      "tier": "approfondi",
+      "approaches": 4,
+      "known": 8,
+      "knownShare": 0.571,
+      "knownAll": 9,
+      "mains": 8,
+      "maxMain": {
+        "approachId": "retraites-3-a",
+        "count": 3,
+        "share": 0.375
+      }
+    },
+    {
+      "id": "sante-1",
+      "topicId": "sante",
+      "tier": "approfondi",
+      "approaches": 9,
+      "known": 12,
+      "knownShare": 0.857,
+      "knownAll": 15,
+      "mains": 10,
+      "maxMain": {
+        "approachId": "sante-1-b",
+        "count": 4,
+        "share": 0.4
+      }
+    },
+    {
+      "id": "solidarites-1",
+      "topicId": "solidarites",
+      "tier": "essentiel",
+      "step": 2,
+      "approaches": 7,
+      "known": 14,
+      "knownShare": 1,
+      "knownAll": 17,
+      "mains": 13,
+      "maxMain": {
+        "approachId": "solidarites-1-b",
+        "count": 4,
+        "share": 0.308
+      }
+    },
+    {
+      "id": "logement-1",
+      "topicId": "logement",
+      "tier": "essentiel",
+      "step": 2,
+      "approaches": 7,
+      "known": 13,
+      "knownShare": 0.929,
+      "knownAll": 16,
+      "mains": 11,
+      "maxMain": {
+        "approachId": "logement-1-c",
+        "count": 3,
+        "share": 0.273
+      }
+    },
+    {
+      "id": "sante-2",
+      "topicId": "sante",
+      "tier": "approfondi",
+      "approaches": 6,
+      "known": 11,
+      "knownShare": 0.786,
+      "knownAll": 12,
+      "mains": 5,
+      "maxMain": {
+        "approachId": "sante-2-c",
+        "count": 2,
+        "share": 0.4
+      }
+    },
+    {
+      "id": "sante-3",
+      "topicId": "sante",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 10,
+      "knownShare": 0.714,
+      "knownAll": 13,
+      "mains": 8,
+      "maxMain": {
+        "approachId": "sante-3-d",
+        "count": 5,
+        "share": 0.625
+      }
+    },
+    {
+      "id": "sante-4",
+      "topicId": "sante",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 9,
+      "knownShare": 0.643,
+      "knownAll": 15,
+      "mains": 3,
+      "maxMain": {
+        "approachId": "sante-4-d",
+        "count": 1,
+        "share": 0.333
+      }
+    },
+    {
+      "id": "sante-5",
+      "topicId": "sante",
+      "tier": "approfondi",
+      "approaches": 6,
+      "known": 6,
+      "knownShare": 0.429,
+      "knownAll": 7,
+      "mains": 2,
+      "maxMain": {
+        "approachId": "sante-5-a",
+        "count": 1,
+        "share": 0.5
+      }
+    },
+    {
+      "id": "logement-2",
+      "topicId": "logement",
+      "tier": "approfondi",
+      "approaches": 6,
+      "known": 9,
+      "knownShare": 0.643,
+      "knownAll": 9,
+      "mains": 4,
+      "maxMain": {
+        "approachId": "logement-2-b",
+        "count": 1,
+        "share": 0.25
+      }
+    },
+    {
+      "id": "logement-3",
+      "topicId": "logement",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 13,
+      "knownShare": 0.929,
+      "knownAll": 14,
+      "mains": 6,
+      "maxMain": {
+        "approachId": "logement-3-a",
+        "count": 3,
+        "share": 0.5
+      }
+    },
+    {
+      "id": "logement-4",
+      "topicId": "logement",
+      "tier": "approfondi",
+      "approaches": 6,
+      "known": 7,
+      "knownShare": 0.5,
+      "knownAll": 8,
+      "mains": 6,
+      "maxMain": {
+        "approachId": "logement-4-a",
+        "count": 2,
+        "share": 0.333
+      }
+    },
+    {
+      "id": "solidarites-2",
+      "topicId": "solidarites",
+      "tier": "approfondi",
+      "approaches": 6,
+      "known": 10,
+      "knownShare": 0.714,
+      "knownAll": 13,
+      "mains": 6,
+      "maxMain": {
+        "approachId": "solidarites-2-b",
+        "count": 2,
+        "share": 0.333
+      }
+    },
+    {
+      "id": "solidarites-3",
+      "topicId": "solidarites",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 6,
+      "knownShare": 0.429,
+      "knownAll": 8,
+      "mains": 3,
+      "maxMain": {
+        "approachId": "solidarites-3-a",
+        "count": 3,
+        "share": 1
+      }
+    },
+    {
+      "id": "egalite-1",
+      "topicId": "egalite",
+      "tier": "essentiel",
+      "step": 2,
+      "approaches": 5,
+      "known": 13,
+      "knownShare": 0.929,
+      "knownAll": 16,
+      "mains": 9,
+      "maxMain": {
+        "approachId": "egalite-1-b",
+        "count": 3,
+        "share": 0.333
+      }
+    },
+    {
+      "id": "egalite-2",
+      "topicId": "egalite",
+      "tier": "approfondi",
+      "approaches": 6,
+      "known": 7,
+      "knownShare": 0.5,
+      "knownAll": 7,
+      "mains": 6,
+      "maxMain": {
+        "approachId": "egalite-2-e",
+        "count": 1,
+        "share": 0.167
+      }
+    },
+    {
+      "id": "egalite-3",
+      "topicId": "egalite",
+      "tier": "approfondi",
+      "approaches": 6,
+      "known": 7,
+      "knownShare": 0.5,
+      "knownAll": 9,
+      "mains": 3,
+      "maxMain": {
+        "approachId": "egalite-3-e",
+        "count": 1,
+        "share": 0.333
+      }
+    },
+    {
+      "id": "egalite-4",
+      "topicId": "egalite",
+      "tier": "approfondi",
+      "approaches": 6,
+      "known": 8,
+      "knownShare": 0.571,
+      "knownAll": 8,
+      "mains": 2,
+      "maxMain": {
+        "approachId": "egalite-4-b",
+        "count": 1,
+        "share": 0.5
+      }
+    },
+    {
+      "id": "droits_lgbtqia-1",
+      "topicId": "droits_lgbtqia",
+      "tier": "approfondi",
+      "approaches": 4,
+      "known": 7,
+      "knownShare": 0.5,
+      "knownAll": 9,
+      "mains": 5,
+      "maxMain": {
+        "approachId": "droits_lgbtqia-1-c",
+        "count": 4,
+        "share": 0.8
+      }
+    },
+    {
+      "id": "droits_lgbtqia-2",
+      "topicId": "droits_lgbtqia",
+      "tier": "approfondi",
+      "approaches": 4,
+      "known": 5,
+      "knownShare": 0.357,
+      "knownAll": 5,
+      "mains": 3,
+      "maxMain": {
+        "approachId": "droits_lgbtqia-2-d",
+        "count": 1,
+        "share": 0.333
+      }
+    },
+    {
+      "id": "education-1",
+      "topicId": "education",
+      "tier": "essentiel",
+      "step": 2,
+      "approaches": 8,
+      "known": 14,
+      "knownShare": 1,
+      "knownAll": 18,
+      "mains": 12,
+      "maxMain": {
+        "approachId": "education-1-b",
+        "count": 4,
+        "share": 0.333
+      }
+    },
+    {
+      "id": "education-2",
+      "topicId": "education",
+      "tier": "approfondi",
+      "approaches": 6,
+      "known": 6,
+      "knownShare": 0.429,
+      "knownAll": 6,
+      "mains": 3,
+      "maxMain": {
+        "approachId": "education-2-d",
+        "count": 1,
+        "share": 0.333
+      }
+    },
+    {
+      "id": "education-3",
+      "topicId": "education",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 10,
+      "knownShare": 0.714,
+      "knownAll": 10,
+      "mains": 6,
+      "maxMain": {
+        "approachId": "education-3-b",
+        "count": 3,
+        "share": 0.5
+      }
+    },
+    {
+      "id": "education-4",
+      "topicId": "education",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 9,
+      "knownShare": 0.643,
+      "knownAll": 10,
+      "mains": 4,
+      "maxMain": {
+        "approachId": "education-4-b",
+        "count": 2,
+        "share": 0.5
+      }
+    },
+    {
+      "id": "education-5",
+      "topicId": "education",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 6,
+      "knownShare": 0.429,
+      "knownAll": 7,
+      "mains": 5,
+      "maxMain": {
+        "approachId": "education-5-a",
+        "count": 3,
+        "share": 0.6
+      }
+    },
+    {
+      "id": "societe-1",
+      "topicId": "societe",
+      "tier": "approfondi",
+      "approaches": 6,
+      "known": 9,
+      "knownShare": 0.643,
+      "knownAll": 10,
+      "mains": 3,
+      "maxMain": {
+        "approachId": "societe-1-c",
+        "count": 1,
+        "share": 0.333
+      }
+    },
+    {
+      "id": "societe-2",
+      "topicId": "societe",
+      "tier": "approfondi",
+      "approaches": 6,
+      "known": 8,
+      "knownShare": 0.571,
+      "knownAll": 9,
+      "mains": 3,
+      "maxMain": {
+        "approachId": "societe-2-d",
+        "count": 1,
+        "share": 0.333
+      }
+    },
+    {
+      "id": "numerique-1",
+      "topicId": "numerique",
+      "tier": "approfondi",
+      "approaches": 6,
+      "known": 13,
+      "knownShare": 0.929,
+      "knownAll": 18,
+      "mains": 10,
+      "maxMain": {
+        "approachId": "numerique-1-b",
+        "count": 4,
+        "share": 0.4
+      }
+    },
+    {
+      "id": "numerique-2",
+      "topicId": "numerique",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 8,
+      "knownShare": 0.571,
+      "knownAll": 11,
+      "mains": 5,
+      "maxMain": {
+        "approachId": "numerique-2-e",
+        "count": 3,
+        "share": 0.6
+      }
+    },
+    {
+      "id": "numerique-3",
+      "topicId": "numerique",
+      "tier": "approfondi",
+      "approaches": 7,
+      "known": 7,
+      "knownShare": 0.5,
+      "knownAll": 10,
+      "mains": 4,
+      "maxMain": {
+        "approachId": "numerique-3-d",
+        "count": 2,
+        "share": 0.5
+      }
+    },
+    {
+      "id": "numerique-4",
+      "topicId": "numerique",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 9,
+      "knownShare": 0.643,
+      "knownAll": 11,
+      "mains": 6,
+      "maxMain": {
+        "approachId": "numerique-4-a",
+        "count": 3,
+        "share": 0.5
+      }
+    },
+    {
+      "id": "ecologie_energie-1",
+      "topicId": "ecologie_energie",
+      "tier": "essentiel",
+      "step": 2,
+      "approaches": 5,
+      "known": 14,
+      "knownShare": 1,
+      "knownAll": 18,
+      "mains": 11,
+      "maxMain": {
+        "approachId": "ecologie_energie-1-a",
+        "count": 5,
+        "share": 0.455
+      }
+    },
+    {
+      "id": "ecologie_energie-2",
+      "topicId": "ecologie_energie",
+      "tier": "essentiel",
+      "step": 1,
+      "approaches": 6,
+      "known": 14,
+      "knownShare": 1,
+      "knownAll": 19,
+      "mains": 12,
+      "maxMain": {
+        "approachId": "ecologie_energie-2-a",
+        "count": 5,
+        "share": 0.417
+      }
+    },
+    {
+      "id": "territoires-1",
+      "topicId": "territoires",
+      "tier": "essentiel",
+      "step": 1,
+      "approaches": 6,
+      "known": 14,
+      "knownShare": 1,
+      "knownAll": 19,
+      "mains": 7,
+      "maxMain": {
+        "approachId": "territoires-1-b",
+        "count": 3,
+        "share": 0.429
+      }
+    },
+    {
+      "id": "ecologie_energie-3",
+      "topicId": "ecologie_energie",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 10,
+      "knownShare": 0.714,
+      "knownAll": 11,
+      "mains": 8,
+      "maxMain": {
+        "approachId": "ecologie_energie-3-a",
+        "count": 3,
+        "share": 0.375
+      }
+    },
+    {
+      "id": "ecologie_energie-4",
+      "topicId": "ecologie_energie",
+      "tier": "approfondi",
+      "approaches": 7,
+      "known": 14,
+      "knownShare": 1,
+      "knownAll": 17,
+      "mains": 11,
+      "maxMain": {
+        "approachId": "ecologie_energie-4-d",
+        "count": 4,
+        "share": 0.364
+      }
+    },
+    {
+      "id": "ecologie_energie-5",
+      "topicId": "ecologie_energie",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 8,
+      "knownShare": 0.571,
+      "knownAll": 10,
+      "mains": 5,
+      "maxMain": {
+        "approachId": "ecologie_energie-5-a",
+        "count": 3,
+        "share": 0.6
+      }
+    },
+    {
+      "id": "ecologie_energie-6",
+      "topicId": "ecologie_energie",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 10,
+      "knownShare": 0.714,
+      "knownAll": 13,
+      "mains": 8,
+      "maxMain": {
+        "approachId": "ecologie_energie-6-a",
+        "count": 3,
+        "share": 0.375
+      }
+    },
+    {
+      "id": "ecologie_energie-7",
+      "topicId": "ecologie_energie",
+      "tier": "approfondi",
+      "approaches": 6,
+      "known": 10,
+      "knownShare": 0.714,
+      "knownAll": 14,
+      "mains": 7,
+      "maxMain": {
+        "approachId": "ecologie_energie-7-a",
+        "count": 3,
+        "share": 0.429
+      }
+    },
+    {
+      "id": "agriculture-1",
+      "topicId": "agriculture",
+      "tier": "essentiel",
+      "step": 1,
+      "approaches": 6,
+      "known": 12,
+      "knownShare": 0.857,
+      "knownAll": 19,
+      "mains": 7,
+      "maxMain": {
+        "approachId": "agriculture-1-b",
+        "count": 3,
+        "share": 0.429
+      }
+    },
+    {
+      "id": "agriculture-2",
+      "topicId": "agriculture",
+      "tier": "approfondi",
+      "approaches": 4,
+      "known": 9,
+      "knownShare": 0.643,
+      "knownAll": 13,
+      "mains": 3,
+      "maxMain": {
+        "approachId": "agriculture-2-c",
+        "count": 1,
+        "share": 0.333
+      }
+    },
+    {
+      "id": "agriculture-3",
+      "topicId": "agriculture",
+      "tier": "approfondi",
+      "approaches": 6,
+      "known": 5,
+      "knownShare": 0.357,
+      "knownAll": 6,
+      "mains": 3,
+      "maxMain": {
+        "approachId": "agriculture-3-c",
+        "count": 1,
+        "share": 0.333
+      }
+    },
+    {
+      "id": "territoires-2",
+      "topicId": "territoires",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 8,
+      "knownShare": 0.571,
+      "knownAll": 13,
+      "mains": 7,
+      "maxMain": {
+        "approachId": "territoires-2-b",
+        "count": 2,
+        "share": 0.286
+      }
+    },
+    {
+      "id": "securite_justice-1",
+      "topicId": "securite_justice",
+      "tier": "essentiel",
+      "step": 2,
+      "approaches": 7,
+      "known": 14,
+      "knownShare": 1,
+      "knownAll": 18,
+      "mains": 10,
+      "maxMain": {
+        "approachId": "securite_justice-1-a",
+        "count": 3,
+        "share": 0.3
+      }
+    },
+    {
+      "id": "securite_justice-2",
+      "topicId": "securite_justice",
+      "tier": "essentiel",
+      "step": 2,
+      "approaches": 8,
+      "known": 13,
+      "knownShare": 0.929,
+      "knownAll": 17,
+      "mains": 8,
+      "maxMain": {
+        "approachId": "securite_justice-2-c",
+        "count": 2,
+        "share": 0.25
+      }
+    },
+    {
+      "id": "securite_justice-3",
+      "topicId": "securite_justice",
+      "tier": "approfondi",
+      "approaches": 6,
+      "known": 11,
+      "knownShare": 0.786,
+      "knownAll": 15,
+      "mains": 7,
+      "maxMain": {
+        "approachId": "securite_justice-3-b",
+        "count": 3,
+        "share": 0.429
+      }
+    },
+    {
+      "id": "securite_justice-4",
+      "topicId": "securite_justice",
+      "tier": "approfondi",
+      "approaches": 6,
+      "known": 13,
+      "knownShare": 0.929,
+      "knownAll": 16,
+      "mains": 6,
+      "maxMain": {
+        "approachId": "securite_justice-4-b",
+        "count": 3,
+        "share": 0.5
+      }
+    },
+    {
+      "id": "securite_justice-5",
+      "topicId": "securite_justice",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 9,
+      "knownShare": 0.643,
+      "knownAll": 12,
+      "mains": 4,
+      "maxMain": {
+        "approachId": "securite_justice-5-b",
+        "count": 2,
+        "share": 0.5
+      }
+    },
+    {
+      "id": "securite_justice-6",
+      "topicId": "securite_justice",
+      "tier": "approfondi",
+      "approaches": 7,
+      "known": 9,
+      "knownShare": 0.643,
+      "knownAll": 10,
+      "mains": 6,
+      "maxMain": {
+        "approachId": "securite_justice-6-c",
+        "count": 2,
+        "share": 0.333
+      }
+    },
+    {
+      "id": "immigration-1",
+      "topicId": "immigration",
+      "tier": "essentiel",
+      "step": 1,
+      "approaches": 6,
+      "known": 14,
+      "knownShare": 1,
+      "knownAll": 18,
+      "mains": 13,
+      "maxMain": {
+        "approachId": "immigration-1-b",
+        "count": 5,
+        "share": 0.385
+      }
+    },
+    {
+      "id": "immigration-2",
+      "topicId": "immigration",
+      "tier": "essentiel",
+      "step": 2,
+      "approaches": 5,
+      "known": 14,
+      "knownShare": 1,
+      "knownAll": 17,
+      "mains": 8,
+      "maxMain": {
+        "approachId": "immigration-2-b",
+        "count": 4,
+        "share": 0.5
+      }
+    },
+    {
+      "id": "immigration-3",
+      "topicId": "immigration",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 13,
+      "knownShare": 0.929,
+      "knownAll": 16,
+      "mains": 9,
+      "maxMain": {
+        "approachId": "immigration-3-a",
+        "count": 3,
+        "share": 0.333
+      }
+    },
+    {
+      "id": "immigration-4",
+      "topicId": "immigration",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 10,
+      "knownShare": 0.714,
+      "knownAll": 11,
+      "mains": 7,
+      "maxMain": {
+        "approachId": "immigration-4-a",
+        "count": 4,
+        "share": 0.571
+      }
+    },
+    {
+      "id": "immigration-5",
+      "topicId": "immigration",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 8,
+      "knownShare": 0.571,
+      "knownAll": 8,
+      "mains": 7,
+      "maxMain": {
+        "approachId": "immigration-5-d",
+        "count": 2,
+        "share": 0.286
+      }
+    },
+    {
+      "id": "immigration-6",
+      "topicId": "immigration",
+      "tier": "approfondi",
+      "approaches": 4,
+      "known": 13,
+      "knownShare": 0.929,
+      "knownAll": 15,
+      "mains": 4,
+      "maxMain": {
+        "approachId": "immigration-6-a",
+        "count": 2,
+        "share": 0.5
+      }
+    },
+    {
+      "id": "europe-1",
+      "topicId": "europe",
+      "tier": "essentiel",
+      "step": 1,
+      "approaches": 7,
+      "known": 14,
+      "knownShare": 1,
+      "knownAll": 20,
+      "mains": 9,
+      "maxMain": {
+        "approachId": "europe-1-c",
+        "count": 4,
+        "share": 0.444
+      }
+    },
+    {
+      "id": "europe-2",
+      "topicId": "europe",
+      "tier": "approfondi",
+      "approaches": 6,
+      "known": 9,
+      "knownShare": 0.643,
+      "knownAll": 12,
+      "mains": 7,
+      "maxMain": {
+        "approachId": "europe-2-d",
+        "count": 2,
+        "share": 0.286
+      }
+    },
+    {
+      "id": "europe-3",
+      "topicId": "europe",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 12,
+      "knownShare": 0.857,
+      "knownAll": 15,
+      "mains": 10,
+      "maxMain": {
+        "approachId": "europe-3-d",
+        "count": 4,
+        "share": 0.4
+      }
+    },
+    {
+      "id": "ukraine_russie-1",
+      "topicId": "ukraine_russie",
+      "tier": "essentiel",
+      "step": 2,
+      "approaches": 8,
+      "known": 14,
+      "knownShare": 1,
+      "knownAll": 18,
+      "mains": 11,
+      "maxMain": {
+        "approachId": "ukraine_russie-1-c",
+        "count": 3,
+        "share": 0.273
+      }
+    },
+    {
+      "id": "ukraine_russie-2",
+      "topicId": "ukraine_russie",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 9,
+      "knownShare": 0.643,
+      "knownAll": 12,
+      "mains": 7,
+      "maxMain": {
+        "approachId": "ukraine_russie-2-e",
+        "count": 2,
+        "share": 0.286
+      }
+    },
+    {
+      "id": "proche_orient-1",
+      "topicId": "proche_orient",
+      "tier": "approfondi",
+      "approaches": 8,
+      "known": 8,
+      "knownShare": 0.571,
+      "knownAll": 10,
+      "mains": 5,
+      "maxMain": {
+        "approachId": "proche_orient-1-e",
+        "count": 2,
+        "share": 0.4
+      }
+    },
+    {
+      "id": "proche_orient-2",
+      "topicId": "proche_orient",
+      "tier": "approfondi",
+      "approaches": 4,
+      "known": 11,
+      "knownShare": 0.786,
+      "knownAll": 14,
+      "mains": 7,
+      "maxMain": {
+        "approachId": "proche_orient-2-c",
+        "count": 4,
+        "share": 0.571
+      }
+    },
+    {
+      "id": "defense-1",
+      "topicId": "defense",
+      "tier": "essentiel",
+      "step": 1,
+      "approaches": 5,
+      "known": 13,
+      "knownShare": 0.929,
+      "knownAll": 18,
+      "mains": 8,
+      "maxMain": {
+        "approachId": "defense-1-d",
+        "count": 3,
+        "share": 0.375
+      }
+    },
+    {
+      "id": "defense-2",
+      "topicId": "defense",
+      "tier": "approfondi",
+      "approaches": 4,
+      "known": 10,
+      "knownShare": 0.714,
+      "knownAll": 12,
+      "mains": 4,
+      "maxMain": {
+        "approachId": "defense-2-d",
+        "count": 2,
+        "share": 0.5
+      }
+    },
+    {
+      "id": "defense-3",
+      "topicId": "defense",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 11,
+      "knownShare": 0.786,
+      "knownAll": 13,
+      "mains": 10,
+      "maxMain": {
+        "approachId": "defense-3-c",
+        "count": 5,
+        "share": 0.5
+      }
+    },
+    {
+      "id": "defense-4",
+      "topicId": "defense",
+      "tier": "approfondi",
+      "approaches": 4,
+      "known": 12,
+      "knownShare": 0.857,
+      "knownAll": 17,
+      "mains": 9,
+      "maxMain": {
+        "approachId": "defense-4-d",
+        "count": 3,
+        "share": 0.333
+      }
+    },
+    {
+      "id": "defense-5",
+      "topicId": "defense",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 9,
+      "knownShare": 0.643,
+      "knownAll": 10,
+      "mains": 8,
+      "maxMain": {
+        "approachId": "defense-5-e",
+        "count": 3,
+        "share": 0.375
+      }
+    },
+    {
+      "id": "institutions-1",
+      "topicId": "institutions",
+      "tier": "essentiel",
+      "step": 1,
+      "approaches": 7,
+      "known": 14,
+      "knownShare": 1,
+      "knownAll": 18,
+      "mains": 9,
+      "maxMain": {
+        "approachId": "institutions-1-d",
+        "count": 3,
+        "share": 0.333
+      }
+    },
+    {
+      "id": "institutions-2",
+      "topicId": "institutions",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 9,
+      "knownShare": 0.643,
+      "knownAll": 10,
+      "mains": 6,
+      "maxMain": {
+        "approachId": "institutions-2-e",
+        "count": 3,
+        "share": 0.5
+      }
+    },
+    {
+      "id": "institutions-3",
+      "topicId": "institutions",
+      "tier": "approfondi",
+      "approaches": 7,
+      "known": 11,
+      "knownShare": 0.786,
+      "knownAll": 16,
+      "mains": 7,
+      "maxMain": {
+        "approachId": "institutions-3-d",
+        "count": 3,
+        "share": 0.429
+      }
+    },
+    {
+      "id": "laicite_republique-1",
+      "topicId": "laicite_republique",
+      "tier": "essentiel",
+      "step": 2,
+      "approaches": 7,
+      "known": 13,
+      "knownShare": 0.929,
+      "knownAll": 16,
+      "mains": 12,
+      "maxMain": {
+        "approachId": "laicite_republique-1-b",
+        "count": 4,
+        "share": 0.333
+      }
+    },
+    {
+      "id": "laicite_republique-2",
+      "topicId": "laicite_republique",
+      "tier": "approfondi",
+      "approaches": 6,
+      "known": 12,
+      "knownShare": 0.857,
+      "knownAll": 14,
+      "mains": 6,
+      "maxMain": {
+        "approachId": "laicite_republique-2-e",
+        "count": 3,
+        "share": 0.5
+      }
+    },
+    {
+      "id": "fiscalite-x1",
+      "topicId": "fiscalite",
+      "tier": "essentiel",
+      "step": 2,
+      "approaches": 5,
+      "known": 14,
+      "knownShare": 1,
+      "knownAll": 19,
+      "mains": 12,
+      "maxMain": {
+        "approachId": "fiscalite-x1-a",
+        "count": 5,
+        "share": 0.417
+      }
+    },
+    {
+      "id": "education-x1",
+      "topicId": "education",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 11,
+      "knownShare": 0.786,
+      "knownAll": 12,
+      "mains": 7,
+      "maxMain": {
+        "approachId": "education-x1-a",
+        "count": 4,
+        "share": 0.571
+      }
+    },
+    {
+      "id": "societe-x1",
+      "topicId": "societe",
+      "tier": "approfondi",
+      "approaches": 4,
+      "known": 6,
+      "knownShare": 0.429,
+      "knownAll": 8,
+      "mains": 4,
+      "maxMain": {
+        "approachId": "societe-x1-a",
+        "count": 2,
+        "share": 0.5
+      }
+    },
+    {
+      "id": "territoires-x3",
+      "topicId": "territoires",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 6,
+      "knownShare": 0.429,
+      "knownAll": 9,
+      "mains": 3,
+      "maxMain": {
+        "approachId": "territoires-x3-c",
+        "count": 1,
+        "share": 0.333
+      }
+    },
+    {
+      "id": "territoires-x4",
+      "topicId": "territoires",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 8,
+      "knownShare": 0.571,
+      "knownAll": 9,
+      "mains": 5,
+      "maxMain": {
+        "approachId": "territoires-x4-a",
+        "count": 2,
+        "share": 0.4
+      }
+    },
+    {
+      "id": "territoires-x5",
+      "topicId": "territoires",
+      "tier": "approfondi",
+      "approaches": 4,
+      "known": 5,
+      "knownShare": 0.357,
+      "knownAll": 6,
+      "mains": 4,
+      "maxMain": {
+        "approachId": "territoires-x5-a",
+        "count": 3,
+        "share": 0.75
+      }
+    },
+    {
+      "id": "agriculture-x4",
+      "topicId": "agriculture",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 10,
+      "knownShare": 0.714,
+      "knownAll": 12,
+      "mains": 6,
+      "maxMain": {
+        "approachId": "agriculture-x4-a",
+        "count": 3,
+        "share": 0.5
+      }
+    },
+    {
+      "id": "ecologie_energie-x9",
+      "topicId": "ecologie_energie",
+      "tier": "approfondi",
+      "approaches": 4,
+      "known": 11,
+      "knownShare": 0.786,
+      "knownAll": 14,
+      "mains": 8,
+      "maxMain": {
+        "approachId": "ecologie_energie-x9-d",
+        "count": 4,
+        "share": 0.5
+      }
+    },
+    {
+      "id": "securite_justice-x1",
+      "topicId": "securite_justice",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 9,
+      "knownShare": 0.643,
+      "knownAll": 9,
+      "mains": 6,
+      "maxMain": {
+        "approachId": "securite_justice-x1-b",
+        "count": 3,
+        "share": 0.5
+      }
+    },
+    {
+      "id": "immigration-x1",
+      "topicId": "immigration",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 9,
+      "knownShare": 0.643,
+      "knownAll": 9,
+      "mains": 7,
+      "maxMain": {
+        "approachId": "immigration-x1-a",
+        "count": 4,
+        "share": 0.571
+      }
+    },
+    {
+      "id": "immigration-x2",
+      "topicId": "immigration",
+      "tier": "approfondi",
+      "approaches": 4,
+      "known": 10,
+      "knownShare": 0.714,
+      "knownAll": 10,
+      "mains": 8,
+      "maxMain": {
+        "approachId": "immigration-x2-b",
+        "count": 6,
+        "share": 0.75
+      }
+    },
+    {
+      "id": "europe-x4",
+      "topicId": "europe",
+      "tier": "approfondi",
+      "approaches": 4,
+      "known": 3,
+      "knownShare": 0.214,
+      "knownAll": 4,
+      "mains": 2,
+      "maxMain": {
+        "approachId": "europe-x4-d",
+        "count": 1,
+        "share": 0.5
+      }
+    },
+    {
+      "id": "ukraine_russie-x3",
+      "topicId": "ukraine_russie",
+      "tier": "approfondi",
+      "approaches": 5,
+      "known": 9,
+      "knownShare": 0.643,
+      "knownAll": 11,
+      "mains": 6,
+      "maxMain": {
+        "approachId": "ukraine_russie-x3-d",
+        "count": 3,
+        "share": 0.5
+      }
+    },
+    {
+      "id": "europe-x5",
+      "topicId": "europe",
+      "tier": "approfondi",
+      "approaches": 6,
+      "known": 9,
+      "knownShare": 0.643,
+      "knownAll": 15,
+      "mains": 7,
+      "maxMain": {
+        "approachId": "europe-x5-e",
+        "count": 3,
+        "share": 0.429
+      }
+    },
+    {
+      "id": "institutions-x1",
+      "topicId": "institutions",
+      "tier": "approfondi",
+      "approaches": 6,
+      "known": 9,
+      "knownShare": 0.643,
+      "knownAll": 10,
+      "mains": 5,
+      "maxMain": {
+        "approachId": "institutions-x1-a",
+        "count": 1,
+        "share": 0.2
+      }
+    }
+  ],
+  "pairs": {
+    "indistinguishable": [],
+    "closest": [
+      {
+        "a": "kazib",
+        "b": "labib",
+        "comparable": 13,
+        "differing": 2
+      },
+      {
+        "a": "arthaud",
+        "b": "kazib",
+        "comparable": 19,
+        "differing": 3
+      },
+      {
+        "a": "arthaud",
+        "b": "labib",
+        "comparable": 19,
+        "differing": 3
+      },
+      {
+        "a": "cazeneuve",
+        "b": "labib",
+        "comparable": 8,
+        "differing": 7
+      },
+      {
+        "a": "lepen",
+        "b": "zemmour",
+        "comparable": 16,
+        "differing": 7
+      },
+      {
+        "a": "labib",
+        "b": "lepen",
+        "comparable": 8,
+        "differing": 8
+      },
+      {
+        "a": "labib",
+        "b": "zemmour",
+        "comparable": 9,
+        "differing": 9
+      },
+      {
+        "a": "labib",
+        "b": "roussel",
+        "comparable": 15,
+        "differing": 9
+      },
+      {
+        "a": "kazib",
+        "b": "zemmour",
+        "comparable": 10,
+        "differing": 10
+      },
+      {
+        "a": "labib",
+        "b": "philippot",
+        "comparable": 12,
+        "differing": 10
+      }
+    ]
+  },
+  "coherence": {
+    "step1": {
+      "arthaud": {
+        "rank": 1,
+        "tiedWith": [
+          "kazib"
+        ],
+        "answered": 10
+      },
+      "attal": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 9
+      },
+      "cazeneuve": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 8
+      },
+      "dupontaignan": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 10
+      },
+      "kazib": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 10
+      },
+      "labib": {
+        "rank": 1,
+        "tiedWith": [
+          "kazib"
+        ],
+        "answered": 10
+      },
+      "lepen": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 10
+      },
+      "lisnard": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 10
+      },
+      "melenchon": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 10
+      },
+      "philippe": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 10
+      },
+      "philippot": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 10
+      },
+      "retailleau": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 10
+      },
+      "roussel": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 10
+      },
+      "zemmour": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 9
+      }
+    },
+    "quick": {
+      "arthaud": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 22
+      },
+      "attal": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 21
+      },
+      "cazeneuve": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 20
+      },
+      "dupontaignan": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 22
+      },
+      "kazib": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 22
+      },
+      "labib": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 22
+      },
+      "lepen": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 22
+      },
+      "lisnard": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 21
+      },
+      "melenchon": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 22
+      },
+      "philippe": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 22
+      },
+      "philippot": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 20
+      },
+      "retailleau": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 22
+      },
+      "roussel": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 22
+      },
+      "zemmour": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 20
+      }
+    },
+    "bank": {
+      "arthaud": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 75
+      },
+      "attal": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 77
+      },
+      "cazeneuve": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 61
+      },
+      "dupontaignan": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 88
+      },
+      "kazib": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 71
+      },
+      "labib": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 71
+      },
+      "lepen": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 64
+      },
+      "lisnard": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 83
+      },
+      "melenchon": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 97
+      },
+      "philippe": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 68
+      },
+      "philippot": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 59
+      },
+      "retailleau": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 83
+      },
+      "roussel": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 84
+      },
+      "zemmour": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 59
+      }
+    }
+  },
+  "checks": [
+    {
+      "id": "structure-ids",
+      "label": "identifiants de questions et d’approches uniques",
+      "hard": true,
+      "ok": true
+    },
+    {
+      "id": "structure-topics",
+      "label": "chaque question rattachée à un thème existant",
+      "hard": true,
+      "ok": true
+    },
+    {
+      "id": "structure-orphans",
+      "label": "aucune position orpheline (candidat ou approche inexistants)",
+      "hard": true,
+      "ok": true
+    },
+    {
+      "id": "structure-mains",
+      "label": "au plus une approche principale et une compatible par candidat et par question",
+      "hard": true,
+      "ok": true
+    },
+    {
+      "id": "structure-empty",
+      "label": "chaque candidat a au moins une position",
+      "hard": true,
+      "ok": true
+    },
+    {
+      "id": "step1-count",
+      "label": "étape 1 : 10 questions",
+      "hard": true,
+      "ok": true
+    },
+    {
+      "id": "step1-tier",
+      "label": "étape 1 : toutes au questionnaire rapide",
+      "hard": true,
+      "ok": true
+    },
+    {
+      "id": "step1-known",
+      "label": "étape 1 : chaque question connue pour au moins 85 % des candidats notés (12/14)",
+      "hard": true,
+      "ok": true
+    },
+    {
+      "id": "step1-candidate",
+      "label": "étape 1 : chaque candidat noté connu sur au moins 8 questions",
+      "hard": true,
+      "ok": true
+    },
+    {
+      "id": "quick-count",
+      "label": "questionnaire rapide : 22 à 26 questions",
+      "hard": true,
+      "ok": true,
+      "detail": "il y en a 22"
+    },
+    {
+      "id": "quick-steps",
+      "label": "questionnaire rapide : chaque question rangée à l’étape 1 ou 2",
+      "hard": true,
+      "ok": true
+    },
+    {
+      "id": "quick-known",
+      "label": "questionnaire rapide : chaque question connue pour au moins 75 % des candidats notés (11/14)",
+      "hard": true,
+      "ok": true
+    },
+    {
+      "id": "quick-candidate",
+      "label": "questionnaire rapide : chaque candidat noté connu sur au moins 70 % des questions",
+      "hard": true,
+      "ok": true
+    },
+    {
+      "id": "quick-spread",
+      "label": "questionnaire rapide : au plus 6 questions d’écart de couverture entre candidats notés",
+      "hard": true,
+      "ok": true,
+      "detail": "écart 2"
+    },
+    {
+      "id": "bank-count",
+      "label": "banque : 85 à 100 questions, plus que le questionnaire rapide",
+      "hard": true,
+      "ok": true,
+      "detail": "il y en a 100"
+    },
+    {
+      "id": "bank-approaches",
+      "label": "banque : 4 à 9 approches par question",
+      "hard": true,
+      "ok": true
+    },
+    {
+      "id": "bank-main-share",
+      "label": "questionnaire rapide : aucune approche ne réunit plus de 60 % des positions principales connues des candidats notés",
+      "hard": true,
+      "ok": true
+    },
+    {
+      "id": "bank-main-share-deep",
+      "label": "questions approfondies : approche réunissant plus de 60 % des positions principales connues (accord entre candidats, signalé)",
+      "hard": false,
+      "ok": false,
+      "detail": "finances_publiques-3 4/6, sante-3 5/8, solidarites-3 3/3, droits_lgbtqia-1 4/5, territoires-x5 3/4, immigration-x2 6/8"
+    },
+    {
+      "id": "bank-few-mains",
+      "label": "banque : au moins 2 positions principales connues de candidats notés par question",
+      "hard": false,
+      "ok": true
+    },
+    {
+      "id": "bank-candidate",
+      "label": "banque : chaque candidat noté connu sur au moins 40 % des questions",
+      "hard": true,
+      "ok": true
+    },
+    {
+      "id": "excluded-known",
+      "label": "non notés : des candidats de l’élection, au moins un candidat noté",
+      "hard": true,
+      "ok": true
+    },
+    {
+      "id": "excluded-sync",
+      "label": "non notés : election.ranking.excluded et config.scoringExcluded identiques",
+      "hard": true,
+      "ok": true
+    },
+    {
+      "id": "excluded-least",
+      "label": "non notés : les moins connus, aucun candidat noté connu sur aussi peu de questions qu’un non noté",
+      "hard": true,
+      "ok": true,
+      "detail": "non notés jusqu’à 47/100, notés dès 59/100"
+    },
+    {
+      "id": "distinction",
+      "label": "chaque paire de candidats notés diffère sur au moins une approche principale",
+      "hard": true,
+      "ok": true
+    },
+    {
+      "id": "coherence-bank",
+      "label": "cohérence (banque) : répondre comme un candidat noté le met en tête",
+      "hard": true,
+      "ok": true
+    },
+    {
+      "id": "coherence-bank-alone",
+      "label": "cohérence (banque) : seul en tête, sans ex aequo",
+      "hard": false,
+      "ok": true
+    },
+    {
+      "id": "coherence-step1",
+      "label": "cohérence (étape 1) : répondre comme un candidat noté le met en tête",
+      "hard": true,
+      "ok": true
+    },
+    {
+      "id": "coherence-step1-alone",
+      "label": "cohérence (étape 1) : seul en tête, sans ex aequo",
+      "hard": false,
+      "ok": false,
+      "detail": "NA=AK, SL=AK"
+    },
+    {
+      "id": "coherence-quick",
+      "label": "cohérence (rapide) : répondre comme un candidat noté le met en tête",
+      "hard": false,
+      "ok": true
+    },
+    {
+      "id": "coherence-quick-alone",
+      "label": "cohérence (rapide) : seul en tête, sans ex aequo",
+      "hard": false,
+      "ok": true
+    },
+    {
+      "id": "audit-step1",
+      "label": "profils aléatoires (étape 1) : part des 1res places entre 2,4 et 14,3 %",
+      "hard": true,
+      "ok": true
+    },
+    {
+      "id": "audit-quick",
+      "label": "profils aléatoires (rapide) : part des 1res places entre 1,8 et 17,9 %",
+      "hard": true,
+      "ok": true
+    },
+    {
+      "id": "audit-displayed",
+      "label": "chiffres de l’accueil (election.audit) : 5 à 10 %",
+      "hard": true,
+      "ok": true,
+      "detail": "mesuré : 5 à 10 %"
+    },
+    {
+      "id": "all-agree",
+      "label": "tout noter « d’accord » donne le même score brut à tous",
+      "hard": true,
+      "ok": true
+    }
+  ],
+  "ok": true
+}

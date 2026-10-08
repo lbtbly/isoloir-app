@@ -20,6 +20,7 @@ const rejects: Position = { rejects: true, nature: 'declaration', confidence: 'h
 const DEMO: ElectionPack = {
   election: {
     id: 'demo',
+    kind: 'primaire',
     name: 'Exemple',
     shortName: 'Exemple',
     organizers: [],
@@ -29,6 +30,17 @@ const DEMO: ElectionPack = {
     finalists: null,
     notes: [],
     changelog: [],
+    // Aucune de ces phrases n'est affichée : l'exemple ne sert qu'au calcul
+    copy: {
+      theName: '',
+      atName: '',
+      independence: { footer: '', method: '', legal: '' },
+      sources: '',
+      closeGapReason: '',
+      step1Reason: '',
+      officialPageLabel: '',
+      shareDescription: '',
+    },
   },
   candidates: [
     { id: 'c1', name: 'Candidat 1', initials: 'C1', affiliation: 'fictif', role: '' },
