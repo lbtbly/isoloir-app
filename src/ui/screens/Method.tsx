@@ -120,7 +120,13 @@ export function Method({ pack, anchor }: { pack: ElectionPack; /** Rubrique à m
               , pour ne pas ouvrir la feuille sur elle.
             </span>
           ))}{' '}
-          Les candidats sont aussi présentés dans un ordre aléatoire partout où ils ne sont pas classés.
+          Les candidats sont aussi présentés dans un ordre aléatoire partout où ils ne sont pas classés
+          {election.spectrum ? (
+            <>
+              , sauf sur la page des candidats (voir <SectionLink id="ordre-des-candidats">l’ordre des candidats</SectionLink>)
+            </>
+          ) : null}
+          .
         </p>
 
         <h2>Les positions des candidats</h2>
@@ -181,6 +187,25 @@ export function Method({ pack, anchor }: { pack: ElectionPack; /** Rubrique à m
           score avant lissage est indiqué dès qu’il diffère. Un candidat dont la position est connue sur moins de{' '}
           {Math.round(PARTIAL_COVERAGE * 100)} % de vos réponses est signalé « données partielles ».
         </p>
+
+        {/* Page des candidats rangée selon une grille des nuances (election.spectrum) ; lien direct : #/methode/ordre-des-candidats */}
+        {election.spectrum ? (
+          <>
+            <h2 id="ordre-des-candidats" tabIndex={-1}>
+              L’ordre des candidats et leurs couleurs
+            </h2>
+            <p>
+              Sur la page des candidats, ils sont présentés de l’extrême gauche à l’extrême droite, dans l’ordre de la
+              grille officielle des nuances politiques du ministère de l’Intérieur (
+              <ExternalLink href={election.spectrum.source.url}>{election.spectrum.source.title}</ExternalLink>
+              {election.spectrum.source.date ? `, ${formatDate(election.spectrum.source.date)}` : ''}).
+              {` Chaque candidat y prend la nuance de son parti, ou, si son parti n’y figure pas, celle que le ministère lui a attribuée à sa dernière élection\u00a0; au sein d’une même nuance, l’ordre est alphabétique. L’élection présidentielle n’attribue pas elle-même de nuances\u00a0: ce rangement est celui d’Isoloir, à partir de cette grille, qui place entre la gauche et le centre un bloc «\u00a0Autres\u00a0» (écologistes, divers, régionalistes).`}
+            </p>
+            <p>
+              {`Chaque carte porte la couleur du parti, celle de son identité visuelle actuelle, ou, faute de couleur propre, celle de sa famille politique\u00a0: rouge à gauche, jaune au centre, bleu à droite, gris pour les autres. Quand une couleur ne permet pas un texte lisible, elle est légèrement assombrie. Les logos sont ceux des partis, marques de leurs titulaires, montrés pour les reconnaître. Rien de cela n’entre dans le calcul\u00a0: pendant le questionnaire, les approches restent sans nom ni couleur, et ailleurs sur le site les candidats restent présentés dans un ordre tiré au hasard.`}
+            </p>
+          </>
+        ) : null}
 
         {/* Décision propre à l'élection (election.ranking.excluded) ; lien direct : #/methode/non-classes */}
         {exclusion && unscored ? (

@@ -1,0 +1,2652 @@
+{
+  "format": "isoloir-add-candidate/1",
+  "electionId": "presidentielle-2027",
+  "contextDate": "2026-10-06",
+  "candidate": "royal",
+  "checkedAt": "2026-10-08",
+  "candidateConfig": {
+    "id": "royal",
+    "name": "Ségolène Royal",
+    "initials": "SR",
+    "party": "Parti socialiste",
+    "pendingPrimary": true,
+    "reuseDossier": "research/choisir-2027/dossier_royal.json",
+    "docs": []
+  },
+  "positions": [
+    {
+      "questionId": "agriculture-1",
+      "approachId": "agriculture-1-b",
+      "weight": 0,
+      "rejects": true,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "Elle refuse que la France réautorise des pesticides au motif que d’autres pays européens les utilisent, et estime que ce sont les partenaires européens qui doivent s’aligner sur les normes françaises.",
+      "sources": [
+        {
+          "title": "Des caméras dans les classes et les crèches ? La proposition choc de Ségolène Royal (Paris Match)",
+          "url": "https://www.parismatch.com/actu/politique/des-cameras-dans-les-classes-et-les-creches-la-proposition-choc-de-segolene-royal-258794",
+          "date": "2025-10-23",
+          "publisher": "Paris Match"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Paris Match, 23/10/2025, entretien de Florent Buisson, passage accessible malgré le paywall. Elle refuse de réautoriser le glyphosate et les néonicotinoïdes au motif que les autres pays européens les utilisent. Selon elle, ce sont les pays européens qui doivent s’aligner sur la France. C’est un rejet direct de l’alignement des normes françaises sur les règles européennes.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "agriculture-1",
+      "approachId": "agriculture-1-d",
+      "weight": 1,
+      "rejects": false,
+      "nature": "inference",
+      "confidence": "low",
+      "summary": "Elle juge anormal d’importer des cerises, noisettes ou pommes traitées avec des pesticides interdits en France et demande d’appliquer des exigences comparables aux produits importés, sans parler de les interdire ni de déroger aux règles européennes.",
+      "sources": [
+        {
+          "title": "Ségolène Royal : « Pour 2027, je consulte, je réfléchis… » (Sud Radio)",
+          "url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pour-2027-je-consulte-je-reflechis-si-je-peux-etre-utile-pourquoi-pas",
+          "date": "2026-07-03",
+          "publisher": "Sud Radio"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Sud Radio, 03/07/2026 : elle juge anormal d’importer ces fruits et dénonce une concurrence déloyale. Elle demande d’appliquer aux produits importés des exigences comparables aux règles françaises. L’approche 1-d se distingue par une interdiction « d’office » et par l’acceptation de « déroger aux règles européennes ». Elle n’a dit ni l’un ni l’autre : à Paris Match, elle attend plutôt que les partenaires européens s’alignent sur la France. Le rattachement est plausible mais inféré : nature passée à inference, confiance à low, poids maintenu à 1.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "agriculture-2",
+      "approachId": "agriculture-2-a",
+      "weight": 0,
+      "rejects": true,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "Elle refuse de réautoriser le glyphosate et les néonicotinoïdes au motif que d’autres pays européens les utilisent, estimant que ce sont eux qui doivent s’aligner sur la France.",
+      "sources": [
+        {
+          "title": "Des caméras dans les classes et les crèches ? La proposition choc de Ségolène Royal (Paris Match)",
+          "url": "https://www.parismatch.com/actu/politique/des-cameras-dans-les-classes-et-les-creches-la-proposition-choc-de-segolene-royal-258794",
+          "date": "2025-10-23",
+          "publisher": "Paris Match"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Paris Match (23/10/2025), lu via curl : elle rejette l’argument selon lequel il faudrait autoriser ces produits parce que les autres pays européens les utilisent, et répond que l’Europe doit s’aligner sur la France. C’est un rejet direct de l’approche « autoriser tout pesticide autorisé ailleurs dans l’UE ».",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "agriculture-2",
+      "approachId": "agriculture-2-b",
+      "weight": 0,
+      "rejects": true,
+      "nature": "declaration",
+      "confidence": "high",
+      "summary": "Elle s’oppose à la réintroduction par dérogation de néonicotinoïdes interdits, qu’elle juge destructrice pour la petite agriculture.",
+      "sources": [
+        {
+          "title": "Loi Duplomb : « Ils sont en train de détruire la petite agriculture », lance Ségolène Royal (BFMTV)",
+          "url": "https://www.bfmtv.com/politique/video-loi-duplomb-ils-sont-en-train-de-detruire-la-petite-agriculture-lance-segolene-royal_VN-202507210482.html",
+          "date": "2025-07-21",
+          "publisher": "BFMTV"
+        },
+        {
+          "title": "Ségolène Royal : « Pour 2027, je consulte, je réfléchis… » (Sud Radio)",
+          "url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pour-2027-je-consulte-je-reflechis-si-je-peux-etre-utile-pourquoi-pas",
+          "date": "2026-07-03",
+          "publisher": "Sud Radio"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "BFMTV (21/07/2025) : elle a signé la pétition pour abroger la loi Duplomb, qui réintroduisait par dérogation un néonicotinoïde, et affirme qu’« ils » détruisent la petite agriculture. Sud Radio (03/07/2026) : la réintroduction est selon elle une « faute grave » qui pénalise les agriculteurs ayant investi dans des alternatives. C’est un rejet clair des dérogations.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "agriculture-2",
+      "approachId": "agriculture-2-c",
+      "weight": 2,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "high",
+      "summary": "Elle qualifie de « faute grave » le rétablissement de néonicotinoïdes interdits et a signé la pétition pour l’abrogation de la loi Duplomb, qui en réintroduisait un.",
+      "sources": [
+        {
+          "title": "Ségolène Royal : « Pour 2027, je consulte, je réfléchis… » (Sud Radio)",
+          "url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pour-2027-je-consulte-je-reflechis-si-je-peux-etre-utile-pourquoi-pas",
+          "date": "2026-07-03",
+          "publisher": "Sud Radio"
+        },
+        {
+          "title": "Loi Duplomb : « Ils sont en train de détruire la petite agriculture », lance Ségolène Royal (BFMTV)",
+          "url": "https://www.bfmtv.com/politique/video-loi-duplomb-ils-sont-en-train-de-detruire-la-petite-agriculture-lance-segolene-royal_VN-202507210482.html",
+          "date": "2025-07-21",
+          "publisher": "BFMTV"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Sud Radio, 03/07/2026 : le rétablissement de pesticides interdits, notamment des néonicotinoïdes, est selon elle une « faute grave ». La vidéo BFMTV du 21/07/2025, lue en HTML via curl, rapporte qu’elle a signé la pétition pour abroger la loi Duplomb et sa réintroduction d’un néonicotinoïde.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "agriculture-2",
+      "approachId": "agriculture-2-d",
+      "weight": 1,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "Elle refuse de réautoriser le glyphosate et les néonicotinoïdes et demande des exigences comparables pour les produits importés, sans proposer explicitement d’en interdire l’importation.",
+      "sources": [
+        {
+          "title": "Des caméras dans les classes et les crèches ? La proposition choc de Ségolène Royal (Paris Match)",
+          "url": "https://www.parismatch.com/actu/politique/des-cameras-dans-les-classes-et-les-creches-la-proposition-choc-de-segolene-royal-258794",
+          "date": "2025-10-23",
+          "publisher": "Paris Match"
+        },
+        {
+          "title": "Ségolène Royal : « Pour 2027, je consulte, je réfléchis… » (Sud Radio)",
+          "url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pour-2027-je-consulte-je-reflechis-si-je-peux-etre-utile-pourquoi-pas",
+          "date": "2026-07-03",
+          "publisher": "Sud Radio"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Paris Match : elle s’oppose à ce qu’on autorise « de nouveau » le glyphosate et les néonicotinoïdes. Sa formule présuppose une interdiction, alors que le glyphosate reste autorisé en agriculture en France. Sud Radio : il n’est pas normal d’importer des produits traités avec des pesticides interdits, et il faut des exigences comparables pour les importations. Les deux volets de l’approche (glyphosate et importations) sont compatibles, mais sans engagement explicite d’interdiction. Le poids 1 est approprié.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "ecologie_energie-1",
+      "approachId": "ecologie_energie-1-a",
+      "weight": 2,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "high",
+      "summary": "Elle propose de baisser temporairement les taxes sur les carburants (TVA à 10 % sur l’essence, suspension de l’accise sur le gazole) pour ramener le litre entre 1,50 et 1,70 €.",
+      "sources": [
+        {
+          "title": "Primaire de la gauche : échanges tendus… Que retenir du 1er débat",
+          "url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+          "date": "2026-09-24",
+          "publisher": "Public Sénat"
+        },
+        {
+          "title": "Sept séquences à retenir du débat des candidats à la primaire de la gauche sur France 2 et France Inter",
+          "url": "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html",
+          "date": "2026-10-01",
+          "publisher": "franceinfo"
+        },
+        {
+          "title": "« Je veux baisser les taxes » : Ségolène Royal",
+          "url": "https://fr.finance.yahoo.com/actualites/veux-baisser-taxes-s%C3%A9gol%C3%A8ne-royal-090135153.html",
+          "date": "2026-09-13",
+          "publisher": "Capital / Yahoo Finance (d’après RTL)"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Les approches source et cible disent la même chose ; la cible ajoute seulement « et prélèvements ». Selon Public Sénat (24/09/2026), elle vise un litre « entre 1,50 et 1,70 euro » pendant trois mois, avec une TVA à 10 % sur l’essence et une dérogation de Bruxelles pour suspendre l’accise sur le gazole. Capital/RTL (11/09) rapporte « baisser les taxes » et un plafond de 1,70 €. Selon franceinfo (01/10), elle défend des mesures « simples et immédiates », et Guedj soutient sa baisse temporaire de la TVA. J’ai seulement ajouté « temporairement » au résumé.",
+      "candidate": "royal",
+      "origin": "reuse"
+    },
+    {
+      "questionId": "ecologie_energie-1",
+      "approachId": "ecologie_energie-1-c",
+      "weight": 0,
+      "rejects": true,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "Elle refuse de réserver les aides à certaines catégories de ménages, jugeant qu’il ne faut pas instaurer une « police de la consommation ».",
+      "sources": [
+        {
+          "title": "Sept séquences à retenir du débat des candidats à la primaire de la gauche sur France 2 et France Inter",
+          "url": "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html",
+          "date": "2026-10-01",
+          "publisher": "franceinfo"
+        },
+        {
+          "title": "Primaire de la gauche : échanges tendus… Que retenir du 1er débat",
+          "url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+          "date": "2026-09-24",
+          "publisher": "Public Sénat"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "L’approche cible est la même que la source, avec la précision « pour travailler ». Public Sénat : face au chèque énergie ciblé que propose Glucksmann, elle répond qu’« On ne va pas faire la police de la consommation » et réclame des mesures générales et simples. franceinfo, 01/10 : elle refuse de cibler des catégories comme les « grands rouleurs ». Le rejet est explicite.",
+      "candidate": "royal",
+      "origin": "reuse"
+    },
+    {
+      "questionId": "ecologie_energie-2",
+      "approachId": "ecologie_energie-2-b",
+      "weight": 1,
+      "rejects": false,
+      "nature": "inference",
+      "confidence": "low",
+      "summary": "Selon LCP, au débat du 4 octobre 2026, elle faisait partie des candidats qui veulent conserver le nucléaire et développer les renouvelables ; elle a elle-même insisté sur les économies d’énergie, sans se prononcer sur de nouveaux réacteurs.",
+      "sources": [
+        {
+          "title": "Glucksmann face à Royal, divisions sur LFI, lycées… Ce qu'il faut retenir du dernier débat de la primaire socialiste",
+          "url": "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat",
+          "date": "2026-10-05",
+          "publisher": "LCP"
+        },
+        {
+          "title": "Nucléaire : Ségolène Royal ou l'inconséquence en politique",
+          "url": "https://contrepoints.org/nucleaire-segolene-royal-ou-linconsequence-en-politique/",
+          "date": "2026-03-12",
+          "publisher": "Contrepoints"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Chez LCP, le maintien du nucléaire avec les renouvelables n’apparaît que dans une phrase de synthèse du journaliste sur l’ensemble des candidats (« Tous défendent l'idée de conserver le nucléaire… »). La seule citation de Royal porte sur les économies d’énergie. Contrepoints rapporte qu’elle a critiqué en mars 2026 la réduction du nucléaire « sans attendre » Flamanville, et qu’elle dit n’avoir jamais accepté de fermeture « idéologique ». Son bilan ministériel va dans l’autre sens : loi de 2015 à 50 % de nucléaire, Fessenheim. Aucune source ne parle de nouveaux réacteurs. Le passage de « conserver » à « construire » est une inférence : nature passée de declaration à inference, confiance de medium à low, poids maintenu à 1.",
+      "candidate": "royal",
+      "origin": "web"
+    },
+    {
+      "questionId": "ecologie_energie-3",
+      "approachId": "ecologie_energie-3-a",
+      "weight": 2,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "En mars 2026, elle a écrit que la France doit sortir « vite » du marché européen de l’électricité, qui selon elle « gonfle nos prix ».",
+      "sources": [
+        {
+          "title": "Nucléaire : Ségolène Royal ou l’inconséquence en politique",
+          "url": "https://contrepoints.org/nucleaire-segolene-royal-ou-linconsequence-en-politique/",
+          "date": "2026-03-12",
+          "publisher": "Contrepoints"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "L’approche cible est identique à l’approche source. Contrepoints (Élodie Messéant, 12/03/2026) cite son message sur X, publié en réaction au discours d’Ursula von der Leyen du 10/03/2026 : « La France doit sortir, et vite, du marché européen de l'électricité qui gonfle nos prix ». La source est une tribune libérale critique, mais elle cite son message mot pour mot, d’où une confiance medium.",
+      "candidate": "royal",
+      "origin": "reuse"
+    },
+    {
+      "questionId": "ecologie_energie-3",
+      "approachId": "ecologie_energie-3-d",
+      "weight": 1,
+      "rejects": false,
+      "nature": "inference",
+      "confidence": "low",
+      "summary": "Son site de campagne promet de baisser les taxes pour les TPE, PME, artisans, industriels et agriculteurs touchés par la flambée des prix de l’énergie, sans dire lesquelles ni viser explicitement la facture d’électricité.",
+      "sources": [
+        {
+          "title": "Ségolène Royal | L’Ordre Juste – Site officiel",
+          "url": "https://segolene-ordrejuste.fr/",
+          "publisher": "segolene-ordrejuste.fr"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Priorité 3 du site, « L’urgence énergétique » : elle veut des solutions pour les TPE, PME, artisans, industriels et agriculteurs « touchés par la flambée du prix de l'énergie », en baissant les taxes. Le site ne mentionne ni l’électricité, ni la TVA, ni la facture des ménages. Le lien avec l’approche 3-d est donc une inférence : nature passée à inference, confiance à low. J’ai retiré la source France 24 (29/08/2026), qui ne parle pas de taxes, seulement du prix de l’électricité bloqué en 2014 et d’une énergie à bas prix. L’article de LCP du 10/07/2026, que j’ai lu, ne mentionne pas non plus de baisse de taxes.",
+      "candidate": "royal",
+      "origin": "web"
+    },
+    {
+      "questionId": "ecologie_energie-4",
+      "approachId": "ecologie_energie-4-b",
+      "weight": 2,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "high",
+      "summary": "Elle veut faire de la transition climatique la « colonne vertébrale » de la relance et de l’écologie « une chance pour l’emploi, l’agriculture, l’industrie ».",
+      "sources": [
+        {
+          "title": "« Je veux baisser les taxes » : Ségolène Royal",
+          "url": "https://fr.finance.yahoo.com/actualites/veux-baisser-taxes-s%C3%A9gol%C3%A8ne-royal-090135153.html",
+          "date": "2026-09-13",
+          "publisher": "Capital / Yahoo Finance (d’après RTL)"
+        },
+        {
+          "title": "Profession de foi de Ségolène Royal",
+          "url": "https://choisir2027.fr/wp-content/uploads/2026/09/Profession_de_foi_Segolene_Royal_2027.pdf",
+          "date": "2026-09",
+          "publisher": "Choisir 2027"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "L’approche cible 4-b a le même texte que l’approche source ecologie_energie-5-c. Capital/RTL : la transition climatique doit être la « colonne vertébrale » de la relance, au service de la reconquête industrielle. La profession de foi, lue en PDF image, dit qu’il faut faire de l’écologie une chance pour l’emploi, l’agriculture, l’industrie et l’indépendance.",
+      "candidate": "royal",
+      "origin": "reuse"
+    },
+    {
+      "questionId": "ecologie_energie-4",
+      "approachId": "ecologie_energie-4-e",
+      "weight": 1,
+      "rejects": false,
+      "nature": "inference",
+      "confidence": "low",
+      "summary": "Elle veut que le prix des produits importés intègre le coût carbone de leur production et de leur transport, par une « règle internationale » qu’elle présente comme un « juste prix » et non une taxe, sans évoquer de ciblage sectoriel.",
+      "sources": [
+        {
+          "title": "Ségolène Royal : pourquoi pas un ticket avec Dominique de Villepin ? (Sud Radio)",
+          "url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pourquoi-pas-un-ticket-avec-dominique-de-villepin-pour-la-presidentielle",
+          "date": "2025-12-11",
+          "publisher": "Sud Radio"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Sud Radio, 11/12/2025 : elle veut que le prix d’un produit importé intègre son coût environnemental et le bilan carbone de sa production et de son transport. Elle rejette l’idée d’une taxe (« c'est le juste prix ») et réclame une règle internationale. Elle ne parle ni de frontières européennes, ni de cibler l’industrie lourde, le fret ou la rénovation, qui forment la première moitié de l’approche. Seul le volet « prix du carbone sur les importations » correspond, de façon approchée. Je garde le poids 1, en passant la nature à inference et la confiance à low.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "ecologie_energie-6",
+      "approachId": "ecologie_energie-6-a",
+      "weight": 2,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "Sur Sud Radio en juillet 2026, elle a jugé la climatisation nécessaire dans les écoles, les hôpitaux et les EHPAD, là où c’est possible, sans évoquer d’aide aux ménages, tout en déplorant l’inertie sur l’isolation thermique.",
+      "sources": [
+        {
+          "title": "Ségolène Royal : « Pour 2027, je consulte, je réfléchis… » (Sud Radio)",
+          "url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pour-2027-je-consulte-je-reflechis-si-je-peux-etre-utile-pourquoi-pas",
+          "date": "2026-07-03",
+          "publisher": "Sud Radio"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "L’approche cible diffère de la source (x2-a). Elle ajoute « et aider les ménages à s’équiper », que Royal n’a pas évoqué, et remplace « autres bâtiments accueillant du public » par « maisons de retraite ». La source correspond exactement au cœur de l’approche : « Là où il est possible de climatiser, il faut climatiser », c’est nécessaire dans les écoles, les hôpitaux et les EHPAD. Je garde le poids 2, car c’est sa prescription directe, et j’ai ajouté au résumé l’absence de volet ménages. Elle insiste aussi sur l’isolation (le CITE « cassé »), ce qui rejoint en partie l’approche 6-b.",
+      "candidate": "royal",
+      "origin": "reuse"
+    },
+    {
+      "questionId": "ecologie_energie-6",
+      "approachId": "ecologie_energie-6-d",
+      "weight": 1,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "Sa lettre de campagne dénonce le manque de moyens des pompiers face aux incendies, sans mesure chiffrée.",
+      "sources": [
+        {
+          "title": "La lettre de Ségolène (segolene-ordrejuste.fr)",
+          "url": "https://segolene-ordrejuste.fr/la-lettre-de-segolene",
+          "date": "2026-09",
+          "publisher": "segolene-ordrejuste.fr"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "L’approche cible est identique à la source x2-d. La lettre de septembre 2026 évoque le « désespoir des pompiers et des habitants » face aux incendies de l’été et à la « carence de moyens matériels et humains ». Ce passage s’inscrit dans une liste des défaillances de l’État. Le constat de manque de moyens correspond à l’approche, mais l’adverbe « fortement » n’est pas étayé, d’où le poids 1.",
+      "candidate": "royal",
+      "origin": "reuse"
+    },
+    {
+      "questionId": "ecologie_energie-x9",
+      "approachId": "ecologie_energie-x9-b",
+      "weight": 1,
+      "rejects": false,
+      "nature": "inference",
+      "confidence": "medium",
+      "summary": "Elle veut faire de la transition climatique la « colonne vertébrale » de la relance et de la reconquête industrielle, source selon elle d’activités et d’emplois, sans se prononcer sur l’objectif de croissance.",
+      "sources": [
+        {
+          "title": "« Je veux baisser les taxes » : Ségolène Royal",
+          "url": "https://fr.finance.yahoo.com/actualites/veux-baisser-taxes-s%C3%A9gol%C3%A8ne-royal-090135153.html",
+          "date": "2026-09-13",
+          "publisher": "Capital / Yahoo Finance (d’après RTL)"
+        },
+        {
+          "title": "Aux Journées d'été du PS, Ségolène Royal défend sa candidature (France 24/AFP)",
+          "url": "https://www.france24.com/fr/info-en-continu/20260829-aux-journ%C3%A9es-d-%C3%A9t%C3%A9-du-ps-s%C3%A9gol%C3%A8ne-royal-d%C3%A9fend-sa-candidature",
+          "date": "2026-08-29",
+          "publisher": "France 24"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Capital/RTL : la transition climatique doit être la « colonne vertébrale » de la relance, au service de la reconquête industrielle. France 24/AFP (29/08/2026) : le défi climatique est selon elle « une formidable opportunité de créer des activités, des emplois et du bien-être ». Aucune des deux sources ne parle de croissance, d’innovation ou de technologies bas carbone. Le rattachement à la « croissance verte » est une inférence : nature passée de declaration à inference, poids maintenu à 1.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "education-1",
+      "approachId": "education-1-g",
+      "weight": 1,
+      "rejects": false,
+      "nature": "inference",
+      "confidence": "medium",
+      "summary": "Le 31 août 2026, elle dénonce la dégradation du métier d'enseignant, son « sous-paiement » et des recrutements « par speed dating », sans détailler les mesures qu'elle prendrait.",
+      "sources": [
+        {
+          "title": "Retraites : « Je refuse ce débat tant que la question du retour de l'ISF n'est pas posée », affirme Ségolène Royal (franceinfo, Les 4 Vérités)",
+          "url": "https://www.franceinfo.fr/elections/presidentielle/primaire-populaire-gauche/retraites-je-refuse-ce-debat-tant-que-la-question-du-retour-de-l-isf-n-est-pas-posee-affirme-segolene-royal-candidate-a-la-primaire-du-pole-socialiste_8170295.html",
+          "date": "2026-08-31",
+          "publisher": "franceinfo"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Source lue (31/08/2026, « Les 4 Vérités » sur France 2). Elle parle d'un « sous-paiement du métier d'enseignant » et de recrutements « par speed dating ». Elle dit savoir comment y répondre, sans rien proposer : ni revalorisation, ni formation, ni concours. Le rattachement à l'approche g est donc une déduction tirée de son constat : la nature passe de declaration à inference, avec un poids 1 au maximum. Le résumé corrige « sans revalorisation chiffrée » : aucune revalorisation n'est annoncée, chiffrée ou non. Le fact-check franceinfo du 02/10/2026 sur les salaires des enseignants vise Glucksmann et Maurel, pas elle.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "education-4",
+      "approachId": "education-4-d",
+      "weight": 0,
+      "rejects": true,
+      "nature": "inference",
+      "confidence": "low",
+      "summary": "En mai 2026, selon le résumé de Beur FM, elle déplore que le durcissement des visas bloque les étudiants et décourage les talents, sans se prononcer sur les frais d'inscription des étudiants étrangers.",
+      "sources": [
+        {
+          "title": "Ségolène Royal plaide pour l'apaisement avec Alger et remet « l'ordre juste » dans le débat (Beur FM)",
+          "url": "https://www.beurfm.net/segolene-royal-plaide-pour-l-apaisement-avec-alger-et-remet-l-ordre-juste-dans-le-debat",
+          "date": "2026-05-26",
+          "publisher": "Beur FM"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Source lue (26/05/2026, émission « Les Zinformés »). La seule mention des étudiants est une paraphrase de la rédaction : selon elle, les visas sont durcis, les étudiants bloqués, les talents découragés. Aucune citation directe d'elle ne porte sur les étudiants. Elle ne dit rien des frais d'inscription ni de l'université. Le passage sur les jeunes diplômés algériens partis au Canada vient d'entreprises qu'elle relaie, et il s'agit de diplômés, pas d'étudiants. Le rejet de l'approche d (limiter les étudiants étrangers et les faire payer davantage) est donc une déduction partielle, qui ne porte que sur le premier volet. Corrections : nature déclaration → inference, confiance medium → low, résumé recentré sur ce que dit la source. « Notamment venus d'Algérie » est retiré, car la source ne le dit pas des étudiants.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "education-x1",
+      "approachId": "education-x1-d",
+      "weight": 0,
+      "rejects": true,
+      "nature": "inference",
+      "confidence": "medium",
+      "summary": "Le 2 septembre 2026, après des violences signalées dans le périscolaire parisien, elle propose au contraire d'installer des caméras de vidéosurveillance « partout » dans le cadre scolaire pour dissuader les violences faites aux enfants.",
+      "sources": [
+        {
+          "title": "Violences dans le périscolaire : Ségolène Royal veut installer des caméras « partout » dans les écoles (Orange, 6Médias avec L'Express)",
+          "url": "https://actu.orange.fr/politique/violences-dans-le-periscolaire-segolene-royal-veut-installer-des-cameras-partout-dans-les-ecoles-magic-CNT000002rFJA5.html",
+          "date": "2026-09-02",
+          "publisher": "6Médias / L'Express (Orange)"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Source lue (02/09/2026, propos tenus sur BFMTV-RMC). Elle veut des caméras « partout dans le cadre scolaire » et dans tous les lieux qui accueillent un public fragile, « en accord avec les salariés ». Cela contredit directement un volet de l'approche d : retirer la vidéosurveillance des établissements. Le rejet par déduction tient. Mais l'approche d réunit plusieurs mesures (punitions, conseils de discipline, police, vidéosurveillance), et elle ne s'est pas exprimée sur les autres. En octobre 2026, elle a même critiqué les interventions policières contre des lycéens. La confiance passe donc de high à medium. Le résumé est daté et précisé : la source dit « cadre scolaire », le périscolaire étant le contexte.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "egalite-1",
+      "approachId": "egalite-1-b",
+      "weight": 1,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "Elle juge que la lutte contre les violences sexuelles est « une question de moyens et de rapidité » et demande de donner aux enquêteurs de police et aux magistrats les moyens de traiter ces affaires en priorité, avec des professionnels formés pour auditionner les enfants victimes et des sanctions immédiates.",
+      "sources": [
+        {
+          "title": "Ségolène Royal : « Les violences sexuelles n’étaient pas une priorité pour le gouvernement »",
+          "url": "https://www.sudradio.fr/sud-radio/segolene-royal-les-violences-sexuelles-netaient-pas-une-priorite-pour-le-gouvernement",
+          "date": "2026-09-08",
+          "publisher": "Sud Radio"
+        },
+        {
+          "title": "Ségolène Royal : « Pour 2027, je consulte, je réfléchis. Si je peux être utile, pourquoi pas ? »",
+          "url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pour-2027-je-consulte-je-reflechis-si-je-peux-etre-utile-pourquoi-pas",
+          "date": "2026-07-03",
+          "publisher": "Sud Radio"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Sud Radio du 08/09/2026, page lue : elle y dit « c'est une question de moyens et de rapidité ». Elle demande de donner « les moyens aux enquêteurs de la police et aux magistrats » pour traiter ces affaires en priorité. Elle reproche au gouvernement de ne pas avoir donné d'instructions de priorité aux tribunaux et aux policiers. Sud Radio du 03/07/2026, page lue : elle demande des professionnels formés pour auditionner les mineurs et des sanctions immédiates. Ces propos correspondent à la partie « traiter vite chaque plainte par la police et la justice » de l'approche b. En revanche, elle ne propose nulle part d'unités ou de juridictions dédiées, qui forment le cœur de cette approche. Le poids 1 (approche compatible) se justifie donc, mais la confiance passe de high à medium. Le même entretien de septembre met surtout en avant d'autres mesures, qui ne relèvent pas de b : des caméras dans toutes les structures de la petite enfance et une vigilance sur le recrutement des animateurs. Elle y juge aussi qu'on a « beau mettre des milliards » sans volonté politique. Ce propos n'est pas un rejet explicite de l'approche a, puisqu'elle dit aussi que la loi doit être financée. Correctifs : titre exact de la source du 03/07, et « policiers » remplacé par « enquêteurs de police », conformément au propos.",
+      "candidate": "royal",
+      "origin": "web"
+    },
+    {
+      "questionId": "egalite-4",
+      "approachId": "egalite-4-e",
+      "weight": 1,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "Elle fait de l'accès à la contraception le premier droit fondamental, rappelle avoir introduit la pilule du lendemain dans les lycées, défend sa gratuité pour les lycéennes et les étudiantes et juge que « l'idéal ce n'est pas une IVG », celle-ci résultant souvent d'un échec de contraception.",
+      "sources": [
+        {
+          "title": "« Le temps est venu » : Ségolène Royal (72 ans) appelle à redéfinir le rôle des femmes en société, au foyer et en politique",
+          "url": "https://www.melty.fr/people/le-temps-est-venu-segolene-royal-72-ans-appelle-a-redefinir-le-role-des-femmes-au-foyer-en-societe-et-en-politique-2288069.html",
+          "date": "2026-01-09",
+          "publisher": "Melty"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Page lue : article de Jason Mathurin publié le 09/01/2026, tiré d'un entretien accordé à Melty. L'article confirme qu'elle fait de l'accès à la contraception le « premier droit fondamental », qu'elle rappelle avoir introduit la pilule du lendemain dans les lycées et qu'elle défend l'accès gratuit à la contraception pour les lycéennes et les étudiantes. Il cite aussi « l'idéal ce n'est pas une IVG », en précisant que l'IVG résulte « souvent » d'un échec de contraception. Le résumé initial disait « le plus souvent », ce qui exagère le propos, et sa citation « pas l'idéal » n'était pas exacte : les deux sont corrigés. La priorité donnée à la contraception pour prévenir les grossesses non désirées correspond bien à l'approche e. Elle parle toutefois d'accès et de gratuité plus que d'« information », d'où le poids 1. La confiance reste medium : propos paraphrasés par un média grand public, avec une seule citation directe. Le titre exact a été rétabli (« (72 ans) » ajouté, suffixe « (Melty) » retiré).",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "europe-1",
+      "approachId": "europe-1-d",
+      "weight": 1,
+      "rejects": false,
+      "nature": "inference",
+      "confidence": "medium",
+      "summary": "Elle veut changer les règles européennes qui font obstacle à ses mesures (« Les règles européennes, on les change »), demander à Bruxelles une dérogation au niveau minimal d'accise sur le gazole, comme l'Espagne, et faire sortir « vite » la France du marché européen de l'électricité, sans parler de renégocier les traités, de cesser de les appliquer ni de quitter l'Union.",
+      "sources": [
+        {
+          "title": "« Je veux baisser les taxes » (Capital/Yahoo, d'après RTL)",
+          "url": "https://fr.finance.yahoo.com/actualites/veux-baisser-taxes-s%C3%A9gol%C3%A8ne-royal-090135153.html",
+          "date": "2026-09-13",
+          "publisher": "Capital / Yahoo Finance"
+        },
+        {
+          "title": "Carburant à 1,70 euros : cette « taxe européenne » que Ségolène Royal veut supprimer (Econostrum)",
+          "url": "https://econostrum.info/carburant-a-170-euros-cette-taxe-europeenne-a/",
+          "date": "2026-09-25",
+          "publisher": "Econostrum"
+        },
+        {
+          "title": "Nucléaire : Ségolène Royal ou l'inconséquence en politique (Contrepoints)",
+          "url": "https://contrepoints.org/nucleaire-segolene-royal-ou-linconsequence-en-politique/",
+          "date": "2026-03-12",
+          "publisher": "Contrepoints"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Les trois sources se chargent et confirment les faits. Yahoo/Capital (RTL, 11/09/2026) : « Les règles européennes, on les change, ça suffit à un moment », dit à propos de la baisse des taxes sur les carburants ; l'article ne parle ni de traités, ni de non-application, ni de sortie de l'UE. Econostrum : elle demande à la Commission une dérogation sur l'accise minimale du gazole, sur le modèle espagnol, ce qui est une démarche dans le cadre des règles. Contrepoints rapporte ses messages sur X de mars 2026 : la France doit sortir « vite » du marché européen de l'électricité. L'approche d est plus radicale : renégocier les traités pour sortir des règles de concurrence, de libre-échange et de déficit, sinon cesser de les appliquer. Elle n'a rien dit sur le déficit, le libre-échange ou les traités, et une demande de dérogation n'est pas une désobéissance. Ses propos ne recouvrent qu'une partie de l'approche (changer les règles, sortir du marché électrique), donc la nature passe de declaration à inference, au poids 1. Aucune autre approche de la question ne colle mieux. Le résumé précise désormais ce qu'elle ne dit pas.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "europe-2",
+      "approachId": "europe-2-f",
+      "weight": 2,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "Elle propose que la Banque centrale européenne porte une partie de la dette publique sous forme de dette « perpétuelle », réservée à la lutte contre le dérèglement climatique ; elle refuse d'annuler la dette mais se dit prête à traiter à part celle liée à la transition, qu'elle juge productive.",
+      "sources": [
+        {
+          "title": "« Où est passé l'argent ? », Ségolène Royal pointe les 1 500 milliards de dette (Capital, d'après BFMTV)",
+          "url": "https://www.capital.fr/economie-politique/ou-est-passe-l-argent-segolene-royal-pointe-les-1-500-milliards-de-dette-1530066",
+          "date": "2026-09-11",
+          "publisher": "Capital"
+        },
+        {
+          "title": "Primaire de la gauche : échanges tendus sur les alliances avec LFI, Gaza, Ukraine… Que retenir du 1er débat entre les candidats ?",
+          "url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+          "date": "2026-09-24",
+          "publisher": "Public Sénat"
+        },
+        {
+          "title": "Accord avec LFI, Moyen-Orient, pouvoir d'achat : ce qu'il faut retenir du premier débat de la primaire de gauche",
+          "url": "https://lcp.fr/actualites/accord-avec-lfi-moyen-orient-pouvoir-d-achat-ce-qu-il-faut-retenir-du-premier-debat-de",
+          "date": "2026-09-23",
+          "publisher": "LCP"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Capital (capital.fr) ne peut pas être chargé par l'outil. Le rôle de la BCE, élément central qui rattache la position à l'approche f, n'a donc pas pu être vérifié. Le dossier refresh le rapporte de deux articles Capital (11/09 et 24/09/2026), avec des détails précis : part de la dette détenue par la BCE, précédent du Covid. Les sources accessibles confirment le reste. LCP (23/09/2026) : elle exclut d'« effacer » la dette, même en partie, mais ne parle ni de la BCE ni de dette perpétuelle ; ce n'était donc qu'une source partielle. Public Sénat (24/09/2026), ajouté : elle refuse l'annulation (« Pour moi, c'est non ») et se dit prête à une exception pour la part de dette liée à la transition, qualifiée d'investissement productif. Comme le cœur BCE n'est pas vérifiable, la confiance passe de high à medium. Le poids 2 est maintenu, l'approche f correspondant exactement si Capital est exact.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "europe-3",
+      "approachId": "europe-3-b",
+      "weight": 1,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "Elle demande que la France sorte « vite » du marché européen de l'électricité, qui selon elle fait monter les prix et, par l'ouverture à la concurrence, livre les infrastructures à des « prédateurs », sans évoquer le rétablissement de monopoles publics.",
+      "sources": [
+        {
+          "title": "Nucléaire : Ségolène Royal ou l'inconséquence en politique (Contrepoints)",
+          "url": "https://contrepoints.org/nucleaire-segolene-royal-ou-linconsequence-en-politique/",
+          "date": "2026-03-12",
+          "publisher": "Contrepoints"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Contrepoints (12/03/2026) cite ses messages sur X, postés après le discours d'Ursula von der Leyen du 10/03/2026. La France doit sortir vite du marché européen de l'électricité, qui « gonfle nos prix ». L'ouverture à la concurrence livre selon elle les infrastructures « aux prédateurs ». L'article ne lui prête aucune proposition de monopole public, de tarifs réglementés ou de rôle pour EDF. Le poids 1 (approche compatible) convient : elle critique explicitement l'ouverture à la concurrence sans proposer de monopole public. La confiance reste medium : la source est une tribune hostile, mais elle cite ses propres messages.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "finances_publiques-1",
+      "approachId": "finances_publiques-1-a",
+      "weight": 0,
+      "rejects": true,
+      "nature": "declaration",
+      "confidence": "high",
+      "summary": "Elle refuse de baisser les dépenses « essentielles » (éducation, santé, climat, sécurité) et estime que le déficit vient davantage d’un manque de recettes que d’un excès de dépenses.",
+      "sources": [
+        {
+          "title": "Budget 2026 : « Pour réduire le déficit, il faut lutter contre les gaspillages, il ne faut pas baisser les dépenses essentielles », estime Ségolène Royal",
+          "url": "https://www.franceinfo.fr/politique/segolene-royal/budget-2026-pour-reduire-le-deficit-il-faut-lutter-contre-les-gaspillages-il-ne-faut-pas-baisser-les-depenses-essentielles-estime-segolene-royal_7582286.html",
+          "date": "2025-10-29",
+          "publisher": "franceinfo"
+        },
+        {
+          "title": "« C’est un budget de provocation », estime Ségolène Royal à propos des annonces de Sébastien Lecornu",
+          "url": "https://www.franceinfo.fr/replay-magazine/franceinfo/l-invite-politique/l-invite-politique-du-vendredi-18-septembre-2026_8182292.html",
+          "date": "2026-09-18",
+          "publisher": "franceinfo"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Sur franceinfo (29/10/2025), elle refuse de baisser les dépenses essentielles : éducation, santé, lutte contre le réchauffement climatique et sécurité. Sur franceinfo (18/09/2026), elle juge que le déficit vient davantage du manque de recettes que des dépenses, qualifie le plan d’économies Lecornu de « budget de provocation » et préconise de reconduire le budget précédent. Elle rejette clairement une forte baisse de la dépense publique qui toucherait les prestations sociales. Titres complétés.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "finances_publiques-1",
+      "approachId": "finances_publiques-1-c",
+      "weight": 2,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "Elle veut réduire le déficit d’abord en luttant contre les « gaspillages » (aides aux entreprises accordées sans conditions, organismes en doublon) et en réformant l’État, tout en rétablissant l’ISF pour dégager de nouvelles recettes.",
+      "sources": [
+        {
+          "title": "Budget 2026 : « Pour réduire le déficit, il faut lutter contre les gaspillages, il ne faut pas baisser les dépenses essentielles », estime Ségolène Royal",
+          "url": "https://www.franceinfo.fr/politique/segolene-royal/budget-2026-pour-reduire-le-deficit-il-faut-lutter-contre-les-gaspillages-il-ne-faut-pas-baisser-les-depenses-essentielles-estime-segolene-royal_7582286.html",
+          "date": "2025-10-29",
+          "publisher": "franceinfo"
+        },
+        {
+          "title": "Ségolène Royal veut réformer l’État avant d’augmenter les impôts",
+          "url": "https://acteurspublics.fr/articles/segolene-royal-veut-reformer-letat-avant-daugmenter-les-impots/",
+          "date": "2026-09-24",
+          "publisher": "Acteurs publics"
+        },
+        {
+          "title": "Accord avec LFI, Moyen-Orient, pouvoir d’achat : ce qu’il faut retenir du premier débat de la primaire de gauche",
+          "url": "https://lcp.fr/actualites/accord-avec-lfi-moyen-orient-pouvoir-d-achat-ce-qu-il-faut-retenir-du-premier-debat-de",
+          "date": "2026-09-23",
+          "publisher": "LCP"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Sur franceinfo (29/10/2025), elle vise les « 160 milliards donnés aux entreprises sans conditions » et les 1 600 organismes en doublon, et veut réduire les gaspillages avant de créer des impôts. Acteurs publics (24/09/2026) : la réforme de l’État est un préalable, après lequel des impôts supplémentaires deviendraient légitimes. LCP (23/09/2026) : économies sur les aides injustifiées, réforme du train de vie de l’État et retour de l’ISF pour les recettes. Le panachage entre économies ciblées et impôt sur les plus aisés correspond à l’approche -c. L’approche -g est écartée, car elle exclut toute hausse d’impôts alors que Royal veut l’ISF. Réserve : elle ne propose pas de nouvel impôt sur les grandes entreprises, seulement la réduction de leurs aides. Confiance medium maintenue.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "finances_publiques-1",
+      "approachId": "finances_publiques-1-f",
+      "weight": 1,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "Elle estime que le déficit vient davantage d’un manque de recettes que d’un excès de dépenses et veut rétablir l’ISF pour dégager de nouvelles recettes, tout en donnant la priorité aux économies sur les aides aux entreprises jugées injustifiées.",
+      "sources": [
+        {
+          "title": "Accord avec LFI, Moyen-Orient, pouvoir d’achat : ce qu’il faut retenir du premier débat de la primaire de gauche",
+          "url": "https://lcp.fr/actualites/accord-avec-lfi-moyen-orient-pouvoir-d-achat-ce-qu-il-faut-retenir-du-premier-debat-de",
+          "date": "2026-09-23",
+          "publisher": "LCP"
+        },
+        {
+          "title": "« A chaque fois, le taux d’intérêt monte » : Ségolène Royal contre une annulation de la dette",
+          "url": "https://www.capital.fr/economie-politique/a-chaque-fois-le-taux-d-interet-monte-segolene-royal-contre-une-annulation-de-la-dette-1530443",
+          "date": "2026-09-24",
+          "publisher": "Capital"
+        },
+        {
+          "title": "« C’est un budget de provocation », estime Ségolène Royal à propos des annonces de Sébastien Lecornu",
+          "url": "https://www.franceinfo.fr/replay-magazine/franceinfo/l-invite-politique/l-invite-politique-du-vendredi-18-septembre-2026_8182292.html",
+          "date": "2026-09-18",
+          "publisher": "franceinfo"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Selon LCP (23/09/2026), elle veut rétablir l’ISF pour faire rentrer de nouvelles recettes ; la formule est celle du journaliste. Capital (24/09/2026) rapporte qu’elle veut rétablir l’ISF et faire des économies sur les aides « qui ne sont pas justifiées ». Sur franceinfo (18/09/2026), elle estime que le déficit vient davantage du manque de recettes que des dépenses. J’ai retiré la source franceinfo sur le premier débat (24/09) : elle ne rapporte aucun propos de Royal sur l’ISF ni sur les recettes, seulement sur la réduction du train de vie de l’État. Comme elle fait de la réforme de l’État un préalable (Acteurs publics), elle ne porte pas un déficit réduit « surtout » par l’impôt : le poids 1 est maintenu. L’approche est identique à l’approche source (fiscalite-2-b).",
+      "candidate": "royal",
+      "origin": "reuse"
+    },
+    {
+      "questionId": "finances_publiques-2",
+      "approachId": "finances_publiques-2-d",
+      "weight": 2,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "high",
+      "summary": "Elle refuse l’annulation de la dette et propose qu’une partie de la dette publique soit rendue « perpétuelle » et portée par la Banque centrale européenne, pour financer les investissements de la transition climatique.",
+      "sources": [
+        {
+          "title": "« A chaque fois, le taux d’intérêt monte » : Ségolène Royal contre une annulation de la dette",
+          "url": "https://www.capital.fr/economie-politique/a-chaque-fois-le-taux-d-interet-monte-segolene-royal-contre-une-annulation-de-la-dette-1530443",
+          "date": "2026-09-24",
+          "publisher": "Capital"
+        },
+        {
+          "title": "« Où est passé l’argent ? », Ségolène Royal pointe les 1 500 milliards de dette",
+          "url": "https://www.capital.fr/economie-politique/ou-est-passe-l-argent-segolene-royal-pointe-les-1-500-milliards-de-dette-1530066",
+          "date": "2026-09-11",
+          "publisher": "Capital, d’après BFMTV"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Capital (24/09/2026, débat LCI du 23/09) : « Annuler la dette, c’est non », mais une « dette reconduite, qui pourrait être faite par la BCE », réservée à la transition énergétique et climatique. Capital (11/09/2026, BFMTV) : elle rappelle que la BCE a pratiqué la « dette perpétuelle » pendant le Covid et propose « des dettes perpétuelles, mais par exemple contre le dérèglement climatique ». Les deux articles correspondent exactement à l’approche -d. Ils ont été lus en entier par téléchargement direct, l’outil de lecture web étant bloqué sur capital.fr.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "fiscalite-1",
+      "approachId": "fiscalite-1-a",
+      "weight": 2,
+      "rejects": false,
+      "nature": "proposition",
+      "confidence": "high",
+      "summary": "Elle veut rétablir l’impôt de solidarité sur la fortune sous la forme d’un « ISF financier » et en fait un préalable à tout débat sur les retraites ; elle l’a de nouveau défendu aux débats de septembre et d’octobre 2026.",
+      "sources": [
+        {
+          "title": "Retraites : « Je refuse ce débat tant que la question du retour de l’ISF n’est pas posée », affirme Ségolène Royal, candidate à la primaire du pôle socialiste",
+          "url": "https://www.franceinfo.fr/elections/presidentielle/primaire-populaire-gauche/retraites-je-refuse-ce-debat-tant-que-la-question-du-retour-de-l-isf-n-est-pas-posee-affirme-segolene-royal-candidate-a-la-primaire-du-pole-socialiste_8170295.html",
+          "date": "2026-08-31",
+          "publisher": "franceinfo"
+        },
+        {
+          "title": "Mobilisation lycéenne, budget, situation internationale... : ce qu’il faut retenir du deuxième débat de la primaire de gauche",
+          "url": "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+          "date": "2026-10-01",
+          "publisher": "LCP"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "franceinfo (31/08/2026) : elle refuse le débat sur les retraites tant que le retour de l’ISF n’est pas posé, et accuse ceux qui ont supprimé l’« impôt sur la fortune financière ». LCP (01/10/2026) : elle veut un « ordre juste fiscal » qui passe par le rétablissement de l’impôt sur les grandes fortunes. Elle l’a redit aux débats LCI du 23/09 et BFMTV du 04/10. Elle parle de rétablir ce que la réforme de 2018 a supprimé, c’est-à-dire la part financière, sans jamais évoquer le remplacement de l’IFI : c’est donc bien l’approche -a (ISF comme avant 2018) et non la -c (impôt sur les seuls placements financiers). L’approche est identique à l’approche source. Seuls les titres ont été complétés.",
+      "candidate": "royal",
+      "origin": "reuse"
+    },
+    {
+      "questionId": "fiscalite-x1",
+      "approachId": "fiscalite-x1-d",
+      "weight": 1,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "Elle veut rétablir l’ISF financier, estime que le déficit vient davantage d’un manque de recettes que d’un excès de dépenses et juge que des impôts supplémentaires deviendraient légitimes après une réforme en profondeur de l’État, après avoir critiqué fin 2025 la « surenchère sur les impôts » des députés socialistes.",
+      "sources": [
+        {
+          "title": "« C’est un budget de provocation », estime Ségolène Royal à propos des annonces de Sébastien Lecornu",
+          "url": "https://www.franceinfo.fr/replay-magazine/franceinfo/l-invite-politique/l-invite-politique-du-vendredi-18-septembre-2026_8182292.html",
+          "date": "2026-09-18",
+          "publisher": "franceinfo"
+        },
+        {
+          "title": "Ségolène Royal veut réformer l’État avant d’augmenter les impôts",
+          "url": "https://acteurspublics.fr/articles/segolene-royal-veut-reformer-letat-avant-daugmenter-les-impots/",
+          "date": "2026-09-24",
+          "publisher": "Acteurs publics"
+        },
+        {
+          "title": "Retraites : « Je refuse ce débat tant que la question du retour de l’ISF n’est pas posée », affirme Ségolène Royal, candidate à la primaire du pôle socialiste",
+          "url": "https://www.franceinfo.fr/elections/presidentielle/primaire-populaire-gauche/retraites-je-refuse-ce-debat-tant-que-la-question-du-retour-de-l-isf-n-est-pas-posee-affirme-segolene-royal-candidate-a-la-primaire-du-pole-socialiste_8170295.html",
+          "date": "2026-08-31",
+          "publisher": "franceinfo"
+        },
+        {
+          "title": "« Il fallait s’arrêter à la suspension de la réforme des retraites » : Ségolène Royal critique la « surenchère sur les impôts »",
+          "url": "https://www.capital.fr/economie-politique/il-fallait-sarreter-a-la-suspension-de-la-reforme-des-retraites-segolene-royal-critique-la-surenchere-sur-les-impots-1520637",
+          "date": "2025-11-10",
+          "publisher": "Capital, d’après TF1"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Les trois sources d’origine confirment le retour de l’ISF (31/08), le déficit dû davantage au manque de recettes (18/09, « davantage » et non « surtout ») et la légitimité d’impôts supplémentaires une fois l’État réformé (Acteurs publics, 24/09). Le poids 1 se justifie : elle ne propose ni de taxer davantage les hauts revenus ni de nouvel impôt sur les grandes entreprises. En novembre 2025 (TF1), elle critiquait la « surenchère sur les impôts » des députés socialistes, estimant qu’il fallait renvoyer ce débat à la présidentielle, et rappelait en octobre 2025 que la France paie déjà le plus d’impôts. J’ajoute cette nuance et sa source au résumé. Le 04/10/2026, elle a aussi fait de la lutte contre la fraude fiscale son combat (20 Minutes).",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "immigration-1",
+      "approachId": "immigration-1-e",
+      "weight": 1,
+      "rejects": false,
+      "nature": "inference",
+      "confidence": "medium",
+      "summary": "Le 26 mai 2026 sur Beur FM, elle a déploré le durcissement des visas, qui bloque des étudiants et pousse de jeunes diplômés algériens vers d’autres pays, et cité l’OQTF reçue par un médecin urgentiste tunisien, sans formuler de proposition précise sur les visas ni sur les titres de séjour.",
+      "sources": [
+        {
+          "title": "Ségolène Royal plaide pour l'apaisement avec Alger et remet « l'ordre juste » dans le débat !",
+          "url": "https://www.beurfm.net/segolene-royal-plaide-pour-l-apaisement-avec-alger-et-remet-l-ordre-juste-dans-le-debat",
+          "date": "2026-05-26",
+          "publisher": "Beur FM"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "La page Beur FM (émission Les Zinformés, 26/05/2026) confirme : elle critique des visas durcis et des étudiants bloqués, évoque de jeunes diplômés algériens attirés par le Canada faute de visas, et raconte qu'un médecin tunisien aux urgences, en attente de renouvellement, a reçu une OQTF. Elle ne fait aucune proposition et ne parle ni de titres de séjour ni de leur durée. L'article ne traite pas non plus la politique d'immigration en général : le sujet est la relation avec l'Algérie et le Maghreb. Rattacher sa position à « faciliter les visas » est donc une déduction tirée d'une critique : nature passée de declaration à inference, poids 1 maintenu. Titre de la source corrigé (titre exact, sans « (Beur FM) »).",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "immigration-3",
+      "approachId": "immigration-3-b",
+      "weight": 1,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "high",
+      "summary": "Au dernier débat de la primaire, le 4 octobre 2026 sur BFMTV, elle a annoncé « Je régularise ceux qui travaillent », sans préciser l’ampleur de la mesure ni le sort des autres personnes sans titre de séjour.",
+      "sources": [
+        {
+          "title": "Présidentielle 2027 : LFI, Ukraine, retraites, lycées… Ce qu’il faut retenir du dernier débat de la primaire à gauche",
+          "url": "https://www.20minutes.fr/politique/4251221-20261005-presidentielle-2027-lfi-ukraine-retraites-lycees-faut-retenir-dernier-debat-primaire-gauche",
+          "date": "2026-10-05",
+          "publisher": "20 Minutes"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Article de 20 Minutes signé X.M. avec AFP, lu en entier (WebFetch bloqué, page récupérée avec curl), publié le 05/10/2026. Rubrique « L’immigration » : les cinq candidats s'accordent sur la régularisation des travailleurs sans papiers, et Royal y est citée mot pour mot. Le débat a bien eu lieu le dimanche 4 octobre sur BFMTV. Elle ne parle ni des parents d'enfants scolarisés ni explicitement de grande échelle, mais une régularisation sans condition de « ceux qui travaillent » correspond mieux à 3-b qu'à 3-c, qui ajoute le cas par cas et les reconduites à la frontière, dont elle ne dit rien. Le poids 1 (approche compatible) est donc adapté. La mention par le refresh d'une « hypocrisie » envers les patrons ne se trouve pas dans cet article, mais le résumé ne la reprend pas.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "immigration-x2",
+      "approachId": "immigration-x2-d",
+      "weight": 1,
+      "rejects": false,
+      "nature": "inference",
+      "confidence": "medium",
+      "summary": "Présidente de l’Association France-Algérie, elle plaide pour l’apaisement et une relation sans conditions préalables avec Alger, et a reproché en novembre 2025 aux auteurs d’un rapport parlementaire chiffrant le coût de l’accord de 1968 de taire ce que le travail des Algériens rapporte aux entreprises françaises, sans se prononcer explicitement sur le maintien de l’accord.",
+      "sources": [
+        {
+          "title": "France – Algérie : Ségolène Royal prend un engagement fort",
+          "url": "https://www.tsa-algerie.com/france-algerie-segolene-royal-prend-un-engagement-fort/",
+          "date": "2025-12-25",
+          "publisher": "TSA"
+        },
+        {
+          "title": "Ségolène Royal plaide pour l'apaisement avec Alger et remet « l'ordre juste » dans le débat !",
+          "url": "https://www.beurfm.net/segolene-royal-plaide-pour-l-apaisement-avec-alger-et-remet-l-ordre-juste-dans-le-debat",
+          "date": "2026-05-26",
+          "publisher": "Beur FM"
+        },
+        {
+          "title": "Crise entre l'Algérie et la France : Ségolène Royal appelle à la reconnaissance des crimes coloniaux",
+          "url": "https://www.aa.com.tr/fr/afrique/crise-entre-l-alg%C3%A9rie-et-la-france-s%C3%A9gol%C3%A8ne-royal-appelle-%C3%A0-la-reconnaissance-des-crimes-coloniaux/3803276",
+          "date": "2026-01-18",
+          "publisher": "Anadolu"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "TSA (Riyad Hamadi, 25/12/2025) : en novembre 2025, elle a accusé les rédacteurs du rapport parlementaire qui chiffre l'accord à 2 Md€ par an de cacher ce que le travail des Algériens rapporte aux entreprises françaises. L'article la présente comme une voix favorable au retour à des relations normales, mais ne dit pas si elle veut maintenir, dénoncer ou renégocier l'accord. Beur FM (26/05/2026) montre qu'elle veut l'apaisement, sans conditions préalables, mais ne parle pas de l'accord de 1968. Anadolu (18/01/2026) traite de la reconnaissance des crimes coloniaux et de passerelles entre les deux pays, sans un mot sur l'accord. TSA (14/09/2026, positions tranchées) ne contient rien sur l'accord non plus. La partie « apaiser par le dialogue » de l'approche est bien sourcée. La partie « conserver l'accord en l'état » n'est que déduite de sa critique du rapport qui appuyait la dénonciation, et rien n'exclut une renégociation (x2-c). Nature passée de declaration à inference, poids 1 maintenu. Titres Beur FM et Anadolu corrigés (titres exacts, sans l'éditeur ajouté entre parenthèses), et mention de la date de la critique (novembre 2025) ajoutée au résumé.",
+      "candidate": "royal",
+      "origin": "web"
+    },
+    {
+      "questionId": "industrie_economie-1",
+      "approachId": "industrie_economie-1-c",
+      "weight": 1,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "Au débat du 23 septembre 2026, elle a proposé, comme Olivier Faure, une grande conférence salariale après l’élection pour remettre à plat les aides aux entreprises et les conditionner à la politique salariale.",
+      "sources": [
+        {
+          "title": "Accord avec LFI, Moyen-Orient, pouvoir d’achat : ce qu’il faut retenir du premier débat de la primaire de gauche",
+          "url": "https://lcp.fr/actualites/accord-avec-lfi-moyen-orient-pouvoir-d-achat-ce-qu-il-faut-retenir-du-premier-debat-de",
+          "date": "2026-09-23",
+          "publisher": "LCP"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "LCP (23/09/2026) rapporte que Royal, comme Olivier Faure, souhaite une grande conférence salariale pour remettre à plat les aides aux entreprises et les conditionner à la politique salariale. Cela correspond à l’approche -c sur le volet des salaires. Le poids 1 est cohérent avec sa position principale, la réduction des aides sans contrepartie (p8). L’approche est identique à l’approche source (industrie_economie-3-b).",
+      "candidate": "royal",
+      "origin": "reuse"
+    },
+    {
+      "questionId": "industrie_economie-1",
+      "approachId": "industrie_economie-1-f",
+      "weight": 2,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "high",
+      "summary": "Elle juge que les quelque 160 Md€ d’aides aux entreprises accordées « sans conditions » sont un gisement d’économies pour réduire le déficit et a demandé en 2026 leur remise à plat, en visant d’abord les entreprises qui versent des dividendes.",
+      "sources": [
+        {
+          "title": "Budget 2026 : « Pour réduire le déficit, il faut lutter contre les gaspillages, il ne faut pas baisser les dépenses essentielles », estime Ségolène Royal",
+          "url": "https://www.franceinfo.fr/politique/segolene-royal/budget-2026-pour-reduire-le-deficit-il-faut-lutter-contre-les-gaspillages-il-ne-faut-pas-baisser-les-depenses-essentielles-estime-segolene-royal_7582286.html",
+          "date": "2025-10-29",
+          "publisher": "franceinfo"
+        },
+        {
+          "title": "Primaire de la gauche : échanges tendus sur les alliances avec LFI, Gaza, Ukraine… Que retenir du 1er débat entre les candidats ?",
+          "url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+          "date": "2026-09-24",
+          "publisher": "Public Sénat"
+        },
+        {
+          "title": "« C’est un budget de provocation », estime Ségolène Royal à propos des annonces de Sébastien Lecornu",
+          "url": "https://www.franceinfo.fr/replay-magazine/franceinfo/l-invite-politique/l-invite-politique-du-vendredi-18-septembre-2026_8182292.html",
+          "date": "2026-09-18",
+          "publisher": "franceinfo"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "franceinfo (29/10/2025) : elle cite les « 160 milliards donnés aux entreprises sans conditions » comme une source d’économies contre le déficit. Public Sénat (24/09/2026) : elle veut remettre à plat les 170 Md€ d’aides aux entreprises, surtout pour celles qui versent des dividendes. franceinfo (18/09/2026) : elle oppose les 61 Md€ de dividendes aux 150 Md€ d’aides et veut revoir les aides versées aux entreprises qui distribuent des dividendes. Capital (24/09/2026) rapporte aussi qu’elle veut économiser sur les aides « qui ne sont pas justifiées ». L’approche est identique à l’approche source. J’ai fusionné le résumé en une phrase et ajouté une source de 2026.",
+      "candidate": "royal",
+      "origin": "reuse"
+    },
+    {
+      "questionId": "industrie_economie-2",
+      "approachId": "industrie_economie-2-d",
+      "weight": 1,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "Elle juge anormal d’importer des produits traités avec des pesticides interdits en France, veut appliquer aux importations des exigences comparables et souhaite que le prix des produits importés intègre leur coût environnemental, par une règle internationale.",
+      "sources": [
+        {
+          "title": "Ségolène Royal : « Pour 2027, je consulte, je réfléchis. Si je peux être utile, pourquoi pas ? »",
+          "url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pour-2027-je-consulte-je-reflechis-si-je-peux-etre-utile-pourquoi-pas",
+          "date": "2026-07-03",
+          "publisher": "Sud Radio"
+        },
+        {
+          "title": "EXCLU Ségolène Royal : « Pourquoi pas un ticket avec Dominique de Villepin » pour la Présidentielle 2027",
+          "url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pourquoi-pas-un-ticket-avec-dominique-de-villepin-pour-la-presidentielle",
+          "date": "2025-12-11",
+          "publisher": "Sud Radio"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Sud Radio (03/07/2026) : il n’est « pas normal » d’importer des cerises, des noisettes ou des pommes traitées avec des pesticides interdits en France, et il faut appliquer des exigences comparables aux produits importés. Ce sont des mesures miroirs, au cœur de l’approche -d. Sud Radio (11/12/2025) : le prix des produits importés doit intégrer leur coût environnemental (« c’est le juste prix »), et il faut « une règle internationale ». Elle ne propose pas d’interdiction générale : le poids 1 est prudent et approprié. J’ai complété les titres et le résumé.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "institutions-1",
+      "approachId": "institutions-1-a",
+      "weight": 0,
+      "rejects": true,
+      "nature": "inference",
+      "confidence": "medium",
+      "summary": "Interrogée sur un changement des institutions, elle estime qu’elles « ne sont pas responsables des abus de pouvoir » et qu’il faut les « habiter autrement ».",
+      "sources": [
+        {
+          "title": "«Quai numéro 8» (LCP) : quand Ségolène Royal parie sur la fraternité",
+          "url": "https://tvmag.lefigaro.fr/programme-tv/ce-soir-tele/quai-numero-8-lcp-quand-segolene-royal-parie-sur-la-fraternite-20261002",
+          "date": "2026-10-02",
+          "publisher": "TV Magazine (Le Figaro)"
+        }
+      ],
+      "candidate": "royal",
+      "verdict": "added",
+      "note": "TV Magazine (02/10/2026) : Yves Thréard lui demande si elle souhaite changer les institutions. Selon l’article, elle « fait machine arrière » : l’enjeu est pour elle d’« habiter autrement » les institutions. Elle ne parle pas d’assemblée constituante. Son refus de changer les institutions exclut a fortiori une nouvelle Constitution, d’où la nature « inference » et la confiance medium. Le refus d’un projet de VIe République est aussi relevé dans refresh_royal.json.",
+      "origin": "factcheck"
+    },
+    {
+      "questionId": "institutions-3",
+      "approachId": "institutions-3-e",
+      "weight": 0,
+      "rejects": true,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "Interrogée sur le recours au référendum, elle répond « Non, parce que le référendum, c’est très artificiel », tout en se réclamant de la démocratie participative.",
+      "sources": [
+        {
+          "title": "«Quai numéro 8» (LCP) : quand Ségolène Royal parie sur la fraternité",
+          "url": "https://tvmag.lefigaro.fr/programme-tv/ce-soir-tele/quai-numero-8-lcp-quand-segolene-royal-parie-sur-la-fraternite-20261002",
+          "date": "2026-10-02",
+          "publisher": "TV Magazine (Le Figaro)"
+        }
+      ],
+      "candidate": "royal",
+      "verdict": "added",
+      "note": "Citation directe rapportée par TV Magazine (02/10/2026) : à la question de savoir si elle est favorable au référendum, elle répond « Non » et le juge « très artificiel ». Le journaliste relève la contradiction avec son éloge de la démocratie participative. Organiser régulièrement des référendums à l’initiative de l’exécutif (approche e) est donc rejeté. Confiance medium : un seul compte rendu, et Sud Radio lui prêtait le 23/09/2026, sans citation, la défense d’un RIP sur les retraites. Ce cas ponctuel reste compatible avec le rejet de référendums réguliers.",
+      "origin": "factcheck"
+    },
+    {
+      "questionId": "laicite_republique-1",
+      "approachId": "laicite_republique-1-a",
+      "weight": 0,
+      "rejects": true,
+      "nature": "declaration",
+      "confidence": "high",
+      "summary": "Elle s’oppose au projet de verbaliser le port du voile dans l’espace public (« Laissons les femmes tranquilles ») et promet qu’il n’y aura pas de « chasse au foulard » si elle est élue.",
+      "sources": [
+        {
+          "title": "« Je préfère une femme qui a un foulard sur la tête […] qu’un pédophile, pédocriminel » ! (Beur FM, d’après BFMTV-RMC)",
+          "url": "https://www.beurfm.net/je-prefere-une-femme-qui-a-un-foulard-sur-la-tete-qu-un-pedophile-pedocriminel",
+          "date": "2026-09-02",
+          "publisher": "Beur FM"
+        },
+        {
+          "title": "Projet du RN d’interdire le voile en France : Ségolène Royal dénonce la « chasse au foulard »",
+          "url": "https://www.tsa-algerie.com/france-segolene-royal-denonce-la-chasse-au-foulard/",
+          "date": "2026-09-08",
+          "publisher": "TSA"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Beur FM (02/09/2026) : elle rejette le projet du RN d’interdire le voile dans l’espace public et de verbaliser les femmes. Elle évoque la mère « interpellée pour payer une amende » et dit « Laissons les femmes tranquilles ». TSA (08/09/2026) : si elle est élue, « il n’y aura pas ce genre de chasse au foulard ». Rejet explicite de l’approche a.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "laicite_republique-1",
+      "approachId": "laicite_republique-1-c",
+      "weight": 2,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "high",
+      "summary": "Elle refuse d’interdire le voile dans l’espace public en rappelant que la burqa y est déjà interdite, et préfère l’éducation pour répondre au voile imposé.",
+      "sources": [
+        {
+          "title": "Projet du RN d’interdire le voile en France : Ségolène Royal dénonce la « chasse au foulard »",
+          "url": "https://www.tsa-algerie.com/france-segolene-royal-denonce-la-chasse-au-foulard/",
+          "date": "2026-09-08",
+          "publisher": "TSA"
+        },
+        {
+          "title": "« Je préfère une femme qui a un foulard sur la tête […] qu’un pédophile, pédocriminel » ! (Beur FM, d’après BFMTV-RMC)",
+          "url": "https://www.beurfm.net/je-prefere-une-femme-qui-a-un-foulard-sur-la-tete-qu-un-pedophile-pedocriminel",
+          "date": "2026-09-02",
+          "publisher": "Beur FM"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "TSA (08/09/2026, propos tenus sur BFMTV le 07/09) : elle qualifie le projet du RN de « diversion irresponsable » et « inapplicable ». Elle rappelle que la burqa est déjà interdite dans l’espace public et promet qu’il n’y aura pas de « chasse au foulard ». Beur FM (02/09/2026) : contre le voile forcé, elle répond qu’« il faut les faire monter en éducation » et invoque le respect du libre choix. Elle ne demande aucune nouvelle interdiction, ce qui correspond à l’approche c.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "laicite_republique-1",
+      "approachId": "laicite_republique-1-d",
+      "weight": 1,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "Sa profession de foi défend une République laïque « sans complaisance envers le racisme, l’antisémitisme et toutes les discriminations », et elle a jugé en décembre 2025 que le voile était « monté en épingle par les islamophobes ».",
+      "sources": [
+        {
+          "title": "Profession de foi de Ségolène Royal – primaire Choisir 2027",
+          "url": "https://choisir2027.fr/wp-content/uploads/2026/09/Profession_de_foi_Segolene_Royal_2027.pdf",
+          "date": "2026-09-23",
+          "publisher": "Choisir 2027"
+        },
+        {
+          "title": "Ségolène Royal : « Pourquoi pas un ticket avec Dominique de Villepin » pour la présidentielle 2027",
+          "url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pourquoi-pas-un-ticket-avec-dominique-de-villepin-pour-la-presidentielle",
+          "date": "2025-12-11",
+          "publisher": "Sud Radio"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Le PDF est une image ; il a été lu par OCR. Il contient bien : « Une République laïque, garante de l’égalité femmes-hommes, sans complaisance envers le racisme, l’antisémitisme et toutes les discriminations ». Sud Radio (11/12/2025, Aurélie Giraud) contient bien « Le voile est monté en épingle par les islamophobes ». Les deux faits sont exacts. Le rattachement à l’approche d (« y compris celles qui visent les musulmans ») reste une interprétation. La profession de foi parle des discriminations en général, au milieu d’autres priorités. Le volet musulman repose sur une remarque critiquant les islamophobes, pas sur une proposition. Corrections : nature « declaration » au lieu de « proposition », confiance « medium », poids 1 maintenu, titre Sud Radio rectifié et résumé recentré sur les citations exactes.",
+      "candidate": "royal",
+      "origin": "document"
+    },
+    {
+      "questionId": "laicite_republique-2",
+      "approachId": "laicite_republique-2-b",
+      "weight": 2,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "high",
+      "summary": "Présidente de l’Association France-Algérie, elle demande la reconnaissance des crimes coloniaux et des excuses de l’État français, la restitution des biens culturels réclamés par l’Algérie et la remise des archives sur les essais nucléaires.",
+      "sources": [
+        {
+          "title": "Crise entre l’Algérie et la France : Ségolène Royal appelle à la reconnaissance des crimes coloniaux",
+          "url": "https://www.aa.com.tr/fr/afrique/crise-entre-l-alg%C3%A9rie-et-la-france-s%C3%A9gol%C3%A8ne-royal-appelle-%C3%A0-la-reconnaissance-des-crimes-coloniaux/3803276",
+          "date": "2026-01-18",
+          "publisher": "Anadolu"
+        },
+        {
+          "title": "Ségolène Royal plaide pour l’apaisement avec Alger et remet « l’ordre juste » dans le débat !",
+          "url": "https://www.beurfm.net/segolene-royal-plaide-pour-l-apaisement-avec-alger-et-remet-l-ordre-juste-dans-le-debat",
+          "date": "2026-05-26",
+          "publisher": "Beur FM"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Anadolu (18/01/2026) : elle plaide pour la « reconnaissance des crimes coloniaux, la réparation et les excuses » de l’État français. Elle demande aussi la restitution des biens appartenant à l’Algérie et la remise des archives sur les essais nucléaires. Beur FM (26/05/2026) : elle cite la restitution des biens culturels spoliés et l’accès aux archives (essais nucléaires, dépouilles, mines aux frontières). Les trois volets de l’approche b sont couverts.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "laicite_republique-2",
+      "approachId": "laicite_republique-2-e",
+      "weight": 0,
+      "rejects": true,
+      "nature": "declaration",
+      "confidence": "high",
+      "summary": "Elle demande des excuses de l’État français pour les crimes coloniaux, estime que la France doit demander pardon à l’Algérie et se démarque de la notion de « rente mémorielle ».",
+      "sources": [
+        {
+          "title": "Crise entre l’Algérie et la France : Ségolène Royal appelle à la reconnaissance des crimes coloniaux",
+          "url": "https://www.aa.com.tr/fr/afrique/crise-entre-l-alg%C3%A9rie-et-la-france-s%C3%A9gol%C3%A8ne-royal-appelle-%C3%A0-la-reconnaissance-des-crimes-coloniaux/3803276",
+          "date": "2026-01-18",
+          "publisher": "Anadolu"
+        },
+        {
+          "title": "Ségolène Royal plaide pour l’apaisement avec Alger et remet « l’ordre juste » dans le débat !",
+          "url": "https://www.beurfm.net/segolene-royal-plaide-pour-l-apaisement-avec-alger-et-remet-l-ordre-juste-dans-le-debat",
+          "date": "2026-05-26",
+          "publisher": "Beur FM"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Le rejet est fondé : elle réclame des excuses (Anadolu) et dit que la France doit demander pardon (Beur FM), ce qui contredit le cœur de l’approche e. Le résumé est précisé : les excuses visent les « crimes coloniaux », pas la colonisation en bloc. La critique de la « rente mémorielle » figure dans l’article d’Anadolu ; l’expression n’apparaît pas dans celui de Beur FM. Nuance : elle plaide pour l’« apaisement » avec Alger, ce qui rejoint le second volet de l’approche (« dépassionner »). Mais le refus des excuses en est l’élément central, et elle le rejette.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "numerique-2",
+      "approachId": "numerique-2-a",
+      "weight": 2,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "En décembre 2025, elle se dit « favorable » à l’interdiction des réseaux sociaux aux moins de 15 ans voulue par Emmanuel Macron, « comme en Australie », en dénonçant les dégâts des réseaux sur les jeunes.",
+      "sources": [
+        {
+          "title": "Ségolène Royal : « Pourquoi pas un ticket avec Dominique de Villepin » pour la présidentielle 2027 (Sud Radio)",
+          "url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pourquoi-pas-un-ticket-avec-dominique-de-villepin-pour-la-presidentielle",
+          "date": "2025-12-11",
+          "publisher": "Sud Radio"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Source relue (11/12/2025, article d'Aurélie Giraud). Elle se dit favorable à l'interdiction et dit l'avoir défendue avant Emmanuel Macron. Elle invoque les dégâts sur la santé mentale des jeunes (tentatives de suicide) et prend l'Australie comme modèle de première mesure. L'article ne parle pas de vérification d'âge, mais le modèle australien en impose une. L'approche est identique, mot pour mot, à celle de l'élection source (numerique-2-a). Le dossier n'a trouvé aucune réaction de sa part à la loi de juillet 2026 ni à sa censure, donc aucune mise à jour contraire n'est connue. WebSearch n'était plus disponible pour chercher d'autres mises à jour en 2026.",
+      "candidate": "royal",
+      "origin": "reuse"
+    },
+    {
+      "questionId": "numerique-2",
+      "approachId": "numerique-2-b",
+      "weight": 1,
+      "rejects": false,
+      "nature": "inference",
+      "confidence": "medium",
+      "summary": "En novembre 2025, elle propose de rappeler aux jeunes parents, dans le livret remis à la maternité et par de petites vidéos, des règles de base dont la limitation de l'exposition des enfants aux écrans, sans préciser elle-même d'âge.",
+      "sources": [
+        {
+          "title": "« Il n'est pas impossible que je sois candidate à l'élection présidentielle » : Ségolène Royal détaille un projet politique centré sur la jeunesse (Femme Actuelle)",
+          "url": "https://www.femmeactuelle.fr/actu/news-actu/il-n-est-pas-impossible-que-je-sois-candidate-a-l-election-presidentielle-segolene-royal-detaille-un-projet-politique-centre-sur-la-jeunesse-2201093",
+          "date": "2025-11-19",
+          "publisher": "Femme Actuelle"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Source lue avec curl, WebFetch étant bloqué sur ce site. L'article date du 19/11/2025 et est signé Sabrina Nadjar. Elle propose de rappeler, dans le livret remis à la maternité, comment prévenir les abus sexuels et limiter l'exposition aux écrans, et de créer de petites vidéos pour les jeunes parents. L'âge (« pas avant 3 ans ») est une note de la rédaction, pas ses paroles. Elle ne parle ni de 5 ans ni de smartphone avant 15 ans. Elle adhère donc à des règles d'exposition aux écrans pour les tout-petits, mais par l'information des parents, pas par des règles fixées par la loi. La compatibilité avec l'approche b est réelle mais partielle et déduite. Corrections : poids 1 maintenu, nature proposition → inference, résumé précisé, titre complet de l'article.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "proche_orient-1",
+      "approachId": "proche_orient-1-d",
+      "weight": 1,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "En mai 2025, elle reprochait à Emmanuel Macron de ne pas saisir le Conseil de sécurité de l'ONU pour décider de sanctions contre Benyamin Netanyahou, sans s'être prononcée, dans les sources consultées, sur l'exécution des mandats d'arrêt de la Cour pénale internationale.",
+      "sources": [
+        {
+          "title": "Gaza – Ségolène Royal fustige l'inaction de Macron : « Ce n'est pas ça la France » (Tunisie Numérique)",
+          "url": "https://www.tunisienumerique.com/gaza-segolene-royal-fustige-linaction-de-macron-ce-nest-pas-ca-la-france/",
+          "date": "2025-05-10",
+          "publisher": "Tunisie Numérique"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Tunisie Numérique, 10/05/2025, rapporte un message sur X. Elle reproche au président de se taire au lieu de saisir le Conseil de sécurité pour décider de sanctions contre Netanyahou, nommément. La CPI et l'accord UE-Israël n'y figurent pas. Cela couvre la moitié de l'approche d (saisir le Conseil de sécurité), d'où le poids 1. La source date de 2025, donc reste dans la période. Ajustement : l'article de RTL (rtl.fr) ne peut pas être chargé, et Planet.fr (24/09/2026) ne reprend pas l'expression « criminel de guerre ». Cet élément invérifiable est retiré du résumé avec la source RTL. Autre point : Public Sénat (24/09/2026) la compte parmi quatre candidats favorables à la suspension de l'accord commercial UE-Israël. Mais le Times of Israel ne la cite pas dans cet échange, et le dossier refresh attribue la proposition à Olivier Faure. Ces sources se contredisent, rien n'est ajouté.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "proche_orient-2",
+      "approachId": "proche_orient-2-a",
+      "weight": 1,
+      "rejects": false,
+      "nature": "inference",
+      "confidence": "low",
+      "summary": "En mai 2025, elle critiquait ceux qui voulaient reconnaître l'État palestinien « quand tout aura été détruit », et en octobre 2026 elle accuse des ministres israéliens de vouloir rendre Gaza invivable au point que la solution à deux États ne puisse plus être durable, sans réaction connue à la reconnaissance de septembre 2025 ni appel explicite à la fin de l'occupation.",
+      "sources": [
+        {
+          "title": "Gaza – Ségolène Royal fustige l'inaction de Macron : « Ce n'est pas ça la France » (Tunisie Numérique)",
+          "url": "https://www.tunisienumerique.com/gaza-segolene-royal-fustige-linaction-de-macron-ce-nest-pas-ca-la-france/",
+          "date": "2025-05-10",
+          "publisher": "Tunisie Numérique"
+        },
+        {
+          "title": "Mobilisation lycéenne, budget, situation internationale... : ce qu'il faut retenir du deuxième débat de la primaire de gauche",
+          "url": "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+          "date": "2026-10-01",
+          "publisher": "LCP"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Tunisie Numérique (10/05/2025) confirme sa critique de ceux qui veulent reconnaître l'État palestinien « quand tout aura été détruit » : elle voulait une reconnaissance plus rapide. LCP (01/10/2026) : elle cite des ministres israéliens qui veulent, selon elle, détruire le territoire au point de le rendre irreconstructible, si bien que la solution à deux États ne puisse plus être durable. Elle impute ce but aux ministres et ne rejette pas elle-même les deux États ; le Times of Israel indique d'ailleurs que les cinq candidats soutiennent cette solution. L'approbation de la reconnaissance se déduit. En revanche, la seconde moitié de l'approche a (la reconnaissance comme première étape, exiger la fin de l'occupation et de la colonisation) n'est attestée nulle part. La position reste une inférence au poids 1, mais la confiance passe de medium à low. Le résumé est précisé.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "retraites-3",
+      "approachId": "retraites-3-a",
+      "weight": 2,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "high",
+      "summary": "Elle s’oppose à toute désindexation ou sous-indexation des pensions, sans seuil, en estimant qu’elles ont déjà perdu du pouvoir d’achat, et refuse toute nouvelle économie sur les retraites tant que l’impôt sur la fortune n’est pas rétabli.",
+      "sources": [
+        {
+          "title": "« L’arnaque c’est que les retraites sont déjà désindexées », affirme Ségolène Royal",
+          "url": "https://fr.finance.yahoo.com/actualites/larnaque-cest-retraites-d%C3%A9j%C3%A0-d%C3%A9sindex%C3%A9es-170357900.html",
+          "date": "2026-09-17",
+          "publisher": "Capital, via Yahoo Finance (d’après LCI)"
+        },
+        {
+          "title": "Retraites : « Je refuse ce débat tant que la question du retour de l’ISF n’est pas posée », affirme Ségolène Royal, candidate à la primaire du pôle socialiste",
+          "url": "https://www.franceinfo.fr/elections/presidentielle/primaire-populaire-gauche/retraites-je-refuse-ce-debat-tant-que-la-question-du-retour-de-l-isf-n-est-pas-posee-affirme-segolene-royal-candidate-a-la-primaire-du-pole-socialiste_8170295.html",
+          "date": "2026-08-31",
+          "publisher": "franceinfo"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Selon Capital, repris par Yahoo, elle rejette sur LCI le 16/09/2026 toute désindexation, y compris pour les plus aisés : « C’est quoi les plus aisés ? », puis « Il n’y a pas de seuil, les retraites sont déjà désindexées ». Je corrige la date de l’article au 17/09/2026 ; l’interview date du 16/09. Elle a réaffirmé au débat BFMTV du 04/10 refuser toute baisse des retraites tant que l’ISF n’est pas rétabli. L’approche est identique à l’approche source (retraites-2-d). J’ai fusionné le résumé en une phrase.",
+      "candidate": "royal",
+      "origin": "reuse"
+    },
+    {
+      "questionId": "retraites-3",
+      "approachId": "retraites-3-b",
+      "weight": 0,
+      "rejects": true,
+      "nature": "declaration",
+      "confidence": "high",
+      "summary": "Rejette toute sous-indexation des pensions, même pour les retraités dits « aisés », dont elle conteste la notion.",
+      "sources": [
+        {
+          "title": "« L’arnaque c’est que les retraites sont déjà désindexées », affirme Ségolène Royal",
+          "url": "https://fr.finance.yahoo.com/actualites/larnaque-cest-retraites-d%C3%A9j%C3%A0-d%C3%A9sindex%C3%A9es-170357900.html",
+          "date": "2026-09-17",
+          "publisher": "Capital, via Yahoo Finance (d’après LCI)"
+        },
+        {
+          "title": "« On est riche à 1 200 euros ? », Ségolène Royal a une autre solution que de taxer les retraités",
+          "url": "https://www.capital.fr/votre-retraite/on-est-riche-a-1-200-euros-segolene-royal-a-une-autre-solution-que-de-taxer-les-retraites-1530154",
+          "date": "2026-09-15",
+          "publisher": "Capital, d’après Europe 1 et CNews"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Sur LCI (16/09/2026), elle refuse la désindexation même pour les plus aisés et conteste la notion de seuil. Sur Europe 1 et CNews (15/09/2026), elle juge « une provocation » la piste gouvernementale de désindexer les pensions les plus élevées ou de réduire l’abattement fiscal de 10 % des retraités. La hausse de CSG n’est pas abordée, mais le rejet de l’autre volet de l’approche suffit. L’approche est identique à l’approche source (retraites-2-c). J’ai corrigé la date et ajouté une source.",
+      "candidate": "royal",
+      "origin": "reuse"
+    },
+    {
+      "questionId": "retraites-3",
+      "approachId": "retraites-3-c",
+      "weight": 0,
+      "rejects": true,
+      "nature": "declaration",
+      "confidence": "high",
+      "summary": "Elle rejette toute désindexation des pensions, sans seuil et même pour les retraités les plus aisés, a jugé « scandaleux » le projet de gel des pensions au-delà d’environ 2 000 € par mois et refuse toute baisse des retraites tant que l’ISF n’est pas rétabli.",
+      "sources": [
+        {
+          "title": "« L’arnaque c’est que les retraites sont déjà désindexées », affirme Ségolène Royal",
+          "url": "https://fr.finance.yahoo.com/actualites/larnaque-cest-retraites-d%C3%A9j%C3%A0-d%C3%A9sindex%C3%A9es-170357900.html",
+          "date": "2026-09-17",
+          "publisher": "Capital, via Yahoo Finance (d’après LCI)"
+        },
+        {
+          "title": "Ségolène Royal fustige les propos de Roland Lescure sur les 2 000 euros par mois de retraite, « c’est facile quand on a 4 millions d’euros de patrimoine »",
+          "url": "https://www.capital.fr/votre-retraite/segolene-royal-fustige-les-propos-de-roland-lescure-sur-les-2-000-euros-par-mois-de-retraite-c-est-facile-quand-on-a-4-millions-d-euros-de-patrimoine-1530440",
+          "date": "2026-09-24",
+          "publisher": "Capital, d’après BFMTV-RMC"
+        },
+        {
+          "title": "« Aucune raison de s’en prendre aux retraités », Ségolène Royal conditionne tout au retour de l’ISF",
+          "url": "https://www.capital.fr/economie-politique/aucune-raison-de-s-en-prendre-aux-retraites-segolene-royal-conditionne-tout-au-retour-de-l-isf-1530732",
+          "date": "2026-10-05",
+          "publisher": "Capital"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Capital (24/09/2026) : le gouvernement envisage de geler les pensions de base au-delà de 2 034 € par mois, ce qui correspond exactement à un gel qui épargne les petites retraites. Royal juge les propos de Roland Lescure « très choquant[s] » et « scandaleux » et dénonce le fait de s’en prendre aux retraités sans remettre l’ISF. Capital (05/10/2026, débat BFMTV) : « Je ne veux pas qu’on diminue les retraites tant que l’on n’a pas réglé la question de la justice fiscale ». Sur LCI (16/09), elle refuse aussi la désindexation sur le fond. J’ajoute la source du 24/09, la plus directe pour cette approche, et je corrige la date de l’article LCI/Capital.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "sante-1",
+      "approachId": "sante-1-d",
+      "weight": 1,
+      "rejects": false,
+      "nature": "inference",
+      "confidence": "low",
+      "summary": "Qualifie de gaspillage le coût, chiffré par elle à 6 Md€, des agences régionales de santé et des structures empilées pour gérer la dépense médicale, et veut y faire des économies de fonctionnement pour réduire le déficit sans baisser les dépenses de santé, sans dire si elle supprimerait ces agences.",
+      "sources": [
+        {
+          "title": "Budget 2026 : « Pour réduire le déficit, il faut lutter contre les gaspillages, il ne faut pas baisser les dépenses essentielles », estime Ségolène Royal",
+          "url": "https://www.franceinfo.fr/politique/segolene-royal/budget-2026-pour-reduire-le-deficit-il-faut-lutter-contre-les-gaspillages-il-ne-faut-pas-baisser-les-depenses-essentielles-estime-segolene-royal_7582286.html",
+          "date": "2025-10-29",
+          "publisher": "franceinfo"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Article lu (29/10/2025). Selon Royal, les ARS et les structures empilées pour gérer la dépense médicale coûtent 6 Md€, et cette gestion revenait auparavant aux hôpitaux. Elle ajoute qu'il reste des économies de fonctionnement à faire et qu'il ne faut pas baisser la santé. Elle ne propose pas de supprimer les ARS. Les économies servent à réduire le déficit : elle ne dit pas les reporter vers les soins. L'approche de cette élection (« Supprimer les ARS et reporter leurs moyens vers les soins ») va plus loin que celle de la primaire (« Réduire les dépenses administratives de la santé… »). Le rattachement est donc une inférence : nature passée en inference, confiance en low, poids 1 maintenu. Une recherche web n'a trouvé aucune déclaration de 2026 où elle demande la suppression des ARS.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "sante-4",
+      "approachId": "sante-4-a",
+      "weight": 1,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "high",
+      "summary": "Refuse de réautoriser le glyphosate et les néonicotinoïdes, auxquels elle attribue des effets sur la santé comme des cancers, et a signé la pétition pour abroger la loi Duplomb, sans proposer d’interdire l’ensemble des produits classés cancérigènes.",
+      "sources": [
+        {
+          "title": "Des caméras dans les classes et les crèches ? La proposition choc de Ségolène Royal",
+          "url": "https://www.parismatch.com/actu/politique/des-cameras-dans-les-classes-et-les-creches-la-proposition-choc-de-segolene-royal-258794",
+          "date": "2025-10-23",
+          "publisher": "Paris Match"
+        },
+        {
+          "title": "« Il n'est pas impossible que je sois candidate à l'élection présidentielle » : Ségolène Royal détaille un projet politique centré sur la jeunesse",
+          "url": "https://www.femmeactuelle.fr/actu/news-actu/il-n-est-pas-impossible-que-je-sois-candidate-a-l-election-presidentielle-segolene-royal-detaille-un-projet-politique-centre-sur-la-jeunesse-2201093",
+          "date": "2025-11-19",
+          "publisher": "Femme Actuelle"
+        },
+        {
+          "title": "Loi Duplomb : « Ils sont en train de détruire la petite agriculture », lance Ségolène Royal",
+          "url": "https://www.bfmtv.com/politique/video-loi-duplomb-ils-sont-en-train-de-detruire-la-petite-agriculture-lance-segolene-royal_VN-202507210482.html",
+          "date": "2025-07-21",
+          "publisher": "BFMTV"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Les trois sources ont été lues. Paris Match (23/10/2025, partie gratuite) : elle refuse de réautoriser le glyphosate et les néonicotinoïdes au motif que d'autres pays européens les utilisent, et veut que l'Europe s'aligne sur la France ; l'argument porte sur la qualité de l'alimentation. Femme Actuelle (19/11/2025) : elle dit avoir « supprimé » ces deux produits comme ministre et accuse les lobbies de leur réintroduction. Elle leur attribue, dans les régions viticoles, une puberté précoce, une baisse de la fertilité et des cancers de la prostate. BFMTV (21/07/2025) : elle déclare avoir signé la pétition pour abroger la loi Duplomb. La position est compatible avec l'approche, mais limitée à deux familles de pesticides : le poids 1 est justifié. Seuls les titres ont été complétés.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "sante-5",
+      "approachId": "sante-5-d",
+      "weight": 2,
+      "rejects": false,
+      "nature": "proposition",
+      "confidence": "high",
+      "summary": "Veut installer des caméras dans les EHPAD, comme dans les écoles, les crèches et tous les lieux accueillant un public fragile, en accord avec les salariés.",
+      "sources": [
+        {
+          "title": "Violences dans le périscolaire : Ségolène Royal veut installer des caméras « partout » dans les écoles",
+          "url": "https://actu.orange.fr/politique/violences-dans-le-periscolaire-segolene-royal-veut-installer-des-cameras-partout-dans-les-ecoles-magic-CNT000002rFJA5.html",
+          "date": "2026-09-02",
+          "publisher": "6Médias / L’Express via Orange"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Article lu (02/09/2026, 6Médias avec L'Express, propos tenus sur BFMTV-RMC). Elle veut des caméras dans « tous les lieux où il y a un accueil de public fragile ». Elle cite nommément les crèches et les Ehpad, avec une mise en place « en accord avec les salariés », pour prévenir les violences. L'approche source (sante-3-d, « Installer des caméras dans les EHPAD pour prévenir les maltraitances ») dit la même chose ; la mention de l'accord des salariés est conforme à ses propos. Aucune mise à jour contraire n'a été trouvée.",
+      "candidate": "royal",
+      "origin": "reuse"
+    },
+    {
+      "questionId": "securite_justice-1",
+      "approachId": "securite_justice-1-c",
+      "weight": 1,
+      "rejects": false,
+      "nature": "inference",
+      "confidence": "low",
+      "summary": "Elle prône la « tolérance zéro pour les agresseurs » et veut, pour les violences faites aux enfants, que les sanctions soient immédiates, sans s’exprimer sur la durée des peines.",
+      "sources": [
+        {
+          "title": "Ségolène Royal : « Pour 2027, je consulte, je réfléchis » (Sud Radio, L’invité politique)",
+          "url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pour-2027-je-consulte-je-reflechis-si-je-peux-etre-utile-pourquoi-pas",
+          "date": "2026-07-03",
+          "publisher": "Sud Radio"
+        },
+        {
+          "title": "Présidentielle 2027 : Ségolène Royal annonce sa candidature à la primaire socialiste (LCP)",
+          "url": "https://lcp.fr/actualites/presidentielle-2027-segolene-royal-annonce-sa-candidature-a-la-primaire-socialiste",
+          "date": "2026-07-10",
+          "publisher": "LCP"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Deux pages lues. Sur Sud Radio, « que les sanctions soient immédiates » ne vise que les violences sexuelles sur enfants. Dans l’article de LCP, elle promet une « tolérance zéro pour les agresseurs et pour les violences faites aux enfants », mais l’article ne parle pas de sanctions immédiates. L’approche 1-c est une orientation générale de la justice pénale : la rapidité y est échangée contre des peines plus courtes (« quitte à prononcer des peines plus courtes »). Rien ne montre qu’elle accepte des peines plus courtes, et sa « tolérance zéro » va plutôt vers la fermeté. Seule la composante « sanctionner vite » est sourcée, et sur un seul type d’infraction. On passe donc en inférence, confiance basse, poids 1. Aucune autre approche de la question (peines planchers, prisons, peines alternatives, recrutements) ne correspond mieux.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "securite_justice-4",
+      "approachId": "securite_justice-4-d",
+      "weight": 1,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "Elle estime que des plaintes pour viols sur enfants n’ont pas été suivies comme elles auraient dû l’être, les ministres n’ayant pas assez mobilisé police et justice, et demande des professionnels formés pour auditionner les enfants et des sanctions immédiates.",
+      "sources": [
+        {
+          "title": "Ségolène Royal : « Pour 2027, je consulte, je réfléchis » (Sud Radio, L’invité politique)",
+          "url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pour-2027-je-consulte-je-reflechis-si-je-peux-etre-utile-pourquoi-pas",
+          "date": "2026-07-03",
+          "publisher": "Sud Radio"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Page lue (03/07/2026). Elle dit que les forces de l’ordre ont été mobilisées d’abord contre les mouvements sociaux. Dans le même temps, des plaintes pour viols sur enfants n’ont « pas été suivies comme elles auraient dû l’être » et les auditions de mineurs dans des lieux adaptés ont été affaiblies. Elle reproche aux ministres de la Justice et de l’Intérieur de n’avoir pas assez mobilisé police, gendarmerie et justice. Elle veut des professionnels formés aux mécanismes des prédateurs et des sanctions immédiates. Ces propos sont compatibles avec 4-d (poids 1), mais elle ne chiffre aucun recrutement d’enquêteurs ou de magistrats. Résumé corrigé : elle vise les ministres, pas la police et la justice en tant que telles, et elle ne « demande » pas explicitement des lieux d’audition : elle constate qu’ils ont été affaiblis.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "securite_justice-4",
+      "approachId": "securite_justice-4-f",
+      "weight": 2,
+      "rejects": false,
+      "nature": "proposition",
+      "confidence": "high",
+      "summary": "Elle veut installer des caméras « partout dans le cadre scolaire » et dans « tous les lieux où il y a un accueil de public fragile » (périscolaire, crèches, Ehpad, garde par des assistantes maternelles), « en accord avec les salariés ».",
+      "sources": [
+        {
+          "title": "Violences dans le périscolaire : Ségolène Royal veut installer des caméras « partout » dans les écoles (Orange / 6Médias avec L’Express, d’après BFMTV-RMC)",
+          "url": "https://actu.orange.fr/politique/violences-dans-le-periscolaire-segolene-royal-veut-installer-des-cameras-partout-dans-les-ecoles-magic-CNT000002rFJA5.html",
+          "date": "2026-09-02",
+          "publisher": "Orange / L’Express"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Page lue (publiée le 02/09/2026 à 11 h 20, 6Médias avec L’Express). Invitée de BFMTV-RMC, elle demande des caméras « partout dans le cadre scolaire », les étend à « tous les lieux où il y a un accueil de public fragile » (crèches, Ehpad, garde par une nourrice) et pose la condition « en accord avec les salariés ». Le périscolaire figure dans la légende de la vidéo : selon elle, la première chose à faire est d’y mettre des caméras. Position reprise de l’élection source : l’approche source securite_justice-1-e a exactement le même texte que securite_justice-4-f, et aucune déclaration ultérieure ne la contredit. J’ai seulement complété le titre de l’article (« dans les écoles »).",
+      "candidate": "royal",
+      "origin": "reuse"
+    },
+    {
+      "questionId": "securite_justice-5",
+      "approachId": "securite_justice-5-c",
+      "weight": 0,
+      "rejects": true,
+      "nature": "inference",
+      "confidence": "low",
+      "summary": "Interrogée sur le principe « casseur-payeur » voulu par le gouvernement après les dégradations liées aux blocages de lycées, elle a répondu « Non. Parce que qui casse la France ? », en visant la politique du pouvoir.",
+      "sources": [
+        {
+          "title": "Mobilisation lycéenne : « Les violences urbaines naissent de la provocation », estime Ségolène Royal, qui critique la répression du gouvernement (franceinfo)",
+          "url": "https://www.franceinfo.fr/replay-magazine/franceinfo/l-invite-politique/mobilisation-lyceenne-les-violences-urbaines-naissent-de-la-provocation-estime-segolene-royal-qui-critique-la-repression-du-gouvernement_8194655.html",
+          "date": "2026-10-06",
+          "publisher": "franceinfo"
+        },
+        {
+          "title": "Lycées bloqués : le projet de loi « casseurs-payeurs » examiné fin octobre au Sénat",
+          "url": "https://lcp.fr/actualites/lycees-bloques-le-projet-de-loi-casseurs-payeurs-examine-fin-octobre-au-senat-442963",
+          "date": "2026-10-05",
+          "publisher": "LCP"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "La citation est exacte (franceinfo, 06/10/2026). La question posée était générale : le principe casseur-payeur voulu par le gouvernement est-il une bonne initiative, est-ce « l’ordre juste » ? Elle ne parlait ni des parents ni des aides. Selon LCP (05/10/2026), le projet de loi rend d’abord les participants solidairement responsables des dommages, jusqu’à 10 000 euros. La porte-parole du gouvernement y ajoute la possibilité de prélever sur les prestations familiales pour des dégradations commises par des majeurs ou des mineurs. Le texte recoupe donc en partie 5-c (« suspendre certaines aides »), sans être centré sur la responsabilité des parents. Sa réponse est surtout rhétorique : elle retourne la question contre le gouvernement et demande quel est le rapport avec les lycéens. Le rejet de 5-c reste une inférence en deux temps : on la garde, mais la confiance passe de moyenne à basse.",
+      "candidate": "royal",
+      "origin": "web"
+    },
+    {
+      "questionId": "securite_justice-5",
+      "approachId": "securite_justice-5-e",
+      "weight": 1,
+      "rejects": false,
+      "nature": "proposition",
+      "confidence": "medium",
+      "summary": "Elle propose des « chantiers de jeunes » pour les jeunes en errance et veut encadrer et former les adeptes de rodéos urbains, par exemple à la réparation de deux-roues, plutôt que de broyer leurs engins.",
+      "sources": [
+        {
+          "title": "« Il n’est pas impossible que je sois candidate à l’élection présidentielle » : Ségolène Royal détaille un projet politique centré sur la jeunesse (Femme Actuelle)",
+          "url": "https://www.femmeactuelle.fr/actu/news-actu/il-n-est-pas-impossible-que-je-sois-candidate-a-l-election-presidentielle-segolene-royal-detaille-un-projet-politique-centre-sur-la-jeunesse-2201093",
+          "date": "2025-11-19",
+          "publisher": "Femme Actuelle"
+        },
+        {
+          "title": "Pour Ségolène Royal, les jeunes qui font des rodéos urbains sont des passionnés pour lesquels on devrait créer « une école de cascadeurs »",
+          "url": "https://www.demotivateur.fr/article/pour-segolene-royal-les-jeunes-qui-font-des-rodeos-urbains-sont-des-passionnes-pour-lesquels-on-devrait-creer-une-ecole-de-cascadeurs-46737",
+          "date": "2026-01-09",
+          "publisher": "Demotivateur"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Femme Actuelle (19/11/2025, lu en HTML brut car WebFetch était bloqué) : elle dit que, si elle était au pouvoir, elle lancerait les chantiers de jeunes pour les jeunes en errance. Elle propose, au lieu de broyer les engins des rodéos, d’encadrer ces jeunes avec des gendarmes et des motards, puis de les former à la réparation de deux-roues pour leur donner du travail. Demotivateur (09/01/2026), d’après une interview au média Le Crayon dont la date n’est pas précisée : elle reproche qu’« on réprime » au lieu d’éduquer et propose une formation de conducteur puis aux métiers de garagiste, ainsi qu’une école de cascadeurs. Ces propositions correspondent bien à l’éducation, à l’insertion et à la seconde chance. Le poids 1 est prudent, car elle parle des rodéos et des jeunes en errance, pas de la délinquance des mineurs en général. J’ai complété le titre exact de l’article de Femme Actuelle.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "solidarites-2",
+      "approachId": "solidarites-2-c",
+      "weight": 0,
+      "rejects": true,
+      "nature": "inference",
+      "confidence": "medium",
+      "summary": "Refuse de créer un statut spécifique pour les familles monoparentales, qui bénéficient selon elle déjà des allocations familiales et des aides au logement, et ne veut aucune distinction entre types de familles, sans s’exprimer sur les pensions alimentaires.",
+      "sources": [
+        {
+          "title": "« Il n'est pas impossible que je sois candidate à l'élection présidentielle » : Ségolène Royal détaille un projet politique centré sur la jeunesse",
+          "url": "https://www.femmeactuelle.fr/actu/news-actu/il-n-est-pas-impossible-que-je-sois-candidate-a-l-election-presidentielle-segolene-royal-detaille-un-projet-politique-centre-sur-la-jeunesse-2201093",
+          "date": "2025-11-19",
+          "publisher": "Femme Actuelle"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Interview lue (19/11/2025). On lui demande si elle donnerait un statut particulier aux familles monoparentales. Elle répond qu'elles ont déjà les allocations familiales et l'aide au logement, et qu'un statut spécifique « ériger[ait] en modèle » la famille monoparentale. Elle refuse toute distinction entre familles. Ce refus de traitement prioritaire justifie le rejet de « aider en priorité les familles monoparentales ». En revanche, elle ne dit rien des mesures citées dans l'approche (pensions alimentaires défiscalisées et versées sans délai). Le rejet de l'approche telle qu'elle est formulée est donc en partie inféré : nature passée de declaration à inference. Rejet et confiance medium maintenus, résumé précisé.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "solidarites-2",
+      "approachId": "solidarites-2-f",
+      "weight": 2,
+      "rejects": false,
+      "nature": "proposition",
+      "confidence": "high",
+      "summary": "Propose une consultation de fertilité vers 20 ans remboursée par la Sécurité sociale, une éducation à la parentalité dès la classe de 3e et des maisons de la parentalité pour former les parents.",
+      "sources": [
+        {
+          "title": "« Il n'est pas impossible que je sois candidate à l'élection présidentielle » : Ségolène Royal détaille un projet politique centré sur la jeunesse",
+          "url": "https://www.femmeactuelle.fr/actu/news-actu/il-n-est-pas-impossible-que-je-sois-candidate-a-l-election-presidentielle-segolene-royal-detaille-un-projet-politique-centre-sur-la-jeunesse-2201093",
+          "date": "2025-11-19",
+          "publisher": "Femme Actuelle"
+        },
+        {
+          "title": "Des caméras dans les classes et les crèches ? La proposition choc de Ségolène Royal",
+          "url": "https://www.parismatch.com/actu/politique/des-cameras-dans-les-classes-et-les-creches-la-proposition-choc-de-segolene-royal-258794",
+          "date": "2025-10-23",
+          "publisher": "Paris Match"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Femme Actuelle (19/11/2025) : elle se dit favorable à une consultation de fertilité proposée vers 20 ans et remboursée par la Sécurité sociale. Elle veut aussi une éducation à la parentalité dès la 3e, « comme dans les pays nordiques ». Paris Match (23/10/2025, partie gratuite) : elle propose une formation des parents et des maisons de la parentalité, tirées de son livre. L'approche correspond exactement. Seuls les titres ont été complétés.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "solidarites-3",
+      "approachId": "solidarites-3-c",
+      "weight": 1,
+      "rejects": false,
+      "nature": "inference",
+      "confidence": "low",
+      "summary": "Promet la « tolérance zéro » pour les violences faites aux enfants, l’un des axes de sa candidature dont elle a annoncé faire le thème de son premier déplacement de terrain, sans dire en faire la première priorité ni proposer de réforme de l’aide sociale à l’enfance.",
+      "sources": [
+        {
+          "title": "Aux journées d'été du PS, Ségolène Royal défend sa candidature",
+          "url": "https://www.france24.com/fr/info-en-continu/20260829-aux-journ%C3%A9es-d-%C3%A9t%C3%A9-du-ps-s%C3%A9gol%C3%A8ne-royal-d%C3%A9fend-sa-candidature",
+          "date": "2026-08-29",
+          "publisher": "France 24 / AFP"
+        },
+        {
+          "title": "Présidentielle 2027: Ségolène Royal annonce sa candidature à la primaire socialiste",
+          "url": "https://lcp.fr/actualites/presidentielle-2027-segolene-royal-annonce-sa-candidature-a-la-primaire-socialiste",
+          "date": "2026-07-10",
+          "publisher": "LCP"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "France 24/AFP (29/08/2026) : elle dénonce le silence sur la maltraitance et les abus sexuels, promet « zéro tolérance pour les violences faites aux enfants » et annonce que son premier déplacement de terrain portera sur ce sujet. Aucune source trouvée ne confirme que ce déplacement a eu lieu. L'article place ce thème à côté du prix de l'électricité et du climat, sans en faire la priorité absolue. LCP (10/07/2026) : les violences faites aux enfants figurent parmi plusieurs axes (ordre juste, climat, énergie, diplomatie). Dans Paris Match (23/10/2025), elle classe d'ailleurs la lutte contre les violences en troisième position, après la sécurité du quotidien et la planète. Elle ne dit jamais faire de la protection de l'enfance « la première priorité » pendant cinq ans, et ne parle pas de l'ASE. La compatibilité avec l'approche est plausible mais inférée : nature passée en inference, confiance en low, poids 1 maximal maintenu, résumé corrigé (déplacement annoncé, non confirmé).",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "travail_salaires-1",
+      "approachId": "travail_salaires-1-c",
+      "weight": 0,
+      "rejects": true,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "Au débat du 1er octobre 2026, elle a jugé « dangereuse » la baisse de CSG proposée par Raphaël Glucksmann : selon elle, l’État utiliserait l’argent transféré à son budget pour autre chose que la protection sociale.",
+      "sources": [
+        {
+          "title": "VIDEOS. Blocage des lycées, affaire Bardella, guerre à Gaza... Sept séquences à retenir du débat des candidats à la primaire de la gauche",
+          "url": "https://www.franceinfo.fr/elections/presidentielle/videos-sept-sequences-a-retenir-du-debat-des-candidats-a-la-primaire-de-la-gauche-sur-france-2-et-france-inter_8218741.html",
+          "date": "2026-10-01",
+          "publisher": "franceinfo"
+        },
+        {
+          "title": "Mobilisation lycéenne, budget, situation internationale... : ce qu’il faut retenir du deuxième débat de la primaire de gauche",
+          "url": "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+          "date": "2026-10-01",
+          "publisher": "LCP"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Les deux sources rapportent bien qu’elle a qualifié la baisse de CSG de « dangereuse » (« C’est transférer vers le budget de l’Etat une cotisation sociale », selon LCP). Le rejet est maintenu. Je baisse toutefois la confiance de high à medium, car l’approche de cette élection est plus large que l’approche source (travail_salaires-1-b). Elle couvre aussi les cotisations et l’impôt sur le revenu, et ne mentionne plus la compensation par d’autres recettes. Or son objection porte précisément sur le mode de compensation, c’est-à-dire le transfert vers le budget de l’État. Aucune déclaration de sa part sur une baisse de l’impôt sur le revenu n’a été trouvée. Titres complétés.",
+      "candidate": "royal",
+      "origin": "reuse"
+    },
+    {
+      "questionId": "travail_salaires-1",
+      "approachId": "travail_salaires-1-e",
+      "weight": 2,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "high",
+      "summary": "Au débat du 23 septembre 2026, elle a plaidé pour un blocage du prix des produits de première nécessité ; elle veut aussi ramener le litre de carburant à 1,70 € par des baisses de taxes et défend une TVA allégée sur les aliments produits en France.",
+      "sources": [
+        {
+          "title": "Primaire de la gauche : échanges tendus sur les alliances avec LFI, Gaza, Ukraine… Que retenir du 1er débat entre les candidats ?",
+          "url": "https://www.publicsenat.fr/actualites/politique/primaire-de-la-gauche-echanges-tendus-sur-les-alliances-avec-lfi-gaza-ukraine-que-retenir-du-1er-debat-entre-les-candidats",
+          "date": "2026-09-24",
+          "publisher": "Public Sénat"
+        },
+        {
+          "title": "« Je veux baisser les taxes » : Ségolène Royal affirme qu’un litre d’essence ne doit pas « dépasser 1,70 euro »",
+          "url": "https://fr.finance.yahoo.com/actualites/veux-baisser-taxes-s%C3%A9gol%C3%A8ne-royal-090135153.html",
+          "date": "2026-09-13",
+          "publisher": "Capital, via Yahoo Finance (d’après RTL)"
+        },
+        {
+          "title": "Ségolène Royal y croit encore et veut faire trembler la primaire socialiste",
+          "url": "https://lesinguliersete.fr/segolene-royal-y-croit-encore-et-veut-faire-trembler-la-primaire-socialiste/",
+          "date": "2026-09-04",
+          "publisher": "Le Singulier"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Public Sénat (24/09/2026) lui attribue un plaidoyer pour le blocage du prix des produits de première nécessité, sans citation. Le Singulier (04/09/2026) mentionne la TVA allégée sur les aliments produits en France. L’approche de cette élection ajoute « et de l’énergie », ce que couvre très directement sa proposition phare de baisse des taxes sur les carburants, qui doit ramener le litre à 1,70 € au plus (RTL, 11/09/2026 ; elle l’a aussi défendue sur franceinfo le 18/09 et au débat du 01/10). J’ajoute cette source et ce point au résumé, et je relève la confiance à high, car plusieurs sources concordantes couvrent les deux volets de l’approche (blocage et baisses de taxes).",
+      "candidate": "royal",
+      "origin": "reuse"
+    },
+    {
+      "questionId": "travail_salaires-1",
+      "approachId": "travail_salaires-1-g",
+      "weight": 1,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "Au débat du 23 septembre 2026, elle a proposé une grande conférence salariale après l’élection pour remettre à plat les aides publiques aux entreprises et les lier à leur politique de rémunération.",
+      "sources": [
+        {
+          "title": "Accord avec LFI, Moyen-Orient, pouvoir d’achat : ce qu’il faut retenir du premier débat de la primaire de gauche",
+          "url": "https://lcp.fr/actualites/accord-avec-lfi-moyen-orient-pouvoir-d-achat-ce-qu-il-faut-retenir-du-premier-debat-de",
+          "date": "2026-09-23",
+          "publisher": "LCP"
+        },
+        {
+          "title": "Désaccords sur le Proche-Orient et LFI, convergences sur les salaires… Ce qu’il faut retenir du premier débat de la primaire socialiste",
+          "url": "https://www.franceinfo.fr/elections/presidentielle/desaccords-sur-le-proche-orient-et-lfi-convergences-sur-les-salaires-ce-qu-il-faut-retenir-du-premier-debat-de-la-primaire-socialiste_8207438.html",
+          "date": "2026-09-24",
+          "publisher": "franceinfo"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "LCP (23/09/2026) écrit que Royal, comme Olivier Faure, souhaite une grande « conférence salariale » après la présidentielle pour remettre à plat les aides aux entreprises et les conditionner à la politique salariale. franceinfo (24/09/2026) confirme qu’elle porte cette conférence salariale avec Faure. Public Sénat ne l’attribue qu’à Faure, mais sans contredire LCP. Elle parle d’« aides aux entreprises » en général et d’une conférence nationale, non d’allègements de cotisations ni de négociations par branche : la correspondance n’est donc que partielle. Le poids 1 et la confiance medium sont appropriés. J’ajoute franceinfo en source complémentaire.",
+      "candidate": "royal",
+      "origin": "document"
+    },
+    {
+      "questionId": "ukraine_russie-1",
+      "approachId": "ukraine_russie-1-g",
+      "weight": 1,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "high",
+      "summary": "Elle veut « maintenir la défense de l'Ukraine » tout en faisant « le même effort pour arrêter cette guerre », prône un équilibre entre force de défense et force de négociation et propose une commission permanente de négociation incluant l'Ukraine, sans préciser de cadre onusien.",
+      "sources": [
+        {
+          "title": "Glucksmann face à Royal, divisions sur LFI, lycées… Ce qu'il faut retenir du dernier débat de la primaire socialiste",
+          "url": "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat",
+          "date": "2026-10-05",
+          "publisher": "LCP"
+        },
+        {
+          "title": "Mobilisation lycéenne, budget, situation internationale... : ce qu'il faut retenir du deuxième débat de la primaire de gauche",
+          "url": "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+          "date": "2026-10-01",
+          "publisher": "LCP"
+        },
+        {
+          "title": "Accord avec LFI, Moyen-Orient, pouvoir d'achat : ce qu'il faut retenir du premier débat de la primaire de gauche",
+          "url": "https://lcp.fr/actualites/accord-avec-lfi-moyen-orient-pouvoir-d-achat-ce-qu-il-faut-retenir-du-premier-debat-de",
+          "date": "2026-09-23",
+          "publisher": "LCP"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Les trois sources LCP confirment. 05/10/2026 : « Il faut maintenir la défense de l'Ukraine, mais il faut faire le même effort pour arrêter cette guerre. » 01/10/2026 : commission permanente de négociation, « qui ne pourra pas se faire sans l'Ukraine ». 23/09/2026 : « un équilibre entre la force de défense et la force de négociation ». Aucune source ne parle de l'ONU ni d'une conférence de paix, d'où le poids 1, qui reste le bon niveau. L'approche c (priorité à la négociation « plutôt qu'à » l'effort militaire) colle moins : elle veut un effort égal et le maintien de la défense. Seuls les titres sont corrigés selon les h1 exacts. Franceinfo (04/10/2026) confirme aussi la citation.",
+      "candidate": "royal",
+      "origin": "dossier"
+    },
+    {
+      "questionId": "ukraine_russie-2",
+      "approachId": "ukraine_russie-2-b",
+      "weight": 2,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "high",
+      "summary": "Elle propose de « garder le lien du dialogue » avec Moscou par une commission permanente de négociation associant l'Ukraine, et ouvre la porte à une négociation avec la Russie tout en voulant maintenir la défense de l'Ukraine.",
+      "sources": [
+        {
+          "title": "Mobilisation lycéenne, budget, situation internationale... : ce qu'il faut retenir du deuxième débat de la primaire de gauche",
+          "url": "https://lcp.fr/actualites/mobilisation-lyceenne-budget-situation-internationale-ce-qu-il-faut-retenir-du-deuxieme",
+          "date": "2026-10-01",
+          "publisher": "LCP"
+        },
+        {
+          "title": "Glucksmann face à Royal, divisions sur LFI, lycées… Ce qu'il faut retenir du dernier débat de la primaire socialiste",
+          "url": "https://lcp.fr/actualites/glucksmann-face-a-royal-divisions-sur-lfi-lycees-ce-qu-il-faut-retenir-du-dernier-debat",
+          "date": "2026-10-05",
+          "publisher": "LCP"
+        },
+        {
+          "title": "Invectives, retraites, soutien aux lycéens... Ce qu'il faut retenir du dernier débat de la primaire socialiste",
+          "url": "https://www.franceinfo.fr/politique/ps/primaire-a-gauche/invectives-retraites-soutien-aux-lyceens-ce-qu-il-faut-retenir-du-dernier-debat-de-la-primaire-socialiste_8222563.html",
+          "date": "2026-10-04",
+          "publisher": "franceinfo"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "LCP, 01/10/2026 : « garder le lien du dialogue » et une commission permanente de négociation incluant l'Ukraine. LCP, 05/10/2026 : maintenir la défense de l'Ukraine et ouverture à une négociation avec Moscou. Franceinfo, 04/10/2026 : même citation, et dialogue avec Vladimir Poutine (reformulation du journaliste). L'approche b (soutenir l'Ukraine tout en rouvrant un dialogue régulier avec Moscou) correspond ; la mention de la guerre froide n'est qu'illustrative. Elle n'évoque ni l'ONU ni une architecture de sécurité incluant la Russie (approche c). Source remplacée : l'article de 20 Minutes ne se charge pas, la dépêche franceinfo du 04/10/2026, vérifiée, prend sa place.",
+      "candidate": "royal",
+      "origin": "dossier"
+    }
+  ],
+  "proposedApproaches": [
+    {
+      "questionId": "retraites-1",
+      "id": "retraites-1-g",
+      "text": "Maintenir l’âge de départ gelé à 62 ans et 9 mois et ajourner toute nouvelle réforme des retraites",
+      "external": false,
+      "rationale": "Sa position centrale et sourcée (RTL 11/09/2026, franceinfo 31/08/2026, réaffirmée au débat du 04/10/2026) est de ne pas toucher aux retraites avant la réindustrialisation du pays et le retour de l'ISF. Elle ne prend aucun engagement personnel sur 62 ans, 60 ans, la durée cotisée ou la pénibilité. Aucune des approches -a à -f, qui proposent toutes un changement de règle, ne décrit ce statu quo assorti d'un report. La banque de la primaire contenait une approche de ce type. Point à trancher : LCP (05/10/2026) écrit que « tous » les candidats veulent revenir à 62 ans, mais sans la citer nommément, et la mise à jour du dossier constate l'absence d'engagement de sa part.",
+      "review": {
+        "ref": "economie-n1",
+        "verdict": "proposer",
+        "text": "Maintenir l’âge de départ gelé à 62 ans et 9 mois et ajourner toute nouvelle réforme des retraites",
+        "recognizable": true,
+        "issues": [
+          "Aucune approche existante ne la couvre. Les approches a à f changent toutes la règle : retour à 60 ou 62 ans, durée cotisée, âges selon la pénibilité, suppression de l'âge légal, retour aux 64 ans ou au-delà. Ce statu quo, qui laisse la décision à plus tard, est un choix distinct, central pour la question « quelle suite donner ». Ce n'est pas une variante d'intensité, et des électeurs favorables à la suspension actuelle peuvent s'y reconnaître, au-delà de cette seule candidate.",
+          "Le texte d'origine mélange deux choses : « donner la priorité à la relance industrielle » est une condition ou une justification qui relève d'un autre domaine. Un électeur pourrait approuver le statu quo sur les retraites sans approuver cette priorité, ou l'inverse. J'ai retiré ce morceau.",
+          "Anonymat : associer « ne pas toucher aux retraites » et « réindustrialiser d'abord » rappelle sa formule emblématique (« Je ne touche pas aux retraites tant que je n'ai pas réindustrialisé le pays », RTL, 11/09/2026). La banque de la primaire avait d'ailleurs une approche presque identique (retraites-1-d), qui n'était portée que par elle. Un lecteur informé la reconnaîtrait, d'où la reformulation descriptive.",
+          "« Laisser les règles de départ en l'état » est ambigu, puisque le contexte de la question précise que la suspension prend fin le 1er janvier 2028. Si on laisse la loi en l'état, le report vers 64 ans reprend, ce qui reviendrait à l'approche f. La formulation retenue reprend les termes du contexte (« gelé à 62 ans et 9 mois ») pour lever ce contresens. Avec ce chiffre, elle a aussi le même niveau de précision que les autres approches, qui sont chiffrées.",
+          "« Pour l'instant » est trop vague. « Ajourner toute nouvelle réforme » rend son report sans échéance (conditionné à la réindustrialisation et au retour de l'ISF) sans reprendre ses conditions, qui la rendraient reconnaissable.",
+          "Forme vérifiée : infinitif, 98 caractères (les autres approches font de 79 à 103 caractères), pas de négation, pas d'adjectif évaluatif, pas de sigle, pas de point final, aucun terme interdit.",
+          "Attribution, à surveiller par l'agent de codage : elle n'a jamais dit textuellement qu'elle prolongerait le gel après 2028. On le déduit de deux déclarations : « Il fallait s'arrêter à la suspension de la réforme des retraites » (TF1/Capital, 10/11/2025) et « Je ne touche pas aux retraites tant que je n'ai pas réindustrialisé le pays » (RTL, 11/09/2026). Le poids 2 se défend, mais le résumé révélé à l'électeur doit le présenter comme son refus de toute nouvelle réforme, pas comme un engagement chiffré qu'elle aurait pris.",
+          "Ne pas la coder sur retraites-1-b à partir de l'article de LCP (05/10/2026) qui parle de « tous » les candidats : il ne la cite pas nommément. La mise à jour du dossier relève au contraire qu'elle n'a pris aucun engagement sur 62 ans, contrairement à Faure, Glucksmann et Maurel. Son « travailler plus longtemps à la carte » (Europe 1, 15/09/2026) ne justifie pas non plus de la coder sur retraites-1-e, qui supprime l'âge légal."
+        ]
+      },
+      "forbiddenHits": [],
+      "position": {
+        "questionId": "retraites-1",
+        "approachId": "retraites-1-g",
+        "weight": 2,
+        "rejects": false,
+        "nature": "declaration",
+        "confidence": "medium",
+        "summary": "Elle s’engage à ne pas toucher aux retraites tant que le pays n’aura pas été réindustrialisé et refuse tout nouvel effort sur les pensions avant le retour de l’ISF, sans s’engager explicitement sur l’abrogation du report à 64 ans.",
+        "sources": [
+          {
+            "title": "« Je veux baisser les taxes » : Ségolène Royal affirme qu'un litre d'essence ne doit pas « dépasser 1,70 euro » (Capital/Yahoo, d'après RTL)",
+            "url": "https://fr.finance.yahoo.com/actualites/veux-baisser-taxes-s%C3%A9gol%C3%A8ne-royal-090135153.html",
+            "date": "2026-09-13",
+            "publisher": "Capital / Yahoo, d'après RTL"
+          },
+          {
+            "title": "Retraites : « Je refuse ce débat tant que la question du retour de l'ISF n'est pas posée » (franceinfo)",
+            "url": "https://www.franceinfo.fr/elections/presidentielle/primaire-populaire-gauche/retraites-je-refuse-ce-debat-tant-que-la-question-du-retour-de-l-isf-n-est-pas-posee-affirme-segolene-royal-candidate-a-la-primaire-du-pole-socialiste_8170295.html",
+            "date": "2026-08-31",
+            "publisher": "franceinfo"
+          },
+          {
+            "title": "« Aucune raison de s'en prendre aux retraités », Ségolène Royal conditionne tout au retour de l'ISF (Capital)",
+            "url": "https://www.capital.fr/economie-politique/aucune-raison-de-s-en-prendre-aux-retraites-segolene-royal-conditionne-tout-au-retour-de-l-isf-1530732",
+            "date": "2026-10-05",
+            "publisher": "Capital"
+          }
+        ],
+        "verdict": "unchecked",
+        "note": "non vérifiée (vérificateur absent ou muet)",
+        "candidate": "royal",
+        "origin": "dossier"
+      }
+    },
+    {
+      "questionId": "education-x1",
+      "id": "education-x1-f",
+      "text": "Installer des caméras de vidéosurveillance dans toutes les écoles et les accueils périscolaires pour prévenir les violences",
+      "external": false,
+      "rationale": "Sa mesure centrale et sourcée contre la violence à l'école est l'installation de caméras dans les écoles et le périscolaire. Les approches a à e ne couvrent pas cette mesure : sanctions, personnels, parents et dialogue. La d en est l'exact opposé (retirer la vidéosurveillance) : la question a un pôle sans son contraire.",
+      "review": {
+        "ref": "savoirs-n1",
+        "verdict": "proposer",
+        "text": "Installer des caméras de vidéosurveillance dans toutes les écoles et les accueils périscolaires pour prévenir les violences",
+        "recognizable": false,
+        "issues": [
+          "Aucune approche existante ne la couvre : a, b, c et e portent sur les sanctions, les personnels, les parents et le dialogue. La d (« retirer la police et la vidéosurveillance des établissements ») en est l'opposé. La question avait donc un pôle sans son contraire, et l'ajout se justifie sur le fond.",
+          "Position centrale et sourcée : elle figure dans l'aperçu du dossier et parmi ses marqueurs distinctifs (point 4). Sources : L'Express/Orange (2026, crise du périscolaire parisien) et Paris Match (23/10/2025). C'est aussi un vrai choix de politique publique, la vidéosurveillance dans les établissements étant débattue au-delà de sa candidature.",
+          "Forme conforme : infinitif, 123 caractères, contre 109 à 127 pour les autres approches. Pas d'adjectif évaluatif, pas de sigle, pas de terme interdit, pas de point final.",
+          "Anonymat : aucun slogan, nom de mesure ou chiffre emblématique. « toutes les écoles » rend son « partout » sans reprendre le mot. « Généraliser la vidéosurveillance dans les écoles et les accueils périscolaires pour prévenir les violences » (106 caractères, vocabulaire identique à la d) est une variante acceptable si l'on veut gommer encore cet écho.",
+          "Point de vigilance sur la cible : sa mesure vise d'abord les violences d'adultes sur les enfants (animateurs du périscolaire), alors que le contexte de la question parle de harcèlement entre élèves et de discipline. « prévenir les violences » couvre les deux, mais le résumé révélé doit préciser cette cible. Le résumé proposé le fait déjà (« violences faites aux enfants »).",
+          "Poids : 2 sur cette nouvelle approche. Un −1 sur la d n'est qu'une déduction logique : elle n'a pas rejeté explicitement cette approche, qui est en plus composite (punitions, conseils de discipline, police). Ne l'ajouter que si la règle du projet admet les rejets déduits d'une position contraire."
+        ]
+      },
+      "forbiddenHits": [],
+      "position": {
+        "questionId": "education-x1",
+        "approachId": "education-x1-f",
+        "weight": 2,
+        "rejects": false,
+        "nature": "proposition",
+        "confidence": "high",
+        "summary": "Elle veut installer des caméras de vidéosurveillance « partout » dans les écoles et le périscolaire, comme dans les crèches et les Ehpad, pour dissuader les violences faites aux enfants, en accord avec les salariés.",
+        "sources": [
+          {
+            "title": "Violences dans le périscolaire : Ségolène Royal veut installer des caméras « partout » dans les écoles (Orange, 6Médias avec L'Express)",
+            "url": "https://actu.orange.fr/politique/violences-dans-le-periscolaire-segolene-royal-veut-installer-des-cameras-partout-dans-les-ecoles-magic-CNT000002rFJA5.html",
+            "date": "2026-09-02",
+            "publisher": "6Médias / L'Express (Orange)"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Source lue (02/09/2026, propos sur BFMTV-RMC). Elle propose des caméras « partout dans le cadre scolaire », étendues à tous les lieux d'accueil d'un public fragile (crèches, Ehpad, jusqu'aux assistantes maternelles), « en accord avec les salariés ». Le but affiché est dissuasif : « Il n'y aurait plus de passage à l'acte ». Elle réagissait aux violences du périscolaire parisien. Cela correspond au texte proposé : caméras dans toutes les écoles et les accueils périscolaires pour prévenir les violences. Paris Match (23/10/2025, Florent Buisson), « Des caméras dans les classes et les crèches ? La proposition choc de Ségolène Royal », corrobore par son titre et son chapeau ; la suite est réservée aux abonnés. Aucune approche existante (a à e) ne couvre cette mesure, et la d en est l'opposé : la proposition est justifiée.",
+        "candidate": "royal",
+        "origin": "dossier"
+      }
+    },
+    {
+      "questionId": "numerique-3",
+      "id": "numerique-3-h",
+      "text": "Négocier directement avec les dirigeants des plateformes plutôt que leur infliger des sanctions",
+      "external": false,
+      "rationale": "Sa seule position sourcée sur les plateformes consiste à refuser l'amende européenne contre X et à discuter avec X et Elon Musk pour éviter des rétorsions américaines. Elle n'entre dans aucune approche : a et g supposent un rapport de force, b impose la transparence, c une contribution, et d à f relèvent d'une ligne de dérégulation qu'elle ne porte pas. La banque de la primaire avait cette approche (numerique-3-c), qui n'a pas été reprise.",
+      "review": {
+        "ref": "savoirs-n2",
+        "verdict": "abandonner",
+        "text": "Négocier directement avec les dirigeants des plateformes plutôt que leur infliger des sanctions",
+        "recognizable": false,
+        "issues": [
+          "Position marginale pour elle : une seule phrase dans un entretien sur Sud Radio (11/12/2025) dont le sujet principal était autre (un « ticket » avec Villepin). Confiance « medium » dans le dossier. Elle réagissait à un épisode précis (l'amende européenne contre X). Ce n'est ni une proposition ni un axe de sa campagne de 2026, et elle n'y est pas revenue.",
+          "Elle exprime une posture de négociation ou une crainte de rétorsions commerciales américaines, pas un modèle d'encadrement des plateformes. Elle répond mal à la question « Comment encadrer les grandes plateformes numériques ? ».",
+          "La question compte déjà 7 approches (a à g). Une 8e approche, réécrite pour tous les électeurs à partir d'une remarque isolée d'une candidate pas encore désignée, ne justifie pas une révision de fond. L'approche existait dans la banque de la primaire, avec 4 approches et 5 candidats, mais ce n'est pas un argument pour la banque à 21 candidats.",
+          "Aucune approche existante ne la couvre honnêtement. La b (transparence des algorithmes) serait une extrapolation : elle dénonce les algorithmes à propos des mineurs, sans demander leur transparence. Mieux vaut laisser Royal inconnue sur numerique-3 que lui attribuer une position. Sa position sur les moins de 15 ans relève de numerique-2.",
+          "Forme (pour mémoire) : 95 caractères, conforme. « infliger » a une légère connotation ; « plutôt que les sanctionner » serait plus neutre si l'approche était un jour reprise."
+        ]
+      },
+      "forbiddenHits": [],
+      "position": {
+        "questionId": "numerique-3",
+        "approachId": "numerique-3-h",
+        "weight": 2,
+        "rejects": false,
+        "nature": "declaration",
+        "confidence": "medium",
+        "summary": "En décembre 2025, elle s’oppose à des sanctions contre X, estimant qu’une confrontation avec les États-Unis entraînerait des rétorsions, et juge qu’« il faut discuter avec X et Elon Musk ».",
+        "sources": [
+          {
+            "title": "Ségolène Royal : « Pourquoi pas un ticket avec Dominique de Villepin » pour la présidentielle 2027 (Sud Radio)",
+            "url": "https://www.sudradio.fr/linvite-politique/segolene-royal-pourquoi-pas-un-ticket-avec-dominique-de-villepin-pour-la-presidentielle",
+            "date": "2025-12-11",
+            "publisher": "Sud Radio"
+          }
+        ],
+        "verdict": "confirmed",
+        "note": "Source relue (11/12/2025). Elle juge la sanction européenne contre X « une très mauvaise idée » et dit qu'il aurait été plus judicieux de négocier et de discuter. Elle craint qu'une confrontation, surtout avec les États-Unis, n'entraîne des mesures de rétorsion. La phrase « discuter avec X et Elon Musk » est prononcée à propos de la levée de l'anonymat, mais va dans le même sens. Cela correspond exactement au texte proposé : négocier avec les dirigeants des plateformes plutôt que les sanctionner. Aucune approche de la banque (a à g) ne couvre cette position. C'est l'équivalent de numerique-3-c dans la banque de la primaire, où la même source avait été retenue.",
+        "candidate": "royal",
+        "origin": "dossier"
+      }
+    }
+  ],
+  "externalFlags": [
+    {
+      "approachId": "sante-5-d",
+      "external": false
+    },
+    {
+      "approachId": "securite_justice-4-f",
+      "external": false
+    },
+    {
+      "approachId": "solidarites-2-f",
+      "external": false
+    },
+    {
+      "approachId": "travail_salaires-1-g",
+      "external": false
+    }
+  ],
+  "card": {
+    "id": "royal",
+    "name": "Ségolène Royal",
+    "initials": "SR",
+    "affiliation": "Parti socialiste",
+    "role": "Présidente de l’Association France-Algérie",
+    "campaignUrl": "https://segolene-ordrejuste.fr/",
+    "declaredAt": "2026-07-10",
+    "declaration": {
+      "title": "Ségolène Royal annonce qu’elle participera à la primaire socialiste en vue de l’élection présidentielle",
+      "url": "https://www.franceinfo.fr/elections/presidentielle/segolene-royal-annonce-qu-elle-participera-a-la-primaire-socialiste-en-vue-de-l-election-presidentielle_8102696.html",
+      "publisher": "franceinfo (avec AFP)",
+      "date": "2026-07-10"
+    },
+    "bio": [
+      {
+        "when": "Depuis 2025",
+        "text": "Présidente de l’Association France-Algérie depuis le 18 décembre 2025, élue par son conseil d’administration, à la suite d’Arnaud Montebourg.",
+        "source": {
+          "title": "Ségolène royal nouvelle présidente de l’association France – Algérie",
+          "url": "https://associationfrancealgerieofficiel.fr/segolene-royal-nouvelle-presidente-de-lassociation-france-algerie/",
+          "publisher": "Association France-Algérie (site officiel)",
+          "date": "2025-12-19"
+        }
+      },
+      {
+        "when": "2026",
+        "text": "Annonce le 10 juillet 2026, dans un message publié sur X, qu’elle participera à la primaire socialiste en vue de l’élection présidentielle.",
+        "source": {
+          "title": "Ségolène Royal annonce qu’elle participera à la primaire socialiste en vue de l’élection présidentielle",
+          "url": "https://www.franceinfo.fr/elections/presidentielle/segolene-royal-annonce-qu-elle-participera-a-la-primaire-socialiste-en-vue-de-l-election-presidentielle_8102696.html",
+          "publisher": "franceinfo (avec AFP)",
+          "date": "2026-07-10"
+        }
+      },
+      {
+        "when": "2014-2020",
+        "text": "Ministre dans les gouvernements Valls (2014-2016) et Cazeneuve (2016-2017). Nommée ambassadrice des pôles par Emmanuel Macron en 2017 ; il est mis fin à ces fonctions en 2020.",
+        "source": {
+          "title": "« On la prend très au sérieux » : Ségolène Royal peut-elle créer la surprise à la primaire socialiste, vingt ans après son échec à la présidentielle ?",
+          "url": "https://www.franceinfo.fr/politique/ps/primaire-socialiste/on-la-prend-tres-au-serieux-segolene-royal-peut-elle-creer-la-surprise-a-la-primaire-socialiste-vingt-ans-apres-son-echec-a-la-presidentielle_8184773.html",
+          "publisher": "franceinfo",
+          "date": "2026-09-11"
+        }
+      },
+      {
+        "when": "2004",
+        "text": "Présidente de la région Poitou-Charentes à partir de 2004, réélue en 2010. Candidate du Parti socialiste à l’élection présidentielle de 2007, qualifiée pour le second tour du 6 mai 2007.",
+        "source": {
+          "title": "Marie-Ségolène dite Ségolène Royal",
+          "url": "https://www.larousse.fr/encyclopedie/personnage/Marie-S%C3%A9gol%C3%A8ne_dite_S%C3%A9gol%C3%A8ne_Royal/149655",
+          "publisher": "Larousse (encyclopédie en ligne)"
+        }
+      },
+      {
+        "when": "1988",
+        "text": "Députée des Deux-Sèvres, élue en 1988, réélue en 1993, 1997 et 2002. Ministre de l’Environnement (1992-1993), ministre déléguée à l’Enseignement scolaire (1997-2000), puis à la Famille et à l’Enfance (2000-2002).",
+        "source": {
+          "title": "Assemblée nationale ~ Les députés : Mme Ségolène Royal",
+          "url": "https://www.assemblee-nationale.fr/12/tribun/fiches_id/2650.asp",
+          "publisher": "Assemblée nationale"
+        }
+      },
+      {
+        "when": "1953",
+        "text": "Née le 22 septembre 1953 à Dakar (Sénégal). Profession déclarée : conseillère de tribunal administratif.",
+        "source": {
+          "title": "Assemblée nationale ~ Les députés : Mme Ségolène Royal",
+          "url": "https://www.assemblee-nationale.fr/12/tribun/fiches_id/2650.asp",
+          "publisher": "Assemblée nationale"
+        }
+      }
+    ]
+  },
+  "portrait": null,
+  "downloads": [],
+  "credits": {
+    "markdown": "",
+    "sections": [],
+    "withoutPortrait": []
+  },
+  "cardDraft": null,
+  "ficheIssues": [],
+  "questions": [
+    {
+      "questionId": "retraites-1",
+      "status": "proposal",
+      "note": "Sa position centrale (high) : ne pas toucher aux retraites tant que le pays n'est pas réindustrialisé et que l'ISF n'est pas rétabli (RTL 11/09, franceinfo 31/08, réaffirmé le 04/10/2026). Aucune approche ne couvre ce statu quo. Elle n'a pris aucun engagement personnel sur 62 ans ou sur l'abrogation : LCP (05/10/2026) l'inclut dans un « tous les candidats » sans la citer, ce que la mise à jour du dossier contredit. Proposition d'approche retraites-1-g."
+    },
+    {
+      "questionId": "finances_publiques-1",
+      "status": "coded",
+      "note": "-c poids 2 : économies ciblées (gaspillages, aides sans conditions, organismes en doublon, réforme de l'État) plus ISF. -f poids 1 repris de la primaire (fiscalite-2-b). Rejet de -a : elle refuse de baisser les dépenses essentielles et attribue le déficit au manque de recettes. -g écarté : elle veut aussi l'ISF, ce qui contredit « sans hausse d'impôts »."
+    },
+    {
+      "questionId": "industrie_economie-1",
+      "status": "coded",
+      "note": "Repris de la primaire : -f poids 2 (réduire les 160 Md€ d'aides sans conditions, d'abord celles aux entreprises qui versent des dividendes, confirmé le 18/09/2026) et -c poids 1 (conférence salariale pour conditionner les aides)."
+    },
+    {
+      "questionId": "travail_salaires-1",
+      "status": "coded",
+      "note": "Repris de la primaire : -e poids 2 (blocage des prix de première nécessité, TVA allégée) et rejet de -c (baisse de CSG jugée « dangereuse »). Ajout de -g poids 1 : conférence salariale pour lier les aides aux entreprises à leur politique salariale (LCP, lu). Aucune position sur le SMIC ou l'indexation des salaires."
+    },
+    {
+      "questionId": "fiscalite-1",
+      "status": "coded",
+      "note": "-a poids 2 repris : rétablir l'impôt de solidarité sur la fortune « financière », c'est-à-dire réintégrer les placements financiers supprimés en 2018 (franceinfo 31/08/2026, lu). Rien trouvé sur l'impôt plancher de 2 % ni sur l'IFI."
+    },
+    {
+      "questionId": "fiscalite-2",
+      "status": "unknown",
+      "note": "Aucune déclaration trouvée sur les droits de succession et de donation."
+    },
+    {
+      "questionId": "finances_publiques-2",
+      "status": "coded",
+      "note": "-d poids 2 : elle refuse l'annulation de la dette et propose une dette « perpétuelle » portée par la BCE pour les investissements climatiques (Capital, 11/09 et 24/09/2026). Rien sur une règle d'or ni sur l'exclusion des investissements du calcul du déficit."
+    },
+    {
+      "questionId": "finances_publiques-3",
+      "status": "unknown",
+      "note": "Elle veut supprimer ou fusionner quelque 1 600 organismes, critique le train de vie des agences et juge les enseignants sous-payés. Aucune position sur le nombre d'agents publics ni sur le statut."
+    },
+    {
+      "questionId": "travail_salaires-2",
+      "status": "unknown",
+      "note": "Aucune position trouvée sur les 35 heures, les 32 heures, la semaine de quatre jours ou les heures supplémentaires. Le dossier le signale comme question ouverte."
+    },
+    {
+      "questionId": "travail_salaires-3",
+      "status": "unknown",
+      "note": "Aucune position trouvée sur les ordonnances de 2017, les contrats courts, les licenciements ou la santé au travail."
+    },
+    {
+      "questionId": "travail_salaires-4",
+      "status": "unknown",
+      "note": "Elle reproche aux entreprises d'avoir préféré les dividendes aux salaires et veut réduire les aides à celles qui en versent. Rien sur la participation, les administrateurs salariés ou un plafonnement des écarts de rémunération."
+    },
+    {
+      "questionId": "industrie_economie-2",
+      "status": "coded",
+      "note": "-d poids 1 : elle juge anormal d'importer des produits traités avec des pesticides interdits en France (Sud Radio, 03/07/2026, lu) et veut intégrer le coût environnemental dans le prix des importations (Sud Radio, 11/12/2025, lu). Elle ne parle pas d'interdiction formelle. Rien trouvé sur le Mercosur ni sur les droits de douane."
+    },
+    {
+      "questionId": "industrie_economie-3",
+      "status": "unknown",
+      "note": "Elle critique l'ouverture du secteur électrique à la concurrence et veut sortir du marché européen de l'électricité. Aucune position sur des nationalisations, le capital d'EDF, les autoroutes ou le contrôle des rachats étrangers."
+    },
+    {
+      "questionId": "retraites-2",
+      "status": "unknown",
+      "note": "Aucune position trouvée sur la capitalisation. Le refus de la capitalisation au débat du 04/10/2026 est attribué à Faure et Guedj, pas à elle."
+    },
+    {
+      "questionId": "retraites-3",
+      "status": "coded",
+      "note": "Repris de la primaire : -a poids 2 (aucune désindexation, sans seuil) et rejet de -b. Ajout du rejet de -c : elle refuse toute désindexation, même pour les retraités « aisés » (LCI 16/09/2026, lu), ce qui exclut un gel épargnant les seules petites pensions."
+    },
+    {
+      "questionId": "fiscalite-x1",
+      "status": "coded",
+      "note": "-d poids 1 : retour de l'ISF financier, déficit attribué au manque de recettes, hausse d'impôts jugée légitime après une réforme de l'État (Acteurs publics, lu). Ce n'est que partiel : rien sur les hauts revenus ni sur les grandes entreprises, et elle refusait fin 2025 un alourdissement fiscal général. -b écarté à cause de l'ISF."
+    },
+    {
+      "questionId": "sante-1",
+      "status": "coded",
+      "note": "Seule position trouvée : elle critique le coût des ARS et des structures empilées (6 Md€, franceinfo 29/10/2025) sans dire qu'elle les supprimerait. Le reuse sante-1-d→sante-1-d (poids 2) a été ramené à 1, car la nouvelle approche dit « Supprimer les ARS ». Rien sur l'installation des médecins, les centres de santé, la formation ou l'accès direct."
+    },
+    {
+      "questionId": "solidarites-1",
+      "status": "unknown",
+      "note": "Aucune position sourcée sur l'assurance chômage, le RSA ou les minima sociaux, ni dans le dossier ni dans le refresh ni par recherche web. Les approches reliées (solidarites-x1-a, x2-c, x2-d) n'avaient aucune position Royal dans la banque source. Son refus de désindexer porte sur les pensions de retraite, pas sur les allocations."
+    },
+    {
+      "questionId": "logement-1",
+      "status": "unknown",
+      "note": "Le dossier indique « logement : aucune position trouvée ». Le refresh cite seulement la crise du logement parmi les causes de la baisse de la natalité, sans mesure. La recherche web ne trouve que des positions de 2004 et 2007, hors période."
+    },
+    {
+      "questionId": "sante-2",
+      "status": "unknown",
+      "note": "Aucune position sur les remboursements, les complémentaires ou les franchises. Le seul élément est son intention de voter le PLFSS 2026 si elle était députée, ce qui ne suffit pas. Les approches reliées (sante-2-a, 2-b) n'avaient aucune position Royal dans la banque source."
+    },
+    {
+      "questionId": "sante-3",
+      "status": "unknown",
+      "note": "Aucune position 2025-2026 sur l'aide à mourir. Le dossier signale une opposition prêtée par un agrégateur sans source vérifiable. La recherche web ne trouve qu'une déclaration de 2007 (ouverture à l'euthanasie sous conditions), trop ancienne pour être retenue."
+    },
+    {
+      "questionId": "sante-4",
+      "status": "coded",
+      "note": "Elle refuse de réautoriser le glyphosate et les néonicotinoïdes en invoquant leurs effets sur la santé et a signé la pétition anti-loi Duplomb. Cela correspond partiellement à sante-4-a (poids 1) : pas d'interdiction générale des produits cancérigènes. Sa mention de la revalorisation des métiers de la santé mentale est trop faible pour sante-4-d."
+    },
+    {
+      "questionId": "sante-5",
+      "status": "coded",
+      "note": "Reprise vérifiée de sante-3-d (choisir-2027) vers sante-5-d : caméras dans les EHPAD avec l'accord des salariés (poids 2), aucun changement dans les updates du refresh. Rien sur un taux d'encadrement, le domicile ou le financement : les reuses 5-b et 5-c étaient vides dans la banque source."
+    },
+    {
+      "questionId": "logement-2",
+      "status": "unknown",
+      "note": "Aucune position sur l'encadrement des loyers, les impayés ou les expulsions. Les approches reliées (logement-1-a, 1-b) n'avaient aucune position Royal dans la banque source."
+    },
+    {
+      "questionId": "logement-3",
+      "status": "unknown",
+      "note": "Aucune position sur le DPE, les interdictions de louer ou les aides à la rénovation. Seule une idée de filière laine de mouton pour l'isolation, sans rapport avec la règle."
+    },
+    {
+      "questionId": "logement-4",
+      "status": "unknown",
+      "note": "Aucune position trouvée sur l'obligation SRU de logements sociaux."
+    },
+    {
+      "questionId": "solidarites-2",
+      "status": "coded",
+      "note": "Elle propose une consultation de fertilité remboursée vers 20 ans, une éducation à la parentalité dès la 3e et des maisons de la parentalité : correspondance directe avec solidarites-2-f (poids 2). Elle refuse un statut spécifique pour les familles monoparentales et ne veut aucune distinction entre familles : rejet de solidarites-2-c (confiance medium). Rien de récent sur les crèches ou les allocations familiales."
+    },
+    {
+      "questionId": "solidarites-3",
+      "status": "coded",
+      "note": "Elle promet la « tolérance zéro » pour les violences faites aux enfants, l'un de ses axes de campagne et le thème de son premier déplacement. Poids 1 sur solidarites-3-c, codé comme pour d'autres candidats dans un cas comparable. Elle ne dit rien de la gouvernance de l'ASE (État ou départements), des placements ni d'une réforme constitutionnelle."
+    },
+    {
+      "questionId": "egalite-1",
+      "status": "coded",
+      "note": "Sud Radio (8 septembre 2026, page lue) : elle dit que la lutte est « une question de moyens et de rapidité » et réclame des moyens pour les enquêteurs, les policiers et les magistrats. Sud Radio (3 juillet 2026, dossier) : auditions d'enfants victimes par des professionnels formés et dans des lieux adaptés, sanctions immédiates. Cela correspond en partie à l'approche b, sans unités ni juridictions dédiées explicites, d'où le poids 1. Sa mesure phare, des caméras dans les écoles et les crèches, est déjà codée sur securite_justice-4-f : pas de nouvelle approche proposée. Elle juge qu'« il faut arrêter de parler des milliards » tout en voulant une loi financée : ce n'est pas un rejet explicite de l'approche a, donc non codé. Aucune proposition d'alourdissement des peines ni de contrôle systématique des antécédents."
+    },
+    {
+      "questionId": "egalite-2",
+      "status": "unknown",
+      "note": "Correspondance de reuse egalite-2-a vers egalite-x1-a, mais la banque source ne contient aucune position de Royal sur egalite-x1 : rien à reprendre. Aucune position 2025-2026 sur le congé du second parent, le congé parental ou le congé de naissance. Trouvé seulement : maisons de la parentalité, formation des parents et refus d'un statut spécifique pour les familles monoparentales (Femme Actuelle, 19 novembre 2025). Ce refus vise un statut, pas le versement automatique des pensions ni l'aide à la garde : pas de rejet explicite de l'approche e."
+    },
+    {
+      "questionId": "egalite-3",
+      "status": "unknown",
+      "note": "Elle plaide pour l'égalité salariale, qui augmenterait selon elle les cotisations, et cite une retraite moyenne des femmes de 1 200 € pour refuser de taxer les retraités (Capital, 15 septembre 2026). Aucune mesure concrète : sanctions, transparence, label ou règles de calcul des pensions. La revalorisation des métiers du soin (Femme Actuelle, 2025) n'est pas présentée comme une réponse aux écarts entre femmes et hommes, donc non codée sur c."
+    },
+    {
+      "questionId": "egalite-4",
+      "status": "coded",
+      "note": "Melty (9 janvier 2026, d'après le fichier de mise à jour) : elle fait de la contraception le premier droit, la veut gratuite pour les lycéennes et les étudiantes, et juge que l'IVG n'est « pas l'idéal ». Elle est donc compatible avec l'approche e, mais parle d'accès plus que d'information, d'où le poids 1 et une confiance medium. Aucune position trouvée sur les délais, la clause de conscience, la proximité des lieux d'IVG ou la Charte européenne. Sa remarque sur un « droit à donner naissance » ne remet pas en cause l'inscription de l'IVG dans la Constitution."
+    },
+    {
+      "questionId": "droits_lgbtqia-1",
+      "status": "unknown",
+      "note": "Aucune déclaration 2025-2026 sur la GPA, ni dans le dossier, ni dans la mise à jour, ni dans la recherche web. Son refus de distinguer familles classiques, homoparentales et monoparentales (2025) ne porte pas sur la GPA ou la filiation."
+    },
+    {
+      "questionId": "droits_lgbtqia-2",
+      "status": "unknown",
+      "note": "Seul propos trouvé : en mars 2024, sur BFMTV, elle attribue la hausse des cas de dysphorie de genre chez les mineurs aux perturbateurs endocriniens. Ce propos est antérieur à 2025 et ne dit rien de l'état civil, de la prise en charge ou des traitements des mineurs. Elle ne s'est pas prononcée sur la proposition de loi sénatoriale de 2024."
+    },
+    {
+      "questionId": "education-1",
+      "status": "coded",
+      "note": "Elle dénonce un métier d'enseignant dégradé et mal payé, et des recrutements « par speed dating » (franceinfo, 31/08/2026), sans mesure chiffrée : compatible avec g (poids 1). Rien de trouvé sur les effectifs par classe, la mixité, l'autonomie ou l'exigence scolaire."
+    },
+    {
+      "questionId": "education-2",
+      "status": "unknown",
+      "note": "Aucune déclaration de 2025-2026 trouvée sur le financement du privé sous contrat, ni dans le dossier ni sur le web."
+    },
+    {
+      "questionId": "education-3",
+      "status": "unknown",
+      "note": "Rien de trouvé sur le collège unique, les groupes de niveau ou la scolarité obligatoire."
+    },
+    {
+      "questionId": "education-4",
+      "status": "coded",
+      "note": "Seul élément : elle critique le durcissement des visas qui bloque les étudiants (Beur FM, 26/05/2026), codé en rejet de d. Rien de trouvé sur Parcoursup, les moyens des universités ou le privé lucratif, alors que les lycéens mobilisés en octobre 2026 réclament des moyens."
+    },
+    {
+      "questionId": "education-5",
+      "status": "unknown",
+      "note": "Rien de trouvé sur les bourses ou les aides aux étudiants. Le plan Lecornu qu'elle critique contenait un gel des APL étudiantes, mais elle ne s'exprime pas sur ce point précis."
+    },
+    {
+      "questionId": "societe-1",
+      "status": "unknown",
+      "note": "Rien de trouvé sur l'audiovisuel public (le dossier le confirme). Sa critique des médias qui auraient leurs « favoris » ne porte pas sur cette question."
+    },
+    {
+      "questionId": "societe-2",
+      "status": "unknown",
+      "note": "Le « droit à la beauté » des enfants (RFI, 17/01/2026, page illisible) reste trop général pour b, qui suppose de remplacer le pass Culture. Son opposition au pavillon de l'Assemblée au nom du patrimoine ne fait pas de la restauration du patrimoine une priorité (c). Aucune position sur le budget de la culture ni sur les quotas."
+    },
+    {
+      "questionId": "societe-x1",
+      "status": "unknown",
+      "note": "Aucune position trouvée sur la concentration des médias, l'indépendance des rédactions ou l'Arcom."
+    },
+    {
+      "questionId": "numerique-1",
+      "status": "unknown",
+      "note": "Elle veut lutter contre la fraude fiscale avec l'aide de l'IA (débat du 04/10/2026), ce qui ne répond pas à la question. Aucune position trouvée sur la régulation de l'IA, l'investissement ou les centres de données."
+    },
+    {
+      "questionId": "numerique-2",
+      "status": "coded",
+      "note": "Position reprise de la primaire sur a, sans changement dans le refresh : elle soutient l'interdiction avant 15 ans « comme en Australie » (Sud Radio, 11/12/2025, relu). S'y ajoute b en poids 1 : elle veut diffuser aux jeunes parents des règles de limitation des écrans (Femme Actuelle, 19/11/2025, dans le refresh). Aucune réaction trouvée à la censure d'août 2026."
+    },
+    {
+      "questionId": "numerique-3",
+      "status": "proposal",
+      "note": "Sa position centrale (Sud Radio, 11/12/2025, relu) : l'amende de l'UE contre X est une mauvaise idée, il faut négocier avec X et Elon Musk plutôt que s'affronter aux États-Unis. Elle n'entre dans aucune des approches a à g. Une approche portée à la primaire (numerique-3-c source) n'a pas été reprise : nouvelle approche proposée."
+    },
+    {
+      "questionId": "numerique-4",
+      "status": "unknown",
+      "note": "Rien de trouvé sur l'IA ou les écrans à l'école."
+    },
+    {
+      "questionId": "education-x1",
+      "status": "proposal",
+      "note": "Sa mesure-phare, des caméras de vidéosurveillance « partout » dans les écoles et le périscolaire contre les violences faites aux enfants (02/09/2026), n'entre dans aucune approche : nouvelle approche proposée. Deux rejets : d, puisqu'elle veut au contraire installer la vidéosurveillance ; c, car le 06/10/2026 elle dit « Non » au « casseur-payeur » voulu par le gouvernement, qui veut faire payer aux parents les dégâts des blocages."
+    },
+    {
+      "questionId": "ecologie_energie-1",
+      "status": "coded",
+      "note": "Repris de la primaire : baisse des taxes sur les carburants (1-a) et refus de cibler les aides, la « police de la consommation » (rejet de 1-c). Vérifié sur Public Sénat et franceinfo ; aucun changement dans refresh. Rien de sourcé sur les marges ou les profits pétroliers : Econostrum ne lui prête aucune mesure sur les marges."
+    },
+    {
+      "questionId": "ecologie_energie-2",
+      "status": "coded",
+      "note": "LCP (débat BFMTV du 04/10/2026) : tous les candidats, elle comprise, veulent conserver le nucléaire et développer les renouvelables. En mars 2026, elle critiquait la baisse du nucléaire décidée avant la montée des renouvelables. Aucune position sur de nouveaux réacteurs (EPR2), d'où un poids 1 sur 2-b."
+    },
+    {
+      "questionId": "territoires-1",
+      "status": "unknown",
+      "note": "Aucune position sur les services publics de proximité, les fermetures ou les dotations des collectivités. On ne trouve que des critiques générales (hôpital « à la hache », classes sans enseignants) et le refus de baisser les dépenses essentielles. Les « doublons » qu'elle veut supprimer sont des organismes d'État, pas des collectivités."
+    },
+    {
+      "questionId": "ecologie_energie-3",
+      "status": "coded",
+      "note": "Repris de la primaire : sortie du marché européen de l'électricité (3-a, Contrepoints, confiance medium), inchangé. Ajout d'un poids 1 sur 3-d : son site de campagne promet de « baisser les taxes » face à la flambée des prix de l'énergie, sans préciser les taxes sur l'électricité."
+    },
+    {
+      "questionId": "ecologie_energie-4",
+      "status": "coded",
+      "note": "Repris de la primaire : la transition climatique comme « colonne vertébrale » de la relance (4-b). Ajout d'un poids 1 sur 4-e : elle veut intégrer le coût carbone dans le prix des importations (Sud Radio, 11/12/2025), par une règle internationale et non spécifiquement aux frontières de l'Europe."
+    },
+    {
+      "questionId": "ecologie_energie-5",
+      "status": "unknown",
+      "note": "Rien en 2025-2026 sur l'eau, les retenues ou bassines, les régies ou la tarification. Ses actes de ministre de 2015 sont exclus. La recherche web s'est arrêtée en cours de route (quota de recherches épuisé)."
+    },
+    {
+      "questionId": "ecologie_energie-6",
+      "status": "coded",
+      "note": "Repris de la primaire : climatisation des écoles, hôpitaux et Ehpad (6-a, poids 2) et dénonciation du manque de moyens des pompiers (6-d, poids 1). L'aide aux ménages, ajoutée à 6-a, n'est pas évoquée par elle. Poids 2 maintenu, par cohérence avec le codage des autres candidats."
+    },
+    {
+      "questionId": "ecologie_energie-7",
+      "status": "unknown",
+      "note": "Rien sur le rail, les concessions autoroutières, la gratuité ou le leasing social. On trouve seulement un avis sur l'A69 (élargir les routes existantes plutôt que construire une autoroute, Sud Radio, 11/12/2025) et l'évocation d'une petite voiture électrique fabriquée en France, sans mesure. Aucune approche ne correspond."
+    },
+    {
+      "questionId": "agriculture-1",
+      "status": "coded",
+      "note": "Elle demande des « exigences comparables » pour les produits importés, sans parler d'interdiction (Sud Radio, 03/07/2026) : poids 1 sur 1-d. Elle refuse explicitement l'alignement de la France sur les autres pays européens (Paris Match) : rejet de 1-b. Rien sur le Mercosur ni la PAC. Sa TVA allégée sur les aliments français n'entre dans aucune approche ; c'est une nuance, pas une nouvelle approche."
+    },
+    {
+      "questionId": "agriculture-2",
+      "status": "coded",
+      "note": "Opposition au rétablissement par dérogation des néonicotinoïdes (« faute grave ») et signature de la pétition contre la loi Duplomb : poids 2 sur 2-c, rejet de 2-b. Refus de réautoriser le glyphosate au motif que d'autres pays européens l'utilisent : rejet de 2-a. Demande d'exigences comparables sur les importations : poids 1 sur 2-d."
+    },
+    {
+      "questionId": "agriculture-3",
+      "status": "unknown",
+      "note": "Aucune position trouvée sur le bien-être animal, l'élevage intensif, la chasse ou la corrida ; le dossier de mise à jour le confirme. Sa remarque sur la sortie de l'agriculture intensive ne vise pas les animaux."
+    },
+    {
+      "questionId": "territoires-2",
+      "status": "unknown",
+      "note": "Elle critique la « superposition des strates administratives » et le redécoupage des régions sous François Hollande (Acteurs publics, 24/09/2026), sans dire dans quel sens réformer. Trop ambigu pour être codé."
+    },
+    {
+      "questionId": "territoires-x3",
+      "status": "unknown",
+      "note": "Aucune position trouvée sur le statut de la Corse ; le dossier le signale explicitement."
+    },
+    {
+      "questionId": "territoires-x4",
+      "status": "unknown",
+      "note": "Aucune position trouvée sur la Nouvelle-Calédonie. Sa profession de foi ne parle des outre-mer que comme de territoires « trop oubliés », sans position institutionnelle."
+    },
+    {
+      "questionId": "territoires-x5",
+      "status": "unknown",
+      "note": "Aucune position trouvée sur l'objectif de zéro artificialisation nette."
+    },
+    {
+      "questionId": "agriculture-x4",
+      "status": "unknown",
+      "note": "Rien sur les prix planchers, les marges de la distribution ou les lois Egalim. Ses mesures connues (TVA allégée sur les aliments produits en France, baisse du coût de l'énergie pour les agriculteurs) ne sont pas présentées comme une réponse au revenu agricole et n'entrent dans aucune approche."
+    },
+    {
+      "questionId": "ecologie_energie-x9",
+      "status": "coded",
+      "note": "Elle fait de la transition climatique le socle de la relance et de la réindustrialisation, source d'activités et d'emplois : poids 1 sur x9-b. Elle ne se prononce pas sur la croissance du PIB elle-même."
+    },
+    {
+      "questionId": "securite_justice-1",
+      "status": "coded",
+      "note": "Pas de position sur les prisons, les peines planchers, les peines alternatives ni les recrutements de magistrats. Elle a dit « tolérance zéro pour les agresseurs » (LCP, 10/07/2026) et demandé des « sanctions immédiates » (Sud Radio, 03/07/2026), ce qui correspond en partie à 1-c (juger et sanctionner vite). Poids 1, car elle n'a jamais parlé de peines plus courtes."
+    },
+    {
+      "questionId": "securite_justice-2",
+      "status": "coded",
+      "note": "Après la répression des lycéens (05-07/10/2026), elle juge « inadmissible » la violence de certains policiers, exige le respect de la doctrine de proportionnalité et réclame la démission du ministre de l'Intérieur. Codé 2-e poids 1 : elle demande d'appliquer la doctrine existante, pas de la réviser, ni de créer une autorité indépendante. Rien trouvé sur les effectifs, la police de proximité, la présomption de légitime défense, le récépissé ou les polices municipales."
+    },
+    {
+      "questionId": "securite_justice-3",
+      "status": "unknown",
+      "note": "Aucune position trouvée sur le cannabis, la légalisation ou le narcotrafic : le dossier le signale comme question ouverte, et les recherches web n'ont rien donné. Elle a dit que broyer les engins des rodéos urbains pousse les jeunes vers le trafic (Demotivateur, 09/01/2026) : c'est trop indirect pour coder 3-f. Aucune approche reprise de la primaire n'avait de position Royal."
+    },
+    {
+      "questionId": "securite_justice-4",
+      "status": "coded",
+      "note": "4-f repris de la primaire (source securite_justice-1-e) : caméras « partout » dans les écoles, le périscolaire et les crèches. Pas de changement dans les updates. 4-d poids 1 : elle reproche le mauvais suivi des plaintes pour viols sur enfants et demande des auditions adaptées et des sanctions immédiates (Sud Radio). Rien sur la peine de mort, la perpétuité réelle ou le contrôle des antécédents."
+    },
+    {
+      "questionId": "securite_justice-5",
+      "status": "coded",
+      "note": "5-e poids 1 : elle propose des « chantiers de jeunes » et un encadrement éducatif des adeptes de rodéos urbains plutôt que la répression (Femme Actuelle, 19/11/2025 ; Demotivateur, 09/01/2026). C'est une mesure ciblée, pas une orientation générale de la justice des mineurs. Rejet de 5-c codé en inférence (medium) : elle a répondu « Non » au principe « casseur-payeur » du gouvernement, dont le projet de loi permet de prélever sur les prestations familiales pour les dégâts commis par des mineurs. Rien sur la majorité pénale ni l'excuse de minorité."
+    },
+    {
+      "questionId": "securite_justice-6",
+      "status": "unknown",
+      "note": "Aucune position 2025-2026 trouvée sur l'indépendance du parquet, la discipline des magistrats, le syndicalisme judiciaire ou l'exécution provisoire des peines d'inéligibilité. Les seuls résultats datent de son mandat de députée ou de l'enquête du PNF de 2020. Le quota de recherche web s'est épuisé pendant la vérification."
+    },
+    {
+      "questionId": "securite_justice-x1",
+      "status": "unknown",
+      "note": "Aucune position trouvée sur les polices municipales (armement, pouvoirs, obligation) dans le dossier ni dans les recherches web."
+    },
+    {
+      "questionId": "immigration-1",
+      "status": "coded",
+      "note": "Pas de programme publié. Seul élément sourcé : elle déplore le durcissement des visas, qui bloque les étudiants et décourage les talents (Beur FM, 26/05/2026). C'est un poids 1 sur 1-e : elle n'a rien dit sur la durée des titres de séjour. 1-d est relié par reuse à la source 1-d, mais Royal n'y avait aucune position. Rien de sourcé non plus sur la fermeté contre l'immigration irrégulière ni sur un objectif chiffré."
+    },
+    {
+      "questionId": "immigration-2",
+      "status": "unknown",
+      "note": "Rien en 2025-2026 sur Schengen, le pacte asile-migration, la répartition des demandeurs d'asile ou le contrôle des frontières. Le dossier le signale comme question ouverte. Sa formule « les règles européennes, on les change » vise l'énergie, pas l'asile."
+    },
+    {
+      "questionId": "immigration-3",
+      "status": "coded",
+      "note": "Au débat BFMTV du 04/10/2026, elle dit « Je régularise ceux qui travaillent » (20 Minutes, 05/10/2026, et mise à jour du refresh). Codé poids 1 sur 3-b, car la régularisation des travailleurs est présentée comme une règle générale, partagée par les cinq candidats. Elle ne dit rien sur l'ampleur, sur les parents d'enfants scolarisés, sur le cas par cas ni sur l'expulsion des autres. Sa critique de 2024 contre une régularisation de tous les sans-papiers est antérieure à 2025 et rapportée par une source faible : non retenue. Reuse : 3-b est relié à la source 1-a, où Royal n'avait aucune position."
+    },
+    {
+      "questionId": "immigration-4",
+      "status": "unknown",
+      "note": "Aucune position trouvée sur le droit du sol ni sur Mayotte. Elle a seulement défendu les binationaux « 100 % français et 100 % algériens » (Beur FM), ce qui ne permet pas de trancher sur la règle de nationalité."
+    },
+    {
+      "questionId": "immigration-5",
+      "status": "unknown",
+      "note": "Aucune déclaration trouvée sur l'accès des étrangers aux aides sociales, sur une durée de résidence ou sur la préférence nationale en 2025-2026."
+    },
+    {
+      "questionId": "immigration-6",
+      "status": "unknown",
+      "note": "Pas de politique d'intégration formulée (cours de français, contrat d'intégration, naturalisation). Ses propos sur les identités multiples et son refus d'interdire le voile ne correspondent à aucune approche sans sur-interprétation. Reuse : 6-c est relié à la source 2-b, où Royal n'avait aucune position."
+    },
+    {
+      "questionId": "immigration-x1",
+      "status": "unknown",
+      "note": "Aucune position trouvée sur l'AME en 2025-2026 (dossier muet, recherche web infructueuse)."
+    },
+    {
+      "questionId": "immigration-x2",
+      "status": "coded",
+      "note": "Elle ne dit pas explicitement qu'il faut conserver l'accord. En novembre 2025, elle a reproché aux auteurs du rapport parlementaire chiffrant le coût de l'accord de taire l'apport du travail des Algériens (TSA, 25/12/2025). Elle plaide de façon constante pour l'apaisement et le dialogue avec Alger (Beur FM, Anadolu). D'où un poids 1 sur x2-d."
+    },
+    {
+      "questionId": "europe-1",
+      "status": "coded",
+      "note": "Pas de reprise : la position de la primaire (europe-1-c source, « renégocier les règles ou obtenir des dérogations ») n'est pas reliée, et europe-1-c désigne ici autre chose (pouvoirs rendus aux États). Elle veut changer les règles européennes qui la gênent (Capital/RTL, 13/09/2026), demander une dérogation sur l'accise minimale du gazole (Econostrum, 25/09/2026) et sortir du marché européen de l'électricité (X cité par Contrepoints, 12/03/2026). Codé d en poids 1, comme Roussel : elle n'annonce ni renégociation des traités ni désobéissance. Rien trouvé sur le fédéralisme, le veto ou l'Europe sociale, et aucun appel à quitter l'UE."
+    },
+    {
+      "questionId": "europe-2",
+      "status": "coded",
+      "note": "f en poids 2 : la BCE prolongerait indéfiniment une partie de la dette (dette « perpétuelle ») pour financer le climat (Capital, 11/09/2026, propos répétés au débat du 23/09). Le 23/09 (LCP), elle exclut aussi d'« effacer » la dette. Les approches reliées a, b et c n'ont aucune position source chez elle. Le « train de vie des institutions européennes » (iFRAP, confiance low, sans source primaire) n'est pas retenu."
+    },
+    {
+      "questionId": "europe-3",
+      "status": "coded",
+      "note": "b en poids 1 : elle veut sortir « vite » du marché européen de l'électricité et critique l'ouverture à la concurrence (ses messages sur X, cités par Contrepoints le 12/03/2026). Elle ne parle pas de rétablir des monopoles publics. Son souhait que les partenaires s'alignent sur les normes françaises les plus protectrices (Paris Match, 2025) ne correspond à aucune approche. Pas de rejet explicite de d."
+    },
+    {
+      "questionId": "ukraine_russie-1",
+      "status": "coded",
+      "note": "La reprise prévue (international_defense-1-c → c, poids 2) n'est pas faite. Le nouvel énoncé de c ajoute « plutôt qu'à l'effort militaire », ce que contredisent sa phrase du 04/10/2026 (« maintenir la défense de l'Ukraine, mais […] le même effort pour arrêter cette guerre », LCP) et son « équilibre entre la force de défense et la force de négociation » (LCP, 23/09). Codé g en poids 1 (aider l'Ukraine et négocier dans une commission permanente) : elle n'évoque pas de cadre onusien, comme Le Pen, aussi codée g en poids 1. Comme une seule approche peut être en poids 1, l'élément « France médiatrice » de c n'est pas codé. Rien sur les avoirs russes ni sur la force européenne d'après cessez-le-feu (h)."
+    },
+    {
+      "questionId": "ukraine_russie-2",
+      "status": "coded",
+      "note": "b en poids 2 : garder le dialogue avec Moscou par une commission permanente de négociation incluant l'Ukraine, tout en maintenant la défense de l'Ukraine (LCP 01/10 et 05/10/2026, 20 Minutes 05/10). Rien sur les sanctions contre la Russie."
+    },
+    {
+      "questionId": "proche_orient-1",
+      "status": "coded",
+      "note": "La position reprise sur d (international_defense-4-d) passe en poids 1. Le nouvel énoncé ajoute l'exécution des mandats de la CPI, sur laquelle elle ne s'est pas prononcée ; seule la saisine du Conseil de sécurité est sourcée (mai 2025), et elle qualifie Netanyahou de « criminel de guerre » (RTL, 24/09/2026). La position reprise sur b (international_defense-4-a, poids 1, confiance low) n'est pas gardée. Public Sénat la compte parmi les quatre candidats favorables à la suspension de l'accord commercial UE-Israël, mais le complément de recherche n'a trouvé aucune confirmation et attribue la proposition à Faure. Le nouvel énoncé de b ajoute en outre l'interdiction des produits des colonies, et une seule approche peut être en poids 1. Aucune proposition d'embargo ni de sanctions économiques trouvée."
+    },
+    {
+      "questionId": "proche_orient-2",
+      "status": "coded",
+      "note": "a en poids 1, par inférence. En mai 2025, elle critiquait ceux qui voulaient reconnaître l'État palestinien « quand tout aura été détruit » ; en 2026, elle dénonce une politique israélienne qui rendrait impossible la solution à deux États (LCP, 01/10/2026). Aucune réaction trouvée à la reconnaissance du 22/09/2025, ni d'exigence explicite sur l'occupation ou la colonisation."
+    },
+    {
+      "questionId": "defense-1",
+      "status": "unknown",
+      "note": "Aucune position 2025-2026 sur l'OTAN. Ses critiques de l'alignement de l'Europe sur les États-Unis et l'OTAN (octobre 2022, AFP) et ses prises de position de 2007-2009 sur le retour dans le commandement intégré sont hors période."
+    },
+    {
+      "questionId": "defense-2",
+      "status": "unknown",
+      "note": "Aucune position sur le budget des armées ou la loi de programmation militaire. Elle veut une France « acteur de paix et pas acteur de guerre » (CNews, 20/11/2025) et accuse Emmanuel Macron de faire peur avec la menace russe (BFMTV, 20/09/2026), sans parler de budget."
+    },
+    {
+      "questionId": "defense-3",
+      "status": "unknown",
+      "note": "Aucune position trouvée sur la dissuasion nucléaire, ni sur sa dimension européenne ou la « dissuasion avancée » ; les recherches ne renvoient qu'au nucléaire civil."
+    },
+    {
+      "questionId": "defense-4",
+      "status": "unknown",
+      "note": "Le compte rendu du débat du 04/10/2026 (LCP) écrit que « tous s'accordent à renforcer la défense européenne ». C'est une formule collective du journaliste, compatible avec a comme avec b : elle ne permet pas de trancher. Aucune déclaration personnelle trouvée."
+    },
+    {
+      "questionId": "defense-5",
+      "status": "unknown",
+      "note": "Aucune position 2025-2026 sur le service militaire volontaire ou un service obligatoire. Sa proposition de 2006 (encadrement militaire des jeunes délinquants) est hors période."
+    },
+    {
+      "questionId": "europe-x4",
+      "status": "unknown",
+      "note": "Aucune position trouvée sur l'élargissement ou l'adhésion de l'Ukraine à l'UE (dossier, complément de recherche, recherches web)."
+    },
+    {
+      "questionId": "ukraine_russie-x3",
+      "status": "coded",
+      "note": "d en poids 1, par inférence. Elle dit qu'au pouvoir elle aurait demandé des Casques bleus à la frontière pour empêcher l'invasion (Le Taurillon, 06/10/2026 ; Public Sénat, 24/09) et promet que les Français ne seront pas obligés d'aller se battre en Ukraine (BFMTV, 04/10, seul le titre a été lu). Rien sur l'OTAN ni sur la force de réassurance d'après cessez-le-feu, donc aucun rejet explicite de a."
+    },
+    {
+      "questionId": "europe-x5",
+      "status": "unknown",
+      "note": "Sa critique de la logique de « Far West » de Trump au Groenland (Challenges, 09/01/2026, seul le chapeau a été lu) et sa « France indépendante » (profession de foi) sont compatibles avec b, c ou e sans permettre de trancher. Rien sur les droits de douane ni sur l'alliance avec les États-Unis."
+    },
+    {
+      "questionId": "institutions-1",
+      "status": "coded",
+      "note": "Royal n’a présenté aucune réforme institutionnelle en 2025-2026. Le refresh rapporte qu’elle a déclaré sur LCP (Quai n°8, 02/10/2026) que les institutions ne sont pas responsables des abus de pouvoir et qu’il faut les « habiter autrement » ; elle défend aussi un RIP sur les retraites (Sud Radio, 23/09/2026). Codé f, poids 1, en inférence. La page TV Mag n’a pas pu être lue (domaine bloqué) et le refresh ne donne que son URL : le titre a été tiré de cette URL, à vérifier. Le projet du PS (juin 2026) veut « déprésidentialiser » les institutions (approche c), mais cela contredit sa déclaration personnelle, plus récente : ce projet ne lui a pas été attribué. Aucune approche n’a de correspondance dans reuse.json pour Royal."
+    },
+    {
+      "questionId": "institutions-2",
+      "status": "unknown",
+      "note": "Aucune position personnelle de 2025-2026 sur le mode de scrutin, ni dans le dossier ni sur le web. Le projet du PS (page « Refaire société », juin 2026) propose une proportionnelle inspirée du modèle allemand (proche de l’approche c), mais ne lui a pas été attribué : ses déclarations (« habiter autrement les institutions ») marquent une distance avec le volet institutionnel de ce projet, et la banque de la primaire n’attribuait ce projet qu’à Olivier Faure. Le propriétaire peut trancher. Le recherche web était épuisée."
+    },
+    {
+      "questionId": "institutions-3",
+      "status": "coded",
+      "note": "Sud Radio (23/09/2026) indique qu’elle défend un référendum d’initiative partagée pour trancher la question des retraites. C’est une mesure voisine de l’approche c (abaisser le seuil du RIP), donc poids 1, sans nouvelle approche. La banque de la primaire avait une approche « recourir plus souvent au RIP », sans équivalent ici. Le projet du PS prévoit un RIP à un million de signatures, un RIC et des conventions citoyennes : non attribué, pour la même raison qu’à institutions-2. Dans reuse.json, Royal n’a de position sur aucune des approches sources reliées (3-a et 3-f)."
+    },
+    {
+      "questionId": "laicite_republique-1",
+      "status": "coded",
+      "note": "Elle s’oppose à l’interdiction du voile dans l’espace public (rejet de a), rappelle que la burqa est déjà interdite et promet qu’il n’y aura pas de « chasse au foulard » : approche c, poids 2. Sa profession de foi (lue) lie la laïcité au refus du racisme, de l’antisémitisme et des discriminations, et elle parle d’islamophobes (Sud Radio, 11/12/2025) : approche d, poids 1. Sur l’interdiction du voile pour les mineures, elle ne tranche pas explicitement : pas de rejet codé sur b. Rien sur la loi de 2021, l’héritage chrétien ou le Concordat. Dans reuse.json, Royal n’a pas de position sur l’approche source reliée à d."
+    },
+    {
+      "questionId": "laicite_republique-2",
+      "status": "coded",
+      "note": "Présidente de l’Association France-Algérie, elle demande la reconnaissance des crimes coloniaux, des excuses, la restitution des biens culturels et la remise des archives (Anadolu, 18/01/2026 ; Beur FM, 26/05/2026) : approche b, poids 2. Sa demande explicite d’excuses et sa prise de distance avec la notion de « rente mémorielle » fondent un rejet de e. Elle ne qualifie pas la colonisation elle-même de crime : rien n’est codé sur d. Dans reuse.json, Royal n’a pas de position sur l’approche source reliée à a."
+    },
+    {
+      "questionId": "institutions-x1",
+      "status": "unknown",
+      "note": "Aucune déclaration de Royal sur le Conseil constitutionnel n’a été trouvée. Le projet du PS (juin 2026) prévoit de confirmer les nominations à la majorité des trois cinquièmes en commission parlementaire (proche de l’approche e), mais ne lui a pas été attribué, pour la même raison qu’à institutions-2. Le propriétaire peut trancher."
+    }
+  ],
+  "unknown": [
+    "retraites-1",
+    "fiscalite-2",
+    "finances_publiques-3",
+    "travail_salaires-2",
+    "travail_salaires-3",
+    "travail_salaires-4",
+    "industrie_economie-3",
+    "retraites-2",
+    "sante-1",
+    "solidarites-1",
+    "logement-1",
+    "sante-2",
+    "sante-3",
+    "logement-2",
+    "logement-3",
+    "logement-4",
+    "solidarites-3",
+    "egalite-2",
+    "egalite-3",
+    "droits_lgbtqia-1",
+    "droits_lgbtqia-2",
+    "education-2",
+    "education-3",
+    "education-4",
+    "education-5",
+    "societe-1",
+    "societe-2",
+    "numerique-1",
+    "numerique-3",
+    "numerique-4",
+    "ecologie_energie-2",
+    "territoires-1",
+    "ecologie_energie-5",
+    "ecologie_energie-7",
+    "agriculture-1",
+    "agriculture-3",
+    "territoires-2",
+    "securite_justice-1",
+    "securite_justice-2",
+    "securite_justice-3",
+    "securite_justice-6",
+    "immigration-2",
+    "immigration-4",
+    "immigration-5",
+    "immigration-6",
+    "proche_orient-2",
+    "defense-1",
+    "defense-2",
+    "defense-3",
+    "defense-4",
+    "defense-5",
+    "institutions-1",
+    "institutions-2",
+    "institutions-3",
+    "education-x1",
+    "societe-x1",
+    "territoires-x3",
+    "territoires-x4",
+    "territoires-x5",
+    "agriculture-x4",
+    "securite_justice-x1",
+    "immigration-x1",
+    "europe-x4",
+    "ukraine_russie-x3",
+    "europe-x5",
+    "institutions-x1"
+  ],
+  "coverage": {
+    "questions": 100,
+    "known": 34,
+    "knownShare": 0.34,
+    "essentiel": {
+      "total": 22,
+      "known": 11,
+      "share": 0.5
+    },
+    "step1": {
+      "total": 10,
+      "known": 5
+    },
+    "unknown": [
+      "retraites-1",
+      "fiscalite-2",
+      "finances_publiques-3",
+      "travail_salaires-2",
+      "travail_salaires-3",
+      "travail_salaires-4",
+      "industrie_economie-3",
+      "retraites-2",
+      "sante-1",
+      "solidarites-1",
+      "logement-1",
+      "sante-2",
+      "sante-3",
+      "logement-2",
+      "logement-3",
+      "logement-4",
+      "solidarites-3",
+      "egalite-2",
+      "egalite-3",
+      "droits_lgbtqia-1",
+      "droits_lgbtqia-2",
+      "education-2",
+      "education-3",
+      "education-4",
+      "education-5",
+      "societe-1",
+      "societe-2",
+      "numerique-1",
+      "numerique-3",
+      "numerique-4",
+      "ecologie_energie-2",
+      "territoires-1",
+      "ecologie_energie-5",
+      "ecologie_energie-7",
+      "agriculture-1",
+      "agriculture-3",
+      "territoires-2",
+      "securite_justice-1",
+      "securite_justice-2",
+      "securite_justice-3",
+      "securite_justice-6",
+      "immigration-2",
+      "immigration-4",
+      "immigration-5",
+      "immigration-6",
+      "proche_orient-2",
+      "defense-1",
+      "defense-2",
+      "defense-3",
+      "defense-4",
+      "defense-5",
+      "institutions-1",
+      "institutions-2",
+      "institutions-3",
+      "education-x1",
+      "societe-x1",
+      "territoires-x3",
+      "territoires-x4",
+      "territoires-x5",
+      "agriculture-x4",
+      "securite_justice-x1",
+      "immigration-x1",
+      "europe-x4",
+      "ukraine_russie-x3",
+      "europe-x5",
+      "institutions-x1"
+    ],
+    "rejectsOnly": [
+      "education-4",
+      "agriculture-1",
+      "institutions-1",
+      "institutions-3",
+      "education-x1"
+    ],
+    "thresholds": {
+      "bank": false,
+      "quick": false,
+      "step1": false
+    }
+  },
+  "review": [
+    "position non vérifiée : retraites-1 retraites-1-g",
+    "ajout du vérificateur, non contre-vérifié : institutions-1 institutions-1-a",
+    "ajout du vérificateur, non contre-vérifié : institutions-3 institutions-3-e",
+    "couverture sous les seuils de la configuration : {\"bank\":false,\"quick\":false,\"step1\":false}",
+    "3 approche(s) proposée(s), à valider avant toute reprise dans decisions.json"
+  ],
+  "log": [
+    "la banque contient déjà 9 positions de royal (reprise d'une élection précédente ou ajout précédent) : ce fichier passe avant elles, question par question",
+    "unchecked retraites-1 retraites-1-g",
+    "refuted education-x1 education-x1-c : Les deux sources ont été lues. Sur franceinfo (06/10/2026), la question porte sur le « casseur-payeur » voulu par le gouvernement, juste après un échange sur les « violences urbaines ». La relance évoque ceux qui s'attaquent aux abribus, donc les casseurs eux-mêmes ; ni les parents, ni Darmanin, ni les dégradations des lycées ne sont mentionnés. Elle répond « Non », puis demande « qui casse la France ? » et accuse le gouvernement. Elle ne dit rien de l'idée de faire payer les parents ou les auteurs des dégâts. L'article de Public Sénat (02/10) décrit la mesure de Darmanin sans la citer. Lui attribuer un rejet des sanctions contre les parents d'élèves suppose donc de relier deux sources que rien ne relie. Sa réponse est une riposte politique, pas une position sur la responsabilité des parents. Position à supprimer.",
+    "refuted securite_justice-2 securite_justice-2-e : L’approche 2-e porte deux mesures précises : revoir les règles d’usage de la force et confier le contrôle des policiers à une autorité indépendante. Ségolène Royal ne défend ni l’une ni l’autre. Sur franceinfo (06/10/2026), elle dénonce un « déferlement de violence de la part de certains policiers qui est inadmissible ». Elle demande de donner « des ordres aux policiers » pour qu’ils respectent « la doctrine de l’ordre public » existante, qu’elle résume par la proportionnalité de la riposte. C’est un appel à appliquer les règles en vigueur, pas à les réviser, et elle ne parle ni d’autorité indépendante ni de l’IGPN. L’article de Public Sénat (07/10/2026) rapporte qu’elle demande la démission de Laurent Nuñez et dénonce des policiers « armés jusqu’aux dents », mais il ne dit rien non plus d’une réforme des règles ou du contrôle. Deux autres pages de la période ne contiennent rien sur ce point : franceinfo du 05/10 (« Il faut aimer les jeunes au lieu de les frapper ») et le débat résumé par LCP le 05/10. Lui attribuer cette approche ferait croire qu’elle veut une autorité indépendante : attribution trompeuse, à supprimer.",
+    "refuted ukraine_russie-x3 ukraine_russie-x3-d : Le Taurillon et Public Sénat confirment les Casques bleus, mais il s'agit d'un contrefactuel rétrospectif. Si elle avait été aux responsabilités avant l'invasion de 2022, elle aurait demandé des Casques bleus à la frontière. Ce n'est pas une proposition de garantir aujourd'hui la sécurité de l'Ukraine par un accord ONU ou OSCE. Aucune source ne mentionne l'OTAN ; le Taurillon dit explicitement que l'OTAN, les garanties de sécurité, les soldats français et la force européenne ne sont pas abordés pour elle. Or « l'Ukraine restant hors de l'OTAN » est une composante essentielle de l'approche d. La vidéo BFMTV (« Vos enfants… ne seront pas obligés d'aller se faire tuer en Ukraine ») ne peut pas être chargée, seul son titre est connu. Ce titre pourrait aussi bien soutenir l'approche c (pas de soldats français sur place) que l'approche e. L'inférence vers d est donc spéculative et ambiguë entre plusieurs approches ; une attribution fausse coûterait plus qu'une case inconnue. Position à supprimer, sans déplacement.",
+    "refuted institutions-1 institutions-1-f : L’approche f associe le statu quo institutionnel à un recours accru au référendum. La source principale contredit ce second volet. Dans l’article de TV Magazine (Blaise de Chabalier, 02/10/2026), elle dit bien que les institutions ne sont pas responsables des abus de pouvoir et qu’il faut les « habiter autrement ». Mais à la question de savoir si elle est favorable au référendum, elle répond « Non, parce que le référendum, c’est très artificiel ». Le résumé (« défend un RIP ») est donc contredit par sa déclaration la plus récente. La page LCP ne contient qu’un texte de présentation, sans rien sur les institutions. L’article de Sud Radio ne fait qu’évoquer le RIP sur les retraites, sans citation. Aucune autre approche de la question ne correspond au statu quo sans référendum : position à supprimer. Le rejet implicite d’une nouvelle Constitution est proposé en ajout.",
+    "refuted institutions-3 institutions-3-c : Sud Radio (23/09/2026) écrit seulement qu’elle « défend également » un RIP pour trancher la question des retraites. La phrase est sans citation ni détail et reprend sa proposition de mars 2023. L’article ne dit rien sur le nombre de signatures, alors que c’est tout l’objet de l’approche c ; le résumé le reconnaît lui-même. C’est une sur-interprétation. De plus, le 02/10/2026 (LCP « Quai n°8 », rapporté par TV Magazine), elle a répondu « Non » au recours au référendum, jugé « très artificiel ». Aucune approche de la question ne correspond à un RIP ponctuel sur les retraites : position à supprimer."
+  ]
+}

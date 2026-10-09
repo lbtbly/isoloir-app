@@ -7,8 +7,8 @@
     "quality": "research/presidentielle-2027/config.json (quality)"
   },
   "counts": {
-    "candidates": 21,
-    "scored": 14,
+    "candidates": 26,
+    "scored": 18,
     "topics": 24,
     "questions": 100,
     "quick": 22,
@@ -53,62 +53,74 @@
   "profiles": 3000,
   "shares": {
     "step1": {
-      "arthaud": 4.2,
-      "attal": 9.5,
-      "cazeneuve": 11.4,
-      "dupontaignan": 6.5,
-      "kazib": 7.3,
-      "labib": 3.9,
-      "lepen": 7.1,
-      "lisnard": 6.3,
-      "melenchon": 6.3,
-      "philippe": 8.5,
-      "philippot": 7.7,
-      "retailleau": 6.1,
-      "roussel": 8.4,
-      "zemmour": 6.8
+      "arthaud": 3.7,
+      "attal": 6.8,
+      "cazeneuve": 6.9,
+      "dupontaignan": 5.5,
+      "faure": 4.2,
+      "glucksmann": 5.6,
+      "guedj": 4.5,
+      "kazib": 6.4,
+      "labib": 3.6,
+      "lepen": 5.9,
+      "lisnard": 5.6,
+      "maurel": 6,
+      "melenchon": 5,
+      "philippe": 7.4,
+      "philippot": 6.7,
+      "retailleau": 5.4,
+      "roussel": 5.2,
+      "zemmour": 5.7
     },
     "quick": {
-      "arthaud": 5.7,
-      "attal": 7.5,
-      "cazeneuve": 10.1,
-      "dupontaignan": 5,
-      "kazib": 6.1,
-      "labib": 5.3,
-      "lepen": 7.5,
-      "lisnard": 7.2,
-      "melenchon": 6.1,
-      "philippe": 8.9,
-      "philippot": 8.2,
-      "retailleau": 5.7,
-      "roussel": 8.4,
-      "zemmour": 8.5
+      "arthaud": 4.4,
+      "attal": 5.7,
+      "cazeneuve": 7.3,
+      "dupontaignan": 4.3,
+      "faure": 3.9,
+      "glucksmann": 4.1,
+      "guedj": 5.8,
+      "kazib": 5.3,
+      "labib": 4.2,
+      "lepen": 6.4,
+      "lisnard": 6.4,
+      "maurel": 5.8,
+      "melenchon": 4,
+      "philippe": 7.9,
+      "philippot": 6.8,
+      "retailleau": 4.8,
+      "roussel": 5.4,
+      "zemmour": 7.6
     },
     "bank": {
-      "arthaud": 6.9,
-      "attal": 7.4,
-      "cazeneuve": 11.1,
-      "dupontaignan": 4.5,
-      "kazib": 7.7,
-      "labib": 5.8,
-      "lepen": 11,
-      "lisnard": 4.1,
-      "melenchon": 2.9,
-      "philippe": 6.8,
-      "philippot": 10.3,
-      "retailleau": 6,
-      "roussel": 5.7,
-      "zemmour": 9.9
+      "arthaud": 5.1,
+      "attal": 6.2,
+      "cazeneuve": 9.1,
+      "dupontaignan": 4.2,
+      "faure": 2.6,
+      "glucksmann": 3,
+      "guedj": 6.1,
+      "kazib": 6.8,
+      "labib": 5.4,
+      "lepen": 9.3,
+      "lisnard": 3.4,
+      "maurel": 4.5,
+      "melenchon": 1.9,
+      "philippe": 5.4,
+      "philippot": 8.4,
+      "retailleau": 5.2,
+      "roussel": 4.5,
+      "zemmour": 8.7
     }
   },
   "bounds": {
     "step1": {
-      "min": 2.38,
-      "max": 14.29
+      "min": 1.85,
+      "max": 11.11
     },
     "quick": {
-      "min": 1.79,
-      "max": 17.86
+      "min": 1.39,
+      "max": 13.89
     }
   },
   "coverage": {
@@ -135,19 +147,19 @@
       "name": "Gabriel Attal",
       "initials": "GA",
       "step1": {
-        "known": 9,
+        "known": 10,
         "total": 10,
-        "share": 0.9
+        "share": 1
       },
       "quick": {
-        "known": 21,
+        "known": 22,
         "total": 22,
-        "share": 0.955
+        "share": 1
       },
       "bank": {
-        "known": 77,
+        "known": 78,
         "total": 100,
-        "share": 0.77
+        "share": 0.78
       }
     },
     "cazeneuve": {
@@ -186,6 +198,63 @@
         "known": 88,
         "total": 100,
         "share": 0.88
+      }
+    },
+    "faure": {
+      "name": "Olivier Faure",
+      "initials": "OF",
+      "step1": {
+        "known": 10,
+        "total": 10,
+        "share": 1
+      },
+      "quick": {
+        "known": 22,
+        "total": 22,
+        "share": 1
+      },
+      "bank": {
+        "known": 90,
+        "total": 100,
+        "share": 0.9
+      }
+    },
+    "glucksmann": {
+      "name": "Raphaël Glucksmann",
+      "initials": "RG",
+      "step1": {
+        "known": 10,
+        "total": 10,
+        "share": 1
+      },
+      "quick": {
+        "known": 22,
+        "total": 22,
+        "share": 1
+      },
+      "bank": {
+        "known": 78,
+        "total": 100,
+        "share": 0.78
+      }
+    },
+    "guedj": {
+      "name": "Jérôme Guedj",
+      "initials": "JG",
+      "step1": {
+        "known": 9,
+        "total": 10,
+        "share": 0.9
+      },
+      "quick": {
+        "known": 19,
+        "total": 22,
+        "share": 0.864
+      },
+      "bank": {
+        "known": 58,
+        "total": 100,
+        "share": 0.58
       }
     },
     "kazib": {
@@ -262,6 +331,25 @@
         "known": 83,
         "total": 100,
         "share": 0.83
+      }
+    },
+    "maurel": {
+      "name": "Emmanuel Maurel",
+      "initials": "EM",
+      "step1": {
+        "known": 9,
+        "total": 10,
+        "share": 0.9
+      },
+      "quick": {
+        "known": 20,
+        "total": 22,
+        "share": 0.909
+      },
+      "bank": {
+        "known": 71,
+        "total": 100,
+        "share": 0.71
       }
     },
     "melenchon": {
@@ -388,7 +476,8 @@
       "bertrand",
       "bouamrane",
       "lalanne",
-      "markovic"
+      "markovic",
+      "royal"
     ],
     "reason": "positions connues sur trop peu de questions",
     "since": "2026-10-07",
@@ -553,35 +642,58 @@
           "known": 7,
           "total": 100
         }
+      },
+      "royal": {
+        "name": "Ségolène Royal",
+        "initials": "SR",
+        "step1": {
+          "known": 5,
+          "total": 10,
+          "share": 0.5
+        },
+        "quick": {
+          "known": 11,
+          "total": 22,
+          "share": 0.5
+        },
+        "bank": {
+          "known": 34,
+          "total": 100,
+          "share": 0.34
+        },
+        "counted": {
+          "known": 38,
+          "total": 100
+        }
       }
     }
   },
   "knownDistribution": {
     "step1": {
-      "100 %": 7,
-      "85-99 %": 3,
+      "100 %": 6,
+      "85-99 %": 4,
       "75-84 %": 0,
       "50-74 %": 0,
       "< 50 %": 0
     },
     "quick": {
-      "100 %": 15,
-      "85-99 %": 7,
+      "100 %": 12,
+      "85-99 %": 10,
       "75-84 %": 0,
       "50-74 %": 0,
       "< 50 %": 0
     },
     "bank": {
-      "100 %": 17,
-      "85-99 %": 17,
-      "75-84 %": 8,
-      "50-74 %": 48,
+      "100 %": 14,
+      "85-99 %": 16,
+      "75-84 %": 13,
+      "50-74 %": 47,
       "< 50 %": 10
     }
   },
   "mainShare": {
-    "median": 0.4,
-    "max": 1
+    "median": 0.375,
+    "max": 0.75
   },
   "questions": [
     {
@@ -590,14 +702,14 @@
       "tier": "essentiel",
       "step": 2,
       "approaches": 6,
-      "known": 14,
+      "known": 18,
       "knownShare": 1,
-      "knownAll": 17,
-      "mains": 11,
+      "knownAll": 21,
+      "mains": 15,
       "maxMain": {
-        "approachId": "retraites-1-f",
-        "count": 4,
-        "share": 0.364
+        "approachId": "retraites-1-b",
+        "count": 5,
+        "share": 0.333
       }
     },
     {
@@ -606,14 +718,14 @@
       "tier": "essentiel",
       "step": 1,
       "approaches": 7,
-      "known": 14,
+      "known": 18,
       "knownShare": 1,
-      "knownAll": 20,
-      "mains": 10,
+      "knownAll": 25,
+      "mains": 14,
       "maxMain": {
         "approachId": "finances_publiques-1-b",
         "count": 4,
-        "share": 0.4
+        "share": 0.286
       }
     },
     {
@@ -622,14 +734,14 @@
       "tier": "essentiel",
       "step": 1,
       "approaches": 6,
-      "known": 14,
+      "known": 18,
       "knownShare": 1,
-      "knownAll": 18,
-      "mains": 9,
+      "knownAll": 23,
+      "mains": 12,
       "maxMain": {
-        "approachId": "industrie_economie-1-e",
-        "count": 2,
-        "share": 0.222
+        "approachId": "industrie_economie-1-c",
+        "count": 5,
+        "share": 0.417
       }
     },
     {
@@ -638,14 +750,14 @@
       "tier": "essentiel",
       "step": 1,
       "approaches": 9,
-      "known": 13,
-      "knownShare": 0.929,
-      "knownAll": 18,
-      "mains": 10,
+      "known": 17,
+      "knownShare": 0.944,
+      "knownAll": 23,
+      "mains": 14,
       "maxMain": {
-        "approachId": "travail_salaires-1-b",
-        "count": 3,
-        "share": 0.3
+        "approachId": "travail_salaires-1-a",
+        "count": 5,
+        "share": 0.357
       }
     },
     {
@@ -653,14 +765,14 @@
       "topicId": "fiscalite",
       "tier": "approfondi",
       "approaches": 6,
-      "known": 8,
-      "knownShare": 0.571,
-      "knownAll": 11,
-      "mains": 5,
+      "known": 12,
+      "knownShare": 0.667,
+      "knownAll": 16,
+      "mains": 8,
       "maxMain": {
         "approachId": "fiscalite-1-e",
         "count": 3,
-        "share": 0.6
+        "share": 0.375
       }
     },
     {
@@ -668,14 +780,14 @@
       "topicId": "fiscalite",
       "tier": "approfondi",
       "approaches": 7,
-      "known": 11,
-      "knownShare": 0.786,
-      "knownAll": 12,
-      "mains": 8,
+      "known": 15,
+      "knownShare": 0.833,
+      "knownAll": 16,
+      "mains": 11,
       "maxMain": {
-        "approachId": "fiscalite-2-d",
-        "count": 3,
-        "share": 0.375
+        "approachId": "fiscalite-2-a",
+        "count": 4,
+        "share": 0.364
       }
     },
     {
@@ -683,14 +795,14 @@
       "topicId": "finances_publiques",
       "tier": "approfondi",
       "approaches": 6,
-      "known": 10,
-      "knownShare": 0.714,
-      "knownAll": 13,
-      "mains": 8,
+      "known": 11,
+      "knownShare": 0.611,
+      "knownAll": 15,
+      "mains": 9,
       "maxMain": {
         "approachId": "finances_publiques-2-a",
         "count": 4,
-        "share": 0.5
+        "share": 0.444
       }
     },
     {
@@ -698,14 +810,14 @@
       "topicId": "finances_publiques",
       "tier": "approfondi",
       "approaches": 6,
-      "known": 10,
-      "knownShare": 0.714,
-      "knownAll": 12,
-      "mains": 6,
+      "known": 14,
+      "knownShare": 0.778,
+      "knownAll": 16,
+      "mains": 8,
       "maxMain": {
         "approachId": "finances_publiques-3-a",
         "count": 4,
-        "share": 0.667
+        "share": 0.5
       }
     },
     {
@@ -713,14 +825,14 @@
       "topicId": "travail_salaires",
       "tier": "approfondi",
       "approaches": 6,
-      "known": 9,
-      "knownShare": 0.643,
-      "knownAll": 10,
-      "mains": 6,
+      "known": 10,
+      "knownShare": 0.556,
+      "knownAll": 11,
+      "mains": 7,
       "maxMain": {
         "approachId": "travail_salaires-2-a",
         "count": 3,
-        "share": 0.5
+        "share": 0.429
       }
     },
     {
@@ -728,14 +840,14 @@
       "topicId": "travail_salaires",
       "tier": "approfondi",
       "approaches": 6,
-      "known": 9,
-      "knownShare": 0.643,
-      "knownAll": 10,
-      "mains": 9,
+      "known": 12,
+      "knownShare": 0.667,
+      "knownAll": 13,
+      "mains": 11,
       "maxMain": {
         "approachId": "travail_salaires-3-d",
         "count": 3,
-        "share": 0.333
+        "share": 0.273
       }
     },
     {
@@ -743,14 +855,14 @@
       "topicId": "travail_salaires",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 9,
-      "knownShare": 0.643,
-      "knownAll": 9,
-      "mains": 7,
+      "known": 13,
+      "knownShare": 0.722,
+      "knownAll": 13,
+      "mains": 10,
       "maxMain": {
         "approachId": "travail_salaires-4-d",
         "count": 3,
-        "share": 0.429
+        "share": 0.3
       }
     },
     {
@@ -758,14 +870,14 @@
       "topicId": "industrie_economie",
       "tier": "approfondi",
       "approaches": 6,
-      "known": 14,
+      "known": 18,
       "knownShare": 1,
-      "knownAll": 18,
-      "mains": 10,
+      "knownAll": 23,
+      "mains": 12,
       "maxMain": {
         "approachId": "industrie_economie-2-a",
-        "count": 3,
-        "share": 0.3
+        "count": 5,
+        "share": 0.417
       }
     },
     {
@@ -773,14 +885,14 @@
       "topicId": "industrie_economie",
       "tier": "approfondi",
       "approaches": 4,
-      "known": 10,
-      "knownShare": 0.714,
-      "knownAll": 13,
-      "mains": 6,
+      "known": 14,
+      "knownShare": 0.778,
+      "knownAll": 17,
+      "mains": 7,
       "maxMain": {
         "approachId": "industrie_economie-3-a",
-        "count": 3,
-        "share": 0.5
+        "count": 4,
+        "share": 0.571
       }
     },
     {
@@ -788,14 +900,14 @@
       "topicId": "retraites",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 13,
-      "knownShare": 0.929,
-      "knownAll": 14,
-      "mains": 9,
+      "known": 16,
+      "knownShare": 0.889,
+      "knownAll": 17,
+      "mains": 11,
       "maxMain": {
         "approachId": "retraites-2-a",
-        "count": 3,
-        "share": 0.333
+        "count": 5,
+        "share": 0.455
       }
     },
     {
@@ -803,14 +915,14 @@
       "topicId": "retraites",
       "tier": "approfondi",
       "approaches": 4,
-      "known": 8,
-      "knownShare": 0.571,
-      "knownAll": 9,
-      "mains": 8,
+      "known": 10,
+      "knownShare": 0.556,
+      "knownAll": 12,
+      "mains": 9,
       "maxMain": {
         "approachId": "retraites-3-a",
         "count": 3,
-        "share": 0.375
+        "share": 0.333
       }
     },
     {
@@ -818,14 +930,14 @@
       "topicId": "sante",
       "tier": "approfondi",
       "approaches": 9,
-      "known": 12,
-      "knownShare": 0.857,
-      "knownAll": 15,
-      "mains": 10,
+      "known": 16,
+      "knownShare": 0.889,
+      "knownAll": 19,
+      "mains": 13,
       "maxMain": {
         "approachId": "sante-1-b",
         "count": 4,
-        "share": 0.4
+        "share": 0.308
       }
     },
     {
@@ -834,14 +946,14 @@
       "tier": "essentiel",
       "step": 2,
       "approaches": 7,
-      "known": 14,
+      "known": 18,
       "knownShare": 1,
-      "knownAll": 17,
-      "mains": 13,
+      "knownAll": 21,
+      "mains": 15,
       "maxMain": {
         "approachId": "solidarites-1-b",
         "count": 4,
-        "share": 0.308
+        "share": 0.267
       }
     },
     {
@@ -850,14 +962,14 @@
       "tier": "essentiel",
       "step": 2,
       "approaches": 7,
-      "known": 13,
-      "knownShare": 0.929,
-      "knownAll": 16,
-      "mains": 11,
+      "known": 17,
+      "knownShare": 0.944,
+      "knownAll": 20,
+      "mains": 15,
       "maxMain": {
         "approachId": "logement-1-c",
-        "count": 3,
-        "share": 0.273
+        "count": 5,
+        "share": 0.333
       }
     },
     {
@@ -865,14 +977,14 @@
       "topicId": "sante",
       "tier": "approfondi",
       "approaches": 6,
-      "known": 11,
-      "knownShare": 0.786,
-      "knownAll": 12,
-      "mains": 5,
+      "known": 15,
+      "knownShare": 0.833,
+      "knownAll": 16,
+      "mains": 6,
       "maxMain": {
-        "approachId": "sante-2-c",
-        "count": 2,
-        "share": 0.4
+        "approachId": "sante-2-a",
+        "count": 3,
+        "share": 0.5
       }
     },
     {
@@ -880,14 +992,14 @@
       "topicId": "sante",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 10,
-      "knownShare": 0.714,
-      "knownAll": 13,
-      "mains": 8,
+      "known": 13,
+      "knownShare": 0.722,
+      "knownAll": 16,
+      "mains": 10,
       "maxMain": {
         "approachId": "sante-3-d",
         "count": 5,
-        "share": 0.625
+        "share": 0.5
       }
     },
     {
@@ -895,13 +1007,13 @@
       "topicId": "sante",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 9,
-      "knownShare": 0.643,
-      "knownAll": 15,
-      "mains": 3,
+      "known": 12,
+      "knownShare": 0.667,
+      "knownAll": 19,
+      "mains": 6,
       "maxMain": {
         "approachId": "sante-4-d",
-        "count": 1,
+        "count": 2,
         "share": 0.333
       }
     },
@@ -910,14 +1022,14 @@
       "topicId": "sante",
       "tier": "approfondi",
       "approaches": 6,
-      "known": 6,
-      "knownShare": 0.429,
-      "knownAll": 7,
-      "mains": 2,
+      "known": 10,
+      "knownShare": 0.556,
+      "knownAll": 12,
+      "mains": 5,
       "maxMain": {
-        "approachId": "sante-5-a",
-        "count": 1,
-        "share": 0.5
+        "approachId": "sante-5-b",
+        "count": 2,
+        "share": 0.4
       }
     },
     {
@@ -925,14 +1037,14 @@
       "topicId": "logement",
       "tier": "approfondi",
       "approaches": 6,
-      "known": 9,
-      "knownShare": 0.643,
-      "knownAll": 9,
-      "mains": 4,
+      "known": 12,
+      "knownShare": 0.667,
+      "knownAll": 12,
+      "mains": 6,
       "maxMain": {
-        "approachId": "logement-2-b",
-        "count": 1,
-        "share": 0.25
+        "approachId": "logement-2-c",
+        "count": 2,
+        "share": 0.333
       }
     },
     {
@@ -940,9 +1052,9 @@
       "topicId": "logement",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 13,
-      "knownShare": 0.929,
-      "knownAll": 14,
+      "known": 17,
+      "knownShare": 0.944,
+      "knownAll": 18,
       "mains": 6,
       "maxMain": {
         "approachId": "logement-3-a",
@@ -955,9 +1067,9 @@
       "topicId": "logement",
       "tier": "approfondi",
       "approaches": 6,
-      "known": 7,
-      "knownShare": 0.5,
-      "knownAll": 8,
+      "known": 8,
+      "knownShare": 0.444,
+      "knownAll": 9,
       "mains": 6,
       "maxMain": {
         "approachId": "logement-4-a",
@@ -970,13 +1082,13 @@
       "topicId": "solidarites",
       "tier": "approfondi",
       "approaches": 6,
-      "known": 10,
-      "knownShare": 0.714,
-      "knownAll": 13,
-      "mains": 6,
+      "known": 14,
+      "knownShare": 0.778,
+      "knownAll": 18,
+      "mains": 9,
       "maxMain": {
-        "approachId": "solidarites-2-b",
-        "count": 2,
+        "approachId": "solidarites-2-a",
+        "count": 3,
         "share": 0.333
       }
     },
@@ -985,14 +1097,14 @@
       "topicId": "solidarites",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 6,
-      "knownShare": 0.429,
-      "knownAll": 8,
-      "mains": 3,
+      "known": 8,
+      "knownShare": 0.444,
+      "knownAll": 10,
+      "mains": 4,
       "maxMain": {
         "approachId": "solidarites-3-a",
         "count": 3,
-        "share": 1
+        "share": 0.75
       }
     },
     {
@@ -1001,14 +1113,14 @@
       "tier": "essentiel",
       "step": 2,
       "approaches": 5,
-      "known": 13,
-      "knownShare": 0.929,
-      "knownAll": 16,
-      "mains": 9,
+      "known": 17,
+      "knownShare": 0.944,
+      "knownAll": 21,
+      "mains": 11,
       "maxMain": {
         "approachId": "egalite-1-b",
-        "count": 3,
-        "share": 0.333
+        "count": 5,
+        "share": 0.455
       }
     },
     {
@@ -1016,14 +1128,14 @@
       "topicId": "egalite",
       "tier": "approfondi",
       "approaches": 6,
-      "known": 7,
-      "knownShare": 0.5,
-      "knownAll": 7,
-      "mains": 6,
+      "known": 10,
+      "knownShare": 0.556,
+      "knownAll": 10,
+      "mains": 7,
       "maxMain": {
-        "approachId": "egalite-2-e",
-        "count": 1,
-        "share": 0.167
+        "approachId": "egalite-2-a",
+        "count": 2,
+        "share": 0.286
       }
     },
     {
@@ -1031,13 +1143,13 @@
       "topicId": "egalite",
       "tier": "approfondi",
       "approaches": 6,
-      "known": 7,
-      "knownShare": 0.5,
-      "knownAll": 9,
-      "mains": 3,
+      "known": 10,
+      "knownShare": 0.556,
+      "knownAll": 12,
+      "mains": 6,
       "maxMain": {
-        "approachId": "egalite-3-e",
-        "count": 1,
+        "approachId": "egalite-3-b",
+        "count": 2,
         "share": 0.333
       }
     },
@@ -1046,14 +1158,14 @@
       "topicId": "egalite",
       "tier": "approfondi",
       "approaches": 6,
-      "known": 8,
-      "knownShare": 0.571,
-      "knownAll": 8,
-      "mains": 2,
+      "known": 10,
+      "knownShare": 0.556,
+      "knownAll": 11,
+      "mains": 3,
       "maxMain": {
-        "approachId": "egalite-4-b",
+        "approachId": "egalite-4-f",
         "count": 1,
-        "share": 0.5
+        "share": 0.333
       }
     },
     {
@@ -1061,14 +1173,14 @@
       "topicId": "droits_lgbtqia",
       "tier": "approfondi",
       "approaches": 4,
-      "known": 7,
-      "knownShare": 0.5,
-      "knownAll": 9,
-      "mains": 5,
+      "known": 8,
+      "knownShare": 0.444,
+      "knownAll": 10,
+      "mains": 6,
       "maxMain": {
         "approachId": "droits_lgbtqia-1-c",
         "count": 4,
-        "share": 0.8
+        "share": 0.667
       }
     },
     {
@@ -1076,9 +1188,9 @@
       "topicId": "droits_lgbtqia",
       "tier": "approfondi",
       "approaches": 4,
-      "known": 5,
-      "knownShare": 0.357,
-      "knownAll": 5,
+      "known": 6,
+      "knownShare": 0.333,
+      "knownAll": 6,
       "mains": 3,
       "maxMain": {
         "approachId": "droits_lgbtqia-2-d",
@@ -1092,14 +1204,14 @@
       "tier": "essentiel",
       "step": 2,
       "approaches": 8,
-      "known": 14,
+      "known": 18,
       "knownShare": 1,
-      "knownAll": 18,
-      "mains": 12,
+      "knownAll": 23,
+      "mains": 16,
       "maxMain": {
         "approachId": "education-1-b",
         "count": 4,
-        "share": 0.333
+        "share": 0.25
       }
     },
     {
@@ -1107,13 +1219,13 @@
       "topicId": "education",
       "tier": "approfondi",
       "approaches": 6,
-      "known": 6,
-      "knownShare": 0.429,
-      "knownAll": 6,
-      "mains": 3,
+      "known": 10,
+      "knownShare": 0.556,
+      "knownAll": 10,
+      "mains": 6,
       "maxMain": {
-        "approachId": "education-2-d",
-        "count": 1,
+        "approachId": "education-2-b",
+        "count": 2,
         "share": 0.333
       }
     },
@@ -1123,7 +1235,7 @@
       "tier": "approfondi",
       "approaches": 5,
       "known": 10,
-      "knownShare": 0.714,
+      "knownShare": 0.556,
       "knownAll": 10,
       "mains": 6,
       "maxMain": {
@@ -1137,14 +1249,14 @@
       "topicId": "education",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 9,
-      "knownShare": 0.643,
-      "knownAll": 10,
-      "mains": 4,
+      "known": 13,
+      "knownShare": 0.722,
+      "knownAll": 14,
+      "mains": 7,
       "maxMain": {
-        "approachId": "education-4-b",
-        "count": 2,
-        "share": 0.5
+        "approachId": "education-4-c",
+        "count": 3,
+        "share": 0.429
       }
     },
     {
@@ -1152,14 +1264,14 @@
       "topicId": "education",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 6,
-      "knownShare": 0.429,
-      "knownAll": 7,
-      "mains": 5,
+      "known": 8,
+      "knownShare": 0.444,
+      "knownAll": 9,
+      "mains": 6,
       "maxMain": {
         "approachId": "education-5-a",
         "count": 3,
-        "share": 0.6
+        "share": 0.5
       }
     },
     {
@@ -1167,14 +1279,14 @@
       "topicId": "societe",
       "tier": "approfondi",
       "approaches": 6,
-      "known": 9,
-      "knownShare": 0.643,
-      "knownAll": 10,
-      "mains": 3,
+      "known": 11,
+      "knownShare": 0.611,
+      "knownAll": 12,
+      "mains": 5,
       "maxMain": {
-        "approachId": "societe-1-c",
-        "count": 1,
-        "share": 0.333
+        "approachId": "societe-1-e",
+        "count": 3,
+        "share": 0.6
       }
     },
     {
@@ -1182,14 +1294,14 @@
       "topicId": "societe",
       "tier": "approfondi",
       "approaches": 6,
-      "known": 8,
-      "knownShare": 0.571,
-      "knownAll": 9,
-      "mains": 3,
+      "known": 12,
+      "knownShare": 0.667,
+      "knownAll": 13,
+      "mains": 5,
       "maxMain": {
-        "approachId": "societe-2-d",
-        "count": 1,
-        "share": 0.333
+        "approachId": "societe-2-a",
+        "count": 2,
+        "share": 0.4
       }
     },
     {
@@ -1197,14 +1309,14 @@
       "topicId": "numerique",
       "tier": "approfondi",
       "approaches": 6,
-      "known": 13,
-      "knownShare": 0.929,
-      "knownAll": 18,
-      "mains": 10,
+      "known": 17,
+      "knownShare": 0.944,
+      "knownAll": 22,
+      "mains": 12,
       "maxMain": {
         "approachId": "numerique-1-b",
-        "count": 4,
-        "share": 0.4
+        "count": 5,
+        "share": 0.417
       }
     },
     {
@@ -1212,14 +1324,14 @@
       "topicId": "numerique",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 8,
-      "knownShare": 0.571,
-      "knownAll": 11,
-      "mains": 5,
+      "known": 12,
+      "knownShare": 0.667,
+      "knownAll": 16,
+      "mains": 7,
       "maxMain": {
         "approachId": "numerique-2-e",
         "count": 3,
-        "share": 0.6
+        "share": 0.429
       }
     },
     {
@@ -1227,14 +1339,14 @@
       "topicId": "numerique",
       "tier": "approfondi",
       "approaches": 7,
-      "known": 7,
-      "knownShare": 0.5,
-      "knownAll": 10,
-      "mains": 4,
+      "known": 10,
+      "knownShare": 0.556,
+      "knownAll": 13,
+      "mains": 7,
       "maxMain": {
-        "approachId": "numerique-3-d",
+        "approachId": "numerique-3-c",
         "count": 2,
-        "share": 0.5
+        "share": 0.286
       }
     },
     {
@@ -1242,14 +1354,14 @@
       "topicId": "numerique",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 9,
-      "knownShare": 0.643,
-      "knownAll": 11,
-      "mains": 6,
+      "known": 13,
+      "knownShare": 0.722,
+      "knownAll": 15,
+      "mains": 8,
       "maxMain": {
         "approachId": "numerique-4-a",
         "count": 3,
-        "share": 0.5
+        "share": 0.375
       }
     },
     {
@@ -1258,14 +1370,14 @@
       "tier": "essentiel",
       "step": 2,
       "approaches": 5,
-      "known": 14,
+      "known": 18,
       "knownShare": 1,
-      "knownAll": 18,
-      "mains": 11,
+      "knownAll": 23,
+      "mains": 15,
       "maxMain": {
         "approachId": "ecologie_energie-1-a",
-        "count": 5,
-        "share": 0.455
+        "count": 6,
+        "share": 0.4
       }
     },
     {
@@ -1274,14 +1386,14 @@
       "tier": "essentiel",
       "step": 1,
       "approaches": 6,
-      "known": 14,
+      "known": 18,
       "knownShare": 1,
-      "knownAll": 19,
-      "mains": 12,
+      "knownAll": 23,
+      "mains": 15,
       "maxMain": {
-        "approachId": "ecologie_energie-2-a",
-        "count": 5,
-        "share": 0.417
+        "approachId": "ecologie_energie-2-b",
+        "count": 7,
+        "share": 0.467
       }
     },
     {
@@ -1290,14 +1402,14 @@
       "tier": "essentiel",
       "step": 1,
       "approaches": 6,
-      "known": 14,
-      "knownShare": 1,
-      "knownAll": 19,
-      "mains": 7,
+      "known": 17,
+      "knownShare": 0.944,
+      "knownAll": 22,
+      "mains": 10,
       "maxMain": {
         "approachId": "territoires-1-b",
-        "count": 3,
-        "share": 0.429
+        "count": 4,
+        "share": 0.4
       }
     },
     {
@@ -1305,14 +1417,14 @@
       "topicId": "ecologie_energie",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 10,
-      "knownShare": 0.714,
-      "knownAll": 11,
-      "mains": 8,
+      "known": 13,
+      "knownShare": 0.722,
+      "knownAll": 15,
+      "mains": 10,
       "maxMain": {
         "approachId": "ecologie_energie-3-a",
-        "count": 3,
-        "share": 0.375
+        "count": 4,
+        "share": 0.4
       }
     },
     {
@@ -1320,14 +1432,14 @@
       "topicId": "ecologie_energie",
       "tier": "approfondi",
       "approaches": 7,
-      "known": 14,
+      "known": 18,
       "knownShare": 1,
-      "knownAll": 17,
-      "mains": 11,
+      "knownAll": 22,
+      "mains": 13,
       "maxMain": {
         "approachId": "ecologie_energie-4-d",
         "count": 4,
-        "share": 0.364
+        "share": 0.308
       }
     },
     {
@@ -1335,14 +1447,14 @@
       "topicId": "ecologie_energie",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 8,
-      "knownShare": 0.571,
-      "knownAll": 10,
-      "mains": 5,
+      "known": 11,
+      "knownShare": 0.611,
+      "knownAll": 13,
+      "mains": 8,
       "maxMain": {
         "approachId": "ecologie_energie-5-a",
         "count": 3,
-        "share": 0.6
+        "share": 0.375
       }
     },
     {
@@ -1350,14 +1462,14 @@
       "topicId": "ecologie_energie",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 10,
-      "knownShare": 0.714,
-      "knownAll": 13,
-      "mains": 8,
+      "known": 13,
+      "knownShare": 0.722,
+      "knownAll": 17,
+      "mains": 11,
       "maxMain": {
         "approachId": "ecologie_energie-6-a",
-        "count": 3,
-        "share": 0.375
+        "count": 4,
+        "share": 0.364
       }
     },
     {
@@ -1365,14 +1477,14 @@
       "topicId": "ecologie_energie",
       "tier": "approfondi",
       "approaches": 6,
-      "known": 10,
-      "knownShare": 0.714,
-      "knownAll": 14,
-      "mains": 7,
+      "known": 13,
+      "knownShare": 0.722,
+      "knownAll": 17,
+      "mains": 10,
       "maxMain": {
         "approachId": "ecologie_energie-7-a",
         "count": 3,
-        "share": 0.429
+        "share": 0.3
       }
     },
     {
@@ -1381,14 +1493,14 @@
       "tier": "essentiel",
       "step": 1,
       "approaches": 6,
-      "known": 12,
-      "knownShare": 0.857,
-      "knownAll": 19,
-      "mains": 7,
+      "known": 17,
+      "knownShare": 0.944,
+      "knownAll": 24,
+      "mains": 11,
       "maxMain": {
-        "approachId": "agriculture-1-b",
-        "count": 3,
-        "share": 0.429
+        "approachId": "agriculture-1-c",
+        "count": 4,
+        "share": 0.364
       }
     },
     {
@@ -1396,14 +1508,14 @@
       "topicId": "agriculture",
       "tier": "approfondi",
       "approaches": 4,
-      "known": 9,
-      "knownShare": 0.643,
-      "knownAll": 13,
-      "mains": 3,
+      "known": 13,
+      "knownShare": 0.722,
+      "knownAll": 18,
+      "mains": 6,
       "maxMain": {
-        "approachId": "agriculture-2-c",
-        "count": 1,
-        "share": 0.333
+        "approachId": "agriculture-2-d",
+        "count": 3,
+        "share": 0.5
       }
     },
     {
@@ -1411,14 +1523,14 @@
       "topicId": "agriculture",
       "tier": "approfondi",
       "approaches": 6,
-      "known": 5,
-      "knownShare": 0.357,
-      "knownAll": 6,
-      "mains": 3,
+      "known": 7,
+      "knownShare": 0.389,
+      "knownAll": 8,
+      "mains": 4,
       "maxMain": {
-        "approachId": "agriculture-3-c",
-        "count": 1,
-        "share": 0.333
+        "approachId": "agriculture-3-d",
+        "count": 2,
+        "share": 0.5
       }
     },
     {
@@ -1426,14 +1538,14 @@
       "topicId": "territoires",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 8,
-      "knownShare": 0.571,
-      "knownAll": 13,
-      "mains": 7,
+      "known": 10,
+      "knownShare": 0.556,
+      "knownAll": 15,
+      "mains": 9,
       "maxMain": {
-        "approachId": "territoires-2-b",
-        "count": 2,
-        "share": 0.286
+        "approachId": "territoires-2-c",
+        "count": 4,
+        "share": 0.444
       }
     },
     {
@@ -1442,14 +1554,14 @@
       "tier": "essentiel",
       "step": 2,
       "approaches": 7,
-      "known": 14,
-      "knownShare": 1,
-      "knownAll": 18,
-      "mains": 10,
+      "known": 17,
+      "knownShare": 0.944,
+      "knownAll": 21,
+      "mains": 12,
       "maxMain": {
-        "approachId": "securite_justice-1-a",
+        "approachId": "securite_justice-1-d",
         "count": 3,
-        "share": 0.3
+        "share": 0.25
       }
     },
     {
@@ -1458,14 +1570,14 @@
       "tier": "essentiel",
       "step": 2,
       "approaches": 8,
-      "known": 13,
-      "knownShare": 0.929,
-      "knownAll": 17,
-      "mains": 8,
+      "known": 17,
+      "knownShare": 0.944,
+      "knownAll": 21,
+      "mains": 10,
       "maxMain": {
         "approachId": "securite_justice-2-c",
-        "count": 2,
-        "share": 0.25
+        "count": 3,
+        "share": 0.3
       }
     },
     {
@@ -1473,14 +1585,14 @@
       "topicId": "securite_justice",
       "tier": "approfondi",
       "approaches": 6,
-      "known": 11,
-      "knownShare": 0.786,
-      "knownAll": 15,
-      "mains": 7,
+      "known": 15,
+      "knownShare": 0.833,
+      "knownAll": 19,
+      "mains": 10,
       "maxMain": {
         "approachId": "securite_justice-3-b",
-        "count": 3,
-        "share": 0.429
+        "count": 6,
+        "share": 0.6
       }
     },
     {
@@ -1488,9 +1600,9 @@
       "topicId": "securite_justice",
       "tier": "approfondi",
       "approaches": 6,
-      "known": 13,
-      "knownShare": 0.929,
-      "knownAll": 16,
+      "known": 15,
+      "knownShare": 0.833,
+      "knownAll": 19,
       "mains": 6,
       "maxMain": {
         "approachId": "securite_justice-4-b",
@@ -1503,14 +1615,14 @@
       "topicId": "securite_justice",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 9,
-      "knownShare": 0.643,
-      "knownAll": 12,
-      "mains": 4,
+      "known": 12,
+      "knownShare": 0.667,
+      "knownAll": 16,
+      "mains": 5,
       "maxMain": {
         "approachId": "securite_justice-5-b",
         "count": 2,
-        "share": 0.5
+        "share": 0.4
       }
     },
     {
@@ -1518,14 +1630,14 @@
       "topicId": "securite_justice",
       "tier": "approfondi",
       "approaches": 7,
-      "known": 9,
-      "knownShare": 0.643,
-      "knownAll": 10,
-      "mains": 6,
+      "known": 12,
+      "knownShare": 0.667,
+      "knownAll": 13,
+      "mains": 7,
       "maxMain": {
         "approachId": "securite_justice-6-c",
         "count": 2,
-        "share": 0.333
+        "share": 0.286
       }
     },
     {
@@ -1534,14 +1646,14 @@
       "tier": "essentiel",
       "step": 1,
       "approaches": 6,
-      "known": 14,
+      "known": 18,
       "knownShare": 1,
-      "knownAll": 18,
-      "mains": 13,
+      "knownAll": 23,
+      "mains": 15,
       "maxMain": {
         "approachId": "immigration-1-b",
         "count": 5,
-        "share": 0.385
+        "share": 0.333
       }
     },
     {
@@ -1550,14 +1662,14 @@
       "tier": "essentiel",
       "step": 2,
       "approaches": 5,
-      "known": 14,
-      "knownShare": 1,
-      "knownAll": 17,
-      "mains": 8,
+      "known": 16,
+      "knownShare": 0.889,
+      "knownAll": 19,
+      "mains": 10,
       "maxMain": {
         "approachId": "immigration-2-b",
         "count": 4,
-        "share": 0.5
+        "share": 0.4
       }
     },
     {
@@ -1565,14 +1677,14 @@
       "topicId": "immigration",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 13,
-      "knownShare": 0.929,
-      "knownAll": 16,
-      "mains": 9,
+      "known": 16,
+      "knownShare": 0.889,
+      "knownAll": 20,
+      "mains": 10,
       "maxMain": {
         "approachId": "immigration-3-a",
         "count": 3,
-        "share": 0.333
+        "share": 0.3
       }
     },
     {
@@ -1580,14 +1692,14 @@
       "topicId": "immigration",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 10,
-      "knownShare": 0.714,
-      "knownAll": 11,
-      "mains": 7,
+      "known": 13,
+      "knownShare": 0.722,
+      "knownAll": 14,
+      "mains": 8,
       "maxMain": {
         "approachId": "immigration-4-a",
         "count": 4,
-        "share": 0.571
+        "share": 0.5
       }
     },
     {
@@ -1596,7 +1708,7 @@
       "tier": "approfondi",
       "approaches": 5,
       "known": 8,
-      "knownShare": 0.571,
+      "knownShare": 0.444,
       "knownAll": 8,
       "mains": 7,
       "maxMain": {
@@ -1610,14 +1722,14 @@
       "topicId": "immigration",
       "tier": "approfondi",
       "approaches": 4,
-      "known": 13,
-      "knownShare": 0.929,
-      "knownAll": 15,
-      "mains": 4,
+      "known": 17,
+      "knownShare": 0.944,
+      "knownAll": 19,
+      "mains": 8,
       "maxMain": {
-        "approachId": "immigration-6-a",
-        "count": 2,
-        "share": 0.5
+        "approachId": "immigration-6-c",
+        "count": 3,
+        "share": 0.375
       }
     },
     {
@@ -1626,14 +1738,14 @@
       "tier": "essentiel",
       "step": 1,
       "approaches": 7,
-      "known": 14,
+      "known": 18,
       "knownShare": 1,
-      "knownAll": 20,
-      "mains": 9,
+      "knownAll": 25,
+      "mains": 11,
       "maxMain": {
         "approachId": "europe-1-c",
         "count": 4,
-        "share": 0.444
+        "share": 0.364
       }
     },
     {
@@ -1641,14 +1753,14 @@
       "topicId": "europe",
       "tier": "approfondi",
       "approaches": 6,
-      "known": 9,
-      "knownShare": 0.643,
-      "knownAll": 12,
-      "mains": 7,
+      "known": 12,
+      "knownShare": 0.667,
+      "knownAll": 16,
+      "mains": 9,
       "maxMain": {
-        "approachId": "europe-2-d",
+        "approachId": "europe-2-a",
         "count": 2,
-        "share": 0.286
+        "share": 0.222
       }
     },
     {
@@ -1656,14 +1768,14 @@
       "topicId": "europe",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 12,
-      "knownShare": 0.857,
-      "knownAll": 15,
-      "mains": 10,
+      "known": 15,
+      "knownShare": 0.833,
+      "knownAll": 19,
+      "mains": 12,
       "maxMain": {
         "approachId": "europe-3-d",
         "count": 4,
-        "share": 0.4
+        "share": 0.333
       }
     },
     {
@@ -1672,14 +1784,14 @@
       "tier": "essentiel",
       "step": 2,
       "approaches": 8,
-      "known": 14,
+      "known": 18,
       "knownShare": 1,
-      "knownAll": 18,
-      "mains": 11,
+      "knownAll": 23,
+      "mains": 15,
       "maxMain": {
-        "approachId": "ukraine_russie-1-c",
-        "count": 3,
-        "share": 0.273
+        "approachId": "ukraine_russie-1-b",
+        "count": 5,
+        "share": 0.333
       }
     },
     {
@@ -1687,14 +1799,14 @@
       "topicId": "ukraine_russie",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 9,
-      "knownShare": 0.643,
-      "knownAll": 12,
-      "mains": 7,
+      "known": 12,
+      "knownShare": 0.667,
+      "knownAll": 16,
+      "mains": 8,
       "maxMain": {
         "approachId": "ukraine_russie-2-e",
         "count": 2,
-        "share": 0.286
+        "share": 0.25
       }
     },
     {
@@ -1702,14 +1814,14 @@
       "topicId": "proche_orient",
       "tier": "approfondi",
       "approaches": 8,
-      "known": 8,
-      "knownShare": 0.571,
-      "knownAll": 10,
-      "mains": 5,
+      "known": 12,
+      "knownShare": 0.667,
+      "knownAll": 15,
+      "mains": 8,
       "maxMain": {
         "approachId": "proche_orient-1-e",
         "count": 2,
-        "share": 0.4
+        "share": 0.25
       }
     },
     {
@@ -1717,14 +1829,14 @@
       "topicId": "proche_orient",
       "tier": "approfondi",
       "approaches": 4,
-      "known": 11,
-      "knownShare": 0.786,
-      "knownAll": 14,
-      "mains": 7,
+      "known": 15,
+      "knownShare": 0.833,
+      "knownAll": 18,
+      "mains": 9,
       "maxMain": {
         "approachId": "proche_orient-2-c",
         "count": 4,
-        "share": 0.571
+        "share": 0.444
       }
     },
     {
@@ -1733,9 +1845,9 @@
       "tier": "essentiel",
       "step": 1,
       "approaches": 5,
-      "known": 13,
-      "knownShare": 0.929,
-      "knownAll": 18,
+      "known": 16,
+      "knownShare": 0.889,
+      "knownAll": 21,
       "mains": 8,
       "maxMain": {
         "approachId": "defense-1-d",
@@ -1748,14 +1860,14 @@
       "topicId": "defense",
       "tier": "approfondi",
       "approaches": 4,
-      "known": 10,
-      "knownShare": 0.714,
-      "knownAll": 12,
-      "mains": 4,
+      "known": 13,
+      "knownShare": 0.722,
+      "knownAll": 15,
+      "mains": 6,
       "maxMain": {
         "approachId": "defense-2-d",
         "count": 2,
-        "share": 0.5
+        "share": 0.333
       }
     },
     {
@@ -1763,14 +1875,14 @@
       "topicId": "defense",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 11,
-      "knownShare": 0.786,
-      "knownAll": 13,
-      "mains": 10,
+      "known": 15,
+      "knownShare": 0.833,
+      "knownAll": 17,
+      "mains": 12,
       "maxMain": {
         "approachId": "defense-3-c",
         "count": 5,
-        "share": 0.5
+        "share": 0.417
       }
     },
     {
@@ -1778,14 +1890,14 @@
       "topicId": "defense",
       "tier": "approfondi",
       "approaches": 4,
-      "known": 12,
-      "knownShare": 0.857,
-      "knownAll": 17,
-      "mains": 9,
+      "known": 15,
+      "knownShare": 0.833,
+      "knownAll": 20,
+      "mains": 12,
       "maxMain": {
         "approachId": "defense-4-d",
         "count": 3,
-        "share": 0.333
+        "share": 0.25
       }
     },
     {
@@ -1793,14 +1905,14 @@
       "topicId": "defense",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 9,
-      "knownShare": 0.643,
-      "knownAll": 10,
-      "mains": 8,
+      "known": 11,
+      "knownShare": 0.611,
+      "knownAll": 12,
+      "mains": 9,
       "maxMain": {
         "approachId": "defense-5-e",
         "count": 3,
-        "share": 0.375
+        "share": 0.333
       }
     },
     {
@@ -1809,14 +1921,14 @@
       "tier": "essentiel",
       "step": 1,
       "approaches": 7,
-      "known": 14,
+      "known": 18,
       "knownShare": 1,
-      "knownAll": 18,
-      "mains": 9,
+      "knownAll": 22,
+      "mains": 11,
       "maxMain": {
         "approachId": "institutions-1-d",
         "count": 3,
-        "share": 0.333
+        "share": 0.273
       }
     },
     {
@@ -1824,14 +1936,14 @@
       "topicId": "institutions",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 9,
-      "knownShare": 0.643,
-      "knownAll": 10,
-      "mains": 6,
+      "known": 11,
+      "knownShare": 0.611,
+      "knownAll": 12,
+      "mains": 8,
       "maxMain": {
         "approachId": "institutions-2-e",
         "count": 3,
-        "share": 0.5
+        "share": 0.375
       }
     },
     {
@@ -1839,14 +1951,14 @@
       "topicId": "institutions",
       "tier": "approfondi",
       "approaches": 7,
-      "known": 11,
-      "knownShare": 0.786,
-      "knownAll": 16,
-      "mains": 7,
+      "known": 14,
+      "knownShare": 0.778,
+      "knownAll": 19,
+      "mains": 8,
       "maxMain": {
-        "approachId": "institutions-3-d",
+        "approachId": "institutions-3-a",
         "count": 3,
-        "share": 0.429
+        "share": 0.375
       }
     },
     {
@@ -1855,14 +1967,14 @@
       "tier": "essentiel",
       "step": 2,
       "approaches": 7,
-      "known": 13,
-      "knownShare": 0.929,
-      "knownAll": 16,
-      "mains": 12,
+      "known": 17,
+      "knownShare": 0.944,
+      "knownAll": 21,
+      "mains": 13,
       "maxMain": {
         "approachId": "laicite_republique-1-b",
         "count": 4,
-        "share": 0.333
+        "share": 0.308
       }
     },
     {
@@ -1870,14 +1982,14 @@
       "topicId": "laicite_republique",
       "tier": "approfondi",
       "approaches": 6,
-      "known": 12,
-      "knownShare": 0.857,
-      "knownAll": 14,
-      "mains": 6,
+      "known": 15,
+      "knownShare": 0.833,
+      "knownAll": 18,
+      "mains": 7,
       "maxMain": {
         "approachId": "laicite_republique-2-e",
         "count": 3,
-        "share": 0.5
+        "share": 0.429
       }
     },
     {
@@ -1886,14 +1998,14 @@
       "tier": "essentiel",
       "step": 2,
       "approaches": 5,
-      "known": 14,
+      "known": 18,
       "knownShare": 1,
-      "knownAll": 19,
-      "mains": 12,
+      "knownAll": 24,
+      "mains": 16,
       "maxMain": {
         "approachId": "fiscalite-x1-a",
         "count": 5,
-        "share": 0.417
+        "share": 0.313
       }
     },
     {
@@ -1901,9 +2013,9 @@
       "topicId": "education",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 11,
-      "knownShare": 0.786,
-      "knownAll": 12,
+      "known": 13,
+      "knownShare": 0.722,
+      "knownAll": 14,
       "mains": 7,
       "maxMain": {
         "approachId": "education-x1-a",
@@ -1916,14 +2028,14 @@
       "topicId": "societe",
       "tier": "approfondi",
       "approaches": 4,
-      "known": 6,
-      "knownShare": 0.429,
-      "knownAll": 8,
-      "mains": 4,
+      "known": 9,
+      "knownShare": 0.5,
+      "knownAll": 11,
+      "mains": 5,
       "maxMain": {
         "approachId": "societe-x1-a",
-        "count": 2,
-        "share": 0.5
+        "count": 3,
+        "share": 0.6
       }
     },
     {
@@ -1931,14 +2043,14 @@
       "topicId": "territoires",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 6,
-      "knownShare": 0.429,
-      "knownAll": 9,
-      "mains": 3,
+      "known": 8,
+      "knownShare": 0.444,
+      "knownAll": 11,
+      "mains": 4,
       "maxMain": {
         "approachId": "territoires-x3-c",
-        "count": 1,
-        "share": 0.333
+        "count": 2,
+        "share": 0.5
       }
     },
     {
@@ -1946,14 +2058,14 @@
       "topicId": "territoires",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 8,
-      "knownShare": 0.571,
-      "knownAll": 9,
-      "mains": 5,
+      "known": 9,
+      "knownShare": 0.5,
+      "knownAll": 10,
+      "mains": 6,
       "maxMain": {
         "approachId": "territoires-x4-a",
         "count": 2,
-        "share": 0.4
+        "share": 0.333
       }
     },
     {
@@ -1961,9 +2073,9 @@
       "topicId": "territoires",
       "tier": "approfondi",
       "approaches": 4,
-      "known": 5,
-      "knownShare": 0.357,
-      "knownAll": 6,
+      "known": 7,
+      "knownShare": 0.389,
+      "knownAll": 8,
       "mains": 4,
       "maxMain": {
         "approachId": "territoires-x5-a",
@@ -1976,14 +2088,14 @@
       "topicId": "agriculture",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 10,
-      "knownShare": 0.714,
-      "knownAll": 12,
-      "mains": 6,
+      "known": 13,
+      "knownShare": 0.722,
+      "knownAll": 15,
+      "mains": 9,
       "maxMain": {
         "approachId": "agriculture-x4-a",
-        "count": 3,
-        "share": 0.5
+        "count": 5,
+        "share": 0.556
       }
     },
     {
@@ -1991,14 +2103,14 @@
       "topicId": "ecologie_energie",
       "tier": "approfondi",
       "approaches": 4,
-      "known": 11,
-      "knownShare": 0.786,
-      "knownAll": 14,
-      "mains": 8,
+      "known": 13,
+      "knownShare": 0.722,
+      "knownAll": 17,
+      "mains": 9,
       "maxMain": {
-        "approachId": "ecologie_energie-x9-d",
-        "count": 4,
-        "share": 0.5
+        "approachId": "ecologie_energie-x9-a",
+        "count": 5,
+        "share": 0.556
       }
     },
     {
@@ -2006,9 +2118,9 @@
       "topicId": "securite_justice",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 9,
-      "knownShare": 0.643,
-      "knownAll": 9,
+      "known": 10,
+      "knownShare": 0.556,
+      "knownAll": 10,
       "mains": 6,
       "maxMain": {
         "approachId": "securite_justice-x1-b",
@@ -2021,14 +2133,14 @@
       "topicId": "immigration",
       "tier": "approfondi",
       "approaches": 5,
-      "known": 9,
-      "knownShare": 0.643,
-      "knownAll": 9,
-      "mains": 7,
+      "known": 10,
+      "knownShare": 0.556,
+      "knownAll": 10,
+      "mains": 8,
       "maxMain": {
         "approachId": "immigration-x1-a",
         "count": 4,
-        "share": 0.571
+        "share": 0.5
       }
     },
     {
@@ -2037,8 +2149,8 @@
       "tier": "approfondi",
       "approaches": 4,
       "known": 10,
-      "knownShare": 0.714,
-      "knownAll": 10,
+      "knownShare": 0.556,
+      "knownAll": 11,
       "mains": 8,
       "maxMain": {
         "approachId": "immigration-x2-b",
@@ -2051,9 +2163,9 @@
       "topicId": "europe",
       "tier": "approfondi",
       "approaches": 4,
-      "known": 3,
-      "knownShare": 0.214,
-      "knownAll": 4,
+      "known": 5,
+      "knownShare": 0.278,
+      "knownAll": 6,
       "mains": 2,
       "maxMain": {
         "approachId": "europe-x4-d",
@@ -2067,7 +2179,7 @@
       "tier": "approfondi",
       "approaches": 5,
       "known": 9,
-      "knownShare": 0.643,
+      "knownShare": 0.5,
       "knownAll": 11,
       "mains": 6,
       "maxMain": {
@@ -2081,14 +2193,14 @@
       "topicId": "europe",
       "tier": "approfondi",
       "approaches": 6,
-      "known": 9,
-      "knownShare": 0.643,
-      "knownAll": 15,
-      "mains": 7,
+      "known": 13,
+      "knownShare": 0.722,
+      "knownAll": 19,
+      "mains": 9,
       "maxMain": {
         "approachId": "europe-x5-e",
-        "count": 3,
-        "share": 0.429
+        "count": 4,
+        "share": 0.444
       }
     },
     {
@@ -2096,9 +2208,9 @@
       "topicId": "institutions",
       "tier": "approfondi",
       "approaches": 6,
-      "known": 9,
-      "knownShare": 0.643,
-      "knownAll": 10,
+      "known": 10,
+      "knownShare": 0.556,
+      "knownAll": 11,
       "mains": 5,
       "maxMain": {
         "approachId": "institutions-x1-a",
@@ -2130,6 +2242,12 @@
       },
       {
         "a": "cazeneuve",
+        "b": "guedj",
+        "comparable": 10,
+        "differing": 6
+      },
+      {
+        "a": "cazeneuve",
         "b": "labib",
         "comparable": 8,
         "differing": 7
@@ -2147,6 +2265,12 @@
         "differing": 8
       },
       {
+        "a": "guedj",
+        "b": "labib",
+        "comparable": 9,
+        "differing": 9
+      },
+      {
         "a": "labib",
         "b": "zemmour",
         "comparable": 9,
@@ -2157,18 +2281,6 @@
         "b": "roussel",
         "comparable": 15,
         "differing": 9
-      },
-      {
-        "a": "kazib",
-        "b": "zemmour",
-        "comparable": 10,
-        "differing": 10
-      },
-      {
-        "a": "labib",
-        "b": "philippot",
-        "comparable": 12,
-        "differing": 10
       }
     ]
   },
@@ -2184,7 +2296,7 @@
       "attal": {
         "rank": 1,
         "tiedWith": [],
-        "answered": 9
+        "answered": 10
       },
       "cazeneuve": {
         "rank": 1,
@@ -2195,6 +2307,21 @@
         "rank": 1,
         "tiedWith": [],
         "answered": 10
+      },
+      "faure": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 10
+      },
+      "glucksmann": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 10
+      },
+      "guedj": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 9
       },
       "kazib": {
         "rank": 1,
@@ -2214,6 +2341,11 @@
         "answered": 10
       },
       "lisnard": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 10
+      },
+      "maurel": {
         "rank": 1,
         "tiedWith": [],
         "answered": 10
@@ -2258,7 +2390,7 @@
       "attal": {
         "rank": 1,
         "tiedWith": [],
-        "answered": 21
+        "answered": 22
       },
       "cazeneuve": {
         "rank": 1,
@@ -2269,6 +2401,21 @@
         "rank": 1,
         "tiedWith": [],
         "answered": 22
+      },
+      "faure": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 22
+      },
+      "glucksmann": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 22
+      },
+      "guedj": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 19
       },
       "kazib": {
         "rank": 1,
@@ -2286,6 +2433,11 @@
         "answered": 22
       },
       "lisnard": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 21
+      },
+      "maurel": {
         "rank": 1,
         "tiedWith": [],
         "answered": 21
@@ -2330,7 +2482,7 @@
       "attal": {
         "rank": 1,
         "tiedWith": [],
-        "answered": 77
+        "answered": 78
       },
       "cazeneuve": {
         "rank": 1,
@@ -2341,6 +2493,21 @@
         "rank": 1,
         "tiedWith": [],
         "answered": 88
+      },
+      "faure": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 93
+      },
+      "glucksmann": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 79
+      },
+      "guedj": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 65
       },
       "kazib": {
         "rank": 1,
@@ -2361,6 +2528,11 @@
         "rank": 1,
         "tiedWith": [],
         "answered": 83
+      },
+      "maurel": {
+        "rank": 1,
+        "tiedWith": [],
+        "answered": 76
       },
       "melenchon": {
         "rank": 1,
@@ -2439,7 +2611,7 @@
     },
     {
       "id": "step1-known",
-      "label": "étape 1 : chaque question connue pour au moins 85 % des candidats notés (12/14)",
+      "label": "étape 1 : chaque question connue pour au moins 85 % des candidats notés (16/18)",
       "hard": true,
       "ok": true
     },
@@ -2464,7 +2636,7 @@
     },
     {
       "id": "quick-known",
-      "label": "questionnaire rapide : chaque question connue pour au moins 75 % des candidats notés (11/14)",
+      "label": "questionnaire rapide : chaque question connue pour au moins 75 % des candidats notés (14/18)",
       "hard": true,
       "ok": true
     },
@@ -2479,7 +2651,7 @@
       "label": "questionnaire rapide : au plus 6 questions d’écart de couverture entre candidats notés",
       "hard": true,
       "ok": true,
-      "detail": "écart 2"
+      "detail": "écart 3"
     },
     {
       "id": "bank-count",
@@ -2505,7 +2677,7 @@
       "label": "questions approfondies : approche réunissant plus de 60 % des positions principales connues (accord entre candidats, signalé)",
       "hard": false,
       "ok": false,
-      "detail": "finances_publiques-3 4/6, sante-3 5/8, solidarites-3 3/3, droits_lgbtqia-1 4/5, territoires-x5 3/4, immigration-x2 6/8"
+      "detail": "solidarites-3 3/4, droits_lgbtqia-1 4/6, territoires-x5 3/4, immigration-x2 6/8"
     },
     {
       "id": "bank-few-mains",
@@ -2583,22 +2755,22 @@
     },
     {
       "id": "audit-step1",
-      "label": "profils aléatoires (étape 1) : part des 1res places entre 2,4 et 14,3 %",
+      "label": "profils aléatoires (étape 1) : part des 1res places entre 1,9 et 11,1 %",
       "hard": true,
       "ok": true
     },
     {
       "id": "audit-quick",
-      "label": "profils aléatoires (rapide) : part des 1res places entre 1,8 et 17,9 %",
+      "label": "profils aléatoires (rapide) : part des 1res places entre 1,4 et 13,9 %",
       "hard": true,
       "ok": true
     },
     {
       "id": "audit-displayed",
-      "label": "chiffres de l’accueil (election.audit) : 5 à 10 %",
+      "label": "chiffres de l’accueil (election.audit) : 4 à 8 %",
       "hard": true,
       "ok": true,
-      "detail": "mesuré : 5 à 10 %"
+      "detail": "mesuré : 4 à 8 %"
     },
     {
       "id": "all-agree",

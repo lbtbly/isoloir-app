@@ -19,8 +19,8 @@ export const election: ElectionInfo = {
     { label: 'Premier tour', start: '2027-04-17T08:00:00-04:00', end: '2027-04-18T20:00:00+02:00' },
     { label: 'Second tour', start: '2027-05-01T08:00:00-04:00', end: '2027-05-02T20:00:00+02:00' },
   ],
-  dataVersion: '2026-10-08.1',
-  dataFrozenAt: '2026-10-07',
+  dataVersion: '2026-10-09.1',
+  dataFrozenAt: '2026-10-09',
   finalists: null,
   notes: [
     'Les positions ont été relevées dans des sources publiques récentes (déclarations, interviews, propositions de loi, votes, programmes des partis) et peuvent avoir évolué depuis.',
@@ -61,7 +61,7 @@ export const election: ElectionInfo = {
   // Noms de partis qui sont aussi des mots courants : jamais cherchés, même comme étiquette d'un candidat
   forbiddenTermsAllow: ['Renaissance', 'La Convention', 'Ensemble'],
   // Calculé par tools/audit-pack.mjs (questionnaire rapide, candidats notés) ; affiché sur l'accueil, vérifié par les tests
-  audit: { profiles: 3000, minShare: 5, maxShare: 10 },
+  audit: { profiles: 3000, minShare: 4, maxShare: 8 },
   quick: { step1: 10 },
   // Hors classement : un candidat connu sur moins de la moitié des questions comptées est montré sous le classement,
   // son score à titre indicatif (décision du propriétaire du 7 octobre 2026 ; l'audit montrait un candidat connu
@@ -74,7 +74,8 @@ export const election: ElectionInfo = {
   ranking: {
     minCoverageShare: 0.5,
     excluded: {
-      ids: ['asselineau', 'batho', 'becht', 'bertrand', 'bouamrane', 'lalanne', 'markovic'],
+      // Ségolène Royal ajoutée le 9 octobre 2026 avec les candidats de la primaire : connue sur 38 questions sur 100
+      ids: ['asselineau', 'batho', 'becht', 'bertrand', 'bouamrane', 'lalanne', 'markovic', 'royal'],
       // Motif factuel, le même pour chacun, sans cause supposée ; le chiffre de chacun est donné à côté
       reason: 'positions connues sur trop peu de questions',
       since: '2026-10-07',
@@ -93,8 +94,52 @@ export const election: ElectionInfo = {
     { start: '2027-04-16T00:00:00+02:00', end: '2027-04-18T20:00:00+02:00' },
     { start: '2027-04-30T00:00:00+02:00', end: '2027-05-02T20:00:00+02:00' },
   ],
+  // Ordre de la page des candidats, de l'extrême gauche à l'extrême droite (demande du propriétaire du 8 octobre 2026) :
+  // la grille officielle la plus récente des nuances politiques du ministère de l'Intérieur, dans son ordre, puis
+  // l'ordre alphabétique au sein d'une même nuance. La présidentielle n'attribue pas de nuances : chaque candidat
+  // reçoit celle de son parti dans la grille, ou à défaut celle que le ministère lui a donnée à sa dernière élection
+  // (research/presidentielle-2027/parties-spectrum.json, recherche vérifiée le 9 octobre 2026). Couleurs de famille,
+  // pour un parti sans couleur propre : rouge à gauche, jaune au centre, bleu à droite (demande du propriétaire).
+  spectrum: {
+    nuances: [
+      { code: 'EXG', label: 'Extrême gauche', bloc: 'extreme-gauche' },
+      { code: 'FI', label: 'La France insoumise', bloc: 'extreme-gauche' },
+      { code: 'COM', label: 'Parti communiste français', bloc: 'gauche' },
+      { code: 'SOC', label: 'Parti socialiste', bloc: 'gauche' },
+      { code: 'GEN', label: 'Génération.s', bloc: 'gauche' },
+      { code: 'PLP', label: 'Place Publique', bloc: 'gauche' },
+      { code: 'RDG', label: 'Parti radical de gauche', bloc: 'gauche' },
+      { code: 'VEC', label: 'Les Écologistes', bloc: 'gauche' },
+      { code: 'DVG', label: 'Divers gauche', bloc: 'gauche' },
+      { code: 'REG', label: 'Régionalistes', bloc: 'autres' },
+      { code: 'ECO', label: 'Ecologiste', bloc: 'autres' },
+      { code: 'DIV', label: 'Divers', bloc: 'autres' },
+      { code: 'REN', label: 'Renaissance', bloc: 'centre' },
+      { code: 'MDM', label: 'Modem', bloc: 'centre' },
+      { code: 'HOR', label: 'Horizons', bloc: 'centre' },
+      { code: 'PR', label: 'Parti Radical', bloc: 'centre' },
+      { code: 'DVC', label: 'Divers centre', bloc: 'centre' },
+      { code: 'UDI', label: 'Union des Démocrates et Indépendants', bloc: 'centre' },
+      { code: 'LR', label: 'Les Républicains', bloc: 'droite' },
+      { code: 'DVD', label: 'Divers droite', bloc: 'droite' },
+      { code: 'DSV', label: 'Droite souverainiste', bloc: 'droite' },
+      { code: 'UDR', label: 'Union des Droites pour la République', bloc: 'extreme-droite' },
+      { code: 'RN', label: 'Rassemblement National', bloc: 'extreme-droite' },
+      { code: 'REC', label: 'Reconquête', bloc: 'extreme-droite' },
+      { code: 'EXD', label: 'Extrême droite', bloc: 'extreme-droite' },
+    ],
+    blocs: [
+      { id: 'extreme-gauche', label: 'Extrême gauche', color: '#a50f15' },
+      { id: 'gauche', label: 'Gauche', color: '#d7262b' },
+      { id: 'autres', label: 'Autres', color: '#8c8c8c' },
+      { id: 'centre', label: 'Centre', color: '#f4c81b' },
+      { id: 'droite', label: 'Droite', color: '#1f57b5' },
+      { id: 'extreme-droite', label: 'Extrême droite', color: '#102a5c' },
+    ],
+    source: { title: 'Circulaire NOR INTP2618666C du 23 août 2026, annexe 1 : grille des nuances individuelles (élections sénatoriales 2026)', url: 'https://www.legifrance.gouv.fr/circulaire/id/45684', date: '2026-08-23', publisher: 'Ministère de l’Intérieur' },
+  },
   pending: [
-    'Le ou la candidate désignée par la primaire « Choisir 2027 » (vote les 9-10 et 16-17 octobre 2026) sera ajoutée après le second tour.',
+    'Les cinq candidats de la primaire «\u00a0Choisir 2027\u00a0» (vote les 9-10 et 16-17 octobre 2026) sont présentés jusqu’à son second tour\u00a0: seule la personne désignée restera ensuite.',
   ],
   copy: {
     theName: 'l’élection présidentielle 2027',
@@ -121,6 +166,10 @@ export const election: ElectionInfo = {
   // une réponse donnée sur une version antérieure d'une question est mise de côté, à revoir.
   revisionTracking: true,
   changelog: [
+    {
+      date: '2026-10-09',
+      text: 'Ajout des cinq candidats de la primaire «\u00a0Choisir 2027\u00a0» (Olivier Faure, Raphaël Glucksmann, Jérôme Guedj, Emmanuel Maurel, Ségolène Royal), présentés jusqu’à son second tour du 17 octobre\u00a0: seule la personne désignée restera ensuite. Ségolène Royal n’est pas classée, ses positions n’étant connues que sur 38 questions sur 100. Positions de Gabriel Attal et de Jérôme Guedj complétées sur la protection des agriculteurs face aux importations. La page des candidats les présente de l’extrême gauche à l’extrême droite, selon la grille des nuances politiques du ministère de l’Intérieur, à la couleur et avec le logo de chaque parti.',
+    },
     {
       date: '2026-10-08',
       text: 'Première version en ligne : 21 candidats déclarés au 6 octobre 2026, dont deux (Éric Zemmour, Xavier Bertrand) qui ont annoncé leur candidature sans l’avoir encore officialisée ; positions relevées et vérifiées automatiquement par une IA contre leurs sources, sans relecture humaine une par une. Sept candidats ne sont pas classés, faute de positions connues sur au moins la moitié des questions (de 7 à 47 sur 100) : leurs fiches et leurs positions restent consultables, et la liste sera revue à mesure que leurs programmes seront publiés. Un candidat connu sur moins de la moitié de vos réponses apparaît sous le classement, avec son score à titre indicatif (voir la méthode).',

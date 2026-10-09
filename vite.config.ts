@@ -161,5 +161,7 @@ export default defineConfig({
     sourcemap: false,
     // Pas de polyfill de préchargement : il ferait des fetch(), bloqués par la CSP et inutiles ici
     modulePreload: { polyfill: false },
+    // Aucune ressource en data: (logos SVG de quelques Ko compris) : la CSP n'autorise que les images du site
+    assetsInlineLimit: 0,
   },
 })

@@ -2064,6 +2064,81 @@ path.ink-draw {
   padding-top: var(--s3);
 }
 
+/* Cartes à la couleur du parti (Candidate.party, page des candidats seulement) : le fond est la couleur du parti,
+   le texte l'encre ou le blanc, au contraste AA (core/color.ts) ; les jetons de la feuille sont redéfinis dans la
+   carte, pour que filets, case « Comparer » et focus suivent le texte. La couleur est la même en mode sombre : c'est
+   celle du parti, pas un ton de l'interface. */
+.people-panel.has-party {
+  --panel: var(--party-bg);
+  --print: var(--party-fg);
+  --print-soft: var(--party-fg);
+  --rule: color-mix(in srgb, var(--party-fg) 40%, transparent);
+  --rule-strong: var(--party-fg);
+  --focus: var(--party-fg);
+  color: var(--party-fg);
+  background: var(--panel);
+}
+
+/* Initiales sans portrait : encre sur papier, comme partout, quelle que soit la couleur de la carte */
+.people-panel.has-party .portrait.is-initials {
+  background: #ffffff;
+  color: #17191c;
+}
+
+.people-panel.has-party .people-panel-link:focus-visible {
+  outline-offset: -4px;
+}
+
+/* L'étiquette du parti, collée sur la carte : un rectangle de papier blanc, le logo dessus, ou le nom en gras.
+   Blanche dans les deux thèmes : les logos sont dessinés pour un fond clair (« is-dark » : logo clair) */
+.people-panel-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s2);
+  margin-bottom: var(--s1);
+}
+
+.party-label {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  min-height: 2.25rem;
+  padding: 0.3rem 0.55rem;
+  border-radius: 2px;
+  background: #ffffff;
+  color: #17191c;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.22);
+}
+
+.party-label.is-dark {
+  background: #17191c;
+  color: #ffffff;
+}
+
+.party-label strong {
+  font-weight: 850;
+  font-stretch: 80%;
+  font-size: var(--text-sm);
+  line-height: 1.15;
+}
+
+.party-logo {
+  display: block;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Candidat d'une primaire encore en cours (Candidate.primary) : une étiquette discrète, la même pour chacun */
+.people-panel-primary {
+  align-self: flex-start;
+  padding: 0.05rem 0.4rem;
+  border: var(--line) solid var(--rule-strong);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
 .count-figure {
   font-weight: 850;
   font-stretch: 72%;
@@ -2168,6 +2243,35 @@ path.ink-draw {
   grid-area: go;
   align-self: center;
   margin: 0;
+}
+
+/* Ordre de l'échiquier : au téléphone aussi, chaque ligne à la couleur de son parti, séparées d'un filet de papier,
+   pour que la liste se lise comme un nuancier du haut vers le bas */
+.people-panels.is-many.is-spectrum {
+  gap: 2px;
+  border: 0;
+}
+
+.people-panels.is-many.is-spectrum .people-panel.has-party {
+  background: var(--panel);
+}
+
+.people-panels.is-many.is-spectrum .people-panel + .people-panel {
+  border-top: 0;
+}
+
+.people-panels.is-many.is-spectrum .people-panel-link {
+  padding-inline: var(--s3);
+  grid-template-areas:
+    'portrait tags go'
+    'portrait name go'
+    'portrait role go'
+    'portrait meta go'
+    'portrait count go';
+}
+
+.people-panels.is-many .people-panel-tags {
+  grid-area: tags;
 }
 
 /* Au téléphone, le libellé reste lu dans le nom du lien ; la flèche suffit à l'œil */
@@ -2305,6 +2409,14 @@ path.ink-draw {
 .fiche-affiliation {
   margin: 0.2rem 0 var(--s3);
   color: var(--print-soft);
+}
+
+.fiche-primary {
+  max-width: 40rem;
+  margin: calc(-1 * var(--s2)) 0 var(--s3);
+  font-size: var(--text-sm);
+  font-weight: 650;
+  line-height: 1.4;
 }
 
 .fiche-links {

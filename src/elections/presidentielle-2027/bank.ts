@@ -3063,8 +3063,7 @@ export const bank: QuestionBank = {
         },
         {
           "id": "sante-2-b",
-          "text": "Créer partout une complémentaire santé publique et obligatoire, gérée par la Sécurité sociale",
-          "external": true
+          "text": "Créer partout une complémentaire santé publique et obligatoire, gérée par la Sécurité sociale"
         },
         {
           "id": "sante-2-c",
@@ -3552,8 +3551,7 @@ export const bank: QuestionBank = {
         },
         {
           "id": "sante-5-d",
-          "text": "Installer des caméras dans les EHPAD, avec l’accord des salariés, pour prévenir les maltraitances",
-          "external": true
+          "text": "Installer des caméras dans les EHPAD, avec l’accord des salariés, pour prévenir les maltraitances"
         },
         {
           "id": "sante-5-e",
@@ -3676,8 +3674,7 @@ export const bank: QuestionBank = {
         },
         {
           "id": "logement-2-c",
-          "text": "Étendre l’encadrement des loyers à toutes les zones où le manque de logements est le plus fort",
-          "external": true
+          "text": "Étendre l’encadrement des loyers à toutes les zones où le manque de logements est le plus fort"
         },
         {
           "id": "logement-2-d",
@@ -4156,8 +4153,7 @@ export const bank: QuestionBank = {
         },
         {
           "id": "solidarites-2-f",
-          "text": "Mieux préparer à la parentalité : maisons des parents, consultation de fertilité remboursée vers 20 ans",
-          "external": true
+          "text": "Mieux préparer à la parentalité : maisons des parents, consultation de fertilité remboursée vers 20 ans"
         }
       ]
     },
@@ -4267,8 +4263,7 @@ export const bank: QuestionBank = {
         },
         {
           "id": "solidarites-3-b",
-          "text": "Laisser la gestion aux départements, sous un contrôle indépendant qui sanctionne les défaillances",
-          "external": true
+          "text": "Laisser la gestion aux départements, sous un contrôle indépendant qui sanctionne les défaillances"
         },
         {
           "id": "solidarites-3-c",
@@ -5519,8 +5514,7 @@ export const bank: QuestionBank = {
         },
         {
           "id": "education-2-c",
-          "text": "Intégrer les écoles privées sous contrat à la carte scolaire pour y imposer la mixité sociale",
-          "external": true
+          "text": "Intégrer les écoles privées sous contrat à la carte scolaire pour y imposer la mixité sociale"
         },
         {
           "id": "education-2-d",
@@ -6746,8 +6740,7 @@ export const bank: QuestionBank = {
         },
         {
           "id": "numerique-3-c",
-          "text": "Faire contribuer les plateformes au financement de la création culturelle et de la presse",
-          "external": true
+          "text": "Faire contribuer les plateformes au financement de la création culturelle et de la presse"
         },
         {
           "id": "numerique-3-d",
@@ -7876,8 +7869,7 @@ export const bank: QuestionBank = {
         },
         {
           "id": "ecologie_energie-5-e",
-          "text": "Instaurer une tarification sociale de l’eau, avec une aide automatique pour les foyers modestes",
-          "external": true
+          "text": "Instaurer une tarification sociale de l’eau, avec une aide automatique pour les foyers modestes"
         }
       ]
     },
@@ -9287,8 +9279,7 @@ export const bank: QuestionBank = {
         },
         {
           "id": "securite_justice-3-d",
-          "text": "Réunir des citoyens tirés au sort pour formuler des propositions sur la légalisation du cannabis",
-          "external": true
+          "text": "Réunir des citoyens tirés au sort pour formuler des propositions sur la légalisation du cannabis"
         },
         {
           "id": "securite_justice-3-e",
@@ -9443,8 +9434,7 @@ export const bank: QuestionBank = {
         },
         {
           "id": "securite_justice-4-f",
-          "text": "Installer des caméras de surveillance dans les écoles, les crèches et les lieux d’accueil périscolaire",
-          "external": true
+          "text": "Installer des caméras de surveillance dans les écoles, les crèches et les lieux d’accueil périscolaire"
         }
       ]
     },
@@ -11553,8 +11543,7 @@ export const bank: QuestionBank = {
         },
         {
           "id": "proche_orient-1-c",
-          "text": "Utiliser les clauses commerciales de l’accord avec Israël pour viser son gouvernement, sans suspendre l’accord",
-          "external": true
+          "text": "Utiliser les clauses commerciales de l’accord avec Israël pour viser son gouvernement, sans suspendre l’accord"
         },
         {
           "id": "proche_orient-1-d",
@@ -12760,8 +12749,7 @@ export const bank: QuestionBank = {
         },
         {
           "id": "institutions-2-c",
-          "text": "Élire la moitié des députés en circonscription et répartir l’ensemble des sièges à la proportionnelle",
-          "external": true
+          "text": "Élire la moitié des députés en circonscription et répartir l’ensemble des sièges à la proportionnelle"
         },
         {
           "id": "institutions-2-d",
@@ -13202,8 +13190,7 @@ export const bank: QuestionBank = {
       "approaches": [
         {
           "id": "laicite_republique-2-a",
-          "text": "Créer une commission officielle chargée d’établir les faits de la colonisation et de favoriser la réconciliation",
-          "external": true
+          "text": "Créer une commission officielle chargée d’établir les faits de la colonisation et de favoriser la réconciliation"
         },
         {
           "id": "laicite_republique-2-b",
@@ -14007,8 +13994,7 @@ export const bank: QuestionBank = {
         },
         {
           "id": "territoires-x4-c",
-          "text": "Reprendre la négociation entre toutes les forces calédoniennes pour aboutir à un nouvel accord global",
-          "external": true
+          "text": "Reprendre la négociation entre toutes les forces calédoniennes pour aboutir à un nouvel accord global"
         },
         {
           "id": "territoires-x4-d",
