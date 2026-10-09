@@ -7,7 +7,8 @@ import { useEffect, useMemo, useRef, useState } from 'preact/hooks'
 import { ratingOf } from '../../core/answers'
 import { seededShuffle } from '../../core/rng'
 import type { SessionState } from '../../core/storage'
-import type { Answers, Candidate, ElectionPack, Position, Question, Source, Topic, TopicGroup } from '../../core/types'
+import type { Answers, Candidate, ElectionPack, ElectionInfo, PartyMark, Position, Question, Source, Topic, TopicGroup } from '../../core/types'
+import { cardColors } from '../../core/color'
 import { AiLabel } from '../components/AiLabel'
 import { ExternalLink } from '../components/ExternalLink'
 import { FormHeader } from '../components/FormHeader'
@@ -52,6 +53,49 @@ function SourceList({ sources }: { sources: Source[] }) {
   )
 }
 
+/**
+ * Ordre de la grille des nuances (election.spectrum), puis alphabétique au sein d'une même nuance ; null si l'élection
+ * n'en a pas ou si un candidat n'y a pas de nuance (l'ordre reste alors tiré au hasard, pour tous)
+ */
+export function spectrumOrder(election: ElectionInfo, candidates: Candidate[]): Candidate[] | null {
+  const codes = election.spectrum?.nuances.map(n => n.code)
+  if (!codes || !candidates.every(c => c.nuance && codes.includes(c.nuance))) return null
+  return [...candidates].sort((a, b) => codes.indexOf(a.nuance!) - codes.indexOf(b.nuance!) || a.id.localeCompare(b.id))
+}
+
+/** Couleurs d'une carte de parti : fond à sa couleur, texte encre ou blanc, contraste AA (core/color.ts) */
+function partyStyle(party: PartyMark): Record<string, string> {
+  const { bg, fg } = cardColors(party.color)
+  return { '--party-bg': bg, '--party-fg': fg }
+}
+
+/**
+ * Taille d'un logo : la même surface pour tous (environ 11 rem²), qu'il soit carré ou très allongé, dans les limites
+ * de l'étiquette (1,1 à 2,5 rem de haut, 9,5 rem de large au plus)
+ */
+function logoSize(ratio: number): Record<string, string> {
+  let h = Math.min(2.5, Math.max(1.1, Math.sqrt(11 / ratio)))
+  let w = h * ratio
+  if (w > 9.5) {
+    w = 9.5
+    h = w / ratio
+  }
+  return { width: `${w.toFixed(2)}rem`, height: `${h.toFixed(2)}rem` }
+}
+
+/** Étiquette du parti : son logo, ou son nom en gras ; le nom est lu dans les deux cas */
+function PartyLabel({ party }: { party: PartyMark }) {
+  return (
+    <span class={`party-label${party.logo?.plate === 'dark' ? ' is-dark' : ''}${party.logo ? ' has-logo' : ''}`}>
+      {party.logo ? (
+        <img class="party-logo" src={party.logo.src} alt={party.name} style={logoSize(party.logo.ratio)} loading="lazy" decoding="async" />
+      ) : (
+        <strong>{party.name}</strong>
+      )}
+    </span>
+  )
+}
+
 interface IndexProps {
   pack: ElectionPack
   state: SessionState
@@ -59,8 +103,13 @@ interface IndexProps {
 
 export function CandidatesIndex({ pack, state }: IndexProps) {
   const { election, candidates, positions } = pack
-  // Ordre tiré au hasard par personne, comme partout où les candidats ne sont pas classés
-  const people = useMemo(() => seededShuffle(candidates, `${state.seed}:people`), [candidates, state.seed])
+  // De l'extrême gauche à l'extrême droite quand l'élection a une grille des nuances (election.spectrum) ;
+  // sinon, ordre tiré au hasard par personne, comme partout où les candidats ne sont pas classés
+  const bySpectrum = useMemo(() => spectrumOrder(election, candidates), [election, candidates])
+  const people = useMemo(
+    () => bySpectrum ?? seededShuffle(candidates, `${state.seed}:people`),
+    [bySpectrum, candidates, state.seed],
+  )
   const counts = useMemo(
     () => new Map(candidates.map(c => [c.id, Object.keys(positions[c.id] ?? {}).length])),
     [candidates, positions],
@@ -88,7 +137,16 @@ export function CandidatesIndex({ pack, state }: IndexProps) {
             ))}
             <p class="small">
               Pour un résultat sans a priori, répondez d’abord au questionnaire : les approches y sont présentées sans
-              nom. Les candidats sont présentés ici dans un ordre tiré au hasard.
+              nom.{' '}
+              {bySpectrum && election.spectrum ? (
+                <>
+                  Les candidats sont présentés ici de l’extrême gauche à l’extrême droite, dans l’ordre de la{' '}
+                  <a href={link('/methode/ordre-des-candidats')}>grille officielle des nuances politiques</a>, chacun
+                  à la couleur de son parti.
+                </>
+              ) : (
+                'Les candidats sont présentés ici dans un ordre tiré au hasard.'
+              )}
             </p>
             <p class="people-compare">
               Pour en comparer de deux à {MAX_COMPARED_WORDS}, cochez «&nbsp;Comparer&nbsp;» sous leur nom, puis «&nbsp;Voir la
@@ -98,16 +156,24 @@ export function CandidatesIndex({ pack, state }: IndexProps) {
         </div>
         {/* Une vingtaine de candidats : des panneaux plus petits, en lignes compactes sur téléphone */}
         <ul
-          class={`people-panels${isMany(people.length) ? ' is-many' : ''}`}
-          aria-label="Candidats, dans un ordre tiré au hasard"
+          class={`people-panels${isMany(people.length) ? ' is-many' : ''}${bySpectrum ? ' is-spectrum' : ''}`}
+          aria-label={bySpectrum ? 'Candidats, de l’extrême gauche à l’extrême droite' : 'Candidats, dans un ordre tiré au hasard'}
         >
           {people.map(c => (
-            <li key={c.id} class="people-panel">
+            <li key={c.id} class={`people-panel${c.party ? ' has-party' : ''}`} style={c.party ? partyStyle(c.party) : undefined}>
               <a class="people-panel-link" href={link(`/candidat/${c.id}`)}>
                 <Portrait candidate={c} size="strip" />
+                {/* Le parti avant le nom : son logo sur une étiquette, ou son nom en gras */}
+                {c.party ? (
+                  <span class="people-panel-tags">
+                    <PartyLabel party={c.party} />
+                    {c.primary ? <span class="people-panel-primary">En lice à la primaire</span> : null}
+                  </span>
+                ) : null}
                 <span class="people-panel-name">{c.name}</span>
                 <span class="people-panel-role">{c.role}</span>
-                <span class="people-panel-meta">{c.affiliation}</span>
+                {c.party ? null : <span class="people-panel-meta">{c.affiliation}</span>}
+                {!c.party && c.primary ? <span class="people-panel-primary">En lice à la primaire</span> : null}
                 <span class="people-panel-count">
                   <span class="count-figure">{counts.get(c.id)}</span> positions sourcées
                 </span>
@@ -242,6 +308,8 @@ export function CandidatePage({ pack, candidateId, state }: PageProps) {
               </h1>
               <p class="fiche-role">{c.role}</p>
               <p class="fiche-affiliation">{c.affiliation}</p>
+              {/* Candidat d'une primaire encore en cours : seul le gagnant restera (Candidate.primary) */}
+              {c.primary ? <p class="fiche-primary">{c.primary}</p> : null}
               <p class="fiche-links">
                 {c.campaignUrl ? <ExternalLink href={c.campaignUrl}>Site de campagne</ExternalLink> : null}
                 {c.website ? <ExternalLink href={c.website}>{election.copy.officialPageLabel}</ExternalLink> : null}

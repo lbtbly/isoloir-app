@@ -398,6 +398,13 @@ export function Legal({ pack, seed }: { pack: ElectionPack; seed: string }) {
               </div>
             </li>
           </ul>
+          {candidates.some(c => c.party?.logo) ? (
+            <p>
+              Les logos des partis, sur la page des candidats, sont des marques de leurs titulaires, reproduites à la
+              seule fin d’identifier chaque parti ; leur provenance (Wikimedia Commons, Wikipédia ou le site du parti)
+              est détaillée dans le dépôt du code (<span class="nowrap">media/CREDITS.md</span>).
+            </p>
+          ) : null}
         </section>
 
         <section class="legal-block" aria-labelledby="ml-licences">
@@ -415,7 +422,7 @@ export function Legal({ pack, seed }: { pack: ElectionPack; seed: string }) {
             </li>
           </ul>
           <p>
-            Ces licences ne couvrent pas le logo (tous droits réservés), les photos (leurs propres licences, voir{' '}
+            Ces licences ne couvrent pas le logo (tous droits réservés), les logos des partis (marques de leurs titulaires), les photos (leurs propres licences, voir{' '}
             <SectionLink id="ml-credits">Crédits</SectionLink>), les citations et données publiques reprises des sources
             (leurs propres conditions), ni Preact et la police Archivo (leurs licences, ci-dessous). En attendant, le
             code exécuté par votre navigateur peut être inspecté.

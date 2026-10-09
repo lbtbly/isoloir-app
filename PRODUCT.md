@@ -58,7 +58,7 @@ Le succès, c'est un électeur qui termine le questionnaire, comprend pourquoi t
 - **Logo (depuis le 2026-10-04, fourni par le propriétaire) :** un isoloir vu de face, disque d'encre parfaitement rond où la personne se découpe en « i », rideau tiré en quatre bandes pastel (vert, rouge, jaune, bleu) ; le mot « isoloir » en bas de casse. À la demande du propriétaire, les quatre couleurs couvrent ensemble tout l'échiquier politique, pour que la marque n'en privilégie aucune partie ; aucune n'est associée à une position de l'échiquier ; dans l'interface, les mêmes pastels éclaircis habillent les aplats, dans un ordre fixe et sans aucun sens. Ils ne servent jamais à désigner un candidat, un parti ou un avis.
 - **Éditeur :** un citoyen indépendant, sans affiliation à un candidat, un parti ou un organisateur. C'est affiché clairement.
 - **À ne jamais faire :**
-  - rien de partisan ou militant : pas de couleurs ni de codes visuels de parti, pas de ton de tract ;
+  - rien de partisan ou militant : pas de ton de tract, et pas de couleurs ni de codes visuels de parti, sauf sur la page des candidats de la présidentielle, où, à la demande du propriétaire (8 octobre 2026), chaque carte porte la couleur et le logo du parti, dans l'ordre de la grille officielle des nuances du ministère de l'Intérieur ; jamais dans le questionnaire ni dans le résultat ;
   - rien de ludique ou gamifié : pas de badges, de confettis ni de ton de quiz, qui banaliseraient le vote.
 
 ## Evidence on Hand
@@ -68,7 +68,7 @@ Le succès, c'est un électeur qui termine le questionnaire, comprend pourquoi t
 - Logo : l'image d'origine fournie par le propriétaire (`.impeccable/brand/logo-reference.webp`) et la planche de contrôle des SVG redessinés (`.impeccable/brand/planche.png`).
 - **Absences à ne pas combler par invention :**
   - pas de photos des candidats : on utilise leurs initiales ;
-  - pas de logos officiels (le logo d'Isoloir est le seul logo du site) ;
+  - pas de logos officiels, sauf ceux des partis sur la page des candidats de la présidentielle (décision du propriétaire, 8 octobre 2026) ;
   - pas de témoignages, de chiffres d'utilisation ni de partenariats ;
   - pas de sondages présentés comme résultats de l'outil.
 

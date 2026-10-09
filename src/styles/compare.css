@@ -168,6 +168,10 @@
     border: 0;
   }
 
+  .people-panels.is-many.is-spectrum .people-panel-compare {
+    padding-right: var(--s3);
+  }
+
   .people-panels.is-many .compare-toggle {
     flex-direction: column-reverse;
     gap: 0.2rem;

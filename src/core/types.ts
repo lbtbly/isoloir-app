@@ -56,6 +56,29 @@ export interface Candidate {
   declaredAt?: string
   /** Source de la déclaration de candidature */
   declaration?: Source
+  /**
+   * Candidat d'une primaire encore en cours, présenté jusqu'à sa désignation : la mention affichée sur sa carte et sa
+   * fiche (seul le gagnant restera)
+   */
+  primary?: string
+  /** Parti, montré sur la page des candidats : son logo (ou son nom) et sa couleur */
+  party?: PartyMark
+  /** Nuance politique du candidat dans la grille de l'élection (ElectionInfo.spectrum), pour l'ordre de la page des candidats */
+  nuance?: string
+}
+
+/**
+ * Le parti d'un candidat, sur la page des candidats seulement (décision du propriétaire du 8 octobre 2026) : jamais
+ * pendant le questionnaire, où les approches restent sans nom.
+ */
+export interface PartyMark {
+  /** Nom du parti, ou « Sans investiture de parti » : écrit en gras, ou texte de remplacement du logo */
+  name: string
+  /** Logo du parti, hébergé sur le site ; « dark » : logo clair, posé sur une étiquette sombre */
+  logo?: { src: string; plate?: 'light' | 'dark'; /** largeur / hauteur, pour donner à chaque logo la même surface */ ratio: number }
+  /** Couleur de la carte (hexadécimal) : celle du parti, ou à défaut celle de sa famille politique */
+  color: string
+  colorFrom: 'parti' | 'famille'
 }
 
 export interface Topic {
@@ -332,6 +355,11 @@ export interface ElectionInfo {
   archived?: { since: string; note: string }
   /** Annonces en attente (candidature attendue, résultat à venir), affichées telles quelles */
   pending?: string[]
+  /**
+   * Ordre de la page des candidats, de l'extrême gauche à l'extrême droite : les nuances d'une grille officielle, dans
+   * son ordre, puis l'ordre alphabétique au sein d'une même nuance. Sans elle, ordre tiré au hasard.
+   */
+  spectrum?: Spectrum
 }
 
 /** Famille de thèmes, pour filtrer les fiches des candidats */
@@ -378,3 +406,13 @@ export type Answers = Record<QuestionId, Answer>
 /** Poids d'un thème : 0,5 (peu important), 1 (normal), 2 (prioritaire) */
 export type TopicWeight = 0.5 | 1 | 2
 export type TopicWeights = Record<TopicId, TopicWeight>
+
+/** Grille des nuances politiques (ElectionInfo.spectrum) */
+export interface Spectrum {
+  /** Les nuances, dans l'ordre de la grille ; bloc : identifiant d'un des blocs */
+  nuances: { code: string; label: string; bloc: string }[]
+  /** Les blocs, dans l'ordre de la grille, avec la couleur de famille donnée à un parti sans couleur propre */
+  blocs: { id: string; label: string; color: string }[]
+  /** La grille et sa source */
+  source: Source
+}

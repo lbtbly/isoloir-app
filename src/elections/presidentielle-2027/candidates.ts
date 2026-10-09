@@ -1,4 +1,26 @@
 import type { Candidate } from '../../core/types'
+import animalisteLogo from './media/logos/animaliste.png'
+import conventionLogo from './media/logos/convention.png'
+import dlfLogo from './media/logos/dlf.png'
+import franceLibreLogo from './media/logos/france-libre.png'
+import geLogo from './media/logos/ge.png'
+import grsLogo from './media/logos/grs.png'
+import horizonsLogo from './media/logos/horizons.svg'
+import lfiLogo from './media/logos/lfi.png'
+import loLogo from './media/logos/lo.svg'
+import lrLogo from './media/logos/lr.svg'
+import nousFranceLogo from './media/logos/nous-france.png'
+import nouvelleEnergieLogo from './media/logos/nouvelle-energie.png'
+import npaRLogo from './media/logos/npa-r.svg'
+import patriotesLogo from './media/logos/patriotes.png'
+import pcfLogo from './media/logos/pcf.svg'
+import ppLogo from './media/logos/pp.svg'
+import psLogo from './media/logos/ps.svg'
+import reconqueteLogo from './media/logos/reconquete.svg'
+import renaissanceLogo from './media/logos/renaissance.svg'
+import rnLogo from './media/logos/rn.svg'
+import rpLogo from './media/logos/rp.png'
+import uprLogo from './media/logos/upr.svg'
 import arthaudPhoto from './media/arthaud.jpg'
 import asselineauPhoto from './media/asselineau.jpg'
 import attalPhoto from './media/attal.jpg'
@@ -16,6 +38,11 @@ import philippotPhoto from './media/philippot.jpg'
 import retailleauPhoto from './media/retailleau.jpg'
 import rousselPhoto from './media/roussel.jpg'
 import zemmourPhoto from './media/zemmour.jpg'
+import faurePhoto from './media/faure.jpg'
+import glucksmannPhoto from './media/glucksmann.jpg'
+import guedjPhoto from './media/guedj.jpg'
+import maurelPhoto from './media/maurel.jpg'
+import royalPhoto from './media/royal.jpg'
 
 // Ordre alphabétique des noms ; l'affichage hors classement est mélangé par session.
 // Fiches : rédigées par une IA, faits vérifiés automatiquement contre leurs sources le 6 octobre 2026, même structure
@@ -27,14 +54,17 @@ import zemmourPhoto from './media/zemmour.jpg'
 // (Bouamrane, Kazib, Labib, Markovic) : initiales.
 // Pas de « website » : aucun site officiel de l'élection n'a de page par candidat, et aucun candidat n'est officiel
 // avant la liste du Conseil constitutionnel (mars 2027) ; on parle de candidats déclarés.
-// Le ou la candidate de la primaire « Choisir 2027 » s'ajoute après son second tour (pendingPrimary dans
-// research/presidentielle-2027/config.json).
+// Les cinq candidats de la primaire « Choisir 2027 » sont présentés jusqu'à son second tour (17 octobre 2026), avec la
+// mention « primary » ; ensuite, seul le ou la gagnante reste (build-pack --include <gagnant>, demande du propriétaire
+// du 8 octobre 2026). Fiches : add-candidate (research/presidentielle-2027/add-candidate/) ; portraits repris de la primaire.
 export const candidates: Candidate[] = [
   {
     id: 'arthaud',
     name: 'Nathalie Arthaud',
     initials: 'NA',
     affiliation: 'Lutte ouvrière',
+    nuance: 'EXG',
+    party: { name: 'Lutte ouvrière', logo: { src: loLogo, ratio: 3.44 }, color: '#cc0000', colorFrom: 'parti' },
     role: 'Porte-parole de Lutte ouvrière',
     campaignUrl: 'https://www.nathalie-arthaud.info/',
     declaredAt: '2025-12-08',
@@ -53,6 +83,8 @@ export const candidates: Candidate[] = [
     name: 'François Asselineau',
     initials: 'FA',
     affiliation: 'Union populaire républicaine',
+    nuance: 'DSV',
+    party: { name: 'Union populaire républicaine', logo: { src: uprLogo, ratio: 2.11 }, color: '#00737c', colorFrom: 'parti' },
     role: 'Président de l’Union populaire républicaine (UPR)',
     declaredAt: '2023-08-31',
     declaration: { title: 'Politique. François Asselineau : « J’essaierai de nouveau d’être candidat à la présidentielle de 2027 »', url: 'https://www.ledauphine.com/politique/2023/08/31/francois-asselineau-j-essaierai-de-nouveau-d-etre-candidat-a-la-presidentielle-de-2027', date: '2023-08-31', publisher: 'Le Dauphiné libéré' },
@@ -71,6 +103,8 @@ export const candidates: Candidate[] = [
     name: 'Gabriel Attal',
     initials: 'GA',
     affiliation: 'Renaissance',
+    nuance: 'REN',
+    party: { name: 'Renaissance', logo: { src: renaissanceLogo, ratio: 1.0 }, color: '#0370ed', colorFrom: 'parti' },
     role: 'Secrétaire général de Renaissance, député des Hauts-de-Seine, président du groupe Ensemble pour la République',
     campaignUrl: 'https://attalpresident.fr/',
     declaredAt: '2026-05-22',
@@ -90,6 +124,8 @@ export const candidates: Candidate[] = [
     name: 'Delphine Batho',
     initials: 'DB',
     affiliation: 'Génération écologie',
+    nuance: 'ECO',
+    party: { name: 'Génération écologie', logo: { src: geLogo, ratio: 2.79 }, color: '#5abb48', colorFrom: 'parti' },
     role: 'Députée des Deux-Sèvres, coordinatrice nationale de Génération écologie',
     campaignUrl: 'https://www.delphinebatho.fr/',
     declaredAt: '2025-11-25',
@@ -109,6 +145,8 @@ export const candidates: Candidate[] = [
     name: 'Olivier Becht',
     initials: 'OB',
     affiliation: 'Sans investiture de parti',
+    nuance: 'DVC',
+    party: { name: 'Sans investiture de parti', color: '#f4c81b', colorFrom: 'famille' },
     role: 'Député du Haut-Rhin',
     campaignUrl: 'https://becht2027.fr/',
     declaredAt: '2026-09-24',
@@ -128,6 +166,8 @@ export const candidates: Candidate[] = [
     name: 'Xavier Bertrand',
     initials: 'XB',
     affiliation: 'Nous France',
+    nuance: 'DVD',
+    party: { name: 'Nous France', logo: { src: nousFranceLogo, plate: 'dark', ratio: 6.67 }, color: '#1f57b5', colorFrom: 'famille' },
     role: 'Président du conseil régional des Hauts-de-France',
     declaredAt: '2026-08-27',
     declaration: { title: '« Je le serai » : Xavier Bertrand annonce être candidat à l’élection présidentielle et s’exprime sur d’éventuelles primaires', url: 'https://france3-regions.franceinfo.fr/hauts-de-france/nord-0/lille/je-le-serai-xavier-bertrand-annonce-sa-candidature-a-l-election-presidentielle-et-s-exprime-sur-d-eventuelles-primaires-3407339.html', date: '2026-08-27', publisher: 'France 3 Hauts-de-France' },
@@ -146,6 +186,8 @@ export const candidates: Candidate[] = [
     name: 'Karim Bouamrane',
     initials: 'KB',
     affiliation: 'La France humaine et forte',
+    nuance: 'DVG',
+    party: { name: 'La France humaine et forte', color: '#1b4f72', colorFrom: 'parti' },
     role: 'Maire de Saint-Ouen-sur-Seine, président de La France humaine et forte',
     campaignUrl: 'https://www.karimbouamrane2027.org/',
     declaredAt: '2026-06-09',
@@ -164,6 +206,8 @@ export const candidates: Candidate[] = [
     name: 'Bernard Cazeneuve',
     initials: 'BC',
     affiliation: 'La Convention',
+    nuance: 'DVG',
+    party: { name: 'La Convention', logo: { src: conventionLogo, ratio: 3.74 }, color: '#d7262b', colorFrom: 'famille' },
     role: 'Fondateur de La Convention, avocat',
     declaredAt: '2026-07-16',
     declaration: { title: 'Présidentielle 2027 : Bernard Cazeneuve avance sur sa candidature et dévoile une « lettre aux Français »', url: 'https://www.ici.fr/infos/politique/presidentielle-2027-bernard-cazeneuve-avance-sur-sa-candidature-et-devoile-une-lettre-aux-francais-7494196', date: '2026-07-16', publisher: 'ICI (Radio France), avec l’AFP' },
@@ -182,6 +226,8 @@ export const candidates: Candidate[] = [
     name: 'Nicolas Dupont-Aignan',
     initials: 'NDA',
     affiliation: 'Debout la France',
+    nuance: 'DSV',
+    party: { name: 'Debout la France', logo: { src: dlfLogo, ratio: 2.1 }, color: '#0265ac', colorFrom: 'parti' },
     role: 'Maire de Yerres (Essonne), président de Debout la France',
     campaignUrl: 'https://www.dupontaignan.fr/',
     declaredAt: '2025-03-08',
@@ -197,10 +243,78 @@ export const candidates: Candidate[] = [
     ],
   },
   {
+    id: 'faure',
+    name: 'Olivier Faure',
+    initials: 'OF',
+    affiliation: 'Parti socialiste',
+    nuance: 'SOC',
+    party: { name: 'Parti socialiste', logo: { src: psLogo, ratio: 2.52 }, color: '#f70059', colorFrom: 'parti' },
+    role: 'Premier secrétaire du Parti socialiste, député de Seine-et-Marne',
+    campaignUrl: 'https://avecfaure2027.fr',
+    declaredAt: '2026-08-30',
+    declaration: { title: 'Le chef du Parti socialiste, Olivier Faure, confirme sa candidature à la primaire de son camp en vue de l’élection présidentielle', url: 'https://www.franceinfo.fr/elections/presidentielle/le-chef-du-parti-socialiste-olivier-faure-confirme-sa-candidature-a-la-primaire-de-son-camp-en-vue-de-l-election-presidentielle_8169896.html', date: '2026-08-30', publisher: 'franceinfo' },
+    primary: 'En lice à la primaire «\u00a0Choisir 2027\u00a0» (second tour le 17 octobre 2026)\u00a0: seule la personne désignée restera candidate à la présidentielle.',
+    photo: { src: faurePhoto, alt: 'Portrait d’Olivier Faure', credit: 'PES Group Committee of the Regions, 2018, licence CC BY 2.0, recadrée', rightsUrl: 'https://commons.wikimedia.org/wiki/File:Olivier_Faure_PSE-CARCA--1194_(cropped).jpg', author: 'PES Group Committee of the Regions', title: 'Olivier_Faure_PSE-CARCA--1194_(cropped).jpg', license: { name: 'CC BY 2.0', url: 'https://creativecommons.org/licenses/by/2.0/deed.fr' }, changes: 'recadrée en carré et réduite' },
+    bio: [
+      { when: 'Aujourd’hui', text: 'Premier secrétaire du Parti socialiste depuis le 15 mars 2018, reconduit en 2021, 2023 et 2025. Député de la 11e circonscription de Seine-et-Marne depuis 2012 et conseiller municipal de Lieusaint depuis 2026.', source: { title: 'Le premier secrétaire - Parti Socialiste', url: 'https://parti-socialiste.fr/le-premier-secretaire/', date: '2026-06-29', publisher: 'Parti socialiste' } },
+      { when: '2026', text: 'Déclare sa candidature à la primaire organisée par les socialistes et leurs alliés le 30 août 2026, au journal de 20 heures de TF1, quelques heures après avoir fait part de ses intentions aux députés de son parti.', source: { title: 'Le chef du Parti socialiste, Olivier Faure, confirme sa candidature à la primaire de son camp en vue de l’élection présidentielle', url: 'https://www.franceinfo.fr/elections/presidentielle/le-chef-du-parti-socialiste-olivier-faure-confirme-sa-candidature-a-la-primaire-de-son-camp-en-vue-de-l-election-presidentielle_8169896.html', date: '2026-08-30', publisher: 'franceinfo' } },
+      { when: '2016-2018', text: 'Président du groupe Socialiste, écologiste et républicain à l’Assemblée nationale du 13 décembre 2016 au 20 juin 2017, puis du groupe Nouvelle Gauche du 27 juin 2017 au 11 avril 2018.', source: { title: 'Fonctions (archives) - M. Olivier Faure - Seine-et-Marne (11e circonscription) - Assemblée nationale', url: 'https://www.assemblee-nationale.fr/dyn/deputes/PA609332/fonctions?archive=oui', publisher: 'Assemblée nationale' } },
+      { when: '2007-2012', text: 'Secrétaire général du groupe socialiste à l’Assemblée nationale à partir de 2007, aux côtés de Jean-Marc Ayrault, qu’il suit brièvement à Matignon en 2012.', source: { title: 'Le premier secrétaire - Parti Socialiste', url: 'https://parti-socialiste.fr/le-premier-secretaire/', date: '2026-06-29', publisher: 'Parti socialiste' } },
+      { when: '1997-2007', text: 'Conseiller de Martine Aubry au ministère de l’Emploi à partir de 1997, puis directeur adjoint du cabinet de François Hollande, alors premier secrétaire du Parti socialiste, de 2000 à 2007.', source: { title: 'Le premier secrétaire - Parti Socialiste', url: 'https://parti-socialiste.fr/le-premier-secretaire/', date: '2026-06-29', publisher: 'Parti socialiste' } },
+      { when: '1968', text: 'Né le 18 août 1968 à La Tronche (Isère). Profession déclarée : cadre supérieur (secteur privé).', source: { title: 'M. Olivier Faure - Seine-et-Marne (11e circonscription) - Assemblée nationale', url: 'https://www.assemblee-nationale.fr/dyn/deputes/PA609332', publisher: 'Assemblée nationale' } },
+    ],
+  },
+  {
+    id: 'glucksmann',
+    name: 'Raphaël Glucksmann',
+    initials: 'RG',
+    affiliation: 'Place publique',
+    nuance: 'PLP',
+    party: { name: 'Place publique', logo: { src: ppLogo, ratio: 2.01 }, color: '#fff100', colorFrom: 'parti' },
+    role: 'Coprésident de Place publique, député européen',
+    campaignUrl: 'https://glucks2027.fr/',
+    declaredAt: '2026-08-23',
+    declaration: { title: 'Raphaël Glucksmann annonce sa candidature à la présidentielle de 2027', url: 'https://www.france24.com/fr/france/20260823-rapha%C3%ABl-glucksmann-annonce-sa-candidature-%C3%A0-la-pr%C3%A9sidentielle-de-2027', date: '2026-08-23', publisher: 'France 24, avec l’AFP' },
+    primary: 'En lice à la primaire «\u00a0Choisir 2027\u00a0» (second tour le 17 octobre 2026)\u00a0: seule la personne désignée restera candidate à la présidentielle.',
+    photo: { src: glucksmannPhoto, alt: 'Portrait de Raphaël Glucksmann', credit: '© Union européenne, 2024 – Source\u00a0: Parlement européen, recadrée', rightsUrl: 'https://commons.wikimedia.org/wiki/File:1720448398743_20240708_GLUCKSMANN_Raphael_FR_006.jpg', author: 'Parlement européen', title: '1720448398743_20240708_GLUCKSMANN_Raphael_FR_006.jpg', license: { name: 'réutilisation autorisée avec mention de la source (avis juridique du Parlement européen)', url: 'https://www.europarl.europa.eu/legal-notice/fr/' }, changes: 'recadrée en carré et réduite' },
+    bio: [
+      { when: 'Aujourd’hui', text: 'Député européen (Place publique). Siège au groupe de l’Alliance progressiste des socialistes et démocrates (S&D) ; membre de la commission de la sécurité et de la défense.', source: { title: 'Accueil | Raphaël GLUCKSMANN | Députés | Parlement européen', url: 'https://www.europarl.europa.eu/meps/fr/197694/RAPHAEL_GLUCKSMANN/home', date: '2026-10-09', publisher: 'Parlement européen' } },
+      { when: '2026', text: 'Déclare sa candidature le 23 août 2026, dans un entretien au journal de 20 heures de TF1, en annonçant qu’il passera par une primaire avec le Parti socialiste.', source: { title: 'Raphaël Glucksmann annonce sa candidature à la présidentielle de 2027', url: 'https://www.france24.com/fr/france/20260823-rapha%C3%ABl-glucksmann-annonce-sa-candidature-%C3%A0-la-pr%C3%A9sidentielle-de-2027', date: '2026-08-23', publisher: 'France 24, avec l’AFP' } },
+      { when: '2020-2023', text: 'Préside la commission spéciale du Parlement européen sur l’ingérence étrangère de septembre 2020 à mars 2022, puis la commission spéciale qui lui succède, de mai 2022 à août 2023.', source: { title: '9ème législature | Raphaël GLUCKSMANN | Députés | Parlement européen', url: 'https://www.europarl.europa.eu/meps/fr/197694/RAPHAEL_GLUCKSMANN/history/9', date: '2026-10-09', publisher: 'Parlement européen' } },
+      { when: '2019', text: 'Tête de liste aux élections européennes de 2019, il est élu député européen. Réélu en 2024 à la tête de la liste Place publique – Parti socialiste.', source: { title: 'Raphaël Glucksmann | Place publique', url: 'https://place-publique.eu/trombinoscope/d7gAAtkKcvueTJRMqeYBC/raphael-glucksmann', date: '2026-10-09', publisher: 'Place publique' } },
+      { when: '2018', text: 'Cofonde en novembre 2018 le parti Place publique, dont il est aujourd’hui coprésident.', source: { title: 'Raphaël Glucksmann | Place publique', url: 'https://place-publique.eu/trombinoscope/d7gAAtkKcvueTJRMqeYBC/raphael-glucksmann', date: '2026-10-09', publisher: 'Place publique' } },
+      { when: '1979', text: 'Né le 15 octobre 1979 à Boulogne-Billancourt (Hauts-de-Seine). Études à Sciences Po Paris. Documentariste, conseiller du président géorgien Saakachvili (2008-2012), directeur du Nouveau Magazine littéraire (2017-2018).', source: { title: 'Curriculum vitae | Raphaël GLUCKSMANN | Députés | Parlement européen (informations publiées sous la seule responsabilité du député)', url: 'https://www.europarl.europa.eu/meps/fr/197694/RAPHAEL_GLUCKSMANN/cv', date: '2025-03-27', publisher: 'Parlement européen' } },
+    ],
+  },
+  {
+    id: 'guedj',
+    name: 'Jérôme Guedj',
+    initials: 'JG',
+    affiliation: 'Parti socialiste',
+    nuance: 'SOC',
+    party: { name: 'Parti socialiste', logo: { src: psLogo, ratio: 2.52 }, color: '#f70059', colorFrom: 'parti' },
+    role: 'Député de l’Essonne',
+    campaignUrl: 'https://www.jeromeguedj2027.fr/',
+    declaredAt: '2026-08-23',
+    declaration: { title: 'ENTRETIEN. Jérôme Guedj, député PS de l’Essonne et candidat à la présidentielle : « Je prendrai toute ma place dans cette primaire »', url: 'https://www.latribune.fr/article/la-tribune-dimanche/politique/18147697960524/jerome-guedj-depute-ps-de-l-essonne-et-candidat-a-la-presidentielle-je-prendrai-toute-ma-place-dans-cette-primaire', date: '2026-08-23', publisher: 'La Tribune Dimanche' },
+    primary: 'En lice à la primaire «\u00a0Choisir 2027\u00a0» (second tour le 17 octobre 2026)\u00a0: seule la personne désignée restera candidate à la présidentielle.',
+    photo: { src: guedjPhoto, alt: 'Portrait de Jérôme Guedj', credit: 'Audrey AK, 2010, licence CC BY-SA 2.0, recadrée', rightsUrl: 'https://commons.wikimedia.org/wiki/File:J%C3%A9r%C3%B4me_Guedj_2010_(cropped).jpg', author: 'Audrey AK', title: 'Jérôme_Guedj_2010_(cropped).jpg', license: { name: 'CC BY-SA 2.0', url: 'https://creativecommons.org/licenses/by-sa/2.0/deed.fr' }, changes: 'recadrée en carré et réduite', shareAlike: true },
+    bio: [
+      { when: 'Aujourd’hui', text: 'Député de la 6e circonscription de l’Essonne, réélu le 7 juillet 2024. Siège au groupe Socialistes et apparentés ; membre de la commission des affaires sociales.', source: { title: 'Fonctions - M. Jérôme Guedj - Essonne (6e circonscription) - Assemblée nationale', url: 'https://www.assemblee-nationale.fr/dyn/deputes/PA1567/fonctions', publisher: 'Assemblée nationale' } },
+      { when: '2026', text: 'Déclare sa candidature à la primaire de la gauche le 23 août 2026, dans un entretien à La Tribune Dimanche. Il s’était déclaré candidat à l’élection présidentielle le 5 février 2026.', source: { title: 'ENTRETIEN. Jérôme Guedj, député PS de l’Essonne et candidat à la présidentielle : « Je prendrai toute ma place dans cette primaire »', url: 'https://www.latribune.fr/article/la-tribune-dimanche/politique/18147697960524/jerome-guedj-depute-ps-de-l-essonne-et-candidat-a-la-presidentielle-je-prendrai-toute-ma-place-dans-cette-primaire', date: '2026-08-23', publisher: 'La Tribune Dimanche' } },
+      { when: '2012', text: 'Député de l’Essonne de 2012 à 2014, en remplacement d’un député nommé au Gouvernement, puis réélu le 19 juin 2022.', source: { title: 'Fonctions (archives) - M. Jérôme Guedj - Essonne (6e circonscription) - Assemblée nationale', url: 'https://www.assemblee-nationale.fr/dyn/deputes/PA1567/fonctions?archive=oui', publisher: 'Assemblée nationale' } },
+      { when: '2011-2015', text: 'Président du conseil général (aujourd’hui conseil départemental) de l’Essonne de 2011 à 2015.', source: { title: 'Jérôme Guedj - Fondation Jean-Jaurès', url: 'https://www.jean-jaures.org/expert/jerome-guedj/', publisher: 'Fondation Jean-Jaurès' } },
+      { when: '1996', text: 'Diplômé de l’École nationale d’administration, il entre à l’Inspection générale des affaires sociales (IGAS) en 1996.', source: { title: 'Jérôme Guedj - Fondation Jean-Jaurès', url: 'https://www.jean-jaures.org/expert/jerome-guedj/', publisher: 'Fondation Jean-Jaurès' } },
+      { when: '1972', text: 'Né le 23 janvier 1972 à Pantin (Seine-Saint-Denis). Profession déclarée : inspecteur général des affaires sociales.', source: { title: 'M. Jérôme Guedj - Essonne (6e circonscription) - Assemblée nationale', url: 'https://www.assemblee-nationale.fr/dyn/deputes/PA1567', publisher: 'Assemblée nationale' } },
+    ],
+  },
+  {
     id: 'kazib',
     name: 'Anasse Kazib',
     initials: 'AK',
     affiliation: 'Révolution permanente',
+    nuance: 'EXG',
+    party: { name: 'Révolution permanente', logo: { src: rpLogo, ratio: 3.57 }, color: '#c32427', colorFrom: 'parti' },
     role: 'Cheminot, porte-parole de Révolution permanente',
     campaignUrl: 'https://anasse2027.fr/',
     declaredAt: '2026-06-01',
@@ -219,6 +333,8 @@ export const candidates: Candidate[] = [
     name: 'Selma Labib',
     initials: 'SL',
     affiliation: 'NPA-Révolutionnaires',
+    nuance: 'EXG',
+    party: { name: 'NPA-Révolutionnaires', logo: { src: npaRLogo, ratio: 1.51 }, color: '#cd071e', colorFrom: 'parti' },
     role: 'Conductrice de bus en région parisienne, militante du NPA-Révolutionnaires',
     campaignUrl: 'https://npa-revolutionnaires.org/campagnes-presidentielles',
     declaredAt: '2026-06-17',
@@ -237,6 +353,8 @@ export const candidates: Candidate[] = [
     name: 'Francis Lalanne',
     initials: 'FL',
     affiliation: 'France Libre',
+    nuance: 'DIV',
+    party: { name: 'France Libre', logo: { src: franceLibreLogo, ratio: 1.0 }, color: '#8c8c8c', colorFrom: 'famille' },
     role: 'Auteur-compositeur-interprète, ancien président de l’association France Libre',
     declaredAt: '2026-08-18',
     declaration: { title: 'Présidentielle 2027 : Francis Lalanne se déclare candidat, aux côtés de Dieudonné', url: 'https://www.ici.fr/ile-de-france/paris-75/paris/presidentielle-francis-lalanne-se-declare-candidat-aux-cotes-de-dieudonne-5740360', date: '2026-08-19', publisher: 'ICI (Radio France)' },
@@ -255,6 +373,8 @@ export const candidates: Candidate[] = [
     name: 'Marine Le Pen',
     initials: 'MLP',
     affiliation: 'Rassemblement national',
+    nuance: 'RN',
+    party: { name: 'Rassemblement national', logo: { src: rnLogo, ratio: 3.43 }, color: '#064473', colorFrom: 'parti' },
     role: 'Présidente du groupe Rassemblement national à l’Assemblée nationale, députée du Pas-de-Calais',
     campaignUrl: 'https://marinelepen.com/',
     declaredAt: '2026-07-07',
@@ -274,6 +394,8 @@ export const candidates: Candidate[] = [
     name: 'David Lisnard',
     initials: 'DL',
     affiliation: 'Nouvelle Énergie',
+    nuance: 'DVD',
+    party: { name: 'Nouvelle Énergie', logo: { src: nouvelleEnergieLogo, ratio: 1.16 }, color: '#1d257a', colorFrom: 'parti' },
     role: 'Maire de Cannes, président de l’Association des maires de France et de Nouvelle Énergie',
     campaignUrl: 'https://www.lisnard2027.fr/',
     declaredAt: '2026-03-31',
@@ -293,6 +415,8 @@ export const candidates: Candidate[] = [
     name: 'Mira Markovic',
     initials: 'MM',
     affiliation: 'Parti animaliste',
+    nuance: 'DIV',
+    party: { name: 'Parti animaliste', logo: { src: animalisteLogo, ratio: 3.02 }, color: '#9c0d99', colorFrom: 'parti' },
     role: 'Coprésidente et porte-parole du Parti animaliste',
     declaredAt: '2026-10-02',
     declaration: { title: 'Présidentielle 2027 : « Si nous ne sommes pas là, personne ne parle des animaux », déplore Mira Markovic, la candidate du Parti animaliste', url: 'https://www.cnews.fr/france/2026-10-02/presidentielle-2027-si-nous-ne-sommes-pas-la-personne-ne-parle-des-animaux', date: '2026-10-02', publisher: 'CNews' },
@@ -306,10 +430,34 @@ export const candidates: Candidate[] = [
     ],
   },
   {
+    id: 'maurel',
+    name: 'Emmanuel Maurel',
+    initials: 'EM',
+    affiliation: 'Gauche républicaine et socialiste',
+    nuance: 'DVG',
+    party: { name: 'Gauche républicaine et socialiste', logo: { src: grsLogo, ratio: 2.33 }, color: '#d23150', colorFrom: 'parti' },
+    role: 'Animateur national de la Gauche républicaine et socialiste, député du Val-d’Oise',
+    campaignUrl: 'https://emmanuel-maurel.fr/',
+    declaredAt: '2026-09-04',
+    declaration: { title: 'Le député Emmanuel Maurel annonce sa candidature à la primaire socialiste pour l’élection présidentielle', url: 'https://www.franceinfo.fr/politique/ps/primaire-socialiste/le-depute-emmanuel-maurel-annonce-sa-candidature-a-la-primaire-socialiste-pour-l-election-presidentielle_8176532.html', date: '2026-09-04', publisher: 'franceinfo' },
+    primary: 'En lice à la primaire «\u00a0Choisir 2027\u00a0» (second tour le 17 octobre 2026)\u00a0: seule la personne désignée restera candidate à la présidentielle.',
+    photo: { src: maurelPhoto, alt: 'Portrait d’Emmanuel Maurel', credit: 'Echwander, 2016, licence CC BY-SA 4.0, recadrée', rightsUrl: 'https://commons.wikimedia.org/wiki/File:Emmanuel_Maurel_en_2016.jpg', author: 'Echwander', title: 'Emmanuel_Maurel_en_2016.jpg', license: { name: 'CC BY-SA 4.0', url: 'https://creativecommons.org/licenses/by-sa/4.0/deed.fr' }, changes: 'recadrée en carré et réduite', shareAlike: true },
+    bio: [
+      { when: 'Aujourd’hui', text: 'Député de la 3e circonscription du Val-d’Oise, élu le 7 juillet 2024. Siège au groupe Gauche démocrate et républicaine ; membre de la commission des finances et de la commission des affaires européennes.', source: { title: 'Fonctions - M. Emmanuel Maurel - Val-d’Oise (3e circonscription) - Assemblée nationale', url: 'https://www.assemblee-nationale.fr/dyn/deputes/PA842271/fonctions', publisher: 'Assemblée nationale' } },
+      { when: '2026', text: 'Déclare sa candidature le 4 septembre 2026, dans un entretien sur franceinfo, à la primaire de la gauche socialiste lancée par le Parti socialiste et Place publique en vue de l’élection présidentielle.', source: { title: 'Le député Emmanuel Maurel annonce sa candidature à la primaire socialiste pour l’élection présidentielle', url: 'https://www.franceinfo.fr/politique/ps/primaire-socialiste/le-depute-emmanuel-maurel-annonce-sa-candidature-a-la-primaire-socialiste-pour-l-election-presidentielle_8176532.html', date: '2026-09-04', publisher: 'franceinfo' } },
+      { when: '2018', text: 'Quitte le Parti socialiste en octobre 2018 pour fonder l’APRÈS, puis cofonde en février 2019 la Gauche républicaine et socialiste (GRS), dont il est l’animateur national.', source: { title: 'Le collectif d’animation national', url: 'https://g-r-s.fr/gauche-republicaine-socialiste-page-daccueil/le-collectif-danimation-national/', date: '2025-04-26', publisher: 'Gauche républicaine et socialiste (g-r-s.fr)' } },
+      { when: '2014-2024', text: 'Député européen de 2014 à 2024, membre de la commission du commerce international. Après les « Panama Papers », participe aussi à la commission d’enquête sur l’évasion fiscale.', source: { title: 'Biographie – Emmanuel Maurel · 2027', url: 'https://emmanuel-maurel.fr/biographie/', date: '2026-09-21', publisher: 'Site de campagne d’Emmanuel Maurel (éditeur : Gauche républicaine et socialiste)' } },
+      { when: '2001', text: 'Élu municipal dans le Val-d’Oise à partir de 2001, conseiller régional d’Île-de-France en 2004, puis vice-président de la Région jusqu’en 2014. Au Parti socialiste, secrétaire national à la formation des adhérents.', source: { title: 'Biographie – Emmanuel Maurel · 2027', url: 'https://emmanuel-maurel.fr/biographie/', date: '2026-09-21', publisher: 'Site de campagne d’Emmanuel Maurel (éditeur : Gauche républicaine et socialiste)' } },
+      { when: '1973', text: 'Né le 10 mai 1973 à Épinay-sur-Seine (Seine-Saint-Denis). Études de lettres modernes et d’histoire, puis diplômé de l’Institut d’études politiques de Paris. A enseigné près de dix ans dans le supérieur.', source: { title: 'Biographie – Emmanuel Maurel · 2027', url: 'https://emmanuel-maurel.fr/biographie/', date: '2026-09-21', publisher: 'Site de campagne d’Emmanuel Maurel (éditeur : Gauche républicaine et socialiste)' } },
+    ],
+  },
+  {
     id: 'melenchon',
     name: 'Jean-Luc Mélenchon',
     initials: 'JLM',
     affiliation: 'La France insoumise',
+    nuance: 'FI',
+    party: { name: 'La France insoumise', logo: { src: lfiLogo, ratio: 2.98 }, color: '#4c0297', colorFrom: 'parti' },
     role: 'Fondateur de La France insoumise, coprésident de l’Institut La Boétie',
     campaignUrl: 'https://melenchon2027.fr/',
     declaredAt: '2026-05-03',
@@ -329,6 +477,8 @@ export const candidates: Candidate[] = [
     name: 'Édouard Philippe',
     initials: 'ÉP',
     affiliation: 'Horizons',
+    nuance: 'HOR',
+    party: { name: 'Horizons', logo: { src: horizonsLogo, ratio: 15.21 }, color: '#27348a', colorFrom: 'parti' },
     role: 'Maire du Havre, président de Le Havre Seine Métropole',
     campaignUrl: 'https://www.edouardphilippe.fr',
     declaredAt: '2024-09-03',
@@ -348,6 +498,8 @@ export const candidates: Candidate[] = [
     name: 'Florian Philippot',
     initials: 'FP',
     affiliation: 'Les Patriotes',
+    nuance: 'EXD',
+    party: { name: 'Les Patriotes', logo: { src: patriotesLogo, ratio: 2.73 }, color: '#e88a28', colorFrom: 'parti' },
     role: 'Président du parti Les Patriotes',
     declaredAt: '2026-05-09',
     declaration: { title: 'Présidentielle 2027 : Florian Philippot, président du parti Les Patriotes, se déclare candidat', url: 'https://www.ici.fr/grand-est/moselle-57/forbach/presidentielle-2027-florian-philippot-president-du-parti-les-patriotes-se-declare-candidat-8886754', date: '2026-05-09', publisher: 'ICI' },
@@ -366,6 +518,8 @@ export const candidates: Candidate[] = [
     name: 'Bruno Retailleau',
     initials: 'BR',
     affiliation: 'Les Républicains',
+    nuance: 'LR',
+    party: { name: 'Les Républicains', logo: { src: lrLogo, ratio: 1.49 }, color: '#0047af', colorFrom: 'parti' },
     role: 'Président des Républicains, sénateur de la Vendée',
     campaignUrl: 'https://www.avecretailleau.fr/',
     declaredAt: '2026-02-12',
@@ -385,6 +539,8 @@ export const candidates: Candidate[] = [
     name: 'Fabien Roussel',
     initials: 'FR',
     affiliation: 'Parti communiste français',
+    nuance: 'COM',
+    party: { name: 'Parti communiste français', logo: { src: pcfLogo, ratio: 1.46 }, color: '#ee1a26', colorFrom: 'parti' },
     role: 'Secrétaire national du Parti communiste français, maire de Saint-Amand-les-Eaux (Nord)',
     campaignUrl: 'https://www.fabienroussel2027.fr/',
     declaredAt: '2026-09-06',
@@ -400,10 +556,34 @@ export const candidates: Candidate[] = [
     ],
   },
   {
+    id: 'royal',
+    name: 'Ségolène Royal',
+    initials: 'SR',
+    affiliation: 'Parti socialiste',
+    nuance: 'SOC',
+    party: { name: 'Parti socialiste', logo: { src: psLogo, ratio: 2.52 }, color: '#f70059', colorFrom: 'parti' },
+    role: 'Présidente de l’Association France-Algérie',
+    campaignUrl: 'https://segolene-ordrejuste.fr/',
+    declaredAt: '2026-07-10',
+    declaration: { title: 'Ségolène Royal annonce qu’elle participera à la primaire socialiste en vue de l’élection présidentielle', url: 'https://www.franceinfo.fr/elections/presidentielle/segolene-royal-annonce-qu-elle-participera-a-la-primaire-socialiste-en-vue-de-l-election-presidentielle_8102696.html', date: '2026-07-10', publisher: 'franceinfo (avec AFP)' },
+    primary: 'En lice à la primaire «\u00a0Choisir 2027\u00a0» (second tour le 17 octobre 2026)\u00a0: seule la personne désignée restera candidate à la présidentielle.',
+    photo: { src: royalPhoto, alt: 'Portrait de Ségolène Royal', credit: 'Georges Biard, 2020, licence CC BY-SA 4.0, recadrée', rightsUrl: 'https://commons.wikimedia.org/wiki/File:SEGOLENE_ROYAL_DEAUVILLE_2020_2.jpg', author: 'Georges Biard', title: 'SEGOLENE_ROYAL_DEAUVILLE_2020_2.jpg', license: { name: 'CC BY-SA 4.0', url: 'https://creativecommons.org/licenses/by-sa/4.0/deed.fr' }, changes: 'recadrée en carré et réduite', shareAlike: true },
+    bio: [
+      { when: 'Depuis 2025', text: 'Présidente de l’Association France-Algérie depuis le 18 décembre 2025, élue par son conseil d’administration, à la suite d’Arnaud Montebourg.', source: { title: 'Ségolène royal nouvelle présidente de l’association France – Algérie', url: 'https://associationfrancealgerieofficiel.fr/segolene-royal-nouvelle-presidente-de-lassociation-france-algerie/', date: '2025-12-19', publisher: 'Association France-Algérie (site officiel)' } },
+      { when: '2026', text: 'Annonce le 10 juillet 2026, dans un message publié sur X, qu’elle participera à la primaire socialiste en vue de l’élection présidentielle.', source: { title: 'Ségolène Royal annonce qu’elle participera à la primaire socialiste en vue de l’élection présidentielle', url: 'https://www.franceinfo.fr/elections/presidentielle/segolene-royal-annonce-qu-elle-participera-a-la-primaire-socialiste-en-vue-de-l-election-presidentielle_8102696.html', date: '2026-07-10', publisher: 'franceinfo (avec AFP)' } },
+      { when: '2014-2020', text: 'Ministre dans les gouvernements Valls (2014-2016) et Cazeneuve (2016-2017). Nommée ambassadrice des pôles par Emmanuel Macron en 2017 ; il est mis fin à ces fonctions en 2020.', source: { title: '« On la prend très au sérieux » : Ségolène Royal peut-elle créer la surprise à la primaire socialiste, vingt ans après son échec à la présidentielle ?', url: 'https://www.franceinfo.fr/politique/ps/primaire-socialiste/on-la-prend-tres-au-serieux-segolene-royal-peut-elle-creer-la-surprise-a-la-primaire-socialiste-vingt-ans-apres-son-echec-a-la-presidentielle_8184773.html', date: '2026-09-11', publisher: 'franceinfo' } },
+      { when: '2004', text: 'Présidente de la région Poitou-Charentes à partir de 2004, réélue en 2010. Candidate du Parti socialiste à l’élection présidentielle de 2007, qualifiée pour le second tour du 6 mai 2007.', source: { title: 'Marie-Ségolène dite Ségolène Royal', url: 'https://www.larousse.fr/encyclopedie/personnage/Marie-S%C3%A9gol%C3%A8ne_dite_S%C3%A9gol%C3%A8ne_Royal/149655', publisher: 'Larousse (encyclopédie en ligne)' } },
+      { when: '1988', text: 'Députée des Deux-Sèvres, élue en 1988, réélue en 1993, 1997 et 2002. Ministre de l’Environnement (1992-1993), ministre déléguée à l’Enseignement scolaire (1997-2000), puis à la Famille et à l’Enfance (2000-2002).', source: { title: 'Assemblée nationale ~ Les députés : Mme Ségolène Royal', url: 'https://www.assemblee-nationale.fr/12/tribun/fiches_id/2650.asp', publisher: 'Assemblée nationale' } },
+      { when: '1953', text: 'Née le 22 septembre 1953 à Dakar (Sénégal). Profession déclarée : conseillère de tribunal administratif.', source: { title: 'Assemblée nationale ~ Les députés : Mme Ségolène Royal', url: 'https://www.assemblee-nationale.fr/12/tribun/fiches_id/2650.asp', publisher: 'Assemblée nationale' } },
+    ],
+  },
+  {
     id: 'zemmour',
     name: 'Éric Zemmour',
     initials: 'ÉZ',
     affiliation: 'Reconquête',
+    nuance: 'REC',
+    party: { name: 'Reconquête', logo: { src: reconqueteLogo, ratio: 7.55 }, color: '#2060bc', colorFrom: 'parti' },
     role: 'Président du parti Reconquête',
     declaredAt: '2026-09-17',
     declaration: { title: 'Eric Zemmour, président du parti d’extrême droite Reconquête, annonce qu’il sera candidat à l’élection présidentielle', url: 'https://www.franceinfo.fr/politique/eric-zemmour/eric-zemmour-president-du-parti-d-extreme-droite-reconquete-annonce-sa-candidature-a-l-election-presidentielle_8198141.html', date: '2026-09-17', publisher: 'franceinfo' },

@@ -182,3 +182,82 @@ Les lignes « Transformations » gardent, entre parenthèses, les repères de ca
 - Date de la photo : 2026-03-31
 - Mention affichée : Antoine Jaussaud – © Union européenne, 2026, sous licence CC BY 4.0, recadrée
 - Transformations : recadrage carré centré sur le visage (L'original fait 3333 × 5000 px, en hauteur ; les deux personnes y sont en pied. Le visage de Bertrand, de face, se trouve dans le tiers gauche, centré vers x ≈ 1015 et y ≈ 1670. Repères relevés à l'écran sur la vignette de 1920 px (marge d'environ ±25 px) : haut des cheveux vers y ≈ 1400, menton vers y ≈ 1940–1960 (plus bas que les 1910 annoncés), tête avec les oreilles de x ≈ 805 à 1232. La bande bleue du drapeau français commence vers x ≈ 1480, et non 1460. Carré conseillé d'environ 880 px : x ≈ 560–1440, y ≈ 1230–2110, puis réduction à 400 × 400. Il laisse environ 40 px de marge avant le drapeau français. Le carré proposé (x 580–1460) passe aussi, mais avec seulement 20 px de marge. Ne pas dépasser x ≈ 1460 à droite ni y ≈ 2140 en bas : le micro-cravate noir est vers x ≈ 1247, y ≈ 2168. Dans le carré restent le mur bleuté éclairé, le pan blanc uni d'un drapeau derrière la tête (sans motif visible), le col de chemise, le nœud de la cravate bordeaux et le haut de la veste. Il n'y a ni logo ni texte.), réduction à 400 × 400 px
+
+<!-- Candidats de la primaire « Choisir 2027 » : portraits repris tels quels de src/elections/choisir-2027/media (téléchargés le 3 octobre 2026) -->
+
+## faure.jpg
+
+- Fichier d'origine : https://upload.wikimedia.org/wikipedia/commons/a/ae/Olivier_Faure_PSE-CARCA--1194_%28cropped%29.jpg (1566 × 2289 px)
+- Page de la licence : https://commons.wikimedia.org/wiki/File:Olivier_Faure_PSE-CARCA--1194_(cropped).jpg
+- Auteur : PES Group Committee of the Regions
+- Licence : CC BY 2.0
+- Date de la photo : 2018-09-07
+- Mention affichée : PES Group Committee of the Regions, 2018, licence CC BY 2.0, recadrée
+- Transformations : recadrage carré centré sur le visage, réduction à 600 × 600 px
+
+## glucksmann.jpg
+
+- Fichier d'origine : https://upload.wikimedia.org/wikipedia/commons/1/1f/1720448398743_20240708_GLUCKSMANN_Raphael_FR_006.jpg (3528 × 4536 px)
+- Page de la licence : https://commons.wikimedia.org/wiki/File:1720448398743_20240708_GLUCKSMANN_Raphael_FR_006.jpg
+- Auteur : Parlement européen
+- Licence : Parlement européen (réutilisation autorisée avec mention de la source)
+- Date de la photo : 2024-07-08
+- Mention affichée : © Union européenne, 2024 – Source : Parlement européen, recadrée (mention exacte demandée par l’avis juridique du Parlement européen, https://www.europarl.europa.eu/legal-notice/fr/)
+- Transformations : recadrage carré centré sur le visage, réduction à 600 × 600 px
+
+## guedj.jpg
+
+- Fichier d'origine : https://upload.wikimedia.org/wikipedia/commons/6/64/J%C3%A9r%C3%B4me_Guedj_2010_%28cropped%29.jpg (1078 × 1564 px)
+- Page de la licence : https://commons.wikimedia.org/wiki/File:J%C3%A9r%C3%B4me_Guedj_2010_(cropped).jpg
+- Auteur : Audrey AK
+- Licence : CC BY-SA 2.0
+- Date de la photo : 2010-06-24
+- Mention affichée : Audrey AK, 2010, licence CC BY-SA 2.0, recadrée
+- Transformations : recadrage carré centré sur le visage, réduction à 600 × 600 px
+
+## maurel.jpg
+
+- Fichier d'origine : https://upload.wikimedia.org/wikipedia/commons/7/79/Emmanuel_Maurel_en_2016.jpg (3413 × 3413 px)
+- Page de la licence : https://commons.wikimedia.org/wiki/File:Emmanuel_Maurel_en_2016.jpg
+- Auteur : Echwander
+- Licence : CC BY-SA 4.0
+- Date de la photo : 2016-06-07
+- Mention affichée : Echwander, 2016, licence CC BY-SA 4.0, recadrée
+- Transformations : recadrage carré centré sur le visage, réduction à 600 × 600 px
+
+## royal.jpg
+
+- Fichier d'origine : https://upload.wikimedia.org/wikipedia/commons/3/39/SEGOLENE_ROYAL_DEAUVILLE_2020_2.jpg (847 × 1200 px)
+- Page de la licence : https://commons.wikimedia.org/wiki/File:SEGOLENE_ROYAL_DEAUVILLE_2020_2.jpg
+- Auteur : Georges Biard
+- Licence : CC BY-SA 4.0
+- Date de la photo : 2020-09
+- Mention affichée : Georges Biard, 2020, licence CC BY-SA 4.0, recadrée
+- Transformations : recadrage carré centré sur le visage, réduction à 600 × 600 px
+
+## Logos des partis (`logos/`)
+
+Téléchargés le 9 octobre 2026 avec l’accord de l’éditeur du site, qui les montre sur la page des candidats seulement (décision du 8 octobre 2026). Ce sont des marques de leurs titulaires, reproduites pour identifier chaque parti. Les SVG sont repris tels quels (vérifiés : ni script ni ressource externe) ; les PNG sont réduits à 120 px de haut au plus (`sips`) ; celui de Debout la France, un SVG de 319 Ko, est converti en PNG de 120 px de haut. Le logo de campagne du site de La France humaine et forte (« Karim Bouamrane 2027 ») n’est pas repris : le nom du parti est écrit en gras.
+
+- `lo.svg` (Lutte ouvrière) : https://upload.wikimedia.org/wikipedia/commons/5/5c/Logo_Lutte_Ouvri%C3%A8re.svg — page : https://commons.wikimedia.org/wiki/File:Logo_Lutte_Ouvri%C3%A8re.svg — Domaine public (modèle PD-textlogo) : « It does not meet the threshold of originality needed for copyright protection, and is therefore in the public domain. » Avertissements supplémentaires : protection possible comme m
+- `rp.png` (Révolution permanente) : https://upload.wikimedia.org/wikipedia/commons/6/69/R%C3%A9volution_Permenente.png — page : https://commons.wikimedia.org/wiki/File:R%C3%A9volution_Permenente.png — CC BY-SA 4.0 (« Creative Commons Attribution-Share Alike 4.0 »), selon la déclaration du téléverseur. Auteur et source indiqués : https://www.revolutionpermanente.fr/
+- `npa-r.svg` (NPA-Révolutionnaires) : https://upload.wikimedia.org/wikipedia/commons/c/c9/Logo-NPA_Revo.svg — page : https://commons.wikimedia.org/wiki/File:Logo-NPA_Revo.svg — CC0 déclarée sur Commons par le téléverseur (Oclos, 29/04/2025), avec un champ permission vide et sans ticket VRT. Licence non vérifiée auprès de l'ayant droit : la page officielle « Logos NPA Révolutionnaires » n'indiqu
+- `pcf.svg` (Parti communiste français) : https://upload.wikimedia.org/wikipedia/commons/9/9d/Logo_%E2%80%93_Parti_communiste_fran%C3%A7ais_%282018%29.svg — page : https://commons.wikimedia.org/wiki/File:Logo_%E2%80%93_Parti_communiste_fran%C3%A7ais_(2018).svg — Public domain – PD-textlogo (« This logo image consists only of simple geometric shapes or text. It does not meet the threshold of originality... ») ; avertissements « Trademarked » et symbole communiste interdit dans ce
+- `lfi.png` (La France insoumise) : https://upload.wikimedia.org/wikipedia/commons/7/71/LOGO-LFI-2026.png — page : https://commons.wikimedia.org/wiki/File:LOGO-LFI-2026.png — PD-textlogo (domaine public : « does not meet the threshold of originality »), avec le bandeau « Trademarked » (« may be protected as a trademark in some jurisdictions »)
+- `ge.png` (Génération écologie) : https://upload.wikimedia.org/wikipedia/fr/d/d8/G%C3%A9n%C3%A9ration_%C3%A9cologie_logo.png — page : https://fr.wikipedia.org/wiki/Fichier:G%C3%A9n%C3%A9ration_%C3%A9cologie_logo.png — Image non libre de logo. La page indique : « Ce logo est la représentation graphique d'une marque déposée soumise au droit des marques. » (marque, usage restreint)
+- `animaliste.png` (Parti animaliste) : https://upload.wikimedia.org/wikipedia/fr/d/d5/Logo_Parti_animaliste.png — page : https://fr.wikipedia.org/wiki/Fichier:Logo_Parti_animaliste.png — Copyright – utilisation restreinte ({{Marque déposée}}) : « Ce logo est la représentation graphique d'une marque déposée soumise au droit des marques. » Catégorie « Image non libre de logo ». Le fichier ne peut pas être
+- `convention.png` (La Convention) : https://upload.wikimedia.org/wikipedia/fr/6/64/Parti_la_Convention.png — page : https://fr.wikipedia.org/wiki/Fichier:Parti_la_Convention.png — Marque déposée — « Ce logo est la représentation graphique d'une marque déposée soumise au droit des marques. » (bandeau « Copyright – utilisation restreinte », catégorie « Image non libre de logo »)
+- `ps.svg` (Parti socialiste) : https://upload.wikimedia.org/wikipedia/fr/a/af/Logo_Parti_Socialiste_-_2024.svg — page : https://fr.wikipedia.org/wiki/Fichier:Logo_Parti_Socialiste_-_2024.svg — « marque déposée » (bandeau « Copyright – utilisation restreinte », « représentation graphique d'une marque déposée » ; catégorie « Image non libre de logo »)
+- `pp.svg` (Place publique) : https://upload.wikimedia.org/wikipedia/commons/a/a5/Logo_Place_publique.svg — page : https://commons.wikimedia.org/wiki/File:Logo_Place_publique.svg — PD-textlogo (domaine public). La page Commons indique que le logo « does not meet the threshold of originality » et précise que d'autres restrictions peuvent s'appliquer (catégorie cachée « PD textlogo »).
+- `grs.png` (Gauche républicaine et socialiste) : https://upload.wikimedia.org/wikipedia/fr/d/d1/Logo-GRS-1024x441.png — page : https://fr.wikipedia.org/wiki/Fichier:Logo-GRS-1024x441.png — Marque déposée (« Ce logo est la représentation graphique d'une marque déposée soumise au droit des marques. »), catégorie « Image non libre de logo » ; fichier local non transférable sur Commons
+- `renaissance.svg` (Renaissance) : https://upload.wikimedia.org/wikipedia/commons/b/b3/Renaissance_parti_logo.svg — page : https://commons.wikimedia.org/wiki/File:Renaissance_parti_logo.svg — PD-textlogo (« This logo image consists only of simple geometric shapes or text. It does not meet the threshold of originality needed for copyright protection, and is therefore in the public domain. » ; LicenseShortName
+- `horizons.svg` (Horizons) : https://upload.wikimedia.org/wikipedia/commons/5/55/Logo_Parti_Politique_Horizons_-_2021.svg — page : https://commons.wikimedia.org/wiki/File:Logo_Parti_Politique_Horizons_-_2021.svg — Public domain (PD-textlogo) : « This logo image consists only of simple geometric shapes or text » ; restriction : trademarked (marque déposée)
+- `nouvelle-energie.png` (Nouvelle Énergie) : https://upload.wikimedia.org/wikipedia/commons/5/5d/Logo-blanc-bleu.png — page : https://commons.wikimedia.org/wiki/File:Logo-blanc-bleu.png — PD-textlogo (domaine public) : « This logo image consists only of simple geometric shapes or text. »
+- `lr.svg` (Les Républicains) : https://upload.wikimedia.org/wikipedia/commons/0/00/Les_R%C3%A9publicains_-_logo_%28France%2C_2023%29.svg — page : https://commons.wikimedia.org/wiki/File:Les_R%C3%A9publicains_-_logo_(France,_2023).svg — Public domain (PD-textlogo) ; bandeau « Trademarked » (marque possiblement protégée). API Commons : LicenseShortName « Public domain », Copyrighted « False ».
+- `nous-france.png` (Nous France) : https://upload.wikimedia.org/wikipedia/commons/b/b7/Logo_parti_Nous_France.png — page : https://commons.wikimedia.org/wiki/File:Logo_parti_Nous_France.png — PD-textlogo (Commons affiche « Public domain » : « It does not meet the threshold of originality needed for copyright protection ») ; appréciation fondée sur le droit américain, le droit des marques s'applique toujours
+- `dlf.png` (Debout la France) : https://upload.wikimedia.org/wikipedia/commons/6/69/Debout_la_France_logo.svg — page : https://commons.wikimedia.org/wiki/File:Debout_la_France_logo.svg — PD-textlogo : « This logo image consists only of simple geometric shapes or text. It does not meet the threshold of originality needed for copyright protection, and is therefore in the public domain. » (catégories cachée
+- `upr.svg` (Union populaire républicaine) : https://upload.wikimedia.org/wikipedia/commons/6/60/Logo_Union_Populaire_R%C3%A9publicaine.svg — page : https://commons.wikimedia.org/wiki/File:Logo_Union_Populaire_R%C3%A9publicaine.svg — PD-textlogo (« This logo image consists only of simple geometric shapes or text. It does not meet the threshold of originality needed for copyright protection, and is therefore in the public domain. ») + avertissement «
+- `patriotes.png` (Les Patriotes) : https://les-patriotes.fr/wp-content/uploads/2022/08/logo-rectangle-baniere-superieure-gauche-site-lp-v3-moins-long.png — page : https://les-patriotes.fr/ — Copyright © 2026 Les Patriotes. Tous droits réservés. (pied de page du site officiel ; aucune licence libre)
+- `france-libre.png` (France Libre) : https://france-libre.fr/wp-content/themes/francelibre/images/FLWeb.png — page : https://france-libre.fr/ — © 2026 France Libre. Tous droits réservés. (pied de page du site ; logo non libre, aucune licence ouverte)
+- `rn.svg` (Rassemblement national) : https://upload.wikimedia.org/wikipedia/commons/d/d5/Logo_Rassemblement_National.svg — page : https://commons.wikimedia.org/wiki/File:Logo_Rassemblement_National.svg — Domaine public, {{PD-textlogo}} (« This logo image consists only of simple geometric shapes or text. It does not meet the threshold of originality… »), avec le bandeau {{Trademarked}} (« This work includes material that
+- `reconquete.svg` (Reconquête) : https://www.parti-reconquete.fr/assets-parti/logo/logo-bleu.svg — page : https://www.parti-reconquete.fr/ — Tous droits réservés. Les mentions légales du site (https://www.parti-reconquete.fr/mentions-legales, section « Propriété intellectuelle ») disent que les contenus du site, logos compris, sont « la propriété exclusive de

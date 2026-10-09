@@ -33,7 +33,7 @@ export const ELECTIONS: readonly ElectionEntry[] = [
     slug: '',
     label: 'Présidentielle 2027',
     archived: false,
-    candidateIds: ['arthaud', 'asselineau', 'attal', 'batho', 'becht', 'bertrand', 'bouamrane', 'cazeneuve', 'dupontaignan', 'kazib', 'labib', 'lalanne', 'lepen', 'lisnard', 'markovic', 'melenchon', 'philippe', 'philippot', 'retailleau', 'roussel', 'zemmour'],
+    candidateIds: ['arthaud', 'asselineau', 'attal', 'batho', 'becht', 'bertrand', 'bouamrane', 'cazeneuve', 'dupontaignan', 'faure', 'glucksmann', 'guedj', 'kazib', 'labib', 'lalanne', 'lepen', 'lisnard', 'markovic', 'maurel', 'melenchon', 'philippe', 'philippot', 'retailleau', 'roussel', 'royal', 'zemmour'],
     votingUntil: '2027-05-02T20:00:00+02:00',
     load: () => import('./presidentielle-2027').then(m => m.presidentielle2027),
   },

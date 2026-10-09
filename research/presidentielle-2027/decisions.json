@@ -504,9 +504,99 @@
       "approachId": "europe-x4-c",
       "remove": true,
       "note": "Retirée (décision 3) : contestée par les relecteurs du centre et de droite. La vérification la garde en inférence, mais sa propre note dit que la source (livret agricole, refus d’intégrer l’Ukraine au marché agricole européen) « ne dit pas qu’il accepte l’élargissement à terme », cœur de l’approche c ; le même refus est aussi compatible avec d. Une attribution fausse est pire qu’une inconnue : Retailleau reste inconnu sur europe-x4."
+    },
+    {
+      "questionId": "agriculture-1",
+      "candidate": "attal",
+      "approachId": "agriculture-1-f",
+      "weight": 2,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "Quand il était Premier ministre, en 2024, il refusait les accords commerciaux sans « mesures miroirs », et donc sans imposer nos normes aux importations. Il s’opposait au Mercosur tant que l’accord n’en contiendrait pas, mais pas au libre-échange en lui-même.",
+      "sources": [
+        {
+          "title": "Discours de M. Gabriel Attal, Premier ministre – Conférence de presse sur la situation agricole",
+          "url": "https://www.info.gouv.fr/upload/media/content/0001/08/1f327f1e3f38670d26a609953c8fc32fea795bf3.pdf",
+          "date": "2024-02-21",
+          "publisher": "Service de communication de Matignon (info.gouv.fr)"
+        },
+        {
+          "title": "En visite à Berlin, Gabriel Attal marque son désaccord avec l'Allemagne sur le Mercosur",
+          "url": "https://www.touteleurope.eu/l-ue-dans-le-monde/en-visite-a-berlin-gabriel-attal-marque-son-desaccord-avec-l-allemagne-sur-le-mercosur/",
+          "date": "2024-02-06",
+          "publisher": "Toute l'Europe"
+        },
+        {
+          "title": "Communiqué de presse – déplacement du Premier ministre à Montastruc-de-Salies (Haute-Garonne)",
+          "url": "https://www.info.gouv.fr/upload/media/content/0001/08/09820bfaa3babc8ec27519da7b9f225e395f3674.pdf",
+          "date": "2024-01-26",
+          "publisher": "Service de communication de Matignon (info.gouv.fr)"
+        }
+      ],
+      "verdict": "added",
+      "note": "Recherche ciblée du 9 octobre 2026 (étape 1, agriculture-1), confirmée par deux vérifications indépendantes. Citation : Nous avons réaffirmé des principes clairs sur le refus de l’absence de mesures miroirs ou d’accords qui désavantageraient nos agriculteurs."
+    },
+    {
+      "questionId": "agriculture-1",
+      "candidate": "attal",
+      "approachId": "agriculture-1-b",
+      "weight": 1,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "En 2024, il se fixe pour règle d’« éviter toute surtransposition » des normes européennes. Pour suivre l’usage des pesticides, il remplace l’indicateur « franco-français » par l’indicateur européen. Il présente surtout ce choix comme une simplification, en le liant à la « concurrence déloyale ».",
+      "sources": [
+        {
+          "title": "Discours de M. Gabriel Attal, Premier ministre – Conférence de presse sur la situation agricole",
+          "url": "https://www.info.gouv.fr/upload/media/content/0001/08/1f327f1e3f38670d26a609953c8fc32fea795bf3.pdf",
+          "date": "2024-02-21",
+          "publisher": "Service de communication de Matignon (info.gouv.fr)"
+        }
+      ],
+      "verdict": "added",
+      "note": "Recherche ciblée du 9 octobre 2026 (étape 1, agriculture-1), confirmée par deux vérifications indépendantes. Citation : l’indicateur de référence pour suivre notre objectif de réduction ne sera plus le NODU franco-français mais bien l’indicateur européen. C’est conforme à notre volonté d’éviter toute surtransposition."
+    },
+    {
+      "questionId": "agriculture-1",
+      "candidate": "guedj",
+      "approachId": "agriculture-1-c",
+      "weight": 2,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "high",
+      "summary": "Il estime que l’accord commercial entre l’Union européenne et le Mercosur « doit tomber » et y voit une menace pour la souveraineté alimentaire. En novembre 2024, il a cosigné deux tribunes demandant de le bloquer. Député, il a voté les résolutions de l’Assemblée qui demandaient au gouvernement de refuser sa ratification (janvier 2025), puis de s’opposer à son adoption (novembre 2025).",
+      "sources": [
+        {
+          "title": "Union européenne : l’accord Mercosur doit tomber",
+          "url": "https://www.jerome-guedj.fr/medias/union-europeenne-laccord-mercosur-doit-tomber",
+          "date": "2024-11-20",
+          "publisher": "jerome-guedj.fr"
+        },
+        {
+          "title": "« La France peut encore bloquer l’accord de libre-échange entre l’Union européenne et les pays du Mercosur »",
+          "url": "https://www.jerome-guedj.fr/medias/la-france-peut-encore-bloquer-laccord-de-libre-echange-entre-lunion-europeenne-et-les-pays-du-mercosur",
+          "date": "2024-11-04",
+          "publisher": "jerome-guedj.fr"
+        },
+        {
+          "title": "Scrutin public n°691 – proposition de résolution européenne visant à refuser la ratification de l’accord commercial entre l’Union européenne et le Mercosur (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/691",
+          "date": "2025-01-30",
+          "publisher": "Assemblée nationale"
+        },
+        {
+          "title": "Scrutin public n°4244 – proposition de résolution invitant le Gouvernement à s’opposer à l’adoption de l’accord commercial UE-Mercosur (Assemblée nationale)",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/4244",
+          "date": "2025-11-27",
+          "publisher": "Assemblée nationale"
+        }
+      ],
+      "verdict": "added",
+      "note": "Recherche ciblée du 9 octobre 2026 (étape 1, agriculture-1), confirmée par deux vérifications indépendantes. Citation : Pour soutenir nos agriculteurs et protéger les consommateurs, oui, l’accord Mercosur doit tomber !"
     }
   ],
-  "_positions_note": "Attributions dont dépend l’étape 1, relevées par la critique et vérifiées dans les dossiers (citations dans « note »). Retirées le 7 octobre 2026 après contre-vérification, parce que la vérification de 2-question-bank.js les avait réfutées et qu’aucune source nouvelle ne les justifie : Attal sur agriculture-1-b (la source ne parle que de simplifier les normes, ni d’importations ni de règles européennes) et Becht sur finances_publiques-1-a (il rejette une « compression brutale » et annonce de nouvelles dépenses sociales ; sa position, réformer l’État sans hausse d’impôts, relève de l’approche ajoutée finances_publiques-1-g, laissée à l’extension comme les 39 autres). Cazeneuve, réfuté sur l’ancien texte de immigration-1-d, est placé sur sa reformulation. Les attributions contestées par les relecteurs sans appui dans les sources sont laissées telles quelles. Décision 3 (7 octobre 2026) : report de deux attributions des doublons écartés (rejet de laicite_republique-1-a par Attal, ecologie_energie-7-f en poids 2 pour Dupont-Aignan ; voir _drops_note), et retrait de Retailleau sur europe-x4-c (source qui ne porte pas sur l’adhésion). Le report de Dupont-Aignan sur 7-f revient au reclassement que son explorateur proposait (« ecologie_energie-7 b → f », f en poids 2 et b gardé en poids 1) : il découle ici de la règle des doublons, pas de la liste des reclassements, que la décision 3 n’applique pas (_decision3_note). Les autres attributions contestées par les relecteurs de 3-bank-expansion.js sont gardées : la vérification les a confirmées sur des sources lues hors des dossiers (Mélenchon europe-x5-d, entretien du 22 juillet 2026 ; Arthaud et Mélenchon securite_justice-x1-d ; Retailleau territoires-x4-b et -e ; Le Pen, rejet de territoires-x3-a, vote du 23 juin 2026 ; Cazeneuve fiscalite-x1-c et -d ; Attal fiscalite-x1-a et education-x1-a ; Philippot fiscalite-x1-b ; Lalanne fiscalite-x1-a ; Roussel ecologie_energie-x9-d ; Mélenchon territoires-x3-e et territoires-x4-a ; Lisnard territoires-x5-b) ou les a déjà ramenées à une inférence de poids 1 (Labib education-x1-d, Bertrand education-x1-e, compatibilité partielle) ; elles restent à relire par le propriétaire.",
+  "_positions_note": "Attributions dont dépend l’étape 1, relevées par la critique et vérifiées dans les dossiers (citations dans « note »). Retirées le 7 octobre 2026 après contre-vérification, parce que la vérification de 2-question-bank.js les avait réfutées et qu’aucune source nouvelle ne les justifie : Attal sur agriculture-1-b (la source ne parle que de simplifier les normes, ni d’importations ni de règles européennes) et Becht sur finances_publiques-1-a (il rejette une « compression brutale » et annonce de nouvelles dépenses sociales ; sa position, réformer l’État sans hausse d’impôts, relève de l’approche ajoutée finances_publiques-1-g, laissée à l’extension comme les 39 autres). Cazeneuve, réfuté sur l’ancien texte de immigration-1-d, est placé sur sa reformulation. Les attributions contestées par les relecteurs sans appui dans les sources sont laissées telles quelles. Décision 3 (7 octobre 2026) : report de deux attributions des doublons écartés (rejet de laicite_republique-1-a par Attal, ecologie_energie-7-f en poids 2 pour Dupont-Aignan ; voir _drops_note), et retrait de Retailleau sur europe-x4-c (source qui ne porte pas sur l’adhésion). Le report de Dupont-Aignan sur 7-f revient au reclassement que son explorateur proposait (« ecologie_energie-7 b → f », f en poids 2 et b gardé en poids 1) : il découle ici de la règle des doublons, pas de la liste des reclassements, que la décision 3 n’applique pas (_decision3_note). Les autres attributions contestées par les relecteurs de 3-bank-expansion.js sont gardées : la vérification les a confirmées sur des sources lues hors des dossiers (Mélenchon europe-x5-d, entretien du 22 juillet 2026 ; Arthaud et Mélenchon securite_justice-x1-d ; Retailleau territoires-x4-b et -e ; Le Pen, rejet de territoires-x3-a, vote du 23 juin 2026 ; Cazeneuve fiscalite-x1-c et -d ; Attal fiscalite-x1-a et education-x1-a ; Philippot fiscalite-x1-b ; Lalanne fiscalite-x1-a ; Roussel ecologie_energie-x9-d ; Mélenchon territoires-x3-e et territoires-x4-a ; Lisnard territoires-x5-b) ou les a déjà ramenées à une inférence de poids 1 (Labib education-x1-d, Bertrand education-x1-e, compatibilité partielle) ; elles restent à relire par le propriétaire. 9 octobre 2026 : agriculture-1 (étape 1) complétée par une recherche ciblée doublement vérifiée pour Attal (f, b) et Guedj (c), après l’ajout des candidats de la primaire.",
   "movePositions": [],
   "externalFlags": [
     {
@@ -596,9 +686,65 @@
     {
       "approachId": "agriculture-3-f",
       "external": true
+    },
+    {
+      "approachId": "education-2-c",
+      "external": false
+    },
+    {
+      "approachId": "institutions-2-c",
+      "external": false
+    },
+    {
+      "approachId": "laicite_republique-2-a",
+      "external": false
+    },
+    {
+      "approachId": "logement-2-c",
+      "external": false
+    },
+    {
+      "approachId": "numerique-3-c",
+      "external": false
+    },
+    {
+      "approachId": "territoires-x4-c",
+      "external": false
+    },
+    {
+      "approachId": "ecologie_energie-5-e",
+      "external": false
+    },
+    {
+      "approachId": "securite_justice-3-d",
+      "external": false
+    },
+    {
+      "approachId": "solidarites-3-b",
+      "external": false
+    },
+    {
+      "approachId": "proche_orient-1-c",
+      "external": false
+    },
+    {
+      "approachId": "sante-2-b",
+      "external": false
+    },
+    {
+      "approachId": "sante-5-d",
+      "external": false
+    },
+    {
+      "approachId": "securite_justice-4-f",
+      "external": false
+    },
+    {
+      "approachId": "solidarites-2-f",
+      "external": false
     }
   ],
-  "_externalFlags_note": "Décision 3 : approches marquées external (« portée par aucun candidat », compté dans la page Méthode) alors qu’un candidat y est désormais placé avec une confiance medium ou high, par les compléments sourcés de 3-bank-expansion.js : industrie_economie-2-f (Lisnard), sante-4-e (Markovic), egalite-4-f et education-4-e (Mélenchon), numerique-2-b (Philippe), agriculture-2-b (Le Pen, Zemmour), agriculture-3-e (Retailleau), ukraine_russie-x3-c (Le Pen, incohérence relevée par les trois relecteurs). La marque est retirée ; aucune attribution n’est modifiée. Et, comme l’annonçait la décision 2 (_addApproaches_note : « une approche restée sans candidat sera marquée external »), les 14 approches ajoutées que l’extension n’a attribuées à personne (aucun poids en confiance medium ou high ; parfois seulement des rejets ou des poids low) sont marquées external : travail_salaires-1-g et -i, solidarites-1-g, securite_justice-2-g, fiscalite-1-f, retraites-2-e, sante-1-h, logement-2-f, education-2-f, securite_justice-6-f, proche_orient-1-g, institutions-3-g, sante-5-f, agriculture-3-f. Six questions ont ainsi deux approches external : travail_salaires-1 (g et i, toutes deux marquées ici ; question de l’étape 1), logement-2, education-2, proche_orient-1, institutions-3 et sante-5, au-delà de la règle de conception des workflows (une au plus) ; l’audit ne la contrôle pas. Si le propriétaire le préfère, ces 14 approches peuvent aller dans dropApproaches, ce qui réduirait aussi le nombre de questions à plus de 6 approches (contrôle bank-approaches). Deux d’entre elles ont un reclassement proposé en attente (Mélenchon : solidarites-1-e → g, securite_justice-2-c → g) : s’il est retenu, retirer la marque.",
+  "_externalFlags_note": "Décision 3 : approches marquées external (« portée par aucun candidat », compté dans la page Méthode) alors qu’un candidat y est désormais placé avec une confiance medium ou high, par les compléments sourcés de 3-bank-expansion.js : industrie_economie-2-f (Lisnard), sante-4-e (Markovic), egalite-4-f et education-4-e (Mélenchon), numerique-2-b (Philippe), agriculture-2-b (Le Pen, Zemmour), agriculture-3-e (Retailleau), ukraine_russie-x3-c (Le Pen, incohérence relevée par les trois relecteurs). La marque est retirée ; aucune attribution n’est modifiée. Et, comme l’annonçait la décision 2 (_addApproaches_note : « une approche restée sans candidat sera marquée external »), les 14 approches ajoutées que l’extension n’a attribuées à personne (aucun poids en confiance medium ou high ; parfois seulement des rejets ou des poids low) sont marquées external : travail_salaires-1-g et -i, solidarites-1-g, securite_justice-2-g, fiscalite-1-f, retraites-2-e, sante-1-h, logement-2-f, education-2-f, securite_justice-6-f, proche_orient-1-g, institutions-3-g, sante-5-f, agriculture-3-f. Six questions ont ainsi deux approches external : travail_salaires-1 (g et i, toutes deux marquées ici ; question de l’étape 1), logement-2, education-2, proche_orient-1, institutions-3 et sante-5, au-delà de la règle de conception des workflows (une au plus) ; l’audit ne la contrôle pas. Si le propriétaire le préfère, ces 14 approches peuvent aller dans dropApproaches, ce qui réduirait aussi le nombre de questions à plus de 6 approches (contrôle bank-approaches). Deux d’entre elles ont un reclassement proposé en attente (Mélenchon : solidarites-1-e → g, securite_justice-2-c → g) : s’il est retenu, retirer la marque. 2026-10-09 : approches portées par les candidats de la primaire « Choisir 2027 » ajoutés (add-candidate), plus « portées par aucun candidat ».",
   "_decision3_note": {
     "source": "Décision 3 (7 octobre 2026), décisions par défaut demandées par le propriétaire pour avancer, sur la sortie de 3-bank-expansion.js (research/presidentielle-2027/expansion-output.json, fusionnée dans expansion-merged.json). Choix détaillés dans _tierChanges_note, _step1_note, _drops_note, _positions_note et _externalFlags_note.",
     "reformulations": "Les 17 reformulations retenues par l’arbitre (reviews.arbitrage.edits = neutrality.edits) sont appliquées telles quelles par build-pack depuis expansion-merged.json : fiscalite-x1-e, education-x1 (contexte), education-x1-c, territoires-x4 (contexte), territoires-x5-d, agriculture-x4-c et -e, ecologie_energie-x9 (énoncé) et -c, ukraine_russie-x3-b et -c, societe-x1-b, europe-x5-e et -f, securite_justice-x1-b, institutions-x1-f, territoires-x3 (énoncé). Les propositions écartées par l’arbitre (reviews.arbitrage.rejected) ne figurent pas dans la sortie : rien à mettre dans rejectEdits.",

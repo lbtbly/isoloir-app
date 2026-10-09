@@ -1,0 +1,316 @@
+[
+  {
+    "c": "attal",
+    "research": {
+      "candidate": "attal",
+      "found": true,
+      "positions": [
+        {
+          "approachId": "agriculture-1-f",
+          "weight": 2,
+          "rejects": false,
+          "nature": "declaration",
+          "confidence": "medium",
+          "summary": "Quand il était Premier ministre, en 2024, il refusait les accords commerciaux sans « mesures miroirs », et donc sans imposer nos normes aux importations. Il s’opposait au Mercosur tant que l’accord n’en contiendrait pas, mais pas au libre-échange en lui-même.",
+          "sources": [
+            {
+              "title": "Discours de M. Gabriel Attal, Premier ministre – Conférence de presse sur la situation agricole",
+              "url": "https://www.info.gouv.fr/upload/media/content/0001/08/1f327f1e3f38670d26a609953c8fc32fea795bf3.pdf",
+              "date": "2024-02-21",
+              "publisher": "Service de communication de Matignon (info.gouv.fr)"
+            },
+            {
+              "title": "En visite à Berlin, Gabriel Attal marque son désaccord avec l'Allemagne sur le Mercosur",
+              "url": "https://www.touteleurope.eu/l-ue-dans-le-monde/en-visite-a-berlin-gabriel-attal-marque-son-desaccord-avec-l-allemagne-sur-le-mercosur/",
+              "date": "2024-02-06",
+              "publisher": "Toute l'Europe"
+            },
+            {
+              "title": "Communiqué de presse – déplacement du Premier ministre à Montastruc-de-Salies (Haute-Garonne)",
+              "url": "https://www.info.gouv.fr/upload/media/content/0001/08/09820bfaa3babc8ec27519da7b9f225e395f3674.pdf",
+              "date": "2024-01-26",
+              "publisher": "Service de communication de Matignon (info.gouv.fr)"
+            }
+          ],
+          "quote": "Nous avons réaffirmé des principes clairs sur le refus de l’absence de mesures miroirs ou d’accords qui désavantageraient nos agriculteurs."
+        },
+        {
+          "approachId": "agriculture-1-b",
+          "weight": 1,
+          "rejects": false,
+          "nature": "declaration",
+          "confidence": "medium",
+          "summary": "En 2024, il se fixe pour règle d’« éviter toute surtransposition » des normes européennes. Pour suivre l’usage des pesticides, il remplace l’indicateur « franco-français » par l’indicateur européen. Il présente surtout ce choix comme une simplification, en le liant à la « concurrence déloyale ».",
+          "sources": [
+            {
+              "title": "Discours de M. Gabriel Attal, Premier ministre – Conférence de presse sur la situation agricole",
+              "url": "https://www.info.gouv.fr/upload/media/content/0001/08/1f327f1e3f38670d26a609953c8fc32fea795bf3.pdf",
+              "date": "2024-02-21",
+              "publisher": "Service de communication de Matignon (info.gouv.fr)"
+            }
+          ],
+          "quote": "l’indicateur de référence pour suivre notre objectif de réduction ne sera plus le NODU franco-français mais bien l’indicateur européen. C’est conforme à notre volonté d’éviter toute surtransposition."
+        },
+        {
+          "approachId": "agriculture-1-c",
+          "weight": 1,
+          "rejects": false,
+          "nature": "declaration",
+          "confidence": "low",
+          "summary": "Il s’est opposé à l’accord UE-Mercosur à l’échelle européenne, comme Premier ministre puis comme député, et défend en 2026 le maintien d’une PAC « ambitieuse ». Son opposition vise le Mercosur faute de clauses miroirs, pas les accords de libre-échange en général : la compatibilité n’est que partielle.",
+          "sources": [
+            {
+              "title": "Discours de M. Gabriel Attal, Premier ministre – Conférence de presse sur la situation agricole",
+              "url": "https://www.info.gouv.fr/upload/media/content/0001/08/1f327f1e3f38670d26a609953c8fc32fea795bf3.pdf",
+              "date": "2024-02-21",
+              "publisher": "Service de communication de Matignon (info.gouv.fr)"
+            },
+            {
+              "title": "Accord du Mercosur : l’UE a signé, Gabriel Attal et Marine Le Pen se renvoient la faute",
+              "url": "https://actu.orange.fr/france/accord-du-mercosur-l-ue-a-signe-gabriel-attal-et-marine-le-pen-se-renvoient-la-faute-magic-CNT000002gC8t8.html",
+              "date": "2024-12-07",
+              "publisher": "Orange Actualités (Magic Maman / AFP)"
+            },
+            {
+              "title": "LÉGISLATURE 17 – Vote n° 456 : déclaration du Gouvernement sur l’accord UE-Mercosur",
+              "url": "https://datan.fr/votes/legislature-17/vote_456",
+              "date": "2024-11-26",
+              "publisher": "Datan"
+            },
+            {
+              "title": "Metz-Magny : Gabriel Attal veut préparer l’avenir de l’agriculture française",
+              "url": "https://attalpresident.fr/actualites/metz-magny-gabriel-attal-veut-preparer-l-avenir-de-l-agriculture-francaise",
+              "date": "2026-09-11",
+              "publisher": "attalpresident.fr"
+            }
+          ],
+          "quote": "A cet égard, le Président de la République a été extrêmement ferme sur notre opposition au traité de libre-échange entre l’Union européenne et le MERCOSUR."
+        }
+      ],
+      "notes": "Main source: Attal's 21 February 2024 speech as Prime Minister, a Matignon PDF on info.gouv.fr. WebFetch saved the file and I decoded it locally (Mac Roman encoding). The quotes are checked word for word, including the typographic apostrophes.\n\n1. Why f is the main approach. Attal ties his opposition to Mercosur to the lack of mirror clauses. Toute l'Europe (6 February 2024, quoting Les Echos) reports that he wants to « s'opposer à la conclusion de cet accord tant qu'il n'inclura pas des 'clauses miroirs' ». The Matignon press release of 26 January 2024 says « les accords de libre-échange ne doivent pas se faire sans intégrer la réciprocité des normes et la mise en place de clauses miroirs ». The rest of that release extracts in fragments, so only this sentence is relied on. In April 2024 he also defended the CETA in Ottawa as a « win-win deal » (thedairysite.com, 12 April 2024). That runs against a general opposition to free trade and is why c gets only weight 1 with low confidence.\n\n2. b. The attribution refuted earlier rested on a source about simplifying rules. This new source is explicit about surtransposition, meaning French rules that go beyond EU rules. It says « éviter toute surtransposition » and « pas d’interdiction sans solution, pas de surtransposition », and it replaces the French NODU indicator with the European one. The opening also says « Action face à la surtransposition et à la concurrence déloyale ». Édouard Philippe is already on b, at weight 2, for « zéro surtransposition agricole ». Attal stays at weight 1 because he presents the move mainly as simplification.\n\n3. Not attributed:\n- d: the same speech states the principle « si c’est interdit pour nos agriculteurs, cela ne doit pas rentrer chez nous ». But he applies it « produit par produit », to thiacloprid, a substance already banned in the EU, with a national order that only goes « plus vite que le calendrier de la Commission ». It is not an automatic ban that departs from EU rules.\n- a: he defends keeping the PAC, which implies he rejects leaving it, but he never rejects a explicitly, so rejects is not set.\n- e: no source.\n\n4. As a 2026 candidate, attalpresident.fr (11 September 2026) only says he wants to « mieux les protéger face à la concurrence déloyale » and defends « une Politique agricole commune ambitieuse ». No campaign position on Mercosur or mirror clauses was found. Jérémy Decerle is said to be drafting the farm programme. These attributions therefore rest mainly on his record as Prime Minister in 2024, plus his December 2024 tweet and his 26 November 2024 vote for the government declaration opposing Mercosur « en l'état ».\n\nWorking files in scratchpad: /private/tmp/claude-501/-Users-lambertbouley-Claude-Politique-primaire-de-gauche/157e5e56-5df4-4285-80f7-e25003d46142/scratchpad/pdf1/doc.pdf (21 February 2024 speech) and pdf4/doc.pdf (26 January 2024 press release)."
+    },
+    "verdicts": [
+      {
+        "verdicts": [
+          {
+            "approachId": "agriculture-1-f",
+            "verdict": "confirmed",
+            "weight": 2,
+            "confidence": "medium",
+            "summary": "Quand il était Premier ministre, en 2024, il refusait les accords commerciaux sans « mesures miroirs », c’est-à-dire sans imposer nos normes aux importations. Il s’opposait au Mercosur tant que l’accord n’en contiendrait pas, mais il défendait d’autres accords de libre-échange, comme le CETA avec le Canada, qu’il jugeait « gagnant-gagnant ».",
+            "reason": "J'ai rouvert le discours du 21/02/2024 (PDF info.gouv.fr, texte extrait). La citation y figure mot pour mot, page 8, au « Quatrième enjeu : la protection de nos agriculteurs face à la concurrence déloyale » : « Nous avons réaffirmé des principes clairs sur le refus de l’absence de mesures miroirs ou d’accords qui désavantageraient nos agriculteurs. » Le communiqué de Matignon du 26/01/2024 (PDF vérifié, page 3) est encore plus net : « les accords de libre-échange ne doivent pas se faire sans intégrer la réciprocité des normes et la mise en place de clauses miroirs : elles doivent protéger les consommateurs et garantir à nos producteurs qu’ils luttent à armes égales avec leurs concurrents étrangers ». Je recommande de prendre cette phrase comme citation principale, plus proche du texte de l'approche. Toute l'Europe (publié le 06.02.2024) confirme, d'après Les Echos, qu'Attal veut « s’opposer à la conclusion de cet accord tant qu’il n’inclura pas des 'clauses miroirs' ». Une source supplémentaire confirme qu'il accepte le libre-échange en lui-même, ce que dit le résumé : à Ottawa le 11/04/2024, il a qualifié le CETA d’« accord gagnant-gagnant » et a dit que l’excédent agricole et agroalimentaire « a été multiplié par trois » (noovo.info, 11 avril 2024 ; Reuters via thepoultrysite.com, 12/04/2024). Je propose de l'ajouter aux sources. Le poids 2 se justifie : l'acceptation conditionnelle par les clauses miroirs est bien son approche distinctive. La confiance moyenne se justifie aussi : ce sont des positions de gouvernement prises en 2024, et je n'ai trouvé aucune reformulation propre à sa campagne de 2026 sur les accords commerciaux, la page de Metz-Magny ne parlant ni de Mercosur ni de libre-échange."
+          },
+          {
+            "approachId": "agriculture-1-b",
+            "verdict": "confirmed",
+            "weight": 1,
+            "confidence": "medium",
+            "reason": "La citation figure mot pour mot dans le discours du 21/02/2024 (pages 10 et 11) : « l’indicateur de référence pour suivre notre objectif de réduction ne sera plus le NODU franco-français mais bien l’indicateur européen. C’est conforme à notre volonté d’éviter toute surtransposition. » Le même principe revient plusieurs fois. D'abord dans le discours lui-même : « Cinquième enjeu : faciliter la vie de nos agriculteurs, éviter toute surtransposition », « pas d’interdiction sans solution, pas de surtransposition ». Ensuite dans le communiqué du 26/01/2024 : « il n’y aura pas de surtransposition ». Le lien avec la concurrence déloyale est réel mais il reste général : il apparaît dans l'introduction (« Action face à la surtransposition et à la concurrence déloyale. »), alors que la mesure sur le NODU est présentée dans la partie consacrée à la simplification. Le poids 1 (compatible) convient donc mieux qu'un poids 2. Deux limites, qui ne justifient pas un rejet : dans le même discours, il garde l'objectif national de réduire de 50 % l'usage des pesticides d'ici 2030, et il annonce un arrêté national interdisant les importations de produits traités au thiaclopride avant le calendrier de la Commission (mais cette substance est déjà interdite dans l'UE, donc il ne s'agit pas d'une norme franco-française). L'attribution du refus de la surtransposition est solide, d'où la confiance moyenne."
+          },
+          {
+            "approachId": "agriculture-1-c",
+            "verdict": "refuted",
+            "reason": "Les faits cités sont exacts. La citation figure mot pour mot dans le discours du 21/02/2024 : « A cet égard, le Président de la République a été extrêmement ferme sur notre opposition au traité de libre-échange entre l’Union européenne et le MERCOSUR. » Sur Datan, le vote n° 456 du 26/11/2024 indique Attal « POUR » la déclaration du Gouvernement sur le Mercosur. L'article d'Orange (07/12/2024) cite son tweet : « Déstabilisée faute d'un gouvernement stable, la France pourrait voir son influence affaiblie pour s'opposer au Mercosur ». La page de Metz-Magny (11/09/2026) indique qu'il « défend le maintien d'une Politique agricole commune ambitieuse ». En revanche, l'approche c est attribuée à tort. Ce qui distingue c de f, c'est l'opposition aux accords de libre-échange agricoles en tant que tels. Or Attal la contredit explicitement : à Ottawa, le 11/04/2024, il qualifie le CETA d’« accord gagnant-gagnant » et met en avant l'excédent agricole et agroalimentaire « multiplié par trois » (noovo.info ; Reuters via thepoultrysite.com). Son opposition au Mercosur est conditionnelle, elle dépend de l'absence de « clauses miroirs » (Toute l'Europe, 06/02/2024 ; communiqué du 26/01/2024), ce qui relève exactement de l'approche f, déjà notée avec un poids de 2. Le soutien à la PAC, lui, ne permet pas de trancher : toutes les approches sauf a le partagent. Le résumé du chercheur le reconnaît d'ailleurs (« pas les accords de libre-échange en général »). Compter c comme compatible reviendrait à compter deux fois la même position et à rapprocher Attal des opposants au libre-échange, ce que contredit son soutien au CETA. Une case vide vaut mieux. Si l'on tient malgré tout à garder c, le plafond est un poids de 1 avec une confiance faible, en précisant le soutien au CETA."
+          }
+        ]
+      },
+      {
+        "verdicts": [
+          {
+            "approachId": "agriculture-1-f",
+            "verdict": "confirmed",
+            "weight": 2,
+            "confidence": "medium",
+            "summary": "Quand il était Premier ministre, en 2024, il refusait les accords commerciaux sans « mesures miroirs », et donc sans imposer nos normes aux importations. Il s’opposait au Mercosur tant que l’accord n’en contiendrait pas, mais pas au libre-échange en lui-même.",
+            "reason": "J’ai rouvert le PDF du discours du 21/02/2024 (lu en entier, 12 pages). La citation figure mot pour mot en page 8, sous le titre « Quatrième enjeu : la protection de nos agriculteurs face à la concurrence déloyale ». Le texte refuse explicitement les accords sans mesures miroirs, ce qui correspond à l’approche f (acceptation conditionnelle), pas à un rejet du libre-échange. Deux sources la renforcent. Le communiqué de Matignon de Montastruc (26/01/2024, p. 3) dit : « les accords de libre-échange ne doivent pas se faire sans intégrer la réciprocité des normes et la mise en place de clauses miroirs ». Il s’agit toutefois d’un texte du service de communication, pas de propos directs d’Attal. Toute l’Europe (06/02/2024) rapporte qu’il veut « s’opposer à la conclusion de cet accord tant qu’il n’inclura pas des “clauses miroirs” » ; c’est une reprise des Echos, non une citation directe. En 2026, Réussir (4 juin, congrès des Jeunes agriculteurs) écrit qu’il refuse que l’agriculture soit la « variable d’ajustement » des accords commerciaux et que « l’Europe … doit être la solution ». Ce sont des paraphrases, mais elles vont dans le même sens. Le poids 2 se justifie : f est l’approche la mieux ajustée, et son opposition au Mercosur est conditionnelle. La confiance medium est juste : les sources sont des positions gouvernementales de 2024, et je n’ai trouvé aucune déclaration de candidat de 2026 sur les clauses miroirs."
+          },
+          {
+            "approachId": "agriculture-1-b",
+            "verdict": "confirmed",
+            "weight": 1,
+            "confidence": "medium",
+            "summary": "En 2024, il se fixe pour règle d’« éviter toute surtransposition » des normes européennes. Pour suivre l’usage des pesticides, il remplace l’indicateur « franco-français » par l’indicateur européen. Il présente surtout ce choix comme une simplification, en le liant à la « concurrence déloyale ».",
+            "reason": "La citation figure mot pour mot en page 10 du discours du 21/02/2024 (« sur les indicateurs, je vous annonce que l’indicateur de référence… C’est conforme à notre volonté d’éviter toute surtransposition »). Elle est confirmée par d’autres passages : le « Cinquième enjeu : … éviter toute surtransposition » (p. 8) ; « simplifier, c’est éviter les surtranspositions, en toutes circonstances » (p. 10) ; « pas de surtransposition » (p. 11). Le lien avec la concurrence déloyale est explicite dès la page 1 : « Action face à la surtransposition et à la concurrence déloyale. » Le communiqué de Montastruc ajoute « il n’y aura pas de surtransposition » sur les zones humides. Le poids 1 (compatible, non principal) est juste : c’est surtout un discours de simplification, pas une réponse directe aux importations. Une nuance n’invalide pas l’attribution : dans le même discours, il annonce un arrêté national contre les importations de produits au thiaclopride, en allant « plus vite que le calendrier de la Commission ». C’est une exigence nationale sur les importations, pas une norme supplémentaire imposée aux agriculteurs français. Cet élément relève plutôt de l’approche d, que le chercheur n’a pas retenue. La confiance medium est adaptée : c’est une déclaration de 2024 faite comme Premier ministre."
+          },
+          {
+            "approachId": "agriculture-1-c",
+            "verdict": "confirmed",
+            "weight": 1,
+            "confidence": "low",
+            "summary": "Il s’est opposé à l’accord UE-Mercosur à l’échelle européenne, comme Premier ministre puis comme député, et défend en 2026 le maintien d’une PAC « ambitieuse ». Son opposition vise le Mercosur faute de clauses miroirs, pas les accords de libre-échange en général : la compatibilité n’est que partielle.",
+            "reason": "La citation figure mot pour mot en page 8 du discours du 21/02/2024, juste après la phrase sur les mesures miroirs. Les autres sources vérifiées sont cohérentes. Datan, scrutin n° 456 du 26/11/2024 : sur la déclaration du gouvernement Barnier relative à l’accord UE-Mercosur, Attal a voté « POUR », comme son groupe EPR. Orange Actualités (07/12/2024, Allan Doisneau, 6Medias) cite son tweet : « la France pourrait voir son influence affaiblie pour s’opposer au Mercosur ». Le titre de l’article parle de signature alors qu’il s’agissait de la conclusion des négociations, un détail sans effet sur l’attribution. attalpresident.fr (11/09/2026) contient bien une section « Défendre les agriculteurs français et une PAC ambitieuse », sans rien sur le Mercosur. Le volet « rester dans la PAC et s’opposer au Mercosur au niveau européen » est donc solide. En revanche, l’approche c vise les accords de libre-échange agricoles en général, alors qu’Attal pose une condition (les clauses miroirs, voir f). Le poids 1 et la confiance low traduisent correctement cette compatibilité partielle. Le volet « député » repose sur un vote : pour cette partie, la nature serait plutôt une inférence, mais la citation principale reste une déclaration."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "c": "cazeneuve",
+    "research": {
+      "candidate": "cazeneuve",
+      "found": true,
+      "positions": [
+        {
+          "approachId": "agriculture-1-f",
+          "weight": 1,
+          "rejects": false,
+          "nature": "inference",
+          "confidence": "low",
+          "summary": "En mars 2024, il reproche au RN de dénoncer les accords de libre-échange « sans réciprocité ni clauses miroirs » tout en votant ceux avec la Nouvelle-Zélande, le Kenya et le Chili. Il ne rejette donc pas ces accords en bloc mais réclame qu'ils imposent la réciprocité des normes. Sa lettre de juillet 2026 dénonce la « concurrence déloyale » subie par les agriculteurs, des « normes européennes que nos voisins n'appliquent pas », et demande à l'Europe une « approche commerciale moins naïve ». Elle ne prend position sur aucun accord, Mercosur compris.",
+          "sources": [
+            {
+              "title": "Discours de Bernard Cazeneuve, convention thématique Europe (Paris, 10 mars 2024)",
+              "url": "https://assets.nationbuilder.com/laconvention/pages/348/attachments/original/1725484797/Discours-Convention-10-MARS-def.pdf?1725484797",
+              "date": "2024-03-10",
+              "publisher": "La Convention"
+            },
+            {
+              "title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+              "url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+              "date": "2026-07-15",
+              "publisher": "La Convention"
+            }
+          ],
+          "quote": "Et quelle cohérence y a-t-il encore à fustiger les accords de libre-échange sans réciprocité ni clauses miroirs et, « en même temps », à approuver au Parlement de Strasbourg les accords commerciaux avec la Nouvelle-Zélande, le Kenya et le Chili comme hier au Parlement français le CETA ?"
+        }
+      ],
+      "notes": "Aucune source directe ne donne la position de Bernard Cazeneuve sur l'accord UE-Mercosur ni sur les clauses miroirs entre 2025 et 2026. J'ai cherché dans les 54 pages du plan du site la-convention.fr, dans la lettre, dans la synthèse des mesures (juillet 2026) et dans le discours de Cergy (novembre 2025). J'ai aussi lu ses entretiens au JDN (30 juillet 2026) et à Destimed (20 juillet 2026), ainsi que l'article Wikipédia sur l'accord UE-Mercosur. Les résultats « Cazeneuve + Mercosur » concernent presque tous Jean-René Cazeneuve, député EPR du Gers, ou Pierre Cazeneuve. Il ne faut pas confondre. Le site Prési2027 lui attribue un refus du Mercosur « en l'état », mais en précisant qu'il s'agit d'une position estimée, sans source.\n\nLe texte précis est extrait du PDF original par PDFKit, parce que WebFetch ne lisait pas ces PDF. Seul le discours du 10 mars 2024 est précis. Ses passages sur le commerce restent une pique contre le RN. Il reproche aussi au RN d'avoir voté « pour » l'accord UE-Chili « et son insuffisante réciprocité commerciale ». C'est pourquoi la nature est « inference » et la confiance « low ». Cette pique pourrait aussi se lire comme une opposition à ces accords (agriculture-1-c). Je retiens f parce qu'il y critique l'absence de réciprocité et de clauses miroirs, pas le libre-échange lui-même. De plus, sa lettre de 2026 demande seulement une politique commerciale européenne « moins naïve ».\n\nLes approches a et d sont exclues : rien sur une sortie de la PAC ou sur une dérogation aux règles européennes. La lettre dit « normes européennes que nos voisins n'appliquent pas », une formule trop ambiguë pour l'approche b. Pour e, il y a des indices sans attribution possible. En 2024, il critique les primes à l'hectare de la PAC, « favorable aux plus grandes exploitations au détriment des fermes familiales et de l'agroécologie ». En 2026, il cite les « distributeurs qui dictent leurs prix ». Mais il ne propose jamais cela à la place d'une protection contre les importations : il dénonce lui-même la concurrence déloyale. L'attribution déjà présente dans expansion-merged.json (f, poids 1, inference, low) est confirmée sans changement. La meilleure source est le discours de 2024."
+    },
+    "verdicts": [
+      {
+        "verdicts": [
+          {
+            "approachId": "agriculture-1-f",
+            "verdict": "adjusted",
+            "weight": 1,
+            "confidence": "low",
+            "summary": "En mars 2024, il reproche au pouvoir en place (« l’actuel pouvoir ») de fustiger les accords de libre-échange « sans réciprocité ni clauses miroirs » tout en approuvant ceux avec la Nouvelle-Zélande, le Kenya et le Chili, ainsi que le CETA. Dans le même discours, il reproche au RN d’avoir voté pour l’accord UE-Chili « et son insuffisante réciprocité commerciale ». Il ne rejette donc pas le libre-échange en bloc, mais fait de la réciprocité et des clauses miroirs une condition. Sa lettre du 15 juillet 2026 évoque la « concurrence déloyale » et des « normes européennes que nos voisins n’appliquent pas », et demande à l’Europe une « approche commerciale moins naïve ». Elle ne prend position sur aucun accord, Mercosur compris.",
+            "reason": "J’ai téléchargé les deux PDF et extrait leur texte avec pypdf. La citation figure mot pour mot dans le discours du 10 mars 2024 (page 10), y compris « comme hier au Parlement français le CETA ». Les poids, la nature et la confiance tiennent, mais le résumé désigne la mauvaise cible. La phrase ne vise pas le RN : elle appartient à la série de « Quelle cohérence… » introduite page 9 par « depuis 2017 en France […] on peine à trouver la cohérence dans l’action de l’actuel pouvoir », avec le « en même temps » macroniste. Le CETA a d’ailleurs été approuvé en 2019 par la majorité présidentielle, et le RN avait voté contre. Le reproche fait au RN se trouve dans un autre passage (page 8) : « “pour” l’accord sur le libre-échange entre l’UE et le Chili et son insuffisante réciprocité commerciale ». Ce passage confirme la même logique conditionnelle. L’approche f est la bonne lecture : il s’en prend à des accords sans clauses miroirs, pas au libre-échange en général. L’approche c (opposition de principe) serait donc moins juste. Je garde le poids 1, la nature inference et la confiance low : la position se déduit de critiques adressées à d’autres et non d’une proposition qu’il formule lui-même, et ma recherche n’a trouvé aucune déclaration de Bernard Cazeneuve sur le Mercosur en 2024-2026 (les résultats renvoient à Jean-René Cazeneuve, un autre homme). La lettre de juillet 2026 contient bien « concurrence déloyale, normes européennes que nos voisins n’appliquent pas » (page 41) et « une approche commerciale moins naïve » (page 54), mais elle ne soutient pas f en propre. « Nos voisins » peut même désigner d’autres États de l’UE. Rejects=false est correct."
+          }
+        ]
+      },
+      {
+        "verdicts": [
+          {
+            "approachId": "agriculture-1-f",
+            "verdict": "adjusted",
+            "weight": 1,
+            "confidence": "low",
+            "summary": "Lors d'un meeting de La Convention à Paris, le 10 mars 2024, il reproche au pouvoir macroniste (« l'actuel pouvoir », « l'extrême centre ») son « en même temps » : dénoncer les accords de libre-échange « sans réciprocité ni clauses miroirs » tout en approuvant ceux avec la Nouvelle-Zélande, le Kenya et le Chili, ainsi que le CETA au Parlement français. Dans le même discours, il reproche aussi au RN d'avoir voté pour l'accord UE-Chili « et son insuffisante réciprocité commerciale ». Il juge donc ces accords sur leur réciprocité plutôt que de les rejeter par principe, mais c'est une déduction tirée d'une critique, pas une proposition. Sa lettre du 15 juillet 2026 dénonce la « concurrence déloyale » et des « normes européennes que nos voisins n'appliquent pas », et demande à l'Europe une « approche commerciale moins naïve ». Elle ne prend position sur aucun accord, Mercosur compris.",
+            "reason": "J'ai extrait le texte des deux PDF (PDFKit) et je les ai relus. La citation figure mot pour mot dans le discours du 10 mars 2024 (p. 10), et ceux de la lettre du 15 juillet 2026 (p. 41 et 54) sont exacts. Le résumé se trompe toutefois de cible. La phrase citée ne vise pas le RN : elle se trouve dans la partie sur « l'immobilisme de l'extrême centre », juste après « on peine à trouver la cohérence dans l'action de l'actuel pouvoir ». Le « en même temps », le Salon de l'Agriculture et le CETA voté « au Parlement français » visent Macron et sa majorité. Le RN est critiqué ailleurs dans le discours (p. 8), pour son vote « pour » l'accord UE-Chili « et son insuffisante réciprocité commerciale » ; cette citation peut s'ajouter comme second appui. Sur le fond, l'approche f reste la plus juste. Cazeneuve dénonce l'absence de réciprocité et de clauses miroirs, pas le libre-échange en soi, et la lettre de 2026 en reste à une approche commerciale « moins naïve », sans rejet. L'approche c (s'opposer aux accords) se défend aussi, puisqu'il blâme l'approbation de ces accords, mais rien d'explicite ne permet de l'attribuer. Je garde le poids 1, rejects=false, la nature inference (position déduite d'une question rhétorique, pas énoncée) et la confiance low. Je n'ai trouvé aucune déclaration de Cazeneuve sur le Mercosur entre 2024 et 2026 ; son dossier note d'ailleurs « position sur l'accord UE-Mercosur […] non trouvée ». Autre point mineur : le PDF ne porte que « Discours de Bernard Cazeneuve, Paris, dimanche 10 mars 2024 ». Le libellé « convention thématique Europe » n'y figure pas ; mieux vaut l'alléger en « Discours de Bernard Cazeneuve (Paris, 10 mars 2024) »."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "c": "guedj",
+    "research": {
+      "candidate": "guedj",
+      "found": true,
+      "positions": [
+        {
+          "approachId": "agriculture-1-c",
+          "weight": 2,
+          "rejects": false,
+          "nature": "declaration",
+          "confidence": "high",
+          "summary": "Il estime que l’accord commercial entre l’Union européenne et le Mercosur « doit tomber » et y voit une menace pour la souveraineté alimentaire. En novembre 2024, il a cosigné deux tribunes demandant de le bloquer. Député, il a voté les résolutions de l’Assemblée qui demandaient au gouvernement de refuser sa ratification (janvier 2025), puis de s’opposer à son adoption (novembre 2025).",
+          "quote": "Pour soutenir nos agriculteurs et protéger les consommateurs, oui, l’accord Mercosur doit tomber !",
+          "sources": [
+            {
+              "title": "Union européenne : l’accord Mercosur doit tomber",
+              "url": "https://www.jerome-guedj.fr/medias/union-europeenne-laccord-mercosur-doit-tomber",
+              "date": "2024-11-20",
+              "publisher": "jerome-guedj.fr"
+            },
+            {
+              "title": "« La France peut encore bloquer l’accord de libre-échange entre l’Union européenne et les pays du Mercosur »",
+              "url": "https://www.jerome-guedj.fr/medias/la-france-peut-encore-bloquer-laccord-de-libre-echange-entre-lunion-europeenne-et-les-pays-du-mercosur",
+              "date": "2024-11-04",
+              "publisher": "jerome-guedj.fr"
+            },
+            {
+              "title": "Scrutin public n°691 – proposition de résolution européenne visant à refuser la ratification de l’accord commercial entre l’Union européenne et le Mercosur (Assemblée nationale)",
+              "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/691",
+              "date": "2025-01-30",
+              "publisher": "Assemblée nationale"
+            },
+            {
+              "title": "Scrutin public n°4244 – proposition de résolution invitant le Gouvernement à s’opposer à l’adoption de l’accord commercial UE-Mercosur (Assemblée nationale)",
+              "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/4244",
+              "date": "2025-11-27",
+              "publisher": "Assemblée nationale"
+            }
+          ]
+        },
+        {
+          "approachId": "agriculture-1-f",
+          "weight": 1,
+          "rejects": false,
+          "nature": "inference",
+          "confidence": "medium",
+          "summary": "En janvier 2025, il a voté la résolution européenne de l’Assemblée qui demande d’imposer aux importations des normes de production équivalentes à celles de l’Union, en matière de santé, d’environnement, de biodiversité et de bien-être animal. Il écrit aussi vouloir « faire évoluer ces accords » de libre-échange pour qu’ils respectent les engagements de développement durable, plutôt que de rejeter tout accord par principe.",
+          "quote": "proposition de résolution européenne relative à l’adoption et à la mise en œuvre d’exigences à l’importation pour le respect de normes de production équivalentes aux normes de production essentielles",
+          "sources": [
+            {
+              "title": "Scrutin public n°685 – ensemble de la proposition de résolution européenne relative à l’adoption et à la mise en œuvre d’exigences à l’importation pour le respect de normes de production équivalentes (Assemblée nationale)",
+              "url": "https://www.assemblee-nationale.fr/dyn/17/scrutins/685",
+              "date": "2025-01-30",
+              "publisher": "Assemblée nationale"
+            },
+            {
+              "title": "Union européenne : l’accord Mercosur doit tomber",
+              "url": "https://www.jerome-guedj.fr/medias/union-europeenne-laccord-mercosur-doit-tomber",
+              "date": "2024-11-20",
+              "publisher": "jerome-guedj.fr"
+            }
+          ]
+        }
+      ],
+      "notes": "His site jerome-guedj.fr is a JavaScript single-page app that WebFetch cannot render. The texts were read through the site's public Sanity content API (project y542f73l, dataset production), opened with WebFetch and with curl. The 20/11/2024 post says, word for word: « Il est plus que temps de faire évoluer ces accords pour qu’ils deviennent de vrais partenariats économiques et politiques qui respectent nos engagements dans le cadre développement durable » and « Le Mercosur est une menace pour notre souveraineté économique et alimentaire. » The posts summarise two tribunes he cosigned: Libération on 22/11/2024 (more than 140 socialist parliamentarians) and Le Figaro on 04/11/2024 (the transpartisan tribune led by Chassaigne). The tribunes themselves could not be opened: liberation.fr and lefigaro.fr are blocked. All votes were checked on the Assemblée nationale scrutin pages. On 30/01/2025 he voted Pour on scrutin 685 (Potier/Thomin resolution on import requirements, the « juste échange » text). He was one of only 13 PS deputies who voted, so his presence was active. The same day he voted Pour on scrutin 691 (LFI resolution refusing ratification). He voted Pour on scrutin 4244 (27/11/2025). He also voted Pour the government declaration on Mercosur on 26/11/2024 (scrutin 456), which was not used. c is weight 2 because his own explicit declaration is backed by three consistent votes. f is weight 1 because he wants to reform the agreements rather than reject them all, which is the PS « juste échange » line, like Faure and Glucksmann. Approach e was not coded. On 02/06/2025 he regrets that Egalim 4 was dropped, since « les négociations commerciales avec les agro-industriels et la grande distribution constituent l’un des principaux leviers pour améliorer le revenu des agriculteurs ». On 25/02/2026, at the Salon de l’Agriculture, he denounces « la valeur [qui] se perde ailleurs dans la chaîne alimentaire ». Neither statement presents this as an alternative to targeting imports: he cites « concurrence internationale parfois déloyale » among farmers' problems, so the « plutôt que » in e does not fit. Nothing was found on a (leaving the PAC), b (aligning standards) or d (unilateral import ban). His votes against the Duplomb law are already handled in agriculture-2, and an explicit rejection of b was not found. France-Vote (an aggregator) was not used as a source."
+    },
+    "verdicts": [
+      {
+        "verdicts": [
+          {
+            "approachId": "agriculture-1-c",
+            "verdict": "confirmed",
+            "weight": 2,
+            "confidence": "high",
+            "summary": "Il estime que l’accord commercial entre l’Union européenne et le Mercosur « doit tomber » et y voit une menace pour la souveraineté alimentaire. En novembre 2024, il a cosigné deux tribunes demandant de le bloquer. Député, il a voté les résolutions de l’Assemblée qui demandaient au gouvernement de refuser sa ratification (janvier 2025), puis de s’opposer à son adoption (novembre 2025).",
+            "reason": "Je n’ai pas pu réfuter cette attribution ; toutes les affirmations vérifiées tiennent. WebFetch ne voit que le titre des deux pages de jerome-guedj.fr, parce que le site est une application JavaScript ; j’ai donc lu leur contenu dans l’API publique du CMS Sanity du site (projet y542f73l). (1) La page du 20/11/2024 contient la citation mot pour mot : « Pour soutenir nos agriculteurs et protéger les consommateurs, oui, l’accord Mercosur doit tomber ! ». Elle contient aussi « Le Mercosur est une menace pour notre souveraineté économique et alimentaire » et « j’ai signé cette tribune dans Libération ». (2) La page du 04/11/2024 présente la tribune transpartisane du Figaro, lancée par Chassaigne, qui « appelle le gouvernement à s’opposer à cet accord ». Le « Nous rappellons » qui suit indique qu’il l’a signée. Cette page ne le dit pas aussi explicitement que la première, mais c’est solide. (3) Scrutin n°691 du 30/01/2025, résolution « visant à refuser la ratification » : adoptée par 77 voix contre 0, avec « M. Jérôme Guedj » dans la liste Pour du groupe Socialistes. (4) Scrutin n°4244 du 27/11/2025, résolution « invitant le Gouvernement … à s’opposer à l’adoption » : adoptée par 244 voix contre 1, avec Guedj dans la liste Pour (j’ai lu cette page avec curl, car WebFetch renvoyait une erreur 503). Approche, poids, nature et confiance sont justes : il a pris une position publique répétée, l’a confirmée par ses votes, et le niveau européen est bien visé. Rien dans les sources ne parle explicitement de la PAC, mais rien n’indique non plus qu’il voudrait en sortir. Ajout possible : la résolution du scrutin n°685, qu’il a aussi votée, demande en son point 4 c) « De s’opposer, en conséquence, à l’adoption de l’accord entre l’Union européenne et le Mercosur »."
+          },
+          {
+            "approachId": "agriculture-1-f",
+            "verdict": "adjusted",
+            "weight": 1,
+            "confidence": "low",
+            "summary": "En janvier 2025, il a voté la résolution européenne de l’Assemblée qui demande d’imposer à toutes les importations, par des « mesures miroirs », des normes de production équivalentes à celles de l’Union en matière de santé, d’environnement, de biodiversité et de bien-être animal. Le même texte demande aussi de s’opposer à l’accord avec le Mercosur. Il écrit par ailleurs qu’il faut « faire évoluer ces accords » de libre-échange pour qu’ils respectent les engagements de développement durable.",
+            "reason": "Les faits se vérifient : (1) le scrutin n°685 du 30/01/2025 porte sur l’ensemble de la résolution, adoptée par 79 voix, 0 contre et 14 abstentions, et « M. Jérôme Guedj » figure dans la liste Pour : 13 du groupe Socialistes ; (2) la citation proposée se trouve mot pour mot dans l’intitulé du scrutin ; (3) sa page du 20/11/2024 contient bien « Il est plus que temps de faire évoluer ces accords pour qu’ils deviennent de vrais partenariats économiques et politiques qui respectent nos engagements dans le cadre développement durable ». Deux corrections s’imposent. A) Le résumé ajoute « plutôt que de rejeter tout accord par principe » : cette phrase n’est dans aucune source, c’est une interprétation du chercheur, et elle doit être retirée. B) La confiance doit passer de « medium » à « low ». La résolution de Dominique Potier (texte de la commission n°627-A0) demande des mesures miroirs « efficientes et universelles », c’est-à-dire des règles européennes pour toutes les importations. Elle ne dit pas d’accepter des accords de libre-échange à condition qu’ils contiennent des clauses miroirs. Elle demande même, au point 4 c), de s’opposer au Mercosur. La phrase « faire évoluer ces accords » ne parle ni de normes de production ni de conditions d’acceptation. Rien ne montre donc directement qu’il « accepte » des accords conditionnés, ce qui est le cœur de l’approche f. Le lien avec f reste plausible, et le poids 1 (compatible) ainsi que la nature « inference » sont défendables. Mais l’attribution est fragile, d’où la confiance « low »."
+          }
+        ]
+      },
+      {
+        "verdicts": [
+          {
+            "approachId": "agriculture-1-c",
+            "verdict": "confirmed",
+            "weight": 2,
+            "confidence": "high",
+            "summary": "Il estime que l’accord commercial entre l’Union européenne et le Mercosur « doit tomber » et y voit une menace pour la souveraineté alimentaire. En novembre 2024, il a cosigné deux tribunes demandant de le bloquer. Député, il a voté les résolutions de l’Assemblée qui demandaient au gouvernement de refuser sa ratification (janvier 2025), puis de s’opposer à son adoption (novembre 2025).",
+            "reason": "J’ai tenté de réfuter chaque élément et tous tiennent. WebFetch ne renvoie que le titre des pages de jerome-guedj.fr, car le site est une application JavaScript. J’ai donc lu le contenu affiché via l’API publique du CMS du site (Sanity, projet y542f73l, documents wp-media-5327 et wp-media-5235). (1) Page « Union européenne : l’accord Mercosur doit tomber », datée du 20/11/2024 : la citation y figure mot pour mot, « Pour soutenir nos agriculteurs et protéger les consommateurs, oui, l’accord Mercosur doit tomber ! », avec aussi « Le Mercosur est une menace pour notre souveraineté économique et alimentaire. » Il y écrit « j’ai signé cette tribune dans Libération » avec plus de 140 parlementaires socialistes. (2) Page du 04/11/2024 : elle reprend la tribune transpartisane du Figaro (initiée par André Chassaigne), qui appelle le gouvernement à s’opposer à l’accord (« Nous rappellons… »). La cosignature est donc établie. (3) Scrutin n°691 du 30/01/2025, sur l’article unique de la PPRE « visant à refuser la ratification » : adopté 77-0, Jérôme Guedj figure dans les « Pour » du groupe SOC. (4) Scrutin n°4244 du 27/11/2025, résolution « invitant le Gouvernement […] à s’opposer à l’adoption de l’accord commercial » UE-Mercosur : adopté 244-1, Jérôme Guedj est dans les « Pour ». Le volet « rester dans la PAC » est cohérent : aucune source ne parle de sortie. Son article du 06/02/2024 (https://www.jerome-guedj.fr/actus/aux-cotes-de-nos-agriculteurs-pour-une-autre-politique-agricole) dit « Réformer la politique agricole commune, refuser les accords de libre-échange inadaptés ». Cette source peut être ajoutée. Le poids 2, la nature « declaration » et la confiance « high » sont justes."
+          },
+          {
+            "approachId": "agriculture-1-f",
+            "verdict": "adjusted",
+            "weight": 1,
+            "confidence": "low",
+            "summary": "Il écrit vouloir « faire évoluer ces accords » de libre-échange pour qu’ils respectent les engagements de développement durable, et refuser les accords « inadaptés ». En janvier 2025, il a voté une résolution de l’Assemblée qui demande d’imposer aux produits importés des normes de production équivalentes à celles de l’Union (« mesures miroirs »). Cette même résolution demande aussi de s’opposer à l’accord avec le Mercosur.",
+            "reason": "Les faits sont vérifiés, mais l’attribution est plus fragile que ne le dit la fiche. Faits confirmés : au scrutin n°685 du 30/01/2025, sur l’ensemble de la PPRE Potier « relative à l’adoption et à la mise en œuvre d’exigences à l’importation pour le respect de normes de production équivalentes… », Jérôme Guedj figure dans les « Pour » du groupe SOC. La citation choisie, qui est l’intitulé du scrutin, est exacte. La phrase « Il est plus que temps de faire évoluer ces accords pour qu’ils deviennent de vrais partenariats économiques et politiques qui respectent nos engagements dans le cadre développement durable » figure bien sur la page du 20/11/2024. Points à corriger : (1) Le texte adopté (T.A. n°39, consulté en open data RIONANR5L17BTA0039) a été rebaptisé « résolution européenne contre l’accord entre l’Union européenne et le Mercosur et pour un juste échange… ». Il demande « De s’opposer, en conséquence, à l’adoption de l’accord entre l’Union européenne et le Mercosur ». En séance, la rapporteure Mélanie Thomin a précisé qu’il s’agit de « mesures miroirs » inscrites dans le droit européen, et non de clauses insérées dans les accords commerciaux. Ce vote ne montre donc pas qu’il accepterait un accord de libre-échange assorti de ces normes. (2) Dans le résumé, « plutôt que de rejeter tout accord par principe » ne figure dans aucune source : c’est une extrapolation à retirer. (3) Sa condition explicite porte sur le développement durable, pas précisément sur des normes de production imposées aux importations. Le poids 1 (« compatible ») reste défendable. Il s’appuie sur « faire évoluer ces accords » et sur l’article du 06/02/2024 (« refuser les accords de libre-échange inadaptés », https://www.jerome-guedj.fr/actus/aux-cotes-de-nos-agriculteurs-pour-une-autre-politique-agricole), qui suggèrent une acceptation sous conditions et non un rejet de principe. En revanche, la confiance doit passer de « medium » à « low ». Il faut garder nature=inference et rejects=false. Il est préférable de remplacer la citation par ses propres mots (« Il est plus que temps de faire évoluer ces accords pour qu’ils deviennent de vrais partenariats économiques et politiques qui respectent nos engagements dans le cadre développement durable ») et d’ajouter la source du 06/02/2024."
+          }
+        ]
+      }
+    ]
+  }
+]
