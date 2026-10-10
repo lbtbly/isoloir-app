@@ -8,7 +8,6 @@ import { ratingOf } from '../../core/answers'
 import { seededShuffle } from '../../core/rng'
 import type { SessionState } from '../../core/storage'
 import type { Answers, Candidate, ElectionPack, ElectionInfo, PartyMark, Position, Question, Source, Topic, TopicGroup } from '../../core/types'
-import { cardColors } from '../../core/color'
 import { AiLabel } from '../components/AiLabel'
 import { ExternalLink } from '../components/ExternalLink'
 import { FormHeader } from '../components/FormHeader'
@@ -63,10 +62,10 @@ export function spectrumOrder(election: ElectionInfo, candidates: Candidate[]): 
   return [...candidates].sort((a, b) => codes.indexOf(a.nuance!) - codes.indexOf(b.nuance!) || a.id.localeCompare(b.id))
 }
 
-/** Couleurs d'une carte de parti : fond à sa couleur, texte encre ou blanc, contraste AA (core/color.ts) */
-function partyStyle(party: PartyMark): Record<string, string> {
-  const { bg, fg } = cardColors(party.color)
-  return { '--party-bg': bg, '--party-fg': fg }
+/** Pastel de la carte d'un candidat : celui du bloc de sa nuance dans la grille (election.spectrum) */
+function pastelOf(election: ElectionInfo, c: Candidate): string | null {
+  const bloc = election.spectrum?.nuances.find(n => n.code === c.nuance)?.bloc
+  return election.spectrum?.blocs.find(b => b.id === bloc)?.pastel ?? null
 }
 
 /**
@@ -141,8 +140,8 @@ export function CandidatesIndex({ pack, state }: IndexProps) {
               {bySpectrum && election.spectrum ? (
                 <>
                   Les candidats sont présentés ici de l’extrême gauche à l’extrême droite, dans l’ordre de la{' '}
-                  <a href={link('/methode/ordre-des-candidats')}>grille officielle des nuances politiques</a>, chacun
-                  à la couleur de son parti.
+                  <a href={link('/methode/ordre-des-candidats')}>grille officielle des nuances politiques</a>, avec le
+                  logo de leur parti.
                 </>
               ) : (
                 'Les candidats sont présentés ici dans un ordre tiré au hasard.'
@@ -160,7 +159,7 @@ export function CandidatesIndex({ pack, state }: IndexProps) {
           aria-label={bySpectrum ? 'Candidats, de l’extrême gauche à l’extrême droite' : 'Candidats, dans un ordre tiré au hasard'}
         >
           {people.map(c => (
-            <li key={c.id} class={`people-panel${c.party ? ' has-party' : ''}`} style={c.party ? partyStyle(c.party) : undefined}>
+            <li key={c.id} class={['people-panel', c.party ? 'has-party' : '', bySpectrum && pastelOf(election, c) ? `is-${pastelOf(election, c)}` : ''].filter(Boolean).join(' ')}>
               <a class="people-panel-link" href={link(`/candidat/${c.id}`)}>
                 <Portrait candidate={c} size="strip" />
                 {/* Le parti avant le nom : son logo sur une étiquette, ou son nom en gras */}

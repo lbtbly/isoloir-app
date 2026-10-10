@@ -61,7 +61,7 @@ export interface Candidate {
    * fiche (seul le gagnant restera)
    */
   primary?: string
-  /** Parti, montré sur la page des candidats : son logo (ou son nom) et sa couleur */
+  /** Parti, montré sur la page des candidats : son logo, ou son nom */
   party?: PartyMark
   /** Nuance politique du candidat dans la grille de l'élection (ElectionInfo.spectrum), pour l'ordre de la page des candidats */
   nuance?: string
@@ -76,9 +76,6 @@ export interface PartyMark {
   name: string
   /** Logo du parti, hébergé sur le site ; « dark » : logo clair, posé sur une étiquette sombre */
   logo?: { src: string; plate?: 'light' | 'dark'; /** largeur / hauteur, pour donner à chaque logo la même surface */ ratio: number }
-  /** Couleur de la carte (hexadécimal) : celle du parti, ou à défaut celle de sa famille politique */
-  color: string
-  colorFrom: 'parti' | 'famille'
 }
 
 export interface Topic {
@@ -411,8 +408,11 @@ export type TopicWeights = Record<TopicId, TopicWeight>
 export interface Spectrum {
   /** Les nuances, dans l'ordre de la grille ; bloc : identifiant d'un des blocs */
   nuances: { code: string; label: string; bloc: string }[]
-  /** Les blocs, dans l'ordre de la grille, avec la couleur de famille donnée à un parti sans couleur propre */
-  blocs: { id: string; label: string; color: string }[]
+  /**
+   * Les blocs, dans l'ordre de la grille, chacun avec l'un des quatre pastels du site, qui habille les cartes de ses
+   * candidats sur la page des candidats
+   */
+  blocs: { id: string; label: string; pastel: 'rouge' | 'jaune' | 'bleu' | 'vert' }[]
   /** La grille et sa source */
   source: Source
 }

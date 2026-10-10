@@ -2064,29 +2064,23 @@ path.ink-draw {
   padding-top: var(--s3);
 }
 
-/* Cartes à la couleur du parti (Candidate.party, page des candidats seulement) : le fond est la couleur du parti,
-   le texte l'encre ou le blanc, au contraste AA (core/color.ts) ; les jetons de la feuille sont redéfinis dans la
-   carte, pour que filets, case « Comparer » et focus suivent le texte. La couleur est la même en mode sombre : c'est
-   celle du parti, pas un ton de l'interface. */
-.people-panel.has-party {
-  --panel: var(--party-bg);
-  --print: var(--party-fg);
-  --print-soft: var(--party-fg);
-  --rule: color-mix(in srgb, var(--party-fg) 40%, transparent);
-  --rule-strong: var(--party-fg);
-  --focus: var(--party-fg);
-  color: var(--party-fg);
-  background: var(--panel);
+/* Page des candidats rangée selon l'échiquier (election.spectrum) : chaque carte prend le pastel du bloc de son
+   candidat (rouge à gauche, jaune au centre, bleu à droite, vert pour le bloc « Autres »), à la place du pastel tiré
+   de sa place dans la liste ; mêmes pastels et même encre que partout ailleurs, en clair comme en sombre */
+.people-panels .people-panel.is-rouge {
+  --panel: var(--pastel-rouge);
 }
 
-/* Initiales sans portrait : encre sur papier, comme partout, quelle que soit la couleur de la carte */
-.people-panel.has-party .portrait.is-initials {
-  background: #ffffff;
-  color: #17191c;
+.people-panels .people-panel.is-jaune {
+  --panel: var(--pastel-jaune);
 }
 
-.people-panel.has-party .people-panel-link:focus-visible {
-  outline-offset: -4px;
+.people-panels .people-panel.is-bleu {
+  --panel: var(--pastel-bleu);
+}
+
+.people-panels .people-panel.is-vert {
+  --panel: var(--pastel-vert);
 }
 
 /* L'étiquette du parti, collée sur la carte : un rectangle de papier blanc, le logo dessus, ou le nom en gras.
@@ -2245,14 +2239,14 @@ path.ink-draw {
   margin: 0;
 }
 
-/* Ordre de l'échiquier : au téléphone aussi, chaque ligne à la couleur de son parti, séparées d'un filet de papier,
-   pour que la liste se lise comme un nuancier du haut vers le bas */
+/* Ordre de l'échiquier : au téléphone aussi, chaque ligne au pastel de son bloc, séparées d'un filet de papier, pour
+   que la liste se lise de l'extrême gauche à l'extrême droite du haut vers le bas */
 .people-panels.is-many.is-spectrum {
   gap: 2px;
   border: 0;
 }
 
-.people-panels.is-many.is-spectrum .people-panel.has-party {
+.people-panels.is-many.is-spectrum .people-panel {
   background: var(--panel);
 }
 
