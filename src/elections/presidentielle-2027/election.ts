@@ -99,7 +99,8 @@ export const election: ElectionInfo = {
   // l'ordre alphabétique au sein d'une même nuance. La présidentielle n'attribue pas de nuances : chaque candidat
   // reçoit celle de son parti dans la grille, ou à défaut celle que le ministère lui a donnée à sa dernière élection
   // (research/presidentielle-2027/parties-spectrum.json, recherche vérifiée le 9 octobre 2026). Couleurs de famille,
-  // pour un parti sans couleur propre : rouge à gauche, jaune au centre, bleu à droite (demande du propriétaire).
+  // Cartes aux quatre pastels du site, par bloc (demande du propriétaire du 10 octobre 2026) : rouge à gauche, jaune au
+  // centre, bleu à droite, vert pour le bloc « Autres » de la grille (écologistes, divers, régionalistes).
   spectrum: {
     nuances: [
       { code: 'EXG', label: 'Extrême gauche', bloc: 'extreme-gauche' },
@@ -129,12 +130,12 @@ export const election: ElectionInfo = {
       { code: 'EXD', label: 'Extrême droite', bloc: 'extreme-droite' },
     ],
     blocs: [
-      { id: 'extreme-gauche', label: 'Extrême gauche', color: '#a50f15' },
-      { id: 'gauche', label: 'Gauche', color: '#d7262b' },
-      { id: 'autres', label: 'Autres', color: '#8c8c8c' },
-      { id: 'centre', label: 'Centre', color: '#f4c81b' },
-      { id: 'droite', label: 'Droite', color: '#1f57b5' },
-      { id: 'extreme-droite', label: 'Extrême droite', color: '#102a5c' },
+      { id: 'extreme-gauche', label: 'Extrême gauche', pastel: 'rouge' },
+      { id: 'gauche', label: 'Gauche', pastel: 'rouge' },
+      { id: 'autres', label: 'Autres', pastel: 'vert' },
+      { id: 'centre', label: 'Centre', pastel: 'jaune' },
+      { id: 'droite', label: 'Droite', pastel: 'bleu' },
+      { id: 'extreme-droite', label: 'Extrême droite', pastel: 'bleu' },
     ],
     source: { title: 'Circulaire NOR INTP2618666C du 23 août 2026, annexe 1 : grille des nuances individuelles (élections sénatoriales 2026)', url: 'https://www.legifrance.gouv.fr/circulaire/id/45684', date: '2026-08-23', publisher: 'Ministère de l’Intérieur' },
   },
