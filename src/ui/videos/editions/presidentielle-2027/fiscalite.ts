@@ -73,7 +73,7 @@ export const FISCALITE: SeriesPatch = {
     'impots-capital': {
       omit: true,
     },
-    // fiscalite-9 : question propre à la primaire, sans équivalent ici ; la vidéo reste dans l'archive de la primaire.
+    // fiscalite-9 : question propre à la primaire, sans équivalent ici ; la vidéo reste dans la série d'origine.
     'impots-recettes': {
       omit: true,
     },

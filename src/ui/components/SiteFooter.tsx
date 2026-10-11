@@ -4,7 +4,7 @@
 // La mention d'indépendance est celle de l'élection affichée (copy.independence.footer), reçue du cadre de
 // l'élection (CurrentElection) : chaque écran, la feuille de pointage comprise, l'affiche sans rien passer.
 import type { ComponentChildren } from 'preact'
-import { currentPath, link, linkIn } from '../nav'
+import { currentPath, link } from '../nav'
 import { AI_METHOD_PATH } from './AiLabel'
 import { useCurrentElection } from './CurrentElection'
 import '../../styles/footer.css'
@@ -51,14 +51,6 @@ export function SiteFooter({ children }: Props) {
               </a>
             </li>
           ))}
-          {/* Les élections passées, s'il y en a : une seule page, dans l'élection du site */}
-          {current?.hasArchives ? (
-            <li>
-              <a href={linkIn('', '/archives')} aria-current={/^\/archives\/?$/.test(path) ? 'page' : undefined}>
-                Élections passées
-              </a>
-            </li>
-          ) : null}
         </ul>
       </div>
     </footer>

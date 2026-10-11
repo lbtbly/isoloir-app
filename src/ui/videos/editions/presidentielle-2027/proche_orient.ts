@@ -16,7 +16,7 @@
 // périmètre (international_defense-4 → proche_orient-1) : ce sont « les vidéos qui suivent » d'intro-08, sur la
 // première question. « Les mots du droit » et « Cours et enquête » servent la question de la qualification
 // (international_defense-2), sans équivalent ici : elles sont retirées de cette édition (proche_orient-14) et
-// restent dans l'archive de la primaire. Elles pourront revenir si la banque reçoit une question sur la
+// restent dans la série d'origine. Elles pourront revenir si la banque reçoit une question sur la
 // qualification, ouverte à tout le spectre et dotée de sa fiche.
 // Passages à revoiser : proche-orient-intro-01-p27, intro-07-p27, intro-08-p27, proche-orient-onu-05-p27.
 // Planches : chaque passage corrigé dont le dessin change a la sienne dans pistes/planches/proche_orient.tsx, rangée sous son

@@ -27,8 +27,6 @@ export type Route =
   | { name: 'topics'; anchor?: string }
   /** « Les sujets en vidéo » ; « start » : la vidéo sur laquelle ouvrir le lecteur (#/videos/<vidéo>) */
   | { name: 'videos'; start?: string }
-  /** Les élections passées, gardées en archive ; montrée seulement s'il y en a une */
-  | { name: 'archives' }
 
 /** Les noms de pages : un premier segment qui n'en est pas un est un préfixe d'élection */
 const PAGES = new Set([
@@ -50,7 +48,6 @@ const PAGES = new Set([
   'videos',
   // Ancienne adresse de la page d'essai des vidéos, qui mène à la page des vidéos
   'essai-videos',
-  'archives',
 ])
 
 /** Forme d'un préfixe d'élection (slug ou alias) */
@@ -106,8 +103,6 @@ export function parseRoute(path: string): Route {
     case 'videos':
     case 'essai-videos':
       return arg ? { name: 'videos', start: arg } : { name: 'videos' }
-    case 'archives':
-      return { name: 'archives' }
     default:
       return { name: 'home' }
   }
@@ -166,6 +161,8 @@ export interface ElectionRef {
   aliases?: readonly string[]
   archived: boolean
   candidateIds: readonly string[]
+  /** Candidats masqués : un ancien lien vers l'un d'eux mène à la page des candidats */
+  hiddenCandidateIds?: readonly string[]
 }
 
 /** Une adresse résolue : l'élection à montrer, la page, et l'adresse à écrire à la place s'il faut la corriger */
@@ -176,25 +173,57 @@ export interface Resolved<E extends ElectionRef> {
   redirect?: string
 }
 
+/** Les pages d'une élection retirée qui ont leur pareille dans l'élection par défaut : même chemin, sans le préfixe */
+const KEPT_ON_RETIRE = new Set<Route['name']>(['method', 'privacy', 'legal', 'candidates'])
+
 /**
  * Choisit l'élection et la page d'une adresse.
  * - Sans préfixe : l'élection par défaut. Un préfixe inconnu : l'accueil de l'élection par défaut, sans
  *   toucher à l'adresse (comme toute adresse inconnue).
  * - Un alias, l'identifiant de l'élection par défaut ou l'ancienne page d'essai des vidéos : l'adresse est
- *   corrigée (#/primaire/x → #/choisir-2027/x).
+ *   corrigée (#/<alias>/x → #/<slug>/x).
+ * - Un ancien lien #/candidat/<id> vers un candidat masqué de l'élection (hiddenCandidateIds) : la page des
+ *   candidats de cette élection. Une comparaison perd ses candidats masqués, adresse corrigée
+ *   (#/comparer/glucksmann,faure → #/comparer/glucksmann ; tous masqués : #/comparer, l'écran de choix).
  * - Un ancien lien #/candidat/<id> vers un candidat que l'élection par défaut n'a pas, mais qu'une autre a
  *   (une élection archivée) : il mène à cette élection. De même pour #/comparer/<id>,<id> quand aucun de ses
  *   candidats n'est de l'élection par défaut et que tous sont d'une même autre élection.
- * - #/archives : seulement s'il y a une élection archivée ; sinon l'accueil.
+ * - Un préfixe retiré du site (« retired », passé par le registre) : l'élection par défaut, adresse corrigée.
+ *   La fiche d'un de ses candidats y mène (#/<retiré>/candidat/<id> → #/candidat/<id>), celle d'un candidat
+ *   masqué à la page des candidats ; méthode, confidentialité, mentions légales et candidats gardent leur
+ *   chemin (#/<retiré>/methode/ia → #/methode/ia) ; toute autre page (feuille, dépouillement, comparaison…)
+ *   mène à l'accueil, #/.
  */
-export function resolvePlace<E extends ElectionRef>(place: Place, elections: readonly E[]): Resolved<E> {
+export function resolvePlace<E extends ElectionRef>(place: Place, elections: readonly E[], retired: readonly string[] = []): Resolved<E> {
   const fallback = elections.find(e => e.slug === '')
   if (!fallback) throw new Error('Aucune élection par défaut (slug vide) dans le registre')
-  let route = place.route
-  if (route.name === 'archives' && !elections.some(e => e.archived)) route = { name: 'home' }
+  const route = place.route
+  /** La page des candidats d'une élection, pour un ancien lien vers l'un de ses candidats masqués */
+  const toCandidates = (e: E): Resolved<E> => ({ election: e, route: { name: 'candidates' }, redirect: withBase(e.slug, '/candidats') })
+  const hiddenIn = (e: E, id: string) => !e.candidateIds.includes(id) && !!e.hiddenCandidateIds?.includes(id)
+  /**
+   * Une comparaison de l'élection sans ses candidats masqués, adresse corrigée : l'écran ne les dit pas « inconnus »
+   * (#/comparer/glucksmann,faure → #/comparer/glucksmann) ; rien à corriger : undefined
+   */
+  const withoutHiddenCompared = (e: E, r: Route): Resolved<E> | undefined => {
+    if (r.name !== 'compare') return undefined
+    const ids = r.ids.filter(id => !hiddenIn(e, id))
+    return ids.length === r.ids.length ? undefined : { election: e, route: { name: 'compare', ids }, redirect: withBase(e.slug, comparePath(ids)) }
+  }
+  if (place.slug && retired.includes(place.slug)) {
+    if (route.name === 'candidate') {
+      if (fallback.candidateIds.includes(route.id)) return { election: fallback, route, redirect: withBase('', `/candidat/${route.id}`) }
+      if (hiddenIn(fallback, route.id)) return toCandidates(fallback)
+    }
+    if (KEPT_ON_RETIRE.has(route.name)) return { election: fallback, route, redirect: withBase('', place.path) }
+    return { election: fallback, route: { name: 'home' }, redirect: withBase('', '/') }
+  }
   if (!place.slug) {
+    const compared = withoutHiddenCompared(fallback, route)
+    if (compared) return compared
     if (route.name === 'candidate' && !fallback.candidateIds.includes(route.id)) {
       const id = route.id
+      if (hiddenIn(fallback, id)) return toCandidates(fallback)
       const other = elections.find(e => e !== fallback && e.candidateIds.includes(id))
       if (other) return { election: other, route, redirect: withBase(other.slug, place.path) }
     }
@@ -209,6 +238,9 @@ export function resolvePlace<E extends ElectionRef>(place: Place, elections: rea
   }
   const named = elections.find(e => e.slug === place.slug || e.id === place.slug || e.aliases?.includes(place.slug))
   if (!named) return { election: fallback, route: { name: 'home' } }
+  if (route.name === 'candidate' && hiddenIn(named, route.id)) return toCandidates(named)
+  const compared = withoutHiddenCompared(named, route)
+  if (compared) return compared
   const path = canonicalPath(place.path)
   if (named.slug === place.slug && path === place.path) return { election: named, route }
   return { election: named, route, redirect: withBase(named.slug, path) }

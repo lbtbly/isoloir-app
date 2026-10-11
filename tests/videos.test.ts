@@ -7,6 +7,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import type { ElectionPack } from '../src/core/types'
 import { elections } from '../src/elections/all'
+import { choisir2027 } from '../src/elections/choisir-2027'
 import { audioPath, GAP_MS, segmentMs } from '../src/ui/videos/audio'
 import { chartOf, durationLabel, holdMs, markerOf, wordsOf } from '../src/ui/videos/model'
 import { Narrator, type NarrationState } from '../src/ui/videos/narration'
@@ -16,8 +17,13 @@ import { EDITIONS } from '../src/ui/videos/editions'
 import { applyEdition } from '../src/ui/videos/editions/apply'
 import { SERIES_BY_TOPIC, VIDEO_SERIES } from '../src/ui/videos/series'
 
-/** L'élection pour laquelle les séries sont écrites : leurs thèmes, familles et questions sont ceux de sa banque */
-const source = elections.find(p => p.election.id === 'choisir-2027')!
+/**
+ * L'élection pour laquelle les séries sont écrites : leurs thèmes, familles et questions sont ceux de sa banque. La
+ * primaire n'est plus sur le site (ni au registre, ni dans all.ts) : son pack, gardé comme référence, est lu ici
+ */
+const source: ElectionPack = choisir2027
+/** Les élections dont les séries ne doivent nommer aucun candidat ni parti : celles du site, et la primaire d'origine */
+const named = [...elections, source]
 const { bank } = source
 const groups = source.topicGroups ?? []
 const videos = VIDEO_SERIES.flatMap(s => s.videos)
@@ -168,10 +174,10 @@ describe('séries de vidéos', () => {
   it('neutralité : aucun candidat ni parti d’aucune élection, aucun appel à donner son avis dans ce qui est dit ou titré', () => {
     // Noms de famille et partis des candidats de toutes les élections, en mots entiers (« Le Pen », pas « le pense »),
     // hors les partis qui sont aussi des mots courants (forbiddenTermsAllow : « La Convention » des droits de l'enfant)
-    const allowed = new Set(elections.flatMap(p => p.election.forbiddenTermsAllow ?? []).map(norm))
+    const allowed = new Set(named.flatMap(p => p.election.forbiddenTermsAllow ?? []).map(norm))
     const names = [
       ...new Set(
-        elections
+        named
           .flatMap(p => p.candidates)
           .flatMap(c => [c.name.split(' ').slice(1).join(' '), c.affiliation])
           .filter(n => n.length > 3)

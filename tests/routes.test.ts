@@ -1,6 +1,7 @@
 // Adresses : analyse pure (#/… pour l'élection par défaut, #/<slug>/… pour une autre), corrections d'adresse,
-// ancien lien vers un candidat d'une élection archivée, page des archives, et liens relatifs à l'élection
-// affichée (src/ui/nav.ts). Aucun lien n'est écrit en dur ailleurs que dans nav.ts.
+// ancien lien vers un candidat d'une élection archivée ou vers un candidat masqué, adresses d'une élection retirée
+// du site (la primaire « Choisir 2027 », l'ancienne page des archives), et liens relatifs à l'élection affichée
+// (src/ui/nav.ts). Aucun lien n'est écrit en dur ailleurs que dans nav.ts. Les élections des tests sont factices.
 import { readFileSync, readdirSync, statSync } from 'node:fs'
 import { join, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -22,7 +23,6 @@ describe('parseRoute', () => {
     expect(parseRoute('#/candidat/royal')).toEqual({ name: 'candidate', id: 'royal' })
     expect(parseRoute('#/candidat')).toEqual({ name: 'candidates' })
     expect(parseRoute('#/sujets/retraites-1')).toEqual({ name: 'topics', anchor: 'retraites-1' })
-    expect(parseRoute('#/archives')).toEqual({ name: 'archives' })
     expect(parseRoute('#/nimporte')).toEqual({ name: 'home' })
   })
 
@@ -56,10 +56,10 @@ describe('parseLocation', () => {
   })
 
   it('un premier segment qui n’est pas une page est un préfixe d’élection', () => {
-    expect(parseLocation('#/choisir-2027/resultats')).toEqual({ slug: 'choisir-2027', route: { name: 'results' }, path: '/resultats' })
-    expect(parseLocation('#/primaire')).toEqual({ slug: 'primaire', route: { name: 'home' }, path: '/' })
-    expect(parseLocation('#/choisir-2027/feuille/2')).toEqual({
-      slug: 'choisir-2027',
+    expect(parseLocation('#/europeennes-2024/resultats')).toEqual({ slug: 'europeennes-2024', route: { name: 'results' }, path: '/resultats' })
+    expect(parseLocation('#/euro')).toEqual({ slug: 'euro', route: { name: 'home' }, path: '/' })
+    expect(parseLocation('#/europeennes-2024/feuille/2')).toEqual({
+      slug: 'europeennes-2024',
       route: { name: 'sheet', tier: 'essentiel', index: 1 },
       path: '/feuille/2',
     })
@@ -70,8 +70,8 @@ describe('withBase et canonicalPath', () => {
   it('écrit l’adresse d’un chemin dans une élection', () => {
     expect(withBase('', '/')).toBe('#/')
     expect(withBase('', '/resultats')).toBe('#/resultats')
-    expect(withBase('choisir-2027', '/')).toBe('#/choisir-2027/')
-    expect(withBase('choisir-2027', 'resultats')).toBe('#/choisir-2027/resultats')
+    expect(withBase('europeennes-2024', '/')).toBe('#/europeennes-2024/')
+    expect(withBase('europeennes-2024', 'resultats')).toBe('#/europeennes-2024/resultats')
   })
 
   it('l’ancienne page d’essai des vidéos devient la page des vidéos', () => {
@@ -95,7 +95,7 @@ describe('withBase et canonicalPath', () => {
 
 describe('resolvePlace', () => {
   const current: ElectionRef = { id: 'presidentielle-2027', slug: '', archived: false, candidateIds: ['a', 'b'] }
-  const past: ElectionRef = { id: 'choisir-2027', slug: 'choisir-2027', aliases: ['primaire'], archived: true, candidateIds: ['b', 'royal'] }
+  const past: ElectionRef = { id: 'europeennes-2024', slug: 'europeennes-2024', aliases: ['euro'], archived: true, candidateIds: ['b', 'royal'] }
   const registry = [current, past]
   const at = (hash: string, elections: readonly ElectionRef[] = registry) => resolvePlace(parseLocation(hash), elections)
 
@@ -105,14 +105,14 @@ describe('resolvePlace', () => {
   })
 
   it('par son slug : l’élection archivée, adresse inchangée', () => {
-    expect(at('#/choisir-2027/resultats')).toEqual({ election: past, route: { name: 'results' } })
+    expect(at('#/europeennes-2024/resultats')).toEqual({ election: past, route: { name: 'results' } })
   })
 
   it('un alias est corrigé en slug', () => {
-    expect(at('#/primaire/feuille/3')).toEqual({
+    expect(at('#/euro/feuille/3')).toEqual({
       election: past,
       route: { name: 'sheet', tier: 'essentiel', index: 2 },
-      redirect: '#/choisir-2027/feuille/3',
+      redirect: '#/europeennes-2024/feuille/3',
     })
   })
 
@@ -128,7 +128,7 @@ describe('resolvePlace', () => {
     expect(at('#/candidat/royal')).toEqual({
       election: past,
       route: { name: 'candidate', id: 'royal' },
-      redirect: '#/choisir-2027/candidat/royal',
+      redirect: '#/europeennes-2024/candidat/royal',
     })
     // Candidat des deux élections : l'élection par défaut ; candidat inconnu partout : l'élection par défaut
     expect(at('#/candidat/b')).toEqual({ election: current, route: { name: 'candidate', id: 'b' } })
@@ -137,11 +137,11 @@ describe('resolvePlace', () => {
 
   it('comparaison : dans l’élection de l’adresse, et préfixe corrigé comme pour toute page', () => {
     expect(at('#/comparer/a,b')).toEqual({ election: current, route: { name: 'compare', ids: ['a', 'b'] } })
-    expect(at('#/choisir-2027/comparer/b,royal')).toEqual({ election: past, route: { name: 'compare', ids: ['b', 'royal'] } })
-    expect(at('#/primaire/comparer/royal,b')).toEqual({
+    expect(at('#/europeennes-2024/comparer/b,royal')).toEqual({ election: past, route: { name: 'compare', ids: ['b', 'royal'] } })
+    expect(at('#/euro/comparer/royal,b')).toEqual({
       election: past,
       route: { name: 'compare', ids: ['royal', 'b'] },
-      redirect: '#/choisir-2027/comparer/royal,b',
+      redirect: '#/europeennes-2024/comparer/royal,b',
     })
   })
 
@@ -151,7 +151,7 @@ describe('resolvePlace', () => {
     expect(at('#/comparer/royal,faure', reg)).toEqual({
       election: archived,
       route: { name: 'compare', ids: ['royal', 'faure'] },
-      redirect: '#/choisir-2027/comparer/royal,faure',
+      redirect: '#/europeennes-2024/comparer/royal,faure',
     })
     // Un candidat de l'élection par défaut dans le lot : on reste dans l'élection par défaut (l'écran écarte l'inconnu)
     expect(at('#/comparer/royal,a', reg)).toEqual({ election: current, route: { name: 'compare', ids: ['royal', 'a'] } })
@@ -166,17 +166,81 @@ describe('resolvePlace', () => {
       route: { name: 'videos', start: 'logement-intro' },
       redirect: '#/videos/logement-intro',
     })
-    expect(at('#/primaire/essai-videos')).toEqual({ election: past, route: { name: 'videos' }, redirect: '#/choisir-2027/videos' })
+    expect(at('#/euro/essai-videos')).toEqual({ election: past, route: { name: 'videos' }, redirect: '#/europeennes-2024/videos' })
   })
 
-  it('#/archives n’existe que s’il y a une élection archivée', () => {
-    expect(at('#/archives').route).toEqual({ name: 'archives' })
-    const alone: ElectionRef[] = [{ ...current }]
-    expect(at('#/archives', alone)).toEqual({ election: alone[0], route: { name: 'home' } })
+  it('un ancien lien vers un candidat masqué mène à la page des candidats de son élection', () => {
+    const shown: ElectionRef = { ...current, hiddenCandidateIds: ['h1', 'h2'] }
+    const other: ElectionRef = { ...past, candidateIds: ['b', 'royal', 'h1'], hiddenCandidateIds: ['h3'] }
+    const reg = [shown, other]
+    expect(at('#/candidat/h1', reg)).toEqual({ election: shown, route: { name: 'candidates' }, redirect: '#/candidats' })
+    expect(at('#/candidat/h2', reg)).toEqual({ election: shown, route: { name: 'candidates' }, redirect: '#/candidats' })
+    // Masqué dans une autre élection, par son préfixe (ou un alias) : la page des candidats de celle-ci
+    expect(at('#/europeennes-2024/candidat/h3', reg)).toEqual({ election: other, route: { name: 'candidates' }, redirect: '#/europeennes-2024/candidats' })
+    expect(at('#/euro/candidat/h3', reg)).toEqual({ election: other, route: { name: 'candidates' }, redirect: '#/europeennes-2024/candidats' })
+    // Les autres fiches ne bougent pas
+    expect(at('#/candidat/a', reg)).toEqual({ election: shown, route: { name: 'candidate', id: 'a' } })
+  })
+
+  it('une comparaison perd ses candidats masqués, adresse corrigée, sans qu’aucun soit dit « inconnu »', () => {
+    const shown: ElectionRef = { ...current, hiddenCandidateIds: ['h1', 'h2'] }
+    const other: ElectionRef = { ...past, candidateIds: ['b', 'royal', 'h1'], hiddenCandidateIds: ['h3'] }
+    const reg = [shown, other]
+    expect(at('#/comparer/a,h1', reg)).toEqual({ election: shown, route: { name: 'compare', ids: ['a'] }, redirect: '#/comparer/a' })
+    expect(at('#/comparer/h2,a,h1,b', reg)).toEqual({ election: shown, route: { name: 'compare', ids: ['a', 'b'] }, redirect: '#/comparer/a,b' })
+    // Tous masqués : l'écran de choix ; un identifiant inconnu reste, pour que l'écran le signale
+    expect(at('#/comparer/h1,h2', reg)).toEqual({ election: shown, route: { name: 'compare', ids: [] }, redirect: '#/comparer' })
+    expect(at('#/comparer/zz,h2', reg)).toEqual({ election: shown, route: { name: 'compare', ids: ['zz'] }, redirect: '#/comparer/zz' })
+    // Dans une élection nommée (slug ou alias), ses propres masqués seulement
+    expect(at('#/euro/comparer/b,h3', reg)).toEqual({ election: other, route: { name: 'compare', ids: ['b'] }, redirect: '#/europeennes-2024/comparer/b' })
+    expect(at('#/europeennes-2024/comparer/b,h1', reg)).toEqual({ election: other, route: { name: 'compare', ids: ['b', 'h1'] } })
+    // Rien de masqué : rien ne change
+    expect(at('#/comparer/a,b', reg)).toEqual({ election: shown, route: { name: 'compare', ids: ['a', 'b'] } })
   })
 
   it('exige une élection par défaut', () => {
     expect(() => at('#/', [past])).toThrow()
+  })
+})
+
+describe('resolvePlace : adresses d’une élection retirée du site', () => {
+  const current: ElectionRef = { id: 'presidentielle-2027', slug: '', archived: false, candidateIds: ['a', 'b'], hiddenCandidateIds: ['h'] }
+  const retired = ['ancienne-2026', 'ancienne', 'archives']
+  const at = (hash: string) => resolvePlace(parseLocation(hash), [current], retired)
+
+  it('« archives » n’est plus le nom d’une page : un préfixe comme un autre', () => {
+    expect(parseLocation('#/archives')).toEqual({ slug: 'archives', route: { name: 'home' }, path: '/' })
+  })
+
+  it('l’accueil, le questionnaire, le dépouillement, une comparaison : l’accueil de l’élection par défaut', () => {
+    for (const hash of ['#/ancienne-2026', '#/ancienne-2026/', '#/ancienne-2026/resultats', '#/ancienne/feuille/3', '#/ancienne-2026/comparer/a,b', '#/ancienne-2026/partager', '#/ancienne-2026/videos/x', '#/archives', '#/archives/', '#/archives/x'])
+      expect(at(hash), hash).toEqual({ election: current, route: { name: 'home' }, redirect: '#/' })
+  })
+
+  it('la fiche d’un candidat de l’élection par défaut : la même fiche, sans le préfixe', () => {
+    expect(at('#/ancienne-2026/candidat/a')).toEqual({ election: current, route: { name: 'candidate', id: 'a' }, redirect: '#/candidat/a' })
+    expect(at('#/ancienne/candidat/b')).toEqual({ election: current, route: { name: 'candidate', id: 'b' }, redirect: '#/candidat/b' })
+  })
+
+  it('la fiche d’un candidat masqué : la page des candidats ; d’un candidat inconnu : l’accueil', () => {
+    expect(at('#/ancienne-2026/candidat/h')).toEqual({ election: current, route: { name: 'candidates' }, redirect: '#/candidats' })
+    expect(at('#/ancienne-2026/candidat/zz')).toEqual({ election: current, route: { name: 'home' }, redirect: '#/' })
+  })
+
+  it('méthode, confidentialité, mentions légales, candidats : même chemin, sans le préfixe', () => {
+    expect(at('#/ancienne-2026/methode/hors-classement')).toEqual({
+      election: current,
+      route: { name: 'method', anchor: 'hors-classement' },
+      redirect: '#/methode/hors-classement',
+    })
+    expect(at('#/ancienne-2026/methode')).toEqual({ election: current, route: { name: 'method' }, redirect: '#/methode' })
+    expect(at('#/ancienne/confidentialite')).toEqual({ election: current, route: { name: 'privacy' }, redirect: '#/confidentialite' })
+    expect(at('#/ancienne-2026/mentions-legales')).toEqual({ election: current, route: { name: 'legal' }, redirect: '#/mentions-legales' })
+    expect(at('#/ancienne-2026/candidats')).toEqual({ election: current, route: { name: 'candidates' }, redirect: '#/candidats' })
+  })
+
+  it('sans liste de préfixes retirés, un tel préfixe reste un préfixe inconnu', () => {
+    expect(resolvePlace(parseLocation('#/ancienne-2026/resultats'), [current])).toEqual({ election: current, route: { name: 'home' } })
   })
 })
 
@@ -186,11 +250,11 @@ describe('nav : liens relatifs à l’élection affichée', () => {
   it('sans préfixe pour l’élection par défaut, avec son slug pour une autre', () => {
     expect(link('/resultats')).toBe('#/resultats')
     expect(link('/')).toBe('#/')
-    setBase('choisir-2027')
-    expect(getBase()).toBe('choisir-2027')
-    expect(link('/resultats')).toBe('#/choisir-2027/resultats')
-    expect(link(`/candidat/royal`)).toBe('#/choisir-2027/candidat/royal')
-    expect(link(comparePath(['royal', 'faure']))).toBe('#/choisir-2027/comparer/royal,faure')
+    setBase('europeennes-2024')
+    expect(getBase()).toBe('europeennes-2024')
+    expect(link('/resultats')).toBe('#/europeennes-2024/resultats')
+    expect(link(`/candidat/royal`)).toBe('#/europeennes-2024/candidat/royal')
+    expect(link(comparePath(['royal', 'faure']))).toBe('#/europeennes-2024/comparer/royal,faure')
     expect(linkIn('', '/')).toBe('#/')
   })
 })

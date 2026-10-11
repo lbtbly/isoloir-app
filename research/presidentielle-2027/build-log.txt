@@ -1278,7 +1278,6 @@ reuse-explainer-local institutions-3
 reuse-explainer-local laicite_republique-1
 reuse-explainer-local laicite_republique-2
 include faure 158 positions
-include glucksmann 144 positions
 include guedj 103 positions
 include maurel 128 positions
 include royal 66 positions

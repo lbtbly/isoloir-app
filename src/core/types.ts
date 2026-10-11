@@ -353,6 +353,14 @@ export interface ElectionInfo {
   /** Annonces en attente (candidature attendue, résultat à venir), affichées telles quelles */
   pending?: string[]
   /**
+   * Candidats masqués, par décision du propriétaire : leur fiche (candidates.ts) et leurs positions (positions.ts) restent
+   * dans les données, mais le pack les retire à son export (core/visible.ts, appelé par src/elections/<id>/index.ts) :
+   * le site ne les montre ni ne les compte nulle part. Le registre en garde une copie (hiddenCandidateIds), pour mener
+   * un ancien lien vers leur fiche à la page des candidats. Les retirer de cette liste les fait revenir tels quels (et
+   * les retirer de hiddenCandidateIds, remettre leurs identifiants dans candidateIds du registre, puis refaire l'audit).
+   */
+  hidden?: CandidateId[]
+  /**
    * Ordre de la page des candidats, de l'extrême gauche à l'extrême droite : les nuances d'une grille officielle, dans
    * son ordre, puis l'ordre alphabétique au sein d'une même nuance. Sans elle, ordre tiré au hasard.
    */

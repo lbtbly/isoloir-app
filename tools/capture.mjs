@@ -2,7 +2,8 @@
 // élection, feuille vierge ou remplie d'un profil de démonstration.
 // Usage : pnpm build && node tools/capture.mjs [port] [filtre] [--election <id>] [--prefix <slug>] [--base <url>]
 //   filtre          : sous-chaîne des noms de captures (« results », « candidates »…)
-//   --election <id> : l'élection photographiée (par défaut, celle des adresses sans préfixe) ; ses captures vont dans
+//   --election <id> : l'élection photographiée, parmi celles du registre (par défaut, celle des adresses sans
+//                     préfixe ; la primaire « Choisir 2027 », retirée du site, n'y est plus) ; ses captures vont dans
 //                     .impeccable/review/<id>/ quand ce n'est pas l'élection par défaut
 //   --prefix <slug> : le préfixe tapé dans les adresses (par défaut, le slug de l'élection dans le registre)
 //   --base <url>    : photographier un serveur déjà lancé au lieu de dist/ ; un serveur de développement

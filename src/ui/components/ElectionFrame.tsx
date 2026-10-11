@@ -5,7 +5,7 @@
 import type { ComponentChildren } from 'preact'
 import { useMemo } from 'preact/hooks'
 import type { ElectionInfo } from '../../core/types'
-import { defaultEntry, ELECTIONS, entryById } from '../../elections'
+import { defaultEntry, entryById } from '../../elections'
 import { CurrentElectionContext, type CurrentElection } from './CurrentElection'
 
 export function ElectionFrame({ election, children }: { election: ElectionInfo; children: ComponentChildren }) {
@@ -16,7 +16,6 @@ export function ElectionFrame({ election, children }: { election: ElectionInfo; 
     return {
       election,
       archive: archived ? { votingUntil: entry?.votingUntil, currentLabel: defaultEntry.label } : null,
-      hasArchives: ELECTIONS.some(e => e.archived),
     }
   }, [election])
   return <CurrentElectionContext.Provider value={value}>{children}</CurrentElectionContext.Provider>

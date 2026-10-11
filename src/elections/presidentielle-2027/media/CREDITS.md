@@ -185,6 +185,8 @@ Les lignes « Transformations » gardent, entre parenthèses, les repères de ca
 
 <!-- Candidats de la primaire « Choisir 2027 » : portraits repris tels quels de src/elections/choisir-2027/media (téléchargés le 3 octobre 2026) -->
 
+<!-- Depuis le 12 octobre 2026, faure.jpg, guedj.jpg, maurel.jpg et royal.jpg, ainsi que les logos ps.svg et grs.png, ne sont plus publiés : ces quatre candidats sont masqués (election.hidden) et candidates.ts n'importe plus ces fichiers. Ils restent ici, avec leur provenance, pour le jour où on les montrerait à nouveau. -->
+
 ## faure.jpg
 
 - Fichier d'origine : https://upload.wikimedia.org/wikipedia/commons/a/ae/Olivier_Faure_PSE-CARCA--1194_%28cropped%29.jpg (1566 × 2289 px)

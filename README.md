@@ -4,9 +4,9 @@ Isoloir est une boussole électorale indépendante qui tourne **entièrement dan
 
 1. Vous donnez votre avis sur des approches **anonymes** (personne n'est nommé pendant le questionnaire), sur une réglette à trois crans : pas d'accord, sans avis, d'accord.
 2. Vous pouvez tracer une **ligne rouge** sur celles qui vous sont inacceptables.
-3. Une **première tendance** arrive après 8 questions : l'ordre des candidats en bâtons et en paliers (sans pourcentage), présenté comme provisoire, et « qui porte quoi » sur ces 8 questions, sources à l'appui. Onze questions de plus donnent le **dépouillement** complet : pourcentages d'affinité, détail par thème, affiche à partager.
+3. Une **première tendance** arrive après 10 questions : l'ordre des candidats en bâtons et en paliers (sans pourcentage), présenté comme provisoire, et « qui porte quoi » sur ces 10 questions, sources à l'appui. Douze questions de plus donnent le **dépouillement** complet : pourcentages d'affinité, détail par thème, affiche à partager.
 
-Première élection couverte : la primaire **Choisir 2027** (PS, Place publique, GRS ; 9-10 et 16-17 octobre 2026).
+Élection couverte : la **présidentielle 2027** (candidats déclarés ; premier tour le 18 avril 2027). La première, la primaire **Choisir 2027** (PS, Place publique, GRS ; vote du 9 au 11 octobre 2026), n'est plus en ligne depuis le 12 octobre 2026 : ses adresses (`#/choisir-2027`, `#/primaire`, `#/archives`) mènent à la présidentielle, et son pack reste dans le dépôt comme référence (`src/elections/choisir-2027`, hors du site).
 
 - **Aucune réponse ne quitte l'appareil.** Pas de serveur qui reçoive les réponses, pas de compte, pas de cookie, pas d'analytics. Une `Content-Security-Policy` (`connect-src 'none'`) interdit toute connexion sortante depuis la page. Comme pour toute page web, l'hébergeur voit seulement l'adresse IP, la page demandée et le navigateur (notice de confidentialité, `#/confidentialite`).
 - **« Fermez l'isoloir ».** Une fois la page chargée, tout marche en **mode avion**, jusqu'au résultat, à l'image et à l'export, y compris après un rechargement. Un service worker garde une copie des fichiers du site ; il ne fait que les servir, et le build vérifie qu'il n'envoie rien.
@@ -113,7 +113,9 @@ Les quatre pastels de l'interface (`--pastel-*` dans `src/styles/tokens.css`) so
 
    Un candidat `pendingPrimary` est préparé mais pas publié : ses positions sont rangées sous `prepared` dans `research/<id>/bank.json`, et il reste absent de `positions.ts`. Le soir du résultat, `--include <gagnant>` le publie, sans rien relancer d'autre.
 
-   La primaire se reconstruit à l'identique, sans aucune différence avec les fichiers versionnés :
+   Un candidat publié peut être **masqué** sans être supprimé : son identifiant dans `hidden` (`election.ts`), recopié dans `hiddenCandidateIds` du registre, et retiré de `candidateIds`. Sa fiche et ses positions restent dans `candidates.ts` et `positions.ts`, mais le pack le retire à son export (`src/core/visible.ts`) : le site ne le montre ni ne le compte nulle part, un ancien lien vers sa fiche mène à la page des candidats, et une comparaison partagée le perd sans avis. Son portrait et un logo de parti qui ne servirait qu'à lui ne sont pas importés (sinon ils seraient publiés et préchargés sans être montrés ni crédités) : les lignes sont gardées en commentaire dans sa fiche. Aucun texte montré ne le nomme, hors le journal des données et les titres de presse cités. C'est le cas, depuis le 12 octobre 2026, des quatre candidats de la primaire autres que son gagnant (Olivier Faure, Jérôme Guedj, Emmanuel Maurel, Ségolène Royal) ; `tests/hidden.test.ts` vérifie qu'ils restent dans les données.
+
+   La primaire (pack de référence, hors du site) se reconstruit à l'identique, sans aucune différence avec les fichiers versionnés :
    ```bash
    node tools/build-pack.mjs research/choisir-2027/question-bank-output.json research/choisir-2027 src/elections/choisir-2027 research/choisir-2027/expansion-merged.json
    ```

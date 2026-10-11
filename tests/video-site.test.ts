@@ -9,6 +9,7 @@ import { describe, expect, it } from 'vitest'
 import { parseRoute } from '../src/core/routes'
 import type { ElectionPack } from '../src/core/types'
 import { elections } from '../src/elections/all'
+import { choisir2027 } from '../src/elections/choisir-2027'
 import { feedSeries, questionVideos, topicSeries, videoById, videoSeries } from '../src/ui/videos/catalog'
 import { LECTEUR, isPlayerEntry, savedPlayer } from '../src/ui/videos/history'
 import { setVideoScope, videoElection } from '../src/ui/videos/load'
@@ -242,7 +243,7 @@ describe.each(elections.map(p => [p.election.id, p] as const))('catalogue de l�
 
 describe('le catalogue suit l’élection affichée', () => {
   it('une élection qui ne reprend qu’une série ne montre qu’elle, sous ses questions à elle', () => {
-    const source = elections.find(p => p.election.id === 'choisir-2027')!
+    const source: ElectionPack = choisir2027
     const retraites = source.bank.questions.filter(q => q.topicId === 'retraites').map(q => q.id)
     const [first, ...rest] = retraites
     // Une élection factice : la banque de la primaire, la seule série « retraites », une seule question reliée
@@ -260,7 +261,7 @@ describe('le catalogue suit l’élection affichée', () => {
   })
 
   it('le module que lit la feuille de pointage ne garde de l’élection ni ses candidats ni leurs positions', () => {
-    const source = elections.find(p => p.election.id === 'choisir-2027')!
+    const source: ElectionPack = choisir2027
     setVideoScope(source)
     const kept = videoElection()!
     expect(Object.keys(kept).sort()).toEqual(['bank', 'topicGroups', 'videoScope'])

@@ -31,6 +31,14 @@ P=~/.claude/projects/-Users-lambertbouley-Claude-Politique-primaire-de-gauche   
 node tools/build-pack.mjs $D/question-bank-output.json $D src/elections/presidentielle-2027 $D/expansion-merged.json   # [$D/expansion-merged-2.json …] [--include <gagnant>]
 ```
 
+La commande de la version en ligne (depuis le 12 octobre 2026, vérifiée : bank.ts, positions.ts, videos.ts, `bank.json` et `revisions.json` inchangés, `check-log` sans perte) :
+
+```bash
+node tools/build-pack.mjs $D/question-bank-output.json $D src/elections/presidentielle-2027 $D/expansion-merged.json $D/expansion-merged-2.json --include faure,guedj,maurel,royal
+```
+
+`--include faure,guedj,maurel,royal` est indispensable tant que ces quatre-là restent `pendingPrimary` dans `config.json` : ils sont masqués (`election.hidden`, voir l'étape 12), pas retirés, et leurs positions doivent rester dans `positions.ts`. Sans l'option, rien ne change à l'écran, mais `tests/hidden.test.ts` échoue.
+
 - BUILD écrit `src/elections/presidentielle-2027/bank.ts`, `positions.ts` et `videos.ts` (le dossier est créé s'il manque).
 - BUILD écrit aussi `$D/bank.json`, `revisions.json` et `build-log.txt`.
 - Après chaque BUILD :
@@ -39,7 +47,7 @@ node tools/build-pack.mjs $D/question-bank-output.json $D src/elections/presiden
   node tools/pipeline-helpers.mjs check-log $D   # code 1 = donnée perdue (orphan, edit-miss, gapfill-miss, reuse-miss, addcand-miss…)
   ```
 
-**Garde-fou de la primaire.** Elle doit toujours se reconstruire à l'identique, avec un `git diff` vide :
+**Garde-fou de la primaire.** Retirée du site le 12 octobre 2026, elle reste dans le dépôt comme pack de référence (séries vidéo, élection factice essai-20, référence figée du moteur), et `research/choisir-2027/bank.json` sert à toute reconstruction de la présidentielle (`reuse.json`). Elle doit toujours se reconstruire à l'identique, avec un `git diff` vide :
 
 ```bash
 node tools/build-pack.mjs research/choisir-2027/question-bank-output.json research/choisir-2027 src/elections/choisir-2027 research/choisir-2027/expansion-merged.json
@@ -372,23 +380,19 @@ node tools/build-pack.mjs $D/question-bank-output.json $D src/elections/presiden
 
 Puis, dans `election.ts`, passer `revisionTracking: true` et renseigner `dataVersion` et `changelog`. On n'ajoute plus jamais `--reset-revisions` ensuite.
 
-## 12. Le 17 octobre au soir : résultat de la primaire
+## 12. Résultat de la primaire (fait le 12 octobre 2026)
 
-```bash
-node tools/build-pack.mjs $D/question-bank-output.json $D src/elections/presidentielle-2027 $D/expansion-merged.json --include <gagnant>
-node tools/audit-pack.mjs presidentielle-2027 && npx vitest run
-```
+Raphaël Glucksmann a remporté la primaire « Choisir 2027 » dès le premier tour, le 11 octobre 2026, avec 66,13 % des voix (Toute l'Europe, 11 octobre 2026) ; le vote, perturbé par une cyberattaque, avait été prolongé jusqu'au 11 octobre à 18 h. Pas de second tour. Ce qui a été fait, à la demande du propriétaire (« cache-les uniquement pour l'instant ») :
+- **Gagnant.** Dans `config.json`, `pendingPrimary` retiré de `glucksmann` (avec `declaredAt`, `declarationSource` et une `note` sur sa désignation) ; dans `candidates.ts`, sa mention `primary` retirée (pas de pastille, comme pour tout candidat désigné par son parti) et une entrée de parcours sourcée ajoutée.
+- **Les quatre autres, masqués, pas retirés.** `faure`, `guedj`, `maurel` et `royal` sont dans `election.hidden` (`election.ts`) et dans `hiddenCandidateIds` du registre (`src/elections/index.ts`), et ne sont plus dans `candidateIds`. Leurs fiches restent dans `candidates.ts`, leurs positions dans `positions.ts` (BUILD avec `--include faure,guedj,maurel,royal`, étape 0) ; le pack les retire à son export (`src/core/visible.ts`), et `tools/audit-pack.mjs` applique la même règle. Leurs portraits et les logos qui ne servent qu'à eux (`ps.svg`, `grs.png`) ne sont plus importés par `candidates.ts` : un fichier importé serait publié et préchargé par le service worker sans être montré ni crédité ; les deux lignes `party` et `photo` d'origine sont gardées en commentaire dans chaque fiche, les fichiers et leur provenance dans `media/`. Les trois résumés de Raphaël Glucksmann qui nommaient Ségolène Royal (`ukraine_russie-1-b`, `-1-c`, `-2-b`, dans `add-candidate/glucksmann.json`) ont été réécrits sans la nommer ; les titres de presse cités restent tels quels. `royal` reste dans `ranking.excluded` et `scoringExcluded` : retirée au chargement, elle y revient si on la montre.
+- **`election.ts`.** `pending` et la note sur la primaire retirés, `dataVersion` 2026-10-12.1 (`dataFrozenAt` inchangé : aucune position relevée à nouveau), chiffres d'`audit` refaits (`node tools/audit-pack.mjs presidentielle-2027` : 5 à 9 %), une entrée de `changelog` (sans score ni nom des masqués : elle s'affiche aussi en tête du dépouillement d'un visiteur qui revient), et une précision entre crochets dans les entrées du 9 et du 10 octobre (second tour, archive).
+- **Site.** La primaire n'est plus au registre ni dans `all.ts` ; ses adresses (`#/choisir-2027`, `#/primaire`) et l'ancienne page `#/archives` sont corrigées vers la présidentielle (`RETIRED_PREFIXES`) ; un ancien lien vers la fiche d'un candidat masqué mène à `#/candidats`, et un ancien lien de comparaison perd ses candidats masqués sans avis (`#/comparer/glucksmann,faure` → `#/comparer/glucksmann`). Son pack reste dans le dépôt, hors du site (étape 0, garde-fou).
 
-Aucun workflow n'est à relancer. À faire ensuite :
-- **Fiche.** Ajouter la fiche du gagnant à `candidates.ts`, à partir de `card` dans `$D/add-candidate/<gagnant>.json`, avec son portrait (`portrait`, `downloads`, `credits`).
-- **`election.ts`.** Retirer le gagnant de `election.pending` ; mettre à jour `dataVersion` et `changelog`.
-- **Archive.** Noter le résultat sourcé dans l'archive.
-- **Configuration**, pour ne plus dépendre de `--include` :
-  - dans `config.json`, retirer `pendingPrimary` du gagnant (il reste à sa place dans la liste, qui fixe l'ordre de `positions.ts`) ;
-  - retirer les quatre autres de `candidates` ;
-  - déplacer leurs fichiers `add-candidate/<id>.json` dans `add-candidate/non-retenus/`, que `build-pack` ne lit pas ;
-  - BUILD.
-- **Gel.** Hors fenêtres de gel (`freezeWindows`).
+**Montrer à nouveau un candidat masqué.** Réécrire d'abord sa mention `primary` (elle annonce encore un second tour le 17 octobre) ; rétablir l'import de son portrait et de son logo, et ses lignes `party` et `photo` gardées en commentaire (`candidates.ts`) ; retirer son identifiant de `hidden` et de `hiddenCandidateIds`, le remettre dans `candidateIds` ; `node tools/audit-pack.mjs presidentielle-2027` et reporter les chiffres dans `audit` ; nouvelle `dataVersion` et entrée de `changelog` ; tests.
+
+**Retrait définitif, plus tard (si le propriétaire le décide).** BUILD sans les quatre dans `--include` (ou les retirer de `config.json` et déplacer leurs fichiers `add-candidate/<id>.json` dans `add-candidate/non-retenus/`, que `build-pack` ne lit pas) ; supprimer leurs fiches de `candidates.ts` (portraits et logos ne sont déjà plus importés), `royal` de `ranking.excluded` et de `scoringExcluded`, la liste `hidden` et `hiddenCandidateIds` ; audit, tests. Rien d'eux n'est alors livré : aujourd'hui, leurs données restent dans le fichier du pack, sans être affichées.
+
+**Gel.** Hors fenêtres de gel (`freezeWindows`).
 
 ## 13. Candidat qui se déclare plus tard (ex. `zemmour`)
 

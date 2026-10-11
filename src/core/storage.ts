@@ -34,18 +34,6 @@ export function storageKey(electionId: string): string {
   return `${STORAGE_PREFIX}${electionId}`
 }
 
-/**
- * Cet appareil garde-t-il une feuille pour cette élection ? Une feuille vierge n'est jamais enregistrée
- * (saveState) : une sauvegarde présente veut dire qu'on y a répondu. Rien n'est lu ni validé ici.
- */
-export function hasSaved(electionId: string): boolean {
-  try {
-    return globalThis.localStorage?.getItem(storageKey(electionId)) != null
-  } catch {
-    return false
-  }
-}
-
 export function freshState(electionId: string, dataVersion: string): SessionState {
   return {
     format: FORMAT,

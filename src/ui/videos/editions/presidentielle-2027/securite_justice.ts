@@ -10,7 +10,7 @@
 // Questions : aucune correction ne change les questions des vidéos ; elles restent celles que donne le périmètre
 // (src/elections/presidentielle-2027/videos.ts : police → securite_justice-2, trafic de drogue → securite_justice-3,
 // justice pénale → securite_justice-1). La question des blocages de lycées n'a pas d'équivalent ici : la vidéo
-// securite-lycees est retirée de cette édition (securite_justice-1) et reste dans l'archive de la primaire.
+// securite-lycees est retirée de cette édition (securite_justice-1) et reste dans la série d'origine.
 // Passages ajoutés : une édition ne renumérote pas les passages d'origine (leurs voix sont enregistrées) ; les deux
 // nouveaux passages sont insérés sous les identifiants securite-police-01-violences-p27 (securite_justice-11) et
 // securite-drogues-02-reglements-p27 (securite_justice-18).
@@ -136,7 +136,7 @@ export const SECURITE_JUSTICE: SeriesPatch = {
         },
       ],
     },
-    // securite_justice-1 : question propre à la primaire, sans équivalent ici ; la vidéo reste dans l'archive.
+    // securite_justice-1 : question propre à la primaire, sans équivalent ici ; la vidéo reste dans la série d'origine.
     'securite-lycees': {
       omit: true,
     },

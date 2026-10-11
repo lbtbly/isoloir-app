@@ -21,7 +21,7 @@ export function link(path: string): string {
   return withBase(base, path)
 }
 
-/** L'adresse d'un chemin dans une autre élection (archives, lien d'une élection à l'autre) : linkIn('choisir-2027', '/') */
+/** L'adresse d'un chemin dans une autre élection (lien d'une élection à l'autre) : linkIn('', '/') → '#/' */
 export function linkIn(slug: string, path: string): string {
   return withBase(slug, path)
 }

@@ -11,9 +11,10 @@ import { dirname, join, relative, resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { computeResults, effectiveWeight, excludedIds, knownQuestions, stance } from '../src/core/score'
 import { mulberry32 } from '../src/core/rng'
-import type { Answers, ElectionChecks, ElectionPack, Question, Rating } from '../src/core/types'
+import type { Answers, Candidate, ElectionChecks, ElectionPack, Question, Rating } from '../src/core/types'
 import { ELECTIONS } from '../src/elections'
 import { elections } from '../src/elections/all'
+import { candidates as presidentielleCandidates } from '../src/elections/presidentielle-2027/candidates'
 
 const ROOT = resolve(__dirname, '..')
 
@@ -59,6 +60,12 @@ function matcher(term: string): RegExp {
   return new RegExp(`(?<![\\p{L}\\p{N}])${escapeRe(s).replace(/ /g, '\\s+')}s?(?![\\p{L}\\p{N}])`, sensitive ? 'u' : 'iu')
 }
 const lastName = (name: string) => name.split(' ').slice(1).join(' ')
+
+/**
+ * Fiches brutes des élections qui masquent des candidats (election.hidden) : le pack ne les a plus, mais leurs noms et
+ * leurs partis restent cherchés dans les textes (neutralité), comme ceux des candidats montrés
+ */
+const RAW_CANDIDATES: Record<string, readonly Candidate[]> = { 'presidentielle-2027': presidentielleCandidates }
 
 /**
  * Profil d'un électeur qui pense exactement comme un candidat : « d'accord » sur les approches qu'il porte,
@@ -174,7 +181,8 @@ for (const pack of elections) {
 
     it('la liste de l’élection (ranking.excluded) et celle des outils de données (config.scoringExcluded) sont les mêmes', () => {
       if (!exclusion && !config?.scoringExcluded) return
-      expect([...(exclusion?.ids ?? [])].sort()).toEqual([...(config?.scoringExcluded ?? exclusion?.ids ?? [])].sort())
+      const hidden = new Set(election.hidden ?? [])
+      expect([...(exclusion?.ids ?? [])].sort()).toEqual([...(config?.scoringExcluded?.filter(id => !hidden.has(id)) ?? exclusion?.ids ?? [])].sort())
     })
 
     it.runIf(!!exclusion)('des candidats de l’élection, sans doublon, un motif et une date ; au moins deux candidats restent classés', () => {
@@ -326,14 +334,21 @@ for (const pack of elections) {
     const allow = new Set(
       [...((election as { forbiddenTermsAllow?: string[] }).forbiddenTermsAllow ?? []), ...(config?.forbiddenTermsAllow ?? [])].map(t => strip(t).toLowerCase()),
     )
+    // Candidats masqués compris : ils ne sont pas montrés, mais aucun texte de la banque ne doit les nommer
+    const hiddenIds = new Set(election.hidden ?? [])
+    const named = [...candidates, ...(RAW_CANDIDATES[election.id] ?? []).filter(c => hiddenIds.has(c.id))]
     const terms = [
-      ...candidates.flatMap(c => [c.name, lastName(c.name)]),
-      ...candidates.map(c => c.affiliation).filter(a => a && !/^Sans /.test(a)),
+      ...named.flatMap(c => [c.name, lastName(c.name)]),
+      ...named.map(c => c.affiliation).filter(a => a && !/^Sans /.test(a)),
       ...(election.forbiddenTerms ?? []),
       ...(config?.forbiddenTerms ?? []),
     ].filter((t, i, a) => t && a.indexOf(t) === i && !allow.has(strip(t).toLowerCase()))
     const matchers = terms.map(t => ({ term: t, re: matcher(t) }))
     const hits = (text: string) => matchers.filter(m => m.re.test(strip(text))).map(m => m.term)
+
+    it('les candidats masqués sont cherchés aussi', () => {
+      expect(named.filter(c => hiddenIds.has(c.id)).map(c => c.id).sort()).toEqual([...hiddenIds].sort())
+    })
 
     it('aucun nom de candidat, de parti ni de slogan dans les questions et leurs approches (mots entiers)', () => {
       const found: string[] = []

@@ -598,7 +598,7 @@ describe('tableau : une ligne par question, une case par candidat', () => {
   }
 })
 
-describe('primaire réelle : cohérence de la comparaison', () => {
+describe('élections réelles : cohérence de la comparaison', () => {
   for (const pack of elections) {
     it(`${pack.election.id} : comptes cohérents pour chaque paire, chaque thème, chaque question`, () => {
       const ids = pack.candidates.map(c => c.id)

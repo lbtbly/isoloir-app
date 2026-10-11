@@ -1,5 +1,6 @@
-// Vérifie le build : CSP présente et stricte, aucune API d'envoi réseau dans le code livré, voix des vidéos
-// servies par le site et hors de la copie hors ligne.
+// Vérifie le build : CSP présente et stricte, aucune API d'envoi réseau dans le code livré, rien de la primaire
+// « Choisir 2027 » (retirée du site) ni portrait d'un candidat masqué, voix des vidéos servies par le site et hors de
+// la copie hors ligne.
 // Lancé automatiquement après `pnpm build`.
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs'
 import { join } from 'node:path'
@@ -30,10 +31,16 @@ for (const f of readdirSync(join(dist, 'assets')).filter(f => f.endsWith('.js'))
   // L'élection factice de 20 candidats (tests/fixtures/many-candidates.ts, #/essai-20/) ne sert qu'au serveur de
   // développement : ni son entrée de registre ni ses données n'entrent dans le build
   if (/many-candidates|['"`]essai-20['"`]|Esquisse-Montclar/.test(js)) fail(`${f} contient l’élection factice de développement (#/essai-20/)`)
+  // La primaire « Choisir 2027 », retirée du site le 12 octobre 2026 : ni son pack (une note qui n'est qu'à elle),
+  // ni la page des archives, ni le lien « Élections passées », ni l'encart de l'accueil
+  if (/Le troisième débat télévisé|Élections passées|archive-callout/.test(js)) fail(`${f} contient la primaire « Choisir 2027 » ou ses pages (archives, encart de l’accueil)`)
 }
+// Son fichier à part (src/elections/choisir-2027) n'est plus produit, ni gardé par le service worker
+for (const f of readdirSync(join(dist, 'assets'))) if (/choisir-2027/.test(f)) fail(`assets/${f} : fichier de la primaire « Choisir 2027 », retirée du site`)
 for (const f of readdirSync(join(dist, 'assets')).filter(f => f.endsWith('.css'))) {
   const css = readFileSync(join(dist, 'assets', f), 'utf8')
   if (/url\(\s*['"]?https?:/.test(css)) fail(`${f} charge une ressource externe`)
+  if (/archive-callout/.test(css)) fail(`${f} garde le style de l’encart de la primaire (.archive-callout)`)
 }
 // Le service worker ne doit que servir les fichiers du site : aucune adresse, aucun envoi, aucun stockage
 const sw = readFileSync(join(dist, 'sw.js'), 'utf8')
@@ -46,6 +53,7 @@ const fetches = swCode.match(/\bfetch\([^)]*\)/g) ?? []
 if (fetches.length !== 1 || fetches[0] !== 'fetch(request)') fail(`sw.js : seul fetch(request), la requête de la page elle-même, est permis (${fetches.join(', ')})`)
 if (!/request\.method !== 'GET' \|\| new URL\(request\.url\)\.origin !== self\.location\.origin/.test(swCode)) fail('sw.js ne se limite pas aux requêtes GET du site')
 const listed = JSON.parse(sw.match(/const FILES = (\[.*\])/)?.[1] ?? '[]')
+if (listed.some(f => /choisir-2027/.test(f))) fail('sw.js garde un fichier de la primaire « Choisir 2027 »')
 for (const f of readdirSync(join(dist, 'assets'))) if (!listed.includes(`./assets/${f}`)) fail(`sw.js ne garde pas assets/${f} pour le hors-ligne`)
 
 // Voix des vidéos (public/videos/audio/<voix>/<vidéo>/<passage>.m4a, <voix> : aigue, la voix aiguë, la seule
@@ -168,6 +176,11 @@ else {
     ;({ election } = await import(pathToFileURL(join('src/elections', id, 'election.ts')).href))
   } catch (e) {
     fail(`${id}/election.ts illisible par Node (il ne doit importer que des types) : ${e.message}`)
+  }
+  // Candidats masqués (election.hidden) : leur portrait n'est pas livré (candidates.ts ne l'importe plus), sinon le
+  // service worker le préchargerait chez chaque visiteur sans que rien ne le montre ni que les mentions légales le créditent
+  for (const h of election?.hidden ?? []) {
+    for (const f of readdirSync(join(dist, 'assets'))) if (new RegExp(`^${h}-[\\w-]+\\.(?:jpe?g|png|webp)$`).test(f)) fail(`assets/${f} : portrait de ${h}, candidat masqué (election.hidden)`)
   }
   const share = election?.copy?.shareDescription
   if (election && !share) fail(`${id}/election.ts : copy.shareDescription absente`)

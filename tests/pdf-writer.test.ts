@@ -153,7 +153,7 @@ describe('coupure des lignes', () => {
   })
 
   it('coupe un mot trop long après « / », « . » ou « - », sinon entre deux caractères', () => {
-    const url = 'isoloir.vercel.app/#/choisir-2027/methode/hors-classement'
+    const url = 'isoloir.vercel.app/#/essai-20/methode/hors-classement'
     const lines = wrapText(url, 80, st)
     expect(lines.length).toBeGreaterThan(1)
     expect(lines.join('')).toBe(url)

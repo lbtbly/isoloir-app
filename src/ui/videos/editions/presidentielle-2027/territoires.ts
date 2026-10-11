@@ -26,7 +26,7 @@
 // questions de son thème » que tests/videos.test.ts vérifie pour les séries d'origine ; sa fiche, écrite le
 // 8 octobre, donne les effectifs de fin 2024 (5 876 700 agents, 24,0 % de contractuels), pas ceux de la vidéo
 // (5,80 millions et 23 % fin 2023) ni ses chiffres de salaires : la vidéo serait d'abord à reprendre sur cette
-// fiche. Les vidéos territoires-agents et territoires-outre-mer restent donc dans l'archive de la primaire ;
+// fiche. Les vidéos territoires-agents et territoires-outre-mer restent donc dans la série d'origine ;
 // l'introduction annonce deux questions et ne garde ni les agents publics (03) ni l'écart de prix outre-mer (05),
 // absents des fiches de ses questions, ni leurs sources : le chiffre de l'investissement (04) change d'index de source.
 // Planches : chaque passage corrigé dont le dessin change a la sienne dans pistes/planches/territoires.tsx, rangée sous son
@@ -116,8 +116,8 @@ export const TERRITOIRES: SeriesPatch = {
     },
 
     /* ——— Fonction publique ——— */
-    // territoires-16 (option a) : aucune question de cette élection sous ce thème ; la vidéo reste dans l'archive de
-    // la primaire.
+    // territoires-16 (option a) : aucune question de cette élection sous ce thème ; la vidéo reste dans la série
+    // d'origine, hors du site.
     'territoires-agents': {
       omit: true,
     },
@@ -173,8 +173,8 @@ export const TERRITOIRES: SeriesPatch = {
     },
 
     /* ——— Vie chère outre-mer ——— */
-    // territoires-16 (option a) : aucune question de cette élection sous ce thème ; la vidéo reste dans l'archive de
-    // la primaire.
+    // territoires-16 (option a) : aucune question de cette élection sous ce thème ; la vidéo reste dans la série
+    // d'origine, hors du site.
     'territoires-outre-mer': {
       omit: true,
     },

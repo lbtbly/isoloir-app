@@ -14,6 +14,7 @@ import { excludedTitle, MANY_RED_LINES, manyRedLinesNote, unrankedTitle } from '
 import { computeResults, displayScore, METHOD_VERSION, type Results } from '../src/core/score'
 import type { Answers, ElectionPack, TopicWeights } from '../src/core/types'
 import { elections } from '../src/elections/all'
+import { choisir2027 } from '../src/elections/choisir-2027'
 import { VOTING_NOTE } from '../src/ui/components/CurrentElection'
 import { MAX_PRIORITIES } from '../src/ui/screens/Priorities'
 import { readPdf } from '../tools/pdf-text.mjs'
@@ -21,7 +22,8 @@ import { manyCandidates } from './fixtures/many-candidates'
 
 const ROOT = join(import.meta.dirname, '..')
 const presidentielle = elections.find(p => p.election.id === 'presidentielle-2027') as ElectionPack
-const primaire = elections.find(p => p.election.id === 'choisir-2027') as ElectionPack
+// La primaire n'est plus sur le site : son pack de référence sert encore à éprouver la ligne d'archive du PDF
+const primaire: ElectionPack = choisir2027
 const NOW = new Date(2026, 9, 11, 21, 5, 0)
 const CB = 792
 
@@ -347,13 +349,14 @@ describe('dépouillement en PDF : règles générales', () => {
     expect(reportFileName(primaire, new Date(2026, 0, 2, 0, 1))).toBe('isoloir-choisir-2027-depouillement-2026-01-02.pdf')
   })
 
-  it('présidentielle complète : les 26 candidats y sont, et la grille a 18 colonnes au plus', () => {
-    const c = makeCase('26', presidentielle, 7, {}, { prio: 1 })
+  it('présidentielle complète : tous les candidats montrés y sont, et la grille a 18 colonnes au plus', () => {
+    const c = makeCase('présidentielle, tous les candidats', presidentielle, 7, {}, { prio: 1 })
     const { results } = c.input
-    expect(results.ranking.length + results.unranked.length + results.excluded.length).toBe(26)
+    expect(results.ranking.length + results.unranked.length + results.excluded.length).toBe(presidentielle.candidates.length)
     const { text, out } = read(c)
     for (const cand of presidentielle.candidates) expect(text).toContain(cand.name)
-    expect(out.log.filter(e => e.kind === 'grid-head')).toHaveLength(Math.ceil(results.ranking.length / 18))
+    const heads = out.log.filter(e => e.kind === 'grid-head')
+    expect(new Set(heads.map(e => e.id)).size).toBe(Math.ceil(results.ranking.length / 18))
   })
 
   it('encode tous les textes des élections sans rien perdre', () => {

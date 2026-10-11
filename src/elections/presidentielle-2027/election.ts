@@ -19,13 +19,12 @@ export const election: ElectionInfo = {
     { label: 'Premier tour', start: '2027-04-17T08:00:00-04:00', end: '2027-04-18T20:00:00+02:00' },
     { label: 'Second tour', start: '2027-05-01T08:00:00-04:00', end: '2027-05-02T20:00:00+02:00' },
   ],
-  dataVersion: '2026-10-09.1',
+  dataVersion: '2026-10-12.1',
   dataFrozenAt: '2026-10-09',
   finalists: null,
   notes: [
     'Les positions ont été relevées dans des sources publiques récentes (déclarations, interviews, propositions de loi, votes, programmes des partis) et peuvent avoir évolué depuis.',
     'Beaucoup de candidats n’ont pas encore publié leur programme : les positions inconnues sont donc fréquentes.',
-    'Le ou la candidate de la primaire « Choisir 2027 » sera ajoutée après son second tour, le 17 octobre 2026.',
   ],
   forbiddenTerms: [
     'Rassemblement national',
@@ -61,7 +60,7 @@ export const election: ElectionInfo = {
   // Noms de partis qui sont aussi des mots courants : jamais cherchés, même comme étiquette d'un candidat
   forbiddenTermsAllow: ['Renaissance', 'La Convention', 'Ensemble'],
   // Calculé par tools/audit-pack.mjs (questionnaire rapide, candidats notés) ; affiché sur l'accueil, vérifié par les tests
-  audit: { profiles: 3000, minShare: 4, maxShare: 8 },
+  audit: { profiles: 3000, minShare: 5, maxShare: 9 },
   quick: { step1: 10 },
   // Hors classement : un candidat connu sur moins de la moitié des questions comptées est montré sous le classement,
   // son score à titre indicatif (décision du propriétaire du 7 octobre 2026 ; l'audit montrait un candidat connu
@@ -74,7 +73,8 @@ export const election: ElectionInfo = {
   ranking: {
     minCoverageShare: 0.5,
     excluded: {
-      // Ségolène Royal ajoutée le 9 octobre 2026 avec les candidats de la primaire : connue sur 38 questions sur 100
+      // Ségolène Royal ajoutée le 9 octobre 2026 avec les candidats de la primaire : connue sur 38 questions sur 100 ;
+      // masquée depuis le 12 octobre (hidden), elle est retirée de cette liste au chargement du pack et y revient si on la montre
       ids: ['asselineau', 'batho', 'becht', 'bertrand', 'bouamrane', 'lalanne', 'markovic', 'royal'],
       // Motif factuel, le même pour chacun, sans cause supposée ; le chiffre de chacun est donné à côté
       reason: 'positions connues sur trop peu de questions',
@@ -139,9 +139,13 @@ export const election: ElectionInfo = {
     ],
     source: { title: 'Circulaire NOR INTP2618666C du 23 août 2026, annexe 1 : grille des nuances individuelles (élections sénatoriales 2026)', url: 'https://www.legifrance.gouv.fr/circulaire/id/45684', date: '2026-08-23', publisher: 'Ministère de l’Intérieur' },
   },
-  pending: [
-    'Les cinq candidats de la primaire «\u00a0Choisir 2027\u00a0» (vote les 9-10 et 16-17 octobre 2026) sont présentés jusqu’à son second tour\u00a0: seule la personne désignée restera ensuite.',
-  ],
+  // Primaire « Choisir 2027 » remportée par Raphaël Glucksmann dès le premier tour, le 11 octobre 2026 : les quatre autres
+  // candidats sont masqués, fiches et positions gardées (demande du propriétaire du 12 octobre 2026, « cache-les
+  // uniquement pour l'instant »). Les montrer à nouveau : réécrire d'abord leur mention « primary » et rétablir leur
+  // portrait et leur logo, gardés en commentaire (candidates.ts), les retirer d'ici et de hiddenCandidateIds du registre
+  // (src/elections/index.ts), les remettre dans candidateIds, puis node tools/audit-pack.mjs presidentielle-2027 pour
+  // les chiffres de « audit », et une entrée de journal.
+  hidden: ['faure', 'guedj', 'maurel', 'royal'],
   copy: {
     theName: 'l’élection présidentielle 2027',
     atName: 'à l’élection présidentielle 2027',
@@ -168,12 +172,18 @@ export const election: ElectionInfo = {
   revisionTracking: true,
   changelog: [
     {
+      date: '2026-10-12',
+      // Affichée aussi en tête du dépouillement d'un visiteur qui revient (Results, « mises à jour depuis votre dernier
+      // passage ») : l'effet sur le classement d'abord, sans score ni nom des candidats masqués (le score est sur la fiche)
+      text: 'Les quatre candidats de la primaire «\u00a0Choisir 2027\u00a0» qui n’ont pas été désignés ne sont plus présentés\u00a0: 22 candidats, dont 15 classés. Raphaël Glucksmann y a été désigné dès le premier tour, le 11 octobre 2026. Les pages et les vidéos propres à la primaire ne sont plus en ligne.',
+    },
+    {
       date: '2026-10-10',
-      text: 'Retour des vidéos « Les sujets », dans une version propre à la présidentielle : chiffres mis à jour et formulations rééquilibrées après une relecture par IA sous trois sensibilités (gauche, centre, droite), 93 passages réenregistrés et redessinés. Les vidéos sans question correspondante dans cette élection ne sont pas montrées ; elles restent dans l’archive de la primaire. Chaque question renvoie à ses vidéos (« En vidéo »).',
+      text: 'Retour des vidéos « Les sujets », dans une version propre à la présidentielle : chiffres mis à jour et formulations rééquilibrées après une relecture par IA sous trois sensibilités (gauche, centre, droite), 93 passages réenregistrés et redessinés. Les vidéos sans question correspondante dans cette élection ne sont pas montrées ; elles restent dans l’archive de la primaire [précision du 12 octobre\u00a0: cette archive n’est plus en ligne]. Chaque question renvoie à ses vidéos (« En vidéo »).',
     },
     {
       date: '2026-10-09',
-      text: 'Ajout des cinq candidats de la primaire «\u00a0Choisir 2027\u00a0» (Olivier Faure, Raphaël Glucksmann, Jérôme Guedj, Emmanuel Maurel, Ségolène Royal), présentés jusqu’à son second tour du 17 octobre\u00a0: seule la personne désignée restera ensuite. Ségolène Royal n’est pas classée, ses positions n’étant connues que sur 38 questions sur 100. Positions de Gabriel Attal et de Jérôme Guedj complétées sur la protection des agriculteurs face aux importations. La page des candidats les présente de l’extrême gauche à l’extrême droite, selon la grille des nuances politiques du ministère de l’Intérieur, à la couleur et avec le logo de chaque parti.',
+      text: 'Ajout des cinq candidats de la primaire «\u00a0Choisir 2027\u00a0» (Olivier Faure, Raphaël Glucksmann, Jérôme Guedj, Emmanuel Maurel, Ségolène Royal), présentés jusqu’à son second tour du 17 octobre\u00a0: seule la personne désignée restera ensuite [précision du 12 octobre\u00a0: il n’y a pas eu de second tour]. Ségolène Royal n’est pas classée, ses positions n’étant connues que sur 38 questions sur 100. Positions de Gabriel Attal et de Jérôme Guedj complétées sur la protection des agriculteurs face aux importations. La page des candidats les présente de l’extrême gauche à l’extrême droite, selon la grille des nuances politiques du ministère de l’Intérieur, à la couleur et avec le logo de chaque parti.',
     },
     {
       date: '2026-10-08',

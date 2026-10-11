@@ -136,7 +136,7 @@ export const INDUSTRIE_ECONOMIE: SeriesPatch = {
     },
 
     /* ——— Le prix de l'électricité des entreprises ——— */
-    // industrie_economie-19 : aucune fiche de cette élection ne porte ses chiffres ; la vidéo reste dans l'archive de la primaire.
+    // industrie_economie-19 : aucune fiche de cette élection ne porte ses chiffres ; la vidéo reste dans la série d'origine.
     'industrie-energie': {
       omit: true,
     },

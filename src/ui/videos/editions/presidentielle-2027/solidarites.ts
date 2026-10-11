@@ -143,7 +143,7 @@ export const SOLIDARITES: SeriesPatch = {
 
     /* ——— RSA et minima sociaux ——— */
     // solidarites-7 (point 1, « ne pas la montrer ») : la fiche de solidarites-1 ne porte que le non-recours, pas le
-    // montant, les foyers, le préremplissage ni la fraude ; la vidéo reste dans l'archive de la primaire.
+    // montant, les foyers, le préremplissage ni la fraude ; la vidéo reste dans la série d'origine.
     'solidarites-rsa': {
       omit: true,
     },
@@ -157,7 +157,7 @@ export const SOLIDARITES: SeriesPatch = {
 
     /* ——— Handicap ——— */
     // solidarites-7 (point 3, « la retirer ») : aucune question ni fiche de cette élection ne porte ses chiffres ; la
-    // vidéo reste dans l'archive de la primaire.
+    // vidéo reste dans la série d'origine.
     'solidarites-handicap': {
       omit: true,
     },

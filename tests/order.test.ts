@@ -3,6 +3,7 @@
 import { describe, expect, it } from 'vitest'
 import { firstStepSize, orderedQuestions } from '../src/core/order'
 import { elections } from '../src/elections/all'
+import { choisir2027 } from '../src/elections/choisir-2027'
 
 const seeds = Array.from({ length: 200 }, (_, i) => i.toString(16).padStart(16, '0'))
 
@@ -51,13 +52,13 @@ for (const pack of elections) {
   })
 }
 
-// Propre à la primaire : la question sur les alliances avec LFI ferme le premier dépouillement (demande du
-// 3 octobre 2026, research/choisir-2027/decisions.json, lastInStep)
-const primaire = elections.find(p => p.election.id === 'choisir-2027')
-describe.runIf(!!primaire)('choisir-2027 : la question sur LFI clôt le premier dépouillement', () => {
+// Propre à la primaire (pack de référence, hors du site depuis le 12 octobre 2026) : la question sur les alliances
+// avec LFI ferme le premier dépouillement (demande du 3 octobre 2026, research/choisir-2027/decisions.json, lastInStep)
+const primaire = choisir2027
+describe('choisir-2027 : la question sur LFI clôt le premier dépouillement', () => {
   it('est la 8e et dernière question du premier temps', () => {
     for (const seed of ['0123456789abcdef', 'ffffffffffffffff', '00000000deadbeef']) {
-      const list = orderedQuestions(primaire!.bank, 'essentiel', seed)
+      const list = orderedQuestions(primaire.bank, 'essentiel', seed)
       expect(list[7]!.id).toBe('strategie-1')
       expect(firstStepSize(list)).toBe(8)
     }
