@@ -7,12 +7,11 @@ import { computeResults } from './core/score'
 import { parseLocation, resolvePlace, type Resolved, type Route } from './core/routes'
 import { clearAll, essentialComplete, freshState, loadState, saveState, storageKey, type SessionState } from './core/storage'
 import type { Answer, ElectionPack, Question } from './core/types'
-import { ELECTIONS, loadElection, loadedElection, type ElectionEntry } from './elections'
+import { ELECTIONS, RETIRED_PREFIXES, loadElection, loadedElection, type ElectionEntry } from './elections'
 import { ElectionFrame } from './ui/components/ElectionFrame'
 import { FormHeader } from './ui/components/FormHeader'
 import { go, replace, setBase } from './ui/nav'
 import { Sheet } from './ui/questionnaire/Sheet'
-import { Archives } from './ui/screens/Archives'
 import { Deepen } from './ui/screens/Deepen'
 import { Home } from './ui/screens/Home'
 import { Method } from './ui/screens/Method'
@@ -34,12 +33,12 @@ import './styles/shell.css'
 
 /**
  * L'élection et la page de l'adresse courante. Une adresse à corriger (alias, ancienne page, ancien lien vers
- * un candidat d'une élection archivée) l'est sur-le-champ, sans nouvelle entrée d'historique : les écrans
- * ne voient que l'adresse corrigée.
+ * un candidat masqué ou d'une élection archivée, adresse d'une élection retirée du site) l'est sur-le-champ, sans
+ * nouvelle entrée d'historique : les écrans ne voient que l'adresse corrigée.
  */
 export function locate(): Resolved<ElectionEntry> {
   const hash = window.location.hash
-  const place = resolvePlace(parseLocation(hash), ELECTIONS)
+  const place = resolvePlace(parseLocation(hash), ELECTIONS, RETIRED_PREFIXES)
   if (place.redirect && place.redirect !== hash) history.replaceState(history.state, '', place.redirect)
   return place
 }
@@ -393,8 +392,6 @@ function ElectionApp({ pack, route, focusOnMount }: ElectionProps) {
       case 'videos':
         if (noVideos) return null
         return <Videos pack={pack} state={state} essential={essential} />
-      case 'archives':
-        return <Archives pack={pack} />
       default:
         return (
           <Home pack={pack} state={state} essential={essential} stale={stale} setState={setState} eraseAll={eraseAll} saved={saved} />
@@ -490,8 +487,6 @@ function titleFor(route: Route): string {
       return 'Les sujets'
     case 'videos':
       return 'Les sujets en vidéo'
-    case 'archives':
-      return 'Les élections passées'
     default:
       return 'Isoloir'
   }

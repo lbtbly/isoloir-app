@@ -12,7 +12,7 @@ Vite + Preact + TypeScript (choisi par l'utilisateur). Site 100 % statique, sans
 
 ## Users
 
-Les électrices et électeurs français qui envisagent de voter à une élection et hésitent entre plusieurs candidats. La première élection couverte est la primaire « Choisir 2027 » (PS, Place publique, GRS), avec 5 candidats et un vote en ligne les 9-10 et 16-17 octobre 2026.
+Les électrices et électeurs français qui envisagent de voter à une élection et hésitent entre plusieurs candidats. L'élection couverte est la présidentielle 2027 (candidats déclarés, premier tour le 18 avril 2027). La première avait été la primaire « Choisir 2027 » (PS, Place publique, GRS ; 5 candidats, vote en ligne du 9 au 11 octobre 2026) : elle n'est plus en ligne depuis le 12 octobre 2026.
 
 Ils consultent l'outil surtout sur téléphone, souvent après avoir vu le résultat d'un proche partagé en image sur les réseaux sociaux ou en messagerie. Leur tâche : comprendre quel candidat porte les idées les plus proches des leurs, sans se laisser influencer par les noms, en quelques minutes, puis éventuellement approfondir.
 
@@ -31,7 +31,7 @@ Le succès, c'est un électeur qui termine le questionnaire, comprend pourquoi t
 
 - **Tout reste dans l'isoloir.** Les réponses ne quittent jamais l'appareil (sauf si l'utilisateur exporte lui-même son double ou son affiche) : pas de serveur qui les reçoive, pas de compte, pas d'analytics, pas de cookie. Une Content-Security-Policy interdit techniquement tout envoi en arrière-plan. L'éditeur ne traite ainsi aucune donnée d'opinion politique ; seul l'hébergeur voit, comme pour toute page web, l'adresse IP et la page demandée (voir la notice de confidentialité).
 - **Les idées avant les noms.** Les approches sont anonymes pendant le questionnaire, et l'attribution, sourcée, n'arrive qu'à la fin, question par question : dès la première tendance pour les questions déjà vues, jamais pour celles qui restent à voir.
-- **Une base réutilisable.** Le moteur est générique et chaque élection est un « pack » de données. La primaire Choisir 2027 est la première, d'autres suivront.
+- **Une base réutilisable.** Le moteur est générique et chaque élection est un « pack » de données. La primaire Choisir 2027 a été la première, la présidentielle 2027 la deuxième ; d'autres suivront.
 
 ## Operating Context
 

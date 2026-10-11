@@ -102,6 +102,13 @@ interface Props {
 /** Élection nombreuse : la grille par thème montre d'abord ce nombre de candidats, les premiers du classement */
 const GRID_FIRST = 5
 
+/**
+ * L'entrée la plus récente du journal des données, quel que soit son ordre (la primaire le tient dans l'ordre
+ * chronologique, la présidentielle du plus récent au plus ancien) ; à date égale, la première écrite
+ */
+export const latestChange = <T extends { date: string }>(log: readonly T[]): T | undefined =>
+  log.reduce<T | undefined>((a, c) => (!a || c.date > a.date ? c : a), undefined)
+
 type Snapshot = SessionState['lastSeenRanking']
 
 /** Dernier geste sur une étoile, pour l'annoncer à côté de l'endroit où il a eu lieu */
@@ -516,7 +523,9 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
             {state.dataUpdatedFrom ? (
               <p class="notice" role="status">
                 Les données ont été mises à jour depuis votre dernier passage (
-                {election.changelog.at(-1)?.text ?? `version ${election.dataVersion}`}). Votre résultat a pu changer.{' '}
+                {/* Le texte du journal finit par un point : retiré ici, avant la parenthèse fermante */}
+                {latestChange(election.changelog)?.text.replace(/\.$/, '') ?? `version ${election.dataVersion}`}). Votre résultat a pu
+                changer.{' '}
                 <button type="button" class="btn-text" onClick={() => update({ dataUpdatedFrom: null })}>
                   Compris
                 </button>

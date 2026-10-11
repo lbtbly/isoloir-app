@@ -238,7 +238,7 @@ export const ECOLOGIE_ENERGIE: SeriesPatch = {
       // sourceIndex des passages gardés (0 et 1) ne changent pas
       sources: [SNBC, HCC_RESUME, CITEPA, HCC_SECTEURS],
       segments: {
-        // ecologie_energie-4 : chiffre de France Stratégie et trois leviers, venus d'une fiche de l'archive
+        // ecologie_energie-4 : chiffre de France Stratégie et trois leviers, venus d'une fiche de la primaire
         'ecologie-climat-06': 'omit',
         // ecologie_energie-5 : dette et déficit, venus de la même fiche ; traités ailleurs dans cette élection
         'ecologie-climat-07': 'omit',

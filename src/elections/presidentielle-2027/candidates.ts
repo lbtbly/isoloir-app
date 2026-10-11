@@ -4,7 +4,6 @@ import conventionLogo from './media/logos/convention.png'
 import dlfLogo from './media/logos/dlf.png'
 import franceLibreLogo from './media/logos/france-libre.png'
 import geLogo from './media/logos/ge.png'
-import grsLogo from './media/logos/grs.png'
 import horizonsLogo from './media/logos/horizons.svg'
 import lfiLogo from './media/logos/lfi.png'
 import loLogo from './media/logos/lo.svg'
@@ -15,7 +14,6 @@ import npaRLogo from './media/logos/npa-r.svg'
 import patriotesLogo from './media/logos/patriotes.png'
 import pcfLogo from './media/logos/pcf.svg'
 import ppLogo from './media/logos/pp.svg'
-import psLogo from './media/logos/ps.svg'
 import reconqueteLogo from './media/logos/reconquete.svg'
 import renaissanceLogo from './media/logos/renaissance.svg'
 import rnLogo from './media/logos/rn.svg'
@@ -38,11 +36,7 @@ import philippotPhoto from './media/philippot.jpg'
 import retailleauPhoto from './media/retailleau.jpg'
 import rousselPhoto from './media/roussel.jpg'
 import zemmourPhoto from './media/zemmour.jpg'
-import faurePhoto from './media/faure.jpg'
 import glucksmannPhoto from './media/glucksmann.jpg'
-import guedjPhoto from './media/guedj.jpg'
-import maurelPhoto from './media/maurel.jpg'
-import royalPhoto from './media/royal.jpg'
 
 // Ordre alphabétique des noms ; l'affichage hors classement est mélangé par session.
 // Fiches : rédigées par une IA, faits vérifiés automatiquement contre leurs sources le 6 octobre 2026, même structure
@@ -54,9 +48,16 @@ import royalPhoto from './media/royal.jpg'
 // (Bouamrane, Kazib, Labib, Markovic) : initiales.
 // Pas de « website » : aucun site officiel de l'élection n'a de page par candidat, et aucun candidat n'est officiel
 // avant la liste du Conseil constitutionnel (mars 2027) ; on parle de candidats déclarés.
-// Les cinq candidats de la primaire « Choisir 2027 » sont présentés jusqu'à son second tour (17 octobre 2026), avec la
-// mention « primary » ; ensuite, seul le ou la gagnante reste (build-pack --include <gagnant>, demande du propriétaire
-// du 8 octobre 2026). Fiches : add-candidate (research/presidentielle-2027/add-candidate/) ; portraits repris de la primaire.
+// Primaire « Choisir 2027 » : Raphaël Glucksmann l'a remportée dès le premier tour, le 11 octobre 2026. Les fiches des
+// quatre autres (Faure, Guedj, Maurel, Royal) restent ici, avec leur mention « primary » d'avant le vote, mais sont
+// masquées (election.hidden, demande du propriétaire du 12 octobre 2026) : à réécrire avant de les montrer à nouveau.
+// Fiches : add-candidate (research/presidentielle-2027/add-candidate/) ; portraits repris de la primaire.
+// Tant qu'ils sont masqués, leurs portraits et les logos qui ne servent qu'à eux (ps.svg, grs.png) ne sont pas importés :
+// un fichier importé serait publié et préchargé chez chaque visiteur (service worker), sans que rien ne le montre ni que
+// les mentions légales ne le créditent (licences CC BY et CC BY-SA). Fichiers et crédits restent dans media/ et
+// media/CREDITS.md. Pour montrer l'un d'eux à nouveau : rétablir l'import (« import faurePhoto from './media/faure.jpg' »,
+// « import psLogo from './media/logos/ps.svg' », « import grsLogo from './media/logos/grs.png' ») et les deux lignes
+// gardées en commentaire dans sa fiche.
 export const candidates: Candidate[] = [
   {
     id: 'arthaud',
@@ -248,13 +249,15 @@ export const candidates: Candidate[] = [
     initials: 'OF',
     affiliation: 'Parti socialiste',
     nuance: 'SOC',
-    party: { name: 'Parti socialiste', logo: { src: psLogo, ratio: 2.52 } },
+    // Masqué : logo et portrait non livrés (voir l'en-tête) ; pour le montrer à nouveau, rétablir ces deux lignes :
+    // party: { name: 'Parti socialiste', logo: { src: psLogo, ratio: 2.52 } },
+    // photo: { src: faurePhoto, alt: 'Portrait d’Olivier Faure', credit: 'PES Group Committee of the Regions, 2018, licence CC BY 2.0, recadrée', rightsUrl: 'https://commons.wikimedia.org/wiki/File:Olivier_Faure_PSE-CARCA--1194_(cropped).jpg', author: 'PES Group Committee of the Regions', title: 'Olivier_Faure_PSE-CARCA--1194_(cropped).jpg', license: { name: 'CC BY 2.0', url: 'https://creativecommons.org/licenses/by/2.0/deed.fr' }, changes: 'recadrée en carré et réduite' },
+    party: { name: 'Parti socialiste' },
     role: 'Premier secrétaire du Parti socialiste, député de Seine-et-Marne',
     campaignUrl: 'https://avecfaure2027.fr',
     declaredAt: '2026-08-30',
     declaration: { title: 'Le chef du Parti socialiste, Olivier Faure, confirme sa candidature à la primaire de son camp en vue de l’élection présidentielle', url: 'https://www.franceinfo.fr/elections/presidentielle/le-chef-du-parti-socialiste-olivier-faure-confirme-sa-candidature-a-la-primaire-de-son-camp-en-vue-de-l-election-presidentielle_8169896.html', date: '2026-08-30', publisher: 'franceinfo' },
     primary: 'En lice à la primaire «\u00a0Choisir 2027\u00a0» (second tour le 17 octobre 2026)\u00a0: seule la personne désignée restera candidate à la présidentielle.',
-    photo: { src: faurePhoto, alt: 'Portrait d’Olivier Faure', credit: 'PES Group Committee of the Regions, 2018, licence CC BY 2.0, recadrée', rightsUrl: 'https://commons.wikimedia.org/wiki/File:Olivier_Faure_PSE-CARCA--1194_(cropped).jpg', author: 'PES Group Committee of the Regions', title: 'Olivier_Faure_PSE-CARCA--1194_(cropped).jpg', license: { name: 'CC BY 2.0', url: 'https://creativecommons.org/licenses/by/2.0/deed.fr' }, changes: 'recadrée en carré et réduite' },
     bio: [
       { when: 'Aujourd’hui', text: 'Premier secrétaire du Parti socialiste depuis le 15 mars 2018, reconduit en 2021, 2023 et 2025. Député de la 11e circonscription de Seine-et-Marne depuis 2012 et conseiller municipal de Lieusaint depuis 2026.', source: { title: 'Le premier secrétaire - Parti Socialiste', url: 'https://parti-socialiste.fr/le-premier-secretaire/', date: '2026-06-29', publisher: 'Parti socialiste' } },
       { when: '2026', text: 'Déclare sa candidature à la primaire organisée par les socialistes et leurs alliés le 30 août 2026, au journal de 20 heures de TF1, quelques heures après avoir fait part de ses intentions aux députés de son parti.', source: { title: 'Le chef du Parti socialiste, Olivier Faure, confirme sa candidature à la primaire de son camp en vue de l’élection présidentielle', url: 'https://www.franceinfo.fr/elections/presidentielle/le-chef-du-parti-socialiste-olivier-faure-confirme-sa-candidature-a-la-primaire-de-son-camp-en-vue-de-l-election-presidentielle_8169896.html', date: '2026-08-30', publisher: 'franceinfo' } },
@@ -275,10 +278,10 @@ export const candidates: Candidate[] = [
     campaignUrl: 'https://glucks2027.fr/',
     declaredAt: '2026-08-23',
     declaration: { title: 'Raphaël Glucksmann annonce sa candidature à la présidentielle de 2027', url: 'https://www.france24.com/fr/france/20260823-rapha%C3%ABl-glucksmann-annonce-sa-candidature-%C3%A0-la-pr%C3%A9sidentielle-de-2027', date: '2026-08-23', publisher: 'France 24, avec l’AFP' },
-    primary: 'En lice à la primaire «\u00a0Choisir 2027\u00a0» (second tour le 17 octobre 2026)\u00a0: seule la personne désignée restera candidate à la présidentielle.',
     photo: { src: glucksmannPhoto, alt: 'Portrait de Raphaël Glucksmann', credit: '© Union européenne, 2024 – Source\u00a0: Parlement européen, recadrée', rightsUrl: 'https://commons.wikimedia.org/wiki/File:1720448398743_20240708_GLUCKSMANN_Raphael_FR_006.jpg', author: 'Parlement européen', title: '1720448398743_20240708_GLUCKSMANN_Raphael_FR_006.jpg', license: { name: 'réutilisation autorisée avec mention de la source (avis juridique du Parlement européen)', url: 'https://www.europarl.europa.eu/legal-notice/fr/' }, changes: 'recadrée en carré et réduite' },
     bio: [
       { when: 'Aujourd’hui', text: 'Député européen (Place publique). Siège au groupe de l’Alliance progressiste des socialistes et démocrates (S&D) ; membre de la commission de la sécurité et de la défense.', source: { title: 'Accueil | Raphaël GLUCKSMANN | Députés | Parlement européen', url: 'https://www.europarl.europa.eu/meps/fr/197694/RAPHAEL_GLUCKSMANN/home', date: '2026-10-09', publisher: 'Parlement européen' } },
+      { when: '2026', text: 'Remporte dès le premier tour, le 11 octobre 2026, la primaire «\u00a0Choisir 2027\u00a0» organisée par le Parti socialiste, Place publique et la Gauche républicaine et socialiste, avec 66,13\u00a0% des voix\u00a0: il en est le candidat désigné pour la présidentielle. Perturbé par une cyberattaque, le vote avait été prolongé jusqu’au dimanche 11 octobre à 18\u00a0heures.', source: { title: 'Présidentielle 2027 : l’eurodéputé Raphaël Glucksmann remporte largement la primaire de la gauche sociale-démocrate', url: 'https://www.touteleurope.eu/vie-politique-des-etats-membres/presidentielle-2027-l-eurodepute-raphael-glucksmann-remporte-largement-la-primaire-de-la-gauche-sociale-democrate/', date: '2026-10-11', publisher: 'Toute l’Europe' } },
       { when: '2026', text: 'Déclare sa candidature le 23 août 2026, dans un entretien au journal de 20 heures de TF1, en annonçant qu’il passera par une primaire avec le Parti socialiste.', source: { title: 'Raphaël Glucksmann annonce sa candidature à la présidentielle de 2027', url: 'https://www.france24.com/fr/france/20260823-rapha%C3%ABl-glucksmann-annonce-sa-candidature-%C3%A0-la-pr%C3%A9sidentielle-de-2027', date: '2026-08-23', publisher: 'France 24, avec l’AFP' } },
       { when: '2020-2023', text: 'Préside la commission spéciale du Parlement européen sur l’ingérence étrangère de septembre 2020 à mars 2022, puis la commission spéciale qui lui succède, de mai 2022 à août 2023.', source: { title: '9ème législature | Raphaël GLUCKSMANN | Députés | Parlement européen', url: 'https://www.europarl.europa.eu/meps/fr/197694/RAPHAEL_GLUCKSMANN/history/9', date: '2026-10-09', publisher: 'Parlement européen' } },
       { when: '2019', text: 'Tête de liste aux élections européennes de 2019, il est élu député européen. Réélu en 2024 à la tête de la liste Place publique – Parti socialiste.', source: { title: 'Raphaël Glucksmann | Place publique', url: 'https://place-publique.eu/trombinoscope/d7gAAtkKcvueTJRMqeYBC/raphael-glucksmann', date: '2026-10-09', publisher: 'Place publique' } },
@@ -292,13 +295,15 @@ export const candidates: Candidate[] = [
     initials: 'JG',
     affiliation: 'Parti socialiste',
     nuance: 'SOC',
-    party: { name: 'Parti socialiste', logo: { src: psLogo, ratio: 2.52 } },
+    // Masqué : logo et portrait non livrés (voir l'en-tête) ; pour le montrer à nouveau, rétablir ces deux lignes :
+    // party: { name: 'Parti socialiste', logo: { src: psLogo, ratio: 2.52 } },
+    // photo: { src: guedjPhoto, alt: 'Portrait de Jérôme Guedj', credit: 'Audrey AK, 2010, licence CC BY-SA 2.0, recadrée', rightsUrl: 'https://commons.wikimedia.org/wiki/File:J%C3%A9r%C3%B4me_Guedj_2010_(cropped).jpg', author: 'Audrey AK', title: 'Jérôme_Guedj_2010_(cropped).jpg', license: { name: 'CC BY-SA 2.0', url: 'https://creativecommons.org/licenses/by-sa/2.0/deed.fr' }, changes: 'recadrée en carré et réduite', shareAlike: true },
+    party: { name: 'Parti socialiste' },
     role: 'Député de l’Essonne',
     campaignUrl: 'https://www.jeromeguedj2027.fr/',
     declaredAt: '2026-08-23',
     declaration: { title: 'ENTRETIEN. Jérôme Guedj, député PS de l’Essonne et candidat à la présidentielle : « Je prendrai toute ma place dans cette primaire »', url: 'https://www.latribune.fr/article/la-tribune-dimanche/politique/18147697960524/jerome-guedj-depute-ps-de-l-essonne-et-candidat-a-la-presidentielle-je-prendrai-toute-ma-place-dans-cette-primaire', date: '2026-08-23', publisher: 'La Tribune Dimanche' },
     primary: 'En lice à la primaire «\u00a0Choisir 2027\u00a0» (second tour le 17 octobre 2026)\u00a0: seule la personne désignée restera candidate à la présidentielle.',
-    photo: { src: guedjPhoto, alt: 'Portrait de Jérôme Guedj', credit: 'Audrey AK, 2010, licence CC BY-SA 2.0, recadrée', rightsUrl: 'https://commons.wikimedia.org/wiki/File:J%C3%A9r%C3%B4me_Guedj_2010_(cropped).jpg', author: 'Audrey AK', title: 'Jérôme_Guedj_2010_(cropped).jpg', license: { name: 'CC BY-SA 2.0', url: 'https://creativecommons.org/licenses/by-sa/2.0/deed.fr' }, changes: 'recadrée en carré et réduite', shareAlike: true },
     bio: [
       { when: 'Aujourd’hui', text: 'Député de la 6e circonscription de l’Essonne, réélu le 7 juillet 2024. Siège au groupe Socialistes et apparentés ; membre de la commission des affaires sociales.', source: { title: 'Fonctions - M. Jérôme Guedj - Essonne (6e circonscription) - Assemblée nationale', url: 'https://www.assemblee-nationale.fr/dyn/deputes/PA1567/fonctions', publisher: 'Assemblée nationale' } },
       { when: '2026', text: 'Déclare sa candidature à la primaire de la gauche le 23 août 2026, dans un entretien à La Tribune Dimanche. Il s’était déclaré candidat à l’élection présidentielle le 5 février 2026.', source: { title: 'ENTRETIEN. Jérôme Guedj, député PS de l’Essonne et candidat à la présidentielle : « Je prendrai toute ma place dans cette primaire »', url: 'https://www.latribune.fr/article/la-tribune-dimanche/politique/18147697960524/jerome-guedj-depute-ps-de-l-essonne-et-candidat-a-la-presidentielle-je-prendrai-toute-ma-place-dans-cette-primaire', date: '2026-08-23', publisher: 'La Tribune Dimanche' } },
@@ -435,13 +440,15 @@ export const candidates: Candidate[] = [
     initials: 'EM',
     affiliation: 'Gauche républicaine et socialiste',
     nuance: 'DVG',
-    party: { name: 'Gauche républicaine et socialiste', logo: { src: grsLogo, ratio: 2.33 } },
+    // Masqué : logo et portrait non livrés (voir l'en-tête) ; pour le montrer à nouveau, rétablir ces deux lignes :
+    // party: { name: 'Gauche républicaine et socialiste', logo: { src: grsLogo, ratio: 2.33 } },
+    // photo: { src: maurelPhoto, alt: 'Portrait d’Emmanuel Maurel', credit: 'Echwander, 2016, licence CC BY-SA 4.0, recadrée', rightsUrl: 'https://commons.wikimedia.org/wiki/File:Emmanuel_Maurel_en_2016.jpg', author: 'Echwander', title: 'Emmanuel_Maurel_en_2016.jpg', license: { name: 'CC BY-SA 4.0', url: 'https://creativecommons.org/licenses/by-sa/4.0/deed.fr' }, changes: 'recadrée en carré et réduite', shareAlike: true },
+    party: { name: 'Gauche républicaine et socialiste' },
     role: 'Animateur national de la Gauche républicaine et socialiste, député du Val-d’Oise',
     campaignUrl: 'https://emmanuel-maurel.fr/',
     declaredAt: '2026-09-04',
     declaration: { title: 'Le député Emmanuel Maurel annonce sa candidature à la primaire socialiste pour l’élection présidentielle', url: 'https://www.franceinfo.fr/politique/ps/primaire-socialiste/le-depute-emmanuel-maurel-annonce-sa-candidature-a-la-primaire-socialiste-pour-l-election-presidentielle_8176532.html', date: '2026-09-04', publisher: 'franceinfo' },
     primary: 'En lice à la primaire «\u00a0Choisir 2027\u00a0» (second tour le 17 octobre 2026)\u00a0: seule la personne désignée restera candidate à la présidentielle.',
-    photo: { src: maurelPhoto, alt: 'Portrait d’Emmanuel Maurel', credit: 'Echwander, 2016, licence CC BY-SA 4.0, recadrée', rightsUrl: 'https://commons.wikimedia.org/wiki/File:Emmanuel_Maurel_en_2016.jpg', author: 'Echwander', title: 'Emmanuel_Maurel_en_2016.jpg', license: { name: 'CC BY-SA 4.0', url: 'https://creativecommons.org/licenses/by-sa/4.0/deed.fr' }, changes: 'recadrée en carré et réduite', shareAlike: true },
     bio: [
       { when: 'Aujourd’hui', text: 'Député de la 3e circonscription du Val-d’Oise, élu le 7 juillet 2024. Siège au groupe Gauche démocrate et républicaine ; membre de la commission des finances et de la commission des affaires européennes.', source: { title: 'Fonctions - M. Emmanuel Maurel - Val-d’Oise (3e circonscription) - Assemblée nationale', url: 'https://www.assemblee-nationale.fr/dyn/deputes/PA842271/fonctions', publisher: 'Assemblée nationale' } },
       { when: '2026', text: 'Déclare sa candidature le 4 septembre 2026, dans un entretien sur franceinfo, à la primaire de la gauche socialiste lancée par le Parti socialiste et Place publique en vue de l’élection présidentielle.', source: { title: 'Le député Emmanuel Maurel annonce sa candidature à la primaire socialiste pour l’élection présidentielle', url: 'https://www.franceinfo.fr/politique/ps/primaire-socialiste/le-depute-emmanuel-maurel-annonce-sa-candidature-a-la-primaire-socialiste-pour-l-election-presidentielle_8176532.html', date: '2026-09-04', publisher: 'franceinfo' } },
@@ -561,13 +568,15 @@ export const candidates: Candidate[] = [
     initials: 'SR',
     affiliation: 'Parti socialiste',
     nuance: 'SOC',
-    party: { name: 'Parti socialiste', logo: { src: psLogo, ratio: 2.52 } },
+    // Masqué : logo et portrait non livrés (voir l'en-tête) ; pour le montrer à nouveau, rétablir ces deux lignes :
+    // party: { name: 'Parti socialiste', logo: { src: psLogo, ratio: 2.52 } },
+    // photo: { src: royalPhoto, alt: 'Portrait de Ségolène Royal', credit: 'Georges Biard, 2020, licence CC BY-SA 4.0, recadrée', rightsUrl: 'https://commons.wikimedia.org/wiki/File:SEGOLENE_ROYAL_DEAUVILLE_2020_2.jpg', author: 'Georges Biard', title: 'SEGOLENE_ROYAL_DEAUVILLE_2020_2.jpg', license: { name: 'CC BY-SA 4.0', url: 'https://creativecommons.org/licenses/by-sa/4.0/deed.fr' }, changes: 'recadrée en carré et réduite', shareAlike: true },
+    party: { name: 'Parti socialiste' },
     role: 'Présidente de l’Association France-Algérie',
     campaignUrl: 'https://segolene-ordrejuste.fr/',
     declaredAt: '2026-07-10',
     declaration: { title: 'Ségolène Royal annonce qu’elle participera à la primaire socialiste en vue de l’élection présidentielle', url: 'https://www.franceinfo.fr/elections/presidentielle/segolene-royal-annonce-qu-elle-participera-a-la-primaire-socialiste-en-vue-de-l-election-presidentielle_8102696.html', date: '2026-07-10', publisher: 'franceinfo (avec AFP)' },
     primary: 'En lice à la primaire «\u00a0Choisir 2027\u00a0» (second tour le 17 octobre 2026)\u00a0: seule la personne désignée restera candidate à la présidentielle.',
-    photo: { src: royalPhoto, alt: 'Portrait de Ségolène Royal', credit: 'Georges Biard, 2020, licence CC BY-SA 4.0, recadrée', rightsUrl: 'https://commons.wikimedia.org/wiki/File:SEGOLENE_ROYAL_DEAUVILLE_2020_2.jpg', author: 'Georges Biard', title: 'SEGOLENE_ROYAL_DEAUVILLE_2020_2.jpg', license: { name: 'CC BY-SA 4.0', url: 'https://creativecommons.org/licenses/by-sa/4.0/deed.fr' }, changes: 'recadrée en carré et réduite', shareAlike: true },
     bio: [
       { when: 'Depuis 2025', text: 'Présidente de l’Association France-Algérie depuis le 18 décembre 2025, élue par son conseil d’administration, à la suite d’Arnaud Montebourg.', source: { title: 'Ségolène royal nouvelle présidente de l’association France – Algérie', url: 'https://associationfrancealgerieofficiel.fr/segolene-royal-nouvelle-presidente-de-lassociation-france-algerie/', date: '2025-12-19', publisher: 'Association France-Algérie (site officiel)' } },
       { when: '2026', text: 'Annonce le 10 juillet 2026, dans un message publié sur X, qu’elle participera à la primaire socialiste en vue de l’élection présidentielle.', source: { title: 'Ségolène Royal annonce qu’elle participera à la primaire socialiste en vue de l’élection présidentielle', url: 'https://www.franceinfo.fr/elections/presidentielle/segolene-royal-annonce-qu-elle-participera-a-la-primaire-socialiste-en-vue-de-l-election-presidentielle_8102696.html', date: '2026-07-10', publisher: 'franceinfo (avec AFP)' } },

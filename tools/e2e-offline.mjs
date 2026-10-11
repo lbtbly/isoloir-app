@@ -12,16 +12,16 @@
 // sujets », vidéo liée à une question ouverte par-dessus la feuille, adresses #/videos/<vidéo> et #/essai-videos,
 // aucun son demandé sans voix inscrite, sous-titres seuls hors ligne), mention « rédigé par IA » (accueil,
 // première question, « Les sujets », fiche candidat, page des vidéos, lecteur vidéo), réglette, film et sujets avec un texte
-// agrandi (dont le focus jamais masqué), feuille enregistrée sous la clé de l'élection seule. Élections
-// archivées (s'il y en a dans le registre), avec une horloge simulée : bandeau d'archive (pendant et après le
-// vote), encart de l'accueil de l'élection par défaut, ancien lien #/candidat/<id> mené à l'archive.
+// agrandi (dont le focus jamais masqué), feuille enregistrée sous la clé de l'élection seule. Adresses retirées
+// du site (la primaire « Choisir 2027 », #/primaire, #/archives : RETIRED_PREFIXES du registre) et anciens liens
+// vers un candidat masqué, tous corrigés ; accueil sans rien de la primaire, même avec sa feuille sur l'appareil.
 //
 // Usage : pnpm build && node tools/e2e-offline.mjs [port] [--pack <id>] [--prefix <slug>]
 //   --pack <id>     : l'élection à parcourir (par défaut, celle du registre sans préfixe : src/elections/index.ts)
 //   --prefix <slug> : le préfixe tapé dans les adresses (par défaut, le slug de l'élection dans le registre ; un
 //                     alias ou l'identifiant de l'élection par défaut sont corrigés par le site, et le contrôle
 //                     porte alors aussi sur cette correction)
-//   Exemples : node tools/e2e-offline.mjs ; node tools/e2e-offline.mjs 4321 --pack choisir-2027 --prefix primaire
+//   Exemples : node tools/e2e-offline.mjs ; node tools/e2e-offline.mjs 4321 --pack presidentielle-2027 --prefix presidentielle-2027
 // Tout le reste vient des données : research/<id>/bank.json (questions, temps, question de fin, fiches),
 // research/<id>/decisions.json (contrôle croisé du premier dépouillement), et le pack lui-même (candidats,
 // familles de thèmes, périmètre vidéo, dates), lu avec le registre par Node (TypeScript sans compilation, Node 22.18+).
@@ -44,6 +44,7 @@ const port = Number(argv.find((a, i) => /^\d+$/.test(a) && !VALUED.includes(argv
 // ——— Les données, lues dans le code du site (registre, pack, séries vidéo), tel que le build le livre ———
 useSiteModules()
 const { withBase } = await importSite('src/core/routes.ts')
+const { RETIRED_PREFIXES = [] } = await importSite('src/elections/index.ts')
 let site
 try {
   site = await loadElection(opt('--pack'), opt('--prefix'))
@@ -159,7 +160,10 @@ console.log(`Élection ${entry.id}${entry.slug ? ` (#/${entry.slug}/…)` : ' (p
   const lastOk = !decisions.lastInStep || !closingQ || decisions.lastInStep.includes(closingQ.id)
   // Mêmes candidats publiés, chacun avec les mêmes approches
   const table = t => Object.entries(t ?? {}).map(([c, ps]) => `${c}:${Object.keys(ps).sort().join(',')}`).sort().join(' ')
-  const positionsOk = table(researchBank.positions) === table(pack.positions) && Object.keys(pack.positions).sort().join(' ') === pack.candidates.map(c => c.id).sort().join(' ')
+  // Candidats masqués (election.hidden) : publiés dans research/<id>/bank.json, retirés du pack à son chargement
+  const hidden = new Set(pack.election.hidden ?? [])
+  const published = Object.fromEntries(Object.entries(researchBank.positions ?? {}).filter(([c]) => !hidden.has(c)))
+  const positionsOk = table(published) === table(pack.positions) && Object.keys(pack.positions).sort().join(' ') === pack.candidates.map(c => c.id).sort().join(' ')
   check(
     same && step1Ok && lastOk && positionsOk,
     `données : research/${entry.id}/bank.json et le pack concordent (questions ${same}, candidats ${positionsOk}), premier dépouillement conforme à decisions.json (${step1Ok}${closingQ ? `, « ${closingQ.id} » en dernier ${lastOk}` : ''})`,
@@ -502,10 +506,10 @@ try {
     /\s:\sprioritaire$/.test(starName) && starOn === 'true' && doubledOn === 1 && chips === 1 && starNote.includes('compte double') && doubledOff === 0,
     `étoile « ${starName} » : thème prioritaire puis normal (${doubledOn} → ${doubledOff} thème double), « ${starNote} »`,
   )
-  // La feuille est enregistrée sous la clé de cette élection, et sous aucune autre : chaque élection a sa sauvegarde
+  // La feuille est enregistrée sous la clé de cette élection, et sous aucune autre : chaque élection a sa sauvegarde.
+  // La liste interdite ne vient pas du registre (il peut n'avoir qu'une élection) : aucune autre clé « isoloir: »
   const keys = await page.evaluate(() => Object.keys(localStorage).filter(k => k.startsWith('isoloir:') && !k.endsWith(':illisible')))
-  const otherKeys = ELECTIONS.filter(e => e.id !== entry.id).map(e => `isoloir:${e.id}`).filter(k => keys.includes(k))
-  check(keys.includes(STORAGE) && otherKeys.length === 0, `sauvegarde : la feuille est sous « ${STORAGE} », aucune autre élection n’en reçoit (${keys.join(', ')})`)
+  check(keys.length === 1 && keys[0] === STORAGE, `sauvegarde : la feuille est sous « ${STORAGE} », et aucune autre clé « isoloir: » n’existe (${keys.join(', ')})`)
 
   // 4 bis. La fenêtre de confidentialité s'ouvre depuis la barre du bas et se ferme
   await page.goto(U('/feuille/2'))
@@ -734,7 +738,7 @@ try {
   // 7 bis bis. Pied de page commun : sur chaque écran, les liens vers la méthode et les notices sont dans le
   // pied (repère « contentinfo »), jamais dans l'en-tête (ni en ligne ni dans le panneau du menu) ; défilé
   // jusqu'en bas, le dernier lien ne passe pas sous la barre d'actions ; la notice où l'on est est marquée.
-  // Un lien vers les archives peut s'y ajouter (#/archives, quand une élection est archivée).
+  // Ces trois liens et rien d'autre (l'ancien lien « Élections passées » vers #/archives est retiré).
   const footScreens = ['/', '/feuille/2', '/resultats', '/proximite', '/candidats', `/candidat/${FICHE.id}`, '/sujets', '/methode', '/confidentialite', '/mentions-legales', '/priorites', '/approfondir', '/partager']
   const notices = [L('/methode'), L('/confidentialite'), L('/mentions-legales')]
   const footIssues = []
@@ -759,9 +763,8 @@ try {
       }
     }, notices.map(h => `.form-header a[href="${h}"]`).join(', '))
     const expected = notices.includes(L(path)) ? L(path) : ''
-    const ownLinks = f.hrefs.filter(h => !/\/archives$/.test(h ?? ''))
     const ok =
-      f.count === 1 && landmarks === 1 && ownLinks.join(' ') === notices.join(' ') && f.current.join(' ') === expected && f.inHeader === 0 && !f.masked
+      f.count === 1 && landmarks === 1 && f.hrefs.join(' ') === notices.join(' ') && f.current.join(' ') === expected && f.inHeader === 0 && !f.masked
     if (!ok) footIssues.push(`${path} (${f.count} pied, ${landmarks} repère, liens ${f.hrefs.join(' ')}, courant ${f.current.join(' ') || '-'}, ${f.inHeader} dans l’en-tête${f.masked ? ', masqué par la barre' : ''})`)
   }
   check(
@@ -1264,110 +1267,85 @@ try {
     await c.close()
   }
 
-  // 9. Élections archivées, avec une horloge simulée (Date.now fixé, minuteries libres) : le bandeau d'archive
-  // (données arrêtées, et « le vote est en cours » tant que le vote n'est pas clos), l'encart de l'accueil de
-  // l'élection par défaut (pendant le vote, ou après si l'appareil garde une feuille de l'archive), et l'ancien
-  // lien #/candidat/<id> vers un candidat de l'archive seule. Contrôles fondés sur le texte affiché et sur les
-  // liens, pas sur les classes : l'archive doit le dire en toutes lettres.
-  const archived = ELECTIONS.filter(e => e.archived)
-  if (!archived.length) console.log('– archives : aucune élection archivée dans le registre, contrôles du bandeau et de l’encart sautés')
-  const textOf = p => p.evaluate(() => (document.body.innerText ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' '))
-  const frenchDates = iso => {
-    const d = new Date(`${iso}T12:00:00`)
-    const month = d.toLocaleDateString('fr-FR', { month: 'long' })
-    const day = d.getDate()
-    return [`${day} ${month} ${d.getFullYear()}`, ...(day === 1 ? [`1er ${month} ${d.getFullYear()}`] : [])]
-  }
-  /** Une page à une date donnée, avec ou sans feuilles enregistrées */
-  const at = async (when, path, stored = {}) => {
+  // 9. Adresses retirées du site (RETIRED_PREFIXES du registre : la primaire « Choisir 2027 », son alias
+  // #/primaire, l'ancienne page #/archives) et anciens liens vers un candidat masqué (hiddenCandidateIds) : chaque
+  // adresse est corrigée sur-le-champ, sans entrée d'historique, vers l'accueil, la même notice ou la même fiche sans
+  // préfixe, ou la page des candidats pour un candidat masqué ; une comparaison perd ses candidats masqués, sans avis
+  // « inconnu » ; jamais « Candidat introuvable ». Puis l'accueil, même
+  // avec une feuille de la primaire gardée sur l'appareil : ni archive, ni « Élections passées », ni encart, ni lien
+  // ni mot de la primaire ; la feuille gardée n'est ni effacée ni reprise (« Tout effacer » la couvre).
+  if (entry.slug === '') {
+    const hidden = defaultEntry.hiddenCandidateIds ?? []
+    const textOf = p => p.evaluate(() => (document.body.innerText ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' '))
+    const cases = [
+      ...RETIRED_PREFIXES.flatMap(p => [
+        [`#/${p}`, '#/', 'home'],
+        [`#/${p}/resultats`, '#/', 'home'],
+        [`#/${p}/feuille/3`, '#/', 'home'],
+        [`#/${p}/comparer/${FICHE.id}`, '#/', 'home'],
+        [`#/${p}/candidat/${FICHE.id}`, `#/candidat/${FICHE.id}`, 'fiche'],
+        [`#/${p}/methode/hors-classement`, '#/methode/hors-classement', 'methode'],
+        [`#/${p}/confidentialite`, '#/confidentialite', 'notice'],
+        [`#/${p}/candidats`, '#/candidats', 'candidats'],
+      ]),
+      ...hidden.flatMap(id => [[`#/candidat/${id}`, '#/candidats', 'candidats'], ...RETIRED_PREFIXES.map(p => [`#/${p}/candidat/${id}`, '#/candidats', 'candidats'])]),
+      // Une comparaison partagée avant le masquage : les masqués en sont retirés, sans avis « inconnu »
+      ...(hidden.length
+        ? [
+            [`#/comparer/${FICHE.id},${hidden.join(',')}`, `#/comparer/${FICHE.id}`, 'comparer'],
+            [`#/comparer/${hidden.join(',')}`, '#/comparer', 'comparer'],
+          ]
+        : []),
+    ]
     const c = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' })
-    await c.clock.setFixedTime(when)
-    await c.addInitScript(s => Object.entries(s).forEach(([k, v]) => localStorage.setItem(k, v)), stored)
+    // La longueur de l'historique à l'ouverture de chaque page, avant le code du site : une correction d'adresse
+    // la remplace (replaceState) sans l'allonger
+    await c.addInitScript(() => {
+      window.__historyAtLoad = history.length
+    })
     const p = await c.newPage()
-    await p.goto(base + path)
-    await p.locator('main h1').first().waitFor({ timeout: 6000 }).catch(() => null)
-    await p.waitForTimeout(150)
-    return { c, p }
-  }
-  for (const a of archived) {
-    const apack = await a.load()
-    const ends = [a.votingUntil, ...apack.election.rounds.map(r => r.end)].filter(Boolean).map(Date.parse).filter(t => !Number.isNaN(t))
-    const lastRound = apack.election.rounds.at(-1)
-    // Pendant le vote : une heure après l'ouverture du dernier tour (avant la fin du vote) ; après : le lendemain
-    const during = a.votingUntil && lastRound ? new Date(Math.min(Date.parse(lastRound.start) + 3600e3, Date.parse(a.votingUntil) - 3600e3)) : null
-    const afterVote = new Date(Math.max(...ends, Date.parse(`${apack.election.dataFrozenAt}T12:00:00`)) + 86400e3)
-    const dates = frenchDates(apack.election.dataFrozenAt)
-    const aHome = withBase(a.slug, '/')
-
-    // Bandeau d'archive, sur l'accueil et sur une question de l'archive (qui reste utilisable)
-    {
-      for (const [label, when] of [['après le vote', afterVote], ...(during ? [['pendant le vote', during]] : [])]) {
-        const issues = []
-        for (const path of ['/', '/feuille/1']) {
-          const { c, p } = await at(when, withBase(a.slug, path))
-          const t = await textOf(p)
-          if (!/\bArchive\b/.test(t)) issues.push(`${path} : pas de mention « Archive »`)
-          if (!dates.some(d => t.includes(d))) issues.push(`${path} : date d’arrêt des données absente (${dates[0]})`)
-          const voting = /vote est en cours/i.test(t)
-          if (when === during && !voting) issues.push(`${path} : « le vote est en cours » absent`)
-          if (when === afterVote && voting) issues.push(`${path} : « le vote est en cours » après la fin du vote`)
-          if (path !== '/' && !(await p.locator('.approaches > li').count())) issues.push(`${path} : la question ne s’affiche pas`)
-          await c.close()
-        }
-        check(issues.length === 0, `archive ${a.id}, ${label} (${when.toISOString().slice(0, 16)}) : bandeau « Archive », données arrêtées au ${dates[0]}${issues.length ? ` : ${issues.join(' ; ')}` : ''}`)
-      }
+    const issues = []
+    for (const [from, to, kind] of cases) {
+      await p.goto('about:blank')
+      await p.goto(base + from)
+      await p.waitForFunction(h => decodeURI(location.hash) === h, to, { timeout: 3000 }).catch(() => null)
+      await p.locator('main h1').first().waitFor({ timeout: 6000 }).catch(() => null)
+      const landed = hashOf(p)
+      const t = await textOf(p)
+      // L'adresse est remplacée, pas ajoutée : l'historique a la longueur qu'il avait à l'ouverture de la page
+      const added = await p.evaluate(() => history.length - window.__historyAtLoad)
+      const shown =
+        kind === 'fiche' ? await p.locator('.bristol').first().isVisible().catch(() => false)
+        : kind === 'candidats' ? (await p.locator('.people-panel').count()) === N
+        : kind === 'home' ? (await p.locator('.home-sheet').count()) === 1
+        : (await p.locator('main h1').count()) > 0
+      const unknown = kind === 'comparer' && /inconnu/i.test(t)
+      if (landed !== to || !shown || unknown || /introuvable/i.test(t) || added !== 0) issues.push(`${from} → ${landed} (attendu ${to}, ${kind} ${shown ? 'affiché' : 'absent'}, ${added} entrée(s) d’historique ajoutée(s)${unknown ? ', avis « inconnu »' : ''})`)
     }
+    check(issues.length === 0, `adresses retirées (${RETIRED_PREFIXES.join(', ')}) et candidats masqués (${hidden.join(', ') || 'aucun'}) : ${cases.length} anciennes adresses corrigées${issues.length ? ` : ${issues.join(' ; ')}` : ''}`)
+    await c.close()
 
-    // L'élection par défaut : l'encart qui mène à l'archive, et l'ancien lien vers un candidat de l'archive seule
-    if (entry.slug === '') {
-      const firstQ = apack.bank.questions.find(q => q.tier === 'essentiel')
-      const kept = JSON.stringify({
-        format: 3,
-        electionId: a.id,
-        dataVersion: apack.election.dataVersion,
-        seed: '0123456789abcdef',
-        answers: firstQ ? { [firstQ.id]: { ratings: { [firstQ.approaches[0].id]: 1 }, redLines: [] } } : {},
-        weights: {},
-        deepTopics: [],
-        lastSeenRanking: null,
-        dataUpdatedFrom: null,
-        essentialDoneAt: null,
-        updatedAt: afterVote.toISOString(),
-      })
-      const cases = [
-        ...(during ? [['pendant le vote, sans feuille', during, {}, true]] : []),
-        ['après le vote, sans feuille', afterVote, {}, false],
-        ['après le vote, avec une feuille de l’archive', afterVote, { [`isoloir:${a.id}`]: kept }, true],
-      ]
-      const issues = []
-      for (const [label, when, stored, expected] of cases) {
-        const { c, p } = await at(when, '#/', stored)
-        const box = p.locator(`main a[href^="${aHome}"]`).first()
-        const shown = (await box.count()) > 0 && (await box.isVisible())
-        if (shown !== expected) issues.push(`${label} : encart ${shown ? 'affiché' : 'absent'}`)
-        if (shown && expected && label.includes('avec une feuille')) {
-          await box.click()
-          await p.waitForFunction(h => decodeURI(location.hash).startsWith(h), aHome, { timeout: 3000 }).catch(() => null)
-          if (!decodeURI(new URL(p.url()).hash).startsWith(aHome)) issues.push(`${label} : le lien ne mène pas à ${aHome}`)
-          // L'archive retrouve sa feuille, et la feuille de l'élection par défaut n'a rien reçu
-          const keysNow = await p.evaluate(() => Object.keys(localStorage).filter(k => k.startsWith('isoloir:')))
-          if (keysNow.includes(`isoloir:${defaultEntry.id}`)) issues.push(`${label} : une feuille de ${defaultEntry.id} a été créée`)
-        }
-        await c.close()
-      }
-      check(issues.length === 0, `accueil de ${defaultEntry.id} : encart vers l’archive ${a.id} (${aHome}) pendant le vote ou si l’appareil garde sa feuille, absent sinon${issues.length ? ` : ${issues.join(' ; ')}` : ''}`)
-
-      const only = a.candidateIds.find(id => !defaultEntry.candidateIds.includes(id))
-      if (only) {
-        const { c, p } = await at(afterVote, `#/candidat/${only}`)
-        const target = withBase(a.slug, `/candidat/${only}`)
-        await p.waitForFunction(h => decodeURI(location.hash) === h, target, { timeout: 3000 }).catch(() => null)
-        const landedHash = decodeURI(new URL(p.url()).hash)
-        const card = await p.locator('.bristol').first().isVisible().catch(() => false)
-        check(landedHash === target && card, `ancien lien #/candidat/${only} : mène à l’archive (${landedHash}), fiche affichée ${card}`)
-        await c.close()
-      }
-    }
+    // L'accueil, avec une feuille de la primaire gardée sur cet appareil
+    const kept = JSON.stringify({ format: 3, electionId: 'choisir-2027', dataVersion: '2026-10-03.1', seed: '0123456789abcdef', answers: {}, weights: {}, deepTopics: [], lastSeenRanking: null, dataUpdatedFrom: null, essentialDoneAt: null, updatedAt: '2026-10-10T12:00:00.000Z' })
+    const hc = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' })
+    await hc.addInitScript(v => localStorage.setItem('isoloir:choisir-2027', v), kept)
+    const hp = await hc.newPage()
+    await hp.goto(base)
+    await hp.locator('main h1').first().waitFor()
+    await hp.waitForTimeout(150)
+    const home = await textOf(hp)
+    const homeIssues = []
+    if (/\bArchives?\b/.test(home)) homeIssues.push('mention « Archive »')
+    if (/Élections passées/.test(home)) homeIssues.push('« Élections passées »')
+    if (/primaire|Choisir 2027/i.test(home)) homeIssues.push('la primaire est nommée')
+    if (await hp.locator('.archive-callout, .archive-banner').count()) homeIssues.push('encart ou bandeau d’archive')
+    const retiredLinks = await hp.evaluate(prefixes => [...document.querySelectorAll('a[href^="#/"]')].map(a => a.getAttribute('href')).filter(h => prefixes.some(p => h === `#/${p}` || h.startsWith(`#/${p}/`))), [...RETIRED_PREFIXES])
+    if (retiredLinks.length) homeIssues.push(`liens ${retiredLinks.join(' ')}`)
+    const keys = await hp.evaluate(() => Object.keys(localStorage).filter(k => k.startsWith('isoloir:')).sort())
+    if (!keys.includes('isoloir:choisir-2027')) homeIssues.push('la feuille de la primaire a été effacée')
+    if (keys.includes(STORAGE)) homeIssues.push(`une feuille ${STORAGE} a été créée`)
+    check(homeIssues.length === 0, `accueil avec une feuille de la primaire sur l’appareil : rien de la primaire (ni archive, ni encart, ni lien), feuille gardée telle quelle${homeIssues.length ? ` : ${homeIssues.join(' ; ')}` : ''}`)
+    await hc.close()
   }
 } finally {
   await browser.close()

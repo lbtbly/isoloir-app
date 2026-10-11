@@ -2,8 +2,8 @@
   "id": "presidentielle-2027",
   "name": "Élection présidentielle 2027",
   "shortName": "Présidentielle 2027",
-  "contextDate": "2026-10-06",
-  "context": "Élection présidentielle française de 2027 : premier tour le dimanche 18 avril 2027, second tour le dimanche 2 mai 2027 (le samedi précédent dans une partie de l’outre-mer et sur le continent américain). Parrainages jusqu’au vendredi 12 mars 2027 à 18 h ; liste officielle du Conseil constitutionnel attendue vers le 16 mars 2027 : d’ici là, aucun candidat n’est « officiel », on parle de candidats déclarés. Au 6 octobre 2026, 21 personnes se sont déclarées candidates (dont Éric Zemmour et Xavier Bertrand, qui ont annoncé leur candidature et doivent encore l’officialiser formellement) ; la primaire de la gauche « Choisir 2027 » (PS, Place publique, GRS) désigne la ou le sien les 9-10 et 16-17 octobre 2026 parmi Olivier Faure, Raphaël Glucksmann, Jérôme Guedj, Emmanuel Maurel et Ségolène Royal. Beaucoup de programmes ne sont pas encore publiés : on s’appuie sur les déclarations publiques récentes (2025-2026), les propositions de loi, les votes et les programmes récents des partis.",
+  "contextDate": "2026-10-12",
+  "context": "Élection présidentielle française de 2027 : premier tour le dimanche 18 avril 2027, second tour le dimanche 2 mai 2027 (le samedi précédent dans une partie de l’outre-mer et sur le continent américain). Parrainages jusqu’au vendredi 12 mars 2027 à 18 h ; liste officielle du Conseil constitutionnel attendue vers le 16 mars 2027 : d’ici là, aucun candidat n’est « officiel », on parle de candidats déclarés. Au 6 octobre 2026, 21 personnes se sont déclarées candidates (dont Éric Zemmour et Xavier Bertrand, qui ont annoncé leur candidature et doivent encore l’officialiser formellement) ; la primaire de la gauche « Choisir 2027 » (PS, Place publique, GRS) a désigné Raphaël Glucksmann dès le premier tour, le 11 octobre 2026, avec 66,13 % des voix, face à Olivier Faure, Jérôme Guedj, Emmanuel Maurel et Ségolène Royal (vote prolongé jusqu’au 11 octobre à 18 h après une cyberattaque). Beaucoup de programmes ne sont pas encore publiés : on s’appuie sur les déclarations publiques récentes (2025-2026), les propositions de loi, les votes et les programmes récents des partis.",
   "rounds": [
     {
       "label": "Premier tour",
@@ -323,7 +323,14 @@
       "name": "Raphaël Glucksmann",
       "initials": "RG",
       "party": "Place publique",
-      "pendingPrimary": true,
+      "declaredAt": "2026-08-23",
+      "declarationSource": {
+        "title": "Raphaël Glucksmann annonce sa candidature à la présidentielle de 2027",
+        "url": "https://www.france24.com/fr/france/20260823-rapha%C3%ABl-glucksmann-annonce-sa-candidature-%C3%A0-la-pr%C3%A9sidentielle-de-2027",
+        "publisher": "France 24, avec l’AFP",
+        "date": "2026-08-23"
+      },
+      "note": "Désigné candidat le 11 octobre 2026 par la primaire « Choisir 2027 » (PS, Place publique, GRS), dès le premier tour, avec 66,13 % des voix (Toute l’Europe, 11 octobre 2026).",
       "reuseDossier": "research/choisir-2027/dossier_glucksmann.json",
       "docs": []
     },

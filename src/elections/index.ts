@@ -5,6 +5,8 @@
 // all.ts (tests et outils). Les tests d'intégrité s'y appliquent d'office.
 // L'élection par défaut a le slug '' (adresses #/…) ; les autres, #/<slug>/…. Écrire « id » puis « slug » à la
 // suite dans chaque entrée : vite.config.ts (préchargement) et tools/check-dist.mjs y lisent l'élection par défaut.
+// La primaire « Choisir 2027 » n'est plus au registre depuis le 12 octobre 2026 : son pack (elections/choisir-2027)
+// reste dans le dépôt comme référence, hors du site ; ses anciennes adresses sont corrigées (RETIRED_PREFIXES).
 
 import type { ElectionRef } from '../core/routes'
 import type { ElectionPack } from '../core/types'
@@ -13,7 +15,7 @@ export interface ElectionEntry extends ElectionRef {
   id: string
   /** Préfixe des adresses : '' pour l'élection par défaut (#/…), sinon #/<slug>/… */
   slug: string
-  /** Autres préfixes acceptés, corrigés en slug dans l'adresse (#/primaire/… → #/choisir-2027/…) */
+  /** Autres préfixes acceptés, corrigés en slug dans l'adresse (#/<alias>/… → #/<slug>/…) */
   aliases?: readonly string[]
   /** Nom affiché hors de l'élection (archives, liens entre élections) */
   label: string
@@ -21,6 +23,11 @@ export interface ElectionEntry extends ElectionRef {
   archived: boolean
   /** Ses candidats : pour mener un ancien lien #/candidat/<id> vers la bonne élection, sans la charger */
   candidateIds: readonly string[]
+  /**
+   * Ses candidats masqués (election.hidden de son pack, à recopier ici ; un test vérifie que les deux listes sont
+   * les mêmes) : un ancien lien #/candidat/<id> vers l'un d'eux mène à la page des candidats, sans charger le pack
+   */
+  hiddenCandidateIds?: readonly string[]
   /** Fin du vote, ISO 8601 : jusque-là, l'élection est en cours */
   votingUntil?: string
   /** Charge le pack (un fichier à part du build) */
@@ -33,19 +40,11 @@ export const ELECTIONS: readonly ElectionEntry[] = [
     slug: '',
     label: 'Présidentielle 2027',
     archived: false,
-    candidateIds: ['arthaud', 'asselineau', 'attal', 'batho', 'becht', 'bertrand', 'bouamrane', 'cazeneuve', 'dupontaignan', 'faure', 'glucksmann', 'guedj', 'kazib', 'labib', 'lalanne', 'lepen', 'lisnard', 'markovic', 'maurel', 'melenchon', 'philippe', 'philippot', 'retailleau', 'roussel', 'royal', 'zemmour'],
+    candidateIds: ['arthaud', 'asselineau', 'attal', 'batho', 'becht', 'bertrand', 'bouamrane', 'cazeneuve', 'dupontaignan', 'glucksmann', 'kazib', 'labib', 'lalanne', 'lepen', 'lisnard', 'markovic', 'melenchon', 'philippe', 'philippot', 'retailleau', 'roussel', 'zemmour'],
+    // Les quatre candidats de la primaire « Choisir 2027 » autres que son gagnant (presidentielle-2027/election.ts, hidden)
+    hiddenCandidateIds: ['faure', 'guedj', 'maurel', 'royal'],
     votingUntil: '2027-05-02T20:00:00+02:00',
     load: () => import('./presidentielle-2027').then(m => m.presidentielle2027),
-  },
-  {
-    id: 'choisir-2027',
-    slug: 'choisir-2027',
-    aliases: ['primaire'],
-    label: 'Primaire «\u00a0Choisir 2027\u00a0»',
-    archived: true,
-    candidateIds: ['faure', 'glucksmann', 'guedj', 'maurel', 'royal'],
-    votingUntil: '2026-10-17T20:00:00+02:00',
-    load: () => import('./choisir-2027').then(m => m.choisir2027),
   },
   // Serveur de développement seulement (ni tests ni build : import.meta.env.DEV y vaut false, et le build
   // retire l'entrée et son fichier) : une élection factice de 20 candidats, pour la mise en page d'une élection
@@ -63,6 +62,13 @@ export const ELECTIONS: readonly ElectionEntry[] = [
       ]
     : []),
 ]
+
+/**
+ * Préfixes d'adresse retirés du site : la primaire « Choisir 2027 » (son slug et son alias), retirée le 12 octobre
+ * 2026, et l'ancienne page des élections passées (#/archives). Une adresse qui commence par l'un d'eux est corrigée
+ * vers l'élection par défaut (core/routes.ts, resolvePlace). Un préfixe retiré ne peut plus servir de slug ni d'alias.
+ */
+export const RETIRED_PREFIXES: readonly string[] = ['choisir-2027', 'primaire', 'archives']
 
 /** L'élection par défaut, celle des adresses sans préfixe */
 export const defaultEntry: ElectionEntry = ELECTIONS.find(e => e.slug === '')!

@@ -19,8 +19,6 @@ export interface CurrentElection {
   election: ElectionInfo
   /** Élection archivée : ce qu'en dit le bandeau ; null pour l'élection du site */
   archive: ArchiveState | null
-  /** Le site garde au moins une élection en archive : le pied de page mène à la page des archives */
-  hasArchives: boolean
 }
 
 export const CurrentElectionContext = createContext<CurrentElection | null>(null)
@@ -40,8 +38,8 @@ export function isVoting(until: string | undefined, now = Date.now()): boolean {
 }
 
 /**
- * Le nom d'une élection du registre (label : « Primaire « Choisir 2027 » », « Présidentielle 2027 ») en cours de
- * phrase, après une préposition : withArticle('pour', label) → « pour la primaire « Choisir 2027 » ». Les noms
+ * Le nom d'une élection du registre (label : « Présidentielle 2027 », « Primaire « … » ») en cours de phrase, après
+ * une préposition : withArticle('pour', label) → « pour la présidentielle 2027 ». Les noms
  * d'élection du registre sont au féminin (« la primaire », « la présidentielle ») ; devant une voyelle, l'article
  * s'élide (« pour l’élection… ») ; un nom au pluriel (« Législatives 2027 ») prend « les », contracté après « à ».
  */

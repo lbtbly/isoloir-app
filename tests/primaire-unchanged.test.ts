@@ -1,4 +1,5 @@
-// La primaire « Choisir 2027 » est en ligne, vote en cours : le moteur de score ne doit rien y changer.
+// Référence figée du moteur, sur la primaire « Choisir 2027 » (pack gardé hors du site depuis le 12 octobre 2026) :
+// le moteur de score ne doit rien y changer.
 // tests/fixtures/primaire-results.json garde le résultat complet (rangs, ex aequo, scores, écart, stabilité,
 // « ce qui les sépare ») de profils fixés, calculé avant l'arrivée de la règle « hors classement » ; le moteur
 // d'aujourd'hui doit le reproduire à l'identique.

@@ -7,7 +7,6 @@ import type { SessionState } from '../../core/storage'
 import type { ElectionPack, Question, Round } from '../../core/types'
 import { AI_METHOD_PATH } from '../components/AiLabel'
 import { AirplaneSection } from '../components/Airplane'
-import { ArchiveCallout } from '../components/ArchiveCallout'
 import { ConfirmErase } from '../components/ConfirmErase'
 import { ExternalLink } from '../components/ExternalLink'
 import { FormHeader } from '../components/FormHeader'
@@ -170,9 +169,6 @@ export function Home({ pack, state, essential, stale, setState, eraseAll, saved 
         <section class="home-film" aria-label="Comment marche Isoloir, en cinq scènes">
           <FilmPlayer cta={{ href: startHref, label: startLabel, note: ctaNote }} />
         </section>
-
-        {/* Une élection archivée encore en vote, ou dont cet appareil garde une feuille : où la retrouver */}
-        <ArchiveCallout electionId={election.id} />
 
         {started || stale.length > 0 ? (
           <div class="home-status">

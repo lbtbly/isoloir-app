@@ -107,6 +107,9 @@ try {
   // facultatif : sert seulement à comparer les chiffres d'audit affichés
 }
 
+// Candidats masqués (election.hidden) : retirés comme au chargement du pack (src/core/visible.ts)
+const hiddenSet = new Set(election?.hidden ?? [])
+if (hiddenSet.size) positions = Object.fromEntries(Object.entries(positions).filter(([cid]) => !hiddenSet.has(cid)))
 // Candidats : ceux du pack (candidates.ts), sinon ceux de la config hors primaire en attente
 async function loadCandidates() {
   const file = join(srcDir, 'candidates.ts')
@@ -136,7 +139,8 @@ async function loadCandidates() {
   }
   return { from: 'positions.ts', list: Object.keys(positions).map(c => ({ id: c, name: c, initials: c })) }
 }
-const { from: candidatesFrom, list: candidates } = await loadCandidates()
+const { from: candidatesFrom, list: allCandidates } = await loadCandidates()
+const candidates = allCandidates.filter(c => !hiddenSet.has(c.id))
 const n = candidates.length
 const ini = cid => candidates.find(c => c.id === cid)?.initials ?? cid
 
@@ -145,8 +149,8 @@ const registryFile = join(ROOT, 'src', 'elections', 'index.ts')
 const registered =
   existsSync(registryFile) && new RegExp(`\\bid:\\s*['"]${id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}['"]`).test(readFileSync(registryFile, 'utf8'))
 const exclusion = election?.ranking?.excluded ?? null
-const configExcluded = Array.isArray(config?.scoringExcluded) ? config.scoringExcluded : null
-const fromElection = { ids: exclusion?.ids ?? null, label: `${rel(join(srcDir, 'election.ts'))} (ranking.excluded)` }
+const configExcluded = Array.isArray(config?.scoringExcluded) ? config.scoringExcluded.filter(cid => !hiddenSet.has(cid)) : null
+const fromElection = { ids: exclusion?.ids?.filter(cid => !hiddenSet.has(cid)) ?? null, label: `${rel(join(srcDir, 'election.ts'))} (ranking.excluded)` }
 const fromConfig = { ids: configExcluded, label: `${rel(join(researchDir, 'config.json'))} (scoringExcluded)` }
 const [primary, secondary] = registered ? [fromElection, fromConfig] : [fromConfig, fromElection]
 const excludedSource = primary.ids ? primary : secondary.ids ? secondary : null

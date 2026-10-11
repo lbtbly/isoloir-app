@@ -33538,7 +33538,7 @@ export const positions: PositionTable = {
       "weight": 1,
       "nature": "declaration",
       "confidence": "high",
-      "summary": "Au premier débat, il a répondu à Ségolène Royal que Vladimir Poutine n’a aucune intention de négocier et qu’il faut « résister, aider les Ukrainiens ».",
+      "summary": "Au premier débat de la primaire, il a affirmé que Vladimir Poutine n’a aucune intention de négocier et qu’il faut « résister, aider les Ukrainiens ».",
       "sources": [
         {
           "title": "Lors du premier débat de la primaire socialiste, Ségolène Royal mise en difficulté sur l’Ukraine et Israël (franceinfo)",
@@ -33552,7 +33552,7 @@ export const positions: PositionTable = {
       "rejects": true,
       "nature": "declaration",
       "confidence": "high",
-      "summary": "Au débat du 1er octobre 2026, il s’est opposé à la reprise du dialogue avec Vladimir Poutine proposée par Ségolène Royal, estimant que la faiblesse invite à l’agression ; au premier débat, il affirmait déjà que Poutine n’a aucune intention de négocier.",
+      "summary": "Au débat du 1er octobre 2026, il s’est opposé à une reprise du dialogue avec Vladimir Poutine, estimant que la faiblesse invite à l’agression ; au premier débat, il affirmait déjà que Poutine n’a aucune intention de négocier.",
       "sources": [
         {
           "title": "Mobilisation lycéenne, budget, situation internationale… Ce qu’il faut retenir du deuxième débat (LCP)",
@@ -33598,7 +33598,7 @@ export const positions: PositionTable = {
       "rejects": true,
       "nature": "declaration",
       "confidence": "high",
-      "summary": "Au débat du 1er octobre 2026, il a rejeté la ligne de dialogue avec Vladimir Poutine défendue par Ségolène Royal, estimant que « c’est la faiblesse qui crée l’invitation à l’agression ».",
+      "summary": "Au débat du 1er octobre 2026, il a rejeté une ligne de dialogue avec Vladimir Poutine, estimant que « c’est la faiblesse qui crée l’invitation à l’agression ».",
       "sources": [
         {
           "title": "Mobilisation lycéenne, budget, situation internationale… Ce qu’il faut retenir du deuxième débat (LCP)",

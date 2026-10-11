@@ -1,7 +1,7 @@
 // Lire le code du site (TypeScript) depuis un outil Node, sans compilation ni Vite : le registre des élections,
 // un pack, les séries vidéo. Node exécute le TypeScript simple (types effacés) ; ces crochets de module
 // complètent ce qui manque :
-// - les imports sans extension (« ./bank ») et de dossier (« ./choisir-2027 ») ;
+// - les imports sans extension (« ./bank ») et de dossier (« ./presidentielle-2027 ») ;
 // - les fichiers média et les feuilles de style, remplacés par un module qui exporte leur adresse ;
 // - import.meta.env (Vite) : les valeurs du build par défaut (on teste dist/), celles du serveur de
 //   développement avec { dev: true } (l'élection factice #/essai-20/ n'existe que là).

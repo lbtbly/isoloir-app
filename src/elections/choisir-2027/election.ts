@@ -1,3 +1,4 @@
+// Pack de référence, hors du site depuis le 12 octobre 2026 (voir index.ts) : ses textes ne s'affichent plus nulle part.
 import type { ElectionInfo } from '../../core/types'
 
 export const election: ElectionInfo = {

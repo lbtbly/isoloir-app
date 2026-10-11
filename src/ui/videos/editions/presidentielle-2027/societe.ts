@@ -10,7 +10,7 @@
 // constantes CULTURE_2026, AUDIOVISUEL_2026 et AUDIOVISUEL_CHART, la source LOI_DE_FINANCES, et les passages
 // culture-intro-03, culture-budget-02, culture-budget-04, culture-audiovisuel-06 et culture-audiovisuel-07, voix et
 // dessins compris (pour la seule présidentielle, par des corrections de ces passages dans ce fichier, la série
-// restant l'archive de la primaire). Pass Culture et bonus « annoncé » d'après le site consulté le 3 octobre 2026
+// d'origine restant telle quelle). Pass Culture et bonus « annoncé » d'après le site consulté le 3 octobre 2026
 // (bonus toujours annoncé le 7 octobre 2026) ; quotas d'après la page de l'Arcom consultée le 3 octobre 2026. À
 // revoir après ces dates.
 // Questions : la traduction automatique rattache les cinq vidéos à la seule question societe-2 (« Quelle priorité

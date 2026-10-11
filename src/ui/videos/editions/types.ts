@@ -1,7 +1,7 @@
 // Une « édition » des séries vidéo : les corrections propres à une élection, posées sur les séries communes
-// (series/<thème>.ts, écrites pour la primaire « Choisir 2027 ») sans les modifier. L'archive de la primaire garde
-// ses textes et ses voix ; l'élection qui déclare l'édition (ElectionPack.videoScope.edition) voit les séries
-// corrigées (apply.ts, appliqué par scope.ts).
+// (series/<thème>.ts, écrites pour la primaire « Choisir 2027 ») sans les modifier. Les séries d'origine gardent
+// leurs textes et leurs voix (la primaire n'est plus sur le site depuis le 12 octobre 2026) ; l'élection qui déclare
+// l'édition (ElectionPack.videoScope.edition) voit les séries corrigées (apply.ts, appliqué par scope.ts).
 // Les voix : un passage dont le texte dit change (say ou spoken) prend un nouvel identifiant, celui d'origine
 // suivi du suffixe de l'édition, pour avoir son propre fichier de voix ; les autres gardent le leur.
 
