@@ -58,3 +58,7 @@ export function unlockVideo(id: string) {
   const first = ref?.video.segments[0]
   if (ref && first) unlockAudio(voiceOf(ref.video.id, first)?.url)
 }
+
+/** La série d'une vidéo telle que la montre l'élection affichée (pour les planches qui listent ses vidéos), sinon d'origine */
+export const seriesOfVideo = (videoId: string): VideoSeries | undefined =>
+  videoSeries().find(s => s.videos.some(v => v.id === videoId)) ?? VIDEO_SERIES.find(s => s.videos.some(v => v.id === videoId))

@@ -8,11 +8,13 @@
 // Les pictogrammes qui manquent à la bibliothèque (usine, conteneur, téléphone, vêtement, voiture, centrale,
 // assiette, route) sont dessinés ici, au trait, sans attribut.
 
-import { Art, Arrow, Ask, Brace, Fade, Ink, SP, Txt, W, at, cls, cueOf, cuesOf, heard, num, nums, ratioOf, said, sentenceWith, sentencesOf, word, yearsOf, type Cue, type P, type Tone } from '../dessin/encre'
+import { Art, Arrow, Ask, Brace, Fade, Ink, Marks, SP, Txt, W, at, cls, cueOf, cuesOf, heard, num, nums, ratioOf, said, sentenceWith, sentencesOf, word, yearsOf, type Cue, type P, type Tone } from '../dessin/encre'
 import { Chiffre, Head, HeadCues, Panel, Question, Seg, Signature, Src, Sur100, lineOf } from '../dessin/mises'
 import { Glyphe, Picto, type PictoName } from '../dessin/pictos'
 import { Barriere, Cases, Disque, Pause, Qui, Rang, Signe, balance, barres, casesH, colonnes, frise, partPoint } from '../dessin/schemas'
 import { INDUSTRIE_ECONOMIE as SERIE } from '../../series/industrie_economie'
+import { EDITIONS } from '../../editions'
+import { applyEdition } from '../../editions/apply'
 import type { Board } from './types'
 
 const range = (n: number) => Array.from({ length: n }, (_, i) => i)
@@ -1367,6 +1369,237 @@ const aides08: Board = p => {
 /** 09 « Combien d'aides, pour quelles entreprises, et avec quelles contreparties ? » */
 const aides09: Board = p => finale(p, 'pieces', 'mallette')
 
+/* ——— Édition « présidentielle 2027 » : les passages corrigés (identifiants en -p27) ——— */
+// Ces planches lisent le passage corrigé (p.segment) et sa vidéo telle que l'édition la montre (p.script), jamais la
+// série d'origine (SERIE). Les planches d'origine, celles de la primaire, restent telles quelles.
+
+/** L'État au capital d'une entreprise, en un seul pictogramme : un bâtiment à colonnes relié par un trait à un
+ *  immeuble de bureaux. Dans un carré de 48 unités, traits dans l'ordre de la main ; trait fin pour le lien et les
+ *  fenêtres. */
+const CAPITAL: Trace = {
+  s: [
+    'M3 26L12 20.5L21 26Z',
+    'M4 28.5H20M6.5 28.5V38M12 28.5V38M17.5 28.5V38M4 38H20M2 41.5H22',
+    'M22 33H29',
+    'M29 41.5V7H45V41.5M26 41.5H47',
+    'M32.5 11h3v3h-3zM38.5 11h3v3h-3zM32.5 18h3v3h-3zM38.5 18h3v3h-3zM32.5 25h3v3h-3zM38.5 25h3v3h-3zM35 41.5v-6h4v6',
+  ],
+  thin: [2, 4],
+}
+
+/** Le pictogramme « l'État au capital » seul dans son SVG, pour une liste en HTML (comme Glyphe) */
+function GlypheCapital({ t0 = 0, step = 150 }: { t0?: number; step?: number }) {
+  return (
+    <svg class="vc-svg vc-glyphe" viewBox="-2 -2 52 52" aria-hidden="true">
+      <g class="vc-p">
+        {CAPITAL.s.map((d, i) => (
+          <Ink key={i} d={d} t0={t0 + i * step} dur={i === 0 ? 520 : 380} class={CAPITAL.thin?.includes(i) ? 'vc-thin' : undefined} />
+        ))}
+      </g>
+    </svg>
+  )
+}
+
+/** Le pictogramme d'une question de l'introduction, d'après ses mots ; rien s'il n'y en a pas */
+const pictoDeQuestion = (q: string): AnyName | 'capital' | null =>
+  /capital|actionnaire/i.test(q) ? 'capital' : /commercial|commerce|échanges/i.test(q) ? 'conteneur' : /aides?\b/i.test(q) ? 'pieces' : null
+
+/** intro-07 (2027) Les trois questions de cette élection, chacune avec son pictogramme quand la voix la pose :
+ *  l'État au capital (bâtiment à colonnes relié à un immeuble), un conteneur, des pièces */
+const intro07p27: Board = p => {
+  const qs = sentencesOf(p.segment.say).filter(s => /\?$/.test(s))
+  const pics = qs.map(pictoDeQuestion)
+  if (qs.length < 2 || pics.some(n => !n)) return null
+  const cues = cuesOf(p)
+  return (
+    <Seg kind="ask">
+      <ul class="vc-panel" style={{ '--cols': '1' }}>
+        {qs.map((q, i) => {
+          const n = pics[i]!
+          const shown = heard(p, q.split(' ').slice(0, 2).join(' '))
+          return (
+            <li key={i} class={cls('vc-panel-item', shown ? 'vc-rise' : 'vc-wait')}>
+              {!shown ? <span class="vc-glyphe" /> : n === 'capital' ? <GlypheCapital t0={150} /> : <Glyphe2 n={n} t0={150} />}
+              <span class="vc-panel-text">
+                <Marks text={q} cues={cues} />
+              </span>
+            </li>
+          )
+        })}
+      </ul>
+    </Seg>
+  )
+}
+
+/** etat-04 (2027) D'abord, pour les traités, une entreprise peut être publique ou privée : deux immeubles identiques,
+ *  l'un relié au bâtiment à colonnes, l'autre non. Puis les règles sur les aides : les pièces butent contre une
+ *  barrière, le document des règles posé dessus ; un chemin en pointillé la contourne pour les exceptions. */
+const etat04p27: Board = p => {
+  const [statut, interdites, exceptions] = cuesOf(p)
+  const [pub, priv] = statut?.text.split(/\s+ou\s+/) ?? []
+  const aide = word(p, /aides? publiques?/)
+  const regles = word(p, /règles européennes/)
+  if (!statut || !pub || !priv || !aide) return null
+  // Les deux immeubles : leur sol, et le milieu de chacun
+  const g1 = 50
+  const xa = 128
+  const xb = 224
+  // Les aides : leur sol, et le poteau de la barrière
+  const g = 156
+  const post = 170
+  return (
+    <Seg>
+      <Art h={228}>
+        <Picto n="monument" x={8} y={g1 - 44 * (44 / 48)} size={44} t0={100} />
+        <Picto n="immeuble" x={xa - 24} y={g1 - 45} size={48} t0={300} />
+        <Picto n="immeuble" x={xb - 24} y={g1 - 45} size={48} t0={500} />
+        <Fade t0={900} class="vc-dash">
+          <path d="M54 34H110" />
+        </Fade>
+        {statut.shown ? (
+          <>
+            <Txt x={xa} y={g1 + 19} text={pub} size={15} t0={0} />
+            <Txt x={xb} y={g1 + 19} text={priv} size={15} t0={250} />
+          </>
+        ) : null}
+        {aide.shown ? (
+          <>
+            <Ink d={`M8 ${g}H292`} t0={0} dur={600} class="vc-soft" />
+            <Picto n="pieces" x={6} y={g - 44} size={44} t0={100} />
+            <Arrow x1={56} y1={g - 28} x2={124} y2={g - 28} t0={400} />
+            <Barriere x={post} y={g} s={1.2} t0={600} tone={interdites?.shown ? 'count' : undefined} />
+            <Picto n="mallette" x={222} y={g - 49} size={56} t0={800} />
+          </>
+        ) : null}
+        {(regles ? regles.shown : aide.shown) ? <Picto n="document" x={post - 20 - 17.4} y={76} size={34} t0={0} /> : null}
+        {interdites?.shown ? <Txt x={post - 20} y={g + 21} text={interdites.text} size={15} tone="count" /> : null}
+        {exceptions?.shown ? (
+          <>
+            <Fade class="vc-dash vc-soft">
+              <path d={`M40 ${g + 26}C100 ${g + 50} 200 ${g + 50} 262 ${g + 26}M262 ${g + 26}l-9.5-0.6M262 ${g + 26}l-6.6 6.9`} />
+            </Fade>
+            <Txt x={W / 2} y={g + 66} text={exceptions.text} size={15} tone="soft" />
+          </>
+        ) : null}
+      </Art>
+    </Seg>
+  )
+}
+
+/** L'édition dont ce passage montre une planche propre (champ board « <id>-p27 ») ou porte le suffixe, s'il en a une */
+const editionOf = (p: P) => Object.values(EDITIONS).find(e => [p.segment.board, p.segment.id].some(k => k?.endsWith(e.suffix)))
+
+/** intro-08 (2027) Le sommaire de la série telle que l'édition la montre (sans la vidéo qu'elle retire) : chaque
+ *  approfondissement avec son pictogramme, l'État actionnaire avec celui de intro-07 (2027), le bâtiment à colonnes
+ *  relié à un immeuble */
+const intro08p27: Board = p => {
+  const edition = editionOf(p)
+  if (!edition || !SERIE.videos.some(v => v.id === p.script.id)) return null
+  const deep = applyEdition(SERIE, edition).videos.filter(v => v.kind === 'deep')
+  if (!deep.length) return null
+  const t0 = 200
+  return (
+    <Seg kind="end">
+      <ol class="vc-chap">
+        {deep.map((v, i) => {
+          const g = p.still ? 0 : t0 + i * 450 + 150
+          return (
+            <li key={v.id} class="vc-chap-item vc-rise" style={at(t0 + i * 450)}>
+              <span class="vc-chap-n">{i + 1}</span>
+              {v.id === 'industrie-etat' ? <GlypheCapital t0={g} /> : <Glyphe2 n={CHAPITRES[v.id] ?? 'document'} t0={g} />}
+              <span class="vc-chap-t">{v.short}</span>
+            </li>
+          )
+        })}
+      </ol>
+      <Signature p={p} />
+    </Seg>
+  )
+}
+
+/** Le dossier d'une entreprise : une chemise à onglet, au trait ; trait fin pour le rabat */
+const DOSSIER: Trace = {
+  s: ['M4 44V6H17L21 10H44V44Z', 'M4 15H44'],
+  fill: 'M4 44V6H17L21 10H44V44Z',
+  thin: [1],
+}
+
+/** Un pictogramme dessiné dans cette partie (Trace), placé sur la feuille : il se dessine trait après trait, comme
+ *  Mien */
+function Trait({ d, x, y, size = 48, t0 = 0, kept, tone, w = 1, step = 200 }: { d: Trace; x: number; y: number; size?: number; t0?: number; kept?: boolean; tone?: Tone; w?: number; step?: number }) {
+  const s = size / 48
+  const still = kept || tone === 'ghost'
+  return (
+    <g class={cls('vc-p', tone && `vc-${tone}`)} transform={`translate(${x} ${y}) scale(${s})`} style={{ '--k': String(w / s) }}>
+      {d.fill && tone === 'count' ? (
+        <Fade t0={t0 + 250} kept={still}>
+          <path class="vc-tint-count" d={d.fill} />
+        </Fade>
+      ) : null}
+      {d.s.map((path, i) => (
+        <Ink key={i} d={path} t0={t0 + i * step} dur={i === 0 ? 520 : 380} kept={still} class={d.thin?.includes(i) ? 'vc-thin' : undefined} />
+      ))}
+    </g>
+  )
+}
+
+/** achats-04 (2027) Le droit européen interdit de réserver un marché public : un document de marché ; une étiquette
+ *  « réservé », reliée à lui par un fil, barrée quand la voix le dit ; devant, côte à côte et de même taille, les
+ *  dossiers d'entreprises de plusieurs pays de l'Union, dont un marqué d'une épingle sur une carte de France quand
+ *  la voix dit « françaises ». Personne n'est écarté : seule l'étiquette l'est. */
+const achats04p27: Board = p => {
+  const cue = cueOf(p, 0)
+  const res = word(p, /réserv\w*/)
+  const fr = word(p, /françaises?/)
+  if (!cue || !res) return null
+  // L'étiquette : sa pointe (à gauche, côté fil), son milieu en hauteur, son corps
+  const tx = 124
+  const cy = 44
+  const bw = 118
+  const bh = 38
+  const tag = `M${tx} ${cy}L${tx + 16} ${cy - bh / 2}H${tx + 16 + bw}V${cy + bh / 2}H${tx + 16}Z`
+  // Les dossiers : leur haut, leur côté, le milieu de chacun ; celui de France au milieu de la file
+  const yD = 106
+  const sD = 56
+  const k = sD / 48
+  const xs = [30, 90, 150, 210, 270]
+  const iFr = 2
+  // La carte de France dans ce dossier, sous le rabat ; l'épingle en son milieu (pointe au point 25, 25 de la carte)
+  const sM = 30
+  const sP = 14
+  const yM = yD + 15 * k + 2.5
+  // L'accolade, sous la file
+  const yB = yD + 44 * k + 6
+  return (
+    <Seg>
+      <HeadCues p={p} />
+      <Art h={yB + 36}>
+        <Picto n="document" x={14} y={0} size={92} t0={100} />
+        {xs.map((cx, i) => (
+          <Trait key={cx} d={DOSSIER} x={cx - 24 * k} y={yD} size={sD} t0={500 + i * 120} step={160} />
+        ))}
+        <Brace x1={10} y1={yB} x2={290} y2={yB} tone="soft" t0={1200} />
+        <Txt x={W / 2} y={yB + 30} text="entreprises de l’Union" size={14} tone="soft" t0={1500} />
+        {res.shown ? (
+          <>
+            <Ink d={`M89 34C104 34 110 ${cy} ${tx + 7} ${cy}`} t0={0} dur={300} class="vc-thin" />
+            <Ink d={tag} t0={150} dur={600} />
+            <Ink d={circle(tx + 10, cy, 3)} t0={500} dur={200} class="vc-thin" />
+            <Txt x={tx + 16 + bw / 2} y={cy + 7} text="réservé" size={20} t0={600} />
+          </>
+        ) : null}
+        {res.shown && cue.shown ? <Ink d={`M${tx + 2} ${cy + bh / 2 + 10}L${tx + 22 + bw} ${cy - bh / 2 - 10}`} t0={1000} dur={400} class="vc-count vc-bold" /> : null}
+        {fr?.shown ? (
+          <>
+            <Picto n="carte_france" x={xs[iFr]! - sM / 2} y={yM} size={sM} t0={0} w={0.7} />
+            <Picto n="epingle" x={xs[iFr]! - sM / 2 + (25 * sM) / 48 - sP / 2} y={yM + (25 * sM) / 48 - (45 * sP) / 48} size={sP} t0={400} w={0.7} />
+          </>
+        ) : null}
+      </Art>
+    </Seg>
+  )
+}
+
 /* ——— Le registre ——— */
 
 export const INDUSTRIE_ECONOMIE: Record<string, Board> = {
@@ -1415,4 +1648,9 @@ export const INDUSTRIE_ECONOMIE: Record<string, Board> = {
   'industrie-aides-07': aides07,
   'industrie-aides-08': aides08,
   'industrie-aides-09': aides09,
+  // Édition « présidentielle 2027 »
+  'industrie-intro-07-p27': intro07p27,
+  'industrie-etat-04-p27': etat04p27,
+  'industrie-intro-08-p27': intro08p27,
+  'industrie-achats-04-p27': achats04p27,
 }

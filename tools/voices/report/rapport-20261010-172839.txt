@@ -1,0 +1,29 @@
+Rapport de génération des voix — 2026-10-10 17:25:51
+Commande : generate.py --voice aigue --redo-flagged --segment travail-partage-07-p27,impots-intro-06-p27,impots-intro-07-p27,impots-dette-05-p27,industrie-intro-01-p27,industrie-intro-07-p27,industrie-etat-04-p27,industrie-commerce-08-p27,retraites-intro-07-p27,retraites-financement-11-p27,retraites-pensions-06-p27,retraites-penibilite-07-p27,egalite-salaires-04-p27,sante-intro-06-p27,sante-remboursements-09-p27,sante-prevention-06-p27,sante-prevention-07-p27,sante-prevention-08-p27,logement-loyers-05-p27,logement-loyers-06-p27,logement-loyers-09-p27,logement-social-07-p27,logement-social-08-p27,logement-construire-07-p27,solidarites-intro-07-p27,solidarites-intro-08-p27,solidarites-chomage-08-p27,ecole-intro-07-p27,ecole-prive-03-p27,ecole-prive-04-classes-p27,ecole-superieur-05-p27,culture-intro-07-p27,culture-audiovisuel-09-p27,numerique-ia-05-p27,numerique-plateformes-05-p27,numerique-plateformes-06-p27,numerique-plateformes-08-p27,numerique-medias-07-p27,ecologie-carburants-06-p27,ecologie-electricite-03-p27,ecologie-electricite-04-p27,ecologie-transports-05-p27,ecologie-adaptation-06-p27,agriculture-intro-07-p27,agriculture-prix-03-p27,agriculture-prix-06-p27,agriculture-aides-05-p27,agriculture-importations-02-p27,agriculture-importations-04-p27,agriculture-importations-05-p27,territoires-intro-06-p27,territoires-intro-07-p27,territoires-services-07-p27,territoires-collectivites-07-comptes-p27,territoires-collectivites-08-p27,territoires-collectivites-09-p27,securite-intro-07-p27,securite-intro-08-p27,securite-police-01-violences-p27,securite-drogues-02-reglements-p27,immigration-intro-07-p27,immigration-titres-02-p27,immigration-titres-04-p27,immigration-titres-06-p27,immigration-titres-10-p27,europe-intro-06-p27,europe-intro-07-p27,europe-decider-03-p27,europe-traites-02-p27,europe-traites-05-p27,europe-deficits-05-p27,europe-concurrence-08-p27,ukraine-intro-01-p27,ukraine-intro-05-p27,ukraine-intro-08-p27,ukraine-aide-02-p27,ukraine-diplomatie-05-p27,proche-orient-intro-01-p27,proche-orient-intro-07-p27,proche-orient-intro-08-p27,proche-orient-onu-05-p27,defense-budget-03-p27,defense-budget-09-p27,institutions-pouvoirs-04-p27,institutions-49-3-05-p27,institutions-constitution-06-conseil-p27,institutions-citoyens-02-p27,laicite-intro-07-p27,laicite-principe-07-p27,laicite-signes-03-p27,laicite-discriminations-06-p27,laicite-memoire-08-p27,laicite-histoire-02-p27
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  travail-partage-07-p27 — 8.25 s, F0 227.0 Hz, pauses entre phrases [0.3, 0.19, 0.15] s
+    1. Aucune loi ne plafonne ces …   1/3    230.0  -1.01   -0.3   +1.1  0.0    7.2  1.40  1:230 2:228 3:223~
+    2. Profits, décisions, salaire…   2/3    224.1  -1.46   +0.9   +2.3  3.4    4.5  0.88  1:272×! 2:224 3:250×!
+         prise 1 : bruit 0.52-0.68 s (net, +42 dB, confiance 0.83) [Profits | décisions]
+         prise 3 : bruit 0.56-0.86 s (net, +40 dB, confiance 0.82) [Profits | décisions]
+         prise 3 : respiration 2.24-2.48 s (leger, +31 dB, confiance 0.57) [salaires | quelle]
+      passage assemblé : bruit 4.75-4.97 s (net, +42 dB, confiance 0.87) [Profits | décisions]
+      passage assemblé : respiration 6.32-6.58 s (leger, +28 dB, confiance 0.56) [salaires | quelle]
+      ⚠ son parasite dans le passage assemblé : bruit 4.75-4.97 s (net, +42 dB, confiance 0.87) [Profits | décisions]
+  defense-budget-03-p27 — 17.49 s, F0 241.3 Hz, pauses entre phrases [0.31, 0.3, 0.3] s
+    1. Une loi du seize août deux …   3/3    251.6  +0.55   -1.5   +1.8  0.0    5.3  1.03  1:256 2:236 3:252
+    2. Au total, quatre cent trent…   2/3    229.2  -1.07   -6.9   +3.1  1.5    5.0  0.98  1:225 2:229 3:217~
+    3. Dont trente-six milliards a…   2/3    242.1  -0.12   +0.5   +3.7  6.0    5.8  1.13  1:234 2:242 3:251
+    4. Pour deux mille vingt-sept,…   3/3    246.4  +0.18   -1.0   +2.7  0.0    5.8  1.14  1:268~ 2:248~ 3:246
+      passage assemblé : mot étiré « Au » 3.01-3.36 s (net, +52 dB, confiance 0.39) [actualisée | total]
+      ⚠ son parasite dans le passage assemblé : mot étiré « Au » 3.01-3.36 s (net, +52 dB, confiance 0.39) [actualisée | total]
+
+Alertes (2) :
+  aigue / travail-partage-07-p27 : son parasite dans le passage assemblé : bruit 4.75-4.97 s (net, +42 dB, confiance 0.87) [Profits | décisions]
+  aigue / defense-budget-03-p27 : son parasite dans le passage assemblé : mot étiré « Au » 3.01-3.36 s (net, +52 dB, confiance 0.39) [actualisée | total]
+
+Temps : 168 s pour 18 prise(s), 8.86 s de calcul par prise en moyenne (4.02 s d'audio) ; calcul d'une prise ≈ 0.86 s + 2.03 s par seconde d'audio. Détecteur de sons parasites : 0.162 s par prise en moyenne (au plus 0.244 s), 2% du calcul d'une prise.
+Estimation pour les 1106 passages (2069 phrases) (voix aiguë 3 prises, 0% de secours) : ~994 min.

@@ -12,6 +12,8 @@ import { chartOf, durationLabel, holdMs, markerOf, wordsOf } from '../src/ui/vid
 import { Narrator, type NarrationState } from '../src/ui/videos/narration'
 import { PLANCHES_BY_TOPIC } from '../src/ui/videos/pistes/planches'
 import { scopeSeries } from '../src/ui/videos/scope'
+import { EDITIONS } from '../src/ui/videos/editions'
+import { applyEdition } from '../src/ui/videos/editions/apply'
 import { SERIES_BY_TOPIC, VIDEO_SERIES } from '../src/ui/videos/series'
 
 /** L'élection pour laquelle les séries sont écrites : leurs thèmes, familles et questions sont ceux de sa banque */
@@ -206,10 +208,12 @@ describe('séries de vidéos', () => {
     }
   })
 
-  it('planches : chacune rattachée à un passage de la série de son thème', () => {
+  it('planches : chacune rattachée à un passage de la série de son thème (telle qu’écrite ou dans une édition)', () => {
     expect(Object.keys(PLANCHES_BY_TOPIC).sort()).toEqual(Object.keys(SERIES_BY_TOPIC).sort())
     for (const [topicId, boards] of Object.entries(PLANCHES_BY_TOPIC)) {
-      const ids = new Set(SERIES_BY_TOPIC[topicId]?.videos.flatMap(v => v.segments.map(s => s.id)) ?? [])
+      const series = SERIES_BY_TOPIC[topicId]
+      const versions = series ? [series, ...Object.values(EDITIONS).map(e => applyEdition(series, e))] : []
+      const ids = new Set(versions.flatMap(s => s.videos.flatMap(v => v.segments.flatMap(seg => [seg.id, seg.board ?? seg.id]))))
       expect(Object.keys(boards).filter(id => !ids.has(id)), topicId).toEqual([])
     }
   })
@@ -252,25 +256,40 @@ describe.each(elections.map(p => [p.election.id, p] as const))('séries montrée
     expect(scoped.length).toBe(expected)
   })
 
-  it('chaque vidéo mène à des questions de son thème, et « Voir la fiche » à une fiche de ce thème', () => {
+  it('chaque vidéo mène à des questions de sa famille de thèmes, et « Voir la fiche » à une fiche de cette famille', () => {
+    // Une élection peut découper autrement les thèmes des séries : à la présidentielle, la dette, traitée par la
+    // série « Impôts », a son propre thème dans la même famille. La question reste dans la famille de la série.
+    const familyOf = (topicId: string | undefined) => groups.find(g => topicId !== undefined && g.topicIds.includes(topicId))?.id
     for (const s of scoped) {
       for (const v of s.videos) {
         expect(new Set(v.questionIds).size, v.id).toBe(v.questionIds.length)
-        for (const id of v.questionIds) expect(questions.get(id)?.topicId, `${v.id} → ${id}`).toBe(s.topicId)
+        for (const id of v.questionIds) expect(familyOf(questions.get(id)?.topicId), `${v.id} → ${id}`).toBe(s.familyId)
         const fiche = v.fiche ? questions.get(v.fiche) : undefined
         expect(fiche?.explainer, `${v.id} : fiche « ${v.fiche} »`).toBeTruthy()
-        expect(fiche?.topicId, `${v.id} : fiche « ${v.fiche} »`).toBe(s.topicId)
+        expect(familyOf(fiche?.topicId), `${v.id} : fiche « ${v.fiche} »`).toBe(s.familyId)
       }
     }
   })
 
   it('vidéos et passages gardent les identifiants des séries écrites (les fichiers de la voix)', () => {
+    // Sans édition, les passages sont ceux des séries écrites, tels quels ; avec une édition (editions/), un
+    // passage corrigé ou ajouté porte le suffixe de l'édition, et un passage gardé reste identique à l'écrit
+    const suffix = pack.videoScope?.edition ? EDITIONS[pack.videoScope.edition]?.suffix : undefined
     for (const s of scoped) {
       for (const v of s.videos) {
         const written = videos.find(x => x.id === v.id)
         expect(written, v.id).toBeTruthy()
-        expect(v.segments, v.id).toBe(written?.segments)
-        expect(v.title, v.id).toBe(written?.title)
+        if (!suffix) {
+          expect(v.segments, v.id).toBe(written?.segments)
+          expect(v.title, v.id).toBe(written?.title)
+          continue
+        }
+        for (const seg of v.segments) {
+          const same = written!.segments.find(x => x.id === seg.id)
+          // Même identifiant : même texte dit (la voix enregistrée reste juste) ; dessin, chiffre ou alt peuvent changer
+          if (same) expect([seg.say, seg.spoken], seg.id).toEqual([same.say, same.spoken])
+          else expect(seg.id.endsWith(suffix), seg.id).toBe(true)
+        }
       }
     }
   })

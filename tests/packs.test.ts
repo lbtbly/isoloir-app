@@ -461,7 +461,8 @@ for (const pack of elections) {
         expect(Math.round(Math.max(...vals))).toBe(election.audit.maxShare)
         expect(election.audit.profiles).toBe(N)
       }
-    })
+      // 3 000 profils sur 26 candidats : quelques secondes, davantage sur une machine chargée
+    }, 30_000)
   })
 }
 

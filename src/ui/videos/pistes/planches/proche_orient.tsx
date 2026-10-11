@@ -12,8 +12,10 @@
 // Quelques étiquettes courtes et neutres sont écrites en dur (les numéros des cinq catégories d'actes) : elles
 // sont reprises dans l'« alt » du passage.
 
-import { VIDEO_SERIES } from '../../series'
-import { Art, Arrow, Ask, Fade, Ink, SP, Txt, W, at, cls, cueOf, cuesOf, heard, num, said, sentencesOf, word, wrap, yearsOf, type P, type Tone } from '../dessin/encre'
+import { seriesOfVideo } from '../../catalog'
+import { EDITIONS } from '../../editions'
+import { applyEdition } from '../../editions/apply'
+import { Art, Arrow, Ask, Fade, Ink, Marks, SP, Txt, W, at, capital, cls, cueOf, cuesOf, heard, num, nums, said, sentenceWith, sentencesOf, word, wrap, yearsOf, type P, type Tone } from '../dessin/encre'
 import { Chiffre, Head, HeadCues, Panel, Question, Seg, Signature, Src, listAfterColon } from '../dessin/mises'
 import { Picto, type PictoName } from '../dessin/pictos'
 import { Cases, Disque, Rang, Signe, frise, partPoint, rangCells } from '../dessin/schemas'
@@ -341,7 +343,7 @@ const GLYPHES: [RegExp, Mark][] = [
 
 /** 08 Les cinq vidéos qui suivent : le sommaire de la série, chacune avec son pictogramme */
 const intro08: Board = p => {
-  const series = VIDEO_SERIES.find(s => s.videos.some(v => v.id === p.script.id))
+  const series = seriesOfVideo(p.script.id)
   const deep = series?.videos.filter(v => v.kind === 'deep') ?? []
   if (!deep.length) return null
   return (
@@ -1271,6 +1273,144 @@ const onu06: Board = p => (
   </Seg>
 )
 
+/* ——— Édition « présidentielle 2027 » : les passages corrigés (identifiants en -p27) ——— */
+// Ces planches lisent le passage corrigé (p.segment) et sa vidéo telle que l'édition la montre (p.script). Les
+// planches d'origine, celles de la primaire, restent telles quelles.
+
+/** intro-01 (2027) La guerre a suivi l'attaque du 7 octobre 2023 ; un cessez-le-feu est entré en vigueur le
+ *  10 octobre 2025 : la frise des années, un fanion à chaque date, quand la voix la dit ; une flèche en pointillé
+ *  du cessez-le-feu jusqu'à aujourd'hui ; « Quelle position ? » */
+const intro01p27: Board = p => {
+  const [date, treve, ask] = cuesOf(p)
+  const t = dateOf(date?.text)
+  // La date du cessez-le-feu : celle de la phrase qui le dit
+  const t2 = dateOf(sentenceWith(p.segment.say, treve?.text))
+  if (!date || !treve || !t || !t2 || t2 <= t) return null
+  const y0 = Math.floor(t)
+  const now = y0 + 3.75
+  if (t2 > now - 0.4) return null
+  const f = frise({ y: 74, from: y0, to: y0 + 4, x0: 16, x1: 246, ticks: range(5).map(k => y0 + k), labels: range(4).map(k => y0 + k), t0: 200 })
+  const x = f.X(t)
+  const x2 = f.X(t2)
+  return (
+    <Seg>
+      <HeadCues p={p} ask />
+      <Art h={104}>
+        {f.el}
+        {date.shown ? <Picto n="drapeau" x={x - 11} y={74 - 44} size={46} tone="count" t0={300} /> : null}
+        {treve.shown ? (
+          <>
+            <Picto n="drapeau" x={x2 - 11} y={74 - 44} size={46} tone="count" t0={0} />
+            <Arrow x1={x2 + 6} y1={56} x2={f.X(now)} y2={56} dash t0={500} />
+          </>
+        ) : null}
+        {ask?.shown ? <Ask x={254} y={22} h={52} t0={0} /> : null}
+      </Art>
+    </Seg>
+  )
+}
+
+/** Deux cadres au trait, l'un sous l'autre, reliés par une flèche double (la relation entre deux pays), dans un
+ *  carré de 48 unités */
+const RELATION = ['M5 2H43V14H5Z', 'M5 34H43V46H5Z', 'M24 17V31M20 21L24 17L28 21M20 27L24 31L28 27']
+
+/** Le pictogramme d'une question de l'introduction (2027), seul dans son SVG : deux cadres reliés par une flèche
+ *  double, ou un document posé sous le globe */
+function GlyphP27({ n, t0 }: { n: 'relation' | 'onu'; t0: number }) {
+  return (
+    <svg class="vc-svg vc-glyphe" viewBox="-2 -2 52 52" aria-hidden="true">
+      {n === 'relation' ? (
+        <g class="vc-p" style={{ '--k': '1' }}>
+          {RELATION.map((d, i) => (
+            <Ink key={i} d={d} t0={t0 + i * 150} dur={i < 2 ? 450 : 350} />
+          ))}
+        </g>
+      ) : (
+        <>
+          <Dessin n="globe" x={11} y={-1} size={26} t0={t0} step={150} />
+          <Picto n="document" x={10} y={21} size={28} t0={t0 + 450} step={150} />
+        </>
+      )}
+    </svg>
+  )
+}
+
+/** intro-07 (2027) Les deux questions de cette élection, chacune avec son pictogramme quand la voix la pose : deux
+ *  cadres reliés (la politique envers le gouvernement israélien), un document sous le globe (l'État de Palestine) */
+const intro07p27: Board = p => {
+  const qs = sentencesOf(p.segment.say).filter(s => /\?$/.test(s))
+  const marks = qs.map(q => (/gouvernement/.test(q) ? 'relation' : /Palestine/.test(q) ? 'onu' : null))
+  if (qs.length !== 2 || marks.some(m => !m)) return null
+  const cues = cuesOf(p)
+  return (
+    <Seg kind="ask">
+      <ul class="vc-panel" style={{ '--cols': '1' }}>
+        {qs.map((q, i) => {
+          const shown = heard(p, q.split(' ').slice(0, 2).join(' '))
+          return (
+            <li key={i} class={cls('vc-panel-item', shown ? 'vc-rise' : 'vc-wait')}>
+              {shown ? <GlyphP27 n={marks[i]!} t0={150} /> : <span class="vc-glyphe" />}
+              <span class="vc-panel-text">
+                <Marks text={capital(q.replace(/^Et\s/, ''))} cues={cues} />
+              </span>
+            </li>
+          )
+        })}
+      </ul>
+    </Seg>
+  )
+}
+
+/** intro-08 (2027) Les vidéos qui suivent, telles que l'édition les montre (sans celles qu'elle retire) : le
+ *  sommaire, chacune avec son pictogramme */
+const intro08p27: Board = p => {
+  const base = seriesOfVideo(p.script.id)
+  const edition = Object.values(EDITIONS).find(e => p.segment.id.endsWith(e.suffix))
+  const deep = (base ? applyEdition(base, edition) : undefined)?.videos.filter(v => v.kind === 'deep') ?? []
+  if (!deep.length) return null
+  return (
+    <Seg kind="end">
+      <ol class="vc-chap">
+        {deep.map((v, i) => (
+          <li key={v.id} class="vc-chap-item vc-rise" style={at(200 + i * 450)}>
+            <span class="vc-chap-n">{i + 1}</span>
+            <Glyph n={GLYPHES.find(([re]) => re.test(v.id))?.[1] ?? 'document'} t0={p.still ? 0 : 350 + i * 450} />
+            <span class="vc-chap-t">{v.short}</span>
+          </li>
+        ))}
+      </ol>
+      <Signature p={p} />
+    </Seg>
+  )
+}
+
+/** Les sièges permanents qui s'abstiennent, dans l'ordre où on les prend : de part et d'autre du milieu */
+const ABSTENTIONS = [6, 8, 5, 9, 7]
+
+/** onu-05 (2027) La résolution 2803, 13 voix pour et aucune contre : treize sièges teintés (comptés), aucun barré,
+ *  les sièges permanents qui s'abstiennent laissés en blanc ; le texte en trait plein */
+const onu05p27: Board = p => {
+  const [res, pour] = cuesOf(p)
+  const k = num(pour?.text)
+  const c = nums(p.segment.figure?.value ?? '')[1]
+  const perm = word(p, /membres permanents/)
+  if (!res || !pour || !k || c !== 0 || !perm) return null
+  const a = CONSEIL.n - k - c
+  if (a < 0 || a > PERMANENTS.length) return null
+  const abst = ABSTENTIONS.slice(0, a)
+  const oui = range(CONSEIL.n).filter(i => !abst.includes(i))
+  return (
+    <Seg kind="fig">
+      <Chiffre p={p} />
+      <Art h={SIEGES_H}>
+        <Sieges kept count={pour.shown ? oui : []} />
+        {res.shown ? <Picto n="document" x={W / 2 - 22} y={58} size={44} t0={0} /> : null}
+      </Art>
+      <Src p={p} />
+    </Seg>
+  )
+}
+
 /* ——— Le registre ——— */
 
 export const PROCHE_ORIENT: Record<string, Board> = {
@@ -1319,4 +1459,8 @@ export const PROCHE_ORIENT: Record<string, Board> = {
   'proche-orient-onu-04': onu04,
   'proche-orient-onu-05': onu05,
   'proche-orient-onu-06': onu06,
+  'proche-orient-intro-01-p27': intro01p27,
+  'proche-orient-intro-07-p27': intro07p27,
+  'proche-orient-intro-08-p27': intro08p27,
+  'proche-orient-onu-05-p27': onu05p27,
 }

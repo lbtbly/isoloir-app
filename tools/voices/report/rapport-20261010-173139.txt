@@ -1,0 +1,24 @@
+Rapport de génération des voix — 2026-10-10 17:29:01
+Commande : generate.py --voice aigue --redo-flagged --seed 5051 --segment travail-partage-07-p27,defense-budget-03-p27
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  travail-partage-07-p27 — 8.91 s, F0 244.6 Hz, pauses entre phrases [0.32] s
+    1. Aucune loi ne plafonne ces …   1/3    243.8  +0.00   -4.7   +1.9  0.0    6.2  1.22  1:244 2:218~ 3:239?
+         prise 3 : respiration 2.31-2.42 s (leger, +17 dB, confiance 0.33) [privé | mais]
+    2. Profits, décisions, salaire…   1/3    250.4  +0.46   -2.4   +2.2  6.0    4.3  0.84  1:250 2:256 3:214×?
+         prise 3 : mot étiré « place » 1.60-2.00 s (leger, confiance 0.44) [quelle | pour]
+         prise 3 : mot manquant ou bâclé « les » 2.08-2.16 s (leger, confiance 0.30) [pour | salariés]
+      passage assemblé : respiration 5.52-5.68 s (leger, +35 dB, confiance 0.68) [Profits | décisions]
+  defense-budget-03-p27 — 17.77 s, F0 243.1 Hz, pauses entre phrases [0.3, 0.21, 0.3, 0.3, 0.18] s
+    1. Une loi du seize août deux …   3/3    249.4  +0.39   -2.4   +1.5  0.0    5.0  0.97  1:265 2:234 3:249
+    2. Au total, quatre cent trent…   3/3    243.2  -0.04   -5.1   +1.4  2.4    6.4  1.25  1:240 2:232~ 3:243
+    3. Dont trente-six milliards a…   3/3    235.6  -0.59   -3.8   +0.5  5.1    4.6  0.91  1:266 2:221~ 3:236
+    4. Pour deux mille vingt-sept,…   1/3    247.2  +0.24   -5.1   +5.5  3.8    5.4  1.05  1:247 2:226×! 3:274~
+         prise 2 : parole en trop 0.00-0.19 s (net, +55 dB, confiance 0.95) [début | Pour]
+
+Aucune alerte.
+
+Temps : 158 s pour 18 prise(s), 8.47 s de calcul par prise en moyenne (4.08 s d'audio) ; calcul d'une prise ≈ 0.48 s + 1.98 s par seconde d'audio. Détecteur de sons parasites : 0.109 s par prise en moyenne (au plus 0.213 s), 1% du calcul d'une prise.
+Estimation pour les 1106 passages (2069 phrases) (voix aiguë 3 prises, 0% de secours) : ~988 min.

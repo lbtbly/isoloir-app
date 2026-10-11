@@ -4,7 +4,7 @@
 
 import { formatDate } from '../format'
 import { linkIn } from '../nav'
-import { isVoting, useCurrentElection, withArticle } from './CurrentElection'
+import { isVoting, useCurrentElection, VOTING_NOTE, withArticle } from './CurrentElection'
 import '../../styles/archive.css'
 
 export function ArchiveBanner() {
@@ -12,7 +12,7 @@ export function ArchiveBanner() {
   if (!current?.archive) return null
   const { election, archive } = current
   const voting = isVoting(archive.votingUntil)
-  const note = voting ? 'Le vote est en cours\u00a0; ce questionnaire reste utilisable.' : election.archived?.note
+  const note = voting ? VOTING_NOTE : election.archived?.note
   const target = withArticle('pour', archive.currentLabel)
   return (
     <aside class="archive-banner" aria-label="Élection archivée">

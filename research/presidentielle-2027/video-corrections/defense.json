@@ -1,0 +1,200 @@
+[
+ {
+  "id": "defense-16",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "en-tête (Datée)",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "La mention « Datée » omet des faits qui changeront avant le premier tour. Les crédits de la dissuasion pour 2026 (dissuasion-05) et, si defense-4 est retenue, le budget 2027 de la mission Défense (budget-03) viennent de projets de loi de finances : il faudra les confronter à la loi de finances pour 2027. La première conférence d'examen du traité d'interdiction des armes nucléaires se tient du 30 novembre au 4 décembre 2026, ce qui peut toucher desarmement-05 à 07. Le SIPRI publie chaque année en mars ses chiffres de transferts d'armes, qui remplaceront la période 2021-2025 (alliances-07). Enfin, « À revoir avant le vote » visait la primaire. Les trois sensibilités l'ont relevé.",
+  "current": "// d'armement (dix-neuf États). À revoir avant le vote.",
+  "proposed": "// d'armement (dix-neuf États) ; crédits de la dissuasion pour 2026 (7,4 Md€, projet de loi de finances pour 2026,\n// dissuasion-05) et budget 2027 de la mission Défense (projet de loi de finances pour 2027, budget-03), à confronter\n// à la loi de finances pour 2027 une fois votée ; première conférence d'examen du traité d'interdiction des armes\n// nucléaires, du 30 novembre au 4 décembre 2026 (desarmement-05 à 07) ; importations d'armes des pays européens de\n// l'OTAN sur 2021-2025 (SIPRI, alliances-07), dont la mise à jour sur 2022-2026 est attendue en mars 2027. À revoir\n// après chacune de ces dates, et au plus tard avant le premier tour, le 18 avril 2027.",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "newSource": {
+   "title": "First Review Conference of the Parties to the Treaty on the Prohibition of Nuclear Weapons (30 November 2026 - 4 December 2026)",
+   "url": "https://indico.un.org/event/1021647/",
+   "publisher": "Nations unies"
+  },
+  "checked": true,
+  "rationale": "Cette correction fusionne les trois propositions. J'ai lu les dates de la conférence sur la page de l'ONU : « 30 November 2026 to 4 December 2026 », au siège de l'ONU à New York. La publication du SIPRI en mars 2027 est une attente, d'où « attendue », sans date ferme. Ce commentaire de code n'est pas montré au public. Il commande les mises à jour, et l'échéance de l'élection source y est remplacée par celle du premier tour.",
+  "verification": "confirmed : Les dates sont confirmées sur indico.un.org : du 30 novembre au 4 décembre 2026, au siège de l'ONU à New York. Le titre exact de la page est « NGO Registration: First Review Conference of the Parties to the Treaty on the Prohibition of Nuclear Weapons » ; le titre de newSource est à ajuster si on la cite. La parution en mars des chiffres de transferts d'armes du SIPRI est cohérente avec la source actuelle (9 mars 2026) : « attendue » est la bonne formulation. Les autres données SIPRI et OTAN (annuaire de juin, dépenses de l'été) seront publiées après le premier tour, donc rien à ajouter. « À revoir avant le vote » visait bien l'élection source. Si defense-3 est adoptée sans le superlatif, la mention « budget 2027 » reste valable.",
+  "topic": "defense",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "defense-4",
+  "target": "video",
+  "questionId": "",
+  "videoId": "defense-budget",
+  "segmentId": "defense-budget-03",
+  "field": "say",
+  "category": "chiffres",
+  "severity": "important",
+  "issue": "C'est le pendant vidéo de defense-3. La vidéo « Budget » est la seule à servir la question « Quel budget pour les armées ? ». Elle ne montre que des montants et des objectifs en hausse, plus l'écart avec les alliés, sans dire ce que pèse l'effort pour 2027. Il faut réenregistrer la voix de ce passage, car ce chiffre doit être dit et pas seulement affiché. Le spoken ajoute : « Pour deux mille vingt-sept, le projet de budget prévoit six virgule quatre milliards de plus qu'en deux mille vingt-six : la plus forte hausse des budgets de l'État. » L'emphasis peut devenir ['436 milliards', '36 milliards', '6,4 milliards']. Le figure.label reprend le libellé de defense-3, au besoin raccourci. Il faut aussi ajouter la source du projet de loi de finances pour 2027 aux sources de la vidéo. Le gel des autres ministères reste à l'écrit, dans le libellé, et n'est pas dit. Si le propriétaire préfère, un passage à part, inséré après budget-03 (visual « point », sans figure), allégerait ce passage.",
+  "current": "Une loi du 16 août 2026 l’a actualisée. Au total, 436 milliards d’euros sont prévus pour la mission Défense de 2024 à 2030. Dont 36 milliards ajoutés entre 2026 et 2030.",
+  "proposed": "Une loi du 16 août 2026 l’a actualisée. Au total, 436 milliards d’euros sont prévus pour la mission Défense de 2024 à 2030. Dont 36 milliards ajoutés entre 2026 et 2030. Pour 2027, le projet de budget prévoit 6,4 milliards de plus qu’en 2026.",
+  "lenses": [
+   "gauche",
+   "centre"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "defense-3"
+  ],
+  "newSource": {
+   "title": "Budget 2027 – Projet de loi de finances pour 2027 (dossier de présentation, fiche mission « Défense », p. 79-80)",
+   "url": "https://www.budget.gouv.fr/documentation/file-download/33484",
+   "publisher": "Ministère de l’Économie et des Finances, Direction du budget",
+   "date": "2026-10-01"
+  },
+  "checked": true,
+  "rationale": "J'ai repris la proposition de la gauche en la resserrant : le gel des crédits des autres ministères n'est pas dit. Juxtaposé à voix haute avec la hausse, il ferait office d'argument. À l'écrit, dans le libellé, il reste une donnée attribuée au document budgétaire. Le passage n'est pas la fin de la vidéo, et les chiffres dits figurent tous dans l'explication (defense-3).",
+  "verification": "adjusted : Le montant de 6,4 Md€ est confirmé : PLF 2027, p. 79 (« en hausse de 6,4 Md€ en 2027 ») et p. 80 (« augmentera de +6,4 Md€ en 2027 »). La formule « la plus forte hausse des budgets de l'État » est retirée, pour la même raison qu'en defense-3. Elle vient de l'éditorial ministériel, et le tableau des missions du même document la contredit : « Engagements financiers de l'État » +14,2 Md€, contre +6,4 Md€ pour la Défense. Dite à voix haute, elle ferait en outre office de commentaire, ce que le GUIDE § 5 interdit. Spoken : « Pour deux mille vingt-sept, le projet de budget prévoit six virgule quatre milliards de plus qu'en deux mille vingt-six. » Emphasis possible : ['436 milliards', '36 milliards', '6,4 milliards']. Ce passage dépend de defense-3 (GUIDE § 6 : chiffre présent dans la fiche) et demande d'ajouter la source PLF 2027 aux sources de la vidéo. Le libellé de figure doit reprendre celui, corrigé, de defense-3, sans le superlatif.",
+  "topic": "defense",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "defense-5",
+  "target": "video",
+  "questionId": "",
+  "videoId": "defense-budget",
+  "segmentId": "defense-budget-09",
+  "field": "say",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "La question finale (« à quel rythme ») tient pour acquise une trajectoire de hausse, et seul son rythme resterait à débattre. Or cette élection propose aussi de renoncer à la hausse prévue, ou de réduire voire supprimer le budget militaire (defense-2 c et d, defense-4 d). Cette fin vient après une vidéo qui ne montre que des objectifs en hausse : la règle du GUIDE (§ 5 : la vidéo ne finit pas sur l'argument d'un camp) s'applique pleinement ici. Il faut réenregistrer la voix de ce passage (pas de spoken : aucun nombre). L'emphasis devient ['combien dépenser']. Le dessin reste inchangé.",
+  "current": "Alors, quel effort de défense, et à quel rythme ?",
+  "proposed": "Alors, combien dépenser pour la défense dans les années à venir ?",
+  "lenses": [
+   "gauche"
+  ],
+  "needsVoice": true,
+  "linked": [],
+  "rationale": "La nouvelle question reprend le titre de la vidéo et l'introduction (« Combien dépenser pour sa défense ? »). Elle reste ouverte vers le haut comme vers le bas, et convient à toutes les sensibilités. Si le passage budget-03 est réenregistré, celui-ci peut l'être dans la même séance.",
+  "topic": "defense",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "defense-14",
+  "target": "video",
+  "questionId": "",
+  "videoId": "defense-dissuasion",
+  "segmentId": "defense-dissuasion-05",
+  "field": "figure.date",
+  "category": "actualite",
+  "severity": "mineur",
+  "issue": "C'est le pendant vidéo de defense-13 : la date de la figure doit rester celle de la fiche. Seul l'affichage change, sans réenregistrement.",
+  "current": "2026 (projet de loi de finances)",
+  "proposed": "2026 (projet de loi de finances pour 2026)",
+  "lenses": [
+   "centre"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "defense-13"
+  ],
+  "rationale": "Alignement imposé par le GUIDE, § 6 (« date : celle de la fiche »).",
+  "verification": "confirmed : C'est un alignement sur la date de la fiche (GUIDE § 6 : « date : celle de la fiche »). Le say de dissuasion-05 (« Pour 2026, le projet de budget prévoit… ») reste exact. Seul l'affichage change.",
+  "topic": "defense",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "defense-15",
+  "target": "video",
+  "questionId": "",
+  "videoId": "defense-dissuasion",
+  "segmentId": "defense-dissuasion-07",
+  "field": "draw",
+  "category": "cadrage",
+  "severity": "mineur",
+  "issue": "Le dessin élargit le cercle de protection de la France jusqu'aux fanions des pays partenaires. Il montre ainsi comme acquise l'extension du parapluie nucléaire, qui est précisément une approche en débat (defense-3 a). Ce qui est établi, c'est la participation aux exercices, l'accueil possible de forces françaises et une décision d'emploi non partagée. Seule la planche change, la voix reste la même.",
+  "current": "La carte de la France et son cercle de protection ; un second cercle, plus large, en pointillé, rejoint une rangée de fanions voisins.",
+  "proposed": "La carte de la France et son cercle de protection ; à côté, une rangée de fanions voisins, reliés à la France par de fines flèches en pointillé.",
+  "lenses": [
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "newSource": {
+   "title": "La « dissuasion avancée » : une évolution de la doctrine nucléaire française",
+   "url": "https://www.vie-publique.fr/en-bref/302309-la-dissuasion-avancee-une-evolution-de-la-doctrine-nucleaire-francaise",
+   "publisher": "Vie-publique.fr (DILA)",
+   "date": "2026-09-15"
+  },
+  "checked": true,
+  "rationale": "Le nouveau dessin décrit un lien sans trancher la question posée. Il convient aussi bien aux partisans de l'extension qu'à ceux d'une dissuasion strictement nationale (GUIDE, § 10.5 : pas de cadrage par l'image). Il reste cohérent avec le dessin de dissuasion-11. Statut « vérifié » repris des relecteurs : la page n'a pas pu être rouverte.",
+  "verification": "confirmed : J'ai pu rouvrir la page vie-publique (15 septembre 2026). Elle établit trois choses. Les partenaires « pourront participer aux exercices de dissuasion ». Le dispositif prévoit un « déploiement de forces stratégiques chez les alliés ». Et « Il n'y aura aucun partage de la décision ultime, ni de sa planification, ni de sa mise en œuvre ». La page cite aussi « nos intérêts […] ne peuvent se confondre avec le seul tracé de nos frontières nationales », et le but affiché est de « donner une réelle profondeur à la défense de notre pays ». Le dessin actuel n'est donc pas faux à proprement parler. Mais un second cercle de protection qui englobe les partenaires se lit comme une protection étendue, ce qui correspond à l'approche defense-3 a. Le nouveau dessin, un lien sans cercle commun, est plus neutre (GUIDE § 10.5) et reste cohérent avec dissuasion-11.",
+  "topic": "defense",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "defense-7",
+  "target": "video",
+  "questionId": "",
+  "videoId": "defense-desarmement",
+  "segmentId": "defense-desarmement-02",
+  "field": "figure.label",
+  "category": "chiffres",
+  "severity": "mineur",
+  "issue": "C'est le pendant vidéo de defense-6, pour que la vidéo montre le libellé de l'explication. Toute la vidéo « Désarmement » s'appuie sur le traité d'interdiction, sans dire que l'arsenal chinois croît le plus vite. Seul le libellé affiché change : say et spoken restent inchangés, donc pas de nouvel enregistrement.",
+  "current": "Ogives nucléaires utilisables (stocks militaires) dans le monde, estimées par le SIPRI ; la Russie et les États-Unis en détiennent environ 83 %, la France 290",
+  "proposed": "Ogives nucléaires utilisables (stocks militaires) dans le monde, estimées par le SIPRI ; la Russie et les États-Unis en détiennent environ 83 %, la Chine environ 620 (selon le SIPRI, l’arsenal qui croît le plus vite), la France 290",
+  "lenses": [
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "defense-6"
+  ],
+  "newSource": {
+   "title": "Communiqué de presse : parution du Sipri Yearbook 2026 (version française, PDF)",
+   "url": "https://www.sipri.org/sites/default/files/WNF%202026%20PR%20FRE.pdf",
+   "publisher": "SIPRI",
+   "date": "2026-06-08"
+  },
+  "checked": true,
+  "rationale": "Comme pour defense-6, j'ai retiré « contre 9 614 un an plus tôt » (réévaluation du stock russe, note f du SIPRI). La source figure déjà dans la vidéo (sourceIndex 0).",
+  "verification": "adjusted : La valeur 620 (stock militaire, janvier 2026) et la phrase sur la croissance la plus rapide figurent toutes deux dans le communiqué SIPRI. J'aligne l'attribution sur defense-6 : « estimées par le SIPRI » couvre les estimations, pas le jugement qualitatif. Or ce jugement n'est pas visible dans la hausse de 2025-2026 (Chine +3 %, Corée du Nord +20 %). La correction dépend de defense-6 (GUIDE § 6). La source figure déjà dans la vidéo (sourceIndex 0). Seul le libellé affiché change : pas de réenregistrement.",
+  "topic": "defense",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "defense-9",
+  "target": "video",
+  "questionId": "",
+  "videoId": "defense-alliances",
+  "segmentId": "defense-alliances-07",
+  "field": "figure.label",
+  "category": "chiffres",
+  "severity": "mineur",
+  "issue": "C'est le pendant vidéo de defense-8. Seul le libellé affiché change : say, spoken et graphique restent inchangés, donc pas de réenregistrement.",
+  "current": "Part des États-Unis dans les importations d’armes majeures des 29 pays européens de l’OTAN. La France en fournit 7,4 %",
+  "proposed": "Part des États-Unis dans les importations d’armes majeures des 29 pays européens de l’OTAN. La France en fournit 7,4 %. Dans le monde, elle est le deuxième exportateur d’armes majeures, avec 9,8 % des exportations",
+  "lenses": [
+   "centre"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "defense-8"
+  ],
+  "newSource": {
+   "title": "Global arms flows jump nearly 10 per cent as European demand soars",
+   "url": "https://www.sipri.org/media/press-release/2026/global-arms-flows-jump-nearly-10-cent-european-demand-soars",
+   "publisher": "SIPRI",
+   "date": "2026-03-09"
+  },
+  "checked": true,
+  "rationale": "La source figure déjà dans la vidéo (SIPRI_ARMES, sourceIndex 3).",
+  "verification": "confirmed : La valeur est confirmée par la même page du SIPRI (deuxième exportateur, 9,8 %, 2021-2025). La source est déjà dans la vidéo (SIPRI_ARMES, sourceIndex 3). Seul le libellé affiché change, sans réenregistrement. La correction dépend de defense-8.",
+  "topic": "defense",
+  "electionQuestionId": ""
+ }
+]

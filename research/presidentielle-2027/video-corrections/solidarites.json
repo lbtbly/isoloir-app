@@ -1,0 +1,210 @@
+[
+ {
+  "id": "solidarites-4",
+  "target": "video",
+  "questionId": "solidarites-x1",
+  "videoId": "solidarites-chomage",
+  "segmentId": "solidarites-chomage-07",
+  "field": "figure.label",
+  "category": "chiffres",
+  "severity": "important",
+  "issue": "Ce libellé doit rester celui de la fiche (GUIDE § 6) : il reçoit donc la même correction que figures[2] de solidarites-x1. C'est du texte à l'écran : la voix n'est pas à réenregistrer. Le chart ne change pas.",
+  "current": "Solde de l’assurance chômage prévu pour 2026 par l’Unédic, qui gère le régime (+0,1 Md€ en 2025). L’Unédic attribue la baisse de ses recettes à des prélèvements de l’État et à des pertes de CSG. Sans nouveau prélèvement, elle prévoit +2,1 Md€ en 2027. Dette attendue fin 2026 : 61,5 Md€",
+  "proposed": "Solde de l’assurance chômage prévu pour 2026 par l’Unédic, qui gère le régime (+0,1 Md€ en 2025). Ses recettes baisseraient (44,3 Md€, contre 45,4 Md€ en 2025) et ses dépenses augmenteraient (46,6 Md€, contre 45,3 Md€). L’Unédic attribue la baisse de ses recettes à des prélèvements de l’État et à des pertes de CSG sur les travailleurs indépendants. Dette attendue fin 2026 : 61,5 Md€. En juin, sans nouveau prélèvement, elle prévoyait +2,1 Md€ en 2027 ; le 23 septembre 2026, son Bureau a indiqué que ce solde devrait être « sensiblement revu à la baisse », la situation économique se dégradant.",
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "solidarites-3"
+  ],
+  "newSource": {
+   "title": "Prévisions financières de l'Unédic, juin 2026",
+   "url": "https://www.unedic.org/publications/previsions-financieres-de-lunedic-juin-2026",
+   "publisher": "Unédic",
+   "date": "2026-06-17"
+  },
+  "checked": true,
+  "rationale": "C'est la correction jumelle de solidarites-3, recopiée avec la typographie de la série (apostrophes courbes, espaces insécables). La droite l'avait seulement mentionnée ; le centre l'avait proposée.",
+  "verification": "adjusted : C'est la jumelle de solidarites-3, avec la même correction : la prévision de +2,1 Md€ pour 2027 est datée, et sa révision annoncée par le Bureau de l'Unédic (synthèse du 23 septembre 2026, publiée le 2 octobre 2026) est ajoutée. Les chiffres de recettes, de dépenses et de dette ont été lus sur la page de juin 2026. Le texte reprend la typographie de la série : apostrophes courbes, espaces insécables et fine avant « ; ». Le label doit rester identique à celui de la fiche (GUIDE § 6). La vidéo doit aussi ajouter à ses sources « Synthèse du Bureau de l'Unédic du 23 septembre 2026 » (https://www.unedic.org/actualites/synthese-du-bureau-de-lunedic-du-23-septembre-2026, Unédic, 2026-10-02), si la fiche la cite. Le sourceIndex 4 (juin 2026) reste la source du chiffre. Le chart ne change pas, et la voix n'est pas à réenregistrer.",
+  "topic": "solidarites",
+  "electionQuestionId": "solidarites-1"
+ },
+ {
+  "id": "solidarites-5",
+  "target": "video",
+  "questionId": "solidarites-x1",
+  "videoId": "solidarites-chomage",
+  "segmentId": "solidarites-chomage-08",
+  "field": "say",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "C'est le seul passage qui explique le déficit à voix haute. Il ne donne qu'une cause, celle que l'Unédic avance contre l'État, puis finit sur l'excédent prévu « sans nouveau prélèvement ». Il tait la hausse des dépenses et la dette de 61,5 Md€, que la fiche donne pourtant. Le GUIDE (§ 5) demande de montrer aussi le chiffre qui compte pour l'autre côté, s'il est dans la fiche. Le correctif est donc nécessaire, et il oblige à réenregistrer la voix de ce passage. Le texte retenu suit la chronologie : dépenses et recettes, dette fin 2026, puis prévision pour 2027. Ainsi, aucun ordre n'avantage un camp. Il n'ajoute aucun chiffre absent de la fiche corrigée (solidarites-3). Il évite aussi « en 2026 » avant la fin de la phrase : la planche ch08 (pistes/planches/solidarites.tsx) cherche la première occurrence de /en \\d{4}/ dans le say pour l'année de l'excédent. La version du centre (« augmentent en 2026 ») lui ferait écrire « 2,1 milliards 2026 ». Garder emphasis tel quel : la planche lit ses trois premiers repères dans l'ordre (CSG, État, 2,1 milliards). Pour donner aux deux causes la même place à l'image (§ 5 et § 10.5), le draw et la planche peuvent ajouter une troisième flèche marquée « dépenses » : « …vers des pièces en pointillé, vers un bâtiment public, et une flèche de dépenses qui s'épaissit ; en dessous… ».",
+  "current": "Selon l’Unédic, ses recettes baissent du fait de pertes de CSG et de prélèvements de l’État. Sans nouveau prélèvement, elle prévoit un excédent de 2,1 milliards en 2027.",
+  "proposed": "Selon l’Unédic, ses dépenses augmentent, et ses recettes baissent du fait de pertes de CSG et de prélèvements de l’État. Fin 2026, sa dette atteindrait 61,5 milliards d’euros. Sans nouveau prélèvement, elle prévoyait un excédent de 2,1 milliards en 2027, mais dit devoir le revoir sensiblement à la baisse.",
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "solidarites-3",
+   "solidarites-6"
+  ],
+  "newSource": {
+   "title": "Synthèse du Bureau de l'Unédic du 23 septembre 2026",
+   "url": "https://www.unedic.org/actualites/synthese-du-bureau-de-lunedic-du-23-septembre-2026",
+   "publisher": "Unédic",
+   "date": "2026-10-02"
+  },
+  "checked": true,
+  "rationale": "J'ai fusionné le centre (dépenses et dette, placées avant la prévision) et la droite (dette ajoutée à la fin). L'ordre chronologique ne finit ni sur la dette ni sur l'excédent présenté comme un acquis, et la condition « sans nouveau prélèvement » reste dite. Les deux causes ont chacune leur phrase. Sur la page de l'Unédic, j'ai lu la hausse des dépenses et la dette de 61,5 Md€ fin 2026.",
+  "verification": "adjusted : Le constat de l'issue est juste. Le passage ne donne qu'une cause et tait la hausse des dépenses et la dette ; je les ai lues sur la page de juin 2026 (46,6 contre 45,3 Md€ ; 61,5 Md€ fin 2026). La proposition pose pourtant deux problèmes. (1) Elle redit au présent « elle prévoit un excédent de 2,1 milliards en 2027 », et il faudrait réenregistrer la voix. Or le Bureau de l'Unédic a écrit (synthèse du 23 septembre 2026, publiée le 2 octobre 2026) que ce solde « devrait ainsi être sensiblement revu à la baisse ». On enregistrerait donc un chiffre que sa source dit déjà périmé. (2) Elle compte quatre phrases, alors que le GUIDE § 3 en autorise une à trois par passage. Ma version tient en trois phrases, chacune de 25 mots au plus à l'oral (GUIDE § 7). Les deux causes y restent nommées, la dette est dite, et la prévision de 2027 est donnée au passé avec sa révision annoncée. emphasis peut rester tel quel : « pertes de CSG », « prélèvements de l’État » et « 2,1 milliards » figurent à l'identique et dans cet ordre. J'ai vérifié la planche ch08 (pistes/planches/solidarites.tsx) : word(p, /en \\d{4}/) trouve « en 2027 » en premier, car « Fin 2026 » ne correspond pas au motif. La planche écrit toutefois « 2,1 milliards en 2027 » en gros, sous une flèche « hausse ». Il faudrait qu'elle ajoute « à revoir à la baisse » (par exemple word(p, /revoir sensiblement à la baisse/)), avec l'alt et le draw accordés (§ 10.5), en plus de la flèche « dépenses » que suggère l'issue. La durée orale (environ 59 mots) dépasse les 12 s du guide, comme la proposition d'origine (50 mots). Si on veut plus court, une autre voie est de supprimer la phrase sur 2027 : la planche et emphasis seraient alors à revoir. La source à ajouter à la vidéo est la synthèse du Bureau. Les autres chiffres viennent de la page de juin, déjà citée par la vidéo.",
+  "topic": "solidarites",
+  "electionQuestionId": "solidarites-1"
+ },
+ {
+  "id": "solidarites-6",
+  "target": "video",
+  "questionId": "solidarites-x1",
+  "videoId": "solidarites-chomage",
+  "segmentId": "solidarites-chomage-08",
+  "field": "spoken",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "C'est la forme dite de la correction du say (solidarites-5). La voix de ce passage est à réenregistrer.",
+  "current": "Selon l’Unédic, ses recettes baissent du fait de pertes de C.S.G. et de prélèvements de l’État. Sans nouveau prélèvement, elle prévoit un excédent de deux virgule un milliards en deux mille vingt-sept.",
+  "proposed": "Selon l’Unédic, ses dépenses augmentent, et ses recettes baissent du fait de pertes de C.S.G. et de prélèvements de l’État. Fin deux mille vingt-six, sa dette atteindrait soixante et un virgule cinq milliards d’euros. Sans nouveau prélèvement, elle prévoyait un excédent de deux virgule un milliards en deux mille vingt-sept, mais dit devoir le revoir sensiblement à la baisse.",
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "solidarites-3",
+   "solidarites-5"
+  ],
+  "newSource": {
+   "title": "Synthèse du Bureau de l'Unédic du 23 septembre 2026",
+   "url": "https://www.unedic.org/actualites/synthese-du-bureau-de-lunedic-du-23-septembre-2026",
+   "publisher": "Unédic",
+   "date": "2026-10-02"
+  },
+  "checked": true,
+  "rationale": "Cette forme suit le say retenu, avec les nombres écrits en lettres comme dans le reste de la série.",
+  "verification": "adjusted : C'est la forme dite du say corrigé (solidarites-5), avec les nombres en lettres comme dans le reste de la série. Elle compte trois phrases, de 20, 14 et 25 mots, dans la limite de 25 mots par phrase (GUIDE § 7). « C.S.G. » n'est pas en fin de phrase, comme dans le spoken actuel. J'ai écarté la version proposée pour la même raison qu'en solidarites-5 : elle redisait au présent la prévision de +2,1 Md€ pour 2027. Or le Bureau de l'Unédic (synthèse du 23 septembre 2026, publiée le 2 octobre 2026) annonce que ce solde « devrait ainsi être sensiblement revu à la baisse ». La version proposée comptait aussi quatre phrases. La voix est à réenregistrer.",
+  "topic": "solidarites",
+  "electionQuestionId": "solidarites-1"
+ },
+ {
+  "id": "solidarites-7",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "structure (questionIds des vidéos, « Voir la fiche »)",
+  "category": "origine",
+  "severity": "important",
+  "issue": "La série suit encore les questions de la primaire : x1 pour le chômage, x2 pour le RSA, x3 pour le handicap. Ici, seule x1 a une équivalente (solidarites-1). Le code (scope.ts et videos.ts) le confirme. Les vidéos « RSA » et « Handicap » n'ont plus aucune question : leur « Voir la fiche » ouvre l'explication de solidarites-1, qui ne contient aucun de leurs chiffres (651,69 €, 1,89 million, non-recours, fraude, AAH, MDPH, AESH). Il en va de même pour les passages 05 et 06 de l'introduction (4,25 millions d'allocataires, 33,3 Md€) et pour le passage 05 de « Contreparties » (plafond de 50 %, corrigé par solidarites-2). Cela enfreint le GUIDE (§ 6) : une vidéo ne montre que des chiffres de l'explication de ses questions. Enfin, deux questions de cette élection n'ont aucune vidéo, faute de fiche : la politique familiale (solidarites-2) et la protection de l'enfance (solidarites-3). La vidéo sur le handicap, elle, ne répond à aucune question.",
+  "current": "// Série « Solidarités » (famille « Santé, logement, solidarités ») : l'introduction, puis quatre\n// approfondissements (assurance chômage, RSA et minima sociaux, contreparties et sanctions, droits des personnes\n// handicapées).",
+  "proposed": "Décision du propriétaire, avant de montrer la série dans cette élection. (1) La vidéo « RSA » : soit reprendre dans la fiche de solidarites-1 les faits qu'elle montre, en gardant ensemble le non-recours et la fraude, dans la limite de 4 chiffres ; soit ne pas la montrer. (2) Même choix pour les chiffres des minima sociaux de l'introduction (passages 05 et 06). (3) La vidéo « Handicap » : la retirer, ou la rattacher à une fiche. (4) Ajouter des approfondissements sur la politique familiale (solidarites-2) et sur la protection de l'enfance (solidarites-3) quand leurs fiches existeront. (5) Puis réécrire les passages solidarites-intro-07 et -08 (voix à réenregistrer) et cet en-tête.",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "solidarites-2",
+   "solidarites-8"
+  ],
+  "rationale": "Les trois sensibilités l'ont relevé, et je l'ai vérifié dans le code. Dans la proposition de droite, current était le say de l'introduction alors que proposed était une recommandation pour toute la série : j'ai rattaché ce point à l'en-tête, qui décrit la structure, et j'ai gardé à part le correctif minimal du say (solidarites-8). La recommandation ne pousse vers aucun camp : on y ajoute la famille, chère au centre et à la droite, et on garde ensemble non-recours et fraude, comme dans la vidéo RSA actuelle.",
+  "topic": "solidarites",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "solidarites-8",
+  "target": "video",
+  "questionId": "",
+  "videoId": "solidarites-intro",
+  "segmentId": "solidarites-intro-07",
+  "field": "say",
+  "category": "origine",
+  "severity": "important",
+  "issue": "« Quatre questions se posent » donne pour liste fermée les sujets de la primaire, dont le handicap. Or les questions de ce thème, ici, sont le chômage et les minima sociaux, la politique familiale et la protection de l'enfance. Il suffit d'un mot pour dire que la liste n'est pas complète. La voix de ce passage est à réenregistrer : il n'a pas de spoken, donc le say est dit tel quel. La planche intro07 lit les phrases terminées par « ? » : elle n'est pas touchée. Ce correctif minimal s'applique si les quatre vidéos restent ; si la structure change (solidarites-7), il faut réécrire les passages 07 et 08.",
+  "current": "Quatre questions se posent. Quelle assurance chômage ? Quel revenu minimum ? Quelles contreparties ? Et quels droits pour les personnes handicapées ?",
+  "proposed": "Parmi d’autres, quatre questions se posent. Quelle assurance chômage ? Quel revenu minimum ? Quelles contreparties ? Et quels droits pour les personnes handicapées ?",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "solidarites-7"
+  ],
+  "rationale": "Je préfère la tournure de gauche à celle du centre (« Parmi les questions qui se posent : »). Elle change moins le texte dit et laisse intact le passage 08 (« Ce sont les quatre sujets des vidéos qui suivent »).",
+  "topic": "solidarites",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "solidarites-9",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "en-tête (mention « Datée »)",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "La mention ne prévoit qu'une révision, sans date, à la prochaine publication de l'Insee. Or plusieurs faits de la série changeront avant le premier tour du 18 avril 2027. (1) Le chômage du troisième trimestre paraît le 10 novembre 2026 (date lue sur la page de l'Insee), puis viendra celui du quatrième trimestre. Le taux est à 8,3 % et en hausse : à 9 %, ou après une hausse de 0,8 point en un trimestre, la règle des 548 jours ne s'applique plus. (2) Le 1er octobre 2026, l'Unédic écrit que l'État « multiplie les signes de sa volonté de poursuivre les prélèvements ». Les lois de finances et de financement de la sécurité sociale pour 2027 peuvent donc rendre caduque la phrase « Sans nouveau prélèvement… 2,1 milliards en 2027 », dite à la voix et écrite dans la fiche. (3) Le RSA et l'AAH sont revalorisés le 1er avril 2027, avant le vote. (4) La DREES publiera une nouvelle édition des minima sociaux, et France Travail une nouvelle part d'inscrits indemnisés.",
+  "current": "// Datée : taux de chômage du deuxième trimestre 2026 (Insee, août 2026), prévisions de l'Unédic de juin 2026,\n// montants du RSA et de l'AAH en vigueur en 2026, règle de la rupture conventionnelle du 1er septembre 2026.\n// À revoir à la prochaine publication trimestrielle du chômage par l'Insee, ou si ces règles changent.",
+  "proposed": "// Datée : taux de chômage du deuxième trimestre 2026 (Insee, août 2026), prévisions de l'Unédic de juin 2026 (dont\n// le +2,1 Md€ prévu pour 2027, que son Bureau du 23 septembre 2026 dit devoir être « sensiblement revu à la baisse »),\n// montants du RSA et de l'AAH en vigueur en 2026, allocataires de minima sociaux fin 2024 et dépenses de 2024 (DREES),\n// foyers au RSA en juin 2026 (DREES, suivi mensuel), part des inscrits indemnisés fin 2025 (France Travail), règle de\n// la rupture conventionnelle du 1er septembre 2026.\n// À revoir : chômage du troisième trimestre (Insee, 10 novembre 2026), puis du quatrième, avant le vote (la règle\n// des 548 jours suppose un chômage sous 9 %, sans hausse de 0,8 point en un trimestre) ; prochaines prévisions de\n// l'Unédic, et lois de finances et de financement de la sécurité sociale pour 2027 (un nouveau prélèvement de l'État\n// rend caduc « Sans nouveau prélèvement… ») ; revalorisation du RSA et de l'AAH au 1er avril 2027, avant le premier\n// tour du 18 avril ; nouvelles éditions de la DREES (minima sociaux) et de France Travail (part des indemnisés) ;\n// ou si ces règles changent.",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "newSource": {
+   "title": "Au deuxième trimestre 2026, le taux de chômage augmente de 0,2 point et atteint 8,3 % (Informations rapides n° 192)",
+   "url": "https://www.insee.fr/fr/statistiques/9032359",
+   "publisher": "Insee",
+   "date": "2026-08-07"
+  },
+  "checked": true,
+  "rationale": "J'ai fusionné les trois propositions, en reprenant la forme complète du centre. J'ai lu la date du 10/11/2026 sur la page de l'Insee. J'y ajoute le seuil de 9 %, qui peut faire changer avant le vote la durée dite au passage chomage-04. Je n'ai pas repris « février 2027 » pour le quatrième trimestre, date que je n'ai pas pu vérifier. Je n'ai pas non plus pu vérifier si le budget 2027 prévoit un prélèvement sur l'Unédic : la recherche web était épuisée. Gravité relevée à « important » : trois sensibilités l'ont signalé, et un chiffre dit à la voix (+2,1 Md€) en dépend.",
+  "verification": "adjusted : Le constat de l'issue est juste. Sur la page de l'Insee (Informations rapides du 7 août 2026, 8,3 %), j'ai lu : « Prochaine parution le : 10/11/2026 à 07h30 - troisième trimestre 2026 ». Service-public F38881 (vérifiée le 23 juillet 2026) confirme la règle : réduction de 25 % si le chômage est inférieur à 9,0 % et n'a pas progressé de 0,8 point en un trimestre, soit 548 jours contre 730. Le point de vue de l'Unédic du 1er octobre 2026 (P. Ferrand et J.-E. Tesson) contient bien « l'Etat multiplie les signes de sa volonté de poursuivre les prélèvements » et renvoie aux débats sur les lois financières pour 2027. J'ajoute un fait que la proposition ignore. Le Bureau de l'Unédic (synthèse du 23 septembre 2026, publiée le 2 octobre) écrit que le +2,1 Md€ de 2027 « devrait ainsi être sensiblement revu à la baisse », du fait de la dégradation économique. Ce chiffre devient donc caduc même sans nouveau prélèvement. J'ai aussi corrigé « allocataires et dépenses de minima sociaux fin 2024 » : les allocataires sont comptés fin 2024, les dépenses portent sur l'année 2024 (33,3 Md€). J'ai ajouté le chiffre mensuel de la DREES (1,89 million de foyers au RSA en juin 2026), que la série affiche et qui sera vite dépassé. Je n'ai pas pu lire de texte légal sur la revalorisation au 1er avril : Légifrance renvoie 404 et la recherche web est épuisée. Mais les montants de 2026 (RSA 651,69 €, page vérifiée le 1er avril 2026 ; AAH 1 041,59 €) sont tous deux en hausse de 0,8 % sur 2025, ce qui est cohérent avec une revalorisation en avril. Ce n'est qu'un repère de révision dans un commentaire de code.",
+  "topic": "solidarites",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "solidarites-10",
+  "target": "video",
+  "questionId": "",
+  "videoId": "solidarites-chomage",
+  "segmentId": "solidarites-chomage-06",
+  "field": "alt",
+  "category": "exactitude",
+  "severity": "mineur",
+  "issue": "Le say parle de « ceux tenus de chercher un emploi » sans dire que ces inscrits (catégories A, B et C) comprennent des personnes en activité réduite. La fiche et le libellé du chiffre gardent cette précision. Le texte que la planche écrit peut la rétablir sans réenregistrer la voix. La planche ch06 doit alors écrire cette légende.",
+  "current": "Les deux barres sur une échelle de 0 à 100 %.",
+  "proposed": "Inscrits sans emploi ou en activité réduite : les deux barres sur une échelle de 0 à 100 %.",
+  "lenses": [
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "rationale": "Cette précision de périmètre vient de la fiche (GUIDE § 6 : même périmètre). Elle est factuelle, n'oriente ni dans un sens ni dans l'autre et ne demande aucun réenregistrement.",
+  "newSource": {
+   "title": "Part des demandeurs d'emploi indemnisables : situation au 31 décembre 2025 (n° 26.014)",
+   "url": "https://statistiques.francetravail.org/indem/indempub/229912",
+   "publisher": "France Travail, service statistique",
+   "date": "2026-09-24"
+  },
+  "verification": "confirmed : La fiche France Travail n° 26.014 (publiée le 24 septembre 2026, situation au 31 décembre 2025) le confirme. Les catégories A, B et C regroupent les inscrits sans emploi et ceux en activité réduite : 67,9 % ont un droit ouvert, 69,0 % d'entre eux sont indemnisés, soit 46,9 % des inscrits en A, B et C. Le libellé de la fiche x1 et le figure.label du passage 06 donnent déjà cette précision. La rétablir dans l'alt suit le GUIDE (§ 6, même périmètre) et ne demande pas de réenregistrer la voix. La planche ch06 doit écrire cette légende pour que l'alt reste exact (« ce que la planche écrit »).",
+  "topic": "solidarites",
+  "electionQuestionId": ""
+ }
+]

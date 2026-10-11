@@ -107,6 +107,17 @@ const initialBytes = initial.reduce((t, f) => t + statSync(join(dist, f)).size, 
 if (initialBytes > INITIAL_JS_BUDGET) {
   fail(`JS initial de ${(initialBytes / 1000).toFixed(1)} ko (${initial.join(', ')}) : budget de ${INITIAL_JS_BUDGET / 1000} ko dépassé`)
 }
+// Le dépouillement en PDF (src/core/reportPdf.ts et son moteur, src/core/pdf/) : un fichier à part, chargé à la
+// demande par import() (src/ui/report/load.ts), jamais dans le JS initial ; écrivain, largeurs et textes tiennent
+// dans un plafond raisonnable
+const REPORT_BUDGET = 80_000
+const reportChunks = readdirSync(join(dist, 'assets')).filter(f => /^reportPdf-[\w-]+\.js$/.test(f))
+if (reportChunks.length !== 1) fail(`dépouillement en PDF : ${reportChunks.length} fichier(s) assets/reportPdf-*.js, un attendu`)
+for (const f of reportChunks) {
+  if (initial.includes(join('assets', f))) fail(`dépouillement en PDF : assets/${f} est dans le JS initial (il doit n'être chargé que par import())`)
+  const size = statSync(join(dist, 'assets', f)).size
+  if (size > REPORT_BUDGET) fail(`dépouillement en PDF : assets/${f} pèse ${(size / 1000).toFixed(1)} ko, plafond de ${REPORT_BUDGET / 1000} ko`)
+}
 // Aucun texte de la banque dans le JS initial : ni énoncé ni approche, de chaque élection du site
 // (src/elections/<id>/bank.ts) ou en préparation (research/<id>/bank.json, écrit par tools/build-pack.mjs)
 const initialCode = initial.map(f => readFileSync(join(dist, f), 'utf8')).join('\n')
@@ -180,6 +191,7 @@ for (const m of html.matchAll(/\{\{(\w+)\}\}/g)) fail(`dist/index.html : {{${m[1
 
 if (!process.exitCode) console.log('✓ dist vérifié : CSP stricte, aucune API d’envoi, aucune ressource externe, service worker limité aux fichiers du site')
 if (initialBytes) console.log(`  JS initial : ${(initialBytes / 1000).toFixed(1)} ko sur ${INITIAL_JS_BUDGET / 1000} ko permis (${initial.join(', ')}), sans aucun des ${prompts} textes des banques`)
+for (const f of reportChunks) console.log(`  dépouillement en PDF : assets/${f}, ${(statSync(join(dist, 'assets', f)).size / 1000).toFixed(1)} ko sur ${REPORT_BUDGET / 1000} ko permis, chargé à la demande`)
 
 // Voix des vidéos : un avertissement pour un fichier livré mais pas inscrit (jamais lu, poids inutile)
 const unlisted = [...shipped].filter(k => !inscribed.has(k))

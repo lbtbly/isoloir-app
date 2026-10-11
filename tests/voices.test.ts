@@ -23,9 +23,18 @@ import {
   voicedCount,
 } from '../src/ui/videos/audio'
 import { estimateMs } from '../src/ui/videos/model'
+import { EDITIONS } from '../src/ui/videos/editions'
+import { applyEdition } from '../src/ui/videos/editions/apply'
 import { VIDEO_SERIES } from '../src/ui/videos/series'
 
-const videos = VIDEO_SERIES.flatMap(s => s.videos)
+// Chaque vidéo avec ses passages d'origine et les passages corrigés de chaque édition (editions/), qui ont leur
+// propre voix : la même réunion que celle qu'exporte tools/voices/export-series.mjs pour le générateur
+const edited = Object.values(EDITIONS).flatMap(e => VIDEO_SERIES.flatMap(s => applyEdition(s, e).videos))
+const videos = VIDEO_SERIES.flatMap(s => s.videos).map(v => {
+  const seen = new Set(v.segments.map(seg => seg.id))
+  const extra = edited.filter(x => x.id === v.id).flatMap(x => x.segments).filter(seg => !seen.has(seg.id) && seen.add(seg.id))
+  return { ...v, segments: [...v.segments, ...extra] }
+})
 const ROOT = fileURLToPath(new URL('..', import.meta.url))
 /** Le Python du générateur des voix, s'il est installé sur cette machine (sinon, les contre-épreuves sont sautées) */
 const python = [process.env.ISOLOIR_PYTHON, join(homedir(), 'isoloir-tts/bin/python')].find(p => p && existsSync(p))

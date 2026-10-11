@@ -1,0 +1,113 @@
+Contrôle des sons parasites — 2026-10-10 17:25:30
+Commande : generate.py --voice aigue --scan --segment travail-partage-07-p27,impots-intro-06-p27,impots-intro-07-p27,impots-dette-05-p27,industrie-intro-01-p27,industrie-intro-07-p27,industrie-etat-04-p27,industrie-commerce-08-p27,retraites-intro-07-p27,retraites-financement-11-p27,retraites-pensions-06-p27,retraites-penibilite-07-p27,egalite-salaires-04-p27,sante-intro-06-p27,sante-remboursements-09-p27,sante-prevention-06-p27,sante-prevention-07-p27,sante-prevention-08-p27,logement-loyers-05-p27,logement-loyers-06-p27,logement-loyers-09-p27,logement-social-07-p27,logement-social-08-p27,logement-construire-07-p27,solidarites-intro-07-p27,solidarites-intro-08-p27,solidarites-chomage-08-p27,ecole-intro-07-p27,ecole-prive-03-p27,ecole-prive-04-classes-p27,ecole-superieur-05-p27,culture-intro-07-p27,culture-audiovisuel-09-p27,numerique-ia-05-p27,numerique-plateformes-05-p27,numerique-plateformes-06-p27,numerique-plateformes-08-p27,numerique-medias-07-p27,ecologie-carburants-06-p27,ecologie-electricite-03-p27,ecologie-electricite-04-p27,ecologie-transports-05-p27,ecologie-adaptation-06-p27,agriculture-intro-07-p27,agriculture-prix-03-p27,agriculture-prix-06-p27,agriculture-aides-05-p27,agriculture-importations-02-p27,agriculture-importations-04-p27,agriculture-importations-05-p27,territoires-intro-06-p27,territoires-intro-07-p27,territoires-services-07-p27,territoires-collectivites-07-comptes-p27,territoires-collectivites-08-p27,territoires-collectivites-09-p27,securite-intro-07-p27,securite-intro-08-p27,securite-police-01-violences-p27,securite-drogues-02-reglements-p27,immigration-intro-07-p27,immigration-titres-02-p27,immigration-titres-04-p27,immigration-titres-06-p27,immigration-titres-10-p27,europe-intro-06-p27,europe-intro-07-p27,europe-decider-03-p27,europe-traites-02-p27,europe-traites-05-p27,europe-deficits-05-p27,europe-concurrence-08-p27,ukraine-intro-01-p27,ukraine-intro-05-p27,ukraine-intro-08-p27,ukraine-aide-02-p27,ukraine-diplomatie-05-p27,proche-orient-intro-01-p27,proche-orient-intro-07-p27,proche-orient-intro-08-p27,proche-orient-onu-05-p27,defense-budget-03-p27,defense-budget-09-p27,institutions-pouvoirs-04-p27,institutions-49-3-05-p27,institutions-constitution-06-conseil-p27,institutions-citoyens-02-p27,laicite-intro-07-p27,laicite-principe-07-p27,laicite-signes-03-p27,laicite-discriminations-06-p27,laicite-memoire-08-p27,laicite-histoire-02-p27
+Détecteur : artefacts.py (alignement Qwen3-ForcedAligner, seuils étalonnés : voir artefacts.py et README.md). Net : à refaire ; léger : signalé seulement.
+
+aigue / travail-partage-07-p27 — 8.25 s : À REFAIRE
+    bruit 4.75-4.97 s (net, +42 dB, confiance 0.87) [Profits | décisions]
+aigue / impots-intro-06-p27 — 6.03 s : ok
+aigue / impots-intro-07-p27 — 2.23 s : ok
+aigue / impots-dette-05-p27 — 14.82 s : léger
+    respiration 4.84-4.99 s (leger, +15 dB, confiance 0.31) [six | puis]
+aigue / industrie-intro-01-p27 — 4.03 s : ok
+aigue / industrie-intro-07-p27 — 10.08 s : ok
+aigue / industrie-etat-04-p27 — 11.21 s : ok
+aigue / industrie-commerce-08-p27 — 3.04 s : ok
+aigue / retraites-intro-07-p27 — 13.08 s : ok
+aigue / retraites-financement-11-p27 — 9.18 s : ok
+aigue / retraites-pensions-06-p27 — 6.60 s : ok
+aigue / retraites-penibilite-07-p27 — 7.71 s : ok
+aigue / egalite-salaires-04-p27 — 8.51 s : ok
+aigue / sante-intro-06-p27 — 8.18 s : ok
+aigue / sante-remboursements-09-p27 — 6.55 s : ok
+aigue / sante-prevention-06-p27 — 10.80 s : léger
+    respiration 7.92-8.16 s (leger, +35 dB, confiance 0.63) [l'école | ses]
+aigue / sante-prevention-07-p27 — 12.85 s : léger
+    respiration 12.32-12.54 s (leger, +33 dB, confiance 0.64) [neuf | fin]
+aigue / sante-prevention-08-p27 — 4.83 s : ok
+aigue / logement-loyers-05-p27 — 7.27 s : ok
+aigue / logement-loyers-06-p27 — 12.14 s : ok
+aigue / logement-loyers-09-p27 — 1.91 s : ok
+aigue / logement-social-07-p27 — 6.07 s : ok
+aigue / logement-social-08-p27 — 12.68 s : ok
+aigue / logement-construire-07-p27 — 14.12 s : ok
+aigue / solidarites-intro-07-p27 — 5.70 s : ok
+aigue / solidarites-intro-08-p27 — 2.07 s : ok
+aigue / solidarites-chomage-08-p27 — 14.29 s : ok
+aigue / ecole-intro-07-p27 — 9.86 s : léger
+    vocalise 1.05-1.14 s (leger, +49 dB, confiance 0.80) [sujets | Combien]
+aigue / ecole-prive-03-p27 — 15.75 s : ok
+aigue / ecole-prive-04-classes-p27 — 7.04 s : ok
+aigue / ecole-superieur-05-p27 — 15.69 s : ok
+aigue / culture-intro-07-p27 — 8.73 s : ok
+aigue / culture-audiovisuel-09-p27 — 3.89 s : ok
+aigue / numerique-ia-05-p27 — 15.39 s : ok
+aigue / numerique-plateformes-05-p27 — 9.24 s : ok
+aigue / numerique-plateformes-06-p27 — 8.68 s : ok
+aigue / numerique-plateformes-08-p27 — 4.68 s : ok
+aigue / numerique-medias-07-p27 — 15.55 s : ok
+aigue / ecologie-carburants-06-p27 — 18.61 s : léger
+    parole en trop 0.07-0.17 s (leger, +26 dB, confiance 0.47) [début | Un]
+aigue / ecologie-electricite-03-p27 — 16.38 s : ok
+aigue / ecologie-electricite-04-p27 — 15.64 s : ok
+aigue / ecologie-transports-05-p27 — 14.58 s : léger
+    bruit 1.23-1.34 s (leger, +31 dB, confiance 0.59) [voiture | Une]
+aigue / ecologie-adaptation-06-p27 — 13.35 s : ok
+aigue / agriculture-intro-07-p27 — 5.13 s : ok
+aigue / agriculture-prix-03-p27 — 15.04 s : ok
+aigue / agriculture-prix-06-p27 — 8.19 s : ok
+aigue / agriculture-aides-05-p27 — 12.85 s : ok
+aigue / agriculture-importations-02-p27 — 13.63 s : ok
+aigue / agriculture-importations-04-p27 — 13.74 s : ok
+aigue / agriculture-importations-05-p27 — 13.94 s : ok
+aigue / territoires-intro-06-p27 — 8.37 s : léger
+    respiration 1.81-1.88 s (leger, +42 dB, confiance 0.68) [posent | Comment]
+aigue / territoires-intro-07-p27 — 2.21 s : ok
+aigue / territoires-services-07-p27 — 11.38 s : ok
+aigue / territoires-collectivites-07-comptes-p27 — 8.43 s : ok
+aigue / territoires-collectivites-08-p27 — 10.25 s : ok
+aigue / territoires-collectivites-09-p27 — 4.71 s : ok
+aigue / securite-intro-07-p27 — 8.83 s : ok
+aigue / securite-intro-08-p27 — 1.78 s : ok
+aigue / securite-police-01-violences-p27 — 12.60 s : léger
+    respiration 9.84-9.99 s (leger, +34 dB, confiance 0.60) [neuf | Plus]
+aigue / securite-drogues-02-reglements-p27 — 11.04 s : ok
+aigue / immigration-intro-07-p27 — 12.28 s : ok
+aigue / immigration-titres-02-p27 — 15.77 s : ok
+aigue / immigration-titres-04-p27 — 6.38 s : ok
+aigue / immigration-titres-06-p27 — 9.04 s : ok
+aigue / immigration-titres-10-p27 — 4.67 s : ok
+aigue / europe-intro-06-p27 — 12.81 s : ok
+aigue / europe-intro-07-p27 — 11.08 s : ok
+aigue / europe-decider-03-p27 — 9.96 s : ok
+aigue / europe-traites-02-p27 — 10.99 s : ok
+aigue / europe-traites-05-p27 — 14.03 s : ok
+aigue / europe-deficits-05-p27 — 12.60 s : ok
+aigue / europe-concurrence-08-p27 — 5.74 s : ok
+aigue / ukraine-intro-01-p27 — 6.37 s : ok
+aigue / ukraine-intro-05-p27 — 10.51 s : ok
+aigue / ukraine-intro-08-p27 — 6.66 s : ok
+aigue / ukraine-aide-02-p27 — 7.88 s : ok
+aigue / ukraine-diplomatie-05-p27 — 9.01 s : ok
+aigue / proche-orient-intro-01-p27 — 12.51 s : ok
+aigue / proche-orient-intro-07-p27 — 6.79 s : ok
+aigue / proche-orient-intro-08-p27 — 2.88 s : ok
+aigue / proche-orient-onu-05-p27 — 14.99 s : léger
+    respiration 4.64-4.98 s (leger, +37 dB, confiance 0.67) [trois | qui]
+aigue / defense-budget-03-p27 — 17.49 s : À REFAIRE
+    mot étiré « Au » 3.01-3.36 s (net, +52 dB, confiance 0.39) [actualisée | total]
+aigue / defense-budget-09-p27 — 2.84 s : ok
+aigue / institutions-pouvoirs-04-p27 — 11.81 s : ok
+aigue / institutions-49-3-05-p27 — 9.49 s : ok
+aigue / institutions-constitution-06-conseil-p27 — 9.07 s : ok
+aigue / institutions-citoyens-02-p27 — 12.88 s : ok
+aigue / laicite-intro-07-p27 — 12.97 s : ok
+aigue / laicite-principe-07-p27 — 10.72 s : ok
+aigue / laicite-signes-03-p27 — 8.52 s : ok
+aigue / laicite-discriminations-06-p27 — 11.84 s : ok
+aigue / laicite-memoire-08-p27 — 3.48 s : ok
+aigue / laicite-histoire-02-p27 — 12.72 s : ok
+
+À refaire (2) : aigue/travail-partage-07-p27, aigue/defense-budget-03-p27
+Liste report/a-refaire.json (2) : aigue/defense-budget-03-p27, aigue/travail-partage-07-p27
+→ ~/isoloir-tts/bin/python tools/voices/generate.py --redo-flagged   (ne régénère que ceux-là ; --voice pour une seule voix)
+Temps : 21 s pour 93 passage(s), chargement du modèle d'alignement compris.

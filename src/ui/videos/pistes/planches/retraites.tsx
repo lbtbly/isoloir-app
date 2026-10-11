@@ -1428,6 +1428,115 @@ const pen_usure10: Board = p => (
   </Seg>
 )
 
+/* ——— Édition « présidentielle 2027 » ———
+ * Les passages corrigés par editions/presidentielle-2027/retraites.ts prennent l'identifiant suffixé « -p27 » ;
+ * leurs planches lisent le texte corrigé (p.segment, p.script), jamais la série d'origine. Les planches
+ * ci-dessus restent celles de la primaire, telles quelles. */
+
+/**
+ * Introduction 07 corrigée : « En 2025, il manque 5,1 milliards d'euros, soit 0,2 % du PIB […] le déficit
+ * atteindrait 2,4 % du PIB en 2070 ». Les deux déficits rapportés au PIB, à la même échelle, depuis la ligne de
+ * l'équilibre : ce qui manque pend sous la ligne ; la projection, en pointillé. Le script ne dit pas les dépenses
+ * de 2070 : on ne dessine que l'écart, sans piles entières qui l'écraseraient ou le grossiraient.
+ */
+const intro07p27: Board = p => {
+  const [md, late] = cuesOf(p)
+  const pcts = [...plain(p.segment.say).matchAll(/(\d+(?:,\d+)?) % du PIB/g)].map(m => m[1]!)
+  const years = yearsOf(p.segment.say)
+  const v0 = num(pcts[0])
+  const v1 = num(late?.text)
+  const now = pcts[0] ? word(p, new RegExp(`${pcts[0]} %`)) : null
+  const manque = word(p, /il manque \d+(?:,\d+)? milliards/)
+  const unit = word(p, /% du PIB/)
+  if (!md || !late || !now || !v0 || !v1 || pcts.length !== 2 || num(pcts[1]) !== v1 || years.length !== 2) return null
+  const [y0, y1] = years as [number, number]
+  // La ligne de l'équilibre, la profondeur du plus grand déficit, et la même échelle pour les deux
+  const L = 56
+  const D = 96
+  const k = D / Math.max(v0, v1)
+  const d0 = v0 * k
+  const d1 = v1 * k
+  const c0 = 90
+  const c1 = 210
+  const col = (cx: number, d: number) => `M${cx - 26} ${L}V${L + d}H${cx + 26}V${L}`
+  return (
+    <Seg kind="fig">
+      <Chiffre p={p} />
+      <Art h={Math.ceil(L + Math.max(d0 + (manque ? 82 : 34), d1 + 34))}>
+        {unit ? <Txt x={8} y={16} text={unit.text} size={14} anchor="start" tone="soft" t0={100} /> : null}
+        <Ink d={`M20 ${L}H280`} t0={0} dur={600} class="vc-soft" />
+        <Txt x={c0} y={L - 12} text={String(y0)} size={15} tone="soft" t0={200} />
+        {md.shown ? (
+          <>
+            <Fade t0={300} class="vc-count">
+              <rect class="vc-tint-count" x={c0 - 26} y={L} width={52} height={d0} />
+            </Fade>
+            <Ink d={col(c0, d0)} t0={0} dur={500} class="vc-count" />
+            {manque ? <Txt x={c0} y={L + d0 + 48} text={manque.text} max={13} size={15} tone="count" t0={300} /> : null}
+          </>
+        ) : null}
+        {now.shown ? <Txt x={c0} y={L + d0 + 24} text={now.text} size={20} big tone="count" t0={200} /> : null}
+        {late.shown ? (
+          <>
+            <Fade class="vc-count vc-dash">
+              <path d={col(c1, d1)} />
+            </Fade>
+            <Txt x={c1} y={L + d1 + 24} text={late.text} size={20} big tone="count" t0={300} />
+          </>
+        ) : null}
+        {heard(p, String(y1)) ? <Txt x={c1} y={L - 12} text={String(y1)} size={15} tone="soft" t0={100} /> : null}
+      </Art>
+      <Src p={p} />
+    </Seg>
+  )
+}
+
+/**
+ * Financement 11 corrigé : passer à la capitalisation obligerait un temps à financer deux retraites à la fois (la
+ * même pièce part vers l'enveloppe d'un retraité et vers une tirelire) ; puis « certains pays combinent les
+ * deux » : la chaîne des générations et la tirelire côte à côte, reliées d'un trait.
+ */
+const fin11p27: Board = p => {
+  const pays = word(p, /Certains pays/)
+  const both = word(p, /combinent les deux/)
+  const rep = word(p, /la répartition/)
+  const cap = word(p, /la capitalisation/)
+  if (!pays || !both) return null
+  const chain = [24, 62, 100]
+  return (
+    <Seg>
+      <HeadCues p={p} />
+      <Art h={252}>
+        <Qui cx={52} base={118} size={72} t0={100} />
+        <Picto n="piece" x={96} y={52} size={24} tone="count" t0={600} />
+        <Arrow x1={126} y1={58} x2={176} y2={30} t0={900} tone="count" />
+        <Arrow x1={126} y1={70} x2={176} y2={98} t0={1100} tone="count" />
+        <Picto n="enveloppe" x={186} y={4} size={54} t0={1300} />
+        <Picto n="tirelire" x={186} y={76} size={54} t0={1500} />
+        {pays.shown ? (
+          <>
+            {/* Une autre idée : un trait léger la sépare de la première */}
+            <Ink d="M30 140H270" t0={0} dur={500} class="vc-soft vc-thin" />
+            {chain.map((x, i) => (
+              <Picto key={x} n="personne" x={x} y={156} size={32} t0={200 + i * 120} w={0.9} />
+            ))}
+            <Ink d="M53 176h10M91 176h10" t0={600} dur={300} class="vc-soft vc-thin" />
+            {rep ? <Txt x={78} y={212} text={rep.text} size={14} tone="soft" t0={700} /> : null}
+            <Picto n="tirelire" x={198} y={145} size={56} t0={500} />
+            {cap ? <Txt x={226} y={212} text={cap.text} size={14} tone="soft" t0={800} /> : null}
+          </>
+        ) : null}
+        {both.shown ? (
+          <>
+            <Ink d="M134 176H198" t0={0} dur={500} />
+            <Txt x={W / 2} y={244} text={both.text} size={15} t0={300} />
+          </>
+        ) : null}
+      </Art>
+    </Seg>
+  )
+}
+
 /* ——— Le registre ——— */
 
 export const RETRAITES: Record<string, Board> = {
@@ -1484,4 +1593,7 @@ export const RETRAITES: Record<string, Board> = {
   'retraites-penibilite-08': pen_usure08,
   'retraites-penibilite-09': pen_usure09,
   'retraites-penibilite-10': pen_usure10,
+  // Édition « présidentielle 2027 »
+  'retraites-intro-07-p27': intro07p27,
+  'retraites-financement-11-p27': fin11p27,
 }

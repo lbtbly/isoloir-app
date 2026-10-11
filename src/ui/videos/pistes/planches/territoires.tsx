@@ -5,9 +5,12 @@
 // Quelques pictogrammes manquaient à la bibliothèque (bâtiment public local, bâtiment de soins, cargo, magasin,
 // entrepôt, panier) : ils sont dessinés ici, au trait, dans un carré de 48 unités, sans attribut ni symbole.
 
-import { Art, Arrow, Ask, Brace, Fade, Ink, Txt, W, cls, cueOf, cuesOf, heard, num, ratioOf, sentenceWith, sentencesOf, word, wrap, yearsOf, type P, type Tone } from '../dessin/encre'
-import { Chiffre, Head, HeadCues, Note, Panel, Question, Seg, Signature, Sommaire, Src, Sur100 } from '../dessin/mises'
-import { Picto, type PictoName } from '../dessin/pictos'
+import { EDITIONS } from '../../editions'
+import { applyEdition } from '../../editions/apply'
+import { VIDEO_SERIES } from '../../series'
+import { Art, Arrow, Ask, Brace, Fade, Ink, Txt, W, at, cls, cueOf, cuesOf, fold, heard, num, ratioOf, sentenceWith, sentencesOf, word, wrap, yearsOf, type P, type Tone } from '../dessin/encre'
+import { Chiffre, Head, HeadCues, Note, Panel, Question, Seg, Signature, Sommaire, Src, Sur100, lineOf } from '../dessin/mises'
+import { Glyphe, Picto, pictoFor, type PictoName } from '../dessin/pictos'
 import { Cases, Disque, Rang, balance, barres, colonnes, effets, manettes, partPoint, rangCells } from '../dessin/schemas'
 import type { Board } from './types'
 
@@ -1179,6 +1182,167 @@ const om10: Board = p => (
   </Seg>
 )
 
+/* ——— Édition « présidentielle 2027 » : les passages corrigés (identifiants en -p27) ———
+ * Ajouts seulement : les planches ci-dessus restent celles de la primaire, au pixel près. Ces planches lisent le
+ * passage corrigé (p.segment, p.script) ; le sommaire applique l'édition à la série pour ne lister que les vidéos
+ * qu'elle montre. Gardent la planche d'origine : intro-06 (les questions dites, chacune avec son pictogramme) et
+ * collectivites-09 (la question dite, sous les trois bâtiments, la pièce et le document). */
+
+/** Un bouclier, au trait : la sécurité */
+const BOUCLIER: Trace = {
+  s: ['M24 4L42 10V24C42 34 34 41 24 45C14 41 6 34 6 24V10Z'],
+  fill: 'M24 4L42 10V24C42 34 34 41 24 45C14 41 6 34 6 24V10Z',
+}
+
+/** Trois bâtiments empilés, du plus large au plus étroit : les échelons de l'organisation locale */
+const ETAGES: Trace = {
+  s: [
+    'M3 45H45',
+    'M8 45V33H40V45',
+    'M13 33V21H35V33',
+    'M18 21V9H30V21',
+    'M16 9L24 3L32 9',
+    'M13 37h4v4h-4zM22 37h4v4h-4zM31 37h4v4h-4zM17 25h4v4h-4zM27 25h4v4h-4zM22 13h4v4h-4z',
+  ],
+  fill: 'M8 45V33H13V21H18V9H30V21H35V33H40V45Z',
+  thin: [0, 5],
+}
+
+/** L'édition dont ce passage porte le suffixe (« -p27 »), s'il en a une */
+const editionOf = (p: P) => Object.values(EDITIONS).find(e => p.segment.id.endsWith(e.suffix))
+
+/** intro-07 (p27) « Ce sont les deux sujets des vidéos qui suivent » : le sommaire des approfondissements tels que
+ *  l'édition les montre (sans ceux qu'elle retire), chacun avec le pictogramme de sa question (comme intro-06) */
+const intro07p27: Board = p => {
+  const base = VIDEO_SERIES.find(s => s.videos.some(v => v.id === p.script.id))
+  const edition = editionOf(p)
+  if (!base || !edition) return null
+  const deep = applyEdition(base, edition).videos.filter(v => v.kind === 'deep')
+  // Le nombre dit (« les deux sujets ») doit être celui des vidéos montrées
+  const n = num(word(p, /\S+(?= sujets)/)?.text)
+  if (!deep.length || (n !== null && n !== deep.length)) return null
+  return (
+    <Seg kind="end">
+      <ol class="vc-chap">
+        {deep.map((v, i) => {
+          const t = fold(`${v.short} ${v.title}`)
+          return (
+            <li key={v.id} class="vc-chap-item vc-rise" style={at(200 + i * 450)}>
+              <span class="vc-chap-n">{i + 1}</span>
+              <Glyphe n={QUESTION_PICTOS.find(([re]) => re.test(t))?.[1] ?? pictoFor(t) ?? 'document'} t0={p.still ? 0 : 350 + i * 450} />
+              <span class="vc-chap-t">{v.short}</span>
+            </li>
+          )
+        })}
+      </ol>
+      <Signature p={p} />
+    </Seg>
+  )
+}
+
+/** services-07 (p27) La sécurité des soins doit primer : une croix de soin sous un petit bouclier (au bleu bille quand
+ *  la voix le dit) ; puis réduire l'offre allonge les temps de trajet : la maternité s'éloigne au bout de la route */
+const services07p27: Board = p => {
+  const [prime, trajet] = cuesOf(p)
+  if (!prime || !trajet) return null
+  const secu = word(p, /la sécurité des soins doit primer/)
+  const R = 40
+  return (
+    <Seg>
+      <Head lines={[secu ? { text: secu.text, shown: prime.shown, mark: prime } : lineOf(prime), lineOf(trajet)]} />
+      <Art h={R + 124}>
+        <Picto n="soin" x={130} y={32} size={40} t0={100} />
+        {prime.shown ? <Trait t={BOUCLIER} x={132} y={0} size={36} tone="count" t0={100} /> : null}
+        <Ink d={`M58 ${R + 118}H292`} t0={600} dur={800} class="vc-soft" />
+        <Picto n="maison" x={2} y={R + 64} size={58} t0={700} />
+        {trajet.shown ? (
+          <>
+            <Trait t={SOINS} x={92} y={R + 58} size={60} tone="ghost" />
+            <Arrow x1={152} y1={R + 46} x2={226} y2={R + 46} dash t0={100} />
+            <Trait t={SOINS} x={230} y={R + 58} size={60} t0={300} />
+            <Picto n="sablier" x={168} y={R + 70} size={42} tone="count" t0={700} />
+          </>
+        ) : (
+          <Trait t={SOINS} x={92} y={R + 58} size={60} t0={1000} />
+        )}
+      </Art>
+    </Seg>
+  )
+}
+
+/** collectivites-07-comptes (p27) Le déficit des collectivités, 12 milliards en 2024 puis 9,3 en 2025 : deux barres à
+ *  la même échelle depuis zéro, dans l'ordre des années, chacune quand la voix la dit */
+const coll07comptesP27: Board = p => {
+  const cur = cueOf(p, 0)
+  const before = word(p, /contre \d+(?:,\d+)? milliards/)
+  const years = yearsOf(p.segment.say)
+  const unit = word(p, /milliards d’euros/)
+  const vc = num(cur?.text)
+  const vb = num(before?.text)
+  if (!cur || !before || !vc || !vb || years.length !== 2) return null
+  const [yc, yb] = years as [number, number]
+  const now = { label: String(yc), value: vc, text: /\d+(?:,\d+)?/.exec(cur.text)![0], shown: cur.shown }
+  const past = { label: String(yb), value: vb, text: /\d+(?:,\d+)?/.exec(before.text)![0], shown: before.shown }
+  const top = unit ? 22 : 4
+  const g = barres({ items: yb < yc ? [past, now] : [now, past], y: top, size: 26, gap: 26, room: 64, t0: 100 })
+  return (
+    <Seg kind="fig">
+      <Chiffre p={p} />
+      <Art h={top + g.h + 8}>
+        {unit ? <Txt x={W} y={14} text={unit.text} size={14} anchor="end" tone="soft" t0={100} /> : null}
+        {g.el}
+      </Art>
+      <Src p={p} />
+    </Seg>
+  )
+}
+
+/** Les sujets du débat sur les collectivités (édition), et leur dessin */
+const SUJETS_P27: [RegExp, PictoName | Trace][] = [
+  [/organisation/, ETAGES],
+  [/compétences/, 'mallette'],
+  [/autonomie fiscale/, 'pieces'],
+  [/dotations/, 'enveloppe'],
+  [/adapter les règles/, 'document'],
+]
+
+/** collectivites-08 (p27) Le débat : organisation et échelons, compétences, autonomie fiscale, dotations, adapter les
+ *  règles ; cinq curseurs dans l'ordre où la voix les nomme, chacun au repos au milieu de sa glissière (aucun poussé) */
+const coll08p27: Board = p => {
+  const items = SUJETS_P27.map(([re, d]) => ({ w: word(p, re), d, i: p.segment.say.search(re) }))
+  if (items.some(i => !i.w)) return null
+  items.sort((a, b) => a.i - b.i)
+  const head = word(p, /Le débat porte sur/)
+  const R = 40
+  const [x0, x1] = [184, 292]
+  return (
+    <Seg>
+      <Head lines={[head ? { text: head.text, shown: head.shown } : null]} />
+      <Art h={items.length * R - 4}>
+        {items.map(({ w, d }, k) => {
+          if (!w!.shown) return null
+          const y = k * R
+          const cy = y + 18
+          const cx = (x0 + x1) / 2
+          const knob = `M${cx - 6} ${cy - 12}h12v24h-12z`
+          return (
+            <g key={k}>
+              {typeof d === 'string' ? <Picto n={d} x={0} y={y} size={34} t0={0} /> : <Trait t={d} x={0} y={y} size={34} t0={0} step={120} />}
+              <Txt x={44} y={cy + 5} text={w!.text} size={15} anchor="start" t0={200} />
+              <Ink d={`M${x0} ${cy}H${x1}`} t0={250} dur={450} class="vc-soft" />
+              <Ink d={`M${x0} ${cy - 6}v12M${x1} ${cy - 6}v12`} t0={350} dur={250} class="vc-soft vc-thin" />
+              <Fade t0={500}>
+                <path class="vc-paper" d={knob} />
+                <path d={knob} />
+              </Fade>
+            </g>
+          )
+        })}
+      </Art>
+    </Seg>
+  )
+}
+
 /* ——— Le registre ——— */
 
 export const TERRITOIRES: Record<string, Board> = {
@@ -1227,4 +1391,9 @@ export const TERRITOIRES: Record<string, Board> = {
   'territoires-outre-mer-08': om08,
   'territoires-outre-mer-09': om09,
   'territoires-outre-mer-10': om10,
+  // Édition « présidentielle 2027 »
+  'territoires-intro-07-p27': intro07p27,
+  'territoires-services-07-p27': services07p27,
+  'territoires-collectivites-07-comptes-p27': coll07comptesP27,
+  'territoires-collectivites-08-p27': coll08p27,
 }

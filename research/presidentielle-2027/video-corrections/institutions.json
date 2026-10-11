@@ -1,0 +1,490 @@
+[
+ {
+  "id": "institutions-2",
+  "target": "video",
+  "questionId": "",
+  "videoId": "institutions-49-3",
+  "segmentId": "institutions-49-3-05",
+  "field": "say",
+  "category": "exactitude",
+  "severity": "bloquant",
+  "issue": "Même erreur que dans l'explication : il y a eu 3 recours au 49.3 en janvier 2026, pas 2. La phrase dite est fausse. Il faut donc réenregistrer la voix de ce passage, et c'est nécessaire.",
+  "current": "Puis 2 fois en janvier 2026, pour le budget 2026.",
+  "proposed": "Puis 3 fois en janvier 2026, pour le budget 2026.",
+  "newSource": {
+   "title": "Adoption du PLF2026, en lecture définitive, après l'engagement de la responsabilité du Gouvernement sur le projet de loi et le rejet de 2 motions de censure (49.3)",
+   "url": "https://www.assemblee-nationale.fr/dyn/actualites-accueil-hub/adoption-du-plf2026-en-lecture-definitive-apres-l-engagement-de-la-responsabilite-du-gouvernement-sur-le-projet-de-loi-et-le-rejet-de-2-motions-d",
+   "publisher": "Assemblée nationale",
+   "date": "février 2026"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche",
+   "centre"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "institutions-1",
+   "institutions-3",
+   "institutions-4",
+   "institutions-5",
+   "institutions-6",
+   "institutions-7"
+  ],
+  "rationale": "C'est la jumelle de la correction institutions-1. Le chiffre dit doit suivre l'explication corrigée.",
+  "verification": "confirmed : Comme pour institutions-1 : trois engagements en janvier 2026 sur le PLF 2026, les 20 et 23 janvier dans le tableau de l'Assemblée et le 30 janvier sur la page d'adoption définitive. La phrase actuelle (« 2 fois ») est fausse, donc la voix est à réenregistrer.",
+  "topic": "institutions",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "institutions-3",
+  "target": "video",
+  "questionId": "",
+  "videoId": "institutions-49-3",
+  "segmentId": "institutions-49-3-05",
+  "field": "spoken",
+  "category": "exactitude",
+  "severity": "bloquant",
+  "issue": "C'est la forme dite de la correction du « say ». La voix est à réenregistrer.",
+  "current": "Puis deux fois en janvier deux mille vingt-six, pour le budget deux mille vingt-six.",
+  "proposed": "Puis trois fois en janvier deux mille vingt-six, pour le budget deux mille vingt-six.",
+  "lenses": [
+   "gauche",
+   "centre"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "institutions-1",
+   "institutions-2"
+  ],
+  "rationale": "Elle va avec la correction institutions-2.",
+  "verification": "confirmed : C'est la forme dite de institutions-2. Le fait est vérifié (20, 23 et 30 janvier 2026). La phrase fait moins de 25 mots.",
+  "topic": "institutions",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "institutions-4",
+  "target": "video",
+  "questionId": "",
+  "videoId": "institutions-49-3",
+  "segmentId": "institutions-49-3-05",
+  "field": "draw",
+  "category": "exactitude",
+  "severity": "bloquant",
+  "issue": "Le dessin montre 2 cases pour janvier 2026, alors qu'il y a eu 3 recours.",
+  "current": "puis deux cases de plus, à l’écart, marquées janvier 2026.",
+  "proposed": "puis trois cases de plus, à l’écart, marquées janvier 2026.",
+  "lenses": [
+   "gauche",
+   "centre"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "institutions-1",
+   "institutions-5"
+  ],
+  "rationale": "L'image doit suivre le chiffre corrigé.",
+  "verification": "confirmed : Le dessin suit le chiffre vérifié : trois recours au 49.3 en janvier 2026.",
+  "topic": "institutions",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "institutions-5",
+  "target": "video",
+  "questionId": "",
+  "videoId": "institutions-49-3",
+  "segmentId": "institutions-49-3-05",
+  "field": "alt",
+  "category": "exactitude",
+  "severity": "bloquant",
+  "issue": "Le texte alternatif doit suivre le dessin corrigé, avec 3 cases.",
+  "current": "puis deux cases de plus.",
+  "proposed": "puis trois cases de plus.",
+  "lenses": [
+   "gauche",
+   "centre"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "institutions-1",
+   "institutions-4"
+  ],
+  "rationale": "Elle va avec la correction institutions-4.",
+  "verification": "confirmed : Le texte alternatif suit le dessin corrigé, qui repose sur trois recours vérifiés.",
+  "topic": "institutions",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "institutions-6",
+  "target": "video",
+  "questionId": "",
+  "videoId": "institutions-49-3",
+  "segmentId": "institutions-49-3-05",
+  "field": "figure.label (constante RECOURS_49_3, partagée avec institutions-intro-04)",
+  "category": "exactitude",
+  "severity": "bloquant",
+  "issue": "Le libellé affiché dans les passages institutions-49-3-05 et institutions-intro-04 reprend l'erreur « 2 en janvier 2026 ». Il est seulement affiché : aucun réenregistrement n'est nécessaire. Le « say » d'intro-04 (« 116 fois entre 1959 et septembre 2025 ») reste exact.",
+  "current": "Son tableau détaillé en ajoute 2 en janvier 2026, pour le budget 2026",
+  "proposed": "Le gouvernement y a encore eu recours 3 fois pour le budget 2026, les 20, 23 et 30 janvier 2026",
+  "newSource": {
+   "title": "Adoption du PLF2026, en lecture définitive, après l'engagement de la responsabilité du Gouvernement sur le projet de loi et le rejet de 2 motions de censure (49.3)",
+   "url": "https://www.assemblee-nationale.fr/dyn/actualites-accueil-hub/adoption-du-plf2026-en-lecture-definitive-apres-l-engagement-de-la-responsabilite-du-gouvernement-sur-le-projet-de-loi-et-le-rejet-de-2-motions-d",
+   "publisher": "Assemblée nationale",
+   "date": "février 2026"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche",
+   "centre"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "institutions-1"
+  ],
+  "rationale": "Le libellé de la vidéo recopie celui de l'explication corrigée (§ 6 du guide).",
+  "verification": "confirmed : Même vérification qu'institutions-1. Le « say » d'intro-04 (« 116 fois entre 1959 et septembre 2025 ») reprend bien le total du bilan, dont la dernière ligne est « 13 décembre 2024 au 9 septembre 2025 ». Il garde la même réserve sur l'écart de compte relevé dans institutions-1 (3 ou 4 engagements pour 2024-2025).",
+  "topic": "institutions",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "institutions-10",
+  "target": "video",
+  "questionId": "",
+  "videoId": "institutions-pouvoirs",
+  "segmentId": "institutions-pouvoirs-04",
+  "field": "figure.label et figure.date (constante CENSURES, partagée avec institutions-intro-05)",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "Le libellé affiché doit suivre l'explication corrigée : vote du 6 juillet 2026 et refus de confiance du 8 septembre 2025. La date devient « état au 6 juillet 2026 ». Le libellé est seulement affiché : pas de réenregistrement pour ce champ.",
+  "current": "Aucune autre n’a atteint la majorité requise jusqu’au dernier vote recensé par l’Assemblée, le 26 février 2026",
+  "proposed": "Aucune autre n’a atteint la majorité requise jusqu’au vote du 6 juillet 2026. Par ailleurs, le 8 septembre 2025, l’Assemblée a refusé la confiance que le gouvernement lui demandait : 364 voix contre, 194 pour (date : « état au 6 juillet 2026 »)",
+  "newSource": {
+   "title": "Vote de confiance : l’Assemblée nationale a désapprouvé la déclaration de politique générale du Gouvernement",
+   "url": "https://www.assemblee-nationale.fr/dyn/actualites-accueil-hub/vote-de-confiance-l-assemblee-nationale-a-desapprouve-la-declaration-de-politique-generale-du-gouvernement",
+   "publisher": "Assemblée nationale",
+   "date": "8 septembre 2025"
+  },
+  "checked": true,
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "institutions-9"
+  ],
+  "rationale": "Le libellé recopie celui de l'explication (§ 6). Le « say » d'intro-05 (« C'est arrivé 2 fois depuis 1958 ») parle des seules motions de censure : il reste exact.",
+  "verification": "confirmed : Les faits sont les mêmes qu'en institutions-9 et sont vérifiés : 194 pour et 364 contre le 8 septembre 2025 ; 132 voix pour, 289 requises, le 6 juillet 2026 ; aucun vote de censure ensuite jusqu'au 6 octobre 2026. Le « say » d'intro-05 (« C'est arrivé 2 fois […] en votant une motion de censure ») reste exact au mot près, car il ne parle que de la censure.",
+  "topic": "institutions",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "institutions-11",
+  "target": "video",
+  "questionId": "",
+  "videoId": "institutions-pouvoirs",
+  "segmentId": "institutions-pouvoirs-04",
+  "field": "say",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "La vidéo s'intitule « Qui nomme, qui renverse le gouvernement ? », et le passage 03 cite le refus de confiance comme moyen de le renverser. Elle omet pourtant le seul cas récent, le 8 septembre 2025, et laisse croire que l'Assemblée n'a renversé que deux gouvernements. Il faut réenregistrer la voix, et c'est nécessaire : le libellé affiché ne suffit pas. Il faut aussi ajouter « refusé sa confiance » aux emphasis.",
+  "current": "Depuis 1958, l’Assemblée a adopté 2 motions de censure : en octobre 1962, et le 4 décembre 2024.",
+  "proposed": "Depuis 1958, l’Assemblée a adopté 2 motions de censure : en octobre 1962, et le 4 décembre 2024. Et le 8 septembre 2025, elle a refusé sa confiance au gouvernement.",
+  "newSource": {
+   "title": "Vote de confiance : l’Assemblée nationale a désapprouvé la déclaration de politique générale du Gouvernement",
+   "url": "https://www.assemblee-nationale.fr/dyn/actualites-accueil-hub/vote-de-confiance-l-assemblee-nationale-a-desapprouve-la-declaration-de-politique-generale-du-gouvernement",
+   "publisher": "Assemblée nationale",
+   "date": "8 septembre 2025"
+  },
+  "checked": true,
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "institutions-9",
+   "institutions-12"
+  ],
+  "rationale": "Le centre et la droite proposent la même phrase. Elle ne dit aucun chiffre nouveau (les voix restent dans le libellé), et elle tient en un seul passage, en équilibre avec le passage 05 sur la dissolution.",
+  "verification": "confirmed : Le fait vient de la page officielle (article 49, alinéa 1 ; déclaration de politique générale non approuvée ; démission). « Refusé sa confiance » reprend la formule du passage 03 et décrit fidèlement ce vote. Le passage garde deux phrases de moins de 25 mots, à peu près dans la durée prévue. « refusé sa confiance » figure bien dans le « say », donc l'emphasis est valide (2 éléments). Le fait sera dans l'explication corrigée (institutions-9), comme le veut le § 6.",
+  "topic": "institutions",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "institutions-12",
+  "target": "video",
+  "questionId": "",
+  "videoId": "institutions-pouvoirs",
+  "segmentId": "institutions-pouvoirs-04",
+  "field": "spoken",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "C'est la forme dite de la correction du « say ». La voix est à réenregistrer.",
+  "current": "Depuis mille neuf cent cinquante-huit, l’Assemblée a adopté deux motions de censure : en octobre mille neuf cent soixante-deux, et le quatre décembre deux mille vingt-quatre.",
+  "proposed": "Depuis mille neuf cent cinquante-huit, l’Assemblée a adopté deux motions de censure : en octobre mille neuf cent soixante-deux, et le quatre décembre deux mille vingt-quatre. Et le huit septembre deux mille vingt-cinq, elle a refusé sa confiance au gouvernement.",
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "institutions-9",
+   "institutions-11"
+  ],
+  "rationale": "Elle va avec la correction institutions-11.",
+  "verification": "confirmed : C'est la forme dite de institutions-11. Le fait est vérifié et les nombres sont bien écrits en toutes lettres.",
+  "topic": "institutions",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "institutions-13",
+  "target": "video",
+  "questionId": "",
+  "videoId": "institutions-pouvoirs",
+  "segmentId": "institutions-pouvoirs-04",
+  "field": "draw",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "Le dessin doit suivre le passage complété. Un trait différent pour le troisième repère évite de le confondre avec une censure.",
+  "current": "deux repères au bleu bille, octobre 1962 et 4 décembre 2024.",
+  "proposed": "deux repères au bleu bille, octobre 1962 et 4 décembre 2024 ; puis un troisième, au trait seul, 8 septembre 2025, marqué « confiance refusée ».",
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "institutions-9",
+   "institutions-14"
+  ],
+  "rationale": "Ce texte réunit les deux propositions, sans dramatiser.",
+  "verification": "confirmed : Le dessin suit le passage complété. La date est vérifiée. Un trait différent distingue bien le refus de confiance d'une censure.",
+  "topic": "institutions",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "institutions-14",
+  "target": "video",
+  "questionId": "",
+  "videoId": "institutions-pouvoirs",
+  "segmentId": "institutions-pouvoirs-04",
+  "field": "alt",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "Le texte alternatif doit suivre le dessin corrigé.",
+  "current": "Sur une ligne du temps de 1958 à 2026, deux repères : octobre 1962 et 4 décembre 2024.",
+  "proposed": "Sur une ligne du temps de 1958 à 2026, deux repères de censure : octobre 1962 et 4 décembre 2024 ; un repère de confiance refusée : 8 septembre 2025.",
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "institutions-9",
+   "institutions-13"
+  ],
+  "rationale": "Elle va avec la correction institutions-13.",
+  "verification": "confirmed : Le texte alternatif suit le dessin corrigé. Les trois dates sont vérifiées dans les sources de l'Assemblée.",
+  "topic": "institutions",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "institutions-15",
+  "target": "video",
+  "questionId": "",
+  "videoId": "institutions-pouvoirs",
+  "segmentId": "",
+  "field": "sources",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "Il faut sourcer les deux faits ajoutés au libellé CENSURES et au passage 04. Pour le 6 juillet 2026, je propose le compte rendu de séance de l'Assemblée, dont le titre ne nomme ni député ni groupe, plutôt que le dossier législatif (titre nominatif) ou l'article de LCP (titre qui nomme un groupe).",
+  "current": "sources: [AN_RESPONSABILITE, LCP_DISSOLUTIONS],",
+  "proposed": "sources: [AN_RESPONSABILITE, LCP_DISSOLUTIONS, AN_CONFIANCE_2025, AN_CENSURE_2026], avec AN_CONFIANCE_2025 = { title: 'Vote de confiance : l’Assemblée nationale a désapprouvé la déclaration de politique générale du Gouvernement', url: 'https://www.assemblee-nationale.fr/dyn/actualites-accueil-hub/vote-de-confiance-l-assemblee-nationale-a-desapprouve-la-declaration-de-politique-generale-du-gouvernement', publisher: 'Assemblée nationale', date: '8 septembre 2025' } et AN_CENSURE_2026 = { title: 'Compte rendu de la séance du lundi 6 juillet 2026', url: 'https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-extraordinaire-de-2025-2026/seance-du-lundi-06-juillet-2026', publisher: 'Assemblée nationale', date: '6 juillet 2026' }",
+  "newSource": {
+   "title": "Compte rendu de la séance du lundi 06 juillet 2026",
+   "url": "https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-extraordinaire-de-2025-2026/seance-du-lundi-06-juillet-2026",
+   "publisher": "Assemblée nationale",
+   "date": "6 juillet 2026"
+  },
+  "checked": true,
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "institutions-9"
+  ],
+  "rationale": "J'ai ouvert les deux pages. Le compte rendu du 6 juillet 2026 porte bien sur la motion déposée le 2 juillet en application de l'article 49, alinéa 2. Le dossier législatif de l'Assemblée indique son rejet. Les sources sont ajoutées en fin de liste : les sourceIndex 0 et 1 ne changent pas.",
+  "verification": "confirmed : Les deux URL répondent (HTTP 200). Le compte rendu (session extraordinaire 2025-2026) contient la motion déposée le 2 juillet 2026 en application de l'article 49, alinéa 2, et le résultat : 132 voix pour, 289 requises, motion non adoptée. La page titre « lundi 06 juillet 2026 » ; écrire « 6 juillet » est une simple normalisation typographique. Son titre ne nomme personne, même si les débats sont partisans ; c'est un compte rendu officiel. La page sur le vote de confiance donne 194 pour et 364 contre. Les ajouts en fin de liste laissent les sourceIndex 0 et 1 inchangés.",
+  "topic": "institutions",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "institutions-18",
+  "target": "video",
+  "questionId": "",
+  "videoId": "institutions-constitution",
+  "segmentId": "institutions-constitution-07",
+  "field": "segments (nouveau passage inséré avant l’actuel -07, qui devient -08) et sources (titre de CC_ARTICLE_89)",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "Aucune vidéo de la série ne parle du Conseil constitutionnel. Pourtant, le contexte de la question institutions-1 le cite, et une approche porte sur ses censures. Un seul passage, sans chiffre ni approche, comble ce manque. Il faut enregistrer la voix de ce nouveau passage. L'actuel passage 07 garde son texte, mais il devient 08 : son fichier de voix est à renommer, ou à régénérer, selon le § 9 (numérotation sans trou).",
+  "current": "",
+  "proposed": "Nouveau passage institutions-constitution-07, visual 'point' : say « La Constitution s’impose aussi aux lois. Le Conseil constitutionnel peut censurer une loi qui ne la respecte pas, et ses décisions ne sont susceptibles d’aucun recours. » ; draw « Le livre de la Constitution au-dessus d’une feuille de texte ; entre les deux, une loupe au bleu bille, le Conseil constitutionnel. » ; emphasis ['Le Conseil constitutionnel', 'aucun recours']. L’actuel -07 (« Alors, faut-il changer ces règles ? Et si oui, par quel chemin ? ») devient -08, sans changement. Dans sources, le titre de CC_ARTICLE_89 devient « Texte intégral de la Constitution du 4 octobre 1958 en vigueur (articles 61, 61-1, 62 et 89) ».",
+  "newSource": {
+   "title": "Texte intégral de la Constitution du 4 octobre 1958 en vigueur (articles 61, 61-1, 62 et 89)",
+   "url": "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/texte-integral-de-la-constitution-du-4-octobre-1958-en-vigueur",
+   "publisher": "Conseil constitutionnel",
+   "date": "à jour de la révision constitutionnelle du 8 mars 2024"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "institutions-17"
+  ],
+  "rationale": "Les trois sensibilités relèvent ce manque. La gauche proposait une vidéo nouvelle et le réenregistrement d'intro-08 ; le centre et la droite, un seul passage dans la vidéo sur la Constitution. Je retiens le passage : c'est le moins coûteux, et il suffit. Le passage ne dit que des faits de l'explication corrigée (résumé et point 3). L'image (une loupe) reprend celle de institutions-citoyens-06 pour le même Conseil. La question finale reste inchangée.",
+  "verification": "confirmed : Le texte est exact au regard des articles 61 et 62 (alinéa 3 : « ne sont susceptibles d'aucun recours »), que j'ai relus sur la page du Conseil constitutionnel. Le passage ne contient aucun chiffre et chaque phrase fait 25 mots ou moins. La vidéo passe de 7 à 8 passages, et la série de 42 à 43 passages, sous le plafond de 45. Réserve sur l'« issue » : il est inexact de dire qu'« aucune vidéo de la série ne parle du Conseil constitutionnel ». Les passages institutions-citoyens-06 et -07 le citent pour son contrôle du référendum d'initiative partagée. Ce qui manque vraiment, c'est son contrôle des lois et le fait que ses décisions sont sans recours. La proposition comble bien ce manque, de façon descriptive.",
+  "topic": "institutions",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "institutions-21",
+  "target": "video",
+  "questionId": "",
+  "videoId": "institutions-citoyens",
+  "segmentId": "institutions-citoyens-02",
+  "field": "say (et draw, emphasis)",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "La vidéo « Quelle place pour les citoyens ? » présente le référendum d'initiative partagée, le référendum local et la convention tirée au sort. Elle ne dit jamais que le président peut soumettre un projet de loi au référendum, ni sur quels sujets. C'est pourtant le fait dont partent les approches sur des référendums plus larges ou plus fréquents décidés par l'exécutif. La droite proposait un nouveau passage après le 02. Mais une insertion obligerait à renuméroter les dix passages suivants et leurs fichiers de voix (§ 9). Je propose donc de compléter le passage 02 : il faut réenregistrer sa voix, et c'est nécessaire. Le draw devient : « Une personne, une urne, puis l’hémicycle des représentants ; à côté, le président au trait, une feuille de texte et trois étiquettes : pouvoirs publics, économie et social, traité ; dessous, des électeurs et une flèche en pointillé vers une urne restée en pointillé. » ; ajouter « certains sujets seulement » aux emphasis.",
+  "current": "En France, vous décidez surtout en élisant vos représentants. Et aucune procédure ne permet aux seuls électeurs de lancer un référendum national.",
+  "proposed": "say : « En France, vous décidez surtout en élisant vos représentants. Le président peut soumettre au référendum certains projets de loi, sur proposition du gouvernement ou des deux assemblées. Et aucune procédure ne permet aux seuls électeurs de lancer un référendum national. » ; emphasis ['en élisant vos représentants', 'certains projets de loi', 'aux seuls électeurs'] ; draw : « Une personne, une urne, puis l’hémicycle des représentants ; à côté, le président au trait, une feuille de texte et trois étiquettes : pouvoirs publics, économie-social-environnement, traités ; dessous, des électeurs et une flèche en pointillé vers une urne restée en pointillé. » ; alt (nouveau) : « À côté du président, trois étiquettes : pouvoirs publics ; politique économique, sociale ou environnementale ; traités. »",
+  "newSource": {
+   "title": "Texte intégral de la Constitution du 4 octobre 1958 en vigueur (article 11)",
+   "url": "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/texte-integral-de-la-constitution-du-4-octobre-1958-en-vigueur",
+   "publisher": "Conseil constitutionnel",
+   "date": "à jour de la révision constitutionnelle du 8 mars 2024"
+  },
+  "checked": true,
+  "lenses": [
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "institutions-20"
+  ],
+  "rationale": "Une seule sensibilité relève ce manque, mais il est réel. Les dix passages montrent les voies d'initiative citoyenne ou de délibération, jamais celle de l'exécutif, qui est la seule à avoir servi depuis 1958. Le texte décrit la règle en vigueur, sans approche, sans chiffre et sans nom. Sa source, CC_ARTICLE_11, est déjà dans la vidéo. Le passage 11 (« D’un côté, des décisions prises directement par les citoyens. De l’autre, des décisions prises par les élus. ») reste juste.",
+  "verification": "adjusted : Sur le fond, la proposition est exacte (article 11, alinéa 1, relu) et le manque est réel : aucun passage ne dit que le président peut soumettre un projet de loi au référendum. Mais la phrase ajoutée compte 36 mots. Le guide (§ 7) en autorise 25 au plus par phrase, à cause du découpage pour la voix. Le passage atteindrait environ 64 mots, soit plus de 20 secondes, pour 4 à 12 secondes prévues (§ 3). On ne peut pas non plus ajouter de passage : la vidéo en compte déjà 12, le maximum. J'ai raccourci la phrase à 18 mots ; le passage fait environ 40 mots, un peu au-delà des 12 secondes, et le propriétaire peut retirer « En France, ». La liste des sujets passe au dessin, avec un « alt » obligatoire, puisque la planche écrit des étiquettes absentes du « say » (§ 3). La version proposée oubliait cet « alt », et son étiquette « économie et social » omettait l'environnement. Je garde « Et », pas « Mais », pour ne pas opposer le président aux électeurs. La source CC_ARTICLE_11 est déjà dans la vidéo, et la voix est à réenregistrer.",
+  "topic": "institutions",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "institutions-22",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "en-tête du fichier (mention « Datée »)",
+  "category": "origine",
+  "severity": "important",
+  "issue": "La date butoir est celle de l'élection source : « avant le vote (9-10 et 16-17 octobre 2026) ». Les faits datés sont dépassés : 3 recours au 49.3 en janvier 2026, motion de censure votée le 6 juillet 2026. Le refus de confiance du 8 septembre 2025 n'est pas noté. Les budgets 2027, examinés d'octobre à décembre 2026, rendront probablement obsolètes les décomptes de 49.3 et de motions avant le premier tour du 18 avril 2027. C'est un commentaire de code : pas de changement de « say ».",
+  "current": "// Datée : motions de censure arrêtées au 26 février 2026, recours au 49.3 à janvier 2026, référendums\n// d'initiative partagée au 3 octobre 2026, révisions de la Constitution au 8 mars 2024. À revoir si un 49.3,\n// une motion de censure, une dissolution, une révision ou un nouveau référendum d'initiative partagée survient\n// avant le vote (9-10 et 16-17 octobre 2026).",
+  "proposed": "// Datée : recours au 49.3 arrêtés au 30 janvier 2026 (3 pour le budget 2026), motions de censure au 6 juillet\n// 2026, refus de confiance au 8 septembre 2025, référendums d'initiative partagée au 3 octobre 2026, révisions de\n// la Constitution au 8 mars 2024. À revoir après l'examen des budgets de l'État et de la Sécurité sociale pour 2027\n// (49.3 et motions de censure possibles d'octobre à décembre 2026), et si une dissolution, un vote de confiance,\n// une révision ou un nouveau référendum, national ou d'initiative partagée, survient avant le premier tour de\n// l'élection présidentielle (18 avril 2027).",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "rationale": "Cette correction fusionne les trois propositions, qui concordent. Je n'ai pas repris la mention « révision (Nouvelle-Calédonie) » de la droite : selon la gauche, l'Assemblée a rejeté ce projet en avril 2026. Je n'ai pas pu vérifier ce point, et la mention générique « une révision » suffit.",
+  "topic": "institutions",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "institutions-7",
+  "target": "video",
+  "questionId": "",
+  "videoId": "institutions-49-3",
+  "segmentId": "",
+  "field": "sources",
+  "category": "exactitude",
+  "severity": "important",
+  "issue": "Le recours du 30 janvier 2026, désormais dit et affiché, doit avoir sa source dans la vidéo.",
+  "current": "sources: [AN_RESPONSABILITE, AN_ENGAGEMENTS],",
+  "proposed": "sources: [AN_RESPONSABILITE, AN_ENGAGEMENTS, AN_PLF2026_LECTURE_DEFINITIVE], avec const AN_PLF2026_LECTURE_DEFINITIVE: VideoSource = { title: 'Adoption du PLF2026, en lecture définitive, après l’engagement de la responsabilité du Gouvernement sur le projet de loi et le rejet de 2 motions de censure (49.3)', url: 'https://www.assemblee-nationale.fr/dyn/actualites-accueil-hub/adoption-du-plf2026-en-lecture-definitive-apres-l-engagement-de-la-responsabilite-du-gouvernement-sur-le-projet-de-loi-et-le-rejet-de-2-motions-d', publisher: 'Assemblée nationale', date: 'février 2026' }",
+  "newSource": {
+   "title": "Adoption du PLF2026, en lecture définitive, après l'engagement de la responsabilité du Gouvernement sur le projet de loi et le rejet de 2 motions de censure (49.3)",
+   "url": "https://www.assemblee-nationale.fr/dyn/actualites-accueil-hub/adoption-du-plf2026-en-lecture-definitive-apres-l-engagement-de-la-responsabilite-du-gouvernement-sur-le-projet-de-loi-et-le-rejet-de-2-motions-d",
+   "publisher": "Assemblée nationale",
+   "date": "février 2026"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche",
+   "centre"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "institutions-1"
+  ],
+  "rationale": "Le § 6 du guide le demande : tout fait montré doit venir d'une source de la liste. La source est ajoutée en fin de liste, donc les sourceIndex existants ne changent pas.",
+  "verification": "adjusted : La page répond (HTTP 200). Elle porte le fait du 30 janvier 2026 et le vote du 2 février 2026. Seul changement : la page titre « PLF2026 », sans espace, alors que la constante proposée écrivait « PLF 2026 ». Le § 6 veut une source copiée de la fiche, avec seulement la typographie changée. Je reprends donc « PLF2026 » et ajoute l'espace insécable de « 2 motions ». La source est ajoutée en fin de liste, donc les sourceIndex 0 et 1 ne changent pas.",
+  "topic": "institutions",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "institutions-8",
+  "target": "video",
+  "questionId": "",
+  "videoId": "institutions-intro",
+  "segmentId": "",
+  "field": "sources",
+  "category": "exactitude",
+  "severity": "important",
+  "issue": "L'introduction affiche les libellés RECOURS_49_3 (passage 04) et CENSURES (passage 05). Une fois corrigés, ils citent le recours du 30 janvier 2026, la motion du 6 juillet 2026 et le refus de confiance du 8 septembre 2025. Leurs sources doivent figurer dans la vidéo.",
+  "current": "sources: [AN_RESPONSABILITE, LCP_DISSOLUTIONS, AN_ENGAGEMENTS, CC_REVISIONS, CC_HISTOIRE_REFERENDUM],",
+  "proposed": "sources: [AN_RESPONSABILITE, LCP_DISSOLUTIONS, AN_ENGAGEMENTS, CC_REVISIONS, CC_HISTOIRE_REFERENDUM, AN_PLF2026_LECTURE_DEFINITIVE, AN_CONFIANCE_2025, AN_CENSURE_2026], les trois nouvelles constantes étant définies dans les corrections institutions-7 et institutions-15.",
+  "lenses": [
+   "gauche",
+   "centre"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "institutions-1",
+   "institutions-9"
+  ],
+  "rationale": "Les sources sont ajoutées en fin de liste, donc les sourceIndex existants (0 à 4) ne changent pas.",
+  "verification": "confirmed : L'introduction affiche RECOURS_49_3 (passage 04) et CENSURES (passage 05). Une fois corrigés, ces libellés citent le 30 janvier 2026, le vote de confiance du 8 septembre 2025 et le vote du 6 juillet 2026. Les trois pages sources sont vérifiées et répondent (HTTP 200). Les ajouts en fin de liste laissent les sourceIndex 0 à 4 inchangés. Utiliser pour AN_PLF2026_LECTURE_DEFINITIVE le titre corrigé dans institutions-7 (« PLF2026 »).",
+  "topic": "institutions",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "institutions-23",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "en-tête du fichier (lignes 3-4)",
+  "category": "origine",
+  "severity": "mineur",
+  "issue": "L'en-tête décrit encore la banque de la primaire : « deux questions », institutions-2 pour la place des citoyens. Pour la présidentielle, l'explication institutions-2 est montrée sous institutions-3, et la question institutions-2 (« Comment élire les députés ? ») n'a ni explication reprise ni vidéo. C'est un commentaire de code : pas de voix.",
+  "current": "// citoyens). La banque n'a que deux questions sur ce thème (institutions-1 : l'équilibre des pouvoirs ;\n// institutions-2 : la place des citoyens) : la première, qui mêle trois leviers, est scindée en trois vidéos.",
+  "proposed": "// citoyens). La banque de la primaire n'a que deux questions sur ce thème (institutions-1 : l'équilibre des\n// pouvoirs ; institutions-2 : la place des citoyens) : la première, qui mêle trois leviers, est scindée en trois\n// vidéos. Pour la présidentielle 2027 (src/elections/presidentielle-2027/videos.ts), institutions-2 est montrée\n// sous institutions-3 ; la question institutions-2 de la présidentielle (élection des députés) n'a pas de vidéo.",
+  "lenses": [
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "rationale": "Je garde la mise à jour du commentaire, utile à qui maintiendra la série. J'écarte la nouvelle vidéo sur l'élection des députés : voir rejected.",
+  "topic": "institutions",
+  "electionQuestionId": ""
+ }
+]

@@ -8,8 +8,8 @@
 // Six pictogrammes propres au thème sont dessinés ici, au trait, dans un carré de 48 unités (grange, épi,
 // panier, chariot, usine, assiette, cargo, sac) : ni personne, ni marque, ni symbole.
 
-import { VIDEO_SERIES } from '../../series'
-import { Art, Arrow, Ask, Fade, Ink, Txt, W, at, cls, cueOf, cuesOf, fractionOf, heard, num, plain, ratioOf, said, sentencesOf, word, yearsOf, type P, type Tone } from '../dessin/encre'
+import { seriesOfVideo } from '../../catalog'
+import { Art, Arrow, Ask, Fade, Ink, Marks, Txt, W, at, cls, cueOf, cuesOf, fractionOf, heard, num, plain, ratioOf, said, sentencesOf, word, yearsOf, type P, type Tone } from '../dessin/encre'
 import { Chiffre, HeadCues, Panel, Question, Seg, Signature, Src } from '../dessin/mises'
 import { Picto, type PictoName } from '../dessin/pictos'
 import { Cases, Plafond, barres, colonnes, frise, rangCells, type Barre } from '../dessin/schemas'
@@ -227,7 +227,7 @@ const ICONES: Record<string, Nom | PictoName> = {
 }
 
 function Sommaire({ p, t0 = 200 }: { p: P; t0?: number }) {
-  const series = VIDEO_SERIES.find(s => s.videos.some(v => v.id === p.script.id))
+  const series = seriesOfVideo(p.script.id)
   const deep = series?.videos.filter(v => v.kind === 'deep') ?? []
   if (!deep.length) return null
   return (
@@ -1382,6 +1382,325 @@ const alim06: Board = p => (
   </Seg>
 )
 
+/* ——— Édition « présidentielle 2027 » : les passages corrigés (identifiants en -p27) ——— */
+// Ces planches lisent le passage corrigé (p.segment) et sa vidéo telle que l'édition la montre (p.script). Les
+// planches d'origine, celles de la primaire, restent telles quelles.
+
+/** La barre de 100 euros et, dessous, les parts dites, à la même échelle : comme cent(), plus serrées (cinq barres) */
+function centSerre(p: P, rows: Barre[]) {
+  const total = said(p, /100[\s\u00a0]euros/)
+  if (!total) return null
+  const g = barres({
+    items: [{ value: 100, text: total, ghostFrom: 0 }, ...rows],
+    y: 4,
+    size: 18,
+    gap: 26,
+    room: 104,
+    labelSize: 14,
+    t0: 100,
+  })
+  return { el: g.el, h: barsH(g) + 6 }
+}
+
+/** Un cageot de fruits, au trait ; (x, y) : coin haut gauche, s : côté en unités de la feuille */
+const Cageot = ({ x, y, s = 48, t0 = 0 }: { x: number; y: number; s?: number; t0?: number }) => (
+  <g transform={`translate(${x} ${y}) scale(${s / 48})`} style={{ '--k': String(48 / s) }}>
+    <Ink d="M5 20H43V44H5Z" t0={t0} dur={500} />
+    <Ink d="M5 28H43M5 36H43" t0={t0 + 300} dur={300} class="vc-thin" />
+    <Ink d={`${circle(14, 15, 5)}${circle(24, 13, 5)}${circle(34, 15, 5)}`} t0={t0 + 500} dur={400} />
+  </g>
+)
+
+/** Une balance au trait (une juridiction) ; (x, y) : coin haut gauche, s : côté en unités de la feuille */
+const Pesee = ({ x, y, s = 48, t0 = 0 }: { x: number; y: number; s?: number; t0?: number }) => (
+  <g transform={`translate(${x} ${y}) scale(${s / 48})`} style={{ '--k': String(48 / s) }}>
+    <Ink d="M24 6V44M14 44H34" t0={t0} dur={500} />
+    <Ink d="M6 12H42" t0={t0 + 300} dur={400} />
+    <Ink d="M6 12L1 28M6 12L11 28M42 12L37 28M42 12L47 28" t0={t0 + 500} dur={400} class="vc-thin" />
+    <Ink d="M0 28Q6 36 12 28ZM36 28Q42 36 48 28Z" t0={t0 + 700} dur={400} />
+  </g>
+)
+
+/** Le pictogramme d'une question, d'après ses mots : les produits importés, le revenu ; rien sinon */
+const picOfAsk = (q: string): Nom | PictoName | null => (/import/.test(q) ? 'cargo' : /revenu/.test(q) ? 'portemonnaie' : null)
+
+/** intro-07 (2027) Les deux questions de cette élection, chacune avec son pictogramme quand la voix la pose : un
+ *  cargo pour les produits importés, un porte-monnaie pour le revenu */
+const intro07p27: Board = p => {
+  const qs = sentencesOf(p.segment.say).filter(s => /\?$/.test(s))
+  const pics = qs.map(picOfAsk)
+  if (qs.length < 2 || pics.some(n => !n)) return null
+  const cues = cuesOf(p)
+  return (
+    <Seg kind="ask">
+      <ul class="vc-panel" style={{ '--cols': '1' }}>
+        {qs.map((q, i) => {
+          const shown = heard(p, q.split(' ').slice(0, 2).join(' '))
+          return (
+            <li key={i} class={cls('vc-panel-item', shown ? 'vc-rise' : 'vc-wait')}>
+              {shown ? <IcoGlyphe n={pics[i]!} t0={150} /> : <span class="vc-glyphe" />}
+              <span class="vc-panel-text">
+                <Marks text={q} cues={cues} />
+              </span>
+            </li>
+          )
+        })}
+      </ul>
+    </Seg>
+  )
+}
+
+/** prix-03 (2027) Les industries agroalimentaires, le commerce, puis les importations : sous la barre de 100 euros,
+ *  quatre barres à la même échelle */
+const prix03p27: Board = p => {
+  const [a, b, c] = cuesOf(p)
+  const t = parts(p)
+  const imp = bare(said(p, /des importations/))
+  const va = num(a?.text)
+  const vb = num(b?.text)
+  const vc = num(c?.text)
+  if (!a || !b || !c || !va || !vb || !vc || !t.agri || !t.agriText || !t.iaa || !t.com || !imp) return null
+  const g = centSerre(p, [
+    { label: t.agri, value: num(t.agriText)!, text: t.agriText },
+    { label: t.iaa, value: va, text: a.text, tone: 'count', shown: a.shown },
+    { label: t.com, value: vb, text: b.text, tone: 'count', shown: b.shown },
+    { label: imp, value: vc, text: c.text, tone: 'count', shown: c.shown },
+  ])
+  if (!g) return null
+  return (
+    <Seg>
+      <Art h={g.h}>{g.el}</Art>
+    </Seg>
+  )
+}
+
+/** aides-05 (2027) La PAC de 2028 à 2034, en pointillé (en négociation), dans une bande plus large : les plans
+ *  nationaux et régionaux ; au moins 300 milliards réservés au revenu ; la proposition de juillet 2025 */
+const aides05p27: Board = p => {
+  const [nego, md, plans] = cuesOf(p)
+  const now = said(p, /De 2023 à 2027/)
+  const next = word(p, /de 2028 à 2034/)
+  const prop = word(p, /juillet 2025/)
+  const ys = [...(now ?? '').matchAll(/\d{4}/g), ...(next?.text ?? '').matchAll(/\d{4}/g)].map(m => Number(m[0]))
+  if (!nego || !md || !plans || !next || ys.length < 4) return null
+  const [a0, a1, b0, b1] = ys as [number, number, number, number]
+  const fy = 154
+  const f = frise({ y: fy, from: a0 - 1, to: b1 + 1, x0: 10, x1: 290, ticks: range(b1 - a0 + 3).map(k => a0 - 1 + k), labels: [a0, b0, b1], t0: 100 })
+  const xa = f.X(a0)
+  const xa1 = f.X(a1 + 1) - 3
+  const xb = f.X(b0)
+  const xb1 = f.X(b1 + 1) - 3
+  // La PAC dans la bande des plans : un peu en retrait de ses bords
+  const ib = xb + 8
+  const ib1 = xb1 - 8
+  const top = 66
+  const bot = 106
+  const py = prop ? yearsOf(prop.text)[0] : undefined
+  return (
+    <Seg>
+      <Art h={210}>
+        {f.el}
+        {plans.shown ? (
+          <>
+            <Fade t0={0}>
+              <rect class="vc-tint" x={xb} y={40} width={xb1 - xb} height={94} />
+            </Fade>
+            <Fade t0={0} class="vc-ghost">
+              <path d={`M${xb} 40H${xb1}V134H${xb}Z`} />
+            </Fade>
+            <Txt x={(xb + xb1) / 2} y={16} text={plans.text} max={16} size={14} t0={200} />
+          </>
+        ) : null}
+        <Fade t0={400}>
+          <rect class="vc-tint" x={xa} y={top} width={xa1 - xa} height={bot - top} />
+        </Fade>
+        <Ink d={`M${xa} ${top}H${xa1}V${bot}H${xa}Z`} t0={300} dur={700} />
+        {now ? <Txt x={(xa + xa1) / 2} y={top - 10} text={now} size={14} t0={600} /> : null}
+        {next.shown ? (
+          <>
+            <Fade t0={0} class="vc-ghost">
+              <path d={`M${ib} ${top}H${ib1}V${bot}H${ib}Z`} />
+            </Fade>
+            <Txt x={(xb + xb1) / 2} y={top - 10} text={next.text} size={14} t0={200} />
+          </>
+        ) : null}
+        {md.shown ? <Txt x={(xb + xb1) / 2} y={top + 16} text={md.text} max={13} size={14} tone="count" t0={200} /> : null}
+        {nego.shown ? <Txt x={(xb + xb1) / 2} y={bot + 18} text={nego.text} size={14} tone="soft" t0={300} /> : null}
+        {prop?.shown && py ? (
+          <>
+            <Picto n="drapeau" x={f.X(py) - 10} y={fy - 34} size={36} tone="count" t0={0} />
+            <Txt x={f.X(py)} y={fy + 48} text={prop.text} size={14} t0={300} />
+          </>
+        ) : null}
+      </Art>
+    </Seg>
+  )
+}
+
+/** importations-02 (2027) À gauche, exportations et importations presque égales, l'écart montré du doigt ; à
+ *  droite, le solde avec l'Union et avec le reste du monde : deux barres à la même échelle depuis zéro, l'une vers
+ *  le bas, l'autre vers le haut */
+const imp02p27: Board = p => {
+  const [gap, dUe, dMonde] = cuesOf(p)
+  const vUe = num(dUe?.text)
+  const vMonde = num(dMonde?.text)
+  const ue = word(p, /l’Union/)
+  const monde = word(p, /le reste du monde/)
+  if (!gap || !dUe || !dMonde || !vUe || !vMonde || !ue || !monde) return null
+  const base = 150
+  const H = 92
+  const col = (x: number, h: number) => `M${x} ${base}V${base - h}H${x + 52}V${base}`
+  const bands = (x: number, h: number) => range(Math.floor(h / 12)).map(k => `M${x} ${base - 12 * (k + 1)}h52`).join('')
+  // Les deux soldes, à la même échelle, depuis la ligne de zéro
+  const z = 90
+  const k = 46 / Math.max(vUe, vMonde)
+  const hUe = vUe * k
+  const hMonde = vMonde * k
+  return (
+    <Seg kind="fig">
+      <Chiffre p={p} />
+      <Art h={172}>
+        <Ink d={`M6 ${base}H154`} t0={0} dur={500} class="vc-soft" />
+        <Ink d={col(14, H)} t0={200} dur={700} />
+        <Ink d={bands(14, H)} t0={600} dur={500} class="vc-thin vc-soft" />
+        <Ink d={col(96, H - 1)} t0={500} dur={700} />
+        <Ink d={bands(96, H - 1)} t0={900} dur={500} class="vc-thin vc-soft" />
+        <Txt x={40} y={base + 18} text="exportations" size={14} t0={700} />
+        <Txt x={122} y={base + 18} text="importations" size={14} t0={1000} />
+        {gap.shown ? (
+          <>
+            <Fade class="vc-count vc-dash">
+              <path d={`M8 ${base - H}H152`} />
+            </Fade>
+            <Arrow x1={84} y1={36} x2={72} y2={base - H - 4} tone="count" t0={200} />
+            <Txt x={84} y={14} text={gap.text} max={12} size={15} tone="count" t0={300} />
+          </>
+        ) : null}
+        <Ink d="M164 8V166" t0={600} dur={400} class="vc-soft vc-thin" />
+        <Ink d={`M174 ${z}H296`} t0={700} dur={500} class="vc-soft" />
+        {ue.shown ? <Txt x={206} y={z - 8} text={ue.text} size={14} t0={0} /> : null}
+        {dUe.shown ? (
+          <>
+            <Fade t0={250} class="vc-count">
+              <rect class="vc-tint-count" x={186} y={z} width={40} height={hUe} />
+            </Fade>
+            <Ink d={`M186 ${z}V${z + hUe}H226V${z}`} t0={0} dur={600} class="vc-count" />
+            <Txt x={206} y={z + hUe + 17} text={`−${plain(dUe.text)}`} max={5} size={15} big t0={400} />
+          </>
+        ) : null}
+        {monde.shown ? <Txt x={266} y={z + 18} text={monde.text} max={9} size={14} t0={0} /> : null}
+        {dMonde.shown ? (
+          <>
+            <Fade t0={250} class="vc-count">
+              <rect class="vc-tint-count" x={246} y={z - hMonde} width={40} height={hMonde} />
+            </Fade>
+            <Ink d={`M246 ${z}V${z - hMonde}H286V${z}`} t0={0} dur={600} class="vc-count" />
+            <Txt x={266} y={z - hMonde - 7} up text={`+${plain(dMonde.text)}`} max={5} size={15} big t0={400} />
+          </>
+        ) : null}
+      </Art>
+      <Src p={p} />
+    </Seg>
+  )
+}
+
+/** importations-04 (2027) Mêmes normes sanitaires, normes de production qui peuvent différer, une jauge des résidus
+ *  sous la limite ; puis, en janvier 2026, une barrière devant quelques cageots : cinq pesticides interdits */
+const imp04p27: Board = p => {
+  const [prod, limite, cinq] = cuesOf(p)
+  const san = said(p, /normes sanitaires/)
+  const res = word(p, /les résidus/)
+  const date = word(p, /janvier[\s\u00a0]\d{4}/)
+  const susp = word(p, /a suspendu/) ?? date
+  if (!prod || !limite || !cinq || !san || !date || !susp) return null
+  return (
+    <Seg>
+      <Art h={258}>
+        <Ink d="M150 4V96" t0={0} dur={400} class="vc-soft vc-thin" />
+        <Txt x={75} y={16} text={san} size={15} tone="soft" t0={100} />
+        <Picto n="document" x={26} y={30} size={46} t0={200} />
+        <Txt x={75} y={64} text="=" size={22} big t0={500} />
+        <Picto n="document" x={78} y={30} size={46} t0={400} />
+        {prod.shown ? (
+          <>
+            <Txt x={225} y={16} text={prod.text} size={15} tone="count" t0={0} />
+            <Picto n="document" x={176} y={30} size={46} t0={100} />
+            <Txt x={225} y={64} text="≠" size={22} big tone="count" t0={400} />
+            <Picto n="document" x={228} y={30} size={46} tone="count" t0={300} />
+          </>
+        ) : null}
+        {limite.shown ? (
+          <>
+            {res ? <Txt x={30} y={116} text={res.text} size={14} anchor="start" tone="soft" t0={0} /> : null}
+            <Ink d="M30 122H270V140H30Z" t0={0} dur={600} />
+            <Fade t0={400} class="vc-count">
+              <rect class="vc-tint-count" x={30} y={122} width={150} height={18} />
+            </Fade>
+            <Ink d="M216 114V148" t0={500} dur={300} class="vc-bold" />
+            <Txt x={W / 2} y={166} text={limite.text} size={15} tone="count" t0={700} />
+          </>
+        ) : null}
+        {date.shown ? (
+          <>
+            <Ink d="M10 180H290" t0={0} dur={400} class="vc-soft vc-thin" />
+            <Picto n="calendrier" x={22} y={190} size={36} t0={100} />
+            <Txt x={40} y={250} text={date.text} size={15} t0={300} />
+          </>
+        ) : null}
+        {susp.shown ? (
+          <>
+            {range(3).map(k => (
+              <Cageot key={k} x={92 + k * 38} y={196} s={34} t0={k * 150} />
+            ))}
+            <Picto n="barriere" x={206} y={178} size={56} t0={500} />
+          </>
+        ) : null}
+        {cinq.shown ? <Txt x={176} y={250} text={cinq.text} size={15} tone="count" t0={100} /> : null}
+      </Art>
+    </Seg>
+  )
+}
+
+/** importations-05 (2027) L'accord entre l'Union et le Mercosur, à titre provisoire (pointillé), depuis le 1er mai
+ *  2026 ; une flèche en pointillé vers une balance : l'avis demandé à la Cour de justice */
+const imp05p27: Board = p => {
+  const ue = word(p, /l’Union/)
+  const mer = word(p, /le Mercosur/)
+  const date = word(p, /1er[\s\u00a0]mai[\s\u00a0]\d{4}/)
+  const [prov, cour] = cuesOf(p)
+  if (!ue || !mer || !date || !prov || !cour) return null
+  return (
+    <Seg>
+      <HeadCues p={p} />
+      <Art h={160}>
+        <Picto n="drapeau" x={26} y={4} size={58} t0={100} />
+        <Txt x={52} y={82} text={ue.text} size={15} t0={300} />
+        {mer.shown ? (
+          <>
+            <Picto n="drapeau" x={212} y={4} size={58} t0={0} />
+            <Txt x={240} y={82} text={mer.text} size={15} t0={200} />
+            <Arrow x1={150} y1={22} x2={96} y2={22} t0={400} />
+            <Arrow x1={150} y1={22} x2={204} y2={22} t0={400} />
+          </>
+        ) : null}
+        <Picto n="document" x={122} y={34} size={56} t0={600} tone={prov.shown ? 'ghost' : undefined} />
+        {date.shown ? (
+          <>
+            <Picto n="calendrier" x={8} y={104} size={40} t0={0} />
+            <Txt x={56} y={132} text={date.text} size={18} big anchor="start" t0={300} />
+          </>
+        ) : null}
+        {cour.shown ? (
+          <>
+            <Arrow x1={172} y1={80} x2={222} y2={112} dash t0={0} />
+            <Pesee x={230} y={104} s={52} t0={300} />
+          </>
+        ) : null}
+      </Art>
+    </Seg>
+  )
+}
+
 /* ——— Le registre ——— */
 
 export const AGRICULTURE: Record<string, Board> = {
@@ -1430,4 +1749,11 @@ export const AGRICULTURE: Record<string, Board> = {
   'agriculture-alimentation-04': alim04,
   'agriculture-alimentation-05': alim05,
   'agriculture-alimentation-06': alim06,
+  // Édition « présidentielle 2027 »
+  'agriculture-intro-07-p27': intro07p27,
+  'agriculture-prix-03-p27': prix03p27,
+  'agriculture-aides-05-p27': aides05p27,
+  'agriculture-importations-02-p27': imp02p27,
+  'agriculture-importations-04-p27': imp04p27,
+  'agriculture-importations-05-p27': imp05p27,
 }

@@ -2,8 +2,31 @@
 // Séries vidéo reprises de « choisir-2027 » (research/presidentielle-2027/reuse.json) : thème de la série → thème d'ici,
 // question de « choisir-2027 » → question identique d'ici. Une série absente de « topics » n'est pas montrée.
 
-export const videoScope: { topics: Record<string, string>; questions: Record<string, string> } = {
-  "topics": {},
+export const videoScope: { topics: Record<string, string>; questions: Record<string, string>; edition?: string } = {
+  "topics": {
+    "agriculture": "agriculture",
+    "defense": "defense",
+    "ecologie_energie": "ecologie_energie",
+    "education": "education",
+    "egalite": "egalite",
+    "europe": "europe",
+    "fiscalite": "fiscalite",
+    "immigration": "immigration",
+    "industrie_economie": "industrie_economie",
+    "institutions": "institutions",
+    "laicite_republique": "laicite_republique",
+    "logement": "logement",
+    "numerique": "numerique",
+    "proche_orient": "proche_orient",
+    "retraites": "retraites",
+    "sante": "sante",
+    "securite_justice": "securite_justice",
+    "societe": "societe",
+    "solidarites": "solidarites",
+    "territoires": "territoires",
+    "travail_salaires": "travail_salaires",
+    "ukraine_russie": "ukraine_russie"
+  },
   "questions": {
     "retraites-1": "retraites-1",
     "fiscalite-2": "finances_publiques-1",
@@ -54,5 +77,6 @@ export const videoScope: { topics: Record<string, string>; questions: Record<str
     "institutions-2": "institutions-3",
     "laicite_republique-1": "laicite_republique-1",
     "laicite_republique-2": "laicite_republique-2"
-  }
+  },
+  "edition": "presidentielle-2027"
 }

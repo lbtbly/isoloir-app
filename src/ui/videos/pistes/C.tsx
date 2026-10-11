@@ -22,6 +22,8 @@ import '../../../styles/videos-c.css'
 import type { Piste, PisteFrameProps, PisteSegmentProps, VideoSegment } from '../types'
 import { cls } from './dessin/encre'
 import { PLANCHES, generique } from './planches'
+import { EDITION_SUFFIXES } from '../editions'
+import { boardKeys } from '../editions/apply'
 
 /** Le dessin d'un passage : sa planche, ou, si elle manque ou ne se retrouve plus dans le script, le générique */
 function Segment(p: PisteSegmentProps) {
@@ -30,7 +32,8 @@ function Segment(p: PisteSegmentProps) {
 
 /** La planche du passage, ou rien : une planche qui ne comprend plus son script ne doit jamais casser la vidéo */
 function planche(p: PisteSegmentProps) {
-  const board = PLANCHES[p.segment.id]
+  // Passage corrigé par une édition (identifiant suffixé) : la planche de son passage d'origine, qui lit le script
+  const board = boardKeys(p.segment, EDITION_SUFFIXES).map(k => PLANCHES[k]).find(Boolean)
   try {
     return board ? board(p) : null
   } catch {

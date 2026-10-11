@@ -1,0 +1,42 @@
+Rapport de génération des voix — 2026-10-10 17:21:07
+Commande : generate.py --voice aigue --force --seed 3031 --extra-takes 8 --segment territoires-collectivites-07-comptes-p27,ukraine-intro-08-p27,logement-loyers-09-p27,institutions-constitution-06-conseil-p27,impots-intro-06-p27
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  impots-intro-06-p27 — 6.03 s, F0 241.6 Hz, pauses entre phrases [0.32, 0.36, 0.35] s
+    1. Alors, trois questions se p…   2/3    229.8  -1.02   -6.1   +1.4  2.3    5.7  1.11  1:273~ 2:230 3:250~
+    2. Que faire face à la dette ?   3/3    245.1  +0.09   +3.1   +3.5  6.0    5.8  1.13  1:377~ 2:234 3:245?
+         prise 3 : bruit 1.01-1.13 s (leger, +33 dB, confiance 0.65) [dette | fin]
+    3. Comment imposer les grandes…   3/3    237.4  -0.46   +2.2   -0.3  3.0    5.6  1.08  1:264 2:274~ 3:237
+    4. Et les héritages ?            3/3    257.2  +0.93   +7.9   +0.2  3.0    5.2  1.01  1:329~? 2:228×! 3:257
+         prise 1 : parole en trop 1.37-1.44 s (leger, +59 dB, confiance 0.71) [héritages | fin]
+         prise 2 : rire 0.56-0.86 s (net, +58 dB, confiance 0.88) [héritages | fin]
+  logement-loyers-09-p27 — 1.91 s, F0 257.1 Hz
+    1. Alors, quelles règles pour …   5/5    257.1  +0.92   +0.1   +3.5  3.1    4.9  0.96  1:193~ 2:202~ 3:208~ 4:220×! 5:257
+         prise 4 : respiration 0.02-0.24 s (net, +47 dB, confiance 0.95) [début | Alors]
+  territoires-collectivites-07-comptes-p27 — 8.43 s, F0 241.2 Hz, pauses entre phrases [0.36, 0.35] s
+    1. Et leurs comptes ?            4/4    246.5  +0.19   +1.8   +0.5  3.0    4.3  0.85  1:271~ 2:364×! 3:500×! 4:246
+         prise 2 : parole en trop 0.00-0.13 s (leger, +37 dB, confiance 0.60) [début | Et]
+         prise 2 : parole en trop 0.88-1.14 s (net, +54 dB, confiance 0.94) [comptes | fin]
+         prise 3 : vocalise « leurs » 0.05-0.32 s (net, +68 dB, confiance 0.30) [Et | comptes]
+    2. En deux mille vingt-cinq, l…   1/3    240.4  -0.24   -1.7   +0.8  0.0    5.5  1.08  1:240 2:220~ 3:230
+  ukraine-intro-08-p27 — 6.66 s, F0 251.6 Hz, pauses entre phrases [0.31, 0.35, 0.16, 0.35] s
+    1. Trois questions se posent.    5/11   249.7  +0.41   +2.2   +3.4  1.8    4.3  0.84  1:373~ 2:312~ 3:260~ 4:249~ 5:250~ 6:266× 7:266~ 8:280~ 9:392~ 10:314~ 11:246~
+    2. Comment venir en aide aux c…   1/3    250.1  +0.44   +3.1   +2.7  3.0    6.6  1.28  1:250 2:272~ 3:416×!
+         prise 3 : parole en trop « Comment » 0.00-1.76 s (net, +52 dB, confiance 0.90) [début | venir]
+         prise 3 : respiration 0.16-1.76 s (net, +50 dB, confiance 0.95) [Comment | venir]
+         prise 3 : mot manquant ou bâclé « aux » 2.00-2.00 s (leger, confiance 0.30) [aide | civils]
+    3. Faut-il aider l'Ukraine, et…   1/3    257.2  +0.93   -4.8   +1.0  3.0    5.9  1.16  1:257 2:273~ 3:257?
+         prise 3 : respiration 0.07-0.22 s (leger, +44 dB, confiance 0.80) [début | Faut]
+    4. Et quelle place pour la dip…   3/3    248.4  +0.32   +3.8   +3.0  3.0    6.4  1.25  1:226 2:258 3:248
+      ⚠ phrase 1 : aucune prise acceptable : fin montante (+2.2 dt) sur une affirmation
+  institutions-constitution-06-conseil-p27 — 9.07 s, F0 235.3 Hz, pauses entre phrases [0.3, 0.21] s
+    1. La Constitution s'impose au…   2/3    245.9  +0.15   -2.0   +0.9  0.0    5.0  0.97  1:253 2:246 3:280~
+    2. Le Conseil constitutionnel …   2/3    232.1  -0.85   -2.2   +1.6  2.0    5.7  1.11  1:259 2:232 3:216~
+
+Alertes (1) :
+  aigue / ukraine-intro-08-p27 : phrase 1 : aucune prise acceptable : fin montante (+2.2 dt) sur une affirmation
+
+Temps : 262 s pour 50 prise(s), 4.95 s de calcul par prise en moyenne (2.06 s d'audio) ; calcul d'une prise ≈ 0.50 s + 2.21 s par seconde d'audio. Détecteur de sons parasites : 0.123 s par prise en moyenne (au plus 0.253 s), 2% du calcul d'une prise.
+Estimation pour les 1106 passages (2069 phrases) (voix aiguë 3 prises, 28% de secours) : ~1326 min.

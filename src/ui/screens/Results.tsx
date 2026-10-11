@@ -1,12 +1,64 @@
 import type { ComponentChildren } from 'preact'
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks'
-import { go, link } from '../nav'
+import { getBase, go, link } from '../nav'
 import { affinityBand, AFFINITY_BANDS, bandRange } from '../../core/affinity'
 import { hasOpinion } from '../../core/answers'
 import { buildExport, downloadBlob, exportFileName } from '../../core/exportData'
 import { currentAnswers } from '../../core/revisions'
 import { comparePath } from '../../core/routes'
 import { prepareCompare } from '../compare/load'
+import { loadReport, prepareReport, reportNow } from '../report/load'
+import {
+  AGREE_HEADS,
+  AGREE_LEDE,
+  AGREE_NONE,
+  allIncompatibleNote,
+  answeredLede,
+  bankKnownLine,
+  caveats,
+  closeNote,
+  CROSSING_DIVIDER,
+  crossingNote,
+  emptyRanking,
+  excludedLede,
+  excludedTitle,
+  excludedWhy,
+  FINALISTS_ONLY,
+  GRID_DASH,
+  gridAllLine,
+  indicativeScore,
+  joinNames,
+  knownLine,
+  leaderLead,
+  LINK_METHOD,
+  LINK_RULE,
+  LINK_SOURCES,
+  MANY_RED_LINES,
+  manyRedLinesNote,
+  priorityHead,
+  READING_NEUTRAL,
+  READING_STROKE,
+  redLineSummary,
+  rowMeta,
+  signed,
+  staleNotice,
+  starLegend,
+  SWAP_HEADS,
+  swapText,
+  TIE_MARK,
+  TITLE_AGREE,
+  TITLE_BOARD,
+  TITLE_CAVEATS,
+  TITLE_DONE,
+  TITLE_PRIORITIES,
+  TITLE_SWAP,
+  TITLE_TOPICS,
+  TITLE_WHY,
+  unrankedLede,
+  unrankedTitle,
+  UNSTABLE_NOTE,
+} from '../../core/resultsCopy'
+import { tallyPath } from '../../core/tally'
 import {
   CLOSE_GAP,
   computeResults,
@@ -23,12 +75,13 @@ import {
 import type { SessionState } from '../../core/storage'
 import type { Candidate, CandidateId, ElectionPack, Question, TopicId, TopicWeights } from '../../core/types'
 import { ConfirmErase } from '../components/ConfirmErase'
+import { isVoting, useCurrentElection } from '../components/CurrentElection'
 import { FormHeader } from '../components/FormHeader'
 import { SiteFooter } from '../components/SiteFooter'
 import { Icon } from '../components/Icon'
 import { Portrait } from '../components/Portrait'
 import { Tally } from '../components/Tally'
-import { percent, shareText } from '../format'
+import { percent } from '../format'
 import { isMany } from '../many'
 import { useOnline } from '../useOnline'
 import { MAX_PRIORITIES } from './Priorities'
@@ -46,9 +99,6 @@ interface Props {
   saved: boolean
 }
 
-/** Au-delà de ce nombre de lignes rouges, on rappelle l'effet d'exclusion */
-const MANY_RED_LINES = 5
-
 /** Élection nombreuse : la grille par thème montre d'abord ce nombre de candidats, les premiers du classement */
 const GRID_FIRST = 5
 
@@ -62,10 +112,6 @@ type PriorityNote =
 const snapshot = (results: ResultsData): NonNullable<Snapshot> =>
   results.ranking.map(r => ({ candidateId: r.candidateId, score: displayScore(r.score) }))
 
-/** « A », « A et B », « A, B et C » */
-const joinNames = (names: string[]) =>
-  names.length < 2 ? (names[0] ?? '') : `${names.slice(0, -1).join(', ')} et ${names.at(-1)}`
-
 /** Mène à une partie de la page sans changer d'écran (le routage passe par le fragment « #/… ») */
 const jumpTo = (id: string) => (e: Event) => {
   e.preventDefault()
@@ -78,6 +124,7 @@ const jumpTo = (id: string) => (e: Event) => {
 
 export function Results({ pack, state, results: allResults, update, eraseAll, essential, stale, saved }: Props) {
   const online = useOnline()
+  const current = useCurrentElection()
   const { election, candidates, bank } = pack
   const byId = useMemo(() => new Map(candidates.map(c => [c.id, c])), [candidates])
   const approachText = useMemo(() => {
@@ -105,6 +152,10 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
     [finalistsOnly, election.finalists, pack, state.answers, state.weights, state.seed],
   )
   const results = finalistResults ?? allResults
+  // Le dépouillement en PDF : où en est sa fabrication, effacé quand le résultat change (réponses, priorités,
+  // qualifiés ; app.tsx ne le recalcule qu'alors)
+  const [pdfStatus, setPdfStatus] = useState('')
+  useEffect(() => setPdfStatus(''), [results])
   const ranking = results.ranking
   // Hors classement (élections qui l'activent) : connus sur trop peu de vos réponses, montrés sous le classement
   const unranked = results.unranked
@@ -205,9 +256,33 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
     const file = buildExport(pack, state, results)
     downloadBlob(new Blob([JSON.stringify(file, null, 2)], { type: 'application/json' }), exportFileName(pack))
   }
-  const rawShown = (r: CandidateResult) =>
-    r.rawScore !== null && r.score !== null && Math.abs(Math.round(r.rawScore) - Math.round(r.score)) >= 1
-
+  // Le PDF se fabrique ici, sur l'appareil, d'ordinaire sans attendre (module préparé) : le téléchargement reste
+  // dans le geste de l'utilisateur. L'adresse du fichier est gardée une minute (Safari sur iPhone)
+  const downloadReport = async () => {
+    try {
+      const m = reportNow() ?? (setPdfStatus('Préparation du PDF…'), await loadReport())
+      const now = new Date()
+      const bytes = m.buildReportPdf({
+        pack,
+        state,
+        results,
+        finalistsOnly: !!finalistResults,
+        staleCount: stale.length,
+        archive: current?.archive
+          ? { voting: isVoting(current.archive.votingUntil, now.getTime()), currentLabel: current.archive.currentLabel }
+          : null,
+        slug: getBase(),
+        maxPriorities: MAX_PRIORITIES,
+        now,
+      })
+      downloadBlob(new Blob([bytes], { type: 'application/pdf' }), m.reportFileName(pack, now), 60_000)
+      setPdfStatus(
+        'PDF fabriqué sur cet appareil. S’il n’apparaît pas dans vos téléchargements, ce navigateur ne permet peut-être pas d’enregistrer de fichier\u00a0; dans un autre, vos réponses seraient à refaire.',
+      )
+    } catch {
+      setPdfStatus('Le PDF n’a pas pu être fabriqué. Rechargez la page, puis réessayez.')
+    }
+  }
   const deepCount = bank.questions.filter(q => q.tier === 'approfondi').length
   const answeredDeep = bank.questions.filter(q => q.tier === 'approfondi' && state.answers[q.id] && !state.answers[q.id]!.skipped).length
   const shown = bank.topics.filter(t => shownTopics.includes(t.id) && answeredTopics.has(t.id))
@@ -216,6 +291,10 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
   // par thème ; l'appel à continuer passe devant.
   const unseen = essential.filter(q => !state.answers[q.id])
   const provisional = unseen.length > 0
+  // Le dépouillement en PDF se prépare dès que le résultat est complet (jamais pendant la tendance)
+  useEffect(() => {
+    if (!provisional) prepareReport()
+  }, [provisional])
   const refineHref = `/feuille/${essential.indexOf(unseen[0]!) + 1}`
   const remaining = `${unseen.length}\u00a0question${unseen.length > 1 ? 's' : ''}`
 
@@ -234,7 +313,7 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
           </span>
           {r.tied ? (
             <span class="pv-tie" aria-hidden="true">
-              ex æquo
+              {TIE_MARK}
             </span>
           ) : null}
         </span>
@@ -269,18 +348,14 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
           {band ? <span class={`board-band aff-${band.key}`}>{band.label}</span> : null}
         </div>
         <p class="board-meta">
-          {r.answered > 0 ? `Connu sur ${r.known} de vos ${r.answered} réponses` : 'Aucune réponse notée'}
-          {r.partialData ? ' · données partielles' : ''}
-          {!provisional && rawShown(r) ? ` · ${Math.round(r.rawScore!)}\u00a0% avant lissage` : ''}
+          {rowMeta(r, !provisional)}
           {!provisional && moved ? <span class="pv-moved"> · {moved}</span> : null}
         </p>
         {touched ? (
           <details class="board-flags">
             <summary>
               <Icon name="cross" class="flag-mark" />
-              {r.dealbreakers.some(d => d.level === 'touche')
-                ? `Franchit ${touched > 1 ? `${touched} de vos lignes rouges` : 'une de vos lignes rouges'}`
-                : `Pourrait franchir ${touched > 1 ? `${touched} de vos lignes rouges` : 'une de vos lignes rouges'}`}
+              {redLineSummary(r.dealbreakers)}
             </summary>
             <ul>
               {r.dealbreakers.map(d => (
@@ -325,9 +400,7 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
   const gridAll = manyColumns && allColumns
   const columns = manyColumns && !allColumns ? ranking.slice(0, GRID_FIRST) : ranking
   const notes = [
-    results.allIncompatible ? (
-      <>Aucun candidat{someOff ? ' classé' : ''} ne respecte toutes vos lignes rouges : ils sont classés du moins au plus concerné.</>
-    ) : null,
+    results.allIncompatible ? <>{allIncompatibleNote(someOff)}</> : null,
     results.close && first && second ? (
       provisional ? (
         <>
@@ -344,17 +417,13 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
     // En tendance, la suite du questionnaire peut tout changer : pas de détail de méthode
     !results.stable && !provisional ? (
       <>
-        Résultat sensible à la façon de compter&nbsp;:{' '}
+        {UNSTABLE_NOTE}&nbsp;:{' '}
         <a href="#agree-title" onClick={jumpTo('agree-title')}>
           voir qui passe devant en ne gardant que les approches principales
         </a>
       </>
     ) : null,
-    results.redLineCount > MANY_RED_LINES ? (
-      <>
-        {results.redLineCount} lignes rouges : le classement dépend surtout de ces refus.
-      </>
-    ) : null,
+    results.redLineCount > MANY_RED_LINES ? <>{manyRedLinesNote(results.redLineCount)}</> : null,
   ].filter(Boolean)
 
   // Les suites, en panneaux : la première est l'action principale de la barre du bas. Tant que le résultat
@@ -390,7 +459,7 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
           <div class="results-intro">
             <div class="results-head">
               <h1 class="display" tabIndex={-1}>
-                {provisional ? 'Une première tendance' : 'Votre dépouillement'}
+                {provisional ? 'Une première tendance' : TITLE_DONE}
               </h1>
               {provisional ? (
                 <span class="stamp is-provisional">
@@ -400,19 +469,15 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
               ) : null}
             </div>
             {provisional ? null : (
-              <p class="lede">
-                Sur {results.answered} réponse{results.answered > 1 ? 's' : ''}.
-              </p>
+              <p class="lede">{answeredLede(results.answered)}</p>
             )}
             {provisional ? null : (
               <div class="prio" role="group" aria-labelledby="prio-title">
                 <p class="prio-head">
                   <span id="prio-title" class="prio-title">
-                    Vos priorités
+                    {TITLE_PRIORITIES}
                   </span>
-                  <span class="prio-none">
-                    {chosen.length ? 'comptent double dans le calcul' : 'aucune\u00a0: tous les thèmes comptent autant.'}
-                  </span>
+                  <span class="prio-none">{priorityHead(chosen.length)}</span>
                 </p>
                 {shown.length ? (
                   <ul class="prio-chips">
@@ -444,8 +509,7 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
             )}
             {stale.length > 0 ? (
               <p class="notice" role="status">
-                {stale.length} question{stale.length > 1 ? 's ont' : ' a'} changé depuis vos réponses : le résultat est
-                calculé sans {stale.length > 1 ? 'elles' : 'elle'} en attendant.{' '}
+                {staleNotice(stale.length)}{' '}
                 <a href={link('/revision')}>{stale.length > 1 ? 'Les revoir' : 'La revoir'}</a>
               </p>
             ) : null}
@@ -475,12 +539,12 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
         <section class={`board${provisional ? ' is-trend' : ''}`} aria-labelledby="board-title">
           <div class="board-head">
             <h2 id="board-title" class="section-title">
-              {provisional ? 'La tendance pour l’instant' : 'Le classement'}
+              {provisional ? 'La tendance pour l’instant' : TITLE_BOARD}
             </h2>
             {election.finalists ? (
               <label class="switch">
                 <input type="checkbox" checked={finalistsOnly} onChange={e => setFinalistsOnly((e.currentTarget as HTMLInputElement).checked)} />
-                Seulement les qualifiés pour le 2nd tour
+                {FINALISTS_ONLY}
               </label>
             ) : null}
           </div>
@@ -491,17 +555,14 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
               {incompatible.length ? (
                 <li class="pv-divider">
                   <Icon name="cross" class="flag-mark" />
-                  <span>Franchissent au moins une de vos lignes rouges</span>
+                  <span>{CROSSING_DIVIDER}</span>
                 </li>
               ) : null}
               {incompatible.map((r, i) => row(r, compatible.length + i))}
             </ol>
           ) : (
             // Règle « hors classement » : aucun candidat n'est assez connu sur ces réponses pour être classé
-            <p class="board-empty">
-              Aucun candidat n’est connu sur au moins {shareText(results.minCoverageShare ?? 0.5)} de vos réponses&nbsp;: pas
-              de classement pour l’instant. D’autres réponses peuvent le permettre.
-            </p>
+            <p class="board-empty">{emptyRanking(results.minCoverageShare)}</p>
           )}
           {ranking.length ? (
             <ul class="syn-scale" aria-label="Échelle de lecture">
@@ -553,13 +614,12 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
           <div class={`results-split${gridAll ? ' is-grid-all' : ''}`}>
             <section class="block topics-block" aria-labelledby="topics-title">
               <h2 id="topics-title" class="section-title" tabIndex={-1}>
-                Par thème
+                {TITLE_TOPICS}
               </h2>
               <p class="small star-legend">
                 <Icon name="star" class="star-icon is-on" />
-                <span class="sr-only">Étoile pleine</span>&nbsp;: thème prioritaire, compte double ({MAX_PRIORITIES}&nbsp;au
-                plus{chosen.length ? `, ${chosen.length}\u00a0choisi${chosen.length > 1 ? 's' : ''}` : ''}). Appuyez sur
-                l’étoile d’un thème pour le choisir ou le retirer.
+                <span class="sr-only">Étoile pleine</span>
+                {starLegend(chosen.length, MAX_PRIORITIES)} Appuyez sur l’étoile d’un thème pour le choisir ou le retirer.
               </p>
               {/* Au-dessus de la grille : le message se lit près des étoiles, pas une page plus bas */}
               <p class="prio-status" role="status">
@@ -569,7 +629,7 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
                 <p class="grid-columns">
                   <span>
                     {gridAll
-                      ? `Les ${ranking.length}\u00a0candidats${someOff ? ' classés' : ''}, dans l’ordre de votre classement.`
+                      ? gridAllLine(ranking.length, someOff)
                       : `Les ${GRID_FIRST}\u00a0premiers de votre classement.`}
                   </span>{' '}
                   <button type="button" class="btn-text" aria-controls="topic-grid" onClick={() => setAllColumns(!allColumns)}>
@@ -643,13 +703,13 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
                   </tbody>
                 </table>
               </div>
-              <p class="small">Un tiret : aucune position connue sur vos réponses de ce thème.</p>
+              <p class="small">{GRID_DASH}</p>
             </section>
 
             {results.why.length && first && second ? (
               <section class="block why-block" aria-labelledby="why-title">
                 <h2 id="why-title" class="section-title">
-                  Ce qui les sépare
+                  {TITLE_WHY}
                 </h2>
                 <p class="why-pair">
                   <span class="why-faces">
@@ -697,33 +757,41 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
 
         <div class="results-foot">
           <section class="caveats" aria-labelledby="caveats-title">
-            <h2 id="caveats-title">À garder en tête</h2>
+            <h2 id="caveats-title">{TITLE_CAVEATS}</h2>
             <ul>
-              <li>Pas une consigne de vote : le résultat dépend des sujets retenus et de la méthode.</li>
-              <li>
-                Positions arrêtées au {election.dataFrozenAt.split('-').reverse().join('/')}. Une position inconnue sort du
-                calcul ; un candidat connu sur peu de vos réponses est ramené vers 50 %
-                {results.minCoverageShare === null
-                  ? '.'
-                  : `, et sur moins de ${shareText(results.minCoverageShare)}, il n’est pas classé.`}
-              </li>
-              <li>L’outil ignore la personnalité, l’expérience et la capacité à rassembler.</li>
+              {caveats(election, results.minCoverageShare).map(c => (
+                <li key={c}>{c}</li>
+              ))}
             </ul>
             <p class="small">
-              <a href={link('/methode')}>Méthode et sources</a>
+              <a href={link('/methode')}>{LINK_SOURCES}</a>
             </p>
           </section>
           <section class="your-data" aria-labelledby="data-title">
             <h2 id="data-title">Vos données</h2>
             <div class="link-row">
+              {/* Pas de PDF pendant la tendance : comme l'affiche, le dépouillement attend le résultat complet */}
+              {provisional ? null : (
+                <button type="button" class="btn-text" onClick={() => void downloadReport()}>
+                  <Icon name="download" />
+                  Télécharger mon dépouillement (PDF)
+                </button>
+              )}
               <button type="button" class="btn-text" onClick={downloadDouble}>
                 <Icon name="download" />
                 Télécharger mon double (JSON)
               </button>
               <ConfirmErase onErase={eraseAll} />
             </div>
+            {provisional ? null : (
+              <p class="small report-status" role="status">
+                {pdfStatus}
+              </p>
+            )}
             <p class="small">
-              Le double contient vos réponses en clair ; une fois téléchargé, « Tout effacer » ne le supprime pas.
+              {provisional
+                ? 'Le double contient vos réponses en clair ; une fois téléchargé, « Tout effacer » ne le supprime pas.'
+                : 'Le PDF montre votre résultat, vos priorités et vos lignes rouges ; le double contient toutes vos réponses. Une fois téléchargés, « Tout effacer » ne les supprime pas.'}
             </p>
             {!online ? (
               <p class="notice is-closed" role="status">
@@ -785,11 +853,12 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
 function Reading({ neutral }: { neutral?: boolean }) {
   return (
     <p class="results-reading">
-      {neutral ? <span>50&nbsp;%&nbsp;: neutre</span> : null}
+      {neutral ? <span>{READING_NEUTRAL}</span> : null}
       <span>
-        <span class="mini-tally" aria-hidden="true" />1 bâton = {POINTS_PER_STROKE} points
+        <span class="mini-tally" aria-hidden="true" />
+        {READING_STROKE}
       </span>
-      <a href={link('/methode')}>La méthode</a>
+      <a href={link('/methode')}>{LINK_METHOD}</a>
     </p>
   )
 }
@@ -817,12 +886,6 @@ function Trend({ seen, total, left, href }: { seen: number; total: number; left:
   )
 }
 
-/** Variation déterministe, pour que chaque bâton pointé ait l'air tracé à la main */
-function jitter(i: number, k: number): number {
-  const x = Math.sin(i * 12.9898 + k * 78.233) * 43758.5453
-  return (x - Math.floor(x) - 0.5) * 1.4
-}
-
 /**
  * Les questions du questionnaire rapide en bâtons, par cinq : pointées au bleu bille (le cinquième barre
  * le paquet), à venir en crans pointillés imprimés. Décoratif : le titre dit déjà le compte.
@@ -835,11 +898,7 @@ function ProgressTally({ done, total }: { done: number; total: number }) {
         const x = Math.floor(i / 5) * 36
         const k = i % 5
         if (i >= done) return <path key={i} d={`M${x + 3 + k * 6} 4 V22`} class="is-todo" />
-        const d =
-          k < 4
-            ? `M${x + 4 + k * 6 + jitter(i, 1)} ${3 + jitter(i, 2)} L${x + 4.4 + k * 6 + jitter(i, 3)} ${23 + jitter(i, 4)}`
-            : `M${x + 0.8 + jitter(i, 5)} ${19.5 + jitter(i, 6)} L${x + 28.5 + jitter(i, 7)} ${6 + jitter(i, 8)}`
-        return <path key={i} d={d} class="is-done" />
+        return <path key={i} d={tallyPath(i, x)} class="is-done" />
       })}
     </svg>
   )
@@ -874,9 +933,7 @@ function Leader({
       <Portrait candidate={c} size="id" decorative />
       <div class="leader-body">
         <h2 id="leader-title" class="leader-title">
-          <span class="leader-lead">
-            {results.allIncompatible ? 'Le moins concerné par vos lignes rouges' : 'Le plus proche de vos idées'}
-          </span>
+          <span class="leader-lead">{leaderLead(results.allIncompatible)}</span>
           <a class="leader-name" href={link(`/candidat/${c.id}`)}>
             {c.name}
           </a>
@@ -890,14 +947,12 @@ function Leader({
         </p>
         <Tally count={strokesFor(first.score)} maxGroups={Infinity} drawAll delay={300} label="" />
         {results.close && second ? (
-          <p class="leader-note">
-            {byId.get(second.candidateId)?.name} suit à moins de {CLOSE_GAP} points : l’écart n’est pas significatif.
-          </p>
+          <p class="leader-note">{closeNote(byId.get(second.candidateId)?.name ?? '')}</p>
         ) : null}
         {crossing > 0 && !results.allIncompatible ? (
           <p class="leader-note">
             <Icon name="cross" class="flag-mark" />
-            {crossing} candidat{crossing > 1 ? 's franchissent' : ' franchit'} au moins une de vos lignes rouges.
+            {crossingNote(crossing)}
           </p>
         ) : null}
       </div>
@@ -922,17 +977,14 @@ function Unranked({
   byId: Map<string, Candidate>
 }) {
   if (!items.length || minShare === null) return null
-  const one = items.length === 1
   return (
     <section class="unranked" aria-labelledby="unranked-title">
       <h2 id="unranked-title" class="unranked-title">
-        Trop peu de positions connues pour {one ? 'le' : 'les'} classer
+        {unrankedTitle(items.length)}
       </h2>
       <p class="unranked-lede">
-        {`${one ? 'Sa' : 'Leur'} position est connue sur moins de ${shareText(minShare)} de vos réponses. Calculé sur si peu de questions, un score varie trop pour être comparé aux autres`}
-        {provisional ? '.' : `\u00a0: ${one ? 'le sien' : 'le leur'} est donné à titre indicatif.`}
-        {one ? null : ' Ordre tiré au hasard.'}{' '}
-        <a href={link('/methode/hors-classement')}>La règle, dans la méthode</a>
+        {unrankedLede(items.length, minShare, provisional)}{' '}
+        <a href={link('/methode/hors-classement')}>{LINK_RULE}</a>
       </p>
       <ul class="unranked-list">
         {items.map(r => {
@@ -949,21 +1001,19 @@ function Unranked({
                 <span class="unranked-party">{c.affiliation}</span>
               </div>
               <p class="unranked-meta">
-                <span>
-                  Connu sur {r.known} de vos {r.answered} réponses
-                </span>
+                <span>{knownLine(r.known, r.answered)}</span>
                 {/* Les éléments sont séparés à l'écran par l'espacement ; à la lecture vocale, par une virgule */}
                 {!provisional && r.score !== null ? (
                   <span class="unranked-score">
-                    <span class="sr-only">, </span>Score indicatif&nbsp;: {displayScore(r.score)}&nbsp;%
+                    <span class="sr-only">, </span>
+                    {indicativeScore(r.score)}
                   </span>
                 ) : null}
                 {touched ? (
                   <span class="unranked-flag">
                     <span class="sr-only">, </span>
                     <Icon name="cross" class="flag-mark" />
-                    {r.dealbreakers.some(d => d.level === 'touche') ? 'Franchit' : 'Pourrait franchir'}{' '}
-                    {touched > 1 ? `${touched} de vos lignes rouges` : 'une de vos lignes rouges'}
+                    {redLineSummary(r.dealbreakers)}
                   </span>
                 ) : null}
               </p>
@@ -984,21 +1034,16 @@ function Unranked({
 function Excluded({ pack, ids, byId }: { pack: ElectionPack; ids: CandidateId[]; byId: Map<string, Candidate> }) {
   const known = useMemo(() => new Map(ids.map(id => [id, knownQuestions(pack, id)])), [pack, ids])
   if (!ids.length) return null
-  const one = ids.length === 1
   const total = pack.bank.questions.length
   return (
     <section class="unranked excluded" aria-labelledby="excluded-title">
       <h2 id="excluded-title" class="unranked-title">
-        {one ? '1\u00a0candidat n’est pas classé' : `${ids.length}\u00a0candidats ne sont pas classés`}
-        <span class="excluded-why">
-          &nbsp;: {one ? 'sa position est connue' : 'leurs positions sont connues'} sur trop peu de questions
-        </span>
+        {excludedTitle(ids.length)}
+        <span class="excluded-why">{excludedWhy(ids.length)}</span>
       </h2>
       <p class="unranked-lede">
-        {one
-          ? 'Il n’a ni score ni rang, quelles que soient vos réponses. Sa fiche et ses positions restent consultables\u00a0; la liste sera revue à mesure que ses positions seront connues.'
-          : 'Ils n’ont ni score ni rang, quelles que soient vos réponses. Leurs fiches et leurs positions restent consultables\u00a0; la liste sera revue à mesure que leurs positions seront connues. Ordre tiré au hasard.'}{' '}
-        <a href={link('/methode/non-classes')}>La règle, dans la méthode</a>
+        {excludedLede(ids.length)}{' '}
+        <a href={link('/methode/non-classes')}>{LINK_RULE}</a>
       </p>
       <ul class="unranked-list">
         {ids.map(id => {
@@ -1012,9 +1057,7 @@ function Excluded({ pack, ids, byId }: { pack: ElectionPack; ids: CandidateId[];
                 </a>
                 <span class="unranked-party">{c.affiliation}</span>
               </div>
-              <p class="unranked-meta">
-                Connu sur {known.get(id)} des {total}&nbsp;questions de la banque
-              </p>
+              <p class="unranked-meta">{bankKnownLine(known.get(id)!, total)}</p>
             </li>
           )
         })}
@@ -1065,21 +1108,15 @@ const count = (n: number, word: string) => `${n}\u00a0${word}${n > 1 ? 's' : ''}
 function Agreement({ results, byId }: { results: ResultsData; byId: Map<string, Candidate> }) {
   const tallies = results.ranking.flatMap(r => [r.breakdown.main, r.breakdown.other])
   const max = Math.max(1, ...tallies.flatMap(t => [t.agree, t.disagree]))
-  const heads = ['Ses approches principales', 'Ses autres positions']
   return (
     <section class="agree" aria-labelledby="agree-title">
       <h2 id="agree-title" class="section-title" tabIndex={-1}>
-        Accords et désaccords
+        {TITLE_AGREE}
       </h2>
       {results.stable ? null : <MethodSwap results={results} byId={byId} />}
-      <p class="agree-lede">
-        Vos avis sur ce que porte chaque candidat, comptés un par un. Un accord&nbsp;: «&nbsp;D’accord&nbsp;» sur
-        une approche qu’il défend, ou «&nbsp;Pas d’accord&nbsp;» sur une approche qu’il rejette. Ses approches
-        principales comptent double dans le score&nbsp;; ses autres positions sont ses approches compatibles et
-        ses rejets.
-      </p>
+      <p class="agree-lede">{AGREE_LEDE}</p>
       <div class="agree-head" aria-hidden="true">
-        {heads.map(h => (
+        {AGREE_HEADS.map(h => (
           <span class="agree-col" key={h}>
             <span class="agree-col-title">{h}</span>
             <span class="agree-scale">
@@ -1105,11 +1142,11 @@ function Agreement({ results, byId }: { results: ResultsData; byId: Map<string, 
                 {r.score !== null ? <span class="agree-score">{displayScore(r.score)}&nbsp;%</span> : null}
               </p>
               {r.score === null ? (
-                <p class="agree-none">Aucune position connue sur vos réponses.</p>
+                <p class="agree-none">{AGREE_NONE}</p>
               ) : (
                 <>
-                  <AgreeBar label={heads[0]!} short="Principales" tally={r.breakdown.main} max={max} />
-                  <AgreeBar label={heads[1]!} short="Autres" tally={r.breakdown.other} max={max} />
+                  <AgreeBar label={AGREE_HEADS[0]} short="Principales" tally={r.breakdown.main} max={max} />
+                  <AgreeBar label={AGREE_HEADS[1]} short="Autres" tally={r.breakdown.other} max={max} />
                 </>
               )}
             </li>
@@ -1143,8 +1180,6 @@ function AgreeBar({ label, short, tally, max }: { label: string; short: string; 
     </div>
   )
 }
-
-const signed = (n: number) => (n > 0 ? `+${n}` : n < 0 ? `−${-n}` : '0')
 
 /**
  * Résultat sensible à la méthode : le classement complet et celui des seules approches principales, côte à
@@ -1195,17 +1230,15 @@ function MethodSwap({ results, byId }: { results: ResultsData; byId: Map<string,
   return (
     <div class="swap" role="group" aria-labelledby="swap-title">
       <h3 id="swap-title" class="swap-title">
-        Un résultat qui dépend de la façon de compter
+        {TITLE_SWAP}
       </h3>
       <p class="swap-text">
-        Le score complet tient compte de toutes leurs positions. En ne gardant que leurs approches principales, vos
-        accords moins vos désaccords, <strong>{joinNames(ahead.map(name))}</strong>{' '}
-        {ahead.length > 1 ? 'passent' : 'passe'} devant <strong>{joinNames(leaders.map(name))}</strong>.
+        {swapText(ahead.map(name), leaders.map(name)).map((part, i) => (i % 2 ? <strong key={i}>{part}</strong> : part))}
       </p>
       <div class="swap-cols" ref={cols}>
         <div class="swap-col is-full">
           <p class="swap-head" id="swap-full">
-            Score complet
+            {SWAP_HEADS[0]}
           </p>
           <ol class="swap-list" aria-labelledby="swap-full">
             {peers.map(r => (
@@ -1226,7 +1259,7 @@ function MethodSwap({ results, byId }: { results: ResultsData; byId: Map<string,
         </span>
         <div class="swap-col is-simple">
           <p class="swap-head" id="swap-simple">
-            Approches principales seulement
+            {SWAP_HEADS[1]}
           </p>
           <ol class="swap-list" aria-labelledby="swap-simple">
             {simple.map(r => (

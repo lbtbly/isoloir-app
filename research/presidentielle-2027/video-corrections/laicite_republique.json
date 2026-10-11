@@ -1,0 +1,272 @@
+[
+ {
+  "id": "laicite_republique-14",
+  "target": "video",
+  "questionId": "",
+  "videoId": "laicite-histoire",
+  "segmentId": "laicite-histoire-02",
+  "field": "say (et spoken, draw, emphasis, sources)",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "La vidéo raconte une seule loi qui dicte un contenu aux programmes : celle du « rôle positif », abrogée. La loi de 2001, qui le fait aussi et reste en vigueur, n'y est pas. Le récit suggère donc que seule la loi favorable à la présence française a outrepassé le rôle du législateur. La droite proposait un nouveau passage après -03. Le plafond de 45 passages et la numérotation des voix l'empêchent : la loi de 2001 entre dans le passage -02. Il faut réenregistrer sa voix (say et spoken). Le passage -03 garde la sienne : « cette disposition » y désigne celle de 2005, dite en dernier. Le dessin de -03 montre que celle de 2001 reste en vigueur (laicite_republique-15).",
+  "current": "En 2005, une loi demande aux programmes scolaires de reconnaître « le rôle positif de la présence française outre-mer ».",
+  "proposed": "say : « En 2001, une loi demande aux programmes scolaires d’accorder à la traite et à l’esclavage « la place conséquente qu’ils méritent ». En 2005, une autre loi leur demande de reconnaître « le rôle positif de la présence française outre-mer ». » — spoken : « En deux mille un, une loi demande aux programmes scolaires d’accorder à la traite et à l’esclavage « la place conséquente qu’ils méritent ». En deux mille cinq, une autre loi leur demande de reconnaître « le rôle positif de la présence française outre-mer ». » — draw : « Deux textes de loi datés 2001 et 2005, chacun avec une ligne surlignée au bleu bille, et une flèche de chacun vers le même livre : les programmes scolaires. » — emphasis : [« 2001 », « 2005 », « programmes scolaires »] — sources : [MISSION_2008, LOI_2001], la loi n° 2001-434 étant copiée de la fiche.",
+  "lenses": [
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "laicite_republique-13",
+   "laicite_republique-15"
+  ],
+  "rationale": "Le passage reste dans les limites du guide : deux phrases, environ 11 secondes. Le nombre 2001 vient de la fiche corrigée (laicite_republique-13). La citation est celle de l'article 2 de la loi. La reconnaissance comme crime contre l'humanité reste dans la fiche, pour ne pas allonger la voix. La planche -02 est à adapter : deux textes au lieu d'un.",
+  "newSource": {
+   "title": "Loi n° 2001-434 du 21 mai 2001 tendant à la reconnaissance de la traite et de l’esclavage en tant que crime contre l’humanité",
+   "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000405369",
+   "publisher": "Légifrance",
+   "date": "21 mai 2001"
+  },
+  "checked": true,
+  "verification": "confirmed : La citation est exacte : l’art. 2 de la loi n° 2001-434, en vigueur, dit « accorderont à la traite négrière et à l’esclavage la place conséquente qu’ils méritent » (Légifrance). Le nombre 2001 viendrait de la fiche corrigée (laicite_republique-13), ce qui respecte le § 6 du guide. Une réserve : dans le passage -03, « cette disposition est abrogée » suit désormais deux lois. Grammaticalement, elle renvoie à la dernière citée (2005), mais un auditeur peut hésiter. Si laicite_republique-15 n’est pas retenue, la vidéo ne dira pas que la disposition de 2001 reste en vigueur. Il serait plus clair d’écrire « la disposition de 2005 », au prix d’un réenregistrement de -03.",
+  "topic": "laicite_republique",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "laicite_republique-17",
+  "target": "video",
+  "questionId": "",
+  "videoId": "laicite-memoire",
+  "segmentId": "laicite-memoire-08",
+  "field": "say (et draw)",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "La question finale reprend, dans le même ordre, les trois verbes de l'approche laicite_republique-2-b de la présidentielle : « Reconnaître officiellement les crimes de la colonisation, ouvrir les archives et restituer des biens culturels ». La vidéo finit donc sur la formule d'un camp, contre le § 5 du guide. Elle enferme aussi le rôle de l'État dans ces trois gestes, que d'autres approches refusent (e, f). Il faut réenregistrer la voix de ce passage. Le relecteur pensait garder le dessin, mais il doit changer aussi : la planche memoire08 lit ces trois verbes dans le say et rend null sans eux.",
+  "current": "Alors, reconnaître, ouvrir, restituer : quel rôle pour l’État ?",
+  "proposed": "say : « Alors, sur la mémoire de la colonisation, quel rôle pour l’État ? » — draw : « Les pictogrammes des décisions montrées (un document, une boîte d’archives, une caisse que ramène une flèche), sans légende, puis une flèche en tirets vers un point d’interrogation. »",
+  "lenses": [
+   "centre"
+  ],
+  "needsVoice": true,
+  "linked": [],
+  "rationale": "La question reste ouverte et ne retient aucune option. L'emphasis « quel rôle pour l’État » reste valable. Les pictogrammes rappellent ce que la vidéo a montré, sans les verbes de l'approche. La gravité « important » est maintenue : mettre les mots d'une approche dans une vidéo enfreint une règle ferme du guide.",
+  "topic": "laicite_republique",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "laicite_republique-6",
+  "target": "video",
+  "questionId": "",
+  "videoId": "laicite-principe",
+  "segmentId": "laicite-principe-07",
+  "field": "say (et draw, emphasis, sources)",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "La série ne dit pas un mot de la loi de 2021 sur le contrôle des associations et des lieux de culte. Le « context » de la question la cite pourtant, et deux approches portent sur elle (b et e). La vidéo « Le principe » parle de l'Observatoire et du comité interministériel, mais pas de cette loi. Les trois relecteurs proposaient un nouveau passage. Mais la série compte déjà 45 passages, le plafond que vérifie tests/videos.test.ts. Et les identifiants doivent se suivre sans trou : insérer un passage obligerait à renuméroter des voix déjà enregistrées. La loi entre donc dans le passage -07, dont il faut réenregistrer la voix (say). La voix n'ajoute aucun chiffre : « la même année » renvoie à 2021, déjà dit dans le passage -06.",
+  "current": "Depuis, un comité interministériel de la laïcité coordonne l’action du gouvernement. Présidé par le Premier ministre, il se réunit au moins une fois par an.",
+  "proposed": "say : « Depuis, un comité interministériel de la laïcité, présidé par le Premier ministre, coordonne l’action du gouvernement. La même année, une loi renforce le contrôle des associations et des lieux de culte. » — draw : « Une table au trait, des personnes autour, celle du milieu au bleu bille ; puis un texte de loi, une flèche vers un local d’association et une salle sans aucun signe, une loupe au bleu bille au-dessus. » — emphasis : [« comité interministériel », « contrôle des associations »] — sources : [CONSTITUTION, QPC_2013, COMITE_2021, LOI_2021], la loi n° 2021-1109 étant copiée de la fiche (laicite_republique-2).",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "laicite_republique-2",
+   "laicite_republique-7"
+  ],
+  "rationale": "C'est la plus courte des trois formulations. Elle reprend le « context » de la question, sans approche ni jugement. Le nombre de passages ne change pas, ni les identifiants des voix déjà enregistrées. On perd « au moins une fois par an », un détail secondaire. La planche du passage -07 est à adapter. L'en-tête du fichier (« le principe et ses exceptions », « Matière ») peut mentionner cette loi, comme le proposait le centre.",
+  "newSource": {
+   "title": "Loi n° 2021-1109 du 24 août 2021 confortant le respect des principes de la République",
+   "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000043964778",
+   "publisher": "Légifrance",
+   "date": "24 août 2021"
+  },
+  "checked": true,
+  "verification": "confirmed : La série ne parle pas de la loi de 2021 (vérifié dans laicite_republique.ts), alors que le « context » la cite. Les faits sont exacts. Le comité date du décret du 4 juin 2021 et la loi n° 2021-1109 du 24 août 2021 : « la même année » renvoie bien à 2021, l’année dite dans le passage -06 (« supprimé en juin 2021 »). Sur Légifrance, le contrôle porte à la fois sur les associations (art. 12 et 21) et sur les lieux de culte (art. 87, qui crée l’art. 36-3 de la loi de 1905, et art. 77, sur les ressources étrangères des associations cultuelles). La voix n’ajoute aucun chiffre et ne cite aucune approche, ce qui respecte les § 5 et 6 du guide. Ce passage ne vaut qu’avec la source ajoutée à la fiche (laicite_republique-2).",
+  "topic": "laicite_republique",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "laicite_republique-7",
+  "target": "video",
+  "questionId": "",
+  "videoId": "laicite-intro",
+  "segmentId": "laicite-intro-07",
+  "field": "say (et draw)",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "La liste des questions de l'introduction reprend les axes de la primaire. Elle omet le contrôle des associations et des lieux de culte, qui sépare les approches b et e de cette élection. L'angle « discriminations » a sa question, mais pas l'autre versant. Il faut réenregistrer la voix de ce passage.",
+  "current": "Alors, quatre questions se posent. Comment définir la laïcité ? Où placer la limite pour les signes religieux ? Quelle place pour la lutte contre les discriminations ? Et comment aborder l’histoire de la colonisation ?",
+  "proposed": "say : « Alors, cinq questions se posent. Comment définir la laïcité ? Où placer la limite pour les signes religieux ? Quel contrôle des associations et des lieux de culte ? Quelle place pour la lutte contre les discriminations ? Et comment aborder l’histoire de la colonisation ? » — draw : « Cinq pictogrammes en grille, chacun avec sa question : un document, un rond barré, une loupe, une personne, un livre. »",
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "laicite_republique-1",
+   "laicite_republique-6"
+  ],
+  "rationale": "La question ajoutée reste ouverte : elle ne demande ni plus ni moins de contrôle. Elle ne vaut que si la série présente la loi (laicite_republique-6). Dans la planche intro07, la fonction sujet() donnerait le pictogramme « document » à cette question. Il faut y ajouter une règle (associations ou culte → loupe ou local d'association).",
+  "newSource": {
+   "title": "Loi n° 2021-1109 du 24 août 2021 confortant le respect des principes de la République",
+   "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000043964778",
+   "publisher": "Légifrance",
+   "date": "24 août 2021"
+  },
+  "verification": "confirmed : La base factuelle est confirmée : la loi n° 2021-1109 existe (Légifrance) et contrôle bien les associations et les lieux de culte. L’approche e porte expressément sur elle. La question ajoutée est ouverte et neutre. Deux réserves pour le propriétaire. 1) L’« issue » dit que cet axe « sépare les approches b et e ». C’est exagéré : b porte sur les signes religieux et de nouveaux délits, sans viser cette loi. 2) Il y a une tension avec laicite_republique-1 : la fiche retirerait « sa définition », faute d’approche sur ce point, alors que l’introduction garderait « Comment définir la laïcité ? » parmi les questions. C’est exact, mais incohérent. On pourrait garder quatre questions, en remplaçant celle de la définition par celle du contrôle, ce qui raccourcirait aussi la voix. Ce passage dépend de laicite_republique-6.",
+  "topic": "laicite_republique",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "laicite_republique-8",
+  "target": "video",
+  "questionId": "",
+  "videoId": "laicite-signes",
+  "segmentId": "laicite-signes-02",
+  "field": "say (et spoken, visual, figure, emphasis, draw, alt, sources)",
+  "category": "chiffres",
+  "severity": "important",
+  "issue": "Sur les signes religieux, la série montre la règle de l'école et le vote du Sénat sur le sport. Ailleurs, le seul chiffre d'un problème lié à la laïcité est celui des discriminations. Le chiffre des atteintes à la laïcité à l'école, avec son évolution, dit ce qui se passe sous la règle actuelle. Il ne vaut qu'avec la même correction dans la fiche (laicite_republique-3). Le centre et la droite proposaient un nouveau passage. Mais la série est au plafond de 45 passages, et insérer un passage obligerait à renuméroter les voix suivantes. Le chiffre entre donc dans le passage -02, qui passe en visual « figure ». Il faut réenregistrer sa voix (say et spoken). À environ 12 secondes, le passage atteint la limite haute du guide.",
+  "current": "À l’école publique, les élèves ne peuvent pas porter de signes religieux ostensibles.",
+  "proposed": "say : « À l’école publique, les élèves ne peuvent pas porter de signes religieux ostensibles. En 2024-2025, 4 280 atteintes à la laïcité ont été recensées à l’école, 35 % de moins que l’année précédente. » — spoken : « À l’école publique, les élèves ne peuvent pas porter de signes religieux ostensibles. En deux mille vingt-quatre deux mille vingt-cinq, quatre mille deux cent quatre-vingts atteintes à la laïcité ont été recensées à l’école, trente-cinq pour cent de moins que l’année précédente. » — visual : figure — figure : { value: « 4 280 », label: celui de la fiche (laicite_republique-3), date: « 2024-2025 », sourceIndex: 1 } — emphasis : [« signes religieux ostensibles », « 4 280 »] — draw : « Une école au trait, un rond barré à sa porte ; à côté, le nombre au bleu bille et une flèche vers le bas, en gris. » — alt : « Une flèche vers le bas : 35 % de moins que l’année précédente. » — sources : [SENAT_SPORT, QAG_1078], la question au Gouvernement n° 1078 étant copiée de la fiche.",
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "laicite_republique-3",
+   "laicite_republique-18"
+  ],
+  "rationale": "Cette version fusionne les deux propositions. La voix n'attribue pas le chiffre, pour tenir dans la durée. Le libellé affiché à l'écran le fait (« selon le ministre de l'Éducation nationale »), et la source s'affiche aussi. « Recensées » suit le verbe du ministre (« dénombrait »). La planche signes-02 est à refaire, puisque le passage devient un passage « figure ».",
+  "newSource": {
+   "title": "Question au Gouvernement n° 1078 « Laïcité à l’école » – réponse du ministre de l’Éducation nationale",
+   "url": "https://questions.assemblee-nationale.fr/dyn/17/questions/QANR5L17QG1078",
+   "publisher": "Assemblée nationale",
+   "date": "10 décembre 2025"
+  },
+  "checked": true,
+  "verification": "adjusted : La valeur est confirmée sur la page de l’Assemblée nationale (question au Gouvernement n° 1078, 10 décembre 2025) : « on en dénombrait 4 280 en 2024-2025, soit 35 % de moins par rapport à l’année précédente ». Un ajustement de périmètre (§ 6 du guide, « même périmètre ») : dans la version proposée, « y » renvoyait à « l’école publique ». Le ministre parle de l’école sans préciser « publique », et la fiche dit « recensées à l’école ». Je remplace donc « y ont été recensées » par « ont été recensées à l’école ». Le § 5 du guide demande d’attribuer les termes sur la laïcité. Ici, le libellé à l’écran attribue le chiffre au ministre. Si la durée le permet, la voix pourrait aussi dire « selon le ministère ». Ce passage ne vaut qu’avec laicite_republique-3. Je n’ai pas pu vérifier si un bilan 2025-2026 a paru (education.gouv.fr renvoie une erreur 403).",
+  "topic": "laicite_republique",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "laicite_republique-9",
+  "target": "video",
+  "questionId": "",
+  "videoId": "laicite-signes",
+  "segmentId": "laicite-signes-03",
+  "field": "say (et draw, emphasis)",
+  "category": "exactitude",
+  "severity": "important",
+  "issue": "La vidéo demande « où est-ce interdit, et pour qui ? », mais elle ne cite que l'école et les agents publics. Elle oublie la seule interdiction qui vaut dans tout l'espace public : celle des tenues destinées à dissimuler le visage, dont le voile intégral. Le « context » de la question la cite, et c'est le point de départ de l'approche a. Sans elle, la règle actuelle paraît plus étroite qu'elle n'est. La gauche et la droite proposaient un nouveau passage. Pour la même raison que plus haut (plafond de 45 passages, voix numérotées), le fait entre dans le passage -03. Il faut réenregistrer sa voix (say).",
+  "current": "Et les agents publics, eux, doivent rester neutres.",
+  "proposed": "say : « Les agents publics, eux, doivent rester neutres. Et dans tout l’espace public, il est interdit de porter une tenue destinée à dissimuler son visage, comme le voile intégral. » — draw : « Un guichet de service public, une personne derrière, une petite balance au fléau bien droit ; puis une rue au trait, des passants, un rond barré. » — emphasis : [« les agents publics », « tout l’espace public »]",
+  "lenses": [
+   "gauche",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [],
+  "rationale": "La formulation reprend l'article 1er de la loi n° 2010-1192 et le « context » de la question, qui parle du voile intégral. On écarte l'année 2010 et l'amende proposées par la droite (voir « rejected »). Comme pour la loi de 1905, citer la source n'est pas obligatoire, mais on peut ajouter la page Légifrance aux sources de la vidéo. Le dessin ne montre aucun symbole religieux. Les planches -01 et -06 (école, guichet, coupe) peuvent ajouter une rue. La ligne « Matière » de l'en-tête peut citer ce fait du « context ».",
+  "newSource": {
+   "title": "Loi n° 2010-1192 du 11 octobre 2010 interdisant la dissimulation du visage dans l’espace public",
+   "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000022911670",
+   "publisher": "Légifrance",
+   "date": "11 octobre 2010"
+  },
+  "checked": true,
+  "verification": "confirmed : J’ai lu la loi n° 2010-1192 sur Légifrance. Elle est en vigueur. Art. 1er : « Nul ne peut, dans l’espace public, porter une tenue destinée à dissimuler son visage. » L’art. 2 définit l’espace public (voies publiques, lieux ouverts au public ou affectés à un service public) et prévoit des exceptions : santé, motifs professionnels, sport, fêtes, manifestations artistiques ou traditionnelles. La loi elle-même ne nomme pas le voile intégral. En revanche, la circulaire du 2 mars 2011 relative à sa mise en œuvre (Légifrance, JORFTEXT000023654701) dit : « Sont notamment interdits […] le port de cagoules, de voiles intégraux (burqa, niqab...), de masques ». « Comme le voile intégral » est donc exact et officiellement sourcé. Le « context » de la question le dit aussi. Le passage -03 actuel est exact mais incomplet face à la question « où est-ce interdit, et pour qui ? ».",
+  "topic": "laicite_republique",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "laicite_republique-10",
+  "target": "video",
+  "questionId": "",
+  "videoId": "laicite-discriminations",
+  "segmentId": "laicite-discriminations-06",
+  "field": "say (et spoken)",
+  "category": "chiffres",
+  "severity": "mineur",
+  "issue": "Dans la vidéo, seul le port du voile est présenté avec son évolution (passage -04 : « C’était 18 % en 2008 et 2009 »). La hausse du motif religieux dans les discriminations n'est pas dite, alors que la même enquête la relève. La correction n'ajoute aucun nombre. Mais il faut réenregistrer la voix de ce passage (say et spoken), qui durera alors près de 13 secondes. Au propriétaire de juger si l'équilibre des deux tendances vaut ce réenregistrement.",
+  "current": "chez les personnes sans ascendance migratoire ni originaires d’outre-mer.",
+  "proposed": "chez les personnes sans ascendance migratoire ni originaires d’outre-mer. Selon cette enquête, la mention de ce motif a augmenté en dix ans.",
+  "lenses": [
+   "gauche"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "laicite_republique-4"
+  ],
+  "rationale": "« Selon cette enquête » reprend la façon dont la vidéo désigne déjà l'enquête de l'Insee et de l'Ined (passages -01 et -04). Le constat est ainsi attribué à sa source. La même phrase s'ajoute au spoken. La gravité passe à « mineur » : une seule sensibilité l'a relevé, et le passage reste exact sans cet ajout.",
+  "newSource": {
+   "title": "Immigrés et descendants d’immigrés en France – fiche Discriminations",
+   "url": "https://www.insee.fr/fr/statistiques/6793302?sommaire=6793391",
+   "publisher": "Insee – Ined",
+   "date": "30 mars 2023"
+  },
+  "checked": true,
+  "verification": "confirmed : Même source que laicite_republique-4, relue : « La mention de ce motif a par ailleurs augmenté au cours des dix dernières années. » Ce motif est la religion, celui du passage -05. Dans la vidéo, « ce motif » renvoie bien au motif religieux du passage -05 (« citent leur religion comme motif »). L’attribution « selon cette enquête » respecte le § 5 du guide. Aucun nombre n’est ajouté. Il faut ajouter la même phrase au spoken et réenregistrer la voix : c’est au propriétaire d’en juger.",
+  "topic": "laicite_republique",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "laicite_republique-15",
+  "target": "video",
+  "questionId": "",
+  "videoId": "laicite-histoire",
+  "segmentId": "laicite-histoire-03",
+  "field": "draw (et alt, ajout)",
+  "category": "cadrage",
+  "severity": "mineur",
+  "issue": "Le passage dit l'abrogation de la disposition de 2005. Pour que le spectateur sache, sans nouvelle voix, que celle de 2001 reste en vigueur, le dessin peut le montrer.",
+  "current": "La ligne surlignée du texte de loi est barrée ; entre le texte et le livre, un trait en pointillé.",
+  "proposed": "draw : « Le texte de 2005 : sa ligne surlignée est barrée, et entre lui et le livre, un trait en pointillé ; le texte de 2001 garde sa flèche pleine vers le livre. » — alt : « Deux lois : 2001, toujours en vigueur ; 2005, disposition abrogée en 2006. »",
+  "lenses": [
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "laicite_republique-13",
+   "laicite_republique-14"
+  ],
+  "rationale": "On n'ajoute ni voix ni passage. Le champ alt dit ce que la planche écrit en plus du say, comme le veut le guide (§ 3). Les nombres viennent de la fiche corrigée.",
+  "topic": "laicite_republique",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "laicite_republique-18",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "en-tête (Datée)",
+  "category": "actualite",
+  "severity": "mineur",
+  "issue": "La mention « Datée » ne suit que la proposition de loi sur le sport. Deux autres faits peuvent changer avant le 18 avril 2027. Le premier est la commission mixte d'historiens (laicite-histoire-07 et « context » de la question). Selon la presse, ses travaux sont suspendus depuis la crise franco-algérienne, mais aucune source officielle ne le confirme. « A aussi été créée » reste exact, mais il faut vérifier où elle en est. Le second, s'il est ajouté, est le chiffre 2024-2025 des atteintes à la laïcité, qu'un bilan 2025-2026 du ministère remplacera. Il faut aussi revérifier l'état du texte sur le sport à l'Assemblée : les relecteurs n'ont rien pu confirmer après le 3 octobre 2026.",
+  "current": "À revoir si l'Assemblée\n// l'examine.",
+  "proposed": "À revoir si l'Assemblée\n// l'examine (vérifié au 7 octobre 2026 : renvoyé en commission le 19 février 2025, sans rapport ni séance). Datée aussi : la commission mixte\n// d'historiens français et algériens (laicite-histoire-07) : vérifier où en sont ses travaux, sur une source officielle,\n// avant le 18 avril 2027. Et le chiffre 2024-2025 des atteintes à la laïcité à l'école (laicite-signes-02, s'il est\n// ajouté) : le remplacer par le bilan 2025-2026 du ministère de l'Éducation nationale s'il paraît avant le vote.",
+  "lenses": [
+   "gauche",
+   "droite",
+   "centre"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "laicite_republique-3",
+   "laicite_republique-8"
+  ],
+  "rationale": "C'est une simple note pour le propriétaire, sans effet sur la voix. Elle fusionne les propositions de la gauche et de la droite avec la mention que suggérait le centre pour le chiffre de 2024-2025. On n'y met pas la loi algérienne de fin 2025, dont l'ajout à la fiche est écarté.",
+  "newSource": {
+   "title": "Proposition de loi visant à assurer le respect du principe de laïcité dans le sport – dossier législatif",
+   "url": "https://www.assemblee-nationale.fr/dyn/17/dossiers/DLR5L16N49619",
+   "publisher": "Assemblée nationale",
+   "date": "consulté le 7 octobre 2026"
+  },
+  "verification": "adjusted : La note interne est utile et ne touche pas à la voix. J’ai vérifié l’état du texte sur le sport. Le dossier législatif de l’Assemblée nationale (DLR5L16N49619) montre seulement le texte n° 993, déposé et renvoyé à la commission des affaires culturelles le 19 février 2025, sans rapport ni séance. Le dossier du Sénat, mis à jour le 1er mai 2026, en reste aussi à la première lecture à l’Assemblée. Le texte n’est donc toujours pas adopté au 7 octobre 2026. Un ajustement : j’ai retiré « dont l’activité dépend des relations entre la France et l’Algérie ». C’est un jugement de cause qui ne repose sur aucune source officielle, et l’« issue » admet que seule la presse parle d’une suspension. La note dit simplement de vérifier où en sont les travaux. Je n’ai pas pu lire de source officielle sur l’état de la commission mixte (budget de recherche épuisé), ni de bilan 2025-2026 sur les atteintes à la laïcité (education.gouv.fr renvoie une erreur 403).",
+  "topic": "laicite_republique",
+  "electionQuestionId": ""
+ }
+]

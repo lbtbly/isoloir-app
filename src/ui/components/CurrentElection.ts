@@ -30,6 +30,9 @@ export function useCurrentElection(): CurrentElection | null {
   return useContext(CurrentElectionContext)
 }
 
+/** Ce que dit une archive pendant son vote (bandeau des écrans, ligne d'archive du dépouillement en PDF) */
+export const VOTING_NOTE = 'Le vote est en cours\u00a0; ce questionnaire reste utilisable.'
+
 /** Le vote est-il en cours ? Jusqu'à « until » (ISO 8601) ; sans date, non */
 export function isVoting(until: string | undefined, now = Date.now()): boolean {
   const end = until ? Date.parse(until) : Number.NaN

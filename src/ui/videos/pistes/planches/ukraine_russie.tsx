@@ -785,6 +785,130 @@ const diplo08: Board = p => (
   </Seg>
 )
 
+/* ——— Édition « présidentielle 2027 » (editions/presidentielle-2027/ukraine_russie.ts) ——— */
+// Les passages dont le texte dit change prennent le suffixe -p27 : leur planche est ici, lue dans le passage
+// corrigé (p.segment) et la vidéo corrigée (p.script). Les planches de la primaire, plus haut, restent telles quelles.
+
+/**
+ * Les sièges d'un hémicycle, tous égaux : n sièges en « rows » rangées, du rayon r0 au rayon r1, chaque rangée à
+ * proportion de sa longueur (reste réparti aux plus forts restes) ; (cx, cy) : le milieu du diamètre. Un chemin de
+ * points par rangée, de la plus proche du centre à la plus éloignée.
+ */
+function hemicycleRows(cx: number, cy: number, r0: number, r1: number, rows: number, n: number): string[] {
+  const radii = range(rows).map(k => r0 + ((r1 - r0) * k) / (rows - 1))
+  const sum = radii.reduce((a, b) => a + b, 0)
+  const raw = radii.map(r => (n * r) / sum)
+  const counts = raw.map(v => Math.floor(v))
+  const rest = n - counts.reduce((a, b) => a + b, 0)
+  raw
+    .map((v, k) => ({ k, f: v - Math.floor(v) }))
+    .sort((a, b) => b.f - a.f)
+    .slice(0, rest)
+    .forEach(({ k }) => {
+      counts[k] = (counts[k] ?? 0) + 1
+    })
+  return radii.map((r, k) => {
+    const m = counts[k] ?? 0
+    return range(m)
+      .map(j => {
+        const a = m > 1 ? Math.PI - (Math.PI * j) / (m - 1) : Math.PI / 2
+        return `M${(cx + r * Math.cos(a)).toFixed(1)} ${(cy - r * Math.sin(a)).toFixed(1)}h.01`
+      })
+      .join('')
+  })
+}
+
+/** Un hémicycle vu de haut : n sièges, des points tous de même taille, qui arrivent rangée après rangée */
+function Hemicycle({ cx, cy, r0, r1, rows, n, tone, t0 = 0 }: { cx: number; cy: number; r0: number; r1: number; rows: number; n: number; tone?: Tone; t0?: number }) {
+  return (
+    <g class={tone ? `vc-${tone}` : undefined}>
+      {hemicycleRows(cx, cy, r0, r1, rows, n).map((d, k) => (
+        <Fade key={k} t0={t0 + k * 140}>
+          <path class="vc-bold" d={d} />
+        </Fade>
+      ))}
+    </g>
+  )
+}
+
+/**
+ * intro 01 (p27) Le 24 février 2022, l'invasion ; « Depuis, la guerre continue » : la frise des années, un fanion
+ * au 24 février 2022, une flèche ouverte qui court au-delà de la dernière année dite dans la vidéo (celle de ses
+ * chiffres) ; aucune durée n'est écrite (le texte n'en dit plus), seule 2022 est nommée.
+ */
+const intro01p27: Board = p => {
+  const [date, suite] = cuesOf(p)
+  const y0 = yearsOf(date?.text ?? '')[0]
+  if (!date || !suite || !y0) return null
+  const later = p.script.segments.flatMap(s => yearsOf(s.say)).filter(v => v > y0 && v <= y0 + 10)
+  const n = later.length ? Math.max(...later) - y0 : 0
+  // Le 24 février : un peu après le début de l'année ; la flèche finit au-delà de la dernière graduation
+  const start = y0 + 0.15
+  const end = y0 + Math.max(n, 2) + 0.6
+  const y = 62
+  const f = frise({ y, from: y0, to: end + 0.2, x0: 18, x1: 282, ticks: range(n + 1).map(k => y0 + k), labels: [y0], t0: 200 })
+  const xs = f.X(start)
+  const xe = f.X(end)
+  return (
+    <Seg>
+      <Head lines={[lineOf(date)]} />
+      <Art h={142}>
+        {f.el}
+        {date.shown ? <Picto n="drapeau" x={xs - 11.5} y={y - 44} size={46} tone="count" t0={100} /> : null}
+        {suite.shown ? (
+          <>
+            <Arrow x1={xs} y1={y} x2={xe} y2={y} tone="count" t0={0} dur={900} />
+            <Brace x1={xs} y1={98} x2={xe} y2={98} t0={700} tone="count" />
+            <Txt x={(xs + xe) / 2} y={136} text={lower(suite.text)} size={16} tone="count" t0={1000} />
+          </>
+        ) : null}
+      </Art>
+    </Seg>
+  )
+}
+
+/**
+ * diplomatie 05 (p27) Le Conseil bloqué par un veto (la table ronde, la résolution au centre, une barrière qui se
+ * baisse) ; l'Assemblée générale peut se saisir de la question (une flèche en pointillé vers un hémicycle) ;
+ * chacun de ses États membres y a une voix (autant de sièges que le nombre dit, tous égaux, comptés au bleu
+ * bille) ; elle fait des recommandations (un document au centre de l'hémicycle).
+ */
+const diplo05p27: Board = p => {
+  const [ag, voix] = cuesOf(p)
+  const conseil = word(p, /le Conseil/)
+  const veto = word(p, /bloqué par un veto/)
+  const membres = word(p, /\d+ États membres/)
+  const reco = word(p, /recommandations/)
+  const n = num(membres?.text)
+  if (!ag || !voix || !membres || !n || n > 400) return null
+  const T = { cx: 46, cy: 40, r: 20, seat: 5 }
+  const H = { cx: 220, cy: 124, r0: 32, r1: 76 }
+  // La flèche part de sous la table et s'arrête au bord de l'hémicycle, dans sa direction
+  const from = { x: 84, y: 74 }
+  const len = Math.hypot(H.cx - from.x, H.cy - from.y)
+  const k = (H.r1 + 9) / len
+  const to = { x: H.cx - (H.cx - from.x) * k, y: H.cy - (H.cy - from.y) * k }
+  return (
+    <Seg>
+      <HeadCues p={p} />
+      <Art h={152}>
+        <Table cx={T.cx} cy={T.cy} r={T.r} seat={T.seat} t0={100} />
+        <Picto n="document" x={T.cx - 11} y={T.cy - 11} size={22} t0={500} />
+        {conseil ? <Txt x={T.cx} y={98} text={conseil.text} size={15} tone="soft" t0={300} /> : null}
+        {veto?.shown ? <Barriere x={130} y={56} s={0.9} t0={100} /> : null}
+        {ag.shown ? (
+          <>
+            <Arrow x1={from.x} y1={from.y} x2={Math.round(to.x)} y2={Math.round(to.y)} dash t0={0} />
+            <Hemicycle cx={H.cx} cy={H.cy} r0={H.r0} r1={H.r1} rows={7} n={n} tone={voix.shown ? 'count' : undefined} t0={300} />
+          </>
+        ) : null}
+        {reco?.shown ? <Picto n="document" x={H.cx - 11} y={H.cy - 25} size={22} t0={100} /> : null}
+        {membres.shown ? <Txt x={H.cx} y={146} text={membres.text} size={15} tone="count" t0={300} /> : null}
+      </Art>
+    </Seg>
+  )
+}
+
 /* ——— Le registre ——— */
 
 export const UKRAINE_RUSSIE: Record<string, Board> = {
@@ -823,4 +947,7 @@ export const UKRAINE_RUSSIE: Record<string, Board> = {
   'ukraine-diplomatie-06': diplo06,
   'ukraine-diplomatie-07': diplo07,
   'ukraine-diplomatie-08': diplo08,
+  // Édition « présidentielle 2027 »
+  'ukraine-intro-01-p27': intro01p27,
+  'ukraine-diplomatie-05-p27': diplo05p27,
 }

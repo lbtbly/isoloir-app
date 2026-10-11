@@ -1,0 +1,210 @@
+[
+ {
+  "id": "proche_orient-2",
+  "target": "video",
+  "questionId": "",
+  "videoId": "proche-orient-intro",
+  "segmentId": "proche-orient-intro-07",
+  "field": "say, draw, emphasis",
+  "category": "origine",
+  "severity": "bloquant",
+  "issue": "Le passage présente les deux questions de la primaire comme celles qui « se posent à la France ». « Comment qualifier l’action de l’armée israélienne » n’existe pas dans cette élection. « Quels moyens de pression » tranche d’avance une question devenue « Quelle politique mener envers le gouvernement israélien ? », où deux approches refusent les sanctions. La seconde question du thème, sur l’État de Palestine, n’est pas annoncée. Le dessin (un livre de droit, un cadran de pression) porte les mêmes présupposés. Il faut réenregistrer la voix du passage. Le fichier sert aussi la primaire archivée, où le texte actuel est juste : la nouvelle version ne doit valoir que pour la présidentielle (variante), sans toucher l’archive.",
+  "current": "Deux questions se posent à la France. Comment qualifier l’action de l’armée israélienne à Gaza ? Et quels moyens de pression envers le gouvernement israélien ?",
+  "proposed": "say: 'Deux questions se posent à la France. Quelle politique mener envers le gouvernement israélien ? Et quelle position sur l’État de Palestine ?', draw: 'Deux pictogrammes, l’un sous l’autre, chacun avec sa question : deux cadres au trait reliés par une flèche double, puis un document posé sous le globe de l’ONU.', emphasis: ['Quelle politique', 'État de Palestine']",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "proche_orient-1",
+   "proche_orient-3"
+  ],
+  "rationale": "Les trois sensibilités l’ont relevé : c’est le cas type du renvoi à l’élection source. Les deux énoncés sont repris mot pour mot de la banque de la présidentielle, comme le proposaient la gauche et le centre. La version à une seule question (droite) n’est pas retenue : le thème en compte deux ici. Pour le dessin, pas de carte ni de drapeau, car leur tracé et leurs couleurs sont eux-mêmes disputés. La reconnaissance s’est faite aux Nations unies : d’où le document sous le globe de l’ONU. La planche (pistes/planches/proche_orient.tsx) doit suivre.",
+  "topic": "proche_orient",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "proche_orient-11",
+  "target": "video",
+  "questionId": "",
+  "videoId": "proche-orient-intro",
+  "segmentId": "proche-orient-intro-01",
+  "field": "say, spoken, draw, emphasis ; sources de la vidéo",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "L’introduction raconte la guerre depuis le 7 octobre 2023, avec une flèche qui court « jusqu’à aujourd’hui ». Elle ne dit pas qu’un cessez-le-feu est en vigueur depuis le 10 octobre 2025. Elle ne dit rien non plus de l’échange d’otages et de prisonniers qui a suivi, que rappelle pourtant le contexte de proche_orient-1. Les trois sensibilités l’ont relevé. Il faut réenregistrer la voix de ce passage, et c’est nécessaire. La série est à 45 passages, le plafond du test : le nouveau passage proposé par la droite n’est donc pas possible.",
+  "current": "La guerre à Gaza a suivi l’attaque du Hamas contre Israël, le 7 octobre 2023. Quelle position la France doit-elle prendre ?",
+  "proposed": "say: 'La guerre à Gaza a suivi l’attaque du Hamas contre Israël, le 7 octobre 2023. Un cessez-le-feu est entré en vigueur le 10 octobre 2025, suivi d’un échange d’otages et de prisonniers. Quelle position la France doit-elle prendre ?', spoken: 'La guerre à Gaza a suivi l’attaque du Hamas contre Israël, le sept octobre deux mille vingt-trois. Un cessez-le-feu est entré en vigueur le dix octobre deux mille vingt-cinq, suivi d’un échange d’otages et de prisonniers. Quelle position la France doit-elle prendre ?', draw: 'Une frise des années au trait : un fanion planté au 7 octobre 2023, un second au 10 octobre 2025, le cessez-le-feu ; une flèche en pointillé qui court jusqu’à aujourd’hui, un point d’interrogation au bout.', emphasis: ['7 octobre 2023', 'cessez-le-feu', 'Quelle position'] ; sources de l’introduction : ajouter la source ONU Info du 5 octobre 2026.",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "proche_orient-6"
+  ],
+  "rationale": "Fusion : la phrase sur le cessez-le-feu (gauche, centre) et l’échange d’otages (droite). L’échange est dit dans les deux sens, en une seule proposition, pour que le passage tienne en 4 à 12 secondes. Le fait est antérieur aux contenus de la primaire : la modification vaut aussi pour l’archive, si sa fiche reçoit le même point (sinon, variante présidentielle). La planche doit suivre (second fanion).",
+  "newSource": {
+   "title": "7-Octobre : trois ans après, Guterres appelle à transformer un cessez-le-feu inachevé en paix durable",
+   "url": "https://news.un.org/fr/story/2026/10/1159611",
+   "publisher": "ONU Info (Nations unies)",
+   "date": "2026-10-05"
+  },
+  "checked": true,
+  "verification": "confirmed : Le texte actuel d’intro-01 a été vérifié : la flèche court « jusqu’à aujourd’hui » sans signaler le cessez-le-feu. ONU Info du 05/10/2026 confirme « un cessez-le-feu est en vigueur depuis près d’un an » et « L’accord conclu le 10 octobre 2025 ». La même source confirme l’échange : « libération des derniers otages israéliens en échange de prisonniers palestiniens ». La série compte bien 45 passages (8 + 7 + 9 + 8 + 7 + 6), et tests/videos.test.ts fixe MAX_PER_SERIES = 45. La date du 10/10/2025 entre dans la fiche par proche_orient-6 : le lien est nécessaire pour respecter le GUIDE § 6.",
+  "topic": "proche_orient",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "proche_orient-12",
+  "target": "video",
+  "questionId": "",
+  "videoId": "proche-orient-onu",
+  "segmentId": "proche-orient-onu-05",
+  "field": "say, spoken, visual, draw, alt, emphasis, figure",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "La vidéo ne montre que le texte de septembre 2025, bloqué par un veto américain et dessiné par un siège barré. Elle ne dit pas que, deux mois plus tard, le Conseil a adopté sans voix contre la résolution 2803, qui approuve le plan de paix pour Gaza. Le Conseil n’y apparaît que bloqué, et le plan de l’approche h n’existe pas. La série étant à 45 passages, ce vote remplace le récapitulatif des règles (onu-05), déjà dit dans accord-06 et dans le résumé de la fiche. Il faut réenregistrer la voix de ce seul passage.",
+  "current": "Chaque outil a sa règle. Dans l’Union européenne, la majorité qualifiée ou l’unanimité des Vingt-Sept. À l’ONU, l’absence de veto d’un membre permanent.",
+  "proposed": "say: 'Le 17 novembre 2025, le Conseil adopte la résolution 2803, qui approuve le plan de paix pour Gaza présenté par les États-Unis. Elle recueille 13 voix pour et aucune contre ; la Chine et la Russie, membres permanents, s’abstiennent, ce qui ne la bloque pas.', spoken: 'Le dix-sept novembre deux mille vingt-cinq, le Conseil adopte la résolution deux mille huit cent trois, qui approuve le plan de paix pour Gaza présenté par les États-Unis. Elle recueille treize voix pour et aucune contre ; la Chine et la Russie, membres permanents, s’abstiennent, ce qui ne la bloque pas.', visual: 'figure', draw: 'Les quinze sièges, comme au vote de septembre : treize teintés, aucun barré, deux sièges permanents laissés en blanc, les abstentions ; le texte, cette fois, en trait plein.', alt: 'Quinze sièges : treize pour, aucun contre, deux abstentions de membres permanents. La résolution 2803 est adoptée.', emphasis: ['résolution 2803', '13 voix pour', 'aucune contre'], figure: { ...RESOLUTION_2803, sourceIndex: 1 } (constante tirée de figures[4] de la fiche)",
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "proche_orient-7",
+   "proche_orient-13"
+  ],
+  "rationale": "Le centre et la droite demandent ce vote dans la vidéo, la gauche le demande dans la fiche. Le texte du centre reprend la construction d’onu-04 (date, décompte, effet de la règle) : les deux votes sont à égalité, sans commentaire. La gauche demandait autre chose pour ce passage, ajouter la règle des exportations d’armes : ce n’est pas retenu (voir les corrections écartées). onu-06 (« parmi ces outils ») reste compréhensible et n’est pas réenregistré. Le fait est antérieur aux contenus de la primaire : il vaut aussi pour l’archive si sa fiche porte ce chiffre. La planche doit suivre.",
+  "newSource": {
+   "title": "Security Council Authorizes International Stabilization Force in Gaza, Adopting Resolution 2803 (2025) (SC/16225)",
+   "url": "https://press.un.org/en/2025/sc16225.doc.htm",
+   "publisher": "Nations unies – Couverture des réunions",
+   "date": "2025-11-17"
+  },
+  "checked": true,
+  "verification": "confirmed : Les faits ont été relus sur SC/16225 : la date du 17/11/2025, le vote de 13 pour, aucune contre et 2 abstentions (Chine, Russie), et « endorsed the United States-backed “Comprehensive Plan” ». La vidéo actuelle ne montre bien que le veto du 18/09/2025, en onu-03 et onu-04. Le nombre de passages est vérifié : 45, le plafond du test, donc un remplacement est nécessaire. onu-05, le passage remplacé, ne porte aucune figure. Nommer la Chine et la Russie, des États et non des personnalités, respecte le GUIDE § 5, comme les États-Unis dans onu-04.",
+  "topic": "proche_orient",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "proche_orient-14",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "structure (vidéos proche-orient-mots et proche-orient-justice, bilans de l’introduction, question proche_orient-2)",
+  "category": "origine",
+  "severity": "important",
+  "issue": "La série suit encore le découpage de la primaire. Deux de ses cinq approfondissements servent la question de la qualification (international_defense-2), qui n’a pas d’équivalent dans cette élection : « Les mots du droit international » et « Ce qu’examinent les instances internationales ». scopeSeries les garde quand même, sans question, et « Voir la fiche » mène à proche_orient-1, qui ne contient aucun de leurs faits. justice-08 montre « 4 sur 5 », un chiffre tiré d’une fiche que cette élection n’affiche pas (GUIDE § 6). mots-07 pose une question que cette élection ne pose pas. À l’inverse, aucune vidéo ne traite de la seconde question du thème, l’État de Palestine, qui n’a pas non plus de fiche. Les trois sensibilités l’ont relevé.",
+  "current": "questionIds: ['international_defense-2'],",
+  "proposed": "Ces changements valent pour la présidentielle seulement. Ils passent par le périmètre vidéo (scope.ts, reuse.json) ou par une variante, sans toucher la série de la primaire archivée : les tests exigent que chaque question de la primaire garde son approfondissement. 1) Ne montrer ni « proche-orient-mots » ni « proche-orient-justice ». On peut par exemple ajouter à scope.ts une règle qui retire un approfondissement dont aucune question n’a d’équivalent (effet à vérifier sur les autres séries). 2) Si le propriétaire ajoute à la banque une question sur la qualification, ouverte à tout le spectre (refus de toute qualification pénale compris) et dotée de sa fiche, ces deux vidéos peuvent revenir sous elle. 3) Les faits sur la CPI passent dans la fiche de proche_orient-1 (proche_orient-5), tout comme les deux bilans de l’introduction (proche_orient-8). 4) Écrire une fiche sourcée pour proche_orient-2 (reconnaissance de l’État de Palestine par la France, le 22 septembre 2025) avant toute vidéo sur cette question. 5) Mettre à jour la description de l’en-tête : les questions de la présidentielle sont proche_orient-1 et proche_orient-2.",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "proche_orient-3",
+   "proche_orient-5",
+   "proche_orient-8"
+  ],
+  "rationale": "Le centre et la droite demandent de ne plus montrer ces vidéos, la gauche de les garder comme repères généraux. On applique la règle. Une vidéo ne montre que des chiffres des fiches de ses questions, et ne pose pas une question que l’élection ne pose pas. Les garder ici ferait d’un tiers de la série le débat propre à la primaire. Ce qui sert une question de cette élection, la CPI de l’approche d, reste présent par la fiche et par intro-05. La demande de la gauche sur la Palestine est retenue sous la forme d’une fiche à écrire : une vidéo ne pourra venir qu’après.",
+  "topic": "proche_orient",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "proche_orient-15",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "en-tête (Datée)",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "La mention « Datée » s’arrête au 21 avril 2026 et ne prévoit aucune relecture avant le vote. Or plusieurs faits auront changé d’ici le 18 avril 2027 : le bilan cumulatif de l’OCHA, les 84 avant-postes (prochain rapport du HCDH) et l’état de la deuxième phase du plan de paix. Les mesures commerciales sur les produits des colonies sont toujours à l’examen (réunion des ministres du 13 juillet 2026). Le gouvernement visé par la question peut changer après les élections législatives israéliennes du 27 octobre 2026. Les trois sensibilités l’ont relevé.",
+  "current": "// Datée : bilans au 23 septembre 2026 (OCHA), procédure de la CIJ au 21 mai 2026, sanctions de l'UE au\n// 28 mai 2026, réunion des ministres européens du 21 avril 2026. À revoir à la prochaine mise à jour de ces\n// sources, ou après une décision de la CIJ sur le fond.",
+  "proposed": "// Datée : bilans au 23 septembre 2026 (OCHA), procédure de la CIJ au 21 mai 2026, sanctions de l'UE au\n// 28 mai 2026, réunions des ministres européens du 21 avril et du 13 juillet 2026 (options de la Commission sur\n// de nouvelles mesures commerciales visant les produits des colonies), cessez-le-feu du 10 octobre 2025 et\n// résolution 2803 du Conseil de sécurité (17 novembre 2025, mandat jusqu'au 31 décembre 2027 ; deuxième phase\n// du plan largement bloquée au 5 octobre 2026, selon l'ONU). À revoir avant le premier tour (18 avril 2027) :\n// après les élections législatives israéliennes du 27 octobre 2026, une décision du Conseil de l'UE sur\n// l'accord ou sur les produits des colonies, la mise en œuvre de la résolution 2803, une décision de la CIJ\n// sur le fond, le prochain rapport du HCDH sur les colonies et chaque mise à jour du bilan (cumulatif) de l'OCHA.",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "rationale": "Fusion des trois propositions. Tous les faits ont été lus. La réunion du 13 juillet 2026 (options de la Commission sur les produits des colonies, engagement pour le plan de paix) a été lue sur la page du Conseil, dans le navigateur. Les élections législatives israéliennes du 27 octobre et l’état de la deuxième phase viennent d’ONU Info du 5 octobre 2026. Le mandat jusqu’au 31 décembre 2027 vient de SC/16225. L’échéance du premier tour impose une relecture avant le vote.",
+  "newSource": {
+   "title": "Foreign Affairs Council, 13 July 2026 – Main results",
+   "url": "https://www.consilium.europa.eu/en/meetings/fac/2026/07/13/",
+   "publisher": "Conseil de l’Union européenne",
+   "date": "2026-07-13"
+  },
+  "checked": true,
+  "verification": "confirmed : Page du Conseil de l’UE du 13/07/2026 relue dans le navigateur. Les ministres « exchanged views on options for further trade-related measures vis-à-vis the products originating in the settlements, as presented by the European Commission ». Ils « reaffirmed their commitment to the implementation of the comprehensive peace plan for Gaza ». ONU Info du 05/10/2026 confirme « élections législatives du 27 octobre » et « ces chantiers restent largement bloqués ». SC/16225 confirme le mandat jusqu’au 31/12/2027. Le calendrier du Conseil ne montre aucun Conseil Affaires étrangères ordinaire entre le 13 juillet et le prochain, prévu le 12 octobre 2026, à surveiller. Le déclencheur « mise à jour du bilan de l’OCHA » est déjà atteint : l’instantané du 30/09/2026 donne 74 032 (voir proche_orient-8).",
+  "topic": "proche_orient",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "proche_orient-3",
+  "target": "video",
+  "questionId": "",
+  "videoId": "proche-orient-intro",
+  "segmentId": "proche-orient-intro-08",
+  "field": "say, draw",
+  "category": "origine",
+  "severity": "important",
+  "issue": "« Les cinq vidéos qui suivent » reprend le découpage de la primaire. Pour la présidentielle, deux de ces vidéos servent une question absente (voir proche_orient-14), et aucune ne traite de l’État de Palestine. « Les » renvoie à deux questions, dont une seule a des vidéos. Il faut réenregistrer la voix, pour la présidentielle seulement (même remarque que pour intro-07 sur l’archive).",
+  "current": "Les cinq vidéos qui suivent les regardent de plus près.",
+  "proposed": "say: 'Les vidéos qui suivent regardent de plus près la première question.', draw: 'Le sommaire des vidéos qui suivent, chacune avec son pictogramme.'",
+  "lenses": [
+   "centre",
+   "droite",
+   "gauche"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "proche_orient-2",
+   "proche_orient-14"
+  ],
+  "rationale": "On retient la formulation du centre. Elle reste juste quel que soit le nombre de vidéos montrées, et elle s’accorde avec les deux questions annoncées en intro-07. La version de la droite (« la regardent ») suppose une seule question annoncée.",
+  "topic": "proche_orient",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "proche_orient-13",
+  "target": "video",
+  "questionId": "",
+  "videoId": "proche-orient-onu",
+  "segmentId": "",
+  "field": "sources (et nouvelles constantes)",
+  "category": "actualite",
+  "severity": "mineur",
+  "issue": "Cette correction suit onu-05 : la vidéo doit citer la source du vote sur la résolution 2803. COMMISSION_UE ne sert plus à aucun passage de cette vidéo une fois le récapitulatif des règles retiré.",
+  "current": "sources: [CONSEIL_SECURITE, COMMISSION_UE],",
+  "proposed": "sources: [CONSEIL_SECURITE, RESOLUTION_2803_SOURCE], avec const RESOLUTION_2803_SOURCE: VideoSource = { title: 'Security Council Authorizes International Stabilization Force in Gaza, Adopting Resolution 2803 (2025) (SC/16225)', url: 'https://press.un.org/en/2025/sc16225.doc.htm', publisher: 'Nations unies – Couverture des réunions', date: '2025-11-17' } et const RESOLUTION_2803 = { value: '13 voix pour, 0 contre', label: 'Vote au Conseil de sécurité de l’ONU sur la résolution 2803, qui approuve le plan de paix pour Gaza présenté par les États-Unis, après le cessez-le-feu entré en vigueur le 10 octobre 2025. Deux membres permanents, la Chine et la Russie, se sont abstenus : une abstention ne bloque pas une résolution', date: '17 novembre 2025' }",
+  "lenses": [
+   "centre"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "proche_orient-12",
+   "proche_orient-7"
+  ],
+  "rationale": "Chaque nombre dit dans la vidéo doit venir d’une de ses sources, sans source inutile (GUIDE § 6). Le libellé reprend celui de figures[4], raccourci sans en changer le sens.",
+  "newSource": {
+   "title": "Security Council Authorizes International Stabilization Force in Gaza, Adopting Resolution 2803 (2025) (SC/16225)",
+   "url": "https://press.un.org/en/2025/sc16225.doc.htm",
+   "publisher": "Nations unies – Couverture des réunions",
+   "date": "2025-11-17"
+  },
+  "checked": true,
+  "verification": "confirmed : Le titre et l’URL de SC/16225 correspondent à la page ouverte : « Security Council Authorizes International Stabilization Force in Gaza, Adopting Resolution 2803 (2025) ». Dans la vidéo onu, aucune figure ne pointe vers sourceIndex 1 en dehors du passage onu-05, qui sera remplacé. Ce passage était le seul à dire les règles de l’UE (Vingt-Sept, majorité qualifiée) : COMMISSION_UE devient donc inutile. Le libellé de RESOLUTION_2803 est fidèle à figures[4] (proche_orient-7) et à la source.",
+  "topic": "proche_orient",
+  "electionQuestionId": ""
+ }
+]

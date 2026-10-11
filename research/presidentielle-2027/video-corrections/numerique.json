@@ -1,0 +1,273 @@
+[
+ {
+  "id": "numerique-11",
+  "target": "video",
+  "questionId": "",
+  "videoId": "numerique-plateformes",
+  "segmentId": "numerique-plateformes-05",
+  "field": "segment (say, spoken, draw, emphasis, figure)",
+  "category": "chiffres",
+  "severity": "important",
+  "issue": "Conséquence de numerique-10 : le plafond de 6 % quitte la fiche, et la vidéo ne peut plus le montrer. Placer ce passage après numerique-plateformes-07, comme le proposait la gauche, décalerait l’identifiant de la question (08), dont la voix est enregistrée. Le contenu change donc à la place de numerique-plateformes-05. Le « say » change : voix à réenregistrer pour ce passage.",
+  "current": "Le plafond d’une amende : 6 % du chiffre d’affaires annuel mondial de la plateforme.",
+  "proposed": "say : « En France, une taxe vise aussi les grandes entreprises du numérique : 3 % du chiffre d’affaires qu’elles tirent, en France, de la publicité ciblée et de l’intermédiation en ligne. » ; spoken : « En France, une taxe vise aussi les grandes entreprises du numérique : trois pour cent du chiffre d’affaires qu’elles tirent, en France, de la publicité ciblée et de l’intermédiation en ligne. » ; draw : « Cent pièces en dix rangées ; trois se comptent au bleu bille. » ; emphasis : ['3 %'] ; figure : { value: '3 %', label: celui de la fiche, date: 'Règle en vigueur (consultée le 7 octobre 2026)', sourceIndex: 2 }",
+  "checked": true,
+  "newSource": {
+   "title": "Code des impositions sur les biens et services – Taxe sur certains services numériques (articles L453-45 à L453-83)",
+   "url": "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000044595989/LEGISCTA000048626177/",
+   "publisher": "Légifrance",
+   "date": "2024-01-01"
+  },
+  "lenses": [
+   "gauche"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "numerique-10",
+   "numerique-12",
+   "numerique-13"
+  ],
+  "rationale": "Le texte de la gauche est repris, avec deux ajustements. « Les grandes entreprises » remplace « les plus grandes », car les seuils de 750 et 25 millions d’euros ne désignent pas seulement les toutes premières. « Aussi » relie le passage aux amendes qui précèdent. Le dessin reprend celui du 6 %, à trois pièces.",
+  "verification": "confirmed : Ce passage découle de numerique-10. Le taux de 3 % et les deux services taxables (intermédiation et publicité ciblée, articles L453-46, L453-53 et L453-60) sont confirmés sur Légifrance au 07/10/2026. « Les grandes entreprises » est plus juste que « les plus grandes » au vu des seuils de 750 M€ et 25 M€. Le passage décrit une règle en vigueur, sans commentaire. Si numerique-10 n’est pas retenue, le plafond de 6 % (DSA) reste exact et ce passage n’a pas lieu de changer.",
+  "topic": "numerique",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "numerique-14",
+  "target": "video",
+  "questionId": "",
+  "videoId": "numerique-plateformes",
+  "segmentId": "numerique-plateformes-08",
+  "field": "say, emphasis",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "La question finale ne pose le débat que dans un sens (« faut-il en ajouter ? ») : elle exclut d’office l’allègement ou l’abrogation de ces règles, que défendent trois approches de cette élection (d, e, f). Le passage n’a pas de « spoken » : la voix dit le « say » et doit être réenregistrée. C’est nécessaire, car la vidéo ne doit pas finir sur le cadrage d’un camp.",
+  "current": "Alors, comment faire respecter ces règles, et faut-il en ajouter ?",
+  "proposed": "say : « Alors, ces règles : faut-il les renforcer, les garder telles quelles ou les alléger ? » ; emphasis : ['les renforcer', 'les garder', 'les alléger']",
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [],
+  "rationale": "Relevé par le centre et la droite ; la gauche ne s’y oppose pas. Je fusionne les deux textes. Le statu quo est placé au milieu, et les trois options reçoivent le même relief : l’ordre ne suggère pas de vainqueur. La vidéo « Information, presse et création » finit déjà sur un « faut-il les changer ? » ouvert.",
+  "topic": "numerique",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "numerique-16",
+  "target": "video",
+  "questionId": "",
+  "videoId": "numerique-medias",
+  "segmentId": "numerique-medias-07",
+  "field": "segment (say, spoken, draw, alt, emphasis, figure)",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "Conséquence de numerique-15 : le chiffre de 49 % quitte la fiche, et la vidéo ne peut plus le montrer. La droite proposait d’insérer un passage numerique-medias-03b, mais cela décalerait les identifiants 04 à 08, dont les voix sont enregistrées. Le contenu change donc à la place de numerique-medias-07. Voix à réenregistrer pour ce seul passage.",
+  "current": "Contre la concentration des médias, une loi de 1986 fixe des limites. Personne ne peut détenir plus de 49 % du capital d’une chaîne nationale de la TNT qui dépasse 8 % d’audience.",
+  "proposed": "say : « En 2020, le Conseil constitutionnel a censuré l’obligation faite aux plateformes de retirer en 24 heures les contenus haineux manifestement illicites qu’on leur signale. Selon lui, elle ne pouvait que les pousser à retirer les contenus signalés, manifestement illicites ou non : une atteinte disproportionnée à la liberté d’expression. » ; spoken : « En deux mille vingt, le Conseil constitutionnel a censuré l’obligation faite aux plateformes de retirer en vingt-quatre heures les contenus haineux manifestement illicites qu’on leur signale. Selon lui, elle ne pouvait que les pousser à retirer les contenus signalés, manifestement illicites ou non : une atteinte disproportionnée à la liberté d’expression. » ; visual : 'figure' ; draw : « Une bulle de message et un chronomètre marqué 24 h ; puis un bâtiment à colonnes, et le chronomètre barré d’un trait. » ; alt : « Un chronomètre marqué 24 h, barré d’un trait. » ; emphasis : ['24 heures', 'liberté d’expression'] ; figure : { value: '24 heures', label: celui de la fiche corrigée (numerique-15), date: 'Décision du 18 juin 2020', sourceIndex: 3 }",
+  "checked": true,
+  "newSource": {
+   "title": "Décision n° 2020-801 DC du 18 juin 2020 – Loi visant à lutter contre les contenus haineux sur internet",
+   "url": "https://www.conseil-constitutionnel.fr/decision/2020/2020801DC.htm",
+   "publisher": "Conseil constitutionnel",
+   "date": "2020-06-18"
+  },
+  "lenses": [
+   "droite",
+   "centre"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "numerique-15",
+   "numerique-17"
+  ],
+  "rationale": "Je reprends le texte de la droite et nomme le Conseil, puisque le passage n’enchaîne plus sur le 03. « Atteinte disproportionnée » est la formule déjà employée dans numerique-ecrans-08. La vidéo montre ainsi deux décisions (2018 admise sous réserve, 2020 censurée), des outils de régulation (droit voisin, 20 %) et une limite. La question finale (« faut-il les changer ? ») reste ouverte : elle ne tranche pas.",
+  "verification": "adjusted : Ce passage découle de numerique-15, et les faits sont confirmés au paragraphe 19 de la décision. Je corrige une chose : « illicites ou non » durcit la phrase du Conseil, qui dit « qu’ils soient ou non manifestement illicites ». Le risque relevé est le retrait de contenus qui ne sont pas manifestement illicites, pas seulement de contenus licites. Il faut donc écrire « manifestement illicites ou non ». « Atteinte disproportionnée » résume fidèlement « pas nécessaire, adaptée et proportionnée » ; la formule sert déjà dans numerique-ecrans-08. Garder l’identifiant et la place de numerique-medias-07 respecte le GUIDE § 9. Voix à réenregistrer pour ce seul passage.",
+  "topic": "numerique",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "numerique-18",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "en-tête (mention « Datée »)",
+  "category": "origine",
+  "severity": "important",
+  "issue": "L’échéance de relecture renvoie au vote de la primaire (octobre 2026), qui n’est plus le calendrier de l’élection couverte. Plusieurs faits datés peuvent changer d’ici au premier tour. Si les corrections numerique-3 et numerique-10 sont retenues, deux faits s’ajoutent : le taux de la taxe sur les services numériques et les prévisions de RTE.",
+  "current": "À revoir après le vote d'octobre 2026, ou dès qu'un de ces faits change.",
+  "proposed": "À revoir avant le premier tour du 18 avril 2027 (faits vérifiés au 7 octobre 2026), et dès qu'un de ces faits change : décision au fond de l'Autorité de la concurrence sur Meta, suites de l'enquête sur TikTok, nouvelles amendes au titre du règlement sur les services numériques, nouveau texte sur l'accès des mineurs aux réseaux sociaux, taux de la taxe sur les services numériques (projet de loi de finances pour 2027), estimations de RTE sur les centres de données (page du 1er juin 2026).",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "numerique-3",
+   "numerique-10"
+  ],
+  "rationale": "Relevé par les trois sensibilités. Je fusionne leurs listes. Les deux derniers faits ne valent que si numerique-3 et numerique-10 sont retenues.",
+  "topic": "numerique",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "numerique-5",
+  "target": "video",
+  "questionId": "",
+  "videoId": "numerique-ia",
+  "segmentId": "numerique-ia-05",
+  "field": "segment (say, spoken, figure, chart, draw, alt, emphasis)",
+  "category": "chiffres",
+  "severity": "important",
+  "issue": "Conséquence de numerique-3 : la vidéo ne peut plus montrer les recettes de la protection sociale. On ne peut ni supprimer ce passage ni en ajouter un après numerique-ia-10. Le test exige des identifiants qui se suivent sans trou (tests/videos.test.ts), et les voix de numerique-ia-06 à 11 sont enregistrées. Le passage numerique-ia-05 garde donc son identifiant et sa place, entre l’emploi (04) et le règlement (06), et reçoit le chiffre de RTE. Sa voix est à réenregistrer, avec les deux voix, aiguë et grave, et seulement pour ce passage.",
+  "current": "En France, en 2024, les cotisations sociales apportaient 55,11 % des recettes de la protection sociale. Les contributions publiques, 42,9 %.",
+  "proposed": "say : « Les centres de données, où tournent notamment les IA, consomment de l’électricité. En France, selon RTE, environ 10 térawattheures par an : environ 2 % de la consommation. Dans un scénario de décarbonation rapide, leur part pourrait atteindre 4 % en 2035. » ; spoken : « Les centres de données, où tournent notamment les I.A., consomment de l’électricité. En France, selon R.T.E., environ dix térawattheures par an : environ deux pour cent de la consommation. Dans un scénario de décarbonation rapide, leur part pourrait atteindre quatre pour cent en deux mille trente-cinq. » ; visual : 'figure' ; draw : « Une armoire de serveurs au trait reliée à une prise ; à côté, deux barres à la même échelle, depuis zéro : aujourd’hui au bleu bille, 2035 en pointillé. » ; alt : « Deux barres à la même échelle : environ 2 % aujourd’hui ; 4 % en 2035, en pointillé (scénario). » ; emphasis : ['10 térawattheures', '2 %', '4 %'] (avec insécables) ; figure : { value: '10 TWh', label: celui de la fiche corrigée (numerique-3), date: 'Estimation 2026 (page mise à jour le 1er juin 2026)', sourceIndex: 2 } ; plus de chart (supprimer la constante CHART_PROTECTION). Voix à réenregistrer pour ce seul passage, avec les deux voix.",
+  "checked": true,
+  "newSource": {
+   "title": "Les data centers en chiffres clés",
+   "url": "https://www.rte-france.com/bases-electricite/consommation-electricite/essor-data-centers-france",
+   "publisher": "RTE (Réseau de transport d’électricité)",
+   "date": "2026-06-01"
+  },
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "numerique-3",
+   "numerique-4",
+   "numerique-6"
+  ],
+  "rationale": "Les trois sensibilités veulent retirer ce passage. Je reprends la gauche sur le fond, mais pas sur la place, pour respecter les identifiants. La page de RTE cite l’IA comme moteur de la croissance des centres de données, d’où « notamment ». Je garde « environ » comme RTE. Le passage reste un constat, sans argument : 2 % aujourd’hui, 4 % prévus.",
+  "verification": "adjusted : Ce passage découle de numerique-3. Les chiffres dits (10 TWh, environ 2 %, 4 % en 2035) sont bien sur la page de RTE et seront dans la fiche. RTE lie lui-même l’essor des centres de données à l’IA (« L’essor du numérique et de l’intelligence artificielle… », « les centres de calcul pour l’IA… »), et la fiche parle déjà de « très grands centres de calcul » pour l’IA : « où tournent notamment les IA » tient. Je corrige la dernière phrase. « Selon ses prévisions, 4 % en 2035 » présente comme une prévision ferme ce que RTE donne pour une seule trajectoire, de décarbonation rapide, avec un conditionnel (« pourrait »). La formulation conditionnelle reste un constat sans argument. Garder l’identifiant numerique-ia-05 et sa place respecte la règle des identifiants sans trou (GUIDE § 9).",
+  "topic": "numerique",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "numerique-12",
+  "target": "video",
+  "questionId": "",
+  "videoId": "numerique-plateformes",
+  "segmentId": "numerique-plateformes-06",
+  "field": "say, spoken",
+  "category": "exactitude",
+  "severity": "mineur",
+  "issue": "Conséquence de numerique-11. Après un passage sur une taxe française, « Elle a aussi accepté… » ne renvoie plus clairement à la Commission européenne. Il faut nommer le sujet, et donc réenregistrer la voix de ce passage.",
+  "current": "Elle a aussi accepté des engagements de TikTok sur la publicité, en décembre 2025. Puis un plan d’action de X, en juillet 2026.",
+  "proposed": "say : « La Commission a aussi accepté des engagements de TikTok sur la publicité, en décembre 2025. Puis un plan d’action de X, en juillet 2026. » ; spoken : « La Commission a aussi accepté des engagements de TikTok sur la publicité, en décembre deux mille vingt-cinq. Puis un plan d’action de X, en juillet deux mille vingt-six. »",
+  "lenses": [
+   "gauche"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "numerique-11"
+  ],
+  "rationale": "C’est le seul moyen de garder l’enchaînement clair sans déplacer d’identifiant. Le sens est inchangé.",
+  "verification": "confirmed : Ce passage découle seulement de numerique-11. Après un passage sur une taxe française, « Elle » ne renvoie plus à la Commission : il faut nommer le sujet. Les faits (engagements de TikTok en décembre 2025, plan d’action de X en juillet 2026) restent ceux du point 1 de la fiche et de la source DSA_SUPERVISION, sans changement. Si numerique-11 n’est pas retenue, ce passage n’a pas à changer (pas de réenregistrement).",
+  "topic": "numerique",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "numerique-13",
+  "target": "video",
+  "questionId": "",
+  "videoId": "numerique-plateformes",
+  "segmentId": "",
+  "field": "sources",
+  "category": "chiffres",
+  "severity": "mineur",
+  "issue": "Conséquence de numerique-11 : DSA_AMENDES n’est plus citée, puisque le seul chiffre qui l’utilisait était le plafond de 6 %. La source Légifrance prend sa place, au même index.",
+  "current": "sources: [DSA_SEUIL, DSA_SUPERVISION, DSA_AMENDES, TIKTOK],",
+  "proposed": "sources: [DSA_SEUIL, DSA_SUPERVISION, TAXE_NUMERIQUE, TIKTOK], avec const TAXE_NUMERIQUE = { title: 'Code des impositions sur les biens et services – Taxe sur certains services numériques (articles L453-45 à L453-83)', url: 'https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000044595989/LEGISCTA000048626177/', publisher: 'Légifrance', date: '2024-01-01' } ; supprimer la constante DSA_AMENDES",
+  "checked": true,
+  "newSource": {
+   "title": "Code des impositions sur les biens et services – Taxe sur certains services numériques (articles L453-45 à L453-83)",
+   "url": "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000044595989/LEGISCTA000048626177/",
+   "publisher": "Légifrance",
+   "date": "2024-01-01"
+  },
+  "lenses": [
+   "gauche"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "numerique-10",
+   "numerique-11"
+  ],
+  "rationale": "Au même index, sourceIndex 2 reste valable et les autres passages ne bougent pas.",
+  "verification": "confirmed : Dans numerique.ts, DSA_AMENDES n’est cité que par la liste de sources de numerique-plateformes (index 2, utilisé seulement par numerique-plateformes-05). Le titre de la section sur Légifrance est bien « Section 5 : Taxe sur certains services numériques (Articles L453-45 à L453-83) ». Au même index, sourceIndex 2 reste valable.",
+  "topic": "numerique",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "numerique-17",
+  "target": "video",
+  "questionId": "",
+  "videoId": "numerique-medias",
+  "segmentId": "",
+  "field": "sources",
+  "category": "chiffres",
+  "severity": "mineur",
+  "issue": "Conséquence de numerique-16 : LOI_1986 n’est plus citée. La décision de 2020 prend sa place, au même index.",
+  "current": "sources: [CC_2018, DROITS_VOISINS, SMAD, LOI_1986],",
+  "proposed": "sources: [CC_2018, DROITS_VOISINS, SMAD, CC_2020], avec const CC_2020 = { title: 'Décision n° 2020-801 DC du 18 juin 2020 – Loi visant à lutter contre les contenus haineux sur internet', url: 'https://www.conseil-constitutionnel.fr/decision/2020/2020801DC.htm', publisher: 'Conseil constitutionnel', date: '2020-06-18' } ; supprimer la constante LOI_1986",
+  "checked": true,
+  "newSource": {
+   "title": "Décision n° 2020-801 DC du 18 juin 2020 – Loi visant à lutter contre les contenus haineux sur internet",
+   "url": "https://www.conseil-constitutionnel.fr/decision/2020/2020801DC.htm",
+   "publisher": "Conseil constitutionnel",
+   "date": "2020-06-18"
+  },
+  "lenses": [
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "numerique-15",
+   "numerique-16"
+  ],
+  "rationale": "Au même index (3), aucun sourceIndex ne bouge.",
+  "verification": "confirmed : Dans numerique.ts, LOI_1986 n’est cité que par la liste de sources de numerique-medias (index 3, utilisé seulement par numerique-medias-07). La décision du 18 juin 2020 existe bien à cette adresse. Au même index, aucun sourceIndex ne bouge. Le titre suit la typographie des autres décisions du fichier (« n° » avec insécable).",
+  "topic": "numerique",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "numerique-6",
+  "target": "video",
+  "questionId": "",
+  "videoId": "numerique-ia",
+  "segmentId": "",
+  "field": "sources",
+  "category": "chiffres",
+  "severity": "mineur",
+  "issue": "Conséquence de numerique-5 : la source EUROSTAT_PROTECTION n’est plus citée. La source RTE prend sa place, au même index : aucun sourceIndex ne bouge, et numerique-ia-10 garde sourceIndex 5.",
+  "current": "sources: [EUROSTAT_ENTREPRISES, OIT, EUROSTAT_PROTECTION, REGLEMENT_IA, CONVENTION_IA, INVESTAI],",
+  "proposed": "sources: [EUROSTAT_ENTREPRISES, OIT, RTE_DATA_CENTERS, REGLEMENT_IA, CONVENTION_IA, INVESTAI], avec const RTE_DATA_CENTERS = { title: 'Les data centers en chiffres clés', url: 'https://www.rte-france.com/bases-electricite/consommation-electricite/essor-data-centers-france', publisher: 'RTE (Réseau de transport d’électricité)', date: '2026-06-01' } ; supprimer la constante EUROSTAT_PROTECTION",
+  "checked": true,
+  "newSource": {
+   "title": "Les data centers en chiffres clés",
+   "url": "https://www.rte-france.com/bases-electricite/consommation-electricite/essor-data-centers-france",
+   "publisher": "RTE (Réseau de transport d’électricité)",
+   "date": "2026-06-01"
+  },
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "numerique-3",
+   "numerique-5"
+  ],
+  "rationale": "Je reprends la variante de la gauche (même index) plutôt que le retrait avec décalage proposé par le centre et la droite. Elle va avec le remplacement du passage sur place.",
+  "verification": "confirmed : Dans numerique.ts, EUROSTAT_PROTECTION n’est cité que par la liste de sources de numerique-ia (index 2, utilisé par numerique-ia-05). Le titre de la page de RTE est exact (« Les data centers en chiffres clés »), et sa mise à jour date du 01/06/2026. Mettre RTE au même index garde sourceIndex 2 pour numerique-ia-05 et 5 pour numerique-ia-10 (InvestAI).",
+  "topic": "numerique",
+  "electionQuestionId": ""
+ }
+]

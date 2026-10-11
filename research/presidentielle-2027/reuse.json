@@ -160,8 +160,7 @@
     "laicite_republique-1-d": "laicite_republique-1-d",
     "laicite_republique-2-a": "laicite_republique-2-a"
   },
-  "videoTopics": {},
-  "videoTopicsPending": {
+  "videoTopics": {
     "agriculture": "agriculture",
     "defense": "defense",
     "ecologie_energie": "ecologie_energie",
@@ -185,5 +184,6 @@
     "travail_salaires": "travail_salaires",
     "ukraine_russie": "ukraine_russie"
   },
-  "_videoTopics_note": "7 octobre 2026 : vidéos désactivées pour la présidentielle jusqu'à la mise à jour décrite dans VIDEOS-A-METTRE-A-JOUR.md (après le vote de la primaire) ; videoTopicsPending garde le rattachement prévu."
+  "_videoTopics_note": "10 octobre 2026 : vidéos réactivées pour la présidentielle (demande du propriétaire), avec l'édition src/ui/videos/editions/presidentielle-2027 qui applique les corrections de VIDEOS-A-METTRE-A-JOUR.md sans toucher aux séries de la primaire.",
+  "videoEdition": "presidentielle-2027"
 }

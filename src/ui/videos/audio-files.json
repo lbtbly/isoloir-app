@@ -51,6 +51,11 @@
           "file": "videos/audio/aigue/retraites-intro/retraites-intro-10.m4a",
           "duration": 2.11,
           "hash": "6780c42d"
+        },
+        "retraites-intro-07-p27": {
+          "file": "videos/audio/aigue/retraites-intro/retraites-intro-07-p27.m4a",
+          "duration": 13.08,
+          "hash": "9d425b5b"
         }
       },
       "retraites-penibilite": {
@@ -103,6 +108,11 @@
           "file": "videos/audio/aigue/retraites-penibilite/retraites-penibilite-10.m4a",
           "duration": 3.74,
           "hash": "7071d0da"
+        },
+        "retraites-penibilite-07-p27": {
+          "file": "videos/audio/aigue/retraites-penibilite/retraites-penibilite-07-p27.m4a",
+          "duration": 7.71,
+          "hash": "83ef031c"
         }
       },
       "logement-existant": {
@@ -269,6 +279,11 @@
           "file": "videos/audio/aigue/retraites-financement/retraites-financement-12.m4a",
           "duration": 4.22,
           "hash": "aea6dc27"
+        },
+        "retraites-financement-11-p27": {
+          "file": "videos/audio/aigue/retraites-financement/retraites-financement-11-p27.m4a",
+          "duration": 9.18,
+          "hash": "232f7202"
         }
       },
       "retraites-pensions": {
@@ -321,6 +336,11 @@
           "file": "videos/audio/aigue/retraites-pensions/retraites-pensions-10.m4a",
           "duration": 3.37,
           "hash": "4fac50a2"
+        },
+        "retraites-pensions-06-p27": {
+          "file": "videos/audio/aigue/retraites-pensions/retraites-pensions-06-p27.m4a",
+          "duration": 6.6,
+          "hash": "5da6e093"
         }
       },
       "logement-intro": {
@@ -415,6 +435,21 @@
           "file": "videos/audio/aigue/logement-loyers/logement-loyers-09.m4a",
           "duration": 1.88,
           "hash": "2c2bca7e"
+        },
+        "logement-loyers-05-p27": {
+          "file": "videos/audio/aigue/logement-loyers/logement-loyers-05-p27.m4a",
+          "duration": 7.27,
+          "hash": "30dfc840"
+        },
+        "logement-loyers-06-p27": {
+          "file": "videos/audio/aigue/logement-loyers/logement-loyers-06-p27.m4a",
+          "duration": 12.14,
+          "hash": "ad0265ec"
+        },
+        "logement-loyers-09-p27": {
+          "file": "videos/audio/aigue/logement-loyers/logement-loyers-09-p27.m4a",
+          "duration": 1.91,
+          "hash": "a5d56d97"
         }
       },
       "logement-social": {
@@ -462,6 +497,16 @@
           "file": "videos/audio/aigue/logement-social/logement-social-09.m4a",
           "duration": 1.73,
           "hash": "58f41abe"
+        },
+        "logement-social-07-p27": {
+          "file": "videos/audio/aigue/logement-social/logement-social-07-p27.m4a",
+          "duration": 6.07,
+          "hash": "66ad3612"
+        },
+        "logement-social-08-p27": {
+          "file": "videos/audio/aigue/logement-social/logement-social-08-p27.m4a",
+          "duration": 12.68,
+          "hash": "d8926513"
         }
       },
       "logement-construire": {
@@ -504,6 +549,11 @@
           "file": "videos/audio/aigue/logement-construire/logement-construire-08.m4a",
           "duration": 2.8,
           "hash": "80538fcb"
+        },
+        "logement-construire-07-p27": {
+          "file": "videos/audio/aigue/logement-construire/logement-construire-07-p27.m4a",
+          "duration": 14.12,
+          "hash": "fb076954"
         }
       },
       "culture-intro": {
@@ -546,6 +596,11 @@
           "file": "videos/audio/aigue/culture-intro/culture-intro-08.m4a",
           "duration": 2.0,
           "hash": "6780c42d"
+        },
+        "culture-intro-07-p27": {
+          "file": "videos/audio/aigue/culture-intro/culture-intro-07-p27.m4a",
+          "duration": 8.73,
+          "hash": "a668664c"
         }
       },
       "culture-budget": {
@@ -625,6 +680,11 @@
           "file": "videos/audio/aigue/culture-audiovisuel/culture-audiovisuel-09.m4a",
           "duration": 3.41,
           "hash": "9a35ed5f"
+        },
+        "culture-audiovisuel-09-p27": {
+          "file": "videos/audio/aigue/culture-audiovisuel/culture-audiovisuel-09-p27.m4a",
+          "duration": 3.89,
+          "hash": "8cd8494d"
         }
       },
       "culture-pass": {
@@ -813,6 +873,11 @@
           "file": "videos/audio/aigue/egalite-salaires/egalite-salaires-09.m4a",
           "duration": 3.74,
           "hash": "77a8ae0a"
+        },
+        "egalite-salaires-04-p27": {
+          "file": "videos/audio/aigue/egalite-salaires/egalite-salaires-04-p27.m4a",
+          "duration": 8.51,
+          "hash": "2fb6f5d5"
         }
       },
       "egalite-conges": {
@@ -971,6 +1036,16 @@
           "file": "videos/audio/aigue/solidarites-intro/solidarites-intro-08.m4a",
           "duration": 2.22,
           "hash": "6780c42d"
+        },
+        "solidarites-intro-07-p27": {
+          "file": "videos/audio/aigue/solidarites-intro/solidarites-intro-07-p27.m4a",
+          "duration": 5.7,
+          "hash": "1324e02c"
+        },
+        "solidarites-intro-08-p27": {
+          "file": "videos/audio/aigue/solidarites-intro/solidarites-intro-08-p27.m4a",
+          "duration": 2.07,
+          "hash": "0dbc9da9"
         }
       },
       "solidarites-chomage": {
@@ -1018,6 +1093,11 @@
           "file": "videos/audio/aigue/solidarites-chomage/solidarites-chomage-09.m4a",
           "duration": 3.7,
           "hash": "3e561b41"
+        },
+        "solidarites-chomage-08-p27": {
+          "file": "videos/audio/aigue/solidarites-chomage/solidarites-chomage-08-p27.m4a",
+          "duration": 14.29,
+          "hash": "a752c8a0"
         }
       },
       "solidarites-rsa": {
@@ -1206,6 +1286,16 @@
           "file": "videos/audio/aigue/industrie-intro/industrie-intro-08.m4a",
           "duration": 3.41,
           "hash": "629f354e"
+        },
+        "industrie-intro-01-p27": {
+          "file": "videos/audio/aigue/industrie-intro/industrie-intro-01-p27.m4a",
+          "duration": 4.03,
+          "hash": "73a3bdd8"
+        },
+        "industrie-intro-07-p27": {
+          "file": "videos/audio/aigue/industrie-intro/industrie-intro-07-p27.m4a",
+          "duration": 10.08,
+          "hash": "4bc15bac"
         }
       },
       "industrie-etat": {
@@ -1238,6 +1328,11 @@
           "file": "videos/audio/aigue/industrie-etat/industrie-etat-06.m4a",
           "duration": 3.35,
           "hash": "e81a6a42"
+        },
+        "industrie-etat-04-p27": {
+          "file": "videos/audio/aigue/industrie-etat/industrie-etat-04-p27.m4a",
+          "duration": 11.21,
+          "hash": "cc5e95e7"
         }
       },
       "industrie-energie": {
@@ -1312,6 +1407,11 @@
           "file": "videos/audio/aigue/industrie-commerce/industrie-commerce-08.m4a",
           "duration": 4.12,
           "hash": "1d1503b7"
+        },
+        "industrie-commerce-08-p27": {
+          "file": "videos/audio/aigue/industrie-commerce/industrie-commerce-08-p27.m4a",
+          "duration": 3.04,
+          "hash": "4bd008c2"
         }
       },
       "industrie-achats": {
@@ -1438,6 +1538,11 @@
           "file": "videos/audio/aigue/sante-intro/sante-intro-07.m4a",
           "duration": 3.37,
           "hash": "19f0215a"
+        },
+        "sante-intro-06-p27": {
+          "file": "videos/audio/aigue/sante-intro/sante-intro-06-p27.m4a",
+          "duration": 8.18,
+          "hash": "f12d73bb"
         }
       },
       "sante-acces": {
@@ -1547,6 +1652,11 @@
           "file": "videos/audio/aigue/sante-remboursements/sante-remboursements-11.m4a",
           "duration": 1.63,
           "hash": "462ee26a"
+        },
+        "sante-remboursements-09-p27": {
+          "file": "videos/audio/aigue/sante-remboursements/sante-remboursements-09-p27.m4a",
+          "duration": 6.55,
+          "hash": "c1cc9d58"
         }
       },
       "sante-age": {
@@ -1636,6 +1746,21 @@
           "file": "videos/audio/aigue/sante-prevention/sante-prevention-08.m4a",
           "duration": 4.74,
           "hash": "b8684df9"
+        },
+        "sante-prevention-06-p27": {
+          "file": "videos/audio/aigue/sante-prevention/sante-prevention-06-p27.m4a",
+          "duration": 10.8,
+          "hash": "faba9b0a"
+        },
+        "sante-prevention-07-p27": {
+          "file": "videos/audio/aigue/sante-prevention/sante-prevention-07-p27.m4a",
+          "duration": 12.85,
+          "hash": "e7b77054"
+        },
+        "sante-prevention-08-p27": {
+          "file": "videos/audio/aigue/sante-prevention/sante-prevention-08-p27.m4a",
+          "duration": 4.83,
+          "hash": "e8a770ae"
         }
       },
       "travail-intro": {
@@ -1794,6 +1919,11 @@
           "file": "videos/audio/aigue/travail-partage/travail-partage-07.m4a",
           "duration": 7.0,
           "hash": "e7a6c288"
+        },
+        "travail-partage-07-p27": {
+          "file": "videos/audio/aigue/travail-partage/travail-partage-07-p27.m4a",
+          "duration": 8.91,
+          "hash": "d5d7d16b"
         }
       },
       "travail-droits": {
@@ -1910,6 +2040,16 @@
           "file": "videos/audio/aigue/impots-intro/impots-intro-07.m4a",
           "duration": 2.26,
           "hash": "10b6597e"
+        },
+        "impots-intro-06-p27": {
+          "file": "videos/audio/aigue/impots-intro/impots-intro-06-p27.m4a",
+          "duration": 6.03,
+          "hash": "1ca69cee"
+        },
+        "impots-intro-07-p27": {
+          "file": "videos/audio/aigue/impots-intro/impots-intro-07-p27.m4a",
+          "duration": 2.23,
+          "hash": "b004fad6"
         }
       },
       "impots-dette": {
@@ -1947,6 +2087,11 @@
           "file": "videos/audio/aigue/impots-dette/impots-dette-07.m4a",
           "duration": 4.3,
           "hash": "b86b7a2a"
+        },
+        "impots-dette-05-p27": {
+          "file": "videos/audio/aigue/impots-dette/impots-dette-05-p27.m4a",
+          "duration": 14.82,
+          "hash": "4bd73ba1"
         }
       },
       "impots-fortune": {
@@ -2152,6 +2297,21 @@
           "file": "videos/audio/aigue/ukraine-intro/ukraine-intro-09.m4a",
           "duration": 2.22,
           "hash": "aed271dd"
+        },
+        "ukraine-intro-01-p27": {
+          "file": "videos/audio/aigue/ukraine-intro/ukraine-intro-01-p27.m4a",
+          "duration": 6.37,
+          "hash": "58cffe13"
+        },
+        "ukraine-intro-05-p27": {
+          "file": "videos/audio/aigue/ukraine-intro/ukraine-intro-05-p27.m4a",
+          "duration": 10.51,
+          "hash": "7a3d52c2"
+        },
+        "ukraine-intro-08-p27": {
+          "file": "videos/audio/aigue/ukraine-intro/ukraine-intro-08-p27.m4a",
+          "duration": 6.66,
+          "hash": "dfe64595"
         }
       },
       "ukraine-civils": {
@@ -2246,6 +2406,11 @@
           "file": "videos/audio/aigue/ukraine-aide/ukraine-aide-07.m4a",
           "duration": 2.81,
           "hash": "7694f35f"
+        },
+        "ukraine-aide-02-p27": {
+          "file": "videos/audio/aigue/ukraine-aide/ukraine-aide-02-p27.m4a",
+          "duration": 7.88,
+          "hash": "698e4706"
         }
       },
       "ukraine-diplomatie": {
@@ -2288,6 +2453,11 @@
           "file": "videos/audio/aigue/ukraine-diplomatie/ukraine-diplomatie-08.m4a",
           "duration": 3.33,
           "hash": "fba0b27e"
+        },
+        "ukraine-diplomatie-05-p27": {
+          "file": "videos/audio/aigue/ukraine-diplomatie/ukraine-diplomatie-05-p27.m4a",
+          "duration": 9.01,
+          "hash": "8da8e243"
         }
       },
       "agriculture-intro": {
@@ -2330,6 +2500,11 @@
           "file": "videos/audio/aigue/agriculture-intro/agriculture-intro-08.m4a",
           "duration": 3.65,
           "hash": "629f354e"
+        },
+        "agriculture-intro-07-p27": {
+          "file": "videos/audio/aigue/agriculture-intro/agriculture-intro-07-p27.m4a",
+          "duration": 5.13,
+          "hash": "7eaf3f39"
         }
       },
       "agriculture-revenu": {
@@ -2419,6 +2594,16 @@
           "file": "videos/audio/aigue/agriculture-prix/agriculture-prix-11.m4a",
           "duration": 2.49,
           "hash": "b2556de6"
+        },
+        "agriculture-prix-06-p27": {
+          "file": "videos/audio/aigue/agriculture-prix/agriculture-prix-06-p27.m4a",
+          "duration": 8.19,
+          "hash": "bddcdbc1"
+        },
+        "agriculture-prix-03-p27": {
+          "file": "videos/audio/aigue/agriculture-prix/agriculture-prix-03-p27.m4a",
+          "duration": 15.04,
+          "hash": "67b293dc"
         }
       },
       "agriculture-aides": {
@@ -2456,6 +2641,11 @@
           "file": "videos/audio/aigue/agriculture-aides/agriculture-aides-07.m4a",
           "duration": 3.03,
           "hash": "03cee685"
+        },
+        "agriculture-aides-05-p27": {
+          "file": "videos/audio/aigue/agriculture-aides/agriculture-aides-05-p27.m4a",
+          "duration": 12.85,
+          "hash": "e1d64db6"
         }
       },
       "agriculture-importations": {
@@ -2493,6 +2683,21 @@
           "file": "videos/audio/aigue/agriculture-importations/agriculture-importations-07.m4a",
           "duration": 4.1,
           "hash": "4197ba18"
+        },
+        "agriculture-importations-02-p27": {
+          "file": "videos/audio/aigue/agriculture-importations/agriculture-importations-02-p27.m4a",
+          "duration": 13.63,
+          "hash": "8b83a42b"
+        },
+        "agriculture-importations-04-p27": {
+          "file": "videos/audio/aigue/agriculture-importations/agriculture-importations-04-p27.m4a",
+          "duration": 13.74,
+          "hash": "70a17661"
+        },
+        "agriculture-importations-05-p27": {
+          "file": "videos/audio/aigue/agriculture-importations/agriculture-importations-05-p27.m4a",
+          "duration": 13.94,
+          "hash": "fb6b7afb"
         }
       },
       "agriculture-alimentation": {
@@ -2567,6 +2772,16 @@
           "file": "videos/audio/aigue/securite-intro/securite-intro-08.m4a",
           "duration": 2.03,
           "hash": "6780c42d"
+        },
+        "securite-intro-07-p27": {
+          "file": "videos/audio/aigue/securite-intro/securite-intro-07-p27.m4a",
+          "duration": 8.83,
+          "hash": "e95c89f8"
+        },
+        "securite-intro-08-p27": {
+          "file": "videos/audio/aigue/securite-intro/securite-intro-08-p27.m4a",
+          "duration": 1.78,
+          "hash": "647503b9"
         }
       },
       "securite-police": {
@@ -2614,6 +2829,11 @@
           "file": "videos/audio/aigue/securite-police/securite-police-09.m4a",
           "duration": 3.4,
           "hash": "91485f7f"
+        },
+        "securite-police-01-violences-p27": {
+          "file": "videos/audio/aigue/securite-police/securite-police-01-violences-p27.m4a",
+          "duration": 12.6,
+          "hash": "96dfc2eb"
         }
       },
       "securite-drogues": {
@@ -2661,6 +2881,11 @@
           "file": "videos/audio/aigue/securite-drogues/securite-drogues-09.m4a",
           "duration": 3.06,
           "hash": "739c419e"
+        },
+        "securite-drogues-02-reglements-p27": {
+          "file": "videos/audio/aigue/securite-drogues/securite-drogues-02-reglements-p27.m4a",
+          "duration": 11.04,
+          "hash": "b136c457"
         }
       },
       "securite-justice": {
@@ -2802,6 +3027,11 @@
           "file": "videos/audio/aigue/immigration-intro/immigration-intro-08.m4a",
           "duration": 2.4,
           "hash": "6780c42d"
+        },
+        "immigration-intro-07-p27": {
+          "file": "videos/audio/aigue/immigration-intro/immigration-intro-07-p27.m4a",
+          "duration": 12.28,
+          "hash": "4390fd9a"
         }
       },
       "immigration-titres": {
@@ -2854,6 +3084,26 @@
           "file": "videos/audio/aigue/immigration-titres/immigration-titres-10.m4a",
           "duration": 3.43,
           "hash": "98d3106c"
+        },
+        "immigration-titres-02-p27": {
+          "file": "videos/audio/aigue/immigration-titres/immigration-titres-02-p27.m4a",
+          "duration": 15.77,
+          "hash": "cc4901d6"
+        },
+        "immigration-titres-04-p27": {
+          "file": "videos/audio/aigue/immigration-titres/immigration-titres-04-p27.m4a",
+          "duration": 6.38,
+          "hash": "58a0c2d2"
+        },
+        "immigration-titres-06-p27": {
+          "file": "videos/audio/aigue/immigration-titres/immigration-titres-06-p27.m4a",
+          "duration": 9.04,
+          "hash": "1a546fef"
+        },
+        "immigration-titres-10-p27": {
+          "file": "videos/audio/aigue/immigration-titres/immigration-titres-10-p27.m4a",
+          "duration": 4.67,
+          "hash": "3b3afe77"
         }
       },
       "immigration-langue": {
@@ -3084,6 +3334,11 @@
           "file": "videos/audio/aigue/numerique-ia/numerique-ia-11.m4a",
           "duration": 2.88,
           "hash": "41f0b21a"
+        },
+        "numerique-ia-05-p27": {
+          "file": "videos/audio/aigue/numerique-ia/numerique-ia-05-p27.m4a",
+          "duration": 15.39,
+          "hash": "935a1624"
         }
       },
       "numerique-ecrans": {
@@ -3183,6 +3438,21 @@
           "file": "videos/audio/aigue/numerique-plateformes/numerique-plateformes-08.m4a",
           "duration": 3.23,
           "hash": "1d032314"
+        },
+        "numerique-plateformes-05-p27": {
+          "file": "videos/audio/aigue/numerique-plateformes/numerique-plateformes-05-p27.m4a",
+          "duration": 9.24,
+          "hash": "170e842f"
+        },
+        "numerique-plateformes-06-p27": {
+          "file": "videos/audio/aigue/numerique-plateformes/numerique-plateformes-06-p27.m4a",
+          "duration": 8.68,
+          "hash": "35887ca8"
+        },
+        "numerique-plateformes-08-p27": {
+          "file": "videos/audio/aigue/numerique-plateformes/numerique-plateformes-08-p27.m4a",
+          "duration": 4.68,
+          "hash": "e6a34fd7"
         }
       },
       "numerique-medias": {
@@ -3225,6 +3495,11 @@
           "file": "videos/audio/aigue/numerique-medias/numerique-medias-08.m4a",
           "duration": 4.24,
           "hash": "bf20cd10"
+        },
+        "numerique-medias-07-p27": {
+          "file": "videos/audio/aigue/numerique-medias/numerique-medias-07-p27.m4a",
+          "duration": 15.55,
+          "hash": "fb5eef1c"
         }
       },
       "ecole-intro": {
@@ -3267,6 +3542,11 @@
           "file": "videos/audio/aigue/ecole-intro/ecole-intro-08.m4a",
           "duration": 2.34,
           "hash": "10b6597e"
+        },
+        "ecole-intro-07-p27": {
+          "file": "videos/audio/aigue/ecole-intro/ecole-intro-07-p27.m4a",
+          "duration": 9.86,
+          "hash": "a2ebbeb3"
         }
       },
       "ecole-classes": {
@@ -3383,6 +3663,16 @@
           "file": "videos/audio/aigue/ecole-prive/ecole-prive-07.m4a",
           "duration": 2.94,
           "hash": "3f79fbf0"
+        },
+        "ecole-prive-03-p27": {
+          "file": "videos/audio/aigue/ecole-prive/ecole-prive-03-p27.m4a",
+          "duration": 15.75,
+          "hash": "e28a80b5"
+        },
+        "ecole-prive-04-classes-p27": {
+          "file": "videos/audio/aigue/ecole-prive/ecole-prive-04-classes-p27.m4a",
+          "duration": 7.04,
+          "hash": "d0aaf436"
         }
       },
       "ecole-superieur": {
@@ -3425,6 +3715,11 @@
           "file": "videos/audio/aigue/ecole-superieur/ecole-superieur-08.m4a",
           "duration": 3.48,
           "hash": "dd12e355"
+        },
+        "ecole-superieur-05-p27": {
+          "file": "videos/audio/aigue/ecole-superieur/ecole-superieur-05-p27.m4a",
+          "duration": 15.69,
+          "hash": "a7442570"
         }
       },
       "ecole-jeunes": {
@@ -3499,6 +3794,16 @@
           "file": "videos/audio/aigue/territoires-intro/territoires-intro-07.m4a",
           "duration": 2.36,
           "hash": "6780c42d"
+        },
+        "territoires-intro-06-p27": {
+          "file": "videos/audio/aigue/territoires-intro/territoires-intro-06-p27.m4a",
+          "duration": 8.37,
+          "hash": "188f2cc8"
+        },
+        "territoires-intro-07-p27": {
+          "file": "videos/audio/aigue/territoires-intro/territoires-intro-07-p27.m4a",
+          "duration": 2.21,
+          "hash": "0dbc9da9"
         }
       },
       "territoires-services": {
@@ -3551,6 +3856,11 @@
           "file": "videos/audio/aigue/territoires-services/territoires-services-10.m4a",
           "duration": 3.94,
           "hash": "3c0a2c16"
+        },
+        "territoires-services-07-p27": {
+          "file": "videos/audio/aigue/territoires-services/territoires-services-07-p27.m4a",
+          "duration": 11.38,
+          "hash": "ea7f971e"
         }
       },
       "territoires-agents": {
@@ -3645,6 +3955,21 @@
           "file": "videos/audio/aigue/territoires-collectivites/territoires-collectivites-09.m4a",
           "duration": 3.44,
           "hash": "d6f14b95"
+        },
+        "territoires-collectivites-07-comptes-p27": {
+          "file": "videos/audio/aigue/territoires-collectivites/territoires-collectivites-07-comptes-p27.m4a",
+          "duration": 8.43,
+          "hash": "a42c4e35"
+        },
+        "territoires-collectivites-08-p27": {
+          "file": "videos/audio/aigue/territoires-collectivites/territoires-collectivites-08-p27.m4a",
+          "duration": 10.25,
+          "hash": "e1e7aa50"
+        },
+        "territoires-collectivites-09-p27": {
+          "file": "videos/audio/aigue/territoires-collectivites/territoires-collectivites-09-p27.m4a",
+          "duration": 4.71,
+          "hash": "ef1a1667"
         }
       },
       "territoires-outre-mer": {
@@ -3739,6 +4064,16 @@
           "file": "videos/audio/aigue/europe-intro/europe-intro-08.m4a",
           "duration": 2.12,
           "hash": "10b6597e"
+        },
+        "europe-intro-06-p27": {
+          "file": "videos/audio/aigue/europe-intro/europe-intro-06-p27.m4a",
+          "duration": 12.81,
+          "hash": "72d9c0b6"
+        },
+        "europe-intro-07-p27": {
+          "file": "videos/audio/aigue/europe-intro/europe-intro-07-p27.m4a",
+          "duration": 11.08,
+          "hash": "7ada8ea7"
         }
       },
       "europe-decider": {
@@ -3776,6 +4111,11 @@
           "file": "videos/audio/aigue/europe-decider/europe-decider-07.m4a",
           "duration": 3.97,
           "hash": "9ee4ed41"
+        },
+        "europe-decider-03-p27": {
+          "file": "videos/audio/aigue/europe-decider/europe-decider-03-p27.m4a",
+          "duration": 9.96,
+          "hash": "31dbdfd3"
         }
       },
       "europe-traites": {
@@ -3813,6 +4153,16 @@
           "file": "videos/audio/aigue/europe-traites/europe-traites-07.m4a",
           "duration": 2.93,
           "hash": "c42ebecb"
+        },
+        "europe-traites-02-p27": {
+          "file": "videos/audio/aigue/europe-traites/europe-traites-02-p27.m4a",
+          "duration": 10.99,
+          "hash": "2c50100a"
+        },
+        "europe-traites-05-p27": {
+          "file": "videos/audio/aigue/europe-traites/europe-traites-05-p27.m4a",
+          "duration": 14.03,
+          "hash": "cbc2e537"
         }
       },
       "europe-budget": {
@@ -3892,6 +4242,11 @@
           "file": "videos/audio/aigue/europe-deficits/europe-deficits-06.m4a",
           "duration": 2.02,
           "hash": "4306045f"
+        },
+        "europe-deficits-05-p27": {
+          "file": "videos/audio/aigue/europe-deficits/europe-deficits-05-p27.m4a",
+          "duration": 12.6,
+          "hash": "45ab1f40"
         }
       },
       "europe-concurrence": {
@@ -3934,6 +4289,11 @@
           "file": "videos/audio/aigue/europe-concurrence/europe-concurrence-08.m4a",
           "duration": 5.94,
           "hash": "cd65ec05"
+        },
+        "europe-concurrence-08-p27": {
+          "file": "videos/audio/aigue/europe-concurrence/europe-concurrence-08-p27.m4a",
+          "duration": 5.74,
+          "hash": "12893a17"
         }
       },
       "proche-orient-intro": {
@@ -3976,6 +4336,21 @@
           "file": "videos/audio/aigue/proche-orient-intro/proche-orient-intro-08.m4a",
           "duration": 2.7,
           "hash": "be1759db"
+        },
+        "proche-orient-intro-01-p27": {
+          "file": "videos/audio/aigue/proche-orient-intro/proche-orient-intro-01-p27.m4a",
+          "duration": 12.51,
+          "hash": "4d6d13de"
+        },
+        "proche-orient-intro-07-p27": {
+          "file": "videos/audio/aigue/proche-orient-intro/proche-orient-intro-07-p27.m4a",
+          "duration": 6.79,
+          "hash": "7dced603"
+        },
+        "proche-orient-intro-08-p27": {
+          "file": "videos/audio/aigue/proche-orient-intro/proche-orient-intro-08-p27.m4a",
+          "duration": 2.88,
+          "hash": "a3dc9580"
         }
       },
       "proche-orient-mots": {
@@ -4171,6 +4546,11 @@
           "file": "videos/audio/aigue/proche-orient-onu/proche-orient-onu-06.m4a",
           "duration": 3.54,
           "hash": "d3f66d89"
+        },
+        "proche-orient-onu-05-p27": {
+          "file": "videos/audio/aigue/proche-orient-onu/proche-orient-onu-05-p27.m4a",
+          "duration": 14.99,
+          "hash": "8af43b92"
         }
       },
       "ecologie-intro": {
@@ -4240,6 +4620,11 @@
           "file": "videos/audio/aigue/ecologie-carburants/ecologie-carburants-07.m4a",
           "duration": 3.74,
           "hash": "01ae09f8"
+        },
+        "ecologie-carburants-06-p27": {
+          "file": "videos/audio/aigue/ecologie-carburants/ecologie-carburants-06-p27.m4a",
+          "duration": 18.61,
+          "hash": "b361404d"
         }
       },
       "ecologie-electricite": {
@@ -4282,6 +4667,16 @@
           "file": "videos/audio/aigue/ecologie-electricite/ecologie-electricite-08.m4a",
           "duration": 6.79,
           "hash": "4c728130"
+        },
+        "ecologie-electricite-03-p27": {
+          "file": "videos/audio/aigue/ecologie-electricite/ecologie-electricite-03-p27.m4a",
+          "duration": 16.38,
+          "hash": "5a6db4a6"
+        },
+        "ecologie-electricite-04-p27": {
+          "file": "videos/audio/aigue/ecologie-electricite/ecologie-electricite-04-p27.m4a",
+          "duration": 15.64,
+          "hash": "94e545a7"
         }
       },
       "ecologie-climat": {
@@ -4366,6 +4761,11 @@
           "file": "videos/audio/aigue/ecologie-transports/ecologie-transports-08.m4a",
           "duration": 2.56,
           "hash": "77a6305e"
+        },
+        "ecologie-transports-05-p27": {
+          "file": "videos/audio/aigue/ecologie-transports/ecologie-transports-05-p27.m4a",
+          "duration": 14.58,
+          "hash": "9dc39123"
         }
       },
       "ecologie-adaptation": {
@@ -4408,6 +4808,11 @@
           "file": "videos/audio/aigue/ecologie-adaptation/ecologie-adaptation-08.m4a",
           "duration": 3.19,
           "hash": "cb83154c"
+        },
+        "ecologie-adaptation-06-p27": {
+          "file": "videos/audio/aigue/ecologie-adaptation/ecologie-adaptation-06-p27.m4a",
+          "duration": 13.35,
+          "hash": "16f7b04b"
         }
       },
       "alliances-intro": {
@@ -4660,6 +5065,11 @@
           "file": "videos/audio/aigue/laicite-intro/laicite-intro-08.m4a",
           "duration": 2.99,
           "hash": "629f354e"
+        },
+        "laicite-intro-07-p27": {
+          "file": "videos/audio/aigue/laicite-intro/laicite-intro-07-p27.m4a",
+          "duration": 12.97,
+          "hash": "13af2cbb"
         }
       },
       "laicite-principe": {
@@ -4702,6 +5112,11 @@
           "file": "videos/audio/aigue/laicite-principe/laicite-principe-08.m4a",
           "duration": 4.2,
           "hash": "8477cd9d"
+        },
+        "laicite-principe-07-p27": {
+          "file": "videos/audio/aigue/laicite-principe/laicite-principe-07-p27.m4a",
+          "duration": 10.72,
+          "hash": "b5159648"
         }
       },
       "laicite-signes": {
@@ -4734,6 +5149,11 @@
           "file": "videos/audio/aigue/laicite-signes/laicite-signes-06.m4a",
           "duration": 2.83,
           "hash": "03569e86"
+        },
+        "laicite-signes-03-p27": {
+          "file": "videos/audio/aigue/laicite-signes/laicite-signes-03-p27.m4a",
+          "duration": 8.52,
+          "hash": "18584562"
         }
       },
       "laicite-discriminations": {
@@ -4771,6 +5191,11 @@
           "file": "videos/audio/aigue/laicite-discriminations/laicite-discriminations-07.m4a",
           "duration": 3.93,
           "hash": "4b04e625"
+        },
+        "laicite-discriminations-06-p27": {
+          "file": "videos/audio/aigue/laicite-discriminations/laicite-discriminations-06-p27.m4a",
+          "duration": 11.84,
+          "hash": "20c3d1b4"
         }
       },
       "laicite-memoire": {
@@ -4813,6 +5238,11 @@
           "file": "videos/audio/aigue/laicite-memoire/laicite-memoire-08.m4a",
           "duration": 3.7,
           "hash": "dfb84cd5"
+        },
+        "laicite-memoire-08-p27": {
+          "file": "videos/audio/aigue/laicite-memoire/laicite-memoire-08-p27.m4a",
+          "duration": 3.48,
+          "hash": "5aa1c49b"
         }
       },
       "laicite-histoire": {
@@ -4855,6 +5285,11 @@
           "file": "videos/audio/aigue/laicite-histoire/laicite-histoire-08.m4a",
           "duration": 3.62,
           "hash": "ae65a2af"
+        },
+        "laicite-histoire-02-p27": {
+          "file": "videos/audio/aigue/laicite-histoire/laicite-histoire-02-p27.m4a",
+          "duration": 12.72,
+          "hash": "c892a99d"
         }
       },
       "institutions-intro": {
@@ -4939,6 +5374,11 @@
           "file": "videos/audio/aigue/institutions-pouvoirs/institutions-pouvoirs-07.m4a",
           "duration": 3.98,
           "hash": "84fe0f58"
+        },
+        "institutions-pouvoirs-04-p27": {
+          "file": "videos/audio/aigue/institutions-pouvoirs/institutions-pouvoirs-04-p27.m4a",
+          "duration": 11.81,
+          "hash": "1e3e5f61"
         }
       },
       "institutions-49-3": {
@@ -4976,6 +5416,11 @@
           "file": "videos/audio/aigue/institutions-49-3/institutions-49-3-07.m4a",
           "duration": 2.83,
           "hash": "d03774b6"
+        },
+        "institutions-49-3-05-p27": {
+          "file": "videos/audio/aigue/institutions-49-3/institutions-49-3-05-p27.m4a",
+          "duration": 9.49,
+          "hash": "b9aed1a7"
         }
       },
       "institutions-constitution": {
@@ -5013,6 +5458,11 @@
           "file": "videos/audio/aigue/institutions-constitution/institutions-constitution-07.m4a",
           "duration": 3.46,
           "hash": "8fd4168f"
+        },
+        "institutions-constitution-06-conseil-p27": {
+          "file": "videos/audio/aigue/institutions-constitution/institutions-constitution-06-conseil-p27.m4a",
+          "duration": 9.07,
+          "hash": "a3614e78"
         }
       },
       "institutions-citoyens": {
@@ -5075,6 +5525,11 @@
           "file": "videos/audio/aigue/institutions-citoyens/institutions-citoyens-12.m4a",
           "duration": 2.8,
           "hash": "ecab9b91"
+        },
+        "institutions-citoyens-02-p27": {
+          "file": "videos/audio/aigue/institutions-citoyens/institutions-citoyens-02-p27.m4a",
+          "duration": 12.88,
+          "hash": "2a6f2224"
         }
       },
       "defense-intro": {
@@ -5164,6 +5619,16 @@
           "file": "videos/audio/aigue/defense-budget/defense-budget-09.m4a",
           "duration": 3.18,
           "hash": "affc90e5"
+        },
+        "defense-budget-03-p27": {
+          "file": "videos/audio/aigue/defense-budget/defense-budget-03-p27.m4a",
+          "duration": 17.77,
+          "hash": "0b3568d7"
+        },
+        "defense-budget-09-p27": {
+          "file": "videos/audio/aigue/defense-budget/defense-budget-09-p27.m4a",
+          "duration": 2.84,
+          "hash": "28516c58"
         }
       },
       "defense-alliances": {

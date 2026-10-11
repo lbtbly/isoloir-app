@@ -8,6 +8,8 @@
 
 import type { JSX } from 'preact'
 import { chartOf } from '../../model'
+import { EDITIONS } from '../../editions'
+import { applyEdition } from '../../editions/apply'
 import { FISCALITE as SERIE } from '../../series/fiscalite'
 import { Art, Arrow, Ask, Brace, Fade, Ink, Txt, W, at, cueOf, cuesOf, heard, num, plain, said, sentencesOf, word, yearsOf, type Cue, type P } from '../dessin/encre'
 import { Chiffre, Head, HeadCues, Panel, Question, Seg, Signature, Src, Sur100, lineOf, listAfterColon } from '../dessin/mises'
@@ -1338,6 +1340,117 @@ const recettes07: Board = p => {
   )
 }
 
+/* ——— Passages corrigés par une édition (identifiant suffixé, « -p27 ») ———
+ * Le texte dit de ces passages a changé : leur planche lit le passage corrigé (p.segment) et la vidéo de
+ * l'édition (p.script), jamais la série d'origine telle qu'écrite. */
+
+/** 07 « Ce sont les trois sujets des vidéos qui suivent » : le sommaire des approfondissements que montre
+ *  l'édition du passage (retrouvée par le suffixe de son identifiant), autant que la voix en annonce */
+const intro07Edition: Board = p => {
+  const edition = Object.values(EDITIONS).find(e => p.segment.id.endsWith(e.suffix))
+  if (!edition) return null
+  const deep = applyEdition(SERIE, edition).videos.filter(v => v.kind === 'deep')
+  const n = num(word(p, /\b(?:deux|trois|quatre|cinq|six|sept)\b/)?.text)
+  if (!deep.length || n !== deep.length) return null
+  const t0 = 200
+  return (
+    <Seg kind="end">
+      <ol class="vc-chap">
+        {deep.map((v, i) => (
+          <li key={v.id} class="vc-chap-item vc-rise" style={at(t0 + i * 450)}>
+            <span class="vc-chap-n">{i + 1}</span>
+            <Glyphe n={CHAPITRES[v.id] ?? 'document'} t0={p.still ? 0 : t0 + i * 450 + 150} />
+            <span class="vc-chap-t">{v.short}</span>
+          </li>
+        ))}
+      </ol>
+      <Signature p={p} />
+    </Seg>
+  )
+}
+
+/**
+ * 05 corrigé (« Le Gouvernement prévoit que le déficit remonte à 5,4 % en 2026, puis revienne à 5 % en 2027 ») :
+ * la frise de 04 (2024 et 2025, dits au passage 03 ; la limite de 3 % et le fanion de 2029), chaque prévision en
+ * pointillé quand la voix la dit, une flèche au bleu bille de 2025 à 2026 quand le déficit « remonte », et l'avis
+ * du Haut Conseil entre guillemets
+ */
+const dette05Edition: Board = p => {
+  const past = grab(p, /(\d+(?:,\d+)?) % du PIB en (\d{4}), (\d+(?:,\d+)?) % en (\d{4})/)
+  const goal = grab(p, /sous (\d+(?:,\d+)?) % du PIB d’ici (\d{4})/)
+  const prev = grab(p, /prévoit\b[^.]*?(\d+(?:,\d+)?) % en (\d{4}), puis\b[^.]*?(\d+(?:,\d+)?) % en (\d{4})/)
+  if (!past || !goal || !prev) return null
+  const [rise, quote] = cuesOf(p)
+  const pts = [
+    { y: Number(past[2]), v: num(past[1])!, text: `${past[1]}\u00a0%`, ghost: false, shown: true },
+    { y: Number(past[4]), v: num(past[3])!, text: `${past[3]}\u00a0%`, ghost: false, shown: true },
+    { y: Number(prev[2]), v: num(prev[1])!, text: `${prev[1]}\u00a0%`, ghost: true, shown: heard(p, `${prev[1]} % en ${prev[2]}`) },
+    { y: Number(prev[4]), v: num(prev[3])!, text: `${prev[3]}\u00a0%`, ghost: true, shown: heard(p, `${prev[3]} % en ${prev[4]}`) },
+  ]
+  const limit = num(goal[1])!
+  const yGoal = Number(goal[2])
+  const from = pts[0]!.y
+  const years = pts.map(q => q.y)
+  if (!(yGoal > from) || yGoal - from > 10 || years.some((y, i) => i > 0 && y <= years[i - 1]!) || years[3]! >= yGoal) return null
+  const x0 = 34
+  const x1 = 270
+  const X = (y: number) => x0 + ((y - from) / (yGoal - from)) * (x1 - x0)
+  const base = 178
+  const k = 120 / Math.max(...pts.map(q => q.v), limit)
+  const cw = 28
+  const yl = base - limit * k
+  // « remonte » : de la dernière année passée à la première prévue, si la prévision est bien plus haute
+  const [a, b] = [pts[1]!, pts[2]!]
+  const up = !!rise && /remont/i.test(rise.text) && b.v > a.v && b.y === a.y + 1
+  const riseShown = up && rise.shown && b.shown
+  const ya = base - a.v * k - 24
+  const yb = base - b.v * k - 36
+  return (
+    <Seg kind="fig">
+      <Art h={base + 26}>
+        <Ink d={`M10 ${base}H292`} t0={0} dur={600} class="vc-soft" kept={p.still} />
+        {pts.map(q => {
+          if (!q.shown) return null
+          const x = X(q.y) - cw / 2
+          const box = `M${x} ${base}V${base - q.v * k}H${x + cw}V${base}`
+          return (
+            <g key={q.y}>
+              {q.ghost ? (
+                <Fade t0={100} class="vc-ghost">
+                  <path d={box} />
+                </Fade>
+              ) : (
+                <>
+                  <Fade t0={0} kept>
+                    <rect class="vc-tint" x={x} y={base - q.v * k} width={cw} height={q.v * k} />
+                  </Fade>
+                  <Ink d={box} kept />
+                </>
+              )}
+              <Txt x={X(q.y)} y={base - q.v * k - 8} text={q.text} size={15} big tone={q.ghost ? 'soft' : undefined} kept={!q.ghost} t0={300} />
+              <Txt x={X(q.y)} y={base + 20} text={String(q.y)} size={14} tone="soft" kept={!q.ghost} t0={200} />
+            </g>
+          )
+        })}
+        {riseShown ? (
+          <>
+            <Arrow x1={X(a.y) + 6} y1={ya} x2={X(b.y) - 6} y2={yb} tone="count" head={7} t0={500} />
+            <Txt x={(X(a.y) + X(b.y)) / 2} y={yb - 10} text={rise.text} size={15} tone="count" t0={700} />
+          </>
+        ) : null}
+        <Fade class="vc-count vc-dash" t0={0} kept>
+          <path d={`M10 ${yl}H292`} />
+        </Fade>
+        <Txt x={X(yGoal) - 16} y={yl + 22} text={`sous ${goal[1]}\u00a0%`} size={15} anchor="end" tone="count" kept />
+        <Picto n="drapeau" x={X(yGoal) - 10} y={yl - 44} size={44} tone="count" kept />
+        <Txt x={X(yGoal)} y={base + 20} text={String(yGoal)} size={14} tone="count" kept />
+        {quote?.shown ? <Txt x={292} y={18} text={`«\u00a0${quote.text}\u00a0»`} size={15} max={16} anchor="end" t0={200} /> : null}
+      </Art>
+      <Src p={p} />
+    </Seg>
+  )
+}
+
 /* ——— Le registre ——— */
 
 export const FISCALITE: Record<string, Board> = {
@@ -1385,4 +1498,7 @@ export const FISCALITE: Record<string, Board> = {
   'impots-recettes-05': recettes05,
   'impots-recettes-06': recettes06,
   'impots-recettes-07': recettes07,
+  // Édition présidentielle 2027 : impots-intro-06-p27 garde la planche d'origine (elle lit les questions du passage)
+  'impots-intro-07-p27': intro07Edition,
+  'impots-dette-05-p27': dette05Edition,
 }

@@ -22,9 +22,9 @@ const KEPT = [
   },
   {
     icon: 'download',
-    what: 'Votre double (JSON)',
-    where: 'Là où vous l’enregistrez',
-    until: 'Vous seul le gérez, y compris s’il se synchronise avec un cloud',
+    what: 'Votre double (JSON) et votre dépouillement (PDF)',
+    where: 'Là où vous les enregistrez',
+    until: 'Vous seul les gérez, y compris s’ils se synchronisent avec un cloud. Ils contiennent vos opinions politiques',
   },
   {
     icon: 'plane',
@@ -99,7 +99,7 @@ export function Privacy({ eraseAll }: { eraseAll: () => void }) {
           </SectionTitle>
           <AirplaneDiagram />
           <p class="caption">
-            Une fois la page chargée, coupez le réseau&nbsp;: la feuille, le dépouillement, l’image et le double marchent
+            Une fois la page chargée, coupez le réseau&nbsp;: la feuille, le dépouillement, l’image, le PDF et le double marchent
             toujours, jusqu’au résultat. Sans réseau, rien ne peut sortir de l’appareil. Vous pouvez tout effacer avant
             de le rallumer.
           </p>

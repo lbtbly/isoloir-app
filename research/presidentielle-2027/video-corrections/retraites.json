@@ -1,0 +1,335 @@
+[
+ {
+  "id": "retraites-12",
+  "target": "video",
+  "questionId": "",
+  "videoId": "retraites-intro",
+  "segmentId": "retraites-intro-07",
+  "field": "say",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "Le seul passage de l'introduction sur le solde rapporte le déficit à la dépense totale (« sur plus de 400 milliards dépensés »), et son dessin parle d'un écart « trop fin pour se voir ». Ce passage tend à présenter le déficit comme négligeable. La trajectoire à règles inchangées (−2,4 % du PIB en 2070), au cœur du débat pour l'autre côté, n'est dite nulle part dans la série. Elle figure pourtant dans le libellé du chiffre et dans le graphique de l'explication retraites-2 (index 1). Le passage voisin (06) donne bien la projection pour les cotisants. Il faut réenregistrer la voix du passage (environ 11 s) ; ajouter « 2,4 % » à emphasis.",
+  "current": "En 2025, il manque 5,1 milliards d’euros, sur plus de 400 milliards dépensés.",
+  "proposed": "En 2025, il manque 5,1 milliards d’euros, soit 0,2 % du PIB, la richesse produite en un an. À règles inchangées, le déficit atteindrait 2,4 % du PIB en 2070, selon les projections.",
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "retraites-13",
+   "retraites-14",
+   "retraites-15"
+  ],
+  "rationale": "Deux sensibilités l'ont relevé, de façon convergente. J'ai pris la base de la droite : la même unité (% du PIB) aux deux dates, sans comparaison choisie qui relativise ou dramatise. « Selon les projections » reprend le passage 06, et le libellé garde la fourchette (−1,7 % à −3,1 %). Les deux chiffres sont dans l'explication retraites-2 (figures[1] et son graphique), et le rapport les donne : « - 0,2 % du PIB en 2030 […] et - 2,4 % du PIB en 2070 ». Le réenregistrement est nécessaire : c'est le seul endroit de la série qui parle du solde. Emphasis : ['5,1 milliards', '2,4 %'], écrits comme dans le say.",
+  "newSource": {
+   "title": "Rapport annuel du COR, juin 2026 (synthèse, p. 7)",
+   "url": "https://www.cor-retraites.fr/sites/default/files/2026-07/RA_2026_def.pdf",
+   "publisher": "Conseil d'orientation des retraites",
+   "date": "2026-06"
+  },
+  "checked": true,
+  "verification": "adjusted : Le fond est confirmé par la synthèse du COR, p. 7 : « déficitaire de 5,1 milliards d'euros, soit - 0,2 point du PIB, hors charges et produits financiers » ; « fondé sur une réglementation inchangée » ; « avant de s'établir à - 2,4 points de PIB en 2070 ». La série ne dit nulle part ce chiffre de 2070. J'ai ajusté la tournure pour la voix, guide § 7. Avec « soit 0,2 % du PIB. À règles inchangées… », la forme dite placerait le sigle « P.I.B. » en fin de phrase, ce que le guide interdit : phrases.py ne coupe pas après un sigle pointé, et les deux phrases seraient générées d'un bloc. J'ajoute donc « la richesse produite en un an », comme à retraites-intro-04. La première phrase dite fait alors 25 mots, la limite. Forme dite à écrire : « En deux mille vingt-cinq, il manque cinq virgule un milliards d’euros, soit zéro virgule deux pour cent du P.I.B., la richesse produite en un an. À règles inchangées, le déficit atteindrait deux virgule quatre pour cent du P.I.B. en deux mille soixante-dix, selon les projections. » Emphasis : ['5,1 milliards', '2,4 %'], avec des insécables. Le draw et l'alt (« trop fin pour se voir ») ne montrent que 2025 : il faut les revoir pour faire voir aussi l'écart de 2070.",
+  "topic": "retraites",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "retraites-13",
+  "target": "video",
+  "questionId": "",
+  "videoId": "retraites-intro",
+  "segmentId": "retraites-intro-07",
+  "field": "spoken",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "Forme dite qui va avec le nouveau « say » (retraites-12). Même réenregistrement de la voix.",
+  "current": "En deux mille vingt-cinq, il manque cinq virgule un milliards d’euros, sur plus de quatre cents milliards dépensés.",
+  "proposed": "En deux mille vingt-cinq, il manque cinq virgule un milliards d’euros, soit zéro virgule deux pour cent du P.I.B. À règles inchangées, le déficit atteindrait deux virgule quatre pour cent du P.I.B. en deux mille soixante-dix, selon les projections.",
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "retraites-12"
+  ],
+  "rationale": "« P.I.B. » est écrit comme dans le spoken de retraites-intro-04.",
+  "topic": "retraites",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "retraites-16",
+  "target": "video",
+  "questionId": "",
+  "videoId": "retraites-financement",
+  "segmentId": "retraites-financement-11",
+  "field": "say",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "La partie sur la capitalisation finit sur sa principale objection, sans contrepoint, contre la règle du guide (§ 5 : « la vidéo ne finit pas sur l'argument d'un camp »). Cette objection ne vaut en outre que pour un remplacement de la répartition, alors que les approches de cette élection vont jusqu'à un étage obligatoire à côté de la répartition. Le document de travail du COR déjà cité (sources[2]) donne les deux faits : la « double contribution des actifs » en cas de passage, et la Suède, qui a « partiellement substitué la capitalisation à la répartition pour instaurer un système mixte ». Il faut réenregistrer la voix du passage (environ 8 s).",
+  "current": "Et passer à la capitalisation obligerait à financer deux retraites à la fois.",
+  "proposed": "Passer, même en partie, de la répartition à la capitalisation obligerait un temps à financer deux retraites à la fois. Certains pays, comme la Suède, combinent les deux.",
+  "lenses": [
+   "centre",
+   "gauche",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "retraites-17"
+  ],
+  "rationale": "Les trois sensibilités l'ont relevé : la gauche par honnêteté, comme servant son côté, et la droite dans ses notes. On garde la contrainte de transition (« un temps », exact pour une transition) et on ajoute un fait de la même source, sans approche ni proposition. Un nom de pays est permis ; ni parti ni candidat. Passages lus dans le PDF : « la contrainte d'une double contribution des actifs », « D'autres, comme la Suède, ont partiellement substitué la capitalisation à la répartition pour instaurer un système mixte combinant répartition et capitalisation ». Pas de chiffre : pas de spoken à écrire. L'emphasis « deux retraites à la fois » reste dans le say. Le réenregistrement est nécessaire, car la tournure actuelle est unilatérale pour le débat de cette élection.",
+  "newSource": {
+   "title": "Typologie des systèmes de retraite : de la répartition à la capitalisation individuelle (séance plénière du 18 décembre 2025, document n° 6, document de travail)",
+   "url": "https://www.cor-retraites.fr/sites/default/files/2025-12/Doc_06_R%C3%A9partition%20%C3%A0%20Capitalisation.pdf",
+   "publisher": "Secrétariat général du Conseil d'orientation des retraites",
+   "date": "2025-12-18"
+  },
+  "checked": true,
+  "verification": "adjusted : Lu dans le document n° 6 du COR (séance du 18 décembre 2025), p. 10 : « D'autres, comme la Suède, ont partiellement substitué la capitalisation à la répartition pour instaurer un système mixte combinant répartition et capitalisation ». P. 11 : le passage vers la capitalisation est « plus complexe à envisager du fait principalement de la contrainte d'une double contribution des actifs ». L'objection de l'issue est en partie inexacte. Le COR applique cette contrainte au « remplacement, même partiel, d'un régime par répartition par un régime par capitalisation » : elle vaut donc aussi pour un étage partiel. Et « passer de l'une à l'autre » laisse croire qu'elle joue dans les deux sens. Or, de la capitalisation vers la répartition, le COR décrit un autre problème : le sort des cotisations accumulées. Je rétablis donc le sens et le périmètre de la source. Le motif du guide (§ 5 : ne pas finir sur l'argument d'un camp) tient, et le fait suédois sert de contrepoint factuel. Pas de chiffre : pas de forme dite. Réenregistrement nécessaire. Source : la même que sources[2] de la vidéo, sans doublon.",
+  "topic": "retraites",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "retraites-18",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "questionIds de retraites-financement et reprise des explications (reuse.json)",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "La question de cette élection « Quelle place pour la capitalisation dans les retraites ? » (retraites-2) n'a ni explication ni vidéo. reuse.json fait correspondre l'ancienne retraites-2 à la question sur le montant des pensions (retraites-3). Le seul contenu sur la capitalisation (explication retraites-2, points[0] ; vidéo retraites-financement-09 à 11) est donc rangé sous une autre question, où il est hors sujet. La question laissée sans éclairage est pourtant portée par plusieurs candidats de bords différents. Les trois sensibilités l'ont relevé ; seule la droite l'a proposé comme correction.",
+  "current": "questionIds: ['retraites-2'] (traduit en retraites-3 de l'élection seulement) ; aucune explication pour retraites-2 de l'élection",
+  "proposed": "Montrer aussi la vidéo retraites-financement sous la question retraites-2 de l'élection (capitalisation), et donner à cette question une explication qui reprenne le point sur la répartition, la capitalisation et la retraite supplémentaire (DREES, données 2024), avec un résumé propre à cette question.",
+  "lenses": [
+   "droite",
+   "gauche",
+   "centre"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "rationale": "Il s'agit d'un problème de structure, pas de texte. Le périmètre vidéo actuel n'admet qu'une question d'arrivée par question d'origine : c'est au propriétaire d'arbitrer (scope.ts, reuse.json). Aucune voix n'est en jeu. Le résumé proposé en retraites-5 vise la question du montant. Une explication pour la question sur la capitalisation demande son propre résumé, qui décrive aussi ses approches (répartition seule, étage collectif obligatoire, capital à la naissance, remplacement progressif, épargne volontaire).",
+  "topic": "retraites",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "retraites-2",
+  "target": "video",
+  "questionId": "",
+  "videoId": "retraites-pensions",
+  "segmentId": "retraites-pensions-06",
+  "field": "say",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "« Chaque année, les pensions de base suivent les prix » présente la règle comme sans exception. Or le projet de budget de la Sécurité sociale pour 2027 propose un gel des pensions de base, sauf les plus basses. S'il est voté, la phrase sera fausse au 1er janvier 2027, avant le premier tour. Ajouter « En principe » la garde vraie dans tous les cas, comme le contexte de la question. Il faut réenregistrer la voix du passage (voir le spoken, retraites-3). L'emphasis « 0,9 % » reste inchangée.",
+  "current": "Chaque année, les pensions de base suivent les prix : plus 0,9 % au 1er janvier 2026.",
+  "proposed": "En principe, les pensions de base suivent les prix chaque année : plus 0,9 % au 1er janvier 2026.",
+  "lenses": [
+   "gauche",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "retraites-1",
+   "retraites-3",
+   "retraites-4"
+  ],
+  "rationale": "Correction nécessaire, car la phrase deviendrait fausse avant le vote. Pour ne réenregistrer qu'une fois, le propriétaire peut attendre le vote de la loi de financement de la sécurité sociale pour 2027 (décembre 2026). Il réécrira alors le passage avec la revalorisation réellement retenue au 1er janvier 2027 : figure, label et source alignés sur points[2] de l'explication, qui devra porter le même chiffre. Faute de quoi, « +0,9 % au 1er janvier 2026 » sera de toute façon daté en janvier 2027.",
+  "newSource": {
+   "title": "Avis n° HCFP-2026-5 relatif aux projets de lois de finances et de financement de la sécurité sociale pour l'année 2027",
+   "url": "https://www.hcfp.fr/sites/default/files/2026-10/Avis%20HCFP%202026-5%20-%20PLF-PLFSS%202027.pdf",
+   "publisher": "Haut Conseil des finances publiques",
+   "date": "2026-09-25"
+  },
+  "checked": true,
+  "verification": "confirmed : Le +0,9 % au 1er janvier 2026 est juste : A17919, sourceIndex 3 de la vidéo retraites-pensions. Mais la règle présentée sans exception sera contredite si le gel du PLFSS 2027 est voté. Ce gel est attesté par l'avis HCFP-2026-5 : « un gel des pensions de retraite de base sauf les plus basses ». « En principe » reprend le contexte de la question retraites-3 et reste vrai dans tous les cas. L'emphasis « 0,9 % » est inchangée. Il faut attendre la LFSS 2027 (décembre) pour ne réenregistrer qu'une fois : bon conseil.",
+  "topic": "retraites",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "retraites-3",
+  "target": "video",
+  "questionId": "",
+  "videoId": "retraites-pensions",
+  "segmentId": "retraites-pensions-06",
+  "field": "spoken",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "Forme dite qui va avec le nouveau « say » du même passage (retraites-2). Même réenregistrement de la voix.",
+  "current": "Chaque année, les pensions de base suivent les prix : plus zéro virgule neuf pour cent au premier janvier deux mille vingt-six.",
+  "proposed": "En principe, les pensions de base suivent les prix chaque année : plus zéro virgule neuf pour cent au premier janvier deux mille vingt-six.",
+  "lenses": [
+   "gauche",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "retraites-1",
+   "retraites-2"
+  ],
+  "rationale": "Le say et le spoken doivent rester identiques au sens près ; un seul réenregistrement pour les deux.",
+  "verification": "confirmed : La forme dite correspond mot pour mot au nouveau say (retraites-2) et respecte le guide, § 7 : chiffres en lettres, une seule phrase de moins de 25 mots, aucun sigle en fin de phrase.",
+  "topic": "retraites",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "retraites-4",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "en-tête du fichier (mention « Datée »)",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "L'en-tête ne date que la suspension, avec « À revoir après cette date » (2028). Il ne signale donc rien avant le vote. Or plusieurs faits de la série changent avant avril 2027 : le projet de loi de financement de la sécurité sociale pour 2027 (gel proposé), la revalorisation du 1er janvier 2027 (+0,9 % de retraites-pensions-06, Aspa à 1 043,59 € de retraites-pensions-05) et sans doute de nouvelles éditions de l'Insee (emploi des 60-64 ans, publié en mars 2026 pour 2025) et de la DREES (espérance de vie sans incapacité, publiée en janvier 2026 pour 2024). Les trois sensibilités l'ont relevé.",
+  "current": "// Datée : suspension de la réforme des retraites jusqu'en 2028. À revoir après cette date.",
+  "proposed": "// Datée : projet de loi de financement de la sécurité sociale pour 2027 (gel des pensions de base proposé, sauf les plus basses), à revoir dès son vote en décembre 2026 ;\n// revalorisation des pensions de base (+0,9 %, retraites-pensions-06) et montant de l'Aspa (retraites-pensions-05) au 1er janvier 2026, à revoir au 1er janvier 2027 ;\n// nouvelles éditions attendues avant avril 2027 : Insee, emploi des 60-64 ans en 2026 (retraites-age-08) ; DREES, espérance de vie sans incapacité en 2025 (retraites-age-10).\n// Suspension de la réforme de 2023 jusqu'au 1er janvier 2028. À revoir en décembre 2026, en janvier et en mars 2027, puis en 2028.",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "retraites-1",
+   "retraites-2"
+  ],
+  "rationale": "J'ai fusionné les trois propositions, qui disent la même chose. J'ai gardé les échéances concrètes (vote, 1er janvier, publications) et les identifiants des passages concernés, pour que le propriétaire sache quoi relire. Un commentaire : aucune voix à réenregistrer.",
+  "newSource": {
+   "title": "Avis n° HCFP-2026-5 relatif aux projets de lois de finances et de financement de la sécurité sociale pour l'année 2027",
+   "url": "https://www.hcfp.fr/sites/default/files/2026-10/Avis%20HCFP%202026-5%20-%20PLF-PLFSS%202027.pdf",
+   "publisher": "Haut Conseil des finances publiques",
+   "date": "2026-09-25"
+  },
+  "checked": true,
+  "verification": "confirmed : L'en-tête actuel ne date que la suspension. Le guide (§ 6) demande de noter tout fait daté qui peut changer avant le vote. J'ai vérifié les faits cités : gel proposé par le PLFSS 2027 (avis HCFP du 25 septembre 2026) ; Insee Première n° 2096 publié le 25 mars 2026 sur 2025 ; DREES ER n° 1363 publié en janvier 2026 sur 2024 ; suspension « jusqu'en 2028 » (A18825). Les dates des prochaines éditions sont une hypothèse fondée sur leur rythme annuel, ce qui convient pour un commentaire. C'est un commentaire de code : aucune voix à réenregistrer.",
+  "topic": "retraites",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "retraites-14",
+  "target": "video",
+  "questionId": "",
+  "videoId": "retraites-intro",
+  "segmentId": "retraites-intro-07",
+  "field": "draw",
+  "category": "cadrage",
+  "severity": "mineur",
+  "issue": "Le dessin doit suivre le nouveau « say » : le solde en 2025 puis en 2070, à la même échelle. La planche (pistes/planches/retraites.tsx) est à adapter. Elle peut tracer le graphique de l'explication retraites-2 (index 1 : −0,2 puis −2,4 % du PIB), en copiant son chart dans la figure (guide, § 6).",
+  "current": "Deux piles de pièces presque égales, recettes et dépenses ; la pile des recettes un peu plus basse, l’écart marqué d’une accolade.",
+  "proposed": "Deux piles de pièces presque égales, recettes et dépenses, datées 2025 ; à côté, les mêmes piles datées 2070, à la même échelle, l’écart plus large ; chaque écart marqué d’une accolade.",
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "retraites-12",
+   "retraites-15"
+  ],
+  "rationale": "Même échelle aux deux dates, sans grossir l'écart : le dessin ne dramatise ni ne minimise.",
+  "topic": "retraites",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "retraites-15",
+  "target": "video",
+  "questionId": "",
+  "videoId": "retraites-intro",
+  "segmentId": "retraites-intro-07",
+  "field": "alt",
+  "category": "cadrage",
+  "severity": "mineur",
+  "issue": "« L'écart, trop fin pour se voir » commente la petitesse du déficit, et l'alt doit décrire le nouveau dessin (deux dates).",
+  "current": "Deux piles à la même échelle, les recettes et les dépenses : l’écart, trop fin pour se voir, est montré du doigt.",
+  "proposed": "Deux piles à la même échelle, recettes et dépenses, en 2025 puis en 2070 : l’écart, à peine visible en 2025, s’élargit en 2070.",
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "retraites-12",
+   "retraites-14"
+  ],
+  "rationale": "Description du dessin, sans commentaire ; l'alt n'est pas dit, donc rien à réenregistrer.",
+  "topic": "retraites",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "retraites-17",
+  "target": "video",
+  "questionId": "",
+  "videoId": "retraites-financement",
+  "segmentId": "retraites-financement-11",
+  "field": "draw",
+  "category": "cadrage",
+  "severity": "mineur",
+  "issue": "Le dessin suit le nouveau « say » : la double charge de la transition, puis un système mixte, sans drapeau ni personnage reconnaissable. La planche pistes/planches/retraites.tsx est à adapter. Si elle écrit « Suède », il faut ajouter un alt.",
+  "current": "Une même main qui remplit en même temps l’enveloppe d’un retraité et une tirelire.",
+  "proposed": "Une même main qui remplit en même temps l’enveloppe d’un retraité et une tirelire ; puis la chaîne des générations et une tirelire posées côte à côte, reliées par un trait.",
+  "lenses": [
+   "centre"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "retraites-16"
+  ],
+  "rationale": "Le dessin est neutre et reprend des motifs déjà présents dans la vidéo (chaîne des générations, tirelire).",
+  "topic": "retraites",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "retraites-22",
+  "target": "video",
+  "questionId": "",
+  "videoId": "retraites-penibilite",
+  "segmentId": "retraites-penibilite-07",
+  "field": "say",
+  "category": "cadrage",
+  "severity": "mineur",
+  "issue": "« Motif officiel » laisse entendre que le vrai motif serait autre. Mieux vaut attribuer simplement la raison donnée lors de la réforme. Il faudrait réenregistrer la voix du passage : à faire seulement en même temps que les autres réenregistrements de la série (retraites-pensions-06, retraites-intro-07, retraites-financement-11), sinon laisser.",
+  "current": "Motif officiel : leur évaluation était particulièrement complexe. Un départ anticipé reste possible, mais lié à une maladie professionnelle.",
+  "proposed": "Motif donné alors : leur évaluation était particulièrement complexe. Un départ anticipé reste possible, mais lié à une maladie professionnelle.",
+  "lenses": [
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [],
+  "rationale": "J'ai remplacé « Motif donné en 2017 » (droite) par « Motif donné alors » : le passage 06 dit déjà « En 2017 », et cette tournure n'ajoute aucun nombre, donc pas de spoken à écrire. La correction est facultative et de faible gravité.",
+  "topic": "retraites",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "retraites-23",
+  "target": "video",
+  "questionId": "",
+  "videoId": "retraites-age",
+  "segmentId": "retraites-age-08",
+  "field": "figure.label",
+  "category": "exactitude",
+  "severity": "mineur",
+  "issue": "Le libellé attribue « principalement » à la réforme la hausse de 2025. Or la phrase de l'Insee rattache cet effet à l'accélération de 2024 : « progresse de 2,0 points sur l'année, après une nette accélération en 2024 (+3,4 points) sous l'effet principalement de la mise en œuvre de la réforme des retraites de 2023 ». Le libellé n'est pas dit : pas de réenregistrement.",
+  "current": "Hausse du taux d’emploi des 60-64 ans en 2024 ; nouvelle hausse de 2,0 points en 2025, principalement sous l’effet de la mise en œuvre de la réforme des retraites de 2023 selon l’Insee (France, personnes vivant en logement ordinaire)",
+  "proposed": "Hausse du taux d’emploi des 60-64 ans en 2024, principalement sous l’effet de la mise en œuvre de la réforme des retraites de 2023 selon l’Insee ; nouvelle hausse de 2,0 points en 2025 (France, personnes vivant en logement ordinaire)",
+  "lenses": [
+   "arbitre"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "retraites-7"
+  ],
+  "rationale": "Relevé en vérifiant la source du point retraites-7. On remet l'attribution à sa place, et la vidéo concorde avec le nouveau point de l'explication. Le « say » (« Depuis la réforme, … a gagné 3,4 points en 2024, puis 2 en 2025 ») reste exact.",
+  "newSource": {
+   "title": "Une photographie du marché du travail en 2025 (Insee Première n° 2096)",
+   "url": "https://www.insee.fr/fr/statistiques/8901327",
+   "publisher": "Insee",
+   "date": "2026-03-25"
+  },
+  "checked": true,
+  "verification": "confirmed : Relu sur la page de l'Insee (n° 2096). La phrase rattache l'effet de la réforme à « une nette accélération en 2024 (+3,4 points) ». Elle ne dit pas la cause de la hausse de 2025, et la réforme n'est citée nulle part ailleurs dans la publication. Le libellé actuel, qui rattache l'effet à 2025, va au-delà de la source ; la proposition remet l'attribution à sa place. La value « +3,4 points » et la date « 2024 » restent cohérentes. Le libellé n'est pas dit : pas de réenregistrement. Le say (« Depuis la réforme, … 3,4 points en 2024, puis 2 en 2025 ») reste factuellement exact. Mais « Depuis la réforme » peut se lire comme attribuant aussi les deux points de 2025 à la réforme : à surveiller lors d'un prochain réenregistrement.",
+  "topic": "retraites",
+  "electionQuestionId": ""
+ }
+]

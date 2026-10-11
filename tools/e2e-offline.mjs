@@ -30,6 +30,7 @@ import { spawn } from 'node:child_process'
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT, importSite, loadElection, useSiteModules } from './site-modules.mjs'
+import { readPdf } from './pdf-text.mjs'
 
 // ——— Arguments ———
 const argv = process.argv.slice(2)
@@ -95,10 +96,17 @@ for (const f of readdirSync(seriesDir).filter(f => f.endsWith('.ts') && f !== 'i
   if (s?.videos.length) allSeries.push(s)
 }
 const scope = pack.videoScope ?? null
-/** Un périmètre vide (présidentielle, en attendant la mise à jour des séries) : ni page, ni entrée de menu, ni lien */
+/** Un périmètre vide (élection en attente de ses séries) : ni page, ni entrée de menu, ni lien */
 const VIDEOS_SHOWN = !scope || Object.keys(scope.topics).length > 0
 const topicLabel = id => pack.bank.topics.find(t => t.id === id)?.label
+// Les séries telles que les montre l'édition de cette élection (src/ui/videos/editions), le cas échéant
+const { EDITIONS } = await importSite('src/ui/videos/editions/index.ts')
+const { applyEdition } = await importSite('src/ui/videos/editions/apply.ts')
+const edition = scope?.edition ? EDITIONS[scope.edition] : undefined
+/** Questions d'une vidéo dans cette élection : natives (édition) ou traduites par le périmètre */
+const questionsOf = v => (v.nativeQuestionIds || !scope ? v.questionIds : v.questionIds.map(q => scope.questions[q]).filter(Boolean))
 const SERIES = allSeries
+  .map(s => applyEdition(s, edition))
   .map(s => ({ s, topic: scope ? scope.topics[s.topicId] : s.topicId }))
   .filter(({ topic }) => topic && topicLabel(topic))
   .map(({ s, topic }) => ({
@@ -106,7 +114,7 @@ const SERIES = allSeries
     topic,
     // Libellé du repère : celui de la série, ou celui du thème de l'élection (périmètre réétiqueté)
     labels: [...new Set([s.label, topicLabel(topic)])],
-    deepQuestions: s.videos.filter(v => v.kind === 'deep').flatMap(v => v.questionIds.map(q => (scope ? scope.questions[q] : q)).filter(Boolean)),
+    deepQuestions: s.videos.filter(v => v.kind === 'deep').flatMap(questionsOf),
   }))
 const deepLinked = new Set(SERIES.flatMap(s => s.deepQuestions))
 // Deux séries de référence : Retraites et Logement si l'élection les montre, sinon les premières assez longues
@@ -417,10 +425,12 @@ try {
     const trendPercents = (await page.locator('.board-list').innerText()).includes('%')
     const trendVerdict = await page.locator('.leader, .board-pct, .topics-block, .why-block, .agree, .prio').count()
     const trendShare = await page.locator(`.results-bar a[href="${L('/partager')}"]`).count()
+    // Ni dépouillement en PDF : comme l'affiche, il attend le résultat complet
+    const trendPdf = await page.getByRole('button', { name: 'Télécharger mon dépouillement (PDF)' }).count()
     const barLabel = ((await page.locator('.action-bar-inner > .btn-primary').innerText()) ?? '').trim()
     check(
-      trendVerdict === 0 && !trendPercents && trendShare === 0 && heroCtaLabel.startsWith(`Continuer\u00a0: ${QUICK - STEP1} question${QUICK - STEP1 > 1 ? 's' : ''}`) && barLabel.startsWith('Continuer'),
-      `tendance : pas d’affiche, de pourcentage ni de partage ; bouton large « ${heroCtaLabel} », barre « ${barLabel.replace(/\s+/g, ' ')} »`,
+      trendVerdict === 0 && !trendPercents && trendShare === 0 && trendPdf === 0 && heroCtaLabel.startsWith(`Continuer\u00a0: ${QUICK - STEP1} question${QUICK - STEP1 > 1 ? 's' : ''}`) && barLabel.startsWith('Continuer'),
+      `tendance : pas d’affiche, de pourcentage, de partage ni de PDF ; bouton large « ${heroCtaLabel} », barre « ${barLabel.replace(/\s+/g, ' ')} »`,
     )
 
     // 3 bis. Qui porte quoi, à la première tendance : seules les questions vues sont révélées, sous une légende
@@ -521,6 +531,20 @@ try {
   await page.goto(U('/partager'))
   await page.waitForSelector('.share-preview img', { timeout: 5000 }).catch(() => null)
   check((await page.locator('.share-preview img').count()) > 0, 'l’affiche JPG est fabriquée hors ligne')
+  // L'affiche des plus éloignés : une autre image, un autre texte de remplacement, un autre nom de fichier
+  const topAlt = await page.locator('.share-preview img').getAttribute('alt')
+  const flopButton = page.getByRole('button', { name: 'Les plus éloignés' })
+  if (await flopButton.count()) {
+    await flopButton.click()
+    await page.waitForFunction(() => /les plus éloignés de mes idées/.test(document.querySelector('.share-preview img')?.getAttribute('alt') ?? ''), null, { timeout: 5000 }).catch(() => null)
+    const flopAlt = (await page.locator('.share-preview img').getAttribute('alt')) ?? ''
+    const pressed = await flopButton.getAttribute('aria-pressed')
+    check(
+      pressed === 'true' && flopAlt !== topAlt && /les plus éloignés de mes idées/.test(flopAlt) && /\d+\. /.test(flopAlt),
+      `affiche des plus éloignés : bouton enfoncé (${pressed}), texte de remplacement propre et numéroté`,
+    )
+    await page.getByRole('button', { name: 'Les plus proches' }).click()
+  }
   await page.goto(U('/resultats'))
   const [download] = await Promise.all([
     page.waitForEvent('download', { timeout: 5000 }),
@@ -529,6 +553,35 @@ try {
   const file = JSON.parse(readFileSync(await download.path(), 'utf8'))
   const rated = file.readable.filter(r => r.avis.length >= 2 && !r.passee).length // la question 3 en a un de plus (test clavier)
   check(file.format === 3 && file.readable.length === QUICK && rated === QUICK, `le double JSON contient les ${QUICK} réponses, chacune avec ses deux avis (${rated})`)
+  // Le dépouillement en PDF, fabriqué sur l'appareil, toujours hors ligne : le morceau du rapport est dans la copie
+  // hors ligne. Relu par tools/pdf-text.mjs (structure, xref, texte)
+  const [pdf] = await Promise.all([
+    page.waitForEvent('download', { timeout: 5000 }),
+    page.getByRole('button', { name: 'Télécharger mon dépouillement (PDF)' }).click(),
+  ])
+  const pdfBytes = readFileSync(await pdf.path())
+  let doc = null
+  try {
+    doc = readPdf(pdfBytes)
+  } catch (err) {
+    console.log(`  (PDF illisible : ${err.message})`)
+  }
+  const pdfFirst = (doc?.pages[0]?.text ?? '').replace(/\s+/g, ' ')
+  await page.waitForFunction(() => /PDF fabriqué/.test(document.querySelector('.report-status')?.textContent ?? ''), null, { timeout: 2000 }).catch(() => null)
+  const pdfStatus = ((await page.locator('.report-status').textContent().catch(() => '')) ?? '').trim()
+  const pdfIssues = [
+    /^isoloir-[a-z0-9-]+-depouillement-\d{4}-\d\d-\d\d\.pdf$/.test(pdf.suggestedFilename()) ? '' : `nom ${pdf.suggestedFilename()}`,
+    pdfBytes.subarray(0, 5).toString('latin1') === '%PDF-' ? '' : 'ne commence pas par %PDF-',
+    doc?.version === '1.4' && doc.pages.length >= 2 ? '' : `version ${doc?.version}, ${doc?.pages.length ?? 0} pages`,
+    pdfFirst.includes('Votre dépouillement') && pdfFirst.includes('Textes rédigés par IA') ? '' : 'page 1 sans titre ni étiquette IA',
+    doc?.pages.some(p => p.text.includes('Le classement')) ? '' : 'pas de « Le classement »',
+    !entry.archived || /\bArchive\b/.test(pdfFirst) ? '' : 'pas de mention « Archive » en page 1',
+    pdfStatus.startsWith('PDF fabriqué sur cet appareil') ? '' : `statut « ${pdfStatus} »`,
+  ].filter(Boolean)
+  check(
+    pdfIssues.length === 0,
+    `le dépouillement PDF se télécharge hors ligne (${pdf.suggestedFilename()}, ${doc?.pages.length ?? 0} pages, ${pdfBytes.length} octets${entry.archived ? ', mention « Archive » en page 1' : ''})${pdfIssues.length ? ` : ${pdfIssues.join(' ; ')}` : ''}`,
+  )
 
   // 7. Recharger la page sans réseau
   await page.reload()

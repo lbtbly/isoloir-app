@@ -168,6 +168,10 @@ export const election: ElectionInfo = {
   revisionTracking: true,
   changelog: [
     {
+      date: '2026-10-10',
+      text: 'Retour des vidéos « Les sujets », dans une version propre à la présidentielle : chiffres mis à jour et formulations rééquilibrées après une relecture par IA sous trois sensibilités (gauche, centre, droite), 93 passages réenregistrés et redessinés. Les vidéos sans question correspondante dans cette élection ne sont pas montrées ; elles restent dans l’archive de la primaire. Chaque question renvoie à ses vidéos (« En vidéo »).',
+    },
+    {
       date: '2026-10-09',
       text: 'Ajout des cinq candidats de la primaire «\u00a0Choisir 2027\u00a0» (Olivier Faure, Raphaël Glucksmann, Jérôme Guedj, Emmanuel Maurel, Ségolène Royal), présentés jusqu’à son second tour du 17 octobre\u00a0: seule la personne désignée restera ensuite. Ségolène Royal n’est pas classée, ses positions n’étant connues que sur 38 questions sur 100. Positions de Gabriel Attal et de Jérôme Guedj complétées sur la protection des agriculteurs face aux importations. La page des candidats les présente de l’extrême gauche à l’extrême droite, selon la grille des nuances politiques du ministère de l’Intérieur, à la couleur et avec le logo de chaque parti.',
     },

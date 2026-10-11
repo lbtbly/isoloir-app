@@ -15,6 +15,7 @@
 //   --themes a,b         clair, sombre ; défaut : les deux
 //   --dpr N              densité des images (1 ; 2 pour zoomer sur un détail)
 //   --base URL           serveur de dev (http://localhost:5173/)
+//   --edition ID         les séries telles que les montre une édition (src/ui/videos/editions/<ID>)
 // Sorties, dans <dossier> :
 //   <vidéo>/<NN>-<format>-<thème>.png          un passage, l'écran entier (onglets, titre, scène, sous-titres,
 //                                              et en bas, à la place des commandes, le bilan du contrôle)
@@ -60,6 +61,7 @@ for (let i = 0; i < args.length; i++) {
   else if (a === '--themes') opts.themes = (args[++i] ?? '').split(',').filter(Boolean)
   else if (a === '--dpr') opts.dpr = Number(args[++i])
   else if (a === '--base') opts.base = args[++i]?.replace(/\/?$/, '/') ?? opts.base
+  else if (a === '--edition') opts.edition = args[++i]
   else if (a === '-h' || a === '--help') usage()
   else if (a.startsWith('--')) usage(`option inconnue : ${a}`)
   else pos.push(a)
@@ -70,7 +72,7 @@ for (const f of opts.formats) if (!FORMATS[f]) usage(`format inconnu : ${f} (${O
 for (const t of opts.themes) if (!THEMES[t]) usage(`thème inconnu : ${t} (clair, sombre)`)
 if (!(opts.dpr > 0 && opts.dpr <= 3)) usage('--dpr entre 1 et 3')
 
-const PAGE = `${opts.base}tools/videos-snap.html`
+const PAGE = `${opts.base}tools/videos-snap.html${opts.edition ? `?edition=${encodeURIComponent(opts.edition)}` : ''}`
 
 async function up() {
   try {

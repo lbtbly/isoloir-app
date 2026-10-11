@@ -1,0 +1,285 @@
+[
+ {
+  "id": "securite_justice-1",
+  "target": "video",
+  "questionId": "",
+  "videoId": "securite-lycees",
+  "segmentId": "",
+  "field": "questionIds / présence dans la série montrée pour la présidentielle (périmètre vidéo)",
+  "category": "origine",
+  "severity": "important",
+  "issue": "La vidéo « Comment répondre aux blocages de lycées ? » éclaire la question securite_justice-4 de la primaire. Cette question n’a pas d’équivalent dans la banque de la présidentielle, dont la question 4 porte sur les violences contre les enfants. scopeSeries (scope.ts) ne fait que vider ses questionIds, si bien que la vidéo reste dans la série et dans le fil du thème. Son bouton « Voir la fiche » ouvre la fiche de la justice pénale. Son accroche (« À l’automne 2026, des lycées ont été bloqués ») renvoie à l’agenda de la primaire. Ses chiffres (effectifs et bien-être des lycéens) viennent d’une fiche que la présidentielle ne reprend pas, ce qui va contre la règle : une vidéo ne montre que des chiffres de l’explication de ses questions. Il faut la retirer du périmètre vidéo de la présidentielle seulement, par exemple de deux façons : scopeSeries écarte un approfondissement dont aucune question n’est traduite, ou on ajoute une exclusion dans reuse.json et videoScope. Il faut la garder dans le fichier pour l’archive de la primaire. Aucune voix à réenregistrer.",
+  "current": "questionIds: ['securite_justice-4']",
+  "proposed": "",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "securite_justice-2",
+   "securite_justice-3",
+   "securite_justice-4",
+   "securite_justice-5"
+  ],
+  "rationale": "Relevé par les trois sensibilités. Vérifié dans src/ui/videos/scope.ts et src/elections/presidentielle-2027/videos.ts, où la question securite_justice-4 de la primaire n’est reliée à rien. Retirer la vidéo du fichier casserait l’archive de la primaire, qui partage la série : l’exclusion doit passer par le périmètre de l’élection. Pour la présidentielle, le déséquilibre interne relevé par la droite (trois passages sur les libertés des lycéens, un sur l’infraction) devient sans objet. Cette exclusion libère aussi 9 passages dans la série montrée, mais pas dans le fichier (voir les notes sur le plafond de 45).",
+  "topic": "securite_justice",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "securite_justice-11",
+  "target": "video",
+  "questionId": "",
+  "videoId": "securite-police",
+  "segmentId": "",
+  "field": "segments (nouveau passage, entre securite-police-01 et securite-police-02)",
+  "category": "chiffres",
+  "severity": "important",
+  "issue": "La vidéo sur la police montre surtout les règles et les pratiques : l’usage des armes (deux passages), la hausse des contrôles, des contrôles quatre fois plus fréquents pour certains jeunes hommes, les caméras à l’école. Un seul passage porte sur les moyens. Elle ne donne aucun chiffre des violences auxquelles répondent policiers et gendarmes, alors que la fiche de sa question en donne un (chiffre n° 0). Le guide le demande (§ 5) : « si la fiche donne celui qui compte pour l’autre côté, montrez-le aussi ». C’est un nouveau passage à enregistrer, nécessaire à l’équilibre. Il n’ajoute aucun chiffre hors de la fiche. Pour le plafond de 45 passages par série, voir les notes.",
+  "current": "",
+  "proposed": "Nouveau passage (visual 'figure'). say : « Côté violences, la police et la gendarmerie ont enregistré 472 956 victimes de violences physiques en 2025, contre 449 819 en 2024. Plus de la moitié dans le cadre familial. » ; spoken : « Côté violences, la police et la gendarmerie ont enregistré quatre cent soixante-douze mille neuf cent cinquante-six victimes de violences physiques en deux mille vingt-cinq, contre quatre cent quarante-neuf mille huit cent dix-neuf en deux mille vingt-quatre. Plus de la moitié dans le cadre familial. » ; emphasis : ['472 956 victimes', '449 819'] ; figure : value '472 956', label et date de securite-intro-03, sourceIndex 4 ; draw : « Deux colonnes au trait depuis zéro, à la même échelle, 2024 et 2025, le nombre écrit au bout ; dans la colonne de 2025, un peu plus de la moitié se hachure : le cadre familial. » ; alt : « Deux colonnes à la même échelle : 449 819 victimes en 2024, 472 956 en 2025 ; dans la seconde, la part du cadre familial, 256 863, est hachurée. » ; sources de la vidéo : ajouter, en n° 4, la base SSMSI (fichier xlsx).",
+  "newSource": {
+   "title": "Base nationale des caractéristiques des victimes enregistrées par la police et la gendarmerie nationales (fichier xlsx)",
+   "url": "https://static.data.gouv.fr/resources/principales-caracteristiques-des-victimes-enregistrees-et-des-mis-en-cause-pour-des-infractions-elucidees-par-la-police-et-la-gendarmerie-nationales/20260129-160110/donnee-nat-caract-victimes-data.gouv-2025-produit-le-29012026.xlsx",
+   "publisher": "Ministère de l’Intérieur – SSMSI (data.gouv.fr)",
+   "date": "29 janvier 2026"
+  },
+  "checked": true,
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [],
+  "rationale": "Relevé par le centre et la droite. J’ai repris la formulation du centre : elle garde la part du cadre familial, qui figure dans le libellé de la fiche, et ce contexte compte pour les deux côtés. Le dessin, à la même échelle depuis zéro, remplace la « flèche qui monte » de la droite pour ne pas grossir une hausse de 5 %. Les valeurs viennent de la fiche (verified=true) et ont été relues par la droite dans le fichier du SSMSI.",
+  "verification": "confirmed : J'ai téléchargé et lu le fichier xlsx du SSMSI (produit le 29/01/2026). Lignes « Ensemble/Ensemble/Ensemble/Ensemble » : « Violences physiques » donne 449 819 en 2024 et 472 956 en 2025 ; « Violences physiques dans le cadre intra-familial » donne 256 863 en 2025, soit 54,3 % (plus de la moitié). La hausse est de 5,1 %, et le dessin depuis zéro ne la grossit pas. Le constat d'« issue » est exact : la vidéo securite-police ne montre aucun chiffre des violences, alors que la fiche de sa question en a un (chiffre n° 0). Toutes les valeurs du passage viennent de la fiche, vérifiée. Remarque, sans incidence sur les faits : l'introduction (securite-intro-03) dit déjà presque la même phrase. Le passage n'ajoute que la comparaison avec 2024, ce qui compte pour l'arbitrage sous le plafond de 45 passages.",
+  "topic": "securite_justice",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "securite_justice-2",
+  "target": "video",
+  "questionId": "",
+  "videoId": "securite-intro",
+  "segmentId": "securite-intro-07",
+  "field": "say",
+  "category": "origine",
+  "severity": "important",
+  "issue": "L’introduction annonce « quatre questions », dont les blocages de lycées, une question propre à la primaire. Pour la présidentielle, l’annonce est fausse : le thème y compte sept questions, dont trois ont une vidéo. Il faut réenregistrer ce passage, et la correction le justifie. Le fichier est partagé avec l’archive de la primaire : « plusieurs questions… parmi elles » reste vrai dans les deux élections, alors que « trois questions » serait faux dans l’archive. L’emphasis ne change pas.",
+  "current": "Alors, quatre questions se posent. Quelle priorité pour la police ? Comment lutter contre le trafic de drogue ? Quelle orientation pour la justice pénale ? Et comment répondre aux blocages de lycées ?",
+  "proposed": "Alors, plusieurs questions se posent. Parmi elles : quelle priorité pour la police ? Comment lutter contre le trafic de drogue ? Et quelle orientation pour la justice pénale ?",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "securite_justice-1",
+   "securite_justice-3",
+   "securite_justice-4",
+   "securite_justice-5"
+  ],
+  "rationale": "Relevé par les trois sensibilités. J’ai retenu la formulation de la gauche et de la droite plutôt que « trois questions » (centre), pour la raison donnée ci-dessus. Les mots de l’emphasis (« la police », « le trafic de drogue », « la justice pénale ») restent dans le say.",
+  "topic": "securite_justice",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "securite_justice-4",
+  "target": "video",
+  "questionId": "",
+  "videoId": "securite-intro",
+  "segmentId": "securite-intro-08",
+  "field": "say",
+  "category": "origine",
+  "severity": "important",
+  "issue": "« Les quatre sujets » renvoie au découpage de la primaire, avec les blocages de lycées. Dans la présidentielle, trois vidéos suivent seulement. Il faut réenregistrer ce passage court, et c’est nécessaire.",
+  "current": "Ce sont les quatre sujets des vidéos qui suivent.",
+  "proposed": "Ce sont les sujets des vidéos qui suivent.",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "securite_justice-1",
+   "securite_justice-2",
+   "securite_justice-3",
+   "securite_justice-5"
+  ],
+  "rationale": "Relevé par les trois sensibilités. Je n’ai pas gardé « les trois sujets » (centre), faux dans l’archive de la primaire qui partage le fichier. Gravité : important, car la phrase est fausse pour la présidentielle.",
+  "topic": "securite_justice",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "securite_justice-10",
+  "target": "video",
+  "questionId": "",
+  "videoId": "securite-police",
+  "segmentId": "securite-police-02",
+  "field": "figure.label",
+  "category": "chiffres",
+  "severity": "mineur",
+  "issue": "C’est la même correction que dans la fiche (figures[3].label), pour que le libellé affiché ne garde pas seulement le gel. Seule la légende change, ni say ni spoken : il n’y a rien à réenregistrer.",
+  "current": "Après un gel en 2025, le projet de budget 2026 prévoyait +1 000 postes dans la police et +400 dans la gendarmerie",
+  "proposed": "Après un gel en 2025, le projet de budget 2026 prévoyait +1 000 postes dans la police et +400 dans la gendarmerie ; selon le Sénat, la police atteindrait ainsi son objectif dès 2026 (+4 041 postes de 2023 à 2026), et la gendarmerie resterait à 1 145 postes du sien (+2 395 postes)",
+  "newSource": {
+   "title": "Projet de loi de finances pour 2026 : Sécurités (Gendarmerie nationale – Police nationale) – Rapport général n° 139 (2025-2026), tome III, annexe 28",
+   "url": "https://www.senat.fr/rap/l25-139-328-1/l25-139-328-1_mono.html",
+   "publisher": "Sénat – commission des finances",
+   "date": "24 novembre 2025"
+  },
+  "checked": true,
+  "lenses": [
+   "centre"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "securite_justice-9"
+  ],
+  "rationale": "C’est la jumelle de securite_justice-9, avec le même ajustement (la gendarmerie ajoutée, le budget retiré). La source est déjà la source n° 0 de la vidéo.",
+  "verification": "confirmed : C'est la jumelle de securite_justice-9. Mêmes valeurs, relues sur la même page du Sénat : + 4 041 ETP de 2023 à 2026 pour la police, objectif atteint « avec une année d'avance » ; écart de 1 145 ETP pour la gendarmerie, soit + 2 395 réalisés sur + 3 540. Cette page est déjà la source n° 0 de la vidéo securite-police. Seule la légende change, ni say ni spoken : la vidéo ne dit aucun nombre hors de sa liste de sources. Même réserve que pour la n° 9 : ce sont des projections du PLF 2026.",
+  "topic": "securite_justice",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "securite_justice-18",
+  "target": "video",
+  "questionId": "",
+  "videoId": "securite-drogues",
+  "segmentId": "",
+  "field": "segments (nouveau passage, entre securite-drogues-02 et securite-drogues-03)",
+  "category": "chiffres",
+  "severity": "mineur",
+  "issue": "La vidéo présente le trafic comme une affaire d’argent ; la violence des réseaux n’y apparaît jamais. Ce nouveau passage reprend le chiffre ajouté à la fiche (correction jumelle). Sa source est déjà la source n° 0 de la vidéo. Il faudrait enregistrer une voix : à faire seulement si le plafond de la série le permet (voir les notes), car le passage est utile sans être indispensable à l’équilibre.",
+  "current": "",
+  "proposed": "Nouveau passage (visual 'point'). say : « Selon une note de la police judiciaire de 2023, citée par le Sénat, 80 à 90 % des règlements de comptes, des meurtres et des tentatives de meurtre entre délinquants sont liés au trafic de stupéfiants. » ; spoken : « Selon une note de la police judiciaire de deux mille vingt-trois, citée par le Sénat, quatre-vingts à quatre-vingt-dix pour cent des règlements de comptes, des meurtres et des tentatives de meurtre entre délinquants sont liés au trafic de stupéfiants. » ; emphasis : ['80 à 90 %', 'règlements de comptes'] ; draw : « Une liasse de billets au trait reliée à quelques points en réseau ; de ces points partent des flèches brisées. » ; source : n° 0 (synthèse du Sénat), déjà dans la liste.",
+  "newSource": {
+   "title": "L’essentiel sur le rapport de la commission d’enquête sur l’impact du narcotrafic en France (rapport n° 588, 2023-2024)",
+   "url": "https://www.senat.fr/rap/r23-588-1/r23-588-1-syn.pdf",
+   "publisher": "Sénat",
+   "date": "7 mai 2024"
+  },
+  "checked": true,
+  "lenses": [
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "securite_justice-17"
+  ],
+  "rationale": "Gardé, mais gravité abaissée à mineur. La vidéo gagne en équilibre avec le passage securite_justice-16, et celui-ci coûte une voix et une place sous le plafond. J’ai ajouté la date de l’estimation (2023), comme le veut le guide (§ 6 : même date que la fiche). « Police judiciaire » désigne l’OCLCO, rattaché à la Direction nationale de la police judiciaire, source de la note.",
+  "verification": "confirmed : Même extrait, relu page 4 du PDF du Sénat. Le texte attribue l'estimation à l'OCLCO ; la note 2 la rattache à une note de la Direction nationale de la police judiciaire du 1er décembre 2023. « Une note de la police judiciaire de 2023, citée par le Sénat » est donc exact. La valeur et la date sont celles de la fiche corrigée (securite_justice-17). Ce passage ne vaut que si cette correction est appliquée, comme le veut le guide (§ 6 : seulement les nombres des fiches). La source est déjà la n° 0 de la vidéo securite-drogues.",
+  "topic": "securite_justice",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "securite_justice-19",
+  "target": "video",
+  "questionId": "",
+  "videoId": "securite-drogues",
+  "segmentId": "securite-drogues-01",
+  "field": "draw",
+  "category": "cadrage",
+  "severity": "mineur",
+  "issue": "Dans le dessin, une flèche part du texte de loi « interdit » vers la liasse de billets. L’image suggère que l’interdiction produit les revenus du trafic, ce qui est l’argument d’un côté. Corriger le dessin suffit, en refaisant la planche, sans réenregistrer la voix.",
+  "current": "Un texte de loi marqué « interdit » ; une flèche en pointillé file vers une liasse de billets, puis un point d’interrogation.",
+  "proposed": "Un texte de loi marqué « interdit » ; à côté, sans flèche qui les relie, une liasse de billets, puis un point d’interrogation.",
+  "lenses": [
+   "centre"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "rationale": "Le défaut est réel et la correction est peu coûteuse (la planche seulement). Elle va dans le même sens que le « et » du résumé (securite_justice-8). Le say (« Mais le trafic… fait vivre des réseaux criminels ») peut rester : sans la flèche, il oppose deux faits sans dire de cause.",
+  "topic": "securite_justice",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "securite_justice-20",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "en-tête (Datée)",
+  "category": "actualite",
+  "severity": "mineur",
+  "issue": "Le rappel « À revoir après octobre 2026 » suit le calendrier de la primaire. La série est montrée jusqu’au premier tour du 18 avril 2027. Plusieurs faits datés vont bouger d’ici là : le « projet de budget 2026 » (fiche police, figures[3], et securite-police-02) face à la loi de finances pour 2026 et au projet pour 2027 ; les chiffres de l’incarcération, publiés chaque mois ; le bilan 2026 du SSMSI, attendu début 2027 ; le prochain rapport de la CEPEJ ; et la proposition de loi sur la présomption de légitime défense, qui peut toucher les passages securite-police-03 et 04 et le points[0] de la fiche police (article L435-1). L’en-tête n’est pas montré : pas de voix.",
+  "current": "// Datée : blocages de lycées de l'automne 2026 ; amende forfaitaire pour usage de stupéfiants de 500 € depuis le\n// 20 août 2026 ; chiffres de l'incarcération au 1er septembre 2026 ; effectifs visés par le projet de budget\n// 2026. À revoir après octobre 2026.",
+  "proposed": "// Datée : blocages de lycées de l'automne 2026 (vidéo propre à la primaire) ; amende forfaitaire pour usage de\n// stupéfiants de 500 € depuis le 20 août 2026 ; chiffres de l'incarcération au 1er septembre 2026 (publiés chaque\n// mois) ; violences enregistrées en 2025 (bilan 2026 du SSMSI attendu début 2027) ; effectifs visés par le projet\n// de budget 2026 (à confronter à la loi de finances pour 2026 et au projet de loi de finances pour 2027) ; médiane\n// européenne des juges (CEPEJ, données 2022) ; règles d'usage des armes (article L435-1 du code de la sécurité\n// intérieure) : une proposition de loi créant une présomption de légitime défense, adoptée par l'Assemblée en\n// juillet 2026, attend le Sénat. À revoir après octobre 2026, puis avant le premier tour du 18 avril 2027.",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "rationale": "Relevé par les trois sensibilités ; j’ai fusionné leurs textes. La mention des lycées reste, puisque la vidéo reste dans le fichier pour l’archive. L’état de la proposition de loi vient du contexte de la question securite_justice-2 de la présidentielle ; je ne l’ai pas revérifié (recherche web épuisée). Gravité mineure, car l’en-tête n’est pas montré, mais c’est lui qui commande la relecture avant le vote.",
+  "newSource": {
+   "title": "Reconnaître une présomption de légitime défense pour les forces de l'ordre – dossier législatif (texte n° 866, 2025-2026)",
+   "url": "https://www.senat.fr/dossier-legislatif/ppl25-866.html",
+   "publisher": "Sénat",
+   "date": "7 juillet 2026"
+  },
+  "verification": "confirmed : J'ai vérifié le fait que le rapporteur n'avait pas pu revérifier. Le dossier du Sénat (ppl25-866) et le texte transmis (senat.fr/leg/ppl25-866.html) montrent une proposition de loi « délibéré[e] en séance publique, à Paris, le 7 juillet 2026 » par l'Assemblée nationale et transmise au Sénat le même jour. Elle est en première lecture au Sénat, sans date de séance fixée. Elle modifie bien l'article L. 435-1 du code de la sécurité intérieure (nouveau III : agents « présumés avoir agi dans l'un des cas autorisés […] », présomption réfragable). Elle touche donc les passages securite-police-03 et 04 et le points[0] de la fiche police. « Vidéo propre à la primaire » est exact : le videoScope de la présidentielle (src/elections/presidentielle-2027/videos.ts) ne reprend pas securite_justice-4. Le calendrier des chiffres est cohérent avec ce que j'ai lu : DAP mensuelle au 1er septembre 2026, fichier SSMSI du 29 janvier 2026 (données 2025), Sénat sur le PLF 2026. Si securite_justice-12 est appliquée, ajouter au « Datée » « étrangers détenus au 1er juillet 2026 (statistiques trimestrielles) ».",
+  "topic": "securite_justice",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "securite_justice-3",
+  "target": "video",
+  "questionId": "",
+  "videoId": "securite-intro",
+  "segmentId": "securite-intro-07",
+  "field": "draw",
+  "category": "origine",
+  "severity": "mineur",
+  "issue": "Le dessin suit la phrase : on retire le pictogramme du lycée. Il faut aussi mettre à jour la planche (pistes/planches/securite_justice.tsx). Pas de voix.",
+  "current": "Quatre pictogrammes en grille, dessinés l’un après l’autre : un bouclier, des billets, un palais de justice, un lycée.",
+  "proposed": "Trois pictogrammes en grille, dessinés l’un après l’autre : un bouclier, des billets, un palais de justice.",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "securite_justice-1",
+   "securite_justice-2",
+   "securite_justice-4",
+   "securite_justice-5"
+  ],
+  "rationale": "Découle de la correction securite_justice-2 ; les trois sensibilités l’ont relevé.",
+  "topic": "securite_justice",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "securite_justice-5",
+  "target": "video",
+  "questionId": "",
+  "videoId": "securite-intro",
+  "segmentId": "securite-intro-08",
+  "field": "draw",
+  "category": "origine",
+  "severity": "mineur",
+  "issue": "Le dessin suit les passages 07 et 08 : trois pictogrammes. Il faut mettre à jour la planche. Pas de voix.",
+  "current": "Les quatre pictogrammes se rangent en file, comme les chapitres d’un carnet.",
+  "proposed": "Les trois pictogrammes se rangent en file, comme les chapitres d’un carnet.",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "securite_justice-1",
+   "securite_justice-2",
+   "securite_justice-3",
+   "securite_justice-4"
+  ],
+  "rationale": "Découle des corrections securite_justice-2 et securite_justice-4.",
+  "topic": "securite_justice",
+  "electionQuestionId": ""
+ }
+]

@@ -1,0 +1,167 @@
+[
+ {
+  "id": "travail_salaires-1",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "questionIds (vidéo travail-salaires) et périmètre vidéo de la présidentielle",
+  "category": "origine",
+  "severity": "important",
+  "issue": "La vidéo « Au-delà du Smic, les autres salaires » (travail-salaires) traite la question travail_salaires-2 de la primaire. Cette question n'est pas reprise : videoScope.questions n'a pas d'entrée pour elle. scopeSeries garde donc la vidéo dans la série de la présidentielle, mais sans aucune question, et « Voir la fiche » mène par défaut à travail_salaires-1. La vidéo montre +2,0 % (Dares, 2e trimestre 2026) et 126 branches sur 179 (ministère du Travail). Elle s'appuie aussi sur l'interdiction légale d'indexer les salaires. Aucune explication de cette élection ne contient ces faits ni ces chiffres, ce qui enfreint le § 6. Les passages travail-intro-05 et -06 posent le même problème avec leur chiffre (−1,3 %, −1,0 %, +0,8 %). Ce cas-là est réglé par la correction travail_salaires-4. Point important : le fichier de série est commun à la primaire archivée et à la présidentielle. Si l'on fait passer travail-intro-07 et -08 à « quatre », l'introduction de l'archive devient fausse, car celle-ci garde cinq vidéos.",
+  "current": "questionIds: ['travail_salaires-2']",
+  "proposed": "Solution préférée : rattacher la vidéo travail-salaires à la question travail_salaires-1 de la présidentielle. Dans le périmètre vidéo, ajouter « travail_salaires-2 » → « travail_salaires-1 ». L'approche b (« indexer automatiquement tous les salaires ») a besoin du rappel de l'interdiction légale d'indexer, et les approches f à i ont besoin de la négociation de branche. L'introduction garde alors ses cinq sujets et ses cinq vidéos, sans réenregistrement. Il faut aussi ajouter à l'explication de travail_salaires-1 ce que la vidéo affirme, avec les sources de la fiche travail_salaires-2 de la primaire : l'interdiction d'indexer les salaires sur le SMIC ou les prix (code monétaire et financier, art. L112-2), +2,0 % sur un an à fin juin 2026 (prix +1,7 %, Dares), 126 branches sur 179 (ministère du Travail) et la négociation obligatoire dans les 45 jours. Cela dépasse les plafonds de l'explication (3 points, 4 chiffres). Le propriétaire choisit : dépasser le plafond, ou ajouter un complément propre à la présidentielle. Solution de repli : ne pas montrer cette vidéo pour la présidentielle (une vidéo sans question traduite n'est pas montrée). Il faut alors une variante de travail-intro-07 et -08 propre à cette élection, avec réenregistrement, sans toucher à l'archive.",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "travail_salaires-4"
+  ],
+  "rationale": "Les trois sensibilités relèvent le même problème, venu de l'élection source. Le contenu de la vidéo reste neutre et utile pour la présidentielle. J'écarte la modification directe de travail-intro-07 et -08 proposée à droite : comme la série est partagée, elle fausserait l'archive de la primaire. Le rattachement est la seule voie qui n'oblige à réenregistrer aucune voix. La décision reste au propriétaire : où placer les chiffres, et faut-il dépasser le plafond de l'explication.",
+  "topic": "travail_salaires",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "travail_salaires-17",
+  "target": "video",
+  "questionId": "",
+  "videoId": "travail-partage",
+  "segmentId": "travail-partage-07",
+  "field": "say (et emphasis)",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "La vidéo montre le taux de marge, puis l'écart entre la médiane et le seuil des 1 % les mieux payés. Elle se termine ensuite sur « Aucune loi ne plafonne ces écarts », mis en relief. Cet enchaînement prépare l'une des approches (le plafonnement) et finit sur le fait qui la fonde, contrairement au § 5. L'explication, elle, donne le fait qui tempère : les sociétés cotées doivent publier ces écarts. La question finale oppose aussi « l'entreprise » à « ceux qui y travaillent », alors que la question de l'élection parle d'associer les salariés. Il faudra réenregistrer la voix de ce passage, avec le même texte dans spoken (il n'y en a pas : la voix lit le say).",
+  "current": "Aucune loi ne plafonne ces écarts dans le privé. Profits, décisions, écarts de salaires : quel partage entre l’entreprise et ceux qui y travaillent ?",
+  "proposed": "Aucune loi ne plafonne ces écarts dans le privé, mais les sociétés cotées doivent les publier pour leurs dirigeants. Profits, décisions, salaires : quelle place pour les salariés ? — emphasis: ['doivent les publier', 'quelle place']",
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [],
+  "rationale": "Le centre proposait de réécrire le say, la droite de retirer seulement la mise en relief de « Aucune loi ». Retirer le relief ne suffit pas : la vidéo finirait toujours sur le seul fait qui fonde le plafonnement. J'ajoute le fait qui tempère, déjà présent dans l'explication (point 2, art. L22-10-9 du code de commerce), et la question finale reprend celle de l'élection. Je relève la gravité à « important », parce que le § 5 est une règle ferme et que deux sensibilités l'ont relevé. Si le propriétaire refuse de réenregistrer, le repli est la proposition de la droite (emphasis: ['quel partage']).",
+  "topic": "travail_salaires",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "travail_salaires-18",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "en-tête (Datée)",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "La mention « Datée » ne suit que le Smic et l'indice des prix de septembre. D'autres chiffres de la série seront dépassés avant le premier tour du 18 avril 2027. Le Smic sera revalorisé au 1er janvier 2027 : travail-pouvoir-05, qui dit « Le Smic est à 12,31 euros » au présent, deviendra faux, et travail-intro-03 sera dépassé, comme la figure 0 de l'explication. L'Insee publie les résultats définitifs de septembre le 15 octobre 2026. Plusieurs publications remplaceront aussi leurs chiffres avant le vote. Les salaires du privé en 2024 (Insee Première n° 2079, publiée en octobre) seront remplacés par ceux de 2025. La part de 12,4 % (« dernière hausse mesurée » par la Dares) sera remplacée par la mesure des hausses de 2026. Les risques professionnels 2024 (764, 1 805) seront remplacés par le rapport 2025 de l'Assurance Maladie. Les contrats courts en 2025 (Insee Première n° 2096, publiée en mars) seront remplacés par l'édition suivante. Enfin, les lois de finances et de financement de la sécurité sociale pour 2027 peuvent modifier les exonérations des heures supplémentaires, la déduction patronale, le forfait social et les allègements de cotisations.",
+  "current": "// Datée : Smic du 1er juin 2026 (une nouvelle hausse automatique peut venir si les prix montent encore de 2 %\n// depuis), et prix de septembre 2026 (estimation provisoire de l'Insee). À revoir à la prochaine hausse du Smic\n// et à la publication des résultats définitifs de l'Insee pour septembre 2026.",
+  "proposed": "// Datée : Smic du 1er juin 2026 (une nouvelle hausse automatique peut venir si les prix montent encore de 2 %\n// depuis ; revalorisation annuelle au 1er janvier 2027, avant le premier tour : travail-intro-03 et\n// travail-pouvoir-05, au présent, seront alors à réenregistrer) ; prix de septembre 2026 (estimation provisoire\n// de l'Insee, résultats définitifs le 15 octobre 2026) ; salaires du privé en 2024 (Insee Première n° 2079,\n// édition annuelle d'octobre) ; part des salariés concernés par la hausse du Smic du 1er novembre 2024 (Dares,\n// « dernière hausse mesurée ») ; risques professionnels 2024 (rapport annuel de l'Assurance Maladie, fin d'année) ;\n// contrats courts en 2025 (Insee Première n° 2096, édition annuelle de mars) ; heures supplémentaires, déduction\n// patronale, forfait social et allègements de cotisations, modifiables par les lois de finances et de financement\n// de la sécurité sociale pour 2027. À revoir à chacune de ces publications, et au plus tard avant le premier tour\n// du 18 avril 2027.",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "rationale": "Cette mention fusionne les trois propositions. Les dates viennent de ce que j'ai lu. La page Smic de Service-public, vérifiée le 1er juin 2026, donne toujours 12,31 € et n'annonce aucune hausse avant le 1er janvier 2027. La page Insee de l'estimation de septembre annonce les résultats définitifs le 15 octobre 2026. Les éditions précédentes de l'Insee ont paru le 23 octobre 2025 (n° 2079) et le 25 mars 2026 (n° 2096). Je n'affirme rien sur le contenu des projets de loi pour 2027, que je n'ai pas pu lire : la mention dit seulement qu'ils peuvent modifier ces règles. C'est un commentaire de code, sans voix à réenregistrer. Ce sont seulement les passages qu'il signale qui le seront, le moment venu.",
+  "verification": "confirmed : Les faits datés sont vérifiés. La page Smic de Service-public donne toujours 12,31 € brut de l'heure depuis le 1er juin 2026 (1 867,02 € brut, 1 477,93 € net), sans hausse annoncée, et le point 0 de la fiche rappelle la revalorisation de chaque 1er janvier. La page de l'Insee sur l'estimation provisoire (parue le 30 septembre 2026) annonce les résultats définitifs de septembre « le 15 octobre 2026 à 8 h 45 ». Les éditions précédentes sont confirmées sur les pages lues : Insee Première n° 2079 parue le 23 octobre 2025, n° 2096 le 25 mars 2026. Le rapport de l'Assurance Maladie sur 2024 date de novembre 2025, et la Dares n° 52 (hausse du 1er novembre 2024) du 29 octobre 2025. La mention ne dit rien du contenu des projets de loi pour 2027 : elle reste prudente. travail-pouvoir-05 dit bien « Le Smic est à 12,31 euros » au présent. Remarque : avec une inflation de 3,0 % sur un an en septembre 2026 (énergie +21,2 %), une hausse automatique avant janvier est plausible. La mention la prévoit déjà, sans rien affirmer. C'est un commentaire de code : rien à réenregistrer.",
+  "topic": "travail_salaires",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "travail_salaires-10",
+  "target": "video",
+  "questionId": "",
+  "videoId": "travail-droits",
+  "segmentId": "travail-droits-07",
+  "field": "figure.label",
+  "category": "chiffres",
+  "severity": "mineur",
+  "issue": "Ce libellé suit la correction de l'explication (travail_salaires-4, figures[3].label), pour que la vidéo et l'explication restent identiques. Seul le libellé affiché change, ni say ni spoken : rien à réenregistrer.",
+  "current": "Part des CDD et de l’intérim dans l’emploi total en 2025. Elle baisse depuis 2023 et se situe 0,9 point sous son niveau d’avant la crise sanitaire (France, hors personnes vivant en collectivité)",
+  "proposed": "Part des CDD et de l’intérim dans l’emploi total en 2025. Elle baisse depuis 2023 et se situe 0,9 point sous son niveau d’avant la crise sanitaire. Chez les 15-24 ans en emploi, 39,8 % ont un emploi à durée indéterminée (76,2 % chez les 25 ans ou plus) et 30,5 % sont en alternance ou en stage (France, hors personnes vivant en collectivité)",
+  "newSource": {
+   "title": "Une photographie du marché du travail en 2025 (Insee Première n° 2096)",
+   "url": "https://www.insee.fr/fr/statistiques/8901327",
+   "publisher": "Insee",
+   "date": "2026-03-25"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "travail_salaires-9"
+  ],
+  "rationale": "Ces chiffres figureront dans l'explication de la question (§ 6), et la source est déjà la 5e de la vidéo (sourceIndex 4). La typographie de la série est conservée (espaces insécables, apostrophes courbes).",
+  "verification": "confirmed : Ce libellé reprend mot pour mot la correction travail_salaires-9, dont les valeurs ont été vérifiées (voir ci-dessus). Dans le fichier, le passage travail-droits-07 a sourceIndex 4, qui est bien « Une photographie du marché du travail en 2025 (Insee Première n° 2096) » dans les sources de la vidéo. Cette vidéo couvre la question primaire travail_salaires-4, reprise sous la question présidentielle travail_salaires-3. Seul le libellé affiché change, ni say ni spoken : rien à réenregistrer. Il faudra appliquer les espaces insécables de la série (0,9 point, 39,8 %, etc.).",
+  "topic": "travail_salaires",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "travail_salaires-14",
+  "target": "video",
+  "questionId": "",
+  "videoId": "travail-partage",
+  "segmentId": "travail-partage-04",
+  "field": "figure.label",
+  "category": "cadrage",
+  "severity": "mineur",
+  "issue": "Même correction que dans l'explication (travail_salaires-3, figures[2].label), pour que le libellé montré sous le chiffre garde le même sens. Seul le libellé affiché change. La voix (« la part de la richesse créée qui leur reste ») peut rester telle quelle : rien à réenregistrer.",
+  "current": "C’est la part de leur valeur ajoutée qui leur reste une fois payés les salariés et les impôts sur la production, en comptant les subventions d’exploitation reçues",
+  "proposed": "C’est la part de leur valeur ajoutée qui leur reste une fois payés les salariés et les impôts sur la production, en comptant les subventions d’exploitation reçues. Elles en paient ensuite leurs intérêts, leur impôt sur les bénéfices et leurs dividendes, et en financent leurs investissements : en 2025, leur épargne en couvre 88,8 % (taux d’autofinancement)",
+  "newSource": {
+   "title": "Les comptes de la Nation en 2025 (Insee Première n° 2105)",
+   "url": "https://www.insee.fr/fr/statistiques/8996855?sommaire=8071406",
+   "publisher": "Insee",
+   "date": "2026-05-29"
+  },
+  "checked": true,
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "travail_salaires-13"
+  ],
+  "rationale": "Le chiffre de 88,8 % figurera dans l'explication de la question (§ 6), et la source est déjà celle du passage (sourceIndex 2). La voix ne change pas.",
+  "verification": "confirmed : Même valeur et même source que travail_salaires-13, vérifiées sur la page de l'Insee (88,8 %, 2025). Dans le fichier, le passage travail-partage-04 a sourceIndex 2, qui est bien « Les comptes de la Nation en 2025 (Insee Première n° 2105) » dans les sources de travail-partage. Le libellé actuel cité dans « current » correspond à la fin du label du fichier, qui commence par « Taux de marge des sociétés non financières en 2025 (32,7 % en 2024). » : seule cette fin est remplacée. La voix (« la part de la richesse créée qui leur reste ») ne change pas. Elle n'est pas fausse, et le libellé affiché la complète.",
+  "topic": "travail_salaires",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "travail_salaires-16",
+  "target": "video",
+  "questionId": "",
+  "videoId": "travail-partage",
+  "segmentId": "travail-partage-06",
+  "field": "figure.label",
+  "category": "chiffres",
+  "severity": "mineur",
+  "issue": "Même ajout que dans l'explication (travail_salaires-3, figures[3].label), pour que le libellé affiché montre aussi la dispersion. Le libellé seul change : pas de réenregistrement. L'extrait remplacé couvre la dernière phrase entière, pour éviter la ponctuation bancale que donnait la proposition d'origine.",
+  "current": "La moitié des salariés gagne moins de 2 190 € (France y compris Mayotte, apprentis et stagiaires compris, hors agriculture et particuliers employeurs)",
+  "proposed": "La moitié des salariés gagne moins de 2 190 €. Un salarié sur dix gagne moins de 1 492 €, un sur dix plus de 4 334 € : un rapport de 2,91, stable en 2024 et à son plus bas niveau depuis dix ans (France y compris Mayotte, apprentis et stagiaires compris, hors agriculture et particuliers employeurs)",
+  "newSource": {
+   "title": "Insee Première n° 2079 – Salaires dans le secteur privé en 2024 (23 octobre 2025)",
+   "url": "https://www.insee.fr/fr/statistiques/8657156",
+   "publisher": "Insee",
+   "date": "2025-10-23"
+  },
+  "checked": true,
+  "lenses": [
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "travail_salaires-15"
+  ],
+  "rationale": "Ces chiffres figureront dans l'explication (§ 6), et la source est déjà celle du passage (sourceIndex 4). Le graphique et la voix ne changent pas.",
+  "verification": "confirmed : Valeurs identiques à travail_salaires-15, vérifiées sur la page de l'Insee (1 492 €, 4 334 €, D9/D1 = 2,91, « son plus bas niveau depuis dix ans »). Dans le fichier, le passage travail-partage-06 a sourceIndex 4, qui est bien « Insee Première n° 2079 – Salaires dans le secteur privé en 2024 (23 octobre 2025) ». Seul le libellé change : say, spoken et le graphique restent les mêmes. Il faudra appliquer les espaces fines et insécables de la série (2 190 €, 1 492 €, 4 334 €).",
+  "topic": "travail_salaires",
+  "electionQuestionId": ""
+ }
+]

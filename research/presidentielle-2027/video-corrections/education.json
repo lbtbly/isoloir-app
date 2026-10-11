@@ -1,0 +1,179 @@
+[
+ {
+  "id": "education-15",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "structure (ecole-intro-07 ; vidéos ecole-classes, ecole-apprentissages, ecole-jeunes)",
+  "category": "origine",
+  "severity": "important",
+  "issue": "La série suit encore les cinq questions de la primaire. L'introduction annonce « cinq questions », dont trois n'existent pas dans cette élection (taille des classes, apprentissages, jeunes). Les vidéos ecole-classes, ecole-apprentissages et ecole-jeunes ne sont rattachées à aucune question d'ici. Leur « Voir la fiche » mène donc à la première fiche du thème, celle du financement du privé (education-2), sans rapport avec leur sujet (scope.ts, repli topicFiche). À l'inverse, les questions education-1 (priorité pour l'école), education-3 (collège) et education-5 (vie étudiante) n'ont ni fiche ni vidéo. Ce n'est ni faux ni partisan, mais l'introduction présente comme questions du thème celles de l'élection source.",
+  "current": "Alors, cinq questions. Combien d’élèves par classe ? Comment mieux faire apprendre ? Quelles règles pour financer le privé ? Quelle priorité pour l’université ? Et que faire d’abord pour les jeunes ?",
+  "proposed": "À la prochaine séance de voix, la même que pour ecole-prive-03 et ecole-superieur-05, réenregistrer ecole-intro-07 en remplaçant seulement « Alors, cinq questions. » par « Alors, cinq sujets. » (emphasis : ['cinq sujets']), le reste du passage inchangé. Pour « Voir la fiche » : qu'une vidéo sans question dans l'élection ne renvoie pas à la fiche d'une autre question. C'est un choix de code (scope.ts) qui revient au propriétaire. Faire des fiches et des vidéos pour education-1, -3 et -5 est une décision éditoriale à part.",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [],
+  "rationale": "Les trois sensibilités ont relevé le problème : la gauche le juge mineur, la droite important, le centre le laisse à l'arbitrage. Je le classe important, car c'est un renvoi implicite au questionnaire de l'élection source, sans être bloquant puisqu'il ne nomme ni la primaire ni un camp. Je retiens le changement minimal de la droite, qui ne touche qu'un mot de la voix. Je n'ai pas repris la piste de la gauche (rattacher ecole-classes à education-1, ecole-jeunes à education-5), pour deux raisons. Ces questions n'ont pas de fiche, si bien que « Voir la fiche » retomberait quand même sur education-2. Et une vidéo consacrée à la seule taille des classes, placée sous une question à huit approches, mettrait en avant l'approche education-1-b. Le reproche de la droite sur l'angle « effectifs et moyens » est réel, mais il relève de nouvelles vidéos, pas d'une correction : une vidéo ne présente jamais les approches.",
+  "checked": false,
+  "topic": "education",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "education-4",
+  "target": "video",
+  "questionId": "",
+  "videoId": "ecole-prive",
+  "segmentId": "ecole-prive-03",
+  "field": "say, spoken, emphasis, figure, chart, draw, alt, sources",
+  "category": "chiffres",
+  "severity": "important",
+  "issue": "C'est le seul passage de la vidéo sur « qui finance ». Il montre la part de l'État dans le privé sans la comparer au public et sans les collectivités, avec un chiffre de 2020 daté à tort de 2022. Le guide (§ 5) demande de montrer aussi le chiffre qui compte pour l'autre côté quand la fiche le donne, ce qui sera le cas après education-2. Une vidéo ne montre que les chiffres de sa fiche : la voix doit donc suivre. Le réenregistrement est nécessaire, car corriger la seule étiquette laisserait la voix sans point de comparaison.",
+  "current": "Selon la Cour des comptes, l’État apporte 55 % du financement du privé sous contrat à l’école. Et 68 % au collège et au lycée.",
+  "proposed": "say : « En 2024, l'État apporte 52 % du financement du privé sous contrat à l'école, et 66 % au collège et au lycée. Dans le public, c'est 56 % et 73 %. Le reste vient surtout des collectivités territoriales dans le public, des collectivités et des familles dans le privé. » ; spoken : « En deux mille vingt-quatre, l'État apporte cinquante-deux pour cent du financement du privé sous contrat à l'école, et soixante-six pour cent au collège et au lycée. Dans le public, c'est cinquante-six pour cent et soixante-treize pour cent. Le reste vient surtout des collectivités territoriales dans le public, des collectivités et des familles dans le privé. » ; emphasis, figure, chart, draw, alt et sources comme proposé (figure = figures[1] corrigé, sourceIndex 1 ; chart = education-3 ; « fiche 10.04, le financement des producteurs d'éducation » ajouté au titre de RERS_2026 ; COUR_DES_COMPTES_PRIVE reste à l'index 0).",
+  "lenses": [
+   "centre",
+   "gauche"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "education-2",
+   "education-3"
+  ],
+  "rationale": "Ce passage fusionne les corrections vidéo de la gauche et du centre (say, figure.label, figure.date, chart, draw), avec les valeurs de 2024. Le say tient en trois phrases courtes, environ 12 secondes. J'ai retiré « Selon… » pour rester dans la durée, la source étant affichée avec le chiffre. La planche prive03 (pistes/planches/education.tsx) ne trace que deux disques à partir des deux premiers mots mis en valeur : elle doit passer à deux paires privé/public. Les mots « à l’école » et « au collège et au lycée », que la planche repère, restent dans le say.",
+  "newSource": {
+   "title": "Repères et références statistiques 2026 (fiche 10.04, le financement des producteurs d'éducation)",
+   "url": "https://www.education.gouv.fr/sites/default/files/document/rers-2026-pdf-519880.pdf",
+   "publisher": "Ministère de l'Éducation nationale – DEPP",
+   "date": "2026-08"
+  },
+  "checked": true,
+  "verification": "adjusted : Le défaut est confirmé : le passage ecole-prive-03 donne 55 % et 68 % sans le public, avec une date de « 2022 » alors que les données sont de 2020 (voir education-2). Les chiffres proposés (52, 66, 56, 73) sont exacts. Une seule phrase est ajustée. Dans la version proposée, « Le reste vient des collectivités territoriales et, dans le privé, aussi des familles » laisse croire que, dans le public, le reste ne vient que des collectivités. Or les ménages y apportent 1 906 M€ sur 50 807 dans les écoles (3,8 %), et les ménages et les entreprises 2 841 M€ sur 57 705 dans les collèges et lycées (4,9 %). Dans les collèges et lycées privés, les familles et les autres financeurs privés (25 %) dépassent les collectivités (10 %). La nouvelle phrase est exacte dans les quatre cas. J'ai vérifié la planche prive03 (pistes/planches/education.tsx, l. 849) : elle ne trace que deux disques, à partir des deux premiers mots mis en valeur, et cherche « à l'école » et « au collège et au lycée ». Elle doit donc être reprise, comme le dit la correction.",
+  "topic": "education",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "education-6",
+  "target": "video",
+  "questionId": "",
+  "videoId": "ecole-prive",
+  "segmentId": "",
+  "field": "segments (nouveau passage après ecole-prive-04) et sources",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "La vidéo montre la part de l'État et la composition sociale du privé, mais pas le chiffre de la fiche qui compte pour l'autre côté : les classes du privé sont plus chargées (24,2 contre 20,7 élèves en élémentaire, figure n° 3, avec son graphique). Le § 5 du guide demande de le montrer. Il faut enregistrer la voix de ce nouveau passage. Deux contraintes s'y ajoutent. La série compte déjà 45 passages, le plafond du guide (MAX_PER_SERIES dans tests/videos.test.ts) : le propriétaire doit relever ce plafond à 46 ou libérer un passage ailleurs. Les identifiants doivent se suivre sans trou : le nouveau passage devient ecole-prive-05, et les passages 05 à 07 deviennent 06 à 08. Leurs fichiers de voix sont alors renommés, sans être réenregistrés.",
+  "current": "",
+  "proposed": "Nouveau passage ecole-prive-05, après l'actuel ecole-prive-04, tel que proposé : say « En élémentaire, les classes du privé sous contrat sont plus chargées : 24,2 élèves en moyenne, contre 20,7 dans le public. » ; spoken, visual 'compare', draw, alt, emphasis, figure { value '24,2 contre 20,7', label = libellé de figures[3], date 'rentrée 2025', sourceIndex 2 } et chart = explainer-charts education-2 index 3 ; NI_TAILLE_CLASSES ajoutée en 3e source.",
+  "lenses": [
+   "droite",
+   "gauche"
+  ],
+  "needsVoice": true,
+  "linked": [],
+  "rationale": "La droite a proposé ce passage, et la gauche a relevé le même déséquilibre « en toute bonne foi » dans ses notes. Le chiffre est déjà dans la fiche et vérifié : la fiche ne change pas. Le passage se place après le budget (les moyens), si bien que la vidéo ne finit pas sur lui : elle finit sur ecole-prive-06, qui tient la balance. « Plus chargées » est le mot de la DEPP. Seuls le plafond de 45 et la renumérotation demandent une décision du propriétaire.",
+  "newSource": {
+   "title": "Taille des classes du premier degré : une neuvième année de baisse consécutive dans les écoles publiques (Note d'information n° 26.01)",
+   "url": "https://www.education.gouv.fr/sites/default/files/document/Education_nationale_DEPP_NI%20Taille%20des%20classes%2026-01.pdf-478592.pdf",
+   "publisher": "Ministère de l'Éducation nationale – DEPP",
+   "date": "2026-01"
+  },
+  "checked": false,
+  "verification": "confirmed : J'ai lu les chiffres dans la Note d'information 26.01, téléchargée à l'URL donnée, p. 1. À la rentrée 2025, les classes élémentaires publiques ont 20,7 élèves en moyenne. Dans le privé sous contrat, « ces classes sont plus chargées, avec respectivement 24,8 et 24,2 élèves en moyenne » (24,8 en préélémentaire, 24,2 en élémentaire). « Dans le secteur public, 11 % des classes comptent plus de 25 élèves, contre 45 % dans le privé sous contrat. » Le libellé, la valeur et le graphique sont identiques à figures[3] et au graphique index 3 de la fiche. J'ai aussi vérifié les contraintes. MAX_PER_SERIES vaut 45 (tests/videos.test.ts, l. 38), sans exception pour l'éducation, et la série compte 45 passages. La vidéo passerait de 7 à 8 passages, dans la limite de 6 à 12. Les identifiants doivent se suivre sans trou (GUIDE § 9). La décision du propriétaire reste donc nécessaire, et le guide demande de ne plus changer un identifiant une fois la voix générée. Petite erreur dans la justification : après la renumérotation, le passage de la balance devient ecole-prive-07 (et non 06), puis vient la question en ecole-prive-08.",
+  "topic": "education",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "education-9",
+  "target": "video",
+  "questionId": "",
+  "videoId": "ecole-superieur",
+  "segmentId": "ecole-superieur-05",
+  "field": "say, spoken, emphasis, figure.label, draw, alt, sources",
+  "category": "exactitude",
+  "severity": "important",
+  "issue": "La voix présente 178 € et 255 € comme les droits de tout « étudiant non boursier ». Or les étudiants étrangers hors Union européenne paient en principe 2 902 € et 3 950 €, et le décret de mai 2026 limite leurs exonérations. La vidéo est montrée sous une question dont une approche porte justement sur ce que paient ces étudiants : la voix leur donne une image fausse. Corriger la seule étiquette ne se verrait guère. Ajouter un passage, comme le proposait la droite, ferait dépasser le plafond de 45 passages de la série. Il faut donc réenregistrer ce passage.",
+  "current": "À l’université publique, un étudiant non boursier paie des droits d’inscription. À la rentrée 2026, c’est 178 euros par an en licence, et 255 en master.",
+  "proposed": "say : « À l'université publique, un étudiant non boursier paie des droits d'inscription. À la rentrée 2026, c'est 178 euros par an en licence, et 255 en master. Pour un étudiant ressortissant d'un pays hors de l'Union européenne, de l'Espace économique européen et de la Suisse, c'est en principe 2 902 et 3 950 euros. » ; spoken : « À l'université publique, un étudiant non boursier paie des droits d'inscription. À la rentrée deux mille vingt-six, c'est cent soixante-dix-huit euros par an en licence, et deux cent cinquante-cinq en master. Pour un étudiant ressortissant d'un pays hors de l'Union européenne, de l'Espace économique européen et de la Suisse, c'est en principe deux mille neuf cent deux et trois mille neuf cent cinquante euros. » ; emphasis : ['178 euros', '255', '2 902'] ; figure.label, alt et ajout de la 4e source (Service-Public A18927, 2026-05-26) comme proposé ; draw : « Deux paires d'étiquettes de prix au trait, licence et master : le taux normal, puis les droits différenciés des étudiants étrangers non ressortissants de l'Union européenne, de l'Espace économique européen ou de la Suisse. »",
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "education-8"
+  ],
+  "rationale": "Cette correction fusionne la correction d'étiquette du centre et le passage supplémentaire de la droite, ajusté en réenregistrement du passage existant à cause du plafond de 45. Les chiffres viennent du point ajouté à la fiche (education-8), conformément au § 6. Le chiffre affiché garde sa source (index 1, cas général) ; la nouvelle source couvre les montants dits par la voix. La planche sup05 ne trace que deux étiquettes, à partir des deux premiers mots mis en valeur : elle doit passer à deux paires. Ce passage est à enregistrer dans la même séance que ecole-prive-03.",
+  "newSource": {
+   "title": "Université : certains étudiants étrangers non-européens vont payer plus cher à partir de la rentrée 2026",
+   "url": "https://www.service-public.gouv.fr/particuliers/actualites/A18927",
+   "publisher": "Service-Public.fr (DILA)",
+   "date": "2026-05-26"
+  },
+  "checked": true,
+  "verification": "adjusted : Les montants sont vérifiés (voir education-8 : 2 902 € et 3 950 € en 2026-2027, 178 € et 255 € au taux normal). Le défaut est réel : la voix présente 178 € et 255 € comme le tarif général, alors que la question education-4 a une approche (d) sur ce que paient les étudiants étrangers. Un ajustement de périmètre est nécessaire. « Un étudiant étranger hors de l'Union européenne » est inexact : les ressortissants de l'EEE (Norvège, Islande, Liechtenstein) et de la Suisse sont hors de l'UE, mais ne paient pas les droits différenciés (Service-Public A18927). Le § 6 du guide demande le « même périmètre » que la fiche, qui (education-8) dit bien UE, EEE et Suisse. J'ai lu la planche sup05 (l. 1056) : elle trace deux étiquettes à partir des deux premiers mots mis en valeur. La reprise annoncée est donc nécessaire. Le passage s'allonge d'environ 5 secondes.",
+  "topic": "education",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "education-13",
+  "target": "video",
+  "questionId": "",
+  "videoId": "ecole-superieur",
+  "segmentId": "ecole-superieur-04",
+  "field": "figure.label, chart",
+  "category": "chiffres",
+  "severity": "mineur",
+  "issue": "Le libellé et le graphique du passage sont des copies de la fiche : ils suivent education-11 et education-12. Le say et le spoken ne changent pas (la voix cite 2010 et 2020, toujours exacts), donc pas de réenregistrement.",
+  "current": "label : '… en 2024 (euros constants, donnée provisoire) : moins qu’en 2010 (12 870 €), plus qu’en 2020 (11 540 €). …' ; chart : 2010, 2020, 2024 (provisoire)",
+  "proposed": "label : '… en 2024 (euros constants, donnée provisoire), après 10 490 € en 2000, 12 870 € en 2010, 11 540 € en 2020 et 12 660 € en 2023. …' ; chart : copie de explainer-charts education-x1 index 0 corrigé (2000, 2010, 2020, 2023, 2024 provisoire). say, spoken, draw et alt inchangés.",
+  "lenses": [
+   "gauche",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "education-11",
+   "education-12"
+  ],
+  "rationale": "J'ai ajusté la proposition de la gauche, qui passait draw et alt à « Quatre colonnes ». La planche sup04 trace ses colonnes à partir des années et des montants dits dans le say : elle dessine toujours trois colonnes (2010, 2020, 2024) et n'utilise pas le chart. draw et alt doivent donc rester tels quels pour décrire ce qui est dessiné.",
+  "newSource": {
+   "title": "Repères et références statistiques 2026 (fiche 10.05, les dépenses par élève et par étudiant)",
+   "url": "https://www.education.gouv.fr/sites/default/files/document/rers-2026-pdf-519880.pdf",
+   "publisher": "Ministère de l'Éducation nationale – DEPP",
+   "date": "2026-08"
+  },
+  "checked": true,
+  "verification": "confirmed : J'ai vérifié la planche sup04 (pistes/planches/education.tsx, l. 1029). Elle ne trace que si elle trouve 3 mots mis en valeur et 3 années dans le say (yearsOf(p.segment.say)), et n'utilise pas le chart. Garder draw et alt pour trois colonnes est donc correct. Les valeurs sont exactes (voir education-11). Réserve pour le propriétaire : la voix (« Contre 12 870 en 2010, et 11 540 en 2020 ») garde exactement le choix d'années que education-11 juge orienté, et ne dit pas la baisse entre 2023 et 2024. Le libellé et le graphique deviennent neutres, mais pas ce qui est dit. Pour aller au bout, il faudrait réenregistrer le passage.",
+  "topic": "education",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "education-14",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "en-tête du fichier (Datée)",
+  "category": "actualite",
+  "severity": "mineur",
+  "issue": "L'échéance « à la rentrée 2027 au plus tard » tombe après le premier tour du 18 avril 2027. Plusieurs données seront dépassées avant : les 8 871 M€ « pour 2026 » (ecole-prive-04 et figure n° 0 de la fiche education-2) avec la loi de finances pour 2027, l'allocation du contrat d'engagement jeune avec sa revalorisation d'avril 2027, le bilan de Parcoursup 2026, les effectifs du supérieur et la part trimestrielle des jeunes sans emploi ni formation. Le plafond d'exonération des droits des étudiants étrangers change aussi chaque année, s'il est ajouté (education-8 et education-9).",
+  "current": "À revoir au vote d'une nouvelle loi de finances, à la revalorisation des allocations, et à la rentrée 2027 au plus tard.",
+  "proposed": "Datée aussi : droits d'inscription différenciés des étudiants étrangers non ressortissants de l'Union européenne, de l'Espace économique européen ou de la Suisse et plafond d'exonération de 2026-2027 (décret du 19 mai 2026), taille des classes du premier degré à la rentrée 2025. À revoir au vote de la loi de finances pour 2027 (crédits du programme 139, ici et dans la fiche education-2), à la revalorisation de l'allocation du contrat d'engagement jeune (avril 2027) et de l'indemnité du service civique, à chaque nouvelle publication des sources (bilan de Parcoursup 2026, effectifs du supérieur, taille des classes du premier degré à la rentrée 2026, part trimestrielle des jeunes ni en emploi, ni en études, ni en formation), et au plus tard avant le premier tour de l'élection présidentielle, le 18 avril 2027.",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "rationale": "Les trois sensibilités l'ont relevé, et la correction fusionne leurs trois versions. Il s'agit d'un commentaire interne au fichier, sans effet à l'écran : la gravité est mineure. Je n'ai pas vérifié les montants du projet de loi de finances pour 2027.",
+  "checked": false,
+  "verification": "adjusted : Le défaut est confirmé : l'échéance actuelle, « à la rentrée 2027 au plus tard », tombe après le premier tour (le dimanche 18 avril 2027). Les données qui peuvent changer avant sont réelles. Les 8 871 M€ sont les crédits de la LFI 2026 pour le programme 139 (RERS 2026, fiche 10.03). Les 566,17 € du contrat d'engagement jeune viennent de la page Service-Public F32700, vérifiée le 1er avril 2026, ce qui correspond à une revalorisation en avril. Deux ajouts. (1) La série cite la Note d'information 26.01 sur la taille des classes (rentrée 2025), dans plusieurs passages et dans education-6. Une note sur la rentrée 2026 peut paraître avant le vote. (2) « Les allocations d'avril » ne couvre pas l'indemnité du service civique, qui ne suit pas forcément ce calendrier. Je n'ai pas vérifié de montant du PLF 2027 : la correction n'en cite aucun.",
+  "topic": "education",
+  "electionQuestionId": ""
+ }
+]

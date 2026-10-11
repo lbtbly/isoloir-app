@@ -1,5 +1,7 @@
 # Vidéos : corrections à appliquer pour la présidentielle 2027
 
+> **Mise à jour du 10 octobre 2026 :** les corrections sont appliquées pour la seule présidentielle, par une édition (`src/ui/videos/editions/presidentielle-2027/`, suffixe `-p27`) qui laisse intacte l'archive de la primaire. Voix des passages corrigés régénérées, planches propres à l'édition, vidéos réactivées (`reuse.json` → `videoTopics`, `videoEdition`). Détail par série et corrections écartées : `video-edition-run.json` et `video-corrections/`.
+
 Généré le 7 octobre 2026 depuis `research/presidentielle-2027/spectrum-review.json` (workflow `tools/workflows/7-spectrum-review.js`, relecture sous trois sensibilités : gauche, centre, droite ; chaque correction a été arbitrée et, quand elle touche un fait, vérifiée sur source).
 
 ## Pourquoi ce document

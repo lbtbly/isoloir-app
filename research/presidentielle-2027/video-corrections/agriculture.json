@@ -1,0 +1,327 @@
+[
+ {
+  "id": "agriculture-1",
+  "target": "video",
+  "questionId": "",
+  "videoId": "agriculture-intro",
+  "segmentId": "agriculture-intro-07",
+  "field": "say",
+  "category": "origine",
+  "severity": "bloquant",
+  "issue": "Le passage reprend mot pour mot les deux questions du questionnaire de la primaire, agriculture-x1 et l’ancienne agriculture-1, et les présente comme « les » questions du thème. Aucune des deux n’existe dans cette élection, dont la question essentielle est « Comment protéger les agriculteurs face aux produits importés ? ». Le spectateur cherchera ces questions en vain : le passage renvoie à l’élection source comme si c’était l’élection en cours. Les trois relecteurs l’ont relevé. Il faut réenregistrer la voix : le passage n’a pas de spoken, la voix lit donc le say. Il faut aussi reprendre draw (« Deux pictogrammes, chacun avec sa question, dessinés l’un après l’autre : un cargo, puis un porte-monnaie. ») et emphasis (['produits importés', 'leur revenu']).",
+  "current": "Alors, deux questions se posent. Comment améliorer le revenu des agriculteurs ? Et quel levier privilégier pour soutenir l’agriculture et l’alimentation ?",
+  "proposed": "Alors, comment protéger les agriculteurs face aux produits importés ? Et comment soutenir leur revenu ?",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [],
+  "rationale": "Cette formulation réunit les trois propositions. La question de cette élection vient en premier, mot pour mot. Le revenu, sujet de trois approfondissements et souci partagé sur tout l’échiquier, devient une question ouverte qui ne se présente pas comme une question du questionnaire : la droite ne voulait qu’une question, la gauche et le centre gardaient le revenu. Je relève la gravité à « bloquant », parce que le passage renvoie à l’élection source. Attention : la série est partagée avec la primaire, dont le vote a lieu les 9-10 et 16-17 octobre. Ce changement fausserait l’introduction de la primaire. Il faut donc le faire dans une variante propre à la présidentielle, ou après le 17 octobre, en tenant compte du gel des jours de vote.",
+  "topic": "agriculture",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "agriculture-11",
+  "target": "video",
+  "questionId": "",
+  "videoId": "agriculture-aides",
+  "segmentId": "agriculture-aides-05",
+  "field": "say",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "La proposition de la Commission pour la PAC 2028-2034 n’est décrite que par l’enveloppe réservée au revenu. Le passage omet le changement le plus discuté, à gauche comme à droite, que la fiche donne pourtant en partie : les deux fonds de la PAC seraient réunis et fondus dans un fonds européen plus large, géré par des plans nationaux et régionaux. Sur la page de la Commission : « The two existing funds… will be merged », et les États puiseront dans le « National and Regional Partnership Fund ». Il faut réenregistrer la voix. spoken : « La Pac de deux mille vingt-huit à deux mille trente-quatre est en négociation. En juillet deux mille vingt-cinq, la Commission européenne a proposé de la fondre dans un fonds européen plus large, géré par des plans nationaux et régionaux. Au moins trois cents milliards d’euros y seraient réservés au soutien du revenu des agriculteurs. » emphasis : ['en négociation', 'un fonds européen plus large', 'au moins 300 milliards']. draw : à 2028, le trait de la PAC entre dans une bande plus large, marquée « fonds européen ».",
+  "current": "La PAC de 2028 à 2034 est en négociation. En juillet 2025, la Commission européenne a proposé d’y réserver au moins 300 milliards d’euros au soutien du revenu des agriculteurs de l’Union.",
+  "proposed": "La PAC de 2028 à 2034 est en négociation. En juillet 2025, la Commission européenne a proposé de l’intégrer, avec d’autres programmes européens, dans des plans nationaux et régionaux. Au moins 300 milliards d’euros resteraient réservés au soutien du revenu des agriculteurs.",
+  "newSource": {
+   "title": "Questions and answers on the CAP post-2027 proposal",
+   "url": "https://agriculture.ec.europa.eu/media/news/questions-and-answers-cap-post-2027-proposal-2025-07-23_en",
+   "publisher": "Commission européenne (DG Agriculture et développement rural)",
+   "date": "2025-07-23"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "agriculture-12"
+  ],
+  "rationale": "Deux sensibilités relèvent ce silence, chacune selon son angle : la gauche y voit des règles environnementales confiées aux États, la droite la fin d’une PAC dotée de son propre budget. La fusion des fonds, fait décrit sans jugement, répond aux deux. Les chiffres du Sénat proposés par la droite sont écartés (voir rejected). Gravité relevée à « important » : deux relecteurs, et le point central de la négociation. Le passage dure environ 14 s.",
+  "verification": "adjusted : L’omission est réelle. La page de la Commission (23 juillet 2025) dit : « The two existing funds, EAFG and EAFRD […] will be merged into a single, coherent policy framework ». Elle dit aussi que les plans nationaux et régionaux de partenariat « brings together existing EU funding programmes under a harmonised framework with the CAP at its heart », parle de « The integration of the CAP into the National and Regional Partnership Plans » et d’un « ring-fenced budget of at least €300 billion ». La formulation proposée va plus loin que la source, et dans le vocabulaire d’un camp. « Fondre dans un fonds européen plus large » reprend l’idée de dissolution défendue par les critiques. Et la page ne dit pas que la PAC est versée dans le Fonds de partenariat de 865 Md€ : les États « also tap into » ce fonds « to finance the remaining CAP measures » (connectivité rurale, LEADER). Je reprends le mot de la Commission, « intégrer », dans des « plans nationaux et régionaux » qui réunissent plusieurs programmes, et « resteraient réservés », qui ne situe pas l’enveloppe. Voix : « … En juillet deux mille vingt-cinq, la Commission européenne a proposé de l’intégrer, avec d’autres programmes européens, dans des plans nationaux et régionaux. Au moins trois cents milliards d’euros resteraient réservés au soutien du revenu des agriculteurs. » emphasis : ['en négociation', 'plans nationaux et régionaux', 'au moins 300 milliards']. Dessin : la bande plus large porte « plans nationaux et régionaux », pas « fonds européen ». Je n’ai pas pu vérifier, faute de recherche, si la Commission a modifié sa proposition depuis. La formulation au passé (« en juillet 2025… a proposé ») reste vraie dans tous les cas.",
+  "topic": "agriculture",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "agriculture-13",
+  "target": "video",
+  "questionId": "",
+  "videoId": "agriculture-prix",
+  "segmentId": "agriculture-prix-03",
+  "field": "say",
+  "category": "chiffres",
+  "severity": "important",
+  "issue": "Le partage des 100 euros ne montre que l’agriculture (6,4), l’industrie (9,4) et le commerce (18,8). Il omet le poste le plus lourd du même schéma de l’Observatoire : 11,7 € d’aliments importés et 17,1 € de consommations intermédiaires importées, soit 28,8 €. Montré seul, le partage laisse penser que la valeur va surtout au commerce. Le poste omis est pourtant l’indicateur au cœur de la question des importations de cette élection. Les valeurs sont dans la citation vérifiée de la fiche (agriculture-x1, figures[0].quote) ; la somme est une conversion exacte. Il faut réenregistrer la voix. spoken : « … dix-huit virgule huit euros. Et vingt-huit virgule huit euros payaient des importations : onze virgule sept pour des aliments importés, dix-sept virgule un pour des achats importés tout au long de la chaîne. » emphasis : ['9,4 euros', '18,8 euros', '28,8 euros']. draw et alt : une quatrième barre à la même échelle, « importations ».",
+  "current": "Les industries agroalimentaires en tiraient 9,4 euros. Le commerce, grandes surfaces, petits commerces et grossistes compris, 18,8 euros.",
+  "proposed": "Les industries agroalimentaires en tiraient 9,4 euros. Le commerce, grandes surfaces, petits commerces et grossistes compris, 18,8 euros. Et 28,8 euros payaient des importations : 11,7 pour des aliments importés, 17,1 pour des achats importés tout au long de la chaîne.",
+  "newSource": {
+   "title": "Rapport au Parlement 2026 de l’Observatoire de la formation des prix et des marges des produits alimentaires (chapitre 2, schémas 6 et 7)",
+   "url": "https://observatoire-prixmarges.franceagrimer.fr/sites/default/files/PDF/2026_rapport_ofpm_v2.pdf",
+   "publisher": "Observatoire de la formation des prix et des marges des produits alimentaires (FranceAgriMer)",
+   "date": "2026"
+  },
+  "checked": false,
+  "lenses": [
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "agriculture-14"
+  ],
+  "rationale": "Le problème est réel : c’est le plus gros poste du tableau cité, et son absence oriente la lecture. La correction est descriptive, tirée de la même source, et distingue les aliments importés des achats importés (énergie, intrants…), ce qui évite de confondre les deux. Elle convient donc aux autres sensibilités. checked reste à false, comme l’a établi le relecteur, qui n’a pas rouvert le PDF : les valeurs viennent de la citation vérifiée de la fiche. Si le graphique de la fiche (explainer-charts.json, agriculture-x1, index 0) gagne une barre, il faut le recopier dans prix-02.",
+  "verification": "confirmed : J’ai rouvert le PDF (p. 46-47). Schéma 7 : « 11,7 € correspondent à des importations de produits alimentaires finis ; 17,1 € à des importations de consommations intermédiaires tout au long de la chaîne de valeur ». La somme de 28,8 € est exacte, et checked peut passer à true. Trois réserves. (1) « Le poste le plus lourd » n’est vrai qu’en additionnant deux postes : 17,1 seul est sous les 18,8 du commerce. (2) Le même schéma compte aussi 8,6 € de taxes moins subventions (schéma 6) et la valeur ajoutée de la restauration et des services (60,4 € de valeur ajoutée induite au total, d’où environ 25,8 € pour ces branches). Ajouter seulement les importations laisse d’autres postes hors champ ; la fiche ne donne pas leurs montants. (3) Le passage durerait environ 18 à 20 s, bien au-delà de la cible du guide (4 à 12 s). Si le graphique de la fiche gagne une barre, il faut le recopier tel quel dans prix-02.",
+  "topic": "agriculture",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "agriculture-16",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "en-tête du fichier (mention « Datée »)",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "La mention « Datée » ne suit que la PAC et le statut de l’accord avec le Mercosur. Elle oublie plusieurs échéances qui tombent avant le premier tour du 18 avril 2027 ou peuvent le précéder : la fin de la suspension française des importations, au plus tard début 2027, et l’avis attendu de la Cour de justice sur l’accord avec le Mercosur. Elle oublie aussi les nouvelles éditions des mêmes sources : compte de l’agriculture 2026 de l’Insee, commerce extérieur 2026 des douanes, privation matérielle et sociale de l’Insee. Les trois relecteurs l’ont relevé.",
+  "current": "// Datée : la PAC de 2028-2034 est en négociation (proposition de la Commission européenne de juillet 2025) ;\n// l'accord commercial entre l'Union européenne et le Mercosur s'applique à titre provisoire depuis le 1er mai\n// 2026 (fiche de la Représentation de la Commission en France, avril 2026). À revoir si la négociation aboutit\n// ou si le statut de l'accord change.",
+  "proposed": "// Datée : la PAC de 2028-2034 est en négociation (proposition de la Commission européenne de juillet 2025) ;\n// l'accord commercial entre l'Union européenne et le Mercosur s'applique à titre provisoire depuis le 1er mai\n// 2026 (fiche de la Représentation de la Commission en France, avril 2026) ; le Parlement européen, qui doit\n// encore se prononcer sur son approbation, a demandé le 21 janvier 2026 l'avis de la Cour de justice de l'Union.\n// Par un arrêté du 5 janvier 2026 (en vigueur le 8 janvier), jugé légal par le Conseil d'État le 13 mai 2026,\n// la France a suspendu l'importation de certains aliments contenant des résidus de cinq pesticides interdits\n// dans l'Union ; l'arrêté prend fin dès l'entrée en application de mesures appropriées de la Commission\n// européenne, et au plus tard le 8 janvier 2027. Mais la loi n° 2026-796 du 18 août 2026 (art. 2, article\n// L. 236-1 A du code rural) prévoit désormais que le ministre suspende ou encadre ces importations à titre\n// conservatoire, jusqu'à des mesures européennes adéquates : la suspension peut être prolongée ou reprise. La\n// même loi (art. 8) réserve, sauf offre insuffisante, les repas de la restauration collective publique aux\n// produits originaires de l'UE, de l'EEE ou des PTOM. À revoir si la négociation aboutit, si le statut de\n// l'accord change, à la fin ou au renouvellement de la suspension, et à la parution des chiffres suivants\n// avant le 18 avril 2027 : commerce extérieur 2026 (douanes, Agreste), privation matérielle et sociale\n// (Insee), comptes de l'agriculture (Insee).",
+  "newSource": {
+   "title": "LOI n° 2026-796 du 18 août 2026 d’urgence pour la protection et la souveraineté agricoles",
+   "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054707007",
+   "publisher": "Légifrance (Journal officiel du 19 août 2026)",
+   "date": "2026-08-18"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "rationale": "Cette correction fusionne les trois propositions et ne garde que des faits lus, sur les pages du Conseil d’État et du Parlement européen. Les dates exactes de parution des prochaines éditions n’ont pas été vérifiées : je les donne comme des échéances à surveiller, sans date. La baisse européenne des limites de résidus pour trois des cinq substances n’est pas reprise, faute de l’avoir lue sur EUR-Lex (voir notes). La mention de la résolution du Sénat, proposée par la droite, n’est pas utile si ses chiffres sont écartés.",
+  "verification": "adjusted : Faits de la proposition vérifiés : Parlement européen (communiqué du 21 janvier 2026) et Conseil d’État (13 mai 2026). Trois ajustements. (1) Fin de l’arrêté : l’art. 4, lu sur Légifrance, dit « dès l’entrée en application de mesures appropriées par la Commission européenne ou à défaut un an après son entrée en vigueur ». C’est l’entrée en application, pas l’adoption. L’entrée en vigueur étant le 8 janvier 2026, la date limite est le 8 janvier 2027. (2) La mention oubliait le fait le plus récent : la loi n° 2026-796 du 18 août 2026, promulguée après la décision n° 2026-914 DC du 14 août 2026. Son art. 2 n’a pas été examiné par le Conseil constitutionnel, ni censuré. Il prévoit que le ministre « suspend ou fixe des conditions particulières » à l’importation de denrées contenant des résidus de substances retirées dans l’UE, « à titre conservatoire et jusqu’à l’adoption par la Commission européenne des mesures adéquates », sans limite d’un an. Son art. 8 (nouveau II bis de l’art. L. 230-5-1) réserve, sauf offre insuffisante, la restauration collective publique aux produits d’origine UE/EEE/PTOM, pour les contrats lancés depuis la promulgation. La fin « début 2027 » n’est donc plus certaine. Un précédent existe : la suspension sur le thiaclopride (février 2024) a été renouvelée en février 2025. (3) Les dates des prochaines publications n’ont pas été vérifiées et restent des échéances à surveiller. Le compte provisoire de l’agriculture 2026 de l’Insee paraîtra probablement après le vote : seul un compte prévisionnel peut paraître avant ; je l’ai donc laissé sans millésime. Je n’ai pas vérifié non plus si la Commission a adopté des LMR plus basses pour certaines des cinq substances (EUR-Lex inaccessible), ce qui pourrait mettre fin à l’arrêté plus tôt. Mais Légifrance indique toujours l’arrêté « en vigueur ».",
+  "topic": "agriculture",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "agriculture-2",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "questionIds des vidéos / périmètre vidéo (research/presidentielle-2027/reuse.json, videoScope)",
+  "category": "origine",
+  "severity": "important",
+  "issue": "J’ai vérifié dans le code : videoScope.questions ne contient aucune question agriculture, et aucune des trois questions agriculture d’ici n’a de fiche. Avec scopeSeries, les six vidéos s’affichent donc sous « Agriculture, alimentation et animaux » sans question rattachée et sans « Voir la fiche ». La règle « une vidéo ne montre que des chiffres de l’explication de ses questions » ne peut pas être tenue, puisque leurs chiffres ne figurent dans aucune fiche montrée ici. Le problème vient des questions de la primaire, agriculture-1 (« Quel levier… ») et agriculture-x1 (« Comment améliorer le revenu… »), qui n’ont pas d’équivalent ici. Les trois relecteurs l’ont relevé.",
+  "current": "questionIds: ['agriculture-1', 'agriculture-x1'],",
+  "proposed": "Rattacher la série aux questions de cette élection, dans une variante propre à la présidentielle, car la série reste partagée avec la primaire. (1) Écrire la fiche de la question agriculture-1 d’ici (« Comment protéger les agriculteurs face aux produits importés ? »). La partir, après mise à jour, du point de la primaire sur les importations, du chiffre du commerce extérieur et de sa répartition entre l’Union et les pays tiers, et du point sur la PAC (voir les corrections jumelles). Si la fiche évoque la sortie de la PAC, y donner à égalité, d’une source officielle et sans commentaire, ce que la France reçoit de la PAC et ce qu’elle verse au budget de l’Union. (2) Dans reuse.json, faire ensuite correspondre l’ancienne agriculture-1 à agriculture-1 d’ici, ce qui y rattache l’introduction, « Aides européennes » et « Importations ». « Se nourrir » porte aussi l’ancienne agriculture-1 : dans la variante, la retirer de cette question, dont la fiche ne portera pas son chiffre. (3) « Revenu », « Partage des prix » et « Se nourrir », qui n’ont pas de question ici, restent un éclairage du thème sans question rattachée, ou sont retirées. Le choix revient au propriétaire.",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "rationale": "Les trois sensibilités font le même constat, ce qui en renforce le poids. Les propositions sont fusionnées. La contribution de la France au budget européen n’est retenue que si elle est mise en regard de ce que la France reçoit, d’une source officielle : c’est l’indicateur dont a besoin l’approche « sortir de la PAC » de cette élection, sans qu’il plaide pour elle. Une variante est indispensable. La fiche de la primaire compte déjà 3 points et 4 chiffres, le maximum, et ne peut pas recevoir les ajouts sans dépasser les règles. La primaire, encore en vote, ne doit pas changer.",
+  "topic": "agriculture",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "agriculture-3",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "angle de la série (en-tête et choix des approfondissements)",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "Les cinq approfondissements suivent les leviers débattus à la primaire : concentration des terres, aide redistributive, partage de la valeur avec la distribution, privation alimentaire et TVA. Le thème d’ici, « Agriculture, alimentation et animaux », pose aussi la question des pesticides interdits en France mais autorisés ailleurs dans l’Union (loi de juillet 2026 sur l’acétamipride) et celle de la protection des animaux. Aucune vidéo ne les traite, alors qu’elles sont au cœur du débat entre les candidats. Les trois relecteurs le relèvent : la gauche n’y trouve aucun indicateur environnemental, le centre et la droite rien sur l’écart entre les règles françaises et européennes.",
+  "current": "approfondissements (revenu des agriculteurs, partage des prix de la ferme au magasin, aides européennes,",
+  "proposed": "Quand les fiches de agriculture-2 (pesticides) et agriculture-3 (protection des animaux) existeront, ajouter un approfondissement factuel pour chacune. Pour les pesticides : les règles en vigueur en France et dans l’Union, dont la loi de juillet 2026, et les indicateurs officiels d’usage. Pour les animaux : leur statut juridique et les règles en vigueur (élevage, abattage, chasse). Aucune approche ni proposition, et deux côtés à égalité. Pour rester à 45 passages, regrouper ou retirer des approfondissements qui n’ont pas de question ici, par exemple « Revenu » et « Partage des prix ». Le choix revient au propriétaire.",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "rationale": "Les trois sensibilités demandent la même chose, chacune avec ses indicateurs : impact environnemental pour la gauche, écart avec les règles européennes pour le centre et la droite. Une vidéo factuelle sur les règles en vigueur et les indicateurs officiels convient aux trois. Le regroupement « Revenu » + « Partage des prix » proposé par le centre reste une option, pas une obligation.",
+  "topic": "agriculture",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "agriculture-4",
+  "target": "video",
+  "questionId": "",
+  "videoId": "agriculture-importations",
+  "segmentId": "agriculture-importations-04",
+  "field": "say",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "La règle européenne générale reste exacte. Mais le passage ignore l’arrêté du 5 janvier 2026, par lequel la France suspend l’importation de certains aliments venus de pays tiers qui contiennent des résidus quantifiables de cinq pesticides interdits dans l’Union. Le Conseil d’État a jugé la mesure légale le 13 mai 2026 (décision n° 511530). C’est l’objet même de la question des importations dans cette élection. La mesure prend fin dès que la Commission adopte des mesures adaptées, et au plus tard un an après son entrée en vigueur, soit début 2027, avant le vote. Il faut réenregistrer la voix. spoken : « … En janvier deux mille vingt-six, la France a suspendu, pour un an au plus, l’importation de certains aliments contenant des résidus de cinq pesticides interdits dans l’Union. » emphasis : ['normes de production', 'sous la limite', 'cinq pesticides interdits']. draw : ajouter, à côté de la jauge, une barrière devant quelques cageots, datée de janvier 2026. alt : ajouter « une barrière devant certains aliments importés, depuis janvier 2026 ».",
+  "current": "Mais leurs normes de production peuvent différer : un pesticide interdit dans l’Union peut avoir été utilisé, si les résidus restent sous la limite fixée.",
+  "proposed": "Mais leurs normes de production peuvent différer : un pesticide interdit dans l’Union peut avoir été utilisé, si les résidus restent sous la limite fixée. En janvier 2026, la France a suspendu l’importation de certains aliments contenant des résidus de cinq pesticides interdits dans l’Union.",
+  "newSource": {
+   "title": "Fruits et légumes provenant de pays hors UE et contenant des résidus de pesticides interdits : le Gouvernement pouvait suspendre leur importation",
+   "url": "https://www.conseil-etat.fr/actualites/fruits-et-legumes-provenant-de-pays-hors-ue-et-contenant-des-residus-de-pesticides-interdits-le-gouvernement-pouvait-suspendre-leur-importation",
+   "publisher": "Conseil d’État",
+   "date": "2026-05-13"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "agriculture-5",
+   "agriculture-10"
+  ],
+  "rationale": "Les trois sensibilités le relèvent. Je garde la formulation au passé du centre, qui reste vraie après la fin de la mesure, au plus tard début 2027 et donc avant le vote. Le présent « suspend », proposé par la gauche et la droite, deviendrait faux. J’écris « certains aliments » plutôt que « surtout des fruits et légumes » : la liste comprend aussi des céréales. Le nouveau passage 04b de la gauche est refusé, car la série compte déjà 45 passages, le plafond du guide (§ 3). Le passage dure environ 15 s, un peu plus que la cible. J’ai lu sur la page du Conseil d’État l’arrêté du 5 janvier 2026, les cinq substances, la durée et la décision du 13 mai 2026.",
+  "verification": "adjusted : Le fond est confirmé. Lu sur la page du Conseil d’État (13 mai 2026, décision n° 511530, recours de la Chambre syndicale des importateurs français de fruits et légumes rejeté) : arrêté du 5 janvier 2026, cinq substances (carbendazime, bénomyl, glufosinate, thiophanate-méthyl, mancozèbe), « résidus quantifiables », denrées « en provenance de pays tiers », règlement 396/2005 qui autorise sinon les résidus sous les LMR. Lu sur Légifrance (JORFTEXT000053313910) : arrêté publié au JO du 7 janvier 2026, en vigueur le 8 janvier. Son art. 4 dit que l’interdiction « prend fin dès l’entrée en application de mesures appropriées par la Commission européenne ou à défaut un an après son entrée en vigueur ». Le texte est toujours marqué « en vigueur ». J’ai retiré « pour un an au plus ». La loi n° 2026-796 du 18 août 2026 d’urgence pour la protection et la souveraineté agricoles (JORFTEXT000054707007, art. 2, qui réécrit l’art. L. 236-1 A du code rural) prévoit désormais que le ministre « suspend ou fixe des conditions particulières » à l’importation de ces denrées, « à titre conservatoire et jusqu’à l’adoption par la Commission européenne des mesures adéquates », sans plafond d’un an. Il y a aussi un précédent : l’arrêté sur le thiaclopride de février 2024 a été renouvelé en février 2025. La mesure peut donc être prolongée ou reprise, et « pour un an au plus » ferait croire à une fin début 2027. Ce retrait raccourcit aussi le passage (environ 13 s). Voix : « … En janvier deux mille vingt-six, la France a suspendu l’importation de certains aliments contenant des résidus de cinq pesticides interdits dans l’Union. » Pour l’alt, écrire « en janvier 2026 », pas « depuis janvier 2026 ». Hors du périmètre de la correction : la même loi (art. 8, nouveau II bis de l’art. L. 230-5-1) réserve, sauf offre insuffisante, les repas de la restauration collective publique aux produits originaires de l’UE, de l’EEE ou des PTOM. C’est un fait majeur sur les importations que la série ignore ; je le signale au propriétaire.",
+  "topic": "agriculture",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "agriculture-6",
+  "target": "video",
+  "questionId": "",
+  "videoId": "agriculture-importations",
+  "segmentId": "agriculture-importations-05",
+  "field": "say",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "« S’applique à titre provisoire » ne dit pas que l’accord attend encore l’approbation du Parlement européen. Le 21 janvier 2026, par 334 voix contre 324 et 11 abstentions, le Parlement a demandé à la Cour de justice si l’accord est conforme aux traités. Il ne votera qu’après cet avis, et aucun avis n’a été rendu à ce jour. C’est le statut de l’accord au cœur de la question des importations. La droite l’a proposé dans la vidéo, la gauche et le centre dans l’en-tête « Datée ». Il faut réenregistrer la voix. spoken : « … depuis le premier mai deux mille vingt-six. Le Parlement européen doit encore se prononcer : en janvier deux mille vingt-six, il a demandé l’avis de la Cour de justice de l’Union. » emphasis : ['à titre provisoire', 'la Cour de justice']. draw : ajouter, sous le calendrier, une balance au trait reliée à l’accord par une flèche en pointillé.",
+  "current": "L’accord commercial entre l’Union et le Mercosur, un groupe de pays d’Amérique du Sud, s’applique à titre provisoire depuis le 1er mai 2026.",
+  "proposed": "L’accord commercial entre l’Union et le Mercosur, un groupe de pays d’Amérique du Sud, s’applique à titre provisoire depuis le 1er mai 2026. Le Parlement européen doit encore se prononcer : en janvier 2026, il a demandé l’avis de la Cour de justice de l’Union.",
+  "newSource": {
+   "title": "EU-Mercosur: MEPs request legal opinion on its compliance with EU treaties",
+   "url": "https://www.europarl.europa.eu/news/en/press-room/20260116IPR32450/ue-mercosur-meps-request-legal-opinion-on-its-compliance-with-eu-treaties",
+   "publisher": "Parlement européen",
+   "date": "2026-01-21"
+  },
+  "checked": true,
+  "lenses": [
+   "droite",
+   "gauche",
+   "centre"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "agriculture-7",
+   "agriculture-10"
+  ],
+  "rationale": "C’est un fait de statut, sans chiffre qui serve un camp. Il complète la seule source actuelle, la page de la Représentation de la Commission, partie prenante de l’accord (remarque de la gauche). J’ai remplacé « ne l’a pas encore approuvé », qui présuppose une approbation, par « doit encore se prononcer », plus neutre et fidèle au communiqué (« vote to grant consent (or not) »). J’ai lu la date, le vote et la procédure sur la page du Parlement européen. Une recherche ne signale pas d’avis de la Cour à ce jour.",
+  "verification": "confirmed : Lu sur le communiqué du Parlement européen du 21 janvier 2026 : la demande d’avis à la CJUE sur la conformité de l’accord (EMPA et accord intérimaire) aux traités a été adoptée par 334 voix contre 324 et 11 abstentions. Le communiqué ajoute : « Only then, Parliament will be able to vote to grant consent (or not) ». La page de la Représentation de la Commission (27 avril 2026), source actuelle de la vidéo, dit la même chose : le Parlement « a saisi la Cour de justice […] afin qu’elle examine la conformité juridique de l’accord », ce qui « a suspendu temporairement la ratification ». La salle de presse du Parlement ne signale ni vote d’approbation ni avis de la Cour après février 2026 ; seul un communiqué du 10 février 2026 porte sur les clauses de sauvegarde agricoles. Je n’ai pas pu consulter le greffe de la Cour (page inaccessible). Le passage dure environ 16 s, au-dessus de la cible du guide (4 à 12 s). Pour la liste des sources, préférer la version française du même communiqué (voir agriculture-10).",
+  "topic": "agriculture",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "agriculture-8",
+  "target": "video",
+  "questionId": "",
+  "videoId": "agriculture-importations",
+  "segmentId": "agriculture-importations-02",
+  "field": "say",
+  "category": "chiffres",
+  "severity": "important",
+  "issue": "Le passage enchaîne la chute de l’excédent, les normes de production des pays tiers et le Mercosur. Il laisse ainsi entendre que le solde se dégrade à cause des importations venues hors de l’Union. Selon le service statistique du ministère de l’Agriculture, la France est pourtant en déficit avec les autres pays de l’Union (−3,4 Md€ en 2025) et en excédent avec le reste du monde (+3,6 Md€). L’Union fournit 54,1 des 83,8 Md€ d’importations. C’est un indicateur central pour la question des importations de cette élection. La gauche relève aussi que la chute est montrée deux fois et sans contexte. Remplacer la seconde phrase évite d’ajouter un passage, puisque la série est au plafond de 45. Il faut réenregistrer la voix. spoken : « … de plus qu’elle n’en a acheté. Avec les autres pays de l’Union, elle est en déficit de trois virgule quatre milliards ; avec le reste du monde, en excédent de trois virgule six milliards. » emphasis : ['200 millions d’euros', '3,4 milliards', '3,6 milliards']. draw : garder les deux colonnes presque égales, puis ajouter deux barres à la même échelle, depuis zéro, l’une vers le bas pour l’Union, l’autre vers le haut pour le reste du monde. alt : « … ; puis deux barres depuis zéro : 3,4 milliards de déficit avec l’Union, 3,6 milliards d’excédent avec le reste du monde ».",
+  "current": "En 2025, la France a vendu à l’étranger 200 millions d’euros de produits agricoles et alimentaires de plus qu’elle n’en a acheté. C’est 5 milliards de moins qu’un an plus tôt.",
+  "proposed": "En 2025, la France a vendu à l’étranger 200 millions d’euros de produits agricoles et alimentaires de plus qu’elle n’en a acheté. Avec les autres pays de l’Union, elle est en déficit de 3,4 milliards ; avec le reste du monde, en excédent de 3,6 milliards.",
+  "newSource": {
+   "title": "Commerce extérieur agroalimentaire – En 2025, l’excédent agroalimentaire français atteint son plus bas niveau depuis la fin des années soixante-dix (Agreste Infos rapides, février 2026, n° 17)",
+   "url": "https://agreste.agriculture.gouv.fr/agreste-web/download/publication/publie/IraCex2617/2026_17inforapcommerceext.pdf",
+   "publisher": "Agreste, service de la statistique et de la prospective du ministère de l’Agriculture",
+   "date": "2026-02"
+  },
+  "checked": true,
+  "lenses": [
+   "centre",
+   "gauche"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "agriculture-9",
+   "agriculture-10"
+  ],
+  "rationale": "Cette correction fusionne le remplacement proposé par le centre et la demande de contexte de la gauche, sans le passage supplémentaire. La baisse de 5 Md€ reste dans le libellé du chiffre affiché, et l’introduction (intro-04) dit déjà « le plus bas depuis au moins 2000 » : rien n’est caché à qui y voit un décrochage. La répartition entre l’Union et le reste du monde sert tour à tour chaque camp : la concurrence européenne et la « surtransposition » d’un côté, les accords avec les pays tiers de l’autre. Elle reste donc descriptive. Valeurs lues dans la publication : −3 403 M€ avec l’UE, +3 584 M€ avec les pays tiers, 181 M€ au total dans la nomenclature de l’Agreste contre 200 M€ aux douanes. L’arrondi reste cohérent.",
+  "verification": "confirmed : Valeurs lues dans le PDF (figure 2, p. 2) : solde avec l’UE −3 403 M€ (−2 385 en 2024), avec les pays tiers +3 584 M€ (+7 409 en 2024), total 181 M€ ; importations 54 112 M€ depuis l’UE sur 83 775 M€. Le texte proposé est exact. En revanche, la prémisse de l’« issue » est en partie fausse. L’Agreste écrit : « la forte érosion de l’excédent commercial avec les pays tiers tire l’excédent global vers le bas, à laquelle s’ajoute l’accentuation du déficit avec l’Union Européenne ». En un an, le solde recule de −3,8 Md€ avec les pays tiers (importations +2,7 Md€, exportations −1,1 Md€, surtout vins et spiritueux vers les États-Unis) contre −1 Md€ avec l’UE. La baisse de 2025 vient donc surtout des échanges hors de l’Union. Le passage actuel n’induit pas en erreur sur ce point, et le nouveau, qui montre des niveaux sans la baisse, pourrait faire lire l’inverse. C’est acceptable seulement parce qu’intro-04 dit « le plus bas depuis au moins 2000 » et que la fiche (agriculture-9, ajustée) donne la décomposition de la baisse. Petite réserve de périmètre (guide § 6) : 200 M€ vient des douanes, 3,4 et 3,6 de la nomenclature de l’Agreste (total 181 M€). L’arrondi reste cohérent (3,6 − 3,4 = 0,2).",
+  "topic": "agriculture",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "agriculture-10",
+  "target": "video",
+  "questionId": "",
+  "videoId": "agriculture-importations",
+  "segmentId": "",
+  "field": "sources",
+  "category": "chiffres",
+  "severity": "mineur",
+  "issue": "Si les passages 02, 04 et 05 sont corrigés, la liste des sources de la vidéo doit comporter les nouvelles sources (guide § 6 : tout nombre ou fait dit doit venir d’une source de la liste). Cela donne aussi au passage 04 une source neutre, en plus de la page de la Commission, comme le demandait la droite.",
+  "current": "sources: [DOUANES, MERCOSUR, ORIGINE],",
+  "proposed": "sources: [DOUANES, MERCOSUR, ORIGINE, AGRESTE_COMEX, CONSEIL_ETAT_IMPORTS, PE_MERCOSUR], avec AGRESTE_COMEX = { title: 'Commerce extérieur agroalimentaire – En 2025, l’excédent agroalimentaire français atteint son plus bas niveau depuis la fin des années soixante-dix (Agreste Infos rapides, février 2026, n° 17)', url: 'https://agreste.agriculture.gouv.fr/agreste-web/download/publication/publie/IraCex2617/2026_17inforapcommerceext.pdf', publisher: 'Agreste, ministère de l’Agriculture', date: '2026-02' }, CONSEIL_ETAT_IMPORTS = { title: 'Fruits et légumes provenant de pays hors UE et contenant des résidus de pesticides interdits : le Gouvernement pouvait suspendre leur importation', url: 'https://www.conseil-etat.fr/actualites/fruits-et-legumes-provenant-de-pays-hors-ue-et-contenant-des-residus-de-pesticides-interdits-le-gouvernement-pouvait-suspendre-leur-importation', publisher: 'Conseil d’État', date: '2026-05-13' } et PE_MERCOSUR = { title: 'UE–Mercosur : les députés demandent un avis juridique sur sa conformité avec les traités de l’UE', url: 'https://www.europarl.europa.eu/news/fr/press-room/20260116IPR32450/ue-mercosur-meps-request-legal-opinion-on-its-compliance-with-eu-treaties', publisher: 'Parlement européen', date: '2026-01-21' }",
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "agriculture-4",
+   "agriculture-6",
+   "agriculture-8"
+  ],
+  "rationale": "Cette correction découle des trois corrections de la vidéo. Elle reprend la proposition du centre et y ajoute la source du Parlement européen (agriculture-6).",
+  "newSource": {
+   "title": "UE–Mercosur : les députés demandent un avis juridique sur sa conformité avec les traités de l’UE",
+   "url": "https://www.europarl.europa.eu/news/fr/press-room/20260116IPR32450/ue-mercosur-meps-request-legal-opinion-on-its-compliance-with-eu-treaties",
+   "publisher": "Parlement européen",
+   "date": "2026-01-21"
+  },
+  "verification": "adjusted : Le principe est juste : le guide § 6 exige que tout fait dit vienne d’une source de la liste. J’ai corrigé le titre français de PE_MERCOSUR, qui ne correspondait à aucune page. Le titre exact, lu sur la version française du communiqué, est « UE–Mercosur : les députés demandent un avis juridique sur sa conformité avec les traités de l’UE ». L’URL passe donc en /fr/. Le titre et la date de l’Agreste sont conformes au PDF (février 2026, n° 17), ceux du Conseil d’État à la page. Ces trois sources doivent aussi figurer dans les fiches de la présidentielle (agriculture-5, -7, -9), puisque le guide demande des sources « copiées de la fiche ». Pour agriculture-7, la source actuelle de la fiche suffit déjà.",
+  "topic": "agriculture",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "agriculture-15",
+  "target": "video",
+  "questionId": "",
+  "videoId": "agriculture-prix",
+  "segmentId": "agriculture-prix-06",
+  "field": "say",
+  "category": "chiffres",
+  "severity": "mineur",
+  "issue": "La marge nette de 1,1 € est une moyenne sur sept rayons frais et six enseignes, comme le dit le libellé affiché, mais la voix la donne comme une valeur unique. Il suffit d’ajouter « en moyenne » ; le périmètre (rayons frais) est déjà dit en prix-05. Réenregistrer la voix est facultatif : à grouper avec celui de prix-03, sinon on peut laisser le passage tel quel. spoken : « Une fois payés aussi le personnel, l’énergie, l’immobilier et l’impôt sur les sociétés, il restait en moyenne un virgule un euro : la marge nette. »",
+  "current": "il restait 1,1 euro : la marge nette.",
+  "proposed": "il restait en moyenne 1,1 euro : la marge nette.",
+  "lenses": [
+   "gauche"
+  ],
+  "needsVoice": true,
+  "linked": [],
+  "rationale": "Ce mot exact, déjà dans le libellé de la fiche (« Marge nette moyenne »), convient à toutes les sensibilités. Je ramène la gravité à « mineur » : le centre et la droite jugent équilibrée la paire marge brute / marge nette, et le libellé affiché dit déjà « moyenne ». Le reste de la proposition est écarté (voir rejected).",
+  "newSource": {
+   "title": "Rapport au Parlement 2026 de l’Observatoire de la formation des prix et des marges des produits alimentaires (section 11, tableau 32)",
+   "url": "https://observatoire-prixmarges.franceagrimer.fr/sites/default/files/PDF/2026_rapport_ofpm_v2.pdf",
+   "publisher": "Observatoire de la formation des prix et des marges des produits alimentaires (FranceAgriMer)",
+   "date": "2026"
+  },
+  "verification": "confirmed : Tableau 32 lu (p. 496-497) : « Comptes moyens des rayons alimentaires en GMS en 2024 pour 100 € de chiffre d’affaires ». Pour l’ensemble des sept rayons, la marge brute est de 29,4 et la marge nette après répartition de l’IS de 1,1. Elle va de −4,6 (marée), −2,9 (boucherie) et −1,7 (boulangerie-pâtisserie) à +5,1 (charcuterie) et +6,8 (volailles), sur 43 Md€ de chiffre d’affaires pour six enseignes. « En moyenne » est donc exact et utile.",
+  "topic": "agriculture",
+  "electionQuestionId": ""
+ }
+]

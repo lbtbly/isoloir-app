@@ -9,7 +9,7 @@
 // le passage ne les dit pas (« pour », « contre », les libellés des barres de la fiche) : elles sont reprises dans
 // le « alt » du passage.
 
-import { VIDEO_SERIES } from '../../series'
+import { seriesOfVideo } from '../../catalog'
 import { Art, Arrow, Ask, Fade, Ink, Marks, Txt, W, at, cls, cueOf, cuesOf, heard, num, plain, said, sentencesOf, word, yearsOf, type Cue, type P, type Tone } from '../dessin/encre'
 import { Chiffre, Head, HeadCues, Question, Seg, Signature, Src, Sur100, lineOf, listAfterColon } from '../dessin/mises'
 import { Picto, type PictoName } from '../dessin/pictos'
@@ -144,7 +144,7 @@ function Liste({ items, cols = 2 }: { items: { n: Nom; text: string; shown: bool
 /** Les approfondissements de la série, en sommaire numéroté (comme Sommaire de mises.tsx, avec les pictogrammes
  *  du thème) */
 function Chapitres({ p, t0 = 200 }: { p: P; t0?: number }) {
-  const series = VIDEO_SERIES.find(s => s.videos.some(v => v.id === p.script.id))
+  const series = seriesOfVideo(p.script.id)
   const deep = series?.videos.filter(v => v.kind === 'deep') ?? []
   if (!deep.length) return null
   return (
@@ -1241,6 +1241,219 @@ const histoire08: Board = p => (
   </Seg>
 )
 
+/* ——— Édition « présidentielle 2027 » : les passages corrigés (identifiant en -p27) ———
+ * Ajoutées pour l'édition (editions/presidentielle-2027/laicite_republique.ts) ; les planches du dessus restent
+ * celles de la primaire, inchangées. Elles lisent p.segment et p.script, qui portent le texte corrigé. */
+
+/** Le pictogramme d'une question de l'introduction corrigée : une loupe pour le contrôle des associations et des
+ *  lieux de culte, sinon celui de sujet() */
+const sujet27 = (q: string): Nom => (/contrôle/i.test(q) ? 'loupe' : sujet(q))
+
+/** intro-07 (p27) Les cinq questions du thème, chacune avec son pictogramme, quand la voix la pose */
+const intro07p27: Board = p => {
+  const qs = sentencesOf(p.segment.say).filter(s => /\?$/.test(s))
+  if (qs.length < 2) return null
+  return (
+    <Seg kind="ask">
+      <Liste cols={2} items={qs.map(q => ({ n: sujet27(q), text: q, shown: heard(p, q.split(' ').slice(0, 2).join(' ')), cues: cuesOf(p) }))} />
+    </Seg>
+  )
+}
+
+/** principe-07 (p27) Le comité interministériel : une table, présidée par le Premier ministre ; puis, la même
+ *  année, une loi (un texte) qui renforce le contrôle des associations et des lieux de culte (une salle sans aucun
+ *  signe, une loupe au bleu bille) */
+const principe07p27: Board = p => {
+  const [comite, ctrl] = cuesOf(p)
+  const pm = word(p, /le Premier ministre/)
+  const loi = word(p, /une loi/)
+  if (!comite || !ctrl || !loi) return null
+  const seats = [26, 62, 98]
+  return (
+    <Seg>
+      <Head lines={[lineOf(comite)]} />
+      <Art h={152}>
+        {seats.map((cx, i) => (
+          <Picto key={cx} n="personne" x={cx - 15} y={36} size={30} t0={300 + i * 120} tone={i === 1 && pm?.shown ? 'count' : undefined} w={0.9} />
+        ))}
+        <Ink d="M8 86a54 16 0 1 0 108 0a54 16 0 1 0-108 0" t0={100} dur={800} />
+        {pm?.shown ? <Txt x={62} y={128} text={pm.text} max={12} size={14} tone="count" t0={200} /> : null}
+        {loi.shown ? (
+          <>
+            <Picto n="document" x={132} y={42} size={56} t0={0} />
+            <Arrow x1={182} y1={72} x2={204} y2={72} t0={500} head={6} />
+            <Fig n="salle" x={206} y={30} size={72} t0={700} />
+          </>
+        ) : null}
+        {ctrl.shown ? (
+          <>
+            <Picto n="loupe" x={192} y={0} size={44} tone="count" t0={0} />
+            <Txt x={242} y={124} text={ctrl.text} max={14} size={14} tone="count" t0={300} />
+          </>
+        ) : null}
+      </Art>
+    </Seg>
+  )
+}
+
+/** signes-03 (p27) Les agents publics, au guichet, neutres (une petite balance au fléau droit) ; puis, dans tout
+ *  l'espace public, une rue, des passants et un rond barré (l'interdiction, sans rien dessiner d'autre) */
+const signes03p27: Board = p => {
+  const [agents, espace] = cuesOf(p)
+  const neutres = word(p, /neutres/)
+  if (!agents || !espace || !neutres) return null
+  return (
+    <Seg>
+      <Head lines={[lineOf(agents), lineOf(espace)]} />
+      <Art h={126}>
+        <Picto n="personne" x={32} y={52} size={36} t0={100} />
+        <Picto n="guichet" x={0} y={10} size={100} t0={300} />
+        {neutres.shown ? (
+          <g class="vc-count">
+            <Ink d="M126 50V102M114 102H138" t0={0} dur={500} />
+            <Ink d="M104 54H148" t0={300} dur={500} class="vc-bold" />
+            <Ink d="M104 54L98 76H110ZM148 54L142 76H154Z" t0={600} dur={600} />
+            <Ink d="M121 50L126 43L131 50" t0={500} dur={200} />
+            <Txt x={126} y={120} text={neutres.text} size={14} tone="count" t0={700} />
+          </g>
+        ) : null}
+        {espace.shown ? (
+          <>
+            <Ink d="M172 106H298" t0={0} dur={600} class="vc-soft" />
+            {[212, 240, 268].map((x, i) => (
+              <Picto key={x} n="personne" x={x} y={74} size={34} t0={200 + i * 150} w={0.9} />
+            ))}
+            <Ink d="M192 106V62" t0={600} dur={300} class="vc-soft" />
+            <Fig n="interdit" x={170} y={22} size={44} tone="count" t0={800} />
+          </>
+        ) : null}
+      </Art>
+    </Seg>
+  )
+}
+
+/** Les décisions montrées dans la vidéo, chacune avec son pictogramme : un rapport, des archives, des restitutions */
+const DECISIONS: [RegExp, Nom][] = [
+  [/rapport/, 'document'],
+  [/archives/, 'archives'],
+  [/restitu/, 'restitution'],
+]
+
+/** memoire-08 (p27) « Sur la mémoire de la colonisation, quel rôle pour l'État ? » : les pictogrammes des
+ *  décisions montrées, sans légende, une flèche en tirets, un point d'interrogation, puis la question */
+const memoire08p27: Board = p => {
+  const shown = DECISIONS.filter(([re]) => said(p, re)).map(([, n]) => n)
+  if (shown.length < 2) return null
+  const x0 = Math.round((W - (shown.length * 70 - 14 + 76)) / 2)
+  const xa = x0 + shown.length * 70 - 4
+  return (
+    <Seg kind="ask">
+      <Art h={70}>
+        {shown.map((n, i) => (
+          <Fig key={n} n={n} x={x0 + i * 70} y={8} size={56} t0={200 + i * 300} />
+        ))}
+        <Arrow x1={xa} y1={36} x2={xa + 22} y2={36} dash t0={200 + shown.length * 300} />
+        <Ask x={xa + 32} y={6} h={60} t0={400 + shown.length * 300} />
+      </Art>
+      <Question p={p} />
+    </Seg>
+  )
+}
+
+/** Un texte de loi daté, sa disposition surlignée au bleu bille (comme Disposition) ; (x, y) : coin haut gauche du
+ *  pictogramme, s : sa taille ; l'année est écrite à sa gauche */
+function LoiDatee({ x, y, s, year, t0 = 0 }: { x: number; y: number; s: number; year: string; t0?: number }) {
+  const k = s / 48
+  const [hx, hy, hw, hh] = [x + 13.7 * k, y + 23.1 * k, 24.9 * k, 7.8 * k]
+  return (
+    <>
+      <Txt x={x + 6 * k} y={y + 31 * k} text={year} anchor="end" size={20} big t0={t0} />
+      <Picto n="document" x={x} y={y} size={s} t0={t0 + 100} />
+      <Fade t0={t0 + 700} class="vc-count">
+        <rect class="vc-tint-count" x={hx} y={hy} width={hw} height={hh} />
+        <path d={`M${hx} ${hy}H${hx + hw}V${hy + hh}H${hx}Z`} />
+      </Fade>
+    </>
+  )
+}
+
+/** histoire-02 (p27) Deux lois, 2001 et 2005, chacune avec sa disposition surlignée, et une flèche de chacune vers
+ *  le même livre : les programmes scolaires */
+const histoire02p27: Board = p => {
+  const [a, b, prog] = cuesOf(p)
+  if (!a || !b || !prog || !yearsOf(a.text).length || !yearsOf(b.text).length) return null
+  return (
+    <Seg>
+      <Art h={186}>
+        {a.shown ? <LoiDatee x={62} y={0} s={84} year={a.text} t0={100} /> : null}
+        {prog.shown ? (
+          <>
+            <Arrow x1={136} y1={47} x2={190} y2={86} t0={300} />
+            <Picto n="livre" x={188} y={52} size={96} t0={600} />
+            <Txt x={236} y={160} text={prog.text} max={12} size={14} t0={900} />
+          </>
+        ) : null}
+        {b.shown ? (
+          <>
+            <LoiDatee x={62} y={104} s={84} year={b.text} t0={0} />
+            <Arrow x1={136} y1={151} x2={190} y2={118} t0={900} />
+          </>
+        ) : null}
+      </Art>
+    </Seg>
+  )
+}
+
+/** Un texte de loi daté déjà au tableau (posé par histoire-02 p27, mêmes mesures que LoiDatee), sans geste ; sa
+ *  disposition surlignée au bleu bille, ou, abrogée, en pointillé et barrée (comme Disposition) */
+function LoiAuTableau({ x, y, s, year, abrogee = false }: { x: number; y: number; s: number; year: string; abrogee?: boolean }) {
+  const k = s / 48
+  const [hx, hy, hw, hh] = [x + 13.7 * k, y + 23.1 * k, 24.9 * k, 7.8 * k]
+  return (
+    <>
+      <Txt x={x + 6 * k} y={y + 31 * k} text={year} anchor="end" size={20} big kept />
+      <Picto n="document" x={x} y={y} size={s} kept />
+      <Fade kept class={abrogee ? 'vc-ghost' : 'vc-count'}>
+        <rect class="vc-tint-count" x={hx} y={hy} width={hw} height={hh} />
+        <path d={`M${hx} ${hy}H${hx + hw}V${hy + hh}H${hx}Z`} />
+      </Fade>
+      {abrogee ? <Ink d={`M${hx - 4} ${hy + hh / 2}H${hx + hw + 4}`} t0={200} dur={500} class="vc-count vc-bold" /> : null}
+    </>
+  )
+}
+
+/** histoire-03 (p27) Abrogée en 2006 : les deux lois du passage précédent restent au tableau ; la disposition de
+ *  2005 est barrée et, entre elle et le livre, il ne reste qu'un trait en pointillé ; la loi de 2001 garde sa
+ *  flèche pleine vers le livre, les programmes scolaires */
+const histoire03p27: Board = p => {
+  const [abrogee, releve] = cuesOf(p)
+  const i = p.script.segments.findIndex(s => s.id === p.segment.id)
+  const prev = i > 0 ? p.script.segments[i - 1] : undefined
+  const [a, b] = (prev?.emphasis ?? []).filter(e => yearsOf(e).length === 1)
+  const prog = said(p, /programmes scolaires/)
+  if (!abrogee || !releve || !a || !b || !prog) return null
+  return (
+    <Seg>
+      <Head lines={[lineOf(abrogee)]} />
+      <Art h={216}>
+        <LoiAuTableau x={62} y={0} s={84} year={a} />
+        <Arrow x1={136} y1={47} x2={190} y2={86} kept />
+        <Picto n="livre" x={188} y={52} size={96} kept />
+        <Txt x={236} y={160} text={prog} max={12} size={14} kept />
+        <LoiAuTableau x={62} y={104} s={84} year={b} abrogee={abrogee.shown} />
+        {abrogee.shown ? (
+          <Fade t0={600} class="vc-ghost">
+            <path d="M146 145L186 120" />
+          </Fade>
+        ) : (
+          <Arrow x1={136} y1={151} x2={190} y2={118} kept />
+        )}
+        {releve.shown ? <Txt x={W / 2} y={208} text={releve.text} size={15} t0={300} /> : null}
+      </Art>
+    </Seg>
+  )
+}
+
 /* ——— Le registre ——— */
 
 export const LAICITE_REPUBLIQUE: Record<string, Board> = {
@@ -1289,4 +1502,11 @@ export const LAICITE_REPUBLIQUE: Record<string, Board> = {
   'laicite-histoire-06': histoire06,
   'laicite-histoire-07': histoire07,
   'laicite-histoire-08': histoire08,
+  // Édition « présidentielle 2027 » : les passages corrigés
+  'laicite-intro-07-p27': intro07p27,
+  'laicite-principe-07-p27': principe07p27,
+  'laicite-signes-03-p27': signes03p27,
+  'laicite-memoire-08-p27': memoire08p27,
+  'laicite-histoire-02-p27': histoire02p27,
+  'laicite-histoire-03-p27': histoire03p27,
 }
