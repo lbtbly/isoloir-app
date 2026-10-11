@@ -1,0 +1,268 @@
+[
+ {
+  "id": "industrie_economie-11",
+  "target": "video",
+  "questionId": "",
+  "videoId": "industrie-intro",
+  "segmentId": "industrie-intro-07",
+  "field": "say (spoken identique) et emphasis",
+  "category": "origine",
+  "severity": "important",
+  "issue": "L’introduction annonce les trois questions de la primaire. L’une, « Quelle stratégie pour réindustrialiser le pays ? », n’existe pas dans cette élection. Celle qui la remplace, « Quel rôle pour l’État dans le capital des entreprises stratégiques ? », n’est pas annoncée. Et « Comment protéger la production » suppose déjà la réponse, alors que la banque de cette élection pose une question neutre. Il faut réenregistrer la voix, c’est nécessaire ici. Emphasis : ['dans le capital', 'politique commerciale', 'aides publiques'].",
+  "current": "Alors, trois questions se posent. Quelle stratégie pour réindustrialiser le pays ? Comment protéger la production face à la concurrence internationale ? Et que faire des aides publiques aux entreprises ?",
+  "proposed": "Alors, trois questions se posent. Quel rôle pour l’État dans le capital des entreprises stratégiques ? Quelle politique commerciale face à la concurrence internationale ? Et que faire des aides publiques aux entreprises ?",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "industrie_economie-12"
+  ],
+  "rationale": "Les trois relecteurs l’ont relevé, et leurs propositions sont fusionnées : la question de cette élection sur l’État au capital (gauche, droite) et la formulation neutre « Quelle politique commerciale » (centre, droite), toutes deux prises à la lettre dans la banque. J’ai gardé l’ordre des vidéos de la série (État actionnaire, puis commerce et achats, puis aides) plutôt que celui de la banque : l’introduction annonce les approfondissements qui suivent.",
+  "topic": "industrie_economie",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "industrie_economie-13",
+  "target": "video",
+  "questionId": "",
+  "videoId": "industrie-commerce",
+  "segmentId": "industrie-commerce-08",
+  "field": "say (spoken identique) et emphasis",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "La question de fin reprend l’énoncé de la primaire, qui suppose la protection. La vidéo se termine donc sur l’option d’un camp et écarte d’avance les approches e et f. La banque de cette élection pose une question neutre. Il faut réenregistrer la voix, c’est nécessaire ici. Emphasis : 'protéger la production' devient 'politique commerciale'.",
+  "current": "Alors, comment protéger la production face à la concurrence internationale ?",
+  "proposed": "Alors, quelle politique commerciale face à la concurrence internationale ?",
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [],
+  "rationale": "Gardée telle quelle. La formulation est celle de la banque : un électeur protectionniste s’y retrouve autant qu’un libre-échangiste.",
+  "topic": "industrie_economie",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "industrie_economie-15",
+  "target": "video",
+  "questionId": "",
+  "videoId": "industrie-etat",
+  "segmentId": "industrie-etat-04",
+  "field": "say (spoken identique), emphasis et sources",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "Après les chiffres, la vidéo ne présente que les contraintes européennes : deux passages sur quatre, celui-ci introduit par « Mais ». Pour qui défend la propriété publique, la nationalisation y paraît une impasse juridique, alors que les traités sont neutres sur la propriété. Il faut réenregistrer la voix de ce passage : c’est le seul moyen de rétablir l’équilibre sans changer la structure. Le passage garde trois phrases. Emphasis : ['publique ou privée', 'en principe interdites', 'des exceptions']. Ajouter la source EUR-Lex aux sources de la vidéo.",
+  "current": "Mais toute aide publique à une entreprise doit respecter les règles européennes. Les aides qui faussent la concurrence sont en principe interdites. Avec des exceptions, comme les « projets importants d’intérêt européen commun ».",
+  "proposed": "Pour les traités européens, une entreprise peut être publique ou privée. Mais toute aide publique à une entreprise doit respecter les règles européennes. Les aides qui faussent la concurrence sont en principe interdites, avec des exceptions, comme les « projets importants d’intérêt européen commun ».",
+  "lenses": [
+   "gauche"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "industrie_economie-14",
+   "industrie_economie-16"
+  ],
+  "rationale": "Gardée et ajustée : la phrase d’ouverture est plus simple, et deux phrases sont fusionnées pour rester à trois phrases par passage (guide, § 3). Le fait est dans la fiche (correction industrie_economie-14). Il ne présente aucune approche, et un lecteur libéral ou souverainiste n’a rien à y redire.",
+  "newSource": {
+   "title": "Traité sur le fonctionnement de l’Union européenne (version consolidée 2016), article 345",
+   "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:12016E345",
+   "publisher": "EUR-Lex (Office des publications de l’Union européenne)"
+  },
+  "checked": true,
+  "verification": "confirmed : Le fait est vérifié (article 345 du TFUE, lu sur EUR-Lex ; voir la correction 14). Il entre dans la fiche avec la correction 14, ce qui respecte le guide § 6. Il ne présente aucune approche (§ 5). Trois réserves pratiques, sans effet sur les faits. (1) La planche etat04 (src/ui/videos/pistes/planches/industrie_economie.tsx) lit les emphases dans l'ordre avec cuesOf : la première écrit le titre (Head) et fait apparaître le pictogramme « document ». Avec 'publique ou privée' en premier, le titre deviendrait « publique ou privée » et le document des règles apparaîtrait à ce moment-là. Il faut donc revoir la planche et le draw. (2) Le passage compte environ 44 mots, soit à peu près 17 s à l'oral, au-delà des 4 à 12 s du guide (§ 3). Variante plus courte : « Pour les traités européens, une entreprise peut être publique ou privée. Mais une aide publique qui fausse la concurrence est en principe interdite, sauf exceptions, comme les « projets importants d'intérêt européen commun ». » (3) Les points de la fiche n'ont qu'un champ source. Il faut vérifier que la source EUR-Lex peut y figurer, puisque le guide demande des sources « copiées des fiches ».",
+  "topic": "industrie_economie",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "industrie_economie-18",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "en-tête (mention « Datée »)",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "La date de relecture suit le calendrier de la primaire (« après le vote d’octobre 2026 »). L’état du dossier Mercosur a changé : ordonnance du 29 septembre 2026, recours de la Pologne pendant, avis 1/26 attendu. Plusieurs faits de la série peuvent bouger avant le premier tour : le passage commerce-06 est daté du 27 avril, les allègements ont été fondus en 2026, les budgets 2027 sont en discussion, et une nouvelle annexe sur l’État actionnaire paraîtra avec le projet de loi de finances pour 2027.",
+  "current": "// Datée : accord UE-Mercosur (application provisoire depuis le 1er mai 2026, ratification suspendue au\n// 27 avril 2026) et proposition de la Commission européenne de mars 2026 (en négociation) ; fin du dispositif\n// d'accès régulé à l'électricité nucléaire au 31 décembre 2025. À revoir après le vote d'octobre 2026.",
+  "proposed": "// Datée : accord UE-Mercosur (application provisoire depuis le 1er mai 2026 ; ratification suspendue depuis la saisine\n// de la Cour de justice par le Parlement européen le 21 janvier 2026, avis 1/26 attendu ; demande de suspension de la\n// Pologne rejetée le 29 septembre 2026, recours C-460/26 pendant ; industrie-commerce-06 dit « au 27 avril 2026 ») ;\n// proposition de la Commission européenne de mars 2026 (en négociation) ; fin du dispositif d'accès régulé à\n// l'électricité nucléaire au 31 décembre 2025 ; allègements de cotisations fondus en une réduction unique depuis le\n// 1er janvier 2026 ; projet de loi de finances pour 2027 déposé le 1er octobre 2026, en discussion ; participations de\n// l'État au 30 juin 2025 (nouvelle annexe « État actionnaire » attendue avec ce projet). À revoir à chaque échéance,\n// et au plus tard début avril 2027, avant le premier tour du 18 avril 2027.",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "rationale": "J’ai fusionné les trois propositions, toutes fondées. Les faits sur le Mercosur viennent du communiqué de la Cour, que j’ai lu.",
+  "newSource": {
+   "title": "Communiqué de presse n° 135/26, ordonnance du vice-président de la Cour dans l’affaire C-460/26 R Pologne/Conseil",
+   "url": "https://curia.europa.eu/site/upload/docs/application/pdf/2026-09/cp260135fr.pdf",
+   "publisher": "Cour de justice de l’Union européenne",
+   "date": "2026-09-29"
+  },
+  "checked": true,
+  "verification": "adjusted : Le communiqué de la Cour n° 135/26 confirme le rejet du référé polonais le 29 septembre 2026, le recours C-460/26 et l'avis 1/26 demandé par le Parlement. Aucun communiqué jusqu'au n° 141 du 7 octobre 2026 n'annonce l'avis. Comme pour la correction 10, j'ai remplacé « jusqu'à l'avis 1/26 » par « avis 1/26 attendu » : aucune source lue ne lie la fin de la suspension à l'avis. Sur l'Assemblée nationale (dossier « plf_2027 »), on lit : « Projet de loi de finances pour 2027, n° 3210, déposé le jeudi 1er octobre 2026 », séance publique le 13 octobre 2026. La liste des annexes en ligne ne contient pas encore le rapport sur l'État actionnaire : la PLF-2027/10-Jaune2027_Etat_actionnaire.pdf renvoie 404. Le chiffre au 30 juin 2025 reste donc le dernier publié, et la nouvelle annexe est « attendue ». Pour les allègements, la page Service-Public F24542 (vérifiée le 15 juin 2026) confirme la réduction unique depuis le 1er janvier 2026 ; d'où « depuis le 1er janvier 2026 » au lieu de « en 2026 ». Je n'ai pas revérifié que la proposition de la Commission de mars 2026 est toujours en négociation : cette mention vient de l'en-tête actuel.",
+  "topic": "industrie_economie",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "industrie_economie-19",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "structure (questionIds de industrie-etat et industrie-energie ; passages industrie-intro-02 et -03)",
+  "category": "origine",
+  "severity": "important",
+  "issue": "La question source industrie_economie-1 (réindustrialisation) n’est pas reprise (reuse.json). Le périmètre vidéo vide donc les questions des vidéos « L’État actionnaire » et « Le prix de l’électricité des entreprises ». Leur bouton « Voir la fiche » mène à la fiche des aides (scope.ts), qui ne porte aucun de leurs chiffres (209,1 Md€, 179,5 Md€, 0,2688 €/kWh). Les passages industrie-intro-02 et -03 (+19 usines, 3 240 600 salariés) montrent aussi des chiffres absents des explications de cette élection. Cela enfreint la règle « une vidéo ne montre que des chiffres de l’explication de ses questions ». Pourtant, la question industrie_economie-3 de cette élection (« Quel rôle pour l’État dans le capital des entreprises stratégiques ? ») n’a pas d’explication, et la vidéo « L’État actionnaire » la couvre exactement.",
+  "current": "questionIds: ['industrie_economie-1']",
+  "proposed": "Pour cette élection, donner une explication propre à la question industrie_economie-3. Elle porterait les faits et chiffres de la vidéo industrie-etat : participations de l’État au 30 juin 2025 (ou de l’annexe au projet de loi de finances pour 2027), règles sur les aides d’État, article 345 du TFUE. Son résumé couvrirait toutes les approches, de la nationalisation à la privatisation. Puis y rattacher industrie-etat. Ne pas réécrire pour cela le résumé de la fiche source industrie_economie-1 : il reste celui de la primaire, encore consultable en archive, et décrit les « leviers » de ce débat. Pour industrie-energie et pour les passages industrie-intro-02 et -03, trouver une question d’accueil dont l’explication porte ces chiffres ; à défaut, ne pas les montrer pour cette élection, et ajuster le sommaire de industrie-intro-08.",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "industrie_economie-14"
+  ],
+  "rationale": "Gauche et droite l’ont proposé, le centre l’a relevé en note, et j’ai vérifié dans scope.ts et videos.ts. J’ai fusionné les deux voies proposées. J’écarte la reprise telle quelle de la fiche source via reuse.json : elle montrerait sous cette question le résumé de la primaire, et la réécrire changerait l’archive. Si la vidéo sur l’électricité reste, le choix de la tranche des moins de 20 MWh (angle artisans) est à revoir, car le débat de cette élection porte aussi sur les prix des industriels.",
+  "topic": "industrie_economie",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "industrie_economie-3",
+  "target": "video",
+  "questionId": "",
+  "videoId": "industrie-aides",
+  "segmentId": "industrie-aides-03",
+  "field": "figure (value et label)",
+  "category": "chiffres",
+  "severity": "important",
+  "issue": "C’est la jumelle de la correction de la fiche : la valeur et le libellé affichés doivent être ceux de la fiche. La voix dit déjà « 211 milliards pour 2023, et 108 au sens strict », et le dessin montre les trois barres 108, 150 et 211. Ni say ni spoken ne changent, rien à réenregistrer.",
+  "current": "108 Md€",
+  "proposed": "value : « de 108 à 211 Md€ » ; label : « Aides publiques aux entreprises en 2023 selon la commission d’enquête du Sénat : au moins 211 Md€ au sens large (subventions de l’État, aides de Bpifrance, dépenses fiscales et allègements de cotisations sociales) ; 108 Md€ au sens strict, sans les interventions de Bpifrance, les avantages fiscaux sur la TVA et ceux que l’État ne compte plus officiellement comme « dépenses fiscales » »",
+  "lenses": [
+   "gauche"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "industrie_economie-1",
+   "industrie_economie-2"
+  ],
+  "rationale": "Gardée. La règle veut qu’une vidéo affiche à la lettre le chiffre de la fiche. Le passage dit déjà les deux bornes : l’affichage les rejoint.",
+  "newSource": {
+   "title": "L’essentiel sur le rapport de la commission d’enquête sur l’utilisation des aides publiques aux grandes entreprises et à leurs sous-traitants (rapport n° 808, 2024-2025)",
+   "url": "https://www.senat.fr/rap/r24-808-1/r24-808-1-syn.pdf",
+   "publisher": "Sénat",
+   "date": "2025-07"
+  },
+  "checked": true,
+  "verification": "confirmed : Même source et même lecture que pour les corrections 1 et 2. Dans src/ui/videos/series/industrie_economie.ts, le passage industrie-aides-03 dit déjà « 211 milliards pour 2023, et 108 au sens strict ». Son dessin montre bien 108, 150 et 211. Son figure.value est « 108 Md€ » (sourceIndex 0 = AIDES_SENAT). Le guide (§ 6) exige que la valeur affichée soit celle de la fiche, à la lettre. Le say, le spoken et l'emphasis restent justes : rien à réenregistrer.",
+  "topic": "industrie_economie",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "industrie_economie-7",
+  "target": "video",
+  "questionId": "",
+  "videoId": "industrie-aides",
+  "segmentId": "industrie-aides-04",
+  "field": "figure.label",
+  "category": "chiffres",
+  "severity": "important",
+  "issue": "C’est la jumelle de la correction du libellé de la fiche : le libellé affiché doit rester celui de la fiche. Seul le libellé change. Le « say » (« La hausse vient en partie d’un crédit d’impôt, devenu baisse de cotisations en 2019 ») reste exact : rien à réenregistrer.",
+  "current": "La hausse tient en partie à la transformation, en 2019, d’un crédit d’impôt (le CICE) en baisse de cotisations",
+  "proposed": "Sur cette hausse, 26,6 Md€ viennent des baisses de cotisations accordées en 2019 en échange de la suppression d’un crédit d’impôt (le CICE) : un « effet de périmètre », selon la Cour des comptes",
+  "lenses": [
+   "centre"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "industrie_economie-6"
+  ],
+  "rationale": "Gardée. Le libellé vient de la fiche, et la source ALLEGEMENTS figure déjà dans la vidéo.",
+  "newSource": {
+   "title": "Maîtriser la dynamique des allègements généraux de cotisations sociales (Sécurité sociale 2025, chapitre III)",
+   "url": "https://www.ccomptes.fr/sites/default/files/2025-05/20250526-RALFSS-2025-Maitriser-dynamique-allegements-generaux-de-cotisations-sociales.pdf",
+   "publisher": "Cour des comptes",
+   "date": "2025-05"
+  },
+  "checked": true,
+  "verification": "confirmed : Mêmes passages de la Cour (p. 125-126) que pour la correction 6. Dans la série, le figure.label d'industrie-aides-04 reprend mot pour mot le libellé actuel de la fiche (sourceIndex 1 = ALLEGEMENTS, déjà dans les sources de la vidéo). Le say (« La hausse vient en partie d'un crédit d'impôt, devenu baisse de cotisations en 2019 ») et l'emphasis « en partie » restent compatibles avec le nouveau libellé. Ni voix ni graphique à changer.",
+  "topic": "industrie_economie",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "industrie_economie-12",
+  "target": "video",
+  "questionId": "",
+  "videoId": "industrie-intro",
+  "segmentId": "industrie-intro-07",
+  "field": "draw",
+  "category": "origine",
+  "severity": "mineur",
+  "issue": "Le dessin doit suivre les nouvelles questions. La grue (réindustrialisation) laisse la place au motif déjà utilisé par la vidéo « L’État actionnaire ». La carte de France, qui illustrait « protéger la production », laisse la place au conteneur de la vidéo sur le commerce, plus neutre pour « politique commerciale ». La planche est à adapter.",
+  "current": "Trois pictogrammes en liste, dessinés l’un après l’autre : une grue, une carte de France, des pièces.",
+  "proposed": "Trois pictogrammes en liste, dessinés l’un après l’autre : un bâtiment à colonnes relié à un immeuble de bureaux, un conteneur, des pièces.",
+  "lenses": [
+   "gauche",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "industrie_economie-11"
+  ],
+  "rationale": "Gardée, dans l’ordre retenu pour le passage. Le conteneur vient de la proposition de la droite et reprend le dessin de industrie-commerce-08.",
+  "topic": "industrie_economie",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "industrie_economie-16",
+  "target": "video",
+  "questionId": "",
+  "videoId": "industrie-etat",
+  "segmentId": "industrie-etat-04",
+  "field": "draw",
+  "category": "cadrage",
+  "severity": "mineur",
+  "issue": "Le dessin doit montrer d’abord la nouvelle phrase, la neutralité sur la propriété, avant la règle sur les aides. La barrière illustre exactement « en principe interdites » et peut rester. La planche est à adapter.",
+  "current": "Des pièces partent vers une entreprise et butent contre une barrière, un document de règles posé à côté ; un chemin en pointillé contourne la barrière pour quelques projets.",
+  "proposed": "D’abord, deux immeubles de bureaux identiques côte à côte, l’un relié au bâtiment à colonnes, l’autre non. Puis des pièces partent vers une entreprise et butent contre une barrière, un document de règles posé à côté ; un chemin en pointillé contourne la barrière pour quelques projets.",
+  "lenses": [
+   "gauche",
+   "centre"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "industrie_economie-15"
+  ],
+  "rationale": "Gardée, et liée au changement du « say ». Le centre avait relevé le même motif de barrière : ici, il dessine une règle réelle et ne dramatise pas.",
+  "topic": "industrie_economie",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "industrie_economie-17",
+  "target": "video",
+  "questionId": "",
+  "videoId": "industrie-achats",
+  "segmentId": "industrie-achats-04",
+  "field": "draw",
+  "category": "cadrage",
+  "severity": "mineur",
+  "issue": "L’épingle française qui « tente de s’en approcher et bute contre une barrière » fait de l’Europe une simple contrainte. Elle suggère même, à tort, que les entreprises françaises sont exclues du marché. La règle dit autre chose : un marché ne peut pas leur être réservé. Le dessin proposé montre cette règle sans dramatiser. Rien à réenregistrer, la planche est à adapter.",
+  "current": "Un document de marché ; une épingle sur une carte de France tente de s’en approcher et bute contre une barrière.",
+  "proposed": "Un document de marché ; une étiquette « réservé » barrée ; devant, côte à côte, des dossiers d’entreprises de plusieurs pays de l’Union, dont un marqué d’une épingle sur une carte de France.",
+  "lenses": [
+   "centre"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "rationale": "Gardée et un peu resserrée. Le dessin actuel est aussi inexact : il montre une entreprise française tenue à l’écart. Le nouveau dessin illustre la règle telle que la dit la voix, sans argument de plus.",
+  "topic": "industrie_economie",
+  "electionQuestionId": ""
+ }
+]

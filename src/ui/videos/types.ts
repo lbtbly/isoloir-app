@@ -87,6 +87,9 @@ export interface VideoSegment {
   /** Ce que le dessin écrit en plus du « say » et du chiffre clé (graduations, légendes), écrit d'après la
    *  planche réelle, à la française et sans cadrage : la transcription du panneau Sources le reprend */
   alt?: string
+  /** Posé par une édition (editions/apply.ts) quand elle corrige le dessin d'un passage sans changer ce qu'il
+   *  dit : l'identifiant de sa planche propre (« <id><suffixe> »), cherchée avant celle du passage */
+  board?: string
 }
 
 export interface VideoSource {

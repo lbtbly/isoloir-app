@@ -9,7 +9,7 @@
 // « classes ») : elles nomment ce qui est dessiné, et l'« alt » du passage les reprend.
 
 import { chartOf } from '../../model'
-import { VIDEO_SERIES } from '../../series'
+import { seriesOfVideo } from '../../catalog'
 import { Art, Arrow, Ask, Brace, Fade, Ink, Marks, Txt, W, at, capital, cls, cueOf, cuesOf, heard, num, plain, ratioOf, sentenceWith, sentencesOf, word, yearsOf, type P, type Tone } from '../dessin/encre'
 import { Chiffre, Head, HeadCues, Note, Question, Seg, Signature, Src, lineOf } from '../dessin/mises'
 import { Picto, type PictoName } from '../dessin/pictos'
@@ -114,7 +114,7 @@ function Liste({ items, cols = 2 }: { items: { n: Nom; text: string; shown: bool
 /** Les approfondissements de la série, en sommaire numéroté (comme Sommaire de mises.tsx, avec les
  *  pictogrammes du thème) */
 function Chapitres({ p, t0 = 200 }: { p: P; t0?: number }) {
-  const series = VIDEO_SERIES.find(s => s.videos.some(v => v.id === p.script.id))
+  const series = seriesOfVideo(p.script.id)
   const deep = series?.videos.filter(v => v.kind === 'deep') ?? []
   if (!deep.length) return null
   return (
@@ -1247,6 +1247,122 @@ const jeunes06: Board = p => {
 /** 07 « Pour les jeunes, quelle mesure faire passer en premier ? » */
 const jeunes07: Board = p => fin(p, [{ n: 'personne', size: 64 }, { n: 'mallette', size: 52 }, { n: 'livre', size: 52 }])
 
+/* ——— Édition « présidentielle 2027 » : les passages corrigés (identifiants en -p27) ———
+ * Ces planches lisent le passage corrigé (p.segment) : jamais la série d'origine, qui garde le texte de la primaire. */
+
+/** Les pourcentages d'une phrase dite (« 56 % et 73 % »), tels qu'ils sont écrits, et si la voix les a dits */
+function pourcents(p: P, phrase: string | null) {
+  if (!phrase) return []
+  return [...phrase.matchAll(/\d+(?:,\d+)?[\s\u00a0\u202f]%/g)].map(m => ({ text: m[0], shown: heard(p, m[0]) }))
+}
+
+/** Le premier nombre dit après un mot du passage (« 2 902 et 3 950 euros » : « 3 950 »), tel qu'il est écrit */
+function nombreApres(p: P, after: string) {
+  const say = p.segment.say
+  const i = plain(say).indexOf(plain(after))
+  if (i < 0) return null
+  const m = /\d{1,3}(?:[\u00a0\u202f ]\d{3})+(?:,\d+)?|\d+(?:,\d+)?/.exec(say.slice(i + after.length))
+  return m ? { text: m[0], shown: heard(p, m[0]) } : null
+}
+
+/** prive-03 (présidentielle 2027) : la part de l'État en 2024, à l'école puis au collège et au lycée, dans le privé
+ *  sous contrat et dans le public ; deux paires de disques de même taille, la part de l'État au bleu bille quand la
+ *  voix la dit, chaque paire sous une accolade qui la nomme */
+const prive03p27: Board = p => {
+  const [a, b, pub] = cuesOf(p)
+  const [c, d] = pourcents(p, pub ? sentenceWith(p.segment.say, pub.text) : null)
+  const la = word(p, /à l’école/)
+  const lb = word(p, /au collège et au lycée/)
+  const prive = word(p, /privé sous contrat/)
+  if (!a || !b || !pub || !c || !d || !la || !lb) return null
+  const groups = [
+    { label: la, x0: 8, x1: 130, disks: [{ cx: 36, v: a }, { cx: 102, v: c }] },
+    { label: lb, x0: 170, x1: 292, disks: [{ cx: 198, v: b }, { cx: 264, v: d }] },
+  ]
+  const parts = groups.flatMap(g => g.disks.map(k => num(k.v.text)))
+  if (parts.some(v => !v || v >= 100)) return null
+  const cy = 32
+  const r = 28
+  return (
+    <Seg kind="fig">
+      <Chiffre p={p} />
+      <Art h={170}>
+        {groups.map((g, gi) => (
+          <g key={gi}>
+            {g.disks.map((k, i) => {
+              // Le privé d'abord (la première phrase) ; le public quand la voix y arrive
+              const on = i ? pub.shown : true
+              if (!on) return null
+              const part = (num(k.v.text) ?? 0) / 100
+              return (
+                <g key={i}>
+                  <Disque cx={k.cx} cy={cy} r={r} part={part} shown={k.v.shown} t0={i ? 0 : 100 + gi * 250} />
+                  {k.v.shown ? <Txt x={k.cx} y={cy + r + 24} text={k.v.text} size={18} big tone="count" t0={300} /> : null}
+                  {i || prive?.shown ? <Txt x={k.cx} y={cy + r + 42} text={i ? 'public' : 'privé'} size={14} tone="soft" t0={i ? 200 : 0} /> : null}
+                </g>
+              )
+            })}
+            {g.label.shown ? (
+              <>
+                <Brace x1={g.x0} y1={cy + r + 52} x2={g.x1} y2={cy + r + 52} tone="soft" t0={100} />
+                <Txt x={(g.x0 + g.x1) / 2} y={cy + r + 86} text={g.label.text} max={14} size={15} t0={300} />
+              </>
+            ) : null}
+          </g>
+        ))}
+      </Art>
+      <Src p={p} />
+    </Seg>
+  )
+}
+
+/** prive-04-classes (passage ajouté, présidentielle 2027) : 24,2 élèves par classe en élémentaire dans le privé sous
+ *  contrat, 20,7 dans le public ; deux barres à la même échelle, depuis zéro */
+const prive04classesP27: Board = p => deux(p, /privé sous contrat/, /public/, 72)
+
+/** superieur-05 (présidentielle 2027) : les droits d'inscription, deux paires d'étiquettes, licence et master ; en
+ *  haut le taux dit d'abord, dessous les droits des étudiants ressortissants d'un pays hors de l'Union européenne,
+ *  de l'Espace économique européen et de la Suisse ; chaque montant quand la voix le dit */
+const sup05p27: Board = p => {
+  const [a, b, c] = cuesOf(p)
+  const d = c ? nombreApres(p, c.text) : null
+  const lic = word(p, /en licence/)
+  const mas = word(p, /en master/)
+  const hors = word(p, /hors [^.]*?(?=, c’est)/)
+  if (!a || !b || !c || !d || !lic || !mas || !hors) return null
+  if ([a, b, c, d].some(v => !num(v.text))) return null
+  const euros = (t: string) => `${t.replace(/[\s\u00a0\u202f]euros?$/, '')}\u00a0€`
+  // Deux colonnes (licence, master), deux rangées (le taux dit d'abord ; dessous, les droits différenciés, sous la
+  // phrase qui les nomme) ; une étiquette de prix, puis le montant
+  const cols = [
+    { x: 34, head: lic, rows: [a, c] },
+    { x: 172, head: mas, rows: [b, d] },
+  ]
+  const rows = [38, 108]
+  return (
+    <Seg kind="fig">
+      <Chiffre p={p} />
+      <Art h={124}>
+        {cols.map((col, ci) => (
+          <g key={ci}>
+            {col.head.shown ? <Txt x={col.x + 56} y={14} text={col.head.text} size={15} t0={200} /> : null}
+            {col.rows.map((v, ri) =>
+              v.shown ? (
+                <g key={ri}>
+                  <Picto n="etiquette" x={col.x} y={rows[ri]! - 24} size={48} tone="count" t0={0} />
+                  <Txt x={col.x + 46} y={rows[ri]! + 7} text={euros(v.text)} size={20} big anchor="start" t0={250} />
+                </g>
+              ) : null,
+            )}
+          </g>
+        ))}
+        {hors.shown ? <Txt x={W / 2} y={70} text={hors.text} max={40} size={14} tone="soft" t0={100} /> : null}
+      </Art>
+      <Src p={p} />
+    </Seg>
+  )
+}
+
 /* ——— Le registre ——— */
 
 export const EDUCATION: Record<string, Board> = {
@@ -1295,4 +1411,8 @@ export const EDUCATION: Record<string, Board> = {
   'ecole-jeunes-05': jeunes05,
   'ecole-jeunes-06': jeunes06,
   'ecole-jeunes-07': jeunes07,
+  // Édition « présidentielle 2027 » : les passages dont le texte change, et le passage ajouté
+  'ecole-prive-03-p27': prive03p27,
+  'ecole-prive-04-classes-p27': prive04classesP27,
+  'ecole-superieur-05-p27': sup05p27,
 }

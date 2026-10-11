@@ -5,9 +5,12 @@
 // prend le dessin générique de sa sorte d'image. Quelques étiquettes courtes et neutres sont écrites ici quand
 // le passage ne les dit pas (« estimée », graduations) : elles nomment ce qui est dessiné, et vont dans « alt ».
 
-import { Art, Arrow, Ask, Brace, Fade, Ink, Txt, W, capital, cueOf, cuesOf, heard, num, plain, ratioOf, said, sentencesOf, word, yearsOf, type P } from '../dessin/encre'
+import { EDITIONS } from '../../editions'
+import { applyEdition } from '../../editions/apply'
+import { VIDEO_SERIES } from '../../series'
+import { Art, Arrow, Ask, Brace, Fade, Ink, Txt, W, at, capital, cueOf, cuesOf, heard, num, plain, ratioOf, said, sentencesOf, word, yearsOf, type P } from '../dessin/encre'
 import { Chiffre, HeadCues, Panel, Question, Seg, Signature, Sommaire, Src, Sur100 } from '../dessin/mises'
-import { Picto, type PictoName } from '../dessin/pictos'
+import { Glyphe, Picto, pictoFor, type PictoName } from '../dessin/pictos'
 import { Cases, Qui, Rang, balance, barres, frise, rangCells, type Barre } from '../dessin/schemas'
 import type { Board } from './types'
 
@@ -1182,6 +1185,119 @@ const h11: Board = p => {
   )
 }
 
+/* ——— Édition « présidentielle 2027 » : les passages corrigés (identifiants en -p27) ——— */
+// Ces planches lisent le passage corrigé (p.segment) et, pour le sommaire, la série telle que l'édition la
+// montre. Les planches d'origine, celles de la primaire, restent telles quelles. solidarites-intro-07-p27 garde
+// la planche d'origine (intro07 lit les questions dites : la mallette et le document, sans changement).
+
+/** L'édition dont ce passage porte le suffixe (« -p27 »), s'il en a une */
+const editionOf = (p: P) => Object.values(EDITIONS).find(e => p.segment.id.endsWith(e.suffix))
+
+/** intro-08 (2027) « Ce sont les deux sujets des vidéos qui suivent » : le sommaire des approfondissements tels
+ *  que l'édition les montre (sans ceux qu'elle retire), chacun avec son pictogramme, comme Sommaire */
+const intro08p27: Board = p => {
+  const base = VIDEO_SERIES.find(s => s.videos.some(v => v.id === p.script.id))
+  const edition = editionOf(p)
+  if (!base || !edition) return null
+  const deep = applyEdition(base, edition).videos.filter(v => v.kind === 'deep')
+  // Le nombre dit (« les deux sujets ») doit être celui des vidéos montrées
+  const n = num(word(p, /\S+(?= sujets)/)?.text)
+  if (!deep.length || (n !== null && n !== deep.length)) return null
+  return (
+    <Seg kind="end">
+      <ol class="vc-chap">
+        {deep.map((v, i) => (
+          <li key={v.id} class="vc-chap-item vc-rise" style={at(200 + i * 450)}>
+            <span class="vc-chap-n">{i + 1}</span>
+            <Glyphe n={pictoFor(`${v.short} ${v.title}`) ?? 'document'} t0={p.still ? 0 : 350 + i * 450} />
+            <span class="vc-chap-t">{v.short}</span>
+          </li>
+        ))}
+      </ol>
+      <Signature p={p} />
+    </Seg>
+  )
+}
+
+/** Une flèche au trait en un seul chemin, de (x1, y1) à (x2, y2), comme Arrow : pour la repasser d'un trait épais */
+function fleche(x1: number, y1: number, x2: number, y2: number, head = 8) {
+  const len = Math.hypot(x2 - x1, y2 - y1) || 1
+  const [ux, uy] = [(x2 - x1) / len, (y2 - y1) / len]
+  const tip = (a: number) => {
+    const c = Math.cos(a)
+    const s = Math.sin(a)
+    return `M${x2} ${y2}l${(-(ux * c - uy * s) * head).toFixed(1)} ${(-(uy * c + ux * s) * head).toFixed(1)}`
+  }
+  return `M${x1} ${y1}L${x2} ${y2}${tip(0.55)}${tip(-0.55)}`
+}
+
+/** chomage-08 (2027) Selon l'Unédic, ses dépenses augmentent et ses recettes baissent (pertes de CSG,
+ *  prélèvements de l'État) : trois flèches partent de la tirelire, celle des dépenses s'épaissit quand la voix dit
+ *  qu'elles augmentent ; en dessous, l'excédent qu'elle prévoyait en 2027, puis la révision à la baisse annoncée */
+const ch08p27: Board = p => {
+  const [csg, etat, plus] = cuesOf(p)
+  const dep = word(p, /dépenses/)
+  const aug = word(p, /augmentent/)
+  const sans = word(p, /Sans nouveau prélèvement/)
+  const year = word(p, /en \d{4}/)
+  const rev = word(p, /revoir sensiblement à la baisse|nettement revu à la baisse/)
+  if (!dep || !csg || !etat || !plus) return null
+  // Les trois flèches, de la tirelire vers chaque rangée (dans l'ordre où la voix les dit)
+  const out = [
+    { x1: 92, y1: 64, x2: 140, y2: 26 },
+    { x1: 94, y1: 80, x2: 140, y2: 76 },
+    { x1: 92, y1: 96, x2: 140, y2: 120 },
+  ] as const
+  const [a0, a1, a2] = out
+  return (
+    <Seg>
+      <Art h={rev ? 240 : 204}>
+        <Picto n="tirelire" x={4} y={30} size={88} t0={100} />
+        {dep.shown ? (
+          <>
+            <Arrow {...a0} t0={100} />
+            <Picto n="enveloppe" x={146} y={3} size={40} t0={300} />
+            <Txt x={194} y={29} text={dep.text} anchor="start" size={14} t0={500} />
+          </>
+        ) : null}
+        {dep.shown && aug?.shown ? <Ink d={fleche(a0.x1, a0.y1, a0.x2, a0.y2)} t0={0} dur={500} class="vc-bold" /> : null}
+        {csg.shown ? (
+          <>
+            <Arrow {...a1} t0={100} />
+            <Picto n="pieces" x={146} y={50} size={40} tone="ghost" />
+            <Txt x={194} y={70} text={csg.text} anchor="start" max={10} size={14} t0={300} />
+          </>
+        ) : null}
+        {etat.shown ? (
+          <>
+            <Arrow {...a2} t0={100} />
+            <Picto n="monument" x={146} y={103} size={40} t0={300} />
+            <Txt x={194} y={118} text={etat.text} anchor="start" max={13} size={14} t0={500} />
+          </>
+        ) : null}
+        {sans?.shown ? (
+          <>
+            <Ink d="M10 150H290" t0={0} dur={500} class="vc-soft vc-thin" />
+            <Txt x={54} y={172} text={sans.text} anchor="start" size={14} tone="soft" t0={200} />
+          </>
+        ) : null}
+        {plus.shown ? (
+          <>
+            <Picto n="hausse" x={6} y={156} size={40} tone="count" t0={100} w={1.2} />
+            <Txt x={54} y={196} text={`${plus.text}${year ? ` ${year.text}` : ''}`} anchor="start" size={18} big tone="count" t0={300} />
+          </>
+        ) : null}
+        {rev?.shown ? (
+          <>
+            <Picto n="baisse" x={6} y={198} size={40} t0={100} w={1.2} />
+            <Txt x={54} y={228} text={rev.text} anchor="start" size={14} t0={300} />
+          </>
+        ) : null}
+      </Art>
+    </Seg>
+  )
+}
+
 /* ——— Le registre ——— */
 
 export const SOLIDARITES: Record<string, Board> = {
@@ -1230,4 +1346,7 @@ export const SOLIDARITES: Record<string, Board> = {
   'solidarites-handicap-09': h09,
   'solidarites-handicap-10': h10,
   'solidarites-handicap-11': h11,
+  // Édition présidentielle 2027 (solidarites-intro-07-p27 garde la planche d'origine)
+  'solidarites-intro-08-p27': intro08p27,
+  'solidarites-chomage-08-p27': ch08p27,
 }

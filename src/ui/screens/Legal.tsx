@@ -299,8 +299,8 @@ export function Legal({ pack, seed }: { pack: ElectionPack; seed: string }) {
               <SectionLink id="ml-reponse">Droit de réponse et corrections</SectionLink>).
             </li>
             <li>
-              <strong>Vos fichiers restent à vous.</strong> Le calcul se fait sur votre appareil. Le double (JSON) et
-              l’affiche (JPG) y sont fabriqués&nbsp;: vous seul décidez de les garder, de les envoyer ou de les supprimer.
+              <strong>Vos fichiers restent à vous.</strong> Le calcul se fait sur votre appareil. Le double (JSON), le
+              dépouillement (PDF) et l’affiche (JPG) y sont fabriqués&nbsp;: vous seul décidez de les garder, de les envoyer ou de les supprimer.
             </li>
             <li>
               <strong>Sites liés.</strong> Les liens mènent à des sites qui ont leurs propres conditions&nbsp;;{' '}

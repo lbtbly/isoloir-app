@@ -1114,6 +1114,129 @@ const r08: Board = p => (
   </Demande>
 )
 
+/* ——— Édition « présidentielle 2027 » : les passages corrigés (identifiants en -p27) ———
+ * Les planches de la primaire ci-dessus restent telles quelles ; celles-ci ne servent qu'aux passages dont le
+ * texte dit a changé, et lisent le passage corrigé (p.segment), jamais la série d'origine. */
+
+/** budget-03-p27 Le total et la part ajoutée, comme budget-03 ; puis l'effort prévu pour 2027 (« 6,4 milliards
+ *  de plus qu'en 2026 »), d'une année à l'autre, montré du doigt : la hausse d'une année ne se dessine pas à
+ *  l'échelle d'un total de sept ans. Sans troisième mot mis en valeur, c'est le passage de la primaire. */
+const budget03p27: Board = p => {
+  const [tot, add, plus] = cuesOf(p)
+  if (!plus) return budget03(p)
+  const vt = num(tot?.text)
+  const va = num(add?.text)
+  const vp = num(plus.text)
+  const phrase = sentenceWith(p.segment.say, plus.text)
+  const years = yearsOf(phrase ?? '')
+  const more = word(p, /\d+(?:,\d+)?[\s\u00a0\u202f]milliards de plus/)
+  if (!tot || !add || !vt || !va || va >= vt || !vp || !phrase || years.length !== 2 || years[0] === years[1] || !more || num(more.text) !== vp) return null
+  const from = Math.min(...years)
+  const to = Math.max(...years)
+  const span = word(p, /de \d{4} à \d{4}/)
+  const added = word(p, /\d+[\s\u00a0]milliards ajoutés[^.]*/)
+  const row = heard(p, phrase)
+  const x0 = 10
+  const x1 = 290
+  const cut = x0 + ((x1 - x0) * (vt - va)) / vt
+  const y0 = 20
+  const y1 = 54
+  const ya = 168
+  return (
+    <Seg kind="fig">
+      <Chiffre p={p} />
+      <Art h={184}>
+        <Fade t0={500}>
+          <rect class="vc-tint" x={x0} y={y0} width={cut - x0} height={y1 - y0} />
+        </Fade>
+        <Ink d={`M${x0} ${y0}H${x1}V${y1}H${x0}Z`} t0={100} dur={800} />
+        {span ? <Txt x={x0 + 10} y={y0 + 23} text={span.text} size={15} anchor="start" t0={700} /> : null}
+        {add.shown ? (
+          <>
+            <Fade t0={0} class="vc-count">
+              <rect class="vc-tint-count" x={cut} y={y0} width={x1 - cut} height={y1 - y0} />
+              <path d={`M${cut} ${y0}V${y1}`} />
+            </Fade>
+            <Brace x1={cut} y1={y1 + 6} x2={x1} y2={y1 + 6} tone="count" t0={200} />
+            {added ? <Txt x={x1} y={y1 + 42} text={added.text} size={15} max={22} anchor="end" tone="count" t0={400} /> : null}
+          </>
+        ) : null}
+        {row ? (
+          <>
+            <Txt x={36} y={ya + 6} text={String(from)} size={16} t0={0} />
+            <Txt x={264} y={ya + 6} text={String(to)} size={16} t0={150} />
+            <Arrow x1={70} y1={ya} x2={228} y2={ya} tone="count" t0={200} />
+          </>
+        ) : null}
+        {row && more.shown ? <Txt x={W / 2} y={ya - 16} text={more.text} size={20} big tone="count" t0={300} /> : null}
+      </Art>
+      <Src p={p} />
+    </Seg>
+  )
+}
+
+/** budget-09-p27 « Combien dépenser pour la défense dans les années à venir ? » : des pièces, une frise d'années,
+ *  et trois flèches en pointillé, vers le haut, droit devant et vers le bas, jusqu'au point d'interrogation (une
+ *  question ouverte dans les deux sens, pas une pente) */
+const budget09p27: Board = p => (
+  <Demande p={p} h={124}>
+    <Ink d="M14 112H232" t0={0} dur={700} />
+    <Ink d={range(7).map(k => `M${66 + k * 26} 107v10`).join('')} t0={400} dur={400} class="vc-soft vc-thin" />
+    <Ink d={pile(12, 112, 7)} t0={200} dur={700} />
+    {[-1, 0, 1].map(k => (
+      <Arrow key={k} x1={62} y1={62 + 6 * k} x2={224} y2={62 + 34 * k} dash t0={1020 + k * 120} />
+    ))}
+    <Ask x={244} y={28} h={68} t0={1400} />
+  </Demande>
+)
+
+/* ——— Édition « présidentielle 2027 » : les passages redessinés ———
+ * Même texte, même voix ; seul le dessin demandé change (champ draw de l'édition). La planche est rangée sous
+ * « <id>-p27 » (champ board du passage) et lit le passage tel que l'édition le montre (p.segment). */
+
+/** Les quatre fanions voisins de dissuasion-07-p27 : sur un arc autour de la France, à égale distance d'elle
+ *  (angles en degrés, depuis l'horizontale) */
+const VOISINS = [-30, -10, 10, 30].map(deg => [Math.cos((deg * Math.PI) / 180), Math.sin((deg * Math.PI) / 180)] as const)
+
+/** dissuasion-07-p27 La « dissuasion avancée », sans cercle commun : la France et son cercle de protection ; à
+ *  côté, une rangée de fanions voisins, tous à la même distance ; quand la voix dit « ouverte à des pays
+ *  partenaires », une fine flèche en pointillé part du cercle de la France vers chacun d'eux (un lien, pas une
+ *  protection qui les englobe). Le titre et la date, comme la planche de la primaire. */
+const d07p27: Board = p => {
+  const cue = cueOf(p, 0)
+  const quand = word(p, /En \S+ \d{4}/)
+  const ouverte = word(p, /ouverte à des pays partenaires/)
+  const lien = ouverte ? ouverte.shown : !!cue?.shown
+  const quoted = cue ? new RegExp(`«[\\s\\u00a0]*${cue.text}[\\s\\u00a0]*»`).test(p.segment.say) : false
+  const cx = 94
+  const cy = 92
+  const R = 150
+  const pos = (u: readonly [number, number], r: number) => [+(cx + u[0] * r).toFixed(1), +(cy + u[1] * r).toFixed(1)] as const
+  return (
+    <Seg>
+      <Head lines={[cue ? { text: quoted ? `«\u00a0${cue.text}\u00a0»` : cue.text, shown: cue.shown, mark: cue } : null]} />
+      <Art h={186}>
+        <Picto n="carte_france" x={cx - 40} y={cy - 40} size={80} t0={100} />
+        <Dash d={circle(cx, cy, 50)} tone="soft" t0={400} />
+        {VOISINS.map((u, i) => {
+          const [fx, fy] = pos(u, R)
+          return <Picto key={i} n="drapeau" x={fx - 16} y={fy - 16} size={32} t0={600 + i * 100} />
+        })}
+        {lien ? (
+          <g class="vc-thin">
+            {VOISINS.map((u, i) => {
+              const [x1, y1] = pos(u, 58)
+              const [x2, y2] = pos(u, R - 24)
+              return <Arrow key={i} x1={x1} y1={y1} x2={x2} y2={y2} dash tone="count" head={7} t0={100 + i * 150} />
+            })}
+          </g>
+        ) : null}
+        {quand ? <Txt x={cx} y={174} text={quand.text} size={14} tone="soft" t0={300} /> : null}
+      </Art>
+    </Seg>
+  )
+}
+
 /* ——— Le registre ——— */
 
 export const DEFENSE: Record<string, Board> = {
@@ -1162,4 +1285,8 @@ export const DEFENSE: Record<string, Board> = {
   'defense-desarmement-06': r06,
   'defense-desarmement-07': r07,
   'defense-desarmement-08': r08,
+  // Édition « présidentielle 2027 »
+  'defense-budget-03-p27': budget03p27,
+  'defense-budget-09-p27': budget09p27,
+  'defense-dissuasion-07-p27': d07p27,
 }

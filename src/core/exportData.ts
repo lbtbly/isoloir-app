@@ -163,7 +163,7 @@ export function parseImport(text: string, pack: ElectionPack): ImportResult {
 }
 
 /** Déclenche le téléchargement d'un fichier généré localement */
-export function downloadBlob(blob: Blob, fileName: string): void {
+export function downloadBlob(blob: Blob, fileName: string, keepMs = 1000): void {
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')
   a.href = url
@@ -171,5 +171,7 @@ export function downloadBlob(blob: Blob, fileName: string): void {
   document.body.appendChild(a)
   a.click()
   a.remove()
-  setTimeout(() => URL.revokeObjectURL(url), 1000)
+  // keepMs : le temps de garder l'adresse du fichier ; Safari sur iPhone la lit seulement quand on répond à
+  // « Télécharger ? », d'où une minute pour le PDF
+  setTimeout(() => URL.revokeObjectURL(url), keepMs)
 }

@@ -8,7 +8,7 @@
 import type { ComponentChildren } from 'preact'
 import { chartOf } from '../../model'
 import { NUMERIQUE as SERIE } from '../../series/numerique'
-import { Art, Arrow, Ask, Brace, Fade, Ink, Marks, Txt, W, at, cls, cueOf, cuesOf, fractionOf, heard, num, plain, ratioOf, sentencesOf, word, wrap, yearsOf, type Cue, type P, type Tone } from '../dessin/encre'
+import { Art, Arrow, Ask, Brace, Fade, Ink, Marks, Txt, W, at, cls, cueOf, cuesOf, fractionOf, heard, num, plain, ratioOf, sentenceWith, sentencesOf, word, wrap, yearsOf, type Cue, type P, type Tone } from '../dessin/encre'
 import { Chiffre, HeadCues, Libelle, Question, Seg, Signature, Src, Sur100, listAfterColon } from '../dessin/mises'
 import { Picto, type PictoName } from '../dessin/pictos'
 import { Barriere, Cases, Rang, balance, barres, colonnes, frise, rangCells } from '../dessin/schemas'
@@ -1538,6 +1538,178 @@ const med08: Board = p => {
   )
 }
 
+/* ——— Passages corrigés par une édition (identifiant suffixé, « -p27 ») ———
+ * Le texte dit de ces passages a changé : leur planche lit le passage corrigé (p.segment) et la vidéo de
+ * l'édition (p.script), jamais la série d'origine (SERIE). Les planches des passages d'origine ne changent pas. */
+
+/** Un pictogramme ajouté pour une édition, d'après sa définition : même geste que Dessin, trait après trait */
+function Trace({ d, x, y, size = 48, t0 = 0, kept, tone, step = 200, w = 1 }: { d: Def; x: number; y: number; size?: number; t0?: number; kept?: boolean; tone?: Tone; step?: number; w?: number }) {
+  const s = size / 48
+  const still = kept || tone === 'ghost'
+  return (
+    <g class={cls('vc-p', tone && `vc-${tone}`)} transform={`translate(${x} ${y}) scale(${s})`} style={{ '--k': String(w / s) }}>
+      {d.fill && tone === 'count' ? (
+        <Fade t0={t0 + 250} kept={still}>
+          <path class="vc-tint-count" d={d.fill} />
+        </Fade>
+      ) : null}
+      {d.s.map((path, i) => (
+        <Ink key={i} d={path} t0={t0 + i * step} dur={i === 0 ? 520 : 380} kept={still} class={d.thin?.includes(i) ? 'vc-thin' : d.bold?.includes(i) ? 'vc-bold' : undefined} />
+      ))}
+    </g>
+  )
+}
+
+/** Une prise murale : la plaque, le creux rond, les deux trous */
+const PRISE: Def = { s: ['M8 8H40V40H8Z', circle(24, 24, 11), 'M19.5 24h.5M28 24h.5'], fill: 'M8 8H40V40H8Z', thin: [1], bold: [2] }
+
+/** Un chronomètre : le boîtier, le poussoir, l'aiguille */
+const CHRONO: Def = { s: [circle(24, 28, 17), 'M20 5h8M24 5v6M11 13l-3-3', 'M24 28V16'], fill: circle(24, 28, 17), thin: [1], bold: [2] }
+
+/**
+ * ia-05 corrigé (« environ 10 térawattheures par an : environ 2 % de la consommation. […] leur part pourrait
+ * atteindre 4 % en 2035 ») : l'armoire de serveurs, branchée à une prise quand la voix dit sa consommation ; à
+ * côté, la part de la consommation à deux dates, deux colonnes depuis zéro à la même échelle : l'estimation au
+ * bleu bille (année de la fiche), 2035 en pointillé, un scénario
+ */
+const ia05Edition: Board = p => {
+  const [conso, now, later] = cuesOf(p)
+  const vNow = num(now?.text)
+  const vLater = num(later?.text)
+  const yLater = yearsOf(sentenceWith(p.segment.say, later?.text) ?? '')[0]
+  const yNow = yearsOf(p.segment.figure?.date ?? '')[0]
+  const scen = word(p, /scénario/)
+  if (!conso || !now || !later || vNow === null || vLater === null || !yLater || vNow > 100 || vLater > 100) return null
+  const y = 4
+  const h = 112
+  const base = y + h
+  const cols = colonnes({
+    items: [
+      { label: yNow ? String(yNow) : 'aujourd’hui', value: vNow, text: now.text, tone: 'count', shown: now.shown },
+      { label: String(yLater), value: vLater, text: later.text, ghost: true, shown: later.shown },
+    ],
+    x: 136,
+    w: 146,
+    y,
+    h,
+    colW: 46,
+    t0: 100,
+  })
+  return (
+    <Seg kind="fig">
+      <Chiffre p={p} />
+      <Art h={base + (scen ? 42 : 26)}>
+        <Dessin n="serveur" x={4} y={10} size={80} t0={100} />
+        {conso.shown ? (
+          <>
+            <Ink d="M44 76C44 104 56 112 76 112" t0={0} dur={500} />
+            <Trace d={PRISE} x={68} y={88} size={48} t0={350} />
+          </>
+        ) : null}
+        {cols.el}
+        {scen && later.shown ? <Txt x={136 + 146 - 23} y={base + 38} text={scen.text} size={14} tone="soft" t0={700} /> : null}
+      </Art>
+      <Src p={p} />
+    </Seg>
+  )
+}
+
+/**
+ * plateformes-05 corrigé (« Elle s'élève à 3 % du chiffre d'affaires qu'elles tirent, en France, de la publicité
+ * ciblée et de l'intermédiation en ligne ») : le taux et son libellé (la taxe sur les services numériques), cent
+ * pièces dont trois au bleu bille, et une légende courte tirée de la phrase dite (« … du chiffre d'affaires
+ * qu'elles tirent, en France ») : la légende de la grille ne tient que quelques mots
+ */
+const plat05Edition: Board = p => {
+  const cue = cueOf(p, 0)
+  const v = num(cue?.text)
+  const ca = word(p, /du chiffre d[’']affaires[^,.]*,\s*en France|du chiffre d[’']affaires/)
+  if (!cue || !v || v > 100 || !ca) return null
+  return (
+    <Seg kind="fig">
+      <Chiffre p={p} />
+      <Sur100 p={p} kind="piece" low={Math.round(v)} caption={`${cue.text} ${ca.text}`} shown={cue.shown} />
+      <Src p={p} />
+    </Seg>
+  )
+}
+
+/** Le sens d'une option dite : renforcer (vers le haut), garder telles quelles (à plat), alléger (vers le bas) */
+const sens = (s: string): -1 | 0 | 1 | null =>
+  /renforc|durcir|ajout|étendre/i.test(s) ? 1 : /garder|maintenir|conserver|telles quelles/i.test(s) ? 0 : /allég|assoupl|réduire|supprim/i.test(s) ? -1 : null
+
+/**
+ * plateformes-08 corrigé (« faut-il les renforcer, les garder telles quelles ou les alléger ? ») : le document des
+ * règles, et trois flèches de même trait, une par option, chacune quand la voix la dit : vers le haut, à plat,
+ * vers le bas ; aucune au bleu bille, la question reste ouverte
+ */
+const plat08Edition: Board = p => {
+  const opts = cuesOf(p).map(c => ({ c, dir: sens(c.text) }))
+  if (opts.length !== 3 || new Set(opts.map(o => o.dir)).size !== 3 || opts.some(o => o.dir === null)) return null
+  const x0 = 86
+  const cy = 54
+  return (
+    <Seg kind="ask">
+      <Art h={110}>
+        <Picto n="document" x={2} y={10} size={88} t0={100} />
+        {opts.map(({ c, dir }) => {
+          const ye = cy - (dir ?? 0) * 36
+          return c.shown ? (
+            <g key={c.text}>
+              <Arrow x1={x0} y1={cy} x2={x0 + 56} y2={ye} t0={0} head={7} />
+              <Txt x={x0 + 64} y={ye + 5} text={c.text.replace(/^les\s/, '')} anchor="start" size={15} t0={250} />
+            </g>
+          ) : null
+        })}
+        <Ask x={248} y={18} h={70} t0={1300} />
+      </Art>
+      <Question p={p} />
+    </Seg>
+  )
+}
+
+/**
+ * médias-07 corrigé (« En 2020, le Conseil constitutionnel a censuré l'obligation faite aux plateformes de retirer
+ * en 24 heures les contenus […] qu'on leur signale […] : une atteinte disproportionnée à la liberté d'expression ») :
+ * le Conseil d'abord ; le chronomètre du délai au bleu bille, vers lequel file le message signalé, puis barré d'un
+ * trait (la censure, déjà dite) ; la liberté d'expression s'écrit sous le message quand la voix la dit
+ */
+const med07Edition: Board = p => {
+  const [delai, liberte] = cuesOf(p)
+  const conseil = word(p, /le Conseil constitutionnel/)
+  const censure = word(p, /a censuré/)
+  if (!delai || !num(delai.text) || !conseil || !censure) return null
+  return (
+    <Seg kind="fig">
+      <Chiffre p={p} />
+      <Art h={122}>
+        <Dessin n="bulle" x={14} y={20} size={60} t0={100} />
+        {conseil.shown ? (
+          <>
+            <Picto n="monument" x={212} y={10} size={70} t0={0} />
+            <Txt x={247} y={98} text={conseil.text.replace(/^le\s/, '')} max={15} size={14} t0={300} />
+          </>
+        ) : null}
+        {delai.shown ? (
+          <>
+            <Arrow x1={70} y1={48} x2={106} y2={52} t0={0} head={6} />
+            <Trace d={CHRONO} x={100} y={4} size={84} t0={200} tone="count" />
+            <Txt x={142} y={112} text={delai.text} size={20} big tone="count" t0={600} />
+            {censure.shown ? (
+              <>
+                <Arrow x1={212} y1={48} x2={182} y2={48} dash t0={900} />
+                <Ink d="M106 92L180 16" t0={1100} dur={450} class="vc-bold" />
+              </>
+            ) : null}
+          </>
+        ) : null}
+        {liberte?.shown ? <Txt x={44} y={98} text={liberte.text} max={12} size={14} t0={0} /> : null}
+      </Art>
+      <Src p={p} />
+    </Seg>
+  )
+}
+
 /* ——— Le registre ——— */
 
 export const NUMERIQUE: Record<string, Board> = {
@@ -1586,4 +1758,10 @@ export const NUMERIQUE: Record<string, Board> = {
   'numerique-medias-06': med06,
   'numerique-medias-07': med07,
   'numerique-medias-08': med08,
+  // Édition présidentielle 2027 : numerique-plateformes-06-p27 garde la planche d'origine (mêmes mots en valeur,
+  // mêmes dates ; seul « Elle » devient « La Commission »)
+  'numerique-ia-05-p27': ia05Edition,
+  'numerique-plateformes-05-p27': plat05Edition,
+  'numerique-plateformes-08-p27': plat08Edition,
+  'numerique-medias-07-p27': med07Edition,
 }

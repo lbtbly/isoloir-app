@@ -1,0 +1,254 @@
+[
+ {
+  "id": "ecologie_energie-10",
+  "target": "video",
+  "questionId": "",
+  "videoId": "ecologie-electricite",
+  "segmentId": "ecologie-electricite-03",
+  "field": "say (et spoken, figure, chart, draw, alt, emphasis, sources)",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "La vidéo présente comme actuel un chiffrage remplacé en décembre 2025. Il faut réenregistrer la voix du passage (say et spoken), car le chiffre dit est dépassé. Spoken : « Pour six nouveaux réacteurs E.P.R. deux, E.D.F. a présenté fin deux mille vingt-cinq un devis de construction de soixante-douze virgule huit milliards d’euros de deux mille vingt. Ses chiffrages précédents étaient de cinquante et un virgule sept milliards en deux mille vingt-deux, puis de soixante-sept virgule quatre fin deux mille vingt-trois. » Emphasis : ['72,8 milliards', '51,7']. Figure : value « 72,8 Md€ », label de la fiche corrigée, date « décembre 2025 », sourceIndex 6. Chart : les trois points de la fiche. Draw : « Trois colonnes à la même échelle, les chiffrages de 2022 et de fin 2023 puis le devis de fin 2025, une flèche au bleu bille de la première à la dernière. » Alt : « Trois colonnes à la même échelle : 51,7 milliards pour le chiffrage de 2022, 67,4 pour celui de fin 2023, 72,8 pour le devis de fin 2025. » Sources : ajouter le communiqué d'EDF en fin de liste (index 6) et garder COUR_EPR, qui seule donne 51,7 et 67,4. La planche du passage (pistes/planches/ecologie_energie.tsx) doit tracer trois colonnes.",
+  "current": "Pour six nouveaux réacteurs EPR2, EDF chiffrait fin 2023 la construction à 67,4 milliards d’euros de 2020, hors frais de financement. C’est 30 % de plus que le chiffrage de 2022.",
+  "proposed": "Pour six nouveaux réacteurs EPR2, EDF s’est engagé en 2026, après un audit de l’État, sur un coût de construction de 72,8 milliards d’euros de 2020. Les chiffrages précédents étaient de 51,7 milliards en 2022, puis de 67,4 fin 2023.",
+  "newSource": {
+   "title": "Cinquième Conseil de politique nucléaire",
+   "url": "https://www.elysee.fr/emmanuel-macron/2026/03/12/cinquieme-conseil-de-politique-nucleaire",
+   "publisher": "Présidence de la République",
+   "date": "2026-03-12"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "ecologie_energie-7",
+   "ecologie_energie-8",
+   "ecologie_energie-9"
+  ],
+  "rationale": "Le texte suit l'ordre chronologique proposé par le centre et donne des valeurs plutôt que des pourcentages. La relecture de droite affirmait que la page d'EDF donne aussi 67,4 et 51,7 : c'est faux, la page ne les mentionne pas, et COUR_EPR doit donc rester dans les sources.",
+  "verification": "adjusted : Le passage actuel (« EDF chiffrait fin 2023… 67,4 milliards ») est bien dépassé. Le texte proposé était exact au regard du communiqué d'EDF, mais il ignorait l'audit de l'État et la cible confirmée le 12 mars 2026. J'ai aligné le passage sur la fiche corrigée (corrections 7 et 8). J'ai aussi écrit « Les chiffrages précédents » plutôt que « Ses chiffrages précédents » : selon la Cour des comptes, le 51,7 de 2022 a été publié par le gouvernement. Spoken : « Pour six nouveaux réacteurs E.P.R. deux, E.D.F. s’est engagé en deux mille vingt-six, après un audit de l’État, sur un coût de construction de soixante-douze virgule huit milliards d’euros de deux mille vingt. Les chiffrages précédents étaient de cinquante et un virgule sept milliards en deux mille vingt-deux, puis de soixante-sept virgule quatre fin deux mille vingt-trois. » Emphasis : ['72,8 milliards', '51,7']. Figure : value « 72,8 Md€ », label de la fiche corrigée, date « mars 2026 », sourceIndex 6. Draw et alt : remplacer « le devis de fin 2025 » par « la cible de 2026 ». Sources : ajouter le communiqué de l'Élysée en fin de liste (index 6) et garder COUR_EPR, seule source de 51,7 et 67,4. J'ai vérifié que l'Élysée ne cite ni 51,7 ni 67,4.",
+  "topic": "ecologie_energie",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "ecologie_energie-14",
+  "target": "video",
+  "questionId": "",
+  "videoId": "ecologie-electricite",
+  "segmentId": "ecologie-electricite-04",
+  "field": "say (et spoken, emphasis, sources)",
+  "category": "chiffres",
+  "severity": "important",
+  "issue": "Le nucléaire a son coût dans la vidéo (passage 03), les renouvelables seulement leurs progrès. Le § 5 du GUIDE demande de montrer aussi le chiffre qui compte pour l'autre côté quand la fiche le donne. Le réenregistrement est nécessaire pour l'équilibre ; il peut se faire en même temps que celui du passage 03. Spoken : « Les renouvelables ont fourni vingt-sept pour cent de l’électricité en deux mille vingt-cinq. Le solaire atteint trente virgule quatre gigawatts installés fin deux mille vingt-cinq, plus que l’hydraulique. Selon la Commission de régulation de l’énergie, leur soutien public devrait coûter huit virgule quatre milliards d’euros en deux mille vingt-sept. » Emphasis : ['27 %', '30,4 gigawatts', '8,4 milliards']. Sources : ajouter la délibération de la CRE n° 2026-149 en fin de liste (index 7). Le chiffre montré (30,4 GW) ne change pas.",
+  "current": "Les renouvelables ont fourni 27 % de l’électricité en 2025, contre 27,9 % en 2024. Le solaire progresse : 30,4 gigawatts installés fin 2025, désormais plus que l’hydraulique.",
+  "proposed": "Les renouvelables ont fourni 27 % de l’électricité en 2025. Le solaire atteint 30,4 gigawatts installés fin 2025, plus que l’hydraulique. Selon la Commission de régulation de l’énergie, leur soutien public devrait coûter 8,4 milliards d’euros en 2027.",
+  "newSource": {
+   "title": "Délibération n° 2026-149 du 15 juillet 2026 relative à l’évaluation des charges de service public de l’énergie à compenser en 2027 et à la réévaluation des charges à compenser en 2026 (tableau 3)",
+   "url": "https://www.cre.fr/fileadmin/Documents/Deliberations/2026/260715_2026-149_CSPE_2026-2027.pdf",
+   "publisher": "Commission de régulation de l’énergie (CRE)",
+   "date": "2026-07-15"
+  },
+  "checked": true,
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "ecologie_energie-11",
+   "ecologie_energie-12"
+  ],
+  "rationale": "Je retiens la proposition de la droite, qui modifie un passage existant. Le passage ajouté que proposait le centre porterait la série au-delà de son plafond (voir rejected). Le coût est attribué à la CRE et dit sans commentaire.",
+  "verification": "confirmed : Le chiffre de 8 378,5 M€ est bien une charge « prévisionnelle au titre de 2027 », d'où « devrait coûter », qui est juste. Le périmètre (renouvelables électriques en métropole) est celui de la vidéo, qui parle de l'électricité de la métropole. 27 % et 30,4 GW sont confirmés par RTE. Le passage reste neutre : l'attribution à la CRE est donnée sans commentaire. Si la correction 10 est retenue avec la source de l'Élysée, la nouvelle source passe à l'index 7, comme prévu.",
+  "topic": "ecologie_energie",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "ecologie_energie-23",
+  "target": "video",
+  "questionId": "",
+  "videoId": "ecologie-transports",
+  "segmentId": "ecologie-transports-05",
+  "field": "say (et spoken, visual, draw, alt, emphasis, sources)",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "Le passage sur les vols courts porte sur « l'été 2026 », déjà passé. Il ne correspond plus à la fiche une fois le point remplacé, et il répond à une approche de la primaire. La vidéo ne dit rien en revanche de la règle de 2035, au cœur de l'approche 7-f. Je propose de remplacer le passage, ce qui oblige à réenregistrer sa voix. C'est nécessaire, car le contenu actuel est dépassé. Spoken : « Et la voiture ? Une règle européenne de deux mille vingt-trois prévoit que les voitures neuves vendues à partir de deux mille trente-cinq n’émettent plus de C.O. deux à l’échappement. Fin deux mille vingt-cinq, la Commission européenne a proposé de ramener l’objectif à quatre-vingt-dix pour cent de baisse. Le Parlement européen et les États doivent se prononcer. » Visual : 'timeline'. Emphasis : ['2035', '90 %']. Draw : « Une frise des années : 2023, un texte au trait ; 2035, une voiture neuve sous l’étiquette « 100 % », puis, quand la voix le dit, une seconde étiquette « 90 % » posée à côté, sans rien barrer. » Alt : « Une frise : 2023, la règle européenne ; 2035, baisse de 100 % des émissions de CO₂ des voitures neuves ; fin 2025, 90 % proposé par la Commission européenne. » Sources : la page du Parlement européen remplace VOLS_COURTS, à la même place (index 3, que ne vise aucun sourceIndex). La constante VOLS_COURTS doit aussi être supprimée (noUnusedLocals). La planche du passage est à refaire.",
+  "current": "Face à l’avion, depuis 2023, un vol intérieur régulier peut être interdit quand le train fait le trajet en moins de 2 h 30. Pour l’été 2026, huit liaisons pouvaient l’être.",
+  "proposed": "Et la voiture ? Une règle européenne de 2023 prévoit que les voitures neuves vendues à partir de 2035 n’émettent plus de CO₂ à l’échappement. Fin 2025, la Commission européenne a proposé de ramener l’objectif à 90 % de baisse. Le Parlement européen et les États doivent se prononcer.",
+  "newSource": {
+   "title": "Legislative Train Schedule – Proposal amending Regulation (EU) 2019/631 as regards CO2 emission performance standards for new light duty vehicles and vehicle labelling",
+   "url": "https://www.europarl.europa.eu/legislative-train/package-automotive-package/file-co2-emission-standards-for-new-light-duty-vehicles-and-labelling",
+   "publisher": "Parlement européen",
+   "date": "2026-09-20"
+  },
+  "checked": true,
+  "lenses": [
+   "centre",
+   "droite",
+   "gauche"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "ecologie_energie-22"
+  ],
+  "rationale": "Les trois relectures jugent le passage à revoir. Je préfère le remplacement (centre, droite) à la suppression (gauche) : la règle de 2035 est l'élément du débat sur la voiture qui manque à la vidéo, et la série reste à 43 passages. Le texte ne présente aucune approche ; il s'en tient à la règle et à la proposition de révision. Le dessin donne aux deux étiquettes la même place.",
+  "verification": "confirmed : Les faits sont confirmés par la page du Parlement européen : règle de 100 % en 2035, proposition du 16 décembre 2025 à 90 % par rapport à 2021, procédure encore en cours. Le passage ne contient que des nombres de la fiche corrigée (2023, 2035, 90 %), et il ne présente aucune approche. Une réserve sur l'« issue » : « l'été 2026 » n'est pas encore passé au 7 octobre, puisque la saison aéronautique court jusqu'au 30 octobre 2026 selon le ministère. Le passage actuel sera toutefois dépassé bien avant le 18 avril 2027, et il ne correspond plus à aucune approche. Le remplacement est donc justifié. Le passage transports-01 mentionne encore l'avion (« voiture, train ou avion ? » et la barre « avion, trajets intérieurs 4 % »). C'est cohérent avec la fiche, qui garde ce chiffre (figure 0).",
+  "topic": "ecologie_energie",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "ecologie_energie-4",
+  "target": "video",
+  "questionId": "",
+  "videoId": "ecologie-climat",
+  "segmentId": "ecologie-climat-06",
+  "field": "passage entier (say, spoken, figure, draw, alt, emphasis)",
+  "category": "origine",
+  "severity": "important",
+  "issue": "Le chiffre de France Stratégie (« plus de 2 points de PIB ») et les trois leviers viennent de la fiche ecologie_energie-4 de la primaire (financer la transition). Pour la présidentielle, videoScope ne fait correspondre cette question à aucune autre : le chiffre n'est donc dans aucune fiche montrée, ce qu'interdit le § 6 du GUIDE. Avec 05, le passage fait aussi deux fois valoir le besoin d'investir, et finit sur « relever les prélèvements obligatoires ». Le supprimer n'oblige à aucun réenregistrement.",
+  "current": "En 2023, un rapport de France Stratégie chiffrait le besoin à plus de 2 points de PIB d’investissements supplémentaires en 2030. Il citait trois leviers : redéployer des dépenses défavorables au climat, emprunter, relever les prélèvements obligatoires.",
+  "proposed": "",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "ecologie_energie-5",
+   "ecologie_energie-6"
+  ],
+  "rationale": "Les trois relectures demandent cette suppression. La série étant partagée avec l'archive de la primaire, où la question -4 existe toujours, le passage y disparaîtrait aussi (voir notes).",
+  "topic": "ecologie_energie",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "ecologie_energie-5",
+  "target": "video",
+  "questionId": "",
+  "videoId": "ecologie-climat",
+  "segmentId": "ecologie-climat-07",
+  "field": "passage entier (say, spoken, figure, chart, draw, alt, emphasis)",
+  "category": "origine",
+  "severity": "important",
+  "issue": "La dette (115,7 % du PIB, avec les prévisions à 119,3 % et 121,7 %) et l'objectif de déficit sous 3 % viennent de la fiche ecologie_energie-4 de la primaire, qui n'est pas reprise. Ces chiffres ne sont donc dans aucune fiche montrée (GUIDE § 6). Dans la présidentielle, ce passage arrive juste avant la question finale. La vidéo se termine alors sur la contrainte budgétaire, sans rien en face, sous une question (« quel principe ») dont aucune approche ne porte sur le financement. Le supprimer n'oblige à aucun réenregistrement.",
+  "current": "Côté budget, fin 2025, la dette publique atteint 115,7 % du PIB, la richesse produite en un an. Selon les règles européennes, la France doit ramener son déficit sous 3 % d’ici 2029.",
+  "proposed": "",
+  "lenses": [
+   "gauche",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "ecologie_energie-4",
+   "ecologie_energie-6"
+  ],
+  "rationale": "Deux relectures demandent la suppression. La troisième (centre) voulait garder le passage en ajoutant la dette à la fiche : c'est écarté (voir rejected). La dette est traitée dans les questions finances_publiques de la présidentielle. Je ramène la gravité à important : le passage est exact et c'est son contexte qui pose problème.",
+  "topic": "ecologie_energie",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "ecologie_energie-20",
+  "target": "video",
+  "questionId": "",
+  "videoId": "ecologie-carburants",
+  "segmentId": "ecologie-carburants-06",
+  "field": "say (et spoken, draw, alt, emphasis)",
+  "category": "chiffres",
+  "severity": "mineur",
+  "issue": "Pour montrer le poids inégal du carburant, le passage ne garde que les parts de 2021, d'avant la flambée de 2026, dont parle pourtant la vidéo. La fiche (figure 3 et graphique n° 3) donne aussi la part simulée aux prix du printemps 2026 : 22,4 %. Il faut réenregistrer la voix (say et spoken). Spoken : « Un poids inégal. En deux mille vingt et un, dix virgule six pour cent des ménages avec voiture ont consacré au carburant plus d’un mois de revenu : treize virgule cinq pour cent dans les intercommunalités rurales, neuf pour cent dans les urbaines. Aux prix du printemps deux mille vingt-six et avec les revenus de deux mille vingt et un, cette part aurait été de vingt-deux virgule quatre pour cent. » Emphasis : ['10,6 %', '13,5 %', '22,4 %']. Draw : « Trois barres à la même échelle : l’ensemble des ménages avec voiture, puis les intercommunalités rurales, puis les urbaines ; puis une quatrième, en pointillé, la simulation aux prix du printemps 2026. » Alt : « Quatre barres à la même échelle : ménages avec voiture en 2021, 10,6 % ; intercommunalités rurales, 13,5 % ; urbaines, 9 % ; aux prix du printemps 2026 (simulation), 22,4 %. » Aucun chiffre nouveau.",
+  "current": "Un poids inégal. En 2021, 10,6 % des ménages avec voiture ont consacré au carburant plus d’un mois de revenu. Dans les intercommunalités rurales, 13,5 % ; dans les urbaines, 9 %.",
+  "proposed": "Un poids inégal. En 2021, 10,6 % des ménages avec voiture ont consacré au carburant plus d’un mois de revenu : 13,5 % dans les intercommunalités rurales, 9 % dans les urbaines. Aux prix du printemps 2026 et avec les revenus de 2021, cette part aurait été de 22,4 %.",
+  "lenses": [
+   "gauche"
+  ],
+  "needsVoice": true,
+  "linked": [],
+  "rationale": "Le chiffre ne sert aucun camp : il compte pour les tenants d'aides ciblées comme pour ceux de baisses générales. J'ai ajouté « avec les revenus de 2021 » pour garder le périmètre de la fiche (GUIDE § 6). La gravité reste mineure, car le passage actuel est exact et daté ; ce réenregistrement peut accompagner les autres.",
+  "newSource": {
+   "title": "Les dépenses de carburant pèsent davantage sur le budget des ménages ruraux (Insee Première n° 2125)",
+   "url": "https://www.insee.fr/fr/statistiques/9037833",
+   "publisher": "Insee",
+   "date": "2026-09-08"
+  },
+  "verification": "confirmed : J'ai lu sur la page de l'Insee (France hors Mayotte) : « En 2021, 2,2 millions de ménages, soit 10,6 % des ménages propriétaires d'une voiture, ont dépensé plus d'un mois de leurs revenus annuels en carburant ». Puis 13,5 % dans les intercommunalités rurales contre 9,0 % dans les urbaines. Puis : « Si ces derniers avaient connu en 2021 les niveaux observés au printemps 2026, près de 22,4 % des ménages avec voiture, soit 4,7 millions d'entre eux, auraient été amenés à y consacrer plus d'un mois de leurs revenus ». Tous les chiffres sont déjà dans la fiche (figure 3 et graphique n° 3), avec le même périmètre. La précision « avec les revenus de 2021 » est fidèle à la source.",
+  "topic": "ecologie_energie",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "ecologie_energie-28",
+  "target": "video",
+  "questionId": "",
+  "videoId": "ecologie-adaptation",
+  "segmentId": "ecologie-adaptation-06",
+  "field": "say (et spoken)",
+  "category": "cadrage",
+  "severity": "mineur",
+  "issue": "Le passage décrit les retenues, puis enchaîne « Mais selon une étude… très variable ». La limite des retenues prend alors la forme d'une réfutation et a le dernier mot sur le sujet. Sans « Mais », le fait reste et la réfutation disparaît. Il faut réenregistrer la voix, en même temps que les autres passages de la série (electricite-03 et -04, carburants-06, transports-05), et seulement dans ce cas. Spoken : « L’agriculture représente cinquante-huit pour cent de l’eau consommée. Des retenues la stockent l’hiver, au lieu de la prélever l’été. Selon une étude citée par le Haut Conseil pour le climat, l’eau disponible l’hiver sera très variable d’une année à l’autre. »",
+  "current": "Mais selon une étude citée par le Haut Conseil pour le climat, l’eau disponible l’hiver sera très variable d’une année à l’autre.",
+  "proposed": "Selon une étude citée par le Haut Conseil pour le climat, l’eau disponible l’hiver sera très variable d’une année à l’autre.",
+  "lenses": [
+   "droite",
+   "centre"
+  ],
+  "needsVoice": true,
+  "linked": [],
+  "rationale": "La droite propose la correction et le centre avait relevé le même tour, sans le corriger. C'est un mot, mais il fait pencher le passage, et son retrait convient à toutes les sensibilités : le fait attribué au HCC reste.",
+  "topic": "ecologie_energie",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "ecologie_energie-29",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "en-tête du fichier (mention « Datée »)",
+  "category": "actualite",
+  "severity": "mineur",
+  "issue": "« À revoir après octobre 2026 » suivait le calendrier de la primaire. La série est montrée jusqu'au premier tour, le 18 avril 2027, et plusieurs faits bougeront d'ici là. Si les corrections sont retenues, les liaisons aériennes de l'été 2026 sortent de la liste, et le devis EPR2, le coût des renouvelables évalué par la CRE et la règle de 2035 y entrent. L'en-tête n'est pas montré : le changer n'oblige à aucun réenregistrement.",
+  "current": "// Datée : prix des carburants au 25 septembre 2026, marge de raffinage de septembre 2026 (provisoire), bilans\n// provisoires de l'été 2026, location aidée de voitures électriques en 2026, liaisons aériennes de l'été 2026.\n// À revoir après octobre 2026.",
+  "proposed": "// Datée : prix des carburants au 25 septembre 2026, marge de raffinage de septembre 2026 (provisoire), bilans\n// provisoires de l'été 2026, location aidée de voitures électriques en 2026, bilan électrique 2025 de RTE (bilan\n// 2026 attendu début 2027), coût des réacteurs EPR2 confirmé en mars 2026 après l'audit de l'État (décision finale\n// d'investissement d'EDF visée avant fin 2026), coût du soutien aux renouvelables évalué par la CRE pour 2027,\n// règle européenne de 2035 sur les voitures neuves (vote du Parlement européen attendu le 23 novembre 2026,\n// position du Conseil le 11 décembre 2026).\n// À revoir chaque mois jusqu'au premier tour du 18 avril 2027.",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "rationale": "Le texte fusionne les trois propositions et ne garde que ce que la série montre encore. La dette et la loi de finances en sortent, avec les passages 06 et 07 sur le climat. Les dates à suivre dans les fiches (ZFE, loi de finances, Futurs énergétiques 2050) sont dans les notes. Si le passage transports-05 n'est pas remplacé, il faut garder « liaisons aériennes de l'été 2026 ».",
+  "verification": "adjusted : Le principe est juste : « À revoir après octobre 2026 » suivait le calendrier de la primaire. Les dates européennes sont confirmées par la page du Parlement (mise à jour du 20 septembre 2026). Pour l'EPR2, « devis de décembre 2025 (audit de l'État…) » est dépassé : l'audit de la DINN a eu lieu début 2026, et le Conseil de politique nucléaire en a pris acte le 12 mars 2026, où EDF s'est engagé à tenir la cible de 72,8 Md€2020. J'ai réécrit cette mention en accord avec les corrections 7 à 10. Je n'ai pas pu vérifier ce que la rationale dit des passages 06 et 07 sur le climat, qui sortiraient de la série : ils relèvent d'autres corrections. Si la correction 23 n'est pas retenue, il faut garder « liaisons aériennes de l'été 2026 » : la saison aéronautique se termine le 30 octobre 2026.",
+  "topic": "ecologie_energie",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "ecologie_energie-6",
+  "target": "video",
+  "questionId": "",
+  "videoId": "ecologie-climat",
+  "segmentId": "",
+  "field": "sources",
+  "category": "origine",
+  "severity": "mineur",
+  "issue": "C'est la conséquence de la suppression des passages 06 et 07 : France Stratégie et le HCFP ne sont plus cités dans cette vidéo. Les sourceIndex des passages restants (0 et 1) ne changent pas. Avec noUnusedLocals (tsconfig.json), il faut aussi supprimer la constante FRANCE_STRATEGIE, sans quoi la compilation échoue. HCFP reste utilisée par la vidéo sur les carburants.",
+  "current": "sources: [SNBC, HCC_RESUME, FRANCE_STRATEGIE, HCFP, CITEPA, HCC_SECTEURS],",
+  "proposed": "sources: [SNBC, HCC_RESUME, CITEPA, HCC_SECTEURS],",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "ecologie_energie-4",
+   "ecologie_energie-5"
+  ],
+  "rationale": "Une correction mécanique, mais nécessaire. La série passe de 45 à 43 passages et la vidéo sur le climat en garde 6, le minimum exigé par le test.",
+  "topic": "ecologie_energie",
+  "electionQuestionId": ""
+ }
+]

@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
 import { buildExport } from '../src/core/exportData'
 import { computeResults, displayScore, knownQuestions } from '../src/core/score'
-import { othersText, posterRanking, POSTER_ROWS, unrankedText } from '../src/core/shareImage'
+import { othersText, posterNotes, posterPositions, posterRanking, POSTER_ROWS, shareFileName, unrankedText } from '../src/core/shareImage'
 import { freshState } from '../src/core/storage'
 import type { Answers } from '../src/core/types'
 import { ELECTIONS } from '../src/elections'
@@ -93,6 +93,74 @@ describe('mise en page d’une élection nombreuse', () => {
     expect(scores).toEqual([...scores].sort((a, b) => b - a))
     // Avec les croix, l'ordre du classement
     expect(posterRanking(many, true).shown.map(r => r.candidateId)).toEqual(many.ranking.slice(0, POSTER_ROWS).map(r => r.candidateId))
+  })
+
+  it('affiche : un numéro devant chaque ligne, avec ou sans les croix', () => {
+    // Des lignes rouges sur une autre approche que celle approuvée : des candidats franchissent, et sont relégués
+    const withRed: Answers = Object.fromEntries(
+      Object.entries(answers).map(([id, a]) => {
+        const q = bank.questions.find(x => x.id === id)!
+        return [id, { ...a, redLines: q.approaches.slice(1, 2).map(x => x.id) }]
+      }),
+    )
+    const flagged = computeResults(manyCandidates, withRed, {}, 'seed')
+    expect(flagged.ranking.some(r => !r.compatible)).toBe(true)
+    // Avec les croix : le rang du classement
+    const ranked = posterPositions(flagged, true)
+    for (const r of flagged.ranking) expect(ranked.get(r.candidateId), r.candidateId).toBe(r.rank)
+    // Sans elles : la place dans l'ordre d'affinité de l'affiche, partagée au même pourcentage affiché, sans trace
+    // de la relégation
+    const plain = posterPositions(flagged, false)
+    const { shown, others } = posterRanking(flagged, false)
+    const rows = [...shown, ...others]
+    expect(plain.size).toBe(flagged.ranking.length)
+    rows.forEach((r, i) => {
+      const prev = rows[i - 1]
+      const expected = prev && displayScore(prev.score) === displayScore(r.score) ? plain.get(prev.candidateId) : i + 1
+      expect(plain.get(r.candidateId), r.candidateId).toBe(expected)
+    })
+    expect(plain.get(rows[0]!.candidateId)).toBe(1)
+    // Sans ligne rouge franchie, les deux numérotations sont celles du classement
+    const many = computeResults(manyCandidates, answers, {}, 'seed')
+    for (const showFlags of [false, true]) {
+      const p = posterPositions(many, showFlags)
+      for (const r of many.ranking) expect(p.get(r.candidateId), r.candidateId).toBe(r.rank)
+    }
+  })
+
+  it('affiche des plus éloignés : les derniers, du plus éloigné au moins éloigné, les autres plus proches', () => {
+    const many = computeResults(manyCandidates, answers, {}, 'seed')
+    for (const showFlags of [false, true]) {
+      const top = posterRanking(many, showFlags)
+      const flop = posterRanking(many, showFlags, 'flop')
+      const order = [...top.shown, ...top.others]
+      expect(flop.shown.map(r => r.candidateId)).toEqual(order.slice(-POSTER_ROWS).reverse().map(r => r.candidateId))
+      expect(flop.others.map(r => r.candidateId)).toEqual(order.slice(0, -POSTER_ROWS).map(r => r.candidateId))
+      // Les numéros ne dépendent pas de l'affiche choisie : le dernier porte le plus grand
+      const positions = posterPositions(many, showFlags)
+      const nums = flop.shown.map(r => positions.get(r.candidateId)!)
+      expect(nums).toEqual([...nums].sort((a, b) => b - a))
+    }
+    // Peu de candidats : tous, dans l'ordre inverse
+    const few = computeResults(pack, { q1: { ratings: { q1a: 1 }, redLines: [] } }, {}, 'seed')
+    expect(posterRanking(few, false, 'flop')).toEqual({ shown: few.ranking.slice().reverse(), others: [] })
+    const rest = posterRanking(many, false, 'flop').others
+    expect(othersText(rest, 'flop')).toMatch(new RegExp(`^${rest.length}\u00a0autres candidats, plus proches, de \\d+ à \\d+\u00a0%$`))
+    expect(othersText(rest.slice(0, 1), 'flop')).toMatch(/^1\u00a0autre candidat, plus proche, à \d+\u00a0%$/)
+    expect(othersText(rest, 'flop', true)).toMatch(/, mieux classés, /)
+    expect(shareFileName(manyCandidates, new Date('2026-10-11T12:00:00Z'), 'flop')).toBe(`isoloir-${MANY_ID}-2026-10-11-plus-eloignes.jpg`)
+  })
+
+  it('notes de pied : sans les croix, toujours la même phrase, lignes rouges ou non', () => {
+    const many = computeResults(manyCandidates, answers, {}, 'seed')
+    const withRed: Answers = Object.fromEntries(
+      Object.entries(answers).map(([id, a]) => [id, { ...a, redLines: bank.questions.find(x => x.id === id)!.approaches.slice(1, 2).map(x => x.id) }]),
+    )
+    const flagged = computeResults(manyCandidates, withRed, {}, 'seed')
+    expect(posterNotes(many, false)).toEqual(posterNotes(flagged, false))
+    expect(posterNotes(many, false)).toHaveLength(1)
+    expect(posterNotes(many, true)).toEqual([])
+    expect(posterNotes(flagged, true)).toEqual(['La croix rouge : franchit une de mes lignes rouges.'])
   })
 
   it('« + N autres candidats » : nombre, accord et étendue des pourcentages', () => {

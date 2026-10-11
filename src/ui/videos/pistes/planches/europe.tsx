@@ -7,9 +7,9 @@
 // Les États ne sont jamais dessinés par un drapeau ni par une carte : une case, une pièce, un nom écrit.
 
 import { chartOf } from '../../model'
-import { Art, Arrow, Ask, Brace, Fade, Ink, Txt, W, cls, cueOf, cuesOf, heard, num, nums, plain, ratioOf, said, sentenceWith, sentencesOf, word, yearsOf, type Cue, type P, type Tone } from '../dessin/encre'
+import { Art, Arrow, Ask, Brace, Fade, Ink, Marks, Txt, W, at, cls, cueOf, cuesOf, heard, num, nums, plain, ratioOf, said, sentenceWith, sentencesOf, word, yearsOf, type Cue, type P, type Tone } from '../dessin/encre'
 import { Chiffre, Head, HeadCues, Note, Panel, Question, Seg, Signature, Sommaire, Src, Sur100, lineOf, listAfterColon } from '../dessin/mises'
-import { Picto, type PictoName } from '../dessin/pictos'
+import { Glyphe, Picto, type PictoName } from '../dessin/pictos'
 import { Barriere, Cases, Disque, Rang, Signe, balance, barres, casesH, frise, rangCells } from '../dessin/schemas'
 import type { Board } from './types'
 
@@ -1267,6 +1267,344 @@ const concurrence08: Board = p => (
   </Seg>
 )
 
+/* ——— Édition « présidentielle 2027 » (editions/presidentielle-2027/europe.ts) ———
+   Les passages dont le texte dit change y prennent l'identifiant « -p27 » : leur planche est ici, lue dans
+   p.segment et p.script (le texte corrigé), jamais dans la série d'origine. Les planches de la primaire, plus
+   haut, restent telles quelles. */
+
+/** Un petit dessin de la série, au trait, et ceux de ses traits qui sont fins */
+interface Dessin {
+  d: string[]
+  thin: number[]
+}
+
+/** Un colis (les marchandises) : la boîte, son couvercle, le ruban */
+const COLIS: Dessin = { d: ['M7 18H41V43H7Z', 'M7 18L12 8H36L41 18', 'M24 8V18M20 18v8h8v-8'], thin: [2] }
+/** Un globe, sans continents ni frontières (la politique étrangère) */
+const GLOBE: Dessin = { d: [ring(24, 24, 18), 'M24 6C14 13 14 35 24 42C34 35 34 13 24 6', 'M6 24H42M8.5 15H39.5M8.5 33H39.5'], thin: [1, 2] }
+
+/** Un pictogramme de la bibliothèque, ou un petit dessin de la série ; (x, y) : coin haut gauche */
+function Figure({ g, x, y, size, t0 = 0, kept }: { g: PictoName | Dessin; x: number; y: number; size: number; t0?: number; kept?: boolean }) {
+  return typeof g === 'string' ? <Picto n={g} x={x} y={y} size={size} t0={t0} kept={kept} /> : <Trait d={g.d} thin={g.thin} x={x} y={y} s={size} t0={t0} kept={kept} />
+}
+
+/** Des pictogrammes légendés, chacun quand la voix le dit (comme Panel de mises.tsx, avec les petits dessins
+ *  de la série) */
+function Liste({ items, cols = 2 }: { items: { g: PictoName | Dessin; text: string; shown: boolean; cues?: Cue[] }[]; cols?: number }) {
+  return (
+    <ul class="vc-panel" style={{ '--cols': String(cols) }}>
+      {items.map((it, i) => (
+        <li key={i} class={cls('vc-panel-item', it.shown ? 'vc-rise' : 'vc-wait')}>
+          {!it.shown ? (
+            <span class="vc-glyphe" />
+          ) : typeof it.g === 'string' ? (
+            <Glyphe n={it.g} t0={150} />
+          ) : (
+            <svg class="vc-svg vc-glyphe" viewBox="-2 -2 52 52" aria-hidden="true">
+              <Trait d={it.g.d} thin={it.g.thin} x={0} y={0} t0={150} step={150} />
+            </svg>
+          )}
+          <span class="vc-panel-text">
+            <Marks text={it.text} cues={it.cues ?? []} />
+          </span>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+/** Ce qui circule librement dans le marché unique, et son dessin */
+const CIRCULE: [RegExp, PictoName | Dessin][] = [
+  [/marchandises/, COLIS],
+  [/personnes/, 'personne'],
+  [/services/, 'mallette'],
+  [/capitaux/, 'pieces'],
+]
+
+/** intro-06 (p27) Le marché unique : la libre circulation (quatre flèches franchissent une frontière en
+ *  pointillé) ; le contrôle (une loupe sur deux entreprises) ; d'anciens monopoles ouverts à la concurrence */
+const intro06p27: Board = p => {
+  const [lc, ctrl, conc] = cuesOf(p)
+  const mono = word(p, /anciens monopoles publics/)
+  if (!lc || !ctrl || !conc) return null
+  const flux = CIRCULE.map(([re, g]) => ({ g, w: word(p, re) })).filter(f => f.w)
+  return (
+    <Seg>
+      <Art h={236}>
+        <Fade t0={100} class="vc-soft vc-dash">
+          <path d="M88 2V104" />
+        </Fade>
+        {flux.map((f, i) => {
+          const yc = 14 + i * 26
+          return f.w?.shown ? (
+            <g key={i}>
+              <Figure g={f.g} x={22} y={yc - 12} size={24} t0={0} />
+              <Arrow x1={54} y1={yc} x2={124} y2={yc} t0={250} head={6} />
+            </g>
+          ) : null
+        })}
+        {lc.shown ? <Txt x={74} y={124} text={lc.text} max={18} size={15} t0={200} /> : null}
+        <Ink d="M150 6V124" t0={300} dur={500} class="vc-soft vc-thin" />
+        {ctrl.shown ? (
+          <>
+            <Picto n="immeuble" x={172} y={48} size={52} t0={0} />
+            <Picto n="immeuble" x={222} y={48} size={52} t0={150} />
+            <Picto n="loupe" x={201} y={0} size={44} tone="count" t0={400} />
+            <Txt x={224} y={124} text={ctrl.text} size={15} t0={300} />
+          </>
+        ) : null}
+        {conc.shown ? (
+          <>
+            <Picto n="compteur" x={14} y={156} size={50} t0={0} />
+            <Trait d={TRAIN} x={72} y={150} s={62} thin={[1, 3]} t0={300} />
+            <Txt x={152} y={172} text={conc.text} max={18} size={15} anchor="start" t0={200} />
+          </>
+        ) : null}
+        {mono?.shown ? <Txt x={152} y={212} text={mono.text} max={18} size={14} anchor="start" tone="soft" t0={300} /> : null}
+      </Art>
+    </Seg>
+  )
+}
+
+/** Les pictogrammes des cinq questions de l'édition : la dernière porte sur le marché unique (la mallette, comme
+ *  la vidéo « Concurrence ») */
+const QUESTIONS_P27: [RegExp, PictoName][] = [...QUESTIONS, [/marché unique/, 'mallette']]
+
+/** intro-07 (p27) Les cinq questions du thème, chacune avec son pictogramme, quand la voix la pose */
+const intro07p27: Board = p => {
+  const qs = sentencesOf(p.segment.say).filter(s => /\?$/.test(s))
+  if (qs.length < 2) return null
+  return (
+    <Seg kind="ask">
+      <Panel
+        cols={2}
+        items={qs.map(q => ({
+          picto: QUESTIONS_P27.find(([re]) => re.test(q))?.[1] ?? 'document',
+          text: q,
+          shown: heard(p, q.split(' ').slice(0, 2).join(' ')),
+          cues: cuesOf(p),
+        }))}
+      />
+    </Seg>
+  )
+}
+
+/** Le dessin d'un domaine où l'unanimité est exigée (édition) */
+const DOMAINES_P27: [RegExp, PictoName | Dessin][] = [
+  [/étrangère/, GLOBE],
+  [/fiscalité|impôt/, 'billet'],
+  [/budget/, 'pieces'],
+  [/entrée|pays/, 'porte'],
+  [/traité/, 'document'],
+]
+
+/** decider-03 (p27) Les domaines de l'unanimité : cinq dessins légendés, chacun quand la voix le nomme */
+const decider03p27: Board = p => {
+  const list = listAfterColon(p.segment.say)
+  if (list.length < 2) return null
+  return (
+    <Seg>
+      <HeadCues p={p} />
+      <Liste items={list.map(l => ({ g: DOMAINES_P27.find(([re]) => re.test(l))?.[1] ?? 'document', text: l, shown: heard(p, l.split(' ').slice(0, 2).join(' ')) }))} />
+    </Seg>
+  )
+}
+
+/** traites-02 (p27) Réviser un traité : l'accord de tous les États, puis une ratification (Parlement ou
+ *  référendum) ; et un État qui quitte l'Union, au bout d'une négociation de deux ans, prolongeable */
+const traites02p27: Board = p => {
+  const [tous, refe, quit] = cuesOf(p)
+  const n = num(said(p, /sur \d+/))
+  const parl = word(p, /son Parlement/)
+  const ou = word(p, /\bou\b/)
+  const rat = word(p, /ratifier/)
+  const duree = word(p, /\S+ ans\b/)
+  const prol = word(p, /prolongeable/)
+  const ans = num(firstWord(duree?.text))
+  if (!tous || !refe || !quit || !n || n > 40 || !duree || !ans || ans > 6) return null
+  const fx0 = 70
+  const fx1 = 226
+  const fy = 207
+  const ticks = range(ans + 1)
+    .map(i => `M${fx0 + (i * (fx1 - fx0)) / ans} ${fy - 5}v10`)
+    .join('')
+  return (
+    <Seg>
+      <Art h={256}>
+        {tous.shown ? <Txt x={72} y={16} text={tous.text} size={15} /> : null}
+        <Cases n={n} cols={9} x={6} y={26} size={12} gap={3} count={tous.shown ? range(n) : []} t0={100} stagger={15} />
+        <Arrow x1={146} y1={46} x2={182} y2={46} t0={900} />
+        <Picto n="document" x={186} y={4} size={72} t0={1000} />
+        {rat?.shown ? (
+          <>
+            <Arrow x1={204} y1={80} x2={110} y2={108} t0={0} />
+            <Arrow x1={230} y1={80} x2={232} y2={104} t0={150} />
+            <Picto n="monument" x={50} y={108} size={52} t0={300} />
+            {parl ? <Txt x={76} y={176} text={parl.text} size={14} t0={500} /> : null}
+            {ou ? <Txt x={152} y={140} text={ou.text} size={15} tone="soft" t0={600} /> : null}
+          </>
+        ) : null}
+        {refe.shown ? (
+          <>
+            <Trait d={URNE} x={206} y={108} s={52} thin={[3]} t0={0} />
+            <Txt x={232} y={176} text={refe.text} size={14} t0={300} />
+          </>
+        ) : null}
+        {quit.shown ? (
+          <>
+            <Cases n={3} cols={3} x={6} y={fy - 7} size={14} gap={4} ghost={[2]} t0={0} />
+            <g class="vc-slide" style={{ '--from': `${42 - (fx1 + 44)}px`, ...at(400, 1400) }}>
+              <Ink d={`M${fx1 + 44} ${fy - 7}h14v14h-14z`} kept />
+            </g>
+            <Txt x={31} y={232} text={quit.text} max={9} size={14} t0={300} />
+          </>
+        ) : null}
+        {duree.shown ? (
+          <>
+            <Ink d={`M${fx0} ${fy}H${fx1}`} t0={0} dur={700} />
+            <Ink d={ticks} t0={600} dur={300} class="vc-thin" />
+            <Brace x1={fx0} y1={fy + 9} x2={fx1} y2={fy + 9} t0={800} />
+            <Txt x={(fx0 + fx1) / 2} y={246} text={duree.text} size={14} t0={1000} />
+          </>
+        ) : null}
+        {prol?.shown ? (
+          <>
+            <Fade t0={0} class="vc-ghost">
+              <path d={`M${fx1} ${fy}H${fx1 + 40}`} />
+            </Fade>
+            <Txt x={296} y={246} text={prol.text} size={14} anchor="end" tone="soft" t0={300} />
+          </>
+        ) : null}
+      </Art>
+    </Seg>
+  )
+}
+
+/** Une croix au trait sur une urne : le « non » d'un référendum ; (cx, cy) : son milieu */
+const croix = (cx: number, cy: number, r = 7) => `M${cx - r} ${cy - r}l${2 * r} ${2 * r}M${cx + r} ${cy - r}l${-2 * r} ${2 * r}`
+
+/** traites-05 (p27) Les « non » de 2005, puis le traité de Lisbonne : ratifié en France par le Parlement, en
+ *  Irlande par un second référendum */
+const traites05p27: Board = p => {
+  const [rej, voie, second] = cuesOf(p)
+  const year = yearsOf(p.segment.say)[0]
+  const lis = word(p, /[Ll]e traité de Lisbonne/)
+  const enFr = word(p, /en France/)
+  const irl = word(p, /L’Irlande|L'Irlande|en Irlande/)
+  if (!rej || !voie || !second || !year || !lis) return null
+  // Une urne de côté 46 : le milieu de sa boîte
+  const box = (x: number, y: number) => [x + 23, y + 31] as const
+  const [u1x, u1y] = box(8, 22)
+  const [u2x, u2y] = box(58, 22)
+  const [u3x, u3y] = box(182, 134)
+  return (
+    <Seg>
+      <Art h={222}>
+        <Txt x={56} y={14} text={String(year)} size={15} t0={100} />
+        <Trait d={URNE} x={8} y={22} s={46} thin={[3]} t0={200} />
+        <Trait d={URNE} x={58} y={22} s={46} thin={[3]} t0={400} />
+        {rej.shown ? (
+          <>
+            <Ink d={`${croix(u1x, u1y)}${croix(u2x, u2y)}`} t0={0} dur={500} class="vc-bold" />
+            <Txt x={56} y={84} text={rej.text} max={12} size={14} t0={300} />
+          </>
+        ) : null}
+        {lis.shown ? (
+          <>
+            <Arrow x1={112} y1={45} x2={150} y2={45} t0={0} />
+            <Picto n="document" x={154} y={8} size={60} t0={200} />
+            <Txt x={220} y={30} text={lis.text} max={11} size={14} anchor="start" t0={600} />
+          </>
+        ) : null}
+        {/* Le chemin parlementaire : nommé s'il est dit « en France », sinon arrivé avec « la voie parlementaire » */}
+        {(enFr ?? voie).shown ? (
+          <>
+            <Arrow x1={170} y1={72} x2={110} y2={114} t0={0} />
+            {enFr ? <Txt x={80} y={128} text={enFr.text} size={13} tone="soft" t0={300} /> : null}
+            <Picto n="monument" x={56} y={134} size={48} t0={200} />
+          </>
+        ) : null}
+        {voie.shown ? <Txt x={80} y={200} text={voie.text} max={13} size={14} t0={200} /> : null}
+        {irl?.shown ? (
+          <>
+            <Arrow x1={200} y1={72} x2={222} y2={114} t0={0} />
+            <Txt x={232} y={128} text={irl.text} size={13} tone="soft" t0={300} />
+            <Trait d={URNE} x={182} y={134} s={46} thin={[3]} t0={200} />
+            <Ink d={croix(u3x, u3y)} t0={900} dur={400} class="vc-bold" />
+          </>
+        ) : null}
+        {second.shown ? (
+          <>
+            <Arrow x1={230} y1={163} x2={246} y2={163} t0={0} head={6} />
+            <Trait d={URNE} x={248} y={134} s={46} thin={[3]} t0={200} />
+            <Ink d="M279 144l5 5l11-14" t0={900} dur={400} class="vc-bold" />
+            <Txt x={262} y={200} text={second.text} max={10} size={14} t0={500} />
+          </>
+        ) : null}
+      </Art>
+    </Seg>
+  )
+}
+
+/** Le nombre au bout d'une expression dite (« valeur de référence de 60 % » → « 60 % »), tel qu'il est écrit */
+const pctAtEnd = (s: string | undefined) => (s ? (/\d+(?:,\d+)?[\s\u00a0\u202f]%$/.exec(s)?.[0] ?? null) : null)
+
+/** deficits-05 (p27) La dette de la France face à la valeur de référence (deux barres, même échelle) ; puis les
+ *  États de l'Union au-dessus des valeurs de référence : deux grilles de 27 cases, une par État */
+const deficits05p27: Board = p => {
+  const [dette, defN, detN] = cuesOf(p)
+  const vd = num(dette?.text)
+  const refW = word(p, /valeur de référence de \d+(?:,\d+)? %/)
+  const refT = pctAtEnd(refW?.text)
+  const vr = num(refT)
+  const lref = word(p, /valeur de référence/)
+  const fr = said(p, /la France/)
+  const titre = word(p, /dette publique/)
+  const c = chartOf(p.segment)
+  const n = c?.kind === 'part' ? c.total : null
+  const k1 = num(firstWord(defN?.text))
+  const k2 = num(firstWord(detN?.text))
+  const ldef = word(p, /déficit d[’']au moins \d+(?:,\d+)? %/)
+  const ldet = word(p, /dette de plus de \d+(?:,\d+)? %/)
+  if (!dette || !defN || !detN || !vd || !refW || !refT || !vr || !n || !k1 || !k2 || n > 40 || k1 >= n || k2 >= n) return null
+  const g = barres({
+    items: [
+      { label: lref?.text, value: vr, text: refT, shown: refW.shown },
+      { label: fr ?? undefined, value: vd, text: dette.text, tone: 'count', shown: dette.shown },
+    ],
+    y: 28,
+    size: 20,
+    gap: 22,
+    room: 84,
+    labelSize: 14,
+    t0: 200,
+  })
+  const gy = 168
+  return (
+    <Seg kind="fig">
+      <Art h={238}>
+        {titre ? <Txt x={0} y={16} text={titre.text} size={15} anchor="start" /> : null}
+        {g.el}
+        {defN.shown ? (
+          <>
+            {ldef ? <Txt x={72} y={144} text={ldef.text} max={13} size={14} tone="soft" t0={0} /> : null}
+            <Cases n={n} cols={9} x={6} y={gy} size={12} gap={3} count={range(k1)} t0={100} stagger={10} />
+            <Txt x={72} y={232} text={defN.text} size={18} big tone="count" t0={400} />
+          </>
+        ) : null}
+        {detN.shown ? (
+          <>
+            {ldet ? <Txt x={228} y={144} text={ldet.text} max={13} size={14} tone="soft" t0={0} /> : null}
+            <Cases n={n} cols={9} x={162} y={gy} size={12} gap={3} count={range(k2)} t0={100} stagger={10} />
+            <Txt x={228} y={232} text={detN.text} size={18} big tone="count" t0={400} />
+          </>
+        ) : null}
+      </Art>
+      <Src p={p} />
+    </Seg>
+  )
+}
+
 /* ——— Le registre ——— */
 
 export const EUROPE: Record<string, Board> = {
@@ -1315,4 +1653,11 @@ export const EUROPE: Record<string, Board> = {
   'europe-concurrence-06': concurrence06,
   'europe-concurrence-07': concurrence07,
   'europe-concurrence-08': concurrence08,
+  // Édition « présidentielle 2027 »
+  'europe-intro-06-p27': intro06p27,
+  'europe-intro-07-p27': intro07p27,
+  'europe-decider-03-p27': decider03p27,
+  'europe-traites-02-p27': traites02p27,
+  'europe-traites-05-p27': traites05p27,
+  'europe-deficits-05-p27': deficits05p27,
 }

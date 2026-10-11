@@ -1,0 +1,313 @@
+[
+ {
+  "id": "immigration-10",
+  "target": "video",
+  "questionId": "",
+  "videoId": "immigration-intro",
+  "segmentId": "",
+  "field": "LABEL_TITRES (figure.label de immigration-intro-04 et immigration-titres-02)",
+  "category": "chiffres",
+  "severity": "important",
+  "issue": "Le libellé commun aux deux passages doit reprendre celui de l’explication immigration-1 corrigée : tous les motifs, et une hausse portée par les titres humanitaires. Le texte n’est pas dit : aucun réenregistrement. Pour immigration-intro-04, ce libellé suffit à dire d’où vient la hausse sans toucher à la voix.",
+  "current": "Premiers titres de séjour délivrés à des ressortissants de pays tiers (+9,2 % sur un an), dont 31,0 % pour études et 13,5 % pour motif économique (France)",
+  "proposed": "Premiers titres de séjour délivrés à des ressortissants de pays tiers (+9,2 % sur un an, une hausse totalement portée par les titres pour motif humanitaire : +56,8 %), dont 31,0 % pour études, 24,1 % pour motif familial, 23,3 % pour motif humanitaire, 13,5 % pour motif économique et 8,2 % pour des motifs divers (France)",
+  "newSource": {
+   "title": "Les titres de séjour en 2025 : les protections subsidiaires ont plus que doublé",
+   "url": "https://www.immigration.interieur.gouv.fr/documentation/etudes-et-statistiques/titres-de-sejour-en-2025-protections-subsidiaires-ont-plus-que-double.html",
+   "publisher": "Ministère de l’Intérieur – DGEF, service statistique (DSED)",
+   "date": "2026-06-30"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "immigration-4",
+   "immigration-8"
+  ],
+  "rationale": "Le libellé est identique à celui de l’explication, avec la typographie de la série (+9,2 %). Les trois relecteurs l’ont demandé.",
+  "verification": "confirmed : Ce libellé est identique à celui de immigration-4, seule la typographie de la série change. Vérifié dans immigration.ts : LABEL_TITRES sert bien aux passages immigration-intro-04 et immigration-titres-02. Les valeurs ont été lues dans le chapeau et la figure 2 de la page.",
+  "topic": "immigration",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "immigration-12",
+  "target": "video",
+  "questionId": "",
+  "videoId": "immigration-titres",
+  "segmentId": "immigration-titres-04",
+  "field": "say (et spoken)",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "Le dispositif L435-4 n’est en vigueur que jusqu’au 31 décembre 2026, et aucune prolongation n’existe au 7 octobre 2026. Du 1er janvier au 18 avril 2027, « une voie de régularisation existe » serait faux. Il faut réenregistrer la voix du passage, en même temps que immigration-titres-06. La formulation au passé reste juste dans tous les cas, ce qui évite un second enregistrement.",
+  "current": "Depuis la loi du 26 janvier 2024, une voie de régularisation existe pour les métiers en tension, où les employeurs peinent à recruter.",
+  "proposed": "La loi du 26 janvier 2024 a ouvert une voie de régularisation pour les métiers en tension, où les employeurs peinent à recruter. — spoken : « La loi du vingt-six janvier deux mille vingt-quatre a ouvert une voie de régularisation pour les métiers en tension, où les employeurs peinent à recruter. »",
+  "newSource": {
+   "title": "Article L435-4 du Code de l’entrée et du séjour des étrangers et du droit d’asile (version en vigueur du 28 janvier 2024 au 31 décembre 2026)",
+   "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000049044146",
+   "publisher": "Légifrance",
+   "date": "2024-01-28"
+  },
+  "checked": true,
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "immigration-3",
+   "immigration-13"
+  ],
+  "rationale": "Le passage deviendra faux avant le vote. La correction est neutre et ne dépend pas d’une éventuelle prolongation.",
+  "verification": "confirmed : Légifrance : « Création LOI n°2024-42 du 26 janvier 2024 - art. 27 (V) ». Version « EN VIGUEUR DU 28/01/2024 AU 31/12/2026 », seule version listée. « ces dispositions sont applicables jusqu’au 31 décembre 2026 ». Après le 1er janvier 2027, « une voie […] existe » deviendrait faux sans prolongation. Le passé composé reste juste dans tous les cas.",
+  "topic": "immigration",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "immigration-13",
+  "target": "video",
+  "questionId": "",
+  "videoId": "immigration-titres",
+  "segmentId": "immigration-titres-06",
+  "field": "say (et spoken)",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "« Cette voie s’applique jusqu’au 31 décembre 2026 » : la date tombe avant le premier tour. Entre janvier et avril 2027, le présent laisserait croire la voie encore ouverte. Il faut réenregistrer la voix, en même temps que immigration-titres-04. L’emphasis ne change pas.",
+  "current": "Et cette voie s’applique jusqu’au 31 décembre 2026.",
+  "proposed": "Et la loi a prévu cette voie jusqu’au 31 décembre 2026. — spoken : « Et la loi a prévu cette voie jusqu’au trente et un décembre deux mille vingt-six. »",
+  "newSource": {
+   "title": "Article L435-4 du Code de l’entrée et du séjour des étrangers et du droit d’asile (version en vigueur du 28 janvier 2024 au 31 décembre 2026)",
+   "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000049044146",
+   "publisher": "Légifrance",
+   "date": "2024-01-28"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche",
+   "centre"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "immigration-3",
+   "immigration-12",
+   "immigration-19"
+  ],
+  "rationale": "Même formulation que dans l’explication (immigration-3). Elle reste juste avant et après l’échéance. En cas de prolongation, seule la date sera à changer.",
+  "verification": "confirmed : Même vérification que immigration-3 et -12 : la seule version listée sur Légifrance va du 28/01/2024 au 31/12/2026, sans prolongation publiée au 7 octobre 2026. La première phrase du passage (« Le titre est accordé “à titre exceptionnel” ») cite fidèlement l’article (« A titre exceptionnel, et sans que les conditions […] soient opposables à l’autorité administrative »).",
+  "topic": "immigration",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "immigration-14",
+  "target": "video",
+  "questionId": "",
+  "videoId": "immigration-titres",
+  "segmentId": "immigration-titres-10",
+  "field": "say (et emphasis)",
+  "category": "origine",
+  "severity": "important",
+  "issue": "« Et qui en fixe le cap ? » reprend la question de méthode propre à la primaire (le Parlement ou des citoyens tirés au sort). « Qui accueillir » laisse de côté le nombre d’entrées, qui est le premier clivage de la question immigration-1 de cette élection. La question finale de la vidéo ne correspond donc pas au débat présidentiel. Il faut réenregistrer la voix du passage (pas de spoken distinct). emphasis : ['combien d’étrangers admettre', 'objectifs chiffrés'].",
+  "current": "Alors, qui accueillir, pour quels motifs, et qui en fixe le cap ?",
+  "proposed": "Alors, combien d’étrangers admettre, pour quels motifs, et faut-il des objectifs chiffrés ?",
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "immigration-1",
+   "immigration-15"
+  ],
+  "rationale": "La formulation fusionne les deux propositions. « Combien » couvre la baisse comme la hausse. « Admettre » est le terme des institutions et des approches, plus neutre qu’« accueillir ». La fin renvoie au passage immigration-titres-09 (objectifs chiffrés censurés par le Conseil constitutionnel) et à une approche qui écarte tout objectif chiffré, sans plaider pour aucune. Le dessin (carte de séjour et Parlement) reste valable. Le passage est à réenregistrer avec immigration-titres-02, -04 et -06.",
+  "topic": "immigration",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "immigration-15",
+  "target": "video",
+  "questionId": "",
+  "videoId": "immigration-intro",
+  "segmentId": "immigration-intro-07",
+  "field": "say (et emphasis)",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "Les quatre questions annoncées ignorent le nombre d’entrées, premier clivage de cette élection. « Qui accueillir » suppose qu’on accueille. « Quatre questions se posent » présente comme complet un découpage hérité de la primaire, alors que cette élection débat aussi de l’Union européenne, du droit du sol et de l’AME. La mise en relief souligne « que leur garantir », mais pas « Que demander ». Il faut réenregistrer la voix du passage (spoken identique à say). emphasis : ['Combien d’étrangers admettre', 'Que demander', 'que leur garantir', 'qui éloigner'].",
+  "current": "Alors, quatre questions se posent. Qui accueillir, et pour quels motifs ? Que demander aux nouveaux arrivants, et que leur garantir ? Quel accès à l’emploi et aux aides ? Et qui éloigner, et comment ?",
+  "proposed": "Alors, parmi d’autres, quatre questions se posent. Combien d’étrangers admettre, et pour quels motifs ? Que demander aux nouveaux arrivants, et que leur garantir ? Quel accès à l’emploi et aux aides ? Et qui éloigner, et comment ?",
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "immigration-1",
+   "immigration-14"
+  ],
+  "rationale": "Même mot que dans immigration-titres-10, pour la cohérence de la série. Le passage suivant (« Ce sont les quatre sujets des vidéos qui suivent ») reste juste. La mise en relief met les deux côtés d’« exiger ou garantir » à égalité.",
+  "topic": "immigration",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "immigration-16",
+  "target": "video",
+  "questionId": "",
+  "videoId": "immigration-expulsions",
+  "segmentId": "",
+  "field": "questionIds (périmètre vidéo : research/presidentielle-2027/reuse.json)",
+  "category": "origine",
+  "severity": "important",
+  "issue": "La vidéo « Comment se passent les expulsions ? » n’est rattachée qu’à la question immigration-3 de la primaire, qui est absente de reuse.json et donc de videoScope. Dans cette élection, elle est montrée sans question, et « Voir la fiche » mène à l’explication immigration-1 (scope.ts). Aucune explication montrée ne contient ses chiffres : ≈ 15 000 OQTF exécutées sur 130 000, 137 550 ordres, 18 %, 90 %, 40 %, 2 000 places, 30 %. La règle « une vidéo ne montre que des chiffres de l’explication de ses questions » est donc rompue. La question immigration-3 de cette élection (« Que faire des étrangers en situation irrégulière… ? ») parle déjà des OQTF, mais n’a pas d’explication.",
+  "current": "\"immigration-6\": \"immigration-2\",",
+  "proposed": "\"immigration-6\": \"immigration-2\",\n    \"immigration-3\": \"immigration-3\",",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "immigration-17",
+   "immigration-18"
+  ],
+  "rationale": "Les trois relecteurs l’ont relevé. On rattache la vidéo à la question immigration-3 de cette élection en reprenant l’explication immigration-3 de la primaire, avec son résumé réécrit (immigration-17) et un chiffre sur les régularisations (immigration-18), pour couvrir les deux bouts des approches. Si ce rattachement n’est pas retenu, il faut retirer la vidéo de cette élection (proposition de la gauche, solution de repli).",
+  "topic": "immigration",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "immigration-8",
+  "target": "video",
+  "questionId": "",
+  "videoId": "immigration-titres",
+  "segmentId": "immigration-titres-02",
+  "field": "say (et spoken, emphasis)",
+  "category": "chiffres",
+  "severity": "important",
+  "issue": "La vidéo pose la question « pour quels motifs ? », mais ne cite que les études et le motif économique. Elle tait les motifs familial (24,1 %) et humanitaire (23,3 %), presque la moitié des titres. Le graphique doit être recopié de l’explication corrigée (quatre barres), et la voix doit suivre ce qu’il montre. Il faut réenregistrer la voix du passage : c’est nécessaire, faute de quoi le dessin montrerait deux barres que la voix ne nomme pas. emphasis : ['31,0 %', '24,1 %', '23,3 %', '13,5 %'].",
+  "current": "En 2025, sur 377 462 premiers titres, 31,0 % sont délivrés pour des études. Et 13,5 % pour un motif économique.",
+  "proposed": "En 2025, sur 377 462 premiers titres, 31,0 % sont délivrés pour des études, 24,1 % pour un motif familial, 23,3 % pour un motif humanitaire. Et 13,5 % pour un motif économique. — spoken : « En deux mille vingt-cinq, sur trois cent soixante-dix-sept mille quatre cent soixante-deux premiers titres, trente et un pour cent sont délivrés pour des études, vingt-quatre virgule un pour cent pour un motif familial, vingt-trois virgule trois pour cent pour un motif humanitaire. Et treize virgule cinq pour cent pour un motif économique. » — emphasis : ['31,0 %', '24,1 %', '23,3 %', '13,5 %']",
+  "newSource": {
+   "title": "Les titres de séjour en 2025 : les protections subsidiaires ont plus que doublé",
+   "url": "https://www.immigration.interieur.gouv.fr/documentation/etudes-et-statistiques/titres-de-sejour-en-2025-protections-subsidiaires-ont-plus-que-double.html",
+   "publisher": "Ministère de l’Intérieur – DGEF, service statistique (DSED)",
+   "date": "2026-06-30"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "immigration-4",
+   "immigration-5",
+   "immigration-9",
+   "immigration-10"
+  ],
+  "rationale": "Cette correction est jumelle de celles de l’explication immigration-1 (figures[0], chart index 0). Les chiffres viennent de l’explication corrigée et ont été lus sur la page. L’ordre suit la source, par taille décroissante.",
+  "verification": "confirmed : Les valeurs ont été relues dans la figure 2 (31,0 / 24,1 / 23,3 / 13,5 %) et la figure 3 (377 462). Le passage actuel (immigration-titres-02) pose « Pour quels motifs ? » au passage -01, mais ne nomme que deux motifs. Une fois la fiche corrigée (immigration-4), les nouveaux chiffres y figurent, ce que le guide (§ 6) exige. La transcription du spoken est exacte.",
+  "topic": "immigration",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "immigration-9",
+  "target": "video",
+  "questionId": "",
+  "videoId": "immigration-titres",
+  "segmentId": "immigration-titres-02",
+  "field": "draw (et alt, chart)",
+  "category": "chiffres",
+  "severity": "important",
+  "issue": "Le dessin, son texte et le graphique doivent suivre le graphique corrigé de l’explication immigration-1 (index 0), copié tel quel. Ces champs ne sont pas dits : aucun réenregistrement pour eux.",
+  "current": "Deux barres à la même échelle, depuis zéro : les titres pour études, les titres pour motif économique.",
+  "proposed": "draw : « Quatre barres à la même échelle, depuis zéro : les titres pour études, pour motif familial, pour motif humanitaire, pour motif économique. » — alt : « Quatre barres à la même échelle : pour des études, 31,0 % ; pour un motif familial, 24,1 % ; pour un motif humanitaire, 23,3 % ; pour un motif économique, 13,5 %. » — chart : { kind: 'compare', unit: '%', items: [{ label: 'Titres pour études', value: 31 }, { label: 'Titres pour motif familial', value: 24.1 }, { label: 'Titres pour motif humanitaire', value: 23.3 }, { label: 'Titres pour motif économique', value: 13.5 }] }",
+  "newSource": {
+   "title": "Les titres de séjour en 2025 : les protections subsidiaires ont plus que doublé",
+   "url": "https://www.immigration.interieur.gouv.fr/documentation/etudes-et-statistiques/titres-de-sejour-en-2025-protections-subsidiaires-ont-plus-que-double.html",
+   "publisher": "Ministère de l’Intérieur – DGEF, service statistique (DSED)",
+   "date": "2026-06-30"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "immigration-5",
+   "immigration-8"
+  ],
+  "rationale": "Les propositions de la gauche et de la droite, identiques, sont fusionnées. Le graphique est identique à celui de l’explication, comme l’exige le guide (§ 6).",
+  "verification": "confirmed : Les valeurs sont conformes à la figure 2 de la source. Le chart est identique à celui proposé pour l’explication (immigration-5), comme l’exige le guide (§ 6 : « copiez son chart tel quel »).",
+  "topic": "immigration",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "immigration-11",
+  "target": "video",
+  "questionId": "",
+  "videoId": "immigration-intro",
+  "segmentId": "immigration-intro-06",
+  "field": "figure.label",
+  "category": "chiffres",
+  "severity": "mineur",
+  "issue": "Ce libellé suit la correction de figures[3] de l’explication immigration-1 : la répartition des 23 549 éloignements entre forcés, aidés et spontanés. Le texte n’est pas dit : aucun réenregistrement.",
+  "current": "Éloignements d’étrangers en situation irrégulière (forcés, aidés et spontanés), en hausse de 11,1 % sur un an (France métropolitaine, majeurs). S’y ajoutent 24 512 éloignements depuis l’outre-mer, à près de 90 % depuis Mayotte",
+  "proposed": "Éloignements d’étrangers en situation irrégulière, en hausse de 11,1 % sur un an : 14 133 éloignements forcés, 4 564 aidés et 4 852 spontanés (France métropolitaine, majeurs). S’y ajoutent 24 512 éloignements depuis l’outre-mer, à près de 90 % depuis Mayotte",
+  "newSource": {
+   "title": "Les éloignements d'étrangers en situation irrégulière en 2025 : une dynamique ascendante",
+   "url": "https://www.immigration.interieur.gouv.fr/chiffres-de-limmigration-en-france/eloignements-detrangers-en-situation-irreguliere-en-2025-dynamique-ascendante",
+   "publisher": "Ministère de l’Intérieur – DGEF, service statistique (DSED)",
+   "date": "2026-06-30"
+  },
+  "checked": true,
+  "lenses": [
+   "droite",
+   "gauche"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "immigration-6"
+  ],
+  "rationale": "Correction jumelle de immigration-6. Les valeurs ont été lues sur la page du ministère.",
+  "verification": "confirmed : Correction jumelle de immigration-6. Mêmes valeurs, relues dans la figure 2 : 14 133 + 4 564 + 4 852 = 23 549, + 11,1 %, champ métropole, majeurs. La voix du passage immigration-intro-06 ne cite que 23 549 et 24 512 : rien à réenregistrer.",
+  "topic": "immigration",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "immigration-19",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "en-tête (mentions « Datée »)",
+  "category": "actualite",
+  "severity": "mineur",
+  "issue": "L’en-tête oublie trois échéances. 1) L’échéance du 31 décembre 2026 tombe avant le premier tour et touche deux passages (immigration-titres-04 et -06), pas un seul. 2) Les chiffres 2025 du ministère sont provisoires et « seront définitifs en janvier 2027 ». Selon l’encadré 7 de la source, « les données provisoires sous-estiment généralement les données définitives », surtout pour les titres humanitaires. 3) Le testing date de 2019-2021, et l’État a annoncé en 2025 une nouvelle vague nationale de testing, à lancer à l’automne 2025 (DILCRAH, page publiée le 14 juillet 2025, mise à jour le 26 janvier 2026, sans résultats à ce jour).",
+  "current": "// Datée : la voie de régularisation par les « métiers en tension » s'applique jusqu'au 31 décembre 2026\n// (immigration-titres-06). À revoir après cette date.",
+  "proposed": "// Datée : la voie de régularisation par les « métiers en tension » n'est prévue par la loi que jusqu'au 31 décembre 2026,\n// avant le premier tour du 18 avril 2027 (immigration-titres-04 à -06, et la fiche immigration-1) ; aucune prolongation\n// au 7 octobre 2026. À revoir au 1er janvier 2027 (prolongée ou non).\n// Datée : les chiffres 2025 des titres de séjour et des régularisations sont provisoires (définitifs en janvier 2027 ;\n// selon le ministère, les données provisoires « sous-estiment généralement » les définitives, surtout pour les titres\n// humanitaires). Le ministère de l'Intérieur a publié ses estimations pour 2025 en janvier 2026 ; une publication analogue\n// pour 2026 est probable en janvier 2027 (immigration-intro-04 à -06, immigration-titres-02 et -07, immigration-langue-03\n// et -06). À revoir en janvier 2027, avant le vote.\n// Datée : le testing de 2019-2021 (immigration-emploi-03 et -04) ; une nouvelle vague nationale de testing a été annoncée\n// par l'État pour l'automne 2025. À revoir à la parution de ses résultats.",
+  "newSource": {
+   "title": "Les titres de séjour en 2025 : les protections subsidiaires ont plus que doublé",
+   "url": "https://www.immigration.interieur.gouv.fr/documentation/etudes-et-statistiques/titres-de-sejour-en-2025-protections-subsidiaires-ont-plus-que-double.html",
+   "publisher": "Ministère de l’Intérieur – DGEF, service statistique (DSED)",
+   "date": "2026-06-30"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "immigration-3",
+   "immigration-13"
+  ],
+  "rationale": "Les trois propositions sont fusionnées. Ce sont des notes de maintenance, que le public ne voit pas. Lu sur la page du ministère : « seront définitives en janvier 2027 » et « sous-estiment généralement les données définitives ». Lu sur la page de la DILCRAH (https://www.dilcrah.gouv.fr/actualites/discriminations-face-lembauche-lancement-dune-vague-de-testing) : « une grande vague de testing sera lancée par l'État à l'automne », sans date de résultats. On écrit « annoncée » et non « lancée », faute de confirmation.",
+  "verification": "adjusted : Lu dans l’encadré 7 de la page : « Les données 2025 ont d’abord été estimées en janvier 2026 […] puis seront définitives en janvier 2027. […] les données provisoires sous-estiment généralement les données définitives. Ce phénomène est d’autant plus marqué pour les titres humanitaires ». Les régularisations (figure 15) sont aussi marquées « 2025 provisoire ». En revanche, la page des éloignements ne qualifie pas ses chiffres 2025 de provisoires (« 2024* 2025* » corrigés). Ajustement : la version proposée disait « les chiffres 2025 du ministère de l’Intérieur sont provisoires », ce qui est trop large. On restreint aux titres et aux régularisations, et on ajoute la sous-estimation que l’issue relevait sans la reporter. « Publie d’habitude en janvier » ne s’appuie que sur un cas lu (janvier 2026) : on écrit « probable ». DILCRAH (publiée le 14/07/2025, mise à jour le 26/01/2026) : « une grande vague de testing sera lancée par l’Etat à l’automne », sans résultats sur la page. « Annoncée » est donc juste. L’échéance L435-4 au 31/12/2026 a été vérifiée sur Légifrance.",
+  "topic": "immigration",
+  "electionQuestionId": ""
+ }
+]

@@ -5,7 +5,7 @@ import { APP_NAME, APP_URL } from './app'
 import { affinityBand } from './affinity'
 import { LOGO, PASTELS, belowBaseline, drawLogo } from './brand'
 import { displayScore, strokesFor, type CandidateResult, type Results } from './score'
-import type { Candidate, ElectionPack } from './types'
+import type { Candidate, CandidateId, ElectionPack } from './types'
 
 export const IMAGE_W = 1080
 export const IMAGE_H = 1350
@@ -36,27 +36,77 @@ export const POSTER_ROWS = 7
 /** Jusqu'à ce nombre de lignes, chacune a sa place pleine (nom, parti, bâtons dessous) ; au-delà, une ligne serrée */
 const ROOMY_ROWS = 5
 
+/** L'affiche montre les candidats les plus proches de mes idées (« top ») ou les plus éloignés (« flop ») */
+export type PosterView = 'top' | 'flop'
+
 /**
- * Les candidats de l'affiche, dans son ordre : l'ordre du classement avec les croix, sinon l'affinité seule
- * (sans le report des lignes rouges). Au-delà de POSTER_ROWS, les premiers seulement, et les autres à part.
+ * Tous les candidats classés, du plus proche au plus éloigné : l'ordre du classement avec les croix, sinon
+ * l'affinité seule (sans le report des lignes rouges)
  */
-export function posterRanking(results: Results, showFlags: boolean): { shown: CandidateResult[]; others: CandidateResult[] } {
-  const ranking = showFlags
+function posterOrder(results: Results, showFlags: boolean): CandidateResult[] {
+  return showFlags
     ? results.ranking
     : results.ranking.slice().sort((a, b) => (displayScore(b.score) ?? -1) - (displayScore(a.score) ?? -1))
-  if (ranking.length <= POSTER_ROWS) return { shown: ranking, others: [] }
-  return { shown: ranking.slice(0, POSTER_ROWS), others: ranking.slice(POSTER_ROWS) }
 }
 
-/** « 13 autres candidats, de 41 à 52 % » (ou « 1 autre candidat, à 41 % ») : les candidats hors de l'affiche */
-export function othersText(others: CandidateResult[]): string {
+/**
+ * Les candidats de l'affiche, dans son ordre. « top » : les POSTER_ROWS premiers, du plus proche au plus éloigné,
+ * les autres à part ; « flop » : les POSTER_ROWS derniers, du plus éloigné au moins éloigné, les autres (plus
+ * proches) à part.
+ */
+export function posterRanking(
+  results: Results,
+  showFlags: boolean,
+  view: PosterView = 'top',
+): { shown: CandidateResult[]; others: CandidateResult[] } {
+  const order = posterOrder(results, showFlags)
+  const cut = Math.max(order.length - POSTER_ROWS, 0)
+  if (view === 'flop') return { shown: order.slice(cut).reverse(), others: order.slice(0, cut) }
+  if (order.length <= POSTER_ROWS) return { shown: order, others: [] }
+  return { shown: order.slice(0, POSTER_ROWS), others: order.slice(POSTER_ROWS) }
+}
+
+/**
+ * Le numéro imprimé devant chaque candidat de l'affiche, toujours : avec les croix, son rang au classement ; sans
+ * elles, sa place dans l'ordre d'affinité seule de l'affiche (même numéro pour le même pourcentage affiché, comme au
+ * classement), pour ne jamais trahir par un rang qu'un candidat a été relégué pour une ligne rouge.
+ */
+export function posterPositions(results: Results, showFlags: boolean): Map<CandidateId, number> {
+  const positions = new Map<CandidateId, number>()
+  let prev: CandidateResult | undefined
+  posterOrder(results, showFlags).forEach((r, i) => {
+    const same = prev !== undefined && displayScore(prev.score) === displayScore(r.score)
+    positions.set(r.candidateId, showFlags ? r.rank : same && prev ? positions.get(prev.candidateId)! : i + 1)
+    prev = r
+  })
+  return positions
+}
+
+/**
+ * « 13 autres candidats, de 41 à 52 % » (ou « 1 autre candidat, à 41 % ») : les candidats hors de l'affiche ; sur
+ * l'affiche des plus éloignés, « 13 autres candidats, plus proches, de 52 à 61 % », ou, avec les croix (l'ordre du
+ * classement, où un candidat relégué peut avoir un pourcentage plus haut), « mieux classés »
+ */
+export function othersText(others: CandidateResult[], view: PosterView = 'top', showFlags = false): string {
   const n = others.length
-  const who = `${n}\u00a0autre${n > 1 ? 's' : ''} candidat${n > 1 ? 's' : ''}`
+  const closer = view === 'flop' ? `, ${showFlags ? 'mieux classé' : 'plus proche'}${n > 1 ? 's' : ''}` : ''
+  const who = `${n}\u00a0autre${n > 1 ? 's' : ''} candidat${n > 1 ? 's' : ''}${closer}`
   const scores = others.map(r => displayScore(r.score)).filter((x): x is number => x !== null)
   if (!scores.length) return who
   const lo = Math.min(...scores)
   const hi = Math.max(...scores)
   return lo === hi ? `${who}, à ${lo}\u00a0%` : `${who}, de ${lo} à ${hi}\u00a0%`
+}
+
+/**
+ * Les notes de pied qui expliquent l'affiche, après « Résultat indicatif… » : avec les croix, leur légende s'il y en a ;
+ * sans elles, toujours la même phrase (ordre et numéros par affinité seule), qu'il y ait ou non des lignes rouges et
+ * qu'un candidat en franchisse ou non : une note qui ne paraîtrait qu'en cas de relégation trahirait les lignes rouges.
+ * Le texte de remplacement de l'image (Share.tsx) les reprend.
+ */
+export function posterNotes(results: Results, showFlags: boolean): string[] {
+  if (!showFlags) return ['Ordre et numéros par affinité seule, sans tenir compte des lignes rouges.']
+  return results.ranking.some(r => !r.compatible) ? ['La croix rouge : franchit une de mes lignes rouges.'] : []
 }
 
 /** Avec les croix : combien des candidats hors de l'affiche franchissent une ligne rouge */
@@ -88,6 +138,8 @@ const UNRANKED_H = 60
 export interface ShareOptions {
   /** Signaler d'une croix les candidats qui franchissent une ligne rouge (désactivé par défaut) */
   showFlags: boolean
+  /** Les plus proches (par défaut) ou les plus éloignés */
+  view?: PosterView
   date?: Date
 }
 
@@ -201,28 +253,28 @@ export async function renderShareImage(
   ctx.fillText('Mon dépouillement', M, 284)
 
   // Sous-titre et bâtons
+  const view = options.view ?? 'top'
   ctx.fillStyle = COLORS.printSoft
-  const sub = `Affinité d’idées, sur ${results.answered} réponse${results.answered > 1 ? 's' : ''}`
+  const sub = `${view === 'flop' ? 'Les plus éloignés de mes idées' : 'Affinité d’idées'}, sur ${results.answered} réponse${results.answered > 1 ? 's' : ''}`
   fit(ctx, sub, 400, 30, R - M - 290)
   ctx.fillText(sub, M, 342)
   tally(ctx, M, 372, Math.min(results.answered, 40))
 
   // Lignes du classement
-  const { shown: ranking, others } = posterRanking(results, options.showFlags)
+  const { shown: ranking, others } = posterRanking(results, options.showFlags, view)
   const top = 470
   const byId = new Map(pack.candidates.map(c => [c.id, c]))
   ctx.fillStyle = COLORS.print
   ctx.fillRect(M, top - 20, R - M, 1.5)
 
-  // Sans les croix, l'ordre suit la seule affinité : aucun numéro de rang n'est imprimé, pour ne jamais
-  // contredire le classement de l'application (qui relègue les candidats franchissant une ligne rouge)
-  const sorted = [...ranking, ...others]
-  const reordered = !options.showFlags && sorted.some((r, i) => r.candidateId !== results.ranking[i]?.candidateId)
+  // Sans les croix, l'ordre suit la seule affinité, et les numéros aussi (posterPositions) ; une note de pied le dit
+  // toujours (posterNotes)
+  const positions = posterPositions(results, options.showFlags)
   // Élection nombreuse : des lignes serrées, puis les autres candidats en une ligne ; enfin, le nombre de candidats
   // hors classement et non classés, sans nom ni score
   const off = offPosterText(results.unranked.length, results.excluded.length)
-  if (ranking.length > ROOMY_ROWS) drawCompactRows(ctx, ranking, others, byId, options.showFlags, top, M, R, off)
-  else drawRoomyRows(ctx, ranking, byId, options.showFlags, top, M, R, off)
+  if (ranking.length > ROOMY_ROWS) drawCompactRows(ctx, ranking, others, byId, positions, options.showFlags, view, top, M, R, off)
+  else drawRoomyRows(ctx, ranking, byId, positions, options.showFlags, top, M, R, off)
 
   // Tampon daté, à droite du sous-titre
   const [yy, mm, dd] = pack.election.dataFrozenAt.split('-')
@@ -245,8 +297,7 @@ export async function renderShareImage(
   const lines = [
     'Résultat indicatif, pas une consigne de vote. Calculé sur mon appareil,',
     'aucune réponse n’a été transmise.',
-    ...(options.showFlags && sorted.some(r => !r.compatible) ? ['La croix rouge : franchit une de mes lignes rouges.'] : []),
-    ...(reordered ? ['Ordre par affinité seule, sans tenir compte de mes lignes rouges.'] : []),
+    ...posterNotes(results, options.showFlags),
   ]
   const lineSize = Math.min(...lines.map(l => fit(ctx, l, 400, 25, R - M)))
   font(ctx, 400, lineSize)
@@ -290,6 +341,7 @@ function drawRoomyRows(
   ctx: CanvasRenderingContext2D,
   ranking: CandidateResult[],
   byId: ById,
+  positions: Map<CandidateId, number>,
   showFlags: boolean,
   top: number,
   M: number,
@@ -305,12 +357,8 @@ function drawRoomyRows(
     const score = displayScore(r.score)
 
     ctx.fillStyle = COLORS.print
-    if (showFlags) {
-      font(ctx, 800, 56, true)
-      ctx.fillText(String(r.rank), M, y + 62)
-    } else {
-      ctx.fillRect(M, y + 40, 26, 3)
-    }
+    font(ctx, 800, 56, true)
+    ctx.fillText(String(positions.get(r.candidateId) ?? i + 1), M, y + 62)
 
     const flagged = showFlags && !r.compatible
     fit(ctx, c.name, 700, 42, R - (M + 70) - 230 - (flagged ? 44 : 0))
@@ -352,7 +400,9 @@ function drawCompactRows(
   ranking: CandidateResult[],
   others: CandidateResult[],
   byId: ById,
+  positions: Map<CandidateId, number>,
   showFlags: boolean,
+  view: PosterView,
   top: number,
   M: number,
   R: number,
@@ -375,12 +425,8 @@ function drawCompactRows(
     const strokes = strokesFor(r.score)
 
     ctx.fillStyle = COLORS.print
-    if (showFlags) {
-      font(ctx, 800, 44, true)
-      ctx.fillText(String(r.rank), M, y + 44)
-    } else {
-      ctx.fillRect(M, y + 26, 26, 3)
-    }
+    font(ctx, 800, 44, true)
+    ctx.fillText(String(positions.get(r.candidateId) ?? i + 1), M, y + 44)
 
     // Nom, jusqu'aux bâtons ; un nom très long est réduit, puis coupé d'une ellipse
     const nameMax = tallyX - 32 - (M + 70) - (flagged ? 40 : 0)
@@ -422,7 +468,7 @@ function drawCompactRows(
   // Les autres candidats : leur nombre et l'étendue de leurs pourcentages, sous un filet
   ctx.fillStyle = COLORS.print
   ctx.fillRect(M, y, R - M, 1.5)
-  const text = `+ ${othersText(others)}`
+  const text = `+ ${othersText(others, view, showFlags)}`
   fit(ctx, text, 650, 30, R - M - 70)
   ctx.fillText(text, M + 70, y + 46)
   // Avec les croix, ceux d'entre eux qui franchissent une ligne rouge : l'étendue peut dépasser le premier affiché
@@ -449,6 +495,6 @@ export function canvasToJpeg(canvas: HTMLCanvasElement): Promise<Blob> {
   )
 }
 
-export function shareFileName(pack: ElectionPack, date = new Date()): string {
-  return `${APP_NAME.toLowerCase()}-${pack.election.id}-${date.toISOString().slice(0, 10)}.jpg`
+export function shareFileName(pack: ElectionPack, date = new Date(), view: PosterView = 'top'): string {
+  return `${APP_NAME.toLowerCase()}-${pack.election.id}-${date.toISOString().slice(0, 10)}${view === 'flop' ? '-plus-eloignes' : ''}.jpg`
 }

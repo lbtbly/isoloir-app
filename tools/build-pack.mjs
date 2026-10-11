@@ -545,6 +545,8 @@ if (reuse) {
     if (videoScope.questions[there]) { log.push(`video-question-dup ${there} -> ${here} (gardée : ${videoScope.questions[there]})`); continue }
     videoScope.questions[there] = here
   }
+  // Édition des séries propre à cette élection (src/ui/videos/editions/<id>) : corrections posées sur les séries
+  if (reuse.videoEdition) videoScope.edition = reuse.videoEdition
 }
 
 mkdirSync(srcDir, { recursive: true })
@@ -557,7 +559,7 @@ if (videoScope) {
     join(srcDir, 'videos.ts'),
     `${header}// Séries vidéo reprises de « ${origin.id} » (research/${electionId}/reuse.json) : thème de la série → thème d'ici,\n` +
       `// question de « ${origin.id} » → question identique d'ici. Une série absente de « topics » n'est pas montrée.\n\n` +
-      `export const videoScope: { topics: Record<string, string>; questions: Record<string, string> } = ${JSON.stringify(videoScope, null, 2)}\n`,
+      `export const videoScope: { topics: Record<string, string>; questions: Record<string, string>; edition?: string } = ${JSON.stringify(videoScope, null, 2)}\n`,
   )
 }
 writeFileSync(join(researchDir, 'build-log.txt'), log.join('\n'))

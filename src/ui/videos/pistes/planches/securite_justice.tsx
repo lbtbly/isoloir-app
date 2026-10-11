@@ -10,8 +10,11 @@
 // (« Confiants ou rassurés », « Ensemble des peines et mesures ») : l'« alt » du passage les reprend.
 
 import { chartOf } from '../../model'
-import { VIDEO_SERIES } from '../../series'
-import { Art, Arrow, Ask, Brace, Fade, Ink, Marks, Txt, W, at, cls, cueOf, cuesOf, heard, num, ratioOf, sentenceWith, sentencesOf, word, yearsOf, type Cue, type P, type Tone } from '../dessin/encre'
+import { seriesOfVideo } from '../../catalog'
+import { EDITIONS } from '../../editions'
+import { applyEdition } from '../../editions/apply'
+import { SECURITE_JUSTICE as SERIE } from '../../series/securite_justice'
+import { Art, Arrow, Ask, Brace, Fade, Ink, Marks, Txt, W, at, capital, cls, cueOf, cuesOf, heard, num, plain, ratioOf, sentenceWith, sentencesOf, word, yearsOf, type Cue, type P, type Tone } from '../dessin/encre'
 import { Chiffre, HeadCues, Question, Seg, Signature, Src, Sur100 } from '../dessin/mises'
 import { Picto, type PictoName } from '../dessin/pictos'
 import { Barriere, Cases, Disque, Rang, balance, barres, colonnes, partPoint, rangCells } from '../dessin/schemas'
@@ -142,7 +145,7 @@ function Liste({ items, cols = 2 }: { items: { n: Nom; text: string; shown: bool
 /** Les approfondissements de la série, en sommaire numéroté (comme Sommaire de mises.tsx, avec les
  *  pictogrammes du thème) */
 function Chapitres({ p, t0 = 200 }: { p: P; t0?: number }) {
-  const series = VIDEO_SERIES.find(s => s.videos.some(v => v.id === p.script.id))
+  const series = seriesOfVideo(p.script.id)
   const deep = series?.videos.filter(v => v.kind === 'deep') ?? []
   if (!deep.length) return null
   return (
@@ -1275,6 +1278,181 @@ const lycees08: Board = p => {
 /** 09 « Comment répondre aux blocages de lycées ? » */
 const lycees09: Board = fin('lycee')
 
+/* ——— Passages corrigés ou ajoutés par une édition (identifiant suffixé, « -p27 ») ———
+ * Leur texte dit a changé, ou ils sont nouveaux : leur planche lit le passage corrigé (p.segment) et la vidéo de
+ * l'édition (p.script) ; la liste des vidéos vient de la série d'origine à laquelle on applique l'édition du
+ * passage (retrouvée par le suffixe de son identifiant), jamais de la série telle qu'écrite. */
+
+/** Une question de l'introduction, sans ce qui l'amène (« Parmi elles : », « Et ») : « Quelle priorité pour la
+ *  police ? » */
+const questionSeule = (q: string) => capital(q.replace(/^[^:?]*[\u00a0\u202f ]:[\s\u00a0\u202f]+/, '').replace(/^Et\s+/, ''))
+
+/** intro-07 (2027) « plusieurs questions se posent » : les trois questions du thème en grille, chacune avec son
+ *  pictogramme, quand la voix la pose */
+const intro07p27: Board = p => {
+  const qs = sentencesOf(p.segment.say)
+    .filter(s => /\?$/.test(s))
+    .map(questionSeule)
+  if (qs.length < 2) return null
+  return (
+    <Seg kind="ask">
+      <Liste items={qs.map(q => ({ n: sujet(q), text: q, shown: heard(p, q.split(' ').slice(0, 2).join(' ')), cues: cuesOf(p) }))} />
+    </Seg>
+  )
+}
+
+/** Les approfondissements donnés, en sommaire numéroté, avec les pictogrammes du thème (comme Chapitres) */
+function ChapitresDe({ p, videos, t0 = 200 }: { p: P; videos: { id: string; short: string; title: string }[]; t0?: number }) {
+  return (
+    <ol class="vc-chap">
+      {videos.map((v, i) => (
+        <li key={v.id} class="vc-chap-item vc-rise" style={at(t0 + i * 450)}>
+          <span class="vc-chap-n">{i + 1}</span>
+          <Glyph n={sujet(`${v.short} ${v.title}`)} t0={p.still ? 0 : t0 + i * 450 + 150} />
+          <span class="vc-chap-t">{v.short}</span>
+        </li>
+      ))}
+    </ol>
+  )
+}
+
+/** intro-08 (2027) « Ce sont les sujets des vidéos qui suivent » : le sommaire des approfondissements que montre
+ *  l'édition du passage (sans la vidéo qu'elle retire) ; autant que la voix en annonce, si elle en dit le nombre */
+const intro08p27: Board = p => {
+  const edition = Object.values(EDITIONS).find(e => p.segment.id.endsWith(e.suffix))
+  if (!edition) return null
+  const deep = applyEdition(SERIE, edition).videos.filter(v => v.kind === 'deep')
+  const n = num(word(p, /\b(?:deux|trois|quatre|cinq|six)\b/)?.text)
+  if (!deep.length || (n !== null && n !== deep.length)) return null
+  return (
+    <Seg kind="end">
+      <ChapitresDe p={p} videos={deep} />
+      <Signature p={p} />
+    </Seg>
+  )
+}
+
+/** police-01-violences (2027) 472 956 victimes de violences physiques en 2025, 449 819 en 2024, plus de la moitié
+ *  dans le cadre familial : deux colonnes au trait depuis zéro, à la même échelle, chacune quand la voix la dit ;
+ *  dans celle du chiffre de la fiche, la part du cadre familial (le nombre que donne son libellé) au bleu bille */
+const violencesP27: Board = p => {
+  const [a, b] = cuesOf(p)
+  const va = num(a?.text)
+  const vb = num(b?.text)
+  const [ya, yb] = yearsOf(p.segment.say)
+  if (!a || !b || !va || !vb || !ya || !yb || ya === yb) return null
+  const half = word(p, /Plus de la moitié/)
+  const fam = word(p, /dans le cadre familial/)
+  const vf = num(/\(([\d\u202f\u00a0 ]+)\)[\s\u00a0\u202f]+dans le cadre familial/.exec(p.segment.figure?.label ?? '')?.[1])
+  const fv = num(p.segment.figure?.value) ?? va
+  // Dans l'ordre des années, la plus ancienne à gauche
+  const cols = [
+    { cue: a, v: va, year: ya },
+    { cue: b, v: vb, year: yb },
+  ].sort((m, n) => m.year - n.year)
+  const base = 140
+  const k = (base - 32) / Math.max(va, vb)
+  const cw = 54
+  const xs = [30, 112]
+  const hf = vf && vf < fv ? vf * k : 0
+  const famPart = hf && half && fam ? { half, fam } : null
+  return (
+    <Seg kind="fig">
+      <Chiffre p={p} />
+      <Art h={base + 28}>
+        <Ink d={`M16 ${base}H${xs[1]! + cw + 16}`} t0={0} dur={500} class="vc-soft" />
+        {cols.map((c, i) => {
+          const x = xs[i]!
+          const h = c.v * k
+          const part = famPart && c.v === fv ? famPart : null
+          return c.cue.shown ? (
+            <g key={c.year}>
+              <Fade t0={250}>
+                <rect class="vc-tint" x={x} y={base - h} width={cw} height={h} />
+              </Fade>
+              {part?.half.shown ? (
+                <>
+                  <Fade t0={600} class="vc-count">
+                    <rect class="vc-tint-count" x={x} y={base - hf} width={cw} height={hf} />
+                  </Fade>
+                  <g class="vc-count">
+                    <Ink d={`M${x} ${base - hf}H${x + cw}`} t0={600} dur={300} />
+                    <Ink d={`M${x + cw + 4} ${base - hf / 2}H${x + cw + 22}`} t0={800} dur={250} class="vc-thin" />
+                  </g>
+                  <Txt x={x + cw + 28} y={base - hf / 2 - 12} text={part.half.text} max={11} size={15} anchor="start" tone="count" t0={900} />
+                  <Txt x={x + cw + 28} y={base - hf / 2 + 26} text={part.fam.text} max={13} size={14} anchor="start" t0={1100} />
+                </>
+              ) : null}
+              <Ink d={`M${x} ${base}V${base - h}H${x + cw}V${base}`} t0={0} dur={600} />
+              <Txt x={x + cw / 2} y={base - h - 9} text={numOf(c.cue.text)} size={20} big t0={400} />
+              <Txt x={x + cw / 2} y={base + 21} text={String(c.year)} size={15} tone="soft" t0={200} />
+            </g>
+          ) : null
+        })}
+      </Art>
+      <Src p={p} />
+    </Seg>
+  )
+}
+
+/** drogues-02-reglements (2027) « 80 à 90 % des règlements de comptes […] sont liés au trafic de stupéfiants »,
+ *  selon une note de la police judiciaire citée par le Sénat : cent cases, quatre-vingts sûres au bleu bille, dix de
+ *  plus en bleu clair (« jusqu'à ») ; dessous, qui cite quoi */
+const reglementsP27: Board = p => {
+  const pct = cueOf(p, 0)
+  const m = /(\d+) à (\d+)/.exec(plain(pct?.text ?? ''))
+  if (!pct || !m) return null
+  const low = Number(m[1])
+  const high = Number(m[2])
+  if (!(low < high && high <= 100)) return null
+  const lies = word(p, /liés au trafic de stupéfiants/)
+  const note = word(p, /Le Sénat cite une note de la police judiciaire de \d{4}/)
+  return (
+    <Seg>
+      <HeadCues p={p} />
+      <Sur100 p={p} kind="carre" low={low} high={high} caption={lies?.text ?? null} cues={[]} shown={pct.shown} />
+      {note ? (
+        <p class={cls('vc-source', note.shown ? 'vc-rise' : 'vc-wait')} style={at(1400)}>
+          {note.text}
+        </p>
+      ) : null}
+    </Seg>
+  )
+}
+
+/** drogues-01 (2027, même voix, dessin corrigé) « Le cannabis est interdit en France. Mais le trafic de drogues
+ *  fait vivre des réseaux criminels. » : le texte de loi, marqué du mot dit (« interdit ») quand la voix le dit ; à
+ *  côté, sans flèche qui les relie (une flèche suggérerait une cause), la liasse de billets quand la voix parle du
+ *  trafic ; puis le point d'interrogation, et la question en titre */
+const drogues01p27: Board = p => {
+  const ban = cueOf(p, 0)
+  const q = cueOf(p, 1)
+  const trafic = word(p, /le trafic de drogues/)
+  if (!ban || !q || !trafic) return null
+  // Le tampon, penché sur la page du document (pictogramme de 96 unités posé en (6, 4) : page de x 26 à 84)
+  const cx = 55
+  const cy = 62
+  return (
+    <Seg>
+      <HeadCues p={p} ask only={[1]} />
+      <Art h={100}>
+        <Picto n="document" x={6} y={4} size={96} t0={100} />
+        {ban.shown ? (
+          <g transform={`rotate(-9 ${cx} ${cy})`}>
+            <Fade t0={0}>
+              <path class="vc-paper" d={`M${cx - 42} ${cy - 15}h84v30h-84z`} />
+            </Fade>
+            <Ink d={`M${cx - 42} ${cy - 15}h84v30h-84z`} t0={0} dur={500} class="vc-bold" />
+            <Txt x={cx} y={cy + 6} text={ban.text} size={17} t0={300} />
+          </g>
+        ) : null}
+        {trafic.shown ? <Billets x={156} y={8} size={74} t0={0} /> : null}
+        {q.shown ? <Ask x={254} y={20} h={66} t0={0} /> : null}
+      </Art>
+    </Seg>
+  )
+}
+
 /* ——— Le registre ——— */
 
 export const SECURITE_JUSTICE: Record<string, Board> = {
@@ -1323,4 +1501,10 @@ export const SECURITE_JUSTICE: Record<string, Board> = {
   'securite-lycees-07': lycees07,
   'securite-lycees-08': lycees08,
   'securite-lycees-09': lycees09,
+  // Édition présidentielle 2027 : passages corrigés ou ajoutés
+  'securite-intro-07-p27': intro07p27,
+  'securite-intro-08-p27': intro08p27,
+  'securite-police-01-violences-p27': violencesP27,
+  'securite-drogues-02-reglements-p27': reglementsP27,
+  'securite-drogues-01-p27': drogues01p27,
 }

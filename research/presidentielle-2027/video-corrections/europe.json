@@ -1,0 +1,334 @@
+[
+ {
+  "id": "europe-10",
+  "target": "video",
+  "questionId": "",
+  "videoId": "europe-deficits",
+  "segmentId": "europe-deficits-05",
+  "field": "say, spoken, visual, figure, chart, draw, alt, sources",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "La vidéo sur les règles budgétaires montre la France seule face aux valeurs de référence, sans dire qu’une large part de l’Union les dépasse aussi. À faire avec europe-9. Il faut réenregistrer la voix de ce passage, spoken compris. La carte du chiffre Eurostat s’affiche à l’écran avec les moyennes de l’UE, sans être dites. Cela remplace les corrections du centre sur europe-deficits-04, qui mélangeaient deux sources dans une seule carte.",
+  "current": "Sa dette publique atteint 115,7 % du PIB fin 2025, pour une valeur de référence de 60 %.",
+  "proposed": "say : « Sa dette publique atteint 115,7 % du PIB fin 2025, pour une valeur de référence de 60 %. Dans l’Union, onze États ont un déficit d’au moins 3 %, et douze une dette de plus de 60 %. » | spoken : « Sa dette publique atteint cent quinze virgule sept pour cent du P.I.B. fin deux mille vingt-cinq, pour une valeur de référence de soixante pour cent. Dans l’Union, onze États ont un déficit d’au moins trois pour cent, et douze une dette de plus de soixante pour cent. » | visual : 'figure' ; figure : le chiffre figures[2] d’europe-2 (value « 11 sur 27 », son libellé, sa date), sourceIndex 2 ; chart : { kind: 'part', value: 11, total: 27, whole: 'États membres de l’UE' } | sources : [REGLES_BUDGET, INSEE, EUROSTAT_2025], avec EUROSTAT_2025 = la source ci-dessous | draw : « Deux barres à la même échelle, depuis zéro : la valeur de référence et la dette de la France ; puis deux rangées de 27 cases, une par État : onze se colorent pour le déficit, douze pour la dette. » | alt : « Deux barres à la même échelle : la valeur de référence, 60 %, et la France, 115,7 %. Puis deux rangées de 27 cases : 11 pour le déficit, 12 pour la dette. » | emphasis : ['115,7 %', 'onze États', 'douze']",
+  "newSource": {
+   "title": "Euro area government deficit at 2.9% and EU at 3.1% of GDP",
+   "url": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-22042026-ap",
+   "publisher": "Eurostat",
+   "date": "2026-04-22"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche",
+   "centre"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "europe-9"
+  ],
+  "rationale": "Une fois europe-9 appliqué, la fiche donne le chiffre qui compte pour l’autre côté, et la vidéo doit le montrer (GUIDE § 5). Le réenregistrement porte sur un seul passage. Les moyennes de l’UE, qui intéressent le centre, sont à l’écran sans charger la voix. Pas de nouveau passage : la série est au plafond de 45.",
+  "verification": "confirmed : La phrase ajoutée reprend le communiqué Eurostat à la lettre : un déficit « equal to or higher than 3% », soit « au moins 3 % », et une dette « higher than 60% », soit « plus de 60 % ». Le passage n’entre pas en conflit avec la source. Les 115,7 % dits viennent de l’Insee (mai 2026). Eurostat donne 115,6 % (avril 2026), mais la carte n’affiche pas la dette de la France. L’ajout suit GUIDE § 5, qui demande de montrer aussi le chiffre qui compte pour l’autre côté. Réserve : la mise à jour d’octobre 2026 par Eurostat touchera aussi ce passage et sa voix. Il faut l’inscrire dans « Datée » (europe-23).",
+  "topic": "europe",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "europe-20",
+  "target": "video",
+  "questionId": "",
+  "videoId": "europe-intro",
+  "segmentId": "europe-intro-06",
+  "field": "say (et draw, emphasis, sources)",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "C’est le seul passage de la série qui présente le marché unique, et il ne le décrit que par des contrôles et l’ouverture de monopoles, jamais par la libre circulation. Il faut réenregistrer la voix de ce passage : c’est nécessaire, puisque la question de cette élection porte sur ses règles. Aucun chiffre, donc pas de spoken. À faire après europe-19. Ajouter aux sources de la vidéo la fiche « Le marché intérieur : principes généraux ».",
+  "current": "Le marché unique a aussi ses règles. L’Union contrôle les ententes, les fusions et les aides publiques aux entreprises. Et elle a ouvert à la concurrence d’anciens monopoles publics.",
+  "proposed": "say : « Le marché unique a aussi ses règles. Il repose sur la libre circulation des marchandises, des personnes, des services et des capitaux. L’Union y contrôle les ententes, les fusions et les aides publiques aux entreprises, et elle a ouvert à la concurrence d’anciens monopoles publics. » | draw : quatre petites flèches franchissent une frontière en pointillé (un colis, une personne, une mallette, des pièces), puis la loupe au-dessus des deux immeubles, le compteur et le train. | emphasis : ['libre circulation', 'contrôle', 'ouvert à la concurrence'] | sources : ajouter la fiche « Le marché intérieur : principes généraux ».",
+  "newSource": {
+   "title": "Le marché intérieur : principes généraux – Fiches thématiques sur l’Union européenne",
+   "url": "https://www.europarl.europa.eu/factsheets/fr/sheet/33/le-marche-interieur-principes-generaux",
+   "publisher": "Parlement européen",
+   "date": "2026-03"
+  },
+  "checked": true,
+  "lenses": [
+   "centre"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "europe-19"
+  ],
+  "rationale": "Le passage est ramené à trois phrases (GUIDE § 3). C’est un fait de définition, sans approche. Avec europe-21 et europe-22, il peut être réenregistré dans la même séance.",
+  "verification": "adjusted : Même source et même réserve qu’europe-19. La fiche dit que la libre circulation « est assurée » dans un espace sans frontières intérieures, et que des obstacles « subsistent ». « Il repose sur la libre circulation » reste vrai pour les deux lectures. « Y circulent librement » affirmait un état de fait que la fiche nuance. Le passage reste à trois phrases, sans chiffre, donc pas de spoken. Il faut réenregistrer la voix.",
+  "topic": "europe",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "europe-21",
+  "target": "video",
+  "questionId": "",
+  "videoId": "europe-concurrence",
+  "segmentId": "europe-concurrence-08",
+  "field": "say, spoken, emphasis",
+  "category": "origine",
+  "severity": "important",
+  "issue": "La vidéo se termine sur la question de la primaire (« quelle place pour la concurrence dans le marché unique ? »), alors que celle de cette élection est « Comment faire évoluer les règles du marché unique européen ? ». Le débat se trouve réduit à plus ou moins de concurrence. Il faut réenregistrer la voix de ce passage : c’est nécessaire, puisque c’est la phrase finale, montrée au-dessus de la question.",
+  "current": "Les règles sur les fusions sont réexaminées en 2026. Alors, quelle place pour la concurrence dans le marché unique ?",
+  "proposed": "Les règles sur les fusions sont réexaminées en 2026. Alors, comment faire évoluer les règles du marché unique ? | spoken : « Les règles sur les fusions sont réexaminées en deux mille vingt-six. Alors, comment faire évoluer les règles du marché unique ? » | emphasis : ['réexaminées', 'faire évoluer']",
+  "lenses": [
+   "centre"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "europe-22"
+  ],
+  "rationale": "La question de fin reste ouverte et reprend l’énoncé de cette élection. Elle ne contient aucune réponse.",
+  "topic": "europe",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "europe-23",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "en-tête du fichier europe.ts (mention « Datée »)",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "La mention « Datée » ne signale pas des chiffres qui seront dépassés avant le premier tour du 18 avril 2027. D’abord le déficit (5,1 %) et la dette (115,7 %) de 2025 : l’Insee publiera ceux de 2026 fin mars 2027. Ensuite le solde net de 2024 et les rabais de 2025, tirés du rapport du Sénat sur le PLF 2026 : son rapport sur le PLF 2027 les remplacera vers fin novembre 2026. Les fiches europe-2 doivent suivre les mêmes mises à jour. Problème relevé par les trois sensibilités.",
+  "current": "À revoir après l'adoption du budget 2028-2034 et la fin du réexamen des fusions.",
+  "proposed": "À revoir après l'adoption du budget 2028-2034 et la fin du réexamen des fusions. Avant le premier tour du 18 avril 2027 : déficit et dette de 2025 (Insee, mai 2026), à remplacer par ceux de 2026, que l'Insee publiera fin mars 2027 ; nombre d'États au-dessus des valeurs de référence et moyennes de l'UE (Eurostat, avril 2026), à mettre à jour avec la notification d'octobre 2026 ; solde net de 2024 et rabais de 2025 (Sénat, rapport sur le PLF 2026), à mettre à jour avec son rapport sur le PLF 2027 (vers fin novembre 2026).",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "rationale": "Cette version fusionne les trois propositions. La gravité passe à « important » parce que trois sensibilités l’ont relevé et que la mise à jour tombe avant le vote. La procédure pour déficit excessif (centre) n’est pas reprise, faute d’être dans la fiche. Le PLF 2027 (droite) n’est pas dans la série vidéo : sa mise à jour concerne la fiche (europe-15), après le vote de la loi de finances.",
+  "newSource": {
+   "title": "Le compte des administrations publiques en 2025 – Insee Première n° 2106",
+   "url": "https://www.insee.fr/fr/statistiques/8997691",
+   "publisher": "Insee",
+   "date": "2026-05-29"
+  },
+  "verification": "adjusted : Le constat est juste : l’en-tête actuel d’europe.ts ne signale aucun de ces chiffres. La page Insee Première n° 2106 (parue le 29 mai 2026) indique que le compte est « très peu révisé par rapport à la version publiée fin mars ». Une publication des comptes de 2026 fin mars 2027 est donc l’usage, sans date officielle lue. La date du rapport du Sénat sur le PLF 2027 est estimée d’après celle du rapport sur le PLF 2026 (24 novembre 2025), d’où « vers ». J’ajoute le chiffre Eurostat, qui entre dans la série avec europe-10 : la notification d’octobre 2026, attendue fin octobre avant le vote, pourra modifier les 11 et 12 États et les moyennes. La phrase sur Eurostat ne vaut que si europe-9 et europe-10 sont appliqués.",
+  "topic": "europe",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "europe-5",
+  "target": "video",
+  "questionId": "",
+  "videoId": "europe-traites",
+  "segmentId": "europe-traites-02",
+  "field": "say (et draw, alt, emphasis)",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "La vidéo sur les traités explique comment les réviser et les ratifier, mais jamais qu’un État peut quitter l’Union, alors que c’est une approche de cette élection. Le centre et la droite demandaient un nouveau passage. La série compte déjà 45 passages, le plafond du test (MAX_PER_SERIES) : le fait est donc ajouté à europe-traites-02. Il faut réenregistrer la voix de ce passage. Aucun chiffre écrit, donc pas de spoken.",
+  "current": "Pour réviser un traité, il faut l’accord de tous les États. Puis chacun doit le ratifier, par son Parlement ou par référendum.",
+  "proposed": "say : « Pour réviser un traité, il faut l’accord de tous les États. Puis chacun doit le ratifier, par son Parlement ou par référendum. Un État peut aussi quitter l’Union, avec une période de négociation de deux ans, prolongeable. » | draw : « 27 cases toutes colorées mènent à un texte ; de là, deux chemins : un édifice à colonnes, ou une urne. À part, une case quitte la rangée, au bout d’une frise de deux ans prolongée en pointillé. » | alt : « 27 cases, une par État, toutes d’accord ; puis un Parlement ou une urne. À part, une case quitte la rangée, avec une période de négociation de deux ans, prolongeable. » | emphasis : ['tous les États', 'référendum', 'quitter l’Union']",
+  "newSource": {
+   "title": "Le traité de Lisbonne – Fiches thématiques sur l’Union européenne",
+   "url": "https://www.europarl.europa.eu/factsheets/fr/sheet/5/le-traite-de-lisbonne",
+   "publisher": "Parlement européen",
+   "date": "2026-04"
+  },
+  "checked": true,
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "europe-3"
+  ],
+  "rationale": "Les deux propositions de nouveau passage (centre, droite) sont fusionnées dans un passage existant pour respecter le plafond de 45 passages. Le fait vient de la fiche, après europe-3. La source LISBONNE figure déjà dans la vidéo. Le Royaume-Uni n’est pas nommé, pour garder trois phrases courtes. C’est un fait du traité, sans approche, et le dessin reste neutre, sans drapeau.",
+  "verification": "adjusted : Le fait vient de la même fiche que europe-3 : « période de négociation de deux ans (prorogeable) » pour les pays qui veulent quitter l’Union. Le manque est réel : aucun passage de la vidéo europe-traites ne parle de retrait. La phrase proposée, « après une négociation de deux ans, prolongeable », laisse croire qu’il faut négocier deux ans avant de partir. Or c’est un délai maximal, que le Royaume-Uni a d’ailleurs dépassé. D’où « avec une période de négociation de deux ans », la formule de la fiche. « Deux ans » est écrit en lettres, donc pas de spoken. Ce nombre doit figurer dans la fiche, ce qu’europe-3 assure.",
+  "topic": "europe",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "europe-6",
+  "target": "video",
+  "questionId": "",
+  "videoId": "europe-traites",
+  "segmentId": "europe-traites-05",
+  "field": "say, spoken, draw, alt, emphasis",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "Le seul rejet par référendum que raconte la vidéo est celui de l’Irlande, suivi d’un second vote favorable. Le « non » français et néerlandais de 2005 et la ratification parlementaire du traité de Lisbonne en France manquent. Le passage laisse ainsi entendre qu’un « non » se règle toujours par un second référendum. Il faut réenregistrer la voix de ce passage, spoken compris, et adapter sa planche.",
+  "current": "Un État peut aussi obtenir des garanties. Après un premier « non » par référendum, l’Irlande en a obtenu, puis a ratifié le traité de Lisbonne lors d’un second référendum.",
+  "proposed": "say : « En 2005, la France et les Pays-Bas ont rejeté par référendum un projet de Constitution européenne. Le traité de Lisbonne, presque identique selon le Parlement européen, a été ratifié en France par la voie parlementaire. L’Irlande, elle, l’a ratifié par un second référendum, après des garanties. » | spoken : « En deux mille cinq, la France et les Pays-Bas ont rejeté par référendum un projet de Constitution européenne. Le traité de Lisbonne, presque identique selon le Parlement européen, a été ratifié en France par la voie parlementaire. L’Irlande, elle, l’a ratifié par un second référendum, après des garanties. » | draw : « Une frise : au jalon 2005, deux urnes et leur « non » ; puis le texte du traité de Lisbonne, d’où partent deux chemins : pour la France, un édifice à colonnes ; pour l’Irlande, une urne et son « non », puis une seconde urne avec sa coche. » | alt : « Une frise : les deux « non » de 2005, puis le traité de Lisbonne, ratifié en France par le Parlement, et en Irlande par un second référendum, après un premier « non ». » | emphasis : ['rejeté par référendum', 'la voie parlementaire', 'second référendum']",
+  "newSource": {
+   "title": "Le traité de Lisbonne – Fiches thématiques sur l’Union européenne",
+   "url": "https://www.europarl.europa.eu/factsheets/fr/sheet/5/le-traite-de-lisbonne",
+   "publisher": "Parlement européen",
+   "date": "2026-04"
+  },
+  "checked": true,
+  "lenses": [
+   "droite",
+   "gauche"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "europe-4"
+  ],
+  "rationale": "Ce passage reprend la proposition de la droite, raccourcie pour rester proche de 12 secondes. L’appréciation sur le contenu est attribuée au Parlement européen. La gauche jugeait ce réenregistrement non urgent. Je le retiens : sur la ratification, la vidéo n’est équilibrée qu’avec le précédent français, qui suit d’ailleurs la fiche corrigée (europe-4).",
+  "verification": "adjusted : Mêmes passages de la fiche Lisbonne que pour europe-4 : le rejet de 2005 en France et aux Pays-Bas, un contenu « à peu de choses près, identique à celui du traité constitutionnel », la ratification parlementaire en France et le second référendum irlandais après des garanties. Le say et le spoken sont exacts et attribués, je les garde tels quels. Le problème se trouvait dans le dessin et le texte alternatif proposés. La « seconde urne » venait juste après les deux urnes de 2005, sans urne irlandaise avant elle, et l’alt disait « par un Parlement ou par un second référendum ». On pouvait donc croire que la France ou les Pays-Bas avaient revoté. Le dessin et l’alt attribuent maintenant chaque chemin à son pays et montrent le premier « non » irlandais. Le nombre « 2005 » doit figurer dans la fiche, ce que garantit europe-4.",
+  "topic": "europe",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "europe-11",
+  "target": "video",
+  "questionId": "",
+  "videoId": "europe-budget",
+  "segmentId": "europe-budget-08",
+  "field": "figure (bloc entier) et visual",
+  "category": "chiffres",
+  "severity": "mineur",
+  "issue": "Avec europe-9, le montant des rabais n’est plus la valeur d’un chiffre de la fiche, mais une phrase du libellé du solde net. La carte du passage doit donc disparaître. Le texte dit reste juste et sourcé : pas de voix à réenregistrer.",
+  "current": "Part payée par la France pour financer les rabais accordés à cinq pays : Allemagne (2,2 Md€), Pays-Bas (1,7 Md€), Suède (0,9 Md€), Autriche (0,4 Md€) et Danemark (0,2 Md€). La France est le premier financeur de ces rabais",
+  "proposed": "Retirer `figure` du passage et passer `visual` de 'figure' à 'point' ; garder say, spoken, draw et emphasis.",
+  "lenses": [
+   "gauche",
+   "centre"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "europe-9"
+  ],
+  "rationale": "C’est la conséquence mécanique d’europe-9 (GUIDE § 6 : la `value` d’une carte est celle d’un chiffre de la fiche). Le fait reste dit à l’oral et sourcé (SENAT).",
+  "verification": "confirmed : C’est la conséquence mécanique d’europe-9. Le libellé actuel de la carte, que j’ai vérifié dans europe.ts, est bien celui de figures[2] (rabais), qui disparaît. Une fois europe-9 appliqué, les 1,5 Md€ et la liste des cinq pays figurent dans le libellé de figures[1], qui a la même source (Sénat). Dans la vidéo europe-budget, SENAT est en sourceIndex 1. Le say reste juste et sourcé.",
+  "topic": "europe",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "europe-13",
+  "target": "video",
+  "questionId": "",
+  "videoId": "europe-budget",
+  "segmentId": "europe-budget-07",
+  "field": "figure.label (constante SOLDE, partagée avec europe-intro-05)",
+  "category": "exactitude",
+  "severity": "mineur",
+  "issue": "Ce libellé suit la précision de méthode apportée au chiffre figures[1] d’europe-2 (europe-12). Il s’affiche sans être dit : pas de voix à réenregistrer.",
+  "current": "Solde net de la France avec le budget européen (versements moins dépenses de l’UE en France)",
+  "proposed": "Solde net de la France avec le budget européen, selon la méthode comptable (versements moins dépenses de l’UE en France)",
+  "lenses": [
+   "centre"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "europe-12"
+  ],
+  "rationale": "C’est la jumelle d’europe-12. La phrase sur les rabais ajoutée par europe-9 n’a pas à entrer dans la constante : le libellé d’une carte peut être raccourci (GUIDE § 6).",
+  "verification": "confirmed : C’est la jumelle d’europe-12, même source. La constante SOLDE d’europe.ts sert bien à europe-intro-05 et à europe-budget-07. Le libellé s’affiche sans être dit, donc pas de voix à réenregistrer.",
+  "topic": "europe",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "europe-16",
+  "target": "video",
+  "questionId": "",
+  "videoId": "europe-budget",
+  "segmentId": "europe-budget-07",
+  "field": "draw, alt (et planche echanges() de pistes/planches/europe.tsx)",
+  "category": "chiffres",
+  "severity": "mineur",
+  "issue": "Le passage dit que la France verse 7,9 milliards de plus qu’elle ne reçoit, mais le texte alternatif décrit « deux flèches de même taille ». Ce dessin suggère un échange équilibré. La fiche ne donne pas les montants bruts de 2024 : allonger une flèche grossirait un écart sans échelle. Selon le GUIDE (§ 10.5), l’écart se désigne du doigt. Pas de voix à réenregistrer.",
+  "current": "Deux flèches de même taille entre la France et le budget européen : sa contribution, et ce qu’elle a reçu.",
+  "proposed": "alt : « Deux flèches entre la France et le budget européen : sa contribution, et ce qu’elle a reçu ; un crochet désigne ce qu’elle verse en plus. » | draw : « Deux flèches de sens contraire entre la France et le budget européen : ce qu’elle verse, ce qu’elle reçoit ; au bout de la première, un crochet désigne ce qu’elle verse en plus. »",
+  "lenses": [
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "europe-17"
+  ],
+  "rationale": "Le problème est réel : l’image contredit la phrase. La proposition de la droite (« la plus large ») est ajustée, car une flèche plus large sans montants grossirait l’écart, ce que le GUIDE interdit. Le crochet montre l’écart sans le chiffrer à l’œil. La gravité passe à « mineur » : la voix et la carte du chiffre disent déjà l’écart.",
+  "verification": "confirmed : J’ai vérifié dans le code. La planche echanges() de src/ui/videos/pistes/planches/europe.tsx trace deux Arrow de même longueur, de x 92 à 206. Le texte alternatif actuel (« de même taille ») décrit donc fidèlement un dessin qui suggère un échange équilibré, alors que la voix dit 7,9 Md€ de plus versés que reçus. Le problème est réel. La correction est une question de dessin, sans fait sourcé à vérifier : elle n’ajoute aucun montant et n’exagère pas l’écart à l’œil. La planche est à modifier en conséquence.",
+  "topic": "europe",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "europe-17",
+  "target": "video",
+  "questionId": "",
+  "videoId": "europe-intro",
+  "segmentId": "europe-intro-05",
+  "field": "alt, draw (et planche)",
+  "category": "chiffres",
+  "severity": "mineur",
+  "issue": "C’est le même défaut qu’au passage europe-budget-07 : la France est dite « deuxième contributeur net », mais le texte alternatif décrit deux flèches « de même taille ». Pas de voix à réenregistrer.",
+  "current": "Deux flèches de même taille entre la France et le budget européen, une dans chaque sens.",
+  "proposed": "alt : « Deux flèches entre la France et le budget européen, une dans chaque sens ; un crochet désigne ce qu’elle verse en plus. » | draw : « Deux flèches de sens contraire entre la France et le budget européen : ce qu’elle reçoit, ce qu’elle verse ; chacune avec sa légende, et un crochet qui désigne ce qu’elle verse en plus. »",
+  "lenses": [
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "europe-16"
+  ],
+  "rationale": "C’est la jumelle d’europe-16, avec la même planche (echanges).",
+  "verification": "confirmed : Même planche echanges() (flèches de même longueur) et même défaut qu’à europe-budget-07. L’alt actuel d’europe-intro-05, vérifié dans europe.ts, dit bien « Deux flèches de même taille », alors que le passage dit « deuxième contributeur net ». C’est la jumelle d’europe-16.",
+  "topic": "europe",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "europe-22",
+  "target": "video",
+  "questionId": "",
+  "videoId": "europe-intro",
+  "segmentId": "europe-intro-07",
+  "field": "say, spoken, emphasis",
+  "category": "origine",
+  "severity": "mineur",
+  "issue": "La cinquième question annoncée reprend celle de la primaire. Il faut réenregistrer la voix de ce passage pour qu’il reste cohérent avec la nouvelle fin de la vidéo sur la concurrence (europe-21).",
+  "current": "Alors, cinq questions se posent. Comment décider à 27 ? Quelle direction pour la construction européenne ? Qui finance le budget européen ? Quelles règles pour les budgets des États ? Et quelle place pour la concurrence ?",
+  "proposed": "Alors, cinq questions se posent. Comment décider à 27 ? Quelle direction pour la construction européenne ? Qui finance le budget européen ? Quelles règles pour les budgets des États ? Et comment faire évoluer le marché unique ? | spoken : « … Et comment faire évoluer le marché unique ? » | emphasis : ['Comment décider', 'Qui finance', 'le marché unique']",
+  "lenses": [
+   "centre"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "europe-21"
+  ],
+  "rationale": "C’est la jumelle d’europe-21. Elle reste mineure : la formulation actuelle n’est pas fausse, mais elle ne correspond plus à la question posée.",
+  "topic": "europe",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "europe-7",
+  "target": "video",
+  "questionId": "",
+  "videoId": "europe-decider",
+  "segmentId": "europe-decider-03",
+  "field": "say (et draw, sources)",
+  "category": "cadrage",
+  "severity": "mineur",
+  "issue": "Les exemples d’unanimité laissent de côté la politique étrangère et la fiscalité. Or ce sont les domaines au cœur du débat sur le veto, et le contexte de la question les cite. Le passage n’est pas faux, puisqu’il dit « par exemple ». Il faudrait réenregistrer sa voix : à faire au prochain enregistrement, après europe-2. Aucun chiffre écrit, donc pas de spoken.",
+  "current": "Mais dans quelques domaines, il faut l’unanimité. Par exemple : le budget sur sept ans, l’entrée de nouveaux pays, la révision des traités, la création d’un impôt européen.",
+  "proposed": "Mais dans quelques domaines, il faut l’unanimité. Par exemple : la politique étrangère, la fiscalité, le budget sur sept ans, l’entrée de nouveaux pays, la révision des traités. | draw : cinq pictogrammes légendés (un globe, un billet, des pièces, une porte, un texte). | sources : RECETTES n’est plus citée dans cette vidéo, elle peut en sortir.",
+  "newSource": {
+   "title": "Le Conseil de l’Union européenne – Fiches thématiques sur l’Union européenne",
+   "url": "https://www.europarl.europa.eu/factsheets/fr/sheet/24/le-conseil-de-l-union-europeenne",
+   "publisher": "Parlement européen",
+   "date": "2026-09"
+  },
+  "checked": true,
+  "lenses": [
+   "centre",
+   "gauche"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "europe-2"
+  ],
+  "rationale": "Cette correction est jumelle du résumé d’europe-1 (europe-2). Elle reste mineure parce que le texte actuel n’est pas faux. La gauche n’en parlait que dans ses notes, pour un prochain enregistrement. Le passage europe-intro-03 (« comme le budget sur sept ans ou l’entrée de nouveaux pays ») pourrait suivre, sans urgence.",
+  "verification": "confirmed : La fiche « Le Conseil de l’UE » (09-2026) cite la fiscalité, la PESC, le CFP, l’adhésion et la révision des traités parmi les domaines à l’unanimité. CONSEIL figure déjà dans les sources de europe-decider. J’ai relu la série : dans cette vidéo, seul europe-decider-03 s’appuyait sur RECETTES (« impôt européen »). La source peut donc sortir. L’impôt européen reste dit à europe-budget-04, qui a sa propre source RECETTES. Le texte actuel n’est pas faux : la gravité « mineur » est juste.",
+  "topic": "europe",
+  "electionQuestionId": ""
+ }
+]

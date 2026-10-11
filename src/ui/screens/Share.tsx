@@ -1,7 +1,18 @@
 import { useEffect, useState } from 'preact/hooks'
 import { downloadBlob } from '../../core/exportData'
 import { displayScore, type Results } from '../../core/score'
-import { canvasToJpeg, flaggedCount, offPosterText, othersText, posterRanking, renderShareImage, shareFileName } from '../../core/shareImage'
+import {
+  canvasToJpeg,
+  flaggedCount,
+  offPosterText,
+  othersText,
+  posterNotes,
+  posterPositions,
+  posterRanking,
+  renderShareImage,
+  shareFileName,
+  type PosterView,
+} from '../../core/shareImage'
 import type { SessionState } from '../../core/storage'
 import type { ElectionPack } from '../../core/types'
 import { FormHeader } from '../components/FormHeader'
@@ -17,6 +28,7 @@ interface Props {
 
 export function Share({ pack, results }: Props) {
   const [showFlags, setShowFlags] = useState(false)
+  const [view, setView] = useState<PosterView>('top')
   const [blob, setBlob] = useState<Blob | null>(null)
   const [url, setUrl] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -28,7 +40,7 @@ export function Share({ pack, results }: Props) {
     setError(null)
     setUrl(null)
     setBlob(null)
-    renderShareImage(pack, results, { showFlags })
+    renderShareImage(pack, results, { showFlags, view })
       .then(canvasToJpeg)
       .then(b => {
         if (!alive) return
@@ -41,24 +53,29 @@ export function Share({ pack, results }: Props) {
       alive = false
       if (made) URL.revokeObjectURL(made)
     }
-  }, [pack, results, showFlags])
+  }, [pack, results, showFlags, view])
 
-  const file = blob ? new File([blob], shareFileName(pack), { type: 'image/jpeg' }) : null
+  const fileName = shareFileName(pack, new Date(), view)
+  const file = blob ? new File([blob], fileName, { type: 'image/jpeg' }) : null
   const names = new Map(pack.candidates.map(c => [c.id, c.name]))
-  // Le texte de remplacement dit ce que montre l'image : les mêmes lignes, les autres candidats en une fois, puis
-  // le nombre de candidats hors classement et non classés (seuls les classés sont sur l'affiche)
-  const { shown, others } = posterRanking(results, showFlags)
+  // Le texte de remplacement dit ce que montre l'image : les mêmes lignes et leurs numéros, les autres candidats en
+  // une fois, le nombre de candidats hors classement et non classés (seuls les classés sont sur l'affiche), puis les
+  // mêmes notes de pied
+  const { shown, others } = posterRanking(results, showFlags, view)
+  const positions = posterPositions(results, showFlags)
   const othersFlagged = showFlags ? flaggedCount(others) : 0
   const othersAlt = others.length
-    ? `, et ${othersText(others)}${othersFlagged ? `, dont ${othersFlagged} marqué${othersFlagged > 1 ? 's' : ''} d’une croix` : ''}`
+    ? `, et ${othersText(others, view, showFlags)}${othersFlagged ? `, dont ${othersFlagged} marqué${othersFlagged > 1 ? 's' : ''} d’une croix` : ''}`
     : ''
   const listed = shown
-    .map(r => `${names.get(r.candidateId)} ${displayScore(r.score) ?? '–'} %${showFlags && !r.compatible ? ' (croix)' : ''}`)
+    .map(r => `${positions.get(r.candidateId)}. ${names.get(r.candidateId)} ${displayScore(r.score) ?? '–'} %${showFlags && !r.compatible ? ' (croix)' : ''}`)
     .join(', ')
   const off = offPosterText(results.unranked.length, results.excluded.length)
-  const alt = `Affiche « Mon dépouillement », ${pack.election.shortName}, sur ${results.answered} réponses${
-    listed ? ` : ${listed}${othersAlt}` : ''
-  }.${off ? ` ${off}.` : ''}`
+  const alt = `Affiche « Mon dépouillement »${view === 'flop' ? ', les plus éloignés de mes idées' : ''}, ${pack.election.shortName}, sur ${
+    results.answered
+  } réponses${listed ? ` : ${listed}${othersAlt}` : ''}.${off ? ` ${off}.` : ''}${posterNotes(results, showFlags)
+    .map(n => ` ${n}`)
+    .join('')}`
   const canShare =
     !!file && typeof navigator.canShare === 'function' && navigator.canShare({ files: [file] })
 
@@ -83,6 +100,17 @@ export function Share({ pack, results }: Props) {
           L’image est fabriquée sur cet appareil. Elle montre vos pourcentages d’affinité, pas vos réponses. Une
           préférence politique reste une donnée sensible : vous choisissez seul où l’envoyer.
         </p>
+
+        {results.ranking.length > 1 ? (
+          <div class="segmented" role="group" aria-label="Candidats sur l’affiche">
+            <button type="button" aria-pressed={view === 'top'} onClick={() => setView('top')}>
+              Les plus proches
+            </button>
+            <button type="button" aria-pressed={view === 'flop'} onClick={() => setView('flop')}>
+              Les plus éloignés
+            </button>
+          </div>
+        ) : null}
 
         <label class="switch">
           <input type="checkbox" checked={showFlags} onChange={e => setShowFlags((e.currentTarget as HTMLInputElement).checked)} />
@@ -110,7 +138,7 @@ export function Share({ pack, results }: Props) {
             Résultats
           </a>
           {canShare ? (
-            <button type="button" class="btn-text" disabled={!blob} onClick={() => blob && downloadBlob(blob, shareFileName(pack))}>
+            <button type="button" class="btn-text" disabled={!blob} onClick={() => blob && downloadBlob(blob, fileName)}>
               <Icon name="download" />
               Télécharger le JPG
             </button>
@@ -123,7 +151,7 @@ export function Share({ pack, results }: Props) {
               <Icon name="share" />
             </button>
           ) : (
-            <button type="button" class="btn-primary" disabled={!blob} onClick={() => blob && downloadBlob(blob, shareFileName(pack))}>
+            <button type="button" class="btn-primary" disabled={!blob} onClick={() => blob && downloadBlob(blob, fileName)}>
               Télécharger
               <Icon name="download" />
             </button>

@@ -905,6 +905,36 @@ const partage07: Board = p => {
   )
 }
 
+/** 07, édition présidentielle 2027 : « Aucune loi ne plafonne ces écarts dans le privé, mais les sociétés cotées
+ *  doivent les publier pour leurs dirigeants », écrite quand la voix la dit (« doivent les publier » souligné) ;
+ *  un document au bleu bille à côté de l'immeuble quand la voix le dit ; puis « Profits, décisions, salaires :
+ *  quelle place pour les salariés ? », écrite quand la voix la pose (sa place gardée d'avance). Lit le passage
+ *  lui-même (p.segment), jamais la série d'origine. */
+const partage07p27: Board = p => {
+  const pub = cuesOf(p).find(c => /publier/.test(c.text))
+  const ask = sentencesOf(p.segment.say).find(x => /\?$/.test(x))
+  const first = sentenceWith(p.segment.say, pub?.text)
+  if (!pub || !ask || !first) return null
+  const asked = heard(p, ask.split(' ').slice(0, 3).join(' '))
+  return (
+    <Seg kind="ask">
+      <Note p={p} text={first} />
+      <Art h={120}>
+        <Picto n="immeuble" x={6} y={20} size={92} t0={100} />
+        {pub.shown ? <Picto n="document" x={74} y={50} size={56} tone="count" t0={100} /> : null}
+        <Picto n="pieces" x={130} y={62} size={52} t0={500} />
+        {[218, 248, 278].map((cx, i) => (
+          <Picto key={cx} n="personne" x={cx - 15} y={82} size={30} t0={800 + i * 120} />
+        ))}
+        {asked ? <Ask x={142} y={2} h={52} t0={100} /> : null}
+      </Art>
+      <div class={asked ? undefined : 'vc-wait'}>
+        <Question p={p} t0={0} />
+      </div>
+    </Seg>
+  )
+}
+
 /* ——— Droits des salariés ——— */
 
 /** 01 Un licenciement jugé injustifié : combien obtenir ? */
@@ -1412,6 +1442,7 @@ export const TRAVAIL_SALAIRES: Record<string, Board> = {
   'travail-partage-05': partage05,
   'travail-partage-06': partage06,
   'travail-partage-07': partage07,
+  'travail-partage-07-p27': partage07p27,
   'travail-droits-01': droits01,
   'travail-droits-02': droits02,
   'travail-droits-03': droits03,

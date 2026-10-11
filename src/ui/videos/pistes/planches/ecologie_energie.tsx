@@ -1634,6 +1634,186 @@ const adaptation08: Board = p => (
   </Seg>
 )
 
+/* ——— Édition présidentielle 2027 (passages corrigés, src/ui/videos/editions/presidentielle-2027/ecologie_energie.ts) ———
+ * Les planches ci-dessous ne lisent que le passage corrigé (p.segment) et sa vidéo (p.script) ; celles du dessus
+ * restent celles de la primaire, à l'identique. */
+
+/** Carburants 06 (2027) : les trois parts de 2021 à la même échelle, puis une quatrième barre, toute en pointillé,
+ *  la part simulée aux prix d'une date plus récente (la part des urbaines n'est plus un mot mis en valeur) */
+const carburants06p27: Board = p => {
+  const [all, rur, sim] = cuesOf(p)
+  const urbW = word(p, /urbaines,\s\d+(?:,\d+)?\s%/)
+  const urbText = urbW?.text.replace(/^\D+/, '')
+  const va = num(all?.text)
+  const vr = num(rur?.text)
+  const vu = num(urbText)
+  const vs = num(sim?.text)
+  const wa = word(p, /ménages avec voiture/)
+  const wr = word(p, /intercommunalités rurales/)
+  const wu = word(p, /urbaines/)
+  const ws = word(p, /[Aa]ux prix du printemps \d{4}/)
+  if (!all || !rur || !sim || !urbW || !urbText || !va || !vr || !vu || !vs) return null
+  const g = barres({
+    items: [
+      { label: wa?.text, value: va, text: all.text, shown: all.shown },
+      { label: wr?.text, value: vr, text: rur.text, shown: rur.shown },
+      { label: wu?.text, value: vu, text: urbText, shown: urbW.shown },
+      { label: ws ? bas(ws.text) : undefined, value: vs, ghostFrom: 0, text: sim.text, shown: sim.shown },
+    ],
+    y: 2,
+    size: 18,
+    gap: 26,
+    room: 84,
+    labelSize: 14,
+    t0: 100,
+  })
+  return (
+    <Seg kind="fig">
+      <Chiffre p={p} />
+      <Art h={g.h + 6}>{g.el}</Art>
+      <Src p={p} />
+    </Seg>
+  )
+}
+
+/** Électricité 03 (2027) : les chiffrages de 2022 et de fin 2023 puis la cible de 2026, trois colonnes à la même
+ *  échelle, chacune quand la voix dit son montant (le chiffre de la fiche au bleu bille) ; une flèche au bleu bille
+ *  de la première à la dernière */
+const electricite03p27: Board = p => {
+  const chart = chartOf(p.segment)
+  if (!chart || chart.kind !== 'series' || chart.items.length !== 3) return null
+  const ws = chart.items.map(it => word(p, new RegExp(`\\b${fr(it.value)}\\b`)))
+  if (ws.some(w => !w)) return null
+  const fig = num(p.segment.figure?.value)
+  const top = Math.max(...chart.items.map(i => i.value))
+  const base = 156
+  const hmax = 96
+  const colW = 54
+  const cx = [70, 150, 230]
+  const tops = chart.items.map(i => base - (i.value * hmax) / top)
+  const last = chart.items.length - 1
+  const all = ws.every(w => w!.shown)
+  return (
+    <Seg kind="fig">
+      <Chiffre p={p} />
+      <Art h={base + 30}>
+        <Ink d={`M20 ${base}H280`} t0={0} dur={500} class="vc-soft" />
+        {chart.items.map((it, i) => {
+          if (!ws[i]!.shown) return null
+          const x = cx[i]! - colW / 2
+          const y = tops[i]!
+          const count = it.value === fig
+          return (
+            <g key={i} class={count ? 'vc-count' : undefined}>
+              <Fade t0={250}>
+                <rect class={count ? 'vc-tint-count' : 'vc-tint'} x={x} y={y} width={colW} height={base - y} />
+              </Fade>
+              <Ink d={`M${x} ${base}V${y.toFixed(1)}H${x + colW}V${base}`} t0={0} dur={600} />
+              <Txt x={cx[i]!} y={y - 9} text={fr(it.value)} size={22} big t0={400} />
+              <Txt x={cx[i]!} y={base + 21} text={bas(it.label.replace(/^Chiffrage\s+/, ''))} size={15} tone="soft" t0={200} />
+            </g>
+          )
+        })}
+        {all ? <Arrow x1={cx[0]! - 8} y1={tops[0]! - 40} x2={cx[last]! - 20} y2={tops[last]! - 38} tone="count" t0={300} /> : null}
+      </Art>
+      <Src p={p} />
+    </Seg>
+  )
+}
+
+/** Électricité 04 (2027) : le solaire, puis l'hydraulique quand la voix le nomme, deux barres du graphique de la
+ *  fiche ; puis le coût prévu du soutien public, quand la voix le dit */
+const electricite04p27: Board = p => {
+  const chart = chartOf(p.segment)
+  const [, sol, cost] = cuesOf(p)
+  const hyd = word(p, /plus que l’hydraulique|plus que l'hydraulique/)
+  const what = word(p, /soutien public/)
+  const when = word(p, /en \d{4}(?=\.$)/)
+  const amount = word(p, /\d+(?:,\d+)?\smilliards d’euros|\d+(?:,\d+)?\smilliards d'euros/)
+  if (!chart || chart.kind !== 'compare' || chart.items.length !== 2 || !sol || !cost || !hyd) return null
+  const unit = chart.unit
+  const g = barres({
+    items: chart.items.map((it, i) => ({ label: it.label, value: it.value, text: `${fr(it.value)}${NB}${unit}`, tone: i === 0 ? ('count' as const) : undefined, shown: i === 0 ? sol.shown : hyd.shown })),
+    y: 4,
+    size: 24,
+    gap: 30,
+    room: 96,
+    t0: 100,
+  })
+  const y0 = 4 + g.h + 18
+  return (
+    <Seg kind="fig">
+      <Chiffre p={p} />
+      <Art h={y0 + 46}>
+        {g.el}
+        {cost.shown ? (
+          <>
+            <Picto n="pieces" x={8} y={y0} size={40} t0={0} />
+            {what ? <Txt x={58} y={y0 + 14} text={when ? `${what.text} ${when.text}` : what.text} size={14} anchor="start" tone="soft" t0={200} /> : null}
+            <Txt x={58} y={y0 + 38} text={amount?.text ?? cost.text} size={20} big anchor="start" t0={300} />
+          </>
+        ) : null}
+      </Art>
+      <Src p={p} />
+    </Seg>
+  )
+}
+
+/** Transports 05 (2027) : une frise des années ; la règle européenne (un texte au trait) à sa date ; en 2035, une
+ *  voiture neuve sous l'étiquette « 100 % » (le script dit « n'émettent plus de CO₂ ») ; puis, quand la voix le
+ *  dit, l'étiquette proposée posée à côté, sans rien barrer, et un point d'interrogation : la décision reste à
+ *  prendre */
+const transports05p27: Board = p => {
+  const [target, cut] = cuesOf(p)
+  const rule = word(p, /règle européenne de \d{4}/)
+  const ruleLabel = word(p, /règle européenne/)
+  const zero = word(p, /n’émettent plus de CO₂|n'émettent plus de CO₂/)
+  const late = word(p, /[Ff]in \d{4}/)
+  const vote = word(p, /doivent se prononcer/)
+  const y0 = yearsOf(rule?.text ?? '')[0]
+  const y1 = yearsOf(target?.text ?? '')[0]
+  if (!target || !cut || !rule || !y0 || !y1 || y1 <= y0 || y1 - y0 > 20) return null
+  const fy = 150
+  const f = frise({ y: fy, from: y0 - 1, to: y1 + 1, x0: 16, x1: 284, ticks: range(y1 - y0 + 3).map(k => y0 - 1 + k), t0: 200 })
+  const xa = f.X(y0)
+  const xb = f.X(y1)
+  // Le haut de la feuille (au-dessus du point d'interrogation) reste vide : la vue commence plus bas
+  const top = fy - 104
+  return (
+    <Seg>
+      <Art h={fy + 32 - top} y={top}>
+        {f.el}
+        {rule.shown ? (
+          <>
+            <Picto n="document" x={xa - 20} y={fy - 50} size={40} t0={0} />
+            {ruleLabel ? <Txt x={6} y={fy - 76} text={ruleLabel.text} max={10} size={14} anchor="start" t0={300} /> : null}
+            <Txt x={xa} y={fy + 24} text={String(y0)} size={15} tone="soft" t0={200} />
+          </>
+        ) : null}
+        {target.shown ? (
+          <>
+            <Dessin n="voiture" x={xb - 30} y={fy - 56} size={60} t0={0} />
+            <Txt x={xb} y={fy + 26} text={target.text} size={18} big tone="count" t0={200} />
+            {zero?.shown ? (
+              <>
+                <Txt x={xb} y={fy - 66} text={`100${NB}%`} size={20} big t0={400} />
+                <Txt x={xb} y={fy - 48} text={String(y0)} size={14} tone="soft" t0={600} />
+              </>
+            ) : null}
+          </>
+        ) : null}
+        {cut.shown ? (
+          <>
+            <Txt x={xb - 66} y={fy - 66} text={cut.text} size={20} big t0={0} />
+            {late ? <Txt x={xb - 66} y={fy - 48} text={bas(late.text)} size={14} tone="soft" t0={200} /> : null}
+          </>
+        ) : null}
+        {vote?.shown ? <Ask x={xb - 122} y={fy - 100} h={40} t0={0} /> : null}
+      </Art>
+    </Seg>
+  )
+}
+
 /* ——— Le registre ——— */
 
 export const ECOLOGIE_ENERGIE: Record<string, Board> = {
@@ -1682,4 +1862,9 @@ export const ECOLOGIE_ENERGIE: Record<string, Board> = {
   'ecologie-adaptation-06': adaptation06,
   'ecologie-adaptation-07': adaptation07,
   'ecologie-adaptation-08': adaptation08,
+  // Édition présidentielle 2027
+  'ecologie-carburants-06-p27': carburants06p27,
+  'ecologie-electricite-03-p27': electricite03p27,
+  'ecologie-electricite-04-p27': electricite04p27,
+  'ecologie-transports-05-p27': transports05p27,
 }

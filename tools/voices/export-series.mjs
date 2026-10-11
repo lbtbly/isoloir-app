@@ -50,8 +50,27 @@ const textPrint = fromAudioTs('textPrint', /^export function textPrint\([\s\S]*?
 // Le texte dont l'inventaire prend l'empreinte : son « spoken » s'il en a un, sinon son « say »
 const spokenOf = fromAudioTs('spokenOf', /^export const spokenOf = [\s\S]*?(?=\n\n)/m)
 
+// Les éditions des séries (src/ui/videos/editions) : leurs passages corrigés ont un identifiant suffixé et leur
+// propre voix. Chaque vidéo exporte la réunion de ses passages d'origine et des passages corrigés de chaque
+// édition (sans doublon) : le générateur produit ainsi les voix de toutes les élections qui la montrent.
+const { EDITIONS } = await import('../../src/ui/videos/editions/index.ts')
+const { applyEdition } = await import('../../src/ui/videos/editions/apply.ts')
+const withEditions = VIDEO_SERIES.map(base => {
+  const variants = Object.values(EDITIONS).map(e => applyEdition(base, e))
+  return {
+    ...base,
+    videos: base.videos.map(v => {
+      const seen = new Set(v.segments.map(seg => seg.id))
+      const extra = variants
+        .flatMap(s => s.videos.filter(x => x.id === v.id).flatMap(x => x.segments))
+        .filter(seg => !seen.has(seg.id) && seen.add(seg.id))
+      return { ...v, segments: [...v.segments, ...extra] }
+    }),
+  }
+})
+
 const out = {
-  series: VIDEO_SERIES.map(s => ({
+  series: withEditions.map(s => ({
     topicId: s.topicId,
     label: s.label,
     videos: s.videos.map(v => ({

@@ -1,0 +1,221 @@
+[
+ {
+  "id": "fiscalite-10",
+  "target": "video",
+  "questionId": "",
+  "videoId": "impots-capital",
+  "segmentId": "",
+  "field": "questionIds (présence de la vidéo dans cette élection)",
+  "category": "origine",
+  "severity": "important",
+  "issue": "La question fiscalite-x1 de la primaire n’est pas reprise : la présidentielle a une fiscalite-x1 différente, sur le niveau global des prélèvements, et videoScope ne fait pas le lien. La vidéo n’a donc ni question ni fiche. « Voir la fiche » ouvre fiscalite-1, où ne figure aucun de ses chiffres : 12,8 % et 18,6 %, 96 % des dividendes, 14 puis 23 Md€, 25 %, 59,9 et 7,5 Md€. La règle du § 6 n’est pas respectée. Sur le fond, la vidéo reste équilibrée.",
+  "current": "questionIds: ['fiscalite-x1']",
+  "proposed": "",
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "fiscalite-11"
+  ],
+  "rationale": "Je retiens les deux options, au choix du propriétaire. (1) Ne pas montrer la vidéo pour la présidentielle : le retrait est neutre, puisqu’elle portait des chiffres utiles aux deux côtés. (2) La rattacher à fiscalite-1, dont l’approche d vise les revenus du capital, mais seulement après avoir repris ses chiffres dans une fiche montrée ici. La fiche fiscalite-1 compte déjà quatre chiffres : il faudrait en remplacer.",
+  "topic": "fiscalite",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "fiscalite-11",
+  "target": "video",
+  "questionId": "",
+  "videoId": "impots-intro",
+  "segmentId": "impots-intro-06",
+  "field": "say (et draw, emphasis)",
+  "category": "origine",
+  "severity": "important",
+  "issue": "L’introduction annonce cinq questions, dont « À quoi affecter une recette nouvelle ? ». Cette question de la primaire suppose de nouveaux impôts et n’existe pas dans la présidentielle (fiscalite-9). La correction oblige à réenregistrer la voix du passage, qui n’a pas de « spoken » propre. Le draw passe à quatre pictogrammes, sans la cible. Si la vidéo sur le capital est retirée elle aussi (fiscalite-10), say devient « Alors, trois questions se posent. Que faire face à la dette ? Comment imposer les grandes fortunes ? Et les héritages ? », avec trois pictogrammes.",
+  "current": "Alors, cinq questions se posent. Que faire face à la dette ? Comment imposer les grandes fortunes ? Et les héritages ? Et le capital, les bénéfices ? À quoi affecter une recette nouvelle ?",
+  "proposed": "Alors, quatre questions se posent. Que faire face à la dette ? Comment imposer les grandes fortunes ? Et les héritages ? Et le capital, les bénéfices ?",
+  "lenses": [
+   "centre",
+   "droite",
+   "gauche"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "fiscalite-9",
+   "fiscalite-10",
+   "fiscalite-12"
+  ],
+  "rationale": "Cette correction découle directement du retrait d’impots-recettes, demandé par les trois sensibilités. Elle est importante parce que le passage renvoie, dans ce qui est dit, à une question propre à l’élection source.",
+  "topic": "fiscalite",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "fiscalite-13",
+  "target": "video",
+  "questionId": "",
+  "videoId": "impots-heritages",
+  "segmentId": "",
+  "field": "questionIds (périmètre vidéo, reuse.json / videoScope)",
+  "category": "origine",
+  "severity": "important",
+  "issue": "La présidentielle a sa propre question sur les héritages, fiscalite-2 (« Comment imposer les héritages et les donations ? »). Ses approches vont dans les deux sens, du plafonnement à la suppression complète des droits. Elle n’a ni explication ni vidéo. La correspondance de la primaire (fiscalite-1 → fiscalite-1) range la vidéo impots-heritages, le point « Héritages » et le chiffre de 16,1 Md€ sous « grands patrimoines ». Le lecteur de la question où ce contenu compte le plus ne le voit donc pas. Ce contenu est pourtant équilibré : la France y apparaît comme le pays où ces droits pèsent le plus, et 24 % seulement des successions en ligne directe y sont taxées.",
+  "current": "questionIds: ['fiscalite-1']",
+  "proposed": "Rattacher impots-heritages d’abord à la question fiscalite-2 de la présidentielle, par une correspondance propre à cette vidéo. Donner à cette question une explication reprise du point « Héritages » (points[2]) et du chiffre de 16,1 Md€ (figures[2], graphique index 2) de l’explication fiscalite-1, avec un résumé qui décrive ses propres approches.",
+  "lenses": [
+   "droite",
+   "gauche",
+   "centre"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "rationale": "La droite l’a proposé en correction, la gauche et le centre l’ont relevé dans leurs notes. Le défaut n’est pas un parti pris, mais un contenu mal placé, au détriment des deux côtés. La vidéo ne change pas. Le mécanisme (correspondance par vidéo, explication nouvelle) relève du propriétaire.",
+  "topic": "fiscalite",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "fiscalite-14",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "en-tête du fichier (mention « Datée »)",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "Les trois sensibilités l’ont relevé. La mention ne prévoit que le vote du budget 2027 et la dette du troisième trimestre 2026. Or deux publications paraîtront avant le premier tour du 18 avril 2027. Fin mars 2027, le compte 2026 des administrations publiques (Insee) remplacera les chiffres 2025 dits dans la série et montrés dans l’explication de finances_publiques-1 : 1 714,2 Md€, 57,3 %, 52,2 %, 43,6 %, 64,7 Md€, 5,1 %, et la dette de fin juin 2026. En février 2027, l’exécution budgétaire 2026 de l’État remplacera 16,1 et 5,1 Md€ (successions, donations), 59,9 et 7,5 Md€ (impôt sur les sociétés, contribution exceptionnelle). Laisser 2025 comme dernière année connue alors que le déficit est prévu en hausse en 2026 donnerait au moment du vote une image dépassée.",
+  "current": "À revoir après le vote du budget 2027 et la publication de la dette du troisième trimestre 2026.",
+  "proposed": "À revoir après le vote du budget 2027 (contribution exceptionnelle des grandes entreprises, dont le projet de loi de finances réduit le rendement ; prélèvements sociaux sur l’épargne et IFI s’ils sont modifiés en séance), la dette du troisième trimestre 2026 (Insee, 18 décembre 2026), l’exécution budgétaire 2026 de l’État (février 2027 : droits de succession et de donation, impôt sur les sociétés, contribution exceptionnelle), le compte 2026 des administrations publiques (Insee, attendu fin mars 2027 : déficit, dépenses, recettes, prélèvements obligatoires, intérêts, dette fin 2026) et, s’il paraît avant le vote, le bulletin de la DGFiP sur l’IFI 2026 (l’édition 2025 est parue le 14 avril 2026). Premier tour : 18 avril 2027. Les explications de finances_publiques-1 (fiche fiscalite-2) et de fiscalite-1 (droits de succession, IFI, impôt minimum) sont à mettre à jour en même temps.",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "rationale": "J’ai fusionné les trois versions : les échéances de la gauche et de la droite, et les mesures du budget 2027 relevées par le centre. Il faudra prévoir au calendrier le réenregistrement des passages concernés : impots-intro-02 à 05, impots-dette-02, 03 et 05, et, s’ils restent montrés, impots-heritages-02 et impots-capital-06.",
+  "newSource": {
+   "title": "À la fin du deuxième trimestre 2026, le ratio de dette publique s’établit à 119,0 % du PIB (Informations rapides n° 239) – « Prochaine parution le : 18/12/2026 à 08h45 - troisième trimestre 2026 »",
+   "url": "https://www.insee.fr/fr/statistiques/9053525",
+   "publisher": "Insee",
+   "date": "2026-09-29"
+  },
+  "verification": "adjusted : Sur le fond, l’« issue » est juste. La mention actuelle n’attend que le budget 2027 et la dette du T3 2026, alors que plusieurs publications avant le 18 avril 2027 remplaceront les chiffres de 2025. J’ai fait cinq ajustements, tous lus dans les sources. (1) La date de la dette du T3 2026 : la page Insee n° 239 donne « Prochaine parution le : 18/12/2026 à 08h45 », et non « fin décembre ». (2) Le compte des APU : l’Insee Première n° 2106 (29/05/2026) dit que le compte est « très peu révisé par rapport à la version publiée fin mars (Information Rapide n° 78) ». « Fin mars 2027 » est donc une attente fondée sur l’habitude, pas une date annoncée ; d’où « attendu ». (3) Le budget 2027 : le tableau 7 de l’avis HCFP-2026-5 (mesures nouvelles 2027) contient « Surtaxe IS grandes entreprises et fret maritime −1,6 » Md€. Il ne contient aucune mesure sur l’IFI ni sur les prélèvements sociaux de l’épargne : la hausse de CSG sur le capital est une mesure de 2026 (tableau 6, 1,2 Md€). Ces deux sujets ne sont donc à revoir que s’ils sont amendés. (4) Il manque une échéance : le bulletin DGFiP sur l’IFI 2025 (193 600 foyers, 2,3 Md€, montrés dans impots-fortune-04 et dans la fiche fiscalite-1) est paru le 14 avril 2026 (page impots.gouv.fr). L’édition 2026 pourrait paraître juste avant le premier tour. (5) La fiche fiscalite-1 doit aussi être mise à jour : 16,1 Md€ et 5,1 Md€ de droits de succession et de donation, la figure IFI, et l’impôt minimum s’il est revoté au PLF 2027. Si la correction fiscalite-2 (Eurostat) est adoptée, il faut ajouter la seconde notification Eurostat d’octobre 2026, qui peut réviser 49,5 % et 46,4 %. La liste des passages à réenregistrer donnée dans la justification est cohérente avec le fichier : intro-02 à 05, dette-02, 03 et 05, heritages-02 (16,1 Md€) et capital-06 (59,9 et 7,5 Md€). Il faut aussi surveiller impots-capital-02 (prélèvements sociaux à 18,6 %) et impots-fortune-04 (IFI).",
+  "topic": "fiscalite",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "fiscalite-4",
+  "target": "video",
+  "questionId": "",
+  "videoId": "impots-dette",
+  "segmentId": "impots-dette-05",
+  "field": "say (et spoken, emphasis)",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "Deux passages plus haut (dette-03), on entend « Le déficit, lui, recule ». Ici, la prévision de 5,4 % pour 2026 est dite sans préciser qu’elle marque une remontée après 5,1 % en 2025. Qui écoute sans suivre les colonnes garde l’idée d’un déficit qui baisse, alors qu’il est prévu en hausse pour l’année en cours. Seule la première phrase change, mais il faut réenregistrer la voix du passage. Spoken proposé : « Le Gouvernement prévoit que le déficit remonte à cinq virgule quatre pour cent en deux mille vingt-six, puis revienne à cinq pour cent en deux mille vingt-sept. » La phrase sur le Haut Conseil ne change pas. Emphasis : remplacer « 5,4 % » par « remonte ».",
+  "current": "Le Gouvernement prévoit 5,4 % en 2026, puis 5 % en 2027.",
+  "proposed": "Le Gouvernement prévoit que le déficit remonte à 5,4 % en 2026, puis revienne à 5 % en 2027.",
+  "newSource": {
+   "title": "Avis n° HCFP-2026-5 relatif aux projets de lois de finances et de financement de la sécurité sociale pour l’année 2027",
+   "url": "https://www.hcfp.fr/sites/default/files/2026-10/Avis%20HCFP%202026-5%20-%20PLF-PLFSS%202027.pdf",
+   "publisher": "Haut Conseil des finances publiques",
+   "date": "2026-09-25"
+  },
+  "checked": true,
+  "lenses": [
+   "droite",
+   "gauche"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "fiscalite-3"
+  ],
+  "rationale": "Il n’y a aucun chiffre nouveau : 5,4 % et 5 % viennent déjà de la fiche. Seul le sens de l’évolution est dit, et il figure dans l’explication corrigée (fiscalite-3). Gauche (dette-03) et droite (dette-05) visaient le même défaut : l’image d’un déficit qui baisse. Corriger ce seul passage suffit et évite un second réenregistrement. Je retire le « Mais » d’ouverture proposé par la droite, pour décrire sans opposer.",
+  "verification": "confirmed : La source est la même que pour fiscalite-3, déjà en sources[1] de la vidéo impots-dette. Annexe 2, p. 47 : « −5,4 % en 2026, après −5,1 % en 2025 » ; annexe 3, p. 48 : solde effectif −5,0 en 2027. Le passage dette-03 dit « Le déficit, lui, recule » (2024 → 2025, ce qui est exact). Dette-05 ne dit pas que la prévision pour 2026 est une hausse, si bien que l’auditeur garde l’image d’un déficit qui baisse : le défaut est réel. La proposition n’ajoute aucun chiffre (5,4 % et 5 % viennent déjà de la fiche). Elle respecte donc le § 6 du guide, et « remonte » est un mot descriptif, sans cadrage (§ 5). Il faut réenregistrer la voix du passage (say, spoken et emphasis changent) ; le libellé de la figure reste valable. Une nuance de style seulement : « redescende à 5 % » serait plus exact que « revienne à 5 % », puisque 2025 était à 5,1 %. Ce n’est pas une erreur de fait.",
+  "topic": "fiscalite",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "fiscalite-9",
+  "target": "video",
+  "questionId": "",
+  "videoId": "impots-recettes",
+  "segmentId": "",
+  "field": "questionIds (présence de la vidéo dans cette élection)",
+  "category": "origine",
+  "severity": "important",
+  "issue": "Les trois sensibilités l’ont relevé. La vidéo répond à une question propre à la primaire (fiscalite-3, « À quoi affecter une recette nouvelle ? »), sans équivalent dans la présidentielle. scopeSeries la montre quand même, sans question liée. Son bouton « Voir la fiche » mène à fiscalite-1, qui ne contient aucun de ses chiffres : 0,15 point de CSG, 312,5 et 41,8 Md€, 25 à 34 Md€ par an. Cela enfreint le § 6 du guide. Son point de départ (« Un impôt rapporte davantage. À quoi sert cet argent en plus ? ») tient pour acquise une recette nouvelle. C’est le cadre d’un débat interne à une famille politique, alors que trois approches de finances_publiques-1 excluent toute hausse d’impôts.",
+  "current": "questionIds: ['fiscalite-3']",
+  "proposed": "",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "fiscalite-11",
+   "fiscalite-12"
+  ],
+  "rationale": "Je propose de ne pas montrer cette vidéo pour la présidentielle et de la garder pour l’archive de la primaire. Les faits qu’elle cite restent exacts, mais aucune fiche montrée ici ne les porte. Il faut alors adapter l’introduction (impots-intro-06 et 07). La décision et le mécanisme (exclusion d’une vidéo dans videoScope ou dans scopeSeries) reviennent au propriétaire.",
+  "topic": "fiscalite",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "fiscalite-12",
+  "target": "video",
+  "questionId": "",
+  "videoId": "impots-intro",
+  "segmentId": "impots-intro-07",
+  "field": "say (et draw)",
+  "category": "origine",
+  "severity": "mineur",
+  "issue": "Cette correction découle de fiscalite-11 : il faut réenregistrer la voix et passer le draw à « Les quatre pictogrammes se rangent en file… ». Ce sera « trois » si la vidéo sur le capital est retirée aussi.",
+  "current": "Ce sont les cinq sujets des vidéos qui suivent.",
+  "proposed": "Ce sont les quatre sujets des vidéos qui suivent.",
+  "lenses": [
+   "droite",
+   "centre",
+   "gauche"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "fiscalite-9",
+   "fiscalite-11"
+  ],
+  "rationale": "Le compte des sujets doit rester cohérent avec les vidéos montrées. Le mieux est de l’enregistrer dans la même séance que impots-intro-06.",
+  "topic": "fiscalite",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "fiscalite-8",
+  "target": "video",
+  "questionId": "",
+  "videoId": "impots-fortune",
+  "segmentId": "impots-fortune-02",
+  "field": "figure.label",
+  "category": "exactitude",
+  "severity": "mineur",
+  "issue": "C’est la même précision que pour l’explication (figures[3]) : le libellé figure dans la transcription de la vidéo (« Chiffre clé »). Seul le libellé change, ni « say » ni « spoken » : pas de réenregistrement.",
+  "current": "Les 1 % les mieux dotés en détiennent 15 %.",
+  "proposed": "Les 1 % les mieux dotés en détiennent 15 %. Selon l’Insee, seules des données administratives permettent d’observer finement le très haut de la distribution, au sein de ces 1 %.",
+  "newSource": {
+   "title": "Les montants de patrimoine détenus par les ménages en 2024 (Insee Focus n° 371), section Sources",
+   "url": "https://www.insee.fr/fr/statistiques/8672665",
+   "publisher": "Insee",
+   "date": "2025-12-09"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "fiscalite-7"
+  ],
+  "rationale": "Cette correction est la jumelle de fiscalite-7 : le libellé de la vidéo reste celui de la fiche. Elle est facultative si l’on préfère un libellé raccourci (§ 6 du guide).",
+  "verification": "confirmed : La phrase source est vérifiée comme pour fiscalite-7. Dans la série, impots-fortune-02 a pour figure.label le libellé de la fiche (« … Les 1 % les mieux dotés en détiennent 15 %. »), avec sourceIndex 0, qu’il faut vérifier dans les sources de la vidéo. Le § 6 du guide demande « le libellé de la fiche (raccourci si besoin, jamais changé de sens) ». Si fiscalite-7 est adopté, reprendre le même ajout garde la cohérence ; le garder court reste permis. Ni say ni spoken ne changent, donc pas de réenregistrement. Cette correction n’a d’objet que si fiscalite-7 est adoptée.",
+  "topic": "fiscalite",
+  "electionQuestionId": ""
+ }
+]

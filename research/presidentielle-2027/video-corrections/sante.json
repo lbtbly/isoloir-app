@@ -1,0 +1,295 @@
+[
+ {
+  "id": "sante-15",
+  "target": "video",
+  "questionId": "",
+  "videoId": "sante-prevention",
+  "segmentId": "sante-prevention-06",
+  "field": "segment (say, spoken, draw, emphasis)",
+  "category": "origine",
+  "severity": "important",
+  "issue": "Ce passage est le jumeau de sante-13. L'obligation d'aérer les écoles quitte la fiche : la vidéo ne peut plus la dire (§ 6). Elle ne dit rien des obligations vaccinales, que l'une des approches propose de supprimer. Il faut remplacer le passage par le fait vaccinal de la fiche, ce qui demande d'enregistrer la voix de ce passage.",
+  "current": "Côté air intérieur, depuis 2023, crèches, écoles, collèges et lycées doivent évaluer chaque année leur aération, avec une mesure du CO₂. Ils doivent aussi établir un plan d’actions.",
+  "proposed": "{ say: 'Côté vaccins, pour les enfants nés depuis 2018, onze vaccinations sont obligatoires. Un enfant qui n’est pas à jour peut entrer provisoirement en crèche ou à l’école ; ses parents ont alors trois mois pour le faire vacciner.', spoken: 'Côté vaccins, pour les enfants nés depuis deux mille dix-huit, onze vaccinations sont obligatoires. Un enfant qui n’est pas à jour peut entrer provisoirement en crèche ou à l’école ; ses parents ont alors trois mois pour le faire vacciner.', visual: 'point', draw: 'Un carnet de santé au trait, onze cases cochées l’une après l’autre ; à côté, la porte d’une école et un calendrier de trois mois.', emphasis: ['onze vaccinations', 'trois mois'] }",
+  "newSource": {
+   "title": "Faut-il faire vacciner son enfant pour l'inscrire à l'école, en crèche ou garderie ?",
+   "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F767",
+   "publisher": "Service-public.fr (DILA)",
+   "date": "2026-01-06"
+  },
+  "checked": true,
+  "lenses": [
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "sante-13",
+   "sante-17",
+   "sante-18"
+  ],
+  "rationale": "C'est la proposition de la droite, gardée telle quelle. Le passage décrit une règle en vigueur, sans approche ni jugement. Il fait pendant au passage 07 sur l'environnement (sante-16) : les deux débats de la présidentielle ont chacun un passage. Le dessin ne dramatise rien. Les chiffres viennent de la fiche (« onze », « 3 mois » écrit « trois mois »). Il faut appliquer la typographie du fichier (fine insécable avant « ; »).",
+  "verification": "confirmed : Les deux faits (onze vaccinations pour les enfants nés depuis 2018, admission provisoire avec 3 mois pour se mettre à jour) sont lus sur F767 (vérifiée le 6 janvier 2026). Ils reprennent à l'identique le point proposé en sante-13. « Trois mois » pour « 3 mois » est une conversion permise. Le passage ne dit pas que l'obligation s'étend, pour les enfants nés depuis 2023, aux méningocoques A, B, W et Y : c'est une simplification, mais rien n'y est faux, puisque les onze restent obligatoires pour tous les enfants nés depuis 2018. Le passage ne vaut que si sante-13 et sante-18 sont appliquées. L'accroche (01) et la question finale (08), qui parlent encore d'« air intérieur », sont à reprendre (sante-17).",
+  "topic": "sante",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "sante-16",
+  "target": "video",
+  "questionId": "",
+  "videoId": "sante-prevention",
+  "segmentId": "sante-prevention-07",
+  "field": "segment (say, spoken, draw, alt, emphasis, figure)",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "Ce passage est le jumeau de sante-14. Le coût de l'air intérieur (étude de 2014, données de 2003-2005) quitte la fiche. Le centre et la droite demandent de supprimer le passage. La gauche demande d'ajouter un passage sur les particules fines. Je propose de remplacer le passage par le nouveau chiffre de la fiche. Il faut enregistrer une voix, mais une seule, à la place d'une suppression plus un ajout. Sans ce passage, l'accroche « respirer un air sain » (passage 01) n'aurait plus d'écho, et seul le débat sur les vaccins serait illustré.",
+  "current": "La pollution de l’air intérieur coûterait près de 19 milliards d’euros par an à la société. C’est l’estimation d’une étude exploratoire publique de 2014, sur des données de 2003 à 2005.",
+  "proposed": "{ say: 'Côté environnement, selon Santé publique France, près de 40 000 décès par an seraient attribuables aux particules fines, chez les 30 ans et plus, en France métropolitaine. C’est 7 % des décès, sur des données de 2016 à 2019.', spoken: 'Côté environnement, selon Santé publique France, près de quarante mille décès par an seraient attribuables aux particules fines, chez les trente ans et plus, en France métropolitaine. C’est sept pour cent des décès, sur des données de deux mille seize à deux mille dix-neuf.', visual: 'figure', draw: 'Une silhouette au trait sous un ciel semé de fines particules en pointillé ; à côté, une ligne du temps, de 2016 à 2019, hachurée.', alt: 'Une silhouette sous des particules fines ; les années des données, de 2016 à 2019.', emphasis: ['près de 40 000 décès', '7 %'], figure: { value: 'près de 40 000', label: 'Décès par an attribuables à l’exposition des personnes de 30 ans et plus aux particules fines (PM2,5), soit 7 % de la mortalité totale en France métropolitaine (données 2016-2019, estimation publiée en avril 2021)', date: '2016-2019', sourceIndex: 5 } }",
+  "newSource": {
+   "title": "Pollution de l'air ambiant : nouvelles estimations de son impact sur la santé des Français",
+   "url": "https://www.santepubliquefrance.fr/presse/pollution-de-lair-ambiant-nouvelles-estimations-de-son-impact-sur-la-sante-des-francais",
+   "publisher": "Santé publique France",
+   "date": "2021-04-14"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "sante-14",
+   "sante-17",
+   "sante-18"
+  ],
+  "rationale": "Le texte est adapté du passage 07b de la gauche. « Dehors aussi » supposait de garder le passage sur l'air intérieur : je l'ai remplacé par « Côté environnement », sur le modèle des autres passages. La valeur est corrigée en « près de 40 000 », comme sur la page lue. Le conditionnel « seraient » de la source est gardé, et aucun commentaire n'accompagne le chiffre. Il faut appliquer la typographie du fichier : « 40 000 » avec fine insécable, insécable avant « décès », « ans » et « % », fine insécable avant « ; ». Le sourceIndex 5 suppose le remplacement des sources prévu en sante-18.",
+  "verification": "adjusted : J'ai corrigé le même périmètre qu'en sante-14. Le communiqué de Santé publique France (14 avril 2021) porte sur « la mortalité annuelle en France métropolitaine pour la période 2016-2019 », alors que le label proposé dit « en France ». Le § 6 demande de garder ce périmètre ou de ne pas citer le chiffre : j'ai donc ajouté « en France métropolitaine » au say, au spoken et au label. La voix est à enregistrer de toute façon. Les autres valeurs sont lues sur la page : « près de 40 000 », 30 ans et plus, 7 %, 2016-2019, avec le conditionnel « seraient ». C'est toujours la dernière estimation de mortalité de l'agence : celle du 29 janvier 2025 porte sur la morbidité et reprend le même chiffre. La correction suppose sante-14 (fiche) et sante-18 (sourceIndex 5).",
+  "topic": "sante",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "sante-17",
+  "target": "video",
+  "questionId": "",
+  "videoId": "sante-prevention",
+  "segmentId": "sante-prevention-08",
+  "field": "say, draw",
+  "category": "origine",
+  "severity": "important",
+  "issue": "La question de clôture énumère les trois leviers de la primaire, dont l'air intérieur, que la vidéo ne traiterait plus après sante-15 et sante-16. Le centre propose « environnement », la droite « vaccins ». Les deux sont désormais traités dans la vidéo : la question les nomme tous deux, dans l'ordre des passages. Il faut réenregistrer la voix de ce court passage.",
+  "current": "Budgets, alimentation, air intérieur : quelle priorité pour la prévention ?",
+  "proposed": "say : « Budgets, alimentation, vaccins, environnement : quelle priorité pour la prévention ? » ; draw : « Un calendrier, une pomme, une seringue et une feuille en rang, suivis d’un point d’interrogation. »",
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "sante-15",
+   "sante-16"
+  ],
+  "rationale": "La formulation reprend les deux demandes opposées sans en choisir une : chaque thème traité dans la vidéo est nommé. Il n'y a pas de chiffre, donc pas de « spoken ». Il faut garder la typographie du fichier : insécable avant « : », fine insécable avant « ? ».",
+  "topic": "sante",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "sante-7",
+  "target": "video",
+  "questionId": "",
+  "videoId": "sante-remboursements",
+  "segmentId": "sante-remboursements-05",
+  "field": "segment",
+  "category": "chiffres",
+  "severity": "important",
+  "issue": "Ce passage est le jumeau de sante-4. Il reprend le point 1 de la fiche sante-2 (l'employeur paie au moins la moitié). Si ce point est remplacé par le déficit et les franchises, le passage montrerait un fait absent de la fiche, ce que le § 6 du guide interdit. Il faut le supprimer : aucune voix à réenregistrer.",
+  "current": "Tout employeur privé doit offrir une complémentaire à ses salariés, et en payer au moins la moitié.",
+  "proposed": "",
+  "lenses": [
+   "centre",
+   "gauche",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "sante-4",
+   "sante-10"
+  ],
+  "rationale": "C'est une conséquence mécanique de sante-4. Le passage 06 (44 % de contrats d'entreprise ou de la fonction publique) dit déjà la place de l'employeur. La vidéo enchaîne de 04 à 06 sans rupture. La source [3] (service-public F20739) ne sert plus (sante-10).",
+  "verification": "confirmed : C'est la conséquence mécanique de sante-4 (§ 6 : la vidéo ne montre que des faits de la fiche). Le fait supprimé reste vrai : l'obligation pour l'employeur de financer au moins 50 % existe toujours. La suppression ne vaut donc que si sante-4 est appliquée. Le passage 05 n'a pas de « figure » : aucun sourceIndex ne casse. Le passage 06 (44 % de contrats d'entreprise ou de la fonction publique, source [1]) suit bien le passage 04.",
+  "topic": "sante",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "sante-8",
+  "target": "video",
+  "questionId": "",
+  "videoId": "sante-remboursements",
+  "segmentId": "sante-remboursements-09",
+  "field": "segment (say, spoken, visual, draw, alt, emphasis, figure)",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "Les passages 09 et 10 consacrent deux passages sur onze au chiffrage d'un seul scénario du HCAAM, qui est l'approche sante-2-a. Le § 5 du guide l'interdit : jamais les approches, même sans dire qui les porte. Le passage 08 montre les frais de gestion (9,2 Md€ pour les complémentaires, 7,2 pour la Sécurité sociale), un chiffre qui sert un côté. Le § 5 demande alors de montrer aussi celui qui compte pour l'autre côté, si la fiche le donne : le déficit (sante-4). Il faut remplacer le passage 09 par ce chiffre et enregistrer la voix de ce seul passage. C'est nécessaire.",
+  "current": "En 2022, le Haut Conseil pour l’avenir de l’assurance maladie a étudié plusieurs scénarios. Dans l’un d’eux, la Sécurité sociale rembourse aussi le reste du tarif, et les dépenses nécessaires en optique, dentaire et audition.",
+  "proposed": "{ say: 'Côté comptes, la branche maladie de la Sécurité sociale était en déficit de 15,9 milliards d’euros en 2025.', spoken: 'Côté comptes, la branche maladie de la Sécurité sociale était en déficit de quinze virgule neuf milliards d’euros en deux mille vingt-cinq.', visual: 'figure', draw: 'Deux piles de pièces au trait, les recettes et les dépenses de la branche maladie, la seconde un peu plus haute ; la différence se hachure au bleu bille, avec le montant.', alt: 'Deux piles, les recettes et les dépenses de la branche maladie : la différence, 15,9 milliards.', emphasis: ['15,9 milliards'], figure: { value: '15,9 Md€', label: 'Déficit de la branche maladie de la Sécurité sociale en 2025, qui s’est creusé de près de 2,1 Md€ en un an', date: '2025', sourceIndex: 3 } }",
+  "newSource": {
+   "title": "Rapport à la Commission des comptes de la Sécurité sociale – Résultats 2025, prévisions 2026 et 2027",
+   "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+   "publisher": "Commission des comptes de la Sécurité sociale (Direction de la Sécurité sociale)",
+   "date": "2026-10"
+  },
+  "checked": true,
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "sante-4",
+   "sante-6",
+   "sante-9",
+   "sante-10"
+  ],
+  "rationale": "Cette correction reprend la proposition du centre. La droite demandait seulement la suppression, et le remplacement va dans son sens : il ôte l'approche de la vidéo. Le label ne garde que le fait de 2025, qui ne bougera pas d'ici au vote : pas de mention « Datée » à ajouter. Le chiffre vient du point 1 de la fiche (sante-4). Le sourceIndex 3 suppose le remplacement des sources prévu en sante-10. Il faut appliquer la typographie du fichier : insécable avant « milliards », fine insécable avant « ; ». La vidéo finit toujours sur la question (passage 11).",
+  "verification": "confirmed : La valeur (15,9 Md€ en 2025, creusé de près de 2,1 Md€) est lue dans le rapport CCSS d'octobre 2026, p. 22 et au tableau 9. Elle reprend à l'identique le point de la fiche que propose sante-4, comme l'exige le § 6. Le dessin (« la seconde un peu plus haute ») est juste : le déficit pèse environ 6 % des charges. La correction dépend de trois autres. sante-4 doit être appliquée, sinon le chiffre manque à la fiche. sante-10 doit l'être aussi, sinon le sourceIndex 3 pointe vers service-public. Et sante-9 (suppression du passage 10) doit l'être, sinon le passage 10 parle de « ce chiffrage » sans le scénario qui l'introduit.",
+  "topic": "sante",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "sante-9",
+  "target": "video",
+  "questionId": "",
+  "videoId": "sante-remboursements",
+  "segmentId": "sante-remboursements-10",
+  "field": "segment",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "Ce passage est le chiffrage du seul scénario de « grande Sécu » (approche sante-2-a), contraire au § 5 du guide. De plus, il omet les 3,7 Md€ de recettes en moins. Il faut le supprimer avec l'ancien passage 09 : aucune voix à réenregistrer.",
+  "current": "Selon ce chiffrage, 18,8 milliards d’euros de dépenses publiques en plus, 5,4 milliards de frais de gestion en moins. Des prélèvements obligatoires remplacent une partie des cotisations aux complémentaires.",
+  "proposed": "",
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "sante-6",
+   "sante-8",
+   "sante-10"
+  ],
+  "rationale": "Deux sensibilités demandent la suppression. La gauche demandait au contraire d'y ajouter l'effet sur les ménages, ce qui aurait donné encore plus de place à une approche : demande écartée. Ce que la gauche voulait montrer reste dans l'explication (libellé complété en sante-6), où les quatre scénarios sont désormais présentés à égalité.",
+  "topic": "sante",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "sante-10",
+  "target": "video",
+  "questionId": "",
+  "videoId": "sante-remboursements",
+  "segmentId": "",
+  "field": "sources",
+  "category": "chiffres",
+  "severity": "mineur",
+  "issue": "Après la suppression des passages 05 et 10, les sources [3] (« Complémentaire santé d'entreprise », service-public F20739) et [4] (boîte à outils du Sénat) ne servent plus. Le nouveau passage 09 cite le rapport d'octobre 2026 à la Commission des comptes de la Sécurité sociale.",
+  "current": "Complémentaire santé d’entreprise (mutuelle santé) ; Sécurité sociale : la boîte à outils du Sénat (reprise du rapport du HCAAM « Quatre scénarios polaires d’évolution de l’articulation entre Sécurité sociale et assurance maladie complémentaire »)",
+  "proposed": "Remplacer sources[3] par { title: 'Rapport à la Commission des comptes de la Sécurité sociale – Résultats 2025, prévisions 2026 et 2027', url: 'https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf', publisher: 'Commission des comptes de la Sécurité sociale (Direction de la Sécurité sociale)', date: '2026-10' } ; retirer sources[4] (Sénat).",
+  "newSource": {
+   "title": "Rapport à la Commission des comptes de la Sécurité sociale – Résultats 2025, prévisions 2026 et 2027",
+   "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+   "publisher": "Commission des comptes de la Sécurité sociale (Direction de la Sécurité sociale)",
+   "date": "2026-10"
+  },
+  "checked": true,
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "sante-7",
+   "sante-8",
+   "sante-9"
+  ],
+  "rationale": "Le remplacement se fait à la même place, pour que le sourceIndex 3 du nouveau passage 09 soit juste et que les index 0 à 2 (passages 03, 04, 07, 08) ne bougent pas. Le § 6 du guide demande une source par objet, sans doublon.",
+  "verification": "confirmed : J'ai vérifié les index dans sante.ts. Le passage 03 pointe vers 0, le 04 vers 0, le 07 vers 1, le 08 vers 2 ; le 10 pointe vers 4 (Sénat) et le 05 n'a pas de figure. Le titre est conforme à la couverture du PDF (« Octobre 2026 – Rapport à la Commission des comptes de la Sécurité sociale – Résultats 2025 • Prévisions 2026 et 2027 »). Une réserve : retirer sources[4] n'est sûr que si sante-9 supprime bien le passage 10. Sinon, son sourceIndex 4 ne pointe plus vers rien.",
+  "topic": "sante",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "sante-11",
+  "target": "video",
+  "questionId": "",
+  "videoId": "sante-remboursements",
+  "segmentId": "sante-remboursements-02",
+  "field": "draw",
+  "category": "exactitude",
+  "severity": "mineur",
+  "issue": "Le dessin montre trois flèches « de même taille » vers la Sécurité sociale, les complémentaires et le patient. Il suggère un partage égal, alors que l'argent public paie environ les trois quarts (77,4 %), les complémentaires 12,3 % et les ménages 9,7 %. Changer le dessin ne demande aucun réenregistrement.",
+  "current": "trois flèches de même taille en partent vers trois payeurs",
+  "proposed": "trois flèches en partent vers trois payeurs, la plus large vers le monument",
+  "lenses": [
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "rationale": "La correction rend le dessin conforme aux chiffres de la fiche, sans dramatiser un côté (§ 10.5). Le « say » ne change pas.",
+  "verification": "confirmed : J'ai lu sur la page Panorama 2026 de la DREES : administrations publiques 77,4 %, organismes complémentaires 12,3 %, ménages 9,7 % de la DCSi. Les flèches « de même taille » suggèrent bien un partage égal, ce qui est inexact. Le monument désigne la Sécurité sociale, qui reste de loin le premier payeur même sans l'État et les collectivités : la correction est juste. Le « say » ne change pas et aucune voix n'est à réenregistrer.",
+  "topic": "sante",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "sante-18",
+  "target": "video",
+  "questionId": "",
+  "videoId": "sante-prevention",
+  "segmentId": "",
+  "field": "sources",
+  "category": "origine",
+  "severity": "mineur",
+  "issue": "Une fois les passages 06 et 07 remplacés, les sources [4] (« Qualité de l'air intérieur », ecologie.gouv.fr) et [5] (OQEI, coût de la pollution de l'air intérieur) ne servent plus. Il faut citer la fiche F767 de service-public (passage 06) et la page de Santé publique France (passage 07).",
+  "current": "Qualité de l’air intérieur ; Coût socio-économique de la pollution de l’air intérieur",
+  "proposed": "Remplacer sources[4] par { title: 'Faut-il faire vacciner son enfant pour l’inscrire à l’école, en crèche ou garderie ?', url: 'https://www.service-public.gouv.fr/particuliers/vosdroits/F767', publisher: 'Service-public.fr (DILA)', date: '2026-01-06' } et sources[5] par { title: 'Pollution de l’air ambiant : nouvelles estimations de son impact sur la santé des Français', url: 'https://www.santepubliquefrance.fr/presse/pollution-de-lair-ambiant-nouvelles-estimations-de-son-impact-sur-la-sante-des-francais', publisher: 'Santé publique France', date: '2021-04-14' }",
+  "newSource": {
+   "title": "Pollution de l'air ambiant : nouvelles estimations de son impact sur la santé des Français",
+   "url": "https://www.santepubliquefrance.fr/presse/pollution-de-lair-ambiant-nouvelles-estimations-de-son-impact-sur-la-sante-des-francais",
+   "publisher": "Santé publique France",
+   "date": "2021-04-14"
+  },
+  "checked": true,
+  "lenses": [
+   "droite",
+   "gauche"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "sante-13",
+   "sante-14",
+   "sante-15",
+   "sante-16"
+  ],
+  "rationale": "Le remplacement se fait à la même place, pour que les index 0 à 3 (passages 02 et 05) ne bougent pas et que le sourceIndex 5 du nouveau passage 07 soit juste. Il faut appliquer la typographie française aux titres (fine insécable avant « ? », insécable avant « : »).",
+  "verification": "confirmed : J'ai lu les deux titres : le H1 de F767 (« Faut-il faire vacciner son enfant pour l'inscrire à l'école, en crèche ou garderie ? »), vérifiée le 6 janvier 2026, et le communiqué de Santé publique France, publié le 14 avril 2021. J'ai vérifié les index dans sante.ts. Le passage 02 pointe vers 0, le 05 vers 2 ; le 03 (source [1]) et le 04 (source [3]) n'ont pas de figure ; le 06 utilisait [4] sans figure et le 07 pointait vers 5. Un remplacement à la même place garde les index 0 à 3 justes et rend juste le sourceIndex 5 du nouveau passage 07. Il reste à appliquer la typographie (fine insécable avant « ? », insécable avant « : »).",
+  "topic": "sante",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "sante-19",
+  "target": "video",
+  "questionId": "",
+  "videoId": "sante-intro",
+  "segmentId": "sante-intro-06",
+  "field": "say",
+  "category": "origine",
+  "severity": "mineur",
+  "issue": "« Quatre questions » valait pour le thème de la primaire. Dans cette élection, le thème santé en compte cinq, dont la fin de vie (sante-3), qui n'a ni explication ni vidéo. Annoncer « quatre questions » dans « l'essentiel » devient inexact et efface cette question. La correction minimale oblige à réenregistrer la voix du passage. C'est raisonnable, puisque d'autres passages de la série sont de toute façon réenregistrés.",
+  "current": "Alors, quatre questions se posent.",
+  "proposed": "Alors, plusieurs questions se posent.",
+  "lenses": [
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [],
+  "rationale": "J'ai baissé la gravité à « mineur » : la phrase énumère ensuite les quatre questions traitées, et la correction ôte seulement un compte devenu faux. Le passage n'a pas de chiffre, donc pas de « spoken ». L'absence de la fin de vie dans la série et dans les fiches est signalée dans les notes : c'est un contenu à écrire, pas une correction.",
+  "topic": "sante",
+  "electionQuestionId": ""
+ }
+]

@@ -20,7 +20,9 @@ import { choisir2027 } from '../src/elections/choisir-2027'
 import { markerOf, partOf, wordsOf } from '../src/ui/videos/model'
 import { PISTE } from '../src/ui/videos/pistes'
 import { PLANCHES } from '../src/ui/videos/pistes/planches'
-import { VIDEO_SERIES } from '../src/ui/videos/series'
+import { VIDEO_SERIES as WRITTEN } from '../src/ui/videos/series'
+import { EDITIONS, EDITION_SUFFIXES } from '../src/ui/videos/editions'
+import { applyEdition, boardKeys } from '../src/ui/videos/editions/apply'
 import type { PisteSegmentProps, VideoMeta, VideoScript, VideoSeries } from '../src/ui/videos/types'
 
 if (!import.meta.env.DEV) throw new Error('Page de développement : serveur de dev seulement')
@@ -59,6 +61,10 @@ body { margin: 0; background: var(--paper); color: var(--print); }
 document.head.append(Object.assign(document.createElement('style'), { textContent: css }))
 
 /* ——— Les données ——— */
+
+// ?edition=<id> (option --edition du harnais) : les séries telles que les montre cette édition (editions/)
+const EDITION = new URLSearchParams(location.search).get('edition')
+const VIDEO_SERIES = EDITION ? WRITTEN.map(s => applyEdition(s, EDITIONS[EDITION])) : WRITTEN
 
 function find(videoId: string): { series: VideoSeries; script: VideoScript } {
   for (const series of VIDEO_SERIES) {
@@ -100,7 +106,7 @@ function propsOf(series: VideoSeries, script: VideoScript, index: number): Piste
 
 /** La planche du passage existe-t-elle, et se retrouve-t-elle dans son script ? */
 function boardOf(p: PisteSegmentProps): { generic: boolean; error?: string } {
-  const board = PLANCHES[p.segment.id]
+  const board = boardKeys(p.segment, EDITION_SUFFIXES).map(k => PLANCHES[k]).find(Boolean)
   if (!board) return { generic: true, error: 'aucune planche' }
   try {
     return board(p) === null ? { generic: true, error: 'la planche rend null' } : { generic: false }

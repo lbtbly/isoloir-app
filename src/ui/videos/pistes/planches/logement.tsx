@@ -3,10 +3,10 @@
 // mots et les nombres viennent du script ; une planche qui ne s'y retrouve plus rend null, et le passage prend
 // le dessin générique de sa sorte d'image.
 
-import { Art, Arrow, Ask, Fade, Ink, Txt, W, cueOf, cuesOf, fractionOf, heard, num, nums, plain, ratioOf, sentenceWith, sentencesOf, word, yearsOf } from '../dessin/encre'
+import { Art, Arrow, Ask, Fade, Ink, Txt, W, capital, cueOf, fold, cuesOf, fractionOf, heard, num, nums, plain, ratioOf, sentenceWith, sentencesOf, word, yearsOf } from '../dessin/encre'
 import { Chiffre, HeadCues, Head, Note, Question, Seg, Signature, Sommaire, Src, Sur100 } from '../dessin/mises'
 import { Picto, VILLES, type PictoName } from '../dessin/pictos'
-import { Plafond, Qui, Rang, Signe, balance, barres, colonnes, effets, frise, manettes, rangCells } from '../dessin/schemas'
+import { Cases, Plafond, Qui, Rang, Signe, balance, barres, colonnes, effets, frise, manettes, rangCells } from '../dessin/schemas'
 import type { Board } from './types'
 
 const range = (n: number) => Array.from({ length: n }, (_, i) => i)
@@ -1152,6 +1152,221 @@ const existant09: Board = p => (
   </Seg>
 )
 
+/* ——— Édition « présidentielle 2027 » : les passages corrigés (identifiants en -p27) ——— */
+// Ajouts seulement : les planches ci-dessus restent celles de la primaire, au pixel près. Ces planches lisent le
+// passage corrigé (p.segment, p.script), jamais la série d'origine.
+
+/** Un groupe de mots repris d'un début de phrase, posé en étiquette : sa première lettre en minuscule */
+const lower = (s: string) => s.charAt(0).toLowerCase() + s.slice(1)
+
+/** loyers-06 (p27) Environ 8 % d'annonces de location en moins hors Île-de-France ; moins de logements à louer,
+ *  ou des locataires qui restent plus longtemps ? Un panneau de 100 annonces « à louer », dont 8 s'effacent en
+ *  pointillé ; une fenêtre allumée où un locataire reste ; un point d'interrogation entre les deux */
+const loyers06p27: Board = p => {
+  const [pct, trancher] = cuesOf(p)
+  const k = num(pct?.text)
+  const louer = word(p, /à louer/)
+  const reste = word(p, /des locataires qui restent plus longtemps/)
+  if (!pct || !k || k > 30 || !louer || !reste) return null
+  // Le panneau : un bandeau (« à louer », quand la voix le dit), puis cent petites annonces en dix rangées ; les
+  // k dernières s'effacent quand la voix dit le chiffre
+  const size = 7
+  const gap = 2.2
+  const pad = 6
+  const bx = 22
+  const fw = 10 * size + 9 * gap + 2 * pad
+  const band = 28
+  const gy = band + pad
+  const B = gy + fw - pad
+  // La fenêtre : un cadre allumé, une imposte, l'appui ; une personne derrière
+  const wx0 = 180
+  const wx1 = 276
+  const wc = (wx0 + wx1) / 2
+  const ps = 50
+  // Sous le dessin, la fin de la phrase qui porte le mot mis en valeur (« les données ne permettent pas de
+  // trancher ») : deux lignes au plus, pour tenir dans une petite scène ; le rapport est nommé par la source
+  const fin = word(p, /les données[^.]*\./)
+  const note = trancher && fin && fold(fin.text).includes(fold(trancher.text)) ? capital(fin.text) : sentenceWith(p.segment.say, trancher?.text)
+  return (
+    <Seg kind="fig">
+      <Chiffre p={p} />
+      <Art h={B + 6}>
+        <Ink d={`M${bx} 6H${bx + fw}V${B}H${bx}ZM${bx} ${band}H${bx + fw}`} t0={100} dur={600} />
+        {louer.shown ? <Txt x={bx + fw / 2} y={band - 7} text={louer.text} size={14} t0={0} /> : null}
+        <Cases n={100} cols={10} x={bx + pad} y={gy} size={size} gap={gap} ghost={pct.shown ? range(k).map(i => 99 - i) : []} t0={300} stagger={8} />
+        {reste.shown ? (
+          <>
+            <Fade t0={500}>
+              <rect class="vc-tint" x={wx0} y={band} width={wx1 - wx0} height={B - band} />
+            </Fade>
+            <Ink d={`M${wx0} ${B}V${band}H${wx1}V${B}`} t0={0} dur={500} />
+            <Ink d={`M${wx0} ${band + 26}H${wx1}M${wc} ${band}V${band + 26}`} t0={300} dur={300} class="vc-thin" />
+            <Ink d={`M${wx0 - 8} ${B}H${wx1 + 8}`} t0={400} dur={300} />
+            <Picto n="personne" x={wc - ps / 2} y={B - (ps * 45) / 48} size={ps} t0={600} />
+            <Ask x={(bx + fw + wx0) / 2 - 14} y={band + 22} h={44} t0={1000} />
+          </>
+        ) : null}
+      </Art>
+      <Note p={p} text={note} />
+      <Src p={p} />
+    </Seg>
+  )
+}
+
+/** loyers-09 (p27) « Alors, quelles règles pour les loyers ? » : la ligne du plafond en pointillé, une question
+ *  posée dessus, et les règles (un document) ; sans la flèche de « jusqu'où », qui supposait le plafond acquis */
+const loyers09p27: Board = p => {
+  const cue = cueOf(p, 0)
+  return (
+    <Seg kind="ask">
+      <Art h={140}>
+        <Plafond x0={16} x1={214} y={58} dash t0={100} />
+        <Picto n="maison" x={60} y={70} size={68} t0={300} />
+        <Ink d="M8 136H222" t0={200} dur={500} class="vc-soft" />
+        <Ask x={150} y={4} h={52} t0={900} />
+        {cue?.shown !== false ? <Picto n="document" x={230} y={44} size={64} t0={1300} tone="count" /> : null}
+      </Art>
+      <Question p={p} />
+    </Seg>
+  )
+}
+
+/** Un échafaudage au trait contre un mur : deux montants, des planchers, une croix par étage ; (x, top, base) */
+const echafaudage = (x: number, top: number, base: number, w = 14, step = 14) => {
+  let d = `M${x} ${base}V${top}M${x + w} ${base}V${top}`
+  for (let y = top + 6; y <= base - 6; y += step) d += `M${x - 4} ${y}H${x + w}`
+  for (let y = top + 6; y + step <= base; y += step) d += `M${x} ${y}L${x + w} ${y + step}`
+  return d
+}
+
+/** social-07 (p27) Le soutien public au logement social, pour construire et rénover : 9,9 milliards en 2025.
+ *  Les pièces vont aux deux, à parts égales sur la feuille : une grue (construire), un immeuble sous
+ *  échafaudage (rénover) */
+const social07p27: Board = p => {
+  const cons = word(p, /construire/)
+  const reno = word(p, /rénover/)
+  if (!cons || !reno) return null
+  const base = 140
+  const s = 80
+  const k = s / 48
+  return (
+    <Seg kind="fig">
+      <Chiffre p={p} />
+      <Art h={168}>
+        <Ink d={`M8 ${base}H292`} t0={0} dur={500} class="vc-soft" />
+        <Picto n="pieces" x={128} y={0} size={44} t0={100} tone="count" />
+        {cons.shown ? (
+          <>
+            <Arrow x1={136} y1={44} x2={102} y2={64} t0={0} />
+            <Picto n="grue" x={76 - 24 * k} y={base - 45 * k} size={s} t0={200} />
+            <Txt x={76} y={base + 22} text={cons.text} size={15} t0={500} />
+          </>
+        ) : null}
+        {reno.shown ? (
+          <>
+            <Arrow x1={164} y1={44} x2={198} y2={64} t0={0} />
+            <Picto n="immeuble" x={224 - 24 * k} y={base - 45 * k} size={s} t0={200} />
+            <Ink d={echafaudage(224 + 15 * k + 4, base - 30 * k, base)} t0={800} dur={700} class="vc-thin" />
+            <Txt x={224} y={base + 22} text={reno.text} size={15} t0={500} />
+          </>
+        ) : null}
+      </Art>
+      <Src p={p} />
+    </Seg>
+  )
+}
+
+/** social-08 (p27) Les décalages : des personnes seules et peu de petits logements (la rue de l'origine, remontée) ;
+ *  puis les loyers les plus bas, 7 % des logements sociaux, 60 % des demandeurs éligibles, à la même échelle */
+const social08p27: Board = p => {
+  const [seules, petits, sept] = cuesOf(p)
+  const v7 = num(sept?.text)
+  const soixante = word(p, /\d+ %(?= des demandeurs)/)
+  const v60 = num(soixante?.text)
+  const bas = word(p, /les loyers les plus bas/i)
+  const parc = word(p, /des logements sociaux/)
+  const dem = word(p, /des demandeurs y (?:sont éligibles|ont droit)/)
+  if (!sept || !v7 || !soixante || !v60 || !bas || !parc || !dem || v7 > 100 || v60 > 100) return null
+  const ground = 82
+  const top = ground - 74
+  const yb = 146
+  const g = barres({
+    items: [
+      { label: parc.text, value: v7, text: sept.text, shown: sept.shown },
+      { label: dem.text, value: v60, text: soixante.text, shown: soixante.shown },
+    ],
+    y: yb,
+    max: 100,
+    size: 20,
+    gap: 26,
+    room: 64,
+    labelSize: 14,
+    t0: 100,
+  })
+  return (
+    <Seg>
+      <Art h={yb + g.h + 6}>
+        <Ink d={`M8 ${ground}H292`} t0={0} dur={600} class="vc-soft" />
+        <Qui cx={38} base={ground - 2} size={58} tone={seules?.shown ? 'count' : undefined} label={seules?.text} shown={!!seules?.shown} max={10} t0={200} />
+        {[84, 140, 196].map((x, i) => (
+          <g key={x}>
+            <Ink d={`M${x} ${ground}V${top}H${x + 48}V${ground}`} t0={400 + i * 200} dur={500} />
+            <Ink d={`M${x + 9} ${top + 12}h12v12h-12zM${x + 27} ${top + 12}h12v12h-12zM${x + 9} ${top + 38}h12v12h-12zM${x + 27} ${top + 38}h12v12h-12z`} t0={700 + i * 200} dur={300} class="vc-thin" />
+          </g>
+        ))}
+        <g class={petits?.shown ? 'vc-count' : undefined}>
+          {petits?.shown ? (
+            <Fade>
+              <rect class="vc-tint-count" x={256} y={ground - 26} width={26} height={26} />
+            </Fade>
+          ) : null}
+          <Ink d={`M256 ${ground}V${ground - 26}H282V${ground}`} t0={1200} dur={300} />
+        </g>
+        {petits?.shown ? <Txt x={269} y={ground + 20} text={petits.text} max={10} size={14} t0={200} /> : null}
+        {bas.shown ? <Txt x={6} y={yb - 4} text={lower(bas.text)} size={14} anchor="start" tone="soft" t0={0} /> : null}
+        {g.el}
+      </Art>
+    </Seg>
+  )
+}
+
+/** construire-07 (p27) 2,2 milliards d'aides à l'investissement locatif ; pour ces aides comme pour d'autres aides
+ *  au logement, là où le terrain manque, les prix peuvent monter : d'autres pièces rejoignent la première */
+const construire07p27: Board = p => {
+  const cue = cuesOf(p)[1]
+  const terr = word(p, /le terrain/)
+  const autres = word(p, /d[’']autres aides au logement/)
+  return (
+    <Seg kind="fig">
+      <Chiffre p={p} />
+      <Art h={140}>
+        <Picto n="piece" x={14} y={4} size={34} tone="count" t0={100} />
+        <Arrow x1={42} y1={40} x2={62} y2={62} t0={400} />
+        <Picto n="maison" x={40} y={54} size={80} t0={500} />
+        {autres?.shown ? (
+          <>
+            <Picto n="piece" x={60} y={4} size={28} t0={0} />
+            <Picto n="piece" x={96} y={4} size={28} t0={250} />
+            <Arrow x1={74} y1={32} x2={77} y2={56} t0={500} />
+            <Arrow x1={108} y1={32} x2={95} y2={58} t0={650} />
+          </>
+        ) : null}
+        <Picto n="terrain" x={168} y={62} size={70} t0={900} />
+        {terr ? <Txt x={203} y={138} text={terr.text} size={14} t0={1100} /> : null}
+        {cue?.shown ? (
+          <>
+            <g class="vc-grow-from" style={{ '--d': '200ms' }}>
+              <Picto n="etiquette" x={196} y={4} size={60} tone="count" t0={0} />
+            </g>
+            <Picto n="hausse" x={262} y={8} size={30} tone="count" t0={500} w={1.2} />
+          </>
+        ) : null}
+      </Art>
+      <Src p={p} />
+    </Seg>
+  )
+}
+
 /* ——— Le registre ——— */
 
 export const LOGEMENT: Record<string, Board> = {
@@ -1199,4 +1414,10 @@ export const LOGEMENT: Record<string, Board> = {
   'logement-existant-07': existant07,
   'logement-existant-08': existant08,
   'logement-existant-09': existant09,
+  // Édition « présidentielle 2027 »
+  'logement-loyers-06-p27': loyers06p27,
+  'logement-loyers-09-p27': loyers09p27,
+  'logement-social-07-p27': social07p27,
+  'logement-social-08-p27': social08p27,
+  'logement-construire-07-p27': construire07p27,
 }

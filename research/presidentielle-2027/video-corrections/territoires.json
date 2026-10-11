@@ -1,0 +1,233 @@
+[
+ {
+  "id": "territoires-12",
+  "target": "video",
+  "questionId": "",
+  "videoId": "territoires-collectivites",
+  "segmentId": "territoires-collectivites-08",
+  "field": "say, draw",
+  "category": "origine",
+  "severity": "important",
+  "issue": "Le seul passage qui décrit le débat reprend le résumé écrit pour la primaire. Il omet l’organisation (nombre d’échelons, régions, métropoles), objet même de la question sous laquelle la vidéo est montrée. Il faut réenregistrer la voix de ce passage. C’est nécessaire pour que la vidéo corresponde à sa question. Aucun chiffre, donc pas de spoken.",
+  "current": "Le débat porte sur leur autonomie fiscale, le niveau des dotations, leur droit d’adapter les règles nationales, et le partage des compétences avec l’État.",
+  "proposed": "say : « Le débat porte sur leur organisation et le nombre d’échelons, et sur le partage des compétences avec l’État. Il porte aussi sur leur autonomie fiscale, le niveau des dotations, et leur droit d’adapter les règles nationales. » — draw : « Cinq curseurs au trait, côte à côte, chacun sous un pictogramme : trois bâtiments empilés, mallette, pièces, enveloppe, document ; aucun n’est poussé. »",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "territoires-9",
+   "territoires-14"
+  ],
+  "rationale": "Les trois propositions sont fusionnées. Le texte est coupé en deux phrases de 18 mots, car une phrase unique dépasserait 25 mots (§ 7). « Dans un sens ou dans l’autre » reste dans l’explication : ici, « le partage des compétences avec l’État » est déjà neutre quant au sens. Les curseurs suivent l’ordre des sujets dits. La planche est à mettre d’accord. Si la correction territoires-13 est retenue, ce passage devient territoires-collectivites-09 (il est réenregistré de toute façon).",
+  "topic": "territoires",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "territoires-13",
+  "target": "video",
+  "questionId": "",
+  "videoId": "territoires-collectivites",
+  "segmentId": "",
+  "field": "segments (nouveau passage entre territoires-collectivites-07 et -08)",
+  "category": "chiffres",
+  "severity": "important",
+  "issue": "La vidéo montre l’investissement, les impôts perdus, la TVA et les dotations, jamais l’état des comptes des collectivités. Le § 5 du guide demande de montrer aussi le chiffre qui compte pour l’autre côté quand la fiche le donne, ce qui sera le cas avec la correction territoires-10. Il faut un nouveau passage, donc un nouvel enregistrement.",
+  "current": "",
+  "proposed": "say : « Et leurs comptes ? En 2025, les collectivités locales sont en déficit de 9,3 milliards d’euros, contre 12 milliards en 2024. » — spoken : « Et leurs comptes ? En deux mille vingt-cinq, les collectivités locales sont en déficit de neuf virgule trois milliards d’euros, contre douze milliards en deux mille vingt-quatre. » — visual : figure — draw : « Deux barres au trait, à la même échelle depuis zéro : le déficit de 2024, puis celui de 2025, plus court. » — emphasis : ['9,3 milliards d’euros'] — figure : { value: '9,3 Md€', label: libellé de figures[3] de la fiche corrigée, date: '2025', sourceIndex: 1 }",
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "territoires-10",
+   "territoires-12"
+  ],
+  "newSource": {
+   "title": "Rapport de l’OFGL 2026 – Vue d’ensemble sur l’année 2025",
+   "url": "https://www.collectivites-locales.gouv.fr/files/files/Etudes-et-statistiques/OFGL/pre%20rapport%202026/1-%20Vue%20d%27ensemble.pdf",
+   "publisher": "Observatoire des finances et de la gestion publique locales (OFGL)",
+   "date": "2026"
+  },
+  "checked": true,
+  "rationale": "Ce passage reprend le chiffre retenu pour l’explication (−9,3 Md€ en comptes nationaux) et montre l’amélioration sur un an, sans commentaire. La source OFGL est déjà dans la vidéo. Deux contraintes sont à régler par le propriétaire. (1) Les identifiants : en l’insérant comme -08, les passages actuels 08 et 09 deviennent -09 et -10. Ils sont réenregistrés de toute façon (territoires-12 et -14), mais leurs fichiers de voix doivent suivre. (2) La série compte déjà 45 passages, le maximum testé (MAX_PER_SERIES). Cet ajout suppose d’en retirer un ailleurs, par exemple territoires-intro-05 dans le cadre de la correction de structure.",
+  "verification": "confirmed : Faits confirmés dans l’OFGL : −9,3 Md€ en 2025, −12,0 Md€ en 2024, périmètre « collectivités locales » des comptes nationaux. Le spoken suit le say mot pour mot, et l’emphasis figure dans le say. Ces chiffres ne peuvent entrer dans la vidéo qu’une fois territoires-10 appliqué (§ 6 : seulement les nombres des fiches). Trois contraintes vérifiées. (1) La série compte 45 passages (7+10+9+9+10) et tests/videos.test.ts fixe MAX_PER_SERIES = 45 : ajouter un passage fait échouer le test tant qu’un autre n’est pas retiré. (2) Insérer un passage en -08 renumérote -08 et -09, ce que le § 9 interdit une fois la voix générée. C’est acceptable seulement s’ils sont réenregistrés de toute façon, et leurs fichiers de voix doivent suivre. (3) Le § 5 demande de montrer aussi le chiffre qui compte pour l’autre côté : la voix ne dit que le déficit, et le prélèvement de 1 Md€ n’apparaît que dans le libellé écrit.",
+  "topic": "territoires",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "territoires-16",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "structure (vidéos montrées et introduction)",
+  "category": "origine",
+  "severity": "important",
+  "issue": "Dans cette élection, scopeSeries traduit les questions des vidéos : l’introduction ne garde que territoires-1 et territoires-2. Les vidéos « Fonction publique » (territoires-x1) et « Le coût de la vie outre-mer » (territoires-x3) n’ont plus aucune question, et leur « Voir la fiche » mène à la fiche des services publics (territoires-1), étrangère à leur sujet. L’introduction annonce « quatre questions » (passages 06 et 07), dont deux ne sont pas au questionnaire de cette élection. Elle montre aussi deux chiffres absents des explications de ses questions : 5,80 millions d’agents (03) et l’écart de prix outre-mer (05). C’est le découpage de la primaire présenté comme celui du débat en cours. La question sur les agents publics est ici finances_publiques-3, sans explication, et porte sur les effectifs, alors que la vidéo met l’accent sur les salaires.",
+  "current": "      questionIds: ['territoires-1', 'territoires-x1', 'territoires-x2', 'territoires-x3'],",
+  "proposed": "Pour cette élection, au choix du propriétaire. (a) Ne montrer sous ce thème que l’introduction, « Services publics » et « Collectivités ». Il faut alors une introduction propre à cette élection, puisque le fichier sert aussi l’archive de la primaire : sans les passages 03 et 05 ; passage 06 : « Alors, deux questions se posent. Comment garantir l’accès aux services publics partout ? Quelle organisation, quels pouvoirs et quels moyens pour les collectivités ? » ; passage 07 : « Ce sont les deux sujets des vidéos qui suivent. » (voix à réenregistrer). (b) Garder les quatre vidéos, mais ne rattacher « Fonction publique » à finances_publiques-3 qu’une fois cette question dotée d’une explication qui contienne ses chiffres et l’évolution des effectifs (DGAFP). Dans ce cas, revoir le lien « Voir la fiche » des deux vidéos sans question et la phrase « quatre questions se posent ». En attendant, au minimum, la troisième question de l’intro-06 peut devenir « Quelle organisation, quels pouvoirs et quels moyens pour les collectivités ? », valable pour les deux élections, à réenregistrer avec les autres passages.",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [],
+  "rationale": "Les trois sensibilités relèvent ce problème, et je l’ai vérifié dans src/ui/videos/scope.ts et src/elections/presidentielle-2027/videos.ts. Une précision s’impose : le thème « territoires » compte ici cinq questions, et non deux. Il s’agit de territoires-1, -2, -x3 (Corse), -x4 (Nouvelle-Calédonie) et -x5 (zéro artificialisation nette). Seules territoires-1 et -2 ont une explication et des vidéos, et aucune ne porte sur la fonction publique ou la vie chère outre-mer. La correction intro-06 de la droite est intégrée ici. Retirer intro-05 libère aussi la place nécessaire au passage de territoires-13 (45 passages au plus par série).",
+  "topic": "territoires",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "territoires-17",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "en-tête (Datée)",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "La mention « Datée » ne couvre que le point d’indice. D’autres faits de la série changeront avant le premier tour du 18 avril 2027. Le Smic brut et le traitement minimum (agents-04) changeront avec la revalorisation du 1er janvier 2027. Des trimestres plus récents que le 2e trimestre 2026 paraîtront (agents-03). La loi de finances pour 2027 fixera les concours de l’État, le dispositif de lissage et peut-être le point d’indice (collectivites-07, fiche territoires-x2). La révision constitutionnelle sur la Corse est en attente au Sénat (collectivites-02). Les effectifs publics fin 2024 remplaceront ceux de fin 2023 (intro-03, agents-06). Enfin, la vidéo outre-mer s’arrête au protocole martiniquais d’octobre 2024.",
+  "current": "// Datée : valeur du point d'indice inchangée depuis le 1er juillet 2023 (chiffres du 2e trimestre 2026, DGAFP,\n// septembre 2026). À revoir si le point est revalorisé.",
+  "proposed": "// Datée : valeur du point d'indice inchangée depuis le 1er juillet 2023 (chiffres du 2e trimestre 2026, DGAFP,\n// septembre 2026) ; Smic brut et traitement minimum de Service-Public.fr, page vérifiée le 1er juin 2026. À revoir\n// si le point est revalorisé (le projet de loi de finances pour 2027 annonce qu'il ne le sera pas en 2027), à la\n// revalorisation du Smic du 1er janvier 2027 (territoires-agents-04) et à la parution des trimestres suivants\n// (territoires-agents-03).\n// Datée : projet de loi de finances pour 2027, n° 3210, déposé le 1er octobre 2026 (concours de l'État aux\n// collectivités ; article 84 : reversement du dispositif de lissage de 2025 étalé, un tiers en 2026 puis le reste\n// de 2027 à 2031 : fiche territoires-x2, territoires-collectivites-07) ; révision de la Constitution sur la Corse,\n// adoptée par l'Assemblée nationale le 23 juin 2026, examen en séance au Sénat prévu le 26 octobre 2026\n// (territoires-collectivites-02). À revoir après leur adoption.\n// Datée : effectifs publics fin 2023 (territoires-intro-03, territoires-agents-06), à remplacer par ceux de fin 2024\n// dès qu'une source sûre les donne (Insee, DGAFP) ; vie chère outre-mer : protocole martiniquais d'octobre 2024\n// (territoires-outre-mer-06 et -07) ; le projet de loi de lutte contre la vie chère dans les outre-mer, adopté par\n// le Sénat le 28 octobre 2025, attend son examen à l'Assemblée nationale : à revoir s'il est adopté.",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "newSource": {
+   "title": "Projet de loi de finances pour 2027, n° 3210",
+   "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi",
+   "publisher": "Assemblée nationale",
+   "date": "2026-10-01"
+  },
+  "checked": true,
+  "rationale": "Les trois propositions sont fusionnées. J’ai vérifié sur la page de l’Assemblée nationale le titre, le numéro et la date de dépôt du projet de loi de finances (« jeudi 1er octobre 2026 »). Le statut de la révision sur la Corse reprend le contexte de la question territoires-x3 de cette élection. Ce n’est qu’un commentaire de fichier : aucune voix n’est à refaire.",
+  "verification": "adjusted : Faits vérifiés un par un. (1) Projet de loi de finances pour 2027 : sur le site de l’Assemblée nationale, « n° 3210, déposé le jeudi 1er octobre 2026 ». Dans le texte, article 84 : reversement du DILICO étalé jusqu’en 2031. Exposé général : « Le point d’indice ne sera pas revalorisé en 2027 ». Le point est fixé par décret, pas par la loi de finances, d’où la reformulation. (2) Service-Public.fr F461 : « Vérifié le 01 juin 2026 », traitement minimum 1 801,73 €, Smic brut 1 867,02 €. (3) Corse, dossier du Sénat pjl24-869 (page mise à jour le 23/09/2026) : texte adopté par l’Assemblée nationale le 23 juin 2026, transmis au Sénat le 24 juin, « Discussion en séance publique le 26 octobre 2026 ». « En attente au Sénat » est donc juste ; j’ajoute la date. (4) Vie chère, dossiers du Sénat pjl24-870 et de l’Assemblée DLR5L17N52600 : adopté par le Sénat le 28 octobre 2025, toujours en commission à l’Assemblée depuis le 29 octobre 2025. Aucun texte national n’est adopté. (5) Effectifs fin 2024 : la DGAFP (Chiffres clés 2025) donne bien 5,80 millions au 31 décembre 2023. Je n’ai pas pu vérifier si l’Insee ou la DGAFP ont déjà publié les chiffres de fin 2024, l’Insee le faisant d’habitude en fin d’année N+1. Il faut le contrôler avant d’écrire « dès qu’une source sûre les donne ».",
+  "topic": "territoires",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "territoires-6",
+  "target": "video",
+  "questionId": "",
+  "videoId": "territoires-services",
+  "segmentId": "territoires-services-07",
+  "field": "say, draw",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "Même citation partielle que dans l’explication : la vidéo ne prête à la Cour des comptes que l’inquiétude sur les trajets. L’autorité de l’institution va ainsi au seul côté de la proximité, alors que sa conclusion porte d’abord sur la sécurité des soins. Il faut réenregistrer la voix de ce passage. C’est nécessaire, car l’avis attribué à une institution est incomplet. Le nouveau texte ne contient aucun chiffre ni sigle, donc pas de spoken.",
+  "current": "Selon la Cour des comptes, réduire l’offre allonge les temps de trajet, ce qui inquiète les familles.",
+  "proposed": "say : « Selon la Cour des comptes, la France a des résultats périnatals médiocres par rapport aux autres pays européens, et la sécurité des soins doit primer. Elle note aussi que réduire l’offre allonge les temps de trajet, ce qui inquiète les familles. » — draw : « Une croix de soin au trait sous un petit bouclier, la sécurité ; puis une maison au bout d’une route : la maternité, d’abord proche, en pointillé, s’éloigne au bout de la route, et un sablier se pose à côté. » — emphasis : ['doit primer', 'allonge les temps de trajet']",
+  "lenses": [
+   "centre"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "territoires-5"
+  ],
+  "newSource": {
+   "title": "La politique de périnatalité – Rapport public thématique",
+   "url": "https://www.ccomptes.fr/sites/default/files/2024-05/20240506-Sante-perinatale.pdf",
+   "publisher": "Cour des comptes",
+   "date": "2024-05"
+  },
+  "checked": true,
+  "rationale": "Le texte est raccourci par rapport à la proposition du centre : deux phrases de 24 et 16 mots, sous la limite de 25 mots par phrase (§ 7), environ 12 secondes. La phrase actuelle sur les trajets est gardée mot pour mot. Le passage 09 garde sa balance qualité / proximité, et la vidéo ne finit pas sur un camp. La source est déjà dans la vidéo. La planche (pistes/planches/territoires.tsx) est à mettre d’accord avec le draw.",
+  "verification": "confirmed : Le fond est confirmé par les mêmes passages du rapport que territoires-5 : « performance médiocre de la France par rapport aux autres pays européens » ; « La priorité donnée aux enjeux de qualité et de sécurité des soins ». Il n’y a ni chiffre ni sigle, donc pas de spoken. Les deux emphasis figurent mot pour mot dans le say. Deux réserves de forme. (1) La 1re phrase compte 25 mots, pas 24 : c’est le maximum du § 7, sans marge. (2) Le passage fait 41 mots, soit environ 14 à 15 s à l’oral : au-delà des 4 à 12 s du § 3, comme d’autres passages déjà validés. Pour raccourcir, on peut écrire « …la France fait moins bien que ses voisins européens en santé périnatale… », sans changer le sens. Il faut réenregistrer la voix et mettre la planche d’accord.",
+  "topic": "territoires",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "territoires-14",
+  "target": "video",
+  "questionId": "",
+  "videoId": "territoires-collectivites",
+  "segmentId": "territoires-collectivites-09",
+  "field": "say",
+  "category": "origine",
+  "severity": "mineur",
+  "issue": "La question finale est celle de la primaire (« quels pouvoirs et quels moyens »). Celle de cette élection porte sur « l’organisation et les pouvoirs ». Il faut réenregistrer la voix, en même temps que le passage 08, et seulement si celui-ci change.",
+  "current": "Alors, quels pouvoirs et quels moyens pour les collectivités locales",
+  "proposed": "Alors, quelle organisation, quels pouvoirs et quels moyens pour les collectivités locales",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "territoires-12"
+  ],
+  "rationale": "La formulation du centre et de la droite est retenue. Elle vaut pour les deux élections et garde « moyens », puisque la vidéo traite surtout des ressources. La fine insécable et le « ? » final sont inchangés. emphasis devient ['quelle organisation', 'quels pouvoirs', 'quels moyens'].",
+  "topic": "territoires",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "territoires-4",
+  "target": "video",
+  "questionId": "",
+  "videoId": "territoires-services",
+  "segmentId": "territoires-services-04",
+  "field": "figure.label",
+  "category": "chiffres",
+  "severity": "mineur",
+  "issue": "Le libellé affiché doit suivre celui de l’explication corrigée. À l’écran, il complète la liste des trois difficultés dites (« Lesquelles ? »), sans toucher à la voix.",
+  "current": "des ménages ayant rencontré une difficulté citent l’absence de service administratif près de chez eux. Ils sont 45,3 % à citer des délais d’attente trop longs et 22,7 % l’absence d’un interlocuteur compétent (France hors Mayotte)",
+  "proposed": "des ménages ayant rencontré une difficulté citent l’absence de service administratif près de chez eux, et 9,5 % l’absence d’accès à Internet ou la difficulté à se servir du site. Les difficultés les plus citées sont des délais d’attente trop longs (45,3 %), une procédure trop difficile à comprendre (29,3 %) et l’absence d’un interlocuteur compétent (22,7 %) (France hors Mayotte)",
+  "lenses": [
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "territoires-2"
+  ],
+  "newSource": {
+   "title": "Les difficultés rencontrées lors des démarches administratives – France, portrait social, édition 2025",
+   "url": "https://www.insee.fr/fr/statistiques/8612560?sommaire=8612596",
+   "publisher": "Insee",
+   "date": "2025-11-18"
+  },
+  "checked": true,
+  "rationale": "Seul le libellé écrit change (typographie § 8 : insécables avant %). Aucun réenregistrement. Le say, le spoken et le draw restent tels quels : leurs trois valeurs sont exactes et figurent dans l’explication. Voir le refus de la réécriture du passage.",
+  "verification": "confirmed : Les valeurs sont confirmées sur la page Insee (voir territoires-2). Le libellé reprend celui de la fiche corrigée, ce que permet le § 6. À l’écriture, mettre les insécables avant %. Point qui reste ouvert : la voix (say/spoken) et le dessin de territoires-services-04 (« Trois barres… délais d’attente, interlocuteur, service près de chez soi ») gardent la sélection 1re, 3e et 6e difficulté, sans la 2e (29,3 %). « Lesquelles ? » suivi de ces trois chiffres laisse croire que ce sont les principales. Le biais que corrigent territoires-2 et -3 reste donc dans ce qui est dit et dessiné. C’est au propriétaire de trancher (le refus de la réécriture est mentionné).",
+  "topic": "territoires",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "territoires-8",
+  "target": "video",
+  "questionId": "",
+  "videoId": "territoires-services",
+  "segmentId": "territoires-services-06",
+  "field": "figure.label",
+  "category": "chiffres",
+  "severity": "mineur",
+  "issue": "Le libellé affiché suit, sous forme raccourcie, celui de l’explication corrigée. Seul le texte écrit change, la voix reste telle quelle.",
+  "current": "maternités en France en 2021, contre 721 en 2000 et 557 en 2010",
+  "proposed": "maternités en France en 2021, contre 721 en 2000 et 557 en 2010. Selon la Cour des comptes, cette baisse découle du renforcement des normes de fonctionnement et de sécurité",
+  "lenses": [
+   "centre"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "territoires-7"
+  ],
+  "newSource": {
+   "title": "La politique de périnatalité – Rapport public thématique",
+   "url": "https://www.ccomptes.fr/sites/default/files/2024-05/20240506-Sante-perinatale.pdf",
+   "publisher": "Cour des comptes",
+   "date": "2024-05"
+  },
+  "checked": true,
+  "rationale": "Le libellé est raccourci comme le permet le § 6, sans les nombres par type, pour rester lisible à l’écran. Aucun réenregistrement.",
+  "verification": "confirmed : C’est la forme raccourcie du libellé de territoires-7, dont la phrase source est lue p. 51 du rapport de la Cour. Le sens n’est pas changé (§ 6). Seul le texte écrit change : la voix reste telle quelle. À appliquer seulement si territoires-7 l’est.",
+  "topic": "territoires",
+  "electionQuestionId": ""
+ }
+]

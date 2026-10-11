@@ -9,7 +9,7 @@
 // reprend.
 
 import { chartOf } from '../../model'
-import { VIDEO_SERIES } from '../../series'
+import { seriesOfVideo } from '../../catalog'
 import { Art, Arrow, Ask, Fade, Ink, Marks, Txt, W, at, cls, wrap, cueOf, cuesOf, fractionOf, heard, num, plain, ratioOf, said, sentenceWith, sentencesOf, word, yearsOf, type Cue, type P, type Tone } from '../dessin/encre'
 import { Chiffre, Head, HeadCues, Question, Seg, Signature, Src, Sur100, lineOf } from '../dessin/mises'
 import { Picto, type PictoName } from '../dessin/pictos'
@@ -117,7 +117,7 @@ function Liste({ items, cols = 2 }: { items: { glyph: Glyph; text: string; shown
 
 /** Les approfondissements de la série en sommaire numéroté, comme Sommaire (mises.tsx), avec leurs pictogrammes */
 function Chapitres({ p, t0 = 200 }: { p: P; t0?: number }) {
-  const series = VIDEO_SERIES.find(s => s.videos.some(v => v.id === p.script.id))
+  const series = seriesOfVideo(p.script.id)
   const deep = series?.videos.filter(v => v.kind === 'deep') ?? []
   if (!deep.length) return null
   return (
@@ -448,7 +448,7 @@ const intro07: Board = p => urnes(p, true)
 /** 08 Les quatre questions du thème, chacune avec le pictogramme de sa vidéo, quand la voix la pose */
 const intro08: Board = p => {
   const qs = sentencesOf(p.segment.say).filter(s => /\?$/.test(s))
-  const series = VIDEO_SERIES.find(s => s.videos.some(v => v.id === p.script.id))
+  const series = seriesOfVideo(p.script.id)
   const deep = series?.videos.filter(v => v.kind === 'deep') ?? []
   if (qs.length < 2) return null
   return (
@@ -1181,6 +1181,123 @@ const cit12: Board = p => (
   </Seg>
 )
 
+/* ——— Édition « présidentielle 2027 » (editions/presidentielle-2027/institutions.ts) ———
+ * Les passages dont le texte dit change y prennent l'identifiant <id>-p27 : leurs planches sont ici, à part, et
+ * lisent le passage corrigé (p.segment). Les planches d'origine, plus haut, restent celles de la primaire. */
+
+/** Pouvoirs 04 corrigé : deux motions de censure adoptées depuis 1958 (octobre 1962, 4 décembre 2024), puis le
+ *  refus de confiance du 8 septembre 2025. Les deux censures au bleu bille comme dans l'original ; le refus de
+ *  confiance au trait seul, montré du doigt sous la ligne : à l'échelle, il touche presque le repère de 2024. */
+const pouvoirs04p27: Board = p => {
+  const [cue, conf] = cuesOf(p)
+  const n = num(cue?.text)
+  const ys = yearsOf(p.segment.say)
+  const to = yearsOf(p.segment.figure?.date ?? '')[0]
+  const a = word(p, /octobre \d{4}/)
+  const b = word(p, /\d+\sdécembre \d{4}/)
+  const c = word(p, /\d+\sseptembre \d{4}/)
+  if (!cue || !conf || !n || ys.length !== n + 2 || !to || !a || !b || !c) return null
+  const y = 40
+  const fr = annees({ y, from: ys[0]!, to, marks: ys.slice(1, n + 1), labels: [a.text, b.text], anchors: ['start', 'end'], on: i => (i ? b.shown : a.shown), t0: 200 })
+  const x = fr.X(ys[n + 1]!)
+  const right = Math.min(x + 14, W - 4)
+  return (
+    <Seg kind="fig">
+      <Chiffre p={p} />
+      <Art h={114}>
+        {fr.el}
+        {c.shown ? (
+          <>
+            <Arrow x1={right - 2} y1={y + 30} x2={x + 1} y2={y + 3} head={6} t0={0} />
+            <Txt x={right} y={y + 48} text={c.text} size={14} anchor="end" t0={250} />
+          </>
+        ) : null}
+        {conf.shown ? <Txt x={right} y={y + 66} text={conf.text} size={14} anchor="end" t0={200} /> : null}
+      </Art>
+      <Src p={p} />
+    </Seg>
+  )
+}
+
+/** Constitution 06 bis (passage inséré) : la Constitution au-dessus de la loi ; le Conseil constitutionnel, la
+ *  loupe au bleu bille posée sur la loi, peut la censurer ; ses décisions sont sans recours (un cadenas) */
+const cons06conseilp27: Board = p => {
+  const [cc, recours] = cuesOf(p)
+  const cons = word(p, /La Constitution/)
+  const lois = word(p, /aux lois/)
+  const loi = word(p, /peut censurer une loi/)
+  if (!cc || !recours || !cons || !lois || !loi) return null
+  return (
+    <Seg>
+      <Head lines={[lineOf(cc)]} />
+      <Art h={180}>
+        <Picto n="livre" x={20} y={0} size={58} t0={100} />
+        {cons.shown ? <Txt x={92} y={34} text={cons.text} size={14} anchor="start" t0={400} /> : null}
+        {lois.shown ? (
+          <>
+            <Arrow x1={49} y1={60} x2={49} y2={100} head={7} t0={0} />
+            <Picto n="document" x={20} y={106} size={58} t0={300} />
+          </>
+        ) : null}
+        {cc.shown ? <Picto n="loupe" x={48} y={118} size={46} tone="count" t0={0} /> : null}
+        {loi.shown ? <Txt x={104} y={136} text={loi.text} size={14} max={13} anchor="start" t0={200} /> : null}
+        {recours.shown ? (
+          <>
+            <Picto n="cadenas" x={228} y={108} size={46} t0={0} />
+            <Txt x={251} y={174} text={recours.text} size={14} t0={500} />
+          </>
+        ) : null}
+      </Art>
+    </Seg>
+  )
+}
+
+/** Citoyens 02 corrigé : vous élisez vos représentants (personne, urne, hémicycle) ; le président peut soumettre
+ *  au référendum certains projets de loi (le président, une feuille, une urne) ; les électeurs seuls ne peuvent pas
+ *  lancer de référendum national (l'urne qui manque, en pointillé, sous celle du président) */
+const cit02p27: Board = p => {
+  const [rep, seuls, projets] = cuesOf(p)
+  const pres = word(p, /Le président/)
+  if (!rep || !seuls || !projets || !pres) return null
+  return (
+    <Seg>
+      <Head lines={[lineOf(rep)]} />
+      <Art h={226}>
+        <Picto n="personne" x={4} y={6} size={44} t0={100} />
+        <Arrow x1={52} y1={30} x2={76} y2={30} t0={500} />
+        <Urne x={80} y={2} s={48} t0={600} />
+        <Arrow x1={132} y1={30} x2={156} y2={30} t0={1100} />
+        <Hemicycle cx={214} base={48} w={92} t0={1200} />
+        {pres.shown ? (
+          <>
+            <Picto n="personne" x={4} y={72} size={44} t0={0} />
+            <Txt x={2} y={134} text={pres.text} size={14} anchor="start" t0={300} />
+          </>
+        ) : null}
+        {projets.shown ? (
+          <>
+            <Arrow x1={52} y1={96} x2={98} y2={96} t0={0} />
+            <Picto n="document" x={104} y={72} size={44} t0={300} />
+            <Txt x={126} y={134} text={projets.text} size={14} max={14} t0={600} />
+            <Arrow x1={152} y1={96} x2={174} y2={96} t0={700} />
+            <Urne x={178} y={68} s={48} t0={900} />
+          </>
+        ) : null}
+        {seuls.shown ? (
+          <>
+            {[4, 30, 56].map((x, i) => (
+              <Picto key={x} n="personne" x={x} y={172} size={34} t0={i * 120} />
+            ))}
+            <Arrow x1={98} y1={192} x2={170} y2={192} dash tone="ghost" t0={400} />
+            <Urne x={178} y={164} s={48} tone="ghost" />
+            <Txt x={232} y={186} text={seuls.text} size={14} max={10} anchor="start" t0={300} />
+          </>
+        ) : null}
+      </Art>
+    </Seg>
+  )
+}
+
 /* ——— Le registre ——— */
 
 export const INSTITUTIONS: Record<string, Board> = {
@@ -1226,5 +1343,9 @@ export const INSTITUTIONS: Record<string, Board> = {
   'institutions-citoyens-10': cit10,
   'institutions-citoyens-11': cit11,
   'institutions-citoyens-12': cit12,
+  // Édition « présidentielle 2027 »
+  'institutions-pouvoirs-04-p27': pouvoirs04p27,
+  'institutions-constitution-06-conseil-p27': cons06conseilp27,
+  'institutions-citoyens-02-p27': cit02p27,
 }
 

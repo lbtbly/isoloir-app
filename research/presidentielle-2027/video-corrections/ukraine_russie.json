@@ -1,0 +1,300 @@
+[
+ {
+  "id": "ukraine_russie-12",
+  "target": "video",
+  "questionId": "",
+  "videoId": "ukraine-aide",
+  "segmentId": "ukraine-aide-04",
+  "field": "figure.label (et sources : le règlement 2026/467 remplace PRET_UE si la fiche change de source)",
+  "category": "chiffres",
+  "severity": "important",
+  "issue": "La vidéo sur l’aide dit combien est donné, mais jamais comment le prêt est financé ni à quelles conditions il sera remboursé. Le spectateur peut croire que l’Ukraine le remboursera dans tous les cas, et il ignore le lien avec les avoirs russes. Corriger le libellé affiché suffit : aucune voix n’est à réenregistrer. À faire après la correction de points[1] de la fiche. Si la fiche prend le règlement pour source, la source PRET_UE de la vidéo est remplacée par le règlement ; sourceIndex reste 1.",
+  "current": "Prêt de l’UE à l’Ukraine pour 2026-2027, adopté en février 2026 : 60 Md€ pour sa défense et 30 Md€ d’aide budgétaire, pour maintenir l’État et les services publics",
+  "proposed": "Prêt de l’UE à l’Ukraine pour 2026-2027, adopté en février 2026 et financé par un emprunt de l’Union : 60 Md€ pour sa défense et 30 Md€ d’aide budgétaire. L’Ukraine ne doit le rembourser que si elle reçoit des réparations de la Russie, ou en cas de fraude ou de manquement aux conditions du prêt",
+  "newSource": {
+   "title": "Règlement (UE) 2026/467 du Parlement européen et du Conseil du 24 février 2026 mettant en œuvre une coopération renforcée concernant l’établissement du prêt de soutien à l’Ukraine pour 2026 et 2027",
+   "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:32026R0467",
+   "publisher": "Journal officiel de l’Union européenne (EUR-Lex)",
+   "date": "2026-02-24"
+  },
+  "checked": true,
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "ukraine_russie-5"
+  ],
+  "rationale": "Cette correction réunit la proposition du centre (le libellé) et le manque relevé par la droite (le passage ukraine-aide-06). Elle passe par le texte affiché plutôt que par un nouveau « say » : rien à réenregistrer.",
+  "verification": "adjusted : Même lecture du règlement 2026/467 que pour ukraine_russie-5 : considérants 13 et 49, art. 4, § 1, art. 7, § 3, c) et art. 20, § 2, j) et n). « Ne le remboursera qu’une fois reçues des réparations » omet deux autres déclencheurs : la fraude et le manquement à la condition préalable de l’art. 5, § 1 (art. 20, § 2, j), iii et iv). Pour les sources : ajouter le règlement à la vidéo ukraine-aide (sources: [AIDE_UE, PRET_UE, REGLEMENT]) et passer le sourceIndex de ukraine-aide-04 à 2. Garder PRET_UE, car ukraine-aide-05 dit « pour maintenir l’État et les services publics » : la formule vient de IP/26/1900 et n’est pas dans le règlement. Pour la même raison, elle sort du libellé de aide-04, qui ne cite plus que le règlement ; aide-05 la dit déjà. Le règlement contient tout le reste du libellé : 90, 60 et 30 Md€, février 2026, emprunt, réparations. Aucune voix à réenregistrer. À appliquer seulement avec ukraine_russie-5 dans sa version ajustée (§ 6 : rien que la fiche ne dise).",
+  "topic": "ukraine_russie",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "ukraine_russie-13",
+  "target": "video",
+  "questionId": "",
+  "videoId": "ukraine-diplomatie",
+  "segmentId": "ukraine-diplomatie-05",
+  "field": "say (et spoken, visual, draw, alt, emphasis, sources)",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "La vidéo demande « Que peut faire l’ONU ? », puis ne répond que par le veto. Elle conclut ce passage sur une équivalence : « La France comme la Russie peuvent donc, chacune, bloquer seule une résolution », avec deux barrières de même taille. La gauche y lit que la voie de l’ONU serait fermée. Le centre y lit que la France et la Russie sont mises sur le même plan. Ce passage ne fait que redire les passages 03 et 04. Le remplacer par le fait de l’Assemblée générale, déjà ajouté à la fiche, répond aux deux, sans insérer de passage ni renuméroter les suivants (§ 9). Il faut réenregistrer la voix de ce seul passage. La planche diplo05 attend « La France » et « la Russie » : elle est à redessiner. spoken : « Si le Conseil est bloqué par un veto, l’Assemblée générale de l’Onu peut se saisir de la question. Chacun de ses cent quatre-vingt-treize États membres y a une voix. Elle fait des recommandations. » visual : 'point'. draw : « Un hémicycle au trait, rangée après rangée de sièges tous de même taille ; la résolution, arrêtée par la barrière à la table ronde, passe à l’hémicycle. » alt : « Un hémicycle aux sièges tous égaux, l’Assemblée générale, où passe la résolution. » emphasis : ['l’Assemblée générale', 'une voix']. sources : + { title: 'Assemblée générale des Nations unies – Fonctions et pouvoirs', url: 'https://www.un.org/fr/ga/about/background.shtml', publisher: 'Nations unies' }.",
+  "current": "La France comme la Russie peuvent donc, chacune, bloquer seule une résolution.",
+  "proposed": "Si le Conseil est bloqué par un veto, l’Assemblée générale de l’ONU peut se saisir de la question. Chacun de ses 193 États membres y a une voix. Elle fait des recommandations.",
+  "newSource": {
+   "title": "Assemblée générale des Nations unies – Fonctions et pouvoirs",
+   "url": "https://www.un.org/fr/ga/about/background.shtml",
+   "publisher": "Nations unies"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche",
+   "centre"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "ukraine_russie-7"
+  ],
+  "rationale": "Deux relecteurs relèvent le même passage avec des lectures opposées. Le fait institutionnel, vérifié, convient aux deux et à la droite : il retire l’équivalence et montre la voie de l’Assemblée générale avec sa limite (des recommandations). La version du centre (veto de 2022 et résolution 2774) n’est pas retenue pour la vidéo, faute d’avoir pu vérifier la résolution 2774. Un nouveau passage, comme le proposait la gauche, obligerait à renuméroter des passages déjà enregistrés.",
+  "verification": "confirmed : Les faits viennent de la page de l’ONU lue pour ukraine_russie-7. On y lit « Chacun des 193 États Membres de l’Assemblée dispose d’une voix ». Elle dit aussi que l’Assemblée peut agir si le Conseil « n’a pu agir en raison du vote négatif d’un membre permanent » : elle peut alors « examiner immédiatement la question » et « recommander » des mesures collectives. Le texte actuel n’est pas faux : c’est une déduction exacte des passages 03 et 04. La correction porte sur le cadrage, pas sur un fait. La raison technique est vérifiée : la planche diplo05 (pistes/planches/ukraine_russie.tsx, l. 734-737) ne dessine rien sans « La France » et « la Russie » dans le texte, et doit donc être reprise. Le nombre 193 n’entre dans la vidéo qu’une fois ukraine_russie-7 appliquée à la fiche (GUIDE § 6).",
+  "topic": "ukraine_russie",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "ukraine_russie-10",
+  "target": "video",
+  "questionId": "",
+  "videoId": "ukraine-aide",
+  "segmentId": "ukraine-aide-03",
+  "field": "figure.label, figure.date et alt",
+  "category": "actualite",
+  "severity": "mineur",
+  "issue": "Le texte affiché reprend l’ancien total. Aucune voix n’est à réenregistrer. Dans figure.label, « sur un soutien total de 224,5 Md€ » devient « sur un soutien total de 228,7 Md€ ». Dans figure.date, « mise à jour du 18 septembre 2026 » devient « mise à jour du 7 octobre 2026 ». Dans alt, « 224,5 milliards d’euros » devient « 228,7 milliards d’euros ».",
+  "current": "224,5",
+  "proposed": "228,7",
+  "newSource": {
+   "title": "Aide de l’UE à l’Ukraine",
+   "url": "https://commission.europa.eu/topics/eu-solidarity-ukraine/eu-assistance-ukraine_fr",
+   "publisher": "Commission européenne",
+   "date": "2026-10-07"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "ukraine_russie-3",
+   "ukraine_russie-11"
+  ],
+  "rationale": "Ce sont des champs affichés sans voix : à aligner en même temps que la fiche.",
+  "verification": "confirmed : 228,7 Md€ et la date du 7 octobre 2026 ont été lus sur la page de la Commission (« This page was last updated on 7 October 2026 »). figure.label, figure.date et alt de ukraine-aide-03 sont à aligner, sans voix.",
+  "topic": "ukraine_russie",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "ukraine_russie-11",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "constantes SOUTIEN (value, label, date), SOUTIEN_CHART et AIDE_UE.date",
+  "category": "actualite",
+  "severity": "mineur",
+  "issue": "Ces constantes doivent suivre la fiche, sans réenregistrement. SOUTIEN.value : '224,5 Md€' devient '228,7 Md€'. SOUTIEN.label reprend le libellé corrigé de figures[1] (raccourci si besoin, sans en changer le sens). SOUTIEN.date : 'mise à jour du 18 septembre 2026' devient 'mise à jour du 7 octobre 2026'. SOUTIEN_CHART : 224.5 devient 228.7. AIDE_UE.date : '2026-09-18' devient '2026-10-07'.",
+  "current": "224,5",
+  "proposed": "228,7",
+  "newSource": {
+   "title": "Aide de l’UE à l’Ukraine",
+   "url": "https://commission.europa.eu/topics/eu-solidarity-ukraine/eu-assistance-ukraine_fr",
+   "publisher": "Commission européenne",
+   "date": "2026-10-07"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "ukraine_russie-3",
+   "ukraine_russie-4",
+   "ukraine_russie-8",
+   "ukraine_russie-9",
+   "ukraine_russie-10"
+  ],
+  "rationale": "Ces modifications sont nécessaires pour que chartOf() et le test passent, et pour que les fiches affichées dans les vidéos restent identiques à la fiche.",
+  "verification": "confirmed : Valeur et date vérifiées (228,7 Md€, 7 octobre 2026). Cinq champs suivent la fiche : SOUTIEN.value, SOUTIEN.label, SOUTIEN.date, SOUTIEN_CHART (228.7) et AIDE_UE.date ('2026-10-07'). Constantes vues dans ukraine_russie.ts, l. 39-44 et 94-105.",
+  "topic": "ukraine_russie",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "ukraine_russie-14",
+  "target": "video",
+  "questionId": "",
+  "videoId": "ukraine-intro",
+  "segmentId": "ukraine-intro-01",
+  "field": "say (et spoken, emphasis, draw, alt)",
+  "category": "actualite",
+  "severity": "mineur",
+  "issue": "Après le 24 février 2027, donc avant le premier tour, « Plus de quatre ans » sous-estimera la durée de la guerre, et l’alt « de 2022 à 2026 » sera dépassé. Il faut réenregistrer la voix, de préférence dans le même lot que ukraine-intro-05 et ukraine-intro-08. Dans spoken, même remplacement. Emphasis : 'Plus de quatre ans' devient 'la guerre continue'. Draw : « au-delà de la quatrième année » devient « jusqu’à aujourd’hui ». Alt : « de 2022 à 2026 » devient « depuis 2022 ». La planche intro01 lit « plus de N ans » dans le texte : sans ce motif, elle ne dessine plus rien et doit être reprise.",
+  "current": "Plus de quatre ans après, la guerre continue.",
+  "proposed": "Depuis, la guerre continue.",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "ukraine_russie-2",
+   "ukraine_russie-17"
+  ],
+  "rationale": "C’est la jumelle de la correction du résumé. La formulation ne vieillit pas et reste à revoir seulement en cas de cessez-le-feu.",
+  "verification": "confirmed : Même constat que ukraine_russie-2 : le 24 février 2027, avant le premier tour, la guerre aura 5 ans, et l’alt « de 2022 à 2026 » sera dépassé. La raison technique est vérifiée : la planche intro01 (l. 176-180) cherche le motif « plus de (\\S+) ans » et renvoie null sans lui. Elle est à reprendre, sinon le dessin générique la remplace. La guerre continue au 7 octobre 2026, d’après la Commission et IP/26/1900.",
+  "topic": "ukraine_russie",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "ukraine_russie-15",
+  "target": "video",
+  "questionId": "",
+  "videoId": "ukraine-intro",
+  "segmentId": "ukraine-intro-08",
+  "field": "say (et emphasis)",
+  "category": "cadrage",
+  "severity": "mineur",
+  "issue": "« Quelle aide apporter à l’Ukraine ? » suppose qu’une aide va de soi. Or plusieurs approches de cette élection proposent d’arrêter l’aide financière, d’arrêter toute aide ou de ne soutenir aucun camp (d, e, f). La question doit rester ouverte. Il faut réenregistrer la voix ; le passage n’a pas de spoken. À faire seulement dans le même lot que ukraine-intro-01 et ukraine-intro-05. Emphasis : 'à l’Ukraine' devient 'aider l’Ukraine'.",
+  "current": "Quelle aide apporter à l’Ukraine",
+  "proposed": "Faut-il aider l’Ukraine, et comment",
+  "lenses": [
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [],
+  "rationale": "La question est ouverte sans orienter : elle n’oppose rien à l’aide et n’en présuppose pas. Elle garde une seule question par phrase, terminée par « ? », comme le demande le § 7. Le pictogramme des pièces reste juste.",
+  "topic": "ukraine_russie",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "ukraine_russie-16",
+  "target": "video",
+  "questionId": "",
+  "videoId": "ukraine-civils",
+  "segmentId": "ukraine-civils-10",
+  "field": "draw et alt",
+  "category": "cadrage",
+  "severity": "mineur",
+  "issue": "« Montrée du doigt » veut aussi dire désignée à la réprobation. Accolé à la barre très fine de la France (47 215 contre 4,3 millions dans l’UE), le mot suggère un reproche que les données n’expriment pas. De plus, la planche civils10 dessine déjà une flèche, pas une main : l’alt, lu aux lecteurs d’écran, ne correspond pas à l’image. Le say et la voix ne changent pas.",
+  "current": "montrée du doigt",
+  "proposed": "désignée d’une flèche",
+  "lenses": [
+   "gauche"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "rationale": "C’est une correction d’un mot, neutre pour toutes les sensibilités, qui aligne aussi le texte sur le dessin réel (Arrow).",
+  "topic": "ukraine_russie",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "ukraine_russie-17",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "en-tête (mention « Datée »)",
+  "category": "actualite",
+  "severity": "mineur",
+  "issue": "La mention « Datée » ne prévoit que les mises à jour des sources. Elle ne dit ni leur rythme ni les échéances qui tombent avant le vote. Les bilans de l’ONU et les chiffres d’Eurostat sont mensuels. Le total de la Commission croît à chaque versement du prêt, et la page est déjà à jour au 7 octobre 2026. Le plan humanitaire 2027 de l’ONU paraîtra avant le vote. « Plus de quatre ans » ne vaut que jusqu’au 24 février 2027, et « la guerre continue » ne vaut que jusqu’à un éventuel cessez-le-feu. Le texte proposé décrit l’état de la série une fois les corrections appliquées.",
+  "current": "// Datée : bilans de l'ONU au 31 août 2026, aide européenne au 18 septembre 2026, protection temporaire à fin\n// juillet 2026. À revoir à la prochaine mise à jour de ces sources.",
+  "proposed": "// Datée : bilans de l'ONU au 31 août 2026 (mensuels), aide européenne au 7 octobre 2026 (total qui croît à chaque\n// versement du prêt), protection temporaire à fin juillet 2026 (mensuelle), besoins humanitaires du plan 2026 de\n// l'ONU (plan 2027 attendu avant le vote), prêt de l'UE selon le règlement (UE) 2026/467. « La guerre continue » :\n// à revoir en cas de cessez-le-feu ou d'accord de paix ; « Plus de quatre ans » (ukraine-intro-01), s'il reste, ne\n// vaut que jusqu'au 24 février 2027. À revoir à chaque mise à jour de ces sources, et en tout cas avant le premier\n// tour du 18 avril 2027.",
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "ukraine_russie-2",
+   "ukraine_russie-14"
+  ],
+  "rationale": "Cette version fusionne les trois propositions d’en-tête. C’est un commentaire de code, sans effet sur ce qui est montré, d’où la gravité « mineur ».",
+  "verification": "confirmed : L’en-tête actuel (l. 11-12) est vérifié. Ce que la nouvelle mention dit est cohérent avec les sources lues. Les bilans de la mission de l’ONU paraissent chaque mois (le mois d’août 2026 est paru le 16 septembre) ; Eurostat migr_asytpsm compte les personnes « à la fin du mois ». Le total de la Commission est passé de 224,5 à 228,7 Md€ entre le 18 septembre et le 7 octobre, entre autres par les versements du prêt : « €16.9 billion disbursed under the Ukraine Support Loan ». Le règlement (UE) 2026/467 existe bien, du 24 février 2026. La sortie du plan 2027 de l’OCHA avant le vote est une prévision : les plans paraissent d’ordinaire vers décembre-janvier. C’est plausible mais non vérifié, et acceptable dans un commentaire. Si ukraine_russie-5 est appliquée dans sa version ajustée (IP/26/1900 gardé et règlement ajouté), la mention reste juste.",
+  "topic": "ukraine_russie",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "ukraine_russie-8",
+  "target": "video",
+  "questionId": "",
+  "videoId": "ukraine-intro",
+  "segmentId": "ukraine-intro-05",
+  "field": "say (et spoken, emphasis)",
+  "category": "actualite",
+  "severity": "mineur",
+  "issue": "Ce passage suit la mise à jour du chiffre n° 1 de la fiche (228,7 Md€ au 7 octobre 2026) : la vidéo doit montrer la même valeur que la fiche. Il faut réenregistrer la voix de ce passage. Dans spoken, « deux cent vingt-quatre virgule cinq milliards » devient « deux cent vingt-huit virgule sept milliards ». Dans emphasis, '224,5 milliards d’euros' devient '228,7 milliards d’euros'. Le total grossira à chaque versement du prêt : faites ce réenregistrement en un seul lot avec ukraine-intro-01 et ukraine-intro-08, au dernier rafraîchissement avant le gel du vote.",
+  "current": "224,5",
+  "proposed": "228,7",
+  "newSource": {
+   "title": "Aide de l’UE à l’Ukraine",
+   "url": "https://commission.europa.eu/topics/eu-solidarity-ukraine/eu-assistance-ukraine_fr",
+   "publisher": "Commission européenne",
+   "date": "2026-10-07"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "ukraine_russie-3",
+   "ukraine_russie-11"
+  ],
+  "rationale": "Les trois relecteurs l’ont relevé. Un seul réenregistrement, groupé avec les autres passages de l’introduction.",
+  "verification": "confirmed : La page de la Commission, mise à jour le 7 octobre 2026, donne « €228.7 billion ». L’aide militaire reste à 77,9 Md€, et « Dont 77,9 milliards d’aide militaire » ne change pas. Le say, le spoken et l’emphasis de ukraine-intro-05 doivent montrer la même valeur que la fiche (GUIDE § 6).",
+  "topic": "ukraine_russie",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "ukraine_russie-9",
+  "target": "video",
+  "questionId": "",
+  "videoId": "ukraine-aide",
+  "segmentId": "ukraine-aide-02",
+  "field": "say (et spoken, emphasis)",
+  "category": "actualite",
+  "severity": "mineur",
+  "issue": "C’est la même mise à jour que la fiche, et il faut réenregistrer la voix de ce passage. Dans spoken, « deux cent vingt-quatre virgule cinq milliards » devient « deux cent vingt-huit virgule sept milliards ». Dans emphasis, '224,5 milliards d’euros' devient '228,7 milliards d’euros'. Le passage ukraine-aide-03 (« un peu plus d’un tiers ») reste juste : 77,9 sur 228,7, soit 34 %. À faire dans le même lot que ukraine-intro-05.",
+  "current": "224,5",
+  "proposed": "228,7",
+  "newSource": {
+   "title": "Aide de l’UE à l’Ukraine",
+   "url": "https://commission.europa.eu/topics/eu-solidarity-ukraine/eu-assistance-ukraine_fr",
+   "publisher": "Commission européenne",
+   "date": "2026-10-07"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "ukraine_russie-3",
+   "ukraine_russie-11"
+  ],
+  "rationale": "J’ai retiré l’hésitation qui figurait dans le spoken proposé par la droite. Le spoken est simplement : « … atteint deux cent vingt-huit virgule sept milliards d’euros depuis deux mille vingt-deux. »",
+  "verification": "confirmed : Même valeur lue : 228,7 Md€ au 7 octobre 2026. Le passage ukraine-aide-03 (« un peu plus d’un tiers ») reste juste : 77,9 / 228,7 = 34,1 %.",
+  "topic": "ukraine_russie",
+  "electionQuestionId": ""
+ }
+]

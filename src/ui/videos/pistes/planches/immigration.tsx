@@ -7,7 +7,7 @@
 // personne n'est qu'une tête et des épaules. Le bleu bille compte ce dont parle le passage, sans désigner de
 // « bon » côté ; les comparaisons partent de zéro, à la même échelle.
 
-import { Art, Arrow, Ask, Fade, Ink, Txt, W, at, cueOf, cuesOf, heard, num, plain, ratioOf, said, sentenceWith, sentencesOf, word, type P } from '../dessin/encre'
+import { Art, Arrow, Ask, Fade, Ink, Txt, W, at, cueOf, cuesOf, heard, num, plain, ratioOf, said, sentenceWith, sentencesOf, word, type Cue, type P } from '../dessin/encre'
 import { Chiffre, Head, HeadCues, Libelle, Panel, Question, Seg, Signature, Src, Sur100, lineOf } from '../dessin/mises'
 import { Glyphe, Picto, type PictoName } from '../dessin/pictos'
 import { Cases, Disque, Rang, Signe, balance, barres, frise, partPoint, rangCells } from '../dessin/schemas'
@@ -1039,6 +1039,69 @@ const exp10: Board = p => (
   </Seg>
 )
 
+/* ——— Édition présidentielle 2027 (passages corrigés, identifiants en -p27) ——— */
+
+/** Chaque part mise en valeur, et le motif dit juste après (« 31,0 % sont délivrés pour des études, 24,1 % pour un
+ *  motif familial… ») : le « pour … » qui la suit dans la phrase, tel qu'il est écrit ; rien si une part n'en a pas */
+function partsDites(p: P): { cue: Cue; label: string }[] | null {
+  const say = p.segment.say
+  const flat = plain(say)
+  const out: { cue: Cue; label: string }[] = []
+  for (const cue of cuesOf(p)) {
+    const i = flat.indexOf(plain(cue.text))
+    if (i < 0) return null
+    const after = i + cue.text.length
+    const m = /^[^,.;?]*?(pour [^,.;?]+)/.exec(flat.slice(after))
+    if (!m) return null
+    const start = after + m[0].length - m[1]!.length
+    out.push({ cue, label: say.slice(start, start + m[1]!.length) })
+  }
+  return out
+}
+
+/** 02 (édition) Les quatre motifs dits — études, motif familial, humanitaire, économique —, chacun sa barre, à la
+ *  même échelle depuis zéro et dans l'ordre de la voix ; le chiffre de la fiche en tête, la source dessous */
+const titres02p27: Board = p => {
+  const parts = partsDites(p)
+  if (!parts || parts.length < 2) return null
+  const values = parts.map(x => num(x.cue.text))
+  if (values.some(v => v === null || v <= 0)) return null
+  const g = barres({
+    items: parts.map((x, i) => ({ label: x.label, value: values[i]!, text: x.cue.text, shown: x.cue.shown })),
+    y: 4,
+    size: 18,
+    gap: 26,
+    room: 92,
+    t0: 300,
+    labelSize: 14,
+  })
+  return (
+    <Seg kind="fig">
+      <Chiffre p={p} />
+      <Art h={g.h + 8}>{g.el}</Art>
+      <Src p={p} />
+    </Seg>
+  )
+}
+
+/** 10 (édition) « Combien d'étrangers admettre, pour quels motifs, et faut-il des objectifs chiffrés ? » : des
+ *  cartes de séjour (combien), un document d'objectifs et son compteur (des objectifs chiffrés), la question ;
+ *  chacun au bleu bille quand la voix le dit */
+const titres10p27: Board = p => {
+  const [combien, chiffres] = cuesOf(p)
+  return (
+    <Seg kind="ask">
+      <Art h={108}>
+        <Rang n={6} picto="carte" cols={3} x={0} w={124} max={38} gap={4} y={14} count={range(6)} shown={!!combien?.shown} t0={200} stagger={70} />
+        <Picto n="document" x={132} y={0} size={72} t0={700} tone={chiffres?.shown ? 'count' : undefined} />
+        <Picto n="compteur" x={136} y={52} size={64} t0={1000} tone={chiffres?.shown ? 'count' : undefined} />
+        <Ask x={232} y={14} h={74} t0={1300} />
+      </Art>
+      <Question p={p} />
+    </Seg>
+  )
+}
+
 /* ——— Le registre ——— */
 
 export const IMMIGRATION: Record<string, Board> = {
@@ -1086,4 +1149,7 @@ export const IMMIGRATION: Record<string, Board> = {
   'immigration-expulsions-08': exp08,
   'immigration-expulsions-09': exp09,
   'immigration-expulsions-10': exp10,
+  // Édition présidentielle 2027 : les passages dont le texte dit a changé
+  'immigration-titres-02-p27': titres02p27,
+  'immigration-titres-10-p27': titres10p27,
 }

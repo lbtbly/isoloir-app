@@ -378,7 +378,12 @@ export interface ElectionPack {
    * (src/ui/videos/series/) → identifiant dans cette élection. Un thème de série absent de « topics »
    * n'est pas montré. Absent : les séries sont prises telles quelles (leurs identifiants sont ceux de l'élection).
    */
-  videoScope?: { topics: Record<string, string>; questions: Record<string, string> }
+  videoScope?: {
+    topics: Record<string, string>
+    questions: Record<string, string>
+    /** Édition des séries propre à cette élection (src/ui/videos/editions) : corrections posées sur les séries communes */
+    edition?: string
+  }
 }
 
 /**

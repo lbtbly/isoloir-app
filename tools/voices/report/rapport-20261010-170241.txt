@@ -1,0 +1,473 @@
+Rapport de génération des voix — 2026-10-10 14:50:10
+Commande : generate.py --voice aigue
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  travail-partage-07-p27 — 8.25 s, F0 227.0 Hz, pauses entre phrases [0.3, 0.19, 0.15] s
+    1. Aucune loi ne plafonne ces …   1/3    230.0  -1.01   -0.3   +1.1  0.0    7.2  1.40  1:230 2:228 3:223~
+    2. Profits, décisions, salaire…   2/3    224.1  -1.46   +0.9   +2.3  3.4    4.5  0.88  1:272×! 2:224 3:250×!
+         prise 1 : bruit 0.52-0.68 s (net, +42 dB, confiance 0.83) [Profits | décisions]
+         prise 3 : bruit 0.56-0.86 s (net, +40 dB, confiance 0.82) [Profits | décisions]
+         prise 3 : respiration 2.24-2.48 s (leger, +31 dB, confiance 0.57) [salaires | quelle]
+      passage assemblé : bruit 4.75-4.97 s (net, +42 dB, confiance 0.87) [Profits | décisions]
+      passage assemblé : respiration 6.32-6.58 s (leger, +28 dB, confiance 0.56) [salaires | quelle]
+      ⚠ son parasite dans le passage assemblé : bruit 4.75-4.97 s (net, +42 dB, confiance 0.87) [Profits | décisions]
+  impots-intro-06-p27 — 6.62 s, F0 229.4 Hz, pauses entre phrases [0.33, 0.36, 0.22, 0.37] s
+    1. Alors, trois questions se p…   2/3    229.1  -1.08   -5.3   +1.4  2.3    4.4  0.86  1:334~ 2:229 3:271~
+    2. Que faire face à la dette ?   3/7    270.6  +1.81   +5.1   +5.7  6.0    5.7  1.10  1:348× 2:305×! 3:271~ 4:258~ 5:365×! 6:216~ 7:282~
+         prise 2 : bruit 0.80-1.05 s (net, +52 dB, confiance 0.95) [dette | fin]
+         prise 5 : rire 0.08-0.56 s (net, +56 dB, confiance 0.95) [Que | à]
+         prise 5 : mot étiré « dette » 0.80-1.28 s (leger, confiance 0.52) [la | fin]
+    3. Comment imposer les grandes…   3/3    242.5  -0.09   -3.5   -1.3  3.0    5.3  1.03  1:249 2:344×! 3:242
+         prise 2 : rire 0.08-0.32 s (net, +30 dB, confiance 0.57) [Comment | imposer]
+    4. Et les héritages ?            6/7    222.4  -1.59   +1.0   -0.8  3.0    5.7  1.11  1:278~ 2:312×! 3:220~ 4:296~ 5:214~ 6:222~ 7:379~
+         prise 2 : parole en trop « héritages » 0.32-0.99 s (net, +42 dB, confiance 0.31) [les | fin]
+      passage assemblé : bruit 6.08-6.31 s (net, +48 dB, confiance 0.93) [héritages | fin]
+      ⚠ phrase 2 : aucune prise acceptable : hauteur +1.81 dt de la cible
+      ⚠ phrase 4 : aucune prise acceptable : hauteur -1.59 dt de la cible
+      ⚠ son parasite dans le passage assemblé : bruit 6.08-6.31 s (net, +48 dB, confiance 0.93) [héritages | fin]
+  impots-intro-07-p27 — 2.23 s, F0 233.6 Hz
+    1. Ce sont les trois sujets de…   1/3    233.6  -0.74   -0.8   +3.0  0.0    5.6  1.09  1:234 2:239~ 3:229
+  impots-dette-05-p27 — 14.82 s, F0 242.8 Hz, pauses entre phrases [0.32] s
+    1. Le Gouvernement prévoit que…   3/3    247.2  +0.24   +0.0   +1.9  0.0    5.1  1.00  1:257 2:212~? 3:247?
+         prise 2 : respiration 5.92-6.07 s (leger, +31 dB, confiance 0.58) [sept | fin]
+         prise 3 : respiration 4.84-4.99 s (leger, +16 dB, confiance 0.31) [six | puis]
+    2. Le Haut Conseil des finance…   2/3    236.9  -0.50   -8.2   +0.1  0.0    5.3  1.03  1:230 2:237 3:215~
+      passage assemblé : respiration 4.85-4.99 s (leger, +15 dB, confiance 0.30) [six | puis]
+  industrie-intro-01-p27 — 4.03 s, F0 246.6 Hz, pauses entre phrases [0.18, 0.3] s
+    1. Une usine ouvre ici, une au…   2/3    243.6  -0.01   -2.5   -2.2  1.9    5.7  1.10  1:253 2:244 3:260
+    2. Quelle part y prennent l'Ét…   3/3    249.4  +0.39   -7.7   +1.2  5.5    8.1  1.58  1:195~ 2:307~ 3:249
+  industrie-intro-07-p27 — 10.08 s, F0 243.3 Hz, pauses entre phrases [0.33, 0.35, 0.35] s
+    1. Alors, trois questions se p…   7/7    228.4  -1.13   -5.1   -0.6  0.0    5.5  1.07  1:270~ 2:215~ 3:278~ 4:226~ 5:348~ 6:295~ 7:228
+    2. Quel rôle pour l'État dans …   2/3    260.9  +1.17   -0.5   +7.5  6.0    6.6  1.29  1:253~ 2:261 3:244~
+    3. Quelle politique commercial…   2/3    227.3  -1.21   +3.7   +1.4  3.0    7.1  1.38  1:232 2:227 3:276~
+    4. Et que faire des aides publ…   1/3    235.9  -0.57   -3.3   +1.9  3.0    5.9  1.16  1:236 2:254 3:237
+  industrie-etat-04-p27 — 13.79 s, F0 237.0 Hz, pauses entre phrases [0.16, 0.35, 0.31, 0.15] s
+    1. Pour les traités européens,…   2/3    250.2  +0.45  -10.0   +0.7  0.0    5.8  1.12  1:224 2:250 3:255
+    2. Mais toute aide publique à …   1/3    225.5  -1.35   -7.8   -0.1  6.0    6.2  1.22  1:226 2:231~ 3:223~
+    3. Les aides qui faussent la c…   1/3    238.2  -0.40   -1.4   +3.3  6.0    6.0  1.17  1:238 2:217~ 3:228
+  industrie-commerce-08-p27 — 3.04 s, F0 235.5 Hz
+    1. Alors, quelle politique com…   1/3    235.5  -0.60   +5.0   +4.0  3.0    7.8  1.52  1:236 2:216~ 3:235
+  retraites-intro-07-p27 — 13.08 s, F0 245.1 Hz, pauses entre phrases [0.3] s
+    1. En deux mille vingt-cinq, i…   1/3    249.6  +0.41   -1.4   +4.3  2.3    5.6  1.09  1:250 2:232 3:234
+    2. À règles inchangées, le déf…   5/5    233.4  -0.75   -1.4   +2.5  1.4    5.2  1.02  1:197~ 2:222~ 3:213~ 4:221~ 5:233
+  retraites-financement-11-p27 — 9.18 s, F0 247.1 Hz, pauses entre phrases [0.33, 0.3, 0.31] s
+    1. Passer, même en partie, de …   3/3    248.5  +0.33   -1.5   +2.8  0.0    6.2  1.21  1:262? 2:239×! 3:248?
+         prise 1 : respiration 0.40-0.55 s (leger, +35 dB, confiance 0.66) [Passer | même]
+         prise 2 : respiration 0.40-0.64 s (net, +34 dB, confiance 0.69) [Passer | même]
+         prise 3 : respiration 3.84-4.08 s (leger, +16 dB, confiance 0.31) [capitalisation | obligerait]
+    2. Certains pays, comme la Suè…   3/3    245.6  +0.13   -3.4   +4.1  1.5    5.0  0.99  1:274~ 2:284×! 3:246
+         prise 2 : respiration 0.01-0.40 s (net, +56 dB, confiance 0.95) [début | Certains]
+  retraites-pensions-06-p27 — 6.60 s, F0 244.9 Hz
+    1. En principe, les pensions d…   3/3    244.9  +0.08   -1.8   +0.9  0.0    5.4  1.05  1:234 2:260 3:245
+  retraites-penibilite-07-p27 — 7.71 s, F0 233.1 Hz, pauses entre phrases [0.31, 0.3, 0.24] s
+    1. Motif donné alors : leur év…   2/3    245.7  +0.13   -1.5   -0.9  0.0    6.5  1.28  1:270~ 2:246 3:252
+    2. Un départ anticipé reste po…   3/3    223.9  -1.47   -2.2   -0.4  1.5    6.0  1.18  1:215~ 2:220~ 3:224
+  egalite-salaires-04-p27 — 8.51 s, F0 247.6 Hz, pauses entre phrases [0.2, 0.3] s
+    1. Une part de cet écart tient…   2/3    231.9  -0.87   -5.4   +1.6  0.0    5.8  1.14  1:213~ 2:232 3:228
+    2. À temps de travail égal, l'…   1/3    263.9  +1.37   -7.0   +2.4  5.4    5.2  1.02  1:264 2:220~ 3:214~
+  sante-intro-06-p27 — 8.18 s, F0 243.3 Hz, pauses entre phrases [0.29, 0.3, 0.35, 0.35, 0.35] s
+    1. Alors, plusieurs questions …   2/3    226.6  -1.27   +0.8   +1.3  6.0    6.2  1.21  1:317~ 2:227 3:267~
+    2. Comment mieux accéder aux s…   2/3    246.9  +0.22   -0.7   +3.5  3.0    5.3  1.04  1:258 2:247 3:252
+    3. Qui rembourse quoi ?          3/3    256.9  +0.91   -2.5   +3.5  3.0    4.6  0.90  1:400~ 2:288×! 3:257
+         prise 2 : rire 0.01-0.48 s (net, +58 dB, confiance 0.95) [début | Qui]
+    4. Comment accompagner le gran…   7/7    232.4  -0.83   -1.4   +5.3  3.0    6.7  1.31  1:301~ 2:219~ 3:217~ 4:220~ 5:189~? 6:295~ 7:232
+         prise 5 : parole en trop 0.00-0.08 s (leger, +35 dB, confiance 0.57) [début | Comment]
+    5. Et quelle place pour la pré…   1/3    248.2  +0.31   -0.8   +0.5  3.0    5.2  1.01  1:248 2:259 3:227
+  sante-remboursements-09-p27 — 6.55 s, F0 246.4 Hz
+    1. Côté comptes, la branche ma…   3/3    246.4  +0.18   -1.1   +0.7  0.0    5.8  1.13  1:223~ 2:218~ 3:246
+  sante-prevention-06-p27 — 10.80 s, F0 239.0 Hz, pauses entre phrases [0.31] s
+    1. Côté vaccins, pour les enfa…   2/3    244.0  +0.01   -1.9   +1.7  0.0    6.0  1.18  1:229 2:244? 3:228
+         prise 2 : respiration 0.72-0.89 s (leger, +16 dB, confiance 0.31) [vaccins | pour]
+    2. Un enfant qui n'est pas à j…   3/3    235.2  -0.62   -8.7   +2.1  1.9    6.0  1.16  1:222~ 2:234 3:235
+      passage assemblé : respiration 7.92-8.16 s (leger, +35 dB, confiance 0.63) [l'école | ses]
+  sante-prevention-07-p27 — 12.85 s, F0 244.9 Hz, pauses entre phrases [0.17, 0.18, 0.31] s
+    1. Côté environnement, selon S…   3/3    237.9  -0.42   -5.6   +3.5  6.0    5.5  1.07  1:255 2:233 3:238
+    2. C'est sept pour cent des dé…   3/3    252.0  +0.57   -6.4   +1.4  5.6    6.2  1.20  1:224~? 2:223~ 3:252?
+         prise 1 : respiration 2.64-2.88 s (leger, +23 dB, confiance 0.41) [métropolitaine | sur]
+         prise 1 : respiration 4.96-5.17 s (leger, +36 dB, confiance 0.69) [neuf | fin]
+         prise 3 : respiration 4.32-4.51 s (leger, +34 dB, confiance 0.67) [neuf | fin]
+      passage assemblé : respiration 12.32-12.54 s (leger, +33 dB, confiance 0.64) [neuf | fin]
+  sante-prevention-08-p27 — 4.83 s, F0 247.9 Hz
+    1. Budgets, alimentation, vacc…   2/3    247.9  +0.29   +5.2   +0.7  6.0    5.1  0.99  1:268~ 2:248 3:238
+  logement-loyers-05-p27 — 7.27 s, F0 241.0 Hz, pauses entre phrases [0.26, 0.3, 0.25] s
+    1. Effet mesuré sur les loyers…   3/3    238.5  -0.38   -2.4   +0.9  0.0    5.8  1.13  1:230 2:209~ 3:238
+    2. Sur un loyer de huit cents …   1/3    244.6  +0.06   -3.3   +2.2  2.4    5.0  0.98  1:245 2:202~ 3:244
+  logement-loyers-06-p27 — 12.14 s, F0 244.0 Hz, pauses entre phrases [0.27, 0.24, 0.31, 0.3, 0.35, 0.15] s
+    1. Effet mesuré hors Île-de-Fr…   1/3    244.6  +0.06   -1.6   +1.3  3.3    6.4  1.24  1:245? 2:231? 3:237?
+         prise 1 : mot étiré « France » 1.12-1.60 s (leger, confiance 0.41) [de | environ]
+         prise 2 : mot étiré « France » 1.20-1.76 s (leger, confiance 0.47) [de | environ]
+         prise 3 : mot étiré « France » 1.20-1.68 s (leger, confiance 0.44) [de | environ]
+    2. Moins de logements à louer,…   2/3    248.2  +0.31   +2.8   +2.8  4.6    7.1  1.39  1:236 2:248 3:274~
+    3. Selon le rapport d'évaluati…   1/3    238.6  -0.37   -0.1   +2.6  0.0    5.9  1.16  1:239 2:214~ 3:277~
+  logement-loyers-09-p27 — 2.16 s, F0 245.9 Hz
+    1. Alors, quelles règles pour …   7/7    245.9  +0.15   -2.2   +6.3  3.1    4.5  0.87  1:234~ 2:298~? 3:234×! 4:214~ 5:275×! 6:209~ 7:246~
+         prise 2 : respiration 0.03-0.32 s (leger, +55 dB, confiance 0.94) [début | Alors]
+         prise 3 : respiration 0.03-0.24 s (net, +44 dB, confiance 0.87) [début | Alors]
+         prise 5 : rire 0.48-0.80 s (net, +49 dB, confiance 0.95) [quelles | règles]
+      ⚠ phrase 1 : aucune prise acceptable : saut de +6.34 dt à l'enchaînement (tolérance de reprise 3.1 dt)
+  logement-social-07-p27 — 6.07 s, F0 243.7 Hz
+    1. Le soutien public au logeme…   3/3    243.7  -0.01   -1.8   +1.6  0.0    6.2  1.22  1:239 2:246 3:244
+  logement-social-08-p27 — 14.60 s, F0 239.2 Hz, pauses entre phrases [0.17, 0.29, 0.32, 0.28, 0.27, 0.31] s
+    1. Les rapports publics relève…   3/3    239.0  -0.34   -1.5   +2.0  1.8    7.2  1.41  1:208~ 2:251 3:239
+    2. Les loyers les plus bas con…   3/3    241.0  -0.20   -4.6   +2.3  1.5    5.8  1.13  1:244? 2:240 3:241
+         prise 1 : respiration 2.64-2.88 s (leger, +15 dB, confiance 0.30) [sociaux | alors]
+    3. Et le loyer ne dépend pas d…   2/3    236.6  -0.52   -2.1   +3.7  4.6    6.8  1.32  1:232 2:237 3:254~
+  logement-construire-07-p27 — 14.12 s, F0 243.4 Hz, pauses entre phrases [0.33, 0.29, 0.31, 0.28, 0.45] s
+    1. Pour encourager les particu…   3/3    239.5  -0.31   -2.3   +0.5  0.0    5.8  1.13  1:207~ 2:228 3:240
+    2. Limite relevée par le Tréso…   2/3    247.5  +0.26  -10.0   +2.9  2.3    5.6  1.08  1:229 2:248 3:206~
+  solidarites-intro-07-p27 — 5.70 s, F0 246.2 Hz, pauses entre phrases [0.23, 0.3, 0.35] s
+    1. Parmi d'autres, deux questi…   1/3    255.1  +0.78   -5.8   +4.6  2.5    4.5  0.89  1:255 2:229 3:268~
+    2. Quelle assurance chômage ?    4/4    228.4  -1.13   +5.8   -0.2  6.0    5.4  1.06  1:340×! 2:314~ 3:276~ 4:228
+         prise 1 : rire 0.00-0.54 s (net, +51 dB, confiance 0.95) [début | Quelle]
+         prise 1 : respiration 1.52-1.77 s (net, +49 dB, confiance 0.95) [chômage | fin]
+    3. Et quelles contreparties au…   3/3    245.6  +0.13   -3.3   +3.7  3.0    6.9  1.34  1:213~ 2:251 3:246
+  solidarites-intro-08-p27 — 2.07 s, F0 253.3 Hz
+    1. Ce sont les deux sujets des…   2/3    253.3  +0.66   -4.2   +2.3  0.0    6.4  1.25  1:236~ 2:253 3:212~
+  solidarites-chomage-08-p27 — 16.52 s, F0 240.3 Hz, pauses entre phrases [0.18, 0.3, 0.3, 0.2] s
+    1. Selon l'Unédic, ses dépense…   6/6    230.3  -0.99   -8.7   +0.1  0.0    5.6  1.10  1:214~ 2:199~ 3:219~ 4:221~ 5:268~? 6:230
+         prise 5 : bruit 2.02-2.13 s (leger, +44 dB, confiance 0.81) [augmentent | et]
+    2. Fin deux mille vingt-six, s…   1/3    243.9  +0.01   -1.6   +2.5  6.0    6.0  1.17  1:244 2:204~ 3:226
+    3. Sans nouveau prélèvement, e…   1/3    243.5  -0.02   -2.8   +3.5  1.6    5.8  1.14  1:244 2:236 3:234
+  ecole-intro-07-p27 — 9.86 s, F0 244.5 Hz, pauses entre phrases [0.24, 0.3, 0.35, 0.36, 0.35, 0.35] s
+    1. Alors, cinq sujets.           5/5    243.7  -0.01   +1.2   +0.1  0.0    5.6  1.10  1:278~ 2:291~ 3:263~ 4:289~ 5:244?
+         prise 5 : parole en trop 1.05-1.14 s (leger, +58 dB, confiance 0.81) [sujets | fin]
+    2. Combien d'élèves par classe…   7/7    246.2  +0.17   +1.5   -0.4  3.0    4.8  0.94  1:287~ 2:285~ 3:196~ 4:366~ 5:271~ 6:366~ 7:246
+    3. Comment mieux faire apprend…   3/3    228.6  -1.11   +0.8   +2.7  3.0    4.5  0.87  1:311~ 2:268~ 3:229
+    4. Quelles règles pour finance…   2/3    263.1  +1.32   +0.7   +1.9  3.0    6.0  1.16  1:241~ 2:263 3:269~
+    5. Quelle priorité pour l'univ…   3/3    230.7  -0.96   +0.6   -0.5  3.0    6.2  1.21  1:223~ 2:267~ 3:231
+    6. Et que faire d'abord pour l…   3/3    247.9  +0.29   +6.6   +4.1  3.0    6.4  1.25  1:262 2:266~ 3:248
+      passage assemblé : vocalise 1.05-1.14 s (leger, +48 dB, confiance 0.80) [sujets | Combien]
+  ecole-prive-03-p27 — 15.75 s, F0 245.2 Hz, pauses entre phrases [0.21, 0.3, 0.31, 0.24, 0.17] s
+    1. En deux mille vingt-quatre,…   3/3    248.7  +0.34   -4.8   +1.7  0.0    6.0  1.18  1:266~ 2:276~ 3:249
+    2. Dans le public, c'est cinqu…   3/3    249.8  +0.42   -2.4   -1.1  4.8    6.0  1.18  1:269×! 2:260 3:250
+         prise 1 : respiration 2.72-3.04 s (net, +44 dB, confiance 0.95) [treize | pour]
+    3. Le reste vient surtout des …   3/3    239.9  -0.28   -8.1   +0.9  2.4    6.8  1.32  1:224 2:216~ 3:240
+  ecole-prive-04-classes-p27 — 7.04 s, F0 230.2 Hz
+    1. En élémentaire, les classes…   3/3    230.2  -0.99   -6.1   +1.2  6.0    5.7  1.10  1:197~ 2:228 3:230
+  ecole-superieur-05-p27 — 19.93 s, F0 254.7 Hz, pauses entre phrases [0.33, 0.3, 0.3, 0.28] s
+    1. À l'université publique, un…   3/3    250.0  +0.43   -2.5   +0.4  0.0    5.9  1.15  1:250 2:227 3:250
+    2. À la rentrée deux mille vin…   3/3    254.4  +0.74   -3.8   +3.4  2.5    5.7  1.11  1:224 2:225 3:254
+    3. Pour un étudiant ressortiss…   2/3    260.7  +1.16   -3.6   +3.9  3.8    5.5  1.08  1:227 2:261 3:214~?
+         prise 3 : vocalise 7.60-8.00 s (leger, +35 dB, confiance 0.58) [deux | et]
+  culture-intro-07-p27 — 8.73 s, F0 240.4 Hz, pauses entre phrases [0.32, 0.36, 0.35, 0.35, 0.35] s
+    1. Alors, quatre questions se …   2/3    249.7  +0.41   -6.1   +2.1  3.6    4.6  0.89  1:249~ 2:250 3:272~
+    2. Combien pour la culture ?     5/5    250.0  +0.43   -0.1   +5.2  6.0    5.6  1.09  1:460×! 2:282~ 3:466~? 4:318~ 5:250
+         prise 1 : respiration 1.28-1.52 s (net, +51 dB, confiance 0.95) [culture | fin]
+         prise 3 : respiration 0.00-0.16 s (leger, +44 dB, confiance 0.79) [début | Combien]
+         prise 3 : mot étiré « Combien » 0.16-1.04 s (leger, +48 dB, confiance 0.67) [début | pour]
+    3. Quel avenir pour l'audiovis…   1/3    231.9  -0.87   -1.7   +2.2  3.0    6.8  1.33  1:232 2:208~ 3:268~
+    4. Quel soutien aux jeunes ?     7/7    230.7  -0.96   +3.5   +1.1  3.0    6.0  1.16  1:428~? 2:284×! 3:309~ 4:360×! 5:280~ 6:269×! 7:231
+         prise 1 : parole en trop « jeunes » 0.72-1.18 s (leger, +47 dB, confiance 0.60) [aux | fin]
+         prise 2 : rire 0.88-1.09 s (net, +46 dB, confiance 0.91) [jeunes | fin]
+         prise 4 : respiration 0.92-1.14 s (net, +30 dB, confiance 0.65) [jeunes | fin]
+         prise 6 : respiration 0.02-0.26 s (net, +60 dB, confiance 0.95) [début | Quel]
+    5. Et quels quotas à la télévi…   7/7    238.4  -0.39   +2.0   +2.6  3.0    6.1  1.18  1:220~ 2:214× 3:296~ 4:313~ 5:223~ 6:217× 7:238
+  culture-audiovisuel-09-p27 — 3.89 s, F0 234.8 Hz
+    1. Alors, quel avenir pour l'a…   1/3    234.8  -0.65   -0.4   -1.2  3.0    5.9  1.14  1:235 2:230 3:264
+  numerique-ia-05-p27 — 15.39 s, F0 244.1 Hz, pauses entre phrases [0.18, 0.3, 0.28, 0.3, 0.32, 0.31] s
+    1. Les centres de données, où …   2/3    254.3  +0.73   -8.9   +0.9  0.0    5.4  1.06  1:271~ 2:254 3:218~
+    2. En France, selon R.T.E., en…   2/3    240.9  -0.21   -7.9   -1.0  6.0    5.9  1.15  1:216~? 2:241 3:219~?
+         prise 1 : vocalise 1.36-1.68 s (leger, +48 dB, confiance 0.78) [RTE | environ]
+         prise 3 : vocalise 0.99-1.18 s (leger, +49 dB, confiance 0.78) [RTE | environ]
+    3. Dans un scénario de décarbo…   3/3    241.8  -0.14   -2.5   +1.5  6.0    5.4  1.05  1:237 2:233 3:242
+  numerique-plateformes-05-p27 — 9.24 s, F0 230.3 Hz, pauses entre phrases [0.21, 0.3, 0.16] s
+    1. En France, une taxe vise au…   3/3    250.2  +0.45   -2.1   +1.3  0.0    6.4  1.26  1:231 2:210~ 3:250
+    2. Elle s'élève à trois pour c…   1/3    225.4  -1.36   -2.1   +3.6  2.1    5.9  1.15  1:225 2:224 3:227?
+         prise 3 : respiration 3.52-3.76 s (leger, +39 dB, confiance 0.39) [France | la]
+  numerique-plateformes-06-p27 — 8.68 s, F0 237.4 Hz, pauses entre phrases [0.18, 0.3] s
+    1. La Commission a aussi accep…   3/3    235.9  -0.57   -2.0   +3.8  2.1    6.0  1.17  1:254 2:256? 3:236
+         prise 2 : respiration 3.36-3.60 s (leger, +21 dB, confiance 0.39) [publicité | en]
+    2. Puis un plan d'action de X,…   3/3    243.4  -0.03   -1.8   +2.1  2.0    4.9  0.96  1:245 2:233 3:243
+  numerique-plateformes-08-p27 — 4.68 s, F0 248.5 Hz
+    1. Alors, ces règles : faut-il…   3/3    248.5  +0.33   -1.0   +4.1  4.8    5.2  1.02  1:236 2:274~ 3:248
+  numerique-medias-07-p27 — 16.14 s, F0 236.1 Hz, pauses entre phrases [0.19, 0.3, 0.19] s
+    1. En deux mille vingt, le Con…   1/3    238.2  -0.40   -5.0   +0.5  0.0    6.8  1.34  1:238 2:232 3:237?
+         prise 3 : respiration 7.52-7.67 s (leger, +36 dB, confiance 0.69) [signale | fin]
+    2. Selon lui, elle ne pouvait …   2/3    235.1  -0.63   -7.3   +1.4  5.0    6.2  1.22  1:229 2:235 3:255
+  ecologie-carburants-06-p27 — 18.61 s, F0 240.1 Hz, pauses entre phrases [0.31, 0.3, 0.3, 0.27] s
+    1. Un poids inégal.              4/4    229.2  -1.07   -4.0   +0.1  0.0    5.0  0.98  1:286~ 2:500×! 3:323~ 4:229?
+         prise 2 : bruit 0.72-0.96 s (net, +48 dB, confiance 0.95) [inégal | fin]
+         prise 4 : parole en trop 0.07-0.17 s (leger, +27 dB, confiance 0.47) [début | Un]
+    2. En deux mille vingt et un, …   3/3    241.6  -0.16   -1.4   +4.9  4.0    6.3  1.22  1:231 2:228 3:242
+    3. Dans les intercommunalités …   1/3    234.0  -0.71  -10.6   +1.5  1.4    5.0  0.97  1:234 2:232 3:272~
+    4. Aux prix du printemps deux …   1/3    242.9  -0.06   -2.6   +1.9  6.0    6.4  1.24  1:243 2:227 3:204~
+      passage assemblé : parole en trop 0.07-0.17 s (leger, +26 dB, confiance 0.47) [début | Un]
+  ecologie-electricite-03-p27 — 16.38 s, F0 242.6 Hz, pauses entre phrases [0.24, 0.3] s
+    1. Pour six nouveaux réacteurs…   2/3    250.6  +0.48   -0.5   +2.7  0.0    5.3  1.04  1:246~? 2:251 3:218~
+         prise 1 : respiration 3.68-3.83 s (leger, +26 dB, confiance 0.47) [six | après]
+    2. Les chiffrages précédents é…   1/3    231.9  -0.87   -8.2   +1.5  0.5    5.7  1.11  1:232 2:220~ 3:225
+  ecologie-electricite-04-p27 — 15.64 s, F0 235.8 Hz, pauses entre phrases [0.3, 0.3, 0.25] s
+    1. Les renouvelables ont fourn…   1/3    244.6  +0.06   -1.4   +2.2  6.0    6.1  1.19  1:245 2:225 3:232
+    2. Le solaire atteint trente v…   2/3    230.9  -0.94   -1.8   +2.1  1.4    5.6  1.10  1:225 2:231 3:218~
+    3. Selon la Commission de régu…   2/3    232.6  -0.81   -9.4   +2.5  1.8    6.2  1.20  1:222~ 2:233 3:232
+  ecologie-transports-05-p27 — 16.25 s, F0 247.0 Hz, pauses entre phrases [0.56, 0.35, 0.3, 0.3] s
+    1. Et la voiture ?               5/5    261.8  +1.23  -12.8   +1.8  3.0    5.4  1.06  1:392~? 2:310~ 3:303~? 4:360~? 5:262?
+         prise 1 : respiration 0.48-0.73 s (leger, +51 dB, confiance 0.55) [voiture | fin]
+         prise 3 : respiration 1.19-1.24 s (leger, +61 dB, confiance 0.76) [voiture | fin]
+         prise 4 : parole en trop « voiture » 0.16-0.80 s (leger, +51 dB, confiance 0.56) [la | fin]
+         prise 4 : respiration 1.00-1.08 s (leger, +52 dB, confiance 0.85) [voiture | fin]
+         prise 5 : respiration 0.48-0.68 s (leger, +60 dB, confiance 0.63) [voiture | fin]
+         prise 5 : bruit 1.24-1.34 s (leger, +53 dB, confiance 0.52) [voiture | fin]
+    2. Une règle européenne de deu…   3/3    244.3  +0.04   -6.9   +1.3  0.0    5.9  1.15  1:245 2:251 3:244
+    3. Fin deux mille vingt-cinq, …   1/3    242.9  -0.06   -4.5   +3.2  6.0    6.5  1.28  1:243 2:259 3:244
+    4. Le Parlement européen et le…   1/3    247.6  +0.27   -0.6   +2.8  4.5    5.7  1.10  1:248 2:286~ 3:254
+      passage assemblé : bruit 1.23-1.34 s (leger, +31 dB, confiance 0.60) [voiture | Une]
+  ecologie-adaptation-06-p27 — 13.35 s, F0 245.7 Hz, pauses entre phrases [0.3, 0.2, 0.37, 0.31, 0.35] s
+    1. L'agriculture représente so…   3/3    246.0  +0.16   -2.8   +1.3  0.0    7.2  1.40  1:231 2:242 3:246
+    2. Des retenues la stockent l'…   3/3    243.1  -0.05   -4.7   +3.1  2.8    5.2  1.01  1:239 2:220~ 3:243
+    3. Selon une étude citée par l…   2/3    245.3  +0.11   -6.4   +2.5  4.7    5.5  1.07  1:218~ 2:245 3:206~
+  agriculture-intro-07-p27 — 5.13 s, F0 241.8 Hz, pauses entre phrases [0.35] s
+    1. Alors, comment protéger les…   3/3    246.9  +0.22   -0.1   +2.1  6.0    6.0  1.18  1:240 2:253 3:247
+    2. Et comment soutenir leur re…   1/3    227.4  -1.21   -2.6   +4.2  3.0    6.2  1.20  1:227 2:270~ 3:226
+  agriculture-prix-03-p27 — 17.56 s, F0 246.8 Hz, pauses entre phrases [0.15, 0.3, 0.3, 0.26, 0.25] s
+    1. Les industries agroalimenta…   3/3    245.3  +0.11   -3.2   +2.6  0.0    5.3  1.03  1:220~ 2:221~ 3:245
+    2. Le commerce, grandes surfac…   3/3    253.9  +0.70   -9.1   +1.6  3.2    4.4  0.87  1:260 2:255 3:254
+    3. Et vingt-huit virgule huit …   2/3    242.7  -0.08   -1.8   -1.1  6.0    5.9  1.15  1:216~ 2:243 3:246
+  agriculture-prix-06-p27 — 8.19 s, F0 235.5 Hz
+    1. Une fois payés aussi le per…   1/3    235.5  -0.60   -7.3   +0.2  1.8    4.9  0.96  1:236 2:223~ 3:222~
+  agriculture-aides-05-p27 — 15.24 s, F0 235.3 Hz, pauses entre phrases [0.3, 0.23, 0.3, 0.18, 0.18] s
+    1. La Pac de deux mille vingt-…   1/3    230.8  -0.95   -2.1   -2.3  0.0    6.3  1.22  1:231 2:231 3:256×!
+         prise 3 : respiration 0.00-0.27 s (net, +33 dB, confiance 0.79) [début | La]
+    2. En juillet deux mille vingt…   3/3    234.4  -0.68   -7.9   +4.2  2.1    6.0  1.17  1:212~ 2:225 3:234
+    3. Au moins trois cents millia…   3/3    239.6  -0.30   -2.0   +0.8  6.0    6.5  1.28  1:231 2:232 3:240
+  agriculture-importations-02-p27 — 14.28 s, F0 236.4 Hz, pauses entre phrases [0.2, 0.31, 0.16, 0.18] s
+    1. En deux mille vingt-cinq, l…   1/3    247.5  +0.26   -1.5   +1.6  0.0    6.6  1.29  1:248 2:224 3:216~
+    2. Avec les autres pays de l'U…   3/3    228.6  -1.11   -7.3   +2.3  1.5    5.2  1.02  1:257×! 2:226 3:229
+         prise 1 : rire 0.01-0.54 s (net, +49 dB, confiance 0.95) [début | Avec]
+         prise 1 : bruit 0.60-0.68 s (leger, +35 dB, confiance 0.64) [début | Avec]
+  agriculture-importations-04-p27 — 15.57 s, F0 237.0 Hz, pauses entre phrases [0.3, 0.18, 0.24] s
+    1. Mais leurs normes de produc…   3/3    236.1  -0.56   -5.7   +1.3  6.0    5.6  1.09  1:232 2:237 3:236
+    2. En janvier deux mille vingt…   2/3    240.6  -0.23   -2.1   +2.7  5.7    6.1  1.18  1:251 2:241 3:246
+  agriculture-importations-05-p27 — 14.66 s, F0 238.9 Hz, pauses entre phrases [0.27, 0.19, 0.3, 0.37, 0.19] s
+    1. L'accord commercial entre l…   2/3    235.0  -0.64   -2.1   +1.5  2.1    6.1  1.19  1:226 2:235 3:234
+    2. Le Parlement européen doit …   1/3    241.5  -0.16   -3.5   +2.6  2.1    5.5  1.07  1:242 2:236 3:248
+  territoires-intro-06-p27 — 8.37 s, F0 245.5 Hz, pauses entre phrases [0.26, 0.31, 0.35, 0.41, 0.35] s
+    1. Alors, deux questions se po…   3/3    241.3  -0.18   -4.5   +1.3  4.7    5.8  1.13  1:257~ 2:252 3:241
+    2. Comment garantir l'accès au…   1/3    242.4  -0.10   +1.5   +4.2  6.0    6.0  1.18  1:242 2:281~ 3:282~
+    3. Quelle organisation, quels …   2/3    245.9  +0.15   +3.9   +0.3  3.0    6.3  1.24  1:230 2:246 3:228
+      passage assemblé : respiration 1.81-1.88 s (leger, +43 dB, confiance 0.68) [posent | Comment]
+  territoires-intro-07-p27 — 2.21 s, F0 263.4 Hz
+    1. Ce sont les deux sujets des…   4/4    263.4  +1.34   -7.6   +1.8  0.0    5.8  1.14  1:254~ 2:260~ 3:269~ 4:263
+  territoires-services-07-p27 — 11.38 s, F0 242.9 Hz, pauses entre phrases [0.29, 0.3, 0.18] s
+    1. Selon la Cour des comptes, …   1/3    233.7  -0.73   -7.2   +0.8  0.0    6.0  1.17  1:234 2:226 3:229
+    2. Elle note aussi que réduire…   3/3    247.4  +0.25   -1.4   +3.4  6.0    6.1  1.19  1:238 2:253 3:247
+  territoires-collectivites-07-comptes-p27 — 8.56 s, F0 240.8 Hz, pauses entre phrases [0.38, 0.35, 0.18, 0.22] s
+    1. Et leurs comptes ?            7/7    325.8  +5.02   +2.7   +3.8  3.0    4.5  0.89  1:377×! 2:507×! 3:326×! 4:375~ 5:480×! 6:231× 7:326~?
+         prise 1 : respiration 1.15-1.40 s (net, +67 dB, confiance 0.95) [comptes | fin]
+         prise 1 : respiration 1.70-1.78 s (leger, +66 dB, confiance 0.91) [comptes | fin]
+         prise 2 : rire 0.00-0.72 s (net, +68 dB, confiance 0.95) [début | comptes]
+         prise 2 : parole en trop 1.21-1.30 s (leger, +69 dB, confiance 0.95) [comptes | fin]
+         prise 3 : vocalise « Et » 0.08-0.34 s (net, +61 dB, confiance 0.30) [début | leurs]
+         prise 5 : rire 0.04-0.32 s (net, +71 dB, confiance 0.95) [Et | leurs]
+         prise 5 : bruit 0.79-0.90 s (leger, +57 dB, confiance 0.81) [comptes | fin]
+         prise 5 : parole en trop 1.12-1.26 s (leger, +80 dB, confiance 0.95) [comptes | fin]
+         prise 7 : respiration 0.99-1.06 s (leger, +46 dB, confiance 0.77) [comptes | fin]
+    2. En deux mille vingt-cinq, l…   7/7    239.7  -0.29   -6.7   -3.4  0.0    5.6  1.09  1:231~ 2:213~ 3:230~ 4:241~ 5:234~ 6:242~ 7:240~
+      passage assemblé : respiration 1.00-1.06 s (leger, +40 dB, confiance 0.71) [comptes | En]
+      ⚠ phrase 1 : aucune prise acceptable : hauteur +5.02 dt de la cible
+      ⚠ phrase 2 : aucune prise acceptable : saut de -3.42 dt à l'enchaînement (tolérance de reprise 0.0 dt)
+  territoires-collectivites-08-p27 — 10.25 s, F0 231.9 Hz, pauses entre phrases [0.33, 0.22] s
+    1. Le débat porte sur leur org…   2/3    224.1  -1.46   -0.9   -2.0  6.0    6.6  1.28  1:218~ 2:224 3:215~
+    2. Il porte aussi sur leur aut…   2/3    235.0  -0.64   -0.4   +0.9  0.9    6.5  1.27  1:215~ 2:235 3:214~
+  territoires-collectivites-09-p27 — 4.71 s, F0 244.9 Hz
+    1. Alors, quelle organisation,…   3/3    244.9  +0.08   -4.6   +3.9  3.4    5.8  1.13  1:254? 2:234 3:245
+         prise 1 : respiration 2.40-2.56 s (leger, +24 dB, confiance 0.44) [pouvoirs | et]
+  securite-intro-07-p27 — 8.83 s, F0 239.4 Hz, pauses entre phrases [0.2, 0.3, 0.38, 0.37, 0.36] s
+    1. Alors, plusieurs questions …   1/3    242.9  -0.06   -3.5   +1.6  0.0    6.0  1.17  1:243 2:251 3:331~
+    2. Parmi elles : quelle priori…   1/3    233.9  -0.72   -2.0   +0.6  6.0    6.0  1.16  1:234 2:272~ 3:287~
+    3. Comment lutter contre le tr…   1/3    242.6  -0.09   -2.4   +1.9  3.0    5.5  1.07  1:243 2:256 3:247?
+         prise 3 : parole en trop 0.01-0.07 s (leger, +26 dB, confiance 0.45) [début | Comment]
+    4. Et quelle orientation pour …   2/3    254.5  +0.74   +4.4   +3.6  3.0    6.7  1.32  1:233 2:254 3:240~
+  securite-intro-08-p27 — 1.78 s, F0 245.9 Hz
+    1. Ce sont les sujets des vidé…   1/3    245.9  +0.15   -3.0   +0.8  0.0    6.8  1.34  1:246 2:242 3:246
+  securite-police-01-violences-p27 — 12.60 s, F0 255.9 Hz, pauses entre phrases [0.19, 0.33, 0.35, 0.31] s
+    1. Côté violences, la police e…   3/3    260.4  +1.14   -5.1   +1.5  0.0    6.4  1.26  1:219~ 2:225 3:260
+    2. En deux mille vingt-quatre,…   2/3    247.1  +0.23   -1.7   +4.4  5.1    5.8  1.13  1:270~ 2:247 3:255
+    3. Plus de la moitié dans le c…   3/3    244.5  +0.05   -7.7   +3.6  1.7    5.5  1.08  1:264 2:217~ 3:244
+      passage assemblé : respiration 9.84-9.99 s (leger, +34 dB, confiance 0.61) [neuf | Plus]
+  securite-drogues-02-reglements-p27 — 11.04 s, F0 245.7 Hz, pauses entre phrases [0.3] s
+    1. Le Sénat cite une note de l…   1/3    242.3  -0.11   -3.7   -0.0  0.0    6.3  1.23  1:242 2:233 3:236
+    2. Selon elle, quatre-vingts à…   2/3    249.6  +0.41   -9.2   +3.0  3.7    5.0  0.98  1:237 2:250 3:220~
+  immigration-intro-07-p27 — 12.28 s, F0 239.8 Hz, pauses entre phrases [0.3, 0.29, 0.35, 0.35, 0.35, 0.36, 0.25] s
+    1. Alors, parmi d'autres, quat…   5/5    249.2  +0.38   -5.5   +1.9  0.0    4.5  0.88  1:273~ 2:241~ 3:262~ 4:264~ 5:249
+    2. Combien d'étrangers admettr…   6/6    225.7  -1.34   -0.8   +0.9  6.0    5.5  1.08  1:298~ 2:271~ 3:353~ 4:290~ 5:270~ 6:226
+    3. Que demander aux nouveaux a…   3/3    236.9  -0.50   +5.8   +2.0  3.0    7.3  1.42  1:265 2:263 3:237
+    4. Quel accès à l'emploi et au…   3/3    242.1  -0.12   -2.4   +4.9  3.0    5.5  1.07  1:252×! 2:234 3:242
+         prise 1 : parole en trop 0.06-0.48 s (net, +48 dB, confiance 0.82) [début | Quel]
+         prise 1 : bruit 0.54-0.76 s (net, +38 dB, confiance 0.81) [début | Quel]
+    5. Et qui éloigner, et comment…   3/3    247.1  +0.23   -4.0   +1.4  3.0    4.8  0.94  1:341~ 2:281~ 3:247
+  immigration-titres-02-p27 — 15.77 s, F0 225.1 Hz, pauses entre phrases [0.21, 0.24, 0.31, 0.16, 0.31] s
+    1. En deux mille vingt-cinq, s…   5/7    222.0  -1.62   -2.1   -0.6  0.0    5.4  1.05  1:243×! 2:227×! 3:232×! 4:219×! 5:222~ 6:219×! 7:225×!
+         prise 1 : respiration 8.08-8.48 s (net, +46 dB, confiance 0.85) [un | pour]
+         prise 1 : mot étiré « pour » 8.08-8.48 s (net, +48 dB, confiance 0.59) [un | cent]
+         prise 2 : rire 4.64-4.88 s (net, +46 dB, confiance 0.86) [un | cent]
+         prise 2 : bruit 7.60-7.92 s (net, +52 dB, confiance 0.95) [un | pour]
+         prise 2 : mot étiré « pour » 7.60-7.92 s (leger, +52 dB, confiance 0.41) [un | cent]
+         prise 2 : vocalise 8.96-9.28 s (leger, +40 dB, confiance 0.66) [familial | vingt]
+         prise 3 : rire 7.44-7.68 s (net, +47 dB, confiance 0.87) [un | cent]
+         prise 3 : mot étiré « familial » 8.48-9.28 s (leger, +33 dB, confiance 0.30) [motif | vingt]
+         prise 4 : respiration 7.76-8.00 s (net, +48 dB, confiance 0.95) [un | cent]
+         prise 4 : respiration 10.56-10.80 s (leger, +50 dB, confiance 0.91) [trois | cent]
+         prise 6 : rire 7.60-8.00 s (net, +48 dB, confiance 0.95) [un | pour]
+         prise 7 : respiration 7.68-8.16 s (net, +49 dB, confiance 0.95) [un | pour]
+         prise 7 : mot étiré « pour » 7.68-8.16 s (net, +49 dB, confiance 0.85) [un | cent]
+         prise 7 : rire 9.20-9.68 s (net, +39 dB, confiance 0.94) [familial | vingt]
+    2. Et treize virgule cinq pour…   2/3    242.1  -0.12   -3.5   +4.2  2.1    6.4  1.25  1:257×! 2:242 3:255
+         prise 1 : rire 1.04-1.44 s (net, +48 dB, confiance 0.95) [cinq | pour]
+      ⚠ phrase 1 : aucune prise acceptable : hauteur -1.62 dt de la cible
+  immigration-titres-04-p27 — 6.38 s, F0 234.1 Hz
+    1. La loi du vingt-six janvier…   2/3    234.1  -0.70   -0.3   +2.0  3.5    6.5  1.26  1:230 2:234 3:228
+  immigration-titres-06-p27 — 9.04 s, F0 237.7 Hz, pauses entre phrases [0.58, 0.33] s
+    1. Le titre est accordé à titr…   1/3    236.8  -0.50   -9.1   +1.9  0.3    5.2  1.01  1:237 2:246×! 3:238
+         prise 2 : vocalise 2.64-3.12 s (net, +35 dB, confiance 0.63) [exceptionnel | le]
+    2. Et la loi a prévu cette voi…   2/3    238.0  -0.42   -3.0   +1.7  6.0    6.3  1.22  1:210~ 2:238 3:240
+  immigration-titres-10-p27 — 4.67 s, F0 251.7 Hz
+    1. Alors, combien d'étrangers …   2/3    251.7  +0.55   -8.2   +3.5  6.0    5.1  0.99  1:255 2:252 3:253
+  europe-intro-06-p27 — 12.81 s, F0 238.5 Hz, pauses entre phrases [0.3, 0.31, 0.22, 0.21] s
+    1. Le marché unique a aussi se…   1/3    244.9  +0.08   -1.6   +3.8  5.2    6.6  1.29  1:245 2:240 3:271~
+    2. Il repose sur la libre circ…   3/3    239.7  -0.29   -0.9   +3.7  1.6    6.8  1.33  1:219~ 2:228 3:240
+    3. L'Union y contrôle les ente…   1/3    236.9  -0.50   -1.5   +2.4  0.9    6.2  1.21  1:237 2:236 3:226?
+         prise 3 : respiration 1.36-1.51 s (leger, +15 dB, confiance 0.30) [ententes | les]
+  europe-intro-07-p27 — 11.08 s, F0 243.6 Hz, pauses entre phrases [0.3, 0.35, 0.36, 0.35, 0.35] s
+    1. Alors, cinq questions se po…   2/3    262.5  +1.28   -3.1   +3.3  1.5    5.2  1.02  1:211~ 2:262 3:239~
+    2. Comment décider à vingt-sep…   2/3    237.0  -0.49   -0.0   +2.4  6.0    6.0  1.18  1:250 2:237 3:264×!
+         prise 3 : parole en trop 0.01-0.14 s (net, +48 dB, confiance 0.82) [début | Comment]
+    3. Quelle direction pour la co…   3/3    245.9  +0.15   -1.7   +2.9  3.0    5.8  1.14  1:232 2:241 3:246
+    4. Qui finance le budget europ…   2/3    255.4  +0.80   +0.9   +2.2  3.0    6.9  1.34  1:219~ 2:255 3:268~
+    5. Quelles règles pour les bud…   3/3    239.3  -0.32   -1.6   +5.0  3.0    6.4  1.25  1:236 2:226 3:239
+    6. Et comment faire évoluer le…   3/3    236.9  -0.50   -1.4   +0.7  3.0    6.9  1.35  1:225 2:278~ 3:237
+  europe-decider-03-p27 — 9.96 s, F0 241.2 Hz, pauses entre phrases [0.3, 0.41, 0.4, 0.36, 0.42, 0.32] s
+    1. Mais dans quelques domaines…   2/3    249.8  +0.42   -4.7   +2.0  0.0    7.0  1.37  1:249~ 2:250 3:222~
+    2. Par exemple : la politique …   3/3    236.0  -0.56   -3.9   +0.8  4.7    6.2  1.22  1:230×! 2:229 3:236
+         prise 1 : vocalise 5.12-5.44 s (net, +31 dB, confiance 0.55) [pays | la]
+  europe-traites-02-p27 — 10.99 s, F0 254.9 Hz, pauses entre phrases [0.3, 0.3, 0.16] s
+    1. Pour réviser un traité, il …   2/3    264.1  +1.38   -1.4   +1.7  0.0    6.7  1.31  1:268~ 2:264 3:266~
+    2. Puis chacun doit le ratifie…   3/3    239.3  -0.32   -1.8   +1.0  1.4    6.2  1.21  1:268~ 2:253 3:239
+    3. Un État peut aussi quitter …   1/3    252.8  +0.63   -4.3   +3.2  1.8    5.8  1.13  1:253 2:259 3:259
+  europe-traites-05-p27 — 16.70 s, F0 239.0 Hz, pauses entre phrases [0.3, 0.18, 0.35, 0.3, 0.17] s
+    1. En deux mille cinq, la Fran…   3/3    253.0  +0.64   -6.0   +1.7  4.3    5.7  1.12  1:232 2:226 3:253
+    2. Le traité de Lisbonne, pres…   1/3    229.2  -1.07   -2.5   +0.9  6.0    5.9  1.15  1:229 2:224 3:214~
+    3. L'Irlande, elle, l'a ratifi…   3/3    249.5  +0.40   -3.0   +4.0  2.5    5.6  1.09  1:228 2:218~ 3:250?
+         prise 3 : respiration 2.80-2.97 s (leger, +15 dB, confiance 0.30) [référendum | après]
+  europe-deficits-05-p27 — 12.60 s, F0 246.4 Hz, pauses entre phrases [0.3] s
+    1. Sa dette publique atteint c…   1/3    242.4  -0.10  -10.2   +2.0  0.0    5.1  0.99  1:242 2:233 3:228
+    2. Dans l'Union, onze États on…   1/3    254.3  +0.73  -10.3   +2.2  6.0    5.3  1.04  1:254 2:262 3:276~
+  europe-concurrence-08-p27 — 5.74 s, F0 245.9 Hz, pauses entre phrases [0.3] s
+    1. Les règles sur les fusions …   1/3    247.4  +0.25   -0.4   +1.1  0.0    6.1  1.20  1:247 2:222~ 3:272~
+    2. Alors, comment faire évolue…   2/3    230.6  -0.96   -1.7   +1.6  3.4    6.0  1.17  1:262 2:231 3:258~
+  ukraine-intro-01-p27 — 6.37 s, F0 239.1 Hz, pauses entre phrases [0.29, 0.31, 0.19] s
+    1. Le vingt-quatre février deu…   1/3    238.5  -0.38   +1.0   +2.2  2.1    6.1  1.19  1:238 2:224 3:211~
+    2. Depuis, la guerre continue.   2/3    242.3  -0.11   -4.5   +1.7  0.0    5.3  1.03  1:231 2:242 3:259
+  ukraine-intro-05-p27 — 10.51 s, F0 238.6 Hz, pauses entre phrases [0.18, 0.16, 0.3] s
+    1. Depuis deux mille vingt-deu…   2/3    232.6  -0.81   -2.5   +1.9  4.5    5.4  1.05  1:269~ 2:233 3:225
+    2. Dont soixante-dix-sept virg…   1/3    247.4  +0.25   -1.8   +2.9  2.5    5.2  1.01  1:247 2:260 3:241
+  ukraine-intro-08-p27 — 6.92 s, F0 228.9 Hz, pauses entre phrases [0.3, 0.37, 0.16, 0.36, 0.23] s
+    1. Trois questions se posent.    7/7    231.4  -0.90   -0.6   +6.0  1.8    4.8  0.93  1:347~ 2:187~ 3:430~ 4:406×! 5:260~ 6:311~ 7:231~
+         prise 4 : respiration 0.00-0.16 s (net, +54 dB, confiance 0.95) [début | Trois]
+    2. Comment venir en aide aux c…   5/5    225.0  -1.39   +6.5   +0.5  3.5    6.7  1.31  1:349×! 2:311~ 3:289×! 4:383×! 5:225
+         prise 1 : rire 0.00-0.56 s (net, +54 dB, confiance 0.95) [début | Comment]
+         prise 1 : mot manquant ou bâclé « aide » 0.88-0.96 s (leger, confiance 0.30) [en | aux]
+         prise 3 : rire 0.00-0.26 s (net, +60 dB, confiance 0.95) [début | Comment]
+         prise 3 : rire 0.44-0.75 s (net, +53 dB, confiance 0.91) [début | Comment]
+         prise 3 : respiration 0.88-1.15 s (net, +57 dB, confiance 0.95) [début | Comment]
+         prise 3 : mot étiré « Comment » 1.28-2.16 s (leger, confiance 0.50) [début | venir]
+         prise 4 : rire 0.32-0.88 s (net, +53 dB, confiance 0.95) [Comment | venir]
+         prise 4 : rire 1.92-2.32 s (net, +50 dB, confiance 0.95) [civils | fin]
+    3. Faut-il aider l'Ukraine, et…   1/3    229.5  -1.05   -2.4   +1.8  3.0    5.0  0.98  1:230 2:447×! 3:329×!
+         prise 2 : vocalise « comment » 1.20-1.69 s (net, +59 dB, confiance 0.75) [et | fin]
+         prise 3 : rire 0.19-0.56 s (net, +59 dB, confiance 0.95) [Faut | il]
+    4. Et quelle place pour la dip…   3/3    242.2  -0.11   +4.1   +5.5  3.0    6.7  1.30  1:264 2:257 3:242
+      ⚠ phrase 1 : aucune prise acceptable : saut de +6.02 dt à l'enchaînement (tolérance de reprise 1.8 dt)
+  ukraine-aide-02-p27 — 7.88 s, F0 231.2 Hz
+    1. Selon la Commission europée…   3/3    231.2  -0.92   -7.8   +1.7  0.0    5.8  1.13  1:217~ 2:244~ 3:231
+  ukraine-diplomatie-05-p27 — 9.01 s, F0 241.6 Hz, pauses entre phrases [0.23, 0.3, 0.3] s
+    1. Si le Conseil est bloqué pa…   3/3    241.3  -0.18   -2.2   +0.3  0.0    6.8  1.33  1:242 2:229 3:241
+    2. Chacun de ses cent quatre-v…   1/3    234.8  -0.65   -7.8   +3.4  2.2    5.6  1.09  1:235 2:237 3:214×!
+         prise 3 : respiration 0.01-0.48 s (net, +47 dB, confiance 0.95) [début | Chacun]
+    3. Elle fait des recommandatio…   4/4    254.1  +0.72   -3.5   +4.3  6.0    7.0  1.37  1:253~ 2:331× 3:205~ 4:254
+  proche-orient-intro-01-p27 — 12.51 s, F0 240.8 Hz, pauses entre phrases [0.26, 0.3, 0.3] s
+    1. La guerre à Gaza a suivi l'…   2/3    225.0  -1.39   -7.9   +2.9  0.0    5.6  1.10  1:237~ 2:225 3:219~
+    2. Un cessez-le-feu est entré …   3/3    254.0  +0.71   -2.1   +2.5  6.0    5.9  1.15  1:213~ 2:225 3:254
+    3. Quelle position la France d…   3/3    254.3  +0.73   -0.3   +4.4  5.1    5.7  1.11  1:262? 2:313~ 3:254
+         prise 1 : bruit 0.00-0.07 s (leger, +31 dB, confiance 0.59) [début | Quelle]
+  proche-orient-intro-07-p27 — 6.79 s, F0 231.2 Hz, pauses entre phrases [0.31, 0.35] s
+    1. Deux questions se posent à …   2/3    226.7  -1.26   -2.2   -1.4  0.0    5.8  1.14  1:280~ 2:227 3:260
+    2. Quelle politique mener enve…   3/3    231.7  -0.88   +0.0   +3.9  5.2    6.3  1.24  1:306~ 2:207~ 3:232
+    3. Et quelle position sur l'Ét…   3/3    247.6  +0.27   +1.7   +2.7  3.0    6.2  1.21  1:208~ 2:222~ 3:248
+  proche-orient-intro-08-p27 — 2.88 s, F0 245.6 Hz
+    1. Les vidéos qui suivent rega…   1/3    245.6  +0.13   -0.1   +0.1  0.0    6.0  1.16  1:246 2:230 3:253
+  proche-orient-onu-05-p27 — 14.99 s, F0 240.7 Hz, pauses entre phrases [0.21, 0.33, 0.16] s
+    1. Le dix-sept novembre deux m…   3/3    242.8  -0.07   -6.7   +1.9  0.0    5.5  1.07  1:220~ 2:230 3:243?
+         prise 3 : respiration 4.64-4.98 s (leger, +37 dB, confiance 0.67) [trois | qui]
+    2. Elle recueille treize voix …   3/3    239.4  -0.32   -7.5   +3.1  6.0    4.6  0.90  1:259 2:220~ 3:239
+      passage assemblé : respiration 4.64-4.98 s (leger, +37 dB, confiance 0.67) [trois | qui]
+  defense-budget-03-p27 — 17.49 s, F0 241.3 Hz, pauses entre phrases [0.31, 0.3, 0.3] s
+    1. Une loi du seize août deux …   3/3    251.6  +0.55   -1.5   +1.8  0.0    5.3  1.03  1:256 2:236 3:252
+    2. Au total, quatre cent trent…   2/3    229.2  -1.07   -6.9   +3.1  1.5    5.0  0.98  1:225 2:229 3:217~
+    3. Dont trente-six milliards a…   2/3    242.1  -0.12   +0.5   +3.7  6.0    5.8  1.13  1:234 2:242 3:251
+    4. Pour deux mille vingt-sept,…   3/3    246.4  +0.18   -1.0   +2.7  0.0    5.8  1.14  1:268~ 2:248~ 3:246
+      passage assemblé : mot étiré « Au » 3.01-3.36 s (net, +52 dB, confiance 0.39) [actualisée | total]
+      ⚠ son parasite dans le passage assemblé : mot étiré « Au » 3.01-3.36 s (net, +52 dB, confiance 0.39) [actualisée | total]
+  defense-budget-09-p27 — 2.84 s, F0 241.0 Hz
+    1. Alors, combien dépenser pou…   3/3    241.0  -0.20   -0.8   +4.5  4.0    7.2  1.41  1:212~ 2:235 3:241
+  institutions-pouvoirs-04-p27 — 11.81 s, F0 243.8 Hz, pauses entre phrases [0.19, 0.36, 0.31, 0.31] s
+    1. Depuis mille neuf cent cinq…   2/3    248.6  +0.34   -1.1   +1.5  0.0    5.8  1.14  1:254? 2:249 3:232?
+         prise 1 : bruit 1.24-1.36 s (leger, +40 dB, confiance 0.75) [huit | l'Assemblée]
+         prise 3 : respiration 1.57-1.68 s (leger, +32 dB, confiance 0.62) [huit | l'Assemblée]
+    2. Et le huit septembre deux m…   3/3    232.4  -0.83   -1.3   +1.1  1.1    5.8  1.13  1:212~ 2:228 3:232
+  institutions-49-3-05-p27 — 9.49 s, F0 240.2 Hz, pauses entre phrases [0.33, 0.3] s
+    1. Entre mille neuf cent cinqu…   2/3    242.9  -0.06   -2.8   +1.1  0.0    5.3  1.03  1:268~ 2:243 3:254?
+         prise 3 : respiration 4.24-4.48 s (leger, +36 dB, confiance 0.64) [fois | sur]
+    2. Puis trois fois en janvier …   3/3    236.5  -0.53   -7.3   +3.9  2.8    5.2  1.01  1:221~ 2:219~ 3:236
+  institutions-constitution-06-conseil-p27 — 8.10 s, F0 241.6 Hz, pauses entre phrases [0.3, 0.27] s
+    1. La Constitution s'impose au…   7/7    265.2  +1.46   +0.2   +3.3  0.0    6.5  1.26  1:371×! 2:277~ 3:262~ 4:268~ 5:261~ 6:278~ 7:265~
+         prise 1 : rire 0.88-1.29 s (net, +53 dB, confiance 0.95) [Constitution | s'impose]
+    2. Le Conseil constitutionnel …   2/3    234.9  -0.64   -3.9   +0.1  0.0    6.2  1.21  1:229 2:235 3:235
+      ⚠ phrase 1 : aucune prise acceptable : saut de +3.34 dt à l'enchaînement (tolérance de reprise 0.0 dt)
+  institutions-citoyens-02-p27 — 12.88 s, F0 237.5 Hz, pauses entre phrases [0.31, 0.31] s
+    1. En France, vous décidez sur…   1/3    230.1  -1.00   -2.6   -0.1  0.0    6.6  1.29  1:230? 2:223~ 3:264?
+         prise 1 : mot étiré « France » 0.08-0.56 s (leger, confiance 0.43) [En | vous]
+         prise 3 : mot étiré « France » 0.16-0.72 s (leger, confiance 0.49) [En | vous]
+    2. Le président peut soumettre…   1/3    241.0  -0.20   -4.4   +2.1  2.6    6.3  1.23  1:241 2:236 3:234
+    3. Et aucune procédure ne perm…   1/3    238.4  -0.39   -3.1   +2.9  4.4    6.0  1.17  1:238 2:225 3:226
+  laicite-intro-07-p27 — 12.97 s, F0 237.7 Hz, pauses entre phrases [0.3, 0.35, 0.35, 0.35, 0.41] s
+    1. Alors, cinq questions se po…   2/3    246.6  +0.20   -2.0   +0.4  0.7    4.7  0.92  1:306~ 2:247 3:256
+    2. Comment définir la laïcité …   1/3    231.5  -0.90   +5.1   -0.1  5.0    6.1  1.19  1:232 2:264 3:280~
+    3. Où placer la limite pour le…   1/3    232.0  -0.86   +2.1   +2.5  3.0    6.8  1.32  1:232 2:263 3:194~
+    4. Quel contrôle des associati…   3/3    249.1  +0.37   +0.6   +4.3  3.0    6.5  1.28  1:262 2:238 3:249
+    5. Quelle place pour la lutte …   1/3    231.7  -0.88   +5.1   +1.3  3.0    5.7  1.11  1:232 2:223~ 3:230
+    6. Et comment aborder l'histoi…   2/3    242.8  -0.07   -1.9   +3.1  3.0    6.2  1.21  1:254 2:243 3:250
+  laicite-principe-07-p27 — 10.72 s, F0 244.5 Hz, pauses entre phrases [0.16, 0.31, 0.38] s
+    1. Depuis, un comité intermini…   3/3    243.5  -0.02   -7.5   +0.9  0.0    5.8  1.13  1:232 2:252 3:244
+    2. La même année, une loi renf…   3/3    246.2  +0.17   -2.5   +2.3  6.0    5.7  1.11  1:231 2:237 3:246
+  laicite-signes-03-p27 — 8.52 s, F0 236.6 Hz, pauses entre phrases [0.17, 0.31, 0.24, 0.22] s
+    1. Les agents publics, eux, do…   2/3    235.5  -0.60   -0.3   -0.7  0.0    5.8  1.13  1:234 2:236 3:228
+    2. Et dans tout l'espace publi…   1/3    236.9  -0.50   -1.1   +2.2  0.3    6.4  1.26  1:237 2:256~ 3:236
+  laicite-discriminations-06-p27 — 11.84 s, F0 245.9 Hz, pauses entre phrases [0.32, 0.3, 0.21] s
+    1. C'est trente pour cent chez…   2/3    245.5  +0.12   -1.6   +1.6  0.0    6.1  1.19  1:230 2:246 3:249~
+    2. Et deux pour cent chez les …   1/3    248.7  +0.34   -5.7   +3.4  1.6    5.8  1.13  1:249 2:235 3:238
+    3. Selon cette enquête, la men…   1/3    239.9  -0.28   -2.2   +0.1  5.7    6.4  1.25  1:240 2:253 3:223~
+  laicite-memoire-08-p27 — 3.48 s, F0 261.6 Hz
+    1. Alors, sur la mémoire de la…   5/5    261.6  +1.22   -0.5   +0.9  3.0    6.8  1.32  1:267~ 2:221~ 3:278~ 4:291~ 5:262
+  laicite-histoire-02-p27 — 12.72 s, F0 240.9 Hz, pauses entre phrases [0.34, 0.18, 0.19, 0.31, 0.27] s
+    1. En deux mille un, une loi d…   1/3    236.1  -0.56   -1.7   +1.3  0.0    5.7  1.12  1:236 2:252 3:247
+    2. En deux mille cinq, une aut…   2/3    242.3  -0.11   -4.3   +3.0  1.7    5.1  1.00  1:223~? 2:242 3:249~
+         prise 1 : respiration 4.80-4.96 s (leger, +28 dB, confiance 0.56) [mer | fin]
+
+Alertes (11) :
+  aigue / travail-partage-07-p27 : son parasite dans le passage assemblé : bruit 4.75-4.97 s (net, +42 dB, confiance 0.87) [Profits | décisions]
+  aigue / impots-intro-06-p27 : phrase 2 : aucune prise acceptable : hauteur +1.81 dt de la cible
+  aigue / impots-intro-06-p27 : phrase 4 : aucune prise acceptable : hauteur -1.59 dt de la cible
+  aigue / impots-intro-06-p27 : son parasite dans le passage assemblé : bruit 6.08-6.31 s (net, +48 dB, confiance 0.93) [héritages | fin]
+  aigue / logement-loyers-09-p27 : phrase 1 : aucune prise acceptable : saut de +6.34 dt à l'enchaînement (tolérance de reprise 3.1 dt)
+  aigue / territoires-collectivites-07-comptes-p27 : phrase 1 : aucune prise acceptable : hauteur +5.02 dt de la cible
+  aigue / territoires-collectivites-07-comptes-p27 : phrase 2 : aucune prise acceptable : saut de -3.42 dt à l'enchaînement (tolérance de reprise 0.0 dt)
+  aigue / immigration-titres-02-p27 : phrase 1 : aucune prise acceptable : hauteur -1.62 dt de la cible
+  aigue / ukraine-intro-08-p27 : phrase 1 : aucune prise acceptable : saut de +6.02 dt à l'enchaînement (tolérance de reprise 1.8 dt)
+  aigue / defense-budget-03-p27 : son parasite dans le passage assemblé : mot étiré « Au » 3.01-3.36 s (net, +52 dB, confiance 0.39) [actualisée | total]
+  aigue / institutions-constitution-06-conseil-p27 : phrase 1 : aucune prise acceptable : saut de +3.34 dt à l'enchaînement (tolérance de reprise 0.0 dt)
+
+Temps : 7951 s pour 742 prise(s), 10.22 s de calcul par prise en moyenne (3.82 s d'audio) ; calcul d'une prise ≈ 0.93 s + 2.48 s par seconde d'audio. Détecteur de sons parasites : 0.188 s par prise en moyenne (au plus 0.883 s), 2% du calcul d'une prise.
+Estimation pour les 1106 passages (2072 phrases) (voix aiguë 3 prises, 11% de secours) : ~1280 min.

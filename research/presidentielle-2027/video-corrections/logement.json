@@ -1,0 +1,398 @@
+[
+ {
+  "id": "logement-12",
+  "target": "video",
+  "questionId": "",
+  "videoId": "logement-loyers",
+  "segmentId": "logement-loyers-06",
+  "field": "say",
+  "category": "exactitude",
+  "severity": "important",
+  "issue": "« 8 % de logements privés à louer en moins » présente comme une perte de logements ce que le rapport mesure comme une baisse des annonces, sans pouvoir en établir la cause. « En deux ans » ne correspond pas non plus au rapport (écart mesuré après la mise en place, environ cinq semestres). La voix est à réenregistrer, en même temps que les passages 05 et 09. Spoken proposé : « Hors Île-de-France, les annonces de location ont baissé d’environ huit pour cent, sans baisse à Paris. Moins de logements à louer, ou des locataires qui restent plus longtemps ? Selon le rapport d’évaluation, les données ne permettent pas de trancher. » Emphasis : « 8 % », « trancher ».",
+  "current": "Effet mesuré sur l’offre, hors Île-de-France : 8 % de logements privés à louer en moins, en deux ans. À Paris, aucun effet mesuré.",
+  "proposed": "Effet mesuré hors Île-de-France : environ 8 % d’annonces de location en moins, et pas de baisse à Paris. Moins de logements à louer, ou des locataires qui restent plus longtemps ? Selon le rapport d’évaluation, les données ne permettent pas de trancher.",
+  "newSource": {
+   "title": "L’encadrement des loyers : effets économiques et redistributifs – Rapport de la mission d’évaluation (G. Chapelle, G. Fack, avec l’IGEDD et l’IGF)",
+   "url": "https://www.clcv.org/storage/app/media/RAPPORT%20FACK%20CHAPELLE.pdf",
+   "publisher": "Mission d’évaluation commandée par le Premier ministre (copie hébergée par la CLCV)",
+   "date": "2026-05"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "logement-10",
+   "logement-13",
+   "logement-14"
+  ],
+  "rationale": "Le problème est réel et vérifié dans le rapport (§ 3.5). La gravité est ramenée de « bloquant » à « important » : une source officielle, le Trésor, emploie une formule proche (« offre locative privée »), le passage n'invente donc rien, mais il va plus loin que ses sources. La proposition de la gauche est resserrée en trois phrases, la limite d'un passage, en gardant les deux hypothèses, dont celle d'un recul de l'offre en premier. Le passage 08 donne ensuite les deux lectures à égalité.",
+  "verification": "adjusted : Le défaut est confirmé (§ 3.5) : le rapport mesure un flux d'annonces, et non un nombre de logements à louer, et il ne peut pas en établir la cause. Le graphique 13 donne l'écart « après cinq semestres », pas « en deux ans ». Ajustement : la formule proposée, « les annonces de location ont baissé d'environ 8 % », se lit comme une baisse brute. Or le chiffre est un écart par rapport aux communes de contrôle (« baisse d'environ 8 % par rapport au niveau initial », estimée en doubles différences). « Effet mesuré… environ 8 % d'annonces en moins » garde ce sens et suit la formule du passage 05 (« Effet mesuré sur les loyers »). Le reste est fidèle : « diminution de l'offre locative » ou « augmentation de la durée d'occupation », « ne peuvent pas être distinguées » ; à Paris, le flux a augmenté. Spoken proposé : « Effet mesuré hors Île-de-France : environ huit pour cent d’annonces de location en moins, et pas de baisse à Paris. Moins de logements à louer, ou des locataires qui restent plus longtemps ? Selon le rapport d’évaluation, les données ne permettent pas de trancher. » Emphasis : « 8 % », « trancher ».",
+  "topic": "logement",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "logement-13",
+  "target": "video",
+  "questionId": "",
+  "videoId": "logement-loyers",
+  "segmentId": "logement-loyers-06",
+  "field": "figure.label",
+  "category": "exactitude",
+  "severity": "important",
+  "issue": "Le libellé du chiffre suit celui de l'explication corrigée (logement-10). Le sourceIndex passe de 3 (Trésor) à 4 (rapport d'évaluation, déjà dans les sources de la vidéo).",
+  "current": "Effet estimé sur l’offre de logements privés à louer hors Île-de-France, en deux ans (aucun effet mesuré à Paris)",
+  "proposed": "Effet estimé du plafonnement sur le nombre de nouvelles annonces de location, dans les villes concernées hors Île-de-France. Recul de l’offre, locataires qui restent plus longtemps ou annonces passées ailleurs : les données ne permettent pas de trancher (pas de baisse des annonces à Paris)",
+  "newSource": {
+   "title": "L’encadrement des loyers : effets économiques et redistributifs – Rapport de la mission d’évaluation (G. Chapelle, G. Fack, avec l’IGEDD et l’IGF)",
+   "url": "https://www.clcv.org/storage/app/media/RAPPORT%20FACK%20CHAPELLE.pdf",
+   "publisher": "Mission d’évaluation commandée par le Premier ministre (copie hébergée par la CLCV)",
+   "date": "2026-05"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "logement-10",
+   "logement-12"
+  ],
+  "rationale": "Correction jumelle de logement-10 : le libellé est raccourci sans changer le sens, comme le permet le guide (§ 6). Rien n'est dit à voix haute : pas de réenregistrement pour ce champ.",
+  "verification": "confirmed : Ce libellé est la forme courte de celui de logement-10, sans changement de sens, ce que permet le guide (§ 6). Les mêmes passages du § 3.5 ont été lus : flux de nouvelles annonces, trois explications « ne peuvent pas être distinguées », hausse du flux à Paris. Dans la vidéo, sources[4] est bien le rapport Fack-Chapelle : passer le sourceIndex de 3 à 4 est correct.",
+  "topic": "logement",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "logement-14",
+  "target": "video",
+  "questionId": "",
+  "videoId": "logement-loyers",
+  "segmentId": "logement-loyers-06",
+  "field": "draw",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "Le dessin montre des logements qui disparaissent (« 8 se referment et s’effacent »). Il met en image une perte de logements que le rapport ne mesure pas, et dramatise un seul côté du débat. Il doit suivre le nouveau texte du passage (logement-12). La planche est à redessiner.",
+  "current": "Une grille de 100 petites portes ; 8 se referment et s’effacent en pointillé.",
+  "proposed": "Un panneau de 100 petites annonces « à louer » ; 8 s’effacent en pointillé. À côté, une fenêtre allumée où un locataire reste chez lui, et un point d’interrogation entre les deux.",
+  "lenses": [
+   "gauche"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "logement-10",
+   "logement-12"
+  ],
+  "rationale": "Le dessin d'origine ne correspond plus au texte corrigé. Le nouveau garde la baisse de 8 % bien visible (8 annonces sur 100) et montre les deux hypothèses à égalité, sans en privilégier aucune.",
+  "topic": "logement",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "logement-15",
+  "target": "video",
+  "questionId": "",
+  "videoId": "logement-loyers",
+  "segmentId": "logement-loyers-05",
+  "field": "say",
+  "category": "exactitude",
+  "severity": "important",
+  "issue": "« 2 à 4 % de moins en deux ans » est inexact : selon le rapport, 2 à 4 % est l'effet moyen, et l'effet atteint environ 5 % après deux ans hors Île-de-France. Il suffit de remplacer « en deux ans » par « en moyenne ». La voix est à réenregistrer en même temps que les passages 06 et 09. Spoken proposé : « Effet mesuré sur les loyers : deux à quatre pour cent de moins en moyenne. Sur un loyer de huit cents euros, seize à trente-deux euros par mois. » Le figure.label suit l'explication (logement-11), en forme courte : « Effet moyen estimé du plafonnement sur les loyers des annonces, hors Paris ; il semble se renforcer avec le temps (environ −5 % après deux ans hors Île-de-France) ». Le sourceIndex passe de 3 à 4. Emphasis inchangée.",
+  "current": "Effet mesuré sur les loyers : 2 à 4 % de moins en deux ans. Sur un loyer de 800 euros, 16 à 32 euros par mois.",
+  "proposed": "Effet mesuré sur les loyers : 2 à 4 % de moins en moyenne. Sur un loyer de 800 euros, 16 à 32 euros par mois.",
+  "newSource": {
+   "title": "L’encadrement des loyers : effets économiques et redistributifs – Rapport de la mission d’évaluation (G. Chapelle, G. Fack, avec l’IGEDD et l’IGF)",
+   "url": "https://www.clcv.org/storage/app/media/RAPPORT%20FACK%20CHAPELLE.pdf",
+   "publisher": "Mission d’évaluation commandée par le Premier ministre (copie hébergée par la CLCV)",
+   "date": "2026-05"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "logement-11"
+  ],
+  "rationale": "La correction se limite à l'erreur. La gauche proposait d'ajouter à voix haute « et l'écart semble se creuser avec le temps » : cet ajout est écarté. Avec le passage 06, qui introduit désormais un doute sur la cause de la baisse des annonces, il ferait pencher la vidéo d'un côté. L'information figure dans le libellé, qui suit l'explication.",
+  "verification": "confirmed : Rapport, § 3.4 : « baisse moyenne… soit une réduction de 2 à 3 % des loyers [hors Île-de-France], et de l'ordre de 3 à 4 % pour… la Seine Saint Denis… atteignant environ 5 % après deux ans ». « En deux ans » est donc inexact, « en moyenne » est juste. Le calcul tient : 2 % et 4 % de 800 € font 16 € et 32 €. Le figure.label proposé (« Effet moyen estimé… hors Paris ; il semble se renforcer avec le temps (environ −5 % après deux ans hors Île-de-France) ») est fidèle et suit logement-11. Le sourceIndex de 3 à 4 est correct. Écarter l'ajout oral sur l'écart qui se creuse est cohérent avec l'équilibre du passage 06.",
+  "topic": "logement",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "logement-16",
+  "target": "video",
+  "questionId": "",
+  "videoId": "logement-loyers",
+  "segmentId": "logement-loyers-09",
+  "field": "say",
+  "category": "origine",
+  "severity": "important",
+  "issue": "La vidéo se termine sur « Jusqu’où encadrer les loyers ? », l'énoncé exact de la question de la primaire. Il suppose que l'encadrement continue, seule son étendue étant en débat. Pour la présidentielle, où l'une des approches est de le supprimer, la vidéo finit donc sur le cadrage d'un camp. La voix est à réenregistrer (pas de spoken : la voix lit le say). Emphasis : « quelles règles ». Le dessin (ligne de plafond et point d'interrogation) peut rester.",
+  "current": "Alors, jusqu’où encadrer les loyers ?",
+  "proposed": "Alors, quelles règles pour les loyers ?",
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [],
+  "rationale": "Le centre et la droite l'ont relevé tous les deux. Des deux formules proposées, je retiens celle du centre : elle reprend l'énoncé de la question de la présidentielle et laisse toutes les options ouvertes, de la suppression au gel. Celle de la droite (« faut-il encadrer les loyers, et jusqu'où ? ») était aussi neutre, mais plus longue. Le réenregistrement se fait dans la même séance que les passages 05 et 06.",
+  "topic": "logement",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "logement-17",
+  "target": "video",
+  "questionId": "",
+  "videoId": "logement-loyers",
+  "segmentId": "logement-loyers-04",
+  "field": "say",
+  "category": "actualite",
+  "severity": "important",
+  "issue": "Après le 21 octobre, puis après la fin de l'expérimentation en novembre 2026, ce passage sera faux, quelle que soit l'issue : il annonce un examen au Sénat et une fin « sans nouvelle loi », au futur. À réécrire dès que l'issue est connue, puis réenregistrer (spoken à aligner). Le dessin (sablier sur novembre 2026, drapeau sur le 21 octobre) et l'emphasis doivent suivre. Il faut faire de même dans l'explication (logement-9, et première phrase du résumé) et dans le contexte de la question de la banque de la présidentielle.",
+  "current": "C’est un essai de huit ans. Sans nouvelle loi, il s’arrête en novembre 2026. Un texte pour le rendre permanent, adopté par l’Assemblée, doit être examiné au Sénat le 21 octobre.",
+  "proposed": "C’est un essai ouvert par une loi de 2018, puis prolongé jusqu’en novembre 2026. Ensuite, selon l’issue : « Une loi de [mois] 2026 l’a rendu permanent. », « Une loi de [mois] l’a prolongé jusqu’en [date]. » ou « Faute de loi adoptée à temps, il a pris fin en novembre 2026. »",
+  "lenses": [
+   "centre"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "logement-9"
+  ],
+  "rationale": "Le passage sera dépassé avant le vote, quelle que soit l'issue, et l'en-tête « Datée » le signale déjà. Cette correction précise les textes de remplacement. Elle ne s'applique qu'une fois l'issue connue : d'ici là, le texte actuel est exact au 7 octobre 2026.",
+  "newSource": {
+   "title": "L’encadrement des loyers : effets économiques et redistributifs – Rapport de la mission d’évaluation (G. Chapelle, G. Fack, avec l’IGEDD et l’IGF)",
+   "url": "https://www.clcv.org/storage/app/media/RAPPORT%20FACK%20CHAPELLE.pdf",
+   "publisher": "Mission d’évaluation commandée par le Premier ministre (copie hébergée par la CLCV)",
+   "date": "2026-05"
+  },
+  "verification": "adjusted : Le constat est juste : le passage, au futur, sera dépassé après le 21 octobre puis après fin novembre 2026. Le Sénat confirme une séance le 21 octobre 2026 ; Service-Public montre des arrêtés qui s'arrêtent au 24 novembre 2026. Deux ajustements. (1) « Lancé en 2018 pour huit ans » est inexact. Le rapport Fack-Chapelle dit : « une expérimentation d'une durée initiale de cinq ans, prolongée de trois ans par la loi 3DS du 21 février 2022, jusqu'au 23 novembre 2026 ». (2) Il manque une issue possible. Le texte n'est pas en procédure accélérée : le Sénat peut le modifier, ce qui impose une navette, ou se contenter de prolonger l'essai sans le rendre permanent. Il faut donc un troisième texte de remplacement (« prolongé jusqu'en [date] »), et éventuellement un quatrième : fin en novembre 2026 puis loi ultérieure. D'ici l'issue, le texte actuel reste exact au 7 octobre 2026. Le dessin, l'emphasis et le spoken suivront.",
+  "topic": "logement",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "logement-19",
+  "target": "video",
+  "questionId": "",
+  "videoId": "logement-social",
+  "segmentId": "logement-social-08",
+  "field": "say",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "Parmi les décalages relevés par les rapports publics, le passage reprend la première phrase du paragraphe de la Cour des comptes (personnes seules, petits logements) et la remarque du Trésor (le loyer ne dépend pas des revenus de l'occupant). Il saute la phrase suivante de la Cour, qui donne le décalage inverse : les loyers les plus bas couvrent 7 % du parc, alors que 60 % des demandeurs y sont éligibles. L'ordre est gardé : le passage finit toujours sur la remarque du Trésor. La voix est à réenregistrer. Il faut ajouter un spoken (« … Les loyers les plus bas concernent sept pour cent des logements sociaux, alors que soixante pour cent des demandeurs y sont éligibles. … ») et compléter l'emphasis avec « 7 % ». Le chiffre est ajouté à l'explication (logement-5).",
+  "current": "Les rapports publics relèvent aussi des décalages : la moitié des demandes vient de personnes seules, et les petits logements manquent. Et le loyer ne dépend pas directement des revenus de l’occupant.",
+  "proposed": "Les rapports publics relèvent aussi des décalages : la moitié des demandes vient de personnes seules, et les petits logements manquent. Les loyers les plus bas concernent 7 % des logements sociaux, alors que 60 % des demandeurs y sont éligibles. Et le loyer ne dépend pas directement des revenus de l’occupant.",
+  "newSource": {
+   "title": "Rapport public annuel 2026 – Faciliter le parcours d’accès au logement social dans les territoires",
+   "url": "https://www.ccomptes.fr/sites/default/files/2026-03/20260325-RPA-2026-I-4-Faciliter-le-parcours-d-acces-au-logement-social_0.pdf",
+   "publisher": "Cour des comptes",
+   "date": "2026-03-25"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "logement-5"
+  ],
+  "rationale": "Le guide (§ 5) le demande : un chiffre qui sert un côté appelle celui qui compte pour l'autre, quand la même source le donne. Ici, la phrase vient du même paragraphe de la Cour des comptes, déjà source 0 de la vidéo. « Seuls », un adjectif qui juge, est retiré. La vidéo est de toute façon réenregistrée pour logement-20.",
+  "verification": "confirmed : Cour des comptes, même paragraphe : « La part insuffisante de petits logements ne permet pas de satisfaire une demande dont la moitié provient de personnes seules. Par ailleurs… seulement 7 % du parc offre les loyers les plus bas (PLAI) auxquels sont éligibles 60 % des demandeurs ». Le parc dont il s'agit est le parc social. Le Trésor-Éco confirme la dernière phrase : « les loyers ne dépendent pas directement du revenu du ménage occupant ». Dans la vidéo, sources[0] est bien la Cour des comptes. Les valeurs sont exactes, et l'ajout suit le guide (§ 5 : montrer le chiffre qui compte pour l'autre côté). Il suppose que logement-5 soit retenu, puisque la vidéo ne peut montrer que des chiffres de l'explication (§ 6).",
+  "topic": "logement",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "logement-20",
+  "target": "video",
+  "questionId": "",
+  "videoId": "logement-social",
+  "segmentId": "logement-social-07",
+  "field": "say",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "« Construire plus de logements sociaux ajoute des loyers bas » reprend l'approche « construire beaucoup plus de logements sociaux » et en énonce le bénéfice, ce que le guide (§ 5) interdit. La série présente en revanche les aides à l'investissement locatif privé avec leur limite (logement-construire-07) : l'asymétrie se voit. La voix est à réenregistrer. Spoken proposé : « Le soutien public au logement social, pour construire et rénover, était de neuf virgule neuf milliards d’euros en deux mille vingt-cinq. » Emphasis inchangée.",
+  "current": "Construire plus de logements sociaux ajoute des loyers bas. Le soutien public au logement social était de 9,9 milliards d’euros en 2025.",
+  "proposed": "Le soutien public au logement social, pour construire et rénover, était de 9,9 milliards d’euros en 2025.",
+  "newSource": {
+   "title": "Trésor-Éco n° 405 – Logement : des tensions structurelles pesant sur l’offre et la mobilité",
+   "url": "https://www.tresor.economie.gouv.fr/Articles/2026/10/02/logement-des-tensions-structurelles-pesant-sur-l-offre-et-la-mobilite",
+   "publisher": "Direction générale du Trésor",
+   "date": "2026-10-02"
+  },
+  "checked": true,
+  "lenses": [
+   "droite"
+  ],
+  "needsVoice": true,
+  "linked": [],
+  "rationale": "Lu dans le Trésor-Éco : « Le soutien au logement social (9,9 Md€) couvre les aides à la construction et à la rénovation des logements sociaux ». Avec logement-21, qui donne une portée générale à la limite inflationniste, cette correction règle l'asymétrie entre les deux leviers, des deux côtés à la fois. Le réenregistrement se fait dans la même séance que logement-19.",
+  "verification": "confirmed : Trésor-Éco n° 405 (nouveau PDF) : « Le soutien au logement social (9,9 Md€) couvre les aides à la construction et à la rénovation des logements sociaux ». « Construire plus de logements sociaux ajoute des loyers bas » reprend l'approche logement-1-c de la présidentielle (« Construire beaucoup plus de logements sociaux… ») et en énonce un bénéfice, ce que le guide § 5 interdit. L'asymétrie avec construire-07 est réelle. La phrase proposée est exacte et neutre, et le figure.label actuel reste cohérent.",
+  "topic": "logement",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "logement-21",
+  "target": "video",
+  "questionId": "",
+  "videoId": "logement-construire",
+  "segmentId": "logement-construire-07",
+  "field": "say",
+  "category": "cadrage",
+  "severity": "important",
+  "issue": "Les aides à l'investissement locatif privé sont le seul levier de la série présenté par son coût puis par sa limite, juste avant la question finale. Or le Trésor-Éco n° 405 attribue ce risque inflationniste à plusieurs aides : le soutien à la demande (le PTZ, « également inflationniste »), mais aussi « les mesures de soutien financier à l'offre de logements ». Dite comme propre à ces seules aides, la limite vise un seul camp. La voix est à réenregistrer (spoken à aligner), sans nouveau chiffre.",
+  "current": "Pour encourager les particuliers à acheter des logements à louer, il existe des aides : 2,2 milliards d’euros en 2025. Limite relevée par le Trésor : là où le terrain manque, elles peuvent faire monter les prix.",
+  "proposed": "Pour encourager les particuliers à acheter des logements à louer, il existe des aides : 2,2 milliards d’euros en 2025. Limite relevée par le Trésor, pour ces aides comme pour d’autres aides au logement : là où le terrain manque, elles peuvent faire monter les prix.",
+  "newSource": {
+   "title": "Trésor-Éco n° 405 – Logement : des tensions structurelles pesant sur l’offre et la mobilité",
+   "url": "https://www.tresor.economie.gouv.fr/Articles/2026/10/02/logement-des-tensions-structurelles-pesant-sur-l-offre-et-la-mobilite",
+   "publisher": "Direction générale du Trésor",
+   "date": "2026-10-02"
+  },
+  "checked": true,
+  "lenses": [
+   "centre"
+  ],
+  "needsVoice": true,
+  "linked": [],
+  "rationale": "Lu dans le Trésor-Éco, § 2.3 : « Une partie des aides publiques en faveur du logement présentent un caractère inflationniste », « Ce risque inflationniste peut aussi exister pour les mesures de soutien financier à l'offre de logements, en renchérissant le foncier », et sur le PTZ, « apparaît également inflationniste ». La correction est fidèle à la source et ne nomme aucune approche.",
+  "verification": "confirmed : Trésor-Éco, § 2.3, titré « Une partie des aides publiques en faveur du logement présentent un caractère inflationniste en raison de la rigidité de l'offre ». On y lit : « Ce risque inflationniste peut aussi exister pour les mesures de soutien financier à l'offre de logements, en renchérissant le foncier – limité en zone tendue ». Les aides personnelles sont « susceptibles d'alimenter une hausse des loyers dans les zones où l'offre est limitée ». Le PTZ « apparaît également inflationniste ». Le Trésor documente l'effet le plus nettement pour Scellier et Pinel (environ +10 %), donc le texte actuel n'était pas faux. Mais l'ajout « comme pour d'autres aides » est fidèle à la source (« une partie des aides », pas toutes) et corrige l'impression d'une limite propre à un seul levier. Aucun chiffre nouveau.",
+  "topic": "logement",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "logement-22",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "sources (Trésor-Éco n° 405 : logement-intro sources[1], logement-loyers sources[3], logement-social sources[1], logement-construire sources[0], logement-existant sources[6])",
+  "category": "exactitude",
+  "severity": "important",
+  "issue": "Les cinq vidéos citent le Trésor-Éco n° 405 à une adresse qui renvoie une erreur 404 (vérifiée le 7 octobre 2026). Le Trésor a republié le PDF à une autre adresse, et la page de l'article (2 octobre 2026) y renvoie. Pointer vers la page de l'article est plus stable. Après logement-12 et logement-15, aucun chiffre de logement-loyers ne vient plus du Trésor : sources[3] peut y rester avec la nouvelle URL, ou être retirée en renumérotant les sourceIndex.",
+  "current": "https://www.tresor.economie.gouv.fr/Articles/572b5c4f-81c1-4879-ba96-50962e878252/files/7b57ca30-411c-4af3-8785-01924c8ef73d",
+  "proposed": "https://www.tresor.economie.gouv.fr/Articles/2026/10/02/logement-des-tensions-structurelles-pesant-sur-l-offre-et-la-mobilite",
+  "newSource": {
+   "title": "Trésor-Éco n° 405 – Logement : des tensions structurelles pesant sur l’offre et la mobilité",
+   "url": "https://www.tresor.economie.gouv.fr/Articles/2026/10/02/logement-des-tensions-structurelles-pesant-sur-l-offre-et-la-mobilite",
+   "publisher": "Direction générale du Trésor",
+   "date": "2026-10-02"
+  },
+  "checked": true,
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "logement-3"
+  ],
+  "rationale": "Le lien mort est confirmé (WebFetch : HTTP 404). La page de l'article existe et est datée du 2 octobre 2026. Le PDF qu'elle lie est identique, octet pour octet, au document dont les chiffres de la série ont été tirés. La date de la source peut passer de « 2026-10 » à « 2026-10-02 ».",
+  "verification": "confirmed : Vérifié avec curl le 7 octobre 2026 : l'ancienne URL (…/files/7b57ca30-…) renvoie HTTP 404. La page de l'article répond (200) ; elle est datée du « 02 octobre 2026 » et signée Davo, Faivre, Pradier. Elle lie le PDF …/files/5b9eadf7-0c49-4398-b111-aa1208d9656e (200, application/pdf, marqué « n° 405 Octobre 2026 »). L'URL dead est présente 5 fois dans logement.ts, aux index annoncés (intro sources[1], loyers sources[3], social sources[1], construire sources[0], existant sources[6]). Réserve sur la justification : je n'ai pas pu confirmer l'identité « octet pour octet ». Le PDF téléchargé aujourd'hui (513 Ko) n'a pas le même SHA-1 que la copie locale du 4 octobre (774 Ko). Leur texte est en revanche identique, mêmes chiffres compris ; seules diffèrent quelques coquilles d'extraction et une page d'éditeur ajoutée. Le passage de la date à 2026-10-02 est justifié.",
+  "topic": "logement",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "logement-18",
+  "target": "video",
+  "questionId": "",
+  "videoId": "logement-loyers",
+  "segmentId": "",
+  "field": "title",
+  "category": "cadrage",
+  "severity": "mineur",
+  "issue": "« Encadrer les loyers », à l'infinitif, se lit comme un programme alors que l'une des approches de la question est de supprimer l'encadrement. Un titre nominal décrit le dispositif, comme « Le logement social ». Le titre n'est pas dit : rien à réenregistrer.",
+  "current": "Encadrer les loyers",
+  "proposed": "L’encadrement des loyers",
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "rationale": "Deux sensibilités l'ont relevé. Le changement ne coûte rien (pas de voix) et décrit le dispositif sans orienter. Le guide cite ce titre en exemple, mais il a été écrit pour la primaire.",
+  "topic": "logement",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "logement-23",
+  "target": "video",
+  "questionId": "",
+  "videoId": "logement-intro",
+  "segmentId": "logement-intro-02",
+  "field": "figure.label",
+  "category": "chiffres",
+  "severity": "mineur",
+  "issue": "La vidéo d'ouverture ne montre que la médiane (29,6 %), alors que l'explication de sa question donne aussi la dispersion : 42,3 % pour les locataires du privé les plus modestes. Il suffit de compléter le libellé affiché, sans toucher à la voix.",
+  "current": "Taux d’effort médian des locataires du parc privé : la moitié d’entre eux consacrent plus de 29,6 % de leur revenu au logement (loyer, charges, eau, énergie, assurance), aides déduites (France métropolitaine)",
+  "proposed": "Taux d’effort médian des locataires du parc privé : la moitié d’entre eux consacrent plus de 29,6 % de leur revenu au logement (loyer, charges, eau, énergie, assurance), aides déduites. Pour les locataires du privé parmi le quart de la population au niveau de vie le plus faible : 42,3 % (France métropolitaine)",
+  "newSource": {
+   "title": "Logement – France, portrait social, édition 2025",
+   "url": "https://www.insee.fr/fr/statistiques/8612550?sommaire=8612596",
+   "publisher": "Insee",
+   "date": "2025-11-18"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "logement-6"
+  ],
+  "rationale": "Le chiffre figure dans l'explication et dans la source 0 de la vidéo (valeur lue). La gravité passe d'« important » à « mineur » : la médiane n'est pas faussée, la voix ne change pas et l'explication donne déjà la dispersion. Le libellé suit le périmètre précisé en logement-6.",
+  "verification": "confirmed : Même tableau Insee : secteur libre, ensemble 29,6, et 1er quartile 42,3, pour 2023. L'explication donne déjà ce chiffre, avec le périmètre précisé par logement-6. Le libellé vidéo en est une forme raccourcie, sans changement de sens (guide § 6). La voix ne change pas. Même remarque que pour logement-6 sur l'Insee Première n° 2128 de septembre 2026, dont la mesure est différente.",
+  "topic": "logement",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "logement-24",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "en-tête (Datée)",
+  "category": "actualite",
+  "severity": "mineur",
+  "issue": "La mention « Datée » ne couvre que l'examen au Sénat. D'autres passages changeront avant le vote du 18 avril 2027 : les autorisations sur douze mois (publication mensuelle du SDES), la « reprise » des mises en chantier, les aides à l'investissement locatif et le prêt à taux zéro (loi de finances pour 2027), les règles d'urbanisme (projet de loi « relance et décentralisation du logement », adopté par le Sénat en juillet 2026 selon le Trésor) et le calendrier d'interdiction de louer les passoires. L'en-tête doit aussi dire quel passage réenregistrer après l'issue.",
+  "current": "// Datée : fin de l'essai d'encadrement des loyers en novembre 2026 sans nouvelle loi (examen au Sénat le\n// 21 octobre 2026). À revoir après cette date.",
+  "proposed": "// Datée : fin de l'essai d'encadrement des loyers en novembre 2026 sans nouvelle loi (examen au Sénat le\n// 21 octobre 2026) : réécrire et réenregistrer logement-loyers-04 selon l'issue. À revoir aussi avant le vote :\n// autorisations sur douze mois (intro-05, publication mensuelle du SDES), reprise des mises en chantier\n// (construire-03), aides à l'investissement locatif (construire-07, nouveau dispositif créé en loi de finances\n// pour 2026, loi de finances pour 2027), règles d'urbanisme (construire-05, projet de loi « relance et\n// décentralisation du logement », adopté par le Sénat en juillet 2026), taxe sur les logements vacants\n// (existant-04 : TLV et THLV fusionnées à partir de 2027 selon le Trésor-Éco n° 405), calendrier d'interdiction\n// de louer les passoires (existant-07).",
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "rationale": "Les deux propositions sont fusionnées, en gardant seulement les points vérifiés : le projet de loi adopté par le Sénat en juillet 2026 et la création du dispositif « Jeanbrun » en loi de finances pour 2026 figurent dans le Trésor-Éco. J'ai écarté la « fusion des taxes sur les logements vacants en 2027 » (centre), qu'aucune source lue ne confirme. Le commentaire ne change rien à ce qui est montré ou dit.",
+  "newSource": {
+   "title": "Trésor-Éco n° 405 – Logement : des tensions structurelles pesant sur l’offre et la mobilité",
+   "url": "https://www.tresor.economie.gouv.fr/Articles/2026/10/02/logement-des-tensions-structurelles-pesant-sur-l-offre-et-la-mobilite",
+   "publisher": "Direction générale du Trésor",
+   "date": "2026-10-02"
+  },
+  "verification": "adjusted : Confirmé dans le Trésor-Éco n° 405 : « Le projet de loi visant la relance et la décentralisation du logement, adopté par le Sénat en juillet 2026 », et « renouvelé en loi de finances pour 2026 avec la création du dispositif « Jeanbrun » ». Deux ajustements. (1) La justification écarte à tort la fusion des taxes sur les logements vacants, « qu'aucune source lue ne confirme ». La note 68 du même Trésor-Éco dit : « La taxe annuelle sur les logements vacants (TLV)… et la taxe d'habitation sur les logements vacants (THLV)… seront fusionnées à partir de 2027 ». Or logement-existant-04 dit que « Dans les zones tendues, un logement vide depuis un an est taxé » : ce passage peut changer avant le vote et doit figurer dans la liste. (2) Le « prêt à taux zéro » est rattaché à construire-07, qui n'en parle pas (ni dans say ni dans label) : je l'ai retiré de la liste. Ce commentaire ne change rien à ce qui est montré ou dit.",
+  "topic": "logement",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "logement-25",
+  "target": "video",
+  "questionId": "",
+  "videoId": "logement-existant",
+  "segmentId": "logement-existant-08",
+  "field": "say",
+  "category": "cadrage",
+  "severity": "mineur",
+  "issue": "Le Trésor présente à égalité les deux effets de l'interdiction de louer les passoires. Le « Mais » de la vidéo fait de l'effet négatif la conclusion, juste avant la question finale. Retirer « Mais » suffit à remettre les deux effets à égalité. À faire seulement si la voix de cette vidéo est réenregistrée pour une autre raison : aucune autre correction retenue ne touche cette vidéo.",
+  "current": "Rénover réduit les factures, et selon le Trésor, la mesure incite les propriétaires à engager des travaux. Mais, d’après une étude qu’il cite, l’annonce de l’interdiction des G aurait aussi poussé certains propriétaires à vendre plutôt qu’à rénover.",
+  "proposed": "Rénover réduit les factures, et selon le Trésor, la mesure incite les propriétaires à engager des travaux. D’après une étude qu’il cite, l’annonce de l’interdiction des G aurait aussi poussé certains propriétaires à vendre plutôt qu’à rénover.",
+  "lenses": [
+   "gauche"
+  ],
+  "needsVoice": true,
+  "linked": [],
+  "rationale": "C'est une nuance d'un mot, légitime au regard du guide (§ 5 : la vidéo ne finit pas sur l'argument d'un camp). Elle ne justifie pas à elle seule un réenregistrement, d'où la gravité mineure et la condition.",
+  "topic": "logement",
+  "electionQuestionId": ""
+ }
+]

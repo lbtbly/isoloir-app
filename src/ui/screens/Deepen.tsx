@@ -35,22 +35,28 @@ function tieBreakTopics(pack: ElectionPack, results: Results, answered: Set<stri
 export function Deepen({ pack, state, results, update }: Props) {
   const { bank, election } = pack
   const suggestion = results.close ? tieBreakTopics(pack, results, new Set(Object.keys(state.answers))) : []
+  // Les thèmes et leurs questions complémentaires encore sans réponse : une question répondue (au moins un avis) sort
+  // de la liste, et un thème dont toutes les questions le sont n'y figure plus. Une question passée reste à faire.
+  const open = (id: string) => !isAnswered(state.answers[id])
   const topics = bank.topics
     .map(t => {
       const qs = bank.questions.filter(q => q.topicId === t.id && q.tier === 'approfondi')
-      return { t, total: qs.length, done: qs.filter(q => state.answers[q.id]).length }
+      return { t, left: qs.filter(q => open(q.id)).length, done: qs.filter(q => !open(q.id)).length }
     })
-    .filter(x => x.total > 0)
+    .filter(x => x.left > 0)
   const chosen = state.deepTopics
   const toggle = (id: string) =>
     update({ deepTopics: chosen.includes(id) ? chosen.filter(x => x !== id) : [...chosen, id] })
   const allIds = topics.map(x => x.t.id)
-  const all = allIds.every(id => chosen.includes(id))
+  const all = allIds.length > 0 && allIds.every(id => chosen.includes(id))
 
+  // Le parcours garde toutes les questions des thèmes cochés (ses adresses /approfondi/N n'en dépendent pas) ; il
+  // reprend à la première jamais vue, sinon à la première passée
   const list = orderedQuestions(bank, 'approfondi', state.seed, chosen)
-  const firstOpen = list.findIndex(q => !state.answers[q.id])
+  const left = list.filter(q => open(q.id)).length
+  const unseen = list.findIndex(q => !state.answers[q.id])
+  const firstOpen = unseen >= 0 ? unseen : list.findIndex(q => open(q.id))
   const start = () => go(`/approfondi/${(firstOpen < 0 ? 0 : firstOpen) + 1}`)
-  const remaining = list.filter(q => !isAnswered(state.answers[q.id]) && !state.answers[q.id]?.skipped).length
 
   return (
     <div class="screen screen-sheet">
@@ -77,20 +83,25 @@ export function Deepen({ pack, state, results, update }: Props) {
             </button>
           </p>
         ) : null}
+        {topics.length === 0 ? (
+          <p class="notice" role="status">
+            Vous avez répondu à toutes les questions complémentaires. Vos réponses comptent déjà dans vos résultats.
+          </p>
+        ) : null}
         <ul class="approaches is-topics" aria-label="Thèmes à approfondir">
-          {topics.map(({ t, total, done }) => {
+          {topics.map(({ t, left: n, done }) => {
             const on = chosen.includes(t.id)
             return (
               <li key={t.id} class={`approach${on ? ' is-liked' : ''}`}>
                 <span class="approach-letter count" aria-hidden="true">
-                  {total}
+                  {n}
                 </span>
                 <button type="button" class="approach-main" aria-pressed={on} onClick={() => toggle(t.id)}>
                   <span class="approach-text">
                     <span class="topic-label">{t.label}</span>
                     <span class="topic-desc">
-                      {total} question{total > 1 ? 's' : ''}
-                      {done > 0 ? `, ${done} déjà vue${done > 1 ? 's' : ''}` : ''}
+                      {n} question{n > 1 ? 's' : ''}
+                      {done > 0 ? ` restante${n > 1 ? 's' : ''}` : ''}
                     </span>
                   </span>
                   <span class="box" aria-hidden="true">
@@ -101,11 +112,17 @@ export function Deepen({ pack, state, results, update }: Props) {
             )
           })}
         </ul>
-        <p class="link-row">
-          <button type="button" class="btn-text" onClick={() => update({ deepTopics: all ? [] : allIds })}>
-            {all ? 'Tout décocher' : 'Tout cocher'}
-          </button>
-        </p>
+        {topics.length > 1 ? (
+          <p class="link-row">
+            <button
+              type="button"
+              class="btn-text"
+              onClick={() => update({ deepTopics: all ? chosen.filter(id => !allIds.includes(id)) : [...new Set([...chosen, ...allIds])] })}
+            >
+              {all ? 'Tout décocher' : 'Tout cocher'}
+            </button>
+          </p>
+        ) : null}
       </main>
       <SiteFooter />
       <nav class="action-bar" aria-label="Navigation">
@@ -115,10 +132,10 @@ export function Deepen({ pack, state, results, update }: Props) {
             Résultats
           </a>
           <span class="bar-note" aria-live="polite">
-            {list.length ? `${list.length} question${list.length > 1 ? 's' : ''}` : ''}
+            {left ? `${left} question${left > 1 ? 's' : ''}` : ''}
           </span>
-          <button type="button" class="btn-primary" disabled={list.length === 0} onClick={start}>
-            {remaining < list.length && remaining > 0 ? 'Reprendre' : 'Commencer'}
+          <button type="button" class="btn-primary" disabled={left === 0} onClick={start}>
+            {left < list.length ? 'Reprendre' : 'Commencer'}
             <Icon name="arrow-right" />
           </button>
         </div>

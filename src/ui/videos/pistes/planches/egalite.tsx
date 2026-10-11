@@ -8,6 +8,7 @@
 // Trois pictogrammes manquaient à la bibliothèque : le berceau (une naissance, un jeune enfant), l'établissement
 // d'accueil (une crèche) et la jauge (un indicateur d'écart) ; ils sont dessinés ici.
 
+import type { JSX } from 'preact'
 import { chartOf } from '../../model'
 import { EGALITE as SERIE } from '../../series/egalite'
 import { Art, Arrow, Ask, Brace, Fade, Ink, Txt, W, at, cls, cuesOf, heard, num, said, sentencesOf, word, type Cue, type P, type Tone } from '../dessin/encre'
@@ -1190,6 +1191,95 @@ const tra07: Board = p => {
   )
 }
 
+/* ——— Présidentielle 2027 : passages corrigés par l'édition (editions/presidentielle-2027/egalite.ts) ——— */
+
+/** Un bloc dont la place est gardée, invisible, jusqu'à ce que la voix le dise ; il s'écrit à ce moment-là (la
+ *  clé change : ses gestes repartent de zéro) */
+const Attente = ({ shown, children }: { shown: boolean; children: JSX.Element | null }) => (
+  <div key={shown ? 'dit' : 'attente'} class={shown ? undefined : 'vc-wait'}>
+    {children}
+  </div>
+)
+
+/** 04 (présidentielle 2027) Le temps de travail, puis « à temps de travail égal, l'écart est de 14,0 % » : le
+ *  dessin du passage d'origine (un sablier pour le temps partiel, une flèche, une enveloppe de salaire, une flèche
+ *  vers le bas) ; au-dessus, quand la voix le dit, le chiffre de la fiche et son libellé, puis sa source */
+const sal04P27: Board = p => {
+  const cues = cuesOf(p)
+  const [, partiel] = cues
+  const fig = cues.find(c => c.text === p.segment.figure?.value)
+  const an = word(p, /salaire de l’année|salaire de l'année/)
+  if (!partiel || !fig || !/%/.test(fig.text)) return null
+  return (
+    <Seg kind="fig">
+      <Attente shown={fig.shown}>
+        <Chiffre p={p} t0={0} />
+      </Attente>
+      <Art h={136}>
+        <Signe n="sablier" cx={62} y={8} size={70} label={partiel.text} shown={partiel.shown} t0={100} max={14} />
+        {partiel.shown ? (
+          <>
+            <Arrow x1={108} y1={44} x2={148} y2={44} t0={300} />
+            <Picto n="enveloppe" x={156} y={10} size={70} t0={500} />
+            <Picto n="baisse" x={234} y={14} size={60} t0={900} />
+            {an?.shown ? <Txt x={204} y={97} text={an.text} size={15} max={12} t0={1100} /> : null}
+          </>
+        ) : null}
+      </Art>
+      <Attente shown={fig.shown}>
+        <Src p={p} t0={900} />
+      </Attente>
+    </Seg>
+  )
+}
+
+/** Les écarts de la vidéo telle que la présidentielle la montre, du plus large au plus étroit : le revenu salarial
+ *  (passage 03), l'écart à temps de travail égal (passage 04, ajouté par l'édition), le même emploi (passage 06) ;
+ *  la clé dans le libellé de la fiche, et les mots qui le nomment dans ce que dit la vidéo. La liste ECARTS de la
+ *  primaire reste telle quelle : sa planche n'en dessine que deux. */
+const ECARTS_P27: [RegExp, RegExp][] = [
+  [/revenu salarial/, /revenu salarial/],
+  [/temps de travail égal/, /temps de travail égal/],
+  [/même emploi/, /même emploi/],
+]
+
+/** Les écarts de la liste ECARTS_P27 déjà montrés par la vidéo (p.script : l'édition y est déjà appliquée), jusqu'à
+ *  ce passage compris */
+function ecartsP27(p: P) {
+  const out: { k: number; v: number; text: string; label: string | null; current: boolean }[] = []
+  for (const s of p.script.segments.slice(0, p.index + 1)) {
+    const f = s.figure
+    if (!f || !/^Écart/.test(f.label) || !/%/.test(f.value)) continue
+    const k = ECARTS_P27.findIndex(([re]) => re.test(f.label))
+    const v = num(f.value)
+    if (k < 0 || v === null || out.some(o => o.k === k)) continue
+    out.push({ k, v, text: f.value, label: said(p, ECARTS_P27[k]![1]), current: s.id === p.segment.id })
+  }
+  return out.sort((a, b) => a.k - b.k)
+}
+
+/** 06 (présidentielle 2027) À même emploi, 3,6 % : les trois écarts de la vidéo empilés à la même échelle, depuis
+ *  zéro, du plus large au plus court (revenu salarial, temps de travail égal, même emploi) ; ceux des passages
+ *  précédents déjà au tableau, le dernier au bleu bille quand la voix le dit. Avec deux écarts seulement (le passage
+ *  04 sans son chiffre), le même dessin à deux barres. */
+const sal06P27: Board = p => {
+  const list = ecartsP27(p)
+  const cur = list.find(e => e.current)
+  const cue = cuesOf(p).find(c => c.text === cur?.text)
+  if (list.length < 2 || !cur || !cue) return null
+  const g = pile(
+    list.map(e => ({ label: e.label ?? undefined, value: e.v, text: e.text, tone: e.current ? 'count' : undefined, shown: e.current ? cue.shown : true, kept: !e.current })),
+    { size: 18, gap: 18, room: 104 },
+  )
+  return (
+    <Seg kind="fig">
+      <Chiffre p={p} />
+      <Art h={g.h + 4}>{g.el}</Art>
+      <Src p={p} />
+    </Seg>
+  )
+}
+
 /* ——— Le registre ——— */
 
 export const EGALITE: Record<string, Board> = {
@@ -1234,4 +1324,7 @@ export const EGALITE: Record<string, Board> = {
   'egalite-transparence-05': tra05,
   'egalite-transparence-06': tra06,
   'egalite-transparence-07': tra07,
+  // Présidentielle 2027
+  'egalite-salaires-04-p27': sal04P27,
+  'egalite-salaires-06-p27': sal06P27,
 }

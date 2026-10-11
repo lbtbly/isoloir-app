@@ -12,10 +12,15 @@
 // - « Voir la fiche » (fiche) mène à la première question traduite qui a sa fiche, sinon à la première fiche
 //   du thème ;
 // - les séries sont rangées famille après famille, dans l'ordre des thèmes de l'élection.
-// Les identifiants des vidéos et des passages ne changent jamais : ils nomment les fichiers de la voix.
-// Fonction pure, sans données : le catalogue (catalog.ts) l'applique à l'élection affichée.
+// Les identifiants des vidéos et des passages ne changent jamais : ils nomment les fichiers de la voix. Seule
+// exception : une édition propre à l'élection (videoScope.edition, editions/) corrige des passages, qui prennent un
+// identifiant suffixé pour avoir leur propre voix ; les questions qu'elle donne sont déjà celles de l'élection.
+// Le catalogue (catalog.ts) l'applique à l'élection affichée.
 
 import type { ElectionPack } from '../../core/types'
+import { applyEdition } from './editions/apply'
+import { EDITIONS } from './editions'
+import type { EditedScript } from './editions/types'
 import type { VideoScript, VideoSeries } from './types'
 
 /** Périmètre vidéo d'une élection : thème ou question des séries → thème ou question de l'élection */
@@ -45,20 +50,25 @@ export function scopeSeries(
   const taken = new Set<string>()
   const out: VideoSeries[] = []
 
-  for (const series of all) {
+  const edition = scope?.edition ? EDITIONS[scope.edition] : undefined
+  for (const base of all) {
+    const series = applyEdition(base, edition)
     const topicId = scope ? scope.topics[series.topicId] : series.topicId
     const topic = topicId === undefined ? undefined : topics.get(topicId)
     if (!topic || taken.has(topic.id)) continue
     taken.add(topic.id)
     // La fiche du thème, quand aucune question de la vidéo n'en a : sa première, dans l'ordre de la banque
     const topicFiche = bank.questions.find(q => q.topicId === topic.id && q.explainer)?.id
-    const videos = series.videos.map((video): VideoScript => {
+    const videos = series.videos.map((video: EditedScript): VideoScript => {
+      const native = video.nativeQuestionIds === true
       const translated = video.questionIds
-        .map(id => (scope ? scope.questions[id] : id))
+        .map(id => (scope && !native ? scope.questions[id] : id))
         .filter((id): id is string => id !== undefined && questions.has(id))
       const questionIds = [...new Set(translated)]
       const fiche = questionIds.find(hasFiche) ?? topicFiche ?? questionIds[0]
-      return { ...video, questionIds, ...(fiche ? { fiche } : {}) }
+      const out: EditedScript = { ...video, questionIds, ...(fiche ? { fiche } : {}) }
+      delete out.nativeQuestionIds
+      return out
     })
     out.push({
       ...series,

@@ -1,0 +1,317 @@
+[
+ {
+  "id": "egalite-3",
+  "target": "video",
+  "questionId": "",
+  "videoId": "egalite-salaires",
+  "segmentId": "egalite-salaires-04",
+  "field": "say",
+  "category": "chiffres",
+  "severity": "important",
+  "issue": "La vidéo « D’où vient l’écart de salaire ? » décompose l'écart. Elle passe pourtant de 21,8 % à 3,6 % sans l'étape de l'Insee qui sépare la part due au temps de travail : 14,0 % à temps de travail égal. Ce passage parle justement du temps de travail. Il faut réenregistrer la voix, avec ce spoken : « Une part de cet écart tient au temps de travail : à temps partiel, par exemple, le salaire de l’année est plus bas. À temps de travail égal, l’écart est de quatorze pour cent. » emphasis : ['temps partiel', '14,0 %']. Le propriétaire peut aussi ajouter figure { value: '14,0 %', label: 'Écart de salaire en équivalent temps plein entre femmes et hommes, à temps de travail égal, tous emplois confondus (secteur privé, 2024)', date: '2024', sourceIndex: 0 }, avec visual 'figure'. Sinon, il garde visual 'point' et le draw ajoute « puis un trait plus court, marqué 14,0 % ». Cette correction suppose celle de figures[1].label (egalite-2).",
+  "current": "Une part de cet écart tient au temps de travail : à temps partiel, par exemple, le salaire de l’année est plus bas.",
+  "proposed": "Une part de cet écart tient au temps de travail : à temps partiel, par exemple, le salaire de l’année est plus bas. À temps de travail égal, l’écart est de 14,0 %.",
+  "newSource": {
+   "title": "Écart de salaire entre femmes et hommes en 2024 (Insee Focus n° 377)",
+   "url": "https://www.insee.fr/fr/statistiques/8743657",
+   "publisher": "Insee",
+   "date": "2026-02-26"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche",
+   "centre"
+  ],
+  "needsVoice": true,
+  "linked": [
+   "egalite-2",
+   "egalite-7"
+  ],
+  "rationale": "Je garde ce seul réenregistrement parmi ceux proposés pour le 14,0 %. C'est la vidéo de décomposition, et le passage porte déjà sur le temps de travail. La suite devient lisible : 21,8 % (tout), 14,0 % (temps égal), puis les emplois occupés (passage 05), puis 3,6 % (même emploi, passage 06). Ce chiffre sera dans la fiche une fois egalite-2 retenue, conformément au § 6 du guide. J'écarte la même correction dans l'introduction, pour ne pas multiplier les réenregistrements (voir les rejets).",
+  "verification": "confirmed : J'ai lu la valeur sur la page de l'Insee : « À temps de travail égal […] atteint 14,0 % » (secteur privé, 2024). Le périmètre secteur privé et 2024 est déjà posé au passage 02. Le manque est réel : la vidéo passe de 21,8 % (passage 03) à 3,6 % (passage 06) sans l'étape que l'Insee met en tête de sa publication. Ce passage, qui porte sur le temps de travail, est le bon endroit pour la combler. Au regard du § 6 du guide, la correction ne vaut que si egalite-2 est retenue, puisque le chiffre doit alors figurer dans la fiche (figures[1].label). Comme 14,0 % devient un nombre dit et sous-titré, le guide pousse à préférer l'option figure { value: '14,0 %', … sourceIndex: 0 } avec visual 'figure', plutôt que le seul « point ». La source Insee est déjà la source n° 0 de la vidéo. Il faut réenregistrer la voix.",
+  "topic": "egalite",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "egalite-4",
+  "target": "video",
+  "questionId": "",
+  "videoId": "egalite-transparence",
+  "segmentId": "egalite-transparence-02",
+  "field": "figure.label (constante LABEL_MEME_EMPLOI, reprise aussi dans egalite-intro-03 et egalite-salaires-06)",
+  "category": "chiffres",
+  "severity": "important",
+  "issue": "Le passage 01 demande « femmes et hommes sont-ils payés pareil pour le même travail ? », puis le passage 02 répond 3,6 %. L'écart à même emploi se lit alors comme une mesure de discrimination, alors que l'Insee demande de ne pas l'interpréter ainsi au sens strict, dans un sens comme dans l'autre. Seul le libellé change : ni « say » ni « spoken », donc pas de voix à réenregistrer.",
+  "current": "Écart de salaire en équivalent temps plein entre femmes et hommes qui occupent le même emploi dans le même établissement (secteur privé, 2024)",
+  "proposed": "Écart de salaire en équivalent temps plein entre femmes et hommes qui occupent le même emploi dans le même établissement (secteur privé, 2024). Selon l’Insee, ce n’est pas au sens strict une mesure de la discrimination : l’expérience, l’ancienneté ou le diplôme, non observés, peuvent l’amplifier comme l’atténuer",
+  "newSource": {
+   "title": "Écart de salaire entre femmes et hommes en 2024 (Insee Focus n° 377)",
+   "url": "https://www.insee.fr/fr/statistiques/8743657",
+   "publisher": "Insee",
+   "date": "2026-02-26"
+  },
+  "checked": true,
+  "lenses": [
+   "droite",
+   "gauche"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "egalite-2"
+  ],
+  "rationale": "La droite demandait la mise en garde, et la gauche rappelait que l'Insee dit qu'elle joue dans les deux sens : je fusionne les deux. Cette formulation symétrique, citée de l'Insee, convient aux deux sensibilités. Le libellé reste fidèle à la fiche corrigée (egalite-2), et le changement ne demande aucun réenregistrement.",
+  "verification": "confirmed : La mise en garde est textuelle sur la page de l'Insee (Focus n° 377) : l'écart « à emploi comparable » « ne peut pas être interprété au sens strict comme une mesure de la discrimination salariale » ; les caractéristiques non observées (expérience, ancienneté dans l'entreprise, diplôme) peuvent jouer « en les amplifiant comme en les atténuant ». Le risque décrit est réel : la question du passage 01 (« payés pareil pour le même travail ? ») suivie du 3,6 % au passage 02 invite à lire ce chiffre comme une mesure de discrimination. Le libellé raccourci reste fidèle à la fiche corrigée (egalite-2), et il garde la symétrie de l'Insee. Changer la constante LABEL_MEME_EMPLOI touche aussi egalite-intro-03 et egalite-salaires-06, ce qui est cohérent. Rien n'est dit ni sous-titré, donc la voix ne change pas. La précision facultative sur le champ (25 % des établissements, 40 % des EQTP) vaut ici aussi.",
+  "topic": "egalite",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "egalite-5",
+  "target": "video",
+  "questionId": "",
+  "videoId": "egalite-intro",
+  "segmentId": "",
+  "field": "title",
+  "category": "origine",
+  "severity": "important",
+  "issue": "La série a été écrite pour la banque de la primaire, qui n'avait qu'une question sur ce thème. À la présidentielle, le thème « egalite » en compte quatre. La question « essentiel » porte sur les violences sexistes et sexuelles (egalite-1), une autre sur l'IVG (egalite-4), et aucune des deux n'est traitée. Un titre « l’essentiel » promet un panorama que l'introduction ne donne pas. Ses passages 09-10 annoncent bien les quatre vidéos réelles. Le titre n'est pas dit : pas de réenregistrement.",
+  "current": "L’égalité femmes-hommes, l’essentiel",
+  "proposed": "Égalité femmes-hommes : salaires et famille",
+  "lenses": [
+   "centre",
+   "gauche"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "egalite-6"
+  ],
+  "rationale": "La gauche et le centre font le même constat. Leurs deux titres dépassaient la limite de 45 signes du guide (§ 3) : 49 et 63 signes. « Égalité femmes-hommes : salaires et famille » en compte 43 et annonce le périmètre réel (écart de salaire, transparence, congés, garde). Le changement est neutre et sans voix à réenregistrer. Il faut mettre une espace insécable avant le deux-points.",
+  "topic": "egalite",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "egalite-6",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "structure (vidéos)",
+  "category": "origine",
+  "severity": "important",
+  "issue": "La série reprend le périmètre de la primaire (une question, egalite-x1). À la présidentielle, le thème « egalite » couvre aussi les violences sexistes et sexuelles (egalite-1, question « essentiel »), l'écart de pension (egalite-3) et l'IVG (egalite-4), dont la série ne dit rien. De plus, les vidéos « D’où vient l’écart de salaire ? » et « Mesurer les écarts de salaire » relèvent surtout de egalite-3. Elles ne sont pourtant reliées qu'à egalite-2 (egalite-x1 → egalite-2 dans videoScope).",
+  "current": "",
+  "proposed": "Quand les explications de egalite-1, egalite-3 et egalite-4 auront été vérifiées, ajouter un approfondissement factuel sur les violences sexistes et sexuelles et un sur l’IVG. Mettre l’écart de pension dans la vidéo sur les salaires. Relier les vidéos sur les salaires et la transparence à egalite-3. La série compte déjà 41 passages sur 45 au plus (guide § 3) : il faudra resserrer les vidéos existantes, ou faire une série distincte.",
+  "lenses": [
+   "gauche",
+   "centre"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "egalite-5"
+  ],
+  "rationale": "Le manque est réel : la série d'un thème présidentiel ignore sa question « essentiel ». La proposition ne demande ni approche ni camp, seulement de couvrir les sujets du thème avec des faits. Elle respecte la règle des vidéos : uniquement des chiffres des explications de leurs questions. D'où la condition préalable, que ces explications soient vérifiées. J'ai ajouté la contrainte des 45 passages, que la proposition initiale ignorait. La partie de cette correction sur l'en-tête est traitée à part (egalite-15).",
+  "topic": "egalite",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "egalite-12",
+  "target": "video",
+  "questionId": "",
+  "videoId": "egalite-garde",
+  "segmentId": "egalite-garde-04",
+  "field": "figure.label",
+  "category": "chiffres",
+  "severity": "mineur",
+  "issue": "Même correction que figures[3] de l'explication (egalite-11). Seul le libellé change : pas de voix à réenregistrer. La source DREES figure déjà dans la vidéo.",
+  "current": "en crèche ou dans un autre établissement, 18 % et 35 % (France métropolitaine)",
+  "proposed": "en crèche ou dans un autre établissement, 18 % et 35 % ; chez une assistante maternelle, 20 % et 23 % (France métropolitaine)",
+  "newSource": {
+   "title": "La part des enfants de moins de 3 ans confiés principalement à une assistante maternelle ou une crèche a presque doublé entre 2002 et 2021 (Études et résultats n° 1257)",
+   "url": "https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse/etudes-et-resultats/la-part-des-enfants-de-moins-de-3-ans-confies",
+   "publisher": "DREES",
+   "date": "2023-02-14"
+  },
+  "checked": true,
+  "lenses": [
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "egalite-11"
+  ],
+  "rationale": "Correction jumelle de egalite-11. Elle ne vaut que si egalite-11 est retenue, puisque le chiffre doit figurer dans la fiche (guide § 6).",
+  "verification": "confirmed : Valeurs vérifiées sur la page de la DREES, comme pour egalite-11 : 20 % en 2021 et 23 % au premier choix des familles. La source DREES est déjà la source n° 0 de la vidéo egalite-garde. Seul le libellé change, la voix non. Cette correction ne vaut que si egalite-11 est retenue (§ 6 du guide). Si le graphique n'est pas complété, l'alt (« Quatre barres ») reste juste.",
+  "topic": "egalite",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "egalite-14",
+  "target": "video",
+  "questionId": "",
+  "videoId": "egalite-transparence",
+  "segmentId": "egalite-transparence-05",
+  "field": "figure.label",
+  "category": "chiffres",
+  "severity": "mineur",
+  "issue": "Correction jumelle du point 3 de la fiche (egalite-13) : le libellé ne donne qu'un seuil. Seul le libellé change, pas la voix. Si le seuil de la directive est retenu, il faut ajouter sa source aux « sources » de la vidéo, car tout nombre montré doit en avoir une (guide § 6).",
+  "current": "Indicateurs d’écart de salaire prévus par le projet de loi à la place de l’index de l’égalité professionnelle, à déclarer dès 50 salariés",
+  "proposed": "Indicateurs d’écart de salaire prévus par le projet de loi à la place de l’index de l’égalité professionnelle, à déclarer dès 50 salariés comme l’index (la directive européenne impose ces déclarations à partir de 100 salariés)",
+  "newSource": {
+   "title": "Étude d'impact du projet de loi portant transposition de la directive (UE) 2023/970 relative à l'égalité des rémunérations entre les femmes et les hommes par la transparence des rémunérations (texte n° 944, 2025-2026)",
+   "url": "https://www.senat.fr/leg/etudes-impact/pjl25-944-ei/pjl25-944-ei.html",
+   "publisher": "Sénat (étude d'impact du Gouvernement)",
+   "date": "2026-09-10"
+  },
+  "checked": true,
+  "lenses": [
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "egalite-13"
+  ],
+  "rationale": "J'ai fusionné les libellés proposés par le centre et la droite, et gardé le même équilibre que dans la fiche (« comme l'index » / seuil de la directive). J'ai laissé dans la fiche le détail triennal, pour garder un libellé court. Cette correction ne vaut que si egalite-13 est retenue.",
+  "verification": "adjusted : Le libellé proposé est exact : l'étude d'impact donne l'index dès 50 salariés, les 7 indicateurs « en lieu et place de l'index » dès 50 salariés et le seuil de 100 travailleurs de la directive (art. 9). La source doit suivre celle de la fiche corrigée (egalite-13) : c'est l'étude d'impact, pas le résumé de l'OEIL. Il faut l'ajouter aux sources de la vidéo egalite-transparence (§ 6 du guide) et faire pointer le sourceIndex du passage 05 vers elle. Le dossier de presse (PROJET_DE_LOI) peut rester pour les passages 04 et 06. Seul le libellé change, la voix non. Cette correction ne vaut que si egalite-13 est retenue.",
+  "topic": "egalite",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "egalite-15",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "en-tête (commentaire)",
+  "category": "origine",
+  "severity": "mineur",
+  "issue": "L'en-tête décrit encore la banque de la primaire comme la banque en cours. À la présidentielle, le thème a quatre questions, et la fiche egalite-x1 n'est montrée que sous egalite-2. Ce texte n'est pas montré au public.",
+  "current": "La banque n'a qu'une question sur ce thème (egalite-x1) : elle mêle ces quatre leviers",
+  "proposed": "La banque de la primaire n'avait qu'une question sur ce thème (egalite-x1), montrée pour la présidentielle sous egalite-2 (responsabilités familiales). Les vidéos sur l'écart de salaire touchent aussi egalite-3 ; egalite-1 (violences) et egalite-4 (IVG) n'ont pas de vidéo. La fiche mêle ces quatre leviers",
+  "lenses": [
+   "centre",
+   "droite",
+   "gauche"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "rationale": "Les trois relecteurs l'ont relevé, en termes proches, et j'ai fusionné leurs propositions. C'est une correction interne et factuelle, d'après reuse.json et videos.ts (egalite-x1 → egalite-2).",
+  "topic": "egalite",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "egalite-16",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "en-tête (commentaire)",
+  "category": "exactitude",
+  "severity": "mineur",
+  "issue": "L'en-tête affirme que rien ne relie l'écart « d'environ 14 % » à l'Insee Focus n° 377. Or cette page donne 14,0 % en équivalent temps plein, à temps de travail égal, en 2024. Le contexte de egalite-3 dans la banque de la présidentielle le date d'ailleurs (« Insee, 2024 »). Si egalite-2 et egalite-3 sont retenues, il faut réécrire toute la phrase ainsi : « L’écart de 14,0 % à temps de travail égal (Insee Focus n° 377, 2024) est repris dans la fiche (figures[1].label) et au passage egalite-salaires-04. »",
+  "current": "et rien ne dit qu'il vient de l'Insee Focus n° 377 (2024)",
+  "proposed": "alors que l'Insee Focus n° 377 le donne (14,0 % en équivalent temps plein, 2024)",
+  "newSource": {
+   "title": "Écart de salaire entre femmes et hommes en 2024 (Insee Focus n° 377)",
+   "url": "https://www.insee.fr/fr/statistiques/8743657",
+   "publisher": "Insee",
+   "date": "2026-02-26"
+  },
+  "checked": true,
+  "lenses": [
+   "droite",
+   "gauche"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "egalite-2"
+  ],
+  "rationale": "La note est inexacte : j'ai lu « atteint 14,0 % » sur la page de l'Insee. La correction informe le propriétaire. Elle va de pair avec egalite-2, qui reprend ce chiffre.",
+  "verification": "confirmed : La note de l'en-tête est inexacte. La page de l'Insee (Focus n° 377, 26/02/2026) donne 14,0 % « à temps de travail égal », en EQTP, dans le secteur privé en 2024 : on le lit dans le chapeau, le texte et le graphique 1a. Le contexte de egalite-3 dans la banque de la présidentielle le date d'ailleurs « (Insee, 2024) ». Si egalite-2 et egalite-3 sont retenues, il faut réécrire toute la phrase comme l'indique l'issue. Ce n'est qu'un commentaire de code : rien n'est montré à l'électeur.",
+  "topic": "egalite",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "egalite-17",
+  "target": "serie",
+  "questionId": "",
+  "videoId": "",
+  "segmentId": "",
+  "field": "en-tête (Datée)",
+  "category": "actualite",
+  "severity": "mineur",
+  "issue": "La mention « Datée » ne prévoit que « l’examen du projet de loi ». Or le texte (n° 944) a été déposé au Sénat le 10 septembre 2026, en procédure accélérée, et peut être adopté avant le 18 avril 2027. Les passages egalite-intro-08 et egalite-transparence-04 à 06 (« prévoit », « aurait le droit ») seraient alors dépassés, comme le point 3 de la fiche (« prévoit », « seraient », « donnerait »). Deux autres faits peuvent changer avant le vote. La loi de financement de la sécurité sociale pour 2027 peut toucher aux congés autour de la naissance (egalite-intro-07, egalite-conges-06 et 07). L'Insee publiera l'écart de salaire 2025, qui remplacerait 21,8 %, 14,0 % et 3,6 % (le Focus sur 2024 est paru le 26 février 2026).",
+  "current": "À revoir après l'examen du projet de loi.",
+  "proposed": "À revoir à chaque étape du projet de loi (déposé au Sénat le 10 septembre 2026, en procédure accélérée), avec le point 3 de la fiche egalite-x1. À revoir aussi après le vote de la loi de financement de la sécurité sociale pour 2027 (congés autour de la naissance), à la parution de l'écart de salaire 2025 par l'Insee, et au plus tard avant le 18 avril 2027.",
+  "newSource": {
+   "title": "Projet de loi portant transposition de la directive (UE) 2023/970 relative à l'égalité des rémunérations entre les femmes et les hommes par la transparence des rémunérations (dossier législatif)",
+   "url": "https://www.senat.fr/dossier-legislatif/pjl25-944.html",
+   "publisher": "Sénat",
+   "date": "2026-09-10"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche",
+   "centre",
+   "droite"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "rationale": "J'ai fusionné les trois propositions. Sur le dossier législatif du Sénat, mis à jour le 7 octobre 2026, j'ai vérifié trois faits : dépôt au Sénat le 10 septembre 2026, texte n° 944, procédure accélérée, première lecture engagée. La droite écrivait « déposé à l'Assemblée », ce qui est inexact ; sa source (LCP) n'était ni primaire ni vérifiée. Je n'avance aucune date de parution pour l'Insee ni de dépôt pour la loi de financement de la sécurité sociale, faute de les avoir vérifiées.",
+  "verification": "confirmed : J'ai vérifié sur le dossier législatif du Sénat (pjl25-944, page mise à jour le 7 octobre 2026) : texte n° 944 (2025-2026) « déposé au Sénat le 10 septembre 2026 », « Procédure accélérée engagée par le Gouvernement le 10 septembre 2026 », première lecture au Sénat en cours. La page ne mentionne encore ni rapport de commission ni vote. L'adoption avant le 18 avril 2027 reste donc possible, et les formes « prévoit » et « aurait » de la fiche et des passages egalite-intro-08 et egalite-transparence-04 à 06 deviendraient alors dépassées. Le Focus de l'Insee sur 2024 est bien paru le 26/02/2026, et la publication sur 2025 remplacera les trois chiffres. La loi de financement de la sécurité sociale pour 2027 n'est citée que comme point de revue : je n'ai pas pu vérifier son contenu, mon budget de recherche web étant épuisé. La mention « peut toucher » reste prudente et n'avance aucun fait.",
+  "topic": "egalite",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "egalite-7",
+  "target": "video",
+  "questionId": "",
+  "videoId": "egalite-salaires",
+  "segmentId": "egalite-salaires-06",
+  "field": "alt",
+  "category": "chiffres",
+  "severity": "mineur",
+  "issue": "Suit egalite-3 : une fois le 14,0 % dit au passage 04, le dessin du passage 06 doit montrer les trois écarts. draw proposé : « Les trois écarts empilés à la même échelle, du plus large au plus court ; le dernier au bleu bille. » La voix ne change pas.",
+  "current": "Deux écarts à la même échelle : 21,8 % pour le revenu salarial, 3,6 % pour le même emploi.",
+  "proposed": "Trois écarts à la même échelle : 21,8 % pour le revenu salarial, 14,0 % à temps de travail égal, 3,6 % pour le même emploi.",
+  "newSource": {
+   "title": "Écart de salaire entre femmes et hommes en 2024 (Insee Focus n° 377)",
+   "url": "https://www.insee.fr/fr/statistiques/8743657",
+   "publisher": "Insee",
+   "date": "2026-02-26"
+  },
+  "checked": true,
+  "lenses": [
+   "gauche"
+  ],
+  "needsVoice": false,
+  "linked": [
+   "egalite-2",
+   "egalite-3"
+  ],
+  "rationale": "Cohérence entre le dessin et la voix une fois egalite-3 retenue. La gauche le demandait dans l'issue de sa correction du passage 04. Le même changement pour egalite-intro-03 est écarté avec la correction de son « say ».",
+  "verification": "confirmed : J'ai vérifié les trois valeurs sur la page de l'Insee (Focus n° 377, 2024, secteur privé). Le graphique 1a donne 21,8 et 14,0 pour 2024, et le texte donne 3,6 % à même emploi. Ce n'est qu'une mise en cohérence entre le dessin et la voix. Elle ne vaut que si egalite-3, et donc egalite-2, sont retenues. Sinon, l'alt actuel (deux écarts) reste juste.",
+  "topic": "egalite",
+  "electionQuestionId": ""
+ },
+ {
+  "id": "egalite-8",
+  "target": "video",
+  "questionId": "",
+  "videoId": "egalite-transparence",
+  "segmentId": "egalite-transparence-02",
+  "field": "alt",
+  "category": "cadrage",
+  "severity": "mineur",
+  "issue": "« Trop fin pour bien se voir » est un commentaire qui minimise l'écart à emploi égal, pas une description du dessin. draw proposé : « Deux barres au trait presque égales, à la même échelle ; l’écart entre leurs bouts est montré du doigt. » Pas de voix à réenregistrer.",
+  "current": "Deux barres à la même échelle, une femme et un homme : l’écart, trop fin pour bien se voir, est montré du doigt.",
+  "proposed": "Deux barres à la même échelle, une femme et un homme : l’écart de 3,6 % entre leurs bouts est montré du doigt.",
+  "lenses": [
+   "gauche"
+  ],
+  "needsVoice": false,
+  "linked": [],
+  "rationale": "C'est une retouche d'un mot d'appréciation, sans nouveau chiffre : 3,6 % est déjà le chiffre du passage. Elle est neutre et ne change rien pour les autres sensibilités.",
+  "topic": "egalite",
+  "electionQuestionId": ""
+ }
+]

@@ -1336,6 +1336,234 @@ const prev07: Board = p => {
 /** 08 « Budgets, alimentation, air intérieur : quelle priorité pour la prévention ? » */
 const prev08: Board = p => finale(p, ['calendrier', 'pomme', 'fenetre'])
 
+/* ——— Édition « présidentielle 2027 » : les passages corrigés (identifiants en -p27) ———
+ * Ces planches ne servent qu'aux passages dont l'édition (editions/presidentielle-2027/sante.ts) change le texte
+ * dit : elles lisent le passage corrigé (p.segment, p.script), jamais la série d'origine. Les planches des passages
+ * d'origine, plus haut, restent celles de la primaire. */
+
+/** Épaisseur d'une pièce d'une pile, et le demi-axe court de son ellipse (pièce vue de biais) */
+const PIECE_T = 7
+const PIECE_RY = 5
+
+/** Une pile de « n » pièces vue de biais, posée en « base » ; « x » : son bord gauche, « rx » : son demi-diamètre.
+ *  Les tranches de bas en haut, puis le dessus (comme le pictogramme « pieces ») */
+function pileD(x: number, base: number, n: number, rx: number) {
+  let d = ''
+  for (let i = 0; i < n; i++) d += `M${x} ${base - (i + 1) * PIECE_T}v${PIECE_T}a${rx} ${PIECE_RY} 0 0 0 ${2 * rx} 0v${-PIECE_T}`
+  const top = base - n * PIECE_T
+  return `${d}M${x} ${top}a${rx} ${PIECE_RY} 0 1 1 ${2 * rx} 0a${rx} ${PIECE_RY} 0 1 1 ${-2 * rx} 0`
+}
+
+/** Le contour de la i-ème pièce d'une pile (0 : celle du bas), le dessus compris, pour la compter au bleu bille */
+function pieceD(x: number, base: number, i: number, rx: number) {
+  const top = base - (i + 1) * PIECE_T
+  return `M${x} ${top}a${rx} ${PIECE_RY} 0 0 1 ${2 * rx} 0v${PIECE_T}a${rx} ${PIECE_RY} 0 0 1 ${-2 * rx} 0Z`
+}
+
+/** 09 (présidentielle 2027) Le déficit de la branche maladie en 2025 : deux piles de pièces, les recettes et les
+ *  dépenses, la seconde un peu plus haute ; la différence au bleu bille, avec le montant dit. Le script ne donne
+ *  pas les montants des deux piles : elles ne sont pas à l'échelle des comptes, et l'écart reste petit (une pièce
+ *  sur treize), sans être grossi. */
+const remb09p27: Board = p => {
+  const cue = cueOf(p, 0)
+  const deficit = word(p, /déficit/)
+  if (!cue || !num(cue.text) || !deficit) return null
+  const n = 12
+  const rx = 32
+  const base = 116
+  const xa = 18
+  const xb = 102
+  const level = base - n * PIECE_T
+  const mid = base - (n + 0.5) * PIECE_T
+  return (
+    <Seg kind="fig">
+      <Chiffre p={p} />
+      <Art h={150}>
+        <Ink d={`M8 ${base + PIECE_RY + 1}H292`} t0={0} dur={600} class="vc-soft" />
+        <Ink d={pileD(xa, base, n, rx)} t0={200} dur={900} />
+        <Txt x={xa + rx} y={base + 28} text="recettes" size={14} t0={600} />
+        <Ink d={pileD(xb, base, n + 1, rx)} t0={700} dur={900} />
+        <Txt x={xb + rx} y={base + 28} text="dépenses" size={14} t0={1100} />
+        <Fade t0={1300} class="vc-dash vc-soft">
+          <path d={`M${xa + 2 * rx + 3} ${level}H${xb - 3}`} />
+        </Fade>
+        {cue.shown ? (
+          <>
+            <Fade t0={0} class="vc-count">
+              <path class="vc-tint-count" d={pieceD(xb, base, n, rx)} />
+              <path d={pieceD(xb, base, n, rx)} />
+            </Fade>
+            <Ink d={`M${xb + 2 * rx + 4} ${mid}H${xb + 2 * rx + 16}`} t0={200} dur={300} class="vc-count vc-thin" />
+            <Txt x={xb + 2 * rx + 20} y={mid + 6} text={cue.text} size={18} big anchor="start" tone="count" t0={400} />
+          </>
+        ) : null}
+      </Art>
+      <Src p={p} />
+    </Seg>
+  )
+}
+
+/** 06 (présidentielle 2027) Les vaccins des enfants : un carnet, onze cases cochées l'une après l'autre ; la porte
+ *  de la crèche ou de l'école ; un calendrier par mois laissé aux parents. Les nombres viennent des mots mis en
+ *  valeur (« onze vaccinations », « trois mois ») */
+const prev06p27: Board = p => {
+  const [vacc, mois] = cuesOf(p)
+  const n = num(vacc?.text.split(/\s/)[0])
+  const m = num(mois?.text.split(/\s/)[0])
+  const ecole = word(p, /en crèche ou à l’école/)
+  if (!vacc || !mois || !n || !m || n > 15 || m > 4) return null
+  const cols = 3
+  const size = 18
+  const gap = 8
+  const rows = Math.ceil(n / cols)
+  const gw = cols * size + (cols - 1) * gap
+  const bx = 10
+  const by = 4
+  const bw = 112
+  const bh = 30 + rows * (size + gap) - gap + 12
+  const gx = bx + 14 + (bw - 14 - gw) / 2
+  const gy = by + 30
+  const cell = (i: number) => ({ x: gx + (i % cols) * (size + gap), y: gy + Math.floor(i / cols) * (size + gap) })
+  const cs = 36
+  const cgap = 8
+  const cx0 = 212 - (m * cs + (m - 1) * cgap) / 2
+  return (
+    <Seg>
+      <HeadCues p={p} />
+      <Art h={Math.max(by + bh + 4, 148)}>
+        <Ink d={`M${bx} ${by}H${bx + bw}V${by + bh}H${bx}Z`} t0={100} dur={700} />
+        <Ink d={`M${bx + 12} ${by}V${by + bh}`} t0={500} dur={300} class="vc-thin" />
+        <Picto n="soin" x={gx + gw / 2 - 9} y={by + 6} size={18} t0={700} w={0.8} />
+        <Ink d={range(n).map(i => `M${cell(i).x} ${cell(i).y}h${size}v${size}h${-size}z`).join('')} t0={800} dur={700} class="vc-thin" />
+        {vacc.shown
+          ? range(n).map(i => (
+              <Ink key={i} d={`M${cell(i).x + 4} ${cell(i).y + 9.5}l4 4.5l6.5-9`} t0={200 + i * 120} dur={200} class="vc-count" />
+            ))
+          : null}
+        {ecole?.shown ? (
+          <>
+            <Picto n="porte" x={180} y={0} size={64} t0={0} />
+            <Txt x={212} y={78} text={ecole.text} max={16} size={14} t0={300} />
+          </>
+        ) : null}
+        {mois.shown
+          ? range(m).map(i => <Picto key={i} n="calendrier" x={cx0 + i * (cs + cgap)} y={106} size={cs} tone="count" t0={i * 200} />)
+          : null}
+      </Art>
+    </Seg>
+  )
+}
+
+/** Des particules fines semées sur la feuille (toujours les mêmes places) : de petits cercles au trait */
+const PARTICULES: [number, number][] = [
+  [8, 10], [30, 4], [52, 14], [74, 6], [98, 12], [118, 4], [18, 28], [42, 24], [64, 32], [88, 26], [110, 30],
+  [6, 46], [28, 44], [54, 50], [80, 44], [104, 50], [124, 40],
+]
+
+/** 07 (présidentielle 2027) Les particules fines : une silhouette sous un ciel de particules ; un disque, les décès
+ *  en France métropolitaine, dont la part dite (7 %) au bleu bille. Les années des données sont dans la source */
+const prev07p27: Board = p => {
+  const pct = cuesOf(p).find(c => /%/.test(c.text))
+  const v = num(pct?.text)
+  const fines = word(p, /particules fines/)
+  const deces = word(p, /\d+(?:,\d+)?\s%\sdes décès/)
+  const ou = word(p, /en France métropolitaine/)
+  if (!pct || !v || v >= 100 || !fines) return null
+  return (
+    <Seg kind="fig">
+      <Chiffre p={p} />
+      <Art h={164}>
+        <Picto n="personne" x={42} y={62} size={74} t0={200} />
+        {fines.shown ? (
+          <Fade t0={0} class="vc-soft">
+            <path d={PARTICULES.map(([x, y]) => circle(14 + x, 8 + y, 2)).join('')} />
+          </Fade>
+        ) : null}
+        {pct.shown ? (
+          <>
+            <Disque cx={226} cy={52} r={46} part={v / 100} t0={0} />
+            <Txt x={226} y={122} text={deces?.text ?? pct.text} size={15} tone="count" t0={600} />
+            {ou ? <Txt x={226} y={142} text={ou.text} max={14} size={14} tone="soft" t0={800} /> : null}
+          </>
+        ) : null}
+      </Art>
+      <Src p={p} />
+    </Seg>
+  )
+}
+
+/** Les thèmes de la question finale de la prévention, et leur pictogramme */
+const THEMES_PREVENTION: [RegExp, PictoName | DessinName][] = [
+  [/budget/i, 'calendrier'],
+  [/aliment/i, 'pomme'],
+  [/vaccin/i, 'seringue'],
+  [/environnement/i, 'arbre'],
+]
+
+/** 08 (présidentielle 2027) « Budgets, alimentation, vaccins, environnement : quelle priorité pour la
+ *  prévention ? » : un pictogramme par thème nommé avant les deux-points, dans l'ordre où la voix les dit */
+const prev08p27: Board = p => {
+  const items = (plain(p.segment.say).split(':')[0] ?? '').split(',').map(s => s.trim()).filter(Boolean)
+  const list = items.map(it => THEMES_PREVENTION.find(([re]) => re.test(it))?.[1])
+  if (items.length < 2 || list.some(n => !n)) return null
+  return finale(p, list as (PictoName | DessinName)[])
+}
+
+/** Une flèche pleine au trait, de (x1, y1) à sa pointe (x2, y2) : un corps de largeur « w », une tête plus large,
+ *  longue de « head » ; le contour se trace, puis l'aplat léger arrive */
+function Fleche({ x1, y1, x2, y2, w, head, t0 = 0 }: { x1: number; y1: number; x2: number; y2: number; w: number; head: number; t0?: number }) {
+  const len = Math.hypot(x2 - x1, y2 - y1) || 1
+  const [ux, uy] = [(x2 - x1) / len, (y2 - y1) / len]
+  const bx = x2 - ux * head
+  const by = y2 - uy * head
+  const a = w / 2
+  const b = a + Math.max(5, w * 0.4)
+  const pt = (x: number, y: number, k: number) => `${(x - uy * k).toFixed(1)} ${(y + ux * k).toFixed(1)}`
+  const d = `M${pt(x1, y1, a)}L${pt(bx, by, a)}L${pt(bx, by, b)}L${x2} ${y2}L${pt(bx, by, -b)}L${pt(bx, by, -a)}L${pt(x1, y1, -a)}Z`
+  return (
+    <>
+      <Fade t0={t0 + 300}>
+        <path class="vc-tint" d={d} />
+      </Fade>
+      <Ink d={d} t0={t0} dur={600} />
+    </>
+  )
+}
+
+/** Les trois payeurs du passage 02 corrigé, dans l'ordre où la voix les dit : le mot attendu, le pictogramme, la
+ *  flèche qui y mène depuis la facture (départ, pointe, largeur du corps, longueur de la tête), et la place */
+const PAYEURS_P27: { re: RegExp; n: PictoName; from: [number, number]; to: [number, number]; w: number; head: number; cx: number }[] = [
+  { re: /Sécurité sociale/, n: 'monument', from: [132, 68], to: [56, 119], w: 26, head: 22, cx: 50 },
+  { re: /complémentaire/, n: 'parapluie', from: [151, 62], to: [151, 118], w: 7, head: 12, cx: 150 },
+  { re: /vous/, n: 'personne', from: [167, 64], to: [245, 118], w: 7, head: 12, cx: 250 },
+]
+
+/** 02 (présidentielle 2027) Payés à trois : la Sécurité sociale, une complémentaire santé, et vous. Trois flèches
+ *  partent de la facture, la plus large vers le monument : les flèches égales de la primaire suggéraient un partage
+ *  égal. Le passage ne dit pas les parts : les largeurs ne sont pas à l'échelle, seule la plus grande se désigne.
+ *  Chaque flèche et son payeur arrivent quand la voix le nomme ; un payeur que le script ne nomme plus à sa place,
+ *  et la planche rend null */
+const remb02p27: Board = p => {
+  const cues = cuesOf(p)
+  if (cues.length !== PAYEURS_P27.length || cues.some((c, i) => !PAYEURS_P27[i]!.re.test(c.text))) return null
+  return (
+    <Seg>
+      <Art h={228}>
+        <Picto n="document" x={122} y={0} size={56} t0={100} />
+        {cues.map((c, i) => {
+          const f = PAYEURS_P27[i]!
+          return c.shown ? (
+            <g key={i}>
+              <Fleche x1={f.from[0]} y1={f.from[1]} x2={f.to[0]} y2={f.to[1]} w={f.w} head={f.head} t0={0} />
+              <Legende n={f.n} cx={f.cx} y={124} size={52} label={sans(c.text)} t0={300} />
+            </g>
+          ) : null
+        })}
+      </Art>
+    </Seg>
+  )
+}
+
 /* ——— Le registre ——— */
 
 export const SANTE: Record<string, Board> = {
@@ -1384,4 +1612,10 @@ export const SANTE: Record<string, Board> = {
   'sante-prevention-06': prev06,
   'sante-prevention-07': prev07,
   'sante-prevention-08': prev08,
+  // Édition « présidentielle 2027 » : les passages corrigés
+  'sante-remboursements-02-p27': remb02p27,
+  'sante-remboursements-09-p27': remb09p27,
+  'sante-prevention-06-p27': prev06p27,
+  'sante-prevention-07-p27': prev07p27,
+  'sante-prevention-08-p27': prev08p27,
 }
