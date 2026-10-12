@@ -465,8 +465,8 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
   }
   const next: NextPanel[] = [
     whoHolds,
-    // Deuxième, juste après « Qui porte quoi » (décision du propriétaire du 12 octobre 2026). À l'encre, sans pastel,
-    // comme la page : le pastel de sa place (le bleu, celui de la droite sur les cartes des candidats) y prendrait un sens
+    // Deuxième, juste après « Qui porte quoi » (décision du propriétaire du 12 octobre 2026). À l'encre, sans pastel : le
+    // pastel de sa place (le bleu, celui de la droite sur les cartes des candidats et sur la page) y prendrait un sens
     ...(profile ? [{ href: link('/profil'), icon: 'axis', title: PROFILE_TITLE, desc: PROFILE_PANEL, ink: true }] : []),
     { href: link('/partager'), icon: 'share', title: 'Partager l’image', desc: 'Votre affiche en JPG, fabriquée sur cet appareil.' },
     {

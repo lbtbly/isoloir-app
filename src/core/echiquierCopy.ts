@@ -198,6 +198,104 @@ export const apartLine = (n: number) => fr(`Seulement plus loin d’un bloc : ${
 export const noReadingLine = (n: number) => fr(`Pas de lecture : ${plural(n, 'thème')}, sur une seule question ou faute de candidats connus`)
 export const unansweredLine = (n: number) => fr(`Sans réponse : ${plural(n, 'thème')}`)
 
+// ——— Le graphique « Sujet par sujet » : une ligne par sujet lu (ui/profile/Chart.tsx) ———
+// Un sujet : un thème lu, ou sa famille entière quand aucun de ses thèmes ne se lit seul.
+
+export const CHART_TITLE = 'Sujet par sujet'
+/** Le compte, en tête du graphique : [avant, en gras, après] ; flat : sujets sans rien de net */
+export const countRead = (read: number, flat: number) =>
+  ['Sur ', plural(read, 'sujet'), fr(`, vos réponses se rapprochent nettement d’un bloc de la grille${flat ? ` ; sur ${flat}, rien de net` : ''}.`)] as const
+export const COUNT_NONE = fr('Pour ces réponses, aucun sujet ne se rapproche nettement d’un bloc de la grille.')
+/** Au-dessus du graphique, selon le pointeur : le doigt ou la souris */
+export const HINT_TOUCH = 'Touchez un sujet pour voir pourquoi.'
+export const HINT_CLICK = 'Cliquez sur un sujet pour voir pourquoi.'
+export const KEY_TEXT = fr('Sur un sujet, vos réponses se rapprochent nettement des candidats d’un bloc, ou s’en écartent nettement : bien plus que vos mêmes avis placés au hasard.')
+/** La ligne de l'axe : le sens de lecture, et le centre à 0 */
+export const AXIS_LEFT = '← vers la gauche'
+export const AXIS_ZERO = '0'
+export const AXIS_MID = 'centre'
+export const AXIS_RIGHT = 'vers la droite →'
+/** Nom de la liste des blocs, pour les lecteurs d'écran */
+export const zonesLabel = (blocs: number, panel: number) =>
+  fr(`Les ${word(blocs)} blocs de la grille du ministère de l’Intérieur, de l’extrême gauche à l’extrême droite, et les ${panel} candidats classés qu’elle y range`)
+/** Très étroit (texte très agrandi) : les noms passent sous le graphique */
+export const WHO_LIST = fr('Qui la grille range dans chaque bloc :')
+/** « 3 questions » */
+export const questionsCount = (n: number) => plural(n, 'question')
+/** Une ligne de famille : « 4 thèmes ensemble » */
+export const themesTogether = (k: number) => `${k} thèmes ensemble`
+
+/**
+ * Le nom d'une ligne pour les lecteurs d'écran : son sujet, puis ses marques, chacune attribuée à la grille.
+ * « Défense, 5 questions : plus près des candidats que la grille classe à l’extrême gauche, plus loin de ceux qu’elle
+ * classe à gauche. »
+ */
+export function rowSummary(axis: readonly SpectrumAxisBloc[], name: string, meta: string, r: Pick<UnitReading, 'status' | 'near' | 'far' | 'cells'>): string {
+  const head = `${name}, ${meta} : `
+  if (r.status === 'une-question' || r.status === 'blocs-inconnus') return fr(`${head}pas de lecture.`)
+  const parts: string[] = []
+  const segs = segments(r.near).map(s => where(axis, s))
+  if (segs.length === 1) parts.push(`plus près des candidats que la grille classe ${segs[0]}`)
+  else if (segs.length > 1) parts.push(`plus près, à la fois, ${listFr([`des candidats que la grille classe ${segs[0]}`, ...segs.slice(1).map(s => `de ceux qu’elle classe ${s}`)])}`)
+  if (r.far.length) parts.push(`${parts.length ? 'plus loin de ceux qu’elle classe' : 'plus loin des candidats que la grille classe'} ${whereAll(axis, r.far)}`)
+  const unknown = r.cells.flatMap((c, b) => (c.mark === 'inconnu' ? [b] : []))
+  const tail = unknown.length ? ` La position des candidats que la grille classe ${whereAll(axis, unknown)} n’est pas connue ici.` : ''
+  return fr(`${head}${parts.length ? parts.join(', ') : 'rien de net'}.${tail}`)
+}
+
+/** Nom de la liste des lignes lues d'un seul côté, pour les lecteurs d'écran */
+export const MAIN_LABEL = fr('Sujets où vos réponses se rapprochent nettement d’un bloc, rangés de la gauche vers la droite de la grille')
+/**
+ * Les lectures de part et d'autre du centre, sans lui (ui/profile/rows.ts, acrossCentre) : l'intertitre, sa phrase, et
+ * la note d'une ligne ouverte. « Aux deux bouts » quand elles touchent l'extrême gauche et l'extrême droite ; sinon
+ * (gauche et droite, extrême gauche et droite…), « des deux côtés ».
+ */
+export const BOTH_TITLE = 'Aux deux bouts à la fois'
+export const SIDES_TITLE = 'Des deux côtés à la fois'
+/** L'intertitre de la section : ends, toutes ses lignes touchent les deux bouts de la grille */
+export const bothTitle = (ends: boolean) => (ends ? BOTH_TITLE : SIDES_TITLE)
+export const BOTH_HEAD = fr('Sur ces sujets, vos réponses se rapprochent nettement de candidats que la grille classe des deux côtés. On ne fait pas de moyenne : ce n’est pas le centre.')
+export const BOTH_ROW = ['Aux deux bouts à la fois. ', fr('Vos réponses rejoignent ici des candidats des deux côtés de la grille. On ne les additionne pas : ce n’est pas une place au centre.')] as const
+/** La note d'une ligne ouverte : [en gras, la suite] ; ends, la ligne touche les deux bouts de la grille */
+export const bothRow = (ends: boolean) => (ends ? BOTH_ROW : ([`${SIDES_TITLE}. `, BOTH_ROW[1]] as const))
+export const APART_TITLE = 'Seulement plus loin'
+export const APART_HEAD = fr('Sur ces sujets, vos réponses ne se rapprochent nettement d’aucun bloc, mais s’écartent nettement d’au moins un.')
+/** Une ligne ouverte : les candidats des blocs marqués */
+export const WHO_NEAR = `${GLYPH.pres} Plus près, bloc par bloc`
+export const WHO_FAR = `${GLYPH.loin} Plus loin, bloc par bloc`
+/** « (2 autres, position inconnue ici) » */
+export const othersUnknown = (n: number) => `(${n} autre${n > 1 ? 's' : ''}, position inconnue ici)`
+export const BLOC_NOTE = fr('La lecture porte sur le bloc entier : les candidats d’un même bloc ne pensent pas tous pareil. Le détail donne votre affinité avec chacun.')
+export const SEE_DETAIL = 'Voir le détail'
+/** Un thème sur une seule question, dont la famille entière a sa ligne */
+export const readWithFamily = (family: string) => fr(`Lu avec les autres thèmes de sa famille : « ${family} ».`)
+/** Ni lecture ni écart nulle part */
+export const EMPTY_CHART = fr('C’est fréquent : la lecture ne conclut que si l’écart dépasse nettement le hasard.')
+/** Les plis sous le graphique */
+export const flatFold = (n: number) => `${plural(n, 'sujet')} sans tendance nette`
+/** [libellé, précision] : « 16 thèmes sur une seule question · pas de lecture », ou, avec des blocs inconnus, sans lecture */
+export const unreadFold = (n: number, oneQuestionOnly: boolean) =>
+  oneQuestionOnly ? ([`${plural(n, 'thème')} sur une seule question`, 'pas de lecture'] as const) : ([`${plural(n, 'thème')} sans lecture`, 'sur une seule question ou faute de candidats connus'] as const)
+/** Sous le graphique : la source des colonnes, autour du lien (posé par la page) */
+export const SOURCE = [
+  fr('Les cinq colonnes sont les blocs de la grille des nuances politiques du ministère de l’Intérieur ('),
+  fr('), écrite pour les sénatoriales 2026 : la présidentielle n’en a pas. Les libellés sont les siens.'),
+] as const
+/** Le lien de la source : « circulaire du 23 août 2026 » */
+export const sourceLink = (date: string) => `circulaire du ${date}`
+export const sourceWho = (panel: number) => fr(`Comptent les ${panel} candidats classés ; le bloc « Autres » de la grille ne compte pas.`)
+/** Les couleurs des colonnes (décision du propriétaire du 12 octobre 2026) : celles de la page des candidats */
+export const COLORS_NOTE = fr(
+  `Les couleurs repèrent les blocs de la grille, comme sur la page des candidats : rouge à gauche, jaune au centre, bleu à droite. Ce sont les mots, ${GLYPH.pres} ${MARK_WORD.pres} et ${GLYPH.loin} ${MARK_WORD.loin}, qui disent la lecture.`,
+)
+export const CALC_TITLE = 'Comment c’est calculé'
+
+// ——— Le détail, sujet par sujet : le tableau complet, replié ———
+
+export const DETAIL_TITLE = 'Le détail, sujet par sujet'
+export const DETAIL_INTRO = fr('Pour chaque bloc : votre affinité moyenne avec ses candidats, la même avec vos avis placés au hasard, et l’écart. Puis, dans la page, chaque candidat et chaque question.')
+export const detailShow = (n: number) => (n > 1 ? `Afficher le détail des ${n} sujets` : 'Afficher le détail du sujet')
+
 // ——— Le tableau ———
 
 export const TABLE_TITLE = 'Thème par thème'

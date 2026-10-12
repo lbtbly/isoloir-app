@@ -43,6 +43,15 @@ for (const { election, candidates } of elections.filter(p => p.election.spectrum
       for (const a of axis) for (const k of ['short', 'where', 'from', 'to'] as const) expect(a[k].trim(), `${a.bloc} ${k}`).not.toBe('')
     })
 
+    it('les couleurs de l’axe, celles de la page des candidats : rouge à gauche, jaune au centre, bleu à droite, jamais le vert', () => {
+      // La page le dit en toutes lettres (COLORS_NOTE, core/echiquierCopy.ts) : rouge, puis jaune au milieu, puis bleu
+      const axis = axisOf(election)
+      if (!axis) return
+      const tints = axis.map(a => spectrum.blocs.find(b => b.id === a.bloc)!.pastel)
+      const mid = (axis.length - 1) / 2
+      tints.forEach((t, b) => expect(t, axis[b]!.bloc).toBe(b < mid ? 'rouge' : b > mid ? 'bleu' : 'jaune'))
+    })
+
     it('les candidats de l’axe : ni non classés, ni hors axe, chacun une fois, dans l’ordre alphabétique de son bloc', () => {
       const axis = axisOf(election)
       if (!axis) return
