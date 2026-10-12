@@ -17,6 +17,7 @@ import {
   bankKnownLine,
   caveats,
   closeNote,
+  count,
   CROSSING_DIVIDER,
   crossingNote,
   emptyRanking,
@@ -1106,8 +1107,6 @@ function StarToggle({
     </button>
   )
 }
-
-const count = (n: number, word: string) => `${n}\u00a0${word}${n > 1 ? 's' : ''}`
 
 /**
  * D'où vient la proximité : pour chaque candidat, vos accords (vert, à droite de l'axe) et vos désaccords
