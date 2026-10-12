@@ -43,8 +43,8 @@ for (const { election, candidates } of elections.filter(p => p.election.spectrum
       for (const a of axis) for (const k of ['short', 'where', 'from', 'to'] as const) expect(a[k].trim(), `${a.bloc} ${k}`).not.toBe('')
     })
 
-    it('les couleurs de l’axe, celles de la page des candidats : rouge à gauche, jaune au centre, bleu à droite, jamais le vert', () => {
-      // La page le dit en toutes lettres (COLORS_NOTE, core/echiquierCopy.ts) : rouge, puis jaune au milieu, puis bleu
+    it('les couleurs des blocs de l’axe sur la page des candidats : rouge à gauche, jaune au centre, bleu à droite, jamais le vert', () => {
+      // « Mon profil politique » n'en prend aucune : ses cases suivent l'échelle d'affinité (décision du 12 octobre 2026)
       const axis = axisOf(election)
       if (!axis) return
       const tints = axis.map(a => spectrum.blocs.find(b => b.id === a.bloc)!.pastel)

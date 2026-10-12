@@ -1,17 +1,15 @@
 /* « Mon profil politique » : vos réponses sur l'échiquier, sujet par sujet (ui/screens/Profile.tsx, ui/profile/Chart.tsx).
-   Les couleurs des blocs de la page des candidats (décision du propriétaire du 12 octobre 2026 ; DESIGN.md, The
-   Reading Not Label Rule) : rouge à gauche, jaune au centre, bleu à droite. L'en-tête de chaque colonne au pastel de
-   son bloc (tokens.css, --pastel-*), la colonne du centre en lavis jaune ; « ▲ plus près » dans la teinte soutenue du
-   bloc (--bloc-*), le mot à l'encre --on-bloc ; « ▽ plus loin » hachuré dans sa teinte, sur son pastel. La couleur ne
-   porte jamais seule le sens : glyphe et mot toujours. Rien d'autre n'est coloré : ni vert ni orangé, ni échelle
-   d'affinité, et aucun pastel hors des blocs (« À garder en tête » reste sur le lavis de l'encre : sur cette page, un
-   pastel se lirait comme un bloc). Toute la largeur, comme le dépouillement. Chargée avec la page, à la demande. */
+   Les blocs de la grille n'ont pas de couleur : en-têtes de colonne sur le papier. Chaque case prend celle de l'échelle
+   d'affinité du site (décision du propriétaire du 12 octobre 2026 ; tokens.css, --aff-*), selon le palier de votre
+   affinité moyenne avec les candidats du bloc : « très éloigné » et « très proche » en aplat soutenu, rouge foncé et
+   vert foncé ; « éloigné » et « proche » en lavis de leur teinte ; « mitigé » sur le gris clair de l'échelle. Le mot du
+   palier est toujours écrit dans la case : la couleur ne porte jamais seule le sens. Aucun symbole de lecture, et aucun
+   pastel sur la page (« À garder en tête » reste sur le lavis de l'encre). Toute la largeur, comme le dépouillement.
+   Chargée avec la page, à la demande. */
 
 .screen-profile {
   /* Le survol, la ligne ouverte, le rappel collant : l'encre d'imprimerie, très diluée */
   --wash: color-mix(in srgb, var(--print) 4.5%, var(--paper));
-  /* La colonne du centre, dans les lignes : son pastel, éclairci */
-  --centre-wash: color-mix(in srgb, var(--pastel-jaune) 62%, var(--paper));
   --hover: color-mix(in srgb, var(--print) 3%, var(--paper));
   --selected: color-mix(in srgb, var(--print) 6%, var(--paper));
 }
@@ -42,28 +40,52 @@ html:has(.profile-chart) {
   color: var(--print-soft);
 }
 
-/* La couleur d'un bloc (Chart.tsx, tintClass) : son pastel (--tint) et sa teinte soutenue (--tint-strong). Un bloc sans
-   couleur connue garde l'encre (n'arrive pas : chaque bloc de la grille a son pastel) ; le vert du bloc « Autres » n'est
-   pas sur l'axe et ne sert pas ici. */
-.screen-profile .t-rouge {
-  --tint: var(--pastel-rouge);
-  --tint-strong: var(--bloc-rouge);
+/* Une case (Chart.tsx, Tile) : le palier de votre affinité moyenne avec les candidats du bloc, sur l'échelle du site
+   (core/affinity.ts). Les deux bouts en aplat soutenu, le mot au papier (--on-print : 6,1:1 sur « très proche », 6,6:1
+   sur « très éloigné » ; en sombre 9,8 et 7,0:1) ; « proche » et « éloigné » en lavis de leur teinte à 38 % sur le
+   papier, le mot à l'imprimé (10,3 et 10,0:1 ; en sombre 5,9 et 6,6:1) ; « mitigé », le plus discret, en lavis du gris
+   de l'échelle à 25 %, le mot en gris (5,8:1 ; 5,1:1 en sombre), assez soutenu pour se distinguer du lavis d'une ligne
+   ouverte. Sans candidat connu, « ? inconnu » sur le papier, dans un cadre en tirets. Contrôlés par
+   tools/e2e-offline.mjs, en clair et en sombre. */
+.tile {
+  --tile: color-mix(in srgb, var(--aff-mitige) 25%, var(--paper));
+  --tile-ink: var(--print-soft);
+  background: var(--tile);
+  color: var(--tile-ink);
+  /* Invisible, sauf en contraste forcé : le cadre de la case, quand les couleurs tombent */
+  outline: 1px solid transparent;
+  outline-offset: -1px;
 }
 
-.screen-profile .t-jaune {
-  --tint: var(--pastel-jaune);
-  --tint-strong: var(--bloc-jaune);
+.tile.aff-tres-proche {
+  --tile: var(--aff-tres-proche);
+  --tile-ink: var(--on-print);
 }
 
-.screen-profile .t-bleu {
-  --tint: var(--pastel-bleu);
-  --tint-strong: var(--bloc-bleu);
+.tile.aff-proche {
+  --tile: color-mix(in srgb, var(--aff-proche) 38%, var(--paper));
+  --tile-ink: var(--print);
 }
 
-.screen-profile .t-vert,
-.screen-profile .t-encre {
-  --tint: var(--wash);
-  --tint-strong: var(--print);
+.tile.aff-eloigne {
+  --tile: color-mix(in srgb, var(--aff-eloigne) 38%, var(--paper));
+  --tile-ink: var(--print);
+}
+
+.tile.aff-tres-eloigne {
+  --tile: var(--aff-tres-eloigne);
+  --tile-ink: var(--on-print);
+}
+
+.tile.is-inconnu {
+  --tile: var(--paper);
+  --tile-ink: var(--print-soft);
+  outline: var(--line) dashed var(--rule);
+  outline-offset: calc(-1 * var(--line));
+}
+
+.tile-q {
+  font-weight: 800;
 }
 
 /* Un bouton qui se lit comme un lien : « Voir le détail » */
@@ -159,8 +181,7 @@ html:has(.profile-chart) {
 
 .plot {
   --label-w: 0px;
-  --strip-h: 2.25rem;
-  --bar-h: 1.5rem;
+  --strip-h: 2.5rem;
 }
 
 .chart-head {
@@ -213,8 +234,7 @@ html:has(.profile-chart) {
 @container plot (min-width: 50rem) {
   .plot {
     --label-w: clamp(13rem, 24cqi, 20rem);
-    --strip-h: 2.5rem;
-    --bar-h: 1.75rem;
+    --strip-h: 2.6rem;
   }
 
   .chart-head {
@@ -239,72 +259,37 @@ html:has(.profile-chart) {
   }
 }
 
-/* La légende : l'aplat d'encre, la hachure, le point */
+/* La légende : les cinq paliers, dans l'ordre du site (très proche d'abord), et « ? inconnu » s'il paraît */
 .chart-key {
   padding: 0 0 var(--s3);
   font-size: var(--text-xs);
   line-height: 1.35;
 }
 
-.chart-key ul {
+.key-scale {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem 1rem;
+  gap: 0.35rem 0.9rem;
   margin: 0 0 0.4rem;
   padding: 0;
   list-style: none;
 }
 
-.chart-key li {
+.key-scale li {
   display: flex;
   align-items: center;
   gap: 0.4rem;
 }
 
-.key-swatch {
-  position: relative;
+.key-tile {
   flex: none;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.25rem;
-  height: 1.1rem;
+  width: 1.6rem;
+  height: 1rem;
   font-size: 0.7rem;
-  font-weight: 750;
   line-height: 1;
-}
-
-/* Les trois couleurs de l'axe, côte à côte, sous le glyphe : les aplats des barres, en petit */
-.key-fills {
-  position: absolute;
-  inset: 0;
-  display: flex;
-}
-
-.key-fills > .bar-fill {
-  position: static;
-  flex: 1;
-}
-
-.key-glyph {
-  position: relative;
-  color: var(--on-bloc);
-}
-
-.key-swatch.far .key-glyph {
-  padding: 0.1rem 0.25rem;
-  background: var(--paper);
-  color: var(--print);
-}
-
-.key-swatch.none {
-  box-shadow: inset 0 0 0 1px var(--rule);
-  color: var(--print-soft);
-  font-size: 1rem;
-}
-
-.key-swatch.is-inconnu {
-  font-size: 0.75rem;
 }
 
 .key-text {
@@ -313,44 +298,16 @@ html:has(.profile-chart) {
   color: var(--print-soft);
 }
 
-/* L'axe : le sens de lecture (le centre à 0), les blocs de la grille et les candidats qu'elle y range */
+/* L'axe : les blocs de la grille et les candidats qu'elle y range */
 .axis {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   background: var(--paper);
 }
 
-.axis-dir {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-  align-items: end;
-  gap: var(--s2);
-  margin: 0;
-  padding-bottom: var(--s2);
-  font-size: var(--text-xs);
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--print-soft);
-}
 
-.axis-mid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-weight: 800;
-  color: var(--print);
-}
 
-.axis-zero {
-  margin-bottom: 0.1rem;
-  font-size: var(--text-xs);
-  font-variant-numeric: tabular-nums;
-  line-height: 1;
-}
 
-.axis-right {
-  text-align: right;
-}
 
 .zones {
   display: grid;
@@ -364,17 +321,10 @@ html:has(.profile-chart) {
 .zone {
   padding: 0.15rem 0.3rem 0.55rem;
   border-left: var(--hair) solid var(--rule);
-  transition:
-    background-color var(--t-stroke) var(--ease-out),
-    color var(--t-stroke) var(--ease-out);
 }
 
 .zone:nth-child(5) {
   border-right: var(--hair) solid var(--rule);
-}
-
-.zone {
-  background: var(--tint, var(--paper));
 }
 
 .zone-bloc {
@@ -409,32 +359,6 @@ html:has(.profile-chart) {
   display: none;
 }
 
-.zone-mark {
-  font-weight: 800;
-}
-
-/* Survol, focus ou ligne ouverte : les blocs marqués gardent leur pastel, le glyphe (et, pour ▲, le soulignement) ; les
-   autres passent sur le papier, leur libellé en gris. Rien n'est estompé : libellés et noms restent à 7:1 au moins
-   (WCAG 1.4.3), pendant toute la lecture d'une ligne ouverte */
-.axis.is-hl .zone:not(.is-near, .is-far) {
-  background: var(--paper);
-}
-
-.axis.is-hl .zone:not(.is-near, .is-far) .zone-bloc {
-  color: var(--print-soft);
-}
-
-.zone.is-near .zone-bloc {
-  text-decoration: underline;
-  text-decoration-thickness: 3px;
-  text-underline-offset: 0.18em;
-}
-
-.zone.is-near .zone-names {
-  font-weight: 700;
-  color: var(--print);
-}
-
 @container plot (min-width: 50rem) {
   /* En grand écran, l'axe reste sous l'en-tête pendant qu'on parcourt les lignes */
   .axis {
@@ -444,29 +368,27 @@ html:has(.profile-chart) {
     grid-template-columns: var(--label-w) minmax(0, 1fr);
   }
 
-  .axis-dir {
-    grid-column: 2;
-    grid-row: 1;
-    font-size: var(--text-sm);
-  }
-
   .chart-key {
     grid-column: 1;
-    grid-row: 1 / span 2;
+    grid-row: 1;
     align-self: end;
     padding: 0 var(--s5) 0.7rem 0;
     font-size: var(--text-sm);
   }
 
-  .chart-key ul {
-    flex-direction: column;
-    gap: 0.35rem;
-    margin-bottom: 0.5rem;
+  /* En deux colonnes, chacune de haut en bas : très proche, proche, mitigé ; puis éloigné, très éloigné, inconnu */
+  .key-scale {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, max-content);
+    gap: 0.4rem 1.1rem;
+    margin-bottom: 0.6rem;
   }
 
-  .key-swatch {
-    width: 2.75rem;
-    height: 1.25rem;
+  .key-tile {
+    width: 2rem;
+    height: 1.15rem;
     font-size: var(--text-xs);
   }
 
@@ -476,7 +398,7 @@ html:has(.profile-chart) {
 
   .zones {
     grid-column: 2;
-    grid-row: 2;
+    grid-row: 1;
   }
 
   .zone {
@@ -542,23 +464,8 @@ html:has(.profile-chart) {
   hyphens: auto;
 }
 
-.axis-mini span {
-  background: var(--tint, var(--paper));
-}
-
 .axis-mini span:last-child {
   border-right: var(--hair) solid var(--rule);
-}
-
-.axis-mini.is-hl span:not(.is-near, .is-far) {
-  background: var(--paper);
-  color: var(--print-soft);
-}
-
-.axis-mini span.is-near {
-  text-decoration: underline;
-  text-decoration-thickness: 3px;
-  text-underline-offset: 0.18em;
 }
 
 /* ——— Les lignes ——— */
@@ -643,132 +550,48 @@ html:has(.profile-chart) {
   transition: transform var(--t-stroke) var(--ease-out);
 }
 
-.row[aria-expanded='true'] .chev,
-.fold[aria-expanded='true'] .chev {
+.row[aria-expanded='true'] .chev {
   transform: rotate(-90deg);
 }
 
-/* Les cinq cases et leurs barres */
+/* Les cinq cases : chacune dans sa colonne, entre les filets de l'axe, le mot du palier au centre ; un mot trop long pour
+   sa colonne (téléphone, texte agrandi) passe à la ligne et la case grandit, jamais rogné */
 .strip {
   grid-area: strip;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  align-items: center;
-  height: var(--strip-h);
+  min-height: var(--strip-h);
 }
 
 .cell {
-  grid-row: 1;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
+  min-width: 0;
+  padding: 0.2rem 2px;
   border-left: var(--hair) solid var(--rule);
-  font-size: 1.15rem;
-  line-height: 1;
-  color: var(--print-soft);
 }
 
 .cell:nth-child(5) {
   border-right: var(--hair) solid var(--rule);
 }
 
-.cell:nth-child(3) {
-  background: var(--centre-wash);
-}
-
-.row[aria-expanded='true'] .cell:nth-child(3) {
-  background: transparent;
-}
-
-.cell.is-inconnu {
-  font-size: 0.9rem;
-  font-weight: 700;
-}
-
-.bar {
-  --bar-in: 3px;
-  position: relative;
-  grid-row: 1;
-  z-index: 1;
-  height: var(--bar-h);
-  margin-inline: var(--bar-in);
-  overflow: hidden;
-  font-size: var(--text-xs);
-  font-weight: 750;
-  font-stretch: 88%;
-  line-height: 1;
-  white-space: nowrap;
-}
-
-.bar.near {
-  color: var(--on-bloc);
-}
-
-.bar.far {
-  color: var(--print);
-}
-
-/* Un aplat par suite de blocs de même couleur (Chart.tsx, Runs), du bord de sa première colonne à celui de sa
-   dernière : la barre est en retrait de --bar-in de chaque côté, les colonnes sont égales. Il porte son glyphe, centré,
-   et le mot s'il a la place (requête sur l'aplat) */
-.bar-fill {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: max(0px, calc((100% + 2 * var(--bar-in)) * var(--j0, 0) / var(--k, 1) - var(--bar-in)));
-  right: max(0px, calc(100% - (100% + 2 * var(--bar-in)) * var(--j1, 1) / var(--k, 1) + var(--bar-in)));
-  container-type: inline-size;
+.cell > .tile {
+  flex: 1;
+  min-width: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  padding: 0.15rem 0.2rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-stretch: 85%;
+  line-height: 1.05;
+  text-align: center;
+  overflow-wrap: anywhere;
+  hyphens: auto;
 }
 
-.near .bar-fill {
-  background: var(--tint-strong);
-}
-
-/* La couture entre deux couleurs voisines : un filet de papier, dans une barre qui reste continue */
-.bar.near .bar-fill + .bar-fill {
-  box-shadow: inset 2px 0 0 var(--paper);
-}
-
-/* Sans couleur connue : l'aplat d'encre, le mot en papier */
-.bar.near > .t-encre,
-.bar.near > .t-vert {
-  color: var(--on-print);
-}
-
-.far .bar-fill {
-  background: repeating-linear-gradient(135deg, var(--tint-strong) 0 1.5px, transparent 1.5px 6px) var(--tint);
-  box-shadow: inset 0 0 0 1px var(--tint-strong);
-}
-
-.bar-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3em;
-}
-
-.bar-tag {
-  padding: 0.15rem 0.3rem;
-  background: var(--paper);
-}
-
-/* Le mot suit le glyphe dès que la barre a la place */
-.bar-word {
-  display: none;
-}
-
-@container (min-width: 6.5rem) {
-  .bar-word {
-    display: inline;
-  }
-}
-
-/* Les barres se tracent à l'arrivée, de gauche à droite */
-.rows-wrap .bar {
+/* Les cases se posent à l'arrivée, de gauche à droite */
+.rows-wrap .strip {
   animation: ink-bar var(--t-stroke) var(--ease-out) both;
 }
 
@@ -783,7 +606,7 @@ html:has(.profile-chart) {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .rows-wrap .bar {
+  .rows-wrap .strip {
     animation: none;
   }
 }
@@ -804,12 +627,19 @@ html:has(.profile-chart) {
     font-size: 1.0625rem;
   }
 
-  .bar {
+  .cell {
+    padding: 0.25rem 3px;
+  }
+
+  .cell > .tile {
     font-size: var(--text-sm);
+    font-weight: 650;
+    font-stretch: 92%;
   }
 }
 
-/* Intertitres dans le graphique : les deux bouts à la fois, seulement plus loin */
+/* Intertitres dans le graphique : les deux bouts à la fois, seulement plus loin, sans tendance nette, une seule
+   question */
 .rows-head {
   margin: var(--s6) 0 0;
   padding-top: var(--s2);
@@ -880,28 +710,55 @@ html:has(.profile-chart) {
   line-height: 1.45;
 }
 
-.explain-who {
-  display: grid;
-  gap: var(--s2);
-  margin: 0;
+/* Une ligne ouverte : chaque bloc, son palier (la case en petit), son affinité moyenne, sa lecture nette et ses
+   candidats */
+.explain-blocs {
   font-size: var(--text-sm);
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
-.explain-who dt {
+.eb-title {
+  margin: 0 0 0.4rem;
   font-weight: 800;
 }
 
-.explain-who dd {
+.explain-blocs ul {
+  display: grid;
+  gap: 0.35rem;
   margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.who-bloc {
-  display: block;
+.explain-blocs li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 0.55rem;
+}
+
+.explain-blocs .key-tile {
+  width: 1.25rem;
+  height: 0.95rem;
+  margin-top: 0.2rem;
 }
 
 .who-name {
   font-weight: 650;
+}
+
+.eb-net {
+  display: block;
+  font-weight: 800;
+}
+
+.nw {
+  white-space: nowrap;
+}
+
+.eb-who {
+  display: block;
+  color: var(--print-soft);
 }
 
 .explain-note {
@@ -936,7 +793,7 @@ html:has(.profile-chart) {
 
   .explain-foot {
     grid-column: 1;
-    grid-row: 1 / span 4;
+    grid-row: 1 / span 6;
     flex-direction: column;
     align-items: flex-start;
     padding-right: var(--s4);
@@ -949,72 +806,31 @@ html:has(.profile-chart) {
     grid-column: 2;
   }
 
-  .explain-who {
+  .explain-blocs {
     grid-column: 3;
-    grid-row: 1 / span 4;
+    grid-row: 1 / span 6;
     align-self: start;
   }
 }
 
-/* Plis : « N sujets sans tendance nette », « sur une seule question » ; les thèmes sans réponse */
-.folds.is-ruled {
-  margin-top: var(--s5);
-  border-top: var(--line) solid var(--rule-strong);
-}
-
-.fold {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  width: 100%;
-  min-height: 3rem;
-  margin: 0;
-  padding: 0.55rem 0;
-  border: 0;
-  border-bottom: var(--hair) solid var(--rule);
-  background: var(--paper);
-  color: var(--print);
-  font-weight: 700;
-  text-align: left;
-  cursor: pointer;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .fold:hover {
-    background: var(--hover);
-  }
-}
-
-.fold .soft {
-  font-weight: 400;
-}
-
-.fold-label {
-  min-width: 0;
-  overflow-wrap: anywhere;
-}
-
-.fold-body[hidden] {
-  display: none;
-}
-
-.fold-body .row-name {
+/* Les sujets sans tendance nette et ceux d'une seule question : leurs noms un peu moins appuyés que les lectures */
+.rows.is-quiet .row-name {
   font-weight: 650;
 }
 
 .unanswered {
-  margin: 0;
+  margin: var(--s4) 0 0;
   padding: 0.7rem 0;
+  border-top: var(--line) solid var(--rule-strong);
   border-bottom: var(--hair) solid var(--rule);
   font-size: var(--text-sm);
   overflow-wrap: anywhere;
 }
 
-/* Ni lecture ni écart : la règle, et le chemin pour approfondir ; un filet la sépare des plis */
+/* Ni lecture ni écart : la règle, et le chemin pour approfondir ; l'intertitre des sujets sans tendance nette suit */
 .chart-empty {
   margin: 0;
-  padding: var(--s5) 0;
-  border-bottom: var(--hair) solid var(--rule);
+  padding: var(--s5) 0 var(--s2);
 }
 
 .chart-empty p {
@@ -1080,10 +896,6 @@ html:has(.profile-chart) {
   padding-left: 1.1rem;
 }
 
-.calc-glyph {
-  font-weight: 800;
-}
-
 /* Très étroit ou texte très agrandi : les noms quittent l'en-tête des colonnes et passent en liste sous le graphique */
 .who-list {
   display: none;
@@ -1116,38 +928,51 @@ html:has(.profile-chart) {
   }
 }
 
-/* Contraste forcé : sans couleurs, un aplat plein pour « plus près », un cadre pour « plus loin » ; la couture entre
-   deux aplats reste un filet */
-@media (forced-colors: active) {
-  .near .bar-fill {
-    forced-color-adjust: none;
-    background: CanvasText;
-    color: Canvas;
+/* Texte très agrandi (moins de 15 rem de large : 390 px à 150 %, 320 px à 125 %) : chaque ligne passe en liste, un bloc
+   par ligne, son nom court devant sa case, pour que le mot du palier ne se coupe jamais au milieu : la case garde la
+   largeur de son plus long mot, sans césure, et passe sous son nom quand il ne reste pas assez de place (« Ext.
+   gauche : », à 390 px et 200 %) ; les colonnes de l'axe s'effacent (la liste des noms, sous le graphique, les
+   remplace) et leur rappel collant avec elles */
+@container plot (max-width: 15rem) {
+  .zones {
+    display: none;
   }
 
-  .bar.near .bar-fill + .bar-fill {
-    box-shadow: inset 2px 0 0 Canvas;
+  .strip {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.25rem;
+    min-height: 0;
+    padding-inline-start: 0.35rem;
   }
 
-  .key-swatch.near .key-glyph {
-    forced-color-adjust: none;
-    color: Canvas;
+  .cell,
+  .cell:nth-child(5) {
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.15rem 0.4rem;
+    padding: 0;
+    border: 0;
+    font-size: var(--text-sm);
   }
 
-  .far .bar-fill {
-    forced-color-adjust: none;
-    background: Canvas;
-    box-shadow: inset 0 0 0 1px CanvasText;
-    color: CanvasText;
+  .cell::before {
+    content: attr(data-bloc) '\a0:';
+    flex: none;
+    font-weight: 650;
   }
 
-  .bar-tag,
-  .key-swatch.far .key-glyph {
-    forced-color-adjust: none;
-    background: Canvas;
-    color: CanvasText;
+  .cell > .tile {
+    flex: 0 1 auto;
+    min-width: auto;
+    padding: 0.1rem 0.4rem;
+    font-size: var(--text-sm);
+    overflow-wrap: normal;
+    hyphens: manual;
   }
 }
+
+/* Contraste forcé : les couleurs tombent, le mot du palier reste, chaque case dans son cadre (le contour transparent
+   des cases devient visible) */
 
 /* ——— À garder en tête, en quatre colonnes ——— */
 
@@ -1175,8 +1000,8 @@ html:has(.profile-chart) {
 }
 
 /* Quatre aplats sur le lavis de l'encre, coiffés d'un filet épais, comme le panneau « Mon profil politique » des
-   résultats : sur cette page, rouge, jaune et bleu repèrent les blocs de la grille ; un pastel sous une mise en garde
-   la rattacherait à la gauche, au centre ou à la droite */
+   résultats : sur cette page, la couleur dit une affinité ; un pastel ou une teinte de l'échelle sous une mise en garde
+   s'y lirait comme une donnée */
 .profile-keep li {
   padding: var(--s3) var(--s4) var(--s4);
   background: var(--wash);
@@ -1259,21 +1084,6 @@ html:has(.profile-chart) {
   display: none;
 }
 
-/* ——— Marques ——— */
-
-.mk-glyph {
-  font-weight: 800;
-  color: var(--print);
-}
-
-.mk-glyph.is-rien,
-.mk-glyph.is-inconnu,
-.mk.is-rien .mk-glyph,
-.mk.is-inconnu .mk-glyph {
-  color: var(--print-soft);
-  font-weight: 700;
-}
-
 /* ——— Le détail, sujet par sujet : le tableau complet, replié sous le graphique ———
    Trois dispositions, selon la place (requêtes de conteneur) : au téléphone, le nom du thème sur toute la largeur et
    les cinq cases dessous, sous l'en-tête collant ; dès 34 rem, un tableau classique ; sous 20 rem (téléphone de
@@ -1328,12 +1138,6 @@ html:has(.profile-chart) {
   line-height: 1.1;
   text-align: center;
   overflow-wrap: anywhere;
-}
-
-/* Chaque colonne de bloc, au pastel de son bloc ; les cases « ▲ plus près » aussi */
-.echiquier > thead > tr > th.bloc-head,
-.echiquier > tbody > tr > td.mk.is-pres {
-  background: var(--tint);
 }
 
 /* Au téléphone, la colonne des thèmes n'a pas de case : chaque nom passe au-dessus de ses cinq cases. Sa case d'en-tête
@@ -1391,47 +1195,37 @@ html:has(.profile-chart) {
   border-bottom-style: dashed;
 }
 
+/* Chaque case : le palier, en couleur et en mot, et dessous, s'il y a lieu, la lecture nette en mots */
 .echiquier > tbody > tr > td.mk {
+  display: flex;
+  padding: 2px 2px var(--s1);
+}
+
+.mk > .tile {
+  flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: var(--s1) 0.1rem var(--s2);
+  justify-content: center;
+  gap: 0.1rem;
+  min-height: 2.25rem;
+  padding: 0.2rem;
+  font-size: var(--text-xs);
+  font-stretch: 88%;
+  line-height: 1.1;
   text-align: center;
-  line-height: 1.15;
-}
-
-.echiquier .mk-glyph {
-  font-size: 1.15rem;
-  line-height: 1.2;
-}
-
-/* « · » rien de net, « ? » inconnu : en gris, plus discrets que les marques, mais lisibles (le point, agrandi, garde son
-   dessin rond en graisse ordinaire) */
-.echiquier .mk.is-rien .mk-glyph {
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 0.85;
-}
-
-.mk-word {
   overflow-wrap: anywhere;
+  hyphens: auto;
 }
 
-.echiquier > tbody > tr > td.mk.is-pres {
-  font-weight: 800;
-}
-
-.echiquier > tbody > tr > td.mk.is-loin {
-  font-weight: 450;
-}
-
-.echiquier .mk.is-loin .mk-glyph {
+.tile-word {
   font-weight: 700;
 }
 
-/* Sans lecture : les cases restent vides, la phrase dit pourquoi */
-.echiquier > tbody > .is-unread > td.mk {
-  padding: 0;
+.tile-net {
+  font-size: 0.75rem;
+  font-weight: 650;
 }
 
 .echiquier > tbody > .say > td {
@@ -1490,24 +1284,12 @@ html:has(.profile-chart) {
     padding: var(--s3) var(--s3) var(--s1) 0;
   }
 
-  .echiquier > tbody > .unit-row > td.mk,
-  .echiquier > tbody > .is-unread > td.mk {
-    padding: var(--s3) 0.15rem var(--s1);
+  .echiquier > tbody > .unit-row > td.mk {
+    padding: var(--s3) 2px var(--s1);
   }
 
   .unit-n {
     display: block;
-  }
-}
-
-/* Grand tableau : la marque et son mot sur une ligne, un peu plus étroits */
-@container echiquier (min-width: 42rem) {
-  .echiquier > tbody > tr > td.mk {
-    white-space: nowrap;
-  }
-
-  .echiquier .mk-word {
-    font-stretch: 88%;
   }
 }
 
@@ -1523,20 +1305,23 @@ html:has(.profile-chart) {
     display: block;
   }
 
-  /* Le point, à la taille des autres marques : sur la ligne de son bloc */
-  .echiquier .mk.is-rien .mk-glyph {
-    font-size: 1.15rem;
-    font-weight: 700;
-    line-height: 1.2;
-  }
-
+  /* Une ligne par bloc : son nom, puis sa case, à sa mesure */
   .echiquier > tbody > tr > td.mk {
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0 0.35rem;
+    align-items: center;
+    gap: 0.2rem 0.4rem;
     padding: 0.15rem 0;
     text-align: left;
+  }
+
+  .echiquier .mk > .tile {
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0 0.35rem;
+    min-height: 0;
+    padding: 0.1rem 0.35rem;
   }
 
   .echiquier > tbody > tr > td.mk::before {
@@ -1544,19 +1329,6 @@ html:has(.profile-chart) {
     font-weight: 650;
   }
 
-  .echiquier > tbody > tr > td.mk .sr-only {
-    position: static;
-    width: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    clip-path: none;
-    white-space: normal;
-  }
-
-  .echiquier > tbody > .is-unread > td.mk {
-    display: none;
-  }
 }
 
 /* ——— Le détail d'une unité ——— */

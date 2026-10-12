@@ -141,9 +141,10 @@ for (const f of agreeChunks) {
 // src/core/echiquierCopy.ts, et la rubrique de la Méthode qui l'explique) : un fichier à part, chargé à la demande par
 // import() (src/ui/profile/load.ts), jamais dans le JS initial ni préchargé par la page. Plafond relevé de 38 à 54 ko le
 // 12 octobre 2026 : la présentation « une ligne par sujet » validée par le propriétaire (src/ui/profile/Chart.tsx et
-// rows.ts : l'axe, ses lignes, le clavier, les plis, les couleurs des blocs) s'ajoute au tableau détaillé, gardé replié
-// dessous, et à la rubrique de la Méthode, rangée là pour ne rien ajouter au code de toutes les visites ; le tout pèse
-// environ 50 ko. Rien de cela ne pèse sur le JS initial, ni sur une visite qui n'ouvre pas la page
+// rows.ts : l'axe, ses lignes et leurs sections, le clavier, les cases aux couleurs d'affinité) s'ajoute au tableau
+// détaillé, gardé replié dessous, et à la rubrique de la Méthode, rangée là pour ne rien ajouter au code de toutes les
+// visites ; le tout pèse environ 48 ko (les barres, les plis et la mise en évidence de l'axe ont disparu avec les
+// symboles ▲ ▽, le 12 octobre 2026 au soir). Rien de cela ne pèse sur le JS initial, ni sur une visite qui n'ouvre pas la page
 const PROFILE_BUDGET = 54_000
 const profileChunks = readdirSync(join(dist, 'assets')).filter(f => /^Profile-[\w-]+\.js$/.test(f))
 if (profileChunks.length !== 1) fail(`« Mon profil politique » : ${profileChunks.length} fichier(s) assets/Profile-*.js, un attendu`)

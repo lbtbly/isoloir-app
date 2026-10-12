@@ -3,9 +3,10 @@
    stylo rouge (ses lignes rouges). Les pourcentages d'affinité se lisent sur une échelle rouge → vert.
    Le jaune autocopiant porte le double : l'image partagée (couleurs dans core/shareImage.ts) et, à l'écran, les aplats
    qui le montrent (affiche du parcours, parcours du candidat, affiche du plus proche, premier panneau des suites).
-   Les quatre pastels du rideau (logo) habillent les autres aplats : un décor, jamais une donnée. Exceptions décidées
-   par le propriétaire : la page des candidats et « Mon profil politique », où rouge, jaune et bleu repèrent les blocs
-   de la grille des nuances (gauche, centre, droite). */
+   Les quatre pastels du rideau (logo) habillent les autres aplats : un décor, jamais une donnée. Exception décidée
+   par le propriétaire : la page des candidats, où rouge, jaune et bleu repèrent les blocs de la grille des nuances
+   (gauche, centre, droite). Sur « Mon profil politique », les blocs n'ont pas de couleur : chaque case prend celle de
+   l'échelle d'affinité (décision du propriétaire du 12 octobre 2026 ; styles/profile.css). */
 
 :root {
   color-scheme: light;
@@ -61,20 +62,6 @@
   --pastel-rouge: #ffece7;
   --pastel-jaune: #fbf1c7;
   --pastel-bleu: #dcebff;
-
-  /* Les blocs de la grille sur « Mon profil politique », et là seulement (décision du propriétaire du 12 octobre 2026) :
-     la convention de la page des candidats, rouge à gauche, jaune au centre, bleu à droite. Les en-têtes de colonne
-     prennent le pastel du bloc ; les cases « ▲ plus près », sa teinte soutenue, où le mot s'écrit à l'encre `on-bloc` :
-     5,0:1 sur le rouge, 10,8:1 sur le jaune, 5,0:1 sur le bleu (en sombre, 5,1, 9,2 et 5,5:1). Le bleu et le jaune
-     gardent la teinte oklch de leur pastel (256 et 92 contre 256 et 96) ; le rouge est tiré vers le rose (27 contre 35),
-     loin de l'orangé-brun du désaccord et d'« éloigné » (48) : c'est l'angle de « très éloigné », pas sa clarté (0,65
-     contre 0,50), et l'échelle d'affinité n'est pas sur cette page. Le rouge et le bleu, qui couvrent chacun deux
-     colonnes, tranchent à 3:1 au moins sur le papier, le survol et la ligne ouverte (3,5, 3,3 et 3,1:1) : le bord d'un
-     aplat dit seul quelles colonnes il couvre (WCAG 1.4.11). Le jaune n'en couvre jamais qu'une, avec son glyphe. */
-  --bloc-rouge: #da645a;
-  --bloc-jaune: #eec743;
-  --bloc-bleu: #568bd0;
-  --on-bloc: #17191c;
 
   /* Typographie */
   --font: 'Archivo Variable', 'Archivo', 'Helvetica Neue', Arial, system-ui, sans-serif;
@@ -139,12 +126,6 @@
     --pastel-rouge: #3d241f;
     --pastel-jaune: #322b13;
     --pastel-bleu: #1e2c3f;
-    /* Teintes soutenues des blocs en papier carbone : un peu plus sombres, pour ne pas éblouir ; l'encre noire y reste.
-       Sur le papier carbone, la ligne ouverte comprise, 4,2:1 au moins pour le rouge et le bleu */
-    --bloc-rouge: #d4665c;
-    --bloc-jaune: #d7b43b;
-    --bloc-bleu: #5e8ece;
-    --on-bloc: #111419;
   }
 }
 
@@ -173,10 +154,6 @@
   --pastel-rouge: #3d241f;
   --pastel-jaune: #322b13;
   --pastel-bleu: #1e2c3f;
-  --bloc-rouge: #d4665c;
-  --bloc-jaune: #d7b43b;
-  --bloc-bleu: #5e8ece;
-  --on-bloc: #111419;
 }
 
 @media (prefers-reduced-motion: reduce) {

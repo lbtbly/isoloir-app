@@ -5,10 +5,14 @@
 // - un bloc est toujours attribué à la grille (« que la grille classe à droite », « qu’elle classe ») ; les libellés
 //   « extrême gauche » et « extrême droite » ne paraissent qu'en nom de colonne, dans « Comment lire » et dans des
 //   phrases qui disent « la grille » ;
-// - ni pourcentage dans la synthèse et les phrases, ni point, ni moyenne entre thèmes, ni « en tête ».
+// - ni pourcentage dans la synthèse et les phrases (seuls le détail et la liste d'une ligne ouverte en donnent), ni
+//   point, ni moyenne entre thèmes, ni « en tête » ;
+// - aucun symbole de lecture : les mots « nettement plus près » et « nettement plus loin » ; seul « ? » reste, avec son
+//   mot (décision du propriétaire du 12 octobre 2026 : les couleurs des cases suffisent).
 // Typographie du site : espaces insécables avant « : ; ? ! », dans les guillemets et devant « % » (fr()).
 // tests/echiquier-copy.test.ts vérifie ces règles.
 
+import { AFFINITY_BANDS, affinityBand, bandRange } from './affinity'
 import { joinNames, signed } from './resultsCopy'
 import type { Mark, UnitReading } from './echiquier'
 import { segments } from './echiquier'
@@ -74,26 +78,48 @@ export const howWho = (panel: number, unscored: number) =>
 export const HOW_CALC = fr(
   'Pour chaque bloc, on fait la moyenne de votre affinité, sur le thème, avec ses candidats (les pourcentages de « Par thème »). Puis on refait le même calcul avec vos mêmes avis placés au hasard entre les approches de chaque question.',
 )
-/** Point 4 : la légende des marques, une par ligne */
-export const HOW_MARKS: readonly { mark: Mark; text: string }[] = [
-  { mark: 'pres', text: fr('plus près : votre affinité avec ce bloc dépasse nettement celle de vos avis placés au hasard.') },
-  { mark: 'loin', text: fr('plus loin : elle reste nettement en dessous.') },
-  { mark: 'rien', text: fr('rien de net.') },
-  { mark: 'inconnu', text: fr('aucun candidat du bloc n’est connu sur vos questions.') },
+/** Point 4 : la couleur d'une case, palier par palier (core/affinity.ts) */
+export const HOW_COLOR = fr(
+  `La couleur d’une case donne votre affinité moyenne avec les candidats du bloc, selon les paliers du site : ${AFFINITY_BANDS.map(b => `${b.label.toLocaleLowerCase('fr')} (${bandRange(b)})`).join(', ')}.`,
+)
+/**
+ * Point 5 : ce que la couleur ne dit pas (le même texte dans la Méthode). Mesuré sur la présidentielle, cases des thèmes :
+ * tout approuver donne 97 % de « très proche », tout désapprouver 96 % de « très éloigné » ; approuver 80 % des
+ * approches, 75 % de « très proche » et 23 % de « proche ». L'écart entre blocs de quatre et de deux candidats, lui,
+ * ne se mesure pas (1 à 2 points, dans un sens ou dans l'autre selon les réponses) : on ne le dit pas. Une lecture
+ * nette peut tomber sur une case « mitigé » : « nettement plus près » commence à 55 %, « proche » à 60 % ; « nettement
+ * plus loin » à 45 %, « éloigné » à 39 %.
+ */
+export const COLORS_CHANCE = fr(
+  'La couleur seule ne se compare pas au hasard : des réponses données au hasard colorent aussi des cases ; qui approuve beaucoup voit surtout « proche » et « très proche », qui désapprouve beaucoup surtout « éloigné » et « très éloigné » (tout approuver donne « très proche » presque partout, tout désapprouver « très éloigné ») ; et la couleur d’un bloc vient de la moyenne de ses candidats : quand ils ne pensent pas pareil, cette moyenne est moins tranchée que votre affinité avec certains d’entre eux dans « Par thème ». Seules les lectures nettes disent qu’un écart dépasse nettement le hasard : les sujets du haut du graphique, le compte qui les annonce et la phrase d’une ligne ouverte. Elles ne suivent pas les paliers : une lecture nette peut tomber sur une case « mitigé ».',
+)
+/** Point 6 : les lectures nettes, et le bloc inconnu */
+export const HOW_MARKS: readonly string[] = [
+  fr('Nettement plus près : votre affinité avec ce bloc dépasse nettement celle de vos avis placés au hasard.'),
+  fr('Nettement plus loin : elle reste nettement en dessous. Sinon, rien de net, quelle que soit la couleur.'),
+  fr('? inconnu : aucun candidat du bloc n’est connu sur vos questions.'),
 ]
 export const HOW_NETTEMENT = fr('Nettement : des avis placés au hasard n’y arrivent pas neuf fois sur dix.')
 export const HOW_MIN = fr('Il faut au moins deux questions pour lire un thème. Quand aucun thème d’une famille ne se lit seul, la famille entière est lue.')
 export const HOW_NO_EFFECT = fr('Ni votre score, ni le classement, ni vos priorités n’en dépendent.')
 
-// ——— Marques ———
+// ——— Cases : le palier d'affinité, et les lectures nettes en mots ———
 
-export const GLYPH: Record<Mark, string> = { pres: '▲', loin: '▽', rien: '·', inconnu: '?' }
-export const MARK_WORD: Record<Mark, string> = { pres: 'plus près', loin: 'plus loin', rien: 'rien de net', inconnu: 'aucun candidat connu' }
-/** Case d'une ligne sans lecture (une seule question, blocs inconnus) */
-export const NO_READING_CELL = 'pas de lecture'
-/** Nom d'une case pour les lecteurs d'écran : « Droite (grille du ministère de l’Intérieur) : plus près » */
-export const cellLabel = (blocLabel: string, mark: Mark | null) =>
-  fr(`${blocLabel} (grille du ministère de l’Intérieur) : ${mark ? MARK_WORD[mark] : NO_READING_CELL}`)
+/** Les lectures en mots ; plus aucun symbole, sauf « ? » pour un bloc inconnu */
+export const MARK_WORD: Record<Mark, string> = { pres: 'nettement plus près', loin: 'nettement plus loin', rien: 'rien de net', inconnu: 'aucun candidat connu' }
+/** Le seul symbole gardé : un bloc sans candidat connu sur le sujet, toujours avec son mot */
+export const UNKNOWN_GLYPH = '?'
+export const UNKNOWN_WORD = 'inconnu'
+/** Le palier d'une affinité moyenne, en minuscules : « très proche » ; null : « inconnu » */
+export const palier = (affinity: number | null) => affinityBand(affinity)?.label.toLocaleLowerCase('fr') ?? UNKNOWN_WORD
+/** La lecture nette d'une case, en mots ; null : rien de net */
+export const netWord = (mark: Mark) => (mark === 'pres' || mark === 'loin' ? MARK_WORD[mark] : null)
+/**
+ * Nom d'une case pour les lecteurs d'écran : « Droite (grille du ministère de l’Intérieur) : proche, nettement plus
+ * près »
+ */
+export const cellLabel = (blocLabel: string, affinity: number | null, mark: Mark) =>
+  fr(`${blocLabel} (grille du ministère de l’Intérieur) : ${[palier(affinity), netWord(mark)].filter(Boolean).join(', ')}`)
 
 // ——— Formes des blocs dans les phrases ———
 
@@ -150,7 +176,7 @@ export function unitSentence(axis: readonly SpectrumAxisBloc[], r: Pick<UnitRead
       break
     case 'blocs-inconnus':
       return fr(
-        `Pas de lecture : la position des candidats que la grille classe ${whereAll(axis, unknown)} n’est pas connue sur vos questions ${r.kind === 'famille' ? 'de cette famille' : 'de ce thème'}.`,
+        `Pas de lecture nette : la position des candidats que la grille classe ${whereAll(axis, unknown)} n’est pas connue sur vos questions ${r.kind === 'famille' ? 'de cette famille' : 'de ce thème'}.`,
       )
     case 'une-question':
       return ONE_QUESTION
@@ -160,7 +186,7 @@ export function unitSentence(axis: readonly SpectrumAxisBloc[], r: Pick<UnitRead
   return fr(text)
 }
 
-export const ONE_QUESTION = fr('Une seule question : pas de lecture.')
+export const ONE_QUESTION = fr('Une seule question : pas de lecture nette.')
 export const DEEPEN_THEME = 'Approfondir ce thème'
 
 /**
@@ -209,12 +235,9 @@ export const COUNT_NONE = fr('Pour ces réponses, aucun sujet ne se rapproche ne
 /** Au-dessus du graphique, selon le pointeur : le doigt ou la souris */
 export const HINT_TOUCH = 'Touchez un sujet pour voir pourquoi.'
 export const HINT_CLICK = 'Cliquez sur un sujet pour voir pourquoi.'
-export const KEY_TEXT = fr('Sur un sujet, vos réponses se rapprochent nettement des candidats d’un bloc, ou s’en écartent nettement : bien plus que vos mêmes avis placés au hasard.')
-/** La ligne de l'axe : le sens de lecture, et le centre à 0 */
-export const AXIS_LEFT = '← vers la gauche'
-export const AXIS_ZERO = '0'
-export const AXIS_MID = 'centre'
-export const AXIS_RIGHT = 'vers la droite →'
+/** La légende : les cinq paliers du site (core/affinity.ts), puis sa phrase */
+export const KEY_LABEL = 'Les couleurs des cases'
+export const KEY_TEXT = fr('Chaque case : votre affinité moyenne, sur ce sujet, avec les candidats du bloc.')
 /** Nom de la liste des blocs, pour les lecteurs d'écran */
 export const zonesLabel = (blocs: number, panel: number) =>
   fr(`Les ${word(blocs)} blocs de la grille du ministère de l’Intérieur, de l’extrême gauche à l’extrême droite, et les ${panel} candidats classés qu’elle y range`)
@@ -226,21 +249,14 @@ export const questionsCount = (n: number) => plural(n, 'question')
 export const themesTogether = (k: number) => `${k} thèmes ensemble`
 
 /**
- * Le nom d'une ligne pour les lecteurs d'écran : son sujet, puis ses marques, chacune attribuée à la grille.
- * « Défense, 5 questions : plus près des candidats que la grille classe à l’extrême gauche, plus loin de ceux qu’elle
- * classe à gauche. »
+ * Le nom d'une ligne pour les lecteurs d'écran : son sujet, puis chaque bloc de la grille avec son palier et, s'il y a
+ * lieu, sa lecture nette ; enfin ce qui manque. « Défense, 5 questions. Selon la grille : Extrême gauche, très proche,
+ * nettement plus près ; Gauche, mitigé ; … »
  */
-export function rowSummary(axis: readonly SpectrumAxisBloc[], name: string, meta: string, r: Pick<UnitReading, 'status' | 'near' | 'far' | 'cells'>): string {
-  const head = `${name}, ${meta} : `
-  if (r.status === 'une-question' || r.status === 'blocs-inconnus') return fr(`${head}pas de lecture.`)
-  const parts: string[] = []
-  const segs = segments(r.near).map(s => where(axis, s))
-  if (segs.length === 1) parts.push(`plus près des candidats que la grille classe ${segs[0]}`)
-  else if (segs.length > 1) parts.push(`plus près, à la fois, ${listFr([`des candidats que la grille classe ${segs[0]}`, ...segs.slice(1).map(s => `de ceux qu’elle classe ${s}`)])}`)
-  if (r.far.length) parts.push(`${parts.length ? 'plus loin de ceux qu’elle classe' : 'plus loin des candidats que la grille classe'} ${whereAll(axis, r.far)}`)
-  const unknown = r.cells.flatMap((c, b) => (c.mark === 'inconnu' ? [b] : []))
-  const tail = unknown.length ? ` La position des candidats que la grille classe ${whereAll(axis, unknown)} n’est pas connue ici.` : ''
-  return fr(`${head}${parts.length ? parts.join(', ') : 'rien de net'}.${tail}`)
+export function rowSummary(labels: readonly string[], name: string, meta: string, r: Pick<UnitReading, 'status' | 'cells'>): string {
+  const blocs = r.cells.map((c, b) => [labels[b], palier(c.affinity), netWord(c.mark)].filter(Boolean).join(', ')).join(' ; ')
+  const tail = r.status === 'une-question' ? ` ${ONE_QUESTION}` : r.status === 'blocs-inconnus' ? ' Pas de lecture nette.' : r.status === 'aucun' ? ' Rien de net.' : ''
+  return fr(`${name}, ${meta}. Selon la grille : ${blocs}.${tail}`)
 }
 
 /** Nom de la liste des lignes lues d'un seul côté, pour les lecteurs d'écran */
@@ -260,9 +276,8 @@ export const BOTH_ROW = ['Aux deux bouts à la fois. ', fr('Vos réponses rejoig
 export const bothRow = (ends: boolean) => (ends ? BOTH_ROW : ([`${SIDES_TITLE}. `, BOTH_ROW[1]] as const))
 export const APART_TITLE = 'Seulement plus loin'
 export const APART_HEAD = fr('Sur ces sujets, vos réponses ne se rapprochent nettement d’aucun bloc, mais s’écartent nettement d’au moins un.')
-/** Une ligne ouverte : les candidats des blocs marqués */
-export const WHO_NEAR = `${GLYPH.pres} Plus près, bloc par bloc`
-export const WHO_FAR = `${GLYPH.loin} Plus loin, bloc par bloc`
+/** Une ligne ouverte : chaque bloc, son palier et son affinité moyenne, sa lecture nette, et alors ses candidats */
+export const BLOCS_TITLE = 'Votre affinité, bloc par bloc'
 /** « (2 autres, position inconnue ici) » */
 export const othersUnknown = (n: number) => `(${n} autre${n > 1 ? 's' : ''}, position inconnue ici)`
 export const BLOC_NOTE = fr('La lecture porte sur le bloc entier : les candidats d’un même bloc ne pensent pas tous pareil. Le détail donne votre affinité avec chacun.')
@@ -271,11 +286,15 @@ export const SEE_DETAIL = 'Voir le détail'
 export const readWithFamily = (family: string) => fr(`Lu avec les autres thèmes de sa famille : « ${family} ».`)
 /** Ni lecture ni écart nulle part */
 export const EMPTY_CHART = fr('C’est fréquent : la lecture ne conclut que si l’écart dépasse nettement le hasard.')
-/** Les plis sous le graphique */
-export const flatFold = (n: number) => `${plural(n, 'sujet')} sans tendance nette`
-/** [libellé, précision] : « 16 thèmes sur une seule question · pas de lecture », ou, avec des blocs inconnus, sans lecture */
-export const unreadFold = (n: number, oneQuestionOnly: boolean) =>
-  oneQuestionOnly ? ([`${plural(n, 'thème')} sur une seule question`, 'pas de lecture'] as const) : ([`${plural(n, 'thème')} sans lecture`, 'sur une seule question ou faute de candidats connus'] as const)
+/** Les sujets sans tendance nette, sous les lectures : l'intertitre et sa phrase */
+export const flatTitle = (n: number) => `${plural(n, 'sujet')} sans tendance nette`
+export const FLAT_HEAD = fr('Sur ces sujets, vos réponses ne se rapprochent ni ne s’écartent nettement d’aucun bloc : leurs couleurs restent à la portée du hasard.')
+/** Puis les thèmes sans lecture nette : « 16 thèmes sur une seule question », ou, avec des blocs inconnus, sans lecture nette */
+export const unreadTitle = (n: number, oneQuestionOnly: boolean) => (oneQuestionOnly ? `${plural(n, 'thème')} sur une seule question` : `${plural(n, 'thème')} sans lecture nette`)
+export const unreadHead = (oneQuestionOnly: boolean) =>
+  fr(
+    `${oneQuestionOnly ? 'Une seule question ne permet pas de dire' : 'Sur une seule question, ou faute de candidats connus, on ne peut pas dire'} si un écart dépasse nettement le hasard : ces couleurs se lisent avec prudence.`,
+  )
 /** Sous le graphique : la source des colonnes, autour du lien (posé par la page) */
 export const SOURCE = [
   fr('Les cinq colonnes sont les blocs de la grille des nuances politiques du ministère de l’Intérieur ('),
@@ -284,9 +303,12 @@ export const SOURCE = [
 /** Le lien de la source : « circulaire du 23 août 2026 » */
 export const sourceLink = (date: string) => `circulaire du ${date}`
 export const sourceWho = (panel: number) => fr(`Comptent les ${panel} candidats classés ; le bloc « Autres » de la grille ne compte pas.`)
-/** Les couleurs des colonnes (décision du propriétaire du 12 octobre 2026) : celles de la page des candidats */
+/**
+ * Les couleurs des cases (décision du propriétaire du 12 octobre 2026) : l'échelle d'affinité du site, jamais la
+ * couleur d'un bloc
+ */
 export const COLORS_NOTE = fr(
-  `Les couleurs repèrent les blocs de la grille, comme sur la page des candidats : rouge à gauche, jaune au centre, bleu à droite. Ce sont les mots, ${GLYPH.pres} ${MARK_WORD.pres} et ${GLYPH.loin} ${MARK_WORD.loin}, qui disent la lecture.`,
+  'Les couleurs sont celles de l’échelle d’affinité du site, de « très éloigné » à « très proche » : votre affinité moyenne avec les candidats de chaque bloc, sur chaque sujet, et non la couleur d’un bloc de la grille.',
 )
 export const CALC_TITLE = 'Comment c’est calculé'
 
@@ -310,14 +332,15 @@ export const NONE_KNOWN = 'aucun candidat connu'
 export const ONE_KNOWN = '(un seul candidat connu)'
 /** « 65 % » */
 export const pct = (v: number) => `${Math.round(v)}${NB}%`
-/** L'écart au hasard, en points signés, et la marque en mot : « +42 points, plus près » */
+/** L'écart au hasard, en points signés, et la lecture nette en mots : « +42 points, nettement plus près » */
 export const gap = (affinity: number, chance: number, mark: Mark) => {
   const d = Math.round(affinity) - Math.round(chance)
-  return `${signed(d)}${NB}point${Math.abs(d) > 1 ? 's' : ''}${mark === 'pres' || mark === 'loin' ? `, ${MARK_WORD[mark]}` : ''}`
+  const net = netWord(mark)
+  return `${signed(d)}${NB}point${Math.abs(d) > 1 ? 's' : ''}${net ? `, ${net}` : ''}`
 }
 export const chanceNote = (exact: boolean, n: number) =>
   fr(
-    `Vos avis placés au hasard : la moyenne du même calcul ${exact ? `sur les ${n} placements possibles de vos avis` : `sur ${n} placements de vos avis tirés au hasard`}, question par question ; « plus près » ou « plus loin » quand moins d’un placement sur dix fait un tel écart, tous blocs confondus.`,
+    `Vos avis placés au hasard : la moyenne du même calcul ${exact ? `sur les ${n} placements possibles de vos avis` : `sur ${n} placements de vos avis tirés au hasard`}, question par question ; « nettement plus près » ou « nettement plus loin » quand moins d’un placement sur dix fait un tel écart, tous blocs confondus.`,
   )
 export const PER_CANDIDATE = 'Votre affinité avec chaque candidat'
 export const UNKNOWN_POSITION = '(position inconnue)'
@@ -400,13 +423,13 @@ export const methodIntro = (blocs: number) =>
   [
     fr('Après le dépouillement complet, la page « Mon profil politique » lit vos réponses thème par thème au regard de la grille des nuances politiques du ministère de l’Intérieur (voir '),
     fr(
-      `). Pour chacun de ses ${word(blocs)} blocs, de l’extrême gauche à l’extrême droite, elle dit si vos réponses se rapprochent nettement des candidats de ce bloc, s’en écartent nettement, ou rien de net. Elle ne change ni votre score, ni le classement, ni vos priorités, et n’existe pas pendant la première tendance.`,
+      `). Pour chacun de ses ${word(blocs)} blocs, de l’extrême gauche à l’extrême droite, elle colore une case de votre affinité moyenne avec ses candidats, et dit si vos réponses s’en rapprochent nettement, s’en écartent nettement, ou rien de net. Elle ne change ni votre score, ni le classement, ni vos priorités, et n’existe pas pendant la première tendance.`,
     ),
   ] as const
 export const METHOD_INTRO_LINK = 'l’ordre des candidats'
 /** Le schéma, en mots */
 export const METHOD_DIAGRAM_CAPTION = fr(
-  'Vos avis donnent votre affinité par thème avec chaque candidat, le calcul même du score. On en fait la moyenne par bloc de la grille, puis on la compare à celle de vos mêmes avis placés au hasard : plus près, rien de net, ou plus loin.',
+  'Vos avis donnent votre affinité par thème avec chaque candidat, le calcul même du score. On en fait la moyenne par bloc de la grille, qui colore sa case, puis on la compare à celle de vos mêmes avis placés au hasard : nettement plus près, rien de net, ou nettement plus loin.',
 )
 export const methodWho = (panel: number, unscored: number, minBloc: number, maxBloc: number, othersEmpty: boolean) =>
   fr(
@@ -421,7 +444,7 @@ export const METHOD_CALC = fr(
 )
 export const methodChance = (gapPoints: number) =>
   fr(
-    `Une affinité seule ne suffit pas : qui approuve beaucoup est proche de tout le monde, qui désapprouve beaucoup de personne. On refait donc le même calcul en gardant vos avis, autant de « d’accord », de « pas d’accord » et de « sans avis » sur chaque question, mais placés au hasard entre ses approches : tous les placements possibles quand ils sont mille au plus, sinon 999 placements tirés au sort, toujours les mêmes pour les mêmes réponses. Un bloc est « plus près » quand votre affinité avec lui dépasse nettement celle de ces placements (d’au moins ${gapPoints} points, et à ${50 + gapPoints} % au moins), « plus loin » quand elle reste nettement en dessous (d’au moins ${gapPoints} points, et à ${50 - gapPoints} % au plus). « Nettement » : des placements au hasard n’atteignent pas un tel écart une fois sur dix, tous blocs confondus. C’est pourquoi tout approuver, ou tout désapprouver, ne rapproche d’aucun bloc.`,
+    `Une affinité seule ne suffit pas : qui approuve beaucoup est proche de tout le monde, qui désapprouve beaucoup de personne. On refait donc le même calcul en gardant vos avis, autant de « d’accord », de « pas d’accord » et de « sans avis » sur chaque question, mais placés au hasard entre ses approches : tous les placements possibles quand ils sont mille au plus, sinon 999 placements tirés au sort, toujours les mêmes pour les mêmes réponses. Un bloc est « nettement plus près » quand votre affinité avec lui dépasse nettement celle de ces placements (d’au moins ${gapPoints} points, et à ${50 + gapPoints} % au moins), « nettement plus loin » quand elle reste nettement en dessous (d’au moins ${gapPoints} points, et à ${50 - gapPoints} % au plus). « Nettement » : des placements au hasard n’atteignent pas un tel écart une fois sur dix, tous blocs confondus. C’est pourquoi tout approuver, ou tout désapprouver, ne rapproche d’aucun bloc.`,
   )
 export const METHOD_WHEN_NOT = fr(
   'Un thème se lit sur deux questions au moins. Il ne se lit pas quand les candidats de plus d’un bloc sont inconnus sur vos questions. Quand aucun thème d’une famille ne se lit seul, la famille entière est lue : c’est ce qui permet une lecture après le seul questionnaire rapide, qui ne pose souvent qu’une question par thème.',

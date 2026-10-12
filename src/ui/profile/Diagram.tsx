@@ -1,26 +1,24 @@
 // Le schéma de la rubrique « Mon profil politique » de la Méthode, au trait comme les autres (components/Diagrams.tsx),
-// à l'encre seule : de vos avis à la marque de chaque bloc. Dans le fichier à part de la page, chargé à la demande.
+// à l'encre seule : de vos avis à la couleur de chaque case et à sa lecture nette, en mots (aucun symbole). Dans le
+// fichier à part de la page, chargé à la demande.
 
 import { Arrow, Figure } from '../components/Diagrams'
 
 const STEPS = [
   { label: 'Vos avis', sub: 'd’accord, pas d’accord, sans avis' },
   { label: 'Votre affinité par thème', sub: 'avec chaque candidat : le calcul du score' },
-  { label: 'Moyenne par bloc de la grille', sub: 'chaque bloc compte une fois' },
+  { label: 'Moyenne par bloc de la grille', sub: 'c’est la couleur de sa case' },
   { label: 'Comparée au hasard', sub: 'vos mêmes avis, placés au hasard' },
 ]
 
-const OUTCOMES = [
-  { glyph: '▲', word: 'plus près' },
-  { glyph: '·', word: 'rien de net' },
-  { glyph: '▽', word: 'plus loin' },
-]
+/** Les lectures, en mots (la légende du schéma dit « nettement ») */
+const OUTCOMES = ['plus près', 'rien de net', 'plus loin']
 
 export function ProfileDiagram() {
   return (
     <Figure
       title="Comment se lit un bloc de la grille"
-      desc="Vos avis donnent votre affinité par thème avec chaque candidat, le calcul même du score. On en fait la moyenne par bloc de la grille des nuances, puis on la compare à celle de vos mêmes avis placés au hasard : plus près, rien de net, ou plus loin."
+      desc="Vos avis donnent votre affinité par thème avec chaque candidat, le calcul même du score. On en fait la moyenne par bloc de la grille des nuances, qui colore sa case, puis on la compare à celle de vos mêmes avis placés au hasard : nettement plus près, rien de net, ou nettement plus loin."
       viewBox="0 0 360 312"
     >
       {STEPS.map((s, i) => (
@@ -38,14 +36,14 @@ export function ProfileDiagram() {
           {i < STEPS.length - 1 ? <Arrow x1={142} y1={58 + i * 64} x2={142} y2={70 + i * 64} /> : null}
         </g>
       ))}
-      {OUTCOMES.map((o, i) => {
+      {OUTCOMES.map((word, i) => {
         const x = 8 + i * 118
         return (
-          <g key={o.word}>
+          <g key={word}>
             <Arrow x1={142} y1={250} x2={x + 51} y2={266} />
             <rect class="dg-box" x={x} y="268" width="102" height="36" />
             <text class="dg-label dg-bold" x={x + 51} y="291" text-anchor="middle">
-              {o.glyph} {o.word}
+              {word}
             </text>
           </g>
         )

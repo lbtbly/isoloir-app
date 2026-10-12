@@ -1,17 +1,17 @@
 // « Mon profil politique » : vos réponses sur l'échiquier, sujet par sujet, après le dépouillement complet. Pour chaque
 // thème (ou sa famille, quand aucun de ses thèmes ne se lit seul) et chaque bloc de la grille des nuances du ministère
-// de l'Intérieur : vos réponses se rapprochent-elles nettement de ses candidats (▲ plus près), s'en écartent-elles
-// nettement (▽ plus loin), ou rien de net (·) ? Le calcul (core/echiquier.ts) se fait sur l'appareil, sans IA, à
-// l'affichage ; rien n'est enregistré, ni dans l'adresse.
+// de l'Intérieur : votre affinité moyenne avec ses candidats, en couleur, et vos réponses s'en rapprochent-elles
+// nettement, s'en écartent-elles nettement, ou rien de net ? Le calcul (core/echiquier.ts) se fait sur l'appareil, sans
+// IA, à l'affichage ; rien n'est enregistré, ni dans l'adresse.
 // La page, sur toute la largeur comme le dépouillement : le titre et la mention IA en tête ; « Sujet par sujet », le
 // graphique, une ligne par sujet lu (ui/profile/Chart.tsx) ; « À garder en tête » ; puis « Le détail, sujet par
 // sujet », le tableau complet de chaque unité, replié.
 // Une lecture, pas une étiquette (DESIGN.md, The Reading Not Label Rule) : le sujet des phrases est toujours « vos
-// réponses », les blocs sont attribués à « la grille » ; les blocs portent les couleurs de la page des candidats (rouge
-// à gauche, jaune au centre, bleu à droite : décision du propriétaire du 12 octobre 2026), jamais seules, toujours avec
-// le glyphe et le mot, et aucune autre couleur n'a de sens (ni vert, ni orangé, ni échelle d'affinité) ; les
-// pourcentages ne paraissent que dans « Le détail » ; ni point, ni moyenne entre thèmes, ni synthèse globale. Jamais sur
-// l'affiche ni dans le PDF.
+// réponses », les blocs sont attribués à « la grille » ; les blocs n'ont pas de couleur : chaque case prend celle de
+// l'échelle d'affinité du site (décision du propriétaire du 12 octobre 2026), jamais seule, toujours avec le mot de son
+// palier ; aucun symbole de lecture, les mots « nettement plus près » et « nettement plus loin » ; les pourcentages ne
+// paraissent que dans « Le détail » et dans la liste d'une ligne ouverte ; ni point, ni moyenne entre thèmes, ni
+// synthèse globale. Jamais sur l'affiche ni dans le PDF.
 // Fichier à part du build, chargé à la demande (ui/profile/load.ts), avec la rubrique de la Méthode qui l'explique.
 
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks'
@@ -29,7 +29,7 @@ import { FormHeader } from '../components/FormHeader'
 import { Icon } from '../components/Icon'
 import { SiteFooter } from '../components/SiteFooter'
 import { link } from '../nav'
-import { Chart, deeperOf, oneQuestionFact, tintClass, type ProfileCtx } from '../profile/Chart'
+import { Chart, deeperOf, oneQuestionFact, Tile, type ProfileCtx } from '../profile/Chart'
 import '../../styles/profile.css'
 
 // La rubrique de la Méthode, dans le même fichier du build : la Méthode la charge à la demande
@@ -91,7 +91,6 @@ export function Profile({ pack, state, essential, results }: Props) {
       pack,
       axis,
       labels: axis.map(a => blocs.get(a.bloc)?.label ?? a.short),
-      tints: axis.map(a => blocs.get(a.bloc)?.pastel ?? null),
       names: new Map(candidates.map(c => [c.id, c.name])),
       panel: panelOf(pack),
       unranked: new Set(results.unranked.map(r => r.candidateId)),
@@ -246,7 +245,7 @@ function DetailTable({ reading, ctx }: { reading: Echiquier; ctx: ProfileCtx }) 
               {T.TABLE_THEME}
             </th>
             {axis.map((a, b) => (
-              <th key={a.bloc} scope="col" role="columnheader" class={`bloc-head ${tintClass(ctx.tints[b])}`}>
+              <th key={a.bloc} scope="col" role="columnheader" class="bloc-head">
                 <span aria-hidden="true">{a.short}</span>
                 <span class="sr-only">{ctx.labels[b]}</span>
               </th>
@@ -279,38 +278,29 @@ function DetailTable({ reading, ctx }: { reading: Echiquier; ctx: ProfileCtx }) 
   )
 }
 
-/** Une unité : sa ligne de marques, puis sa phrase et son détail */
+/** Une unité : sa ligne de cases, puis sa phrase et son détail */
 function UnitRows({ unit, ctx }: { unit: UnitReading; ctx: ProfileCtx }) {
   const { axis, labels } = ctx
   const family = unit.kind === 'famille'
-  const read = unit.status !== 'une-question' && unit.status !== 'blocs-inconnus'
   const name = family ? T.familyHead(unit.topicIds.length) : (ctx.topicLabel.get(unit.id) ?? unit.id)
   const rowId = `u-${unit.kind}-${unit.id}`
   const fact = oneQuestionFact(unit, ctx)
   const deeper = deeperOf(unit, ctx)
   return (
     <>
-      <tr class={`unit-row${family ? ' fam-row' : ''}${read ? '' : ' is-unread'}`} role="row">
+      <tr class={`unit-row${family ? ' fam-row' : ''}`} role="row">
         <th scope="row" role="rowheader" id={rowId}>
           <span class="unit-name">{name}</span> <span class="unit-n">{T.onQuestions(unit.questions.length)}</span>
         </th>
-        {unit.cells.map((c, b) => {
-          const mark = read ? c.mark : null
-          return (
-            <td key={c.bloc} role="cell" class={`mk ${tintClass(ctx.tints[b])}${mark ? ` is-${mark}` : ''}`} data-bloc={labels[b]} aria-label={T.cellLabel(labels[b]!, mark)}>
-              {mark ? (
-                <>
-                  <span class="mk-glyph" aria-hidden="true">
-                    {T.GLYPH[mark]}
-                  </span>{' '}
-                  {mark === 'pres' || mark === 'loin' ? <span class="mk-word">{T.MARK_WORD[mark]}</span> : <span class="sr-only">{T.MARK_WORD[mark]}</span>}
-                </>
-              ) : (
-                <span class="sr-only">{T.NO_READING_CELL}</span>
-              )}
-            </td>
-          )
-        })}
+        {/* Chaque case : le palier, en couleur et en mot, et sa lecture nette en mots ; pour les lecteurs d'écran, un texte
+            dans la case qui dit les deux (la case dessinée leur est masquée), lu en mode lecture comme en navigation de
+            tableau */}
+        {unit.cells.map((c, b) => (
+          <td key={c.bloc} role="cell" class="mk" data-bloc={labels[b]}>
+            <Tile cell={c} net />
+            <span class="sr-only">{T.cellLabel(labels[b]!, c.affinity, c.mark)}</span>
+          </td>
+        ))}
       </tr>
       <tr class={`say${family ? ' fam-say' : ''}${unit.status === 'lecture' || unit.status === 'ecarts' ? '' : ' is-quiet'}`} role="row">
         <td colSpan={axis.length + 1} role="cell">
@@ -379,7 +369,7 @@ function DetailBody({ unit, ctx, deeper }: { unit: UnitReading; ctx: ProfileCtx;
                 {c.known.length ? T.listFr(c.known.map(nameOf)) : T.NONE_KNOWN}
               </td>
               <td role="cell" data-head={T.DETAIL_HEADS[2]}>
-                {c.affinity === null ? '–' : T.pct(c.affinity)}
+                {c.affinity === null ? '–' : `${T.pct(c.affinity)}, ${T.palier(c.affinity)}`}
                 {c.known.length === 1 ? ` ${T.ONE_KNOWN}` : ''}
               </td>
               <td role="cell" data-head={T.DETAIL_HEADS[3]}>
