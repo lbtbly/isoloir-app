@@ -52,6 +52,24 @@ function allSentences(): string[] {
   return out
 }
 
+/** Les noms des lignes du graphique pour les lecteurs d'écran, sur toutes les formes de marques */
+function allSummaries(): string[] {
+  const out: string[] = []
+  const B = axis.length
+  for (const near of subsets(B)) {
+    out.push(T.rowSummary(axis, 'Logement', T.questionsCount(4), reading('lecture', near)))
+    const rest = [...Array(B).keys()].filter(b => !near.includes(b))
+    for (const far of subsets(rest.length).map(s => s.map(i => rest[i]!)).slice(0, 8)) out.push(T.rowSummary(axis, 'Défense', T.questionsCount(5), reading('lecture', near, far)))
+    if (rest.length) out.push(T.rowSummary(axis, 'Europe', T.questionsCount(5), reading('lecture', near, [], [rest[0]!])))
+  }
+  for (const far of subsets(B)) out.push(T.rowSummary(axis, 'Retraites', T.questionsCount(3), reading('ecarts', [], far)))
+  out.push(T.rowSummary(axis, 'Numérique', T.questionsCount(2), reading('aucun')))
+  for (const u of [0, 2, 4]) out.push(T.rowSummary(axis, 'Numérique', T.questionsCount(2), reading('aucun', [], [], [u])))
+  out.push(T.rowSummary(axis, 'Culture', T.questionsCount(1), reading('une-question')))
+  out.push(T.rowSummary(axis, 'Économie et travail', `${T.themesTogether(4)}, ${T.questionsCount(9)}`, reading('blocs-inconnus', [], [], [3, 4], 'famille')))
+  return out
+}
+
 /** Les faits « sur une seule question » : un ou plusieurs accords portés, et des accords que personne ne porte */
 function allFacts(): string[] {
   const names = ['Nathalie Arthaud', 'Raphaël Glucksmann', 'Gabriel Attal', 'Bruno Retailleau', 'Marine Le Pen']
@@ -77,6 +95,12 @@ function allTexts(): string[] {
     out.push(...T.caveats(15), T.unplaced(n, false), T.unplaced(n, true), T.chanceNote(true, n * 12), T.chanceNote(false, 999))
   }
   out.push(T.howWho(15, 0), ...T.methodIntro(5), T.methodWho(15, 7, 2, 4, true), T.methodWho(15, 0, 3, 3, false), T.methodChance(5), ...T.methodWorth())
+  // Le graphique « Sujet par sujet »
+  for (const n of [1, 2, 17]) {
+    out.push(...T.countRead(n, 0), ...T.countRead(n, n + 1), T.questionsCount(n), T.themesTogether(n + 1), T.othersUnknown(n), T.flatFold(n), ...T.unreadFold(n, true), ...T.unreadFold(n, false), T.detailShow(n))
+  }
+  out.push(T.zonesLabel(5, 15), T.readWithFamily('Économie et travail'), T.sourceLink('23 août 2026'), T.sourceWho(15), T.COLORS_NOTE, ...allSummaries())
+  out.push(T.bothTitle(true), T.bothTitle(false), ...T.bothRow(true), ...T.bothRow(false))
   out.push(...allSentences(), ...allFacts())
   for (const s of subsets(axis.length)) out.push(T.groupLabel(axis, s))
   return out
@@ -96,6 +120,70 @@ describe('accords', () => {
     expect(T.gap(65, 23, 'pres')).toBe(`+42${NB}points, plus près`)
     expect(T.gap(30, 31, 'rien')).toBe(`−1${NB}point`)
     expect(T.pct(64.6)).toBe(`65${NB}%`)
+  })
+})
+
+describe('le graphique « Sujet par sujet »', () => {
+  it('le compte, les plis, les lignes : accords au singulier et au pluriel, nombre et nom soudés', () => {
+    expect(T.countRead(7, 17).join('')).toBe(`Sur 7${NB}sujets, vos réponses se rapprochent nettement d’un bloc de la grille${NB}; sur 17, rien de net.`)
+    expect(T.countRead(1, 0).join('')).toBe(`Sur 1${NB}sujet, vos réponses se rapprochent nettement d’un bloc de la grille.`)
+    expect(T.countRead(7, 17)[1]).toBe(`7${NB}sujets`)
+    expect(T.flatFold(17)).toBe(`17${NB}sujets sans tendance nette`)
+    expect(T.flatFold(1)).toBe(`1${NB}sujet sans tendance nette`)
+    expect(T.unreadFold(16, true)).toEqual([`16${NB}thèmes sur une seule question`, 'pas de lecture'])
+    expect(T.unreadFold(1, false)[0]).toBe(`1${NB}thème sans lecture`)
+    expect(T.questionsCount(1)).toBe(`1${NB}question`)
+    expect(T.questionsCount(5)).toBe(`5${NB}questions`)
+    expect(T.themesTogether(4)).toBe('4 thèmes ensemble')
+    expect(T.othersUnknown(1)).toBe('(1 autre, position inconnue ici)')
+    expect(T.othersUnknown(2)).toBe('(2 autres, position inconnue ici)')
+    expect(T.detailShow(31)).toBe('Afficher le détail des 31 sujets')
+    expect(T.detailShow(1)).toBe('Afficher le détail du sujet')
+    expect(T.zonesLabel(5, 15)).toBe('Les cinq blocs de la grille du ministère de l’Intérieur, de l’extrême gauche à l’extrême droite, et les 15 candidats classés qu’elle y range')
+    expect(T.readWithFamily('Économie et travail')).toBe(`Lu avec les autres thèmes de sa famille${NB}: «${NB}Économie et travail${NB}».`)
+    expect(T.sourceLink('23 août 2026')).toBe('circulaire du 23 août 2026')
+    expect(T.AXIS_ZERO).toBe('0')
+    // Les couleurs : celles de la page des candidats, attribuées à la grille ; ce sont les mots qui disent la lecture
+    expect(T.COLORS_NOTE).toBe(
+      `Les couleurs repèrent les blocs de la grille, comme sur la page des candidats${NB}: rouge à gauche, jaune au centre, bleu à droite. Ce sont les mots, ▲ plus près et ▽ plus loin, qui disent la lecture.`,
+    )
+    expect(T.COLORS_NOTE).not.toMatch(/vert|orang/)
+    expect(T.HINT_TOUCH).toMatch(/^Touchez /)
+    expect(T.HINT_CLICK).toMatch(/^Cliquez /)
+  })
+
+  it('« aux deux bouts » seulement à l’extrême gauche et à l’extrême droite à la fois ; sinon « des deux côtés »', () => {
+    expect(T.bothTitle(true)).toBe('Aux deux bouts à la fois')
+    expect(T.bothTitle(false)).toBe('Des deux côtés à la fois')
+    expect(T.bothRow(true)[0]).toBe('Aux deux bouts à la fois. ')
+    expect(T.bothRow(false)[0]).toBe('Des deux côtés à la fois. ')
+    expect(T.bothRow(false)[0]).not.toMatch(/bouts/)
+    // La même phrase dans les deux cas : vraie dès que les blocs ▲ sont de part et d'autre du centre, sans lui
+    expect(T.bothRow(false)[1]).toBe(T.bothRow(true)[1])
+    expect(T.bothRow(true)[1]).toMatch(/des deux côtés de la grille/)
+    // Le détail : la phrase de la maquette validée
+    expect(T.DETAIL_INTRO).toBe(
+      `Pour chaque bloc${NB}: votre affinité moyenne avec ses candidats, la même avec vos avis placés au hasard, et l’écart. Puis, dans la page, chaque candidat et chaque question.`,
+    )
+  })
+
+  it('le nom d’une ligne pour les lecteurs d’écran : ses marques, chacune attribuée à la grille', () => {
+    expect(T.rowSummary(axis, 'Défense', T.questionsCount(5), reading('lecture', [0], [1]))).toBe(
+      `Défense, 5${NB}questions${NB}: plus près des candidats que la grille classe à l’extrême gauche, plus loin de ceux qu’elle classe à gauche.`,
+    )
+    expect(T.rowSummary(axis, 'Europe', T.questionsCount(5), reading('lecture', [3, 4]))).toBe(
+      `Europe, 5${NB}questions${NB}: plus près des candidats que la grille classe à droite et à l’extrême droite.`,
+    )
+    expect(T.rowSummary(axis, 'Solidarités', T.questionsCount(3), reading('lecture', [0, 4]))).toBe(
+      `Solidarités, 3${NB}questions${NB}: plus près, à la fois, des candidats que la grille classe à l’extrême gauche et de ceux qu’elle classe à l’extrême droite.`,
+    )
+    expect(T.rowSummary(axis, 'Retraites', T.questionsCount(3), reading('ecarts', [], [2]))).toBe(
+      `Retraites, 3${NB}questions${NB}: plus loin des candidats que la grille classe au centre.`,
+    )
+    expect(T.rowSummary(axis, 'Numérique', T.questionsCount(2), reading('aucun', [], [], [2]))).toBe(
+      `Numérique, 2${NB}questions${NB}: rien de net. La position des candidats que la grille classe au centre n’est pas connue ici.`,
+    )
+    expect(T.rowSummary(axis, 'Culture', T.questionsCount(1), reading('une-question'))).toBe(`Culture, 1${NB}question${NB}: pas de lecture.`)
   })
 })
 
@@ -164,7 +252,8 @@ describe('règles d’écriture', () => {
   const BLOC = /extrême gauche|extrême droite|à gauche|à droite|au centre|de la gauche|de la droite|du centre/i
 
   it('chaque phrase qui nomme un bloc l’attribue à la grille ; « qu’elle » vient toujours après « la grille »', () => {
-    const texts = [...sentences, ...T.methodWorth()]
+    const chart = [T.zonesLabel(5, 15), T.MAIN_LABEL, T.BOTH_HEAD, T.BOTH_ROW.join(''), T.bothRow(false).join(''), T.APART_HEAD, T.KEY_TEXT, T.COUNT_NONE, T.COLORS_NOTE, ...T.countRead(3, 2)]
+    const texts = [...sentences, ...T.methodWorth(), ...allSummaries(), ...chart]
     for (const s of texts) {
       if (BLOC.test(s)) expect(/la grille/.test(s), s).toBe(true)
       for (const m of s.matchAll(/qu’elle classe/g)) expect(s.slice(0, m.index).includes('la grille'), s).toBe(true)
@@ -178,6 +267,9 @@ describe('règles d’écriture', () => {
 
   it('le sujet est « vos réponses » (ou ce que vous approuvez), jamais la personne', () => {
     for (const s of allSentences().filter(x => /rapprochent|écartent/.test(x))) expect(/Vos réponses|vos réponses/.test(s), s).toBe(true)
+    for (const s of [T.KEY_TEXT, T.BOTH_HEAD, T.BOTH_ROW[1], T.bothRow(false)[1], T.APART_HEAD, T.countRead(3, 2).join('')]) expect(/Vos réponses|vos réponses/.test(s), s).toBe(true)
+    // Sans lecture, le sujet est « aucun sujet », pour « ces réponses »
+    expect(T.COUNT_NONE).toMatch(/^Pour ces réponses, aucun sujet/)
     // La Méthode aussi : ce sont des réponses qui sont lues, pas une personne
     for (const s of T.methodWorth()) {
       expect(/personne|quelqu’un/.test(s), s).toBe(false)
@@ -187,6 +279,8 @@ describe('règles d’écriture', () => {
 
   it('aucun « % » dans la synthèse ni dans les phrases d’unité', () => {
     for (const s of [...sentences, T.SUMMARY_TITLE, T.SUMMARY_EMPTY, T.SUMMARY_NOTE, ...subsets(axis.length).map(x => T.groupLabel(axis, x))]) expect(s, s).not.toContain('%')
+    // Le graphique non plus : les pourcentages ne paraissent que dans « Le détail »
+    for (const s of [...allSummaries(), T.KEY_TEXT, T.BOTH_HEAD, ...T.BOTH_ROW, ...T.bothRow(false), T.APART_HEAD, T.BLOC_NOTE, T.EMPTY_CHART, T.COLORS_NOTE, ...T.countRead(7, 17)]) expect(s, s).not.toContain('%')
   })
 
   it('aucun mot d’étiquette, dans les textes du module comme dans ceux de la page', () => {
@@ -199,7 +293,7 @@ describe('règles d’écriture', () => {
     }
     for (const t of allTexts()) check('echiquierCopy', t)
     // Les fichiers de la page, sans leurs commentaires : leurs textes sont du JSX ou des chaînes
-    for (const file of ['src/ui/screens/Profile.tsx', 'src/ui/profile/MethodSection.tsx', 'src/ui/profile/Diagram.tsx']) {
+    for (const file of ['src/ui/screens/Profile.tsx', 'src/ui/profile/Chart.tsx', 'src/ui/profile/MethodSection.tsx', 'src/ui/profile/Diagram.tsx']) {
       const code = readFileSync(join(ROOT, file), 'utf8')
         .replace(/\/\*[\s\S]*?\*\//g, '')
         .split('\n')

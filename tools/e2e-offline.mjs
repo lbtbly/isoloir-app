@@ -16,8 +16,9 @@
 // du site (la primaire « Choisir 2027 », #/primaire, #/archives : RETIRED_PREFIXES du registre) et anciens liens
 // vers un candidat masqué, tous corrigés ; accueil sans rien de la primaire, même avec sa feuille sur l'appareil.
 // « Mon profil politique » (#/profil) : rien pendant la tendance, puis panneau et lien du dépouillement, page lue sur
-// l'appareil (mention IA, encre seule, une ligne par thème répondu), sans nouvelle clé de stockage, sans défilement en
-// largeur, sans focus caché sous l'en-tête collant des colonnes, et sans effet sur l'affiche JPG.
+// l'appareil (mention IA), son graphique « une ligne par sujet » (axe, lignes, clavier, survol, plis, détail replié)
+// aux couleurs des blocs de la page des candidats et à elles seules (clair et sombre), sans nouvelle clé de stockage, sans défilement en largeur ni texte rogné (320, 390, 1 280 px, texte à
+// 200 %), sans focus caché sous l'en-tête, l'axe collant ou l'en-tête des colonnes, et sans effet sur l'affiche JPG.
 //
 // Usage : pnpm build && node tools/e2e-offline.mjs [port] [--pack <id>] [--prefix <slug>]
 //   --pack <id>     : l'élection à parcourir (par défaut, celle du registre sans préfixe : src/elections/index.ts)
@@ -82,6 +83,8 @@ const NS = pack.candidates.filter(c => !EXCLUDED.has(c.id)).length
 const STORAGE = `isoloir:${entry.id}`
 /** « Mon profil politique » : seulement pour une élection dont la grille des nuances a un axe */
 const PROFILE = !!pack.election.spectrum?.axis?.length
+/** La couleur de chaque bloc de l'axe, celle de la page des candidats : rouge, jaune, bleu */
+const axisTints = (pack.election.spectrum?.axis ?? []).map(a => pack.election.spectrum.blocs.find(b => b.id === a.bloc)?.pastel)
 /** Un candidat avec une fiche complète (parcours) : la page « candidat » de référence */
 const FICHE = pack.candidates.find(c => c.bio?.length) ?? pack.candidates[0]
 const pad = n => String(n).padStart(2, '0')
@@ -535,10 +538,16 @@ try {
 
   // 4 quinquies. « Mon profil politique », hors ligne comme tout le reste (le fichier à part de la page est dans la copie
   // hors ligne) : le panneau de « Et maintenant » et le lien sous « Par thème » ; la page, arrivée par le panneau (focus
-  // au titre), sa mention IA en tête, « Calcul sans IA », une ligne par thème répondu et par famille affichée, le statut
-  // « Lecture prête. » ; tout à l'encre (ni aplat ni couleur hors de l'imprimé et du gris) ; aucune nouvelle clé de
-  // stockage ni de session (seule « isoloir-focus », le temps d'un clic vers « Qui porte quoi ») ; rien en largeur à
-  // 320 px, ni à 390 px au texte agrandi à 200 % ; l'affiche JPG est la même avant et après la visite.
+  // au titre), sa mention IA en tête, « Calcul sans IA », le statut « Lecture prête. » ; le graphique « Sujet par
+  // sujet » (cinq colonnes et leurs candidats, le centre à 0, une ligne par sujet lu, autant que le dit le compte, des
+  // barres jamais reliées entre blocs non voisins, les lectures des deux bords dans leur section), au clavier (Entrée,
+  // Espace, flèches, Début, Fin ; une seule ligne ouverte) et au survol (l'axe en évidence), ses plis, « Voir le
+  // détail » qui ouvre le tableau complet (une ligne par thème répondu et par famille affichée) ; les couleurs des blocs,
+  // celles de la page des candidats, et elles seules, en clair comme en sombre (rouge à gauche, jaune au centre, bleu à
+  // droite : pastel des colonnes, teinte soutenue des aplats ▲, mot à 4,5:1 au moins) ; aucune nouvelle clé de stockage ni de session
+  // (seule « isoloir-focus », le temps d'un clic vers « Qui porte quoi ») ; rien en largeur à 320, 390 et 1 280 px, ni
+  // au texte agrandi à 200 % ; l'indication au doigt ou à la souris ; aucun focus caché sous l'en-tête, l'axe collant,
+  // son rappel ou l'en-tête des colonnes du détail ; l'affiche JPG est la même avant et après la visite.
   if (PROFILE) {
     const imageHash = async () => {
       await page.goto(U('/partager'))
@@ -574,51 +583,260 @@ try {
     const main = flat(await page.locator('main').innerText())
     const status = flat(await page.locator('main [role="status"]').last().textContent().catch(() => ''))
     const aiLabel = await page.locator('main .ai-label').first().isVisible().catch(() => false)
-    // Une ligne par thème répondu, plus une par famille affichée (au moins deux thèmes répondus)
+    // Le tableau du détail : une ligne par thème répondu, plus une par famille affichée (au moins deux thèmes répondus)
     const saved = await page.evaluate(key => JSON.parse(localStorage.getItem(key) ?? '{}'), STORAGE)
     const answeredTopics = new Set(pack.bank.questions.filter(q => Object.keys(saved.answers?.[q.id]?.ratings ?? {}).length && !saved.answers[q.id].skipped).map(q => q.topicId))
     const familiesShown = groups.filter(g => g.topicIds.length > 1 && g.topicIds.filter(t => answeredTopics.has(t)).length > 1).length
     const rows = await page.locator('main table.echiquier > tbody > tr > th[scope="row"]').count()
-    // Encre seule : aucun aplat, aucune couleur de texte hors de l'imprimé et du gris
-    const inks = await page.evaluate(() => {
-      const probe = document.createElement('span')
-      document.body.append(probe)
-      const colorOf = v => {
-        probe.style.color = `var(${v})`
-        return getComputedStyle(probe).color
+    const detailLabel = flat(await page.locator('main .profile-all > summary').textContent().catch(() => ''))
+    check(
+      panelTitle === 'Mon profil politique' && panelPlace === 1 && gridLink === 1 && barShortcuts === 2,
+      `mon profil politique : panneau « ${panelTitle} » en ${panelPlace + 1}e place de « Et maintenant », lien sous « Par thème » (${gridLink}), toujours deux raccourcis dans la barre (${barShortcuts})`,
+    )
+    check(
+      focused && h1 === 'Mon profil politique' && /^Mon profil politique · Isoloir$/.test(title) && aiLabel && main.includes('Positions résumées par IA') && main.includes('Calcul sans IA') && status === 'Lecture prête.' && rows === answeredTopics.size + familiesShown && detailLabel === `Afficher le détail des ${rows} sujets`,
+      `mon profil politique : focus au titre ${focused}, onglet « ${title} », mention IA ${aiLabel}, « Calcul sans IA », statut « ${status} », détail replié « ${detailLabel} », ${rows} lignes (${answeredTopics.size} thèmes répondus + ${familiesShown} familles)`,
+    )
+
+    /** Les couleurs du graphique d'une page déjà lue, dans le thème de couleurs du moment */
+    const profileColors = async (pg, where) => {
+      // Les couleurs des blocs, et elles seules (décision du propriétaire du 12 octobre 2026) : l'en-tête de chaque
+      // colonne et le rappel collant au pastel de son bloc, les aplats ▲ dans sa teinte soutenue, ▽ sur son pastel, la
+      // légende dans les teintes de l'axe, dans l'ordre ; le texte toujours à l'encre (imprimé, gris, papier, encre des
+      // blocs), à 4,5:1 au moins sur l'aplat qui le porte ; aucun autre fond que le papier, les lavis de l'encre, la
+      // colonne du centre et ces couleurs (ni vert, ni orangé, ni échelle d'affinité)
+      const colors = await pg.evaluate(tints => {
+        const probe = document.createElement('span')
+        document.querySelector('.screen-profile')?.append(probe)
+        const parse = s => {
+          // « rgb(r, g, b) », « rgba(…, a) », ou « color(srgb r g b / a) » (un color-mix), ramené sur 0-255
+          const n = s.match(/[\d.]+/g)?.map(Number) ?? []
+          return s.startsWith('color(srgb') ? [...n.slice(0, 3).map(x => x * 255), ...n.slice(3)] : n
+        }
+        const rgb = v => {
+          probe.style.color = v
+          return parse(getComputedStyle(probe).color)
+        }
+        const print = rgb('var(--print)')
+        const soft = rgb('var(--print-soft)')
+        const paper = rgb('var(--paper)')
+        const onBloc = rgb('var(--on-bloc)')
+        const centre = rgb('var(--centre-wash)')
+        const pastel = Object.fromEntries(['rouge', 'jaune', 'bleu'].map(t => [t, rgb(`var(--pastel-${t})`)]))
+        const strong = Object.fromEntries(['rouge', 'jaune', 'bleu'].map(t => [t, rgb(`var(--bloc-${t})`)]))
+        const vert = rgb('var(--pastel-vert)')
+        // Les fonds d'une ligne survolée et d'une ligne ouverte (profile.css)
+        const rowStates = [rgb('var(--hover)'), rgb('var(--selected)')]
+        probe.remove()
+        const near = (a, b) => !!b && a.slice(0, 3).every((x, i) => Math.abs(x - b[i]) <= 2)
+        const clear = c => c.length === 4 && c[3] === 0
+        // Sur le segment de l'imprimé au papier : un lavis de l'encre (survol, ligne ouverte)
+        const onWash = c => {
+          const t = c.slice(0, 3).map((x, i) => (paper[i] === print[i] ? null : (x - paper[i]) / (print[i] - paper[i]))).filter(x => x !== null)
+          return t.every(x => x >= -0.02 && x <= 1.02) && Math.max(...t) - Math.min(...t) <= 0.03
+        }
+        const lum = c => {
+          const [r, g, b] = c.slice(0, 3).map(x => x / 255).map(x => (x <= 0.04045 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4))
+          return 0.2126 * r + 0.7152 * g + 0.0722 * b
+        }
+        const ratio = (a, b) => (Math.max(lum(a), lum(b)) + 0.05) / (Math.min(lum(a), lum(b)) + 0.05)
+        const backgrounds = [paper, centre, ...Object.values(pastel), ...Object.values(strong)]
+        const bad = []
+        const name = el => `${el.tagName.toLowerCase()}.${String(el.className).trim().replace(/\s+/g, '.')}`
+        const bg = el => parse(getComputedStyle(el).backgroundColor)
+        for (const el of document.querySelectorAll('main .profile-chart, main .profile-chart *, .axis-mini, .axis-mini *, main .echiquier, main .echiquier *')) {
+          const cs = getComputedStyle(el)
+          const b = parse(cs.backgroundColor)
+          const c = parse(cs.color)
+          if (!clear(b) && !backgrounds.some(x => near(b, x)) && !near(b, print) && !onWash(b)) bad.push(`${name(el)} fond ${cs.backgroundColor}`)
+          if (!clear(c) && ![print, soft, paper, onBloc].some(x => near(c, x))) bad.push(`${name(el)} encre ${cs.color}`)
+        }
+        // Chaque colonne, chaque case du rappel et chaque en-tête du détail : le pastel de son bloc
+        const heads = [document.querySelectorAll('main .profile-chart .zone'), document.querySelectorAll('.axis-mini-inner > span'), document.querySelectorAll('main .echiquier th.bloc-head')]
+        for (const list of heads) list.forEach((el, k) => near(bg(el), pastel[tints[k]]) || bad.push(`${name(el)} : pas le pastel ${tints[k]} (${getComputedStyle(el).backgroundColor})`))
+        // Chaque aplat d'une barre : la couleur de ses blocs (soutenue pour ▲, pastel pour ▽), le mot lisible dessus
+        let minRatio = 99
+        // Le bord d'un aplat (▲ plein, ▽ son cadre) d'une couleur qui couvre plusieurs colonnes : il dit seul quelles
+        // colonnes l'aplat couvre, à 3:1 au moins sur le fond de sa ligne, qu'elle soit au repos, survolée ou ouverte
+        // (WCAG 1.4.11)
+        let minEdge = 99
+        const rowBg = el => {
+          for (let x = el.closest('.row'); x; x = x.parentElement) {
+            const c = parse(getComputedStyle(x).backgroundColor)
+            if (!clear(c)) return c
+          }
+          return paper
+        }
+        let fills = 0
+        let seams = 0
+        for (const f of document.querySelectorAll('main .profile-chart .strip .bar-fill')) {
+          fills++
+          const blocs = (f.dataset.blocs ?? '').split(' ').map(Number)
+          const t = tints[blocs[0]]
+          if (!blocs.every(x => tints[x] === t)) bad.push(`${name(f)} : un aplat sur deux couleurs (${blocs.join(', ')})`)
+          const isNear = f.closest('.bar').classList.contains('near')
+          if (!near(bg(f), (isNear ? strong : pastel)[t])) bad.push(`${name(f)} ${isNear ? '▲' : '▽'} sur ${blocs.join(', ')} : ${getComputedStyle(f).backgroundColor}, pas ${t}`)
+          if (isNear) minRatio = Math.min(minRatio, ratio(parse(getComputedStyle(f).color), bg(f)))
+          if (tints.filter(x => x === t).length > 1) for (const under of [rowBg(f), ...rowStates]) minEdge = Math.min(minEdge, ratio(isNear ? bg(f) : strong[t], under))
+          if (f.previousElementSibling?.classList.contains('bar-fill')) seams++
+          if (!f.querySelector('.bar-label, .bar-tag')?.textContent?.match(/[▲▽]/)) bad.push(`${name(f)} : un aplat sans son glyphe`)
+        }
+        // La légende : une case par couleur de l'axe, dans son ordre
+        const keyTints = tints.filter((t, i) => tints.indexOf(t) === i)
+        for (const kind of ['near', 'far']) {
+          const ks = [...document.querySelectorAll(`main .profile-chart .key-swatch.${kind} .bar-fill`)]
+          if (ks.length !== keyTints.length || ks.some((k, i) => !near(bg(k), (kind === 'near' ? strong : pastel)[keyTints[i]]))) bad.push(`légende ${kind} : pas les teintes ${keyTints.join(', ')}`)
+        }
+        // « À garder en tête » : aucun pastel ni teinte de bloc sous une mise en garde (elle se lirait comme un bloc)
+        for (const li of document.querySelectorAll('main .profile-keep li')) {
+          const b = bg(li)
+          if ([...Object.values(pastel), ...Object.values(strong), vert].some(x => near(b, x))) bad.push(`${name(li)} : « À garder en tête » sur un pastel (${getComputedStyle(li).backgroundColor})`)
+        }
+        return { bad: [...new Set(bad)].slice(0, 5), minRatio, minEdge, fills, seams, scheme: matchMedia('(prefers-color-scheme: dark)').matches ? 'sombre' : 'clair' }
+      }, axisTints)
+      check(
+        colors.bad.length === 0 && colors.minRatio >= 4.5 && colors.minEdge >= 3,
+        `mon profil politique (${where}), couleurs des blocs (${colors.scheme}) : ${colors.fills} aplats à la couleur de leurs blocs (${colors.seams} couture(s) entre deux couleurs), mot à ${colors.minRatio === 99 ? '–' : colors.minRatio.toFixed(1)}:1 au moins, bord à ${colors.minEdge === 99 ? '–' : colors.minEdge.toFixed(1)}:1 au moins, colonnes et légende aux teintes de l’axe, « À garder en tête » sans pastel${colors.bad.length ? ` : ${colors.bad.join(' ; ')}` : ''}`,
+      )
+    }
+
+    /** Le graphique « Sujet par sujet » d'une page déjà lue : axe, lignes, clavier, survol, plis, couleurs des blocs */
+    const profileChart = async (pg, where) => {
+      // Le graphique : l'axe (cinq colonnes, leurs candidats, le centre à 0), les lignes, le compte, les barres
+      const { MAIN_LABEL, BOTH_TITLE, SIDES_TITLE, APART_TITLE } = await importSite('src/core/echiquierCopy.ts')
+      const chart = await pg.evaluate(([MAIN, BOTH, SIDES, APART]) => {
+        const zones = [...document.querySelectorAll('.profile-chart .zone')]
+        const zero = document.querySelector('.profile-chart .axis-zero')
+        const z = zero?.getBoundingClientRect()
+        const c = zones[2]?.getBoundingClientRect()
+        const listOf = label => [...document.querySelectorAll('.profile-chart .rows:not(.fold-body)')].filter(ol => ol.getAttribute('aria-label') === label).flatMap(ol => [...ol.querySelectorAll(':scope > li > .row')])
+        const all = [...document.querySelectorAll('.profile-chart .rows:not(.fold-body) > li > .row')]
+        const span = bar => (bar.getAttribute('style') ?? '').match(/(\d+)\s*\/\s*(\d+)/)?.slice(1).map(Number) ?? [0, 0]
+        // Deux barres d'une même sorte sur une ligne ne se touchent jamais : des blocs voisins font une seule barre
+        const joined = all.filter(r => ['near', 'far'].some(k => {
+          const s = [...r.querySelectorAll(`.bar.${k}`)].map(span).sort((a, b) => a[0] - b[0])
+          return s.some((x, i) => i > 0 && x[0] <= s[i - 1][1])
+        })).length
+        // De part et d'autre du centre, sans lui : dans « Aux deux bouts » ou « Des deux côtés », et elles seules ; une
+        // ligne dont un bloc ▲ est le centre reste dans la liste principale, ses barres séparées
+        const nearOf = r => [...r.querySelectorAll('.bar.near .bar-fill')].flatMap(f => (f.dataset.blocs ?? '').split(' ').map(Number))
+        const across = r => {
+          const n = nearOf(r)
+          return n.some(b => b < 2) && n.some(b => b > 2) && !n.includes(2)
+        }
+        const inBoth = r => [BOTH, SIDES].includes(r.closest('ol')?.getAttribute('aria-label'))
+        const count = document.querySelector('.profile-chart .chart-count')?.textContent ?? ''
+        return {
+          zones: zones.length,
+          names: zones.map(zn => zn.querySelectorAll('.zone-names li').length),
+          zeroText: zero?.textContent ?? '',
+          zeroOff: z && c ? Math.abs(z.left + z.width / 2 - (c.left + c.width / 2)) : 99,
+          mainRows: listOf(MAIN).length,
+          bothRows: listOf(BOTH).length + listOf(SIDES).length,
+          apartRows: listOf(APART).length,
+          all: all.length,
+          count: count.replace(/\s+/g, ' '),
+          joined,
+          twoBarsOutside: all.filter(r => across(r) !== inBoth(r)).length,
+          closed: all.every(r => r.getAttribute('aria-expanded') === 'false' && document.getElementById(r.getAttribute('aria-controls'))?.hidden),
+          hint: document.querySelector('.profile-chart .hint-click')?.checkVisibility() ?? false,
+          source: document.querySelector('.profile-chart .chart-source')?.textContent ?? '',
+        }
+      }, [MAIN_LABEL, BOTH_TITLE, SIDES_TITLE, APART_TITLE])
+      const readCount = Number(chart.count.match(/^Sur (\d+)/)?.[1] ?? 0)
+      const mainRows = chart.mainRows
+      const ranked = Number(chart.source.match(/Comptent les (\d+) candidats classés/)?.[1] ?? -1)
+      check(
+        chart.zones === 5 && chart.names.every(n => n > 0) && chart.names.reduce((a, b) => a + b, 0) === ranked && chart.zeroText === '0' && chart.zeroOff <= 2,
+        `mon profil politique (${where}), l’axe : ${chart.zones} colonnes, candidats ${chart.names.join(' + ')} = ${ranked} classés, « ${chart.zeroText} » au-dessus du centre (${chart.zeroOff.toFixed(1)} px de décalage)`,
+      )
+      check(
+        readCount === mainRows + chart.bothRows && (readCount > 0 || /^Pour ces réponses, aucun sujet/.test(chart.count)) && chart.joined === 0 && chart.twoBarsOutside === 0 && chart.closed && chart.hint,
+        `mon profil politique (${where}), les lignes : « ${chart.count} » pour ${mainRows} + ${chart.bothRows} lignes lues (et ${chart.apartRows} seulement plus loin), barres reliées ${chart.joined}, lignes de part et d’autre du centre hors de leur section (ou l’inverse) ${chart.twoBarsOutside}, toutes fermées ${chart.closed}, « Cliquez… » à la souris ${chart.hint}`,
+      )
+
+      // Au clavier : Entrée ouvre, flèche bas passe à la suivante, Espace l'ouvre et referme la première, Fin et Début
+      const buttons = pg.locator('.profile-chart .row, .profile-chart .fold')
+      const nButtons = await buttons.count()
+      await buttons.first().focus()
+      const firstKind = await buttons.first().evaluate(b => (b.classList.contains('row') ? 'row' : 'fold'))
+      await pg.keyboard.press('Enter')
+      const afterEnter = await pg.evaluate(() => {
+        const b = document.activeElement
+        const region = document.getElementById(b?.getAttribute('aria-controls') ?? '')
+        return { expanded: b?.getAttribute('aria-expanded'), visible: !!region && !region.hidden && region.getBoundingClientRect().height > 0, text: (region?.textContent ?? '').trim().slice(0, 60), hl: !!document.querySelector('.profile-chart .axis.is-hl') }
+      })
+      await pg.keyboard.press('ArrowDown')
+      const secondFocused = await pg.evaluate(() => [...document.querySelectorAll('.profile-chart .row, .profile-chart .fold')].filter(b => b.offsetParent !== null).indexOf(document.activeElement))
+      await pg.keyboard.press(' ')
+      const openRows = await pg.locator('.profile-chart .row[aria-expanded="true"]').count()
+      await pg.keyboard.press('End')
+      const atEnd = await pg.evaluate(() => {
+        const list = [...document.querySelectorAll('.profile-chart .row, .profile-chart .fold')].filter(b => b.offsetParent !== null)
+        return list.indexOf(document.activeElement) === list.length - 1
+      })
+      await pg.keyboard.press('Home')
+      const atHome = await pg.evaluate(() => document.activeElement === document.querySelector('.profile-chart .row, .profile-chart .fold'))
+      check(
+        nButtons > 0 && afterEnter.expanded === 'true' && afterEnter.visible && afterEnter.text.length > 20 && secondFocused === 1 && (firstKind === 'fold' || openRows === 1) && atEnd && atHome,
+        `mon profil politique (${where}), au clavier : Entrée ouvre (« ${afterEnter.text}… »), flèche bas passe à la suivante (${secondFocused}), une seule ligne ouverte (${openRows}), Fin ${atEnd}, Début ${atHome}`,
+      )
+
+      // Survol : l'axe en évidence pour une ligne marquée ; les plis s'ouvrent sur leurs sujets, autant que leur nom l'annonce
+      await pg.locator('.profile-chart .row[aria-expanded="true"]').evaluateAll(bs => bs.forEach(b => b.click()))
+      const marked = pg.locator('.profile-chart .rows:not(.fold-body) .row:has(.bar)')
+      let hoverHl = true
+      if (await marked.count()) {
+        await pg.locator('main h1').focus()
+        await marked.first().hover()
+        hoverHl = await pg.evaluate(() => !!document.querySelector('.profile-chart .axis.is-hl') && document.querySelectorAll('.profile-chart .zone.is-near, .profile-chart .zone.is-far').length > 0)
+        await pg.mouse.move(1, 1)
       }
-      const allowedText = new Set([colorOf('--print'), colorOf('--print-soft')])
-      probe.style.color = ''
-      probe.style.backgroundColor = 'var(--paper)'
-      const paper = getComputedStyle(probe).backgroundColor
-      probe.remove()
-      const bad = []
-      for (const el of document.querySelectorAll('main .echiquier, main .echiquier *')) {
-        const cs = getComputedStyle(el)
-        if (!['rgba(0, 0, 0, 0)', 'transparent', paper].includes(cs.backgroundColor)) bad.push(`${el.tagName.toLowerCase()}.${el.className} fond ${cs.backgroundColor}`)
-        if (!allowedText.has(cs.color)) bad.push(`${el.tagName.toLowerCase()}.${el.className} encre ${cs.color}`)
+      const folds = []
+      for (const f of await pg.locator('.profile-chart .fold').all()) {
+        if ((await f.getAttribute('aria-expanded')) !== 'true') await f.click()
+        folds.push(await f.evaluate(b => {
+          const body = document.getElementById(b.getAttribute('aria-controls'))
+          const n = Number((b.textContent ?? '').match(/^(\d+)/)?.[1] ?? -1)
+          return { label: (b.textContent ?? '').replace(/\s+/g, ' ').trim(), n, rows: body?.querySelectorAll(':scope > li > .row').length ?? 0, open: b.getAttribute('aria-expanded') === 'true' && !body?.hidden }
+        }))
       }
-      return [...new Set(bad)].slice(0, 5)
-    })
-    // Le détail d'une ligne, et son lien vers « Qui porte quoi » : la seule clé de session, effacée à l'arrivée
-    await page.locator('main .unit-detail summary').first().click()
-    await page.locator('main .unit-detail[open] .detail-blocs tbody tr').first().waitFor({ timeout: 3000 }).catch(() => null)
-    const detailRows = await page.locator('main .unit-detail[open] .detail-blocs tbody tr').count()
+      check(
+        hoverHl && folds.every(f => f.open && f.rows === f.n),
+        `mon profil politique (${where}), survol et plis : axe en évidence ${hoverHl} ; ${folds.map(f => `« ${f.label} » ${f.rows} lignes`).join(', ') || 'aucun pli'}`,
+      )
+
+      await profileColors(pg, where)
+    }
+    await profileChart(page, 'parcours, 390 px')
+
+
+    // « Voir le détail » d'une ligne lue : le tableau replié s'ouvre sur le détail de l'unité, qui reçoit le focus ; puis
+    // son lien vers « Qui porte quoi » : la seule clé de session, effacée à l'arrivée
+    const readRow = page.locator('.profile-chart .row:has(.strip)').first()
+    let detailRows = 0
+    let detailFocus = false
+    if (await readRow.count()) {
+      await readRow.click()
+      await page.locator('.profile-chart .explain:not([hidden]) .link-button').first().click()
+      await page.locator('main .profile-all[open] .unit-detail[open] .detail-blocs tbody tr').first().waitFor({ timeout: 3000 }).catch(() => null)
+      await page.waitForTimeout(100)
+      detailFocus = await page.evaluate(() => !!document.activeElement?.matches('.profile-all[open] .unit-detail[open] > summary'))
+      detailRows = await page.locator('main .unit-detail[open] .detail-blocs tbody tr').count()
+    } else {
+      await page.locator('main .profile-all > summary').click()
+      await page.locator('main .unit-detail summary').first().click()
+      await page.locator('main .unit-detail[open] .detail-blocs tbody tr').first().waitFor({ timeout: 3000 }).catch(() => null)
+      detailRows = await page.locator('main .unit-detail[open] .detail-blocs tbody tr').count()
+      detailFocus = true
+    }
+    check(detailRows === 5 && detailFocus, `mon profil politique, « Voir le détail » : le tableau s’ouvre sur l’unité (focus ${detailFocus}), détail de ${detailRows} blocs`)
     const sessionDuring = await page.evaluate(() => Object.keys(sessionStorage).sort())
     const keysAfter = await page.evaluate(() => Object.keys(localStorage).filter(k => k.startsWith('isoloir')))
     await page.locator('main .unit-detail[open] .detail-q a').first().click()
     await heading(page, 'Qui porte quoi')
     const sessionAfter = await page.evaluate(() => Object.keys(sessionStorage).sort())
     const after = await imageHash()
-    check(
-      panelTitle === 'Mon profil politique' && panelPlace === 1 && gridLink === 1 && barShortcuts === 2,
-      `mon profil politique : panneau « ${panelTitle} » en ${panelPlace + 1}e place de « Et maintenant », lien sous « Par thème » (${gridLink}), toujours deux raccourcis dans la barre (${barShortcuts})`,
-    )
-    check(
-      focused && h1 === 'Mon profil politique' && /^Mon profil politique · Isoloir$/.test(title) && aiLabel && main.includes('Positions résumées par IA') && main.includes('Calcul sans IA') && status === 'Lecture prête.' && rows === answeredTopics.size + familiesShown && detailRows === 5,
-      `mon profil politique : focus au titre ${focused}, onglet « ${title} », mention IA ${aiLabel}, « Calcul sans IA », statut « ${status} », ${rows} lignes (${answeredTopics.size} thèmes répondus + ${familiesShown} familles), détail de ${detailRows} blocs`,
-    )
-    check(inks.length === 0, `mon profil politique, à l’encre seule${inks.length ? ` : ${inks.join(' ; ')}` : ''}`)
     check(
       keysAfter.length === 1 && keysAfter[0] === STORAGE && sessionDuring.join() === sessionBefore.join() && sessionAfter.join() === sessionBefore.join(),
       `mon profil politique : rien d’enregistré (clés ${keysAfter.join(', ')} ; session avant ${sessionBefore.join(', ') || 'vide'}, pendant ${sessionDuring.join(', ') || 'vide'}, après « Qui porte quoi » ${sessionAfter.join(', ') || 'vide'})`,
@@ -627,43 +845,168 @@ try {
       !!before && !!after && before.hash === after.hash && before.alt === after.alt && !/profil|échiquier|grille/i.test(after.alt),
       `affiche JPG : la même avant et après « Mon profil politique » (${before?.hash.slice(0, 12)}…, ${after?.hash.slice(0, 12)}…), rien de la page dans son texte de remplacement`,
     )
-    // Mise en page : rien en largeur à 320 px, ni à 390 px au texte agrandi à 200 % ; au clavier, à 390 px, aucun
-    // élément qui reçoit le focus ne disparaît sous l'en-tête collant des colonnes ou sous celui du site (WCAG 2.4.11)
+
+    // Un second état, avec des lectures nettes (le parcours ci-dessus, questionnaire rapide, n'en a souvent aucune) : sur
+    // la première moitié des familles, d'accord avec l'approche principale d'un candidat que la grille classe au premier
+    // bloc de l'axe et pas d'accord avec les autres ; sur la seconde, de même avec un candidat de l'avant-dernier bloc ;
+    // sans approche principale, la question est passée. En grand écran : l'axe collant, les barres, le survol, le
+    // clavier, et « Voir le détail » depuis une ligne.
+    const { freshState, sanitizeState } = await importSite('src/core/storage.ts')
+    const { panelOf, readEchiquier } = await importSite('src/core/echiquier.ts')
+    const { effectiveWeight } = await importSite('src/core/score.ts')
+    const axisPanel = panelOf(pack)
+    const leftId = axisPanel[0]?.at(-1)
+    const rightId = axisPanel[axisPanel.length - 2]?.at(-1)
+    const firstHalf = new Set(groups.slice(0, Math.ceil(groups.length / 2)).flatMap(g => g.topicIds))
+    const readAnswers = {}
+    for (const q of pack.bank.questions) {
+      const who = firstHalf.has(q.topicId) ? leftId : rightId
+      const mains = q.approaches.map(a => effectiveWeight(pack.positions[who]?.[a.id]) === 2)
+      readAnswers[q.id] = mains.some(Boolean)
+        ? { ratings: Object.fromEntries(q.approaches.map((a, i) => [a.id, mains[i] ? 1 : -1])), redLines: [], ...(q.rev ? { rev: q.rev } : {}) }
+        : { ratings: {}, redLines: [], skipped: true, ...(q.rev ? { rev: q.rev } : {}) }
+    }
+    const readState = sanitizeState({ ...freshState(pack.election.id, pack.election.dataVersion), answers: readAnswers, essentialDoneAt: new Date().toISOString() }, pack)
+    const readOk = readEchiquier(pack, readState.answers).summary.length > 0
+    const readStorage = { [STORAGE]: JSON.stringify(readState) }
+    if (readOk) {
+      // En papier carbone : les teintes sombres des blocs passent aussi les contrôles des couleurs
+      const rctx = await browser.newContext({ viewport: { width: 1280, height: 900 }, reducedMotion: 'reduce', colorScheme: 'dark' })
+      await rctx.addInitScript(s => Object.entries(s).forEach(([k, v]) => localStorage.setItem(k, v)), readStorage)
+      const rp = await rctx.newPage()
+      await rp.goto(U('/profil'))
+      await rp.locator('[role="status"]', { hasText: 'Lecture prête.' }).waitFor({ timeout: 8000 }).catch(() => null)
+      const sticky = await rp.evaluate(() => getComputedStyle(document.querySelector('.profile-chart .axis')).position)
+      await profileChart(rp, 'lectures nettes, 1 280 px')
+      // Et en clair : les mêmes aplats, dans les teintes claires
+      await rp.emulateMedia({ colorScheme: 'light' })
+      await profileColors(rp, 'lectures nettes, 1 280 px')
+      await rp.emulateMedia({ colorScheme: 'dark' })
+      // « Voir le détail » depuis une ligne lue : le tableau s'ouvre sur l'unité, qui reçoit le focus
+      const firstRead = rp.locator('.profile-chart .rows:not(.fold-body) .row').first()
+      await firstRead.click()
+      const opened = await rp.evaluate(() => {
+        const b = document.querySelector('.profile-chart .row[aria-expanded="true"]')
+        const x = document.getElementById(b?.getAttribute('aria-controls') ?? '')
+        return { lead: x?.querySelector('.explain-lead')?.textContent ?? '', who: x?.querySelectorAll('.explain-who dt').length ?? 0 }
+      })
+      await rp.locator('.profile-chart .explain:not([hidden]) .link-button').click()
+      await rp.locator('main .profile-all[open] .unit-detail[open] .detail-blocs tbody tr').first().waitFor({ timeout: 3000 }).catch(() => null)
+      await rp.waitForTimeout(100)
+      const toDetail = await rp.evaluate(() => ({
+        focus: !!document.activeElement?.matches('.profile-all[open] .unit-detail[open] > summary'),
+        blocs: document.querySelectorAll('.profile-all .unit-detail[open] .detail-blocs tbody tr').length,
+      }))
+      check(
+        sticky === 'sticky' && /^Vos réponses se rapprochent nettement/.test(opened.lead) && opened.who > 0 && toDetail.focus && toDetail.blocs === 5,
+        `mon profil politique (lectures nettes, 1 280 px) : axe ${sticky}, ligne ouverte « ${opened.lead.slice(0, 50)}… » (${opened.who} liste(s) de candidats), « Voir le détail » : focus ${toDetail.focus}, ${toDetail.blocs} blocs`,
+      )
+      await rctx.close()
+    } else console.log('– mon profil politique : aucune lecture nette pour le second état, contrôles en grand écran sautés')
+
+    // Mise en page : rien en largeur à 320, 390 et 1 280 px, ni au texte agrandi à 200 % (une ligne ouverte, les plis et
+    // le détail ouverts) ; aucun nom de sujet rogné ; l'indication au doigt sur un téléphone. Au clavier, en remontant
+    // depuis « La méthode en détail » à travers le graphique (puis le détail ouvert, à 390 px), aucun élément qui reçoit
+    // le focus ne passe sous l'en-tête du site, l'axe collant, son rappel ou l'en-tête des colonnes (WCAG 2.4.11)
     const state = await page.evaluate(() => Object.fromEntries(Object.keys(localStorage).map(k => [k, localStorage.getItem(k)])))
     const layoutIssues = []
     const focusIssues = []
-    for (const [width, zoom] of [[320, 100], [390, 100], [390, 200], [1280, 100]]) {
-      const lctx = await browser.newContext({ viewport: { width, height: 800 }, reducedMotion: 'reduce' })
-      await lctx.addInitScript(s => Object.entries(s).forEach(([k, v]) => localStorage.setItem(k, v)), state)
+    const miniRuns = []
+    const covered = () => {
+      const a = document.activeElement
+      if (!a || !a.closest('.profile-chart, .profile-detail')) return null
+      const r = a.getBoundingClientRect()
+      const site = document.querySelector('.form-header').getBoundingClientRect().bottom + 5
+      let cover = site
+      const mini = document.querySelector('.axis-mini.is-on')
+      if (mini) cover = Math.max(cover, mini.getBoundingClientRect().bottom)
+      const axis = document.querySelector('.profile-chart .axis')
+      const ar = axis.getBoundingClientRect()
+      if (getComputedStyle(axis).position === 'sticky' && ar.top <= site + 1 && ar.bottom > site && !a.closest('.axis')) cover = Math.max(cover, ar.bottom)
+      const head = a.closest('.profile-all') ? document.querySelector('table.echiquier > thead')?.getBoundingClientRect() : null
+      if (head && head.height > 0 && head.top <= site + 1 && !a.closest('thead')) cover = Math.max(cover, head.bottom)
+      return r.top < cover - 2 ? `${(a.textContent ?? '').trim().slice(0, 30)} (${Math.round(r.top)}-${Math.round(r.bottom)}, couvert jusqu’à ${Math.round(cover)})` : null
+    }
+    const runs = [
+      [320, 100, 'parcours'],
+      [390, 200, 'parcours'],
+      ...(readOk ? [[320, 100, 'lectures'], [390, 100, 'lectures'], [390, 200, 'lectures'], [1280, 100, 'lectures'], [1280, 200, 'lectures']] : [[390, 100, 'parcours'], [1280, 100, 'parcours'], [1280, 200, 'parcours']]),
+    ]
+    for (const [width, zoom, which] of runs) {
+      const phone = width < 600
+      const lctx = await browser.newContext({ viewport: { width, height: 800 }, reducedMotion: 'reduce', hasTouch: phone, isMobile: phone })
+      await lctx.addInitScript(s => Object.entries(s).forEach(([k, v]) => localStorage.setItem(k, v)), which === 'lectures' ? readStorage : state)
       if (zoom !== 100) await lctx.addInitScript(z => document.addEventListener('DOMContentLoaded', () => (document.documentElement.style.fontSize = `${z}%`)), zoom)
       const lp = await lctx.newPage()
       await lp.goto(U('/profil'))
-      await lp.locator('[role="status"]', { hasText: 'Lecture prête.' }).waitFor({ timeout: 8000 }).catch(() => layoutIssues.push(`${width} px : pas de lecture`))
-      await lp.locator('main .unit-detail summary').first().click().catch(() => null)
-      const wide = await lp.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)
-      if (wide > 0) layoutIssues.push(`${width} px à ${zoom} % : ${wide} px de trop`)
+      await lp.locator('[role="status"]', { hasText: 'Lecture prête.' }).waitFor({ timeout: 8000 }).catch(() => layoutIssues.push(`${width} px (${which}) : pas de lecture`))
+      if (phone && zoom === 100) {
+        const touch = await lp.evaluate(() => [document.querySelector('.hint-touch')?.checkVisibility(), document.querySelector('.hint-click')?.checkVisibility()])
+        if (!touch[0] || touch[1]) layoutIssues.push(`${width} px : l’indication n’est pas « Touchez… »`)
+      }
       if (width === 390 && zoom === 100) {
-        // En remontant de « La méthode en détail » jusqu'au haut du tableau : c'est en remontant que l'en-tête collant
-        // peut couvrir l'élément qui reçoit le focus
-        await lp.evaluate(() => document.querySelector('.profile-foot a')?.focus())
-        for (let k = 0; k < 60; k++) {
-          await lp.keyboard.press('Shift+Tab')
-          const stop = await lp.evaluate(() => {
-            const a = document.activeElement
-            if (!a || !a.closest('table.echiquier')) return null
-            const r = a.getBoundingClientRect()
-            const head = document.querySelector('table.echiquier > thead').getBoundingClientRect()
-            const site = document.querySelector('.form-header').getBoundingClientRect()
-            const covered = (head.height > 0 && r.top >= head.top - 1 && r.bottom <= head.bottom + 1) || r.bottom <= site.bottom + 1
-            return covered ? `${(a.textContent ?? '').trim().slice(0, 30)} (${Math.round(r.top)}-${Math.round(r.bottom)}, en-tête ${Math.round(head.top)}-${Math.round(head.bottom)})` : null
-          })
-          if (stop) focusIssues.push(stop)
+        // En remontant de « La méthode en détail » jusqu'au haut du graphique : c'est en remontant que l'axe collant ou son
+        // rappel peuvent couvrir l'élément qui reçoit le focus
+        for (const detail of [false, true]) {
+          if (detail) {
+            await lp.locator('main .profile-all > summary').click()
+            await lp.locator('main .unit-detail summary').first().click()
+            await lp.evaluate(() => document.querySelector('.profile-detail .detail-q a')?.scrollIntoView())
+          }
+          await lp.evaluate(d => (d ? document.querySelector('.profile-detail .detail-q a') : document.querySelector('.profile-keep a'))?.focus(), detail)
+          for (let k = 0; k < 45; k++) {
+            await lp.keyboard.press('Shift+Tab')
+            const stop = await lp.evaluate(covered)
+            if (stop) focusIssues.push(`${width} px : ${stop}`)
+          }
+          if (detail) await lp.locator('main .profile-all > summary').click()
         }
+      }
+      if (width === 1280 && zoom === 100) {
+        await lp.evaluate(() => document.querySelector('.profile-keep a')?.focus())
+        for (let k = 0; k < 30; k++) {
+          await lp.keyboard.press('Shift+Tab')
+          const stop = await lp.evaluate(covered)
+          if (stop) focusIssues.push(`${width} px : ${stop}`)
+        }
+      }
+      // Une ligne ouverte, les plis et le détail ouverts
+      await lp.locator('.profile-chart .row').first().click().catch(() => null)
+      for (let k = 0; k < 4 && (await lp.locator('.profile-chart .fold[aria-expanded="false"]').count()); k++) await lp.locator('.profile-chart .fold[aria-expanded="false"]').first().click()
+      await lp.evaluate(() => {
+        const d = document.querySelector('main .profile-all')
+        if (d) d.open = true
+      })
+      await lp.locator('main .unit-detail summary').first().click().catch(() => null)
+      await lp.waitForTimeout(100)
+      const wide = await lp.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)
+      if (wide > 0) layoutIssues.push(`${width} px à ${zoom} % (${which}) : ${wide} px de trop`)
+      const clipped = await lp.evaluate(() =>
+        [...document.querySelectorAll('.profile-chart .row-name, .profile-chart .zone-bloc, .profile-chart .fold-label')]
+          .filter(e => e.checkVisibility() && e.scrollWidth > e.clientWidth + 1)
+          .map(e => e.textContent.trim().slice(0, 24)),
+      )
+      if (clipped.length) layoutIssues.push(`${width} px à ${zoom} % (${which}) : rogné ${clipped.slice(0, 3).join(', ')}`)
+      // Au téléphone, le rappel collant des blocs, une fois l'axe sorti de l'écran : ses libellés passent à la ligne,
+      // jamais rognés
+      if (phone) {
+        await lp.locator('.profile-chart .row[aria-expanded="true"]').evaluateAll(bs => bs.forEach(b => b.click()))
+        await lp.evaluate(() => {
+          const top = document.querySelector('.form-header').getBoundingClientRect().bottom
+          window.scrollTo(0, document.querySelector('.profile-chart .rows-wrap').getBoundingClientRect().top + scrollY - top + 8)
+        })
+        await lp.waitForTimeout(150)
+        const mini = await lp.evaluate(() => {
+          const spans = [...document.querySelectorAll('.axis-mini.is-on .axis-mini-inner > span')]
+          return { on: spans.length > 0, clipped: spans.filter(e => e.scrollWidth > e.clientWidth + 1 || e.scrollHeight > e.clientHeight + 1).map(e => e.textContent.trim()) }
+        })
+        miniRuns.push(mini.on)
+        if (mini.clipped.length) layoutIssues.push(`${width} px à ${zoom} % (${which}) : rappel des blocs rogné ${mini.clipped.join(', ')}`)
       }
       await lctx.close()
     }
-    check(layoutIssues.length === 0, `mon profil politique : rien en largeur à 320 px, à 390 px au texte à 200 %, ni à 1 280 px${layoutIssues.length ? ` : ${layoutIssues.join(' ; ')}` : ''}`)
-    check(focusIssues.length === 0, `mon profil politique, au clavier à 390 px : aucun focus caché sous l’en-tête collant${focusIssues.length ? ` : ${focusIssues.slice(0, 3).join(' ; ')}` : ''}`)
+    check(layoutIssues.length === 0 && miniRuns.some(Boolean), `mon profil politique : rien en largeur ni rogné à 320, 390 et 1 280 px, au texte normal et à 200 % (rappel des blocs vu ${miniRuns.filter(Boolean).length} fois sur ${miniRuns.length}), « Touchez… » au doigt${layoutIssues.length ? ` : ${layoutIssues.join(' ; ')}` : ''}`)
+    check(focusIssues.length === 0, `mon profil politique, au clavier à 390 et 1 280 px : aucun focus caché sous l’en-tête, l’axe collant ou son rappel, ni l’en-tête des colonnes du détail${focusIssues.length ? ` : ${focusIssues.slice(0, 3).join(' ; ')}` : ''}`)
   } else console.log('– mon profil politique : pas d’axe pour cette élection, contrôles sautés')
 
   // 4 bis. La fenêtre de confidentialité s'ouvre depuis la barre du bas et se ferme
