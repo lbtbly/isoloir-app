@@ -5934,6 +5934,15 @@ details[open] > summary .summary-label {
   background: var(--panel);
 }
 
+/* « Mon profil politique » : à l'encre, comme la page (DESIGN.md, The Reading Not Label Rule). Le pastel de sa place
+   y prendrait un sens, celui d'un bloc de la grille ; papier et filets seulement */
+.next-panels > li.is-ink {
+  --panel: var(--paper);
+  box-shadow:
+    inset 0 var(--thick) 0 var(--rule-strong),
+    inset 0 0 0 var(--line) var(--rule-strong);
+}
+
 .next-panel {
   flex: 1;
   display: grid;

@@ -3,7 +3,8 @@
 
 import type { ComponentChildren } from 'preact'
 
-function Arrow({ x1, y1, x2, y2, tone = 'print' }: { x1: number; y1: number; x2: number; y2: number; tone?: 'print' | 'ink' | 'red' }) {
+/** Une flèche au trait ; aussi celle du schéma de « Mon profil politique » (ui/profile/Diagram.tsx) */
+export function Arrow({ x1, y1, x2, y2, tone = 'print' }: { x1: number; y1: number; x2: number; y2: number; tone?: 'print' | 'ink' | 'red' }) {
   const a = Math.atan2(y2 - y1, x2 - x1)
   const h = 7
   const p1 = `${x2 - h * Math.cos(a - 0.45)},${y2 - h * Math.sin(a - 0.45)}`
@@ -25,7 +26,8 @@ function Cross({ x, y, r = 7 }: { x: number; y: number; r?: number }) {
   )
 }
 
-function Figure({ title, desc, viewBox, children }: { title: string; desc: string; viewBox: string; children: ComponentChildren }) {
+/** Un schéma, avec son titre et sa description accessibles */
+export function Figure({ title, desc, viewBox, children }: { title: string; desc: string; viewBox: string; children: ComponentChildren }) {
   const id = title.replace(/\W+/g, '-').toLowerCase()
   return (
     <svg class="diagram" viewBox={viewBox} role="img" aria-labelledby={`${id}-t ${id}-d`}>

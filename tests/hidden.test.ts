@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest'
 import { parseLocation, resolvePlace } from '../src/core/routes'
 import { ELECTIONS, RETIRED_PREFIXES } from '../src/elections'
 import { elections } from '../src/elections/all'
+import { panelOf } from '../src/core/echiquier'
 import { candidates as rawCandidates } from '../src/elections/presidentielle-2027/candidates'
 import { positions as rawPositions } from '../src/elections/presidentielle-2027/positions'
 
@@ -19,6 +20,11 @@ for (const pack of elections) {
         expect(entry.candidateIds, id).not.toContain(id)
       }
       expect(new Set(hidden).size).toBe(hidden.length)
+    })
+
+    it('jamais sur l’axe de « Mon profil politique » (panelOf)', () => {
+      const flat = panelOf(pack).flat()
+      for (const id of hidden) expect(flat, id).not.toContain(id)
     })
 
     it('le registre en garde la même liste (hiddenCandidateIds), pour les anciens liens vers leur fiche', () => {

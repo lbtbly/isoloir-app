@@ -1,8 +1,11 @@
 // Page des candidats rangée selon une grille des nuances (election.spectrum) : chaque candidat a une nuance de la
-// grille et un parti (Candidate.party), chaque bloc l'un des quatre pastels du site.
+// grille et un parti (Candidate.party), chaque bloc l'un des quatre pastels du site. L'axe de la page « Mon profil
+// politique » (spectrum.axis) : des blocs de la grille, sans doublon, dans son ordre.
 import { describe, expect, it } from 'vitest'
 import { elections } from '../src/elections/all'
-import { spectrumOrder } from '../src/ui/screens/Candidates'
+import { excludedIds } from '../src/core/score'
+import { panelOf } from '../src/core/echiquier'
+import { axisOf, spectrumOrder } from '../src/core/spectrum'
 
 for (const { election, candidates } of elections.filter(p => p.election.spectrum)) {
   const spectrum = election.spectrum!
@@ -27,6 +30,38 @@ for (const { election, candidates } of elections.filter(p => p.election.spectrum
         const d = codes.indexOf(a.nuance!) - codes.indexOf(b.nuance!)
         expect(d < 0 || (d === 0 && a.id < b.id), `${a.id} avant ${b.id}`).toBe(true)
       }
+    })
+
+    it('l’axe de « Mon profil politique » : des blocs de la grille, sans doublon, dans son ordre, avec leurs formes', () => {
+      const axis = axisOf(election)
+      if (!axis) return
+      const order = spectrum.blocs.map(b => b.id)
+      const ids = axis.map(a => a.bloc)
+      for (const id of ids) expect(order, id).toContain(id)
+      expect(new Set(ids).size).toBe(ids.length)
+      expect(ids).toEqual([...ids].sort((a, b) => order.indexOf(a) - order.indexOf(b)))
+      for (const a of axis) for (const k of ['short', 'where', 'from', 'to'] as const) expect(a[k].trim(), `${a.bloc} ${k}`).not.toBe('')
+    })
+
+    it('les candidats de l’axe : ni non classés, ni hors axe, chacun une fois, dans l’ordre alphabétique de son bloc', () => {
+      const axis = axisOf(election)
+      if (!axis) return
+      const panel = panelOf({ election, candidates })
+      const out = new Set(excludedIds({ election }))
+      const flat = panel.flat()
+      expect(new Set(flat).size).toBe(flat.length)
+      for (const id of flat) expect(out.has(id), id).toBe(false)
+      panel.forEach((ids, b) => {
+        expect(ids).toEqual([...ids].sort())
+        for (const id of ids) {
+          const nuance = candidates.find(c => c.id === id)!.nuance
+          expect(spectrum.nuances.find(n => n.code === nuance)?.bloc, id).toBe(axis[b]!.bloc)
+        }
+      })
+      // Tous les candidats classés dont le bloc est sur l'axe y sont
+      const onAxis = new Set(axis.map(a => a.bloc))
+      const expected = candidates.filter(c => !out.has(c.id) && onAxis.has(spectrum.nuances.find(n => n.code === c.nuance)?.bloc ?? '')).map(c => c.id)
+      expect([...flat].sort()).toEqual(expected.sort())
     })
   })
 }

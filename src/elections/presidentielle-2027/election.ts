@@ -138,6 +138,17 @@ export const election: ElectionInfo = {
       { id: 'extreme-droite', label: 'Extrême droite', pastel: 'bleu' },
     ],
     source: { title: 'Circulaire NOR INTP2618666C du 23 août 2026, annexe 1 : grille des nuances individuelles (élections sénatoriales 2026)', url: 'https://www.legifrance.gouv.fr/circulaire/id/45684', date: '2026-08-23', publisher: 'Ministère de l’Intérieur' },
+    // L'axe de la page « Mon profil politique » (décision du propriétaire du 12 octobre 2026) : les cinq blocs de la
+    // grille, de l'extrême gauche à l'extrême droite, avec leurs formes dans les phrases ; le bloc « Autres » n'en est
+    // pas (une liste, pas une place entre la gauche et le centre). Les libellés sont ceux de la grille, toujours
+    // attribués à elle dans les phrases (« que la grille classe à droite »).
+    axis: [
+      { bloc: 'extreme-gauche', short: 'Ext. gauche', where: 'à l’extrême gauche', from: 'de l’extrême gauche', to: 'à l’extrême gauche' },
+      { bloc: 'gauche', short: 'Gauche', where: 'à gauche', from: 'de la gauche', to: 'à la gauche' },
+      { bloc: 'centre', short: 'Centre', where: 'au centre', from: 'du centre', to: 'au centre' },
+      { bloc: 'droite', short: 'Droite', where: 'à droite', from: 'de la droite', to: 'à la droite' },
+      { bloc: 'extreme-droite', short: 'Ext. droite', where: 'à l’extrême droite', from: 'de l’extrême droite', to: 'à l’extrême droite' },
+    ],
   },
   // Primaire « Choisir 2027 » remportée par Raphaël Glucksmann dès le premier tour, le 11 octobre 2026 : les quatre autres
   // candidats sont masqués, fiches et positions gardées (demande du propriétaire du 12 octobre 2026, « cache-les
@@ -176,6 +187,13 @@ export const election: ElectionInfo = {
       // Affichée aussi en tête du dépouillement d'un visiteur qui revient (Results, « mises à jour depuis votre dernier
       // passage ») : l'effet sur le classement d'abord, sans score ni nom des candidats masqués (le score est sur la fiche)
       text: 'Les quatre candidats de la primaire «\u00a0Choisir 2027\u00a0» qui n’ont pas été désignés ne sont plus présentés\u00a0: 22 candidats, dont 15 classés. Raphaël Glucksmann y a été désigné dès le premier tour, le 11 octobre 2026. Les pages et les vidéos propres à la primaire ne sont plus en ligne.',
+    },
+    {
+      date: '2026-10-12',
+      // Nouvelle page, sans effet sur le score (METHOD_VERSION reste 2.0) ; chiffres publiés : core/echiquierCopy.ts.
+      // Écrite après l'entrée du même jour : à date égale, c'est la première écrite qui s'affiche en tête du dépouillement
+      // d'un visiteur qui revient (Results, latestChange), et c'est elle qui dit ce qui change dans son classement
+      text: 'Nouvelle page «\u00a0Mon profil politique\u00a0», après le dépouillement\u00a0: lecture de vos réponses, thème par thème, au regard de la grille des nuances du ministère de l’Intérieur. Le score et le classement ne changent pas.',
     },
     {
       date: '2026-10-10',

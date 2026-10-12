@@ -3,22 +3,13 @@
 // (core/shareImage.ts), qui restent dans le code de la page. La copie hors ligne la contient comme tous les fichiers
 // du site.
 
+import { onDemand } from '../lazy'
+
 export type AgreeModule = typeof import('../../core/agreeImage')
 
-let mod: AgreeModule | null = null
-let loading: Promise<AgreeModule> | null = null
+const agree = onDemand<AgreeModule>(() => import('../../core/agreeImage'))
 
 /** Le module, s'il est déjà chargé */
-export const agreeNow = (): AgreeModule | null => mod
-
+export const agreeNow = agree.now
 /** Charge le module (une fois) ; un échec (ancienne version en cache après un déploiement, réseau coupé) permet de réessayer */
-export function loadAgree(): Promise<AgreeModule> {
-  loading ??= import('../../core/agreeImage').then(
-    m => (mod = m),
-    e => {
-      loading = null
-      throw e
-    },
-  )
-  return loading
-}
+export const loadAgree = agree.load

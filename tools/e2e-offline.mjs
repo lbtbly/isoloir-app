@@ -15,6 +15,9 @@
 // agrandi (dont le focus jamais masqué), feuille enregistrée sous la clé de l'élection seule. Adresses retirées
 // du site (la primaire « Choisir 2027 », #/primaire, #/archives : RETIRED_PREFIXES du registre) et anciens liens
 // vers un candidat masqué, tous corrigés ; accueil sans rien de la primaire, même avec sa feuille sur l'appareil.
+// « Mon profil politique » (#/profil) : rien pendant la tendance, puis panneau et lien du dépouillement, page lue sur
+// l'appareil (mention IA, encre seule, une ligne par thème répondu), sans nouvelle clé de stockage, sans défilement en
+// largeur, sans focus caché sous l'en-tête collant des colonnes, et sans effet sur l'affiche JPG.
 //
 // Usage : pnpm build && node tools/e2e-offline.mjs [port] [--pack <id>] [--prefix <slug>]
 //   --pack <id>     : l'élection à parcourir (par défaut, celle du registre sans préfixe : src/elections/index.ts)
@@ -77,6 +80,8 @@ const N = pack.candidates.length
 const EXCLUDED = new Set(pack.election.ranking?.excluded?.ids ?? [])
 const NS = pack.candidates.filter(c => !EXCLUDED.has(c.id)).length
 const STORAGE = `isoloir:${entry.id}`
+/** « Mon profil politique » : seulement pour une élection dont la grille des nuances a un axe */
+const PROFILE = !!pack.election.spectrum?.axis?.length
 /** Un candidat avec une fiche complète (parcours) : la page « candidat » de référence */
 const FICHE = pack.candidates.find(c => c.bio?.length) ?? pack.candidates[0]
 const pad = n => String(n).padStart(2, '0')
@@ -456,6 +461,23 @@ try {
     await page.goto(U('/resultats'))
     await heading(page, 'Une première tendance')
 
+    // 3 ter. « Mon profil politique » attend le résultat complet : aucun lien pendant la tendance ; l'adresse directe
+    // dit que le dépouillement n'est pas fini et propose de continuer, sans tableau
+    if (PROFILE) {
+      const trendLinks = await page.locator(`a[href="${L('/profil')}"]`).count()
+      await page.goto(U('/profil'))
+      await page.locator('main h1').waitFor()
+      const waitText = flat(await page.locator('main').innerText())
+      const tables = await page.locator('main table').count()
+      const cta = ((await page.locator('main a.btn-primary').textContent().catch(() => '')) ?? '').trim()
+      check(
+        trendLinks === 0 && waitText.includes('Le dépouillement n’est pas fini') && cta.startsWith('Continuer') && tables === 0,
+        `mon profil politique, pendant la tendance : ${trendLinks} lien dans le dépouillement, page d’attente (« ${cta} »), ${tables} tableau`,
+      )
+      await page.goto(U('/resultats'))
+      await heading(page, 'Une première tendance')
+    }
+
     // 4. Continuer : les autres, les priorités, le résultat complet
     await page.locator('.action-bar-inner > .btn-primary').click()
     check(hashOf(page) === L(`/feuille/${STEP1 + 1}`), `Continuer reprend à la question ${STEP1 + 1}`)
@@ -510,6 +532,139 @@ try {
   // La liste interdite ne vient pas du registre (il peut n'avoir qu'une élection) : aucune autre clé « isoloir: »
   const keys = await page.evaluate(() => Object.keys(localStorage).filter(k => k.startsWith('isoloir:') && !k.endsWith(':illisible')))
   check(keys.length === 1 && keys[0] === STORAGE, `sauvegarde : la feuille est sous « ${STORAGE} », et aucune autre clé « isoloir: » n’existe (${keys.join(', ')})`)
+
+  // 4 quinquies. « Mon profil politique », hors ligne comme tout le reste (le fichier à part de la page est dans la copie
+  // hors ligne) : le panneau de « Et maintenant » et le lien sous « Par thème » ; la page, arrivée par le panneau (focus
+  // au titre), sa mention IA en tête, « Calcul sans IA », une ligne par thème répondu et par famille affichée, le statut
+  // « Lecture prête. » ; tout à l'encre (ni aplat ni couleur hors de l'imprimé et du gris) ; aucune nouvelle clé de
+  // stockage ni de session (seule « isoloir-focus », le temps d'un clic vers « Qui porte quoi ») ; rien en largeur à
+  // 320 px, ni à 390 px au texte agrandi à 200 % ; l'affiche JPG est la même avant et après la visite.
+  if (PROFILE) {
+    const imageHash = async () => {
+      await page.goto(U('/partager'))
+      await page.waitForSelector('.share-preview img', { timeout: 5000 }).catch(() => null)
+      // Les pixels de l'image, redessinés : la CSP (connect-src 'none') interdit de relire son fichier
+      return page.evaluate(async () => {
+        const img = document.querySelector('.share-preview img')
+        if (!img) return null
+        await img.decode().catch(() => null)
+        const canvas = document.createElement('canvas')
+        canvas.width = img.naturalWidth
+        canvas.height = img.naturalHeight
+        const g = canvas.getContext('2d')
+        g.drawImage(img, 0, 0)
+        const digest = await crypto.subtle.digest('SHA-256', g.getImageData(0, 0, canvas.width, canvas.height).data)
+        return { hash: [...new Uint8Array(digest)].map(b => b.toString(16).padStart(2, '0')).join(''), alt: img.getAttribute('alt') ?? '' }
+      }).catch(() => null)
+    }
+    const before = await imageHash()
+    const sessionBefore = await page.evaluate(() => Object.keys(sessionStorage).sort())
+    await page.goto(U('/resultats'))
+    await heading(page, 'Votre dépouillement')
+    const panel = page.locator(`.next-panels a[href="${L('/profil')}"]`)
+    const panelTitle = flat(await panel.locator('.next-title').textContent().catch(() => ''))
+    const panelPlace = await page.locator('.next-panels > li').evaluateAll((lis, href) => lis.findIndex(li => li.querySelector(`a[href="${href}"]`)), L('/profil'))
+    const gridLink = await page.locator(`.topics-block a[href="${L('/profil')}"]`).count()
+    const barShortcuts = await page.locator('.results-bar .bar-mini:visible').count()
+    await panel.click()
+    await page.locator('[role="status"]', { hasText: 'Lecture prête.' }).waitFor({ timeout: 8000 }).catch(() => null)
+    const focused = await page.evaluate(() => document.activeElement?.matches('main h1') ?? false)
+    const h1 = flat(await page.locator('main h1').textContent().catch(() => ''))
+    const title = await page.title()
+    const main = flat(await page.locator('main').innerText())
+    const status = flat(await page.locator('main [role="status"]').last().textContent().catch(() => ''))
+    const aiLabel = await page.locator('main .ai-label').first().isVisible().catch(() => false)
+    // Une ligne par thème répondu, plus une par famille affichée (au moins deux thèmes répondus)
+    const saved = await page.evaluate(key => JSON.parse(localStorage.getItem(key) ?? '{}'), STORAGE)
+    const answeredTopics = new Set(pack.bank.questions.filter(q => Object.keys(saved.answers?.[q.id]?.ratings ?? {}).length && !saved.answers[q.id].skipped).map(q => q.topicId))
+    const familiesShown = groups.filter(g => g.topicIds.length > 1 && g.topicIds.filter(t => answeredTopics.has(t)).length > 1).length
+    const rows = await page.locator('main table.echiquier > tbody > tr > th[scope="row"]').count()
+    // Encre seule : aucun aplat, aucune couleur de texte hors de l'imprimé et du gris
+    const inks = await page.evaluate(() => {
+      const probe = document.createElement('span')
+      document.body.append(probe)
+      const colorOf = v => {
+        probe.style.color = `var(${v})`
+        return getComputedStyle(probe).color
+      }
+      const allowedText = new Set([colorOf('--print'), colorOf('--print-soft')])
+      probe.style.color = ''
+      probe.style.backgroundColor = 'var(--paper)'
+      const paper = getComputedStyle(probe).backgroundColor
+      probe.remove()
+      const bad = []
+      for (const el of document.querySelectorAll('main .echiquier, main .echiquier *')) {
+        const cs = getComputedStyle(el)
+        if (!['rgba(0, 0, 0, 0)', 'transparent', paper].includes(cs.backgroundColor)) bad.push(`${el.tagName.toLowerCase()}.${el.className} fond ${cs.backgroundColor}`)
+        if (!allowedText.has(cs.color)) bad.push(`${el.tagName.toLowerCase()}.${el.className} encre ${cs.color}`)
+      }
+      return [...new Set(bad)].slice(0, 5)
+    })
+    // Le détail d'une ligne, et son lien vers « Qui porte quoi » : la seule clé de session, effacée à l'arrivée
+    await page.locator('main .unit-detail summary').first().click()
+    await page.locator('main .unit-detail[open] .detail-blocs tbody tr').first().waitFor({ timeout: 3000 }).catch(() => null)
+    const detailRows = await page.locator('main .unit-detail[open] .detail-blocs tbody tr').count()
+    const sessionDuring = await page.evaluate(() => Object.keys(sessionStorage).sort())
+    const keysAfter = await page.evaluate(() => Object.keys(localStorage).filter(k => k.startsWith('isoloir')))
+    await page.locator('main .unit-detail[open] .detail-q a').first().click()
+    await heading(page, 'Qui porte quoi')
+    const sessionAfter = await page.evaluate(() => Object.keys(sessionStorage).sort())
+    const after = await imageHash()
+    check(
+      panelTitle === 'Mon profil politique' && panelPlace === 1 && gridLink === 1 && barShortcuts === 2,
+      `mon profil politique : panneau « ${panelTitle} » en ${panelPlace + 1}e place de « Et maintenant », lien sous « Par thème » (${gridLink}), toujours deux raccourcis dans la barre (${barShortcuts})`,
+    )
+    check(
+      focused && h1 === 'Mon profil politique' && /^Mon profil politique · Isoloir$/.test(title) && aiLabel && main.includes('Positions résumées par IA') && main.includes('Calcul sans IA') && status === 'Lecture prête.' && rows === answeredTopics.size + familiesShown && detailRows === 5,
+      `mon profil politique : focus au titre ${focused}, onglet « ${title} », mention IA ${aiLabel}, « Calcul sans IA », statut « ${status} », ${rows} lignes (${answeredTopics.size} thèmes répondus + ${familiesShown} familles), détail de ${detailRows} blocs`,
+    )
+    check(inks.length === 0, `mon profil politique, à l’encre seule${inks.length ? ` : ${inks.join(' ; ')}` : ''}`)
+    check(
+      keysAfter.length === 1 && keysAfter[0] === STORAGE && sessionDuring.join() === sessionBefore.join() && sessionAfter.join() === sessionBefore.join(),
+      `mon profil politique : rien d’enregistré (clés ${keysAfter.join(', ')} ; session avant ${sessionBefore.join(', ') || 'vide'}, pendant ${sessionDuring.join(', ') || 'vide'}, après « Qui porte quoi » ${sessionAfter.join(', ') || 'vide'})`,
+    )
+    check(
+      !!before && !!after && before.hash === after.hash && before.alt === after.alt && !/profil|échiquier|grille/i.test(after.alt),
+      `affiche JPG : la même avant et après « Mon profil politique » (${before?.hash.slice(0, 12)}…, ${after?.hash.slice(0, 12)}…), rien de la page dans son texte de remplacement`,
+    )
+    // Mise en page : rien en largeur à 320 px, ni à 390 px au texte agrandi à 200 % ; au clavier, à 390 px, aucun
+    // élément qui reçoit le focus ne disparaît sous l'en-tête collant des colonnes ou sous celui du site (WCAG 2.4.11)
+    const state = await page.evaluate(() => Object.fromEntries(Object.keys(localStorage).map(k => [k, localStorage.getItem(k)])))
+    const layoutIssues = []
+    const focusIssues = []
+    for (const [width, zoom] of [[320, 100], [390, 100], [390, 200], [1280, 100]]) {
+      const lctx = await browser.newContext({ viewport: { width, height: 800 }, reducedMotion: 'reduce' })
+      await lctx.addInitScript(s => Object.entries(s).forEach(([k, v]) => localStorage.setItem(k, v)), state)
+      if (zoom !== 100) await lctx.addInitScript(z => document.addEventListener('DOMContentLoaded', () => (document.documentElement.style.fontSize = `${z}%`)), zoom)
+      const lp = await lctx.newPage()
+      await lp.goto(U('/profil'))
+      await lp.locator('[role="status"]', { hasText: 'Lecture prête.' }).waitFor({ timeout: 8000 }).catch(() => layoutIssues.push(`${width} px : pas de lecture`))
+      await lp.locator('main .unit-detail summary').first().click().catch(() => null)
+      const wide = await lp.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)
+      if (wide > 0) layoutIssues.push(`${width} px à ${zoom} % : ${wide} px de trop`)
+      if (width === 390 && zoom === 100) {
+        // En remontant de « La méthode en détail » jusqu'au haut du tableau : c'est en remontant que l'en-tête collant
+        // peut couvrir l'élément qui reçoit le focus
+        await lp.evaluate(() => document.querySelector('.profile-foot a')?.focus())
+        for (let k = 0; k < 60; k++) {
+          await lp.keyboard.press('Shift+Tab')
+          const stop = await lp.evaluate(() => {
+            const a = document.activeElement
+            if (!a || !a.closest('table.echiquier')) return null
+            const r = a.getBoundingClientRect()
+            const head = document.querySelector('table.echiquier > thead').getBoundingClientRect()
+            const site = document.querySelector('.form-header').getBoundingClientRect()
+            const covered = (head.height > 0 && r.top >= head.top - 1 && r.bottom <= head.bottom + 1) || r.bottom <= site.bottom + 1
+            return covered ? `${(a.textContent ?? '').trim().slice(0, 30)} (${Math.round(r.top)}-${Math.round(r.bottom)}, en-tête ${Math.round(head.top)}-${Math.round(head.bottom)})` : null
+          })
+          if (stop) focusIssues.push(stop)
+        }
+      }
+      await lctx.close()
+    }
+    check(layoutIssues.length === 0, `mon profil politique : rien en largeur à 320 px, à 390 px au texte à 200 %, ni à 1 280 px${layoutIssues.length ? ` : ${layoutIssues.join(' ; ')}` : ''}`)
+    check(focusIssues.length === 0, `mon profil politique, au clavier à 390 px : aucun focus caché sous l’en-tête collant${focusIssues.length ? ` : ${focusIssues.slice(0, 3).join(' ; ')}` : ''}`)
+  } else console.log('– mon profil politique : pas d’axe pour cette élection, contrôles sautés')
 
   // 4 bis. La fenêtre de confidentialité s'ouvre depuis la barre du bas et se ferme
   await page.goto(U('/feuille/2'))

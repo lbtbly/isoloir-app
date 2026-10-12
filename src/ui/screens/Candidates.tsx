@@ -23,6 +23,8 @@ import { link } from '../nav'
 import { isMany } from '../many'
 import { comparePath } from '../../core/routes'
 import { isExcluded, knownQuestions } from '../../core/score'
+// L'ordre de la grille des nuances (election.spectrum), partagé avec la page « Mon profil politique »
+import { spectrumOrder } from '../../core/spectrum'
 import { CompareBar, CompareToggle } from '../compare/Tray'
 import { MAX_COMPARED_WORDS } from '../compare/selection'
 import { prepareCompare } from '../compare/load'
@@ -50,16 +52,6 @@ function SourceList({ sources }: { sources: Source[] }) {
       ))}
     </ul>
   )
-}
-
-/**
- * Ordre de la grille des nuances (election.spectrum), puis alphabétique au sein d'une même nuance ; null si l'élection
- * n'en a pas ou si un candidat n'y a pas de nuance (l'ordre reste alors tiré au hasard, pour tous)
- */
-export function spectrumOrder(election: ElectionInfo, candidates: Candidate[]): Candidate[] | null {
-  const codes = election.spectrum?.nuances.map(n => n.code)
-  if (!codes || !candidates.every(c => c.nuance && codes.includes(c.nuance))) return null
-  return [...candidates].sort((a, b) => codes.indexOf(a.nuance!) - codes.indexOf(b.nuance!) || a.id.localeCompare(b.id))
 }
 
 /** Pastel de la carte d'un candidat : celui du bloc de sa nuance dans la grille (election.spectrum) */

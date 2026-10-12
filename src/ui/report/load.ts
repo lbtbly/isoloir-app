@@ -4,31 +4,15 @@
 // (Safari sur iPhone refuse un téléchargement lancé après une attente). La copie hors ligne le contient comme tous
 // les fichiers du site.
 
+import { onDemand } from '../lazy'
+
 export type ReportModule = typeof import('../../core/reportPdf')
 
-let mod: ReportModule | null = null
-let loading: Promise<ReportModule> | null = null
+const report = onDemand<ReportModule>(() => import('../../core/reportPdf'))
 
 /** Le module, s'il est déjà chargé */
-export const reportNow = (): ReportModule | null => mod
-
+export const reportNow = report.now
 /** Charge le module (une fois) ; un échec (ancienne version en cache après un déploiement, copie hors ligne incomplète) permet de réessayer */
-export function loadReport(): Promise<ReportModule> {
-  loading ??= import('../../core/reportPdf').then(
-    m => (mod = m),
-    e => {
-      loading = null
-      throw e
-    },
-  )
-  return loading
-}
-
+export const loadReport = report.load
 /** Prépare le module quand le navigateur a un moment */
-export function prepareReport(): void {
-  if (mod || loading) return
-  const later = (globalThis as { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number }).requestIdleCallback
-  const go = () => void loadReport().catch(() => undefined)
-  if (later) later(go, { timeout: 4000 })
-  else setTimeout(go, 1500)
-}
+export const prepareReport = report.prepare

@@ -8,6 +8,8 @@ import { currentAnswers } from '../../core/revisions'
 import { comparePath } from '../../core/routes'
 import { prepareCompare } from '../compare/load'
 import { loadReport, prepareReport, reportNow } from '../report/load'
+import { prepareProfile } from '../profile/load'
+import { axisOf } from '../../core/spectrum'
 import {
   AGREE_HEADS,
   AGREE_LEDE,
@@ -36,6 +38,9 @@ import {
   LINK_SOURCES,
   MANY_RED_LINES,
   manyRedLinesNote,
+  PROFILE_GRID_LINK,
+  PROFILE_PANEL,
+  PROFILE_TITLE,
   priorityHead,
   READING_NEUTRAL,
   READING_STROKE,
@@ -111,6 +116,15 @@ export const latestChange = <T extends { date: string }>(log: readonly T[]): T |
   log.reduce<T | undefined>((a, c) => (!a || c.date > a.date ? c : a), undefined)
 
 type Snapshot = SessionState['lastSeenRanking']
+
+/** Un panneau de « Et maintenant » ; ink : à l'encre, sans le pastel de sa place */
+interface NextPanel {
+  href: string
+  icon: string
+  title: string
+  desc: string
+  ink?: boolean
+}
 
 /** Dernier geste sur une étoile, pour l'annoncer à côté de l'endroit où il a eu lieu */
 type PriorityNote =
@@ -299,10 +313,15 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
   // par thème ; l'appel à continuer passe devant.
   const unseen = essential.filter(q => !state.answers[q.id])
   const provisional = unseen.length > 0
-  // Le dépouillement en PDF se prépare dès que le résultat est complet (jamais pendant la tendance)
+  // « Mon profil politique » : seulement au résultat complet, pour une élection dont la grille a un axe
+  const profile = !provisional && !!axisOf(election)
+  // Le dépouillement en PDF, et « Mon profil politique », se préparent dès que le résultat est complet (jamais
+  // pendant la tendance)
   useEffect(() => {
-    if (!provisional) prepareReport()
-  }, [provisional])
+    if (provisional) return
+    prepareReport()
+    if (profile) prepareProfile()
+  }, [provisional, profile])
   const refineHref = `/feuille/${essential.indexOf(unseen[0]!) + 1}`
   const remaining = `${unseen.length}\u00a0question${unseen.length > 1 ? 's' : ''}`
 
@@ -436,7 +455,7 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
 
   // Les suites, en panneaux : la première est l'action principale de la barre du bas. Tant que le résultat
   // est provisoire, seul « Qui porte quoi » est proposé : l'action principale est de continuer.
-  const whoHolds = {
+  const whoHolds: NextPanel = {
     href: link('/proximite'),
     icon: 'list',
     title: 'Qui porte quoi',
@@ -444,8 +463,11 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
       ? `Vos ${essential.length - unseen.length} premières questions, face aux positions des candidats, sources à l’appui.`
       : 'Vos avis face aux positions des candidats, question par question, sources à l’appui.',
   }
-  const next = [
+  const next: NextPanel[] = [
     whoHolds,
+    // Deuxième, juste après « Qui porte quoi » (décision du propriétaire du 12 octobre 2026). À l'encre, sans pastel,
+    // comme la page : le pastel de sa place (le bleu, celui de la droite sur les cartes des candidats) y prendrait un sens
+    ...(profile ? [{ href: link('/profil'), icon: 'axis', title: PROFILE_TITLE, desc: PROFILE_PANEL, ink: true }] : []),
     { href: link('/partager'), icon: 'share', title: 'Partager l’image', desc: 'Votre affiche en JPG, fabriquée sur cet appareil.' },
     {
       href: link('/approfondir'),
@@ -714,6 +736,11 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
                 </table>
               </div>
               <p class="small">{GRID_DASH}</p>
+              {profile ? (
+                <p class="small">
+                  <a href={link('/profil')}>{PROFILE_GRID_LINK}</a>
+                </p>
+              ) : null}
             </section>
 
             {results.why.length && first && second ? (
@@ -754,7 +781,7 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
           </h2>
           <ul class="next-panels">
             {(provisional ? [whoHolds] : next).map((n, i) => (
-              <li key={n.href} class={i === 0 && !provisional ? 'on-copy' : ''}>
+              <li key={n.href} class={i === 0 && !provisional ? 'on-copy' : n.ink ? 'is-ink' : ''}>
                 <a href={n.href} class="next-panel">
                   <Icon name={n.icon} class="next-icon" />
                   <span class="next-title">{n.title}</span>

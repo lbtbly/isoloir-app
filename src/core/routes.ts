@@ -14,6 +14,8 @@ export type Route =
   | { name: 'priorities' }
   | { name: 'results' }
   | { name: 'proximity' }
+  /** « Mon profil politique » : vos réponses sur l'échiquier, thème par thème, après le dépouillement complet */
+  | { name: 'profile' }
   | { name: 'deepen' }
   | { name: 'share' }
   /** « anchor » : la rubrique à montrer à l'ouverture (#/methode/ia) */
@@ -36,6 +38,8 @@ const PAGES = new Set([
   'priorites',
   'resultats',
   'proximite',
+  // « Mon profil politique » : sans lui ici, #/profil serait lu comme le préfixe d'une élection
+  'profil',
   'approfondir',
   'partager',
   'methode',
@@ -81,6 +85,8 @@ export function parseRoute(path: string): Route {
       return { name: 'results' }
     case 'proximite':
       return { name: 'proximity' }
+    case 'profil':
+      return { name: 'profile' }
     case 'approfondir':
       return { name: 'deepen' }
     case 'partager':

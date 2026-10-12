@@ -23,6 +23,8 @@ describe('parseRoute', () => {
     expect(parseRoute('#/candidat/royal')).toEqual({ name: 'candidate', id: 'royal' })
     expect(parseRoute('#/candidat')).toEqual({ name: 'candidates' })
     expect(parseRoute('#/sujets/retraites-1')).toEqual({ name: 'topics', anchor: 'retraites-1' })
+    expect(parseRoute('#/profil')).toEqual({ name: 'profile' })
+    expect(parseRoute('#/methode/profil')).toEqual({ name: 'method', anchor: 'profil' })
     expect(parseRoute('#/nimporte')).toEqual({ name: 'home' })
   })
 
@@ -55,6 +57,11 @@ describe('parseLocation', () => {
     expect(parseLocation('#/candidat/royal')).toEqual({ slug: '', route: { name: 'candidate', id: 'royal' }, path: '/candidat/royal' })
   })
 
+  it('« profil » est le nom d’une page (« Mon profil politique »), pas un préfixe d’élection', () => {
+    expect(parseLocation('#/profil')).toEqual({ slug: '', route: { name: 'profile' }, path: '/profil' })
+    expect(parseLocation('#/presidentielle-2027/profil')).toEqual({ slug: 'presidentielle-2027', route: { name: 'profile' }, path: '/profil' })
+  })
+
   it('un premier segment qui n’est pas une page est un préfixe d’élection', () => {
     expect(parseLocation('#/europeennes-2024/resultats')).toEqual({ slug: 'europeennes-2024', route: { name: 'results' }, path: '/resultats' })
     expect(parseLocation('#/euro')).toEqual({ slug: 'euro', route: { name: 'home' }, path: '/' })
@@ -82,7 +89,7 @@ describe('withBase et canonicalPath', () => {
   })
 
   it('chaque adresse relue redonne la même page', () => {
-    for (const path of ['/', '/feuille/4', '/approfondi/2', '/resultats', '/methode/ia', '/candidat/x', '/comparer/x,y', '/comparer', '/sujets/a-1', '/videos/v']) {
+    for (const path of ['/', '/feuille/4', '/approfondi/2', '/resultats', '/profil', '/methode/ia', '/methode/profil', '/candidat/x', '/comparer/x,y', '/comparer', '/sujets/a-1', '/videos/v']) {
       for (const slug of ['', 'autre-2030']) {
         const place = parseLocation(withBase(slug, path))
         expect(place.slug, `${slug} ${path}`).toBe(slug)
