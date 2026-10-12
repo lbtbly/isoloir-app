@@ -1,5 +1,5 @@
 // Test de bout en bout « Fermez l'isoloir » : on charge la page, on coupe le réseau, et tout doit
-// marcher jusqu'au bout (première tendance, suite du questionnaire, résultats, image, double), y compris un
+// marcher jusqu'au bout (première tendance, suite du questionnaire, résultats, images à partager, double), y compris un
 // rechargement de la page sans réseau. Aucune requête ne doit viser un autre site.
 // Contrôles annexes : accueil (film en héros, appel dans l'en-tête), anonymat des questions pas encore vues,
 // tendance sans verdict, « Sans avis » entouré, légende de « Qui porte quoi », accords et désaccords par
@@ -548,6 +548,64 @@ try {
       `affiche des plus éloignés : bouton enfoncé (${pressed}), texte de remplacement propre et numéroté`,
     )
     await page.getByRole('button', { name: 'Les plus proches' }).click()
+  }
+  // L'image « Accords et désaccords », chargée à la demande (ici sans réseau, depuis la copie hors ligne) : chaque portée
+  // fabrique une image, avec un texte de remplacement propre (numéros, deux barres comptées, notes de pied) et un nom de
+  // fichier à elle ; « Tous » peut être plus haute que l'affiche, jamais plus de 1080 × 1920
+  const agreeButton = page.getByRole('button', { name: 'Accords et désaccords' })
+  if (await agreeButton.count()) {
+    const shareImg = page.locator('.share-preview img')
+    const newImage = (before, re) =>
+      page
+        .waitForFunction(
+          ([before, source]) => {
+            const img = document.querySelector('.share-preview img')
+            return !!img && img.getAttribute('src') !== before && new RegExp(source).test(img.getAttribute('alt') ?? '')
+          },
+          [before, re.source],
+          { timeout: 8000 },
+        )
+        .then(
+          () => true,
+          () => false,
+        )
+    const agreeHead = /^Image « Accords et désaccords », /
+    let before = await shareImg.getAttribute('src')
+    await agreeButton.click()
+    const agreeShown = await newImage(before, agreeHead)
+    const agreePressed = await agreeButton.getAttribute('aria-pressed')
+    check(agreeShown && agreePressed === 'true', `image « Accords et désaccords » fabriquée hors ligne, chargée à la demande (bouton enfoncé : ${agreePressed})`)
+    const scopes = [
+      ['Les 5 plus proches', /^Image « Accords et désaccords », les 5 plus proches de mes idées, /, '-accords-plus-proches.jpg'],
+      ['Les 5 plus éloignés', /^Image « Accords et désaccords », les 5 plus éloignés de mes idées, /, '-accords-plus-eloignes.jpg'],
+      ['Tous', /^Image « Accords et désaccords », (les \d+ candidats|le candidat)/, '-accords-tous.jpg'],
+    ]
+    const hasScopes = (await page.getByRole('button', { name: 'Tous', exact: true }).count()) > 0
+    for (const [label, re, suffix] of hasScopes ? scopes : scopes.slice(2)) {
+      const button = page.getByRole('button', { name: label, exact: true })
+      // La première portée est celle par défaut : l'image est déjà là
+      if (label !== scopes[0][0] && hasScopes) {
+        before = await shareImg.getAttribute('src')
+        await button.click()
+      }
+      const made = await newImage(label === scopes[0][0] || !hasScopes ? null : before, re)
+      const alt = ((await shareImg.getAttribute('alt')) ?? '').replace(/\u00a0/g, ' ')
+      const [w, h] = [Number(await shareImg.getAttribute('width')), Number(await shareImg.getAttribute('height'))]
+      const pressed = hasScopes ? await button.getAttribute('aria-pressed') : 'true'
+      const rows = alt.match(/\d+\. [^:]+ (\d+|–) % (\(croix\) )?: ses approches principales, \d+ accords? et \d+ désaccords? ; ses autres positions, \d+ accords? et \d+ désaccords?\./g) ?? []
+      const [download] = await Promise.all([
+        page.waitForEvent('download', { timeout: 5000 }).catch(() => null),
+        page.getByRole('button', { name: /^Télécharger/ }).first().click(),
+      ])
+      const name = download?.suggestedFilename() ?? ''
+      check(
+        made && pressed === 'true' && re.test(alt) && (hasScopes && label !== 'Tous' ? rows.length === 5 : rows.length > (hasScopes ? 5 : 0)) && /Ordre et numéros par affinité seule/.test(alt) && w === 1080 && h >= 1350 && h <= 1920 && name.endsWith(suffix),
+        `accords et désaccords, « ${label} » : image ${w} × ${h}, ${rows.length} lignes au texte de remplacement, fichier ${name}`,
+      )
+    }
+    before = await shareImg.getAttribute('src')
+    await page.getByRole('button', { name: 'Mon dépouillement' }).click()
+    check(await newImage(before, /^Affiche « Mon dépouillement »/), 'retour à l’affiche « Mon dépouillement »')
   }
   await page.goto(U('/resultats'))
   const [download] = await Promise.all([

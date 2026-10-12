@@ -9,11 +9,13 @@ import { shareText } from '../ui/format'
 import { CLOSE_GAP, displayScore, POINTS_PER_STROKE, type CandidateResult, type DealbreakerHit } from './score'
 import type { ElectionInfo } from './types'
 
+// Les mots de « Accords et désaccords », à part (core/agreeCopy.ts) pour l'image partagée qui les reprend
+export { AGREE_HEADS, AGREE_LEDE, AGREE_NONE, count, TITLE_AGREE } from './agreeCopy'
+
 // Titres et intitulés de la page, repris par le PDF (où les liens deviennent des adresses imprimées)
 export const TITLE_DONE = 'Votre dépouillement'
 export const TITLE_PRIORITIES = 'Vos priorités'
 export const TITLE_BOARD = 'Le classement'
-export const TITLE_AGREE = 'Accords et désaccords'
 export const TITLE_SWAP = 'Un résultat qui dépend de la façon de compter'
 /** Les deux colonnes du résultat sensible à la méthode */
 export const SWAP_HEADS = ['Score complet', 'Approches principales seulement'] as const
@@ -129,16 +131,6 @@ export const excludedLede = (n: number) =>
 
 /** Non classés : sur combien de questions de la banque la position est connue */
 export const bankKnownLine = (known: number, total: number) => `Connu sur ${known} des ${total}\u00a0questions de la banque`
-
-/** Accords et désaccords : chapeau */
-export const AGREE_LEDE =
-  'Vos avis sur ce que porte chaque candidat, comptés un par un. Un accord\u00a0: «\u00a0D’accord\u00a0» sur une approche qu’il défend, ou «\u00a0Pas d’accord\u00a0» sur une approche qu’il rejette. Ses approches principales comptent double dans le score\u00a0; ses autres positions sont ses approches compatibles et ses rejets.'
-
-/** Accords et désaccords : les deux colonnes de barres */
-export const AGREE_HEADS = ['Ses approches principales', 'Ses autres positions'] as const
-
-/** Accords et désaccords : candidat sans position connue sur vos réponses */
-export const AGREE_NONE = 'Aucune position connue sur vos réponses.'
 
 /**
  * Résultat sensible à la méthode : la phrase, en morceaux alternés, texte puis noms (en gras sur la page) :

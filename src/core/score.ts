@@ -187,6 +187,11 @@ export interface Results {
    * ordre tiré au hasard (graine de l'utilisateur) ; toujours vide pour une élection sans cette règle
    */
   unranked: UnrankedResult[]
+  /**
+   * Les candidats classés dans l'ordre du tirage des ex aequo (graine de l'utilisateur), avant tout tri : il ne doit
+   * rien aux lignes rouges. L'image de partage sans les croix (core/shareImage.ts) en départage ses ex aequo
+   */
+  drawOrder: CandidateId[]
   /** Part minimale des questions comptées où un candidat doit être connu pour être classé ; null : pas de règle */
   minCoverageShare: number | null
   answered: number
@@ -417,5 +422,18 @@ export function computeResults(
     why.splice(3)
   }
 
-  return { ranking, excluded, unranked, minCoverageShare: minShare, answered, redLineCount, close, stable, allIncompatible, why, weights }
+  return {
+    ranking,
+    excluded,
+    unranked,
+    drawOrder: shuffled.map(r => r.candidateId),
+    minCoverageShare: minShare,
+    answered,
+    redLineCount,
+    close,
+    stable,
+    allIncompatible,
+    why,
+    weights,
+  }
 }

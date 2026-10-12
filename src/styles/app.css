@@ -1581,6 +1581,16 @@ path.ink-draw {
   color: var(--on-print);
 }
 
+/* Partager : à l'étroit, un libellé passe à la ligne dans son bouton plutôt qu'un bouton tombe seul sous les autres */
+.segmented.is-fit {
+  flex-wrap: nowrap;
+}
+
+.segmented.is-fit button {
+  flex: 1 1 auto;
+  text-wrap: balance;
+}
+
 .reveal-topic {
   margin-top: var(--s7);
 }
