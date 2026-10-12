@@ -43,6 +43,9 @@ export function ProfileMethod({ pack }: { pack: ElectionPack }) {
         <strong>Le hasard.</strong> {T.methodChance(ECHIQUIER.GAP)}
       </p>
       <p>
+        <strong>Les couleurs.</strong> {T.HOW_COLOR} {T.COLORS_CHANCE}
+      </p>
+      <p>
         <strong>Quand on ne lit pas.</strong> {T.METHOD_WHEN_NOT}
       </p>
       <p>

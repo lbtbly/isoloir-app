@@ -8,17 +8,21 @@ import type { TopicGroup } from '../../core/types'
 
 export interface ChartRows {
   /**
-   * Plus près d'un seul côté du centre (ou du centre lui-même, seul ou avec un côté) : de la gauche vers la droite de la
-   * grille (premier bloc ▲, puis dernier, puis ▽). Des blocs non voisins y gardent leurs barres séparées.
+   * Nettement plus près d'un seul côté du centre (ou du centre lui-même, seul ou avec un côté) : de la gauche vers la
+   * droite de la grille (premier bloc nettement plus près, puis dernier, puis nombre de blocs nettement plus loin, puis
+   * nom).
    */
   main: UnitReading[]
   /** Plus près de part et d'autre du centre, sans lui : leur section à part, sans moyenne (acrossCentre) */
   both: UnitReading[]
   /** Seulement plus loin d'au moins un bloc, rangés selon le premier */
   apart: UnitReading[]
-  /** Rien de net, dans l'ordre des familles */
+  /** Rien de net, dans l'ordre des familles : visibles, en couleurs, sous leur intertitre */
   flat: UnitReading[]
-  /** Thèmes sans lecture (une seule question, ou trop de blocs inconnus) ; family : la famille lue à leur place */
+  /**
+   * Thèmes sans lecture nette (une seule question, ou trop de blocs inconnus), dans l'ordre des familles ; family : la
+   * famille lue à leur place
+   */
   unread: { unit: UnitReading; family: string | null }[]
 }
 
