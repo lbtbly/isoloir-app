@@ -134,6 +134,11 @@ export function Privacy({ eraseAll }: { eraseAll: () => void }) {
             comme toute adresse visitée.
           </p>
           <p>
+            La page «&nbsp;Mon profil politique&nbsp;» est calculée sur cet appareil, à partir de votre progression&nbsp;: elle
+            reste seulement en mémoire le temps de la visite (un rechargement l’oublie) et ne figure ni sur l’affiche, ni
+            dans le PDF, ni dans le double.
+          </p>
+          <p>
             Ces stockages servent seulement au service que vous demandez&nbsp;: reprendre votre feuille là où vous
             l’avez laissée, et ouvrir le site sans réseau. Rien n’en est
             transmis, ni au site ni à un tiers. La loi

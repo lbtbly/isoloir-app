@@ -428,4 +428,23 @@ export interface Spectrum {
   blocs: { id: string; label: string; pastel: 'rouge' | 'jaune' | 'bleu' | 'vert' }[]
   /** La grille et sa source */
   source: Source
+  /**
+   * Les blocs qui forment l'axe de la page « Mon profil politique », de gauche à droite (core/echiquier.ts) ; un bloc
+   * absent (« Autres ») est hors axe, et ses candidats hors lecture. Sans axe, pas de page.
+   */
+  axis?: SpectrumAxisBloc[]
+}
+
+/** Un bloc de l'axe (Spectrum.axis) et ses formes dans les phrases de la page « Mon profil politique » */
+export interface SpectrumAxisBloc {
+  /** Identifiant d'un des blocs de la grille (Spectrum.blocs) */
+  bloc: string
+  /** En-tête de colonne : « Ext. gauche » */
+  short: string
+  /** « à l’extrême gauche » */
+  where: string
+  /** « de l’extrême gauche » (premier bloc d'une suite : « de l’extrême gauche à la gauche ») */
+  from: string
+  /** « à l’extrême gauche » (dernier bloc d'une suite) */
+  to: string
 }

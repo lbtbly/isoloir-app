@@ -1,0 +1,603 @@
+/* « Mon profil politique » : vos réponses sur l'échiquier, thème par thème (ui/screens/Profile.tsx).
+   À l'encre seule (DESIGN.md, The Reading Not Label Rule) : ni aplat, ni pastel, ni couleur de bloc, ni vert ni orangé ;
+   les marques sont des glyphes imprimés, toujours doublés d'un mot. Chargée avec la page, à la demande. */
+
+.profile-ai {
+  margin: calc(-1 * var(--s2)) 0 var(--s1);
+}
+
+.profile-noai {
+  margin: 0 0 var(--s5);
+}
+
+.profile-quick a {
+  font-weight: 700;
+}
+
+/* ——— Comment lire : un encadré imprimé, toujours ouvert ——— */
+
+.profile-how {
+  max-width: var(--measure);
+  margin: var(--s5) 0 0;
+  padding: var(--s4) var(--s4) var(--s3);
+  border: var(--line) solid var(--rule-strong);
+  font-size: var(--text-sm);
+}
+
+.profile-how-title {
+  margin: 0 0 var(--s2);
+  font-weight: 800;
+  font-stretch: 78%;
+  font-size: 1.35rem;
+  line-height: 1.1;
+}
+
+.profile-how > ol {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.profile-how > ol > li {
+  margin: 0 0 var(--s3);
+  padding-left: 0.2rem;
+}
+
+.profile-how > ol > li::marker {
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+}
+
+.profile-legend {
+  list-style: none;
+  margin: 0 0 var(--s2);
+  padding: 0;
+}
+
+.profile-legend li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  margin: 0.2rem 0;
+}
+
+.profile-legend .mk-glyph {
+  flex: none;
+  width: 1.1em;
+  text-align: center;
+}
+
+/* Les dépliants de la page : chevron qui pivote, libellé souligné, cible de 2,75 rem */
+.profile-who summary,
+.summary-more summary,
+.unit-detail summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 2.75rem;
+  list-style: none;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.profile-who summary::-webkit-details-marker,
+.summary-more summary::-webkit-details-marker,
+.unit-detail summary::-webkit-details-marker {
+  display: none;
+}
+
+.profile-who ul {
+  margin: 0 0 var(--s2);
+  padding-left: 1.1rem;
+}
+
+.profile-who li {
+  margin: 0.25rem 0;
+}
+
+/* ——— Marques ——— */
+
+.mk-glyph {
+  font-weight: 800;
+  color: var(--print);
+}
+
+.mk-glyph.is-rien,
+.mk-glyph.is-inconnu,
+.mk.is-rien .mk-glyph,
+.mk.is-inconnu .mk-glyph {
+  color: var(--print-soft);
+  font-weight: 700;
+}
+
+.profile-status {
+  margin: var(--s6) 0 0;
+}
+
+/* ——— Synthèse ——— */
+
+.summary-list {
+  max-width: var(--measure);
+  margin: 0 0 var(--s3);
+}
+
+.summary-list > div {
+  padding: var(--s3) 0;
+  border-bottom: var(--hair) solid var(--rule);
+}
+
+.summary-list > div:first-child {
+  padding-top: 0;
+}
+
+.summary-list dt {
+  font-weight: 800;
+  font-stretch: 78%;
+  font-size: 1.35rem;
+  line-height: 1.1;
+}
+
+.summary-list dd {
+  margin: 0.3rem 0 0;
+  overflow-wrap: anywhere;
+}
+
+.summary-family {
+  color: var(--print-soft);
+}
+
+.summary-empty {
+  max-width: var(--measure);
+}
+
+.summary-lists {
+  margin: var(--s2) 0;
+}
+
+.summary-more summary {
+  align-items: flex-start;
+  min-height: 2.5rem;
+  padding-top: 0.55rem;
+  font-weight: 650;
+}
+
+/* Un libellé sur deux lignes : le chevron reste en face de la première */
+.summary-more .disclosure {
+  margin-top: 0.2em;
+}
+
+.summary-more p {
+  max-width: var(--measure);
+  margin: 0 0 var(--s2) 1.35rem;
+  color: var(--print-soft);
+}
+
+/* ——— Le tableau, qui est le graphique ———
+   Trois dispositions, selon la place (requêtes de conteneur) : au téléphone, le nom du thème sur toute la largeur et
+   les cinq cases dessous, sous l'en-tête collant ; dès 34 rem, un tableau classique ; sous 20 rem (téléphone de
+   320 px, texte très agrandi), une liste, une ligne par bloc. Les rôles du tableau sont explicites (Profile.tsx) : les changements de disposition
+   ne lui ôtent rien pour les lecteurs d'écran. Les sélecteurs s'en tiennent aux enfants directs : le tableau du
+   détail, imbriqué, garde les siens. */
+
+.echiquier-wrap {
+  container: echiquier / inline-size;
+}
+
+.echiquier {
+  --cols: repeat(var(--blocs, 5), minmax(0, 1fr));
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.echiquier > * > tr > th,
+.echiquier > * > tr > td {
+  padding: 0;
+  text-align: left;
+  vertical-align: top;
+  font-weight: inherit;
+}
+
+.echiquier > thead,
+.echiquier > tbody {
+  display: block;
+}
+
+.echiquier > * > tr {
+  display: grid;
+  grid-template-columns: var(--cols);
+}
+
+/* Avec l'en-tête collant des colonnes, l'élément qui reçoit le focus s'arrête dessous (--echq-head : sa hauteur réelle,
+   mesurée par la page ; nulle en liste, où il est masqué) */
+html:has(.echiquier) {
+  scroll-padding-top: calc(var(--header-real, 3.5rem) + 5px + var(--echq-head, 3.25rem) + 0.75rem);
+}
+
+/* L'en-tête des colonnes reste sous l'en-tête du site pendant la lecture */
+.echiquier > thead {
+  position: sticky;
+  top: calc(var(--header-real, 3.5rem) + 5px);
+  z-index: 3;
+  background: var(--paper);
+}
+
+.echiquier > thead > tr > th {
+  padding: var(--s2) 0.15rem;
+  /* Un filet dessiné dans la case : en bordures fusionnées, une bordure resterait en place quand l'en-tête colle */
+  box-shadow: inset 0 calc(-1 * var(--line)) 0 var(--rule-strong);
+  font-weight: 800;
+  font-stretch: 80%;
+  line-height: 1.1;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+/* Au téléphone, la colonne des thèmes n'a pas de case : chaque nom passe au-dessus de ses cinq cases. Sa case d'en-tête
+   n'est masquée qu'aux yeux, hors de la grille : pour les lecteurs d'écran, chaque case de bloc garde l'en-tête de sa
+   colonne */
+.echiquier > thead > tr > th:first-child {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.echiquier > tbody > tr > th,
+.echiquier > tbody > .say > td {
+  grid-column: 1 / -1;
+}
+
+.echiquier > tbody > .fam-head > th {
+  padding: var(--s6) 0 var(--s2);
+  border-bottom: var(--line) solid var(--rule-strong);
+  font-weight: 800;
+  font-stretch: 78%;
+  font-size: 1.3rem;
+  line-height: 1.1;
+}
+
+.echiquier > tbody:first-of-type > .fam-head > th {
+  padding-top: var(--s4);
+}
+
+.echiquier > tbody > .unit-row > th {
+  padding: var(--s3) 0 var(--s1);
+  overflow-wrap: anywhere;
+}
+
+.unit-name {
+  font-weight: 750;
+}
+
+.unit-n {
+  color: var(--print-soft);
+  white-space: nowrap;
+}
+
+/* Une famille entière : sa ligne précède celles de ses thèmes, séparée d'elles par un filet pointillé */
+.echiquier .fam-row .unit-name {
+  font-weight: 800;
+}
+
+.echiquier > tbody > .fam-say > td {
+  border-bottom-style: dashed;
+}
+
+.echiquier > tbody > tr > td.mk {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--s1) 0.1rem var(--s2);
+  text-align: center;
+  line-height: 1.15;
+}
+
+.echiquier .mk-glyph {
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+
+/* « · » rien de net, « ? » inconnu : en gris, plus discrets que les marques, mais lisibles (le point, agrandi, garde son
+   dessin rond en graisse ordinaire) */
+.echiquier .mk.is-rien .mk-glyph {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 0.85;
+}
+
+.mk-word {
+  overflow-wrap: anywhere;
+}
+
+.echiquier > tbody > tr > td.mk.is-pres {
+  font-weight: 800;
+}
+
+.echiquier > tbody > tr > td.mk.is-loin {
+  font-weight: 450;
+}
+
+.echiquier .mk.is-loin .mk-glyph {
+  font-weight: 700;
+}
+
+/* Sans lecture : les cases restent vides, la phrase dit pourquoi */
+.echiquier > tbody > .is-unread > td.mk {
+  padding: 0;
+}
+
+.echiquier > tbody > .say > td {
+  padding: 0 0 var(--s3);
+  border-bottom: var(--hair) solid var(--rule);
+}
+
+.say-text {
+  max-width: var(--measure);
+  margin: var(--s1) 0 0;
+}
+
+/* Rien de net, pas de lecture : la phrase en gris, pour que les lectures se voient d'abord */
+.say.is-quiet .say-text {
+  color: var(--print-soft);
+}
+
+/* Tableau classique, dès 34 rem */
+@container echiquier (min-width: 34rem) {
+  .echiquier {
+    table-layout: fixed;
+  }
+
+  .echiquier > thead {
+    display: table-header-group;
+  }
+
+  .echiquier > tbody {
+    display: table-row-group;
+  }
+
+  .echiquier > * > tr {
+    display: table-row;
+  }
+
+  .echiquier > * > tr > th,
+  .echiquier > * > tr > td,
+  .echiquier > tbody > tr > td.mk,
+  .echiquier > thead > tr > th:first-child {
+    display: table-cell;
+  }
+
+  .echiquier > thead > tr > th:first-child {
+    position: static;
+    width: 34%;
+    height: auto;
+    margin: 0;
+    padding: var(--s2) 0.15rem var(--s2) 0;
+    overflow: visible;
+    clip-path: none;
+    white-space: normal;
+    text-align: left;
+  }
+
+  .echiquier > tbody > .unit-row > th {
+    padding: var(--s3) var(--s3) var(--s1) 0;
+  }
+
+  .echiquier > tbody > .unit-row > td.mk,
+  .echiquier > tbody > .is-unread > td.mk {
+    padding: var(--s3) 0.15rem var(--s1);
+  }
+
+  .unit-n {
+    display: block;
+  }
+}
+
+/* Grand tableau : la marque et son mot sur une ligne, un peu plus étroits */
+@container echiquier (min-width: 42rem) {
+  .echiquier > tbody > tr > td.mk {
+    white-space: nowrap;
+  }
+
+  .echiquier .mk-word {
+    font-stretch: 88%;
+  }
+}
+
+/* Colonne très étroite (320 px, texte très agrandi) : une liste, une ligne par bloc */
+@container echiquier (max-width: 19.99rem) {
+  .echiquier > thead {
+    display: none;
+  }
+
+  .echiquier > * > tr,
+  .echiquier > tbody > tr > th,
+  .echiquier > tbody > .say > td {
+    display: block;
+  }
+
+  /* Le point, à la taille des autres marques : sur la ligne de son bloc */
+  .echiquier .mk.is-rien .mk-glyph {
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .echiquier > tbody > tr > td.mk {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 0.35rem;
+    padding: 0.15rem 0;
+    text-align: left;
+  }
+
+  .echiquier > tbody > tr > td.mk::before {
+    content: attr(data-bloc) '\a0:';
+    font-weight: 650;
+  }
+
+  .echiquier > tbody > tr > td.mk .sr-only {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip-path: none;
+    white-space: normal;
+  }
+
+  .echiquier > tbody > .is-unread > td.mk {
+    display: none;
+  }
+}
+
+/* ——— Le détail d'une unité ——— */
+
+.unit-detail summary {
+  min-height: 2.5rem;
+  font-weight: 650;
+}
+
+.detail-body {
+  container: detail / inline-size;
+  margin: 0 0 var(--s2);
+  padding: var(--s1) 0 var(--s2) var(--s3);
+  border-left: var(--line) solid var(--rule-strong);
+}
+
+.detail-blocs {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.detail-blocs th,
+.detail-blocs td {
+  padding: 0.4rem 0.4rem 0.4rem 0;
+  border-bottom: var(--hair) solid var(--rule);
+  text-align: left;
+  vertical-align: top;
+}
+
+.detail-blocs thead th {
+  border-bottom: var(--line) solid var(--rule-strong);
+  font-weight: 750;
+  font-stretch: 85%;
+  line-height: 1.15;
+}
+
+.detail-blocs tbody th {
+  font-weight: 750;
+}
+
+/* Étroit : chaque bloc en quelques lignes, chacune nommée */
+@container detail (max-width: 33.99rem) {
+  .detail-blocs,
+  .detail-blocs tbody,
+  .detail-blocs tr,
+  .detail-blocs th,
+  .detail-blocs td {
+    display: block;
+  }
+
+  .detail-blocs thead {
+    display: none;
+  }
+
+  .detail-blocs tr {
+    padding: 0.35rem 0;
+    border-bottom: var(--hair) solid var(--rule);
+  }
+
+  .detail-blocs th,
+  .detail-blocs td {
+    padding: 0.05rem 0;
+    border: 0;
+  }
+
+  .detail-blocs td::before {
+    content: attr(data-head) '\a0: ';
+    color: var(--print-soft);
+  }
+}
+
+.detail-title {
+  margin: var(--s4) 0 var(--s1);
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.detail-people {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.detail-people li {
+  margin: 0.25rem 0;
+}
+
+.detail-q {
+  margin: var(--s3) 0 0;
+}
+
+.detail-prompt {
+  margin: 0;
+  font-weight: 700;
+}
+
+.detail-approaches {
+  list-style: none;
+  margin: var(--s1) 0 0;
+  padding: 0;
+}
+
+.detail-approaches li {
+  padding: 0.45rem 0;
+  border-top: var(--hair) solid var(--rule);
+}
+
+.detail-approach {
+  margin: 0;
+}
+
+.detail-meta {
+  margin: 0.1rem 0 0;
+  color: var(--print-soft);
+}
+
+.detail-meta strong {
+  color: var(--print);
+  font-weight: 700;
+}
+
+.detail-both {
+  color: var(--print);
+  font-weight: 700;
+}
+
+/* ——— À garder en tête ——— */
+
+.profile-foot {
+  margin-top: var(--s8);
+  padding-top: var(--s4);
+  border-top: var(--line) solid var(--rule-strong);
+}
+
+.profile-foot h2 {
+  margin: 0 0 var(--s3);
+  font-weight: 800;
+  font-stretch: 78%;
+  font-size: 1.4rem;
+  line-height: 1.1;
+}
+
+@media (forced-colors: active) {
+  .echiquier thead {
+    background: Canvas;
+  }
+}

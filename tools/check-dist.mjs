@@ -137,6 +137,20 @@ for (const f of agreeChunks) {
   const size = statSync(join(dist, 'assets', f)).size
   if (size > AGREE_BUDGET) fail(`image « Accords et désaccords » : assets/${f} pèse ${(size / 1000).toFixed(1)} ko, plafond de ${AGREE_BUDGET / 1000} ko`)
 }
+// « Mon profil politique » (src/ui/screens/Profile.tsx, avec son calcul, src/core/echiquier.ts, ses mots,
+// src/core/echiquierCopy.ts, et la rubrique de la Méthode qui l'explique) : un fichier à part, chargé à la demande par
+// import() (src/ui/profile/load.ts), jamais dans le JS initial ni préchargé par la page. Plafond : la page (environ
+// 28 ko) et la rubrique de la Méthode (environ 6 ko), rangée là pour ne rien ajouter au code de toutes les visites
+const PROFILE_BUDGET = 38_000
+const profileChunks = readdirSync(join(dist, 'assets')).filter(f => /^Profile-[\w-]+\.js$/.test(f))
+if (profileChunks.length !== 1) fail(`« Mon profil politique » : ${profileChunks.length} fichier(s) assets/Profile-*.js, un attendu`)
+const modulePreloads = [...html.matchAll(/<link rel="modulepreload"[^>]*href="\.\/(assets\/[^"]+)"/g)].map(m => m[1])
+for (const f of profileChunks) {
+  if (initial.includes(join('assets', f))) fail(`« Mon profil politique » : assets/${f} est dans le JS initial (il doit n'être chargé que par import())`)
+  if (modulePreloads.includes(`assets/${f}`)) fail(`« Mon profil politique » : assets/${f} est préchargé par dist/index.html`)
+  const size = statSync(join(dist, 'assets', f)).size
+  if (size > PROFILE_BUDGET) fail(`« Mon profil politique » : assets/${f} pèse ${(size / 1000).toFixed(1)} ko, plafond de ${PROFILE_BUDGET / 1000} ko`)
+}
 // Aucun texte de la banque dans le JS initial : ni énoncé ni approche, de chaque élection du site
 // (src/elections/<id>/bank.ts) ou en préparation (research/<id>/bank.json, écrit par tools/build-pack.mjs)
 const initialCode = initial.map(f => readFileSync(join(dist, f), 'utf8')).join('\n')
@@ -217,6 +231,7 @@ if (!process.exitCode) console.log('✓ dist vérifié : CSP stricte, aucune API
 if (initialBytes) console.log(`  JS initial : ${(initialBytes / 1000).toFixed(1)} ko sur ${INITIAL_JS_BUDGET / 1000} ko permis (${initial.join(', ')}), sans aucun des ${prompts} textes des banques`)
 for (const f of reportChunks) console.log(`  dépouillement en PDF : assets/${f}, ${(statSync(join(dist, 'assets', f)).size / 1000).toFixed(1)} ko sur ${REPORT_BUDGET / 1000} ko permis, chargé à la demande`)
 for (const f of agreeChunks) console.log(`  image « Accords et désaccords » : assets/${f}, ${(statSync(join(dist, 'assets', f)).size / 1000).toFixed(1)} ko sur ${AGREE_BUDGET / 1000} ko permis, chargée à la demande`)
+for (const f of profileChunks) console.log(`  « Mon profil politique » : assets/${f}, ${(statSync(join(dist, 'assets', f)).size / 1000).toFixed(1)} ko sur ${PROFILE_BUDGET / 1000} ko permis, chargé à la demande`)
 
 // Voix des vidéos : un avertissement pour un fichier livré mais pas inscrit (jamais lu, poids inutile)
 const unlisted = [...shipped].filter(k => !inscribed.has(k))

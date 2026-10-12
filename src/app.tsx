@@ -24,6 +24,9 @@ import { Share } from './ui/screens/Share'
 import { CandidatePage, CandidatesIndex } from './ui/screens/Candidates'
 import { clearSelections } from './ui/compare/selection'
 import { compareNow, loadCompare } from './ui/compare/load'
+import { loadProfile, profileNow } from './ui/profile/load'
+import { useOnDemand } from './ui/lazy'
+import { axisOf } from './core/spectrum'
 import { Topics } from './ui/screens/Topics'
 import { Videos } from './ui/screens/Videos'
 import { useOnline } from './ui/useOnline'
@@ -279,11 +282,13 @@ function ElectionApp({ pack, route, focusOnMount }: ElectionProps) {
   const list = route.name === 'sheet' ? (route.tier === 'essentiel' ? essential : deep) : null
   // Une élection sans vidéos (périmètre vide) n'a pas de page des vidéos : son adresse mène à l'accueil
   const noVideos = route.name === 'videos' && !hasVideos(pack)
-  const missing = (!!list && list.length === 0) || (route.name === 'revision' && stale.length === 0) || noVideos
+  // Une élection sans axe de la grille des nuances (la primaire) n'a pas de page « Mon profil politique »
+  const noProfile = route.name === 'profile' && !axisOf(election)
+  const missing = (!!list && list.length === 0) || (route.name === 'revision' && stale.length === 0) || noVideos || noProfile
   useEffect(() => {
     if (!missing) return
     if (route.name === 'sheet') replace(route.tier === 'essentiel' ? '/' : '/approfondir')
-    if (route.name === 'revision') replace('/resultats')
+    if (route.name === 'revision' || route.name === 'profile') replace('/resultats')
     if (route.name === 'videos') replace('/')
   }, [missing, route])
 
@@ -368,6 +373,21 @@ function ElectionApp({ pack, route, focusOnMount }: ElectionProps) {
         )
       case 'proximity':
         return <Proximity pack={pack} state={state} results={results} />
+      case 'profile':
+        if (noProfile) return null
+        // Chargée à la demande, comme la comparaison ; arrivée par un lien : le titre prend le focus une fois chargée
+        return (
+          <Lazy
+            key="profile"
+            now={profileNow}
+            load={loadProfile}
+            what="Les pages du profil politique"
+            loading="du profil politique"
+            focusOnLoad={!firstRender.current}
+            onLoaded={() => setLoadedScreens(n => n + 1)}
+            render={m => <m.Profile pack={pack} state={state} essential={essential} results={results} />}
+          />
+        )
       case 'deepen':
         return <Deepen pack={pack} state={state} results={results} update={update} />
       case 'share':
@@ -385,7 +405,16 @@ function ElectionApp({ pack, route, focusOnMount }: ElectionProps) {
       case 'compare':
         // Arrivée par un lien (pas à l'ouverture de la page) : le titre prendra le focus une fois l'écran chargé
         return (
-          <LazyCompare pack={pack} ids={route.ids} state={state} focusOnLoad={!firstRender.current} onLoaded={() => setLoadedScreens(n => n + 1)} />
+          <Lazy
+            key="compare"
+            now={compareNow}
+            load={loadCompare}
+            what="Les pages de la comparaison"
+            loading="de la comparaison"
+            focusOnLoad={!firstRender.current}
+            onLoaded={() => setLoadedScreens(n => n + 1)}
+            render={m => <m.Compare pack={pack} ids={route.ids} state={state} />}
+          />
         )
       case 'topics':
         return <Topics pack={pack} state={state} essential={essential} anchor={route.anchor} />
@@ -401,42 +430,37 @@ function ElectionApp({ pack, route, focusOnMount }: ElectionProps) {
 }
 
 /**
- * La comparaison, chargée à la demande (ui/compare/load.ts) : un écran d'attente le temps du chargement, puis
- * l'écran ; arrivé par un lien, le focus va alors à son titre, comme à tout changement d'écran. Un échec propose de
- * réessayer.
+ * Un écran chargé à la demande (la comparaison, ui/compare/load.ts ; « Mon profil politique », ui/profile/load.ts) : un
+ * écran d'attente le temps du chargement, puis l'écran ; arrivé par un lien, le focus va alors à son titre, comme à
+ * tout changement d'écran. Un échec propose de réessayer. Chaque écran a sa clé (key), pour ne pas reprendre le module
+ * d'un autre en passant de l'un à l'autre.
  */
-function LazyCompare({
+function Lazy<M>({
+  now,
+  load,
+  render,
+  what,
+  loading,
   focusOnLoad,
   onLoaded,
-  ...props
 }: {
-  pack: ElectionPack
-  ids: string[]
-  state: SessionState
+  now: () => M | null
+  load: () => Promise<M>
+  render: (m: M) => preact.ComponentChildren
+  /** Sujet du message d'échec, au féminin pluriel : « Les pages de la comparaison » */
+  what: string
+  /** Complément de « Chargement… » : « de la comparaison » */
+  loading: string
   focusOnLoad: boolean
   onLoaded: () => void
 }) {
-  const [mod, setMod] = useState(compareNow)
-  const [failed, setFailed] = useState(false)
-  useEffect(() => {
-    if (mod) return
-    let alive = true
-    loadCompare().then(
-      m => {
-        if (!alive) return
-        setMod(() => m)
-        onLoaded()
-        if (focusOnLoad) requestAnimationFrame(() => document.querySelector<HTMLElement>('main h1')?.focus({ preventScroll: true }))
-      },
-      () => alive && setFailed(true),
-    )
-    return () => {
-      alive = false
-    }
-  }, [mod])
-  if (mod) return <mod.Compare {...props} />
-  if (failed) return <LoadFailed onRetry={retry} what="Les pages de la comparaison" />
-  return <Loading what="de la comparaison" />
+  const [mod, failed] = useOnDemand(now, load, () => {
+    onLoaded()
+    if (focusOnLoad) requestAnimationFrame(() => document.querySelector<HTMLElement>('main h1')?.focus({ preventScroll: true }))
+  })
+  if (mod) return <>{render(mod)}</>
+  if (failed) return <LoadFailed onRetry={retry} what={what} />
+  return <Loading what={loading} />
 }
 
 /** Lien d'évitement : déplace le focus sans toucher au routage par « # » */
@@ -467,6 +491,8 @@ function titleFor(route: Route): string {
       return 'Votre dépouillement'
     case 'proximity':
       return 'Qui porte quoi'
+    case 'profile':
+      return 'Mon profil politique'
     case 'deepen':
       return 'Approfondir'
     case 'share':

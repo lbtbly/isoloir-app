@@ -10,10 +10,39 @@ import { Icon } from '../components/Icon'
 import { SectionLink, goToSection } from '../components/LegalBits'
 import { formatDate, shareText } from '../format'
 import { hasVideos } from '../videos/load'
+import { loadProfile, profileNow } from '../profile/load'
+import { useOnDemand } from '../lazy'
+import { axisOf } from '../../core/spectrum'
 import '../../styles/ai-label.css'
 
 /** « A », « A et B », « A, B et C » */
 const joinNames = (names: string[]) => (names.length < 2 ? (names[0] ?? '') : `${names.slice(0, -1).join(', ')} et ${names.at(-1)}`)
+
+/**
+ * La rubrique « Mon profil politique », du fichier à part de la page (ui/profile/load.ts) : rien tant qu'il se charge ;
+ * un échec (hors ligne avant la copie hors ligne) le dit en une ligne
+ */
+function ProfileSection({ pack }: { pack: ElectionPack }) {
+  const [mod, failed] = useOnDemand(profileNow, loadProfile, keepPlace)
+  if (mod) return <mod.ProfileMethod pack={pack} />
+  return failed ? <p class="small">Cette rubrique n’a pas pu être chargée&nbsp;: rechargez la page pour la lire.</p> : null
+}
+
+/**
+ * La rubrique arrive après coup : si elle s'insère au-dessus de ce que l'on lit (arrivée par #/methode/ia, par exemple),
+ * ce qui est à l'écran ne bouge pas. Les navigateurs qui ancrent le défilement le font d'eux-mêmes (rien à corriger) ;
+ * Safari ne le fait pas, et la page sauterait de la hauteur de la rubrique.
+ */
+function keepPlace() {
+  const mark = document.getElementById('profil')
+  const ref = document.getElementById('journal')
+  if (!mark || !ref || mark.getBoundingClientRect().bottom > 0) return
+  const before = ref.getBoundingClientRect().top
+  requestAnimationFrame(() => {
+    const shift = ref.getBoundingClientRect().top - before
+    if (Math.abs(shift) > 1) window.scrollBy(0, shift)
+  })
+}
 
 /** Règlement européen sur l'intelligence artificielle, sur EUR-Lex */
 const AI_ACT = 'https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32024R1689'
@@ -123,7 +152,8 @@ export function Method({ pack, anchor }: { pack: ElectionPack; /** Rubrique à m
           Les candidats sont aussi présentés dans un ordre aléatoire partout où ils ne sont pas classés
           {election.spectrum ? (
             <>
-              , sauf sur la page des candidats (voir <SectionLink id="ordre-des-candidats">l’ordre des candidats</SectionLink>)
+              , sauf sur la page des candidats{axisOf(election) ? ' et sur «\u00a0Mon profil politique\u00a0»' : ''} (voir{' '}
+              <SectionLink id="ordre-des-candidats">l’ordre des candidats</SectionLink>)
             </>
           ) : null}
           .
@@ -202,8 +232,27 @@ export function Method({ pack, anchor }: { pack: ElectionPack; /** Rubrique à m
               {` Chaque candidat y prend la nuance de son parti, ou, si son parti n’y figure pas, celle que le ministère lui a attribuée à sa dernière élection\u00a0; au sein d’une même nuance, l’ordre est alphabétique. L’élection présidentielle n’attribue pas elle-même de nuances\u00a0: ce rangement est celui d’Isoloir, à partir de cette grille, qui place entre la gauche et le centre un bloc «\u00a0Autres\u00a0» (écologistes, divers, régionalistes).`}
             </p>
             <p>
-              {`Chaque carte porte l’un des quatre pastels du site, celui du bloc de son candidat dans la grille\u00a0: rouge à gauche, jaune au centre, bleu à droite, vert pour le bloc «\u00a0Autres\u00a0». Les logos sont ceux des partis, marques de leurs titulaires, montrés pour les reconnaître. Rien de cela n’entre dans le calcul\u00a0: pendant le questionnaire, les approches restent sans nom ni couleur, et ailleurs sur le site les candidats restent présentés dans un ordre tiré au hasard.`}
+              {`Chaque carte porte l’un des quatre pastels du site, celui du bloc de son candidat dans la grille\u00a0: rouge à gauche, jaune au centre, bleu à droite, vert pour le bloc «\u00a0Autres\u00a0». Les logos sont ceux des partis, marques de leurs titulaires, montrés pour les reconnaître. Rien de cela n’entre dans le score d’affinité ni dans le classement\u00a0: pendant le questionnaire, les approches restent sans nom ni couleur. Ailleurs sur le site, les candidats restent présentés dans un ordre tiré au hasard`}
+              {/* Amendement du 12 octobre 2026 (décision du propriétaire) : la grille sert aussi à lire vos réponses */}
+              {axisOf(election) ? (
+                <>
+                  {`, sauf sur la page «\u00a0Mon profil politique\u00a0», qui reprend les blocs de cette grille, sans couleur, pour situer vos réponses après le dépouillement (voir `}
+                  <SectionLink id="profil">comment elle se calcule</SectionLink>)
+                </>
+              ) : null}
+              .
             </p>
+          </>
+        ) : null}
+
+        {/* La page « Mon profil politique » (election.spectrum.axis) ; lien direct : #/methode/profil. Le titre est ici,
+            pour que l'ancre existe dès l'ouverture ; la rubrique vient du fichier à part de la page, chargé à la demande */}
+        {axisOf(election) ? (
+          <>
+            <h2 id="profil" tabIndex={-1}>
+              Mon profil politique
+            </h2>
+            <ProfileSection pack={pack} />
           </>
         ) : null}
 

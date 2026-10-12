@@ -158,6 +158,15 @@ export const gridAllLine = (n: number, someOff: boolean) =>
 /** Par thème : sous la grille */
 export const GRID_DASH = 'Un tiret : aucune position connue sur vos réponses de ce thème.'
 
+// La page « Mon profil politique » (ui/screens/Profile.tsx, ses mots dans core/echiquierCopy.ts) : son nom et ses
+// entrées depuis le dépouillement complet, ici pour que le code de toutes les visites n'emporte rien de plus
+/** Le nom de la page : son titre, son panneau dans « Et maintenant », le titre de l'onglet */
+export const PROFILE_TITLE = 'Mon profil politique'
+/** Son panneau dans « Et maintenant » */
+export const PROFILE_PANEL = 'Thème par thème, vos réponses se rapprochent-elles nettement d’un bloc de la grille officielle\u00a0?'
+/** Son lien sous la grille « Par thème » */
+export const PROFILE_GRID_LINK = 'Les mêmes thèmes, bloc par bloc\u00a0: «\u00a0Mon profil politique\u00a0»'
+
 /** À garder en tête : les trois mises en garde */
 export const caveats = (election: Pick<ElectionInfo, 'dataFrozenAt'>, minShare: number | null) => [
   'Pas une consigne de vote : le résultat dépend des sujets retenus et de la méthode.',

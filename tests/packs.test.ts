@@ -11,6 +11,7 @@ import { dirname, join, relative, resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { computeResults, effectiveWeight, excludedIds, knownQuestions, stance } from '../src/core/score'
 import { mulberry32 } from '../src/core/rng'
+import { panelOf } from '../src/core/echiquier'
 import type { Answers, Candidate, ElectionChecks, ElectionPack, Question, Rating } from '../src/core/types'
 import { ELECTIONS } from '../src/elections'
 import { elections } from '../src/elections/all'
@@ -211,6 +212,13 @@ for (const pack of elections) {
       for (const id of off) expect(listed, id).not.toContain(id)
       expect([...r.excluded].sort()).toEqual([...off].sort())
       expect(listed.length + r.excluded.length).toBe(n)
+    })
+
+    it('jamais sur l’axe de « Mon profil politique » (panelOf), pas plus que les candidats masqués', () => {
+      const flat = panelOf(pack).flat()
+      for (const id of [...off, ...(election.hidden ?? [])]) expect(flat, id).not.toContain(id)
+      // Sur l'axe, les candidats classés dont le bloc y est, tous calculés par le score
+      for (const id of flat) expect(scored.some(c => c.id === id), id).toBe(true)
     })
   })
 
