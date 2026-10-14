@@ -18,10 +18,12 @@ interface TallyProps {
   delay?: number
   /** Bâtons en pointillé (candidat écarté par un refus) */
   muted?: boolean
+  /** Aucun tracé, pas même le dernier bâton : un compte rappelé, que rien ne vient d'ajouter (accueil de retour) */
+  still?: boolean
   class?: string
 }
 
-export function Tally({ count, label, maxGroups = 3, drawAll = false, delay = 0, muted = false, class: c }: TallyProps) {
+export function Tally({ count, label, maxGroups = 3, drawAll = false, delay = 0, muted = false, still = false, class: c }: TallyProps) {
   const groups = Math.ceil(count / 5)
   const firstShown = Math.max(0, groups - maxGroups)
   const hidden = firstShown * 5
@@ -39,13 +41,13 @@ export function Tally({ count, label, maxGroups = 3, drawAll = false, delay = 0,
           <svg key={g} class="tally-group" viewBox="0 0 30 26" aria-hidden="true">
             {Array.from({ length: inGroup }, (_, k) => {
               const i = g * 5 + k
-              const drawn = drawAll || i === count - 1
+              const drawn = !still && (drawAll || i === count - 1)
               return (
                 <path
                   key={k}
                   pathLength={1}
                   class={drawn ? 'ink-draw' : undefined}
-                  style={drawAll ? { animationDelay: `${delay + i * 55}ms` } : undefined}
+                  style={drawn && drawAll ? { animationDelay: `${delay + i * 55}ms` } : undefined}
                   d={tallyPath(i)}
                 />
               )

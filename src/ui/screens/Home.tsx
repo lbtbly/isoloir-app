@@ -4,13 +4,15 @@ import { firstStepSize } from '../../core/order'
 import { isAnswered } from '../../core/answers'
 import { MAX_IMPORT_BYTES, parseImport } from '../../core/exportData'
 import { profileAccess } from '../../core/profileAccess'
-import { PROFILE_SEE, PROFILE_TITLE, profileHome, profileWhen } from '../../core/resultsCopy'
+import { PROFILE_SEE, profileHome, profileWhen } from '../../core/resultsCopy'
 import { currentAnswers } from '../../core/revisions'
 import { axisOf } from '../../core/spectrum'
+import type { Results } from '../../core/score'
 import type { SessionState } from '../../core/storage'
 import type { ElectionPack, Question, Round } from '../../core/types'
 import { AI_METHOD_PATH } from '../components/AiLabel'
 import { AirplaneSection } from '../components/Airplane'
+import { ChangedQuestions } from '../components/ChangedQuestions'
 import { ConfirmErase } from '../components/ConfirmErase'
 import { ExternalLink } from '../components/ExternalLink'
 import { ProfileBand, ProfilePeek } from '../components/ProfileEntry'
@@ -28,6 +30,7 @@ import { useReveal } from '../useReveal'
 import { prepareProfile } from '../profile/load'
 import { hasTable } from '../table/load'
 import { isMany } from '../many'
+import { WelcomeBack } from './HomeBack'
 
 const DAY_MONTH = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', timeZone: 'Europe/Paris' })
 
@@ -44,13 +47,15 @@ interface Props {
   essential: Question[]
   /** Questions changées sur le fond depuis la réponse, à revoir */
   stale: Question[]
+  /** Le dépouillement (src/app.tsx) : son affiche en tête de l'accueil, une fois les questions essentielles vues */
+  results: Results
   setState: (s: SessionState) => void
   eraseAll: () => void
   /** false si le navigateur refuse d'enregistrer la progression */
   saved: boolean
 }
 
-export function Home({ pack, state, essential, stale, setState, eraseAll, saved }: Props) {
+export function Home({ pack, state, essential, stale, results, setState, eraseAll, saved }: Props) {
   const { election } = pack
   const file = useRef<HTMLInputElement>(null)
   const sheet = useRef<HTMLElement>(null)
@@ -72,6 +77,9 @@ export function Home({ pack, state, essential, stale, setState, eraseAll, saved 
   const step1Done = step1 > 0 && essential.slice(0, step1).every(q => state.answers[q.id])
   // Questionnaire déjà complété une fois, puis rouvert par l'ajout de questions : on le dit, et on y mène
   const added = !done && state.essentialDoneAt ? essential.length - seen : 0
+  // Un dépouillement existe (questionnaire rapide terminé, au moins un avis compté) : l'accueil de retour en tête, le
+  // film plus bas (demande du propriétaire du 14/10/2026). Tout passé, ou tout à revoir : l'accueil d'avant, qui le dit
+  const back = done && results.answered > 0
 
   // « Mon profil politique » (élections dont la grille a un axe) : la même règle que la page et le dépouillement
   const axis = axisOf(election)
@@ -124,6 +132,7 @@ export function Home({ pack, state, essential, stale, setState, eraseAll, saved 
     return { entries, sources: sources.size, questions: pack.bank.questions.length }
   }, [pack])
   const audit = election.audit
+  const topicsById = useMemo(() => new Map(pack.bank.topics.map(t => [t.id, t])), [pack.bank.topics])
   // Ordre tiré au hasard par personne, comme partout où les candidats ne sont pas classés
   const people = useMemo(() => seededShuffle(pack.candidates, `${state.seed}:people`), [pack.candidates, state.seed])
   const startHref = done ? link('/resultats') : link(`/feuille/${(firstOpen < 0 ? 0 : firstOpen) + 1}`)
@@ -189,28 +198,36 @@ export function Home({ pack, state, essential, stale, setState, eraseAll, saved 
       {/* Une seule barre : l'en-tête porte l'appel principal, toujours visible */}
       <FormHeader title={election.shortName} home action={{ href: startHref, label: startLabel, short: shortLabel }} />
       <main class="sheet home-sheet" id="contenu" tabIndex={-1} ref={sheet}>
-        <h1 class="sr-only" tabIndex={-1}>
-          Isoloir : pointez les idées qui vous ressemblent
-        </h1>
-        {/* Le héros : le film du principe, sur un exemple fictif */}
-        <section class="home-film" aria-label="Comment marche Isoloir, en cinq scènes">
-          <FilmPlayer cta={{ href: startHref, label: startLabel, note: ctaNote }} />
-        </section>
+        {back ? (
+          <WelcomeBack
+            pack={pack}
+            state={state}
+            results={results}
+            stale={stale}
+            essentialCount={essential.length}
+            profileReady={ready}
+            profile={ready ? profileEntry : null}
+          />
+        ) : (
+          <>
+            <h1 class="sr-only" tabIndex={-1}>
+              Isoloir : pointez les idées qui vous ressemblent
+            </h1>
+            {/* Le héros : le film du principe, sur un exemple fictif */}
+            <section class="home-film" aria-label="Comment marche Isoloir, en cinq scènes">
+              <FilmPlayer cta={{ href: startHref, label: startLabel, note: ctaNote }} />
+            </section>
+          </>
+        )}
 
-        {started || stale.length > 0 ? (
+        {/* Où en est la feuille, sous le film (le questionnaire complet, c'est l'accueil de retour qui le dit) */}
+        {!back && started ? (
           <div class="home-status">
             {done && state.essentialDoneAt ? (
               <p class="progress-note done-note">
                 Vous avez répondu aux {essential.length} questions le{' '}
                 <time dateTime={state.essentialDoneAt}>{formatMoment(state.essentialDoneAt)}</time>.{' '}
                 <a href={link('/resultats')}>Voir mon dépouillement</a>
-                {/* La page prête : son lien dès le premier écran, le bandeau venant juste dessous */}
-                {ready ? (
-                  <>
-                    {'\u00a0· '}
-                    <a href={link('/profil')}>{PROFILE_TITLE}</a>
-                  </>
-                ) : null}
               </p>
             ) : added ? (
               <p class="notice" role="status">
@@ -233,17 +250,29 @@ export function Home({ pack, state, essential, stale, setState, eraseAll, saved 
                 ) : null}
               </p>
             ) : null}
-            {stale.length > 0 ? (
-              <p class="notice" role="status">
-                {stale.length} question{stale.length > 1 ? 's ont' : ' a'} changé depuis vos réponses.{' '}
-                <a href={link('/revision')}>{stale.length > 1 ? 'Les revoir' : 'La revoir'}</a>
-              </p>
-            ) : null}
           </div>
         ) : null}
-        {profileFirst ? profileEntry : null}
-        {proof}
-        {profileFirst ? null : profileEntry}
+        {!back ? <ChangedQuestions questions={stale} topics={topicsById} /> : null}
+        {back ? (
+          <>
+            {/* Le film, pour qui veut revoir le principe ; la page prête, son bandeau est sous l'affiche (HomeBack). Le
+                titre n'est pas un intertitre : chaque scène du film en porte un, au même niveau, sous le h1 de la page */}
+            <section class="home-film is-back" aria-labelledby="film-title">
+              <p id="film-title" class="section-title">
+                Comment marche Isoloir
+              </p>
+              <FilmPlayer cta={{ href: startHref, label: startLabel, note: '' }} />
+            </section>
+            {ready ? null : profileEntry}
+            {proof}
+          </>
+        ) : (
+          <>
+            {profileFirst ? profileEntry : null}
+            {proof}
+            {profileFirst ? null : profileEntry}
+          </>
+        )}
 
         <Journey />
 

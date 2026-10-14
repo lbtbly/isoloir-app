@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'preact/hooks'
 import { APP_NAME } from '../../core/app'
 import { currentPath, link } from '../nav'
+import { tableShown } from '../table/shown'
 import { videosShown } from '../videos/load'
 import '../../styles/brand.css'
 import { Curtain } from './Airplane'
@@ -32,10 +33,13 @@ const MENU = [
   { path: '/videos', label: 'Les vidéos', hint: 'Chaque thème en courtes vidéos sous-titrées', page: /^\/videos(\/|$)/, within: null },
   // La comparaison est une page des candidats : leur entrée la marque, sans entrée de plus dans l'en-tête
   { path: '/candidats', label: 'Les candidats', hint: 'Leur parcours, leurs positions sourcées, et les comparer', page: /^\/candidats\/?$/, within: /^\/(candidat|comparer)(\/|$)/ },
+  // « À table » : voter à plusieurs sur un seul téléphone (demande du propriétaire du 14/10/2026)
+  { path: '/a-table', label: 'À table', hint: 'Voter à plusieurs, en secret, sur un seul téléphone', page: /^\/a-table\/?$/, within: null },
 ]
 
-/** Les entrées du menu pour l'élection affichée : « Les vidéos » seulement si elle en montre (videos/load.ts) */
-const menuItems = () => MENU.filter(item => item.path !== '/videos' || videosShown())
+/** Les entrées du menu pour l'élection affichée : « Les vidéos » seulement si elle en montre (videos/load.ts), « À table »
+ *  seulement si elle a une table (table/shown.ts) */
+const menuItems = () => MENU.filter(item => (item.path !== '/videos' || videosShown()) && (item.path !== '/a-table' || tableShown()))
 
 /** Lien courant : « page » sur la page elle-même, « true » sur une de ses fiches (fiche d'un candidat) */
 function currentOf(item: { page: RegExp; within: RegExp | null }): 'page' | 'true' | undefined {

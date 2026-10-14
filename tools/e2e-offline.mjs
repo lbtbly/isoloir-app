@@ -200,6 +200,8 @@ const homeEntry = pg =>
       href: card?.getAttribute('href') ?? null,
       afterProof: before(at('.home-proof'), card) && before(card, at('.journey')),
       afterStatus: !!card && card.previousElementSibling === at('.home-status') && before(card, at('.home-proof')),
+      // L'accueil de retour (questionnaire complet) : sous l'affiche du plus proche, comme au dépouillement
+      afterLeader: !!card && card.previousElementSibling === at('.welcome-back .back-leader'),
       tiles: card?.querySelectorAll('.hp-peek[aria-hidden="true"] .tile').length ?? 0,
       // Le texte du lien, sans les mots des cases de l'aperçu (masqués aux lecteurs d'écran), sa mention comprise
       text: [...(card?.querySelectorAll('.hp-tag, .hp-body, .pb-body') ?? [])].map(e => e.textContent).join(' ').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim(),
@@ -476,7 +478,7 @@ try {
   await page.locator('.topic-fiche').first().waitFor()
   const followed = hashOf(page) === L('/sujets') && (await menuToggle.getAttribute('aria-expanded')) === 'false' && (await menuState())
   const sujetsCurrent = await menuPanel.locator(`a[href="${L('/sujets')}"]`).getAttribute('aria-current')
-  const expectedMenu = [`Les sujets ${L('/sujets')}`, ...(VIDEOS_SHOWN ? [`Les vidéos ${L('/videos')}`] : []), `Les candidats ${L('/candidats')}`].join(' | ')
+  const expectedMenu = [`Les sujets ${L('/sujets')}`, ...(VIDEOS_SHOWN ? [`Les vidéos ${L('/videos')}`] : []), `Les candidats ${L('/candidats')}`, ...(PROFILE ? [`À table ${L('/a-table')}`] : [])].join(' | ')
   check(
     menuOpened && menuLinks.join(' | ') === expectedMenu && escClosed && outsideClosed && followed && sujetsCurrent === 'page',
     `menu de l’en-tête sur téléphone : ouvert ${menuOpened}, fermé par Échap ${escClosed}, par un clic ailleurs ${outsideClosed}, en suivant « Les sujets » ${followed} (${menuLinks.join(' | ')})`,
@@ -1200,13 +1202,13 @@ try {
       `affiche JPG : la même avant et après « Mon profil politique » (${before?.hash.slice(0, 12)}…, ${after?.hash.slice(0, 12)}…), rien de la page dans son texte de remplacement`,
     )
 
-    // L'accueil, une fois la page prête : le bandeau « Voir mon profil politique », sans aperçu, sous l'état de la feuille
+    // L'accueil, une fois la page prête : le bandeau « Voir mon profil politique », sans aperçu, sous l'affiche du plus proche
     await page.goto(U('/'))
     await page.locator('.home-profile').waitFor()
     const ready = await homeEntry(page)
     check(
-      ready.n === 1 && ready.ready && ready.afterStatus && ready.tiles === 0 && ready.href === L('/profil') && ready.text.startsWith('Voir mon profil politique'),
-      `mon profil politique, accueil prêt : « ${ready.text.slice(0, 40)}… » sous l’état de la feuille ${ready.afterStatus}, sans aperçu (${ready.tiles} case)`,
+      ready.n === 1 && ready.ready && ready.afterLeader && ready.tiles === 0 && ready.href === L('/profil') && ready.text.startsWith('Voir mon profil politique'),
+      `mon profil politique, accueil prêt : « ${ready.text.slice(0, 40)}… » sous l’affiche du plus proche ${ready.afterLeader}, sans aperçu (${ready.tiles} case)`,
     )
 
     // En grand écran : le bandeau du dépouillement sous l'affiche, dans sa colonne ; une feuille tout approfondie (un avis
@@ -1612,8 +1614,69 @@ try {
 
   // 7 bis. Accueil : la date des réponses ; fiche candidat : familles de thèmes et « Mes réponses »
   await page.goto(U('/'))
-  const doneNote = (await page.locator('.done-note').textContent().catch(() => '')) ?? ''
-  check(new RegExp(`${QUICK} questions le \\d+\\s\\S+\\s20\\d\\d à \\d+\u00a0h\u00a0\\d\\d`).test(doneNote), `l’accueil date les ${QUICK} réponses (${doneNote.trim()})`)
+  // L'accueil de retour (demande du 14/10/2026) : le titre, la date où le questionnaire rapide a été terminé (heure
+  // aux espaces insécables, lue telle quelle), l'affiche du plus proche, les panneaux de « Et maintenant », puis le film
+  // plus bas
+  const back = await page.evaluate(() => {
+    const t = sel => (document.querySelector(sel)?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
+    const before = (a, b) => !!a && !!b && !!(a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING)
+    return {
+      title: t('main h1'),
+      lede: t('.welcome-back .lede'),
+      time: document.querySelector('.welcome-back .lede time')?.textContent ?? '',
+      leader: t('.back-leader .leader-name'),
+      panels: [...document.querySelectorAll('.welcome-back .next-panel .next-title')].map(e => e.textContent.trim()),
+      filmAfter: before(document.querySelector('.welcome-back'), document.querySelector('.home-film')),
+    }
+  })
+  check(
+    back.title === 'Votre dépouillement vous attend' &&
+      back.lede.startsWith(`Vous avez répondu aux ${QUICK} questions du questionnaire rapide le `) &&
+      /^\d+(er)?\s\S+\s20\d\d à \d+\u00a0h\u00a0\d\d$/.test(back.time) &&
+      !!back.leader &&
+      back.panels[0] === 'Qui porte quoi' &&
+      back.filmAfter,
+    `accueil de retour : « ${back.title} », « ${back.lede} », affiche de ${back.leader || 'personne'}, panneaux ${back.panels.join(', ')}, film plus bas ${back.filmAfter}`,
+  )
+  // La carte des questions à revoir : une réponse d'une autre révision de sa question la met sur l'accueil, puis en
+  // tête du dépouillement ; la feuille est rendue telle quelle ensuite
+  if (pack.election.revisionTracking) {
+    const kept = await page.evaluate(key => localStorage.getItem(key), STORAGE)
+    const st = JSON.parse(kept)
+    const qid = quickQs.map(q => q.id).find(id => st.answers[id] && !st.answers[id].skipped)
+    st.answers[qid] = { ...st.answers[qid], rev: 999 }
+    await page.evaluate(([k, v]) => localStorage.setItem(k, v), [STORAGE, JSON.stringify(st)])
+    await page.reload()
+    await page.locator('.welcome-back .changed').waitFor({ timeout: 5000 }).catch(() => null)
+    const card = await page.evaluate(() => {
+      const c = document.querySelector('.welcome-back .changed')
+      const t = e => (e?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
+      return c
+        ? { count: t(c.querySelector('.changed-count')), title: t(c.querySelector('h2')), items: c.querySelectorAll('.changed-list > li').length, href: c.querySelector('.changed-cta')?.getAttribute('href') }
+        : null
+    })
+    await page.goto(U('/resultats'))
+    await heading(page, 'Votre dépouillement')
+    const onResults = await page.locator('.results-intro .changed').count()
+    // La feuille d'avant, relue au rechargement (l'application garde la sienne en mémoire jusque-là). Le dépouillement
+    // vient d'enregistrer son classement vu, un peu après l'affichage : on le laisse finir avant de rendre la feuille,
+    // et on vérifie après le rechargement que c'est bien elle qui est relue
+    let restored = false
+    for (let k = 0; k < 3 && !restored; k++) {
+      await page.waitForTimeout(400)
+      await page.evaluate(([key, v]) => localStorage.setItem(key, v), [STORAGE, kept])
+      await page.reload()
+      await page.waitForTimeout(200)
+      restored = await page.evaluate(key => !/"rev":999\b/.test(localStorage.getItem(key) ?? ''), STORAGE)
+    }
+    await page.goto(U('/'))
+    await page.locator('.welcome-back').waitFor({ timeout: 5000 }).catch(() => null)
+    const gone = await page.locator('.changed').count()
+    check(
+      card?.count === '1' && card.title === 'Une question a changé depuis vos réponses' && card.items === 1 && card.href === L('/revision') && onResults === 1 && restored && gone === 0,
+      `questions à revoir : carte sur l’accueil (${card ? `« ${card.count} », « ${card.title} », ${card.items} question, vers ${card.href}` : 'absente'}), en tête du dépouillement (${onResults}), partie une fois la feuille rendue (relue ${restored}, ${gone} carte)`,
+    )
+  }
   // L'appel de l'en-tête mène désormais au dépouillement (libellé long ou court selon la largeur)
   const doneCta = page.locator('.header-cta')
   const doneHref = await doneCta.getAttribute('href').catch(() => null)
@@ -1804,7 +1867,7 @@ try {
   await wp.locator(`.main-nav a[href="${L('/candidats')}"]`).click()
   await wp.locator('.people-panel').first().waitFor()
   check(
-    inlineLinks.join(' | ') === (VIDEOS_SHOWN ? 'Les sujets page | Les vidéos - | Les candidats -' : 'Les sujets page | Les candidats -') && !toggleShown && hashOf(wp) === L('/candidats'),
+    inlineLinks.join(' | ') === [...(VIDEOS_SHOWN ? ['Les sujets page', 'Les vidéos -', 'Les candidats -'] : ['Les sujets page', 'Les candidats -']), ...(PROFILE ? ['À table -'] : [])].join(' | ') && !toggleShown && hashOf(wp) === L('/candidats'),
     `grand écran : menu en ligne (${inlineLinks.join(' | ')}), sans bouton « Menu », lien vers les candidats suivi`,
   )
   // Grand écran, la comparaison de trois ou quatre candidats : le tableau complet (la question dans la colonne de

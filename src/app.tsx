@@ -26,7 +26,7 @@ import { legalScreen, methodScreen, prepareScreens, privacyScreen, shareScreen }
 import { clearSelections } from './ui/compare/selection'
 import { compareNow, loadCompare } from './ui/compare/load'
 import { loadProfile, profileNow } from './ui/profile/load'
-import { hasTable, tableLocked, tableScreen } from './ui/table/load'
+import { hasTable, setTableElection, tableLocked, tableScreen } from './ui/table/load'
 import { useOnDemand, type OnDemand } from './ui/lazy'
 import { axisOf } from './core/spectrum'
 import { Topics } from './ui/screens/Topics'
@@ -99,8 +99,10 @@ export function App() {
   if (pack) {
     const focus = shown.current !== null && shown.current !== entry.id
     shown.current = entry.id
-    // Les vidéos montrées sont celles de cette élection, sous ses thèmes : fixé avant de la rendre
+    // Les vidéos montrées sont celles de cette élection, sous ses thèmes : fixé avant de la rendre ; de même, l'entrée
+    // « À table » du menu
     setVideoScope(pack)
+    setTableElection(pack.election)
     return <ElectionApp key={entry.id} pack={pack} route={route} focusOnMount={focus} />
   }
   if (failed === entry.id) return <LoadFailed onRetry={retry} />
@@ -485,7 +487,7 @@ function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
         return onDemandScreen('table', tableScreen, 'La table', 'de la table', m => <m.Table pack={pack} Sheet={Sheet} />)
       default:
         return (
-          <Home pack={pack} state={state} essential={essential} stale={stale} setState={setState} eraseAll={eraseAll} saved={saved} />
+          <Home pack={pack} state={state} essential={essential} stale={stale} results={results} setState={setState} eraseAll={eraseAll} saved={saved} />
         )
     }
   }

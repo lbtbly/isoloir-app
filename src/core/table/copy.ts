@@ -41,7 +41,7 @@ export function verdictLine(verdict: Verdict, agree: Shown, disagree: Shown): st
 /** Les règles de « Comment la table compte », publiées sur la page de la table */
 export const RULES = [
   'Chacun donne son avis sur la réglette du site : pas d’accord, sans avis ou d’accord, et peut tracer une ligne rouge. Passer une question est permis.',
-  'Sur chaque question, la table, ce sont ceux qui ont donné un avis : passer ne compte pas. Une question n’est dépouillée qu’à partir de 4 bulletins ; en dessous, rien n’est montré.',
+  'Sur chaque question, la table, ce sont ceux qui ont donné un avis : passer ne compte pas. Une question n’est dépouillée qu’à partir de 3 bulletins ; en dessous, rien n’est montré.',
   'Vous réunit : plus de la moitié de la table est d’accord, et une personne au plus ne l’est pas. La table refuse : plus de la moitié n’est pas d’accord, et une personne au plus l’est. Vous divise : au moins deux d’accord et au moins deux pas d’accord.',
   'Aux deux bouts, des mots plutôt que des nombres : «' + NB + 'personne ou presque' + NB + '», «' + NB + 'toute la table ou presque' + NB + '». Aucun pourcentage. L’ordre des idées sur chaque bulletin, l’ordre de lecture à égalité et l’ordre des candidats sont tirés au hasard sur ce téléphone.',
   'Les sujets : pour chaque thème, la question du questionnaire rapide qui a une fiche «' + NB + 'Comprendre l’enjeu' + NB + '», où au moins trois candidats sur quatre ont une position connue, et où chaque bloc de l’axe de la grille des nuances (de l’extrême gauche à l’extrême droite) porte une approche principale ; s’il y en a plusieurs, celle où le plus de candidats ont une position connue, puis la première de la liste. Deux sont tirés au hasard ; vous pouvez les changer. Un thème sans question qui remplit ces conditions n’est pas proposé.',
@@ -52,7 +52,7 @@ export const SECRET = [
   'Votre bulletin n’est jamais montré ni gardé : il est ajouté au compte, puis oublié.',
   'Quand tout le monde vote pareil, cela se voit : c’est pourquoi l’écran dit «' + NB + 'toute la table ou presque' + NB + '» plutôt qu’un nombre.',
   'Si vous êtes seul à voter autrement sur une idée, le dépouillement peut vous apprendre comment les autres ont voté sur elle.',
-  'Si tous les autres comparent leurs votes, ils peuvent deviner le vôtre, comme dans un tout petit bureau de vote.',
+  'Si tous les autres comparent leurs votes, ils peuvent deviner le vôtre, comme dans un tout petit bureau de vote. À trois, c’est plus facile' + NB + ': mieux vaut être quatre ou plus.',
   'Avec un lecteur d’écran, le bulletin est lu à voix haute : mettez des écouteurs.',
   'Recharger la page fait perdre la séance : rien n’est gardé, même pour la reprendre.',
   'La table ne montre pas la feuille du propriétaire du téléphone et n’y touche pas. Un autre onglet ouvert sur Isoloir, lui, la montrerait.',

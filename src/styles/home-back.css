@@ -1,0 +1,289 @@
+/* ——— Les questions à revoir (ui/components/ChangedQuestions.tsx), sur l'accueil et le dépouillement ———
+   Un avis encadré, comme les autres (filet de 1.5px, filet supérieur de 3px), sur le papier : aucun pastel, qui n'a
+   pas de sens seul (The Four Pastels Rule). Ce qui le fait voir : le nombre en grand, imprimé en noir condensé, et le
+   tampon « À revoir » tourné de -4°. Les questions en lignes de formulaire entre filets, leur thème en petit gris. */
+
+.changed {
+  container: changed / inline-size;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s3);
+  max-width: 40rem;
+  margin: var(--s5) 0 0;
+  padding: var(--s4) var(--s4) var(--s5);
+  border: var(--line) solid var(--rule-strong);
+  box-shadow: inset 0 var(--thick) 0 var(--rule-strong);
+  background: var(--paper);
+}
+
+.changed-head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--s4);
+}
+
+.changed-count {
+  margin: 0;
+  min-width: 1.1ch;
+  color: var(--print);
+  font-weight: 850;
+  font-stretch: 70%;
+  font-size: clamp(3.5rem, 18vw, 6.5rem);
+  line-height: 0.8;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.changed-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: start;
+  gap: var(--s2);
+  min-width: 0;
+}
+
+.changed-stamp {
+  padding: 0.25rem 0.55rem 0.2rem;
+}
+
+.changed-stamp .stamp-label {
+  overflow-wrap: anywhere;
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+}
+
+.changed-title {
+  overflow-wrap: break-word;
+  margin: 0;
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: clamp(1.45rem, 5.5vw, 1.9rem);
+  line-height: 1.04;
+}
+
+.changed-why {
+  margin: 0;
+  max-width: var(--measure);
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.changed-list {
+  list-style: none;
+  margin: var(--s1) 0 var(--s2);
+  padding: 0;
+  border-bottom: var(--line) solid var(--rule-strong);
+}
+
+.changed-list > li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.15rem;
+  padding: var(--s2) 0;
+  border-top: var(--line) solid var(--rule);
+}
+
+.changed-list > li:first-child {
+  border-top-color: var(--rule-strong);
+}
+
+.changed-topic {
+  overflow-wrap: break-word;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--print-soft);
+}
+
+.changed-prompt {
+  overflow-wrap: break-word;
+  font-weight: 650;
+  line-height: 1.3;
+}
+
+.changed-more {
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.changed-cta {
+  justify-self: start;
+  max-width: 100%;
+  white-space: normal;
+  text-align: center;
+}
+
+/* Le libellé passe à la ligne, et ne coupe un mot que s'il ne tient pas seul sur la ligne (texte très agrandi) */
+.changed-cta-label {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 29.99rem) {
+  .changed-cta {
+    justify-self: stretch;
+  }
+}
+
+/* Carte très étroite (téléphone de 320px) ou texte très agrandi (la mesure est en rem : 17rem font 544px à 200 %) :
+   le nombre au-dessus du titre, qui garde toute la largeur, et le bouton sans flèche ; les téléphones de 360 à 430px,
+   texte normal, gardent la carte telle quelle */
+@container changed (max-width: 17rem) {
+  .changed-head {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s2);
+  }
+
+  .changed-count {
+    text-align: left;
+  }
+
+  .changed-cta {
+    padding-inline: var(--s2);
+    font-size: 1rem;
+  }
+
+  /* « remboursement », « constitutionnel » : plus larges que la carte à 200 %, coupés avec un trait d'union */
+  .changed-topic,
+  .changed-prompt {
+    hyphens: auto;
+  }
+
+  /* La flèche cède sa place au libellé */
+  .changed-cta .icon {
+    display: none;
+  }
+}
+
+/* Au dépouillement, dans la colonne de l'introduction */
+.results-intro .changed {
+  margin-top: var(--s4);
+}
+
+/* ——— L'accueil de retour (ui/screens/HomeBack.tsx) ———
+   Comme le héros du dépouillement : l'introduction (titre, phrase, questions à revoir) puis l'affiche du plus proche
+   et le journal, empilés au téléphone, côte à côte à partir de 64rem (5fr / 7fr, alignés en haut). Puis les panneaux
+   de « Et maintenant ». */
+
+.back-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s6);
+}
+
+@media (min-width: 64rem) {
+  .back-hero {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: var(--s8);
+    align-items: start;
+  }
+}
+
+.back-intro .display {
+  margin-top: var(--s2);
+  margin-bottom: var(--s4);
+  max-width: 12ch;
+}
+
+.back-intro .lede {
+  margin-bottom: 0;
+}
+
+.back-intro > :last-child {
+  margin-bottom: 0;
+}
+
+.back-open {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  margin-top: var(--s4);
+  color: var(--print);
+  font-weight: 750;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.18em;
+}
+
+.back-open .icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-left: 0.45rem;
+  vertical-align: -0.15em;
+}
+
+/* L'affiche, puis le journal : dans la colonne de droite en grand écran */
+.back-side {
+  display: grid;
+  align-content: start;
+  gap: var(--s4);
+  min-width: 0;
+}
+
+/* Le bandeau de « Mon profil politique » collé sous l'affiche, comme au dépouillement ; le journal un peu plus loin */
+.back-side > .home-profile {
+  margin: 0;
+}
+
+.back-side > .back-news {
+  margin-top: var(--s4);
+}
+
+/* Le journal : la date en petit gris, la première phrase de l'entrée, entre filets */
+.back-news {
+  max-width: 48rem;
+}
+
+.back-news-title {
+  margin: 0 0 var(--s3);
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: 1.65rem;
+  line-height: 1.05;
+}
+
+.back-news-list {
+  list-style: none;
+  margin: 0 0 var(--s3);
+  padding: 0;
+  border-bottom: var(--line) solid var(--rule-strong);
+}
+
+.back-news-list > li {
+  display: grid;
+  gap: 0.2rem;
+  padding: var(--s3) 0;
+  border-top: var(--line) solid var(--rule);
+}
+
+.back-news-list > li:first-child {
+  border-top: var(--thick) solid var(--rule-strong);
+}
+
+.back-news-list time {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--print-soft);
+}
+
+@media (min-width: 48rem) and (max-width: 63.99rem), (min-width: 80rem) {
+  .back-news-list > li {
+    grid-template-columns: 9.5rem minmax(0, 1fr);
+    gap: var(--s4);
+    align-items: baseline;
+  }
+}
+
+.back-next {
+  margin-top: var(--s7);
+}
+
+/* « dépouillement » dans un panneau étroit, texte agrandi : le mot passe à la ligne plutôt que de déborder */
+.back-next .next-desc {
+  overflow-wrap: break-word;
+}
+
+/* Le film, plus bas, pour qui veut revoir comment marche Isoloir */
+.home-film.is-back {
+  margin-top: var(--s8);
+}
