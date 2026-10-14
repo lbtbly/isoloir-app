@@ -243,9 +243,19 @@
       "questionId": "securite_justice-6",
       "id": "securite_justice-6-g",
       "text": "Supprimer l’exécution immédiate des peines d’inéligibilité, pour qu’un élu condamné puisse d’abord faire appel"
+    },
+    {
+      "questionId": "finances_publiques-1",
+      "id": "finances_publiques-1-h",
+      "text": "Réduire le déficit surtout en relançant la production en France pour accroître les recettes publiques"
+    },
+    {
+      "questionId": "europe-3",
+      "id": "europe-3-f",
+      "text": "Déroger aux règles européennes pour donner, dans la commande publique, la priorité aux entreprises qui produisent en France"
     }
   ],
-  "_addApproaches_note": "Les 40 approches manquantes des relecteurs de gauche (14), du centre (15) et de droite (11), sans position : l’extension (3-bank-expansion.js) les attribuera, sources à l’appui ; une approche restée sans candidat sera marquée external. Identifiants : lettres suivantes de chaque question, dans l’ordre gauche, centre, droite. Sur sante-1, « former davantage de médecins » ne figure que dans g : h (internes en fin de cursus) et i (incitations sans contrainte, face à a) en sont distinguées, pour que les trois restent des alternatives et non trois variantes de la même mesure. Liste : research/presidentielle-2027/expansion-inputs.json.",
+  "_addApproaches_note": "Les 40 approches manquantes des relecteurs de gauche (14), du centre (15) et de droite (11), sans position : l’extension (3-bank-expansion.js) les attribuera, sources à l’appui ; une approche restée sans candidat sera marquée external. Identifiants : lettres suivantes de chaque question, dans l’ordre gauche, centre, droite. Sur sante-1, « former davantage de médecins » ne figure que dans g : h (internes en fin de cursus) et i (incitations sans contrainte, face à a) en sont distinguées, pour que les trois restent des alternatives et non trois variantes de la même mesure. Liste : research/presidentielle-2027/expansion-inputs.json. 14 octobre 2026 (décision du propriétaire, entrée de Natacha Polony, PIPELINE §13) : deux approches proposées par 6-add-candidate.js (add-candidate/polony.json, proposedApproaches) et retenues par sa relecture, finances_publiques-1-h (questionnaire rapide) et europe-3-f (questionnaire approfondi), chacune suivie d’une vérification contradictoire de ses porteurs parmi les 23 candidats montrés (positions dans « positions », notes comprises). La troisième proposition, agriculture-3-g (abattoirs de proximité), est écartée, comme le demandait la relecture : position non centrale, qui départage peu les candidats. Les deux questions changent de révision : une réponse donnée avant est à revoir.",
   "edits": [
     {
       "id": "droits_lgbtqia",
@@ -594,9 +604,355 @@
       ],
       "verdict": "added",
       "note": "Recherche ciblée du 9 octobre 2026 (étape 1, agriculture-1), confirmée par deux vérifications indépendantes. Citation : Pour soutenir nos agriculteurs et protéger les consommateurs, oui, l’accord Mercosur doit tomber !"
+    },
+    {
+      "questionId": "finances_publiques-1",
+      "candidate": "polony",
+      "approachId": "finances_publiques-1-h",
+      "weight": 2,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "high",
+      "summary": "Elle cite la crise de la dette parmi les raisons de sa candidature et compte sur une politique de production en France pour recréer de l’activité et faire rentrer de l’argent dans les caisses de l’État, sans trajectoire chiffrée.",
+      "sources": [
+        {
+          "title": "L'essayiste Natacha Polony annonce sa candidature à l'élection présidentielle",
+          "url": "https://www.franceinfo.fr/elections/presidentielle/l-essayiste-natacha-polony-annonce-sa-candidature-a-l-election-presidentielle_8236714.html",
+          "date": "2026-10-14",
+          "publisher": "franceinfo"
+        },
+        {
+          "title": "L'essayiste Natacha Polony candidate à la présidentielle en France pour « sortir de la spirale d'appauvrissement »",
+          "url": "https://www.lavenir.net/actu/monde/2026/10/14/lessayiste-natacha-polony-candidate-a-la-presidentielle-en-france-pour-sortir-de-la-spirale-dappauvrissement-OP42YMO65ZEDXJYMEWGPYMEDIM/",
+          "date": "2026-10-14",
+          "publisher": "L'Avenir (Belga)"
+        },
+        {
+          "title": "Ma vision pour la France, site de campagne Natacha Polony 2027",
+          "url": "https://natachapolony2027.fr/natacha-polony/ma-vision",
+          "date": "2026-10-14 (consultation)",
+          "publisher": "Site de campagne Natacha Polony 2027"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Approche proposée par son placement (add-candidate/polony.json), vérification contradictoire du 14 octobre 2026 : fond, poids et confiance confirmés ; date de « Ma vision » donnée comme date de consultation, « 2026-10-14 (consultation) », comme pour ses autres positions tirées de cette page non datée (harmonisation du 14 octobre 2026). franceinfo : une « politique de production » pour « recréer de l’activité » et « faire rentrer de l’argent dans les caisses de l’État ». Belga : « une crise de la dette qui nous menace » parmi les crises qui justifient sa candidature. Le mot « déficit » ne figure dans aucune source : le lien passe par la dette et les recettes de l’État. Sa seule ligne sur la question (g reste à 1)."
+    },
+    {
+      "questionId": "finances_publiques-1",
+      "candidate": "asselineau",
+      "approachId": "finances_publiques-1-h",
+      "weight": 2,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "Pour réduire la dette, il donne la priorité au retour de la croissance, les recettes de l’État dépendant selon lui de l’activité, et écarte des suppressions massives de postes de fonctionnaires, qu’il juge contre-productives pour les recettes publiques.",
+      "sources": [
+        {
+          "title": "François Asselineau invité de Nicolas Stoquer sur GP-TV – 01/10/2026",
+          "url": "https://upr.fr/medias/francois-asselineau-invite-de-nicolas-stoquer-sur-gp-tv-01-10-2026",
+          "date": "2026-10-01",
+          "publisher": "UPR"
+        },
+        {
+          "title": "François Asselineau invité d’Elise Blaise sur TVL – 26/09/2026",
+          "url": "https://upr.fr/actualites/francois-asselineau-invite-delise-blaise-sur-tvl-26-09-2026",
+          "date": "2026-09-26",
+          "publisher": "UPR"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Vérification contradictoire du 14 octobre 2026 : résumé précisé, poids et confiance confirmés. TVL : « ses recettes dépendant de l’activité économique, des coupes budgétaires mal ciblées peuvent aggraver le déficit » ; il « défend en priorité le retour de la croissance ». GP-TV : il « écarte les suppressions massives de postes de fonctionnaires, qu’il juge contre-productives pour les recettes publiques ». Réserves : résumés à la troisième personne publiés par son parti ; il parle de croissance, pas de production. Sa position b reste à 1 : h devient sa principale."
+    },
+    {
+      "questionId": "finances_publiques-1",
+      "candidate": "glucksmann",
+      "approachId": "finances_publiques-1-h",
+      "weight": 1,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "Il attribue la dette avant tout à la désindustrialisation et appelle à produire davantage en France pour créer plus de richesses et dépendre moins des marchés financiers, l’État devant aussi donner l’exemple sur ses dépenses.",
+      "sources": [
+        {
+          "title": "Accord avec LFI, Moyen-Orient, pouvoir d'achat: ce qu'il faut retenir du premier débat de la primaire de gauche",
+          "url": "https://lcp.fr/actualites/accord-avec-lfi-moyen-orient-pouvoir-d-achat-ce-qu-il-faut-retenir-du-premier-debat-de",
+          "date": "2026-09-23",
+          "publisher": "LCP"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Vérification contradictoire du 14 octobre 2026. Seule citation directe : la dette « vient avant tout de la désindustrialisation de la France » ; le reste est une paraphrase de LCP. Lien avec les recettes non explicite, d’où le poids 1. c reste sa principale (2), aucune autre compatible : pas de conflit."
+    },
+    {
+      "questionId": "finances_publiques-1",
+      "candidate": "philippe",
+      "approachId": "finances_publiques-1-a",
+      "weight": 2,
+      "rejects": false,
+      "nature": "proposition",
+      "confidence": "high",
+      "summary": "Son programme prévoit de ramener le déficit de plus de 5 % à 2 % du PIB en fin de quinquennat, avec la moitié de l’effort sur les dépenses sociales, plus de 250 000 postes de fonctionnaires supprimés sur le quinquennat (un tiers des départs à la retraite) et aucun nouvel impôt.",
+      "sources": [
+        {
+          "title": "Pour une France plus prospère – programme Avec Édouard 2027",
+          "url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
+          "date": "2026-10-14 (consultation)",
+          "publisher": "Site d’Édouard Philippe"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Position revue le 14 octobre 2026, avec l’ajout de finances_publiques-1-h : poids 1 → 2, nature declaration → proposition, résumé réécrit. L’ancien résumé (« sans hausse d’impôts ni objectif chiffré de baisse des effectifs publics », franceinfo du 29/09/2026) était devenu faux. Page programme relue le 14/10/2026 par la vérification contradictoire, puis à l’intégration : « Mettre en place une stratégie de sauvetage des dépenses publiques avec 50 % de l'effort sur les dépenses sociales […] un quart sur l'État et les collectivités et un quart grâce à la croissance », « Supprimer un tiers des fonctionnaires partant à la retraite, soit plus de 250 000 postes sur le quinquennat », « Fusionner et supprimer des dizaines d’opérateurs, d’agences et de comités publics », « ramener le déficit de plus de 5% à 2% du PIB à la fin du quinquennat », « Sceller un moratoire normatif et fiscal : pas de nouvelle norme et de nouvel impôt sur le quinquennat ». a devient sa principale ; h, sa compatible (sans ce passage à 2, build-pack aurait écarté l’une de ses deux compatibles). Page non datée : la date donnée est celle de la consultation, « 2026-10-14 (consultation) », comme pour ses autres positions tirées de ses pages programme (« 2026-10-06 (consultation) »)."
+    },
+    {
+      "questionId": "finances_publiques-1",
+      "candidate": "philippe",
+      "approachId": "finances_publiques-1-h",
+      "weight": 1,
+      "rejects": false,
+      "nature": "proposition",
+      "confidence": "medium",
+      "summary": "Son programme attend un quart de l’effort de redressement des comptes publics de la croissance, sans préciser d’où elle viendrait, la moitié de l’effort portant sur les dépenses sociales et un quart sur l’État et les collectivités.",
+      "sources": [
+        {
+          "title": "Pour une France plus prospère – programme Avec Édouard 2027",
+          "url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
+          "date": "2026-10-14 (consultation)",
+          "publisher": "Site d’Édouard Philippe"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Vérification contradictoire du 14 octobre 2026 : position maintenue à 1, à condition que a passe à 2 (fait ci-dessus). « et un quart sur l'État et les collectivités et un quart grâce à la croissance ». Réserve : la croissance y est une hypothèse, pas une politique de production, et la page ne la relie pas explicitement aux recettes, d’où la confiance moyenne."
+    },
+    {
+      "questionId": "finances_publiques-1",
+      "candidate": "dupontaignan",
+      "approachId": "finances_publiques-1-g",
+      "remove": true,
+      "note": "Retirée le 14 octobre 2026, avec l’ajout de finances_publiques-1-h : un candidat n’a qu’une compatible par question (build-pack), et la vérification contradictoire penche pour h, comme la vérification précédente, sa propre explication de la dette mettant la production avant la dépense (discours du 20/09/2025 : recettes à augmenter « en dopant la production française » ; la crise de la dette tient à « notre panne d’investissement et de croissance »). Pour g, la page du 09/06/2026 ne porte que la suppression des régions et du CESE ; les agences, le conseil et l’affectation des économies à la dette ne figurent que dans la source de mars 2025. Arbitrage par défaut, réversible : garder g est défendable (retirer cette entrée et celle de h ci-dessous). b reste sa principale (2)."
+    },
+    {
+      "questionId": "finances_publiques-1",
+      "candidate": "dupontaignan",
+      "approachId": "finances_publiques-1-h",
+      "weight": 1,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "Il attribue la crise de la dette davantage à la panne d’investissement et de croissance qu’à l’excès de dépenses et veut augmenter les recettes « en dopant la production française », notamment en relocalisant des emplois industriels.",
+      "sources": [
+        {
+          "title": "« La Révolution du bon sens pour sauver la France ! »",
+          "url": "https://www.debout-la-france.fr/actualite/la-revolution-du-bon-sens-pour-sauver-la-france/",
+          "date": "2025-09-20",
+          "publisher": "Debout la France"
+        },
+        {
+          "title": "Libérons la France ! · Discours de rentrée",
+          "url": "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+          "date": "2026-09-19",
+          "publisher": "Site de Nicolas Dupont-Aignan"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Vérification contradictoire du 14 octobre 2026. Discours du 20/09/2025 : « la baisse de nos dépenses et l’augmentation de nos recettes », les recettes devant croître « en DOPANT LA PRODUCTION FRANÇAISE » ; « Les sommes consacrées à nos retraites ou à notre santé ne sont pas plus élevées que chez nos voisins européens ». Discours du 19/09/2026 : « Relocaliser deux millions d’emplois », faiblesse industrielle et « recettes fiscales » qui végètent. Remplace g, retirée (voir l’entrée précédente)."
+    },
+    {
+      "questionId": "finances_publiques-1",
+      "candidate": "cazeneuve",
+      "approachId": "finances_publiques-1-c",
+      "weight": 1,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "Il veut redresser les comptes par « un effort équitablement partagé, selon les moyens de chacun », avec une fiscalité qui atteigne réellement les très grandes fortunes, sans cible chiffrée.",
+      "sources": [
+        {
+          "title": "Bernard Cazeneuve : « j’appelle à une coalition des engagés » (entretien, Crif)",
+          "url": "https://www.crif.org/articles/entretiens/2026-10-05/bernard-cazeneuve-jappelle-a-une-coalition-des-engages/",
+          "date": "2026-10-05",
+          "publisher": "CRIF"
+        },
+        {
+          "title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "date": "2026-07-15",
+          "publisher": "La Convention"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Résumé retouché le 14 octobre 2026, avec son placement sur finances_publiques-1-h (entrée suivante) : « par le travail » en est retiré, h portant désormais cette partie de sa déclaration ; poids, nature, confiance et sources inchangés. Crif (05/10/2026) : « et par un effort équitablement partagé, selon les moyens de chacun » ; lettre du 15/07/2026, p. 35 : « Une fiscalité qui atteint réellement les très grandes fortunes, les plus hauts revenus du capital, les rentes financières […] relève de l’équité et non de la démagogie ». c reste à 1 : elle vise aussi « les grandes entreprises », qu’il ne vise pas (lettre, p. 36 : il défend leur rôle et une baisse des impôts pesant sur la production)."
+    },
+    {
+      "questionId": "finances_publiques-1",
+      "candidate": "cazeneuve",
+      "approachId": "finances_publiques-1-h",
+      "weight": 2,
+      "rejects": false,
+      "nature": "declaration",
+      "confidence": "medium",
+      "summary": "Face à une dette de 119 % du PIB, il veut redresser le pays « par le travail, en produisant davantage », ainsi que par un effort partagé selon les moyens de chacun ; il ne relie pas explicitement la production aux recettes publiques et ne donne pas de cible chiffrée.",
+      "sources": [
+        {
+          "title": "Bernard Cazeneuve : « j’appelle à une coalition des engagés » (entretien, Crif)",
+          "url": "https://www.crif.org/articles/entretiens/2026-10-05/bernard-cazeneuve-jappelle-a-une-coalition-des-engages/",
+          "date": "2026-10-05",
+          "publisher": "CRIF"
+        },
+        {
+          "title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+          "url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+          "date": "2026-07-15",
+          "publisher": "La Convention"
+        }
+      ],
+      "verdict": "added",
+      "note": "Ajout du 14 octobre 2026, après la relecture contradictoire de l’intégration : la raison donnée d’abord pour l’écarter (il aurait fallu passer sa c à 2) ne tenait pas, build-pack acceptant une principale h et une compatible c. Crif (05/10/2026), relu le 14/10/2026, après le rappel d’une dette de 119 % du PIB et de taux à dix ans au plus haut depuis près d’un quart de siècle : « Le premier devoir est donc de nous redresser, nous n’y parviendrons que par le travail, en produisant davantage, et par un effort équitablement partagé, selon les moyens de chacun. » Lettre du 15/07/2026, p. 36, dans le passage sur la dette et la « vérité budgétaire » : « admettre qu’il faut produire davantage et dépenser plus efficacement ». Réserves : le lien entre production et recettes publiques n’est pas explicite (même réserve que pour Glucksmann, placé à 1), et l’effort « selon les moyens de chacun » relève de c, d’où la confiance moyenne. Poids 2 parce que c, qui vise aussi « les grandes entreprises », ne peut pas être sa principale (voir l’entrée précédente). Arbitrage par défaut, réversible : retirer cette entrée et la précédente pour revenir à c seule (1, avec « par le travail » dans son résumé)."
+    },
+    {
+      "questionId": "europe-3",
+      "candidate": "polony",
+      "approachId": "europe-3-f",
+      "weight": 2,
+      "rejects": false,
+      "nature": "proposition",
+      "confidence": "high",
+      "summary": "Elle veut prioriser la production française dans la commande publique, en inscrivant la défense des productions françaises dans l’article de la Constitution consacré à l’Union, et « mettre entre parenthèses » les règles européennes pour réindustrialiser.",
+      "sources": [
+        {
+          "title": "Natacha Polony est candidate à la présidentielle française (watson/AFP)",
+          "url": "https://www.watson.ch/fr/international/politique/613457933-natacha-polony-est-candidate-a-la-presidentielle-francaise",
+          "date": "2026-10-14",
+          "publisher": "watson/AFP"
+        },
+        {
+          "title": "Natacha Polony : La France est « le pays le plus désindustrialisé d’Europe » (Sud Radio)",
+          "url": "https://www.sudradio.fr/sud-radio/natacha-polony-la-france-est-le-pays-le-plus-desindustrialise-deurope",
+          "date": "2026-04-20",
+          "publisher": "Sud Radio"
+        },
+        {
+          "title": "Natacha Polony : tout un programme (Causeur)",
+          "url": "https://www.causeur.fr/2027-natacha-polony-tout-un-programme-la-france-corps-et-ame-328249",
+          "date": "2026-06-08",
+          "publisher": "Causeur"
+        }
+      ],
+      "verdict": "confirmed",
+      "note": "Approche proposée par son placement (add-candidate/polony.json, position alors non vérifiée), vérification contradictoire du 14 octobre 2026. watson/AFP : « prioriser la production française dans la commande publique ». Sud Radio (20/04/2026) : ajouter « dans l’article 88 de la Constitution, qui parle de nos relations avec l’Europe », que « la République doit défendre ses productions », ce qui « permettrait ensuite d’établir une préférence française dans la commande publique ». Causeur (recension de son livre) : « mettre entre parenthèses les règles européennes » pour réindustrialiser. Réserve : le mot « déroger » n’est jamais employé à propos de la commande publique ; confiance haute retenue, puisqu’elle relie elle-même la mesure à l’article sur l’Europe. Son rejet de e reste."
+    },
+    {
+      "questionId": "europe-3",
+      "candidate": "dupontaignan",
+      "approachId": "europe-3-d",
+      "weight": 1,
+      "rejects": false,
+      "nature": "proposition",
+      "confidence": "high",
+      "summary": "Il veut supprimer « la moitié » des normes européennes dans la première année de son mandat.",
+      "sources": [
+        {
+          "title": "Discours de candidature du 8 mars 2025",
+          "url": "https://www.debout-la-france.fr/actualite/je-suis-candidat-pour/",
+          "date": "2025-03-08",
+          "publisher": "Debout la France"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Reclassement du 14 octobre 2026, avec l’ajout d’europe-3-f : poids 2 → 1, résumé et source inchangés. Sa principale devient f, mesure phare de 2026 (50 % puis 75 % d’achats publics français, moratoire sur l’application du droit de l’Union) ; la source de d date de mars 2025 (« les normes européennes et françaises […] la moitié sera supprimée dans l’année »), et son discours de 2026 ne dit plus que « Réduction des normes ». Reclassement soutenu par la vérification contradictoire, arbitrage par défaut réversible : à défaut, remettre d à 2 (retirer cette entrée) et f à 1."
+    },
+    {
+      "questionId": "europe-3",
+      "candidate": "dupontaignan",
+      "approachId": "europe-3-f",
+      "weight": 2,
+      "rejects": false,
+      "nature": "proposition",
+      "confidence": "high",
+      "summary": "Il veut réserver aux produits français 50 %, puis 75 % des achats publics, et cesser d’appliquer le droit européen pendant un moratoire de négociation d’un an, suivi d’un référendum sur la sortie de l’Union.",
+      "sources": [
+        {
+          "title": "Libérons la France ! · Discours de rentrée de Nicolas Dupont-Aignan",
+          "url": "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+          "date": "2026-09-19",
+          "publisher": "Site de Nicolas Dupont-Aignan"
+        },
+        {
+          "title": "Refonder et moraliser notre démocratie (projet, mesure 7)",
+          "url": "https://www.debout-la-france.fr/projet/refonder-et-moraliser-notre-democratie/",
+          "date": "2026-06",
+          "publisher": "Debout la France"
+        },
+        {
+          "title": "Livret « Agriculture »",
+          "url": "https://www.debout-la-france.fr/projet/agriculture/",
+          "date": "2026-01",
+          "publisher": "Debout la France"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Vérification contradictoire du 14 octobre 2026 : fond confirmé, résumé corrigé (la négociation précède un référendum, pas une sortie acquise). Discours du 19/09/2026 : « 50 pour cent puis progressivement 75 pour cent d’achats publics français ». Livret, mesure 7 : « Pendant les négociations avec ses partenaires, la France […] n’appliquera plus le droit communautaire » ; « Au terme du moratoire d’un an, les Français seront consultés par référendum sur la sortie ». Livret agriculture, mesure 9 : « Réserver aux producteurs français 50% puis progressivement 80% des commandes publiques ». La même mesure des 75 % figure dans son industrie_economie-2-c (2). d passe à 1 (entrée précédente)."
+    },
+    {
+      "questionId": "europe-3",
+      "candidate": "lepen",
+      "approachId": "europe-3-d",
+      "remove": true,
+      "note": "Retirée le 14 octobre 2026, avec l’ajout d’europe-3-f : un candidat n’a qu’une compatible par question, et la vérification contradictoire recommande de garder f et de retirer d. f repose sur sa propre parole (débat du Medef, franceinfo 27/08/2026) et sur une résolution qu’elle a cosignée (n° 3115, 07/09/2026), plus récentes et plus précises ; d s’appuyait surtout sur un communiqué de son parti (emballages, PME) et sur « Les normes seront considérablement réduites », sans dire européennes. Arbitrage par défaut, réversible : à défaut, retirer cette entrée et celle de f ci-dessous."
+    },
+    {
+      "questionId": "europe-3",
+      "candidate": "lepen",
+      "approachId": "europe-3-f",
+      "weight": 1,
+      "rejects": false,
+      "nature": "inference",
+      "confidence": "medium",
+      "summary": "Elle veut flécher la commande publique vers les entreprises présentes en France et a cosigné une résolution pour autoriser les acheteurs publics à donner la priorité aux offres exécutées en France, sans demander explicitement de déroger aux règles européennes.",
+      "sources": [
+        {
+          "title": "Dette publique, retraites, réindustrialisation… ce qu’il faut retenir du premier débat des principaux candidats à la présidentielle (franceinfo)",
+          "url": "https://www.franceinfo.fr/elections/presidentielle/dette-publique-retraites-reindustrialisation-ce-qu-il-faut-retenir-du-premier-debat-des-principaux-candidats-a-la-presidentielle_8165342.html",
+          "date": "2026-08-27",
+          "publisher": "franceinfo"
+        },
+        {
+          "title": "Proposition de résolution n° 3115 visant à mobiliser la commande publique au service de l’emploi, de la production et de l’innovation en France",
+          "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3115_proposition-resolution",
+          "date": "2026-09-07",
+          "publisher": "Assemblée nationale"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Vérification contradictoire du 14 octobre 2026 : poids ramené de 2 à 1, nature passée à inference. franceinfo : « commande publique fléchée vers les entreprises présentes territorialement en France ». Résolution n° 3115, « présentée par M. Alexandre LOUBET, Mme Marine LE PEN » : « Appelle à mobiliser la commande publique française, en autorisant les acheteurs publics à accorder une priorité aux offres dont tout ou partie des moyens d’exécution sont localisés en France » ; présentée comme « une faculté », « fondé sur la localisation des moyens d’exécution du marché et non la nationalité » ; « déroger » n’y figure pas. Elle porte le but de f, pas son mécanisme. Rejetée le 08/10/2026 (scrutin n° 8610, 187 voix contre 151). Remplace d, retirée (entrée précédente)."
+    },
+    {
+      "questionId": "europe-3",
+      "candidate": "melenchon",
+      "approachId": "europe-3-f",
+      "weight": 1,
+      "rejects": false,
+      "nature": "inference",
+      "confidence": "medium",
+      "summary": "Son programme prévoit des critères de localisation de l’activité dans la commande publique nationale et locale, et de désobéir aux règles européennes « à chaque fois que c’est nécessaire » pour l’appliquer.",
+      "sources": [
+        {
+          "title": "L’Avenir en commun (éd. 2025) – Réindustrialiser et relocaliser pour assurer notre indépendance",
+          "url": "https://web.archive.org/web/20260509162142/https://melenchon2027.fr/programme2025/livre/chapitre9/s2/",
+          "date": "2025-01",
+          "publisher": "melenchon2027.fr (archive)"
+        },
+        {
+          "title": "L’Avenir en commun (éd. 2025) – Désobéir à chaque fois que c’est nécessaire pour mettre en œuvre notre programme",
+          "url": "https://web.archive.org/web/20260509172930/https://melenchon2027.fr/programme2025/livre/chapitre17/s2/",
+          "date": "2025-01",
+          "publisher": "melenchon2027.fr (archive)"
+        }
+      ],
+      "verdict": "adjusted",
+      "note": "Vérification contradictoire du 14 octobre 2026 : poids 1 et confiance moyenne confirmés, nature passée à inference (le lien entre ses deux mesures est déduit). Chapitre 9 : « Établir des critères de localisation de l’activité pour la commande publique nationale et locale » ; chapitre 17 : « nous désobéirons aux règles européennes incompatibles avec l’application de l’Avenir en commun ». Limites : les directives sur les marchés publics ne sont pas nommées, « locales » ne veut pas forcément dire « en France ». b reste sa principale (2) : pas de conflit."
     }
   ],
-  "_positions_note": "Attributions dont dépend l’étape 1, relevées par la critique et vérifiées dans les dossiers (citations dans « note »). Retirées le 7 octobre 2026 après contre-vérification, parce que la vérification de 2-question-bank.js les avait réfutées et qu’aucune source nouvelle ne les justifie : Attal sur agriculture-1-b (la source ne parle que de simplifier les normes, ni d’importations ni de règles européennes) et Becht sur finances_publiques-1-a (il rejette une « compression brutale » et annonce de nouvelles dépenses sociales ; sa position, réformer l’État sans hausse d’impôts, relève de l’approche ajoutée finances_publiques-1-g, laissée à l’extension comme les 39 autres). Cazeneuve, réfuté sur l’ancien texte de immigration-1-d, est placé sur sa reformulation. Les attributions contestées par les relecteurs sans appui dans les sources sont laissées telles quelles. Décision 3 (7 octobre 2026) : report de deux attributions des doublons écartés (rejet de laicite_republique-1-a par Attal, ecologie_energie-7-f en poids 2 pour Dupont-Aignan ; voir _drops_note), et retrait de Retailleau sur europe-x4-c (source qui ne porte pas sur l’adhésion). Le report de Dupont-Aignan sur 7-f revient au reclassement que son explorateur proposait (« ecologie_energie-7 b → f », f en poids 2 et b gardé en poids 1) : il découle ici de la règle des doublons, pas de la liste des reclassements, que la décision 3 n’applique pas (_decision3_note). Les autres attributions contestées par les relecteurs de 3-bank-expansion.js sont gardées : la vérification les a confirmées sur des sources lues hors des dossiers (Mélenchon europe-x5-d, entretien du 22 juillet 2026 ; Arthaud et Mélenchon securite_justice-x1-d ; Retailleau territoires-x4-b et -e ; Le Pen, rejet de territoires-x3-a, vote du 23 juin 2026 ; Cazeneuve fiscalite-x1-c et -d ; Attal fiscalite-x1-a et education-x1-a ; Philippot fiscalite-x1-b ; Lalanne fiscalite-x1-a ; Roussel ecologie_energie-x9-d ; Mélenchon territoires-x3-e et territoires-x4-a ; Lisnard territoires-x5-b) ou les a déjà ramenées à une inférence de poids 1 (Labib education-x1-d, Bertrand education-x1-e, compatibilité partielle) ; elles restent à relire par le propriétaire. 9 octobre 2026 : agriculture-1 (étape 1) complétée par une recherche ciblée doublement vérifiée pour Attal (f, b) et Guedj (c), après l’ajout des candidats de la primaire.",
+  "_positions_note": "Attributions dont dépend l’étape 1, relevées par la critique et vérifiées dans les dossiers (citations dans « note »). Retirées le 7 octobre 2026 après contre-vérification, parce que la vérification de 2-question-bank.js les avait réfutées et qu’aucune source nouvelle ne les justifie : Attal sur agriculture-1-b (la source ne parle que de simplifier les normes, ni d’importations ni de règles européennes) et Becht sur finances_publiques-1-a (il rejette une « compression brutale » et annonce de nouvelles dépenses sociales ; sa position, réformer l’État sans hausse d’impôts, relève de l’approche ajoutée finances_publiques-1-g, laissée à l’extension comme les 39 autres). Cazeneuve, réfuté sur l’ancien texte de immigration-1-d, est placé sur sa reformulation. Les attributions contestées par les relecteurs sans appui dans les sources sont laissées telles quelles. Décision 3 (7 octobre 2026) : report de deux attributions des doublons écartés (rejet de laicite_republique-1-a par Attal, ecologie_energie-7-f en poids 2 pour Dupont-Aignan ; voir _drops_note), et retrait de Retailleau sur europe-x4-c (source qui ne porte pas sur l’adhésion). Le report de Dupont-Aignan sur 7-f revient au reclassement que son explorateur proposait (« ecologie_energie-7 b → f », f en poids 2 et b gardé en poids 1) : il découle ici de la règle des doublons, pas de la liste des reclassements, que la décision 3 n’applique pas (_decision3_note). Les autres attributions contestées par les relecteurs de 3-bank-expansion.js sont gardées : la vérification les a confirmées sur des sources lues hors des dossiers (Mélenchon europe-x5-d, entretien du 22 juillet 2026 ; Arthaud et Mélenchon securite_justice-x1-d ; Retailleau territoires-x4-b et -e ; Le Pen, rejet de territoires-x3-a, vote du 23 juin 2026 ; Cazeneuve fiscalite-x1-c et -d ; Attal fiscalite-x1-a et education-x1-a ; Philippot fiscalite-x1-b ; Lalanne fiscalite-x1-a ; Roussel ecologie_energie-x9-d ; Mélenchon territoires-x3-e et territoires-x4-a ; Lisnard territoires-x5-b) ou les a déjà ramenées à une inférence de poids 1 (Labib education-x1-d, Bertrand education-x1-e, compatibilité partielle) ; elles restent à relire par le propriétaire. 9 octobre 2026 : agriculture-1 (étape 1) complétée par une recherche ciblée doublement vérifiée pour Attal (f, b) et Guedj (c), après l’ajout des candidats de la primaire. 14 octobre 2026, entrée de Natacha Polony (PIPELINE §13) : positions sur les deux approches ajoutées (finances_publiques-1-h et europe-3-f), toutes issues de leur vérification contradictoire (sources rouvertes, citations dans « note » ; les porteurs à poids 0 ou inconnus ne sont pas codés). Porteurs de finances_publiques-1-h : polony (2), asselineau (2), cazeneuve (2), glucksmann (1), philippe (1) et dupontaignan (1). Porteurs d’europe-3-f : polony (2), dupontaignan (2), lepen (1) et melenchon (1). Positions anciennes revues pour faire place à ces porteurs (règle de build-pack : une principale et une compatible par candidat et par question) : philippe finances_publiques-1-a passe de 1 à 2, résumé réécrit (l’ancien était devenu faux) ; dupontaignan europe-3-d passe de 2 à 1 (sa principale devient f) ; dupontaignan finances_publiques-1-g et lepen europe-3-d sont retirées au profit de h et de f. Ces deux retraits et le reclassement de dupontaignan suivent la recommandation de la vérification, que le propriétaire avait à arbitrer : ce sont des arbitrages par défaut, réversibles (chaque note dit comment revenir en arrière). Cazeneuve, d’abord écarté de finances_publiques-1-h (« il aurait fallu passer sa c à 2 »), y est placé en principale (2) après la relecture contradictoire de l’intégration, ce motif ne tenant pas (build-pack accepte une principale et une compatible) : sa déclaration au Crif (« par le travail, en produisant davantage ») est la plus explicite des porteurs ; c reste sa compatible (1), son résumé sans « par le travail », puisqu’elle vise aussi « les grandes entreprises », qu’il ne vise pas. Arbitrage par défaut, réversible (voir ses deux entrées). Philippot reste à l’écart (la production n’y vient qu’« en complément » des économies). Les autres positions de Natacha Polony viennent de add-candidate/polony.json.",
   "movePositions": [],
   "externalFlags": [
     {

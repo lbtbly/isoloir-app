@@ -1,0 +1,2061 @@
+{
+ "format": "isoloir-add-candidate/1",
+ "electionId": "presidentielle-2027",
+ "contextDate": "2026-10-12",
+ "candidate": "polony",
+ "checkedAt": "2026-10-14",
+ "candidateConfig": {
+  "id": "polony",
+  "name": "Natacha Polony",
+  "initials": "NP",
+  "party": "Nous sommes la France",
+  "declaredAt": "2026-10-14",
+  "declarationSource": {
+   "title": "Natacha Polony annonce sa candidature à l'élection présidentielle",
+   "url": "https://lcp.fr/actualites/natacha-polony-annonce-sa-candidature-a-l-election-presidentielle-443808",
+   "publisher": "LCP",
+   "date": "2026-10-14"
+  },
+  "note": "Candidature annoncée le 14 octobre 2026 sur France Inter, avec le mouvement « Nous sommes la France » ; essayiste, ancienne directrice de la rédaction de Marianne (2018-2024).",
+  "docs": []
+ },
+ "positions": [
+  {
+   "questionId": "agriculture-1",
+   "approachId": "agriculture-1-d",
+   "weight": 2,
+   "rejects": false,
+   "nature": "declaration",
+   "confidence": "high",
+   "summary": "Elle refuse l'entrée en France des produits agricoles qui ne respectent pas les règles imposées aux paysans français, et veut mettre entre parenthèses les règles européennes pour assurer la souveraineté alimentaire.",
+   "sources": [
+    {
+     "title": "Natacha Polony : « La grandeur de la France vient du monde paysan » (7 Jours à Clermont)",
+     "url": "https://www.7joursaclermont.fr/natacha-polony/",
+     "date": "2026-10-08",
+     "publisher": "7 Jours à Clermont"
+    },
+    {
+     "title": "Natacha Polony : tout un programme (Causeur)",
+     "url": "https://www.causeur.fr/2027-natacha-polony-tout-un-programme-la-france-corps-et-ame-328249",
+     "date": "2026-06-08",
+     "publisher": "Causeur"
+    },
+    {
+     "title": "Natacha Polony : « Il faut déroger au dogme du libre-échange » (Sud Radio)",
+     "url": "https://www.sudradio.fr/societe/natacha-polony-pour-reussir-la-transition-ecologique-il-faut-deroger-au-dogme-du-libre-echange",
+     "date": "2026-04-16",
+     "publisher": "Sud Radio"
+    }
+   ],
+   "verdict": "confirmed",
+   "note": "7 Jours à Clermont (8 octobre 2026), premier point de sa réponse : on ne fait pas entrer sur le sol français des produits qui ne respectent pas les règles imposées à nos paysans. Causeur (8 juin 2026), recension de son livre de mai 2026 : elle veut « mettre entre parenthèses les règles européennes » pour réindustrialiser et assurer la souveraineté alimentaire. Sud Radio : elle veut déroger au dogme du libre-échange et, à la marge, à certaines règles européennes. Ces sources correspondent exactement à 1-d (interdire les importations non conformes, quitte à déroger aux règles européennes).",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "agriculture-2",
+   "approachId": "agriculture-2-d",
+   "weight": 1,
+   "rejects": false,
+   "nature": "declaration",
+   "confidence": "medium",
+   "summary": "Elle refuse l'entrée en France des produits qui ne respectent pas les règles imposées aux paysans français, dont ceux contenant des pesticides interdits en France, sans se prononcer sur le glyphosate.",
+   "sources": [
+    {
+     "title": "Natacha Polony : « La grandeur de la France vient du monde paysan » (7 Jours à Clermont)",
+     "url": "https://www.7joursaclermont.fr/natacha-polony/",
+     "date": "2026-10-08",
+     "publisher": "7 Jours à Clermont"
+    }
+   ],
+   "verdict": "adjusted",
+   "note": "La source soutient la seconde moitié de 2-d : elle refuse les importations non conformes et dénonce des produits contenant des pesticides interdits en France. Le glyphosate n'est pas mentionné. Dans Causeur (8 juin 2026), elle juge aussi qu'interdire des produits phytosanitaires sans solution de remplacement est « parfaitement incompatible avec la libre circulation des marchandises ». Cette nuance ne permet pas de la classer dans le camp d'interdictions plus larges en France. Le poids 1 est maintenu, la confiance passe de high à medium.",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "agriculture-x4",
+   "approachId": "agriculture-x4-d",
+   "weight": 1,
+   "rejects": false,
+   "nature": "inference",
+   "confidence": "medium",
+   "summary": "Elle déplore que les prix agricoles soient fixés par la grande distribution et non par les paysans, et veut rééquilibrer le partage de la valeur au profit des producteurs, sans préciser l'outil.",
+   "sources": [
+    {
+     "title": "Natacha Polony : « La grandeur de la France vient du monde paysan » (7 Jours à Clermont)",
+     "url": "https://www.7joursaclermont.fr/natacha-polony/",
+     "date": "2026-10-08",
+     "publisher": "7 Jours à Clermont"
+    },
+    {
+     "title": "Nourrir la France : le défi de notre souveraineté (vidéo)",
+     "url": "https://www.npolony.fr/videos?v=XPgpFRSalVg",
+     "date": "2026-05-30",
+     "publisher": "npolony.fr"
+    }
+   ],
+   "verdict": "adjusted",
+   "note": "Ce que disent les sources : ce ne sont pas les paysans qui fixent les prix mais la grande distribution (7 Jours à Clermont), et l'objectif est de rééquilibrer le partage de la valeur au profit de ceux qui produisent (vidéo du 30 mai 2026). Aucun outil n'est nommé : ni prix planchers, ni encadrement des marges, ni renforcement d'Egalim. Le rattachement à x4-d plutôt qu'à x4-a ou x4-b est donc une inférence. La nature passe à « inference », avec un poids 1 au plus. Le résumé est reformulé : l'ancienne tournure « reproche à la grande distribution, et non aux paysans » était ambiguë.",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "defense-4",
+   "approachId": "defense-4-b",
+   "weight": 1,
+   "rejects": false,
+   "nature": "inference",
+   "confidence": "low",
+   "summary": "Elle qualifie d’« échec cuisant » les dix ans passés à pousser Dassault à partager ses technologies avec l’Allemagne dans le projet d’avion de combat franco-allemand, juge contraires aux intérêts français des décisions sur la préférence européenne en matière de défense, alors que l’Allemagne achète des armes américaines, et lie la défense à la capacité de produire en France.",
+   "sources": [
+    {
+     "title": "Présidentielle 2027 : la candidature de Natacha Polony se précise (OJIM)",
+     "url": "https://www.ojim.fr/presidentielle-2027-la-candidature-de-natacha-polony-se-precise/",
+     "date": "2026-10-01",
+     "publisher": "OJIM"
+    },
+    {
+     "title": "French journalist Natacha Polony joins growing field of 2027 presidential hopefuls (Euronews)",
+     "url": "https://www.euronews.com/2026/10/14/french-journalist-natacha-polony-joins-growing-field-of-2027-presidential-hopefuls",
+     "date": "2026-10-14",
+     "publisher": "Euronews"
+    },
+    {
+     "title": "Ma vision pour la France, site de campagne Natacha Polony 2027",
+     "url": "https://natachapolony2027.fr/natacha-polony/ma-vision",
+     "date": "2026-10-14 (consultation)",
+     "publisher": "natachapolony2027.fr"
+    }
+   ],
+   "verdict": "adjusted",
+   "note": "Faits vérifiés : OJIM cite « Nous avons perdu dix ans pour un échec cuisant », après dix ans à essayer de forcer Dassault à offrir ses technologies à l’Allemagne (SCAF) ; Euronews rapporte des décisions sur la préférence européenne en défense qu’elle juge préjudiciables à la France, l’Allemagne continuant d’acheter américain (ce dernier point est présenté comme contexte, pas comme une citation) ; le site de campagne dit que la France « se prépare à se défendre » et que défense et indépendance exigent de produire. En revanche, aucune source ne la montre défendre une coopération au cas par cas par traités bilatéraux : c’est une déduction (elle pourrait tout autant être rangée en c). Nature passée de declaration à inference, confiance abaissée à low, poids 1 conservé ; résumé précisé sur le contenu exact de la critique du SCAF.",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "ecologie_energie-1",
+   "approachId": "ecologie_energie-1-a",
+   "weight": 2,
+   "rejects": false,
+   "nature": "proposition",
+   "confidence": "high",
+   "summary": "Elle propose une taxe flottante sur les carburants : quand le prix à la pompe augmente, les taxes baisseraient automatiquement, pour protéger ménages, travailleurs et PME.",
+   "sources": [
+    {
+     "title": "30 € de différence sur un plein, ce n'est pas un détail (vidéo)",
+     "url": "https://www.npolony.fr/videos?v=wmRDCxnwNQs",
+     "date": "2026-09-17",
+     "publisher": "npolony.fr"
+    },
+    {
+     "title": "Face au déclin : l'urgence d'un pacte productif (vidéo)",
+     "url": "https://www.npolony.fr/videos?v=DpnJQrYsmWc",
+     "date": "2026-09-23",
+     "publisher": "npolony.fr"
+    }
+   ],
+   "verdict": "adjusted",
+   "note": "La proposition est confirmée par la description de la vidéo du 17 septembre 2026 (v=wmRDCxnwNQs) : « Quand le prix du carburant augmente, les taxes doivent baisser automatiquement. » Ce mécanisme général, non ciblé, correspond à l'approche 1-a, donc le poids 2 est maintenu. Correction des sources : la page générale /videos est remplacée par l'URL directe de cette vidéo. La vidéo « pacte productif » (v=DpnJQrYsmWc) ne parle pas de taxe flottante. Elle reproche seulement au gouvernement son inaction alors que l'Espagne obtient des dérogations pour alléger ses taxes sur le carburant. Elle reste en source d'appui. Le résumé reprend les bénéficiaires cités par la source au lieu de « pour tous ».",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "ecologie_energie-4",
+   "approachId": "ecologie_energie-4-b",
+   "weight": 2,
+   "rejects": false,
+   "nature": "declaration",
+   "confidence": "high",
+   "summary": "Elle présente la politique écologique comme une politique de souveraineté fondée sur la production en France, et veut faire de l'adaptation au climat un moteur de réindustrialisation.",
+   "sources": [
+    {
+     "title": "Natacha Polony : « Il faut déroger au dogme du libre-échange » (Sud Radio)",
+     "url": "https://www.sudradio.fr/societe/natacha-polony-pour-reussir-la-transition-ecologique-il-faut-deroger-au-dogme-du-libre-echange",
+     "date": "2026-04-16",
+     "publisher": "Sud Radio"
+    },
+    {
+     "title": "Canicules et réindustrialisation, le défi français (vidéo)",
+     "url": "https://www.npolony.fr/videos?v=B8deNFh-EE0",
+     "date": "2026-06-22",
+     "publisher": "npolony.fr"
+    }
+   ],
+   "verdict": "confirmed",
+   "note": "Sud Radio (16 avril 2026) : elle dit qu'une politique écologique est une politique de souveraineté et veut mettre toute la puissance publique au service d'une production décarbonée en France. La description complète de la vidéo du 22 juin 2026 fixe l'objectif de faire de l'adaptation climatique un moteur de réindustrialisation, de souveraineté énergétique et de prospérité. Les milliards investis doivent reconstruire une filière industrielle française. C'est très proche de 4-b, malgré deux réserves : elle parle d'adaptation plutôt que de transition, et elle ne parle pas d'emplois. Aucune autre approche ne convient mieux. La 4-c (« plutôt que de nouvelles normes et taxes ») n'est pas soutenue, puisqu'elle veut produire « selon nos normes ».",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "ecologie_energie-5",
+   "approachId": "ecologie_energie-5-b",
+   "weight": 1,
+   "rejects": false,
+   "nature": "declaration",
+   "confidence": "medium",
+   "summary": "Elle s'oppose aux grandes bassines destinées à l'agriculture industrielle et préconise un stockage de l'eau « mesuré », pour tous les usagers, en jugeant l'irrigation indispensable à l'agriculture.",
+   "sources": [
+    {
+     "title": "Natacha Polony : « La grandeur de la France vient du monde paysan » (7 Jours à Clermont)",
+     "url": "https://www.7joursaclermont.fr/natacha-polony/",
+     "date": "2026-10-08",
+     "publisher": "7 Jours à Clermont"
+    }
+   ],
+   "verdict": "confirmed",
+   "note": "Texte de l'entretien vérifié (date de publication 2026-10-08 dans les métadonnées) : « Il n'y a pas non plus d'agriculture sans irrigation », puis : non pas de grandes bassines pour l'agriculture industrielle, mais un stockage de l'eau mesuré pour tout le monde. Son opposition aux grandes bassines la rend compatible avec la première moitié de 5-b. Elle ne parle cependant ni d'interdiction ni de restauration du cycle naturel, et elle reste favorable à un stockage modéré. Le poids 1 et la confiance medium sont donc justes, sans montée vers un poids 2.",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "ecologie_energie-6",
+   "approachId": "ecologie_energie-6-a",
+   "weight": 2,
+   "rejects": false,
+   "nature": "declaration",
+   "confidence": "high",
+   "summary": "Elle veut faire de la protection contre la chaleur un service public, par un plan national qui donne la priorité aux écoles, crèches, hôpitaux, Ehpad, administrations et logements sociaux, avec climatisation raisonnée, pompes à chaleur réversibles et isolation.",
+   "sources": [
+    {
+     "title": "Canicules et réindustrialisation, le défi français (vidéo)",
+     "url": "https://www.npolony.fr/videos?v=B8deNFh-EE0",
+     "date": "2026-06-22",
+     "publisher": "npolony.fr"
+    }
+   ],
+   "verdict": "confirmed",
+   "note": "Description complète vérifiée. Elle fait de la protection contre la chaleur un enjeu de service public. Écoles, crèches, hôpitaux, Ehpad, administrations et logements sociaux doivent être les priorités d'un « vaste plan national » qui associe climatisation raisonnée, pompes à chaleur réversibles, isolation, ventilation et transformation des espaces urbains. Cela correspond au cœur de 6-a (climatiser écoles, hôpitaux, maisons de retraite). Seule l'aide aux ménages pour s'équiper n'est pas mentionnée, ce qui ne justifie pas de baisser le poids.",
+   "candidate": "polony",
+   "origin": "document"
+  },
+  {
+   "questionId": "ecologie_energie-6",
+   "approachId": "ecologie_energie-6-d",
+   "weight": 1,
+   "rejects": false,
+   "nature": "declaration",
+   "confidence": "high",
+   "summary": "Elle reproche à l'État d'avoir réduit les budgets et les effectifs de l'Office national des forêts face aux incendies, et veut un plan national pour la forêt avec une filière française de bombardiers d'eau.",
+   "sources": [
+    {
+     "title": "Incendies : l'État est-il encore à la hauteur ? (vidéo)",
+     "url": "https://www.npolony.fr/videos?v=oc_ooa5NSSQ",
+     "date": "2026-07-14",
+     "publisher": "npolony.fr"
+    }
+   ],
+   "verdict": "confirmed",
+   "note": "Description vérifiée. Elle critique les budgets rabotés, les effectifs de l'ONF réduits, la maintenance des Canadair en partie privatisée et les avions immobilisés. Elle propose un grand plan national pour la forêt, associant pompiers, forestiers, élus, industriels et État, pour renforcer l'ONF, prévenir les feux et développer une filière française de bombardiers d'eau. C'est compatible avec 6-d (effectifs et équipements), mais ce n'est pas centré sur les pompiers et la sécurité civile, d'où le poids 1.",
+   "candidate": "polony",
+   "origin": "document"
+  },
+  {
+   "questionId": "ecologie_energie-7",
+   "approachId": "ecologie_energie-7-d",
+   "weight": 2,
+   "rejects": false,
+   "nature": "declaration",
+   "confidence": "high",
+   "summary": "Elle juge un grand plan ferroviaire absolument nécessaire pour décarboner les transports et dénonce le démantèlement du fret ferroviaire.",
+   "sources": [
+    {
+     "title": "Natacha Polony : « Il faut déroger au dogme du libre-échange » (Sud Radio)",
+     "url": "https://www.sudradio.fr/societe/natacha-polony-pour-reussir-la-transition-ecologique-il-faut-deroger-au-dogme-du-libre-echange",
+     "date": "2026-04-16",
+     "publisher": "Sud Radio"
+    },
+    {
+     "title": "Face au déclin : l'urgence d'un pacte productif (vidéo)",
+     "url": "https://www.npolony.fr/videos?v=DpnJQrYsmWc",
+     "date": "2026-09-23",
+     "publisher": "npolony.fr"
+    }
+   ],
+   "verdict": "confirmed",
+   "note": "Sud Radio cite ses propos : il faut agir d'abord pour décarboner, et « un grand plan ferroviaire serait une nécessité absolue ». La description de la vidéo du 23 septembre 2026 cite le « démantèlement du fret ferroviaire » parmi les signes du déclin. Le cœur de 7-d (grand plan d'investissement ferroviaire, fret compris) est donc couvert. Les petites lignes ne sont pas mentionnées.",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "ecologie_energie-x9",
+   "approachId": "ecologie_energie-x9-a",
+   "weight": 1,
+   "rejects": false,
+   "nature": "inference",
+   "confidence": "medium",
+   "summary": "Sans parler explicitement de croissance, elle veut une « politique de production » pour recréer de l'activité et des recettes publiques, et juge qu'un pays qui ne produit pas n'est plus vraiment libre de financer ses écoles et ses hôpitaux.",
+   "sources": [
+    {
+     "title": "L'essayiste Natacha Polony annonce sa candidature à l'élection présidentielle (franceinfo)",
+     "url": "https://www.franceinfo.fr/elections/presidentielle/l-essayiste-natacha-polony-annonce-sa-candidature-a-l-election-presidentielle_8236714.html",
+     "date": "2026-10-14",
+     "publisher": "franceinfo"
+    },
+    {
+     "title": "French journalist Natacha Polony joins growing field of 2027 presidential hopefuls (Euronews)",
+     "url": "https://www.euronews.com/2026/10/14/french-journalist-natacha-polony-joins-growing-field-of-2027-presidential-hopefuls",
+     "date": "2026-10-14",
+     "publisher": "Euronews"
+    },
+    {
+     "title": "Natacha Polony : « Il faut déroger au dogme du libre-échange » (Sud Radio)",
+     "url": "https://www.sudradio.fr/societe/natacha-polony-pour-reussir-la-transition-ecologique-il-faut-deroger-au-dogme-du-libre-echange",
+     "date": "2026-04-16",
+     "publisher": "Sud Radio"
+    }
+   ],
+   "verdict": "adjusted",
+   "note": "Franceinfo (14 octobre 2026) : une « politique de production » pour « recréer de l'activité » et faire rentrer de l'argent dans les caisses de l'État. Euronews : un pays qui ne produit pas ce dont il a besoin n'est plus vraiment libre de financer écoles et hôpitaux. Sud Radio : sans entreprises en France, il n'y aura plus de quoi financer le modèle social. Aucune source ne parle de croissance du PIB, d'où la nature corrigée de « declaration » en « inference ». Le poids 1 reste dans la limite. Sud Radio est ajouté en source d'appui.",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "education-1",
+   "approachId": "education-1-a",
+   "weight": 1,
+   "rejects": false,
+   "nature": "declaration",
+   "confidence": "high",
+   "summary": "Elle veut des certifications nationales et anonymes pour que les lycéens connaissent leur niveau réel, et la fin des bonnes notes données pour faire plaisir.",
+   "sources": [
+    {
+     "title": "Natacha Polony candidate à la présidentielle ? Ce qu'elle prépare déjà en coulisses (L'Express via Orange)",
+     "url": "https://actu.orange.fr/politique/natacha-polony-candidate-a-la-presidentielle-ce-qu-elle-prepare-deja-en-coulisses-magicExpress-CNT000002rSWei.html",
+     "date": "2026-09-14",
+     "publisher": "L'Express"
+    },
+    {
+     "title": "La journaliste Natacha Polony, bientôt candidate à l'élection présidentielle française ? « Je lance un appel aux orphelins de la politique »",
+     "url": "https://www.rtbf.be/article/la-journaliste-natacha-polony-bientot-candidate-a-la-presidentielle-francaise-je-lance-un-appel-aux-orphelins-de-la-politique-11786400",
+     "date": "2026-09-17",
+     "publisher": "RTBF"
+    }
+   ],
+   "verdict": "confirmed",
+   "note": "À la RTBF, elle dit elle-même vouloir cesser de donner de bonnes notes « pour faire plaisir » et instaurer une certification anonyme et objective pour que les jeunes sachent où ils en sont. Selon L'Express (rapporté par la journaliste, sans citation directe), il s'agit de certifications nationales et anonymes pour les lycéens, inspirées des certifications de langues. Sur Sud Radio (14/10), elle dénonce aussi un bac « qui ne vaut plus rien », et son site met en avant une « école exigeante ». Cela correspond bien à une exigence scolaire accrue (approche a), en approche compatible : pas de position connue sur les groupes de niveau ni sur le collège unique, d'où le poids 1. Seul changement : le titre RTBF est donné en entier.",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "education-1",
+   "approachId": "education-1-g",
+   "weight": 2,
+   "rejects": false,
+   "nature": "proposition",
+   "confidence": "high",
+   "summary": "Elle propose de relever de 20 à 30 % le salaire des enseignants, en comptant toutes leurs missions éducatives, de revoir entièrement leur formation et d'augmenter le nombre de professeurs.",
+   "sources": [
+    {
+     "title": "Présidentielle 2027 : les propositions chocs de Natacha Polony pour sortir de la crise lycéenne et étudiante",
+     "url": "https://www.sudradio.fr/sud-radio/no-future-et-irresponsabilite-generalisee-les-declarations-chocs-et-les-solutions-de-natacha-polony-pour-les-lycees-et-leducation",
+     "date": "2026-10-14",
+     "publisher": "Sud Radio"
+    },
+    {
+     "title": "La journaliste Natacha Polony se lance en politique pour « perturber l'entre-soi »",
+     "url": "https://www.franceinfo.fr/politique/la-journaliste-natacha-polony-se-lance-en-politique-pour-perturber-l-entre-soi_8170427.html",
+     "date": "2026-08-31",
+     "publisher": "franceinfo avec AFP"
+    },
+    {
+     "title": "La journaliste Natacha Polony, bientôt candidate à l'élection présidentielle française ? « Je lance un appel aux orphelins de la politique »",
+     "url": "https://www.rtbf.be/article/la-journaliste-natacha-polony-bientot-candidate-a-la-presidentielle-francaise-je-lance-un-appel-aux-orphelins-de-la-politique-11786400",
+     "date": "2026-09-17",
+     "publisher": "RTBF"
+    }
+   ],
+   "verdict": "adjusted",
+   "note": "Le fond est confirmé. Dans l'article de Sud Radio, elle cite elle-même la contrepartie (compter autre chose que le temps devant les élèves) et la hausse de 20 à 30 %. Franceinfo/AFP (31/08, propos tenus sur RTL) rapporte qu'elle veut revoir entièrement la formation des professeurs et augmenter le nombre d'enseignants. RTBF : elle veut les payer correctement. Ajustements : 1) la nature passe à « proposition », car c'est une mesure chiffrée explicite ; 2) les métadonnées Sud Radio sont corrigées. La page affiche aujourd'hui le titre « Présidentielle 2027 : les propositions chocs… » et la date du 14/10/2026 (datePublished). Le titre « No future… » daté du 6/10, repris par le site de campagne, correspond à la diffusion de l'entretien. Le volet « concours dès la licence » de l'approche n'est pas évoqué, mais le résumé ne le lui prête pas. Le poids 2 reste justifié : c'est sa mesure-phare sur l'école.",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "education-4",
+   "approachId": "education-4-a",
+   "weight": 1,
+   "rejects": false,
+   "nature": "proposition",
+   "confidence": "medium",
+   "summary": "Elle propose d'instaurer un concours d'entrée à l'université, sans en préciser les modalités.",
+   "sources": [
+    {
+     "title": "Natacha Polony : tout un programme (Causeur)",
+     "url": "https://www.causeur.fr/2027-natacha-polony-tout-un-programme-la-france-corps-et-ame-328249",
+     "date": "2026-06-08",
+     "publisher": "Causeur"
+    }
+   ],
+   "verdict": "confirmed",
+   "note": "La recension de Martin Pimentel (Causeur, 8/06/2026, rubrique « Édition Abonné » mais texte complet chargé) porte sur son livre « La France corps et âme » (Plon, 2026). Elle y écrit qu'elle « prône un concours d'entrée à l'université ». C'est une paraphrase du recenseur, pas une citation, et aucune modalité n'est donnée. Un concours national ne revient pas tout à fait à laisser chaque université sélectionner, mais c'est bien une sélection à l'entrée fondée sur les résultats : le rattachement à l'approche a en poids 1 est cohérent. La confiance medium se justifie : source secondaire, livre récent. Son souhait de « rapatrier le budget de la recherche de la Commission » ne correspond pas à l'approche c (hausse forte des moyens), il n'y a donc pas d'ajout.",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "education-x1",
+   "approachId": "education-x1-a",
+   "weight": 2,
+   "rejects": false,
+   "nature": "declaration",
+   "confidence": "medium",
+   "summary": "Elle veut des centres éducatifs fermés pour sortir de leur milieu les jeunes qui commencent à dériver, et que ceux qui cassent soient punis (principe casseur-payeur).",
+   "sources": [
+    {
+     "title": "Présidentielle 2027 : les propositions chocs de Natacha Polony pour sortir de la crise lycéenne et étudiante",
+     "url": "https://www.sudradio.fr/sud-radio/no-future-et-irresponsabilite-generalisee-les-declarations-chocs-et-les-solutions-de-natacha-polony-pour-les-lycees-et-leducation",
+     "date": "2026-10-14",
+     "publisher": "Sud Radio"
+    }
+   ],
+   "verdict": "adjusted",
+   "note": "Le fond est confirmé par une citation directe. À propos de jeunes de 12 ou 13 ans qui insultent leurs professeurs, elle dit « il faut des structures » et se déclare pour des centres éducatifs fermés « qui fonctionnent réellement », afin de les sortir de leur milieu. Elle ajoute : « Ceux qui cassent doivent être punis ». Le principe du casseur-payeur figure, lui, dans la narration de l'article. Elle rejette aussi l'idée qu'une sanction serait un échec pédagogique. Tout cela correspond à l'approche a : sanctions plus dures et placement en structures spécialisées. Le poids 2 reste justifié, car c'est sa principale réponse sur la violence des élèves. Rien ne relève de l'approche c : le casseur-payeur ne vise pas les parents. Réserve qui maintient la confiance medium : les centres éducatifs fermés sont des placements judiciaires, et non des établissements scolaires. Ajustement : titre et date de la source alignés sur la page actuelle (14/10/2026 ; entretien diffusé le 6/10 sous le titre « No future… »).",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "egalite-2",
+   "approachId": "egalite-2-f",
+   "weight": 1,
+   "rejects": false,
+   "nature": "proposition",
+   "confidence": "medium",
+   "summary": "Selon la recension de Causeur, son livre « La France corps et âme » (Plon, 2026) prône un service public de la garde d'enfants, sans préciser sa gratuité ni parler des tâches domestiques.",
+   "sources": [
+    {
+     "title": "Natacha Polony : tout un programme (Causeur)",
+     "url": "https://www.causeur.fr/2027-natacha-polony-tout-un-programme-la-france-corps-et-ame-328249",
+     "date": "2026-06-08",
+     "publisher": "Causeur"
+    }
+   ],
+   "verdict": "adjusted",
+   "note": "L'article de Martin Pimentel (Causeur n° 146, 8 juin 2026), accessible en entier, indique bien que Natacha Polony, dans son livre, défend un « service public de la garde d'enfants ». L'article ne dit rien de la gratuité, des crèches, du partage des tâches domestiques ni des congés parentaux. L'approche f va plus loin : des services publics gratuits pour la garde ET une large part des tâches domestiques. Le poids 1 (compatible, partiel) est donc juste, et un poids 2 serait une sur-interprétation. La nature passe de « declaration » à « proposition », car c'est une mesure explicite de son livre. La confiance reste « medium » : la source est une recension secondaire du livre, sans reprise trouvée sur le site de campagne natachapolony2027.fr (page d'accueil sans mention de garde d'enfants ni de politique familiale), et aucune autre source ne la corrobore.",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "europe-1",
+   "approachId": "europe-1-c",
+   "weight": 2,
+   "rejects": false,
+   "nature": "proposition",
+   "confidence": "medium",
+   "summary": "Elle propose de réviser par référendum l’article 55 de la Constitution pour que la loi nationale prime sur les traités, et reproche à la Commission européenne de réduire peu à peu le pouvoir des États sans validation démocratique.",
+   "sources": [
+    {
+     "title": "Natacha Polony : tout un programme (Causeur)",
+     "url": "https://www.causeur.fr/2027-natacha-polony-tout-un-programme-la-france-corps-et-ame-328249",
+     "date": "2026-06-08",
+     "publisher": "Causeur"
+    },
+    {
+     "title": "Natacha Polony : « Ursula von der Leyen grignote petit à petit le pouvoir des États » (Sud Radio)",
+     "url": "https://www.sudradio.fr/sud-radio/natacha-polony-ursula-von-der-leyen-grignotte-petit-a-petit-le-pouvoir-des-etats",
+     "date": "2026-05-31",
+     "publisher": "Sud Radio"
+    }
+   ],
+   "verdict": "confirmed",
+   "note": "Causeur (Martin Pimentel, 8 juin 2026, compte rendu du livre « La France corps et âme ») rapporte la proposition de « modifier l’article 55 de la Constitution par référendum » pour que la loi nationale « reprenne le dessus sur les traités ». Sud Radio (31 mai 2026) : la Commission et Ursula von der Leyen grignotent le pouvoir des États sans validation démocratique ; elle ne remet pas en cause l’appartenance à l’UE. Correspondance nette avec l’approche c (primauté du droit national, pouvoirs rendus aux États). Confiance medium maintenue : la proposition est connue par le compte rendu d’un livre.",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "europe-1",
+   "approachId": "europe-1-d",
+   "weight": 1,
+   "rejects": false,
+   "nature": "inference",
+   "confidence": "low",
+   "summary": "Elle propose de « mettre entre parenthèses » des règles européennes pour réindustrialiser et assurer la souveraineté alimentaire, et de déroger « à la marge » à certaines règles européennes et au « dogme du libre-échange », sans proposer de renégocier les traités.",
+   "sources": [
+    {
+     "title": "Natacha Polony : tout un programme (Causeur)",
+     "url": "https://www.causeur.fr/2027-natacha-polony-tout-un-programme-la-france-corps-et-ame-328249",
+     "date": "2026-06-08",
+     "publisher": "Causeur"
+    },
+    {
+     "title": "Natacha Polony : « Il faut déroger au dogme du libre-échange » (Sud Radio)",
+     "url": "https://www.sudradio.fr/societe/natacha-polony-pour-reussir-la-transition-ecologique-il-faut-deroger-au-dogme-du-libre-echange",
+     "date": "2026-04-16",
+     "publisher": "Sud Radio"
+    }
+   ],
+   "verdict": "adjusted",
+   "note": "Les faits sont exacts : Causeur cite « mettre entre parenthèses les règles européennes » (suspension temporaire, pour la réindustrialisation et la souveraineté alimentaire) ; Sud Radio (16 avril 2026) rapporte qu’elle veut déroger au dogme du libre-échange et, seulement « à la marge », à certaines règles européennes. Mais l’approche d (renégocier les traités pour sortir des règles de concurrence, de libre-échange ET de déficit, sinon cesser de les appliquer) va bien au-delà : aucune mention de renégociation des traités ni des règles de déficit, et elle limite les dérogations « à la marge ». La compatibilité est donc une inférence partielle : nature passée à inference, confiance abaissée à low, poids 1 conservé ; résumé complété par « à la marge ».",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "europe-1",
+   "approachId": "europe-1-e",
+   "weight": 0,
+   "rejects": true,
+   "nature": "declaration",
+   "confidence": "high",
+   "summary": "Elle réaffirme vouloir que la France reste dans l’Union européenne, pour y être indépendante en s’associant à d’autres pays indépendants.",
+   "sources": [
+    {
+     "title": "Présidentielle 2027 : la candidature de Natacha Polony se précise (OJIM)",
+     "url": "https://www.ojim.fr/presidentielle-2027-la-candidature-de-natacha-polony-se-precise/",
+     "date": "2026-10-01",
+     "publisher": "OJIM"
+    },
+    {
+     "title": "Natacha Polony : « Ursula von der Leyen grignote petit à petit le pouvoir des États » (Sud Radio)",
+     "url": "https://www.sudradio.fr/sud-radio/natacha-polony-ursula-von-der-leyen-grignotte-petit-a-petit-le-pouvoir-des-etats",
+     "date": "2026-05-31",
+     "publisher": "Sud Radio"
+    }
+   ],
+   "verdict": "adjusted",
+   "note": "OJIM (Loane Nader, 1er octobre 2026) : elle « réaffirme son souhait de rester au sein de l’Union européenne », pour « une Europe dans laquelle nous sommes indépendants » et en s’associant « à des pays indépendants ». Le rejet de la sortie est donc explicite. Ajustement du résumé : l’OJIM ne dit pas que ses concurrents « prônent la sortie » (il les oppose seulement sans les nommer ni préciser leur position), mention retirée. Sud Radio (31 mai 2026) corrobore : elle ne remet pas en cause l’appartenance et veut retrouver une capacité d’action au sein de l’Union ; source ajoutée et confiance relevée à high (deux sources concordantes).",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "europe-2",
+   "approachId": "europe-2-c",
+   "weight": 1,
+   "rejects": false,
+   "nature": "inference",
+   "confidence": "low",
+   "summary": "Elle propose de « rapatrier » le budget de recherche de la Commission européenne, sans position connue sur le montant global de la contribution française au budget de l’Union.",
+   "sources": [
+    {
+     "title": "Natacha Polony : tout un programme (Causeur)",
+     "url": "https://www.causeur.fr/2027-natacha-polony-tout-un-programme-la-france-corps-et-ame-328249",
+     "date": "2026-06-08",
+     "publisher": "Causeur"
+    }
+   ],
+   "verdict": "adjusted",
+   "note": "Causeur cite seulement « rapatrier le budget de la recherche de la Commission », sans autre précision (ni réduction chiffrée de la contribution française, ni renégociation avec les autres États, ni conditionnalité). Rattacher cette mesure ponctuelle à l’approche c (réduire ou conditionner la contribution française) est une lecture plausible mais interprétative : la formule peut aussi viser une renationalisation de la politique de recherche. Nature passée de proposition à inference et confiance abaissée à low ; poids 1 conservé. Le dossier note lui-même qu’aucune position n’a été trouvée sur le budget de l’UE.",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "europe-3",
+   "approachId": "europe-3-e",
+   "weight": 0,
+   "rejects": true,
+   "nature": "declaration",
+   "confidence": "medium",
+   "summary": "Elle juge « profondément malsain » que l’Union organise la concurrence entre les pays européens et veut déroger « à la marge » à certaines règles européennes pour produire en France selon des normes nationales.",
+   "sources": [
+    {
+     "title": "La journaliste Natacha Polony, bientôt candidate ? (RTBF)",
+     "url": "https://www.rtbf.be/article/la-journaliste-natacha-polony-bientot-candidate-a-la-presidentielle-francaise-je-lance-un-appel-aux-orphelins-de-la-politique-11786400",
+     "date": "2026-09-17",
+     "publisher": "RTBF"
+    },
+    {
+     "title": "Natacha Polony : « Il faut déroger au dogme du libre-échange » (Sud Radio)",
+     "url": "https://www.sudradio.fr/societe/natacha-polony-pour-reussir-la-transition-ecologique-il-faut-deroger-au-dogme-du-libre-echange",
+     "date": "2026-04-16",
+     "publisher": "Sud Radio"
+    }
+   ],
+   "verdict": "confirmed",
+   "note": "RTBF (17 septembre 2026) : elle décrit l’UE actuelle comme un grand marché qui met les pays européens en concurrence et dit « C’est profondément malsain ». Sud Radio (16 avril 2026) : souveraineté = déroger à la marge à certaines règles européennes, produire en France selon ses propres normes. Sud Radio (31 mai 2026, non cité ici) va dans le même sens (contre une Europe de la concurrence et de la dérégulation). Le rejet du statu quo des règles de concurrence est donc fondé ; elle ne s’est toutefois pas prononcée spécifiquement sur l’ouverture des services publics à la concurrence, d’où la confiance medium.",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "europe-x5",
+   "approachId": "europe-x5-c",
+   "weight": 2,
+   "rejects": false,
+   "nature": "declaration",
+   "confidence": "medium",
+   "summary": "Elle critique la dépendance militaire et technologique des Européens envers les États-Unis, de l’achat d’avions F-35 à une Europe devenue « une colonie numérique américaine », et veut que l’Europe garantisse son autonomie face aux pressions américaines, comme sur le Groenland.",
+   "sources": [
+    {
+     "title": "La journaliste Natacha Polony, bientôt candidate ? (RTBF)",
+     "url": "https://www.rtbf.be/article/la-journaliste-natacha-polony-bientot-candidate-a-la-presidentielle-francaise-je-lance-un-appel-aux-orphelins-de-la-politique-11786400",
+     "date": "2026-09-17",
+     "publisher": "RTBF"
+    }
+   ],
+   "verdict": "confirmed",
+   "note": "RTBF (17 septembre 2026) : achat par la plupart des pays européens de « F-35 américains » créant une dépendance à la politique étrangère américaine ; Europe devenue « une colonie numérique américaine » ; « L’Europe doit rester ferme et garantir son autonomie ainsi que son indépendance » ; pression sur le Danemark au sujet du Groenland citée en exemple. Correspondance directe avec l’approche c (autonomie européenne en défense et technologies, réduction des dépendances). Causeur (10 juillet 2026, dialogue avec E. Bastié) va dans le même sens (extraterritorialité du droit américain, Europe « sous domination américaine »).",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "europe-x5",
+   "approachId": "europe-x5-e",
+   "weight": 1,
+   "rejects": false,
+   "nature": "proposition",
+   "confidence": "medium",
+   "summary": "Son site de campagne affirme que la France n’a pas vocation à être « le supplétif d’un empire, quel qu’il soit » et doit parler à toutes les puissances sans « s’aligner sur personne » ; elle ne s’est pas prononcée sur l’OTAN.",
+   "sources": [
+    {
+     "title": "Ma vision pour la France, site de campagne Natacha Polony 2027",
+     "url": "https://natachapolony2027.fr/natacha-polony/ma-vision",
+     "date": "2026-10-14 (consultation)",
+     "publisher": "natachapolony2027.fr"
+    },
+    {
+     "title": "E. Bastié / N. Polony : désaccords souverains (Causeur)",
+     "url": "https://www.causeur.fr/dialogue-eugenie-bastie-natacha-polony-1-desaccords-souverains-330212",
+     "date": "2026-07-10",
+     "publisher": "Causeur"
+    }
+   ],
+   "verdict": "adjusted",
+   "note": "Le site de campagne (page non datée) contient bien « La France n’a pas vocation à être le supplétif d’un empire, quel qu’il soit », une France libre de parler aux États-Unis, à la Chine, à la Russie, etc., « capable de parler à tous et de ne s’aligner sur personne ». Dans Causeur (10 juillet 2026), elle évoque « une France gaulliste, non alignée » et récuse le discours de « l’Occident » comme bloc. La compatibilité avec e est réelle, mais l’approche implique de rester à l’écart de tous les blocs (donc de l’alliance OTAN), sur quoi elle ne s’est pas prononcée : confiance abaissée de high à medium, poids 1 conservé ; résumé recalé sur la formule exacte du site.",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "finances_publiques-1",
+   "approachId": "finances_publiques-1-g",
+   "weight": 1,
+   "rejects": false,
+   "nature": "declaration",
+   "confidence": "medium",
+   "summary": "Elle estime que c'est à l'État de faire les premiers efforts, juge certaines dépenses publiques illégitimes et cite le coût du millefeuille territorial, sans chiffrer d'économies.",
+   "sources": [
+    {
+     "title": "Natacha Polony : « Le Rassemblement National ne dit pas des choses fausses sur tout »",
+     "url": "https://www.sudradio.fr/sud-radio/natacha-polony-je-lance-un-appel-aux-orphelins-de-la-politique",
+     "date": "2026-09-15",
+     "publisher": "Sud Radio"
+    }
+   ],
+   "verdict": "confirmed",
+   "note": "Sud Radio, 15/09/2026, en réponse à une question sur un retour des Gilets jaunes : elle dit que c'est à l'État de commencer par faire les efforts, dénonce des dépenses « illégitimes » et cite le millefeuille territorial, qui coûte « un prix fou ». Cela recoupe les économies sur le fonctionnement de l'État et les doublons de l'approche g. En revanche, « sans hausse d'impôts » n'est pas dit explicitement, d'où le poids 1. Résumé légèrement resserré sur ses termes ; la position est confirmée.",
+   "candidate": "polony",
+   "origin": "web"
+  },
+  {
+   "questionId": "finances_publiques-3",
+   "approachId": "finances_publiques-3-f",
+   "weight": 1,
+   "rejects": false,
+   "nature": "declaration",
+   "confidence": "high",
+   "summary": "Elle veut augmenter le nombre d'enseignants et relever leurs salaires de 20 à 30 %, sans objectif pour les autres agents publics.",
+   "sources": [
+    {
+     "title": "La journaliste Natacha Polony se lance en politique pour « perturber l'entre-soi »",
+     "url": "https://www.franceinfo.fr/politique/la-journaliste-natacha-polony-se-lance-en-politique-pour-perturber-l-entre-soi_8170427.html",
+     "date": "2026-08-31",
+     "publisher": "franceinfo/AFP"
+    },
+    {
+     "title": "Présidentielle 2027 : les propositions chocs de Natacha Polony pour sortir de la crise lycéenne et étudiante",
+     "url": "https://www.sudradio.fr/sud-radio/no-future-et-irresponsabilite-generalisee-les-declarations-chocs-et-les-solutions-de-natacha-polony-pour-les-lycees-et-leducation",
+     "date": "2026-10-14",
+     "publisher": "Sud Radio"
+    }
+   ],
+   "verdict": "adjusted",
+   "note": "Fond confirmé. Franceinfo/AFP, 31/08/2026 (propos sur RTL) : « la nécessité d'augmenter le nombre d'enseignants ». Sud Radio : hausse de 20 à 30 % du salaire des enseignants, en contrepartie d'un temps de travail compté au-delà des heures de cours. Elle ne vise que l'école, d'où le poids 1 sur l'approche f. Correction des métadonnées : la page Sud Radio affiche désormais ce titre et la date du 14/10/2026 (10 h 33) ; l'adresse garde l'ancien titre et des extraits datés du 06/10 y sont intégrés.",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "industrie_economie-1",
+   "approachId": "industrie_economie-1-b",
+   "weight": 1,
+   "rejects": false,
+   "nature": "declaration",
+   "confidence": "medium",
+   "summary": "Elle demande de supprimer tous les impôts de production restants et propose de baisser les cotisations salariales et patronales, tout en gardant des aides conditionnées à une production en France.",
+   "sources": [
+    {
+     "title": "Natacha Polony : La France est « le pays le plus désindustrialisé d'Europe »",
+     "url": "https://www.sudradio.fr/sud-radio/natacha-polony-la-france-est-le-pays-le-plus-desindustrialise-deurope",
+     "date": "2026-04-20",
+     "publisher": "Sud Radio"
+    },
+    {
+     "title": "Présidentielle 2027 : Natacha Polony lance son mouvement et « n'exclut rien » pour l'Élysée",
+     "url": "https://entrevue.fr/politique/presidentielle-2027-natacha-polony-lance-son-mouvement-et-nexclut-rien-pour-lelysee/",
+     "date": "2026-08-28",
+     "publisher": "Entrevue"
+    }
+   ],
+   "verdict": "confirmed",
+   "note": "Sud Radio, 20/04/2026 : en son nom propre, elle plaide pour « supprimer tous les impôts de production qui restent » dans une politique de défense de la production. Entrevue, 28/08/2026 (d'après un entretien au Parisien) : baisse des cotisations salariales et patronales. Les aides conditionnées viennent de la déclaration du 14/10 (position p1). Cela correspond à l'approche b en secondaire, la c restant sa position principale. Poids 1 cohérent.",
+   "candidate": "polony",
+   "origin": "web"
+  },
+  {
+   "questionId": "industrie_economie-1",
+   "approachId": "industrie_economie-1-c",
+   "weight": 2,
+   "rejects": false,
+   "nature": "proposition",
+   "confidence": "high",
+   "summary": "Elle veut réserver l'argent public à ceux qui investissent, forment et produisent en France, et supprimer toutes les aides aux entreprises qui ne sont pas conditionnées à une production sur le sol français.",
+   "sources": [
+    {
+     "title": "Ma vision pour la France, site de campagne Natacha Polony 2027",
+     "url": "https://natachapolony2027.fr/natacha-polony/ma-vision",
+     "date": "2026-10-14 (consultation)",
+     "publisher": "Site de campagne Natacha Polony 2027"
+    },
+    {
+     "title": "L'essayiste Natacha Polony candidate à la présidentielle en France pour « sortir de la spirale d'appauvrissement »",
+     "url": "https://www.lavenir.net/actu/monde/2026/10/14/lessayiste-natacha-polony-candidate-a-la-presidentielle-en-france-pour-sortir-de-la-spirale-dappauvrissement-OP42YMO65ZEDXJYMEWGPYMEDIM/",
+     "date": "2026-10-14",
+     "publisher": "L'Avenir (Belga)"
+    }
+   ],
+   "verdict": "adjusted",
+   "note": "Fond confirmé. Ma vision : l'argent public doit servir ceux qui investissent, forment et produisent en France (page sans date visible). L'Avenir, 14/10/2026 : elle propose de « supprimer toutes les aides aux entreprises qui ne sont pas conditionnées à la production sur le sol français ». La condition de production en France recoupe les engagements d'investissement et d'emploi de l'approche c. Seule correction : la dépêche est signée Belga, pas AFP (éditeur corrigé). Résumé : « entreprises » remplacé par « ceux », comme sur le site.",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "industrie_economie-2",
+   "approachId": "industrie_economie-2-d",
+   "weight": 2,
+   "rejects": false,
+   "nature": "declaration",
+   "confidence": "high",
+   "summary": "Elle veut interdire l'entrée en France des produits agricoles qui ne respectent pas les règles imposées aux agriculteurs français, notamment ceux traités avec des pesticides interdits en France.",
+   "sources": [
+    {
+     "title": "Natacha Polony : « La grandeur de la France vient du monde paysan »",
+     "url": "https://www.7joursaclermont.fr/natacha-polony/",
+     "date": "2026-10-08",
+     "publisher": "7 Jours à Clermont"
+    }
+   ],
+   "verdict": "confirmed",
+   "note": "Entretien mené par Philippe Thivat au Sommet de l'élevage. Elle y dit qu'on ne doit pas faire entrer en France des produits qui ne respectent pas les règles imposées aux paysans français. Elle dénonce les produits contenant des pesticides interdits en France. C'est le principe même de l'approche d (interdire d'importer ce qu'il est interdit de produire ici). La page n'affiche pas de date exacte : « 2026-10 » est cohérent avec le Sommet de début octobre, mais non vérifiable. Le Mercosur n'est pas cité.",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "industrie_economie-2",
+   "approachId": "industrie_economie-2-f",
+   "weight": 0,
+   "rejects": true,
+   "nature": "declaration",
+   "confidence": "medium",
+   "summary": "Elle juge nécessaire de déroger à certaines décisions relevant du « dogme du libre-échange », attribue l'appauvrissement à la dérégulation et à la division mondiale du travail, et range les traités de libre-échange parmi les difficultés des agriculteurs.",
+   "sources": [
+    {
+     "title": "Natacha Polony : « Pour réussir la transition écologique, il faut déroger au dogme du libre-échange »",
+     "url": "https://www.sudradio.fr/societe/natacha-polony-pour-reussir-la-transition-ecologique-il-faut-deroger-au-dogme-du-libre-echange",
+     "date": "2026-04-16",
+     "publisher": "Sud Radio"
+    },
+    {
+     "title": "E. Bastié / N. Polony : désaccords souverains (1/2)",
+     "url": "https://www.causeur.fr/dialogue-eugenie-bastie-natacha-polony-1-desaccords-souverains-330212",
+     "date": "2026-07-10",
+     "publisher": "Causeur"
+    },
+    {
+     "title": "Ma vision pour la France, site de campagne Natacha Polony 2027",
+     "url": "https://natachapolony2027.fr/natacha-polony/ma-vision",
+     "date": "2026-10-14 (consultation)",
+     "publisher": "Site de campagne Natacha Polony 2027"
+    }
+   ],
+   "verdict": "adjusted",
+   "note": "Le rejet est maintenu, mais le résumé citait mal la source. Sur Sud Radio, sa phrase exacte est plus nuancée : « déroger à certaines décisions relevant du dogme du libre-échange » (et à certaines règles européennes « à la marge ») ; « déroger au dogme du libre-échange » est seulement le titre. Causeur, 10/07/2026 : elle attribue l'appauvrissement à la dérégulation et à la division mondiale du travail. Ajout de la page « Ma vision », où les traités de libre-échange et la concurrence internationale déloyale figurent parmi les maux des agriculteurs. Cela fonde mieux le rejet de l'approche f. Titre Sud Radio corrigé selon le h1.",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "industrie_economie-3",
+   "approachId": "industrie_economie-3-a",
+   "weight": 1,
+   "rejects": false,
+   "nature": "declaration",
+   "confidence": "high",
+   "summary": "Elle veut renationaliser EDF et refuse la privatisation des barrages hydroélectriques, sans évoquer d'autres nationalisations.",
+   "sources": [
+    {
+     "title": "Natacha Polony : « Le Rassemblement National ne dit pas des choses fausses sur tout »",
+     "url": "https://www.sudradio.fr/sud-radio/natacha-polony-je-lance-un-appel-aux-orphelins-de-la-politique",
+     "date": "2026-09-15",
+     "publisher": "Sud Radio"
+    }
+   ],
+   "verdict": "confirmed",
+   "note": "Sud Radio, 15/09/2026 : en son nom propre, elle dit qu'on renationalise EDF et qu'il faut défendre d'urgence le nucléaire. Elle répond « c'est non » à la privatisation des barrages hydroélectriques, qu'elle attribue à l'UE. Ce propos n'est pas une description de la position du RN. EDF appartient déjà entièrement à l'État ; « renationaliser » renvoie sans doute à son statut. L'approche a ne correspond donc qu'en partie (énergie seulement), d'où le poids 1.",
+   "candidate": "polony",
+   "origin": "web"
+  },
+  {
+   "questionId": "institutions-1",
+   "approachId": "institutions-1-f",
+   "weight": 1,
+   "rejects": false,
+   "nature": "inference",
+   "confidence": "medium",
+   "summary": "Son site de campagne demande que le peuple soit consulté régulièrement par référendum, « comme le demande notre constitution », et que le résultat soit respecté, sans proposer de changer les pouvoirs du président ou du Parlement.",
+   "sources": [
+    {
+     "title": "Mes principes et convictions | Natacha Polony 2027",
+     "url": "https://natachapolony2027.fr/natacha-polony/mes-principes",
+     "date": "2026-10-14 (consultation)",
+     "publisher": "Natacha Polony 2027"
+    },
+    {
+     "title": "Ma vision pour la France | Natacha Polony 2027",
+     "url": "https://natachapolony2027.fr/natacha-polony/ma-vision",
+     "date": "2026-10-14 (consultation)",
+     "publisher": "Natacha Polony 2027"
+    }
+   ],
+   "verdict": "adjusted",
+   "note": "Les deux pages chargent. « Mes principes » dit que le peuple doit être consulté régulièrement par référendum comme le demande la Constitution. « Ma vision » parle d'une France où le résultat d'un référendum est respecté. Le volet « recourir davantage au référendum » est donc explicite. Le volet « garder les pouvoirs actuels du président et du Parlement » vient seulement du silence de ses textes : aucune page ne parle du président, du Parlement, du 49.3 ou du Conseil constitutionnel. On le déduit aussi de sa référence à la Constitution actuelle. La recension par Causeur de son livre (8 juin 2026) ne mentionne qu'une révision de l'article 55 par référendum, sans réforme des pouvoirs. Nature passée de proposition à inférence, confiance passée de high à medium. Le poids 1 est conservé ; il est compatible avec une inférence.",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "institutions-3",
+   "approachId": "institutions-3-a",
+   "weight": 1,
+   "rejects": false,
+   "nature": "declaration",
+   "confidence": "low",
+   "summary": "Selon L'Express, elle se dit favorable à une consultation plus fréquente des citoyens par référendum, « voire » par référendum d'initiative citoyenne, sans citation directe ni précision sur les seuils ou les référendums locaux.",
+   "sources": [
+    {
+     "title": "Natacha Polony candidate à la présidentielle ? Ce qu'elle prépare déjà en coulisses",
+     "url": "https://actu.orange.fr/politique/natacha-polony-candidate-a-la-presidentielle-ce-qu-elle-prepare-deja-en-coulisses-magicExpress-CNT000002rSWei.html",
+     "date": "2026-09-14",
+     "publisher": "L'Express (repris par Orange Actu)"
+    }
+   ],
+   "verdict": "adjusted",
+   "note": "L'article d'Ambre Xerri pour L'Express, publié le 14 septembre 2026, se charge bien. Il écrit qu'elle se dit favorable à une consultation plus fréquente par référendum, « voire » par RIC. C'est une paraphrase du journaliste, sans citation directe, et le « voire » marque une réserve. Ses pages de campagne d'octobre 2026 (Mes principes, Ma vision) ne parlent pas du RIC. Elles placent le référendum dans le cadre de la Constitution actuelle, qui ne prévoit pas de RIC. L'approche mentionne aussi des référendums locaux, dont la source ne dit rien. Le poids 1 (approche compatible) est conservé, mais la confiance passe de medium à low. Le résumé précise que l'attribution est indirecte.",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "institutions-3",
+   "approachId": "institutions-3-e",
+   "weight": 2,
+   "rejects": false,
+   "nature": "proposition",
+   "confidence": "medium",
+   "summary": "Son site de campagne demande que le peuple soit consulté régulièrement par référendum, « comme le demande notre constitution », et que le résultat soit respecté, sans préciser les sujets, la fréquence ni le nombre de questions.",
+   "sources": [
+    {
+     "title": "Mes principes et convictions | Natacha Polony 2027",
+     "url": "https://natachapolony2027.fr/natacha-polony/mes-principes",
+     "date": "2026-10-14 (consultation)",
+     "publisher": "Natacha Polony 2027"
+    },
+    {
+     "title": "Ma vision pour la France | Natacha Polony 2027",
+     "url": "https://natachapolony2027.fr/natacha-polony/ma-vision",
+     "date": "2026-10-14 (consultation)",
+     "publisher": "Natacha Polony 2027"
+    }
+   ],
+   "verdict": "adjusted",
+   "note": "La source officielle confirme deux éléments : des consultations référendaires régulières et le cadre constitutionnel existant. Dans ce cadre, l'initiative revient à l'exécutif : le président décide sur proposition du gouvernement (article 11). La partie « à plusieurs questions » de l'approche n'apparaît nulle part. Aucune page ne précise la fréquence, les sujets ou le format. Parmi les approches, institutions-3-e reste la plus proche de sa proposition officielle principale, d'où le maintien du poids 2. Passer à 1 créerait deux poids 1 sur la question, puisque le RIC est déjà au poids 1. La correspondance n'est que partielle, donc la confiance passe de high à medium. Le résumé signale désormais l'absence de précision sur le nombre de questions.",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "numerique-1",
+   "approachId": "numerique-1-b",
+   "weight": 1,
+   "rejects": false,
+   "nature": "inference",
+   "confidence": "low",
+   "summary": "Elle veut que la France produise ses technologies essentielles et intègre l'IA et la robotique à la réindustrialisation, sans évoquer d'investissement dans la puissance de calcul ou dans des entreprises de l'IA.",
+   "sources": [
+    {
+     "title": "Ma vision pour la France, site de campagne Natacha Polony 2027",
+     "url": "https://natachapolony2027.fr/natacha-polony/ma-vision",
+     "date": "2026-10-14 (consultation)",
+     "publisher": "Natacha Polony 2027"
+    },
+    {
+     "title": "Natacha Polony : « Ursula von der Leyen grignote petit à petit le pouvoir des États » (Sud Radio)",
+     "url": "https://www.sudradio.fr/sud-radio/natacha-polony-ursula-von-der-leyen-grignotte-petit-a-petit-le-pouvoir-des-etats",
+     "date": "2026-05-31",
+     "publisher": "Sud Radio"
+    },
+    {
+     "title": "La journaliste Natacha Polony, bientôt candidate à l'élection présidentielle française ? « Je lance un appel aux orphelins de la politique »",
+     "url": "https://www.rtbf.be/article/la-journaliste-natacha-polony-bientot-candidate-a-la-presidentielle-francaise-je-lance-un-appel-aux-orphelins-de-la-politique-11786400",
+     "date": "2026-09-17",
+     "publisher": "RTBF"
+    }
+   ],
+   "verdict": "adjusted",
+   "note": "L'approche b est précise : investir massivement dans la puissance de calcul et dans des entreprises françaises ou européennes de l'IA. Aucune source ne lui prête cela. Ce que disent les sources : sa page « Ma vision » répond qu'il « faut produire » pour « préparer la révolution de l'intelligence artificielle et de la robotisation plutôt que la subir » ; elle veut produire « les machines et les technologies dont dépend notre souveraineté », avec un État stratège qui planifie les investissements essentiels. Sur Sud Radio (31/05), le journaliste écrit qu'elle défend le développement de la robotique et de l'IA et un soutien accru aux filières stratégiques. À la RTBF, elle refuse que l'Europe soit une « colonie numérique américaine ». C'est compatible avec l'approche b, mais seulement par déduction. La nature passe donc de declaration à inference, la confiance de medium à low, et le poids reste 1. Le résumé est reformulé pour ne pas suggérer un plan d'investissement dans l'IA.",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "securite_justice-5",
+   "approachId": "securite_justice-5-d",
+   "weight": 2,
+   "rejects": false,
+   "nature": "declaration",
+   "confidence": "medium",
+   "summary": "Elle se dit favorable à des centres éducatifs fermés « qui fonctionnent réellement » pour sortir de leur milieu les jeunes qui commencent à dériver, et estime que ceux qui cassent doivent être punis.",
+   "sources": [
+    {
+     "title": "Présidentielle 2027 : les propositions chocs de Natacha Polony pour sortir de la crise lycéenne et étudiante",
+     "url": "https://www.sudradio.fr/sud-radio/no-future-et-irresponsabilite-generalisee-les-declarations-chocs-et-les-solutions-de-natacha-polony-pour-les-lycees-et-leducation",
+     "date": "2026-10-14",
+     "publisher": "Sud Radio"
+    }
+   ],
+   "verdict": "adjusted",
+   "note": "Page lue (HTML complet). Le fond est confirmé : c'est bien Natacha Polony qui parle, dans un intertitre « Je suis pour des centres éducatifs fermés ». Selon l'article, il faut des « structures » pour les jeunes qui insultent déjà leurs professeurs à 12 ou 13 ans, et des centres éducatifs fermés « qui fonctionnent réellement » pour ceux qui commencent à dériver, afin de les sortir de leur milieu. L'article ajoute qu'elle veut punir la casse selon le principe du casseur-payeur. Le cœur de l'approche d (des centres fermés) est donc porté explicitement. C'est sa seule réponse concrète à la question, d'où le poids 2. Deux réserves justifient de garder la confiance à medium : elle ne détaille pas le contenu (travail, formation, discipline), et elle vise les jeunes « qui commencent à dériver » plutôt que des délinquants condamnés. Le principe « ceux qui cassent doivent être punis » est trop général pour l'approche b. Le casseur-payeur porte sur l'auteur et non sur les parents, il ne justifie donc pas l'approche c. Corrections des métadonnées : la page porte aujourd'hui le titre « Présidentielle 2027 : les propositions chocs de Natacha Polony pour sortir de la crise lycéenne et étudiante ». Elle est datée du 14 octobre 2026 (datePublished 2026-10-14T08:33, modifiée le même jour). L'ancien titre ne subsiste que dans l'URL. L'entretien lui-même semble avoir été diffusé vers le 6 octobre 2026 : les tweets de Sud Radio intégrés à la page datent de ce jour-là.",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "societe-2",
+   "approachId": "societe-2-c",
+   "weight": 1,
+   "rejects": false,
+   "nature": "declaration",
+   "confidence": "medium",
+   "summary": "Elle fait de la transmission et de la conservation de la langue, de la culture et du patrimoine des principes de son projet, sans mesure culturelle détaillée.",
+   "sources": [
+    {
+     "title": "Mes principes et convictions, site de campagne Natacha Polony 2027",
+     "url": "https://natachapolony2027.fr/natacha-polony/mes-principes",
+     "date": "2026-10-14 (consultation)",
+     "publisher": "Natacha Polony 2027"
+    },
+    {
+     "title": "Natacha Polony : « Ursula von der Leyen grignote petit à petit le pouvoir des États » (Sud Radio)",
+     "url": "https://www.sudradio.fr/sud-radio/natacha-polony-ursula-von-der-leyen-grignotte-petit-a-petit-le-pouvoir-des-etats",
+     "date": "2026-05-31",
+     "publisher": "Sud Radio"
+    }
+   ],
+   "verdict": "confirmed",
+   "note": "Sur son site, trois principes vont dans ce sens. « Transmission » : langue, culture, savoirs et histoire à transmettre. « Enracinement » : langue, patrimoine architectural. « Conservation » : patrimoine, langue, culture et savoir-faire à préserver. Sur Sud Radio (31/05), elle dit « Sans langue, il n'y a pas de nation » et fait de la transmission de la langue un défi majeur. La mention du « patrimoine historique et culturel » comme atout y est en revanche formulée par le journaliste. Elle n'expose aucune politique culturelle (budget, restauration, pass Culture). Le rattachement à l'approche c tient au contenu de ses principes, d'où le poids 1 et la confiance medium. Le résumé le dit honnêtement. Seule précision : le titre exact de la page est « Mes principes et convictions ».",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "solidarites-2",
+   "approachId": "solidarites-2-e",
+   "weight": 1,
+   "rejects": false,
+   "nature": "proposition",
+   "confidence": "medium",
+   "summary": "Selon Causeur, son livre « La France corps et âme » (2026) prône un « service public de la garde d'enfants », sans dire s'il serait gratuit ni quel statut auraient les crèches financées.",
+   "sources": [
+    {
+     "title": "Natacha Polony : tout un programme",
+     "url": "https://www.causeur.fr/2027-natacha-polony-tout-un-programme-la-france-corps-et-ame-328249",
+     "date": "2026-06-08",
+     "publisher": "Causeur"
+    }
+   ],
+   "verdict": "adjusted",
+   "note": "Page lue. Le compte rendu du livre, signé Martin Pimentel (Causeur n° 146, 8 juin 2026), indique en une seule ligne qu'elle prône un « service public de la garde d'enfants ». Il n'en précise ni la gratuité, ni la réservation des fonds publics aux crèches non lucratives, ni le nombre de places, ni la formation des professionnels. Il déplore aussi qu'en 2025 il y ait eu plus de décès que de naissances, sans en tirer de mesure familiale. Seul le cœur de l'approche e (un service public de la petite enfance) est donc soutenu : le poids 1 (approche compatible) est justifié, un poids 2 ne le serait pas. La nature devient « proposition », car c'est une mesure explicite du livre et non une simple déclaration de position. La confiance reste medium : source secondaire, livre non consulté directement. Le titre de la source a été corrigé : la mention de Causeur entre parenthèses n'en fait pas partie. Aucune autre source accessible ne précise la mesure : le site de campagne (page « Ma vision ») et le sommaire du livre publié par le Réseau CiViQ ne parlent ni de garde d'enfants ni de crèches. Le chapitre 4 du livre, « L'enfance de l'avenir », reste non documenté.",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "territoires-x3",
+   "approachId": "territoires-x3-a",
+   "weight": 0,
+   "rejects": true,
+   "nature": "declaration",
+   "confidence": "high",
+   "summary": "Elle rejette la révision constitutionnelle sur l'autonomie de la Corse, qu'elle juge être un symbole masquant l'absence de réponses sur le logement, l'énergie, les transports, la santé ou le crime organisé.",
+   "sources": [
+    {
+     "title": "La Corse mérite des solutions, pas une révision constitutionnelle (vidéo)",
+     "url": "https://www.npolony.fr/videos?v=xNbxcJaf-p8",
+     "date": "2026-06-20",
+     "publisher": "npolony.fr"
+    }
+   ],
+   "verdict": "confirmed",
+   "note": "Texte vérifié : « On ne modifie pas la Constitution pour faire de la communication politique », puis, en substance, la Corse mérite mieux qu'un « symbole constitutionnel » censé masquer l'absence de réponses sur le logement, l'énergie, les transports, la santé, le développement économique et le crime organisé. C'est un rejet explicite de 3-a, l'inscription de l'autonomie dans la Constitution.",
+   "candidate": "polony",
+   "origin": "document"
+  },
+  {
+   "questionId": "territoires-x3",
+   "approachId": "territoires-x3-c",
+   "weight": 2,
+   "rejects": false,
+   "nature": "declaration",
+   "confidence": "high",
+   "summary": "Elle s'oppose au projet d'autonomie de la Corse, qui ouvrirait selon elle une brèche dans l'unité républicaine, et défend une même République et une même loi pour tous, avec des réponses concrètes aux problèmes de l'île.",
+   "sources": [
+    {
+     "title": "La Corse mérite des solutions, pas une révision constitutionnelle (vidéo)",
+     "url": "https://www.npolony.fr/videos?v=xNbxcJaf-p8",
+     "date": "2026-06-20",
+     "publisher": "npolony.fr"
+    }
+   ],
+   "verdict": "confirmed",
+   "note": "Description complète vérifiée. Selon elle, le projet introduit dans la Constitution des notions identitaires floues et ouvre une « brèche dangereuse dans l'unité républicaine ». La diversité des territoires doit se respecter dans le cadre d'une même République et d'une même loi pour tous. Le texte vise le projet de révision constitutionnelle sur la Corse, examiné en juin 2026, sans prononcer le mot « autonomie ». Cela correspond à 3-c (mêmes lois sur tout le territoire).",
+   "candidate": "polony",
+   "origin": "document"
+  },
+  {
+   "questionId": "travail_salaires-1",
+   "approachId": "travail_salaires-1-c",
+   "weight": 2,
+   "rejects": false,
+   "nature": "declaration",
+   "confidence": "medium",
+   "summary": "Elle propose de baisser les cotisations salariales et patronales pour permettre des hausses de salaires, sans préciser l'ampleur de la baisse ni sa compensation pour la Sécurité sociale.",
+   "sources": [
+    {
+     "title": "Présidentielle 2027 : Natacha Polony lance son mouvement et « n'exclut rien » pour l'Élysée",
+     "url": "https://entrevue.fr/politique/presidentielle-2027-natacha-polony-lance-son-mouvement-et-nexclut-rien-pour-lelysee/",
+     "date": "2026-08-28",
+     "publisher": "Entrevue"
+    },
+    {
+     "title": "Rassembler les « orphelins de la politique » : Natacha Polony lance un mouvement et « n'écarte pas une candidature à la présidentielle »",
+     "url": "https://www.epochtimes.fr/rassembler-les-orphelins-de-la-politique-natacha-polony-lance-un-mouvement-et-necarte-pas-une-candidature-a-la-presidentielle-3335966.html",
+     "date": "2026-08-29",
+     "publisher": "Epoch Times"
+    }
+   ],
+   "verdict": "confirmed",
+   "note": "Les deux articles reprennent l'entretien au Parisien du 28/08/2026. Elle y propose une baisse des cotisations salariales et patronales ; selon elle, les marges dégagées permettraient d'augmenter « très significativement » les rémunérations. La baisse des cotisations salariales correspond littéralement à l'approche c. La part patronale passe par les hausses accordées par l'employeur, ce que le résumé dit honnêtement. Aucune autre approche (a, b, g, h, i) ne convient mieux. Sur Sud Radio (15/09), elle juge aussi que les « lourdes cotisations » sur les salaires pèsent sur le pouvoir d'achat. Titre Epoch Times complété selon la page.",
+   "candidate": "polony",
+   "origin": "dossier"
+  },
+  {
+   "questionId": "travail_salaires-1",
+   "approachId": "travail_salaires-1-e",
+   "weight": 1,
+   "rejects": false,
+   "nature": "declaration",
+   "confidence": "high",
+   "summary": "Elle propose une taxe flottante sur les carburants, dont le montant baisserait automatiquement quand les prix à la pompe augmentent.",
+   "sources": [
+    {
+     "title": "Voir et entendre Natacha Polony (page vidéos de la campagne)",
+     "url": "https://www.npolony.fr/videos",
+     "date": "2026-09-17",
+     "publisher": "Natacha Polony"
+    },
+    {
+     "title": "Natacha Polony : « Le Rassemblement National ne dit pas des choses fausses sur tout »",
+     "url": "https://www.sudradio.fr/sud-radio/natacha-polony-je-lance-un-appel-aux-orphelins-de-la-politique",
+     "date": "2026-09-15",
+     "publisher": "Sud Radio"
+    }
+   ],
+   "verdict": "confirmed",
+   "note": "Vidéo du 17/09/2026 (« 30 € de différence sur un plein ») : quand le prix du carburant monte, les taxes doivent baisser automatiquement, pour protéger ménages, travailleurs et PME. Sur Sud Radio (15/09/2026), elle qualifie la taxe flottante de « mesure de bon sens », en réponse à la proposition du RN de baisser la TVA sur les carburants. Il s'agit bien d'une baisse de taxes sur l'énergie : approche e en secondaire.",
+   "candidate": "polony",
+   "origin": "dossier"
+  }
+ ],
+ "proposedApproaches": [
+  {
+   "questionId": "finances_publiques-1",
+   "id": "finances_publiques-1-h",
+   "text": "Réduire le déficit surtout en relançant la production en France pour accroître les recettes publiques",
+   "external": false,
+   "rationale": "Sa position centrale et sourcée (franceinfo et AFP, 14/10/2026) : face à la dette, recréer de l'activité par une politique de production pour faire rentrer de l'argent dans les caisses de l'État. Aucune approche existante ne la recouvre. La d suppose d'emprunter pour investir, ce qu'elle ne dit pas. Les a, b et g reposent sur des économies, et elle ne présente pas de plan d'économies, seulement un propos secondaire sur des dépenses illégitimes, codé à 1 sur g. Les c, e et f reposent sur de nouveaux impôts, qu'elle ne propose pas.",
+   "review": {
+    "ref": "economie-n1",
+    "verdict": "proposer",
+    "text": "Réduire le déficit surtout en relançant la production en France pour accroître les recettes publiques",
+    "recognizable": false,
+    "issues": [
+     "Aucune approche existante ne couvre cette position. La d (emprunter pour investir massivement) lui attribuerait un recours à l'emprunt que ni la proposition ni le dossier ne documentent : coder d serait une fausse attribution. Les a, b et g reposent sur des économies, les c, e et f sur de nouveaux impôts. Le dossier confirme qu'elle compte sur une politique de production « plutôt que sur un plan d'économies » (franceinfo, 14/10/2026, confiance haute).",
+     "C'est un vrai choix de politique publique : faire de la croissance de la production le levier principal contre le déficit, plutôt que les économies ou l'impôt. Ce n'est pas une variante d'intensité d'une approche existante.",
+     "Forme : « Compter d'abord sur… » est bien un infinitif, mais il s'écarte des autres approches, qui commencent toutes par un verbe d'action sur le budget. La reformulation reprend la structure de la f (« Réduire le déficit surtout par… ») et reste dans la fourchette de longueur (101 caractères pour une moyenne d'environ 111).",
+     "Si le texte d'origine est conservé, il faut remplacer l'apostrophe droite (') par l'apostrophe typographique (’) utilisée dans la banque.",
+     "Pas de clause d'exclusion du type « plutôt que par des économies » : elle a un propos secondaire sur les dépenses (codé 1 sur g) et propose de supprimer les aides aux entreprises non conditionnées à une production en France (environ 211 milliards d'euros), ce qui est aussi un levier de dépense. L'exclusion serait donc fragile.",
+     "Anonymat respecté : « produire en France » ou « relancer la production » est un thème partagé par plusieurs candidats. Le texte n'utilise ni « état d'urgence de la production » ni « politique de production », ses formules signatures, et aucun terme interdit.",
+     "Révision de fond : cette approche peut aussi correspondre à d'autres candidats qui misent d'abord sur la réindustrialisation ou la croissance pour réduire le déficit. Il faut revoir leur codage sur cette question, sinon elle ne paraîtra portée que par une seule candidate."
+    ]
+   },
+   "forbiddenHits": [],
+   "position": {
+    "questionId": "finances_publiques-1",
+    "approachId": "finances_publiques-1-h",
+    "weight": 2,
+    "rejects": false,
+    "nature": "declaration",
+    "confidence": "high",
+    "summary": "Elle cite la crise de la dette parmi les raisons de sa candidature et compte sur une politique de production en France pour recréer de l'activité et faire rentrer de l'argent dans les caisses de l'État, sans trajectoire chiffrée.",
+    "sources": [
+     {
+      "title": "L'essayiste Natacha Polony annonce sa candidature à l'élection présidentielle",
+      "url": "https://www.franceinfo.fr/elections/presidentielle/l-essayiste-natacha-polony-annonce-sa-candidature-a-l-election-presidentielle_8236714.html",
+      "date": "2026-10-14",
+      "publisher": "franceinfo"
+     },
+     {
+      "title": "L'essayiste Natacha Polony candidate à la présidentielle en France pour « sortir de la spirale d'appauvrissement »",
+      "url": "https://www.lavenir.net/actu/monde/2026/10/14/lessayiste-natacha-polony-candidate-a-la-presidentielle-en-france-pour-sortir-de-la-spirale-dappauvrissement-OP42YMO65ZEDXJYMEWGPYMEDIM/",
+      "date": "2026-10-14",
+      "publisher": "L'Avenir (Belga)"
+     },
+     {
+      "title": "Ma vision pour la France, site de campagne Natacha Polony 2027",
+      "url": "https://natachapolony2027.fr/natacha-polony/ma-vision",
+      "date": "2026-10",
+      "publisher": "Site de campagne Natacha Polony 2027"
+     }
+    ],
+    "verdict": "adjusted",
+    "note": "Le fond correspond au texte proposé. Franceinfo, 14/10/2026 : une « politique de production » pour « recréer de l'activité » et « faire rentrer de l'argent dans les caisses de l'État » ; le mot « dette » n'y figure pas. L'Avenir/Belga : elle cite « une crise de la dette qui nous menace » ; la priorité à la production française dans la commande publique « recrée de l'activité » et rapporte des recettes. Ajout de « Ma vision » : notre dette est immense ; pour financer l'école et l'hôpital, il faut produire. Corrections : éditeur L'Avenir (Belga) et non AFP ; troisième source ajoutée. Aucune autre approche de la question ne recouvre ce pari sur la production.",
+    "candidate": "polony",
+    "origin": "dossier"
+   }
+  },
+  {
+   "questionId": "agriculture-3",
+   "id": "agriculture-3-g",
+   "text": "Maintenir des abattoirs de proximité pour limiter le transport des animaux sur de longues distances",
+   "external": false,
+   "rationale": "Sa seule position sourcée sur la protection des animaux porte sur le transport des animaux vivants et le maillage des abattoirs. Ce levier est absent des six approches existantes : élevage intensif et chasse, cages et corrida, maltraitance des animaux de compagnie, étourdissement, agrandissement des élevages, traditions rurales. Aucune d'elles n'est compatible avec ce qu'elle dit.",
+   "review": {
+    "ref": "ecologie-n1",
+    "verdict": "abandonner",
+    "text": "Maintenir des abattoirs de proximité pour limiter le transport des animaux sur de longues distances",
+    "recognizable": false,
+    "issues": [
+     "Position non centrale. Le dossier (dossier_polony.json, thème agriculture) la classe en position_declaree, confiance « medium », et précise « Seule mention relative au bien-être animal trouvée ». Elle vient d'une remarque faite en passant dans un entretien à un hebdomadaire local (7 Jours à Clermont, 10/2026). Ce n'est ni une proposition explicite ni un axe de campagne. La barre pour réviser la question (position centrale, sourcée, vrai choix de politique publique) n'est donc pas atteinte.",
+     "Le choix départage peu les candidats. Aucun candidat ne défend la fermeture des abattoirs de proximité, et le maintien de ce maillage fait largement consensus, abattoirs mobiles compris (Glucksmann les soutient aussi). Face à la question « Quelle priorité pour la protection des animaux ? », cette approche n'aiderait pas l'électeur à exprimer une préférence réelle entre des candidats qui s'opposent.",
+     "Le coût de révision est disproportionné. Une 7e approche change la question pour tous les électeurs et oblige à revoir l'attribution des candidats déjà placés sur agriculture-3. Glucksmann (règles de transport plus strictes, abattoirs mobiles) et Markovic (8 h de transport au plus) deviendraient alors au minimum compatibles. Tout cela pour une seule position faible.",
+     "Aucune approche existante ne la couvre de façon sourcée. Classer en f (« Préserver la chasse, l'élevage et les traditions rurales, sans nouvelles interdictions ») serait une inférence sans source sur la chasse et sur les interdictions. Une attribution fausse est pire qu'une case inconnue : laisser Polony inconnue sur agriculture-3.",
+     "Pour mémoire : si un levier sur le transport des animaux vivants devait un jour être ajouté, il faudrait le formuler de façon générique, par exemple « Limiter la durée du transport des animaux vivants et soutenir les abattoirs de proximité », et le justifier par les positions de plusieurs candidats, pas d'un seul.",
+     "La forme est correcte (infinitif, environ 100 caractères, dans la marge des ±20 %, pas de point final, aucun terme interdit). Rien ne permet de reconnaître la candidate."
+    ]
+   },
+   "forbiddenHits": [],
+   "position": {
+    "questionId": "agriculture-3",
+    "approachId": "agriculture-3-g",
+    "weight": 1,
+    "rejects": false,
+    "nature": "declaration",
+    "confidence": "medium",
+    "summary": "Elle déplore la fermeture des abattoirs de proximité, en jugeant contraire au bien-être animal de faire traverser la France aux animaux.",
+    "sources": [
+     {
+      "title": "Natacha Polony : « La grandeur de la France vient du monde paysan » (7 Jours à Clermont)",
+      "url": "https://www.7joursaclermont.fr/natacha-polony/",
+      "date": "2026-10-08",
+      "publisher": "7 Jours à Clermont"
+     }
+    ],
+    "verdict": "confirmed",
+    "note": "Texte vérifié. Parmi les évolutions qu'elle veut « arrêter de voir », elle cite la fermeture des abattoirs de proximité. Elle ajoute qu'en termes de bien-être animal, faire traverser la France à des animaux est une folie. Cela correspond au texte proposé (maintenir des abattoirs de proximité pour limiter le transport des animaux). Aucune des approches existantes, de 3-a à 3-f, ne couvre ce levier. C'est une remarque incidente dans un entretien, d'où le poids 1.",
+    "candidate": "polony",
+    "origin": "dossier"
+   }
+  },
+  {
+   "questionId": "europe-3",
+   "id": "europe-3-f",
+   "text": "Déroger aux règles européennes pour donner, dans la commande publique, la priorité aux entreprises qui produisent en France",
+   "external": false,
+   "rationale": "Sa position centrale et sourcée sur les règles du marché unique est une préférence nationale : priorité à la production française dans la commande publique et suspension de certaines règles européennes pour réindustrialiser. Aucune approche existante ne la couvre. L’approche a vise des champions européens (préférence européenne), la b le rétablissement de monopoles publics, la c l’approfondissement du marché unique, la d l’allègement des normes et la e le statu quo.",
+   "review": {
+    "ref": "monde-n1",
+    "verdict": "proposer",
+    "text": "Déroger aux règles européennes pour donner, dans la commande publique, la priorité aux entreprises qui produisent en France",
+    "recognizable": false,
+    "issues": [
+     "Aucune approche existante ne couvre cette position, même comme position compatible. La a fait émerger des champions européens par le droit de la concurrence, la b rétablit des monopoles publics, la c va dans le sens inverse, la d allège les normes (or Polony veut des normes nationales, pas des normes plus légères) et la e garde le statu quo. La préférence européenne dans les achats publics se trouve dans une autre question (industrie_economie-2-a), à une autre échelle. La préférence nationale entre États membres relève bien du marché unique, donc d'europe-3.",
+     "C'est un vrai choix de politique publique, distinct des cinq autres, et pas une variante d'intensité. Il aiderait aussi d'autres électeurs : d'après les dossiers, Dupont-Aignan veut réserver 50 % puis 75 % des achats publics aux produits français, et Le Pen veut une commande publique orientée vers les entreprises implantées en France. Leur codage est à vérifier. Bouamrane (préférence locale « à compétences égales ») ne doit pas être rattaché par défaut.",
+     "Forme : infinitif, même construction « verbe + pour + infinitif » que la a et la b. 123 caractères, soit +14 % par rapport à la moyenne des approches existantes (108). Pas de chiffre, pas d'adjectif évaluatif, pas de négation, pas de sigle, pas de point final.",
+     "Reformulation mineure : dans le texte d'origine, « dans la commande publique » pouvait se rattacher à « produisent en France ». Je l'ai déplacé entre virgules. Le sens est inchangé.",
+     "Anonymat : le texte n'est pas reconnaissable. Il évite ses formules emblématiques (« priorité nationale », « état d'urgence de la production », « mettre entre parenthèses ») et le thème est partagé par plusieurs candidats.",
+     "Aucun terme interdit.",
+     "Attribution en poids 2 : le lien explicite « déroger aux règles européennes pour la commande publique » est une inférence qui croise deux positions sourcées. La première est la priorité aux producteurs français dans la commande publique (France Inter, 14/10/2026 ; Sud Radio). La seconde est la suspension de certaines règles européennes « pour réindustrialiser ». Le dossier note que la compatibilité avec les règles européennes des marchés publics n'est « pas précisée ». Le résumé doit citer les deux sources sans affirmer qu'elle a fait elle-même le lien.",
+     "Révision de fond : il faut incrémenter rev (actuellement 1). Il faut aussi mettre à jour explainer.summary, qui énumère cinq orientations, et idéalement ajouter un point sourcé sur le principe de non-discrimination des directives européennes sur les marchés publics (2014/24/UE)."
+    ]
+   },
+   "forbiddenHits": [],
+   "position": {
+    "questionId": "europe-3",
+    "approachId": "europe-3-f",
+    "weight": 2,
+    "rejects": false,
+    "nature": "proposition",
+    "confidence": "medium",
+    "summary": "Elle propose de donner la priorité à la production française dans la commande publique et de « mettre entre parenthèses » certaines règles européennes pour réindustrialiser.",
+    "sources": [
+     {
+      "title": "Natacha Polony est candidate à la présidentielle française (watson/AFP)",
+      "url": "https://www.watson.ch/fr/international/politique/613457933-natacha-polony-est-candidate-a-la-presidentielle-francaise",
+      "date": "2026-10-14",
+      "publisher": "watson/AFP"
+     },
+     {
+      "title": "Natacha Polony : tout un programme (Causeur)",
+      "url": "https://www.causeur.fr/2027-natacha-polony-tout-un-programme-la-france-corps-et-ame-328249",
+      "date": "2026-06-08",
+      "publisher": "Causeur"
+     }
+    ],
+    "verdict": "unchecked",
+    "note": "non vérifiée (vérificateur absent ou muet)",
+    "candidate": "polony",
+    "origin": "dossier"
+   }
+  }
+ ],
+ "externalFlags": [],
+ "card": {
+  "id": "polony",
+  "name": "Natacha Polony",
+  "initials": "NP",
+  "affiliation": "Nous sommes la France",
+  "role": "Essayiste, directrice de la revue L’Audace !, fondatrice du mouvement « Nous sommes la France »",
+  "campaignUrl": "https://natachapolony2027.fr/",
+  "declaredAt": "2026-10-14",
+  "declaration": {
+   "title": "Natacha Polony annonce sa candidature à l’élection présidentielle",
+   "url": "https://lcp.fr/actualites/natacha-polony-annonce-sa-candidature-a-l-election-presidentielle-443808",
+   "publisher": "LCP",
+   "date": "2026-10-14"
+  },
+  "bio": [
+   {
+    "when": "Depuis 2025",
+    "text": "Directrice de la revue trimestrielle L’Audace !, qu’elle lance en septembre 2025 et dont elle est l’une des quatre coactionnaires.",
+    "source": {
+     "title": "Natacha Polony lance « L’Audace ! » une revue trimestrielle",
+     "url": "https://fr.themedialeader.com/?p=203845",
+     "publisher": "The Media Leader (avec l’AFP)",
+     "date": "2025-09-23"
+    }
+   },
+   {
+    "when": "2026",
+    "text": "Déclare sa candidature le 14 octobre 2026, invitée de France Inter, puis dans une vidéo publiée sur ses réseaux sociaux. Elle avait lancé quelques semaines plus tôt son mouvement, « Nous sommes la France ».",
+    "source": {
+     "title": "France : Natacha Polony officialise sa candidature à la présidentielle",
+     "url": "https://fr.euronews.com/2026/10/14/france-natacha-polony-officialise-sa-candidature-a-la-presidentielle",
+     "publisher": "Euronews",
+     "date": "2026-10-14"
+    }
+   },
+   {
+    "when": "2018-2024",
+    "text": "Dirige la rédaction de l’hebdomadaire Marianne à partir de 2018. Annonce en décembre 2024 qu’elle ne poursuit pas à sa tête ; Frédéric Taddeï est désigné pour lui succéder.",
+    "source": {
+     "title": "Marianne : Daniel Kretinsky reste, Natacha Polony quitte la direction",
+     "url": "https://www.cbnews.fr/node/89506",
+     "publisher": "CB News (avec l’AFP)",
+     "date": "2024-12-19"
+    }
+   },
+   {
+    "when": "2002-2018",
+    "text": "Devient journaliste après les élections législatives de 2002 : entre à Marianne, puis travaille au Figaro, à la radio et à la télévision, notamment à On n’est pas couché, sur Europe 1 et sur France Inter.",
+    "source": {
+     "title": "Natacha Polony, biographie et parcours",
+     "url": "https://natachapolony2027.fr/natacha-polony",
+     "publisher": "Natacha Polony 2027 (site de campagne)",
+     "date": "2026-10-14"
+    }
+   },
+   {
+    "when": "2002",
+    "text": "Candidate du Pôle républicain aux élections législatives de 2002 dans la 9e circonscription de Paris ; elle n’est pas élue (2,24 % des voix au premier tour).",
+    "source": {
+     "title": "Résultats des élections législatives 2002 par circonscriptions – Paris, 9e circonscription",
+     "url": "https://www.assemblee-nationale.fr/elections/resultats/html/531.html",
+     "publisher": "Assemblée nationale (source AFP)"
+    }
+   },
+   {
+    "when": "1975",
+    "text": "Née en 1975 à Paris ; grandit à Deuil-la-Barre. Agrégée de lettres modernes en 1999, elle est affectée au lycée Jacques-Feyder d’Épinay-sur-Seine.",
+    "source": {
+     "title": "Natacha Polony, biographie et parcours",
+     "url": "https://natachapolony2027.fr/natacha-polony",
+     "publisher": "Natacha Polony 2027 (site de campagne)",
+     "date": "2026-10-14"
+    }
+   }
+  ],
+  "photo": {
+   "file": "polony.jpg",
+   "alt": "Portrait de Natacha Polony",
+   "credit": "Georges Biard, 2015, licence CC BY-SA 3.0, recadrée",
+   "rightsUrl": "https://commons.wikimedia.org/wiki/File:Natacha_Polony_Cannes_2015.jpg",
+   "author": "Georges Biard",
+   "title": "Natacha Polony Cannes 2015.jpg",
+   "license": {
+    "name": "CC BY-SA 3.0",
+    "url": "https://creativecommons.org/licenses/by-sa/3.0/deed.fr"
+   },
+   "changes": "recadrée en carré et réduite",
+   "shareAlike": true
+  }
+ },
+ "portrait": {
+  "candidateId": "polony",
+  "status": "licence libre",
+  "host": "wikimedia_commons",
+  "title": "Natacha Polony Cannes 2015.jpg",
+  "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/76/Natacha_Polony_Cannes_2015.jpg",
+  "pageUrl": "https://commons.wikimedia.org/wiki/File:Natacha_Polony_Cannes_2015.jpg",
+  "author": "Georges Biard",
+  "date": "2015-05",
+  "license": {
+   "name": "CC BY-SA 3.0",
+   "url": "https://creativecommons.org/licenses/by-sa/3.0/deed.fr"
+  },
+  "rightsText": "Conditions d’utilisation : « Georges Biard, en tant que détenteur des droits d’auteur sur cette œuvre, la publie sous la licence suivante : Ce fichier est disponible selon les termes de la licence Creative Commons Attribution – Partage dans les Mêmes Conditions 3.0 Non Transposé. Attribution: Georges Biard ». Autorisation (Réutilisation de ce fichier) : « Une autorisation pour utiliser ce fichier via la (les) licence(s) ci-dessous a été vérifiée et archivée dans le système VRT ; elle est disponible sous le numéro de ticket #2012010510013998 pour les agents disposant d'un accès sur VRTS. Si vous souhaitez réutiliser ce travail, il n'est pas nécessaire de détenir davantage de permissions que celles données par la licence indiquée sur cette page. » (Wikitexte : {{self|author=Georges Biard|cc-by-sa-3.0}} {{personality rights}} ; Permission= {{PermissionTicket|id=2012010510013998|Trijnstel}}. API imageinfo : LicenseShortName « CC BY-SA 3.0 », UsageTerms « Creative Commons Attribution-Share Alike 3.0 », Artist « Georges Biard », Attribution « Georges Biard », DateTimeOriginal « 2015-05 », LicenseUrl https://creativecommons.org/licenses/by-sa/3.0, Restrictions « personality ».)",
+  "credit": "Georges Biard, 2015, licence CC BY-SA 3.0, recadrée",
+  "shareAlike": true,
+  "campaignMaterial": false,
+  "description": "Photo verticale de Natacha Polony au Festival de Cannes, en mai 2015, prise par Georges Biard (description Commons : « Natacha Polony au festival de Cannes »). Elle n'a de lien ni avec une campagne ni avec un parti.",
+  "crop": "Je n'ai pas vu l'image, puisque je n'ai rien téléchargé. C'est un portrait vertical de 566 × 800 px, que l'auteur semble avoir déjà resserré sur la personne, comme ses autres portraits de Cannes. Le visage devrait donc se trouver dans la moitié haute, à peu près au centre en largeur. Partir du carré pleine largeur de 566 × 566 px (x 0–566), calé en haut (y ≈ 0–566). Le descendre un peu si le haut du crâne le permet, puis le réduire à 400 × 400. Ne pas serrer le carré sous 400 px de côté et ne jamais agrandir l'image. Il faut vérifier à l'œil deux choses avant le recadrage : la position réelle du visage, et l'absence dans le carré de tout logo du festival ou d'un sponsor en arrière-plan (mur de photocall, marches du Palais).",
+  "width": 566,
+  "height": 800,
+  "bytes": 57663,
+  "contentType": "image/jpeg",
+  "alternatives": [
+   "https://commons.wikimedia.org/wiki/File:Natacha_Polony_2013_2.jpg : vérifié par l'API. CC BY-SA 3.0, Georges Biard, 2013-10-30, 509 × 720 px, 63 719 octets. Photo plus ancienne, prise au Salon du chocolat.",
+   "https://commons.wikimedia.org/wiki/File:Natacha_Polony_-_Europe_1.jpg : vérifié par l'API. CC BY-SA 3.0, Mickael Denet, 2014-03-21, 2048 × 1536 px, 446 178 octets. Écartée : la photo est prise pendant une émission d'Europe 1, avec un micro de média dans le cadre, donc le cadre n'est pas neutre.",
+   "https://commons.wikimedia.org/wiki/File:Natacha_Polony_2013.jpg : vérifié par l'API. CC BY-SA 3.0, Georges Biard, 2013-10-30, 405 × 595 px. Trop petite pour un carré serré de 400 px.",
+   "https://commons.wikimedia.org/wiki/File:Salon_du_chocolat_2013_4.jpg et https://commons.wikimedia.org/wiki/File:Salon_du_chocolat_2013_5.jpg : vérifiés par l'API. CC BY-SA 3.0, Georges Biard, 2013-10-30, 720 × 510 px. Photos de groupe : le visage est trop petit."
+  ],
+  "notes": [
+   "CONFIRMÉ (licence) : la page Commons existe. Je l'ai lue en français (action=parse, uselang=fr) : la mention de licence et la mention d'autorisation VRT y figurent mot pour mot comme dans la proposition. J'ai ajouté à rightsText la phrase de la page qui manquait (« Si vous souhaitez réutiliser ce travail… »), ainsi que les champs de l'API. API imageinfo : LicenseShortName = CC BY-SA 3.0, Artist = Georges Biard, DateTimeOriginal = 2015-05, License = cc-by-sa-3.0.",
+   "PRÉCISION SUR LES DROITS (correction de la proposition, qui parle d'un « travail personnel de Georges Biard ») : le fichier a été téléversé par JJ Georges. D'après sa page d'utilisateur, ce compte appartient à Jean-Jacques Georges, et non au photographe. Les mentions {{self}} et « Travail personnel » ne décrivent donc pas exactement la personne qui a téléversé le fichier. L'autorisation du titulaire des droits, Georges Biard, repose sur le ticket VRT 2012010510013998, revu par l'agent VRT Trijnstel ; le fichier est classé dans la catégorie « Items with VRTS permission confirmed ». La page Commons l'écrit en toutes lettres (« vérifiée et archivée dans le système VRT »). Une recherche insource sur ce numéro trouve 3 297 fichiers ; un seul ne mentionne ni Georges Biard ni JJ Georges. C'est l'autorisation générale bien connue des photos de Georges Biard sur Commons. Je considère donc les droits comme établis.",
+   "SOURCE ADMISE : le fichier est sur Wikimedia Commons (upload.wikimedia.org/wikipedia/commons/…), pas sur Wikipédia seule. Sa licence CC BY-SA 3.0 est admise. Aucune catégorie ni aucun modèle de demande de suppression, et une seule version (téléversée le 2015-06-07 18:26:22 UTC).",
+   "IDENTITÉ CONFIRMÉE : la description française dit « Natacha Polony au festival de Cannes ». Le fichier est dans « Category:Natacha Polony » et « Category:2015 Cannes Film Festival ». Ses données structurées disent « dépeint Natacha Polony » et « Festival de Cannes 2015 », et il ressort à la recherche haswbstatement:P180=Q941949. Sur Wikidata, Q941949 a pour P18 ce même fichier, avec la légende « Natacha Polony en 2015. ».",
+   "NI CAMPAGNE, NI PARTI, NI AGENCE, NI MÉDIA : c'est une photo prise au Festival de Cannes 2015 par un photographe indépendant, publiée sous autorisation VRT. Seule réserve : le recadrage doit laisser dehors tout logo du festival ou d'un sponsor qui serait au fond. Je n'ai pas pu le vérifier sans voir l'image.",
+   "EN-TÊTES (curl -sIL, rien enregistré) : HTTP/2 200, content-type image/jpeg, content-length 57663, last-modified Sun, 07 Jun 2015 18:26:23 GMT. L'API donne 566 × 800 px et le SHA-1 fc90811e52e94703aeb5ef56f6c83d9fe22a9c9e. L'URL renvoyée par l'API porte des paramètres utm_ ; l'imageUrl proposée, sans ces paramètres, est la bonne.",
+   "MENTION COURTE, LIEN DE LICENCE, shareAlike : les trois sont justes. Le format est celui de l'entrée lisnard.jpg (CC BY-SA 3.0) de src/elections/presidentielle-2027/media/CREDITS.md. L'adresse https://creativecommons.org/licenses/by-sa/3.0/deed.fr répond HTTP 200. Avec shareAlike = true, la version recadrée doit rester sous CC BY-SA 3.0.",
+   "ÂGE : la photo a 11 ans, bien au-delà de la préférence de 5 ans. Rien de plus récent n'existe sur Commons. La catégorie « Natacha Polony » ne contient que 6 fichiers, sans sous-catégorie. Les recherches « Natacha Polony », « Polony » et haswbstatement:P180=Q941949, puis Special:MediaSearch « Polony » lu par WebFetch, ne trouvent que ces fichiers. Plusieurs autres recherches (intitle, insource, « 2025 », « 2026 ») ont été bloquées par la limite de débit de l'API Wikimedia ; MediaSearch a pris le relais.",
+   "AUCUNE SOURCE INSTITUTIONNELLE : sur Wikidata, P1186, P4123 et P1808 sont absentes. La seule P39 est Q3029423, avec le qualificatif Q3291285 (Marianne), de 2018 à décembre 2024. Elle n'a donc jamais été parlementaire, et il n'y a pas de photo officielle de l'Assemblée, du Sénat ou du Parlement européen.",
+   "NON REVÉRIFIÉ, SANS EFFET SUR LES DROITS : je n'ai pas revérifié l'usage de ce fichier sur les articles de fr.wikipedia et en.wikipedia (limite de débit), ni la note de contexte sur le mouvement annoncé le 31 août 2026.",
+   "CADRAGE NON VÉRIFIÉ À L'ŒIL : je n'ai téléchargé aucune image. Il faut contrôler la position du visage et l'arrière-plan avant de recadrer.",
+   "INCIDENT À SIGNALER À L'UTILISATEUR, rapporté par le premier chercheur et non par moi : sa première requête à l'API Wikidata est partie avec un User-Agent qui contenait l'adresse e-mail de l'utilisateur. Toutes mes requêtes ont utilisé un User-Agent sans aucune donnée personnelle (« IsoloirRightsCheck/1.0 »)."
+  ]
+ },
+ "downloads": [
+  {
+   "candidateId": "polony",
+   "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/76/Natacha_Polony_Cannes_2015.jpg",
+   "file": "src/elections/presidentielle-2027/media/polony.jpg",
+   "crop": "Je n'ai pas vu l'image, puisque je n'ai rien téléchargé. C'est un portrait vertical de 566 × 800 px, que l'auteur semble avoir déjà resserré sur la personne, comme ses autres portraits de Cannes. Le visage devrait donc se trouver dans la moitié haute, à peu près au centre en largeur. Partir du carré pleine largeur de 566 × 566 px (x 0–566), calé en haut (y ≈ 0–566). Le descendre un peu si le haut du crâne le permet, puis le réduire à 400 × 400. Ne pas serrer le carré sous 400 px de côté et ne jamais agrandir l'image. Il faut vérifier à l'œil deux choses avant le recadrage : la position réelle du visage, et l'absence dans le carré de tout logo du festival ou d'un sponsor en arrière-plan (mur de photocall, marches du Palais).",
+   "width": 566,
+   "height": 800,
+   "bytes": 57663
+  }
+ ],
+ "credits": {
+  "markdown": "## polony.jpg\n\n- Fichier d'origine : https://upload.wikimedia.org/wikipedia/commons/7/76/Natacha_Polony_Cannes_2015.jpg (566 × 800 px)\n- Page de la licence : https://commons.wikimedia.org/wiki/File:Natacha_Polony_Cannes_2015.jpg\n- Auteur : Georges Biard\n- Licence : CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0/deed.fr)\n- Date de la photo : 2015-05\n- Mention affichée : Georges Biard, 2015, licence CC BY-SA 3.0, recadrée\n- Transformations : recadrage carré centré sur le visage (Je n'ai pas vu l'image, puisque je n'ai rien téléchargé. C'est un portrait vertical de 566 × 800 px, que l'auteur semble avoir déjà resserré sur la personne, comme ses autres portraits de Cannes. Le visage devrait donc se trouver dans la moitié haute, à peu près au centre en largeur. Partir du carré pleine largeur de 566 × 566 px (x 0–566), calé en haut (y ≈ 0–566). Le descendre un peu si le haut du crâne le permet, puis le réduire à 400 × 400. Ne pas serrer le carré sous 400 px de côté et ne jamais agrandir l'image. Il faut vérifier à l'œil deux choses avant le recadrage : la position réelle du visage, et l'absence dans le carré de tout logo du festival ou d'un sponsor en arrière-plan (mur de photocall, marches du Palais).), réduction à 400 × 400 px",
+  "sections": [
+   {
+    "candidateId": "polony",
+    "markdown": "## polony.jpg\n\n- Fichier d'origine : https://upload.wikimedia.org/wikipedia/commons/7/76/Natacha_Polony_Cannes_2015.jpg (566 × 800 px)\n- Page de la licence : https://commons.wikimedia.org/wiki/File:Natacha_Polony_Cannes_2015.jpg\n- Auteur : Georges Biard\n- Licence : CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0/deed.fr)\n- Date de la photo : 2015-05\n- Mention affichée : Georges Biard, 2015, licence CC BY-SA 3.0, recadrée\n- Transformations : recadrage carré centré sur le visage (Je n'ai pas vu l'image, puisque je n'ai rien téléchargé. C'est un portrait vertical de 566 × 800 px, que l'auteur semble avoir déjà resserré sur la personne, comme ses autres portraits de Cannes. Le visage devrait donc se trouver dans la moitié haute, à peu près au centre en largeur. Partir du carré pleine largeur de 566 × 566 px (x 0–566), calé en haut (y ≈ 0–566). Le descendre un peu si le haut du crâne le permet, puis le réduire à 400 × 400. Ne pas serrer le carré sous 400 px de côté et ne jamais agrandir l'image. Il faut vérifier à l'œil deux choses avant le recadrage : la position réelle du visage, et l'absence dans le carré de tout logo du festival ou d'un sponsor en arrière-plan (mur de photocall, marches du Palais).), réduction à 400 × 400 px"
+   }
+  ],
+  "withoutPortrait": []
+ },
+ "cardDraft": null,
+ "ficheIssues": [
+  "polony : portrait, photo de 2015"
+ ],
+ "questions": [
+  {
+   "questionId": "retraites-1",
+   "status": "unknown",
+   "note": "Aucune proposition trouvée sur l'âge légal, la durée de cotisation ou le sort de la réforme de 2023. Elle lie seulement le financement des retraites à la réindustrialisation (Sud Radio, 16/04 et 31/05/2026)."
+  },
+  {
+   "questionId": "finances_publiques-1",
+   "status": "proposal",
+   "note": "Sa position centrale (franceinfo et AFP, 14/10/2026) consiste à redresser les comptes par l'activité et les recettes qu'apporterait une politique de production. Elle n'entre dans aucune approche : l'approche d suppose l'emprunt, et elle ne chiffre ni économies ni hausses d'impôts. Nouvelle approche proposée. Poids 1 sur g, pour un propos secondaire sur les dépenses « illégitimes » (millefeuille territorial)."
+  },
+  {
+   "questionId": "industrie_economie-1",
+   "status": "coded",
+   "note": "Poids 2 sur c : aides réservées aux entreprises qui investissent, forment et produisent en France, suppression des aides non conditionnées (site de campagne, AFP). Poids 1 sur b : suppression des impôts de production restants (Sud Radio, avril 2026) et baisse des cotisations patronales."
+  },
+  {
+   "questionId": "travail_salaires-1",
+   "status": "coded",
+   "note": "Poids 2 sur c : baisse des cotisations salariales et patronales pour permettre des hausses de salaires (Le Parisien, repris par Entrevue et Epoch Times). Poids 1 sur e : taxe flottante sur les carburants. Pas de position sur le SMIC ni sur l'indexation des salaires."
+  },
+  {
+   "questionId": "fiscalite-1",
+   "status": "unknown",
+   "note": "Aucune position trouvée sur l'ISF, l'IFI ou l'impôt plancher sur les très hauts patrimoines. Le dossier le signale comme une question ouverte."
+  },
+  {
+   "questionId": "fiscalite-2",
+   "status": "unknown",
+   "note": "Rien sur les droits de succession et de donation. Une vidéo de septembre 2026 (« Pourquoi brader nos entreprises familiales est une folie ») n'est connue que par son titre, ce qui ne suffit pas pour coder l'approche f."
+  },
+  {
+   "questionId": "finances_publiques-2",
+   "status": "unknown",
+   "note": "Aucune règle d'endettement proposée, et aucune position sur l'euro. Elle reproche seulement à la BCE de renchérir les intérêts de la dette par ses hausses de taux (Sud Radio, 15/09/2026)."
+  },
+  {
+   "questionId": "finances_publiques-3",
+   "status": "coded",
+   "note": "Poids 1 sur f : plus d'enseignants et salaires des enseignants relevés de 20 à 30 %. La mesure se limite à l'école : rien sur les autres effectifs publics."
+  },
+  {
+   "questionId": "travail_salaires-2",
+   "status": "unknown",
+   "note": "Elle veut ouvrir le débat sur la « quantité de travail », sans se prononcer pour ou contre une remise en cause des 35 heures (Entrevue, Epoch Times, août 2026)."
+  },
+  {
+   "questionId": "travail_salaires-3",
+   "status": "unknown",
+   "note": "Aucune position trouvée sur les ordonnances de 2017, les contrats courts, le contrat unique ou la santé au travail."
+  },
+  {
+   "questionId": "travail_salaires-4",
+   "status": "unknown",
+   "note": "Aucune proposition trouvée sur la participation, l'intéressement, les administrateurs salariés ou l'écart des rémunérations."
+  },
+  {
+   "questionId": "industrie_economie-2",
+   "status": "coded",
+   "note": "Poids 2 sur d : interdire l'entrée des produits agricoles qui ne respectent pas les normes françaises. Rejet sourcé de f : « déroger au dogme du libre-échange », critique des traités de libre-échange. Sa préférence nationale dans la commande publique n'est pas la préférence européenne de l'approche a, et elle critique la « préférence européenne » en matière de défense : a n'est pas codée."
+  },
+  {
+   "questionId": "industrie_economie-3",
+   "status": "coded",
+   "note": "Poids 1 sur a : « on renationalise EDF », refus de privatiser les barrages (Sud Radio, 15/09/2026). Elle n'évoque pas d'autres nationalisations. L'« État stratège » qui protège les secteurs vitaux reste trop général pour coder c."
+  },
+  {
+   "questionId": "retraites-2",
+   "status": "unknown",
+   "note": "Rien sur la retraite par capitalisation ou par répartition."
+  },
+  {
+   "questionId": "retraites-3",
+   "status": "unknown",
+   "note": "Seul indice : selon une recension de Causeur, les « boomers » devront faire un effort, sans précision. Source faible, non codée."
+  },
+  {
+   "questionId": "fiscalite-x1",
+   "status": "coded",
+   "note": "Poids 1 sur c : selon L'Express, elle prépare une réforme fiscale qui allégerait le financement de la protection sociale pesant sur le travail. Elle ne dit rien du niveau global des prélèvements ni de l'assiette de remplacement (le capital n'est pas mentionné)."
+  },
+  {
+   "questionId": "sante-1",
+   "status": "unknown",
+   "note": "Rien sur les médecins, les déserts médicaux ou l'hôpital. Le site de campagne constate que « notre système de santé craque » et veut produire en France les médicaments essentiels, mais il range cette production dans la souveraineté industrielle, sans la relier à l'accès aux soins (page Ma vision relue). La page « État de la France » ne donne que des chiffres (maternités, lits, communes sans médecin), sans aucune proposition."
+  },
+  {
+   "questionId": "solidarites-1",
+   "status": "unknown",
+   "note": "Aucune position trouvée sur l'assurance chômage, le RSA ou les minima sociaux, que ce soit dans le dossier, sur le site, dans les entretiens de 2026 (Le Parisien, Sud Radio, Sans détour, L'Express) ou en recherche web. Le site parle seulement de « préserver notre modèle social »."
+  },
+  {
+   "questionId": "logement-1",
+   "status": "unknown",
+   "note": "Le dossier note « logement : found=false ». Le site de campagne ne fait que des constats chiffrés (demandes de logement social, mises en chantier, logements vacants), sans aucune proposition. La recherche web ne donne rien non plus."
+  },
+  {
+   "questionId": "sante-2",
+   "status": "unknown",
+   "note": "Rien sur la place de la Sécurité sociale face aux complémentaires, ni sur les franchises ou le reste à charge. Le dossier le signale comme une question ouverte. La piste d'alléger le financement de la protection sociale qui pèse sur le travail porte sur les cotisations, pas sur le remboursement des soins."
+  },
+  {
+   "questionId": "sante-3",
+   "status": "unknown",
+   "note": "Aucune déclaration de 2025-2026 trouvée sur l'aide à mourir ou les soins palliatifs, que ce soit dans le dossier, sur le site ou en recherche web ciblée (fin de vie, euthanasie)."
+  },
+  {
+   "questionId": "sante-4",
+   "status": "unknown",
+   "note": "Aucune position trouvée sur la prévention, les vaccins, les pesticides cancérigènes, la santé mentale ou le Nutri-Score. La page « État de la France » cite le recul des lits de psychiatrie comme un simple constat, sans proposition."
+  },
+  {
+   "questionId": "sante-5",
+   "status": "unknown",
+   "note": "Le dossier signale le grand âge comme une question ouverte. La page « État de la France » donne seulement des chiffres (places en EHPAD, bénéficiaires de l'APA). Aucune mesure trouvée sur les EHPAD, le maintien à domicile, les aidants ou le financement de la dépendance."
+  },
+  {
+   "questionId": "logement-2",
+   "status": "unknown",
+   "note": "Aucune position trouvée sur l'encadrement des loyers, les impayés ou les expulsions."
+  },
+  {
+   "questionId": "logement-3",
+   "status": "unknown",
+   "note": "Aucune position trouvée sur le DPE, les interdictions de louer ou la rénovation énergétique."
+  },
+  {
+   "questionId": "logement-4",
+   "status": "unknown",
+   "note": "Aucune position trouvée sur la loi SRU ni sur l'obligation de logements sociaux par commune."
+  },
+  {
+   "questionId": "solidarites-2",
+   "status": "coded",
+   "note": "Une seule mesure : un « service public de la garde d'enfants », tirée de son livre de 2026 et rapportée par Causeur (relu). Elle ne dit rien de la gratuité ni du statut des crèches financées : poids 1 sur l'approche e. Le livre déplore la baisse des naissances, sans autre mesure familiale. Rien sur les allocations ni sur le quotient familial."
+  },
+  {
+   "questionId": "solidarites-3",
+   "status": "unknown",
+   "note": "Une seule source : une vidéo de juin 2026, « Une nation se juge à la protection de ses enfants », après la mort de Lyhanna. Le dossier la classe en confiance faible et elle ne contient aucune mesure (ni État ou départements, ni contrôle, ni priorité quinquennale). Insuffisant pour coder."
+  },
+  {
+   "questionId": "egalite-1",
+   "status": "unknown",
+   "note": "Pas de mesure sourcée sur les violences sexistes et sexuelles. Elle a publié une vidéo sur la protection de l'enfance après le meurtre de Lyhanna (juin 2026), sans mesure et de confiance faible. Dans Causeur (10/07/2026), elle refuse de mettre sur le même plan un propos sexiste maladroit et un viol. Aucune de ces deux sources ne correspond à une approche."
+  },
+  {
+   "questionId": "egalite-2",
+   "status": "coded",
+   "note": "Seule mesure trouvée : un « service public de la garde d'enfants », proposé dans son livre « La France corps et âme » et rapporté par Causeur (08/06/2026). Elle ne correspond que partiellement à l'approche f : la gratuité n'est pas précisée et les tâches domestiques ne sont pas évoquées, d'où le poids 1. Rien sur les congés de naissance ou parentaux, ni sur les parents seuls."
+  },
+  {
+   "questionId": "egalite-3",
+   "status": "unknown",
+   "note": "Aucune mesure sur les écarts de salaire ou de retraite entre femmes et hommes, ni dans le dossier, ni sur le site de campagne (Ma vision, Mes principes), ni dans les entretiens de Causeur. Dans Causeur (juillet 2026), elle juge seulement que le plafond de verre a cédé dans les médias."
+  },
+  {
+   "questionId": "egalite-4",
+   "status": "unknown",
+   "note": "Aucune déclaration de 2025-2026 trouvée sur l'IVG : délai, clause de conscience, accès, Charte européenne. Le dossier, le site de campagne et les recherches web ne donnent rien."
+  },
+  {
+   "questionId": "droits_lgbtqia-1",
+   "status": "unknown",
+   "note": "Seule source : un billet de blog (Fonds Alcuin, 2026) qui lui prête une critique de la GPA, sans texte d'origine ni date de publication. Confiance faible, et le dossier recommande de ne pas l'utiliser. Aucune déclaration de campagne vérifiée."
+  },
+  {
+   "questionId": "droits_lgbtqia-2",
+   "status": "unknown",
+   "note": "Aucune position trouvée sur l'état civil des personnes trans ou les transitions des mineurs, ni dans le dossier ni dans les recherches web. Son livre de 2026 a un chapitre « Le féminisme universaliste contre les identités », mais son contenu n'est pas connu."
+  },
+  {
+   "questionId": "education-1",
+   "status": "coded",
+   "note": "Approche principale g : hausse de 20 à 30 % du salaire des enseignants et refonte complète de leur formation (Sud Radio, franceinfo/AFP). Poids 1 sur a : certifications nationales anonymes et fin des notes de complaisance (L'Express, RTBF). Pas de concours dès la licence, de groupes de niveau ni de fin du collège unique. Approches h (soutien aux professeurs face aux parents) et b (plus de professeurs, sans chiffre ni taille des classes) seulement en partie compatibles, non codées (une seule approche de poids 1 par question). La page Sud Radio affiche le 14/10/2026 alors que le dossier indique le 06/10 : la date du dossier est reprise."
+  },
+  {
+   "questionId": "education-2",
+   "status": "unknown",
+   "note": "Aucune position trouvée sur l'enseignement privé sous contrat ou son financement (le dossier le confirme, recherche web vaine)."
+  },
+  {
+   "questionId": "education-3",
+   "status": "unknown",
+   "note": "Rien sur le collège unique, les groupes de niveau ou l'examen d'entrée en 6e. Sa proposition de fermer les filières sans débouchés vise le lycée professionnel et technologique, pas le collège."
+  },
+  {
+   "questionId": "education-4",
+   "status": "coded",
+   "note": "Concours d'entrée à l'université proposé dans son livre « La France corps et âme », d'après la recension de Causeur : poids 1 sur a, car les modalités ne sont pas précisées (national ou par établissement). Le rapatriement du budget de recherche européen ne correspond à aucune approche. Pas de rejet explicite de b."
+  },
+  {
+   "questionId": "education-5",
+   "status": "unknown",
+   "note": "Aucune proposition trouvée sur les bourses, l'allocation d'autonomie ou le logement étudiant."
+  },
+  {
+   "questionId": "societe-1",
+   "status": "unknown",
+   "note": "Aucune position trouvée sur l'audiovisuel public, son financement ou sa privatisation (le dossier le confirme, recherche web vaine)."
+  },
+  {
+   "questionId": "societe-2",
+   "status": "coded",
+   "note": "Ses principes de campagne (« Transmission », « Conservation ») et ses propos sur la langue sont compatibles avec c : poids 1, sans mesure culturelle concrète. Rien sur le budget de la culture, le pass Culture ou les quotas."
+  },
+  {
+   "questionId": "numerique-1",
+   "status": "coded",
+   "note": "Elle veut « préparer » la révolution de l'IA et de la robotisation en produisant en France ses technologies essentielles, et dénonce la « colonie numérique » américaine : poids 1 sur b, sans plan d'investissement ni mention de la puissance de calcul. Rien sur la régulation (AI Act) ni sur les centres de données."
+  },
+  {
+   "questionId": "numerique-2",
+   "status": "unknown",
+   "note": "Une seule source (RCF, mars 2026, propos connus par extraits, page inaccessible en 403, confiance faible dans le dossier). Elle y est ambivalente : elle craint l'extension du contrôle d'âge mais juge que les jeunes ont besoin d'interdits. Aucune approche ne peut être attribuée."
+  },
+  {
+   "questionId": "numerique-3",
+   "status": "unknown",
+   "note": "Aucune mesure trouvée sur l'encadrement des plateformes (DSA, fiscalité, algorithmes). Sa critique de la dépendance aux technologies américaines ne correspond à aucune approche."
+  },
+  {
+   "questionId": "numerique-4",
+   "status": "unknown",
+   "note": "Rien sur l'IA ou les écrans à l'école. Elle cite seulement les écrans et les réseaux sociaux parmi les causes du recul de la maîtrise du français (Sud Radio, 31/05/2026), sans mesure."
+  },
+  {
+   "questionId": "education-x1",
+   "status": "coded",
+   "note": "Sud Radio : centres éducatifs fermés pour les jeunes de 12-13 ans qui commencent à dériver (insultes aux professeurs), qu'il faut sortir de leur milieu, et « ceux qui cassent doivent être punis ». Codé sur a, poids 2, confiance moyenne : ces centres relèvent de la justice des mineurs, pas d'établissements scolaires spécialisés. Elle veut aussi que les professeurs soient protégés des parents agressifs, sans sanction des parents (c non codée)."
+  },
+  {
+   "questionId": "societe-x1",
+   "status": "unknown",
+   "note": "Ses prises de position sur Bolloré et l'indépendance des rédactions datent de 2023, quand elle dirigeait Marianne : exclues car antérieures à 2025. Aucune position trouvée en 2025-2026 sur la concentration des médias."
+  },
+  {
+   "questionId": "ecologie_energie-1",
+   "status": "coded",
+   "note": "Taxe flottante sur les carburants (vidéo de campagne du 17/09/2026) : baisse automatique des taxes pour tous quand les prix montent. Rien sur les marges des pétroliers ni sur des aides ciblées."
+  },
+  {
+   "questionId": "ecologie_energie-2",
+   "status": "unknown",
+   "note": "Pas de position sur de nouveaux réacteurs ni sur les renouvelables. Elle cite l'industrie nucléaire parmi les atouts de la France (site de campagne) et veut s'appuyer sur l'électricité décarbonée grâce au nucléaire (vidéo du 22/06/2026). Cela ne permet pas de choisir entre les approches a et b, qui se distinguent sur les renouvelables."
+  },
+  {
+   "questionId": "territoires-1",
+   "status": "unknown",
+   "note": "Elle juge les services publics « épuisés » (site de campagne) et veut les financer par la production, sans aucune mesure sur leur accès dans les territoires, leur maillage ou leur ouverture à la concurrence."
+  },
+  {
+   "questionId": "ecologie_energie-3",
+   "status": "unknown",
+   "note": "Rien sur le marché européen de l'électricité, les tarifs ou la fiscalité de l'électricité. Elle invoque seulement la souveraineté énergétique et l'atout du nucléaire."
+  },
+  {
+   "questionId": "ecologie_energie-4",
+   "status": "coded",
+   "note": "Écologie présentée comme politique de souveraineté fondée sur la production en France (Sud Radio, avril 2026). L'adaptation climatique doit devenir un moteur de réindustrialisation (vidéo du 22/06/2026). Approche b."
+  },
+  {
+   "questionId": "ecologie_energie-5",
+   "status": "coded",
+   "note": "Contre les grandes bassines de l'agriculture industrielle, mais pour un stockage « mesuré » partagé, et l'irrigation jugée indispensable (7 Jours à Clermont, 08/10/2026). Position intermédiaire : poids 1 sur b, rien sur la régie publique ni sur la tarification."
+  },
+  {
+   "questionId": "ecologie_energie-6",
+   "status": "coded",
+   "note": "Plan national contre la chaleur ciblant écoles, crèches, hôpitaux, Ehpad et logements sociaux avec climatisation raisonnée (vidéo du 22/06/2026). Plan forêt avec renforcement de l'ONF et filière de bombardiers d'eau (vidéo du 14/07/2026)."
+  },
+  {
+   "questionId": "ecologie_energie-7",
+   "status": "coded",
+   "note": "Grand plan ferroviaire jugé « nécessité absolue » (Sud Radio, avril 2026) et dénonciation du démantèlement du fret (vidéo du 23/09/2026). Rien sur la gratuité, les autoroutes, la concurrence ou la voiture thermique."
+  },
+  {
+   "questionId": "agriculture-1",
+   "status": "coded",
+   "note": "Refus explicite de l'entrée des produits non conformes aux règles imposées aux paysans français (7 Jours à Clermont). Mise entre parenthèses des règles européennes pour la souveraineté alimentaire (livre, via Causeur). Approche d."
+  },
+  {
+   "questionId": "agriculture-2",
+   "status": "coded",
+   "note": "Elle veut bloquer les importations contenant des pesticides interdits en France. Rien sur le glyphosate. Elle juge les interdictions sans solution de remplacement incompatibles avec la libre circulation (Causeur), sans demander de dérogation : poids 1 sur d seulement."
+  },
+  {
+   "questionId": "agriculture-3",
+   "status": "proposal",
+   "note": "Sa seule position sur le bien-être animal : elle critique la fermeture des abattoirs de proximité, qui impose de longs transports d'animaux (7 Jours à Clermont). Aucune approche existante ne couvre ce levier. Rien sur la chasse, la corrida, les cages ou l'étourdissement."
+  },
+  {
+   "questionId": "territoires-2",
+   "status": "unknown",
+   "note": "Aucune position sur l'organisation ou les compétences des collectivités. Elle critique seulement les décisions prises depuis Paris et lance des cahiers de doléances."
+  },
+  {
+   "questionId": "territoires-x3",
+   "status": "coded",
+   "note": "Vidéo du 20/06/2026 : opposée à la révision constitutionnelle sur l'autonomie corse, qui ouvrirait une brèche dans l'unité républicaine, et attachée à « une même loi pour tous ». Approche c et rejet explicite de a."
+  },
+  {
+   "questionId": "territoires-x4",
+   "status": "unknown",
+   "note": "Aucune déclaration trouvée sur la Nouvelle-Calédonie. Le dossier ne mentionne pour l'outre-mer que Mayotte, sur la question migratoire (source faible)."
+  },
+  {
+   "questionId": "territoires-x5",
+   "status": "unknown",
+   "note": "Aucune position sur l'objectif de zéro artificialisation nette. Sa critique du rachat de terres agricoles par de grandes sociétés relève de la financiarisation, pas de l'artificialisation."
+  },
+  {
+   "questionId": "agriculture-x4",
+   "status": "coded",
+   "note": "Elle reproche à la grande distribution de fixer les prix et veut rééquilibrer le partage de la valeur au profit des producteurs, sans outil précis : poids 1 sur d. Elle propose aussi la priorité aux produits français dans la commande publique, levier hors approches."
+  },
+  {
+   "questionId": "ecologie_energie-x9",
+   "status": "coded",
+   "note": "Elle ne parle pas explicitement de croissance. Elle veut une « politique de production » pour recréer de l'activité et des recettes publiques et financer les services publics (franceinfo, Euronews) : poids 1 sur a."
+  },
+  {
+   "questionId": "securite_justice-1",
+   "status": "unknown",
+   "note": "Aucune position trouvée sur les peines, les prisons, la surpopulation carcérale ou les moyens de la justice (dossier, site de campagne, déclaration du 14/10/2026, recension Causeur de son livre). Le dossier note expressément l'absence de mesure sur les peines et les prisons."
+  },
+  {
+   "questionId": "securite_justice-2",
+   "status": "unknown",
+   "note": "Son site salue l'engagement des policiers et elle fait de la restauration de l'autorité de l'État un axe, mais sans mesure : rien sur les effectifs, la police de proximité, la légitime défense, le contrôle des policiers ou la vidéosurveillance."
+  },
+  {
+   "questionId": "securite_justice-3",
+   "status": "unknown",
+   "note": "Son site constate que la violence et les trafics touchent des quartiers entiers, et une vidéo sur la Corse évoque la lutte contre le crime organisé. Aucune mesure sur le narcotrafic, le blanchiment, le cannabis ou les consommateurs."
+  },
+  {
+   "questionId": "securite_justice-4",
+   "status": "unknown",
+   "note": "Seulement une vidéo de juin 2026 sur l'affaire Lyhanna (« Une nation se juge à la protection de ses enfants »), qui ne contient aucune mesure connue (dossier : confiance faible). Rien sur les peines, le fichage, le traitement des plaintes ou la prévention."
+  },
+  {
+   "questionId": "securite_justice-5",
+   "status": "coded",
+   "note": "Sur Sud Radio (octobre 2026), elle s'est dite favorable à des centres éducatifs fermés « qui fonctionnent réellement » pour les jeunes qui commencent à dériver, et a dit que ceux qui cassent doivent être punis. Le principe « casseur-payeur » est rapporté par l'article sans préciser qui paie : rien sur une responsabilité financière des parents, la majorité pénale ou l'excuse de minorité."
+  },
+  {
+   "questionId": "securite_justice-6",
+   "status": "unknown",
+   "note": "Son site défend l'égalité de tous devant la justice et la responsabilité des dirigeants. Une vidéo de juillet 2026 porte sur la candidature de Marine Le Pen après sa condamnation, mais sans position connue sur l'exécution provisoire. Rien sur le CSM, le parquet ou le syndicalisme des magistrats."
+  },
+  {
+   "questionId": "securite_justice-x1",
+   "status": "unknown",
+   "note": "Aucune position trouvée sur les polices municipales (armement, pouvoirs, obligation)."
+  },
+  {
+   "questionId": "immigration-1",
+   "status": "unknown",
+   "note": "Le dossier et toutes les sources lues (site de campagne : « Ma vision », « Mes principes » ; franceinfo, Euronews, RTBF, L'Express, Causeur, OJIM, Entrevue, francemag) ne donnent aucune orientation chiffrée ou concrète. Elle a seulement appelé à une politique migratoire « cohérente » sans « appel d'air » après la crise de Ceuta (message X lu par extraits seulement, inaccessible ici), et elle a rangé les « flux migratoires incontrôlés » parmi ce qui affaiblit le pays (Causeur, 13/07/2026). Ces propos sont compatibles avec les approches b, c ou d sans permettre de choisir entre elles. Parlons-politique (12/09/2026) note que sa position sur l'immigration reste « à préciser »."
+  },
+  {
+   "questionId": "immigration-2",
+   "status": "coded",
+   "note": "Aucune déclaration sur Schengen, le pacte asile-migration ou la répartition des demandeurs d'asile. Elle veut rester dans l'UE (OJIM, 01/10/2026) et faire primer la loi nationale sur les traités par une révision de l'article 55 soumise à référendum (Causeur, 08/06/2026). Ce principe général, qu'elle n'a pas appliqué à l'asile, est codé en inférence de poids 1 sur b. Sortie de Schengen (a) : rien."
+  },
+  {
+   "questionId": "immigration-3",
+   "status": "unknown",
+   "note": "Rien de sourcé sur les régularisations, les OQTF ou les expulsions. Le dossier le relève comme une question ouverte, et ni le site de campagne ni la presse consultée n'abordent le sujet."
+  },
+  {
+   "questionId": "immigration-4",
+   "status": "unknown",
+   "note": "Aucune position trouvée sur le droit du sol, ni dans l'Hexagone ni à Mayotte, dans le dossier, sur le site ou dans les entretiens de 2026. Sa défense de la transmission et de l'égalité républicaine ne dit rien de la règle de nationalité."
+  },
+  {
+   "questionId": "immigration-5",
+   "status": "unknown",
+   "note": "Aucune position sur l'accès des étrangers aux aides sociales ou sur une priorité nationale. Elle parle seulement de financer « le modèle social » par la production (Euronews), sans lien avec les étrangers."
+  },
+  {
+   "questionId": "immigration-6",
+   "status": "unknown",
+   "note": "Elle défend la laïcité comme liberté contre l'assignation communautaire (RTBF, 17/09/2026) ainsi que la transmission de la langue et de la culture (site « Mes principes »). Ces principes visent l'école et la société en général. Aucune mesure ne porte sur l'intégration des arrivants : ni assimilation exigée, ni conditions de langue pour le séjour, ni cours de français. On ne déduit rien de plus."
+  },
+  {
+   "questionId": "immigration-x1",
+   "status": "unknown",
+   "note": "Aucune mention de l'AME dans le dossier, sur le site de campagne ou dans les articles lus. Le dossier la cite parmi les questions ouvertes."
+  },
+  {
+   "questionId": "immigration-x2",
+   "status": "unknown",
+   "note": "Aucune position sur l'accord franco-algérien de 1968. Le dossier l'indique comme question ouverte (relation avec l'Algérie). La vidéo sur Ceuta (01/08/2026) évoque une visite de Pedro Sánchez à Alger, mais rien sur l'accord."
+  },
+  {
+   "questionId": "europe-1",
+   "status": "coded",
+   "note": "Elle veut rester dans l’UE (OJIM) et faire primer la loi nationale sur les traités en révisant l’article 55 par référendum (livre de mai 2026, recension Causeur). Elle propose aussi de suspendre certaines règles européennes, sans parler de renégocier les traités. Codage : c principale, d compatible, rejet de e."
+  },
+  {
+   "questionId": "europe-2",
+   "status": "coded",
+   "note": "Seule mesure trouvée : « rapatrier » le budget de recherche de la Commission (recension Causeur), codée compatible avec c. Aucune position sur les emprunts communs, les règles de déficit, la BCE ou le montant global de la contribution. Sa vidéo sur la monnaie (juillet 2026) n’a pas pu être analysée."
+  },
+  {
+   "questionId": "europe-3",
+   "status": "proposal",
+   "note": "Sa position centrale est une priorité aux entreprises produisant en France dans la commande publique, avec des dérogations aux règles européennes. C’est une préférence nationale, et aucune approche ne la couvre : la a vise des champions européens. Nouvelle approche europe-3-f proposée. Rejet de e : elle juge « malsaine » la concurrence organisée entre pays européens. Rien sur les monopoles publics ni sur les normes."
+  },
+  {
+   "questionId": "ukraine_russie-1",
+   "status": "unknown",
+   "note": "Elle juge la Russie « objectivement une puissance agressive » (Causeur, juillet 2026) et la défaite de l’Ukraine « probable » (recension Causeur). Elle appelle à « ne pas trembler » devant Poutine (RTBF). Mais aucune position sourcée sur l’aide militaire ou financière, une négociation ou une force européenne. Le contenu du short « Ukraine : le faux choix » (13/09/2026) est inaccessible."
+  },
+  {
+   "questionId": "ukraine_russie-2",
+   "status": "unknown",
+   "note": "Elle dit qu’il fallait dialoguer avec Moscou en 2008, mais juge cette ligne intenable aujourd’hui puisque la Russie est devenue agressive. Elle est « effarée » par la fascination de la droite nationaliste pour Poutine. Rien sur les sanctions, sur un dialogue à rouvrir maintenant ni sur un système de sécurité incluant la Russie. Aucun rejet assez explicite pour être codé."
+  },
+  {
+   "questionId": "proche_orient-1",
+   "status": "unknown",
+   "note": "Ses critiques de la riposte israélienne et du gouvernement Netanyahou datent de 2023-2024 : éditorial de Marianne, échange avec BHL, source faible. Sa biographie au Quincy Institute rappelle ces critiques, mais aucune déclaration de 2025-2026 n’a été trouvée, et aucune mesure (embargo, accord d’association, sanctions, CPI)."
+  },
+  {
+   "questionId": "proche_orient-2",
+   "status": "unknown",
+   "note": "Aucune déclaration trouvée sur la reconnaissance de l’État de Palestine en septembre 2025. Ses positions anciennes (2024) invoquent le droit international et les frontières des deux États, sans prise de position récente."
+  },
+  {
+   "questionId": "defense-1",
+   "status": "unknown",
+   "note": "Elle prône une diplomatie indépendante et « non alignée » : la France ne doit être le « supplétif » d’aucun empire (site de campagne, Causeur). Selon sa biographie au Quincy Institute, elle fait passer les intérêts de la France avant ceux de l’OTAN. Aucune position explicite sur le maintien dans l’OTAN ou dans son commandement intégré : on ne peut pas déduire c ou d."
+  },
+  {
+   "questionId": "defense-2",
+   "status": "unknown",
+   "note": "Aucun objectif de budget militaire (en % du PIB ou en milliards) ni de position sur la loi de programmation de 2026. Elle lie seulement la défense à la capacité de produire."
+  },
+  {
+   "questionId": "defense-3",
+   "status": "unknown",
+   "note": "Aucune position trouvée sur la dissuasion nucléaire, ni sur son européanisation ou la « dissuasion avancée » ; son site ne cite que l’« industrie nucléaire » comme atout."
+  },
+  {
+   "questionId": "defense-4",
+   "status": "coded",
+   "note": "Débat avec Jean-Noël Barrot (27/09/2026) : le SCAF est un « échec cuisant », et la France sacrifie ses intérêts au nom de la préférence européenne pendant que l’Allemagne achète américain. Elle ajoute que la défense suppose de produire. Codé compatible avec b. Pas de c : elle ne refuse pas explicitement les programmes européens et reproche même à l’Allemagne de « torpiller » la préférence européenne."
+  },
+  {
+   "questionId": "defense-5",
+   "status": "unknown",
+   "note": "Aucune position trouvée sur le service militaire ou le service national."
+  },
+  {
+   "questionId": "europe-x4",
+   "status": "unknown",
+   "note": "Aucune position trouvée sur l’élargissement de l’UE ou l’adhésion de l’Ukraine ; le dossier le signale expressément."
+  },
+  {
+   "questionId": "ukraine_russie-x3",
+   "status": "unknown",
+   "note": "Rien sur des soldats français en Ukraine ni sur des garanties de sécurité. Sa lecture du sommet de l’OTAN de 2008 (freiner l’adhésion de l’Ukraine, une ligne qu’elle juge aujourd’hui « intenable ») ne vaut pas position sur l’adhésion actuelle."
+  },
+  {
+   "questionId": "europe-x5",
+   "status": "coded",
+   "note": "RTBF (09/2026) : elle critique la dépendance européenne aux États-Unis (F-35, « colonie numérique américaine », Groenland) et demande l’autonomie de l’Europe, d’où c principale. Son site de campagne et Causeur défendent une diplomatie non alignée, « supplétif d’aucun empire », d’où e compatible. Rien sur l’OTAN."
+  },
+  {
+   "questionId": "institutions-1",
+   "status": "coded",
+   "note": "Son site de campagne propose de consulter régulièrement le peuple par référendum « comme le demande notre constitution » et de respecter le résultat. Elle ne propose aucun changement des pouvoirs du président ou du Parlement, d'où un poids 1 sur 1-f, qui correspond en partie. Ses autres propositions institutionnelles ne relèvent d'aucune approche : révision de l'article 55 par référendum (primauté de la loi sur les traités), critique des 500 parrainages, lutte contre les conflits d'intérêts. Rien trouvé sur une constituante, le septennat, le 49.3, la dissolution ou le nombre d'élus."
+  },
+  {
+   "questionId": "institutions-2",
+   "status": "unknown",
+   "note": "Aucune position trouvée sur le mode de scrutin législatif (proportionnelle ou scrutin majoritaire), ni dans le dossier, ni sur le site de campagne (Mes principes, Ma vision, accueil), ni dans les entretiens consultés."
+  },
+  {
+   "questionId": "institutions-3",
+   "status": "coded",
+   "note": "Approche principale 3-e : son site demande que le peuple soit consulté régulièrement par référendum, dans le cadre constitutionnel, et que le résultat soit respecté, sans préciser de référendum à plusieurs questions. Approche compatible 3-a : L'Express écrit qu'elle est favorable à des consultations plus fréquentes, « voire » au RIC (description du journaliste, et non citation). Le site ne parle pas de RIC. Rien sur le RIP, la révocation des élus, les conventions citoyennes ou l'élargissement du champ du référendum. Les cahiers de doléances en ligne relèvent de sa campagne, pas d'une mesure."
+  },
+  {
+   "questionId": "laicite_republique-1",
+   "status": "unknown",
+   "note": "Elle fait de la laïcité une priorité et la présente comme un principe de liberté contre l'assignation communautaire (RTBF, 17/09/2026). Elle qualifie l'islamisme de « mortifère » et attribue les attentats à l'abandon de la laïcité (Causeur, 13/07/2026). Aucune mesure trouvée : ni sur le voile ou les signes religieux, ni sur la loi de 2021, ni sur le Concordat, ni sur une inscription de l'héritage chrétien dans la Constitution. Elle reconnaît des racines chrétiennes sans proposition constitutionnelle. Aucune approche existante ne correspond, et une principale sans mesure ne justifie pas d'en proposer une nouvelle."
+  },
+  {
+   "questionId": "laicite_republique-2",
+   "status": "unknown",
+   "note": "Aucune position trouvée sur la colonisation, l'Algérie, les excuses ou les archives : le dossier le signale et une recherche complémentaire n'a rien donné. Ses propos sur la mémoire (Causeur, 13/07/2026) portent sur l'articulation des mémoires de l'Ancien Régime et de la Révolution, pas sur la colonisation. Coder 2-c serait donc une sur-interprétation."
+  },
+  {
+   "questionId": "institutions-x1",
+   "status": "unknown",
+   "note": "Aucune position trouvée sur le Conseil constitutionnel (rôle, nominations, maintien d'une loi censurée). La révision de l'article 55 qu'elle propose porte sur la primauté de la loi nationale sur les traités, pas sur la censure du Conseil constitutionnel. Elle ne relève donc d'aucune approche."
+  }
+ ],
+ "unknown": [
+  "retraites-1",
+  "fiscalite-1",
+  "fiscalite-2",
+  "finances_publiques-2",
+  "travail_salaires-2",
+  "travail_salaires-3",
+  "travail_salaires-4",
+  "retraites-2",
+  "retraites-3",
+  "sante-1",
+  "solidarites-1",
+  "logement-1",
+  "sante-2",
+  "sante-3",
+  "sante-4",
+  "sante-5",
+  "logement-2",
+  "logement-3",
+  "logement-4",
+  "solidarites-3",
+  "egalite-1",
+  "egalite-3",
+  "egalite-4",
+  "droits_lgbtqia-1",
+  "droits_lgbtqia-2",
+  "education-2",
+  "education-3",
+  "education-5",
+  "societe-1",
+  "numerique-1",
+  "numerique-2",
+  "numerique-3",
+  "numerique-4",
+  "ecologie_energie-2",
+  "territoires-1",
+  "ecologie_energie-3",
+  "agriculture-3",
+  "territoires-2",
+  "securite_justice-1",
+  "securite_justice-2",
+  "securite_justice-3",
+  "securite_justice-4",
+  "securite_justice-6",
+  "immigration-1",
+  "immigration-2",
+  "immigration-3",
+  "immigration-4",
+  "immigration-5",
+  "immigration-6",
+  "europe-2",
+  "europe-3",
+  "ukraine_russie-1",
+  "ukraine_russie-2",
+  "proche_orient-1",
+  "proche_orient-2",
+  "defense-1",
+  "defense-2",
+  "defense-3",
+  "defense-4",
+  "defense-5",
+  "institutions-2",
+  "laicite_republique-1",
+  "laicite_republique-2",
+  "fiscalite-x1",
+  "societe-x1",
+  "territoires-x4",
+  "territoires-x5",
+  "securite_justice-x1",
+  "immigration-x1",
+  "immigration-x2",
+  "europe-x4",
+  "ukraine_russie-x3",
+  "institutions-x1"
+ ],
+ "coverage": {
+  "questions": 100,
+  "known": 27,
+  "knownShare": 0.27,
+  "essentiel": {
+   "total": 22,
+   "known": 8,
+   "share": 0.364
+  },
+  "step1": {
+   "total": 10,
+   "known": 6
+  },
+  "unknown": [
+   "retraites-1",
+   "fiscalite-1",
+   "fiscalite-2",
+   "finances_publiques-2",
+   "travail_salaires-2",
+   "travail_salaires-3",
+   "travail_salaires-4",
+   "retraites-2",
+   "retraites-3",
+   "sante-1",
+   "solidarites-1",
+   "logement-1",
+   "sante-2",
+   "sante-3",
+   "sante-4",
+   "sante-5",
+   "logement-2",
+   "logement-3",
+   "logement-4",
+   "solidarites-3",
+   "egalite-1",
+   "egalite-3",
+   "egalite-4",
+   "droits_lgbtqia-1",
+   "droits_lgbtqia-2",
+   "education-2",
+   "education-3",
+   "education-5",
+   "societe-1",
+   "numerique-1",
+   "numerique-2",
+   "numerique-3",
+   "numerique-4",
+   "ecologie_energie-2",
+   "territoires-1",
+   "ecologie_energie-3",
+   "agriculture-3",
+   "territoires-2",
+   "securite_justice-1",
+   "securite_justice-2",
+   "securite_justice-3",
+   "securite_justice-4",
+   "securite_justice-6",
+   "immigration-1",
+   "immigration-2",
+   "immigration-3",
+   "immigration-4",
+   "immigration-5",
+   "immigration-6",
+   "europe-2",
+   "europe-3",
+   "ukraine_russie-1",
+   "ukraine_russie-2",
+   "proche_orient-1",
+   "proche_orient-2",
+   "defense-1",
+   "defense-2",
+   "defense-3",
+   "defense-4",
+   "defense-5",
+   "institutions-2",
+   "laicite_republique-1",
+   "laicite_republique-2",
+   "fiscalite-x1",
+   "societe-x1",
+   "territoires-x4",
+   "territoires-x5",
+   "securite_justice-x1",
+   "immigration-x1",
+   "immigration-x2",
+   "europe-x4",
+   "ukraine_russie-x3",
+   "institutions-x1"
+  ],
+  "rejectsOnly": [
+   "europe-3"
+  ],
+  "thresholds": {
+   "bank": false,
+   "quick": false,
+   "step1": false
+  }
+ },
+ "review": [
+  "position non vérifiée : europe-3 europe-3-f",
+  "couverture sous les seuils de la configuration : {\"bank\":false,\"quick\":false,\"step1\":false}",
+  "3 approche(s) proposée(s), à valider avant toute reprise dans decisions.json"
+ ],
+ "log": [
+  "refuted fiscalite-x1 fiscalite-x1-c : L'Express (Ambre Xerri, 14/09/2026) rapporte seulement une piste de son équipe : alléger le financement de la protection sociale par le travail, en contrepartie de hausses de salaires. Rien sur le maintien du niveau global des prélèvements ni sur une taxation accrue du capital, alors que c'est l'élément distinctif de l'approche c. L'assiette de remplacement est inconnue (TVA, CSG ou autre). Ses autres propositions vont plutôt vers une baisse nette : suppression des impôts de production restants, baisse des cotisations, taxe flottante. Ni Sud Radio (15/09) ni la recension Causeur de son livre ne parlent de taxer le capital ou le patrimoine. L'attribution serait une sur-interprétation, donc la position est à supprimer.",
+  "refuted immigration-2 immigration-2-b : C’est une sur-interprétation. L’approche b porte précisément sur la primauté du droit national sur les règles européennes d’asile et de circulation. Ce que disent les sources : Causeur (8 juin 2026, Martin Pimentel, à propos de « La France corps et âme ») confirme la révision de l’article 55 par référendum pour que la loi prime sur les traités. Mais l’article lie la suspension des « règles européennes » à la réindustrialisation et à la souveraineté alimentaire. Il ne parle ni d’asile, ni de Schengen, ni de frontières. La seule libre circulation évoquée est celle des marchandises (produits phytosanitaires). Le même article note qu’il ne faut pas compter sur elle pour parler d’immigration. L’OJIM (1er octobre 2026) confirme seulement qu’elle veut rester dans l’UE, sans un mot sur l’article 55, l’asile ou les frontières. Aucune autre source consultée ne fait ce lien : site de campagne (accueil, « Ma vision », « Mes principes »), franceinfo et L’Express via Orange du 14 octobre 2026, Euronews du 14 octobre 2026, dialogue avec Eugénie Bastié dans Causeur du 13 juillet 2026. Dans ce dialogue, Bastié lui reproche de ne pas mettre la question migratoire au centre, et elle ne répond pas sur ce point. Le dossier lui-même classe l’immigration parmi les questions ouvertes, sans mesure concrète. Lui attribuer la volonté de déroger aux règles européennes d’asile serait une attribution fausse. Une case inconnue est préférable : la position est à supprimer.",
+  "unchecked europe-3 europe-3-f"
+ ]
+}

@@ -283,11 +283,11 @@
         "topicId": "finances_publiques",
         "tier": "essentiel",
         "step": 1,
-        "rev": 1,
+        "rev": 2,
         "prompt": "Quelle stratégie pour les finances publiques face à la dette ?",
         "context": "Aujourd’hui : la dette publique dépasse 115 % de la richesse produite en un an (PIB) et le déficit dépasse 5 % du PIB.",
         "explainer": {
-          "summary": "Les administrations publiques dépensent plus qu’elles ne perçoivent : chaque année de déficit alourdit la dette, dont les intérêts augmentent. Les approches divergent : économiser sans hausse d’impôts (sur les prestations et les effectifs, les agences de l’État, ou l’immigration, l’aide internationale et la contribution européenne) ; taxer davantage les plus aisés, le capital ou les grandes entreprises, avec ou sans économies ; ou dépenser plus, en empruntant pour investir ou en prélevant sur les profits des entreprises.",
+          "summary": "Les administrations publiques dépensent plus qu’elles ne perçoivent : chaque année de déficit alourdit la dette, dont les intérêts augmentent. Les approches divergent : économiser sans hausse d’impôts (sur les prestations et les effectifs, les agences de l’État, ou l’immigration, l’aide internationale et la contribution européenne) ; taxer davantage les plus aisés, le capital ou les grandes entreprises, avec ou sans économies ; dépenser plus, en empruntant pour investir ou en prélevant sur les profits des entreprises ; ou compter surtout sur la relance de la production en France pour accroître les recettes publiques.",
           "points": [
             {
               "text": "Dépenses et recettes : en 2025, les dépenses publiques représentent 57,3 % du PIB et les recettes 52,2 %, dont 43,6 % d’impôts et de cotisations sociales (les « prélèvements obligatoires »). Selon l’Insee, la baisse du déficit en 2025 s’explique surtout par la hausse des recettes : les mesures nouvelles sur les impôts et cotisations ont rapporté 23,0 Md€, dont 8,0 Md€ de contributions exceptionnelles sur les bénéfices des grandes entreprises et sur le fret maritime. Les dépenses ont ralenti (+2,5 %, après +4,0 % en 2024).",
@@ -420,6 +420,10 @@
           {
             "id": "finances_publiques-1-g",
             "text": "Économiser d’abord sur le fonctionnement de l’État en supprimant agences et doublons administratifs, sans hausse d’impôts"
+          },
+          {
+            "id": "finances_publiques-1-h",
+            "text": "Réduire le déficit surtout en relançant la production en France pour accroître les recettes publiques"
           }
         ]
       },
@@ -10970,11 +10974,11 @@
         "id": "europe-3",
         "topicId": "europe",
         "tier": "approfondi",
-        "rev": 1,
+        "rev": 2,
         "prompt": "Comment faire évoluer les règles du marché unique européen ?",
         "context": "Aujourd’hui : les règles européennes ont ouvert à la concurrence l’électricité, le gaz, le transport ferroviaire et d’autres services publics.",
         "explainer": {
-          "summary": "Dans le marché unique, fondé sur la libre circulation des marchandises, des personnes, des services et des capitaux, l’Union contrôle les ententes, les fusions et les aides publiques aux entreprises, et elle a ouvert à la concurrence d’anciens monopoles publics. Plusieurs orientations s’opposent : assouplir les règles de concurrence pour faire émerger de grandes entreprises européennes, revenir à des monopoles publics nationaux à prix réglementés, approfondir le marché unique en levant les obstacles nationaux aux échanges, alléger les normes européennes et interdire leur durcissement en droit français, ou garder le cadre actuel.",
+          "summary": "Dans le marché unique, fondé sur la libre circulation des marchandises, des personnes, des services et des capitaux, l’Union contrôle les ententes, les fusions et les aides publiques aux entreprises, et elle a ouvert à la concurrence d’anciens monopoles publics. Plusieurs orientations s’opposent : assouplir les règles de concurrence pour faire émerger de grandes entreprises européennes, revenir à des monopoles publics nationaux à prix réglementés, approfondir le marché unique en levant les obstacles nationaux aux échanges, alléger les normes européennes et interdire leur durcissement en droit français, déroger aux règles européennes pour donner, dans la commande publique, la priorité aux entreprises qui produisent en France, ou garder le cadre actuel.",
           "points": [
             {
               "text": "Le droit européen interdit les ententes (accords entre entreprises qui restreignent la concurrence) et l’abus de position dominante, mais pas le fait d’être dominant (articles 101 et 102 du traité sur le fonctionnement de l’UE). Les lignes directrices de la Commission sur les fusions sont en cours de réexamen en 2026. Les règles qui encadrent les compensations versées aux services publics (« services d’intérêt économique général ») ont été révisées : la nouvelle décision est entrée en vigueur le 8 janvier 2026.",
@@ -11001,6 +11005,15 @@
                 "url": "https://www.europarl.europa.eu/factsheets/fr/sheet/33/le-marche-interieur-principes-generaux",
                 "date": "2026-03",
                 "publisher": "Parlement européen"
+              }
+            },
+            {
+              "text": "Les marchés publics doivent respecter l’égalité de traitement des entreprises candidates et la non-discrimination, principes tirés du traité européen ; les clauses de préférence locale y sont interdites. Trois directives de 2014, dont la directive 2014/24/UE, en fixent les règles, pour une commande publique qui pèse en France 170,7 Md€ en 2023 (contrats d’au moins 90 000 € HT seulement), soit 6 % du PIB. Un acheteur public peut en revanche imposer que les moyens d’exécution du marché soient situés dans l’Union, notamment pour des raisons environnementales, sociales ou de sécurité des approvisionnements, et écarter les entreprises de pays qui n’ont pas d’accord avec l’UE sur les marchés publics, comme la Chine et l’Inde.",
+              "source": {
+                "title": "Rapport n° 830 (2024-2025) de la commission d’enquête sur la commande publique : « L’urgence d’agir pour éviter la sortie de route : piloter la commande publique au service de la souveraineté économique »",
+                "url": "https://www.senat.fr/rap/r24-830-1/r24-830-1_mono.html",
+                "date": "2025-07-08",
+                "publisher": "Sénat"
               }
             }
           ],
@@ -11099,6 +11112,10 @@
             "id": "europe-3-e",
             "text": "Conserver les règles de concurrence actuelles et l’ouverture des services publics à la concurrence",
             "external": true
+          },
+          {
+            "id": "europe-3-f",
+            "text": "Déroger aux règles européennes pour donner, dans la commande publique, la priorité aux entreprises qui produisent en France"
           }
         ]
       },
@@ -15743,21 +15760,29 @@
         ]
       },
       "finances_publiques-1-a": {
-        "weight": 1,
-        "nature": "declaration",
+        "weight": 2,
+        "nature": "proposition",
         "confidence": "high",
-        "summary": "Il veut ramener le déficit à 2 % du PIB en fin de quinquennat en faisant travailler plus et en réformant l’État, sans hausse d’impôts ni objectif chiffré de baisse des effectifs publics.",
+        "summary": "Son programme prévoit de ramener le déficit de plus de 5 % à 2 % du PIB en fin de quinquennat, avec la moitié de l’effort sur les dépenses sociales, plus de 250 000 postes de fonctionnaires supprimés sur le quinquennat (un tiers des départs à la retraite) et aucun nouvel impôt.",
         "sources": [
-          {
-            "title": "Que proposent les candidats à la présidentielle pour réduire la dette publique ? (franceinfo)",
-            "url": "https://www.franceinfo.fr/economie/crise/crise-de-la-dette/que-proposent-les-candidats-a-la-presidentielle-pour-reduire-la-dette-publique_8215481.html",
-            "date": "2026-09-29",
-            "publisher": "franceinfo"
-          },
           {
             "title": "Pour une France plus prospère – programme Avec Édouard 2027",
             "url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
-            "date": "2026-10-06",
+            "date": "2026-10-14 (consultation)",
+            "publisher": "Site d’Édouard Philippe"
+          }
+        ]
+      },
+      "finances_publiques-1-h": {
+        "weight": 1,
+        "nature": "proposition",
+        "confidence": "medium",
+        "summary": "Son programme attend un quart de l’effort de redressement des comptes publics de la croissance, sans préciser d’où elle viendrait, la moitié de l’effort portant sur les dépenses sociales et un quart sur l’État et les collectivités.",
+        "sources": [
+          {
+            "title": "Pour une France plus prospère – programme Avec Édouard 2027",
+            "url": "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere",
+            "date": "2026-10-14 (consultation)",
             "publisher": "Site d’Édouard Philippe"
           }
         ]
@@ -18096,23 +18121,23 @@
           }
         ]
       },
-      "europe-3-d": {
+      "europe-3-f": {
         "weight": 1,
         "nature": "inference",
         "confidence": "medium",
-        "summary": "Elle promet de réduire « considérablement » les normes pesant sur les entreprises, et son parti demande d’alléger les normes européennes, notamment pour les PME dans le règlement sur les emballages.",
+        "summary": "Elle veut flécher la commande publique vers les entreprises présentes en France et a cosigné une résolution pour autoriser les acheteurs publics à donner la priorité aux offres exécutées en France, sans demander explicitement de déroger aux règles européennes.",
         "sources": [
           {
-            "title": "Règlement sur les emballages (PPWR) : il est temps de libérer les PME du carcan bureaucratique européen",
-            "url": "https://rassemblementnational.fr/communiques/reglement-sur-les-emballages-ppwr-il-est-temps-de-liberer-les-pme-du-carcan-bureaucratique-europeen",
-            "date": "2026-09-18",
-            "publisher": "Rassemblement national"
-          },
-          {
-            "title": "Dette publique, retraites, réindustrialisation… ce qu’il faut retenir du premier débat des candidats",
+            "title": "Dette publique, retraites, réindustrialisation… ce qu’il faut retenir du premier débat des principaux candidats à la présidentielle (franceinfo)",
             "url": "https://www.franceinfo.fr/elections/presidentielle/dette-publique-retraites-reindustrialisation-ce-qu-il-faut-retenir-du-premier-debat-des-principaux-candidats-a-la-presidentielle_8165342.html",
             "date": "2026-08-27",
             "publisher": "franceinfo"
+          },
+          {
+            "title": "Proposition de résolution n° 3115 visant à mobiliser la commande publique au service de l’emploi, de la production et de l’innovation en France",
+            "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3115_proposition-resolution",
+            "date": "2026-09-07",
+            "publisher": "Assemblée nationale"
           }
         ]
       },
@@ -20441,6 +20466,26 @@
             "title": "L’Avenir en commun (éd. 2025) – Désobéir à chaque fois que c’est nécessaire",
             "url": "https://web.archive.org/web/20260509172930/https://melenchon2027.fr/programme2025/livre/chapitre17/s2/",
             "date": "2025-01"
+          }
+        ]
+      },
+      "europe-3-f": {
+        "weight": 1,
+        "nature": "inference",
+        "confidence": "medium",
+        "summary": "Son programme prévoit des critères de localisation de l’activité dans la commande publique nationale et locale, et de désobéir aux règles européennes « à chaque fois que c’est nécessaire » pour l’appliquer.",
+        "sources": [
+          {
+            "title": "L’Avenir en commun (éd. 2025) – Réindustrialiser et relocaliser pour assurer notre indépendance",
+            "url": "https://web.archive.org/web/20260509162142/https://melenchon2027.fr/programme2025/livre/chapitre9/s2/",
+            "date": "2025-01",
+            "publisher": "melenchon2027.fr (archive)"
+          },
+          {
+            "title": "L’Avenir en commun (éd. 2025) – Désobéir à chaque fois que c’est nécessaire pour mettre en œuvre notre programme",
+            "url": "https://web.archive.org/web/20260509172930/https://melenchon2027.fr/programme2025/livre/chapitre17/s2/",
+            "date": "2025-01",
+            "publisher": "melenchon2027.fr (archive)"
           }
         ]
       },
@@ -30068,7 +30113,27 @@
         "weight": 1,
         "nature": "declaration",
         "confidence": "medium",
-        "summary": "Il veut redresser les comptes par le travail et par « un effort équitablement partagé, selon les moyens de chacun », avec une fiscalité qui atteigne réellement les très grandes fortunes, sans cible chiffrée.",
+        "summary": "Il veut redresser les comptes par « un effort équitablement partagé, selon les moyens de chacun », avec une fiscalité qui atteigne réellement les très grandes fortunes, sans cible chiffrée.",
+        "sources": [
+          {
+            "title": "Bernard Cazeneuve : « j’appelle à une coalition des engagés » (entretien, Crif)",
+            "url": "https://www.crif.org/articles/entretiens/2026-10-05/bernard-cazeneuve-jappelle-a-une-coalition-des-engages/",
+            "date": "2026-10-05",
+            "publisher": "CRIF"
+          },
+          {
+            "title": "Lettre aux Françaises et aux Français « Tenir la promesse de la France »",
+            "url": "https://assets.nationbuilder.com/laconvention/pages/2515/attachments/original/1784151599/Auxfrancaisversionfinale1507.pdf?1784151599",
+            "date": "2026-07-15",
+            "publisher": "La Convention"
+          }
+        ]
+      },
+      "finances_publiques-1-h": {
+        "weight": 2,
+        "nature": "declaration",
+        "confidence": "medium",
+        "summary": "Face à une dette de 119 % du PIB, il veut redresser le pays « par le travail, en produisant davantage », ainsi que par un effort partagé selon les moyens de chacun ; il ne relie pas explicitement la production aux recettes publiques et ne donne pas de cible chiffrée.",
         "sources": [
           {
             "title": "Bernard Cazeneuve : « j’appelle à une coalition des engagés » (entretien, Crif)",
@@ -32219,23 +32284,23 @@
           }
         ]
       },
-      "finances_publiques-1-g": {
+      "finances_publiques-1-h": {
         "weight": 1,
-        "nature": "proposition",
-        "confidence": "high",
-        "summary": "Il veut réintégrer les agences de l’État dans les ministères, diviser par dix les dépenses de conseil et supprimer les régions et le CESE, les économies allant pour moitié à la dette et pour moitié à des baisses d’impôts.",
+        "nature": "declaration",
+        "confidence": "medium",
+        "summary": "Il attribue la crise de la dette davantage à la panne d’investissement et de croissance qu’à l’excès de dépenses et veut augmenter les recettes « en dopant la production française », notamment en relocalisant des emplois industriels.",
         "sources": [
           {
-            "title": "Discours de candidature du 8 mars 2025",
-            "url": "https://www.debout-la-france.fr/actualite/je-suis-candidat-pour/",
-            "date": "2025-03-08",
+            "title": "« La Révolution du bon sens pour sauver la France ! »",
+            "url": "https://www.debout-la-france.fr/actualite/la-revolution-du-bon-sens-pour-sauver-la-france/",
+            "date": "2025-09-20",
             "publisher": "Debout la France"
           },
           {
-            "title": "Livret DLF « Refonder et moraliser notre démocratie »",
-            "url": "https://www.debout-la-france.fr/projet/refonder-et-moraliser-notre-democratie/",
-            "date": "2026-06-09",
-            "publisher": "Debout la France"
+            "title": "Libérons la France ! · Discours de rentrée",
+            "url": "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+            "date": "2026-09-19",
+            "publisher": "Site de Nicolas Dupont-Aignan"
           }
         ]
       },
@@ -33451,7 +33516,7 @@
         ]
       },
       "europe-3-d": {
-        "weight": 2,
+        "weight": 1,
         "nature": "proposition",
         "confidence": "high",
         "summary": "Il veut supprimer « la moitié » des normes européennes dans la première année de son mandat.",
@@ -33460,6 +33525,32 @@
             "title": "Discours de candidature du 8 mars 2025",
             "url": "https://www.debout-la-france.fr/actualite/je-suis-candidat-pour/",
             "date": "2025-03-08",
+            "publisher": "Debout la France"
+          }
+        ]
+      },
+      "europe-3-f": {
+        "weight": 2,
+        "nature": "proposition",
+        "confidence": "high",
+        "summary": "Il veut réserver aux produits français 50 %, puis 75 % des achats publics, et cesser d’appliquer le droit européen pendant un moratoire de négociation d’un an, suivi d’un référendum sur la sortie de l’Union.",
+        "sources": [
+          {
+            "title": "Libérons la France ! · Discours de rentrée de Nicolas Dupont-Aignan",
+            "url": "https://www.dupontaignan.fr/actualite/liberons-la-france-%c2%b7-discours-de-rentree-de-nicolas-dupont-aignan/",
+            "date": "2026-09-19",
+            "publisher": "Site de Nicolas Dupont-Aignan"
+          },
+          {
+            "title": "Refonder et moraliser notre démocratie (projet, mesure 7)",
+            "url": "https://www.debout-la-france.fr/projet/refonder-et-moraliser-notre-democratie/",
+            "date": "2026-06",
+            "publisher": "Debout la France"
+          },
+          {
+            "title": "Livret « Agriculture »",
+            "url": "https://www.debout-la-france.fr/projet/agriculture/",
+            "date": "2026-01",
             "publisher": "Debout la France"
           }
         ]
@@ -35944,6 +36035,26 @@
             "title": "François Asselineau invité de Nicolas Stoquer sur GP-TV",
             "url": "https://upr.fr/medias/francois-asselineau-invite-de-nicolas-stoquer-sur-gp-tv-01-10-2026",
             "date": "2026-10-01",
+            "publisher": "UPR"
+          }
+        ]
+      },
+      "finances_publiques-1-h": {
+        "weight": 2,
+        "nature": "declaration",
+        "confidence": "medium",
+        "summary": "Pour réduire la dette, il donne la priorité au retour de la croissance, les recettes de l’État dépendant selon lui de l’activité, et écarte des suppressions massives de postes de fonctionnaires, qu’il juge contre-productives pour les recettes publiques.",
+        "sources": [
+          {
+            "title": "François Asselineau invité de Nicolas Stoquer sur GP-TV – 01/10/2026",
+            "url": "https://upr.fr/medias/francois-asselineau-invite-de-nicolas-stoquer-sur-gp-tv-01-10-2026",
+            "date": "2026-10-01",
+            "publisher": "UPR"
+          },
+          {
+            "title": "François Asselineau invité d’Elise Blaise sur TVL – 26/09/2026",
+            "url": "https://upr.fr/actualites/francois-asselineau-invite-delise-blaise-sur-tvl-26-09-2026",
+            "date": "2026-09-26",
             "publisher": "UPR"
           }
         ]
@@ -44757,6 +44868,814 @@
         ]
       }
     },
+    "polony": {
+      "finances_publiques-1-g": {
+        "weight": 1,
+        "nature": "declaration",
+        "confidence": "medium",
+        "summary": "Elle estime que c’est à l’État de faire les premiers efforts, juge certaines dépenses publiques illégitimes et cite le coût du millefeuille territorial, sans chiffrer d’économies.",
+        "sources": [
+          {
+            "title": "Natacha Polony : « Le Rassemblement National ne dit pas des choses fausses sur tout »",
+            "url": "https://www.sudradio.fr/sud-radio/natacha-polony-je-lance-un-appel-aux-orphelins-de-la-politique",
+            "date": "2026-09-15",
+            "publisher": "Sud Radio"
+          }
+        ]
+      },
+      "finances_publiques-1-h": {
+        "weight": 2,
+        "nature": "declaration",
+        "confidence": "high",
+        "summary": "Elle cite la crise de la dette parmi les raisons de sa candidature et compte sur une politique de production en France pour recréer de l’activité et faire rentrer de l’argent dans les caisses de l’État, sans trajectoire chiffrée.",
+        "sources": [
+          {
+            "title": "L’essayiste Natacha Polony annonce sa candidature à l’élection présidentielle",
+            "url": "https://www.franceinfo.fr/elections/presidentielle/l-essayiste-natacha-polony-annonce-sa-candidature-a-l-election-presidentielle_8236714.html",
+            "date": "2026-10-14",
+            "publisher": "franceinfo"
+          },
+          {
+            "title": "L’essayiste Natacha Polony candidate à la présidentielle en France pour « sortir de la spirale d’appauvrissement »",
+            "url": "https://www.lavenir.net/actu/monde/2026/10/14/lessayiste-natacha-polony-candidate-a-la-presidentielle-en-france-pour-sortir-de-la-spirale-dappauvrissement-OP42YMO65ZEDXJYMEWGPYMEDIM/",
+            "date": "2026-10-14",
+            "publisher": "L’Avenir (Belga)"
+          },
+          {
+            "title": "Ma vision pour la France, site de campagne Natacha Polony 2027",
+            "url": "https://natachapolony2027.fr/natacha-polony/ma-vision",
+            "date": "2026-10-14 (consultation)",
+            "publisher": "Site de campagne Natacha Polony 2027"
+          }
+        ]
+      },
+      "industrie_economie-1-b": {
+        "weight": 1,
+        "nature": "declaration",
+        "confidence": "medium",
+        "summary": "Elle demande de supprimer tous les impôts de production restants et propose de baisser les cotisations salariales et patronales, tout en gardant des aides conditionnées à une production en France.",
+        "sources": [
+          {
+            "title": "Natacha Polony : La France est « le pays le plus désindustrialisé d’Europe »",
+            "url": "https://www.sudradio.fr/sud-radio/natacha-polony-la-france-est-le-pays-le-plus-desindustrialise-deurope",
+            "date": "2026-04-20",
+            "publisher": "Sud Radio"
+          },
+          {
+            "title": "Présidentielle 2027 : Natacha Polony lance son mouvement et « n’exclut rien » pour l’Élysée",
+            "url": "https://entrevue.fr/politique/presidentielle-2027-natacha-polony-lance-son-mouvement-et-nexclut-rien-pour-lelysee/",
+            "date": "2026-08-28",
+            "publisher": "Entrevue"
+          }
+        ]
+      },
+      "industrie_economie-1-c": {
+        "weight": 2,
+        "nature": "proposition",
+        "confidence": "high",
+        "summary": "Elle veut réserver l’argent public à ceux qui investissent, forment et produisent en France, et supprimer toutes les aides aux entreprises qui ne sont pas conditionnées à une production sur le sol français.",
+        "sources": [
+          {
+            "title": "Ma vision pour la France, site de campagne Natacha Polony 2027",
+            "url": "https://natachapolony2027.fr/natacha-polony/ma-vision",
+            "date": "2026-10-14 (consultation)",
+            "publisher": "Site de campagne Natacha Polony 2027"
+          },
+          {
+            "title": "L’essayiste Natacha Polony candidate à la présidentielle en France pour « sortir de la spirale d’appauvrissement »",
+            "url": "https://www.lavenir.net/actu/monde/2026/10/14/lessayiste-natacha-polony-candidate-a-la-presidentielle-en-france-pour-sortir-de-la-spirale-dappauvrissement-OP42YMO65ZEDXJYMEWGPYMEDIM/",
+            "date": "2026-10-14",
+            "publisher": "L’Avenir (Belga)"
+          }
+        ]
+      },
+      "travail_salaires-1-c": {
+        "weight": 2,
+        "nature": "declaration",
+        "confidence": "medium",
+        "summary": "Elle propose de baisser les cotisations salariales et patronales pour permettre des hausses de salaires, sans préciser l’ampleur de la baisse ni sa compensation pour la Sécurité sociale.",
+        "sources": [
+          {
+            "title": "Présidentielle 2027 : Natacha Polony lance son mouvement et « n’exclut rien » pour l’Élysée",
+            "url": "https://entrevue.fr/politique/presidentielle-2027-natacha-polony-lance-son-mouvement-et-nexclut-rien-pour-lelysee/",
+            "date": "2026-08-28",
+            "publisher": "Entrevue"
+          },
+          {
+            "title": "Rassembler les « orphelins de la politique » : Natacha Polony lance un mouvement et « n’écarte pas une candidature à la présidentielle »",
+            "url": "https://www.epochtimes.fr/rassembler-les-orphelins-de-la-politique-natacha-polony-lance-un-mouvement-et-necarte-pas-une-candidature-a-la-presidentielle-3335966.html",
+            "date": "2026-08-29",
+            "publisher": "Epoch Times"
+          }
+        ]
+      },
+      "travail_salaires-1-e": {
+        "weight": 1,
+        "nature": "declaration",
+        "confidence": "high",
+        "summary": "Elle propose une taxe flottante sur les carburants, dont le montant baisserait automatiquement quand les prix à la pompe augmentent.",
+        "sources": [
+          {
+            "title": "Voir et entendre Natacha Polony (page vidéos de la campagne)",
+            "url": "https://www.npolony.fr/videos",
+            "date": "2026-09-17",
+            "publisher": "Natacha Polony"
+          },
+          {
+            "title": "Natacha Polony : « Le Rassemblement National ne dit pas des choses fausses sur tout »",
+            "url": "https://www.sudradio.fr/sud-radio/natacha-polony-je-lance-un-appel-aux-orphelins-de-la-politique",
+            "date": "2026-09-15",
+            "publisher": "Sud Radio"
+          }
+        ]
+      },
+      "finances_publiques-3-f": {
+        "weight": 1,
+        "nature": "declaration",
+        "confidence": "high",
+        "summary": "Elle veut augmenter le nombre d’enseignants et relever leurs salaires de 20 à 30 %, sans objectif pour les autres agents publics.",
+        "sources": [
+          {
+            "title": "La journaliste Natacha Polony se lance en politique pour « perturber l’entre-soi »",
+            "url": "https://www.franceinfo.fr/politique/la-journaliste-natacha-polony-se-lance-en-politique-pour-perturber-l-entre-soi_8170427.html",
+            "date": "2026-08-31",
+            "publisher": "franceinfo/AFP"
+          },
+          {
+            "title": "Présidentielle 2027 : les propositions chocs de Natacha Polony pour sortir de la crise lycéenne et étudiante",
+            "url": "https://www.sudradio.fr/sud-radio/no-future-et-irresponsabilite-generalisee-les-declarations-chocs-et-les-solutions-de-natacha-polony-pour-les-lycees-et-leducation",
+            "date": "2026-10-14",
+            "publisher": "Sud Radio"
+          }
+        ]
+      },
+      "industrie_economie-2-d": {
+        "weight": 2,
+        "nature": "declaration",
+        "confidence": "high",
+        "summary": "Elle veut interdire l’entrée en France des produits agricoles qui ne respectent pas les règles imposées aux agriculteurs français, notamment ceux traités avec des pesticides interdits en France.",
+        "sources": [
+          {
+            "title": "Natacha Polony : « La grandeur de la France vient du monde paysan »",
+            "url": "https://www.7joursaclermont.fr/natacha-polony/",
+            "date": "2026-10-08",
+            "publisher": "7 Jours à Clermont"
+          }
+        ]
+      },
+      "industrie_economie-2-f": {
+        "rejects": true,
+        "nature": "declaration",
+        "confidence": "medium",
+        "summary": "Elle juge nécessaire de déroger à certaines décisions relevant du « dogme du libre-échange », attribue l’appauvrissement à la dérégulation et à la division mondiale du travail, et range les traités de libre-échange parmi les difficultés des agriculteurs.",
+        "sources": [
+          {
+            "title": "Natacha Polony : « Pour réussir la transition écologique, il faut déroger au dogme du libre-échange »",
+            "url": "https://www.sudradio.fr/societe/natacha-polony-pour-reussir-la-transition-ecologique-il-faut-deroger-au-dogme-du-libre-echange",
+            "date": "2026-04-16",
+            "publisher": "Sud Radio"
+          },
+          {
+            "title": "E. Bastié / N. Polony : désaccords souverains (1/2)",
+            "url": "https://www.causeur.fr/dialogue-eugenie-bastie-natacha-polony-1-desaccords-souverains-330212",
+            "date": "2026-07-10",
+            "publisher": "Causeur"
+          },
+          {
+            "title": "Ma vision pour la France, site de campagne Natacha Polony 2027",
+            "url": "https://natachapolony2027.fr/natacha-polony/ma-vision",
+            "date": "2026-10-14 (consultation)",
+            "publisher": "Site de campagne Natacha Polony 2027"
+          }
+        ]
+      },
+      "industrie_economie-3-a": {
+        "weight": 1,
+        "nature": "declaration",
+        "confidence": "high",
+        "summary": "Elle veut renationaliser EDF et refuse la privatisation des barrages hydroélectriques, sans évoquer d’autres nationalisations.",
+        "sources": [
+          {
+            "title": "Natacha Polony : « Le Rassemblement National ne dit pas des choses fausses sur tout »",
+            "url": "https://www.sudradio.fr/sud-radio/natacha-polony-je-lance-un-appel-aux-orphelins-de-la-politique",
+            "date": "2026-09-15",
+            "publisher": "Sud Radio"
+          }
+        ]
+      },
+      "solidarites-2-e": {
+        "weight": 1,
+        "nature": "proposition",
+        "confidence": "medium",
+        "summary": "Selon Causeur, son livre « La France corps et âme » (2026) prône un « service public de la garde d’enfants », sans dire s’il serait gratuit ni quel statut auraient les crèches financées.",
+        "sources": [
+          {
+            "title": "Natacha Polony : tout un programme",
+            "url": "https://www.causeur.fr/2027-natacha-polony-tout-un-programme-la-france-corps-et-ame-328249",
+            "date": "2026-06-08",
+            "publisher": "Causeur"
+          }
+        ]
+      },
+      "egalite-2-f": {
+        "weight": 1,
+        "nature": "proposition",
+        "confidence": "medium",
+        "summary": "Selon la recension de Causeur, son livre « La France corps et âme » (Plon, 2026) prône un service public de la garde d’enfants, sans préciser sa gratuité ni parler des tâches domestiques.",
+        "sources": [
+          {
+            "title": "Natacha Polony : tout un programme (Causeur)",
+            "url": "https://www.causeur.fr/2027-natacha-polony-tout-un-programme-la-france-corps-et-ame-328249",
+            "date": "2026-06-08",
+            "publisher": "Causeur"
+          }
+        ]
+      },
+      "education-1-a": {
+        "weight": 1,
+        "nature": "declaration",
+        "confidence": "high",
+        "summary": "Elle veut des certifications nationales et anonymes pour que les lycéens connaissent leur niveau réel, et la fin des bonnes notes données pour faire plaisir.",
+        "sources": [
+          {
+            "title": "Natacha Polony candidate à la présidentielle ? Ce qu’elle prépare déjà en coulisses (L’Express via Orange)",
+            "url": "https://actu.orange.fr/politique/natacha-polony-candidate-a-la-presidentielle-ce-qu-elle-prepare-deja-en-coulisses-magicExpress-CNT000002rSWei.html",
+            "date": "2026-09-14",
+            "publisher": "L’Express"
+          },
+          {
+            "title": "La journaliste Natacha Polony, bientôt candidate à l’élection présidentielle française ? « Je lance un appel aux orphelins de la politique »",
+            "url": "https://www.rtbf.be/article/la-journaliste-natacha-polony-bientot-candidate-a-la-presidentielle-francaise-je-lance-un-appel-aux-orphelins-de-la-politique-11786400",
+            "date": "2026-09-17",
+            "publisher": "RTBF"
+          }
+        ]
+      },
+      "education-1-g": {
+        "weight": 2,
+        "nature": "proposition",
+        "confidence": "high",
+        "summary": "Elle propose de relever de 20 à 30 % le salaire des enseignants, en comptant toutes leurs missions éducatives, de revoir entièrement leur formation et d’augmenter le nombre de professeurs.",
+        "sources": [
+          {
+            "title": "Présidentielle 2027 : les propositions chocs de Natacha Polony pour sortir de la crise lycéenne et étudiante",
+            "url": "https://www.sudradio.fr/sud-radio/no-future-et-irresponsabilite-generalisee-les-declarations-chocs-et-les-solutions-de-natacha-polony-pour-les-lycees-et-leducation",
+            "date": "2026-10-14",
+            "publisher": "Sud Radio"
+          },
+          {
+            "title": "La journaliste Natacha Polony se lance en politique pour « perturber l’entre-soi »",
+            "url": "https://www.franceinfo.fr/politique/la-journaliste-natacha-polony-se-lance-en-politique-pour-perturber-l-entre-soi_8170427.html",
+            "date": "2026-08-31",
+            "publisher": "franceinfo avec AFP"
+          },
+          {
+            "title": "La journaliste Natacha Polony, bientôt candidate à l’élection présidentielle française ? « Je lance un appel aux orphelins de la politique »",
+            "url": "https://www.rtbf.be/article/la-journaliste-natacha-polony-bientot-candidate-a-la-presidentielle-francaise-je-lance-un-appel-aux-orphelins-de-la-politique-11786400",
+            "date": "2026-09-17",
+            "publisher": "RTBF"
+          }
+        ]
+      },
+      "education-4-a": {
+        "weight": 1,
+        "nature": "proposition",
+        "confidence": "medium",
+        "summary": "Elle propose d’instaurer un concours d’entrée à l’université, sans en préciser les modalités.",
+        "sources": [
+          {
+            "title": "Natacha Polony : tout un programme (Causeur)",
+            "url": "https://www.causeur.fr/2027-natacha-polony-tout-un-programme-la-france-corps-et-ame-328249",
+            "date": "2026-06-08",
+            "publisher": "Causeur"
+          }
+        ]
+      },
+      "societe-2-c": {
+        "weight": 1,
+        "nature": "declaration",
+        "confidence": "medium",
+        "summary": "Elle fait de la transmission et de la conservation de la langue, de la culture et du patrimoine des principes de son projet, sans mesure culturelle détaillée.",
+        "sources": [
+          {
+            "title": "Mes principes et convictions, site de campagne Natacha Polony 2027",
+            "url": "https://natachapolony2027.fr/natacha-polony/mes-principes",
+            "date": "2026-10-14 (consultation)",
+            "publisher": "Natacha Polony 2027"
+          },
+          {
+            "title": "Natacha Polony : « Ursula von der Leyen grignote petit à petit le pouvoir des États » (Sud Radio)",
+            "url": "https://www.sudradio.fr/sud-radio/natacha-polony-ursula-von-der-leyen-grignotte-petit-a-petit-le-pouvoir-des-etats",
+            "date": "2026-05-31",
+            "publisher": "Sud Radio"
+          }
+        ]
+      },
+      "numerique-1-b": {
+        "weight": 1,
+        "nature": "inference",
+        "confidence": "low",
+        "summary": "Elle veut que la France produise ses technologies essentielles et intègre l’IA et la robotique à la réindustrialisation, sans évoquer d’investissement dans la puissance de calcul ou dans des entreprises de l’IA.",
+        "sources": [
+          {
+            "title": "Ma vision pour la France, site de campagne Natacha Polony 2027",
+            "url": "https://natachapolony2027.fr/natacha-polony/ma-vision",
+            "date": "2026-10-14 (consultation)",
+            "publisher": "Natacha Polony 2027"
+          },
+          {
+            "title": "Natacha Polony : « Ursula von der Leyen grignote petit à petit le pouvoir des États » (Sud Radio)",
+            "url": "https://www.sudradio.fr/sud-radio/natacha-polony-ursula-von-der-leyen-grignotte-petit-a-petit-le-pouvoir-des-etats",
+            "date": "2026-05-31",
+            "publisher": "Sud Radio"
+          },
+          {
+            "title": "La journaliste Natacha Polony, bientôt candidate à l’élection présidentielle française ? « Je lance un appel aux orphelins de la politique »",
+            "url": "https://www.rtbf.be/article/la-journaliste-natacha-polony-bientot-candidate-a-la-presidentielle-francaise-je-lance-un-appel-aux-orphelins-de-la-politique-11786400",
+            "date": "2026-09-17",
+            "publisher": "RTBF"
+          }
+        ]
+      },
+      "ecologie_energie-1-a": {
+        "weight": 2,
+        "nature": "proposition",
+        "confidence": "high",
+        "summary": "Elle propose une taxe flottante sur les carburants : quand le prix à la pompe augmente, les taxes baisseraient automatiquement, pour protéger ménages, travailleurs et PME.",
+        "sources": [
+          {
+            "title": "30 € de différence sur un plein, ce n’est pas un détail (vidéo)",
+            "url": "https://www.npolony.fr/videos?v=wmRDCxnwNQs",
+            "date": "2026-09-17",
+            "publisher": "npolony.fr"
+          },
+          {
+            "title": "Face au déclin : l’urgence d’un pacte productif (vidéo)",
+            "url": "https://www.npolony.fr/videos?v=DpnJQrYsmWc",
+            "date": "2026-09-23",
+            "publisher": "npolony.fr"
+          }
+        ]
+      },
+      "ecologie_energie-4-b": {
+        "weight": 2,
+        "nature": "declaration",
+        "confidence": "high",
+        "summary": "Elle présente la politique écologique comme une politique de souveraineté fondée sur la production en France, et veut faire de l’adaptation au climat un moteur de réindustrialisation.",
+        "sources": [
+          {
+            "title": "Natacha Polony : « Il faut déroger au dogme du libre-échange » (Sud Radio)",
+            "url": "https://www.sudradio.fr/societe/natacha-polony-pour-reussir-la-transition-ecologique-il-faut-deroger-au-dogme-du-libre-echange",
+            "date": "2026-04-16",
+            "publisher": "Sud Radio"
+          },
+          {
+            "title": "Canicules et réindustrialisation, le défi français (vidéo)",
+            "url": "https://www.npolony.fr/videos?v=B8deNFh-EE0",
+            "date": "2026-06-22",
+            "publisher": "npolony.fr"
+          }
+        ]
+      },
+      "ecologie_energie-5-b": {
+        "weight": 1,
+        "nature": "declaration",
+        "confidence": "medium",
+        "summary": "Elle s’oppose aux grandes bassines destinées à l’agriculture industrielle et préconise un stockage de l’eau « mesuré », pour tous les usagers, en jugeant l’irrigation indispensable à l’agriculture.",
+        "sources": [
+          {
+            "title": "Natacha Polony : « La grandeur de la France vient du monde paysan » (7 Jours à Clermont)",
+            "url": "https://www.7joursaclermont.fr/natacha-polony/",
+            "date": "2026-10-08",
+            "publisher": "7 Jours à Clermont"
+          }
+        ]
+      },
+      "ecologie_energie-6-a": {
+        "weight": 2,
+        "nature": "declaration",
+        "confidence": "high",
+        "summary": "Elle veut faire de la protection contre la chaleur un service public, par un plan national qui donne la priorité aux écoles, crèches, hôpitaux, Ehpad, administrations et logements sociaux, avec climatisation raisonnée, pompes à chaleur réversibles et isolation.",
+        "sources": [
+          {
+            "title": "Canicules et réindustrialisation, le défi français (vidéo)",
+            "url": "https://www.npolony.fr/videos?v=B8deNFh-EE0",
+            "date": "2026-06-22",
+            "publisher": "npolony.fr"
+          }
+        ]
+      },
+      "ecologie_energie-6-d": {
+        "weight": 1,
+        "nature": "declaration",
+        "confidence": "high",
+        "summary": "Elle reproche à l’État d’avoir réduit les budgets et les effectifs de l’Office national des forêts face aux incendies, et veut un plan national pour la forêt avec une filière française de bombardiers d’eau.",
+        "sources": [
+          {
+            "title": "Incendies : l’État est-il encore à la hauteur ? (vidéo)",
+            "url": "https://www.npolony.fr/videos?v=oc_ooa5NSSQ",
+            "date": "2026-07-14",
+            "publisher": "npolony.fr"
+          }
+        ]
+      },
+      "ecologie_energie-7-d": {
+        "weight": 2,
+        "nature": "declaration",
+        "confidence": "high",
+        "summary": "Elle juge un grand plan ferroviaire absolument nécessaire pour décarboner les transports et dénonce le démantèlement du fret ferroviaire.",
+        "sources": [
+          {
+            "title": "Natacha Polony : « Il faut déroger au dogme du libre-échange » (Sud Radio)",
+            "url": "https://www.sudradio.fr/societe/natacha-polony-pour-reussir-la-transition-ecologique-il-faut-deroger-au-dogme-du-libre-echange",
+            "date": "2026-04-16",
+            "publisher": "Sud Radio"
+          },
+          {
+            "title": "Face au déclin : l’urgence d’un pacte productif (vidéo)",
+            "url": "https://www.npolony.fr/videos?v=DpnJQrYsmWc",
+            "date": "2026-09-23",
+            "publisher": "npolony.fr"
+          }
+        ]
+      },
+      "agriculture-1-d": {
+        "weight": 2,
+        "nature": "declaration",
+        "confidence": "high",
+        "summary": "Elle refuse l’entrée en France des produits agricoles qui ne respectent pas les règles imposées aux paysans français, et veut mettre entre parenthèses les règles européennes pour assurer la souveraineté alimentaire.",
+        "sources": [
+          {
+            "title": "Natacha Polony : « La grandeur de la France vient du monde paysan » (7 Jours à Clermont)",
+            "url": "https://www.7joursaclermont.fr/natacha-polony/",
+            "date": "2026-10-08",
+            "publisher": "7 Jours à Clermont"
+          },
+          {
+            "title": "Natacha Polony : tout un programme (Causeur)",
+            "url": "https://www.causeur.fr/2027-natacha-polony-tout-un-programme-la-france-corps-et-ame-328249",
+            "date": "2026-06-08",
+            "publisher": "Causeur"
+          },
+          {
+            "title": "Natacha Polony : « Il faut déroger au dogme du libre-échange » (Sud Radio)",
+            "url": "https://www.sudradio.fr/societe/natacha-polony-pour-reussir-la-transition-ecologique-il-faut-deroger-au-dogme-du-libre-echange",
+            "date": "2026-04-16",
+            "publisher": "Sud Radio"
+          }
+        ]
+      },
+      "agriculture-2-d": {
+        "weight": 1,
+        "nature": "declaration",
+        "confidence": "medium",
+        "summary": "Elle refuse l’entrée en France des produits qui ne respectent pas les règles imposées aux paysans français, dont ceux contenant des pesticides interdits en France, sans se prononcer sur le glyphosate.",
+        "sources": [
+          {
+            "title": "Natacha Polony : « La grandeur de la France vient du monde paysan » (7 Jours à Clermont)",
+            "url": "https://www.7joursaclermont.fr/natacha-polony/",
+            "date": "2026-10-08",
+            "publisher": "7 Jours à Clermont"
+          }
+        ]
+      },
+      "securite_justice-5-d": {
+        "weight": 2,
+        "nature": "declaration",
+        "confidence": "medium",
+        "summary": "Elle se dit favorable à des centres éducatifs fermés « qui fonctionnent réellement » pour sortir de leur milieu les jeunes qui commencent à dériver, et estime que ceux qui cassent doivent être punis.",
+        "sources": [
+          {
+            "title": "Présidentielle 2027 : les propositions chocs de Natacha Polony pour sortir de la crise lycéenne et étudiante",
+            "url": "https://www.sudradio.fr/sud-radio/no-future-et-irresponsabilite-generalisee-les-declarations-chocs-et-les-solutions-de-natacha-polony-pour-les-lycees-et-leducation",
+            "date": "2026-10-14",
+            "publisher": "Sud Radio"
+          }
+        ]
+      },
+      "europe-1-c": {
+        "weight": 2,
+        "nature": "proposition",
+        "confidence": "medium",
+        "summary": "Elle propose de réviser par référendum l’article 55 de la Constitution pour que la loi nationale prime sur les traités, et reproche à la Commission européenne de réduire peu à peu le pouvoir des États sans validation démocratique.",
+        "sources": [
+          {
+            "title": "Natacha Polony : tout un programme (Causeur)",
+            "url": "https://www.causeur.fr/2027-natacha-polony-tout-un-programme-la-france-corps-et-ame-328249",
+            "date": "2026-06-08",
+            "publisher": "Causeur"
+          },
+          {
+            "title": "Natacha Polony : « Ursula von der Leyen grignote petit à petit le pouvoir des États » (Sud Radio)",
+            "url": "https://www.sudradio.fr/sud-radio/natacha-polony-ursula-von-der-leyen-grignotte-petit-a-petit-le-pouvoir-des-etats",
+            "date": "2026-05-31",
+            "publisher": "Sud Radio"
+          }
+        ]
+      },
+      "europe-1-d": {
+        "weight": 1,
+        "nature": "inference",
+        "confidence": "low",
+        "summary": "Elle propose de « mettre entre parenthèses » des règles européennes pour réindustrialiser et assurer la souveraineté alimentaire, et de déroger « à la marge » à certaines règles européennes et au « dogme du libre-échange », sans proposer de renégocier les traités.",
+        "sources": [
+          {
+            "title": "Natacha Polony : tout un programme (Causeur)",
+            "url": "https://www.causeur.fr/2027-natacha-polony-tout-un-programme-la-france-corps-et-ame-328249",
+            "date": "2026-06-08",
+            "publisher": "Causeur"
+          },
+          {
+            "title": "Natacha Polony : « Il faut déroger au dogme du libre-échange » (Sud Radio)",
+            "url": "https://www.sudradio.fr/societe/natacha-polony-pour-reussir-la-transition-ecologique-il-faut-deroger-au-dogme-du-libre-echange",
+            "date": "2026-04-16",
+            "publisher": "Sud Radio"
+          }
+        ]
+      },
+      "europe-1-e": {
+        "rejects": true,
+        "nature": "declaration",
+        "confidence": "high",
+        "summary": "Elle réaffirme vouloir que la France reste dans l’Union européenne, pour y être indépendante en s’associant à d’autres pays indépendants.",
+        "sources": [
+          {
+            "title": "Présidentielle 2027 : la candidature de Natacha Polony se précise (OJIM)",
+            "url": "https://www.ojim.fr/presidentielle-2027-la-candidature-de-natacha-polony-se-precise/",
+            "date": "2026-10-01",
+            "publisher": "OJIM"
+          },
+          {
+            "title": "Natacha Polony : « Ursula von der Leyen grignote petit à petit le pouvoir des États » (Sud Radio)",
+            "url": "https://www.sudradio.fr/sud-radio/natacha-polony-ursula-von-der-leyen-grignotte-petit-a-petit-le-pouvoir-des-etats",
+            "date": "2026-05-31",
+            "publisher": "Sud Radio"
+          }
+        ]
+      },
+      "europe-2-c": {
+        "weight": 1,
+        "nature": "inference",
+        "confidence": "low",
+        "summary": "Elle propose de « rapatrier » le budget de recherche de la Commission européenne, sans position connue sur le montant global de la contribution française au budget de l’Union.",
+        "sources": [
+          {
+            "title": "Natacha Polony : tout un programme (Causeur)",
+            "url": "https://www.causeur.fr/2027-natacha-polony-tout-un-programme-la-france-corps-et-ame-328249",
+            "date": "2026-06-08",
+            "publisher": "Causeur"
+          }
+        ]
+      },
+      "europe-3-e": {
+        "rejects": true,
+        "nature": "declaration",
+        "confidence": "medium",
+        "summary": "Elle juge « profondément malsain » que l’Union organise la concurrence entre les pays européens et veut déroger « à la marge » à certaines règles européennes pour produire en France selon des normes nationales.",
+        "sources": [
+          {
+            "title": "La journaliste Natacha Polony, bientôt candidate ? (RTBF)",
+            "url": "https://www.rtbf.be/article/la-journaliste-natacha-polony-bientot-candidate-a-la-presidentielle-francaise-je-lance-un-appel-aux-orphelins-de-la-politique-11786400",
+            "date": "2026-09-17",
+            "publisher": "RTBF"
+          },
+          {
+            "title": "Natacha Polony : « Il faut déroger au dogme du libre-échange » (Sud Radio)",
+            "url": "https://www.sudradio.fr/societe/natacha-polony-pour-reussir-la-transition-ecologique-il-faut-deroger-au-dogme-du-libre-echange",
+            "date": "2026-04-16",
+            "publisher": "Sud Radio"
+          }
+        ]
+      },
+      "europe-3-f": {
+        "weight": 2,
+        "nature": "proposition",
+        "confidence": "high",
+        "summary": "Elle veut prioriser la production française dans la commande publique, en inscrivant la défense des productions françaises dans l’article de la Constitution consacré à l’Union, et « mettre entre parenthèses » les règles européennes pour réindustrialiser.",
+        "sources": [
+          {
+            "title": "Natacha Polony est candidate à la présidentielle française (watson/AFP)",
+            "url": "https://www.watson.ch/fr/international/politique/613457933-natacha-polony-est-candidate-a-la-presidentielle-francaise",
+            "date": "2026-10-14",
+            "publisher": "watson/AFP"
+          },
+          {
+            "title": "Natacha Polony : La France est « le pays le plus désindustrialisé d’Europe » (Sud Radio)",
+            "url": "https://www.sudradio.fr/sud-radio/natacha-polony-la-france-est-le-pays-le-plus-desindustrialise-deurope",
+            "date": "2026-04-20",
+            "publisher": "Sud Radio"
+          },
+          {
+            "title": "Natacha Polony : tout un programme (Causeur)",
+            "url": "https://www.causeur.fr/2027-natacha-polony-tout-un-programme-la-france-corps-et-ame-328249",
+            "date": "2026-06-08",
+            "publisher": "Causeur"
+          }
+        ]
+      },
+      "defense-4-b": {
+        "weight": 1,
+        "nature": "inference",
+        "confidence": "low",
+        "summary": "Elle qualifie d’« échec cuisant » les dix ans passés à pousser Dassault à partager ses technologies avec l’Allemagne dans le projet d’avion de combat franco-allemand, juge contraires aux intérêts français des décisions sur la préférence européenne en matière de défense, alors que l’Allemagne achète des armes américaines, et lie la défense à la capacité de produire en France.",
+        "sources": [
+          {
+            "title": "Présidentielle 2027 : la candidature de Natacha Polony se précise (OJIM)",
+            "url": "https://www.ojim.fr/presidentielle-2027-la-candidature-de-natacha-polony-se-precise/",
+            "date": "2026-10-01",
+            "publisher": "OJIM"
+          },
+          {
+            "title": "French journalist Natacha Polony joins growing field of 2027 presidential hopefuls (Euronews)",
+            "url": "https://www.euronews.com/2026/10/14/french-journalist-natacha-polony-joins-growing-field-of-2027-presidential-hopefuls",
+            "date": "2026-10-14",
+            "publisher": "Euronews"
+          },
+          {
+            "title": "Ma vision pour la France, site de campagne Natacha Polony 2027",
+            "url": "https://natachapolony2027.fr/natacha-polony/ma-vision",
+            "date": "2026-10-14 (consultation)",
+            "publisher": "natachapolony2027.fr"
+          }
+        ]
+      },
+      "institutions-1-f": {
+        "weight": 1,
+        "nature": "inference",
+        "confidence": "medium",
+        "summary": "Son site de campagne demande que le peuple soit consulté régulièrement par référendum, « comme le demande notre constitution », et que le résultat soit respecté, sans proposer de changer les pouvoirs du président ou du Parlement.",
+        "sources": [
+          {
+            "title": "Mes principes et convictions | Natacha Polony 2027",
+            "url": "https://natachapolony2027.fr/natacha-polony/mes-principes",
+            "date": "2026-10-14 (consultation)",
+            "publisher": "Natacha Polony 2027"
+          },
+          {
+            "title": "Ma vision pour la France | Natacha Polony 2027",
+            "url": "https://natachapolony2027.fr/natacha-polony/ma-vision",
+            "date": "2026-10-14 (consultation)",
+            "publisher": "Natacha Polony 2027"
+          }
+        ]
+      },
+      "institutions-3-a": {
+        "weight": 1,
+        "nature": "declaration",
+        "confidence": "low",
+        "summary": "Selon L’Express, elle se dit favorable à une consultation plus fréquente des citoyens par référendum, « voire » par référendum d’initiative citoyenne, sans citation directe ni précision sur les seuils ou les référendums locaux.",
+        "sources": [
+          {
+            "title": "Natacha Polony candidate à la présidentielle ? Ce qu’elle prépare déjà en coulisses",
+            "url": "https://actu.orange.fr/politique/natacha-polony-candidate-a-la-presidentielle-ce-qu-elle-prepare-deja-en-coulisses-magicExpress-CNT000002rSWei.html",
+            "date": "2026-09-14",
+            "publisher": "L’Express (repris par Orange Actu)"
+          }
+        ]
+      },
+      "institutions-3-e": {
+        "weight": 2,
+        "nature": "proposition",
+        "confidence": "medium",
+        "summary": "Son site de campagne demande que le peuple soit consulté régulièrement par référendum, « comme le demande notre constitution », et que le résultat soit respecté, sans préciser les sujets, la fréquence ni le nombre de questions.",
+        "sources": [
+          {
+            "title": "Mes principes et convictions | Natacha Polony 2027",
+            "url": "https://natachapolony2027.fr/natacha-polony/mes-principes",
+            "date": "2026-10-14 (consultation)",
+            "publisher": "Natacha Polony 2027"
+          },
+          {
+            "title": "Ma vision pour la France | Natacha Polony 2027",
+            "url": "https://natachapolony2027.fr/natacha-polony/ma-vision",
+            "date": "2026-10-14 (consultation)",
+            "publisher": "Natacha Polony 2027"
+          }
+        ]
+      },
+      "education-x1-a": {
+        "weight": 2,
+        "nature": "declaration",
+        "confidence": "medium",
+        "summary": "Elle veut des centres éducatifs fermés pour sortir de leur milieu les jeunes qui commencent à dériver, et que ceux qui cassent soient punis (principe casseur-payeur).",
+        "sources": [
+          {
+            "title": "Présidentielle 2027 : les propositions chocs de Natacha Polony pour sortir de la crise lycéenne et étudiante",
+            "url": "https://www.sudradio.fr/sud-radio/no-future-et-irresponsabilite-generalisee-les-declarations-chocs-et-les-solutions-de-natacha-polony-pour-les-lycees-et-leducation",
+            "date": "2026-10-14",
+            "publisher": "Sud Radio"
+          }
+        ]
+      },
+      "territoires-x3-a": {
+        "rejects": true,
+        "nature": "declaration",
+        "confidence": "high",
+        "summary": "Elle rejette la révision constitutionnelle sur l’autonomie de la Corse, qu’elle juge être un symbole masquant l’absence de réponses sur le logement, l’énergie, les transports, la santé ou le crime organisé.",
+        "sources": [
+          {
+            "title": "La Corse mérite des solutions, pas une révision constitutionnelle (vidéo)",
+            "url": "https://www.npolony.fr/videos?v=xNbxcJaf-p8",
+            "date": "2026-06-20",
+            "publisher": "npolony.fr"
+          }
+        ]
+      },
+      "territoires-x3-c": {
+        "weight": 2,
+        "nature": "declaration",
+        "confidence": "high",
+        "summary": "Elle s’oppose au projet d’autonomie de la Corse, qui ouvrirait selon elle une brèche dans l’unité républicaine, et défend une même République et une même loi pour tous, avec des réponses concrètes aux problèmes de l’île.",
+        "sources": [
+          {
+            "title": "La Corse mérite des solutions, pas une révision constitutionnelle (vidéo)",
+            "url": "https://www.npolony.fr/videos?v=xNbxcJaf-p8",
+            "date": "2026-06-20",
+            "publisher": "npolony.fr"
+          }
+        ]
+      },
+      "agriculture-x4-d": {
+        "weight": 1,
+        "nature": "inference",
+        "confidence": "medium",
+        "summary": "Elle déplore que les prix agricoles soient fixés par la grande distribution et non par les paysans, et veut rééquilibrer le partage de la valeur au profit des producteurs, sans préciser l’outil.",
+        "sources": [
+          {
+            "title": "Natacha Polony : « La grandeur de la France vient du monde paysan » (7 Jours à Clermont)",
+            "url": "https://www.7joursaclermont.fr/natacha-polony/",
+            "date": "2026-10-08",
+            "publisher": "7 Jours à Clermont"
+          },
+          {
+            "title": "Nourrir la France : le défi de notre souveraineté (vidéo)",
+            "url": "https://www.npolony.fr/videos?v=XPgpFRSalVg",
+            "date": "2026-05-30",
+            "publisher": "npolony.fr"
+          }
+        ]
+      },
+      "ecologie_energie-x9-a": {
+        "weight": 1,
+        "nature": "inference",
+        "confidence": "medium",
+        "summary": "Sans parler explicitement de croissance, elle veut une « politique de production » pour recréer de l’activité et des recettes publiques, et juge qu’un pays qui ne produit pas n’est plus vraiment libre de financer ses écoles et ses hôpitaux.",
+        "sources": [
+          {
+            "title": "L’essayiste Natacha Polony annonce sa candidature à l’élection présidentielle (franceinfo)",
+            "url": "https://www.franceinfo.fr/elections/presidentielle/l-essayiste-natacha-polony-annonce-sa-candidature-a-l-election-presidentielle_8236714.html",
+            "date": "2026-10-14",
+            "publisher": "franceinfo"
+          },
+          {
+            "title": "French journalist Natacha Polony joins growing field of 2027 presidential hopefuls (Euronews)",
+            "url": "https://www.euronews.com/2026/10/14/french-journalist-natacha-polony-joins-growing-field-of-2027-presidential-hopefuls",
+            "date": "2026-10-14",
+            "publisher": "Euronews"
+          },
+          {
+            "title": "Natacha Polony : « Il faut déroger au dogme du libre-échange » (Sud Radio)",
+            "url": "https://www.sudradio.fr/societe/natacha-polony-pour-reussir-la-transition-ecologique-il-faut-deroger-au-dogme-du-libre-echange",
+            "date": "2026-04-16",
+            "publisher": "Sud Radio"
+          }
+        ]
+      },
+      "europe-x5-c": {
+        "weight": 2,
+        "nature": "declaration",
+        "confidence": "medium",
+        "summary": "Elle critique la dépendance militaire et technologique des Européens envers les États-Unis, de l’achat d’avions F-35 à une Europe devenue « une colonie numérique américaine », et veut que l’Europe garantisse son autonomie face aux pressions américaines, comme sur le Groenland.",
+        "sources": [
+          {
+            "title": "La journaliste Natacha Polony, bientôt candidate ? (RTBF)",
+            "url": "https://www.rtbf.be/article/la-journaliste-natacha-polony-bientot-candidate-a-la-presidentielle-francaise-je-lance-un-appel-aux-orphelins-de-la-politique-11786400",
+            "date": "2026-09-17",
+            "publisher": "RTBF"
+          }
+        ]
+      },
+      "europe-x5-e": {
+        "weight": 1,
+        "nature": "proposition",
+        "confidence": "medium",
+        "summary": "Son site de campagne affirme que la France n’a pas vocation à être « le supplétif d’un empire, quel qu’il soit » et doit parler à toutes les puissances sans « s’aligner sur personne » ; elle ne s’est pas prononcée sur l’OTAN.",
+        "sources": [
+          {
+            "title": "Ma vision pour la France, site de campagne Natacha Polony 2027",
+            "url": "https://natachapolony2027.fr/natacha-polony/ma-vision",
+            "date": "2026-10-14 (consultation)",
+            "publisher": "natachapolony2027.fr"
+          },
+          {
+            "title": "E. Bastié / N. Polony : désaccords souverains (Causeur)",
+            "url": "https://www.causeur.fr/dialogue-eugenie-bastie-natacha-polony-1-desaccords-souverains-330212",
+            "date": "2026-07-10",
+            "publisher": "Causeur"
+          }
+        ]
+      }
+    },
     "faure": {
       "retraites-1-b": {
         "weight": 2,
@@ -47578,6 +48497,20 @@
             "url": "https://www.franceinfo.fr/economie/crise/crise-de-la-dette/que-proposent-les-candidats-a-la-presidentielle-pour-reduire-la-dette-publique_8215481.html",
             "date": "2026-09-29",
             "publisher": "franceinfo"
+          }
+        ]
+      },
+      "finances_publiques-1-h": {
+        "weight": 1,
+        "nature": "declaration",
+        "confidence": "medium",
+        "summary": "Il attribue la dette avant tout à la désindustrialisation et appelle à produire davantage en France pour créer plus de richesses et dépendre moins des marchés financiers, l’État devant aussi donner l’exemple sur ses dépenses.",
+        "sources": [
+          {
+            "title": "Accord avec LFI, Moyen-Orient, pouvoir d’achat: ce qu’il faut retenir du premier débat de la primaire de gauche",
+            "url": "https://lcp.fr/actualites/accord-avec-lfi-moyen-orient-pouvoir-d-achat-ce-qu-il-faut-retenir-du-premier-debat-de",
+            "date": "2026-09-23",
+            "publisher": "LCP"
           }
         ]
       },

@@ -196,6 +196,12 @@ for (const pack of elections) {
       expect(exclusion!.since).toMatch(/^\d{4}-\d{2}-\d{2}$/)
       expect(Number.isNaN(Date.parse(exclusion!.since))).toBe(false)
       expect(nScored).toBeGreaterThanOrEqual(2)
+      // Entrés après la décision (joined) : des non classés, à une date valide, postérieure à la décision
+      for (const [id, day] of Object.entries(exclusion!.joined ?? {})) {
+        expect(ids, id).toContain(id)
+        expect(day, id).toMatch(/^\d{4}-\d{2}-\d{2}$/)
+        expect(day! > exclusion!.since, id).toBe(true)
+      }
     })
 
     it.runIf(!!exclusion)('même traitement pour tous : les non classés sont les moins connus, aucun candidat classé ne l’est aussi peu', () => {

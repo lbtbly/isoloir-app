@@ -106,11 +106,16 @@ export function buildExport(pack: ElectionPack, state: SessionState, results: Re
           nonClasses: {
             motif: pack.election.ranking.excluded.reason,
             depuis: pack.election.ranking.excluded.since,
-            candidats: results.excluded.map(id => ({
-              candidat: name.get(id) ?? id,
-              questionsConnuesDansLaBanque: knownQuestions(pack, id),
-              questionsDeLaBanque: pack.bank.questions.length,
-            })),
+            candidats: results.excluded.map(id => {
+              // Entré dans la liste après la décision, à sa déclaration
+              const depuis = pack.election.ranking?.excluded?.joined?.[id]
+              return {
+                candidat: name.get(id) ?? id,
+                ...(depuis ? { depuis } : {}),
+                questionsConnuesDansLaBanque: knownQuestions(pack, id),
+                questionsDeLaBanque: pack.bank.questions.length,
+              }
+            }),
           },
         }
       : {}),

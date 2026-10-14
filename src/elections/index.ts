@@ -40,7 +40,7 @@ export const ELECTIONS: readonly ElectionEntry[] = [
     slug: '',
     label: 'Présidentielle 2027',
     archived: false,
-    candidateIds: ['arthaud', 'asselineau', 'attal', 'batho', 'becht', 'bertrand', 'bouamrane', 'cazeneuve', 'dupontaignan', 'glucksmann', 'kazib', 'labib', 'lalanne', 'lepen', 'lisnard', 'markovic', 'melenchon', 'philippe', 'philippot', 'retailleau', 'roussel', 'zemmour'],
+    candidateIds: ['arthaud', 'asselineau', 'attal', 'batho', 'becht', 'bertrand', 'bouamrane', 'cazeneuve', 'dupontaignan', 'glucksmann', 'kazib', 'labib', 'lalanne', 'lepen', 'lisnard', 'markovic', 'melenchon', 'philippe', 'philippot', 'polony', 'retailleau', 'roussel', 'zemmour'],
     // Les quatre candidats de la primaire « Choisir 2027 » autres que son gagnant (presidentielle-2027/election.ts, hidden)
     hiddenCandidateIds: ['faure', 'guedj', 'maurel', 'royal'],
     votingUntil: '2027-05-02T20:00:00+02:00',

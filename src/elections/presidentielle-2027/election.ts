@@ -19,10 +19,14 @@ export const election: ElectionInfo = {
     { label: 'Premier tour', start: '2027-04-17T08:00:00-04:00', end: '2027-04-18T20:00:00+02:00' },
     { label: 'Second tour', start: '2027-05-01T08:00:00-04:00', end: '2027-05-02T20:00:00+02:00' },
   ],
-  dataVersion: '2026-10-12.1',
-  dataFrozenAt: '2026-10-09',
+  dataVersion: '2026-10-14.1',
+  // Avancée au 14 octobre 2026 (convention de PIPELINE §12 : la date suit les positions relevées à nouveau) : les
+  // positions de Natacha Polony et celles des deux approches ajoutées ce jour-là sont relevées le 14 ; les autres sont
+  // restées arrêtées au 9 octobre, ce que dit la première note (Méthode, juste après la date)
+  dataFrozenAt: '2026-10-14',
   finalists: null,
   notes: [
+    'Les positions de Natacha Polony, déclarée le 14 octobre 2026, et celles qui portent sur les deux approches ajoutées ce jour-là ont été relevées le 14 octobre\u00a0; les autres n’ont pas été relevées à nouveau depuis le 9 octobre 2026.',
     'Les positions ont été relevées dans des sources publiques récentes (déclarations, interviews, propositions de loi, votes, programmes des partis) et peuvent avoir évolué depuis.',
     'Beaucoup de candidats n’ont pas encore publié leur programme : les positions inconnues sont donc fréquentes.',
   ],
@@ -56,17 +60,18 @@ export const election: ElectionInfo = {
     'extrême droite',
     'extrême gauche',
     'Nous France',
+    'Nous sommes la France',
   ],
   // Noms de partis qui sont aussi des mots courants : jamais cherchés, même comme étiquette d'un candidat
   forbiddenTermsAllow: ['Renaissance', 'La Convention', 'Ensemble'],
   // Calculé par tools/audit-pack.mjs (questionnaire rapide, candidats notés) ; affiché sur l'accueil, vérifié par les tests
-  audit: { profiles: 3000, minShare: 5, maxShare: 9 },
+  audit: { profiles: 3000, minShare: 4, maxShare: 9 },
   quick: { step1: 10 },
   // Hors classement : un candidat connu sur moins de la moitié des questions comptées est montré sous le classement,
   // son score à titre indicatif (décision du propriétaire du 7 octobre 2026 ; l'audit montrait un candidat connu
   // sur 7 questions de la banque premier sur 24 % des profils aléatoires, par simple variance).
-  // Non classés : les sept candidats dont les positions sont connues sur moins de la moitié des questions de la
-  // banque (de 7 à 47 sur 100 ; le moins connu des autres l'est sur 59) n'ont ni score ni rang, nulle part
+  // Non classés : les candidats dont les positions sont connues sur moins de la moitié des questions de la
+  // banque (sept au 7 octobre 2026, de 7 à 47 sur 100 ; le moins connu des autres l'est sur 59) n'ont ni score ni rang, nulle part
   // (décision du propriétaire du 7 octobre 2026 : « ça ne sera pas pertinent »). Liste révisable : un candidat y
   // revient quand ses positions sont connues, par exemple à la publication de son programme. Le motif affiché reste
   // factuel et le même pour tous. research/presidentielle-2027/config.json reprend la liste (scoringExcluded).
@@ -74,11 +79,14 @@ export const election: ElectionInfo = {
     minCoverageShare: 0.5,
     excluded: {
       // Ségolène Royal ajoutée le 9 octobre 2026 avec les candidats de la primaire : connue sur 38 questions sur 100 ;
-      // masquée depuis le 12 octobre (hidden), elle est retirée de cette liste au chargement du pack et y revient si on la montre
-      ids: ['asselineau', 'batho', 'becht', 'bertrand', 'bouamrane', 'lalanne', 'markovic', 'royal'],
+      // masquée depuis le 12 octobre (hidden), elle est retirée de cette liste au chargement du pack et y revient si on la montre.
+      // Natacha Polony ajoutée le 14 octobre 2026, à sa déclaration (décision du propriétaire) : connue sur 28 questions sur 100
+      ids: ['asselineau', 'batho', 'becht', 'bertrand', 'bouamrane', 'lalanne', 'markovic', 'polony', 'royal'],
       // Motif factuel, le même pour chacun, sans cause supposée ; le chiffre de chacun est donné à côté
       reason: 'positions connues sur trop peu de questions',
       since: '2026-10-07',
+      // Entrés après la décision, à leur déclaration (Méthode et double JSON : « depuis sa déclaration »)
+      joined: { polony: '2026-10-14' },
     },
   },
   checks: {
@@ -98,7 +106,11 @@ export const election: ElectionInfo = {
   // la grille officielle la plus récente des nuances politiques du ministère de l'Intérieur, dans son ordre, puis
   // l'ordre alphabétique au sein d'une même nuance. La présidentielle n'attribue pas de nuances : chaque candidat
   // reçoit celle de son parti dans la grille, ou à défaut celle que le ministère lui a donnée à sa dernière élection
-  // (research/presidentielle-2027/parties-spectrum.json, recherche vérifiée le 9 octobre 2026). Couleurs de famille,
+  // (research/presidentielle-2027/parties-spectrum.json, recherche vérifiée le 9 octobre 2026). Quand cette nuance n'existe
+  // plus dans la grille ou ne correspond plus au parti, une nuance de sensibilité (DVG, DIV, DVD…), ce que dit la Méthode
+  // depuis le 14 octobre 2026 : Natacha Polony, déclarée ce jour-là, reçoit DIV par décision du propriétaire (mouvement
+  // absent de la grille, seule candidature relevée en 2002, sous une nuance « Pôle républicain » qui n'y figure plus ;
+  // candidates.ts). Couleurs de famille,
   // Cartes aux quatre pastels du site, par bloc (demande du propriétaire du 10 octobre 2026) : rouge à gauche, jaune au
   // centre, bleu à droite, vert pour le bloc « Autres » de la grille (écologistes, divers, régionalistes).
   spectrum: {
@@ -182,6 +194,17 @@ export const election: ElectionInfo = {
   // une réponse donnée sur une version antérieure d'une question est mise de côté, à revoir.
   revisionTracking: true,
   changelog: [
+    {
+      date: '2026-10-14',
+      // En tête du dépouillement d'un visiteur qui revient (Results, latestChange : à date égale, la première écrite) :
+      // l'effet sur le classement d'abord (aucun : elle n'est pas classée), puis les deux questions à revoir (révision 2
+      // de finances_publiques-1 et d'europe-3) ; le détail est dans l'entrée suivante, montrée par la seule Méthode
+      text: 'Nouvelle candidate, Natacha Polony, déclarée le 14 octobre 2026\u00a0: elle n’est pas classée, ses positions n’étant connues que sur 28 questions sur 100 (23 candidats, dont 15 classés). Deux questions, sur les finances publiques et sur le marché unique européen, gagnent une approche\u00a0: si vous y aviez répondu, votre réponse est à revoir.',
+    },
+    {
+      date: '2026-10-14',
+      text: 'Détail de la mise à jour du 14 octobre\u00a0: les deux questions qui gagnent une approche sont «\u00a0Quelle stratégie pour les finances publiques face à la dette\u00a0?\u00a0» (relancer la production en France pour accroître les recettes publiques) et «\u00a0Comment faire évoluer les règles du marché unique européen\u00a0?\u00a0» (priorité, dans la commande publique, aux entreprises qui produisent en France). Sur ces deux questions, positions ajoutées ou revues pour François Asselineau, Bernard Cazeneuve, Nicolas Dupont-Aignan, Raphaël Glucksmann, Marine Le Pen, Jean-Luc Mélenchon et Édouard Philippe. Ces positions et celles de Natacha Polony ont été relevées le 14 octobre et vérifiées automatiquement par une IA contre leurs sources, sans relecture humaine une par une. Les chiffres publiés sur la page «\u00a0Mon profil politique\u00a0» ont été mesurés à nouveau.',
+    },
     {
       date: '2026-10-12',
       // Affichée aussi en tête du dépouillement d'un visiteur qui revient (Results, « mises à jour depuis votre dernier

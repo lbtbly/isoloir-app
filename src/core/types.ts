@@ -298,6 +298,11 @@ export interface ScoringExclusion {
   reason: string
   /** Date de la décision, AAAA-MM-JJ */
   since: string
+  /**
+   * Candidats entrés dans la liste après la décision, parce qu'ils se sont déclarés plus tard : date de leur entrée,
+   * AAAA-MM-JJ. La Méthode et le double JSON la donnent à côté de celle de la décision.
+   */
+  joined?: Partial<Record<CandidateId, string>>
 }
 
 export interface ElectionInfo {
