@@ -1,8 +1,9 @@
 // Un fichier à part du build, chargé à la demande par import() : le code que télécharge chaque visite n'en contient
-// rien. La même mécanique pour chacun (la comparaison, « Mon profil politique », le dépouillement en PDF, l'image
-// « Accords et désaccords ») : le module une fois chargé, son chargement (une seule fois ; un échec, ancienne version
-// en cache après un déploiement ou réseau coupé avant la copie hors ligne, permet de réessayer), et sa préparation
-// quand le navigateur a un moment. La copie hors ligne contient ces fichiers comme tous ceux du site.
+// rien. La même mécanique pour chacun (la comparaison, « Mon profil politique », les notices et « Partager », le
+// dépouillement en PDF, l'image « Accords et désaccords ») : le module une fois chargé, son chargement (une seule
+// fois ; un échec, ancienne version en cache après un déploiement ou réseau coupé avant la copie hors ligne, permet de
+// réessayer), et sa préparation quand le navigateur a un moment. La copie hors ligne contient ces fichiers comme tous
+// ceux du site.
 
 import { useEffect, useState } from 'preact/hooks'
 
@@ -32,7 +33,13 @@ export function onDemand<M>(importer: () => Promise<M>): OnDemand<M> {
     prepare() {
       if (mod || loading) return
       const later = (globalThis as { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number }).requestIdleCallback
-      const go = () => void load().catch(() => undefined)
+      // Le navigateur garde l'échec d'un import() pour toute la visite : préparé hors ligne sans copie hors ligne en
+      // place, l'écran ne s'ouvrirait plus, même le réseau revenu. On attend alors la visite de son adresse. Une coupure
+      // que le navigateur ne voit pas reste possible avant la copie hors ligne : « Réessayer » recharge la page.
+      const go = () => {
+        if (typeof navigator !== 'undefined' && navigator.onLine === false && !navigator.serviceWorker?.controller) return
+        void load().catch(() => undefined)
+      }
       if (later) later(go, { timeout: 4000 })
       else setTimeout(go, 1500)
     },

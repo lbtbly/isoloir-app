@@ -41,6 +41,7 @@ import {
   PROFILE_GRID_LINK,
   PROFILE_PANEL,
   PROFILE_TITLE,
+  profileHome,
   priorityHead,
   READING_NEUTRAL,
   READING_STROKE,
@@ -60,11 +61,11 @@ import {
   TITLE_SWAP,
   TITLE_TOPICS,
   TITLE_WHY,
+  trendNext,
   unrankedLede,
   unrankedTitle,
   UNSTABLE_NOTE,
 } from '../../core/resultsCopy'
-import { tallyPath } from '../../core/tally'
 import {
   CLOSE_GAP,
   computeResults,
@@ -86,6 +87,8 @@ import { FormHeader } from '../components/FormHeader'
 import { SiteFooter } from '../components/SiteFooter'
 import { Icon } from '../components/Icon'
 import { Portrait } from '../components/Portrait'
+import { ProgressTally } from '../components/ProgressTally'
+import { ProfileBand } from '../components/ProfileEntry'
 import { Tally } from '../components/Tally'
 import { percent } from '../format'
 import { isMany } from '../many'
@@ -313,8 +316,11 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
   // par thème ; l'appel à continuer passe devant.
   const unseen = essential.filter(q => !state.answers[q.id])
   const provisional = unseen.length > 0
-  // « Mon profil politique » : seulement au résultat complet, pour une élection dont la grille a un axe
-  const profile = !provisional && !!axisOf(election)
+  // « Mon profil politique » (élections dont la grille a un axe) : au résultat complet, le bandeau sous l'affiche, le
+  // panneau en 2e place de « Et maintenant » et le lien sous « Par thème » ; pendant la tendance, une ligne de la fiche
+  // « Où vous en êtes » mène à sa page d'attente
+  const axis = axisOf(election)
+  const profile = !provisional && !!axis
   // Le dépouillement en PDF, et « Mon profil politique », se préparent dès que le résultat est complet (jamais
   // pendant la tendance)
   useEffect(() => {
@@ -562,9 +568,13 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
             {provisional ? null : <Reading neutral />}
           </div>
           {provisional ? (
-            <Trend seen={essential.length - unseen.length} total={essential.length} left={unseen.length} href={link(refineHref)} />
+            <Trend seen={essential.length - unseen.length} total={essential.length} left={unseen.length} href={link(refineHref)} profile={!!axis} />
           ) : (
-            <Leader ranking={ranking} results={results} byId={byId} />
+            <div class="results-side">
+              <Leader ranking={ranking} results={results} byId={byId} />
+              {/* Au téléphone, entre l'affiche et le classement ; en grand écran, sous l'affiche, dans sa colonne */}
+              {profile && axis ? <ProfileBand cls="results-profile" title={PROFILE_TITLE} text={profileHome(axis)} axis={axis} /> : null}
+            </div>
           )}
         </div>
 
@@ -900,8 +910,12 @@ function Reading({ neutral }: { neutral?: boolean }) {
   )
 }
 
-/** Où vous en êtes : les questions du questionnaire rapide en bâtons, et l'appel à continuer, bien visible */
-function Trend({ seen, total, left, href }: { seen: number; total: number; left: number; href: string }) {
+/**
+ * Où vous en êtes : les questions du questionnaire rapide en bâtons, et l'appel à continuer, bien visible ; profile : ce
+ * qui vient au bout, dont « Mon profil politique », vers sa page d'attente
+ */
+function Trend({ seen, total, left, href, profile }: { seen: number; total: number; left: number; href: string; profile: boolean }) {
+  const next = trendNext(total)
   return (
     <section class="trend" aria-labelledby="trend-title">
       <h2 id="trend-title" class="trend-title">
@@ -919,25 +933,14 @@ function Trend({ seen, total, left, href }: { seen: number; total: number; left:
         Continuer&nbsp;: {left} question{left > 1 ? 's' : ''}
         <Icon name="arrow-right" />
       </a>
+      {profile ? (
+        <p class="trend-next">
+          {next[0]}
+          <a href={link('/profil')}>{next[1]}</a>
+          {next[2]}
+        </p>
+      ) : null}
     </section>
-  )
-}
-
-/**
- * Les questions du questionnaire rapide en bâtons, par cinq : pointées au bleu bille (le cinquième barre
- * le paquet), à venir en crans pointillés imprimés. Décoratif : le titre dit déjà le compte.
- */
-function ProgressTally({ done, total }: { done: number; total: number }) {
-  const groups = Math.ceil(total / 5)
-  return (
-    <svg class="trend-tally" viewBox={`0 0 ${groups * 36 - 6} 26`} aria-hidden="true">
-      {Array.from({ length: total }, (_, i) => {
-        const x = Math.floor(i / 5) * 36
-        const k = i % 5
-        if (i >= done) return <path key={i} d={`M${x + 3 + k * 6} 4 V22`} class="is-todo" />
-        return <path key={i} d={tallyPath(i, x)} class="is-done" />
-      })}
-    </svg>
   )
 }
 

@@ -16,7 +16,8 @@ export type Route =
   | { name: 'proximity' }
   /** « Mon profil politique » : vos réponses sur l'échiquier, thème par thème, après le dépouillement complet */
   | { name: 'profile' }
-  | { name: 'deepen' }
+  /** « topic » : le thème touché sur « Mon profil politique » (#/approfondir/<thème>), coché par ce geste : en tête de liste */
+  | { name: 'deepen'; topic?: string }
   | { name: 'share' }
   /** « anchor » : la rubrique à montrer à l'ouverture (#/methode/ia) */
   | { name: 'method'; anchor?: string }
@@ -88,7 +89,7 @@ export function parseRoute(path: string): Route {
     case 'profil':
       return { name: 'profile' }
     case 'approfondir':
-      return { name: 'deepen' }
+      return arg ? { name: 'deepen', topic: arg } : { name: 'deepen' }
     case 'partager':
       return { name: 'share' }
     case 'methode':

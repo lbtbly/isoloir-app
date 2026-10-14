@@ -1,14 +1,19 @@
-import { useMemo, useRef, useState } from 'preact/hooks'
+import { useEffect, useMemo, useRef, useState } from 'preact/hooks'
 import { go, link } from '../nav'
 import { firstStepSize } from '../../core/order'
 import { isAnswered } from '../../core/answers'
 import { MAX_IMPORT_BYTES, parseImport } from '../../core/exportData'
+import { profileAccess } from '../../core/profileAccess'
+import { PROFILE_SEE, PROFILE_TITLE, profileHome, profileWhen } from '../../core/resultsCopy'
+import { currentAnswers } from '../../core/revisions'
+import { axisOf } from '../../core/spectrum'
 import type { SessionState } from '../../core/storage'
 import type { ElectionPack, Question, Round } from '../../core/types'
 import { AI_METHOD_PATH } from '../components/AiLabel'
 import { AirplaneSection } from '../components/Airplane'
 import { ConfirmErase } from '../components/ConfirmErase'
 import { ExternalLink } from '../components/ExternalLink'
+import { ProfileBand, ProfilePeek } from '../components/ProfileEntry'
 import { FormHeader } from '../components/FormHeader'
 import { Icon } from '../components/Icon'
 import { Journey } from '../components/Journey'
@@ -20,6 +25,7 @@ import { Stamp } from '../components/Stamp'
 import { seededShuffle } from '../../core/rng'
 import { formatDayRange, formatMoment } from '../format'
 import { useReveal } from '../useReveal'
+import { prepareProfile } from '../profile/load'
 import { isMany } from '../many'
 
 const DAY_MONTH = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', timeZone: 'Europe/Paris' })
@@ -50,7 +56,7 @@ export function Home({ pack, state, essential, stale, setState, eraseAll, saved 
   // Sous le héros, chaque bloc entre à l'écran d'un léger glissé ; les trois panneaux du parcours ensemble
   useReveal(
     sheet,
-    '.home-proof, .section-title, .airplane-grid > *, .g-item, .people-lede, .people-strip > li',
+    '.home-proof, .home-profile, .section-title, .airplane-grid > *, .g-item, .people-lede, .people-strip > li',
     [['.journey', '.journey-panel']],
   )
   const [importError, setImportError] = useState<string | null>(null)
@@ -65,6 +71,16 @@ export function Home({ pack, state, essential, stale, setState, eraseAll, saved 
   const step1Done = step1 > 0 && essential.slice(0, step1).every(q => state.answers[q.id])
   // Questionnaire déjà complété une fois, puis rouvert par l'ajout de questions : on le dit, et on y mène
   const added = !done && state.essentialDoneAt ? essential.length - seen : 0
+
+  // « Mon profil politique » (élections dont la grille a un axe) : la même règle que la page et le dépouillement
+  const axis = axisOf(election)
+  const current = useMemo(() => currentAnswers(pack, state.answers), [pack, state.answers])
+  const access = axis ? profileAccess(pack.bank.questions, essential, state.answers, current, state.essentialDoneAt) : null
+  const ready = access?.state === 'pret'
+  // Prête : la page se prépare quand le navigateur a un moment, pour s'ouvrir sans attendre ; jamais avant
+  useEffect(() => {
+    if (ready) prepareProfile()
+  }, [ready])
 
   const apply = (next: SessionState) => {
     setPending(null)
@@ -152,6 +168,16 @@ export function Home({ pack, state, essential, stale, setState, eraseAll, saved 
     </div>
   )
 
+  // Son entrée : le bandeau une fois la page prête ; avant, l'aperçu fictif et quand elle s'affiche. Sous l'état de la
+  // feuille pour qui a commencé ; pour un nouveau visiteur, après la liste de confiance, au premier défilement
+  const profileEntry =
+    !access || !axis ? null : ready ? (
+      <ProfileBand cls="home-profile is-ready" title={PROFILE_SEE} text={profileHome(axis)} axis={axis} />
+    ) : (
+      <ProfilePeek text={profileHome(axis)} when={profileWhen(access.total, access.left, access.state === 'sans-avis')} />
+    )
+  const profileFirst = !!access && access.state !== 'vide'
+
   // La note sous l'appel final du film : la promesse au premier passage ; ensuite, l'état de la feuille
   // est dit sous le film, pour tout le monde et à tout moment
   const ctaNote = started ? '' : ctaNoteOf(pack.bank)
@@ -177,6 +203,13 @@ export function Home({ pack, state, essential, stale, setState, eraseAll, saved 
                 Vous avez répondu aux {essential.length} questions le{' '}
                 <time dateTime={state.essentialDoneAt}>{formatMoment(state.essentialDoneAt)}</time>.{' '}
                 <a href={link('/resultats')}>Voir mon dépouillement</a>
+                {/* La page prête : son lien dès le premier écran, le bandeau venant juste dessous */}
+                {ready ? (
+                  <>
+                    {'\u00a0· '}
+                    <a href={link('/profil')}>{PROFILE_TITLE}</a>
+                  </>
+                ) : null}
               </p>
             ) : added ? (
               <p class="notice" role="status">
@@ -187,7 +220,10 @@ export function Home({ pack, state, essential, stale, setState, eraseAll, saved 
               </p>
             ) : started ? (
               <p class="progress-note">
-                Feuille en cours : {answered} réponse{answered > 1 ? 's' : ''} sur {essential.length} questions.
+                {/* Les questions vues, répondues ou passées : le compte de la tendance et de l'aperçu de « Mon profil
+                    politique », juste dessous (17 restent quand 5 sur 22 sont vues) */}
+                Feuille en cours : {seen} question{seen > 1 ? 's' : ''} sur {essential.length}
+                {seen > answered ? `, dont ${seen - answered} passée${seen - answered > 1 ? 's' : ''}` : ''}.
                 {step1Done && !done ? (
                   <>
                     {' '}
@@ -204,7 +240,9 @@ export function Home({ pack, state, essential, stale, setState, eraseAll, saved 
             ) : null}
           </div>
         ) : null}
+        {profileFirst ? profileEntry : null}
         {proof}
+        {profileFirst ? null : profileEntry}
 
         <Journey />
 

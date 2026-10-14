@@ -7,7 +7,7 @@
 
 import { shareText } from '../ui/format'
 import { CLOSE_GAP, displayScore, POINTS_PER_STROKE, type CandidateResult, type DealbreakerHit } from './score'
-import type { ElectionInfo } from './types'
+import type { ElectionInfo, SpectrumAxisBloc } from './types'
 
 // Les mots de « Accords et désaccords », à part (core/agreeCopy.ts) pour l'image partagée qui les reprend
 export { AGREE_HEADS, AGREE_LEDE, AGREE_NONE, count, TITLE_AGREE } from './agreeCopy'
@@ -159,13 +159,55 @@ export const gridAllLine = (n: number, someOff: boolean) =>
 export const GRID_DASH = 'Un tiret : aucune position connue sur vos réponses de ce thème.'
 
 // La page « Mon profil politique » (ui/screens/Profile.tsx, ses mots dans core/echiquierCopy.ts) : son nom et ses
-// entrées depuis le dépouillement complet, ici pour que le code de toutes les visites n'emporte rien de plus
+// entrées (l'accueil, le dépouillement, la fiche de la tendance), ici pour que le code de toutes les visites n'emporte
+// rien de plus. Une lecture, pas une étiquette : le sujet est « vos réponses », les blocs sont ceux « d’une grille
+// officielle » ; « profil » ne paraît que dans le nom de la page et dans l'appel « Voir mon profil politique ».
 /** Le nom de la page : son titre, son panneau dans « Et maintenant », le titre de l'onglet */
 export const PROFILE_TITLE = 'Mon profil politique'
 /** Son panneau dans « Et maintenant » */
 export const PROFILE_PANEL = 'Thème par thème, vos réponses se rapprochent-elles nettement d’un bloc de la grille officielle\u00a0?'
 /** Son lien sous la grille « Par thème » */
 export const PROFILE_GRID_LINK = 'Les mêmes thèmes, bloc par bloc\u00a0: «\u00a0Mon profil politique\u00a0»'
+/** L'appel de l'accueil, une fois la page prête */
+export const PROFILE_SEE = 'Voir mon profil politique'
+/**
+ * Ce que montre la page, sans aucune donnée de la personne (l'accueil et le bandeau du dépouillement) ; les deux bouts
+ * viennent de l'axe de la grille : « …, de l’extrême gauche à l’extrême droite. »
+ */
+export const profileHome = (axis: readonly SpectrumAxisBloc[]) =>
+  `Sujet par sujet, vos réponses face aux blocs d’une grille officielle, ${axis[0]!.from} ${axis[axis.length - 1]!.to}.`
+/**
+ * L'accueil, avant la page : quand elle s'affiche. left : questions du questionnaire rapide qui restent (rien de dit
+ * avant de commencer) ; noOpinion : tout est vu, sans aucun avis
+ */
+export const profileWhen = (total: number, left: number, noOpinion = false) =>
+  noOpinion
+    ? 'Il se lit sur vos avis\u00a0: placez au moins un repère, «\u00a0d’accord\u00a0» ou «\u00a0pas d’accord\u00a0».'
+    : `Il s’affiche au bout des ${total}\u00a0questions du questionnaire rapide${left > 0 && left < total ? `\u00a0: encore ${left}\u00a0question${left > 1 ? 's' : ''}` : ''}.`
+/**
+ * L'aperçu de l'accueil : sa mention, et l'appel qui mène à la page d'attente. Celle-ci montre d'abord l'état de la
+ * feuille et son bouton, puis l'exemple (au téléphone, sous le premier écran) : l'appel dit les deux, dans cet ordre
+ */
+export const PEEK_TAG = 'Exemple fictif'
+export const PEEK_GO = 'Voir où j’en suis et un exemple'
+/**
+ * La grille fictive de l'aperçu (accueil) et de l'exemple (page d'attente) : 3 sujets de 5 blocs, lus par lignes,
+ * 1 « très éloigné » … 5 « très proche ». Neutre par construction (tests/results-copy.test.ts) : chaque colonne totalise
+ * 9, les colonnes 1 et 5, 2 et 4 ont les mêmes cases (miroir), aucune ligne ne monte ni ne descend d'un bout à l'autre,
+ * aucune n'est symétrique, chaque palier paraît au moins deux fois
+ */
+export const PROFILE_PEEK = '343211354352135'
+/** La fiche « Où vous en êtes » de la tendance : ce qui vient au bout du questionnaire rapide ; le nom de la page est un lien */
+export const trendNext = (total: number) =>
+  [`Au bout des ${total}\u00a0questions\u00a0: le dépouillement complet et «\u00a0`, PROFILE_TITLE, '\u00a0».'] as const
+/**
+ * « Approfondir », arrivé d'un thème touché sur la page (#/approfondir/<thème>) : ce qui est coché, sous le titre.
+ * n : ses questions à voir ; others : les autres thèmes cochés qui en ont ; total : les questions à voir en tout
+ */
+export const deepenTouched = (label: string, n: number, others: number, total: number) =>
+  others
+    ? `Le thème «\u00a0${label}\u00a0» est coché\u00a0: la feuille commence par ${n > 1 ? `ses ${n}\u00a0questions` : 'sa question'}. ${others > 1 ? `${others}\u00a0autres thèmes sont aussi cochés` : 'Un autre thème est aussi coché'}\u00a0: ${total}\u00a0questions en tout.`
+    : `Le thème «\u00a0${label}\u00a0» est coché\u00a0: ${n}\u00a0question${n > 1 ? 's' : ''}.`
 
 /** À garder en tête : les trois mises en garde */
 export const caveats = (election: Pick<ElectionInfo, 'dataFrozenAt'>, minShare: number | null) => [

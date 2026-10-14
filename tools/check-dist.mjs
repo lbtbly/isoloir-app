@@ -98,6 +98,7 @@ for (const [voice, videos] of Object.entries(inventory.voices ?? {})) {
 // fichier à part, chargé à la demande (src/elections/index.ts) ; celle de l'élection par défaut est
 // préchargée par la page (modulepreload), en parallèle.
 // Budget : 241,7 ko mesurés le 6 octobre 2026, après la sortie des données (909 ko avant), plus 15 % de marge.
+// Le 14 octobre 2026, la sortie des notices et de « Partager » (src/ui/screens/load.ts) l'a ramené de 276,7 à 206,6 ko.
 // Le dépasser, c'est d'abord se demander ce qui est entré dans le code de toutes les visites, avant de relever le plafond.
 const INITIAL_JS_BUDGET = 278_000
 const entry = html.match(/<script type="module"[^>]*src="\.\/(assets\/[^"]+\.js)"/)?.[1]
@@ -128,7 +129,7 @@ for (const f of reportChunks) {
 }
 // L'image « Accords et désaccords » de « Partager » (src/core/agreeImage.ts) : un fichier à part, chargé à la demande
 // par import() (src/ui/share/load.ts) quand on la choisit, jamais dans le JS initial ; elle reprend les aides de
-// l'affiche, qui y sont déjà
+// l'affiche, qui sont dans le fichier de « Partager »
 const AGREE_BUDGET = 12_000
 const agreeChunks = readdirSync(join(dist, 'assets')).filter(f => /^agreeImage-[\w-]+\.js$/.test(f))
 if (agreeChunks.length !== 1) fail(`image « Accords et désaccords » : ${agreeChunks.length} fichier(s) assets/agreeImage-*.js, un attendu`)
@@ -155,9 +156,30 @@ for (const f of profileChunks) {
   const size = statSync(join(dist, 'assets', f)).size
   if (size > PROFILE_BUDGET) fail(`« Mon profil politique » : assets/${f} pèse ${(size / 1000).toFixed(1)} ko, plafond de ${PROFILE_BUDGET / 1000} ko`)
 }
+// Les notices (la Méthode, la Confidentialité, les Mentions légales) et « Partager » : chacun un fichier à part, chargé
+// à la demande par import() (src/ui/screens/load.ts), jamais dans le JS initial ni préchargé par la page
+for (const name of ['Method', 'Privacy', 'Legal', 'Share']) {
+  const chunks = readdirSync(join(dist, 'assets')).filter(f => new RegExp(`^${name}-[\\w-]+\\.js$`).test(f))
+  if (chunks.length !== 1) fail(`écran ${name} : ${chunks.length} fichier(s) assets/${name}-*.js, un attendu (chargé à la demande, src/ui/screens/load.ts)`)
+  for (const f of chunks) {
+    if (initial.includes(join('assets', f))) fail(`écran ${name} : assets/${f} est dans le JS initial (il doit n'être chargé que par import())`)
+    if (modulePreloads.includes(`assets/${f}`)) fail(`écran ${name} : assets/${f} est préchargé par dist/index.html`)
+  }
+}
+// Une seule feuille de style chargée par la page : un fichier commun que le build sortirait du script principal (en
+// chargeant à part un écran qui partage avec lui des composants) emporterait leur style dans une feuille à part, posée
+// avant celle de la page, et changerait l'ordre des règles
+const sheets = [...html.matchAll(/<link rel="stylesheet"[^>]*href="\.\/(assets\/[^"]+\.css)"/g)].map(m => m[1])
+if (sheets.length !== 1) fail(`dist/index.html charge ${sheets.length} feuille(s) de style (${sheets.join(', ')}), une attendue`)
 // Aucun texte de la banque dans le JS initial : ni énoncé ni approche, de chaque élection du site
 // (src/elections/<id>/bank.ts) ou en préparation (research/<id>/bank.json, écrit par tools/build-pack.mjs)
 const initialCode = initial.map(f => readFileSync(join(dist, f), 'utf8')).join('\n')
+// « Mon profil politique » : ses entrées (l'accueil, le dépouillement, la tendance) n'emportent dans le JS initial que
+// des liens, des comptes et leurs textes (core/profileAccess.ts, core/resultsCopy.ts) ; ni le calcul de la page, ni ses
+// mots (core/echiquierCopy.ts), qui restent dans son fichier. Des extraits en ASCII, que la minification ne touche pas
+for (const text of ['Lecture en cours, sur cet appareil', 'Pour lire plus de th', 'Pas encore assez de r', 'Choisir les th']) {
+  if (initialCode.includes(text)) fail(`« Mon profil politique » : « ${text}… », un texte de la page, est dans le JS initial`)
+}
 const dirsOf = root => (existsSync(root) ? readdirSync(root, { withFileTypes: true }).filter(d => d.isDirectory()).map(d => d.name) : [])
 const bankTexts = new Map() // texte → élection
 for (const id of dirsOf('src/elections')) {

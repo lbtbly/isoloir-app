@@ -4,6 +4,8 @@ import { isAnswered } from '../../core/answers'
 import { effectiveWeight, type Results } from '../../core/score'
 import type { SessionState } from '../../core/storage'
 import type { ElectionPack } from '../../core/types'
+import { deepenTouched, PROFILE_TITLE } from '../../core/resultsCopy'
+import { axisOf } from '../../core/spectrum'
 import { FormHeader } from '../components/FormHeader'
 import { SiteFooter } from '../components/SiteFooter'
 import { Icon } from '../components/Icon'
@@ -14,6 +16,8 @@ interface Props {
   state: SessionState
   results: Results
   update: (patch: Partial<SessionState>) => void
+  /** Le thème touché sur « Mon profil politique » (#/approfondir/<thème>), que ce geste a coché */
+  topic?: string
 }
 
 /** Thèmes où les deux premiers ont le plus d'approches principales différentes dans l'approfondissement */
@@ -32,7 +36,7 @@ function tieBreakTopics(pack: ElectionPack, results: Results, answered: Set<stri
   return [...counts.entries()].sort((x, y) => y[1] - x[1]).slice(0, 3).map(([t]) => t)
 }
 
-export function Deepen({ pack, state, results, update }: Props) {
+export function Deepen({ pack, state, results, update, topic }: Props) {
   const { bank, election } = pack
   const suggestion = results.close ? tieBreakTopics(pack, results, new Set(Object.keys(state.answers))) : []
   // Les thèmes et leurs questions complémentaires encore sans réponse : une question répondue (au moins un avis) sort
@@ -45,6 +49,12 @@ export function Deepen({ pack, state, results, update }: Props) {
     })
     .filter(x => x.left > 0)
   const chosen = state.deepTopics
+  // Arrivé d'un thème touché sur « Mon profil politique » : sa ligne en tête de liste, même décochée ensuite (rien ne
+  // saute sous le doigt) ; tant qu'il est coché, la phrase sous le titre dit ce qui l'est, et la feuille commence par lui
+  const touched = topic ? topics.find(x => x.t.id === topic) : undefined
+  const shown = touched ? [touched, ...topics.filter(x => x !== touched)] : topics
+  const lead = touched && chosen.includes(touched.t.id) ? touched : undefined
+  const fromProfile = !!topic && !!axisOf(election)
   const toggle = (id: string) =>
     update({ deepTopics: chosen.includes(id) ? chosen.filter(x => x !== id) : [...chosen, id] })
   const allIds = topics.map(x => x.t.id)
@@ -56,7 +66,12 @@ export function Deepen({ pack, state, results, update }: Props) {
   const left = list.filter(q => open(q.id)).length
   const unseen = list.findIndex(q => !state.answers[q.id])
   const firstOpen = unseen >= 0 ? unseen : list.findIndex(q => open(q.id))
-  const start = () => go(`/approfondi/${(firstOpen < 0 ? 0 : firstOpen) + 1}`)
+  // Le thème touché d'abord : sa première question jamais vue, sinon sa première passée ; la feuille finit par les
+  // questions jamais vues qui le précèdent (app.tsx)
+  const own = lead ? list.filter(q => q.topicId === lead.t.id) : []
+  const ownFirst = own.find(q => !state.answers[q.id]) ?? own.find(q => open(q.id))
+  const from = ownFirst ? list.indexOf(ownFirst) : firstOpen
+  const start = () => go(`/approfondi/${(from < 0 ? 0 : from) + 1}`)
 
   return (
     <div class="screen screen-sheet">
@@ -65,6 +80,11 @@ export function Deepen({ pack, state, results, update }: Props) {
         <h1 class="q-prompt" tabIndex={-1}>
           Quels thèmes voulez-vous approfondir ?
         </h1>
+        {lead ? (
+          <p class="notice deepen-touched">
+            {deepenTouched(lead.t.label, lead.left, topics.filter(x => x !== lead && chosen.includes(x.t.id)).length, left)}
+          </p>
+        ) : null}
         <p class="q-context">
           Un thème déjà présent garde son poids : l’approfondir affine son score sans lui donner plus d’importance. Un
           thème absent du questionnaire rapide s’ajoute au calcul avec le même poids que les autres. Les questions
@@ -89,7 +109,7 @@ export function Deepen({ pack, state, results, update }: Props) {
           </p>
         ) : null}
         <ul class="approaches is-topics" aria-label="Thèmes à approfondir">
-          {topics.map(({ t, left: n, done }) => {
+          {shown.map(({ t, left: n, done }) => {
             const on = chosen.includes(t.id)
             return (
               <li key={t.id} class={`approach${on ? ' is-liked' : ''}`}>
@@ -127,9 +147,10 @@ export function Deepen({ pack, state, results, update }: Props) {
       <SiteFooter />
       <nav class="action-bar" aria-label="Navigation">
         <div class="action-bar-inner">
-          <a class="btn-text" href={link('/resultats')}>
+          {/* Arrivé de « Mon profil politique », on y revient */}
+          <a class="btn-text" href={link(fromProfile ? '/profil' : '/resultats')}>
             <Icon name="arrow-left" />
-            Résultats
+            {fromProfile ? PROFILE_TITLE : 'Résultats'}
           </a>
           <span class="bar-note" aria-live="polite">
             {left ? `${left} question${left > 1 ? 's' : ''}` : ''}

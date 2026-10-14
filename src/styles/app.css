@@ -1414,6 +1414,51 @@ path.ink-draw {
 .aff-proche { --aff: var(--aff-proche); --aff-tint: var(--aff-proche-tint); }
 .aff-tres-proche { --aff: var(--aff-tres-proche); --aff-tint: var(--aff-tres-proche-tint); }
 
+/* Une case de « Mon profil politique » (ui/profile/Chart.tsx, Tile ; et l'aperçu fictif de l'accueil,
+   ui/components/ProfileEntry.tsx) : le palier de votre affinité moyenne avec les candidats du bloc, sur l'échelle du site
+   (core/affinity.ts). Les deux bouts en aplat soutenu, le mot au papier (--on-print : 6,1:1 sur « très proche », 6,6:1
+   sur « très éloigné » ; en sombre 9,8 et 7,0:1) ; « proche » et « éloigné » en lavis de leur teinte à 38 % sur le
+   papier, le mot à l'imprimé (10,3 et 10,0:1 ; en sombre 5,9 et 6,6:1) ; « mitigé », le plus discret, en lavis du gris
+   de l'échelle à 25 %, le mot en gris (5,8:1 ; 5,1:1 en sombre), assez soutenu pour se distinguer du lavis d'une ligne
+   ouverte. Sans candidat connu, « ? inconnu » sur le papier, dans un cadre en tirets. Contrôlés par
+   tools/e2e-offline.mjs, en clair et en sombre. */
+.tile {
+  --tile: color-mix(in srgb, var(--aff-mitige) 25%, var(--paper));
+  --tile-ink: var(--print-soft);
+  background: var(--tile);
+  color: var(--tile-ink);
+  /* Invisible, sauf en contraste forcé : le cadre de la case, quand les couleurs tombent */
+  outline: 1px solid transparent;
+  outline-offset: -1px;
+}
+
+.tile.aff-tres-proche {
+  --tile: var(--aff-tres-proche);
+  --tile-ink: var(--on-print);
+}
+
+.tile.aff-proche {
+  --tile: color-mix(in srgb, var(--aff-proche) 38%, var(--paper));
+  --tile-ink: var(--print);
+}
+
+.tile.aff-eloigne {
+  --tile: color-mix(in srgb, var(--aff-eloigne) 38%, var(--paper));
+  --tile-ink: var(--print);
+}
+
+.tile.aff-tres-eloigne {
+  --tile: var(--aff-tres-eloigne);
+  --tile-ink: var(--on-print);
+}
+
+.tile.is-inconnu {
+  --tile: var(--paper);
+  --tile-ink: var(--print-soft);
+  outline: var(--line) dashed var(--rule);
+  outline-offset: calc(-1 * var(--line));
+}
+
 .aff-cell {
   background: var(--aff-tint);
   color: var(--aff);
@@ -3509,6 +3554,223 @@ line.dg-thick {
   margin: 0;
 }
 
+/* ——— « Mon profil politique » : ses entrées (ui/components/ProfileEntry.tsx), sur l'accueil et le dépouillement ———
+   À l'encre, comme son panneau de « Et maintenant » : papier, filet de 1.5px et filet supérieur de 3px, sans pastel (le
+   pastel y prendrait le sens d'un bloc de la grille). Le bandeau, une fois la page prête : le nom de la page et sa
+   phrase, puis les cinq blocs de la grille en têtes de colonnes, neutres. L'aperçu, avant : la grille fictive aux teintes des cases de
+   la page (.tile), « Exemple fictif », puis le nom, la phrase, quand la page s'affiche et « Voir un exemple ». */
+.profile-band,
+.profile-peek {
+  color: var(--print);
+  text-decoration: none;
+  background: var(--paper);
+  box-shadow:
+    inset 0 var(--thick) 0 var(--rule-strong),
+    inset 0 0 0 var(--line) var(--rule-strong);
+}
+
+.home-profile {
+  margin-top: var(--s5);
+}
+
+.profile-band {
+  container: band / inline-size;
+  display: block;
+  padding: calc(var(--s4) + var(--thick)) var(--s4) var(--s4);
+}
+
+.pb-in {
+  display: grid;
+  gap: var(--s4);
+}
+
+/* Large (colonne de l'affiche, accueil en grand écran) : le nom et sa phrase à gauche, les colonnes à droite */
+@container band (min-width: 34rem) {
+  .pb-in {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    align-items: end;
+    gap: var(--s6);
+  }
+}
+
+.pb-body {
+  display: grid;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+/* Les cinq blocs, comme l'axe de la page : têtes de colonnes neutres entre des filets fins, sur un filet de 1.5px.
+   Décoratives : masquées quand la place manque (texte très agrandi) */
+.pb-axis {
+  display: none;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  border-bottom: var(--line) solid var(--rule-strong);
+}
+
+@container band (min-width: 19rem) {
+  .pb-axis {
+    display: grid;
+  }
+}
+
+.pb-axis > span {
+  min-width: 0;
+  padding: 0 0.3rem 0.9rem;
+  border-left: var(--hair) solid var(--rule);
+  font-size: var(--text-xs);
+  font-weight: 800;
+  font-stretch: 78%;
+  line-height: 1.1;
+}
+
+.pb-axis > span:last-child {
+  border-right: var(--hair) solid var(--rule);
+}
+
+.pb-title,
+.hp-title {
+  overflow-wrap: anywhere;
+  font-weight: 850;
+  font-stretch: 72%;
+  line-height: 1.02;
+}
+
+.pb-title {
+  font-size: clamp(1.6rem, 6vw, 2.15rem);
+}
+
+.pb-text {
+  max-width: 52ch;
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.pb-go {
+  width: 0.8em;
+  height: 0.8em;
+  margin-left: 0.3em;
+  vertical-align: -0.06em;
+}
+
+/* L'aperçu : la grille en tête au téléphone, à gauche dès 40rem de carte */
+.profile-peek {
+  container: peek / inline-size;
+  display: block;
+  padding: calc(var(--s4) + var(--thick)) var(--s4) var(--s4);
+}
+
+.hp-in {
+  display: grid;
+  gap: var(--s4);
+}
+
+@container peek (min-width: 40rem) {
+  .hp-in {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    align-items: center;
+    gap: var(--s4) var(--s6);
+  }
+}
+
+.hp-peek {
+  container: tiles / inline-size;
+  display: grid;
+  gap: var(--s2);
+}
+
+.hp-tiles {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 3px;
+}
+
+/* Une case, comme celles de la page : sa teinte (.tile), et son mot quand la place le permet */
+.hp-tiles > .tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.6rem;
+  border-radius: 1px;
+}
+
+.hp-word {
+  display: none;
+  padding: 0.2rem;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  font-stretch: 85%;
+  line-height: 1.05;
+  text-align: center;
+}
+
+@container tiles (min-width: 30rem) {
+  .hp-tiles > .tile {
+    min-height: 2.6rem;
+  }
+
+  .hp-word {
+    display: block;
+  }
+}
+
+.hp-tag {
+  font-size: var(--text-xs);
+  color: var(--print-soft);
+}
+
+.hp-body {
+  display: grid;
+  gap: var(--s2);
+  min-width: 0;
+}
+
+.hp-title {
+  font-size: clamp(1.6rem, 6vw, 2.15rem);
+}
+
+.hp-text {
+  max-width: 42ch;
+  font-size: 1.0625rem;
+  line-height: 1.45;
+}
+
+.hp-when {
+  max-width: 42ch;
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.hp-go {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  justify-self: start;
+  margin-top: var(--s1);
+  font-weight: 650;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+.hp-go .icon {
+  flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .profile-band:hover .pb-title,
+  .profile-peek:hover .hp-title {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.15em;
+  }
+
+  .profile-peek:hover .hp-go {
+    text-decoration-thickness: 2px;
+  }
+}
+
 /* Sous le film : la liste de confiance et le tampon daté, sur une ligne quand la place le permet */
 .home-proof {
   display: flex;
@@ -4443,6 +4705,14 @@ details[open] > summary .summary-label {
   }
 }
 
+/* L'affiche du plus proche, puis le bandeau de « Mon profil politique » : avant le classement au téléphone, dans la
+   colonne de l'affiche en grand écran */
+.results-side {
+  display: grid;
+  gap: var(--s4);
+  min-width: 0;
+}
+
 .results-intro .display {
   margin-bottom: var(--s4);
   max-width: 12ch;
@@ -4658,6 +4928,19 @@ details[open] > summary .summary-label {
   .trend-cta .icon {
     display: none;
   }
+}
+
+/* Ce qui vient au bout du questionnaire rapide, sous le bouton ; le nom de « Mon profil politique » mène à sa page */
+.trend-next {
+  margin: 0;
+  max-width: 44ch;
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.trend-next a {
+  color: var(--print);
+  font-weight: 650;
 }
 
 @media (min-width: 64rem) {

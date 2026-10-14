@@ -25,6 +25,9 @@ describe('parseRoute', () => {
     expect(parseRoute('#/sujets/retraites-1')).toEqual({ name: 'topics', anchor: 'retraites-1' })
     expect(parseRoute('#/profil')).toEqual({ name: 'profile' })
     expect(parseRoute('#/methode/profil')).toEqual({ name: 'method', anchor: 'profil' })
+    // « Approfondir », arrivé d'un thème touché sur « Mon profil politique »
+    expect(parseRoute('#/approfondir')).toEqual({ name: 'deepen' })
+    expect(parseRoute('#/approfondir/israel_gaza')).toEqual({ name: 'deepen', topic: 'israel_gaza' })
     expect(parseRoute('#/nimporte')).toEqual({ name: 'home' })
   })
 
@@ -89,7 +92,7 @@ describe('withBase et canonicalPath', () => {
   })
 
   it('chaque adresse relue redonne la même page', () => {
-    for (const path of ['/', '/feuille/4', '/approfondi/2', '/resultats', '/profil', '/methode/ia', '/methode/profil', '/candidat/x', '/comparer/x,y', '/comparer', '/sujets/a-1', '/videos/v']) {
+    for (const path of ['/', '/feuille/4', '/approfondi/2', '/resultats', '/profil', '/methode/ia', '/methode/profil', '/approfondir/defense', '/candidat/x', '/comparer/x,y', '/comparer', '/sujets/a-1', '/videos/v']) {
       for (const slug of ['', 'autre-2030']) {
         const place = parseLocation(withBase(slug, path))
         expect(place.slug, `${slug} ${path}`).toBe(slug)

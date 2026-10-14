@@ -15,10 +15,17 @@
 // agrandi (dont le focus jamais masqué), feuille enregistrée sous la clé de l'élection seule. Adresses retirées
 // du site (la primaire « Choisir 2027 », #/primaire, #/archives : RETIRED_PREFIXES du registre) et anciens liens
 // vers un candidat masqué, tous corrigés ; accueil sans rien de la primaire, même avec sa feuille sur l'appareil.
-// « Mon profil politique » (#/profil) : rien pendant la tendance, puis panneau et lien du dépouillement, page lue sur
-// l'appareil (mention IA), son graphique « une ligne par sujet » (axe, lignes, clavier, survol, plis, détail replié)
-// aux couleurs des blocs de la page des candidats et à elles seules (clair et sombre), sans nouvelle clé de stockage, sans défilement en largeur ni texte rogné (320, 390, 1 280 px, texte à
-// 200 %), sans focus caché sous l'en-tête, l'axe collant ou l'en-tête des colonnes, et sans effet sur l'affiche JPG.
+// « Mon profil politique » (#/profil) : ses entrées selon l'état de la feuille (accueil vierge : l'aperçu fictif après la
+// liste de confiance ; feuille en cours : sous l'état de la feuille ; tendance : une ligne de « Où vous en êtes », pas de
+// bandeau ; résultat complet : le bandeau sous l'affiche, le panneau et le lien sous « Par thème » ; accueil prêt :
+// « Voir mon profil politique »), leurs liens et leurs teintes (celles des cases de la page, clair et sombre, contraste
+// forcé) ; la page d'attente (pas encore de réponse, pas encore assez : le compte, le bouton qui ramène à la première
+// question non vue, l'exemple fictif, sans tableau) ; la fiche « Pour lire plus de thèmes » (questionnaire rapide seul,
+// mais pas tout approfondi) et « Approfondir ce thème », qui coche le thème ; puis la page lue sur l'appareil (mention
+// IA), son graphique « une ligne par sujet » (axe, lignes, clavier, survol, plis, détail replié) aux couleurs de
+// l'échelle d'affinité et à elles seules (clair et sombre), sans nouvelle clé de stockage, sans défilement en largeur ni
+// texte rogné ou mot coupé (320, 390, 1 280 px, texte à 125 et 200 %, entrées comprises), sans focus caché sous
+// l'en-tête, l'axe collant ou l'en-tête des colonnes, et sans effet sur l'affiche JPG ; rien de tout cela sans axe.
 //
 // Usage : pnpm build && node tools/e2e-offline.mjs [port] [--pack <id>] [--prefix <slug>]
 //   --pack <id>     : l'élection à parcourir (par défaut, celle du registre sans préfixe : src/elections/index.ts)
@@ -48,6 +55,7 @@ const port = Number(argv.find((a, i) => /^\d+$/.test(a) && !VALUED.includes(argv
 // ——— Les données, lues dans le code du site (registre, pack, séries vidéo), tel que le build le livre ———
 useSiteModules()
 const { withBase } = await importSite('src/core/routes.ts')
+const { orderedQuestions } = await importSite('src/core/order.ts')
 const { RETIRED_PREFIXES = [] } = await importSite('src/elections/index.ts')
 let site
 try {
@@ -157,6 +165,73 @@ const check = (ok, msg) => {
 }
 const hashOf = page => decodeURI(new URL(page.url()).hash)
 
+// « Mon profil politique » : ses entrées et sa page d'attente
+/** Ce que dit la page d'attente (#/profil avant le résultat complet) */
+const waitInfo = pg =>
+  pg.evaluate(() => {
+    const t = sel => (document.querySelector(sel)?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
+    const cta = document.querySelector('main .profile-wait a.btn-primary')
+    const tiles = [...document.querySelectorAll('main .ex-grid[aria-hidden="true"] .tile')]
+    return {
+      where: t('main .profile-wait .trend-where'),
+      count: t('main .profile-wait .trend-count'),
+      text: t('main .profile-wait .trend-text'),
+      cta: (cta?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').trim(),
+      href: cta?.getAttribute('href') ?? null,
+      tiles: tiles.length,
+      words: tiles.every(x => (x.textContent ?? '').trim().length > 2),
+      tables: document.querySelectorAll('main table').length,
+      deepen: t('main .wait-deepen').length > 20,
+      focused: !!document.activeElement?.matches('main h1'),
+    }
+  })
+/** L'entrée de l'accueil : sa forme, sa place, son lien et son texte */
+const homeEntry = pg =>
+  pg.evaluate(() => {
+    const card = document.querySelector('.home-profile')
+    const at = sel => document.querySelector(sel)
+    const before = (a, b) => !!a && !!b && !!(a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING)
+    return {
+      n: document.querySelectorAll('.home-profile').length,
+      ready: !!card?.classList.contains('is-ready'),
+      href: card?.getAttribute('href') ?? null,
+      afterProof: before(at('.home-proof'), card) && before(card, at('.journey')),
+      afterStatus: !!card && card.previousElementSibling === at('.home-status') && before(card, at('.home-proof')),
+      tiles: card?.querySelectorAll('.hp-peek[aria-hidden="true"] .tile').length ?? 0,
+      // Le texte du lien, sans les mots des cases de l'aperçu (masqués aux lecteurs d'écran), sa mention comprise
+      text: [...(card?.querySelectorAll('.hp-tag, .hp-body, .pb-body') ?? [])].map(e => e.textContent).join(' ').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim(),
+    }
+  })
+/** Le fond des cases d'un palier, sous un sélecteur : { « tres-proche » : « rgb(…) », … } */
+const tileColors = (pg, sel) =>
+  pg.evaluate(sel => {
+    const out = {}
+    for (const t of document.querySelectorAll(`${sel} .tile`)) {
+      const k = [...t.classList].find(c => c.startsWith('aff-'))
+      if (k) out[k] = getComputedStyle(t).backgroundColor
+    }
+    return out
+  }, sel)
+/** Les mots coupés sur deux lignes (un mot dont les rectangles tiennent sur deux hauteurs) sous ces sélecteurs */
+const cutWords = (pg, sel) =>
+  pg.evaluate(sel => {
+    const out = new Set()
+    for (const el of document.querySelectorAll(sel)) {
+      if (!el.checkVisibility()) continue
+      const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT)
+      for (let n = walker.nextNode(); n; n = walker.nextNode()) {
+        if (!n.parentElement?.checkVisibility() || n.parentElement.closest('.sr-only')) continue
+        for (const m of n.data.matchAll(/[^\s\u00a0]+/g)) {
+          const r = document.createRange()
+          r.setStart(n, m.index)
+          r.setEnd(n, m.index + m[0].length)
+          if (new Set([...r.getClientRects()].filter(x => x.width > 0).map(x => Math.round(x.top))).size > 1) out.add(m[0])
+        }
+      }
+    }
+    return [...out]
+  }, sel)
+
 console.log(`Élection ${entry.id}${entry.slug ? ` (#/${entry.slug}/…)` : ' (par défaut, #/…)'}${prefix !== entry.slug ? `, visitée par #/${prefix}/…` : ''} : ${N} candidats, ${QUICK} questions rapides dont ${STEP1} au premier dépouillement`)
 
 // 0. Les données lues ici sont celles du site : bank.json (research) et le pack (src) disent la même chose
@@ -219,6 +294,47 @@ try {
   const ogImage = await page.locator('meta[property="og:image"]').getAttribute('content')
   const served = await Promise.all(['favicon.svg', 'apple-touch-icon.png', 'og.png'].map(f => page.request.get(base + f).then(r => r.ok())))
   check(brandName === 'Isoloir' && logoShown && ogImage === 'https://isoloir.vercel.app/og.png' && served.every(Boolean), `marque : logo dans l’en-tête (« ${brandName} »), icônes et aperçu servis (${served.join(', ')})`)
+
+  // 1 quater. « Mon profil politique » sur l'accueil vierge : l'aperçu fictif après la liste de confiance (15 cases
+  // décoratives, « Exemple fictif », quand la page s'affiche, « Voir où j’en suis et un exemple ») ; il mène à la page d'attente (rien
+  // de vu, un exemple aux cases de la page, sans tableau, rien d'enregistré), dont les cases ont les mêmes teintes
+  if (PROFILE) {
+    const fresh = await homeEntry(page)
+    check(
+      fresh.n === 1 && !fresh.ready && fresh.href === L('/profil') && fresh.afterProof && fresh.tiles === 15 && fresh.text.includes('Exemple fictif') && fresh.text.includes('Voir où j’en suis et un exemple') && fresh.text.includes(`Il s’affiche au bout des ${QUICK} questions du questionnaire rapide.`) && !fresh.text.includes('Voir mon profil politique'),
+      `mon profil politique, accueil vierge : aperçu après la liste de confiance ${fresh.afterProof}, ${fresh.tiles} cases masquées aux lecteurs d’écran, « ${fresh.text.slice(0, 90)}… »`,
+    )
+    await page.locator('.home-profile').click()
+    await page.locator('main .profile-wait').waitFor()
+    await page.waitForFunction(() => document.activeElement?.matches('main h1'), null, { timeout: 2000 }).catch(() => null)
+    const w = await waitInfo(page)
+    const keys = await page.evaluate(() => Object.keys(localStorage).filter(k => k.startsWith('isoloir')))
+    check(
+      hashOf(page) === L('/profil') && w.focused && w.where === 'Pas encore de réponse' && w.count === `0 question sur ${QUICK}` && w.cta === 'Commencer la feuille' && w.href === L('/feuille/1') && w.tiles === 15 && w.words && w.tables === 0 && w.deepen && keys.length === 0,
+      `mon profil politique, page d’attente (feuille vierge) : focus au titre ${w.focused}, « ${w.where} », « ${w.count} », bouton « ${w.cta} » vers ${w.href}, exemple de ${w.tiles} cases avec leurs mots ${w.words}, ${w.tables} tableau, rien d’enregistré (${keys.join(', ') || 'aucune clé'})`,
+    )
+    // Les teintes de l'aperçu sont celles des cases de la page, en clair comme en sombre ; en contraste forcé, chaque case
+    // garde son cadre
+    const shades = {}
+    for (const scheme of ['light', 'dark']) {
+      await page.emulateMedia({ colorScheme: scheme })
+      shades[scheme] = { page: await tileColors(page, 'main .ex-grid') }
+    }
+    await page.goBack()
+    await page.locator('.home-profile').waitFor()
+    for (const scheme of ['light', 'dark']) {
+      await page.emulateMedia({ colorScheme: scheme })
+      shades[scheme].home = await tileColors(page, '.home-profile')
+    }
+    await page.emulateMedia({ colorScheme: 'light', forcedColors: 'active' })
+    const framed = await page.locator('.home-profile .tile').evaluateAll(ts => ts.every(t => getComputedStyle(t).outlineStyle === 'solid' && parseFloat(getComputedStyle(t).outlineWidth) >= 1))
+    await page.emulateMedia({ colorScheme: 'light', forcedColors: 'none' })
+    const same = ['light', 'dark'].every(k => Object.keys(shades[k].page).length === 5 && JSON.stringify(shades[k].page) === JSON.stringify(Object.fromEntries(Object.keys(shades[k].page).map(b => [b, shades[k].home[b]]))))
+    const distinct = new Set(Object.values(shades.light.home)).size === 5
+    check(same && distinct && framed, `mon profil politique, aperçu de l’accueil : les teintes des cases de la page (clair et sombre ${same}, cinq paliers distincts ${distinct}), cadre en contraste forcé ${framed}`)
+  } else {
+    check((await page.locator('.home-profile').count()) === 0, 'accueil : pas d’entrée « Mon profil politique » sans axe de la grille')
+  }
 
   // 2. Mode avion
   await ctx.setOffline(true)
@@ -460,24 +576,47 @@ try {
     await page.goto(U('/'))
     const trendLink = ((await page.locator(`.home-status a[href="${L('/resultats')}"]`).textContent().catch(() => '')) ?? '').trim()
     check(trendLink === 'Voir la tendance', `accueil, feuille en cours : « ${trendLink} »`)
+    if (PROFILE) {
+      const going = await homeEntry(page)
+      const left = QUICK - STEP1
+      // La ligne d'état compte les questions vues, comme l'aperçu juste dessous : les deux comptes font le questionnaire
+      const status = flat(await page.locator('.home-status .progress-note').textContent().catch(() => ''))
+      check(
+        status.startsWith(`Feuille en cours : ${STEP1} question${STEP1 > 1 ? 's' : ''} sur ${QUICK}.`),
+        `accueil, feuille en cours : « ${status} », puis « encore ${left} » dans l’aperçu (${STEP1} + ${left} = ${QUICK})`,
+      )
+      check(
+        going.n === 1 && !going.ready && going.afterStatus && going.tiles === 15 && going.text.includes(`: encore ${left} question${left > 1 ? 's' : ''}.`),
+        `mon profil politique, accueil d’une feuille en cours : l’aperçu sous l’état de la feuille ${going.afterStatus}, « …${going.text.slice(going.text.indexOf('Il s’affiche'), going.text.indexOf('Voir où j’en suis')).trim()} »`,
+      )
+    }
     await page.goto(U('/resultats'))
     await heading(page, 'Une première tendance')
 
-    // 3 ter. « Mon profil politique » attend le résultat complet : aucun lien pendant la tendance ; l'adresse directe
-    // dit que le dépouillement n'est pas fini et propose de continuer, sans tableau
+    // 3 ter. « Mon profil politique » pendant la tendance : pas de bandeau ; un seul lien vers la page, dans la fiche « Où
+    // vous en êtes » ; il mène à la page d'attente (hors ligne : son fichier est dans la copie hors ligne), qui dit ce
+    // qui manque et ramène à la première question non vue, sans tableau
     if (PROFILE) {
-      const trendLinks = await page.locator(`a[href="${L('/profil')}"]`).count()
-      await page.goto(U('/profil'))
-      await page.locator('main h1').waitFor()
-      const waitText = flat(await page.locator('main').innerText())
-      const tables = await page.locator('main table').count()
-      const cta = ((await page.locator('main a.btn-primary').textContent().catch(() => '')) ?? '').trim()
+      const trendBand = await page.locator('.results-profile').count()
+      const trendLinks = await page.locator(`main a[href="${L('/profil')}"]`).evaluateAll(as => as.map(a => !!a.closest('.trend')))
+      const line = flat(await page.locator('main .trend .trend-next').textContent().catch(() => ''))
+      await page.locator('main .trend .trend-next a').click()
+      await page.locator('main .profile-wait').waitFor()
+      await page.waitForFunction(() => document.activeElement?.matches('main h1'), null, { timeout: 2000 }).catch(() => null)
+      const w = await waitInfo(page)
+      const left = QUICK - STEP1
       check(
-        trendLinks === 0 && waitText.includes('Le dépouillement n’est pas fini') && cta.startsWith('Continuer') && tables === 0,
-        `mon profil politique, pendant la tendance : ${trendLinks} lien dans le dépouillement, page d’attente (« ${cta} »), ${tables} tableau`,
+        trendBand === 0 && trendLinks.length === 1 && trendLinks[0] && line === `Au bout des ${QUICK} questions : le dépouillement complet et « Mon profil politique ».`,
+        `mon profil politique, pendant la tendance : pas de bandeau (${trendBand}), ${trendLinks.length} lien, dans « Où vous en êtes » (« ${line} »)`,
+      )
+      check(
+        w.focused && w.where === 'Pas encore assez de réponses' && w.count === `${STEP1} questions sur ${QUICK}` && w.text.includes(`encore ${left} question`) && w.cta === `Continuer : ${left} question${left > 1 ? 's' : ''}` && w.href === L(`/feuille/${STEP1 + 1}`) && w.tiles === 15 && w.tables === 0,
+        `mon profil politique, page d’attente (tendance, hors ligne) : « ${w.where} », « ${w.count} », « ${w.text} », bouton « ${w.cta} » vers ${w.href}, ${w.tables} tableau`,
       )
       await page.goto(U('/resultats'))
       await heading(page, 'Une première tendance')
+    } else {
+      check((await page.locator('.results-profile, .trend-next').count()) === 0, 'tendance : rien de « Mon profil politique » sans axe de la grille')
     }
 
     // 4. Continuer : les autres, les priorités, le résultat complet
@@ -575,6 +714,24 @@ try {
     const panelPlace = await page.locator('.next-panels > li').evaluateAll((lis, href) => lis.findIndex(li => li.querySelector(`a[href="${href}"]`)), L('/profil'))
     const gridLink = await page.locator(`.topics-block a[href="${L('/profil')}"]`).count()
     const barShortcuts = await page.locator('.results-bar .bar-mini:visible').count()
+    // Le bandeau : sous l'affiche, avant le classement, dans les deux premiers écrans ; trois liens vers la page en tout
+    await page.evaluate(() => window.scrollTo(0, 0))
+    const band = await page.evaluate(href => {
+      const b = document.querySelector('.results-profile')
+      const before = (x, y) => !!x && !!y && !!(x.compareDocumentPosition(y) & Node.DOCUMENT_POSITION_FOLLOWING)
+      return {
+        n: document.querySelectorAll('.results-profile').length,
+        href: b?.getAttribute('href') ?? null,
+        place: before(document.querySelector('.leader'), b) && before(b, document.querySelector('.board')),
+        top: b ? Math.round(b.getBoundingClientRect().top + scrollY) : 1e9,
+        title: (b?.querySelector('.pb-title')?.textContent ?? '').trim(),
+        links: document.querySelectorAll(`main a[href="${href}"]`).length,
+      }
+    }, L('/profil'))
+    check(
+      band.n === 1 && band.href === L('/profil') && band.place && band.top < 2 * 844 && band.title === 'Mon profil politique' && band.links === 3,
+      `mon profil politique, dépouillement : bandeau « ${band.title} » entre l’affiche et le classement ${band.place}, à ${band.top} px du haut (deux écrans : ${2 * 844}), ${band.links} liens vers la page (bandeau, panneau, lien sous « Par thème »)`,
+    )
     await panel.click()
     await page.locator('[role="status"]', { hasText: 'Lecture prête.' }).waitFor({ timeout: 8000 }).catch(() => null)
     const focused = await page.evaluate(() => document.activeElement?.matches('main h1') ?? false)
@@ -795,6 +952,146 @@ try {
     }
     await profileChart(page, 'parcours, 390 px')
 
+    // Pour lire plus de thèmes (questionnaire rapide seul) : avant le graphique ; les thèmes d'une seule question et ceux
+    // sans réponse qui ont encore des questions approfondies, tels qu'on les compte depuis la feuille enregistrée ; un
+    // thème de la fiche, puis « Approfondir ce thème » d'une ligne, mènent à « Approfondir » avec ce thème coché (le champ
+    // existant, rien d'autre d'enregistré), qu'on décoche ensuite
+    {
+      const st = await page.evaluate(key => JSON.parse(localStorage.getItem(key) ?? '{}'), STORAGE)
+      const opinion = a => !!a && !a.skipped && Object.keys(a.ratings ?? {}).length > 0
+      const expected = { thin: [], none: [] }
+      for (const t of pack.bank.topics) {
+        const qs = pack.bank.questions.filter(q => q.topicId === t.id)
+        if (!qs.some(q => q.tier !== 'essentiel' && !opinion(st.answers?.[q.id]))) continue
+        const n = qs.filter(q => opinion(st.answers?.[q.id])).length
+        if (n === 0) expected.none.push(t.label)
+        else if (n === 1) expected.thin.push(t.label)
+      }
+      const fold = page.locator('main .profile-deeper details.deeper-fold')
+      if ((await fold.count()) && !(await fold.evaluate(d => d.open))) await fold.locator('summary').click()
+      const fiche = await page.evaluate(() => {
+        const f = document.querySelector('main .profile-deeper')
+        const names = el => [...(el?.querySelectorAll('.deeper-topics a') ?? [])].map(a => [...a.childNodes].filter(n => n.nodeType === 3).map(n => n.data).join('').trim())
+        return {
+          n: document.querySelectorAll('main .profile-deeper').length,
+          first: !!f && !!(f.compareDocumentPosition(document.querySelector('main .profile-chart')) & Node.DOCUMENT_POSITION_FOLLOWING),
+          thin: names(f?.querySelector('.deeper-fold') ?? [...(f?.querySelectorAll('.deeper-lists > p') ?? [])].find(p => p.textContent.startsWith('Sur une seule'))),
+          none: names([...(f?.querySelectorAll('.deeper-lists > p') ?? [])].find(p => p.textContent.startsWith('Sans réponse'))),
+          go: f?.querySelector('a.btn-text')?.getAttribute('href') ?? null,
+        }
+      })
+      check(
+        fiche.n === 1 && fiche.first && fiche.thin.join('|') === expected.thin.join('|') && fiche.none.join('|') === expected.none.join('|') && fiche.go === L('/approfondir'),
+        `mon profil politique, questionnaire rapide seul : fiche « Pour lire plus de thèmes » avant le graphique ${fiche.first}, ${fiche.thin.length} thèmes sur une seule question (attendus ${expected.thin.length}) et ${fiche.none.length} sans réponse (attendus ${expected.none.length}), « Choisir les thèmes à approfondir » vers ${fiche.go}`,
+      )
+      // Les questions approfondies d'un thème encore sans avis (la règle de la page Approfondir)
+      const openOf = id => pack.bank.questions.filter(q => q.topicId === id && q.tier === 'approfondi' && !opinion(st.answers?.[q.id])).length
+      const idOf = label => pack.bank.topics.find(t => t.label === label)?.id
+      /** À l'arrivée : l'adresse porte le thème, sa ligne est en tête et seule cochée, la phrase sous le titre le dit, le retour mène à la page */
+      const arrival = () =>
+        page.evaluate(() => ({
+          hash: decodeURI(location.hash),
+          first: document.querySelector('.is-topics .topic-label')?.textContent?.trim() ?? '',
+          on: [...document.querySelectorAll('.is-topics .approach-main[aria-pressed="true"] .topic-label')].map(e => e.textContent.trim()),
+          note: (document.querySelector('main .deepen-touched')?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim(),
+          back: document.querySelector('.action-bar a.btn-text')?.getAttribute('href') ?? null,
+          noteTop: Math.round(document.querySelector('main .deepen-touched')?.getBoundingClientRect().bottom ?? 9999),
+          rowTop: Math.round(document.querySelector('.is-topics li')?.getBoundingClientRect().top ?? 9999),
+          vh: innerHeight,
+        }))
+      const pressedOn = async label => {
+        await page.locator('main h1', { hasText: 'Quels thèmes voulez-vous approfondir' }).waitFor({ timeout: 4000 }).catch(() => null)
+        const a = await arrival()
+        const n = openOf(idOf(label))
+        const note = `Le thème « ${label} » est coché : ${n} question${n > 1 ? 's' : ''}.`
+        const keys = await page.evaluate(() => Object.keys(localStorage).filter(k => k.startsWith('isoloir')))
+        // Décocher : la feuille revient à l'état d'avant ; la ligne reste en tête (rien ne saute sous le doigt)
+        await page.locator('.is-topics .approach-main[aria-pressed="true"]').first().click().catch(() => null)
+        const left = await page.locator('.is-topics .approach-main[aria-pressed="true"]').count()
+        const after = await arrival()
+        const ok =
+          a.hash === L(`/approfondir/${idOf(label)}`) && a.first === label && a.on.length === 1 && a.on[0] === label && a.note === note && a.back === L('/profil') && a.noteTop < a.vh &&
+          keys.length === 1 && keys[0] === STORAGE && left === 0 && after.first === label && after.note === ''
+        return ok ? 'oui' : `non (${JSON.stringify(a)} ; attendu « ${note} » ; ${keys.join(', ')} ; ${left} encore cochés ; après : ${after.first}, « ${after.note} »)`
+      }
+      const pick = expected.thin[0] ?? expected.none[0]
+      await page.locator('main .profile-deeper .deeper-topics a').filter({ hasText: pick }).first().click()
+      const fromFiche = await pressedOn(pick)
+      // « Approfondir ce thème » d'une ligne sur une seule question
+      await page.goto(U('/profil'))
+      await page.locator('[role="status"]', { hasText: 'Lecture prête.' }).waitFor({ timeout: 8000 }).catch(() => null)
+      const rows = page.locator('.profile-chart ol.rows.is-quiet').last().locator('.row')
+      let fromRow = 'aucune ligne avec le lien'
+      for (let i = 0, n = await rows.count(); i < n; i++) {
+        await rows.nth(i).click()
+        const link = page.locator('.profile-chart .explain:not([hidden]) a', { hasText: 'Approfondir ce thème' })
+        if (await link.count()) {
+          const name = flat(await rows.nth(i).locator('.row-name').textContent())
+          await link.click()
+          fromRow = await pressedOn(name)
+          break
+        }
+        await rows.nth(i).click()
+      }
+      check(fromFiche === 'oui' && fromRow === 'oui', `mon profil politique, approfondir un thème : depuis la fiche (« ${pick} ») ${fromFiche}, depuis une ligne ${fromRow} ; coché à l’arrivée, en tête de liste, dit sous le titre, retour vers la page, une seule clé de stockage`)
+
+      // Un autre thème déjà coché, qui vient avant dans la feuille : la phrase dit les deux, le thème touché est en tête
+      // de liste, la feuille commence par lui, puis finit par les questions jamais vues qui le précèdent. La feuille
+      // enregistrée est remise ensuite telle qu'avant ces essais (les questions passées ici n'y restent pas)
+      {
+        const pickId = idOf(pick)
+        const topicOrder = [...new Set(orderedQuestions(pack.bank, 'approfondi', st.seed).map(q => q.topicId))]
+        const others = pack.bank.topics.filter(t => t.id !== pickId && openOf(t.id) > 0)
+        const other = others.filter(t => topicOrder.indexOf(t.id) < topicOrder.indexOf(pickId)).sort((x, y) => topicOrder.indexOf(x.id) - topicOrder.indexOf(y.id))[0] ?? others[0]
+        await page.goto(U('/approfondir'))
+        await page.evaluate(label => [...document.querySelectorAll('.is-topics .approach-main')].find(b => b.querySelector('.topic-label')?.textContent?.trim() === label)?.click(), other.label)
+        await page.goto(U('/profil'))
+        await page.locator('[role="status"]', { hasText: 'Lecture prête.' }).waitFor({ timeout: 8000 }).catch(() => null)
+        const fold2 = page.locator('main .profile-deeper details.deeper-fold')
+        if ((await fold2.count()) && !(await fold2.evaluate(d => d.open))) await fold2.locator('summary').click()
+        await page.locator('main .profile-deeper .deeper-topics a').filter({ hasText: pick }).first().click()
+        await page.locator('main h1', { hasText: 'Quels thèmes voulez-vous approfondir' }).waitFor({ timeout: 4000 }).catch(() => null)
+        const a = await arrival()
+        const n = openOf(pickId)
+        const total = n + openOf(other.id)
+        const note = `Le thème « ${pick} » est coché : la feuille commence par ${n > 1 ? `ses ${n} questions` : 'sa question'}. Un autre thème est aussi coché : ${total} questions en tout.`
+        const list = orderedQuestions(pack.bank, 'approfondi', st.seed, [pickId, other.id])
+        const seen = new Set(Object.keys(st.answers ?? {}))
+        const own = list.filter(q => q.topicId === pickId)
+        const startQ = own.find(q => !seen.has(q.id)) ?? own.find(q => !opinion(st.answers?.[q.id]))
+        const startAt = list.indexOf(startQ)
+        await page.locator('.action-bar .btn-primary').click()
+        await page.waitForFunction(() => location.hash.includes('/approfondi/'), null, { timeout: 4000 }).catch(() => null)
+        const started = { hash: hashOf(page), topic: flat(await page.locator('.locator-topic').first().textContent().catch(() => '')) }
+        // Passer jusqu'au bout de la feuille : elle revient à la première question jamais vue qui précède
+        for (let i = startAt; i < list.length; i++) {
+          const before = hashOf(page)
+          await page.locator('button.btn-primary', { hasText: /^(Passer|Suivante)$/ }).click()
+          await page.waitForFunction(h => decodeURI(location.hash) !== h, before, { timeout: 4000 }).catch(() => null)
+        }
+        const firstUnseen = list.findIndex((q, i) => i < startAt && !seen.has(q.id))
+        const wrapped = hashOf(page)
+        const expectedWrap = firstUnseen < 0 ? L('/resultats') : L(`/approfondi/${firstUnseen + 1}`)
+        check(
+          a.first === pick && a.on.length === 2 && a.on.includes(other.label) && a.note === note && started.hash === L(`/approfondi/${startAt + 1}`) && started.topic === pick && wrapped === expectedWrap,
+          `mon profil politique, approfondir avec un autre thème déjà coché (« ${other.label} ») : « ${pick} » en tête (${a.first}), « ${a.note} », la feuille commence par lui (${started.hash}, « ${started.topic} »), puis revient à ${wrapped} (attendu ${expectedWrap})`,
+        )
+        // La dernière question passée s'enregistre après le changement d'adresse : on l'attend, puis la feuille d'avant
+        // revient, relue au rechargement
+        await page.goto(U('/'))
+        await page.waitForTimeout(400)
+        await page.evaluate(([key, v]) => localStorage.setItem(key, v), [STORAGE, JSON.stringify(st)])
+        await page.reload()
+        const restored = await page.evaluate(key => JSON.parse(localStorage.getItem(key) ?? '{}'), STORAGE)
+        check(
+          Object.keys(restored.answers ?? {}).length === Object.keys(st.answers ?? {}).length && (restored.deepTopics ?? []).length === (st.deepTopics ?? []).length,
+          `mon profil politique, après l’essai d’« Approfondir » : la feuille d’avant revient (${Object.keys(restored.answers ?? {}).length} réponses, ${(restored.deepTopics ?? []).length} thème coché)`,
+        )
+      }
+      await page.goto(U('/profil'))
+      await page.locator('[role="status"]', { hasText: 'Lecture prête.' }).waitFor({ timeout: 8000 }).catch(() => null)
+    }
+
 
     // « Voir le détail » d'une ligne lue : le tableau replié s'ouvre sur le détail de l'unité, qui reçoit le focus ; puis
     // son lien vers « Qui porte quoi » : la seule clé de session, effacée à l'arrivée
@@ -830,6 +1127,48 @@ try {
       !!before && !!after && before.hash === after.hash && before.alt === after.alt && !/profil|échiquier|grille/i.test(after.alt),
       `affiche JPG : la même avant et après « Mon profil politique » (${before?.hash.slice(0, 12)}…, ${after?.hash.slice(0, 12)}…), rien de la page dans son texte de remplacement`,
     )
+
+    // L'accueil, une fois la page prête : le bandeau « Voir mon profil politique », sans aperçu, sous l'état de la feuille
+    await page.goto(U('/'))
+    await page.locator('.home-profile').waitFor()
+    const ready = await homeEntry(page)
+    check(
+      ready.n === 1 && ready.ready && ready.afterStatus && ready.tiles === 0 && ready.href === L('/profil') && ready.text.startsWith('Voir mon profil politique'),
+      `mon profil politique, accueil prêt : « ${ready.text.slice(0, 40)}… » sous l’état de la feuille ${ready.afterStatus}, sans aperçu (${ready.tiles} case)`,
+    )
+
+    // En grand écran : le bandeau du dépouillement sous l'affiche, dans sa colonne ; une feuille tout approfondie (un avis
+    // sur chaque question) n'a pas de fiche « Pour lire plus de thèmes »
+    {
+      const quickState = await page.evaluate(() => Object.fromEntries(Object.keys(localStorage).map(k => [k, localStorage.getItem(k)])))
+      const wctx = await browser.newContext({ viewport: { width: 1280, height: 900 }, reducedMotion: 'reduce' })
+      await wctx.addInitScript(s => {
+        if (!sessionStorage.getItem('e2e-seeded')) {
+          Object.entries(s).forEach(([k, v]) => localStorage.setItem(k, v))
+          sessionStorage.setItem('e2e-seeded', '1')
+        }
+      }, quickState)
+      const wp = await wctx.newPage()
+      await wp.goto(U('/resultats'))
+      await heading(wp, 'Votre dépouillement')
+      const column = await wp.evaluate(() => {
+        const b = document.querySelector('.results-profile')?.getBoundingClientRect()
+        const l = document.querySelector('.leader')?.getBoundingClientRect()
+        return b && l ? { left: Math.round(b.left - l.left), width: Math.round(b.width - l.width), below: Math.round(b.top - l.bottom) } : null
+      })
+      const all = JSON.parse(quickState[STORAGE])
+      for (const q of pack.bank.questions) all.answers[q.id] = { ratings: { [q.approaches[0].id]: 1 }, redLines: [], ...(q.rev ? { rev: q.rev } : {}) }
+      await wp.evaluate(([k, v]) => localStorage.setItem(k, v), [STORAGE, JSON.stringify(all)])
+      await wp.goto(U('/profil'))
+      await wp.reload()
+      await wp.locator('[role="status"]', { hasText: 'Lecture prête.' }).waitFor({ timeout: 15000 }).catch(() => null)
+      const allDeep = await wp.evaluate(() => ({ chart: document.querySelectorAll('main .profile-chart').length, fiche: document.querySelectorAll('main .profile-deeper').length }))
+      check(
+        !!column && column.left === 0 && column.width === 0 && column.below > 0 && allDeep.chart === 1 && allDeep.fiche === 0,
+        `mon profil politique, 1 280 px : bandeau dans la colonne de l’affiche, dessous (${JSON.stringify(column)}) ; tout approfondi, pas de fiche « Pour lire plus de thèmes » (${allDeep.fiche})`,
+      )
+      await wctx.close()
+    }
 
     // Un second état, avec des lectures nettes (le parcours ci-dessus, questionnaire rapide, n'en a souvent aucune) : sur
     // la première moitié des familles, d'accord avec l'approche principale d'un candidat que la grille classe au premier
@@ -1010,6 +1349,39 @@ try {
     }
     check(layoutIssues.length === 0 && miniRuns.some(Boolean), `mon profil politique : rien en largeur, ni rogné, ni mot coupé à 320, 390 et 1 280 px, au texte normal et à 200 % (rappel des blocs vu ${miniRuns.filter(Boolean).length} fois sur ${miniRuns.length}), « Touchez… » au doigt${layoutIssues.length ? ` : ${layoutIssues.join(' ; ')}` : ''}`)
     check(focusIssues.length === 0, `mon profil politique, au clavier à 390 et 1 280 px : aucun focus caché sous l’en-tête, l’axe collant ou son rappel, ni l’en-tête des colonnes du détail${focusIssues.length ? ` : ${focusIssues.slice(0, 3).join(' ; ')}` : ''}`)
+
+    // Ses entrées et sa page d'attente, au texte agrandi (320 px à 200 %, 390 px à 125 %) : l'accueil vierge et prêt, le
+    // dépouillement, la page d'attente d'une feuille en cours ; rien en largeur, aucun mot coupé hors des titres (qui
+    // peuvent se couper, The Long Word Rule), aucune case rognée
+    const going = JSON.parse(state[STORAGE])
+    for (const q of quickQs.slice(0, Math.ceil(QUICK / 2))) delete going.answers[q.id]
+    const goingState = { ...state, [STORAGE]: JSON.stringify({ ...going, essentialDoneAt: null }) }
+    const entryIssues = []
+    const TEXTS = '.pb-text, .pb-axis, .hp-text, .hp-when, .hp-go, .hp-tag, .hp-word, .trend-next, .profile-wait .trend-text, .profile-wait .trend-where, .profile-example .ex-note, .ex-name, .ex-head, .ex-grid .tile, .ex-key, .wait-deepen'
+    for (const [width, zoom] of [[320, 200], [390, 125]])
+      for (const [label, storage, path, sel] of [
+        ['accueil vierge', {}, '/', '.home-profile'],
+        ['accueil prêt', state, '/', '.home-profile'],
+        ['dépouillement', state, '/resultats', '.results-profile'],
+        ['page d’attente', goingState, '/profil', '.profile-wait'],
+      ]) {
+        const ectx = await browser.newContext({ viewport: { width, height: 800 }, reducedMotion: 'reduce', hasTouch: true, isMobile: true })
+        await ectx.addInitScript(s => Object.entries(s).forEach(([k, v]) => localStorage.setItem(k, v)), storage)
+        await ectx.addInitScript(z => document.addEventListener('DOMContentLoaded', () => (document.documentElement.style.fontSize = `${z}%`)), zoom)
+        const ep = await ectx.newPage()
+        await ep.goto(U(path))
+        const shown = await ep.locator(sel).first().waitFor({ timeout: 8000 }).then(() => true, () => false)
+        await ep.waitForTimeout(100)
+        const wide = await ep.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)
+        const cut = await cutWords(ep, TEXTS)
+        const clipped = await ep.evaluate(() => [...document.querySelectorAll('.ex-grid .tile, .hp-tiles .tile')].filter(t => t.checkVisibility() && (t.scrollWidth > t.clientWidth + 1 || t.scrollHeight > t.clientHeight + 1)).map(t => t.textContent.trim()))
+        if (!shown) entryIssues.push(`${label}, ${width} px à ${zoom} % : ${sel} absent`)
+        if (wide > 0) entryIssues.push(`${label}, ${width} px à ${zoom} % : ${wide} px de trop`)
+        if (cut.length) entryIssues.push(`${label}, ${width} px à ${zoom} % : mot coupé ${cut.slice(0, 4).join(', ')}`)
+        if (clipped.length) entryIssues.push(`${label}, ${width} px à ${zoom} % : case rognée ${clipped.slice(0, 3).join(', ')}`)
+        await ectx.close()
+      }
+    check(entryIssues.length === 0, `mon profil politique, entrées et page d’attente au texte agrandi (320 px à 200 %, 390 px à 125 %) : rien en largeur, aucun mot coupé ni case rognée${entryIssues.length ? ` : ${entryIssues.join(' ; ')}` : ''}`)
   } else console.log('– mon profil politique : pas d’axe pour cette élection, contrôles sautés')
 
   // 4 bis. La fenêtre de confidentialité s'ouvre depuis la barre du bas et se ferme

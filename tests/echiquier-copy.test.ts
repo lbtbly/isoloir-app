@@ -94,9 +94,15 @@ function allTexts(): string[] {
   }
   for (const v of Object.values(T)) if (typeof v !== 'function') walk(v)
   for (const n of [1, 2, 7]) {
-    out.push(T.pending(n), T.howWho(15, n), T.onQuestions(n), T.familyHead(n + 1), T.nothingLine(n), T.apartLine(n), T.noReadingLine(n), T.unansweredLine(n))
+    out.push(T.howWho(15, n), T.onQuestions(n), T.familyHead(n + 1), T.nothingLine(n), T.apartLine(n), T.noReadingLine(n), T.unansweredLine(n))
     out.push(...T.caveats(15), T.unplaced(n, false), T.unplaced(n, true), T.chanceNote(true, n * 12), T.chanceNote(false, 999))
   }
+  // La page d'attente et la fiche « Pour lire plus de thèmes »
+  for (const w of ['vide', 'en-cours', 'sans-avis'] as const)
+    for (const n of [1, 2, 15]) out.push(T.waitText(w, 22, n, false), T.waitText(w, 22, n, true), T.waitCta(w, n))
+  for (const n of [0, 1, 7, 22]) out.push(T.waitCount(n, 22))
+  for (const n of [1, 2, 16]) out.push(T.thinLine(n), T.exampleRow(n))
+  out.push(T.deeperLede(true), T.deeperLede(false))
   out.push(T.howWho(15, 0), ...T.methodIntro(5), T.methodWho(15, 7, 2, 4, true), T.methodWho(15, 0, 3, 3, false), T.methodChance(5), ...T.methodWorth())
   // Le graphique « Sujet par sujet »
   for (const n of [1, 2, 17]) {
@@ -118,8 +124,28 @@ describe('accords', () => {
     expect(T.nothingLine(1)).toBe(`Rien de net${NB}: 1${NB}thème`)
     expect(T.nothingLine(3)).toBe(`Rien de net${NB}: 3${NB}thèmes`)
     expect(T.familyHead(5)).toBe('Les 5 thèmes ensemble')
-    expect(T.pending(1)).toContain(`il reste 1${NB}question du`)
-    expect(T.pending(12)).toContain(`il reste 12${NB}questions du`)
+    expect(T.waitCount(0, 22)).toBe('question sur 22')
+    expect(T.waitCount(1, 22)).toBe('question sur 22')
+    expect(T.waitCount(7, 22)).toBe('questions sur 22')
+    expect(T.waitCta('en-cours', 1)).toBe(`Continuer${NB}: 1${NB}question`)
+    expect(T.waitCta('en-cours', 15)).toBe(`Continuer${NB}: 15${NB}questions`)
+    expect(T.waitCta('vide', 22)).toBe('Commencer la feuille')
+    expect(T.waitCta('sans-avis', 0)).toBe('Relire la feuille')
+    expect(T.waitText('en-cours', 22, 15, false)).toBe(
+      `La lecture s’affiche au bout des 22${NB}questions du questionnaire rapide, avec le dépouillement complet${NB}: encore 15${NB}questions.`,
+    )
+    expect(T.waitText('en-cours', 22, 1, false)).toMatch(new RegExp(`encore 1${NB}question\\.$`))
+    expect(T.waitText('en-cours', 22, 1, true)).toBe(`Une question a été ajoutée au questionnaire rapide depuis vos réponses${NB}: la lecture s’affiche de nouveau une fois cette question vue.`)
+    expect(T.waitText('en-cours', 22, 2, true)).toBe(`2${NB}questions ont été ajoutées au questionnaire rapide depuis vos réponses${NB}: la lecture s’affiche de nouveau une fois ces questions vues.`)
+    expect(T.waitText('vide', 22, 22, false)).toBe(
+      `La lecture se fait sur vos réponses${NB}: elle s’affiche au bout des 22${NB}questions du questionnaire rapide, avec le dépouillement complet.`,
+    )
+    // Aucun pronom sans antécédent en tête de phrase ni après « le questionnaire rapide »
+    for (const [w, l, a] of [['vide', 22, false], ['en-cours', 15, false], ['en-cours', 1, true], ['en-cours', 2, true]] as const)
+      expect(/(^|: )il /i.test(T.waitText(w, 22, l, a)), T.waitText(w, 22, l, a)).toBe(false)
+    expect(T.waitText('sans-avis', 22, 0, false)).toMatch(/^Vous avez passé les 22\u00a0questions sans placer de repère/)
+    expect(T.thinLine(1)).toBe(`Sur une seule question${NB}: 1${NB}thème`)
+    expect(T.thinLine(16)).toBe(`Sur une seule question${NB}: 16${NB}thèmes`)
     expect(T.unplaced(1, false)).toMatch(/^Un de vos accords sur ce thème porte sur une approche qui n’est/)
     expect(T.unplaced(3, true)).toMatch(/^3 de vos accords sur ces thèmes portent sur des approches qui ne sont/)
     expect(T.gap(65, 23, 'pres')).toBe(`+42${NB}points, nettement plus près`)
