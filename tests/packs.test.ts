@@ -2,7 +2,8 @@
 // Les seuils sont ceux de l'élection (election.checks, sinon config.quality de research/<id>/config.json) ;
 // absents, ceux de la primaire « Choisir 2027 » (DEFAULT_CHECKS), qui reproduisent ses règles d'origine.
 // tools/audit-pack.mjs applique les mêmes règles et le même tirage aléatoire, pour un rapport détaillé.
-// Candidats non classés (election.ranking.excluded, décision du propriétaire) : ni score ni rang, ils sont hors de
+// Candidats non classés (election.ranking.excluded, décision du propriétaire) : sans rang (score indicatif seulement,
+// pour information, depuis le 14 octobre 2026), ils sont hors de
 // toutes les mesures du score (parts de 1res places, couverture par candidat, écart de couverture, part des candidats
 // connus et concentration des positions principales sur chaque question, distinction deux à deux, auto-cohérence) ;
 // les contrôles de structure (identifiants, positions, sources) les comptent toujours.
@@ -218,7 +219,7 @@ for (const pack of elections) {
       for (const c of scored) expect(knownQuestions(pack, c.id), c.id).toBeGreaterThan(most)
     })
 
-    it.runIf(!!exclusion)('ni score ni rang : jamais au classement ni hors classement, toujours parmi les non classés', () => {
+    it.runIf(!!exclusion)('sans rang : jamais au classement ni hors classement, toujours parmi les non classés', () => {
       const answers: Answers = Object.fromEntries(
         bank.questions.map(q => [q.id, { ratings: Object.fromEntries(q.approaches.map((a, i) => [a.id, (i % 2 ? -1 : 1) as Rating])), redLines: [] }]),
       )

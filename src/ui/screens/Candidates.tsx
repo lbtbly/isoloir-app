@@ -271,7 +271,7 @@ export function CandidatePage({ pack, candidateId, state }: PageProps) {
   }
   const total = Object.keys(table).length
   const knownQuestions = cards.reduce((n, x) => n + x.known.length, 0)
-  // Non classé (election.ranking.excluded) : ni score ni rang
+  // Non classé (election.ranking.excluded) : sans rang ; au dépouillement, un score pour information seulement
   const unscored = isExcluded(pack, c.id)
   const themes = cards.filter(x => x.known.length).length
   /** Change de famille ; si la barre colle déjà en haut, on remonte au début des fiches */
@@ -353,7 +353,7 @@ export function CandidatePage({ pack, candidateId, state }: PageProps) {
               <span class="count-figure">{total}</span> positions sourcées sur {knownQuestions} questions, dans {themes}{' '}
               {/* Non classé : le calcul ne s'en sert pas, la phrase ne doit pas dire le contraire */}
               {unscored
-                ? 'thèmes. Elles n’entrent pas dans le calcul tant que ce candidat n’est pas classé\u00a0; une position douteuse est retirée plutôt que supposée.'
+                ? 'thèmes. Tant que ce candidat n’est pas classé, elles ne servent qu’à un score donné pour information, sans rang\u00a0; une position douteuse est retirée plutôt que supposée.'
                 : 'thèmes. Ce sont exactement celles qu’utilise le calcul ; une position douteuse est retirée plutôt que supposée.'}
             </p>
             <AiLabel kind="positions" class="positions-ai" />
@@ -444,7 +444,8 @@ export function CandidatePage({ pack, candidateId, state }: PageProps) {
 }
 
 /**
- * Candidat non classé : pourquoi il n'a ni score ni rang, avec le chiffre, et le lien vers la règle. Le chiffre ne
+ * Candidat non classé : pourquoi il n'a pas de rang (son score n'est donné que pour information, décision du
+ * propriétaire du 14 octobre 2026), avec le chiffre, et le lien vers la règle. Le chiffre ne
  * compte pas les positions probables : il peut être plus bas que celui des « positions sourcées » de la fiche
  */
 function UnscoredMark({ pack, candidateId }: { pack: ElectionPack; candidateId: string }) {

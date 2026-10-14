@@ -68,9 +68,20 @@ describe('phrases du dépouillement (core/resultsCopy)', () => {
     expect(copy.excludedTitle(8)).toBe(`8${NB}candidats ne sont pas classés`)
     expect(copy.excludedWhy(1)).toBe(`${NB}: sa position est connue sur trop peu de questions`)
     expect(copy.excludedWhy(8)).toBe(`${NB}: leurs positions sont connues sur trop peu de questions`)
-    expect(copy.excludedLede(1)).toMatch(/^Il n’a ni score ni rang/)
-    expect(copy.excludedLede(1)).not.toContain('Ordre tiré au hasard')
-    expect(copy.excludedLede(8)).toMatch(/^Ils n’ont ni score ni rang.* Ordre tiré au hasard\.$/)
+    // Pas de rang ; hors tendance, un score pour information seulement (décision du propriétaire du 14 octobre 2026)
+    expect(copy.excludedLede(1)).toBe(
+      `Il n’a pas de rang, quelles que soient vos réponses. Son score, calculé sur ses seules positions connues, est donné pour information seulement${NB}: sur si peu de questions, il dépend surtout de celles auxquelles vous avez répondu. Il ne se compare donc à aucun autre${NB}: même plus haut que ceux du classement, il ne dit pas que ce candidat est plus proche de vos idées. Sa fiche et ses positions restent consultables${NB}; la liste sera revue à mesure que ses positions seront connues.`,
+    )
+    expect(copy.excludedLede(8)).toBe(
+      `Ils n’ont pas de rang, quelles que soient vos réponses. Le score de chacun, calculé sur ses seules positions connues, est donné pour information seulement${NB}: sur si peu de questions, il dépend surtout de celles auxquelles vous avez répondu. Il ne se compare donc à aucun autre${NB}: même plus haut que ceux du classement, il ne dit pas que ce candidat est plus proche de vos idées. Leurs fiches et leurs positions restent consultables${NB}; la liste sera revue à mesure que leurs positions seront connues. Ordre tiré au hasard.`,
+    )
+    // Pendant la tendance, aucun score n'est montré : la phrase n'en parle pas
+    for (const n of [1, 8]) {
+      expect(copy.excludedLede(n, true)).not.toMatch(/score/)
+      expect(copy.excludedLede(n, true)).toMatch(/^Ils? n’(a|ont) pas de rang, quelles que soient vos réponses\. /)
+    }
+    expect(copy.excludedLede(1, true)).not.toContain('Ordre tiré au hasard')
+    expect(copy.excludedLede(8, true)).toMatch(/ Ordre tiré au hasard\.$/)
     expect(copy.starLegend(0, 3)).toBe(`${NB}: thème prioritaire, compte double (3${NB}au plus).`)
     expect(copy.starLegend(1, 3)).toBe(`${NB}: thème prioritaire, compte double (3${NB}au plus, 1${NB}choisi).`)
     expect(copy.starLegend(2, 3)).toBe(`${NB}: thème prioritaire, compte double (3${NB}au plus, 2${NB}choisis).`)
@@ -163,13 +174,14 @@ describe('phrases du dépouillement (core/resultsCopy)', () => {
         copy.answeredLede(r.answered),
         copy.leaderLead(r.allIncompatible),
         copy.closeNote(names[1]!),
-        copy.crossingNote([...r.ranking, ...r.unranked].filter(c => !c.compatible).length),
+        copy.crossingNote([...r.ranking, ...r.unranked, ...r.excludedResults].filter(c => !c.compatible).length),
         copy.allIncompatibleNote(r.excluded.length > 0),
         copy.manyRedLinesNote(r.redLineCount),
         copy.emptyRanking(r.minCoverageShare),
         copy.excludedTitle(r.excluded.length),
         copy.excludedWhy(r.excluded.length),
         copy.excludedLede(r.excluded.length),
+        copy.EXCLUDED_NO_COMPARE,
         copy.swapText(names.slice(1, 2), names.slice(0, 1)).join(''),
         copy.gridAllLine(r.ranking.length, r.excluded.length > 0),
         ...copy.caveats(pack.election, r.minCoverageShare),

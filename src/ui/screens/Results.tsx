@@ -72,6 +72,7 @@ import {
   CLOSE_GAP,
   computeResults,
   displayScore,
+  indicativeShown,
   knownQuestions,
   methodPeers,
   POINTS_PER_STROKE,
@@ -82,7 +83,7 @@ import {
   type UnrankedResult,
 } from '../../core/score'
 import type { SessionState } from '../../core/storage'
-import type { Candidate, CandidateId, ElectionPack, Question, TopicId, TopicWeights } from '../../core/types'
+import type { Candidate, ElectionPack, Question, TopicId, TopicWeights } from '../../core/types'
 import { ConfirmErase } from '../components/ConfirmErase'
 import { isVoting, useCurrentElection } from '../components/CurrentElection'
 import { FormHeader } from '../components/FormHeader'
@@ -669,8 +670,9 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
 
         <Unranked items={unranked} minShare={results.minCoverageShare} provisional={provisional} byId={byId} />
 
-        {/* Non classés de l'élection : toujours nommés, sans score, même pendant la tendance */}
-        <Excluded pack={pack} ids={results.excluded} byId={byId} />
+        {/* Non classés de l'élection : toujours nommés, même pendant la tendance, sans rang ; hors tendance, leur score
+            indicatif (décision du propriétaire du 14 octobre 2026) */}
+        <Excluded pack={pack} items={results.excludedResults} provisional={provisional} byId={byId} />
 
         {provisional || !ranking.length ? null : <Agreement results={results} byId={byId} />}
 
@@ -988,8 +990,9 @@ function Leader({
   if (!first || first.score === null) return null
   const c = byId.get(first.candidateId)!
   const b = affinityBand(first.score)
-  // Hors classement compris : la phrase compte tous les candidats qui franchissent une ligne rouge
-  const crossing = [...ranking, ...results.unranked].filter(r => !r.compatible).length
+  // Hors classement et non classés compris : la phrase compte tous les candidats qui franchissent une ligne rouge,
+  // autant que de croix sur la page (non classés : décision du propriétaire du 14 octobre 2026)
+  const crossing = [...ranking, ...results.unranked, ...results.excludedResults].filter(r => !r.compatible).length
   return (
     <section class="leader on-copy" aria-labelledby="leader-title">
       <Portrait candidate={c} size="id" decorative />
@@ -1053,6 +1056,7 @@ function Unranked({
           const c = byId.get(r.candidateId)!
           const touched = r.dealbreakers.length
           const flagged = !r.compatible
+          const shown = indicativeShown(r, provisional)
           return (
             <li key={r.candidateId} class={`unranked-item${flagged ? ' is-flagged' : ''}`}>
               <Portrait candidate={c} size="small" decorative />
@@ -1065,10 +1069,10 @@ function Unranked({
               <p class="unranked-meta">
                 <span>{knownLine(r.known, r.answered)}</span>
                 {/* Les éléments sont séparés à l'écran par l'espacement ; à la lecture vocale, par une virgule */}
-                {!provisional && r.score !== null ? (
+                {shown !== null ? (
                   <span class="unranked-score">
                     <span class="sr-only">, </span>
-                    {indicativeScore(r.score)}
+                    {indicativeScore(shown)}
                   </span>
                 ) : null}
                 {touched ? (
@@ -1088,30 +1092,45 @@ function Unranked({
 }
 
 /**
- * Non classés (election.ranking.excluded) : sortis du calcul par décision, positions connues sur trop peu de
- * questions. Toujours nommés sous le classement, dans un ordre tiré au hasard, avec la seule chose que l'on mesure
- * d'eux : sur combien de questions de la banque leur position est connue. Ni score, ni rang, ni bâtons, ni ligne
- * rouge. Le nom mène à la fiche, comme au classement.
+ * Non classés (election.ranking.excluded) : sortis du classement par décision, positions connues sur trop peu de
+ * questions. Toujours nommés sous le classement, dans un ordre tiré au hasard, sur le modèle du hors classement : sur
+ * combien de questions de la banque, puis de vos réponses, leur position est connue ; hors tendance, un score
+ * indicatif, pour information seulement (décision du propriétaire du 14 octobre 2026), calculé sur leurs seules
+ * positions connues (aucun sans position connue sur vos réponses) ; une ligne rouge franchie, dite en clair pour
+ * qu'un score ne la cache jamais. Ni rang, ni bâtons, ni couleur de palier. Le nom mène à la fiche, comme au classement.
  */
-function Excluded({ pack, ids, byId }: { pack: ElectionPack; ids: CandidateId[]; byId: Map<string, Candidate> }) {
-  const known = useMemo(() => new Map(ids.map(id => [id, knownQuestions(pack, id)])), [pack, ids])
-  if (!ids.length) return null
+function Excluded({
+  pack,
+  items,
+  provisional,
+  byId,
+}: {
+  pack: ElectionPack
+  items: UnrankedResult[]
+  provisional: boolean
+  byId: Map<string, Candidate>
+}) {
+  const known = useMemo(() => new Map(items.map(r => [r.candidateId, knownQuestions(pack, r.candidateId)])), [pack, items])
+  if (!items.length) return null
   const total = pack.bank.questions.length
   return (
     <section class="unranked excluded" aria-labelledby="excluded-title">
       <h2 id="excluded-title" class="unranked-title">
-        {excludedTitle(ids.length)}
-        <span class="excluded-why">{excludedWhy(ids.length)}</span>
+        {excludedTitle(items.length)}
+        <span class="excluded-why">{excludedWhy(items.length)}</span>
       </h2>
       <p class="unranked-lede">
-        {excludedLede(ids.length)}{' '}
+        {excludedLede(items.length, provisional)}{' '}
         <a href={link('/methode/non-classes')}>{LINK_RULE}</a>
       </p>
       <ul class="unranked-list">
-        {ids.map(id => {
-          const c = byId.get(id)!
+        {items.map(r => {
+          const c = byId.get(r.candidateId)!
+          const touched = r.dealbreakers.length
+          const flagged = !r.compatible
+          const shown = indicativeShown(r, provisional)
           return (
-            <li key={id} class="unranked-item">
+            <li key={r.candidateId} class={`unranked-item${flagged ? ' is-flagged' : ''}`}>
               <Portrait candidate={c} size="small" decorative />
               <div class="unranked-who">
                 <a class="unranked-name" href={link(`/candidat/${c.id}`)}>
@@ -1119,7 +1138,27 @@ function Excluded({ pack, ids, byId }: { pack: ElectionPack; ids: CandidateId[];
                 </a>
                 <span class="unranked-party">{c.affiliation}</span>
               </div>
-              <p class="unranked-meta">{bankKnownLine(known.get(id)!, total)}</p>
+              <p class="unranked-meta">
+                <span>{bankKnownLine(known.get(r.candidateId)!, total)}</span>
+                {/* Les éléments sont séparés à l'écran par l'espacement ; à la lecture vocale, par une virgule */}
+                <span>
+                  <span class="sr-only">, </span>
+                  {knownLine(r.known, r.answered)}
+                </span>
+                {shown !== null ? (
+                  <span class="unranked-score">
+                    <span class="sr-only">, </span>
+                    {indicativeScore(shown)}
+                  </span>
+                ) : null}
+                {touched ? (
+                  <span class="unranked-flag">
+                    <span class="sr-only">, </span>
+                    <Icon name="cross" class="flag-mark" />
+                    {redLineSummary(r.dealbreakers)}
+                  </span>
+                ) : null}
+              </p>
             </li>
           )
         })}

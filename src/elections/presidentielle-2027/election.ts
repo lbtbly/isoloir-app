@@ -71,8 +71,10 @@ export const election: ElectionInfo = {
   // son score à titre indicatif (décision du propriétaire du 7 octobre 2026 ; l'audit montrait un candidat connu
   // sur 7 questions de la banque premier sur 24 % des profils aléatoires, par simple variance).
   // Non classés : les candidats dont les positions sont connues sur moins de la moitié des questions de la
-  // banque (sept au 7 octobre 2026, de 7 à 47 sur 100 ; le moins connu des autres l'est sur 59) n'ont ni score ni rang, nulle part
-  // (décision du propriétaire du 7 octobre 2026 : « ça ne sera pas pertinent »). Liste révisable : un candidat y
+  // banque (sept au 7 octobre 2026, de 7 à 47 sur 100 ; le moins connu des autres l'est sur 59) n'avaient ni score ni rang,
+  // nulle part (décision du propriétaire du 7 octobre 2026 : « ça ne sera pas pertinent »). Assouplie par la décision du propriétaire
+  // du 14 octobre 2026 : toujours sans rang ni comparaison, ils ont sous le classement un score indicatif, pour
+  // information seulement, calculé sur leurs seules positions connues (core/score.ts, excludedResults). Liste révisable : un candidat y
   // revient quand ses positions sont connues, par exemple à la publication de son programme. Le motif affiché reste
   // factuel et le même pour tous. research/presidentielle-2027/config.json reprend la liste (scoringExcluded).
   ranking: {
@@ -208,6 +210,13 @@ export const election: ElectionInfo = {
     {
       date: '2026-10-14',
       text: 'Détail de la mise à jour du 14 octobre\u00a0: les deux questions qui gagnent une approche sont «\u00a0Quelle stratégie pour les finances publiques face à la dette\u00a0?\u00a0» (relancer la production en France pour accroître les recettes publiques) et «\u00a0Comment faire évoluer les règles du marché unique européen\u00a0?\u00a0» (priorité, dans la commande publique, aux entreprises qui produisent en France). Sur ces deux questions, positions ajoutées ou revues pour François Asselineau, Bernard Cazeneuve, Nicolas Dupont-Aignan, Raphaël Glucksmann, Marine Le Pen, Jean-Luc Mélenchon et Édouard Philippe. Ces positions et celles de Natacha Polony ont été relevées le 14 octobre et vérifiées automatiquement par une IA contre leurs sources, sans relecture humaine une par une. Les chiffres publiés sur la page «\u00a0Mon profil politique\u00a0» ont été mesurés à nouveau.',
+    },
+    {
+      date: '2026-10-14',
+      // Décision du propriétaire du 14 octobre 2026. Écrite après les deux entrées du même jour : à date égale, c'est la
+      // première écrite qui s'affiche en tête du dépouillement d'un visiteur qui revient (Results, latestChange). Les
+      // données ne changent pas : pas de nouvelle dataVersion
+      text: 'Les candidats non classés ont désormais, sous le classement, un score indicatif, calculé sur leurs seules positions connues et donné pour information seulement\u00a0: ils restent sans rang.',
     },
     {
       date: '2026-10-12',

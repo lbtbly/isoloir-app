@@ -14,8 +14,10 @@
 // - Hors classement (élections qui l'activent, election.ranking) : un candidat connu sur moins de
 //   minCoverageShare des questions comptées n'est pas classé ; son score reste calculé, à titre indicatif.
 //   Rangs, ex aequo, écart significatif, stabilité et « ce qui les sépare » ne portent que sur les classés.
-// - Non classés (élections qui en désignent, election.ranking.excluded) : candidats sortis du calcul par décision
-//   du propriétaire, positions connues sur trop peu de questions. Aucun score, aucun rang : ils ne sont pas calculés.
+// - Non classés (élections qui en désignent, election.ranking.excluded) : candidats sortis du classement par décision
+//   du propriétaire, positions connues sur trop peu de questions. Aucun rang, aucune comparaison. Un score indicatif,
+//   pour information seulement (décision du propriétaire du 14 octobre 2026) : le même calcul que pour tous, sur leurs
+//   seules positions connues, fait à part, après le classement, qu'il ne touche en rien.
 
 import { hasOpinion } from './answers'
 import { seededShuffle } from './rng'
@@ -171,17 +173,24 @@ export interface WhyItem {
   delta: number
 }
 
-/** Candidat hors classement : ni rang ni ex aequo, son score n'est donné qu'à titre indicatif */
+/** Candidat hors classement ou non classé : ni rang ni ex aequo, son score n'est donné qu'à titre indicatif */
 export type UnrankedResult = Omit<CandidateResult, 'rank' | 'tied'>
 
 export interface Results {
   /** Le classement : les candidats classés, du plus au moins proche (tous, sans règle de classement) */
   ranking: CandidateResult[]
   /**
-   * Non classés (election.ranking.excluded), parmi les candidats demandés : sortis du calcul, sans score ni rang,
-   * dans un ordre tiré au hasard (graine de l'utilisateur) ; toujours vide pour une élection qui n'en désigne pas
+   * Non classés (election.ranking.excluded), parmi les candidats demandés : sortis du classement, sans rang, dans un
+   * ordre tiré au hasard (graine de l'utilisateur) ; toujours vide pour une élection qui n'en désigne pas
    */
   excluded: CandidateId[]
+  /**
+   * Les mêmes, dans le même ordre, avec leur score indicatif, pour information seulement (décision du propriétaire du
+   * 14 octobre 2026) : calculé comme pour tous, sur leurs seules positions connues, à part, après le classement. Il
+   * n'entre dans aucune comparaison (rangs, ex aequo, écart, stabilité, « ce qui les sépare », lignes rouges du
+   * classement). score null : position connue sur aucune de vos réponses
+   */
+  excludedResults: UnrankedResult[]
   /**
    * Hors classement : candidats connus sur trop peu des questions comptées (règle election.ranking), dans un
    * ordre tiré au hasard (graine de l'utilisateur) ; toujours vide pour une élection sans cette règle
@@ -210,7 +219,8 @@ function weightOf(weights: TopicWeights, topicId: TopicId): number {
   return weights[topicId] ?? 1
 }
 
-function scoreCandidate(
+/** Le score d'un candidat, sans rang : le même calcul pour tous (classés, hors classement, non classés) */
+export function scoreCandidate(
   pack: ElectionPack,
   answers: Answers,
   weights: TopicWeights,
@@ -306,6 +316,13 @@ export function methodPeers(ranking: CandidateResult[], allIncompatible: boolean
 /** Arrondi d'affichage : deux candidats au même pourcentage entier sont ex aequo */
 export const displayScore = (score: number | null) => (score === null ? null : Math.round(score))
 
+/**
+ * Score indicatif montré pour un candidat hors classement ou non classé : aucun pendant la tendance (provisional), ni
+ * sans position connue sur vos réponses (score null) ; sinon son score, le même calcul que pour tous
+ */
+export const indicativeShown = (r: Pick<UnrankedResult, 'score'>, provisional: boolean): number | null =>
+  provisional ? null : r.score
+
 /** Au dépouillement, un bâton vaut 5 points d'affinité : les bâtons racontent exactement le classement */
 export const POINTS_PER_STROKE = 5
 export const strokesFor = (score: number | null) => (score === null ? 0 : Math.round(score / POINTS_PER_STROKE))
@@ -313,10 +330,13 @@ export const strokesFor = (score: number | null) => (score === null ? 0 : Math.r
 /** Part minimale des questions comptées où un candidat doit être connu pour être classé ; null : tous classés */
 export const minCoverageShare = (pack: ElectionPack): number | null => pack.election.ranking?.minCoverageShare ?? null
 
-/** Candidats non classés de l'élection (election.ranking.excluded), sortis du calcul ; vide sans décision */
+/**
+ * Candidats non classés de l'élection (election.ranking.excluded), sortis du classement (score indicatif seulement,
+ * décision du propriétaire du 14 octobre 2026) ; vide sans décision
+ */
 export const excludedIds = (pack: Pick<ElectionPack, 'election'>): readonly CandidateId[] => pack.election.ranking?.excluded?.ids ?? []
 
-/** Non classé : sorti du calcul par décision (election.ranking.excluded), sans score ni rang */
+/** Non classé : sorti du classement par décision (election.ranking.excluded), sans rang, score pour information seulement */
 export const isExcluded = (pack: Pick<ElectionPack, 'election'>, candidateId: CandidateId): boolean =>
   excludedIds(pack).includes(candidateId)
 
@@ -343,7 +363,8 @@ export function isRanked(r: Pick<CandidateResult, 'known' | 'answered'>, minShar
 /**
  * Calcule le classement. Tous les candidats demandés sont toujours renvoyés : dans le classement, hors classement
  * quand l'élection a une règle de classement (election.ranking.minCoverageShare) et qu'ils sont connus sur trop peu
- * de vos réponses, ou parmi les non classés (election.ranking.excluded), qui ne sont pas calculés du tout.
+ * de vos réponses, ou parmi les non classés (election.ranking.excluded), écartés avant le classement et calculés à
+ * part, après lui, pour leur seul score indicatif (excludedResults).
  * Les ex aequo sont ordonnés au hasard (graine de l'utilisateur), jamais par l'ordre du code ; les candidats hors
  * classement et les non classés le sont aussi.
  */
@@ -354,7 +375,7 @@ export function computeResults(
   seed: string,
   candidateIds: CandidateId[] = pack.candidates.map(c => c.id),
 ): Results {
-  // Non classés : écartés avant tout calcul. Sans décision, la liste est la même, dans le même ordre : le tirage des
+  // Non classés : écartés avant le classement. Sans décision, la liste est la même, dans le même ordre : le tirage des
   // ex aequo, donc le classement de la primaire, ne change pas
   const out = new Set(excludedIds(pack))
   const excluded = seededShuffle(candidateIds.filter(id => out.has(id)), `${seed}:excluded`)
@@ -422,9 +443,17 @@ export function computeResults(
     why.splice(3)
   }
 
+  // Non classés : leur score indicatif, pour information seulement (décision du propriétaire du 14 octobre 2026). Calculé
+  // à part, une fois tout le reste établi, sans graine ni tirage : le classement reste identique à l'octet près
+  const excludedResults: UnrankedResult[] = excluded.map(id => {
+    const r = scoreCandidate(pack, answers, weights, id, pack.positions)
+    return { ...r, compatible: firmHits(r) === 0 }
+  })
+
   return {
     ranking,
     excluded,
+    excludedResults,
     unranked,
     drawOrder: shuffled.map(r => r.candidateId),
     minCoverageShare: minShare,

@@ -85,7 +85,10 @@ const STEP1 = step1Qs.length
 /** La question qui ferme le premier dépouillement, s'il y en a une (primaire : celle sur LFI) */
 const closingQ = step1Qs.find(q => q.last) ?? null
 const N = pack.candidates.length
-/** Candidats notés : hors les non classés de l'élection (election.ranking.excluded), sans score ni rang nulle part */
+/**
+ * Candidats notés : hors les non classés de l'élection (election.ranking.excluded), sans rang nulle part ; leur score
+ * indicatif, pour information seulement, est à part sous le classement (décision du propriétaire du 14 octobre 2026)
+ */
 const EXCLUDED = new Set(pack.election.ranking?.excluded?.ids ?? [])
 const NS = pack.candidates.filter(c => !EXCLUDED.has(c.id)).length
 const STORAGE = `isoloir:${entry.id}`
@@ -559,6 +562,16 @@ try {
       trendVerdict === 0 && !trendPercents && trendShare === 0 && trendPdf === 0 && heroCtaLabel.startsWith(`Continuer\u00a0: ${QUICK - STEP1} question${QUICK - STEP1 > 1 ? 's' : ''}`) && barLabel.startsWith('Continuer'),
       `tendance : pas d’affiche, de pourcentage, de partage ni de PDF ; bouton large « ${heroCtaLabel} », barre « ${barLabel.replace(/\s+/g, ' ')} »`,
     )
+    // Non classés pendant la tendance : nommés, sans rang, et sans score indicatif (ni pourcentage, ni phrase sur le score)
+    if (EXCLUDED.size) {
+      const trendOff = page.locator('.unranked.excluded')
+      const trendOffItems = await trendOff.locator('.unranked-item').count()
+      const trendOffText = (await trendOff.innerText().catch(() => '')) ?? ''
+      check(
+        trendOffItems === EXCLUDED.size && !trendOffText.includes('%') && !/score/i.test(trendOffText) && (await trendOff.locator('.unranked-score').count()) === 0,
+        `tendance : les ${trendOffItems} non classés nommés, sans score indicatif ni pourcentage`,
+      )
+    }
 
     // 3 bis. Qui porte quoi, à la première tendance : seules les questions vues sont révélées, sous une légende
     // visible qui sépare votre avis de ce que pensent les candidats
@@ -637,6 +650,65 @@ try {
     boardRows === NS && shortcuts === 2 && (await page.locator('.leader').count()) === 1 && (await page.locator('.unranked.excluded').count()) === (EXCLUDED.size ? 1 : 0),
     `dépouillement : l’affiche du plus proche, un seul classement (${boardRows} lignes), deux raccourcis dans la barre (${shortcuts})${EXCLUDED.size ? `, ${EXCLUDED.size} non classés à part` : ''}`,
   )
+  // Non classés hors tendance (décision du propriétaire du 14 octobre 2026) : aucun au classement ; chacun avec sa
+  // couverture de la banque et de vos réponses, et un score indicatif dès que sa position est connue sur une réponse
+  if (EXCLUDED.size) {
+    const inBoard = await page.locator('.board-row[data-candidate]').evaluateAll(rows => rows.map(r => r.getAttribute('data-candidate')))
+    const offRows = await page.locator('.unranked.excluded .unranked-item').evaluateAll(items =>
+      items.map(li => ({
+        name: li.querySelector('.unranked-name')?.textContent?.trim() ?? '',
+        meta: li.querySelector('.unranked-meta')?.textContent?.replace(/\s+/g, ' ').trim() ?? '',
+        score: li.querySelector('.unranked-score')?.textContent?.replace(/^,\s*/, '').trim() ?? null,
+        flagged: li.classList.contains('is-flagged'),
+        cross: !!li.querySelector('.unranked-flag .flag-mark'),
+      })),
+    )
+    const offIssues = offRows.flatMap(r => {
+      const known = /Connu sur (\d+) de vos \d+ réponses/.exec(r.meta)
+      return [
+        /Connu sur \d+ des \d+\squestions de la banque/.test(r.meta) ? '' : `${r.name} : couverture de la banque`,
+        known ? '' : `${r.name} : couverture de vos réponses`,
+        known && Number(known[1]) > 0 && !/^Score indicatif\u00a0: \d+\u00a0%$/.test(r.score ?? '') ? `${r.name} : score « ${r.score} »` : '',
+        known && Number(known[1]) === 0 && r.score !== null ? `${r.name} : un score sans position connue` : '',
+        !r.flagged || r.cross ? '' : `${r.name} : ligne rouge franchie sans sa croix`,
+      ].filter(Boolean)
+    })
+    const lede = ((await page.locator('.unranked.excluded .unranked-lede').innerText().catch(() => '')) ?? '').trim()
+    check(
+      inBoard.every(id => !EXCLUDED.has(id)) &&
+        offRows.length === EXCLUDED.size &&
+        offIssues.length === 0 &&
+        offRows.some(r => r.score !== null) &&
+        /pas de rang/.test(lede) &&
+        /pour information seulement/.test(lede),
+      `non classés : aucun au classement, ${offRows.filter(r => r.score !== null).length} sur ${offRows.length} avec un score indicatif, sans rang${offIssues.length ? ` : ${offIssues.join(' ; ')}` : ''}`,
+    )
+  }
+
+  // Lignes rouges : la phrase sous l'affiche compte autant de candidats que de croix sur la page, non classés compris
+  // (décision du propriétaire du 14 octobre 2026) ; sans phrase quand tous les classés franchissent
+  const crossInfo = await page.evaluate(() => {
+    const note = [...document.querySelectorAll('.leader-note')].find(p => /franchi/.test(p.textContent ?? ''))
+    const rows = [...document.querySelectorAll('.board-row')]
+    return {
+      note: note ? Number(/(\d+)/.exec(note.textContent ?? '')?.[1] ?? -1) : 0,
+      all: rows.length > 0 && rows.every(r => r.classList.contains('is-flagged')),
+      crosses: document.querySelectorAll('.board-row.is-flagged, .unranked-item.is-flagged').length,
+    }
+  })
+  check(crossInfo.all || crossInfo.note === crossInfo.crosses, `lignes rouges : la phrase sous l’affiche compte ${crossInfo.note} candidats, ${crossInfo.crosses} croix sur la page`)
+  // Listes sous le classement, de la tablette au petit portable : le nom garde sa colonne, jamais coupé lettre par lettre
+  if (EXCLUDED.size) {
+    const narrow = []
+    for (const width of [768, 820, 900, 1024, 1180, 1280]) {
+      await page.setViewportSize({ width, height: 900 })
+      const min = await page.locator('.unranked .unranked-who').evaluateAll(els => Math.min(...els.map(e => e.getBoundingClientRect().width)))
+      const rem = await page.evaluate(() => parseFloat(getComputedStyle(document.documentElement).fontSize) || 16)
+      if (min < 8 * rem) narrow.push(`${width} px : ${Math.round(min)} px`)
+    }
+    await page.setViewportSize({ width: 390, height: 844 })
+    check(narrow.length === 0, `listes sous le classement, de 768 à 1280 px : la colonne du nom garde au moins 8rem${narrow.length ? ` (${narrow.join(' ; ')})` : ''}`)
+  }
 
   // 4 ter. Accords et désaccords : deux barres par candidat (approches principales, autres positions)
   const agreeItems = await page.locator('.agree .agree-item').count()
@@ -1488,6 +1560,16 @@ try {
   const file = JSON.parse(readFileSync(await download.path(), 'utf8'))
   const rated = file.readable.filter(r => r.avis.length >= 2 && !r.passee).length // la question 3 en a un de plus (test clavier)
   check(file.format === 3 && file.readable.length === QUICK && rated === QUICK, `le double JSON contient les ${QUICK} réponses, chacune avec ses deux avis (${rated})`)
+  if (EXCLUDED.size) {
+    const offFile = file.nonClasses?.candidats ?? []
+    const offNames = new Set(pack.candidates.filter(c => EXCLUDED.has(c.id)).map(c => c.name))
+    check(
+      offFile.length === EXCLUDED.size &&
+        offFile.every(x => !('rang' in x) && (x.questionsConnues > 0 ? Number.isInteger(x.affiniteIndicative) : x.affiniteIndicative === null)) &&
+        file.results.every(x => !offNames.has(x.candidat)),
+      `le double JSON : ${offFile.length} non classés à part, avec leur score indicatif et sans rang, aucun parmi les résultats`,
+    )
+  }
   // Le dépouillement en PDF, fabriqué sur l'appareil, toujours hors ligne : le morceau du rapport est dans la copie
   // hors ligne. Relu par tools/pdf-text.mjs (structure, xref, texte)
   const [pdf] = await Promise.all([
@@ -1512,6 +1594,10 @@ try {
     doc?.pages.some(p => p.text.includes('Le classement')) ? '' : 'pas de « Le classement »',
     !entry.archived || /\bArchive\b/.test(pdfFirst) ? '' : 'pas de mention « Archive » en page 1',
     pdfStatus.startsWith('PDF fabriqué sur cet appareil') ? '' : `statut « ${pdfStatus} »`,
+    // Non classés : leur score indicatif suit leur titre (décision du propriétaire du 14 octobre 2026)
+    !EXCLUDED.size || /ne sont pas classés[\s\S]*pas de rang[\s\S]*Score indicatif\s*:\s*\d+\s*%/.test((doc?.pages ?? []).map(p => p.text).join('\n'))
+      ? ''
+      : 'non classés sans score indicatif',
   ].filter(Boolean)
   check(
     pdfIssues.length === 0,
