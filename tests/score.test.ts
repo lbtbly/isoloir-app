@@ -468,14 +468,20 @@ describe('non classés (election.ranking.excluded)', () => {
     expect(excludedIds(pack)).toEqual([])
   })
 
-  it('ni score ni rang : jamais au classement ni hors classement, listé à part', () => {
+  it('sans rang : jamais au classement ni hors classement, listé à part avec un score indicatif', () => {
     const r = computeResults(withOut, all3, {}, 'seed')
     expect(r.ranking.map(x => x.candidateId).sort()).toEqual(['a', 'b'])
     expect(r.unranked).toEqual([])
     expect(r.excluded).toEqual(['c'])
     expect(r.answered).toBe(3)
+    // Score indicatif (décision du 14 octobre 2026) : celui que lui donnerait le calcul s'il était classé, sans rang
+    const ref = computeResults(pack, all3, {}, 'seed').ranking.find(x => x.candidateId === 'c')!
+    expect(r.excludedResults).toHaveLength(1)
+    expect(r.excludedResults[0]).toEqual(Object.fromEntries(Object.entries(ref).filter(([k]) => k !== 'rank' && k !== 'tied')))
+    expect('rank' in r.excludedResults[0]! || 'tied' in r.excludedResults[0]!).toBe(false)
     // Sans décision, personne n'est à part
     expect(computeResults(pack, all3, {}, 'seed').excluded).toEqual([])
+    expect(computeResults(pack, all3, {}, 'seed').excludedResults).toEqual([])
   })
 
   it('le classement des autres est exactement celui calculé sans eux : rangs, ex aequo, écart, stabilité, ce qui les sépare', () => {
@@ -483,19 +489,23 @@ describe('non classés (election.ranking.excluded)', () => {
     answers.forEach((a, i) => {
       const r = computeResults(withOut, a, { t2: 2 }, `s${i}`)
       const ref = computeResults(pack, a, { t2: 2 }, `s${i}`, ['a', 'b'])
-      const { excluded, ...rest } = r
-      const { excluded: none, ...expected } = ref
+      const { excluded, excludedResults, ...rest } = r
+      const { excluded: none, excludedResults: noScores, ...expected } = ref
       expect(excluded).toEqual(['c'])
+      expect(excludedResults.map(x => x.candidateId)).toEqual(['c'])
       expect(none).toEqual([])
+      expect(noScores).toEqual([])
       expect(rest, `profil ${i}`).toEqual(expected)
     })
   })
 
-  it('lignes rouges : celles d’un non classé ne comptent nulle part ; « tous concernés » se juge entre classés', () => {
+  it('lignes rouges : celles d’un non classé ne comptent pas au classement ; « tous concernés » se juge entre classés', () => {
     // Ligne rouge sur q1c, que seul c porte
     const onC = computeResults(withOut, { ...all3, q1: ans({ q1c: -1 }, ['q1c']) }, {}, 'seed')
     expect(onC.ranking.every(x => x.compatible && !x.dealbreakers.length)).toBe(true)
     expect(onC.allIncompatible).toBe(false)
+    // Mais elle reste dite à côté de son score indicatif : un score ne cache jamais une ligne rouge
+    expect(onC.excludedResults[0]).toMatchObject({ candidateId: 'c', compatible: false, dealbreakers: [{ questionId: 'q1', approachId: 'q1c', level: 'touche' }] })
     // Ligne rouge sur q2a, que portent a (principale) et c (compatible) : seul a est concerné, b reste devant
     const onA = computeResults(withOut, { q1: ans({ q1a: 1 }), q2: ans({ q2a: -1 }, ['q2a']) }, {}, 'seed')
     expect(onA.ranking.map(x => [x.candidateId, x.compatible])).toEqual([
@@ -523,9 +533,10 @@ describe('non classés (election.ranking.excluded)', () => {
     expect(computeResults(withOut, all3, {}, 'seed', ['a', 'b']).excluded).toEqual([])
   })
 
-  it('sans réponse : listés quand même, rien n’est calculé ; tous non classés : aucun classement', () => {
+  it('sans réponse : listés quand même, sans score ; tous non classés : aucun classement', () => {
     const r = computeResults(withOut, {}, {}, 'seed')
     expect(r.excluded).toEqual(['c'])
+    expect(r.excludedResults).toMatchObject([{ candidateId: 'c', score: null, known: 0, answered: 0 }])
     expect(r.answered).toBe(0)
     const none = computeResults({ ...pack, election: { ...pack.election, ranking: { excluded: { ...exclusion, ids: ['a', 'b', 'c'] } } } }, all3, {}, 'seed')
     expect(none.ranking).toEqual([])

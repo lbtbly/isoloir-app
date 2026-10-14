@@ -209,7 +209,7 @@ export function renderReport(input: ReportInput): ReportOutput {
   const wrap = (runs: readonly Run[], width: number, firstWidth = width) => wrapRuns(runs, width, firstWidth, lost)
   const lines = (s: string, width: number, style: TextStyle) => wrapText(s, width, style, lost)
 
-  const { ranking, unranked, allIncompatible } = results
+  const { ranking, unranked, excludedResults, allIncompatible } = results
   const [first, second] = ranking
   const someOff = unranked.length > 0 || results.excluded.length > 0
   const compatible = ranking.filter(r => r.compatible || allIncompatible)
@@ -219,7 +219,7 @@ export function renderReport(input: ReportInput): ReportOutput {
   const answeredTopics = new Set(bank.questions.filter(q => hasOpinion(state.answers[q.id])).map(q => q.topicId))
   const chosen = bank.topics.filter(t => answeredTopics.has(t.id) && state.weights[t.id] === 2)
   const chosenIds = new Set(chosen.map(t => t.id))
-  const withRed = [...ranking, ...unranked].filter(r => r.dealbreakers.length > 0)
+  const withRed = [...ranking, ...unranked, ...excludedResults].filter(r => r.dealbreakers.length > 0)
 
   const frozen = election.dataFrozenAt
   const frozenLong = formatDate(frozen).replace(/ /g, '\u00a0')
@@ -504,8 +504,9 @@ export function renderReport(input: ReportInput): ReportOutput {
     const band = affinityBand(first.score) as AffinityBand
     const X = ML + 102
     const colW = MR - 16 - X
-    // Hors classement compris : la phrase compte tous les candidats qui franchissent une ligne rouge
-    const crossing = [...ranking, ...unranked].filter(r => !r.compatible).length
+    // Hors classement et non classés compris : la phrase compte tous les candidats qui franchissent une ligne rouge,
+    // autant que de croix dans le document (non classés : décision du propriétaire du 14 octobre 2026)
+    const crossing = [...ranking, ...unranked, ...excludedResults].filter(r => !r.compatible).length
     const notes: { lines: string[]; cross: boolean }[] = []
     const noteStyle = st('R', 8.5, C.copySoft)
     if (results.close && second) notes.push({ lines: lines(closeNote(nameOf(second.candidateId)), colW, noteStyle), cross: false })
@@ -715,17 +716,23 @@ export function renderReport(input: ReportInput): ReportOutput {
     })
   }
 
-  if (results.excluded.length) {
-    const n = results.excluded.length
+  // Non classés : comme le hors classement, sans rang ; leur score indicatif, pour information seulement (décision du
+  // propriétaire du 14 octobre 2026), et une ligne rouge franchie dite en clair (le PDF n'est jamais une tendance)
+  if (results.excludedResults.length) {
+    const n = results.excludedResults.length
     const title = excludedTitle(n)
     const total = bank.questions.length
     flow.place(h3(title, 16, [{ text: title, style: st('B', 13, C.print, 85) }, { text: excludedWhy(n), style: st('R', 13, C.soft, 85) }]))
     flow.place(para([{ text: `${excludedLede(n)} `, style: st('R', 8.5, C.soft) }, ...withLink('', LINK_RULE, '/methode/non-classes')], { kind: 'lede', leading: 11.5, gap: 2, keep: 1 }))
-    results.excluded.forEach((id, i) =>
-      flow.place(
-        sideRow(id, [{ text: bankKnownLine(knownQuestions(pack, id), total), style: st('R', 7.5, C.soft) }], { pale: false, i, n, title }),
-      ),
-    )
+    results.excludedResults.forEach((r: UnrankedResult, i) => {
+      const right: SideLine[] = [
+        { text: bankKnownLine(knownQuestions(pack, r.candidateId), total), style: st('R', 7.5, C.soft) },
+        { text: knownLine(r.known, r.answered), style: st('R', 7.5, C.soft) },
+      ]
+      if (r.score !== null) right.push({ text: indicativeScore(r.score), style: st('B', 7.5) })
+      if (r.dealbreakers.length) right.push({ text: redLineSummary(r.dealbreakers), style: st('R', 7.5, C.soft), cross: true })
+      flow.place(sideRow(r.candidateId, right, { pale: !r.compatible, i, n, title }))
+    })
   }
 
   /* ---------- Vos lignes rouges franchies (détail, propre au papier) ---------- */
@@ -735,7 +742,8 @@ export function renderReport(input: ReportInput): ReportOutput {
     // Qui franchit quoi : des positions de candidats, recherchées et résumées par IA, et non seulement des textes
     flow.place(aiLabel(AI_POSITIONS))
     flow.place(para([{ text: RED_LINES_LEDE, style: st('R', 8.5, C.soft) }], { kind: 'lede', leading: 11.5, gap: 4, keep: 1 }))
-    // Qui porte chaque approche marquée : les classés par rang, puis les hors classement dans leur ordre
+    // Qui porte chaque approche marquée : les classés par rang, puis les hors classement et les non classés dans leur
+    // ordre (non classés : décision du propriétaire du 14 octobre 2026, une croix n'est jamais sans son détail)
     const holders = new Map<string, { touche: string[]; possible: string[] }>()
     const add = (r: Pick<CandidateResult, 'candidateId' | 'dealbreakers'>, suffix: string) => {
       for (const d of r.dealbreakers) {
@@ -746,6 +754,7 @@ export function renderReport(input: ReportInput): ReportOutput {
     }
     for (const r of ranking) add(r, '')
     for (const r of unranked) add(r, '\u00a0(hors\u00a0classement)')
+    for (const r of excludedResults) add(r, '\u00a0(non\u00a0classé)')
     const entries = bank.questions.flatMap(q => q.approaches.filter(a => holders.has(a.id)).map(a => ({ q, a })))
     entries.forEach(({ q, a }, i) => {
       const h = holders.get(a.id)

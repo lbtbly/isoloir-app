@@ -5330,10 +5330,12 @@ details[open] > summary .summary-label {
   }
 }
 
-/* Large : la couverture et le score indicatif à droite du nom, sur la même ligne */
+/* Large : la couverture et le score indicatif à droite du nom, sur la même ligne. Le nom garde au moins 14rem : une
+   méta longue (non classés : banque, réponses, score, ligne rouge) passe alors sur plusieurs lignes, alignées à
+   droite, au lieu d'écraser le nom lettre par lettre (tablettes et petits portables, de 48 à 72rem) */
 @media (min-width: 48rem) {
   .unranked-item {
-    grid-template-columns: 2.25rem minmax(0, 1fr) auto;
+    grid-template-columns: 2.25rem minmax(min(14rem, 100%), 1fr) auto;
     grid-template-areas: 'photo who meta';
   }
 
@@ -5344,8 +5346,9 @@ details[open] > summary .summary-label {
   }
 }
 
-/* Non classés (election.ranking.excluded) : la même liste discrète, sans aucun score ; la raison suit le titre, en
-   plus léger, pour que le titre se lise comme une phrase */
+/* Non classés (election.ranking.excluded) : la même liste discrète, sans rang ; hors tendance, un score indicatif,
+   pour information seulement (décision du propriétaire du 14 octobre 2026). La raison suit le titre, en plus léger,
+   pour que le titre se lise comme une phrase */
 .unranked + .excluded {
   margin-top: var(--s6);
 }
