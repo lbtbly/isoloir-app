@@ -10,6 +10,14 @@ export const axisOf = (election: Pick<ElectionInfo, 'spectrum'>): readonly Spect
   election.spectrum?.axis?.length ? election.spectrum.axis : null
 
 /**
+ * Le bloc de la grille d'un candidat (celui de sa nuance) ; null s'il n'a pas de nuance de la grille. Ici plutôt
+ * qu'avec le calcul de « Mon profil politique » (core/echiquier.ts, chargé à la demande), pour que d'autres fichiers
+ * chargés à la demande s'en servent sans partager ce calcul
+ */
+export const blocOf = (election: Pick<ElectionInfo, 'spectrum'>, candidate: Pick<Candidate, 'nuance'>): string | null =>
+  election.spectrum?.nuances.find(n => n.code === candidate.nuance)?.bloc ?? null
+
+/**
  * Ordre de la grille des nuances (election.spectrum), puis alphabétique au sein d'une même nuance ; null si l'élection
  * n'en a pas ou si un candidat n'y a pas de nuance (l'ordre reste alors tiré au hasard, pour tous)
  */

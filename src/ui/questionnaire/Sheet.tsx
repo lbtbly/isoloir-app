@@ -16,6 +16,7 @@ import { RatingRuler, RulerLegend } from '../components/RatingRuler'
 import { Tally } from '../components/Tally'
 import { QuestionVideos } from '../videos/Links'
 import { Explainer } from './Explainer'
+import { LETTERS } from './letters'
 
 export interface SheetProps {
   title: string
@@ -38,7 +39,6 @@ export interface SheetProps {
   hint?: boolean
 }
 
-const LETTERS = 'ABCDEFGH'
 
 export function Sheet(props: SheetProps) {
   const { question, approaches, onChange } = props

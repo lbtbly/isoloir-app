@@ -18,8 +18,8 @@
 import { hasOpinion } from './answers'
 import { hashString, mulberry32 } from './rng'
 import { CLOSE_GAP, effectiveWeight, excludedIds, stance } from './score'
-import { axisOf } from './spectrum'
-import type { Answer, Answers, ApproachId, Candidate, CandidateId, ElectionInfo, ElectionPack, Question, QuestionId, SpectrumAxisBloc, TopicGroup, TopicId } from './types'
+import { axisOf, blocOf } from './spectrum'
+import type { Answer, Answers, ApproachId, CandidateId, ElectionPack, Question, QuestionId, SpectrumAxisBloc, TopicGroup, TopicId } from './types'
 
 /** Les réglages de la méthode (cahier des charges, § 3.13) */
 export const ECHIQUIER = {
@@ -122,9 +122,8 @@ export interface ReadOptions {
 
 // ——— Les candidats de l'axe ———
 
-/** Le bloc de la grille d'un candidat (celui de sa nuance) ; null s'il n'a pas de nuance de la grille */
-export const blocOf = (election: Pick<ElectionInfo, 'spectrum'>, candidate: Pick<Candidate, 'nuance'>): string | null =>
-  election.spectrum?.nuances.find(n => n.code === candidate.nuance)?.bloc ?? null
+/** Le bloc de la grille d'un candidat : défini avec la grille (core/spectrum.ts), repris ici pour les importeurs du calcul */
+export { blocOf }
 
 /**
  * Les candidats qui comptent sur l'axe, bloc par bloc dans l'ordre de l'axe : ceux que le score calcule (ni masqués,

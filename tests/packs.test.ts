@@ -168,8 +168,17 @@ for (const pack of elections) {
       expect(bank.questions.length).toBeLessThanOrEqual(checks.bank.max)
     })
 
-    it('les seuils de l’élection (election.checks) et ceux des outils de données (config.json) sont les mêmes', () => {
+    // Sans research/ (le dépôt public n'a pas les données de travail), les comparaisons avec config.json sont sautées,
+    // et le compte rendu le montre
+    it.runIf(!!config)('les seuils de l’élection (election.checks) et ceux des outils de données (config.json) sont les mêmes', () => {
       if (election.checks && config?.quality) expect(election.checks).toEqual(config.quality)
+    })
+
+    it.runIf(!!config?.forbiddenTerms)('l’élection reprend les termes interdits des outils de données (contrôlés même sans research/)', () => {
+      const own = new Set(election.forbiddenTerms ?? [])
+      expect((config?.forbiddenTerms ?? []).filter(t => !own.has(t))).toEqual([])
+      const ownAllow = new Set((election as { forbiddenTermsAllow?: string[] }).forbiddenTermsAllow ?? [])
+      expect((config?.forbiddenTermsAllow ?? []).filter(t => !ownAllow.has(t))).toEqual([])
     })
 
     it('les exemptions du premier dépouillement (checks.step1.exempt) désignent des candidats de l’élection', () => {
@@ -180,7 +189,7 @@ for (const pack of elections) {
   describe(`pack ${election.id} : candidats non classés`, () => {
     const exclusion = election.ranking?.excluded
 
-    it('la liste de l’élection (ranking.excluded) et celle des outils de données (config.scoringExcluded) sont les mêmes', () => {
+    it.runIf(!!config)('la liste de l’élection (ranking.excluded) et celle des outils de données (config.scoringExcluded) sont les mêmes', () => {
       if (!exclusion && !config?.scoringExcluded) return
       const hidden = new Set(election.hidden ?? [])
       expect([...(exclusion?.ids ?? [])].sort()).toEqual([...(config?.scoringExcluded?.filter(id => !hidden.has(id)) ?? exclusion?.ids ?? [])].sort())
@@ -532,7 +541,11 @@ describe('anonymat structurel du questionnaire', () => {
 
   it("aucun module du questionnaire n'importe, même indirectement ou à la demande, les positions, les candidats ni les élections", () => {
     const dir = join(root, 'ui/questionnaire')
-    const { offenders, seen } = reach(readdirSync(dir).map(f => join(dir, f)))
+    // Tous les fichiers du dossier, sous-dossiers compris (la table y range ses écrans anonymes)
+    const files = readdirSync(dir, { recursive: true, encoding: 'utf8' })
+      .filter(f => /\.tsx?$/.test(f))
+      .map(f => join(dir, f))
+    const { offenders, seen } = reach(files)
     expect(offenders).toEqual([])
     // Le parcours passe bien par les liens (nav.ts) et les vidéos chargées à la demande
     expect(seen.has(join(root, 'ui/nav.ts'))).toBe(true)
@@ -546,5 +559,13 @@ describe('anonymat structurel du questionnaire', () => {
     expect(forbidden('elections/choisir-2027/groups.ts')).toBe(false)
     const { offenders } = reach([join(root, 'core/routes.ts'), join(root, 'ui/nav.ts')])
     expect(offenders).toEqual([])
+  })
+})
+
+describe('lettres des approches', () => {
+  it('chaque question a au plus autant d’approches que de lettres de la feuille', async () => {
+    const { LETTERS } = await import('../src/ui/questionnaire/letters')
+    for (const pack of elections)
+      for (const q of pack.bank.questions) expect(q.approaches.length, `${pack.election.id} ${q.id}`).toBeLessThanOrEqual(LETTERS.length)
   })
 })

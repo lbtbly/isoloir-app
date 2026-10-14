@@ -7,15 +7,15 @@ import { ratingOf } from '../../core/answers'
 import { seededShuffle } from '../../core/rng'
 import type { Results } from '../../core/score'
 import type { SessionState } from '../../core/storage'
-import type { Answer, Candidate, ElectionPack, Position, Question } from '../../core/types'
+import { holdersOf, unknownOf } from '../../core/carriers'
+import type { Answer, Candidate, ElectionPack, Question } from '../../core/types'
 import { AiLabel } from '../components/AiLabel'
-import { ExternalLink } from '../components/ExternalLink'
 import { FormHeader } from '../components/FormHeader'
 import { SiteFooter } from '../components/SiteFooter'
 import { Icon } from '../components/Icon'
-import { Initials, InitialsSample, type Mark } from '../components/Initials'
+import { Initials, InitialsSample } from '../components/Initials'
+import { PositionSources } from '../components/PositionSources'
 import { RatingMark } from '../components/RatingRuler'
-import { formatDate, hostOf } from '../format'
 import { isMany } from '../many'
 import { link } from '../nav'
 
@@ -23,20 +23,6 @@ interface Props {
   pack: ElectionPack
   state: SessionState
   results: Results
-}
-
-const NATURE: Record<Position['nature'], string> = {
-  proposition: 'proposition',
-  declaration: 'déclaration',
-  inference: 'déduction (vote ou texte signé)',
-}
-
-function markOf(p: Position | undefined): Mark | null {
-  if (!p || p.confidence === 'low') return null
-  if (p.weight === 2) return 'main'
-  if (p.weight === 1) return 'secondary'
-  if (p.rejects) return 'rejects'
-  return null
 }
 
 export function Proximity({ pack, state }: Props) {
@@ -137,8 +123,8 @@ export function Proximity({ pack, state }: Props) {
 
         {bank.consensus?.length ? (
           <section class="block" aria-labelledby="consensus-title">
-            <h2 id="consensus-title">Ce sur quoi tous les candidats s’accordent</h2>
-            <p class="small">Ces points ne départagent personne : ils ne sont pas notés.</p>
+            <h2 id="consensus-title">Les points de large accord</h2>
+            <p class="small">Partagés par la plupart des candidats qui se sont exprimés, ces points ne départagent personne&nbsp;: ils ne sont pas notés.</p>
             <AiLabel kind="texte" more="lien" />
             <ul class="consensus">
               {bank.consensus.map((c, i) => (
@@ -176,8 +162,7 @@ function RevealQuestion(props: {
   answer: Answer | undefined
 }) {
   const { question, people, positions, answer } = props
-  const [open, setOpen] = useState(false)
-  const unknown = people.filter(c => !question.approaches.some(a => markOf(positions[c.id]?.[a.id])))
+  const unknown = unknownOf(question, people, positions)
 
   return (
     <article class="reveal" id={`q-${question.id}`} aria-labelledby={`t-${question.id}`}>
@@ -194,9 +179,7 @@ function RevealQuestion(props: {
         {question.approaches.map(a => {
           const value = answer && !answer.skipped ? ratingOf(answer, a.id) : 0
           const redLine = !!answer?.redLines.includes(a.id)
-          const holders = people
-            .map(c => ({ c, mark: markOf(positions[c.id]?.[a.id]) }))
-            .filter((x): x is { c: Candidate; mark: Mark } => x.mark !== null)
+          const holders = holdersOf(a, people, positions)
           return (
             <li key={a.id} class={`reveal-row${redLine ? ' is-rejected' : ''}`}>
               <RatingMark value={value} redLine={redLine} lead={'Votre avis\u00a0: '} />
@@ -221,53 +204,7 @@ function RevealQuestion(props: {
           ))}
         </p>
       ) : null}
-      <button type="button" class="btn-text sources-toggle" aria-expanded={open} onClick={() => setOpen(!open)}>
-        {open ? 'Masquer les positions et sources' : 'Voir les positions et sources'}
-      </button>
-      {open ? (
-        <div class="sources">
-          <AiLabel kind="resumes" more="lien" class="sources-ai" />
-          <dl class="sources-list">
-            {people.map(c => {
-              const entries = question.approaches
-                .map(a => ({ a, p: positions[c.id]?.[a.id] }))
-                .filter((x): x is { a: Question['approaches'][number]; p: Position } => !!x.p)
-              if (!entries.length) return null
-              return (
-                <div key={c.id} class="source-person">
-                  <dt>{c.name}</dt>
-                  {entries.map(({ a, p }) => (
-                    <dd key={a.id}>
-                      <p class="source-approach">
-                        <span class="source-mark">{p.weight === 2 ? 'Approche principale' : p.weight === 1 ? 'Approche compatible' : 'Rejette'}</span>{' '}
-                        <q>{a.text}</q>
-                      </p>
-                      <p>
-                        {p.summary}{' '}
-                        <span class="source-kind">
-                          ({NATURE[p.nature]}
-                          {p.confidence === 'low' ? ', position probable, non comptée' : p.confidence === 'medium' ? ', formulation moins nette' : ''})
-                        </span>
-                      </p>
-                      <ul class="source-links">
-                        {p.sources.map(s => (
-                          <li key={s.url}>
-                            <ExternalLink href={s.url}>{s.title}</ExternalLink>{' '}
-                            <span class="source-meta">
-                              {s.publisher ?? hostOf(s.url)}
-                              {s.date ? `, ${formatDate(s.date)}` : ''}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    </dd>
-                  ))}
-                </div>
-              )
-            })}
-          </dl>
-        </div>
-      ) : null}
+      <PositionSources question={question} people={people} positions={positions} />
     </article>
   )
 }

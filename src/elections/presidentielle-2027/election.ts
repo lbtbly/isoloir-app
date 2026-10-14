@@ -102,6 +102,10 @@ export const election: ElectionInfo = {
     { start: '2027-04-16T00:00:00+02:00', end: '2027-04-18T20:00:00+02:00' },
     { start: '2027-04-30T00:00:00+02:00', end: '2027-05-02T20:00:00+02:00' },
   ],
+  // Page des candidats : la liste ne sera officielle qu'après les parrainages (Conseil constitutionnel, mars 2027)
+  pending: [
+    'La liste officielle des candidats sera arrêtée par le Conseil constitutionnel en mars 2027, après le dépôt des parrainages. D’ici là, cette page présente les personnes qui ont annoncé leur candidature\u00a0; d’autres peuvent s’y ajouter.',
+  ],
   // Ordre de la page des candidats, de l'extrême gauche à l'extrême droite (demande du propriétaire du 8 octobre 2026) :
   // la grille officielle la plus récente des nuances politiques du ministère de l'Intérieur, dans son ordre, puis
   // l'ordre alphabétique au sein d'une même nuance. La présidentielle n'attribue pas de nuances : chaque candidat

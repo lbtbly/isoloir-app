@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'preact/hooks'
 import type { AgreeScope } from '../../core/agreeImage'
 import { downloadBlob } from '../../core/exportData'
+import { freezePeriod, frozenAt } from '../../core/freeze'
 import { TITLE_AGREE } from '../../core/resultsCopy'
 import { displayScore, type Results } from '../../core/score'
 import {
@@ -48,6 +49,9 @@ export function Share({ pack, results }: Props) {
   // Les accords et désaccords des seuls candidats classés ; jusqu'à AGREE_ROWS, tous, sans choix
   const agree = kind === 'agree' && results.ranking.length > 0
   const scope: AgreeScope = results.ranking.length > AGREE_ROWS ? pick : 'all'
+  // Gel des jours de vote (core/freeze.ts) : aucune image n'est fabriquée, de la veille à la clôture du scrutin
+  const frozen = frozenAt(pack.election)
+  const frozenStart = frozen?.start ?? null
 
   useEffect(() => {
     let alive = true
@@ -55,6 +59,7 @@ export function Share({ pack, results }: Props) {
     setError(null)
     setUrl(null)
     setBlob(null)
+    if (frozenStart) return
     ;(agree ? loadAgree().then(m => m.renderAgreeImage(pack, results, { showFlags, scope })) : renderShareImage(pack, results, { showFlags, view }))
       .then(async canvas => {
         const b = await canvasToJpeg(canvas)
@@ -69,7 +74,7 @@ export function Share({ pack, results }: Props) {
       alive = false
       if (made) URL.revokeObjectURL(made)
     }
-  }, [pack, results, showFlags, view, agree, scope])
+  }, [pack, results, showFlags, view, agree, scope, frozenStart])
 
   const agreeImage = agree ? agreeNow() : null
   const fileName = agreeImage ? agreeImage.agreeFileName(pack, new Date(), scope) : shareFileName(pack, new Date(), view)
@@ -120,7 +125,14 @@ export function Share({ pack, results }: Props) {
           une donnée sensible : vous choisissez seul où l’envoyer.
         </p>
 
-        {results.ranking.length ? (
+        {frozen ? (
+          <p class="notice" role="status">
+            Pas d’image à partager pendant le gel des jours de vote, {freezePeriod(frozen)}. Votre dépouillement reste
+            consultable.
+          </p>
+        ) : null}
+
+        {!frozen && results.ranking.length ? (
           <Choice
             label="Image à partager"
             value={agree ? 'agree' : 'poster'}
@@ -132,7 +144,7 @@ export function Share({ pack, results }: Props) {
           />
         ) : null}
 
-        {agree ? (
+        {frozen ? null : agree ? (
           results.ranking.length > AGREE_ROWS ? (
             <Choice
               label="Candidats sur l’image"
@@ -157,23 +169,27 @@ export function Share({ pack, results }: Props) {
           />
         ) : null}
 
-        <label class="switch">
-          <input type="checkbox" checked={showFlags} onChange={e => setShowFlags((e.currentTarget as HTMLInputElement).checked)} />
-          Marquer d’une croix les candidats qui franchissent une de mes lignes rouges
-        </label>
+        {frozen ? null : (
+          <>
+            <label class="switch">
+              <input type="checkbox" checked={showFlags} onChange={e => setShowFlags((e.currentTarget as HTMLInputElement).checked)} />
+              Marquer d’une croix les candidats qui franchissent une de mes lignes rouges
+            </label>
 
-        <figure class="share-preview">
-          {url ? (
-            <img src={url} width={size[0]} height={size[1]} alt={alt} />
-          ) : (
-            <div class="share-placeholder" aria-hidden="true">
-              {error ?? 'Fabrication de l’image…'}
-            </div>
-          )}
-        </figure>
-        <p class="small" role="status" aria-live="polite">
-          {status || (error ?? (url ? 'Image prête.' : 'Fabrication de l’image…'))}
-        </p>
+            <figure class="share-preview">
+              {url ? (
+                <img src={url} width={size[0]} height={size[1]} alt={alt} />
+              ) : (
+                <div class="share-placeholder" aria-hidden="true">
+                  {error ?? 'Fabrication de l’image…'}
+                </div>
+              )}
+            </figure>
+            <p class="small" role="status" aria-live="polite">
+              {status || (error ?? (url ? 'Image prête.' : 'Fabrication de l’image…'))}
+            </p>
+          </>
+        )}
       </main>
       <SiteFooter />
       <nav class="action-bar" aria-label="Partager">
@@ -182,7 +198,9 @@ export function Share({ pack, results }: Props) {
             <Icon name="arrow-left" />
             Résultats
           </a>
-          {canShare ? (
+          {frozen ? (
+            <span />
+          ) : canShare ? (
             <button type="button" class="btn-text" disabled={!blob} onClick={() => blob && downloadBlob(blob, fileName)}>
               <Icon name="download" />
               Télécharger le JPG
@@ -190,7 +208,9 @@ export function Share({ pack, results }: Props) {
           ) : (
             <span />
           )}
-          {canShare ? (
+          {frozen ? (
+            <span />
+          ) : canShare ? (
             <button type="button" class="btn-primary" onClick={share}>
               Partager
               <Icon name="share" />
