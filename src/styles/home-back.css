@@ -54,7 +54,7 @@
 }
 
 .changed-title {
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   margin: 0;
   font-weight: 850;
   font-stretch: 72%;
@@ -78,6 +78,7 @@
 
 .changed-list > li {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 0.15rem;
   padding: var(--s2) 0;
   border-top: var(--line) solid var(--rule);
@@ -88,6 +89,7 @@
 }
 
 .changed-topic {
+  overflow-wrap: break-word;
   font-size: 0.8125rem;
   font-weight: 700;
   color: var(--print-soft);
@@ -123,9 +125,10 @@
   }
 }
 
-/* Carte étroite, ou texte très agrandi (la mesure est en rem : 20rem font 640px à 200 %) : le nombre au-dessus du
-   titre, qui garde toute la largeur ; un nombre à deux chiffres ne lui laisserait plus rien à côté */
-@container changed (max-width: 20rem) {
+/* Carte très étroite (téléphone de 320px) ou texte très agrandi (la mesure est en rem : 17rem font 544px à 200 %) :
+   le nombre au-dessus du titre, qui garde toute la largeur, et le bouton sans flèche ; les téléphones de 360 à 430px,
+   texte normal, gardent la carte telle quelle */
+@container changed (max-width: 17rem) {
   .changed-head {
     grid-template-columns: minmax(0, 1fr);
     gap: var(--s2);
@@ -138,6 +141,12 @@
   .changed-cta {
     padding-inline: var(--s2);
     font-size: 1rem;
+  }
+
+  /* « remboursement », « constitutionnel » : plus larges que la carte à 200 %, coupés avec un trait d'union */
+  .changed-topic,
+  .changed-prompt {
+    hyphens: auto;
   }
 
   /* La flèche cède sa place au libellé */

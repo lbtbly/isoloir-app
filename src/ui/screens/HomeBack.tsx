@@ -24,10 +24,6 @@ type Entry = { date: string; text: string }
 const PARIS_DAY = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris', year: 'numeric', month: '2-digit', day: '2-digit' })
 export const parisDay = (iso: string): string => PARIS_DAY.format(new Date(iso))
 
-const DAY_MONTH = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', timeZone: 'Europe/Paris' })
-/** « 11 octobre », « 1er novembre » : le jour des réponses, à Paris */
-const dayMonth = (iso: string): string => DAY_MONTH.format(new Date(iso)).replace(/^1 /, '1er ')
-
 /**
  * Ce qui est nouveau depuis ses réponses : les jours du journal des données postérieurs au jour (à Paris) où le
  * questionnaire rapide a été terminé, les plus récents d'abord, une entrée par jour (à date égale, la première écrite,
@@ -123,8 +119,9 @@ export function WelcomeBack({ pack, state, results, stale, essentialCount, profi
           {profile}
           {news.length && doneAt ? (
             <section class="back-news" aria-labelledby="back-news-title">
+              {/* Sans date : celle du chapeau est à l'heure de l'appareil, le tri des jours du journal à celle de Paris */}
               <h2 id="back-news-title" class="back-news-title">
-                Nouveau depuis le {dayMonth(doneAt)}
+                Nouveau depuis vos réponses
               </h2>
               <ol class="back-news-list">
                 {news.map(e => (

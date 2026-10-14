@@ -1658,15 +1658,23 @@ try {
     await page.goto(U('/resultats'))
     await heading(page, 'Votre dépouillement')
     const onResults = await page.locator('.results-intro .changed').count()
-    // La feuille d'avant, relue au rechargement (l'application garde la sienne en mémoire jusque-là)
-    await page.evaluate(([k, v]) => localStorage.setItem(k, v), [STORAGE, kept])
-    await page.reload()
+    // La feuille d'avant, relue au rechargement (l'application garde la sienne en mémoire jusque-là). Le dépouillement
+    // vient d'enregistrer son classement vu, un peu après l'affichage : on le laisse finir avant de rendre la feuille,
+    // et on vérifie après le rechargement que c'est bien elle qui est relue
+    let restored = false
+    for (let k = 0; k < 3 && !restored; k++) {
+      await page.waitForTimeout(400)
+      await page.evaluate(([key, v]) => localStorage.setItem(key, v), [STORAGE, kept])
+      await page.reload()
+      await page.waitForTimeout(200)
+      restored = await page.evaluate(key => !/"rev":999\b/.test(localStorage.getItem(key) ?? ''), STORAGE)
+    }
     await page.goto(U('/'))
     await page.locator('.welcome-back').waitFor({ timeout: 5000 }).catch(() => null)
     const gone = await page.locator('.changed').count()
     check(
-      card?.count === '1' && card.title === 'Une question a changé depuis vos réponses' && card.items === 1 && card.href === L('/revision') && onResults === 1 && gone === 0,
-      `questions à revoir : carte sur l’accueil (${card ? `« ${card.count} », « ${card.title} », ${card.items} question, vers ${card.href}` : 'absente'}), en tête du dépouillement (${onResults}), partie une fois la feuille rendue (${gone})`,
+      card?.count === '1' && card.title === 'Une question a changé depuis vos réponses' && card.items === 1 && card.href === L('/revision') && onResults === 1 && restored && gone === 0,
+      `questions à revoir : carte sur l’accueil (${card ? `« ${card.count} », « ${card.title} », ${card.items} question, vers ${card.href}` : 'absente'}), en tête du dépouillement (${onResults}), partie une fois la feuille rendue (relue ${restored}, ${gone} carte)`,
     )
   }
   // L'appel de l'en-tête mène désormais au dépouillement (libellé long ou court selon la largeur)
