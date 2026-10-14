@@ -315,7 +315,9 @@ export function Method({ pack, anchor }: { pack: ElectionPack; /** Rubrique à m
         </p>
         <p>
           {APP_NAME} n’est pas un sondage&nbsp;: il ne recueille les réponses de personne et ne publie aucun résultat
-          d’ensemble. Chaque dépouillement ne concerne que la personne qui répond, sur son propre appareil.
+          d’ensemble. Chaque dépouillement ne concerne que la personne qui répond, sur son propre appareil. Le mode
+          «&nbsp;À table&nbsp;» compte en entier, sur un seul téléphone, les bulletins d’un groupe privé&nbsp;; rien n’est
+          transmis, et ses règles sont publiées sur la page de la table.
         </p>
 
         <h2>Les versions des questions</h2>

@@ -33,6 +33,18 @@ const KEPT = [
     until: 'Elle ne contient aucune réponse ; votre navigateur la remplace à chaque nouvelle version',
   },
   {
+    icon: 'lock',
+    what: 'Une table «\u00a0À table\u00a0»',
+    where: 'Dans la mémoire de la page seulement',
+    until: 'Effacée à « Terminer » ou en fermant la page ; jamais enregistrée. Aucun bulletin n’est gardé, seulement des totaux',
+  },
+  {
+    icon: 'download',
+    what: 'L’image de la table (JPG)',
+    where: 'Là où vous l’enregistrez',
+    until: 'Elle dit ce que pense un groupe que vos proches peuvent reconnaître : elle n’est fabriquée qu’avec l’accord de toute la table',
+  },
+  {
     icon: 'share',
     what: 'Votre affiche (JPG)',
     where: 'Là où vous l’envoyez',

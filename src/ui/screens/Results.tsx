@@ -9,6 +9,7 @@ import { comparePath } from '../../core/routes'
 import { prepareCompare } from '../compare/load'
 import { loadReport, prepareReport, reportNow } from '../report/load'
 import { prepareProfile } from '../profile/load'
+import { hasTable } from '../table/load'
 import { axisOf } from '../../core/spectrum'
 import {
   AGREE_HEADS,
@@ -474,6 +475,19 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
     // Deuxième, juste après « Qui porte quoi » (décision du propriétaire du 12 octobre 2026). À l'encre, sans pastel : le
     // pastel de sa place (le bleu, celui de la droite sur les cartes des candidats et sur la page) y prendrait un sens
     ...(profile ? [{ href: link('/profil'), icon: 'axis', title: PROFILE_TITLE, desc: PROFILE_PANEL, ink: true }] : []),
+    // « À table » : juste après le profil, sur le pastel de sa place ; à l'encre quand il passerait deuxième (le bleu
+    // de cette place est celui de la droite sur les cartes des candidats)
+    ...(hasTable(election)
+      ? [
+          {
+            href: link('/a-table'),
+            icon: 'table',
+            title: 'À table',
+            desc: 'De 4 à 12 personnes, un seul téléphone : chacun vote en secret, puis vous lisez ensemble ce qui vous réunit.',
+            ink: !profile,
+          },
+        ]
+      : []),
     { href: link('/partager'), icon: 'share', title: 'Partager l’image', desc: 'Votre affiche en JPG, fabriquée sur cet appareil.' },
     {
       href: link('/approfondir'),

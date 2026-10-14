@@ -26,6 +26,7 @@ import { seededShuffle } from '../../core/rng'
 import { formatDayRange, formatMoment } from '../format'
 import { useReveal } from '../useReveal'
 import { prepareProfile } from '../profile/load'
+import { hasTable } from '../table/load'
 import { isMany } from '../many'
 
 const DAY_MONTH = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', timeZone: 'Europe/Paris' })
@@ -342,6 +343,12 @@ export function Home({ pack, state, essential, stale, setState, eraseAll, saved 
             {done ? (
               <a class="btn-text" href={link(`/feuille/1`)}>
                 Relire la feuille
+              </a>
+            ) : null}
+            {hasTable(election) ? (
+              <a class="btn-text" href={link('/a-table')}>
+                <Icon name="table" />
+                À plusieurs, autour d’une table
               </a>
             ) : null}
             <button type="button" class="btn-text" onClick={() => file.current?.click()}>

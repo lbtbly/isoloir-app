@@ -8,7 +8,6 @@ import { SECTION, shownText, verdictLine } from '../../../core/table/copy'
 import type { Question, Topic } from '../../../core/types'
 import { AiLabel } from '../../components/AiLabel'
 import { Icon } from '../../components/Icon'
-import { InkCross, InkTick } from '../../components/Ink'
 import { Tally } from '../../components/Tally'
 import { ClosedFoot, ClosedHeader } from './Closed'
 
@@ -27,8 +26,10 @@ function Count({ value, what }: { value: Shown; what: string }) {
 }
 
 function VerdictMark({ verdict }: { verdict: Verdict }) {
-  if (verdict === 'reunit') return <InkTick class="is-agree" />
-  if (verdict === 'refuse') return <InkCross class="is-red" />
+  // Les pictogrammes du site, et non les marques au stylo (components/Ink) : celles-ci sont réservées aux gestes de la
+  // personne, et les importer ici ferait sortir du script principal des modules qu'il partage avec ce fichier
+  if (verdict === 'reunit') return <Icon name="check" class="verdict-mark is-agree" />
+  if (verdict === 'refuse') return <Icon name="cross" class="verdict-mark is-red" />
   return null
 }
 

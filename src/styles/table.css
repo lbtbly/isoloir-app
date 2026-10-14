@@ -313,22 +313,19 @@
   line-height: 1;
 }
 
-.aloud-verdict .ink {
-  position: static;
+.aloud-verdict .verdict-mark {
   flex: none;
   width: 2.2rem;
   height: 2.2rem;
   margin-top: 0.1rem;
-  fill: none;
   stroke-width: 2.6;
-  stroke-linecap: round;
 }
 
-.aloud-verdict .ink.is-agree {
+.aloud-verdict .verdict-mark.is-agree {
   stroke: var(--aff-tres-proche);
 }
 
-.aloud-verdict .ink.is-red {
+.aloud-verdict .verdict-mark.is-red {
   stroke: var(--red);
 }
 
@@ -629,4 +626,21 @@
   .screen-pass .pass-label {
     animation: none;
   }
+}
+
+/* Pendant une table, tirer pour rafraîchir ferait perdre la séance (rien n'est gardé) */
+html.is-table-closed {
+  overscroll-behavior-y: none;
+}
+
+.table-picture-preview {
+  margin: var(--s4) 0;
+}
+
+.table-picture-preview img {
+  display: block;
+  width: 100%;
+  max-width: 30rem;
+  height: auto;
+  border: var(--line) solid var(--rule-strong);
 }

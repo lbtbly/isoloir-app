@@ -63,14 +63,15 @@ export function Talk({ question, ideaText, onRevote, onBack, onSkip }: TalkProps
 interface AfterProps {
   ideaText: string
   before: { agree: Shown; disagree: Shown }
-  after: { agree: Shown; disagree: Shown }
+  /** null : trop peu de bulletins exprimés au nouveau tour pour garder le secret */
+  after: { agree: Shown; disagree: Shown } | null
   onReveal: () => void
 }
 
 const same = (a: Shown, b: Shown) => shownText(a) === shownText(b)
 
 export function After({ ideaText, before, after, onReveal }: AfterProps) {
-  const moved = !same(before.agree, after.agree) || !same(before.disagree, after.disagree)
+  const moved = !!after && (!same(before.agree, after.agree) || !same(before.disagree, after.disagree))
   return (
     <div class="screen screen-after">
       <ClosedHeader where="Nouveau tour de table" />
@@ -80,28 +81,34 @@ export function After({ ideaText, before, after, onReveal }: AfterProps) {
           Après en avoir parlé
         </h1>
         <p class="talk-idea">{ideaText}</p>
-        <p class="q-prompt">{moved ? 'La table a bougé sur cette idée.' : 'La table tient ses positions, et elle en a parlé.'}</p>
-        <table class="after-rows">
-          <thead>
-            <tr>
-              <th scope="col" />
-              <th scope="col">Avant</th>
-              <th scope="col">Après</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">D’accord</th>
-              <td>{shownText(before.agree)}</td>
-              <td>{shownText(after.agree)}</td>
-            </tr>
-            <tr>
-              <th scope="row">Pas d’accord</th>
-              <td>{shownText(before.disagree)}</td>
-              <td>{shownText(after.disagree)}</td>
-            </tr>
-          </tbody>
-        </table>
+        {after ? (
+          <>
+            <p class="q-prompt">{moved ? 'La table a bougé sur cette idée.' : 'La table tient ses positions, et elle en a parlé.'}</p>
+            <table class="after-rows">
+              <thead>
+                <tr>
+                  <th scope="col" />
+                  <th scope="col">Avant</th>
+                  <th scope="col">Après</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">D’accord</th>
+                  <td>{shownText(before.agree)}</td>
+                  <td>{shownText(after.agree)}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Pas d’accord</th>
+                  <td>{shownText(before.disagree)}</td>
+                  <td>{shownText(after.disagree)}</td>
+                </tr>
+              </tbody>
+            </table>
+          </>
+        ) : (
+          <p class="q-prompt">Trop peu de bulletins à ce nouveau tour pour garder le secret&nbsp;: rien n’est montré.</p>
+        )}
         <p class="small">Personne n’a à dire s’il a changé d’avis.</p>
       </main>
       <ClosedFoot />

@@ -7,6 +7,7 @@ import { APP_NAME } from '../../core/app'
 import { DELAI_VERIFICATION, EDITEUR, HEBERGEUR, MISE_A_JOUR } from '../../core/legal'
 import { THIRD_PARTY } from '../../core/notices'
 import { seededShuffle } from '../../core/rng'
+import { freezeTexts } from '../../core/freeze'
 import type { ElectionPack } from '../../core/types'
 import { AI_METHOD_PATH } from '../components/AiLabel'
 import { ExternalLink } from '../components/ExternalLink'
@@ -32,38 +33,6 @@ const LCEN = 'https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI00004956861
 const DECRET_REPONSE = 'https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000428279'
 const MIT = 'https://opensource.org/license/mit'
 const CC_BY_4 = 'https://creativecommons.org/licenses/by/4.0/deed.fr'
-
-const DAY_LONG = new Intl.DateTimeFormat('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'Europe/Paris' })
-const HOUR = new Intl.DateTimeFormat('fr-FR', { hour: 'numeric', hourCycle: 'h23', timeZone: 'Europe/Paris' })
-
-/** Jour de Paris, « samedi 1er mai », sans coupure */
-function dayOf(d: Date): string {
-  return DAY_LONG.format(d)
-    .replace(/^(\S+ )1 /, (_, weekday: string) => `${weekday}1er `)
-    .replace(/ /g, '\u00a0')
-}
-
-/** Heure de Paris, « 20 h » */
-function hourOf(d: Date): string {
-  return `${HOUR.formatToParts(d).find(p => p.type === 'hour')?.value ?? ''}\u00a0h`
-}
-
-/**
- * Gel des données pour un tour de scrutin : de la veille du premier jour de vote, 0 h, à la clôture.
- * « du jeudi 8 octobre, 0 h, au samedi 10 octobre, 20 h »
- */
-export function freezeWindow(round: { start: string; end: string }): string {
-  const eve = new Date(new Date(round.start).getTime() - 24 * 3600 * 1000)
-  const end = new Date(round.end)
-  return `du ${dayOf(eve)}, 0\u00a0h, au ${dayOf(end)}, ${hourOf(end)}`
-}
-
-/** Une période de gel donnée telle quelle par l'élection (freezeWindows) : « du vendredi 16 avril, 0 h, au dimanche 18 avril, 20 h » */
-export function freezePeriod(period: { start: string; end: string }): string {
-  const start = new Date(period.start)
-  const end = new Date(period.end)
-  return `du ${dayOf(start)}, ${hourOf(start)}, au ${dayOf(end)}, ${hourOf(end)}`
-}
 
 /** « CC BY-SA 4.0 » ne se coupe pas en fin de ligne */
 function keepLicenseTogether(text: string) {
@@ -95,7 +64,8 @@ export function Legal({ pack, seed }: { pack: ElectionPack; seed: string }) {
   const people = useMemo(() => seededShuffle(candidates, `${seed}:credits`).filter(c => c.photo), [candidates, seed])
   // Périodes de gel : celles que l'élection fixe elle-même (vote outre-mer la veille, par exemple), sinon de la
   // veille de chaque tour, 0 h, à sa clôture
-  const frozen = election.freezeWindows?.length ? election.freezeWindows.map(freezePeriod) : election.rounds.map(freezeWindow)
+  // Les périodes de gel en toutes lettres : la même règle que celle qui coupe les images de partage (core/freeze.ts)
+  const frozen = freezeTexts(election)
   const site = election.copy.officialSite
 
   return (
@@ -292,6 +262,8 @@ export function Legal({ pack, seed }: { pack: ElectionPack; seed: string }) {
               <strong>Un résultat indicatif.</strong> Le résultat dépend des questions retenues et de la{' '}
               <a href={link('/methode')}>méthode publiée</a>. Ce n’est ni une consigne de vote, ni un conseil. {APP_NAME}{' '}
               n’est pas un sondage&nbsp;: il ne recueille les réponses de personne et ne publie aucun résultat d’ensemble.
+              Le mode «&nbsp;À table&nbsp;» compte en entier, sur un seul téléphone, les bulletins d’un groupe privé&nbsp;; rien
+              n’est transmis ni publié.
             </li>
             <li>
               <strong>Des sources publiques datées.</strong> Chaque position s’appuie sur des sources publiques, datées

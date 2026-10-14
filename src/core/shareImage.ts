@@ -264,19 +264,26 @@ export const onAnswersText = (answered: number) => `sur ${answered} réponse${an
 export const onAnswers = (lead: string, answered: number) => `${lead}, ${onAnswersText(answered)}`
 
 /**
+ * L'en-tête de formulaire des images : le logo à gauche, le nom de l'élection à droite sur la ligne de base du mot,
+ * puis le double filet (5px et 1,5px) ; le contenu commence sous y = 160
+ */
+export function drawHeader(ctx: CanvasRenderingContext2D, shortName: string) {
+  const logo = drawLogo(ctx, { layout: 'horizontal', ink: COLORS.print, drape: DRAPE_SUR_DOUBLE, x: M, y: LOGO_TOP, height: LOGO_H })
+  ctx.fillStyle = COLORS.print
+  fit(ctx, shortName, 500, 28, R - M - logo.width - 48)
+  ctx.textAlign = 'right'
+  ctx.fillText(shortName, R, LOGO_BASELINE)
+  ctx.textAlign = 'left'
+  ctx.fillRect(M, 140, R - M, 5)
+  ctx.fillRect(M, 151, R - M, 1.5)
+}
+
+/**
  * Le haut de l'image : en-tête de formulaire (logo, élection, double filet), titre, sous-titre et bâtons des réponses,
  * tampon daté à droite, puis le filet qui ouvre les lignes (ROWS_TOP - 20)
  */
 export function drawTop(ctx: CanvasRenderingContext2D, pack: ElectionPack, results: Results, title: string, sub: string) {
-  // En-tête de formulaire : le logo à gauche, le nom de l'élection à droite sur la ligne de base du mot
-  const logo = drawLogo(ctx, { layout: 'horizontal', ink: COLORS.print, drape: DRAPE_SUR_DOUBLE, x: M, y: LOGO_TOP, height: LOGO_H })
-  ctx.fillStyle = COLORS.print
-  fit(ctx, pack.election.shortName, 500, 28, R - M - logo.width - 48)
-  ctx.textAlign = 'right'
-  ctx.fillText(pack.election.shortName, R, LOGO_BASELINE)
-  ctx.textAlign = 'left'
-  ctx.fillRect(M, 140, R - M, 5)
-  ctx.fillRect(M, 151, R - M, 1.5)
+  drawHeader(ctx, pack.election.shortName)
 
   // Titre
   fit(ctx, title, 850, 112, R - M, true)
