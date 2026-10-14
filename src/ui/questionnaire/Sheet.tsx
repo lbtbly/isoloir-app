@@ -37,6 +37,11 @@ export interface SheetProps {
   nextLabel?: string
   /** Afficher la consigne (premières questions) */
   hint?: boolean
+  /**
+   * Mode fermé (« À table ») : l'en-tête et le pied donnés remplacent ceux du site, sans menu ni lien, et la feuille
+   * ne propose pas de vidéo ; le téléphone passe de main en main, rien ne doit mener ailleurs
+   */
+  closed?: { header: ComponentChildren; foot: ComponentChildren }
 }
 
 
@@ -74,20 +79,24 @@ export function Sheet(props: SheetProps) {
 
   return (
     <div class="screen screen-sheet screen-question">
-      <FormHeader
-        title={props.title}
-        locator={
-          <span class="locator">
-            <span class="locator-topic">{props.topic?.label}</span>
-            <span class="locator-count" aria-hidden="true">
-              {pad(props.index + 1)}/{pad(props.total)}
+      {props.closed ? (
+        props.closed.header
+      ) : (
+        <FormHeader
+          title={props.title}
+          locator={
+            <span class="locator">
+              <span class="locator-topic">{props.topic?.label}</span>
+              <span class="locator-count" aria-hidden="true">
+                {pad(props.index + 1)}/{pad(props.total)}
+              </span>
+              <span class="sr-only">
+                Question {props.index + 1} sur {props.total}
+              </span>
             </span>
-            <span class="sr-only">
-              Question {props.index + 1} sur {props.total}
-            </span>
-          </span>
-        }
-      />
+          }
+        />
+      )}
       <main class="sheet has-margin q-layout" id="contenu" tabIndex={-1}>
         <div class="in-margin sheet-margin" aria-hidden="true">
           <span class="margin-count">{pad(props.index + 1)}</span>
@@ -103,12 +112,12 @@ export function Sheet(props: SheetProps) {
           {/* Chaque question, et non la seule première : on peut reprendre la feuille en cours de route, ou arriver
               par la feuille de révision. Une mention pour tout l'écran (question, contexte, « Comprendre l'enjeu »,
               approches) : la fiche, juste dessous, ne répète pas la sienne. */}
-          <AiLabel kind="feuille" class="q-ai" />
+          <AiLabel kind="feuille" class="q-ai" more={props.closed ? 'seule' : 'bulle'} />
           {question.explainer ? <Explainer data={question.explainer} ai="aucune" /> : null}
           {/* Une vidéo qui éclaire la question : un lien discret ; le lecteur s'ouvre par-dessus la feuille, qui garde
               la réponse en cours, et rend le focus au lien à la fermeture. Les vidéos ne disent ni les approches
               ni les candidats. */}
-          <QuestionVideos questionId={question.id} class="q-video" />
+          {props.closed ? null : <QuestionVideos questionId={question.id} class="q-video" />}
           {props.hint ? (
             <p class="q-hint">
               Placez le repère sur les approches où vous avez un avis ; laissez les autres au centre. La case{' '}
@@ -171,7 +180,7 @@ export function Sheet(props: SheetProps) {
           </p>
         </div>
       </main>
-      <SiteFooter />
+      {props.closed ? props.closed.foot : <SiteFooter />}
 
       <nav class="action-bar" aria-label="Navigation de la feuille">
         <div class="action-bar-inner">

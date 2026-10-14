@@ -1,0 +1,632 @@
+/* « À table » : un groupe vote en secret sur un seul téléphone, puis lit son dépouillement à voix haute, une idée
+   par écran. Le monde du site, inchangé : papier, imprimé, bâtons bleu bille, croix rouge stylo. Les pastels du
+   rideau, dans leur ordre (vert, rouge, jaune), habillent les trois rubriques du dépouillement, toujours doublés de
+   leur titre écrit ; jamais le bleu, qui ne porte ni réglette ni dépouillement (tokens.css). */
+
+/* ——— En-tête et pied du mode fermé : ni menu, ni lien, ni vidéo ——— */
+
+.form-header.is-closed .brand {
+  pointer-events: none;
+}
+
+.closed-name {
+  flex: none;
+  font-weight: 800;
+  font-stretch: 80%;
+  font-size: 1.05rem;
+}
+
+.closed-foot {
+  max-width: var(--frame);
+  margin: 0 auto;
+  padding: var(--s4) var(--gutter) calc(var(--bar-real, var(--bar-h)) + var(--s5));
+  border-top: var(--line) solid var(--rule);
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.closed-foot summary {
+  cursor: pointer;
+  font-weight: 650;
+  color: var(--print);
+}
+
+.closed-foot p {
+  margin: var(--s2) 0 0;
+  max-width: var(--measure);
+}
+
+/* ——— Accueil de la table ——— */
+
+.table-steps {
+  list-style: none;
+  margin: var(--s5) 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: var(--s3);
+}
+
+.table-step {
+  --panel: var(--pastel-vert);
+  background: var(--panel);
+  box-shadow: inset 0 var(--thick) 0 var(--rule-strong);
+  padding: var(--s5) var(--s4) var(--s4);
+}
+
+.table-step:nth-child(2) {
+  --panel: var(--pastel-rouge);
+}
+
+.table-step:nth-child(3) {
+  --panel: var(--pastel-jaune);
+}
+
+.table-step h2 {
+  margin: 0 0 var(--s2);
+  font-weight: 800;
+  font-stretch: 80%;
+  font-size: 1.35rem;
+  line-height: 1.1;
+}
+
+.table-step p {
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: 1.45;
+}
+
+.table-locks {
+  list-style: none;
+  margin: var(--s5) 0;
+  padding: 0;
+  display: grid;
+  gap: var(--s3);
+  max-width: var(--measure);
+}
+
+.table-locks li {
+  display: grid;
+  grid-template-columns: 1.4rem 1fr;
+  gap: var(--s3);
+  align-items: start;
+  line-height: 1.45;
+}
+
+.table-locks .icon {
+  margin-top: 0.15rem;
+}
+
+.table-more {
+  max-width: var(--measure);
+  margin: var(--s3) 0;
+  border-top: var(--line) solid var(--rule-strong);
+  padding-top: var(--s3);
+}
+
+.table-more summary {
+  cursor: pointer;
+  font-weight: 750;
+  min-height: 2.75rem;
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+}
+
+.table-more ol,
+.table-more ul {
+  margin: var(--s2) 0 var(--s3);
+  padding-left: 1.2rem;
+  display: grid;
+  gap: var(--s2);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
+/* ——— Préparer la table ——— */
+
+.table-count {
+  display: flex;
+  align-items: center;
+  gap: var(--s4);
+  margin: var(--s3) 0 var(--s2);
+}
+
+.table-count button {
+  width: 2.75rem;
+  height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--line) solid var(--rule-strong);
+  background: var(--paper);
+  color: var(--print);
+  font-size: 1.15rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.table-count-n {
+  min-width: 2ch;
+  text-align: center;
+  font-weight: 850;
+  font-stretch: 70%;
+  font-size: 3rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.table-count .tally {
+  color: var(--ink);
+}
+
+.table-subjects {
+  list-style: none;
+  margin: var(--s3) 0;
+  padding: 0;
+  display: grid;
+  gap: var(--s2);
+}
+
+.table-subject {
+  display: grid;
+  grid-template-columns: 1.6rem 1fr;
+  gap: var(--s1) var(--s3);
+  padding: var(--s3) var(--s4);
+  border: var(--line) solid var(--rule);
+  cursor: pointer;
+}
+
+.table-subject.is-on {
+  border-color: var(--rule-strong);
+  box-shadow: inset 0 0 0 1px var(--rule-strong);
+}
+
+.table-subject input {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0.15rem 0 0;
+  accent-color: var(--ink);
+}
+
+.table-subject-topic {
+  font-weight: 750;
+}
+
+.table-subject-prompt,
+.table-subject-meta {
+  grid-column: 2;
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+  line-height: 1.4;
+}
+
+.table-summary {
+  margin: var(--s4) 0 0;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ——— Le rideau : le téléphone passe de main en main ——— */
+
+.screen-pass {
+  background: var(--pastel-vert);
+  background:
+    repeating-linear-gradient(90deg, transparent 0 1.9rem, color-mix(in srgb, var(--print) 7%, transparent) 1.9rem 2rem),
+    linear-gradient(90deg, var(--pastel-vert) 0 25%, var(--pastel-rouge) 25% 50%, var(--pastel-jaune) 50% 75%, var(--pastel-bleu) 75%);
+}
+
+.pass-sheet {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: var(--s6) var(--gutter) calc(var(--bar-real, var(--bar-h)) + var(--s6));
+}
+
+.pass-label {
+  width: min(100%, 26rem);
+  background: var(--paper);
+  border: var(--line) solid var(--rule-strong);
+  box-shadow: 0 0 0 4px var(--paper), 0 0 0 calc(4px + var(--line)) var(--rule-strong);
+  padding: var(--s5) var(--s5) var(--s4);
+  text-align: center;
+}
+
+.pass-label h1 {
+  margin: 0 0 var(--s3);
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: clamp(1.6rem, 6vw, 2.15rem);
+  line-height: 1;
+}
+
+.pass-label p {
+  margin: 0 0 var(--s4);
+  line-height: 1.45;
+}
+
+.pass-label .tally {
+  color: var(--ink);
+  margin-bottom: var(--s2);
+}
+
+.pass-voted {
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+.pass-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 var(--s4);
+  margin-top: var(--s3);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .screen-pass .pass-label {
+    animation: pass-in 560ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes pass-in {
+    from {
+      transform: translateY(-1.5rem);
+      opacity: 0;
+    }
+  }
+}
+
+/* ——— Le dépouillement, à voix haute : une idée par écran ——— */
+
+.aloud-band {
+  --panel: var(--paper);
+  background: var(--panel);
+  border-bottom: var(--thick) solid var(--rule-strong);
+  padding: var(--s5) var(--gutter) var(--s4);
+}
+
+.aloud-band.is-reunit {
+  --panel: var(--pastel-vert);
+}
+
+.aloud-band.is-refuse {
+  --panel: var(--pastel-rouge);
+}
+
+.aloud-band.is-divise {
+  --panel: var(--pastel-jaune);
+}
+
+.aloud-band-inner {
+  max-width: var(--frame);
+  margin: 0 auto;
+}
+
+.aloud-verdict {
+  margin: 0;
+  display: flex;
+  gap: var(--s3);
+  align-items: flex-start;
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: clamp(2rem, 7vw, 3.25rem);
+  line-height: 1;
+}
+
+.aloud-verdict .ink {
+  position: static;
+  flex: none;
+  width: 2.2rem;
+  height: 2.2rem;
+  margin-top: 0.1rem;
+  fill: none;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+}
+
+.aloud-verdict .ink.is-agree {
+  stroke: var(--aff-tres-proche);
+}
+
+.aloud-verdict .ink.is-red {
+  stroke: var(--red);
+}
+
+.aloud-sub {
+  margin: var(--s2) 0 0;
+  font-size: var(--text-sm);
+  font-weight: 650;
+}
+
+.aloud {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+}
+
+.aloud-question {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+  line-height: 1.4;
+}
+
+.aloud-idea {
+  margin: 0;
+  max-width: 22ch;
+  font-weight: 800;
+  font-stretch: 82%;
+  font-size: clamp(1.65rem, 7.2vw, 2.4rem);
+  line-height: 1.12;
+}
+
+.aloud-counts {
+  width: 100%;
+  max-width: 30rem;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.aloud-counts th {
+  padding: 0 var(--s2) var(--s2) 0;
+  border-bottom: var(--line) solid var(--rule-strong);
+  font-size: var(--text-xs);
+  font-weight: 650;
+  text-align: left;
+  color: var(--print-soft);
+}
+
+.aloud-counts td {
+  padding: var(--s3) var(--s2) 0 0;
+  vertical-align: top;
+  font-size: var(--text-sm);
+  line-height: 1.3;
+}
+
+.aloud-counts .tally {
+  justify-content: flex-start;
+  color: var(--ink);
+}
+
+.aloud-counts .is-words {
+  color: var(--print-soft);
+}
+
+.aloud-red {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--red);
+  font-weight: 650;
+}
+
+.aloud-note {
+  margin: 0;
+  max-width: var(--measure);
+  font-size: var(--text-xs);
+  color: var(--print-soft);
+}
+
+.aloud-dots {
+  list-style: none;
+  margin: var(--s2) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.aloud-dots li {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  border: var(--line) solid var(--rule-strong);
+}
+
+.aloud-dots li.is-current {
+  background: var(--rule-strong);
+}
+
+/* ——— Récapitulatif du dépouillement ——— */
+
+.recap-section {
+  --panel: var(--pastel-vert);
+  margin: var(--s4) 0;
+  padding: var(--s4) var(--s4) var(--s3);
+  background: var(--panel);
+  box-shadow: inset 0 var(--thick) 0 var(--rule-strong);
+}
+
+.recap-section.is-refuse {
+  --panel: var(--pastel-rouge);
+}
+
+.recap-section.is-divise {
+  --panel: var(--pastel-jaune);
+}
+
+.recap-section h2 {
+  margin: var(--s2) 0 var(--s2);
+  font-weight: 800;
+  font-stretch: 78%;
+  font-size: 1.45rem;
+}
+
+.recap-section ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.recap-section li {
+  padding: var(--s3) 0;
+  border-top: 1px solid color-mix(in srgb, var(--print) 22%, transparent);
+}
+
+.recap-section li:first-child {
+  border-top: 0;
+}
+
+.recap-idea {
+  margin: 0;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.recap-line {
+  margin: var(--s1) 0 0;
+  font-size: var(--text-sm);
+}
+
+.recap-quiet,
+.recap-hidden {
+  margin: var(--s4) 0;
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+/* ——— « Vous voulez en parler ? » et « Après en avoir parlé » ——— */
+
+.talk-idea {
+  margin: var(--s3) 0 var(--s4);
+  padding: var(--s4);
+  background: var(--pastel-jaune);
+  box-shadow: inset 0 var(--thick) 0 var(--rule-strong);
+  font-weight: 750;
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+
+.talk-rules {
+  margin: var(--s3) 0 var(--s5);
+  padding-left: 1.4rem;
+  display: grid;
+  gap: var(--s2);
+  font-weight: 650;
+}
+
+.after-rows {
+  width: 100%;
+  max-width: 30rem;
+  border-collapse: collapse;
+  margin: var(--s3) 0;
+}
+
+.after-rows th,
+.after-rows td {
+  padding: var(--s2) var(--s2) var(--s2) 0;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  font-size: var(--text-sm);
+}
+
+.after-rows th {
+  font-weight: 650;
+  color: var(--print-soft);
+}
+
+/* ——— Qui porte ces idées ? ——— */
+
+.reveal.is-table .reveal-row {
+  grid-template-columns: 1fr;
+}
+
+.table-verdict {
+  display: inline-block;
+  margin-bottom: var(--s1);
+  padding: 0.1rem 0.45rem;
+  font-size: var(--text-xs);
+  font-weight: 750;
+  background: var(--panel, var(--paper));
+  border: 1px solid var(--rule-strong);
+}
+
+.table-verdict.is-reunit {
+  --panel: var(--pastel-vert);
+}
+
+.table-verdict.is-refuse {
+  --panel: var(--pastel-rouge);
+}
+
+.table-verdict.is-divise {
+  --panel: var(--pastel-jaune);
+}
+
+.holders-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1) var(--s2);
+  align-items: center;
+  margin-top: var(--s2);
+  font-size: var(--text-sm);
+}
+
+.holders-group-label {
+  font-weight: 650;
+}
+
+/* ——— L'image de la table ——— */
+
+.table-picture {
+  margin: var(--s4) 0;
+  padding: var(--s5) var(--s4);
+  background: var(--copy, #f2e7a6);
+  color: var(--copy-print, #1d1b10);
+  box-shadow: inset 0 var(--thick) 0 var(--rule-strong);
+}
+
+.table-picture h2 {
+  margin: 0 0 var(--s3);
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.table-picture p {
+  margin: var(--s2) 0;
+  line-height: 1.4;
+}
+
+.table-picture .picture-foot {
+  margin-top: var(--s4);
+  font-size: var(--text-xs);
+}
+
+.consent {
+  margin: var(--s4) 0;
+  padding: var(--s4);
+  border: var(--line) solid var(--rule-strong);
+}
+
+.consent p {
+  margin: 0 0 var(--s3);
+  font-weight: 650;
+}
+
+.consent-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s3);
+  align-items: center;
+}
+
+/* ——— Fin de séance ——— */
+
+.ended {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+}
+
+.ended p {
+  margin: 0;
+  max-width: var(--measure);
+  line-height: 1.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .screen-pass .pass-label {
+    animation: none;
+  }
+}
