@@ -238,7 +238,8 @@ export function Legal({ pack, seed }: { pack: ElectionPack; seed: string }) {
                 </span>
               ))}
               . Pendant ces périodes, aucune nouvelle position et aucun changement de fond ne sont publiés. Seules
-              passent la correction d’une erreur avérée et la publication d’un droit de réponse.
+              passent la correction d’une erreur avérée et la publication d’un droit de réponse. Le site ne fabrique
+              alors aucune image à partager (affiche, accords et désaccords, image d’une table).
             </p>
           ) : (
             <p>
@@ -263,7 +264,8 @@ export function Legal({ pack, seed }: { pack: ElectionPack; seed: string }) {
               <a href={link('/methode')}>méthode publiée</a>. Ce n’est ni une consigne de vote, ni un conseil. {APP_NAME}{' '}
               n’est pas un sondage&nbsp;: il ne recueille les réponses de personne et ne publie aucun résultat d’ensemble.
               Le mode «&nbsp;À table&nbsp;» compte en entier, sur un seul téléphone, les bulletins d’un groupe privé&nbsp;; rien
-              n’est transmis ni publié.
+              n’est transmis. Son image, sans valeur statistique, n’est fabriquée qu’avec l’accord de toute la table, et
+              jamais pendant le gel des jours de vote.
             </li>
             <li>
               <strong>Des sources publiques datées.</strong> Chaque position s’appuie sur des sources publiques, datées

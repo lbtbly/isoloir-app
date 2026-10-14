@@ -47,30 +47,27 @@ export function Aloud({ idea, read, index, total, onPrev, onNext }: AloudProps) 
   return (
     <div class="screen screen-aloud">
       <ClosedHeader where={`Idée ${index + 1} sur ${total}`} />
-      <div class={`aloud-band is-${idea.verdict}`}>
-        <div class="aloud-band-inner">
-          <p class="aloud-verdict">
+      <main class="sheet aloud" id="contenu" tabIndex={-1}>
+        <div class={`aloud-band is-${idea.verdict}`}>
+          <h1 class="aloud-verdict" tabIndex={-1}>
             <VerdictMark verdict={idea.verdict} />
             <span>{verdictLine(idea.verdict, idea.agree, idea.disagree)}</span>
-          </p>
+          </h1>
           <p class="aloud-sub">
             {SECTION[idea.verdict]} · {idea.n} bulletins exprimés
           </p>
         </div>
-      </div>
-      <main class="sheet aloud" id="contenu" tabIndex={-1}>
         <p class="aloud-question">
           {read.topic?.label} · {read.question.prompt}
         </p>
         <AiLabel kind="feuille" more="seule" />
-        <h1 class="aloud-idea" tabIndex={-1}>
-          {textOf(read.question, idea.approachId)}
-        </h1>
+        <h2 class="aloud-idea">{textOf(read.question, idea.approachId)}</h2>
+        {/* Deux colonnes seulement : avec « sans avis » et le nombre de bulletins exprimés, un compte écrit en mots se
+            retrouverait par soustraction */}
         <table class="aloud-counts">
           <thead>
             <tr>
               <th scope="col">D’accord</th>
-              <th scope="col">Sans avis</th>
               <th scope="col">Pas d’accord</th>
             </tr>
           </thead>
@@ -78,9 +75,6 @@ export function Aloud({ idea, read, index, total, onPrev, onNext }: AloudProps) 
             <tr>
               <td>
                 <Count value={idea.agree} what="D’accord" />
-              </td>
-              <td>
-                <Count value={idea.neutral} what="Sans avis" />
               </td>
               <td>
                 <Count value={idea.disagree} what="Pas d’accord" />
@@ -101,10 +95,14 @@ export function Aloud({ idea, read, index, total, onPrev, onNext }: AloudProps) 
       <ClosedFoot />
       <nav class="action-bar" aria-label="Lire le dépouillement">
         <div class="action-bar-inner">
-          <button type="button" class="btn-text" onClick={onPrev}>
-            <Icon name="arrow-left" />
-            {index === 0 ? 'Retour' : 'Précédente'}
-          </button>
+          {index > 0 ? (
+            <button type="button" class="btn-text" onClick={onPrev}>
+              <Icon name="arrow-left" />
+              Précédente
+            </button>
+          ) : (
+            <span />
+          )}
           <span />
           <button type="button" class="btn-primary" onClick={onNext}>
             {last ? 'Récapitulatif' : 'Suivante'}
@@ -120,7 +118,8 @@ interface RecapProps {
   summary: TableSummary
   reads: ReadonlyMap<string, ReadQuestion>
   voters: number
-  onTalk: () => void
+  /** Absent quand aucune idée n'a été dépouillée : il n'y a rien dont parler */
+  onTalk?: () => void
   onReveal: () => void
   onBack: () => void
 }
@@ -194,9 +193,13 @@ export function Recap({ summary, reads, voters, onTalk, onReveal, onBack }: Reca
       <ClosedFoot />
       <nav class="action-bar" aria-label="Après le dépouillement">
         <div class="action-bar-inner">
-          <button type="button" class="btn-text" onClick={onTalk}>
-            En parler
-          </button>
+          {onTalk ? (
+            <button type="button" class="btn-text" onClick={onTalk}>
+              En parler
+            </button>
+          ) : (
+            <span />
+          )}
           <span />
           <button type="button" class="btn-primary" onClick={onReveal}>
             Qui porte ces idées&nbsp;?

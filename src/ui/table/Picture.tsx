@@ -4,6 +4,7 @@
 // gel des jours de vote.
 
 import type { ComponentChildren } from 'preact'
+import { useEffect, useRef } from 'preact/hooks'
 import { Icon } from '../components/Icon'
 import { ClosedFoot, ClosedHeader } from '../questionnaire/table/Closed'
 
@@ -11,6 +12,8 @@ interface Props {
   /** La période de gel en cours, en toutes lettres ; null hors gel */
   frozen: string | null
   agreed: boolean
+  /** L'image est fabriquée */
+  ready: boolean
   onAgree: () => void
   onRefuse: () => void
   /** L'aperçu de l'image (en attendant la fabrication en Canvas : son texte) */
@@ -19,7 +22,12 @@ interface Props {
   onEnd: () => void
 }
 
-export function Picture({ frozen, agreed, onAgree, onRefuse, preview, onDownload, onEnd }: Props) {
+export function Picture({ frozen, agreed, ready, onAgree, onRefuse, preview, onDownload, onEnd }: Props) {
+  // Après l'accord, le focus va à l'état de la fabrication, qui annonce aussi « Image prête »
+  const status = useRef<HTMLParagraphElement>(null)
+  useEffect(() => {
+    if (agreed) status.current?.focus()
+  }, [agreed])
   return (
     <div class="screen screen-table-picture">
       <ClosedHeader where="L’image" />
@@ -33,7 +41,12 @@ export function Picture({ frozen, agreed, onAgree, onRefuse, preview, onDownload
             Pas d’image pendant le gel des jours de vote, {frozen}. La table, elle, reste ouverte.
           </p>
         ) : agreed ? (
-          <>{preview}</>
+          <>
+            <p class="small" role="status" tabIndex={-1} ref={status}>
+              {ready ? 'Image prête. Vous pouvez la télécharger.' : 'Fabrication de l’image…'}
+            </p>
+            {preview}
+          </>
         ) : (
           <div class="consent" role="group" aria-label="Accord de la table">
             <p>Toute la table est-elle d’accord pour que cette image sorte du téléphone&nbsp;? Elle dit ce que pense un groupe que vos proches peuvent reconnaître.</p>
@@ -55,7 +68,7 @@ export function Picture({ frozen, agreed, onAgree, onRefuse, preview, onDownload
             Terminer
           </button>
           <span />
-          {!frozen && agreed ? (
+          {!frozen && agreed && ready ? (
             <button type="button" class="btn-primary" onClick={onDownload}>
               Télécharger le JPG
               <Icon name="download" />

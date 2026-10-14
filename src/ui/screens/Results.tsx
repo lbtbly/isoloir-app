@@ -10,6 +10,7 @@ import { prepareCompare } from '../compare/load'
 import { loadReport, prepareReport, reportNow } from '../report/load'
 import { prepareProfile } from '../profile/load'
 import { hasTable } from '../table/load'
+import { frozenAt } from '../../core/freeze'
 import { axisOf } from '../../core/spectrum'
 import {
   AGREE_HEADS,
@@ -488,7 +489,13 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
           },
         ]
       : []),
-    { href: link('/partager'), icon: 'share', title: 'Partager l’image', desc: 'Votre affiche en JPG, fabriquée sur cet appareil.' },
+    {
+      href: link('/partager'),
+      icon: 'share',
+      title: 'Partager l’image',
+      // Pendant le gel des jours de vote, aucune image n'est fabriquée (core/freeze.ts) : la tuile le dit
+      desc: frozenAt(election) ? 'Pas d’image pendant le gel des jours de vote.' : 'Votre affiche en JPG, fabriquée sur cet appareil.',
+    },
     {
       href: link('/approfondir'),
       icon: 'deepen',
@@ -498,7 +505,8 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
           ? `${answeredDeep} question${answeredDeep > 1 ? 's' : ''} de plus déjà pointée${answeredDeep > 1 ? 's' : ''} : d’autres thèmes à creuser.`
           : `Jusqu’à ${deepCount} questions de plus, par thème.`,
     },
-    { href: link('/candidats'), icon: 'arrow-right', title: 'Les candidats', desc: 'Parcours, site de campagne et toutes leurs positions.' },
+    // À l'encre : avec la tuile « À table », sa place tomberait sur un pastel qui prendrait un sens sur une page de candidats
+    { href: link('/candidats'), icon: 'arrow-right', title: 'Les candidats', desc: 'Parcours, site de campagne et toutes leurs positions.', ink: true },
   ]
 
   return (

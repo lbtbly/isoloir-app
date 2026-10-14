@@ -15,12 +15,16 @@ interface Props {
   onTake: () => void
   /** Ajouter une personne (avant le dépouillement) */
   onArrive?: () => void
-  /** Dépouiller sans attendre les absents (à partir de 4 bulletins) */
+  /** Dépouiller sans attendre les absents */
   onCountNow?: () => void
+  /** Le libellé de ce geste, et à partir de combien de bulletins il est proposé */
+  countNow?: { label: string; from: number }
+  /** Une sortie douce, sans tout effacer (annuler le nouveau tour de table) */
+  onCancel?: { label: string; action: () => void }
   onStop: () => void
 }
 
-export function Pass({ phase, voted, people, onTake, onArrive, onCountNow, onStop }: Props) {
+export function Pass({ phase, voted, people, onTake, onArrive, onCountNow, countNow = { label: 'Il manque quelqu’un\u00a0? Dépouiller maintenant', from: 4 }, onCancel, onStop }: Props) {
   const done = voted >= people
   return (
     <div class="screen screen-pass">
@@ -49,14 +53,19 @@ export function Pass({ phase, voted, people, onTake, onArrive, onCountNow, onSto
             </>
           )}
           <p class="pass-links">
-            {onArrive && !done ? (
+            {onArrive ? (
               <button type="button" class="btn-text" onClick={onArrive}>
                 Quelqu’un arrive
               </button>
             ) : null}
-            {onCountNow && voted >= 4 && !done ? (
+            {onCountNow && voted >= countNow.from && !done ? (
               <button type="button" class="btn-text" onClick={onCountNow}>
-                Il manque quelqu’un&nbsp;? Dépouiller maintenant
+                {countNow.label}
+              </button>
+            ) : null}
+            {onCancel ? (
+              <button type="button" class="btn-text" onClick={onCancel.action}>
+                {onCancel.label}
               </button>
             ) : null}
             <button type="button" class="btn-text" onClick={onStop}>

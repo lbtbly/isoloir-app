@@ -66,60 +66,83 @@ function wrap(ctx: CanvasRenderingContext2D, text: string, maxWidth: number): st
   return out
 }
 
-/** L'image, en JPG : 1080 de large, la hauteur suit le texte (au moins 1350) */
-export async function renderTablePicture(election: Pick<ElectionInfo, 'shortName' | 'dataFrozenAt'>, lines: PictureLine[], more: number): Promise<Blob> {
-  await loadFonts()
-  // Mesure d'abord, sur une toile de travail, pour connaître la hauteur
-  const probe = paperCanvas(10).ctx
-  const blocks = lines.map(l => {
-    font(probe, 400, 38)
-    return { lead: l.lead, body: wrap(probe, `« ${l.text} »`, R - M) }
-  })
-  const height = Math.max(1350, 330 + blocks.reduce((h, b) => h + 56 + b.body.length * 50 + 40, 0) + (more > 0 ? 60 : 0) + 230)
-  const { canvas, ctx } = paperCanvas(height)
-  drawHeader(ctx, election.shortName)
+/** La hauteur de l'image : 4:5, le format que les messageries et les réseaux montrent en entier */
+const HEIGHT = 1350
+/** La zone des idées, entre le filet sous le titre et le pied */
+const TOP = 440
+const FOOT = 1150
 
+/** L'image, en JPG, 1080 × 1350 : les idées qui ne tiennent pas, même en plus petit, rejoignent « + N autres idées » */
+export async function renderTablePicture(
+  election: Pick<ElectionInfo, 'shortName' | 'dataFrozenAt'>,
+  lines: PictureLine[],
+  more: number,
+): Promise<{ blob: Blob; height: number }> {
+  await loadFonts()
+  const { canvas, ctx } = paperCanvas(HEIGHT)
+  // Le corps le plus grand où tout tient ; sinon, on retire des idées par la fin
+  let kept = lines
+  let size = 38
+  const layout = (n: number, s: number) => {
+    font(ctx, 400, s)
+    return kept.slice(0, n).map(l => ({ lead: l.lead, body: wrap(ctx, `« ${l.text} »`, R - M) }))
+  }
+  const heightOf = (blocks: { body: string[] }[], s: number) => blocks.reduce((h, b) => h + s * 1.45 + b.body.length * s * 1.32 + 34, 0)
+  let blocks = layout(kept.length, size)
+  while (heightOf(blocks, size) > FOOT - TOP - 60 && size > 28) {
+    size -= 2
+    blocks = layout(kept.length, size)
+  }
+  while (blocks.length > 1 && heightOf(blocks, size) > FOOT - TOP - 60) {
+    kept = kept.slice(0, -1)
+    blocks = layout(kept.length, size)
+  }
+  const extra = more + (lines.length - kept.length)
+
+  drawHeader(ctx, election.shortName)
   ctx.fillStyle = COLORS.print
   fit(ctx, TABLE_NAME, 850, 112, R - M, true)
   ctx.fillText(TABLE_NAME, M, 284)
+  // Sous le titre, là où le partage ne coupe jamais : la mention IA et « sans valeur statistique »
   const [yy, mm, dd] = election.dataFrozenAt.split('-')
+  const sub = `Idées rédigées par IA · sans valeur statistique · textes arrêtés au ${dd}.${mm}.${yy}`
   ctx.fillStyle = COLORS.printSoft
-  fit(ctx, `Une table, un seul téléphone · textes arrêtés au ${dd}.${mm}.${yy}`, 400, 30, R - M)
-  ctx.fillText(`Une table, un seul téléphone · textes arrêtés au ${dd}.${mm}.${yy}`, M, 342)
+  fit(ctx, sub, 400, 28, R - M)
+  ctx.fillText(sub, M, 342)
   ctx.fillStyle = COLORS.print
   ctx.fillRect(M, 380, R - M, 1.5)
 
-  let y = 450
+  let y = TOP + size
   for (const b of blocks) {
     ctx.fillStyle = COLORS.print
-    fit(ctx, b.lead, 750, 40, R - M)
+    fit(ctx, b.lead, 750, size + 2, R - M)
     ctx.fillText(b.lead, M, y)
-    y += 56
-    font(ctx, 400, 38)
+    y += size * 1.45
+    font(ctx, 400, size)
     for (const l of b.body) {
       ctx.fillText(l, M, y)
-      y += 50
+      y += size * 1.32
     }
-    y += 40
+    y += 34
   }
-  if (more > 0) {
+  if (extra > 0) {
     ctx.fillStyle = COLORS.printSoft
-    font(ctx, 400, 32)
-    ctx.fillText(`+ ${more} autre${more > 1 ? 's' : ''} idée${more > 1 ? 's' : ''}`, M, y)
+    font(ctx, 400, 30)
+    ctx.fillText(`+ ${extra} autre${extra > 1 ? 's' : ''} idée${extra > 1 ? 's' : ''}`, M, Math.min(y, FOOT - 20))
   }
 
   // Pied : l'avertissement, la mention IA et l'adresse du site
   ctx.fillStyle = COLORS.print
-  ctx.fillRect(M, height - 200, R - M, 1.5)
+  ctx.fillRect(M, FOOT, R - M, 1.5)
   font(ctx, 400, 26)
-  let fy = height - 160
+  let fy = FOOT + 46
   for (const t of PICTURE_FOOT)
     for (const l of wrap(ctx, t, R - M)) {
       ctx.fillText(l, M, fy)
-      fy += 36
+      fy += 34
     }
   font(ctx, 750, 28)
-  ctx.fillText(APP_URL.replace(/^https?:\/\//, ''), M, height - 48)
+  ctx.fillText(APP_URL.replace(/^https?:\/\//, ''), M, HEIGHT - 40)
   if (canvas.width !== IMAGE_W) throw new Error('Largeur inattendue')
-  return canvasToJpeg(canvas)
+  return { blob: await canvasToJpeg(canvas), height: HEIGHT }
 }

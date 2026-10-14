@@ -2,12 +2,21 @@
 // « La table a été interrompue. » après un rechargement (la séance ne vivait qu'en mémoire). Le verrou ne se lève
 // que par un geste confirmé du propriétaire du téléphone, parce que revenir à Isoloir montrerait sa propre feuille.
 
-import { useState } from 'preact/hooks'
+import { useEffect, useRef, useState } from 'preact/hooks'
 import { Icon } from '../../components/Icon'
 import { ClosedFoot, ClosedHeader } from './Closed'
 
 export function Ended({ kind, onUnlock }: { kind: 'ended' | 'interrupted'; onUnlock: () => void }) {
   const [asking, setAsking] = useState(false)
+  const question = useRef<HTMLParagraphElement>(null)
+  const trigger = useRef<HTMLButtonElement>(null)
+  const asked = useRef(false)
+  // La confirmation prend le focus en s'ouvrant ; « Annuler » le rend au bouton qui l'a ouverte
+  useEffect(() => {
+    if (asking) question.current?.focus()
+    else if (asked.current) trigger.current?.focus()
+    asked.current = asking
+  }, [asking])
   return (
     <div class="screen screen-ended">
       <ClosedHeader />
@@ -24,7 +33,9 @@ export function Ended({ kind, onUnlock }: { kind: 'ended' | 'interrupted'; onUnl
         <p class="small">Chacun peut faire sa propre feuille, seul, sur son téléphone&nbsp;: isoloir.vercel.app</p>
         {asking ? (
           <div class="consent" role="group" aria-label="Confirmer le retour à Isoloir">
-            <p>Revenir à Isoloir montre la feuille et le dépouillement du propriétaire de ce téléphone.</p>
+            <p tabIndex={-1} ref={question}>
+              Revenir à Isoloir montre la feuille et le dépouillement du propriétaire de ce téléphone.
+            </p>
             <div class="consent-actions">
               <button type="button" class="btn-primary" onClick={onUnlock}>
                 Oui, c’est mon téléphone
@@ -39,7 +50,7 @@ export function Ended({ kind, onUnlock }: { kind: 'ended' | 'interrupted'; onUnl
       <ClosedFoot />
       <nav class="action-bar" aria-label="Fin de la table">
         <div class="action-bar-inner is-single">
-          <button type="button" class="btn-text" onClick={() => setAsking(true)}>
+          <button type="button" class="btn-text" ref={trigger} aria-expanded={asking} onClick={() => setAsking(true)}>
             <Icon name="lock" />
             C’est mon téléphone&nbsp;: revenir à Isoloir
           </button>

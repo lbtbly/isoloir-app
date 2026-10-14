@@ -138,7 +138,9 @@ const ORDER: Verdict[] = ['reunit', 'refuse', 'divise']
 export function summarize(totals: Totals, questions: readonly Question[], seed: string): TableSummary {
   const all: IdeaResult[] = []
   const hidden: QuestionId[] = []
-  for (const q of questions) {
+  // Les questions aussi dans un ordre tiré avec la graine : à force égale, aucune idée ne passe devant une autre parce que
+  // sa question vient d'abord dans la banque
+  for (const q of seededShuffle(questions, `${seed}:questions`)) {
     const t = totals[q.id]
     if (!t || t.expressed < K_MIN) {
       hidden.push(q.id)

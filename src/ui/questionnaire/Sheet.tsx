@@ -189,7 +189,8 @@ export function Sheet(props: SheetProps) {
             <span class="btn-label">Retour</span>
           </button>
           <div class="bar-center">
-            <PrivacyButton />
+            {/* En mode fermé, pas de fenêtre de confidentialité : son lien mènerait hors de la table (le pied fermé dit l'essentiel) */}
+            {props.closed ? null : <PrivacyButton />}
             <Tally
               class="bar-tally"
               count={props.answered}

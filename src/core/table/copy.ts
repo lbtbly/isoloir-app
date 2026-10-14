@@ -44,7 +44,7 @@ export const RULES = [
   'Sur chaque question, la table, ce sont ceux qui ont donné un avis : passer ne compte pas. Une question n’est dépouillée qu’à partir de 4 bulletins ; en dessous, rien n’est montré.',
   'Vous réunit : plus de la moitié de la table est d’accord, et une personne au plus ne l’est pas. La table refuse : plus de la moitié n’est pas d’accord, et une personne au plus l’est. Vous divise : au moins deux d’accord et au moins deux pas d’accord.',
   'Aux deux bouts, des mots plutôt que des nombres : «' + NB + 'personne ou presque' + NB + '», «' + NB + 'toute la table ou presque' + NB + '». Aucun pourcentage. L’ordre des idées sur chaque bulletin, l’ordre de lecture à égalité et l’ordre des candidats sont tirés au hasard sur ce téléphone.',
-  'Les sujets : pour chaque thème, la question du questionnaire rapide où le plus de candidats ont une position connue, si au moins trois candidats sur quatre en ont une et si chaque bloc de la grille des nuances y porte une idée. Deux sont tirés au hasard ; vous pouvez les changer.',
+  'Les sujets : pour chaque thème, la question du questionnaire rapide qui a une fiche «' + NB + 'Comprendre l’enjeu' + NB + '», où au moins trois candidats sur quatre ont une position connue, et où chaque bloc de l’axe de la grille des nuances (de l’extrême gauche à l’extrême droite) porte une approche principale ; s’il y en a plusieurs, celle où le plus de candidats ont une position connue, puis la première de la liste. Deux sont tirés au hasard ; vous pouvez les changer. Un thème sans question qui remplit ces conditions n’est pas proposé.',
 ]
 
 /** « Le secret, honnêtement » */
@@ -55,6 +55,7 @@ export const SECRET = [
   'Si tous les autres comparent leurs votes, ils peuvent deviner le vôtre, comme dans un tout petit bureau de vote.',
   'Avec un lecteur d’écran, le bulletin est lu à voix haute : mettez des écouteurs.',
   'Recharger la page fait perdre la séance : rien n’est gardé, même pour la reprendre.',
+  'La table ne montre pas la feuille du propriétaire du téléphone et n’y touche pas. Un autre onglet ouvert sur Isoloir, lui, la montrerait.',
 ]
 
 /** Les trois règles de table de « Vous voulez en parler ? » */

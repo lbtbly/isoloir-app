@@ -282,6 +282,8 @@
   --panel: var(--paper);
   background: var(--panel);
   border-bottom: var(--thick) solid var(--rule-strong);
+  /* Le bandeau du verdict ouvre l'écran, d'un bord à l'autre de la feuille, collé sous l'en-tête */
+  margin: calc(-1 * var(--s6)) calc(-1 * var(--gutter)) 0;
   padding: var(--s5) var(--gutter) var(--s4);
 }
 
@@ -295,11 +297,6 @@
 
 .aloud-band.is-divise {
   --panel: var(--pastel-jaune);
-}
-
-.aloud-band-inner {
-  max-width: var(--frame);
-  margin: 0 auto;
 }
 
 .aloud-verdict {
@@ -643,4 +640,9 @@ html.is-table-closed {
   max-width: 30rem;
   height: auto;
   border: var(--line) solid var(--rule-strong);
+}
+
+.table-count button[aria-disabled='true'] {
+  opacity: 0.4;
+  cursor: not-allowed;
 }

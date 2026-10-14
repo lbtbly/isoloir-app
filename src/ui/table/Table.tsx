@@ -14,6 +14,7 @@ import { addBallot, emptyTotals, MAX_PEOPLE, MIN_PEOPLE, summarize, type IdeaRes
 import { pictureAlt, pictureFileName, pictureLines, renderTablePicture } from '../../core/table/image'
 import { drawSubjects, tablePool } from '../../core/table/subjects'
 import type { Answer, ElectionPack, Question } from '../../core/types'
+import { LinksOff } from '../components/ExternalLink'
 import { replace } from '../nav'
 import type { Sheet as SheetScreen } from '../questionnaire/Sheet'
 import { Aloud, Recap, type ReadQuestion } from '../questionnaire/table/Aloud'
@@ -23,7 +24,7 @@ import { Hub } from '../questionnaire/table/Hub'
 import { Pass } from '../questionnaire/table/Pass'
 import { Setup } from '../questionnaire/table/Setup'
 import { After, Talk } from '../questionnaire/table/Talk'
-import { setTableLocked, TABLE_MARK, tableLocked } from './lock'
+import { marked, setTableLocked, TABLE_MARK, tableLocked } from './lock'
 import { Picture } from './Picture'
 import { Reveal } from './Reveal'
 
@@ -80,7 +81,7 @@ export function Table({ pack, Sheet }: { pack: ElectionPack; Sheet: typeof Sheet
   const [talkIdea, setTalkIdea] = useState<IdeaResult | null>(null)
   const [revote, setRevote] = useState<{ voted: number; totals: Totals } | null>(null)
   const [agreed, setAgreed] = useState(false)
-  const [picture, setPicture] = useState<{ blob: Blob; url: string; alt: string } | null>(null)
+  const [picture, setPicture] = useState<{ blob: Blob; url: string; alt: string; height: number } | null>(null)
 
   const questions = useMemo(() => bank.questions.filter(q => chosen.includes(q.id)), [bank, chosen])
   const reads = useMemo(() => new Map<string, ReadQuestion>(questions.map(q => [q.id, { question: q, topic: topics.get(q.topicId) }])), [questions, topics])
@@ -102,7 +103,10 @@ export function Table({ pack, Sheet }: { pack: ElectionPack; Sheet: typeof Sheet
       history.pushState({ [TABLE_MARK]: 1 }, '', location.href)
       armed.current = true
     }
-    const onPop = () => {
+    // Seul un retour vers une entrée de la table est un geste retour : une adresse tapée ou un lien suivi arrive sur une
+    // entrée sans marque, que le site ramène aussitôt sur la table (app.tsx) sans rien changer à l'étape
+    const onPop = (e: PopStateEvent) => {
+      if (!marked(e.state)) return
       armed.current = false
       back.current()
     }
@@ -130,6 +134,11 @@ export function Table({ pack, Sheet }: { pack: ElectionPack; Sheet: typeof Sheet
     markEntry(false)
     replace('/')
   }
+
+  // Une marque restée sur cette entrée d'une table déjà terminée (retour arrière après le déverrouillage) : on l'efface
+  useEffect(() => {
+    if (!tableLocked()) markEntry(false)
+  }, [])
 
   // ——— Mesures de l'en-tête et de la barre, et focus sur le titre à chaque étape ———
   const first = useRef(true)
@@ -163,7 +172,7 @@ export function Table({ pack, Sheet }: { pack: ElectionPack; Sheet: typeof Sheet
     let alive = true
     const { lines, more } = pictureLines(summary, questions)
     renderTablePicture(election, lines, more)
-      .then(blob => alive && setPicture({ blob, url: URL.createObjectURL(blob), alt: pictureAlt(lines, more) }))
+      .then(({ blob, height }) => alive && setPicture({ blob, url: URL.createObjectURL(blob), alt: pictureAlt(lines, more), height }))
       .catch(() => undefined)
     return () => {
       alive = false
@@ -180,15 +189,21 @@ export function Table({ pack, Sheet }: { pack: ElectionPack; Sheet: typeof Sheet
     setTotals(emptyTotals(questions))
     setPhase({ k: 'pass', round: 1 })
   }
-  const toggle = (id: string) => {
+  // Un message refusé deux fois de suite est réannoncé : une espace insécable de plus suffit à le changer
+  const refuse = (text: string) => {
+    setSetupStatus(prev => (prev.trimEnd() === text ? (prev.endsWith('\u00a0') ? text : `${text}\u00a0`) : text))
+    return false
+  }
+  const toggle = (id: string): boolean => {
     if (chosen.includes(id)) {
-      if (chosen.length <= MIN_SUBJECTS) return setSetupStatus(`Gardez au moins ${MIN_SUBJECTS} sujets.`)
+      if (chosen.length <= MIN_SUBJECTS) return refuse(`Gardez au moins ${MIN_SUBJECTS} sujets.`)
       setChosen(chosen.filter(x => x !== id))
     } else {
-      if (chosen.length >= MAX_SUBJECTS) return setSetupStatus(`${MAX_SUBJECTS} sujets au plus.`)
+      if (chosen.length >= MAX_SUBJECTS) return refuse(`${MAX_SUBJECTS} sujets au plus.`)
       setChosen([...chosen, id])
     }
     setSetupStatus('')
+    return true
   }
   const wipe = () => {
     setTotals({})
@@ -229,195 +244,220 @@ export function Table({ pack, Sheet }: { pack: ElectionPack; Sheet: typeof Sheet
   }
 
   // ——— Les écrans ———
-  switch (phase.k) {
-    case 'hub':
-      return <Hub onStart={() => setPhase({ k: 'setup' })} />
-    case 'setup':
-      return (
-        <Setup
-          people={people}
-          setPeople={n => setPeople(Math.min(MAX_PEOPLE, Math.max(MIN_PEOPLE, n)))}
-          pool={pool}
-          topics={topics}
-          chosen={chosen}
-          toggle={toggle}
-          min={MIN_SUBJECTS}
-          max={MAX_SUBJECTS}
-          status={setupStatus}
-          onOpen={open}
-          onBack={() => setPhase({ k: 'hub' })}
-        />
-      )
-    case 'pass':
-    case 'cast': {
-      const round = phase.round
-      const done = round === 1 ? voted : (revote?.voted ?? 0)
-      const expected = round === 1 ? people : voted
-      return (
-        <Pass
-          phase={phase.k}
-          voted={done}
-          people={expected}
-          onTake={() => {
-            if (phase.k === 'pass') return setPhase({ k: 'ballot', round, q: 0 })
-            if (done < expected) return setPhase({ k: 'pass', round })
-            if (round === 1) count()
-            else setPhase({ k: 'after' })
-          }}
-          onArrive={round === 1 && voted < MAX_PEOPLE ? () => setPeople(p => Math.min(MAX_PEOPLE, p + 1)) : undefined}
-          onCountNow={
-            round === 1
-              ? () => {
-                  setPeople(voted)
-                  count()
-                }
-              : undefined
-          }
-          onStop={() => setPhase({ k: 'confirm-stop', back: phase })}
-        />
-      )
-    }
-    case 'ballot': {
-      const qs = ballotQuestions(phase.round)
-      const q = qs[phase.q]!
-      const voter = phase.round === 1 ? voted : (revote?.voted ?? 0)
-      const last = phase.q === qs.length - 1
-      const answer = draft[q.id]
-      return (
-        <Sheet
-          key={`${phase.round}:${voter}:${q.id}`}
-          title="À table"
-          question={q}
-          approaches={seededShuffle(q.approaches, `${seed}:${phase.round}:${q.id}:${voter}`)}
-          topic={topics.get(q.topicId)}
-          index={phase.q}
-          total={qs.length}
-          answered={phase.q}
-          answer={answer}
-          onChange={a => setDraft(d => ({ ...d, [q.id]: a }))}
-          onNext={() => (last ? castBallot(phase.round) : setPhase({ ...phase, q: phase.q + 1 }))}
-          onBack={back.current}
-          nextLabel={last ? (hasOpinion(answer) ? 'Glisser dans l’urne' : 'Je passe et je glisse dans l’urne') : hasOpinion(answer) ? 'Question suivante' : 'Je passe'}
-          closed={{
-            header: (
-              <ClosedHeader
-                where={
-                  <span class="locator">
-                    <span class="locator-topic">{phase.round === 2 ? 'Nouveau tour de table' : 'Votre bulletin'}</span>
-                    <span class="locator-count">
-                      {phase.q + 1}/{qs.length}
+  // En mode fermé, aucune source ne s'ouvre ailleurs : elles restent écrites, en texte (components/ExternalLink.tsx)
+  return <LinksOff.Provider value={lockedNow}>{screen()}</LinksOff.Provider>
+
+  function screen() {
+    switch (phase.k) {
+      case 'hub':
+        return <Hub onStart={() => setPhase({ k: 'setup' })} />
+      case 'setup':
+        return (
+          <Setup
+            people={people}
+            setPeople={n => setPeople(Math.min(MAX_PEOPLE, Math.max(MIN_PEOPLE, n)))}
+            pool={pool}
+            topics={topics}
+            chosen={chosen}
+            toggle={toggle}
+            min={MIN_SUBJECTS}
+            max={MAX_SUBJECTS}
+            status={setupStatus}
+            onOpen={open}
+            onBack={() => setPhase({ k: 'hub' })}
+          />
+        )
+      case 'pass':
+      case 'cast': {
+        const round = phase.round
+        const done = round === 1 ? voted : (revote?.voted ?? 0)
+        const expected = round === 1 ? people : voted
+        return (
+          <Pass
+            phase={phase.k}
+            voted={done}
+            people={expected}
+            onTake={() => {
+              if (phase.k === 'pass') {
+                // Chaque bulletin part d'une feuille vide : un bulletin entamé puis abandonné n'est jamais montré au suivant
+                setDraft({})
+                return setPhase({ k: 'ballot', round, q: 0 })
+              }
+              if (done < expected) return setPhase({ k: 'pass', round })
+              if (round === 1) count()
+              else setPhase({ k: 'after' })
+            }}
+            onArrive={round === 1 && people < MAX_PEOPLE ? () => setPeople(p => Math.min(MAX_PEOPLE, p + 1)) : undefined}
+            onCountNow={
+              round === 1
+                ? () => {
+                    setPeople(voted)
+                    count()
+                  }
+                : () => setPhase({ k: 'after' })
+            }
+            countNow={
+              round === 1
+                ? undefined
+                : { label: 'Il manque quelqu’un\u00a0? Voir ce qui a bougé', from: 1 }
+            }
+            onCancel={
+              round === 2
+                ? {
+                    label: 'Annuler le nouveau tour de table',
+                    action: () => {
+                      setRevote(null)
+                      setPhase({ k: 'recap' })
+                    },
+                  }
+                : undefined
+            }
+            onStop={() => setPhase({ k: 'confirm-stop', back: phase })}
+          />
+        )
+      }
+      case 'ballot': {
+        const qs = ballotQuestions(phase.round)
+        const q = qs[phase.q]!
+        const voter = phase.round === 1 ? voted : (revote?.voted ?? 0)
+        const last = phase.q === qs.length - 1
+        const answer = draft[q.id]
+        return (
+          <Sheet
+            key={`${phase.round}:${voter}:${q.id}`}
+            title="À table"
+            question={q}
+            approaches={seededShuffle(q.approaches, `${seed}:${phase.round}:${q.id}:${voter}`)}
+            topic={topics.get(q.topicId)}
+            index={phase.q}
+            total={qs.length}
+            answered={qs.filter(x => hasOpinion(draft[x.id])).length}
+            answer={answer}
+            onChange={a => setDraft(d => ({ ...d, [q.id]: a }))}
+            onNext={() => (last ? castBallot(phase.round) : setPhase({ ...phase, q: phase.q + 1 }))}
+            onBack={back.current}
+            nextLabel={last ? (hasOpinion(answer) ? 'Glisser dans l’urne' : 'Je passe et je glisse dans l’urne') : hasOpinion(answer) ? 'Question suivante' : 'Je passe'}
+            closed={{
+              header: (
+                <ClosedHeader
+                  where={
+                    <span class="locator">
+                      <span class="locator-topic">{phase.round === 2 ? 'Nouveau tour de table' : 'Votre bulletin'}</span>
+                      <span class="locator-count" aria-hidden="true">
+                        {phase.q + 1}/{qs.length}
+                      </span>
+                      <span class="sr-only">
+                        Question {phase.q + 1} sur {qs.length}
+                      </span>
                     </span>
-                  </span>
-                }
-              />
-            ),
-            foot: <ClosedFoot />,
-          }}
-        />
-      )
+                  }
+                />
+              ),
+              foot: <ClosedFoot />,
+            }}
+          />
+        )
+      }
+      case 'aloud': {
+        const idea = summary.ideas[phase.i]
+        if (!idea) return <Recap summary={summary} reads={reads} voters={voted} onTalk={summary.ideas.length || summary.quiet.length ? startTalk : undefined} onReveal={() => setPhase({ k: 'confirm-reveal' })} onBack={count} />
+        return (
+          <Aloud
+            idea={idea}
+            read={reads.get(idea.questionId)!}
+            index={phase.i}
+            total={summary.ideas.length}
+            onPrev={() => phase.i > 0 && setPhase({ k: 'aloud', i: phase.i - 1 })}
+            onNext={() => setPhase(phase.i + 1 < summary.ideas.length ? { k: 'aloud', i: phase.i + 1 } : { k: 'recap' })}
+          />
+        )
+      }
+      case 'recap':
+        return <Recap summary={summary} reads={reads} voters={voted} onTalk={summary.ideas.length || summary.quiet.length ? startTalk : undefined} onReveal={() => setPhase({ k: 'confirm-reveal' })} onBack={count} />
+      case 'talk':
+        if (!talkIdea || !talkQuestion) return <Recap summary={summary} reads={reads} voters={voted} onTalk={summary.ideas.length || summary.quiet.length ? startTalk : undefined} onReveal={() => setPhase({ k: 'confirm-reveal' })} onBack={count} />
+        return (
+          <Talk
+            question={talkQuestion}
+            ideaText={talkQuestion.approaches.find(a => a.id === talkIdea.approachId)?.text ?? ''}
+            onBack={() => setPhase({ k: 'recap' })}
+            onSkip={() => setPhase({ k: 'confirm-reveal' })}
+            onRevote={() => {
+              setRevote({ voted: 0, totals: emptyTotals([talkQuestion]) })
+              setPhase({ k: 'pass', round: 2 })
+            }}
+          />
+        )
+      case 'after': {
+        if (!talkIdea || !talkQuestion || !revote) return null
+        const again = summarize(revote.totals, [talkQuestion], seed)
+        const now = [...again.ideas, ...again.quiet].find(i => i.approachId === talkIdea.approachId)
+        return (
+          <After
+            ideaText={talkQuestion.approaches.find(a => a.id === talkIdea.approachId)?.text ?? ''}
+            before={{ agree: talkIdea.agree, disagree: talkIdea.disagree }}
+            after={now ? { agree: now.agree, disagree: now.disagree } : null}
+            onReveal={() => setPhase({ k: 'confirm-reveal' })}
+          />
+        )
+      }
+      case 'confirm-reveal':
+        return (
+          <Confirm
+            where="Les noms"
+            title="Découvrir qui porte ces idées ?"
+            text="Après, on ne pourra plus voter à cette table : les noms changeraient le vote."
+            yes="Découvrir qui porte ces idées"
+            onYes={() => setPhase({ k: 'reveal' })}
+            onNo={() => setPhase({ k: 'recap' })}
+          />
+        )
+      case 'reveal':
+        return (
+          <Reveal
+            questions={questions}
+            people={seededShuffle(candidates, `${seed}:people`)}
+            positions={positions}
+            verdicts={new Map([...summary.ideas, ...summary.quiet].map(i => [`${i.questionId}:${i.approachId}`, i.verdict]))}
+            onPicture={() => setPhase({ k: 'picture' })}
+            onEnd={() => setPhase({ k: 'confirm-stop', back: phase })}
+          />
+        )
+      case 'picture':
+        return (
+          <Picture
+            frozen={frozen ? freezePeriod(frozen) : null}
+            agreed={agreed}
+            ready={!!picture}
+            onAgree={() => setAgreed(true)}
+            onRefuse={() => setPhase({ k: 'reveal' })}
+            preview={
+              picture ? (
+                <figure class="table-picture-preview">
+                  <img src={picture.url} alt={picture.alt} width={1080} height={picture.height} />
+                </figure>
+              ) : null
+            }
+            onDownload={() => picture && downloadBlob(picture.blob, pictureFileName(election))}
+            onEnd={() => setPhase({ k: 'confirm-stop', back: phase })}
+          />
+        )
+      case 'confirm-stop':
+        return (
+          <Confirm
+            where="Effacer"
+            title="Effacer la table ?"
+            text="Les bulletins et le dépouillement de cette table seront effacés. La feuille du propriétaire du téléphone n’est pas touchée."
+            yes="Effacer la table"
+            onYes={wipe}
+            onNo={() => setPhase(phase.back)}
+          />
+        )
+      case 'ended':
+        return <Ended kind="ended" onUnlock={unlock} />
+      case 'interrupted':
+        return <Ended kind="interrupted" onUnlock={unlock} />
     }
-    case 'aloud': {
-      const idea = summary.ideas[phase.i]
-      if (!idea) return <Recap summary={summary} reads={reads} voters={voted} onTalk={startTalk} onReveal={() => setPhase({ k: 'confirm-reveal' })} onBack={count} />
-      return (
-        <Aloud
-          idea={idea}
-          read={reads.get(idea.questionId)!}
-          index={phase.i}
-          total={summary.ideas.length}
-          onPrev={() => phase.i > 0 && setPhase({ k: 'aloud', i: phase.i - 1 })}
-          onNext={() => setPhase(phase.i + 1 < summary.ideas.length ? { k: 'aloud', i: phase.i + 1 } : { k: 'recap' })}
-        />
-      )
-    }
-    case 'recap':
-      return <Recap summary={summary} reads={reads} voters={voted} onTalk={startTalk} onReveal={() => setPhase({ k: 'confirm-reveal' })} onBack={count} />
-    case 'talk':
-      if (!talkIdea || !talkQuestion) return <Recap summary={summary} reads={reads} voters={voted} onTalk={startTalk} onReveal={() => setPhase({ k: 'confirm-reveal' })} onBack={count} />
-      return (
-        <Talk
-          question={talkQuestion}
-          ideaText={talkQuestion.approaches.find(a => a.id === talkIdea.approachId)?.text ?? ''}
-          onBack={() => setPhase({ k: 'recap' })}
-          onSkip={() => setPhase({ k: 'confirm-reveal' })}
-          onRevote={() => {
-            setRevote({ voted: 0, totals: emptyTotals([talkQuestion]) })
-            setPhase({ k: 'pass', round: 2 })
-          }}
-        />
-      )
-    case 'after': {
-      if (!talkIdea || !talkQuestion || !revote) return null
-      const again = summarize(revote.totals, [talkQuestion], seed)
-      const now = [...again.ideas, ...again.quiet].find(i => i.approachId === talkIdea.approachId)
-      return (
-        <After
-          ideaText={talkQuestion.approaches.find(a => a.id === talkIdea.approachId)?.text ?? ''}
-          before={{ agree: talkIdea.agree, disagree: talkIdea.disagree }}
-          after={now ? { agree: now.agree, disagree: now.disagree } : null}
-          onReveal={() => setPhase({ k: 'confirm-reveal' })}
-        />
-      )
-    }
-    case 'confirm-reveal':
-      return (
-        <Confirm
-          where="Les noms"
-          title="Découvrir qui porte ces idées ?"
-          text="Après, on ne pourra plus voter à cette table : les noms changeraient le vote."
-          yes="Découvrir qui porte ces idées"
-          onYes={() => setPhase({ k: 'reveal' })}
-          onNo={() => setPhase({ k: 'recap' })}
-        />
-      )
-    case 'reveal':
-      return (
-        <Reveal
-          questions={questions}
-          people={seededShuffle(candidates, `${seed}:people`)}
-          positions={positions}
-          verdicts={new Map([...summary.ideas, ...summary.quiet].map(i => [`${i.questionId}:${i.approachId}`, i.verdict]))}
-          onPicture={() => setPhase({ k: 'picture' })}
-          onEnd={() => setPhase({ k: 'confirm-stop', back: phase })}
-        />
-      )
-    case 'picture':
-      return (
-        <Picture
-          frozen={frozen ? freezePeriod(frozen) : null}
-          agreed={agreed}
-          onAgree={() => setAgreed(true)}
-          onRefuse={() => setPhase({ k: 'reveal' })}
-          preview={
-            picture ? (
-              <figure class="table-picture-preview">
-                <img src={picture.url} alt={picture.alt} width={1080} height={1350} />
-              </figure>
-            ) : (
-              <p class="small" role="status">
-                Fabrication de l’image…
-              </p>
-            )
-          }
-          onDownload={() => picture && downloadBlob(picture.blob, pictureFileName(election))}
-          onEnd={() => setPhase({ k: 'confirm-stop', back: phase })}
-        />
-      )
-    case 'confirm-stop':
-      return (
-        <Confirm
-          where="Effacer"
-          title="Effacer la table ?"
-          text="Les bulletins et le dépouillement de cette table seront effacés. La feuille du propriétaire du téléphone n’est pas touchée."
-          yes="Effacer la table"
-          onYes={wipe}
-          onNo={() => setPhase(phase.back)}
-        />
-      )
-    case 'ended':
-      return <Ended kind="ended" onUnlock={unlock} />
-    case 'interrupted':
-      return <Ended kind="interrupted" onUnlock={unlock} />
   }
 }
 

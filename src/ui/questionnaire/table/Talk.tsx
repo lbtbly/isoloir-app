@@ -23,10 +23,10 @@ export function Talk({ question, ideaText, onRevote, onBack, onSkip }: TalkProps
     <div class="screen screen-talk">
       <ClosedHeader where="Facultatif" />
       <main class="sheet" id="contenu" tabIndex={-1}>
-        <AiLabel kind="feuille" more="seule" />
         <h1 class="display is-medium" tabIndex={-1}>
           Vous voulez en parler&nbsp;?
         </h1>
+        <AiLabel kind="feuille" more="seule" />
         <p class="small">{question.prompt}</p>
         <p class="talk-idea">{ideaText}</p>
         <h2 class="q-prompt">Trois règles de table</h2>
@@ -76,18 +76,19 @@ export function After({ ideaText, before, after, onReveal }: AfterProps) {
     <div class="screen screen-after">
       <ClosedHeader where="Nouveau tour de table" />
       <main class="sheet" id="contenu" tabIndex={-1}>
-        <AiLabel kind="feuille" more="seule" />
         <h1 class="display is-medium" tabIndex={-1}>
           Après en avoir parlé
         </h1>
+        <AiLabel kind="feuille" more="seule" />
         <p class="talk-idea">{ideaText}</p>
         {after ? (
           <>
             <p class="q-prompt">{moved ? 'La table a bougé sur cette idée.' : 'La table tient ses positions, et elle en a parlé.'}</p>
             <table class="after-rows">
+              <caption class="sr-only">Avis de la table sur cette idée, avant et après en avoir parlé</caption>
               <thead>
                 <tr>
-                  <th scope="col" />
+                  <td />
                   <th scope="col">Avant</th>
                   <th scope="col">Après</th>
                 </tr>

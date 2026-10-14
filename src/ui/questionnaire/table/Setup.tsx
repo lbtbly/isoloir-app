@@ -17,7 +17,8 @@ interface Props {
   pool: readonly Question[]
   topics: ReadonlyMap<string, Topic>
   chosen: readonly string[]
-  toggle: (id: string) => void
+  /** Coche ou décoche un sujet ; false quand c'est refusé (moins de 2 ou plus de 4 sujets) */
+  toggle: (id: string) => boolean
   min: number
   max: number
   status: string
@@ -40,13 +41,13 @@ export function Setup({ people, setPeople, pool, topics, chosen, toggle, min, ma
             Combien êtes-vous&nbsp;?
           </h2>
           <div class="table-count">
-            <button type="button" aria-label="Une personne de moins" disabled={people <= MIN_PEOPLE} onClick={() => setPeople(people - 1)}>
+            <button type="button" aria-label="Une personne de moins" aria-disabled={people <= MIN_PEOPLE} onClick={() => people > MIN_PEOPLE && setPeople(people - 1)}>
               −
             </button>
             <span class="table-count-n" aria-hidden="true">
               {people}
             </span>
-            <button type="button" aria-label="Une personne de plus" disabled={people >= MAX_PEOPLE} onClick={() => setPeople(people + 1)}>
+            <button type="button" aria-label="Une personne de plus" aria-disabled={people >= MAX_PEOPLE} onClick={() => people < MAX_PEOPLE && setPeople(people + 1)}>
               +
             </button>
             <Tally count={people} maxGroups={Infinity} label={`${people} personnes`} />
@@ -68,7 +69,14 @@ export function Setup({ people, setPeople, pool, topics, chosen, toggle, min, ma
               return (
                 <li key={q.id}>
                   <label class={`table-subject${on ? ' is-on' : ''}`}>
-                    <input type="checkbox" checked={on} onChange={() => toggle(q.id)} />
+                    <input
+                      type="checkbox"
+                      checked={on}
+                      onChange={e => {
+                        // Geste refusé : la case reprend aussitôt son état, le motif est annoncé
+                        if (!toggle(q.id)) (e.currentTarget as HTMLInputElement).checked = on
+                      }}
+                    />
                     <span class="table-subject-topic">{topics.get(q.topicId)?.label}</span>
                     <span class="table-subject-prompt">{q.prompt}</span>
                     <span class="table-subject-meta">{q.approaches.length} idées</span>

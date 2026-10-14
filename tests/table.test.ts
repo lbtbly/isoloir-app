@@ -154,3 +154,63 @@ describe('vivier des sujets', () => {
     expect(new Set(a.map(q => q.id)).size).toBe(2)
   })
 })
+
+describe('secret : rien ne se retrouve par soustraction', () => {
+  it('de 4 à 12 bulletins exprimés, ce que montre une idée ne permet jamais de retrouver un compte écrit en mots', () => {
+    // Ce que voit la table pour une idée : n, d'accord et pas d'accord (exacts ou en mots), lignes rouges si montrées,
+    // et le verdict. Pour chaque affichage possible, tous les comptes compatibles doivent laisser au moins deux valeurs
+    // possibles à chaque compte écrit en mots.
+    const key = (v: ReturnType<typeof shown>) => ('exact' in v ? `=${v.exact}` : v.words)
+    for (let n = 4; n <= 12; n++) {
+      const seen = new Map<string, { agree: Set<number>; disagree: Set<number> }>()
+      for (let agree = 0; agree <= n; agree++)
+        for (let disagree = 0; agree + disagree <= n; disagree++)
+          for (let red = 0; red <= disagree; red++) {
+            const a = shown(agree, n)
+            const d = shown(disagree, n)
+            const r = shown(red, n)
+            const v = verdictOf({ agree, disagree, neutral: n - agree - disagree, redLines: red }, n)
+            // Les lignes rouges ne sont écrites que si elles sont exactes ou presque unanimes (Aloud.tsx)
+            const rk = 'exact' in r || r.words === 'presque-tous' ? key(r) : '-'
+            const k = [n, key(a), key(d), rk, v].join('|')
+            const e = seen.get(k) ?? { agree: new Set(), disagree: new Set() }
+            e.agree.add(agree)
+            e.disagree.add(disagree)
+            seen.set(k, e)
+          }
+      for (const [k, e] of seen) {
+        const [, a, d] = k.split('|')
+        if (!a!.startsWith('=')) expect(e.agree.size, `n=${n} ${k} : d’accord se déduit`).toBeGreaterThan(1)
+        if (!d!.startsWith('=')) expect(e.disagree.size, `n=${n} ${k} : pas d’accord se déduit`).toBeGreaterThan(1)
+      }
+    }
+  })
+})
+
+describe('vivier : la règle publiée, vérifiée sujet par sujet', () => {
+  it('chaque sujet retenu la respecte, et chaque thème écarté n’a aucune question qui la respecte', async () => {
+    const { tablePool } = await import('../src/core/table/subjects')
+    const { stanceMark } = await import('../src/core/carriers')
+    const { axisOf, blocOf } = await import('../src/core/spectrum')
+    const axis = axisOf(pack.election) ?? []
+    expect(axis.length).toBeGreaterThan(0)
+    const need = Math.ceil((pack.election.checks?.quick?.minKnownShare ?? 0.75) * pack.candidates.length - 1e-9)
+    const known = (q: Question) => pack.candidates.filter(c => q.approaches.some(a => stanceMark(pack.positions[c.id]?.[a.id]))).length
+    const passes = (q: Question) =>
+      q.tier === 'essentiel' &&
+      !!q.explainer &&
+      known(q) >= need &&
+      axis.every(b => pack.candidates.some(c => blocOf(pack.election, c) === b.bloc && q.approaches.some(a => stanceMark(pack.positions[c.id]?.[a.id]) === 'main')))
+    const pool = tablePool(pack)
+    for (const q of pool) expect(passes(q), q.id).toBe(true)
+    const kept = new Set(pool.map(q => q.topicId))
+    for (const t of pack.bank.topics) {
+      const eligible = pack.bank.questions.filter(q => q.topicId === t.id && passes(q))
+      if (kept.has(t.id)) {
+        // La question retenue est celle où le plus de candidats sont connus
+        const chosen = pool.find(q => q.topicId === t.id)!
+        expect(Math.max(...eligible.map(known)), t.id).toBe(known(chosen))
+      } else expect(eligible.map(q => q.id), `${t.id} écarté à tort`).toEqual([])
+    }
+  })
+})
