@@ -1,20 +1,18 @@
 // L'accueil de qui a déjà son dépouillement (demande du propriétaire du 14/10/2026 : « si un dépouillement existe, la
-// page d'accueil doit être différente et adaptée »). En tête, à la place du film qui explique l'outil à qui ne le
-// connaît pas : son affiche (le plus proche, son pourcentage, ses bâtons), les questions à revoir, ce qui est nouveau
-// depuis ses réponses, puis les suites en panneaux, dans l'ordre de « Et maintenant ». Le film et les garanties restent
-// plus bas, pour qui veut les revoir.
+// page d'accueil doit être différente et adaptée »), questionnaire rapide terminé et au moins un avis compté (Home.tsx).
+// En tête, à la place du film qui explique l'outil à qui ne le connaît pas : les questions à revoir, son affiche (la
+// même qu'au dépouillement, components/Leader.tsx), son profil, ce qui est nouveau depuis ses réponses, puis les suites
+// en panneaux, dans l'ordre de « Et maintenant ». Le film et les garanties restent plus bas, pour qui veut les revoir.
 
 import type { ComponentChildren } from 'preact'
-import { affinityBand } from '../../core/affinity'
 import { frozenAt } from '../../core/freeze'
-import { closeNote, leaderLead, PROFILE_TITLE } from '../../core/resultsCopy'
-import { displayScore, strokesFor, type Results } from '../../core/score'
+import { PROFILE_TITLE } from '../../core/resultsCopy'
+import type { Results } from '../../core/score'
 import type { SessionState } from '../../core/storage'
 import type { ElectionPack, Question } from '../../core/types'
 import { ChangedQuestions } from '../components/ChangedQuestions'
 import { Icon } from '../components/Icon'
-import { Portrait } from '../components/Portrait'
-import { Tally } from '../components/Tally'
+import { Leader } from '../components/Leader'
 import { formatDate, formatMoment } from '../format'
 import { link } from '../nav'
 import { hasTable } from '../table/load'
@@ -22,14 +20,23 @@ import '../../styles/home-back.css'
 
 type Entry = { date: string; text: string }
 
+/** Le jour, à Paris, d'un instant ISO (en UTC) : celui des dates du journal des données */
+const PARIS_DAY = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris', year: 'numeric', month: '2-digit', day: '2-digit' })
+export const parisDay = (iso: string): string => PARIS_DAY.format(new Date(iso))
+
+const DAY_MONTH = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', timeZone: 'Europe/Paris' })
+/** « 11 octobre », « 1er novembre » : le jour des réponses, à Paris */
+const dayMonth = (iso: string): string => DAY_MONTH.format(new Date(iso)).replace(/^1 /, '1er ')
+
 /**
- * Ce qui est nouveau depuis ses réponses : les jours du journal des données postérieurs à leur date, les plus récents
- * d'abord, une entrée par jour (à date égale, la première écrite, celle qui dit l'effet sur le classement, comme en
- * tête du dépouillement ; le détail reste dans la Méthode). Sans date de réponses, rien.
+ * Ce qui est nouveau depuis ses réponses : les jours du journal des données postérieurs au jour (à Paris) où le
+ * questionnaire rapide a été terminé, les plus récents d'abord, une entrée par jour (à date égale, la première écrite,
+ * celle qui dit l'effet sur le classement, comme en tête du dépouillement ; le détail reste dans la Méthode). Sans date
+ * de réponses, rien.
  */
 export function newsSince(changelog: readonly Entry[], since: string | null, max = 3): Entry[] {
-  if (!since) return []
-  const day = since.slice(0, 10)
+  if (!since || Number.isNaN(Date.parse(since))) return []
+  const day = parisDay(since)
   const days = new Set<string>()
   return changelog
     .filter(e => e.date > day && !days.has(e.date) && !!days.add(e.date))
@@ -45,20 +52,20 @@ interface Props {
   state: SessionState
   results: Results
   stale: Question[]
+  /** Les questions du questionnaire rapide, toutes vues */
+  essentialCount: number
   /** « Mon profil politique » est prêt (même règle que la page et le dépouillement) */
   profileReady: boolean
   /** Son bandeau, la page prête : sous l'affiche, comme au dépouillement */
   profile?: ComponentChildren
 }
 
-export function WelcomeBack({ pack, state, results, stale, profileReady, profile }: Props) {
+export function WelcomeBack({ pack, state, results, stale, essentialCount, profileReady, profile }: Props) {
   const { election, candidates, bank } = pack
   const topics = new Map(bank.topics.map(t => [t.id, t]))
   const byId = new Map(candidates.map(c => [c.id, c]))
-  const [first, second] = results.ranking
-  const leader = first && first.score !== null ? byId.get(first.candidateId) : undefined
-  const band = first ? affinityBand(first.score) : null
-  const news = newsSince(election.changelog, state.essentialDoneAt)
+  const doneAt = state.essentialDoneAt
+  const news = newsSince(election.changelog, doneAt)
   const table = hasTable(election)
 
   // Les panneaux de « Et maintenant », dans le même ordre et sur les mêmes papiers que le dépouillement
@@ -71,7 +78,7 @@ export function WelcomeBack({ pack, state, results, stale, profileReady, profile
             href: link('/a-table'),
             icon: 'table',
             title: 'À table',
-            desc: 'De 3 à 12 personnes, un seul téléphone : chacun vote en secret, puis vous lisez ensemble ce qui vous réunit.',
+            desc: 'De 3 à 12 personnes, un seul téléphone\u00a0: chacun vote en secret, puis vous lisez ensemble ce qui vous réunit.',
             ink: !profileReady,
           },
         ]
@@ -93,48 +100,31 @@ export function WelcomeBack({ pack, state, results, stale, profileReady, profile
             Votre dépouillement vous attend
           </h1>
           <p class="lede">
-            {state.essentialDoneAt ? (
+            {/* La date est celle où le questionnaire rapide a été terminé (essentialDoneAt) : le dépouillement, lui, suit
+                toutes les réponses d'aujourd'hui, approfondies et revues comprises */}
+            {doneAt ? (
               <>
-                Calculé sur vos réponses du <time dateTime={state.essentialDoneAt}>{formatMoment(state.essentialDoneAt)}</time>
+                Vous avez répondu aux {essentialCount} questions du questionnaire rapide le{' '}
+                <time dateTime={doneAt}>{formatMoment(doneAt)}</time>.{' '}
               </>
-            ) : (
-              'Calculé sur vos réponses'
-            )}
-            , sur cet appareil : il ne le quitte pas.
+            ) : null}
+            Votre dépouillement est calculé sur cet appareil et ne le quitte pas.
           </p>
-          <ChangedQuestions questions={stale} topics={topics} class="back-changed" />
+          <ChangedQuestions questions={stale} topics={topics} />
         </div>
 
         <div class="back-side">
-          {leader && first ? (
-            <section class="leader on-copy back-leader" aria-labelledby="back-leader-title">
-              <Portrait candidate={leader} size="id" decorative />
-              <div class="leader-body">
-                <h2 id="back-leader-title" class="leader-title">
-                  <span class="leader-lead">{leaderLead(results.allIncompatible)}</span>
-                  <span class="leader-name">{leader.name}</span>
-                </h2>
-                <p class="leader-score">
-                  <span class={`leader-pct${band ? ` aff-${band.key}` : ''}`}>
-                    {displayScore(first.score)}
-                    <span class="pv-unit">%</span>
-                  </span>
-                  {band ? <span class={`leader-band aff-${band.key}`}>{band.label}</span> : null}
-                </p>
-                <Tally count={strokesFor(first.score)} maxGroups={Infinity} label="" />
-                {results.close && second ? <p class="leader-note">{closeNote(byId.get(second.candidateId)?.name ?? '')}</p> : null}
-                <a class="back-open" href={link('/resultats')}>
-                  Tout mon dépouillement
-                  <Icon name="arrow-right" />
-                </a>
-              </div>
-            </section>
-          ) : null}
+          <Leader ranking={results.ranking} results={results} byId={byId} titleId="back-leader-title" class="back-leader" still>
+            <a class="back-open" href={link('/resultats')}>
+              Tout mon dépouillement
+              <Icon name="arrow-right" />
+            </a>
+          </Leader>
           {profile}
-          {news.length ? (
+          {news.length && doneAt ? (
             <section class="back-news" aria-labelledby="back-news-title">
               <h2 id="back-news-title" class="back-news-title">
-                Nouveau depuis vos réponses
+                Nouveau depuis le {dayMonth(doneAt)}
               </h2>
               <ol class="back-news-list">
                 {news.map(e => (

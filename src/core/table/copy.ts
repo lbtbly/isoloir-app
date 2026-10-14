@@ -52,7 +52,7 @@ export const SECRET = [
   'Votre bulletin n’est jamais montré ni gardé : il est ajouté au compte, puis oublié.',
   'Quand tout le monde vote pareil, cela se voit : c’est pourquoi l’écran dit «' + NB + 'toute la table ou presque' + NB + '» plutôt qu’un nombre.',
   'Si vous êtes seul à voter autrement sur une idée, le dépouillement peut vous apprendre comment les autres ont voté sur elle.',
-  'Si tous les autres comparent leurs votes, ils peuvent deviner le vôtre, comme dans un tout petit bureau de vote. À trois, c’est plus facile : mieux vaut être quatre ou plus.',
+  'Si tous les autres comparent leurs votes, ils peuvent deviner le vôtre, comme dans un tout petit bureau de vote. À trois, c’est plus facile' + NB + ': mieux vaut être quatre ou plus.',
   'Avec un lecteur d’écran, le bulletin est lu à voix haute : mettez des écouteurs.',
   'Recharger la page fait perdre la séance : rien n’est gardé, même pour la reprendre.',
   'La table ne montre pas la feuille du propriétaire du téléphone et n’y touche pas. Un autre onglet ouvert sur Isoloir, lui, la montrerait.',

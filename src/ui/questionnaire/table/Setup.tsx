@@ -53,7 +53,7 @@ export function Setup({ people, setPeople, pool, topics, chosen, toggle, min, ma
             <Tally count={people} maxGroups={Infinity} label={`${people} personnes`} />
           </div>
           <p class="small">
-            De {MIN_PEOPLE} à {MAX_PEOPLE} personnes. {people <= MIN_PEOPLE ? 'À trois, un vote se devine plus facilement : à quatre ou plus, le secret tient mieux.' : 'En dessous de trois, le secret ne tiendrait pas.'}
+            De {MIN_PEOPLE} à {MAX_PEOPLE} personnes. {people <= MIN_PEOPLE ? 'À trois, un vote se devine plus facilement\u00a0: à quatre ou plus, le secret tient mieux.' : 'En dessous de trois, le secret ne tiendrait pas.'}
           </p>
         </section>
 

@@ -20,10 +20,8 @@ import {
   answeredLede,
   bankKnownLine,
   caveats,
-  closeNote,
   count,
   CROSSING_DIVIDER,
-  crossingNote,
   emptyRanking,
   excludedLede,
   excludedTitle,
@@ -34,7 +32,6 @@ import {
   indicativeScore,
   joinNames,
   knownLine,
-  leaderLead,
   LINK_METHOD,
   LINK_RULE,
   LINK_SOURCES,
@@ -85,6 +82,7 @@ import type { SessionState } from '../../core/storage'
 import type { Candidate, ElectionPack, Question, TopicId, TopicWeights } from '../../core/types'
 import { ChangedQuestions } from '../components/ChangedQuestions'
 import { ConfirmErase } from '../components/ConfirmErase'
+import { Leader } from '../components/Leader'
 import { isVoting, useCurrentElection } from '../components/CurrentElection'
 import { FormHeader } from '../components/FormHeader'
 import { SiteFooter } from '../components/SiteFooter'
@@ -486,7 +484,7 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
             href: link('/a-table'),
             icon: 'table',
             title: 'À table',
-            desc: 'De 3 à 12 personnes, un seul téléphone : chacun vote en secret, puis vous lisez ensemble ce qui vous réunit.',
+            desc: 'De 3 à 12 personnes, un seul téléphone\u00a0: chacun vote en secret, puis vous lisez ensemble ce qui vous réunit.',
             ink: !profile,
           },
         ]
@@ -974,54 +972,6 @@ function sessionStorageSafeSet(key: string, value: string) {
 }
 
 /** L'affiche du plus proche : portrait, pourcentage sur l'échelle, bâtons ; l'égalité et les lignes rouges dites en clair */
-function Leader({
-  ranking,
-  results,
-  byId,
-}: {
-  ranking: CandidateResult[]
-  results: ResultsData
-  byId: Map<string, Candidate>
-}) {
-  const [first, second] = ranking
-  if (!first || first.score === null) return null
-  const c = byId.get(first.candidateId)!
-  const b = affinityBand(first.score)
-  // Hors classement et non classés compris : la phrase compte tous les candidats qui franchissent une ligne rouge,
-  // autant que de croix sur la page (non classés : décision du propriétaire du 14 octobre 2026)
-  const crossing = [...ranking, ...results.unranked, ...results.excludedResults].filter(r => !r.compatible).length
-  return (
-    <section class="leader on-copy" aria-labelledby="leader-title">
-      <Portrait candidate={c} size="id" decorative />
-      <div class="leader-body">
-        <h2 id="leader-title" class="leader-title">
-          <span class="leader-lead">{leaderLead(results.allIncompatible)}</span>
-          <a class="leader-name" href={link(`/candidat/${c.id}`)}>
-            {c.name}
-          </a>
-        </h2>
-        <p class="leader-score">
-          <span class={`leader-pct${b ? ` aff-${b.key}` : ''}`}>
-            {displayScore(first.score)}
-            <span class="pv-unit">%</span>
-          </span>
-          {b ? <span class={`leader-band aff-${b.key}`}>{b.label}</span> : null}
-        </p>
-        <Tally count={strokesFor(first.score)} maxGroups={Infinity} drawAll delay={300} label="" />
-        {results.close && second ? (
-          <p class="leader-note">{closeNote(byId.get(second.candidateId)?.name ?? '')}</p>
-        ) : null}
-        {crossing > 0 && !results.allIncompatible ? (
-          <p class="leader-note">
-            <Icon name="cross" class="flag-mark" />
-            {crossingNote(crossing)}
-          </p>
-        ) : null}
-      </div>
-    </section>
-  )
-}
-
 /**
  * Hors classement (élections qui l'activent) : les candidats connus sur trop peu de vos réponses, sous le classement,
  * dans un ordre tiré au hasard. Ni rang, ni bâtons, ni couleur de palier : seulement la couverture, et le score dit

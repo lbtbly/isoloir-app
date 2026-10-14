@@ -7,7 +7,7 @@ related_targets: ["src/ui/questionnaire/table","src/core/table","src/styles/tabl
 
 # Surface : « À table » (#/a-table)
 
-Mode : Operate (un groupe de 4 à 12 personnes, un seul téléphone, autour d'une table). Monde : « Le dépouillement », inchangé (DESIGN.md).
+Mode : Operate (un groupe de 3 à 12 personnes (dès 3 depuis le 2026-10-14), un seul téléphone, autour d'une table). Monde : « Le dépouillement », inchangé (DESIGN.md).
 
 Tâche : chacun vote en secret, sur la réglette du site (pas d'accord / sans avis / d'accord, plus la ligne rouge), sur 2 à 4 questions tirées d'un vivier fixé par une règle ; puis la table lit son dépouillement ensemble, à voix haute, une idée après l'autre ; puis « Qui porte ces idées ? ». Rien n'est enregistré ni transmis ; le propriétaire du téléphone ne voit jamais les bulletins, ni sa propre feuille pendant la séance.
 

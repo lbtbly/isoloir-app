@@ -1614,23 +1614,61 @@ try {
 
   // 7 bis. Accueil : la date des réponses ; fiche candidat : familles de thèmes et « Mes réponses »
   await page.goto(U('/'))
-  // L'accueil de retour (demande du 14/10/2026) : le titre, la date des réponses, l'affiche du plus proche, les panneaux
-  // de « Et maintenant », puis le film plus bas
+  // L'accueil de retour (demande du 14/10/2026) : le titre, la date où le questionnaire rapide a été terminé (heure
+  // aux espaces insécables, lue telle quelle), l'affiche du plus proche, les panneaux de « Et maintenant », puis le film
+  // plus bas
   const back = await page.evaluate(() => {
     const t = sel => (document.querySelector(sel)?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
     const before = (a, b) => !!a && !!b && !!(a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING)
     return {
       title: t('main h1'),
       lede: t('.welcome-back .lede'),
+      time: document.querySelector('.welcome-back .lede time')?.textContent ?? '',
       leader: t('.back-leader .leader-name'),
       panels: [...document.querySelectorAll('.welcome-back .next-panel .next-title')].map(e => e.textContent.trim()),
       filmAfter: before(document.querySelector('.welcome-back'), document.querySelector('.home-film')),
     }
   })
   check(
-    back.title === 'Votre dépouillement vous attend' && /réponses du \d+ \S+ 20\d\d à \d+ h \d\d/.test(back.lede) && !!back.leader && back.panels[0] === 'Qui porte quoi' && back.filmAfter,
+    back.title === 'Votre dépouillement vous attend' &&
+      back.lede.startsWith(`Vous avez répondu aux ${QUICK} questions du questionnaire rapide le `) &&
+      /^\d+(er)?\s\S+\s20\d\d à \d+\u00a0h\u00a0\d\d$/.test(back.time) &&
+      !!back.leader &&
+      back.panels[0] === 'Qui porte quoi' &&
+      back.filmAfter,
     `accueil de retour : « ${back.title} », « ${back.lede} », affiche de ${back.leader || 'personne'}, panneaux ${back.panels.join(', ')}, film plus bas ${back.filmAfter}`,
   )
+  // La carte des questions à revoir : une réponse d'une autre révision de sa question la met sur l'accueil, puis en
+  // tête du dépouillement ; la feuille est rendue telle quelle ensuite
+  if (pack.election.revisionTracking) {
+    const kept = await page.evaluate(key => localStorage.getItem(key), STORAGE)
+    const st = JSON.parse(kept)
+    const qid = quickQs.map(q => q.id).find(id => st.answers[id] && !st.answers[id].skipped)
+    st.answers[qid] = { ...st.answers[qid], rev: 999 }
+    await page.evaluate(([k, v]) => localStorage.setItem(k, v), [STORAGE, JSON.stringify(st)])
+    await page.reload()
+    await page.locator('.welcome-back .changed').waitFor({ timeout: 5000 }).catch(() => null)
+    const card = await page.evaluate(() => {
+      const c = document.querySelector('.welcome-back .changed')
+      const t = e => (e?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
+      return c
+        ? { count: t(c.querySelector('.changed-count')), title: t(c.querySelector('h2')), items: c.querySelectorAll('.changed-list > li').length, href: c.querySelector('.changed-cta')?.getAttribute('href') }
+        : null
+    })
+    await page.goto(U('/resultats'))
+    await heading(page, 'Votre dépouillement')
+    const onResults = await page.locator('.results-intro .changed').count()
+    // La feuille d'avant, relue au rechargement (l'application garde la sienne en mémoire jusque-là)
+    await page.evaluate(([k, v]) => localStorage.setItem(k, v), [STORAGE, kept])
+    await page.reload()
+    await page.goto(U('/'))
+    await page.locator('.welcome-back').waitFor({ timeout: 5000 }).catch(() => null)
+    const gone = await page.locator('.changed').count()
+    check(
+      card?.count === '1' && card.title === 'Une question a changé depuis vos réponses' && card.items === 1 && card.href === L('/revision') && onResults === 1 && gone === 0,
+      `questions à revoir : carte sur l’accueil (${card ? `« ${card.count} », « ${card.title} », ${card.items} question, vers ${card.href}` : 'absente'}), en tête du dépouillement (${onResults}), partie une fois la feuille rendue (${gone})`,
+    )
+  }
   // L'appel de l'en-tête mène désormais au dépouillement (libellé long ou court selon la largeur)
   const doneCta = page.locator('.header-cta')
   const doneHref = await doneCta.getAttribute('href').catch(() => null)

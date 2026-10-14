@@ -41,10 +41,10 @@ export function ChangedQuestions({
           </h2>
         </div>
       </div>
+      {/* « Votre résultat » : la carte vient aussi sur la tendance et sur l'accueil d'une feuille en cours */}
       <p class="changed-why">
         {many ? 'Leur énoncé ou leurs approches ont été revus.' : 'Son énoncé ou ses approches ont été revus.'} Votre
-        dépouillement est calculé sans {many ? 'elles' : 'elle'} en attendant&nbsp;: {many ? 'revoyez-les' : 'revoyez-la'}{' '}
-        pour {many ? 'qu’elles comptent' : 'qu’elle compte'} de nouveau.
+        résultat est calculé sans {many ? 'elles' : 'elle'} en attendant que vous {many ? 'les revoyiez' : 'la revoyiez'}.
       </p>
       <ul class="changed-list">
         {questions.slice(0, SHOWN).map(q => (
@@ -56,7 +56,7 @@ export function ChangedQuestions({
         {rest > 0 ? <li class="changed-more">et {rest > 1 ? `${rest} autres` : 'une autre'}</li> : null}
       </ul>
       <a class="btn-primary changed-cta" href={link('/revision')}>
-        {many ? `Revoir les ${n} questions` : 'Revoir la question'}
+        <span class="changed-cta-label">{many ? `Revoir les ${n} questions` : 'Revoir la question'}</span>
         <Icon name="arrow-right" />
       </a>
     </section>

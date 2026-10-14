@@ -77,8 +77,9 @@ export function Home({ pack, state, essential, stale, results, setState, eraseAl
   const step1Done = step1 > 0 && essential.slice(0, step1).every(q => state.answers[q.id])
   // Questionnaire déjà complété une fois, puis rouvert par l'ajout de questions : on le dit, et on y mène
   const added = !done && state.essentialDoneAt ? essential.length - seen : 0
-  // Un dépouillement existe : l'accueil de retour en tête, le film plus bas (demande du propriétaire du 14/10/2026)
-  const back = done
+  // Un dépouillement existe (questionnaire rapide terminé, au moins un avis compté) : l'accueil de retour en tête, le
+  // film plus bas (demande du propriétaire du 14/10/2026). Tout passé, ou tout à revoir : l'accueil d'avant, qui le dit
+  const back = done && results.answered > 0
 
   // « Mon profil politique » (élections dont la grille a un axe) : la même règle que la page et le dépouillement
   const axis = axisOf(election)
@@ -198,7 +199,15 @@ export function Home({ pack, state, essential, stale, results, setState, eraseAl
       <FormHeader title={election.shortName} home action={{ href: startHref, label: startLabel, short: shortLabel }} />
       <main class="sheet home-sheet" id="contenu" tabIndex={-1} ref={sheet}>
         {back ? (
-          <WelcomeBack pack={pack} state={state} results={results} stale={stale} profileReady={ready} profile={ready ? profileEntry : null} />
+          <WelcomeBack
+            pack={pack}
+            state={state}
+            results={results}
+            stale={stale}
+            essentialCount={essential.length}
+            profileReady={ready}
+            profile={ready ? profileEntry : null}
+          />
         ) : (
           <>
             <h1 class="sr-only" tabIndex={-1}>
@@ -214,7 +223,13 @@ export function Home({ pack, state, essential, stale, results, setState, eraseAl
         {/* Où en est la feuille, sous le film (le questionnaire complet, c'est l'accueil de retour qui le dit) */}
         {!back && started ? (
           <div class="home-status">
-            {added ? (
+            {done && state.essentialDoneAt ? (
+              <p class="progress-note done-note">
+                Vous avez répondu aux {essential.length} questions le{' '}
+                <time dateTime={state.essentialDoneAt}>{formatMoment(state.essentialDoneAt)}</time>.{' '}
+                <a href={link('/resultats')}>Voir mon dépouillement</a>
+              </p>
+            ) : added ? (
               <p class="notice" role="status">
                 {added > 1 ? `${added} questions ont été ajoutées` : 'Une question a été ajoutée'} au questionnaire depuis vos
                 réponses du <time dateTime={state.essentialDoneAt!}>{formatMoment(state.essentialDoneAt)}</time>. Vos autres
@@ -227,7 +242,7 @@ export function Home({ pack, state, essential, stale, results, setState, eraseAl
                     politique », juste dessous (17 restent quand 5 sur 22 sont vues) */}
                 Feuille en cours : {seen} question{seen > 1 ? 's' : ''} sur {essential.length}
                 {seen > answered ? `, dont ${seen - answered} passée${seen - answered > 1 ? 's' : ''}` : ''}.
-                {step1Done ? (
+                {step1Done && !done ? (
                   <>
                     {' '}
                     <a href={link('/resultats')}>Voir la tendance</a>
@@ -237,14 +252,15 @@ export function Home({ pack, state, essential, stale, results, setState, eraseAl
             ) : null}
           </div>
         ) : null}
-        {!back ? <ChangedQuestions questions={stale} topics={topicsById} class="home-changed" /> : null}
+        {!back ? <ChangedQuestions questions={stale} topics={topicsById} /> : null}
         {back ? (
           <>
-            {/* Le film, pour qui veut revoir le principe ; la page prête, son bandeau est sous l'affiche (HomeBack) */}
+            {/* Le film, pour qui veut revoir le principe ; la page prête, son bandeau est sous l'affiche (HomeBack). Le
+                titre n'est pas un intertitre : chaque scène du film en porte un, au même niveau, sous le h1 de la page */}
             <section class="home-film is-back" aria-labelledby="film-title">
-              <h2 id="film-title" class="section-title">
+              <p id="film-title" class="section-title">
                 Comment marche Isoloir
-              </h2>
+              </p>
               <FilmPlayer cta={{ href: startHref, label: startLabel, note: '' }} />
             </section>
             {ready ? null : profileEntry}
