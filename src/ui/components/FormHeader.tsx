@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'preact/hooks'
 import { APP_NAME } from '../../core/app'
 import { currentPath, link } from '../nav'
-import { tableShown } from '../table/load'
+import { tableShown } from '../table/shown'
 import { videosShown } from '../videos/load'
 import '../../styles/brand.css'
 import { Curtain } from './Airplane'
@@ -38,7 +38,7 @@ const MENU = [
 ]
 
 /** Les entrées du menu pour l'élection affichée : « Les vidéos » seulement si elle en montre (videos/load.ts), « À table »
- *  seulement si elle a une table (table/load.ts) */
+ *  seulement si elle a une table (table/shown.ts) */
 const menuItems = () => MENU.filter(item => (item.path !== '/videos' || videosShown()) && (item.path !== '/a-table' || tableShown()))
 
 /** Lien courant : « page » sur la page elle-même, « true » sur une de ses fiches (fiche d'un candidat) */

@@ -197,6 +197,8 @@ const homeEntry = pg =>
       href: card?.getAttribute('href') ?? null,
       afterProof: before(at('.home-proof'), card) && before(card, at('.journey')),
       afterStatus: !!card && card.previousElementSibling === at('.home-status') && before(card, at('.home-proof')),
+      // L'accueil de retour (questionnaire complet) : sous l'affiche du plus proche, comme au dépouillement
+      afterLeader: !!card && card.previousElementSibling === at('.welcome-back .back-leader'),
       tiles: card?.querySelectorAll('.hp-peek[aria-hidden="true"] .tile').length ?? 0,
       // Le texte du lien, sans les mots des cases de l'aperçu (masqués aux lecteurs d'écran), sa mention comprise
       text: [...(card?.querySelectorAll('.hp-tag, .hp-body, .pb-body') ?? [])].map(e => e.textContent).join(' ').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim(),
@@ -1128,13 +1130,13 @@ try {
       `affiche JPG : la même avant et après « Mon profil politique » (${before?.hash.slice(0, 12)}…, ${after?.hash.slice(0, 12)}…), rien de la page dans son texte de remplacement`,
     )
 
-    // L'accueil, une fois la page prête : le bandeau « Voir mon profil politique », sans aperçu, sous l'état de la feuille
+    // L'accueil, une fois la page prête : le bandeau « Voir mon profil politique », sans aperçu, sous l'affiche du plus proche
     await page.goto(U('/'))
     await page.locator('.home-profile').waitFor()
     const ready = await homeEntry(page)
     check(
-      ready.n === 1 && ready.ready && ready.afterStatus && ready.tiles === 0 && ready.href === L('/profil') && ready.text.startsWith('Voir mon profil politique'),
-      `mon profil politique, accueil prêt : « ${ready.text.slice(0, 40)}… » sous l’état de la feuille ${ready.afterStatus}, sans aperçu (${ready.tiles} case)`,
+      ready.n === 1 && ready.ready && ready.afterLeader && ready.tiles === 0 && ready.href === L('/profil') && ready.text.startsWith('Voir mon profil politique'),
+      `mon profil politique, accueil prêt : « ${ready.text.slice(0, 40)}… » sous l’affiche du plus proche ${ready.afterLeader}, sans aperçu (${ready.tiles} case)`,
     )
 
     // En grand écran : le bandeau du dépouillement sous l'affiche, dans sa colonne ; une feuille tout approfondie (un avis
@@ -1526,8 +1528,23 @@ try {
 
   // 7 bis. Accueil : la date des réponses ; fiche candidat : familles de thèmes et « Mes réponses »
   await page.goto(U('/'))
-  const doneNote = (await page.locator('.done-note').textContent().catch(() => '')) ?? ''
-  check(new RegExp(`${QUICK} questions le \\d+\\s\\S+\\s20\\d\\d à \\d+\u00a0h\u00a0\\d\\d`).test(doneNote), `l’accueil date les ${QUICK} réponses (${doneNote.trim()})`)
+  // L'accueil de retour (demande du 14/10/2026) : le titre, la date des réponses, l'affiche du plus proche, les panneaux
+  // de « Et maintenant », puis le film plus bas
+  const back = await page.evaluate(() => {
+    const t = sel => (document.querySelector(sel)?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
+    const before = (a, b) => !!a && !!b && !!(a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING)
+    return {
+      title: t('main h1'),
+      lede: t('.welcome-back .lede'),
+      leader: t('.back-leader .leader-name'),
+      panels: [...document.querySelectorAll('.welcome-back .next-panel .next-title')].map(e => e.textContent.trim()),
+      filmAfter: before(document.querySelector('.welcome-back'), document.querySelector('.home-film')),
+    }
+  })
+  check(
+    back.title === 'Votre dépouillement vous attend' && /réponses du \d+ \S+ 20\d\d à \d+ h \d\d/.test(back.lede) && !!back.leader && back.panels[0] === 'Qui porte quoi' && back.filmAfter,
+    `accueil de retour : « ${back.title} », « ${back.lede} », affiche de ${back.leader || 'personne'}, panneaux ${back.panels.join(', ')}, film plus bas ${back.filmAfter}`,
+  )
   // L'appel de l'en-tête mène désormais au dépouillement (libellé long ou court selon la largeur)
   const doneCta = page.locator('.header-cta')
   const doneHref = await doneCta.getAttribute('href').catch(() => null)

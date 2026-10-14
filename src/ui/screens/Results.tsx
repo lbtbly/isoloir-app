@@ -50,7 +50,6 @@ import {
   redLineSummary,
   rowMeta,
   signed,
-  staleNotice,
   starLegend,
   SWAP_HEADS,
   swapText,
@@ -83,6 +82,7 @@ import {
 } from '../../core/score'
 import type { SessionState } from '../../core/storage'
 import type { Candidate, CandidateId, ElectionPack, Question, TopicId, TopicWeights } from '../../core/types'
+import { ChangedQuestions } from '../components/ChangedQuestions'
 import { ConfirmErase } from '../components/ConfirmErase'
 import { isVoting, useCurrentElection } from '../components/CurrentElection'
 import { FormHeader } from '../components/FormHeader'
@@ -154,6 +154,7 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
   const current = useCurrentElection()
   const { election, candidates, bank } = pack
   const byId = useMemo(() => new Map(candidates.map(c => [c.id, c])), [candidates])
+  const topicsById = useMemo(() => new Map(bank.topics.map(t => [t.id, t])), [bank.topics])
   const approachText = useMemo(() => {
     const m = new Map<string, string>()
     for (const q of bank.questions) for (const a of q.approaches) m.set(a.id, a.text)
@@ -529,6 +530,8 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
             {provisional ? null : (
               <p class="lede">{answeredLede(results.answered)}</p>
             )}
+            {/* Les questions à revoir : sous la phrase d'introduction, avant les priorités, pour se voir dès le premier écran */}
+            <ChangedQuestions questions={stale} topics={topicsById} />
             {provisional ? null : (
               <div class="prio" role="group" aria-labelledby="prio-title">
                 <p class="prio-head">
@@ -565,12 +568,6 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
                 </p>
               </div>
             )}
-            {stale.length > 0 ? (
-              <p class="notice" role="status">
-                {staleNotice(stale.length)}{' '}
-                <a href={link('/revision')}>{stale.length > 1 ? 'Les revoir' : 'La revoir'}</a>
-              </p>
-            ) : null}
             {state.dataUpdatedFrom ? (
               <p class="notice" role="status">
                 Les données ont été mises à jour depuis votre dernier passage (

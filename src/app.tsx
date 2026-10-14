@@ -487,7 +487,7 @@ function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
         return onDemandScreen('table', tableScreen, 'La table', 'de la table', m => <m.Table pack={pack} Sheet={Sheet} />)
       default:
         return (
-          <Home pack={pack} state={state} essential={essential} stale={stale} setState={setState} eraseAll={eraseAll} saved={saved} />
+          <Home pack={pack} state={state} essential={essential} stale={stale} results={results} setState={setState} eraseAll={eraseAll} saved={saved} />
         )
     }
   }
