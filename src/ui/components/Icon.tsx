@@ -21,6 +21,8 @@ const PATHS: Record<string, string> = {
   star: 'M12 3.6l2.55 5.2 5.7.83-4.13 4.02.98 5.68L12 16.65l-5.1 2.68.98-5.68-4.13-4.02 5.7-.83z',
   // « Mon profil politique » : un filet horizontal à cinq graduations, les cinq blocs de la grille
   axis: 'M3 12h18M4 8.5v7M8 8.5v7M12 8.5v7M16 8.5v7M20 8.5v7',
+  // « À table » : une table ronde vue de dessus, et quatre places autour
+  table: 'M12 7.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2',
   // Comparer : deux colonnes côte à côte
   compare: 'M4.5 5h5.5v14H4.5zM14 5h5.5v14H14z',
   // Plus : ajouter (un candidat à la comparaison)

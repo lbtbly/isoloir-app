@@ -135,8 +135,8 @@ export function Method({ pack, anchor }: { pack: ElectionPack; /** Rubrique à m
         <h2>Les questions</h2>
         <p>
           {stats.essential} questions forment le questionnaire rapide et {stats.deep} le questionnaire approfondi.
-          Chacune porte sur un désaccord documenté entre candidats ; les sujets sur lesquels tous s’accordent sont
-          affichés à part, sans être notés. Chaque question propose de {stats.min} à {stats.max}
+          Chacune porte sur un désaccord documenté entre candidats ; les points de large accord, partagés par la
+          plupart des candidats qui se sont exprimés, sont affichés à part, sans être notés. Chaque question propose de {stats.min} à {stats.max}
           {/* Les phrases qui reçoivent un texte de l'élection sont d'un seul tenant (un seul nœud de texte, comme
               avant le passage à plusieurs élections) : la mise en page de la primaire reste la même au pixel près */}
           {` approches rédigées sans nom, sans slogan et sans formule propre à un candidat, avec une structure et une longueur comparables. Elles ont été rédigées par une IA, puis vérifiées automatiquement\u00a0: par une IA, et par des tests qui refusent tout nom de candidat, ${parties} ou slogan.`}{' '}
@@ -315,7 +315,10 @@ export function Method({ pack, anchor }: { pack: ElectionPack; /** Rubrique à m
         </p>
         <p>
           {APP_NAME} n’est pas un sondage&nbsp;: il ne recueille les réponses de personne et ne publie aucun résultat
-          d’ensemble. Chaque dépouillement ne concerne que la personne qui répond, sur son propre appareil.
+          d’ensemble. Hors du mode «&nbsp;À table&nbsp;», chaque dépouillement ne concerne que la personne qui répond, sur
+          son propre appareil. Le mode «&nbsp;À table&nbsp;» compte en entier, sur un seul téléphone, les bulletins d’un
+          groupe privé&nbsp;; rien n’est transmis, ses règles sont publiées sur la page de la table, et son image, sans
+          valeur statistique, n’est fabriquée qu’avec l’accord de toute la table.
         </p>
 
         <h2>Les versions des questions</h2>

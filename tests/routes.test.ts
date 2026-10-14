@@ -24,6 +24,7 @@ describe('parseRoute', () => {
     expect(parseRoute('#/candidat')).toEqual({ name: 'candidates' })
     expect(parseRoute('#/sujets/retraites-1')).toEqual({ name: 'topics', anchor: 'retraites-1' })
     expect(parseRoute('#/profil')).toEqual({ name: 'profile' })
+    expect(parseRoute('#/a-table')).toEqual({ name: 'table' })
     expect(parseRoute('#/methode/profil')).toEqual({ name: 'method', anchor: 'profil' })
     // « Approfondir », arrivé d'un thème touché sur « Mon profil politique »
     expect(parseRoute('#/approfondir')).toEqual({ name: 'deepen' })
@@ -62,6 +63,7 @@ describe('parseLocation', () => {
 
   it('« profil » est le nom d’une page (« Mon profil politique »), pas un préfixe d’élection', () => {
     expect(parseLocation('#/profil')).toEqual({ slug: '', route: { name: 'profile' }, path: '/profil' })
+    expect(parseLocation('#/a-table')).toEqual({ slug: '', route: { name: 'table' }, path: '/a-table' })
     expect(parseLocation('#/presidentielle-2027/profil')).toEqual({ slug: 'presidentielle-2027', route: { name: 'profile' }, path: '/profil' })
   })
 
@@ -92,7 +94,7 @@ describe('withBase et canonicalPath', () => {
   })
 
   it('chaque adresse relue redonne la même page', () => {
-    for (const path of ['/', '/feuille/4', '/approfondi/2', '/resultats', '/profil', '/methode/ia', '/methode/profil', '/approfondir/defense', '/candidat/x', '/comparer/x,y', '/comparer', '/sujets/a-1', '/videos/v']) {
+    for (const path of ['/', '/feuille/4', '/approfondi/2', '/resultats', '/profil', '/a-table', '/methode/ia', '/methode/profil', '/approfondir/defense', '/candidat/x', '/comparer/x,y', '/comparer', '/sujets/a-1', '/videos/v']) {
       for (const slug of ['', 'autre-2030']) {
         const place = parseLocation(withBase(slug, path))
         expect(place.slug, `${slug} ${path}`).toBe(slug)

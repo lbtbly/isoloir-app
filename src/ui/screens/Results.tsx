@@ -9,6 +9,8 @@ import { comparePath } from '../../core/routes'
 import { prepareCompare } from '../compare/load'
 import { loadReport, prepareReport, reportNow } from '../report/load'
 import { prepareProfile } from '../profile/load'
+import { hasTable } from '../table/load'
+import { frozenAt } from '../../core/freeze'
 import { axisOf } from '../../core/spectrum'
 import {
   AGREE_HEADS,
@@ -474,7 +476,26 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
     // Deuxième, juste après « Qui porte quoi » (décision du propriétaire du 12 octobre 2026). À l'encre, sans pastel : le
     // pastel de sa place (le bleu, celui de la droite sur les cartes des candidats et sur la page) y prendrait un sens
     ...(profile ? [{ href: link('/profil'), icon: 'axis', title: PROFILE_TITLE, desc: PROFILE_PANEL, ink: true }] : []),
-    { href: link('/partager'), icon: 'share', title: 'Partager l’image', desc: 'Votre affiche en JPG, fabriquée sur cet appareil.' },
+    // « À table » : juste après le profil, sur le pastel de sa place ; à l'encre quand il passerait deuxième (le bleu
+    // de cette place est celui de la droite sur les cartes des candidats)
+    ...(hasTable(election)
+      ? [
+          {
+            href: link('/a-table'),
+            icon: 'table',
+            title: 'À table',
+            desc: 'De 4 à 12 personnes, un seul téléphone : chacun vote en secret, puis vous lisez ensemble ce qui vous réunit.',
+            ink: !profile,
+          },
+        ]
+      : []),
+    {
+      href: link('/partager'),
+      icon: 'share',
+      title: 'Partager l’image',
+      // Pendant le gel des jours de vote, aucune image n'est fabriquée (core/freeze.ts) : la tuile le dit
+      desc: frozenAt(election) ? 'Pas d’image pendant le gel des jours de vote.' : 'Votre affiche en JPG, fabriquée sur cet appareil.',
+    },
     {
       href: link('/approfondir'),
       icon: 'deepen',
@@ -484,7 +505,8 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
           ? `${answeredDeep} question${answeredDeep > 1 ? 's' : ''} de plus déjà pointée${answeredDeep > 1 ? 's' : ''} : d’autres thèmes à creuser.`
           : `Jusqu’à ${deepCount} questions de plus, par thème.`,
     },
-    { href: link('/candidats'), icon: 'arrow-right', title: 'Les candidats', desc: 'Parcours, site de campagne et toutes leurs positions.' },
+    // À l'encre : avec la tuile « À table », sa place tomberait sur un pastel qui prendrait un sens sur une page de candidats
+    { href: link('/candidats'), icon: 'arrow-right', title: 'Les candidats', desc: 'Parcours, site de campagne et toutes leurs positions.', ink: true },
   ]
 
   return (

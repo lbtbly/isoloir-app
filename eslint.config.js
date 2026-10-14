@@ -11,6 +11,8 @@ export default tseslint.config(
   },
   {
     // Anonymat structurel : le questionnaire ne doit jamais pouvoir lire qui porte quelle approche.
+    // (Les écrans anonymes de « À table », sous src/ui/questionnaire/table, ont aussi leur bloc ci-dessous : en
+    // configuration plate, une règle redéclarée remplace la précédente, d'où les mêmes motifs, réunis.)
     files: ['src/ui/questionnaire/**/*.{ts,tsx}'],
     rules: {
       'no-restricted-imports': [
@@ -18,6 +20,41 @@ export default tseslint.config(
         {
           patterns: [
             { group: ['**/positions', '**/positions.ts', '**/elections', '**/elections/index', '**/candidates', '**/candidates.ts'], message: 'Le questionnaire ne doit pas accéder aux candidats ni à leurs positions.' },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    // « À table » : ni stockage ni partage. Une table ne garde rien sur l'appareil et n'envoie rien ; ses écrans anonymes
+    // gardent en plus l'interdiction de lire les candidats et leurs positions
+    files: ['src/ui/table/**/*.{ts,tsx}', 'src/ui/questionnaire/table/**/*.{ts,tsx}', 'src/core/table/**/*.ts'],
+    rules: {
+      'no-restricted-globals': [
+        'error',
+        { name: 'localStorage', message: 'Une table ne garde rien sur l’appareil.' },
+        { name: 'sessionStorage', message: 'Une table ne garde rien sur l’appareil.' },
+        { name: 'indexedDB', message: 'Une table ne garde rien sur l’appareil.' },
+        { name: 'caches', message: 'Une table ne garde rien sur l’appareil.' },
+      ],
+      'no-restricted-properties': [
+        'error',
+        { object: 'navigator', property: 'share', message: 'L’image de la table se télécharge seulement.' },
+        { object: 'document', property: 'cookie', message: 'Une table ne garde rien sur l’appareil.' },
+        { object: 'window', property: 'localStorage', message: 'Une table ne garde rien sur l’appareil.' },
+        { object: 'window', property: 'sessionStorage', message: 'Une table ne garde rien sur l’appareil.' },
+      ],
+    },
+  },
+  {
+    files: ['src/ui/questionnaire/table/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            { group: ['**/positions', '**/positions.ts', '**/elections', '**/elections/index', '**/candidates', '**/candidates.ts'], message: 'Le questionnaire ne doit pas accéder aux candidats ni à leurs positions.' },
+            { group: ['**/core/storage', '**/core/revisions', '**/core/exportData', '**/core/table/subjects', '**/core/carriers', '**/core/table/image'], message: 'Les écrans anonymes de la table ne lisent ni la feuille enregistrée, ni les positions des candidats.' },
           ],
         },
       ],

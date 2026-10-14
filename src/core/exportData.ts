@@ -167,16 +167,5 @@ export function parseImport(text: string, pack: ElectionPack): ImportResult {
   return { ok: true, state, dropped, review, fromVersion }
 }
 
-/** Déclenche le téléchargement d'un fichier généré localement */
-export function downloadBlob(blob: Blob, fileName: string, keepMs = 1000): void {
-  const url = URL.createObjectURL(blob)
-  const a = document.createElement('a')
-  a.href = url
-  a.download = fileName
-  document.body.appendChild(a)
-  a.click()
-  a.remove()
-  // keepMs : le temps de garder l'adresse du fichier ; Safari sur iPhone la lit seulement quand on répond à
-  // « Télécharger ? », d'où une minute pour le PDF
-  setTimeout(() => URL.revokeObjectURL(url), keepMs)
-}
+/** Le téléchargement d'un fichier fabriqué sur l'appareil, défini à part (core/download.ts) et repris ici pour ses importeurs */
+export { downloadBlob } from './download'

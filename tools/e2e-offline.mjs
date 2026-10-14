@@ -2278,6 +2278,129 @@ try {
     check(homeIssues.length === 0, `accueil avec une feuille de la primaire sur l’appareil : rien de la primaire (ni archive, ni encart, ni lien), feuille gardée telle quelle${homeIssues.length ? ` : ${homeIssues.join(' ; ')}` : ''}`)
     await hc.close()
   }
+
+  // 10. « À table » (#/a-table), hors ligne : une table de 4 vote en secret sur un seul téléphone. Rien n'est écrit sur
+  // l'appareil, aucun nom de candidat n'apparaît avant la révélation, une adresse tapée ramène à la table, le
+  // dépouillement se lit à voix haute, l'image se fabrique sur place, et un rechargement montre la table interrompue,
+  // jamais la feuille du propriétaire ; le déverrouillage confirmé ramène à l'accueil
+  if (PROFILE) {
+    const tc = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' })
+    const tp = await tc.newPage()
+    const tableForeign = []
+    tp.on('request', r => {
+      const u = r.url()
+      if (!u.startsWith(base) && !u.startsWith('blob:') && !u.startsWith('data:')) tableForeign.push(u)
+      if (r.method() !== 'GET') tableForeign.push(`${r.method()} ${u}`)
+    })
+    await tp.goto(HOME)
+    await tp.evaluate(() => navigator.serviceWorker.ready)
+    await tp.waitForFunction(() => !!navigator.serviceWorker.controller, null, { timeout: 5000 }).catch(() => null)
+    await tc.setOffline(true)
+    const keysBefore = await tp.evaluate(() => Object.keys(localStorage).sort().join(','))
+    await tp.goto(U('/a-table'))
+    await tp.locator('main h1').first().waitFor()
+    const pressT = async label => {
+      await tp.evaluate(t => {
+        const b = [...document.querySelectorAll('main button, .action-bar-inner > button, main a')].find(e => e.textContent.replace(/\s+/g, ' ').trim().startsWith(t))
+        if (!b) throw new Error(`introuvable : ${t} (${document.querySelector('main h1')?.textContent})`)
+        b.click()
+      }, label)
+      await tp.waitForTimeout(120)
+    }
+    const rateT = async (suffix, v) => {
+      await tp.evaluate(([s, val]) => [...document.querySelectorAll('input[type=radio]')].find(x => x.name.endsWith(s) && x.value === String(val))?.click(), [suffix, v])
+      await tp.waitForTimeout(80)
+    }
+    const redT = async suffix => {
+      await tp.evaluate(s => [...document.querySelectorAll('button.approach-reject')].find(x => x.getAttribute('aria-describedby')?.endsWith(s))?.click(), suffix)
+      await tp.waitForTimeout(80)
+    }
+    const names = pack.candidates.map(c => c.name)
+    const namesShown = () => tp.evaluate(ns => ns.filter(n => document.body.innerText.includes(n)), names)
+    await pressT('Préparer la table')
+    await tp.evaluate(() => document.querySelector('button[aria-label="Une personne de moins"]')?.click())
+    await tp.waitForTimeout(60)
+    await tp.evaluate(() => document.querySelector('button[aria-label="Une personne de moins"]')?.click())
+    await tp.waitForTimeout(60)
+    await pressT('Ouvrir l’urne')
+    const leaks = []
+    // Un bulletin entamé puis abandonné (« Retour » à la première question) n'est jamais montré à la personne suivante
+    await pressT('J’ai le téléphone')
+    await rateT('-a', 1)
+    await tp.evaluate(() => [...document.querySelectorAll('.action-bar-inner > button')].find(b => b.textContent.includes('Retour'))?.click())
+    await tp.waitForTimeout(150)
+    const abandoned = await tp.evaluate(() => [...document.querySelectorAll('input[type=radio]:checked')].filter(i => i.value !== '0').length)
+    if (abandoned === 0) await pressT('J’ai le téléphone')
+    const leftover = await tp.evaluate(() => [...document.querySelectorAll('input[type=radio]:checked')].filter(i => i.value !== '0').length)
+    check(leftover === 0, `à table : un bulletin abandonné n’est pas montré au suivant (${leftover} avis restés)`)
+    for (let v = 0; v < 4; v++) {
+      if (v > 0) {
+        await pressT('Passer le téléphone')
+        await pressT('J’ai le téléphone')
+      }
+      const closed = await tp.evaluate(() => ({ menu: !!document.querySelector('.menu-toggle, .main-nav'), links: document.querySelectorAll('.form-header a, main a[href^="#"]').length, videos: !!document.querySelector('.q-video') }))
+      if (closed.menu || closed.links || closed.videos) leaks.push(`mode fermé incomplet au vote ${v + 1} (${JSON.stringify(closed)})`)
+      for (let q = 0; q < 2; q++) {
+        leaks.push(...(await namesShown()).map(n => `nom « ${n} » sur le bulletin`))
+        await rateT('-a', 1)
+        await rateT('-b', -1)
+        if (v < 2) await redT('-b')
+        await rateT('-c', v < 2 ? 1 : -1)
+        await tp.evaluate(() => document.querySelector('.action-bar-inner > .btn-primary')?.click())
+        await tp.waitForTimeout(150)
+      }
+      if (v === 1) {
+        await tp.evaluate(h => (location.hash = h), L('/resultats'))
+        await tp.waitForTimeout(500)
+        if (hashOf(tp) !== L('/a-table')) leaks.push(`adresse tapée pendant la table : ${hashOf(tp)}`)
+      }
+    }
+    await pressT('Dépouiller ensemble')
+    const verdicts = []
+    for (let i = 0; i < 12; i++) {
+      const band = await tp.locator('.aloud-verdict').textContent().catch(() => null)
+      if (!band) break
+      verdicts.push(flat(band))
+      leaks.push(...(await namesShown()).map(n => `nom « ${n} » au dépouillement`))
+      await tp.evaluate(() => document.querySelector('.action-bar-inner > .btn-primary')?.click())
+      await tp.waitForTimeout(150)
+    }
+    const keysDuring = await tp.evaluate(() => Object.keys(localStorage).sort().join(','))
+    await pressT('Qui porte ces idées')
+    await pressT('Découvrir qui porte ces idées')
+    const revealed = (await namesShown()).length
+    await pressT('Image de la table')
+    await pressT('Oui, toute la table est d’accord')
+    await tp.locator('.table-picture-preview img').waitFor({ timeout: 5000 }).catch(() => null)
+    const picture = await tp.evaluate(() => {
+      const img = document.querySelector('.table-picture-preview img')
+      return img ? { w: img.naturalWidth, alt: img.alt } : null
+    })
+    await pressT('Terminer')
+    await pressT('Effacer la table')
+    const ended = flat(await tp.locator('main h1').textContent())
+    await tp.reload()
+    await tp.locator('main h1').first().waitFor()
+    const afterReload = flat(await tp.locator('main h1').textContent())
+    await pressT('C’est mon téléphone')
+    await pressT('Oui, c’est mon téléphone')
+    await tp.waitForTimeout(400)
+    const keysAfter = await tp.evaluate(() => Object.keys(localStorage).sort().join(','))
+    const unlockedAt = hashOf(tp)
+    // Après le déverrouillage, un retour arrière ne remet pas le site sous verrou
+    await tp.goBack().catch(() => null)
+    await tp.waitForTimeout(500)
+    const relocked = await tp.evaluate(() => ({ h1: document.querySelector('main h1')?.textContent ?? '', closed: !!document.querySelector('.form-header.is-closed') }))
+    check(!relocked.closed && !/interrompue/.test(relocked.h1), `à table : retour arrière après le déverrouillage, pas de nouveau verrou (« ${relocked.h1} »)`)
+    check(leaks.length === 0, `à table : mode fermé, aucun nom avant la révélation, adresse tapée ramenée à la table${leaks.length ? ` : ${leaks.slice(0, 5).join(' ; ')}` : ''}`)
+    const want = ['Toute la table ou presque est d’accord', 'Toute la table ou presque n’est pas d’accord', 'Certains sont d’accord, d’autres non']
+    check(want.every(w => verdicts.some(v => v.includes(w))), `à table : dépouillement à voix haute, ${verdicts.length} idées (${[...new Set(verdicts)].join(' · ')})`)
+    check(keysBefore === keysDuring && keysBefore === keysAfter, `à table : rien d’écrit sur l’appareil (clés avant « ${keysBefore} », pendant « ${keysDuring} », après « ${keysAfter} »)`)
+    check(revealed >= 1 && !!picture && picture.w === 1080 && /sans valeur statistique/.test(picture.alt) && !names.some(n => picture.alt.includes(n)), `à table : révélation (${revealed} noms), image fabriquée hors ligne (${picture?.w ?? 'aucune'} px de large, sans nom de candidat)`)
+    check(ended === 'C’est effacé.' && afterReload === 'La table a été interrompue.' && unlockedAt === L('/'), `à table : « ${ended} », puis après rechargement « ${afterReload} », puis déverrouillage vers ${unlockedAt}`)
+    check(tableForeign.length === 0, `à table : aucune requête hors du site ni envoi (${tableForeign.slice(0, 3).join(', ') || 'aucune'})`)
+    await tc.close()
+  }
 } finally {
   await browser.close()
   server.kill()

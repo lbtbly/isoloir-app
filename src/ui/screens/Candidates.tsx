@@ -117,7 +117,7 @@ export function CandidatesIndex({ pack, state }: IndexProps) {
           </h1>
           <div>
             <p class="lede">
-              {candidates.length} candidats se présentent {election.copy.atName}. Pour chacun : son parcours, son site
+              {candidates.length} personnes ont annoncé leur candidature {election.copy.atName}. Pour chacun : son parcours, son site
               de campagne, et chacune de ses positions avec ses sources.
             </p>
             {/* Annonces en attente (une candidature attendue, un résultat à venir), telles que l'élection les donne */}

@@ -156,6 +156,22 @@ for (const f of profileChunks) {
   const size = statSync(join(dist, 'assets', f)).size
   if (size > PROFILE_BUDGET) fail(`« Mon profil politique » : assets/${f} pèse ${(size / 1000).toFixed(1)} ko, plafond de ${PROFILE_BUDGET / 1000} ko`)
 }
+// « À table » (src/ui/table/Table.tsx : l'enchaînement d'une séance, ses écrans, son dépouillement, son vivier et son
+// image) : un fichier à part, chargé à la demande (src/ui/table/load.ts), jamais dans le JS initial ni préchargé. Une
+// table ne garde rien sur l'appareil et n'envoie rien : son code n'appelle aucun stockage du navigateur, ni le partage
+// vers une autre application (l'image se télécharge seulement)
+const TABLE_BUDGET = 45_000
+const tableChunks = readdirSync(join(dist, 'assets')).filter(f => /^Table-[\w-]+\.js$/.test(f))
+if (tableChunks.length !== 1) fail(`« À table » : ${tableChunks.length} fichier(s) assets/Table-*.js, un attendu`)
+for (const f of tableChunks) {
+  if (initial.includes(join('assets', f))) fail(`« À table » : assets/${f} est dans le JS initial (il doit n'être chargé que par import())`)
+  if (modulePreloads.includes(`assets/${f}`)) fail(`« À table » : assets/${f} est préchargé par dist/index.html`)
+  const size = statSync(join(dist, 'assets', f)).size
+  if (size > TABLE_BUDGET) fail(`« À table » : assets/${f} pèse ${(size / 1000).toFixed(1)} ko, plafond de ${TABLE_BUDGET / 1000} ko`)
+  const code = readFileSync(join(dist, 'assets', f), 'utf8')
+  for (const api of ['localStorage', 'sessionStorage', 'indexedDB', 'document.cookie', 'caches.open', 'navigator.share'])
+    if (code.includes(api)) fail(`« À table » : assets/${f} appelle ${api} (rien ne doit être gardé ni envoyé)`)
+}
 // Les notices (la Méthode, la Confidentialité, les Mentions légales) et « Partager » : chacun un fichier à part, chargé
 // à la demande par import() (src/ui/screens/load.ts), jamais dans le JS initial ni préchargé par la page
 for (const name of ['Method', 'Privacy', 'Legal', 'Share']) {
@@ -257,6 +273,7 @@ if (!process.exitCode) console.log('✓ dist vérifié : CSP stricte, aucune API
 if (initialBytes) console.log(`  JS initial : ${(initialBytes / 1000).toFixed(1)} ko sur ${INITIAL_JS_BUDGET / 1000} ko permis (${initial.join(', ')}), sans aucun des ${prompts} textes des banques`)
 for (const f of reportChunks) console.log(`  dépouillement en PDF : assets/${f}, ${(statSync(join(dist, 'assets', f)).size / 1000).toFixed(1)} ko sur ${REPORT_BUDGET / 1000} ko permis, chargé à la demande`)
 for (const f of agreeChunks) console.log(`  image « Accords et désaccords » : assets/${f}, ${(statSync(join(dist, 'assets', f)).size / 1000).toFixed(1)} ko sur ${AGREE_BUDGET / 1000} ko permis, chargée à la demande`)
+for (const f of tableChunks) console.log(`  « À table » : assets/${f}, ${(statSync(join(dist, 'assets', f)).size / 1000).toFixed(1)} ko sur ${TABLE_BUDGET / 1000} ko permis, chargé à la demande`)
 for (const f of profileChunks) console.log(`  « Mon profil politique » : assets/${f}, ${(statSync(join(dist, 'assets', f)).size / 1000).toFixed(1)} ko sur ${PROFILE_BUDGET / 1000} ko permis, chargé à la demande`)
 
 // Voix des vidéos : un avertissement pour un fichier livré mais pas inscrit (jamais lu, poids inutile)

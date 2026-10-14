@@ -146,7 +146,7 @@ export interface Question {
 export interface QuestionBank {
   topics: Topic[]
   questions: Question[]
-  /** Points d'accord entre tous les candidats : affichés, jamais notés */
+  /** Points de large accord, partagés par la plupart des candidats qui se sont exprimés : affichés, jamais notés */
   consensus?: { topicId: TopicId; text: string }[]
 }
 
@@ -189,7 +189,7 @@ export type ElectionKind = 'primaire' | 'presidentielle'
 export interface ElectionCopy {
   /** Nom avec son article, en cours de phrase : « la primaire « Choisir 2027 » » */
   theName: string
-  /** Nom précédé de « à la… » (ou « à l'… ») : « {N} candidats se présentent {atName}. » (Les candidats) */
+  /** Nom précédé de « à la… » (ou « à l'… ») : « {N} personnes ont annoncé leur candidature {atName}. » (Les candidats) */
   atName: string
   /** Mention d'indépendance, chaque fois à partir de « sans lien avec » */
   independence: {

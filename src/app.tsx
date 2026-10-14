@@ -26,6 +26,7 @@ import { legalScreen, methodScreen, prepareScreens, privacyScreen, shareScreen }
 import { clearSelections } from './ui/compare/selection'
 import { compareNow, loadCompare } from './ui/compare/load'
 import { loadProfile, profileNow } from './ui/profile/load'
+import { hasTable, tableLocked, tableScreen } from './ui/table/load'
 import { useOnDemand, type OnDemand } from './ui/lazy'
 import { axisOf } from './core/spectrum'
 import { Topics } from './ui/screens/Topics'
@@ -162,9 +163,18 @@ interface ElectionProps {
   focusOnMount: boolean
 }
 
+/** La route de la table, imposée tant qu'une table est en cours */
+const TABLE_ROUTE: Route = { name: 'table' }
+
 /** Une élection : sa feuille enregistrée, ses écrans et le lecteur vidéo */
-function ElectionApp({ pack, route, focusOnMount }: ElectionProps) {
+function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
   const { election, bank } = pack
+  // « À table » en cours (ou interrompue par un rechargement) : aucune autre page ne s'affiche, même par une adresse
+  // tapée ou un lien gardé ; l'adresse est remise sur la table juste après
+  const route = tableLocked() && asked.name !== 'table' ? TABLE_ROUTE : asked
+  useEffect(() => {
+    if (route !== asked) replace('/a-table')
+  }, [route, asked])
   const [state, setState] = useState<SessionState>(() => loadState(pack))
   const [saved, setSaved] = useState(true)
   const firstRender = useRef(!focusOnMount)
@@ -288,12 +298,14 @@ function ElectionApp({ pack, route, focusOnMount }: ElectionProps) {
   const noVideos = route.name === 'videos' && !hasVideos(pack)
   // Une élection sans axe de la grille des nuances (la primaire) n'a pas de page « Mon profil politique »
   const noProfile = route.name === 'profile' && !axisOf(election)
-  const missing = (!!list && list.length === 0) || (route.name === 'revision' && stale.length === 0) || noVideos || noProfile
+  // Une élection sans axe de la grille, ou archivée, n'a pas de table
+  const noTable = route.name === 'table' && !hasTable(election)
+  const missing = (!!list && list.length === 0) || (route.name === 'revision' && stale.length === 0) || noVideos || noProfile || noTable
   useEffect(() => {
     if (!missing) return
     if (route.name === 'sheet') replace(route.tier === 'essentiel' ? '/' : '/approfondir')
     if (route.name === 'revision' || route.name === 'profile') replace('/resultats')
-    if (route.name === 'videos') replace('/')
+    if (route.name === 'videos' || route.name === 'table') replace('/')
   }, [missing, route])
 
   // Le cadre de l'élection : son en-tête (bandeau d'archive) et son pied de page en lisent les phrases propres
@@ -301,8 +313,9 @@ function ElectionApp({ pack, route, focusOnMount }: ElectionProps) {
     <ElectionFrame election={election}>
       <SkipLink />
       {renderRoute()}
-      {/* Le lecteur vidéo, par-dessus l'écran courant (« Les sujets », une question, la page des vidéos) */}
-      <VideoHost pack={pack} start={route.name === 'videos' ? route.start : undefined} />
+      {/* Le lecteur vidéo, par-dessus l'écran courant (« Les sujets », une question, la page des vidéos) ; jamais pendant
+          une table : son écouteur de l'historique rouvrirait une vidéo d'une entrée plus ancienne */}
+      {route.name === 'table' ? null : <VideoHost pack={pack} start={route.name === 'videos' ? route.start : undefined} />}
     </ElectionFrame>
   )
 
@@ -466,6 +479,10 @@ function ElectionApp({ pack, route, focusOnMount }: ElectionProps) {
       case 'videos':
         if (noVideos) return null
         return <Videos pack={pack} state={state} essential={essential} />
+      case 'table':
+        if (noTable) return null
+        // La table ne reçoit que l'élection et le composant de la feuille : ni les réponses, ni de quoi les effacer
+        return onDemandScreen('table', tableScreen, 'La table', 'de la table', m => <m.Table pack={pack} Sheet={Sheet} />)
       default:
         return (
           <Home pack={pack} state={state} essential={essential} stale={stale} setState={setState} eraseAll={eraseAll} saved={saved} />
@@ -558,6 +575,8 @@ function titleFor(route: Route): string {
       return 'Les sujets'
     case 'videos':
       return 'Les sujets en vidéo'
+    case 'table':
+      return 'À table'
     default:
       return 'Isoloir'
   }

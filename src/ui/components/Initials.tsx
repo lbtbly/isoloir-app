@@ -1,7 +1,8 @@
+import type { Mark } from '../../core/carriers'
 import type { Candidate } from '../../core/types'
 
-/** Ce que le candidat pense d'une approche */
-export type Mark = 'main' | 'secondary' | 'rejects'
+/** Ce que le candidat pense d'une approche (défini avec la lecture des positions, core/carriers.ts) */
+export type { Mark }
 /** Pour l'affichage, en plus : position non trouvée sur la question */
 type Shown = Mark | 'unknown'
 

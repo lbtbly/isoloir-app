@@ -30,6 +30,8 @@ export type Route =
   | { name: 'topics'; anchor?: string }
   /** « Les sujets en vidéo » ; « start » : la vidéo sur laquelle ouvrir le lecteur (#/videos/<vidéo>) */
   | { name: 'videos'; start?: string }
+  /** « À table » : un groupe vote en secret sur un seul téléphone, puis lit son dépouillement à voix haute */
+  | { name: 'table' }
 
 /** Les noms de pages : un premier segment qui n'en est pas un est un préfixe d'élection */
 const PAGES = new Set([
@@ -53,6 +55,8 @@ const PAGES = new Set([
   'videos',
   // Ancienne adresse de la page d'essai des vidéos, qui mène à la page des vidéos
   'essai-videos',
+  // « À table » : sans lui ici, #/a-table serait lu comme le préfixe d'une élection
+  'a-table',
 ])
 
 /** Forme d'un préfixe d'élection (slug ou alias) */
@@ -110,6 +114,8 @@ export function parseRoute(path: string): Route {
     case 'videos':
     case 'essai-videos':
       return arg ? { name: 'videos', start: arg } : { name: 'videos' }
+    case 'a-table':
+      return { name: 'table' }
     default:
       return { name: 'home' }
   }
