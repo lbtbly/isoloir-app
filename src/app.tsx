@@ -14,18 +14,19 @@ import { go, replace, setBase } from './ui/nav'
 import { Sheet } from './ui/questionnaire/Sheet'
 import { Deepen } from './ui/screens/Deepen'
 import { Home } from './ui/screens/Home'
-import { Method } from './ui/screens/Method'
+// La Méthode, la Confidentialité, les Mentions légales et « Partager » sont chargés à la demande (ui/screens/load.ts).
+// Le style des notices reste dans la feuille de style de la page, à la place qu'y donnait l'import de la Méthode : rien
+// ne change dans l'ordre des règles, ni à l'affichage d'une notice le temps qu'elle arrive
+import './styles/legal.css'
 import { Priorities } from './ui/screens/Priorities'
-import { Privacy } from './ui/screens/Privacy'
-import { Legal } from './ui/screens/Legal'
 import { Proximity } from './ui/screens/Proximity'
 import { Results } from './ui/screens/Results'
-import { Share } from './ui/screens/Share'
 import { CandidatePage, CandidatesIndex } from './ui/screens/Candidates'
+import { legalScreen, methodScreen, prepareScreens, privacyScreen, shareScreen } from './ui/screens/load'
 import { clearSelections } from './ui/compare/selection'
 import { compareNow, loadCompare } from './ui/compare/load'
 import { loadProfile, profileNow } from './ui/profile/load'
-import { useOnDemand } from './ui/lazy'
+import { useOnDemand, type OnDemand } from './ui/lazy'
 import { axisOf } from './core/spectrum'
 import { Topics } from './ui/screens/Topics'
 import { Videos } from './ui/screens/Videos'
@@ -208,6 +209,9 @@ function ElectionApp({ pack, route, focusOnMount }: ElectionProps) {
     ro.observe(header)
     return () => ro.disconnect()
   })
+  // Les notices et « Partager », chargés à la demande : le pied de page et le dépouillement y mènent ; ils se
+  // préparent quand le navigateur a un moment, pour s'ouvrir sans attendre
+  useEffect(() => prepareScreens(), [])
 
   const essential = useMemo(() => orderedQuestions(bank, 'essentiel', state.seed), [bank, state.seed])
   const deep = useMemo(
@@ -302,6 +306,31 @@ function ElectionApp({ pack, route, focusOnMount }: ElectionProps) {
     </ElectionFrame>
   )
 
+  /**
+   * Un écran chargé à la demande (ui/screens/load.ts), comme la comparaison : un écran d'attente le temps du
+   * chargement ; arrivé par un lien (pas à l'ouverture de la page), le titre prend le focus une fois chargé
+   */
+  function onDemandScreen<M>(
+    key: string,
+    screen: OnDemand<M>,
+    what: string,
+    loading: string,
+    render: (m: M) => preact.ComponentChildren,
+  ) {
+    return (
+      <Lazy
+        key={key}
+        now={screen.now}
+        load={screen.load}
+        what={what}
+        loading={loading}
+        focusOnLoad={!firstRender.current}
+        onLoaded={() => setLoadedScreens(n => n + 1)}
+        render={render}
+      />
+    )
+  }
+
   function renderRoute() {
     switch (route.name) {
       case 'sheet': {
@@ -333,7 +362,13 @@ function ElectionApp({ pack, route, focusOnMount }: ElectionProps) {
               if (!isAnswered(state.answers[q.id])) setAnswer(q, SKIPPED)
               if (step1 > 0 && index + 1 === step1 && !step2Seen) go('/resultats')
               else if (index + 1 < items.length) go(`${base}/${index + 2}`)
-              else go(essentialTier ? '/priorites' : '/resultats')
+              else if (essentialTier) go('/priorites')
+              else {
+                // Commencée par un thème touché sur « Mon profil politique » (Deepen.tsx), la feuille complémentaire
+                // finit par les questions jamais vues qui le précèdent ; sinon, il n'y en a pas : le dépouillement
+                const back = items.findIndex(x => x !== q && !state.answers[x.id])
+                go(back < 0 ? '/resultats' : `${base}/${back + 1}`)
+              }
             }}
           />
         )
@@ -385,19 +420,29 @@ function ElectionApp({ pack, route, focusOnMount }: ElectionProps) {
             loading="du profil politique"
             focusOnLoad={!firstRender.current}
             onLoaded={() => setLoadedScreens(n => n + 1)}
-            render={m => <m.Profile pack={pack} state={state} essential={essential} results={results} />}
+            render={m => <m.Profile pack={pack} state={state} essential={essential} results={results} update={update} />}
           />
         )
       case 'deepen':
-        return <Deepen pack={pack} state={state} results={results} update={update} />
+        return <Deepen pack={pack} state={state} results={results} update={update} topic={route.topic} />
       case 'share':
-        return <Share pack={pack} state={state} results={results} />
-      case 'method':
-        return <Method pack={pack} anchor={route.anchor} />
+        return onDemandScreen('share', shareScreen, 'Les pages du partage', 'du partage', m => (
+          <m.Share pack={pack} state={state} results={results} />
+        ))
+      case 'method': {
+        const anchor = route.anchor
+        return onDemandScreen('method', methodScreen, 'Les pages de la méthode', 'de la méthode', m => (
+          <m.Method pack={pack} anchor={anchor} />
+        ))
+      }
       case 'privacy':
-        return <Privacy eraseAll={eraseAll} />
+        return onDemandScreen('privacy', privacyScreen, 'Les pages de la confidentialité', 'de la confidentialité', m => (
+          <m.Privacy eraseAll={eraseAll} />
+        ))
       case 'legal':
-        return <Legal pack={pack} seed={state.seed} />
+        return onDemandScreen('legal', legalScreen, 'Les mentions légales', 'des mentions légales', m => (
+          <m.Legal pack={pack} seed={state.seed} />
+        ))
       case 'candidates':
         return <CandidatesIndex pack={pack} state={state} />
       case 'candidate':
@@ -430,10 +475,10 @@ function ElectionApp({ pack, route, focusOnMount }: ElectionProps) {
 }
 
 /**
- * Un écran chargé à la demande (la comparaison, ui/compare/load.ts ; « Mon profil politique », ui/profile/load.ts) : un
- * écran d'attente le temps du chargement, puis l'écran ; arrivé par un lien, le focus va alors à son titre, comme à
- * tout changement d'écran. Un échec propose de réessayer. Chaque écran a sa clé (key), pour ne pas reprendre le module
- * d'un autre en passant de l'un à l'autre.
+ * Un écran chargé à la demande (la comparaison, ui/compare/load.ts ; « Mon profil politique », ui/profile/load.ts ; les
+ * notices et « Partager », ui/screens/load.ts) : un écran d'attente le temps du chargement, puis l'écran ; arrivé par un
+ * lien, le focus va alors à son titre, comme à tout changement d'écran. Un échec propose de réessayer. Chaque écran a sa
+ * clé (key), pour ne pas reprendre le module d'un autre en passant de l'un à l'autre.
  */
 function Lazy<M>({
   now,

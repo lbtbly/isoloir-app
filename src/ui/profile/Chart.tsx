@@ -15,6 +15,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks'
 import { AFFINITY_BANDS, affinityBand } from '../../core/affinity'
+import { isAnswered } from '../../core/answers'
 import type { BlocCell, Echiquier, UnitReading } from '../../core/echiquier'
 import { approvedCarriers, approvedOf, mainCarriers } from '../../core/echiquier'
 import * as T from '../../core/echiquierCopy'
@@ -44,6 +45,8 @@ export interface ProfileCtx {
   groups: readonly TopicGroup[]
   /** Candidats non classés de l'élection, présents dans le pack */
   unscored: number
+  /** Coche ces thèmes dans « Approfondir » (ils rejoignent ceux déjà cochés), avant d'y aller */
+  deepen: (topicIds: string[]) => void
 }
 
 /** Une unité qui a une lecture (même « rien de net ») ; sinon : une seule question, ou trop de blocs inconnus */
@@ -68,9 +71,9 @@ export function oneQuestionFact(unit: UnitReading, ctx: ProfileCtx): string | nu
   )
 }
 
-/** Un thème qui a encore des questions approfondies à voir */
+/** Un thème qui a encore des questions approfondies sans avis : la règle de la page Approfondir (une question passée y reste) */
 export const deeperOf = (unit: UnitReading, ctx: ProfileCtx) =>
-  unit.kind === 'theme' && ctx.pack.bank.questions.some(q => q.topicId === unit.id && q.tier !== 'essentiel' && !ctx.state.answers[q.id])
+  unit.kind === 'theme' && ctx.pack.bank.questions.some(q => q.topicId === unit.id && q.tier !== 'essentiel' && !isAnswered(ctx.state.answers[q.id]))
 
 /** La classe d'une case : son palier d'affinité (profile.css, .tile.aff-*) ; sans candidat connu, « is-inconnu » */
 export const tileClass = (affinity: number | null) => {
@@ -471,7 +474,9 @@ function Explain({ u, family, ctx, onDetail }: { u: UnitReading; family: string 
             {T.SEE_DETAIL}
           </button>
         ) : deeper ? (
-          <a href={link('/approfondir')}>{T.DEEPEN_THEME}</a>
+          <a href={link(`/approfondir/${u.id}`)} onClick={() => ctx.deepen([u.id])}>
+            {T.DEEPEN_THEME}
+          </a>
         ) : null}
       </p>
     </div>

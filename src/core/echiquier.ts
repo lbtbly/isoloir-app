@@ -710,3 +710,22 @@ export function approvedCarriers(pack: ElectionPack, q: Question, answer: Answer
   const order = new Map(prep.ids.map((id, i) => [id, i]))
   return out.map(s => [...s].sort((x, y) => order.get(x)! - order.get(y)!))
 }
+
+/**
+ * Les thèmes à compléter pour être lus seuls (la fiche « Pour lire plus de thèmes » de la page) : sur une seule question
+ * avec un avis (thin) ou sans aucun avis (none), et qui ont encore des questions approfondies sans avis, la règle de la
+ * page Approfondir (une question passée y reste à faire). Dans l'ordre de la banque. current : les réponses qui comptent
+ * (hors questions à revoir) ; answers : celles enregistrées
+ */
+export function deeperTopics(pack: Pick<ElectionPack, 'bank'>, current: Answers, answers: Answers): { thin: TopicId[]; none: TopicId[] } {
+  const thin: TopicId[] = []
+  const none: TopicId[] = []
+  for (const t of pack.bank.topics) {
+    const qs = pack.bank.questions.filter(q => q.topicId === t.id)
+    if (!qs.some(q => q.tier !== 'essentiel' && !hasOpinion(answers[q.id]))) continue
+    const n = qs.filter(q => hasOpinion(current[q.id])).length
+    if (n === 0) none.push(t.id)
+    else if (n < ECHIQUIER.MIN_QUESTIONS) thin.push(t.id)
+  }
+  return { thin, none }
+}

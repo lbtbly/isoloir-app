@@ -195,3 +195,77 @@ describe('phrases du dépouillement (core/resultsCopy)', () => {
     }
   })
 })
+
+describe('entrées de « Mon profil politique » (accueil, dépouillement, tendance)', () => {
+  const pres = elections.find(p => p.election.id === 'presidentielle-2027')!
+  const axis = pres.election.spectrum!.axis!
+
+  it('dit ce que montre la page, d’un bout à l’autre de la grille, et quand elle s’affiche', () => {
+    expect(copy.profileHome(axis)).toBe('Sujet par sujet, vos réponses face aux blocs d’une grille officielle, de l’extrême gauche à l’extrême droite.')
+    expect(copy.profileWhen(22, 22)).toBe(`Il s’affiche au bout des 22${NB}questions du questionnaire rapide.`)
+    expect(copy.profileWhen(22, 15)).toBe(`Il s’affiche au bout des 22${NB}questions du questionnaire rapide${NB}: encore 15${NB}questions.`)
+    expect(copy.profileWhen(22, 1)).toBe(`Il s’affiche au bout des 22${NB}questions du questionnaire rapide${NB}: encore 1${NB}question.`)
+    expect(copy.profileWhen(22, 0)).toBe(`Il s’affiche au bout des 22${NB}questions du questionnaire rapide.`)
+    expect(copy.profileWhen(22, 0, true)).toBe(`Il se lit sur vos avis${NB}: placez au moins un repère, «${NB}d’accord${NB}» ou «${NB}pas d’accord${NB}».`)
+    expect(copy.trendNext(22).join('')).toBe(`Au bout des 22${NB}questions${NB}: le dépouillement complet et «${NB}Mon profil politique${NB}».`)
+    expect(copy.trendNext(22)[1]).toBe(copy.PROFILE_TITLE)
+    // L'appel de l'aperçu dit ce que montre la page d'attente, dans l'ordre : l'état de la feuille, puis l'exemple
+    expect(copy.PEEK_GO).toBe('Voir où j’en suis et un exemple')
+  })
+
+  it('« Approfondir », arrivé d’un thème touché : ce qui est coché, et par où commence la feuille', () => {
+    expect(copy.deepenTouched('Israël et Gaza', 2, 0, 2)).toBe(`Le thème «${NB}Israël et Gaza${NB}» est coché${NB}: 2${NB}questions.`)
+    expect(copy.deepenTouched('Défense', 1, 0, 1)).toBe(`Le thème «${NB}Défense${NB}» est coché${NB}: 1${NB}question.`)
+    expect(copy.deepenTouched('Israël et Gaza', 2, 3, 15)).toBe(
+      `Le thème «${NB}Israël et Gaza${NB}» est coché${NB}: la feuille commence par ses 2${NB}questions. 3${NB}autres thèmes sont aussi cochés${NB}: 15${NB}questions en tout.`,
+    )
+    expect(copy.deepenTouched('Défense', 1, 1, 4)).toBe(
+      `Le thème «${NB}Défense${NB}» est coché${NB}: la feuille commence par sa question. Un autre thème est aussi coché${NB}: 4${NB}questions en tout.`,
+    )
+  })
+
+  it('une lecture, pas une étiquette : espaces insécables, aucun « % », « profil » seulement dans le nom de la page et son appel', () => {
+    const texts = [
+      copy.profileHome(axis),
+      ...[22, 15, 1, 0].map(n => copy.profileWhen(22, n)),
+      copy.profileWhen(22, 0, true),
+      copy.trendNext(22).join(''),
+      copy.PROFILE_SEE,
+      copy.PEEK_TAG,
+      copy.PEEK_GO,
+      copy.PROFILE_PANEL,
+      copy.deepenTouched('Israël et Gaza', 2, 3, 15),
+      copy.deepenTouched('Défense', 1, 0, 1),
+    ]
+    const FORBIDDEN = [/vous êtes/i, /êtes de/i, /votre camp/i, /votre bord/i, /en tête/i, /gagnant/i]
+    for (const t of texts) {
+      expect(/ [:;?!»]/.test(t) || /« /.test(t), `espace ordinaire : « ${t} »`).toBe(false)
+      expect(t, t).not.toContain('%')
+      for (const re of FORBIDDEN) expect(re.test(t), `${re} dans « ${t} »`).toBe(false)
+      expect(/profil/i.test(t.replace(/(Mon|Voir mon) profil politique/g, '')), `« profil » hors du nom de la page : « ${t} »`).toBe(false)
+    }
+  })
+
+  it('la grille fictive est neutre par construction', () => {
+    const peek = copy.PROFILE_PEEK
+    expect(peek).toMatch(/^[1-5]{15}$/)
+    const rows = [0, 1, 2].map(r => [...peek.slice(r * 5, r * 5 + 5)].map(Number))
+    const col = (c: number) => rows.map(r => r[c]!)
+    // Même somme par colonne : même moyenne pour chaque bloc
+    const sums = [0, 1, 2, 3, 4].map(c => col(c).reduce((a, b) => a + b, 0))
+    expect(new Set(sums).size).toBe(1)
+    // Miroir gauche-droite : les colonnes 1 et 5, 2 et 4, ont les mêmes cases
+    const sorted = (c: number) => [...col(c)].sort().join('')
+    expect(sorted(0)).toBe(sorted(4))
+    expect(sorted(1)).toBe(sorted(3))
+    for (const r of rows) {
+      // Aucune ligne ne monte ni ne descend d'un bout à l'autre, aucune n'est symétrique (pas de lecture « centre »)
+      const up = r.every((v, i) => i === 0 || v >= r[i - 1]!)
+      const down = r.every((v, i) => i === 0 || v <= r[i - 1]!)
+      expect(up || down, r.join('')).toBe(false)
+      expect(r.join('') === [...r].reverse().join(''), r.join('')).toBe(false)
+    }
+    // Chaque palier paraît au moins deux fois
+    for (const d of '12345') expect(peek.split(d).length - 1, d).toBeGreaterThanOrEqual(2)
+  })
+})

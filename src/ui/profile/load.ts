@@ -1,7 +1,9 @@
 // La page « Mon profil politique » (et le calcul qui la nourrit, core/echiquier.ts, avec ses mots, core/echiquierCopy.ts)
 // est un fichier à part du build, chargé à la première visite de #/profil ou de la rubrique de la Méthode : le code que
 // télécharge chaque visite n'en contient rien. Il se prépare quand le navigateur a un moment, sur le dépouillement
-// complet, pour s'ouvrir sans attendre. La copie hors ligne le contient comme tous les fichiers du site.
+// complet et sur l'accueil une fois la page prête, pour s'ouvrir sans attendre ; avant, ses entrées (l'aperçu de
+// l'accueil, la ligne de la tendance) mènent à sa page d'attente, chargée au clic. La copie hors ligne le contient comme
+// tous les fichiers du site.
 
 import { onDemand } from '../lazy'
 

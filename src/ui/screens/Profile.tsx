@@ -12,12 +12,20 @@
 // palier ; aucun symbole de lecture, les mots « nettement plus près » et « nettement plus loin » ; les pourcentages ne
 // paraissent que dans « Le détail » et dans la liste d'une ligne ouverte ; ni point, ni moyenne entre thèmes, ni
 // synthèse globale. Jamais sur l'affiche ni dans le PDF.
+// Tant que la page ne s'affiche pas (core/profileAccess.ts : questionnaire rapide pas fini, ou aucun avis), une page
+// d'attente : ce qui manque, en bâtons comme la fiche de la tendance, le bouton qui y ramène, puis un exemple fictif de la
+// lecture (la grille de l'aperçu de l'accueil, avec ses mots) et ce qu'apporte ensuite « Approfondir ». Une fois la page
+// affichée, tant que des thèmes ne se lisent pas seuls faute de questions, la fiche « Pour lire plus de thèmes » les
+// nomme, avant le graphique : chacun mène à « Approfondir », coché, comme « Approfondir ce thème » d'une ligne ; son
+// adresse (#/approfondir/<thème>) y met le thème en tête, dit ce qui est coché, et la feuille commence par lui.
 // Fichier à part du build, chargé à la demande (ui/profile/load.ts), avec la rubrique de la Méthode qui l'explique.
 
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks'
 import { hasOpinion, RATING_LABELS } from '../../core/answers'
-import { approvedOf, echiquierCached, mainCarriers, panelOf, readEchiquierAsync, type Echiquier, type UnitReading } from '../../core/echiquier'
+import { approvedOf, deeperTopics, echiquierCached, mainCarriers, panelOf, readEchiquierAsync, type Echiquier, type UnitReading } from '../../core/echiquier'
 import * as T from '../../core/echiquierCopy'
+import { profileAccess } from '../../core/profileAccess'
+import { PROFILE_PEEK } from '../../core/resultsCopy'
 import { currentAnswers } from '../../core/revisions'
 import type { Results } from '../../core/score'
 import { excludedIds } from '../../core/score'
@@ -27,6 +35,7 @@ import type { CandidateId, ElectionPack, Question, TopicGroup } from '../../core
 import { AiLabel } from '../components/AiLabel'
 import { FormHeader } from '../components/FormHeader'
 import { Icon } from '../components/Icon'
+import { ProgressTally } from '../components/ProgressTally'
 import { SiteFooter } from '../components/SiteFooter'
 import { link } from '../nav'
 import { Chart, deeperOf, oneQuestionFact, Tile, type ProfileCtx } from '../profile/Chart'
@@ -41,17 +50,19 @@ interface Props {
   /** Les questions du questionnaire rapide, dans l'ordre de la feuille (pour reprendre là où l'on s'est arrêté) */
   essential: Question[]
   results: Results
+  update: (patch: Partial<SessionState>) => void
 }
 
-export function Profile({ pack, state, essential, results }: Props) {
+export function Profile({ pack, state, essential, results, update }: Props) {
   const { election, bank, candidates } = pack
   const axis = axisOf(election) ?? []
   const answers = useMemo(() => currentAnswers(pack, state.answers), [pack, state.answers])
-  const answered = bank.questions.some(q => hasOpinion(answers[q.id]))
-  // Même règle que le dépouillement : tant qu'une question du questionnaire rapide n'a pas été vue, c'est une tendance
-  const unseen = essential.filter(q => !state.answers[q.id])
-  const provisional = unseen.length > 0
-  const ready = answered && !provisional
+  // La règle de l'accueil et du dépouillement : toutes les questions du questionnaire rapide vues, et au moins un avis
+  const access = profileAccess(bank.questions, essential, state.answers, answers, state.essentialDoneAt)
+  const ready = access.state === 'pret'
+  // « Approfondir ce thème » : le thème rejoint ceux déjà cochés dans « Approfondir » (le champ que la page écrit à chaque
+  // case cochée ; rien n'est décoché, rien d'autre n'est enregistré)
+  const deepen = (ids: string[]) => update({ deepTopics: [...new Set([...state.deepTopics, ...ids])] })
 
   const [reading, setReading] = useState<Echiquier | null>(() => (ready ? echiquierCached(pack, answers) : null))
   const [busy, setBusy] = useState(false)
@@ -99,10 +110,12 @@ export function Profile({ pack, state, essential, results }: Props) {
       topicLabel: new Map(bank.topics.map(t => [t.id, t.label])),
       groups: pack.topicGroups?.length ? pack.topicGroups : bank.topics.map(t => ({ id: t.id, label: t.label, topicIds: [t.id] })),
       unscored: excludedIds(pack).filter(id => present.has(id)).length,
+      deepen,
     }
   }, [pack, axis, election, candidates, results, answers, state, bank])
 
   const quickOnly = !bank.questions.some(q => q.tier !== 'essentiel' && hasOpinion(answers[q.id]))
+  const deeper = useMemo(() => deeperTopics(pack, answers, state.answers), [pack, answers, state.answers])
 
   // « Voir le détail » d'une ligne : le tableau replié s'ouvre, puis le détail de l'unité, qui reçoit le focus
   const all = useRef<HTMLDetailsElement>(null)
@@ -114,27 +127,7 @@ export function Profile({ pack, state, essential, results }: Props) {
     requestAnimationFrame(() => d.querySelector('summary')?.focus())
   }
 
-  if (!answered || provisional) {
-    const refineHref = `/feuille/${essential.indexOf(unseen[0]!) + 1}`
-    return (
-      <div class="screen screen-profile">
-        <FormHeader title="Résultats" right={election.shortName} />
-        <main class="sheet has-margin" id="contenu" tabIndex={-1}>
-          <h1 class="display is-medium" tabIndex={-1}>
-            {T.PROFILE_TITLE}
-          </h1>
-          <p class="lede">{answered ? T.pending(unseen.length) : T.EMPTY}</p>
-          <p>
-            <a class="btn-primary" href={link(answered ? refineHref : '/feuille/1')}>
-              {answered ? 'Continuer' : 'Commencer'}
-              <Icon name="arrow-right" />
-            </a>
-          </p>
-        </main>
-        <SiteFooter />
-      </div>
-    )
-  }
+  if (access.state !== 'pret') return <Waiting pack={pack} wait={access.state} seen={access.seen} total={access.total} left={access.left} added={access.added} href={access.href} />
 
   const units = reading ? reading.themes.length + reading.families.length : 0
 
@@ -154,11 +147,7 @@ export function Profile({ pack, state, essential, results }: Props) {
           </div>
         </div>
 
-        {quickOnly ? (
-          <p class="notice profile-quick">
-            {T.QUICK_ONLY} <a href={link('/approfondir')}>Approfondir</a>
-          </p>
-        ) : null}
+        {deeper.thin.length || deeper.none.length ? <Deeper deeper={deeper} quickOnly={quickOnly} ctx={ctx} /> : null}
 
         {/* Lu par les lecteurs d'écran : « Lecture en cours » au-delà de 300 ms, puis « Lecture prête. », une fois */}
         <p class={busy ? 'small profile-status' : 'sr-only'} role="status">
@@ -205,6 +194,140 @@ export function Profile({ pack, state, essential, results }: Props) {
         </div>
       </nav>
     </div>
+  )
+}
+
+/** Les cinq paliers de l'exemple, de « très éloigné » à « très proche » : une affinité au milieu de chacun */
+const EXAMPLE_AFFINITY = [10, 30, 50, 70, 90]
+
+/**
+ * La page d'attente : la fiche d'état (comme « Où vous en êtes » de la tendance, dont elle reprend les styles), le bouton
+ * qui ramène aux questions, puis l'exemple fictif, une grille de 3 sujets sur les 5 blocs, aux cases de la page et à leurs
+ * mots, et ce qu'apporte ensuite « Approfondir »
+ */
+function Waiting({ pack, wait, seen, total, left, added, href }: { pack: ElectionPack; wait: T.WaitState; seen: number; total: number; left: number; added: boolean; href: string }) {
+  const axis = axisOf(pack.election) ?? []
+  const rows = [0, 1, 2].map(r => [...PROFILE_PEEK.slice(r * 5, r * 5 + 5)].map(Number))
+  return (
+    <div class="screen screen-wide screen-profile">
+      <FormHeader title="Résultats" right={pack.election.shortName} />
+      <main class="sheet wide-sheet profile-sheet" id="contenu" tabIndex={-1}>
+        <div class="wait-hero">
+          <div class="wait-intro">
+            <h1 class="display is-medium" tabIndex={-1}>
+              {T.PROFILE_TITLE}
+            </h1>
+            <p class="lede">{T.LEDE}</p>
+          </div>
+          <section class="trend profile-wait" aria-labelledby="wait-title">
+            <h2 id="wait-title" class="trend-title">
+              <span class="trend-where">{T.WAIT_WHERE[wait]}</span>{' '}
+              <span class="trend-count">
+                <span class="trend-figure">{seen}</span> {T.waitCount(seen, total)}
+              </span>
+            </h2>
+            <ProgressTally done={seen} total={total} />
+            <p class="trend-text">{T.waitText(wait, total, left, added)}</p>
+            <a class="btn-primary is-wide trend-cta" href={link(href)}>
+              {T.waitCta(wait, left)}
+              <Icon name="arrow-right" />
+            </a>
+          </section>
+        </div>
+
+        <section class="profile-example" aria-labelledby="example-title">
+          <h2 id="example-title">{T.EXAMPLE_TITLE}</h2>
+          <p class="ex-note">{T.EXAMPLE_NOTE}</p>
+          {/* Une illustration, masquée aux lecteurs d'écran : la mention et la phrase des couleurs disent ce qu'elle montre */}
+          <div class="ex-grid" aria-hidden="true">
+            <div class="ex-head">
+              <span />
+              {axis.map(a => (
+                <span key={a.bloc}>{a.short}</span>
+              ))}
+            </div>
+            {rows.map((row, r) => (
+              <div key={r} class="ex-row">
+                <span class="ex-name">{T.exampleRow(r + 1)}</span>
+                {row.map((d, b) => (
+                  <span key={b} class="ex-cell" data-bloc={axis[b]?.short}>
+                    <Tile cell={{ affinity: EXAMPLE_AFFINITY[d - 1]!, mark: 'rien' }} />
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+          <p class="ex-key">{T.KEY_TEXT}</p>
+        </section>
+
+        <p class="wait-deepen">
+          <Icon name="deepen" />
+          <span>{T.WAIT_DEEPEN}</span>
+        </p>
+      </main>
+      <SiteFooter />
+    </div>
+  )
+}
+
+/**
+ * Pour lire plus de thèmes : ceux d'une seule question, puis ceux sans réponse, qui ont encore des questions
+ * approfondies ; chacun mène à « Approfondir », coché ; puis le choix libre des thèmes
+ */
+function Deeper({ deeper, quickOnly, ctx }: { deeper: { thin: string[]; none: string[] }; quickOnly: boolean; ctx: ProfileCtx }) {
+  // En grand écran, la place ne manque pas : la longue liste est ouverte d'emblée
+  const [wide] = useState(() => matchMedia('(min-width: 64rem)').matches)
+  // Le séparateur reste collé au thème qui le précède : une ligne ne commence jamais par lui
+  const list = (ids: string[]) => (
+    <span class="deeper-topics">
+      {ids.map((id, i) => (
+        <span key={id}>
+          {/* Le nom lu commence par l'action, puis le nom visible du thème */}
+          <a href={link(`/approfondir/${id}`)} onClick={() => ctx.deepen([id])} aria-label={`${T.DEEPER_THEME} ${ctx.topicLabel.get(id) ?? id}`}>
+            {ctx.topicLabel.get(id) ?? id}
+          </a>
+          {i < ids.length - 1 ? '\u00a0· ' : null}
+        </span>
+      ))}
+    </span>
+  )
+  return (
+    <section class="profile-deeper" aria-labelledby="deeper-title">
+      <div class="deeper-head">
+        <h2 id="deeper-title">
+          <Icon name="deepen" class="deeper-icon" />
+          {T.DEEPER_TITLE}
+        </h2>
+        <p>{T.deeperLede(quickOnly)}</p>
+      </div>
+      <div class="deeper-lists">
+        {deeper.none.length ? (
+          <p>
+            <strong>{T.unansweredLine(deeper.none.length)}</strong>
+            {list(deeper.none)}
+          </p>
+        ) : null}
+        {/* Une longue liste se replie derrière son compte, la fiche reste courte avant le graphique */}
+        {deeper.thin.length > 6 ? (
+          <details class="deeper-fold" open={wide}>
+            <summary>
+              <Icon name="chevron" class="disclosure" />
+              <span class="summary-label">{T.thinLine(deeper.thin.length)}</span>
+            </summary>
+            <p>{list(deeper.thin)}</p>
+          </details>
+        ) : deeper.thin.length ? (
+          <p>
+            <strong>{T.thinLine(deeper.thin.length)}</strong>
+            {list(deeper.thin)}
+          </p>
+        ) : null}
+        <a class="btn-text" href={link('/approfondir')}>
+          <Icon name="deepen" />
+          {T.DEEPER_GO}
+        </a>
+      </div>
+    </section>
   )
 }
 
@@ -310,7 +433,9 @@ function UnitRows({ unit, ctx }: { unit: UnitReading; ctx: ProfileCtx }) {
             {unit.status === 'une-question' && deeper ? (
               <>
                 {' '}
-                <a href={link('/approfondir')}>{T.DEEPEN_THEME}</a>
+                <a href={link(`/approfondir/${unit.id}`)} onClick={() => ctx.deepen([unit.id])}>
+                  {T.DEEPEN_THEME}
+                </a>
               </>
             ) : null}
           </p>

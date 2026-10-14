@@ -48,12 +48,57 @@ export const NO_AI = fr('Calcul sans IA, sur cet appareil ; rien n’est enregis
 
 // ——— États de la page ———
 
-export const EMPTY = fr('Rien à lire pour l’instant : la lecture se fait sur vos réponses, après le questionnaire rapide.')
-export const pending = (left: number) =>
-  fr(`Le dépouillement n’est pas fini : il reste ${plural(left, 'question')} du questionnaire rapide. La lecture sur l’échiquier attend la fin du questionnaire rapide.`)
-export const QUICK_ONLY = fr(
-  'Après le questionnaire rapide, la plupart des thèmes n’ont qu’une question : la lecture se fait surtout par famille de thèmes. Approfondir permet de lire thème par thème.',
+// La page d'attente, tant que la page ne s'affiche pas (core/profileAccess.ts) : la fiche d'état, puis un exemple
+export type WaitState = 'vide' | 'en-cours' | 'sans-avis'
+/** L'en-tête de la fiche d'état */
+export const WAIT_WHERE: Record<WaitState, string> = {
+  vide: 'Pas encore de réponse',
+  'en-cours': 'Pas encore assez de réponses',
+  'sans-avis': fr('Aucun avis pour l’instant'),
+}
+/** « 0 question sur 22 », « 7 questions sur 22 » : le chiffre est posé à part, en grand */
+export const waitCount = (seen: number, total: number) => `question${seen > 1 ? 's' : ''} sur ${total}`
+/**
+ * La phrase de la fiche ; left : questions rapides qui restent ; added : ajoutées depuis un questionnaire fini. Elle
+ * nomme « la lecture » plutôt qu'un pronom : après « le questionnaire rapide », « il » se rapporterait à lui
+ */
+export const waitText = (state: WaitState, total: number, left: number, added: boolean) =>
+  fr(
+    state === 'vide'
+      ? `La lecture se fait sur vos réponses : elle s’affiche au bout des ${plural(total, 'question')} du questionnaire rapide, avec le dépouillement complet.`
+      : state === 'sans-avis'
+        ? `Vous avez passé les ${plural(total, 'question')} sans placer de repère : la lecture se fait sur vos avis, « d’accord » ou « pas d’accord ».`
+        : added
+          ? left > 1
+            ? `${plural(left, 'question')} ont été ajoutées au questionnaire rapide depuis vos réponses : la lecture s’affiche de nouveau une fois ces questions vues.`
+            : 'Une question a été ajoutée au questionnaire rapide depuis vos réponses : la lecture s’affiche de nouveau une fois cette question vue.'
+          : `La lecture s’affiche au bout des ${plural(total, 'question')} du questionnaire rapide, avec le dépouillement complet : encore ${plural(left, 'question')}.`,
+  )
+/** Le bouton de la fiche : les libellés de l'accueil et de la tendance */
+export const waitCta = (state: WaitState, left: number) =>
+  state === 'vide' ? 'Commencer la feuille' : state === 'sans-avis' ? 'Relire la feuille' : fr(`Continuer : ${plural(left, 'question')}`)
+/** L'exemple : la grille fictive de l'aperçu de l'accueil (core/resultsCopy.ts, PROFILE_PEEK), avec ses mots */
+export const EXAMPLE_TITLE = 'À quoi ressemblera la lecture'
+export const EXAMPLE_NOTE = fr('Exemple fictif : ces sujets n’existent pas, et les couleurs sont illustratives.')
+export const exampleRow = (n: number) => `Sujet ${n}`
+export const WAIT_DEEPEN = fr(
+  'Après le questionnaire rapide, la plupart des thèmes n’ont qu’une question ; il en faut deux pour lire un thème seul. Approfondir, ensuite, permet de les lire un par un.',
 )
+
+// La fiche « Pour lire plus de thèmes », avant le graphique, tant que des thèmes à compléter ont des questions
+// approfondies à voir (core/echiquier.ts, deeperTopics)
+export const DEEPER_TITLE = 'Pour lire plus de thèmes'
+export const deeperLede = (quickOnly: boolean) =>
+  fr(
+    quickOnly
+      ? 'Après le questionnaire rapide, la lecture se fait surtout par famille de thèmes : il faut au moins deux questions pour lire un thème seul.'
+      : 'Il faut au moins deux questions pour lire un thème seul.',
+  )
+/** « Sur une seule question : 16 thèmes » ; ceux sans réponse : unansweredLine */
+export const thinLine = (n: number) => fr(`Sur une seule question : ${plural(n, 'thème')}`)
+/** Le nom lu d'un thème de la fiche, devant son nom visible : le lien le coche dans « Approfondir » */
+export const DEEPER_THEME = fr('Approfondir :')
+export const DEEPER_GO = 'Choisir les thèmes à approfondir'
 export const STATUS_BUSY = 'Lecture en cours, sur cet appareil…'
 export const STATUS_READY = 'Lecture prête.'
 

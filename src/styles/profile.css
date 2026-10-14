@@ -40,50 +40,8 @@ html:has(.profile-chart) {
   color: var(--print-soft);
 }
 
-/* Une case (Chart.tsx, Tile) : le palier de votre affinité moyenne avec les candidats du bloc, sur l'échelle du site
-   (core/affinity.ts). Les deux bouts en aplat soutenu, le mot au papier (--on-print : 6,1:1 sur « très proche », 6,6:1
-   sur « très éloigné » ; en sombre 9,8 et 7,0:1) ; « proche » et « éloigné » en lavis de leur teinte à 38 % sur le
-   papier, le mot à l'imprimé (10,3 et 10,0:1 ; en sombre 5,9 et 6,6:1) ; « mitigé », le plus discret, en lavis du gris
-   de l'échelle à 25 %, le mot en gris (5,8:1 ; 5,1:1 en sombre), assez soutenu pour se distinguer du lavis d'une ligne
-   ouverte. Sans candidat connu, « ? inconnu » sur le papier, dans un cadre en tirets. Contrôlés par
-   tools/e2e-offline.mjs, en clair et en sombre. */
-.tile {
-  --tile: color-mix(in srgb, var(--aff-mitige) 25%, var(--paper));
-  --tile-ink: var(--print-soft);
-  background: var(--tile);
-  color: var(--tile-ink);
-  /* Invisible, sauf en contraste forcé : le cadre de la case, quand les couleurs tombent */
-  outline: 1px solid transparent;
-  outline-offset: -1px;
-}
-
-.tile.aff-tres-proche {
-  --tile: var(--aff-tres-proche);
-  --tile-ink: var(--on-print);
-}
-
-.tile.aff-proche {
-  --tile: color-mix(in srgb, var(--aff-proche) 38%, var(--paper));
-  --tile-ink: var(--print);
-}
-
-.tile.aff-eloigne {
-  --tile: color-mix(in srgb, var(--aff-eloigne) 38%, var(--paper));
-  --tile-ink: var(--print);
-}
-
-.tile.aff-tres-eloigne {
-  --tile: var(--aff-tres-eloigne);
-  --tile-ink: var(--on-print);
-}
-
-.tile.is-inconnu {
-  --tile: var(--paper);
-  --tile-ink: var(--print-soft);
-  outline: var(--line) dashed var(--rule);
-  outline-offset: calc(-1 * var(--line));
-}
-
+/* Les cases (Chart.tsx, Tile) : leurs teintes, l'échelle d'affinité du site, sont dans app.css (.tile), pour que
+   l'aperçu de l'accueil (ui/components/ProfileEntry.tsx) prenne exactement les mêmes. */
 .tile-q {
   font-weight: 800;
 }
@@ -156,13 +114,338 @@ html:has(.profile-chart) {
   }
 }
 
-.profile-quick {
-  margin: var(--s5) 0 0;
-  max-width: 46rem;
+/* ——— Pour lire plus de thèmes : avant le graphique, tant que des thèmes à compléter ont des questions approfondies.
+   À l'encre, comme la fiche de la tendance : papier, filet de 1.5px, filet supérieur de 3px ; en grand écran, le titre
+   et la règle à gauche, les thèmes à droite ——— */
+.profile-deeper {
+  display: grid;
+  gap: var(--s3) var(--s7);
+  margin: var(--s6) 0 0;
+  padding: calc(var(--s4) + var(--thick)) var(--s4) var(--s4);
+  box-shadow:
+    inset 0 var(--thick) 0 var(--rule-strong),
+    inset 0 0 0 var(--line) var(--rule-strong);
 }
 
-.profile-quick a {
+@media (min-width: 64rem) {
+  .profile-deeper {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    padding: calc(var(--s5) + var(--thick)) var(--s5) var(--s5);
+  }
+}
+
+.deeper-head h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 var(--s2);
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: clamp(1.45rem, 5vw, 1.85rem);
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+}
+
+.deeper-icon {
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.deeper-head p {
+  margin: 0;
+  max-width: 46ch;
+}
+
+.deeper-lists {
+  display: grid;
+  gap: var(--s3);
+  align-content: start;
+}
+
+.deeper-lists p {
+  margin: 0;
+  font-size: var(--text-sm);
+}
+
+.deeper-lists strong {
+  display: block;
+  margin-bottom: 0.15rem;
+  font-weight: 800;
+}
+
+/* La longue liste (les thèmes d'une seule question) se replie derrière son compte : le menu repliable du site */
+.deeper-fold > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 2.75rem;
+  font-size: var(--text-sm);
+  font-weight: 800;
+  cursor: pointer;
+  list-style: none;
+}
+
+.deeper-fold > summary::-webkit-details-marker {
+  display: none;
+}
+
+.deeper-fold > summary .disclosure {
+  transition: transform 140ms var(--ease-out, ease-out);
+}
+
+.deeper-fold[open] > summary .disclosure {
+  transform: rotate(90deg);
+}
+
+.deeper-fold > summary .summary-label {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+.deeper-fold[open] > summary .summary-label {
+  text-decoration: none;
+}
+
+.deeper-fold > p {
+  margin: 0 0 var(--s2);
+}
+
+/* Chaque thème mène à « Approfondir », coché : des liens à l'imprimé, au soulignement fin */
+.deeper-topics {
+  line-height: 1.75;
+  color: var(--print-soft);
+}
+
+.deeper-topics a {
+  color: var(--print);
+  text-decoration-color: color-mix(in srgb, var(--print) 45%, var(--paper));
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .deeper-topics a:hover {
+    text-decoration-color: currentColor;
+    text-decoration-thickness: 2px;
+  }
+}
+
+.deeper-lists .btn-text {
+  justify-self: start;
+}
+
+/* ——— La page d'attente : l'introduction, la fiche d'état (les styles de la tendance, .trend) ; dessous, l'exemple
+   fictif sur toute la largeur, puis ce qu'apporte « Approfondir » ——— */
+.wait-hero {
+  display: grid;
+  gap: var(--s6);
+}
+
+@media (min-width: 64rem) {
+  .wait-hero {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: var(--s8);
+    align-items: start;
+  }
+}
+
+.wait-intro .display {
+  margin: 0 0 var(--s4);
+}
+
+.wait-intro .lede {
+  margin: 0;
+  max-width: 46ch;
+}
+
+.profile-example {
+  margin-top: var(--s7);
+  padding-top: var(--s3);
+  border-top: var(--thick) solid var(--rule-strong);
+}
+
+.profile-example h2 {
+  margin: 0;
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: clamp(1.6rem, 5vw, 2.25rem);
+  line-height: 1;
+  overflow-wrap: anywhere;
+}
+
+.ex-note,
+.ex-key {
+  margin: var(--s2) 0 0;
+  font-size: var(--text-xs);
+  color: var(--print-soft);
+}
+
+/* La grille fictive, comme le graphique de la page : au téléphone, le sujet au-dessus de ses cinq cases ; dès 40rem, le
+   sujet à gauche ; très étroit (texte agrandi), une liste, un bloc par ligne, son nom devant sa case */
+.ex-grid {
+  container: ex / inline-size;
+  margin-top: var(--s4);
+  --ex-label: clamp(8rem, 22cqi, 16rem);
+}
+
+.ex-head {
+  display: none;
+}
+
+.ex-row {
+  display: grid;
+  gap: var(--s1);
+  padding: var(--s2) 0;
+  border-top: var(--hair) solid var(--rule);
+}
+
+.ex-row:last-child {
+  border-bottom: var(--line) solid var(--rule-strong);
+}
+
+.ex-name {
   font-weight: 700;
+}
+
+.ex-cell {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.15rem 0.6rem;
+}
+
+.ex-cell::before {
+  content: attr(data-bloc);
+  flex: 1 1 6rem;
+  font-size: var(--text-sm);
+  font-weight: 650;
+}
+
+.ex-cell > .tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 1 8rem;
+  min-height: 2.25rem;
+  padding: 0.2rem 0.4rem;
+  font-size: 0.75rem;
+  font-stretch: 85%;
+  line-height: 1.05;
+  text-align: center;
+}
+
+@container ex (min-width: 20rem) {
+  .ex-head,
+  .ex-row {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .ex-head {
+    padding-bottom: var(--s2);
+    border-bottom: var(--line) solid var(--rule-strong);
+  }
+
+  .ex-head > span {
+    padding: 0 0.3rem;
+    border-left: var(--hair) solid var(--rule);
+    font-size: var(--text-xs);
+    font-weight: 800;
+    font-stretch: 78%;
+    line-height: 1.1;
+  }
+
+  .ex-head > span:last-child {
+    border-right: var(--hair) solid var(--rule);
+  }
+
+  .ex-head > span:first-child {
+    display: none;
+  }
+
+  .ex-row {
+    gap: 0;
+    padding: 0 0 0.2rem;
+    border-top: 0;
+  }
+
+  .ex-row + .ex-row {
+    border-top: var(--hair) solid var(--rule);
+  }
+
+  .ex-name {
+    grid-column: 1 / -1;
+    padding: var(--s2) 0 0.2rem;
+    font-size: var(--text-sm);
+  }
+
+  .ex-cell {
+    display: flex;
+    padding: 0.2rem 2px;
+    border-left: var(--hair) solid var(--rule);
+  }
+
+  .ex-cell:last-child {
+    border-right: var(--hair) solid var(--rule);
+  }
+
+  .ex-cell::before {
+    content: none;
+  }
+
+  .ex-cell > .tile {
+    flex: 1;
+    min-width: 0;
+    min-height: 2.5rem;
+  }
+}
+
+@container ex (min-width: 40rem) {
+  .ex-head,
+  .ex-row {
+    grid-template-columns: var(--ex-label) repeat(5, minmax(0, 1fr));
+  }
+
+  .ex-head > span:first-child {
+    display: block;
+    border-left: 0;
+  }
+
+  .ex-name {
+    grid-column: auto;
+    align-self: center;
+    padding: 0 var(--s4) 0 0.35rem;
+    font-size: 1.0625rem;
+  }
+
+  .ex-cell {
+    padding: 0.25rem 3px;
+  }
+
+  .ex-cell > .tile {
+    min-height: 2.6rem;
+    font-size: var(--text-sm);
+    font-weight: 650;
+    font-stretch: 92%;
+  }
+}
+
+.wait-deepen {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s3);
+  max-width: 62ch;
+  margin: var(--s6) 0 0;
+  color: var(--print-soft);
+}
+
+.wait-deepen .icon {
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--print);
 }
 
 .profile-status {
