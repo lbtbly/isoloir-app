@@ -382,7 +382,7 @@
     }
   },
   "europe-3": {
-    "rev": 1,
+    "rev": 2,
     "minor": 0,
     "prompt": "Comment faire évoluer les règles du marché unique européen ?",
     "approaches": {
@@ -390,7 +390,8 @@
       "europe-3-b": "Revenir sur l’ouverture à la concurrence pour rétablir des monopoles publics nationaux à prix réglementés",
       "europe-3-c": "Approfondir le marché unique : supprimer les règles nationales qui freinent les échanges, unifier les marchés de capitaux",
       "europe-3-d": "Alléger les normes européennes et interdire leur surtransposition, c’est-à-dire leur durcissement en droit français",
-      "europe-3-e": "Conserver les règles de concurrence actuelles et l’ouverture des services publics à la concurrence"
+      "europe-3-e": "Conserver les règles de concurrence actuelles et l’ouverture des services publics à la concurrence",
+      "europe-3-f": "Déroger aux règles européennes pour donner, dans la commande publique, la priorité aux entreprises qui produisent en France"
     }
   },
   "europe-x4": {
@@ -418,7 +419,7 @@
     }
   },
   "finances_publiques-1": {
-    "rev": 1,
+    "rev": 2,
     "minor": 0,
     "prompt": "Quelle stratégie pour les finances publiques face à la dette ?",
     "approaches": {
@@ -428,7 +429,8 @@
       "finances_publiques-1-d": "Emprunter pour investir massivement dans l’industrie et la transition écologique, plutôt que de réduire les dépenses",
       "finances_publiques-1-e": "Augmenter les dépenses de services publics en les finançant par un prélèvement sur les profits des entreprises",
       "finances_publiques-1-f": "Réduire le déficit surtout par de nouveaux impôts sur les plus hauts patrimoines et sur le capital",
-      "finances_publiques-1-g": "Économiser d’abord sur le fonctionnement de l’État en supprimant agences et doublons administratifs, sans hausse d’impôts"
+      "finances_publiques-1-g": "Économiser d’abord sur le fonctionnement de l’État en supprimant agences et doublons administratifs, sans hausse d’impôts",
+      "finances_publiques-1-h": "Réduire le déficit surtout en relançant la production en France pour accroître les recettes publiques"
     }
   },
   "finances_publiques-2": {

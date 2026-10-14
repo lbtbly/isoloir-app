@@ -183,6 +183,16 @@ Les lignes « Transformations » gardent, entre parenthèses, les repères de ca
 - Mention affichée : Antoine Jaussaud – © Union européenne, 2026, sous licence CC BY 4.0, recadrée
 - Transformations : recadrage carré centré sur le visage (L'original fait 3333 × 5000 px, en hauteur ; les deux personnes y sont en pied. Le visage de Bertrand, de face, se trouve dans le tiers gauche, centré vers x ≈ 1015 et y ≈ 1670. Repères relevés à l'écran sur la vignette de 1920 px (marge d'environ ±25 px) : haut des cheveux vers y ≈ 1400, menton vers y ≈ 1940–1960 (plus bas que les 1910 annoncés), tête avec les oreilles de x ≈ 805 à 1232. La bande bleue du drapeau français commence vers x ≈ 1480, et non 1460. Carré conseillé d'environ 880 px : x ≈ 560–1440, y ≈ 1230–2110, puis réduction à 400 × 400. Il laisse environ 40 px de marge avant le drapeau français. Le carré proposé (x 580–1460) passe aussi, mais avec seulement 20 px de marge. Ne pas dépasser x ≈ 1460 à droite ni y ≈ 2140 en bas : le micro-cravate noir est vers x ≈ 1247, y ≈ 2168. Dans le carré restent le mur bleuté éclairé, le pan blanc uni d'un drapeau derrière la tête (sans motif visible), le col de chemise, le nœud de la cravate bordeaux et le haut de la veste. Il n'y a ni logo ni texte.), réduction à 400 × 400 px
 
+## polony.jpg
+
+- Fichier d'origine : https://upload.wikimedia.org/wikipedia/commons/7/76/Natacha_Polony_Cannes_2015.jpg (566 × 800 px, 57 663 octets, téléchargé le 14 octobre 2026)
+- Page de la licence : https://commons.wikimedia.org/wiki/File:Natacha_Polony_Cannes_2015.jpg
+- Auteur : Georges Biard. Le fichier a été versé sur Commons par un autre compte (JJ Georges) ; l'autorisation du photographe est archivée dans le système VRT de Wikimedia (ticket n° 2012010510013998, mention « vérifiée et archivée dans le système VRT » sur la page du fichier), comme pour ses autres photos sur Commons.
+- Licence : CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0/deed.fr)
+- Date de la photo : 2015-05 (Festival de Cannes ; description Commons : « Natacha Polony au festival de Cannes »)
+- Mention affichée : Georges Biard, 2015, licence CC BY-SA 3.0, recadrée
+- Transformations : recadrage carré centré sur le visage (carré de 480 px, x 86–566 et y 0–480 sur l'original de 566 × 800, vérifié à l'œil : le visage et le haut des épaules, sur un fond de foule floue, sans logo ni affiche), réduction à 400 × 400 px
+
 <!-- Candidats de la primaire « Choisir 2027 » : portraits repris tels quels de src/elections/choisir-2027/media (téléchargés le 3 octobre 2026) -->
 
 <!-- Depuis le 12 octobre 2026, faure.jpg, guedj.jpg, maurel.jpg et royal.jpg, ainsi que les logos ps.svg et grs.png, ne sont plus publiés : ces quatre candidats sont masqués (election.hidden) et candidates.ts n'importe plus ces fichiers. Ils restent ici, avec leur provenance, pour le jour où on les montrerait à nouveau. -->

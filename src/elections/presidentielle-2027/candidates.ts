@@ -33,6 +33,7 @@ import lisnardPhoto from './media/lisnard.jpg'
 import melenchonPhoto from './media/melenchon.jpg'
 import philippePhoto from './media/philippe.jpg'
 import philippotPhoto from './media/philippot.jpg'
+import polonyPhoto from './media/polony.jpg'
 import retailleauPhoto from './media/retailleau.jpg'
 import rousselPhoto from './media/roussel.jpg'
 import zemmourPhoto from './media/zemmour.jpg'
@@ -46,6 +47,8 @@ import glucksmannPhoto from './media/glucksmann.jpg'
 // Portraits : licences libres uniquement (Wikimedia Commons), provenance détaillée dans media/CREDITS.md ; les photos
 // des sites de campagne et des partis sont « droits réservés » et ne sont pas reprises. Sans portrait libre
 // (Bouamrane, Kazib, Labib, Markovic) : initiales.
+// Natacha Polony, déclarée le 14 octobre 2026 : fiche et portrait de research/presidentielle-2027/add-candidate/polony.json
+// (6-add-candidate.js, faits vérifiés contre leurs sources le 14 octobre 2026) ; portrait téléchargé le même jour.
 // Pas de « website » : aucun site officiel de l'élection n'a de page par candidat, et aucun candidat n'est officiel
 // avant la liste du Conseil constitutionnel (mars 2027) ; on parle de candidats déclarés.
 // Primaire « Choisir 2027 » : Raphaël Glucksmann l'a remportée dès le premier tour, le 11 octobre 2026. Les fiches des
@@ -518,6 +521,32 @@ export const candidates: Candidate[] = [
       { when: '2014-2019', text: 'Député européen de 2014 à 2019, membre du Front national puis, à partir d’octobre 2017, des Patriotes. Vice-président du groupe Europe de la liberté et de la démocratie directe (2017-2019).', source: { title: '8ème législature | Florian PHILIPPOT | Députés | Parlement européen', url: 'https://www.europarl.europa.eu/meps/fr/110977/FLORIAN_PHILIPPOT/history/8', publisher: 'Parlement européen' } },
       { when: '2012', text: 'Nommé vice-président du Front national, chargé de la stratégie et de la communication, en juillet 2012, après avoir dirigé la stratégie de la campagne présidentielle de Marine Le Pen.', source: { title: 'F. Philippot devient vice-président du FN', url: 'https://www.lefigaro.fr/flash-actu/2012/07/12/97001-20120712FILWWW00558-f-philippot-devient-vice-president-du-fn.php', date: '2012-07-12', publisher: 'Le Figaro (AFP)' } },
       { when: '1981', text: 'Né le 24 octobre 1981 à Croix (Nord). Diplômé d’HEC, puis de l’ENA en 2009 (promotion Willy-Brandt), il intègre l’Inspection générale de l’administration, rattachée au ministère de l’Intérieur.', source: { title: 'Florian Philippot, l’apprenti', url: 'https://www.leparisien.fr/elections/presidentielle/florian-philippot-l-apprenti-28-10-2011-1695395.php', date: '2011-10-28', publisher: 'Le Parisien' } },
+    ],
+  },
+  {
+    id: 'polony',
+    name: 'Natacha Polony',
+    initials: 'NP',
+    affiliation: 'Nous sommes la France',
+    // Nuance DIV (« Divers », bloc « Autres ») : décision du propriétaire du 14 octobre 2026. Son mouvement n’est pas
+    // dans la grille ; la seule candidature que relève sa fiche date des législatives de 2002 (voir le parcours), sous une
+    // nuance « Pôle républicain » absente de la grille de 2026 : d'où une nuance de sensibilité, comme le dit la Méthode
+    // (research/presidentielle-2027/parties-spectrum.json, entrée « nsf »)
+    nuance: 'DIV',
+    // Sans logo (décision du propriétaire du 14 octobre 2026) : le nom du mouvement est écrit en gras
+    party: { name: 'Nous sommes la France' },
+    role: 'Essayiste, directrice de la revue L’Audace !, fondatrice du mouvement « Nous sommes la France »',
+    campaignUrl: 'https://natachapolony2027.fr/',
+    declaredAt: '2026-10-14',
+    declaration: { title: 'Natacha Polony annonce sa candidature à l’élection présidentielle', url: 'https://lcp.fr/actualites/natacha-polony-annonce-sa-candidature-a-l-election-presidentielle-443808', date: '2026-10-14', publisher: 'LCP' },
+    photo: { src: polonyPhoto, alt: 'Portrait de Natacha Polony', credit: 'Georges Biard, 2015, licence CC BY-SA 3.0, recadrée', rightsUrl: 'https://commons.wikimedia.org/wiki/File:Natacha_Polony_Cannes_2015.jpg', author: 'Georges Biard', title: 'Natacha Polony Cannes 2015.jpg', license: { name: 'CC BY-SA 3.0', url: 'https://creativecommons.org/licenses/by-sa/3.0/deed.fr' }, changes: 'recadrée en carré et réduite', shareAlike: true },
+    bio: [
+      { when: 'Depuis 2025', text: 'Directrice de la revue trimestrielle L’Audace !, qu’elle lance en septembre 2025 et dont elle est l’une des quatre coactionnaires.', source: { title: 'Natacha Polony lance « L’Audace ! » une revue trimestrielle', url: 'https://fr.themedialeader.com/?p=203845', date: '2025-09-23', publisher: 'The Media Leader (avec l’AFP)' } },
+      { when: '2026', text: 'Déclare sa candidature le 14 octobre 2026, invitée de France Inter, puis dans une vidéo publiée sur ses réseaux sociaux. Elle avait lancé quelques semaines plus tôt son mouvement, « Nous sommes la France ».', source: { title: 'France : Natacha Polony officialise sa candidature à la présidentielle', url: 'https://fr.euronews.com/2026/10/14/france-natacha-polony-officialise-sa-candidature-a-la-presidentielle', date: '2026-10-14', publisher: 'Euronews' } },
+      { when: '2018-2025', text: 'Dirige la rédaction de l’hebdomadaire Marianne à partir de 2018. Annonce en décembre 2024 qu’elle ne poursuit pas à sa tête ; Frédéric Taddeï est désigné pour lui succéder le 1er mars 2025.', source: { title: 'Marianne : Daniel Kretinsky reste, Natacha Polony quitte la direction', url: 'https://www.cbnews.fr/node/89506', date: '2024-12-19', publisher: 'CB News (avec l’AFP)' } },
+      { when: '2002-2018', text: 'Devient journaliste après les élections législatives de 2002 : entre à Marianne, puis travaille au Figaro, à la radio et à la télévision, notamment à On n’est pas couché, sur Europe 1 et sur France Inter.', source: { title: 'Natacha Polony, biographie et parcours', url: 'https://natachapolony2027.fr/natacha-polony', date: '2026-10-14', publisher: 'Natacha Polony 2027 (site de campagne)' } },
+      { when: '2002', text: 'Candidate du Pôle républicain aux élections législatives de 2002 dans la 9e circonscription de Paris ; elle n’est pas élue (2,24 % des voix au premier tour).', source: { title: 'Résultats des élections législatives 2002 par circonscriptions – Paris, 9e circonscription', url: 'https://www.assemblee-nationale.fr/elections/resultats/html/531.html', publisher: 'Assemblée nationale (source AFP)' } },
+      { when: '1975', text: 'Née en 1975 à Paris ; grandit à Deuil-la-Barre. Agrégée de lettres modernes en 1999, elle est affectée au lycée Jacques-Feyder d’Épinay-sur-Seine.', source: { title: 'Natacha Polony, biographie et parcours', url: 'https://natachapolony2027.fr/natacha-polony', date: '2026-10-14', publisher: 'Natacha Polony 2027 (site de campagne)' } },
     ],
   },
   {

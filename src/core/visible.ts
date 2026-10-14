@@ -9,7 +9,14 @@ export function withoutHidden<P extends Pick<ElectionPack, 'election' | 'candida
   const hidden = new Set(pack.election.hidden ?? [])
   if (!hidden.size) return pack
   const { ranking } = pack.election
-  const excluded = ranking?.excluded ? { ...ranking.excluded, ids: ranking.excluded.ids.filter(id => !hidden.has(id)) } : undefined
+  const joined = ranking?.excluded?.joined
+  const excluded = ranking?.excluded
+    ? {
+        ...ranking.excluded,
+        ids: ranking.excluded.ids.filter(id => !hidden.has(id)),
+        ...(joined ? { joined: Object.fromEntries(Object.entries(joined).filter(([id]) => !hidden.has(id))) } : {}),
+      }
+    : undefined
   return {
     ...pack,
     election: {

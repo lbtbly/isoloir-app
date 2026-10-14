@@ -7,7 +7,7 @@
     "quality": "research/presidentielle-2027/config.json (quality)"
   },
   "counts": {
-    "candidates": 22,
+    "candidates": 23,
     "scored": 15,
     "topics": 24,
     "questions": 100,
@@ -53,55 +53,55 @@
   "profiles": 3000,
   "shares": {
     "step1": {
-      "arthaud": 3.9,
-      "attal": 7.4,
-      "cazeneuve": 9.9,
-      "dupontaignan": 6.1,
-      "glucksmann": 7.8,
-      "kazib": 7.4,
-      "labib": 4,
-      "lepen": 6.6,
-      "lisnard": 6,
-      "melenchon": 5.8,
-      "philippe": 7.8,
-      "philippot": 7.4,
-      "retailleau": 6,
-      "roussel": 7.5,
+      "arthaud": 4.4,
+      "attal": 7.1,
+      "cazeneuve": 8.6,
+      "dupontaignan": 6.3,
+      "glucksmann": 6.8,
+      "kazib": 7,
+      "labib": 4.1,
+      "lepen": 7.5,
+      "lisnard": 6.5,
+      "melenchon": 7.1,
+      "philippe": 7.5,
+      "philippot": 6.4,
+      "retailleau": 5.4,
+      "roussel": 9,
       "zemmour": 6.3
     },
     "quick": {
-      "arthaud": 5.1,
+      "arthaud": 5.9,
       "attal": 6.3,
-      "cazeneuve": 9.3,
-      "dupontaignan": 4.8,
-      "glucksmann": 6,
-      "kazib": 5.9,
-      "labib": 4.8,
-      "lepen": 7.3,
-      "lisnard": 6.9,
-      "melenchon": 5.6,
-      "philippe": 8.5,
-      "philippot": 8,
-      "retailleau": 5.6,
-      "roussel": 7.7,
-      "zemmour": 8.1
+      "cazeneuve": 7.8,
+      "dupontaignan": 4.3,
+      "glucksmann": 6.6,
+      "kazib": 6.1,
+      "labib": 4.3,
+      "lepen": 9.2,
+      "lisnard": 6.8,
+      "melenchon": 5.7,
+      "philippe": 7.2,
+      "philippot": 8.7,
+      "retailleau": 4.5,
+      "roussel": 8,
+      "zemmour": 8.5
     },
     "bank": {
-      "arthaud": 6.4,
-      "attal": 6.9,
-      "cazeneuve": 10.6,
-      "dupontaignan": 4.4,
-      "glucksmann": 5,
-      "kazib": 7.4,
-      "labib": 5.9,
-      "lepen": 10.6,
-      "lisnard": 3.8,
-      "melenchon": 2.6,
-      "philippe": 6.2,
-      "philippot": 9.4,
-      "retailleau": 5.8,
-      "roussel": 5.4,
-      "zemmour": 9.5
+      "arthaud": 6.5,
+      "attal": 7.2,
+      "cazeneuve": 10.4,
+      "dupontaignan": 4.6,
+      "glucksmann": 4.6,
+      "kazib": 7.2,
+      "labib": 6.1,
+      "lepen": 9.2,
+      "lisnard": 4.8,
+      "melenchon": 2.7,
+      "philippe": 6.4,
+      "philippot": 10,
+      "retailleau": 5.1,
+      "roussel": 5.5,
+      "zemmour": 9.7
     }
   },
   "bounds": {
@@ -410,7 +410,8 @@
       "bertrand",
       "bouamrane",
       "lalanne",
-      "markovic"
+      "markovic",
+      "polony"
     ],
     "reason": "positions connues sur trop peu de questions",
     "since": "2026-10-07",
@@ -575,6 +576,29 @@
           "known": 7,
           "total": 100
         }
+      },
+      "polony": {
+        "name": "Natacha Polony",
+        "initials": "NP",
+        "step1": {
+          "known": 6,
+          "total": 10,
+          "share": 0.6
+        },
+        "quick": {
+          "known": 8,
+          "total": 22,
+          "share": 0.364
+        },
+        "bank": {
+          "known": 28,
+          "total": 100,
+          "share": 0.28
+        },
+        "counted": {
+          "known": 28,
+          "total": 100
+        }
       }
     }
   },
@@ -627,15 +651,15 @@
       "topicId": "finances_publiques",
       "tier": "essentiel",
       "step": 1,
-      "approaches": 7,
+      "approaches": 8,
       "known": 15,
       "knownShare": 1,
-      "knownAll": 21,
-      "mains": 11,
+      "knownAll": 22,
+      "mains": 13,
       "maxMain": {
-        "approachId": "finances_publiques-1-b",
+        "approachId": "finances_publiques-1-a",
         "count": 4,
-        "share": 0.364
+        "share": 0.308
       }
     },
     {
@@ -646,7 +670,7 @@
       "approaches": 6,
       "known": 15,
       "knownShare": 1,
-      "knownAll": 19,
+      "knownAll": 20,
       "mains": 9,
       "maxMain": {
         "approachId": "industrie_economie-1-e",
@@ -662,7 +686,7 @@
       "approaches": 9,
       "known": 14,
       "knownShare": 0.933,
-      "knownAll": 19,
+      "knownAll": 20,
       "mains": 11,
       "maxMain": {
         "approachId": "travail_salaires-1-c",
@@ -722,7 +746,7 @@
       "approaches": 6,
       "known": 11,
       "knownShare": 0.733,
-      "knownAll": 13,
+      "knownAll": 14,
       "mains": 7,
       "maxMain": {
         "approachId": "finances_publiques-3-a",
@@ -782,7 +806,7 @@
       "approaches": 6,
       "known": 15,
       "knownShare": 1,
-      "knownAll": 19,
+      "knownAll": 20,
       "mains": 11,
       "maxMain": {
         "approachId": "industrie_economie-2-a",
@@ -797,7 +821,7 @@
       "approaches": 4,
       "known": 11,
       "knownShare": 0.733,
-      "knownAll": 14,
+      "knownAll": 15,
       "mains": 6,
       "maxMain": {
         "approachId": "industrie_economie-3-a",
@@ -994,7 +1018,7 @@
       "approaches": 6,
       "known": 11,
       "knownShare": 0.733,
-      "knownAll": 14,
+      "knownAll": 15,
       "mains": 6,
       "maxMain": {
         "approachId": "solidarites-2-b",
@@ -1040,7 +1064,7 @@
       "approaches": 6,
       "known": 7,
       "knownShare": 0.467,
-      "knownAll": 7,
+      "knownAll": 8,
       "mains": 6,
       "maxMain": {
         "approachId": "egalite-2-e",
@@ -1116,7 +1140,7 @@
       "approaches": 8,
       "known": 15,
       "knownShare": 1,
-      "knownAll": 19,
+      "knownAll": 20,
       "mains": 13,
       "maxMain": {
         "approachId": "education-1-b",
@@ -1161,7 +1185,7 @@
       "approaches": 5,
       "known": 10,
       "knownShare": 0.667,
-      "knownAll": 11,
+      "knownAll": 12,
       "mains": 5,
       "maxMain": {
         "approachId": "education-4-b",
@@ -1206,7 +1230,7 @@
       "approaches": 6,
       "known": 9,
       "knownShare": 0.6,
-      "knownAll": 10,
+      "knownAll": 11,
       "mains": 4,
       "maxMain": {
         "approachId": "societe-2-b",
@@ -1282,7 +1306,7 @@
       "approaches": 5,
       "known": 15,
       "knownShare": 1,
-      "knownAll": 19,
+      "knownAll": 20,
       "mains": 12,
       "maxMain": {
         "approachId": "ecologie_energie-1-a",
@@ -1344,7 +1368,7 @@
       "approaches": 7,
       "known": 15,
       "knownShare": 1,
-      "knownAll": 18,
+      "knownAll": 19,
       "mains": 12,
       "maxMain": {
         "approachId": "ecologie_energie-4-d",
@@ -1359,7 +1383,7 @@
       "approaches": 5,
       "known": 9,
       "knownShare": 0.6,
-      "knownAll": 11,
+      "knownAll": 12,
       "mains": 6,
       "maxMain": {
         "approachId": "ecologie_energie-5-a",
@@ -1374,7 +1398,7 @@
       "approaches": 5,
       "known": 11,
       "knownShare": 0.733,
-      "knownAll": 14,
+      "knownAll": 15,
       "mains": 9,
       "maxMain": {
         "approachId": "ecologie_energie-6-a",
@@ -1389,7 +1413,7 @@
       "approaches": 6,
       "known": 11,
       "knownShare": 0.733,
-      "knownAll": 15,
+      "knownAll": 16,
       "mains": 8,
       "maxMain": {
         "approachId": "ecologie_energie-7-a",
@@ -1405,7 +1429,7 @@
       "approaches": 6,
       "known": 14,
       "knownShare": 0.933,
-      "knownAll": 21,
+      "knownAll": 22,
       "mains": 9,
       "maxMain": {
         "approachId": "agriculture-1-b",
@@ -1420,7 +1444,7 @@
       "approaches": 4,
       "known": 10,
       "knownShare": 0.667,
-      "knownAll": 14,
+      "knownAll": 15,
       "mains": 4,
       "maxMain": {
         "approachId": "agriculture-2-d",
@@ -1527,7 +1551,7 @@
       "approaches": 5,
       "known": 10,
       "knownShare": 0.667,
-      "knownAll": 13,
+      "knownAll": 14,
       "mains": 4,
       "maxMain": {
         "approachId": "securite_justice-5-b",
@@ -1650,7 +1674,7 @@
       "approaches": 7,
       "known": 15,
       "knownShare": 1,
-      "knownAll": 21,
+      "knownAll": 22,
       "mains": 10,
       "maxMain": {
         "approachId": "europe-1-c",
@@ -1677,15 +1701,15 @@
       "id": "europe-3",
       "topicId": "europe",
       "tier": "approfondi",
-      "approaches": 5,
+      "approaches": 6,
       "known": 13,
       "knownShare": 0.867,
-      "knownAll": 16,
+      "knownAll": 17,
       "mains": 11,
       "maxMain": {
         "approachId": "europe-3-d",
-        "count": 4,
-        "share": 0.364
+        "count": 3,
+        "share": 0.273
       }
     },
     {
@@ -1833,7 +1857,7 @@
       "approaches": 7,
       "known": 15,
       "knownShare": 1,
-      "knownAll": 19,
+      "knownAll": 20,
       "mains": 10,
       "maxMain": {
         "approachId": "institutions-1-d",
@@ -1863,7 +1887,7 @@
       "approaches": 7,
       "known": 12,
       "knownShare": 0.8,
-      "knownAll": 17,
+      "knownAll": 18,
       "mains": 8,
       "maxMain": {
         "approachId": "institutions-3-a",
@@ -1925,7 +1949,7 @@
       "approaches": 5,
       "known": 12,
       "knownShare": 0.8,
-      "knownAll": 13,
+      "knownAll": 14,
       "mains": 7,
       "maxMain": {
         "approachId": "education-x1-a",
@@ -1955,7 +1979,7 @@
       "approaches": 5,
       "known": 6,
       "knownShare": 0.4,
-      "knownAll": 9,
+      "knownAll": 10,
       "mains": 3,
       "maxMain": {
         "approachId": "territoires-x3-c",
@@ -2000,7 +2024,7 @@
       "approaches": 5,
       "known": 11,
       "knownShare": 0.733,
-      "knownAll": 13,
+      "knownAll": 14,
       "mains": 7,
       "maxMain": {
         "approachId": "agriculture-x4-a",
@@ -2015,7 +2039,7 @@
       "approaches": 4,
       "known": 11,
       "knownShare": 0.733,
-      "knownAll": 14,
+      "knownAll": 15,
       "mains": 8,
       "maxMain": {
         "approachId": "ecologie_energie-x9-d",
@@ -2105,7 +2129,7 @@
       "approaches": 6,
       "known": 10,
       "knownShare": 0.667,
-      "knownAll": 16,
+      "knownAll": 17,
       "mains": 8,
       "maxMain": {
         "approachId": "europe-x5-e",
@@ -2632,10 +2656,10 @@
     },
     {
       "id": "audit-displayed",
-      "label": "chiffres de l’accueil (election.audit) : 5 à 9 %",
+      "label": "chiffres de l’accueil (election.audit) : 4 à 9 %",
       "hard": true,
       "ok": true,
-      "detail": "mesuré : 5 à 9 %"
+      "detail": "mesuré : 4 à 9 %"
     },
     {
       "id": "all-agree",

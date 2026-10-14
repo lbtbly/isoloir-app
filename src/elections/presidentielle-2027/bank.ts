@@ -285,11 +285,11 @@ export const bank: QuestionBank = {
       "topicId": "finances_publiques",
       "tier": "essentiel",
       "step": 1,
-      "rev": 1,
+      "rev": 2,
       "prompt": "Quelle stratégie pour les finances publiques face à la dette ?",
       "context": "Aujourd’hui : la dette publique dépasse 115 % de la richesse produite en un an (PIB) et le déficit dépasse 5 % du PIB.",
       "explainer": {
-        "summary": "Les administrations publiques dépensent plus qu’elles ne perçoivent : chaque année de déficit alourdit la dette, dont les intérêts augmentent. Les approches divergent : économiser sans hausse d’impôts (sur les prestations et les effectifs, les agences de l’État, ou l’immigration, l’aide internationale et la contribution européenne) ; taxer davantage les plus aisés, le capital ou les grandes entreprises, avec ou sans économies ; ou dépenser plus, en empruntant pour investir ou en prélevant sur les profits des entreprises.",
+        "summary": "Les administrations publiques dépensent plus qu’elles ne perçoivent : chaque année de déficit alourdit la dette, dont les intérêts augmentent. Les approches divergent : économiser sans hausse d’impôts (sur les prestations et les effectifs, les agences de l’État, ou l’immigration, l’aide internationale et la contribution européenne) ; taxer davantage les plus aisés, le capital ou les grandes entreprises, avec ou sans économies ; dépenser plus, en empruntant pour investir ou en prélevant sur les profits des entreprises ; ou compter surtout sur la relance de la production en France pour accroître les recettes publiques.",
         "points": [
           {
             "text": "Dépenses et recettes : en 2025, les dépenses publiques représentent 57,3 % du PIB et les recettes 52,2 %, dont 43,6 % d’impôts et de cotisations sociales (les « prélèvements obligatoires »). Selon l’Insee, la baisse du déficit en 2025 s’explique surtout par la hausse des recettes : les mesures nouvelles sur les impôts et cotisations ont rapporté 23,0 Md€, dont 8,0 Md€ de contributions exceptionnelles sur les bénéfices des grandes entreprises et sur le fret maritime. Les dépenses ont ralenti (+2,5 %, après +4,0 % en 2024).",
@@ -422,6 +422,10 @@ export const bank: QuestionBank = {
         {
           "id": "finances_publiques-1-g",
           "text": "Économiser d’abord sur le fonctionnement de l’État en supprimant agences et doublons administratifs, sans hausse d’impôts"
+        },
+        {
+          "id": "finances_publiques-1-h",
+          "text": "Réduire le déficit surtout en relançant la production en France pour accroître les recettes publiques"
         }
       ]
     },
@@ -10972,11 +10976,11 @@ export const bank: QuestionBank = {
       "id": "europe-3",
       "topicId": "europe",
       "tier": "approfondi",
-      "rev": 1,
+      "rev": 2,
       "prompt": "Comment faire évoluer les règles du marché unique européen ?",
       "context": "Aujourd’hui : les règles européennes ont ouvert à la concurrence l’électricité, le gaz, le transport ferroviaire et d’autres services publics.",
       "explainer": {
-        "summary": "Dans le marché unique, fondé sur la libre circulation des marchandises, des personnes, des services et des capitaux, l’Union contrôle les ententes, les fusions et les aides publiques aux entreprises, et elle a ouvert à la concurrence d’anciens monopoles publics. Plusieurs orientations s’opposent : assouplir les règles de concurrence pour faire émerger de grandes entreprises européennes, revenir à des monopoles publics nationaux à prix réglementés, approfondir le marché unique en levant les obstacles nationaux aux échanges, alléger les normes européennes et interdire leur durcissement en droit français, ou garder le cadre actuel.",
+        "summary": "Dans le marché unique, fondé sur la libre circulation des marchandises, des personnes, des services et des capitaux, l’Union contrôle les ententes, les fusions et les aides publiques aux entreprises, et elle a ouvert à la concurrence d’anciens monopoles publics. Plusieurs orientations s’opposent : assouplir les règles de concurrence pour faire émerger de grandes entreprises européennes, revenir à des monopoles publics nationaux à prix réglementés, approfondir le marché unique en levant les obstacles nationaux aux échanges, alléger les normes européennes et interdire leur durcissement en droit français, déroger aux règles européennes pour donner, dans la commande publique, la priorité aux entreprises qui produisent en France, ou garder le cadre actuel.",
         "points": [
           {
             "text": "Le droit européen interdit les ententes (accords entre entreprises qui restreignent la concurrence) et l’abus de position dominante, mais pas le fait d’être dominant (articles 101 et 102 du traité sur le fonctionnement de l’UE). Les lignes directrices de la Commission sur les fusions sont en cours de réexamen en 2026. Les règles qui encadrent les compensations versées aux services publics (« services d’intérêt économique général ») ont été révisées : la nouvelle décision est entrée en vigueur le 8 janvier 2026.",
@@ -11003,6 +11007,15 @@ export const bank: QuestionBank = {
               "url": "https://www.europarl.europa.eu/factsheets/fr/sheet/33/le-marche-interieur-principes-generaux",
               "date": "2026-03",
               "publisher": "Parlement européen"
+            }
+          },
+          {
+            "text": "Les marchés publics doivent respecter l’égalité de traitement des entreprises candidates et la non-discrimination, principes tirés du traité européen ; les clauses de préférence locale y sont interdites. Trois directives de 2014, dont la directive 2014/24/UE, en fixent les règles, pour une commande publique qui pèse en France 170,7 Md€ en 2023 (contrats d’au moins 90 000 € HT seulement), soit 6 % du PIB. Un acheteur public peut en revanche imposer que les moyens d’exécution du marché soient situés dans l’Union, notamment pour des raisons environnementales, sociales ou de sécurité des approvisionnements, et écarter les entreprises de pays qui n’ont pas d’accord avec l’UE sur les marchés publics, comme la Chine et l’Inde.",
+            "source": {
+              "title": "Rapport n° 830 (2024-2025) de la commission d’enquête sur la commande publique : « L’urgence d’agir pour éviter la sortie de route : piloter la commande publique au service de la souveraineté économique »",
+              "url": "https://www.senat.fr/rap/r24-830-1/r24-830-1_mono.html",
+              "date": "2025-07-08",
+              "publisher": "Sénat"
             }
           }
         ],
@@ -11101,6 +11114,10 @@ export const bank: QuestionBank = {
           "id": "europe-3-e",
           "text": "Conserver les règles de concurrence actuelles et l’ouverture des services publics à la concurrence",
           "external": true
+        },
+        {
+          "id": "europe-3-f",
+          "text": "Déroger aux règles européennes pour donner, dans la commande publique, la priorité aux entreprises qui produisent en France"
         }
       ]
     },

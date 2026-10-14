@@ -1,0 +1,1035 @@
+{
+  "candidate": "Natacha Polony",
+  "affiliation": "Sans parti. Mouvement « Nous sommes la France », lancé fin août ou début septembre 2026 pour rassembler les « orphelins de la politique ». Elle revendique 50 000 à 68 000 inscrits selon les sources. Soutiens : République souveraine (consultation interne du 8 octobre 2026, 93 % de oui) et des responsables de La France républicaine et solidaire. Elle se réclame du gaullisme social de Philippe Séguin et de la gauche républicaine de Jean-Pierre Chevènement. Essayiste, directrice de la revue L'Audace ! (fondée en 2025), ancienne directrice de la rédaction de Marianne (2018-2025).",
+  "campaign_site": "https://natachapolony2027.fr/",
+  "declaration": {
+    "date": "2026-10-14",
+    "form": "Annonce en direct sur France Inter, le mercredi 14 octobre 2026 dans la matinale (« L'invité de 7h50 » selon L'Express, repris par Orange), en partenariat avec franceinfo. Le même jour, une vidéo de déclaration d'environ 6 minutes a été publiée sur X et sur natachapolony2027.fr, sous la bannière « Nous sommes la France ». Elle a dit : « Nous sommes dans le chaos. La situation m'oblige. » Les étapes précédentes : entretien au Parisien (28 août 2026) puis sur RTL (31 août 2026) annonçant son entrée en politique ; dépôt d'une association de financement électoral le 29 septembre 2026.",
+    "source_title": "L'essayiste Natacha Polony annonce sa candidature à l'élection présidentielle (franceinfo)",
+    "source_url": "https://www.franceinfo.fr/elections/presidentielle/l-essayiste-natacha-polony-annonce-sa-candidature-a-l-election-presidentielle_8236714.html"
+  },
+  "overview": "Natacha Polony, 51 ans, est agrégée de lettres modernes, essayiste et ancienne directrice de la rédaction de Marianne (2018-2025). Elle a fondé en 2025 la revue L'Audace !. Elle a annoncé sa candidature le 14 octobre 2026 sur France Inter, après avoir lancé fin août un mouvement (« Nous sommes la France ») pour les électeurs qui ne se reconnaissent plus dans l'offre politique. Elle se réclame du gaullisme social (Séguin) et de la gauche républicaine (Chevènement) et se dit « ni de droite ni de gauche ». Depuis 2026, elle récuse l'étiquette de « souverainiste » et parle de « souveraineté du peuple ». Le cœur de son projet est une « politique de production » : « état d'urgence de la production », priorité aux entreprises qui produisent en France dans la commande publique, suppression des aides aux entreprises qui ne sont pas liées à une production en France, et un « État stratège » qui planifie. Deuxième pilier, l'école : priorité au primaire, formation des enseignants revue, salaires des enseignants relevés de 20 à 30 %, certifications nationales anonymes. S'y ajoutent une laïcité présentée comme principe de liberté, la souveraineté alimentaire et énergétique, la lutte contre les conflits d'intérêts et des référendums plus fréquents. Elle veut rester dans l'Union européenne, mais y engager un rapport de force et faire primer la loi nationale sur les traités (révision de l'article 55 par référendum). Elle prône une diplomatie « indépendante » et non alignée, tout en qualifiant la Russie de puissance agressive. Son programme reste à ce stade une déclaration de principes, sans chiffrage. Plusieurs thèmes (retraites, nucléaire, immigration, euro, logement) sont peu ou pas documentés, et elle doit encore réunir les 500 parrainages.",
+  "topics": [
+    {
+      "topic_id": "institutions",
+      "found": true,
+      "positions": [
+        {
+          "position": "Consulter régulièrement le peuple par référendum, « comme le prévoit la Constitution », et respecter le résultat des référendums.",
+          "kind": "proposition_explicite",
+          "details": "Principe de « souveraineté du peuple » affiché sur le site de campagne. Sujets, fréquence et calendrier non précisés. Elle présente le référendum de 2005 comme une rupture démocratique (podcast Sans détour, 9 octobre 2026).",
+          "source_url": "https://natachapolony2027.fr/natacha-polony/mes-principes",
+          "source_title": "Mes principes, site de campagne Natacha Polony 2027",
+          "source_date": "2026-10",
+          "confidence": "high"
+        },
+        {
+          "position": "Favorable à une consultation plus fréquente des citoyens, par référendum classique ou par référendum d'initiative citoyenne (RIC).",
+          "kind": "position_declaree",
+          "details": "Rapporté par L'Express pendant la préparation de la campagne. Seuils et champ du RIC non précisés.",
+          "source_url": "https://actu.orange.fr/politique/natacha-polony-candidate-a-la-presidentielle-ce-qu-elle-prepare-deja-en-coulisses-magicExpress-CNT000002rSWei.html",
+          "source_title": "Natacha Polony candidate à la présidentielle ? Ce qu'elle prépare déjà en coulisses (L'Express via Orange)",
+          "source_date": "2026-09-14",
+          "confidence": "medium"
+        },
+        {
+          "position": "Réviser par référendum l'article 55 de la Constitution pour que la loi nationale prime sur les traités internationaux et européens.",
+          "kind": "proposition_explicite",
+          "details": "Mesure tirée de son livre « La France corps et âme » (Plon, 7 mai 2026), d'après la recension de Causeur. Mesure majeure pour l'articulation avec le droit de l'UE.",
+          "source_url": "https://www.causeur.fr/2027-natacha-polony-tout-un-programme-la-france-corps-et-ame-328249",
+          "source_title": "Natacha Polony : tout un programme (Causeur)",
+          "source_date": "2026-06-08",
+          "confidence": "medium"
+        },
+        {
+          "position": "Lancer un « chantier majeur » contre la corruption et les conflits d'intérêts : encadrer strictement les allers-retours (« portes tournantes ») entre cabinets ministériels, haute administration, banques et multinationales, et protéger les lanceurs d'alerte.",
+          "kind": "proposition_explicite",
+          "details": "La lutte contre la corruption figure parmi les priorités de sa déclaration du 14 octobre 2026. Elle veut aussi des responsables comptables de leurs actes et un État impartial. Pas de dispositif juridique précis (durées d'incompatibilité, sanctions).",
+          "short_quote": "Quand servir l'État devient une étape dans un plan de carrière privé",
+          "source_url": "https://natachapolony2027.fr/natacha-polony/ma-vision",
+          "source_title": "Ma vision pour la France, site de campagne Natacha Polony 2027",
+          "source_date": "2026-10",
+          "confidence": "high"
+        },
+        {
+          "position": "Critique le système des 500 parrainages d'élus, qu'elle juge « aberrant » et verrouillé.",
+          "kind": "position_declaree",
+          "details": "Propos tenus lors de sa déclaration de candidature. Elle avait déjà jugé ces conditions verrouillées dans Causeur (juillet 2026). Pas de réforme alternative précise (parrainage citoyen, etc.).",
+          "short_quote": "règle aberrante",
+          "source_url": "https://entrevue.fr/presidentielle-2027/presidentielle-2027-natacha-polony-annonce-sa-candidature-et-veut-perturber/",
+          "source_title": "Présidentielle 2027 : Natacha Polony annonce sa candidature et veut « perturber le jeu politique » (Entrevue)",
+          "source_date": "2026-10-14",
+          "confidence": "medium"
+        },
+        {
+          "position": "Construire le projet à partir de « cahiers de doléances » citoyens en ligne et de comités locaux, pour « rendre aux Français » la capacité de décider.",
+          "kind": "position_declaree",
+          "details": "Plateforme de signalement de problèmes et de propositions lancée le 3 octobre 2026. Elle affichait environ 1 800 problèmes et 1 400 solutions au moment de la consultation.",
+          "source_url": "https://natachapolony2027.fr/",
+          "source_title": "Accueil, site de campagne Natacha Polony 2027",
+          "source_date": "2026-10-14",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "laicite_republique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Fait de la laïcité une priorité. Elle la présente comme un principe politique de liberté qui protège l'individu de l'assignation communautaire. Elle reproche à La France insoumise sa conception de la laïcité.",
+          "kind": "position_declaree",
+          "details": "Entretien à la RTBF avant sa déclaration. Pas de mesure précise sur les signes religieux.",
+          "short_quote": "Personne ne doit être enfermé dans une communauté.",
+          "source_url": "https://www.rtbf.be/article/la-journaliste-natacha-polony-bientot-candidate-a-la-presidentielle-francaise-je-lance-un-appel-aux-orphelins-de-la-politique-11786400",
+          "source_title": "La journaliste Natacha Polony, bientôt candidate ? « Je lance un appel aux orphelins de la politique » (RTBF)",
+          "source_date": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "position": "Estime que les attentats tiennent à un abandon de la laïcité, et non à un excès de laïcité.",
+          "kind": "position_declaree",
+          "details": "Dialogue avec Eugénie Bastié dans Causeur (2e partie), où elle défend la laïcité républicaine face à une lecture plus traditionaliste.",
+          "source_url": "https://www.causeur.fr/dialogue-eugenie-bastie-natacha-polony-2-je-refuse-ce-choix-entre-france-eternelle-et-nouvelle-france-330301",
+          "source_title": "Natacha Polony : « Je refuse ce choix entre France éternelle et nouvelle France » (Causeur)",
+          "source_date": "2026-07-13",
+          "confidence": "medium"
+        },
+        {
+          "position": "Mémoire nationale : elle refuse d'opposer « France éternelle » et « nouvelle France » et veut articuler les mémoires de l'Ancien Régime et de la Révolution. Elle décrit l'identité française comme héritière d'Athènes, de Rome et des racines chrétiennes, et se dit critique de Robespierre et de la Terreur.",
+          "kind": "position_declaree",
+          "details": "Même entretien. Aucune position trouvée sur la mémoire de la colonisation ou de la guerre d'Algérie.",
+          "source_url": "https://www.causeur.fr/dialogue-eugenie-bastie-natacha-polony-2-je-refuse-ce-choix-entre-france-eternelle-et-nouvelle-france-330301",
+          "source_title": "Natacha Polony : « Je refuse ce choix entre France éternelle et nouvelle France » (Causeur)",
+          "source_date": "2026-07-13",
+          "confidence": "medium"
+        },
+        {
+          "position": "Égalité républicaine : mêmes droits, mêmes devoirs et même loi pour tous, sans privilège lié à l'argent ou aux réseaux. Elle veut transmettre la langue, la culture et les institutions.",
+          "kind": "position_declaree",
+          "details": "Principes « Égalité républicaine » et « Transmission » de son site. En juin 2026, elle a salué la panthéonisation de Marc Bloch comme l'expression d'un patriotisme non sélectif (vidéo du 22 juin 2026, npolony.fr/videos).",
+          "source_url": "https://natachapolony2027.fr/natacha-polony/mes-principes",
+          "source_title": "Mes principes, site de campagne Natacha Polony 2027",
+          "source_date": "2026-10",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "fiscalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Baisser les cotisations salariales et patronales pour dégager des marges permettant aux entreprises d'augmenter les salaires.",
+          "kind": "proposition_explicite",
+          "details": "Entretien au Parisien (fin août 2026), rapporté par Entrevue et Epoch Times. Ampleur de la baisse et compensation pour la Sécurité sociale non précisées.",
+          "source_url": "https://entrevue.fr/politique/presidentielle-2027-natacha-polony-lance-son-mouvement-et-nexclut-rien-pour-lelysee/",
+          "source_title": "Présidentielle 2027 : Natacha Polony lance son mouvement et « n'exclut rien » pour l'Élysée (Entrevue)",
+          "source_date": "2026-08-28",
+          "confidence": "medium"
+        },
+        {
+          "position": "Préparer une réforme fiscale qui allège le financement de la protection sociale pesant sur le travail, en échange de hausses de salaires.",
+          "kind": "position_declaree",
+          "details": "Piste en préparation selon L'Express. L'assiette de remplacement (TVA, CSG, autre) n'est pas indiquée.",
+          "source_url": "https://actu.orange.fr/politique/natacha-polony-candidate-a-la-presidentielle-ce-qu-elle-prepare-deja-en-coulisses-magicExpress-CNT000002rSWei.html",
+          "source_title": "Natacha Polony candidate à la présidentielle ? Ce qu'elle prépare déjà en coulisses (L'Express via Orange)",
+          "source_date": "2026-09-14",
+          "confidence": "medium"
+        },
+        {
+          "position": "Instaurer une taxe flottante sur les carburants : les taxes baisseraient automatiquement quand les prix à la pompe montent, pour protéger les ménages, les travailleurs et les PME.",
+          "kind": "proposition_explicite",
+          "details": "Vidéo publiée le 17 septembre 2026 (« 30 € de différence sur un plein, ce n'est pas un détail »). Seuils et coût budgétaire non précisés.",
+          "source_url": "https://www.npolony.fr/videos",
+          "source_title": "Voir et entendre Natacha Polony (page vidéos de la campagne)",
+          "source_date": "2026-09-17",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "finances_publiques",
+      "found": true,
+      "positions": [
+        {
+          "position": "Cite la crise de la dette publique parmi les raisons de sa candidature. Elle compte sur une « politique de production » sur le sol français pour relancer l'activité et renflouer les recettes de l'État, plutôt que sur un plan d'économies.",
+          "kind": "position_declaree",
+          "details": "Déclaration sur France Inter. Aucune trajectoire chiffrée de déficit ou de dette n'est publiée.",
+          "source_url": "https://www.franceinfo.fr/elections/presidentielle/l-essayiste-natacha-polony-annonce-sa-candidature-a-l-election-presidentielle_8236714.html",
+          "source_title": "L'essayiste Natacha Polony annonce sa candidature à l'élection présidentielle (franceinfo)",
+          "source_date": "2026-10-14",
+          "confidence": "high"
+        },
+        {
+          "position": "Réserver l'argent public aux acteurs qui investissent, forment et produisent en France. Elle veut conditionner à une production en France les quelque 211 milliards d'euros d'aides publiques aux entreprises.",
+          "kind": "proposition_explicite",
+          "details": "Le montant de 211 milliards d'euros reprend l'évaluation de la commission d'enquête du Sénat (2025). Elle propose de supprimer les aides non conditionnées (déclaration du 14 octobre 2026).",
+          "source_url": "https://sans-detour.fr/episodes/natacha-polony",
+          "source_title": "Sans détour #19 : Natacha Polony, la voix des orphelins de la politique ?",
+          "source_date": "2026-10-09",
+          "confidence": "medium"
+        },
+        {
+          "position": "Un « État stratège » qui planifie les investissements essentiels et protège les infrastructures et filières vitales.",
+          "kind": "proposition_explicite",
+          "details": "Elle défend la planification publique et décrit l'UE comme privée de moyens d'action budgétaires et monétaires (Causeur, juillet 2026). Effectifs et organisation de l'État non détaillés.",
+          "source_url": "https://natachapolony2027.fr/natacha-polony/ma-vision",
+          "source_title": "Ma vision pour la France, site de campagne Natacha Polony 2027",
+          "source_date": "2026-10",
+          "confidence": "high"
+        },
+        {
+          "position": "Ligne présentée comme antilibérale, opposée aux doctrines d'austérité et de dérégulation.",
+          "kind": "inference",
+          "details": "Caractérisation faite par le média Infodujour, non accompagnée d'une citation de la candidate sur l'austérité. Elle a aussi critiqué les coupes budgétaires dans la prévention des incendies et à l'ONF (vidéo du 14 juillet 2026).",
+          "source_url": "https://infodujour.fr/politique/elections/presidentielles/87491-natacha-polony-candidate-a-la-presidentielle-2027",
+          "source_title": "Natacha Polony candidate à la présidentielle 2027 (Infodujour)",
+          "source_date": "2026-10-14",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "travail_salaires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Augmenter les salaires en baissant les cotisations salariales et patronales, pour donner aux entreprises la marge de mieux rémunérer.",
+          "kind": "proposition_explicite",
+          "details": "Entretien au Parisien, août 2026. Montant non précisé.",
+          "source_url": "https://www.epochtimes.fr/rassembler-les-orphelins-de-la-politique-natacha-polony-lance-un-mouvement-et-necarte-pas-une-candidature-a-la-presidentielle-3335966.html",
+          "source_title": "Rassembler les « orphelins de la politique » : Natacha Polony lance un mouvement (Epoch Times, d'après Le Parisien)",
+          "source_date": "2026-08-29",
+          "confidence": "medium"
+        },
+        {
+          "position": "Veut ouvrir le débat sur la « quantité de travail » en France, sans se prononcer pour ou contre une remise en cause des 35 heures.",
+          "kind": "position_declaree",
+          "details": "Position non arrêtée sur le temps de travail.",
+          "source_url": "https://entrevue.fr/politique/presidentielle-2027-natacha-polony-lance-son-mouvement-et-nexclut-rien-pour-lelysee/",
+          "source_title": "Présidentielle 2027 : Natacha Polony lance son mouvement et « n'exclut rien » pour l'Élysée (Entrevue)",
+          "source_date": "2026-08-28",
+          "confidence": "medium"
+        },
+        {
+          "position": "Permettre à chacun de vivre dignement de son travail. Elle présente le travail et la production comme la condition de la liberté et de l'indépendance nationale.",
+          "kind": "position_declaree",
+          "details": "Principes « Liberté » et « Travail et production » de son site, sans mesure précise (SMIC, partage de la valeur, droits des salariés non abordés).",
+          "source_url": "https://natachapolony2027.fr/natacha-polony/mes-principes",
+          "source_title": "Mes principes, site de campagne Natacha Polony 2027",
+          "source_date": "2026-10",
+          "confidence": "high"
+        },
+        {
+          "position": "Fait du pouvoir d'achat un enjeu central : elle cite le fait qu'un tiers des foyers n'a plus que 100 euros sur son compte le 15 du mois, et lie la baisse du pouvoir d'achat au prix de l'énergie et des carburants.",
+          "kind": "position_declaree",
+          "details": "Entretien à Sud Radio (« Le Choc des idées ») pour la sortie de son livre. Elle demande que la préférence pour les producteurs français dans la commande publique ne fasse pas porter le coût aux ménages modestes.",
+          "source_url": "https://www.sudradio.fr/sud-radio/natacha-polony-ursula-von-der-leyen-grignotte-petit-a-petit-le-pouvoir-des-etats",
+          "source_title": "Natacha Polony : « Ursula von der Leyen grignote petit à petit le pouvoir des États » (Sud Radio)",
+          "source_date": "2026-05-31",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "industrie_economie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Décréter un « état d'urgence de la production » pour redresser le déficit commercial et reconstruire la puissance industrielle.",
+          "kind": "proposition_explicite",
+          "details": "Mesure annoncée sur RTL le 31 août 2026 et reprise dans sa déclaration de candidature. Objectif affiché : retrouver la puissance industrielle d'ici dix ans. Contenu juridique de cet « état d'urgence » non précisé.",
+          "short_quote": "décréter un « état d'urgence de la production »",
+          "source_url": "https://www.franceinfo.fr/politique/la-journaliste-natacha-polony-se-lance-en-politique-pour-perturber-l-entre-soi_8170427.html",
+          "source_title": "La journaliste Natacha Polony se lance en politique pour « perturber l'entre-soi » (franceinfo/AFP)",
+          "source_date": "2026-08-31",
+          "confidence": "high"
+        },
+        {
+          "position": "Donner la priorité aux entreprises produisant en France (« priorité nationale ») dans la commande publique de l'État, des collectivités et des hôpitaux.",
+          "kind": "proposition_explicite",
+          "details": "Elle la présente comme une source d'activité et de recettes pour l'État. Reprise dans sa déclaration sur France Inter le 14 octobre 2026. Compatibilité avec les règles européennes des marchés publics non précisée.",
+          "source_url": "https://www.watson.ch/fr/international/politique/613457933-natacha-polony-est-candidate-a-la-presidentielle-francaise",
+          "source_title": "Natacha Polony est candidate à la présidentielle française (watson/AFP)",
+          "source_date": "2026-10-14",
+          "confidence": "high"
+        },
+        {
+          "position": "Supprimer les aides publiques aux entreprises qui ne sont pas conditionnées à une production sur le sol français.",
+          "kind": "proposition_explicite",
+          "details": "Annoncé sur France Inter. Elle vise l'enveloppe d'environ 211 milliards d'euros d'aides aux entreprises (Sans détour, 9 octobre 2026).",
+          "source_url": "https://www.lavenir.net/actu/monde/2026/10/14/lessayiste-natacha-polony-candidate-a-la-presidentielle-en-france-pour-sortir-de-la-spirale-dappauvrissement-OP42YMO65ZEDXJYMEWGPYMEDIM/",
+          "source_title": "L'essayiste Natacha Polony candidate à la présidentielle en France pour « sortir de la spirale d'appauvrissement » (L'Avenir/AFP)",
+          "source_date": "2026-10-14",
+          "confidence": "high"
+        },
+        {
+          "position": "Indépendance productive pilotée par un État stratège : produire en France l'énergie, les médicaments essentiels, les machines et technologies stratégiques et l'alimentation, et protéger les filières vitales.",
+          "kind": "proposition_explicite",
+          "details": "Dans « La France corps et âme », le ministère de l'Industrie serait le « numéro deux » de son gouvernement (Causeur, 8 juin 2026). Elle cite aussi la robotique et l'IA comme leviers (Sud Radio, 31 mai 2026).",
+          "short_quote": "Dans dix ans, la France doit avoir retrouvé sa puissance industrielle.",
+          "source_url": "https://natachapolony2027.fr/natacha-polony/ma-vision",
+          "source_title": "Ma vision pour la France, site de campagne Natacha Polony 2027",
+          "source_date": "2026-10",
+          "confidence": "high"
+        },
+        {
+          "position": "Déroger au « dogme du libre-échange » et, à la marge, à certaines règles européennes, pour produire en France selon des normes nationales.",
+          "kind": "position_declaree",
+          "details": "Propos tenus au Printemps de la Planète de Sud Radio. Pas d'instrument protectionniste précis (droits de douane, quotas). Elle critique aussi la vente d'entreprises familiales françaises (vidéo du 21 septembre 2026).",
+          "short_quote": "déroger au dogme du libre-échange",
+          "source_url": "https://www.sudradio.fr/societe/natacha-polony-pour-reussir-la-transition-ecologique-il-faut-deroger-au-dogme-du-libre-echange",
+          "source_title": "Natacha Polony : « Il faut déroger au dogme du libre-échange » (Sud Radio)",
+          "source_date": "2026-04-16",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "retraites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Aucune proposition trouvée sur l'âge légal de départ. Elle lie la désindustrialisation et l'achat de produits importés au recul de l'âge de la retraite et à la fragilisation du financement du modèle social : sans industrie, pas de financement des pensions.",
+          "kind": "position_declaree",
+          "details": "Propos tenus au Printemps de la Planète (Sud Radio). Le financement des retraites est rattaché à sa politique de production.",
+          "source_url": "https://www.sudradio.fr/societe/natacha-polony-pour-reussir-la-transition-ecologique-il-faut-deroger-au-dogme-du-libre-echange",
+          "source_title": "Natacha Polony : « Il faut déroger au dogme du libre-échange » (Sud Radio)",
+          "source_date": "2026-04-16",
+          "confidence": "medium"
+        },
+        {
+          "position": "Demande de traiter ensemble retraites, démographie, industrie, école et dette, plutôt que séparément.",
+          "kind": "position_declaree",
+          "details": "Entretien Sud Radio à la sortie de son livre. Aucune mesure paramétrique (âge, durée de cotisation, capitalisation).",
+          "source_url": "https://www.sudradio.fr/sud-radio/natacha-polony-ursula-von-der-leyen-grignotte-petit-a-petit-le-pouvoir-des-etats",
+          "source_title": "Natacha Polony : « Ursula von der Leyen grignote petit à petit le pouvoir des États » (Sud Radio)",
+          "source_date": "2026-05-31",
+          "confidence": "medium"
+        },
+        {
+          "position": "Selon une recension de son livre, elle estime que les « boomers » devront consentir un effort. La nature de cet effort (pensions, fiscalité, patrimoine) n'est pas précisée.",
+          "kind": "inference",
+          "details": "Formule rapportée par Causeur, sans détail. À vérifier dans le livre.",
+          "source_url": "https://www.causeur.fr/2027-natacha-polony-tout-un-programme-la-france-corps-et-ame-328249",
+          "source_title": "Natacha Polony : tout un programme (Causeur)",
+          "source_date": "2026-06-08",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "sante",
+      "found": true,
+      "positions": [
+        {
+          "position": "Produire en France les médicaments essentiels, au nom de l'indépendance productive.",
+          "kind": "proposition_explicite",
+          "details": "Son site décrit le système de santé comme « en difficulté », sans mesure détaillée sur l'accès aux soins, les déserts médicaux ou la dépendance.",
+          "source_url": "https://natachapolony2027.fr/natacha-polony/ma-vision",
+          "source_title": "Ma vision pour la France, site de campagne Natacha Polony 2027",
+          "source_date": "2026-10",
+          "confidence": "high"
+        },
+        {
+          "position": "Financer les hôpitaux, les écoles et le modèle social par la production de biens essentiels sur le territoire, et protéger les services publics.",
+          "kind": "position_declaree",
+          "details": "Elle inclut les hôpitaux dans la commande publique qui devrait favoriser les producteurs français (Sud Radio, 31 mai 2026). Elle ne dit rien sur la place de la Sécurité sociale face aux complémentaires ni sur le grand âge.",
+          "source_url": "https://www.euronews.com/2026/10/14/french-journalist-natacha-polony-joins-growing-field-of-2027-presidential-hopefuls",
+          "source_title": "French journalist Natacha Polony joins growing field of 2027 presidential hopefuls (Euronews)",
+          "source_date": "2026-10-14",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "logement",
+      "found": false,
+      "positions": []
+    },
+    {
+      "topic_id": "solidarites",
+      "found": true,
+      "positions": [
+        {
+          "position": "Créer un « service public de la garde d'enfants ».",
+          "kind": "proposition_explicite",
+          "details": "Mesure de son livre « La France corps et âme », rapportée par Causeur. Le livre s'inquiète aussi de la démographie (plus de décès que de naissances en 2025). Aucune autre mesure de politique familiale ou nataliste chiffrée n'a été trouvée.",
+          "short_quote": "service public de la garde d'enfants",
+          "source_url": "https://www.causeur.fr/2027-natacha-polony-tout-un-programme-la-france-corps-et-ame-328249",
+          "source_title": "Natacha Polony : tout un programme (Causeur)",
+          "source_date": "2026-06-08",
+          "confidence": "medium"
+        },
+        {
+          "position": "Fait de la protection de l'enfance un critère d'évaluation de la nation, après le meurtre de la petite Lyhanna.",
+          "kind": "position_declaree",
+          "details": "Titre et sujet d'une vidéo de juin 2026 (« Une nation se juge à la protection de ses enfants »), sans mesure précise connue. Aucune position trouvée sur les minima sociaux, l'assurance chômage ou le handicap.",
+          "source_url": "https://www.npolony.fr/videos",
+          "source_title": "Voir et entendre Natacha Polony (page vidéos de la campagne)",
+          "source_date": "2026-06-06",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "egalite",
+      "found": true,
+      "positions": [
+        {
+          "position": "Se réclame d'un féminisme universaliste, opposé aux approches identitaires.",
+          "kind": "inference",
+          "details": "Déduit du titre du chapitre 7 de son livre (« Le féminisme universaliste contre les identités »). Aucune mesure trouvée sur l'égalité salariale, les violences faites aux femmes ou le partage des congés parentaux.",
+          "source_url": "https://civiq.over-blog.com/2026/07/natacha-polony-la-france-corps-et-ame-livre-pedagogique.html",
+          "source_title": "Natacha Polony, La France corps et âme : livre pédagogique (Réseau CiViQ, sommaire du livre)",
+          "source_date": "2026-07-31",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "droits_lgbtqia",
+      "found": true,
+      "positions": [
+        {
+          "position": "Un blog lui attribue des réserves sur la PMA (dissociation entre procréation, gestation et filiation, désir d'enfant érigé en droit) et une critique de la GPA comme marchandisation du corps.",
+          "kind": "inference",
+          "details": "Attribution indirecte et non vérifiable : la page du Fonds Alcuin ne cite pas de texte d'origine et mêle les propos de l'autrice et ceux du blog. Aucune déclaration de campagne trouvée sur la PMA, la GPA, l'état civil des personnes trans ou l'éducation à la sexualité. À ne pas utiliser sans confirmation.",
+          "source_url": "https://alcuinfonds.be/blog/reflexions-non-autorisees-sur-la-pma-polony/",
+          "source_title": "Réflexions non autorisées sur la PMA (Polony), blog du Fonds Alcuin",
+          "source_date": "2026-02-16",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "education",
+      "found": true,
+      "positions": [
+        {
+          "position": "Revaloriser les salaires des enseignants de 20 à 30 %, en échange de la prise en compte de toutes leurs missions éducatives et pas seulement des heures de cours. Elle demande aussi que l'institution soutienne les professeurs face aux parents.",
+          "kind": "proposition_explicite",
+          "details": "Entretien Sud Radio sur les blocages lycéens. Elle veut qu'un parent ne puisse pas contester une décision d'enseignant.",
+          "source_url": "https://www.sudradio.fr/sud-radio/no-future-et-irresponsabilite-generalisee-les-declarations-chocs-et-les-solutions-de-natacha-polony-pour-les-lycees-et-leducation",
+          "source_title": "« No future » et « irresponsabilité généralisée » : les solutions de Natacha Polony pour les lycées et l'éducation (Sud Radio)",
+          "source_date": "2026-10-06",
+          "confidence": "high"
+        },
+        {
+          "position": "Réorienter les financements du lycée (jugé trop coûteux à cause des options) vers l'école primaire, et voter une loi de programmation de l'école sur dix ans.",
+          "kind": "proposition_explicite",
+          "details": "Elle déplore huit ministres de l'Éducation nationale en deux quinquennats. Elle veut revenir à un enseignement systématique de la lecture, de l'écriture et du calcul, avec la méthode syllabique (Sans détour, 9 octobre 2026 ; Sud Radio, 31 mai 2026).",
+          "source_url": "https://www.sudradio.fr/sud-radio/no-future-et-irresponsabilite-generalisee-les-declarations-chocs-et-les-solutions-de-natacha-polony-pour-les-lycees-et-leducation",
+          "source_title": "« No future » et « irresponsabilité généralisée » : les solutions de Natacha Polony pour les lycées et l'éducation (Sud Radio)",
+          "source_date": "2026-10-06",
+          "confidence": "high"
+        },
+        {
+          "position": "Revoir entièrement la formation des enseignants (modèle des INSPÉ jugé déconnecté du terrain) et augmenter le nombre de professeurs.",
+          "kind": "proposition_explicite",
+          "details": "Annoncé sur RTL le 31 août 2026. Nombre de postes non chiffré.",
+          "source_url": "https://www.franceinfo.fr/politique/la-journaliste-natacha-polony-se-lance-en-politique-pour-perturber-l-entre-soi_8170427.html",
+          "source_title": "La journaliste Natacha Polony se lance en politique pour « perturber l'entre-soi » (franceinfo/AFP)",
+          "source_date": "2026-08-31",
+          "confidence": "high"
+        },
+        {
+          "position": "Créer des certifications nationales et anonymes pour les lycéens, sur le modèle des certifications de langues, mettre fin à la notation complaisante et au baccalauréat en contrôle continu.",
+          "kind": "proposition_explicite",
+          "details": "Mesure en préparation selon L'Express. La fin du contrôle continu est évoquée dans le podcast Sans détour (9 octobre 2026) et la fin de la notation complaisante à la RTBF (17 septembre 2026).",
+          "source_url": "https://actu.orange.fr/politique/natacha-polony-candidate-a-la-presidentielle-ce-qu-elle-prepare-deja-en-coulisses-magicExpress-CNT000002rSWei.html",
+          "source_title": "Natacha Polony candidate à la présidentielle ? Ce qu'elle prépare déjà en coulisses (L'Express via Orange)",
+          "source_date": "2026-09-14",
+          "confidence": "medium"
+        },
+        {
+          "position": "Fermer les filières sans débouchés, en particulier certains bacs professionnels et technologiques du tertiaire, au profit de formations menant à l'emploi.",
+          "kind": "proposition_explicite",
+          "details": "Elle relie l'angoisse des lycéens liée à Parcoursup au manque de sincérité sur les notes, le bac et les filières.",
+          "short_quote": "Il faut fermer les filières qui ne débouchent sur rien !",
+          "source_url": "https://www.sudradio.fr/sud-radio/no-future-et-irresponsabilite-generalisee-les-declarations-chocs-et-les-solutions-de-natacha-polony-pour-les-lycees-et-leducation",
+          "source_title": "« No future » et « irresponsabilité généralisée » : les solutions de Natacha Polony pour les lycées et l'éducation (Sud Radio)",
+          "source_date": "2026-10-06",
+          "confidence": "high"
+        },
+        {
+          "position": "Instaurer un concours d'entrée à l'université et rapatrier au niveau national le budget de recherche géré par la Commission européenne.",
+          "kind": "proposition_explicite",
+          "details": "Mesures du livre « La France corps et âme », selon Causeur. Modalités non précisées. Aucune position trouvée sur l'enseignement privé.",
+          "short_quote": "concours d'entrée à l'université",
+          "source_url": "https://www.causeur.fr/2027-natacha-polony-tout-un-programme-la-france-corps-et-ame-328249",
+          "source_title": "Natacha Polony : tout un programme (Causeur)",
+          "source_date": "2026-06-08",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "societe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Faire de la défense de la langue française et de la transmission de la culture un pilier : la langue est présentée comme le cœur de la nation et du débat démocratique.",
+          "kind": "position_declaree",
+          "details": "Entretien Sud Radio. Son livre combat le « règne du globish » (Causeur, 8 juin 2026), sans mesure concrète connue.",
+          "short_quote": "Sans langue, il n'y a pas de nation.",
+          "source_url": "https://www.sudradio.fr/sud-radio/natacha-polony-ursula-von-der-leyen-grignotte-petit-a-petit-le-pouvoir-des-etats",
+          "source_title": "Natacha Polony : « Ursula von der Leyen grignote petit à petit le pouvoir des États » (Sud Radio)",
+          "source_date": "2026-05-31",
+          "confidence": "high"
+        },
+        {
+          "position": "Préserver le patrimoine, les paysages, les savoir-faire et la langue (principe de « conservation »), et transmettre la culture et les savoirs.",
+          "kind": "position_declaree",
+          "details": "Principes « Transmission », « Enracinement » et « Conservation » de son site. Aucune position trouvée sur l'audiovisuel public, sa gouvernance ou sa privatisation, ni sur le soutien à la création.",
+          "source_url": "https://natachapolony2027.fr/natacha-polony/mes-principes",
+          "source_title": "Mes principes, site de campagne Natacha Polony 2027",
+          "source_date": "2026-10",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "topic_id": "numerique",
+      "found": true,
+      "positions": [
+        {
+          "position": "Réservée sur l'interdiction des réseaux sociaux aux moins de 15 ans, à cause du contrôle d'âge qu'elle exige et qui pourrait être étendu. Elle juge pourtant que les jeunes ont besoin d'interdits et que l'État a un rôle de protection des mineurs, qui ne sont pas des citoyens autonomes.",
+          "kind": "position_declaree",
+          "details": "Article de RCF (« Le Grand Témoin ») consulté seulement par extraits : propos à confirmer. Elle s'inquiète aussi de la désinformation amplifiée par l'IA, qui empêche de « s'entendre sur le réel » et de délibérer.",
+          "source_url": "https://www.rcf.fr/articles/actualite/sommesnous-reellement-libres-quand-nous-sommes-en-permanence-manipules",
+          "source_title": "Sommes-nous réellement libres quand nous sommes en permanence manipulés ? (RCF)",
+          "source_date": "2026-03-25",
+          "confidence": "low"
+        },
+        {
+          "position": "Dénonce la dépendance européenne aux technologies numériques américaines et veut que la France produise ses technologies essentielles.",
+          "kind": "position_declaree",
+          "details": "Entretien RTBF et principe « Indépendance » de son site. Aucune mesure précise sur l'encadrement des grandes plateformes (fiscalité, régulation, DSA).",
+          "source_url": "https://www.rtbf.be/article/la-journaliste-natacha-polony-bientot-candidate-a-la-presidentielle-francaise-je-lance-un-appel-aux-orphelins-de-la-politique-11786400",
+          "source_title": "La journaliste Natacha Polony, bientôt candidate ? (RTBF)",
+          "source_date": "2026-09-17",
+          "confidence": "medium"
+        },
+        {
+          "position": "Développer la robotique et l'intelligence artificielle dans le cadre de la réindustrialisation, et « préparer l'IA » en produisant les biens essentiels sur le territoire.",
+          "kind": "position_declaree",
+          "details": "Sud Radio (31 mai 2026) et déclaration du 14 octobre 2026 (Euronews). Pas de politique détaillée sur l'IA.",
+          "source_url": "https://www.sudradio.fr/sud-radio/natacha-polony-ursula-von-der-leyen-grignotte-petit-a-petit-le-pouvoir-des-etats",
+          "source_title": "Natacha Polony : « Ursula von der Leyen grignote petit à petit le pouvoir des États » (Sud Radio)",
+          "source_date": "2026-05-31",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "ecologie_energie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Garantir la souveraineté énergétique : la France doit produire elle-même son énergie.",
+          "kind": "proposition_explicite",
+          "details": "Priorité de la déclaration de candidature du 14 octobre 2026. Elle ne dit pas explicitement, dans les sources de 2025-2026 consultées, quelle place elle donne au nucléaire, aux renouvelables ou au marché européen de l'électricité.",
+          "source_url": "https://natachapolony2027.fr/natacha-polony/ma-vision",
+          "source_title": "Ma vision pour la France, site de campagne Natacha Polony 2027",
+          "source_date": "2026-10",
+          "confidence": "high"
+        },
+        {
+          "position": "L'écologie est une politique de souveraineté : décarboner en priorité tous les secteurs (transports, bâtiment, alimentation) et lancer un grand plan ferroviaire. Elle dénonce la dépendance aux hydrocarbures.",
+          "kind": "position_declaree",
+          "details": "Elle a aussi défendu le fret ferroviaire et dénoncé le prix de l'énergie (vidéo « pacte productif », 23 septembre 2026).",
+          "short_quote": "une politique écologique, c'est une politique de souveraineté",
+          "source_url": "https://www.sudradio.fr/societe/natacha-polony-pour-reussir-la-transition-ecologique-il-faut-deroger-au-dogme-du-libre-echange",
+          "source_title": "Natacha Polony : « Il faut déroger au dogme du libre-échange » (Sud Radio)",
+          "source_date": "2026-04-16",
+          "confidence": "high"
+        },
+        {
+          "position": "Taxe flottante sur les carburants : baisse automatique des taxes quand les prix à la pompe augmentent.",
+          "kind": "proposition_explicite",
+          "details": "Vidéo du 17 septembre 2026. Mécanisme proche de la « TIPP flottante » de 2000-2002. Coût non chiffré.",
+          "source_url": "https://www.npolony.fr/videos",
+          "source_title": "Voir et entendre Natacha Polony (page vidéos de la campagne)",
+          "source_date": "2026-09-17",
+          "confidence": "medium"
+        },
+        {
+          "position": "Eau : favorable à un stockage « mesuré » de l'eau, partagé entre tous les usagers. Elle s'oppose aux « grandes bassines » destinées à l'agriculture industrielle et veut adapter le modèle agricole aux sécheresses.",
+          "kind": "position_declaree",
+          "details": "Entretien au Sommet de l'élevage (Cournon-d'Auvergne). Elle juge aussi que la protection contre les canicules doit relever du service public (vidéo du 22 juin 2026).",
+          "source_url": "https://www.7joursaclermont.fr/natacha-polony/",
+          "source_title": "Natacha Polony : « La grandeur de la France vient du monde paysan » (7 Jours à Clermont)",
+          "source_date": "2026-10",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "agriculture",
+      "found": true,
+      "positions": [
+        {
+          "position": "Interdire l'entrée en France des produits agricoles qui ne respectent pas les règles imposées aux agriculteurs français, notamment ceux traités avec des pesticides interdits en France.",
+          "kind": "proposition_explicite",
+          "details": "Elle dénonce une concurrence déloyale. Elle ne cite pas nommément l'accord UE-Mercosur dans les sources consultées.",
+          "source_url": "https://www.7joursaclermont.fr/natacha-polony/",
+          "source_title": "Natacha Polony : « La grandeur de la France vient du monde paysan » (7 Jours à Clermont)",
+          "source_date": "2026-10",
+          "confidence": "high"
+        },
+        {
+          "position": "Rendre obligatoire l'indication de l'origine de la viande dans les plats préparés et du lait dans les yaourts.",
+          "kind": "proposition_explicite",
+          "details": "Présentée comme une question de « capacité à décider » du consommateur.",
+          "source_url": "https://www.7joursaclermont.fr/natacha-polony/",
+          "source_title": "Natacha Polony : « La grandeur de la France vient du monde paysan » (7 Jours à Clermont)",
+          "source_date": "2026-10",
+          "confidence": "high"
+        },
+        {
+          "position": "Garantir aux paysans de vivre de leur travail plutôt que de les subventionner : elle reproche à la grande distribution de fixer les prix. Elle veut donner la priorité aux produits français dans la commande publique et critique la financiarisation des terres.",
+          "kind": "position_declaree",
+          "details": "Elle estime que de meilleurs revenus favoriseraient l'installation des jeunes. Elle défend une « agriculture à visage humain » (petites exploitations en polyculture).",
+          "source_url": "https://www.7joursaclermont.fr/natacha-polony/",
+          "source_title": "Natacha Polony : « La grandeur de la France vient du monde paysan » (7 Jours à Clermont)",
+          "source_date": "2026-10",
+          "confidence": "high"
+        },
+        {
+          "position": "Bien-être animal : maintenir des abattoirs de proximité pour éviter les longs transports d'animaux.",
+          "kind": "position_declaree",
+          "details": "Seule mention relative au bien-être animal trouvée.",
+          "source_url": "https://www.7joursaclermont.fr/natacha-polony/",
+          "source_title": "Natacha Polony : « La grandeur de la France vient du monde paysan » (7 Jours à Clermont)",
+          "source_date": "2026-10",
+          "confidence": "medium"
+        },
+        {
+          "position": "Suspendre si nécessaire des règles européennes pour assurer la souveraineté alimentaire. Elle critique l'interdiction de produits phytosanitaires sans alternative, alors que des produits traités continuent d'être importés.",
+          "kind": "proposition_explicite",
+          "details": "Mesure du livre « La France corps et âme » selon Causeur. Elle y juge ces interdictions incompatibles avec la libre circulation des marchandises.",
+          "short_quote": "mettre entre parenthèses les règles européennes",
+          "source_url": "https://www.causeur.fr/2027-natacha-polony-tout-un-programme-la-france-corps-et-ame-328249",
+          "source_title": "Natacha Polony : tout un programme (Causeur)",
+          "source_date": "2026-06-08",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "territoires",
+      "found": true,
+      "positions": [
+        {
+          "position": "Protéger les services publics, présentés comme « épuisés », et reconstruire l'école et les services publics.",
+          "kind": "position_declaree",
+          "details": "Priorité de la déclaration de candidature. Son site propose un outil (« Et chez vous ? ») qui mesure par commune la distance aux équipements manquants. Aucune mesure précise sur les services publics de proximité.",
+          "source_url": "https://natachapolony2027.fr/natacha-polony",
+          "source_title": "Biographie, site de campagne Natacha Polony 2027",
+          "source_date": "2026-10-14",
+          "confidence": "high"
+        },
+        {
+          "position": "Corse : opposée à la révision constitutionnelle sur l'autonomie de l'île. Elle veut plutôt des réponses concrètes sur le logement, l'énergie, les transports, la santé et le crime organisé.",
+          "kind": "position_declaree",
+          "details": "Titre et description d'une vidéo du 20 juin 2026 (« La Corse mérite des solutions, pas une révision constitutionnelle »), pendant l'examen du projet à l'Assemblée.",
+          "source_url": "https://www.npolony.fr/videos",
+          "source_title": "Voir et entendre Natacha Polony (page vidéos de la campagne)",
+          "source_date": "2026-06-20",
+          "confidence": "medium"
+        },
+        {
+          "position": "Critique les décisions prises depuis Paris et veut faire remonter les réalités locales par des cahiers de doléances et des comités locaux.",
+          "kind": "position_declaree",
+          "details": "Vidéo de lancement des cahiers de doléances (« 2027 : et si le peuple reprenait le contrôle ? »). Aucune position trouvée sur le partage des compétences avec les collectivités.",
+          "source_url": "https://www.npolony.fr/videos",
+          "source_title": "Voir et entendre Natacha Polony (page vidéos de la campagne)",
+          "source_date": "2026-10-03",
+          "confidence": "medium"
+        },
+        {
+          "position": "Outre-mer : elle présente Mayotte comme une possible prochaine scène d'une crise migratoire de type Ceuta.",
+          "kind": "position_declaree",
+          "details": "Message publié sur X pendant la crise de Ceuta (fin juillet ou début août 2026), consulté seulement par extraits. Aucune autre proposition sur l'outre-mer trouvée.",
+          "source_url": "https://x.com/NPolony/status/2083597419221000427",
+          "source_title": "Message de Natacha Polony sur Ceuta et Melilla (X)",
+          "source_date": "2026-08-01",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "securite_justice",
+      "found": true,
+      "positions": [
+        {
+          "position": "Créer des centres éducatifs fermés pour éloigner de leur milieu les jeunes en dérive, et appliquer le principe « casseur-payeur » aux dégradations et à la délinquance.",
+          "kind": "proposition_explicite",
+          "details": "Propos tenus en réaction aux violences lors des blocages lycéens. Modalités non précisées.",
+          "source_url": "https://www.sudradio.fr/sud-radio/no-future-et-irresponsabilite-generalisee-les-declarations-chocs-et-les-solutions-de-natacha-polony-pour-les-lycees-et-leducation",
+          "source_title": "« No future » et « irresponsabilité généralisée » : les solutions de Natacha Polony pour les lycées et l'éducation (Sud Radio)",
+          "source_date": "2026-10-06",
+          "confidence": "medium"
+        },
+        {
+          "position": "Fait de la restauration de l'autorité de l'État un axe de son programme.",
+          "kind": "position_declaree",
+          "details": "Axe rapporté par L'Express. Son site met en avant la hausse des agressions graves (613 pour 100 000 habitants en 2024 contre 294 en 2008). Aucune mesure trouvée sur la police, le narcotrafic, les peines ou les prisons.",
+          "source_url": "https://actu.orange.fr/politique/natacha-polony-candidate-a-la-presidentielle-ce-qu-elle-prepare-deja-en-coulisses-magicExpress-CNT000002rSWei.html",
+          "source_title": "Natacha Polony candidate à la présidentielle ? Ce qu'elle prépare déjà en coulisses (L'Express via Orange)",
+          "source_date": "2026-09-14",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "immigration",
+      "found": true,
+      "positions": [
+        {
+          "position": "Après la crise migratoire de Ceuta, elle appelle à une politique migratoire « cohérente » qui évite tout « appel d'air ». Elle veut en finir avec les postures et la démagogie, et voit dans cette crise un avertissement pour la France et l'Europe.",
+          "kind": "position_declaree",
+          "details": "Message publié sur X, consulté seulement par extraits. Elle y note que la France renforce ses contrôles, sans dire précisément si elle approuve cette mesure. Aucune mesure concrète trouvée sur l'asile, la nationalité, l'intégration ou les expulsions.",
+          "source_url": "https://x.com/NPolony/status/2083597419221000427",
+          "source_title": "Message de Natacha Polony sur Ceuta et Melilla (X)",
+          "source_date": "2026-08-01",
+          "confidence": "medium"
+        },
+        {
+          "position": "Range les « flux migratoires incontrôlés » parmi les phénomènes qui s'accélèrent et affaiblissent le pays.",
+          "kind": "position_declaree",
+          "details": "Dialogue avec Eugénie Bastié. Elle ne fait pas de proposition dans ce texte.",
+          "source_url": "https://www.causeur.fr/dialogue-eugenie-bastie-natacha-polony-2-je-refuse-ce-choix-entre-france-eternelle-et-nouvelle-france-330301",
+          "source_title": "Natacha Polony : « Je refuse ce choix entre France éternelle et nouvelle France » (Causeur)",
+          "source_date": "2026-07-13",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "europe",
+      "found": true,
+      "positions": [
+        {
+          "position": "Veut rester dans l'Union européenne, à condition que la France y soit indépendante et s'allie à des pays eux aussi indépendants.",
+          "kind": "position_declaree",
+          "details": "L'OJIM souligne la différence avec plusieurs concurrents souverainistes. Aucune position trouvée sur l'euro, bien qu'elle ait consacré une vidéo à « la monnaie, enjeu de souveraineté nationale » (4 juillet 2026).",
+          "source_url": "https://www.ojim.fr/presidentielle-2027-la-candidature-de-natacha-polony-se-precise/",
+          "source_title": "Présidentielle 2027 : la candidature de Natacha Polony se précise (OJIM)",
+          "source_date": "2026-10-01",
+          "confidence": "medium"
+        },
+        {
+          "position": "Faire primer la loi nationale sur les traités (révision de l'article 55 par référendum) et suspendre si nécessaire certaines règles européennes pour réindustrialiser.",
+          "kind": "proposition_explicite",
+          "details": "Mesures de « La France corps et âme » selon Causeur. Elle propose aussi de rapatrier le budget de recherche de la Commission.",
+          "short_quote": "mettre entre parenthèses les règles européennes",
+          "source_url": "https://www.causeur.fr/2027-natacha-polony-tout-un-programme-la-france-corps-et-ame-328249",
+          "source_title": "Natacha Polony : tout un programme (Causeur)",
+          "source_date": "2026-06-08",
+          "confidence": "medium"
+        },
+        {
+          "position": "Accuse la Commission (Ursula von der Leyen) de réduire peu à peu le pouvoir des États sans validation démocratique. Elle plaide pour revenir à l'esprit du traité de Rome (protection mutuelle et préférence communautaire), contre une Europe de la concurrence et de la dérégulation.",
+          "kind": "position_declaree",
+          "details": "Elle accepte un rapport de force avec les partenaires européens pour retrouver une capacité d'action autonome. Selon L'Express, ce rapport de force avec Bruxelles viserait à protéger les secteurs essentiels.",
+          "short_quote": "grignoter petit à petit le pouvoir des États sans véritable validation démocratique",
+          "source_url": "https://www.sudradio.fr/sud-radio/natacha-polony-ursula-von-der-leyen-grignotte-petit-a-petit-le-pouvoir-des-etats",
+          "source_title": "Natacha Polony : « Ursula von der Leyen grignote petit à petit le pouvoir des États » (Sud Radio)",
+          "source_date": "2026-05-31",
+          "confidence": "high"
+        },
+        {
+          "position": "Reproche au gouvernement Macron de vouloir être « le meilleur élève de l'Europe » au détriment des intérêts vitaux de la France. Elle critique les arbitrages sur la « préférence européenne » en matière de défense.",
+          "kind": "position_declaree",
+          "details": "Débat avec le ministre Jean-Noël Barrot le 27 septembre 2026 (France 2 selon l'OJIM ; France Inter et franceinfo TV selon sa chaîne), rappelé lors de sa déclaration.",
+          "short_quote": "le meilleur élève de l'Europe",
+          "source_url": "https://www.euronews.com/2026/10/14/french-journalist-natacha-polony-joins-growing-field-of-2027-presidential-hopefuls",
+          "source_title": "French journalist Natacha Polony joins growing field of 2027 presidential hopefuls (Euronews)",
+          "source_date": "2026-10-14",
+          "confidence": "high"
+        },
+        {
+          "position": "Les représentants français à Bruxelles doivent défendre fermement les intérêts nationaux et négocier des exceptions, comme le font l'Allemagne, les Pays-Bas ou l'Italie.",
+          "kind": "position_declaree",
+          "details": "Entretien diffusé par Forces Françaises de l'Industrie. Aucune position trouvée sur l'élargissement ou le budget de l'UE.",
+          "short_quote": "La France y envoie des clercs alors qu'il faudrait y envoyer des avocats.",
+          "source_url": "https://forcesfrancaisesdelindustrie.fr/natacha-polony-france-interets-nationaux-europe/",
+          "source_title": "Natacha Polony : pourquoi la France défend-elle si mal ses intérêts en Europe ? (Forces Françaises de l'Industrie)",
+          "source_date": "2026-07-27",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "topic_id": "ukraine_russie",
+      "found": true,
+      "positions": [
+        {
+          "position": "Juge la Russie « objectivement une puissance agressive ». Elle avait jusque-là défendu le dialogue avec Moscou et estime cette position désormais intenable.",
+          "kind": "position_declaree",
+          "details": "Dialogue avec Eugénie Bastié. Elle se dit « effarée » par la fascination d'une partie de la droite nationaliste pour Poutine. Elle attribue la situation actuelle à l'échec du sommet de l'OTAN de 2008, où Paris et Berlin avaient freiné la perspective d'adhésion de l'Ukraine et de la Géorgie.",
+          "short_quote": "objectivement une puissance agressive",
+          "source_url": "https://www.causeur.fr/dialogue-eugenie-bastie-natacha-polony-1-desaccords-souverains-330212",
+          "source_title": "E. Bastié / N. Polony : désaccords souverains (Causeur)",
+          "source_date": "2026-07-10",
+          "confidence": "medium"
+        },
+        {
+          "position": "Met en garde contre une attitude trop conciliante envers la Russie et veut que les Européens « prennent leur destin en main », face aux États-Unis, à la Russie et à la Chine.",
+          "kind": "position_declaree",
+          "details": "Entretien RTBF. Aucune position précise trouvée sur les livraisons d'armes, les sanctions, l'aide financière à l'Ukraine ou les conditions d'un cessez-le-feu.",
+          "source_url": "https://www.rtbf.be/article/la-journaliste-natacha-polony-bientot-candidate-a-la-presidentielle-francaise-je-lance-un-appel-aux-orphelins-de-la-politique-11786400",
+          "source_title": "La journaliste Natacha Polony, bientôt candidate ? (RTBF)",
+          "source_date": "2026-09-17",
+          "confidence": "medium"
+        },
+        {
+          "position": "A publié une courte vidéo intitulée « Ukraine : le faux choix », dont le contenu n'a pas pu être vérifié.",
+          "kind": "inference",
+          "details": "Seul le titre est connu, par la page vidéos de sa campagne. Le titre laisse penser qu'elle conteste une alternative jugée binaire, mais le sens reste indéterminé.",
+          "source_url": "https://natachapolony2027.fr/actualites",
+          "source_title": "Actualités, articles et vidéos, site de campagne Natacha Polony 2027",
+          "source_date": "2026-09-13",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "proche_orient",
+      "found": true,
+      "positions": [
+        {
+          "position": "Condamne l'attaque du Hamas du 7 octobre et décrit le Hamas comme islamiste. Elle conteste l'ampleur de la riposte israélienne à Gaza, la colonisation en Cisjordanie et la privation d'eau, d'électricité et de médicaments infligée aux civils, au nom du droit international et des frontières d'Israël et de la Palestine.",
+          "kind": "position_declaree",
+          "details": "Éditorial publié dans Marianne le 11 avril 2024, reproduit par un site critique (Tribune Juive). Position antérieure à 2025. Aucune déclaration de 2025-2026 trouvée sur la reconnaissance de l'État de Palestine ou la relation avec le gouvernement israélien.",
+          "source_url": "https://www.tribunejuive.info/2024/04/11/natacha-polony-un-edito-qui-illustre-mauvaise-foi-hypocrisie-voire-mensonges/",
+          "source_title": "Natacha Polony : un édito qui illustre mauvaise foi, hypocrisie, voire mensonges (Tribune Juive, reproduisant l'éditorial de Marianne)",
+          "source_date": "2024-04-11",
+          "confidence": "medium"
+        },
+        {
+          "position": "Juge que le gouvernement Netanyahou ne mérite pas un soutien inconditionnel. Elle qualifie de crimes de guerre le bombardement de populations civiles et estime que la poursuite des frappes « fabrique » des soutiens au Hamas.",
+          "kind": "position_declaree",
+          "details": "Échange télévisé avec Bernard-Henri Lévy (2023-2024, date exacte non vérifiée). Elle a reparlé en janvier 2025 de « crimes de guerre à Gaza et au Liban », selon ses détracteurs. Position ancienne, à confirmer pour la campagne.",
+          "short_quote": "le gouvernement de Netanyahou ne mérite pas un soutien inconditionnel",
+          "source_url": "https://www.lejdd.fr/societe/gaza-echange-tendu-entre-bernard-henri-levy-et-natacha-polony-sur-la-sortie-du-conflit-143379",
+          "source_title": "Gaza : échange tendu entre Bernard-Henri Lévy et Natacha Polony sur la sortie du conflit (Le JDD)",
+          "source_date": "2023",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "topic_id": "defense",
+      "found": true,
+      "positions": [
+        {
+          "position": "Diplomatie indépendante : dialoguer avec toutes les grandes puissances sans s'aligner sur aucune, œuvrer pour la paix tout en se préparant à défendre ses intérêts.",
+          "kind": "proposition_explicite",
+          "details": "Elle a rejoint en 2026 le Quincy Institute (think tank américain favorable à la retenue militaire) comme chercheuse non résidente. Sa revue L'Audace ! fait passer les intérêts de la France avant ceux de l'OTAN et de l'UE. Aucune position explicite trouvée sur le maintien dans l'OTAN ou dans son commandement intégré.",
+          "short_quote": "La France n'a pas vocation à être le supplétif d'un empire",
+          "source_url": "https://natachapolony2027.fr/natacha-polony/ma-vision",
+          "source_title": "Ma vision pour la France, site de campagne Natacha Polony 2027",
+          "source_date": "2026-10",
+          "confidence": "high"
+        },
+        {
+          "position": "Dénonce l'échec du SCAF (avion de combat franco-allemand) et les arbitrages sur la préférence européenne en matière de défense, alors que l'Allemagne continue d'acheter des armes américaines.",
+          "kind": "position_declaree",
+          "details": "Débat avec Jean-Noël Barrot (27 septembre 2026), rapporté par Euronews et l'OJIM.",
+          "short_quote": "Nous avons perdu dix ans pour un échec cuisant",
+          "source_url": "https://www.ojim.fr/presidentielle-2027-la-candidature-de-natacha-polony-se-precise/",
+          "source_title": "Présidentielle 2027 : la candidature de Natacha Polony se précise (OJIM)",
+          "source_date": "2026-10-01",
+          "confidence": "medium"
+        },
+        {
+          "position": "Critique la dépendance militaire et technologique des Européens aux États-Unis, notamment l'achat d'avions F-35, et les pressions américaines sur le Danemark au sujet du Groenland.",
+          "kind": "position_declaree",
+          "details": "Entretien RTBF. Elle insiste sur la capacité nationale de production pour « se défendre » (Causeur, 10 juillet 2026). Aucun objectif budgétaire militaire (% du PIB), aucune position sur la dissuasion nucléaire ou le service national n'a été trouvé.",
+          "source_url": "https://www.rtbf.be/article/la-journaliste-natacha-polony-bientot-candidate-a-la-presidentielle-francaise-je-lance-un-appel-aux-orphelins-de-la-politique-11786400",
+          "source_title": "La journaliste Natacha Polony, bientôt candidate ? (RTBF)",
+          "source_date": "2026-09-17",
+          "confidence": "medium"
+        }
+      ]
+    }
+  ],
+  "signature_proposals": [
+    {
+      "proposal": "Décréter un « état d'urgence de la production » pour réindustrialiser et réduire le déficit commercial (objectif : retrouver la puissance industrielle en dix ans).",
+      "topic_id": "industrie_economie",
+      "source_url": "https://www.franceinfo.fr/politique/la-journaliste-natacha-polony-se-lance-en-politique-pour-perturber-l-entre-soi_8170427.html"
+    },
+    {
+      "proposal": "Priorité aux entreprises produisant en France dans la commande publique (État, collectivités, hôpitaux).",
+      "topic_id": "industrie_economie",
+      "source_url": "https://www.watson.ch/fr/international/politique/613457933-natacha-polony-est-candidate-a-la-presidentielle-francaise"
+    },
+    {
+      "proposal": "Supprimer les aides aux entreprises non conditionnées à une production en France (enveloppe d'environ 211 milliards d'euros).",
+      "topic_id": "finances_publiques",
+      "source_url": "https://www.lavenir.net/actu/monde/2026/10/14/lessayiste-natacha-polony-candidate-a-la-presidentielle-en-france-pour-sortir-de-la-spirale-dappauvrissement-OP42YMO65ZEDXJYMEWGPYMEDIM/"
+    },
+    {
+      "proposal": "Revaloriser de 20 à 30 % le salaire des enseignants et voter une loi de programmation de l'école sur dix ans, avec la priorité au primaire.",
+      "topic_id": "education",
+      "source_url": "https://www.sudradio.fr/sud-radio/no-future-et-irresponsabilite-generalisee-les-declarations-chocs-et-les-solutions-de-natacha-polony-pour-les-lycees-et-leducation"
+    },
+    {
+      "proposal": "Créer des certifications nationales et anonymes pour les lycéens, en remplacement du bac en contrôle continu et de la notation complaisante.",
+      "topic_id": "education",
+      "source_url": "https://actu.orange.fr/politique/natacha-polony-candidate-a-la-presidentielle-ce-qu-elle-prepare-deja-en-coulisses-magicExpress-CNT000002rSWei.html"
+    },
+    {
+      "proposal": "Baisser les cotisations salariales et patronales pour permettre des hausses de salaires.",
+      "topic_id": "travail_salaires",
+      "source_url": "https://entrevue.fr/politique/presidentielle-2027-natacha-polony-lance-son-mouvement-et-nexclut-rien-pour-lelysee/"
+    },
+    {
+      "proposal": "Réviser par référendum l'article 55 de la Constitution pour que la loi nationale prime sur les traités.",
+      "topic_id": "europe",
+      "source_url": "https://www.causeur.fr/2027-natacha-polony-tout-un-programme-la-france-corps-et-ame-328249"
+    },
+    {
+      "proposal": "Organiser des référendums réguliers, y compris d'initiative citoyenne, et respecter leur résultat.",
+      "topic_id": "institutions",
+      "source_url": "https://natachapolony2027.fr/natacha-polony/mes-principes"
+    },
+    {
+      "proposal": "Encadrer strictement les « portes tournantes » entre haute fonction publique et intérêts privés, et protéger les lanceurs d'alerte.",
+      "topic_id": "institutions",
+      "source_url": "https://natachapolony2027.fr/natacha-polony/ma-vision"
+    },
+    {
+      "proposal": "Refuser l'entrée des produits agricoles ne respectant pas les normes françaises et imposer l'étiquetage de l'origine (viande des plats préparés, lait des yaourts).",
+      "topic_id": "agriculture",
+      "source_url": "https://www.7joursaclermont.fr/natacha-polony/"
+    },
+    {
+      "proposal": "Instaurer une taxe flottante sur les carburants qui baisse automatiquement quand les prix montent.",
+      "topic_id": "ecologie_energie",
+      "source_url": "https://www.npolony.fr/videos"
+    },
+    {
+      "proposal": "Créer un service public de la garde d'enfants.",
+      "topic_id": "solidarites",
+      "source_url": "https://www.causeur.fr/2027-natacha-polony-tout-un-programme-la-france-corps-et-ame-328249"
+    }
+  ],
+  "distinctive_vs_others": "Natacha Polony n'a jamais exercé de mandat. C'est une essayiste et ancienne directrice de rédaction, entrée en politique à huit mois du scrutin avec son propre mouvement. Elle se pose en recours pour les électeurs qui refusent le « vote sacrificiel » face à un second tour Le Pen–Mélenchon (entretien au Parisien, août 2026, via Entrevue et Epoch Times).\n\n1) Face aux souverainistes déclarés (Nicolas Dupont-Aignan, François Asselineau, Florian Philippot), que l'OJIM cite comme ses concurrents directs, elle revendique un ancrage dans la gauche républicaine (Chevènement) autant que dans le gaullisme social. Surtout, elle veut rester dans l'UE (OJIM, 1er octobre 2026). Son outil serait la primauté de la loi nationale sur les traités, par révision de l'article 55 de la Constitution (Causeur, 8 juin 2026). Asselineau et Philippot défendent au contraire une sortie de l'Union. Elle récuse elle-même l'étiquette de « souverainiste » (Causeur, juillet 2026 ; Euronews, 14 octobre 2026).\n\n2) Face à Marine Le Pen et Éric Zemmour, elle se démarque du nationalisme identitaire (Parlons-politique, 31 août 2026). Elle défend une laïcité universaliste présentée comme principe de liberté. Elle se dit « effarée » par la fascination d'une partie de la droite nationaliste pour Poutine et qualifie la Russie de « puissance agressive » (Causeur, 10 juillet 2026). Elle refuse pourtant de hiérarchiser les dangers que représenteraient LFI et le RN (Sans détour, 9 octobre 2026).\n\n3) Face à Jean-Luc Mélenchon, elle partage la critique du libre-échange et de la dérégulation européenne. Mais elle attaque LFI sur la laïcité et le communautarisme (RTBF, 17 septembre 2026), et défend l'autorité et l'exigence scolaires, avec par exemple des centres éducatifs fermés et le principe « casseur-payeur » (Sud Radio, octobre 2026).\n\n4) Face à Raphaël Glucksmann, désigné par la primaire Choisir 2027, elle s'oppose à la ligne d'intégration européenne : elle critique la « préférence européenne » dans la défense, l'échec du SCAF et l'ambition d'être « le meilleur élève de l'Europe » (débat avec Jean-Noël Barrot, Euronews, 14 octobre 2026). Elle préfère une diplomatie non alignée (« pas le supplétif d'un empire ») et elle est associée au Quincy Institute, think tank américain favorable à la retenue militaire.\n\n5) Face au bloc central et à la droite libérale (Édouard Philippe, Gabriel Attal, Bruno Retailleau, David Lisnard, Olivier Becht), elle défend une économie dirigée par un « État stratège » qui planifie. Elle réclame un protectionnisme assumé par la commande publique, des aides conditionnées à la production en France et des dérogations aux règles européennes. Son seul point commun visible avec eux est la baisse des cotisations.\n\n6) Face à Fabien Roussel et aux sociaux-démocrates hors primaire (Bernard Cazeneuve, Karim Bouamrane), elle partage la thématique de la reconquête industrielle et du « produire en France ». Elle s'en distingue par l'absence d'appareil partisan et par un discours hostile aux partis et à « l'entre-soi ». Elle bénéficie du soutien de petites formations du collectif CNR 2027 (République souveraine, LFRS) et de la sympathie d'Arnaud Montebourg, qui n'est pas candidat.\n\nSes marqueurs les plus singuliers dans le champ sont : la révision de l'article 55 par référendum, la revalorisation de 20 à 30 % des enseignants, les certifications nationales anonymes au lycée, le concours d'entrée à l'université, la taxe flottante sur les carburants, le service public de la garde d'enfants et l'opposition aux « grandes bassines » couplée à un stockage d'eau « mesuré ».",
+  "evolutions_and_contradictions": "- **Souverainisme** : elle se disait souverainiste en 2016 (Comité Orwell, « souverainisme populaire »). En 2026, elle récuse le terme, jugé discréditant, et parle de « souveraineté du peuple » (Causeur, juillet 2026 ; OJIM).\n- **Clivage gauche-droite** : en 2021, elle se disait « franchement de gauche » et attachée au socialisme (AFP via France 24). En 2026, elle se présente « ni de droite ni de gauche ».\n- **Russie et Ukraine** : en 2023, un éditorial de Marianne (« un an de manichéisme et d'escroquerie intellectuelle ») avait été critiqué comme complaisant envers Moscou (Contrepoints). En juillet 2026, elle juge la Russie « objectivement une puissance agressive » et dit ne plus tenir la ligne du dialogue. Son short « Ukraine : le faux choix » (septembre 2026) n'a pas pu être analysé.\n- **Calendrier de candidature** : fin août 2026, elle jugeait « prématuré » d'ajouter son nom à la liste et niait être derrière le site polony2027.fr, attribué à des militants proches de Montebourg. Elle se déclare six semaines plus tard, avec le site natachapolony2027.fr.\n- **Nom du mouvement** : il est flou. Les médias parlent de « Nous sommes la France » (titre de son livre de 2015, repris dans sa déclaration), le site affiche « Natacha Polony 2027 » et le slogan « Ensemble, bousculons l'entre-soi politique ». Le nombre de membres varie selon les sources : plus de 50 000 (9 octobre), 60 000 (14 octobre), 68 000 (live média).\n- **Europe** : elle veut rester dans l'UE tout en mettant « entre parenthèses » des règles européennes et en plaçant la loi nationale au-dessus des traités. La compatibilité juridique avec l'appartenance à l'UE n'est pas expliquée.\n- **Budget** : elle cite la dette parmi les crises qui motivent sa candidature et rejette l'austérité (selon Infodujour). Elle propose pourtant des baisses de cotisations, une taxe flottante sur les carburants, plus d'enseignants et des salaires d'enseignants relevés de 20 à 30 %, sans chiffrage ni financement autre que le pari de la production. Sur le même sujet, la baisse de cotisations relève d'une logique d'allègement du coût du travail qui tranche avec son discours antilibéral.\n- **Réseaux sociaux** : elle s'inquiète d'un contrôle d'âge pouvant être étendu, tout en jugeant que les jeunes ont besoin d'interdits (RCF, mars 2026, propos connus par extraits).\n- **Gaza** : ses positions critiques envers le gouvernement israélien datent de 2023-2025. Selon sa biographie au Quincy Institute, elles auraient joué dans son départ de Marianne. Elle ne les a pas réaffirmées dans les sources de campagne consultées.",
+  "open_questions": [
+    "Euro : rester dans la monnaie unique, la réformer ou en sortir ? Aucune position explicite, malgré une vidéo sur « la monnaie, enjeu de souveraineté nationale » (juillet 2026).",
+    "Retraites : âge légal (64 ans ?), durée de cotisation, sort de la réforme de 2023 suspendue. Rien d'explicite.",
+    "Énergie : place du nucléaire (nouveaux EPR) face aux renouvelables, sortie ou réforme du marché européen de l'électricité, tarifs. Aucune déclaration 2025-2026 trouvée.",
+    "Immigration : aucune mesure concrète (asile, regroupement familial, nationalité, AME, expulsions, quotas) malgré l'appel à une politique « cohérente » sans « appel d'air ».",
+    "Ukraine : position sur l'aide militaire et financière, les sanctions, les garanties de sécurité et un cessez-le-feu ; contenu de la vidéo « Ukraine : le faux choix ».",
+    "Israël et Gaza : position actuelle sur la reconnaissance de l'État de Palestine (actée par la France en septembre 2025), les sanctions et les relations avec le gouvernement israélien.",
+    "Défense : maintien dans l'OTAN et dans son commandement intégré, objectif de budget militaire en % du PIB, doctrine de dissuasion (européanisation ou non), service national.",
+    "Fiscalité du patrimoine et des successions : impôt sur la fortune, taxe sur les très hauts patrimoines, pacte Dutreil. Le sens du short « Pourquoi brader nos entreprises familiales est une folie » (septembre 2026) reste à préciser.",
+    "Financement et chiffrage des baisses de cotisations, de la revalorisation des enseignants et de la taxe flottante ; trajectoire de déficit et de dette.",
+    "Logement : aucune proposition trouvée (loyers, construction, logement social, logement des jeunes).",
+    "Bioéthique et droits LGBTQIA+ : aucune position de campagne vérifiée (PMA, GPA, état civil, mineurs transgenres, éducation à la sexualité).",
+    "Audiovisuel public : aucune position trouvée sur son avenir, son financement ou une éventuelle privatisation.",
+    "Mémoire de la colonisation et relation avec l'Algérie : aucune position trouvée.",
+    "Santé et grand âge : déserts médicaux, place de la Sécurité sociale face aux complémentaires, dépendance. Seule la production de médicaments essentiels est évoquée.",
+    "Capacité à réunir les 500 parrainages, qu'elle qualifie de « règle aberrante » ; ralliements éventuels (MRC/Chevènement, Montebourg, Ruffin évoqué par L'Express).",
+    "Nom et structure définitifs du mouvement (« Nous sommes la France » ou « Natacha Polony 2027 ») et publication d'un programme détaillé et chiffré."
+  ],
+  "programme_sources": [
+    {
+      "title": "Ma vision pour la France (site de campagne)",
+      "url": "https://natachapolony2027.fr/natacha-polony/ma-vision",
+      "date": "2026-10"
+    },
+    {
+      "title": "Mes principes (site de campagne)",
+      "url": "https://natachapolony2027.fr/natacha-polony/mes-principes",
+      "date": "2026-10"
+    },
+    {
+      "title": "Natacha Polony 2027, accueil du site de campagne (déclaration, priorités, cahiers de doléances)",
+      "url": "https://natachapolony2027.fr/",
+      "date": "2026-10-14"
+    },
+    {
+      "title": "Voir et entendre Natacha Polony (vidéos de campagne : taxe flottante, Corse, pacte productif, Ukraine, Ceuta…)",
+      "url": "https://www.npolony.fr/videos",
+      "date": "2026-10-14"
+    },
+    {
+      "title": "L'essayiste Natacha Polony annonce sa candidature à l'élection présidentielle (franceinfo, France Inter)",
+      "url": "https://www.franceinfo.fr/elections/presidentielle/l-essayiste-natacha-polony-annonce-sa-candidature-a-l-election-presidentielle_8236714.html",
+      "date": "2026-10-14"
+    },
+    {
+      "title": "Natacha Polony : tout un programme, recension de « La France corps et âme » (Plon, 7 mai 2026) (Causeur)",
+      "url": "https://www.causeur.fr/2027-natacha-polony-tout-un-programme-la-france-corps-et-ame-328249",
+      "date": "2026-06-08"
+    },
+    {
+      "title": "« No future » et « irresponsabilité généralisée » : les solutions de Natacha Polony pour les lycées et l'éducation (Sud Radio)",
+      "url": "https://www.sudradio.fr/sud-radio/no-future-et-irresponsabilite-generalisee-les-declarations-chocs-et-les-solutions-de-natacha-polony-pour-les-lycees-et-leducation",
+      "date": "2026-10-06"
+    },
+    {
+      "title": "Natacha Polony : « La grandeur de la France vient du monde paysan » (7 Jours à Clermont)",
+      "url": "https://www.7joursaclermont.fr/natacha-polony/",
+      "date": "2026-10"
+    },
+    {
+      "title": "La journaliste Natacha Polony se lance en politique pour « perturber l'entre-soi » (franceinfo/AFP, RTL)",
+      "url": "https://www.franceinfo.fr/politique/la-journaliste-natacha-polony-se-lance-en-politique-pour-perturber-l-entre-soi_8170427.html",
+      "date": "2026-08-31"
+    },
+    {
+      "title": "Présidentielle 2027 : Natacha Polony lance son mouvement et « n'exclut rien » pour l'Élysée (Entrevue, d'après Le Parisien)",
+      "url": "https://entrevue.fr/politique/presidentielle-2027-natacha-polony-lance-son-mouvement-et-nexclut-rien-pour-lelysee/",
+      "date": "2026-08-28"
+    },
+    {
+      "title": "Natacha Polony candidate à la présidentielle ? Ce qu'elle prépare déjà en coulisses (L'Express via Orange)",
+      "url": "https://actu.orange.fr/politique/natacha-polony-candidate-a-la-presidentielle-ce-qu-elle-prepare-deja-en-coulisses-magicExpress-CNT000002rSWei.html",
+      "date": "2026-09-14"
+    },
+    {
+      "title": "Natacha Polony : « Ursula von der Leyen grignote petit à petit le pouvoir des États » (Sud Radio)",
+      "url": "https://www.sudradio.fr/sud-radio/natacha-polony-ursula-von-der-leyen-grignotte-petit-a-petit-le-pouvoir-des-etats",
+      "date": "2026-05-31"
+    },
+    {
+      "title": "Natacha Polony : « Il faut déroger au dogme du libre-échange » (Sud Radio)",
+      "url": "https://www.sudradio.fr/societe/natacha-polony-pour-reussir-la-transition-ecologique-il-faut-deroger-au-dogme-du-libre-echange",
+      "date": "2026-04-16"
+    },
+    {
+      "title": "E. Bastié / N. Polony : désaccords souverains (Causeur, 1/2)",
+      "url": "https://www.causeur.fr/dialogue-eugenie-bastie-natacha-polony-1-desaccords-souverains-330212",
+      "date": "2026-07-10"
+    },
+    {
+      "title": "Natacha Polony : « Je refuse ce choix entre France éternelle et nouvelle France » (Causeur, 2/2)",
+      "url": "https://www.causeur.fr/dialogue-eugenie-bastie-natacha-polony-2-je-refuse-ce-choix-entre-france-eternelle-et-nouvelle-france-330301",
+      "date": "2026-07-13"
+    },
+    {
+      "title": "La journaliste Natacha Polony, bientôt candidate ? « Je lance un appel aux orphelins de la politique » (RTBF)",
+      "url": "https://www.rtbf.be/article/la-journaliste-natacha-polony-bientot-candidate-a-la-presidentielle-francaise-je-lance-un-appel-aux-orphelins-de-la-politique-11786400",
+      "date": "2026-09-17"
+    },
+    {
+      "title": "French journalist Natacha Polony joins growing field of 2027 presidential hopefuls (Euronews)",
+      "url": "https://www.euronews.com/2026/10/14/french-journalist-natacha-polony-joins-growing-field-of-2027-presidential-hopefuls",
+      "date": "2026-10-14"
+    },
+    {
+      "title": "Présidentielle 2027 : la candidature de Natacha Polony se précise (OJIM)",
+      "url": "https://www.ojim.fr/presidentielle-2027-la-candidature-de-natacha-polony-se-precise/",
+      "date": "2026-10-01"
+    }
+  ]
+}

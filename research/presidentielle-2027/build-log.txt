@@ -38,6 +38,8 @@ add-approach agriculture-3-f
 add-approach proche_orient-1-h
 add-approach societe-1-f
 add-approach securite_justice-6-g
+add-approach finances_publiques-1-h
+add-approach europe-3-f
 edit finances_publiques-1-e.text
 edit travail_salaires-1-d.text
 edit fiscalite-1-c.text
@@ -989,6 +991,47 @@ addcand travail_salaires-3 maurel travail_salaires-3-e
 addcand travail_salaires-4 maurel travail_salaires-4-a
 addcand travail_salaires-4 maurel travail_salaires-4-b
 addcand ukraine_russie-1 maurel ukraine_russie-1-b
+addcand agriculture-1 polony agriculture-1-d
+addcand agriculture-2 polony agriculture-2-d
+addcand agriculture-x4 polony agriculture-x4-d
+addcand defense-4 polony defense-4-b
+addcand ecologie_energie-1 polony ecologie_energie-1-a
+addcand ecologie_energie-4 polony ecologie_energie-4-b
+addcand ecologie_energie-5 polony ecologie_energie-5-b
+addcand ecologie_energie-6 polony ecologie_energie-6-a
+addcand ecologie_energie-6 polony ecologie_energie-6-d
+addcand ecologie_energie-7 polony ecologie_energie-7-d
+addcand ecologie_energie-x9 polony ecologie_energie-x9-a
+addcand education-1 polony education-1-a
+addcand education-1 polony education-1-g
+addcand education-4 polony education-4-a
+addcand education-x1 polony education-x1-a
+addcand egalite-2 polony egalite-2-f
+addcand europe-1 polony europe-1-c
+addcand europe-1 polony europe-1-d
+addcand europe-1 polony europe-1-e
+addcand europe-2 polony europe-2-c
+addcand europe-3 polony europe-3-e
+addcand europe-x5 polony europe-x5-c
+addcand europe-x5 polony europe-x5-e
+addcand finances_publiques-1 polony finances_publiques-1-g
+addcand finances_publiques-3 polony finances_publiques-3-f
+addcand industrie_economie-1 polony industrie_economie-1-b
+addcand industrie_economie-1 polony industrie_economie-1-c
+addcand industrie_economie-2 polony industrie_economie-2-d
+addcand industrie_economie-2 polony industrie_economie-2-f
+addcand industrie_economie-3 polony industrie_economie-3-a
+addcand institutions-1 polony institutions-1-f
+addcand institutions-3 polony institutions-3-a
+addcand institutions-3 polony institutions-3-e
+addcand numerique-1 polony numerique-1-b
+addcand securite_justice-5 polony securite_justice-5-d
+addcand societe-2 polony societe-2-c
+addcand solidarites-2 polony solidarites-2-e
+addcand territoires-x3 polony territoires-x3-a
+addcand territoires-x3 polony territoires-x3-c
+addcand travail_salaires-1 polony travail_salaires-1-c
+addcand travail_salaires-1 polony travail_salaires-1-e
 addcand agriculture-1 royal agriculture-1-b
 addcand agriculture-1 royal agriculture-1-d
 addcand agriculture-2 royal agriculture-2-a
@@ -1210,6 +1253,21 @@ position removed europe-x4 retailleau europe-x4-c
 position set agriculture-1 attal agriculture-1-f
 position set agriculture-1 attal agriculture-1-b
 position set agriculture-1 guedj agriculture-1-c
+position set finances_publiques-1 polony finances_publiques-1-h
+position set finances_publiques-1 asselineau finances_publiques-1-h
+position set finances_publiques-1 glucksmann finances_publiques-1-h
+position set finances_publiques-1 philippe finances_publiques-1-a
+position set finances_publiques-1 philippe finances_publiques-1-h
+position removed finances_publiques-1 dupontaignan finances_publiques-1-g
+position set finances_publiques-1 dupontaignan finances_publiques-1-h
+position set finances_publiques-1 cazeneuve finances_publiques-1-c
+position set finances_publiques-1 cazeneuve finances_publiques-1-h
+position set europe-3 polony europe-3-f
+position set europe-3 dupontaignan europe-3-d
+position set europe-3 dupontaignan europe-3-f
+position removed europe-3 lepen europe-3-d
+position set europe-3 lepen europe-3-f
+position set europe-3 melenchon europe-3-f
 reuse-question-reworded fiscalite-1 <- choisir-2027:fiscalite-1 (62 % de l'énoncé modifié)
 reuse-question-reworded travail_salaires-3 <- choisir-2027:travail_salaires-4 (40 % de l'énoncé modifié)
 reuse-question-reworded travail_salaires-4 <- choisir-2027:travail_salaires-3 (54 % de l'énoncé modifié)
@@ -1277,6 +1335,8 @@ reuse-explainer-local institutions-1
 reuse-explainer-local institutions-3
 reuse-explainer-local laicite_republique-1
 reuse-explainer-local laicite_republique-2
+revision-fond finances_publiques-1 -> 2.0
+revision-fond europe-3 -> 2.0
 include faure 158 positions
 include guedj 103 positions
 include maurel 128 positions
