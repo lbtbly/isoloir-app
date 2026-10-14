@@ -175,8 +175,17 @@
 .back-side {
   display: grid;
   align-content: start;
-  gap: var(--s6);
+  gap: var(--s4);
   min-width: 0;
+}
+
+/* Le bandeau de « Mon profil politique » collé sous l'affiche, comme au dépouillement ; le journal un peu plus loin */
+.back-side > .home-profile {
+  margin: 0;
+}
+
+.back-side > .back-news {
+  margin-top: var(--s4);
 }
 
 /* Le journal : la date en petit gris, la première phrase de l'entrée, entre filets */
