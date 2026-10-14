@@ -128,7 +128,8 @@ export function sanitizeState(raw: unknown, pack: ElectionPack): SessionState | 
     ? [...new Set(raw.deepTopics.filter((t): t is string => typeof t === 'string' && topicIds.has(t)))]
     : []
   const versionChanged = typeof raw.dataVersion === 'string' && raw.dataVersion !== dataVersion
-  // Un candidat non classé (election.ranking.excluded) n'a pas de score : un classement mémorisé avant la décision
+  // Un candidat non classé (election.ranking.excluded) n'a pas de rang (son score n'est qu'indicatif, décision du
+  // propriétaire du 14 octobre 2026) et n'est jamais dans le classement mémorisé : un classement mémorisé avant la décision
   // (ou venu d'un double importé) ne doit pas en garder, ni le recopier dans le prochain double
   const off = new Set(pack.election.ranking?.excluded?.ids ?? [])
   const known = new Set(pack.candidates.map(c => c.id).filter(id => !off.has(id)))

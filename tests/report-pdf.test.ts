@@ -10,8 +10,8 @@ import { describe, expect, it } from 'vitest'
 import { layoutProblems } from '../src/core/pdf/flow'
 import { encodeWinAnsi } from '../src/core/pdf/winansi'
 import { buildReportPdf, PDF_BANDS, PDF_COLORS, renderReport, reportFileName, type ReportInput } from '../src/core/reportPdf'
-import { excludedTitle, MANY_RED_LINES, manyRedLinesNote, unrankedTitle } from '../src/core/resultsCopy'
-import { computeResults, displayScore, METHOD_VERSION, type Results } from '../src/core/score'
+import { crossingNote, excludedTitle, MANY_RED_LINES, manyRedLinesNote, unrankedTitle } from '../src/core/resultsCopy'
+import { computeResults, dealbreakerLevel, displayScore, METHOD_VERSION, type Results } from '../src/core/score'
 import type { Answers, ElectionPack, TopicWeights } from '../src/core/types'
 import { elections } from '../src/elections/all'
 import { choisir2027 } from '../src/elections/choisir-2027'
@@ -132,11 +132,35 @@ function emptyRanking(c: Case): Case {
   return { name: 'présidentielle, classement vide', input: { ...c.input, results: { ...r, ranking: [], unranked, close: false, stable: true, allIncompatible: false, why: [] } } }
 }
 
+/**
+ * Une ligne rouge sur une approche que seul un non classé porte fermement, et aucun autre candidat, même « possible »
+ * (décision du propriétaire du 14 octobre 2026 : ses lignes rouges sont dites comme celles des autres)
+ */
+function offOnlyRedLine(): Case {
+  const off = new Set(presidentielle.election.ranking?.excluded?.ids ?? [])
+  const level = (id: string, a: string) => dealbreakerLevel(presidentielle.positions[id]?.[a])
+  const pick = presidentielle.bank.questions
+    .flatMap(q => q.approaches.map(a => ({ q, a: a.id })))
+    .find(
+      ({ a }) =>
+        presidentielle.candidates.some(c => off.has(c.id) && level(c.id, a) === 'touche') &&
+        !presidentielle.candidates.some(c => !off.has(c.id) && level(c.id, a) !== null),
+    )
+  if (!pick) throw new Error('aucune approche portée par des non classés seulement')
+  const c = makeCase('présidentielle, lignes rouges franchies par des non classés seulement', presidentielle, 1, { quick: true })
+  const answers: Answers = { ...c.input.state.answers, [pick.q.id]: { ratings: { [pick.a]: -1 }, redLines: [pick.a] } }
+  const results = computeResults(presidentielle, answers, {}, 'graine-1')
+  return { ...c, input: { ...c.input, state: { answers, weights: {} }, results } }
+}
+
 const quick = makeCase('présidentielle, questionnaire rapide', presidentielle, 1, { quick: true })
 const cases: Case[] = [
   quick,
   findCase('présidentielle, complet, lignes rouges, hors classement', presidentielle, { share: 0.62, red: 0.08 }, r => r.unranked.length > 1 && r.ranking.some(x => !x.compatible) && !r.allIncompatible, { prio: 3, staleCount: 2 }),
   makeCase('présidentielle, toutes les questions', presidentielle, 2, { red: 0.02 }, { prio: 3 }),
+  // Lignes rouges franchies par des non classés seulement (décision du propriétaire du 14 octobre 2026) : la phrase
+  // sous l'affiche et le détail les comptent, avec la mention « (non classé) »
+  offOnlyRedLine(),
   makeCase('présidentielle, peu de réponses', presidentielle, 3, { max: 4 }),
   findCase('présidentielle, 25 lignes rouges et plus, tous incompatibles', presidentielle, { share: 0.6, red: 0.35 }, r => r.redLineCount >= 25 && r.allIncompatible),
   findCase('présidentielle, résultat sensible à la méthode', presidentielle, { share: 0.5, red: 0.03 }, r => !r.stable),
@@ -221,7 +245,7 @@ describe.each(cases)('$name', c => {
     expect(text.includes(flat(manyRedLinesNote(results.redLineCount)))).toBe(results.redLineCount > MANY_RED_LINES)
   })
 
-  it('nomme hors classement et non classés dans l’ordre tiré au hasard, sans score pour les non classés', () => {
+  it('nomme hors classement et non classés dans l’ordre tiré au hasard, les non classés avec leur score indicatif', () => {
     if (results.unranked.length && results.minCoverageShare !== null) {
       let from = after(unrankedTitle(results.unranked.length))
       expect(from).toBeGreaterThan(0)
@@ -241,8 +265,14 @@ describe.each(cases)('$name', c => {
         expect(at, nameOf(pack, id)).toBeGreaterThan(from)
         from = at
       }
+      // Score indicatif (décision du propriétaire du 14 octobre 2026) : un par candidat connu sur au moins une réponse,
+      // dans l'ordre de la liste ; aucun rang
       const ends = ['Vos lignes rouges franchies', 'Accords et désaccords', 'À garder en tête'].map(n => after(n, start)).filter(i => i > 0)
-      expect(text.slice(start, Math.min(...ends))).not.toContain('%')
+      const block = text.slice(start, Math.min(...ends))
+      const scores = [...block.matchAll(/Score indicatif\s*:\s*(\d+)\s*%/g)].map(m => Number(m[1]))
+      expect(scores).toEqual(results.excludedResults.filter(r => r.score !== null).map(r => displayScore(r.score)))
+      expect(block.match(/%/g)?.length ?? 0).toBe(scores.length)
+      expect(block).not.toMatch(/ex æquo|\b\d+e\b/)
     }
     // Tous les candidats de l'élection sont nommés (26 pour la présidentielle)
     for (const cand of pack.candidates) {
@@ -252,7 +282,11 @@ describe.each(cases)('$name', c => {
   })
 
   it('détaille les lignes rouges franchies', () => {
-    const crossed = [...results.ranking, ...results.unranked].filter(r => r.dealbreakers.length)
+    // Non classés compris (décision du propriétaire du 14 octobre 2026) : une croix n'est jamais sans son détail, et la
+    // phrase sous l'affiche compte autant de candidats que de croix
+    const crossed = [...results.ranking, ...results.unranked, ...results.excludedResults].filter(r => r.dealbreakers.length)
+    const crossing = crossed.filter(r => !r.compatible).length
+    if (results.ranking[0]?.score != null && !results.allIncompatible && crossing > 0) expect(text).toContain(flat(crossingNote(crossing)))
     expect(text.includes('Vos lignes rouges franchies')).toBe(crossed.length > 0)
     if (!crossed.length) return
     const section = text.slice(after('Vos lignes rouges franchies', after('Le classement')))
@@ -260,6 +294,7 @@ describe.each(cases)('$name', c => {
     expect(section).toContain('Approches rédigées et positions résumées par IA · vérifiées automatiquement contre leurs sources')
     const approach = new Map(pack.bank.questions.flatMap(q => q.approaches.map(a => [a.id, a.text] as const)))
     for (const r of crossed) for (const d of r.dealbreakers) expect(section).toContain(flat(approach.get(d.approachId) ?? '∅'))
+    expect(section.includes('(non classé)')).toBe(results.excludedResults.some(r => r.dealbreakers.length > 0))
     const firm = crossed.some(r => r.dealbreakers.some(d => d.level === 'touche'))
     expect(section).toContain(firm ? 'Franchie par' : 'Peut-être')
   })
@@ -319,6 +354,17 @@ describe.each(cases)('$name', c => {
 })
 
 describe('dépouillement en PDF : règles générales', () => {
+  it('lignes rouges franchies par des non classés seulement : comptées sous l’affiche, détaillées avec « (non classé) »', () => {
+    const c = cases.find(x => x.name === 'présidentielle, lignes rouges franchies par des non classés seulement') as Case
+    const r = c.input.results
+    const crossing = r.excludedResults.filter(x => !x.compatible).length
+    expect(crossing).toBeGreaterThan(0)
+    expect([...r.ranking, ...r.unranked].some(x => x.dealbreakers.length)).toBe(false)
+    const { text } = read(c)
+    expect(text).toContain(flat(crossingNote(crossing)))
+    expect(text.slice(text.indexOf('Vos lignes rouges franchies', text.indexOf('Le classement')))).toContain('(non classé)')
+  })
+
   it('refuse de fabriquer un dépouillement sans réponse', () => {
     const c = makeCase('vide', presidentielle, 1, { max: 0 })
     expect(c.input.results.answered).toBe(0)

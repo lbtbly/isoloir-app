@@ -10,7 +10,8 @@
 //   Seuils : config.quality de research/<id>/config.json, sinon election.checks, sinon les règles de la
 //   primaire « Choisir 2027 » (celles de tests/packs.test.ts) ; une clé absente prend la valeur par défaut.
 //   quality.step1.exempt : candidats exemptés de la seule règle step1.minKnownPerCandidate (décision du propriétaire).
-//   Candidats non notés (décision du propriétaire, ni score ni rang sur le site) : election.ranking.excluded quand
+//   Candidats non notés (décision du propriétaire, sans rang sur le site, score pour information seulement depuis le
+//   14 octobre 2026) : election.ranking.excluded quand
 //   l'élection est au registre (src/elections/index.ts), sinon scoringExcluded de research/<id>/config.json (à défaut,
 //   l'autre source) ; les deux doivent concorder. Tout ce qui mesure le score ne porte que sur les candidats notés :
 //   parts de 1res places, couverture par candidat (étape 1, rapide, banque), écart de couverture, part des candidats
@@ -526,7 +527,7 @@ const audit = {
   shares,
   bounds,
   coverage,
-  // Non notés (ni score ni rang sur le site) : leur couverture, à part ; « counted » est le chiffre affiché sur le site
+  // Non notés (sans rang sur le site, score pour information seulement) : leur couverture, à part ; « counted » est le chiffre affiché sur le site
   // (questions où le calcul retient une position : approche portée ou rejetée, vérifiée)
   ...(excludedIds.length
     ? {
@@ -558,7 +559,7 @@ if (!quiet) {
   const padL = (s, w) => String(s).padStart(w)
   L.push(`Audit du pack ${id} : ${n} candidats, ${bank.topics.length} thèmes, ${questions.length} questions (${quick.length} au questionnaire rapide, dont ${step1.length} à l’étape 1)`)
   L.push(`Candidats : ${candidatesFrom}. Seuils : ${qualityFrom}.`)
-  if (excludedIds.length) L.push(`Non notés : ${excludedIds.length} (${excludedFrom}) ; ${nScored} candidats notés.`)
+  if (excludedIds.length) L.push(`Non classés : ${excludedIds.length} (${excludedFrom}) ; ${nScored} candidats notés.`)
   L.push('')
   L.push(
     `Couverture (questions où la position est connue) et parts de 1res places sur ${N} profils aléatoires${excludedIds.length ? ', candidats notés' : ''}`,
@@ -576,7 +577,7 @@ if (!quiet) {
   L.push(`  Bornes des parts : étape 1 ${b('step1')} ; rapide ${b('quick')} (exclues). Égalité parfaite : ${fmt(100 / nScored, 1)} %.`)
   if (off.length) {
     L.push('')
-    L.push(`Non notés (ni score ni rang)${exclusion ? `, depuis le ${exclusion.since} : ${exclusion.reason}` : ''}`)
+    L.push(`Non classés (sans rang, score pour information seulement)${exclusion ? `, depuis le ${exclusion.since} : ${exclusion.reason}` : ''}`)
     L.push(`  ${pad('', 4)}${pad('', wName)}  ${padL('étape 1', 8)}  ${padL('rapide', 8)}  ${padL('banque', 13)}   ${padL('site', 8)}`)
     for (const c of off) {
       const cv = coverageOf(c)

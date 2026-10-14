@@ -281,9 +281,11 @@ export interface ElectionChecks {
 
 /**
  * Candidats non classés, par décision du propriétaire : leurs positions sont connues sur trop peu de questions pour
- * qu'un score ait du sens. Ils restent sur le site (liste et fiches des candidats, comparateur, positions connues),
- * mais n'ont ni score ni rang, nulle part : ni au classement, ni hors classement, ni dans les ex aequo, la sensibilité
- * à la méthode, les lignes rouges du classement ou l'image partagée. Liste propre à l'élection et révisable (un
+ * qu'un rang ait du sens. Ils restent sur le site (liste et fiches des candidats, comparateur, positions connues),
+ * mais n'ont de rang nulle part : ni au classement, ni hors classement, ni dans les ex aequo, la sensibilité
+ * à la méthode, les lignes rouges du classement ou l'image partagée. Depuis la décision du propriétaire du 14 octobre
+ * 2026, le dépouillement (page, PDF, double JSON) donne leur score indicatif, pour information seulement, calculé à
+ * part sur leurs seules positions connues (Results.excludedResults). Liste propre à l'élection et révisable (un
  * candidat y revient quand ses positions sont connues) ; les tests et tools/audit-pack.mjs mesurent l'équilibre du
  * score sur les seuls candidats notés. research/<id>/config.json la reprend (scoringExcluded, mêmes identifiants).
  */
@@ -346,7 +348,8 @@ export interface ElectionInfo {
    * la moitié) : un candidat connu sur moins de cette part des questions comptées (notées avec au moins un avis)
    * est « hors classement », montré sous le classement avec son score à titre indicatif (Résultats, Méthode, image
    * partagée). Raison : un score calculé sur peu de questions varie trop, et finit premier par simple hasard.
-   * excluded : candidats sortis du calcul par décision du propriétaire (voir ScoringExclusion).
+   * excluded : candidats sortis du classement par décision du propriétaire (score indicatif seulement, décision du
+   * propriétaire du 14 octobre 2026 ; voir ScoringExclusion).
    */
   ranking?: { minCoverageShare?: number; excluded?: ScoringExclusion }
   /** Seuils des tests d'intégrité ; absents, ceux de la primaire */

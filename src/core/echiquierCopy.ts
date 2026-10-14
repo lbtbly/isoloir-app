@@ -482,7 +482,8 @@ export const METHOD_DIAGRAM_CAPTION = fr(
 export const methodWho = (panel: number, unscored: number, minBloc: number, maxBloc: number, othersEmpty: boolean) =>
   fr(
     `Comptent les ${panel} candidats classés, chacun dans le bloc de sa nuance. Ne comptent pas ${
-      unscored ? `les ${unscored} candidats non classés, qui n’ont pas de score, ni ` : ''
+      // Décision du propriétaire du 14 octobre 2026 : un score pour les non classés, pour information seulement, sans rang
+      unscored ? `les ${unscored} candidats non classés, dont le score n’est donné que pour information, ni ` : ''
     }le bloc « Autres » de la grille (écologistes, divers) : la grille le place entre la gauche et le centre comme une liste, pas comme une position${
       othersEmpty ? ', et aucun candidat classé n’y figure' : ''
     }. Chaque bloc compte une fois${minBloc === maxBloc ? '' : `, qu’il ait ${word(minBloc)} candidats ou ${word(maxBloc)}`}.`,

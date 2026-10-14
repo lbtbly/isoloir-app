@@ -179,13 +179,14 @@ describe('mise en page d’une élection nombreuse', () => {
   it('le double (JSON) garde les candidats hors classement à la suite, sans rang ; rien ne change sans eux', () => {
     const many = computeResults(manyCandidates, answers, {}, 'seed')
     const file = buildExport(manyCandidates, freshState(MANY_ID, '1'), many)
-    // Les non classés n'y ont ni score ni rang : à part, avec le motif et leur couverture de la banque
+    // Les non classés n'y ont pas de rang : à part, avec le motif, leur couverture de la banque et leur score indicatif
     expect(file.results).toHaveLength(20 - EXCLUDED.length)
     expect(file.nonClasses?.candidats.map(x => x.candidat).sort()).toEqual(
       EXCLUDED.map(id => candidates.find(c => c.id === id)!.name).sort(),
     )
     expect(file.nonClasses?.candidats.every(x => x.questionsDeLaBanque === bank.questions.length && x.questionsConnuesDansLaBanque < 40)).toBe(true)
-    expect(file.nonClasses?.candidats.every(x => !('affinite' in x) && !('rang' in x))).toBe(true)
+    expect(file.nonClasses?.candidats.every(x => !('affinite' in x) && !('rang' in x) && !('exAequo' in x))).toBe(true)
+    expect(file.nonClasses?.candidats.map(x => x.affiniteIndicative)).toEqual(many.excludedResults.map(r => displayScore(r.score)))
     const off = file.results.slice(many.ranking.length)
     expect(off.map(x => x.candidat)).toContain(candidates.find(c => c.id === NARROW)!.name)
     expect(off.every(x => x.rang === null && x.horsClassement === true && !x.exAequo)).toBe(true)

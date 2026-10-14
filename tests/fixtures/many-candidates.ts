@@ -6,7 +6,7 @@
 // Un candidat (NARROW) a une candidature centrée sur une seule cause : connu sur deux thèmes seulement, il éprouve
 // la règle « hors classement » de l'élection (election.ranking), comme une candidature de ce genre à la présidentielle.
 // Deux autres (EXCLUDED), les moins connus après lui, sont « non classés » à titre d'essai (election.ranking.excluded),
-// comme les candidats de la présidentielle connus sur trop peu de questions : ni score ni rang.
+// comme les candidats de la présidentielle connus sur trop peu de questions : sans rang, score indicatif seulement.
 // Visible en développement seulement, à l'adresse #/essai-20/ (registre src/elections/index.ts) ; jamais dans
 // le build de production.
 

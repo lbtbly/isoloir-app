@@ -55,7 +55,7 @@ export const leaderLead = (allIncompatible: boolean) =>
 export const closeNote = (secondName: string) =>
   `${secondName} suit à moins de ${CLOSE_GAP} points : l’écart n’est pas significatif.`
 
-/** Sous l'affiche : combien de candidats (classés ou hors classement) franchissent une ligne rouge */
+/** Sous l'affiche : combien de candidats (classés, hors classement ou non classés) franchissent une ligne rouge */
 export const crossingNote = (n: number) =>
   `${n} candidat${n > 1 ? 's franchissent' : ' franchit'} au moins une de vos lignes rouges.`
 
@@ -112,7 +112,7 @@ export const unrankedLede = (n: number, minShare: number, provisional: boolean) 
   (provisional ? '.' : `\u00a0: ${n === 1 ? 'le sien' : 'le leur'} est donné à titre indicatif.`) +
   (n === 1 ? '' : ' Ordre tiré au hasard.')
 
-/** Hors classement : le score, donné à titre indicatif */
+/** Hors classement et non classés : le score, donné à titre indicatif */
 export const indicativeScore = (score: number) => `Score indicatif\u00a0: ${displayScore(score)}\u00a0%`
 
 /** Non classés : titre (en gras sur la page) */
@@ -123,11 +123,26 @@ export const excludedTitle = (n: number) =>
 export const excludedWhy = (n: number) =>
   `\u00a0: ${n === 1 ? 'sa position est connue' : 'leurs positions sont connues'} sur trop peu de questions`
 
-/** Non classés : chapeau (la page ajoute le lien vers la règle) */
-export const excludedLede = (n: number) =>
-  n === 1
-    ? 'Il n’a ni score ni rang, quelles que soient vos réponses. Sa fiche et ses positions restent consultables\u00a0; la liste sera revue à mesure que ses positions seront connues.'
-    : 'Ils n’ont ni score ni rang, quelles que soient vos réponses. Leurs fiches et leurs positions restent consultables\u00a0; la liste sera revue à mesure que leurs positions seront connues. Ordre tiré au hasard.'
+/**
+ * Non classés : leur score indicatif ne se compare à aucun autre, ni à ceux du classement ni entre eux ; plus haut que
+ * celui du premier, il ne fait pas d'un non classé le plus proche (page, PDF et méthode, la même phrase)
+ */
+export const EXCLUDED_NO_COMPARE =
+  'Il ne se compare donc à aucun autre\u00a0: même plus haut que ceux du classement, il ne dit pas que ce candidat est plus proche de vos idées.'
+
+/**
+ * Non classés : chapeau (la page ajoute le lien vers la règle). Pas de rang ; hors tendance, un score donné pour
+ * information seulement, sur leurs seules positions connues (décision du propriétaire du 14 octobre 2026) : la même
+ * phrase pour chacun, sans nommer personne. Pendant la tendance, aucun score n'est montré : la phrase n'en parle pas
+ */
+export const excludedLede = (n: number, provisional = false) =>
+  (n === 1 ? 'Il n’a pas de rang, quelles que soient vos réponses.' : 'Ils n’ont pas de rang, quelles que soient vos réponses.') +
+  (provisional
+    ? ''
+    : ` ${n === 1 ? 'Son score' : 'Le score de chacun'}, calculé sur ses seules positions connues, est donné pour information seulement\u00a0: sur si peu de questions, il dépend surtout de celles auxquelles vous avez répondu. ${EXCLUDED_NO_COMPARE}`) +
+  (n === 1
+    ? ' Sa fiche et ses positions restent consultables\u00a0; la liste sera revue à mesure que ses positions seront connues.'
+    : ' Leurs fiches et leurs positions restent consultables\u00a0; la liste sera revue à mesure que leurs positions seront connues. Ordre tiré au hasard.')
 
 /** Non classés : sur combien de questions de la banque la position est connue */
 export const bankKnownLine = (known: number, total: number) => `Connu sur ${known} des ${total}\u00a0questions de la banque`

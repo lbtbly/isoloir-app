@@ -41,13 +41,23 @@ export interface ExportFile {
     lignesRougesFranchies: number
   }[]
   /**
-   * Candidats non classés (election.ranking.excluded) : ni score ni rang, seulement le motif et ce que l'on sait
-   * d'eux. Présent seulement quand l'élection en désigne parmi les candidats du résultat.
+   * Candidats non classés (election.ranking.excluded) : sans rang ; le motif, ce que l'on sait d'eux et leur score
+   * indicatif, pour information seulement (décision du propriétaire du 14 octobre 2026). Présent seulement quand
+   * l'élection en désigne parmi les candidats du résultat.
    */
   nonClasses?: {
     motif: string
     depuis: string
-    candidats: { candidat: string; questionsConnuesDansLaBanque: number; questionsDeLaBanque: number }[]
+    candidats: {
+      candidat: string
+      questionsConnuesDansLaBanque: number
+      questionsDeLaBanque: number
+      /** Score indicatif, sur ses seules positions connues : ne se compare pas au classement ; null sans position connue sur vos réponses */
+      affiniteIndicative: number | null
+      questionsConnues: number
+      questionsNotees: number
+      lignesRougesFranchies: number
+    }[]
   }
 }
 
@@ -100,13 +110,14 @@ export function buildExport(pack: ElectionPack, state: SessionState, results: Re
         lignesRougesFranchies: r.dealbreakers.filter(d => d.level === 'touche').length,
       })),
     ],
-    // Non classés : à part, sans score ni rang
-    ...(results.excluded.length && pack.election.ranking?.excluded
+    // Non classés : à part, sans rang, avec leur score indicatif (pour information seulement)
+    ...(results.excludedResults.length && pack.election.ranking?.excluded
       ? {
           nonClasses: {
             motif: pack.election.ranking.excluded.reason,
             depuis: pack.election.ranking.excluded.since,
-            candidats: results.excluded.map(id => {
+            candidats: results.excludedResults.map(r => {
+              const id = r.candidateId
               // Entré dans la liste après la décision, à sa déclaration
               const depuis = pack.election.ranking?.excluded?.joined?.[id]
               return {
@@ -114,6 +125,10 @@ export function buildExport(pack: ElectionPack, state: SessionState, results: Re
                 ...(depuis ? { depuis } : {}),
                 questionsConnuesDansLaBanque: knownQuestions(pack, id),
                 questionsDeLaBanque: pack.bank.questions.length,
+                affiniteIndicative: displayScore(r.score),
+                questionsConnues: r.known,
+                questionsNotees: r.answered,
+                lignesRougesFranchies: r.dealbreakers.filter(d => d.level === 'touche').length,
               }
             }),
           },

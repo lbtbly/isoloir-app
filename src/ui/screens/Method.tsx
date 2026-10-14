@@ -2,6 +2,7 @@ import { useEffect, useMemo } from 'preact/hooks'
 import { go, link } from '../nav'
 import { APP_NAME, REPORT_URL } from '../../core/app'
 import { CLOSE_GAP, effectiveWeight, knownQuestions, METHOD_VERSION, PARTIAL_COVERAGE, SMOOTHING_K } from '../../core/score'
+import { EXCLUDED_NO_COMPARE } from '../../core/resultsCopy'
 import type { ElectionPack, Question } from '../../core/types'
 import { ExternalLink } from '../components/ExternalLink'
 import { FormHeader } from '../components/FormHeader'
@@ -66,7 +67,7 @@ export function Method({ pack, anchor }: { pack: ElectionPack; /** Rubrique à m
     const sizes = bank.questions.map(q => q.approaches.length)
     return { essential, deep, entries, sources: sources.size, external, min: Math.min(...sizes), max: Math.max(...sizes) }
   }, [bank, positions, candidates])
-  // Non classés (election.ranking.excluded) : sortis du calcul ; ce que l'on sait d'eux, dit d'après les données
+  // Non classés (election.ranking.excluded) : sortis du classement ; ce que l'on sait d'eux, dit d'après les données
   const exclusion = election.ranking?.excluded ?? null
   const unscored = useMemo(() => {
     if (!exclusion) return null
@@ -99,7 +100,7 @@ export function Method({ pack, anchor }: { pack: ElectionPack; /** Rubrique à m
     const n = candidates.length
     const leastPerQuestion = Math.min(...step1Questions.map(q => candidates.filter(c => known(c.id, q)).length))
     if (leastPerQuestion >= n) return 'la position de chaque candidat y est connue'
-    // Couverture par candidat : celle des candidats classables, les non classés n'ayant pas de score
+    // Couverture par candidat : celle des candidats classables, les non classés n'ayant pas de rang
     const off = new Set(exclusion?.ids ?? [])
     const leastPerCandidate = Math.min(...candidates.filter(c => !off.has(c.id)).map(c => step1Questions.filter(q => known(c.id, q)).length))
     return (
@@ -261,17 +262,18 @@ export function Method({ pack, anchor }: { pack: ElectionPack; /** Rubrique à m
           </>
         ) : null}
 
-        {/* Décision propre à l'élection (election.ranking.excluded) ; lien direct : #/methode/non-classes */}
+        {/* Décision propre à l'élection (election.ranking.excluded) ; lien direct : #/methode/non-classes. Leur score
+            indicatif, pour information seulement : décision du propriétaire du 14 octobre 2026 */}
         {exclusion && unscored ? (
           <>
             <h2 id="non-classes" tabIndex={-1}>
               Les candidats non classés
             </h2>
             <p>
-              {`Pour cette élection, ${unscored.names.length > 1 ? `${unscored.names.length}\u00a0candidats ne sont pas classés` : 'un candidat n’est pas classé'}, depuis le ${formatDate(exclusion.since)}${unscored.joined.length ? ` (${unscored.joined.map(j => `${j.name} depuis sa déclaration, le ${formatDate(j.date)}`).join(', ')})` : ''}\u00a0: ${joinNames(unscored.names)}. ${unscored.names.length > 1 ? 'Le même motif vaut pour chacun' : 'Le motif'}, «\u00a0${exclusion.reason}\u00a0». ${unscored.names.length > 1 ? 'Ils n’ont' : 'Il n’a'} ni score ni rang, quelles que soient vos réponses\u00a0: ni au classement, ni parmi les candidats hors classement, et ${unscored.names.length > 1 ? 'ils n’entrent' : 'il n’entre'} dans aucune comparaison du résultat (ex aequo, écart significatif, méthode simplifiée, lignes rouges). Le résultat ${unscored.names.length > 1 ? 'les nomme' : 'le nomme'} sous le classement, avec le nombre de questions où ${unscored.names.length > 1 ? 'la position de chacun' : 'sa position'} est connue\u00a0; l’image à partager ${unscored.names.length > 1 ? 'ne donne que leur nombre' : 'le compte, sans le nommer'}. ${unscored.names.length > 1 ? 'Leurs fiches, leurs positions' : 'Sa fiche, ses positions'} connues, avec leurs sources, et le comparateur restent à votre disposition.`}
+              {`Pour cette élection, ${unscored.names.length > 1 ? `${unscored.names.length}\u00a0candidats ne sont pas classés` : 'un candidat n’est pas classé'}, depuis le ${formatDate(exclusion.since)}${unscored.joined.length ? ` (${unscored.joined.map(j => `${j.name} depuis sa déclaration, le ${formatDate(j.date)}`).join(', ')})` : ''}\u00a0: ${joinNames(unscored.names)}. ${unscored.names.length > 1 ? 'Le même motif vaut pour chacun' : 'Le motif'}, «\u00a0${exclusion.reason}\u00a0». ${unscored.names.length > 1 ? 'Ils n’ont' : 'Il n’a'} pas de rang, quelles que soient vos réponses\u00a0: ni au classement, ni parmi les candidats hors classement, et ${unscored.names.length > 1 ? 'ils n’entrent' : 'il n’entre'} dans aucune comparaison du résultat (ex aequo, écart significatif, méthode simplifiée). Le résultat ${unscored.names.length > 1 ? 'les nomme' : 'le nomme'} sous le classement, avec le nombre de questions où ${unscored.names.length > 1 ? 'la position de chacun' : 'sa position'} est connue, un score donné pour information seulement et, s’il y a lieu, la ligne rouge franchie\u00a0; l’image à partager ${unscored.names.length > 1 ? 'ne donne que leur nombre' : 'le compte, sans le nommer'}. ${unscored.names.length > 1 ? 'Leurs fiches, leurs positions' : 'Sa fiche, ses positions'} connues, avec leurs sources, et le comparateur restent à votre disposition.`}
             </p>
             <p>
-              {`Une question compte comme connue quand le calcul y retient une position du candidat\u00a0: une approche qu’il porte ou qu’il rejette explicitement, vérifiée contre sa source\u00a0; une position seulement probable, signalée sur sa fiche, ne compte pas. ${unscored.names.length > 1 ? `La position des candidats non classés est connue sur ${unscored.low === unscored.high ? unscored.low : `${unscored.low} à ${unscored.high}`} des ${bank.questions.length}\u00a0questions de la banque, selon le candidat` : `La position de ce candidat est connue sur ${unscored.high} des ${bank.questions.length}\u00a0questions de la banque`}${unscored.floor === null ? '' : `\u00a0; celle de chacun des autres, sur au moins ${unscored.floor}`}. Sur si peu de questions, un score dirait surtout le hasard de celles auxquelles vous avez répondu.`}
+              {`Une question compte comme connue quand le calcul y retient une position du candidat\u00a0: une approche qu’il porte ou qu’il rejette explicitement, vérifiée contre sa source\u00a0; une position seulement probable, signalée sur sa fiche, ne compte pas. ${unscored.names.length > 1 ? `La position des candidats non classés est connue sur ${unscored.low === unscored.high ? unscored.low : `${unscored.low} à ${unscored.high}`} des ${bank.questions.length}\u00a0questions de la banque, selon le candidat` : `La position de ce candidat est connue sur ${unscored.high} des ${bank.questions.length}\u00a0questions de la banque`}${unscored.floor === null ? '' : `\u00a0; celle de chacun des autres, sur au moins ${unscored.floor}`}. Le score de ${unscored.names.length > 1 ? 'chacun' : 'ce candidat'} est calculé comme celui des autres, sur ses seules positions connues\u00a0: les questions où sa position est inconnue sortent de son calcul. Il est donné pour information seulement\u00a0: sur si peu de questions, il dépend surtout de celles auxquelles vous avez répondu. ${EXCLUDED_NO_COMPARE} Il n’est pas montré pendant la première tendance, ni quand sa position n’est connue sur aucune de vos réponses.`}
             </p>
             <p>
               {`La liste est propre à cette élection et révisable\u00a0: un candidat la quitte dès que ses positions sont connues sur assez de questions, par exemple quand son programme est publié. Chaque changement est daté dans le `}
