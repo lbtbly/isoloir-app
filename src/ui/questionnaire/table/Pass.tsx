@@ -2,6 +2,7 @@
 // personne suivante prend le téléphone, les autres détournent les yeux. Après le vote, « dans l'urne » : le bulletin
 // est compté puis oublié, l'émargement gagne un bâton. Ni tampon ni rituel officiel.
 
+import { K_MIN } from '../../../core/table/count'
 import { votedLine } from '../../../core/table/copy'
 import { Icon } from '../../components/Icon'
 import { Tally } from '../../components/Tally'
@@ -24,7 +25,7 @@ interface Props {
   onStop: () => void
 }
 
-export function Pass({ phase, voted, people, onTake, onArrive, onCountNow, countNow = { label: 'Il manque quelqu’un\u00a0? Dépouiller maintenant', from: 4 }, onCancel, onStop }: Props) {
+export function Pass({ phase, voted, people, onTake, onArrive, onCountNow, countNow = { label: 'Il manque quelqu’un\u00a0? Dépouiller maintenant', from: K_MIN }, onCancel, onStop }: Props) {
   const done = voted >= people
   return (
     <div class="screen screen-pass">

@@ -15,7 +15,7 @@ export function Hub({ onStart }: { onStart: () => void }) {
           À table
         </h1>
         <p class="lede">
-          De 4 à 12 personnes, un seul téléphone. Chacun donne son avis en secret sur des idées présentées sans le nom
+          De 3 à 12 personnes, un seul téléphone. Chacun donne son avis en secret sur des idées présentées sans le nom
           des candidats, puis vous lisez ensemble, à voix haute, ce qui vous réunit.
         </p>
 

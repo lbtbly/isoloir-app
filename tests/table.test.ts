@@ -71,8 +71,8 @@ describe('totaux', () => {
 })
 
 describe('secret à petit effectif', () => {
-  it('aucun nombre exact aux deux bouts, de 4 à 12 bulletins exprimés', () => {
-    for (let n = 4; n <= 12; n++)
+  it('aucun nombre exact aux deux bouts, de 3 à 12 bulletins exprimés', () => {
+    for (let n = 3; n <= 12; n++)
       for (let c = 0; c <= n; c++) {
         const s = shown(c, n)
         if (c <= 1) expect(s).toEqual({ words: 'peu' })
@@ -156,12 +156,12 @@ describe('vivier des sujets', () => {
 })
 
 describe('secret : rien ne se retrouve par soustraction', () => {
-  it('de 4 à 12 bulletins exprimés, ce que montre une idée ne permet jamais de retrouver un compte écrit en mots', () => {
+  it('de 3 à 12 bulletins exprimés, ce que montre une idée ne permet jamais de retrouver un compte écrit en mots', () => {
     // Ce que voit la table pour une idée : n, d'accord et pas d'accord (exacts ou en mots), lignes rouges si montrées,
     // et le verdict. Pour chaque affichage possible, tous les comptes compatibles doivent laisser au moins deux valeurs
     // possibles à chaque compte écrit en mots.
     const key = (v: ReturnType<typeof shown>) => ('exact' in v ? `=${v.exact}` : v.words)
-    for (let n = 4; n <= 12; n++) {
+    for (let n = 3; n <= 12; n++) {
       const seen = new Map<string, { agree: Set<number>; disagree: Set<number> }>()
       for (let agree = 0; agree <= n; agree++)
         for (let disagree = 0; agree + disagree <= n; disagree++)

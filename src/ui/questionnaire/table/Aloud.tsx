@@ -3,7 +3,7 @@
 // bâtons, ou en mots aux deux bouts. Puis le récapitulatif, rubrique par rubrique. Jamais qui a voté quoi, aucun
 // pourcentage, aucun candidat : les noms n'arrivent qu'après (« Qui porte ces idées ? »).
 
-import type { IdeaResult, Shown, TableSummary, Verdict } from '../../../core/table/count'
+import { K_MIN, type IdeaResult, type Shown, type TableSummary, type Verdict } from '../../../core/table/count'
 import { SECTION, shownText, verdictLine } from '../../../core/table/copy'
 import type { Question, Topic } from '../../../core/types'
 import { AiLabel } from '../../components/AiLabel'
@@ -179,7 +179,7 @@ export function Recap({ summary, reads, voters, onTalk, onReveal, onBack }: Reca
         ) : null}
         {summary.hidden.map(id => (
           <p key={id} class="recap-hidden">
-            {reads.get(id)?.topic?.label}&nbsp;: moins de 4 bulletins exprimés&nbsp;; pour garder le secret, rien n’est montré.
+            {reads.get(id)?.topic?.label}&nbsp;: moins de {K_MIN} bulletins exprimés&nbsp;; pour garder le secret, rien n’est montré.
           </p>
         ))}
         <p class="small">Résultat de votre table, sans valeur statistique. Aucun pourcentage, aucun bulletin&nbsp;: seulement les totaux.</p>

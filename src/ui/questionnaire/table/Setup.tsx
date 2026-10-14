@@ -1,4 +1,4 @@
-// « À table » : préparer la table. Combien de personnes (de 4 à 12, en bâtons d'émargement) et quels sujets (le
+// « À table » : préparer la table. Combien de personnes (de 3 à 12, en bâtons d'émargement) et quels sujets (le
 // vivier, tiré par règle ; deux tirés au hasard, de 2 à 4). Le récapitulatif compte les idées à lire, jamais les
 // minutes. Reçoit les questions du vivier sans rien savoir des candidats.
 
@@ -53,7 +53,7 @@ export function Setup({ people, setPeople, pool, topics, chosen, toggle, min, ma
             <Tally count={people} maxGroups={Infinity} label={`${people} personnes`} />
           </div>
           <p class="small">
-            De {MIN_PEOPLE} à {MAX_PEOPLE} personnes&nbsp;: en dessous, le secret ne tiendrait pas.
+            De {MIN_PEOPLE} à {MAX_PEOPLE} personnes. {people <= MIN_PEOPLE ? 'À trois, un vote se devine plus facilement : à quatre ou plus, le secret tient mieux.' : 'En dessous de trois, le secret ne tiendrait pas.'}
           </p>
         </section>
 

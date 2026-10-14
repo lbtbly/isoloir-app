@@ -484,7 +484,7 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
             href: link('/a-table'),
             icon: 'table',
             title: 'À table',
-            desc: 'De 4 à 12 personnes, un seul téléphone : chacun vote en secret, puis vous lisez ensemble ce qui vous réunit.',
+            desc: 'De 3 à 12 personnes, un seul téléphone : chacun vote en secret, puis vous lisez ensemble ce qui vous réunit.',
             ink: !profile,
           },
         ]

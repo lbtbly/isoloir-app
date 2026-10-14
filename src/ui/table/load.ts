@@ -14,5 +14,14 @@ export const tableScreen = onDemand<TableModule>(() => import('./Table'))
 /** Une table pour cette élection : il faut l'axe de la grille des nuances (règle du vivier), hors archive */
 export const hasTable = (election: Pick<ElectionInfo, 'spectrum' | 'archived'>): boolean => !!axisOf(election) && !election.archived
 
+let shown = false
+
+/** L'élection affichée a-t-elle une table ? Fixé par l'application avant de la rendre (app.tsx), lu par le menu de l'en-tête */
+export const tableShown = (): boolean => shown
+
+export function setTableElection(election: Pick<ElectionInfo, 'spectrum' | 'archived'>) {
+  shown = hasTable(election)
+}
+
 // Le verrou du mode fermé, repris ici pour le site (src/app.tsx)
 export { setTableLocked, TABLE_MARK, tableLocked } from './lock'

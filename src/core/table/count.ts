@@ -10,11 +10,11 @@ import { hasOpinion, ratingOf } from '../answers'
 import { seededShuffle } from '../rng'
 import type { Answer, ApproachId, Question, QuestionId } from '../types'
 
-/** Taille d'une table : en dessous de 4, le secret ne tiendrait pas */
-export const MIN_PEOPLE = 4
+/** Taille d'une table : dès 3 (demande du propriétaire, 14/10/2026) ; à 3, le secret est plus fragile, et la page le dit */
+export const MIN_PEOPLE = 3
 export const MAX_PEOPLE = 12
 /** Bulletins exprimés au moins sur une question pour qu'elle soit dépouillée */
-export const K_MIN = 4
+export const K_MIN = 3
 
 /** Les avis d'une table sur une idée */
 export interface Tallies {

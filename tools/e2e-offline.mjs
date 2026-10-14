@@ -473,7 +473,7 @@ try {
   await page.locator('.topic-fiche').first().waitFor()
   const followed = hashOf(page) === L('/sujets') && (await menuToggle.getAttribute('aria-expanded')) === 'false' && (await menuState())
   const sujetsCurrent = await menuPanel.locator(`a[href="${L('/sujets')}"]`).getAttribute('aria-current')
-  const expectedMenu = [`Les sujets ${L('/sujets')}`, ...(VIDEOS_SHOWN ? [`Les vidéos ${L('/videos')}`] : []), `Les candidats ${L('/candidats')}`].join(' | ')
+  const expectedMenu = [`Les sujets ${L('/sujets')}`, ...(VIDEOS_SHOWN ? [`Les vidéos ${L('/videos')}`] : []), `Les candidats ${L('/candidats')}`, ...(PROFILE ? [`À table ${L('/a-table')}`] : [])].join(' | ')
   check(
     menuOpened && menuLinks.join(' | ') === expectedMenu && escClosed && outsideClosed && followed && sujetsCurrent === 'page',
     `menu de l’en-tête sur téléphone : ouvert ${menuOpened}, fermé par Échap ${escClosed}, par un clic ailleurs ${outsideClosed}, en suivant « Les sujets » ${followed} (${menuLinks.join(' | ')})`,
@@ -1718,7 +1718,7 @@ try {
   await wp.locator(`.main-nav a[href="${L('/candidats')}"]`).click()
   await wp.locator('.people-panel').first().waitFor()
   check(
-    inlineLinks.join(' | ') === (VIDEOS_SHOWN ? 'Les sujets page | Les vidéos - | Les candidats -' : 'Les sujets page | Les candidats -') && !toggleShown && hashOf(wp) === L('/candidats'),
+    inlineLinks.join(' | ') === [...(VIDEOS_SHOWN ? ['Les sujets page', 'Les vidéos -', 'Les candidats -'] : ['Les sujets page', 'Les candidats -']), ...(PROFILE ? ['À table -'] : [])].join(' | ') && !toggleShown && hashOf(wp) === L('/candidats'),
     `grand écran : menu en ligne (${inlineLinks.join(' | ')}), sans bouton « Menu », lien vers les candidats suivi`,
   )
   // Grand écran, la comparaison de trois ou quatre candidats : le tableau complet (la question dans la colonne de
