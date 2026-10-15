@@ -32,8 +32,11 @@ export type Route =
   | { name: 'videos'; start?: string }
   /** « À table » : un groupe vote en secret sur un seul téléphone, puis lit son dépouillement à voix haute */
   | { name: 'table' }
-  /** « Continuer sur un autre appareil » : la feuille passe d'un appareil à l'autre par un code ou un QR code, sans serveur */
-  | { name: 'transfer' }
+  /**
+   * « Transférez vos réponses » : elles passent d'un appareil à l'autre par un code ou un QR code, sans serveur ;
+   * « import » (#/autre-appareil/importer) : la page s'ouvre sur « Importer mes réponses »
+   */
+  | { name: 'transfer'; import?: true }
 
 /** Les noms de pages : un premier segment qui n'en est pas un est un préfixe d'élection */
 const PAGES = new Set([
@@ -121,7 +124,7 @@ export function parseRoute(path: string): Route {
     case 'a-table':
       return { name: 'table' }
     case 'autre-appareil':
-      return { name: 'transfer' }
+      return arg === 'importer' ? { name: 'transfer', import: true } : { name: 'transfer' }
     default:
       return { name: 'home' }
   }

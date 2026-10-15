@@ -236,16 +236,15 @@ describe('codes de reprise', () => {
     const pack = presidentielle2027
     const s = sanitizeState(randomState(pack, 21, 0.3), pack)!
     const code = encodeTransfer(s, pack)
-    const page = withBase('', '/autre-appareil')
+    const page = withBase('', '/autre-appareil/importer')
     const body = transferMailBody(pack, code, page, new Date('2026-10-15T10:00:00Z'))
     const lines = body.split('\r\n')
-    const codeLines = lines.slice(2, lines.indexOf('', 2))
+    const codeLines = lines.slice(4, lines.indexOf('', 4))
     const back = parseCode(codeLines.join('\n'), pack)
     expect(back.ok && essentials(back.state)).toEqual(essentials(s))
     expect(body).toContain(`/${page}`)
-    expect(body).toMatch(/pièce jointe/)
-    expect(body).toMatch(/Importer mes réponses/)
-    expect(body).toMatch(/Ne pas les transférer ni les publier/)
+    expect(body).toMatch(/l’image jointe/)
+    expect(body).toMatch(/Ne pas transférer ni publier ce message/)
     const link = transferMailto(pack, code, page)
     expect(link.startsWith('mailto:?subject=')).toBe(true)
     // Aucune réponse en clair dans l'adresse du site citée par le message : seulement la page

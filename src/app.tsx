@@ -448,7 +448,7 @@ function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
         ))
       case 'transfer':
         return onDemandScreen('transfer', transferScreen, 'La page pour un autre appareil', 'de la page', m => (
-          <m.Transfer pack={pack} state={state} setState={setState} />
+          <m.Transfer pack={pack} state={state} setState={setState} importing={!!route.import} />
         ))
       case 'method': {
         const anchor = route.anchor
@@ -586,7 +586,7 @@ function titleFor(route: Route): string {
     case 'table':
       return 'À table'
     case 'transfer':
-      return 'Autre appareil'
+      return 'Transférer vos réponses'
     default:
       return 'Isoloir'
   }

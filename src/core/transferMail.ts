@@ -13,8 +13,8 @@ const dateFr = (d: Date) => d.toLocaleDateString('fr-FR', { day: 'numeric', mont
 export const MAIL_SUBJECT = `Mes réponses ${APP_NAME} (copie à importer)`
 
 /**
- * Le corps du message : le code par lignes de huit groupes, la marche à suivre (par l'image jointe ou par le code) et
- * la mise en garde. « page » : l'adresse de la page « Autre appareil » dans l'élection affichée (link('/autre-appareil'),
+ * Le corps du message : la marche à suivre (l'image jointe ou le code), le code par lignes de huit groupes et la mise
+ * en garde. « page » : l'adresse de la page d'import dans l'élection affichée (link('/autre-appareil/importer'),
  * ui/nav.ts), sans aucune réponse.
  */
 export function transferMailBody(pack: ElectionPack, code: string, page: string, now = new Date()): string {
@@ -22,16 +22,13 @@ export function transferMailBody(pack: ElectionPack, code: string, page: string,
   const lines: string[] = []
   for (let i = 0; i < groups.length; i += 8) lines.push(groups.slice(i, i + 8).join(' '))
   return [
-    `Copie de mes réponses à ${APP_NAME} (${pack.election.shortName}), du ${dateFr(now)}. Le QR code est en pièce jointe ; le même code, en texte :`,
+    `Mes réponses à ${APP_NAME} (${pack.election.shortName}), copie du ${dateFr(now)}.`,
+    '',
+    `Pour les importer, ouvrir ${APP_URL}/${page}, puis choisir l’image jointe ou coller ce code :`,
     '',
     ...lines,
     '',
-    'Pour importer ces réponses et mon profil politique sur un appareil :',
-    `1. Ouvrir ${APP_URL}/${page}`,
-    '2. Choisir « Importer mes réponses ».',
-    '3. Choisir l’image du QR code jointe à ce message, ou coller le code ci-dessus, puis « Lire ce code ».',
-    '',
-    'Attention : ce code et ce QR code contiennent toutes mes réponses, question par question, et mes lignes rouges. Ne pas les transférer ni les publier.',
+    'Ne pas transférer ni publier ce message : il contient toutes mes réponses et mes lignes rouges.',
   ].join('\r\n')
 }
 

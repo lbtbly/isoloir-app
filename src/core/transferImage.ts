@@ -43,10 +43,10 @@ export async function renderTransferImage(pack: ElectionPack, state: SessionStat
 
   // Titre, marche à suivre, contenu
   ctx.fillStyle = COLORS.print
-  fit(ctx, 'Mes réponses, à reprendre', 850, 96, R - M, true)
-  ctx.fillText('Mes réponses, à reprendre', M, 262)
+  fit(ctx, 'Mes réponses, à importer', 850, 96, R - M, true)
+  ctx.fillText('Mes réponses, à importer', M, 262)
   ctx.fillStyle = COLORS.printSoft
-  const how = 'Pour les importer : Isoloir, puis Autre appareil, Importer mes réponses.'
+  const how = 'Dans Isoloir : Importer mes réponses, puis Choisir une image.'
   fit(ctx, how, 400, 30, R - M)
   ctx.fillText(how, M, 314)
   ctx.fillStyle = COLORS.print
@@ -89,8 +89,8 @@ export async function renderTransferImage(pack: ElectionPack, state: SessionStat
   ctx.fillStyle = COLORS.print
   ctx.fillRect(M, footTop, R - M, 1.5)
   const notes = [
-    'Ne publiez jamais cette image, ni sur les réseaux sociaux ni ailleurs :',
-    'n’importe qui pourrait y lire chacune de vos réponses et vos lignes rouges.',
+    'Ne publiez jamais cette image : n’importe qui pourrait y lire',
+    'chacune de vos réponses et vos lignes rouges.',
   ]
   const size = Math.min(...notes.map(n => fit(ctx, n, 400, 26, R - M)))
   font(ctx, 400, size)
