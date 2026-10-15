@@ -1,0 +1,407 @@
+/* « Continuer sur un autre appareil » (#/autre-appareil, ui/screens/Transfer.tsx).
+   Envoyer : le double jaune, puisque le code est une copie qu'on emporte ; le QR code sur une plaque toujours blanche,
+   derrière un rideau plissé tant qu'on ne l'a pas ouvert. Recevoir : un aplat pastel, trois façons en lignes de
+   formulaire, lettrées dans la marge. Large : l'introduction et le schéma à gauche (5fr), le travail à droite (7fr). */
+
+.transfer {
+  display: grid;
+  gap: var(--s5) var(--s8);
+  align-items: start;
+}
+
+.transfer-intro .display {
+  margin-bottom: var(--s4);
+}
+
+.transfer-intro .lede {
+  margin-bottom: 0;
+}
+
+.transfer-switch {
+  margin-top: 0;
+}
+
+.transfer-how {
+  margin: 0;
+}
+
+.transfer-how .diagram {
+  max-width: 24rem;
+}
+
+.transfer-how figcaption {
+  max-width: 32rem;
+  color: var(--print-soft);
+}
+
+@media (min-width: 64rem) {
+  .transfer {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'intro work'
+      'how work';
+  }
+
+  .transfer-intro {
+    grid-area: intro;
+  }
+
+  .transfer-work {
+    grid-area: work;
+  }
+
+  .transfer-how {
+    grid-area: how;
+  }
+}
+
+/* ——— Les deux panneaux ——— */
+
+.transfer-panel {
+  container: transfer / inline-size;
+  padding: var(--s5) var(--s4) var(--s4);
+  box-shadow: inset 0 var(--thick) 0 var(--rule-strong);
+}
+
+.transfer-panel.is-receive {
+  background: var(--pastel-bleu);
+}
+
+.transfer-title {
+  margin: 0 0 var(--s3);
+  overflow-wrap: anywhere;
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: clamp(1.6rem, 6vw, 2.15rem);
+  line-height: 1;
+}
+
+.transfer-contents {
+  margin: var(--s3) 0;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ——— Envoyer ——— */
+
+.transfer-send {
+  display: grid;
+  grid-template-areas:
+    'head'
+    'qr'
+    'side';
+  gap: var(--s4) var(--s5);
+}
+
+.transfer-send-head {
+  grid-area: head;
+}
+
+.transfer-qr {
+  grid-area: qr;
+  display: grid;
+  justify-items: start;
+  gap: var(--s1);
+}
+
+.transfer-side {
+  grid-area: side;
+}
+
+/* Assez large : le QR code à gauche, le titre et la marche à suivre à droite */
+@container transfer (min-width: 34rem) {
+  .transfer-send {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'qr head'
+      'qr side';
+    align-items: start;
+  }
+}
+
+.transfer-send-head .stamp {
+  margin: var(--s1) 0 var(--s2);
+}
+
+/* Le QR code se lit noir sur blanc dans tous les modes, même en couleurs forcées : le papier jaune ou carbone n'y entre pas */
+.qr-plate {
+  position: relative;
+  width: 100%;
+  max-width: 22rem;
+  aspect-ratio: 1;
+  background: #fff;
+  box-shadow: inset 0 0 0 var(--line) var(--rule-strong);
+  forced-color-adjust: none;
+}
+
+.qr {
+  display: block;
+  width: 100%;
+  height: 100%;
+  shape-rendering: crispEdges;
+}
+
+.qr path {
+  fill: #000;
+}
+
+/* Le rideau de l'isoloir tiré devant le code : les quatre pastels du logo, dans l'ordre du drapé, plissés au trait ;
+   l'appel et une ligne de consigne au centre */
+.qr-curtain {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: var(--s3);
+  padding: var(--s4);
+  background: linear-gradient(
+    90deg,
+    var(--pastel-vert) 0 25%,
+    var(--pastel-rouge) 25% 50%,
+    var(--pastel-jaune) 50% 75%,
+    var(--pastel-bleu) 75%
+  );
+  box-shadow: inset 0 0 0 var(--line) var(--rule-strong);
+  text-align: center;
+}
+
+.qr-pleats {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--copy-print);
+  opacity: 0.35;
+}
+
+.qr-pleats path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+}
+
+.qr-curtain > :not(svg) {
+  position: relative;
+}
+
+.qr-curtain-note {
+  max-width: 15rem;
+  margin: 0;
+  padding: 0.15rem 0.5rem;
+  background: var(--paper);
+  font-size: var(--text-sm);
+}
+
+/* Le rideau se lève une fois : le code apparaît du bas vers le haut */
+@media (prefers-reduced-motion: no-preference) {
+  .qr-plate.is-shown .qr {
+    animation: qr-open 560ms var(--ease-out) both;
+  }
+}
+
+@keyframes qr-open {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0);
+  }
+}
+
+.transfer-steps {
+  margin: var(--s3) 0;
+  padding-left: 1.3rem;
+}
+
+.transfer-steps li + li {
+  margin-top: var(--s2);
+}
+
+.transfer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+}
+
+/* Le code à recopier : des lignes de quatre groupes, numérotées dans la marge comme les règles de la feuille */
+.transfer-code {
+  margin-top: var(--s4);
+  border-top: var(--line) solid var(--rule-strong);
+}
+
+.transfer-code summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 var(--s3);
+  min-height: 2.75rem;
+  padding: var(--s3) 0;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.transfer-count {
+  font-size: var(--text-sm);
+  font-weight: 400;
+  color: var(--print-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.code-lines {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: var(--hair) solid var(--rule);
+}
+
+.code-lines li {
+  display: grid;
+  grid-template-columns: var(--margin-col) minmax(0, 1fr);
+  border-bottom: var(--hair) solid var(--rule);
+}
+
+.code-line-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: var(--hair) solid var(--rule);
+  font-weight: 800;
+  font-stretch: 80%;
+  font-variant-numeric: tabular-nums;
+}
+
+.code-groups {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.9em;
+  padding: 0.45rem var(--s3);
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 1.125rem;
+  letter-spacing: 0.06em;
+}
+
+.transfer-warning {
+  margin-bottom: 0;
+}
+
+/* ——— Recevoir ——— */
+
+.transfer-ways {
+  list-style: none;
+  margin: var(--s4) 0 0;
+  padding: 0;
+  border-top: var(--line) solid var(--rule-strong);
+}
+
+.transfer-ways > li {
+  display: grid;
+  grid-template-columns: var(--margin-col) minmax(0, 1fr);
+  border-bottom: var(--hair) solid var(--rule);
+}
+
+.transfer-ways > li:last-child {
+  border-bottom: var(--line) solid var(--rule-strong);
+}
+
+.transfer-ways .row-letter {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.95rem;
+  border-right: var(--hair) solid var(--rule);
+  font-weight: 800;
+  font-stretch: 80%;
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+
+.way {
+  display: grid;
+  justify-items: start;
+  gap: var(--s2);
+  padding: 0.95rem 0 var(--s3) var(--s4);
+}
+
+.way h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.way p {
+  margin: 0;
+  max-width: 34rem;
+}
+
+.code-input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 6.5rem;
+  padding: var(--s3);
+  background: var(--paper);
+  color: var(--print);
+  border: var(--line) solid var(--rule-strong);
+  border-radius: 0;
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 1.0625rem;
+  letter-spacing: 0.06em;
+  resize: vertical;
+}
+
+.code-input::placeholder {
+  color: var(--print-soft);
+}
+
+.code-input[aria-invalid='true'] {
+  border-width: 2px;
+}
+
+.transfer-error {
+  font-weight: 650;
+}
+
+/* Le viseur : la vidéo de la caméra (16:9 ou carrée), quatre coins imprimés autour du carré à viser */
+.viewfinder {
+  position: relative;
+  width: 100%;
+  max-width: 22rem;
+  aspect-ratio: 1;
+  background: #111419;
+  color: #e9eae5;
+  overflow: hidden;
+}
+
+.viewfinder video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.viewfinder-corners {
+  position: absolute;
+  inset: 14%;
+  background:
+    linear-gradient(currentColor, currentColor) top left / 2.2rem 3px,
+    linear-gradient(currentColor, currentColor) top left / 3px 2.2rem,
+    linear-gradient(currentColor, currentColor) top right / 2.2rem 3px,
+    linear-gradient(currentColor, currentColor) top right / 3px 2.2rem,
+    linear-gradient(currentColor, currentColor) bottom left / 2.2rem 3px,
+    linear-gradient(currentColor, currentColor) bottom left / 3px 2.2rem,
+    linear-gradient(currentColor, currentColor) bottom right / 2.2rem 3px,
+    linear-gradient(currentColor, currentColor) bottom right / 3px 2.2rem;
+  background-repeat: no-repeat;
+}
+
+.viewfinder-hint {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: var(--s3);
+  margin: 0;
+  text-align: center;
+  font-size: var(--text-sm);
+  font-weight: 650;
+}
