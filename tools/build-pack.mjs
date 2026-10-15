@@ -514,6 +514,12 @@ for (const q of bankQuestions) {
   if (registry[q.id] && change !== 'same') log.push(`revision-${change} ${q.id} -> ${entry.rev}.${entry.minor}`)
   if (registry[q.id] && change === 'fond') deepChanges.push(`${q.id} (révision ${entry.rev})`)
   registry[q.id] = entry
+  // L'arrivée de chaque approche apparue après la première révision : la feuille la montre à qui a répondu avant
+  q.approaches = q.approaches.map(a => {
+    const base = { ...a }
+    delete base.since
+    return entry.since?.[a.id] ? { ...base, since: entry.since[a.id] } : base
+  })
   const { id, topicId, tier, step, ...rest } = q
   Object.keys(q).forEach(k => delete q[k])
   Object.assign(q, { id, topicId, tier, ...(step ? { step } : {}), rev: entry.rev, ...rest })
