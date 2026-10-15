@@ -2,7 +2,6 @@
 // fautes de frappe, taille des QR codes, et numérotation stable (ajout seulement) des questions et des thèmes.
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import encodeQR from 'qr'
 import { describe, expect, it } from 'vitest'
 import { importNotes } from '../src/core/exportData'
 import { mulberry32 } from '../src/core/rng'
@@ -10,6 +9,7 @@ import { freshState, sanitizeState, type SessionState } from '../src/core/storag
 import { ALPHABET, crc32, fromBase32, groupCode, normalizeCode, toBase32 } from '../src/core/transfer/base32'
 import { BitReader, BitWriter } from '../src/core/transfer/bits'
 import { decodeTransferRaw, encodeTransfer, letterIndex, looksLikeCode, parseCode } from '../src/core/transfer/codec'
+import { qrModules, qrPath, qrVersion } from '../src/core/transfer/qr'
 import type { Answer, ElectionPack, Rating } from '../src/core/types'
 import { elections } from '../src/elections/all'
 import { presidentielle2027 } from '../src/elections/presidentielle-2027'
@@ -238,9 +238,9 @@ describe('codes de reprise', () => {
 
 describe('taille des codes et des QR codes', () => {
   const pack = presidentielle2027
-  const versionOf = (code: string) => (encodeQR(code, 'raw', { ecc: 'medium', encoding: 'alphanumeric' }).length - 17) / 4
+  const versionOf = (code: string) => qrVersion(qrModules(code))
 
-  it('reste lisible : court pour le premier dépouillement, version 15 au pire', () => {
+  it('reste lisible : court pour le premier dépouillement, version 14 au pire', () => {
     const order = Object.entries(pack.transfer!.questions).sort((a, b) => a[1] - b[1]).map(([id]) => id)
     const sheet = (n: number): SessionState => {
       const answers: Record<string, Answer> = {}
@@ -255,14 +255,22 @@ describe('taille des codes et des QR codes', () => {
     const quick = encodeTransfer(sheet(22), pack)
     expect(step1.length).toBeLessThanOrEqual(100)
     expect(quick.length).toBeLessThanOrEqual(150)
-    expect(versionOf(quick)).toBeLessThanOrEqual(7)
+    expect(versionOf(step1)).toBeLessThanOrEqual(5)
+    expect(versionOf(quick)).toBeLessThanOrEqual(6)
     // Le pire : toutes les questions, toutes les approches notées, tous les thèmes approfondis, chaque question
-    // révisée trois fois (version 14 sans révision : 73 modules de côté, lisibles sur un écran)
+    // révisée trois fois (version 13 sans révision : 69 modules de côté, lisibles sur un écran)
     const worst = sheet(pack.bank.questions.length)
     for (const a of Object.values(worst.answers)) a.rev = 4
     worst.deepTopics = pack.bank.topics.map(t => t.id)
     worst.essentialDoneAt = new Date().toISOString()
-    expect(versionOf(encodeTransfer(worst, pack))).toBeLessThanOrEqual(15)
+    expect(versionOf(encodeTransfer(worst, pack))).toBeLessThanOrEqual(14)
+  })
+
+  it('dessine le symbole d’un seul chemin, sans marge', () => {
+    const m = qrModules('0123ABCD')
+    expect(m.length).toBe(21)
+    expect(m[0]!.slice(0, 7).every(Boolean)).toBe(true)
+    expect(qrPath([[true, true, false, true]])).toBe('M0 0h2v1h-2zM3 0h1v1h-1z')
   })
 })
 
