@@ -180,6 +180,25 @@
   }
 }
 
+/* Texte très agrandi (14rem de liste, app.css) : la case passe sous la fiche, sur sa ligne, comme sur les panneaux */
+@container panels (max-width: 14rem) {
+  .people-panels.is-many .people-panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .people-panels.is-many .people-panel-compare,
+  .people-panels.is-many.is-spectrum .people-panel-compare {
+    padding: 0 var(--s3) var(--s2);
+  }
+
+  .people-panels.is-many .compare-toggle {
+    flex-direction: row;
+    gap: 0.6rem;
+    min-width: 0;
+    font-size: var(--text-sm);
+  }
+}
+
 /* Fiche d'un candidat : « Comparer » et « Comparer avec… » sous ses liens */
 .fiche-compare {
   display: flex;

@@ -139,6 +139,7 @@
 /* ——— Champs : lignes de formulaire entre filets ——— */
 
 .legal-fields {
+  container: fields / inline-size;
   max-width: var(--measure);
   margin: var(--s3) 0 var(--s4);
   border-top: var(--line) solid var(--rule-strong);
@@ -168,11 +169,16 @@
   overflow-wrap: anywhere;
 }
 
+/* Libellé à gauche à partir de 48rem de fenêtre, et seulement si la liste a la place en rem (30rem, qu'elle atteint
+   toujours à texte normal) : à 200 % sur 1024px, avec la colonne de marge, les 13rem du libellé pousseraient la page
+   sur le côté (mesuré le 15 octobre 2026) */
 @media (min-width: 48rem) {
-  .legal-fields > div {
-    grid-template-columns: 13rem minmax(0, 1fr);
-    column-gap: var(--s4);
-    align-items: baseline;
+  @container fields (min-width: 30rem) {
+    .legal-fields > div {
+      grid-template-columns: 13rem minmax(0, 1fr);
+      column-gap: var(--s4);
+      align-items: baseline;
+    }
   }
 }
 
@@ -201,6 +207,7 @@
 
 .prose .credits,
 .prose .third-party {
+  container: credits / inline-size;
   max-width: var(--measure);
   margin: var(--s3) 0 var(--s4);
   padding: 0;
@@ -289,8 +296,9 @@
   border-top: var(--hair) solid var(--rule);
 }
 
-/* Très étroit (texte agrandi) : la photo passe au-dessus du texte */
-@media (max-width: 22rem) {
+/* Très étroit : la photo passe au-dessus du texte. 20rem de liste, soit une fenêtre de 22rem à texte normal (la
+   bascule d'avant, sur la fenêtre) ; en rem de conteneur, elle suit le texte agrandi (mesuré le 15 octobre 2026) */
+@container credits (max-width: 20rem) {
   .prose .credits > li {
     grid-template-columns: minmax(0, 1fr);
     row-gap: var(--s2);
@@ -299,7 +307,9 @@
   .prose .credits > li.is-text .credit-body {
     grid-column: 1;
   }
+}
 
+@media (max-width: 22rem) {
   .license-text {
     padding-left: var(--s3);
   }

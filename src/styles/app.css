@@ -1334,6 +1334,7 @@ path.ink-draw {
 }
 
 .notice {
+  overflow-wrap: break-word;
   max-width: var(--measure);
   margin: var(--s4) 0;
   padding: var(--s3) var(--s4);
@@ -1352,6 +1353,11 @@ path.ink-draw {
 
 .block {
   margin-top: var(--s8);
+}
+
+/* Notices : un mot plus large que la ligne (texte très agrandi) passe à la ligne plutôt que de sortir de la page */
+.prose {
+  overflow-wrap: break-word;
 }
 
 .block h2,
@@ -1626,14 +1632,44 @@ path.ink-draw {
   color: var(--on-print);
 }
 
-/* Partager : à l'étroit, un libellé passe à la ligne dans son bouton plutôt qu'un bouton tombe seul sous les autres */
+/* Partager : à l'étroit, un libellé passe à la ligne dans son bouton plutôt qu'un bouton tombe seul sous les autres
+   (sauf texte très agrandi, plus bas : les boutons s'empilent) */
 .segmented.is-fit {
   flex-wrap: nowrap;
+}
+
+/* Les choix de « Partager » (Share.tsx) dans un même conteneur, sans marge ni retrait : ils s'y suivent comme ils se
+   suivaient dans la feuille. La mesure du conteneur, en rem, suit le texte agrandi */
+.share-choices {
+  container: choice / inline-size;
+}
+
+/* Feuille à marge (grand écran) : chaque choix reste une rangée à lui, à gauche, comme quand il était un élément de
+   la grille de la feuille */
+@media (min-width: 64rem) {
+  .sheet.has-margin > .share-choices {
+    display: grid;
+    justify-items: start;
+  }
 }
 
 .segmented.is-fit button {
   flex: 1 1 auto;
   text-wrap: balance;
+}
+
+/* Texte très agrandi (14rem, qu'aucun téléphone n'atteint à texte normal, 280px compris) : les boutons s'empilent, un
+   « dépouillement » ne tenant plus à côté de son voisin */
+@container choice (max-width: 14rem) {
+  .segmented.is-fit {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .segmented.is-fit button {
+    flex: 1 1 100%;
+    overflow-wrap: break-word;
+  }
 }
 
 .reveal-topic {
@@ -1820,24 +1856,29 @@ path.ink-draw {
   display: none;
 }
 
+/* Trois colonnes à partir de 46rem de fenêtre, et seulement si la question a la place en rem (32rem, que toute
+   question atteint à texte normal) : à 200 % sur 1024px, avec la colonne de marge, les 5.25rem et 13rem des colonnes
+   fixes pousseraient la page sur le côté (mesuré le 15 octobre 2026) */
 @media (min-width: 46rem) {
-  .reveal-row,
-  .reveal-head {
-    grid-template-columns: 5.25rem minmax(0, 1fr) 13rem;
-  }
+  @container reveal (min-width: 32rem) {
+    .reveal-row,
+    .reveal-head {
+      grid-template-columns: 5.25rem minmax(0, 1fr) 13rem;
+    }
 
-  .reveal-row {
-    grid-template-areas: 'mark text holders';
-  }
+    .reveal-row {
+      grid-template-areas: 'mark text holders';
+    }
 
-  .reveal-head {
-    display: grid;
-    column-gap: var(--s3);
-    margin: 0;
-    padding-bottom: 0.3rem;
-    font-size: var(--text-xs);
-    font-weight: 700;
-    color: var(--print-soft);
+    .reveal-head {
+      display: grid;
+      column-gap: var(--s3);
+      margin: 0;
+      padding-bottom: 0.3rem;
+      font-size: var(--text-xs);
+      font-weight: 700;
+      color: var(--print-soft);
+    }
   }
 }
 
@@ -2053,6 +2094,7 @@ path.ink-draw {
 
 /* Index : une colonne colorée par candidat */
 .people-panels {
+  container: panels / inline-size;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -2321,6 +2363,44 @@ path.ink-draw {
 
 .people-panels.is-many .people-panel-tags {
   grid-area: tags;
+}
+
+/* Texte très agrandi (14rem de liste, qu'aucun téléphone n'atteint à texte normal, 280px compris) : le portrait s'efface,
+   comme au classement, la flèche passe dessous, et le nom, la fonction et le compte gardent toute la largeur */
+@container panels (max-width: 14rem) {
+  .people-panels.is-many .people-panel-link {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'name'
+      'role'
+      'meta'
+      'count'
+      'go';
+  }
+
+  .people-panels.is-many.is-spectrum .people-panel-link {
+    grid-template-areas:
+      'tags'
+      'name'
+      'role'
+      'meta'
+      'count'
+      'go';
+  }
+
+  /* La flèche sous la ligne, à gauche : le nom garde toute la largeur */
+  .people-panels.is-many .people-panel-go {
+    justify-self: start;
+  }
+
+  .people-panels.is-many .portrait {
+    display: none;
+  }
+
+  .people-panels.is-many .people-panel-role,
+  .people-panels.is-many .people-panel-meta {
+    overflow-wrap: break-word;
+  }
 }
 
 /* Au téléphone, le libellé reste lu dans le nom du lien ; la flèche suffit à l'œil */
@@ -3830,6 +3910,7 @@ line.dg-thick {
 /* ——— Le parcours en trois gestes : trois aplats reliés par un seul geste ——— */
 
 .journey {
+  container: journey / inline-size;
   margin-top: var(--s7);
 }
 
@@ -4148,7 +4229,11 @@ line.dg-thick {
   }
 }
 
-@media (min-width: 64rem) {
+/* Les trois panneaux côte à côte quand le parcours a la place : 57.97rem de conteneur, soit une fenêtre de 1024px à
+   texte normal avec une barre de défilement classique (16px), de 1008px sans (la bascule d'avant, sur la fenêtre,
+   comptait la barre). En rem de conteneur, elle suit le texte agrandi : à 200 %, les panneaux restent dans le
+   défilement, au lieu de déborder de la page (mesuré le 15 octobre 2026) */
+@container journey (min-width: 57.97rem) {
   .journey-track {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -5133,7 +5218,17 @@ details[open] > summary .summary-label {
   }
 }
 
-@media (min-width: 48rem) {
+/* Dans le classement, le portrait de ligne garde la taille de sa colonne tant que la ligne n'a pas basculé */
+.board .portrait.is-row {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Une seule ligne par candidat quand le classement a la place : 42.65rem de conteneur, soit une fenêtre de 768px à
+   texte normal avec une barre de défilement classique (16px), de 750px sans (la bascule d'avant, sur la fenêtre,
+   comptait la barre). En rem de conteneur, elle suit le texte agrandi : à 200 % sur 1024px, ses colonnes fixes (bâtons,
+   score) ne poussent plus la page sur le côté (mesuré le 15 octobre 2026) */
+@container board (min-width: 42.65rem) {
   .board-row {
     grid-template-columns: 3rem 3.5rem minmax(0, 1fr) 15rem 7rem;
     grid-template-areas:
@@ -5146,13 +5241,22 @@ details[open] > summary .summary-label {
     font-size: 2.6rem;
   }
 
-  .portrait.is-row {
+  .board .portrait.is-row {
     width: 3.5rem;
     height: 3.5rem;
   }
 
   .board-tally {
     margin-top: 0;
+  }
+}
+
+/* Hors du classement (comparaison), le portrait de ligne grandit avec la fenêtre, comme avant ; dans le classement, il
+   suit la bascule de sa ligne (ci-dessus) et garde sinon la taille de sa colonne (plus haut, avant la bascule) */
+@media (min-width: 48rem) {
+  .portrait.is-row {
+    width: 3.5rem;
+    height: 3.5rem;
   }
 }
 

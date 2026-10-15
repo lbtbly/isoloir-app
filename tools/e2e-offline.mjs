@@ -2347,6 +2347,42 @@ try {
     await c.close()
   }
 
+  // 8 bis. Texte agrandi à toutes les largeurs (réglage du navigateur, taille du texte de Safari sur iPad) : aucune
+  // page principale ne défile sur le côté (mesuré le 15 octobre 2026 : à 1024 px et 200 %, « À vous d'essayer » et le
+  // classement poussaient la page de 96 et 30 px ; « Qui porte quoi » et les notices aussi, et cinq pages à 320 px)
+  {
+    const pagesWide = [
+      '/', '/resultats', '/proximite', '/candidats', `/candidat/${FICHE.id}`, `/comparer/${pack.candidates.slice(0, 4).map(c => c.id).join(',')}`,
+      '/partager', '/profil', '/sujets', ...(VIDEOS_SHOWN ? ['/videos'] : []), '/feuille/1', '/approfondir', '/priorites',
+      ...(PROFILE ? ['/a-table'] : []), '/methode', '/confidentialite', '/mentions-legales',
+    ]
+    const sizesWide = [[1920, 200], [1280, 200], [1024, 200], [768, 200], [390, 200], [320, 200]]
+    const wideIssues = []
+    for (const [width, scale] of sizesWide) {
+      const c = await browser.newContext({ viewport: { width, height: 800 }, reducedMotion: 'reduce' })
+      await c.addInitScript(s => Object.entries(s).forEach(([k, v]) => localStorage.setItem(k, v)), saved)
+      await c.addInitScript(sc => document.addEventListener('DOMContentLoaded', () => (document.documentElement.style.fontSize = `${sc}%`)), scale)
+      const p = await c.newPage()
+      let shown = ''
+      for (const path of pagesWide) {
+        await p.goto(U(path))
+        // La page est là quand son titre a remplacé celui de la précédente (les écrans chargés à la demande arrivent après)
+        await p
+          .waitForFunction(prev => { const h = document.querySelector('main h1'); return !!h && h.textContent !== prev }, shown, { timeout: 8000 })
+          .catch(() => null)
+        shown = await p.evaluate(() => document.querySelector('main h1')?.textContent ?? '')
+        await p.waitForTimeout(300)
+        const extra = await p.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)
+        if (extra > 0) wideIssues.push(`${path} à ${width} px et ${scale} % : ${extra} px`)
+      }
+      await c.close()
+    }
+    check(
+      wideIssues.length === 0,
+      `texte agrandi : aucune page ne défile sur le côté (${pagesWide.length} pages, ${sizesWide.map(([w]) => w).join(', ')} px à 200 %)${wideIssues.length ? ` : ${wideIssues.join(' ; ')}` : ''}`,
+    )
+  }
+
   // 9. Adresses retirées du site (RETIRED_PREFIXES du registre : la primaire « Choisir 2027 », son alias
   // #/primaire, l'ancienne page #/archives) et anciens liens vers un candidat masqué (hiddenCandidateIds) : chaque
   // adresse est corrigée sur-le-champ, sans entrée d'historique, vers l'accueil, la même notice ou la même fiche sans
