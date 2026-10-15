@@ -1200,7 +1200,10 @@ try {
 
 
     // « Voir le détail » d'une ligne lue : le tableau replié s'ouvre sur le détail de l'unité, qui reçoit le focus ; puis
-    // son lien vers « Qui porte quoi » : la seule clé de session, effacée à l'arrivée
+    // son lien vers « Qui porte quoi » : la seule clé de session, effacée à l'arrivée. La lecture d'abord (le tableau
+    // replié ne paraît qu'avec elle) : sur une machine chargée, elle dépasse les 8 s attendues plus haut, et le chemin
+    // choisi sans elle (aucune ligne lue) attendrait un tableau qui n'est pas encore là
+    await page.locator('main .profile-all').waitFor({ timeout: 60000 })
     const readRow = page.locator('.profile-chart .row:has(.strip)').first()
     let detailRows = 0
     let detailFocus = false
