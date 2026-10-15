@@ -19,6 +19,7 @@ import { AGREE_NONE, count, TITLE_AGREE } from '../src/core/resultsCopy'
 import { computeResults, displayScore, type CandidateResult } from '../src/core/score'
 import {
   AGREE_ROWS,
+  flopLead,
   IMAGE_H,
   offPosterText,
   othersText,
@@ -189,8 +190,16 @@ describe('image « Accords et désaccords » : barres et mise en page', () => {
 
 describe('image « Accords et désaccords » : textes', () => {
   it('sous-titre : quels candidats', () => {
-    expect(agreeLead(flagged, 'top', 5)).toBe('Les 5 plus proches de mes idées')
-    expect(agreeLead(flagged, 'flop', 5)).toBe('Les 5 plus éloignés de mes idées')
+    // Des candidats hors classement ou non classés : « classés » (décision du propriétaire du 2026-10-15)
+    const off = flagged.unranked.length + flagged.excluded.length > 0
+    expect(off).toBe(true)
+    expect(agreeLead(flagged, 'top', 5)).toBe('Les 5 classés les plus proches de mes idées')
+    expect(agreeLead(flagged, 'flop', 5)).toBe('Les 5 classés les plus éloignés de mes idées')
+    const none = { ...flagged, unranked: [], excluded: [] }
+    expect(agreeLead(none, 'top', 5)).toBe('Les 5 plus proches de mes idées')
+    expect(agreeLead(none, 'flop', 5)).toBe('Les 5 plus éloignés de mes idées')
+    expect(flopLead(flagged)).toBe('Les classés les plus éloignés de mes idées')
+    expect(flopLead(none)).toBe('Les plus éloignés de mes idées')
     expect(agreeLead(flagged, 'all', flagged.ranking.length)).toBe(`Les ${flagged.ranking.length} candidats classés`)
     const few = computeResults(pack, { q1: { ratings: { q1a: 1 }, redLines: [] } }, {}, 'seed')
     expect(agreeLead(few, 'all', few.ranking.length)).toBe(`Les ${few.ranking.length} candidats`)

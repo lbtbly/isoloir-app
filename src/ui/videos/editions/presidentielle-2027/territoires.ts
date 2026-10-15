@@ -31,11 +31,10 @@
 // absents des fiches de ses questions, ni leurs sources : le chiffre de l'investissement (04) change d'index de source.
 // Planches : chaque passage corrigé dont le dessin change a la sienne dans pistes/planches/territoires.tsx, rangée sous son
 // identifiant suffixé (« -p27 ») ou, si seul le dessin change, sous son champ board (editions/apply.ts).
-// Reste à trancher par le propriétaire (hors de cette correction) : la fiche territoires-1 de cette élection porte
-// désormais 445 maternités en 2024 (Drees) et plus la série 721, 557, 471 que dit territoires-services-06 (source :
-// le rapport de la Cour des comptes, dans les sources de la vidéo) ; territoires-8 non appliquée : sa condition
-// (territoires-7) n'est pas remplie, la fiche territoires-1 montrant désormais 445 maternités en 2024 (Drees) ; à
-// reprendre avec l'alignement de territoires-services-06 sur la fiche. La voix de territoires-services-04 garde la
+// Décision du propriétaire du 2026-10-15 (n° 6) : la fiche territoires-1 porte la série de la Cour des comptes
+// (figures[1] : 471 en 2021, contre 721 en 2000 et 557 en 2010, sa cause et le graphique 2000-2021), à côté des 445
+// maternités de 2024 (Drees) ; territoires-8 s'applique : le libellé de territoires-services-06 suit celui de la
+// fiche, voix inchangée (reste à faire). La voix de territoires-services-04 garde la
 // sélection de trois difficultés sans la deuxième (29,3 %), seul son libellé écrit les donne toutes (territoires-4).
 // Le libellé du passage inséré territoires-collectivites-07-comptes-p27 est celui proposé par territoires-10 ; la
 // fiche territoires-2 de cette élection (8 octobre) ne l'a pas repris (500, 220 et 280 M€ « restitués sur trois

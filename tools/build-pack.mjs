@@ -3,7 +3,7 @@
 // d'une élection antérieure et des décisions éditoriales.
 //
 // Usage : node tools/build-pack.mjs <workflow-output.json> <research-dir> <election-src-dir> [expansion.json…]
-//                                   [--include <id>[,<id>…]] [--reset-revisions]
+//                                   [--include <id>[,<id>…]] [--reset-revisions] [--no-history]
 //   Primaire (archive, régénérée à l'identique) :
 //     node tools/build-pack.mjs research/choisir-2027/question-bank-output.json research/choisir-2027 \
 //       src/elections/choisir-2027 research/choisir-2027/expansion-merged.json
@@ -17,6 +17,9 @@
 //     (ses positions sont calculées et rangées dans research-dir/bank.json sous « prepared ») mais n'est pas
 //     écrit dans positions.ts : le soir du résultat, il ne reste qu'à reconstruire avec --include.
 //   --reset-revisions : repart de la révision 1 pour toutes les questions (passage en production).
+//   --no-history : n'inscrit pas les changements de positions dans research-dir/positions-history.json (essai) ;
+//     le BUILD suivant, ou « node tools/positions-history.mjs append », consigne les écarts depuis l'état que
+//     l'historique connaît (un essai annulé ensuite ne laisse donc rien).
 //
 // Fichiers lus dans research-dir :
 //   config.json (obligatoire) : configuration de l'élection, source unique des outils de données. build-pack en lit :
@@ -24,7 +27,11 @@
 //     candidates: [{ id, pendingPrimary? }] : seuls ces candidats sont retenus, dans cet ordre (celui de positions.ts) ;
 //     pendingPrimary : candidat en attente (gagnant d'une primaire pas encore connu), publié seulement avec --include.
 //   decisions.json (facultatif) : { tierChanges: [{questionId, newTier}], drops: [questionId],
-//     edits: [{id, field, newText}], rejectEdits: [id:field], positions: [{questionId, candidate, approachId, remove?|...}],
+//     edits: [{id, field, newText}], rejectEdits: [id:field],
+//     positions: [{questionId, candidate, approachId, remove?|..., note, historyCause?, statedAt?}] (note, historyCause et
+//       statedAt ne sont pas publiés : raison, cause et date de prise de position pour positions-history.json),
+//     historyNotes: { "<candidat>:<approche>" | "<candidat>:*" | "question:<id>": {note, cause?, statedAt?} } (raison
+//       d'un changement sans position propre dans l'historique : candidat retiré, question retirée),
 //     newTopics: [{id, label, description}], addApproaches: [{questionId, id, text, external?}],
 //     dropApproaches: [approachId], movePositions: [{questionId, candidate, from, to}],
 //     externalFlags: [{approachId, external}], topicChanges: [{questionId, topicId}],
@@ -38,6 +45,13 @@
 //     du chiffre n° index d'une question (type FigureChart de src/core/types.ts) ; chaque nombre doit déjà
 //     figurer dans la valeur ou le libellé du chiffre.
 //   revisions.json : registre des révisions de questions, tenu à jour à chaque construction.
+//   positions-history.json (facultatif) : historique des positions, candidat par candidat (décision du propriétaire
+//     du 2026-10-15 ; format dans tools/positions-history.mjs). S'il existe, chaque construction y consigne, avant
+//     d'écrire positions.ts, les positions qui changent par rapport à l'état que l'historique connaît (son rejeu, qui
+//     redonne le positions.ts publié), à la date du jour, avec la note de la position retenue (decisions.json,
+//     add-candidate, banque…) ou du retrait décidé comme raison, sa cause (historyCause et statedAt d'une position de
+//     decisions.json, historyNotes, sinon inférée) et les libellés de la banque. Rien n'est ajouté si rien ne change ;
+//     relancer la même construction n'ajoute rien.
 //   reuse.json (facultatif) : reprise d'une élection antérieure dont research/<from>/bank.json est déjà construit.
 //     Écrit par tools/build-reuse.mjs à partir des champs reuseOf de la sortie de 2-question-bank.js.
 //     {
@@ -97,21 +111,25 @@
 // (candidats en attente), video-series-miss, video-topic-miss, video-question-dup, consensus-topic-miss.
 //
 // Fichiers écrits :
-//   research-dir/bank.json ({ bank, positions, prepared? }), build-log.txt, revisions.json ;
+//   research-dir/bank.json ({ bank, positions, prepared? }), build-log.txt, revisions.json, positions-history.json
+//   (s'il existe déjà) ;
 //   election-src-dir/bank.ts, positions.ts, et videos.ts quand reuse.json existe.
 
 import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync } from 'node:fs'
 import { basename, dirname, join, resolve } from 'node:path'
 import { FORM_THRESHOLD, editRatio, nextRevision, normalizeText, questionText } from '../src/core/revisions.ts'
+import { appendFromBuild } from './positions-history.mjs'
 
-const USAGE = 'Usage : node tools/build-pack.mjs <workflow-output.json> <research-dir> <election-src-dir> [expansion.json…] [--include <id>[,<id>…]] [--reset-revisions]'
+const USAGE = 'Usage : node tools/build-pack.mjs <workflow-output.json> <research-dir> <election-src-dir> [expansion.json…] [--include <id>[,<id>…]] [--reset-revisions] [--no-history]'
 const argv = process.argv.slice(2)
 let resetRevisions = false
+let history = true
 let include = null
 const positional = []
 for (let i = 0; i < argv.length; i++) {
   const a = argv[i]
   if (a === '--reset-revisions') resetRevisions = true
+  else if (a === '--no-history') history = false
   else if (a === '--include' || a.startsWith('--include=')) {
     const v = a === '--include' ? argv[++i] : a.slice('--include='.length)
     if (!v || v.startsWith('--')) throw new Error(`--include : identifiants attendus (--include faure ou --include faure,royal)\n${USAGE}`)
@@ -155,6 +173,8 @@ const decisions = existsSync(join(researchDir, 'decisions.json'))
   ? readJson(join(researchDir, 'decisions.json'))
   : {}
 const log = []
+// Provenance de chaque position retenue, pour la raison inscrite dans l'historique des positions (positions-history.json)
+const provenance = new WeakMap()
 
 // Typographie française : espaces fines insécables, apostrophes courbes, groupes de chiffres
 export function typo(t) {
@@ -217,6 +237,7 @@ for (const g of wf.gapFills ?? []) {
   if (!q) { log.push(`gapfill-miss ${g.questionId}`); continue }
   if (q.positions.some(p => p.candidate === g.candidate && p.approachId === g.approachId)) continue
   q.positions.push(g)
+  provenance.set(g, 'extension')
   log.push(`gapfill ${g.questionId} ${g.candidate} ${g.approachId}`)
 }
 
@@ -247,12 +268,14 @@ if (existsSync(addDir)) {
       const unchecked = !p.verdict || p.verdict === 'unchecked'
       if (unchecked) log.push(`addcand-unchecked ${q.id} ${cand} ${approachId}`)
       const { questionId: _q, approachId: _a, candidate: _c, ...rest } = p
-      q.positions.push({
+      const added = {
         ...rest,
         candidate: cand,
         approachId,
         ...(unchecked ? { confidence: p.confidence === 'high' ? 'medium' : 'low', verdict: 'unchecked' } : {}),
-      })
+      }
+      q.positions.push(added)
+      provenance.set(added, `add-candidate/${f}`)
       log.push(`addcand ${q.id} ${cand} ${approachId}`)
     }
   }
@@ -301,7 +324,9 @@ if (reuse?.approaches) {
       for (const [there, sp] of own) {
         if (!mapped.has(there)) { log.push(`reuse-unmapped ${q.id} ${c} ${origin.id}:${there}`); continue }
         const here = mapped.get(there)
-        q.positions.push({ ...structuredClone(sp), candidate: c, approachId: here, verdict: 'reused', note: `${origin.id}:${there}` })
+        const reused = { ...structuredClone(sp), candidate: c, approachId: here, verdict: 'reused', note: `${origin.id}:${there}` }
+        q.positions.push(reused)
+        provenance.set(reused, 'reuse.json')
         log.push(`reuse-position ${q.id} ${c} ${here} <- ${origin.id}:${there}`)
       }
     }
@@ -341,7 +366,10 @@ for (const pd of decisions.positions ?? []) {
   const q = questions.find(x => x.id === pd.questionId)
   if (!q) continue
   q.positions = q.positions.filter(p => !(p.candidate === pd.candidate && p.approachId === pd.approachId))
-  if (!pd.remove) q.positions.push(pd)
+  if (!pd.remove) {
+    q.positions.push(pd)
+    provenance.set(pd, 'decisions.json')
+  }
   log.push(`position ${pd.remove ? 'removed' : 'set'} ${pd.questionId} ${pd.candidate} ${pd.approachId}`)
 }
 
@@ -453,6 +481,8 @@ const explainerOf = id => {
   }
 }
 const bankQuestions = []
+// Raison de chaque position retenue (sa note : décision, vérification, reprise), pour positions-history.json
+const reasons = new Map()
 for (const q of questions) {
   if (drops.has(q.id)) { log.push(`drop ${q.id}`); continue }
   const ids = new Set(q.approaches.map(a => a.id))
@@ -482,6 +512,12 @@ for (const q of questions) {
     }
     list.push(entry)
     positions[p.candidate][p.approachId] = entry
+    reasons.set(`${p.candidate}|${p.approachId}`, {
+      reason: p.note ?? null,
+      from: provenance.get(p) ?? 'banque',
+      cause: p.historyCause ?? null,
+      statedAt: p.statedAt ?? null,
+    })
   }
   const explainer = explainerOf(q.id)
   bankQuestions.push({
@@ -549,6 +585,21 @@ if (reuse) {
   if (reuse.videoEdition) videoScope.edition = reuse.videoEdition
 }
 
+// Historique des positions : consigné avant d'écrire positions.ts, par comparaison avec celui qui existe
+const qOfApproach = new Map(questions.flatMap(q => q.approaches.map(a => [a.id, q.id])))
+const historyResult = history
+  ? appendFromBuild({
+      researchDir,
+      srcDir,
+      next: publishedPositions,
+      decisions,
+      bank: bankQuestions,
+      questionOf: ap => qOfApproach.get(ap),
+      revOf: qid => registry[qid]?.rev ?? null,
+      reasonOf: (c, ap) => reasons.get(`${c}|${ap}`) ?? null,
+    })
+  : null
+
 mkdirSync(srcDir, { recursive: true })
 writeFileSync(join(researchDir, 'bank.json'), JSON.stringify({ bank, positions: publishedPositions, ...(Object.keys(prepared).length ? { prepared } : {}) }, null, 2))
 const header = `// Fichier généré par tools/build-pack.mjs depuis research/${electionId} : ne pas modifier à la main.\n`
@@ -569,3 +620,9 @@ if (Object.keys(prepared).length || include) {
   console.log(`candidats publiés ${published.length}${Object.keys(prepared).length ? `, préparés sans publication : ${Object.keys(prepared).join(', ')}` : ''}`)
 }
 if (videoScope) console.log(`vidéos : ${Object.keys(videoScope.topics).length} séries, ${Object.keys(videoScope.questions).length} questions reliées`)
+if (historyResult) {
+  const { date, added, updated, removed, stamped, labels, drift, diskDrift } = historyResult
+  console.log(`historique des positions ${date} : ${added} entrées ajoutées, ${updated} fondues, ${removed} annulées${stamped ? `, ${stamped} estampillées` : ''}${labels ? `, ${labels} libellés` : ''}`)
+  if (diskDrift) console.warn('historique des positions : le positions.ts d’avant ne correspondait pas à l’historique (BUILD --no-history ou fichier modifié) ; écarts comptés depuis l’historique')
+  if (drift) console.warn('historique des positions : le rejeu ne redonne pas positions.ts (node tools/positions-history.mjs check)')
+}

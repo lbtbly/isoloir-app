@@ -68,12 +68,13 @@ describe('phrases du dépouillement (core/resultsCopy)', () => {
     expect(copy.excludedTitle(8)).toBe(`8${NB}candidats ne sont pas classés`)
     expect(copy.excludedWhy(1)).toBe(`${NB}: sa position est connue sur trop peu de questions`)
     expect(copy.excludedWhy(8)).toBe(`${NB}: leurs positions sont connues sur trop peu de questions`)
-    // Pas de rang ; hors tendance, un score pour information seulement (décision du propriétaire du 14 octobre 2026)
+    // Pas de rang ; hors tendance, un score pour information seulement (décision du propriétaire du 14 octobre 2026), à
+    // partir de 5 réponses où la position est connue (décision du propriétaire du 2026-10-15)
     expect(copy.excludedLede(1)).toBe(
-      `Il n’a pas de rang, quelles que soient vos réponses. Son score, calculé sur ses seules positions connues, est donné pour information seulement${NB}: sur si peu de questions, il dépend surtout de celles auxquelles vous avez répondu. Il ne se compare donc à aucun autre${NB}: même plus haut que ceux du classement, il ne dit pas que ce candidat est plus proche de vos idées. Sa fiche et ses positions restent consultables${NB}; la liste sera revue à mesure que ses positions seront connues.`,
+      `Il n’a pas de rang, quelles que soient vos réponses. Son score, calculé sur ses seules positions connues, est donné pour information seulement${NB}: sur si peu de questions, il dépend surtout de celles auxquelles vous avez répondu. Il n’est montré que si sa position est connue sur au moins 5${NB}de vos réponses. Il ne se compare donc à aucun autre${NB}: même plus haut que ceux du classement, il ne dit pas que ce candidat est plus proche de vos idées. Sa fiche et ses positions restent consultables${NB}; la liste sera revue à mesure que ses positions seront connues.`,
     )
     expect(copy.excludedLede(8)).toBe(
-      `Ils n’ont pas de rang, quelles que soient vos réponses. Le score de chacun, calculé sur ses seules positions connues, est donné pour information seulement${NB}: sur si peu de questions, il dépend surtout de celles auxquelles vous avez répondu. Il ne se compare donc à aucun autre${NB}: même plus haut que ceux du classement, il ne dit pas que ce candidat est plus proche de vos idées. Leurs fiches et leurs positions restent consultables${NB}; la liste sera revue à mesure que leurs positions seront connues. Ordre tiré au hasard.`,
+      `Ils n’ont pas de rang, quelles que soient vos réponses. Le score de chacun, calculé sur ses seules positions connues, est donné pour information seulement${NB}: sur si peu de questions, il dépend surtout de celles auxquelles vous avez répondu. Il n’est montré que si sa position est connue sur au moins 5${NB}de vos réponses. Il ne se compare donc à aucun autre${NB}: même plus haut que ceux du classement, il ne dit pas que ce candidat est plus proche de vos idées. Leurs fiches et leurs positions restent consultables${NB}; la liste sera revue à mesure que leurs positions seront connues. Ordre tiré au hasard.`,
     )
     // Pendant la tendance, aucun score n'est montré : la phrase n'en parle pas
     for (const n of [1, 8]) {
@@ -99,6 +100,10 @@ describe('phrases du dépouillement (core/resultsCopy)', () => {
     expect(copy.manyRedLinesNote(7)).toBe('7 lignes rouges : le classement dépend surtout de ces refus.')
     expect(copy.leaderLead(false)).toBe('Le plus proche de vos idées')
     expect(copy.leaderLead(true)).toBe('Le moins concerné par vos lignes rouges')
+    // Des candidats hors classement ou non classés : « parmi les candidats classés » (décision du propriétaire du 2026-10-15)
+    expect(copy.leaderLead(false, false)).toBe('Le plus proche de vos idées')
+    expect(copy.leaderLead(false, true)).toBe('Le plus proche de vos idées parmi les candidats classés')
+    expect(copy.leaderLead(true, true)).toBe('Le moins concerné par vos lignes rouges parmi les candidats classés')
   })
 
   it('compose la méta d’une ligne : couverture, données partielles, score avant lissage hors tendance', () => {
@@ -173,6 +178,8 @@ describe('phrases du dépouillement (core/resultsCopy)', () => {
       const texts = [
         copy.answeredLede(r.answered),
         copy.leaderLead(r.allIncompatible),
+        copy.leaderLead(false, true),
+        copy.leaderLead(true, true),
         copy.closeNote(names[1]!),
         copy.crossingNote([...r.ranking, ...r.unranked, ...r.excludedResults].filter(c => !c.compatible).length),
         copy.allIncompatibleNote(r.excluded.length > 0),

@@ -6,29 +6,29 @@
 // proposition de la Commission européenne de mars 2026 (en négociation) ; fin du dispositif d'accès régulé à
 // l'électricité nucléaire au 31 décembre 2025 ; allègements de cotisations fondus en une réduction unique depuis le
 // 1er janvier 2026 ; projet de loi de finances pour 2027 déposé le 1er octobre 2026, en discussion ; participations de
-// l'État au 30 juin 2025 (nouvelle annexe « État actionnaire » attendue avec ce projet). À revoir à chaque échéance,
-// et au plus tard début avril 2027, avant le premier tour du 18 avril 2027.
+// l'État au 30 juin 2025 (fiche industrie_economie-3 et industrie-etat-02/-03 ; le rapport « État actionnaire » 2027
+// n'était pas en ligne le 15 octobre 2026, mais le projet annuel de performances 2027 « Participations financières de
+// l'État », annexe au projet de loi de finances, donne 229,6 Md€ au 30 juin 2026 (87 entreprises, dont 11 cotées),
+// 77,6 Md€ cotés et 4,71 Md€ de dividendes en 2025 : la fiche et industrie-etat-02/-03 sont à mettre à jour ensemble,
+// à la prochaine séance de voix, décision du propriétaire attendue) ; contrôle des investissements étrangers :
+// règlement européen révisé en juin 2026, réglementation française à adapter avant fin 2026 (libellé du chiffre n° 2
+// de la fiche). À revoir à chaque échéance, et au plus tard début avril 2027, avant le premier tour du 18 avril 2027.
 // Périmètre (industrie_economie-19) : la question d'origine industrie_economie-1 (réindustrialisation) n'a pas
 // d'équivalent ici. « L'État actionnaire » éclaire la question industrie_economie-3 de cette élection, dont la fiche
-// porte ses chiffres (209,1, 179,5 et 67,9 Md€ ; « 86 entreprises » dans la fiche, « 86 entités » dans la vidéo).
+// porte ses chiffres (209,1, 179,5 et 67,9 Md€ ; « 86 entités », dans la fiche comme dans la vidéo, depuis le
+// 15 octobre 2026).
 // Aucune fiche de cette élection ne porte les prix de l'électricité des entreprises (0,2688 €/kWh…), le solde
 // d'usines (+19, +88) ni l'emploi industriel (3 240 600) : la vidéo industrie-energie et les passages
 // industrie-intro-02 et -03 ne sont pas montrés ici, et l'introduction ne cite plus les sources de ces deux passages.
 // Conséquence : l'accroche industrie-intro-01 (« la France en gagne-t-elle, ou en perd-elle ? ») ne trouverait plus
 // que le déficit commercial pour réponse ; elle demande ici quelle part y prennent l'État et l'Union européenne.
 // Ce texte est hors de l'arbitrage du 7 octobre : à valider avant de l'enregistrer (voix industrie-intro-01-p27).
-// À arbitrer (industrie_economie-19, la fiche industrie_economie-3 n'existait pas le 7 octobre) : le passage
-// industrie-etat-02 diffère encore de cette fiche, par le libellé de sa figure (« gérées … (86 entités), dont
-// 67,9 Md€ » contre « suivies … (86 entreprises), contre 179,5 Md€ un an plus tôt… »), son graphique (comparaison
-// 209,1 / 67,9 contre la série juin 2024 179,5 → juin 2025 209,1) et sa source (ETAT_ACTIONNAIRE ci-dessous : titre,
-// date « 2025 » et éditeur différents de ceux de la fiche). Soit la fiche s'aligne sur la vidéo, soit une correction
-// de l'édition reprend le libellé, le graphique et la source de la fiche (même sourceIndex 0 ; voix inchangée, sauf
-// si « 86 entités » devient « 86 entreprises »). Rien n'est changé ici sans cette décision.
-// Avant de déclarer cette édition dans editions/presidentielle-2027/index.ts (industrie_economie-14, -15, -19) : la
-// fiche industrie_economie-3 doit porter le point de l'article 345 du TFUE (source EUR-Lex, celle de TFUE_345
-// ci-dessous) et les règles sur les aides d'État (projets importants d'intérêt européen commun, critère de
-// l'investisseur privé ; source : rapport n° 808 du Sénat), que disent industrie-etat-04-p27 et industrie-etat-05 et
-// qu'aucune fiche de cette élection ne porte encore.
+// Décision du propriétaire du 2026-10-15 (n° 6) : la fiche industrie_economie-3 porte l'article 345 du TFUE (points[1],
+// source EUR-Lex, celle de TFUE_345) et les règles sur les aides d'État (points[2] : projets importants d'intérêt
+// européen commun, critère de l'investisseur privé ; rapport n° 808 du Sénat, celle d'AIDES_SENAT), que disent
+// industrie-etat-04-p27 et industrie-etat-05 ; son chiffre n° 0 dit « 86 entités », comme la voix d'industrie-etat-02.
+// Reste à copier dans industrie-etat-02 le libellé, le graphique (série juin 2024 → juin 2025) et la source de la
+// fiche, voix inchangée.
 // Planches : chaque passage corrigé dont le dessin change a la sienne dans pistes/planches/industrie_economie.tsx, rangée sous son
 // identifiant suffixé (« -p27 ») ou, si seul le dessin change, sous son champ board (editions/apply.ts).
 import type { VideoSource } from '../../types'

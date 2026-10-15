@@ -6,7 +6,7 @@
 // devant certains « : ») : la page ne doit pas changer d'un caractère ; le PDF les régularise en écrivant.
 
 import { shareText } from '../ui/format'
-import { CLOSE_GAP, displayScore, POINTS_PER_STROKE, type CandidateResult, type DealbreakerHit } from './score'
+import { CLOSE_GAP, displayScore, EXCLUDED_MIN_KNOWN, POINTS_PER_STROKE, type CandidateResult, type DealbreakerHit } from './score'
 import type { ElectionInfo, SpectrumAxisBloc } from './types'
 
 // Les mots de « Accords et désaccords », à part (core/agreeCopy.ts) pour l'image partagée qui les reprend
@@ -47,9 +47,15 @@ export const staleNotice = (n: number) =>
 export const READING_NEUTRAL = '50\u00a0%\u00a0: neutre'
 export const READING_STROKE = `1 bâton = ${POINTS_PER_STROKE} points`
 
-/** Accroche de l'affiche du plus proche */
-export const leaderLead = (allIncompatible: boolean) =>
-  allIncompatible ? 'Le moins concerné par vos lignes rouges' : 'Le plus proche de vos idées'
+/**
+ * Accroche de l'affiche du plus proche. someOff : des candidats hors classement ou non classés, absents du classement ;
+ * le plus proche ne l'est alors que parmi les candidats classés, et l'accroche le dit (décision du propriétaire du
+ * 2026-10-15) ; sans eux, elle est inchangée. Même précision quand tous les classés franchissent une ligne rouge : un
+ * non classé peut n'en franchir aucune (revue du 2026-10-15, dans l'esprit de la même décision)
+ */
+export const CLASSED_ONLY = 'parmi les candidats classés'
+export const leaderLead = (allIncompatible: boolean, someOff = false) =>
+  `${allIncompatible ? 'Le moins concerné par vos lignes rouges' : 'Le plus proche de vos idées'}${someOff ? ` ${CLASSED_ONLY}` : ''}`
 
 /** Sous l'affiche : le deuxième est trop près pour que l'écart compte */
 export const closeNote = (secondName: string) =>
@@ -132,14 +138,16 @@ export const EXCLUDED_NO_COMPARE =
 
 /**
  * Non classés : chapeau (la page ajoute le lien vers la règle). Pas de rang ; hors tendance, un score donné pour
- * information seulement, sur leurs seules positions connues (décision du propriétaire du 14 octobre 2026) : la même
- * phrase pour chacun, sans nommer personne. Pendant la tendance, aucun score n'est montré : la phrase n'en parle pas
+ * information seulement, sur leurs seules positions connues (décision du propriétaire du 14 octobre 2026), et
+ * seulement si sa position est connue sur au moins EXCLUDED_MIN_KNOWN de vos réponses (décision du propriétaire du
+ * 2026-10-15) : la même phrase pour chacun, sans nommer personne. Pendant la tendance, aucun score n'est montré : la
+ * phrase n'en parle pas
  */
 export const excludedLede = (n: number, provisional = false) =>
   (n === 1 ? 'Il n’a pas de rang, quelles que soient vos réponses.' : 'Ils n’ont pas de rang, quelles que soient vos réponses.') +
   (provisional
     ? ''
-    : ` ${n === 1 ? 'Son score' : 'Le score de chacun'}, calculé sur ses seules positions connues, est donné pour information seulement\u00a0: sur si peu de questions, il dépend surtout de celles auxquelles vous avez répondu. ${EXCLUDED_NO_COMPARE}`) +
+    : ` ${n === 1 ? 'Son score' : 'Le score de chacun'}, calculé sur ses seules positions connues, est donné pour information seulement\u00a0: sur si peu de questions, il dépend surtout de celles auxquelles vous avez répondu. Il n’est montré que si sa position est connue sur au moins ${EXCLUDED_MIN_KNOWN}\u00a0de vos réponses. ${EXCLUDED_NO_COMPARE}`) +
   (n === 1
     ? ' Sa fiche et ses positions restent consultables\u00a0; la liste sera revue à mesure que ses positions seront connues.'
     : ' Leurs fiches et leurs positions restent consultables\u00a0; la liste sera revue à mesure que leurs positions seront connues. Ordre tiré au hasard.')

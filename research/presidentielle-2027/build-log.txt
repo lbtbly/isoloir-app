@@ -1268,6 +1268,14 @@ position set europe-3 dupontaignan europe-3-f
 position removed europe-3 lepen europe-3-d
 position set europe-3 lepen europe-3-f
 position set europe-3 melenchon europe-3-f
+position set finances_publiques-1 retailleau finances_publiques-1-a
+position set finances_publiques-1 retailleau finances_publiques-1-g
+position set finances_publiques-1 philippot finances_publiques-1-g
+position set finances_publiques-1 philippot finances_publiques-1-b
+position set finances_publiques-3 retailleau finances_publiques-3-a
+position set territoires-1 retailleau territoires-1-c
+position set fiscalite-x1 retailleau fiscalite-x1-a
+position set industrie_economie-1 retailleau industrie_economie-1-b
 reuse-question-reworded fiscalite-1 <- choisir-2027:fiscalite-1 (62 % de l'énoncé modifié)
 reuse-question-reworded travail_salaires-3 <- choisir-2027:travail_salaires-4 (40 % de l'énoncé modifié)
 reuse-question-reworded travail_salaires-4 <- choisir-2027:travail_salaires-3 (54 % de l'énoncé modifié)
@@ -1335,8 +1343,6 @@ reuse-explainer-local institutions-1
 reuse-explainer-local institutions-3
 reuse-explainer-local laicite_republique-1
 reuse-explainer-local laicite_republique-2
-revision-fond finances_publiques-1 -> 2.0
-revision-fond europe-3 -> 2.0
 include faure 158 positions
 include guedj 103 positions
 include maurel 128 positions

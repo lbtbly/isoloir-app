@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-15 13:50:54",
+  "commande": "--scan --voice aigue --segment impots-dette-06-p27",
+  "passages": [
+    {
+      "voix": "aigue",
+      "video": "impots-dette",
+      "passage": "impots-dette-06-p27",
+      "fichier": "/Users/lambertbouley/Claude/Politique/primaire-de-gauche/.claude/worktrees/design-cta/public/videos/audio/aigue/impots-dette/impots-dette-06-p27.m4a",
+      "texte": "Réduire le déficit freine la dette, mais oblige à dépenser moins, à prélever plus ou à accroître les recettes en produisant plus. Emprunter davantage évite de dépenser moins ou de prélever plus, mais alourdit la dette.",
+      "duree_s": 11.54,
+      "verdict": "ok",
+      "n_net": 0,
+      "n_leger": 0,
+      "evenements": [],
+      "ref_db": -21.9,
+      "bruit_db": -66.9,
+      "temps_alignement_s": 1.434,
+      "temps_s": 1.478
+    }
+  ],
+  "a_refaire": [],
+  "temps_s": 1.5
+}

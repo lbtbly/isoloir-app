@@ -97,11 +97,15 @@ export function agreeLayout(rows: number, tail: number, scope: AgreeScope): { he
   return { height, rowH: Math.min(AGREE_ROW_MAX, Math.floor((height - fixed) / n)) }
 }
 
-/** Le début du sous-titre : quels candidats (« Les 5 plus proches de mes idées », « Les 15 candidats classés ») */
+/**
+ * Le début du sous-titre : quels candidats (« Les 5 plus proches de mes idées », « Les 15 candidats classés »). Avec
+ * des candidats hors classement ou non classés, « Les 5 classés les plus proches » : le plus proche ne l'est que parmi
+ * les classés, comme sur l'affiche du dépouillement (décision du propriétaire du 2026-10-15)
+ */
 export function agreeLead(results: Results, scope: AgreeScope, shown: number): string {
   const off = results.unranked.length + results.excluded.length > 0
-  if (scope === 'top') return `Les ${shown} plus proches de mes idées`
-  if (scope === 'flop') return `Les ${shown} plus éloignés de mes idées`
+  if (scope === 'top') return `Les ${shown}${off ? ' classés les' : ''} plus proches de mes idées`
+  if (scope === 'flop') return `Les ${shown}${off ? ' classés les' : ''} plus éloignés de mes idées`
   return shown > 1 ? `Les ${shown} candidats${off ? ' classés' : ''}` : `Le candidat${off ? ' classé' : ''}`
 }
 

@@ -68,6 +68,7 @@ import {
   CLOSE_GAP,
   computeResults,
   displayScore,
+  excludedShown,
   indicativeShown,
   knownQuestions,
   methodPeers,
@@ -669,7 +670,8 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
         <Unranked items={unranked} minShare={results.minCoverageShare} provisional={provisional} byId={byId} />
 
         {/* Non classés de l'élection : toujours nommés, même pendant la tendance, sans rang ; hors tendance, leur score
-            indicatif (décision du propriétaire du 14 octobre 2026) */}
+            indicatif (décision du propriétaire du 14 octobre 2026), à partir de 5 réponses où leur position est connue
+            (décision du propriétaire du 2026-10-15) */}
         <Excluded pack={pack} items={results.excludedResults} provisional={provisional} byId={byId} />
 
         {provisional || !ranking.length ? null : <Agreement results={results} byId={byId} />}
@@ -1039,7 +1041,9 @@ function Unranked({
                     <span class="sr-only">, </span>
                     {indicativeScore(shown)}
                   </span>
-                ) : null}
+                ) : provisional ? null : (
+                  <span class="unranked-score-slot" aria-hidden="true" />
+                )}
                 {touched ? (
                   <span class="unranked-flag">
                     <span class="sr-only">, </span>
@@ -1061,8 +1065,10 @@ function Unranked({
  * questions. Toujours nommés sous le classement, dans un ordre tiré au hasard, sur le modèle du hors classement : sur
  * combien de questions de la banque, puis de vos réponses, leur position est connue ; hors tendance, un score
  * indicatif, pour information seulement (décision du propriétaire du 14 octobre 2026), calculé sur leurs seules
- * positions connues (aucun sans position connue sur vos réponses) ; une ligne rouge franchie, dite en clair pour
- * qu'un score ne la cache jamais. Ni rang, ni bâtons, ni couleur de palier. Le nom mène à la fiche, comme au classement.
+ * positions connues, montré seulement si leur position est connue sur au moins EXCLUDED_MIN_KNOWN de vos réponses
+ * (décision du propriétaire du 2026-10-15 ; sinon, seulement « Connu sur X de vos N réponses », sa place gardée
+ * vide en large pour que les colonnes restent alignées) ; une ligne rouge franchie, dite en clair pour qu'un score ne
+ * la cache jamais. Ni rang, ni bâtons, ni couleur de palier. Le nom mène à la fiche, comme au classement.
  */
 function Excluded({
   pack,
@@ -1093,7 +1099,7 @@ function Excluded({
           const c = byId.get(r.candidateId)!
           const touched = r.dealbreakers.length
           const flagged = !r.compatible
-          const shown = indicativeShown(r, provisional)
+          const shown = excludedShown(r, provisional)
           return (
             <li key={r.candidateId} class={`unranked-item${flagged ? ' is-flagged' : ''}`}>
               <Portrait candidate={c} size="small" decorative />
@@ -1115,7 +1121,9 @@ function Excluded({
                     <span class="sr-only">, </span>
                     {indicativeScore(shown)}
                   </span>
-                ) : null}
+                ) : provisional ? null : (
+                  <span class="unranked-score-slot" aria-hidden="true" />
+                )}
                 {touched ? (
                   <span class="unranked-flag">
                     <span class="sr-only">, </span>

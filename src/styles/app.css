@@ -5364,6 +5364,11 @@ details[open] > summary .summary-label {
   }
 }
 
+/* Place d'un score non montré : seulement en large (ci-dessous), où les lignes s'alignent à droite */
+.unranked-score-slot {
+  display: none;
+}
+
 /* Large : la couverture et le score indicatif à droite du nom, sur la même ligne. Le nom garde au moins 14rem : une
    méta longue (non classés : banque, réponses, score, ligne rouge) passe alors sur plusieurs lignes, alignées à
    droite, au lieu d'écraser le nom lettre par lettre (tablettes et petits portables, de 48 à 72rem) */
@@ -5377,6 +5382,19 @@ details[open] > summary .summary-label {
     justify-content: flex-end;
     margin: 0;
     text-align: right;
+  }
+
+  /* Non classé connu sur trop peu de vos réponses (moins de EXCLUDED_MIN_KNOWN, décision du propriétaire du
+     2026-10-15) : pas de score, mais sa place est gardée, vide, pour que les colonnes des lignes restent alignées.
+     Le texte de réserve est un contenu généré, invisible et hors de la lecture vocale */
+  .unranked-score-slot {
+    display: inline-block;
+    font-weight: 650;
+    visibility: hidden;
+  }
+
+  .unranked-score-slot::before {
+    content: 'Score indicatif\a0: 00\a0%';
   }
 }
 

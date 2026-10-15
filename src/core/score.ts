@@ -17,7 +17,8 @@
 // - Non classés (élections qui en désignent, election.ranking.excluded) : candidats sortis du classement par décision
 //   du propriétaire, positions connues sur trop peu de questions. Aucun rang, aucune comparaison. Un score indicatif,
 //   pour information seulement (décision du propriétaire du 14 octobre 2026) : le même calcul que pour tous, sur leurs
-//   seules positions connues, fait à part, après le classement, qu'il ne touche en rien.
+//   seules positions connues, fait à part, après le classement, qu'il ne touche en rien. Montré seulement si leur
+//   position est connue sur au moins EXCLUDED_MIN_KNOWN (5) de vos réponses (décision du propriétaire du 2026-10-15).
 
 import { hasOpinion } from './answers'
 import { seededShuffle } from './rng'
@@ -317,11 +318,27 @@ export function methodPeers(ranking: CandidateResult[], allIncompatible: boolean
 export const displayScore = (score: number | null) => (score === null ? null : Math.round(score))
 
 /**
- * Score indicatif montré pour un candidat hors classement ou non classé : aucun pendant la tendance (provisional), ni
- * sans position connue sur vos réponses (score null) ; sinon son score, le même calcul que pour tous
+ * Score indicatif montré pour un candidat hors classement : aucun pendant la tendance (provisional), ni sans position
+ * connue sur vos réponses (score null) ; sinon son score, le même calcul que pour tous. Les non classés passent par
+ * excludedShown, qui y ajoute le seuil EXCLUDED_MIN_KNOWN
  */
 export const indicativeShown = (r: Pick<UnrankedResult, 'score'>, provisional: boolean): number | null =>
   provisional ? null : r.score
+
+/**
+ * Non classés : leur score indicatif n'est montré que si leur position est connue sur au moins ce nombre de vos
+ * réponses (décision du propriétaire du 2026-10-15) ; en dessous, seulement « Connu sur X de vos N réponses ». Le
+ * calcul ne change pas : le double JSON garde le score calculé (décision : « Garder »), seul l'affichage (page, PDF)
+ * en dépend. La règle « hors classement » n'a pas ce seuil
+ */
+export const EXCLUDED_MIN_KNOWN = 5
+
+/**
+ * Score indicatif montré pour un candidat non classé : comme indicativeShown, et seulement si sa position est connue
+ * sur au moins EXCLUDED_MIN_KNOWN de vos réponses
+ */
+export const excludedShown = (r: Pick<UnrankedResult, 'score' | 'known'>, provisional: boolean): number | null =>
+  r.known < EXCLUDED_MIN_KNOWN ? null : indicativeShown(r, provisional)
 
 /** Au dépouillement, un bâton vaut 5 points d'affinité : les bâtons racontent exactement le classement */
 export const POINTS_PER_STROKE = 5

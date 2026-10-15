@@ -52,7 +52,11 @@ export interface ExportFile {
       candidat: string
       questionsConnuesDansLaBanque: number
       questionsDeLaBanque: number
-      /** Score indicatif, sur ses seules positions connues : ne se compare pas au classement ; null sans position connue sur vos réponses */
+      /**
+       * Score indicatif, sur ses seules positions connues : ne se compare pas au classement ; null sans position connue
+       * sur vos réponses. Toujours la valeur calculée, même connu sur moins de EXCLUDED_MIN_KNOWN de vos réponses, où la
+       * page et le PDF ne le montrent pas (décision du propriétaire du 2026-10-15 : « Garder »)
+       */
       affiniteIndicative: number | null
       questionsConnues: number
       questionsNotees: number

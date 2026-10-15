@@ -67,7 +67,7 @@ import {
   UNSTABLE_NOTE,
 } from './resultsCopy'
 import { withBase } from './routes'
-import { displayScore, knownQuestions, METHOD_VERSION, methodPeers, strokesFor, type CandidateResult, type Results, type UnrankedResult } from './score'
+import { displayScore, excludedShown, knownQuestions, METHOD_VERSION, methodPeers, strokesFor, type CandidateResult, type Results, type UnrankedResult } from './score'
 import type { SessionState } from './storage'
 import type { Candidate, ElectionPack } from './types'
 import { VOTING_NOTE, withArticle } from '../ui/components/CurrentElection'
@@ -522,7 +522,7 @@ export function renderReport(input: ReportInput): ReportOutput {
         c.rect(ML, y, CW, height, C.copy)
         c.line(ML, y + 1.125, MR, y + 1.125, thin(C.copyPrint, 2.25))
         identityTile(c, ML + 16, y + 18, 66, c0.initials, { ink: C.copyPrint, paper: C.paper, angle: 2, size: 26, tz: 72 })
-        c.text(X, y + 30, leaderLead(allIncompatible), st('B', 9, C.copySoft))
+        c.text(X, y + 30, leaderLead(allIncompatible, someOff), st('B', 9, C.copySoft))
         const nameStyle = st('B', 25, C.copyPrint, 80)
         c.text(X, y + 58, truncate(c0.name, colW, nameStyle), nameStyle)
         const color = PDF_BANDS[band.key].copy
@@ -717,7 +717,9 @@ export function renderReport(input: ReportInput): ReportOutput {
   }
 
   // Non classés : comme le hors classement, sans rang ; leur score indicatif, pour information seulement (décision du
-  // propriétaire du 14 octobre 2026), et une ligne rouge franchie dite en clair (le PDF n'est jamais une tendance)
+  // propriétaire du 14 octobre 2026), seulement si leur position est connue sur au moins EXCLUDED_MIN_KNOWN de vos
+  // réponses (décision du propriétaire du 2026-10-15), et une ligne rouge franchie dite en clair (le PDF n'est jamais
+  // une tendance)
   if (results.excludedResults.length) {
     const n = results.excludedResults.length
     const title = excludedTitle(n)
@@ -729,7 +731,8 @@ export function renderReport(input: ReportInput): ReportOutput {
         { text: bankKnownLine(knownQuestions(pack, r.candidateId), total), style: st('R', 7.5, C.soft) },
         { text: knownLine(r.known, r.answered), style: st('R', 7.5, C.soft) },
       ]
-      if (r.score !== null) right.push({ text: indicativeScore(r.score), style: st('B', 7.5) })
+      const shown = excludedShown(r, false)
+      if (shown !== null) right.push({ text: indicativeScore(shown), style: st('B', 7.5) })
       if (r.dealbreakers.length) right.push({ text: redLineSummary(r.dealbreakers), style: st('R', 7.5, C.soft), cross: true })
       flow.place(sideRow(r.candidateId, right, { pale: !r.compatible, i, n, title }))
     })

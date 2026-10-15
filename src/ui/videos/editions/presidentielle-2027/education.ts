@@ -16,11 +16,10 @@
 // question ici (education-15 : « Voir la fiche » relève de scope.ts, de nouvelles vidéos d'une décision à part).
 // Planches : chaque passage corrigé dont le dessin change a la sienne dans pistes/planches/education.tsx, rangée sous son
 // identifiant suffixé (« -p27 ») ou, si seul le dessin change, sous son champ board (editions/apply.ts).
-// Attention : la fiche education-2 propre à la présidentielle (research/presidentielle-2027/explainers.json, écrite
-// le 8 octobre, après la relecture) montre en figures[1] « 66 % contre 73 % » (collèges et lycées) et les écoles
-// privées en millions d'euros ; elle ne donne ni 52 % ni 56 % ni la part des collectivités. Le passage ecole-prive-03
-// reprend le texte arbitré (education-4, chiffres lus dans les RERS 2026, fiche 10.04) : la fiche ou ce passage
-// est à aligner avant la séance de voix.
+// Décision du propriétaire du 2026-10-15 (n° 6) : la fiche education-2 porte en figures[1] « 52 % et 66 % » et le
+// libellé d'ecole-prive-03 (RERS 2026, fiche 10.04, graphique 3) ; son graphique compte quatre barres aux étiquettes
+// courtes (« Privé, écoles »…), que le graphique d'ecole-prive-03 doit copier (32 caractères au plus, contrôle de
+// build-pack).
 // Autres écarts avec ces fiches natives, à trancher par le propriétaire (hors de ce fichier, avant la séance de
 // voix) : le passage ajouté (education-6) garde le libellé arbitré de figures[3] et le graphique à deux barres
 // (élémentaire), alors que le graphique n° 3 de la fiche education-2 compte quatre barres (maternelle comprise) ;

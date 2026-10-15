@@ -50,6 +50,17 @@ export const FISCALITE: SeriesPatch = {
           spoken: 'Le Gouvernement prévoit que le déficit remonte à cinq virgule quatre pour cent en deux mille vingt-six, puis revienne à cinq pour cent en deux mille vingt-sept. Le Haut Conseil des finances publiques juge un retour sous trois pour cent en deux mille vingt-neuf « très peu vraisemblable », sauf conjoncture très favorable.',
           emphasis: ['remonte', 'très peu vraisemblable'],
         },
+        // fiscalite-15, décision du propriétaire du 2026-10-15 : la réduction du déficit nomme aussi la voie qui
+        // accroît les recettes par la production (approche finances_publiques-1-h), à égalité avec « dépenser moins »
+        // et « prélever plus » ; la phrase sur l'emprunt n'en dit rien. « et ses intérêts » quitte les deux phrases :
+        // les sous-titres restent sous le plus long passage de la vidéo (impots-dette-05-p27). Voix propre
+        // (impots-dette-06-p27) et planche propre (dette06Edition) : la production y est posée hors du tableau, sous la
+        // seule colonne de la réduction, pour que le tableau ne compare pas les deux choix sur elle (revue du 2026-10-15).
+        'impots-dette-06': {
+          say: 'Réduire le déficit freine la dette, mais oblige à dépenser moins, à prélever plus ou à accroître les recettes en produisant plus. Emprunter davantage évite de dépenser moins ou de prélever plus, mais alourdit la dette.',
+          draw: 'Le tableau à deux colonnes : « réduire le déficit » d’un côté, « emprunter davantage » de l’autre ; pour la dette, les dépenses et les prélèvements, une flèche qui monte, qui descend, ou un signe égal. Sous la seule colonne « réduire le déficit », hors du tableau, une troisième voie : « ou », une flèche qui monte, « production ».',
+          alt: 'Trois lignes, la dette, les dépenses, les prélèvements ; pour chaque choix, ce qui monte, ce qui baisse, ce qui ne bouge pas ; sous « réduire le déficit », hors du tableau, une troisième voie : la production, qui monte.',
+        },
       },
     },
     // fiscalite-8 : le libellé du chiffre reprend la précision de la fiche (Insee Focus n° 371, section Sources).

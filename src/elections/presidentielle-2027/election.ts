@@ -19,14 +19,16 @@ export const election: ElectionInfo = {
     { label: 'Premier tour', start: '2027-04-17T08:00:00-04:00', end: '2027-04-18T20:00:00+02:00' },
     { label: 'Second tour', start: '2027-05-01T08:00:00-04:00', end: '2027-05-02T20:00:00+02:00' },
   ],
-  dataVersion: '2026-10-14.1',
-  // Avancée au 14 octobre 2026 (convention de PIPELINE §12 : la date suit les positions relevées à nouveau) : les
-  // positions de Natacha Polony et celles des deux approches ajoutées ce jour-là sont relevées le 14 ; les autres sont
+  dataVersion: '2026-10-15.1',
+  // Avancée au 15 octobre 2026 (convention de PIPELINE §12 : la date suit les positions relevées à nouveau) : les
+  // positions de Bruno Retailleau et de Florian Philippot sur finances_publiques-1, et quatre autres de Bruno Retailleau
+  // tirées du même plan, sont relevées le 15 (décisions du propriétaire du 2026-10-15), celles de Natacha Polony et des
+  // deux approches ajoutées le 14 ; les autres sont
   // restées arrêtées au 9 octobre, ce que dit la première note (Méthode, juste après la date)
-  dataFrozenAt: '2026-10-14',
+  dataFrozenAt: '2026-10-15',
   finalists: null,
   notes: [
-    'Les positions de Natacha Polony, déclarée le 14 octobre 2026, et celles qui portent sur les deux approches ajoutées ce jour-là ont été relevées le 14 octobre\u00a0; les autres n’ont pas été relevées à nouveau depuis le 9 octobre 2026.',
+    'Les positions de Bruno Retailleau tirées de son plan d’économies du 12 octobre 2026 (dette, agents publics, services publics, impôts, aides aux entreprises) et celle de Florian Philippot sur la stratégie face à la dette publique ont été relevées le 15 octobre 2026, celles de Natacha Polony, déclarée le 14 octobre 2026, et celles qui portent sur les deux approches ajoutées ce jour-là, le 14 octobre\u00a0; les autres n’ont pas été relevées à nouveau depuis le 9 octobre 2026.',
     'Les positions ont été relevées dans des sources publiques récentes (déclarations, interviews, propositions de loi, votes, programmes des partis) et peuvent avoir évolué depuis.',
     'Beaucoup de candidats n’ont pas encore publié leur programme : les positions inconnues sont donc fréquentes.',
   ],
@@ -200,6 +202,27 @@ export const election: ElectionInfo = {
   // une réponse donnée sur une version antérieure d'une question est mise de côté, à revoir.
   revisionTracking: true,
   changelog: [
+    {
+      date: '2026-10-15',
+      // Décisions du propriétaire du 2026-10-15 (n° 3 et 4). En tête du dépouillement d'un visiteur qui revient (Results,
+      // latestChange : à date égale, la première écrite) : ce qui change, pour qui ; le détail (avant, après, raison,
+      // sources) est dans research/presidentielle-2027/positions-history.json et dans les notes de decisions.json
+      text: 'Positions revues sur la question «\u00a0Quelle stratégie pour les finances publiques face à la dette\u00a0?\u00a0»\u00a0: pour Bruno Retailleau, résumés et sources mis à jour d’après son plan d’économies du 12 octobre 2026, ses approches restant les mêmes, comme sur quatre autres questions (nombre d’agents publics, accès aux services publics, niveau des impôts, aides aux entreprises)\u00a0; pour Florian Philippot, son approche principale devient les économies d’abord sur le fonctionnement de l’État, et celle qui vise l’immigration, l’aide internationale et la contribution européenne devient son approche compatible. Positions relevées le 15 octobre et vérifiées automatiquement par une IA contre leurs sources, sans relecture humaine une par une. Les chiffres publiés sur la page «\u00a0Mon profil politique\u00a0» ont été mesurés à nouveau.',
+    },
+    {
+      date: '2026-10-15',
+      // Décision du propriétaire du 2026-10-15 (n° 6) : fiches industrie_economie-3, education-2 et territoires-1,
+      // alignées sur les faits vérifiés des vidéos corrigées ; sans effet sur le score
+      text: 'Trois fiches «\u00a0Comprendre l’enjeu\u00a0» complétées\u00a0: l’État au capital des entreprises (le droit européen laisse chaque pays libre du régime de propriété\u00a0; règles sur les aides d’État), le financement des écoles privées sous contrat (part de l’État à l’école, au collège et au lycée, dans le privé et dans le public) et l’accès aux services publics (nombre de maternités depuis 2000, selon la Cour des comptes). Textes rédigés par IA et vérifiés automatiquement sur leurs sources, sans relecture humaine.',
+    },
+    {
+      date: '2026-10-15',
+      // Décisions du propriétaire du 2026-10-15 (n° 1 et 2). Écrite après les deux entrées du même jour : à date égale,
+      // c'est la première écrite qui s'affiche en tête du dépouillement d'un visiteur qui revient (Results,
+      // latestChange). Elle précise en partie l'entrée du 14 octobre sur le score indicatif. Les données ne changent
+      // pas : pas de nouvelle dataVersion
+      text: 'Le score indicatif d’un candidat non classé n’est plus montré que si sa position est connue sur au moins 5 de vos réponses, et l’affiche du dépouillement précise désormais «\u00a0parmi les candidats classés\u00a0».',
+    },
     {
       date: '2026-10-14',
       // En tête du dépouillement d'un visiteur qui revient (Results, latestChange : à date égale, la première écrite) :

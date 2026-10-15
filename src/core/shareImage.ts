@@ -331,6 +331,14 @@ export function drawFoot(ctx: CanvasRenderingContext2D, results: Results, showFl
   ctx.fillText(foot, M, height - 50)
 }
 
+/**
+ * Sous-titre de l'affiche des plus éloignés ; avec des candidats hors classement ou non classés, « Les classés les plus
+ * éloignés » : l'affiche ne montre que les classés (décision du propriétaire du 2026-10-15, comme l'affiche du plus
+ * proche)
+ */
+export const flopLead = (results: Results) =>
+  results.unranked.length + results.excluded.length > 0 ? 'Les classés les plus éloignés de mes idées' : 'Les plus éloignés de mes idées'
+
 export async function renderShareImage(
   pack: ElectionPack,
   results: Results,
@@ -339,7 +347,7 @@ export async function renderShareImage(
   await loadFonts()
   const { canvas, ctx } = paperCanvas(IMAGE_H)
   const view = options.view ?? 'top'
-  drawTop(ctx, pack, results, 'Mon dépouillement', onAnswers(view === 'flop' ? 'Les plus éloignés de mes idées' : 'Affinité d’idées', results.answered))
+  drawTop(ctx, pack, results, 'Mon dépouillement', onAnswers(view === 'flop' ? flopLead(results) : 'Affinité d’idées', results.answered))
 
   // Lignes du classement
   const { shown: ranking, others } = posterRanking(results, options.showFlags, view)

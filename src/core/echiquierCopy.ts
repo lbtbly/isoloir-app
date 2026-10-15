@@ -426,11 +426,13 @@ export const METHOD_LINK = 'La méthode en détail'
  */
 export const ECHIQUIER_PUBLISHED = {
   // Mesure refaite le 14 octobre 2026 (entrée de Natacha Polony, non classée, et des deux approches ajoutées ce jour-là) :
-  // hitWithout 70 → 71, randomPerProfile 1,4 → 1,3 ; le reste inchangé (journal du 14 octobre)
+  // hitWithout 70 → 71, randomPerProfile 1,4 → 1,3 ; le reste inchangé (journal du 14 octobre). Refaite le 15 octobre
+  // 2026, à 1 000 profils (positions de Bruno Retailleau et de Florian Philippot sur finances_publiques-1, décisions du
+  // propriétaire du 2026-10-15) : hitWithout 71 → 70 ; le reste inchangé (journal du 15 octobre)
   /** Date de la mesure */
-  measured: '2026-10-14',
+  measured: '2026-10-15',
   /** Clones larges, sans le candidat : part des lectures qui désignent son bloc (%) */
-  hitWithout: 71,
+  hitWithout: 70,
   /** La même part, bloc vrai par bloc vrai : la plus basse et la plus haute (%) */
   hitWithoutMin: 44,
   hitWithoutMax: 91,
@@ -450,8 +452,8 @@ export const ECHIQUIER_PUBLISHED = {
    * Un seul accord par question (avec ou sans désaccords ailleurs) : dans la synthèse, la part moyenne des blocs que
    * la grille classe aux extrêmes, rapportée à celle du bloc qu'elle classe à gauche ; sur la banque entière, puis sur
    * le seul questionnaire rapide. Ce rapport varie d'un échantillon à l'autre (de 1,3 à 1,7 sur la banque entière, de
-   * 2,0 à 2,3 sur le rapide, pour 200 à 2 000 profils par façon de répondre) : la valeur publiée est leur milieu. Mesure du
-   * 14 octobre 2026, à 1 000 profils : 1,7 et 2,4, gardés à 1,5 et 2,2, que la Méthode dit de la même façon (« environ une
+   * 2,0 à 2,3 sur le rapide, pour 200 à 2 000 profils par façon de répondre) : la valeur publiée est leur milieu. Mesures du
+   * 14 et du 15 octobre 2026, à 1 000 profils : 1,7 et 2,4, gardés à 1,5 et 2,2, que la Méthode dit de la même façon (« environ une
    * fois et demie », « environ deux fois »). Avis mêlés : chaque bloc reçoit de 17 à 22 % des lectures, aucun n'est favorisé.
    */
   oneChoiceRatio: 1.5,
