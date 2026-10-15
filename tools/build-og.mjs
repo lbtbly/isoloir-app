@@ -170,7 +170,8 @@ h1 {
 </body>
 </html>`
 
-const browser = await chromium.launch()
+// Son coupé : aucun outil ne doit jouer de son (règle du propriétaire)
+const browser = await chromium.launch({ args: ['--mute-audio'] })
 try {
   const page = await browser.newPage({ viewport: { width: W, height: H }, deviceScaleFactor: 1 })
   await page.setContent(html)
