@@ -483,6 +483,14 @@ q {
   margin: 0;
 }
 
+/* Une approche apparue depuis la réponse (feuille, question qui a changé) : le tampon d'alerte « Nouvelle » au-dessus
+   de son texte, dans le paragraphe (une rangée à lui) ; la ligne vient en tête de la question */
+.approach-text .approach-stamp {
+  display: flex;
+  width: max-content;
+  margin: 0.15rem 0 0.45rem;
+}
+
 .ruler-row {
   display: flex;
   align-items: center;
@@ -1159,6 +1167,26 @@ path.ink-draw {
   font-size: 1.45rem;
   font-weight: 850;
   font-variant-numeric: tabular-nums;
+}
+
+/* Le tampon d'alerte encré : aplat rouge, lettres blanches, pour attirer l'œil (demande du propriétaire du
+   2026-10-15). Il garde le geste du tampon : tourné de -4°, capitales serrées, bord net de 2px, et un filet blanc
+   d'un pixel à l'intérieur, comme le double cadre d'un tampon de caoutchouc. « À revoir » sur la carte des questions
+   changées (accueil, dépouillement), « Nouvelle » sur une approche apparue depuis la réponse (feuille). Les autres
+   tampons (date, « Résultat provisoire ») restent au trait noir. En contraste forcé, l'aplat tombe et le cadre reste. */
+.stamp.is-alert {
+  padding: 0.3rem 0.6rem 0.25rem;
+  border-color: var(--stamp-alert);
+  background: var(--stamp-alert);
+  color: var(--on-stamp-alert);
+  box-shadow: inset 0 0 0 1px var(--on-stamp-alert);
+}
+
+.stamp.is-alert .stamp-label {
+  overflow-wrap: anywhere;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
 }
 
 .legend {
