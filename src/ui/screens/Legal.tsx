@@ -377,7 +377,7 @@ export function Legal({ pack, seed }: { pack: ElectionPack; seed: string }) {
             <p>
               Les logos des partis, sur la page des candidats, sont des marques de leurs titulaires, reproduites à la
               seule fin d’identifier chaque parti ; leur provenance (Wikimedia Commons, Wikipédia ou le site du parti)
-              est détaillée dans le dépôt du code (<span class="nowrap">media/CREDITS.md</span>).
+              est détaillée dans le dépôt du code (<span class="file-name">media/CREDITS.md</span>).
             </p>
           ) : null}
         </section>
