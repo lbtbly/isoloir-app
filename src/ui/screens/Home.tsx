@@ -19,7 +19,7 @@ import { ProfileBand, ProfilePeek } from '../components/ProfileEntry'
 import { FormHeader } from '../components/FormHeader'
 import { Icon } from '../components/Icon'
 import { Journey } from '../components/Journey'
-import { SiteFooter } from '../components/SiteFooter'
+import { HomeFooter } from '../components/SiteFooter'
 import { FilmPlayer } from '../film/Player'
 import { ctaNote as ctaNoteOf } from '../film/script'
 import { BlindDiagram, FlowDiagram, MethodDiagram } from '../components/Diagrams'
@@ -58,6 +58,9 @@ interface Props {
 export function Home({ pack, state, essential, stale, results, setState, eraseAll, saved }: Props) {
   const { election } = pack
   const file = useRef<HTMLInputElement>(null)
+  // « Reprendre depuis un fichier » : le focus y revient quand l'action qu'on vient de quitter disparaît (effacement
+  // confirmé, import annulé), plutôt que de tomber sur la page
+  const importButton = useRef<HTMLButtonElement>(null)
   const sheet = useRef<HTMLElement>(null)
   // Sous le héros, chaque bloc entre à l'écran d'un léger glissé ; les trois panneaux du parcours ensemble
   useReveal(
@@ -67,6 +70,7 @@ export function Home({ pack, state, essential, stale, results, setState, eraseAl
   )
   const [importError, setImportError] = useState<string | null>(null)
   const [pending, setPending] = useState<{ state: SessionState; note: string } | null>(null)
+  const [erased, setErased] = useState(false)
 
   const seen = essential.filter(q => state.answers[q.id]).length
   const answered = essential.filter(q => isAnswered(state.answers[q.id])).length
@@ -196,7 +200,8 @@ export function Home({ pack, state, essential, stale, results, setState, eraseAl
   return (
     <div class="screen screen-home">
       {/* Une seule barre : l'en-tête porte l'appel principal, toujours visible */}
-      <FormHeader title={election.shortName} home action={{ href: startHref, label: startLabel, short: shortLabel }} />
+      {/* Des questions à revoir : leur carte porte le seul aplat bleu de la vue, l'appel de l'en-tête passe au trait */}
+      <FormHeader title={election.shortName} home action={{ href: startHref, label: startLabel, short: shortLabel, quiet: stale.length > 0 }} />
       <main class="sheet home-sheet" id="contenu" tabIndex={-1} ref={sheet}>
         {back ? (
           <WelcomeBack
@@ -366,57 +371,101 @@ export function Home({ pack, state, essential, stale, results, setState, eraseAl
             Tous les candidats et leurs positions
           </a>
         </section>
-
-        <section class="home-more" aria-label="Autres actions">
-          <div class="link-row">
-            {done ? (
-              <a class="btn-text" href={link(`/feuille/1`)}>
-                Relire la feuille
-              </a>
-            ) : null}
-            {hasTable(election) ? (
-              <a class="btn-text" href={link('/a-table')}>
-                <Icon name="table" />
-                À plusieurs, autour d’une table
-              </a>
-            ) : null}
-            <button type="button" class="btn-text" onClick={() => file.current?.click()}>
-              <Icon name="upload" />
-              Reprendre depuis un fichier
-            </button>
-            <input ref={file} type="file" accept="application/json,.json" class="sr-only" tabIndex={-1} onChange={onImport} />
-            {started ? <ConfirmErase onErase={eraseAll} /> : null}
-          </div>
-          {pending ? (
-            <div class="notice" role="alert">
-              <p>
-                {started ? 'Remplacer la feuille en cours par celle du fichier ? ' : ''}
-                {pending.note}
-              </p>
-              <span class="confirm">
-                <button type="button" class="btn-text is-danger" onClick={() => apply(pending.state)}>
-                  {started ? 'Remplacer ma feuille' : 'Continuer'}
-                </button>
-                <button type="button" class="btn-text" onClick={() => setPending(null)}>
-                  Annuler
-                </button>
-              </span>
-            </div>
-          ) : null}
-          {importError ? (
-            <p class="error" role="alert">
-              {importError}
-            </p>
-          ) : null}
-          {!saved ? (
-            <p class="notice" role="status">
-              Ce navigateur n’enregistre pas votre progression (navigation privée ou stockage bloqué). Vous pourrez
-              télécharger votre double depuis les résultats.
-            </p>
-          ) : null}
-        </section>
       </main>
-      <SiteFooter>
+      {/* Le pied de l'accueil, pleine largeur sur fond d'encre (demande du propriétaire du 2026-10-15) : les actions sur
+          la feuille, « À table », et la mention et les notices du pied commun */}
+      <HomeFooter
+        table={hasTable(election)}
+        lede={
+          !saved
+            ? undefined
+            : started
+              ? 'Elle reste sur cet appareil. Pour la reprendre ailleurs, téléchargez son double depuis le dépouillement.'
+              : 'Commencée sur un autre appareil\u00a0? Reprenez-la depuis son double, le fichier téléchargé au dépouillement.'
+        }
+        actions={
+          <>
+            {done ? (
+              <li>
+                <a class="btn-text" href={link(`/feuille/1`)}>
+                  <Icon name="reread" />
+                  Relire la feuille
+                </a>
+              </li>
+            ) : null}
+            <li>
+              <button type="button" class="btn-text" ref={importButton} onClick={() => file.current?.click()}>
+                <Icon name="upload" />
+                Reprendre depuis un fichier
+              </button>
+              {/* Hors de l'arbre d'accessibilité : le bouton ci-dessus porte l'action, le champ n'en est que l'outil */}
+              <input
+                ref={file}
+                type="file"
+                accept="application/json,.json"
+                class="sr-only"
+                tabIndex={-1}
+                aria-hidden="true"
+                onChange={onImport}
+              />
+            </li>
+            {started ? (
+              <li>
+                <ConfirmErase
+                  onErase={() => {
+                    eraseAll()
+                    // Tout effacer, c'est aussi oublier un import en attente
+                    setPending(null)
+                    setImportError(null)
+                    setErased(true)
+                    requestAnimationFrame(() => importButton.current?.focus())
+                  }}
+                />
+              </li>
+            ) : null}
+          </>
+        }
+        notes={
+          <>
+            {pending ? (
+              <div class="notice" role="alert">
+                <p>
+                  {started ? 'Remplacer la feuille en cours par celle du fichier\u00a0? ' : ''}
+                  {pending.note}
+                </p>
+                <span class="confirm">
+                  <button type="button" class="btn-text is-danger" onClick={() => apply(pending.state)}>
+                    {started ? 'Remplacer ma feuille' : 'Continuer'}
+                  </button>
+                  <button
+                    type="button"
+                    class="btn-text"
+                    onClick={() => {
+                      setPending(null)
+                      importButton.current?.focus()
+                    }}
+                  >
+                    Annuler
+                  </button>
+                </span>
+              </div>
+            ) : null}
+            {/* Toujours présente, pour que l'annonce soit lue ; l'avis s'efface dès qu'une feuille recommence */}
+            <div role="status">{erased && !started ? <p class="notice">Vos réponses ont été effacées de cet appareil.</p> : null}</div>
+            {importError ? (
+              <p class="error" role="alert">
+                {importError}
+              </p>
+            ) : null}
+            {!saved ? (
+              <p class="notice" role="status">
+                Ce navigateur n’enregistre pas votre progression (navigation privée ou stockage bloqué). Vous pourrez
+                télécharger votre double depuis les résultats.
+              </p>
+            ) : null}
+          </>
+        }
+      >
         {election.rounds.length ? (
           <p>
             Vote&nbsp;:{' '}
@@ -435,7 +484,7 @@ export function Home({ pack, state, essential, stale, results, setState, eraseAl
             .
           </p>
         ) : null}
-      </SiteFooter>
+      </HomeFooter>
     </div>
   )
 }

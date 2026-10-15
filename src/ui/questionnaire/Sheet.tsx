@@ -35,6 +35,11 @@ export interface SheetProps {
   notice?: ComponentChildren
   /** Libellé du bouton suivant, quand il ne dépend pas de la réponse */
   nextLabel?: string
+  /**
+   * Le bouton suivant passe la question : il prend le trait noir plutôt que l'aplat bleu. Par défaut, quand le
+   * libellé est celui de la feuille (« Passer ») et qu'aucun avis n'est coché
+   */
+  skip?: boolean
   /** Afficher la consigne (premières questions) */
   hint?: boolean
   /**
@@ -197,7 +202,13 @@ export function Sheet(props: SheetProps) {
               label={`${props.answered} réponse${props.answered > 1 ? 's' : ''} pointée${props.answered > 1 ? 's' : ''}`}
             />
           </div>
-          <button type="button" class="btn-primary" onClick={props.onNext}>
+          {/* L'aplat bleu marque l'action principale (2026-10-15) : il n'arrive qu'avec le premier avis coché. « Passer »
+              garde sa place et sa taille, au trait noir, pour ne pas appeler le doigt avant que l'électeur ait choisi */}
+          <button
+            type="button"
+            class={(props.skip ?? (props.nextLabel === undefined && !hasOpinion(answer))) ? 'btn-primary is-outline' : 'btn-primary'}
+            onClick={props.onNext}
+          >
             {props.nextLabel ?? (hasOpinion(answer) ? 'Suivante' : 'Passer')}
             <Icon name="arrow-right" />
           </button>

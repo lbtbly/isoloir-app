@@ -391,7 +391,7 @@
 }
 
 .tray-go[aria-disabled='true']:hover {
-  background: var(--print);
+  background: var(--action);
 }
 
 .tray-go-short {
