@@ -232,7 +232,7 @@ describe('codes de reprise', () => {
     expect(d.ok && d.state.answers).toEqual(s.answers)
   })
 
-  it('met dans l’e-mail à soi-même un code qui se relit, la marche à suivre et la mise en garde', () => {
+  it('met dans la copie par e-mail un code qui se relit, la marche à suivre (image jointe ou code) et la mise en garde', () => {
     const pack = presidentielle2027
     const s = sanitizeState(randomState(pack, 21, 0.3), pack)!
     const code = encodeTransfer(s, pack)
@@ -243,7 +243,9 @@ describe('codes de reprise', () => {
     const back = parseCode(codeLines.join('\n'), pack)
     expect(back.ok && essentials(back.state)).toEqual(essentials(s))
     expect(body).toContain(`/${page}`)
-    expect(body).toMatch(/Ne pas le transférer ni le publier/)
+    expect(body).toMatch(/pièce jointe/)
+    expect(body).toMatch(/Importer mes réponses/)
+    expect(body).toMatch(/Ne pas les transférer ni les publier/)
     const link = transferMailto(pack, code, page)
     expect(link.startsWith('mailto:?subject=')).toBe(true)
     // Aucune réponse en clair dans l'adresse du site citée par le message : seulement la page

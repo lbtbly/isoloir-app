@@ -1,5 +1,6 @@
 // « Vos réponses, sur un autre appareil » (#/autre-appareil) : les réponses passent d'un appareil à l'autre dans un
-// code de reprise (core/transfer), montré en QR code, en texte à copier, en image ou dans un e-mail à soi-même, puis
+// code de reprise (core/transfer), montré en QR code, en texte à copier, en image, ou gardé en copie dans un e-mail à
+// soi-même (QR code en pièce jointe, code dans le message), puis
 // lu ici par la caméra, une image ou au clavier. Rien ne passe par un serveur d'Isoloir : ni compte, ni adresse qui
 // porte les réponses ; l'éditeur ne les voit jamais.
 // Chargé à la demande (ui/screens/load.ts), avec le QR code et le codec : le code de chaque visite n'en contient rien.
@@ -10,7 +11,7 @@ import { importNotes, type ImportResult } from '../../core/exportData'
 import type { SessionState } from '../../core/storage'
 import { groupCode } from '../../core/transfer/base32'
 import { encodeTransfer, parseCode } from '../../core/transfer/codec'
-import { transferMailto } from '../../core/transferMail'
+import { MAIL_SUBJECT, transferMailBody, transferMailto } from '../../core/transferMail'
 import { qrModules, qrPath } from '../../core/transfer/qr'
 import { sheetContents } from '../../core/transfer/summary'
 import { canvasToPng, renderTransferImage, transferImageName } from '../../core/transferImage'
@@ -91,8 +92,8 @@ export function Transfer({ pack, state, setState }: Props) {
               <span class="switch-sub">de cet appareil vers un autre</span>
             </button>
             <button type="button" aria-pressed={side === 'receive'} onClick={() => setSide('receive')}>
-              <span class="switch-main">Récupérer mes réponses</span>
-              <span class="switch-sub">d’un autre appareil vers celui-ci</span>
+              <span class="switch-main">Importer mes réponses</span>
+              <span class="switch-sub">d’un autre appareil ou de vos e-mails</span>
             </button>
           </div>
           {side === 'send' ? <Send pack={pack} state={state} /> : <Receive pack={pack} state={state} setState={setState} />}
@@ -119,7 +120,7 @@ export function Transfer({ pack, state, setState }: Props) {
   )
 }
 
-/** Transférer : le QR code derrière le rideau, le code en texte à copier, l'e-mail, l'image */
+/** Transférer : le QR code derrière le rideau, le code en texte à copier, l'image, la copie par e-mail */
 function Send({ pack, state }: { pack: ElectionPack; state: SessionState }) {
   const [curtain, setCurtain] = useState<Curtain>('closed')
   const [status, setStatus] = useState('')
@@ -135,13 +136,28 @@ function Send({ pack, state }: { pack: ElectionPack; state: SessionState }) {
     }
   }, [pack, state, started])
 
+  // L'image du QR code, fabriquée d'avance : le menu de partage doit s'ouvrir dans le geste même (Safari)
+  const [png, setPng] = useState<{ blob: Blob; name: string; now: Date } | null>(null)
+  useEffect(() => {
+    if (!made) return
+    let alive = true
+    const now = new Date()
+    renderTransferImage(pack, state, made.code, now)
+      .then(canvasToPng)
+      .then(blob => alive && setPng({ blob, name: transferImageName(pack, now), now }))
+      .catch(() => alive && setPng(null))
+    return () => {
+      alive = false
+    }
+  }, [pack, state, made])
+
   if (!started) {
     return (
       <section class="transfer-panel on-copy" aria-labelledby="send-title">
         <h2 id="send-title" class="transfer-title">
           Pas encore de réponses à transférer
         </h2>
-        <p>Cet appareil n’a encore aucune réponse. Répondez à quelques questions, ou récupérez ici celles d’un autre appareil.</p>
+        <p>Cet appareil n’a encore aucune réponse. Répondez à quelques questions, ou importez ici celles d’un autre appareil.</p>
         <a class="btn-primary" href={link('/feuille/1')}>
           Commencer
           <Icon name="arrow-right" />
@@ -174,31 +190,45 @@ function Send({ pack, state }: { pack: ElectionPack; state: SessionState }) {
       await navigator.clipboard.writeText(made.code)
       setStatus('Code copié. Collez-le où vous voulez : un message à vous-même, vos notes, ou Isoloir sur l’autre appareil.')
     } catch {
-      setStatus('Le navigateur a refusé la copie. Sélectionnez le code à la main, ou envoyez-le vous par e-mail.')
+      setStatus('Le navigateur a refusé la copie. Sélectionnez le code à la main, ou envoyez-vous une copie par e-mail.')
     }
   }
 
-  const image = async (share: boolean) => {
-    setStatus('Fabrication de l’image…')
+  const download = async () => {
     try {
       const now = new Date()
-      const blob = await canvasToPng(await renderTransferImage(pack, state, made.code, now))
-      const name = transferImageName(pack, now)
-      const file = new File([blob], name, { type: 'image/png' })
-      if (share && typeof navigator.canShare === 'function' && navigator.canShare({ files: [file] })) {
-        await navigator.share({ files: [file], title: 'Mes réponses, à reprendre' })
-        setStatus('Image transmise à l’application choisie.')
-      } else {
-        downloadBlob(blob, name, 60_000)
-        setStatus('Image enregistrée.')
-      }
-    } catch (e) {
-      if ((e as DOMException).name === 'AbortError') setStatus('')
-      else setStatus('L’image n’a pas pu être fabriquée sur ce navigateur : copiez le code à la place.')
+      const image = png ?? { blob: await canvasToPng(await renderTransferImage(pack, state, made.code, now)), name: transferImageName(pack, now) }
+      downloadBlob(image.blob, image.name, 60_000)
+      setStatus('Image du QR code enregistrée.')
+    } catch {
+      setStatus('L’image n’a pas pu être fabriquée sur ce navigateur : copiez le code à la place.')
     }
   }
-  const canShareFiles =
-    typeof navigator.canShare === 'function' && navigator.canShare({ files: [new File([''], 'x.png', { type: 'image/png' })] })
+
+  // La copie par e-mail : le menu de partage joint l'image et met le code dans le message ; sans lui (ordinateur sous
+  // Firefox ou Linux…), l'image est téléchargée et la messagerie s'ouvre avec le code, l'image à joindre à la main
+  const mail = async () => {
+    const page = link('/autre-appareil')
+    const now = png?.now ?? new Date()
+    const text = transferMailBody(pack, made.code, page, now)
+    const file = png ? new File([png.blob], png.name, { type: 'image/png' }) : null
+    if (file && typeof navigator.canShare === 'function' && navigator.canShare({ files: [file], text })) {
+      try {
+        await navigator.share({ files: [file], title: MAIL_SUBJECT, text })
+        setStatus('Copie transmise à votre messagerie : mettez-y votre propre adresse comme destinataire, puis envoyez.')
+      } catch (e) {
+        if ((e as DOMException).name !== 'AbortError') setStatus('Le partage a échoué. Copiez le code, ou téléchargez l’image du QR code.')
+      }
+      return
+    }
+    if (png) downloadBlob(png.blob, png.name, 60_000)
+    window.location.href = transferMailto(pack, made.code, page, now)
+    setStatus(
+      png
+        ? `L’image du QR code vient d’être téléchargée (${png.name}) : joignez-la au message qui s’ouvre, mettez votre propre adresse comme destinataire, puis envoyez.`
+        : 'Votre messagerie s’ouvre avec le code : mettez votre propre adresse comme destinataire, puis envoyez.',
+    )
+  }
 
   return (
     <section class="transfer-panel on-copy" aria-labelledby="send-title">
@@ -252,21 +282,15 @@ function Send({ pack, state }: { pack: ElectionPack; state: SessionState }) {
           <ol class="transfer-steps">
             <li>
               Sur l’autre appareil, ouvrez Isoloir, puis <strong>Autre appareil</strong> et{' '}
-              <strong>Récupérer mes réponses</strong>.
+              <strong>Importer mes réponses</strong>.
             </li>
             <li>Visez ce QR code avec sa caméra, ou collez-y le code en texte.</li>
           </ol>
           <div class="transfer-actions">
-            <button type="button" class="btn-text" onClick={() => image(false)}>
+            <button type="button" class="btn-text" onClick={download}>
               <Icon name="download" />
               Télécharger l’image du QR code
             </button>
-            {canShareFiles ? (
-              <button type="button" class="btn-text" onClick={() => image(true)}>
-                <Icon name="share" />
-                Partager l’image
-              </button>
-            ) : null}
           </div>
         </div>
       </div>
@@ -288,19 +312,29 @@ function Send({ pack, state }: { pack: ElectionPack; state: SessionState }) {
             <Glyph name="copy" />
             Copier le code
           </button>
-          <a class="btn-frame" href={transferMailto(pack, made.code, link('/autre-appareil'))}>
+        </div>
+      </div>
+
+      <div class="code-box mail-box">
+        <h3 class="code-box-title">Une copie dans vos e-mails</h3>
+        <p class="code-box-lede">
+          Le QR code en pièce jointe et le code dans le message, avec la marche à suivre : de quoi importer vos réponses
+          plus tard, sur n’importe quel appareil.
+        </p>
+        <div class="code-box-actions">
+          <button type="button" class="btn-frame" onClick={mail}>
             <Glyph name="mail" />
-            Me l’envoyer par e-mail
-          </a>
+            M’envoyer une copie par e-mail
+          </button>
         </div>
         <p class="small code-box-note">
-          Par e-mail, votre messagerie s’ouvre avec le code et la marche à suivre : mettez-y votre propre adresse comme
-          destinataire, puis envoyez. Votre messagerie en gardera une copie.
-        </p>
-        <p class="small" role="status" aria-live="polite">
-          {status}
+          Votre messagerie s’ouvre, sans destinataire : mettez-y votre propre adresse, puis envoyez. Elle gardera cette
+          copie ; Isoloir n’en reçoit rien.
         </p>
       </div>
+      <p class="small transfer-status" role="status" aria-live="polite">
+        {status}
+      </p>
 
       <div class="transfer-warning" role="note">
         <svg class="transfer-warning-cross" viewBox="0 0 24 24" aria-hidden="true">
@@ -318,7 +352,7 @@ function Send({ pack, state }: { pack: ElectionPack; state: SessionState }) {
   )
 }
 
-/** Récupérer : la caméra, une image ou le code collé ; puis « Remplacer mes réponses » */
+/** Importer : la caméra, une image ou le code collé ; puis « Remplacer mes réponses » */
 function Receive({ pack, state, setState }: Props) {
   const [text, setText] = useState('')
   const [camera, setCamera] = useState(false)
@@ -364,7 +398,7 @@ function Receive({ pack, state, setState }: Props) {
           {notes.length ? <p>{notes.join(' ')}</p> : null}
           <div class="link-row">
             <button type="button" class="btn-primary" onClick={() => apply(pending.state)}>
-              {started ? 'Remplacer mes réponses' : 'Récupérer ces réponses'}
+              {started ? 'Remplacer mes réponses' : 'Importer ces réponses'}
             </button>
             <button type="button" class="btn-text" onClick={() => setPending(null)}>
               Annuler
@@ -378,9 +412,12 @@ function Receive({ pack, state, setState }: Props) {
   return (
     <section class="transfer-panel is-receive" aria-labelledby="receive-title">
       <h2 id="receive-title" class="transfer-title">
-        Récupérez ici vos réponses
+        Importez ici vos réponses
       </h2>
-      <p class="transfer-receive-lede">Sur l’autre appareil, ouvrez cette même page et choisissez « Transférer mes réponses ».</p>
+      <p class="transfer-receive-lede">
+        Depuis l’autre appareil (ouvrez-y cette page et choisissez « Transférer mes réponses »), ou depuis la copie
+        gardée dans vos e-mails.
+      </p>
       <ol class="transfer-ways">
         <li>
           <span class="row-letter" aria-hidden="true">
@@ -414,7 +451,7 @@ function Receive({ pack, state, setState }: Props) {
           </span>
           <div class="way">
             <h3>Choisir une image</h3>
-            <p>L’image du QR code téléchargée, une capture d’écran ou une photo de l’autre écran.</p>
+            <p>L’image du QR code : jointe à votre e-mail, téléchargée, en capture d’écran ou en photo de l’autre écran.</p>
             <button type="button" class="btn-text">
               <Glyph name="image" />
               Choisir une image
@@ -429,7 +466,7 @@ function Receive({ pack, state, setState }: Props) {
             <h3>
               <label for="transfer-code">Coller ou taper le code</label>
             </h3>
-            <p>Le code en texte, copié sur l’autre appareil ou reçu dans votre e-mail.</p>
+            <p>Le code en texte, copié sur l’autre appareil ou dans votre e-mail.</p>
             <textarea
               id="transfer-code"
               class="code-input"

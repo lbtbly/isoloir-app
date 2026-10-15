@@ -46,7 +46,7 @@ export async function renderTransferImage(pack: ElectionPack, state: SessionStat
   fit(ctx, 'Mes réponses, à reprendre', 850, 96, R - M, true)
   ctx.fillText('Mes réponses, à reprendre', M, 262)
   ctx.fillStyle = COLORS.printSoft
-  const how = 'Sur l’autre appareil : Isoloir, puis Autre appareil, Récupérer mes réponses.'
+  const how = 'Pour les importer : Isoloir, puis Autre appareil, Importer mes réponses.'
   fit(ctx, how, 400, 30, R - M)
   ctx.fillText(how, M, 314)
   ctx.fillStyle = COLORS.print

@@ -359,6 +359,14 @@
   transform: translateY(1px);
 }
 
+.mail-box {
+  margin-top: var(--s3);
+}
+
+.transfer-status:empty {
+  display: none;
+}
+
 .code-box-note {
   margin: var(--s3) 0 0;
   max-width: 40rem;
