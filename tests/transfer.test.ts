@@ -9,6 +9,7 @@ import { freshState, sanitizeState, type SessionState } from '../src/core/storag
 import { ALPHABET, crc32, fromBase32, groupCode, normalizeCode, toBase32 } from '../src/core/transfer/base32'
 import { BitReader, BitWriter } from '../src/core/transfer/bits'
 import { decodeTransferRaw, encodeTransfer, letterIndex, looksLikeCode, parseCode } from '../src/core/transfer/codec'
+import { transferMailBody, transferMailto } from '../src/core/transfer/mail'
 import { qrModules, qrPath, qrVersion } from '../src/core/transfer/qr'
 import type { Answer, ElectionPack, Rating } from '../src/core/types'
 import { elections } from '../src/elections/all'
@@ -228,6 +229,24 @@ describe('codes de reprise', () => {
     const d = parseCode(encodeTransfer({ ...s, answers: { ...s.answers, q4: { ratings: { q4a: 1 }, redLines: [] } } }, newer), small)
     expect(d.ok && d.dropped).toBe(1)
     expect(d.ok && d.state.answers).toEqual(s.answers)
+  })
+
+  it('met dans l’e-mail à soi-même un code qui se relit, la marche à suivre et la mise en garde', () => {
+    const pack = presidentielle2027
+    const s = sanitizeState(randomState(pack, 21, 0.3), pack)!
+    const code = encodeTransfer(s, pack)
+    const body = transferMailBody(pack, code, new Date('2026-10-15T10:00:00Z'))
+    const lines = body.split('\r\n')
+    const codeLines = lines.slice(2, lines.indexOf('', 2))
+    const back = parseCode(codeLines.join('\n'), pack)
+    expect(back.ok && essentials(back.state)).toEqual(essentials(s))
+    expect(body).toContain('#/autre-appareil')
+    expect(body).toMatch(/Ne pas le transférer ni le publier/)
+    const link = transferMailto(pack, code)
+    expect(link.startsWith('mailto:?subject=')).toBe(true)
+    // Aucune réponse en clair dans l'adresse du site citée par le message : seulement la page
+    expect(decodeURIComponent(link)).not.toMatch(/autre-appareil\/[0-9A-Z]/)
+    expect(link.length).toBeLessThan(2000)
   })
 
   it('refuse de fabriquer un code pour une question sans numéro', () => {

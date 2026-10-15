@@ -1,18 +1,19 @@
-// « Continuer sur un autre appareil » (#/autre-appareil) : la feuille passe d'un appareil à l'autre dans un code de
-// reprise (core/transfer), montré en QR code, en texte à recopier ou en image, puis lu ici par la caméra, une image
-// ou au clavier. Rien ne passe par un réseau : ni serveur, ni compte, ni adresse qui porte les réponses.
+// « Vos réponses, sur un autre appareil » (#/autre-appareil) : les réponses passent d'un appareil à l'autre dans un
+// code de reprise (core/transfer), montré en QR code, en texte à copier, en image ou dans un e-mail à soi-même, puis
+// lu ici par la caméra, une image ou au clavier. Rien ne passe par un serveur d'Isoloir : ni compte, ni adresse qui
+// porte les réponses ; l'éditeur ne les voit jamais.
 // Chargé à la demande (ui/screens/load.ts), avec le QR code et le codec : le code de chaque visite n'en contient rien.
 
 import { useEffect, useMemo, useState } from 'preact/hooks'
-import type { ImportResult } from '../../core/exportData'
-import { importNotes } from '../../core/exportData'
+import { downloadBlob } from '../../core/download'
+import { importNotes, type ImportResult } from '../../core/exportData'
 import type { SessionState } from '../../core/storage'
 import { groupCode } from '../../core/transfer/base32'
 import { encodeTransfer, parseCode } from '../../core/transfer/codec'
+import { transferMailto } from '../../core/transfer/mail'
+import { qrModules, qrPath } from '../../core/transfer/qr'
 import { sheetContents } from '../../core/transfer/summary'
 import { canvasToPng, renderTransferImage, transferImageName } from '../../core/transferImage'
-import { downloadBlob } from '../../core/download'
-import { qrModules, qrPath } from '../../core/transfer/qr'
 import type { ElectionPack } from '../../core/types'
 import { Arrow, Figure } from '../components/Diagrams'
 import { FormHeader } from '../components/FormHeader'
@@ -29,12 +30,16 @@ interface Props {
 
 type Side = 'send' | 'receive'
 
+/** Le rideau devant le QR code : tiré, en train de s'ouvrir, ouvert, en train de se refermer */
+type Curtain = 'closed' | 'opening' | 'open' | 'closing'
+
 /** Pictogrammes propres à la page, au trait des autres (ui/components/Icon.tsx) */
 const GLYPHS = {
   camera: 'M4 8.5h3l1.6-2.5h6.8L17 8.5h3V19H4zM12 16.6a3.4 3.4 0 1 0 0-6.8 3.4 3.4 0 0 0 0 6.8z',
   image: 'M4 5h16v14H4zM4 16l4.5-4.5 3.5 3.5 2.5-2.5L20 17.5M15.5 9.5v.5',
   copy: 'M8.5 8.5h11v11h-11zM15.5 8.5V4.5h-11v11h4',
   keyboard: 'M3 7h18v10H3zM6.5 10.5h1M10 10.5h1M13.5 10.5h1M17 10.5h.5M7.5 14h9',
+  mail: 'M3.5 6h17v12h-17zM3.5 6.5l8.5 7 8.5-7',
 } as const
 
 function Glyph({ name }: { name: keyof typeof GLYPHS }) {
@@ -45,7 +50,7 @@ function Glyph({ name }: { name: keyof typeof GLYPHS }) {
   )
 }
 
-const plural = (n: number, one: string, many: string) => `${n} ${n > 1 ? many : one}`
+const reducedMotion = () => typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches
 
 export function Transfer({ pack, state, setState }: Props) {
   const started = Object.keys(state.answers).length > 0
@@ -57,21 +62,37 @@ export function Transfer({ pack, state, setState }: Props) {
       <main class="sheet wide-sheet transfer" id="contenu" tabIndex={-1}>
         <div class="transfer-intro">
           <h1 class="display is-medium" tabIndex={-1}>
-            Votre feuille, sur un autre appareil
+            Vos réponses, sur un autre appareil
           </h1>
           <p class="lede">
-            Du téléphone à l’ordinateur, ou d’un navigateur à l’autre : vos réponses voyagent dans un code, d’écran à
-            écran. Ni serveur ni compte, et cela marche même en mode avion.
+            Retrouvez vos réponses et votre profil politique sur un autre téléphone, un ordinateur ou un autre
+            navigateur. Elles passent directement d’un appareil à l’autre, dans un code.
           </p>
+          <ul class="trust transfer-proof">
+            <li>
+              <Icon name="check" />
+              Jamais par nos serveurs : il n’y en a pas pour les recevoir.
+            </li>
+            <li>
+              <Icon name="check" />
+              Nous ne voyons jamais vos réponses, ni ce code.
+            </li>
+            <li>
+              <Icon name="check" />
+              Sans compte, et même en mode avion.
+            </li>
+          </ul>
         </div>
 
         <div class="transfer-work">
-          <div class="segmented is-fit transfer-switch" role="group" aria-label="Sur cet appareil">
+          <div class="segmented is-fit transfer-switch" role="group" aria-label="Que voulez-vous faire ?">
             <button type="button" aria-pressed={side === 'send'} onClick={() => setSide('send')}>
-              Envoyer d’ici
+              <span class="switch-main">Transférer mes réponses</span>
+              <span class="switch-sub">de cet appareil vers un autre</span>
             </button>
             <button type="button" aria-pressed={side === 'receive'} onClick={() => setSide('receive')}>
-              Recevoir ici
+              <span class="switch-main">Récupérer mes réponses</span>
+              <span class="switch-sub">d’un autre appareil vers celui-ci</span>
             </button>
           </div>
           {side === 'send' ? <Send pack={pack} state={state} /> : <Receive pack={pack} state={state} setState={setState} />}
@@ -98,9 +119,9 @@ export function Transfer({ pack, state, setState }: Props) {
   )
 }
 
-/** Envoyer d'ici : le QR code derrière le rideau, le code à recopier, l'image et le partage */
+/** Transférer : le QR code derrière le rideau, le code en texte à copier, l'e-mail, l'image */
 function Send({ pack, state }: { pack: ElectionPack; state: SessionState }) {
-  const [shown, setShown] = useState(false)
+  const [curtain, setCurtain] = useState<Curtain>('closed')
   const [status, setStatus] = useState('')
   const started = Object.keys(state.answers).length > 0
   const made = useMemo(() => {
@@ -118,9 +139,9 @@ function Send({ pack, state }: { pack: ElectionPack; state: SessionState }) {
     return (
       <section class="transfer-panel on-copy" aria-labelledby="send-title">
         <h2 id="send-title" class="transfer-title">
-          Rien à envoyer pour l’instant
+          Pas encore de réponses à transférer
         </h2>
-        <p>Votre feuille est vierge sur cet appareil. Répondez à quelques questions, ou recevez ici celle d’un autre appareil.</p>
+        <p>Cet appareil n’a encore aucune réponse. Répondez à quelques questions, ou récupérez ici celles d’un autre appareil.</p>
         <a class="btn-primary" href={link('/feuille/1')}>
           Commencer
           <Icon name="arrow-right" />
@@ -132,20 +153,30 @@ function Send({ pack, state }: { pack: ElectionPack; state: SessionState }) {
     return (
       <section class="transfer-panel on-copy" aria-labelledby="send-title">
         <h2 id="send-title" class="transfer-title">
-          Pas de code pour cette feuille
+          Pas de code pour ces réponses
         </h2>
-        <p>
-          Le code n’a pas pu être fabriqué. Votre double (JSON), dans vos résultats, emporte aussi toute la feuille.
-        </p>
+        <p>Le code n’a pas pu être fabriqué. Votre double (JSON), dans vos résultats, emporte aussi toutes vos réponses.</p>
       </section>
     )
   }
 
-  const groups = groupCode(made.code)
-  const lines: string[][] = []
-  for (let i = 0; i < groups.length; i += 4) lines.push(groups.slice(i, i + 4))
+  const shown = curtain !== 'closed'
   const side = made.modules.length + 8
   const today = new Date().toISOString().slice(0, 10)
+  const groups = groupCode(made.code)
+
+  const open = () => setCurtain(reducedMotion() ? 'open' : 'opening')
+  const close = () => setCurtain(reducedMotion() ? 'closed' : 'closing')
+  const settle = () => setCurtain(c => (c === 'opening' ? 'open' : c === 'closing' ? 'closed' : c))
+
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(made.code)
+      setStatus('Code copié. Collez-le où vous voulez : un message à vous-même, vos notes, ou Isoloir sur l’autre appareil.')
+    } catch {
+      setStatus('Le navigateur a refusé la copie. Sélectionnez le code à la main, ou envoyez-le vous par e-mail.')
+    }
+  }
 
   const image = async (share: boolean) => {
     setStatus('Fabrication de l’image…')
@@ -155,7 +186,7 @@ function Send({ pack, state }: { pack: ElectionPack; state: SessionState }) {
       const name = transferImageName(pack, now)
       const file = new File([blob], name, { type: 'image/png' })
       if (share && typeof navigator.canShare === 'function' && navigator.canShare({ files: [file] })) {
-        await navigator.share({ files: [file], title: 'Ma feuille, à reprendre' })
+        await navigator.share({ files: [file], title: 'Mes réponses, à reprendre' })
         setStatus('Image transmise à l’application choisie.')
       } else {
         downloadBlob(blob, name, 60_000)
@@ -166,16 +197,8 @@ function Send({ pack, state }: { pack: ElectionPack; state: SessionState }) {
       else setStatus('L’image n’a pas pu être fabriquée sur ce navigateur : copiez le code à la place.')
     }
   }
-  const canShareFiles = typeof navigator.canShare === 'function' && navigator.canShare({ files: [new File([''], 'x.png', { type: 'image/png' })] })
-
-  const copy = async () => {
-    try {
-      await navigator.clipboard.writeText(made.code)
-      setStatus('Code copié.')
-    } catch {
-      setStatus('La copie a été refusée par le navigateur : recopiez le code à la main.')
-    }
-  }
+  const canShareFiles =
+    typeof navigator.canShare === 'function' && navigator.canShare({ files: [new File([''], 'x.png', { type: 'image/png' })] })
 
   return (
     <section class="transfer-panel on-copy" aria-labelledby="send-title">
@@ -184,35 +207,42 @@ function Send({ pack, state }: { pack: ElectionPack; state: SessionState }) {
           <h2 id="send-title" class="transfer-title">
             Montrez ce code à l’autre appareil
           </h2>
-          <Stamp date={today} label="Feuille du" />
+          <Stamp date={today} label="Réponses du" />
           <p class="transfer-contents">{sheetContents(state)}</p>
         </div>
 
         <div class="transfer-qr">
-          <div class={`qr-plate${shown ? ' is-shown' : ''}`}>
+          <div class="qr-plate">
             {shown ? (
-              <svg class="qr" viewBox={`0 0 ${side} ${side}`} role="img" aria-label="QR code de votre feuille">
+              <svg class="qr" viewBox={`0 0 ${side} ${side}`} role="img" aria-label="QR code de vos réponses">
                 <path d={made.path} />
               </svg>
-            ) : (
-              <div class="qr-curtain">
-                <svg class="qr-pleats" aria-hidden="true" preserveAspectRatio="none">
-                  <defs>
-                    <pattern id="qr-pleats" width="46" height="40" patternUnits="userSpaceOnUse">
-                      <path d="M6 0v40M19.5 0v40M34 0v40" />
-                    </pattern>
-                  </defs>
-                  <rect width="100%" height="100%" fill="url(#qr-pleats)" />
-                </svg>
-                <button type="button" class="btn-primary" onClick={() => setShown(true)}>
-                  Montrer mon code
-                </button>
-                <p class="qr-curtain-note">Derrière le rideau : vos réponses. Ouvrez-le à l’abri des regards.</p>
+            ) : null}
+            {curtain !== 'open' ? (
+              <div class={`qr-curtain is-${curtain}`} onAnimationEnd={settle}>
+                <div class="qr-drape" aria-hidden="true">
+                  <svg class="qr-pleats" preserveAspectRatio="none">
+                    <defs>
+                      <pattern id="qr-pleats" width="46" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M6 0v40M19.5 0v40M34 0v40" />
+                      </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#qr-pleats)" />
+                  </svg>
+                </div>
+                {curtain === 'closed' ? (
+                  <div class="qr-curtain-content">
+                    <button type="button" class="btn-primary" onClick={open}>
+                      Montrer le QR code
+                    </button>
+                    <p class="qr-curtain-note">Derrière le rideau : toutes vos réponses. Ouvrez-le à l’abri des regards.</p>
+                  </div>
+                ) : null}
               </div>
-            )}
+            ) : null}
           </div>
-          {shown ? (
-            <button type="button" class="btn-text" onClick={() => setShown(false)}>
+          {curtain === 'open' ? (
+            <button type="button" class="btn-text" onClick={close}>
               Refermer le rideau
             </button>
           ) : null}
@@ -221,18 +251,15 @@ function Send({ pack, state }: { pack: ElectionPack; state: SessionState }) {
         <div class="transfer-side">
           <ol class="transfer-steps">
             <li>
-              Sur l’autre appareil, ouvrez Isoloir, puis <strong>Autre appareil</strong>, <strong>Recevoir ici</strong>.
+              Sur l’autre appareil, ouvrez Isoloir, puis <strong>Autre appareil</strong> et{' '}
+              <strong>Récupérer mes réponses</strong>.
             </li>
-            <li>Visez ce QR code avec sa caméra, ou recopiez le code ci-dessous.</li>
+            <li>Visez ce QR code avec sa caméra, ou collez-y le code en texte.</li>
           </ol>
           <div class="transfer-actions">
-            <button type="button" class="btn-text" onClick={copy}>
-              <Glyph name="copy" />
-              Copier le code
-            </button>
             <button type="button" class="btn-text" onClick={() => image(false)}>
               <Icon name="download" />
-              Télécharger l’image
+              Télécharger l’image du QR code
             </button>
             {canShareFiles ? (
               <button type="button" class="btn-text" onClick={() => image(true)}>
@@ -241,44 +268,57 @@ function Send({ pack, state }: { pack: ElectionPack; state: SessionState }) {
               </button>
             ) : null}
           </div>
-          <p class="small" role="status" aria-live="polite">
-            {status}
-          </p>
         </div>
       </div>
 
-      <details class="transfer-code">
-        <summary>
-          Recopier le code à la main <span class="transfer-count">{plural(groups.length, 'groupe', 'groupes')} de 4</span>
-        </summary>
-        <ol class="code-lines" aria-label="Code de reprise, par lignes de quatre groupes">
-          {lines.map((line, i) => (
-            <li key={i}>
-              <span class="code-line-number" aria-hidden="true">
-                {i + 1}
-              </span>
-              <span class="code-groups">
-                {line.map((g, j) => (
-                  <span key={j} class="code-group">
-                    {g}
-                  </span>
-                ))}
-              </span>
-            </li>
+      <div class="code-box">
+        <h3 class="code-box-title">Le code en texte</h3>
+        <p class="code-box-lede">
+          Le même contenu que le QR code, en lettres et en chiffres : à coller ensuite dans Isoloir, sur l’autre appareil.
+        </p>
+        <p class={`code-text${shown ? '' : ' is-masked'}`} aria-label={shown ? 'Code de vos réponses' : 'Code masqué tant que le rideau est tiré'}>
+          {groups.map((g, i) => (
+            <span key={i} class="code-group">
+              {shown ? g : '••••'}
+            </span>
           ))}
-        </ol>
-        <p class="small">Majuscules ou minuscules, avec ou sans espaces : tout est lu. Une faute est toujours signalée.</p>
-      </details>
+        </p>
+        <div class="code-box-actions">
+          <button type="button" class="btn-frame" onClick={copy}>
+            <Glyph name="copy" />
+            Copier le code
+          </button>
+          <a class="btn-frame" href={transferMailto(pack, made.code)}>
+            <Glyph name="mail" />
+            Me l’envoyer par e-mail
+          </a>
+        </div>
+        <p class="small code-box-note">
+          Par e-mail, votre messagerie s’ouvre avec le code et la marche à suivre : mettez-y votre propre adresse comme
+          destinataire, puis envoyez. Votre messagerie en gardera une copie.
+        </p>
+        <p class="small" role="status" aria-live="polite">
+          {status}
+        </p>
+      </div>
 
-      <p class="notice transfer-warning">
-        Ce code, c’est toute votre feuille : vos avis et vos lignes rouges. Ne le montrez qu’à vos propres appareils. Une
-        image rangée dans des photos sauvegardées en ligne part avec elles.
-      </p>
+      <div class="transfer-warning" role="note">
+        <svg class="transfer-warning-cross" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 5l14 14M19 5L5 19" />
+        </svg>
+        <div>
+          <p class="transfer-warning-title">Ne publiez jamais ce QR code ni ce code</p>
+          <p>
+            Ni sur les réseaux sociaux, ni dans un groupe de discussion : n’importe qui pourrait y lire chacune de vos
+            réponses, question par question, et vos lignes rouges. Montrez-le seulement à vos propres appareils.
+          </p>
+        </div>
+      </div>
     </section>
   )
 }
 
-/** Recevoir ici : la caméra, une image ou le code tapé ; puis « Remplacer ma feuille » */
+/** Récupérer : la caméra, une image ou le code collé ; puis « Remplacer mes réponses » */
 function Receive({ pack, state, setState }: Props) {
   const [text, setText] = useState('')
   const [camera, setCamera] = useState(false)
@@ -309,22 +349,22 @@ function Receive({ pack, state, setState }: Props) {
     return (
       <section class="transfer-panel is-receive" aria-labelledby="receive-title">
         <h2 id="receive-title" class="transfer-title" tabIndex={-1}>
-          Une feuille est prête
+          Vos réponses sont prêtes
         </h2>
         <p class="transfer-contents">{sheetContents(pending.state)}</p>
         <div class="notice" role="status">
           {started ? (
             <p>
-              Elle remplacera la feuille de cet appareil, qui ne pourra pas être retrouvée. Sur cet appareil :{' '}
-              {sheetContents(state)}.
+              Elles remplaceront les réponses de cet appareil, qui ne pourront pas être retrouvées. Sur cet appareil
+              aujourd’hui : {sheetContents(state)}.
             </p>
           ) : (
-            <p>Elle deviendra la feuille de cet appareil.</p>
+            <p>Elles deviendront les réponses de cet appareil, avec votre dépouillement et votre profil politique.</p>
           )}
           {notes.length ? <p>{notes.join(' ')}</p> : null}
           <div class="link-row">
             <button type="button" class="btn-primary" onClick={() => apply(pending.state)}>
-              {started ? 'Remplacer ma feuille' : 'Reprendre cette feuille'}
+              {started ? 'Remplacer mes réponses' : 'Récupérer ces réponses'}
             </button>
             <button type="button" class="btn-text" onClick={() => setPending(null)}>
               Annuler
@@ -338,8 +378,9 @@ function Receive({ pack, state, setState }: Props) {
   return (
     <section class="transfer-panel is-receive" aria-labelledby="receive-title">
       <h2 id="receive-title" class="transfer-title">
-        Reprenez ici la feuille d’un autre appareil
+        Récupérez ici vos réponses
       </h2>
+      <p class="transfer-receive-lede">Sur l’autre appareil, ouvrez cette même page et choisissez « Transférer mes réponses ».</p>
       <ol class="transfer-ways">
         <li>
           <span class="row-letter" aria-hidden="true">
@@ -373,7 +414,7 @@ function Receive({ pack, state, setState }: Props) {
           </span>
           <div class="way">
             <h3>Choisir une image</h3>
-            <p>L’image du code téléchargée, une capture d’écran ou une photo de l’autre écran.</p>
+            <p>L’image du QR code téléchargée, une capture d’écran ou une photo de l’autre écran.</p>
             <button type="button" class="btn-text">
               <Glyph name="image" />
               Choisir une image
@@ -386,8 +427,9 @@ function Receive({ pack, state, setState }: Props) {
           </span>
           <div class="way">
             <h3>
-              <label for="transfer-code">Taper ou coller le code</label>
+              <label for="transfer-code">Coller ou taper le code</label>
             </h3>
+            <p>Le code en texte, copié sur l’autre appareil ou reçu dans votre e-mail.</p>
             <textarea
               id="transfer-code"
               class="code-input"
@@ -421,8 +463,8 @@ function Receive({ pack, state, setState }: Props) {
 function TransferDiagram() {
   return (
     <Figure
-      title="Comment la feuille passe d’un appareil à l’autre"
-      desc="Le code de votre feuille va directement de l’écran d’un appareil à la caméra ou au clavier de l’autre. Aucun serveur ne le reçoit : il n’y en a pas."
+      title="Comment vos réponses passent d’un appareil à l’autre"
+      desc="Le code de vos réponses va directement de l’écran d’un appareil à la caméra ou au clavier de l’autre. Aucun serveur ne le reçoit : il n’y en a pas."
       viewBox="0 0 360 214"
     >
       {/* Le téléphone, son QR code */}
@@ -454,7 +496,7 @@ function TransferDiagram() {
       {/* Le serveur qui n'existe pas */}
       <rect class="dg-box" x="122" y="10" width="116" height="44" />
       <text class="dg-label" x="180" y="37" text-anchor="middle">
-        Serveur
+        Nos serveurs
       </text>
       <line class="dg-red dg-thick" x1="126" y1="50" x2="234" y2="14" />
       <text class="dg-small dg-red-text" x="180" y="74" text-anchor="middle">

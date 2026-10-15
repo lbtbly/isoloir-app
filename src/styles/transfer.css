@@ -21,6 +21,40 @@
   margin-top: 0;
 }
 
+/* Deux choix en deux lignes : l'action, puis le sens (d'où, vers où) */
+.transfer-switch button {
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.55rem 1rem;
+  text-align: left;
+}
+
+.switch-main {
+  font-weight: 750;
+}
+
+/* Étroit : les deux choix l'un sous l'autre, chacun sur toute la largeur, plutôt que quatre lignes serrées */
+@media (max-width: 30rem) {
+  .transfer-switch.segmented {
+    display: grid;
+    width: 100%;
+  }
+}
+
+.switch-sub {
+  font-weight: 400;
+  font-size: 0.8125rem;
+}
+
+/* La liste de confiance de l'accueil (.trust), sous l'introduction */
+.transfer-proof {
+  margin-bottom: 0;
+}
+
+.transfer-receive-lede {
+  margin: 0 0 var(--s3);
+}
+
 .transfer-how {
   margin: 0;
 }
@@ -148,15 +182,20 @@
 }
 
 /* Le rideau de l'isoloir tiré devant le code : les quatre pastels du logo, dans l'ordre du drapé, plissés au trait ;
-   l'appel et une ligne de consigne au centre */
+   l'appel et une ligne de consigne au centre. À l'ouverture, le rideau se tire vers la gauche et ses plis se
+   resserrent (une fois, sauf mouvement réduit : il disparaît d'un coup) ; « Refermer » le tire en sens inverse. */
 .qr-curtain {
   position: absolute;
   inset: 0;
   display: grid;
-  place-content: center;
-  justify-items: center;
-  gap: var(--s3);
+  place-items: center;
   padding: var(--s4);
+  text-align: center;
+}
+
+.qr-drape {
+  position: absolute;
+  inset: 0;
   background: linear-gradient(
     90deg,
     var(--pastel-vert) 0 25%,
@@ -165,7 +204,7 @@
     var(--pastel-bleu) 75%
   );
   box-shadow: inset 0 0 0 var(--line) var(--rule-strong);
-  text-align: center;
+  transform-origin: left center;
 }
 
 .qr-pleats {
@@ -183,8 +222,11 @@
   stroke-width: 1;
 }
 
-.qr-curtain > :not(svg) {
+.qr-curtain-content {
   position: relative;
+  display: grid;
+  justify-items: center;
+  gap: var(--s3);
 }
 
 .qr-curtain-note {
@@ -195,19 +237,24 @@
   font-size: var(--text-sm);
 }
 
-/* Le rideau se lève une fois : le code apparaît du bas vers le haut */
-@media (prefers-reduced-motion: no-preference) {
-  .qr-plate.is-shown .qr {
-    animation: qr-open 560ms var(--ease-out) both;
-  }
+.qr-curtain.is-opening .qr-drape {
+  animation: drape-open 900ms cubic-bezier(0.65, 0, 0.35, 1) both;
 }
 
-@keyframes qr-open {
-  from {
-    clip-path: inset(100% 0 0 0);
+.qr-curtain.is-closing .qr-drape {
+  animation: drape-open 700ms cubic-bezier(0.65, 0, 0.35, 1) reverse both;
+}
+
+@keyframes drape-open {
+  0% {
+    transform: scaleX(1);
   }
-  to {
-    clip-path: inset(0);
+  /* le tissu accroche un instant avant de glisser */
+  12% {
+    transform: scaleX(0.97);
+  }
+  100% {
+    transform: scaleX(0.07);
   }
 }
 
@@ -226,65 +273,128 @@
   gap: 0 1.5rem;
 }
 
-/* Le code à recopier : des lignes de quatre groupes, numérotées dans la marge comme les règles de la feuille */
-.transfer-code {
-  margin-top: var(--s4);
-  border-top: var(--line) solid var(--rule-strong);
+/* Le code en texte : une boîte imprimée sous le QR code, le code en groupes de quatre (masqué tant que le rideau est
+   tiré), et ses deux actions encadrées, bien visibles : copier, s'envoyer par e-mail */
+.code-box {
+  margin-top: var(--s5);
+  padding: var(--s4);
+  background: var(--paper);
+  box-shadow:
+    inset 0 var(--thick) 0 var(--rule-strong),
+    inset 0 0 0 var(--line) var(--rule-strong);
 }
 
-.transfer-code summary {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0 var(--s3);
-  min-height: 2.75rem;
-  padding: var(--s3) 0;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.transfer-count {
-  font-size: var(--text-sm);
-  font-weight: 400;
-  color: var(--print-soft);
-  font-variant-numeric: tabular-nums;
-}
-
-.code-lines {
-  list-style: none;
+.code-box-title {
   margin: 0;
-  padding: 0;
-  border-top: var(--hair) solid var(--rule);
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: 1.65rem;
+  line-height: 1.02;
 }
 
-.code-lines li {
-  display: grid;
-  grid-template-columns: var(--margin-col) minmax(0, 1fr);
-  border-bottom: var(--hair) solid var(--rule);
+.code-box-lede {
+  margin: var(--s2) 0 var(--s3);
+  max-width: 36rem;
 }
 
-.code-line-number {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-right: var(--hair) solid var(--rule);
-  font-weight: 800;
-  font-stretch: 80%;
-  font-variant-numeric: tabular-nums;
-}
-
-.code-groups {
+.code-text {
   display: flex;
   flex-wrap: wrap;
-  gap: 0 0.9em;
-  padding: 0.45rem var(--s3);
+  gap: 0.2rem 0.9em;
+  margin: 0 0 var(--s4);
+  padding: var(--s3);
+  max-height: 11.5rem;
+  overflow-y: auto;
+  background: #fff;
+  color: #17191c;
+  border: var(--line) solid var(--rule-strong);
   font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   letter-spacing: 0.06em;
+  user-select: all;
+  forced-color-adjust: none;
 }
 
+.code-text.is-masked {
+  color: #6a6e75;
+  user-select: none;
+}
+
+.code-box-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s3);
+}
+
+/* Bouton encadré : une action secondaire qui doit se voir (les raccourcis du dépouillement ont le même trait) */
+.btn-frame {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0 1.1rem;
+  background: var(--paper);
+  color: var(--print);
+  border: var(--line) solid var(--print);
+  border-radius: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--t-quick) ease-out;
+}
+
+.btn-frame .icon {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-frame:hover {
+    background: color-mix(in srgb, var(--print) 7%, var(--paper));
+  }
+}
+
+.btn-frame:active {
+  transform: translateY(1px);
+}
+
+.code-box-note {
+  margin: var(--s3) 0 0;
+  max-width: 40rem;
+  color: var(--print-soft);
+}
+
+/* La mise en garde : ne jamais publier le code. La croix rouge des schémas, sur ce qui ne doit pas sortir */
 .transfer-warning {
-  margin-bottom: 0;
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: var(--s3);
+  margin-top: var(--s4);
+  padding: var(--s3) var(--s4);
+  border: 2px solid var(--print);
+  background: var(--paper);
+}
+
+.transfer-warning-cross {
+  width: 2rem;
+  height: 2rem;
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+}
+
+.transfer-warning p {
+  margin: 0;
+  max-width: 40rem;
+}
+
+.transfer-warning-title {
+  margin-bottom: var(--s1) !important;
+  font-weight: 800;
+  font-size: 1.15rem;
+  line-height: 1.2;
 }
 
 /* ——— Recevoir ——— */

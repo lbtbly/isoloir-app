@@ -43,14 +43,14 @@ export async function renderTransferImage(pack: ElectionPack, state: SessionStat
 
   // Titre, marche à suivre, contenu
   ctx.fillStyle = COLORS.print
-  fit(ctx, 'Ma feuille, à reprendre', 850, 96, R - M, true)
-  ctx.fillText('Ma feuille, à reprendre', M, 262)
+  fit(ctx, 'Mes réponses, à reprendre', 850, 96, R - M, true)
+  ctx.fillText('Mes réponses, à reprendre', M, 262)
   ctx.fillStyle = COLORS.printSoft
-  const how = 'Sur l’autre appareil : Isoloir, puis Autre appareil, Recevoir ici.'
+  const how = 'Sur l’autre appareil : Isoloir, puis Autre appareil, Récupérer mes réponses.'
   fit(ctx, how, 400, 30, R - M)
   ctx.fillText(how, M, 314)
   ctx.fillStyle = COLORS.print
-  const what = `Feuille du ${dateFr(now)} · ${sheetContents(state)}`
+  const what = `Code du ${dateFr(now)} · ${sheetContents(state)}`
   fit(ctx, what, 650, 28, R - M)
   ctx.fillText(what, M, 362)
 
@@ -89,8 +89,8 @@ export async function renderTransferImage(pack: ElectionPack, state: SessionStat
   ctx.fillStyle = COLORS.print
   ctx.fillRect(M, footTop, R - M, 1.5)
   const notes = [
-    'Ce code contient toutes vos réponses, vos lignes rouges comprises :',
-    'ne le montrez qu’à vos propres appareils.',
+    'Ne publiez jamais cette image, ni sur les réseaux sociaux ni ailleurs :',
+    'n’importe qui pourrait y lire chacune de vos réponses et vos lignes rouges.',
   ]
   const size = Math.min(...notes.map(n => fit(ctx, n, 400, 26, R - M)))
   font(ctx, 400, size)
