@@ -10,6 +10,7 @@ import {
   IMAGE_H,
   IMAGE_W,
   flaggedCount,
+  flopLead,
   offPosterText,
   othersText,
   posterNotes,
@@ -93,7 +94,7 @@ export function Share({ pack, results }: Props) {
     .map(r => `${positions.get(r.candidateId)}. ${names.get(r.candidateId)} ${displayScore(r.score) ?? '–'} %${showFlags && !r.compatible ? ' (croix)' : ''}`)
     .join(', ')
   const off = offPosterText(results.unranked.length, results.excluded.length)
-  const posterAlt = `Affiche « Mon dépouillement »${view === 'flop' ? ', les plus éloignés de mes idées' : ''}, ${pack.election.shortName}, sur ${
+  const posterAlt = `Affiche « Mon dépouillement »${view === 'flop' ? `, ${flopLead(results).replace(/^L/, 'l')}` : ''}, ${pack.election.shortName}, sur ${
     results.answered
   } réponses${listed ? ` : ${listed}${othersAlt}` : ''}.${off ? ` ${off}.` : ''}${posterNotes(results, showFlags)
     .map(n => ` ${n}`)

@@ -41,10 +41,12 @@ node tools/build-pack.mjs $D/question-bank-output.json $D src/elections/presiden
 
 - BUILD écrit `src/elections/presidentielle-2027/bank.ts`, `positions.ts` et `videos.ts` (le dossier est créé s'il manque).
 - BUILD écrit aussi `$D/bank.json`, `revisions.json` et `build-log.txt`.
+- BUILD consigne enfin dans `$D/positions-history.json` chaque position qui change, à la date du jour (étape 14). Rien n'est ajouté si rien ne change.
 - Après chaque BUILD :
 
   ```bash
   node tools/pipeline-helpers.mjs check-log $D   # code 1 = donnée perdue (orphan, edit-miss, gapfill-miss, reuse-miss, addcand-miss…)
+  node tools/positions-history.mjs check $D src/elections/presidentielle-2027   # code 1 = historique incohérent (étape 14)
   ```
 
 **Garde-fou de la primaire.** Retirée du site le 12 octobre 2026, elle reste dans le dépôt comme pack de référence (séries vidéo, élection factice essai-20, référence figée du moteur), et `research/choisir-2027/bank.json` sert à toute reconstruction de la présidentielle (`reuse.json`). Elle doit toujours se reconstruire à l'identique, avec un `git diff` vide :
@@ -394,7 +396,7 @@ Raphaël Glucksmann a remporté la primaire « Choisir 2027 » dès le premier t
 
 **Montrer à nouveau un candidat masqué.** Réécrire d'abord sa mention `primary` (elle annonce encore un second tour le 17 octobre) ; rétablir l'import de son portrait et de son logo, et ses lignes `party` et `photo` gardées en commentaire (`candidates.ts`) ; retirer son identifiant de `hidden` et de `hiddenCandidateIds`, le remettre dans `candidateIds` ; `node tools/audit-pack.mjs presidentielle-2027` et reporter les chiffres dans `audit` ; nouvelle `dataVersion` et entrée de `changelog` ; tests.
 
-**Retrait définitif, plus tard (si le propriétaire le décide).** BUILD sans les quatre dans `--include` (ou les retirer de `config.json` et déplacer leurs fichiers `add-candidate/<id>.json` dans `add-candidate/non-retenus/`, que `build-pack` ne lit pas) ; supprimer leurs fiches de `candidates.ts` (portraits et logos ne sont déjà plus importés), `royal` de `ranking.excluded` et de `scoringExcluded`, la liste `hidden` et `hiddenCandidateIds` ; audit, tests. Rien d'eux n'est alors livré : aujourd'hui, leurs données restent dans le fichier du pack, sans être affichées.
+**Retrait définitif, plus tard (si le propriétaire le décide).** Avant le BUILD, consigner la raison dans `decisions.json`, `historyNotes` (`"faure:*": { "note": "…", "cause": "candidat-retiré" }`, une par candidat) : l'historique des positions (étape 14) en garde un « retrait » par position. BUILD sans les quatre dans `--include` (ou les retirer de `config.json` et déplacer leurs fichiers `add-candidate/<id>.json` dans `add-candidate/non-retenus/`, que `build-pack` ne lit pas) ; supprimer leurs fiches de `candidates.ts` (portraits et logos ne sont déjà plus importés), `royal` de `ranking.excluded` et de `scoringExcluded`, la liste `hidden` et `hiddenCandidateIds` ; audit, tests. Rien d'eux n'est alors livré : aujourd'hui, leurs données restent dans le fichier du pack, sans être affichées.
 
 **Gel.** Hors fenêtres de gel (`freezeWindows`).
 
@@ -414,6 +416,46 @@ Raphaël Glucksmann a remporté la primaire « Choisir 2027 » dès le premier t
 4. **Configuration.** Ajouter `NEW` à `config.json` (`candidates`, sans `pendingPrimary`) et son parti à `forbiddenTerms`, dans `config.json` et dans `election.ts`.
 5. **Construction.** BUILD, `audit-pack`, tests, puis `candidates.ts` et le portrait, puis déploiement.
 
+## 14. Historique des positions (depuis le 15 octobre 2026)
+
+Décision du propriétaire du 2026-10-15 : garder chaque changement de position, candidat par candidat, pour pouvoir le retracer et dresser plus tard une « carte des changements » de position par candidat. Pas d'interface sur le site pour l'instant.
+
+**Le fichier.** `$D/positions-history.json`, format 2 (types et règles : `src/core/positionsHistory.ts` ; outil : `tools/positions-history.mjs`). Une entrée par position (un candidat sur une approche) qui change un jour donné, rangée par date :
+- `id` stable (`AAAA-MM-JJ:<candidat>:<approche>`, suffixé `:2`… si la clé revient le même jour), `date`, `candidateId`, `questionId`, `approachId`, `rev` (révision de la question ce jour-là) ;
+- `kinds` : `ajout`, `retrait`, `poids` (principale, compatible, rejet), `résumé`, `confiance`, `nature`, `sources`, plusieurs possibles ;
+- `change` : `fond` (ajout, retrait ou poids : la position elle-même change) ou `forme` (seule sa justification change) ;
+- `stance` : place du candidat avant et après (`principale`, `compatible`, `rejet`, `inconnue`), le sens du changement pour la carte ;
+- `cause` : pourquoi, en champ structuré. `prise-de-position` (le candidat a dit ou publié quelque chose de nouveau ; sa date dans `statedAt`), `relecture` (notre lecture ou notre rédaction change, pas le candidat), `première-publication`, `nouveau-candidat`, `candidat-retiré`, `nouvelle-approche`, `approche-retirée`, `question-retirée`, `non-précisée` (rien ne le dit ; `check` les compte) ;
+- `statedAt` : date de la prise de position (null pour les autres causes) ;
+- `dataVersion` avant et après (`after` vaut null jusqu'à la nouvelle version, voir plus bas) ;
+- `origin` (`rétroactif-git` ou `build-pack`), `commit` (rétroactif seulement) ;
+- `reason` et `reasonFrom` : note de la position dans `decisions.json`, note de vérification (`add-candidate/<id>.json`, banque, extension), note d'historique, raison consignée ou titre du commit ;
+- `before` et `after` : la position telle que publiée dans `positions.ts`, null quand elle est inconnue.
+
+En tête du fichier, `labels` garde, datés, les énoncés des questions et les textes des approches tels que publiés (une version par changement, `text` null quand ils quittent la banque) : une approche reformulée plus tard garde, pour les anciennes entrées, le texte publié ce jour-là (`labelAt`).
+
+Rejouer les entrées depuis une table vide redonne `positions.ts` (`tests/positions-history.test.ts`). Les candidats masqués et non classés y figurent comme les autres. Pour la carte : regrouper par candidat puis par question (`byCandidate`), lire le sens dans `stance`, la portée dans `change`, et **ne présenter comme un changement du candidat que les causes de `CANDIDATE_CAUSES`** (`prise-de-position`) : une relecture, une approche ajoutée ou l'arrivée d'un candidat ne sont pas des changements d'avis (même traitement pour tous).
+
+**Raisons et causes, dans `decisions.json`.** Une position de `positions` porte sa `note` (la raison) et, quand elle change une position publiée, `historyCause` (`prise-de-position` ou `relecture`, le plus souvent) et, pour une prise de position, `statedAt` (date de la déclaration ou du programme ; à défaut, la source datée la plus récente). Un changement sans position propre (retrait d'un candidat, question retirée) prend sa raison dans `historyNotes` : `{ "<candidat>:<approche>" | "<candidat>:*" | "question:<id>": { "note", "cause"?, "statedAt"? } }` ; une question de `drops` sans note propre reprend `_drops_note`. Sinon, la cause est inférée (première publication, candidat ou approche qui entre ou sort de la table ou de la banque), ou reste `non-précisée`.
+
+**Rétroactif.** Rempli le 15 octobre 2026 depuis les quatre commits qui ont touché `positions.ts` (5bbbdd5 du 8 octobre, 63ef2b6 du 9, a9c9e61 du 12, 3912fda du 14), sans rien extraire dans l'arbre (`git show`) :
+
+```bash
+node tools/positions-history.mjs rebuild $D src/elections/presidentielle-2027 --until 3912fda
+```
+
+À ne relancer que pour corriger le rétroactif : il réécrit ses entrées et garde à la suite celles de BUILD (et met au format courant un fichier plus ancien). Une raison ou une cause à corriger se consigne dans `RETRO_REASONS` ou `RETRO_CAUSES` (en tête de l'outil), pas dans le fichier. Causes relues le 15 octobre 2026 : aucun changement du 9 au 14 octobre ne vient d'une prise de position nouvelle d'un candidat (relectures, nouveaux candidats, approches ajoutées).
+
+**Chaque BUILD.** `build-pack` compare la table qu'il va écrire à l'état que l'historique connaît (son rejeu, qui redonne le `positions.ts` publié) et consigne les écarts à la date du jour (`origin: build-pack`), avec la note de la position retenue comme raison : **toute décision qui change une position porte donc sa `note` dans `decisions.json`**, datée et sourcée, avec son `historyCause`. Plusieurs BUILD le même jour se fondent en une entrée par position ; une position revenue à son état du matin n'en laisse aucune (un BUILD lancé sans `--include` puis relancé avec ne laisse rien). Sans `positions-history.json` (la primaire), sans `positions.ts` existant (dossier neuf, comme l'audit des hypothèses de l'étape 7) ou dans un dossier qui ne porte pas le nom de l'élection, rien n'est fait. `--no-history` saute la consignation pour un essai : le BUILD suivant, ou `node tools/positions-history.mjs append $D src/elections/presidentielle-2027`, consigne les écarts depuis l'état que l'historique connaît (un essai annulé ne laisse rien). `append --from <rev>` compare plutôt au `positions.ts` d'un commit, si le rejeu était faux.
+
+**Nouvelle dataVersion.** BUILD d'abord (l'avant d'une entrée est la `dataVersion` lue au moment du BUILD), puis la nouvelle `dataVersion` dans `election.ts`, puis :
+
+```bash
+node tools/positions-history.mjs stamp $D src/elections/presidentielle-2027
+```
+
+(le BUILD suivant le fait aussi). Le test échoue tant qu'une entrée attend une version déjà dépassée. Si une version pas encore publiée a déjà été estampillée et qu'un nouveau changement s'ajoute le même jour (cas du 15 octobre 2026), remettre l'ancienne `dataVersion` le temps du BUILD, puis la nouvelle, puis `stamp`.
+
 ## Annexe : contrats entre les maillons
 
 | Maillon | Lit | Écrit |
@@ -422,7 +464,8 @@ Raphaël Glucksmann a remporté la primaire « Choisir 2027 » dès le premier t
 | `split-research.mjs` | `config.json`, les fichiers ci-dessus, `reuseDossier` (`research/choisir-2027/dossier_<id>.json`) | `$D/groups/<famille>.json` |
 | `2-question-bank.js` | `groups/<famille>.json`, dossiers, `research/choisir-2027/bank.json` (questions reprises) | `drafts` (questions, approches et questions marquées `reuseOf`), `stats`, `neutrality`, `critic` → `question-bank-output.json` |
 | `build-reuse.mjs` | `question-bank-output.json`, `decisions.json`, `research/choisir-2027/bank.json`, `src/ui/videos/series/` | `$D/reuse.json` `{ from, questions, approaches, videoTopics }` |
-| `build-pack.mjs` | sortie de la banque, extensions, `config.json`, `decisions.json`, `explainers.json`, `explainer-charts.json`, `reuse.json`, `add-candidate/*.json` | `bank.ts`, `positions.ts`, `videos.ts` (`videoScope = { topics: série → thème, questions: question de la primaire → question d'ici }`), `$D/bank.json` (`bank`, `positions`, `prepared`), `revisions.json`, `build-log.txt` |
+| `build-pack.mjs` | sortie de la banque, extensions, `config.json`, `decisions.json`, `explainers.json`, `explainer-charts.json`, `reuse.json`, `add-candidate/*.json`, `positions.ts` existant | `bank.ts`, `positions.ts`, `videos.ts` (`videoScope = { topics: série → thème, questions: question de la primaire → question d'ici }`), `$D/bank.json` (`bank`, `positions`, `prepared`), `revisions.json`, `build-log.txt`, `positions-history.json` (s'il existe) |
+| `positions-history.mjs` | historique git de `positions.ts`, `bank.ts`, `election.ts`, `decisions.json`, `add-candidate/` (rebuild) ; `positions-history.json`, `decisions.json` (`note`, `historyCause`, `statedAt`, `historyNotes`), `positions.ts`, `bank.ts`, `election.ts` | `$D/positions-history.json` |
 | `3-bank-expansion.js` + `merge-expansion.mjs` | `$D/bank.json`, dossiers, groupes | `expansion-merged.json` (`drafts`, `neutrality.edits`, `gapFills`) |
 | `6-add-candidate.js` | `$D/bank.json`, dossier (+ `refresh`), `reuse.json` | `add-candidate/<id>.json` (`candidate`, `positions[]` avec `verdict`, plus `card` et `portrait` pour la session) |
 | `4-explainers.js` + `merge-explainers.mjs` | `$D/bank.json`, explications publiées (`from`) | `explainers.json`, `explainer-charts.json`, `explainers-log.txt` |

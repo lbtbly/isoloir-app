@@ -5370,45 +5370,51 @@ export const positions: PositionTable = {
       "weight": 2,
       "nature": "proposition",
       "confidence": "high",
-      "summary": "Il veut redresser les comptes publics de 120 Md€ d’ici 2032 par la seule baisse des dépenses, sans nouvelle hausse d’impôts, avec notamment 125 000 départs d’agents publics non remplacés.",
+      "summary": "Il prévoit, sans hausse d’impôts, 197 Md€ d’économies d’ici 2032, surtout sur l’État (96 Md€, avec 400 000 départs à la retraite d’agents publics non remplacés) et les dépenses sociales (91 Md€, dont environ 42 Md€ sur les retraites), pour ramener le déficit sous 3 % du PIB en 2031 et alléger les prélèvements de 51 Md€.",
       "sources": [
         {
-          "title": "Fondation IFRAP – Comparateur Présidentielles 2027",
-          "url": "https://www.ifrap.org/comparateurs/presidentielles-2027",
-          "date": "2026",
-          "publisher": "Fondation iFRAP"
+          "title": "Bruno Retailleau sur X – plan d’économies présenté le 12 octobre 2026",
+          "url": "https://x.com/BrunoRetailleau/status/2109598169487012152",
+          "date": "2026-10-12",
+          "publisher": "X (compte de Bruno Retailleau)"
         },
         {
-          "title": "LR – L’IA au service des Français (livret)",
-          "url": "https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf",
-          "date": "2026-07",
-          "publisher": "Les Républicains"
-        },
-        {
-          "title": "Public Sénat – Bruno Retailleau se déclare candidat",
-          "url": "https://www.publicsenat.fr/actualites/politique/https-www-publicsenat-fr-actualites-politique-je-serai-le-president-de-lordre-de-la-justice-et-de-la-fierte-francaise-bruno-retailleau-se-declare-candidat-a-la-presidentielle-de-2027",
-          "date": "2026-02-12",
+          "title": "Présidentielle 2027 : Bruno Retailleau s’engage sur un plan d’économies de près de 200 milliards d’euros, s’il est élu",
+          "url": "https://www.publicsenat.fr/actualites/economie/presidentielle-2027-bruno-retailleau-sengage-sur-un-plan-deconomies-de-pres-de-200-milliards-deuros-sil-est-elu",
+          "date": "2026-10-12",
           "publisher": "Public Sénat"
+        },
+        {
+          "title": "Face à une France « quasiment en faillite », Bruno Retailleau présente un plan d’économies de 197 milliards d’euros sur cinq ans",
+          "url": "https://lcp.fr/actualites/face-a-une-france-quasiment-en-faillite-bruno-retailleau-presente-un-plan-d-economies-de",
+          "date": "2026-10-12",
+          "publisher": "LCP"
         }
       ]
     },
     "finances_publiques-1-g": {
       "weight": 1,
       "nature": "proposition",
-      "confidence": "medium",
-      "summary": "Il prévoit de baisser les dotations aux agences de l’État et, selon le livret agricole de son parti, de supprimer l’Office français de la biodiversité et de mener un audit général des agences pouvant conduire à en supprimer certaines, dans un redressement des comptes sans hausse d’impôts.",
+      "confidence": "high",
+      "summary": "Il veut supprimer ou réintégrer à l’État la quasi-totalité des 1 153 agences et opérateurs retenus par une commission d’enquête du Sénat, la suppression devenant la règle (7,5 Md€ d’économies), et réduire les doublons entre l’État et les collectivités (4 Md€).",
       "sources": [
+        {
+          "title": "Bruno Retailleau veut faire travailler davantage les fonctionnaires",
+          "url": "https://acteurspublics.fr/articles/bruno-retailleau-veut-faire-travailler-davantage-les-fonctionnaires/",
+          "date": "2026-10-12",
+          "publisher": "Acteurs publics"
+        },
+        {
+          "title": "Présidentielle 2027 : Bruno Retailleau s’engage sur un plan d’économies de près de 200 milliards d’euros, s’il est élu",
+          "url": "https://www.publicsenat.fr/actualites/economie/presidentielle-2027-bruno-retailleau-sengage-sur-un-plan-deconomies-de-pres-de-200-milliards-deuros-sil-est-elu",
+          "date": "2026-10-12",
+          "publisher": "Public Sénat"
+        },
         {
           "title": "Fondation iFRAP – Comparateur Présidentielles 2027",
           "url": "https://www.ifrap.org/comparateurs/presidentielles-2027",
-          "date": "2026",
+          "date": "2026-10-15 (consultation)",
           "publisher": "Fondation iFRAP"
-        },
-        {
-          "title": "LR – Réarmer notre agriculture (livret)",
-          "url": "https://republicains.fr/wp-content/uploads/2026/03/LR_Agriculture.pdf",
-          "date": "2026-02",
-          "publisher": "Les Républicains"
         }
       ]
     },
@@ -5416,8 +5422,20 @@ export const positions: PositionTable = {
       "weight": 2,
       "nature": "proposition",
       "confidence": "high",
-      "summary": "Il propose un allègement de 40 Md€ (plus de 25 Md€ sur le coût du travail, dont les cotisations patronales, et près de 15 Md€ d’impôts de production) tout en sanctuarisant le crédit d’impôt recherche et certaines aides sectorielles.",
+      "summary": "Il prévoit 30 Md€ d’allègements pour les entreprises, notamment par la suppression d’impôts de production ; son livret de février 2026 détaillait une baisse du coût du travail, dont les cotisations patronales, et des impôts de production, en gardant le crédit d’impôt recherche et certaines aides sectorielles.",
       "sources": [
+        {
+          "title": "Présidentielle 2027 : Bruno Retailleau s’engage sur un plan d’économies de près de 200 milliards d’euros, s’il est élu",
+          "url": "https://www.publicsenat.fr/actualites/economie/presidentielle-2027-bruno-retailleau-sengage-sur-un-plan-deconomies-de-pres-de-200-milliards-deuros-sil-est-elu",
+          "date": "2026-10-12",
+          "publisher": "Public Sénat"
+        },
+        {
+          "title": "Face à une France « quasiment en faillite », Bruno Retailleau présente un plan d’économies de 197 milliards d’euros sur cinq ans",
+          "url": "https://lcp.fr/actualites/face-a-une-france-quasiment-en-faillite-bruno-retailleau-presente-un-plan-d-economies-de",
+          "date": "2026-10-12",
+          "publisher": "LCP"
+        },
         {
           "title": "LR – Produire plus pour vivre mieux (livret)",
           "url": "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf",
@@ -5492,19 +5510,19 @@ export const positions: PositionTable = {
       "weight": 2,
       "nature": "proposition",
       "confidence": "high",
-      "summary": "Il prévoit, grâce à l’intelligence artificielle, 125 000 départs à la retraite non remplacés d’ici 2032 et 125 000 agents redéployés du back-office vers le terrain, l’Éducation nationale n’ayant aucune suppression de poste.",
+      "summary": "Il prévoit de ne pas remplacer 400 000 départs à la retraite d’agents publics pendant le quinquennat (600 000 en dix ans), grâce notamment à l’intelligence artificielle, qui permettrait aussi de remettre 150 000 fonctionnaires sur le terrain.",
       "sources": [
         {
-          "title": "LR – L’IA au service des Français (livret)",
-          "url": "https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf",
-          "date": "2026-07",
-          "publisher": "Les Républicains"
+          "title": "Bruno Retailleau veut faire travailler davantage les fonctionnaires",
+          "url": "https://acteurspublics.fr/articles/bruno-retailleau-veut-faire-travailler-davantage-les-fonctionnaires/",
+          "date": "2026-10-12",
+          "publisher": "Acteurs publics"
         },
         {
-          "title": "Fondation IFRAP – Comparateur Présidentielles 2027",
-          "url": "https://www.ifrap.org/comparateurs/presidentielles-2027",
-          "date": "2026",
-          "publisher": "Fondation iFRAP"
+          "title": "Présidentielle 2027 : Bruno Retailleau s’engage sur un plan d’économies de près de 200 milliards d’euros, s’il est élu",
+          "url": "https://www.publicsenat.fr/actualites/economie/presidentielle-2027-bruno-retailleau-sengage-sur-un-plan-deconomies-de-pres-de-200-milliards-deuros-sil-est-elu",
+          "date": "2026-10-12",
+          "publisher": "Public Sénat"
         }
       ]
     },
@@ -6197,24 +6215,6 @@ export const positions: PositionTable = {
         }
       ]
     },
-    "territoires-1-c": {
-      "weight": 2,
-      "nature": "proposition",
-      "confidence": "high",
-      "summary": "Grâce à l’intelligence artificielle, il veut ne pas remplacer 125 000 départs à la retraite et redéployer 125 000 agents vers le terrain, dont 46 000 vers l’accueil dans les guichets et les mairies.",
-      "sources": [
-        {
-          "title": "LR – L’IA au service des Français (livret)",
-          "url": "https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf",
-          "date": "2026-07"
-        },
-        {
-          "title": "Acteurs publics – Bruno Retailleau souhaite redéployer 125 000 fonctionnaires sur le terrain grâce à l’IA",
-          "url": "https://acteurspublics.fr/articles/presidentielle-bruno-retailleau-souhaite-redeployer-125-000-fonctionnaires-sur-le-terrain-grace-a-lia/",
-          "date": "2026-07-08"
-        }
-      ]
-    },
     "territoires-1-a": {
       "weight": 1,
       "nature": "proposition",
@@ -6225,6 +6225,26 @@ export const positions: PositionTable = {
           "title": "LR – Éducation : Pour une école de la transmission, de l’égalité des chances, de l’autorité et de la liberté",
           "url": "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf",
           "date": "2026-09"
+        }
+      ]
+    },
+    "territoires-1-c": {
+      "weight": 2,
+      "nature": "proposition",
+      "confidence": "high",
+      "summary": "Il compte sur l’intelligence artificielle pour confier les tâches répétitives aux machines, ne pas remplacer 400 000 départs à la retraite d’agents publics pendant le quinquennat et remettre 150 000 fonctionnaires sur le terrain.",
+      "sources": [
+        {
+          "title": "Bruno Retailleau veut faire travailler davantage les fonctionnaires",
+          "url": "https://acteurspublics.fr/articles/bruno-retailleau-veut-faire-travailler-davantage-les-fonctionnaires/",
+          "date": "2026-10-12",
+          "publisher": "Acteurs publics"
+        },
+        {
+          "title": "Présidentielle 2027 : Bruno Retailleau s’engage sur un plan d’économies de près de 200 milliards d’euros, s’il est élu",
+          "url": "https://www.publicsenat.fr/actualites/economie/presidentielle-2027-bruno-retailleau-sengage-sur-un-plan-deconomies-de-pres-de-200-milliards-deuros-sil-est-elu",
+          "date": "2026-10-12",
+          "publisher": "Public Sénat"
         }
       ]
     },
@@ -6922,25 +6942,19 @@ export const positions: PositionTable = {
       "weight": 2,
       "nature": "proposition",
       "confidence": "high",
-      "summary": "Il propose de réduire de 40 milliards d’euros les prélèvements sur le travail et la production dès le début du quinquennat, et exclut toute hausse d’impôts, l’État dépensant selon lui trop.",
+      "summary": "Il prévoit de rendre 51 Md€ aux Français d’ici 2032 (21 Md€ aux ménages, 30 Md€ aux entreprises, notamment par la suppression d’impôts de production), allègement financé par des économies sur les dépenses, et exclut tout impôt nouveau.",
       "sources": [
         {
-          "title": "Produire plus pour vivre mieux (livret)",
-          "url": "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf",
-          "date": "2026-02",
-          "publisher": "Les Républicains"
+          "title": "Face à une France « quasiment en faillite », Bruno Retailleau présente un plan d’économies de 197 milliards d’euros sur cinq ans",
+          "url": "https://lcp.fr/actualites/face-a-une-france-quasiment-en-faillite-bruno-retailleau-presente-un-plan-d-economies-de",
+          "date": "2026-10-12",
+          "publisher": "LCP"
         },
         {
-          "title": "« Je serai le président qui baissera les impôts de succession »",
-          "url": "https://republicains.fr/actualites/2026/08/26/je-serai-le-president-qui-baissera-les-impots-de-succession/",
-          "date": "2026-08-26",
-          "publisher": "Les Républicains"
-        },
-        {
-          "title": "Comparateur de programmes – Présidentielles 2027",
-          "url": "https://www.ifrap.org/comparateurs/presidentielles-2027",
-          "date": "2026",
-          "publisher": "Fondation iFRAP"
+          "title": "Présidentielle 2027 : Bruno Retailleau s’engage sur un plan d’économies de près de 200 milliards d’euros, s’il est élu",
+          "url": "https://www.publicsenat.fr/actualites/economie/presidentielle-2027-bruno-retailleau-sengage-sur-un-plan-deconomies-de-pres-de-200-milliards-deuros-sil-est-elu",
+          "date": "2026-10-12",
+          "publisher": "Public Sénat"
         }
       ]
     },
@@ -21563,11 +21577,11 @@ export const positions: PositionTable = {
         }
       ]
     },
-    "finances_publiques-1-b": {
+    "finances_publiques-1-g": {
       "weight": 2,
       "nature": "proposition",
       "confidence": "high",
-      "summary": "Il veut économiser 60 Md€ par an sans hausse d’impôts, dont 15 Md€ de contribution nette à l’Union européenne, 30 Md€ de doublons dans les collectivités et 10 Md€ liés à l’immigration.",
+      "summary": "Il veut redresser les finances publiques sans augmenter le niveau d’imposition, d’abord en réduisant le train de vie de l’État (ministères non régaliens, aides mal ciblées, structures jugées inutiles comme l’Arcom) ; la suppression des doublons de la fonction publique territoriale doit apporter 30 Md€ par an, la moitié des 60 Md€ d’économies qu’il vise.",
       "sources": [
         {
           "title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
@@ -21577,11 +21591,11 @@ export const positions: PositionTable = {
         }
       ]
     },
-    "finances_publiques-1-g": {
+    "finances_publiques-1-b": {
       "weight": 1,
       "nature": "proposition",
       "confidence": "high",
-      "summary": "Il veut redresser les finances publiques sans hausse d’impôts, d’abord en réduisant le train de vie de l’État (ministères non régaliens, structures jugées inutiles comme l’Arcom, aides mal ciblées), et en supprimant les doublons de la fonction publique territoriale, dont il attend 30 Md€ par an.",
+      "summary": "Sur les 60 Md€ d’économies annuelles qu’il vise sans hausse d’impôts, il attend 15 Md€ de la fin de la contribution nette de la France à l’Union européenne, qu’il veut quitter, et 10 Md€ d’une baisse du coût qu’il attribue à l’immigration.",
       "sources": [
         {
           "title": "Les grandes orientations pour un projet patriote, édition 2026-2027",

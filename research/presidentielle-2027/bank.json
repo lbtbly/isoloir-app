@@ -423,7 +423,8 @@
           },
           {
             "id": "finances_publiques-1-h",
-            "text": "Réduire le déficit surtout en relançant la production en France pour accroître les recettes publiques"
+            "text": "Réduire le déficit surtout en relançant la production en France pour accroître les recettes publiques",
+            "since": 2
           }
         ]
       },
@@ -2015,19 +2016,20 @@
               }
             },
             {
-              "text": "Les relations financières entre la France et l’étranger sont libres. Par exception, dans des secteurs précisément listés (défense nationale, ordre public, activités essentielles aux intérêts du pays), un investissement étranger doit recevoir une autorisation préalable de l’État (article L. 151-3 du code monétaire et financier).",
+              "text": "Le droit de l’Union européenne ne tranche pas entre propriété publique et propriété privée des entreprises : selon l’article 345 du traité sur le fonctionnement de l’Union européenne, les traités « ne préjugent en rien le régime de la propriété dans les États membres ».",
               "source": {
-                "title": "Contrôle des investissements étrangers en France",
-                "url": "https://www.tresor.economie.gouv.fr/services-aux-entreprises/investissements-etrangers-en-france",
-                "publisher": "Direction générale du Trésor"
+                "title": "Traité sur le fonctionnement de l’Union européenne (version consolidée 2016), article 345",
+                "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:12016E345",
+                "date": "2016-06-07",
+                "publisher": "EUR-Lex (Office des publications de l’Union européenne)"
               }
             },
             {
-              "text": "En 2006, l’État a vendu ses participations majoritaires dans trois sociétés concessionnaires d’autoroutes « historiques ». Les concessions historiques, qui concentrent 97,2 % du trafic du réseau autoroutier concédé, arrivent à échéance entre 2031 et 2036.",
+              "text": "Toute aide publique à une entreprise doit respecter les règles européennes sur les aides d’État : celles qui faussent ou menacent de fausser la concurrence sont en principe interdites lorsqu’elles affectent les échanges entre pays de l’Union, avec des exceptions, par exemple pour les « projets importants d’intérêt européen commun » ou en cas de perturbation grave de l’économie d’un État membre. Une prise de participation publique compte comme une aide quand l’État n’agit pas comme un investisseur privé qui recherche une rentabilité à long terme.",
               "source": {
-                "title": "Rapport n° 709 (2019-2020) de la commission d’enquête sur le contrôle, la régulation et l’évolution des concessions autoroutières",
-                "url": "https://www.senat.fr/rap/r19-709-1/r19-709-1_mono.html",
-                "date": "2020-09-16",
+                "title": "L’essentiel sur le rapport de la commission d’enquête sur l’utilisation des aides publiques aux grandes entreprises et à leurs sous-traitants (rapport n° 808, 2024-2025)",
+                "url": "https://www.senat.fr/rap/r24-808-1/r24-808-1-syn.pdf",
+                "date": "2025-07",
                 "publisher": "Sénat"
               }
             }
@@ -2035,7 +2037,7 @@
           "figures": [
             {
               "value": "209,1 Md€",
-              "label": "Valeur des participations de l’État suivies par l’Agence des participations de l’État au 30 juin 2025 (86 entreprises), contre 179,5 Md€ un an plus tôt. Dont 67,9 Md€ dans des sociétés cotées en Bourse, contre 50 Md€ en 2024.",
+              "label": "Valeur des participations de l’État suivies par l’Agence des participations de l’État au 30 juin 2025 (86 entités : 72 entreprises non cotées, 10 entreprises cotées et 4 structures de défaisance ou entités en extinction), contre 179,5 Md€ un an plus tôt. Dont 67,9 Md€ dans des sociétés cotées en Bourse, contre 50 Md€ en 2024.",
               "date": "30 juin 2025",
               "source": {
                 "title": "Rapport relatif à l’État actionnaire (annexe au projet de loi de finances pour 2026)",
@@ -2071,7 +2073,7 @@
             },
             {
               "value": "418",
-              "label": "Dossiers déposés en 2025 au titre du contrôle des investissements étrangers en France, contre 392 en 2024. 167 autorisations ont été délivrées, dont 49 % assorties de conditions, et sept opérations ont été formellement refusées en quatre ans.",
+              "label": "Dossiers déposés en 2025 au titre du contrôle des investissements étrangers en France, contre 392 en 2024. Ce contrôle porte sur les opérations touchant à des activités de nature à porter atteinte à l’ordre public, à la sécurité publique ou aux intérêts de la défense nationale, qui doivent être autorisées par l’État. 167 autorisations ont été délivrées, dont 49 % assorties de conditions, et sept opérations ont été formellement refusées en quatre ans.",
               "date": "2025",
               "source": {
                 "title": "Publication du rapport annuel sur le contrôle IEF en 2025",
@@ -2096,7 +2098,7 @@
             },
             {
               "value": "14,8 Md€",
-              "label": "Somme perçue par l’État en 2006 lors de la privatisation de sociétés concessionnaires d’autoroutes, qui l’a aussi déchargé de 16,8 Md€ de dette de ces sociétés. Selon l’Autorité de la concurrence (avis de 2014), les sociétés concessionnaires d’autoroutes ont ensuite versé 14,9 Md€ de dividendes entre 2006 et 2013.",
+              "label": "Somme perçue par l’État en 2006 lors de la privatisation de sociétés concessionnaires d’autoroutes, qui l’a aussi déchargé de 16,8 Md€ de dette de ces sociétés. Selon l’Autorité de la concurrence (avis de 2014), les sociétés concessionnaires d’autoroutes ont ensuite versé 14,9 Md€ de dividendes entre 2006 et 2013. Les concessions historiques, qui concentrent 97,2 % du trafic du réseau autoroutier concédé, arrivent à échéance entre 2031 et 2036.",
               "date": "2006",
               "source": {
                 "title": "Rapport n° 709 (2019-2020) de la commission d’enquête sur le contrôle, la régulation et l’évolution des concessions autoroutières",
@@ -5413,8 +5415,8 @@
               }
             },
             {
-              "value": "66 % contre 73 %",
-              "label": "des moyens des collèges et lycées privés sous contrat viennent de l’État, contre 73 % pour les collèges et lycées publics. Le reste vient surtout des familles et d’autres acteurs privés dans le privé (25 %), des collectivités territoriales dans le public (22 %). Pour les écoles maternelles et élémentaires privées, l’État apporte 2 314 M€ sur 4 414 M€ (France)",
+              "value": "52 % et 66 %",
+              "label": "part de l’État dans le financement des écoles maternelles et élémentaires et des collèges et lycées privés sous contrat, contre 56 % et 73 % dans le public. Les collectivités territoriales en apportent 26 % et 10 % dans le privé, 41 % et 22 % dans le public ; dans le privé, l’essentiel du reste vient des familles et d’autres financeurs privés (France)",
               "date": "2024",
               "source": {
                 "title": "Repères et références statistiques 2026 (fiche 10.04, le financement des producteurs d’éducation)",
@@ -5427,11 +5429,19 @@
                 "unit": "%",
                 "items": [
                   {
-                    "label": "Collèges et lycées privés",
+                    "label": "Privé, écoles",
+                    "value": 52
+                  },
+                  {
+                    "label": "Public, écoles",
+                    "value": 56
+                  },
+                  {
+                    "label": "Privé, collèges et lycées",
                     "value": 66
                   },
                   {
-                    "label": "Collèges et lycées publics",
+                    "label": "Public, collèges et lycées",
                     "value": 73
                   }
                 ]
@@ -7250,7 +7260,7 @@
           "figures": [
             {
               "value": "445",
-              "label": "maternités en France en 2024 (service de santé des armées compris), soit 88 de moins qu’en 2014 (- 16,5 %). Sur la même période, le nombre d’accouchements a baissé de 19,4 % (- 155 500), pour atteindre 646 100 en 2024",
+              "label": "maternités en France en 2024 (service de santé des armées compris), soit 88 de moins qu’en 2014 (- 16,5 %). Sur la même période, le nombre d’accouchements a baissé de 19,4 % (- 155 500), pour atteindre 646 100 en 2024. En France métropolitaine (hors service de santé des armées), 4 % des maternités ont pris en charge moins de 300 accouchements en 2024, contre 12 % en 1996, et 37 % au moins 1 500, contre 13 % en 1996 ; les plus petites se situent surtout dans des départements de montagne ou ruraux",
               "date": "2024",
               "source": {
                 "title": "Les établissements de santé en 2024 – Édition 2026, fiche 19 « La naissance : les maternités »",
@@ -7260,26 +7270,30 @@
               }
             },
             {
-              "value": "4 %",
-              "label": "des maternités de France métropolitaine (hors service de santé des armées) ont pris en charge moins de 300 accouchements en 2024, contre 12 % en 1996 ; 37 % en ont accueilli au moins 1 500, contre 13 % en 1996. Les plus petites se situent surtout dans des départements de montagne ou ruraux",
-              "date": "2024",
+              "value": "471",
+              "label": "maternités en France en 2021, contre 721 en 2000 et 557 en 2010. Selon la Cour des comptes, cette baisse découle du renforcement des normes de fonctionnement et de sécurité ; elle porte sur les maternités qui n’ont qu’une unité d’obstétrique (450 en 2000, 175 en 2021)",
+              "date": "2021",
               "source": {
-                "title": "Les établissements de santé en 2024 – Édition 2026, fiche 19 « La naissance : les maternités »",
-                "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2026-07/ES%202026%20-%20Fiche%2019%20-%20La%20naissance%20-%20les%20maternit%C3%A9s.pdf",
-                "date": "2026",
-                "publisher": "Direction de la recherche, des études, de l’évaluation et des statistiques (Drees)"
+                "title": "La politique de périnatalité – Rapport public thématique",
+                "url": "https://www.ccomptes.fr/sites/default/files/2024-05/20240506-Sante-perinatale.pdf",
+                "date": "2024-05",
+                "publisher": "Cour des comptes"
               },
               "chart": {
                 "kind": "series",
-                "unit": "%",
+                "unit": "maternités",
                 "items": [
                   {
-                    "label": "1996",
-                    "value": 12
+                    "label": "2000",
+                    "value": 721
                   },
                   {
-                    "label": "2024",
-                    "value": 4
+                    "label": "2010",
+                    "value": 557
+                  },
+                  {
+                    "label": "2021",
+                    "value": 471
                   }
                 ]
               }
@@ -11115,7 +11129,8 @@
           },
           {
             "id": "europe-3-f",
-            "text": "Déroger aux règles européennes pour donner, dans la commande publique, la priorité aux entreprises qui produisent en France"
+            "text": "Déroger aux règles européennes pour donner, dans la commande publique, la priorité aux entreprises qui produisent en France",
+            "since": 2
           }
         ]
       },
@@ -21112,45 +21127,51 @@
         "weight": 2,
         "nature": "proposition",
         "confidence": "high",
-        "summary": "Il veut redresser les comptes publics de 120 Md€ d’ici 2032 par la seule baisse des dépenses, sans nouvelle hausse d’impôts, avec notamment 125 000 départs d’agents publics non remplacés.",
+        "summary": "Il prévoit, sans hausse d’impôts, 197 Md€ d’économies d’ici 2032, surtout sur l’État (96 Md€, avec 400 000 départs à la retraite d’agents publics non remplacés) et les dépenses sociales (91 Md€, dont environ 42 Md€ sur les retraites), pour ramener le déficit sous 3 % du PIB en 2031 et alléger les prélèvements de 51 Md€.",
         "sources": [
           {
-            "title": "Fondation IFRAP – Comparateur Présidentielles 2027",
-            "url": "https://www.ifrap.org/comparateurs/presidentielles-2027",
-            "date": "2026",
-            "publisher": "Fondation iFRAP"
+            "title": "Bruno Retailleau sur X – plan d’économies présenté le 12 octobre 2026",
+            "url": "https://x.com/BrunoRetailleau/status/2109598169487012152",
+            "date": "2026-10-12",
+            "publisher": "X (compte de Bruno Retailleau)"
           },
           {
-            "title": "LR – L’IA au service des Français (livret)",
-            "url": "https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf",
-            "date": "2026-07",
-            "publisher": "Les Républicains"
-          },
-          {
-            "title": "Public Sénat – Bruno Retailleau se déclare candidat",
-            "url": "https://www.publicsenat.fr/actualites/politique/https-www-publicsenat-fr-actualites-politique-je-serai-le-president-de-lordre-de-la-justice-et-de-la-fierte-francaise-bruno-retailleau-se-declare-candidat-a-la-presidentielle-de-2027",
-            "date": "2026-02-12",
+            "title": "Présidentielle 2027 : Bruno Retailleau s’engage sur un plan d’économies de près de 200 milliards d’euros, s’il est élu",
+            "url": "https://www.publicsenat.fr/actualites/economie/presidentielle-2027-bruno-retailleau-sengage-sur-un-plan-deconomies-de-pres-de-200-milliards-deuros-sil-est-elu",
+            "date": "2026-10-12",
             "publisher": "Public Sénat"
+          },
+          {
+            "title": "Face à une France « quasiment en faillite », Bruno Retailleau présente un plan d’économies de 197 milliards d’euros sur cinq ans",
+            "url": "https://lcp.fr/actualites/face-a-une-france-quasiment-en-faillite-bruno-retailleau-presente-un-plan-d-economies-de",
+            "date": "2026-10-12",
+            "publisher": "LCP"
           }
         ]
       },
       "finances_publiques-1-g": {
         "weight": 1,
         "nature": "proposition",
-        "confidence": "medium",
-        "summary": "Il prévoit de baisser les dotations aux agences de l’État et, selon le livret agricole de son parti, de supprimer l’Office français de la biodiversité et de mener un audit général des agences pouvant conduire à en supprimer certaines, dans un redressement des comptes sans hausse d’impôts.",
+        "confidence": "high",
+        "summary": "Il veut supprimer ou réintégrer à l’État la quasi-totalité des 1 153 agences et opérateurs retenus par une commission d’enquête du Sénat, la suppression devenant la règle (7,5 Md€ d’économies), et réduire les doublons entre l’État et les collectivités (4 Md€).",
         "sources": [
+          {
+            "title": "Bruno Retailleau veut faire travailler davantage les fonctionnaires",
+            "url": "https://acteurspublics.fr/articles/bruno-retailleau-veut-faire-travailler-davantage-les-fonctionnaires/",
+            "date": "2026-10-12",
+            "publisher": "Acteurs publics"
+          },
+          {
+            "title": "Présidentielle 2027 : Bruno Retailleau s’engage sur un plan d’économies de près de 200 milliards d’euros, s’il est élu",
+            "url": "https://www.publicsenat.fr/actualites/economie/presidentielle-2027-bruno-retailleau-sengage-sur-un-plan-deconomies-de-pres-de-200-milliards-deuros-sil-est-elu",
+            "date": "2026-10-12",
+            "publisher": "Public Sénat"
+          },
           {
             "title": "Fondation iFRAP – Comparateur Présidentielles 2027",
             "url": "https://www.ifrap.org/comparateurs/presidentielles-2027",
-            "date": "2026",
+            "date": "2026-10-15 (consultation)",
             "publisher": "Fondation iFRAP"
-          },
-          {
-            "title": "LR – Réarmer notre agriculture (livret)",
-            "url": "https://republicains.fr/wp-content/uploads/2026/03/LR_Agriculture.pdf",
-            "date": "2026-02",
-            "publisher": "Les Républicains"
           }
         ]
       },
@@ -21158,8 +21179,20 @@
         "weight": 2,
         "nature": "proposition",
         "confidence": "high",
-        "summary": "Il propose un allègement de 40 Md€ (plus de 25 Md€ sur le coût du travail, dont les cotisations patronales, et près de 15 Md€ d’impôts de production) tout en sanctuarisant le crédit d’impôt recherche et certaines aides sectorielles.",
+        "summary": "Il prévoit 30 Md€ d’allègements pour les entreprises, notamment par la suppression d’impôts de production ; son livret de février 2026 détaillait une baisse du coût du travail, dont les cotisations patronales, et des impôts de production, en gardant le crédit d’impôt recherche et certaines aides sectorielles.",
         "sources": [
+          {
+            "title": "Présidentielle 2027 : Bruno Retailleau s’engage sur un plan d’économies de près de 200 milliards d’euros, s’il est élu",
+            "url": "https://www.publicsenat.fr/actualites/economie/presidentielle-2027-bruno-retailleau-sengage-sur-un-plan-deconomies-de-pres-de-200-milliards-deuros-sil-est-elu",
+            "date": "2026-10-12",
+            "publisher": "Public Sénat"
+          },
+          {
+            "title": "Face à une France « quasiment en faillite », Bruno Retailleau présente un plan d’économies de 197 milliards d’euros sur cinq ans",
+            "url": "https://lcp.fr/actualites/face-a-une-france-quasiment-en-faillite-bruno-retailleau-presente-un-plan-d-economies-de",
+            "date": "2026-10-12",
+            "publisher": "LCP"
+          },
           {
             "title": "LR – Produire plus pour vivre mieux (livret)",
             "url": "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf",
@@ -21234,19 +21267,19 @@
         "weight": 2,
         "nature": "proposition",
         "confidence": "high",
-        "summary": "Il prévoit, grâce à l’intelligence artificielle, 125 000 départs à la retraite non remplacés d’ici 2032 et 125 000 agents redéployés du back-office vers le terrain, l’Éducation nationale n’ayant aucune suppression de poste.",
+        "summary": "Il prévoit de ne pas remplacer 400 000 départs à la retraite d’agents publics pendant le quinquennat (600 000 en dix ans), grâce notamment à l’intelligence artificielle, qui permettrait aussi de remettre 150 000 fonctionnaires sur le terrain.",
         "sources": [
           {
-            "title": "LR – L’IA au service des Français (livret)",
-            "url": "https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf",
-            "date": "2026-07",
-            "publisher": "Les Républicains"
+            "title": "Bruno Retailleau veut faire travailler davantage les fonctionnaires",
+            "url": "https://acteurspublics.fr/articles/bruno-retailleau-veut-faire-travailler-davantage-les-fonctionnaires/",
+            "date": "2026-10-12",
+            "publisher": "Acteurs publics"
           },
           {
-            "title": "Fondation IFRAP – Comparateur Présidentielles 2027",
-            "url": "https://www.ifrap.org/comparateurs/presidentielles-2027",
-            "date": "2026",
-            "publisher": "Fondation iFRAP"
+            "title": "Présidentielle 2027 : Bruno Retailleau s’engage sur un plan d’économies de près de 200 milliards d’euros, s’il est élu",
+            "url": "https://www.publicsenat.fr/actualites/economie/presidentielle-2027-bruno-retailleau-sengage-sur-un-plan-deconomies-de-pres-de-200-milliards-deuros-sil-est-elu",
+            "date": "2026-10-12",
+            "publisher": "Public Sénat"
           }
         ]
       },
@@ -21939,24 +21972,6 @@
           }
         ]
       },
-      "territoires-1-c": {
-        "weight": 2,
-        "nature": "proposition",
-        "confidence": "high",
-        "summary": "Grâce à l’intelligence artificielle, il veut ne pas remplacer 125 000 départs à la retraite et redéployer 125 000 agents vers le terrain, dont 46 000 vers l’accueil dans les guichets et les mairies.",
-        "sources": [
-          {
-            "title": "LR – L’IA au service des Français (livret)",
-            "url": "https://republicains.fr/wp-content/uploads/2026/07/LR_IA.pdf",
-            "date": "2026-07"
-          },
-          {
-            "title": "Acteurs publics – Bruno Retailleau souhaite redéployer 125 000 fonctionnaires sur le terrain grâce à l’IA",
-            "url": "https://acteurspublics.fr/articles/presidentielle-bruno-retailleau-souhaite-redeployer-125-000-fonctionnaires-sur-le-terrain-grace-a-lia/",
-            "date": "2026-07-08"
-          }
-        ]
-      },
       "territoires-1-a": {
         "weight": 1,
         "nature": "proposition",
@@ -21967,6 +21982,26 @@
             "title": "LR – Éducation : Pour une école de la transmission, de l’égalité des chances, de l’autorité et de la liberté",
             "url": "https://republicains.fr/wp-content/uploads/2026/09/LR_Ecole_vF.pdf",
             "date": "2026-09"
+          }
+        ]
+      },
+      "territoires-1-c": {
+        "weight": 2,
+        "nature": "proposition",
+        "confidence": "high",
+        "summary": "Il compte sur l’intelligence artificielle pour confier les tâches répétitives aux machines, ne pas remplacer 400 000 départs à la retraite d’agents publics pendant le quinquennat et remettre 150 000 fonctionnaires sur le terrain.",
+        "sources": [
+          {
+            "title": "Bruno Retailleau veut faire travailler davantage les fonctionnaires",
+            "url": "https://acteurspublics.fr/articles/bruno-retailleau-veut-faire-travailler-davantage-les-fonctionnaires/",
+            "date": "2026-10-12",
+            "publisher": "Acteurs publics"
+          },
+          {
+            "title": "Présidentielle 2027 : Bruno Retailleau s’engage sur un plan d’économies de près de 200 milliards d’euros, s’il est élu",
+            "url": "https://www.publicsenat.fr/actualites/economie/presidentielle-2027-bruno-retailleau-sengage-sur-un-plan-deconomies-de-pres-de-200-milliards-deuros-sil-est-elu",
+            "date": "2026-10-12",
+            "publisher": "Public Sénat"
           }
         ]
       },
@@ -22664,25 +22699,19 @@
         "weight": 2,
         "nature": "proposition",
         "confidence": "high",
-        "summary": "Il propose de réduire de 40 milliards d’euros les prélèvements sur le travail et la production dès le début du quinquennat, et exclut toute hausse d’impôts, l’État dépensant selon lui trop.",
+        "summary": "Il prévoit de rendre 51 Md€ aux Français d’ici 2032 (21 Md€ aux ménages, 30 Md€ aux entreprises, notamment par la suppression d’impôts de production), allègement financé par des économies sur les dépenses, et exclut tout impôt nouveau.",
         "sources": [
           {
-            "title": "Produire plus pour vivre mieux (livret)",
-            "url": "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf",
-            "date": "2026-02",
-            "publisher": "Les Républicains"
+            "title": "Face à une France « quasiment en faillite », Bruno Retailleau présente un plan d’économies de 197 milliards d’euros sur cinq ans",
+            "url": "https://lcp.fr/actualites/face-a-une-france-quasiment-en-faillite-bruno-retailleau-presente-un-plan-d-economies-de",
+            "date": "2026-10-12",
+            "publisher": "LCP"
           },
           {
-            "title": "« Je serai le président qui baissera les impôts de succession »",
-            "url": "https://republicains.fr/actualites/2026/08/26/je-serai-le-president-qui-baissera-les-impots-de-succession/",
-            "date": "2026-08-26",
-            "publisher": "Les Républicains"
-          },
-          {
-            "title": "Comparateur de programmes – Présidentielles 2027",
-            "url": "https://www.ifrap.org/comparateurs/presidentielles-2027",
-            "date": "2026",
-            "publisher": "Fondation iFRAP"
+            "title": "Présidentielle 2027 : Bruno Retailleau s’engage sur un plan d’économies de près de 200 milliards d’euros, s’il est élu",
+            "url": "https://www.publicsenat.fr/actualites/economie/presidentielle-2027-bruno-retailleau-sengage-sur-un-plan-deconomies-de-pres-de-200-milliards-deuros-sil-est-elu",
+            "date": "2026-10-12",
+            "publisher": "Public Sénat"
           }
         ]
       },
@@ -37305,11 +37334,11 @@
           }
         ]
       },
-      "finances_publiques-1-b": {
+      "finances_publiques-1-g": {
         "weight": 2,
         "nature": "proposition",
         "confidence": "high",
-        "summary": "Il veut économiser 60 Md€ par an sans hausse d’impôts, dont 15 Md€ de contribution nette à l’Union européenne, 30 Md€ de doublons dans les collectivités et 10 Md€ liés à l’immigration.",
+        "summary": "Il veut redresser les finances publiques sans augmenter le niveau d’imposition, d’abord en réduisant le train de vie de l’État (ministères non régaliens, aides mal ciblées, structures jugées inutiles comme l’Arcom) ; la suppression des doublons de la fonction publique territoriale doit apporter 30 Md€ par an, la moitié des 60 Md€ d’économies qu’il vise.",
         "sources": [
           {
             "title": "Les grandes orientations pour un projet patriote, édition 2026-2027",
@@ -37319,11 +37348,11 @@
           }
         ]
       },
-      "finances_publiques-1-g": {
+      "finances_publiques-1-b": {
         "weight": 1,
         "nature": "proposition",
         "confidence": "high",
-        "summary": "Il veut redresser les finances publiques sans hausse d’impôts, d’abord en réduisant le train de vie de l’État (ministères non régaliens, structures jugées inutiles comme l’Arcom, aides mal ciblées), et en supprimant les doublons de la fonction publique territoriale, dont il attend 30 Md€ par an.",
+        "summary": "Sur les 60 Md€ d’économies annuelles qu’il vise sans hausse d’impôts, il attend 15 Md€ de la fin de la contribution nette de la France à l’Union européenne, qu’il veut quitter, et 10 Md€ d’une baisse du coût qu’il attribue à l’immigration.",
         "sources": [
           {
             "title": "Les grandes orientations pour un projet patriote, édition 2026-2027",

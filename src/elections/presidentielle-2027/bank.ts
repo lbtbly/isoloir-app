@@ -2018,19 +2018,20 @@ export const bank: QuestionBank = {
             }
           },
           {
-            "text": "Les relations financières entre la France et l’étranger sont libres. Par exception, dans des secteurs précisément listés (défense nationale, ordre public, activités essentielles aux intérêts du pays), un investissement étranger doit recevoir une autorisation préalable de l’État (article L. 151-3 du code monétaire et financier).",
+            "text": "Le droit de l’Union européenne ne tranche pas entre propriété publique et propriété privée des entreprises : selon l’article 345 du traité sur le fonctionnement de l’Union européenne, les traités « ne préjugent en rien le régime de la propriété dans les États membres ».",
             "source": {
-              "title": "Contrôle des investissements étrangers en France",
-              "url": "https://www.tresor.economie.gouv.fr/services-aux-entreprises/investissements-etrangers-en-france",
-              "publisher": "Direction générale du Trésor"
+              "title": "Traité sur le fonctionnement de l’Union européenne (version consolidée 2016), article 345",
+              "url": "https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:12016E345",
+              "date": "2016-06-07",
+              "publisher": "EUR-Lex (Office des publications de l’Union européenne)"
             }
           },
           {
-            "text": "En 2006, l’État a vendu ses participations majoritaires dans trois sociétés concessionnaires d’autoroutes « historiques ». Les concessions historiques, qui concentrent 97,2 % du trafic du réseau autoroutier concédé, arrivent à échéance entre 2031 et 2036.",
+            "text": "Toute aide publique à une entreprise doit respecter les règles européennes sur les aides d’État : celles qui faussent ou menacent de fausser la concurrence sont en principe interdites lorsqu’elles affectent les échanges entre pays de l’Union, avec des exceptions, par exemple pour les « projets importants d’intérêt européen commun » ou en cas de perturbation grave de l’économie d’un État membre. Une prise de participation publique compte comme une aide quand l’État n’agit pas comme un investisseur privé qui recherche une rentabilité à long terme.",
             "source": {
-              "title": "Rapport n° 709 (2019-2020) de la commission d’enquête sur le contrôle, la régulation et l’évolution des concessions autoroutières",
-              "url": "https://www.senat.fr/rap/r19-709-1/r19-709-1_mono.html",
-              "date": "2020-09-16",
+              "title": "L’essentiel sur le rapport de la commission d’enquête sur l’utilisation des aides publiques aux grandes entreprises et à leurs sous-traitants (rapport n° 808, 2024-2025)",
+              "url": "https://www.senat.fr/rap/r24-808-1/r24-808-1-syn.pdf",
+              "date": "2025-07",
               "publisher": "Sénat"
             }
           }
@@ -2038,7 +2039,7 @@ export const bank: QuestionBank = {
         "figures": [
           {
             "value": "209,1 Md€",
-            "label": "Valeur des participations de l’État suivies par l’Agence des participations de l’État au 30 juin 2025 (86 entreprises), contre 179,5 Md€ un an plus tôt. Dont 67,9 Md€ dans des sociétés cotées en Bourse, contre 50 Md€ en 2024.",
+            "label": "Valeur des participations de l’État suivies par l’Agence des participations de l’État au 30 juin 2025 (86 entités : 72 entreprises non cotées, 10 entreprises cotées et 4 structures de défaisance ou entités en extinction), contre 179,5 Md€ un an plus tôt. Dont 67,9 Md€ dans des sociétés cotées en Bourse, contre 50 Md€ en 2024.",
             "date": "30 juin 2025",
             "source": {
               "title": "Rapport relatif à l’État actionnaire (annexe au projet de loi de finances pour 2026)",
@@ -2074,7 +2075,7 @@ export const bank: QuestionBank = {
           },
           {
             "value": "418",
-            "label": "Dossiers déposés en 2025 au titre du contrôle des investissements étrangers en France, contre 392 en 2024. 167 autorisations ont été délivrées, dont 49 % assorties de conditions, et sept opérations ont été formellement refusées en quatre ans.",
+            "label": "Dossiers déposés en 2025 au titre du contrôle des investissements étrangers en France, contre 392 en 2024. Ce contrôle porte sur les opérations touchant à des activités de nature à porter atteinte à l’ordre public, à la sécurité publique ou aux intérêts de la défense nationale, qui doivent être autorisées par l’État. 167 autorisations ont été délivrées, dont 49 % assorties de conditions, et sept opérations ont été formellement refusées en quatre ans.",
             "date": "2025",
             "source": {
               "title": "Publication du rapport annuel sur le contrôle IEF en 2025",
@@ -2099,7 +2100,7 @@ export const bank: QuestionBank = {
           },
           {
             "value": "14,8 Md€",
-            "label": "Somme perçue par l’État en 2006 lors de la privatisation de sociétés concessionnaires d’autoroutes, qui l’a aussi déchargé de 16,8 Md€ de dette de ces sociétés. Selon l’Autorité de la concurrence (avis de 2014), les sociétés concessionnaires d’autoroutes ont ensuite versé 14,9 Md€ de dividendes entre 2006 et 2013.",
+            "label": "Somme perçue par l’État en 2006 lors de la privatisation de sociétés concessionnaires d’autoroutes, qui l’a aussi déchargé de 16,8 Md€ de dette de ces sociétés. Selon l’Autorité de la concurrence (avis de 2014), les sociétés concessionnaires d’autoroutes ont ensuite versé 14,9 Md€ de dividendes entre 2006 et 2013. Les concessions historiques, qui concentrent 97,2 % du trafic du réseau autoroutier concédé, arrivent à échéance entre 2031 et 2036.",
             "date": "2006",
             "source": {
               "title": "Rapport n° 709 (2019-2020) de la commission d’enquête sur le contrôle, la régulation et l’évolution des concessions autoroutières",
@@ -5416,8 +5417,8 @@ export const bank: QuestionBank = {
             }
           },
           {
-            "value": "66 % contre 73 %",
-            "label": "des moyens des collèges et lycées privés sous contrat viennent de l’État, contre 73 % pour les collèges et lycées publics. Le reste vient surtout des familles et d’autres acteurs privés dans le privé (25 %), des collectivités territoriales dans le public (22 %). Pour les écoles maternelles et élémentaires privées, l’État apporte 2 314 M€ sur 4 414 M€ (France)",
+            "value": "52 % et 66 %",
+            "label": "part de l’État dans le financement des écoles maternelles et élémentaires et des collèges et lycées privés sous contrat, contre 56 % et 73 % dans le public. Les collectivités territoriales en apportent 26 % et 10 % dans le privé, 41 % et 22 % dans le public ; dans le privé, l’essentiel du reste vient des familles et d’autres financeurs privés (France)",
             "date": "2024",
             "source": {
               "title": "Repères et références statistiques 2026 (fiche 10.04, le financement des producteurs d’éducation)",
@@ -5430,11 +5431,19 @@ export const bank: QuestionBank = {
               "unit": "%",
               "items": [
                 {
-                  "label": "Collèges et lycées privés",
+                  "label": "Privé, écoles",
+                  "value": 52
+                },
+                {
+                  "label": "Public, écoles",
+                  "value": 56
+                },
+                {
+                  "label": "Privé, collèges et lycées",
                   "value": 66
                 },
                 {
-                  "label": "Collèges et lycées publics",
+                  "label": "Public, collèges et lycées",
                   "value": 73
                 }
               ]
@@ -7253,7 +7262,7 @@ export const bank: QuestionBank = {
         "figures": [
           {
             "value": "445",
-            "label": "maternités en France en 2024 (service de santé des armées compris), soit 88 de moins qu’en 2014 (- 16,5 %). Sur la même période, le nombre d’accouchements a baissé de 19,4 % (- 155 500), pour atteindre 646 100 en 2024",
+            "label": "maternités en France en 2024 (service de santé des armées compris), soit 88 de moins qu’en 2014 (- 16,5 %). Sur la même période, le nombre d’accouchements a baissé de 19,4 % (- 155 500), pour atteindre 646 100 en 2024. En France métropolitaine (hors service de santé des armées), 4 % des maternités ont pris en charge moins de 300 accouchements en 2024, contre 12 % en 1996, et 37 % au moins 1 500, contre 13 % en 1996 ; les plus petites se situent surtout dans des départements de montagne ou ruraux",
             "date": "2024",
             "source": {
               "title": "Les établissements de santé en 2024 – Édition 2026, fiche 19 « La naissance : les maternités »",
@@ -7263,26 +7272,30 @@ export const bank: QuestionBank = {
             }
           },
           {
-            "value": "4 %",
-            "label": "des maternités de France métropolitaine (hors service de santé des armées) ont pris en charge moins de 300 accouchements en 2024, contre 12 % en 1996 ; 37 % en ont accueilli au moins 1 500, contre 13 % en 1996. Les plus petites se situent surtout dans des départements de montagne ou ruraux",
-            "date": "2024",
+            "value": "471",
+            "label": "maternités en France en 2021, contre 721 en 2000 et 557 en 2010. Selon la Cour des comptes, cette baisse découle du renforcement des normes de fonctionnement et de sécurité ; elle porte sur les maternités qui n’ont qu’une unité d’obstétrique (450 en 2000, 175 en 2021)",
+            "date": "2021",
             "source": {
-              "title": "Les établissements de santé en 2024 – Édition 2026, fiche 19 « La naissance : les maternités »",
-              "url": "https://drees.solidarites-sante.gouv.fr/sites/default/files/2026-07/ES%202026%20-%20Fiche%2019%20-%20La%20naissance%20-%20les%20maternit%C3%A9s.pdf",
-              "date": "2026",
-              "publisher": "Direction de la recherche, des études, de l’évaluation et des statistiques (Drees)"
+              "title": "La politique de périnatalité – Rapport public thématique",
+              "url": "https://www.ccomptes.fr/sites/default/files/2024-05/20240506-Sante-perinatale.pdf",
+              "date": "2024-05",
+              "publisher": "Cour des comptes"
             },
             "chart": {
               "kind": "series",
-              "unit": "%",
+              "unit": "maternités",
               "items": [
                 {
-                  "label": "1996",
-                  "value": 12
+                  "label": "2000",
+                  "value": 721
                 },
                 {
-                  "label": "2024",
-                  "value": 4
+                  "label": "2010",
+                  "value": 557
+                },
+                {
+                  "label": "2021",
+                  "value": 471
                 }
               ]
             }

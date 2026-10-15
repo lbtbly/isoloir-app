@@ -61,6 +61,9 @@ useSiteModules()
 const { withBase } = await importSite('src/core/routes.ts')
 const { orderedQuestions } = await importSite('src/core/order.ts')
 const { RETIRED_PREFIXES = [] } = await importSite('src/elections/index.ts')
+// Seuil du score indicatif des non classés et accroche de l'affiche (décisions du propriétaire du 2026-10-15)
+const { EXCLUDED_MIN_KNOWN } = await importSite('src/core/score.ts')
+const { leaderLead } = await importSite('src/core/resultsCopy.ts')
 let site
 try {
   site = await loadElection(opt('--pack'), opt('--prefix'))
@@ -659,8 +662,19 @@ try {
     boardRows === NS && shortcuts === 2 && (await page.locator('.leader').count()) === 1 && (await page.locator('.unranked.excluded').count()) === (EXCLUDED.size ? 1 : 0),
     `dépouillement : l’affiche du plus proche, un seul classement (${boardRows} lignes), deux raccourcis dans la barre (${shortcuts})${EXCLUDED.size ? `, ${EXCLUDED.size} non classés à part` : ''}`,
   )
+  // L'accroche de l'affiche : « parmi les candidats classés » dès que des candidats sont hors classement ou non classés
+  // (décision du propriétaire du 2026-10-15), sinon inchangée ; la même sur l'accueil de retour (contrôlé plus bas)
+  const leadInfo = await page.evaluate(() => ({
+    lead: (document.querySelector('.leader .leader-lead')?.textContent ?? '').trim(),
+    off: document.querySelectorAll('.unranked').length > 0,
+    all: [...document.querySelectorAll('.board-row')].every(r => r.classList.contains('is-flagged')),
+  }))
+  const leadWant = leaderLead(leadInfo.all, leadInfo.off)
+  check(leadInfo.lead === leadWant, `affiche : « ${leadInfo.lead} »${leadInfo.lead === leadWant ? '' : `, attendu « ${leadWant} »`}`)
   // Non classés hors tendance (décision du propriétaire du 14 octobre 2026) : aucun au classement ; chacun avec sa
-  // couverture de la banque et de vos réponses, et un score indicatif dès que sa position est connue sur une réponse
+  // couverture de la banque et de vos réponses, et un score indicatif seulement si sa position est connue sur au moins
+  // EXCLUDED_MIN_KNOWN de vos réponses (décision du propriétaire du 2026-10-15)
+  let offScored = 0
   if (EXCLUDED.size) {
     const inBoard = await page.locator('.board-row[data-candidate]').evaluateAll(rows => rows.map(r => r.getAttribute('data-candidate')))
     const offRows = await page.locator('.unranked.excluded .unranked-item').evaluateAll(items =>
@@ -677,20 +691,21 @@ try {
       return [
         /Connu sur \d+ des \d+\squestions de la banque/.test(r.meta) ? '' : `${r.name} : couverture de la banque`,
         known ? '' : `${r.name} : couverture de vos réponses`,
-        known && Number(known[1]) > 0 && !/^Score indicatif\u00a0: \d+\u00a0%$/.test(r.score ?? '') ? `${r.name} : score « ${r.score} »` : '',
-        known && Number(known[1]) === 0 && r.score !== null ? `${r.name} : un score sans position connue` : '',
+        known && Number(known[1]) >= EXCLUDED_MIN_KNOWN && !/^Score indicatif\u00a0: \d+\u00a0%$/.test(r.score ?? '') ? `${r.name} : score « ${r.score} »` : '',
+        known && Number(known[1]) < EXCLUDED_MIN_KNOWN && r.score !== null ? `${r.name} : un score connu sur ${known[1]} réponses seulement` : '',
         !r.flagged || r.cross ? '' : `${r.name} : ligne rouge franchie sans sa croix`,
       ].filter(Boolean)
     })
     const lede = ((await page.locator('.unranked.excluded .unranked-lede').innerText().catch(() => '')) ?? '').trim()
+    offScored = offRows.filter(r => r.score !== null).length
     check(
       inBoard.every(id => !EXCLUDED.has(id)) &&
         offRows.length === EXCLUDED.size &&
         offIssues.length === 0 &&
-        offRows.some(r => r.score !== null) &&
         /pas de rang/.test(lede) &&
-        /pour information seulement/.test(lede),
-      `non classés : aucun au classement, ${offRows.filter(r => r.score !== null).length} sur ${offRows.length} avec un score indicatif, sans rang${offIssues.length ? ` : ${offIssues.join(' ; ')}` : ''}`,
+        /pour information seulement/.test(lede) &&
+        new RegExp(`connue sur au moins ${EXCLUDED_MIN_KNOWN}\\s*de vos réponses`).test(lede),
+      `non classés : aucun au classement, ${offScored} sur ${offRows.length} avec un score indicatif (position connue sur au moins ${EXCLUDED_MIN_KNOWN} de vos réponses), sans rang${offIssues.length ? ` : ${offIssues.join(' ; ')}` : ''}`,
     )
   }
 
@@ -1503,11 +1518,11 @@ try {
   const flopButton = page.getByRole('button', { name: 'Les plus éloignés' })
   if (await flopButton.count()) {
     await flopButton.click()
-    await page.waitForFunction(() => /les plus éloignés de mes idées/.test(document.querySelector('.share-preview img')?.getAttribute('alt') ?? ''), null, { timeout: 5000 }).catch(() => null)
+    await page.waitForFunction(() => /les classés les plus éloignés de mes idées/.test(document.querySelector('.share-preview img')?.getAttribute('alt') ?? ''), null, { timeout: 5000 }).catch(() => null)
     const flopAlt = (await page.locator('.share-preview img').getAttribute('alt')) ?? ''
     const pressed = await flopButton.getAttribute('aria-pressed')
     check(
-      pressed === 'true' && flopAlt !== topAlt && /les plus éloignés de mes idées/.test(flopAlt) && /\d+\. /.test(flopAlt),
+      pressed === 'true' && flopAlt !== topAlt && /les classés les plus éloignés de mes idées/.test(flopAlt) && /\d+\. /.test(flopAlt),
       `affiche des plus éloignés : bouton enfoncé (${pressed}), texte de remplacement propre et numéroté`,
     )
     await page.getByRole('button', { name: 'Les plus proches' }).click()
@@ -1539,8 +1554,8 @@ try {
     const agreePressed = await agreeButton.getAttribute('aria-pressed')
     check(agreeShown && agreePressed === 'true', `image « Accords et désaccords » fabriquée hors ligne, chargée à la demande (bouton enfoncé : ${agreePressed})`)
     const scopes = [
-      ['Les 5 plus proches', /^Image « Accords et désaccords », les 5 plus proches de mes idées, /, '-accords-plus-proches.jpg'],
-      ['Les 5 plus éloignés', /^Image « Accords et désaccords », les 5 plus éloignés de mes idées, /, '-accords-plus-eloignes.jpg'],
+      ['Les 5 plus proches', /^Image « Accords et désaccords », les 5 classés les plus proches, /, '-accords-plus-proches.jpg'],
+      ['Les 5 plus éloignés', /^Image « Accords et désaccords », les 5 classés les plus éloignés, /, '-accords-plus-eloignes.jpg'],
       ['Tous', /^Image « Accords et désaccords », (les \d+ candidats|le candidat)/, '-accords-tous.jpg'],
     ]
     const hasScopes = (await page.getByRole('button', { name: 'Tous', exact: true }).count()) > 0
@@ -1612,10 +1627,17 @@ try {
     doc?.pages.some(p => p.text.includes('Le classement')) ? '' : 'pas de « Le classement »',
     !entry.archived || /\bArchive\b/.test(pdfFirst) ? '' : 'pas de mention « Archive » en page 1',
     pdfStatus.startsWith('PDF fabriqué sur cet appareil') ? '' : `statut « ${pdfStatus} »`,
-    // Non classés : leur score indicatif suit leur titre (décision du propriétaire du 14 octobre 2026)
-    !EXCLUDED.size || /ne sont pas classés[\s\S]*pas de rang[\s\S]*Score indicatif\s*:\s*\d+\s*%/.test((doc?.pages ?? []).map(p => p.text).join('\n'))
+    // Non classés : leur score indicatif suit leur titre (décision du propriétaire du 14 octobre 2026), autant que sur
+    // la page, seulement à partir de EXCLUDED_MIN_KNOWN réponses connues (décision du propriétaire du 2026-10-15)
+    !EXCLUDED.size ||
+    (() => {
+      const all = (doc?.pages ?? []).map(p => p.text).join('\n')
+      const at = all.search(/ne sont pas classés/)
+      const block = at < 0 ? '' : all.slice(at, ['Vos lignes rouges franchies', 'Accords et désaccords', 'À garder en tête'].map(n => all.indexOf(n, at)).filter(i => i > 0).reduce((a, b) => Math.min(a, b), all.length))
+      return /pas de rang/.test(block) && (block.match(/Score indicatif\s*:\s*\d+\s*%/g)?.length ?? 0) === offScored
+    })()
       ? ''
-      : 'non classés sans score indicatif',
+      : `non classés : ${offScored} scores indicatifs attendus`,
   ].filter(Boolean)
   check(
     pdfIssues.length === 0,
@@ -1852,6 +1874,7 @@ try {
       lede: t('.welcome-back .lede'),
       time: document.querySelector('.welcome-back .lede time')?.textContent ?? '',
       leader: t('.back-leader .leader-name'),
+      lead: t('.back-leader .leader-lead'),
       panels: [...document.querySelectorAll('.welcome-back .next-panel .next-title')].map(e => e.textContent.trim()),
       filmAfter: before(document.querySelector('.welcome-back'), document.querySelector('.home-film')),
     }
@@ -1861,9 +1884,10 @@ try {
       back.lede.startsWith(`Vous avez répondu aux ${QUICK} questions du questionnaire rapide le `) &&
       /^\d+(er)?\s\S+\s20\d\d à \d+\u00a0h\u00a0\d\d$/.test(back.time) &&
       !!back.leader &&
+      back.lead === leadWant.replace(/[\u00a0\u202f]/g, ' ') &&
       back.panels[0] === 'Qui porte quoi' &&
       back.filmAfter,
-    `accueil de retour : « ${back.title} », « ${back.lede} », affiche de ${back.leader || 'personne'}, panneaux ${back.panels.join(', ')}, film plus bas ${back.filmAfter}`,
+    `accueil de retour : « ${back.title} », « ${back.lede} », « ${back.lead} » ${back.leader || 'personne'}, panneaux ${back.panels.join(', ')}, film plus bas ${back.filmAfter}`,
   )
   // La carte des questions à revoir : une réponse d'une autre révision de sa question la met sur l'accueil, puis en
   // tête du dépouillement ; la feuille est rendue telle quelle ensuite

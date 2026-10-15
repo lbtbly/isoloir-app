@@ -1,0 +1,8 @@
+Contrôle des sons parasites — 2026-10-15 13:50:54
+Commande : generate.py --scan --voice aigue --segment impots-dette-06-p27
+Détecteur : artefacts.py (alignement Qwen3-ForcedAligner, seuils étalonnés : voir artefacts.py et README.md). Net : à refaire ; léger : signalé seulement.
+
+aigue / impots-dette-06-p27 — 11.54 s : ok
+
+À refaire (0) : aucun
+Temps : 2 s pour 1 passage(s), chargement du modèle d'alignement compris.

@@ -10,8 +10,8 @@ import { describe, expect, it } from 'vitest'
 import { layoutProblems } from '../src/core/pdf/flow'
 import { encodeWinAnsi } from '../src/core/pdf/winansi'
 import { buildReportPdf, PDF_BANDS, PDF_COLORS, renderReport, reportFileName, type ReportInput } from '../src/core/reportPdf'
-import { crossingNote, excludedTitle, MANY_RED_LINES, manyRedLinesNote, unrankedTitle } from '../src/core/resultsCopy'
-import { computeResults, dealbreakerLevel, displayScore, METHOD_VERSION, type Results } from '../src/core/score'
+import { crossingNote, excludedTitle, leaderLead, MANY_RED_LINES, manyRedLinesNote, unrankedTitle } from '../src/core/resultsCopy'
+import { computeResults, dealbreakerLevel, displayScore, EXCLUDED_MIN_KNOWN, METHOD_VERSION, type Results } from '../src/core/score'
 import type { Answers, ElectionPack, TopicWeights } from '../src/core/types'
 import { elections } from '../src/elections/all'
 import { choisir2027 } from '../src/elections/choisir-2027'
@@ -265,12 +265,14 @@ describe.each(cases)('$name', c => {
         expect(at, nameOf(pack, id)).toBeGreaterThan(from)
         from = at
       }
-      // Score indicatif (décision du propriétaire du 14 octobre 2026) : un par candidat connu sur au moins une réponse,
-      // dans l'ordre de la liste ; aucun rang
+      // Score indicatif (décision du propriétaire du 14 octobre 2026) : un par candidat connu sur au moins
+      // EXCLUDED_MIN_KNOWN de vos réponses (décision du propriétaire du 2026-10-15), dans l'ordre de la liste ; aucun rang
       const ends = ['Vos lignes rouges franchies', 'Accords et désaccords', 'À garder en tête'].map(n => after(n, start)).filter(i => i > 0)
       const block = text.slice(start, Math.min(...ends))
       const scores = [...block.matchAll(/Score indicatif\s*:\s*(\d+)\s*%/g)].map(m => Number(m[1]))
-      expect(scores).toEqual(results.excludedResults.filter(r => r.score !== null).map(r => displayScore(r.score)))
+      expect(scores).toEqual(results.excludedResults.filter(r => r.known >= EXCLUDED_MIN_KNOWN).map(r => displayScore(r.score)))
+      // Le seuil se lit dans le chapeau
+      expect(block).toContain(`montré que si sa position est connue sur au moins ${EXCLUDED_MIN_KNOWN} de vos réponses`)
       expect(block.match(/%/g)?.length ?? 0).toBe(scores.length)
       expect(block).not.toMatch(/ex æquo|\b\d+e\b/)
     }
@@ -279,6 +281,15 @@ describe.each(cases)('$name', c => {
       const inResult = [...results.ranking, ...results.unranked].some(r => r.candidateId === cand.id) || results.excluded.includes(cand.id)
       if (inResult) expect(text, cand.name).toContain(cand.name)
     }
+  })
+
+  it('accroche de l’affiche : « parmi les candidats classés » dès que des candidats sont hors classement ou non classés', () => {
+    // Décision du propriétaire du 2026-10-15 ; sans eux (la primaire, l'élection factice), l'accroche est inchangée
+    if (results.ranking[0]?.score == null) return
+    const someOff = results.unranked.length > 0 || results.excluded.length > 0
+    expect(text).toContain(flat(leaderLead(results.allIncompatible, someOff)))
+    // Les deux variantes : le plus proche, ou le moins concerné quand tous les classés franchissent une ligne rouge
+    expect(text.includes(flat(leaderLead(results.allIncompatible, true)))).toBe(someOff)
   })
 
   it('détaille les lignes rouges franchies', () => {

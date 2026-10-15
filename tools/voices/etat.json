@@ -50,9 +50,9 @@
     "date": "2026-10-04 23:24:47"
   },
   "_calcul": {
-    "secondes_calcul": 81708.00373029709,
-    "secondes_audio": 31951.97450000004,
-    "prises": 8487
+    "secondes_calcul": 81778.97843623161,
+    "secondes_audio": 31984.775500000043,
+    "prises": 8493
   },
   "aigue/retraites-intro-02": {
     "mode": "clone-phrases",
@@ -57852,5 +57852,58 @@
     ],
     "sons": [],
     "date": "2026-10-10 14:50:10"
+  },
+  "aigue/impots-dette-06-p27": {
+    "mode": "clone-phrases",
+    "texte": "Réduire le déficit freine la dette, mais oblige à dépenser moins, à prélever plus ou à accroître les recettes en produisant plus. Emprunter davantage évite de dépenser moins ou de prélever plus, mais alourdit la dette.",
+    "auto": true,
+    "print": "2156056e",
+    "duree": 11.54,
+    "gain_db": -0.02,
+    "cible_f0": 243.8,
+    "f0_median": 245.9,
+    "f0_iqr_st": 3.11,
+    "f0_debut": 251.0,
+    "f0_fin": 247.7,
+    "phrases": [
+      {
+        "prise": 1,
+        "graine": 368317,
+        "f0_median": 240.9,
+        "f0_iqr_st": 3.17,
+        "f0_debut": 254.4,
+        "f0_fin": 221.8,
+        "fin_dt": -2.87,
+        "debit_syll_s": 5.66,
+        "debit_rel": 1.1,
+        "ecart_cible_dt": -0.21,
+        "saut_dt": 2.15,
+        "tolerance_dt": 6.0,
+        "question": false,
+        "texte": "Réduire le déficit freine la dette, mais oblige à dépenser moins, à prélever plus ou à accroître les recettes en produisant plus.",
+        "n_prises": 3,
+        "sons": []
+      },
+      {
+        "prise": 3,
+        "graine": 96309,
+        "f0_median": 254.6,
+        "f0_iqr_st": 3.12,
+        "f0_debut": 276.7,
+        "f0_fin": 250.2,
+        "fin_dt": -10.15,
+        "debit_syll_s": 6.11,
+        "debit_rel": 1.19,
+        "ecart_cible_dt": 0.75,
+        "saut_dt": 3.83,
+        "tolerance_dt": 2.87,
+        "question": false,
+        "texte": "Emprunter davantage évite de dépenser moins ou de prélever plus, mais alourdit la dette.",
+        "n_prises": 3,
+        "sons": []
+      }
+    ],
+    "sons": [],
+    "date": "2026-10-15 13:49:37"
   }
 }

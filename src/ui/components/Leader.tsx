@@ -32,12 +32,15 @@ export function Leader({ ranking, results, byId, titleId = 'leader-title', class
   // Hors classement et non classés compris : la phrase compte tous les candidats qui franchissent une ligne rouge,
   // autant que de croix sur la page (non classés : décision du propriétaire du 14 octobre 2026)
   const crossing = [...ranking, ...results.unranked, ...results.excludedResults].filter(r => !r.compatible).length
+  // Des candidats hors classement ou non classés : l'accroche dit « parmi les candidats classés » (décision du
+  // propriétaire du 2026-10-15)
+  const someOff = results.unranked.length > 0 || results.excluded.length > 0
   return (
     <section class={c ? `leader on-copy ${c}` : 'leader on-copy'} aria-labelledby={titleId}>
       <Portrait candidate={cand} size="id" decorative />
       <div class="leader-body">
         <h2 id={titleId} class="leader-title">
-          <span class="leader-lead">{leaderLead(results.allIncompatible)}</span>
+          <span class="leader-lead">{leaderLead(results.allIncompatible, someOff)}</span>
           <a class="leader-name" href={link(`/candidat/${cand.id}`)}>
             {cand.name}
           </a>

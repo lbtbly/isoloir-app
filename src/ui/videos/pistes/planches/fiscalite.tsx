@@ -1451,6 +1451,60 @@ const dette05Edition: Board = p => {
   )
 }
 
+/**
+ * 06 corrigé (« … oblige à dépenser moins, à prélever plus ou à accroître les recettes en produisant plus ») : le
+ * tableau de 06 tel quel, trois lignes remplies dans les deux colonnes (dette, dépenses, prélèvements). La voie de la
+ * production n'est pas une ligne du tableau : elle se pose dessous, hors de la grille, sous la seule colonne
+ * « réduire le déficit », précédée de « ou » ; le tableau ne compare donc pas les deux choix sur la production, dont
+ * le passage ne dit rien côté emprunt (revue du 2026-10-15 ; décision du propriétaire du 2026-10-15 : sans parti
+ * pris). Côté réduction, chaque voie arrive quand la voix la dit (« dépenser moins », « prélever plus », « produisant ») ;
+ * en image fixe, tout est là
+ */
+const dette06Edition: Board = p => {
+  const [red, emp] = cuesOf(p)
+  const prod = word(p, /\bprodu\w*/)
+  // La voie de la production doit être dite dans le passage, sinon la planche en montrerait une de trop
+  if (!red || !emp || !prod) return null
+  const less = word(p, /dépenser moins/)
+  const more = word(p, /prélever plus/)
+  const rows: { label: string; left: 'hausse' | 'baisse'; right: 'hausse' | 'baisse' | null; shown: boolean }[] = [
+    { label: 'dette', left: 'baisse', right: 'hausse', shown: red.shown },
+    { label: 'dépenses', left: 'baisse', right: null, shown: red.shown && (less?.shown ?? true) },
+    { label: 'prélèvements', left: 'hausse', right: null, shown: red.shown && (more?.shown ?? true) },
+  ]
+  const y = (i: number) => 80 + i * 46
+  return (
+    <Seg>
+      <Art h={294}>
+        <Txt x={52} y={20} text={red.text} size={15} max={11} tone={red.shown ? 'count' : undefined} t0={0} />
+        <Txt x={248} y={20} text={emp.text} size={15} max={11} tone={emp.shown ? 'count' : undefined} t0={0} />
+        <Ink d="M104 8V200M196 8V200" t0={100} dur={500} class="vc-soft vc-thin" />
+        {rows.map((r, i) => (
+          <g key={r.label}>
+            <Txt x={150} y={y(i) + 5} text={r.label} size={15} t0={300 + i * 150} />
+            {r.shown ? <Picto n={r.left} x={36} y={y(i) - 16} size={32} tone="count" w={1.2} t0={0} /> : null}
+            {emp.shown ? (
+              r.right ? (
+                <Picto n={r.right} x={232} y={y(i) - 16} size={32} tone="count" w={1.2} t0={i * 250} />
+              ) : (
+                <Egal cx={248} cy={y(i)} t0={i * 250} />
+              )
+            ) : null}
+          </g>
+        ))}
+        {rows[2]!.shown ? <Txt x={52} y={y(1) + 28} text="ou" size={14} tone="soft" t0={0} /> : null}
+        {red.shown && prod.shown ? (
+          <>
+            <Txt x={52} y={222} text="ou" size={14} tone="soft" t0={0} />
+            <Picto n="hausse" x={36} y={232} size={32} tone="count" w={1.2} t0={150} />
+            <Txt x={52} y={284} text="production" size={15} t0={300} />
+          </>
+        ) : null}
+      </Art>
+    </Seg>
+  )
+}
+
 /* ——— Le registre ——— */
 
 export const FISCALITE: Record<string, Board> = {
@@ -1501,4 +1555,5 @@ export const FISCALITE: Record<string, Board> = {
   // Édition présidentielle 2027 : impots-intro-06-p27 garde la planche d'origine (elle lit les questions du passage)
   'impots-intro-07-p27': intro07Edition,
   'impots-dette-05-p27': dette05Edition,
+  'impots-dette-06-p27': dette06Edition,
 }

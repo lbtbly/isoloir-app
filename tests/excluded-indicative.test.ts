@@ -5,12 +5,14 @@
 //   classement, tirage des ex aequo, écart, stabilité, « ce qui les sépare », « tous concernés », réponses comptées)
 //   est identique à la référence figée (tests/fixtures/score-avant-2026-10-14.ts).
 // - excludedResults suit l'ordre de excluded, et chaque score est celui du calcul commun (scoreCandidate), sans rang.
-// - Aucun score montré pendant la tendance, ni pour un candidat connu sur aucune réponse.
+// - Aucun score montré pendant la tendance, ni pour un candidat connu sur aucune réponse ; et, depuis la décision du
+//   propriétaire du 2026-10-15, aucun pour un non classé connu sur moins de EXCLUDED_MIN_KNOWN (5) de vos réponses
+//   (la règle « hors classement » n'a pas ce seuil). Le double JSON garde le score calculé (décision : « Garder »).
 // - Le double JSON le donne, toujours sans rang ; la primaire, qui n'a pas de non classés, n'en a aucun.
 import { describe, expect, it } from 'vitest'
 import { buildExport } from '../src/core/exportData'
 import { mulberry32 } from '../src/core/rng'
-import { computeResults, displayScore, excludedIds, indicativeShown, scoreCandidate, stance } from '../src/core/score'
+import { computeResults, displayScore, EXCLUDED_MIN_KNOWN, excludedIds, excludedShown, indicativeShown, scoreCandidate, stance } from '../src/core/score'
 import { freshState } from '../src/core/storage'
 import type { Answers, CandidateId, ElectionPack, Question, Rating, TopicWeights } from '../src/core/types'
 import { elections } from '../src/elections/all'
@@ -167,6 +169,63 @@ describe('non classés : excludedResults', () => {
       expect(x.score, id).toBeNull()
       expect(indicativeShown(x, false), id).toBeNull()
     }
+  })
+
+  it('score montré seulement si la position est connue sur au moins 5 de vos réponses ; jamais pendant la tendance', () => {
+    // Décision du propriétaire du 2026-10-15
+    expect(EXCLUDED_MIN_KNOWN).toBe(5)
+    expect(excludedShown({ score: 61.2, known: 4 }, false)).toBeNull()
+    expect(excludedShown({ score: 61.2, known: 5 }, false)).toBe(61.2)
+    expect(excludedShown({ score: 61.2, known: 5 }, true)).toBeNull()
+    let below = 0
+    let above = 0
+    let unrankedBelow = 0
+    for (const c of cases(presidentielle, 120, 15)) {
+      const r = computeResults(presidentielle, c.answers, c.weights, c.seed, c.candidateIds)
+      for (const x of r.excludedResults) {
+        expect(excludedShown(x, true), `${c.label} : ${x.candidateId}`).toBeNull()
+        const shown = excludedShown(x, false)
+        if (x.known >= EXCLUDED_MIN_KNOWN) {
+          expect(shown, `${c.label} : ${x.candidateId}`).toBe(x.score)
+          expect(shown, `${c.label} : ${x.candidateId}`).not.toBeNull()
+          above++
+        } else {
+          expect(shown, `${c.label} : ${x.candidateId}`).toBeNull()
+          if (x.score !== null) below++
+        }
+      }
+      // Hors classement : la règle ne change pas, le score se montre hors tendance quel que soit le nombre de réponses
+      for (const x of r.unranked) {
+        expect(indicativeShown(x, false)).toBe(x.score)
+        if (x.score !== null && x.known < EXCLUDED_MIN_KNOWN) unrankedBelow++
+      }
+    }
+    // Les profils couvrent bien les deux côtés du seuil
+    expect(above).toBeGreaterThan(0)
+    expect(below).toBeGreaterThan(0)
+    expect(unrankedBelow).toBeGreaterThan(0)
+  })
+
+  it('le double JSON garde le score calculé sous le seuil d’affichage, tendance comprise', () => {
+    // Décision du propriétaire du 2026-10-15 : « Garder » ; seul l'affichage (page, PDF) dépend du seuil
+    const step1 = presidentielle.bank.questions.filter(q => q.step === 1)
+    let checked = 0
+    for (let i = 0; i < 40 && !checked; i++) {
+      const answers = randomAnswers(step1, mulberry32(100 + i), 0.1)
+      const state = { ...freshState(presidentielle.election.id, presidentielle.election.dataVersion), answers }
+      const r = computeResults(presidentielle, answers, {}, state.seed)
+      const file = buildExport(presidentielle, state, r)
+      r.excludedResults.forEach((x, k) => {
+        const row = file.nonClasses!.candidats[k]!
+        expect(row.affiniteIndicative).toBe(displayScore(x.score))
+        if (x.score !== null && x.known < EXCLUDED_MIN_KNOWN) {
+          expect(excludedShown(x, false)).toBeNull()
+          expect(typeof row.affiniteIndicative).toBe('number')
+          checked++
+        }
+      })
+    }
+    expect(checked).toBeGreaterThan(0)
   })
 
   it('le double JSON donne le score indicatif des non classés, hors tendance, et toujours aucun rang', () => {

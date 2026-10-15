@@ -19,7 +19,7 @@ Les 22 séries vidéo ont été écrites pour la primaire « Choisir 2027 » (d�
 
 ## Vue d’ensemble
 
-206 corrections de vidéos et de séries : 7 bloquantes, 124 importantes, 75 mineures ; 98 passages dont la voix est à refaire.
+207 corrections de vidéos et de séries : 7 bloquantes, 125 importantes, 75 mineures ; 99 passages dont la voix est à refaire.
 
 | Série | Bloquantes | Importantes | Mineures | Voix à refaire | Statut |
 |---|---|---|---|---|---|
@@ -28,7 +28,7 @@ Les 22 séries vidéo ont été écrites pour la primaire « Choisir 2027 » (d�
 | Défense | 0 | 3 | 4 | 2 | à corriger |
 | Europe | 0 | 6 | 6 | 7 | à corriger |
 | Immigration | 0 | 8 | 2 | 5 | à corriger |
-| Impôts | 0 | 6 | 2 | 3 | à corriger |
+| Impôts | 0 | 7 | 2 | 4 | à corriger |
 | Industrie et entreprises | 0 | 7 | 3 | 3 | à corriger |
 | Institutions | 5 | 11 | 1 | 6 | écartée (bloquante) |
 | Israël et Gaza | 1 | 5 | 1 | 4 | écartée (bloquante) |
@@ -487,6 +487,16 @@ Les 22 séries vidéo ont été écrites pour la primaire « Choisir 2027 » (d�
 - **Source** : [Avis n° HCFP-2026-5 relatif aux projets de lois de finances et de financement de la sécurité sociale pour l’année 2027](https://www.hcfp.fr/sites/default/files/2026-10/Avis%20HCFP%202026-5%20-%20PLF-PLFSS%202027.pdf) (Haut Conseil des finances publiques, 2026-09-25)
 - **Vérification** : confirmed : La source est la même que pour fiscalite-3, déjà en sources[1] de la vidéo impots-dette. Annexe 2, p. 47 : « −5,4 % en 2026, après −5,1 % en 2025 » ; annexe 3, p. 48 : solde effectif −5,0 en 2027. Le passage dette-03 dit « Le déficit, lui, recule » (2024 → 2025, ce qui est exact). Dette-05 ne dit pas que la prévision pour 2026 est une hausse, si bien que l’auditeur garde l’image d’un déficit qui baisse : le défaut est réel. La proposition n’ajoute aucun chiffre (5,4 % et 5 % viennent déjà de la fiche). Elle respecte donc le § 6 du guide, et « remonte » est un mot descriptif, sans cadrage (§ 5). Il faut réenregistrer la voix du passage (say, spoken et emphasis changent) ; le libellé de la figure reste valable. Une nuance de style seulement : « redescende à 5 % » serait plus exact que « revienne à 5 % », puisque 2025 était à 5,1 %. Ce n’est pas une erreur de fait.
 - Sensibilités : droite, gauche · id `fiscalite-4`
+
+### IMPORTANT — impots-dette · impots-dette-06 · say (et draw, alt) — voix à refaire
+
+- **Problème** : Le passage ne nomme que deux voies pour réduire le déficit, dépenser moins ou prélever plus. La voie qui compte sur la production pour accroître les recettes (finances_publiques-1-h, décrite dans l’explication de la question) n’y figure pas.
+- **Actuel** : Réduire le déficit freine la dette et ses intérêts, mais oblige à dépenser moins ou à prélever plus. Emprunter davantage évite de dépenser moins ou de prélever plus, mais alourdit la dette et ses intérêts.
+- **Proposé** : Réduire le déficit freine la dette, mais oblige à dépenser moins, à prélever plus ou à accroître les recettes en produisant plus. Emprunter davantage évite de dépenser moins ou de prélever plus, mais alourdit la dette.
+- **Arbitrage** : Décision du propriétaire du 2026-10-15 : les trois voies sont nommées à égalité, sous la même forme (« à » + infinitif, reliées par « ou »), et la phrase sur l’emprunt ne change pas ; elle n’affirme rien sur la production, ce qui ne défavorise pas l’approche d (emprunter pour investir). « accroître les recettes en produisant plus » paraphrase l’approche h sans supposer une production en panne. « et ses intérêts » est retiré des deux phrases, symétriquement, pour que les sous-titres ne dépassent pas impots-dette-05-p27. Planche propre : le tableau de dette06 (dette, dépenses, prélèvements, remplis dans les deux colonnes) et, hors du tableau, sous la seule colonne de la réduction, « ou » puis la production qui monte ; chaque voie arrive quand la voix la dit (revue du 2026-10-15 : une quatrième ligne du tableau, vide côté emprunt, comparait les deux choix sur la production). Pas de spoken : ni chiffre, ni sigle, ni symbole.
+- **Source** : [Avis n° HCFP-2026-5 relatif aux projets de lois de finances et de financement de la sécurité sociale pour l’année 2027](https://www.hcfp.fr/sites/default/files/2026-10/Avis%20HCFP%202026-5%20-%20PLF-PLFSS%202027.pdf) (Haut Conseil des finances publiques, 2026-09-25)
+- **Vérification** : adjusted : mécanisme d’édition confirmé (impots-dette-06-p27, identifiant neuf, voix propre). L’avis HCFP-2026-5, déjà en sources[1] de la vidéo, appuie le lien entre production et recettes : les prélèvements suivent spontanément le PIB (élasticité de 0,8 en 2027), avec un aléa à la baisse si la croissance est plus faible. Sous-titres mesurés entre 260 et 600 px, à 19 et 20 px : jamais plus hauts que impots-dette-05-p27 (dépassement d’une ligne seulement vers 220-233 px, téléphone de 320 px avec texte agrandi). Ajustements : l’alt précise la case vide côté emprunt ; trace mise au format des fichiers existants.
+- Origine : décision du propriétaire du 2026-10-15 · id `fiscalite-15`
 
 ### IMPORTANT — impots-heritages · questionIds (périmètre vidéo, reuse.json / videoScope)
 

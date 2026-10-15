@@ -49591,3 +49591,62 @@ Aucune alerte.
 Temps : 158 s pour 18 prise(s), 8.47 s de calcul par prise en moyenne (4.08 s d'audio) ; calcul d'une prise ≈ 0.48 s + 1.98 s par seconde d'audio. Détecteur de sons parasites : 0.109 s par prise en moyenne (au plus 0.213 s), 1% du calcul d'une prise.
 Estimation pour les 1106 passages (2069 phrases) (voix aiguë 3 prises, 0% de secours) : ~988 min.
 
+
+=== 2026-10-15 13:49:37 : generate.py --voice aigue --dry-run --segment impots-dette-06-p27
+
+## Voix aiguë (aigue, v3.1a) : référence F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; voisement 56 trames/s ; 3 prises par phrase
+
+# aigue / impots-dette (passage(s) impots-dette-06-p27 sur 9)
+impots-dette-06-p27 : à générer, 2 phrase(s) — « Réduire le déficit freine la dette, mais oblige à dépenser moins, à prélever plus ou à accroître les recettes en produisant plus. » | « Emprunter davantage évite de dépenser moins ou de prélever plus, mais alourdit la dette. » [nombres écrits en lettres]
+
+1 passage(s) à générer. Estimation pour tout (voix aiguë 3 prises, 15% de secours) : ~1341 min.
+
+=== 2026-10-15 13:49:37 : generate.py --voice aigue --segment impots-dette-06-p27 --keep-takes
+
+## Voix aiguë (aigue, v3.1a) : référence F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; voisement 56 trames/s ; 3 prises par phrase
+
+# aigue / impots-dette (passage(s) impots-dette-06-p27 sur 9)
+impots-dette-06-p27 : 2 phrase(s)
+  [1] « Réduire le déficit freine la dette, mais oblige à dépenser moins, à prélever plus ou à accroître les recettes en produisant plus. » (34 syll., ~6.6 s)
+Modèle mlx-community/VoxCPM2-8bit chargé en 1.6 s
+Modèle d'alignement 0.4 s de chargement, premier contrôle 0.5 s (mise en route)
+      prise 1 (graine 368317) : 14.4 s de calcul, 6.01 s articulées, 5.7 syll/s (1.10 × réf.), F0 240.9 Hz (-0.21 dt cible), fin -2.9 dt, saut +2.15 dt, dispersion 3.17 dt
+      prise 2 (graine 368318) : 13.7 s de calcul, 5.79 s articulées, 5.9 syll/s (1.15 × réf.), F0 224.8 Hz (-1.40 dt cible), fin -3.5 dt, saut +0.94 dt, dispersion 3.06 dt
+      prise 3 (graine 368319) : 13.7 s de calcul, 6.19 s articulées, 5.5 syll/s (1.07 × réf.), F0 238.0 Hz (-0.42 dt cible), fin +2.4 dt, saut +2.20 dt, dispersion 2.69 dt → hors critères : fin montante (+2.4 dt) sur une affirmation
+    → prise 1 retenue sur 3 : F0 240.9 Hz (-0.21 dt), fin -2.9 dt, 5.7 syll/s, saut +2.15 dt
+  [2] « Emprunter davantage évite de dépenser moins ou de prélever plus, mais alourdit la dette. » (25 syll., ~4.9 s)
+      prise 1 (graine 96307) : 9.2 s de calcul, 3.96 s articulées, 6.3 syll/s (1.23 × réf.), F0 231.5 Hz (-0.90 dt cible), fin -5.0 dt, saut +0.99 dt, dispersion 2.45 dt
+      prise 2 (graine 96308) : 10.5 s de calcul, 4.48 s articulées, 5.6 syll/s (1.09 × réf.), F0 226.4 Hz (-1.28 dt cible), fin -7.2 dt, saut +2.53 dt, dispersion 3.32 dt
+      prise 3 (graine 96309) : 9.5 s de calcul, 4.09 s articulées, 6.1 syll/s (1.19 × réf.), F0 254.6 Hz (+0.75 dt cible), fin -10.2 dt, saut +3.83 dt, dispersion 3.12 dt
+    → prise 3 retenue sur 3 : F0 254.6 Hz (+0.75 dt), fin -10.2 dt, 6.1 syll/s, saut +3.83 dt
+  → impots-dette-06-p27 : 11.54 s, F0 245.9 Hz, gain -0.0 dB, pauses [0.22, 0.16, 0.35, 0.16, 0.15] s
+
+Rapport de génération des voix — 2026-10-15 13:49:37
+Commande : generate.py --voice aigue --segment impots-dette-06-p27 --keep-takes
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  impots-dette-06-p27 — 11.54 s, F0 245.9 Hz, pauses entre phrases [0.22, 0.16, 0.35, 0.16, 0.15] s
+    1. Réduire le déficit freine l…   1/3    240.9  -0.21   -2.9   +2.1  6.0    5.7  1.10  1:241 2:225 3:238~
+    2. Emprunter davantage évite d…   3/3    254.6  +0.75  -10.2   +3.8  2.9    6.1  1.19  1:232 2:226 3:255
+
+Aucune alerte.
+
+Temps : 76 s pour 6 prise(s), 11.83 s de calcul par prise en moyenne (5.47 s d'audio) ; calcul d'une prise ≈ 0.16 s + 2.16 s par seconde d'audio. Détecteur de sons parasites : 0.164 s par prise en moyenne (au plus 0.223 s), 1% du calcul d'une prise.
+Estimation pour les 1107 passages (2071 phrases) (voix aiguë 3 prises, 0% de secours) : ~931 min.
+
+
+=== 2026-10-15 13:50:54 : generate.py --scan --voice aigue --segment impots-dette-06-p27
+Contrôle des sons parasites : 1 passage(s) publié(s) (aiguë)
+  aigue/impots-dette-06-p27 : ok
+
+Contrôle des sons parasites — 2026-10-15 13:50:54
+Commande : generate.py --scan --voice aigue --segment impots-dette-06-p27
+Détecteur : artefacts.py (alignement Qwen3-ForcedAligner, seuils étalonnés : voir artefacts.py et README.md). Net : à refaire ; léger : signalé seulement.
+
+aigue / impots-dette-06-p27 — 11.54 s : ok
+
+À refaire (0) : aucun
+Temps : 2 s pour 1 passage(s), chargement du modèle d'alignement compris.
+
