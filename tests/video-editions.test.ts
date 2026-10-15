@@ -78,3 +78,61 @@ for (const edition of Object.values(EDITIONS)) {
     })
   })
 }
+
+// Décision du propriétaire du 2026-10-15 (suivi n° 3) : les passages d'une édition qui reprennent un chiffre de fiche
+// « Comprendre l'enjeu » le gardent à la lettre (valeur, date, graphique, source), et leurs phrases disent ses
+// nombres. Pas de règle générale : bien des passages -p27 portent des chiffres absents des fiches de leurs questions ;
+// chaque paire est donc nommée ici, à compléter quand un autre passage est aligné sur une fiche.
+const SYNCED: ReadonlyArray<{
+  edition: string
+  topic: string
+  video: string
+  /** Le passage qui porte le chiffre (figure, graphique) */
+  figureSegment: string
+  question: string
+  figure: number
+  /** Les passages dont les phrases (say) doivent dire chacun de ces nombres */
+  says: Readonly<Record<string, readonly string[]>>
+}> = [
+  {
+    edition: 'presidentielle-2027',
+    topic: 'industrie_economie',
+    video: 'industrie-etat',
+    figureSegment: 'industrie-etat-02-p27',
+    question: 'industrie_economie-3',
+    figure: 0,
+    says: {
+      'industrie-etat-02-p27': ['87 entités', '229,6'],
+      'industrie-etat-03-p27': ['77,6', '209,1'],
+    },
+  },
+]
+
+/** Espaces insécables ou fines ramenées à l'espace ordinaire, pour comparer les nombres */
+const flat = (s: string | undefined) => (s ?? '').replace(/[\u00a0\u202f]/g, ' ')
+
+describe('passages alignés sur une fiche « Comprendre l’enjeu »', () => {
+  it.each(SYNCED)('$figureSegment reprend le chiffre n° $figure de $question', p => {
+    const edition = EDITIONS[p.edition]!
+    const pack = elections.find(x => x.videoScope?.edition === p.edition)!
+    const series = applyEdition(SERIES_BY_TOPIC[p.topic]!, edition)
+    const video = series.videos.find(v => v.id === p.video)!
+    expect(video, p.video).toBeTruthy()
+    const card = pack.bank.questions.find(q => q.id === p.question)?.explainer?.figures?.[p.figure]
+    expect(card, `${p.question} : chiffre n° ${p.figure}`).toBeTruthy()
+    const seg = video.segments.find(s => s.id === p.figureSegment)
+    expect(seg?.figure, p.figureSegment).toBeTruthy()
+    expect(flat(seg!.figure!.value)).toBe(flat(card!.value))
+    expect(flat(seg!.figure!.date)).toBe(flat(card!.date))
+    expect(seg!.chart).toEqual(card!.chart)
+    expect(video.sources[seg!.figure!.sourceIndex]?.url).toBe(card!.source.url)
+    // La valeur sans son unité (« 229,6 » de « 229,6 Md€ ») est dite par le passage du chiffre
+    const bare = flat(card!.value).replace(/\s*[^\d\s,.]+$/, '')
+    expect(flat(seg!.say)).toContain(bare)
+    for (const [id, needles] of Object.entries(p.says)) {
+      const s = video.segments.find(x => x.id === id)
+      expect(s, id).toBeTruthy()
+      for (const n of needles) expect(flat(s!.say), `${id} : « ${n} »`).toContain(n)
+    }
+  })
+})

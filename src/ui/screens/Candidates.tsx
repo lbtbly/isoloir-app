@@ -16,7 +16,7 @@ import { Icon } from '../components/Icon'
 import { Initials, type Mark } from '../components/Initials'
 import { Portrait } from '../components/Portrait'
 import { RatingMark } from '../components/RatingRuler'
-import { formatDate, hostOf } from '../format'
+import { formatSourceDate, hostOf } from '../format'
 import { useMasonry } from '../useMasonry'
 import { useStickyFilters } from '../useStickyFilters'
 import { link } from '../nav'
@@ -46,7 +46,7 @@ function SourceList({ sources }: { sources: Source[] }) {
           <ExternalLink href={s.url}>{s.title}</ExternalLink>{' '}
           <span class="source-meta">
             {s.publisher ?? hostOf(s.url)}
-            {s.date ? `, ${formatDate(s.date)}` : ''}
+            {s.date ? `, ${formatSourceDate(s.date)}` : ''}
           </span>
         </li>
       ))}

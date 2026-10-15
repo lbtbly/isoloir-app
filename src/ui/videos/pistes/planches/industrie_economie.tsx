@@ -424,12 +424,13 @@ const etat02: Board = p => {
   )
 }
 
-/** 03 Un an plus tôt, 179,5 milliards ; au 30 juin 2025, 209,1, dont 67,9 en sociétés cotées (bleu bille) */
-const etat03: Board = p => {
+/** 03 Un an plus tôt, puis la valeur du jour, dont la part des sociétés cotées (bleu bille). « now » : la valeur du jour,
+ *  dite au passage précédent (« 209,1 milliards » dans la série, « 229,6 milliards » dans l'édition 2027) */
+const etat03De = (now: RegExp): Board => p => {
   const [cot, before] = cuesOf(p)
   const vc = num(cot?.text)
   const vb = num(before?.text)
-  const nowText = said(p, new RegExp(`209,1${SP}milliards`))
+  const nowText = said(p, now)
   const vn = num(nowText)
   const date = said(p, new RegExp(`30${SP}juin \\d{4}`))
   const prev = word(p, /Un an plus tôt/)
@@ -466,6 +467,9 @@ const etat03: Board = p => {
     </Seg>
   )
 }
+
+/** 03 Un an plus tôt, 179,5 milliards ; au 30 juin 2025, 209,1, dont 67,9 en sociétés cotées (bleu bille) */
+const etat03 = etat03De(new RegExp(`209,1${SP}milliards`))
 
 /** 04 Les règles européennes : l'aide qui fausse la concurrence bute contre une barrière ; un chemin pour les
  *  exceptions */
@@ -1431,6 +1435,10 @@ const intro07p27: Board = p => {
   )
 }
 
+/** etat-03 (2027) Un an plus tôt, 209,1 milliards ; au 30 juin 2026, 229,6 (dit à etat-02-p27), dont 77,6 en sociétés
+ *  cotées (bleu bille). La planche d'origine prendrait « 209,1 », ici la valeur d'un an plus tôt, pour celle du jour */
+const etat03p27 = etat03De(new RegExp(`229,6${SP}milliards`))
+
 /** etat-04 (2027) D'abord, pour les traités, une entreprise peut être publique ou privée : deux immeubles identiques,
  *  l'un relié au bâtiment à colonnes, l'autre non. Puis les règles sur les aides : les pièces butent contre une
  *  barrière, le document des règles posé dessus ; un chemin en pointillé la contourne pour les exceptions. */
@@ -1650,6 +1658,7 @@ export const INDUSTRIE_ECONOMIE: Record<string, Board> = {
   'industrie-aides-09': aides09,
   // Édition « présidentielle 2027 »
   'industrie-intro-07-p27': intro07p27,
+  'industrie-etat-03-p27': etat03p27,
   'industrie-etat-04-p27': etat04p27,
   'industrie-intro-08-p27': intro08p27,
   'industrie-achats-04-p27': achats04p27,

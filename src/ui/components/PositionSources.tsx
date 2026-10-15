@@ -6,7 +6,7 @@ import { useState } from 'preact/hooks'
 import type { Candidate, ElectionPack, Position, Question } from '../../core/types'
 import { AiLabel } from './AiLabel'
 import { ExternalLink } from './ExternalLink'
-import { formatDate, hostOf } from '../format'
+import { formatSourceDate, hostOf } from '../format'
 
 const NATURE: Record<Position['nature'], string> = {
   proposition: 'proposition',
@@ -60,7 +60,7 @@ export function PositionSources({ question, people, positions, aiMore = 'lien' }
                             <ExternalLink href={s.url}>{s.title}</ExternalLink>{' '}
                             <span class="source-meta">
                               {s.publisher ?? hostOf(s.url)}
-                              {s.date ? `, ${formatDate(s.date)}` : ''}
+                              {s.date ? `, ${formatSourceDate(s.date)}` : ''}
                             </span>
                           </li>
                         ))}

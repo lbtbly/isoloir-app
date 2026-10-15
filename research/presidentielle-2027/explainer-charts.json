@@ -39,7 +39,7 @@
     {"questionId":"industrie_economie-2","index":0,"chart":{"kind":"compare","unit":"Md€","items":[{"label":"Exportations de biens","value":614.7},{"label":"Importations de biens","value":683.9}]}},
     {"questionId":"industrie_economie-2","index":1,"chart":{"kind":"part","value":13.5,"total":100,"unit":"%","whole":"des emplois en France"}},
     {"questionId":"industrie_economie-2","index":3,"chart":{"kind":"compare","unit":"Md€","items":[{"label":"Marchés recensés en 2023","value":170.7},{"label":"Commande publique totale (est.)","value":400}]}},
-    {"questionId":"industrie_economie-3","index":0,"chart":{"kind":"series","unit":"Md€","items":[{"label":"Juin 2024","value":179.5},{"label":"Juin 2025","value":209.1}]}},
+    {"questionId":"industrie_economie-3","index":0,"chart":{"kind":"series","unit":"Md€","items":[{"label":"Juin 2025","value":209.1},{"label":"Juin 2026","value":229.6}]}},
     {"questionId":"industrie_economie-3","index":2,"chart":{"kind":"series","unit":"dossiers","items":[{"label":"2024","value":392},{"label":"2025","value":418}]}},
     {"questionId":"retraites-2","index":0,"chart":{"kind":"series","unit":"% du PIB","items":[{"label":"2025","value":14.1},{"label":"2030","value":14.1},{"label":"2045","value":14.2},{"label":"2070","value":15.3}]}},
     {"questionId":"retraites-2","index":1,"chart":{"kind":"series","unit":"cotisants par retraité","items":[{"label":"2002","value":2.1},{"label":"2025","value":1.8},{"label":"2070","value":1.3}]}},

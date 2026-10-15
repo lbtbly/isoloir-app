@@ -12,6 +12,7 @@
 
 import type { ComponentChildren } from 'preact'
 import { Logo } from '../../../components/Logo'
+import { formatSourceDate } from '../../../format'
 import { VIDEO_SERIES } from '../../series'
 import { Marks, at, cls, cuesOf, fold, heard, longest, sentencesOf, type Cue, type P } from './encre'
 import { Cent, type UnitKind } from './schemas'
@@ -116,7 +117,7 @@ export function Src({ p, t0 = 1800 }: { p: P; t0?: number }) {
   if (!f || !source) return null
   return (
     <p class="vc-source vc-rise" style={at(t0)}>
-      {`Source\u00a0: ${source.publisher ?? source.title}${f.date ? `\u00a0· ${f.date}` : ''}`}
+      {`Source\u00a0: ${source.publisher ?? source.title}${f.date ? `\u00a0· ${formatSourceDate(f.date)}` : ''}`}
     </p>
   )
 }

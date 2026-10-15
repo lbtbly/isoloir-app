@@ -1,0 +1,17 @@
+Rapport de génération des voix — 2026-10-15 18:55:26
+Commande : generate.py --voice aigue --segment industrie-etat-02-p27 --segment industrie-etat-03-p27 --keep-takes
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  industrie-etat-02-p27 — 8.99 s, F0 251.8 Hz, pauses entre phrases [0.45, 0.3] s
+    1. Au trente juin deux mille v…   3/3    248.1  +0.30   -4.9   +0.7  0.0    6.0  1.17  1:233 2:252 3:248
+    2. Leur valeur était estimée à…   3/3    254.7  +0.76   -5.3   +1.0  4.9    6.6  1.28  1:217~ 2:271~ 3:255
+  industrie-etat-03-p27 — 7.43 s, F0 245.9 Hz, pauses entre phrases [0.32, 0.25] s
+    1. Les sociétés cotées en Bour…   2/3    245.4  +0.11   -6.8   +1.8  5.3    6.0  1.16  1:238 2:245 3:232
+    2. Un an plus tôt, l'ensemble …   2/3    246.0  +0.16   -4.2   +2.1  6.0    5.3  1.04  1:262 2:246 3:271~
+
+Aucune alerte.
+
+Temps : 108 s pour 12 prise(s), 8.53 s de calcul par prise en moyenne (3.93 s d'audio) ; calcul d'une prise ≈ -0.26 s + 2.27 s par seconde d'audio. Détecteur de sons parasites : 0.12 s par prise en moyenne (au plus 0.218 s), 1% du calcul d'une prise.
+Estimation pour les 1109 passages (2075 phrases) (voix aiguë 3 prises, 0% de secours) : ~920 min.

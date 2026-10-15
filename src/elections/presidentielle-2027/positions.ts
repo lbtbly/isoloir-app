@@ -5495,14 +5495,20 @@ export const positions: PositionTable = {
     "finances_publiques-2-a": {
       "weight": 2,
       "nature": "proposition",
-      "confidence": "medium",
-      "summary": "Selon la Fondation iFRAP, il veut instaurer une règle d’or budgétaire dans la révision constitutionnelle soumise à référendum dès 2027.",
+      "confidence": "high",
+      "summary": "Il veut soumettre à référendum, dans les cent premiers jours de son mandat, la règle d’or budgétaire votée par les deux assemblées en 2011 et restée sans suite : inscrire dans la Constitution un plafond de dépenses et une trajectoire de redressement qui s’imposeraient aux budgets.",
       "sources": [
         {
-          "title": "Fondation IFRAP – Comparateur Présidentielles 2027",
-          "url": "https://www.ifrap.org/comparateurs/presidentielles-2027",
-          "date": "2026",
-          "publisher": "Fondation iFRAP"
+          "title": "Bruno Retailleau sur X – référendum sur la règle d’or budgétaire",
+          "url": "https://x.com/BrunoRetailleau/status/2109610761441993158",
+          "date": "2026-10-12",
+          "publisher": "X (compte de Bruno Retailleau)"
+        },
+        {
+          "title": "Présidentielle 2027 : Bruno Retailleau s’engage sur un plan d’économies de près de 200 milliards d’euros, s’il est élu",
+          "url": "https://www.publicsenat.fr/actualites/economie/presidentielle-2027-bruno-retailleau-sengage-sur-un-plan-deconomies-de-pres-de-200-milliards-deuros-sil-est-elu",
+          "date": "2026-10-12",
+          "publisher": "Public Sénat"
         }
       ]
     },
@@ -5754,15 +5760,27 @@ export const positions: PositionTable = {
     },
     "sante-2-e": {
       "weight": 1,
-      "nature": "declaration",
-      "confidence": "medium",
-      "summary": "Avant sa déclaration de candidature, il évoquait une hausse des franchises médicales.",
+      "nature": "proposition",
+      "confidence": "high",
+      "summary": "Son plan du 12 octobre 2026 attend 4 Md€ des arrêts maladie, avec dans le privé un jour de carence que personne, pas même la prévoyance d’entreprise, ne pourrait indemniser ; il prévoit aussi trois jours de carence pour les fonctionnaires, sans se prononcer sur les franchises médicales.",
       "sources": [
         {
-          "title": "Planet.fr (d’après Le Figaro Magazine) – les premières propositions de Bruno Retailleau pour 2027",
-          "url": "https://www.planet.fr/politique-limiter-le-nombre-de-fonctionnaires-retraite-par-capitalisation-les-premieres-propositions-de-bruno-retailleau-pour-2027.2987506.29334.html",
-          "date": "2025-08-29",
-          "publisher": "Planet.fr"
+          "title": "Présidentielle 2027 : Bruno Retailleau s’engage sur un plan d’économies de près de 200 milliards d’euros, s’il est élu",
+          "url": "https://www.publicsenat.fr/actualites/economie/presidentielle-2027-bruno-retailleau-sengage-sur-un-plan-deconomies-de-pres-de-200-milliards-deuros-sil-est-elu",
+          "date": "2026-10-12",
+          "publisher": "Public Sénat"
+        },
+        {
+          "title": "Bruno Retailleau veut faire travailler davantage les fonctionnaires",
+          "url": "https://acteurspublics.fr/articles/bruno-retailleau-veut-faire-travailler-davantage-les-fonctionnaires/",
+          "date": "2026-10-12",
+          "publisher": "Acteurs publics"
+        },
+        {
+          "title": "Face à une France « quasiment en faillite », Bruno Retailleau présente un plan d’économies de 197 milliards d’euros sur cinq ans",
+          "url": "https://lcp.fr/actualites/face-a-une-france-quasiment-en-faillite-bruno-retailleau-presente-un-plan-d-economies-de",
+          "date": "2026-10-12",
+          "publisher": "LCP"
         }
       ]
     },

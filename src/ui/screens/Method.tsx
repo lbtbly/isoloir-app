@@ -9,7 +9,7 @@ import { FormHeader } from '../components/FormHeader'
 import { SiteFooter } from '../components/SiteFooter'
 import { Icon } from '../components/Icon'
 import { SectionLink, goToSection } from '../components/LegalBits'
-import { formatDate, shareText } from '../format'
+import { formatDate, formatSourceDate, shareText } from '../format'
 import { hasVideos } from '../videos/load'
 import { loadProfile, profileNow } from '../profile/load'
 import { useOnDemand } from '../lazy'
@@ -234,7 +234,7 @@ export function Method({ pack, anchor }: { pack: ElectionPack; /** Rubrique à m
               Sur la page des candidats, ils sont présentés de l’extrême gauche à l’extrême droite, dans l’ordre de la
               grille officielle des nuances politiques du ministère de l’Intérieur (
               <ExternalLink href={election.spectrum.source.url}>{election.spectrum.source.title}</ExternalLink>
-              {election.spectrum.source.date ? `, ${formatDate(election.spectrum.source.date)}` : ''}).
+              {election.spectrum.source.date ? `, ${formatSourceDate(election.spectrum.source.date)}` : ''}).
               {` Chaque candidat y prend la nuance de son parti, ou, si son parti n’y figure pas, celle que le ministère lui a attribuée à sa dernière élection\u00a0; si cette nuance n’existe plus dans la grille ou ne correspond plus à son parti, Isoloir lui attribue l’une des nuances de sensibilité que la grille prévoit pour les formations sans nuance propre (divers gauche, divers, divers droite…). Au sein d’une même nuance, l’ordre est alphabétique. L’élection présidentielle n’attribue pas elle-même de nuances\u00a0: ce rangement est celui d’Isoloir, à partir de cette grille, qui place entre la gauche et le centre un bloc «\u00a0Autres\u00a0» (écologistes, divers, régionalistes).`}
             </p>
             <p>

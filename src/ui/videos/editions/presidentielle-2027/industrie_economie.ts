@@ -6,17 +6,14 @@
 // proposition de la Commission européenne de mars 2026 (en négociation) ; fin du dispositif d'accès régulé à
 // l'électricité nucléaire au 31 décembre 2025 ; allègements de cotisations fondus en une réduction unique depuis le
 // 1er janvier 2026 ; projet de loi de finances pour 2027 déposé le 1er octobre 2026, en discussion ; participations de
-// l'État au 30 juin 2025 (fiche industrie_economie-3 et industrie-etat-02/-03 ; le rapport « État actionnaire » 2027
-// n'était pas en ligne le 15 octobre 2026, mais le projet annuel de performances 2027 « Participations financières de
-// l'État », annexe au projet de loi de finances, donne 229,6 Md€ au 30 juin 2026 (87 entreprises, dont 11 cotées),
-// 77,6 Md€ cotés et 4,71 Md€ de dividendes en 2025 : la fiche et industrie-etat-02/-03 sont à mettre à jour ensemble,
-// à la prochaine séance de voix, décision du propriétaire attendue) ; contrôle des investissements étrangers :
+// l'État au 30 juin 2026 (rapport « État actionnaire » annexé à ce projet, en ligne le 15 octobre 2026 : fiche
+// industrie_economie-3 et industrie-etat-02-p27/-03-p27 ; périmètre réduit depuis : FDPITMA dissous le 13 juillet
+// 2026, ATMB et SFTRF cédées à la Caisse des dépôts le 31 juillet 2026) ; contrôle des investissements étrangers :
 // règlement européen révisé en juin 2026, réglementation française à adapter avant fin 2026 (libellé du chiffre n° 2
 // de la fiche). À revoir à chaque échéance, et au plus tard début avril 2027, avant le premier tour du 18 avril 2027.
 // Périmètre (industrie_economie-19) : la question d'origine industrie_economie-1 (réindustrialisation) n'a pas
 // d'équivalent ici. « L'État actionnaire » éclaire la question industrie_economie-3 de cette élection, dont la fiche
-// porte ses chiffres (209,1, 179,5 et 67,9 Md€ ; « 86 entités », dans la fiche comme dans la vidéo, depuis le
-// 15 octobre 2026).
+// porte ses chiffres (229,6, 209,1 et 77,6 Md€ ; « 87 entités », dans la fiche comme dans la vidéo).
 // Aucune fiche de cette élection ne porte les prix de l'électricité des entreprises (0,2688 €/kWh…), le solde
 // d'usines (+19, +88) ni l'emploi industriel (3 240 600) : la vidéo industrie-energie et les passages
 // industrie-intro-02 et -03 ne sont pas montrés ici, et l'introduction ne cite plus les sources de ces deux passages.
@@ -26,9 +23,11 @@
 // Décision du propriétaire du 2026-10-15 (n° 6) : la fiche industrie_economie-3 porte l'article 345 du TFUE (points[1],
 // source EUR-Lex, celle de TFUE_345) et les règles sur les aides d'État (points[2] : projets importants d'intérêt
 // européen commun, critère de l'investisseur privé ; rapport n° 808 du Sénat, celle d'AIDES_SENAT), que disent
-// industrie-etat-04-p27 et industrie-etat-05 ; son chiffre n° 0 dit « 86 entités », comme la voix d'industrie-etat-02.
-// Reste à copier dans industrie-etat-02 le libellé, le graphique (série juin 2024 → juin 2025) et la source de la
-// fiche, voix inchangée.
+// industrie-etat-04-p27 et industrie-etat-05.
+// Décision du propriétaire du 2026-10-15 (suivi n° 3) : la fiche (chiffres n° 0 et 1, graphique n° 0) et la vidéo
+// passent au rapport « État actionnaire » 2027, au 30 juin 2026. industrie-etat-02-p27 et -03-p27 reprennent le
+// chiffre n° 0 (229,6 Md€, « 87 entités », 77,6 Md€ cotés, 209,1 Md€ un an plus tôt), son graphique et sa source,
+// mêmes phrases et mêmes longueurs, voix propres ; -03-p27 a sa planche (etat03p27).
 // Planches : chaque passage corrigé dont le dessin change a la sienne dans pistes/planches/industrie_economie.tsx, rangée sous son
 // identifiant suffixé (« -p27 ») ou, si seul le dessin change, sous son champ board (editions/apply.ts).
 import type { VideoSource } from '../../types'
@@ -57,11 +56,14 @@ const MERCOSUR: VideoSource = {
   date: '2026-04-27',
 }
 
-const ETAT_ACTIONNAIRE: VideoSource = {
-  title: 'Rapport relatif à l’État actionnaire, annexe au projet de loi de finances pour 2026',
-  url: 'https://www2.assemblee-nationale.fr/static/17/Annexes-DL/PLF-2026/10-Jaune2026_Etat_actionnaire.pdf',
+/* ——— La source mise à jour (décision du propriétaire du 2026-10-15) : le rapport « État actionnaire » annexé au projet
+   de loi de finances pour 2027, au 30 juin 2026, remplace celui de 2026 (ETAT_ACTIONNAIRE, au 30 juin 2025) ——— */
+
+const ETAT_ACTIONNAIRE_2027: VideoSource = {
+  title: 'Rapport relatif à l’État actionnaire, annexe au projet de loi de finances pour 2027',
+  url: 'https://www2.assemblee-nationale.fr/static/17/Annexes-DL/PLF_2027/10-Jaune-2027-Etat-actionnaire.pdf',
   publisher: 'Agence des participations de l’État (ministère de l’Économie), publié par l’Assemblée nationale',
-  date: '2025',
+  date: '2026-10',
 }
 
 /* ——— La source ajoutée par la relecture (industrie_economie-15) ——— */
@@ -121,12 +123,42 @@ export const INDUSTRIE_ECONOMIE: SeriesPatch = {
 
     /* ——— L'État actionnaire ——— */
     // industrie_economie-19 : rattachée à la question industrie_economie-3 de cette élection, dont la fiche porte ses
-    // chiffres de participations (industrie-etat-02 reste à aligner sur elle : voir l'en-tête).
+    // chiffres de participations (industrie-etat-02 et -03 alignés sur elle : voir l'en-tête).
     // industrie_economie-15, -16 : les traités neutres sur la propriété, avant les règles sur les aides ; source EUR-Lex.
     'industrie-etat': {
       questionIds: ['industrie_economie-3'],
-      sources: [ETAT_ACTIONNAIRE, AIDES_SENAT, TFUE_345],
+      sources: [ETAT_ACTIONNAIRE_2027, AIDES_SENAT, TFUE_345],
       segments: {
+        // Décision du propriétaire du 2026-10-15 : chiffres au 30 juin 2026 (rapport « État actionnaire » 2027), ceux de la
+        // fiche industrie_economie-3 ; mêmes phrases, mêmes longueurs. Voix propres (industrie-etat-02-p27, -03-p27).
+        'industrie-etat-02': {
+          say: 'Au 30 juin 2026, l’Agence des participations de l’État gérait ses parts dans 87 entités. Leur valeur était estimée à 229,6 milliards d’euros.',
+          spoken: 'Au trente juin deux mille vingt-six, l’Agence des participations de l’État gérait ses parts dans quatre-vingt-sept entités. Leur valeur était estimée à deux cent vingt-neuf virgule six milliards d’euros.',
+          draw: 'Une grille de 87 petites cases, une par entité, qui se remplit rangée après rangée ; le montant écrit au-dessus.',
+          emphasis: ['87 entités', '229,6 milliards'],
+          figure: {
+            value: '229,6 Md€',
+            label: 'Valeur des participations de l’État gérées par l’Agence des participations de l’État au 30 juin 2026 (87 entités), dont 77,6 Md€ dans des sociétés cotées',
+            date: '30 juin 2026',
+            sourceIndex: 0,
+          },
+          chart: {
+            kind: 'series',
+            unit: 'Md€',
+            items: [
+              { label: 'Juin 2025', value: 209.1 },
+              { label: 'Juin 2026', value: 229.6 },
+            ],
+          },
+        },
+        // La planche d'origine prend « 209,1 milliards » pour la valeur du jour : planche propre (etat03p27)
+        'industrie-etat-03': {
+          say: 'Les sociétés cotées en Bourse en représentent 77,6 milliards. Un an plus tôt, l’ensemble valait 209,1 milliards.',
+          spoken: 'Les sociétés cotées en Bourse en représentent soixante-dix-sept virgule six milliards. Un an plus tôt, l’ensemble valait deux cent neuf virgule un milliards.',
+          draw: 'Deux barres à la même échelle, un an plus tôt et au 30 juin 2026 ; dans la seconde, la part des sociétés cotées comptée au bleu bille.',
+          alt: 'Deux barres à la même échelle, en milliards d’euros : 209,1 un an plus tôt, 229,6 au 30 juin 2026, dont la part des sociétés cotées.',
+          emphasis: ['77,6 milliards', '209,1 milliards'],
+        },
         'industrie-etat-04': {
           say: 'Pour les traités européens, une entreprise peut être publique ou privée. Mais les aides publiques qui faussent la concurrence sont en principe interdites, avec des exceptions, comme les « projets importants d’intérêt européen commun ».',
           draw: 'D’abord, deux immeubles de bureaux identiques côte à côte, l’un relié au bâtiment à colonnes, l’autre non. Puis des pièces partent vers une entreprise et butent contre une barrière, un document de règles posé à côté ; un chemin en pointillé contourne la barrière pour quelques projets.',

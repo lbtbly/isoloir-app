@@ -1276,6 +1276,8 @@ position set finances_publiques-3 retailleau finances_publiques-3-a
 position set territoires-1 retailleau territoires-1-c
 position set fiscalite-x1 retailleau fiscalite-x1-a
 position set industrie_economie-1 retailleau industrie_economie-1-b
+position set finances_publiques-2 retailleau finances_publiques-2-a
+position set sante-2 retailleau sante-2-e
 reuse-question-reworded fiscalite-1 <- choisir-2027:fiscalite-1 (62 % de l'énoncé modifié)
 reuse-question-reworded travail_salaires-3 <- choisir-2027:travail_salaires-4 (40 % de l'énoncé modifié)
 reuse-question-reworded travail_salaires-4 <- choisir-2027:travail_salaires-3 (54 % de l'énoncé modifié)
