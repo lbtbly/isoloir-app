@@ -182,9 +182,11 @@ const PROFILE_METHOD_TEXTS = ['Pourquoi ni moyenne ni point', 'on a recopi']
 // petit fichier commun (src/core/echiquierCommonCopy.ts, les mots communs, et src/core/echiquierPanel.ts, les
 // candidats de l'axe), hors du JS initial lui aussi. Et la page ne garde rien de la rubrique. Plafond : ce qu'elle
 // ajoute à la Méthode, elle et ce qu'elle charge en plus du JS initial et de l'écran de la Méthode (le fichier commun) :
-// 10,6 ko mesurés le 15 octobre 2026, plus 15 %. Un code de la page qu'elle importerait passerait par un fichier commun
-// avec la page : le plafond le compte, et le texte du calcul y est cherché
-const PROFILE_METHOD_BUDGET = 12_200
+// 10,6 ko mesurés le 15 octobre 2026, plus 15 % ; le même jour, 13,2 ko avec les mots du calcul sans tirage (les deux
+// régimes, « compter, sinon calculer », et l'avant et l'après, que le propriétaire a demandé de publier), d'où 15,2 ko,
+// toujours la mesure plus 15 %. Un code de la page qu'elle importerait passerait par un fichier commun avec la page : le
+// plafond le compte, et le texte du calcul y est cherché
+const PROFILE_METHOD_BUDGET = 15_200
 const methodSectionChunks = readdirSync(join(dist, 'assets')).filter(f => /^MethodSection-[\w-]+\.js$/.test(f))
 if (methodSectionChunks.length !== 1) fail(`rubrique « Mon profil politique » de la Méthode : ${methodSectionChunks.length} fichier(s) assets/MethodSection-*.js, un attendu`)
 /** Ce que la Méthode a déjà chargé quand elle demande sa rubrique : son écran (src/ui/screens/Method.tsx) et ce qu'il charge */

@@ -96,9 +96,29 @@ html:has(.profile-chart) {
   margin: 0;
 }
 
-.profile-noai {
-  margin: 0;
+/* Le lien vers Résultats, dans la phrase : le classement est là, pas ici */
+.profile-intro .lede a {
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--print);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.profile-intro .lede a .icon {
+  width: 0.95em;
+  height: 0.95em;
+  margin-left: 0.2em;
+  vertical-align: -0.12em;
+}
+
+/* Ce qui reste sur l'appareil, sous la mention IA */
+.profile-privacy {
+  max-width: 52ch;
+  margin: var(--s2) 0 0;
   font-size: var(--text-xs);
+  line-height: 1.45;
+  color: var(--print-soft);
 }
 
 @media (min-width: 64rem) {
@@ -114,47 +134,96 @@ html:has(.profile-chart) {
   }
 }
 
-/* ——— Pour lire plus de thèmes : avant le graphique, tant que des thèmes à compléter ont des questions approfondies.
-   À l'encre, comme la fiche de la tendance : papier, filet de 1.5px, filet supérieur de 3px ; en grand écran, le titre
-   et la règle à gauche, les thèmes à droite ——— */
-.profile-deeper {
-  display: grid;
-  gap: var(--s3) var(--s7);
-  margin: var(--s6) 0 0;
-  padding: calc(var(--s4) + var(--thick)) var(--s4) var(--s4);
+/* ——— Pour lire plus de thèmes, dans le graphique : après les domaines, repliée tant qu'il y a des lectures nettes ;
+   ouverte sous le compte au seul questionnaire rapide, ou quand rien n'est net nulle part. À l'encre, comme la fiche de
+   la tendance : papier, filet de 1.5px, filet supérieur de 3px ; le titre et ce qu'elle compte sur sa ligne ——— */
+.deeper-card {
+  margin: var(--s4) 0 var(--s3);
+  padding: var(--thick) var(--s3) var(--s2);
   box-shadow:
     inset 0 var(--thick) 0 var(--rule-strong),
     inset 0 0 0 var(--line) var(--rule-strong);
 }
 
-@media (min-width: 64rem) {
-  .profile-deeper {
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    padding: calc(var(--s5) + var(--thick)) var(--s5) var(--s5);
-  }
-}
-
-.deeper-head h2 {
+.deeper-card > details > summary {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin: 0 0 var(--s2);
+  min-height: 2.9rem;
+  list-style: none;
+  cursor: pointer;
+}
+
+.deeper-card > details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.deeper-card .deeper-icon {
+  flex: none;
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.deeper-card .ds-text {
+  min-width: 0;
+  line-height: 1.2;
+}
+
+.deeper-card .ds-title {
   font-weight: 850;
-  font-stretch: 72%;
-  font-size: clamp(1.45rem, 5vw, 1.85rem);
+  font-stretch: 76%;
+  font-size: 1.2rem;
   line-height: 1.05;
   overflow-wrap: anywhere;
 }
 
-.deeper-icon {
-  flex: none;
-  width: 1.5rem;
-  height: 1.5rem;
+.deeper-card .ds-n {
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+  white-space: nowrap;
 }
 
-.deeper-head p {
-  margin: 0;
+.deeper-card > details > summary .disclosure {
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  margin-left: auto;
+  stroke-width: 2.2;
+  transform: rotate(90deg);
+}
+
+.deeper-card > details[open] > summary .disclosure {
+  transform: rotate(-90deg);
+}
+
+.deeper-body {
+  display: grid;
+  gap: var(--s3);
+  padding: var(--s1) 0 var(--s3);
+}
+
+.deeper-body > p {
   max-width: 46ch;
+  margin: 0;
+  font-size: var(--text-sm);
+}
+
+/* Après les domaines : elle reprend la ligne « Sans réponse », qu'elle remplace, et le dit sur sa ligne repliée */
+.deeper-card.is-below {
+  margin: var(--s5) 0 0;
+}
+
+.deeper-card.is-below .ds-n {
+  display: block;
+  margin-top: 0.15rem;
+  white-space: normal;
+}
+
+@container plot (min-width: 50rem) {
+  .chart-head .deeper-card {
+    grid-column: 2;
+    max-width: 44rem;
+  }
 }
 
 .deeper-lists {
@@ -492,6 +561,61 @@ html:has(.profile-chart) {
   font-weight: 800;
 }
 
+/* Les sujets nets du compte : chacun ouvre sa ligne (un bouton, qui se lit comme un lien dans la phrase) */
+.chart-count .count-link {
+  display: inline;
+  padding: 0;
+  font: inherit;
+  font-weight: 750;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+/* Ce qui n'a pas compté, en gris sous le compte */
+.chart-rest {
+  max-width: 60ch;
+  margin: 0.35rem 0 0;
+  font-size: var(--text-sm);
+  line-height: 1.45;
+  color: var(--print-soft);
+}
+
+/* L'état de tête (rien de net nulle part, aucun sujet à l'épreuve, avis uniformes) : à la place du compte, avant l'axe ;
+   les phrases qui le suivent en petit corps gris */
+.chart-state {
+  max-width: 54ch;
+  margin: var(--s2) 0 0;
+  font-size: 1.0625rem;
+  line-height: 1.45;
+}
+
+.chart-state + .chart-state {
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.chart-state strong {
+  font-weight: 800;
+}
+
+.chart-state a {
+  font-weight: 700;
+  color: var(--print);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.chart-state a .icon {
+  width: 0.95em;
+  height: 0.95em;
+  margin-left: 0.2em;
+  vertical-align: -0.12em;
+}
+
+.chart-state-cta {
+  margin: var(--s4) 0 0;
+}
+
 /* Au doigt ou à la souris, selon le pointeur principal */
 .chart-hint {
   margin: 0.35rem 0 0;
@@ -537,8 +661,29 @@ html:has(.profile-chart) {
     font-size: 1.1875rem;
   }
 
-  .chart-hint {
+  .chart-hint,
+  .chart-rest,
+  .chart-state,
+  .chart-state-cta {
     grid-column: 2;
+  }
+
+  .chart-state:first-of-type {
+    margin-top: 0;
+  }
+}
+
+/* Texte très agrandi (14rem de graphique, qu'aucun téléphone n'atteint à texte normal, 280px compris) : le bouton se serre
+   et perd sa flèche plutôt que de sortir de la page */
+@container plot (max-width: 14rem) {
+  .chart-state-cta .btn-primary {
+    max-width: 100%;
+    padding-inline: var(--s3);
+    overflow-wrap: anywhere;
+  }
+
+  .chart-state-cta .btn-primary .icon {
+    display: none;
   }
 }
 
@@ -921,33 +1066,48 @@ html:has(.profile-chart) {
   }
 }
 
-/* Intertitres dans le graphique : les deux bouts à la fois, seulement plus loin, sans tendance nette, une seule
-   question */
-.rows-head {
-  margin: var(--s6) 0 0;
-  padding-top: var(--s2);
+/* Les domaines : un intertitre par famille de plus d'un thème, sur un filet ; une famille d'un seul thème n'a que le
+   filet, sa ligne porte son nom (comme le tableau du détail) */
+.fam-group {
   border-top: var(--line) solid var(--rule-strong);
 }
 
-.rows-head.is-first {
-  margin-top: 0;
+.fam-group + .fam-group {
+  margin-top: var(--s5);
+}
+
+.fam-group.is-first {
   border-top: 0;
 }
 
-.rows-head h3 {
+.fam-name {
   margin: 0;
-  font-size: 1.25rem;
-  font-weight: 850;
-  font-stretch: 76%;
+  padding: var(--s4) 0 var(--s1) 0.35rem;
+  font-weight: 800;
+  font-stretch: 78%;
+  font-size: 1.3rem;
   line-height: 1.1;
+  overflow-wrap: anywhere;
 }
 
-.rows-head p {
-  max-width: 60ch;
-  margin: 0.3rem 0 var(--s3);
-  font-size: var(--text-sm);
-  line-height: 1.45;
+.fam-group.is-first .fam-name {
+  padding-top: var(--s3);
+}
+
+/* Dans un domaine, un court intertitre gris avant chaque groupe sans lecture nette d'un seul côté (« Rien de net »,
+   « Sur une seule question », « Seulement plus loin »…) : le rangement et les mots disent « net », jamais la couleur */
+.fam-sub {
+  margin: 0;
+  padding: var(--s3) 0 0.3rem 0.35rem;
+  border-bottom: var(--hair) solid var(--rule);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  line-height: 1.3;
   color: var(--print-soft);
+}
+
+.fam-name + .fam-part > .fam-sub {
+  padding-top: var(--s1);
 }
 
 /* L'explication d'une ligne ouverte, sous elle */
@@ -1096,7 +1256,8 @@ html:has(.profile-chart) {
   }
 }
 
-/* Les sujets sans tendance nette et ceux d'une seule question : leurs noms un peu moins appuyés que les lectures */
+/* Dans un domaine, les sujets sans tendance nette et ceux d'une seule question : leurs noms un peu moins appuyés que
+   les lectures */
 .rows.is-quiet .row-name {
   font-weight: 650;
 }
@@ -1110,45 +1271,16 @@ html:has(.profile-chart) {
   overflow-wrap: anywhere;
 }
 
-/* Ni lecture ni écart : la règle, et le chemin pour approfondir ; l'intertitre des sujets sans tendance nette suit */
-.chart-empty {
-  margin: 0;
-  padding: var(--s5) 0 var(--s2);
-}
-
-.chart-empty p {
-  max-width: 52ch;
-  margin: 0 0 var(--s3);
-  font-size: 1.125rem;
-  line-height: 1.45;
-}
-
-@container plot (min-width: 50rem) {
-  .chart-empty {
-    padding-left: var(--label-w);
-  }
-}
-
-/* Texte très agrandi (14rem de graphique, qu'aucun téléphone n'atteint à texte normal, 280px compris) : le bouton se serre
-   et perd sa flèche plutôt que de sortir de la page */
-@container plot (max-width: 14rem) {
-  .chart-empty .btn-primary {
-    max-width: 100%;
-    padding-inline: var(--s3);
-    overflow-wrap: anywhere;
-  }
-
-  .chart-empty .btn-primary .icon {
-    display: none;
-  }
-}
-
-/* Sous le graphique : le hasard, la source de la grille, le calcul */
+/* Sous le graphique : ce que vaut une lecture nette, en petit corps gris sous un filet ; la source de la grille ; le
+   calcul */
 .chart-note {
   max-width: 70ch;
   margin: var(--s4) 0 0;
-  font-size: var(--text-sm);
+  padding-top: var(--s3);
+  border-top: var(--hair) solid var(--rule);
+  font-size: var(--text-xs);
   line-height: 1.45;
+  color: var(--print-soft);
 }
 
 .chart-source {
@@ -1191,6 +1323,14 @@ html:has(.profile-chart) {
   gap: var(--s2);
   margin: 0;
   padding-left: 1.1rem;
+}
+
+/* L'exemple de « nettement », en cinq lignes */
+.calc-example {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0.4rem 0 0;
+  padding-left: 1.2rem;
 }
 
 /* Très étroit ou texte très agrandi : les noms quittent l'en-tête des colonnes et passent en liste sous le graphique */
@@ -1667,6 +1807,18 @@ html:has(.profile-chart) {
   font-weight: 750;
 }
 
+/* Sous un bloc lu nettement : combien de façons, et combien en rapprochent (ou en éloignent) au moins autant */
+.detail-blocs .detail-why td {
+  padding-top: 0;
+  font-size: var(--text-sm);
+  line-height: 1.45;
+}
+
+.detail-blocs tr.has-why th,
+.detail-blocs tr.has-why td {
+  border-bottom: 0;
+}
+
 /* Étroit : chaque bloc en quelques lignes, chacune nommée */
 @container detail (max-width: 33.99rem) {
   .detail-blocs,
@@ -1695,6 +1847,19 @@ html:has(.profile-chart) {
   .detail-blocs td::before {
     content: attr(data-head) '\a0: ';
     color: var(--print-soft);
+  }
+
+  .detail-blocs tr.has-why {
+    border-bottom: 0;
+    padding-bottom: 0.15rem;
+  }
+
+  .detail-blocs .detail-why {
+    padding-top: 0;
+  }
+
+  .detail-blocs .detail-why td::before {
+    content: none;
   }
 }
 

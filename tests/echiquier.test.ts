@@ -367,7 +367,8 @@ function permutations(v: readonly number[]): number[][] {
 /**
  * Le max-T d'une unité par force brute, écrit à part du calcul de la page : chaque façon de poser les avis, une à une,
  * scorée par questionScore (core/score.ts) ; affinité par thème puis par famille, moyenne par bloc des candidats
- * connus ; moyenne, écart-type et p de chaque bloc connu. Rend aussi N
+ * connus ; moyenne, écart-type et p de chaque bloc connu ; et, bloc par bloc, les façons qui l'écartent de sa moyenne
+ * au moins autant que l'observée, du même côté (alike, ce que dit « Le détail »). Rend aussi N
  */
 function bruteForce(p: ElectionPack, answers: Answers, u: UnitReading, without: readonly string[] = []) {
   const panel = panelOf(p).map(ids => ids.filter(id => !without.includes(id)))
@@ -408,7 +409,10 @@ function bruteForce(p: ElectionPack, answers: Answers, u: UnitReading, without: 
   const z = (b: number, v: number) => (sd[b]! > 1e-9 && !Number.isNaN(v) ? (v - mu[b]!) / sd[b]! : 0)
   const T = all.map(r => Math.max(0, ...known.map(b => Math.abs(z(b, r[b]!)))))
   const pOf = known.map(b => T.filter(t => t >= Math.abs(z(b, observed[b]!)) - 1e-9).length / all.length)
-  return { N: all.length, known, mu, p: Object.fromEntries(known.map((b, k) => [b, pOf[k]!])) as Record<number, number> }
+  const alike = Object.fromEntries(
+    known.map(b => [b, all.filter(r => !Number.isNaN(r[b]!) && (observed[b]! >= mu[b]! ? r[b]! >= observed[b]! - 1e-9 : r[b]! <= observed[b]! + 1e-9)).length]),
+  ) as Record<number, number>
+  return { N: all.length, known, mu, observed, alike, p: Object.fromEntries(known.map((b, k) => [b, pOf[k]!])) as Record<number, number> }
 }
 
 /**
@@ -451,6 +455,7 @@ describe('compter, sinon calculer', () => {
     let checked = 0
     let oneKnown = 0
     let varying = 0
+    let alikeChecked = 0
     for (const [answers, without] of profiles) {
       const opts: ReadOptions = without.length ? { without } : {}
       const reading = readEchiquier(fresh(wide), answers, opts)
@@ -464,6 +469,14 @@ describe('compter, sinon calculer', () => {
         for (const b of brute.known) {
           expect(Math.abs(u.cells[b]!.p! - brute.p[b]!), `${where} bloc ${b}`).toBeLessThan(1e-12)
           expect(Math.abs(u.cells[b]!.chance! - brute.mu[b]!), `${where} bloc ${b}`).toBeLessThan(1e-9)
+          // Le compte du bloc seul, la façon observée comprise (hors du cas où elle tombe sur la moyenne, sans côté)
+          if (Math.abs(brute.observed[b]! - brute.mu[b]!) > 1e-6) {
+            expect(u.cells[b]!.alike, `${where} bloc ${b}`).toBe(brute.alike[b])
+            alikeChecked++
+          }
+          expect(u.cells[b]!.alike!, `${where} bloc ${b}`).toBeGreaterThanOrEqual(1)
+          // Il ne dit rien de plus que le test : jamais plus de façons que celles qui font un écart aussi marqué, tous blocs confondus
+          expect(u.cells[b]!.alike!, `${where} bloc ${b}`).toBeLessThanOrEqual(Math.round(u.cells[b]!.p! * u.ways))
         }
         if (u.cells.some((c, b) => c.known.length === 1 && panelOf(wide)[b]!.length === 2)) oneKnown++
         if (u.questions.some(id => lowVaries(wide, answers, id))) varying++
@@ -473,6 +486,37 @@ describe('compter, sinon calculer', () => {
     expect(checked).toBeGreaterThan(60)
     expect(oneKnown).toBeGreaterThan(10)
     expect(varying).toBeGreaterThan(40)
+    expect(alikeChecked).toBeGreaterThan(150)
+  })
+
+  it('le compte d’un bloc (« Le détail ») : seulement quand tout est compté, sans changer aucune lecture ; inversé, le même', () => {
+    for (let i = 0; i < 8; i++) {
+      const answers = randomAnswers(`alike:${i}`, wide)
+      const exact = readEchiquier(fresh(wide), answers)
+      const bound = readEchiquier(fresh(wide), answers, { countMax: 0 })
+      const flipped = readEchiquier(fresh(wide), answersOf(Object.fromEntries(wide.bank.questions.map(q => [q.id, q.approaches.map(a => -(answers[q.id]?.ratings[a.id] ?? 0))])), wide))
+      for (const u of units(exact)) {
+        const where = `${i} ${u.kind} ${u.id}`
+        const b = unit(bound, u.kind, u.id)
+        for (const c of b.cells) expect(c.alike, where).toBeNull()
+        if (!u.arrangements) {
+          for (const c of u.cells) expect(c.alike, where).toBeNull()
+          continue
+        }
+        // Les avis tous inversés : la même part, du côté opposé
+        const v = unit(flipped, u.kind, u.id)
+        u.cells.forEach((c, k) => {
+          if (c.chance !== null && c.affinity !== null && Math.abs(c.affinity - c.chance) > 1e-6) expect(v.cells[k]!.alike, where).toBe(c.alike)
+        })
+      }
+    }
+    // L'exemple de la page (maquette du 15 octobre 2026) : un clone bruité d'une candidate que la grille classe à
+    // l'extrême gauche, thème Europe, deux questions : 252 façons, 6 qui en rapprochent autant, la sienne comprise
+    const P = profilesFor(real)
+    const all = P.toAnswers(P.noisy(P.cloneLarge('arthaud'), 'ex:arthaud:1'))
+    const europe = Object.fromEntries(Object.entries(all).filter(([id]) => real.bank.questions.find(q => q.id === id)!.topicId === 'europe'))
+    const eu = unit(readEchiquier(fresh(real), europe), 'theme', 'europe')
+    expect([eu.ways, eu.exact, eu.cells[0]!.mark, eu.cells[0]!.alike]).toEqual([252, true, 'pres', 6])
   })
 
   it('moins de dix façons : aucune marque, la façon observée pèse déjà plus d’une sur dix (p ≥ 1 / N)', () => {

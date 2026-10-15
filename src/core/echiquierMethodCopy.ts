@@ -5,16 +5,17 @@
 // (ui/profile/load.ts), les prend ici sans emporter la page. Mêmes règles d'écriture que la page
 // (core/echiquierCopy.ts) ; tests/echiquier-copy.test.ts les vérifie.
 
-import { fr, word } from './echiquierCommonCopy'
+import { fr, PRIVACY, word } from './echiquierCommonCopy'
 
-/** « Les couleurs » : les mots de « Comment lire » de la page (core/echiquierCommonCopy.ts) */
+/** « Les couleurs » : les mots de « Comment c'est calculé » de la page (core/echiquierCommonCopy.ts) */
 export { COLORS_CHANCE, HOW_COLOR } from './echiquierCommonCopy'
 
 /**
  * Ce que publie la Méthode, mesuré par tools/audit-echiquier.mjs (clones de chaque candidat classé retirés du calcul,
- * profils tirés au hasard selon six façons de répondre) ; tests/echiquier-calibration.test.ts vérifie que la mesure
- * reste à 5 points près (0,5 pour les moyennes et le rapport). Une mise à jour des positions qui les fait bouger :
- * refaire l'audit, reporter ici, et dire le changement au journal.
+ * feuilles remplies par un programme, sans suivre aucun candidat, selon six façons de répondre) ;
+ * tests/echiquier-calibration.test.ts vérifie que la mesure reste à 5 points près (0,5 pour les moyennes et le
+ * rapport). Une mise à jour des positions qui les fait bouger : refaire l'audit, reporter ici, et dire le changement au
+ * journal.
  */
 export const ECHIQUIER_PUBLISHED = {
   // Mesure refaite le 14 octobre 2026 (entrée de Natacha Polony, non classée, et des deux approches ajoutées ce jour-là) :
@@ -32,14 +33,20 @@ export const ECHIQUIER_PUBLISHED = {
   // quelques millions de façons : la seule lecture qui change, la gauche pour le clone de Jean-Luc Mélenchon sur
   // l'éducation, 1 680 000 façons, a p = 0,098 au compte complet et 0,107 à la borne : la borne la manque),
   // randomPerProfileMax 2,3, randomThemesMax 8,5 (« un sur douze »). randomThemes reste à 5 : methodWorth arrondit avant
-  // d'inverser, 4 dirait « un sur vingt-cinq » pour un sur vingt et un ou vingt-deux mesuré
+  // d'inverser, 4 dirait « un sur vingt-cinq » pour un sur vingt et un ou vingt-deux mesuré.
+  // Republiée le 15 octobre 2026, à la réécriture de la Méthode (le propriétaire admet la borne prudente au-delà de cent
+  // mille façons, et l'écart qu'elle ajoute), mesurée de nouveau à 1 000 profils et 30 clones bruités par candidat
+  // (mêmes chiffres que ci-dessus) : hitWithout 70 → 71, hitWithoutMax 91 → 92, randomThemesMax 9 → 8,5,
+  // randomPerProfileMax 2,4 → 2,3, oneChoiceRatio 1,5 → 1,7 et oneChoiceRatioQuick 2,2 → 2,4 (les moyennes des six
+  // échantillons, mêmes mots dans la Méthode) ; l'avant est gardé dans ECHIQUIER_BEFORE, la Méthode et le journal disent
+  // les deux
   /** Date de la mesure */
   measured: '2026-10-15',
   /** Clones larges, sans le candidat : part des lectures qui désignent son bloc (%) */
-  hitWithout: 70,
+  hitWithout: 71,
   /** La même part, bloc vrai par bloc vrai : la plus basse et la plus haute (%) */
   hitWithoutMin: 44,
-  hitWithoutMax: 91,
+  hitWithoutMax: 92,
   /** Les mêmes, avec le candidat dans le calcul, comme sur le site (%) */
   hitWith: 91,
   /** La même part avec le candidat, bloc vrai par bloc vrai : la plus basse et la plus haute (%) */
@@ -47,14 +54,14 @@ export const ECHIQUIER_PUBLISHED = {
   hitWithMax: 97,
   /** Les mêmes, sans le candidat : part des thèmes lus de l'autre côté du centre (%) */
   wrongSideWithout: 0,
-  /** Profils tirés au hasard (un quart d'accord, un quart de désaccord) : part des thèmes lus (%) */
+  /** Feuilles remplies par un programme (un quart d'accord, un quart de désaccord) : part des thèmes lus (%) */
   randomThemes: 5,
-  /** La même part, pour la façon de répondre qui en reçoit le plus (un seul accord par question, rien d'autre) (%) */
-  randomThemesMax: 9,
-  /** Profils tirés au hasard (un quart d'accord, un quart de désaccord) : lectures de la synthèse par profil, en moyenne */
+  /** La même part, pour la façon de répondre qui en reçoit le plus (un seul accord par question, du reste rien) (%) */
+  randomThemesMax: 8.5,
+  /** Les mêmes feuilles (un quart d'accord, un quart de désaccord) : lectures de la synthèse par feuille, en moyenne */
   randomPerProfile: 1.3,
   /** La même moyenne, pour la façon de répondre qui en reçoit le plus */
-  randomPerProfileMax: 2.4,
+  randomPerProfileMax: 2.3,
   /**
    * Un seul accord par question (avec ou sans désaccords ailleurs) : dans la synthèse, la part moyenne des blocs que
    * la grille classe aux extrêmes, rapportée à celle du bloc qu'elle classe à gauche ; sur la banque entière, puis sur
@@ -67,6 +74,21 @@ export const ECHIQUIER_PUBLISHED = {
    * au journal que le calcul sans tirage accentue un peu ce déséquilibre. Avis mêlés : chaque bloc reçoit de 17 à 23 % des
    * lectures, aucun n'est favorisé.
    */
+  oneChoiceRatio: 1.7,
+  oneChoiceRatioQuick: 2.4,
+} as const
+
+/**
+ * Les chiffres publiés jusqu'au 15 octobre 2026, avant le calcul sans tirage (999 façons de poser les avis tirées au
+ * sort, la même graine pour les mêmes réponses), sur les mêmes profils : la Méthode dit l'avant et l'après (décision
+ * du propriétaire du 15 octobre 2026), comme le journal
+ */
+export const ECHIQUIER_BEFORE = {
+  hitWithout: 70,
+  hitWithoutMin: 44,
+  hitWithoutMax: 91,
+  randomThemesMax: 9,
+  randomPerProfileMax: 2.4,
   oneChoiceRatio: 1.5,
   oneChoiceRatioQuick: 2.2,
 } as const
@@ -87,7 +109,7 @@ export const methodIntro = (blocs: number) =>
 export const METHOD_INTRO_LINK = 'l’ordre des candidats'
 /** Le schéma, en mots */
 export const METHOD_DIAGRAM_CAPTION = fr(
-  'Vos avis donnent votre affinité par thème avec chaque candidat, le calcul même du score. On en fait la moyenne par bloc de la grille, qui colore sa case, puis on la compare à celle de vos mêmes avis placés au hasard : nettement plus près, rien de net, ou nettement plus loin.',
+  'Vos avis donnent votre affinité par thème avec chaque candidat, le calcul même du score. On en fait la moyenne par bloc de la grille, qui colore sa case, puis on la compare à celle de vos mêmes avis, posés de toutes les autres façons sur les approches : nettement plus près, rien de net, ou nettement plus loin.',
 )
 export const methodWho = (panel: number, unscored: number, minBloc: number, maxBloc: number, othersEmpty: boolean) =>
   fr(
@@ -101,40 +123,62 @@ export const methodWho = (panel: number, unscored: number, minBloc: number, maxB
 export const METHOD_CALC = fr(
   'Pour un thème, votre affinité avec un candidat est celle du tableau « Par thème » de vos résultats : même calcul, mêmes questions, mêmes positions. On en fait la moyenne sur les candidats de chaque bloc connus sur vos questions. Pour une famille de thèmes, on fait d’abord la moyenne des thèmes.',
 )
+/** « La comparaison » : à quoi l'affinité se compare, et ce que veut dire « nettement » */
 export const methodChance = (gapPoints: number) =>
   fr(
-    `Une affinité seule ne suffit pas : qui approuve beaucoup est proche de tout le monde, qui désapprouve beaucoup de personne. On refait donc le même calcul en gardant vos avis, autant de « d’accord », de « pas d’accord » et de « sans avis » sur chaque question, mais placés autrement entre ses approches : tous les placements possibles, le vôtre compris, comptés un à un quand ils sont cent mille au plus. Au-delà, la page calcule bloc par bloc la part de ceux qui font un écart aussi marqué, puis additionne ces parts : ce compte ne peut être que trop prudent. Rien n’est tiré au sort : mêmes réponses, même lecture. Un bloc est « nettement plus près » quand votre affinité avec lui dépasse nettement celle de ces placements (d’au moins ${gapPoints} points, et à ${50 + gapPoints} % au moins), « nettement plus loin » quand elle reste nettement en dessous (d’au moins ${gapPoints} points, et à ${50 - gapPoints} % au plus). « Nettement » : moins d’un de ces placements sur dix atteint un tel écart, tous blocs confondus. C’est pourquoi tout approuver, ou tout désapprouver, ne rapproche d’aucun bloc.`,
+    `Une affinité seule ne suffit pas : qui approuve beaucoup est proche de tout le monde, qui désapprouve beaucoup de personne. On refait donc le même calcul pour toutes les autres façons de poser vos mêmes avis : sur chaque question, autant de « d’accord », de « pas d’accord » et de « sans avis », posés autrement entre ses approches, la vôtre comprise. Rien n’est tiré au sort : mêmes réponses, même lecture. Un bloc est « nettement plus près » quand votre affinité avec lui dépasse nettement celle de ces façons (d’au moins ${gapPoints} points, et à ${50 + gapPoints} % au moins), « nettement plus loin » quand elle reste nettement en dessous (d’au moins ${gapPoints} points, et à ${50 - gapPoints} % au plus). « Nettement » : une de ces façons sur dix au plus atteint un tel écart, avec un bloc ou un autre. C’est pourquoi tout approuver, ou tout désapprouver, ne rapproche d’aucun bloc.`,
   )
+/**
+ * « Compter, sinon calculer » : les deux régimes du calcul (core/echiquier.ts, COUNT_MAX). Les marques manquées par la
+ * borne : mesurées le 15 octobre 2026 là où l'on a pu tout compter au-delà de cent mille façons (jusqu'à quelques
+ * millions), selon les séries
+ */
+export const METHOD_REGIMES = fr(
+  'Jusqu’à cent mille façons de poser vos mêmes avis, la page les compte toutes, une à une : la part de celles qui font un écart aussi marqué est exacte. Au-delà, le plus souvent pour un domaine entier, elle calcule bloc par bloc la part de celles qui s’écartent autant, au centième de point près (l’arrondi joue toujours contre la lecture), puis additionne ces parts : une borne prudente, qui peut manquer une lecture que ferait le compte complet, jamais en inventer une. Là où l’on a pu tout compter au-delà de cent mille façons, elle en a manqué de 2,5 à 5 % selon les séries, et n’en a ajouté aucune. Les domaines, donc le seul questionnaire rapide, sont ainsi lus plus sévèrement que les thèmes.',
+)
 export const METHOD_WHEN_NOT = fr(
-  'Un thème se lit sur deux questions au moins. Il ne se lit pas quand les candidats de plus d’un bloc sont inconnus sur vos questions. Quand aucun thème d’une famille ne se lit seul, la famille entière est lue : c’est ce qui permet une lecture après le seul questionnaire rapide, qui ne pose souvent qu’une question par thème.',
+  'Un thème se lit sur deux questions au moins. Il ne se lit pas quand les candidats de plus d’un bloc sont inconnus sur vos questions. Quand aucun thème d’un domaine ne se lit seul, le domaine entier est lu : c’est ce qui permet une lecture après le seul questionnaire rapide, qui ne pose souvent qu’une question par thème. Avec moins de dix façons de poser vos mêmes avis, rien ne peut être net : la vôtre, qui compte toujours, pèse déjà plus d’une sur dix ; la page le dit.',
 )
 export const METHOD_NO_POINT = fr(
   'Placer vos réponses en un point entre l’extrême gauche et l’extrême droite les ramènerait vers le centre, et mettrait au centre quelqu’un qui approuve à la fois des approches portées aux deux extrêmes. La page dit donc bloc par bloc ce qui ressort, sans jamais additionner les thèmes ni vous attribuer de position.',
 )
 /**
- * Ce que valent les lectures, en deux temps : les clones (le bloc désigné, et les glissements vers un bloc voisin, des
- * deux côtés, tels que les mesure l'audit), puis le hasard (combien de lectures, et leur répartition entre les blocs,
- * qui dépend de la façon de répondre)
+ * Ce que valent les lectures, en deux temps : les clones (le bloc désigné, sans puis avec le candidat, bloc vrai par
+ * bloc vrai, et les glissements vers un bloc voisin, des deux côtés, tels que les mesure l'audit), puis les feuilles
+ * remplies par un programme (combien de lectures, et leur répartition entre les blocs, qui dépend de la façon de
+ * répondre)
  */
 export const methodWorth = (m: typeof ECHIQUIER_PUBLISHED = ECHIQUIER_PUBLISHED) =>
   [
     fr(
       `Pour l’éprouver, on a recopié les réponses de chaque candidat classé, puis on l’a retiré du calcul. Quand la page conclut, elle désigne son bloc dans ${m.hitWithout} % des cas, de ${m.hitWithoutMin} % à ${m.hitWithoutMax} % selon le bloc, et ${
         m.wrongSideWithout ? `ne lit de l’autre côté du centre que sur ${m.wrongSideWithout} % des thèmes` : 'ne lit jamais de l’autre côté du centre'
-      }. Avec lui, comme sur le site, c’est ${m.hitWith} %. Les blocs sont inégalement lisibles : les candidats que la grille classe à l’extrême gauche portent des approches proches entre elles, ceux des autres blocs moins. Des réponses proches de celles d’un candidat sont donc souvent lues dans un bloc voisin du sien, d’un côté comme de l’autre : celles d’un candidat que la grille classe à gauche, « à l’extrême gauche » ; celles d’un candidat qu’elle classe au centre ou à l’extrême droite, « à droite » ; celles d’un candidat qu’elle classe à droite, « au centre » ou « à l’extrême droite ».`,
+      }. Avec lui, comme sur le site, c’est ${m.hitWith} %, de ${m.hitWithMin} % à ${m.hitWithMax} % selon le bloc. Les blocs sont inégalement lisibles : les candidats que la grille classe à l’extrême gauche portent des approches proches entre elles, ceux des autres blocs moins. Des réponses proches de celles d’un candidat sont donc souvent lues dans un bloc voisin du sien, d’un côté comme de l’autre : celles d’un candidat que la grille classe à gauche, « à l’extrême gauche » ; celles d’un candidat qu’elle classe au centre ou à l’extrême droite, « à droite » ; celles d’un candidat qu’elle classe à droite, « au centre » ou « à l’extrême droite ».`,
     ),
     fr(
-      `Des réponses tirées au hasard reçoivent une lecture sur un thème sur ${word(Math.round(100 / m.randomThemes))} à un sur ${word(Math.round(100 / m.randomThemesMax))} selon la façon de répondre, soit de ${decimal(m.randomPerProfile)} à ${decimal(m.randomPerProfileMax)} lectures en moyenne sur l’ensemble. Quand les avis sont mêlés (d’accord, pas d’accord, sans avis), aucun bloc n’y est favorisé. ${
+      `Des feuilles remplies par un programme, sans suivre aucun candidat, reçoivent une lecture sur un thème sur ${word(Math.round(100 / m.randomThemes))} à un sur ${word(Math.round(100 / m.randomThemesMax))} selon la façon de répondre, soit de ${decimal(m.randomPerProfile)} à ${decimal(m.randomPerProfileMax)} lectures en moyenne sur l’ensemble. Quand les avis sont mêlés (d’accord, pas d’accord, sans avis), aucun bloc n’y est favorisé. ${
         Math.max(m.oneChoiceRatio, m.oneChoiceRatioQuick) < 1.15
           ? 'Quand on n’approuve qu’une approche par question, non plus.'
           : `Quand on n’approuve qu’une approche par question, elles tombent moins souvent sur les candidats que la grille classe à gauche que sur ceux qu’elle classe aux extrêmes : ${times(m.oneChoiceRatio)} moins sur l’ensemble des questions, ${times(m.oneChoiceRatioQuick)} moins après le seul questionnaire rapide.`
       }`,
     ),
   ] as const
+/** Ce que devient l'écart entre le bloc le mieux lu et le moins bien lu, en points */
+const widened = (d: number) =>
+  d > 0
+    ? `L’écart entre le bloc le mieux lu et le moins bien lu s’élargit donc ${d > 1 ? `de ${d} points` : 'd’un point'} : c’est le prix d’une lecture sans tirage.`
+    : `L’écart entre le bloc le mieux lu et le moins bien lu ${d < 0 ? 'se resserre' : 'ne change pas'}.`
+/**
+ * « Avant et après » : les chiffres publiés avec les tirages (ECHIQUIER_BEFORE), puis sans (ECHIQUIER_PUBLISHED), sur
+ * les mêmes réponses ; le même texte que le journal du 15 octobre 2026, en plus long
+ */
+export const methodBefore = (m: typeof ECHIQUIER_PUBLISHED = ECHIQUIER_PUBLISHED, b: typeof ECHIQUIER_BEFORE = ECHIQUIER_BEFORE) =>
+  fr(
+    `Jusqu’au 15 octobre 2026, la page tirait au sort 999 de ces façons de poser vos avis ; depuis, elle n’en tire plus aucune. Sur les mêmes réponses, avant puis après : sans le candidat recopié, la page désigne son bloc dans ${b.hitWithout} % puis ${m.hitWithout} % des cas, de ${b.hitWithoutMin} % à ${b.hitWithoutMax} % puis de ${m.hitWithoutMin} % à ${m.hitWithoutMax} % selon le bloc ; les feuilles remplies par un programme reçoivent une lecture sur un thème sur ${word(Math.round(100 / b.randomThemesMax))} puis sur ${word(Math.round(100 / m.randomThemesMax))} au plus, soit au plus ${decimal(b.randomPerProfileMax)} puis ${decimal(m.randomPerProfileMax)} lectures en moyenne sur l’ensemble ; quand on n’approuve qu’une approche par question, chacun des blocs que la grille classe aux extrêmes reçoit en moyenne ${decimal(b.oneChoiceRatio)} puis ${decimal(m.oneChoiceRatio)} fois plus de leurs lectures que celui qu’elle classe à gauche, ${decimal(b.oneChoiceRatioQuick)} puis ${decimal(m.oneChoiceRatioQuick)} fois après le seul questionnaire rapide. ${widened(m.hitWithoutMax - m.hitWithoutMin - (b.hitWithoutMax - b.hitWithoutMin))}`,
+  )
 export const METHOD_LIMITS = [
   fr('La grille classe des partis et des candidats, pas des idées ; la présidentielle n’attribue pas de nuances, et certaines ont été déduites (voir '),
   fr('). Une lecture dépend des candidats en lice et de leurs positions, recherchées et résumées par IA : elle peut changer quand elles sont mises à jour. Ce n’est ni un test, ni une étiquette, ni une consigne de vote.'),
 ] as const
-export const METHOD_PRIVACY = fr(
-  'Calcul sans IA, sur votre appareil ; la lecture reste seulement en mémoire le temps de la visite (un rechargement l’oublie), et rien n’est enregistré ni envoyé.',
-)
+/** « Vie privée » : le texte du chapeau de la page (core/echiquierCommonCopy.ts) */
+export const METHOD_PRIVACY = PRIVACY

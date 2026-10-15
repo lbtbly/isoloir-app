@@ -8,7 +8,7 @@ const STEPS = [
   { label: 'Vos avis', sub: 'd’accord, pas d’accord, sans avis' },
   { label: 'Votre affinité par thème', sub: 'avec chaque candidat : le calcul du score' },
   { label: 'Moyenne par bloc de la grille', sub: 'c’est la couleur de sa case' },
-  { label: 'Comparée au hasard', sub: 'vos mêmes avis, placés au hasard' },
+  { label: 'Comparée à vos mêmes avis', sub: 'posés de toutes les autres façons' },
 ]
 
 /** Les lectures, en mots (la légende du schéma dit « nettement ») */
@@ -18,7 +18,7 @@ export function ProfileDiagram() {
   return (
     <Figure
       title="Comment se lit un bloc de la grille"
-      desc="Vos avis donnent votre affinité par thème avec chaque candidat, le calcul même du score. On en fait la moyenne par bloc de la grille des nuances, qui colore sa case, puis on la compare à celle de vos mêmes avis placés au hasard : nettement plus près, rien de net, ou nettement plus loin."
+      desc="Vos avis donnent votre affinité par thème avec chaque candidat, le calcul même du score. On en fait la moyenne par bloc de la grille des nuances, qui colore sa case, puis on la compare à celle de vos mêmes avis, posés de toutes les autres façons sur les approches : nettement plus près, rien de net, ou nettement plus loin."
       viewBox="0 0 360 312"
     >
       {STEPS.map((s, i) => (

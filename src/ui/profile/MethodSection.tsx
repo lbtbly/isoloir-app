@@ -24,7 +24,7 @@ export function ProfileMethod({ pack }: { pack: ElectionPack }) {
   const onAxis = new Set(axis.map(a => a.bloc))
   const othersEmpty = candidates.every(c => off.has(c.id) || onAxis.has(blocOf(election, c) ?? ''))
   const [intro, introEnd] = T.methodIntro(axis.length)
-  const [worthClones, worthChance] = T.methodWorth()
+  const [worthClones, worthSheets] = T.methodWorth()
   return (
     <>
       <p>
@@ -42,7 +42,10 @@ export function ProfileMethod({ pack }: { pack: ElectionPack }) {
       </p>
       <p>
         {/* L'écart minimal des lectures nettes : ECHIQUIER.GAP du calcul (core/echiquier.ts), qui est CLOSE_GAP */}
-        <strong>Le hasard.</strong> {T.methodChance(CLOSE_GAP)}
+        <strong>La comparaison.</strong> {T.methodChance(CLOSE_GAP)}
+      </p>
+      <p>
+        <strong>Compter, sinon calculer.</strong> {T.METHOD_REGIMES}
       </p>
       <p>
         <strong>Les couleurs.</strong> {T.HOW_COLOR} {T.COLORS_CHANCE}
@@ -56,7 +59,10 @@ export function ProfileMethod({ pack }: { pack: ElectionPack }) {
       <p>
         <strong>Ce que valent ces lectures.</strong> {worthClones}
       </p>
-      <p>{worthChance}</p>
+      <p>{worthSheets}</p>
+      <p>
+        <strong>Avant et après.</strong> {T.methodBefore()}
+      </p>
       <p>
         <strong>Limites.</strong> {T.METHOD_LIMITS[0]}
         <SectionLink id="ordre-des-candidats">{T.METHOD_INTRO_LINK}</SectionLink>

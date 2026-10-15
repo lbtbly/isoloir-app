@@ -3,9 +3,10 @@
 // de l'Intérieur : votre affinité moyenne avec ses candidats, en couleur, et vos réponses s'en rapprochent-elles
 // nettement, s'en écartent-elles nettement, ou rien de net ? Le calcul (core/echiquier.ts) se fait sur l'appareil, sans
 // IA, à l'affichage ; rien n'est enregistré, ni dans l'adresse.
-// La page, sur toute la largeur comme le dépouillement : le titre et la mention IA en tête ; « Sujet par sujet », le
-// graphique, une ligne par sujet lu (ui/profile/Chart.tsx) ; « À garder en tête » ; puis « Le détail, sujet par
-// sujet », le tableau complet de chaque unité, replié.
+// La page, sur toute la largeur comme le dépouillement : le titre, le chapeau (une lecture, pas un conseil de vote : le
+// classement est dans Résultats), la mention IA et ce qui reste sur l'appareil en tête ; « Domaine par domaine », le
+// graphique, une ligne par sujet sous son domaine (ui/profile/Chart.tsx) ; « À garder en tête » ; puis « Le détail, sujet
+// par sujet », le tableau complet de chaque unité, replié.
 // Une lecture, pas une étiquette (DESIGN.md, The Reading Not Label Rule) : le sujet des phrases est toujours « vos
 // réponses », les blocs sont attribués à « la grille » ; les blocs n'ont pas de couleur : chaque case prend celle de
 // l'échelle d'affinité du site (décision du propriétaire du 12 octobre 2026), jamais seule, toujours avec le mot de son
@@ -16,11 +17,13 @@
 // d'attente : ce qui manque, en bâtons comme la fiche de la tendance, le bouton qui y ramène, puis un exemple fictif de la
 // lecture (la grille de l'aperçu de l'accueil, avec ses mots) et ce qu'apporte ensuite « Approfondir ». Une fois la page
 // affichée, tant que des thèmes ne se lisent pas seuls faute de questions, la fiche « Pour lire plus de thèmes » les
-// nomme, avant le graphique : chacun mène à « Approfondir », coché, comme « Approfondir ce thème » d'une ligne ; son
-// adresse (#/approfondir/<thème>) y met le thème en tête, dit ce qui est coché, et la feuille commence par lui.
+// nomme, dans le graphique (après les domaines, repliée ; sous le compte, ouverte, au seul questionnaire rapide) : chacun
+// mène à « Approfondir », coché, comme « Approfondir ce thème » d'une ligne ; son adresse (#/approfondir/<thème>) y met
+// le thème en tête, dit ce qui est coché, et la feuille commence par lui.
 // Fichier à part du build, chargé à la demande (ui/profile/load.ts) ; la rubrique de la Méthode qui l'explique
 // (ui/profile/MethodSection.tsx) en est un autre, sans la page ni son calcul.
 
+import { Fragment } from 'preact'
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks'
 import { hasOpinion, RATING_LABELS } from '../../core/answers'
 import { approvedOf, deeperTopics, echiquierCached, mainCarriers, panelOf, readEchiquierAsync, type Echiquier, type UnitReading } from '../../core/echiquier'
@@ -115,6 +118,9 @@ export function Profile({ pack, state, essential, results, update }: Props) {
 
   const quickOnly = !bank.questions.some(q => q.tier !== 'essentiel' && hasOpinion(answers[q.id]))
   const deeper = useMemo(() => deeperTopics(pack, answers, state.answers), [pack, answers, state.answers])
+  // Ce qui ne compte pas, dit par le compte de tête : les questions vues sans avis qui compte (passées, vues sans avis, à
+  // revoir)
+  const unseen = bank.questions.filter(q => state.answers[q.id] && !hasOpinion(answers[q.id])).length
 
   // « Voir le détail » d'une ligne : le tableau replié s'ouvre, puis le détail de l'unité, qui reçoit le focus
   const all = useRef<HTMLDetailsElement>(null)
@@ -128,8 +134,6 @@ export function Profile({ pack, state, essential, results, update }: Props) {
 
   if (access.state !== 'pret') return <Waiting pack={pack} wait={access.state} seen={access.seen} total={access.total} left={access.left} added={access.added} href={access.href} />
 
-  const units = reading ? reading.themes.length + reading.families.length : 0
-
   return (
     <div class="screen screen-wide screen-profile">
       <FormHeader title="Résultats" right={election.shortName} />
@@ -139,21 +143,25 @@ export function Profile({ pack, state, essential, results, update }: Props) {
             {T.PROFILE_TITLE}
           </h1>
           <div class="profile-intro-text">
-            <p class="lede">{T.LEDE}</p>
+            <p class="lede">
+              {T.LEDE} {T.LEDE_VOTE[0]}
+              <a href={link('/resultats')}>
+                {T.LEDE_VOTE[1]}
+                <Icon name="arrow-right" />
+              </a>
+            </p>
             {/* Les positions des candidats, résumées par IA, nourrissent tout le calcul : la mention vient en tête */}
             <AiLabel kind="positions" class="profile-ai" />
-            <p class="small profile-noai">{T.NO_AI}</p>
+            <p class="profile-privacy">{T.PRIVACY}</p>
           </div>
         </div>
-
-        {deeper.thin.length || deeper.none.length ? <Deeper deeper={deeper} quickOnly={quickOnly} ctx={ctx} /> : null}
 
         {/* Lu par les lecteurs d'écran : « Lecture en cours » au-delà de 300 ms, puis « Lecture prête. », une fois */}
         <p class={busy ? 'small profile-status' : 'sr-only'} role="status">
           {busy ? T.STATUS_BUSY : status}
         </p>
 
-        {reading ? <Chart reading={reading} ctx={ctx} quickOnly={quickOnly} onDetail={openDetail} /> : null}
+        {reading ? <Chart reading={reading} ctx={ctx} quickOnly={quickOnly} deeper={deeper} unseen={unseen} onDetail={openDetail} /> : null}
 
         <section class="profile-keep" aria-labelledby="keep-title">
           <h2 id="keep-title">{T.CAVEATS_TITLE}</h2>
@@ -172,7 +180,7 @@ export function Profile({ pack, state, essential, results, update }: Props) {
             <h2 id="detail-title">{T.DETAIL_TITLE}</h2>
             <p>{T.DETAIL_INTRO}</p>
             <details class="profile-all" ref={all}>
-              <summary>{T.detailShow(units)}</summary>
+              <summary>{T.detailShow(reading.themes.length, reading.families.length)}</summary>
               <DetailTable reading={reading} ctx={ctx} />
             </details>
           </section>
@@ -216,7 +224,9 @@ function Waiting({ pack, wait, seen, total, left, added, href }: { pack: Electio
             <h1 class="display is-medium" tabIndex={-1}>
               {T.PROFILE_TITLE}
             </h1>
-            <p class="lede">{T.LEDE}</p>
+            <p class="lede">
+              {T.LEDE} {T.LEDE_WAIT}
+            </p>
           </div>
           <section class="trend profile-wait" aria-labelledby="wait-title">
             <h2 id="wait-title" class="trend-title">
@@ -266,67 +276,6 @@ function Waiting({ pack, wait, seen, total, left, added, href }: { pack: Electio
       </main>
       <SiteFooter />
     </div>
-  )
-}
-
-/**
- * Pour lire plus de thèmes : ceux d'une seule question, puis ceux sans réponse, qui ont encore des questions
- * approfondies ; chacun mène à « Approfondir », coché ; puis le choix libre des thèmes
- */
-function Deeper({ deeper, quickOnly, ctx }: { deeper: { thin: string[]; none: string[] }; quickOnly: boolean; ctx: ProfileCtx }) {
-  // En grand écran, la place ne manque pas : la longue liste est ouverte d'emblée
-  const [wide] = useState(() => matchMedia('(min-width: 64rem)').matches)
-  // Le séparateur reste collé au thème qui le précède : une ligne ne commence jamais par lui
-  const list = (ids: string[]) => (
-    <span class="deeper-topics">
-      {ids.map((id, i) => (
-        <span key={id}>
-          {/* Le nom lu commence par l'action, puis le nom visible du thème */}
-          <a href={link(`/approfondir/${id}`)} onClick={() => ctx.deepen([id])} aria-label={`${T.DEEPER_THEME} ${ctx.topicLabel.get(id) ?? id}`}>
-            {ctx.topicLabel.get(id) ?? id}
-          </a>
-          {i < ids.length - 1 ? '\u00a0· ' : null}
-        </span>
-      ))}
-    </span>
-  )
-  return (
-    <section class="profile-deeper" aria-labelledby="deeper-title">
-      <div class="deeper-head">
-        <h2 id="deeper-title">
-          <Icon name="deepen" class="deeper-icon" />
-          {T.DEEPER_TITLE}
-        </h2>
-        <p>{T.deeperLede(quickOnly)}</p>
-      </div>
-      <div class="deeper-lists">
-        {deeper.none.length ? (
-          <p>
-            <strong>{T.unansweredLine(deeper.none.length)}</strong>
-            {list(deeper.none)}
-          </p>
-        ) : null}
-        {/* Une longue liste se replie derrière son compte, la fiche reste courte avant le graphique */}
-        {deeper.thin.length > 6 ? (
-          <details class="deeper-fold" open={wide}>
-            <summary>
-              <Icon name="chevron" class="disclosure" />
-              <span class="summary-label">{T.thinLine(deeper.thin.length)}</span>
-            </summary>
-            <p>{list(deeper.thin)}</p>
-          </details>
-        ) : deeper.thin.length ? (
-          <p>
-            <strong>{T.thinLine(deeper.thin.length)}</strong>
-            {list(deeper.thin)}
-          </p>
-        ) : null}
-        <a class="btn-text" href={link('/approfondir')}>
-          <Icon name="deepen" />
-          {T.DEEPER_GO}
-        </a>
-      </div>
-    </section>
   )
 }
 
@@ -484,26 +433,40 @@ function DetailBody({ unit, ctx, deeper }: { unit: UnitReading; ctx: ProfileCtx;
           </tr>
         </thead>
         <tbody role="rowgroup">
-          {unit.cells.map((c, b) => (
-            <tr key={c.bloc} role="row">
-              <th scope="row" role="rowheader">
-                {labels[b]}
-              </th>
-              <td role="cell" data-head={T.DETAIL_HEADS[1]}>
-                {c.known.length ? T.listFr(c.known.map(nameOf)) : T.NONE_KNOWN}
-              </td>
-              <td role="cell" data-head={T.DETAIL_HEADS[2]}>
-                {c.affinity === null ? '–' : `${T.pct(c.affinity)}, ${T.palier(c.affinity)}`}
-                {c.known.length === 1 ? ` ${T.ONE_KNOWN}` : ''}
-              </td>
-              <td role="cell" data-head={T.DETAIL_HEADS[3]}>
-                {c.chance === null ? '–' : T.pct(c.chance)}
-              </td>
-              <td role="cell" data-head={T.DETAIL_HEADS[4]}>
-                {c.affinity === null || c.chance === null ? '–' : T.gap(c.affinity, c.chance, c.mark)}
-              </td>
-            </tr>
-          ))}
+          {unit.cells.map((c, b) => {
+            // Sous un bloc lu nettement, quand toutes les façons ont été comptées : combien en rapprochent (ou en
+            // éloignent) au moins autant que la vôtre
+            const why = unit.exact && c.alike !== null && (c.mark === 'pres' || c.mark === 'loin') ? T.detailWhy(unit.ways, c.alike, c.mark) : null
+            return (
+              <Fragment key={c.bloc}>
+                <tr role="row" class={why ? 'has-why' : undefined}>
+                  <th scope="row" role="rowheader">
+                    {labels[b]}
+                  </th>
+                  <td role="cell" data-head={T.DETAIL_HEADS[1]}>
+                    {c.known.length ? T.listFr(c.known.map(nameOf)) : T.NONE_KNOWN}
+                  </td>
+                  <td role="cell" data-head={T.DETAIL_HEADS[2]}>
+                    {c.affinity === null ? '–' : `${T.pct(c.affinity)}, ${T.palier(c.affinity)}`}
+                    {c.known.length === 1 ? ` ${T.ONE_KNOWN}` : ''}
+                  </td>
+                  <td role="cell" data-head={T.DETAIL_HEADS[3]}>
+                    {c.chance === null ? '–' : T.pct(c.chance)}
+                  </td>
+                  <td role="cell" data-head={T.DETAIL_HEADS[4]}>
+                    {c.affinity === null || c.chance === null ? '–' : T.gap(c.affinity, c.chance, c.mark)}
+                  </td>
+                </tr>
+                {why ? (
+                  <tr role="row" class="detail-why">
+                    <td role="cell" colSpan={5}>
+                      {why}
+                    </td>
+                  </tr>
+                ) : null}
+              </Fragment>
+            )
+          })}
         </tbody>
       </table>
       {tested ? <p class="small">{T.chanceNote(unit.exact, unit.ways)}</p> : null}

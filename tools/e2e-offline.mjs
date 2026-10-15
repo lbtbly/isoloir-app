@@ -774,12 +774,13 @@ try {
 
   // 4 quinquies. « Mon profil politique », hors ligne comme tout le reste (le fichier à part de la page est dans la copie
   // hors ligne) : le panneau de « Et maintenant » et le lien sous « Par thème » ; la page, arrivée par le panneau (focus
-  // au titre), sa mention IA en tête, « Calcul sans IA », le statut « Lecture prête. » ; le graphique « Sujet par
-  // sujet » (cinq colonnes et leurs candidats, une ligne par sujet, autant de lectures nettes que le dit le compte,
-  // rangées par section : d'abord les lectures nettes, celles des deux bords à part, puis les sujets sans tendance nette
-  // et ceux d'une seule question, visibles, autant que le disent leurs intertitres), au clavier (Entrée, Espace, flèches,
-  // Début, Fin ; une seule ligne ouverte), « Voir le détail » qui ouvre le tableau complet (une ligne par thème répondu
-  // et par famille affichée) ; les couleurs des cases, l'échelle d'affinité du site, et elles seules, en clair comme en
+  // au titre), sa mention IA en tête, « Calcul sans IA », le statut « Lecture prête. » ; le graphique « Domaine par
+  // domaine » (cinq colonnes et leurs candidats, une ligne par sujet, sous les domaines dans l'ordre des familles ; dans
+  // chacun, les lectures nettes, celles des deux bords à part, puis les écarts, puis les sujets sans tendance nette et
+  // ceux d'une seule question, visibles sous leur intertitre ; autant de lectures nettes que le dit le compte de tête,
+  // dont chaque nom ouvre sa ligne, et autant de sujets sans rien de net et de thèmes d'une seule question que le dit
+  // ce qui n'a pas compté), au clavier (Entrée, Espace, flèches, Début, Fin ; une seule ligne ouverte), « Voir le
+  // détail » qui ouvre le tableau complet (une ligne par thème répondu et par famille affichée) ; les couleurs des cases, l'échelle d'affinité du site, et elles seules, en clair comme en
   // sombre (chaque case au palier de son mot, le mot à 4,5:1 au moins ; en-têtes de colonne neutres, aucun pastel de
   // bloc ; aucun symbole ▲ ▽) ; aucune nouvelle clé de stockage ni de session
   // (seule « isoloir-focus », le temps d'un clic vers « Qui porte quoi ») ; rien en largeur à 320, 390 et 1 280 px, ni
@@ -860,7 +861,16 @@ try {
       `mon profil politique : panneau « ${panelTitle} » en ${panelPlace + 1}e place de « Et maintenant », lien sous « Par thème » (${gridLink}), toujours deux raccourcis dans la barre (${barShortcuts})`,
     )
     check(
-      focused && h1 === 'Mon profil politique' && /^Mon profil politique · Isoloir$/.test(title) && aiLabel && main.includes('Positions résumées par IA') && main.includes('Calcul sans IA') && status === 'Lecture prête.' && rows === answeredTopics.size + familiesShown && detailLabel === `Afficher le détail des ${rows} sujets`,
+      focused &&
+        h1 === 'Mon profil politique' &&
+        /^Mon profil politique · Isoloir$/.test(title) &&
+        aiLabel &&
+        main.includes('Positions résumées par IA') &&
+        main.includes('Calcul sans IA') &&
+        main.includes('Une lecture, pas un conseil de vote : le classement est dans Résultats') &&
+        status === 'Lecture prête.' &&
+        rows === answeredTopics.size + familiesShown &&
+        detailLabel === (answeredTopics.size > 1 ? `Afficher le détail des ${answeredTopics.size} thèmes${familiesShown ? ' et de leurs domaines' : ''}` : 'Afficher le détail du thème'),
       `mon profil politique : focus au titre ${focused}, onglet « ${title} », mention IA ${aiLabel}, « Calcul sans IA », statut « ${status} », détail replié « ${detailLabel} », ${rows} lignes (${answeredTopics.size} thèmes répondus + ${familiesShown} familles)`,
     )
 
@@ -964,14 +974,13 @@ try {
       )
     }
 
-    /** Le graphique « Sujet par sujet » d'une page déjà lue : axe, lignes et leurs sections, clavier, couleurs des cases */
+    /** Le graphique « Domaine par domaine » d'une page déjà lue : axe, domaines, lignes et leurs groupes, compte, clavier, couleurs des cases */
     const profileChart = async (pg, where) => {
-      // Le graphique : l'axe (cinq colonnes et leurs candidats), les lignes et leurs sections, le compte
-      const { MAIN_LABEL, BOTH_TITLE, SIDES_TITLE, APART_TITLE } = await importSite('src/core/echiquierCopy.ts')
-      const chart = await pg.evaluate(([MAIN, BOTH, SIDES, APART]) => {
+      // Le graphique : l'axe (cinq colonnes et leurs candidats), les domaines, leurs groupes de lignes, le compte
+      const chart = await pg.evaluate(() => {
         const zones = [...document.querySelectorAll('.profile-chart .zone')]
         const lists = [...document.querySelectorAll('.profile-chart ol.rows')]
-        const listOf = label => lists.filter(ol => ol.getAttribute('aria-label') === label).flatMap(ol => [...ol.querySelectorAll(':scope > li > .row')])
+        const listOf = kind => lists.filter(ol => ol.dataset.group === kind).flatMap(ol => [...ol.querySelectorAll(':scope > li > .row')])
         const all = [...document.querySelectorAll('.profile-chart ol.rows > li > .row')]
         const net = (r, k) => [...r.querySelectorAll('.cell')].flatMap((c, b) => (c.dataset.net === k ? [b] : []))
         // De part et d'autre du centre, sans lui : dans « Aux deux bouts » ou « Des deux côtés », et elles seules
@@ -979,49 +988,97 @@ try {
           const n = net(r, 'pres')
           return n.some(b => b < 2) && n.some(b => b > 2) && !n.includes(2)
         }
-        const inBoth = r => [BOTH, SIDES].includes(r.closest('ol')?.getAttribute('aria-label'))
-        // Les sections du bas : leur intertitre annonce leur nombre de lignes ; aucune lecture nette n'y est
-        const quiet = [...document.querySelectorAll('.profile-chart ol.rows.is-quiet')].map(ol => ({
-          title: ol.getAttribute('aria-label') ?? '',
-          n: Number((ol.getAttribute('aria-label') ?? '').match(/^(\d+)/)?.[1] ?? -1),
-          rows: ol.querySelectorAll(':scope > li > .row').length,
-          netRows: [...ol.querySelectorAll(':scope > li > .row')].filter(r => r.querySelector('.cell[data-net]')).length,
-          visible: ol.checkVisibility(),
-        }))
-        const count = document.querySelector('.profile-chart .chart-count')?.textContent ?? ''
+        // Les groupes sans lecture nette : visibles, sous un intertitre, sans aucune lecture nette
+        const quiet = lists
+          .filter(ol => ['flat', 'thin', 'unknown'].includes(ol.dataset.group))
+          .map(ol => ({
+            group: ol.dataset.group,
+            title: ol.previousElementSibling?.matches('.fam-sub') ? ol.previousElementSibling.textContent.trim() : '',
+            rows: ol.querySelectorAll(':scope > li > .row').length,
+            netRows: [...ol.querySelectorAll(':scope > li > .row')].filter(r => r.querySelector('.cell[data-net]')).length,
+            visible: ol.checkVisibility(),
+          }))
+        const text = el => (el?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
+        // Les noms du compte de tête, dans l'ordre de la page ; ceux des lignes nettes, dans le même ordre
+        const names = [...document.querySelectorAll('.profile-chart .chart-count .count-link')].map(text)
+        const readRows = [...listOf('net'), ...listOf('both')].sort((a, b) => (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1))
         return {
           zones: zones.length,
           names: zones.map(zn => zn.querySelectorAll('.zone-names li').length),
-          mainRows: listOf(MAIN).length,
-          bothRows: listOf(BOTH).length + listOf(SIDES).length,
-          apartRows: listOf(APART).length,
+          families: [...document.querySelectorAll('.profile-chart .fam-group')].map(f => f.id.replace(/^fam-/, '')),
+          mainRows: listOf('net').length,
+          bothRows: listOf('both').length,
+          apartRows: listOf('apart').length,
+          flatRows: listOf('flat').length,
+          thinRows: listOf('thin').length,
           all: all.length,
-          count: count.replace(/\s+/g, ' '),
-          // Chaque ligne : cinq cases ; une lecture nette plus près dans les sections du haut, seulement plus loin dans la sienne
+          count: text(document.querySelector('.profile-chart .chart-count')),
+          state: text(document.querySelector('.profile-chart .chart-state')),
+          rest: text(document.querySelector('.profile-chart .chart-rest')),
+          countNames: names,
+          // Une ligne de famille s'écrit « Les 5 thèmes ensemble » sous l'intertitre de son domaine : le compte la nomme par lui
+          readNames: readRows.map(r => (r.id.startsWith('sj-famille-') ? text(r.closest('.fam-group')?.querySelector('.fam-name')) : text(r.querySelector('.row-name')))),
+          readIds: readRows.map(r => r.id),
+          // Chaque ligne : cinq cases ; une lecture nette plus près dans les groupes du haut, seulement plus loin dans le sien
           fiveTiles: all.every(r => r.querySelectorAll('.strip > .cell > .tile').length === 5),
-          mainOk: [...listOf(MAIN), ...listOf(BOTH), ...listOf(SIDES)].every(r => net(r, 'pres').length > 0) && listOf(APART).every(r => !net(r, 'pres').length && net(r, 'loin').length > 0),
-          twoBarsOutside: all.filter(r => net(r, 'pres').length && across(r) !== inBoth(r)).length,
+          mainOk: [...listOf('net'), ...listOf('both')].every(r => net(r, 'pres').length > 0) && listOf('apart').every(r => !net(r, 'pres').length && net(r, 'loin').length > 0),
+          twoBarsOutside: all.filter(r => net(r, 'pres').length && across(r) !== (r.closest('ol')?.dataset.group === 'both')).length,
           quiet,
           closed: all.every(r => r.getAttribute('aria-expanded') === 'false' && document.getElementById(r.getAttribute('aria-controls'))?.hidden),
           hint: document.querySelector('.profile-chart .hint-click')?.checkVisibility() ?? false,
           source: document.querySelector('.profile-chart .chart-source')?.textContent ?? '',
+          calc: document.querySelectorAll('.profile-chart details.calc > ul > li').length,
+          hasard: /hasard/i.test(document.querySelector('main')?.textContent ?? ''),
         }
-      }, [MAIN_LABEL, BOTH_TITLE, SIDES_TITLE, APART_TITLE])
+      })
       const readCount = Number(chart.count.match(/^Sur (\d+)/)?.[1] ?? 0)
-      const mainRows = chart.mainRows
+      const shownNames = Math.min(5, readCount)
       const ranked = Number(chart.source.match(/Comptent les (\d+) candidats classés/)?.[1] ?? -1)
+      const familyOrder = groups.map(g => g.id).filter(id => chart.families.includes(id))
       check(
         chart.zones === 5 && chart.names.every(n => n > 0) && chart.names.reduce((a, b) => a + b, 0) === ranked,
         `mon profil politique (${where}), l’axe : ${chart.zones} colonnes, candidats ${chart.names.join(' + ')} = ${ranked} classés`,
       )
       check(
-        readCount === mainRows + chart.bothRows && (readCount > 0 || /^Pour ces réponses, aucun sujet/.test(chart.count)) && chart.fiveTiles && chart.mainOk && chart.twoBarsOutside === 0 && chart.closed && chart.hint,
-        `mon profil politique (${where}), les lignes : « ${chart.count} » pour ${mainRows} + ${chart.bothRows} lignes lues (et ${chart.apartRows} seulement plus loin), cinq cases par ligne ${chart.fiveTiles}, lectures nettes dans leurs sections ${chart.mainOk}, lignes de part et d’autre du centre hors de leur section (ou l’inverse) ${chart.twoBarsOutside}, toutes fermées ${chart.closed}, « Cliquez… » à la souris ${chart.hint}`,
+        readCount === chart.mainRows + chart.bothRows &&
+          (readCount > 0 || /^Sur aucun sujet/.test(chart.count) || chart.state.length > 0) &&
+          chart.families.join() === familyOrder.join() &&
+          chart.fiveTiles &&
+          chart.mainOk &&
+          chart.twoBarsOutside === 0 &&
+          chart.closed &&
+          chart.hint &&
+          chart.calc <= 8 &&
+          !chart.hasard,
+        `mon profil politique (${where}), les lignes : « ${chart.count || chart.state} » pour ${chart.mainRows} + ${chart.bothRows} lignes lues (et ${chart.apartRows} seulement plus loin), domaines dans l’ordre des familles ${chart.families.join() === familyOrder.join()}, cinq cases par ligne ${chart.fiveTiles}, lectures nettes dans leurs groupes ${chart.mainOk}, lignes de part et d’autre du centre hors de leur groupe (ou l’inverse) ${chart.twoBarsOutside}, toutes fermées ${chart.closed}, « Cliquez… » à la souris ${chart.hint}, « Comment c’est calculé » en ${chart.calc} points, « hasard » ${chart.hasard ? 'présent !' : 'absent'}`,
+      )
+      // Le compte de tête : les noms des lignes nettes, dans l'ordre de la page, cinq au plus, puis « et N autres » ;
+      // ce qui n'a pas compté, autant que de lignes
+      const restFlat = Number(chart.rest.match(/rien de net sur (\d+) sujets?/i)?.[1] ?? 0)
+      const restThin = Number(chart.rest.match(/(\d+) thèmes? sur une seule question/)?.[1] ?? 0)
+      check(
+        (readCount === 0 || (chart.countNames.join('|') === chart.readNames.slice(0, shownNames).join('|') && (readCount <= 5 ? chart.count.endsWith('.') && !/ autres?\.$/.test(chart.count) : chart.count.endsWith(` et ${readCount - 5} autre${readCount - 5 > 1 ? 's' : ''}.`)))) &&
+          (!chart.rest || (restFlat === chart.flatRows && restThin === chart.thinRows)),
+        `mon profil politique (${where}), le compte de tête : ${chart.countNames.length} noms (« ${chart.countNames.join(' », « ')} ») pour ${readCount} lignes nettes, « ${chart.rest} » pour ${chart.flatRows} sans rien de net et ${chart.thinRows} d’une seule question`,
       )
       check(
-        chart.quiet.every(q => q.visible && q.rows === q.n && q.netRows === 0),
+        chart.quiet.every(q => q.visible && q.title && q.netRows === 0),
         `mon profil politique (${where}), les sujets sans lecture nette, visibles sous leur intertitre : ${chart.quiet.map(q => `« ${q.title} » ${q.rows} lignes`).join(', ') || 'aucun'}`,
       )
+      // Un nom du compte ouvre sa ligne et lui donne le focus
+      if (chart.countNames.length) {
+        await pg.locator('.profile-chart .chart-count .count-link').first().click()
+        await pg.waitForTimeout(150)
+        const opened = await pg.evaluate(() => {
+          const b = document.activeElement
+          return { row: !!b?.matches('.profile-chart .row'), expanded: b?.getAttribute('aria-expanded'), id: b?.id ?? '' }
+        })
+        check(
+          opened.row && opened.expanded === 'true' && opened.id === chart.readIds[0],
+          `mon profil politique (${where}), le premier nom du compte (« ${chart.countNames[0]} ») ouvre sa ligne et lui donne le focus : ${JSON.stringify(opened)}`,
+        )
+        await pg.locator('.profile-chart .row[aria-expanded="true"]').evaluateAll(bs => bs.forEach(b => b.click()))
+      }
 
       // Au clavier : Entrée ouvre, flèche bas passe à la suivante, Espace l'ouvre et referme la première, Fin et Début
       const buttons = pg.locator('.profile-chart .row')
@@ -1059,8 +1116,9 @@ try {
     }
     await profileChart(page, 'parcours, 390 px')
 
-    // Pour lire plus de thèmes (questionnaire rapide seul) : avant le graphique ; les thèmes d'une seule question et ceux
-    // sans réponse qui ont encore des questions approfondies, tels qu'on les compte depuis la feuille enregistrée ; un
+    // Pour lire plus de thèmes (questionnaire rapide seul) : ouverte sous le compte, dans la tête du graphique ; les thèmes
+    // d'une seule question et ceux sans réponse qui ont encore des questions approfondies, tels qu'on les compte depuis la
+    // feuille enregistrée ; un
     // thème de la fiche, puis « Approfondir ce thème » d'une ligne, mènent à « Approfondir » avec ce thème coché (le champ
     // existant, rien d'autre d'enregistré), qu'on décoche ensuite
     {
@@ -1074,14 +1132,15 @@ try {
         if (n === 0) expected.none.push(t.label)
         else if (n === 1) expected.thin.push(t.label)
       }
-      const fold = page.locator('main .profile-deeper details.deeper-fold')
+      const fold = page.locator('main .deeper-card details.deeper-fold')
       if ((await fold.count()) && !(await fold.evaluate(d => d.open))) await fold.locator('summary').click()
       const fiche = await page.evaluate(() => {
-        const f = document.querySelector('main .profile-deeper')
+        const f = document.querySelector('main .deeper-card')
         const names = el => [...(el?.querySelectorAll('.deeper-topics a') ?? [])].map(a => [...a.childNodes].filter(n => n.nodeType === 3).map(n => n.data).join('').trim())
         return {
-          n: document.querySelectorAll('main .profile-deeper').length,
-          first: !!f && !!(f.compareDocumentPosition(document.querySelector('main .profile-chart')) & Node.DOCUMENT_POSITION_FOLLOWING),
+          n: document.querySelectorAll('main .deeper-card').length,
+          // Au seul questionnaire rapide : ouverte, sous le compte, avant l'axe
+          first: !!f && !!f.closest('.profile-chart .chart-head') && !!f.querySelector(':scope > details[open]') && !!(f.compareDocumentPosition(document.querySelector('main .profile-chart .axis')) & Node.DOCUMENT_POSITION_FOLLOWING),
           thin: names(f?.querySelector('.deeper-fold') ?? [...(f?.querySelectorAll('.deeper-lists > p') ?? [])].find(p => p.textContent.startsWith('Sur une seule'))),
           none: names([...(f?.querySelectorAll('.deeper-lists > p') ?? [])].find(p => p.textContent.startsWith('Sans réponse'))),
           go: f?.querySelector('a.btn-text')?.getAttribute('href') ?? null,
@@ -1089,7 +1148,7 @@ try {
       })
       check(
         fiche.n === 1 && fiche.first && fiche.thin.join('|') === expected.thin.join('|') && fiche.none.join('|') === expected.none.join('|') && fiche.go === L('/approfondir'),
-        `mon profil politique, questionnaire rapide seul : fiche « Pour lire plus de thèmes » avant le graphique ${fiche.first}, ${fiche.thin.length} thèmes sur une seule question (attendus ${expected.thin.length}) et ${fiche.none.length} sans réponse (attendus ${expected.none.length}), « Choisir les thèmes à approfondir » vers ${fiche.go}`,
+        `mon profil politique, questionnaire rapide seul : fiche « Pour lire plus de thèmes » ouverte sous le compte ${fiche.first}, ${fiche.thin.length} thèmes sur une seule question (attendus ${expected.thin.length}) et ${fiche.none.length} sans réponse (attendus ${expected.none.length}), « Choisir les thèmes à approfondir » vers ${fiche.go}`,
       )
       // Les questions approfondies d'un thème encore sans avis (la règle de la page Approfondir)
       const openOf = id => pack.bank.questions.filter(q => q.topicId === id && q.tier === 'approfondi' && !opinion(st.answers?.[q.id])).length
@@ -1122,12 +1181,12 @@ try {
         return ok ? 'oui' : `non (${JSON.stringify(a)} ; attendu « ${note} » ; ${keys.join(', ')} ; ${left} encore cochés ; après : ${after.first}, « ${after.note} »)`
       }
       const pick = expected.thin[0] ?? expected.none[0]
-      await page.locator('main .profile-deeper .deeper-topics a').filter({ hasText: pick }).first().click()
+      await page.locator('main .deeper-card .deeper-topics a').filter({ hasText: pick }).first().click()
       const fromFiche = await pressedOn(pick)
       // « Approfondir ce thème » d'une ligne sur une seule question
       await page.goto(U('/profil'))
       await page.locator('[role="status"]', { hasText: 'Lecture prête.' }).waitFor({ timeout: 8000 }).catch(() => null)
-      const rows = page.locator('.profile-chart ol.rows.is-quiet').last().locator('.row')
+      const rows = page.locator('.profile-chart ol.rows[data-group="thin"] .row')
       let fromRow = 'aucune ligne avec le lien'
       for (let i = 0, n = await rows.count(); i < n; i++) {
         await rows.nth(i).click()
@@ -1154,9 +1213,9 @@ try {
         await page.evaluate(label => [...document.querySelectorAll('.is-topics .approach-main')].find(b => b.querySelector('.topic-label')?.textContent?.trim() === label)?.click(), other.label)
         await page.goto(U('/profil'))
         await page.locator('[role="status"]', { hasText: 'Lecture prête.' }).waitFor({ timeout: 8000 }).catch(() => null)
-        const fold2 = page.locator('main .profile-deeper details.deeper-fold')
+        const fold2 = page.locator('main .deeper-card details.deeper-fold')
         if ((await fold2.count()) && !(await fold2.evaluate(d => d.open))) await fold2.locator('summary').click()
-        await page.locator('main .profile-deeper .deeper-topics a').filter({ hasText: pick }).first().click()
+        await page.locator('main .deeper-card .deeper-topics a').filter({ hasText: pick }).first().click()
         await page.locator('main h1', { hasText: 'Quels thèmes voulez-vous approfondir' }).waitFor({ timeout: 4000 }).catch(() => null)
         const a = await arrival()
         const n = openOf(pickId)
@@ -1214,12 +1273,12 @@ try {
       await page.locator('main .profile-all[open] .unit-detail[open] .detail-blocs tbody tr').first().waitFor({ timeout: 3000 }).catch(() => null)
       await page.waitForTimeout(100)
       detailFocus = await page.evaluate(() => !!document.activeElement?.matches('.profile-all[open] .unit-detail[open] > summary'))
-      detailRows = await page.locator('main .unit-detail[open] .detail-blocs tbody tr').count()
+      detailRows = await page.locator('main .unit-detail[open] .detail-blocs tbody tr:not(.detail-why)').count()
     } else {
       await page.locator('main .profile-all > summary').click()
       await page.locator('main .unit-detail summary').first().click()
       await page.locator('main .unit-detail[open] .detail-blocs tbody tr').first().waitFor({ timeout: 3000 }).catch(() => null)
-      detailRows = await page.locator('main .unit-detail[open] .detail-blocs tbody tr').count()
+      detailRows = await page.locator('main .unit-detail[open] .detail-blocs tbody tr:not(.detail-why)').count()
       detailFocus = true
     }
     check(detailRows === 5 && detailFocus, `mon profil politique, « Voir le détail » : le tableau s’ouvre sur l’unité (focus ${detailFocus}), détail de ${detailRows} blocs`)
@@ -1272,7 +1331,7 @@ try {
       await wp.goto(U('/profil'))
       await wp.reload()
       await wp.locator('[role="status"]', { hasText: 'Lecture prête.' }).waitFor({ timeout: 15000 }).catch(() => null)
-      const allDeep = await wp.evaluate(() => ({ chart: document.querySelectorAll('main .profile-chart').length, fiche: document.querySelectorAll('main .profile-deeper').length }))
+      const allDeep = await wp.evaluate(() => ({ chart: document.querySelectorAll('main .profile-chart').length, fiche: document.querySelectorAll('main .deeper-card').length }))
       check(
         !!column && column.left === 0 && column.width === 0 && column.below > 0 && allDeep.chart === 1 && allDeep.fiche === 0,
         `mon profil politique, 1 280 px : bandeau dans la colonne de l’affiche, dessous (${JSON.stringify(column)}) ; tout approfondi, pas de fiche « Pour lire plus de thèmes » (${allDeep.fiche})`,
@@ -1317,7 +1376,7 @@ try {
       await profileColors(rp, 'lectures nettes, 1 280 px')
       await rp.emulateMedia({ colorScheme: 'dark' })
       // « Voir le détail » depuis une ligne lue : le tableau s'ouvre sur l'unité, qui reçoit le focus
-      const firstRead = rp.locator('.profile-chart .row').first()
+      const firstRead = rp.locator('.profile-chart ol.rows[data-group="net"] .row').first()
       await firstRead.click()
       const opened = await rp.evaluate(() => {
         const b = document.querySelector('.profile-chart .row[aria-expanded="true"]')
@@ -1327,13 +1386,29 @@ try {
       await rp.locator('.profile-chart .explain:not([hidden]) .link-button').click()
       await rp.locator('main .profile-all[open] .unit-detail[open] .detail-blocs tbody tr').first().waitFor({ timeout: 3000 }).catch(() => null)
       await rp.waitForTimeout(100)
-      const toDetail = await rp.evaluate(() => ({
-        focus: !!document.activeElement?.matches('.profile-all[open] .unit-detail[open] > summary'),
-        blocs: document.querySelectorAll('.profile-all .unit-detail[open] .detail-blocs tbody tr').length,
-      }))
+      // Sous chaque bloc lu nettement d'une unité comptée en entier, combien de façons, et combien rapprochent (ou
+      // éloignent) au moins autant de lui ; aucune sous un bloc sans lecture nette
+      const toDetail = await rp.evaluate(() => {
+        const rows = [...document.querySelectorAll('.profile-all .unit-detail[open] .detail-blocs tbody tr')]
+        const blocs = rows.filter(r => !r.matches('.detail-why'))
+        const why = rows.filter(r => r.matches('.detail-why'))
+        const note = document.querySelector('.profile-all .unit-detail[open] .detail-blocs + p')?.textContent ?? ''
+        return {
+          focus: !!document.activeElement?.matches('.profile-all[open] .unit-detail[open] > summary'),
+          blocs: blocs.length,
+          exact: !/plus de cent mille/.test(note),
+          nets: blocs.filter(r => /nettement plus (près|loin)$/.test(r.lastElementChild?.textContent?.trim() ?? '')).length,
+          why: why.map(r => (r.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').trim()),
+          placed: why.every(r => r.previousElementSibling?.matches('.has-why')),
+        }
+      })
+      const whyOk =
+        toDetail.why.length === (toDetail.exact ? toDetail.nets : 0) &&
+        toDetail.placed &&
+        toDetail.why.every(t => /^Vos mêmes avis pouvaient se poser de [\d ]+ façons sur ces approches ; ([\d ]+, dont la vôtre, (rapprochent|éloignent) au moins|seule la vôtre (rapproche|éloigne)) autant de ce bloc\.$/.test(t))
       check(
-        sticky === 'sticky' && /^Vos réponses se rapprochent nettement/.test(opened.lead) && opened.who > 0 && toDetail.focus && toDetail.blocs === 5,
-        `mon profil politique (lectures nettes, 1 280 px) : axe ${sticky}, ligne ouverte « ${opened.lead.slice(0, 50)}… » (${opened.who} bloc(s) nettement plus près ou plus loin, en mots), « Voir le détail » : focus ${toDetail.focus}, ${toDetail.blocs} blocs`,
+        sticky === 'sticky' && /^Vos réponses se rapprochent nettement/.test(opened.lead) && opened.who > 0 && toDetail.focus && toDetail.blocs === 5 && whyOk,
+        `mon profil politique (lectures nettes, 1 280 px) : axe ${sticky}, ligne ouverte « ${opened.lead.slice(0, 50)}… » (${opened.who} bloc(s) nettement plus près ou plus loin, en mots), « Voir le détail » : focus ${toDetail.focus}, ${toDetail.blocs} blocs, ${toDetail.why.length} phrase(s) des façons pour ${toDetail.nets} lecture(s) nette(s)${toDetail.exact ? '' : ' (borne : aucune attendue)'} (« ${toDetail.why[0] ?? ''} »)`,
       )
       await rctx.close()
     } else console.log('– mon profil politique : aucune lecture nette pour le second état, contrôles en grand écran sautés')
@@ -1562,7 +1637,7 @@ try {
           page: files.filter(f => /^Profile-[\w-]+\.(?:js|css)$/.test(f)),
         }
       })
-      const HEADS = ['Qui compte.', 'Le calcul.', 'Le hasard.', 'Les couleurs.', 'Quand on ne lit pas.', 'Pourquoi ni moyenne ni point.', 'Ce que valent ces lectures.', 'Limites.', 'Vie privée.']
+      const HEADS = ['Qui compte.', 'Le calcul.', 'La comparaison.', 'Compter, sinon calculer.', 'Les couleurs.', 'Quand on ne lit pas.', 'Pourquoi ni moyenne ni point.', 'Ce que valent ces lectures.', 'Avant et après.', 'Limites.', 'Vie privée.']
       check(
         shown && rub.diagram && HEADS.every(t => rub.heads.includes(t)) && !rub.failed && rub.section === 1 && rub.page.length === 0,
         `mon profil politique, rubrique de la Méthode hors ligne (page rechargée) : schéma ${rub.diagram}, ${rub.heads.length} intertitres sur ${HEADS.length}, son fichier à part chargé (${rub.section}), sans la page${rub.page.length ? ` (chargée : ${rub.page.join(', ')})` : ''}${rub.failed ? ', « n’a pas pu être chargée »' : ''}`,

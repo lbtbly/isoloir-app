@@ -2,8 +2,10 @@
 // (core/echiquierMethodCopy.ts) et ceux qu'elles ont en commun (core/echiquierCommonCopy.ts), sur le modèle de
 // results-copy.test.ts : accords au singulier et au pluriel, formes des blocs, et les règles d'écriture (DESIGN.md, The
 // Reading Not Label Rule) : le sujet est toujours « vos réponses », un bloc est toujours attribué à la grille, aucun mot
-// d'étiquette, aucun « % » dans la synthèse et les phrases, aucun symbole de lecture (seul « ? » reste), les espaces
-// insécables du site. Puis le découpage du build : la rubrique n'emporte ni le calcul de la page ni ses mots.
+// d'étiquette ni de qualité, plus jamais « hasard » pour dire la comparaison (D2), aucun « % » dans la synthèse et les
+// phrases, aucun symbole de lecture (seul « ? » reste), les espaces insécables du site ; l'affichage dédié (D1) : chaque
+// état dit un constat, sans cause prêtée à la personne. Puis le découpage du build : la rubrique n'emporte ni le calcul
+// de la page ni ses mots.
 import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -22,17 +24,29 @@ const axis = axisOf(elections.find(p => p.election.id === 'presidentielle-2027')
 /** Les libellés de la grille, ceux des colonnes : « Extrême gauche » */
 const labels = axis.map(a => elections.find(p => p.election.id === 'presidentielle-2027')!.election.spectrum!.blocs.find(b => b.id === a.bloc)!.label)
 
-/** Une unité factice : ses blocs nettement plus près, nettement plus loin et inconnus ; affinity : celle de chaque bloc */
-function reading(status: UnitStatus, near: number[] = [], far: number[] = [], unknown: number[] = [], kind: 'theme' | 'famille' = 'theme', affinity: number[] = [50, 50, 50, 50, 50]) {
+/**
+ * Une unité factice : ses blocs nettement plus près, nettement plus loin et inconnus ; affinity : celle de chaque bloc ;
+ * ways : ses façons de poser les mêmes avis
+ */
+function reading(
+  status: UnitStatus,
+  near: number[] = [],
+  far: number[] = [],
+  unknown: number[] = [],
+  kind: 'theme' | 'famille' = 'theme',
+  affinity: number[] = [50, 50, 50, 50, 50],
+  ways = 252,
+) {
   const cells: BlocCell[] = axis.map((a, b) => ({
     bloc: a.bloc,
     known: [],
     affinity: unknown.includes(b) ? null : (affinity[b] ?? 50),
     chance: null,
     p: null,
+    alike: null,
     mark: (unknown.includes(b) ? 'inconnu' : near.includes(b) ? 'pres' : far.includes(b) ? 'loin' : 'rien') as Mark,
   }))
-  return { status, near, far, cells, kind } as Pick<UnitReading, 'status' | 'near' | 'far' | 'cells' | 'kind'>
+  return { status, near, far, cells, kind, ways } as Pick<UnitReading, 'status' | 'near' | 'far' | 'cells' | 'kind' | 'ways'>
 }
 
 /** Toutes les parties de l'axe (sous-ensembles non vides) */
@@ -49,8 +63,10 @@ function allSentences(): string[] {
     if (rest.length) out.push(T.unitSentence(axis, reading('lecture', near, [], [rest[0]!])))
   }
   for (const far of subsets(B)) out.push(T.unitSentence(axis, reading('ecarts', [], far)))
-  out.push(T.unitSentence(axis, reading('aucun')))
-  for (const u of [0, 1, 2, 3, 4]) out.push(T.unitSentence(axis, reading('aucun', [], [], [u])))
+  // Rien de net : assez de façons, ou trop peu pour conclure (moins de dix), ou une seule
+  for (const ways of [1, 2, 6, 9, 10, 252, Number.POSITIVE_INFINITY])
+    for (const kind of ['theme', 'famille'] as const) out.push(T.unitSentence(axis, reading('aucun', [], [], [], kind, undefined, ways)))
+  for (const u of [0, 1, 2, 3, 4]) out.push(T.unitSentence(axis, reading('aucun', [], [], [u])), T.unitSentence(axis, reading('aucun', [], [], [u], 'theme', undefined, 6)))
   for (const unknown of subsets(B).filter(s => s.length > 1)) {
     out.push(T.unitSentence(axis, reading('blocs-inconnus', [], [], unknown)))
     out.push(T.unitSentence(axis, reading('blocs-inconnus', [], [], unknown, 'famille')))
@@ -100,6 +116,13 @@ function allTexts(): string[] {
   for (const n of [1, 2, 7]) {
     out.push(T.howWho(15, n), T.onQuestions(n), T.familyHead(n + 1), T.nothingLine(n), T.apartLine(n), T.noReadingLine(n), T.unansweredLine(n))
     out.push(...T.caveats(15), T.unplaced(n, false), T.unplaced(n, true), T.chanceNote(true, n * 12), T.chanceNote(true, n * 12_345), T.chanceNote(false, Number.POSITIVE_INFINITY))
+    out.push(T.detailWhy(252, n, 'pres'), T.detailWhy(97_200, n * 1000, 'loin'), T.countEnd(n - 1), T.deeperCount(n, n + 1, true), T.deeperCount(0, n, true), T.deeperCount(n, 0, false))
+  }
+  out.push(T.chanceNote(true, 1))
+  // Le compte de tête et ce qui n'a pas compté, toutes les combinaisons
+  for (const [a, f, t, u, q] of [[0, 0, 0, 0, 0], [0, 10, 8, 0, 4], [1, 1, 1, 1, 1], [2, 0, 0, 3, 0], [0, 0, 0, 0, 7]] as const) {
+    const rest = T.countRest(a, f, t, u, q)
+    if (rest) out.push(rest)
   }
   // La page d'attente et la fiche « Pour lire plus de thèmes »
   for (const w of ['vide', 'en-cours', 'sans-avis'] as const)
@@ -107,13 +130,14 @@ function allTexts(): string[] {
   for (const n of [0, 1, 7, 22]) out.push(T.waitCount(n, 22))
   for (const n of [1, 2, 16]) out.push(T.thinLine(n), T.exampleRow(n))
   out.push(T.deeperLede(true), T.deeperLede(false))
-  out.push(T.howWho(15, 0), ...M.methodIntro(5), M.methodWho(15, 7, 2, 4, true), M.methodWho(15, 0, 3, 3, false), M.methodChance(5), ...M.methodWorth())
-  // Le graphique « Sujet par sujet »
+  out.push(T.howWho(15, 0), ...M.methodIntro(5), M.methodWho(15, 7, 2, 4, true), M.methodWho(15, 0, 3, 3, false), M.methodChance(5), ...M.methodWorth(), M.methodBefore())
+  // Le graphique « Domaine par domaine »
   for (const n of [1, 2, 17]) {
-    out.push(...T.countRead(n, 0), ...T.countRead(n, n + 1), T.questionsCount(n), T.themesTogether(n + 1), T.othersUnknown(n), T.flatTitle(n), T.unreadTitle(n, true), T.unreadTitle(n, false), T.detailShow(n))
+    out.push(...T.countNear(n), ...T.countApart(n), T.questionsCount(n), T.themesTogether(n + 1), T.othersUnknown(n), T.detailShow(n, 0), T.detailShow(n, n))
   }
+  out.push(...T.nothingAnywhere(true), ...T.nothingAnywhere(false))
   out.push(T.zonesLabel(5, 15), T.readWithFamily('Économie et travail'), T.sourceLink('23 août 2026'), T.sourceWho(15), T.COLORS_NOTE, ...allSummaries())
-  out.push(T.unreadHead(true), T.unreadHead(false), T.FLAT_HEAD, T.HOW_COLOR, T.COLORS_CHANCE, ...T.HOW_MARKS)
+  out.push(T.HOW_COLOR, T.COLORS_CHANCE, ...T.HOW_MARKS)
   for (const a of [null, 0, 19.4, 19.6, 45, 79.6, 100]) for (const m of ['pres', 'loin', 'rien', 'inconnu'] as const) out.push(T.cellLabel('Droite', a, m))
   out.push(T.bothTitle(true), T.bothTitle(false), ...T.bothRow(true), ...T.bothRow(false))
   out.push(...allSentences(), ...allFacts())
@@ -147,7 +171,11 @@ describe('accords', () => {
     // Aucun pronom sans antécédent en tête de phrase ni après « le questionnaire rapide »
     for (const [w, l, a] of [['vide', 22, false], ['en-cours', 15, false], ['en-cours', 1, true], ['en-cours', 2, true]] as const)
       expect(/(^|: )il /i.test(T.waitText(w, 22, l, a)), T.waitText(w, 22, l, a)).toBe(false)
-    expect(T.waitText('sans-avis', 22, 0, false)).toMatch(/^Vous avez passé les 22\u00a0questions sans placer de repère/)
+    // Tout vu, aucun avis qui compte : passées, vues sans avis, ou à revoir ; la phrase ne dit pas « passé » à qui a tout à revoir
+    expect(T.waitText('sans-avis', 22, 0, false)).toBe(
+      `Aucune de vos réponses ne donne encore d’avis qui compte${NB}: la lecture se fait sur vos «${NB}d’accord${NB}» et vos «${NB}pas d’accord${NB}», hors questions passées et questions à revoir.`,
+    )
+    expect(T.waitText('sans-avis', 22, 0, false)).not.toMatch(/repère|Vous avez passé/)
     expect(T.thinLine(1)).toBe(`Sur une seule question${NB}: 1${NB}thème`)
     expect(T.thinLine(16)).toBe(`Sur une seule question${NB}: 16${NB}thèmes`)
     expect(T.unplaced(1, false)).toMatch(/^Un de vos accords sur ce thème porte sur une approche qui n’est/)
@@ -160,51 +188,80 @@ describe('accords', () => {
 
   it('la note du détail et la Méthode disent la méthode sans tirage : le nombre de façons à la française, jamais un tirage', () => {
     // Le nombre de façons, tel que la page peut le dire (UnitReading.ways) : exact jusqu'à cent mille, au-delà en mots
-    expect(T.chanceNote(true, 15_750)).toMatch(new RegExp(`sur les 15${NB}750 placements possibles de vos avis, question par question, le vôtre compris${NB};`))
-    expect(T.chanceNote(true, 100_000)).toContain(`les 100${NB}000 placements possibles`)
-    expect(T.chanceNote(true, 36)).toContain('les 36 placements possibles')
+    expect(T.chanceNote(true, 15_750)).toBe(
+      `Avec vos mêmes avis, autrement placés${NB}: la moyenne du même calcul pour les 15${NB}750${NB}façons de poser vos mêmes avis sur les approches de chaque question, la vôtre comprise${NB}; «${NB}nettement plus près${NB}» ou «${NB}nettement plus loin${NB}» quand une sur dix au plus fait un écart aussi marqué, avec un bloc ou un autre.`,
+    )
+    expect(T.chanceNote(true, 100_000)).toContain(`les 100${NB}000${NB}façons`)
+    expect(T.chanceNote(true, 36)).toContain(`les 36${NB}façons`)
+    expect(T.chanceNote(true, 1)).toMatch(/que d’une seule façon, la vôtre\u00a0; rien à comparer\.$/)
     expect(T.chanceNote(true, 15_750)).not.toMatch(/prudente/)
     const bound = T.chanceNote(false, Number.POSITIVE_INFINITY)
-    expect(bound).toContain('sur tous les placements possibles de vos avis (plus de cent mille)')
-    expect(bound).toMatch(/une part calculée bloc par bloc puis additionnée, qui ne peut être que trop prudente\)\.$/)
+    expect(bound).toContain('pour toutes les façons (plus de cent mille) de poser vos mêmes avis')
+    expect(bound).toMatch(/Au-delà de cent mille façons, cette part se calcule bloc par bloc, puis s’additionne\u00a0: une borne prudente, qui peut manquer une lecture, jamais en inventer une\.$/)
     expect(ECHIQUIER.COUNT_MAX).toBe(100_000)
-    for (const s of [T.chanceNote(true, 15_750), bound, T.chanceNote(false, 3888), M.methodChance(5)]) {
-      expect(s, s).not.toMatch(/tirés au (hasard|sort)|\d\.\d|e\+|Infinity|NaN|999/)
+    for (const s of [T.chanceNote(true, 15_750), bound, T.chanceNote(false, 3888), M.methodChance(5), M.METHOD_REGIMES]) {
+      expect(s, s).not.toMatch(/tirés au (hasard|sort)|hasard|placés au|\d\.\d|e\+|Infinity|NaN|999/)
     }
-    // La Méthode : compter jusqu'à cent mille, calculer au-delà, rien de tiré au sort
-    expect(M.methodChance(5)).toMatch(/comptés un à un quand ils sont cent mille au plus\. Au-delà, la page calcule bloc par bloc/)
+    // La Méthode : compter jusqu'à cent mille, calculer au-delà, rien de tiré au sort ; l'avant et l'après
+    expect(M.METHOD_REGIMES).toMatch(/^Jusqu’à cent mille façons de poser vos mêmes avis, la page les compte toutes, une à une/)
+    expect(M.METHOD_REGIMES).toContain('une borne prudente, qui peut manquer une lecture que ferait le compte complet, jamais en inventer une')
     expect(M.methodChance(5)).toContain(`Rien n’est tiré au sort${NB}: mêmes réponses, même lecture.`)
+    expect(M.methodChance(5)).toContain(`«${NB}Nettement${NB}»${NB}: une de ces façons sur dix au plus atteint un tel écart, avec un bloc ou un autre.`)
     // La page passe le nombre que la note peut dire, jamais N brut (arrangements, qui peut valoir 10²⁵)
     const page = readFileSync(join(ROOT, 'src/ui/screens/Profile.tsx'), 'utf8')
     expect(page).toContain('T.chanceNote(unit.exact, unit.ways)')
     expect(page).not.toMatch(/chanceNote\([^)]*arrangements/)
+    // Le compte d'un bloc, sous sa ligne du détail, seulement quand tout a été compté
+    expect(page).toContain('unit.exact && c.alike !== null')
+  })
+
+  it('le détail : combien de façons, et combien rapprochent (ou éloignent) au moins autant de ce bloc, la vôtre comprise', () => {
+    expect(T.detailWhy(252, 6, 'pres')).toBe(`Vos mêmes avis pouvaient se poser de 252${NB}façons sur ces approches${NB}; 6, dont la vôtre, rapprochent au moins autant de ce bloc.`)
+    expect(T.detailWhy(97_200, 1_234, 'loin')).toBe(`Vos mêmes avis pouvaient se poser de 97${NB}200${NB}façons sur ces approches${NB}; 1${NB}234, dont la vôtre, éloignent au moins autant de ce bloc.`)
+    expect(T.detailWhy(252, 1, 'pres')).toBe(`Vos mêmes avis pouvaient se poser de 252${NB}façons sur ces approches${NB}; seule la vôtre rapproche autant de ce bloc.`)
+    expect(T.DETAIL_HEADS[3]).toBe('Avec vos mêmes avis, autrement placés')
   })
 })
 
-describe('le graphique « Sujet par sujet »', () => {
-  it('le compte, les plis, les lignes : accords au singulier et au pluriel, nombre et nom soudés', () => {
-    expect(T.countRead(7, 17).join('')).toBe(`Sur 7${NB}sujets, vos réponses se rapprochent nettement d’un bloc de la grille${NB}; sur 17, rien de net.`)
-    expect(T.countRead(1, 0).join('')).toBe(`Sur 1${NB}sujet, vos réponses se rapprochent nettement d’un bloc de la grille.`)
-    expect(T.countRead(7, 17)[1]).toBe(`7${NB}sujets`)
-    expect(T.flatTitle(17)).toBe(`17${NB}sujets sans tendance nette`)
-    expect(T.flatTitle(1)).toBe(`1${NB}sujet sans tendance nette`)
-    expect(T.unreadTitle(16, true)).toBe(`16${NB}thèmes sur une seule question`)
-    expect(T.unreadTitle(1, false)).toBe(`1${NB}thème sans lecture nette`)
-    // Les sujets sans tendance nette et ceux d'une seule question : leurs couleurs se lisent, avec prudence
-    expect(T.FLAT_HEAD).toMatch(/à la portée du hasard\.$/)
-    expect(T.unreadHead(true)).toMatch(/^Une seule question ne permet pas de dire si un écart dépasse nettement le hasard/)
-    expect(T.unreadHead(false)).toMatch(/^Sur une seule question, ou faute de candidats connus, on ne peut pas dire si un écart dépasse nettement le hasard/)
-    expect(T.unreadHead(false)).not.toMatch(/pas de dire/)
+describe('le graphique « Domaine par domaine »', () => {
+  it('le compte de tête, ce qui n’a pas compté, les plis, les lignes : accords au singulier et au pluriel, nombre et nom soudés', () => {
+    expect(T.CHART_TITLE).toBe('Domaine par domaine')
+    // C0 : les sujets nets, puis leurs noms (posés par la page), puis la fin du compte
+    expect(T.countNear(3).join('')).toBe(`Sur 3${NB}sujets, vos réponses se rapprochent nettement d’un bloc${NB}: `)
+    expect(T.countNear(1).join('')).toBe(`Sur 1${NB}sujet, vos réponses se rapprochent nettement d’un bloc${NB}: `)
+    expect(T.countNear(7)[1]).toBe(`7${NB}sujets`)
+    expect(T.COUNT_NAMES).toBe(5)
+    expect(T.countEnd(0)).toBe('.')
+    expect(T.countEnd(-3)).toBe('.')
+    expect(T.countEnd(1)).toBe(` et 1${NB}autre.`)
+    expect(T.countEnd(2)).toBe(` et 2${NB}autres.`)
+    // C6 : seulement des écarts
+    expect(T.countApart(1).join('')).toBe(`Sur aucun sujet, vos réponses ne se rapprochent nettement d’un bloc de la grille${NB}; sur 1${NB}sujet, elles s’écartent nettement d’au moins un${NB}: `)
+    expect(T.countApart(1)[1]).toBe('aucun sujet')
+    // Ce qui n'a pas compté : chaque part seulement si elle compte quelque chose
+    expect(T.countRest(0, 10, 8, 0, 4)).toBe(`Rien de net sur 10${NB}sujets, 8${NB}thèmes sur une seule question${NB}; 4${NB}questions sans avis ou à revoir ne comptent pas.`)
+    expect(T.countRest(2, 1, 0, 1, 1)).toBe(`Seulement plus loin sur 2${NB}sujets, rien de net sur 1${NB}sujet, 1${NB}thème faute de candidats connus${NB}; 1${NB}question sans avis ou à revoir ne compte pas.`)
+    expect(T.countRest(0, 0, 0, 0, 3)).toBe(`3${NB}questions sans avis ou à revoir ne comptent pas.`)
+    expect(T.countRest(0, 0, 0, 0, 0)).toBeNull()
     expect(T.questionsCount(1)).toBe(`1${NB}question`)
     expect(T.questionsCount(5)).toBe(`5${NB}questions`)
     expect(T.themesTogether(4)).toBe('4 thèmes ensemble')
     expect(T.othersUnknown(1)).toBe('(1 autre, position inconnue ici)')
     expect(T.othersUnknown(2)).toBe('(2 autres, position inconnue ici)')
-    expect(T.detailShow(31)).toBe('Afficher le détail des 31 sujets')
-    expect(T.detailShow(1)).toBe('Afficher le détail du sujet')
+    // Le tableau : ses thèmes, et leurs domaines entiers quand il y en a
+    expect(T.detailShow(31, 6)).toBe('Afficher le détail des 31 thèmes et de leurs domaines')
+    expect(T.detailShow(3, 0)).toBe('Afficher le détail des 3 thèmes')
+    expect(T.detailShow(1, 0)).toBe('Afficher le détail du thème')
     expect(T.zonesLabel(5, 15)).toBe('Les cinq blocs de la grille du ministère de l’Intérieur, de l’extrême gauche à l’extrême droite, et les 15 candidats classés qu’elle y range')
-    expect(T.readWithFamily('Économie et travail')).toBe(`Lu avec les autres thèmes de sa famille${NB}: «${NB}Économie et travail${NB}».`)
+    expect(T.readWithFamily('Économie et travail')).toBe(`Lu avec les autres thèmes de son domaine${NB}: «${NB}Économie et travail${NB}».`)
     expect(T.sourceLink('23 août 2026')).toBe('circulaire du 23 août 2026')
+    // Les intertitres des groupes d'un domaine (ceux des maquettes validées)
+    expect(T.GROUP_TITLE).toEqual({ apart: 'Seulement plus loin', flat: 'Rien de net', thin: 'Sur une seule question', unknown: 'Faute de candidats connus' })
+    // La fiche « Pour lire plus de thèmes » : repliée, ce qu'elle reprend ; ouverte, ses thèmes
+    expect(T.deeperCount(3, 8, true)).toBe(`3${NB}sans réponse, 8${NB}sur une seule question`)
+    expect(T.deeperCount(0, 8, true)).toBe(`8${NB}sur une seule question`)
+    expect(T.deeperCount(2, 5, false)).toBe(`7${NB}thèmes`)
+    expect(T.deeperLede(true)).toBe(`Après le questionnaire rapide, la lecture se fait par domaine${NB}: il faut au moins deux questions pour lire un thème seul.`)
     // Les couleurs : l'échelle d'affinité du site, jamais celle d'un bloc ; aucun nom de couleur de bloc
     expect(T.COLORS_NOTE).toBe(
       `Les couleurs sont celles de l’échelle d’affinité du site, de «${NB}très éloigné${NB}» à «${NB}très proche${NB}»${NB}: votre affinité moyenne avec les candidats de chaque bloc, sur chaque sujet, et non la couleur d’un bloc de la grille.`,
@@ -212,6 +269,70 @@ describe('le graphique « Sujet par sujet »', () => {
     expect(T.COLORS_NOTE).not.toMatch(/vert|orang|rouge|jaune|bleu/)
     expect(T.HINT_TOUCH).toMatch(/^Touchez /)
     expect(T.HINT_CLICK).toMatch(/^Cliquez /)
+  })
+
+  it('le chapeau : une lecture, pas un conseil de vote ; le classement est dans Résultats ; ce qui reste sur l’appareil, comme dans la Méthode', () => {
+    expect(`${T.LEDE} ${T.LEDE_VOTE.join('')}`).toBe(
+      `Vos réponses sur l’échiquier, thème par thème${NB}: se rapprochent-elles nettement des candidats qu’une grille officielle range à gauche, au centre ou à droite${NB}? Une lecture, pas un conseil de vote${NB}: le classement est dans Résultats`,
+    )
+    expect(T.PRIVACY).toBe(M.METHOD_PRIVACY)
+    expect(T.PRIVACY).toMatch(/^Calcul sans IA, sur votre appareil/)
+    expect(T.PRIVACY).toContain('rien n’est enregistré ni envoyé')
+  })
+
+  it('l’affichage dédié (D1) : des constats, la seule cause dite étant celle que le calcul rend certaine', () => {
+    // C1 : une seule question
+    expect(T.unitSentence(axis, reading('une-question'))).toBe(`Sur une seule question, la page ne conclut pas${NB}: il en faut deux pour lire un thème. Ces couleurs donnent seulement votre affinité.`)
+    // C2 : rien de net, le thème ou le domaine
+    expect(T.unitSentence(axis, reading('aucun'))).toBe(
+      `Rien de net${NB}: sur ce thème, vos réponses ne se distinguent pas assez des autres façons de poser vos mêmes avis, quelle que soit la couleur des cases.`,
+    )
+    expect(T.unitSentence(axis, reading('aucun', [], [], [], 'famille'))).toContain('sur ce domaine, vos réponses')
+    // C2 bis : moins de dix façons ; une seule
+    expect(T.MIN_WAYS).toBe(10)
+    expect(T.unitSentence(axis, reading('aucun', [], [], [], 'theme', undefined, 6))).toBe(
+      `Rien de net${NB}: vos mêmes avis ne pouvaient se poser que de 6${NB}façons sur ces questions, trop peu pour conclure (il en faut au moins dix).`,
+    )
+    expect(T.unitSentence(axis, reading('aucun', [], [], [], 'theme', undefined, 10))).toMatch(/^Rien de net\u00a0: sur ce thème/)
+    expect(T.unitSentence(axis, reading('aucun', [], [], [], 'theme', undefined, 1))).toBe(
+      `Rien de net${NB}: vos mêmes avis ne pouvaient se poser que d’une seule façon sur ces questions, la vôtre${NB}; rien à comparer.`,
+    )
+    // C3 : blocs inconnus, sans cause ajoutée
+    expect(T.unitSentence(axis, reading('blocs-inconnus', [], [], [0, 4]))).toBe(
+      `Pas de lecture nette${NB}: la position des candidats que la grille classe à l’extrême gauche et à l’extrême droite n’est pas connue sur vos questions de ce thème.`,
+    )
+    // C5 : rien de net nulle part, banque et questionnaire rapide (la cause certaine, à la place de « C'est fréquent »)
+    expect(T.nothingAnywhere(false).join('')).toBe(
+      `Sur aucun sujet, vos réponses ne se rapprochent ni ne s’écartent nettement d’un bloc${NB}: elles ne se distinguent pas assez des autres façons de poser vos mêmes avis.`,
+    )
+    expect(T.nothingAnywhere(true).join('')).toBe(
+      `Sur aucun sujet, vos réponses ne se rapprochent ni ne s’écartent nettement d’un bloc. Après le seul questionnaire rapide, la plupart des thèmes n’ont qu’une question${NB}: la lecture se fait par domaine.`,
+    )
+    expect(T.NOT_CENTRE).toBe(`Ce n’est pas une place au centre${NB}: la page ne fait pas de moyenne entre les blocs.`)
+    expect(T.YOUR_RANKING.join('')).toBe(`Votre classement${NB}: Résultats`)
+    // C5 bis, C9
+    expect(T.NOTHING_TESTABLE).toBe(`Pas encore de sujet à lire${NB}: il faut deux questions sur un même thème, ou deux thèmes répondus dans un même domaine.`)
+    expect(T.UNIFORM).toBe(
+      `Sur chaque question, vos réponses donnent le même avis à toutes les approches${NB}: il n’y a qu’une façon de poser ces avis, la vôtre, donc rien à comparer. Les couleurs donnent seulement votre affinité.`,
+    )
+    // Jamais « c'est fréquent », jamais une cause sur la personne
+    for (const t of [...T.nothingAnywhere(true), ...T.nothingAnywhere(false), T.NOT_CENTRE, T.NOTHING_TESTABLE, T.UNIFORM, ...allSentences()]) {
+      expect(/fréquent|vous n’avez pas|vous avez trop|parce que vous|votre faute/i.test(t), t).toBe(false)
+    }
+  })
+
+  it('« Comment c’est calculé » : huit points au plus (le reste est dans la Méthode), et l’exemple dit le bon compte', () => {
+    const code = readFileSync(join(ROOT, 'src/ui/profile/Chart.tsx'), 'utf8')
+    const calc = code.slice(code.indexOf('<details class="calc">'), code.indexOf('</details>', code.indexOf('<details class="calc">')))
+    const top = calc.replace(/<ol class="calc-example">[\s\S]*?<\/ol>/, '')
+    expect((top.match(/<li[ >]/g) ?? []).length).toBeLessThanOrEqual(8)
+    expect(T.HOW_EXAMPLE).toHaveLength(5)
+    // 5! / (1! 1! 3!) = 20 ; 20 × 20 = 400 ; une sur dix au plus : 40
+    expect(T.HOW_EXAMPLE.join(' ')).toMatch(/20\u00a0façons.*400\u00a0façons.*40 de ces 400\u00a0façons/)
+    expect(T.HOW_NETTEMENT).toBe(
+      `Nettement${NB}: posés de toutes les façons possibles sur les approches de chaque question, la vôtre comprise, vos mêmes avis font un tel écart une fois sur dix au plus, avec un bloc ou un autre.`,
+    )
+    expect(T.HOW_MIN).toContain('Quand aucun thème d’un domaine ne se lit seul, le domaine entier est lu.')
   })
 
   it('« aux deux bouts » seulement à l’extrême gauche et à l’extrême droite à la fois ; sinon « des deux côtés »', () => {
@@ -223,9 +344,9 @@ describe('le graphique « Sujet par sujet »', () => {
     // La même phrase dans les deux cas : vraie dès que les blocs ▲ sont de part et d'autre du centre, sans lui
     expect(T.bothRow(false)[1]).toBe(T.bothRow(true)[1])
     expect(T.bothRow(true)[1]).toMatch(/des deux côtés de la grille/)
-    // Le détail : la phrase de la maquette validée
+    // Le détail : la phrase de la maquette validée (15 octobre 2026)
     expect(T.DETAIL_INTRO).toBe(
-      `Pour chaque bloc${NB}: votre affinité moyenne avec ses candidats, la même avec vos avis placés au hasard, et l’écart. Puis, dans la page, chaque candidat et chaque question.`,
+      `Pour chaque bloc${NB}: votre affinité moyenne avec ses candidats, la même moyenne pour les autres façons de poser vos mêmes avis, et l’écart. Puis, dans la page, chaque candidat et chaque question.`,
     )
   })
 
@@ -265,16 +386,17 @@ describe('le graphique « Sujet par sujet »', () => {
     expect(T.HOW_COLOR).toBe(
       `La couleur d’une case donne votre affinité moyenne avec les candidats du bloc, selon les paliers du site${NB}: très proche (80 à 100${NB}%), proche (60 à 79${NB}%), mitigé (40 à 59${NB}%), éloigné (20 à 39${NB}%), très éloigné (0 à 19${NB}%).`,
     )
-    // Ce que la couleur ne dit pas : le hasard, la façon de répondre (les deux paliers de chaque côté, les bouts
-    // compris : c'est eux que donne une façon de répondre tranchée), l'accord des candidats d'un bloc, sans comparer des
-    // blocs par leur taille (l'écart ne se mesure pas) ; une lecture nette peut tomber sur « mitigé »
-    expect(T.COLORS_CHANCE).toMatch(/des réponses données au hasard colorent aussi des cases/)
-    expect(T.COLORS_CHANCE).toContain(`qui approuve beaucoup voit surtout «${NB}proche${NB}» et «${NB}très proche${NB}»`)
-    expect(T.COLORS_CHANCE).toContain(`qui désapprouve beaucoup surtout «${NB}éloigné${NB}» et «${NB}très éloigné${NB}»`)
-    expect(T.COLORS_CHANCE).toContain(`tout approuver donne «${NB}très proche${NB}» presque partout`)
-    expect(T.COLORS_CHANCE).toMatch(/quand ils ne pensent pas pareil, cette moyenne est moins tranchée/)
-    expect(T.COLORS_CHANCE).not.toMatch(/quatre|un bloc de deux/)
-    expect(T.COLORS_CHANCE).toMatch(/Seules les lectures nettes disent qu’un écart dépasse nettement le hasard/)
+    // Ce que la couleur ne dit pas : « nettement » ; la façon de répondre (les deux paliers de chaque côté, les bouts
+    // compris : c'est eux que donne une façon de répondre tranchée ; tout approuver, tout désapprouver, mesurés le 15
+    // octobre 2026), l'accord des candidats d'un bloc, sans comparer des blocs par leur taille (l'écart ne se mesure
+    // pas) ; une lecture nette peut tomber sur « mitigé »
+    expect(T.COLORS_CHANCE).toMatch(/^La couleur seule ne dit pas «.nettement.»/)
+    expect(T.COLORS_CHANCE).toContain(`Qui approuve beaucoup voit le plus souvent «${NB}proche${NB}» et «${NB}très proche${NB}»`)
+    expect(T.COLORS_CHANCE).toContain(`qui désapprouve beaucoup «${NB}éloigné${NB}» et «${NB}très éloigné${NB}»`)
+    expect(T.COLORS_CHANCE).toContain(`tout approuver colore 97${NB}cases sur 100 en «${NB}très proche${NB}», tout désapprouver 96 sur 100 en «${NB}très éloigné${NB}»`)
+    expect(T.COLORS_CHANCE).toMatch(/quand ils ne pensent pas pareil, elle est moins tranchée/)
+    expect(T.COLORS_CHANCE).not.toMatch(/quatre|un bloc de deux|surtout|presque/)
+    expect(T.COLORS_CHANCE).toContain('Seules les lectures nettes comparent vos réponses aux autres façons de poser vos mêmes avis')
     expect(T.COLORS_CHANCE).toMatch(/une lecture nette peut tomber sur une case «.mitigé.»\.$/)
   })
 })
@@ -309,11 +431,11 @@ describe('formes des blocs', () => {
       'Vos réponses se rapprochent nettement des candidats que la grille classe à gauche. Elles s’écartent nettement de ceux qu’elle classe à droite.',
     )
     expect(T.unitSentence(axis, reading('blocs-inconnus', [], [], [3, 4], 'famille'))).toBe(
-      `Pas de lecture nette${NB}: la position des candidats que la grille classe à droite et à l’extrême droite n’est pas connue sur vos questions de cette famille.`,
+      `Pas de lecture nette${NB}: la position des candidats que la grille classe à droite et à l’extrême droite n’est pas connue sur vos questions de ce domaine.`,
     )
     // « Rien de net » ne nomme pas la grille : la phrase qui suit la nomme, sans pronom
     expect(T.unitSentence(axis, reading('aucun', [], [], [2]))).toBe(
-      `Rien de net${NB}: vos réponses ne se rapprochent ni ne s’écartent nettement des candidats d’aucun bloc. La position des candidats que la grille classe au centre n’est pas connue ici${NB}: la lecture se fait sans eux.`,
+      `Rien de net${NB}: sur ce thème, vos réponses ne se distinguent pas assez des autres façons de poser vos mêmes avis, quelle que soit la couleur des cases. La position des candidats que la grille classe au centre n’est pas connue ici${NB}: la lecture se fait sans eux.`,
     )
   })
 
@@ -344,12 +466,28 @@ describe('règles d’écriture', () => {
   const BLOC = /extrême gauche|extrême droite|à gauche|à droite|au centre|de la gauche|de la droite|du centre/i
 
   it('chaque phrase qui nomme un bloc l’attribue à la grille ; « qu’elle » vient toujours après « la grille »', () => {
-    const chart = [T.zonesLabel(5, 15), T.MAIN_LABEL, T.BOTH_HEAD, T.BOTH_ROW.join(''), T.bothRow(false).join(''), T.APART_HEAD, T.FLAT_HEAD, T.KEY_TEXT, T.COUNT_NONE, T.COLORS_NOTE, T.COLORS_CHANCE, ...T.countRead(3, 2)]
-    const texts = [...sentences, ...M.methodWorth(), ...allSummaries(), ...chart]
+    const chart = [
+      T.zonesLabel(5, 15),
+      T.NET_LABEL,
+      T.BOTH_ROW.join(''),
+      T.bothRow(false).join(''),
+      T.KEY_TEXT,
+      T.COLORS_NOTE,
+      T.COLORS_CHANCE,
+      T.countNear(3).join(''),
+      T.countApart(2).join(''),
+      ...T.nothingAnywhere(true),
+      ...T.nothingAnywhere(false),
+      T.NOTHING_TESTABLE,
+      T.UNIFORM,
+    ]
+    const texts = [...sentences, ...M.methodWorth(), M.methodBefore(), ...allSummaries(), ...chart]
     for (const s of texts) {
       if (BLOC.test(s)) expect(/la grille/.test(s), s).toBe(true)
       for (const m of s.matchAll(/qu’elle classe/g)) expect(s.slice(0, m.index).includes('la grille'), s).toBe(true)
     }
+    // La seule phrase qui dit « au centre » sans la grille le nie : une absence de lecture n'est pas une place
+    expect(T.NOT_CENTRE.replace(/^Ce n’est pas une place au centre/, '')).not.toMatch(BLOC)
   })
 
   it('les libellés de la synthèse se lisent sous son titre, qui nomme la grille', () => {
@@ -359,9 +497,8 @@ describe('règles d’écriture', () => {
 
   it('le sujet est « vos réponses » (ou ce que vous approuvez), jamais la personne', () => {
     for (const s of allSentences().filter(x => /rapprochent|écartent/.test(x))) expect(/Vos réponses|vos réponses/.test(s), s).toBe(true)
-    for (const s of [T.BOTH_HEAD, T.BOTH_ROW[1], T.bothRow(false)[1], T.APART_HEAD, T.FLAT_HEAD, T.countRead(3, 2).join('')]) expect(/Vos réponses|vos réponses/.test(s), s).toBe(true)
-    // Sans lecture, le sujet est « aucun sujet », pour « ces réponses »
-    expect(T.COUNT_NONE).toMatch(/^Pour ces réponses, aucun sujet/)
+    for (const s of [T.BOTH_ROW[1], T.bothRow(false)[1], T.countNear(3).join(''), T.countApart(1).join(''), T.nothingAnywhere(true).join(''), T.nothingAnywhere(false).join(''), T.UNIFORM])
+      expect(/Vos réponses|vos réponses/.test(s), s).toBe(true)
     // La Méthode aussi : ce sont des réponses qui sont lues, pas une personne
     for (const s of M.methodWorth()) {
       expect(/personne|quelqu’un/.test(s), s).toBe(false)
@@ -370,10 +507,10 @@ describe('règles d’écriture', () => {
   })
 
   it('aucun « % » dans la synthèse ni dans les phrases d’unité', () => {
-    for (const s of [...sentences, T.SUMMARY_TITLE, T.SUMMARY_EMPTY, T.SUMMARY_NOTE, ...subsets(axis.length).map(x => T.groupLabel(axis, x))]) expect(s, s).not.toContain('%')
+    for (const s of [...sentences, T.SUMMARY_TITLE, T.SUMMARY_NOTE, ...subsets(axis.length).map(x => T.groupLabel(axis, x))]) expect(s, s).not.toContain('%')
     // Le graphique non plus : les pourcentages ne paraissent que dans « Le détail » et la liste d'une ligne ouverte
-    for (const s of [...allSummaries(), T.KEY_TEXT, T.BOTH_HEAD, ...T.BOTH_ROW, ...T.bothRow(false), T.APART_HEAD, T.FLAT_HEAD, T.unreadHead(true), T.unreadHead(false), T.BLOC_NOTE, T.EMPTY_CHART, T.COLORS_NOTE, ...T.countRead(7, 17)])
-      expect(s, s).not.toContain('%')
+    const chart = [...allSummaries(), T.KEY_TEXT, ...T.BOTH_ROW, ...T.bothRow(false), T.BLOC_NOTE, T.COLORS_NOTE, ...T.countNear(7), ...T.countApart(7), T.countRest(1, 2, 3, 4, 5)!]
+    for (const s of [...chart, ...T.nothingAnywhere(true), ...T.nothingAnywhere(false), T.NOT_CENTRE, T.NOTHING_TESTABLE, T.UNIFORM, ...Object.values(T.GROUP_TITLE)]) expect(s, s).not.toContain('%')
   })
 
   it('aucun symbole de lecture : ni ▲ ni ▽ ni point, dans les textes du module comme dans ceux de la page ; seul « ? » reste', () => {
@@ -409,12 +546,63 @@ describe('règles d’écriture', () => {
     }
   })
 
+  /** Les textes des fichiers de la page et de sa rubrique, sans leurs commentaires : du JSX ou des chaînes */
+  const pageTexts = (file: string) => {
+    const code = readFileSync(join(ROOT, file), 'utf8')
+      .replace(/\/\*[\s\S]*?\*\//g, '')
+      .split('\n')
+      .filter(l => !/^\s*\/\//.test(l))
+      .join('\n')
+    return [...code.matchAll(/'([^'\n]*)'|`([^`]*)`|"([^"\n]*)"|>([^<>{}\n]+)</g)].map(m => m[1] ?? m[2] ?? m[3] ?? m[4] ?? '').filter(t => /[a-zà-ÿ]{3}/i.test(t))
+  }
+  const PAGE_FILES = ['src/ui/screens/Profile.tsx', 'src/ui/profile/Chart.tsx', 'src/ui/profile/MethodSection.tsx', 'src/ui/profile/Diagram.tsx']
+
+  it('plus jamais « hasard » pour dire la comparaison (D2), ni « placés au hasard », dans les textes comme dans la page', () => {
+    for (const t of allTexts()) expect(/hasard/i.test(t), t).toBe(false)
+    for (const file of PAGE_FILES) for (const t of pageTexts(file)) expect(/hasard/i.test(t), `${file} : « ${t.slice(0, 120)} »`).toBe(false)
+    // Les feuilles de la calibration : « des feuilles remplies par un programme, sans suivre aucun candidat »
+    for (const t of [T.SUMMARY_NOTE, T.caveats(15)[2]!, M.methodWorth()[1], M.methodBefore()]) expect(t, t).toContain('feuilles remplies par un programme')
+  })
+
+  it('aucun mot de qualité, et rien qui situe la personne : ni « surtout », ni « fragile », ni « solide », ni « presque »', () => {
+    const FORBIDDEN = [/\bsurtout\b/i, /fragile/i, /solide/i, /presque/i, /vous êtes au centre/i, /modéré/i, /incohéren/i, /personne ne vous représente/i, /c’est fréquent/i]
+    for (const t of allTexts()) for (const re of FORBIDDEN) expect(re.test(t), `${re} dans « ${t.slice(0, 120)} »`).toBe(false)
+    for (const file of PAGE_FILES) for (const t of pageTexts(file)) for (const re of FORBIDDEN) expect(re.test(t), `${file} : ${re} dans « ${t.slice(0, 120)} »`).toBe(false)
+  })
+
   it('les espaces insécables du site : avant « : ; ? ! », dans les guillemets, devant « % »', () => {
     for (const t of allTexts()) {
       expect(/ [:;?!»]/.test(t), `espace ordinaire avant une ponctuation haute : « ${t} »`).toBe(false)
       expect(/« /.test(t), `espace ordinaire après « : « ${t} »`).toBe(false)
       expect(/\d %/.test(t), `espace ordinaire devant % : « ${t} »`).toBe(false)
     }
+  })
+})
+
+describe('la rubrique de la Méthode : la comparaison, les deux régimes, l’avant et l’après', () => {
+  it('publie la neutralité bloc par bloc, sans puis avec le candidat (D5)', () => {
+    const [clones] = M.methodWorth()
+    const P = M.ECHIQUIER_PUBLISHED
+    expect(clones).toContain(`dans ${P.hitWithout}${NB}% des cas, de ${P.hitWithoutMin}${NB}% à ${P.hitWithoutMax}${NB}% selon le bloc`)
+    expect(clones).toContain(`Avec lui, comme sur le site, c’est ${P.hitWith}${NB}%, de ${P.hitWithMin}${NB}% à ${P.hitWithMax}${NB}% selon le bloc.`)
+  })
+
+  it('dit l’avant et l’après le calcul sans tirage, chiffres publiés à l’appui (le propriétaire admet la borne prudente)', () => {
+    const P = M.ECHIQUIER_PUBLISHED
+    const B = M.ECHIQUIER_BEFORE
+    // Republié le 15 octobre 2026 : 92 au plus selon le bloc, un sur douze, 2,3 ; avant, 91, un sur onze, 2,4
+    expect([P.hitWithout, P.hitWithoutMax, P.randomThemesMax, P.randomPerProfileMax]).toEqual([71, 92, 8.5, 2.3])
+    expect([B.hitWithout, B.hitWithoutMax, B.randomThemesMax, B.randomPerProfileMax]).toEqual([70, 91, 9, 2.4])
+    const text = M.methodBefore()
+    expect(text).toMatch(/^Jusqu’au 15 octobre 2026, la page tirait au sort 999 de ces façons de poser vos avis\u00a0; depuis, elle n’en tire plus aucune\./)
+    expect(text).toContain(`dans 70${NB}% puis 71${NB}% des cas, de 44${NB}% à 91${NB}% puis de 44${NB}% à 92${NB}% selon le bloc`)
+    expect(text).toContain('une lecture sur un thème sur onze puis sur douze au plus')
+    expect(text).toContain('soit au plus 2,4 puis 2,3 lectures en moyenne sur l’ensemble')
+    expect(text).toContain('1,5 puis 1,7 fois plus de leurs lectures que celui qu’elle classe à gauche, 2,2 puis 2,4 fois après le seul questionnaire rapide')
+    expect(text).toMatch(/L’écart entre le bloc le mieux lu et le moins bien lu s’élargit donc d’un point\u00a0: c’est le prix d’une lecture sans tirage\.$/)
+    // Le même mot pour le rapport, avant comme après : « environ une fois et demie », « environ deux fois »
+    expect(M.methodWorth()[1]).toContain('environ une fois et demie moins sur l’ensemble des questions, environ deux fois moins après le seul questionnaire rapide')
+    expect(M.methodWorth()[1]).toContain('une lecture sur un thème sur vingt à un sur douze selon la façon de répondre, soit de 1,3 à 2,3 lectures')
   })
 })
 

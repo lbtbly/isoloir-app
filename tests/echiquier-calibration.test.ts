@@ -107,7 +107,7 @@ describe('calibration sur l’élection réelle', { timeout: 120_000 }, () => {
   const softChoice = randoms('un-choix-doux')
   const oneChoiceQuick = randoms('un-choix', isQuick)
   const softChoiceQuick = randoms('un-choix-doux', isQuick)
-  it('R1 à R7 : réponses tirées au hasard', () => {
+  it('R1 à R7 : feuilles remplies par un programme, sans suivre aucun candidat', () => {
     const agreeOnly = randoms('accord-seul')
     const allButOne = randoms('tout-sauf-un')
     for (const [name, acc] of [['audit', audit], ['uniforme', uniform], ['un-choix', oneChoice]] as const) expect(pct(acc.read, acc.themes), `R1 ${name}`).toBeLessThanOrEqual(10)
@@ -184,10 +184,10 @@ describe('calibration sur l’élection réelle', { timeout: 120_000 }, () => {
       const a = largeWithout.perBloc[from]!
       expect(pct(a.share[to]!, a.read), `clones du bloc ${from} lus au bloc ${to}`).toBeGreaterThanOrEqual(15)
     }
-    expect(Math.abs(pct(audit.read, audit.themes) - P.randomThemes), 'thèmes lus au hasard').toBeLessThanOrEqual(5)
-    expect(Math.abs(pct(softChoice.read, softChoice.themes) - P.randomThemesMax), 'thèmes lus au hasard, un seul accord').toBeLessThanOrEqual(5)
-    expect(Math.abs(audit.items / audit.profiles - P.randomPerProfile), 'lectures par profil au hasard').toBeLessThanOrEqual(0.5)
-    expect(Math.abs(softChoice.items / softChoice.profiles - P.randomPerProfileMax), 'lectures par profil au hasard, un seul accord').toBeLessThanOrEqual(0.5)
+    expect(Math.abs(pct(audit.read, audit.themes) - P.randomThemes), 'thèmes lus, feuilles d’essai').toBeLessThanOrEqual(5)
+    expect(Math.abs(pct(softChoice.read, softChoice.themes) - P.randomThemesMax), 'thèmes lus, feuilles d’essai, un seul accord').toBeLessThanOrEqual(5)
+    expect(Math.abs(audit.items / audit.profiles - P.randomPerProfile), 'lectures par feuille d’essai').toBeLessThanOrEqual(0.5)
+    expect(Math.abs(softChoice.items / softChoice.profiles - P.randomPerProfileMax), 'lectures par feuille d’essai, un seul accord').toBeLessThanOrEqual(0.5)
     // Un seul accord par question : la part moyenne des extrêmes, rapportée à celle de la gauche, dans la synthèse ;
     // sur la banque entière, puis sur le seul questionnaire rapide
     const ratio = (accs: Tally[]) => {

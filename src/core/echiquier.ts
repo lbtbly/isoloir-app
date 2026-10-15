@@ -74,6 +74,13 @@ export interface BlocCell {
    * sa borne calculée, jamais plus petite ; null sans test
    */
   p: number | null
+  /**
+   * Quand toutes les façons ont été comptées (UnitReading.exact) : combien, la vôtre comprise, éloignent l'affinité du
+   * bloc de leur moyenne au moins autant que la vôtre, du même côté (pour un bloc nettement plus près, celles qui en
+   * rapprochent au moins autant). Le compte du bloc seul, que dit « Le détail » ; la lecture, elle, compare chaque bloc
+   * aux autres à la fois (p). Null au-delà de COUNT_MAX façons et sans test
+   */
+  alike: number | null
   mark: Mark
 }
 
@@ -463,11 +470,16 @@ function stats(x: Float64Array): [number, number, number, number] {
   return [mean, q / x.length, min, max]
 }
 
-/** Ce que le test dit de chaque bloc connu, au signe près (voir readUnit) : p, moyenne des façons, écart réduit observé */
+/**
+ * Ce que le test dit de chaque bloc connu, au signe près (voir readUnit) : p, moyenne des façons, écart réduit observé ;
+ * alike, au compte complet seulement : les façons qui écartent le bloc de sa moyenne au moins autant que l'observée, du
+ * même côté (BlocCell.alike)
+ */
 interface Fit {
   p: Float64Array
   mu: Float64Array
   z: Float64Array
+  alike: Float64Array | null
 }
 
 /** L'écart-type sous lequel un bloc ne compte pas : bloc constant (son écart réduit vaut alors 0) */
@@ -537,6 +549,10 @@ function* countAll(models: readonly BlocModel[], cands: readonly number[], per: 
   const order = thr.map((_, k) => k).sort((a, b) => thr[a]! - thr[b]!)
   const sorted = order.map(k => thr[k]!)
   const hist = new Float64Array(K + 1)
+  // Bloc par bloc, les façons du même côté de la moyenne que l'observée, au moins aussi loin (alike) : au-dessus d'elle
+  // quand elle est au-dessus de la moyenne, en dessous sinon ; à TIE près, l'observée se compte toujours
+  const up = Uint8Array.from(xs, (x, k) => (x >= mu[k]! ? 1 : 0))
+  const alike = new Float64Array(K)
   let total = 0
   let leaves = 0
   const pre = Array.from({ length: m + 1 }, () => new Float64Array(K))
@@ -557,8 +573,10 @@ function* countAll(models: readonly BlocModel[], cands: readonly number[], per: 
       const fin = pre[m]!
       let t = 0
       for (let k = 0; k < K; k++) {
-        const d = def[k] ? Math.abs(fin[k]! - mu[k]!) * inv[k]! : 0
+        if (!def[k]) continue
+        const d = Math.abs(fin[k]! - mu[k]!) * inv[k]!
         if (d > t) t = d
+        if (up[k] ? fin[k]! >= xs[k]! - TIE : fin[k]! <= xs[k]! + TIE) alike[k]! += wpre[m]!
       }
       let R = 0
       while (R < K && sorted[R]! <= t) R++
@@ -580,7 +598,7 @@ function* countAll(models: readonly BlocModel[], cands: readonly number[], per: 
     for (let R = r + 1; R <= K; R++) ge += hist[R]!
     p[k] = ge / total
   })
-  return { p, mu, z }
+  return { p, mu, z, alike }
 }
 
 /** La loi d'un bloc au-delà de COUNT_MAX façons (blocLaw) */
@@ -714,7 +732,7 @@ function* bound(models: readonly BlocModel[], members: readonly (readonly number
     for (const law of laws) if (law.sd > FLAT) s += law.tail(t * law.sd)
     return Math.min(1, s)
   })
-  return { p, mu: Float64Array.from(laws, law => law.mu), z }
+  return { p, mu: Float64Array.from(laws, law => law.mu), z, alike: null }
 }
 
 /** Une unité de lecture : un thème, ou une famille d'au moins deux thèmes */
@@ -770,6 +788,7 @@ function* readUnit(
     affinity: Number.isFinite(S[b]!) ? S[b]! : null,
     chance: null,
     p: null,
+    alike: null,
     mark: Number.isFinite(S[b]!) ? 'rien' : 'inconnu',
   }))
   const reading: UnitReading = {
@@ -848,6 +867,7 @@ function* readUnit(
     const cell = cells[b]!
     cell.p = p
     cell.chance = flip ? 100 - m : m
+    cell.alike = fit.alike ? fit.alike[k]! : null
     if (flip ? down : up) {
       cell.mark = 'pres'
       reading.near.push(b)

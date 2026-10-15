@@ -11,11 +11,18 @@
 //   point, ni moyenne entre thèmes, ni « en tête » ;
 // - aucun symbole de lecture : les mots « nettement plus près » et « nettement plus loin » ; seul « ? » reste, avec son
 //   mot (décision du propriétaire du 12 octobre 2026 : les couleurs des cases suffisent).
+// - aucun mot de qualité (« surtout », « fragile », « solide », « presque ») ; jamais « vous êtes au centre »,
+//   « modéré », « incohérent », « personne ne vous représente » ; chaque phrase ne paraît que quand elle est vraie ;
+// - la comparaison se dit « les autres façons de poser vos mêmes avis », jamais « hasard » ; les profils de la
+//   calibration sont « des feuilles remplies par un programme, sans suivre aucun candidat » (décision du propriétaire du
+//   15 octobre 2026, D2).
+// Vocabulaire : un « domaine » est une famille de thèmes (pack.topicGroups), un « sujet » une ligne du graphique (un
+// thème, ou sa famille entière), un « thème » celui de la banque.
 // Typographie du site : espaces insécables avant « : ; ? ! », dans les guillemets et devant « % » (fr()).
 // tests/echiquier-copy.test.ts vérifie ces règles.
 
 import { affinityBand } from './affinity'
-import { fr, word } from './echiquierCommonCopy'
+import { fr, PRIVACY, word } from './echiquierCommonCopy'
 import { joinNames, signed } from './resultsCopy'
 import type { Mark, UnitReading } from './echiquier'
 import { segments } from './echiquier'
@@ -40,10 +47,15 @@ const cap = (s: string) => s.charAt(0).toLocaleUpperCase('fr') + s.slice(1)
  *  le code de toutes les visites */
 export { PROFILE_GRID_LINK as GRID_LINK, PROFILE_PANEL as PANEL_DESC, PROFILE_TITLE } from './resultsCopy'
 
+/** Le chapeau : la question, puis ce que la page n'est pas, et où est le classement (le lien, posé par la page) */
 export const LEDE = fr(
-  'Vos réponses sur l’échiquier, thème par thème : se rapprochent-elles nettement des candidats qu’une grille officielle range à gauche, au centre ou à droite ? Une lecture de vos réponses, pas une étiquette.',
+  'Vos réponses sur l’échiquier, thème par thème : se rapprochent-elles nettement des candidats qu’une grille officielle range à gauche, au centre ou à droite ?',
 )
-export const NO_AI = fr('Calcul sans IA, sur cet appareil ; rien n’est enregistré.')
+export const LEDE_VOTE = [fr('Une lecture, pas un conseil de vote : le classement est dans '), 'Résultats'] as const
+/** La page d'attente : la même phrase, sans le lien (le classement n'y est pas encore complet) */
+export const LEDE_WAIT = 'Une lecture, pas un conseil de vote.'
+/** Sous le chapeau : ce qui reste sur l'appareil (le même texte que « Vie privée » de la Méthode) */
+export { PRIVACY }
 
 // ——— États de la page ———
 
@@ -66,7 +78,8 @@ export const waitText = (state: WaitState, total: number, left: number, added: b
     state === 'vide'
       ? `La lecture se fait sur vos réponses : elle s’affiche au bout des ${plural(total, 'question')} du questionnaire rapide, avec le dépouillement complet.`
       : state === 'sans-avis'
-        ? `Vous avez passé les ${plural(total, 'question')} sans placer de repère : la lecture se fait sur vos avis, « d’accord » ou « pas d’accord ».`
+        ? // Toutes les questions du questionnaire rapide vues, mais aucun avis qui compte : passées, vues sans avis, ou à revoir
+          'Aucune de vos réponses ne donne encore d’avis qui compte : la lecture se fait sur vos « d’accord » et vos « pas d’accord », hors questions passées et questions à revoir.'
         : added
           ? left > 1
             ? `${plural(left, 'question')} ont été ajoutées au questionnaire rapide depuis vos réponses : la lecture s’affiche de nouveau une fois ces questions vues.`
@@ -84,15 +97,18 @@ export const WAIT_DEEPEN = fr(
   'Après le questionnaire rapide, la plupart des thèmes n’ont qu’une question ; il en faut deux pour lire un thème seul. Approfondir, ensuite, permet de les lire un par un.',
 )
 
-// La fiche « Pour lire plus de thèmes », avant le graphique, tant que des thèmes à compléter ont des questions
-// approfondies à voir (core/echiquier.ts, deeperTopics)
+// La fiche « Pour lire plus de thèmes », tant que des thèmes à compléter ont des questions approfondies à voir
+// (core/echiquier.ts, deeperTopics) : après les domaines, repliée ; ouverte sous le compte au seul questionnaire rapide,
+// ou quand rien n'est net nulle part
 export const DEEPER_TITLE = 'Pour lire plus de thèmes'
 export const deeperLede = (quickOnly: boolean) =>
-  fr(
-    quickOnly
-      ? 'Après le questionnaire rapide, la lecture se fait surtout par famille de thèmes : il faut au moins deux questions pour lire un thème seul.'
-      : 'Il faut au moins deux questions pour lire un thème seul.',
-  )
+  fr(quickOnly ? 'Après le questionnaire rapide, la lecture se fait par domaine : il faut au moins deux questions pour lire un thème seul.' : 'Il faut au moins deux questions pour lire un thème seul.')
+/**
+ * Ce que compte la fiche, sur sa ligne : repliée, ce qu'elle reprend (« 3 sans réponse, 8 sur une seule question ») ;
+ * ouverte, le nombre de ses thèmes
+ */
+export const deeperCount = (none: number, thin: number, folded: boolean) =>
+  folded ? [none ? `${none}${NB}sans réponse` : '', thin ? `${thin}${NB}sur une seule question` : ''].filter(Boolean).join(', ') : plural(none + thin, 'thème')
 /** « Sur une seule question : 16 thèmes » ; ceux sans réponse : unansweredLine */
 export const thinLine = (n: number) => fr(`Sur une seule question : ${plural(n, 'thème')}`)
 /** Le nom lu d'un thème de la fiche, devant son nom visible : le lien le coche dans « Approfondir » */
@@ -101,16 +117,9 @@ export const DEEPER_GO = 'Choisir les thèmes à approfondir'
 export const STATUS_BUSY = 'Lecture en cours, sur cet appareil…'
 export const STATUS_READY = 'Lecture prête.'
 
-// ——— Comment lire ———
+// ——— Comment c'est calculé : huit points au plus, le reste dans la Méthode ———
 
-export const HOW_TITLE = 'Comment lire'
-export const WHO_COUNTS = 'Qui compte dans chaque bloc'
-/** Point 1, autour de la source de la grille (un lien, posé par la page) */
-export const HOW_COLUMNS = [
-  fr('Les colonnes (les lignes, sur un écran étroit) : les cinq blocs de la grille des nuances politiques du ministère de l’Intérieur ('),
-  fr('), de l’extrême gauche à l’extrême droite. Cette grille a été écrite pour les sénatoriales 2026 ; la présidentielle n’en a pas. Les libellés sont les siens.'),
-] as const
-/** Point 2 : qui compte ; panel : candidats de l'axe ; unscored : candidats non classés de l'élection */
+/** Point 1 : qui compte ; panel : candidats de l'axe ; unscored : candidats non classés de l'élection */
 export const howWho = (panel: number, unscored: number) =>
   fr(
     `Comptent les ${panel} candidats classés. ${
@@ -119,22 +128,37 @@ export const howWho = (panel: number, unscored: number) =>
         : 'Ne compte pas : le bloc « Autres » de la grille (écologistes, divers), qui n’est pas une place entre la gauche et le centre.'
     }`,
   )
+/** Point 2 : le calcul, et ce à quoi on le compare */
 export const HOW_CALC = fr(
-  'Pour chaque bloc, on fait la moyenne de votre affinité, sur le thème, avec ses candidats (les pourcentages de « Par thème »). Puis on refait le même calcul avec vos mêmes avis placés au hasard entre les approches de chaque question.',
+  'Pour chaque bloc, on fait la moyenne de votre affinité, sur le thème, avec ses candidats (les pourcentages de « Par thème »). Puis le même calcul pour toutes les autres façons de poser vos mêmes avis : sur chaque question, autant de « d’accord », de « pas d’accord » et de « sans avis », posés sur d’autres approches. Ce qui compte : où vont vos avis, pas leur nombre.',
 )
 /**
- * Points 4 et 5 : la couleur d'une case, palier par palier, et ce qu'elle ne dit pas (le même texte dans la Méthode) :
+ * Points 3 et 6 : la couleur d'une case, palier par palier, et ce qu'elle ne dit pas (le même texte dans la Méthode) :
  * dans core/echiquierCommonCopy.ts, avec la rubrique de la Méthode
  */
 export { COLORS_CHANCE, HOW_COLOR } from './echiquierCommonCopy'
-/** Point 6 : les lectures nettes, et le bloc inconnu */
+/** Point 4, en un seul point : les lectures nettes, et le bloc inconnu */
 export const HOW_MARKS: readonly string[] = [
-  fr('Nettement plus près : votre affinité avec ce bloc dépasse nettement celle de vos avis placés au hasard.'),
+  fr('Nettement plus près : votre affinité avec ce bloc dépasse nettement celle des autres façons de poser vos mêmes avis.'),
   fr('Nettement plus loin : elle reste nettement en dessous. Sinon, rien de net, quelle que soit la couleur.'),
   fr('? inconnu : aucun candidat du bloc n’est connu sur vos questions.'),
 ]
-export const HOW_NETTEMENT = fr('Nettement : des avis placés au hasard n’y arrivent pas neuf fois sur dix.')
-export const HOW_MIN = fr('Il faut au moins deux questions pour lire un thème. Quand aucun thème d’une famille ne se lit seul, la famille entière est lue.')
+/** Point 5 : « nettement », le seuil du test (p ≤ 0,10), puis son exemple, sur des questions fictives */
+export const HOW_NETTEMENT = fr(
+  'Nettement : posés de toutes les façons possibles sur les approches de chaque question, la vôtre comprise, vos mêmes avis font un tel écart une fois sur dix au plus, avec un bloc ou un autre.',
+)
+export const HOW_EXAMPLE_TITLE = fr('Un exemple, sur des questions fictives :')
+/** 5! / (1! 1! 3!) = 20 façons ; 20 × 20 = 400 ; une sur dix au plus : 40 */
+export const HOW_EXAMPLE: readonly string[] = [
+  fr('Une question, cinq approches (de A à E). Votre avis : « d’accord » pour B, « pas d’accord » pour D, « sans avis » ailleurs.'),
+  fr(`Ces mêmes avis peuvent se poser de 20${NB}façons, la vôtre comprise.`),
+  fr(`Sur deux questions comme celle-ci : 20 fois 20, soit 400${NB}façons.`),
+  fr('Pour chacune, le même calcul : l’affinité avec chaque bloc.'),
+  fr(`Pour « nettement plus près », il faut que 40 de ces 400${NB}façons au plus fassent un écart aussi marqué.`),
+]
+/** Point 7 */
+export const HOW_MIN = fr('Il faut au moins deux questions pour lire un thème. Quand aucun thème d’un domaine ne se lit seul, le domaine entier est lu.')
+/** Point 8 */
 export const HOW_NO_EFFECT = fr('Ni votre score, ni le classement, ni vos priorités n’en dépendent.')
 
 // ——— Cases : le palier d'affinité, et les lectures nettes en mots ———
@@ -184,10 +208,16 @@ export function groupLabel(axis: readonly SpectrumAxisBloc[], near: readonly num
 export const onQuestions = (n: number) => `sur ${plural(n, 'question')}`
 /** En-tête d'une ligne de famille : « Les 5 thèmes ensemble » */
 export const familyHead = (k: number) => `Les ${k} thèmes ensemble`
-export const FAMILY_WHOLE = '(la famille entière)'
 
-/** La phrase d'une unité lue (lecture, écarts, rien de net, blocs inconnus) ; « une-question » : voir oneQuestion */
-export function unitSentence(axis: readonly SpectrumAxisBloc[], r: Pick<UnitReading, 'status' | 'near' | 'far' | 'cells' | 'kind'>): string {
+/** « 97 200 » : les milliers séparés par une espace insécable */
+const thousands = (n: number) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, NB)
+
+/**
+ * La phrase d'une unité (lecture, écarts, rien de net, blocs inconnus, une seule question). Rien de net : la seule cause
+ * dite est celle que le calcul rend certaine, trop peu de façons de poser vos mêmes avis (moins de dix : la vôtre, qui
+ * compte toujours, pèse déjà plus d'une sur dix) ; sinon, un constat, jamais une cause prêtée à la personne
+ */
+export function unitSentence(axis: readonly SpectrumAxisBloc[], r: Pick<UnitReading, 'status' | 'near' | 'far' | 'cells' | 'kind' | 'ways'>): string {
   const unknown = r.cells.flatMap((c, b) => (c.mark === 'inconnu' ? [b] : []))
   const far = r.far.length ? whereAll(axis, r.far) : ''
   let text: string
@@ -206,20 +236,34 @@ export function unitSentence(axis: readonly SpectrumAxisBloc[], r: Pick<UnitRead
       text = `Vos réponses ne se rapprochent nettement d’aucun bloc ; elles s’écartent nettement des candidats que la grille classe ${far}.`
       break
     case 'aucun':
-      text = 'Rien de net : vos réponses ne se rapprochent ni ne s’écartent nettement des candidats d’aucun bloc.'
+      text =
+        r.ways === 1
+          ? 'Rien de net : vos mêmes avis ne pouvaient se poser que d’une seule façon sur ces questions, la vôtre ; rien à comparer.'
+          : r.ways < MIN_WAYS
+            ? `Rien de net : vos mêmes avis ne pouvaient se poser que de ${r.ways}${NB}façons sur ces questions, trop peu pour conclure (il en faut au moins dix).`
+            : `Rien de net : sur ${r.kind === 'famille' ? 'ce domaine' : 'ce thème'}, vos réponses ne se distinguent pas assez des autres façons de poser vos mêmes avis, quelle que soit la couleur des cases.`
       break
     case 'blocs-inconnus':
       return fr(
-        `Pas de lecture nette : la position des candidats que la grille classe ${whereAll(axis, unknown)} n’est pas connue sur vos questions ${r.kind === 'famille' ? 'de cette famille' : 'de ce thème'}.`,
+        `Pas de lecture nette : la position des candidats que la grille classe ${whereAll(axis, unknown)} n’est pas connue sur vos questions ${r.kind === 'famille' ? 'de ce domaine' : 'de ce thème'}.`,
       )
     case 'une-question':
-      return ONE_QUESTION
+      return ONE_QUESTION_LEAD
   }
   // « que la grille classe » : la phrase « Rien de net » ne nomme pas la grille, « qu’elle » n'y aurait pas d'antécédent
   if (unknown.length === 1) text += ` La position des candidats que la grille classe ${where(axis, unknown)} n’est pas connue ici : la lecture se fait sans eux.`
   return fr(text)
 }
 
+/**
+ * Moins de façons de poser vos mêmes avis que cela : rien ne peut être net, la vôtre comptant toujours (p ≥ 1 / N, plus
+ * d'une sur dix)
+ */
+export const MIN_WAYS = 10
+
+/** Une ligne d'une seule question, ouverte : la règle, puis ce que disent ses couleurs */
+export const ONE_QUESTION_LEAD = fr('Sur une seule question, la page ne conclut pas : il en faut deux pour lire un thème. Ces couleurs donnent seulement votre affinité.')
+/** La même, en bref : le nom lu d'une ligne */
 export const ONE_QUESTION = fr('Une seule question : pas de lecture nette.')
 export const DEEPEN_THEME = 'Approfondir ce thème'
 
@@ -249,23 +293,74 @@ export function oneQuestion(axis: readonly SpectrumAxisBloc[], carriers: readonl
 // ——— Synthèse ———
 
 export const SUMMARY_TITLE = fr('Où vos réponses se rapprochent nettement d’un bloc de la grille')
-export const SUMMARY_EMPTY = fr('Aucun thème ne se rapproche nettement d’un bloc. C’est fréquent : la lecture ne conclut que si l’écart dépasse nettement le hasard.')
+/** Sous le graphique, en petit corps gris : ce que vaut une lecture nette, chiffres de la Méthode (ECHIQUIER_PUBLISHED) */
 export const SUMMARY_NOTE = fr(
-  'Selon la grille des nuances du ministère de l’Intérieur. Des réponses données au hasard obtiennent aussi quelques lectures, une ou deux en moyenne sur l’ensemble des thèmes, un peu plus selon la façon de répondre : chaque lecture se vérifie dans son détail.',
+  'Selon la grille des nuances du ministère de l’Intérieur. Une lecture nette n’est pas une certitude : des feuilles remplies par un programme, sans suivre aucun candidat, en obtiennent aussi une ou deux sur l’ensemble des thèmes, un peu plus selon la façon de répondre. Chaque lecture se vérifie dans son détail.',
 )
 export const nothingLine = (n: number) => fr(`Rien de net : ${plural(n, 'thème')}`)
 export const apartLine = (n: number) => fr(`Seulement plus loin d’un bloc : ${plural(n, 'thème')}`)
 export const noReadingLine = (n: number) => fr(`Pas de lecture : ${plural(n, 'thème')}, sur une seule question ou faute de candidats connus`)
 export const unansweredLine = (n: number) => fr(`Sans réponse : ${plural(n, 'thème')}`)
 
-// ——— Le graphique « Sujet par sujet » : une ligne par sujet lu (ui/profile/Chart.tsx) ———
-// Un sujet : un thème lu, ou sa famille entière quand aucun de ses thèmes ne se lit seul.
+// ——— Le graphique « Domaine par domaine » : une ligne par sujet, sous son domaine (ui/profile/Chart.tsx) ———
+// Un sujet : un thème lu, ou sa famille entière quand aucun de ses thèmes ne se lit seul ; un domaine : une famille.
 
-export const CHART_TITLE = 'Sujet par sujet'
-/** Le compte, en tête du graphique : [avant, en gras, après] ; flat : sujets sans rien de net */
-export const countRead = (read: number, flat: number) =>
-  ['Sur ', plural(read, 'sujet'), fr(`, vos réponses se rapprochent nettement d’un bloc de la grille${flat ? ` ; sur ${flat}, rien de net` : ''}.`)] as const
-export const COUNT_NONE = fr('Pour ces réponses, aucun sujet ne se rapproche nettement d’un bloc de la grille.')
+export const CHART_TITLE = 'Domaine par domaine'
+/** Le compte de tête cite au plus ce nombre de sujets, chacun un lien qui ouvre sa ligne, puis « et N autres » */
+export const COUNT_NAMES = 5
+/**
+ * Le compte (C0), des lectures nettes : [avant, en gras, après], puis la page pose les noms, séparés de virgules (un
+ * nom peut contenir « et »), et countEnd
+ */
+export const countNear = (n: number) => ['Sur ', plural(n, 'sujet'), fr(', vos réponses se rapprochent nettement d’un bloc : ')] as const
+/** Sans rapprochement, des écarts (C6) : de même, les noms des sujets seulement plus loin */
+export const countApart = (n: number) =>
+  ['Sur ', 'aucun sujet', fr(`, vos réponses ne se rapprochent nettement d’un bloc de la grille ; sur ${plural(n, 'sujet')}, elles s’écartent nettement d’au moins un : `)] as const
+/** La fin du compte : « . », ou « et 2 autres. » au-delà de COUNT_NAMES */
+export const countEnd = (more: number) => (more > 0 ? ` et ${more}${NB}autre${more > 1 ? 's' : ''}.` : '.')
+/**
+ * Puis, en gris, ce qui n'a pas compté (C0) : les sujets seulement plus loin quand il y a aussi des lectures, ceux sans
+ * rien de net, les thèmes d'une seule question et ceux faute de candidats connus ; enfin les questions vues sans avis qui
+ * compte (passées, sans avis ou à revoir). Chaque part seulement si elle compte quelque chose ; null s'il n'y a rien
+ */
+export function countRest(apart: number, flat: number, thin: number, unknown: number, unseen: number): string | null {
+  const parts = [
+    apart ? `seulement plus loin sur ${plural(apart, 'sujet')}` : '',
+    flat ? `rien de net sur ${plural(flat, 'sujet')}` : '',
+    thin ? `${plural(thin, 'thème')} sur une seule question` : '',
+    unknown ? `${plural(unknown, 'thème')} faute de candidats connus` : '',
+  ].filter(Boolean)
+  const seen = unseen ? `${plural(unseen, 'question')} sans avis ou à revoir ${unseen > 1 ? 'ne comptent' : 'ne compte'} pas` : ''
+  const text = [parts.join(', '), seen].filter(Boolean).join(' ; ')
+  return text ? fr(`${cap(text)}.`) : null
+}
+
+// Les états de tête, à la place du compte, avant l'axe : rien de net nulle part (C5), aucun sujet à l'épreuve (C5 bis),
+// des avis uniformes (C9). Des constats ; jamais « c'est fréquent », jamais une cause prêtée à la personne.
+/**
+ * C5 : des sujets mis à l'épreuve, ni rapprochement ni écart : [avant, en gras, après]. quick : après le seul
+ * questionnaire rapide, quand la plupart des thèmes répondus n'ont qu'une question (la cause, certaine)
+ */
+export const nothingAnywhere = (quick: boolean) =>
+  [
+    'Sur ',
+    'aucun sujet',
+    fr(
+      quick
+        ? ', vos réponses ne se rapprochent ni ne s’écartent nettement d’un bloc. Après le seul questionnaire rapide, la plupart des thèmes n’ont qu’une question : la lecture se fait par domaine.'
+        : ', vos réponses ne se rapprochent ni ne s’écartent nettement d’un bloc : elles ne se distinguent pas assez des autres façons de poser vos mêmes avis.',
+    ),
+  ] as const
+/** Avec C5 : une absence de lecture n'est pas une place (la page ne fait pas de moyenne) */
+export const NOT_CENTRE = fr('Ce n’est pas une place au centre : la page ne fait pas de moyenne entre les blocs.')
+/** Avec C5, hors questionnaire rapide : où est le classement (le lien, posé par la page) */
+export const YOUR_RANKING = [fr('Votre classement : '), 'Résultats'] as const
+/** C5 bis : aucun sujet ne peut être mis à l'épreuve */
+export const NOTHING_TESTABLE = fr('Pas encore de sujet à lire : il faut deux questions sur un même thème, ou deux thèmes répondus dans un même domaine.')
+/** C9 : chaque question répondue donne le même avis à toutes ses approches (rows.ts, uniformViews) */
+export const UNIFORM = fr(
+  'Sur chaque question, vos réponses donnent le même avis à toutes les approches : il n’y a qu’une façon de poser ces avis, la vôtre, donc rien à comparer. Les couleurs donnent seulement votre affinité.',
+)
 /** Au-dessus du graphique, selon le pointeur : le doigt ou la souris */
 export const HINT_TOUCH = 'Touchez un sujet pour voir pourquoi.'
 export const HINT_CLICK = 'Cliquez sur un sujet pour voir pourquoi.'
@@ -279,7 +374,7 @@ export const zonesLabel = (blocs: number, panel: number) =>
 export const WHO_LIST = fr('Qui la grille range dans chaque bloc :')
 /** « 3 questions » */
 export const questionsCount = (n: number) => plural(n, 'question')
-/** Une ligne de famille : « 4 thèmes ensemble » */
+/** Une ligne de famille, pour les lecteurs d'écran : « 4 thèmes ensemble » */
 export const themesTogether = (k: number) => `${k} thèmes ensemble`
 
 /**
@@ -293,42 +388,33 @@ export function rowSummary(labels: readonly string[], name: string, meta: string
   return fr(`${name}, ${meta}. Selon la grille : ${blocs}.${tail}`)
 }
 
-/** Nom de la liste des lignes lues d'un seul côté, pour les lecteurs d'écran */
-export const MAIN_LABEL = fr('Sujets où vos réponses se rapprochent nettement d’un bloc, rangés de la gauche vers la droite de la grille')
 /**
- * Les lectures de part et d'autre du centre, sans lui (ui/profile/rows.ts, acrossCentre) : l'intertitre, sa phrase, et
- * la note d'une ligne ouverte. « Aux deux bouts » quand elles touchent l'extrême gauche et l'extrême droite ; sinon
+ * Les groupes d'un domaine, sous un court intertitre gris (ui/profile/rows.ts) ; les lectures nettes d'un seul côté
+ * n'en ont pas, seulement un nom pour les lecteurs d'écran. Le rangement et les mots disent « net », jamais la couleur.
+ */
+export const NET_LABEL = fr('Sujets où vos réponses se rapprochent nettement d’un bloc de la grille')
+export const GROUP_TITLE = { apart: 'Seulement plus loin', flat: 'Rien de net', thin: 'Sur une seule question', unknown: 'Faute de candidats connus' } as const
+/**
+ * Les lectures de part et d'autre du centre, sans lui (ui/profile/rows.ts, acrossCentre) : l'intertitre de leur groupe,
+ * et la note d'une ligne ouverte. « Aux deux bouts » quand elles touchent l'extrême gauche et l'extrême droite ; sinon
  * (gauche et droite, extrême gauche et droite…), « des deux côtés ».
  */
 export const BOTH_TITLE = 'Aux deux bouts à la fois'
 export const SIDES_TITLE = 'Des deux côtés à la fois'
-/** L'intertitre de la section : ends, toutes ses lignes touchent les deux bouts de la grille */
+/** L'intertitre du groupe : ends, toutes ses lignes touchent les deux bouts de la grille */
 export const bothTitle = (ends: boolean) => (ends ? BOTH_TITLE : SIDES_TITLE)
-export const BOTH_HEAD = fr('Sur ces sujets, vos réponses se rapprochent nettement de candidats que la grille classe des deux côtés. On ne fait pas de moyenne : ce n’est pas le centre.')
 export const BOTH_ROW = ['Aux deux bouts à la fois. ', fr('Vos réponses rejoignent ici des candidats des deux côtés de la grille. On ne les additionne pas : ce n’est pas une place au centre.')] as const
 /** La note d'une ligne ouverte : [en gras, la suite] ; ends, la ligne touche les deux bouts de la grille */
 export const bothRow = (ends: boolean) => (ends ? BOTH_ROW : ([`${SIDES_TITLE}. `, BOTH_ROW[1]] as const))
-export const APART_TITLE = 'Seulement plus loin'
-export const APART_HEAD = fr('Sur ces sujets, vos réponses ne se rapprochent nettement d’aucun bloc, mais s’écartent nettement d’au moins un.')
 /** Une ligne ouverte : chaque bloc, son palier et son affinité moyenne, sa lecture nette, et alors ses candidats */
 export const BLOCS_TITLE = 'Votre affinité, bloc par bloc'
 /** « (2 autres, position inconnue ici) » */
 export const othersUnknown = (n: number) => `(${n} autre${n > 1 ? 's' : ''}, position inconnue ici)`
+/** Une ligne ouverte qui a une lecture nette (plus près ou plus loin) */
 export const BLOC_NOTE = fr('La lecture porte sur le bloc entier : les candidats d’un même bloc ne pensent pas tous pareil. Le détail donne votre affinité avec chacun.')
 export const SEE_DETAIL = 'Voir le détail'
 /** Un thème sur une seule question, dont la famille entière a sa ligne */
-export const readWithFamily = (family: string) => fr(`Lu avec les autres thèmes de sa famille : « ${family} ».`)
-/** Ni lecture ni écart nulle part */
-export const EMPTY_CHART = fr('C’est fréquent : la lecture ne conclut que si l’écart dépasse nettement le hasard.')
-/** Les sujets sans tendance nette, sous les lectures : l'intertitre et sa phrase */
-export const flatTitle = (n: number) => `${plural(n, 'sujet')} sans tendance nette`
-export const FLAT_HEAD = fr('Sur ces sujets, vos réponses ne se rapprochent ni ne s’écartent nettement d’aucun bloc : leurs couleurs restent à la portée du hasard.')
-/** Puis les thèmes sans lecture nette : « 16 thèmes sur une seule question », ou, avec des blocs inconnus, sans lecture nette */
-export const unreadTitle = (n: number, oneQuestionOnly: boolean) => (oneQuestionOnly ? `${plural(n, 'thème')} sur une seule question` : `${plural(n, 'thème')} sans lecture nette`)
-export const unreadHead = (oneQuestionOnly: boolean) =>
-  fr(
-    `${oneQuestionOnly ? 'Une seule question ne permet pas de dire' : 'Sur une seule question, ou faute de candidats connus, on ne peut pas dire'} si un écart dépasse nettement le hasard : ces couleurs se lisent avec prudence.`,
-  )
+export const readWithFamily = (family: string) => fr(`Lu avec les autres thèmes de son domaine : « ${family} ».`)
 /** Sous le graphique : la source des colonnes, autour du lien (posé par la page) */
 export const SOURCE = [
   fr('Les cinq colonnes sont les blocs de la grille des nuances politiques du ministère de l’Intérieur ('),
@@ -349,39 +435,59 @@ export const CALC_TITLE = 'Comment c’est calculé'
 // ——— Le détail, sujet par sujet : le tableau complet, replié ———
 
 export const DETAIL_TITLE = 'Le détail, sujet par sujet'
-export const DETAIL_INTRO = fr('Pour chaque bloc : votre affinité moyenne avec ses candidats, la même avec vos avis placés au hasard, et l’écart. Puis, dans la page, chaque candidat et chaque question.')
-export const detailShow = (n: number) => (n > 1 ? `Afficher le détail des ${n} sujets` : 'Afficher le détail du sujet')
+export const DETAIL_INTRO = fr(
+  'Pour chaque bloc : votre affinité moyenne avec ses candidats, la même moyenne pour les autres façons de poser vos mêmes avis, et l’écart. Puis, dans la page, chaque candidat et chaque question.',
+)
+/** Le bouton du tableau : ses thèmes, et leurs domaines entiers quand il y en a (une ligne chacun) */
+export const detailShow = (themes: number, families: number) =>
+  themes > 1 ? `Afficher le détail des ${themes} thèmes${families ? ' et de leurs domaines' : ''}` : 'Afficher le détail du thème'
 
 // ——— Le tableau ———
 
-export const TABLE_TITLE = 'Thème par thème'
 export const TABLE_CAPTION = 'Vos réponses face aux candidats de chaque bloc de la grille, par thème'
 export const TABLE_THEME = 'Thème'
 
 // ——— Le détail d'une unité ———
 
 export const DETAIL = 'Le détail'
-export const DETAIL_HEADS = ['Bloc', 'Candidats connus', 'Votre affinité moyenne', 'Vos avis placés au hasard', 'Écart'] as const
+export const DETAIL_HEADS = ['Bloc', 'Candidats connus', 'Votre affinité moyenne', 'Avec vos mêmes avis, autrement placés', 'Écart'] as const
 export const NONE_KNOWN = 'aucun candidat connu'
 export const ONE_KNOWN = '(un seul candidat connu)'
 /** « 65 % » */
 export const pct = (v: number) => `${Math.round(v)}${NB}%`
-/** L'écart au hasard, en points signés, et la lecture nette en mots : « +42 points, nettement plus près » */
+/** L'écart aux autres façons de poser vos mêmes avis, en points signés, et la lecture nette en mots : « +42 points, nettement plus près » */
 export const gap = (affinity: number, chance: number, mark: Mark) => {
   const d = Math.round(affinity) - Math.round(chance)
   const net = netWord(mark)
   return `${signed(d)}${NB}point${Math.abs(d) > 1 ? 's' : ''}${net ? `, ${net}` : ''}`
 }
-/** « 97 200 » : les milliers séparés par une espace insécable */
-const thousands = (n: number) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, NB)
+/**
+ * Sous un bloc lu nettement, quand toutes les façons ont été comptées une à une (UnitReading.exact) : combien il y en
+ * avait, et combien, la vôtre comprise, rapprochent de ce bloc (ou en éloignent) au moins autant que la vôtre
+ * (BlocCell.alike, le compte du bloc seul)
+ */
+export function detailWhy(ways: number, alike: number, mark: 'pres' | 'loin'): string {
+  const verb = mark === 'pres' ? 'rapproche' : 'éloigne'
+  return fr(
+    `Vos mêmes avis pouvaient se poser de ${thousands(ways)}${NB}façons sur ces approches ; ${
+      alike > 1 ? `${thousands(alike)}, dont la vôtre, ${verb}nt au moins autant de ce bloc.` : `seule la vôtre ${verb} autant de ce bloc.`
+    }`,
+  )
+}
 /**
  * La note sous le tableau d'une unité. ways : le nombre de façons de poser ses avis tel que la page peut le dire
  * (UnitReading.ways : Infinity au-delà de cent mille) ; exact : toutes comptées une à une, sinon une part calculée bloc
- * par bloc puis additionnée (core/echiquier.ts). Rien n'y est tiré au sort
+ * par bloc puis additionnée, une borne prudente (core/echiquier.ts). Rien n'y est tiré au sort
  */
 export const chanceNote = (exact: boolean, ways: number) =>
   fr(
-    `Vos avis placés au hasard : la moyenne du même calcul sur ${Number.isFinite(ways) ? `les ${thousands(ways)} placements possibles de vos avis` : 'tous les placements possibles de vos avis (plus de cent mille)'}, question par question, le vôtre compris ; « nettement plus près » ou « nettement plus loin » quand moins d’un placement sur dix fait un tel écart, tous blocs confondus${exact ? '' : ' (une part calculée bloc par bloc puis additionnée, qui ne peut être que trop prudente)'}.`,
+    ways === 1
+      ? `${DETAIL_HEADS[3]} : sur chaque question, vos avis ne se posent que d’une seule façon, la vôtre ; rien à comparer.`
+      : `${DETAIL_HEADS[3]} : la moyenne du même calcul pour ${
+          Number.isFinite(ways) ? `les ${thousands(ways)}${NB}façons` : 'toutes les façons (plus de cent mille)'
+        } de poser vos mêmes avis sur les approches de chaque question, la vôtre comprise ; « nettement plus près » ou « nettement plus loin » quand une sur dix au plus fait un écart aussi marqué, avec un bloc ou un autre.${
+          exact ? '' : ' Au-delà de cent mille façons, cette part se calcule bloc par bloc, puis s’additionne : une borne prudente, qui peut manquer une lecture, jamais en inventer une.'
+        }`,
   )
 export const PER_CANDIDATE = 'Votre affinité avec chaque candidat'
 export const UNKNOWN_POSITION = '(position inconnue)'
@@ -407,7 +513,7 @@ export const CAVEATS_TITLE = 'À garder en tête'
 export const caveats = (panel: number) => [
   fr('La grille classe des partis et des candidats, pas des idées : une même approche est souvent portée dans plusieurs blocs, et les candidats d’un même bloc ne pensent pas tous pareil.'),
   fr(`Une lecture situe vos réponses par rapport à ces ${panel} candidats, tels que la grille les range ; elle changerait avec d’autres candidats.`),
-  fr('Sur peu de questions, la lecture est fragile, et des réponses données au hasard en obtiennent parfois une.'),
+  fr('Sur peu de questions, des feuilles remplies par un programme, sans suivre aucun candidat, obtiennent parfois une lecture nette, elles aussi.'),
   fr('Ce n’est ni un test, ni une étiquette, ni une consigne de vote.'),
 ]
 export const METHOD_LINK = 'La méthode en détail'
