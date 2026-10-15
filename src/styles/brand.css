@@ -108,10 +108,29 @@
   text-underline-offset: 0.25em;
 }
 
-/* La page où l'on est : le lien s'imprime en gras, souligné d'un filet épais */
+/* Le pictogramme de l'entrée, devant son nom (demande du propriétaire du 2026-10-15) : en ligne, calé sur la hauteur
+   d'x du texte pour que le nom garde la ligne de base du mot « isoloir » ; le soulignement ne prend que le nom */
+.form-header .main-nav .icon {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-right: 0.35rem;
+  vertical-align: -0.24em;
+}
+
+/* La page où l'on est : le lien s'imprime en gras, souligné d'un filet épais, et son pictogramme d'un trait plus fort */
 .form-header .main-nav a[aria-current] {
   font-weight: 800;
   text-decoration-thickness: var(--thick);
+}
+
+.form-header .main-nav a[aria-current] .icon {
+  stroke-width: 2.2;
+}
+
+/* La rangée ne tient pas avec l'appel long (FormHeader, data-fit) : les pictogrammes du menu tombent avant que l'appel
+   ne raccourcisse ; le nom des entrées reste. Avec le libellé court, ils reviennent */
+.form-header-inner[data-fit='bare'] .main-nav .icon {
+  display: none;
 }
 
 .form-header .menu-nav {
@@ -202,7 +221,7 @@ body:has(.menu-panel:not([hidden])) .action-bar * {
 
 .menu-panel-list a {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   column-gap: var(--s3);
   min-height: 3.5rem;
@@ -220,15 +239,27 @@ body:has(.menu-panel:not([hidden])) .action-bar * {
 }
 
 .menu-panel-hint {
-  grid-column: 1;
+  grid-column: 2;
   margin-top: 0.15rem;
   font-size: var(--text-sm);
   line-height: 1.35;
   color: var(--print-soft);
 }
 
-.menu-panel-list .icon {
+/* Le pictogramme de l'entrée, en tête de ligne, à la hauteur du nom (2026-10-15) ; la flèche au bout */
+.menu-panel-list .menu-panel-icon {
+  grid-column: 1;
+  grid-row: 1;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.menu-panel-label {
   grid-column: 2;
+}
+
+.menu-panel-list .menu-panel-arrow {
+  grid-column: 3;
   grid-row: 1 / span 2;
   width: 1.3rem;
   height: 1.3rem;
@@ -238,6 +269,10 @@ body:has(.menu-panel:not([hidden])) .action-bar * {
   text-decoration: underline;
   text-decoration-thickness: var(--thick);
   text-underline-offset: 0.18em;
+}
+
+.menu-panel-list a[aria-current] .menu-panel-icon {
+  stroke-width: 2.2;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -323,12 +358,18 @@ body:has(.menu-panel:not([hidden])) .action-bar * {
     font-size: 1.3rem;
   }
 
-  /* La flèche cède sa colonne au texte */
+  /* La flèche cède sa colonne au texte ; le pictogramme de l'entrée se resserre */
   .menu-panel-list a {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: var(--s2);
   }
 
-  .menu-panel-list .icon {
+  .menu-panel-list .menu-panel-icon {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  .menu-panel-list .menu-panel-arrow {
     display: none;
   }
 }

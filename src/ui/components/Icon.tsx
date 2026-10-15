@@ -21,8 +21,19 @@ const PATHS: Record<string, string> = {
   star: 'M12 3.6l2.55 5.2 5.7.83-4.13 4.02.98 5.68L12 16.65l-5.1 2.68.98-5.68-4.13-4.02 5.7-.83z',
   // « Mon profil politique » : un filet horizontal à cinq graduations, les cinq blocs de la grille
   axis: 'M3 12h18M4 8.5v7M8 8.5v7M12 8.5v7M16 8.5v7M20 8.5v7',
-  // « À table » : une table ronde vue de dessus, et quatre places autour
-  table: 'M12 7.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2',
+  // « À table » : le plan d'une table, vue de dessus, et une chaise sur chaque côté, son dossier tourné vers
+  // l'extérieur, détachée de la table (redessinée le 2026-10-15 : les quatre traits d'avant se lisaient comme un
+  // soleil, et des arcs autour d'une table ronde comme un signal radio)
+  table: 'M6.5 9h11v6h-11zM10 7V4.75h4V7M10 17v2.25h4V17M4.5 10H2.25v4H4.5M19.5 10h2.25v4H19.5',
+  // Les entrées du menu (demande du propriétaire du 2026-10-15), avec « table » ci-dessus. « Les sujets » : une page
+  // imprimée au coin replié, et ses lignes
+  topics: 'M6 3.5h8.5L18 7v13.5H6zM14.5 3.5V7H18M9 11h6M9 14.25h6M9 17.5h3.5',
+  // « Les vidéos » : un écran, et le triangle de lecture
+  videos: 'M3.5 5.5h17v13h-17zM10.25 9.1v5.8L15 12z',
+  // « Les candidats » : deux silhouettes, l'une derrière l'autre
+  people: 'M9 11.25a3.1 3.1 0 1 0 0-6.2 3.1 3.1 0 0 0 0 6.2zM3.5 19.5c0-3.2 2.4-5.6 5.5-5.6s5.5 2.4 5.5 5.6M15.4 5.2a3 3 0 0 1 0 5.9M17.2 14.1c2 .6 3.3 2.6 3.3 5.4',
+  // « Relire la feuille » (pied de l'accueil) : un œil
+  reread: 'M2.75 12S6 6 12 6s9.25 6 9.25 6S18 18 12 18 2.75 12 2.75 12zM12 14.6a2.6 2.6 0 1 0 0-5.2 2.6 2.6 0 0 0 0 5.2z',
   // Comparer : deux colonnes côte à côte
   compare: 'M4.5 5h5.5v14H4.5zM14 5h5.5v14H14z',
   // Plus : ajouter (un candidat à la comparaison)

@@ -337,6 +337,7 @@ export function Table({ pack, Sheet }: { pack: ElectionPack; Sheet: typeof Sheet
             onNext={() => (last ? castBallot(phase.round) : setPhase({ ...phase, q: phase.q + 1 }))}
             onBack={back.current}
             nextLabel={last ? (hasOpinion(answer) ? 'Glisser dans l’urne' : 'Je passe et je glisse dans l’urne') : hasOpinion(answer) ? 'Question suivante' : 'Je passe'}
+            skip={!last && !hasOpinion(answer)}
             closed={{
               header: (
                 <ClosedHeader
