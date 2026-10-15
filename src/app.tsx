@@ -6,9 +6,11 @@ import { seededShuffle } from './core/rng'
 import { computeResults } from './core/score'
 import { parseLocation, resolvePlace, type Resolved, type Route } from './core/routes'
 import { clearAll, essentialComplete, freshState, loadState, saveState, storageKey, type SessionState } from './core/storage'
+import { importNotes, MAX_IMPORT_BYTES, parseImport, type ImportResult } from './core/exportData'
 import type { Answer, ElectionPack, Question } from './core/types'
 import { ELECTIONS, RETIRED_PREFIXES, loadElection, loadedElection, type ElectionEntry } from './elections'
 import { ElectionFrame } from './ui/components/ElectionFrame'
+import { FootSheetContext, type FootRead, type FootSheet } from './ui/components/FootContext'
 import { FormHeader } from './ui/components/FormHeader'
 import { go, replace, setBase } from './ui/nav'
 import { Sheet } from './ui/questionnaire/Sheet'
@@ -265,13 +267,54 @@ function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
     if (route.name === 'revision') setRevisionTotal(stale.length)
     // le total est figé à l'entrée dans la feuille de révision
   }, [route.name])
+  // Les réponses viennent d'être effacées : le pied de page l'annonce jusqu'à la prochaine réponse
+  const [erased, setErased] = useState(false)
   const eraseAll = useCallback(() => {
     clearAll()
     // La sélection à comparer (en mémoire seulement) part avec le reste
     clearSelections()
     setState(freshState(election.id, election.dataVersion))
+    setErased(true)
     go('/')
   }, [election.id, election.dataVersion])
+
+  // Le pied de page, sur tous les écrans (ui/components/SiteFooter.tsx) : ce qu'il peut faire de la feuille. Il ne
+  // reçoit que des réponses toutes faites et des fonctions, jamais le pack (FootContext.ts)
+  const seen = essential.filter(q => state.answers[q.id]).length
+  const started = seen > 0
+  const done = seen === essential.length && essential.length > 0
+  useEffect(() => {
+    if (started) setErased(false)
+  }, [started])
+  const readFile = useCallback(
+    async (f: File): Promise<FootRead> => {
+      // Le double (JSON) se lit ici ; une image de QR code ou un code en texte, par le lecteur des codes de transfert,
+      // chargé à ce moment seulement (ui/transfer/read.ts)
+      let res: ImportResult
+      if (/\.json$/i.test(f.name) || f.type === 'application/json') {
+        if (f.size > MAX_IMPORT_BYTES) return { ok: false, error: 'Ce fichier est trop volumineux pour être un double d’Isoloir.' }
+        res = parseImport(await f.text(), pack)
+      } else {
+        try {
+          res = await (await import('./ui/transfer/read')).readImportFile(f, pack)
+        } catch {
+          res = { ok: false, error: 'La lecture de ce fichier n’a pas pu démarrer. Rechargez la page, puis réessayez.' }
+        }
+      }
+      if (!res.ok) return res
+      const next = res.state
+      return {
+        ok: true,
+        notes: importNotes(res, pack),
+        take: () => {
+          setState(next)
+          go('/resultats')
+        },
+      }
+    },
+    [pack],
+  )
+  const foot = useMemo<FootSheet>(() => ({ started, done, saved, erased, read: readFile, erase: eraseAll }), [started, done, saved, erased, readFile, eraseAll])
 
   const routeKey =
     route.name === 'sheet'
@@ -316,7 +359,7 @@ function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
   return (
     <ElectionFrame election={election}>
       <SkipLink />
-      {renderRoute()}
+      <FootSheetContext.Provider value={foot}>{renderRoute()}</FootSheetContext.Provider>
       {/* Le lecteur vidéo, par-dessus l'écran courant (« Les sujets », une question, la page des vidéos) ; jamais pendant
           une table : son écouteur de l'historique rouvrirait une vidéo d'une entrée plus ancienne */}
       {route.name === 'table' ? null : <VideoHost pack={pack} start={route.name === 'videos' ? route.start : undefined} />}
@@ -493,7 +536,7 @@ function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
         return onDemandScreen('table', tableScreen, 'La table', 'de la table', m => <m.Table pack={pack} Sheet={Sheet} />)
       default:
         return (
-          <Home pack={pack} state={state} essential={essential} stale={stale} results={results} setState={setState} eraseAll={eraseAll} saved={saved} />
+          <Home pack={pack} state={state} essential={essential} stale={stale} results={results} />
         )
     }
   }

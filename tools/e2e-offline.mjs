@@ -2046,7 +2046,9 @@ try {
   // pied (repère « contentinfo »), jamais dans l'en-tête (ni en ligne ni dans le panneau du menu) ; défilé
   // jusqu'en bas, le dernier lien ne passe pas sous la barre d'actions ; la notice où l'on est est marquée.
   // Ces trois liens et rien d'autre (l'ancien lien « Élections passées » vers #/archives est retiré).
-  const footScreens = ['/', '/feuille/2', '/resultats', '/proximite', '/candidats', `/candidat/${FICHE.id}`, '/sujets', '/methode', '/confidentialite', '/mentions-legales', '/priorites', '/approfondir', '/partager']
+  // Le même pied partout (demande du propriétaire du 2026-10-15) : pleine largeur sur fond d'encre, avec les actions sur
+  // la feuille (« Importer mes réponses », « Reprendre depuis un fichier »…), sauf pendant une table (section 10)
+  const footScreens = ['/', '/feuille/2', '/resultats', '/proximite', '/candidats', `/candidat/${FICHE.id}`, '/sujets', '/methode', '/confidentialite', '/mentions-legales', '/priorites', '/approfondir', '/partager', '/autre-appareil', ...(PROFILE ? ['/profil', '/a-table'] : [])]
   const notices = [L('/methode'), L('/confidentialite'), L('/mentions-legales')]
   const footIssues = []
   for (const path of footScreens) {
@@ -2054,10 +2056,12 @@ try {
     await page.goto(U(path))
     await page.waitForFunction(t => document.title !== t, titleBefore, { timeout: 3000 }).catch(() => null)
     await page.locator('main h1').first().waitFor()
+    // Les écrans chargés à la demande : la hauteur de leur barre (--bar-real, app.tsx) est relevée juste après
+    await page.waitForTimeout(300)
     const landmarks = await page.getByRole('contentinfo').count()
     const f = await page.evaluate(sel => {
       window.scrollTo(0, document.documentElement.scrollHeight)
-      const foot = document.querySelectorAll('footer.site-foot')
+      const foot = document.querySelectorAll('footer.site-foot.home-foot')
       const links = [...(foot[0]?.querySelectorAll('.site-foot-links a') ?? [])]
       const bar = document.querySelector('.action-bar')
       const last = links.at(-1)?.getBoundingClientRect()
@@ -2067,16 +2071,20 @@ try {
         current: links.filter(a => a.getAttribute('aria-current') === 'page').map(a => a.getAttribute('href')),
         inHeader: document.querySelectorAll(sel).length,
         masked: !last || (!!bar && last.bottom > bar.getBoundingClientRect().top + 0.5),
+        dark: !!foot[0] && getComputedStyle(foot[0]).backgroundColor !== getComputedStyle(document.body).backgroundColor,
+        full: !!foot[0] && Math.round(foot[0].getBoundingClientRect().width) >= document.documentElement.clientWidth - 1,
+        actions: [...(foot[0]?.querySelectorAll('.home-foot-actions a, .home-foot-actions button') ?? [])].map(a => a.textContent.trim()),
       }
     }, notices.map(h => `.form-header a[href="${h}"]`).join(', '))
     const expected = notices.includes(L(path)) ? L(path) : ''
     const ok =
-      f.count === 1 && landmarks === 1 && f.hrefs.join(' ') === notices.join(' ') && f.current.join(' ') === expected && f.inHeader === 0 && !f.masked
-    if (!ok) footIssues.push(`${path} (${f.count} pied, ${landmarks} repère, liens ${f.hrefs.join(' ')}, courant ${f.current.join(' ') || '-'}, ${f.inHeader} dans l’en-tête${f.masked ? ', masqué par la barre' : ''})`)
+      f.count === 1 && landmarks === 1 && f.hrefs.join(' ') === notices.join(' ') && f.current.join(' ') === expected && f.inHeader === 0 && !f.masked &&
+      f.dark && f.full && f.actions.includes('Importer mes réponses') && f.actions.includes('Reprendre depuis un fichier') && f.actions.includes('Transférer mes réponses')
+    if (!ok) footIssues.push(`${path} (${f.count} pied, ${landmarks} repère, liens ${f.hrefs.join(' ')}, courant ${f.current.join(' ') || '-'}, ${f.inHeader} dans l’en-tête${f.masked ? ', masqué par la barre' : ''}, sombre ${f.dark}, pleine largeur ${f.full}, actions ${f.actions.join(' · ')})`)
   }
   check(
     footIssues.length === 0,
-    `pied de page sur ${footScreens.length} écrans : méthode, confidentialité et mentions légales en bas, pas dans l’en-tête${footIssues.length ? ` : ${footIssues.join(' ; ')}` : ''}`,
+    `pied de page sur ${footScreens.length} écrans : le même partout (fond d’encre, pleine largeur, actions sur la feuille), méthode, confidentialité et mentions légales en bas, pas dans l’en-tête${footIssues.length ? ` : ${footIssues.join(' ; ')}` : ''}`,
   )
 
   check(foreign.length === 0, `aucune requête vers un autre site${foreign.length ? ` : ${foreign.join(', ')}` : ''}`)
