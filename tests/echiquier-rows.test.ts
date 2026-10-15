@@ -1,17 +1,30 @@
 // Le rangement des lignes du graphique « Domaine par domaine » de « Mon profil politique » (src/ui/profile/rows.ts) :
 // quels sujets, sous quel domaine, dans quel groupe, dans quel ordre (variante a′, décision du propriétaire du 15
 // octobre 2026). Un sujet, c'est un thème lu ; à défaut, sa famille entière, comme la synthèse du calcul. Sur des
-// lectures factices (l'ordre), puis sur l'élection réelle (rien de perdu, rien en double) ; enfin les avis uniformes.
+// lectures factices (l'ordre), puis sur l'élection réelle (rien de perdu, rien en double) ; les avis uniformes ; enfin
+// l'état de la tête du graphique (l'affichage dédié, D1), qui ne dit une cause que quand elle est vraie.
 import { describe, expect, it } from 'vitest'
 import type { BlocCell, Mark, UnitReading, UnitStatus } from '../src/core/echiquier'
 import { readEchiquier } from '../src/core/echiquier'
 import { hashString, mulberry32 } from '../src/core/rng'
 import type { Answers, TopicGroup } from '../src/core/types'
 import { elections } from '../src/elections/all'
-import { acrossCentre, atBothEnds, chartRows, GROUP_ORDER, groupOf, uniformViews, unitKey, type ChartRows } from '../src/ui/profile/rows'
+import { nothingAnywhere } from '../src/core/echiquierCopy'
+import { acrossCentre, atBothEnds, chartRows, GROUP_ORDER, groupOf, headOf, uniformViews, unitKey, type ChartRows } from '../src/ui/profile/rows'
 
-/** Une lecture factice : statut, blocs ▲ et ▽ sur un axe de cinq blocs */
-function unit(kind: 'theme' | 'famille', id: string, status: UnitStatus, near: number[] = [], far: number[] = []): UnitReading {
+/**
+ * Une lecture factice : statut, blocs ▲ et ▽ sur un axe de cinq blocs ; ways, ses façons de poser les mêmes avis ;
+ * distinct, un bloc nettement à l'écart des autres façons (toujours d'une lecture ou d'écarts)
+ */
+function unit(
+  kind: 'theme' | 'famille',
+  id: string,
+  status: UnitStatus,
+  near: number[] = [],
+  far: number[] = [],
+  ways = 10,
+  distinct = status === 'lecture' || status === 'ecarts',
+): UnitReading {
   const cells: BlocCell[] = [0, 1, 2, 3, 4].map(b => ({
     bloc: `b${b}`,
     known: [],
@@ -22,7 +35,7 @@ function unit(kind: 'theme' | 'famille', id: string, status: UnitStatus, near: n
     mark: (near.includes(b) ? 'pres' : far.includes(b) ? 'loin' : 'rien') as Mark,
   }))
   const twoSided = near.some((b, i) => i > 0 && b !== near[i - 1]! + 1)
-  return { kind, id, topicIds: [id], questions: ['q1', 'q2'], status, cells, near, far, twoSided, exact: true, arrangements: 10, ways: 10, perCandidate: {} }
+  return { kind, id, topicIds: [id], questions: ['q1', 'q2'], status, cells, near, far, twoSided, distinct, exact: true, arrangements: ways, ways, perCandidate: {} }
 }
 const label = (u: UnitReading) => u.id
 const keys = (us: UnitReading[]) => us.map(unitKey)
@@ -205,5 +218,65 @@ describe('avis uniformes', () => {
     expect(uniformViews(pack.bank.questions, blank)).toBe(false)
     // Aucun avis : rien d'uniforme à dire
     expect(uniformViews(pack.bank.questions, {})).toBe(false)
+  })
+})
+
+describe('la tête du graphique : l’état de l’affichage dédié, et ce qu’il dit de plus seulement quand c’est vrai', () => {
+  const rowsOf = (read: UnitReading[], apart: UnitReading[], flat: UnitReading[]) => ({ read, apart, flat })
+  const lu = unit('theme', 'a', 'lecture', [1])
+  const loin = unit('theme', 'b', 'ecarts', [], [3])
+  const rien = (ways = 252, distinct = false) => unit('theme', 'c', 'aucun', [], [], ways, distinct)
+  const off = { uniform: false, quickOnly: false, hasDeeper: false }
+
+  it('dans cet ordre : aucun sujet à l’épreuve, avis uniformes, des lectures nettes, seulement des écarts, rien de net', () => {
+    expect(headOf(rowsOf([], [], []), [], { ...off, uniform: true }).state).toBe('untestable')
+    expect(headOf(rowsOf([lu], [], [rien(1)]), [], { ...off, uniform: true }).state).toBe('uniform')
+    expect(headOf(rowsOf([lu], [loin], [rien()]), [], off).state).toBe('read')
+    expect(headOf(rowsOf([], [loin], [rien()]), [], off).state).toBe('apart')
+    expect(headOf(rowsOf([], [], [rien()]), [], off).state).toBe('nothing')
+    // Une cause, seulement avec C5
+    for (const h of [headOf(rowsOf([lu], [], [rien(1)]), [], off), headOf(rowsOf([], [loin], [rien(1)]), [], off)]) expect(h.cause).toBeNull()
+  })
+
+  it('rien de net nulle part : la cause certaine au rapide, sinon « trop peu de façons » ou « ne se distinguent pas » quand c’est vrai de chaque sujet', () => {
+    const half = [unit('theme', 'x', 'une-question'), unit('theme', 'y', 'une-question'), rien()]
+    expect(headOf(rowsOf([], [], [rien()]), half, { ...off, quickOnly: true }).cause).toBe('quick')
+    // Au rapide, mais la moitié des thèmes au plus sur une seule question : pas cette cause
+    expect(headOf(rowsOf([], [], [rien()]), half.slice(1), { ...off, quickOnly: true }).cause).toBe('alike')
+    expect(headOf(rowsOf([], [], [rien(), rien(10)]), [], off).cause).toBe('alike')
+    expect(headOf(rowsOf([], [], [rien(1), rien(6), rien(9)]), [], off).cause).toBe('few')
+    // Un bloc nettement à l'écart des autres façons, trop près de 50 % ; ou des sujets de chaque sorte : rien de plus
+    expect(headOf(rowsOf([], [], [rien(), rien(252, true)]), [], off).cause).toBeNull()
+    expect(headOf(rowsOf([], [], [rien(), rien(1)]), [], off).cause).toBeNull()
+  })
+
+  it('la fiche « Pour lire plus de thèmes » s’ouvre sous le compte au seul questionnaire rapide et quand rien n’est net nulle part', () => {
+    const on = { ...off, hasDeeper: true }
+    expect(headOf(rowsOf([], [], [rien()]), [], on).deeperOnTop).toBe(true)
+    expect(headOf(rowsOf([lu], [], []), [], { ...on, quickOnly: true }).deeperOnTop).toBe(true)
+    expect(headOf(rowsOf([lu], [], []), [], on).deeperOnTop).toBe(false)
+    expect(headOf(rowsOf([], [loin], []), [], on).deeperOnTop).toBe(false)
+    expect(headOf(rowsOf([], [], []), [], { ...on, quickOnly: true }).deeperOnTop).toBe(false)
+    expect(headOf(rowsOf([], [], [rien()]), [], off).deeperOnTop).toBe(false)
+  })
+
+  it('sur l’élection réelle : une seule façon sur le seul sujet mis à l’épreuve, des avis mêlés ailleurs (contre-vérification du 15 octobre 2026)', () => {
+    const pack = elections.find(p => p.election.id === 'presidentielle-2027')!
+    const quick = pack.bank.questions.filter(q => q.tier === 'essentiel')
+    const justice = quick.filter(q => q.topicId === 'securite_justice')
+    expect(justice.length).toBeGreaterThanOrEqual(2)
+    const family = (topicId: string) => pack.topicGroups!.find(g => g.topicIds.includes(topicId))!.id
+    const other = quick.find(q => family(q.topicId) !== family('securite_justice'))!
+    const answers: Answers = Object.fromEntries(justice.map(q => [q.id, { ratings: Object.fromEntries(q.approaches.map(a => [a.id, 1 as const])), redLines: [] }]))
+    answers[other.id] = { ratings: { [other.approaches[0]!.id]: 1, [other.approaches[1]!.id]: -1 }, redLines: [] }
+    const reading = readEchiquier(pack, answers)
+    const rows = chartRows(pack.topicGroups!, reading, u => u.id)
+    expect(uniformViews(pack.bank.questions, answers)).toBe(false)
+    expect(keys(rows.flat)).toEqual(['theme-securite_justice'])
+    expect(rows.flat[0]!.ways).toBe(1)
+    const head = headOf(rows, reading.themes, { uniform: false, quickOnly: true, hasDeeper: true })
+    expect(head).toEqual({ state: 'nothing', cause: 'few', deeperOnTop: true })
+    // La tête ne dit plus « ne se distinguent pas assez des autres façons » au-dessus d'une ligne qui dit « rien à comparer »
+    expect(nothingAnywhere(head.cause).join('')).not.toMatch(/distinguent/)
   })
 })

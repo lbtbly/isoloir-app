@@ -42,7 +42,7 @@ import { Icon } from '../components/Icon'
 import { ProgressTally } from '../components/ProgressTally'
 import { SiteFooter } from '../components/SiteFooter'
 import { link } from '../nav'
-import { Chart, deeperOf, oneQuestionFact, Tile, type ProfileCtx } from '../profile/Chart'
+import { Chart, deeperOf, isRead, oneQuestionFact, Tile, type ProfileCtx } from '../profile/Chart'
 import '../../styles/profile.css'
 
 interface Props {
@@ -535,7 +535,9 @@ function DetailBody({ unit, ctx, deeper }: { unit: UnitReading; ctx: ProfileCtx;
         )
       })}
       {unplaced ? <p class="small">{T.unplaced(unplaced, family)}</p> : null}
-      {deeper ? (
+      {/* Comme la ligne ouverte : « Approfondir » seulement sans lecture (une seule question, des blocs inconnus), jamais
+          sous un sujet lu, même « rien de net » (refusé par le propriétaire le 15 octobre 2026) */}
+      {deeper && !isRead(unit) ? (
         <p class="small">
           <a href={link('/approfondir')}>Approfondir</a>
         </p>

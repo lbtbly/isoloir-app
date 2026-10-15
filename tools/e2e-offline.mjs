@@ -1029,6 +1029,17 @@ try {
           source: document.querySelector('.profile-chart .chart-source')?.textContent ?? '',
           calc: document.querySelectorAll('.profile-chart details.calc > ul > li').length,
           hasard: /hasard/i.test(document.querySelector('main')?.textContent ?? ''),
+          // Chaque liste a un nom (l'intertitre de son domaine et le sien ; celle des lectures nettes, un nom masqué)
+          unnamed: lists.filter(ol => {
+            const ids = (ol.getAttribute('aria-labelledby') ?? '').split(/\s+/).filter(Boolean)
+            return !ids.length || ids.some(id => !text(document.getElementById(id))) || (ol.dataset.group === 'net' && !ids.some(id => /nettement/.test(text(document.getElementById(id)))))
+          }).length,
+          // Les noms du compte : des liens, qui se coupent en fin de ligne comme le reste de la phrase
+          countLinks: [...document.querySelectorAll('.profile-chart .chart-count .count-link')].every(a => a.tagName === 'A' && getComputedStyle(a).display === 'inline'),
+          // Le nom lu d'une ligne de famille contient son libellé visible (« les 3 thèmes ensemble, 5 questions »)
+          famLabelInName: all
+            .filter(r => r.id.startsWith('sj-famille-'))
+            .every(r => text(r.querySelector('.sr-only')).toLowerCase().includes(`${text(r.querySelector('.row-name'))}, ${text(r.querySelector('.row-meta'))}`.toLowerCase())),
         }
       })
       const readCount = Number(chart.count.match(/^Sur (\d+)/)?.[1] ?? 0)
@@ -1049,8 +1060,11 @@ try {
           chart.closed &&
           chart.hint &&
           chart.calc <= 8 &&
-          !chart.hasard,
-        `mon profil politique (${where}), les lignes : « ${chart.count || chart.state} » pour ${chart.mainRows} + ${chart.bothRows} lignes lues (et ${chart.apartRows} seulement plus loin), domaines dans l’ordre des familles ${chart.families.join() === familyOrder.join()}, cinq cases par ligne ${chart.fiveTiles}, lectures nettes dans leurs groupes ${chart.mainOk}, lignes de part et d’autre du centre hors de leur groupe (ou l’inverse) ${chart.twoBarsOutside}, toutes fermées ${chart.closed}, « Cliquez… » à la souris ${chart.hint}, « Comment c’est calculé » en ${chart.calc} points, « hasard » ${chart.hasard ? 'présent !' : 'absent'}`,
+          !chart.hasard &&
+          chart.unnamed === 0 &&
+          chart.countLinks &&
+          chart.famLabelInName,
+        `mon profil politique (${where}), les lignes : « ${chart.count || chart.state} » pour ${chart.mainRows} + ${chart.bothRows} lignes lues (et ${chart.apartRows} seulement plus loin), domaines dans l’ordre des familles ${chart.families.join() === familyOrder.join()}, cinq cases par ligne ${chart.fiveTiles}, lectures nettes dans leurs groupes ${chart.mainOk}, lignes de part et d’autre du centre hors de leur groupe (ou l’inverse) ${chart.twoBarsOutside}, toutes fermées ${chart.closed}, « Cliquez… » à la souris ${chart.hint}, « Comment c’est calculé » en ${chart.calc} points, « hasard » ${chart.hasard ? 'présent !' : 'absent'}, listes sans nom ${chart.unnamed}, noms du compte en liens ${chart.countLinks}, libellé visible des lignes de famille dans leur nom lu ${chart.famLabelInName}`,
       )
       // Le compte de tête : les noms des lignes nettes, dans l'ordre de la page, cinq au plus, puis « et N autres » ;
       // ce qui n'a pas compté, autant que de lignes
@@ -1409,6 +1423,22 @@ try {
       check(
         sticky === 'sticky' && /^Vos réponses se rapprochent nettement/.test(opened.lead) && opened.who > 0 && toDetail.focus && toDetail.blocs === 5 && whyOk,
         `mon profil politique (lectures nettes, 1 280 px) : axe ${sticky}, ligne ouverte « ${opened.lead.slice(0, 50)}… » (${opened.who} bloc(s) nettement plus près ou plus loin, en mots), « Voir le détail » : focus ${toDetail.focus}, ${toDetail.blocs} blocs, ${toDetail.why.length} phrase(s) des façons pour ${toDetail.nets} lecture(s) nette(s)${toDetail.exact ? '' : ' (borne : aucune attendue)'} (« ${toDetail.why[0] ?? ''} »)`,
+      )
+      // « Approfondir » jamais sous un sujet lu sans tendance nette (« Rien de net ») : ni dans sa ligne ouverte, ni dans
+      // son détail (refusé par le propriétaire le 15 octobre 2026)
+      const flatDetails = await rp.evaluate(async () => {
+        const says = [...document.querySelectorAll('.profile-all tr.say')].filter(tr => /^Rien de net/.test(tr.querySelector('.say-text')?.textContent?.trim() ?? ''))
+        for (const tr of says) {
+          const d = tr.querySelector('details.unit-detail')
+          if (d) d.open = true
+        }
+        await new Promise(r => setTimeout(r, 400))
+        const deepens = tr => [...tr.querySelectorAll('a')].some(a => /approfondir/.test(a.getAttribute('href') ?? ''))
+        return { n: says.length, opened: says.filter(tr => tr.querySelector('.detail-body')).length, deepen: says.filter(deepens).length }
+      })
+      check(
+        flatDetails.n > 0 && flatDetails.opened === flatDetails.n && flatDetails.deepen === 0,
+        `mon profil politique (lectures nettes, 1 280 px) : « Approfondir » sous ${flatDetails.deepen} des ${flatDetails.n} sujets « Rien de net » du tableau (${flatDetails.opened} détails ouverts)`,
       )
       await rctx.close()
     } else console.log('– mon profil politique : aucune lecture nette pour le second état, contrôles en grand écran sautés')

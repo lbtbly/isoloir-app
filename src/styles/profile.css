@@ -219,10 +219,22 @@ html:has(.profile-chart) {
   white-space: normal;
 }
 
+/* En grand écran, la fiche garde la largeur de la maquette, sous le compte (deuxième colonne de la tête) comme après les
+   domaines : son chevron reste près de son titre */
 @container plot (min-width: 50rem) {
   .chart-head .deeper-card {
     grid-column: 2;
+  }
+
+  .deeper-card {
     max-width: 44rem;
+  }
+}
+
+/* Texte très agrandi (14rem de graphique) : l'icône cède sa place au titre, qui ne se coupe plus au milieu d'un mot */
+@container plot (max-width: 14rem) {
+  .deeper-card .deeper-icon {
+    display: none;
   }
 }
 
@@ -561,11 +573,9 @@ html:has(.profile-chart) {
   font-weight: 800;
 }
 
-/* Les sujets nets du compte : chacun ouvre sa ligne (un bouton, qui se lit comme un lien dans la phrase) */
+/* Les sujets nets du compte : chacun un lien qui ouvre sa ligne, et se coupe en fin de ligne comme le reste de la phrase */
 .chart-count .count-link {
-  display: inline;
-  padding: 0;
-  font: inherit;
+  color: var(--print);
   font-weight: 750;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
@@ -1922,5 +1932,11 @@ html:has(.profile-chart) {
   .axis,
   .axis-mini {
     background: Canvas;
+  }
+
+  /* Le cadre de la fiche « Pour lire plus de thèmes », dessiné en ombre, disparaît : une bordure le remplace */
+  .deeper-card {
+    border: var(--line) solid CanvasText;
+    border-top-width: var(--thick);
   }
 }

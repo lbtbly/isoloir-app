@@ -10,12 +10,14 @@ import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
-import { ECHIQUIER, type BlocCell, type Mark, type UnitReading, type UnitStatus } from '../src/core/echiquier'
+import { ECHIQUIER, readEchiquier, type BlocCell, type Mark, type UnitReading, type UnitStatus } from '../src/core/echiquier'
 import * as T from '../src/core/echiquierCopy'
+import { word } from '../src/core/echiquierCommonCopy'
 import * as M from '../src/core/echiquierMethodCopy'
 import { CLOSE_GAP } from '../src/core/score'
 import { axisOf } from '../src/core/spectrum'
 import { elections } from '../src/elections/all'
+import { isQuick, profilesFor } from './fixtures/echiquier-profiles'
 
 const NB = String.fromCharCode(0xa0)
 const ROOT = fileURLToPath(new URL('..', import.meta.url))
@@ -26,7 +28,8 @@ const labels = axis.map(a => elections.find(p => p.election.id === 'presidentiel
 
 /**
  * Une unité factice : ses blocs nettement plus près, nettement plus loin et inconnus ; affinity : celle de chaque bloc ;
- * ways : ses façons de poser les mêmes avis
+ * ways : ses façons de poser les mêmes avis ; distinct : un bloc s'écarte nettement des autres façons (toujours vrai
+ * d'une lecture ou d'écarts ; sur « rien de net », un bloc trop près de 50 %)
  */
 function reading(
   status: UnitStatus,
@@ -36,6 +39,7 @@ function reading(
   kind: 'theme' | 'famille' = 'theme',
   affinity: number[] = [50, 50, 50, 50, 50],
   ways = 252,
+  distinct = status === 'lecture' || status === 'ecarts',
 ) {
   const cells: BlocCell[] = axis.map((a, b) => ({
     bloc: a.bloc,
@@ -46,7 +50,7 @@ function reading(
     alike: null,
     mark: (unknown.includes(b) ? 'inconnu' : near.includes(b) ? 'pres' : far.includes(b) ? 'loin' : 'rien') as Mark,
   }))
-  return { status, near, far, cells, kind, ways } as Pick<UnitReading, 'status' | 'near' | 'far' | 'cells' | 'kind' | 'ways'>
+  return { status, near, far, cells, kind, ways, distinct } as Pick<UnitReading, 'status' | 'near' | 'far' | 'cells' | 'kind' | 'ways' | 'distinct'>
 }
 
 /** Toutes les parties de l'axe (sous-ensembles non vides) */
@@ -66,6 +70,8 @@ function allSentences(): string[] {
   // Rien de net : assez de façons, ou trop peu pour conclure (moins de dix), ou une seule
   for (const ways of [1, 2, 6, 9, 10, 252, Number.POSITIVE_INFINITY])
     for (const kind of ['theme', 'famille'] as const) out.push(T.unitSentence(axis, reading('aucun', [], [], [], kind, undefined, ways)))
+  // Rien de net, un bloc nettement à l'écart des autres façons mais trop près de 50 %
+  for (const kind of ['theme', 'famille'] as const) out.push(T.unitSentence(axis, reading('aucun', [], [], [], kind, undefined, 252, true)))
   for (const u of [0, 1, 2, 3, 4]) out.push(T.unitSentence(axis, reading('aucun', [], [], [u])), T.unitSentence(axis, reading('aucun', [], [], [u], 'theme', undefined, 6)))
   for (const unknown of subsets(B).filter(s => s.length > 1)) {
     out.push(T.unitSentence(axis, reading('blocs-inconnus', [], [], unknown)))
@@ -135,7 +141,7 @@ function allTexts(): string[] {
   for (const n of [1, 2, 17]) {
     out.push(...T.countNear(n), ...T.countApart(n), T.questionsCount(n), T.themesTogether(n + 1), T.othersUnknown(n), T.detailShow(n, 0), T.detailShow(n, n))
   }
-  out.push(...T.nothingAnywhere(true), ...T.nothingAnywhere(false))
+  out.push(...T.NOTHING_CAUSES.flatMap(c => T.nothingAnywhere(c)))
   out.push(T.zonesLabel(5, 15), T.readWithFamily('Économie et travail'), T.sourceLink('23 août 2026'), T.sourceWho(15), T.COLORS_NOTE, ...allSummaries())
   out.push(T.HOW_COLOR, T.COLORS_CHANCE, ...T.HOW_MARKS)
   for (const a of [null, 0, 19.4, 19.6, 45, 79.6, 100]) for (const m of ['pres', 'loin', 'rien', 'inconnu'] as const) out.push(T.cellLabel('Droite', a, m))
@@ -245,7 +251,9 @@ describe('le graphique « Domaine par domaine »', () => {
     expect(T.countRest(0, 0, 0, 0, 0)).toBeNull()
     expect(T.questionsCount(1)).toBe(`1${NB}question`)
     expect(T.questionsCount(5)).toBe(`5${NB}questions`)
-    expect(T.themesTogether(4)).toBe('4 thèmes ensemble')
+    // Le nom lu d'une ligne de famille reprend son libellé visible, « Les 4 thèmes ensemble » (WCAG 2.5.3)
+    expect(T.themesTogether(4)).toBe('les 4 thèmes ensemble')
+    expect(T.themesTogether(4).toLocaleLowerCase('fr')).toBe(T.familyHead(4).toLocaleLowerCase('fr'))
     expect(T.othersUnknown(1)).toBe('(1 autre, position inconnue ici)')
     expect(T.othersUnknown(2)).toBe('(2 autres, position inconnue ici)')
     // Le tableau : ses thèmes, et leurs domaines entiers quand il y en a
@@ -288,6 +296,11 @@ describe('le graphique « Domaine par domaine »', () => {
       `Rien de net${NB}: sur ce thème, vos réponses ne se distinguent pas assez des autres façons de poser vos mêmes avis, quelle que soit la couleur des cases.`,
     )
     expect(T.unitSentence(axis, reading('aucun', [], [], [], 'famille'))).toContain('sur ce domaine, vos réponses')
+    // Un bloc s'écarte nettement des autres façons, mais reste trop près de 50 % : la phrase toujours vraie, sans cause
+    expect(T.unitSentence(axis, reading('aucun', [], [], [], 'theme', undefined, 252, true))).toBe(
+      `Rien de net${NB}: sur ce thème, vos réponses ne se rapprochent ni ne s’écartent nettement des candidats d’aucun bloc, quelle que soit la couleur des cases.`,
+    )
+    expect(T.unitSentence(axis, reading('aucun', [], [], [], 'famille', undefined, 252, true))).not.toMatch(/distinguent/)
     // C2 bis : moins de dix façons ; une seule
     expect(T.MIN_WAYS).toBe(10)
     expect(T.unitSentence(axis, reading('aucun', [], [], [], 'theme', undefined, 6))).toBe(
@@ -301,13 +314,18 @@ describe('le graphique « Domaine par domaine »', () => {
     expect(T.unitSentence(axis, reading('blocs-inconnus', [], [], [0, 4]))).toBe(
       `Pas de lecture nette${NB}: la position des candidats que la grille classe à l’extrême gauche et à l’extrême droite n’est pas connue sur vos questions de ce thème.`,
     )
-    // C5 : rien de net nulle part, banque et questionnaire rapide (la cause certaine, à la place de « C'est fréquent »)
-    expect(T.nothingAnywhere(false).join('')).toBe(
+    // C5 : rien de net nulle part, banque et questionnaire rapide (la cause certaine, à la place de « C'est fréquent ») ;
+    // « ne se distinguent pas assez » seulement quand c'est vrai de chaque sujet, sinon rien de plus (ui/profile/rows.ts)
+    expect(T.nothingAnywhere('alike').join('')).toBe(
       `Sur aucun sujet, vos réponses ne se rapprochent ni ne s’écartent nettement d’un bloc${NB}: elles ne se distinguent pas assez des autres façons de poser vos mêmes avis.`,
     )
-    expect(T.nothingAnywhere(true).join('')).toBe(
+    expect(T.nothingAnywhere('quick').join('')).toBe(
       `Sur aucun sujet, vos réponses ne se rapprochent ni ne s’écartent nettement d’un bloc. Après le seul questionnaire rapide, la plupart des thèmes n’ont qu’une question${NB}: la lecture se fait par domaine.`,
     )
+    expect(T.nothingAnywhere('few').join('')).toBe(
+      'Sur aucun sujet, vos réponses ne se rapprochent ni ne s’écartent nettement d’un bloc. Là où la page les compare, vos mêmes avis ne pouvaient se poser que de trop peu de façons pour conclure (il en faut au moins dix).',
+    )
+    expect(T.nothingAnywhere(null).join('')).toBe('Sur aucun sujet, vos réponses ne se rapprochent ni ne s’écartent nettement d’un bloc.')
     expect(T.NOT_CENTRE).toBe(`Ce n’est pas une place au centre${NB}: la page ne fait pas de moyenne entre les blocs.`)
     expect(T.YOUR_RANKING.join('')).toBe(`Votre classement${NB}: Résultats`)
     // C5 bis, C9
@@ -316,7 +334,7 @@ describe('le graphique « Domaine par domaine »', () => {
       `Sur chaque question, vos réponses donnent le même avis à toutes les approches${NB}: il n’y a qu’une façon de poser ces avis, la vôtre, donc rien à comparer. Les couleurs donnent seulement votre affinité.`,
     )
     // Jamais « c'est fréquent », jamais une cause sur la personne
-    for (const t of [...T.nothingAnywhere(true), ...T.nothingAnywhere(false), T.NOT_CENTRE, T.NOTHING_TESTABLE, T.UNIFORM, ...allSentences()]) {
+    for (const t of [...T.NOTHING_CAUSES.flatMap(c => T.nothingAnywhere(c)), T.NOT_CENTRE, T.NOTHING_TESTABLE, T.UNIFORM, ...allSentences()]) {
       expect(/fréquent|vous n’avez pas|vous avez trop|parce que vous|votre faute/i.test(t), t).toBe(false)
     }
   })
@@ -410,6 +428,19 @@ describe('formes des blocs', () => {
     expect(T.where(axis, [0, 1, 2, 3, 4])).toBe('de l’extrême gauche à l’extrême droite')
   })
 
+  it('des blocs quelconques : une seule énumération, jamais deux « et » (« à gauche, au centre et à l’extrême droite »)', () => {
+    expect(T.whereAll(axis, [3])).toBe('à droite')
+    expect(T.whereAll(axis, [0, 1])).toBe('à l’extrême gauche et à gauche')
+    expect(T.whereAll(axis, [1, 2, 4])).toBe('à gauche, au centre et à l’extrême droite')
+    expect(T.whereAll(axis, [0, 1, 3, 4])).toBe('à l’extrême gauche, à gauche, à droite et à l’extrême droite')
+    expect(T.whereAll(axis, [0, 2, 3, 4])).toBe('à l’extrême gauche et du centre à l’extrême droite')
+    for (const x of subsets(axis.length)) expect((T.whereAll(axis, x).match(/ et /g) ?? []).length, T.whereAll(axis, x)).toBeLessThanOrEqual(1)
+    // La phrase des blocs inconnus (C3), qui la prend
+    expect(T.unitSentence(axis, reading('blocs-inconnus', [], [], [1, 2, 4]))).toBe(
+      `Pas de lecture nette${NB}: la position des candidats que la grille classe à gauche, au centre et à l’extrême droite n’est pas connue sur vos questions de ce thème.`,
+    )
+  })
+
   it('les libellés de la synthèse : capitale initiale ; les deux bords', () => {
     expect(T.groupLabel(axis, [3])).toBe('À droite')
     expect(T.groupLabel(axis, [0, 1])).toBe('À l’extrême gauche et à gauche')
@@ -476,8 +507,7 @@ describe('règles d’écriture', () => {
       T.COLORS_CHANCE,
       T.countNear(3).join(''),
       T.countApart(2).join(''),
-      ...T.nothingAnywhere(true),
-      ...T.nothingAnywhere(false),
+      ...T.NOTHING_CAUSES.flatMap(c => T.nothingAnywhere(c)),
       T.NOTHING_TESTABLE,
       T.UNIFORM,
     ]
@@ -497,7 +527,7 @@ describe('règles d’écriture', () => {
 
   it('le sujet est « vos réponses » (ou ce que vous approuvez), jamais la personne', () => {
     for (const s of allSentences().filter(x => /rapprochent|écartent/.test(x))) expect(/Vos réponses|vos réponses/.test(s), s).toBe(true)
-    for (const s of [T.BOTH_ROW[1], T.bothRow(false)[1], T.countNear(3).join(''), T.countApart(1).join(''), T.nothingAnywhere(true).join(''), T.nothingAnywhere(false).join(''), T.UNIFORM])
+    for (const s of [T.BOTH_ROW[1], T.bothRow(false)[1], T.countNear(3).join(''), T.countApart(1).join(''), ...T.NOTHING_CAUSES.map(c => T.nothingAnywhere(c).join('')), T.UNIFORM])
       expect(/Vos réponses|vos réponses/.test(s), s).toBe(true)
     // La Méthode aussi : ce sont des réponses qui sont lues, pas une personne
     for (const s of M.methodWorth()) {
@@ -510,7 +540,7 @@ describe('règles d’écriture', () => {
     for (const s of [...sentences, T.SUMMARY_TITLE, T.SUMMARY_NOTE, ...subsets(axis.length).map(x => T.groupLabel(axis, x))]) expect(s, s).not.toContain('%')
     // Le graphique non plus : les pourcentages ne paraissent que dans « Le détail » et la liste d'une ligne ouverte
     const chart = [...allSummaries(), T.KEY_TEXT, ...T.BOTH_ROW, ...T.bothRow(false), T.BLOC_NOTE, T.COLORS_NOTE, ...T.countNear(7), ...T.countApart(7), T.countRest(1, 2, 3, 4, 5)!]
-    for (const s of [...chart, ...T.nothingAnywhere(true), ...T.nothingAnywhere(false), T.NOT_CENTRE, T.NOTHING_TESTABLE, T.UNIFORM, ...Object.values(T.GROUP_TITLE)]) expect(s, s).not.toContain('%')
+    for (const s of [...chart, ...T.NOTHING_CAUSES.flatMap(c => T.nothingAnywhere(c)), T.NOT_CENTRE, T.NOTHING_TESTABLE, T.UNIFORM, ...Object.values(T.GROUP_TITLE)]) expect(s, s).not.toContain('%')
   })
 
   it('aucun symbole de lecture : ni ▲ ni ▽ ni point, dans les textes du module comme dans ceux de la page ; seul « ? » reste', () => {
@@ -587,22 +617,76 @@ describe('la rubrique de la Méthode : la comparaison, les deux régimes, l’av
     expect(clones).toContain(`Avec lui, comme sur le site, c’est ${P.hitWith}${NB}%, de ${P.hitWithMin}${NB}% à ${P.hitWithMax}${NB}% selon le bloc.`)
   })
 
-  it('dit l’avant et l’après le calcul sans tirage, chiffres publiés à l’appui (le propriétaire admet la borne prudente)', () => {
+  it('dit l’avant et l’après le calcul sans tirage, sur les mêmes réponses (le propriétaire admet la borne prudente)', () => {
     const P = M.ECHIQUIER_PUBLISHED
     const B = M.ECHIQUIER_BEFORE
-    // Republié le 15 octobre 2026 : 92 au plus selon le bloc, un sur douze, 2,3 ; avant, 91, un sur onze, 2,4
-    expect([P.hitWithout, P.hitWithoutMax, P.randomThemesMax, P.randomPerProfileMax]).toEqual([71, 92, 8.5, 2.3])
-    expect([B.hitWithout, B.hitWithoutMax, B.randomThemesMax, B.randomPerProfileMax]).toEqual([70, 91, 9, 2.4])
+    // Republié le 15 octobre 2026 ; l'avant, avec les tirages sur les mêmes feuilles (audit à 1 000 profils et 30 clones
+    // bruités ; les rapports, moyenne de six échantillons appariés)
+    expect([P.hitWithout, P.hitWithoutMin, P.hitWithoutMax, P.randomThemesMax, P.randomPerProfileMax, P.oneChoiceRatio, P.oneChoiceRatioQuick]).toEqual([71, 44, 92, 8.5, 2.3, 1.7, 2.4])
+    expect([B.hitWithout, B.hitWithoutMin, B.hitWithoutMax, B.randomThemesMax, B.randomPerProfileMax, B.oneChoiceRatio, B.oneChoiceRatioQuick]).toEqual([70, 44, 91, 9, 2.4, 1.6, 2.4])
     const text = M.methodBefore()
-    expect(text).toMatch(/^Jusqu’au 15 octobre 2026, la page tirait au sort 999 de ces façons de poser vos avis\u00a0; depuis, elle n’en tire plus aucune\./)
+    expect(text).toMatch(/^Jusqu’au 15 octobre 2026, la page tirait au sort 999 de ces façons de poser vos avis\u00a0; depuis, elle n’en tire plus aucune\. Sur les mêmes réponses, avant puis après\u00a0:/)
     expect(text).toContain(`dans 70${NB}% puis 71${NB}% des cas, de 44${NB}% à 91${NB}% puis de 44${NB}% à 92${NB}% selon le bloc`)
-    expect(text).toContain('une lecture sur un thème sur onze puis sur douze au plus')
-    expect(text).toContain('soit au plus 2,4 puis 2,3 lectures en moyenne sur l’ensemble')
-    expect(text).toContain('1,5 puis 1,7 fois plus de leurs lectures que celui qu’elle classe à gauche, 2,2 puis 2,4 fois après le seul questionnaire rapide')
-    expect(text).toMatch(/L’écart entre le bloc le mieux lu et le moins bien lu s’élargit donc d’un point\u00a0: c’est le prix d’une lecture sans tirage\.$/)
+    // « Au plus un sur onze » (9,1 %), avant (9 %) comme après (8,5 %) : jamais « un sur douze » (8,3 %), sous la part publiée
+    expect(text).toContain('les feuilles remplies par un programme reçoivent toujours au plus une lecture sur un thème sur onze, et au plus 2,4 puis 2,3 lectures en moyenne sur l’ensemble')
+    for (const x of [P.randomThemesMax, B.randomThemesMax]) expect(100 / 11).toBeGreaterThanOrEqual(x)
+    expect(text).toContain('chacun des blocs que la grille classe aux extrêmes reçoit en moyenne 1,6 puis 1,7 fois plus de leurs lectures que celui qu’elle classe à gauche, toujours 2,4 fois après le seul questionnaire rapide')
+    // L'écart qui s'élargit vient de la borne prudente : en comptant tout, il ne change pas (audit --count-max 2000000)
+    expect(text).toMatch(
+      /L’écart entre le bloc le mieux lu et le moins bien lu s’élargit donc d’un point\u00a0: c’est l’effet de la borne prudente, au-delà de cent mille façons\u00a0; en les comptant une à une, jusqu’à deux millions, il ne change pas\.$/,
+    )
+    expect(text).not.toMatch(/prix d’une lecture sans tirage/)
+    // Des chiffres différents : « puis » ; les mêmes : « toujours »
+    expect(M.methodBefore({ ...P, randomThemesMax: 5 } as unknown as typeof P)).toContain('reçoivent au plus une lecture sur un thème sur onze puis sur vingt, et au plus')
+    expect(M.methodBefore(P, { ...B, randomPerProfileMax: 2.3 } as unknown as typeof B)).toContain('sur onze, et toujours au plus 2,3 lectures en moyenne')
     // Le même mot pour le rapport, avant comme après : « environ une fois et demie », « environ deux fois »
     expect(M.methodWorth()[1]).toContain('environ une fois et demie moins sur l’ensemble des questions, environ deux fois moins après le seul questionnaire rapide')
-    expect(M.methodWorth()[1]).toContain('une lecture sur un thème sur vingt à un sur douze selon la façon de répondre, soit de 1,3 à 2,3 lectures')
+    expect(M.methodWorth()[1]).toContain('une lecture sur un thème sur vingt à un sur onze selon la façon de répondre, soit de 1,3 à 2,3 lectures')
+  })
+
+  it('« un sur N » : le dénominateur arrondi vers le bas, la part dite jamais sous la part publiée', () => {
+    for (const x of [4.49, 5, 8.24, 8.5, 8.59, 8.93, 9, 9.1, 12.5, 20]) {
+      const n = M.oneIn(x)
+      expect(100 / n, String(x)).toBeGreaterThanOrEqual(x)
+      expect(100 / (n + 1), String(x)).toBeLessThan(x)
+      expect(M.methodWorth({ ...M.ECHIQUIER_PUBLISHED, randomThemesMax: x } as typeof M.ECHIQUIER_PUBLISHED)[1]).toContain(` à un sur ${word(n)} selon la façon de répondre`)
+    }
+  })
+
+  it('le journal du 15 octobre dit l’avant et l’après que publie la Méthode, rapports compris', () => {
+    const P = M.ECHIQUIER_PUBLISHED
+    const B = M.ECHIQUIER_BEFORE
+    const pack = elections.find(p => p.election.id === 'presidentielle-2027')!
+    const entry = pack.election.changelog.find(c => c.text.includes('ne tire plus rien au sort'))!
+    expect(entry.date).toBe('2026-10-15')
+    const d = (x: number) => String(x).replace('.', ',')
+    for (const part of [
+      'sur les mêmes réponses qu’avant',
+      `dans ${P.hitWithout}${NB}% des cas (${B.hitWithout}${NB}% avant)`,
+      `de ${P.hitWithoutMin} à ${P.hitWithoutMax}${NB}% selon le bloc (de ${B.hitWithoutMin} à ${B.hitWithoutMax}${NB}% avant, l’écart d’un point venant de la borne prudente)`,
+      `toujours au plus une lecture sur un thème sur ${word(M.oneIn(P.randomThemesMax))}`,
+      `au plus ${d(P.randomPerProfileMax)} lectures en moyenne sur l’ensemble des thèmes (${d(B.randomPerProfileMax)} avant)`,
+      `en reçoit en moyenne ${d(P.oneChoiceRatio)} fois plus que celui qu’elle classe à gauche (${d(B.oneChoiceRatio)} avant), et toujours ${d(P.oneChoiceRatioQuick)} fois au seul questionnaire rapide`,
+      'le calcul sans tirage accentue un peu ce déséquilibre',
+    ])
+      expect(entry.text, part).toContain(part)
+    expect(M.oneIn(B.randomThemesMax)).toBe(M.oneIn(P.randomThemesMax))
+    expect(B.oneChoiceRatioQuick).toBe(P.oneChoiceRatioQuick)
+    expect(entry.text).not.toMatch(/douze|hasard/)
+  })
+
+  it('la comparaison : toutes les façons, la vôtre et toutes les autres ; jamais « les autres façons… la vôtre comprise »', () => {
+    for (const t of [T.HOW_CALC, M.methodChance(5)]) {
+      expect(t, t).toContain('toutes les façons de poser vos mêmes avis, la vôtre et toutes les autres')
+      expect(/autres façons[^.]*la vôtre comprise/.test(t), t).toBe(false)
+      expect(/sur d’autres approches|posés autrement/.test(t), t).toBe(false)
+    }
+    // « Nettement » : l'écart et le seuil, comme dans la Méthode
+    expect(T.HOW_MARKS[0]).toBe(
+      `Nettement plus près${NB}: votre affinité avec ce bloc dépasse nettement celle des autres façons de poser vos mêmes avis, d’au moins 5${NB}points, et atteint 55${NB}% au moins.`,
+    )
+    expect(T.HOW_MARKS[1]).toMatch(/^Nettement plus loin\u00a0: elle reste nettement en dessous, d’au moins 5\u00a0points, à 45\u00a0% au plus\./)
+    expect(M.methodChance(5)).toContain(`(d’au moins 5 points, et à 55${NB}% au moins)`)
   })
 })
 
@@ -636,4 +720,54 @@ describe('la rubrique de la Méthode, un fichier à part du build', () => {
   it('dit l’écart du calcul, qu’elle prend sans lui : ECHIQUIER.GAP est CLOSE_GAP', () => {
     expect(ECHIQUIER.GAP).toBe(CLOSE_GAP)
   })
+})
+
+describe('sur des feuilles réelles : « Rien de net » ne dit « ne se distinguent pas assez » que quand c’est vrai', () => {
+  const pack = elections.find(p => p.election.id === 'presidentielle-2027')!
+  const P = profilesFor(pack)
+  const TIE = 1e-9
+  /** Un bloc nettement à l'écart des autres façons de poser les mêmes avis : le test et l'écart, sans le seuil de 55 % */
+  const apartFromOthers = (u: UnitReading) => u.cells.some(c => c.p !== null && c.chance !== null && c.affinity !== null && c.p <= ECHIQUIER.ALPHA + 1e-12 && Math.abs(c.affinity - c.chance) >= ECHIQUIER.GAP - TIE)
+
+  it('le domaine « Travail et économie » d’un clone bruité de Bernard Cazeneuve, au rapide : la gauche à l’écart, sous 55 % (contre-vérification du 15 octobre 2026)', () => {
+    const e = readEchiquier(pack, P.toAnswers(P.noisy(P.cloneLarge('cazeneuve', isQuick), 'fq:cazeneuve:0')))
+    const eco = e.families.find(f => f.id === 'economie')!
+    expect(eco.status).toBe('aucun')
+    expect(eco.distinct).toBe(true)
+    expect(apartFromOthers(eco)).toBe(true)
+    expect(T.unitSentence(axis, eco)).toBe(
+      `Rien de net${NB}: sur ce domaine, vos réponses ne se rapprochent ni ne s’écartent nettement des candidats d’aucun bloc, quelle que soit la couleur des cases.`,
+    )
+  })
+
+  it('clones bruités, au rapide et sur la banque, et feuilles remplies par un programme : chaque phrase dit ce qui est', () => {
+    const sheets = [
+      ...P.ranked.flatMap(id => [0, 1].map(k => P.noisy(P.cloneLarge(id, isQuick), `fq:${id}:${k}`))),
+      ...P.ranked.map(id => P.noisy(P.cloneLarge(id), `f:${id}:0`)),
+      ...(['audit', 'un-choix', 'accord-seul'] as const).flatMap(scheme => [0, 1].map(k => P.randomProfile(`f:${scheme}:${k}`, scheme, isQuick))),
+    ]
+    let alike = 0
+    let distinct = 0
+    for (const sheet of sheets) {
+      const e = readEchiquier(pack, P.toAnswers(sheet))
+      for (const u of [...e.themes, ...e.families]) {
+        // distinct : toujours d'une lecture ou d'écarts ; sur « rien de net », exactement un bloc à l'écart sous le seuil
+        if (u.status === 'lecture' || u.status === 'ecarts') expect(u.distinct, `${u.kind}-${u.id}`).toBe(true)
+        if (u.status !== 'aucun') continue
+        expect(u.distinct, `${u.kind}-${u.id}`).toBe(apartFromOthers(u))
+        const text = T.unitSentence(axis, u)
+        if (/ne se distinguent pas assez/.test(text)) {
+          alike++
+          expect(apartFromOthers(u), `${u.kind}-${u.id} : ${text}`).toBe(false)
+        }
+        if (u.distinct) {
+          distinct++
+          expect(text).toMatch(/ne se rapprochent ni ne s’écartent nettement des candidats d’aucun bloc/)
+        }
+      }
+    }
+    // Les deux cas paraissent bien
+    expect(alike).toBeGreaterThan(50)
+    expect(distinct).toBeGreaterThan(0)
+  }, 30_000)
 })

@@ -103,6 +103,13 @@ export interface UnitReading {
   /** Les blocs ▲ ne forment pas une suite contiguë de l'axe */
   twoSided: boolean
   /**
+   * Au moins un bloc s'écarte nettement de la moyenne des autres façons de poser les mêmes avis (le test et l'écart
+   * d'ECHIQUIER.GAP), qu'il ait une marque ou non : toujours vrai d'une lecture ou d'écarts ; sur une unité « rien de
+   * net », c'est que son affinité reste trop près de 50 % (à moins de GAP), et la page ne dit pas que vos réponses « ne
+   * se distinguent pas assez des autres façons »
+   */
+  distinct: boolean
+  /**
    * Les façons de poser les mêmes avis ont toutes été comptées, une à une : les p sont exacts. Faux au-delà de
    * COUNT_MAX façons (ou de ReadOptions.countMax), où les p sont la borne calculée bloc par bloc puis additionnée entre
    * blocs, jamais plus petite que le compte complet, et sans test. Rien n'est tiré au sort, dans un cas comme dans
@@ -801,6 +808,7 @@ function* readUnit(
     near: [],
     far: [],
     twoSided: false,
+    distinct: false,
     exact: false,
     arrangements: 0,
     ways: 0,
@@ -862,8 +870,12 @@ function* readUnit(
     const s = xs[k]!
     const m = fit.mu[k]!
     const z = fit.z[k]!
-    const up = p <= alpha && z > 0 && s - m >= GAP && s >= 50 + GAP
-    const down = p <= alpha && z < 0 && m - s >= GAP && s <= 50 - GAP
+    // Nettement à l'écart des autres façons (le test et l'écart), puis assez loin de 50 % pour une marque
+    const above = p <= alpha && z > 0 && s - m >= GAP
+    const below = p <= alpha && z < 0 && m - s >= GAP
+    const up = above && s >= 50 + GAP
+    const down = below && s <= 50 - GAP
+    if (above || below) reading.distinct = true
     const cell = cells[b]!
     cell.p = p
     cell.chance = flip ? 100 - m : m

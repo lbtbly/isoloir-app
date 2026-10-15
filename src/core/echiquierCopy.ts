@@ -25,7 +25,7 @@ import { affinityBand } from './affinity'
 import { fr, PRIVACY, word } from './echiquierCommonCopy'
 import { joinNames, signed } from './resultsCopy'
 import type { Mark, UnitReading } from './echiquier'
-import { segments } from './echiquier'
+import { ECHIQUIER, segments } from './echiquier'
 import type { SpectrumAxisBloc } from './types'
 
 const NB = '\u00a0'
@@ -128,19 +128,23 @@ export const howWho = (panel: number, unscored: number) =>
         : 'Ne compte pas : le bloc « Autres » de la grille (écologistes, divers), qui n’est pas une place entre la gauche et le centre.'
     }`,
   )
-/** Point 2 : le calcul, et ce à quoi on le compare */
+/** Point 2 : le calcul, et ce à quoi on le compare (toutes les façons, la vôtre comprise, comme la moyenne du détail) */
 export const HOW_CALC = fr(
-  'Pour chaque bloc, on fait la moyenne de votre affinité, sur le thème, avec ses candidats (les pourcentages de « Par thème »). Puis le même calcul pour toutes les autres façons de poser vos mêmes avis : sur chaque question, autant de « d’accord », de « pas d’accord » et de « sans avis », posés sur d’autres approches. Ce qui compte : où vont vos avis, pas leur nombre.',
+  'Pour chaque bloc, on fait la moyenne de votre affinité, sur le thème, avec ses candidats (les pourcentages de « Par thème »). Puis le même calcul pour toutes les façons de poser vos mêmes avis, la vôtre et toutes les autres : sur chaque question, autant de « d’accord », de « pas d’accord » et de « sans avis », répartis entre ses approches. Ce qui compte : où vont vos avis, pas leur nombre.',
 )
 /**
  * Points 3 et 6 : la couleur d'une case, palier par palier, et ce qu'elle ne dit pas (le même texte dans la Méthode) :
  * dans core/echiquierCommonCopy.ts, avec la rubrique de la Méthode
  */
 export { COLORS_CHANCE, HOW_COLOR } from './echiquierCommonCopy'
-/** Point 4, en un seul point : les lectures nettes, et le bloc inconnu */
+/**
+ * Point 4, en un seul point : les lectures nettes, avec leur écart et leur seuil (ECHIQUIER.GAP : d'au moins 5 points,
+ * à 55 % au moins ou 45 % au plus, comme dans la Méthode), et le bloc inconnu. Le seuil est dit : sans lui, une unité qui
+ * s'écarte nettement des autres façons sans s'éloigner assez de 50 % paraîtrait contredire « Rien de net »
+ */
 export const HOW_MARKS: readonly string[] = [
-  fr('Nettement plus près : votre affinité avec ce bloc dépasse nettement celle des autres façons de poser vos mêmes avis.'),
-  fr('Nettement plus loin : elle reste nettement en dessous. Sinon, rien de net, quelle que soit la couleur.'),
+  fr(`Nettement plus près : votre affinité avec ce bloc dépasse nettement celle des autres façons de poser vos mêmes avis, d’au moins ${ECHIQUIER.GAP}${NB}points, et atteint ${50 + ECHIQUIER.GAP} % au moins.`),
+  fr(`Nettement plus loin : elle reste nettement en dessous, d’au moins ${ECHIQUIER.GAP}${NB}points, à ${50 - ECHIQUIER.GAP} % au plus. Sinon, rien de net, quelle que soit la couleur.`),
   fr('? inconnu : aucun candidat du bloc n’est connu sur vos questions.'),
 ]
 /** Point 5 : « nettement », le seuil du test (p ≤ 0,10), puis son exemple, sur des questions fictives */
@@ -193,8 +197,16 @@ export function where(axis: readonly SpectrumAxisBloc[], seg: readonly number[])
   return `${first.from} ${last.to}`
 }
 
-/** Des blocs quelconques, suite par suite : « à l’extrême gauche et à droite » */
-export const whereAll = (axis: readonly SpectrumAxisBloc[], indices: readonly number[]) => listFr(segments(indices).map(s => where(axis, s)))
+/**
+ * Des blocs quelconques, suite par suite : « à l’extrême gauche et à droite », « de la gauche à la droite ». Avec
+ * plusieurs suites, une suite de deux blocs se dit bloc par bloc, en une seule énumération : « à gauche, au centre et à
+ * l’extrême droite », jamais « à gauche et au centre et à l’extrême droite »
+ */
+export function whereAll(axis: readonly SpectrumAxisBloc[], indices: readonly number[]): string {
+  const segs = segments(indices)
+  if (segs.length === 1) return where(axis, segs[0]!)
+  return listFr(segs.flatMap(s => (s.length === 2 ? s.map(b => axis[b]!.where) : [where(axis, s)])))
+}
 
 /** Libellé d'un groupe de la synthèse : « À droite », « Du centre à l’extrême droite », « À la fois à gauche et à droite » */
 export function groupLabel(axis: readonly SpectrumAxisBloc[], near: readonly number[]): string {
@@ -215,9 +227,11 @@ const thousands = (n: number) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, NB)
 /**
  * La phrase d'une unité (lecture, écarts, rien de net, blocs inconnus, une seule question). Rien de net : la seule cause
  * dite est celle que le calcul rend certaine, trop peu de façons de poser vos mêmes avis (moins de dix : la vôtre, qui
- * compte toujours, pèse déjà plus d'une sur dix) ; sinon, un constat, jamais une cause prêtée à la personne
+ * compte toujours, pèse déjà plus d'une sur dix) ; sinon, un constat, jamais une cause prêtée à la personne : « ne se
+ * distinguent pas assez des autres façons » seulement quand aucun bloc ne s'en écarte nettement (UnitReading.distinct) ;
+ * quand un bloc s'en écarte sans s'éloigner assez de 50 %, la phrase toujours vraie, sans cause
  */
-export function unitSentence(axis: readonly SpectrumAxisBloc[], r: Pick<UnitReading, 'status' | 'near' | 'far' | 'cells' | 'kind' | 'ways'>): string {
+export function unitSentence(axis: readonly SpectrumAxisBloc[], r: Pick<UnitReading, 'status' | 'near' | 'far' | 'cells' | 'kind' | 'ways' | 'distinct'>): string {
   const unknown = r.cells.flatMap((c, b) => (c.mark === 'inconnu' ? [b] : []))
   const far = r.far.length ? whereAll(axis, r.far) : ''
   let text: string
@@ -241,7 +255,9 @@ export function unitSentence(axis: readonly SpectrumAxisBloc[], r: Pick<UnitRead
           ? 'Rien de net : vos mêmes avis ne pouvaient se poser que d’une seule façon sur ces questions, la vôtre ; rien à comparer.'
           : r.ways < MIN_WAYS
             ? `Rien de net : vos mêmes avis ne pouvaient se poser que de ${r.ways}${NB}façons sur ces questions, trop peu pour conclure (il en faut au moins dix).`
-            : `Rien de net : sur ${r.kind === 'famille' ? 'ce domaine' : 'ce thème'}, vos réponses ne se distinguent pas assez des autres façons de poser vos mêmes avis, quelle que soit la couleur des cases.`
+            : r.distinct
+              ? `Rien de net : sur ${r.kind === 'famille' ? 'ce domaine' : 'ce thème'}, vos réponses ne se rapprochent ni ne s’écartent nettement des candidats d’aucun bloc, quelle que soit la couleur des cases.`
+              : `Rien de net : sur ${r.kind === 'famille' ? 'ce domaine' : 'ce thème'}, vos réponses ne se distinguent pas assez des autres façons de poser vos mêmes avis, quelle que soit la couleur des cases.`
       break
     case 'blocs-inconnus':
       return fr(
@@ -338,19 +354,31 @@ export function countRest(apart: number, flat: number, thin: number, unknown: nu
 // Les états de tête, à la place du compte, avant l'axe : rien de net nulle part (C5), aucun sujet à l'épreuve (C5 bis),
 // des avis uniformes (C9). Des constats ; jamais « c'est fréquent », jamais une cause prêtée à la personne.
 /**
- * C5 : des sujets mis à l'épreuve, ni rapprochement ni écart : [avant, en gras, après]. quick : après le seul
- * questionnaire rapide, quand la plupart des thèmes répondus n'ont qu'une question (la cause, certaine)
+ * Ce que C5 dit de plus, seulement quand c'est vrai (ui/profile/rows.ts, headOf) : quick, au seul questionnaire rapide,
+ * la plupart des thèmes répondus n'ont qu'une question ; few, sur chaque sujet mis à l'épreuve, moins de dix façons de
+ * poser vos mêmes avis ; alike, sur chacun, assez de façons et aucun bloc nettement à l'écart d'elles ; null, rien de
+ * plus (un bloc s'en écarte sans s'éloigner assez de 50 %, ou les cas se mêlent)
  */
-export const nothingAnywhere = (quick: boolean) =>
+export type NothingCause = 'quick' | 'few' | 'alike' | null
+/** C5 : des sujets mis à l'épreuve, ni rapprochement ni écart : [avant, en gras, après] */
+export const nothingAnywhere = (cause: NothingCause) =>
   [
     'Sur ',
     'aucun sujet',
     fr(
-      quick
-        ? ', vos réponses ne se rapprochent ni ne s’écartent nettement d’un bloc. Après le seul questionnaire rapide, la plupart des thèmes n’ont qu’une question : la lecture se fait par domaine.'
-        : ', vos réponses ne se rapprochent ni ne s’écartent nettement d’un bloc : elles ne se distinguent pas assez des autres façons de poser vos mêmes avis.',
+      `, vos réponses ne se rapprochent ni ne s’écartent nettement d’un bloc${
+        cause === 'quick'
+          ? '. Après le seul questionnaire rapide, la plupart des thèmes n’ont qu’une question : la lecture se fait par domaine.'
+          : cause === 'few'
+            ? '. Là où la page les compare, vos mêmes avis ne pouvaient se poser que de trop peu de façons pour conclure (il en faut au moins dix).'
+            : cause === 'alike'
+              ? ' : elles ne se distinguent pas assez des autres façons de poser vos mêmes avis.'
+              : '.'
+      }`,
     ),
   ] as const
+/** Les causes de C5, pour les tests */
+export const NOTHING_CAUSES: readonly NothingCause[] = ['quick', 'few', 'alike', null]
 /** Avec C5 : une absence de lecture n'est pas une place (la page ne fait pas de moyenne) */
 export const NOT_CENTRE = fr('Ce n’est pas une place au centre : la page ne fait pas de moyenne entre les blocs.')
 /** Avec C5, hors questionnaire rapide : où est le classement (le lien, posé par la page) */
@@ -374,8 +402,11 @@ export const zonesLabel = (blocs: number, panel: number) =>
 export const WHO_LIST = fr('Qui la grille range dans chaque bloc :')
 /** « 3 questions » */
 export const questionsCount = (n: number) => plural(n, 'question')
-/** Une ligne de famille, pour les lecteurs d'écran : « 4 thèmes ensemble » */
-export const themesTogether = (k: number) => `${k} thèmes ensemble`
+/**
+ * Une ligne de famille, pour les lecteurs d'écran, après le nom du domaine : « les 4 thèmes ensemble », le libellé visible
+ * de la ligne (familyHead), pour qu'une commande vocale la trouve par ce qu'elle voit (WCAG 2.5.3)
+ */
+export const themesTogether = (k: number) => `les ${k} thèmes ensemble`
 
 /**
  * Le nom d'une ligne pour les lecteurs d'écran : son sujet, puis chaque bloc de la grille avec son palier et, s'il y a
@@ -390,7 +421,8 @@ export function rowSummary(labels: readonly string[], name: string, meta: string
 
 /**
  * Les groupes d'un domaine, sous un court intertitre gris (ui/profile/rows.ts) ; les lectures nettes d'un seul côté
- * n'en ont pas, seulement un nom pour les lecteurs d'écran. Le rangement et les mots disent « net », jamais la couleur.
+ * n'en ont pas, seulement un nom pour les lecteurs d'écran (NET_LABEL, masqué, après celui du domaine). Le rangement et
+ * les mots disent « net », jamais la couleur.
  */
 export const NET_LABEL = fr('Sujets où vos réponses se rapprochent nettement d’un bloc de la grille')
 export const GROUP_TITLE = { apart: 'Seulement plus loin', flat: 'Rien de net', thin: 'Sur une seule question', unknown: 'Faute de candidats connus' } as const

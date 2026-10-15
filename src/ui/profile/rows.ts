@@ -8,6 +8,7 @@
 
 import { hasOpinion } from '../../core/answers'
 import type { Echiquier, UnitReading } from '../../core/echiquier'
+import { MIN_WAYS, type NothingCause } from '../../core/echiquierCopy'
 import type { Answers, Question, TopicGroup } from '../../core/types'
 
 /**
@@ -136,4 +137,42 @@ export function uniformViews(questions: readonly Question[], answers: Answers): 
     if (!first || q.approaches.some(x => (a.ratings[x.id] ?? 0) !== first)) return false
   }
   return any
+}
+
+/**
+ * L'état de la tête du graphique (l'affichage dédié, D1), testé dans cet ordre : aucun sujet mis à l'épreuve (C5 bis) ;
+ * des avis uniformes (C9) ; rien de net nulle part (C5) ; seulement des écarts (C6) ; des lectures nettes (C0)
+ */
+export type HeadState = 'untestable' | 'uniform' | 'nothing' | 'apart' | 'read'
+
+export interface Head {
+  state: HeadState
+  /** Avec C5 : ce qu'il dit de plus, seulement quand c'est vrai de tous les sujets mis à l'épreuve (core/echiquierCopy.ts) */
+  cause: NothingCause
+  /** La fiche « Pour lire plus de thèmes », ouverte sous le compte ; sinon après les domaines, repliée */
+  deeperOnTop: boolean
+}
+
+/**
+ * La tête du graphique, d'après ses lignes : uniform, chaque question répondue donne le même avis à toutes ses approches
+ * (uniformViews) ; quickOnly, aucune question approfondie répondue ; hasDeeper, des thèmes à compléter. Rien de net
+ * nulle part : au seul questionnaire rapide, quand la plupart des thèmes répondus n'ont qu'une question, la cause
+ * certaine ; sinon, « trop peu de façons » si chaque sujet mis à l'épreuve en a moins de dix (une seule comprise), « ne
+ * se distinguent pas assez » si chacun en a assez et qu'aucun bloc ne s'en écarte nettement (UnitReading.distinct) ;
+ * sinon rien de plus. La fiche s'ouvre sous le compte au seul questionnaire rapide et quand rien n'est net nulle part
+ */
+export function headOf(
+  rows: Pick<ChartRows, 'read' | 'apart' | 'flat'>,
+  themes: readonly Pick<UnitReading, 'status'>[],
+  o: { uniform: boolean; quickOnly: boolean; hasDeeper: boolean },
+): Head {
+  const tested = rows.read.length + rows.apart.length + rows.flat.length
+  const state: HeadState = !tested ? 'untestable' : o.uniform ? 'uniform' : rows.read.length ? 'read' : rows.apart.length ? 'apart' : 'nothing'
+  let cause: NothingCause = null
+  if (state === 'nothing') {
+    if (o.quickOnly && 2 * themes.filter(t => t.status === 'une-question').length > themes.length) cause = 'quick'
+    else if (rows.flat.every(u => u.ways < MIN_WAYS)) cause = 'few'
+    else if (rows.flat.every(u => u.ways >= MIN_WAYS && !u.distinct)) cause = 'alike'
+  }
+  return { state, cause, deeperOnTop: o.hasDeeper && (state === 'nothing' || (o.quickOnly && state !== 'untestable')) }
 }

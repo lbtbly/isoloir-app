@@ -30,7 +30,7 @@ import { ExternalLink } from '../components/ExternalLink'
 import { Icon } from '../components/Icon'
 import { formatDate } from '../format'
 import { link } from '../nav'
-import { acrossCentre, atBothEnds, chartRows, uniformViews, unitKey, type FamilyRows, type RowGroupKind } from './rows'
+import { acrossCentre, atBothEnds, chartRows, headOf, uniformViews, unitKey, type FamilyRows, type RowGroupKind } from './rows'
 
 /** Ce que le graphique, ses lignes et le tableau du détail partagent */
 export interface ProfileCtx {
@@ -132,12 +132,6 @@ interface Props {
   onDetail: (u: UnitReading) => void
 }
 
-/**
- * L'état de la tête du graphique, testé dans cet ordre : aucun sujet mis à l'épreuve (C5 bis) ; des avis uniformes
- * (C9) ; rien de net nulle part (C5) ; seulement des écarts (C6) ; des lectures nettes (C0)
- */
-type HeadState = 'untestable' | 'uniform' | 'nothing' | 'apart' | 'read'
-
 export function Chart({ reading, ctx, quickOnly, deeper, unseen, onDetail }: Props) {
   const { axis, labels, panel, names, groups, topicLabel, pack, answers } = ctx
   const groupLabel = useMemo(() => new Map(groups.map(g => [g.id, g.label])), [groups])
@@ -149,14 +143,11 @@ export function Chart({ reading, ctx, quickOnly, deeper, unseen, onDetail }: Pro
   const all = families.flatMap(f => f.groups.flatMap(g => g.rows))
   // « ? inconnu » n'entre dans la légende que s'il paraît dans une ligne
   const hasUnknown = all.some(u => u.cells.some(c => c.affinity === null))
-  const tested = read.length + apart.length + flat.length
-  const head: HeadState = !tested ? 'untestable' : uniformViews(pack.bank.questions, answers) ? 'uniform' : read.length ? 'read' : apart.length ? 'apart' : 'nothing'
-  // Rien de net au seul questionnaire rapide, la plupart des thèmes répondus sur une seule question : la cause, certaine
-  const quickCause = quickOnly && 2 * reading.themes.filter(t => t.status === 'une-question').length > reading.themes.length
   const hasDeeper = deeper.thin.length + deeper.none.length > 0
-  // La fiche, ouverte sous le compte au seul questionnaire rapide et quand rien n'est net nulle part ; sinon après les
-  // domaines, repliée
-  const deeperOnTop = hasDeeper && (head === 'nothing' || (quickOnly && head !== 'untestable'))
+  // L'état de la tête (C0, C5, C5 bis, C6, C9), ce que C5 dit de plus quand c'est vrai, et la place de la fiche : ouverte
+  // sous le compte au seul questionnaire rapide et quand rien n'est net nulle part, sinon après les domaines, repliée
+  // (rows.ts, headOf)
+  const { state: head, cause, deeperOnTop } = headOf(rows, reading.themes, { uniform: uniformViews(pack.bank.questions, answers), quickOnly, hasDeeper })
   // Les thèmes sans réponse que la fiche ne cite pas (plus rien à approfondir) : leur ligne, sans doublon
   const unanswered = reading.unanswered.filter(id => !deeper.none.includes(id))
   // Par ligne d'un thème sans lecture : le nom de la famille lue à sa place
@@ -233,15 +224,26 @@ export function Chart({ reading, ctx, quickOnly, deeper, unseen, onDetail }: Pro
       b.focus({ preventScroll: true })
     })
   }
-  /** Les noms du compte, cinq au plus, séparés de virgules (un nom peut contenir « et »), puis « et N autres » */
+  /**
+   * Les noms du compte, cinq au plus, séparés de virgules (un nom peut contenir « et »), puis « et N autres ». Chacun un
+   * lien vers son sujet, dans la page (un bouton ne se couperait pas en fin de ligne : la phrase passerait à la ligne
+   * avant chaque nom long) ; ouvert dans un autre onglet, il mène à la page
+   */
   const countNames = (list: readonly UnitReading[]) => (
     <>
       {list.slice(0, T.COUNT_NAMES).map((u, i) => (
         <span key={unitKey(u)}>
           {i ? ', ' : ''}
-          <button type="button" class="link-button count-link" onClick={() => openRow(u)}>
+          <a
+            class="count-link"
+            href={link('/profil')}
+            onClick={e => {
+              e.preventDefault()
+              openRow(u)
+            }}
+          >
             {nameOf(u)}
-          </button>
+          </a>
         </span>
       ))}
       {T.countEnd(list.length - T.COUNT_NAMES)}
@@ -277,10 +279,10 @@ export function Chart({ reading, ctx, quickOnly, deeper, unseen, onDetail }: Pro
             {head === 'nothing' ? (
               <>
                 <p class="chart-state">
-                  {T.nothingAnywhere(quickCause).map((part, i) => (i === 1 ? <strong key={i}>{part}</strong> : part))}
+                  {T.nothingAnywhere(cause).map((part, i) => (i === 1 ? <strong key={i}>{part}</strong> : part))}
                 </p>
                 <p class="chart-state">{T.NOT_CENTRE}</p>
-                {quickCause ? (
+                {cause === 'quick' ? (
                   deepenCta
                 ) : (
                   <p class="chart-state">
@@ -450,7 +452,8 @@ interface FamilyProps {
 
 /**
  * Un domaine : son intertitre (plus d'un thème) ou son seul filet (un thème, dont la ligne porte le nom), puis ses
- * groupes de lignes, chacun une liste nommée par l'intertitre du domaine et le sien
+ * groupes de lignes, chacun une liste nommée par l'intertitre du domaine et le sien ; les lectures nettes d'un seul côté,
+ * sans intertitre, par un nom masqué (T.NET_LABEL), que lisent seuls les lecteurs d'écran
  */
 function Family({ f, first, nameOf, open, setOpen, covered, ctx, onDetail }: FamilyProps) {
   const headId = `fam-${f.id}`
@@ -465,15 +468,19 @@ function Family({ f, first, nameOf, open, setOpen, covered, ctx, onDetail }: Fam
         const title = groupTitle(kind, rows)
         const subId = `${headId}-${kind}`
         const quiet = kind === 'flat' || kind === 'thin' || kind === 'unknown'
-        const labelledBy = [f.heading ? `${headId}-h` : '', title ? subId : ''].filter(Boolean).join(' ')
+        const labelledBy = [f.heading ? `${headId}-h` : '', subId].filter(Boolean).join(' ')
         return (
           <div key={kind} class="fam-part">
             {title ? (
               <p class="fam-sub" id={subId}>
                 {title}
               </p>
-            ) : null}
-            <ol class={`rows${quiet ? ' is-quiet' : ''}`} data-group={kind} aria-labelledby={labelledBy || undefined}>
+            ) : (
+              <span id={subId} hidden>
+                {T.NET_LABEL}
+              </span>
+            )}
+            <ol class={`rows${quiet ? ' is-quiet' : ''}`} data-group={kind} aria-labelledby={labelledBy}>
               {rows.map(u => {
                 const key = unitKey(u)
                 return (
@@ -584,7 +591,8 @@ interface RowProps {
 
 /**
  * Une ligne : un bouton (nom, nombre de questions, cinq cases), puis son explication, dépliée sous elle. La ligne d'une
- * famille entière, sous l'intertitre de son domaine, s'écrit « Les 5 thèmes ensemble » ; son nom lu dit la famille
+ * famille entière, sous l'intertitre de son domaine, s'écrit « Les 5 thèmes ensemble » ; son nom lu dit la famille, puis
+ * ce libellé visible (« Santé, logement, solidarités, les 3 thèmes ensemble, 5 questions »)
  */
 function Row({ u, name, family, open, onToggle, ctx, onDetail }: RowProps) {
   const id = `sj-${unitKey(u)}`
