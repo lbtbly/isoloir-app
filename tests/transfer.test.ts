@@ -146,6 +146,10 @@ describe('codes de reprise', () => {
     const back = parseCode(`\n ${messy} \n`, pack)
     expect(back.ok && essentials(back.state)).toEqual(essentials(s))
     expect(looksLikeCode(messy)).toBe(true)
+    // Coupé sur plusieurs lignes, dont certaines sans chiffre, avec des tirets
+    const lines = groupCode(code).map((g, i) => (i % 3 === 2 ? `${g}\n` : `${g} - `)).join('').toLowerCase()
+    expect(parseCode(lines, pack).ok).toBe(true)
+    expect(parseCode(`ABCD EFGH\nJKMN PQRS\n${groupCode(code).join(' ')}`, pack).ok).toBe(false)
     expect(looksLikeCode('{"state": {}}')).toBe(false)
   })
 
@@ -245,6 +249,10 @@ describe('codes de reprise', () => {
     expect(body).toContain(`/${page}`)
     expect(body).toMatch(/l’image jointe/)
     expect(body).toMatch(/Ne pas transférer ni publier ce message/)
+    // L'e-mail entier, collé tel quel dans « Coller ou taper le code », se lit aussi
+    const pasted = parseCode(`Objet : copie\n\n${body}\n\n-- \nEnvoyé de mon téléphone`, pack)
+    expect(pasted.ok && essentials(pasted.state)).toEqual(essentials(s))
+    expect(looksLikeCode(body)).toBe(true)
     const link = transferMailto(pack, code, page)
     expect(link.startsWith('mailto:?subject=')).toBe(true)
     // Aucune réponse en clair dans l'adresse du site citée par le message : seulement la page

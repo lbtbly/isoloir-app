@@ -182,6 +182,37 @@ for (const name of ['Method', 'Privacy', 'Legal', 'Share']) {
     if (modulePreloads.includes(`assets/${f}`)) fail(`écran ${name} : assets/${f} est préchargé par dist/index.html`)
   }
 }
+// « Transférez vos réponses » (src/ui/screens/Transfer.tsx ; codes de transfert, src/core/transfer ; QR codes, bibliothèque
+// qr) : des fichiers à part, chargés à la demande, jamais dans le JS initial ni préchargés. Le lecteur (caméra, images,
+// fichiers : src/ui/transfer/read.ts) vient avec la page ou avec « Reprendre depuis un fichier » ; le décodeur
+// JavaScript des QR codes (src/ui/transfer/decoder.ts) reste à part, pour les seuls navigateurs sans BarcodeDetector.
+// Plafonds : la taille mesurée le 15 octobre 2026, plus 15 %
+for (const [label, re, budget] of [
+  ['« Transférez vos réponses »', /^Transfer-[\w-]+\.js$/, 21_000],
+  ['lecteur des codes de transfert', /^read-[\w-]+\.js$/, 13_000],
+  ['QR codes (dessin)', /^qr-[\w-]+\.js$/, 17_000],
+  ['QR codes (décodeur JavaScript)', /^decoder-[\w-]+\.js$/, 43_000],
+]) {
+  const chunks = readdirSync(join(dist, 'assets')).filter(f => re.test(f))
+  if (chunks.length !== 1) fail(`${label} : ${chunks.length} fichier(s) ${re}, un attendu (chargé à la demande)`)
+  for (const f of chunks) {
+    if (initial.includes(join('assets', f))) fail(`${label} : assets/${f} est dans le JS initial (il doit n'être chargé que par import())`)
+    if (modulePreloads.includes(`assets/${f}`)) fail(`${label} : assets/${f} est préchargé par dist/index.html`)
+    const size = statSync(join(dist, 'assets', f)).size
+    if (size > budget) fail(`${label} : assets/${f} pèse ${(size / 1000).toFixed(1)} ko, plafond de ${budget / 1000} ko`)
+  }
+}
+// La caméra n'est demandée que par le lecteur des codes, pour l'image seule (jamais le micro) ; ni la partie DOM de la
+// bibliothèque qr (qr/dom.js : un fetch( en commentaire, une image en adresse data:), ni aucune adresse data:, bloquée
+// par la CSP (img-src 'self' blob:)
+for (const f of readdirSync(join(dist, 'assets')).filter(f => f.endsWith('.js'))) {
+  const js = readFileSync(join(dist, 'assets', f), 'utf8')
+  if (js.includes('getUserMedia') && !/^read-[\w-]+\.js$/.test(f)) fail(`${f} demande la caméra (getUserMedia) hors du lecteur des codes de transfert`)
+  if (js.includes('getUserMedia') && /audio:\s*(?:!0|true)/.test(js)) fail(`${f} demande le micro`)
+  if (/svgToPng|data:image\/svg\+xml/.test(js)) fail(`${f} contient la partie DOM de la bibliothèque qr (qr/dom.js)`)
+}
+if (csp && /data:/.test(csp)) fail('la CSP permet des adresses data:')
+
 // Une seule feuille de style chargée par la page : un fichier commun que le build sortirait du script principal (en
 // chargeant à part un écran qui partage avec lui des composants) emporterait leur style dans une feuille à part, posée
 // avant celle de la page, et changerait l'ordre des règles
@@ -190,6 +221,8 @@ if (sheets.length !== 1) fail(`dist/index.html charge ${sheets.length} feuille(s
 // Aucun texte de la banque dans le JS initial : ni énoncé ni approche, de chaque élection du site
 // (src/elections/<id>/bank.ts) ou en préparation (research/<id>/bank.json, écrit par tools/build-pack.mjs)
 const initialCode = initial.map(f => readFileSync(join(dist, f), 'utf8')).join('\n')
+// Les codes de transfert (core/transfer) ne sont lus et fabriqués qu'à la demande : leur alphabet n'est pas dans le JS initial
+if (initialCode.includes('0123456789ABCDEFGHJKMNPQRSTVWXYZ')) fail('codes de transfert : leur alphabet (core/transfer/base32.ts) est dans le JS initial')
 // « Mon profil politique » : ses entrées (l'accueil, le dépouillement, la tendance) n'emportent dans le JS initial que
 // des liens, des comptes et leurs textes (core/profileAccess.ts, core/resultsCopy.ts) ; ni le calcul de la page, ni ses
 // mots (core/echiquierCopy.ts), qui restent dans son fichier. Des extraits en ASCII, que la minification ne touche pas

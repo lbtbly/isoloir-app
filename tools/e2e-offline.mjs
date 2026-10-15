@@ -1,6 +1,8 @@
 // Test de bout en bout « Fermez l'isoloir » : on charge la page, on coupe le réseau, et tout doit
 // marcher jusqu'au bout (première tendance, suite du questionnaire, résultats, images à partager, double), y compris un
 // rechargement de la page sans réseau. Aucune requête ne doit viser un autre site.
+// « Transférez vos réponses » (#/autre-appareil) : code, image du QR code, copie par e-mail et caméra simulée, entre
+// deux appareils hors ligne.
 // Contrôles annexes : accueil (film en héros, appel dans l'en-tête), anonymat des questions pas encore vues,
 // tendance sans verdict, « Sans avis » entouré, légende de « Qui porte quoi », accords et désaccords par
 // candidat, étoile de priorité dans la grille par thème, comparaison de candidats (plateau, adresse, tableau en
@@ -38,10 +40,12 @@
 // familles de thèmes, périmètre vidéo, dates), lu avec le registre par Node (TypeScript sans compilation, Node 22.18+).
 import { chromium } from 'playwright-core'
 import { spawn } from 'node:child_process'
-import { existsSync, readFileSync, readdirSync } from 'node:fs'
+import { existsSync, mkdtempSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { ROOT, importSite, loadElection, useSiteModules } from './site-modules.mjs'
 import { readPdf } from './pdf-text.mjs'
+import encodeQR from 'qr'
 
 // ——— Arguments ———
 const argv = process.argv.slice(2)
@@ -153,6 +157,8 @@ const server = spawn('pnpm', ['vite', 'preview', '--port', String(port), '--stri
 await new Promise(r => setTimeout(r, 1500))
 
 const failures = []
+/** Fichiers du transfert de réponses (image du QR code, vidéo de la caméra simulée), hors du dépôt */
+const transferDir = mkdtempSync(join(tmpdir(), 'isoloir-e2e-'))
 const heading = async (page, name) => {
   try {
     await page.getByRole('heading', { name, exact: true }).waitFor({ timeout: 4000 })
@@ -265,7 +271,8 @@ try {
   const foreign = []
   page.on('request', r => {
     const u = r.url()
-    if (!u.startsWith(base) && !u.startsWith('blob:') && !u.startsWith('data:')) foreign.push(u)
+    // mailto: (copie par e-mail des réponses) n'est pas une requête : le navigateur passe le message à la messagerie
+    if (!u.startsWith(base) && !u.startsWith('blob:') && !u.startsWith('data:') && !u.startsWith('mailto:')) foreign.push(u)
   })
 
   // 1. En ligne : la page se charge et la copie hors ligne s'installe
@@ -1614,6 +1621,217 @@ try {
     pdfIssues.length === 0,
     `le dépouillement PDF se télécharge hors ligne (${pdf.suggestedFilename()}, ${doc?.pages.length ?? 0} pages, ${pdfBytes.length} octets${entry.archived ? ', mention « Archive » en page 1' : ''})${pdfIssues.length ? ` : ${pdfIssues.join(' ; ')}` : ''}`,
   )
+
+  // 6 bis. « Transférez vos réponses » (#/autre-appareil), hors ligne des deux côtés : le QR code derrière le rideau,
+  // le code en texte, l'image du QR code et la copie par e-mail (sans menu de partage : image téléchargée, messagerie
+  // ouverte) ; puis un second appareil, hors ligne lui aussi, importe le code collé en vrac, l'image exacte, une
+  // « photo » de l'écran, et refuse une faute de frappe ou une image sans QR code. Jamais de requête hors du site ni
+  // de violation de la CSP ; une seule clé « isoloir: » de chaque côté
+  {
+    const sent = JSON.parse((await page.evaluate(key => localStorage.getItem(key), STORAGE)) ?? '{}')
+    await page.goto(U('/autre-appareil'))
+    await page.locator('.transfer-send').waitFor()
+    const sendTab = await page.locator('.transfer-switch button').first().getAttribute('aria-pressed')
+    const masked = await page.locator('.code-text.is-masked').count()
+    await page.getByRole('button', { name: 'Montrer le QR code' }).click()
+    await page.locator('svg.qr').waitFor({ timeout: 2000 })
+    const code = (await page.locator('.code-text .code-group').allTextContents()).join(' ')
+    check(sendTab === 'true' && masked === 1 && /^[0-9A-Z]{4}( [0-9A-Z]{1,4})+$/.test(code), `transfert : l’onglet « Transférer » ouvert, le code masqué avant le rideau, puis montré (${code.length} caractères)`)
+
+    const [png] = await Promise.all([
+      page.waitForEvent('download', { timeout: 5000 }),
+      page.getByRole('button', { name: 'Télécharger le QR code (image)' }).click(),
+    ])
+    const pngPath = join(transferDir, 'code.png')
+    await png.saveAs(pngPath)
+    const pngBytes = readFileSync(pngPath)
+    check(
+      /^isoloir-[a-z0-9-]+-reprise-\d{4}-\d\d-\d\d\.png$/.test(png.suggestedFilename()) && pngBytes.subarray(1, 4).toString('latin1') === 'PNG',
+      `transfert : l’image du QR code se télécharge hors ligne (${png.suggestedFilename()}, ${pngBytes.length} octets)`,
+    )
+    const [mailPng] = await Promise.all([
+      page.waitForEvent('download', { timeout: 5000 }),
+      page.getByRole('button', { name: 'M’envoyer une copie' }).click(),
+    ])
+    await page.waitForTimeout(300)
+    const mailStatus = flat(await page.locator('.transfer-status').textContent())
+    check(/^Image téléchargée/.test(mailStatus) && /\.png$/.test(mailPng.suggestedFilename()), `transfert : copie par e-mail sans menu de partage, l’image à joindre est téléchargée (« ${mailStatus.slice(0, 60)}… »)`)
+    const sentKeys = await page.evaluate(() => Object.keys(localStorage).filter(k => k.startsWith('isoloir')))
+    check(sentKeys.length === 1 && sentKeys[0] === STORAGE, `transfert : aucune nouvelle clé de stockage côté envoi (${sentKeys.join(', ')})`)
+
+    /** Un second appareil : chargé en ligne (sa copie hors ligne s'installe), puis coupé du réseau */
+    const device = async () => {
+      const c = await browser.newContext({ viewport: { width: 390, height: 844 }, acceptDownloads: true, reducedMotion: 'reduce' })
+      await c.addInitScript(() => {
+        window.__csp = []
+        addEventListener('securitypolicyviolation', e => window.__csp.push(`${e.violatedDirective} ${e.blockedURI}`))
+      })
+      const p = await c.newPage()
+      const out = []
+      p.on('request', r => {
+        const u = r.url()
+        if (!u.startsWith(base) && !u.startsWith('blob:') && !u.startsWith('data:')) out.push(u)
+      })
+      await p.goto(HOME)
+      await p.evaluate(() => navigator.serviceWorker.ready)
+      await p.waitForFunction(() => !!navigator.serviceWorker.controller, null, { timeout: 5000 }).catch(() => null)
+      await c.setOffline(true)
+      return { c, p, out }
+    }
+    const received = p => p.evaluate(key => JSON.parse(localStorage.getItem(key) ?? '{}'), STORAGE)
+    // Comparées sans tenir compte de l'ordre : le code range les réponses par question et les avis par lettre, quand
+    // l'appareil d'origine les garde dans l'ordre où ils ont été donnés
+    const canon = v =>
+      JSON.stringify(v, (_, x) =>
+        Array.isArray(x) ? [...x].sort() : x && typeof x === 'object' ? Object.fromEntries(Object.entries(x).sort(([m], [n]) => m.localeCompare(n))) : x,
+      )
+    const same = got =>
+      canon(got.answers) === canon(sent.answers) &&
+      canon(got.weights) === canon(sent.weights) &&
+      canon(got.deepTopics) === canon(sent.deepTopics) &&
+      got.seed === sent.seed &&
+      (got.essentialDoneAt ?? '').slice(0, 19) === (sent.essentialDoneAt ?? '').slice(0, 19)
+
+    // Le code collé en vrac : minuscules, tirets, retours à la ligne, O pour 0
+    const b = await device()
+    await b.p.goto(U('/autre-appareil/importer'))
+    await b.p.locator('#transfer-code').waitFor()
+    const importTab = await b.p.locator('.transfer-switch button').nth(1).getAttribute('aria-pressed')
+    const typo = code.replace(/[0-9A-Z]/, ch => (ch === '7' ? '8' : '7'))
+    await b.p.locator('#transfer-code').fill(typo)
+    await b.p.getByRole('button', { name: 'Lire ce code' }).click()
+    const typoError = flat(await b.p.locator('#transfer-error').textContent({ timeout: 2000 }).catch(() => ''))
+    const messy = code.toLowerCase().replace(/0/g, 'o').replace(/ /g, (_, i) => (i % 3 ? ' - ' : '\n'))
+    await b.p.locator('#transfer-code').fill(messy)
+    await b.p.getByRole('button', { name: 'Lire ce code' }).click()
+    const found = await heading(b.p, 'Réponses trouvées')
+    await b.p.getByRole('button', { name: 'Importer ces réponses' }).click()
+    await b.p.waitForFunction(h => location.hash === h, L('/resultats'), { timeout: 3000 }).catch(() => null)
+    await b.p.waitForFunction(key => !!localStorage.getItem(key), STORAGE, { timeout: 3000 }).catch(() => null)
+    const gotB = await received(b.p)
+    const keysB = await b.p.evaluate(() => Object.keys(localStorage).filter(k => k.startsWith('isoloir')))
+    check(importTab === 'true' && /vérifiez chaque groupe/.test(typoError), `transfert : #/autre-appareil/importer ouvre « Importer », une faute de frappe est refusée (« ${typoError.slice(0, 50)}… »)`)
+    check(found && hashOf(b.p) === L('/resultats') && same(gotB) && keysB.length === 1, `transfert : le code collé en vrac, hors ligne, donne les mêmes réponses, priorités, thèmes et graine (${Object.keys(gotB.answers ?? {}).length} réponses, ${keysB.length} clé)`)
+    const cspB = await b.p.evaluate(() => window.__csp)
+    check(b.out.length === 0 && cspB.length === 0, `transfert : second appareil sans requête hors du site ni violation de la CSP (${[...b.out, ...cspB].slice(0, 3).join(', ') || 'aucune'})`)
+    await b.c.close()
+
+    // L'image : une « photo » de l'écran (tournée, réduite, floue, en JPEG) puis une image sans QR code, par « Choisir une
+    // image » ; enfin l'image exacte, par « Reprendre depuis un fichier » de l'accueil, sur un appareil vierge
+    const c = await device()
+    await c.p.goto(U('/autre-appareil/importer'))
+    await c.p.locator('.transfer-ways input[type=file]').waitFor({ state: 'attached' })
+    const photo = await c.p.evaluate(async b64 => {
+      const img = new Image()
+      img.src = URL.createObjectURL(new Blob([Uint8Array.from(atob(b64), ch => ch.charCodeAt(0))], { type: 'image/png' }))
+      await img.decode()
+      const cv = document.createElement('canvas')
+      cv.width = 900
+      cv.height = 1200
+      const ctx = cv.getContext('2d')
+      ctx.fillStyle = '#6b6f75'
+      ctx.fillRect(0, 0, cv.width, cv.height)
+      ctx.filter = 'blur(1px)'
+      ctx.translate(450, 600)
+      ctx.rotate((7 * Math.PI) / 180)
+      ctx.drawImage(img, -img.width * 0.35, -img.height * 0.35, img.width * 0.7, img.height * 0.7)
+      const blob = await new Promise(r => cv.toBlob(r, 'image/jpeg', 0.7))
+      const bytes = new Uint8Array(await blob.arrayBuffer())
+      let s = ''
+      for (const x of bytes) s += String.fromCharCode(x)
+      return btoa(s)
+    }, pngBytes.toString('base64'))
+    await c.p.locator('.transfer-ways input[type=file]').setInputFiles({ name: 'photo.jpg', mimeType: '', buffer: Buffer.from(photo, 'base64') })
+    const photoRead = await heading(c.p, 'Réponses trouvées')
+    if (photoRead) await c.p.getByRole('button', { name: 'Annuler' }).click()
+    const blank = await c.p.evaluate(async () => {
+      const cv = document.createElement('canvas')
+      cv.width = 300
+      cv.height = 300
+      cv.getContext('2d').fillRect(40, 40, 60, 60)
+      const bytes = new Uint8Array(await (await new Promise(r => cv.toBlob(r, 'image/png'))).arrayBuffer())
+      let s = ''
+      for (const x of bytes) s += String.fromCharCode(x)
+      return btoa(s)
+    })
+    await c.p.locator('.transfer-ways input[type=file]').setInputFiles({ name: 'vide.png', mimeType: 'image/png', buffer: Buffer.from(blank, 'base64') })
+    await c.p.waitForFunction(() => /Aucun QR code/.test(document.querySelector('.transfer-ways .transfer-note:not(:empty)')?.textContent ?? ''), null, { timeout: 5000 }).catch(() => null)
+    const blankNote = flat(await c.p.locator('.transfer-ways .transfer-note').nth(1).textContent())
+    check(photoRead && /^Aucun QR code/.test(blankNote), `transfert : une photo de l’écran (tournée, floue, JPEG) se lit ; une image sans QR code est refusée (« ${blankNote.slice(0, 40)}… »)`)
+    await c.p.goto(U('/'))
+    await c.p.locator('.home-foot input[type=file]').waitFor({ state: 'attached' })
+    await c.p.locator('.home-foot input[type=file]').setInputFiles(pngPath)
+    await c.p.waitForFunction(h => location.hash === h, L('/resultats'), { timeout: 8000 }).catch(() => null)
+    await c.p.waitForFunction(key => !!localStorage.getItem(key), STORAGE, { timeout: 3000 }).catch(() => null)
+    const gotC = await received(c.p)
+    check(hashOf(c.p) === L('/resultats') && same(gotC), `transfert : l’image exacte, choisie dans « Reprendre depuis un fichier » de l’accueil, importe les mêmes réponses`)
+    // Le double (JSON) passe toujours par le même bouton : la feuille commencée, il demande s'il faut la remplacer
+    await c.p.goto(U('/'))
+    await c.p.locator('.home-foot input[type=file]').setInputFiles(await download.path())
+    const asked = await c.p.locator('.home-foot .notice[role=alert]').waitFor({ timeout: 3000 }).then(() => true).catch(() => false)
+    const cspC = await c.p.evaluate(() => window.__csp)
+    check(asked && c.out.length === 0 && cspC.length === 0, `transfert : le double JSON s’importe toujours depuis l’accueil (demande de remplacer ${asked}) ; aucune requête hors du site ni violation de la CSP`)
+    await c.c.close()
+
+    // La caméra, simulée par Chromium (une vidéo du QR code) : rien n'est demandé avant le geste ; le code est lu en
+    // moins de 8 s, avec le détecteur du navigateur s'il en a un, puis avec le décodeur JavaScript ; la caméra s'arrête
+    const modules = encodeQR(code.replace(/ /g, ''), 'raw', { ecc: 'medium', encoding: 'alphanumeric', border: 4 })
+    const W = 1280
+    const H = 720
+    const px = Math.floor(600 / modules.length)
+    const side = modules.length * px
+    const y = Buffer.alloc(W * H, 235)
+    for (let r = 0; r < side; r++) {
+      for (let col = 0; col < side; col++) {
+        if (modules[Math.floor(r / px)][Math.floor(col / px)]) y[(r + Math.floor((H - side) / 2)) * W + col + Math.floor((W - side) / 2)] = 16
+      }
+    }
+    const y4m = join(transferDir, 'qr.y4m')
+    writeFileSync(y4m, Buffer.concat([Buffer.from(`YUV4MPEG2 W${W} H${H} F15:1 Ip A1:1 C420jpeg\nFRAME\n`), y, Buffer.alloc((W / 2) * (H / 2) * 2, 128)]))
+    const cam = await chromium.launch({
+      args: ['--mute-audio', '--use-fake-device-for-media-stream', '--use-fake-ui-for-media-stream', `--use-file-for-fake-video-capture=${y4m}`],
+    })
+    try {
+      for (const forceJs of [false, true]) {
+        const cc = await cam.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce', permissions: ['camera'] })
+        await cc.addInitScript(js => {
+          window.__gum = 0
+          const md = navigator.mediaDevices
+          if (md?.getUserMedia) {
+            const real = md.getUserMedia.bind(md)
+            md.getUserMedia = c => {
+              window.__gum++
+              return real(c).then(s => ((window.__stream = s), s))
+            }
+          }
+          if (js) delete window.BarcodeDetector
+        }, forceJs)
+        const cp = await cc.newPage()
+        const camOut = []
+        cp.on('request', r => {
+          const u = r.url()
+          if (!u.startsWith(base) && !u.startsWith('blob:') && !u.startsWith('data:')) camOut.push(u)
+        })
+        await cp.goto(U('/autre-appareil/importer'))
+        await cp.locator('#transfer-code').waitFor()
+        const native = await cp.evaluate(async () => !!window.BarcodeDetector && (await window.BarcodeDetector.getSupportedFormats()).includes('qr_code'))
+        const before = await cp.evaluate(() => window.__gum)
+        const t0 = Date.now()
+        await cp.getByRole('button', { name: 'Ouvrir la caméra' }).click()
+        const read = await cp.getByRole('heading', { name: 'Réponses trouvées', exact: true }).waitFor({ timeout: 8000 }).then(() => true).catch(() => false)
+        const ms = Date.now() - t0
+        const stopped = await cp.evaluate(() => !document.querySelector('.viewfinder video')?.srcObject && (window.__stream?.getTracks() ?? []).every(t => t.readyState === 'ended'))
+        check(
+          before === 0 && read && stopped && camOut.length === 0,
+          `transfert : la caméra (${native ? 'détecteur du navigateur' : 'décodeur JavaScript'}) lit le QR code en ${(ms / 1000).toFixed(1)} s, rien demandé avant le geste, caméra arrêtée ensuite`,
+        )
+        await cc.close()
+      }
+    } finally {
+      await cam.close()
+    }
+    await page.goto(U('/resultats'))
+  }
 
   // 7. Recharger la page sans réseau
   await page.reload()

@@ -5,7 +5,7 @@
 // porte les réponses ; l'éditeur ne les voit jamais.
 // Chargé à la demande (ui/screens/load.ts), avec le QR code et le codec : le code de chaque visite n'en contient rien.
 
-import { useEffect, useMemo, useState } from 'preact/hooks'
+import { useEffect, useMemo, useRef, useState } from 'preact/hooks'
 import { downloadBlob } from '../../core/download'
 import { importNotes, type ImportResult } from '../../core/exportData'
 import type { SessionState } from '../../core/storage'
@@ -22,6 +22,7 @@ import { Icon } from '../components/Icon'
 import { SiteFooter } from '../components/SiteFooter'
 import { Stamp } from '../components/Stamp'
 import { go, link } from '../nav'
+import { readImportFile, startCamera, type CameraError } from '../transfer/read'
 
 interface Props {
   pack: ElectionPack
@@ -35,23 +36,6 @@ type Side = 'send' | 'receive'
 
 /** Le rideau devant le QR code : tiré, en train de s'ouvrir, ouvert, en train de se refermer */
 type Curtain = 'closed' | 'opening' | 'open' | 'closing'
-
-/** Pictogrammes propres à la page, au trait des autres (ui/components/Icon.tsx) */
-const GLYPHS = {
-  camera: 'M4 8.5h3l1.6-2.5h6.8L17 8.5h3V19H4zM12 16.6a3.4 3.4 0 1 0 0-6.8 3.4 3.4 0 0 0 0 6.8z',
-  image: 'M4 5h16v14H4zM4 16l4.5-4.5 3.5 3.5 2.5-2.5L20 17.5M15.5 9.5v.5',
-  copy: 'M8.5 8.5h11v11h-11zM15.5 8.5V4.5h-11v11h4',
-  keyboard: 'M3 7h18v10H3zM6.5 10.5h1M10 10.5h1M13.5 10.5h1M17 10.5h.5M7.5 14h9',
-  mail: 'M3.5 6h17v12h-17zM3.5 6.5l8.5 7 8.5-7',
-} as const
-
-function Glyph({ name }: { name: keyof typeof GLYPHS }) {
-  return (
-    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-      <path d={GLYPHS[name]} />
-    </svg>
-  )
-}
 
 const reducedMotion = () => typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches
 
@@ -304,8 +288,8 @@ function Send({ pack, state }: { pack: ElectionPack; state: SessionState }) {
           ))}
         </p>
         <div class="code-box-actions">
-          <button type="button" class="btn-frame" onClick={copy}>
-            <Glyph name="copy" />
+          <button type="button" class="btn-primary is-outline" onClick={copy}>
+            <Icon name="copy" />
             Copier le code
           </button>
         </div>
@@ -315,8 +299,8 @@ function Send({ pack, state }: { pack: ElectionPack; state: SessionState }) {
         <h3 class="code-box-title">Gardez une copie par e-mail</h3>
         <p class="code-box-lede">QR code en pièce jointe, code dans le message : pour importer vos réponses plus tard.</p>
         <div class="code-box-actions">
-          <button type="button" class="btn-frame" onClick={mail}>
-            <Glyph name="mail" />
+          <button type="button" class="btn-primary is-outline" onClick={mail}>
+            <Icon name="mail" />
             M’envoyer une copie
           </button>
         </div>
@@ -339,15 +323,35 @@ function Send({ pack, state }: { pack: ElectionPack; state: SessionState }) {
   )
 }
 
-/** Importer : la caméra, une image ou le code collé ; puis « Remplacer mes réponses » */
+const CAMERA_ERRORS: Record<CameraError, string> = {
+  refusee: 'Caméra refusée. Autorisez-la dans les réglages du navigateur, ou choisissez une image.',
+  absente: 'Pas de caméra ici : choisissez une image ou collez le code.',
+  indisponible: 'Caméra indisponible sur ce navigateur : choisissez une image ou collez le code.',
+}
+
+/** Importer : la caméra, une image (ou le double) ou le code collé ; puis « Remplacer mes réponses » */
 function Receive({ pack, state, setState }: Props) {
   const [text, setText] = useState('')
-  const [camera, setCamera] = useState(false)
+  const [camera, setCamera] = useState<'off' | 'starting' | 'on'>('off')
+  const [cameraNote, setCameraNote] = useState<string | null>(null)
+  const [imageNote, setImageNote] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [pending, setPending] = useState<Extract<ImportResult, { ok: true }> | null>(null)
+  const video = useRef<HTMLVideoElement>(null)
+  const file = useRef<HTMLInputElement>(null)
+  const stopCamera = useRef<(() => void) | null>(null)
+  const alive = useRef(true)
   const started = Object.keys(state.answers).length > 0
 
   useEffect(() => setError(null), [text])
+  // Quitter la page ou l'onglet « Importer » arrête la caméra
+  useEffect(
+    () => () => {
+      alive.current = false
+      stopCamera.current?.()
+    },
+    [],
+  )
 
   const read = (value: string) => {
     const res = parseCode(value, pack)
@@ -356,6 +360,60 @@ function Receive({ pack, state, setState }: Props) {
       return
     }
     setError(null)
+    setPending(res)
+  }
+
+  const closeCamera = () => {
+    stopCamera.current?.()
+    stopCamera.current = null
+    setCamera('off')
+  }
+
+  const openCamera = async () => {
+    if (!video.current) return
+    setCameraNote(null)
+    setCamera('starting')
+    try {
+      const stop = await startCamera(video.current, {
+        onText: t => {
+          const res = parseCode(t, pack)
+          if (!res.ok) {
+            setCameraNote('Ce QR code n’est pas un code d’Isoloir.')
+            return false
+          }
+          stopCamera.current = null
+          setCamera('off')
+          setPending(res)
+          return true
+        },
+        onStop: why => {
+          stopCamera.current = null
+          setCamera('off')
+          setCameraNote(why === 'delai' ? 'Caméra fermée au bout de deux minutes.' : 'Caméra fermée.')
+        },
+      })
+      if (!alive.current) return stop()
+      stopCamera.current = stop
+      setCamera(c => (c === 'starting' ? 'on' : c))
+    } catch (e) {
+      setCamera('off')
+      setCameraNote(CAMERA_ERRORS[e as CameraError] ?? CAMERA_ERRORS.indisponible)
+    }
+  }
+
+  const onFile = async (e: Event) => {
+    const input = e.currentTarget as HTMLInputElement
+    const f = input.files?.[0]
+    input.value = ''
+    if (!f) return
+    setImageNote('Lecture de l’image…')
+    const res = await readImportFile(f, pack)
+    if (!alive.current) return
+    if (!res.ok) {
+      setImageNote(res.error)
+      return
+    }
+    setImageNote(null)
     setPending(res)
   }
 
@@ -406,24 +464,26 @@ function Receive({ pack, state, setState }: Props) {
           </span>
           <div class="way">
             <h3>Scanner le QR code</h3>
-            {camera ? (
-              <div class="viewfinder" aria-label="Aperçu de la caméra">
-                <span class="viewfinder-corners" aria-hidden="true" />
-                <p class="viewfinder-hint">Visez le QR code</p>
-              </div>
+            {/* Toujours là, caché tant que la caméra est fermée : la caméra s'y branche dans le geste même */}
+            <div class="viewfinder" hidden={camera === 'off'}>
+              <video ref={video} muted playsInline aria-label="Image de la caméra" />
+              <span class="viewfinder-corners" aria-hidden="true" />
+              <p class="viewfinder-hint">{camera === 'starting' ? 'Ouverture de la caméra…' : 'Visez le QR code'}</p>
+            </div>
+            {camera === 'off' ? <p>Avec la caméra. Rien n’est filmé ni envoyé.</p> : null}
+            {camera === 'off' ? (
+              <button type="button" class="btn-primary" onClick={() => void openCamera()}>
+                <Icon name="camera" />
+                Ouvrir la caméra
+              </button>
             ) : (
-              <p>Avec la caméra. Rien n’est filmé ni envoyé.</p>
+              <button type="button" class="btn-text" onClick={closeCamera}>
+                Fermer la caméra
+              </button>
             )}
-            <button type="button" class={camera ? 'btn-text' : 'btn-primary'} onClick={() => setCamera(!camera)}>
-              {camera ? (
-                'Fermer la caméra'
-              ) : (
-                <>
-                  <Glyph name="camera" />
-                  Ouvrir la caméra
-                </>
-              )}
-            </button>
+            <p class="transfer-note" role="status">
+              {cameraNote}
+            </p>
           </div>
         </li>
         <li>
@@ -433,10 +493,23 @@ function Receive({ pack, state, setState }: Props) {
           <div class="way">
             <h3>Choisir une image</h3>
             <p>Pièce jointe de l’e-mail, capture d’écran ou photo du QR code.</p>
-            <button type="button" class="btn-text">
-              <Glyph name="image" />
+            <button type="button" class="btn-text" onClick={() => file.current?.click()}>
+              <Icon name="image" />
               Choisir une image
             </button>
+            {/* Hors de l'arbre d'accessibilité : le bouton porte l'action. Le double (JSON) y est lu aussi */}
+            <input
+              ref={file}
+              type="file"
+              accept="image/*,.png,.jpg,.jpeg,.webp,.heic,application/json,.json,text/plain,.txt"
+              class="sr-only"
+              tabIndex={-1}
+              aria-hidden="true"
+              onChange={e => void onFile(e)}
+            />
+            <p class="transfer-note" role="status">
+              {imageNote}
+            </p>
           </div>
         </li>
         <li>
@@ -467,7 +540,7 @@ function Receive({ pack, state, setState }: Props) {
               </p>
             ) : null}
             <button type="button" class="btn-text" disabled={!text.trim()} onClick={() => read(text)}>
-              <Glyph name="keyboard" />
+              <Icon name="keyboard" />
               Lire ce code
             </button>
           </div>

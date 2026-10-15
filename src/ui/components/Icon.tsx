@@ -44,6 +44,13 @@ const PATHS: Record<string, string> = {
   'rel-different': 'M5 9h14M5 15h14M15 4.5L9 19.5',
   'rel-opposed': 'M10 12H3M6.5 8.5L3 12l3.5 3.5M14 12h7M17.5 8.5L21 12l-3.5 3.5',
   'rel-unknown': 'M9 9.2a3 3 0 1 1 4.2 2.75c-.75.33-1.2 1-1.2 1.8V15M12 18.6v.2',
+  // « Transférez vos réponses » (ui/screens/Transfer.tsx) : QR code, caméra, image, copier, e-mail, clavier
+  qr: 'M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h2.5v2.5H14zM20 14v2.5M14 20h2.5M19 19h1v1h-1z',
+  camera: 'M4 8.5h3l1.6-2.5h6.8L17 8.5h3V19H4zM12 16.6a3.4 3.4 0 1 0 0-6.8 3.4 3.4 0 0 0 0 6.8z',
+  image: 'M4 5h16v14H4zM4 16l4.5-4.5 3.5 3.5 2.5-2.5L20 17.5M15.5 9.5v.5',
+  copy: 'M8.5 8.5h11v11h-11zM15.5 8.5V4.5h-11v11h4',
+  mail: 'M3.5 6h17v12h-17zM3.5 6.5l8.5 7 8.5-7',
+  keyboard: 'M3 7h18v10H3zM6.5 10.5h1M10 10.5h1M13.5 10.5h1M17 10.5h.5M7.5 14h9',
   plane:
     'M12 2.8c.8 0 1.4.7 1.4 1.6v5l7.1 4.2v2l-7.1-2.1v4.2l2.3 1.8v1.7L12 20.3l-3.7.9v-1.7l2.3-1.8v-4.2l-7.1 2.1v-2l7.1-4.2v-5c0-.9.6-1.6 1.4-1.6z',
 }

@@ -27,6 +27,12 @@ const KEPT = [
     until: 'Vous seul les gérez, y compris s’ils se synchronisent avec un cloud. Ils contiennent vos opinions politiques',
   },
   {
+    icon: 'qr',
+    what: 'Votre code de transfert (QR code, image, texte, e-mail)',
+    where: 'Là où vous le mettez : l’autre appareil, vos photos, votre messagerie',
+    until: 'Il contient toutes vos réponses : ne le publiez jamais. Une copie gardée dans vos e-mails ou dans des photos sauvegardées en ligne y reste',
+  },
+  {
     icon: 'plane',
     what: 'Une copie de l’application',
     where: 'Dans ce navigateur, pour marcher hors ligne',
@@ -76,8 +82,8 @@ export function Privacy({ eraseAll }: { eraseAll: () => void }) {
           Ce qui se passe dans l’isoloir reste dans l’isoloir
         </h1>
         <p class="lede">
-          {APP_NAME} n’envoie jamais vos réponses&nbsp;: elles restent sur votre appareil, sauf si vous en exportez
-          vous-même une copie. {APP_NAME} ne collecte rien lui-même&nbsp;: pas de compte, pas de cookie, pas de mesure
+          {APP_NAME} n’envoie jamais vos réponses&nbsp;: elles restent sur votre appareil, sauf si vous en emportez
+          vous-même une copie (le double, ou le code pour les transférer). {APP_NAME} ne collecte rien lui-même&nbsp;: pas de compte, pas de cookie, pas de mesure
           d’audience. Comme pour toute page web, l’hébergeur voit votre adresse IP, les pages demandées et votre
           navigateur. Trois schémas pour le comprendre, une preuve à faire vous-même, puis la notice point par point.
         </p>
@@ -111,8 +117,8 @@ export function Privacy({ eraseAll }: { eraseAll: () => void }) {
           </SectionTitle>
           <AirplaneDiagram />
           <p class="caption">
-            Une fois la page chargée, coupez le réseau&nbsp;: la feuille, le dépouillement, l’image, le PDF et le double marchent
-            toujours, jusqu’au résultat. Sans réseau, rien ne peut sortir de l’appareil. Vous pouvez tout effacer avant
+            Une fois la page chargée, coupez le réseau&nbsp;: la feuille, le dépouillement, l’image, le PDF, le double et le
+            transfert par QR code marchent toujours, jusqu’au résultat. Sans réseau, rien ne peut sortir de l’appareil. Vous pouvez tout effacer avant
             de le rallumer.
           </p>
         </section>
@@ -148,7 +154,16 @@ export function Privacy({ eraseAll }: { eraseAll: () => void }) {
           <p>
             La page «&nbsp;Mon profil politique&nbsp;» est calculée sur cet appareil, à partir de votre progression&nbsp;: elle
             reste seulement en mémoire le temps de la visite (un rechargement l’oublie) et ne figure ni sur l’affiche, ni
-            dans le PDF, ni dans le double.
+            dans le PDF, ni dans le double, ni dans le code de transfert&nbsp;: un autre appareil la recalcule à partir de
+            vos réponses.
+          </p>
+          <p>
+            Pour transférer vos réponses, la page «&nbsp;Transférez vos réponses&nbsp;» fabrique sur cet appareil un code qui
+            les contient toutes, montré en QR code et en texte. L’autre appareil le lit avec sa caméra, dans une image ou
+            au clavier&nbsp;: l’image de la caméra est analysée sur place, rien n’est filmé, enregistré ni envoyé, et la
+            caméra s’arrête dès le code lu. Le code ne passe ni par un serveur d’{APP_NAME}, ni par l’adresse d’une page.
+            La copie par e-mail, elle, passe par la messagerie que vous choisissez, qui la garde&nbsp;: c’est vous qui
+            l’envoyez, à vous-même.
           </p>
           <p>
             Ces stockages servent seulement au service que vous demandez&nbsp;: reprendre votre feuille là où vous
@@ -180,6 +195,12 @@ export function Privacy({ eraseAll }: { eraseAll: () => void }) {
               une autre page, ce que le code ne fait jamais avec vos réponses.
             </li>
             <li>Les polices sont servies par le site lui-même&nbsp;: aucun service tiers n’est contacté.</li>
+            <li>
+              Le QR code de transfert est dessiné sur la page, et lu par le détecteur du navigateur ou par une
+              bibliothèque libre (qr) servie par le site lui-même. La caméra n’est demandée qu’au geste «&nbsp;Ouvrir la
+              caméra&nbsp;». Le code ne contient que vos réponses, vos priorités, vos thèmes approfondis, la date de
+              votre questionnaire et le tirage au hasard qui ordonne vos questions&nbsp;: jamais votre nom ni votre appareil.
+            </li>
             <li>
               Pour marcher hors ligne, un service worker garde une copie des fichiers du site dans votre navigateur. Il
               ne fait que copier et servir ces fichiers&nbsp;: il ne voit pas vos réponses et n’envoie aucune donnée. Le

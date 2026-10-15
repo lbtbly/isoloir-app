@@ -146,7 +146,7 @@ const DAMAGED = 'Ce code ne se lit pas : vérifiez chaque groupe de caractères,
  */
 export function decodeTransferRaw(text: string, pack: ElectionPack, now = new Date()): RawDecode {
   const slots = slotsOf(pack)
-  const code = normalizeCode(text)
+  const code = normalizeCode(extractCode(text))
   if (!code) return { ok: false, error: 'Le code est vide.' }
   const bytes = fromBase32(code)
   if (!bytes) {
@@ -251,8 +251,33 @@ export function parseCode(text: string, pack: ElectionPack, now = new Date()): I
   )
 }
 
-/** Un texte qui a l'allure d'un code de reprise (à essayer avant de le dire illisible) */
+/**
+ * Le code dans un texte collé tel quel, l'e-mail de la copie par exemple : le plus long bloc de lignes consécutives
+ * faites seulement de groupes courts de lettres et de chiffres (huit au plus, comme les groupes de quatre du code), ou
+ * d'un seul long bloc (le code collé sans espaces). Sans bloc assez long, le texte entier (un code tapé avec ses
+ * fautes reste lu, et signalé).
+ */
+export function extractCode(text: string): string {
+  let best = ''
+  let current = ''
+  for (const line of text.split(/\r?\n/)) {
+    const tokens = line.trim().toUpperCase().split(/[\s\-–—_.·]+/).filter(Boolean)
+    const codeLine =
+      tokens.length > 0 &&
+      tokens.every(t => /^[0-9A-Z]+$/.test(t)) &&
+      (tokens.every(t => t.length <= 8) || (tokens.length === 1 && tokens[0]!.length >= 24))
+    if (codeLine) current += tokens.join('')
+    else {
+      if (current.length > best.length) best = current
+      current = ''
+    }
+  }
+  if (current.length > best.length) best = current
+  return normalizeCode(best).length >= 24 ? best : text
+}
+
+/** Un texte qui a l'allure d'un code de reprise, ou qui en contient un (à essayer avant de le dire illisible) */
 export function looksLikeCode(text: string): boolean {
-  const code = normalizeCode(text)
+  const code = normalizeCode(extractCode(text))
   return code.length >= 24 && code.length <= 2000 && /^[0-9A-HJKMNP-TV-Z]+$/.test(code)
 }

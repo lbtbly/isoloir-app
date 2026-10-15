@@ -32,7 +32,7 @@ export const CONTACT_MESSAGERIE: string =
 export const DELAI_VERIFICATION = '72 heures'
 
 /** Date de mise à jour des mentions légales et de la notice de confidentialité (AAAA-MM-JJ) */
-export const MISE_A_JOUR = '2026-10-04'
+export const MISE_A_JOUR = '2026-10-15'
 
 /** Hébergeur, tel que Vercel le publie (vérifié le 4 octobre 2026, voir research/juridique/) */
 export const HEBERGEUR = {
