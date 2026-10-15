@@ -10,7 +10,7 @@ import { importNotes, type ImportResult } from '../../core/exportData'
 import type { SessionState } from '../../core/storage'
 import { groupCode } from '../../core/transfer/base32'
 import { encodeTransfer, parseCode } from '../../core/transfer/codec'
-import { transferMailto } from '../../core/transfer/mail'
+import { transferMailto } from '../../core/transferMail'
 import { qrModules, qrPath } from '../../core/transfer/qr'
 import { sheetContents } from '../../core/transfer/summary'
 import { canvasToPng, renderTransferImage, transferImageName } from '../../core/transferImage'
@@ -288,7 +288,7 @@ function Send({ pack, state }: { pack: ElectionPack; state: SessionState }) {
             <Glyph name="copy" />
             Copier le code
           </button>
-          <a class="btn-frame" href={transferMailto(pack, made.code)}>
+          <a class="btn-frame" href={transferMailto(pack, made.code, link('/autre-appareil'))}>
             <Glyph name="mail" />
             Me l’envoyer par e-mail
           </a>

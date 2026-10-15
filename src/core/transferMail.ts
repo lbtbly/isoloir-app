@@ -2,16 +2,17 @@
 // marche à suivre, sans destinataire (la personne y met sa propre adresse). Rien ne part d'Isoloir : c'est la
 // messagerie, choisie et lancée par la personne, qui envoie, et qui garde une copie du code.
 
-import { APP_NAME, APP_URL } from '../app'
-import type { ElectionPack } from '../types'
-import { groupCode } from './base32'
+import { APP_NAME, APP_URL } from './app'
+import type { ElectionPack } from './types'
+import { groupCode } from './transfer/base32'
 
 const dateFr = (d: Date) => d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
 
 export const MAIL_SUBJECT = `Mes réponses ${APP_NAME}, à reprendre sur un autre appareil`
 
 /** Le corps du message : le code par lignes de huit groupes, la marche à suivre et la mise en garde */
-export function transferMailBody(pack: ElectionPack, code: string, now = new Date()): string {
+/** « page » : l'adresse de la page « Autre appareil » dans l'élection affichée (link('/autre-appareil'), ui/nav.ts) */
+export function transferMailBody(pack: ElectionPack, code: string, page: string, now = new Date()): string {
   const groups = groupCode(code)
   const lines: string[] = []
   for (let i = 0; i < groups.length; i += 8) lines.push(groups.slice(i, i + 8).join(' '))
@@ -21,7 +22,7 @@ export function transferMailBody(pack: ElectionPack, code: string, now = new Dat
     ...lines,
     '',
     'Pour retrouver ces réponses et mon profil politique sur un autre appareil :',
-    `1. Ouvrir ${APP_URL}/#/autre-appareil`,
+    `1. Ouvrir ${APP_URL}/${page}`,
     '2. Choisir « Récupérer mes réponses ».',
     '3. Coller ce code dans « Coller ou taper le code », puis « Lire ce code ».',
     '',
@@ -30,6 +31,6 @@ export function transferMailBody(pack: ElectionPack, code: string, now = new Dat
 }
 
 /** Le lien mailto:, sans destinataire */
-export function transferMailto(pack: ElectionPack, code: string, now = new Date()): string {
-  return `mailto:?subject=${encodeURIComponent(MAIL_SUBJECT)}&body=${encodeURIComponent(transferMailBody(pack, code, now))}`
+export function transferMailto(pack: ElectionPack, code: string, page: string, now = new Date()): string {
+  return `mailto:?subject=${encodeURIComponent(MAIL_SUBJECT)}&body=${encodeURIComponent(transferMailBody(pack, code, page, now))}`
 }
