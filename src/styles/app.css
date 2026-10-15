@@ -974,6 +974,10 @@ path.ink-draw {
   font-variant-numeric: tabular-nums;
 }
 
+/* L'action principale : un aplat de bleu bille, lettres blanches (bille claire et lettres foncées en sombre).
+   Demande du propriétaire du 2026-10-15 : en noir, les appels se noyaient dans l'imprimé de la feuille ; le bleu
+   du stylo de l'électeur les détache, et la hiérarchie se lit d'un coup d'œil : aplat bleu pour l'action
+   principale, trait noir pour les autres (texte souligné, raccourcis encadrés). */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -981,8 +985,8 @@ path.ink-draw {
   gap: 0.55rem;
   min-height: 3rem;
   padding: 0 1.3rem;
-  background: var(--print);
-  color: var(--on-print);
+  background: var(--action);
+  color: var(--on-action);
   border: 0;
   border-radius: 0;
   font-weight: 750;
@@ -994,8 +998,10 @@ path.ink-draw {
   transition: background-color var(--t-quick) ease-out;
 }
 
+/* Survol : la bille fonce d'un ton en clair, s'éclaircit en sombre (les lettres gagnent en contraste) */
 .btn-primary:hover {
-  background: color-mix(in srgb, var(--print) 82%, var(--paper));
+  background: var(--action-hover);
+  color: var(--on-action);
   text-decoration: none;
 }
 
@@ -1003,9 +1009,37 @@ path.ink-draw {
   transform: translateY(1px);
 }
 
-.btn-primary:disabled {
+/* L'anneau de focus (:focus-visible), du même bleu, se détache par son blanc de 3px. En contraste forcé, où l'aplat
+   disparaît, le bouton garde un cadre */
+@media (forced-colors: active) {
+  .btn-primary {
+    border: 2px solid ButtonText;
+  }
+}
+
+.btn-primary:disabled,
+.btn-primary:disabled:hover {
+  background: var(--action);
   opacity: 0.38;
   cursor: not-allowed;
+}
+
+/* Le bouton principal au trait noir (2026-10-15) : il garde sa place et sa taille, mais cède l'aplat bleu. Deux cas :
+   « Passer » (aucun avis coché), pour ne pas pousser à sauter la question, l'aplat n'arrivant qu'avec le premier avis ;
+   et, quand la carte « À revoir » est là, l'appel de l'en-tête de l'accueil et les actions du dépouillement, pour que
+   « Revoir la question » soit le seul aplat de la vue. Le filet est une ombre portée en dedans : il ne change pas la
+   taille du bouton */
+.btn-primary.is-outline,
+.btn-primary.is-outline:hover {
+  background: var(--paper);
+  color: var(--print);
+  box-shadow: inset 0 0 0 var(--line) var(--print);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary.is-outline:hover {
+    background: color-mix(in srgb, var(--print) 6%, var(--paper));
+  }
 }
 
 .btn-primary.is-wide {
@@ -1192,10 +1226,6 @@ path.ink-draw {
 
 .guarantee .icon {
   margin-top: 0.2rem;
-}
-
-.home-more {
-  margin-top: var(--s4);
 }
 
 .progress-note {
@@ -2061,6 +2091,10 @@ path.ink-draw {
   /* Le jaune reste clair en mode sombre : encre, rouge et échelle d'affinité y gardent leurs teintes claires */
   --ink: var(--copy-ink);
   --focus: var(--copy-ink);
+  /* L'action garde la bille foncée et ses lettres blanches sur le jaune, dans les deux modes (7,2:1 sur le jaune) */
+  --action: var(--copy-ink);
+  --action-hover: #192f8f;
+  --on-action: #ffffff;
   --red: var(--copy-red);
   --aff-tres-eloigne: var(--copy-aff-tres-eloigne);
   --aff-eloigne: var(--copy-aff-eloigne);

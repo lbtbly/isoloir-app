@@ -104,3 +104,230 @@
     justify-content: flex-end;
   }
 }
+
+/* ——— Le pied de l'accueil (components/SiteFooter.tsx, HomeFooter) ———
+   Demande du propriétaire du 2026-10-15 : les actions sur la feuille flottaient sous les candidats, « sorties de
+   nulle part ». Elles prennent place dans un vrai pied de page, pleine largeur, sur fond d'encre d'imprimerie : la
+   feuille en négatif, aux encres du papier carbone (jetons --foot-*), qui ferme l'accueil. Un filet fin de la page,
+   4px de papier, puis l'aplat : le double filet de l'en-tête, renversé. En tête, le logo et les dates du vote, sur un
+   filet épais ; dessous, des colonnes titrées, empilées sur téléphone : « Votre feuille », « À table », « Qui fait
+   Isoloir ». Les actions sont des lignes de formulaire entre filets : une action de plus prend sa ligne. */
+
+.screen > .site-foot.home-foot {
+  position: relative;
+  margin-top: 5px;
+  padding-top: var(--s7);
+  background: var(--foot-paper);
+  /* Le filet épais du double filet : en clair, de l'encre de l'aplat (il s'y confond) ; en sombre, où l'aplat ne se
+     détache presque pas du papier carbone, un filet clair qui marque le pied (--foot-edge) */
+  border-top: var(--thick) solid var(--foot-edge);
+}
+
+/* Le filet fin, au-dessus du papier qui sépare la page de l'aplat ; aux encres de la page */
+.site-foot.home-foot::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -5px;
+  border-top: var(--hair) solid var(--rule-strong);
+}
+
+/* Les encres de la feuille en négatif : tout ce qui est posé dans le pied (liens, avis, confirmation, focus) les prend
+   sans autre réglage */
+.home-foot-inner {
+  --paper: var(--foot-paper);
+  --print: var(--foot-print);
+  --print-soft: var(--foot-print-soft);
+  --rule: color-mix(in srgb, var(--foot-print) 26%, transparent);
+  --rule-strong: var(--foot-print);
+  --on-print: var(--foot-paper);
+  --ink: var(--foot-ink);
+  --focus: var(--foot-ink);
+  --red: var(--foot-red);
+  --action: var(--foot-ink);
+  --action-hover: color-mix(in srgb, var(--foot-ink) 70%, var(--foot-print));
+  --on-action: var(--foot-paper);
+  color-scheme: dark;
+  max-width: calc(var(--frame) - 2 * var(--gutter));
+  margin: 0 auto;
+  color: var(--print-soft);
+}
+
+.home-foot-inner ::selection {
+  background: var(--foot-ink);
+  color: var(--foot-paper);
+}
+
+/* Le logo, à l'encre claire, et les dates du vote ; un filet épais dessous. La rangée suit la grille des colonnes
+   (plus bas) : les dates se calent sur la dernière. La couleur est posée sur la rangée et le logo en hérite
+   (currentColor) : en contraste forcé, c'est la couleur héritée que le navigateur remplace */
+.home-foot-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: end;
+  gap: var(--s3) var(--s7);
+  padding-bottom: var(--s4);
+  border-bottom: var(--thick) solid var(--rule-strong);
+  color: var(--print);
+}
+
+.home-foot-top .logo {
+  width: auto;
+  height: 2.1rem;
+}
+
+.home-foot-top .home-foot-vote {
+  color: var(--print-soft);
+}
+
+.home-foot-vote {
+  max-width: var(--measure);
+}
+
+.home-foot-vote p {
+  margin: 0;
+}
+
+.home-foot-vote a {
+  overflow-wrap: anywhere;
+  color: var(--print);
+}
+
+.home-foot-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s6);
+  padding-top: var(--s5);
+}
+
+.home-foot-col {
+  display: grid;
+  align-content: start;
+  gap: var(--s3);
+  min-width: 0;
+}
+
+.home-foot-title {
+  overflow-wrap: break-word;
+  margin: 0;
+  color: var(--print);
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: 1.6rem;
+  line-height: 1.05;
+}
+
+.home-foot-text {
+  margin: 0;
+  max-width: 34ch;
+}
+
+/* Les actions : des lignes de formulaire, filet fort dessus et dessous, filets fins entre elles */
+.home-foot-actions {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: var(--line) solid var(--rule-strong);
+  border-bottom: var(--line) solid var(--rule-strong);
+}
+
+.home-foot-actions > li + li {
+  border-top: var(--hair) solid var(--rule);
+}
+
+.home-foot-actions .btn-text {
+  min-height: 3rem;
+  padding-block: var(--s2);
+  font-size: var(--text);
+  font-weight: 700;
+  text-align: left;
+}
+
+.home-foot-actions .btn-text .icon {
+  width: 1.3rem;
+  height: 1.3rem;
+  margin-right: 0.15rem;
+}
+
+.home-foot-actions .btn-text.is-danger {
+  font-weight: 850;
+}
+
+/* « Confirmer l'effacement », « Annuler » : sur la ligne, à la ligne si la place manque */
+.home-foot-actions .confirm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--s5);
+}
+
+.home-foot-col .notice {
+  margin: 0;
+  color: var(--print);
+}
+
+.home-foot-col .notice p {
+  margin: 0 0 var(--s1);
+}
+
+.home-foot-col .error {
+  margin: 0;
+  color: var(--print);
+}
+
+/* L'annonce de l'effacement, toujours présente pour être lue : vide, elle ne prend pas de rangée dans la colonne */
+.home-foot-col > [role='status']:empty {
+  position: absolute;
+}
+
+/* La mention, et les notices sous elle, calées à gauche de la colonne */
+.home-foot .site-foot-text {
+  max-width: 52ch;
+}
+
+.home-foot .site-foot-links {
+  justify-content: flex-start;
+}
+
+.home-foot .site-foot-text a {
+  color: var(--print);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .home-foot-actions .btn-text:hover {
+    text-decoration-thickness: 2px;
+  }
+}
+
+/* Deux colonnes : la feuille et la table côte à côte, la mention dessous sur toute la largeur (ou, sans table, la
+   feuille et la mention) */
+@container foot (min-width: 44rem) {
+  .home-foot-top,
+  .home-foot-cols {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--s7);
+  }
+
+  .has-table > .home-foot-cols > .is-about {
+    grid-column: 1 / -1;
+  }
+
+  .home-foot-vote {
+    grid-column: -2;
+  }
+}
+
+/* Grand écran : trois colonnes, la mention la plus large */
+@container foot (min-width: 64rem) {
+  .has-table > :is(.home-foot-top, .home-foot-cols) {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 4fr) minmax(0, 5fr);
+  }
+
+  .has-table > .home-foot-cols > .is-about {
+    grid-column: auto;
+  }
+
+  .home-foot-inner:not(.has-table) > :is(.home-foot-top, .home-foot-cols) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  }
+}

@@ -20,8 +20,11 @@ interface Props {
   /** Repère de progression de la feuille (thème + compteur), à droite : la seule partie propre à la page */
   locator?: preact.ComponentChildren
   home?: boolean
-  /** Appel principal porté par l'en-tête (accueil) ; « short » remplace le libellé quand la place manque */
-  action?: { href: string; label: string; short: string }
+  /**
+   * Appel principal porté par l'en-tête (accueil) ; « short » remplace le libellé quand la place manque ; « quiet » le
+   * met au trait noir, quand une autre action de la page porte l'aplat bleu (la carte « À revoir »)
+   */
+  action?: { href: string; label: string; short: string; quiet?: boolean }
 }
 
 /**
@@ -29,12 +32,14 @@ interface Props {
  * dans l'élection affichée (link) ; « page » et « within » se lisent sur le chemin sans préfixe d'élection.
  */
 const MENU = [
-  { path: '/sujets', label: 'Les sujets', hint: 'Le contexte chiffré de chaque question', page: /^\/sujets(\/|$)/, within: null },
-  { path: '/videos', label: 'Les vidéos', hint: 'Chaque thème en courtes vidéos sous-titrées', page: /^\/videos(\/|$)/, within: null },
+  // Chaque entrée a son pictogramme au trait (Icon.tsx), devant le nom, dans l'en-tête comme dans le panneau (demande du
+  // propriétaire du 2026-10-15) ; décoratif, le nom reste celui du lien
+  { path: '/sujets', label: 'Les sujets', icon: 'topics', hint: 'Le contexte chiffré de chaque question', page: /^\/sujets(\/|$)/, within: null },
+  { path: '/videos', label: 'Les vidéos', icon: 'videos', hint: 'Chaque thème en courtes vidéos sous-titrées', page: /^\/videos(\/|$)/, within: null },
   // La comparaison est une page des candidats : leur entrée la marque, sans entrée de plus dans l'en-tête
-  { path: '/candidats', label: 'Les candidats', hint: 'Leur parcours, leurs positions sourcées, et les comparer', page: /^\/candidats\/?$/, within: /^\/(candidat|comparer)(\/|$)/ },
+  { path: '/candidats', label: 'Les candidats', icon: 'people', hint: 'Leur parcours, leurs positions sourcées, et les comparer', page: /^\/candidats\/?$/, within: /^\/(candidat|comparer)(\/|$)/ },
   // « À table » : voter à plusieurs sur un seul téléphone (demande du propriétaire du 14/10/2026)
-  { path: '/a-table', label: 'À table', hint: 'Voter à plusieurs, en secret, sur un seul téléphone', page: /^\/a-table\/?$/, within: null },
+  { path: '/a-table', label: 'À table', icon: 'table', hint: 'Voter à plusieurs, en secret, sur un seul téléphone', page: /^\/a-table\/?$/, within: null },
 ]
 
 /** Les entrées du menu pour l'élection affichée : « Les vidéos » seulement si elle en montre (videos/load.ts), « À table »
@@ -111,9 +116,10 @@ function MenuButton() {
           {menuItems().map(item => (
             <li key={item.path}>
               <a href={link(item.path)} aria-current={currentOf(item)} onClick={() => setOpen(false)}>
+                <Icon name={item.icon} class="menu-panel-icon" />
                 <span class="menu-panel-label">{item.label}</span>
                 <span class="menu-panel-hint">{item.hint}</span>
-                <Icon name="arrow-right" />
+                <Icon name="arrow-right" class="menu-panel-arrow" />
               </a>
             </li>
           ))}
@@ -124,11 +130,12 @@ function MenuButton() {
 }
 
 /** Ce que l'en-tête essaie, dans l'ordre, jusqu'à ce que la rangée tienne : voir useFit */
-const FIT = ['long', 'short', 'tight'] as const
+const FIT = ['long', 'bare', 'short', 'tight'] as const
 
 /**
  * L'en-tête tient sur une seule rangée, de la même hauteur sur toutes les pages : l'appel principal garde
- * son libellé long s'il tient, sinon il prend le court ; si même le court ne tient pas (« Mon
+ * son libellé long s'il tient ; sinon les pictogrammes du menu tombent d'abord (« bare » : l'appel compte plus que
+ * les dessins, 2026-10-15), puis l'appel prend son libellé court ; si même le court ne tient pas (« Mon
  * dépouillement » sur un téléphone de 320 px), le logo cède sa place au pictogramme seul plutôt que de
  * pousser l'appel sur une deuxième rangée. On mesure à chaque changement de largeur ou de corps de texte,
  * au chargement de la police et quand le libellé change (data-fit, lu par brand.css).
@@ -188,7 +195,8 @@ export function FormHeader({ title, locator, home, action }: Props) {
               {menuItems().map(item => (
                 <li key={item.path}>
                   <a href={link(item.path)} aria-current={currentOf(item)}>
-                    {item.label}
+                    <Icon name={item.icon} />
+                    <span class="main-nav-label">{item.label}</span>
                   </a>
                 </li>
               ))}
@@ -197,7 +205,7 @@ export function FormHeader({ title, locator, home, action }: Props) {
           {locator ? <span class="form-locator">{locator}</span> : null}
           <MenuButton />
           {action ? (
-            <a class="btn-primary header-cta" href={action.href}>
+            <a class={action.quiet ? 'btn-primary is-outline header-cta' : 'btn-primary header-cta'} href={action.href}>
               <span class="cta-long">{action.label}</span>
               <span class="cta-short">{action.short}</span>
               <Icon name="arrow-right" />

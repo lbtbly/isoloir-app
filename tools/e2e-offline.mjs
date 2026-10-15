@@ -865,6 +865,10 @@ try {
         const soft = rgb('var(--print-soft)')
         const paper = rgb('var(--paper)')
         const onPrint = rgb('var(--on-print)')
+        // L'action principale, en aplat de bille (demande du propriétaire du 2026-10-15) : le bouton « Approfondir » du
+        // graphique, seul autorisé à sortir du papier et de l'encre, et seulement dans ces deux couleurs-là
+        const action = rgb('var(--action)')
+        const onAction = rgb('var(--on-action)')
         const aff = Object.fromEntries(bands.map(b => [b.key, rgb(`var(--aff-${b.key})`)]))
         const pastels = ['vert', 'rouge', 'jaune', 'bleu'].map(t => rgb(`var(--pastel-${t})`))
         probe.remove()
@@ -911,6 +915,11 @@ try {
           const cs = getComputedStyle(el)
           const b = parse(cs.backgroundColor)
           const c = parse(cs.color)
+          if (el.closest('.btn-primary')) {
+            if (!clear(b) && !near(b, action)) bad.push(`${name(el)} : bouton principal hors de la bille (${cs.backgroundColor})`)
+            if (!near(c, onAction)) bad.push(`${name(el)} : lettres du bouton principal ${cs.color}`)
+            continue
+          }
           if (!clear(b) && !near(b, paper) && !near(b, print) && !onWash(b)) bad.push(`${name(el)} fond ${cs.backgroundColor}`)
           if (!clear(b) && pastels.some(x => near(b, x))) bad.push(`${name(el)} : un pastel (${cs.backgroundColor})`)
           if (!clear(c) && ![print, soft, paper, onPrint].some(x => near(c, x))) bad.push(`${name(el)} encre ${cs.color}`)

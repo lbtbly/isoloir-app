@@ -1,7 +1,7 @@
 /* ——— Les questions à revoir (ui/components/ChangedQuestions.tsx), sur l'accueil et le dépouillement ———
    Un avis encadré, comme les autres (filet de 1.5px, filet supérieur de 3px), sur le papier : aucun pastel, qui n'a
    pas de sens seul (The Four Pastels Rule). Ce qui le fait voir : le nombre en grand, imprimé en noir condensé, et le
-   tampon « À revoir » tourné de -4°. Les questions en lignes de formulaire entre filets, leur thème en petit gris. */
+   tampon « À revoir » tourné de -4°, encré en rouge (2026-10-15). Les questions en lignes de formulaire entre filets, leur thème en petit gris. */
 
 .changed {
   container: changed / inline-size;
@@ -43,13 +43,22 @@
   min-width: 0;
 }
 
+/* Le tampon « À revoir » encré : aplat rouge, lettres blanches, pour attirer l'œil (demande du propriétaire du
+   2026-10-15). Il garde le geste du tampon : tourné de -4°, capitales serrées, bord net de 2px, et un filet blanc
+   d'un pixel à l'intérieur, comme le double cadre d'un tampon de caoutchouc. Les autres tampons (date, « Résultat
+   provisoire ») restent au trait noir. En contraste forcé, l'aplat tombe et le cadre reste. */
 .changed-stamp {
-  padding: 0.25rem 0.55rem 0.2rem;
+  padding: 0.3rem 0.6rem 0.25rem;
+  border-color: var(--stamp-alert);
+  background: var(--stamp-alert);
+  color: var(--on-stamp-alert);
+  box-shadow: inset 0 0 0 1px var(--on-stamp-alert);
 }
 
 .changed-stamp .stamp-label {
   overflow-wrap: anywhere;
   font-size: 0.8125rem;
+  font-weight: 800;
   letter-spacing: 0.08em;
 }
 
