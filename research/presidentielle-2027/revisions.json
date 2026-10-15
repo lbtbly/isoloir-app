@@ -392,6 +392,9 @@
       "europe-3-d": "Alléger les normes européennes et interdire leur surtransposition, c’est-à-dire leur durcissement en droit français",
       "europe-3-e": "Conserver les règles de concurrence actuelles et l’ouverture des services publics à la concurrence",
       "europe-3-f": "Déroger aux règles européennes pour donner, dans la commande publique, la priorité aux entreprises qui produisent en France"
+    },
+    "since": {
+      "europe-3-f": 2
     }
   },
   "europe-x4": {
@@ -431,6 +434,9 @@
       "finances_publiques-1-f": "Réduire le déficit surtout par de nouveaux impôts sur les plus hauts patrimoines et sur le capital",
       "finances_publiques-1-g": "Économiser d’abord sur le fonctionnement de l’État en supprimant agences et doublons administratifs, sans hausse d’impôts",
       "finances_publiques-1-h": "Réduire le déficit surtout en relançant la production en France pour accroître les recettes publiques"
+    },
+    "since": {
+      "finances_publiques-1-h": 2
     }
   },
   "finances_publiques-2": {

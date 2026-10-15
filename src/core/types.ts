@@ -90,6 +90,11 @@ export interface Approach {
   text: string
   /** Approche portée par aucun candidat (alternative ou statu quo), signalée dans la méthode */
   external?: boolean
+  /**
+   * Révision de la question où l'approche est apparue (registre des révisions, tools/build-pack.mjs) ; absente, elle
+   * y est depuis la première. Une réponse d'une révision plus ancienne ne l'a pas vue : la feuille la met en tête
+   */
+  since?: number
 }
 
 export type Tier = 'essentiel' | 'approfondi'

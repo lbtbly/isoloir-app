@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'preact/hooks'
 import { isAnswered } from './core/answers'
 import { firstStepSize, orderedQuestions } from './core/order'
-import { currentAnswers, staleQuestions } from './core/revisions'
+import { currentAnswers, freshApproaches, staleQuestions } from './core/revisions'
 import { seededShuffle } from './core/rng'
 import { computeResults } from './core/score'
 import { parseLocation, resolvePlace, type Resolved, type Route } from './core/routes'
@@ -415,6 +415,7 @@ function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
             total={inStep1 ? step1 : items.length}
             answered={answered}
             answer={state.answers[q.id]}
+            fresh={freshApproaches(q, state.answers[q.id], tracking)}
             hint={index === 0}
             onChange={a => setAnswer(q, a)}
             onBack={() => go(index === 0 ? (essentialTier ? '/' : '/approfondir') : `${base}/${index}`)}
@@ -438,6 +439,8 @@ function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
         if (!q) return null
         const total = Math.max(revisionTotal, stale.length)
         const answer = state.answers[q.id]
+        const fresh = freshApproaches(q, answer, tracking)
+        const n = fresh.size
         return (
           <Sheet
             title="Feuille de révision"
@@ -448,9 +451,17 @@ function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
             total={total}
             answered={total - stale.length}
             answer={answer}
+            fresh={fresh}
             notice={
               <p class="notice revision-notice">
-                Cette question a changé depuis votre réponse. Relisez-la, ajustez votre avis si besoin, puis validez.
+                {n ? (
+                  <>
+                    Cette question a changé depuis votre réponse&nbsp;: {n > 1 ? `${n} approches sont nouvelles` : 'une approche est nouvelle'}, en
+                    tête, sous le tampon «&nbsp;Nouvelle&nbsp;». Donnez-{n > 1 ? 'leur' : 'lui'} votre avis, relisez les autres, puis validez.
+                  </>
+                ) : (
+                  'Cette question a changé depuis votre réponse. Relisez-la, ajustez votre avis si besoin, puis validez.'
+                )}
               </p>
             }
             nextLabel="Valider"

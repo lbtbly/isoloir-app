@@ -1885,6 +1885,34 @@ try {
     await page.goto(U('/resultats'))
     await heading(page, 'Votre dépouillement')
     const onResults = await page.locator('.results-intro .changed').count()
+    // Feuille de révision : une approche apparue depuis la réponse (Approach.since) vient en tête, sous le tampon
+    // « Nouvelle », et l'avis le dit
+    const withNew = pack.bank.questions.find(q => q.approaches.some(x => x.since))
+    let fresh = null
+    if (withNew) {
+      const newIds = withNew.approaches.filter(x => x.since).map(x => x.id)
+      const older = Math.min(...withNew.approaches.filter(x => x.since).map(x => x.since)) - 1
+      const st2 = JSON.parse(kept)
+      st2.answers[withNew.id] = { ratings: {}, redLines: [], skipped: true, rev: older }
+      // Un contexte à part, sa feuille posée avant le chargement : la page en cours garde la sienne en mémoire et
+      // l'enregistre encore (classement vu), elle écraserait celle-ci
+      const rctx = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' })
+      await rctx.addInitScript(([k, v]) => localStorage.setItem(k, v), [STORAGE, JSON.stringify(st2)])
+      const rp = await rctx.newPage()
+      await rp.goto(U('/revision'))
+      await rp.locator('.approaches > li').first().waitFor({ timeout: 8000 }).catch(() => null)
+      fresh = await rp.evaluate(n => {
+        const rows = [...document.querySelectorAll('.approaches > li')]
+        const t = e => (e?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
+        return {
+          head: rows.slice(0, n).every(r => r.classList.contains('is-fresh') && t(r.querySelector('.approach-stamp')) === 'Nouvelle'),
+          others: rows.slice(n).every(r => !r.classList.contains('is-fresh') && !r.querySelector('.approach-stamp')),
+          sr: t(rows[0]?.querySelector('.approach-text .sr-only')),
+          notice: t(document.querySelector('.revision-notice')),
+        }
+      }, newIds.length)
+      await rctx.close()
+    }
     // La feuille d'avant, relue au rechargement (l'application garde la sienne en mémoire jusque-là). Le dépouillement
     // vient d'enregistrer son classement vu, un peu après l'affichage : on le laisse finir avant de rendre la feuille,
     // et on vérifie après le rechargement que c'est bien elle qui est relue
@@ -1902,6 +1930,10 @@ try {
     check(
       card?.count === '1' && card.title === 'Une question a changé depuis vos réponses' && card.items === 1 && card.href === L('/revision') && onResults === 1 && restored && gone === 0,
       `questions à revoir : carte sur l’accueil (${card ? `« ${card.count} », « ${card.title} », ${card.items} question, vers ${card.href}` : 'absente'}), en tête du dépouillement (${onResults}), partie une fois la feuille rendue (relue ${restored}, ${gone} carte)`,
+    )
+    check(
+      !withNew || (!!fresh && fresh.head && fresh.others && fresh.sr.includes('nouvelle approche') && /nouvelle/.test(fresh.notice) && fresh.notice.includes('« Nouvelle »')),
+      `feuille de révision : l’approche apparue depuis la réponse en tête, sous le tampon « Nouvelle » (${fresh ? `en tête ${fresh.head}, les autres sans ${fresh.others}, « ${fresh.sr} », « ${fresh.notice.slice(0, 80)}… »` : 'aucune question avec une approche nouvelle'})`,
     )
   }
   // L'appel de l'en-tête mène désormais au dépouillement (libellé long ou court selon la largeur)

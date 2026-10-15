@@ -31,7 +31,7 @@ export function ChangedQuestions({
           {n}
         </p>
         <div class="changed-heading">
-          <span class="stamp changed-stamp" aria-hidden="true">
+          <span class="stamp is-alert changed-stamp" aria-hidden="true">
             <span class="stamp-label">À revoir</span>
           </span>
           {/* Le nombre est dit à part, en grand : le titre le reprend pour les lecteurs d'écran seulement */}

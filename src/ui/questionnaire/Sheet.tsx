@@ -3,7 +3,7 @@
 // positions (règle ESLint + test d'import), ce qui garantit l'anonymat des approches.
 
 import type { ComponentChildren } from 'preact'
-import { useEffect, useState } from 'preact/hooks'
+import { useEffect, useRef, useState } from 'preact/hooks'
 import { EMPTY_ANSWER, hasOpinion, ratingOf, withRating, withRedLine } from '../../core/answers'
 import type { Answer, Question, Rating, Topic } from '../../core/types'
 import { AiLabel } from '../components/AiLabel'
@@ -43,6 +43,11 @@ export interface SheetProps {
   /** Afficher la consigne (premières questions) */
   hint?: boolean
   /**
+   * Approches apparues depuis la réponse, la question ayant changé (core/revisions.ts, freshApproaches) : en tête de
+   * la question, sous le tampon « Nouvelle »
+   */
+  fresh?: ReadonlySet<string>
+  /**
    * Mode fermé (« À table ») : l'en-tête et le pied donnés remplacent ceux du site, sans menu ni lien, et la feuille
    * ne propose pas de vidéo ; le téléphone passe de main en main, rien ne doit mener ailleurs
    */
@@ -50,8 +55,19 @@ export interface SheetProps {
 }
 
 
+const NONE: ReadonlySet<string> = new Set()
+
 export function Sheet(props: SheetProps) {
-  const { question, approaches, onChange } = props
+  const { question, onChange } = props
+  // Les approches nouvelles, figées le temps de la question : la réponse prend la révision de la question au premier
+  // geste (feuille de pointage), et l'approche ne doit ni sauter de place sous le doigt ni perdre son tampon
+  const freshOf = useRef<{ id: string; set: ReadonlySet<string> } | null>(null)
+  if (freshOf.current?.id !== question.id) freshOf.current = { id: question.id, set: props.fresh ?? NONE }
+  const fresh = freshOf.current.set
+  // En tête, dans l'ordre tiré au hasard pour la personne ; les autres suivent dans le même ordre
+  const approaches = fresh.size
+    ? [...props.approaches.filter(a => fresh.has(a.id)), ...props.approaches.filter(a => !fresh.has(a.id))]
+    : props.approaches
   const answer = props.answer && !props.answer.skipped ? props.answer : EMPTY_ANSWER
   // Les traits ne se dessinent que pour le geste qui vient d'avoir lieu
   const [lastGesture, setLastGesture] = useState<string | null>(null)
@@ -139,14 +155,24 @@ export function Sheet(props: SheetProps) {
               const value = ratingOf(answer, a.id)
               const redLine = answer.redLines.includes(a.id)
               const letter = LETTERS[i] ?? String(i + 1)
+              const isFresh = fresh.has(a.id)
               return (
-                <li key={a.id} class={`approach${value ? ' is-rated' : ''}${redLine ? ' is-rejected' : ''}`}>
+                <li key={a.id} class={`approach${value ? ' is-rated' : ''}${redLine ? ' is-rejected' : ''}${isFresh ? ' is-fresh' : ''}`}>
                   <span class="approach-letter" aria-hidden="true">
                     {letter}
                   </span>
                   <div class="approach-body">
                     <p class="approach-text" id={`at-${a.id}`}>
-                      <span class="sr-only">{letter}. </span>
+                      <span class="sr-only">
+                        {letter}
+                        {isFresh ? ', nouvelle approche' : ''}.{' '}
+                      </span>
+                      {/* Dans le texte, au-dessus : il le surmonte aussi quand la réglette est à côté (grand écran) */}
+                      {isFresh ? (
+                        <span class="stamp is-alert approach-stamp" aria-hidden="true">
+                          <span class="stamp-label">Nouvelle</span>
+                        </span>
+                      ) : null}
                       <span class="inline-letter" aria-hidden="true">
                         {letter}
                       </span>
