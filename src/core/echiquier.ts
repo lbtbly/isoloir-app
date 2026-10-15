@@ -1,22 +1,30 @@
 // La lecture des réponses sur l'échiquier, pour la page « Mon profil politique » (ui/screens/Profile.tsx). Thème par
 // thème, puis par famille de thèmes, et pour chaque bloc de l'axe de la grille des nuances (election.spectrum.axis) :
 // les réponses se rapprochent-elles nettement des candidats de ce bloc, s'en écartent-elles nettement, ou rien de net ?
-// « Nettement » : bien plus que les mêmes avis placés au hasard entre les approches de chaque question. C'est un test
-// de permutation commun aux blocs (max-T de Westfall-Young) : pour des réponses données au hasard, la probabilité
-// qu'au moins un bloc soit marqué sur un thème reste sous ALPHA, quels que soient le nombre de blocs et leur taille.
-// Méthode « chaque bloc face au hasard », retenue par le propriétaire le 12 octobre 2026 ; ses garanties sont
-// mesurées par tests/echiquier-calibration.test.ts et tools/audit-echiquier.mjs, publiées dans la Méthode.
+// « Nettement » : bien plus que les autres façons de poser les mêmes avis, c'est-à-dire autant de « d'accord », de
+// « pas d'accord » et de « sans avis » sur chaque question, posés sur d'autres approches (toutes les façons distinctes,
+// la vôtre comprise, comptent autant). C'est un test de permutation commun aux blocs (max-T de Westfall-Young) : parmi
+// ces façons, la part de celles qui font un écart aussi marqué, avec un bloc ou un autre, doit rester sous ALPHA, quels
+// que soient le nombre de blocs et leur taille.
+// « Compter, sinon calculer » (décision du propriétaire du 15 octobre 2026 : rien n'est tiré au sort ; mêmes réponses,
+// même lecture). Jusqu'à COUNT_MAX façons, on les compte toutes, une à une (max-T exact). Au-delà, on calcule pour
+// chaque bloc la loi exacte de son affinité moyenne, question par question, sur une grille au centième de point dont
+// l'arrondi, borné, joue toujours contre la lecture, et l'on additionne entre blocs les parts qui s'écartent autant
+// (inégalité de Boole) : une borne qui ne peut être que trop prudente, jamais plus généreuse que le compte complet.
+// Méthode « chaque bloc face aux autres façons de poser vos avis », retenue par le propriétaire le 12 octobre 2026 ;
+// ses garanties sont mesurées par tests/echiquier-calibration.test.ts et tools/audit-echiquier.mjs, publiées dans la
+// Méthode.
 //
 // Ni point sur un axe, ni moyenne entre thèmes, ni étiquette : seulement, par unité de lecture, des marques par bloc.
 // Aucun effet sur le score, le classement ni les priorités. Calcul sans IA, sur l'appareil, à l'affichage ; rien n'est
 // enregistré (un cache en mémoire, par empreinte des réponses, évite de recalculer au retour sur la page).
 // L'affinité d'un thème avec un candidat est exactement topicScores de core/score.ts : mêmes stance et
 // effectiveWeight, approches non notées au dénominateur, et une note posée sur une approche où le candidat a une
-// position de confiance basse rend la question inconnue pour lui.
+// position de confiance basse rend la question inconnue pour lui (dans la comparaison aussi : selon la façon de poser
+// les avis, il est connu ou non sur la question, et le calcul en tient compte exactement).
 // Fichier à part du build, chargé à la demande avec la page (ui/profile/load.ts).
 
 import { hasOpinion } from './answers'
-import { hashString, mulberry32 } from './rng'
 import { CLOSE_GAP, effectiveWeight, excludedIds, stance } from './score'
 import { axisOf, blocOf } from './spectrum'
 import type { Answer, Answers, ApproachId, CandidateId, ElectionPack, Question, QuestionId, SpectrumAxisBloc, TopicGroup, TopicId } from './types'
@@ -25,16 +33,16 @@ import type { Answer, Answers, ApproachId, CandidateId, ElectionPack, Question, 
 export const ECHIQUIER = {
   /** Seuil du test commun aux blocs, par unité de lecture (décision du propriétaire : 0,10) */
   ALPHA: 0.1,
-  /** Écart minimal, en points, au hasard et au neutre (50 %) : un bâton du site */
+  /** Écart minimal, en points, aux autres façons de poser les avis et au neutre (50 %) : un bâton du site */
   GAP: CLOSE_GAP,
   /** Questions répondues qu'il faut pour lire une unité */
   MIN_QUESTIONS: 2,
   /** Au-delà d'un bloc sans candidat connu, pas de lecture */
   MAX_UNKNOWN_BLOCS: 1,
-  /** Jusqu'à ce nombre de placements possibles, on les compte tous ; au-delà, des tirages */
-  EXACT_MAX: 1000,
-  /** Tirages au hasard quand les placements possibles sont trop nombreux */
-  DRAWS: 999,
+  /** Jusqu'à ce nombre de façons de poser les mêmes avis, on les compte toutes ; au-delà, on calcule (borne prudente) */
+  COUNT_MAX: 100_000,
+  /** Pas de la grille des lois par bloc au-delà de COUNT_MAX, en points d'affinité */
+  GRID: 0.01,
 } as const
 
 /** La marque d'un bloc : ▲ plus près, ▽ plus loin, · rien de net, ? aucun candidat du bloc connu */
@@ -51,9 +59,13 @@ export interface BlocCell {
   known: CandidateId[]
   /** Moyenne de l'affinité avec ses candidats connus, entre 0 et 100 ; null : aucun connu */
   affinity: number | null
-  /** La même moyenne, pour les avis placés au hasard (moyenne des placements) ; null sans test */
+  /** La même moyenne, sur toutes les façons de poser les mêmes avis (la vôtre comprise) ; null sans test */
   chance: number | null
-  /** Probabilité, commune aux blocs, qu'un placement au hasard fasse un tel écart ; null sans test */
+  /**
+   * Part des façons de poser les mêmes avis (la vôtre comprise) qui font un écart aussi marqué, avec ce bloc ou un
+   * autre, chaque écart rapporté à la dispersion de son bloc (max-T, commun aux blocs) ; au-delà de COUNT_MAX façons,
+   * sa borne calculée, jamais plus petite ; null sans test
+   */
   p: number | null
   mark: Mark
 }
@@ -76,10 +88,23 @@ export interface UnitReading {
   far: number[]
   /** Les blocs ▲ ne forment pas une suite contiguë de l'axe */
   twoSided: boolean
-  /** Tous les placements possibles ont été comptés (sinon : des tirages) */
+  /**
+   * Les façons de poser les mêmes avis ont toutes été comptées, une à une : les p sont exacts. Faux au-delà de
+   * COUNT_MAX façons, où les p sont la borne calculée bloc par bloc puis additionnée entre blocs, jamais plus petite
+   * que le compte complet, et sans test. Rien n'est tiré au sort, dans un cas comme dans l'autre
+   */
   exact: boolean
-  /** Placements comptés ou tirés ; 0 sans test */
+  /**
+   * Le nombre de façons distinctes de poser les mêmes avis : le produit, question par question, des placements
+   * distincts de ses avis entre ses approches (la façon observée comprise), même très grand (arrondi au-delà de 2⁵³) ;
+   * 0 sans test
+   */
   arrangements: number
+  /**
+   * Le même nombre, tel que la page peut le dire : exact jusqu'à COUNT_MAX ; au-delà, Infinity (« plus de cent
+   * mille ») ; 0 sans test
+   */
+  ways: number
   /** Affinité avec chaque candidat de l'axe, entre 0 et 100 ; null : inconnu sur ces questions */
   perCandidate: Record<CandidateId, number | null>
 }
@@ -112,12 +137,12 @@ export interface Echiquier {
 
 /** Réglages réservés aux tests et à l'outil d'audit ; la page n'en passe aucun */
 export interface ReadOptions {
-  /** Tirages au hasard au-delà de EXACT_MAX placements (199 pour les profils aléatoires de la calibration) */
-  draws?: number
   /** Seuil du test (calibration à 0,20) */
   alpha?: number
   /** Candidats retirés de l'axe (calibration « sans lui ») */
   without?: readonly CandidateId[]
+  /** Façons comptées une à une, au plus (COUNT_MAX) ; 0 : toujours la borne calculée (tests de la borne) */
+  countMax?: number
 }
 
 // ——— Les candidats de l'axe ———
@@ -286,16 +311,22 @@ function blocMeansInto(aff: Float64Array, members: readonly number[][], out: Flo
   }
 }
 
-const FACT = [1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800, 39916800, 479001600]
-const fact = (n: number) => FACT[n] ?? Number.POSITIVE_INFINITY
+/** C(n, k) */
+function binomial(n: number, k: number): number {
+  let x = 1
+  for (let i = 1; i <= k; i++) x = (x * (n - k + i)) / i
+  return Math.round(x)
+}
 
 /** Placements distincts des avis d'une question entre ses approches : k! / (n₊! n₋! n₀!) */
 function arrangementCount(r: Int8Array): number {
-  const counts = new Map<number, number>()
-  for (const v of r) counts.set(v, (counts.get(v) ?? 0) + 1)
-  let n = fact(r.length)
-  for (const k of counts.values()) n /= fact(k)
-  return Math.round(n)
+  let pos = 0
+  let neg = 0
+  for (const v of r) {
+    if (v > 0) pos++
+    else if (v < 0) neg++
+  }
+  return binomial(r.length, pos) * binomial(r.length - pos, neg)
 }
 
 /** Tous les placements distincts des avis d'une question (le placement observé compris) */
@@ -323,6 +354,358 @@ function arrangements(r: Int8Array): Int8Array[] {
   return out
 }
 
+/** Les placements distincts des avis d'une question, et pour chacun le score de chaque candidat de l'axe (scoreInto) */
+type Placements = Float64Array[]
+
+/**
+ * Les placements d'une question, groupés selon ceux des candidats donnés qui y sont connus (une position de confiance
+ * basse sous un avis rend la question inconnue pour un candidat), dans l'ordre de leur première apparition
+ */
+function groupsOf(list: Placements, cands: readonly number[]): number[][] {
+  const by = new Map<string, number[]>()
+  list.forEach((s, a) => {
+    let key = ''
+    for (const c of cands) key += s[c] === s[c] ? '1' : '0'
+    const l = by.get(key)
+    if (l) l.push(a)
+    else by.set(key, [a])
+  })
+  return [...by.values()]
+}
+
+/** Chaque motif, un groupe par question (choice[j] : le groupe de la question j), dans l'ordre */
+function eachPattern(sizes: readonly number[], visit: (choice: Int32Array) => void): void {
+  const choice = new Int32Array(sizes.length)
+  for (;;) {
+    visit(choice)
+    let j = sizes.length - 1
+    while (j >= 0 && ++choice[j]! === sizes[j]) choice[j--] = 0
+    if (j < 0) return
+  }
+}
+
+/**
+ * L'affinité moyenne d'un bloc, question par question. Sous un motif (qui est connu sur chaque question), elle est
+ * une somme de contributions, une par question : chaque candidat connu y pèse 100 / (K × T × n), K candidats connus
+ * dans le bloc, T thèmes où il est connu, n questions où il l'est dans ce thème (c'est affinityInto, puis
+ * blocMeansInto).
+ */
+interface BlocModel {
+  /** Pose le motif d'une façon de poser les avis (un placement par question) ; rend K, 0 si le bloc y est inconnu */
+  set: (reps: readonly Float64Array[]) => number
+  /** La contribution d'une question pour un placement, sous le motif posé */
+  x: (j: number, s: Float64Array) => number
+}
+
+function blocModel(cands: readonly number[], tOf: Int32Array, nTopics: number): BlocModel {
+  const m = tOf.length
+  const coef = Array.from({ length: m }, () => new Float64Array(cands.length))
+  const n = new Int32Array(nTopics)
+  return {
+    set(reps) {
+      let K = 0
+      for (let i = 0; i < cands.length; i++) {
+        const c = cands[i]!
+        n.fill(0)
+        for (let j = 0; j < m; j++) if (reps[j]![c] === reps[j]![c]) ++n[tOf[j]!]!
+        let T = 0
+        for (const k of n) if (k) T++
+        if (T) K++
+        for (let j = 0; j < m; j++) coef[j]![i] = reps[j]![c] === reps[j]![c] ? 1 / (T * n[tOf[j]!]!) : 0
+      }
+      if (K) for (const row of coef) for (let i = 0; i < row.length; i++) row[i] = (row[i]! * 100) / K
+      return K
+    },
+    x(j, s) {
+      const row = coef[j]!
+      let x = 0
+      for (let i = 0; i < row.length; i++) if (row[i]) x += row[i]! * s[cands[i]!]!
+      return x
+    },
+  }
+}
+
+/** Un motif : sa probabilité, et sous lui la moyenne (e) et la variance (v) exactes de l'affinité du bloc */
+interface Moments {
+  P: number
+  e: number
+  v: number
+}
+
+/**
+ * Moyenne et écart-type exacts de l'affinité d'un bloc, parmi les façons où il est connu : le mélange des motifs, sous
+ * chacun une somme de questions indépendantes (variances ajoutées). En deux passes : un bloc constant a un écart-type
+ * nul, au lieu d'un résidu d'arrondi qui le ferait compter.
+ */
+function moments(list: readonly Moments[]): [number, number] {
+  let w = 0
+  let s = 0
+  for (const t of list) {
+    w += t.P
+    s += t.P * t.e
+  }
+  const mu = s / w
+  let q = 0
+  for (const t of list) q += t.P * (t.v + (t.e - mu) * (t.e - mu))
+  return [mu, Math.sqrt(q / w)]
+}
+
+/** Moyenne et variance (en deux passes), plus petite et plus grande valeur */
+function stats(x: Float64Array): [number, number, number, number] {
+  let s = 0
+  let min = Infinity
+  let max = -Infinity
+  for (const y of x) {
+    s += y
+    if (y < min) min = y
+    if (y > max) max = y
+  }
+  const mean = s / x.length
+  let q = 0
+  for (const y of x) q += (y - mean) * (y - mean)
+  return [mean, q / x.length, min, max]
+}
+
+/** Ce que le test dit de chaque bloc connu, au signe près (voir readUnit) : p, moyenne des façons, écart réduit observé */
+interface Fit {
+  p: Float64Array
+  mu: Float64Array
+  z: Float64Array
+}
+
+/** L'écart réduit sous lequel un bloc ne compte pas : écart-type nul, bloc constant (son écart réduit vaut 0) */
+const FLAT = 1e-9
+
+/**
+ * Jusqu'à COUNT_MAX façons : le compte complet (max-T exact). Moyenne et écart-type exacts de chaque bloc, puis, façon
+ * par façon, le plus grand écart réduit des blocs connus ; p : la part des façons où il atteint celui du bloc. Les
+ * placements d'une question qui apportent les mêmes contributions à tous les blocs sont comptés ensemble, et les sommes
+ * se font de proche en proche : le même résultat que l'énumération des façons une à une, en bien moins de calcul.
+ */
+function countAll(models: readonly BlocModel[], cands: readonly number[], per: readonly Placements[], xs: readonly number[]): Fit {
+  const m = per.length
+  const K = models.length
+  const sig = per.map(list => groupsOf(list, cands))
+  const pats: { def: Uint8Array; atoms: { x: Float64Array; w: number }[][] }[] = []
+  const mom: Moments[][] = models.map(() => [])
+  const reps: Float64Array[] = []
+  eachPattern(
+    sig.map(g => g.length),
+    choice => {
+      for (let j = 0; j < m; j++) reps[j] = per[j]![sig[j]![choice[j]!]![0]!]!
+      const def = Uint8Array.from(models, md => (md.set(reps) ? 1 : 0))
+      let P = 1
+      const e = new Float64Array(K)
+      const v = new Float64Array(K)
+      const atoms = sig.map((g, j) => {
+        const list = g[choice[j]!]!
+        P *= list.length / per[j]!.length
+        const xj = list.map(a => Float64Array.from(models, (md, k) => (def[k] ? md.x(j, per[j]![a]!) : 0)))
+        for (let k = 0; k < K; k++) {
+          const [mean, vj] = stats(Float64Array.from(xj, x => x[k]!))
+          e[k]! += mean
+          v[k]! += vj
+        }
+        const merged = new Map<string, { x: Float64Array; w: number }>()
+        for (const x of xj) {
+          const key = x.join(',')
+          const at = merged.get(key)
+          if (at) at.w++
+          else merged.set(key, { x, w: 1 })
+        }
+        return [...merged.values()]
+      })
+      for (let k = 0; k < K; k++) if (def[k]) mom[k]!.push({ P, e: e[k]!, v: v[k]! })
+      pats.push({ def, atoms })
+    },
+  )
+  const mu = new Float64Array(K)
+  const inv = new Float64Array(K)
+  mom.forEach((list, k) => {
+    const [mean, sd] = moments(list)
+    mu[k] = mean
+    inv[k] = sd > FLAT ? 1 / sd : 0
+  })
+  const z = Float64Array.from(xs, (x, k) => (x - mu[k]!) * inv[k]!)
+  // Les seuils des blocs, croissants : une façon compte pour tous les blocs dont le seuil est sous son plus grand écart
+  const thr = Array.from(z, t => Math.abs(t) - 1e-9)
+  const order = thr.map((_, k) => k).sort((a, b) => thr[a]! - thr[b]!)
+  const sorted = order.map(k => thr[k]!)
+  const hist = new Float64Array(K + 1)
+  let total = 0
+  const pre = Array.from({ length: m + 1 }, () => new Float64Array(K))
+  const wpre = new Float64Array(m + 1)
+  const idx = new Int32Array(m)
+  for (const { def, atoms } of pats) {
+    wpre[0] = 1
+    idx.fill(0)
+    let from = 0
+    for (;;) {
+      for (let j = from; j < m; j++) {
+        const at = atoms[j]![idx[j]!]!
+        const p0 = pre[j]!
+        const p1 = pre[j + 1]!
+        for (let k = 0; k < K; k++) p1[k] = p0[k]! + at.x[k]!
+        wpre[j + 1] = wpre[j]! * at.w
+      }
+      const fin = pre[m]!
+      let t = 0
+      for (let k = 0; k < K; k++) {
+        const d = def[k] ? Math.abs(fin[k]! - mu[k]!) * inv[k]! : 0
+        if (d > t) t = d
+      }
+      let R = 0
+      while (R < K && sorted[R]! <= t) R++
+      hist[R]! += wpre[m]!
+      total += wpre[m]!
+      let j = m - 1
+      while (j >= 0 && ++idx[j]! === atoms[j]!.length) idx[j--] = 0
+      if (j < 0) break
+      from = j
+    }
+  }
+  const p = new Float64Array(K)
+  order.forEach((k, r) => {
+    let ge = 0
+    for (let R = r + 1; R <= K; R++) ge += hist[R]!
+    p[k] = ge / total
+  })
+  return { p, mu, z }
+}
+
+/** La loi d'un bloc au-delà de COUNT_MAX façons (blocLaw) */
+interface Law {
+  /** Moyenne et écart-type exacts (sans arrondi), parmi les façons où le bloc est connu */
+  mu: number
+  sd: number
+  /** La part des façons où le bloc est connu et s'écarte de mu d'au moins d, bornée par excès */
+  tail: (d: number) => number
+}
+
+/** Cases de la grille, au plus, quand elle s'affine pour un bloc qui varie à peine */
+const FINE_CELLS = 1 << 16
+
+/**
+ * La loi exacte de l'affinité moyenne d'un bloc sur toutes les façons de poser les mêmes avis : le mélange exact des
+ * motifs (qui est connu), et sous chacun la convolution, question par question, des contributions posées sur une grille
+ * de pas h. La moyenne, l'écart-type et le plus grand écart à la moyenne sont calculés exactement, hors de la grille ;
+ * E borne l'écart entre une somme posée et la somme exacte (la somme, sur les questions, du plus grand arrondi de
+ * chacune) : la part des façons qui s'écartent d'au moins d est au plus celle des sommes posées qui s'écartent d'au
+ * moins d − E. Un bloc qui varie à peine (E trop grand devant son écart-type) refait sa loi sur une grille plus fine.
+ */
+function blocLaw(md: BlocModel, cands: readonly number[], per: readonly Placements[], h: number = ECHIQUIER.GRID): Law {
+  const m = per.length
+  const sig = per.map(list => groupsOf(list, cands))
+  const pats: (Moments & { lo: number; hi: number; d: Float64Array; at: number })[] = []
+  let E = 0
+  const reps: Float64Array[] = []
+  eachPattern(
+    sig.map(g => g.length),
+    choice => {
+      for (let j = 0; j < m; j++) reps[j] = per[j]![sig[j]![choice[j]!]![0]!]!
+      if (!md.set(reps)) return
+      let P = 1
+      let e = 0
+      let v = 0
+      let lo = 0
+      let hi = 0
+      let err = 0
+      let d = new Float64Array([1])
+      let at = 0
+      for (let j = 0; j < m; j++) {
+        const list = sig[j]![choice[j]!]!
+        P *= list.length / per[j]!.length
+        const x = Float64Array.from(list, a => md.x(j, per[j]![a]!))
+        const [mean, vj, min, max] = stats(x)
+        e += mean
+        v += vj
+        lo += min
+        hi += max
+        // Les contributions de la question, posées sur la grille : leurs poids, à partir de k0
+        const k0 = Math.round(min / h)
+        const w = new Float64Array(Math.round(max / h) - k0 + 1)
+        let ej = 0
+        for (const y of x) {
+          const k = Math.round(y / h)
+          ej = Math.max(ej, Math.abs(y - k * h))
+          w[k - k0]! += 1 / x.length
+        }
+        err += ej
+        // La loi des questions déjà vues, décalée par chaque contribution possible de celle-ci
+        const out = new Float64Array(d.length + w.length - 1)
+        for (let s = 0; s < w.length; s++) {
+          const ws = w[s]!
+          if (ws) for (let i = 0; i < d.length; i++) out[i + s]! += d[i]! * ws
+        }
+        d = out
+        at += k0
+      }
+      E = Math.max(E, err)
+      pats.push({ P, e, v, lo, hi, d, at })
+    },
+  )
+  const [mu, sd] = moments(pats)
+  let dMax = 0
+  let lo = Infinity
+  let hi = -Infinity
+  for (const t of pats) {
+    dMax = Math.max(dMax, t.hi - mu, mu - t.lo)
+    lo = Math.min(lo, t.lo)
+    hi = Math.max(hi, t.hi)
+  }
+  if (sd > FLAT && E > sd / 20) {
+    const fine = Math.max((h * sd) / (40 * E), (hi - lo) / FINE_CELLS)
+    if (fine < h / 2) return blocLaw(md, cands, per, fine)
+  }
+  // La loi posée, case i à la somme (base + i) × h ; ses masses cumulées par le bas (low) et par le haut (high)
+  const base = Math.min(...pats.map(t => t.at))
+  const size = Math.max(...pats.map(t => t.at + t.d.length)) - base
+  const law = new Float64Array(size)
+  for (const t of pats) for (let i = 0; i < t.d.length; i++) law[t.at - base + i]! += t.P * t.d[i]!
+  const low = new Float64Array(size + 1)
+  const high = new Float64Array(size + 1)
+  for (let i = 0; i < size; i++) low[i + 1] = low[i]! + law[i]!
+  for (let i = size - 1; i >= 0; i--) high[i] = high[i + 1]! + law[i]!
+  return {
+    mu,
+    sd,
+    tail: dd => {
+      // Aucune façon ne s'écarte autant (exact) ; sinon, les cases à mu − d + E et en dessous, à mu + d − E et au-dessus
+      // (une case de plus de chaque côté au moindre doute d'arrondi)
+      if (dd > dMax + 1e-9) return 0
+      const cut = dd - E - 1e-9
+      const a = Math.floor((mu - cut) / h - base + 1e-6) + 1
+      const b = Math.ceil((mu + cut) / h - base - 1e-6)
+      if (a >= b) return low[size]!
+      return low[Math.min(size, Math.max(0, a))]! + high[Math.min(size, Math.max(0, b))]!
+    },
+  }
+}
+
+/**
+ * Au-delà de COUNT_MAX façons : la loi de chaque bloc, puis l'addition. La part des façons où un bloc ou un autre
+ * s'écarte autant que le bloc b, en écarts réduits, est au plus la somme de ces parts, bloc par bloc (inégalité de
+ * Boole, sans hypothèse d'indépendance) : jamais moins que le compte complet. Un bloc constant n'ajoute rien, comme
+ * dans le compte complet où son écart réduit vaut toujours 0 : il n'efface pas les lectures des autres blocs. Rend la
+ * main après chaque bloc (téléphone lent).
+ */
+function* bound(models: readonly BlocModel[], members: readonly (readonly number[])[], per: readonly Placements[], xs: readonly number[]): Generator<void, Fit, void> {
+  const laws: Law[] = []
+  for (let k = 0; k < models.length; k++) {
+    laws.push(blocLaw(models[k]!, members[k]!, per))
+    yield
+  }
+  const z = Float64Array.from(xs, (x, k) => (laws[k]!.sd > FLAT ? (x - laws[k]!.mu) / laws[k]!.sd : 0))
+  const p = Float64Array.from(z, zb => {
+    const t = Math.abs(zb) - 1e-9
+    if (t <= 0) return 1
+    let s = 0
+    for (const law of laws) if (law.sd > FLAT) s += law.tail(t * law.sd)
+    return Math.min(1, s)
+  })
+  return { p, mu: Float64Array.from(laws, law => law.mu), z }
+}
+
 /** Une unité de lecture : un thème, ou une famille d'au moins deux thèmes */
 interface UnitDef {
   kind: UnitKind
@@ -333,14 +716,15 @@ interface UnitDef {
 /** Les blocs ▲ ne forment pas une suite contiguë de l'axe */
 const isTwoSided = (near: readonly number[]) => near.length > 1 && near[near.length - 1]! - near[0]! !== near.length - 1
 
-function readUnit(
+function* readUnit(
   prep: Prep,
   members: readonly number[][],
   def: UnitDef,
   qs: readonly number[],
   vectors: ReadonlyMap<number, Int8Array>,
+  place: (qi: number, flip: boolean) => Placements,
   opts: ReadOptions,
-): UnitReading {
+): Generator<void, UnitReading, void> {
   const NP = prep.ids.length
   const B = prep.axis.length
   const inPanel = new Set(members.flat())
@@ -353,6 +737,8 @@ function readUnit(
     else topicOf.set(t, [j])
   })
   const byTopic = [...topicOf.values()]
+  const tOf = new Int32Array(qs.length)
+  byTopic.forEach((js, t) => js.forEach(j => (tOf[j] = t)))
   const observed = qs.map(qi => {
     const o = new Float64Array(NP)
     scoreInto(prep, qi, vectors.get(qi)!, o)
@@ -387,6 +773,7 @@ function readUnit(
     twoSided: false,
     exact: false,
     arrangements: 0,
+    ways: 0,
     perCandidate,
   }
   const known: number[] = []
@@ -400,123 +787,60 @@ function readUnit(
     return reading
   }
 
-  // Les mêmes avis, placés au hasard entre les approches de chaque question : tous les placements s'ils sont peu
-  // nombreux (mille au plus), sinon des tirages dont la graine ne dépend que de l'élection, de l'unité, des questions
-  // et des avis
-  let total = 1
-  for (const qi of qs) {
-    total *= arrangementCount(vectors.get(qi)!)
-    if (total > ECHIQUIER.EXACT_MAX) break
-  }
-  let nulls: Float64Array
-  let N: number
-  const pick: Float64Array[] = qs.map(() => new Float64Array(NP))
-  const affJ = new Float64Array(NP)
-  if (total <= ECHIQUIER.EXACT_MAX) {
-    const per = qs.map(qi =>
-      arrangements(vectors.get(qi)!).map(a => {
-        const o = new Float64Array(NP)
-        scoreInto(prep, qi, a, o)
-        return o
-      }),
-    )
-    N = per.reduce((n, list) => n * list.length, 1)
-    nulls = new Float64Array(N * B)
-    const at = new Int32Array(per.length)
-    for (let n = 0; n < N; n++) {
-      for (let j = 0; j < per.length; j++) pick[j] = per[j]![at[j]!]!
-      affinityInto(pick, byTopic, affJ)
-      blocMeansInto(affJ, members, nulls, n * B)
-      for (let j = per.length - 1; j >= 0; j--) {
-        if (++at[j]! < per[j]!.length) break
-        at[j] = 0
-      }
-    }
-    reading.exact = true
-  } else {
-    N = opts.draws ?? ECHIQUIER.DRAWS
-    nulls = new Float64Array(N * B)
-    // Les avis au signe près (le premier avis de l'unité compte positif) : des avis tous inversés reçoivent les mêmes
-    // tirages, et leur lecture échange exactement ▲ et ▽, comme quand tous les placements sont comptés
-    let sign = 0
-    for (const qi of qs) {
-      sign = vectors.get(qi)!.find(x => x !== 0) ?? 0
-      if (sign) break
-    }
-    const seed = `${prep.electionId}|${def.kind}:${def.id}|${qs.map(qi => `${prep.questions[qi]!.id}:${Array.from(vectors.get(qi)!, x => x * (sign || 1) || 0).join(',')}`).join(';')}`
-    const rand = mulberry32(hashString(seed))
-    const buffers = qs.map(qi => new Int8Array(vectors.get(qi)!.length))
-    for (let n = 0; n < N; n++) {
-      for (let j = 0; j < qs.length; j++) {
-        const a = buffers[j]!
-        a.set(vectors.get(qs[j]!)!)
-        // Fisher-Yates, comme seededShuffle (core/rng.ts)
-        for (let i = a.length - 1; i > 0; i--) {
-          const k = Math.floor(rand() * (i + 1))
-          const t = a[i]!
-          a[i] = a[k]!
-          a[k] = t
-        }
-        scoreInto(prep, qs[j]!, a, pick[j]!)
-      }
-      affinityInto(pick, byTopic, affJ)
-      blocMeansInto(affJ, members, nulls, n * B)
-    }
-  }
+  // Les autres façons de poser les mêmes avis : sur chaque question, ses avis placés autrement entre ses approches
+  let N = 1
+  for (const qi of qs) N *= arrangementCount(vectors.get(qi)!)
   reading.arrangements = N
+  reading.ways = N <= ECHIQUIER.COUNT_MAX ? N : Number.POSITIVE_INFINITY
+  // Les avis au signe près (le premier avis de l'unité compte positif) : des avis tous inversés font le même calcul,
+  // l'affinité de chaque façon devenant 100 moins elle-même, et leur lecture échange exactement ▲ et ▽
+  let sign = 0
+  for (const qi of qs) {
+    sign = vectors.get(qi)!.find(x => x !== 0) ?? 0
+    if (sign) break
+  }
+  const flip = sign < 0
+  const per = qs.map(qi => place(qi, flip))
+  const seen = flip
+    ? qs.map(qi => {
+        const o = new Float64Array(NP)
+        scoreInto(prep, qi, vectors.get(qi)!.map(x => -x), o)
+        return o
+      })
+    : observed
+  const blocs = known.map(b => members[b]!)
+  const models = blocs.map(cands => blocModel(cands, tOf, byTopic.length))
+  // L'affinité observée de chaque bloc, par son modèle : l'affinité moyenne affichée (au signe près)
+  const xs = models.map(md => {
+    md.set(seen)
+    let x = 0
+    seen.forEach((s, j) => (x += md.x(j, s)))
+    return x
+  })
+  let fit: Fit
+  if (N <= (opts.countMax ?? ECHIQUIER.COUNT_MAX)) {
+    fit = countAll(models, blocs.flat(), per, xs)
+    reading.exact = true
+  } else fit = yield* bound(models, blocs, per, xs)
 
-  // Moyenne et écart-type des placements, par bloc ; écart réduit z ; statistique commune T = max |z| (max-T)
-  const mu = new Float64Array(B).fill(NaN)
-  const sd = new Float64Array(B)
-  for (const b of known) {
-    let s = 0
-    let k = 0
-    for (let n = 0; n < N; n++) {
-      const v = nulls[n * B + b]!
-      if (v === v) {
-        s += v
-        k++
-      }
-    }
-    if (!k) continue
-    const m = s / k
-    let d = 0
-    for (let n = 0; n < N; n++) {
-      const v = nulls[n * B + b]!
-      if (v === v) d += (v - m) ** 2
-    }
-    mu[b] = m
-    sd[b] = k > 1 ? Math.sqrt(d / k) : 0
-  }
-  const zOf = (b: number, v: number) => (sd[b]! > 1e-9 && v === v ? (v - mu[b]!) / sd[b]! : 0)
-  const z = new Float64Array(B)
-  for (const b of known) z[b] = zOf(b, S[b]!)
-  const T = new Float64Array(N)
-  for (let n = 0; n < N; n++) {
-    let t = 0
-    for (const b of known) t = Math.max(t, Math.abs(zOf(b, nulls[n * B + b]!)))
-    T[n] = t
-  }
   const alpha = (opts.alpha ?? ECHIQUIER.ALPHA) + 1e-12
   const GAP = ECHIQUIER.GAP
-  for (const b of known) {
-    let ge = 0
-    const bar = Math.abs(z[b]!) - 1e-9
-    for (let n = 0; n < N; n++) if (T[n]! >= bar) ge++
-    const p = reading.exact ? ge / N : (1 + ge) / (1 + N)
+  known.forEach((b, k) => {
+    const p = fit.p[k]!
+    const m = flip ? 100 - fit.mu[k]! : fit.mu[k]!
+    const z = flip ? -fit.z[k]! : fit.z[k]!
+    const s = S[b]!
     const cell = cells[b]!
     cell.p = p
-    cell.chance = Number.isFinite(mu[b]!) ? mu[b]! : null
-    const s = S[b]!
-    const m = mu[b]!
-    if (p <= alpha && z[b]! > 0 && s - m >= GAP && s >= 50 + GAP) {
+    cell.chance = m
+    if (p <= alpha && z > 0 && s - m >= GAP && s >= 50 + GAP) {
       cell.mark = 'pres'
       reading.near.push(b)
-    } else if (p <= alpha && z[b]! < 0 && m - s >= GAP && s <= 50 - GAP) {
+    } else if (p <= alpha && z < 0 && m - s >= GAP && s <= 50 - GAP) {
       cell.mark = 'loin'
       reading.far.push(b)
     }
-  }
+  })
   if (reading.near.length) {
     reading.status = 'lecture'
     reading.twoSided = isTwoSided(reading.near)
@@ -536,8 +860,9 @@ export function segments(indices: readonly number[]): number[][] {
 }
 
 /**
- * Le calcul, une unité à la fois : rend la main entre deux unités (readEchiquierAsync). Les thèmes répondus d'abord,
- * puis les familles affichables, puis la synthèse.
+ * Le calcul, une unité à la fois : rend la main entre deux unités (readEchiquierAsync), et entre deux blocs d'une unité
+ * aux façons trop nombreuses pour être comptées. Les thèmes répondus d'abord, puis les familles affichables, puis la
+ * synthèse.
  */
 function* steps(pack: ElectionPack, answers: Answers, opts: ReadOptions): Generator<void, Echiquier, void> {
   const prep = prepare(pack)
@@ -552,13 +877,30 @@ function* steps(pack: ElectionPack, answers: Answers, opts: ReadOptions): Genera
     const set = new Set(topicIds)
     return prep.questions.flatMap((q, qi) => (set.has(q.topicId) && vectors.has(qi) ? [qi] : []))
   }
+  // Les placements de chaque question et leurs scores, une fois par lecture (partagés entre thème et famille), dans
+  // le sens où une unité les prend (ses avis au signe près, voir readUnit)
+  const placed = new Map<number, Placements>()
+  const place = (qi: number, flip: boolean): Placements => {
+    const key = flip ? -1 - qi : qi
+    let list = placed.get(key)
+    if (!list) {
+      const r = vectors.get(qi)!
+      list = arrangements(flip ? r.map(x => -x) : r).map(a => {
+        const o = new Float64Array(prep.ids.length)
+        scoreInto(prep, qi, a, o)
+        return o
+      })
+      placed.set(key, list)
+    }
+    return list
+  }
 
   const themes: UnitReading[] = []
   const byTheme = new Map<TopicId, UnitReading>()
   for (const t of pack.bank.topics) {
     const qs = answeredOf([t.id])
     if (!qs.length) continue
-    const r = readUnit(prep, members, { kind: 'theme', id: t.id, topicIds: [t.id] }, qs, vectors, opts)
+    const r = yield* readUnit(prep, members, { kind: 'theme', id: t.id, topicIds: [t.id] }, qs, vectors, place, opts)
     themes.push(r)
     byTheme.set(t.id, r)
     yield
@@ -568,7 +910,7 @@ function* steps(pack: ElectionPack, answers: Answers, opts: ReadOptions): Genera
   for (const g of prep.groups) {
     // Une famille d'un seul thème, c'est le thème ; une famille dont un seul thème a une réponse redirait sa ligne
     if (g.topicIds.length < 2 || g.topicIds.filter(t => byTheme.has(t)).length < 2) continue
-    const r = readUnit(prep, members, { kind: 'famille', id: g.id, topicIds: g.topicIds }, answeredOf(g.topicIds), vectors, opts)
+    const r = yield* readUnit(prep, members, { kind: 'famille', id: g.id, topicIds: g.topicIds }, answeredOf(g.topicIds), vectors, place, opts)
     families.push(r)
     byFamily.set(g.id, r)
     yield
@@ -619,7 +961,7 @@ const CACHE_SIZE = 4
 
 /** L'empreinte des réponses qui comptent : les réglages, et les avis de chaque question répondue */
 function fingerprint(pack: ElectionPack, answers: Answers, opts: ReadOptions): string {
-  const parts = [String(opts.draws ?? ''), String(opts.alpha ?? ''), [...(opts.without ?? [])].sort().join(',')]
+  const parts = [String(opts.alpha ?? ''), [...(opts.without ?? [])].sort().join(','), String(opts.countMax ?? '')]
   for (const q of pack.bank.questions) {
     const a = answers[q.id]
     if (hasOpinion(a)) parts.push(`${q.id}:${Array.from(vectorOf(q, a)).join(',')}`)

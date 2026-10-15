@@ -145,8 +145,12 @@ for (const f of agreeChunks) {
 // rows.ts : l'axe, ses lignes et leurs sections, le clavier, les cases aux couleurs d'affinité) s'ajoute au tableau
 // détaillé, gardé replié dessous, et à la rubrique de la Méthode, rangée là pour ne rien ajouter au code de toutes les
 // visites ; le tout pèse environ 48 ko (les barres, les plis et la mise en évidence de l'axe ont disparu avec les
-// symboles ▲ ▽, le 12 octobre 2026 au soir). Rien de cela ne pèse sur le JS initial, ni sur une visite qui n'ouvre pas la page
-const PROFILE_BUDGET = 54_000
+// symboles ▲ ▽, le 12 octobre 2026 au soir). Rien de cela ne pèse sur le JS initial, ni sur une visite qui n'ouvre pas la page.
+// Relevé de 54 à 58 ko le 15 octobre 2026, comme le prévoit le plan approuvé « Approfondir Mon profil politique » : le
+// calcul sans tirage (src/core/echiquier.ts : compte complet jusqu'à cent mille façons, lois par bloc et addition
+// au-delà) pèse environ 3,5 ko de plus que les tirages qu'il remplace (55,8 ko mesurés) ; la rubrique de la Méthode doit
+// ensuite sortir de ce fichier (lot 0 du même plan)
+const PROFILE_BUDGET = 58_000
 const profileChunks = readdirSync(join(dist, 'assets')).filter(f => /^Profile-[\w-]+\.js$/.test(f))
 if (profileChunks.length !== 1) fail(`« Mon profil politique » : ${profileChunks.length} fichier(s) assets/Profile-*.js, un attendu`)
 const modulePreloads = [...html.matchAll(/<link rel="modulepreload"[^>]*href="\.\/(assets\/[^"]+)"/g)].map(m => m[1])

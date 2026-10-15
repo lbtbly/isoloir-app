@@ -20,7 +20,7 @@ function unit(kind: 'theme' | 'famille', id: string, status: UnitStatus, near: n
     mark: (near.includes(b) ? 'pres' : far.includes(b) ? 'loin' : 'rien') as Mark,
   }))
   const twoSided = near.some((b, i) => i > 0 && b !== near[i - 1]! + 1)
-  return { kind, id, topicIds: [id], questions: ['q1', 'q2'], status, cells, near, far, twoSided, exact: true, arrangements: 10, perCandidate: {} }
+  return { kind, id, topicIds: [id], questions: ['q1', 'q2'], status, cells, near, far, twoSided, exact: true, arrangements: 10, ways: 10, perCandidate: {} }
 }
 const label = (u: UnitReading) => u.id
 const keys = (us: UnitReading[]) => us.map(unitKey)
@@ -127,7 +127,7 @@ describe('le rangement des lignes', () => {
         }
         if (Object.keys(ratings).length) answers[q.id] = { ratings, redLines: [] }
       }
-      const reading = readEchiquier(pack, answers, { draws: 199 })
+      const reading = readEchiquier(pack, answers)
       const rows = chartRows(groups, reading, u => u.id)
       const placed = [...rows.main, ...rows.both, ...rows.apart, ...rows.flat, ...rows.unread.map(x => x.unit)]
       const themes = placed.filter(u => u.kind === 'theme')

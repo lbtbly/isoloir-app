@@ -428,7 +428,13 @@ export const ECHIQUIER_PUBLISHED = {
   // Mesure refaite le 14 octobre 2026 (entrée de Natacha Polony, non classée, et des deux approches ajoutées ce jour-là) :
   // hitWithout 70 → 71, randomPerProfile 1,4 → 1,3 ; le reste inchangé (journal du 14 octobre). Refaite le 15 octobre
   // 2026, à 1 000 profils (positions de Bruno Retailleau et de Florian Philippot sur finances_publiques-1, décisions du
-  // propriétaire du 2026-10-15) : hitWithout 71 → 70 ; le reste inchangé (journal du 15 octobre)
+  // propriétaire du 2026-10-15) : hitWithout 71 → 70 ; le reste inchangé (journal du 15 octobre). Remesurée le même
+  // jour avec le calcul sans tirage (« compter, sinon calculer », core/echiquier.ts), à 1 000 profils et 30 clones
+  // bruités par candidat : hitWithout 70,1 → 70,6, hitWithoutMax 90,6 → 92,3, randomThemes 4,79 → 4,49,
+  // randomPerProfileMax 2,41 → 2,31, oneChoiceRatio 1,72 → 1,79 et 2,36 → 2,41 au rapide, le reste identique ; tout
+  // reste dans les marges du test, les valeurs publiées sont gardées jusqu'à la réécriture de la Méthode (avant et
+  // après, au journal). hitWithMin et hitWithMax (neutralité bloc par bloc, avec le candidat) ajoutés, mesurés à 68,8
+  // et 97,1 avec l'un et l'autre calcul
   /** Date de la mesure */
   measured: '2026-10-15',
   /** Clones larges, sans le candidat : part des lectures qui désignent son bloc (%) */
@@ -438,6 +444,9 @@ export const ECHIQUIER_PUBLISHED = {
   hitWithoutMax: 91,
   /** Les mêmes, avec le candidat dans le calcul, comme sur le site (%) */
   hitWith: 91,
+  /** La même part avec le candidat, bloc vrai par bloc vrai : la plus basse et la plus haute (%) */
+  hitWithMin: 69,
+  hitWithMax: 97,
   /** Les mêmes, sans le candidat : part des thèmes lus de l'autre côté du centre (%) */
   wrongSideWithout: 0,
   /** Profils tirés au hasard (un quart d'accord, un quart de désaccord) : part des thèmes lus (%) */
