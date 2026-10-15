@@ -10,18 +10,22 @@
 // points entre le bloc le mieux lu et le moins bien lu. Aucune IA : le calcul même de la page. Les profils sont ceux de
 // tests/echiquier-calibration.test.ts (tests/fixtures/echiquier-profiles.ts), en plus grand nombre.
 //
-// Usage : node tools/audit-echiquier.mjs [<id>] [--profiles 400] [--noisy 6]
+// Usage : node tools/audit-echiquier.mjs [<id>] [--profiles 400] [--noisy 6] [--count-max 2000000]
 //   <id>        : l'élection (par défaut presidentielle-2027) ; elle doit avoir un axe (election.spectrum.axis)
 //   --profiles  : feuilles d'essai par schéma sur la banque entière (400 par défaut), cinq fois plus sur le seul
 //                 questionnaire rapide (calcul bien plus court) ; ECHIQUIER_PUBLISHED est mesuré avec --profiles 1000
 //   --noisy     : clones bruités par candidat (6 par défaut, comme les tests ; la porte D5 en demande au moins 60)
+//   --count-max : façons comptées une à une, au plus (par défaut COUNT_MAX, comme la page). Relevé, il donne la
+//                 référence d'une comparaison D5 : le max-T exact partout où l'on peut compter, la borne au-delà, au
+//                 lieu des tirages d'une seule graine de l'ancienne page ; un thème de deux millions de façons se compte
+//                 en une centaine de millisecondes : avec peu de feuilles d'essai (--profiles 50)
 // Après une mise à jour des positions : relancer, reporter les chiffres s'ils bougent, et le dire au journal.
 // Il faut Node 22.18+ (TypeScript sans compilation).
 
 import { importSite, useSiteModules } from './site-modules.mjs'
 
 const argv = process.argv.slice(2)
-const OPTIONS = ['--profiles', '--noisy']
+const OPTIONS = ['--profiles', '--noisy', '--count-max']
 const opt = (name, fallback) => {
   const i = argv.indexOf(name)
   return i < 0 ? fallback : Number(argv[i + 1])
@@ -29,6 +33,9 @@ const opt = (name, fallback) => {
 const id = argv.find((a, i) => !a.startsWith('--') && !OPTIONS.includes(argv[i - 1])) ?? 'presidentielle-2027'
 const N = opt('--profiles', 400)
 const NOISY = opt('--noisy', 6)
+const COUNT_MAX = opt('--count-max', null)
+/** Les réglages de chaque lecture : ceux de la page, ou le compte complet relevé (--count-max) */
+const read = (pack, answers, opts = {}) => readEchiquier(pack, answers, COUNT_MAX === null ? opts : { ...opts, countMax: COUNT_MAX })
 
 useSiteModules()
 const { elections } = await importSite('src/elections/all.ts')
@@ -49,7 +56,7 @@ const SH = pack.election.spectrum.axis.map(a => a.short)
 const r1 = x => Math.round(x * 10) / 10
 const t0 = Date.now()
 
-console.log(`« Mon profil politique » : audit de ${id}, ${P.ranked.length} candidats sur l'axe, ${N} feuilles d'essai par schéma, ${NOISY} clones bruités par candidat`)
+console.log(`« Mon profil politique » : audit de ${id}, ${P.ranked.length} candidats sur l'axe, ${N} feuilles d'essai par schéma, ${NOISY} clones bruités par candidat${COUNT_MAX === null ? '' : `, façons comptées une à une jusqu'à ${COUNT_MAX} (la page : COUNT_MAX)`}`)
 console.log(`Axe : ${P.panel.map((ids, b) => `${SH[b]} ${ids.join(', ')}`).join(' | ')}`)
 
 const line = (label, acc) =>
@@ -76,7 +83,7 @@ for (const [kind, make] of kinds) {
     for (const cid of P.ranked) {
       const t = P.blocOf(cid)
       for (const v of make(cid)) {
-        const e = readEchiquier(pack, P.toAnswers(v), without ? { without: [cid] } : {})
+        const e = read(pack, P.toAnswers(v), without ? { without: [cid] } : {})
         P.count(acc, e, t)
         P.count(perBloc[t], e, t)
       }
@@ -101,7 +108,7 @@ for (const [scheme, only] of [...SCHEMES.map(s => [s, null]), ['audit', isQuick]
   let none = 0
   const n = only ? 5 * N : N
   for (let i = 0; i < n; i++) {
-    const e = readEchiquier(pack, P.toAnswers(P.randomProfile(`audit-echiquier:${scheme}${only ? '-rapide' : ''}:${i}`, scheme, only ?? undefined)))
+    const e = read(pack, P.toAnswers(P.randomProfile(`audit-echiquier:${scheme}${only ? '-rapide' : ''}:${i}`, scheme, only ?? undefined)))
     P.count(acc, e, null)
     if (!e.summary.length) none++
   }
@@ -127,7 +134,7 @@ for (const [label, answers] of [
   ['les mêmes, rapide seul', P.compose('glucksmann', 'lepen', new Set(['immigration']), isQuick)],
 ]) {
   try {
-    console.log(`  ${label} : ${show(readEchiquier(pack, answers))}`)
+    console.log(`  ${label} : ${show(read(pack, answers))}`)
   } catch (err) {
     console.log(`  ${label} : ${err.message}`)
   }

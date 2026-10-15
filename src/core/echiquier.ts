@@ -10,7 +10,10 @@
 // même lecture). Jusqu'à COUNT_MAX façons, on les compte toutes, une à une (max-T exact). Au-delà, on calcule pour
 // chaque bloc la loi exacte de son affinité moyenne, question par question, sur une grille au centième de point dont
 // l'arrondi, borné, joue toujours contre la lecture, et l'on additionne entre blocs les parts qui s'écartent autant
-// (inégalité de Boole) : une borne qui ne peut être que trop prudente, jamais plus généreuse que le compte complet.
+// (inégalité de Boole) : une borne qui ne peut être que trop prudente, jamais plus généreuse que le compte complet. Elle
+// peut donc manquer une lecture que ferait le compte complet, jamais en inventer une (le 15 octobre 2026, là où l'on a
+// pu compter en entier au-delà de COUNT_MAX : de 2,5 à 5 % des marques du compte complet manquées selon les séries,
+// aucune ajoutée).
 // Méthode « chaque bloc face aux autres façons de poser vos avis », retenue par le propriétaire le 12 octobre 2026 ;
 // ses garanties sont mesurées par tests/echiquier-calibration.test.ts et tools/audit-echiquier.mjs, publiées dans la
 // Méthode.
@@ -59,7 +62,10 @@ export interface BlocCell {
   known: CandidateId[]
   /** Moyenne de l'affinité avec ses candidats connus, entre 0 et 100 ; null : aucun connu */
   affinity: number | null
-  /** La même moyenne, sur toutes les façons de poser les mêmes avis (la vôtre comprise) ; null sans test */
+  /**
+   * La même moyenne, sur les façons de poser les mêmes avis où le bloc a un candidat connu (la vôtre comprise) ; null
+   * sans test
+   */
   chance: number | null
   /**
    * Part des façons de poser les mêmes avis (la vôtre comprise) qui font un écart aussi marqué, avec ce bloc ou un
@@ -90,8 +96,9 @@ export interface UnitReading {
   twoSided: boolean
   /**
    * Les façons de poser les mêmes avis ont toutes été comptées, une à une : les p sont exacts. Faux au-delà de
-   * COUNT_MAX façons, où les p sont la borne calculée bloc par bloc puis additionnée entre blocs, jamais plus petite
-   * que le compte complet, et sans test. Rien n'est tiré au sort, dans un cas comme dans l'autre
+   * COUNT_MAX façons (ou de ReadOptions.countMax), où les p sont la borne calculée bloc par bloc puis additionnée entre
+   * blocs, jamais plus petite que le compte complet, et sans test. Rien n'est tiré au sort, dans un cas comme dans
+   * l'autre
    */
   exact: boolean
   /**
@@ -143,6 +150,10 @@ export interface ReadOptions {
   without?: readonly CandidateId[]
   /** Façons comptées une à une, au plus (COUNT_MAX) ; 0 : toujours la borne calculée (tests de la borne) */
   countMax?: number
+  /** Pas de la grille des lois au-delà de COUNT_MAX (GRID) : tests de la grille affinée */
+  grid?: number
+  /** Faux : la loi d'un bloc qui varie à peine ne s'affine jamais (tests de la grille affinée) */
+  refine?: boolean
 }
 
 // ——— Les candidats de l'axe ———
@@ -172,7 +183,6 @@ export function panelOf(pack: Pick<ElectionPack, 'election' | 'candidates'>): Ca
 // ——— Précalcul par pack ———
 
 interface Prep {
-  electionId: string
   axis: readonly SpectrumAxisBloc[]
   /** Les candidats de l'axe, à plat, bloc après bloc */
   ids: CandidateId[]
@@ -228,7 +238,6 @@ function prepare(pack: ElectionPack): Prep {
   }
   const groups = pack.topicGroups?.length ? pack.topicGroups : pack.bank.topics.map(t => ({ id: t.id, label: t.label, topicIds: [t.id] }))
   const prep: Prep = {
-    electionId: pack.election.id,
     axis,
     ids,
     blocIndex,
@@ -296,7 +305,7 @@ function affinityInto(scores: readonly Float64Array[], byTopic: readonly number[
 }
 
 /** Moyenne par bloc des affinités connues ; NaN : aucun candidat du bloc connu */
-function blocMeansInto(aff: Float64Array, members: readonly number[][], out: Float64Array, at = 0): void {
+function blocMeansInto(aff: Float64Array, members: readonly number[][], out: Float64Array): void {
   for (let b = 0; b < members.length; b++) {
     let s = 0
     let k = 0
@@ -307,7 +316,7 @@ function blocMeansInto(aff: Float64Array, members: readonly number[][], out: Flo
         k++
       }
     }
-    out[at + b] = k ? s / k : NaN
+    out[b] = k ? s / k : NaN
   }
 }
 
@@ -473,16 +482,24 @@ interface Fit {
   z: Float64Array
 }
 
-/** L'écart réduit sous lequel un bloc ne compte pas : écart-type nul, bloc constant (son écart réduit vaut 0) */
+/** L'écart-type sous lequel un bloc ne compte pas : bloc constant (son écart réduit vaut alors 0) */
 const FLAT = 1e-9
+/**
+ * Tolérance des égalités : un écart réduit, un écart en points ou un seuil atteint tout juste compte comme atteint (la
+ * règle dit « au moins »), malgré l'arrondi des nombres à virgule
+ */
+const TIE = 1e-9
+/** Façons comptées d'un seul tenant, au plus, avant de rendre la main (un thème compté en entier, téléphone lent) */
+const CHUNK = 20_000
 
 /**
  * Jusqu'à COUNT_MAX façons : le compte complet (max-T exact). Moyenne et écart-type exacts de chaque bloc, puis, façon
  * par façon, le plus grand écart réduit des blocs connus ; p : la part des façons où il atteint celui du bloc. Les
  * placements d'une question qui apportent les mêmes contributions à tous les blocs sont comptés ensemble, et les sommes
- * se font de proche en proche : le même résultat que l'énumération des façons une à une, en bien moins de calcul.
+ * se font de proche en proche : le même résultat que l'énumération des façons une à une, en bien moins de calcul. Rend
+ * la main toutes les CHUNK façons comptées.
  */
-function countAll(models: readonly BlocModel[], cands: readonly number[], per: readonly Placements[], xs: readonly number[]): Fit {
+function* countAll(models: readonly BlocModel[], cands: readonly number[], per: readonly Placements[], xs: readonly number[]): Generator<void, Fit, void> {
   const m = per.length
   const K = models.length
   const sig = per.map(list => groupsOf(list, cands))
@@ -528,11 +545,12 @@ function countAll(models: readonly BlocModel[], cands: readonly number[], per: r
   })
   const z = Float64Array.from(xs, (x, k) => (x - mu[k]!) * inv[k]!)
   // Les seuils des blocs, croissants : une façon compte pour tous les blocs dont le seuil est sous son plus grand écart
-  const thr = Array.from(z, t => Math.abs(t) - 1e-9)
+  const thr = Array.from(z, t => Math.abs(t) - TIE)
   const order = thr.map((_, k) => k).sort((a, b) => thr[a]! - thr[b]!)
   const sorted = order.map(k => thr[k]!)
   const hist = new Float64Array(K + 1)
   let total = 0
+  let leaves = 0
   const pre = Array.from({ length: m + 1 }, () => new Float64Array(K))
   const wpre = new Float64Array(m + 1)
   const idx = new Int32Array(m)
@@ -558,6 +576,10 @@ function countAll(models: readonly BlocModel[], cands: readonly number[], per: r
       while (R < K && sorted[R]! <= t) R++
       hist[R]! += wpre[m]!
       total += wpre[m]!
+      if (++leaves === CHUNK) {
+        leaves = 0
+        yield
+      }
       let j = m - 1
       while (j >= 0 && ++idx[j]! === atoms[j]!.length) idx[j--] = 0
       if (j < 0) break
@@ -591,9 +613,10 @@ const FINE_CELLS = 1 << 16
  * de pas h. La moyenne, l'écart-type et le plus grand écart à la moyenne sont calculés exactement, hors de la grille ;
  * E borne l'écart entre une somme posée et la somme exacte (la somme, sur les questions, du plus grand arrondi de
  * chacune) : la part des façons qui s'écartent d'au moins d est au plus celle des sommes posées qui s'écartent d'au
- * moins d − E. Un bloc qui varie à peine (E trop grand devant son écart-type) refait sa loi sur une grille plus fine.
+ * moins d − E. Un bloc qui varie à peine (E trop grand devant son écart-type) refait sa loi sur une grille plus fine
+ * (sauf refine faux, pour les tests).
  */
-function blocLaw(md: BlocModel, cands: readonly number[], per: readonly Placements[], h: number = ECHIQUIER.GRID): Law {
+function blocLaw(md: BlocModel, cands: readonly number[], per: readonly Placements[], refine: boolean, h: number = ECHIQUIER.GRID): Law {
   const m = per.length
   const sig = per.map(list => groupsOf(list, cands))
   const pats: (Moments & { lo: number; hi: number; d: Float64Array; at: number })[] = []
@@ -653,9 +676,9 @@ function blocLaw(md: BlocModel, cands: readonly number[], per: readonly Placemen
     lo = Math.min(lo, t.lo)
     hi = Math.max(hi, t.hi)
   }
-  if (sd > FLAT && E > sd / 20) {
+  if (refine && sd > FLAT && E > sd / 20) {
     const fine = Math.max((h * sd) / (40 * E), (hi - lo) / FINE_CELLS)
-    if (fine < h / 2) return blocLaw(md, cands, per, fine)
+    if (fine < h / 2) return blocLaw(md, cands, per, refine, fine)
   }
   // La loi posée, case i à la somme (base + i) × h ; ses masses cumulées par le bas (low) et par le haut (high)
   const base = Math.min(...pats.map(t => t.at))
@@ -672,8 +695,8 @@ function blocLaw(md: BlocModel, cands: readonly number[], per: readonly Placemen
     tail: dd => {
       // Aucune façon ne s'écarte autant (exact) ; sinon, les cases à mu − d + E et en dessous, à mu + d − E et au-dessus
       // (une case de plus de chaque côté au moindre doute d'arrondi)
-      if (dd > dMax + 1e-9) return 0
-      const cut = dd - E - 1e-9
+      if (dd > dMax + TIE) return 0
+      const cut = dd - E - TIE
       const a = Math.floor((mu - cut) / h - base + 1e-6) + 1
       const b = Math.ceil((mu + cut) / h - base - 1e-6)
       if (a >= b) return low[size]!
@@ -689,15 +712,15 @@ function blocLaw(md: BlocModel, cands: readonly number[], per: readonly Placemen
  * dans le compte complet où son écart réduit vaut toujours 0 : il n'efface pas les lectures des autres blocs. Rend la
  * main après chaque bloc (téléphone lent).
  */
-function* bound(models: readonly BlocModel[], members: readonly (readonly number[])[], per: readonly Placements[], xs: readonly number[]): Generator<void, Fit, void> {
+function* bound(models: readonly BlocModel[], members: readonly (readonly number[])[], per: readonly Placements[], xs: readonly number[], opts: ReadOptions): Generator<void, Fit, void> {
   const laws: Law[] = []
   for (let k = 0; k < models.length; k++) {
-    laws.push(blocLaw(models[k]!, members[k]!, per))
+    laws.push(blocLaw(models[k]!, members[k]!, per, opts.refine ?? true, opts.grid))
     yield
   }
   const z = Float64Array.from(xs, (x, k) => (laws[k]!.sd > FLAT ? (x - laws[k]!.mu) / laws[k]!.sd : 0))
   const p = Float64Array.from(z, zb => {
-    const t = Math.abs(zb) - 1e-9
+    const t = Math.abs(zb) - TIE
     if (t <= 0) return 1
     let s = 0
     for (const law of laws) if (law.sd > FLAT) s += law.tail(t * law.sd)
@@ -819,24 +842,28 @@ function* readUnit(
   })
   let fit: Fit
   if (N <= (opts.countMax ?? ECHIQUIER.COUNT_MAX)) {
-    fit = countAll(models, blocs.flat(), per, xs)
+    fit = yield* countAll(models, blocs.flat(), per, xs)
     reading.exact = true
-  } else fit = yield* bound(models, blocs, per, xs)
+  } else fit = yield* bound(models, blocs, per, xs, opts)
 
+  // Les marques se décident au signe près (xs, fit), puis se rendent dans le sens des avis : des avis tous inversés ont
+  // exactement les mêmes, ▲ et ▽ échangés, même quand un écart ou un seuil est atteint tout juste
   const alpha = (opts.alpha ?? ECHIQUIER.ALPHA) + 1e-12
-  const GAP = ECHIQUIER.GAP
+  const GAP = ECHIQUIER.GAP - TIE
   known.forEach((b, k) => {
     const p = fit.p[k]!
-    const m = flip ? 100 - fit.mu[k]! : fit.mu[k]!
-    const z = flip ? -fit.z[k]! : fit.z[k]!
-    const s = S[b]!
+    const s = xs[k]!
+    const m = fit.mu[k]!
+    const z = fit.z[k]!
+    const up = p <= alpha && z > 0 && s - m >= GAP && s >= 50 + GAP
+    const down = p <= alpha && z < 0 && m - s >= GAP && s <= 50 - GAP
     const cell = cells[b]!
     cell.p = p
-    cell.chance = m
-    if (p <= alpha && z > 0 && s - m >= GAP && s >= 50 + GAP) {
+    cell.chance = flip ? 100 - m : m
+    if (flip ? down : up) {
       cell.mark = 'pres'
       reading.near.push(b)
-    } else if (p <= alpha && z < 0 && m - s >= GAP && s <= 50 - GAP) {
+    } else if (flip ? up : down) {
       cell.mark = 'loin'
       reading.far.push(b)
     }
@@ -860,9 +887,9 @@ export function segments(indices: readonly number[]): number[][] {
 }
 
 /**
- * Le calcul, une unité à la fois : rend la main entre deux unités (readEchiquierAsync), et entre deux blocs d'une unité
- * aux façons trop nombreuses pour être comptées. Les thèmes répondus d'abord, puis les familles affichables, puis la
- * synthèse.
+ * Le calcul, une unité à la fois : rend la main entre deux unités (readEchiquierAsync), et dans une unité toutes les
+ * CHUNK façons comptées, ou entre deux blocs quand elles sont trop nombreuses pour être comptées. Les thèmes répondus
+ * d'abord, puis les familles affichables, puis la synthèse.
  */
 function* steps(pack: ElectionPack, answers: Answers, opts: ReadOptions): Generator<void, Echiquier, void> {
   const prep = prepare(pack)
@@ -961,7 +988,7 @@ const CACHE_SIZE = 4
 
 /** L'empreinte des réponses qui comptent : les réglages, et les avis de chaque question répondue */
 function fingerprint(pack: ElectionPack, answers: Answers, opts: ReadOptions): string {
-  const parts = [String(opts.alpha ?? ''), [...(opts.without ?? [])].sort().join(','), String(opts.countMax ?? '')]
+  const parts = [String(opts.alpha ?? ''), [...(opts.without ?? [])].sort().join(','), String(opts.countMax ?? ''), String(opts.grid ?? ''), String(opts.refine ?? '')]
   for (const q of pack.bank.questions) {
     const a = answers[q.id]
     if (hasOpinion(a)) parts.push(`${q.id}:${Array.from(vectorOf(q, a)).join(',')}`)
@@ -997,26 +1024,48 @@ export function readEchiquier(pack: ElectionPack, answers: Answers, opts: ReadOp
   }
 }
 
-/** Rend la main au navigateur : scheduler.yield() s'il existe, sinon un tour de boucle */
-const yieldToMain = (): Promise<void> => {
-  const scheduler = (globalThis as { scheduler?: { yield?: () => Promise<void> } }).scheduler
-  return scheduler?.yield ? scheduler.yield() : new Promise(resolve => setTimeout(resolve, 0))
-}
+/** Un tour de boucle entier, par une minuterie : les minuteries de la page déjà échues passent avant la suite */
+const nextTask = (): Promise<void> => new Promise(resolve => setTimeout(resolve, 0))
 
 /**
- * La lecture, une unité à la fois : le navigateur reprend la main entre deux unités (la page reste réactive sur un
- * téléphone lent). Même résultat que readEchiquier. Un signal interrompu arrête le calcul (rejet « AbortError »).
+ * Rend la main au navigateur : scheduler.yield() s'il existe (sa reprise passe devant toutes les minuteries), sinon un
+ * tour de boucle
+ */
+const yieldToMain = (): Promise<void> => {
+  const scheduler = (globalThis as { scheduler?: { yield?: () => Promise<void> } }).scheduler
+  return scheduler?.yield ? scheduler.yield() : nextTask()
+}
+
+/** Calcul d'un seul tenant avant de rendre la main, en ms */
+const SLICE = 10
+/** Au plus tous les TIMERS ms, la main se rend par une minuterie */
+const TIMERS = 50
+
+/**
+ * La lecture, par étapes : le navigateur reprend la main dès que le calcul a duré SLICE ms d'un seul tenant (la page
+ * reste réactive sur un téléphone lent, sans payer à chaque étape le délai d'une minuterie quand scheduler.yield
+ * manque), et au moins tous les TIMERS ms par une minuterie, pour que passent aussi celles de la page (le statut
+ * « Lecture en cours » de Profile.tsx), que les reprises de scheduler.yield feraient attendre jusqu'à la fin. Même
+ * résultat que readEchiquier. Un signal interrompu arrête le calcul (rejet « AbortError »).
  */
 export async function readEchiquierAsync(pack: ElectionPack, answers: Answers, signal?: AbortSignal): Promise<Echiquier> {
   const key = fingerprint(pack, answers, {})
   const hit = cached(pack, key)
   if (hit) return remember(pack, key, hit)
   const it = steps(pack, answers, {})
+  let resumed = performance.now()
+  let timers = resumed
   for (;;) {
     if (signal?.aborted) throw new DOMException('Lecture interrompue', 'AbortError')
     const r = it.next()
     if (r.done) return remember(pack, key, r.value)
-    await yieldToMain()
+    const now = performance.now()
+    if (now - resumed < SLICE) continue
+    if (now - timers >= TIMERS) {
+      timers = now
+      await nextTask()
+    } else await yieldToMain()
+    resumed = performance.now()
   }
 }
 

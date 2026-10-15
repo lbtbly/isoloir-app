@@ -1,13 +1,14 @@
 // La lecture des réponses sur l'échiquier (core/echiquier.ts), pour la page « Mon profil politique » : le cœur exact
 // (mêmes affinités que le score, réponses neutres jamais lues, déterminisme, candidats de l'axe), les invariances,
-// l'ordre des statuts, la forme d'une lecture, le compte des façons de poser les avis, le calcul par étapes et la
-// synthèse ; puis « compter, sinon calculer » : le compte complet face à une force brute écrite à part, la borne
-// calculée jamais plus généreuse que lui, le bloc constant, l'inversion des avis, le déterminisme et le temps sur
-// l'élection réelle, et rien de tiré au sort. Sur une petite élection factice (tests/fixtures/echiquier.ts) ; la
-// calibration sur l'élection réelle est dans tests/echiquier-calibration.test.ts.
+// l'ordre des statuts, la forme d'une lecture, le compte des façons de poser les avis et la synthèse ; puis « compter,
+// sinon calculer » : le compte complet face à une force brute écrite à part, la borne calculée jamais plus généreuse que
+// lui, le bloc constant, les seuils atteints tout juste, la grille affinée, l'inversion des avis, le déterminisme et le
+// temps des pages les plus lourdes sur l'élection réelle, et rien de tiré au sort ; enfin le calcul par étapes (la main
+// rendue par tranches, les minuteries de la page qui passent). Sur une petite élection factice
+// (tests/fixtures/echiquier.ts) ; la calibration sur l'élection réelle est dans tests/echiquier-calibration.test.ts.
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import {
   approvedCarriers,
   ECHIQUIER,
@@ -521,6 +522,80 @@ describe('compter, sinon calculer', () => {
     notMoreThanExact(bound, exact, 'fa')
   })
 
+  it('un écart de 5 points et une affinité de 55 % atteints tout juste comptent, et l’inversion échange encore ▲ et ▽', () => {
+    // Cas construit par la contre-vérification du 15 octobre 2026 : un candidat par bloc ; e1 pèse 2, 2, 2, 1, 1, 1, 1
+    // sur sept approches, les autres 1 partout (score constant). « D'accord » sur la première approche, « pas d'accord »
+    // sur la quatrième : affinité 55 % tout juste, moyenne des autres façons 50 tout juste, p sous 0,10. La règle dit
+    // « au moins » : ▲, et ▽ une fois les avis inversés, au compte complet (thème T0, 42³ façons) comme à la borne
+    // (famille, 42⁵ façons), malgré l'arrondi des nombres à virgule
+    const ids = ['e1', 'g1', 'c1', 'd1', 'x1']
+    const questions: Question[] = Array.from({ length: 5 }, (_, i) => ({
+      id: `s${i}`,
+      topicId: i < 3 ? 't0' : 't1',
+      tier: 'essentiel',
+      prompt: `Question s${i}`,
+      approaches: Array.from({ length: 7 }, (_, a) => ({ id: `s${i}_${a}`, text: `Approche ${a}` })),
+    }))
+    const tie: ElectionPack = {
+      ...pack,
+      candidates: pack.candidates.filter(c => ids.includes(c.id)),
+      bank: { topics: ['t0', 't1'].map(id => ({ id, label: id.toUpperCase(), description: '' })), questions },
+      topicGroups: [{ id: 'f', label: 'F', topicIds: ['t0', 't1'] }],
+      positions: Object.fromEntries(ids.map(id => [id, Object.fromEntries(questions.flatMap(q => q.approaches.map((a, i) => [a.id, pos(id === 'e1' && i < 3 ? 2 : 1)])))])),
+    }
+    const avis = Object.fromEntries(questions.map(q => [q.id, [1, 0, 0, -1, 0, 0, 0]]))
+    const inverse = Object.fromEntries(questions.map(q => [q.id, [-1, 0, 0, 1, 0, 0, 0]]))
+    const a = readEchiquier(fresh(tie), answersOf(avis, tie))
+    const b = readEchiquier(fresh(tie), answersOf(inverse, tie))
+    expect(swapped(a, b)).toBe(3)
+    for (const [reading, mark, affinity] of [[a, 'pres', 55], [b, 'loin', 45]] as const) {
+      const t0 = unit(reading, 'theme', 't0')
+      const f = unit(reading, 'famille', 'f')
+      expect([t0.exact, t0.arrangements, f.exact, f.arrangements]).toEqual([true, 42 ** 3, false, 42 ** 5])
+      for (const u of [t0, f]) {
+        const c = u.cells[0]!
+        expect(c.mark, `${u.kind} ${u.id}`).toBe(mark)
+        expect(c.p!).toBeLessThanOrEqual(ECHIQUIER.ALPHA)
+        expect(Math.abs(c.affinity! - affinity)).toBeLessThan(1e-9)
+        expect(Math.abs(c.chance! - 50)).toBeLessThan(1e-9)
+        // Les autres blocs ont un score constant : jamais de marque
+        expect(u.cells.slice(1).map(x => x.mark)).toEqual(['rien', 'rien', 'rien', 'rien'])
+      }
+    }
+  })
+
+  it('la grille affinée (un bloc qui varie à peine) resserre la borne, qui reste prudente', () => {
+    // Trouvé par la contre-vérification du 15 octobre 2026 : sur la famille Économie, l'extrême droite n'est connue que par
+    // des questions « tout d'accord », sauf retraites-3. Son affinité varie à peine (écart-type 0,5 point) et l'arrondi de
+    // sa loi au centième, borné à 0,034 point, en dépasse le vingtième : sa loi se refait sur une grille plus fine (mesuré
+    // par une copie instrumentée du calcul ; elle ne prend que quatre valeurs, et sa borne n'en change pas). 972 000
+    // façons, au-delà de COUNT_MAX, que l'on peut encore compter une à une pour comparer
+    const by: Record<string, number[]> = {
+      'travail_salaires-2': [1, 1, -1, -1, 0, 0],
+      'travail_salaires-3': [1, 1, -1, -1, 0, 0],
+      'travail_salaires-4': [1, 1, -1, -1, 0],
+      'retraites-3': [1, 0, 0, 0],
+    }
+    const economie = real.topicGroups!.find(g => g.id === 'economie')!.topicIds
+    for (const q of real.bank.questions) if (economie.includes(q.topicId)) by[q.id] ??= q.approaches.map(() => 1)
+    const answers = answersOf(by, real)
+    const family = (opts: ReadOptions) => unit(readEchiquier(fresh(real), answers, opts), 'famille', 'economie')
+    const full = family({ countMax: 1e7 })
+    const fine = family({})
+    const coarse = family({ refine: false })
+    expect([full.exact, fine.exact, coarse.exact, fine.arrangements]).toEqual([true, false, false, 972_000])
+    notMoreThanExact(fine, full, 'grille affinée')
+    notMoreThanExact(coarse, full, 'sans affiner')
+    // Sur une grille d'un demi-point, l'arrondi dépasse le vingtième de l'écart-type de chaque bloc : toutes les lois
+    // s'affinent, la borne se resserre nettement, et reste prudente
+    const half = family({ grid: 0.5 })
+    const halfCoarse = family({ grid: 0.5, refine: false })
+    notMoreThanExact(half, full, 'grille d’un demi-point, affinée')
+    notMoreThanExact(halfCoarse, full, 'grille d’un demi-point')
+    half.cells.forEach((c, b) => expect(c.p!, c.bloc).toBeLessThanOrEqual(halfCoarse.cells[b]!.p! + 1e-12))
+    expect(half.cells.some((c, b) => c.p! < halfCoarse.cells[b]!.p! - 0.05)).toBe(true)
+  })
+
   it('sur l’élection réelle, la borne ne lit jamais plus que le compte complet, là où l’on peut comparer', () => {
     const P = profilesFor(real)
     const profiles = [
@@ -583,22 +658,104 @@ describe('compter, sinon calculer', () => {
     expect(src).not.toMatch(/\brng\b|Math\.random|getRandomValues|mulberry32|hashString|seededShuffle|newSeed/)
   })
 
-  it('la page la plus lourde se lit en moins d’un cinquième de seconde ici, moins d’une seconde sur un téléphone lent (× 5)', () => {
-    // Tout noté sur la banque entière, d'accord, pas d'accord et sans avis en rotation : chaque famille dépasse de loin
-    // COUNT_MAX façons. Le meilleur de trois essais, sur un pack neuf (sans cache)
-    const by = Object.fromEntries(real.bank.questions.map((q, qi) => [q.id, q.approaches.map((_, i) => [1, -1, 0][(qi + i) % 3]!)]))
-    const answers = answersOf(by, real)
-    let best = Infinity
-    for (let i = 0; i < 3; i++) {
+  it('les pages les plus lourdes se lisent en moins d’un cinquième de seconde ici, moins d’une seconde sur un téléphone lent (× 5)', () => {
+    // Deux pages : tout noté sur la banque entière, d'accord, pas d'accord et sans avis en rotation (chaque famille dépasse
+    // de loin COUNT_MAX façons, ses lois se calculent) ; et chaque thème au plus près de COUNT_MAX (compté en entier), le
+    // premier thème de chaque famille au signe inversé (la famille se lit dans l'autre sens que la plupart de ses thèmes :
+    // les placements se calculent dans les deux), la plus lourde trouvée par la contre-vérification du 15 octobre 2026,
+    // environ 1,2 fois la première. Le temps se rapporte à une boucle d'étalonnage mesurée dans le même passage (une
+    // machine chargée par d'autres calculs ralentit l'une et l'autre) : le 15 octobre 2026, sur Mac peu chargé, la
+    // boucle prend 25 ms et les deux pages environ 50 et 65 ms ; le budget, 200 ms ici, est donc de huit fois la boucle.
+    // Le meilleur de cinq essais, sur un pack neuf (sans cache), en alternance
+    const rotation = answersOf(Object.fromEntries(real.bank.questions.map((q, qi) => [q.id, q.approaches.map((_, i) => [1, -1, 0][(qi + i) % 3]!)])), real)
+    const counted = answersOf(underCountMax(real), real)
+    const page = (answers: Answers) => {
       const p = fresh(real)
       readEchiquier(p, {})
       const t0 = performance.now()
       readEchiquier(p, answers)
-      best = Math.min(best, performance.now() - t0)
+      return performance.now() - t0
     }
-    expect(best).toBeLessThan(200)
+    const best = { calibration: Infinity, rotation: Infinity, counted: Infinity }
+    for (let i = 0; i < 5; i++) {
+      best.calibration = Math.min(best.calibration, calibration())
+      best.rotation = Math.min(best.rotation, page(rotation))
+      best.counted = Math.min(best.counted, page(counted))
+    }
+    const budget = 8 * best.calibration
+    expect(best.rotation, JSON.stringify(best)).toBeLessThan(budget)
+    expect(best.counted, JSON.stringify(best)).toBeLessThan(budget)
   })
 })
+
+/**
+ * Une boucle d'étalonnage, du même genre que le calcul (des sommes de produits sur des tableaux de nombres, comme une
+ * convolution) et d'un coût fixe : sa durée, en ms
+ */
+function calibration(): number {
+  const d = Float64Array.from({ length: 4096 }, (_, i) => (i % 97) / 97)
+  const out = new Float64Array(d.length + 64)
+  const t0 = performance.now()
+  for (let r = 0; r < 185; r++)
+    for (let s = 0; s < 64; s++) {
+      const w = (r + s) / 1e4
+      for (let i = 0; i < d.length; i++) out[i + s]! += d[i]! * w
+    }
+  const ms = performance.now() - t0
+  expect(out[100]).toBeGreaterThan(0)
+  return ms
+}
+
+/**
+ * Chaque thème de la banque au plus près de COUNT_MAX façons, sans le dépasser (compté en entier, d'un seul tenant) : par
+ * programmation dynamique sur le produit, question par question, en répondant au plus de questions possible ; les avis
+ * en rotation. Puis, dans chaque famille, son premier thème au signe inversé, les autres non
+ */
+function underCountMax(p: ElectionPack): Record<string, number[]> {
+  const C = (n: number, k: number) => {
+    let x = 1
+    for (let i = 1; i <= k; i++) x = (x * (n - k + i)) / i
+    return Math.round(x)
+  }
+  const by: Record<string, number[]> = {}
+  for (const t of p.bank.topics) {
+    const qs = p.bank.questions.filter(q => q.topicId === t.id)
+    // Par produit atteint, les comptes (d'accord, pas d'accord) choisis question par question, null : passée
+    type Path = ([number, number] | null)[]
+    let states = new Map<number, Path>([[1, []]])
+    for (const q of qs) {
+      const n = q.approaches.length
+      const next = new Map<number, Path>()
+      const keep = (M: number, choice: Path) => {
+        const prev = next.get(M)
+        if (!prev || choice.filter(Boolean).length > prev.filter(Boolean).length) next.set(M, choice)
+      }
+      for (const [N, path] of states) {
+        keep(N, [...path, null])
+        for (let a = 0; a <= n; a++)
+          for (let b = 0; a + b <= n; b++) {
+            const M = N * C(n, a) * C(n - a, b)
+            if (a + b && M <= ECHIQUIER.COUNT_MAX) keep(M, [...path, [a, b]])
+          }
+      }
+      states = next
+    }
+    const path = states.get(Math.max(...states.keys()))!
+    qs.forEach((q, j) => {
+      const c = path[j]
+      if (!c) return
+      const v = [...Array<number>(c[0]).fill(1), ...Array<number>(c[1]).fill(-1), ...Array<number>(q.approaches.length - c[0] - c[1]).fill(0)]
+      by[q.id] = v.map((_, i) => v[(i + j) % v.length]!)
+    })
+  }
+  for (const g of p.topicGroups ?? [])
+    g.topicIds.forEach((t, ti) => {
+      const qs = p.bank.questions.filter(q => q.topicId === t && by[q.id])
+      const first = qs.length ? by[qs[0]!.id]!.find(x => x !== 0) : undefined
+      if (first !== undefined && first !== (ti === 0 ? -1 : 1)) for (const q of qs) by[q.id] = by[q.id]!.map(x => -x)
+    })
+  return by
+}
 
 describe('calcul par étapes', () => {
   it('readEchiquierAsync donne la même lecture que readEchiquier, et la garde en mémoire', async () => {
@@ -616,5 +773,76 @@ describe('calcul par étapes', () => {
     const ctrl = new AbortController()
     ctrl.abort()
     await expect(readEchiquierAsync(fresh(), randomAnswers('abort'), ctrl.signal)).rejects.toMatchObject({ name: 'AbortError' })
+  })
+
+  /**
+   * Le calcul par étapes sous une horloge réglée (step ms de plus à chaque lecture de performance.now) et un
+   * scheduler.yield dont la reprise est immédiate (une promesse résolue : elle passe devant toutes les minuteries, comme
+   * sous Chromium) ; une minuterie de la page est posée juste avant. Rend la lecture, les reprises de main de chaque
+   * sorte et l'ordre de la minuterie et de la fin du calcul
+   */
+  async function underClock(step: number, answers: Answers, p: ElectionPack = pack) {
+    const g = globalThis as { scheduler?: unknown }
+    const had = 'scheduler' in g
+    const saved = g.scheduler
+    let t = 0
+    const clock = vi.spyOn(performance, 'now').mockImplementation(() => (t += step))
+    const timer = vi.spyOn(globalThis, 'setTimeout')
+    const counts = { yields: 0, timers: 0 }
+    g.scheduler = { yield: () => (counts.yields++, Promise.resolve()) }
+    const order: string[] = []
+    try {
+      setTimeout(() => order.push('minuterie'), 0)
+      const before = timer.mock.calls.length
+      const reading = await readEchiquierAsync(fresh(p), answers)
+      counts.timers = timer.mock.calls.length - before
+      order.push('lecture')
+      await new Promise(resolve => setTimeout(resolve, 0))
+      return { reading, counts, order }
+    } finally {
+      clock.mockRestore()
+      timer.mockRestore()
+      if (had) g.scheduler = saved
+      else delete g.scheduler
+    }
+  }
+
+  it('la main se rend dès que le calcul a duré quelques millisecondes d’un seul tenant, pas à chaque étape', async () => {
+    // Horloge arrêtée : le calcul ne dure jamais assez, aucune reprise de main (aucun délai de minuterie à payer à chaque
+    // étape quand scheduler.yield manque) ; la même lecture
+    const still = await underClock(0, randomAnswers('tranches'))
+    expect(still.counts).toEqual({ yields: 0, timers: 0 })
+    expect(still.reading).toEqual(readEchiquier(fresh(), randomAnswers('tranches')))
+    // 20 ms à chaque lecture de l'horloge : la main se rend après chaque étape (ici, chaque thème et chaque famille), et
+    // par une minuterie au moins une fois sur trois (au plus tous les 50 ms)
+    const busy = await underClock(20, randomAnswers('tranches'))
+    const units = still.reading.themes.length + still.reading.families.length
+    expect(busy.reading).toEqual(still.reading)
+    expect(units).toBeGreaterThan(5)
+    expect(busy.counts.yields + busy.counts.timers).toBe(units)
+    expect(busy.counts.timers).toBeGreaterThanOrEqual(units / 3)
+  })
+
+  it('les minuteries de la page passent pendant le calcul, même quand scheduler.yield les ferait attendre', async () => {
+    // Sous Chromium, sans une reprise par une minuterie de temps en temps, celle du statut « Lecture en cours » (Profile.tsx,
+    // au-delà de 300 ms) ne partait qu'à la fin du calcul : le statut ne paraissait jamais (contre-vérification du 15
+    // octobre 2026, processeur bridé)
+    const { order } = await underClock(20, randomAnswers('minuterie'))
+    expect(order).toEqual(['minuterie', 'lecture'])
+  })
+
+  it('un thème compté en entier rend aussi la main en cours de compte (toutes les 20 000 façons)', async () => {
+    // Le thème de la banque qui a le plus de façons sans dépasser COUNT_MAX, seul répondu : une seule unité, plusieurs étapes
+    const all = underCountMax(real)
+    const alone = (t: string) => answersOf(Object.fromEntries(Object.entries(all).filter(([id]) => real.bank.questions.find(q => q.id === id)!.topicId === t)), real)
+    const [heaviest] = real.bank.topics
+      .map(t => ({ t: t.id, n: readEchiquier(fresh(real), alone(t.id)).themes[0]?.arrangements ?? 0 }))
+      .sort((a, b) => b.n - a.n)
+    expect(heaviest!.n).toBeGreaterThan(80_000)
+    expect(heaviest!.n).toBeLessThanOrEqual(ECHIQUIER.COUNT_MAX)
+    const { reading, counts } = await underClock(20, alone(heaviest!.t), real)
+    expect([reading.themes.length, reading.families.length, reading.themes[0]!.exact]).toEqual([1, 0, true])
+    expect(counts.yields + counts.timers).toBeGreaterThan(1)
+    expect(reading).toEqual(readEchiquier(fresh(real), alone(heaviest!.t)))
   })
 })

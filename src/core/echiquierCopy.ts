@@ -383,9 +383,16 @@ export const gap = (affinity: number, chance: number, mark: Mark) => {
   const net = netWord(mark)
   return `${signed(d)}${NB}point${Math.abs(d) > 1 ? 's' : ''}${net ? `, ${net}` : ''}`
 }
-export const chanceNote = (exact: boolean, n: number) =>
+/** « 97 200 » : les milliers séparés par une espace insécable */
+const thousands = (n: number) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, NB)
+/**
+ * La note sous le tableau d'une unité. ways : le nombre de façons de poser ses avis tel que la page peut le dire
+ * (UnitReading.ways : Infinity au-delà de cent mille) ; exact : toutes comptées une à une, sinon une part calculée bloc
+ * par bloc puis additionnée (core/echiquier.ts). Rien n'y est tiré au sort
+ */
+export const chanceNote = (exact: boolean, ways: number) =>
   fr(
-    `Vos avis placés au hasard : la moyenne du même calcul ${exact ? `sur les ${n} placements possibles de vos avis` : `sur ${n} placements de vos avis tirés au hasard`}, question par question ; « nettement plus près » ou « nettement plus loin » quand moins d’un placement sur dix fait un tel écart, tous blocs confondus.`,
+    `Vos avis placés au hasard : la moyenne du même calcul sur ${Number.isFinite(ways) ? `les ${thousands(ways)} placements possibles de vos avis` : 'tous les placements possibles de vos avis (plus de cent mille)'}, question par question, le vôtre compris ; « nettement plus près » ou « nettement plus loin » quand moins d’un placement sur dix fait un tel écart, tous blocs confondus${exact ? '' : ' (une part calculée bloc par bloc puis additionnée, qui ne peut être que trop prudente)'}.`,
   )
 export const PER_CANDIDATE = 'Votre affinité avec chaque candidat'
 export const UNKNOWN_POSITION = '(position inconnue)'
@@ -434,7 +441,13 @@ export const ECHIQUIER_PUBLISHED = {
   // randomPerProfileMax 2,41 → 2,31, oneChoiceRatio 1,72 → 1,79 et 2,36 → 2,41 au rapide, le reste identique ; tout
   // reste dans les marges du test, les valeurs publiées sont gardées jusqu'à la réécriture de la Méthode (avant et
   // après, au journal). hitWithMin et hitWithMax (neutralité bloc par bloc, avec le candidat) ajoutés, mesurés à 68,8
-  // et 97,1 avec l'un et l'autre calcul
+  // et 97,1 avec l'un et l'autre calcul. Une seconde série du même jour (1 000 autres feuilles par façon de répondre) :
+  // randomThemes 4,72, randomThemesMax 8,24, randomPerProfileMax 2,20. À la réécriture de la Méthode, avec le journal :
+  // hitWithoutMax selon la décision du propriétaire sur D5 (92,3 avec la borne calculée, 90,6 en comptant tout jusqu'à
+  // quelques millions de façons : la seule lecture qui change, la gauche pour le clone de Jean-Luc Mélenchon sur
+  // l'éducation, 1 680 000 façons, a p = 0,098 au compte complet et 0,107 à la borne : la borne la manque),
+  // randomPerProfileMax 2,3, randomThemesMax 8,5 (« un sur douze »). randomThemes reste à 5 : methodWorth arrondit avant
+  // d'inverser, 4 dirait « un sur vingt-cinq » pour un sur vingt et un ou vingt-deux mesuré
   /** Date de la mesure */
   measured: '2026-10-15',
   /** Clones larges, sans le candidat : part des lectures qui désignent son bloc (%) */
@@ -460,10 +473,14 @@ export const ECHIQUIER_PUBLISHED = {
   /**
    * Un seul accord par question (avec ou sans désaccords ailleurs) : dans la synthèse, la part moyenne des blocs que
    * la grille classe aux extrêmes, rapportée à celle du bloc qu'elle classe à gauche ; sur la banque entière, puis sur
-   * le seul questionnaire rapide. Ce rapport varie d'un échantillon à l'autre (de 1,3 à 1,7 sur la banque entière, de
-   * 2,0 à 2,3 sur le rapide, pour 200 à 2 000 profils par façon de répondre) : la valeur publiée est leur milieu. Mesures du
-   * 14 et du 15 octobre 2026, à 1 000 profils : 1,7 et 2,4, gardés à 1,5 et 2,2, que la Méthode dit de la même façon (« environ une
-   * fois et demie », « environ deux fois »). Avis mêlés : chaque bloc reçoit de 17 à 22 % des lectures, aucun n'est favorisé.
+   * le seul questionnaire rapide. Ce rapport varie d'un échantillon à l'autre : six échantillons de 1 000 profils par
+   * façon de répondre, le 15 octobre 2026, de 1,49 à 1,72 sur la banque entière et de 2,29 à 2,48 au rapide avec les
+   * tirages ; avec le calcul sans tirage, un peu plus haut, et dans le même sens à chaque échantillon (+0,05 à +0,10 sur
+   * la banque, +0,02 à +0,05 au rapide) : de 1,57 à 1,79 (1,67 en moyenne) et de 2,33 à 2,51 (2,40 en moyenne). Les
+   * valeurs publiées, 1,5 et 2,2, donnent les mêmes mots que ces moyennes (« environ une fois et demie », « environ deux
+   * fois ») ; publier la moyenne de plusieurs échantillons, pas un seul audit (1,79 dirait « environ deux fois »), et dire
+   * au journal que le calcul sans tirage accentue un peu ce déséquilibre. Avis mêlés : chaque bloc reçoit de 17 à 23 % des
+   * lectures, aucun n'est favorisé.
    */
   oneChoiceRatio: 1.5,
   oneChoiceRatioQuick: 2.2,
@@ -504,7 +521,7 @@ export const METHOD_CALC = fr(
 )
 export const methodChance = (gapPoints: number) =>
   fr(
-    `Une affinité seule ne suffit pas : qui approuve beaucoup est proche de tout le monde, qui désapprouve beaucoup de personne. On refait donc le même calcul en gardant vos avis, autant de « d’accord », de « pas d’accord » et de « sans avis » sur chaque question, mais placés au hasard entre ses approches : tous les placements possibles quand ils sont mille au plus, sinon 999 placements tirés au sort, toujours les mêmes pour les mêmes réponses. Un bloc est « nettement plus près » quand votre affinité avec lui dépasse nettement celle de ces placements (d’au moins ${gapPoints} points, et à ${50 + gapPoints} % au moins), « nettement plus loin » quand elle reste nettement en dessous (d’au moins ${gapPoints} points, et à ${50 - gapPoints} % au plus). « Nettement » : des placements au hasard n’atteignent pas un tel écart une fois sur dix, tous blocs confondus. C’est pourquoi tout approuver, ou tout désapprouver, ne rapproche d’aucun bloc.`,
+    `Une affinité seule ne suffit pas : qui approuve beaucoup est proche de tout le monde, qui désapprouve beaucoup de personne. On refait donc le même calcul en gardant vos avis, autant de « d’accord », de « pas d’accord » et de « sans avis » sur chaque question, mais placés autrement entre ses approches : tous les placements possibles, le vôtre compris, comptés un à un quand ils sont cent mille au plus. Au-delà, la page calcule bloc par bloc la part de ceux qui font un écart aussi marqué, puis additionne ces parts : ce compte ne peut être que trop prudent. Rien n’est tiré au sort : mêmes réponses, même lecture. Un bloc est « nettement plus près » quand votre affinité avec lui dépasse nettement celle de ces placements (d’au moins ${gapPoints} points, et à ${50 + gapPoints} % au moins), « nettement plus loin » quand elle reste nettement en dessous (d’au moins ${gapPoints} points, et à ${50 - gapPoints} % au plus). « Nettement » : moins d’un de ces placements sur dix atteint un tel écart, tous blocs confondus. C’est pourquoi tout approuver, ou tout désapprouver, ne rapproche d’aucun bloc.`,
   )
 export const METHOD_WHEN_NOT = fr(
   'Un thème se lit sur deux questions au moins. Il ne se lit pas quand les candidats de plus d’un bloc sont inconnus sur vos questions. Quand aucun thème d’une famille ne se lit seul, la famille entière est lue : c’est ce qui permet une lecture après le seul questionnaire rapide, qui ne pose souvent qu’une question par thème.',
