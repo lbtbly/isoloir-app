@@ -425,7 +425,8 @@ export const bank: QuestionBank = {
         },
         {
           "id": "finances_publiques-1-h",
-          "text": "Réduire le déficit surtout en relançant la production en France pour accroître les recettes publiques"
+          "text": "Réduire le déficit surtout en relançant la production en France pour accroître les recettes publiques",
+          "since": 2
         }
       ]
     },
@@ -11130,7 +11131,8 @@ export const bank: QuestionBank = {
         },
         {
           "id": "europe-3-f",
-          "text": "Déroger aux règles européennes pour donner, dans la commande publique, la priorité aux entreprises qui produisent en France"
+          "text": "Déroger aux règles européennes pour donner, dans la commande publique, la priorité aux entreprises qui produisent en France",
+          "since": 2
         }
       ]
     },

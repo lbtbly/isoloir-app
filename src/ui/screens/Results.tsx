@@ -305,7 +305,7 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
       })
       downloadBlob(new Blob([bytes], { type: 'application/pdf' }), m.reportFileName(pack, now), 60_000)
       setPdfStatus(
-        'PDF fabriqué sur cet appareil. S’il n’apparaît pas dans vos téléchargements, ce navigateur ne permet peut-être pas d’enregistrer de fichier\u00a0; dans un autre, vos réponses seraient à refaire.',
+        'PDF fabriqué sur cet appareil. S’il n’apparaît pas dans vos téléchargements, ce navigateur ne permet peut-être pas d’enregistrer de fichier.',
       )
     } catch {
       setPdfStatus('Le PDF n’a pas pu être fabriqué. Rechargez la page, puis réessayez.')
@@ -584,7 +584,7 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
             ) : null}
             {!saved ? (
               <p class="notice" role="status">
-                Ce navigateur n’enregistre pas votre progression : téléchargez votre double en bas de page pour la garder.
+                Ce navigateur n’enregistre pas votre progression : transférez vos réponses, en bas de page, pour les garder.
               </p>
             ) : null}
             {provisional ? null : <Reading neutral />}
@@ -841,6 +841,10 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
           <section class="your-data" aria-labelledby="data-title">
             <h2 id="data-title">Vos données</h2>
             <div class="link-row">
+              <a class="btn-text" href={link('/autre-appareil')}>
+                <Icon name="qr" />
+                Transférer mes réponses
+              </a>
               {/* Pas de PDF pendant la tendance : comme l'affiche, le dépouillement attend le résultat complet */}
               {provisional ? null : (
                 <button type="button" class="btn-text" onClick={() => void downloadReport()}>
@@ -861,8 +865,8 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
             )}
             <p class="small">
               {provisional
-                ? 'Le double contient vos réponses en clair ; une fois téléchargé, « Tout effacer » ne le supprime pas.'
-                : 'Le PDF montre votre résultat, vos priorités et vos lignes rouges ; le double contient toutes vos réponses. Une fois téléchargés, « Tout effacer » ne les supprime pas.'}
+                ? 'Le double et le code de transfert contiennent vos réponses en clair ; leurs copies, « Tout effacer » ne les supprime pas.'
+                : 'Le PDF montre votre résultat, vos priorités et vos lignes rouges ; le double et le code de transfert contiennent toutes vos réponses. Leurs copies, « Tout effacer » ne les supprime pas.'}
             </p>
             {!online ? (
               <p class="notice is-closed" role="status">

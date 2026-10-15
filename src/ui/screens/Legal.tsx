@@ -274,7 +274,8 @@ export function Legal({ pack, seed }: { pack: ElectionPack; seed: string }) {
             </li>
             <li>
               <strong>Vos fichiers restent à vous.</strong> Le calcul se fait sur votre appareil. Le double (JSON), le
-              dépouillement (PDF) et l’affiche (JPG) y sont fabriqués&nbsp;: vous seul décidez de les garder, de les envoyer ou de les supprimer.
+              dépouillement (PDF), l’affiche (JPG) et le code de transfert (QR code, image, e-mail) y sont fabriqués&nbsp;: vous
+              seul décidez de les garder, de les envoyer ou de les supprimer.
             </li>
             <li>
               <strong>Sites liés.</strong> Les liens mènent à des sites qui ont leurs propres conditions&nbsp;;{' '}
@@ -376,7 +377,7 @@ export function Legal({ pack, seed }: { pack: ElectionPack; seed: string }) {
             <p>
               Les logos des partis, sur la page des candidats, sont des marques de leurs titulaires, reproduites à la
               seule fin d’identifier chaque parti ; leur provenance (Wikimedia Commons, Wikipédia ou le site du parti)
-              est détaillée dans le dépôt du code (<span class="nowrap">media/CREDITS.md</span>).
+              est détaillée dans le dépôt du code (<span class="file-name">media/CREDITS.md</span>).
             </p>
           ) : null}
         </section>
@@ -398,7 +399,7 @@ export function Legal({ pack, seed }: { pack: ElectionPack; seed: string }) {
           <p>
             Ces licences ne couvrent pas le logo (tous droits réservés), les logos des partis (marques de leurs titulaires), les photos (leurs propres licences, voir{' '}
             <SectionLink id="ml-credits">Crédits</SectionLink>), les citations et données publiques reprises des sources
-            (leurs propres conditions), ni Preact et la police Archivo (leurs licences, ci-dessous). En attendant, le
+            (leurs propres conditions), ni Preact, qr et la police Archivo (leurs licences, ci-dessous). En attendant, le
             code exécuté par votre navigateur peut être inspecté.
           </p>
 

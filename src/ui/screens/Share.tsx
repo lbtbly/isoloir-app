@@ -133,42 +133,48 @@ export function Share({ pack, results }: Props) {
           </p>
         ) : null}
 
-        {!frozen && results.ranking.length ? (
-          <Choice
-            label="Image à partager"
-            value={agree ? 'agree' : 'poster'}
-            set={setKind}
-            items={[
-              ['poster', 'Mon dépouillement'],
-              ['agree', TITLE_AGREE],
-            ]}
-          />
-        ) : null}
+        {/* Les deux choix dans un même conteneur : ils s'y suivent comme avant (sur une ligne quand la place le permet,
+            l'un sous l'autre dans la feuille à marge), et la mesure en rem du conteneur suit le texte agrandi */}
+        {frozen ? null : (
+          <div class="share-choices">
+            {results.ranking.length ? (
+              <Choice
+                label="Image à partager"
+                value={agree ? 'agree' : 'poster'}
+                set={setKind}
+                items={[
+                  ['poster', 'Mon dépouillement'],
+                  ['agree', TITLE_AGREE],
+                ]}
+              />
+            ) : null}
 
-        {frozen ? null : agree ? (
-          results.ranking.length > AGREE_ROWS ? (
-            <Choice
-              label="Candidats sur l’image"
-              value={scope}
-              set={setPick}
-              items={[
-                ['top', `Les ${AGREE_ROWS} plus proches`],
-                ['flop', `Les ${AGREE_ROWS} plus éloignés`],
-                ['all', 'Tous'],
-              ]}
-            />
-          ) : null
-        ) : results.ranking.length > 1 ? (
-          <Choice
-            label="Candidats sur l’affiche"
-            value={view}
-            set={setView}
-            items={[
-              ['top', 'Les plus proches'],
-              ['flop', 'Les plus éloignés'],
-            ]}
-          />
-        ) : null}
+            {agree ? (
+              results.ranking.length > AGREE_ROWS ? (
+                <Choice
+                  label="Candidats sur l’image"
+                  value={scope}
+                  set={setPick}
+                  items={[
+                    ['top', `Les ${AGREE_ROWS} plus proches`],
+                    ['flop', `Les ${AGREE_ROWS} plus éloignés`],
+                    ['all', 'Tous'],
+                  ]}
+                />
+              ) : null
+            ) : results.ranking.length > 1 ? (
+              <Choice
+                label="Candidats sur l’affiche"
+                value={view}
+                set={setView}
+                items={[
+                  ['top', 'Les plus proches'],
+                  ['flop', 'Les plus éloignés'],
+                ]}
+              />
+            ) : null}
+          </div>
+        )}
 
         {frozen ? null : (
           <>

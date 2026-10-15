@@ -1,45 +1,32 @@
-import { useEffect, useMemo, useRef, useState } from 'preact/hooks'
-import { go, link } from '../nav'
+import { useEffect, useMemo, useRef } from 'preact/hooks'
+import { link } from '../nav'
 import { firstStepSize } from '../../core/order'
 import { isAnswered } from '../../core/answers'
-import { MAX_IMPORT_BYTES, parseImport } from '../../core/exportData'
 import { profileAccess } from '../../core/profileAccess'
 import { PROFILE_SEE, profileHome, profileWhen } from '../../core/resultsCopy'
 import { currentAnswers } from '../../core/revisions'
 import { axisOf } from '../../core/spectrum'
 import type { Results } from '../../core/score'
 import type { SessionState } from '../../core/storage'
-import type { ElectionPack, Question, Round } from '../../core/types'
+import type { ElectionPack, Question } from '../../core/types'
 import { AI_METHOD_PATH } from '../components/AiLabel'
 import { AirplaneSection } from '../components/Airplane'
 import { ChangedQuestions } from '../components/ChangedQuestions'
-import { ConfirmErase } from '../components/ConfirmErase'
-import { ExternalLink } from '../components/ExternalLink'
 import { ProfileBand, ProfilePeek } from '../components/ProfileEntry'
 import { FormHeader } from '../components/FormHeader'
 import { Icon } from '../components/Icon'
 import { Journey } from '../components/Journey'
-import { HomeFooter } from '../components/SiteFooter'
+import { SiteFooter } from '../components/SiteFooter'
 import { FilmPlayer } from '../film/Player'
 import { ctaNote as ctaNoteOf } from '../film/script'
 import { BlindDiagram, FlowDiagram, MethodDiagram } from '../components/Diagrams'
 import { Stamp } from '../components/Stamp'
 import { seededShuffle } from '../../core/rng'
-import { formatDayRange, formatMoment } from '../format'
+import { formatMoment } from '../format'
 import { useReveal } from '../useReveal'
 import { prepareProfile } from '../profile/load'
-import { hasTable } from '../table/load'
 import { isMany } from '../many'
 import { WelcomeBack } from './HomeBack'
-
-const DAY_MONTH = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', timeZone: 'Europe/Paris' })
-
-/** Les jours d'un tour : « 9 et 10 octobre » sur deux jours, « 18 avril » (ou « 1er mai ») sur un seul */
-function roundDays(round: Round): string {
-  const end = DAY_MONTH.format(new Date(round.end))
-  if (DAY_MONTH.format(new Date(round.start)) !== end) return formatDayRange(round.start, round.end)
-  return end.replace(/^1 /, '1er ')
-}
 
 interface Props {
   pack: ElectionPack
@@ -49,18 +36,10 @@ interface Props {
   stale: Question[]
   /** Le dépouillement (src/app.tsx) : son affiche en tête de l'accueil, une fois les questions essentielles vues */
   results: Results
-  setState: (s: SessionState) => void
-  eraseAll: () => void
-  /** false si le navigateur refuse d'enregistrer la progression */
-  saved: boolean
 }
 
-export function Home({ pack, state, essential, stale, results, setState, eraseAll, saved }: Props) {
+export function Home({ pack, state, essential, stale, results }: Props) {
   const { election } = pack
-  const file = useRef<HTMLInputElement>(null)
-  // « Reprendre depuis un fichier » : le focus y revient quand l'action qu'on vient de quitter disparaît (effacement
-  // confirmé, import annulé), plutôt que de tomber sur la page
-  const importButton = useRef<HTMLButtonElement>(null)
   const sheet = useRef<HTMLElement>(null)
   // Sous le héros, chaque bloc entre à l'écran d'un léger glissé ; les trois panneaux du parcours ensemble
   useReveal(
@@ -68,9 +47,6 @@ export function Home({ pack, state, essential, stale, results, setState, eraseAl
     '.home-proof, .home-profile, .section-title, .airplane-grid > *, .g-item, .people-lede, .people-strip > li',
     [['.journey', '.journey-panel']],
   )
-  const [importError, setImportError] = useState<string | null>(null)
-  const [pending, setPending] = useState<{ state: SessionState; note: string } | null>(null)
-  const [erased, setErased] = useState(false)
 
   const seen = essential.filter(q => state.answers[q.id]).length
   const answered = essential.filter(q => isAnswered(state.answers[q.id])).length
@@ -94,36 +70,6 @@ export function Home({ pack, state, essential, stale, results, setState, eraseAl
   useEffect(() => {
     if (ready) prepareProfile()
   }, [ready])
-
-  const apply = (next: SessionState) => {
-    setPending(null)
-    setState(next)
-    go('/resultats')
-  }
-
-  const onImport = async (e: Event) => {
-    const input = e.currentTarget as HTMLInputElement
-    const f = input.files?.[0]
-    input.value = ''
-    if (!f) return
-    if (f.size > MAX_IMPORT_BYTES) {
-      setImportError('Ce fichier est trop volumineux pour être un double d’Isoloir.')
-      return
-    }
-    const res = parseImport(await f.text(), pack)
-    if (!res.ok) {
-      setImportError(res.error)
-      return
-    }
-    setImportError(null)
-    const notes = [
-      res.fromVersion ? 'Ce fichier date d’une version antérieure des données.' : '',
-      res.dropped ? `${res.dropped} réponse${res.dropped > 1 ? 's' : ''} ne correspond${res.dropped > 1 ? 'ent' : ''} plus à une question et ser${res.dropped > 1 ? 'ont' : 'a'} ignorée${res.dropped > 1 ? 's' : ''}.` : '',
-      res.review ? `${res.review} question${res.review > 1 ? 's ont' : ' a'} changé depuis : ${res.review > 1 ? 'elles seront' : 'elle sera'} à revoir.` : '',
-    ].filter(Boolean)
-    if (started || notes.length) setPending({ state: res.state, note: notes.join(' ') })
-    else apply(res.state)
-  }
 
   const stats = useMemo(() => {
     let entries = 0
@@ -372,119 +318,7 @@ export function Home({ pack, state, essential, stale, results, setState, eraseAl
           </a>
         </section>
       </main>
-      {/* Le pied de l'accueil, pleine largeur sur fond d'encre (demande du propriétaire du 2026-10-15) : les actions sur
-          la feuille, « À table », et la mention et les notices du pied commun */}
-      <HomeFooter
-        table={hasTable(election)}
-        lede={
-          !saved
-            ? undefined
-            : started
-              ? 'Elle reste sur cet appareil. Pour la reprendre ailleurs, téléchargez son double depuis le dépouillement.'
-              : 'Commencée sur un autre appareil\u00a0? Reprenez-la depuis son double, le fichier téléchargé au dépouillement.'
-        }
-        actions={
-          <>
-            {done ? (
-              <li>
-                <a class="btn-text" href={link(`/feuille/1`)}>
-                  <Icon name="reread" />
-                  Relire la feuille
-                </a>
-              </li>
-            ) : null}
-            <li>
-              <button type="button" class="btn-text" ref={importButton} onClick={() => file.current?.click()}>
-                <Icon name="upload" />
-                Reprendre depuis un fichier
-              </button>
-              {/* Hors de l'arbre d'accessibilité : le bouton ci-dessus porte l'action, le champ n'en est que l'outil */}
-              <input
-                ref={file}
-                type="file"
-                accept="application/json,.json"
-                class="sr-only"
-                tabIndex={-1}
-                aria-hidden="true"
-                onChange={onImport}
-              />
-            </li>
-            {started ? (
-              <li>
-                <ConfirmErase
-                  onErase={() => {
-                    eraseAll()
-                    // Tout effacer, c'est aussi oublier un import en attente
-                    setPending(null)
-                    setImportError(null)
-                    setErased(true)
-                    requestAnimationFrame(() => importButton.current?.focus())
-                  }}
-                />
-              </li>
-            ) : null}
-          </>
-        }
-        notes={
-          <>
-            {pending ? (
-              <div class="notice" role="alert">
-                <p>
-                  {started ? 'Remplacer la feuille en cours par celle du fichier\u00a0? ' : ''}
-                  {pending.note}
-                </p>
-                <span class="confirm">
-                  <button type="button" class="btn-text is-danger" onClick={() => apply(pending.state)}>
-                    {started ? 'Remplacer ma feuille' : 'Continuer'}
-                  </button>
-                  <button
-                    type="button"
-                    class="btn-text"
-                    onClick={() => {
-                      setPending(null)
-                      importButton.current?.focus()
-                    }}
-                  >
-                    Annuler
-                  </button>
-                </span>
-              </div>
-            ) : null}
-            {/* Toujours présente, pour que l'annonce soit lue ; l'avis s'efface dès qu'une feuille recommence */}
-            <div role="status">{erased && !started ? <p class="notice">Vos réponses ont été effacées de cet appareil.</p> : null}</div>
-            {importError ? (
-              <p class="error" role="alert">
-                {importError}
-              </p>
-            ) : null}
-            {!saved ? (
-              <p class="notice" role="status">
-                Ce navigateur n’enregistre pas votre progression (navigation privée ou stockage bloqué). Vous pourrez
-                télécharger votre double depuis les résultats.
-              </p>
-            ) : null}
-          </>
-        }
-      >
-        {election.rounds.length ? (
-          <p>
-            Vote&nbsp;:{' '}
-            {election.rounds.map((r, i) => (
-              <span key={r.label}>
-                {i > 0 ? '\u00a0; ' : ''}
-                {r.label} {roundDays(r)}
-              </span>
-            ))}
-            {election.officialUrl ? (
-              <>
-                . Conditions sur{' '}
-                <ExternalLink href={election.officialUrl}>{election.officialUrl.replace(/^https?:\/\//, '')}</ExternalLink>
-              </>
-            ) : null}
-            .
-          </p>
-        ) : null}
-      </HomeFooter>
+      <SiteFooter />
     </div>
   )
 }

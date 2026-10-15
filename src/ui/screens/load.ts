@@ -25,6 +25,8 @@ export const privacyScreen = onDemand<typeof import('./Privacy')>(() => import('
 export const legalScreen = onDemand<typeof import('./Legal')>(() => import('./Legal'))
 /** « Partager » */
 export const shareScreen = onDemand<typeof import('./Share')>(() => import('./Share'))
+/** « Continuer sur un autre appareil » (codes de reprise, QR code, caméra) : jamais préparé d'avance, rarement ouvert */
+export const transferScreen = onDemand<typeof import('./Transfer')>(() => import('./Transfer'))
 
 /** Prépare ces écrans quand le navigateur a un moment */
 export function prepareScreens() {
@@ -42,6 +44,8 @@ export function screenLoader(route: Route): (() => Promise<unknown>) | null {
       return legalScreen.load
     case 'share':
       return shareScreen.load
+    case 'transfer':
+      return transferScreen.load
     case 'compare':
       return loadCompare
     case 'profile':

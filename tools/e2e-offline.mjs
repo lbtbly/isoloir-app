@@ -1,6 +1,8 @@
 // Test de bout en bout « Fermez l'isoloir » : on charge la page, on coupe le réseau, et tout doit
 // marcher jusqu'au bout (première tendance, suite du questionnaire, résultats, images à partager, double), y compris un
 // rechargement de la page sans réseau. Aucune requête ne doit viser un autre site.
+// « Transférez vos réponses » (#/autre-appareil) : code, image du QR code, copie par e-mail et caméra simulée, entre
+// deux appareils hors ligne.
 // Contrôles annexes : accueil (film en héros, appel dans l'en-tête), anonymat des questions pas encore vues,
 // tendance sans verdict, « Sans avis » entouré, légende de « Qui porte quoi », accords et désaccords par
 // candidat, étoile de priorité dans la grille par thème, comparaison de candidats (plateau, adresse, tableau en
@@ -38,10 +40,12 @@
 // familles de thèmes, périmètre vidéo, dates), lu avec le registre par Node (TypeScript sans compilation, Node 22.18+).
 import { chromium } from 'playwright-core'
 import { spawn } from 'node:child_process'
-import { existsSync, readFileSync, readdirSync } from 'node:fs'
+import { existsSync, mkdtempSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { ROOT, importSite, loadElection, useSiteModules } from './site-modules.mjs'
 import { readPdf } from './pdf-text.mjs'
+import encodeQR from 'qr'
 
 // ——— Arguments ———
 const argv = process.argv.slice(2)
@@ -156,6 +160,8 @@ const server = spawn('pnpm', ['vite', 'preview', '--port', String(port), '--stri
 await new Promise(r => setTimeout(r, 1500))
 
 const failures = []
+/** Fichiers du transfert de réponses (image du QR code, vidéo de la caméra simulée), hors du dépôt */
+const transferDir = mkdtempSync(join(tmpdir(), 'isoloir-e2e-'))
 const heading = async (page, name) => {
   try {
     await page.getByRole('heading', { name, exact: true }).waitFor({ timeout: 4000 })
@@ -268,7 +274,8 @@ try {
   const foreign = []
   page.on('request', r => {
     const u = r.url()
-    if (!u.startsWith(base) && !u.startsWith('blob:') && !u.startsWith('data:')) foreign.push(u)
+    // mailto: (copie par e-mail des réponses) n'est pas une requête : le navigateur passe le message à la messagerie
+    if (!u.startsWith(base) && !u.startsWith('blob:') && !u.startsWith('data:') && !u.startsWith('mailto:')) foreign.push(u)
   })
 
   // 1. En ligne : la page se charge et la copie hors ligne s'installe
@@ -1637,6 +1644,217 @@ try {
     `le dépouillement PDF se télécharge hors ligne (${pdf.suggestedFilename()}, ${doc?.pages.length ?? 0} pages, ${pdfBytes.length} octets${entry.archived ? ', mention « Archive » en page 1' : ''})${pdfIssues.length ? ` : ${pdfIssues.join(' ; ')}` : ''}`,
   )
 
+  // 6 bis. « Transférez vos réponses » (#/autre-appareil), hors ligne des deux côtés : le QR code derrière le rideau,
+  // le code en texte, l'image du QR code et la copie par e-mail (sans menu de partage : image téléchargée, messagerie
+  // ouverte) ; puis un second appareil, hors ligne lui aussi, importe le code collé en vrac, l'image exacte, une
+  // « photo » de l'écran, et refuse une faute de frappe ou une image sans QR code. Jamais de requête hors du site ni
+  // de violation de la CSP ; une seule clé « isoloir: » de chaque côté
+  {
+    const sent = JSON.parse((await page.evaluate(key => localStorage.getItem(key), STORAGE)) ?? '{}')
+    await page.goto(U('/autre-appareil'))
+    await page.locator('.transfer-send').waitFor()
+    const sendTab = await page.locator('.transfer-switch button').first().getAttribute('aria-pressed')
+    const masked = await page.locator('.code-text.is-masked').count()
+    await page.getByRole('button', { name: 'Montrer le QR code' }).click()
+    await page.locator('svg.qr').waitFor({ timeout: 2000 })
+    const code = (await page.locator('.code-text .code-group').allTextContents()).join(' ')
+    check(sendTab === 'true' && masked === 1 && /^[0-9A-Z]{4}( [0-9A-Z]{1,4})+$/.test(code), `transfert : l’onglet « Transférer » ouvert, le code masqué avant le rideau, puis montré (${code.length} caractères)`)
+
+    const [png] = await Promise.all([
+      page.waitForEvent('download', { timeout: 5000 }),
+      page.getByRole('button', { name: 'Télécharger le QR code (image)' }).click(),
+    ])
+    const pngPath = join(transferDir, 'code.png')
+    await png.saveAs(pngPath)
+    const pngBytes = readFileSync(pngPath)
+    check(
+      /^isoloir-[a-z0-9-]+-reprise-\d{4}-\d\d-\d\d\.png$/.test(png.suggestedFilename()) && pngBytes.subarray(1, 4).toString('latin1') === 'PNG',
+      `transfert : l’image du QR code se télécharge hors ligne (${png.suggestedFilename()}, ${pngBytes.length} octets)`,
+    )
+    const [mailPng] = await Promise.all([
+      page.waitForEvent('download', { timeout: 5000 }),
+      page.getByRole('button', { name: 'M’envoyer une copie' }).click(),
+    ])
+    await page.waitForTimeout(300)
+    const mailStatus = flat(await page.locator('.transfer-status').textContent())
+    check(/^Image téléchargée/.test(mailStatus) && /\.png$/.test(mailPng.suggestedFilename()), `transfert : copie par e-mail sans menu de partage, l’image à joindre est téléchargée (« ${mailStatus.slice(0, 60)}… »)`)
+    const sentKeys = await page.evaluate(() => Object.keys(localStorage).filter(k => k.startsWith('isoloir')))
+    check(sentKeys.length === 1 && sentKeys[0] === STORAGE, `transfert : aucune nouvelle clé de stockage côté envoi (${sentKeys.join(', ')})`)
+
+    /** Un second appareil : chargé en ligne (sa copie hors ligne s'installe), puis coupé du réseau */
+    const device = async () => {
+      const c = await browser.newContext({ viewport: { width: 390, height: 844 }, acceptDownloads: true, reducedMotion: 'reduce' })
+      await c.addInitScript(() => {
+        window.__csp = []
+        addEventListener('securitypolicyviolation', e => window.__csp.push(`${e.violatedDirective} ${e.blockedURI}`))
+      })
+      const p = await c.newPage()
+      const out = []
+      p.on('request', r => {
+        const u = r.url()
+        if (!u.startsWith(base) && !u.startsWith('blob:') && !u.startsWith('data:')) out.push(u)
+      })
+      await p.goto(HOME)
+      await p.evaluate(() => navigator.serviceWorker.ready)
+      await p.waitForFunction(() => !!navigator.serviceWorker.controller, null, { timeout: 5000 }).catch(() => null)
+      await c.setOffline(true)
+      return { c, p, out }
+    }
+    const received = p => p.evaluate(key => JSON.parse(localStorage.getItem(key) ?? '{}'), STORAGE)
+    // Comparées sans tenir compte de l'ordre : le code range les réponses par question et les avis par lettre, quand
+    // l'appareil d'origine les garde dans l'ordre où ils ont été donnés
+    const canon = v =>
+      JSON.stringify(v, (_, x) =>
+        Array.isArray(x) ? [...x].sort() : x && typeof x === 'object' ? Object.fromEntries(Object.entries(x).sort(([m], [n]) => m.localeCompare(n))) : x,
+      )
+    const same = got =>
+      canon(got.answers) === canon(sent.answers) &&
+      canon(got.weights) === canon(sent.weights) &&
+      canon(got.deepTopics) === canon(sent.deepTopics) &&
+      got.seed === sent.seed &&
+      (got.essentialDoneAt ?? '').slice(0, 19) === (sent.essentialDoneAt ?? '').slice(0, 19)
+
+    // Le code collé en vrac : minuscules, tirets, retours à la ligne, O pour 0
+    const b = await device()
+    await b.p.goto(U('/autre-appareil/importer'))
+    await b.p.locator('#transfer-code').waitFor()
+    const importTab = await b.p.locator('.transfer-switch button').nth(1).getAttribute('aria-pressed')
+    const typo = code.replace(/[0-9A-Z]/, ch => (ch === '7' ? '8' : '7'))
+    await b.p.locator('#transfer-code').fill(typo)
+    await b.p.getByRole('button', { name: 'Lire ce code' }).click()
+    const typoError = flat(await b.p.locator('#transfer-error').textContent({ timeout: 2000 }).catch(() => ''))
+    const messy = code.toLowerCase().replace(/0/g, 'o').replace(/ /g, (_, i) => (i % 3 ? ' - ' : '\n'))
+    await b.p.locator('#transfer-code').fill(messy)
+    await b.p.getByRole('button', { name: 'Lire ce code' }).click()
+    const found = await heading(b.p, 'Réponses trouvées')
+    await b.p.getByRole('button', { name: 'Importer ces réponses' }).click()
+    await b.p.waitForFunction(h => location.hash === h, L('/resultats'), { timeout: 3000 }).catch(() => null)
+    await b.p.waitForFunction(key => !!localStorage.getItem(key), STORAGE, { timeout: 3000 }).catch(() => null)
+    const gotB = await received(b.p)
+    const keysB = await b.p.evaluate(() => Object.keys(localStorage).filter(k => k.startsWith('isoloir')))
+    check(importTab === 'true' && /vérifiez chaque groupe/.test(typoError), `transfert : #/autre-appareil/importer ouvre « Importer », une faute de frappe est refusée (« ${typoError.slice(0, 50)}… »)`)
+    check(found && hashOf(b.p) === L('/resultats') && same(gotB) && keysB.length === 1, `transfert : le code collé en vrac, hors ligne, donne les mêmes réponses, priorités, thèmes et graine (${Object.keys(gotB.answers ?? {}).length} réponses, ${keysB.length} clé)`)
+    const cspB = await b.p.evaluate(() => window.__csp)
+    check(b.out.length === 0 && cspB.length === 0, `transfert : second appareil sans requête hors du site ni violation de la CSP (${[...b.out, ...cspB].slice(0, 3).join(', ') || 'aucune'})`)
+    await b.c.close()
+
+    // L'image : une « photo » de l'écran (tournée, réduite, floue, en JPEG) puis une image sans QR code, par « Choisir une
+    // image » ; enfin l'image exacte, par « Reprendre depuis un fichier » de l'accueil, sur un appareil vierge
+    const c = await device()
+    await c.p.goto(U('/autre-appareil/importer'))
+    await c.p.locator('.transfer-ways input[type=file]').waitFor({ state: 'attached' })
+    const photo = await c.p.evaluate(async b64 => {
+      const img = new Image()
+      img.src = URL.createObjectURL(new Blob([Uint8Array.from(atob(b64), ch => ch.charCodeAt(0))], { type: 'image/png' }))
+      await img.decode()
+      const cv = document.createElement('canvas')
+      cv.width = 900
+      cv.height = 1200
+      const ctx = cv.getContext('2d')
+      ctx.fillStyle = '#6b6f75'
+      ctx.fillRect(0, 0, cv.width, cv.height)
+      ctx.filter = 'blur(1px)'
+      ctx.translate(450, 600)
+      ctx.rotate((7 * Math.PI) / 180)
+      ctx.drawImage(img, -img.width * 0.35, -img.height * 0.35, img.width * 0.7, img.height * 0.7)
+      const blob = await new Promise(r => cv.toBlob(r, 'image/jpeg', 0.7))
+      const bytes = new Uint8Array(await blob.arrayBuffer())
+      let s = ''
+      for (const x of bytes) s += String.fromCharCode(x)
+      return btoa(s)
+    }, pngBytes.toString('base64'))
+    await c.p.locator('.transfer-ways input[type=file]').setInputFiles({ name: 'photo.jpg', mimeType: '', buffer: Buffer.from(photo, 'base64') })
+    const photoRead = await heading(c.p, 'Réponses trouvées')
+    if (photoRead) await c.p.getByRole('button', { name: 'Annuler' }).click()
+    const blank = await c.p.evaluate(async () => {
+      const cv = document.createElement('canvas')
+      cv.width = 300
+      cv.height = 300
+      cv.getContext('2d').fillRect(40, 40, 60, 60)
+      const bytes = new Uint8Array(await (await new Promise(r => cv.toBlob(r, 'image/png'))).arrayBuffer())
+      let s = ''
+      for (const x of bytes) s += String.fromCharCode(x)
+      return btoa(s)
+    })
+    await c.p.locator('.transfer-ways input[type=file]').setInputFiles({ name: 'vide.png', mimeType: 'image/png', buffer: Buffer.from(blank, 'base64') })
+    await c.p.waitForFunction(() => /Aucun QR code/.test(document.querySelector('.transfer-ways .transfer-note:not(:empty)')?.textContent ?? ''), null, { timeout: 5000 }).catch(() => null)
+    const blankNote = flat(await c.p.locator('.transfer-ways .transfer-note').nth(1).textContent())
+    check(photoRead && /^Aucun QR code/.test(blankNote), `transfert : une photo de l’écran (tournée, floue, JPEG) se lit ; une image sans QR code est refusée (« ${blankNote.slice(0, 40)}… »)`)
+    await c.p.goto(U('/'))
+    await c.p.locator('.home-foot input[type=file]').waitFor({ state: 'attached' })
+    await c.p.locator('.home-foot input[type=file]').setInputFiles(pngPath)
+    await c.p.waitForFunction(h => location.hash === h, L('/resultats'), { timeout: 8000 }).catch(() => null)
+    await c.p.waitForFunction(key => !!localStorage.getItem(key), STORAGE, { timeout: 3000 }).catch(() => null)
+    const gotC = await received(c.p)
+    check(hashOf(c.p) === L('/resultats') && same(gotC), `transfert : l’image exacte, choisie dans « Reprendre depuis un fichier » de l’accueil, importe les mêmes réponses`)
+    // Le double (JSON) passe toujours par le même bouton : la feuille commencée, il demande s'il faut la remplacer
+    await c.p.goto(U('/'))
+    await c.p.locator('.home-foot input[type=file]').setInputFiles(await download.path())
+    const asked = await c.p.locator('.home-foot .notice[role=alert]').waitFor({ timeout: 3000 }).then(() => true).catch(() => false)
+    const cspC = await c.p.evaluate(() => window.__csp)
+    check(asked && c.out.length === 0 && cspC.length === 0, `transfert : le double JSON s’importe toujours depuis l’accueil (demande de remplacer ${asked}) ; aucune requête hors du site ni violation de la CSP`)
+    await c.c.close()
+
+    // La caméra, simulée par Chromium (une vidéo du QR code) : rien n'est demandé avant le geste ; le code est lu en
+    // moins de 8 s, avec le détecteur du navigateur s'il en a un, puis avec le décodeur JavaScript ; la caméra s'arrête
+    const modules = encodeQR(code.replace(/ /g, ''), 'raw', { ecc: 'medium', encoding: 'alphanumeric', border: 4 })
+    const W = 1280
+    const H = 720
+    const px = Math.floor(600 / modules.length)
+    const side = modules.length * px
+    const y = Buffer.alloc(W * H, 235)
+    for (let r = 0; r < side; r++) {
+      for (let col = 0; col < side; col++) {
+        if (modules[Math.floor(r / px)][Math.floor(col / px)]) y[(r + Math.floor((H - side) / 2)) * W + col + Math.floor((W - side) / 2)] = 16
+      }
+    }
+    const y4m = join(transferDir, 'qr.y4m')
+    writeFileSync(y4m, Buffer.concat([Buffer.from(`YUV4MPEG2 W${W} H${H} F15:1 Ip A1:1 C420jpeg\nFRAME\n`), y, Buffer.alloc((W / 2) * (H / 2) * 2, 128)]))
+    const cam = await chromium.launch({
+      args: ['--mute-audio', '--use-fake-device-for-media-stream', '--use-fake-ui-for-media-stream', `--use-file-for-fake-video-capture=${y4m}`],
+    })
+    try {
+      for (const forceJs of [false, true]) {
+        const cc = await cam.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce', permissions: ['camera'] })
+        await cc.addInitScript(js => {
+          window.__gum = 0
+          const md = navigator.mediaDevices
+          if (md?.getUserMedia) {
+            const real = md.getUserMedia.bind(md)
+            md.getUserMedia = c => {
+              window.__gum++
+              return real(c).then(s => ((window.__stream = s), s))
+            }
+          }
+          if (js) delete window.BarcodeDetector
+        }, forceJs)
+        const cp = await cc.newPage()
+        const camOut = []
+        cp.on('request', r => {
+          const u = r.url()
+          if (!u.startsWith(base) && !u.startsWith('blob:') && !u.startsWith('data:')) camOut.push(u)
+        })
+        await cp.goto(U('/autre-appareil/importer'))
+        await cp.locator('#transfer-code').waitFor()
+        const native = await cp.evaluate(async () => !!window.BarcodeDetector && (await window.BarcodeDetector.getSupportedFormats()).includes('qr_code'))
+        const before = await cp.evaluate(() => window.__gum)
+        const t0 = Date.now()
+        await cp.getByRole('button', { name: 'Ouvrir la caméra' }).click()
+        const read = await cp.getByRole('heading', { name: 'Réponses trouvées', exact: true }).waitFor({ timeout: 8000 }).then(() => true).catch(() => false)
+        const ms = Date.now() - t0
+        const stopped = await cp.evaluate(() => !document.querySelector('.viewfinder video')?.srcObject && (window.__stream?.getTracks() ?? []).every(t => t.readyState === 'ended'))
+        check(
+          before === 0 && read && stopped && camOut.length === 0,
+          `transfert : la caméra (${native ? 'détecteur du navigateur' : 'décodeur JavaScript'}) lit le QR code en ${(ms / 1000).toFixed(1)} s, rien demandé avant le geste, caméra arrêtée ensuite`,
+        )
+        await cc.close()
+      }
+    } finally {
+      await cam.close()
+    }
+    await page.goto(U('/resultats'))
+  }
+
   // 7. Recharger la page sans réseau
   await page.reload()
   await page.waitForTimeout(400)
@@ -1691,6 +1909,34 @@ try {
     await page.goto(U('/resultats'))
     await heading(page, 'Votre dépouillement')
     const onResults = await page.locator('.results-intro .changed').count()
+    // Feuille de révision : une approche apparue depuis la réponse (Approach.since) vient en tête, sous le tampon
+    // « Nouvelle », et l'avis le dit
+    const withNew = pack.bank.questions.find(q => q.approaches.some(x => x.since))
+    let fresh = null
+    if (withNew) {
+      const newIds = withNew.approaches.filter(x => x.since).map(x => x.id)
+      const older = Math.min(...withNew.approaches.filter(x => x.since).map(x => x.since)) - 1
+      const st2 = JSON.parse(kept)
+      st2.answers[withNew.id] = { ratings: {}, redLines: [], skipped: true, rev: older }
+      // Un contexte à part, sa feuille posée avant le chargement : la page en cours garde la sienne en mémoire et
+      // l'enregistre encore (classement vu), elle écraserait celle-ci
+      const rctx = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' })
+      await rctx.addInitScript(([k, v]) => localStorage.setItem(k, v), [STORAGE, JSON.stringify(st2)])
+      const rp = await rctx.newPage()
+      await rp.goto(U('/revision'))
+      await rp.locator('.approaches > li').first().waitFor({ timeout: 8000 }).catch(() => null)
+      fresh = await rp.evaluate(n => {
+        const rows = [...document.querySelectorAll('.approaches > li')]
+        const t = e => (e?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
+        return {
+          head: rows.slice(0, n).every(r => r.classList.contains('is-fresh') && t(r.querySelector('.approach-stamp')) === 'Nouvelle'),
+          others: rows.slice(n).every(r => !r.classList.contains('is-fresh') && !r.querySelector('.approach-stamp')),
+          sr: t(rows[0]?.querySelector('.approach-text .sr-only')),
+          notice: t(document.querySelector('.revision-notice')),
+        }
+      }, newIds.length)
+      await rctx.close()
+    }
     // La feuille d'avant, relue au rechargement (l'application garde la sienne en mémoire jusque-là). Le dépouillement
     // vient d'enregistrer son classement vu, un peu après l'affichage : on le laisse finir avant de rendre la feuille,
     // et on vérifie après le rechargement que c'est bien elle qui est relue
@@ -1708,6 +1954,10 @@ try {
     check(
       card?.count === '1' && card.title === 'Une question a changé depuis vos réponses' && card.items === 1 && card.href === L('/revision') && onResults === 1 && restored && gone === 0,
       `questions à revoir : carte sur l’accueil (${card ? `« ${card.count} », « ${card.title} », ${card.items} question, vers ${card.href}` : 'absente'}), en tête du dépouillement (${onResults}), partie une fois la feuille rendue (relue ${restored}, ${gone} carte)`,
+    )
+    check(
+      !withNew || (!!fresh && fresh.head && fresh.others && fresh.sr.includes('nouvelle approche') && /nouvelle/.test(fresh.notice) && fresh.notice.includes('« Nouvelle »')),
+      `feuille de révision : l’approche apparue depuis la réponse en tête, sous le tampon « Nouvelle » (${fresh ? `en tête ${fresh.head}, les autres sans ${fresh.others}, « ${fresh.sr} », « ${fresh.notice.slice(0, 80)}… »` : 'aucune question avec une approche nouvelle'})`,
     )
   }
   // L'appel de l'en-tête mène désormais au dépouillement (libellé long ou court selon la largeur)
@@ -1852,7 +2102,9 @@ try {
   // pied (repère « contentinfo »), jamais dans l'en-tête (ni en ligne ni dans le panneau du menu) ; défilé
   // jusqu'en bas, le dernier lien ne passe pas sous la barre d'actions ; la notice où l'on est est marquée.
   // Ces trois liens et rien d'autre (l'ancien lien « Élections passées » vers #/archives est retiré).
-  const footScreens = ['/', '/feuille/2', '/resultats', '/proximite', '/candidats', `/candidat/${FICHE.id}`, '/sujets', '/methode', '/confidentialite', '/mentions-legales', '/priorites', '/approfondir', '/partager']
+  // Le même pied partout (demande du propriétaire du 2026-10-15) : pleine largeur sur fond d'encre, avec les actions sur
+  // la feuille (« Importer mes réponses », « Reprendre depuis un fichier »…), sauf pendant une table (section 10)
+  const footScreens = ['/', '/feuille/2', '/resultats', '/proximite', '/candidats', `/candidat/${FICHE.id}`, '/sujets', '/methode', '/confidentialite', '/mentions-legales', '/priorites', '/approfondir', '/partager', '/autre-appareil', ...(PROFILE ? ['/profil', '/a-table'] : [])]
   const notices = [L('/methode'), L('/confidentialite'), L('/mentions-legales')]
   const footIssues = []
   for (const path of footScreens) {
@@ -1860,10 +2112,12 @@ try {
     await page.goto(U(path))
     await page.waitForFunction(t => document.title !== t, titleBefore, { timeout: 3000 }).catch(() => null)
     await page.locator('main h1').first().waitFor()
+    // Les écrans chargés à la demande : la hauteur de leur barre (--bar-real, app.tsx) est relevée juste après
+    await page.waitForTimeout(300)
     const landmarks = await page.getByRole('contentinfo').count()
     const f = await page.evaluate(sel => {
       window.scrollTo(0, document.documentElement.scrollHeight)
-      const foot = document.querySelectorAll('footer.site-foot')
+      const foot = document.querySelectorAll('footer.site-foot.home-foot')
       const links = [...(foot[0]?.querySelectorAll('.site-foot-links a') ?? [])]
       const bar = document.querySelector('.action-bar')
       const last = links.at(-1)?.getBoundingClientRect()
@@ -1873,16 +2127,20 @@ try {
         current: links.filter(a => a.getAttribute('aria-current') === 'page').map(a => a.getAttribute('href')),
         inHeader: document.querySelectorAll(sel).length,
         masked: !last || (!!bar && last.bottom > bar.getBoundingClientRect().top + 0.5),
+        dark: !!foot[0] && getComputedStyle(foot[0]).backgroundColor !== getComputedStyle(document.body).backgroundColor,
+        full: !!foot[0] && Math.round(foot[0].getBoundingClientRect().width) >= document.documentElement.clientWidth - 1,
+        actions: [...(foot[0]?.querySelectorAll('.home-foot-actions a, .home-foot-actions button') ?? [])].map(a => a.textContent.trim()),
       }
     }, notices.map(h => `.form-header a[href="${h}"]`).join(', '))
     const expected = notices.includes(L(path)) ? L(path) : ''
     const ok =
-      f.count === 1 && landmarks === 1 && f.hrefs.join(' ') === notices.join(' ') && f.current.join(' ') === expected && f.inHeader === 0 && !f.masked
-    if (!ok) footIssues.push(`${path} (${f.count} pied, ${landmarks} repère, liens ${f.hrefs.join(' ')}, courant ${f.current.join(' ') || '-'}, ${f.inHeader} dans l’en-tête${f.masked ? ', masqué par la barre' : ''})`)
+      f.count === 1 && landmarks === 1 && f.hrefs.join(' ') === notices.join(' ') && f.current.join(' ') === expected && f.inHeader === 0 && !f.masked &&
+      f.dark && f.full && f.actions.includes('Importer mes réponses') && f.actions.includes('Reprendre depuis un fichier') && f.actions.includes('Transférer mes réponses')
+    if (!ok) footIssues.push(`${path} (${f.count} pied, ${landmarks} repère, liens ${f.hrefs.join(' ')}, courant ${f.current.join(' ') || '-'}, ${f.inHeader} dans l’en-tête${f.masked ? ', masqué par la barre' : ''}, sombre ${f.dark}, pleine largeur ${f.full}, actions ${f.actions.join(' · ')})`)
   }
   check(
     footIssues.length === 0,
-    `pied de page sur ${footScreens.length} écrans : méthode, confidentialité et mentions légales en bas, pas dans l’en-tête${footIssues.length ? ` : ${footIssues.join(' ; ')}` : ''}`,
+    `pied de page sur ${footScreens.length} écrans : le même partout (fond d’encre, pleine largeur, actions sur la feuille), méthode, confidentialité et mentions légales en bas, pas dans l’en-tête${footIssues.length ? ` : ${footIssues.join(' ; ')}` : ''}`,
   )
 
   check(foreign.length === 0, `aucune requête vers un autre site${foreign.length ? ` : ${foreign.join(', ')}` : ''}`)
@@ -2378,6 +2636,42 @@ try {
       `texte à ${scale} % sur ${width} px : réglette dégagée, « D’accord » au toucher, rien ne déborde (feuille ${geometry.overflow}px, accueil ${homeOverflow}px sur ${scenes} scènes, fiche candidat ${ficheOverflow}px, sujets ${topicsOverflow}px, vidéos ${videos.overflow}px et ${videos.out} libellé hors bouton)`,
     )
     await c.close()
+  }
+
+  // 8 bis. Texte agrandi à toutes les largeurs (réglage du navigateur, taille du texte de Safari sur iPad) : aucune
+  // page principale ne défile sur le côté (mesuré le 15 octobre 2026 : à 1024 px et 200 %, « À vous d'essayer » et le
+  // classement poussaient la page de 96 et 30 px ; « Qui porte quoi » et les notices aussi, et cinq pages à 320 px)
+  {
+    const pagesWide = [
+      '/', '/resultats', '/proximite', '/candidats', `/candidat/${FICHE.id}`, `/comparer/${pack.candidates.slice(0, 4).map(c => c.id).join(',')}`,
+      '/partager', '/profil', '/sujets', ...(VIDEOS_SHOWN ? ['/videos'] : []), '/feuille/1', '/approfondir', '/priorites',
+      ...(PROFILE ? ['/a-table'] : []), '/autre-appareil', '/autre-appareil/importer', '/methode', '/confidentialite', '/mentions-legales',
+    ]
+    const sizesWide = [[1920, 200], [1280, 200], [1024, 200], [768, 200], [390, 200], [320, 200]]
+    const wideIssues = []
+    for (const [width, scale] of sizesWide) {
+      const c = await browser.newContext({ viewport: { width, height: 800 }, reducedMotion: 'reduce' })
+      await c.addInitScript(s => Object.entries(s).forEach(([k, v]) => localStorage.setItem(k, v)), saved)
+      await c.addInitScript(sc => document.addEventListener('DOMContentLoaded', () => (document.documentElement.style.fontSize = `${sc}%`)), scale)
+      const p = await c.newPage()
+      let shown = ''
+      for (const path of pagesWide) {
+        await p.goto(U(path))
+        // La page est là quand son titre a remplacé celui de la précédente (les écrans chargés à la demande arrivent après)
+        await p
+          .waitForFunction(prev => { const h = document.querySelector('main h1'); return !!h && h.textContent !== prev }, shown, { timeout: 8000 })
+          .catch(() => null)
+        shown = await p.evaluate(() => document.querySelector('main h1')?.textContent ?? '')
+        await p.waitForTimeout(300)
+        const extra = await p.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)
+        if (extra > 0) wideIssues.push(`${path} à ${width} px et ${scale} % : ${extra} px`)
+      }
+      await c.close()
+    }
+    check(
+      wideIssues.length === 0,
+      `texte agrandi : aucune page ne défile sur le côté (${pagesWide.length} pages, ${sizesWide.map(([w]) => w).join(', ')} px à 200 %)${wideIssues.length ? ` : ${wideIssues.join(' ; ')}` : ''}`,
+    )
   }
 
   // 9. Adresses retirées du site (RETIRED_PREFIXES du registre : la primaire « Choisir 2027 », son alias

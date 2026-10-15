@@ -21,6 +21,8 @@ export interface RevisionEntry extends QuestionText {
   rev: number
   /** Retouches de forme depuis la dernière révision de fond */
   minor: number
+  /** Approches apparues après la première révision : la révision de leur arrivée (Approach.since) */
+  since?: Record<string, number>
 }
 
 export type Change = 'same' | 'forme' | 'fond'
@@ -86,7 +88,17 @@ export function questionText(q: Pick<Question, 'prompt' | 'approaches'>): Questi
 export function nextRevision(entry: RevisionEntry | undefined, cur: QuestionText): { entry: RevisionEntry; change: Change } {
   if (!entry) return { entry: { rev: 1, minor: 0, ...cur }, change: 'fond' }
   const change = classifyChange(entry, cur)
-  if (change === 'fond') return { entry: { rev: entry.rev + 1, minor: 0, ...cur }, change }
+  if (change === 'fond') {
+    // Une approche absente du texte de référence arrive avec la nouvelle révision ; les arrivées d'avant restent, pour
+    // les approches toujours là
+    const rev = entry.rev + 1
+    const since: Record<string, number> = {}
+    for (const id of Object.keys(cur.approaches)) {
+      const at = id in entry.approaches ? entry.since?.[id] : rev
+      if (at) since[id] = at
+    }
+    return { entry: { rev, minor: 0, ...cur, ...(Object.keys(since).length ? { since } : {}) }, change }
+  }
   if (change === 'forme') return { entry: { ...entry, minor: entry.minor + 1 }, change }
   return { entry, change }
 }
@@ -96,6 +108,16 @@ export function nextRevision(entry: RevisionEntry | undefined, cur: QuestionText
 /** Une réponse est à revoir si le suivi est actif et qu'elle date d'une autre révision (sans révision : la 1re) */
 export function isStale(q: Question, a: Answer | undefined, tracking: boolean): boolean {
   return tracking && !!a && (a.rev ?? 1) !== (q.rev ?? 1)
+}
+
+/**
+ * Les approches apparues depuis la réponse à une question qui a changé (Approach.since) : la réponse, d'une révision
+ * plus ancienne, ne les a pas vues. Vide sans réponse, pour une réponse à jour, ou sans suivi des révisions
+ */
+export function freshApproaches(q: Question, a: Answer | undefined, tracking: boolean): Set<string> {
+  if (!isStale(q, a, tracking)) return new Set()
+  const seen = a?.rev ?? 1
+  return new Set(q.approaches.filter(x => (x.since ?? 1) > seen).map(x => x.id))
 }
 
 export function staleQuestions(pack: ElectionPack, answers: Answers): Question[] {

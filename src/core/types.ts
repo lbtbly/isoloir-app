@@ -90,6 +90,11 @@ export interface Approach {
   text: string
   /** Approche portée par aucun candidat (alternative ou statu quo), signalée dans la méthode */
   external?: boolean
+  /**
+   * Révision de la question où l'approche est apparue (registre des révisions, tools/build-pack.mjs) ; absente, elle
+   * y est depuis la première. Une réponse d'une révision plus ancienne ne l'a pas vue : la feuille la met en tête
+   */
+  since?: number
 }
 
 export type Tier = 'essentiel' | 'approfondi'
@@ -400,6 +405,20 @@ export interface ElectionPack {
     /** Édition des séries propre à cette élection (src/ui/videos/editions) : corrections posées sur les séries communes */
     edition?: string
   }
+  /** Numéros stables des questions et des thèmes dans les codes de reprise ; absent : pas de code pour cette élection */
+  transfer?: TransferSlots
+}
+
+/**
+ * Numérotation des codes de reprise (core/transfer) : un code ne porte pas les identifiants, seulement ces numéros.
+ * Ajout seulement : un numéro n'est jamais changé ni réutilisé, même quand sa question disparaît, sans quoi un code
+ * fait avant la mise à jour attribuerait des avis à une autre question.
+ */
+export interface TransferSlots {
+  /** Numéro de l'élection dans les codes (1 à 63), propre à chaque élection */
+  tag: number
+  questions: Record<QuestionId, number>
+  topics: Record<TopicId, number>
 }
 
 /**

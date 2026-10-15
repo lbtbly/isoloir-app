@@ -1,8 +1,7 @@
-/* ——— Pied de page : le pied imprimé du formulaire, sur chaque écran ———
-   Il suit le contenu de la feuille. Double filet, comme l'en-tête (épais, puis fin 3px dessous), à la
-   largeur du texte ; dessous, en petit corps gris, la mention d'indépendance, et les liens vers les notices
-   en noir. Une colonne sur téléphone ; à partir de 48rem de pied, les liens passent à droite de la
-   mention, sur la ligne de base de sa première ligne. */
+/* ——— Pied de page, le même sur chaque écran (components/SiteFooter.tsx) ———
+   Pleine largeur, sur fond d'encre d'imprimerie (plus bas, .home-foot) ; il suit le contenu de la feuille et réserve,
+   dessous, la place de la barre d'actions fixe. Ici, ce que le pied garde de l'ancien pied imprimé : la mention
+   d'indépendance et les liens vers les notices. */
 
 .site-foot {
   container: foot / inline-size;
@@ -23,22 +22,6 @@
 /* Écrans sans barre du bas (accueil, page d'essai, écrans vides) : un simple blanc sous le pied */
 .screen:not(:has(> .action-bar)) > .site-foot {
   padding-bottom: calc(var(--s6) + env(safe-area-inset-bottom));
-}
-
-.site-foot-inner {
-  display: grid;
-  row-gap: var(--s3);
-  /* La largeur du texte de la feuille : le cadre, moins ses deux gouttières */
-  max-width: calc(var(--frame) - 2 * var(--gutter));
-  margin: 0 auto;
-  border-top: var(--thick) solid var(--rule-strong);
-}
-
-/* Le filet fin du double filet, 3px sous le filet épais */
-.site-foot-inner::before {
-  content: '';
-  margin-top: 3px;
-  border-top: var(--hair) solid var(--rule-strong);
 }
 
 .site-foot-text {
@@ -89,26 +72,11 @@
   text-decoration-thickness: 2px;
 }
 
-@container foot (min-width: 48rem) {
-  .site-foot-inner {
-    grid-template-columns: minmax(0, 1fr) auto;
-    column-gap: var(--s6);
-    align-items: baseline;
-  }
-
-  .site-foot-inner::before {
-    grid-column: 1 / -1;
-  }
-
-  .site-foot-links {
-    justify-content: flex-end;
-  }
-}
-
-/* ——— Le pied de l'accueil (components/SiteFooter.tsx, HomeFooter) ———
+/* ——— Le pied, sur fond d'encre ———
    Demande du propriétaire du 2026-10-15 : les actions sur la feuille flottaient sous les candidats, « sorties de
    nulle part ». Elles prennent place dans un vrai pied de page, pleine largeur, sur fond d'encre d'imprimerie : la
-   feuille en négatif, aux encres du papier carbone (jetons --foot-*), qui ferme l'accueil. Un filet fin de la page,
+   feuille en négatif, aux encres du papier carbone (jetons --foot-*), qui ferme chaque écran (sur tous les écrans
+   depuis le même jour, à la demande du propriétaire, sauf la table en cours). Un filet fin de la page,
    4px de papier, puis l'aplat : le double filet de l'en-tête, renversé. En tête, le logo et les dates du vote, sur un
    filet épais ; dessous, des colonnes titrées, empilées sur téléphone : « Votre feuille », « À table », « Qui fait
    Isoloir ». Les actions sont des lignes de formulaire entre filets : une action de plus prend sa ligne. */
