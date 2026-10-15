@@ -1129,6 +1129,20 @@ html:has(.profile-chart) {
   }
 }
 
+/* Texte très agrandi (14rem de graphique, qu'aucun téléphone n'atteint à texte normal, 280px compris) : le bouton se serre
+   et perd sa flèche plutôt que de sortir de la page */
+@container plot (max-width: 14rem) {
+  .chart-empty .btn-primary {
+    max-width: 100%;
+    padding-inline: var(--s3);
+    overflow-wrap: anywhere;
+  }
+
+  .chart-empty .btn-primary .icon {
+    display: none;
+  }
+}
+
 /* Sous le graphique : le hasard, la source de la grille, le calcul */
 .chart-note {
   max-width: 70ch;
