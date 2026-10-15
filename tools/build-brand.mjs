@@ -44,7 +44,8 @@ write('favicon.svg', favicon + '\n')
 
 // Icônes PNG : le pictogramme complet (ombre comprise) sur fond blanc, avec une marge qui laisse
 // la place aux coins arrondis des écrans d'accueil
-const browser = await chromium.launch()
+// Son coupé : aucun outil ne doit jouer de son (règle du propriétaire)
+const browser = await chromium.launch({ args: ['--mute-audio'] })
 try {
   const page = await browser.newPage({ deviceScaleFactor: 1 })
   for (const [name, size, fill] of [

@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-15 18:57:16",
+  "commande": "--scan --voice aigue --segment industrie-etat-02-p27 --segment industrie-etat-03-p27",
+  "passages": [
+    {
+      "voix": "aigue",
+      "video": "industrie-etat",
+      "passage": "industrie-etat-02-p27",
+      "fichier": "/Users/lambertbouley/Claude/Politique/primaire-de-gauche/.claude/worktrees/design-cta/public/videos/audio/aigue/industrie-etat/industrie-etat-02-p27.m4a",
+      "texte": "Au trente juin deux mille vingt-six, l'Agence des participations de l'État gérait ses parts dans quatre-vingt-sept entités. Leur valeur était estimée à deux cent vingt-neuf virgule six milliards d'euros.",
+      "duree_s": 8.99,
+      "verdict": "ok",
+      "n_net": 0,
+      "n_leger": 0,
+      "evenements": [],
+      "ref_db": -21.4,
+      "bruit_db": -66.4,
+      "temps_alignement_s": 1.3,
+      "temps_s": 1.333
+    },
+    {
+      "voix": "aigue",
+      "video": "industrie-etat",
+      "passage": "industrie-etat-03-p27",
+      "fichier": "/Users/lambertbouley/Claude/Politique/primaire-de-gauche/.claude/worktrees/design-cta/public/videos/audio/aigue/industrie-etat/industrie-etat-03-p27.m4a",
+      "texte": "Les sociétés cotées en Bourse en représentent soixante-dix-sept virgule six milliards. Un an plus tôt, l'ensemble valait deux cent neuf virgule un milliards.",
+      "duree_s": 7.43,
+      "verdict": "ok",
+      "n_net": 0,
+      "n_leger": 0,
+      "evenements": [],
+      "ref_db": -22.0,
+      "bruit_db": -67.0,
+      "temps_alignement_s": 0.11,
+      "temps_s": 0.134
+    }
+  ],
+  "a_refaire": [],
+  "temps_s": 1.5
+}

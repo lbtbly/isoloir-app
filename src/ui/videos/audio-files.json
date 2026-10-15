@@ -1333,6 +1333,16 @@
           "file": "videos/audio/aigue/industrie-etat/industrie-etat-04-p27.m4a",
           "duration": 11.21,
           "hash": "cc5e95e7"
+        },
+        "industrie-etat-02-p27": {
+          "file": "videos/audio/aigue/industrie-etat/industrie-etat-02-p27.m4a",
+          "duration": 8.99,
+          "hash": "e6b41f6b"
+        },
+        "industrie-etat-03-p27": {
+          "file": "videos/audio/aigue/industrie-etat/industrie-etat-03-p27.m4a",
+          "duration": 7.43,
+          "hash": "79e30987"
         }
       },
       "industrie-energie": {

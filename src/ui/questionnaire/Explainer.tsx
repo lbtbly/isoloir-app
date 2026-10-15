@@ -14,7 +14,7 @@ import { AiLabel } from '../components/AiLabel'
 import { ExternalLink } from '../components/ExternalLink'
 import { FigureChart } from '../components/FigureChart'
 import { Icon } from '../components/Icon'
-import { formatDate, hostOf } from '../format'
+import { formatSourceDate, hostOf } from '../format'
 import '../../styles/topics.css'
 
 const wide = () => typeof matchMedia !== 'undefined' && matchMedia('(min-width: 64rem)').matches
@@ -25,7 +25,7 @@ function SourceLink({ source, date }: { source: Source; date?: string }) {
   return (
     <span class="figure-source">
       <ExternalLink href={source.url}>{source.publisher ?? hostOf(source.url)}</ExternalLink>
-      {when ? `, ${/^\d{4}-\d{2}(-\d{2})?$/.test(when) ? formatDate(when) : when}` : ''}
+      {when ? `, ${formatSourceDate(when)}` : ''}
     </span>
   )
 }

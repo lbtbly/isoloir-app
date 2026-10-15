@@ -49650,3 +49650,80 @@ aigue / impots-dette-06-p27 — 11.54 s : ok
 À refaire (0) : aucun
 Temps : 2 s pour 1 passage(s), chargement du modèle d'alignement compris.
 
+
+=== 2026-10-15 18:55:26 : generate.py --voice aigue --dry-run --segment industrie-etat-02-p27 --segment industrie-etat-03-p27
+
+## Voix aiguë (aigue, v3.1a) : référence F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; voisement 56 trames/s ; 3 prises par phrase
+
+# aigue / industrie-etat (passage(s) industrie-etat-02-p27, industrie-etat-03-p27 sur 9)
+industrie-etat-02-p27 : à générer, 2 phrase(s) — « Au trente juin deux mille vingt-six, l'Agence des participations de l'État gérait ses parts dans quatre-vingt-sept entités. » | « Leur valeur était estimée à deux cent vingt-neuf virgule six milliards d'euros. »
+industrie-etat-03-p27 : à générer, 2 phrase(s) — « Les sociétés cotées en Bourse en représentent soixante-dix-sept virgule six milliards. » | « Un an plus tôt, l'ensemble valait deux cent neuf virgule un milliards. »
+
+2 passage(s) à générer. Estimation pour tout (voix aiguë 3 prises, 15% de secours) : ~1343 min.
+
+=== 2026-10-15 18:55:26 : generate.py --voice aigue --segment industrie-etat-02-p27 --segment industrie-etat-03-p27 --keep-takes
+
+## Voix aiguë (aigue, v3.1a) : référence F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; voisement 56 trames/s ; 3 prises par phrase
+
+# aigue / industrie-etat (passage(s) industrie-etat-02-p27, industrie-etat-03-p27 sur 9)
+industrie-etat-02-p27 : 2 phrase(s)
+  [1] « Au trente juin deux mille vingt-six, l'Agence des participations de l'État gérait ses parts dans quatre-vingt-sept entités. » (29 syll., ~5.7 s)
+Modèle mlx-community/VoxCPM2-8bit chargé en 1.7 s
+Modèle d'alignement 0.4 s de chargement, premier contrôle 0.6 s (mise en route)
+      prise 1 (graine 41767) : 12.4 s de calcul, 5.22 s articulées, 5.6 syll/s (1.08 × réf.), F0 232.9 Hz (-0.79 dt cible), fin -6.9 dt, saut -1.44 dt, dispersion 6.49 dt
+      prise 2 (graine 41768) : 11.6 s de calcul, 4.91 s articulées, 5.9 syll/s (1.15 × réf.), F0 251.6 Hz (+0.55 dt cible), fin -2.9 dt, saut +1.79 dt, dispersion 4.55 dt
+      prise 3 (graine 41769) : 11.5 s de calcul, 4.84 s articulées, 6.0 syll/s (1.17 × réf.), F0 248.1 Hz (+0.30 dt cible), fin -4.9 dt, saut +0.65 dt, dispersion 4.3 dt
+    → prise 3 retenue sur 3 : F0 248.1 Hz (+0.30 dt), fin -4.9 dt, 6.0 syll/s, saut +0.65 dt
+  [2] « Leur valeur était estimée à deux cent vingt-neuf virgule six milliards d'euros. » (20 syll., ~3.9 s)
+      prise 1 (graine 854457) : 7.2 s de calcul, 3.20 s articulées, 6.2 syll/s (1.22 × réf.), F0 216.6 Hz (-2.05 dt cible), fin -2.5 dt, saut -1.37 dt, dispersion 2.69 dt → hors critères : hauteur -2.05 dt de la cible
+      prise 2 (graine 854458) : 8.2 s de calcul, 3.66 s articulées, 5.5 syll/s (1.07 × réf.), F0 271.1 Hz (+1.84 dt cible), fin -4.8 dt, saut +3.17 dt, dispersion 3.75 dt → hors critères : hauteur +1.84 dt de la cible
+      prise 3 (graine 854459) : 6.8 s de calcul, 3.05 s articulées, 6.6 syll/s (1.28 × réf.), F0 254.7 Hz (+0.76 dt cible), fin -5.3 dt, saut +1.00 dt, dispersion 2.76 dt
+    → prise 3 retenue sur 3 : F0 254.7 Hz (+0.76 dt), fin -5.3 dt, 6.6 syll/s, saut +1.00 dt
+  → industrie-etat-02-p27 : 8.99 s, F0 251.8 Hz, gain -0.0 dB, pauses [0.45, 0.3] s
+industrie-etat-03-p27 : 2 phrase(s)
+  [1] « Les sociétés cotées en Bourse en représentent soixante-dix-sept virgule six milliards. » (21 syll., ~4.1 s)
+      prise 1 (graine 922437) : 7.5 s de calcul, 3.48 s articulées, 6.0 syll/s (1.18 × réf.), F0 238.1 Hz (-0.41 dt cible), fin -2.6 dt, saut +2.40 dt, dispersion 3.08 dt
+      prise 2 (graine 922438) : 7.9 s de calcul, 3.53 s articulées, 6.0 syll/s (1.16 × réf.), F0 245.4 Hz (+0.11 dt cible), fin -6.8 dt, saut +1.76 dt, dispersion 3.3 dt
+      prise 3 (graine 922439) : 8.2 s de calcul, 3.41 s articulées, 6.2 syll/s (1.20 × réf.), F0 231.8 Hz (-0.87 dt cible), fin -3.0 dt, saut +1.67 dt, dispersion 3.4 dt
+    → prise 2 retenue sur 3 : F0 245.4 Hz (+0.11 dt), fin -6.8 dt, 6.0 syll/s, saut +1.76 dt
+  [2] « Un an plus tôt, l'ensemble valait deux cent neuf virgule un milliards. » (16 syll., ~3.1 s)
+      prise 1 (graine 785707) : 6.5 s de calcul, 3.00 s articulées, 5.3 syll/s (1.04 × réf.), F0 261.5 Hz (+1.21 dt cible), fin -4.0 dt, saut +4.73 dt, dispersion 3.21 dt
+      prise 2 (graine 785708) : 7.1 s de calcul, 2.99 s articulées, 5.3 syll/s (1.04 × réf.), F0 246.0 Hz (+0.16 dt cible), fin -4.2 dt, saut +2.13 dt, dispersion 2.95 dt
+      prise 3 (graine 785709) : 7.4 s de calcul, 3.31 s articulées, 4.8 syll/s (0.94 × réf.), F0 271.2 Hz (+1.84 dt cible), fin -5.2 dt, saut +6.22 dt, dispersion 4.39 dt → hors critères : hauteur +1.84 dt de la cible
+    → prise 2 retenue sur 3 : F0 246.0 Hz (+0.16 dt), fin -4.2 dt, 5.3 syll/s, saut +2.13 dt
+  → industrie-etat-03-p27 : 7.43 s, F0 245.9 Hz, gain +0.0 dB, pauses [0.32, 0.25] s
+
+Rapport de génération des voix — 2026-10-15 18:55:26
+Commande : generate.py --voice aigue --segment industrie-etat-02-p27 --segment industrie-etat-03-p27 --keep-takes
+Mode clone, phrase par phrase. Niveau de parole active -20.0 dBFS, crêtes sous -1.5 dBFS
+
+Voix aiguë (aigue, v3.1a) — référence : F0 médiane 270.1 Hz (partie lue 267.5 Hz, fin -3.4 dt) ; cible 243.8 Hz ; débit articulé 5.12 syll/s ; 3 prises par phrase
+  phrase                           prise     F0  cible    fin   saut tol. syll/s  ×réf  prises (F0 Hz, ×: écartée, ~: hors critères, !: son parasite net, ?: son parasite léger)
+  industrie-etat-02-p27 — 8.99 s, F0 251.8 Hz, pauses entre phrases [0.45, 0.3] s
+    1. Au trente juin deux mille v…   3/3    248.1  +0.30   -4.9   +0.7  0.0    6.0  1.17  1:233 2:252 3:248
+    2. Leur valeur était estimée à…   3/3    254.7  +0.76   -5.3   +1.0  4.9    6.6  1.28  1:217~ 2:271~ 3:255
+  industrie-etat-03-p27 — 7.43 s, F0 245.9 Hz, pauses entre phrases [0.32, 0.25] s
+    1. Les sociétés cotées en Bour…   2/3    245.4  +0.11   -6.8   +1.8  5.3    6.0  1.16  1:238 2:245 3:232
+    2. Un an plus tôt, l'ensemble …   2/3    246.0  +0.16   -4.2   +2.1  6.0    5.3  1.04  1:262 2:246 3:271~
+
+Aucune alerte.
+
+Temps : 108 s pour 12 prise(s), 8.53 s de calcul par prise en moyenne (3.93 s d'audio) ; calcul d'une prise ≈ -0.26 s + 2.27 s par seconde d'audio. Détecteur de sons parasites : 0.12 s par prise en moyenne (au plus 0.218 s), 1% du calcul d'une prise.
+Estimation pour les 1109 passages (2075 phrases) (voix aiguë 3 prises, 0% de secours) : ~920 min.
+
+
+=== 2026-10-15 18:57:16 : generate.py --scan --voice aigue --segment industrie-etat-02-p27 --segment industrie-etat-03-p27
+Contrôle des sons parasites : 2 passage(s) publié(s) (aiguë)
+  aigue/industrie-etat-02-p27 : ok
+  aigue/industrie-etat-03-p27 : ok
+
+Contrôle des sons parasites — 2026-10-15 18:57:16
+Commande : generate.py --scan --voice aigue --segment industrie-etat-02-p27 --segment industrie-etat-03-p27
+Détecteur : artefacts.py (alignement Qwen3-ForcedAligner, seuils étalonnés : voir artefacts.py et README.md). Net : à refaire ; léger : signalé seulement.
+
+aigue / industrie-etat-02-p27 — 8.99 s : ok
+aigue / industrie-etat-03-p27 — 7.43 s : ok
+
+À refaire (0) : aucun
+Temps : 2 s pour 2 passage(s), chargement du modèle d'alignement compris.
+

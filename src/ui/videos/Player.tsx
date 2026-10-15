@@ -27,7 +27,7 @@ import { useEffect, useMemo, useRef, useState } from 'preact/hooks'
 import type { QuestionBank, Topic, TopicGroup } from '../../core/types'
 import { AiNote } from '../components/AiLabel'
 import { ExternalLink } from '../components/ExternalLink'
-import { formatDate } from '../format'
+import { formatSourceDate } from '../format'
 import { stopAudio, unlockAudio, videoSeconds, voiceOf, voicedCount } from './audio'
 import { Glyph } from './Glyph'
 import { LECTEUR, isPlayerEntry } from './history'
@@ -86,7 +86,6 @@ const isPopin = () => typeof matchMedia !== 'undefined' && matchMedia(POPIN).mat
 /** Libellé de source ou date en milieu de phrase : minuscule initiale, sauf sigle (« COR ») */
 const lowerFirst = (s: string) => (/^\p{Lu}\p{Ll}/u.test(s) ? s[0]!.toLowerCase() + s.slice(1) : s)
 const plural = (n: number, word: string) => `${n}\u00a0${word}${n > 1 ? 's' : ''}`
-const dateOf = (d?: string) => (d ? (/^\d{4}-\d{2}(-\d{2})?$/.test(d) ? formatDate(d) : d) : '')
 const seriesSeconds = (s: VideoSeries) => s.videos.reduce((t, v) => t + videoSeconds(v), 0)
 
 /** Le fil : chaque famille dans l'ordre éditorial, ses séries dans l'ordre de ses thèmes, chaque série en entier */
@@ -658,7 +657,7 @@ export function VideoPlayer({
                 {current.script.sources.map(s => (
                   <li key={s.url + s.title}>
                     <ExternalLink href={s.url}>{s.title}</ExternalLink>
-                    <span class="vp-source-meta">{[s.publisher, dateOf(s.date)].filter(Boolean).join(', ')}</span>
+                    <span class="vp-source-meta">{[s.publisher, formatSourceDate(s.date)].filter(Boolean).join(', ')}</span>
                   </li>
                 ))}
               </ol>
@@ -858,7 +857,7 @@ function figureLine(f: NonNullable<VideoSegment['figure']>, script: VideoScript)
   const source = script.sources[f.sourceIndex]
   const who = source ? (source.publisher ?? source.title) : ''
   const label = lowerFirst(f.label.trim().replace(/\.$/, ''))
-  const tail = [who, f.date ? lowerFirst(f.date) : ''].filter(Boolean).join(', ')
+  const tail = [who, f.date ? lowerFirst(formatSourceDate(f.date)) : ''].filter(Boolean).join(', ')
   return `Chiffre clé\u00a0: ${f.value}, ${label}.${tail ? ` Source\u00a0: ${tail}.` : ''}`
 }
 

@@ -30,7 +30,7 @@ import { SiteFooter } from '../components/SiteFooter'
 import { LEGEND, Mark, ROW, ROW_HELP, rowLabel, rowSays, type Say } from '../compare/Relation'
 import { MAX_COMPARED, MAX_COMPARED_WORDS, setSelection } from '../compare/selection'
 import { CompareBar, CompareToggle } from '../compare/Tray'
-import { formatDate, hostOf } from '../format'
+import { formatSourceDate, hostOf } from '../format'
 import { isMany } from '../many'
 import { link, rewrite } from '../nav'
 import '../../styles/compare.css'
@@ -1083,7 +1083,7 @@ function SourceList({ sources }: { sources: Source[] }) {
           <ExternalLink href={s.url}>{s.title}</ExternalLink>{' '}
           <span class="source-meta">
             {s.publisher ?? hostOf(s.url)}
-            {s.date ? `, ${formatDate(s.date)}` : ''}
+            {s.date ? `, ${formatSourceDate(s.date)}` : ''}
           </span>
         </li>
       ))}

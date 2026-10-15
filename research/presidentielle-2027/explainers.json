@@ -1073,29 +1073,29 @@
       ],
       "figures": [
         {
-          "value": "209,1 Md€",
-          "label": "Valeur des participations de l’État suivies par l’Agence des participations de l’État au 30 juin 2025 (86 entités : 72 entreprises non cotées, 10 entreprises cotées et 4 structures de défaisance ou entités en extinction), contre 179,5 Md€ un an plus tôt. Dont 67,9 Md€ dans des sociétés cotées en Bourse, contre 50 Md€ en 2024.",
-          "date": "30 juin 2025",
+          "value": "229,6 Md€",
+          "label": "Valeur des participations de l’État suivies par l’Agence des participations de l’État au 30 juin 2026 (87 entités : 72 entreprises non cotées, 11 entreprises cotées et 4 structures de défaisance ou entités en extinction), contre 209,1 Md€ un an plus tôt. Dont 77,6 Md€ dans des sociétés cotées en Bourse, en hausse de 12,5 % sur un an (Eutelsat compté dès juin 2025).",
+          "date": "30 juin 2026",
           "source": {
-            "title": "Rapport relatif à l'État actionnaire (annexe au projet de loi de finances pour 2026)",
-            "url": "https://www2.assemblee-nationale.fr/static/17/Annexes-DL/PLF-2026/10-Jaune2026_Etat_actionnaire.pdf",
+            "title": "Rapport relatif à l'État actionnaire (annexe au projet de loi de finances pour 2027)",
+            "url": "https://www2.assemblee-nationale.fr/static/17/Annexes-DL/PLF_2027/10-Jaune-2027-Etat-actionnaire.pdf",
             "publisher": "Agence des participations de l'État (annexe budgétaire publiée par l'Assemblée nationale)",
-            "date": "2025-10"
+            "date": "2026-10"
           },
-          "quote": "La valeur totale du portefeuille de l'APE est estimée au 30 juin 2025 à 209,1 Md€, en augmentation par rapport à l'année dernière à la même date (179,5 Md€ en 2024). Le portefeuille des sociétés cotées atteint 67,9 Md€, contre 50 Md€ en 2024. […] La situation des 86 entreprises du portefeuille de l'APE est hétérogène [p. 34 du PDF] 72 entreprises non cotées, 10 entreprises cotées et 4 structures de défaisance […] [p. 20, chiffres clés] 86 : nombre d’entités suivies par l’Agence des participations de l’État",
+          "quote": "[p. 21, chiffres clés] 87 Nombre d’entités suivies par l’Agence des participations de l’État. […] 229,6 Md€ Valeur totale du portefeuille de l’APE au 30 juin 2026, dont 77,6 Md€ correspondant à la valeur totale des participations dans des sociétés cotées. [p. 38] Dont : 72 entreprises non cotées, 11 entreprises cotées et 4 structures de défaisance ou entités en extinction […] La valeur totale du portefeuille s’élevait à 209,1 Mds€ au 30 juin 2025 […] Pro-forma de la participation de l’État dans Eutelsat : celle-ci est comptée dans le portefeuille coté de l’APE le 30 juin 2025 […] [p. 7] 77,6 Md€ au 30 juin 2026, en hausse de 8,6 Md€, soit +12,5 % sur un an.",
           "verified": true
         },
         {
-          "value": "2 469 M€",
-          "label": "Dividendes reçus en argent par l'État actionnaire en 2024. Pour l'année 2025, les entreprises à participation publique avaient déjà versé plus de 4,3 Md€ à la date du rapport. Ces dividendes sont versés au budget général de l'État.",
-          "date": "2024",
+          "value": "4 719 M€",
+          "label": "Dividendes reçus en argent par l’État actionnaire en 2025, contre 2,5 Md€ en 2024. Cette hausse vient surtout d’un dividende exceptionnel de 2 Md€ versé par EDF. S’y ajoutent 168 M€ de dividendes reçus en titres.",
+          "date": "2025",
           "source": {
-            "title": "Rapport relatif à l'État actionnaire (annexe au projet de loi de finances pour 2026)",
-            "url": "https://www2.assemblee-nationale.fr/static/17/Annexes-DL/PLF-2026/10-Jaune2026_Etat_actionnaire.pdf",
+            "title": "Rapport relatif à l'État actionnaire (annexe au projet de loi de finances pour 2027)",
+            "url": "https://www2.assemblee-nationale.fr/static/17/Annexes-DL/PLF_2027/10-Jaune-2027-Etat-actionnaire.pdf",
             "publisher": "Agence des participations de l'État (annexe budgétaire publiée par l'Assemblée nationale)",
-            "date": "2025-10"
+            "date": "2026-10"
           },
-          "quote": "2 469 M€ Montant des dividendes reçus par l'État actionnaire en 2024 exclusivement en numéraire. […] pour l'année 2025 les entreprises à participations publiques ont déjà versé plus de 4,3 Md€ […] les dividendes perçus des entreprises du portefeuille de l'APE sont intégralement versés au budget général de l'État.",
+          "quote": "[p. 22, chiffres clés] 4 887 M€ Montant des dividendes reçus par l’État actionnaire en 2025 dont 4 719 M€ en numéraire et 168 M€ perçus en titres. [p. 41, figure 7 « Dividendes perçus par l’État des entreprises cotées et non cotées du portefeuille (Md€) », ligne « Numéraire »] 2024 : 2,5 ; 2025 : 4,7 […] [p. 42] en augmentation de 2,5 Md€ par rapport à 2024. Cela s’explique principalement par le dividende en numéraire exceptionnel de 2 Md€ perçu de la part d’EDF",
           "verified": true
         },
         {
