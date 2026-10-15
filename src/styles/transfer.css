@@ -17,6 +17,10 @@
   margin-bottom: 0;
 }
 
+.transfer-work {
+  container: transfer-work / inline-size;
+}
+
 .transfer-switch {
   margin-top: 0;
 }
@@ -496,4 +500,46 @@
   text-align: center;
   font-size: var(--text-sm);
   font-weight: 650;
+}
+
+/* Texte très agrandi (14rem de colonne, qu'aucun téléphone n'atteint à texte normal, 280px compris) : marges resserrées,
+   la lettre des trois façons passe au-dessus (plus de colonne de marge), la croix au-dessus de la mise en garde, et les
+   boutons passent à la ligne, un mot trop long coupé plutôt que de pousser la page sur le côté */
+@container transfer-work (max-width: 14rem) {
+  .transfer-panel,
+  .code-box {
+    padding-inline: var(--s2);
+    overflow-wrap: anywhere;
+  }
+
+  .transfer-ways > li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .transfer-ways .row-letter {
+    justify-content: start;
+    padding-top: var(--s3);
+    border-right: 0;
+  }
+
+  .way {
+    padding: var(--s1) 0 var(--s3);
+  }
+
+  .transfer-warning {
+    grid-template-columns: minmax(0, 1fr);
+    padding-inline: var(--s2);
+  }
+
+  .transfer-panel .btn-primary,
+  .transfer-panel .btn-text {
+    max-width: 100%;
+    white-space: normal;
+    text-align: start;
+    overflow-wrap: anywhere;
+  }
+
+  .transfer-panel .btn-primary {
+    padding-inline: var(--s3);
+  }
 }

@@ -2581,7 +2581,7 @@ try {
     const pagesWide = [
       '/', '/resultats', '/proximite', '/candidats', `/candidat/${FICHE.id}`, `/comparer/${pack.candidates.slice(0, 4).map(c => c.id).join(',')}`,
       '/partager', '/profil', '/sujets', ...(VIDEOS_SHOWN ? ['/videos'] : []), '/feuille/1', '/approfondir', '/priorites',
-      ...(PROFILE ? ['/a-table'] : []), '/methode', '/confidentialite', '/mentions-legales',
+      ...(PROFILE ? ['/a-table'] : []), '/autre-appareil', '/autre-appareil/importer', '/methode', '/confidentialite', '/mentions-legales',
     ]
     const sizesWide = [[1920, 200], [1280, 200], [1024, 200], [768, 200], [390, 200], [320, 200]]
     const wideIssues = []
