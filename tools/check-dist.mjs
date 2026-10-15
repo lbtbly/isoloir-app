@@ -143,17 +143,18 @@ for (const f of agreeChunks) {
   if (size > AGREE_BUDGET) fail(`image « Accords et désaccords » : assets/${f} pèse ${(size / 1000).toFixed(1)} ko, plafond de ${AGREE_BUDGET / 1000} ko`)
 }
 // « Mon profil politique » (src/ui/screens/Profile.tsx, avec son calcul, src/core/echiquier.ts, et ses mots,
-// src/core/echiquierCopy.ts) : un fichier à part, chargé à la demande par import() (src/ui/profile/load.ts), jamais dans
-// le JS initial ni préchargé par la page. Plafond relevé de 38 à 54 ko le 12 octobre 2026 : la présentation « une ligne
-// par sujet » validée par le propriétaire (src/ui/profile/Chart.tsx et rows.ts : l'axe, ses lignes et leurs sections, le
-// clavier, les cases aux couleurs d'affinité) s'ajoute au tableau détaillé, gardé replié dessous, et à la rubrique de la
-// Méthode, alors rangée là ; le tout pesait environ 48 ko, 52,4 ko le 15 octobre 2026. Ce jour-là, la rubrique de la
-// Méthode en est sortie dans son propre fichier (ci-dessous), qui ramène la page à 42,1 ko, plus 1,6 ko du petit fichier
-// qu'elle partage avec la rubrique, et le plafond passe à 58 ko (décision du propriétaire du 15 octobre 2026) : la place
-// des lectures approfondies du profil, sans tirage au sort (lignes rouges, priorités, « Ce qui pèse le plus », « Votre
-// façon de répondre »). Le plafond compte la page et ce qu'elle charge en plus du JS initial (43,8 ko le 15 octobre
-// 2026) : un code passé dans un fichier commun y reste compté. Rien de cela ne pèse sur le JS initial, ni sur une visite
-// qui n'ouvre pas la page
+// src/core/echiquierCopy.ts) : un fichier à part, chargé à la demande par import() (src/ui/profile/load.ts), jamais
+// dans le JS initial ni préchargé par la page. Plafond relevé de 38 à 54 ko le 12 octobre 2026 : la présentation « une
+// ligne par sujet » validée par le propriétaire (src/ui/profile/Chart.tsx et rows.ts : l'axe, ses lignes et leurs
+// sections, le clavier, les cases aux couleurs d'affinité) s'ajoute au tableau détaillé, gardé replié dessous, et à la
+// rubrique de la Méthode, alors rangée là ; le tout pesait environ 48 ko, 52,4 ko le 15 octobre 2026. Ce jour-là, la
+// rubrique de la Méthode en est sortie dans son propre fichier (ci-dessous), qui ramène la page à 42,1 ko, plus 1,6 ko
+// du petit fichier qu'elle partage avec la rubrique, et le plafond passe à 58 ko (décision du propriétaire du 15
+// octobre 2026) : la place des lectures approfondies du profil, sans tirage au sort (lignes rouges, priorités, « Ce qui
+// pèse le plus », « Votre façon de répondre »), et le calcul sans tirage (compte complet jusqu'à cent mille façons,
+// lois par bloc et addition au-delà), qui pèse environ 3,5 ko de plus que les tirages qu'il remplace. Le plafond compte
+// la page et ce qu'elle charge en plus du JS initial (43,8 ko le 15 octobre 2026) : un code passé dans un fichier
+// commun y reste compté. Rien de cela ne pèse sur le JS initial, ni sur une visite qui n'ouvre pas la page
 const PROFILE_BUDGET = 58_000
 const profileChunks = readdirSync(join(dist, 'assets')).filter(f => /^Profile-[\w-]+\.js$/.test(f))
 if (profileChunks.length !== 1) fail(`« Mon profil politique » : ${profileChunks.length} fichier(s) assets/Profile-*.js, un attendu`)

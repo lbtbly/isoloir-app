@@ -99,7 +99,7 @@ function allTexts(): string[] {
   for (const v of [...Object.values(T), ...Object.values(M)]) if (typeof v !== 'function') walk(v)
   for (const n of [1, 2, 7]) {
     out.push(T.howWho(15, n), T.onQuestions(n), T.familyHead(n + 1), T.nothingLine(n), T.apartLine(n), T.noReadingLine(n), T.unansweredLine(n))
-    out.push(...T.caveats(15), T.unplaced(n, false), T.unplaced(n, true), T.chanceNote(true, n * 12), T.chanceNote(false, 999))
+    out.push(...T.caveats(15), T.unplaced(n, false), T.unplaced(n, true), T.chanceNote(true, n * 12), T.chanceNote(true, n * 12_345), T.chanceNote(false, Number.POSITIVE_INFINITY))
   }
   // La page d'attente et la fiche « Pour lire plus de thèmes »
   for (const w of ['vide', 'en-cours', 'sans-avis'] as const)
@@ -156,6 +156,28 @@ describe('accords', () => {
     expect(T.gap(30, 45, 'loin')).toBe(`−15${NB}points, nettement plus loin`)
     expect(T.gap(30, 31, 'rien')).toBe(`−1${NB}point`)
     expect(T.pct(64.6)).toBe(`65${NB}%`)
+  })
+
+  it('la note du détail et la Méthode disent la méthode sans tirage : le nombre de façons à la française, jamais un tirage', () => {
+    // Le nombre de façons, tel que la page peut le dire (UnitReading.ways) : exact jusqu'à cent mille, au-delà en mots
+    expect(T.chanceNote(true, 15_750)).toMatch(new RegExp(`sur les 15${NB}750 placements possibles de vos avis, question par question, le vôtre compris${NB};`))
+    expect(T.chanceNote(true, 100_000)).toContain(`les 100${NB}000 placements possibles`)
+    expect(T.chanceNote(true, 36)).toContain('les 36 placements possibles')
+    expect(T.chanceNote(true, 15_750)).not.toMatch(/prudente/)
+    const bound = T.chanceNote(false, Number.POSITIVE_INFINITY)
+    expect(bound).toContain('sur tous les placements possibles de vos avis (plus de cent mille)')
+    expect(bound).toMatch(/une part calculée bloc par bloc puis additionnée, qui ne peut être que trop prudente\)\.$/)
+    expect(ECHIQUIER.COUNT_MAX).toBe(100_000)
+    for (const s of [T.chanceNote(true, 15_750), bound, T.chanceNote(false, 3888), M.methodChance(5)]) {
+      expect(s, s).not.toMatch(/tirés au (hasard|sort)|\d\.\d|e\+|Infinity|NaN|999/)
+    }
+    // La Méthode : compter jusqu'à cent mille, calculer au-delà, rien de tiré au sort
+    expect(M.methodChance(5)).toMatch(/comptés un à un quand ils sont cent mille au plus\. Au-delà, la page calcule bloc par bloc/)
+    expect(M.methodChance(5)).toContain(`Rien n’est tiré au sort${NB}: mêmes réponses, même lecture.`)
+    // La page passe le nombre que la note peut dire, jamais N brut (arrangements, qui peut valoir 10²⁵)
+    const page = readFileSync(join(ROOT, 'src/ui/screens/Profile.tsx'), 'utf8')
+    expect(page).toContain('T.chanceNote(unit.exact, unit.ways)')
+    expect(page).not.toMatch(/chanceNote\([^)]*arrangements/)
   })
 })
 

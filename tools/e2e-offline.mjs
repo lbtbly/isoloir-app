@@ -28,7 +28,8 @@
 // l'échelle d'affinité et à elles seules (clair et sombre), sans nouvelle clé de stockage, sans défilement en largeur ni
 // texte rogné ou mot coupé (320, 390, 1 280 px, texte à 125 et 200 %, entrées comprises), sans focus caché sous
 // l'en-tête, l'axe collant ou l'en-tête des colonnes, et sans effet sur l'affiche JPG ; sa rubrique de la Méthode, hors
-// ligne, chargée sans la page ; rien de tout cela sans axe.
+// ligne, chargée sans la page ; le statut « Lecture en cours » d'une page lourde, processeur bridé ; rien de tout cela
+// sans axe.
 //
 // Usage : pnpm build && node tools/e2e-offline.mjs [port] [--pack <id>] [--prefix <slug>]
 //   --pack <id>     : l'élection à parcourir (par défaut, celle du registre sans préfixe : src/elections/index.ts)
@@ -1336,6 +1337,50 @@ try {
       )
       await rctx.close()
     } else console.log('– mon profil politique : aucune lecture nette pour le second état, contrôles en grand écran sautés')
+
+    // Une page lourde sur un téléphone lent (processeur bridé dix fois : bien plus de 300 ms de calcul) : tout noté sur
+    // la banque entière, d'accord, pas d'accord et sans avis en rotation. Le statut « Lecture en cours » paraît (au-delà
+    // de 300 ms), puis « Lecture prête. » : le calcul laisse passer la minuterie de la page, que les reprises de
+    // scheduler.yield, sous Chromium, feraient attendre jusqu'à la fin (contre-vérification du 15 octobre 2026)
+    {
+      const { STATUS_BUSY, STATUS_READY } = await importSite('src/core/echiquierCopy.ts')
+      const heavyAnswers = {}
+      pack.bank.questions.forEach((q, qi) => {
+        const ratings = Object.fromEntries(q.approaches.flatMap((a, i) => ([1, -1, 0][(qi + i) % 3] ? [[a.id, [1, -1, 0][(qi + i) % 3]]] : [])))
+        heavyAnswers[q.id] = { ratings, redLines: [], ...(q.rev ? { rev: q.rev } : {}) }
+      })
+      const heavy = sanitizeState({ ...freshState(pack.election.id, pack.election.dataVersion), answers: heavyAnswers, essentialDoneAt: new Date().toISOString() }, pack)
+      const hctx = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce', hasTouch: true, isMobile: true })
+      await hctx.addInitScript(s => {
+        Object.entries(s).forEach(([k, v]) => localStorage.setItem(k, v))
+        window.__statuses = []
+        const watch = () =>
+          new MutationObserver(() => {
+            const text = document.querySelector('main [role="status"]')?.textContent ?? ''
+            if (text && window.__statuses.at(-1) !== text) window.__statuses.push(text)
+          }).observe(document, { subtree: true, childList: true, characterData: true })
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', watch)
+        else watch()
+      }, { [STORAGE]: JSON.stringify(heavy) })
+      const hp = await hctx.newPage()
+      await hp.goto(HOME)
+      await hp.waitForLoadState('networkidle')
+      const cdp = await hctx.newCDPSession(hp)
+      await cdp.send('Emulation.setCPUThrottlingRate', { rate: 10 })
+      // Le statut de l'accueil (en ligne, hors ligne) ne compte pas
+      await hp.evaluate(() => (window.__statuses = []))
+      const t0 = Date.now()
+      await hp.goto(U('/profil'))
+      await hp.locator('[role="status"]', { hasText: STATUS_READY }).waitFor({ timeout: 30000 }).catch(() => null)
+      const ms = Date.now() - t0
+      const statuses = await hp.evaluate(() => window.__statuses)
+      await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 })
+      check(
+        statuses.join(' → ') === `${STATUS_BUSY} → ${STATUS_READY}`,
+        `mon profil politique, page lourde, processeur bridé dix fois : « ${statuses.join(' » → « ')} » en ${ms} ms (« Lecture en cours » attendu avant « Lecture prête. »)`,
+      )
+      await hctx.close()
+    }
 
     // Mise en page : rien en largeur à 320, 390 et 1 280 px, ni au texte agrandi à 200 % (une ligne ouverte et le détail
     // ouvert) ; aucun nom de sujet ni mot de case rogné, ni coupé sur deux lignes ; l'indication au doigt sur un téléphone. Au clavier, en remontant

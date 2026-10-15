@@ -75,7 +75,8 @@ export function Profile({ pack, state, essential, results, update }: Props) {
     }
     setReading(null)
     setStatus('')
-    // Le statut ne paraît qu'au-delà de 300 ms, pour éviter un éclair ; la page se rend en une fois, une fois tout lu
+    // Le statut ne paraît qu'au-delà de 300 ms, pour éviter un éclair (le calcul laisse passer cette minuterie, voir
+    // readEchiquierAsync) ; la page se rend en une fois, une fois tout lu
     const ctrl = new AbortController()
     const slow = window.setTimeout(() => setBusy(true), 300)
     readEchiquierAsync(pack, answers, ctrl.signal).then(
@@ -505,7 +506,7 @@ function DetailBody({ unit, ctx, deeper }: { unit: UnitReading; ctx: ProfileCtx;
           ))}
         </tbody>
       </table>
-      {tested ? <p class="small">{T.chanceNote(unit.exact, unit.arrangements)}</p> : null}
+      {tested ? <p class="small">{T.chanceNote(unit.exact, unit.ways)}</p> : null}
 
       <h3 class="detail-title">{T.PER_CANDIDATE}</h3>
       <ul class="detail-people">

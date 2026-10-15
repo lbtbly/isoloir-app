@@ -372,9 +372,16 @@ export const gap = (affinity: number, chance: number, mark: Mark) => {
   const net = netWord(mark)
   return `${signed(d)}${NB}point${Math.abs(d) > 1 ? 's' : ''}${net ? `, ${net}` : ''}`
 }
-export const chanceNote = (exact: boolean, n: number) =>
+/** « 97 200 » : les milliers séparés par une espace insécable */
+const thousands = (n: number) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, NB)
+/**
+ * La note sous le tableau d'une unité. ways : le nombre de façons de poser ses avis tel que la page peut le dire
+ * (UnitReading.ways : Infinity au-delà de cent mille) ; exact : toutes comptées une à une, sinon une part calculée bloc
+ * par bloc puis additionnée (core/echiquier.ts). Rien n'y est tiré au sort
+ */
+export const chanceNote = (exact: boolean, ways: number) =>
   fr(
-    `Vos avis placés au hasard : la moyenne du même calcul ${exact ? `sur les ${n} placements possibles de vos avis` : `sur ${n} placements de vos avis tirés au hasard`}, question par question ; « nettement plus près » ou « nettement plus loin » quand moins d’un placement sur dix fait un tel écart, tous blocs confondus.`,
+    `Vos avis placés au hasard : la moyenne du même calcul sur ${Number.isFinite(ways) ? `les ${thousands(ways)} placements possibles de vos avis` : 'tous les placements possibles de vos avis (plus de cent mille)'}, question par question, le vôtre compris ; « nettement plus près » ou « nettement plus loin » quand moins d’un placement sur dix fait un tel écart, tous blocs confondus${exact ? '' : ' (une part calculée bloc par bloc puis additionnée, qui ne peut être que trop prudente)'}.`,
   )
 export const PER_CANDIDATE = 'Votre affinité avec chaque candidat'
 export const UNKNOWN_POSITION = '(position inconnue)'
