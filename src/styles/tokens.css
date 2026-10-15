@@ -1,6 +1,7 @@
 /* Isoloir : monde « Le dépouillement ».
-   Encres : l'imprimé (faits, formulaire, positions), le bleu bille (ce que l'utilisateur coche) et le
-   stylo rouge (ses lignes rouges). Les pourcentages d'affinité se lisent sur une échelle rouge → vert.
+   Encres : l'imprimé (faits, formulaire, positions), le bleu bille (le stylo de l'électeur : ce qu'il compte, et
+   depuis la demande du propriétaire du 2026-10-15 les actions principales, en aplat) et le stylo rouge (ses lignes
+   rouges). Les pourcentages d'affinité se lisent sur une échelle rouge → vert.
    Le jaune autocopiant porte le double : l'image partagée (couleurs dans core/shareImage.ts) et, à l'écran, les aplats
    qui le montrent (affiche du parcours, parcours du candidat, affiche du plus proche, premier panneau des suites).
    Les quatre pastels du rideau (logo) habillent les autres aplats : un décor, jamais une donnée. Exception décidée
@@ -21,8 +22,31 @@
   --on-print: #ffffff;
   --focus: #1f3bb3;
 
+  /* L'action principale (.btn-primary et ses variantes), en aplat de bleu bille (demande du propriétaire du
+     2026-10-15 : les appels, noirs, se noyaient dans l'imprimé). Blanc sur bille 9:1, 11,4:1 au survol */
+  --action: #1f3bb3;
+  --action-hover: #192f8f;
+  --on-action: #ffffff;
+
   /* Stylo rouge : les lignes rouges de l'utilisateur (approches rayées, candidats concernés) */
   --red: #c90f1a;
+
+  /* Le tampon « À revoir » (questions changées), en aplat rouge et lettres blanches pour attirer l'œil (demande du
+     propriétaire du 2026-10-15). Blanc sur rouge 5,9:1 ; en sombre, un rouge plus profond que --red (5,3:1) */
+  --stamp-alert: #c90f1a;
+  --on-stamp-alert: #ffffff;
+
+  /* Le pied de l'accueil, sur fond d'encre d'imprimerie (demande du propriétaire du 2026-10-15) : la feuille en
+     négatif, aux encres du papier carbone. Texte 14,6:1, gris 8:1, bille 8,3:1, rouge 6:1 ; en sombre, le noir
+     pur (texte 17,4:1, gris 9,6:1, bille 9,9:1, rouge 7,2:1), sous un filet clair qui le détache du papier carbone */
+  --foot-paper: #17191c;
+  /* Le filet épais en haut de l'aplat : en clair, l'aplat lui-même ; en sombre, l'encre claire du pied (le noir du
+     pied ne se distingue presque pas du papier carbone, le filet le détache) */
+  --foot-edge: var(--foot-paper);
+  --foot-print: #e9eae5;
+  --foot-print-soft: #aab0b8;
+  --foot-ink: #9aaeff;
+  --foot-red: #fa6863;
 
   /* Échelle d'affinité (texte sur papier ≥ 5:1, texte sur teinte ≥ 4,5:1) — oklch, rouge → vert */
   --aff-tres-eloigne: #b7191c;
@@ -109,7 +133,14 @@
     --ink: #9aaeff;
     --on-print: #111419;
     --focus: #9aaeff;
+    /* L'action en bille claire, lettres du papier carbone : 8,7:1 (10,5:1 au survol) */
+    --action: #9aaeff;
+    --action-hover: #b5c1f7;
+    --on-action: #111419;
     --red: #fa6863;
+    --stamp-alert: #d0222b;
+    --foot-paper: #000000;
+    --foot-edge: #e9eae5;
     --aff-tres-eloigne: #f9786c;
     --aff-eloigne: #f9a275;
     --aff-mitige: #b1b1b1;
@@ -139,7 +170,13 @@
   --ink: #9aaeff;
   --on-print: #111419;
   --focus: #9aaeff;
+  --action: #9aaeff;
+  --action-hover: #b5c1f7;
+  --on-action: #111419;
   --red: #fa6863;
+  --stamp-alert: #d0222b;
+  --foot-paper: #000000;
+  --foot-edge: #e9eae5;
   --aff-tres-eloigne: #f9786c;
   --aff-eloigne: #f9a275;
   --aff-mitige: #b1b1b1;

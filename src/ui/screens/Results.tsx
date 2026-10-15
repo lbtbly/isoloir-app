@@ -331,6 +331,9 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
     if (profile) prepareProfile()
   }, [provisional, profile])
   const refineHref = `/feuille/${essential.indexOf(unseen[0]!) + 1}`
+  // Des questions à revoir : leur carte porte le seul aplat bleu de la vue, l'action de la barre et l'appel de la
+  // tendance passent au trait noir (2026-10-15)
+  const quiet = stale.length > 0
   const remaining = `${unseen.length}\u00a0question${unseen.length > 1 ? 's' : ''}`
 
   const row = (r: CandidateResult, i: number) => {
@@ -586,7 +589,7 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
             {provisional ? null : <Reading neutral />}
           </div>
           {provisional ? (
-            <Trend seen={essential.length - unseen.length} total={essential.length} left={unseen.length} href={link(refineHref)} profile={!!axis} />
+            <Trend seen={essential.length - unseen.length} total={essential.length} left={unseen.length} href={link(refineHref)} profile={!!axis} quiet={quiet} />
           ) : (
             <div class="results-side">
               <Leader ranking={ranking} results={results} byId={byId} />
@@ -897,14 +900,14 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
             )}
           </div>
           {provisional ? (
-            <button type="button" class="btn-primary" onClick={() => go(refineHref)}>
+            <button type="button" class={quiet ? 'btn-primary is-outline' : 'btn-primary'} onClick={() => go(refineHref)}>
               <span>
                 Continuer<span class="btn-label">&nbsp;: {remaining}</span>
               </span>
               <Icon name="arrow-right" />
             </button>
           ) : (
-            <button type="button" class="btn-primary" onClick={() => go('/proximite')}>
+            <button type="button" class={quiet ? 'btn-primary is-outline' : 'btn-primary'} onClick={() => go('/proximite')}>
               Qui porte quoi
               <Icon name="arrow-right" />
             </button>
@@ -933,7 +936,22 @@ function Reading({ neutral }: { neutral?: boolean }) {
  * Où vous en êtes : les questions du questionnaire rapide en bâtons, et l'appel à continuer, bien visible ; profile : ce
  * qui vient au bout, dont « Mon profil politique », vers sa page d'attente
  */
-function Trend({ seen, total, left, href, profile }: { seen: number; total: number; left: number; href: string; profile: boolean }) {
+function Trend({
+  seen,
+  total,
+  left,
+  href,
+  profile,
+  quiet,
+}: {
+  seen: number
+  total: number
+  left: number
+  href: string
+  profile: boolean
+  /** Au trait noir : la carte « À revoir » porte l'aplat bleu de la vue */
+  quiet: boolean
+}) {
   const next = trendNext(total)
   return (
     <section class="trend" aria-labelledby="trend-title">
@@ -948,7 +966,7 @@ function Trend({ seen, total, left, href, profile }: { seen: number; total: numb
         C’est un début&nbsp;:{' '}
         {left > 1 ? `les ${left} questions suivantes peuvent` : 'la question suivante peut'} encore changer l’ordre.
       </p>
-      <a class="btn-primary is-wide trend-cta" href={href}>
+      <a class={quiet ? 'btn-primary is-outline is-wide trend-cta' : 'btn-primary is-wide trend-cta'} href={href}>
         Continuer&nbsp;: {left} question{left > 1 ? 's' : ''}
         <Icon name="arrow-right" />
       </a>
