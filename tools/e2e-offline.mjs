@@ -1554,8 +1554,8 @@ try {
     const agreePressed = await agreeButton.getAttribute('aria-pressed')
     check(agreeShown && agreePressed === 'true', `image « Accords et désaccords » fabriquée hors ligne, chargée à la demande (bouton enfoncé : ${agreePressed})`)
     const scopes = [
-      ['Les 5 plus proches', /^Image « Accords et désaccords », les 5 classés les plus proches de mes idées, /, '-accords-plus-proches.jpg'],
-      ['Les 5 plus éloignés', /^Image « Accords et désaccords », les 5 classés les plus éloignés de mes idées, /, '-accords-plus-eloignes.jpg'],
+      ['Les 5 plus proches', /^Image « Accords et désaccords », les 5 classés les plus proches, /, '-accords-plus-proches.jpg'],
+      ['Les 5 plus éloignés', /^Image « Accords et désaccords », les 5 classés les plus éloignés, /, '-accords-plus-eloignes.jpg'],
       ['Tous', /^Image « Accords et désaccords », (les \d+ candidats|le candidat)/, '-accords-tous.jpg'],
     ]
     const hasScopes = (await page.getByRole('button', { name: 'Tous', exact: true }).count()) > 0

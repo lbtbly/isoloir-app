@@ -193,8 +193,8 @@ describe('image « Accords et désaccords » : textes', () => {
     // Des candidats hors classement ou non classés : « classés » (décision du propriétaire du 2026-10-15)
     const off = flagged.unranked.length + flagged.excluded.length > 0
     expect(off).toBe(true)
-    expect(agreeLead(flagged, 'top', 5)).toBe('Les 5 classés les plus proches de mes idées')
-    expect(agreeLead(flagged, 'flop', 5)).toBe('Les 5 classés les plus éloignés de mes idées')
+    expect(agreeLead(flagged, 'top', 5)).toBe('Les 5 classés les plus proches')
+    expect(agreeLead(flagged, 'flop', 5)).toBe('Les 5 classés les plus éloignés')
     const none = { ...flagged, unranked: [], excluded: [] }
     expect(agreeLead(none, 'top', 5)).toBe('Les 5 plus proches de mes idées')
     expect(agreeLead(none, 'flop', 5)).toBe('Les 5 plus éloignés de mes idées')
