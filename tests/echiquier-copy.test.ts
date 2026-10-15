@@ -1,13 +1,17 @@
-// Les mots de la page « Mon profil politique » (core/echiquierCopy.ts), sur le modèle de results-copy.test.ts : accords
-// au singulier et au pluriel, formes des blocs, et les règles d'écriture (DESIGN.md, The Reading Not Label Rule) : le
-// sujet est toujours « vos réponses », un bloc est toujours attribué à la grille, aucun mot d'étiquette, aucun « % »
-// dans la synthèse et les phrases, aucun symbole de lecture (seul « ? » reste), les espaces insécables du site.
-import { readFileSync } from 'node:fs'
+// Les mots de la page « Mon profil politique » (core/echiquierCopy.ts), de sa rubrique de la Méthode
+// (core/echiquierMethodCopy.ts) et ceux qu'elles ont en commun (core/echiquierCommonCopy.ts), sur le modèle de
+// results-copy.test.ts : accords au singulier et au pluriel, formes des blocs, et les règles d'écriture (DESIGN.md, The
+// Reading Not Label Rule) : le sujet est toujours « vos réponses », un bloc est toujours attribué à la grille, aucun mot
+// d'étiquette, aucun « % » dans la synthèse et les phrases, aucun symbole de lecture (seul « ? » reste), les espaces
+// insécables du site. Puis le découpage du build : la rubrique n'emporte ni le calcul de la page ni ses mots.
+import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
-import type { BlocCell, Mark, UnitReading, UnitStatus } from '../src/core/echiquier'
+import { ECHIQUIER, type BlocCell, type Mark, type UnitReading, type UnitStatus } from '../src/core/echiquier'
 import * as T from '../src/core/echiquierCopy'
+import * as M from '../src/core/echiquierMethodCopy'
+import { CLOSE_GAP } from '../src/core/score'
 import { axisOf } from '../src/core/spectrum'
 import { elections } from '../src/elections/all'
 
@@ -92,7 +96,7 @@ function allTexts(): string[] {
     else if (Array.isArray(v)) v.forEach(walk)
     else if (v && typeof v === 'object') Object.values(v).forEach(walk)
   }
-  for (const v of Object.values(T)) if (typeof v !== 'function') walk(v)
+  for (const v of [...Object.values(T), ...Object.values(M)]) if (typeof v !== 'function') walk(v)
   for (const n of [1, 2, 7]) {
     out.push(T.howWho(15, n), T.onQuestions(n), T.familyHead(n + 1), T.nothingLine(n), T.apartLine(n), T.noReadingLine(n), T.unansweredLine(n))
     out.push(...T.caveats(15), T.unplaced(n, false), T.unplaced(n, true), T.chanceNote(true, n * 12), T.chanceNote(false, 999))
@@ -103,7 +107,7 @@ function allTexts(): string[] {
   for (const n of [0, 1, 7, 22]) out.push(T.waitCount(n, 22))
   for (const n of [1, 2, 16]) out.push(T.thinLine(n), T.exampleRow(n))
   out.push(T.deeperLede(true), T.deeperLede(false))
-  out.push(T.howWho(15, 0), ...T.methodIntro(5), T.methodWho(15, 7, 2, 4, true), T.methodWho(15, 0, 3, 3, false), T.methodChance(5), ...T.methodWorth())
+  out.push(T.howWho(15, 0), ...M.methodIntro(5), M.methodWho(15, 7, 2, 4, true), M.methodWho(15, 0, 3, 3, false), M.methodChance(5), ...M.methodWorth())
   // Le graphique « Sujet par sujet »
   for (const n of [1, 2, 17]) {
     out.push(...T.countRead(n, 0), ...T.countRead(n, n + 1), T.questionsCount(n), T.themesTogether(n + 1), T.othersUnknown(n), T.flatTitle(n), T.unreadTitle(n, true), T.unreadTitle(n, false), T.detailShow(n))
@@ -319,7 +323,7 @@ describe('règles d’écriture', () => {
 
   it('chaque phrase qui nomme un bloc l’attribue à la grille ; « qu’elle » vient toujours après « la grille »', () => {
     const chart = [T.zonesLabel(5, 15), T.MAIN_LABEL, T.BOTH_HEAD, T.BOTH_ROW.join(''), T.bothRow(false).join(''), T.APART_HEAD, T.FLAT_HEAD, T.KEY_TEXT, T.COUNT_NONE, T.COLORS_NOTE, T.COLORS_CHANCE, ...T.countRead(3, 2)]
-    const texts = [...sentences, ...T.methodWorth(), ...allSummaries(), ...chart]
+    const texts = [...sentences, ...M.methodWorth(), ...allSummaries(), ...chart]
     for (const s of texts) {
       if (BLOC.test(s)) expect(/la grille/.test(s), s).toBe(true)
       for (const m of s.matchAll(/qu’elle classe/g)) expect(s.slice(0, m.index).includes('la grille'), s).toBe(true)
@@ -337,7 +341,7 @@ describe('règles d’écriture', () => {
     // Sans lecture, le sujet est « aucun sujet », pour « ces réponses »
     expect(T.COUNT_NONE).toMatch(/^Pour ces réponses, aucun sujet/)
     // La Méthode aussi : ce sont des réponses qui sont lues, pas une personne
-    for (const s of T.methodWorth()) {
+    for (const s of M.methodWorth()) {
       expect(/personne|quelqu’un/.test(s), s).toBe(false)
       if (/lues/.test(s)) expect(/réponses/.test(s), s).toBe(true)
     }
@@ -389,5 +393,37 @@ describe('règles d’écriture', () => {
       expect(/« /.test(t), `espace ordinaire après « : « ${t} »`).toBe(false)
       expect(/\d %/.test(t), `espace ordinaire devant % : « ${t} »`).toBe(false)
     }
+  })
+})
+
+describe('la rubrique de la Méthode, un fichier à part du build', () => {
+  /** Les fichiers que tire un module, de proche en proche : importations de valeurs relatives (« import type » s'efface) */
+  function reached(start: string): Set<string> {
+    const seen = new Set<string>()
+    const visit = (file: string) => {
+      if (seen.has(file)) return
+      seen.add(file)
+      const code = readFileSync(join(ROOT, file), 'utf8')
+      for (const m of code.matchAll(/^(?:import|export) (?!type\b)[^'"]*?from '(\.[^']+)'/gm)) {
+        const base = join(file, '..', m[1]!)
+        const next = ['.ts', '.tsx', '/index.ts'].map(ext => base + ext).find(f => existsSync(join(ROOT, f)))
+        if (next) visit(next)
+      }
+    }
+    visit(start)
+    return seen
+  }
+
+  it('n’emporte ni la page, ni son calcul, ni ses mots ; la page n’emporte pas les mots de la rubrique', () => {
+    const files = reached('src/ui/profile/MethodSection.tsx')
+    for (const f of ['src/core/echiquierMethodCopy.ts', 'src/core/echiquierCommonCopy.ts', 'src/core/echiquierPanel.ts']) expect(files, f).toContain(f)
+    for (const f of ['src/ui/screens/Profile.tsx', 'src/ui/profile/Chart.tsx', 'src/core/echiquier.ts', 'src/core/echiquierCopy.ts']) expect(files, f).not.toContain(f)
+    const page = reached('src/ui/screens/Profile.tsx')
+    expect(page).toContain('src/core/echiquier.ts')
+    expect(page).not.toContain('src/core/echiquierMethodCopy.ts')
+  })
+
+  it('dit l’écart du calcul, qu’elle prend sans lui : ECHIQUIER.GAP est CLOSE_GAP', () => {
+    expect(ECHIQUIER.GAP).toBe(CLOSE_GAP)
   })
 })

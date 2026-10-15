@@ -1,6 +1,6 @@
 // Le schéma de la rubrique « Mon profil politique » de la Méthode, au trait comme les autres (components/Diagrams.tsx),
 // à l'encre seule : de vos avis à la couleur de chaque case et à sa lecture nette, en mots (aucun symbole). Dans le
-// fichier à part de la page, chargé à la demande.
+// fichier à part de la rubrique, chargé à la demande par la Méthode (ui/profile/load.ts).
 
 import { Arrow, Figure } from '../components/Diagrams'
 

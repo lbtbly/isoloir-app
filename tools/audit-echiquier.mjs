@@ -1,9 +1,10 @@
 // Audit de la page « Mon profil politique » (src/core/echiquier.ts) : rejoue la calibration complète sur une élection
 // (clones larges, stricts, bruités et du seul questionnaire rapide, avec et sans le candidat dans le calcul ; réponses
 // tirées au hasard selon six schémas, dont trois sur le seul questionnaire rapide ; profils composés de la demande du
-// propriétaire), à 999 tirages, et imprime les chiffres à reporter dans ECHIQUIER_PUBLISHED (src/core/echiquierCopy.ts),
-// ceux que publie la Méthode, avec ceux qui y sont. Pour les clones larges, il imprime aussi qui la lecture désigne,
-// bloc vrai par bloc vrai ; pour le hasard, la part de chaque bloc parmi les ▲ et dans la synthèse. Aucune IA : le calcul même de la page. Les profils sont ceux de tests/echiquier-calibration.test.ts
+// propriétaire), à 999 tirages, et imprime les chiffres à reporter dans ECHIQUIER_PUBLISHED
+// (src/core/echiquierMethodCopy.ts), ceux que publie la Méthode, avec ceux qui y sont. Pour les clones larges, il
+// imprime aussi qui la lecture désigne, bloc vrai par bloc vrai ; pour le hasard, la part de chaque bloc parmi les ▲ et
+// dans la synthèse. Aucune IA : le calcul même de la page. Les profils sont ceux de tests/echiquier-calibration.test.ts
 // (tests/fixtures/echiquier-profiles.ts), en plus grand nombre.
 //
 // Usage : node tools/audit-echiquier.mjs [<id>] [--profiles 400] [--draws 999]
@@ -33,7 +34,7 @@ if (!pack) {
   process.exit(2)
 }
 const { readEchiquier } = await importSite('src/core/echiquier.ts')
-const { ECHIQUIER_PUBLISHED } = await importSite('src/core/echiquierCopy.ts')
+const { ECHIQUIER_PUBLISHED } = await importSite('src/core/echiquierMethodCopy.ts')
 const { SCHEMES, isQuick, pct, profilesFor } = await importSite('tests/fixtures/echiquier-profiles.ts')
 const P = profilesFor(pack)
 if (!P.ranked.length) {
@@ -163,7 +164,7 @@ const measured = {
 }
 const mixed = mixedSchemes.flatMap(summaryShares)
 console.log(`\nAvis mêlés (${mixedSchemes.join(', ')}) : chaque bloc reçoit de ${r1(Math.min(...mixed))} à ${r1(Math.max(...mixed))} % de la synthèse`)
-console.log('\nÀ reporter dans ECHIQUIER_PUBLISHED (src/core/echiquierCopy.ts) :')
+console.log('\nÀ reporter dans ECHIQUIER_PUBLISHED (src/core/echiquierMethodCopy.ts) :')
 for (const [k, v] of Object.entries(measured)) {
   const published = ECHIQUIER_PUBLISHED[k]
   const far = k.startsWith('randomPerProfile') || k.startsWith('oneChoiceRatio') ? Math.abs(v - published) > 0.5 : Math.abs(v - published) > 5

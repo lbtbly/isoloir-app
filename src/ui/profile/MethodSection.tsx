@@ -1,12 +1,13 @@
 // La rubrique « Mon profil politique » de la Méthode (#/methode/profil), sous son titre, que la Méthode pose elle-même
-// (l'ancre existe dès l'ouverture). Dans le fichier à part de la page, chargé à la demande : le code de toutes les
-// visites n'en contient rien. Ses chiffres viennent de ECHIQUIER_PUBLISHED (core/echiquierCopy.ts), mesurés par
-// tools/audit-echiquier.mjs.
+// (l'ancre existe dès l'ouverture). Un fichier à part du build, chargé à la demande par la Méthode (ui/profile/load.ts),
+// sans la page ni son calcul (core/echiquier.ts) : ses mots sont dans core/echiquierMethodCopy.ts, les candidats de
+// l'axe dans core/echiquierPanel.ts ; le code de toutes les visites n'en contient rien. Ses chiffres viennent de
+// ECHIQUIER_PUBLISHED (core/echiquierMethodCopy.ts), mesurés par tools/audit-echiquier.mjs.
 
-import { blocOf, ECHIQUIER, panelOf } from '../../core/echiquier'
-import * as T from '../../core/echiquierCopy'
-import { excludedIds } from '../../core/score'
-import { axisOf } from '../../core/spectrum'
+import { panelOf } from '../../core/echiquierPanel'
+import * as T from '../../core/echiquierMethodCopy'
+import { CLOSE_GAP, excludedIds } from '../../core/score'
+import { axisOf, blocOf } from '../../core/spectrum'
 import type { ElectionPack } from '../../core/types'
 import { SectionLink } from '../components/LegalBits'
 import { ProfileDiagram } from './Diagram'
@@ -40,7 +41,8 @@ export function ProfileMethod({ pack }: { pack: ElectionPack }) {
         <strong>Le calcul.</strong> {T.METHOD_CALC}
       </p>
       <p>
-        <strong>Le hasard.</strong> {T.methodChance(ECHIQUIER.GAP)}
+        {/* L'écart minimal des lectures nettes : ECHIQUIER.GAP du calcul (core/echiquier.ts), qui est CLOSE_GAP */}
+        <strong>Le hasard.</strong> {T.methodChance(CLOSE_GAP)}
       </p>
       <p>
         <strong>Les couleurs.</strong> {T.HOW_COLOR} {T.COLORS_CHANCE}

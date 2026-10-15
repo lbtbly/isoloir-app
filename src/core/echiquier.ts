@@ -17,7 +17,8 @@
 
 import { hasOpinion } from './answers'
 import { hashString, mulberry32 } from './rng'
-import { CLOSE_GAP, effectiveWeight, excludedIds, stance } from './score'
+import { panelOf } from './echiquierPanel'
+import { CLOSE_GAP, effectiveWeight, stance } from './score'
 import { axisOf, blocOf } from './spectrum'
 import type { Answer, Answers, ApproachId, CandidateId, ElectionPack, Question, QuestionId, SpectrumAxisBloc, TopicGroup, TopicId } from './types'
 
@@ -126,23 +127,10 @@ export interface ReadOptions {
 export { blocOf }
 
 /**
- * Les candidats qui comptent sur l'axe, bloc par bloc dans l'ordre de l'axe : ceux que le score calcule (ni masqués,
- * déjà retirés du pack, ni non classés), dont le bloc est sur l'axe ; dans l'ordre alphabétique de leur identifiant au
- * sein d'un bloc, comme sur la page des candidats. Le même pour tout le monde : les candidats hors classement d'une
- * personne y restent. Sans axe : vide.
+ * Les candidats qui comptent sur l'axe, bloc par bloc : définis à part (core/echiquierPanel.ts), pour la rubrique de la
+ * Méthode ; repris ici pour les importeurs du calcul
  */
-export function panelOf(pack: Pick<ElectionPack, 'election' | 'candidates'>): CandidateId[][] {
-  const axis = axisOf(pack.election)
-  if (!axis) return []
-  const out = new Set(excludedIds(pack))
-  const scored = pack.candidates.filter(c => !out.has(c.id))
-  return axis.map(a =>
-    scored
-      .filter(c => blocOf(pack.election, c) === a.bloc)
-      .map(c => c.id)
-      .sort((x, y) => x.localeCompare(y)),
-  )
-}
+export { panelOf }
 
 // ——— Précalcul par pack ———
 

@@ -27,7 +27,8 @@
 // IA), son graphique « une ligne par sujet » (axe, lignes, clavier, survol, plis, détail replié) aux couleurs de
 // l'échelle d'affinité et à elles seules (clair et sombre), sans nouvelle clé de stockage, sans défilement en largeur ni
 // texte rogné ou mot coupé (320, 390, 1 280 px, texte à 125 et 200 %, entrées comprises), sans focus caché sous
-// l'en-tête, l'axe collant ou l'en-tête des colonnes, et sans effet sur l'affiche JPG ; rien de tout cela sans axe.
+// l'en-tête, l'axe collant ou l'en-tête des colonnes, et sans effet sur l'affiche JPG ; sa rubrique de la Méthode, hors
+// ligne, chargée sans la page ; rien de tout cela sans axe.
 //
 // Usage : pnpm build && node tools/e2e-offline.mjs [port] [--pack <id>] [--prefix <slug>]
 //   --pack <id>     : l'élection à parcourir (par défaut, celle du registre sans préfixe : src/elections/index.ts)
@@ -1487,6 +1488,39 @@ try {
         await ectx.close()
       }
     check(entryIssues.length === 0, `mon profil politique, entrées et page d’attente au texte agrandi (320 px à 200 %, 390 px à 125 %) : rien en largeur, aucun mot coupé ni case rognée${entryIssues.length ? ` : ${entryIssues.join(' ; ')}` : ''}`)
+
+    // Sa rubrique de la Méthode (#/methode/profil), page rechargée hors ligne depuis la copie hors ligne : son fichier à
+    // part (MethodSection-*.js) arrive sous le titre, avec son schéma, ses chiffres et sa fin (« Vie privée »), sans la
+    // page ni son calcul (ni Profile-*.js, ni sa feuille de style)
+    {
+      const mctx = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' })
+      const mp = await mctx.newPage()
+      await mp.goto(U('/methode/profil'))
+      await mp.evaluate(() => navigator.serviceWorker.ready)
+      await mp.waitForFunction(() => !!navigator.serviceWorker.controller, null, { timeout: 5000 }).catch(() => null)
+      await mctx.setOffline(true)
+      await mp.reload()
+      const shown = await mp.locator('main strong', { hasText: 'Vie privée' }).first().waitFor({ timeout: 8000 }).then(() => true, () => false)
+      const rub = await mp.evaluate(() => {
+        const h = document.getElementById('profil')
+        const parts = []
+        for (let el = h?.nextElementSibling; el && el.tagName !== 'H2'; el = el.nextElementSibling) parts.push(el)
+        const files = performance.getEntriesByType('resource').map(e => new URL(e.name).pathname.split('/').pop())
+        return {
+          diagram: parts.some(el => el.matches('svg.diagram') && el.querySelector('title')?.textContent === 'Comment se lit un bloc de la grille'),
+          heads: parts.flatMap(el => [...el.querySelectorAll(':scope > strong')].map(s => s.textContent.trim())),
+          failed: (document.querySelector('main')?.textContent ?? '').includes('n’a pas pu être chargée'),
+          section: files.filter(f => /^MethodSection-[\w-]+\.js$/.test(f)).length,
+          page: files.filter(f => /^Profile-[\w-]+\.(?:js|css)$/.test(f)),
+        }
+      })
+      const HEADS = ['Qui compte.', 'Le calcul.', 'Le hasard.', 'Les couleurs.', 'Quand on ne lit pas.', 'Pourquoi ni moyenne ni point.', 'Ce que valent ces lectures.', 'Limites.', 'Vie privée.']
+      check(
+        shown && rub.diagram && HEADS.every(t => rub.heads.includes(t)) && !rub.failed && rub.section === 1 && rub.page.length === 0,
+        `mon profil politique, rubrique de la Méthode hors ligne (page rechargée) : schéma ${rub.diagram}, ${rub.heads.length} intertitres sur ${HEADS.length}, son fichier à part chargé (${rub.section}), sans la page${rub.page.length ? ` (chargée : ${rub.page.join(', ')})` : ''}${rub.failed ? ', « n’a pas pu être chargée »' : ''}`,
+      )
+      await mctx.close()
+    }
   } else console.log('– mon profil politique : pas d’axe pour cette élection, contrôles sautés')
 
   // 4 bis. La fenêtre de confidentialité s'ouvre depuis la barre du bas et se ferme

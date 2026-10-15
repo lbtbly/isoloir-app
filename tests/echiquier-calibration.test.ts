@@ -9,7 +9,7 @@
 import { describe, expect, it } from 'vitest'
 import { hasOpinion } from '../src/core/answers'
 import { readEchiquier, type Echiquier, type ReadOptions } from '../src/core/echiquier'
-import { ECHIQUIER_PUBLISHED } from '../src/core/echiquierCopy'
+import { ECHIQUIER_PUBLISHED } from '../src/core/echiquierMethodCopy'
 import { computeResults, effectiveWeight } from '../src/core/score'
 import type { ElectionPack, Question } from '../src/core/types'
 import { elections } from '../src/elections/all'

@@ -102,16 +102,20 @@ for (const [voice, videos] of Object.entries(inventory.voices ?? {})) {
 // Le dépasser, c'est d'abord se demander ce qui est entré dans le code de toutes les visites, avant de relever le plafond.
 const INITIAL_JS_BUDGET = 278_000
 const entry = html.match(/<script type="module"[^>]*src="\.\/(assets\/[^"]+\.js)"/)?.[1]
-const initial = []
-const visitJs = file => {
-  if (initial.includes(file) || !existsSync(join(dist, file))) return
-  initial.push(file)
-  const code = readFileSync(join(dist, file), 'utf8')
-  // Imports statiques seulement (« from"./x.js" », « import"./x.js" ») : un import() est chargé à la demande
-  for (const m of code.matchAll(/(?:from|import)\s*["']\.\/([^"']+\.js)["']/g)) visitJs(join('assets', m[1]))
+/** Les fichiers que charge un fichier, lui compris : ses imports statiques, de proche en proche */
+const loadedWith = file => {
+  const out = []
+  const visit = f => {
+    if (out.includes(f) || !existsSync(join(dist, f))) return
+    out.push(f)
+    // Imports statiques seulement (« from"./x.js" », « import"./x.js" ») : un import() est chargé à la demande
+    for (const m of readFileSync(join(dist, f), 'utf8').matchAll(/(?:from|import)\s*["']\.\/([^"']+\.js)["']/g)) visit(join('assets', m[1]))
+  }
+  visit(file)
+  return out
 }
 if (!entry) fail('script principal introuvable dans dist/index.html')
-else visitJs(entry)
+const initial = entry ? loadedWith(entry) : []
 const initialBytes = initial.reduce((t, f) => t + statSync(join(dist, f)).size, 0)
 if (initialBytes > INITIAL_JS_BUDGET) {
   fail(`JS initial de ${(initialBytes / 1000).toFixed(1)} ko (${initial.join(', ')}) : budget de ${INITIAL_JS_BUDGET / 1000} ko dépassé`)
@@ -138,15 +142,17 @@ for (const f of agreeChunks) {
   const size = statSync(join(dist, 'assets', f)).size
   if (size > AGREE_BUDGET) fail(`image « Accords et désaccords » : assets/${f} pèse ${(size / 1000).toFixed(1)} ko, plafond de ${AGREE_BUDGET / 1000} ko`)
 }
-// « Mon profil politique » (src/ui/screens/Profile.tsx, avec son calcul, src/core/echiquier.ts, ses mots,
-// src/core/echiquierCopy.ts, et la rubrique de la Méthode qui l'explique) : un fichier à part, chargé à la demande par
-// import() (src/ui/profile/load.ts), jamais dans le JS initial ni préchargé par la page. Plafond relevé de 38 à 54 ko le
-// 12 octobre 2026 : la présentation « une ligne par sujet » validée par le propriétaire (src/ui/profile/Chart.tsx et
-// rows.ts : l'axe, ses lignes et leurs sections, le clavier, les cases aux couleurs d'affinité) s'ajoute au tableau
-// détaillé, gardé replié dessous, et à la rubrique de la Méthode, rangée là pour ne rien ajouter au code de toutes les
-// visites ; le tout pèse environ 48 ko (les barres, les plis et la mise en évidence de l'axe ont disparu avec les
-// symboles ▲ ▽, le 12 octobre 2026 au soir). Rien de cela ne pèse sur le JS initial, ni sur une visite qui n'ouvre pas la page
-const PROFILE_BUDGET = 54_000
+// « Mon profil politique » (src/ui/screens/Profile.tsx, avec son calcul, src/core/echiquier.ts, et ses mots,
+// src/core/echiquierCopy.ts) : un fichier à part, chargé à la demande par import() (src/ui/profile/load.ts), jamais dans
+// le JS initial ni préchargé par la page. Plafond relevé de 38 à 54 ko le 12 octobre 2026 : la présentation « une ligne
+// par sujet » validée par le propriétaire (src/ui/profile/Chart.tsx et rows.ts : l'axe, ses lignes et leurs sections, le
+// clavier, les cases aux couleurs d'affinité) s'ajoute au tableau détaillé, gardé replié dessous, et à la rubrique de la
+// Méthode, alors rangée là ; le tout pesait environ 48 ko, 52,4 ko le 15 octobre 2026. Ce jour-là, la rubrique de la
+// Méthode en est sortie dans son propre fichier (ci-dessous), qui ramène la page à 42,1 ko, et le plafond passe à 58 ko
+// (décision du propriétaire du 15 octobre 2026) : la place des lectures approfondies du profil, sans tirage au sort
+// (lignes rouges, priorités, « Ce qui pèse le plus », « Votre façon de répondre »). Rien de cela ne pèse sur le JS
+// initial, ni sur une visite qui n'ouvre pas la page
+const PROFILE_BUDGET = 58_000
 const profileChunks = readdirSync(join(dist, 'assets')).filter(f => /^Profile-[\w-]+\.js$/.test(f))
 if (profileChunks.length !== 1) fail(`« Mon profil politique » : ${profileChunks.length} fichier(s) assets/Profile-*.js, un attendu`)
 const modulePreloads = [...html.matchAll(/<link rel="modulepreload"[^>]*href="\.\/(assets\/[^"]+)"/g)].map(m => m[1])
@@ -156,6 +162,40 @@ for (const f of profileChunks) {
   const size = statSync(join(dist, 'assets', f)).size
   if (size > PROFILE_BUDGET) fail(`« Mon profil politique » : assets/${f} pèse ${(size / 1000).toFixed(1)} ko, plafond de ${PROFILE_BUDGET / 1000} ko`)
 }
+/** Des textes de la page « Mon profil politique » (src/core/echiquierCopy.ts), en ASCII, que la minification ne touche pas */
+const PROFILE_TEXTS = ['Lecture en cours, sur cet appareil', 'Pour lire plus de th', 'Pas encore assez de r', 'Choisir les th']
+/** Des textes de sa rubrique de la Méthode (src/ui/profile/MethodSection.tsx, src/core/echiquierMethodCopy.ts), de même */
+const PROFILE_METHOD_TEXTS = ['Pourquoi ni moyenne ni point', 'on a recopi']
+// La rubrique « Mon profil politique » de la Méthode (src/ui/profile/MethodSection.tsx et son schéma, Diagram.tsx ; ses
+// mots, src/core/echiquierMethodCopy.ts) : sortie du fichier de la page le 15 octobre 2026, un fichier à part chargé à
+// la demande par la Méthode (src/ui/profile/load.ts), jamais dans le JS initial ni préchargé. Elle n'emporte pas la
+// page : ni le fichier de la page, ni ses mots, ni son calcul ne viennent avec elle ; elle ne partage avec la page qu'un
+// petit fichier commun (src/core/echiquierCommonCopy.ts, les mots communs, et src/core/echiquierPanel.ts, les
+// candidats de l'axe), hors du JS initial lui aussi. Et la page ne garde rien de la rubrique. Plafond : la taille
+// mesurée le 15 octobre 2026 (8,9 ko), plus 15 %
+const PROFILE_METHOD_BUDGET = 10_300
+const methodSectionChunks = readdirSync(join(dist, 'assets')).filter(f => /^MethodSection-[\w-]+\.js$/.test(f))
+if (methodSectionChunks.length !== 1) fail(`rubrique « Mon profil politique » de la Méthode : ${methodSectionChunks.length} fichier(s) assets/MethodSection-*.js, un attendu`)
+for (const f of methodSectionChunks) {
+  const label = 'rubrique « Mon profil politique » de la Méthode'
+  if (initial.includes(join('assets', f))) fail(`${label} : assets/${f} est dans le JS initial (il doit n'être chargé que par import())`)
+  const size = statSync(join(dist, 'assets', f)).size
+  if (size > PROFILE_METHOD_BUDGET) fail(`${label} : assets/${f} pèse ${(size / 1000).toFixed(1)} ko, plafond de ${PROFILE_METHOD_BUDGET / 1000} ko`)
+  // Elle et ce qu'elle charge en plus du JS initial : ni préchargés, ni le fichier de la page, ni ses mots
+  const own = loadedWith(join('assets', f)).filter(x => !initial.includes(x))
+  for (const x of own) {
+    if (modulePreloads.includes(x)) fail(`${label} : ${x} est préchargé par dist/index.html`)
+    if (profileChunks.some(p => x === join('assets', p))) fail(`${label} : elle charge le fichier de la page, ${x}`)
+    const code = readFileSync(join(dist, x), 'utf8')
+    for (const text of PROFILE_TEXTS) if (code.includes(text)) fail(`${label} : ${x}, qu’elle charge, contient « ${text}… », un texte de la page`)
+  }
+}
+// La page et ce qu'elle charge en plus du JS initial (le fichier commun compris) : rien des mots de la rubrique
+for (const f of profileChunks)
+  for (const x of loadedWith(join('assets', f)).filter(x => !initial.includes(x))) {
+    const code = readFileSync(join(dist, x), 'utf8')
+    for (const text of PROFILE_METHOD_TEXTS) if (code.includes(text)) fail(`« Mon profil politique » : ${x}, que la page charge, contient « ${text}… », un texte de sa rubrique de la Méthode`)
+  }
 // « À table » (src/ui/table/Table.tsx : l'enchaînement d'une séance, ses écrans, son dépouillement, son vivier et son
 // image) : un fichier à part, chargé à la demande (src/ui/table/load.ts), jamais dans le JS initial ni préchargé. Une
 // table ne garde rien sur l'appareil et n'envoie rien : son code n'appelle aucun stockage du navigateur, ni le partage
@@ -225,9 +265,12 @@ const initialCode = initial.map(f => readFileSync(join(dist, f), 'utf8')).join('
 if (initialCode.includes('0123456789ABCDEFGHJKMNPQRSTVWXYZ')) fail('codes de transfert : leur alphabet (core/transfer/base32.ts) est dans le JS initial')
 // « Mon profil politique » : ses entrées (l'accueil, le dépouillement, la tendance) n'emportent dans le JS initial que
 // des liens, des comptes et leurs textes (core/profileAccess.ts, core/resultsCopy.ts) ; ni le calcul de la page, ni ses
-// mots (core/echiquierCopy.ts), qui restent dans son fichier. Des extraits en ASCII, que la minification ne touche pas
-for (const text of ['Lecture en cours, sur cet appareil', 'Pour lire plus de th', 'Pas encore assez de r', 'Choisir les th']) {
+// mots (core/echiquierCopy.ts), qui restent dans son fichier, ni sa rubrique de la Méthode
+for (const text of PROFILE_TEXTS) {
   if (initialCode.includes(text)) fail(`« Mon profil politique » : « ${text}… », un texte de la page, est dans le JS initial`)
+}
+for (const text of PROFILE_METHOD_TEXTS) {
+  if (initialCode.includes(text)) fail(`« Mon profil politique » : « ${text}… », un texte de sa rubrique de la Méthode, est dans le JS initial`)
 }
 const dirsOf = root => (existsSync(root) ? readdirSync(root, { withFileTypes: true }).filter(d => d.isDirectory()).map(d => d.name) : [])
 const bankTexts = new Map() // texte → élection
@@ -308,6 +351,7 @@ for (const f of reportChunks) console.log(`  dépouillement en PDF : assets/${f}
 for (const f of agreeChunks) console.log(`  image « Accords et désaccords » : assets/${f}, ${(statSync(join(dist, 'assets', f)).size / 1000).toFixed(1)} ko sur ${AGREE_BUDGET / 1000} ko permis, chargée à la demande`)
 for (const f of tableChunks) console.log(`  « À table » : assets/${f}, ${(statSync(join(dist, 'assets', f)).size / 1000).toFixed(1)} ko sur ${TABLE_BUDGET / 1000} ko permis, chargé à la demande`)
 for (const f of profileChunks) console.log(`  « Mon profil politique » : assets/${f}, ${(statSync(join(dist, 'assets', f)).size / 1000).toFixed(1)} ko sur ${PROFILE_BUDGET / 1000} ko permis, chargé à la demande`)
+for (const f of methodSectionChunks) console.log(`  rubrique « Mon profil politique » de la Méthode : assets/${f}, ${(statSync(join(dist, 'assets', f)).size / 1000).toFixed(1)} ko sur ${PROFILE_METHOD_BUDGET / 1000} ko permis, chargée à la demande`)
 
 // Voix des vidéos : un avertissement pour un fichier livré mais pas inscrit (jamais lu, poids inutile)
 const unlisted = [...shipped].filter(k => !inscribed.has(k))

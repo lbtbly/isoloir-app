@@ -249,7 +249,7 @@ export const election: ElectionInfo = {
     },
     {
       date: '2026-10-12',
-      // Nouvelle page, sans effet sur le score (METHOD_VERSION reste 2.0) ; chiffres publiés : core/echiquierCopy.ts.
+      // Nouvelle page, sans effet sur le score (METHOD_VERSION reste 2.0) ; chiffres publiés : core/echiquierMethodCopy.ts.
       // Écrite après l'entrée du même jour : à date égale, c'est la première écrite qui s'affiche en tête du dépouillement
       // d'un visiteur qui revient (Results, latestChange), et c'est elle qui dit ce qui change dans son classement
       text: 'Nouvelle page «\u00a0Mon profil politique\u00a0», après le dépouillement\u00a0: lecture de vos réponses, thème par thème, au regard de la grille des nuances du ministère de l’Intérieur. Le score et le classement ne changent pas.',

@@ -18,7 +18,8 @@
 // affichée, tant que des thèmes ne se lisent pas seuls faute de questions, la fiche « Pour lire plus de thèmes » les
 // nomme, avant le graphique : chacun mène à « Approfondir », coché, comme « Approfondir ce thème » d'une ligne ; son
 // adresse (#/approfondir/<thème>) y met le thème en tête, dit ce qui est coché, et la feuille commence par lui.
-// Fichier à part du build, chargé à la demande (ui/profile/load.ts), avec la rubrique de la Méthode qui l'explique.
+// Fichier à part du build, chargé à la demande (ui/profile/load.ts) ; la rubrique de la Méthode qui l'explique
+// (ui/profile/MethodSection.tsx) en est un autre, sans la page ni son calcul.
 
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks'
 import { hasOpinion, RATING_LABELS } from '../../core/answers'
@@ -40,9 +41,6 @@ import { SiteFooter } from '../components/SiteFooter'
 import { link } from '../nav'
 import { Chart, deeperOf, oneQuestionFact, Tile, type ProfileCtx } from '../profile/Chart'
 import '../../styles/profile.css'
-
-// La rubrique de la Méthode, dans le même fichier du build : la Méthode la charge à la demande
-export { ProfileMethod } from '../profile/MethodSection'
 
 interface Props {
   pack: ElectionPack
