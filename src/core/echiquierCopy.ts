@@ -114,6 +114,8 @@ export const thinLine = (n: number) => fr(`Sur une seule question : ${plural(n, 
 /** Le nom lu d'un thème de la fiche, devant son nom visible : le lien le coche dans « Approfondir » */
 export const DEEPER_THEME = fr('Approfondir :')
 export const DEEPER_GO = 'Choisir les thèmes à approfondir'
+/** Hors du pli de la fiche, toujours visible : ses thèmes prioritaires (lot 2, A2 ; la page pose leurs liens) */
+export const DEEPER_PRIO = fr('Dont vos priorités :')
 export const STATUS_BUSY = 'Lecture en cours, sur cet appareil…'
 export const STATUS_READY = 'Lecture prête.'
 
@@ -137,6 +139,11 @@ export const HOW_CALC = fr(
  * dans core/echiquierCommonCopy.ts, avec la rubrique de la Méthode
  */
 export { COLORS_CHANCE, HOW_COLOR } from './echiquierCommonCopy'
+/**
+ * Point 8, après HOW_NO_EFFECT : les priorités, qui ne comptent pas ici, et la croix des lignes rouges, qui ne change rien
+ * (seulement quand vous avez posé une ligne rouge) ; les mêmes textes dans la Méthode (core/echiquierCommonCopy.ts)
+ */
+export { HOW_CROSS, HOW_PRIORITY } from './echiquierCommonCopy'
 /**
  * Point 4, en un seul point : les lectures nettes, avec leur écart et leur seuil (ECHIQUIER.GAP : d'au moins 5 points,
  * à 55 % au moins ou 45 % au plus, comme dans la Méthode), et le bloc inconnu. Le seuil est dit : sans lui, une unité qui
@@ -403,14 +410,22 @@ export const WHO_LIST = fr('Qui la grille range dans chaque bloc :')
 /** « 3 questions » */
 export const questionsCount = (n: number) => plural(n, 'question')
 /**
+ * Le seul mot qu'une ligne fermée reçoit en plus (lot 2, A2) : un thème prioritaire (poids 2 et au moins un avis, comme au
+ * dépouillement), jamais une famille. La page le pose après le nombre de questions, dans sa propre balise
+ */
+export const PRIORITY = 'prioritaire'
+/** Le nombre de questions d'une ligne de thème, et « prioritaire » s'il l'est : « 4 questions, prioritaire » (le nom lu) */
+export const rowMeta = (n: number, priority: boolean) => (priority ? `${questionsCount(n)}, ${PRIORITY}` : questionsCount(n))
+/**
  * Une ligne de famille, pour les lecteurs d'écran, après le nom du domaine : « les 4 thèmes ensemble », le libellé visible
  * de la ligne (familyHead), pour qu'une commande vocale la trouve par ce qu'elle voit (WCAG 2.5.3)
  */
 export const themesTogether = (k: number) => `les ${k} thèmes ensemble`
 
 /**
- * Le nom d'une ligne pour les lecteurs d'écran : son sujet, puis chaque bloc de la grille avec son palier et, s'il y a
- * lieu, sa lecture nette ; enfin ce qui manque. « Défense, 5 questions. Selon la grille : Extrême gauche, très proche,
+ * Le nom d'une ligne pour les lecteurs d'écran : son sujet et ce qu'en dit sa ligne fermée (meta : rowMeta, avec
+ * « prioritaire » pour un thème prioritaire), puis chaque bloc de la grille avec son palier et, s'il y a lieu, sa lecture
+ * nette ; enfin ce qui manque. « Défense, 5 questions, prioritaire. Selon la grille : Extrême gauche, très proche,
  * nettement plus près ; Gauche, mitigé ; … »
  */
 export function rowSummary(labels: readonly string[], name: string, meta: string, r: Pick<UnitReading, 'status' | 'cells'>): string {
@@ -447,6 +462,26 @@ export const BLOC_NOTE = fr('La lecture porte sur le bloc entier : les candidats
 export const SEE_DETAIL = 'Voir le détail'
 /** Un thème sur une seule question, dont la famille entière a sa ligne */
 export const readWithFamily = (family: string) => fr(`Lu avec les autres thèmes de son domaine : « ${family} ».`)
+
+// La croix des lignes rouges (lot 2, A1), dans une ligne ouverte, sous un bloc nettement plus près : qui, parmi ses
+// candidats, franchit une ligne rouge posée sur un thème de la ligne (ui/profile/rows.ts, crossingsOf). Seule la croix est
+// au stylo rouge, le texte reste gris ; elle ne change ni la couleur, ni la lecture, ni l'ordre (HOW_CROSS).
+/** Le nom lu de la croix */
+export const CROSS_LABEL = 'ligne rouge franchie'
+/** « une de vos lignes rouges », « 2 de vos lignes rouges » */
+const redLines = (n: number) => (n > 1 ? `${n}${NB}de vos lignes rouges` : 'une de vos lignes rouges')
+/**
+ * La phrase de la croix, pour des candidats qui franchissent autant de lignes rouges de la ligne, de la même façon : names,
+ * dans l'ordre de la grille puis alphabétique ; possible, ils pourraient les franchir (position déduite, ou de confiance
+ * basse : « pourrait franchir », le mot du dépouillement), sinon ils les franchissent ; count, combien ; themes, pour une
+ * ligne de famille, les thèmes de ces lignes rouges (« sur ce sujet (Europe) »), sinon null. « Nathalie Arthaud et Selma
+ * Labib franchissent une de vos lignes rouges sur ce sujet. »
+ */
+export function crossLine(names: readonly string[], possible: boolean, count: number, themes: readonly string[] | null): string {
+  const many = names.length > 1
+  const verb = possible ? `${many ? 'pourraient' : 'pourrait'} franchir` : many ? 'franchissent' : 'franchit'
+  return fr(`${listFr([...names])} ${verb} ${redLines(count)} sur ce sujet${themes?.length ? ` (${listFr([...themes])})` : ''}.`)
+}
 /** Sous le graphique : la source des colonnes, autour du lien (posé par la page) */
 export const SOURCE = [
   fr('Les cinq colonnes sont les blocs de la grille des nuances politiques du ministère de l’Intérieur ('),
@@ -527,6 +562,14 @@ export const UNRANKED_FOR_YOU = '(hors classement pour vous)'
 export const BY_QUESTION = 'Question par question'
 export const YOUR_VIEW = fr('Votre avis :')
 export const RED_LINE_VIEW = 'Pas d’accord, ligne rouge'
+/**
+ * Sous une approche marquée ligne rouge (rayée) : qui la franchit, parmi les candidats classés, dans l'ordre de la grille
+ * puis alphabétique ; ceux dont la position est déduite, ou de confiance basse, à part (la page pose les noms)
+ */
+export const CROSSED_BY = fr('Franchie par :')
+export const MAYBE_CROSSED_BY = fr('Pourrait être franchie par :')
+/** Le détail d'un thème prioritaire (lot 2, A2) */
+export const PRIORITY_DETAIL = fr('Votre priorité : ce thème compte double dans votre classement, pas dans cette lecture.')
 export const MAIN_OF = fr('Approche principale de :')
 export const BOTH_SIDES = 'Portée des deux côtés'
 export const MAIN_OF_NONE = 'Approche principale d’aucun candidat classé'

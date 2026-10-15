@@ -22,7 +22,7 @@ import { link } from '../nav'
 import '../../styles/ai-label.css'
 
 /** Ce que l'étiquette accompagne : le texte de la mention et de son explication en dépend */
-export type AiKind = 'feuille' | 'fiche' | 'fiches' | 'positions' | 'resumes' | 'parcours' | 'texte' | 'video' | 'videos'
+export type AiKind = 'feuille' | 'fiche' | 'fiches' | 'positions' | 'approches' | 'resumes' | 'parcours' | 'texte' | 'video' | 'videos'
 
 /** Rubrique « Usage de l'IA » de la notice Méthode et sources (ancre stable), en chemin : link(AI_METHOD_PATH) */
 export const AI_METHOD_PATH = '/methode/ia'
@@ -34,6 +34,8 @@ const LABEL: Record<AiKind, { lead: string; rest?: string }> = {
   fiche: { lead: 'Rédigé par IA', rest: 'vérifié automatiquement' },
   fiches: { lead: 'Fiches rédigées par IA', rest: 'vérifiées automatiquement contre leurs sources' },
   positions: { lead: 'Positions résumées par IA', rest: 'vérifiées automatiquement contre leurs sources' },
+  // « Mon profil politique » : ses lignes ouvertes et son détail citent les approches des questions et qui les porte
+  approches: { lead: 'Approches rédigées et positions résumées par IA', rest: 'vérifiées automatiquement contre leurs sources' },
   resumes: { lead: 'Résumés rédigés par IA', rest: 'vérifiés automatiquement contre leurs sources' },
   parcours: { lead: 'Rédigé par IA', rest: 'à partir des sources citées' },
   texte: { lead: 'Rédigé par IA' },
@@ -52,6 +54,8 @@ const WHAT: Record<AiKind, string> = {
     'Ces fiches, comme les questions qui les titrent, ont été rédigées par une IA (Claude, d’Anthropic) à partir des sources citées, puis vérifiées automatiquement contre ces sources, par une IA elle aussi.',
   positions:
     'Les positions des candidats ont été recherchées et résumées par une IA (Claude, d’Anthropic) à partir des sources citées, puis vérifiées automatiquement contre ces sources, par une IA elle aussi. Une attribution douteuse est retirée.',
+  approches:
+    'Les approches des questions ont été rédigées par une IA (Claude, d’Anthropic) à partir des positions publiques des candidats, et ces positions recherchées et résumées par une IA à partir des sources citées\u00a0; les unes et les autres ont été vérifiées automatiquement contre ces sources, par une IA elle aussi. Une attribution douteuse est retirée.',
   resumes:
     'Ces résumés ont été rédigés par une IA (Claude, d’Anthropic) à partir des sources citées, puis vérifiés automatiquement contre ces sources, par une IA elle aussi.',
   parcours: 'Ce parcours a été rédigé par une IA (Claude, d’Anthropic) à partir des sources citées.',

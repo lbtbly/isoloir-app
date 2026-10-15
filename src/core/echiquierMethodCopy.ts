@@ -99,6 +99,56 @@ export const ECHIQUIER_BEFORE = {
   oneChoiceRatioQuick: 2.4,
 } as const
 
+/**
+ * La croix des lignes rouges (lot 2, A1), contrôle de neutralité bloc par bloc (D5, décision du propriétaire du 15
+ * octobre 2026) : elle ne crée, ne change ni ne qualifie aucune lecture (l'écart publié ne bouge donc pas) ; on publie son
+ * taux d'affichage, bloc vrai par bloc vrai, avec et sans le candidat, comparé à la référence du même passage, la part des
+ * sujets lus nettement. Mesuré le 15 octobre 2026 avec le calcul même de la page (readEchiquier, ui/profile/rows.ts :
+ * chartRows et crossingsOf ; core/score.ts : computeResults), sur 30 clones bruités par candidat (graines « n:<id>:<s> »
+ * de tools/audit-echiquier.mjs), deux lignes rouges posées parmi leurs « pas d'accord » (une entrée de test, tirée d'une
+ * graine), selon trois scénarios : sans viser personne ; parmi les approches que porte un candidat d'un bloc voisin ;
+ * parmi celles d'un candidat de l'autre côté du centre (pour un clone du centre, les deux bouts). Part des lignes lues
+ * nettement (rows.read) qui montrent une croix, la plus basse et la plus haute selon le bloc vrai (%) :
+ * - sans viser personne : avec le candidat 1,2 (centre) à 3,8 (extrême gauche), sans lui 0,5 à 3,3 ;
+ * - un bloc voisin : avec 3,2 (gauche) à 6,6 (extrême droite), sans 1,8 à 7,2 ;
+ * - l'autre côté : avec 1,0 à 3,6, sans 0,5 à 2,3.
+ * Écarts entre blocs : de 1,8 à 5,5 points (fourchettes de Wilson de 0 à 10,7 points), sous la référence du même passage,
+ * 14,4 points avec le candidat (de 27,9 à 42,3 % des sujets lus nettement) et 14,9 sans lui : « passe » dans les six cas
+ * (la borne haute de l'écart reste sous la référence ; la règle D5, § 2.0 de l'étude). À 60 clones par candidat, les mêmes
+ * issues (écarts de 1,1 à 4,1 points, références 16,5 et 15,9). Au seul questionnaire rapide (lignes de famille surtout),
+ * la croix paraît plus souvent, et l'écart n'est pas établi quand les lignes rouges visent un bloc voisin : avec le
+ * candidat, de 5,0 (centre) à 16,4 % (extrême droite), écart 11,4 points [0,5–21,6] pour une référence de 16,9 ; sans lui,
+ * de 2,7 à 19,4 %, 16,7 points [0–26,3] pour 19,9 ; sans viser personne, sans lui, de 0 à 10,8 % (non établi, sur peu
+ * de lignes) ; à 60 clones, toujours non établi en visant un bloc voisin (15,1 et 15,8 points pour 15,2 et 17,5).
+ * « Pourrait franchir » (niveau « possible » de core/score.ts) : de 11,8 à 21,7 % des noms cités selon le scénario,
+ * avec ou sans le candidat ; les trois scénarios réunis, par bloc de la croix, de 8,0 % (droite, 7 sur 88) à 28,8 %
+ * (extrême droite, 15 sur 52) avec le candidat, de 6,3 à 25,0 % sans lui : pas l'extrême gauche seule, comme le craignait
+ * l'étude. Un candidat qui franchit sûrement une ligne rouge de la ligne n'est compté qu'à ce niveau (crossingsOf) : aucun
+ * n'en avait aussi une autre seulement possible sur la banque, un seul au rapide. Feuilles remplies par un programme,
+ * sans suivre aucun candidat (schéma « audit »), deux lignes rouges de même : 3,0 % des lignes lues sur la banque, 4,6 %
+ * au rapide. Mesure : node tools/audit-croix.mjs --quick (--noisy 60 pour la porte D5) ; à refaire après une mise à jour
+ * des positions, et à reporter ici
+ */
+export const ECHIQUIER_CROSS = {
+  measured: '2026-10-15',
+  /** Clones bruités par candidat */
+  clones: 30,
+  /** Part des lignes lues nettement qui montrent une croix, selon le bloc vrai, la plus basse et la plus haute (%) */
+  random: { withMin: 1.2, withMax: 3.8, withoutMin: 0.5, withoutMax: 3.3 },
+  neighbour: { withMin: 3.2, withMax: 6.6, withoutMin: 1.8, withoutMax: 7.2 },
+  other: { withMin: 1, withMax: 3.6, withoutMin: 0.5, withoutMax: 2.3 },
+  /** L'écart le plus large entre blocs, en points, et la référence du même passage (sujets lus nettement), avec puis sans */
+  gapMax: 5.5,
+  reference: [14.4, 14.9],
+  /** Au seul questionnaire rapide, lignes rouges visant un bloc voisin, avec le candidat : la plus basse et la plus haute (%) */
+  quickNeighbour: [5, 16.4],
+  /** « Pourrait franchir » : part des noms cités, selon le scénario (%) */
+  possible: [11.8, 21.7],
+  /** La même part, trois scénarios réunis, avec le candidat : le bloc de la croix où elle est la plus basse, la plus haute */
+  possibleLow: { where: 'à droite', pct: 8 },
+  possibleHigh: { where: 'à l’extrême droite', pct: 28.8 },
+} as const
+
 /** « 1,4 » */
 const decimal = (x: number) => String(x).replace('.', ',')
 /**
@@ -200,6 +250,20 @@ export const methodBefore = (m: typeof ECHIQUIER_PUBLISHED = ECHIQUIER_PUBLISHED
     `Jusqu’au 15 octobre 2026, la page tirait au sort 999 de ces façons de poser vos avis ; depuis, elle n’en tire plus aucune. Sur les mêmes réponses, avant puis après : sans le candidat recopié, la page désigne son bloc dans ${b.hitWithout} % puis ${m.hitWithout} % des cas, de ${b.hitWithoutMin} % à ${b.hitWithoutMax} % puis de ${m.hitWithoutMin} % à ${m.hitWithoutMax} % selon le bloc ; les feuilles remplies par un programme ${themes}, et ${then(decimal(b.randomPerProfileMax), decimal(m.randomPerProfileMax), 'au plus ')} lectures en moyenne sur l’ensemble ; quand on n’approuve qu’une approche par question, chacun des blocs que la grille classe aux extrêmes reçoit en moyenne ${then(decimal(b.oneChoiceRatio), decimal(m.oneChoiceRatio))} fois plus de leurs lectures que celui qu’elle classe à gauche, ${then(decimal(b.oneChoiceRatioQuick), decimal(m.oneChoiceRatioQuick))} fois après le seul questionnaire rapide. ${widened(m.hitWithoutMax - m.hitWithoutMin - (b.hitWithoutMax - b.hitWithoutMin))}`,
   )
 }
+/**
+ * « Lignes rouges et priorités » (lot 2) : où paraît la croix, ce qu'elle ne change pas (HOW_CROSS), ce que deviennent
+ * les priorités (HOW_PRIORITY), puis la mesure de neutralité de la croix, bloc par bloc (ECHIQUIER_CROSS, D5)
+ */
+export const METHOD_CROSS_WHERE = fr(
+  'Sous un bloc nettement plus près, une croix nomme ceux de ses candidats qui franchissent une ligne rouge posée sur un thème du sujet (« pourrait franchir » quand leur position est déduite ou incertaine, comme dans vos résultats) ; la ligne fermée d’un thème dit seulement s’il est prioritaire.',
+)
+export { HOW_CROSS, HOW_PRIORITY } from './echiquierCommonCopy'
+/** « 1,2 à 3,8 % », « 1 à 3,6 % » */
+const range = (lo: number, hi: number) => `${decimal(lo)} à ${decimal(hi)} %`
+export const methodCross = (m: typeof ECHIQUIER_CROSS = ECHIQUIER_CROSS) =>
+  fr(
+    `Pour éprouver la croix, on a posé deux lignes rouges parmi les « pas d’accord » des réponses recopiées, puis brouillées, de chaque candidat classé (${m.clones} feuilles par candidat). Selon le bloc du candidat recopié, la croix paraît sur ${range(m.random.withMin, m.random.withMax)} des sujets lus nettement quand ces lignes rouges ne visent personne (${range(m.random.withoutMin, m.random.withoutMax)} sans lui dans le calcul), sur ${range(m.neighbour.withMin, m.neighbour.withMax)} quand elles visent les candidats d’un bloc voisin (${range(m.neighbour.withoutMin, m.neighbour.withoutMax)}), sur ${range(m.other.withMin, m.other.withMax)} quand elles visent ceux de l’autre côté du centre de la grille (${range(m.other.withoutMin, m.other.withoutMax)}). Ces écarts entre blocs, de ${decimal(m.gapMax)} points au plus, restent sous celui des lectures nettes elles-mêmes (${decimal(m.reference[0])} points avec le candidat, ${decimal(m.reference[1])} sans lui). Après le seul questionnaire rapide, la croix paraît plus souvent, et quand les lignes rouges visent un bloc voisin, son écart entre blocs n’est pas établi (${range(m.quickNeighbour[0], m.quickNeighbour[1])} selon le bloc). « Pourrait franchir » fait de ${range(m.possible[0], m.possible[1])} des noms cités selon les cas ; selon le bloc, de ${decimal(m.possibleLow.pct)} % sous celui que la grille classe ${m.possibleLow.where} à ${decimal(m.possibleHigh.pct)} % sous celui qu’elle classe ${m.possibleHigh.where}.`,
+  )
 export const METHOD_LIMITS = [
   fr('La grille classe des partis et des candidats, pas des idées ; la présidentielle n’attribue pas de nuances, et certaines ont été déduites (voir '),
   fr('). Une lecture dépend des candidats en lice et de leurs positions, recherchées et résumées par IA : elle peut changer quand elles sont mises à jour. Ce n’est ni un test, ni une étiquette, ni une consigne de vote.'),

@@ -15,6 +15,9 @@
 // cinq blocs reste sous l'en-tête pendant qu'on parcourt les lignes ; en grand écran, l'axe entier y colle. La fiche
 // « Pour lire plus de thèmes » suit les domaines, repliée ; ouverte sous le compte au seul questionnaire rapide, ou
 // quand rien n'est net nulle part.
+// Lot 2 : une ligne fermée ne reçoit que le mot « prioritaire », sur un thème prioritaire ; une ligne ouverte, sous un bloc
+// nettement plus près, la croix des lignes rouges que franchissent ses candidats sur ce sujet, seule au stylo rouge, le
+// texte en gris. Ni l'une ni l'autre ne change la couleur, la lecture ni l'ordre des lignes.
 // Rien n'est recalculé : les lignes rangent la lecture (ui/profile/rows.ts) ; les phrases sont celles du site
 // (core/echiquierCopy.ts).
 
@@ -24,13 +27,15 @@ import { isAnswered } from '../../core/answers'
 import type { BlocCell, Echiquier, UnitReading } from '../../core/echiquier'
 import { approvedCarriers, approvedOf, mainCarriers } from '../../core/echiquier'
 import * as T from '../../core/echiquierCopy'
+import type { DealbreakerHit } from '../../core/score'
 import type { SessionState } from '../../core/storage'
-import type { Answers, CandidateId, ElectionPack, SpectrumAxisBloc, TopicGroup } from '../../core/types'
+import type { Answers, CandidateId, ElectionPack, QuestionId, SpectrumAxisBloc, TopicGroup, TopicId } from '../../core/types'
 import { ExternalLink } from '../components/ExternalLink'
 import { Icon } from '../components/Icon'
+import { InkCross } from '../components/Ink'
 import { formatDate } from '../format'
 import { link } from '../nav'
-import { acrossCentre, atBothEnds, chartRows, headOf, uniformViews, unitKey, type FamilyRows, type RowGroupKind } from './rows'
+import { acrossCentre, atBothEnds, chartRows, crossingsOf, headOf, uniformViews, unitKey, type FamilyRows, type RowGroupKind } from './rows'
 
 /** Ce que le graphique, ses lignes et le tableau du détail partagent */
 export interface ProfileCtx {
@@ -52,6 +57,14 @@ export interface ProfileCtx {
   unscored: number
   /** Coche ces thèmes dans « Approfondir » (ils rejoignent ceux déjà cochés), avant d'y aller */
   deepen: (topicIds: string[]) => void
+  /** Les lignes rouges que franchit chaque candidat de l'axe, celles du dépouillement (rows.ts, hitsOf) */
+  hits: ReadonlyMap<CandidateId, readonly DealbreakerHit[]>
+  /** Au moins une ligne rouge posée : « Comment c'est calculé » dit alors ce que la croix ne change pas */
+  redLines: boolean
+  /** Les thèmes prioritaires, comme au dépouillement (rows.ts, priorityTopics) */
+  priorities: ReadonlySet<TopicId>
+  /** Le thème de chaque question */
+  topicOf: ReadonlyMap<QuestionId, TopicId>
 }
 
 /** Une unité qui a une lecture (même « rien de net ») ; sinon : une seule question, ou trop de blocs inconnus */
@@ -412,7 +425,11 @@ export function Chart({ reading, ctx, quickOnly, deeper, unseen, onDetail }: Pro
             </li>
             <li>{T.COLORS_CHANCE}</li>
             <li>{T.HOW_MIN}</li>
-            <li>{T.HOW_NO_EFFECT}</li>
+            {/* Ce qui n'en dépend pas, ce qui n'y compte pas (les priorités), et ce que la croix ne change pas : un seul point */}
+            <li>
+              {T.HOW_NO_EFFECT} {T.HOW_PRIORITY}
+              {ctx.redLines ? ` ${T.HOW_CROSS}` : null}
+            </li>
           </ul>
         </details>
       </section>
@@ -513,7 +530,7 @@ function DeeperCard({ deeper, quickOnly, ctx, folded }: { deeper: Deeper; quickO
   // En grand écran, la place ne manque pas : la longue liste est ouverte d'emblée
   const [wide] = useState(() => matchMedia('(min-width: 64rem)').matches)
   // Le séparateur reste collé au thème qui le précède : une ligne ne commence jamais par lui
-  const list = (ids: string[]) => (
+  const list = (ids: string[], sep = ' · ') => (
     <span class="deeper-topics">
       {ids.map((id, i) => (
         <span key={id}>
@@ -521,11 +538,13 @@ function DeeperCard({ deeper, quickOnly, ctx, folded }: { deeper: Deeper; quickO
           <a href={link(`/approfondir/${id}`)} onClick={() => ctx.deepen([id])} aria-label={`${T.DEEPER_THEME} ${ctx.topicLabel.get(id) ?? id}`}>
             {ctx.topicLabel.get(id) ?? id}
           </a>
-          {i < ids.length - 1 ? ' · ' : null}
+          {i < ids.length - 1 ? sep : null}
         </span>
       ))}
     </span>
   )
+  // Ses thèmes prioritaires (lot 2, A2), dans son ordre : hors du pli, toujours visibles
+  const prio = [...deeper.none, ...deeper.thin].filter(id => ctx.priorities.has(id))
   return (
     <section class={`deeper-card${folded ? ' is-below' : ''}`} aria-labelledby="deeper-title">
       <details open={!folded}>
@@ -570,6 +589,11 @@ function DeeperCard({ deeper, quickOnly, ctx, folded }: { deeper: Deeper; quickO
           </div>
         </div>
       </details>
+      {prio.length ? (
+        <p class="deeper-prio">
+          <strong>{T.DEEPER_PRIO}</strong> {list(prio, ', ')}
+        </p>
+      ) : null}
     </section>
   )
 }
@@ -599,13 +623,23 @@ function Row({ u, name, family, open, onToggle, ctx, onDetail }: RowProps) {
   const famille = u.kind === 'famille'
   const shown = famille ? T.familyHead(u.topicIds.length) : name
   const meta = T.questionsCount(u.questions.length)
-  const spoken = famille ? `${T.themesTogether(u.topicIds.length)}, ${meta}` : meta
+  // Un thème prioritaire, comme au dépouillement : le seul mot qu'une ligne fermée reçoit en plus (jamais une famille)
+  const prio = !famille && ctx.priorities.has(u.id)
+  const spoken = famille ? `${T.themesTogether(u.topicIds.length)}, ${meta}` : T.rowMeta(u.questions.length, prio)
   return (
     <li class="row-item">
       <button type="button" class="row" id={`${id}-b`} aria-expanded={open ? 'true' : 'false'} aria-controls={`${id}-x`} onClick={onToggle}>
         <span class="row-label">
           <span class="row-text" aria-hidden="true">
-            <span class="row-name">{shown}</span> <span class="row-meta">{meta}</span>
+            <span class="row-name">{shown}</span>{' '}
+            <span class="row-meta">
+              {meta}
+              {prio ? (
+                <>
+                  , <span class="row-prio">{T.PRIORITY}</span>
+                </>
+              ) : null}
+            </span>
           </span>
           <Chevron />
         </span>
@@ -633,12 +667,24 @@ function Row({ u, name, family, open, onToggle, ctx, onDetail }: RowProps) {
  * alors ses candidats ; le lien vers le détail, ou vers « Approfondir » pour un thème sans lecture
  */
 function Explain({ u, family, ctx, onDetail }: { u: UnitReading; family: string | null; ctx: ProfileCtx; onDetail: (u: UnitReading) => void }) {
-  const { axis, labels, names, panel } = ctx
+  const { axis, labels, names, panel, topicLabel } = ctx
   const read = isRead(u)
   const net = u.status === 'lecture' || u.status === 'ecarts'
   const fact = oneQuestionFact(u, ctx)
   const deeper = !read && deeperOf(u, ctx)
   const both = read && acrossCentre(u) ? T.bothRow(atBothEnds(u)) : null
+  // Sous chaque bloc nettement plus près : qui franchit une ligne rouge posée sur un thème de la ligne (rows.ts) ; pour
+  // une ligne de famille, la phrase nomme le thème de ces lignes rouges
+  const crossings = crossingsOf(u, panel, ctx.hits, q => ctx.topicOf.get(q))
+  const crossText = (b: number) =>
+    crossings[b]!.map(g =>
+      T.crossLine(
+        g.ids.map(id => names.get(id) ?? id),
+        g.level === 'possible',
+        g.count,
+        u.kind === 'famille' ? g.topics.map(t => topicLabel.get(t) ?? t) : null,
+      ),
+    ).join(' ')
   return (
     <div class="explain-inner">
       <p class="explain-lead">{T.unitSentence(axis, u)}</p>
@@ -650,7 +696,8 @@ function Explain({ u, family, ctx, onDetail }: { u: UnitReading; family: string 
       ) : null}
       {fact ? <p class="explain-fact">{fact}</p> : null}
       {family ? <p class="explain-note">{T.readWithFamily(family)}</p> : null}
-      {net ? <p class="explain-note">{T.BLOC_NOTE}</p> : null}
+      {/* La note sur le bloc entier s'efface quand une croix l'illustre (au plus deux nouveautés par ligne ouverte) */}
+      {net && !crossings.some(g => g.length) ? <p class="explain-note">{T.BLOC_NOTE}</p> : null}
       <div class="explain-blocs">
         <p class="eb-title">{T.BLOCS_TITLE}</p>
         <ul>
@@ -674,6 +721,15 @@ function Explain({ u, family, ctx, onDetail }: { u: UnitReading; family: string 
                         </span>
                       ))}
                       {others > 0 ? <span class="soft"> {T.othersUnknown(others)}</span> : null}
+                    </span>
+                  ) : null}
+                  {/* La croix, au stylo rouge, nommée pour les lecteurs d'écran ; le texte en gris */}
+                  {crossings[b]!.length ? (
+                    <span class="eb-cross">
+                      <span class="x" role="img" aria-label={T.CROSS_LABEL}>
+                        <InkCross />
+                      </span>
+                      <span>{keepHyphens(crossText(b))}</span>
                     </span>
                   ) : null}
                 </span>

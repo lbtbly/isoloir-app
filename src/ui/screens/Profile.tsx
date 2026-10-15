@@ -7,6 +7,10 @@
 // classement est dans Résultats), la mention IA et ce qui reste sur l'appareil en tête ; « Domaine par domaine », le
 // graphique, une ligne par sujet sous son domaine (ui/profile/Chart.tsx) ; « À garder en tête » ; puis « Le détail, sujet
 // par sujet », le tableau complet de chaque unité, replié.
+// Ce que la page sait déjà de la feuille, posé sur les lignes sans rien changer aux lectures (lot 2, plan du 15 octobre
+// 2026) : les lignes rouges que franchit chaque candidat, prises au dépouillement (results), qu'une ligne ouverte montre
+// sous un bloc nettement plus près et que le détail dit sous l'approche rayée ; les thèmes prioritaires, comme au
+// dépouillement, que dit la ligne fermée (« prioritaire »), le détail et la fiche « Pour lire plus de thèmes ».
 // Une lecture, pas une étiquette (DESIGN.md, The Reading Not Label Rule) : le sujet des phrases est toujours « vos
 // réponses », les blocs sont attribués à « la grille » ; les blocs n'ont pas de couleur : chaque case prend celle de
 // l'échelle d'affinité du site (décision du propriétaire du 12 octobre 2026), jamais seule, toujours avec le mot de son
@@ -43,6 +47,7 @@ import { ProgressTally } from '../components/ProgressTally'
 import { SiteFooter } from '../components/SiteFooter'
 import { link } from '../nav'
 import { Chart, deeperOf, isRead, oneQuestionFact, Tile, type ProfileCtx } from '../profile/Chart'
+import { crossedBy, hitsOf, priorityTopics } from '../profile/rows'
 import '../../styles/profile.css'
 
 interface Props {
@@ -113,6 +118,10 @@ export function Profile({ pack, state, essential, results, update }: Props) {
       groups: pack.topicGroups?.length ? pack.topicGroups : bank.topics.map(t => ({ id: t.id, label: t.label, topicIds: [t.id] })),
       unscored: excludedIds(pack).filter(id => present.has(id)).length,
       deepen,
+      hits: hitsOf(results),
+      redLines: results.redLineCount > 0,
+      priorities: priorityTopics(bank.questions, state.answers, state.weights),
+      topicOf: new Map(bank.questions.map(q => [q.id, q.topicId])),
     }
   }, [pack, axis, election, candidates, results, answers, state, bank])
 
@@ -150,8 +159,9 @@ export function Profile({ pack, state, essential, results, update }: Props) {
                 <Icon name="arrow-right" />
               </a>
             </p>
-            {/* Les positions des candidats, résumées par IA, nourrissent tout le calcul : la mention vient en tête */}
-            <AiLabel kind="positions" class="profile-ai" />
+            {/* Les positions des candidats, résumées par IA, nourrissent tout le calcul, et les lignes ouvertes comme le
+                détail citent les approches des questions, rédigées par IA : la mention vient en tête */}
+            <AiLabel kind="approches" class="profile-ai" />
             <p class="profile-privacy">{T.PRIVACY}</p>
           </div>
         </div>
@@ -470,6 +480,8 @@ function DetailBody({ unit, ctx, deeper }: { unit: UnitReading; ctx: ProfileCtx;
         </tbody>
       </table>
       {tested ? <p class="small">{T.chanceNote(unit.exact, unit.ways)}</p> : null}
+      {/* Un thème prioritaire : il compte double dans le classement, pas ici (lot 2, A2) */}
+      {!family && ctx.priorities.has(unit.id) ? <p class="small detail-prio">{T.PRIORITY_DETAIL}</p> : null}
 
       <h3 class="detail-title">{T.PER_CANDIDATE}</h3>
       <ul class="detail-people">
@@ -496,16 +508,29 @@ function DetailBody({ unit, ctx, deeper }: { unit: UnitReading; ctx: ProfileCtx;
             <ul class="detail-approaches">
               {q.approaches.map(a => {
                 const rating = answer?.ratings[a.id] ?? 0
-                const view = answer?.redLines.includes(a.id) ? T.RED_LINE_VIEW : RATING_LABELS[rating]
+                const red = !!answer?.redLines.includes(a.id)
+                const view = red ? T.RED_LINE_VIEW : RATING_LABELS[rating]
+                // Une ligne rouge : l'approche rayée, puis qui la franchit parmi les candidats classés (lot 2, A1)
+                const by = red ? crossedBy(q.id, a.id, panel, ctx.hits) : null
                 const carriers = mainCarriers(pack, q.id, a.id)
                 const blocs = carriers.flatMap((ids, b) => (ids.length ? [b] : []))
                 const both = blocs.some(b => b < middle) && blocs.some(b => b > middle)
                 return (
                   <li key={a.id}>
-                    <p class="detail-approach">{a.text}</p>
+                    <p class={`detail-approach${red ? ' is-struck' : ''}`}>{a.text}</p>
                     <p class="detail-meta">
-                      {T.YOUR_VIEW} <strong>{view}</strong>
+                      {T.YOUR_VIEW} <strong class={red ? 'is-red' : undefined}>{view}</strong>
                     </p>
+                    {by?.firm.length ? (
+                      <p class="detail-cross">
+                        {T.CROSSED_BY} <strong>{T.listFr(by.firm.map(nameOf))}</strong>.
+                      </p>
+                    ) : null}
+                    {by?.possible.length ? (
+                      <p class="detail-cross">
+                        {T.MAYBE_CROSSED_BY} <strong>{T.listFr(by.possible.map(nameOf))}</strong>.
+                      </p>
+                    ) : null}
                     <p class="detail-meta">
                       {blocs.length ? (
                         <>

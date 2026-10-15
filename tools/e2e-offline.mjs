@@ -865,7 +865,7 @@ try {
         h1 === 'Mon profil politique' &&
         /^Mon profil politique · Isoloir$/.test(title) &&
         aiLabel &&
-        main.includes('Positions résumées par IA') &&
+        main.includes('Approches rédigées et positions résumées par IA') &&
         main.includes('Calcul sans IA') &&
         main.includes('Une lecture, pas un conseil de vote : le classement est dans Résultats') &&
         status === 'Lecture prête.' &&
@@ -903,6 +903,9 @@ try {
         // graphique, seul autorisé à sortir du papier et de l'encre, et seulement dans ces deux couleurs-là
         const action = rgb('var(--action)')
         const onAction = rgb('var(--on-action)')
+        // « prioritaire », au bleu bille des choix de la personne, et la ligne rouge du détail, au rouge de la croix (lot 2)
+        const ink = rgb('var(--ink)')
+        const red = rgb('var(--red)')
         const aff = Object.fromEntries(bands.map(b => [b.key, rgb(`var(--aff-${b.key})`)]))
         const pastels = ['vert', 'rouge', 'jaune', 'bleu'].map(t => rgb(`var(--pastel-${t})`))
         probe.remove()
@@ -956,7 +959,8 @@ try {
           }
           if (!clear(b) && !near(b, paper) && !near(b, print) && !onWash(b)) bad.push(`${name(el)} fond ${cs.backgroundColor}`)
           if (!clear(b) && pastels.some(x => near(b, x))) bad.push(`${name(el)} : un pastel (${cs.backgroundColor})`)
-          if (!clear(c) && ![print, soft, paper, onPrint].some(x => near(c, x))) bad.push(`${name(el)} encre ${cs.color}`)
+          if (!clear(c) && ![print, soft, paper, onPrint].some(x => near(c, x)) && !(el.matches('.row-prio') && near(c, ink)) && !(el.matches('.detail-meta .is-red') && near(c, red)))
+            bad.push(`${name(el)} encre ${cs.color}`)
         }
         // La légende : les cinq paliers, dans l'ordre du site, puis « inconnu » s'il paraît
         const key = [...document.querySelectorAll('main .profile-chart .key-scale li')].map(li => li.textContent.replace(/\s+/g, ' ').trim())
@@ -1019,6 +1023,8 @@ try {
           // Une ligne de famille s'écrit « Les 5 thèmes ensemble » sous l'intertitre de son domaine : le compte la nomme par lui
           readNames: readRows.map(r => (r.id.startsWith('sj-famille-') ? text(r.closest('.fam-group')?.querySelector('.fam-name')) : text(r.querySelector('.row-name')))),
           readIds: readRows.map(r => r.id),
+          // Les lignes que nomme le compte : les lectures nettes ; sans elles (C6), les sujets seulement plus loin
+          countIds: (readRows.length ? readRows : listOf('apart')).map(r => r.id),
           // Chaque ligne : cinq cases ; une lecture nette plus près dans les groupes du haut, seulement plus loin dans le sien
           fiveTiles: all.every(r => r.querySelectorAll('.strip > .cell > .tile').length === 5),
           mainOk: [...listOf('net'), ...listOf('both')].every(r => net(r, 'pres').length > 0) && listOf('apart').every(r => !net(r, 'pres').length && net(r, 'loin').length > 0),
@@ -1088,7 +1094,7 @@ try {
           return { row: !!b?.matches('.profile-chart .row'), expanded: b?.getAttribute('aria-expanded'), id: b?.id ?? '' }
         })
         check(
-          opened.row && opened.expanded === 'true' && opened.id === chart.readIds[0],
+          opened.row && opened.expanded === 'true' && opened.id === chart.countIds[0],
           `mon profil politique (${where}), le premier nom du compte (« ${chart.countNames[0]} ») ouvre sa ligne et lui donne le focus : ${JSON.stringify(opened)}`,
         )
         await pg.locator('.profile-chart .row[aria-expanded="true"]').evaluateAll(bs => bs.forEach(b => b.click()))
@@ -1373,7 +1379,24 @@ try {
         ? { ratings: Object.fromEntries(q.approaches.map((a, i) => [a.id, mains[i] ? 1 : -1])), redLines: [], ...(q.rev ? { rev: q.rev } : {}) }
         : { ratings: {}, redLines: [], skipped: true, ...(q.rev ? { rev: q.rev } : {}) }
     }
-    const readState = sanitizeState({ ...freshState(pack.election.id, pack.election.dataVersion), answers: readAnswers, essentialDoneAt: new Date().toISOString() }, pack)
+    // Lot 2 : deux lignes rouges, sur des « pas d'accord » que porte un autre candidat du premier bloc, dans la première
+    // moitié des familles (la croix paraît sous un bloc nettement plus près) ; et un thème prioritaire, le premier de la
+    // seconde moitié qui a un avis. Rien de cela ne change la lecture
+    const redPicks = []
+    for (const q of pack.bank.questions) {
+      const a = readAnswers[q.id]
+      if (redPicks.length >= 2 || !firstHalf.has(q.topicId) || a.skipped) continue
+      const x = q.approaches.find(ap => a.ratings[ap.id] === -1 && axisPanel[0].some(id => id !== leftId && (pack.positions[id]?.[ap.id]?.weight ?? 0) > 0))
+      if (x) {
+        a.redLines = [x.id]
+        redPicks.push(q.id)
+      }
+    }
+    const prioTopic = pack.bank.questions.find(q => !firstHalf.has(q.topicId) && !readAnswers[q.id].skipped)?.topicId
+    const readState = sanitizeState(
+      { ...freshState(pack.election.id, pack.election.dataVersion), answers: readAnswers, weights: prioTopic ? { [prioTopic]: 2 } : {}, essentialDoneAt: new Date().toISOString() },
+      pack,
+    )
     const readOk = readEchiquier(pack, readState.answers).summary.length > 0
     const readStorage = { [STORAGE]: JSON.stringify(readState) }
     if (readOk) {
@@ -1440,6 +1463,92 @@ try {
         flatDetails.n > 0 && flatDetails.opened === flatDetails.n && flatDetails.deepen === 0,
         `mon profil politique (lectures nettes, 1 280 px) : « Approfondir » sous ${flatDetails.deepen} des ${flatDetails.n} sujets « Rien de net » du tableau (${flatDetails.opened} détails ouverts)`,
       )
+
+      // Lot 2 : les lignes rouges et la priorité, telles que les calcule le site (mêmes réponses, même calcul) ; la croix
+      // sous chaque bloc nettement plus près qui a un candidat qui franchit, et seulement là ; son nom lu ; la note sur le
+      // bloc entier effacée ; « prioritaire » sur la ligne fermée du thème, dans son nom lu ; dans le détail, l'approche
+      // rayée et « Franchie par »
+      {
+        const { computeResults } = await importSite('src/core/score.ts')
+        const { currentAnswers } = await importSite('src/core/revisions.ts')
+        const { chartRows: rowsOfChart, crossingsOf, hitsOf } = await importSite('src/ui/profile/rows.ts')
+        const C = await importSite('src/core/echiquierCopy.ts')
+        const cur = currentAnswers(pack, readState.answers)
+        const hits = hitsOf(computeResults(pack, cur, readState.weights, readState.seed))
+        const names = new Map(pack.candidates.map(c => [c.id, c.name]))
+        const topicLabel = new Map(pack.bank.topics.map(t => [t.id, t.label]))
+        const topicOfQ = new Map(pack.bank.questions.map(q => [q.id, q.topicId]))
+        const read = rowsOfChart(groups, readEchiquier(pack, cur), u => u.id).read
+        const want = new Map(
+          read.map(u => [
+            `sj-${u.kind}-${u.id}-b`,
+            crossingsOf(u, axisPanel, hits, q => topicOfQ.get(q)).map(gs =>
+              gs.map(g => C.crossLine(g.ids.map(id => names.get(id) ?? id), g.level === 'possible', g.count, u.kind === 'famille' ? g.topics.map(t => topicLabel.get(t) ?? t) : null)).join(' '),
+            ),
+          ]),
+        )
+        const crossed = [...want].filter(([, texts]) => texts.some(Boolean))
+        const issues = []
+        // Toutes fermées d'abord (« Voir le détail » a laissé la première ouverte)
+        await rp.locator('.profile-chart .row[aria-expanded="true"]').evaluateAll(bs => bs.forEach(b => b.click()))
+        for (const [id, texts] of [...crossed, ...[...want].filter(([, t]) => !t.some(Boolean)).slice(0, 1)]) {
+          await rp.locator(`#${id}`).click()
+          const got = await rp.evaluate(bid => {
+            const x = document.getElementById(document.getElementById(bid)?.getAttribute('aria-controls') ?? '')
+            const said = el => (el?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
+            return {
+              texts: [...(x?.querySelectorAll('.explain-blocs > ul > li') ?? [])].map(li => said(li.querySelector('.eb-cross > span:last-child'))),
+              named: [...(x?.querySelectorAll('.eb-cross .x') ?? [])].every(e => e.getAttribute('role') === 'img' && e.getAttribute('aria-label') === 'ligne rouge franchie' && !!e.querySelector('svg.ink-cross')),
+              underNet: [...(x?.querySelectorAll('.eb-cross') ?? [])].every(e => e.closest('li')?.matches('.is-net') && !!e.closest('li')?.querySelector('.eb-who')),
+              note: [...(x?.querySelectorAll('.explain-note') ?? [])].some(p => /bloc entier/.test(said(p))),
+              gray: [...(x?.querySelectorAll('.eb-cross > span:last-child') ?? [])].every(e => getComputedStyle(e).color === getComputedStyle(document.querySelector('.eb-who') ?? e).color),
+            }
+          }, id)
+          const norm = t => t.replace(/[\u00a0\u202f]/g, ' ')
+          if (got.texts.map(norm).join('|') !== texts.map(norm).join('|')) issues.push(`${id} : « ${got.texts.filter(Boolean).join(' / ')} » au lieu de « ${texts.filter(Boolean).join(' / ')} »`)
+          if (!got.named || !got.underNet || !got.gray) issues.push(`${id} : croix ${JSON.stringify(got)}`)
+          if (texts.some(Boolean) === got.note) issues.push(`${id} : note sur le bloc entier ${got.note}`)
+          await rp.locator(`#${id}`).click()
+        }
+        const prio = await rp.evaluate(t => {
+          const b = document.getElementById(`sj-theme-${t}-b`)
+          return {
+            row: !!b,
+            word: (b?.querySelector('.row-meta .row-prio')?.textContent ?? '').trim(),
+            said: (b?.querySelector('.sr-only')?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' '),
+            others: document.querySelectorAll('.profile-chart .row-prio').length,
+          }
+        }, prioTopic)
+        // Le détail d'une ligne qui a une croix : chaque ligne rouge de ses questions rayée, et qui la franchit
+        let detail = { struck: 0, want: 0, by: [] }
+        if (crossed.length) {
+          const [id] = crossed[0]
+          if ((await rp.locator(`#${id}`).getAttribute('aria-expanded')) !== 'true') await rp.locator(`#${id}`).click()
+          await rp.locator('.profile-chart .explain:not([hidden]) .link-button').click()
+          await rp.locator('main .profile-all[open] .unit-detail[open] .detail-approaches').first().waitFor({ timeout: 3000 }).catch(() => null)
+          const u = read.find(r => `sj-${r.kind}-${r.id}-b` === id)
+          detail = await rp.evaluate(d => {
+            const body = document.getElementById(d)
+            return {
+              struck: body?.querySelectorAll('.detail-approach.is-struck').length ?? 0,
+              by: [...(body?.querySelectorAll('.detail-cross') ?? [])].map(p => (p.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').trim()),
+            }
+          }, `d-${u.kind}-${u.id}`)
+          detail.want = u.questions.reduce((n, q) => n + (cur[q]?.redLines.length ?? 0), 0)
+        }
+        check(
+          crossed.length > 0 &&
+            issues.length === 0 &&
+            prio.row &&
+            prio.word === 'prioritaire' &&
+            prio.said.includes(', prioritaire. Selon la grille') &&
+            prio.others === 1 &&
+            detail.struck === detail.want &&
+            detail.by.length > 0 &&
+            detail.by.every(t => /^(Franchie par|Pourrait être franchie par) : .+\.$/.test(t)),
+          `mon profil politique (lectures nettes, lot 2) : croix sur ${crossed.length} ligne(s) lue(s) (« ${crossed[0]?.[1].filter(Boolean)[0] ?? ''} »)${issues.length ? ` : ${issues.join(' ; ')}` : ''} ; « prioritaire » sur la ligne de ${prioTopic} (« ${prio.word} », nom lu « …${prio.said.slice(0, 60)}… », ${prio.others} en tout) ; détail : ${detail.struck} approche(s) rayée(s) sur ${detail.want}, « ${detail.by.join(' / ')} »`,
+        )
+      }
       await rctx.close()
     } else console.log('– mon profil politique : aucune lecture nette pour le second état, contrôles en grand écran sautés')
 

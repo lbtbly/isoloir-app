@@ -2,7 +2,8 @@
 // (l'ancre existe dès l'ouverture). Un fichier à part du build, chargé à la demande par la Méthode (ui/profile/load.ts),
 // sans la page ni son calcul (core/echiquier.ts) : ses mots sont dans core/echiquierMethodCopy.ts, les candidats de
 // l'axe dans core/echiquierPanel.ts ; le code de toutes les visites n'en contient rien. Ses chiffres viennent de
-// ECHIQUIER_PUBLISHED (core/echiquierMethodCopy.ts), mesurés par tools/audit-echiquier.mjs.
+// ECHIQUIER_PUBLISHED (core/echiquierMethodCopy.ts), mesurés par tools/audit-echiquier.mjs ; ceux de la croix des lignes
+// rouges, de ECHIQUIER_CROSS (lot 2, mesure de neutralité bloc par bloc, D5).
 
 import { panelOf } from '../../core/echiquierPanel'
 import * as T from '../../core/echiquierMethodCopy'
@@ -63,6 +64,10 @@ export function ProfileMethod({ pack }: { pack: ElectionPack }) {
       <p>
         <strong>Avant et après.</strong> {T.methodBefore()}
       </p>
+      <p>
+        <strong>Lignes rouges et priorités.</strong> {T.METHOD_CROSS_WHERE} {T.HOW_CROSS} {T.HOW_PRIORITY}
+      </p>
+      <p>{T.methodCross()}</p>
       <p>
         <strong>Limites.</strong> {T.METHOD_LIMITS[0]}
         <SectionLink id="ordre-des-candidats">{T.METHOD_INTRO_LINK}</SectionLink>

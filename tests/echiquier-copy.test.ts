@@ -148,6 +148,17 @@ function allTexts(): string[] {
   out.push(T.bothTitle(true), T.bothTitle(false), ...T.bothRow(true), ...T.bothRow(false))
   out.push(...allSentences(), ...allFacts())
   for (const s of subsets(axis.length)) out.push(T.groupLabel(axis, s))
+  // Lignes rouges et priorités (lot 2)
+  out.push(...allCrossLines(), T.rowMeta(1, true), T.rowMeta(4, true), T.rowMeta(4, false), M.methodCross())
+  return out
+}
+
+/** Les phrases de la croix des lignes rouges : un nom ou plusieurs, « franchit », « pourrait franchir » ou les deux, thèmes */
+function allCrossLines(): string[] {
+  const out: string[] = []
+  for (const names of [['Florian Philippot'], ['Nathalie Arthaud', 'Selma Labib'], ['Nathalie Arthaud', 'Anasse Kazib', 'Selma Labib']])
+    for (const possible of [false, true])
+      for (const count of [1, 2, 3]) for (const themes of [null, ['Europe'], ['Retraites', 'Logement']]) out.push(T.crossLine(names, possible, count, themes))
   return out
 }
 
@@ -511,7 +522,7 @@ describe('règles d’écriture', () => {
       T.NOTHING_TESTABLE,
       T.UNIFORM,
     ]
-    const texts = [...sentences, ...M.methodWorth(), M.methodBefore(), ...allSummaries(), ...chart]
+    const texts = [...sentences, ...M.methodWorth(), M.methodBefore(), M.methodCross(), M.METHOD_CROSS_WHERE, ...allSummaries(), ...chart]
     for (const s of texts) {
       if (BLOC.test(s)) expect(/la grille/.test(s), s).toBe(true)
       for (const m of s.matchAll(/qu’elle classe/g)) expect(s.slice(0, m.index).includes('la grille'), s).toBe(true)
@@ -606,6 +617,77 @@ describe('règles d’écriture', () => {
       expect(/« /.test(t), `espace ordinaire après « : « ${t} »`).toBe(false)
       expect(/\d %/.test(t), `espace ordinaire devant % : « ${t} »`).toBe(false)
     }
+  })
+})
+
+describe('lignes rouges et priorités (lot 2)', () => {
+  it('la croix : les phrases des maquettes validées, au singulier et au pluriel, « pourrait franchir », les thèmes d’une ligne de famille', () => {
+    expect(T.crossLine(['Nathalie Arthaud', 'Selma Labib'], false, 1, null)).toBe('Nathalie Arthaud et Selma Labib franchissent une de vos lignes rouges sur ce sujet.')
+    expect(T.crossLine(['Florian Philippot'], false, 1, null)).toBe('Florian Philippot franchit une de vos lignes rouges sur ce sujet.')
+    expect(T.crossLine(['Florian Philippot'], true, 1, null)).toBe('Florian Philippot pourrait franchir une de vos lignes rouges sur ce sujet.')
+    expect(T.crossLine(['Nathalie Arthaud', 'Selma Labib'], true, 2, null)).toBe(`Nathalie Arthaud et Selma Labib pourraient franchir 2${NB}de vos lignes rouges sur ce sujet.`)
+    expect(T.crossLine(['Jean-Luc Mélenchon'], false, 2, null)).toBe(`Jean-Luc Mélenchon franchit 2${NB}de vos lignes rouges sur ce sujet.`)
+    // Une ligne de famille : le thème de ces lignes rouges
+    expect(T.crossLine(['Florian Philippot'], false, 1, ['Europe'])).toBe('Florian Philippot franchit une de vos lignes rouges sur ce sujet (Europe).')
+    expect(T.crossLine(['Florian Philippot'], false, 2, ['Retraites', 'Logement'])).toBe(`Florian Philippot franchit 2${NB}de vos lignes rouges sur ce sujet (Retraites et Logement).`)
+    expect(T.CROSS_LABEL).toBe('ligne rouge franchie')
+    // Jamais un mot de lecture, de couleur ni de palier : la croix ne dit rien d'un bloc
+    for (const t of allCrossLines()) {
+      expect(/nettement|proche|éloigné|mitigé|grille|bloc|rouge foncé/.test(t.replace(/lignes rouges/g, '')), t).toBe(false)
+      expect(t, t).toMatch(/ sur ce sujet( \(.+\))?\.$/)
+    }
+  })
+
+  it('le détail : « Franchie par », à part ce qui « pourrait » l’être ; la priorité, qui compte double dans le classement, pas ici', () => {
+    expect(T.CROSSED_BY).toBe(`Franchie par${NB}:`)
+    expect(T.MAYBE_CROSSED_BY).toBe(`Pourrait être franchie par${NB}:`)
+    expect(T.PRIORITY_DETAIL).toBe(`Votre priorité${NB}: ce thème compte double dans votre classement, pas dans cette lecture.`)
+  })
+
+  it('prioritaire : le seul mot qu’une ligne fermée reçoit en plus, dans son nom lu aussi ; « Dont vos priorités » dans la fiche', () => {
+    expect(T.PRIORITY).toBe('prioritaire')
+    expect(T.rowMeta(4, true)).toBe(`4${NB}questions, prioritaire`)
+    expect(T.rowMeta(1, true)).toBe(`1${NB}question, prioritaire`)
+    expect(T.rowMeta(4, false)).toBe(T.questionsCount(4))
+    expect(T.rowSummary(labels, 'Logement', T.rowMeta(4, true), reading('aucun'))).toMatch(/^Logement, 4\u00a0questions, prioritaire\. Selon la grille\u00a0: /)
+    expect(T.DEEPER_PRIO).toBe(`Dont vos priorités${NB}:`)
+  })
+
+  it('« Comment c’est calculé » et la Méthode : les mêmes mots pour les priorités et pour ce que la croix ne change pas', () => {
+    expect(T.HOW_CROSS).toBe(M.HOW_CROSS)
+    expect(T.HOW_PRIORITY).toBe(M.HOW_PRIORITY)
+    expect(T.HOW_CROSS).toBe(`La croix d’une ligne rouge ne change ni la couleur, ni la lecture, ni l’ordre${NB}: votre ligne rouge y compte déjà comme un «${NB}pas d’accord${NB}».`)
+    expect(T.HOW_PRIORITY).toBe(
+      `Vos priorités comptent double dans votre classement, pas ici${NB}; et chaque bloc est la moyenne de ses candidats${NB}: cette lecture peut donc différer de votre classement.`,
+    )
+    // Un seul point de plus au plus : le huitième, et la Méthode les reprend
+    const code = readFileSync(join(ROOT, 'src/ui/profile/MethodSection.tsx'), 'utf8')
+    for (const x of ['T.METHOD_CROSS_WHERE', 'T.HOW_CROSS', 'T.HOW_PRIORITY', 'T.methodCross()']) expect(code, x).toContain(x)
+  })
+
+  it('la Méthode publie la neutralité de la croix bloc par bloc, avec et sans le candidat (D5), et « pourrait franchir » bloc par bloc', () => {
+    const C = M.ECHIQUIER_CROSS
+    const text = M.methodCross()
+    expect(C.clones).toBeGreaterThanOrEqual(30)
+    expect(text).toContain(`(${C.clones} feuilles par candidat)`)
+    const span = (lo: number, hi: number) => `${String(lo).replace('.', ',')} à ${String(hi).replace('.', ',')}${NB}%`
+    for (const k of ['random', 'neighbour', 'other'] as const) {
+      expect(text).toContain(span(C[k].withMin, C[k].withMax))
+      expect(text).toContain(span(C[k].withoutMin, C[k].withoutMax))
+      expect(C[k].withMin).toBeLessThanOrEqual(C[k].withMax)
+      expect(C[k].withoutMin).toBeLessThanOrEqual(C[k].withoutMax)
+    }
+    // L'écart entre blocs le plus large reste sous la référence du même passage ; le rapide, non établi, est dit
+    expect(C.gapMax).toBeLessThan(Math.min(...C.reference))
+    expect(Math.max(...(['random', 'neighbour', 'other'] as const).flatMap(k => [C[k].withMax - C[k].withMin, C[k].withoutMax - C[k].withoutMin]))).toBeLessThanOrEqual(C.gapMax + 0.05)
+    expect(text).toContain('n’est pas établi')
+    expect(text).toContain(span(C.quickNeighbour[0], C.quickNeighbour[1]))
+    expect(text).toContain(`«${NB}Pourrait franchir${NB}» fait de ${span(C.possible[0], C.possible[1])} des noms cités`)
+    expect(text).toContain(`selon le bloc, de 8${NB}% sous celui que la grille classe à droite à 28,8${NB}% sous celui qu’elle classe à l’extrême droite`)
+    // Ni « sur de », ni « hasard » : les lignes rouges « ne visent personne »
+    expect(text).not.toMatch(/sur de |hasard/)
+    expect(text).toContain('quand ces lignes rouges ne visent personne')
+    expect(text).toContain(`parmi les «${NB}pas d’accord${NB}» des réponses recopiées`)
   })
 })
 

@@ -4,12 +4,14 @@
 // familles (les « domaines » de la page) viennent dans l'ordre de pack.topicGroups, le même que partout ailleurs ; dans
 // chacune, les lectures nettes, puis les écarts, puis les sujets sans tendance nette, puis les thèmes d'une seule
 // question et ceux dont trop de blocs sont inconnus (variante a′, validée par le propriétaire le 15 octobre 2026). Rien
-// n'est recalculé ici : on range les lectures.
+// n'est recalculé ici : on range les lectures. Puis ce que la page sait déjà de la feuille, posé sur les lignes sans rien
+// changer aux lectures (lot 2) : les lignes rouges franchies, sous un bloc nettement plus près, et les thèmes prioritaires.
 
 import { hasOpinion } from '../../core/answers'
 import type { Echiquier, UnitReading } from '../../core/echiquier'
 import { MIN_WAYS, type NothingCause } from '../../core/echiquierCopy'
-import type { Answers, Question, TopicGroup } from '../../core/types'
+import type { DealbreakerHit, Results } from '../../core/score'
+import type { Answers, CandidateId, Question, QuestionId, TopicGroup, TopicId, TopicWeights } from '../../core/types'
 
 /**
  * Les groupes d'un domaine, dans cet ordre : net, nettement plus près d'un seul côté du centre (ou du centre lui-même,
@@ -175,4 +177,93 @@ export function headOf(
     else if (rows.flat.every(u => u.ways >= MIN_WAYS && !u.distinct)) cause = 'alike'
   }
   return { state, cause, deeperOnTop: o.hasDeeper && (state === 'nothing' || (o.quickOnly && state !== 'untestable')) }
+}
+
+// ——— Lignes rouges et priorités (lot 2) : rien ne change la couleur, la lecture ni l'ordre des lignes ———
+
+/**
+ * Les lignes rouges que franchit chaque candidat de l'axe : celles du dépouillement (core/score.ts, dealbreakerLevel),
+ * que la page reçoit déjà ; classés et hors classement (les non classés ne sont pas sur l'axe). Les mêmes réponses que
+ * la lecture : celles qui comptent, hors questions à revoir
+ */
+export function hitsOf(results: Pick<Results, 'ranking' | 'unranked'>): Map<CandidateId, readonly DealbreakerHit[]> {
+  return new Map([...results.ranking, ...results.unranked].map(r => [r.candidateId, r.dealbreakers]))
+}
+
+/**
+ * Des candidats d'un même bloc qui franchissent, sur une ligne, autant de lignes rouges, de la même façon, sur les mêmes
+ * thèmes
+ */
+export interface Crossing {
+  /** Dans l'ordre de l'axe (core/echiquierPanel.ts : alphabétique au sein d'un bloc), comme ses candidats connus */
+  ids: CandidateId[]
+  /**
+   * « touche » : ils franchissent ces lignes rouges (position prise et vérifiée) ; « possible » : ils pourraient les
+   * franchir (position déduite, ou de confiance basse), quand ils n'en franchissent aucune sûrement
+   */
+  level: DealbreakerHit['level']
+  /** Combien de lignes rouges de la ligne, à ce niveau */
+  count: number
+  /** Les thèmes de ces lignes rouges, dans l'ordre de la banque */
+  topics: TopicId[]
+}
+
+/**
+ * La croix des lignes rouges (A1) : sous chaque bloc nettement plus près d'une ligne, ceux de ses candidats qui franchissent
+ * une ligne rouge posée sur une question de la ligne, c'est-à-dire sur un de ses thèmes ; groupés quand ils en franchissent
+ * autant, de la même façon, sur les mêmes thèmes. Un candidat qui en franchit sûrement n'est compté que pour celles-là (la
+ * phrase reste vraie ; le détail dit le reste, approche par approche). Un tableau par bloc de l'axe, vide sous un bloc qui
+ * n'est pas nettement plus près. Tous les candidats du bloc comptent, même inconnus sur la ligne : une position seulement
+ * probable n'y compte pas, mais elle fait « pourrait franchir ». topicOf : le thème d'une question
+ */
+export function crossingsOf(
+  u: Pick<UnitReading, 'cells' | 'questions' | 'topicIds'>,
+  panel: readonly (readonly CandidateId[])[],
+  hits: ReadonlyMap<CandidateId, readonly DealbreakerHit[]>,
+  topicOf: (q: QuestionId) => TopicId | undefined,
+): Crossing[][] {
+  return u.cells.map((c, b) => {
+    if (c.mark !== 'pres') return []
+    const groups = new Map<string, Crossing>()
+    for (const id of panel[b] ?? []) {
+      const mine = (hits.get(id) ?? []).filter(h => u.questions.includes(h.questionId))
+      const firm = mine.filter(h => h.level === 'touche')
+      const counted = firm.length ? firm : mine
+      if (!counted.length) continue
+      const level = firm.length ? 'touche' : 'possible'
+      const topics = u.topicIds.filter(t => counted.some(h => topicOf(h.questionId) === t))
+      const key = `${level}:${counted.length}:${topics.join(',')}`
+      const g = groups.get(key)
+      if (g) g.ids.push(id)
+      else groups.set(key, { ids: [id], level, count: counted.length, topics })
+    }
+    return [...groups.values()]
+  })
+}
+
+/**
+ * Dans « Le détail », sous une approche marquée ligne rouge : qui la franchit, parmi les candidats de l'axe, dans l'ordre
+ * de la grille puis alphabétique ; firm, la position prise et vérifiée ; possible, déduite ou de confiance basse
+ */
+export function crossedBy(
+  questionId: QuestionId,
+  approachId: string,
+  panel: readonly (readonly CandidateId[])[],
+  hits: ReadonlyMap<CandidateId, readonly DealbreakerHit[]>,
+): { firm: CandidateId[]; possible: CandidateId[] } {
+  const out = { firm: [] as CandidateId[], possible: [] as CandidateId[] }
+  for (const id of panel.flat()) {
+    const h = hits.get(id)?.find(x => x.questionId === questionId && x.approachId === approachId)
+    if (h) out[h.level === 'touche' ? 'firm' : 'possible'].push(id)
+  }
+  return out
+}
+
+/**
+ * Les thèmes prioritaires (A2), comme au dépouillement (ui/screens/Results.tsx, « Vos priorités ») : de poids 2, et avec au
+ * moins un avis sur une de leurs questions, dans la feuille enregistrée, pour que « prioritaire » dise la même chose sur
+ * les deux pages
+ */
+export function priorityTopics(questions: readonly Question[], answers: Answers, weights: TopicWeights): Set<TopicId> {
+  return new Set(questions.filter(q => weights[q.topicId] === 2 && hasOpinion(answers[q.id])).map(q => q.topicId))
 }

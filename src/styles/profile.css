@@ -317,6 +317,22 @@ html:has(.profile-chart) {
   justify-self: start;
 }
 
+/* Ses thèmes prioritaires (lot 2), hors du pli : visibles même repliée, sous un filet fin */
+.deeper-prio {
+  margin: 0;
+  padding: var(--s2) 0 var(--s1);
+  border-top: var(--hair) solid var(--rule);
+  font-size: var(--text-sm);
+}
+
+.deeper-prio strong {
+  font-weight: 800;
+}
+
+.deeper-prio .deeper-topics {
+  line-height: 1.5;
+}
+
 /* ——— La page d'attente : l'introduction, la fiche d'état (les styles de la tendance, .trend) ; dessous, l'exemple
    fictif sur toute la largeur, puis ce qu'apporte « Approfondir » ——— */
 .wait-hero {
@@ -974,7 +990,14 @@ html:has(.profile-chart) {
   font-size: var(--text-xs);
   font-variant-numeric: tabular-nums;
   color: var(--print-soft);
-  white-space: nowrap;
+}
+
+/* Une ligne fermée ne reçoit que ce mot de plus (lot 2) : « prioritaire », au bleu bille, l'encre des choix de la
+   personne (comme le « ×2 » de « Par thème ») ; à l'étroit, il passe à la ligne après la virgule, le nombre de
+   questions restant soudé à son nom */
+.row-prio {
+  color: var(--ink);
+  font-weight: 750;
 }
 
 /* Le chevron : vers le bas, vers le haut une fois ouvert */
@@ -1212,6 +1235,41 @@ html:has(.profile-chart) {
 .eb-who {
   display: block;
   color: var(--print-soft);
+}
+
+/* La croix des lignes rouges, sous un bloc nettement plus près (lot 2) : seule la croix est au stylo rouge (la croix de
+   la feuille, InkCross), le texte reste en gris ; jamais le mot en rouge, qui se confondrait avec « très éloigné » */
+.eb-cross {
+  display: grid;
+  grid-template-columns: 1rem minmax(0, 1fr);
+  gap: 0.4rem;
+  margin-top: 0.3rem;
+  color: var(--print-soft);
+}
+
+.eb-cross .x {
+  position: relative;
+  width: 0.95rem;
+  height: 0.95rem;
+  margin-top: 0.15rem;
+}
+
+.eb-cross .ink {
+  stroke-width: 3;
+}
+
+/* Texte très agrandi (14rem de graphique au plus) : la croix entre dans la phrase, qui reprend toute la largeur ; aucun
+   mot ne sort de sa colonne ni ne se coupe */
+@container plot (max-width: 14rem) {
+  .eb-cross {
+    display: block;
+  }
+
+  .eb-cross .x {
+    display: inline-block;
+    margin: 0 0.35rem 0 0;
+    vertical-align: -0.1em;
+  }
 }
 
 .explain-note {
@@ -1922,6 +1980,27 @@ html:has(.profile-chart) {
   font-weight: 700;
 }
 
+/* Une ligne rouge, dans le détail (lot 2) : l'approche rayée au rouge de la croix, l'avis en rouge, puis qui la franchit */
+.detail-approach.is-struck {
+  text-decoration: line-through;
+  text-decoration-color: var(--red);
+  text-decoration-thickness: 2px;
+}
+
+.detail-meta .is-red {
+  color: var(--red);
+}
+
+.detail-cross {
+  margin: 0.1rem 0 0;
+  color: var(--print-soft);
+}
+
+.detail-cross strong {
+  color: var(--print);
+  font-weight: 700;
+}
+
 .detail-both {
   color: var(--print);
   font-weight: 700;
@@ -1938,5 +2017,14 @@ html:has(.profile-chart) {
   .deeper-card {
     border: var(--line) solid CanvasText;
     border-top-width: var(--thick);
+  }
+
+  /* La croix des lignes rouges garde son trait, en couleur système ; la rature du détail aussi */
+  .eb-cross .ink {
+    stroke: CanvasText;
+  }
+
+  .detail-approach.is-struck {
+    text-decoration-color: CanvasText;
   }
 }
