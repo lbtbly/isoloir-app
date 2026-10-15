@@ -32,6 +32,11 @@ export type Route =
   | { name: 'videos'; start?: string }
   /** « À table » : un groupe vote en secret sur un seul téléphone, puis lit son dépouillement à voix haute */
   | { name: 'table' }
+  /**
+   * « Transférez vos réponses » : elles passent d'un appareil à l'autre par un code ou un QR code, sans serveur ;
+   * « import » (#/autre-appareil/importer) : la page s'ouvre sur « Importer mes réponses »
+   */
+  | { name: 'transfer'; import?: true }
 
 /** Les noms de pages : un premier segment qui n'en est pas un est un préfixe d'élection */
 const PAGES = new Set([
@@ -57,6 +62,8 @@ const PAGES = new Set([
   'essai-videos',
   // « À table » : sans lui ici, #/a-table serait lu comme le préfixe d'une élection
   'a-table',
+  // « Continuer sur un autre appareil » : sans lui ici, #/autre-appareil serait lu comme le préfixe d'une élection
+  'autre-appareil',
 ])
 
 /** Forme d'un préfixe d'élection (slug ou alias) */
@@ -116,6 +123,8 @@ export function parseRoute(path: string): Route {
       return arg ? { name: 'videos', start: arg } : { name: 'videos' }
     case 'a-table':
       return { name: 'table' }
+    case 'autre-appareil':
+      return arg === 'importer' ? { name: 'transfer', import: true } : { name: 'transfer' }
     default:
       return { name: 'home' }
   }

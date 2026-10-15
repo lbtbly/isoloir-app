@@ -1,0 +1,545 @@
+/* « Continuer sur un autre appareil » (#/autre-appareil, ui/screens/Transfer.tsx).
+   Envoyer : le double jaune, puisque le code est une copie qu'on emporte ; le QR code sur une plaque toujours blanche,
+   derrière un rideau plissé tant qu'on ne l'a pas ouvert. Recevoir : un aplat pastel, trois façons en lignes de
+   formulaire, lettrées dans la marge. Large : l'introduction et le schéma à gauche (5fr), le travail à droite (7fr). */
+
+.transfer {
+  display: grid;
+  gap: var(--s5) var(--s8);
+  align-items: start;
+}
+
+.transfer-intro .display {
+  margin-bottom: var(--s4);
+}
+
+.transfer-intro .lede {
+  margin-bottom: 0;
+}
+
+.transfer-work {
+  container: transfer-work / inline-size;
+}
+
+.transfer-switch {
+  margin-top: 0;
+}
+
+/* Deux choix en deux lignes : l'action, puis le sens (d'où, vers où) */
+.transfer-switch button {
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.55rem 1rem;
+  text-align: left;
+}
+
+.switch-main {
+  font-weight: 750;
+}
+
+/* Étroit : les deux choix l'un sous l'autre, chacun sur toute la largeur, plutôt que quatre lignes serrées */
+@media (max-width: 30rem) {
+  .transfer-switch.segmented {
+    display: grid;
+    width: 100%;
+  }
+}
+
+.switch-sub {
+  font-weight: 400;
+  font-size: 0.8125rem;
+}
+
+/* La liste de confiance de l'accueil (.trust), sous l'introduction */
+.transfer-proof {
+  margin-bottom: 0;
+}
+
+.transfer-receive-lede {
+  margin: 0 0 var(--s3);
+}
+
+.transfer-how {
+  margin: 0;
+}
+
+.transfer-how .diagram {
+  max-width: 24rem;
+}
+
+.transfer-how figcaption {
+  max-width: 32rem;
+  color: var(--print-soft);
+}
+
+@media (min-width: 64rem) {
+  .transfer {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'intro work'
+      'how work';
+  }
+
+  .transfer-intro {
+    grid-area: intro;
+  }
+
+  .transfer-work {
+    grid-area: work;
+  }
+
+  .transfer-how {
+    grid-area: how;
+  }
+}
+
+/* ——— Les deux panneaux ——— */
+
+.transfer-panel {
+  container: transfer / inline-size;
+  padding: var(--s5) var(--s4) var(--s4);
+  box-shadow: inset 0 var(--thick) 0 var(--rule-strong);
+}
+
+.transfer-panel.is-receive {
+  background: var(--pastel-bleu);
+}
+
+.transfer-title {
+  margin: 0 0 var(--s3);
+  overflow-wrap: anywhere;
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: clamp(1.6rem, 6vw, 2.15rem);
+  line-height: 1;
+}
+
+.transfer-contents {
+  margin: var(--s3) 0;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ——— Envoyer ——— */
+
+.transfer-send {
+  display: grid;
+  grid-template-areas:
+    'head'
+    'qr'
+    'side';
+  gap: var(--s4) var(--s5);
+}
+
+.transfer-send-head {
+  grid-area: head;
+}
+
+.transfer-qr {
+  grid-area: qr;
+  display: grid;
+  justify-items: start;
+  gap: var(--s1);
+}
+
+.transfer-side {
+  grid-area: side;
+}
+
+/* Assez large : le QR code à gauche, le titre et la marche à suivre à droite */
+@container transfer (min-width: 34rem) {
+  .transfer-send {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'qr head'
+      'qr side';
+    align-items: start;
+  }
+}
+
+.transfer-send-head .stamp {
+  margin: var(--s1) 0 var(--s2);
+}
+
+/* Le QR code se lit noir sur blanc dans tous les modes, même en couleurs forcées : le papier jaune ou carbone n'y entre pas */
+.qr-plate {
+  position: relative;
+  width: 100%;
+  max-width: 22rem;
+  aspect-ratio: 1;
+  background: #fff;
+  box-shadow: inset 0 0 0 var(--line) var(--rule-strong);
+  forced-color-adjust: none;
+}
+
+.qr {
+  display: block;
+  width: 100%;
+  height: 100%;
+  shape-rendering: crispEdges;
+}
+
+.qr path {
+  fill: #000;
+}
+
+/* Le rideau de l'isoloir tiré devant le code : les quatre pastels du logo, dans l'ordre du drapé, plissés au trait ;
+   l'appel et une ligne de consigne au centre. À l'ouverture, le rideau se tire vers la gauche et ses plis se
+   resserrent (une fois, sauf mouvement réduit : il disparaît d'un coup) ; « Refermer » le tire en sens inverse. */
+.qr-curtain {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: var(--s4);
+  text-align: center;
+}
+
+.qr-drape {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    var(--pastel-vert) 0 25%,
+    var(--pastel-rouge) 25% 50%,
+    var(--pastel-jaune) 50% 75%,
+    var(--pastel-bleu) 75%
+  );
+  box-shadow: inset 0 0 0 var(--line) var(--rule-strong);
+  transform-origin: left center;
+}
+
+.qr-pleats {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--copy-print);
+  opacity: 0.35;
+}
+
+.qr-pleats path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+}
+
+.qr-curtain-content {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: var(--s3);
+}
+
+.qr-curtain-note {
+  max-width: 15rem;
+  margin: 0;
+  padding: 0.15rem 0.5rem;
+  background: var(--paper);
+  font-size: var(--text-sm);
+}
+
+.qr-curtain.is-opening .qr-drape {
+  animation: drape-open 900ms cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+.qr-curtain.is-closing .qr-drape {
+  animation: drape-open 700ms cubic-bezier(0.65, 0, 0.35, 1) reverse both;
+}
+
+@keyframes drape-open {
+  0% {
+    transform: scaleX(1);
+  }
+  /* le tissu accroche un instant avant de glisser */
+  12% {
+    transform: scaleX(0.97);
+  }
+  100% {
+    transform: scaleX(0.07);
+  }
+}
+
+.transfer-steps {
+  margin: var(--s3) 0;
+  padding-left: 1.3rem;
+}
+
+.transfer-steps li + li {
+  margin-top: var(--s2);
+}
+
+.transfer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+}
+
+/* Le code en texte : une boîte imprimée sous le QR code, le code en groupes de quatre (masqué tant que le rideau est
+   tiré), et ses deux actions encadrées, bien visibles : copier, s'envoyer par e-mail */
+.code-box {
+  margin-top: var(--s5);
+  padding: var(--s4);
+  background: var(--paper);
+  box-shadow:
+    inset 0 var(--thick) 0 var(--rule-strong),
+    inset 0 0 0 var(--line) var(--rule-strong);
+}
+
+.code-box-title {
+  margin: 0;
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: 1.65rem;
+  line-height: 1.02;
+}
+
+.code-box-lede {
+  margin: var(--s2) 0 var(--s3);
+  max-width: 36rem;
+}
+
+.code-text {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.9em;
+  margin: 0 0 var(--s4);
+  padding: var(--s3);
+  max-height: 11.5rem;
+  overflow-y: auto;
+  background: #fff;
+  color: #17191c;
+  border: var(--line) solid var(--rule-strong);
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 1.0625rem;
+  letter-spacing: 0.06em;
+  user-select: all;
+  forced-color-adjust: none;
+}
+
+.code-text.is-masked {
+  color: #6a6e75;
+  user-select: none;
+}
+
+.code-box-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s3);
+}
+
+.code-box-note {
+  margin: var(--s3) 0 0;
+  max-width: 40rem;
+  color: var(--print-soft);
+}
+
+/* La mise en garde : ne jamais publier le code. La croix rouge des schémas, sur ce qui ne doit pas sortir */
+.transfer-warning {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: var(--s3);
+  margin-top: var(--s4);
+  padding: var(--s3) var(--s4);
+  border: 2px solid var(--print);
+  background: var(--paper);
+}
+
+.transfer-warning-cross {
+  width: 2rem;
+  height: 2rem;
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+}
+
+.transfer-warning p {
+  margin: 0;
+  max-width: 40rem;
+}
+
+.transfer-warning-title {
+  margin-bottom: var(--s1) !important;
+  font-weight: 800;
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+
+/* ——— Recevoir ——— */
+
+.transfer-ways {
+  list-style: none;
+  margin: var(--s4) 0 0;
+  padding: 0;
+  border-top: var(--line) solid var(--rule-strong);
+}
+
+.transfer-ways > li {
+  display: grid;
+  grid-template-columns: var(--margin-col) minmax(0, 1fr);
+  border-bottom: var(--hair) solid var(--rule);
+}
+
+.transfer-ways > li:last-child {
+  border-bottom: var(--line) solid var(--rule-strong);
+}
+
+.transfer-ways .row-letter {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.95rem;
+  border-right: var(--hair) solid var(--rule);
+  font-weight: 800;
+  font-stretch: 80%;
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+
+.way {
+  display: grid;
+  justify-items: start;
+  gap: var(--s2);
+  padding: 0.95rem 0 var(--s3) var(--s4);
+}
+
+.way h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.way p {
+  margin: 0;
+  max-width: 34rem;
+}
+
+.code-input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 6.5rem;
+  padding: var(--s3);
+  background: var(--paper);
+  color: var(--print);
+  border: var(--line) solid var(--rule-strong);
+  border-radius: 0;
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 1.0625rem;
+  letter-spacing: 0.06em;
+  resize: vertical;
+}
+
+.code-input::placeholder {
+  color: var(--print-soft);
+}
+
+.code-input[aria-invalid='true'] {
+  border-width: 2px;
+}
+
+.transfer-error,
+.transfer-note {
+  font-weight: 650;
+}
+
+.transfer-note {
+  margin: 0;
+  font-size: var(--text-sm);
+}
+
+.transfer-note:empty {
+  display: none;
+}
+
+/* Le viseur : la vidéo de la caméra (16:9 ou carrée), quatre coins imprimés autour du carré à viser */
+.viewfinder {
+  position: relative;
+  width: 100%;
+  max-width: 22rem;
+  aspect-ratio: 1;
+  background: #111419;
+  color: #e9eae5;
+  overflow: hidden;
+}
+
+.viewfinder[hidden] {
+  display: none;
+}
+
+.viewfinder video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.viewfinder-corners {
+  position: absolute;
+  inset: 14%;
+  background:
+    linear-gradient(currentColor, currentColor) top left / 2.2rem 3px,
+    linear-gradient(currentColor, currentColor) top left / 3px 2.2rem,
+    linear-gradient(currentColor, currentColor) top right / 2.2rem 3px,
+    linear-gradient(currentColor, currentColor) top right / 3px 2.2rem,
+    linear-gradient(currentColor, currentColor) bottom left / 2.2rem 3px,
+    linear-gradient(currentColor, currentColor) bottom left / 3px 2.2rem,
+    linear-gradient(currentColor, currentColor) bottom right / 2.2rem 3px,
+    linear-gradient(currentColor, currentColor) bottom right / 3px 2.2rem;
+  background-repeat: no-repeat;
+}
+
+.viewfinder-hint {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: var(--s3);
+  margin: 0;
+  text-align: center;
+  font-size: var(--text-sm);
+  font-weight: 650;
+}
+
+/* Texte très agrandi (14rem de colonne, qu'aucun téléphone n'atteint à texte normal, 280px compris) : marges resserrées,
+   la lettre des trois façons passe au-dessus (plus de colonne de marge), la croix au-dessus de la mise en garde, et les
+   boutons passent à la ligne, un mot trop long coupé plutôt que de pousser la page sur le côté */
+@container transfer-work (max-width: 14rem) {
+  .transfer-panel,
+  .code-box {
+    padding-inline: var(--s2);
+    overflow-wrap: anywhere;
+  }
+
+  .transfer-ways > li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .transfer-ways .row-letter {
+    justify-content: start;
+    padding-top: var(--s3);
+    border-right: 0;
+  }
+
+  .way {
+    padding: var(--s1) 0 var(--s3);
+  }
+
+  .transfer-warning {
+    grid-template-columns: minmax(0, 1fr);
+    padding-inline: var(--s2);
+  }
+
+  .transfer-panel .btn-primary,
+  .transfer-panel .btn-text {
+    max-width: 100%;
+    white-space: normal;
+    text-align: start;
+    overflow-wrap: anywhere;
+  }
+
+  .transfer-panel .btn-primary {
+    padding-inline: var(--s3);
+  }
+}

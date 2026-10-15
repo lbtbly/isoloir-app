@@ -357,6 +357,10 @@ cp $P/<session>/workflows/wf_<runId>.json $D/candidates-output.json
   - `forbiddenTerms` = `CONFIG.forbiddenTerms` ;
   - `audit` = les parts mesurées par `audit-pack` (`$D/audit.json`).
 - Inscription au registre : `src/elections/index.ts` et `all.ts`.
+- `transfer.ts` (codes de transfert des réponses, depuis le 15 octobre 2026) : **après tout ajout de question ou de
+  thème, lui donner le numéro libre suivant**, à la main ; ne jamais changer ni réutiliser un numéro, même quand une
+  question disparaît. `tests/transfer.test.ts` refuse un pack dont une question ou un thème n'a pas de numéro, et
+  `tests/fixtures/transfer-slots-presidentielle-2027.json` fige les numéros déjà donnés.
 
 **Les contrôles :**
 

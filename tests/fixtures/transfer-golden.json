@@ -1,0 +1,1067 @@
+{
+  "note": "Code de reprise de référence, format 1, fabriqué le 15 octobre 2026 : il doit rester lisible à jamais (tests/transfer.test.ts).",
+  "code": "21K08Y104HMASW9NF6YY0QNSNK431RPJ2HA06BZZZZZZZZZZZZZZZZZZZZQNMNDAGBR0H4QA3KD0RPHJQANCXK2CX2FESGRPN2PSGKP6NBMA2VNJ0EADN0BEXDP3KGZEXT1V08AT4DDAPQM9ATM8Q843M2TTMAV86BN49E9KMJ3SRBQB0NXBBBM21T9VDC2E0CTNTQ97A2HCVFT0DDA83MC5RHSNQNCGEC2X40PDBDB5A0D8R7MYHV63HT34WKVCPS775EDBD0TEC2X5T81K478Q3MM9VBF5SPNM39SHKHJ0D02PGNQEM11RNS4EG8V6SP8NMJNVDC2THJV9ABGEH4Q8GXKXB7DEBKMM1TB1WGF64EHJQBYAX45RJ3F5P9R",
+  "decodedAt": "2026-10-15T10:00:00.000Z",
+  "dataVersion": "2026-10-14.1",
+  "seed": "0123456789abcdef",
+  "weights": {
+    "industrie_economie": 2,
+    "solidarites": 2,
+    "societe": 0.5
+  },
+  "deepTopics": [
+    "sante",
+    "finances_publiques",
+    "proche_orient"
+  ],
+  "essentialDoneAt": "2026-10-15T09:41:07.000Z",
+  "answers": {
+    "retraites-1": {
+      "ratings": {
+        "retraites-1-a": 1,
+        "retraites-1-c": 1,
+        "retraites-1-d": 1,
+        "retraites-1-e": 1,
+        "retraites-1-f": -1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "finances_publiques-1": {
+      "ratings": {
+        "finances_publiques-1-a": -1,
+        "finances_publiques-1-b": -1,
+        "finances_publiques-1-c": -1,
+        "finances_publiques-1-d": 1,
+        "finances_publiques-1-f": -1,
+        "finances_publiques-1-g": -1,
+        "finances_publiques-1-h": -1
+      },
+      "redLines": [
+        "finances_publiques-1-c"
+      ],
+      "rev": 1
+    },
+    "industrie_economie-1": {
+      "ratings": {
+        "industrie_economie-1-a": 1,
+        "industrie_economie-1-b": 1,
+        "industrie_economie-1-e": 1,
+        "industrie_economie-1-f": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "travail_salaires-1": {
+      "ratings": {
+        "travail_salaires-1-c": 1,
+        "travail_salaires-1-e": 1,
+        "travail_salaires-1-g": -1,
+        "travail_salaires-1-h": 1,
+        "travail_salaires-1-i": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "fiscalite-1": {
+      "ratings": {
+        "fiscalite-1-a": 1,
+        "fiscalite-1-b": 1,
+        "fiscalite-1-c": 1,
+        "fiscalite-1-d": -1,
+        "fiscalite-1-e": -1,
+        "fiscalite-1-f": -1
+      },
+      "redLines": [
+        "fiscalite-1-f"
+      ],
+      "rev": 1
+    },
+    "fiscalite-2": {
+      "ratings": {
+        "fiscalite-2-a": 1,
+        "fiscalite-2-c": -1,
+        "fiscalite-2-d": -1,
+        "fiscalite-2-e": -1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "finances_publiques-2": {
+      "ratings": {
+        "finances_publiques-2-a": 1,
+        "finances_publiques-2-c": 1,
+        "finances_publiques-2-e": 1,
+        "finances_publiques-2-f": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "finances_publiques-3": {
+      "ratings": {
+        "finances_publiques-3-b": 1,
+        "finances_publiques-3-e": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "travail_salaires-2": {
+      "ratings": {
+        "travail_salaires-2-b": 1,
+        "travail_salaires-2-c": 1,
+        "travail_salaires-2-d": -1,
+        "travail_salaires-2-e": -1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "travail_salaires-3": {
+      "ratings": {
+        "travail_salaires-3-a": 1,
+        "travail_salaires-3-c": 1,
+        "travail_salaires-3-d": 1,
+        "travail_salaires-3-e": 1,
+        "travail_salaires-3-f": -1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "travail_salaires-4": {
+      "ratings": {
+        "travail_salaires-4-b": 1,
+        "travail_salaires-4-c": -1,
+        "travail_salaires-4-d": 1,
+        "travail_salaires-4-e": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "industrie_economie-2": {
+      "ratings": {
+        "industrie_economie-2-b": -1,
+        "industrie_economie-2-d": -1,
+        "industrie_economie-2-e": 1,
+        "industrie_economie-2-f": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "industrie_economie-3": {
+      "ratings": {
+        "industrie_economie-3-a": 1,
+        "industrie_economie-3-b": -1,
+        "industrie_economie-3-c": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "retraites-2": {
+      "ratings": {
+        "retraites-2-a": -1,
+        "retraites-2-b": 1,
+        "retraites-2-e": -1
+      },
+      "redLines": [
+        "retraites-2-e"
+      ],
+      "rev": 1
+    },
+    "retraites-3": {
+      "ratings": {
+        "retraites-3-a": -1,
+        "retraites-3-c": 1,
+        "retraites-3-d": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "sante-1": {
+      "ratings": {
+        "sante-1-a": 1,
+        "sante-1-b": 1,
+        "sante-1-c": -1,
+        "sante-1-f": -1,
+        "sante-1-g": -1,
+        "sante-1-h": -1
+      },
+      "redLines": [
+        "sante-1-h"
+      ],
+      "rev": 1
+    },
+    "solidarites-1": {
+      "ratings": {
+        "solidarites-1-c": -1,
+        "solidarites-1-d": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "logement-1": {
+      "ratings": {
+        "logement-1-b": -1,
+        "logement-1-c": 1,
+        "logement-1-d": 1,
+        "logement-1-e": 1,
+        "logement-1-f": 1,
+        "logement-1-g": 1
+      },
+      "redLines": [
+        "logement-1-b"
+      ],
+      "rev": 1
+    },
+    "sante-2": {
+      "ratings": {
+        "sante-2-a": 1,
+        "sante-2-b": -1,
+        "sante-2-c": -1,
+        "sante-2-d": -1,
+        "sante-2-e": 1,
+        "sante-2-f": 1
+      },
+      "redLines": [
+        "sante-2-d"
+      ],
+      "rev": 1
+    },
+    "sante-3": {
+      "ratings": {
+        "sante-3-b": 1,
+        "sante-3-e": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "sante-4": {
+      "ratings": {
+        "sante-4-a": -1,
+        "sante-4-b": 1,
+        "sante-4-c": -1,
+        "sante-4-d": 1,
+        "sante-4-e": -1
+      },
+      "redLines": [
+        "sante-4-c"
+      ],
+      "rev": 1
+    },
+    "sante-5": {
+      "ratings": {
+        "sante-5-a": -1,
+        "sante-5-d": -1,
+        "sante-5-e": 1,
+        "sante-5-f": -1
+      },
+      "redLines": [
+        "sante-5-f"
+      ],
+      "rev": 1
+    },
+    "logement-2": {
+      "ratings": {},
+      "redLines": [],
+      "skipped": true
+    },
+    "logement-3": {
+      "ratings": {
+        "logement-3-a": 1,
+        "logement-3-b": 1,
+        "logement-3-c": 1,
+        "logement-3-d": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "logement-4": {
+      "ratings": {
+        "logement-4-a": 1,
+        "logement-4-b": -1,
+        "logement-4-c": 1,
+        "logement-4-e": -1,
+        "logement-4-f": 1
+      },
+      "redLines": [
+        "logement-4-b"
+      ],
+      "rev": 1
+    },
+    "solidarites-2": {
+      "ratings": {
+        "solidarites-2-c": -1,
+        "solidarites-2-d": -1,
+        "solidarites-2-f": -1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "solidarites-3": {
+      "ratings": {
+        "solidarites-3-a": 1,
+        "solidarites-3-b": -1,
+        "solidarites-3-c": -1,
+        "solidarites-3-d": -1
+      },
+      "redLines": [
+        "solidarites-3-c",
+        "solidarites-3-d"
+      ],
+      "rev": 1
+    },
+    "egalite-1": {
+      "ratings": {
+        "egalite-1-a": 1,
+        "egalite-1-b": 1,
+        "egalite-1-e": -1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "egalite-2": {
+      "ratings": {
+        "egalite-2-c": 1,
+        "egalite-2-d": -1,
+        "egalite-2-e": -1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "egalite-3": {
+      "ratings": {
+        "egalite-3-a": 1,
+        "egalite-3-c": -1,
+        "egalite-3-f": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "egalite-4": {
+      "ratings": {
+        "egalite-4-a": 1,
+        "egalite-4-b": -1,
+        "egalite-4-d": 1,
+        "egalite-4-e": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "droits_lgbtqia-1": {
+      "ratings": {
+        "droits_lgbtqia-1-b": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "droits_lgbtqia-2": {
+      "ratings": {
+        "droits_lgbtqia-2-a": 1,
+        "droits_lgbtqia-2-b": 1,
+        "droits_lgbtqia-2-c": -1,
+        "droits_lgbtqia-2-d": -1
+      },
+      "redLines": [
+        "droits_lgbtqia-2-d"
+      ],
+      "rev": 1
+    },
+    "education-1": {
+      "ratings": {
+        "education-1-a": 1,
+        "education-1-b": 1,
+        "education-1-c": -1,
+        "education-1-d": 1,
+        "education-1-h": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "education-2": {
+      "ratings": {
+        "education-2-a": 1,
+        "education-2-b": -1,
+        "education-2-c": 1,
+        "education-2-f": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "education-3": {
+      "ratings": {
+        "education-3-c": 1,
+        "education-3-d": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "education-4": {
+      "ratings": {
+        "education-4-a": -1,
+        "education-4-e": -1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "education-5": {
+      "ratings": {
+        "education-5-a": 1,
+        "education-5-b": 1,
+        "education-5-c": 1,
+        "education-5-d": -1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "societe-1": {
+      "ratings": {
+        "societe-1-a": 1,
+        "societe-1-b": -1,
+        "societe-1-c": 1,
+        "societe-1-d": 1,
+        "societe-1-e": 1,
+        "societe-1-f": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "societe-2": {
+      "ratings": {},
+      "redLines": [],
+      "skipped": true
+    },
+    "numerique-1": {
+      "ratings": {
+        "numerique-1-b": 1,
+        "numerique-1-c": -1,
+        "numerique-1-f": -1
+      },
+      "redLines": [
+        "numerique-1-f"
+      ],
+      "rev": 1
+    },
+    "numerique-2": {
+      "ratings": {
+        "numerique-2-a": -1,
+        "numerique-2-b": -1,
+        "numerique-2-c": 1,
+        "numerique-2-e": 1
+      },
+      "redLines": [
+        "numerique-2-a",
+        "numerique-2-b"
+      ],
+      "rev": 1
+    },
+    "numerique-3": {
+      "ratings": {
+        "numerique-3-a": 1,
+        "numerique-3-b": -1,
+        "numerique-3-d": 1,
+        "numerique-3-e": -1,
+        "numerique-3-g": 1
+      },
+      "redLines": [
+        "numerique-3-e"
+      ],
+      "rev": 1
+    },
+    "numerique-4": {
+      "ratings": {
+        "numerique-4-b": -1,
+        "numerique-4-d": -1,
+        "numerique-4-e": 1
+      },
+      "redLines": [
+        "numerique-4-b"
+      ],
+      "rev": 1
+    },
+    "ecologie_energie-1": {
+      "ratings": {
+        "ecologie_energie-1-a": -1,
+        "ecologie_energie-1-b": 1,
+        "ecologie_energie-1-c": -1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "ecologie_energie-2": {
+      "ratings": {
+        "ecologie_energie-2-c": -1,
+        "ecologie_energie-2-d": -1,
+        "ecologie_energie-2-e": 1,
+        "ecologie_energie-2-f": -1
+      },
+      "redLines": [
+        "ecologie_energie-2-c"
+      ],
+      "rev": 1
+    },
+    "territoires-1": {
+      "ratings": {
+        "territoires-1-b": 1,
+        "territoires-1-c": -1,
+        "territoires-1-e": -1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "ecologie_energie-3": {
+      "ratings": {
+        "ecologie_energie-3-a": 1,
+        "ecologie_energie-3-b": -1,
+        "ecologie_energie-3-c": -1
+      },
+      "redLines": [
+        "ecologie_energie-3-b"
+      ],
+      "rev": 1
+    },
+    "ecologie_energie-4": {
+      "ratings": {
+        "ecologie_energie-4-a": 1,
+        "ecologie_energie-4-b": 1,
+        "ecologie_energie-4-c": -1,
+        "ecologie_energie-4-d": -1,
+        "ecologie_energie-4-f": -1,
+        "ecologie_energie-4-g": 1
+      },
+      "redLines": [
+        "ecologie_energie-4-d"
+      ],
+      "rev": 1
+    },
+    "ecologie_energie-5": {
+      "ratings": {
+        "ecologie_energie-5-a": -1,
+        "ecologie_energie-5-b": 1,
+        "ecologie_energie-5-c": 1,
+        "ecologie_energie-5-d": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "ecologie_energie-6": {
+      "ratings": {
+        "ecologie_energie-6-a": 1,
+        "ecologie_energie-6-b": 1,
+        "ecologie_energie-6-c": 1,
+        "ecologie_energie-6-d": -1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "ecologie_energie-7": {
+      "ratings": {
+        "ecologie_energie-7-b": 1,
+        "ecologie_energie-7-c": -1,
+        "ecologie_energie-7-d": -1,
+        "ecologie_energie-7-e": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "agriculture-1": {
+      "ratings": {
+        "agriculture-1-a": 1,
+        "agriculture-1-b": -1,
+        "agriculture-1-c": 1,
+        "agriculture-1-d": 1,
+        "agriculture-1-e": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "agriculture-2": {
+      "ratings": {
+        "agriculture-2-c": 1,
+        "agriculture-2-d": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "agriculture-3": {
+      "ratings": {
+        "agriculture-3-a": -1,
+        "agriculture-3-b": -1,
+        "agriculture-3-c": -1,
+        "agriculture-3-d": -1,
+        "agriculture-3-e": 1
+      },
+      "redLines": [
+        "agriculture-3-b"
+      ],
+      "rev": 1
+    },
+    "territoires-2": {
+      "ratings": {},
+      "redLines": [],
+      "skipped": true
+    },
+    "securite_justice-1": {
+      "ratings": {
+        "securite_justice-1-d": -1,
+        "securite_justice-1-e": -1,
+        "securite_justice-1-f": 1
+      },
+      "redLines": [
+        "securite_justice-1-e"
+      ],
+      "rev": 1
+    },
+    "securite_justice-2": {
+      "ratings": {
+        "securite_justice-2-a": 1,
+        "securite_justice-2-b": 1,
+        "securite_justice-2-c": -1,
+        "securite_justice-2-d": -1,
+        "securite_justice-2-e": 1,
+        "securite_justice-2-f": -1,
+        "securite_justice-2-h": 1
+      },
+      "redLines": [
+        "securite_justice-2-d"
+      ],
+      "rev": 1
+    },
+    "securite_justice-3": {
+      "ratings": {
+        "securite_justice-3-b": -1,
+        "securite_justice-3-d": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "securite_justice-4": {
+      "ratings": {
+        "securite_justice-4-a": 1,
+        "securite_justice-4-b": 1,
+        "securite_justice-4-c": -1,
+        "securite_justice-4-e": 1
+      },
+      "redLines": [
+        "securite_justice-4-c"
+      ],
+      "rev": 1
+    },
+    "securite_justice-5": {
+      "ratings": {
+        "securite_justice-5-a": -1,
+        "securite_justice-5-b": -1,
+        "securite_justice-5-d": -1,
+        "securite_justice-5-e": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "securite_justice-6": {
+      "ratings": {
+        "securite_justice-6-a": -1,
+        "securite_justice-6-b": -1,
+        "securite_justice-6-c": 1,
+        "securite_justice-6-d": -1,
+        "securite_justice-6-e": -1,
+        "securite_justice-6-f": 1,
+        "securite_justice-6-g": 1
+      },
+      "redLines": [
+        "securite_justice-6-b",
+        "securite_justice-6-d"
+      ],
+      "rev": 1
+    },
+    "immigration-1": {
+      "ratings": {
+        "immigration-1-a": 1,
+        "immigration-1-b": 1,
+        "immigration-1-c": 1,
+        "immigration-1-d": 1,
+        "immigration-1-e": -1,
+        "immigration-1-f": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "immigration-2": {
+      "ratings": {
+        "immigration-2-a": -1,
+        "immigration-2-c": 1,
+        "immigration-2-d": -1
+      },
+      "redLines": [
+        "immigration-2-d"
+      ],
+      "rev": 1
+    },
+    "immigration-3": {
+      "ratings": {
+        "immigration-3-a": 1,
+        "immigration-3-b": -1,
+        "immigration-3-c": -1,
+        "immigration-3-d": -1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "immigration-4": {
+      "ratings": {
+        "immigration-4-b": 1,
+        "immigration-4-c": -1,
+        "immigration-4-d": -1,
+        "immigration-4-e": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "immigration-5": {
+      "ratings": {
+        "immigration-5-b": 1,
+        "immigration-5-c": -1,
+        "immigration-5-d": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "immigration-6": {
+      "ratings": {
+        "immigration-6-a": -1,
+        "immigration-6-b": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "europe-1": {
+      "ratings": {
+        "europe-1-a": 1,
+        "europe-1-b": -1,
+        "europe-1-d": -1,
+        "europe-1-e": 1,
+        "europe-1-f": -1,
+        "europe-1-g": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "europe-2": {
+      "ratings": {},
+      "redLines": [],
+      "skipped": true
+    },
+    "europe-3": {
+      "ratings": {
+        "europe-3-d": -1,
+        "europe-3-e": -1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "ukraine_russie-1": {
+      "ratings": {
+        "ukraine_russie-1-a": 1,
+        "ukraine_russie-1-b": -1,
+        "ukraine_russie-1-c": 1,
+        "ukraine_russie-1-d": -1,
+        "ukraine_russie-1-e": 1,
+        "ukraine_russie-1-h": 1
+      },
+      "redLines": [
+        "ukraine_russie-1-b",
+        "ukraine_russie-1-d"
+      ],
+      "rev": 1
+    },
+    "ukraine_russie-2": {
+      "ratings": {
+        "ukraine_russie-2-b": -1,
+        "ukraine_russie-2-c": -1,
+        "ukraine_russie-2-d": -1,
+        "ukraine_russie-2-e": 1
+      },
+      "redLines": [
+        "ukraine_russie-2-d"
+      ],
+      "rev": 1
+    },
+    "proche_orient-1": {
+      "ratings": {
+        "proche_orient-1-a": 1,
+        "proche_orient-1-b": 1,
+        "proche_orient-1-f": -1,
+        "proche_orient-1-h": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "proche_orient-2": {
+      "ratings": {
+        "proche_orient-2-a": 1,
+        "proche_orient-2-b": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "defense-1": {
+      "ratings": {
+        "defense-1-a": 1,
+        "defense-1-c": -1,
+        "defense-1-d": -1,
+        "defense-1-e": 1
+      },
+      "redLines": [
+        "defense-1-c",
+        "defense-1-d"
+      ],
+      "rev": 1
+    },
+    "defense-2": {
+      "ratings": {
+        "defense-2-a": 1,
+        "defense-2-c": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "defense-3": {
+      "ratings": {
+        "defense-3-b": 1,
+        "defense-3-d": 1,
+        "defense-3-e": -1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "defense-4": {
+      "ratings": {
+        "defense-4-a": 1,
+        "defense-4-b": -1,
+        "defense-4-c": 1,
+        "defense-4-d": -1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "defense-5": {
+      "ratings": {
+        "defense-5-b": -1,
+        "defense-5-c": -1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "institutions-1": {
+      "ratings": {
+        "institutions-1-a": 1,
+        "institutions-1-b": -1,
+        "institutions-1-d": 1,
+        "institutions-1-e": -1,
+        "institutions-1-g": -1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "institutions-2": {
+      "ratings": {
+        "institutions-2-a": -1,
+        "institutions-2-b": 1,
+        "institutions-2-c": 1,
+        "institutions-2-d": 1,
+        "institutions-2-e": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "institutions-3": {
+      "ratings": {
+        "institutions-3-a": -1,
+        "institutions-3-b": 1,
+        "institutions-3-c": 1,
+        "institutions-3-d": -1,
+        "institutions-3-g": -1
+      },
+      "redLines": [
+        "institutions-3-a"
+      ],
+      "rev": 1
+    },
+    "laicite_republique-1": {
+      "ratings": {
+        "laicite_republique-1-c": 1,
+        "laicite_republique-1-f": -1,
+        "laicite_republique-1-g": -1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "laicite_republique-2": {
+      "ratings": {
+        "laicite_republique-2-b": 1,
+        "laicite_republique-2-c": -1,
+        "laicite_republique-2-d": 1,
+        "laicite_republique-2-e": 1,
+        "laicite_republique-2-f": -1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "fiscalite-x1": {
+      "ratings": {
+        "fiscalite-x1-a": 1,
+        "fiscalite-x1-c": 1,
+        "fiscalite-x1-d": -1,
+        "fiscalite-x1-e": -1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "education-x1": {
+      "ratings": {
+        "education-x1-a": -1,
+        "education-x1-b": -1,
+        "education-x1-c": -1,
+        "education-x1-d": 1,
+        "education-x1-e": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "societe-x1": {
+      "ratings": {
+        "societe-x1-a": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "territoires-x3": {
+      "ratings": {
+        "territoires-x3-a": 1,
+        "territoires-x3-c": -1,
+        "territoires-x3-d": 1,
+        "territoires-x3-e": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "territoires-x4": {
+      "ratings": {
+        "territoires-x4-a": 1,
+        "territoires-x4-d": -1,
+        "territoires-x4-e": -1
+      },
+      "redLines": [
+        "territoires-x4-d"
+      ],
+      "rev": 1
+    },
+    "territoires-x5": {
+      "ratings": {
+        "territoires-x5-a": -1,
+        "territoires-x5-b": -1,
+        "territoires-x5-c": -1,
+        "territoires-x5-d": -1
+      },
+      "redLines": [
+        "territoires-x5-a"
+      ],
+      "rev": 1
+    },
+    "agriculture-x4": {
+      "ratings": {
+        "agriculture-x4-a": -1,
+        "agriculture-x4-b": -1,
+        "agriculture-x4-c": 1,
+        "agriculture-x4-d": 1
+      },
+      "redLines": [
+        "agriculture-x4-b"
+      ],
+      "rev": 1
+    },
+    "ecologie_energie-x9": {
+      "ratings": {
+        "ecologie_energie-x9-a": -1,
+        "ecologie_energie-x9-b": -1,
+        "ecologie_energie-x9-c": 1
+      },
+      "redLines": [
+        "ecologie_energie-x9-a"
+      ],
+      "rev": 1
+    },
+    "securite_justice-x1": {
+      "ratings": {
+        "securite_justice-x1-a": -1,
+        "securite_justice-x1-b": -1,
+        "securite_justice-x1-e": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "immigration-x1": {
+      "ratings": {
+        "immigration-x1-a": -1,
+        "immigration-x1-b": -1,
+        "immigration-x1-e": -1
+      },
+      "redLines": [
+        "immigration-x1-b",
+        "immigration-x1-e"
+      ],
+      "rev": 1
+    },
+    "immigration-x2": {
+      "ratings": {
+        "immigration-x2-c": -1
+      },
+      "redLines": [
+        "immigration-x2-c"
+      ],
+      "rev": 1
+    },
+    "europe-x4": {
+      "ratings": {
+        "europe-x4-b": 1,
+        "europe-x4-d": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "ukraine_russie-x3": {
+      "ratings": {
+        "ukraine_russie-x3-a": 1,
+        "ukraine_russie-x3-b": -1,
+        "ukraine_russie-x3-c": 1,
+        "ukraine_russie-x3-d": 1,
+        "ukraine_russie-x3-e": 1
+      },
+      "redLines": [],
+      "rev": 1
+    },
+    "europe-x5": {
+      "ratings": {
+        "europe-x5-a": -1,
+        "europe-x5-b": -1,
+        "europe-x5-c": -1,
+        "europe-x5-d": 1,
+        "europe-x5-e": 1,
+        "europe-x5-f": 1
+      },
+      "redLines": [
+        "europe-x5-a",
+        "europe-x5-b"
+      ],
+      "rev": 1
+    },
+    "institutions-x1": {
+      "ratings": {
+        "institutions-x1-a": -1,
+        "institutions-x1-c": 1,
+        "institutions-x1-d": 1,
+        "institutions-x1-e": -1
+      },
+      "redLines": [
+        "institutions-x1-e"
+      ],
+      "rev": 1
+    }
+  }
+}

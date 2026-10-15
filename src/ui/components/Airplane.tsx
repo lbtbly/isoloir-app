@@ -66,8 +66,8 @@ export function PrivacyButton() {
           </h2>
           <p>
             {online
-              ? 'Elles ne sont envoyées nulle part\u00a0: pas de compte, pas de serveur qui les reçoive, pas de mesure d’audience. Pour le vérifier vous-même, passez en mode avion maintenant\u00a0: la feuille, le dépouillement, l’image et le double continuent de marcher, et plus rien ne peut sortir de l’appareil.'
-              : 'Plus rien ne peut sortir de cet appareil. La feuille, le dépouillement, l’image et le double marchent quand même. Avant de rallumer le réseau, vous pouvez tout effacer depuis les résultats.'}
+              ? 'Elles ne sont envoyées nulle part\u00a0: pas de compte, pas de serveur qui les reçoive, pas de mesure d’audience. Pour le vérifier vous-même, passez en mode avion maintenant\u00a0: la feuille, le dépouillement, l’image, le double et le transfert par QR code continuent de marcher, et plus rien ne peut sortir de l’appareil.'
+              : 'Plus rien ne peut sortir de cet appareil. La feuille, le dépouillement, l’image, le double et le transfert par QR code marchent quand même. Avant de rallumer le réseau, vous pouvez tout effacer depuis les résultats.'}
           </p>
           <AirplaneDiagram />
           <HowTo />

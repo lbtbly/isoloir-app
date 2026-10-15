@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'preact/hooks'
 import { go, link } from '../nav'
 import { firstStepSize } from '../../core/order'
 import { isAnswered } from '../../core/answers'
-import { MAX_IMPORT_BYTES, parseImport } from '../../core/exportData'
+import { importNotes, MAX_IMPORT_BYTES, parseImport, type ImportResult } from '../../core/exportData'
 import { profileAccess } from '../../core/profileAccess'
 import { PROFILE_SEE, profileHome, profileWhen } from '../../core/resultsCopy'
 import { currentAnswers } from '../../core/revisions'
@@ -106,21 +106,28 @@ export function Home({ pack, state, essential, stale, results, setState, eraseAl
     const f = input.files?.[0]
     input.value = ''
     if (!f) return
-    if (f.size > MAX_IMPORT_BYTES) {
-      setImportError('Ce fichier est trop volumineux pour être un double d’Isoloir.')
-      return
+    // Le double (JSON) se lit ici ; une image de QR code ou un code en texte, par le lecteur des codes de transfert,
+    // chargé à ce moment seulement (ui/transfer/read.ts)
+    let res: ImportResult
+    if (/\.json$/i.test(f.name) || f.type === 'application/json') {
+      if (f.size > MAX_IMPORT_BYTES) {
+        setImportError('Ce fichier est trop volumineux pour être un double d’Isoloir.')
+        return
+      }
+      res = parseImport(await f.text(), pack)
+    } else {
+      try {
+        res = await (await import('../transfer/read')).readImportFile(f, pack)
+      } catch {
+        res = { ok: false, error: 'La lecture de ce fichier n’a pas pu démarrer. Rechargez la page, puis réessayez.' }
+      }
     }
-    const res = parseImport(await f.text(), pack)
     if (!res.ok) {
       setImportError(res.error)
       return
     }
     setImportError(null)
-    const notes = [
-      res.fromVersion ? 'Ce fichier date d’une version antérieure des données.' : '',
-      res.dropped ? `${res.dropped} réponse${res.dropped > 1 ? 's' : ''} ne correspond${res.dropped > 1 ? 'ent' : ''} plus à une question et ser${res.dropped > 1 ? 'ont' : 'a'} ignorée${res.dropped > 1 ? 's' : ''}.` : '',
-      res.review ? `${res.review} question${res.review > 1 ? 's ont' : ' a'} changé depuis : ${res.review > 1 ? 'elles seront' : 'elle sera'} à revoir.` : '',
-    ].filter(Boolean)
+    const notes = importNotes(res, pack)
     if (started || notes.length) setPending({ state: res.state, note: notes.join(' ') })
     else apply(res.state)
   }
@@ -380,8 +387,8 @@ export function Home({ pack, state, essential, stale, results, setState, eraseAl
           !saved
             ? undefined
             : started
-              ? 'Elle reste sur cet appareil. Pour la reprendre ailleurs, téléchargez son double depuis le dépouillement.'
-              : 'Commencée sur un autre appareil\u00a0? Reprenez-la depuis son double, le fichier téléchargé au dépouillement.'
+              ? 'Elle reste sur cet appareil. Pour la retrouver ailleurs, transférez vos réponses.'
+              : 'Commencée sur un autre appareil\u00a0? Importez vos réponses.'
         }
         actions={
           <>
@@ -393,6 +400,20 @@ export function Home({ pack, state, essential, stale, results, setState, eraseAl
                 </a>
               </li>
             ) : null}
+            {started ? (
+              <li>
+                <a class="btn-text" href={link('/autre-appareil')}>
+                  <Icon name="qr" />
+                  Transférer mes réponses
+                </a>
+              </li>
+            ) : null}
+            <li>
+              <a class="btn-text" href={link('/autre-appareil/importer')}>
+                <Icon name="camera" />
+                Importer mes réponses
+              </a>
+            </li>
             <li>
               <button type="button" class="btn-text" ref={importButton} onClick={() => file.current?.click()}>
                 <Icon name="upload" />
@@ -402,7 +423,7 @@ export function Home({ pack, state, essential, stale, results, setState, eraseAl
               <input
                 ref={file}
                 type="file"
-                accept="application/json,.json"
+                accept="application/json,.json,image/*,.png,.jpg,.jpeg,.webp,.heic,text/plain,.txt"
                 class="sr-only"
                 tabIndex={-1}
                 aria-hidden="true"
