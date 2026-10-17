@@ -3936,6 +3936,16 @@ try {
 
   // 7 ter. Grand écran : le menu en ligne dans l'en-tête, le lien courant marqué, sans bouton « Menu »
   const wide = await browser.newContext({ viewport: { width: 1440, height: 900 }, reducedMotion: 'reduce' })
+  // La hauteur de l'en-tête du site posée sur <html> (--header-real), relevée à chaque changement : l'en-tête démonté
+  // en changeant d'écran ne la remet jamais à zéro (tout ce qui colle dessous passerait derrière lui ; le contrôle de
+  // l'en-tête collant de la comparaison, plus bas, tombait parfois dans ce laps). Observé depuis le document : <html>
+  // n'existe pas encore quand le script s'exécute
+  await wide.addInitScript(() => {
+    window.__headerZero = 0
+    new MutationObserver(() => {
+      if (document.documentElement?.style.getPropertyValue('--header-real') === '0px') window.__headerZero++
+    }).observe(document, { attributes: true, attributeFilter: ['style'], subtree: true })
+  })
   const wp = await wide.newPage()
   await wp.goto(U('/sujets'))
   await wp.locator('.topic-fiche').first().waitFor()
@@ -3972,7 +3982,7 @@ try {
       const row = [...document.querySelectorAll('.cmp-topic .cmp-row')].find(r => r.getBoundingClientRect().top > (ths[0]?.bottom ?? 0))
       const tds = row ? [...row.querySelectorAll('td')].map(t => t.getBoundingClientRect()) : []
       const off = ths.length && ths.length === tds.length ? Math.max(...ths.map((t, i) => Math.abs(t.left - tds[i].left) + Math.abs(t.width - tds[i].width))) : 999
-      return { top: Math.round((ths[0]?.top ?? 0) - (bar?.bottom ?? 0)), off: Math.round(off) }
+      return { top: Math.round((ths[0]?.top ?? 0) - (bar?.bottom ?? 0)), off: Math.round(off), zero: window.__headerZero }
     })
     await wp.getByRole('button', { name: 'Seulement les oppositions radicales' }).click()
     const opp = await wp.evaluate(() => {
@@ -3994,8 +4004,8 @@ try {
       }
     })
     check(
-      / is-table/.test(layout ?? '') && side && Math.abs(aligned.top) <= 6 && aligned.off <= 1 && (opp.rows ? opp.marked && opp.open : opp.none),
-      `grand écran, comparaison de ${ids.length} : tableau complet ${/ is-table/.test(layout ?? '')}, question à gauche de ses cases ${side} ; en-tête collant à ${aligned.top}px, décalage des colonnes ${aligned.off}px ; « Seulement les oppositions radicales » : ${opp.rows} lignes marquées ${opp.marked}, thèmes dépliés ${opp.open}`,
+      / is-table/.test(layout ?? '') && side && Math.abs(aligned.top) <= 6 && aligned.off <= 1 && aligned.zero === 0 && (opp.rows ? opp.marked && opp.open : opp.none),
+      `grand écran, comparaison de ${ids.length} : tableau complet ${/ is-table/.test(layout ?? '')}, question à gauche de ses cases ${side} ; en-tête collant à ${aligned.top}px, décalage des colonnes ${aligned.off}px, en-tête du site mesuré à 0 px ${aligned.zero} fois en changeant d’écran ; « Seulement les oppositions radicales » : ${opp.rows} lignes marquées ${opp.marked}, thèmes dépliés ${opp.open}`,
     )
   }
   await wide.close()
