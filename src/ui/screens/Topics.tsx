@@ -10,11 +10,11 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks'
 import type { SessionState } from '../../core/storage'
 import type { ElectionPack, Question, Topic, TopicGroup } from '../../core/types'
-import { CTA_RESUME, CTA_START } from '../../core/resultsCopy'
 import { AiLabel } from '../components/AiLabel'
 import { FormHeader } from '../components/FormHeader'
 import { SiteFooter } from '../components/SiteFooter'
 import { Icon } from '../components/Icon'
+import { QuestionsCta } from '../components/QuestionsCta'
 import { Explainer } from '../questionnaire/Explainer'
 import { QuestionVideos, TopicVideo, VideoFeedEntry } from '../videos/Links'
 import { useStickyFilters } from '../useStickyFilters'
@@ -24,7 +24,7 @@ import '../../styles/topics.css'
 interface Props {
   pack: ElectionPack
   state: SessionState
-  /** Questions du questionnaire rapide, dans l'ordre de la personne : pour l'appel « Commencer / Reprendre » */
+  /** Questions du questionnaire rapide, dans l'ordre de la personne : pour l'appel du bas (QuestionsCta) */
   essential: Question[]
   /** Question à montrer à l'ouverture (#/sujets/<id>) */
   anchor?: string
@@ -113,14 +113,6 @@ export function Topics({ pack, state, essential, anchor }: Props) {
     }
     reveal(id, true)
   }
-
-  // Appel principal, comme sur l'accueil : commencer, reprendre, ou revoir son dépouillement
-  const seen = essential.filter(q => state.answers[q.id]).length
-  const firstOpen = essential.findIndex(q => !state.answers[q.id])
-  const done = essential.length > 0 && seen === essential.length
-  const start = done
-    ? { href: link('/resultats'), label: 'Voir mon dépouillement' }
-    : { href: link(`/feuille/${(firstOpen < 0 ? 0 : firstOpen) + 1}`), label: seen ? CTA_RESUME : CTA_START }
 
   return (
     <div class="screen screen-wide screen-topics">
@@ -265,10 +257,7 @@ export function Topics({ pack, state, essential, anchor }: Props) {
             <span class="btn-label">Accueil</span>
           </a>
           <span />
-          <a class="btn-primary" href={start.href}>
-            {start.label}
-            <Icon name="arrow-right" />
-          </a>
+          <QuestionsCta essential={essential} answers={state.answers} />
         </div>
       </nav>
     </div>

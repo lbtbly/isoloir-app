@@ -35,6 +35,7 @@ import { useOnDemand, type OnDemand } from './ui/lazy'
 import { axisOf } from './core/spectrum'
 import { Topics } from './ui/screens/Topics'
 import { Videos } from './ui/screens/Videos'
+import { QuestionsCta } from './ui/components/QuestionsCta'
 import { useOnline } from './ui/useOnline'
 import { VideoHost } from './ui/videos/Host'
 import { hasVideos, setVideoScope } from './ui/videos/load'
@@ -519,9 +520,9 @@ function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
           <m.Legal pack={pack} seed={state.seed} />
         ))
       case 'candidates':
-        return <CandidatesIndex pack={pack} state={state} />
+        return <CandidatesIndex pack={pack} state={state} essential={essential} />
       case 'candidate':
-        return <CandidatePage pack={pack} candidateId={route.id} state={state} />
+        return <CandidatePage pack={pack} candidateId={route.id} state={state} essential={essential} />
       case 'compare':
         // Arrivée par un lien (pas à l'ouverture de la page) : le titre prendra le focus une fois l'écran chargé
         return (
@@ -533,7 +534,7 @@ function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
             loading="de la comparaison"
             focusOnLoad={!firstRender.current}
             onLoaded={() => setLoadedScreens(n => n + 1)}
-            render={m => <m.Compare pack={pack} ids={route.ids} state={state} />}
+            render={m => <m.Compare pack={pack} ids={route.ids} state={state} cta={<QuestionsCta essential={essential} answers={state.answers} />} />}
           />
         )
       case 'topics':

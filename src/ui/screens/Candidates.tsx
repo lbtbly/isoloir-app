@@ -5,7 +5,6 @@
 
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks'
 import { ratingOf } from '../../core/answers'
-import { CTA_START } from '../../core/resultsCopy'
 import { seededShuffle } from '../../core/rng'
 import type { SessionState } from '../../core/storage'
 import type { Answers, Candidate, ElectionPack, ElectionInfo, PartyMark, Position, Question, Source, Topic, TopicGroup } from '../../core/types'
@@ -16,6 +15,7 @@ import { SiteFooter } from '../components/SiteFooter'
 import { Icon } from '../components/Icon'
 import { Initials, type Mark } from '../components/Initials'
 import { Portrait } from '../components/Portrait'
+import { QuestionsCta } from '../components/QuestionsCta'
 import { RatingMark } from '../components/RatingRuler'
 import { formatSourceDate, hostOf } from '../format'
 import { useMasonry } from '../useMasonry'
@@ -91,9 +91,11 @@ function PartyLabel({ party }: { party: PartyMark }) {
 interface IndexProps {
   pack: ElectionPack
   state: SessionState
+  /** Questions du questionnaire rapide, dans l'ordre de la personne : pour l'appel du bas (QuestionsCta) */
+  essential: Question[]
 }
 
-export function CandidatesIndex({ pack, state }: IndexProps) {
+export function CandidatesIndex({ pack, state, essential }: IndexProps) {
   const { election, candidates, positions } = pack
   // De l'extrême gauche à l'extrême droite quand l'élection a une grille des nuances (election.spectrum) ;
   // sinon, ordre tiré au hasard par personne, comme partout où les candidats ne sont pas classés
@@ -190,10 +192,7 @@ export function CandidatesIndex({ pack, state }: IndexProps) {
           <span class="btn-label">Accueil</span>
         </a>
         <span />
-        <a class="btn-primary" href={link('/feuille/1')}>
-          {CTA_START}
-          <Icon name="arrow-right" />
-        </a>
+        <QuestionsCta essential={essential} answers={state.answers} />
       </CompareBar>
     </div>
   )
@@ -203,6 +202,8 @@ interface PageProps {
   pack: ElectionPack
   candidateId: string
   state: SessionState
+  /** Questions du questionnaire rapide, dans l'ordre de la personne : pour l'appel du bas (QuestionsCta) */
+  essential: Question[]
 }
 
 /** Une fiche : un thème, ses questions où la position est connue, puis celles où elle ne l'est pas */
@@ -217,7 +218,7 @@ interface Card {
 
 const TINTS = 4
 
-export function CandidatePage({ pack, candidateId, state }: PageProps) {
+export function CandidatePage({ pack, candidateId, state, essential }: PageProps) {
   const { election, candidates, bank, positions } = pack
   const c = candidates.find(x => x.id === candidateId)
   const table = useMemo(() => (c ? (positions[c.id] ?? {}) : {}), [c, positions])
@@ -435,10 +436,7 @@ export function CandidatePage({ pack, candidateId, state }: PageProps) {
           <span class="btn-label">Les candidats</span>
         </a>
         <span />
-        <a class="btn-primary" href={link('/feuille/1')}>
-          {CTA_START}
-          <Icon name="arrow-right" />
-        </a>
+        <QuestionsCta essential={essential} answers={state.answers} />
       </CompareBar>
     </div>
   )

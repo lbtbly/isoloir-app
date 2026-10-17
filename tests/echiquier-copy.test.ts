@@ -223,7 +223,7 @@ describe('accords', () => {
     expect(T.waitCta('en-cours', 1)).toBe(`Continuer${NB}: 1${NB}question`)
     expect(T.waitCta('en-cours', 15)).toBe(`Continuer${NB}: 15${NB}questions`)
     expect(T.waitCta('vide', 22)).toBe('Répondre aux questions')
-    expect(T.waitCta('sans-avis', 0)).toBe('Relire vos réponses')
+    expect(T.waitCta('sans-avis', 0)).toBe('Relire mes réponses')
     expect(T.waitText('en-cours', 22, 15, false)).toBe(
       `La lecture s’affiche au bout des 22${NB}questions du questionnaire rapide, avec le dépouillement complet${NB}: encore 15${NB}questions.`,
     )
@@ -1041,6 +1041,9 @@ describe('votre façon de répondre (lot 4)', () => {
     expect(P.clones).toBeGreaterThanOrEqual(60)
     expect(text).toContain(`(${P.clones} questionnaires par candidat)`)
     expect(text).toContain('questionnaires remplis par un programme, sans suivre aucun candidat')
+    // Les accords suivent « questionnaires » (« des feuilles » jusqu'au 17/10/2026), jusqu'au pronom qui les reprend
+    expect(text).toMatch(/questionnaires par candidat\)\s?:\s?elle paraît sur [\d,]+\s?% d’entre eux,/)
+    expect(text).not.toMatch(/\b(toutes celles|celles qui|elles n’approuvent)|d’entre elles/)
     expect(text).toContain(`sur ${dec(P.agreeOnly[0])}${NB}% de ceux qui ne donnent que des «${NB}d’accord${NB}» (${dec(P.agreeOnly[1])}${NB}% après le seul questionnaire rapide)`)
     for (const [m, label] of [[P.bank, 'banque'], [P.quick, 'rapide']] as const) {
       const blocs: readonly number[] = m.blocs

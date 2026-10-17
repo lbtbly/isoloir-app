@@ -7,10 +7,10 @@
 
 import type { SessionState } from '../../core/storage'
 import type { ElectionPack, Question } from '../../core/types'
-import { CTA_RESUME, CTA_START } from '../../core/resultsCopy'
 import { AiLabel } from '../components/AiLabel'
 import { FormHeader } from '../components/FormHeader'
 import { Icon } from '../components/Icon'
+import { QuestionsCta } from '../components/QuestionsCta'
 import { SiteFooter } from '../components/SiteFooter'
 import { Glyph } from '../videos/Glyph'
 import { openVideo } from '../videos/Host'
@@ -25,7 +25,7 @@ const plural = (n: number, word: string) => `${n}\u00a0${word}${n > 1 ? 's' : ''
 interface Props {
   pack: ElectionPack
   state: SessionState
-  /** Questions du questionnaire rapide, dans l'ordre de la personne : pour l'appel « Commencer / Reprendre » */
+  /** Questions du questionnaire rapide, dans l'ordre de la personne : pour l'appel du bas (QuestionsCta) */
   essential: Question[]
 }
 
@@ -43,14 +43,6 @@ export function Videos({ pack, state, essential }: Props) {
     .filter(id => !feed.some(s => s.topicId === id))
     .map(id => bank.topics.find(t => t.id === id)?.label)
     .filter((l): l is string => !!l)
-
-  // Appel principal, comme sur « Les sujets » : commencer, reprendre, ou revoir son dépouillement
-  const seen = essential.filter(q => state.answers[q.id]).length
-  const firstOpen = essential.findIndex(q => !state.answers[q.id])
-  const done = essential.length > 0 && seen === essential.length
-  const start = done
-    ? { href: link('/resultats'), label: 'Voir mon dépouillement' }
-    : { href: link(`/feuille/${(firstOpen < 0 ? 0 : firstOpen) + 1}`), label: seen ? CTA_RESUME : CTA_START }
 
   let place = 0
   return (
@@ -141,10 +133,7 @@ export function Videos({ pack, state, essential }: Props) {
             <span class="btn-label">Accueil</span>
           </a>
           <span />
-          <a class="btn-primary" href={start.href}>
-            {start.label}
-            <Icon name="arrow-right" />
-          </a>
+          <QuestionsCta essential={essential} answers={state.answers} />
         </div>
       </nav>
     </div>

@@ -42,7 +42,7 @@ Le succès, c'est un électeur qui termine le questionnaire, comprend pourquoi t
 
 ## Capabilities and Constraints
 
-- **Interface :** en français. On y parle de « vos réponses » et des « questions », jamais de « feuille » (décision du propriétaire du 17 octobre 2026, après la règle du transfert) : « Répondre aux questions », « Reprendre vos réponses », « Vos réponses » ; la feuille de pointage reste le monde du dessin (DESIGN.md), pas un mot de l'écran.
+- **Interface :** en français. On y parle de « vos réponses » et des « questions », jamais de « feuille » (décision du propriétaire du 17 octobre 2026, après la règle du transfert) : « Répondre aux questions », « Reprendre mes réponses » (un bouton parle à la première personne), « Vos réponses » (un titre, à la deuxième) ; la feuille de pointage reste le monde du dessin (DESIGN.md), pas un mot de l'écran.
 - **Anonymat structurel :** le questionnaire n'a pas accès aux positions des candidats.
 - **Sources :** chaque attribution candidat → approche est sourcée (URL, titre, date). Une attribution incertaine devient « position inconnue », jamais une supposition.
 - **Ligne rouge :** une approche peut être marquée inacceptable. Elle est notée « pas d'accord », et les candidats qui la portent sont classés après les autres avec leur score inchangé : c'est un filtre visible, pas une pénalité.

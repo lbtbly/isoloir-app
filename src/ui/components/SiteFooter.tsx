@@ -1,6 +1,6 @@
 // Le pied de page, le même sur tous les écrans (demande du propriétaire du 2026-10-15) : pleine largeur, sur fond
 // d'encre d'imprimerie, la feuille en négatif. En tête, le logo et les dates du vote ; dessous, des colonnes titrées :
-// « Votre feuille » (les actions sur les réponses de cet appareil, fournies par l'application : FootContext.ts),
+// « Vos réponses » (les actions sur les réponses de cet appareil, fournies par l'application : FootContext.ts),
 // « À table » (s'il y en a une), « Qui fait Isoloir » (la mention d'indépendance et d'usage de l'IA, les notices).
 // Un seul composant pour tous les écrans : le changer ici le change partout. Seule la table en cours ne l'affiche pas
 // (son pied fermé, ui/questionnaire/Sheet.tsx). Il suit le contenu, hors du <main> : c'est le pied de la page (repère
@@ -99,7 +99,7 @@ function Vote() {
 }
 
 /**
- * « Votre feuille » : relire, transférer ou importer ses réponses, reprendre depuis un fichier (le double, une image de
+ * « Vos réponses » : relire, transférer ou importer ses réponses, reprendre depuis un fichier (le double, une image de
  * QR code ou un code), tout effacer ; avec, dessous, ce que ces actions ont à dire (import en attente, erreur,
  * effacement fait, stockage refusé). Les actions viennent de l'application (FootContext.ts)
  */
@@ -146,7 +146,7 @@ function SheetColumn() {
           <li>
             <a class="btn-text" href={link(`/feuille/1`)}>
               <Icon name="reread" />
-              Relire vos réponses
+              Relire mes réponses
             </a>
           </li>
         ) : null}

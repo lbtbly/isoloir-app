@@ -60,7 +60,7 @@ describe('les mots du site : « réponses » et « questions », jamais « feuil
   })
 
   it('les appels aux questions sont les mêmes partout, et la page d’attente du profil les reprend', () => {
-    expect([CTA_START, CTA_RESUME, CTA_REREAD]).toEqual(['Répondre aux questions', 'Reprendre vos réponses', 'Relire vos réponses'])
+    expect([CTA_START, CTA_RESUME, CTA_REREAD]).toEqual(['Répondre aux questions', 'Reprendre mes réponses', 'Relire mes réponses'])
     expect(waitCta('vide', 22)).toBe(CTA_START)
     expect(waitCta('sans-avis', 0)).toBe(CTA_REREAD)
     // Les écrans les importent de core/resultsCopy.ts ; seul le pied de page écrit le sien, mot pour mot : l'import y
@@ -69,5 +69,19 @@ describe('les mots du site : « réponses » et « questions », jamais « feuil
     const writers = files.filter(file => textsOf(file).some(({ text }) => [CTA_START, CTA_RESUME, CTA_REREAD].includes(text.trim())))
     expect(writers.map(f => relative(SRC, f)).sort()).toEqual(['core/resultsCopy.ts', 'ui/components/SiteFooter.tsx'])
     expect(textsOf(join(SRC, 'ui/components/SiteFooter.tsx')).map(x => x.text.trim())).toContain(CTA_REREAD)
+  })
+
+  it('un bouton parle à la première personne, un titre à la deuxième', () => {
+    // « Reprendre mes réponses », « Relire mes réponses », comme « Transférer mes réponses » et « Voir mon
+    // dépouillement » ; « Vos réponses » (le pied de page) et « Transférer vos réponses » (la page) sont des titres. Un
+    // libellé de bouton : le verbe et son objet, rien d'autre (« Remplacer vos réponses par celles du fichier ? » est
+    // la question que le bouton « Remplacer mes réponses » tranche)
+    expect([CTA_RESUME, CTA_REREAD].every(t => t.endsWith(' mes réponses'))).toBe(true)
+    const second = files.flatMap(file =>
+      textsOf(file)
+        .filter(({ text }) => /^(Reprendre|Relire|Remplacer|Importer|Voir|Revoir|Télécharger) (vos|votre) \S+$/.test(text.trim()))
+        .map(({ text, line }) => `${relative(SRC, file)}:${line} « ${text.trim()} »`),
+    )
+    expect(second).toEqual([])
   })
 })

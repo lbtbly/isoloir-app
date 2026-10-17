@@ -2799,6 +2799,8 @@ try {
       [
         [`accueil (${QUICK} réponses)`, '/', '.home-film'],
         ['question', '/feuille/2', '.approaches > li'],
+        // Son titre (« Vos priorités ») n'est plus imprimé, comme celui des questions
+        ['priorités', '/priorites', '.approaches.is-topics > li'],
         ['résultats', '/resultats', '.board-row'],
         ['sujets', '/sujets', '.topic-fiche'],
         ['candidats', '/candidats', '.people-panel-link'],
@@ -2811,7 +2813,7 @@ try {
     ],
     ...(STEP1 ? [[trendSaved, [['tendance', '/resultats', '.board-row']]]] : []),
   ]
-  const pageNames = ['Les questions', 'Questions complémentaires', 'Questions à revoir', 'Résultats', 'Notice', 'Méthode', 'Mentions légales', 'Confidentialité', 'Essai vidéos', 'Les vidéos', 'Qui porte quoi', 'Partager', 'Priorités', 'Les sujets', 'Les candidats']
+  const pageNames = ['Les questions', 'Questions complémentaires', 'Questions à revoir', 'Résultats', 'Notice', 'Méthode', 'Mentions légales', 'Confidentialité', 'Essai vidéos', 'Les vidéos', 'Qui porte quoi', 'Partager', 'Priorités', 'Vos priorités', 'Les sujets', 'Les candidats']
   const headerWidths = [320, 360, 390, 768, 1024, 1440]
   const measureBar = p =>
     p.evaluate(() => {
@@ -2890,6 +2892,70 @@ try {
   }
   await zctx.close()
   check(zoomIssues.length === 0, `en-tête, texte à 200 % sur 320 px : rien ne sort de la barre${zoomIssues.length ? ` : ${zoomIssues.join(', ')}` : ''}`)
+  // 7 ter. L'appel aux questions des barres du bas, le même sur chaque page de consultation (components/QuestionsCta.tsx) :
+  // appareil vierge, « Répondre aux questions » vers la question 1 ; en cours, « Reprendre mes réponses » vers la
+  // première question pas encore vue ; questionnaire rapide fini, « Voir mon dépouillement ». Texte à 200 % sur 320 px :
+  // « Répondre » ou « Reprendre » seul, sur une ligne, le libellé entier restant le nom du lien
+  const ctaPages = [
+    ['sujets', '/sujets'],
+    ...(VIDEOS_SHOWN ? [['vidéos', '/videos']] : []),
+    ['candidats', '/candidats'],
+    ['fiche candidat', `/candidat/${FICHE.id}`],
+    ['comparer', `/comparer/${pack.candidates.slice(0, 2).map(c => c.id).join(',')}`],
+  ]
+  const trendState = JSON.parse(trendSaved[STORAGE])
+  const nextOpen = orderedQuestions(pack.bank, 'essentiel', trendState.seed).findIndex(q => !trendState.answers[q.id])
+  const ctaStates = [
+    ['vierge', null, 'Répondre aux questions', 'Répondre', L('/feuille/1')],
+    ['en cours', trendSaved, 'Reprendre mes réponses', 'Reprendre', L(`/feuille/${nextOpen + 1}`)],
+    ['fini', saved, 'Voir mon dépouillement', null, L('/resultats')],
+  ]
+  const ctaIssues = []
+  for (const [what, st, long, short, href] of ctaStates) {
+    for (const zoom of [100, 200]) {
+      const cctx = await browser.newContext({ viewport: { width: zoom === 100 ? 390 : 320, height: 740 }, reducedMotion: 'reduce' })
+      if (st) await cctx.addInitScript(s => Object.entries(s).forEach(([k, v]) => localStorage.setItem(k, v)), st)
+      if (zoom !== 100) await cctx.addInitScript(z => document.addEventListener('DOMContentLoaded', () => (document.documentElement.style.fontSize = `${z}%`)), zoom)
+      const cp = await cctx.newPage()
+      for (const [where, path] of ctaPages) {
+        await cp.goto(U(path))
+        const cta = cp.locator('nav.action-bar .action-bar-inner > a.btn-primary')
+        await cta.first().waitFor()
+        await cp.waitForTimeout(60)
+        // Ce qui se voit (les morceaux du libellé qui ont une taille) et ses lignes ; le nom du lien, par son rôle
+        const got = await cta.first().evaluate(a => {
+          const parts = [...a.childNodes].filter(n => (n.nodeType === 3 ? n.textContent.trim() : n.matches?.('span')))
+          // Un morceau rogné (le libellé entier, gardé pour les lecteurs d'écran) n'a qu'un pixel de large
+          const shown = parts.filter(n => {
+            if (n.nodeType !== 3) return n.getBoundingClientRect().width > 2
+            const r = document.createRange()
+            r.selectNodeContents(n)
+            return [...r.getClientRects()].some(x => x.width > 2 && x.height > 2)
+          })
+          const r = document.createRange()
+          r.selectNodeContents(shown[0] ?? a)
+          return {
+            shown: shown.map(n => n.textContent.trim()).join(' '),
+            lines: new Set([...r.getClientRects()].filter(x => x.width > 2).map(x => Math.round(x.top))).size,
+            href: a.getAttribute('href'),
+            out: a.scrollWidth > a.clientWidth + 1,
+          }
+        })
+        const named = await cp.locator('nav.action-bar').getByRole('link', { name: long, exact: true }).count()
+        const visible = zoom === 200 && short ? short : long
+        const count = await cta.count()
+        if (count !== 1 || got.href !== href || named !== 1 || got.shown !== visible) ctaIssues.push(`${where}, ${what}, ${zoom} % : « ${got.shown} » vers ${got.href}, nom « ${long} » ${named} fois (${count} appel)`)
+        // Le libellé court tient sur une ligne ; « Voir mon dépouillement » n'a pas de libellé court : « dépouillement »,
+        // qui ne tient pas seul sur la ligne d'un téléphone de 320 px à 200 %, s'y coupe sans déborder
+        if (got.out || (zoom === 200 && short && got.lines !== 1)) ctaIssues.push(`${where}, ${what}, ${zoom} % : ${got.lines} ligne(s)${got.out ? ', déborde' : ''}`)
+      }
+      await cctx.close()
+    }
+  }
+  check(
+    ctaIssues.length === 0,
+    `barres du bas (${ctaPages.map(([w]) => w).join(', ')}) : « Répondre aux questions », « Reprendre mes réponses » vers la question ${nextOpen + 1}, « Voir mon dépouillement » selon les réponses ; à 200 % sur 320 px, « Répondre » ou « Reprendre » sur une ligne, le libellé entier pour nom${ctaIssues.length ? ` : ${ctaIssues.join(' ; ')}` : ''}`,
+  )
   await page.goto(U('/candidats'))
   await page.locator('.people-panel-link').first().click()
   await page.locator('.bristol').first().waitFor()
