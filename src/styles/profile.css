@@ -1309,6 +1309,9 @@ html:has(.profile-chart) {
   border-top: var(--hair) solid var(--rule);
   font-size: var(--text-sm);
   line-height: 1.45;
+  /* Texte très agrandi : un mot trop long pour la ligne entière (« complémentaires », « rembourser ») passe à la ligne
+     au lieu d'élargir la fiche hors de la page ; aucun autre ne se coupe (pas de césure automatique) */
+  overflow-wrap: break-word;
 }
 
 .weigh p {
@@ -1329,10 +1332,17 @@ html:has(.profile-chart) {
 .weigh .rating-mark {
   grid-area: auto;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.25rem 0.5rem;
   padding: 0;
   font-size: var(--text-sm);
+}
+
+/* Dans toute colonne trop étroite pour le repère et l'avis côte à côte (la ligne ouverte comme le détail, au texte très
+   agrandi), l'avis passe sous le repère au lieu de sortir de sa colonne */
+.weigh .rating-mark-label {
+  min-width: 0;
 }
 
 .weigh-view-k {
@@ -1352,24 +1362,20 @@ html:has(.profile-chart) {
   }
 }
 
-/* Texte très agrandi (14rem de graphique au plus : 320 px à 200 %) : le repère passe au-dessus de « Votre avis », et un
-   mot trop long pour la ligne (« complémentaires », « rembourser ») se coupe, avec un trait d'union, au lieu d'élargir la
-   ligne ouverte hors de la page */
+/* Texte très agrandi (14rem de graphique au plus : 320 px à 200 %) : le repère passe au-dessus de « Votre avis » */
 @container plot (max-width: 14rem) {
-  .weigh {
-    hyphens: auto;
-    hyphenate-limit-chars: 8 3 3;
-    overflow-wrap: break-word;
-  }
-
   .weigh .rating-mark {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.25rem;
   }
 }
 
-/* Dans le détail : la fiche sous son intertitre, sans filet ; puis la part de chaque question, son nombre à droite */
+/* Dans le détail : la fiche sous son intertitre, sans filet ; puis la part de chaque question, son nombre à droite. Un
+   mot trop long pour sa colonne passe à la ligne, comme dans la fiche */
+.detail-weigh {
+  overflow-wrap: break-word;
+}
+
 .detail-weigh .weigh {
   padding-top: 0;
   border-top: 0;
@@ -1392,15 +1398,24 @@ html:has(.profile-chart) {
   font-variant-numeric: tabular-nums;
 }
 
+/* La question à gauche, ses points à droite ; dans une colonne trop étroite pour les deux (texte très agrandi), les
+   points passent sous la question, toujours à droite, au lieu de la serrer en quelques lettres par ligne */
 .detail-parts li {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: var(--s3);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.1rem var(--s3);
   padding: 0.3rem 0;
   border-top: var(--hair) solid var(--rule);
 }
 
+.detail-parts span {
+  flex: 1 1 14ch;
+  min-width: 0;
+}
+
 .detail-parts strong {
+  margin-left: auto;
   font-weight: 700;
   white-space: nowrap;
 }
@@ -2074,6 +2089,9 @@ html:has(.profile-chart) {
 
 .detail-q {
   margin: var(--s3) 0 0;
+  /* Un mot trop long pour la colonne (« déremboursements », à 320 px et texte à 200 %) passe à la ligne au lieu de
+     sortir de la page (contre-vérification du lot 3) */
+  overflow-wrap: break-word;
 }
 
 .detail-prompt {

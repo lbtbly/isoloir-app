@@ -162,21 +162,24 @@ function allTexts(): string[] {
 const contiguous = () => subsets(axis.length).filter(s => segments(s).length === 1)
 
 /**
- * Les phrases de « Ce qui pèse le plus » : chaque suite pour chaque suite de blocs, de un à sept candidats connus, k
- * d'entre eux, avec ou sans compatibles, « ils en portent d'autres » ou non ; le renvoi au détail, le détail, la règle
+ * Les phrases de « Ce qui pèse le plus » : chaque suite pour chaque suite de blocs, de un à sept candidats connus, tous
+ * ceux que la grille y classe ou non (« connus ici »), k d'entre eux, avec ou sans compatibles, « ils en portent
+ * d'autres » ou non ; le renvoi au détail, le détail, la règle
  */
 function allWeighTexts(): string[] {
   const out: string[] = []
   for (const seg of contiguous()) {
     const where = T.where(axis, seg)
     for (const n of [1, 2, 3, 4, 7])
-      for (let k = 1; k <= n; k++) {
-        const base = { known: n, main: 0, compatible: 0, rejects: 0, others: true }
-        out.push(W.weighWho(where, { ...base, suite: 'principale', main: k }))
-        for (const m of [1, 2]) if (k + m <= n) out.push(W.weighWho(where, { ...base, suite: 'principale', main: k, compatible: m }))
-        out.push(W.weighWho(where, { ...base, suite: 'compatible', compatible: k }), W.weighWho(where, { ...base, suite: 'rejet', rejects: k }))
-      }
-    for (const n of [1, 3]) for (const others of [true, false]) out.push(W.weighWho(where, { suite: 'aucun', known: n, main: 0, compatible: 0, rejects: 0, others }))
+      for (const size of [n, n + 2])
+        for (let k = 1; k <= n; k++) {
+          const base = { size, known: n, main: 0, compatible: 0, rejects: 0, others: true }
+          out.push(W.weighWho(where, { ...base, suite: 'principale', main: k }))
+          for (const m of [1, 2]) if (k + m <= n) out.push(W.weighWho(where, { ...base, suite: 'principale', main: k, compatible: m }))
+          out.push(W.weighWho(where, { ...base, suite: 'compatible', compatible: k }), W.weighWho(where, { ...base, suite: 'rejet', rejects: k }))
+        }
+    for (const n of [1, 3])
+      for (const size of [n, n + 1]) for (const others of [true, false]) out.push(W.weighWho(where, { suite: 'aucun', size, known: n, main: 0, compatible: 0, rejects: 0, others }))
     out.push(W.weighFor(where))
     for (const count of [1, 3]) for (const also of [true, false]) out.push(W.weighAlso(where, count, also))
   }
@@ -807,8 +810,9 @@ describe('lignes rouges et priorités (lot 2)', () => {
 
 describe('ce qui pèse le plus dans cette lecture (lot 3)', () => {
   const where = (seg: number[]) => T.where(axis, seg)
-  const w = (suite: 'principale' | 'compatible' | 'rejet' | 'aucun', known: number, k: number, extra: Partial<{ compatible: number; others: boolean }> = {}) => ({
+  const w = (suite: 'principale' | 'compatible' | 'rejet' | 'aucun', known: number, k: number, extra: Partial<{ compatible: number; others: boolean; size: number }> = {}) => ({
     suite,
+    size: extra.size ?? known,
     known,
     main: suite === 'principale' ? k : 0,
     compatible: suite === 'compatible' ? k : (extra.compatible ?? 0),
@@ -840,6 +844,40 @@ describe('ce qui pèse le plus dans cette lecture (lot 3)', () => {
     expect(W.weighWho(where([0, 1]), w('principale', 7, 1, { compatible: 4 }))).toBe(`Approche principale d’un des 7${NB}candidats que la grille classe à l’extrême gauche et à gauche${NB}; compatible pour 4${NB}autres.`)
     // Jamais « 1 des », « 3 des 3 », ni « 0 » : chaque nombre se dit comme il se lit
     for (const t of allWeighTexts()) expect(/(^|[^\d])(0|1)\u00a0des|\b(\d+)\u00a0des \3\u00a0/.test(t.replace(/pour 1\u00a0des/g, '')), t).toBe(false)
+  })
+
+  it('un candidat du bloc sans position sur le sujet : la phrase ne compte que les connus, et le dit (« connus ici »)', () => {
+    // Les 3 candidats que la grille classe à gauche, dont un inconnu sur le sujet : jamais « des 2 candidats que la grille
+    // classe à gauche », qui dirait qu'elle n'en classe que deux là
+    expect(W.weighWho(where([1]), w('compatible', 2, 2, { size: 3 }))).toBe(`Approche compatible pour les 2${NB}candidats connus ici que la grille classe à gauche.`)
+    expect(W.weighWho(where([0]), w('principale', 2, 2, { size: 4 }))).toBe(`Approche principale des 2${NB}candidats connus ici que la grille classe à l’extrême gauche.`)
+    expect(W.weighWho(where([0, 1]), w('principale', 6, 1, { size: 7 }))).toBe(`Approche principale d’un des 6${NB}candidats connus ici que la grille classe à l’extrême gauche et à gauche.`)
+    expect(W.weighWho(where([3]), w('principale', 3, 2, { size: 4, compatible: 1 }))).toBe(`Approche principale de 2${NB}des 3${NB}candidats connus ici que la grille classe à droite${NB}; compatible pour 1${NB}autre.`)
+    expect(W.weighWho(where([3]), w('rejet', 3, 1, { size: 4 }))).toBe(`Un des 3${NB}candidats connus ici que la grille classe à droite rejette cette approche.`)
+    expect(W.weighWho(where([3]), w('rejet', 2, 2, { size: 3 }))).toBe(`Les 2${NB}candidats connus ici que la grille classe à droite rejettent cette approche.`)
+    expect(W.weighWho(where([1]), w('aucun', 2, 0, { size: 3 }))).toBe(`Aucun des 2${NB}candidats connus ici que la grille classe à gauche ne porte cette approche${NB}: ils en portent d’autres.`)
+    // Un seul connu parmi plusieurs : « le seul candidat connu ici », jamais « le candidat » (la grille en classe plusieurs là)
+    expect(W.weighWho(where([2]), w('principale', 1, 1, { size: 2 }))).toBe('Approche principale du seul candidat connu ici que la grille classe au centre.')
+    expect(W.weighWho(where([4]), w('compatible', 1, 1, { size: 3 }))).toBe('Approche compatible pour le seul candidat connu ici que la grille classe à l’extrême droite.')
+    expect(W.weighWho(where([3]), w('rejet', 1, 1, { size: 4 }))).toBe('Le seul candidat connu ici que la grille classe à droite rejette cette approche.')
+    expect(W.weighWho(where([1]), w('aucun', 1, 0, { size: 3 }))).toBe(`Le seul candidat connu ici que la grille classe à gauche ne porte pas cette approche${NB}: il en porte d’autres.`)
+    expect(W.weighWho(where([1]), w('aucun', 1, 0, { size: 3, others: false }))).toBe('Le seul candidat connu ici que la grille classe à gauche ne porte pas cette approche.')
+    // Tous connus : jamais « connus ici » ; et « connus ici » n'est jamais dit d'un seul candidat sans « seul »
+    for (const n of [1, 2, 3]) expect(W.weighWho(where([1]), w('principale', n, 1, { size: n }))).not.toContain('connu')
+    for (const t of allWeighTexts()) expect(t.replace(/seul candidat connu ici/g, ''), t).not.toMatch(/candidat connu ici/)
+  })
+
+  it('les points du détail font exactement l’écart du tableau (méthode du plus fort reste)', () => {
+    // 11,81 + 16,67 + 5,56 + 5,83 = 39,86 : chacune arrondie ferait 41 pour un écart de 39 au tableau (71 % − 32 %)
+    expect(W.apportion([11.81, 16.67, 5.56, 5.83, 0], 39)).toEqual([12, 16, 5, 6, 0])
+    expect(W.apportion([36.4, 16.6, 0], 52)).toEqual([36, 16, 0])
+    // Vers le haut aussi, et des parts négatives ; une part nulle (le reste sans position incertaine) le reste
+    expect(W.apportion([20.2, -3.4, 12.3, 0], 30)).toEqual([20, -3, 13, 0])
+    expect(W.apportion([10.5, 10.5], 20)).toEqual([10, 10])
+    expect(W.apportion([10.4, 10.4], 21)).toEqual([11, 10])
+    expect(W.apportion([12, 8], 20)).toEqual([12, 8])
+    // Un reste de l'écart : il compte comme une part
+    expect(W.apportion([30.3, 9.3, 0.4], 40)).toEqual([30, 9, 1])
   })
 
   it('votre avis en entier, l’approche entre guillemets ; le renvoi au détail, ce qu’il donne, la part de chaque question', () => {
@@ -908,7 +946,11 @@ describe('ce qui pèse le plus dans cette lecture (lot 3)', () => {
     expect(P.mainGap).toBeLessThan(P.reference[0])
     expect(text).toContain(`(${dec(P.reference[0])} points avec le candidat, ${dec(P.reference[1])} sans lui)`)
     expect(text).toContain('ces deux écarts ne sont établis ni avec ni sans le candidat')
-    // La cause, la part des approches compatibles bloc par bloc, et la part de chaque candidat
+    // Ce que les écarts suivent en partie seulement (contre-vérification du lot 3 : l'extrême droite, aussi pauvre en
+    // approches compatibles que le centre, en cite deux fois plus), la part des approches compatibles bloc par bloc ; et
+    // la part de chaque candidat
+    expect(text).toContain('Ces écarts ne suivent qu’en partie la part des approches compatibles')
+    expect(text).not.toMatch(/Les écarts suivent/)
     expect(text).toContain(`de ${dec(P.compatibleShare.low)}${NB}% chez ceux que la grille classe ${P.compatibleShare.lowWhere} à ${dec(P.compatibleShare.high)}${NB}% chez ceux qu’elle classe ${P.compatibleShare.highWhere}`)
     expect(text).toContain(`son approche principale dans ${dec(P.cited[0])} à ${dec(P.cited[1])}${NB}% des fiches de son bloc`)
     expect(text).not.toMatch(/hasard|Infinity|NaN|\d\.\d/)

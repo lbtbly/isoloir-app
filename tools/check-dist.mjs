@@ -155,9 +155,9 @@ for (const f of agreeChunks) {
 // lois par bloc et addition au-delà), qui pèse environ 3,5 ko de plus que les tirages qu'il remplace. Le plafond compte
 // la page et ce qu'elle charge en plus du JS initial (43,8 ko le 15 octobre 2026 ; 54,1 ko après le lot 1, 57,1 ko après
 // le lot 2, les lignes rouges et les priorités, 57,2 ko après ses correctifs du 17 octobre ; 58,0 ko après le lot 3, dont
-// « Ce qui pèse le plus » est sorti dans son propre fichier, ci-dessous) : un code passé dans un
-// fichier commun y reste compté. Rien de cela ne
-// pèse sur le JS initial, ni sur une visite qui n'ouvre pas la page
+// « Ce qui pèse le plus » est sorti dans son propre fichier, ci-dessous, et encore 58,0 ko après ses correctifs, à 3 octets
+// du plafond) : un code passé dans un fichier commun y reste compté. Rien de cela ne pèse sur le JS initial, ni sur une
+// visite qui n'ouvre pas la page
 const PROFILE_BUDGET = 58_000
 const profileChunks = readdirSync(join(dist, 'assets')).filter(f => /^Profile-[\w-]+\.js$/.test(f))
 if (profileChunks.length !== 1) fail(`« Mon profil politique » : ${profileChunks.length} fichier(s) assets/Profile-*.js, un attendu`)
@@ -247,8 +247,14 @@ for (const f of crossChunks) {
 // 2026 : src/ui/profile/Weigh.tsx, son calcul, src/core/echiquierWeigh.ts, et ses mots, src/core/echiquierWeighCopy.ts) :
 // un fichier à part, chargé par la page après son premier affichage, jamais dans le JS initial ni préchargé. Il pesait
 // 6,6 ko le 17 octobre 2026, que le fichier de la page ne pouvait plus porter sous son plafond de 58 ko (63,5 ko en un
-// seul fichier) ; il reprend le calcul de la page sans le recopier (ses pièces, exportées par src/core/echiquier.ts), et
-// la page ne garde rien de ses mots. Plafond : ce qu'il ajoute à la page, lui compris, la mesure plus 15 %
+// seul fichier) ; 7,1 ko le même jour après les correctifs des contre-vérifications (la phrase qui ne compte que les
+// candidats connus, les points du détail qui font l'écart du tableau, rien sur des réponses changées). Il reprend le
+// calcul de la page sans le recopier (ses pièces, exportées par src/core/echiquier.ts), et la page ne garde rien de ses
+// mots. Plafond : ce qu'il ajoute à la page, lui compris, la mesure plus 15 %. Il se charge à chaque visite de la page,
+// juste après son premier affichage : la page et lui font 65,1 ko, au-delà des 58 ko décidés le 15 octobre 2026 pour
+// les lots 1 à 4, « Ce qui pèse le plus » compris (contre-vérification du lot 3, le 17 octobre 2026). À trancher par le
+// propriétaire avant la fusion : relever le plafond de la page en y comptant ce fichier, ou ne le charger qu'à la
+// première ouverture d'une ligne ou d'un détail. Le total s'imprime avec le build
 const WEIGH_BUDGET = 7_600
 const WEIGH_TEXTS = ['Ce qui p', 'Part de chaque question']
 const weighChunks = readdirSync(join(dist, 'assets')).filter(f => /^Weigh-[\w-]+\.js$/.test(f))
@@ -430,8 +436,12 @@ for (const f of agreeChunks) console.log(`  image « Accords et désaccords » :
 for (const f of tableChunks) console.log(`  « À table » : assets/${f}, ${(statSync(join(dist, 'assets', f)).size / 1000).toFixed(1)} ko sur ${TABLE_BUDGET / 1000} ko permis, chargé à la demande`)
 for (const f of profileChunks) console.log(`  « Mon profil politique » : assets/${f} et ce qu’il charge en plus du JS initial, ${(bytesOf(ownOf(f)) / 1000).toFixed(1)} ko sur ${PROFILE_BUDGET / 1000} ko permis, chargé à la demande`)
 for (const f of methodSectionChunks) console.log(`  rubrique « Mon profil politique » de la Méthode : assets/${f} et ce qu’elle ajoute à la Méthode, ${(bytesOf(methodAdded(f)) / 1000).toFixed(1)} ko sur ${PROFILE_METHOD_BUDGET / 1000} ko permis, chargée à la demande`)
-for (const f of weighChunks)
-  console.log(`  « Ce qui pèse le plus » de « Mon profil politique » : assets/${f} et ce qu’il ajoute à la page, ${(bytesOf(ownOf(f).filter(x => !profileChunks.some(p => ownOf(p).includes(x)))) / 1000).toFixed(1)} ko sur ${WEIGH_BUDGET / 1000} ko permis, chargé après la page`)
+for (const f of weighChunks) {
+  const added = bytesOf(ownOf(f).filter(x => !profileChunks.some(p => ownOf(p).includes(x))))
+  console.log(`  « Ce qui pèse le plus » de « Mon profil politique » : assets/${f} et ce qu’il ajoute à la page, ${(added / 1000).toFixed(1)} ko sur ${WEIGH_BUDGET / 1000} ko permis, chargé après la page`)
+  // La page et ce qu'elle charge juste après son premier affichage, à chaque visite (voir WEIGH_BUDGET)
+  for (const p of profileChunks) console.log(`  « Mon profil politique » en tout, avec « Ce qui pèse le plus » : ${((bytesOf(ownOf(p)) + added) / 1000).toFixed(1)} ko`)
+}
 for (const f of crossChunks) console.log(`  lectures croisées de « Mon profil politique » : assets/${f} et ce qu’elles ajoutent à la page, ${(bytesOf(crossAdded(f)) / 1000).toFixed(1)} ko sur ${CROSS_BUDGET / 1000} ko permis, chargées à la demande`)
 
 // Voix des vidéos : un avertissement pour un fichier livré mais pas inscrit (jamais lu, poids inutile)

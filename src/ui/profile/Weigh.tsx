@@ -14,7 +14,6 @@ import type { UnitReading } from '../../core/echiquier'
 import { where, whereAll, YOUR_VIEW } from '../../core/echiquierCopy'
 import { weighOf, type Weigh } from '../../core/echiquierWeigh'
 import * as W from '../../core/echiquierWeighCopy'
-import type { Question } from '../../core/types'
 import type { ProfileCtx } from './Chart'
 
 /** Ce qui pèse le plus, en une règle : le point 2 de « Comment c'est calculé », après HOW_CALC */
@@ -75,32 +74,39 @@ export function WeighRow({ weighs, ctx }: { weighs: Weigh[]; ctx: ProfileCtx }) 
 }
 
 /**
- * Dans le détail d'une unité lue nettement, sous son tableau des blocs : pour chaque suite de blocs nettement plus près
- * (nommée quand il y en a plusieurs), sa fiche, où l'approche citée est aussi l'approche principale de candidats de
- * l'axe, la part de chaque question dans l'écart, en points, dans l'ordre de la banque (questions : celles de l'unité,
- * dans l'ordre de UnitReading.questions), puis ce qu'elles n'en font pas, s'il y a lieu (positions de confiance basse)
+ * Dans le détail d'une unité lue nettement (u), sous son tableau des blocs : pour chaque suite de blocs nettement plus
+ * près (nommée quand il y en a plusieurs), sa fiche, où l'approche citée est aussi l'approche principale de candidats de
+ * l'axe, la part de chaque question dans l'écart, en points, dans l'ordre de la banque (celui de UnitReading.questions),
+ * puis ce qu'elles n'en font pas, s'il y a lieu (positions de confiance basse). Les points affichés, parts et reste, font
+ * exactement l'écart du tableau (W.apportion)
  */
-export function WeighDetail({ weighs, ctx, questions }: { weighs: Weigh[]; ctx: ProfileCtx; questions: readonly Question[] }) {
+export function WeighDetail({ u, ctx }: { u: UnitReading; ctx: ProfileCtx }) {
+  const weighs = weighsOf(u, ctx)
   if (!weighs.length) return null
+  const questions = u.questions.map(id => ctx.pack.bank.questions.find(q => q.id === id)!)
   return (
     <div class="detail-weigh">
       <h3 class="detail-title">{W.WEIGH_TITLE}</h3>
-      {weighs.map(w => (
-        <div key={w.seg.join()} class="detail-weigh-seg">
-          {weighs.length > 1 ? <p class="detail-weigh-for">{W.weighFor(where(ctx.axis, w.seg))}</p> : null}
-          <WeighCard w={w} ctx={ctx} title={false} />
-          {w.suite && w.alsoBlocs.length ? <p class="small">{W.weighAlso(whereAll(ctx.axis, w.alsoBlocs), w.alsoCount, w.suite === 'principale')}</p> : null}
-          <p class="small">{W.weighPartsLead(w.seg.length)}</p>
-          <ul class="detail-parts">
-            {questions.map((q, j) => (
-              <li key={q.id}>
-                <span>{q.prompt}</span> <strong>{W.points(w.parts[j] ?? 0)}</strong>
-              </li>
-            ))}
-          </ul>
-          {Math.round(w.rest) ? <p class="small">{W.weighRest(w.rest)}</p> : null}
-        </div>
-      ))}
+      {weighs.map(w => {
+        const shown = W.apportion([...w.parts, w.rest], w.shown)
+        const rest = shown[questions.length]
+        return (
+          <div key={w.seg.join()} class="detail-weigh-seg">
+            {weighs.length > 1 ? <p class="detail-weigh-for">{W.weighFor(where(ctx.axis, w.seg))}</p> : null}
+            <WeighCard w={w} ctx={ctx} title={false} />
+            {w.suite && w.alsoBlocs.length ? <p class="small">{W.weighAlso(whereAll(ctx.axis, w.alsoBlocs), w.alsoCount, w.suite === 'principale')}</p> : null}
+            <p class="small">{W.weighPartsLead(w.seg.length)}</p>
+            <ul class="detail-parts">
+              {questions.map((q, j) => (
+                <li key={q.id}>
+                  <span>{q.prompt}</span> <strong>{W.points(shown[j] ?? 0)}</strong>
+                </li>
+              ))}
+            </ul>
+            {rest ? <p class="small">{W.weighRest(rest)}</p> : null}
+          </div>
+        )
+      })}
     </div>
   )
 }

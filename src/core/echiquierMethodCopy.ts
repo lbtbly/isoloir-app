@@ -335,8 +335,12 @@ export const METHOD_WEIGH = fr(
  * gauche à 97,7 à droite ; 12,7 [7,3–17,6] : non établi), compatible 7,9 % (de 0,9 à droite à 14,3 à l'extrême gauche ;
  * 13,4 [8,6–17,7] : non établi) ; sans lui (17,5 points [12,2–22,6]), principale 86,2 % (de 78 à gauche à 95,4 à droite ;
  * 17,4 [8,2–29] : non établi), compatible 11,8 % (de 3,3 à 19,8 ; 16,5 [7,6–27,4] : non établi) ; rejetée et portée par
- * aucun, moins de 1,2 %, passent. La cause : la part des approches compatibles parmi les positions des candidats de
- * chaque bloc, de 37,1 % à droite à 52 % à gauche (41,7 au centre, 41,9 à l'extrême droite, 49,7 à l'extrême gauche).
+ * aucun, moins de 1,2 %, passent. En partie seulement, la part des approches compatibles parmi les positions des
+ * candidats de chaque bloc (tools/audit-poids.mjs la refait), de 37,1 % à droite à 52 % à gauche (41,7 au centre, 41,9 à
+ * l'extrême droite, 49,7 à l'extrême gauche) : l'approche principale est la plus citée là où elles sont les plus rares
+ * (à droite) et la moins citée là où elles sont les plus fréquentes (à gauche), mais l'extrême droite, aussi pauvre en
+ * approches compatibles que le centre, a deux fois plus de fiches « compatible » (17,6 % contre 8,6) : contre-vérification
+ * du 17 octobre 2026.
  * Selon le candidat, l'approche citée est son approche principale dans 16,3 % (Fabien Roussel) à 72,3 % (Bruno
  * Retailleau) des fiches de son bloc, sur la banque avec lui ; de 15,3 à 73,9 % sans lui ; au rapide, de 16,1 %
  * (Jean-Luc Mélenchon) à 77 % (Nicolas Dupont-Aignan). Une question porte au moins la moitié de l'écart dans 50,6 % des
@@ -365,7 +369,10 @@ export const ECHIQUIER_WEIGH = {
   reference: [16.5, 15.9],
   /** Au seul questionnaire rapide : l'approche principale et l'approche compatible, avec le candidat ; non établies, avec et sans lui */
   quick: { main: 90.9, mainLow: 85, mainHigh: 97.7, compatible: 7.9, compatibleLow: 0.9, compatibleHigh: 14.3 },
-  /** La part des approches compatibles parmi les positions des candidats de chaque bloc : la plus basse et la plus haute */
+  /**
+   * La part des approches compatibles parmi les positions des candidats de chaque bloc (tools/audit-poids.mjs), la plus
+   * basse et la plus haute : les écarts ne la suivent qu'en partie
+   */
   compatibleShare: { low: 37.1, lowWhere: 'à droite', high: 52, highWhere: 'à gauche' },
   /** Selon le candidat, la part des fiches de son bloc dont l'approche citée est son approche principale (%), sur la banque avec lui */
   cited: [16.3, 72.3],
@@ -373,11 +380,11 @@ export const ECHIQUIER_WEIGH = {
 
 /**
  * La mesure de neutralité de « Ce qui pèse le plus » (D5) : la fiche sous chaque lecture nette, puis ce qu'elle dit, bloc
- * par bloc, sur la banque avec et sans le candidat, puis au seul questionnaire rapide, et d'où vient l'écart
+ * par bloc, sur la banque avec et sans le candidat, puis au seul questionnaire rapide, et ce que l'écart suit en partie
  */
 export const methodWeigh = (m: typeof ECHIQUIER_WEIGH = ECHIQUIER_WEIGH) =>
   fr(
-    `Pour éprouver cette fiche, on a repris les réponses recopiées, puis brouillées, de chaque candidat classé (${m.clones} feuilles par candidat) : elle paraît sous chacune des lectures nettes, quel que soit le bloc du candidat recopié. Sur la banque entière, l’approche citée est l’approche principale de candidats du bloc dans ${decimal(m.main.all)} % des fiches, de ${decimal(m.main.low)} % pour un candidat recopié que la grille classe ${m.main.lowWhere} à ${decimal(m.main.high)} % pour un candidat qu’elle classe ${m.main.highWhere} (${decimal(m.main.without)} %, de ${range(m.main.withoutLow, m.main.withoutHigh)}, sans lui dans le calcul) ; seulement compatible dans ${decimal(m.compatible.all)} % (${decimal(m.compatible.without)} % sans lui), rejetée dans ${decimal(m.rejects.all)} % (${decimal(m.rejects.without)} %), portée par aucun dans ${decimal(m.none.all)} % (${decimal(m.none.without)} %). Ces écarts entre blocs restent sous celui des lectures nettes elles-mêmes (${decimal(m.reference[0])} points avec le candidat, ${decimal(m.reference[1])} sans lui), sauf celui de l’approche principale avec le candidat, ${decimal(m.mainGap)} points, que la mesure ne permet de dire ni sous celui des lectures nettes, ni au-dessus. Après le seul questionnaire rapide, l’approche principale fait ${decimal(m.quick.main)} % des fiches (de ${range(m.quick.mainLow, m.quick.mainHigh)} selon le bloc) et l’approche seulement compatible ${decimal(m.quick.compatible)} % (de ${range(m.quick.compatibleLow, m.quick.compatibleHigh)}) : ces deux écarts ne sont établis ni avec ni sans le candidat. Les écarts suivent la part des approches compatibles parmi les positions des candidats de chaque bloc, de ${decimal(m.compatibleShare.low)} % chez ceux que la grille classe ${m.compatibleShare.lowWhere} à ${decimal(m.compatibleShare.high)} % chez ceux qu’elle classe ${m.compatibleShare.highWhere}. Au sein d’un bloc, l’approche citée est, selon le candidat, son approche principale dans ${range(m.cited[0], m.cited[1])} des fiches de son bloc.`,
+    `Pour éprouver cette fiche, on a repris les réponses recopiées, puis brouillées, de chaque candidat classé (${m.clones} feuilles par candidat) : elle paraît sous chacune des lectures nettes, quel que soit le bloc du candidat recopié. Sur la banque entière, l’approche citée est l’approche principale de candidats du bloc dans ${decimal(m.main.all)} % des fiches, de ${decimal(m.main.low)} % pour un candidat recopié que la grille classe ${m.main.lowWhere} à ${decimal(m.main.high)} % pour un candidat qu’elle classe ${m.main.highWhere} (${decimal(m.main.without)} %, de ${range(m.main.withoutLow, m.main.withoutHigh)}, sans lui dans le calcul) ; seulement compatible dans ${decimal(m.compatible.all)} % (${decimal(m.compatible.without)} % sans lui), rejetée dans ${decimal(m.rejects.all)} % (${decimal(m.rejects.without)} %), portée par aucun dans ${decimal(m.none.all)} % (${decimal(m.none.without)} %). Ces écarts entre blocs restent sous celui des lectures nettes elles-mêmes (${decimal(m.reference[0])} points avec le candidat, ${decimal(m.reference[1])} sans lui), sauf celui de l’approche principale avec le candidat, ${decimal(m.mainGap)} points, que la mesure ne permet de dire ni sous celui des lectures nettes, ni au-dessus. Après le seul questionnaire rapide, l’approche principale fait ${decimal(m.quick.main)} % des fiches (de ${range(m.quick.mainLow, m.quick.mainHigh)} selon le bloc) et l’approche seulement compatible ${decimal(m.quick.compatible)} % (de ${range(m.quick.compatibleLow, m.quick.compatibleHigh)}) : ces deux écarts ne sont établis ni avec ni sans le candidat. Ces écarts ne suivent qu’en partie la part des approches compatibles parmi les positions des candidats de chaque bloc, de ${decimal(m.compatibleShare.low)} % chez ceux que la grille classe ${m.compatibleShare.lowWhere} à ${decimal(m.compatibleShare.high)} % chez ceux qu’elle classe ${m.compatibleShare.highWhere}. Au sein d’un bloc, l’approche citée est, selon le candidat, son approche principale dans ${range(m.cited[0], m.cited[1])} des fiches de son bloc.`,
   )
 export const METHOD_LIMITS = [
   fr('La grille classe des partis et des candidats, pas des idées ; la présidentielle n’attribue pas de nuances, et certaines ont été déduites (voir '),

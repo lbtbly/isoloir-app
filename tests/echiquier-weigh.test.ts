@@ -3,13 +3,17 @@
 // confiance basse, les parts font exactement l'écart affiché, et les parts des avis celle de la question ; avec elles, un
 // reste, seulement là ; l'approche citée, la plus grande part d'avis ; les égalités, à l'ordre de la banque et des
 // approches ; l'inversion de tous les avis, qui change le signe de chaque part ; les quatre suites, chacune vraie au
-// regard des positions ; une fiche par suite de blocs ; le temps d'une ligne de famille sur un téléphone lent ; rien de
-// tiré au sort. Sur la petite élection factice (tests/fixtures/echiquier.ts) et sur l'élection réelle.
+// regard des positions, les candidats connus comptés à part de ceux que la grille classe là ; une fiche par suite de
+// blocs ; les points du détail, qui font l'écart du tableau ; rien sur des réponses changées depuis la lecture ; le temps
+// d'une ligne de famille sur un téléphone lent ; rien de tiré au sort. Sur la petite élection factice
+// (tests/fixtures/echiquier.ts) et sur l'élection réelle.
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
 import { panelOf, readEchiquier, segments, type Echiquier, type UnitReading } from '../src/core/echiquier'
 import { weighOf, type Weigh } from '../src/core/echiquierWeigh'
+import { apportion, weighWho } from '../src/core/echiquierWeighCopy'
+import { where } from '../src/core/echiquierCopy'
 import { questionScore, stance } from '../src/core/score'
 import type { Answers, ElectionPack, Position, Question, Rating } from '../src/core/types'
 import { elections } from '../src/elections/all'
@@ -227,6 +231,7 @@ describe('les quatre suites, et ce que dit la fiche', () => {
   it('chaque suite est vraie au regard des positions ; toutes paraissent ; sans phrase vraie, pas de fiche', () => {
     const seen = new Set<string>()
     let n = 0
+    let partial = 0
     for (const answers of sheets(3)) {
       for (const u of read(readEchiquier(real, answers))) {
         const ws = weighOf(real, answers, u)
@@ -238,6 +243,10 @@ describe('les quatre suites, et ce que dit la fiche', () => {
           const ids = w.seg.flatMap(b => u.cells[b]!.known)
           const st = ids.map(id => stance(real.positions[id]?.[w.approach!]))
           expect(w.known).toBe(ids.length)
+          // Les candidats que la grille classe dans ces blocs, connus ou non sur le sujet : la phrase les compte à part
+          expect(w.size).toBe(w.seg.reduce((t, b) => t + panelOf(real)[b]!.length, 0))
+          expect(w.known).toBeLessThanOrEqual(w.size)
+          if (w.known < w.size) partial++
           expect([w.main, w.compatible, w.rejects]).toEqual([st.filter(x => x === 2).length, st.filter(x => x === 1).length, st.filter(x => x < 0).length])
           expect(w.others).toBe(ids.every(id => q.approaches.some(a => a.id !== w.approach && stance(real.positions[id]?.[a.id]) > 0)))
           const carried = ids.some(id => (real.positions[id]?.[w.approach!]?.weight ?? 0) > 0)
@@ -254,6 +263,46 @@ describe('les quatre suites, et ce que dit la fiche', () => {
     }
     expect([...seen].sort()).toEqual(['aucun', 'compatible', 'principale', 'rejet'])
     expect(n).toBeGreaterThan(300)
+    expect(partial).toBeGreaterThan(0)
+  }, 120_000)
+
+  it('des candidats du bloc sans position sur le sujet : la phrase ne compte que les connus, et le dit (contre-vérification du lot 3)', () => {
+    // Des feuilles réelles où la grille classe plus de candidats dans le bloc qu'il n'y en a de connus sur le sujet :
+    // « du candidat que la grille classe au centre » disait qu'elle n'en classe qu'un là
+    const axis = real.election.spectrum!.axis!
+    const cases = [
+      ['lepen', 15, 'theme-logement', 3, 1, 'Approche principale du seul candidat connu ici que la grille classe à l’extrême droite.'],
+      ['attal', 43, 'theme-territoires', 2, 1, 'Approche principale du seul candidat connu ici que la grille classe au centre.'],
+      ['labib', 30, 'theme-societe', 3, 2, 'Approche compatible pour les 2\u00a0candidats connus ici que la grille classe à gauche.'],
+    ] as const
+    for (const [id, seed, key, size, known, text] of cases) {
+      const answers = P.toAnswers(P.noisy(P.cloneLarge(id), `n:${id}:${seed}`))
+      const u = units(readEchiquier(real, answers)).find(x => `${x.kind}-${x.id}` === key)!
+      const [w] = weighOf(real, answers, u)
+      expect([w!.size, w!.known], key).toEqual([size, known])
+      expect(weighWho(where(axis, w!.seg), { ...w!, suite: w!.suite! }), key).toBe(text)
+    }
+  })
+
+  it('les points du détail font exactement l’écart du tableau, à moins d’un point et demi de chaque part', () => {
+    let n = 0
+    for (const answers of sheets()) {
+      for (const u of read(readEchiquier(real, answers))) {
+        for (const w of weighOf(real, answers, u)) {
+          // L'écart du tableau : l'affinité arrondie moins la moyenne arrondie, en moyenne sur la suite
+          const table = w.seg.map(b => Math.round(u.cells[b]!.affinity!) - Math.round(u.cells[b]!.chance!))
+          expect(w.shown).toBe(Math.round(table.reduce((t, x) => t + x, 0) / table.length))
+          const exact = [...w.parts, w.rest]
+          const pts = apportion(exact, w.shown)
+          expect(pts.reduce((t, x) => t + x, 0), `${u.kind}-${u.id}`).toBe(w.shown)
+          pts.forEach((x, i) => expect(Math.abs(x - exact[i]!), `${u.kind}-${u.id}`).toBeLessThan(1.5))
+          // Sans reste (aucune position incertaine), aucun « Reste de l'écart »
+          if (Math.abs(w.rest) < 1e-9) expect(pts.at(-1)).toBe(0)
+          n++
+        }
+      }
+    }
+    expect(n).toBeGreaterThan(200)
   }, 120_000)
 
   it('rien pour une unité sans lecture nette ; sans candidat retiré, la même chose qu’avec la liste vide', () => {
@@ -266,6 +315,30 @@ describe('les quatre suites, et ce que dit la fiche', () => {
     const without = readEchiquier(real, answers, { without: ['melenchon'] })
     for (const v of read(without))
       for (const w of weighOf(real, answers, v, { without: ['melenchon'] })) expect(w.known).toBe(w.seg.flatMap(b => v.cells[b]!.known).length)
+  })
+})
+
+describe('des réponses changées depuis la lecture (un autre onglet, avant que la page ne relise)', () => {
+  it('une question de l’unité sans réponse, passée ou changée : rien, sans erreur', () => {
+    const answers = P.toAnswers(P.noisy(P.cloneLarge('arthaud'), 'n:arthaud:0'))
+    let stale = 0
+    for (const u of read(readEchiquier(real, answers))) {
+      expect(weighOf(real, answers, u).length).toBeGreaterThan(0)
+      const first = u.questions[0]!
+      const { [first]: gone, ...rest } = answers
+      expect(gone).toBeDefined()
+      expect(() => weighOf(real, rest, u)).not.toThrow()
+      expect(weighOf(real, rest, u)).toEqual([])
+      expect(weighOf(real, { ...answers, [first]: { ratings: {}, redLines: [], skipped: true } }, u)).toEqual([])
+      // Chaque avis de la première question inversé : rien dès que l'affinité de la lecture n'est plus la même
+      const flipped: Answers = { ...answers, [first]: { ...gone!, ratings: Object.fromEntries(Object.entries(gone!.ratings).map(([k, v]) => [k, -v as Rating])) } }
+      const now = units(readEchiquier(real, flipped)).find(x => x.kind === u.kind && x.id === u.id)!
+      if (now.cells.some((c, b) => c.affinity !== u.cells[b]!.affinity)) {
+        expect(weighOf(real, flipped, u)).toEqual([])
+        stale++
+      }
+    }
+    expect(stale).toBeGreaterThan(0)
   })
 })
 

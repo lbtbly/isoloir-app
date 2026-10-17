@@ -281,6 +281,13 @@ function scoreInto(prep: Prep, qi: number, r: Int8Array, out: Float64Array): voi
   }
 }
 
+/** Le score de chaque candidat de l'axe sur une question, pour les avis r (scoreInto), dans un tableau neuf */
+function scoresOf(prep: Prep, qi: number, r: Int8Array): Float64Array {
+  const out = new Float64Array(prep.ids.length)
+  scoreInto(prep, qi, r, out)
+  return out
+}
+
 /**
  * Affinité de l'unité avec chaque candidat, entre 0 et 100 : par thème, la moyenne des questions où il est connu (×100,
  * c'est topicScores) ; pour une famille, la moyenne des thèmes où il est connu, chaque thème pesant un. NaN : inconnu.
@@ -754,19 +761,12 @@ interface UnitDef {
 /** Les blocs ▲ ne forment pas une suite contiguë de l'axe */
 const isTwoSided = (near: readonly number[]) => near.length > 1 && near[near.length - 1]! - near[0]! !== near.length - 1
 
-function* readUnit(
-  prep: Prep,
-  members: readonly number[][],
-  def: UnitDef,
-  qs: readonly number[],
-  vectors: ReadonlyMap<number, Int8Array>,
-  place: (qi: number, flip: boolean) => Placements,
-  opts: ReadOptions,
-): Generator<void, UnitReading, void> {
-  const NP = prep.ids.length
-  const B = prep.axis.length
-  const inPanel = new Set(members.flat())
-  // Les questions de l'unité, rangées par thème (chaque thème pèse un dans une famille)
+/**
+ * Les questions d'une unité (qs), rangées par thème (chaque thème pèse un dans une famille) : les thèmes, dans l'ordre
+ * où paraît leur première question ; thème par thème, les indices de ses questions dans qs ; pour chaque question, le
+ * rang de son thème. Un triplet, plus léger qu'un objet dans le fichier de la page
+ */
+function topicsOf(prep: Prep, qs: readonly number[]): [TopicId[], number[][], Int32Array] {
   const topicOf = new Map<TopicId, number[]>()
   qs.forEach((qi, j) => {
     const t = prep.questions[qi]!.topicId
@@ -777,12 +777,23 @@ function* readUnit(
   const byTopic = [...topicOf.values()]
   const tOf = new Int32Array(qs.length)
   byTopic.forEach((js, t) => js.forEach(j => (tOf[j] = t)))
-  const observed = qs.map(qi => {
-    const o = new Float64Array(NP)
-    scoreInto(prep, qi, vectors.get(qi)!, o)
-    return o
-  })
-  const aff = new Float64Array(NP)
+  return [[...topicOf.keys()], byTopic, tOf]
+}
+
+function* readUnit(
+  prep: Prep,
+  members: readonly number[][],
+  def: UnitDef,
+  qs: readonly number[],
+  vectors: ReadonlyMap<number, Int8Array>,
+  place: (qi: number, flip: boolean) => Placements,
+  opts: ReadOptions,
+): Generator<void, UnitReading, void> {
+  const B = prep.axis.length
+  const inPanel = new Set(members.flat())
+  const [topicIds, byTopic, tOf] = topicsOf(prep, qs)
+  const observed = qs.map(qi => scoresOf(prep, qi, vectors.get(qi)!))
+  const aff = new Float64Array(prep.ids.length)
   affinityInto(observed, byTopic, aff)
   const S = new Float64Array(B)
   blocMeansInto(aff, members, S)
@@ -803,7 +814,7 @@ function* readUnit(
   const reading: UnitReading = {
     kind: def.kind,
     id: def.id,
-    topicIds: [...topicOf.keys()],
+    topicIds,
     questions: qs.map(qi => prep.questions[qi]!.id),
     status: 'aucun',
     cells,
@@ -841,13 +852,7 @@ function* readUnit(
   }
   const flip = sign < 0
   const per = qs.map(qi => place(qi, flip))
-  const seen = flip
-    ? qs.map(qi => {
-        const o = new Float64Array(NP)
-        scoreInto(prep, qi, vectors.get(qi)!.map(x => -x), o)
-        return o
-      })
-    : observed
+  const seen = flip ? qs.map(qi => scoresOf(prep, qi, vectors.get(qi)!.map(x => -x))) : observed
   const blocs = known.map(b => members[b]!)
   const models = blocs.map(cands => blocModel(cands, tOf, byTopic.length))
   // L'affinité observée de chaque bloc, par son modèle : l'affinité moyenne affichée (au signe près)
@@ -1149,6 +1154,7 @@ export function deeperTopics(pack: Pick<ElectionPack, 'bank'>, current: Answers,
 
 // ——— Les pièces du calcul que reprend « Ce qui pèse le plus » (core/echiquierWeigh.ts) ———
 // La décomposition d'une lecture nette (lot 3) refait le même calcul, sans rien en recopier : le précalcul par pack, les
-// avis d'une réponse, le score d'une question, l'affinité, les moyennes par bloc, les placements des avis, les candidats
-// de l'axe et la tolérance des égalités. Seul ce fichier-là s'en sert.
-export { affinityInto, arrangements, blocMeansInto, membersOf, prepare, scoreInto, TIE, vectorOf }
+// avis d'une réponse, le score d'une question, les questions rangées par thème, l'affinité, les moyennes par bloc et le
+// poids de chaque candidat dans celle de son bloc (blocModel), les placements des avis, les candidats de l'axe et la
+// tolérance des égalités. Seul ce fichier-là s'en sert.
+export { affinityInto, arrangements, blocMeansInto, blocModel, membersOf, prepare, scoresOf, TIE, topicsOf, vectorOf }

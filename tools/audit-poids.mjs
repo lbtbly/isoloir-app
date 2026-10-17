@@ -9,9 +9,12 @@
 // pas, non établi. Puis les mêmes parts selon le bloc de la fiche ; la part de chaque candidat parmi les approches citées
 // (les fiches des blocs où il compte, dont l'approche est la sienne en principal) ; « Aussi approche principale… » du
 // détail ; les fiches où une question porte au moins la moitié de l'écart ; les restes de plus de 2 points (positions de
-// confiance basse) ; enfin le temps d'ouverture d'une ligne de famille (le calcul de la fiche), et cinq fois plus pour un
-// téléphone lent. Le calcul même de la page (readEchiquier, chartRows, weighOf). Les chiffres publiés sont dans
-// ECHIQUIER_WEIGH (src/core/echiquierMethodCopy.ts) ; à refaire après une mise à jour des positions.
+// confiance basse) ; les fiches dont des candidats des blocs n'ont pas de position sur le sujet (« connus ici ») ; la
+// part des approches compatibles parmi les positions des candidats de chaque bloc, sur la banque et sur les seules
+// questions du rapide, face aux suites par bloc vrai (ce que leurs écarts suivent en partie) ; enfin le temps d'ouverture
+// d'une ligne de famille (le calcul de la fiche), et cinq fois plus pour un téléphone lent. Le calcul même de la page
+// (readEchiquier, chartRows, weighOf). Les chiffres publiés sont dans ECHIQUIER_WEIGH (src/core/echiquierMethodCopy.ts) ;
+// à refaire après une mise à jour des positions.
 //
 // Usage : node tools/audit-poids.mjs [<id>] [--noisy 60] [--quick]
 //   <id>      : l'élection (par défaut presidentielle-2027) ; elle doit avoir un axe (election.spectrum.axis)
@@ -40,7 +43,7 @@ if (!pack?.election.spectrum?.axis?.length) {
 }
 const { readEchiquier } = await importSite('src/core/echiquier.ts')
 const { weighOf } = await importSite('src/core/echiquierWeigh.ts')
-const { stance } = await importSite('src/core/score.ts')
+const { effectiveWeight, stance } = await importSite('src/core/score.ts')
 const { chartRows } = await importSite('src/ui/profile/rows.ts')
 const { profilesFor, isQuick } = await importSite('tests/fixtures/echiquier-profiles.ts')
 const P = profilesFor(pack)
@@ -80,8 +83,29 @@ const SUITES = ['principale', 'compatible', 'rejet', 'aucun']
 /** Le temps de chaque ouverture d'une ligne de famille, en ms : le calcul de sa fiche */
 const famTimes = []
 
-function run(kind, makeClones) {
+/**
+ * La part des approches compatibles (poids effectif 1) parmi les positions (poids effectif non nul) des candidats de
+ * chaque bloc, sur les questions retenues : ECHIQUIER_WEIGH.compatibleShare, et tests/echiquier-copy.test.ts
+ */
+function compatibleShare(only = () => true) {
+  const ids = new Set(pack.bank.questions.filter(only).flatMap(q => q.approaches.map(a => a.id)))
+  return P.panel.map(list => {
+    let one = 0
+    let all = 0
+    for (const c of list)
+      for (const [a, pos] of Object.entries(pack.positions[c] ?? {})) {
+        if (!ids.has(a)) continue
+        const e = effectiveWeight(pos)
+        if (e) all++
+        if (e === 1) one++
+      }
+    return pct(one, all)
+  })
+}
+
+function run(kind, makeClones, share) {
   console.log(`\n=== ${kind} : ${NOISY} clones bruités par candidat, ${P.ranked.length} candidats ===`)
+  console.log(`  part des approches compatibles parmi les positions des candidats de chaque bloc : ${share.map((x, b) => `${SH[b]} ${r1(x)} %`).join(' | ')}`)
   const summary = {}
   for (const without of [false, true]) {
     const ref = blank()
@@ -95,6 +119,7 @@ function run(kind, makeClones) {
     let also = 0
     let half = 0
     let rest2 = 0
+    let partial = 0
     for (const cid of P.ranked) {
       const t = P.blocOf(cid)
       const opts = without ? { without: [cid] } : {}
@@ -129,6 +154,7 @@ function run(kind, makeClones) {
           if (w.alsoBlocs.length) also++
           if (Math.max(...w.parts) >= w.gap / 2) half++
           if (Math.abs(w.rest) > 2) rest2++
+          if (w.known < w.size) partial++
           // Les candidats des blocs de la fiche : l'approche citée est-elle leur approche principale ?
           for (const b of w.seg)
             for (const c of panel[b]) {
@@ -145,8 +171,10 @@ function run(kind, makeClones) {
     console.log(`\n-- ${w}`)
     console.log(`  référence, sujets lus nettement : ${row(ref)} · écart ${r1(rg.gap)} pts [${r1(rg.low)}–${r1(rg.high)}]`)
     console.log(`  fiche ou renvoi montrés : ${row(shown)} · écart ${r1(sg.gap)} pts [${r1(sg.low)}–${r1(sg.high)}] : ${verdictOf(sg, rg.gap)}`)
-    console.log(`  ${fiches} fiches, ${renvois} renvois au détail, ${none} lignes sans fiche ; « Aussi approche principale » ${r1(pct(also, fiches))} % ; une question porte la moitié de l’écart ou plus ${r1(pct(half, fiches))} % ; reste de plus de 2 points ${r1(pct(rest2, fiches))} %`)
-    summary[w] = { ref: rg, shown: sg, shownVerdict: verdictOf(sg, rg.gap), fiches, renvois, none, also: pct(also, fiches), half: pct(half, fiches), rest2: pct(rest2, fiches), suites: {} }
+    console.log(
+      `  ${fiches} fiches, ${renvois} renvois au détail, ${none} lignes sans fiche ; « Aussi approche principale » ${r1(pct(also, fiches))} % ; une question porte la moitié de l’écart ou plus ${r1(pct(half, fiches))} % ; reste de plus de 2 points ${r1(pct(rest2, fiches))} % ; « connus ici » (des candidats des blocs sans position sur le sujet) ${r1(pct(partial, fiches))} %`,
+    )
+    summary[w] = { ref: rg, shown: sg, shownVerdict: verdictOf(sg, rg.gap), fiches, renvois, none, also: pct(also, fiches), half: pct(half, fiches), rest2: pct(rest2, fiches), partial: pct(partial, fiches), suites: {} }
     for (const s of SUITES) {
       const cells = bySuiteTrue[s]
       const g = gapOf(cells)
@@ -168,10 +196,10 @@ function run(kind, makeClones) {
 
 const t0 = Date.now()
 console.log(`Ce qui pèse le plus : audit de ${id}, ${P.ranked.length} candidats sur l'axe, ${NOISY} clones bruités par candidat`)
-const bank = run('banque', cid => Array.from({ length: NOISY }, (_, s) => P.noisy(P.cloneLarge(cid), `n:${cid}:${s}`)))
+const bank = run('banque', cid => Array.from({ length: NOISY }, (_, s) => P.noisy(P.cloneLarge(cid), `n:${cid}:${s}`)), compatibleShare())
 console.log(`\n${JSON.stringify(bank)}`)
 if (QUICK) {
-  const quick = run('questionnaire rapide seul', cid => Array.from({ length: NOISY }, (_, s) => P.noisy(P.cloneLarge(cid, isQuick), `nq:${cid}:${s}`)))
+  const quick = run('questionnaire rapide seul', cid => Array.from({ length: NOISY }, (_, s) => P.noisy(P.cloneLarge(cid, isQuick), `nq:${cid}:${s}`)), compatibleShare(isQuick))
   console.log(`\n${JSON.stringify(quick)}`)
 }
 famTimes.sort((a, b) => a - b)

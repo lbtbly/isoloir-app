@@ -74,7 +74,11 @@ export function Profile({ pack, state, essential, results, update }: Props) {
   // case cochée ; rien n'est décoché, rien d'autre n'est enregistré)
   const deepen = (ids: string[]) => update({ deepTopics: [...new Set([...state.deepTopics, ...ids])] })
 
-  const [reading, setReading] = useState<Echiquier | null>(() => (ready ? echiquierCached(pack, answers) : null))
+  const [held, setReading] = useState<Echiquier | null>(() => (ready ? echiquierCached(pack, answers) : null))
+  // La lecture affichée est toujours celle des réponses courantes : quand elles changent (dans un autre onglet), celle
+  // déjà calculée pour elles, sinon rien jusqu'à la nouvelle, jamais l'ancienne avec les nouvelles réponses (la page,
+  // ses lignes ouvertes et leur fiche « Ce qui pèse le plus » les lisent ensemble)
+  const reading = held && echiquierCached(pack, answers)
   const [busy, setBusy] = useState(false)
   const [status, setStatus] = useState('')
   useEffect(() => {
@@ -490,7 +494,7 @@ function DetailBody({ unit, ctx, deeper }: { unit: UnitReading; ctx: ProfileCtx;
       {tested ? <p class="small">{T.chanceNote(unit.exact, unit.ways)}</p> : null}
       {/* Ce qui pèse le plus (lot 3, A3) : pour chaque suite de blocs nettement plus près, sa fiche, où l'approche citée est
           aussi l'approche principale de candidats de l'axe, puis la part de chaque question dans l'écart, en points */}
-      {weigh ? <weigh.WeighDetail weighs={weigh.weighsOf(unit, ctx)} ctx={ctx} questions={questions} /> : null}
+      {weigh ? <weigh.WeighDetail u={unit} ctx={ctx} /> : null}
       {/* Un thème prioritaire : il compte double dans le classement, pas ici (lot 2, A2) */}
       {!family && ctx.priorities.has(unit.id) ? <p class="small detail-prio">{T.PRIORITY_DETAIL}</p> : null}
 

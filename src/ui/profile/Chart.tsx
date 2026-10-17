@@ -710,8 +710,8 @@ function Explain({ u, family, ctx, onDetail }: { u: UnitReading; family: string 
   // près se suivent sur l'axe ; sur des blocs non voisins, un renvoi au détail (ui/profile/Weigh.tsx). La note sur le bloc
   // entier attend le module (elle s'effacerait aussitôt la fiche venue) ; sans lui, elle reste, comme sans fiche
   const [weigh, weighFailed] = useWeigh()
-  const weighs = useMemo(() => (weigh ? weigh.weighsOf(u, ctx) : []), [weigh, u, ctx])
-  const card = !!weigh && weigh.showsCard(weighs)
+  const weighs = useMemo(() => weigh?.weighsOf(u, ctx) ?? [], [weigh, u, ctx])
+  const card = weigh?.showsCard(weighs)
   const waiting = u.status === 'lecture' && !weigh && !weighFailed
   return (
     <div class="explain-inner">

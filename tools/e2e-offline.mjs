@@ -1642,6 +1642,187 @@ try {
       await rctx.close()
     } else console.log('– mon profil politique : aucune lecture nette pour le second état, contrôles en grand écran sautés')
 
+    // Lot 3, ce que la feuille ci-dessus ne montre pas forcément (contre-vérifications du 17 octobre 2026), sur des clones
+    // bruités réels (graines « n:<id>:<s> » de tools/audit-echiquier.mjs ; le questionnaire rapide vu en entier) : le
+    // renvoi au détail d'une lecture sur des blocs non voisins, puis le détail, une fiche par suite de blocs, nommée ;
+    // « Aussi approche principale… » et le reste de l'écart ; la phrase qui ne compte que les candidats connus sur le
+    // sujet (« connus ici »). Le détail : chaque fiche, et les points qui font exactement l'écart du tableau. Puis, à 320 px
+    // et texte à 200 %, la ligne ouverte et le détail : rien ne sort de la fiche, et seul un mot trop long pour la ligne
+    // entière s'y coupe
+    {
+      const { weighOf } = await importSite('src/core/echiquierWeigh.ts')
+      const W = await importSite('src/core/echiquierWeighCopy.ts')
+      const C = await importSite('src/core/echiquierCopy.ts')
+      const { profilesFor } = await importSite('tests/fixtures/echiquier-profiles.ts')
+      const { chartRows: rowsOfChart } = await importSite('src/ui/profile/rows.ts')
+      const { currentAnswers: currentAnswersOf } = await importSite('src/core/revisions.ts')
+      const P = profilesFor(pack)
+      const axis = pack.election.spectrum.axis
+      const norm = t => (t ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
+      /** Une feuille de clone bruité, telle que la page l'enregistre, et ses lignes lues nettement */
+      const sheetOf = (cid, seed) => {
+        const answers = P.toAnswers(P.noisy(P.cloneLarge(cid), `n:${cid}:${seed}`))
+        for (const q of pack.bank.questions) {
+          if (answers[q.id] && q.rev) answers[q.id].rev = q.rev
+          if (q.tier === 'essentiel' && !answers[q.id]) answers[q.id] = { ratings: {}, redLines: [], skipped: true, ...(q.rev ? { rev: q.rev } : {}) }
+        }
+        const st = sanitizeState({ ...freshState(pack.election.id, pack.election.dataVersion), answers, essentialDoneAt: new Date().toISOString() }, pack)
+        const cur = currentAnswersOf(pack, st.answers)
+        return { st, cur, read: rowsOfChart(groups, readEchiquier(pack, cur), u => u.id).read }
+      }
+      /** La première ligne qui convient, d'abord sur les feuilles repérées, sinon sur les dix premières de chaque candidat */
+      const find = (hints, fits) => {
+        const tries = [...hints, ...P.ranked.flatMap(cid => Array.from({ length: 10 }, (_, s) => [cid, s]))]
+        for (const [cid, seed] of tries) {
+          const sh = sheetOf(cid, seed)
+          for (const u of sh.read) {
+            const ws = weighOf(pack, sh.cur, u)
+            if (fits(ws)) return { ...sh, u, ws, name: `${cid}:${seed} ${u.kind}-${u.id}` }
+          }
+        }
+        return null
+      }
+      const pts = w => W.apportion([...w.parts, w.rest], w.shown)
+      const cases = [
+        ['renvoi', find([['glucksmann', 7], ['retailleau', 4]], ws => ws.length > 1 && ws.every(w => w.suite) && ws.some(w => w.alsoBlocs.length))],
+        ['aussi et reste', find([['labib', 3], ['glucksmann', 7]], ws => ws.length === 1 && !!ws[0].suite && ws[0].alsoBlocs.length > 0 && pts(ws[0]).at(-1) !== 0)],
+        ['connus ici', find([['melenchon', 3], ['labib', 30]], ws => ws.length === 1 && !!ws[0].suite && ws[0].known < ws[0].size)],
+      ]
+      const issues = []
+      const seen = []
+      for (const [label, c] of cases) {
+        if (!c) {
+          issues.push(`${label} : aucune feuille trouvée`)
+          continue
+        }
+        seen.push(`${label} (${c.name})`)
+        const { u, ws, cur } = c
+        const id = `sj-${u.kind}-${u.id}-b`
+        const questions = u.questions.map(q => pack.bank.questions.find(x => x.id === q))
+        const cardOf = w => {
+          const q = pack.bank.questions.find(x => x.id === w.question)
+          const a = q.approaches.find(x => x.id === w.approach)
+          return [q.prompt, `${C.YOUR_VIEW} ${W.weighView(w.view, !!cur[q.id]?.redLines.includes(a.id))}`, W.quoted(a.text), W.weighWho(C.where(axis, w.seg), w)].map(norm)
+        }
+        for (const [width, zoom] of [
+          [1280, 100],
+          [320, 200],
+        ]) {
+          const phone = width < 600
+          const cctx = await browser.newContext({ viewport: { width, height: 800 }, reducedMotion: 'reduce', hasTouch: phone, isMobile: phone })
+          await cctx.addInitScript(x => Object.entries(x).forEach(([k, v]) => localStorage.setItem(k, v)), { [STORAGE]: JSON.stringify(c.st) })
+          if (zoom !== 100) await cctx.addInitScript(z => document.addEventListener('DOMContentLoaded', () => (document.documentElement.style.fontSize = `${z}%`)), zoom)
+          const cp = await cctx.newPage()
+          await cp.goto(U('/profil'))
+          await cp.locator('[role="status"]', { hasText: 'Lecture prête.' }).waitFor({ timeout: 8000 }).catch(() => issues.push(`${label}, ${width} px : pas de lecture`))
+          await cp.locator(`#${id}`).click()
+          await cp.waitForFunction(bid => !!document.getElementById(document.getElementById(bid)?.getAttribute('aria-controls') ?? '')?.querySelector('.weigh'), id, { timeout: 5000 }).catch(() => issues.push(`${label}, ${width} px : pas de fiche dans la ligne`))
+          // Ce qui sort de la fiche (sa boîte), et les mots coupés qui tenaient sur une ligne entière
+          const spillOf = sel =>
+            cp.evaluate(sel => {
+              const out = []
+              for (const box of document.querySelectorAll(sel)) {
+                if (!box.checkVisibility()) continue
+                const r0 = box.getBoundingClientRect()
+                const walker = document.createTreeWalker(box, NodeFilter.SHOW_TEXT)
+                // Un mot, ce qui ne se coupe pas : les espaces insécables le prolongent (« Accompagner » collé à son
+                // guillemet), un trait d'union le finit (« Nouvelle- / Calédonie »)
+                for (let n = walker.nextNode(); n; n = walker.nextNode())
+                  for (const m of n.data.matchAll(/[^ \t\n-]+-?/g)) {
+                    const r = document.createRange()
+                    r.setStart(n, m.index)
+                    r.setEnd(n, m.index + m[0].length)
+                    const rects = [...r.getClientRects()].filter(q => q.width > 0)
+                    if (rects.some(q => q.right > r0.right + 1 || q.left < r0.left - 1)) out.push(`« ${m[0]} » sort de ${sel}`)
+                    const lines = new Set(rects.map(q => Math.round(q.top))).size
+                    const host = n.parentElement.closest('p, li, span') ?? box
+                    if (lines > 1 && rects.reduce((t, q) => t + q.width, 0) < host.getBoundingClientRect().width - 1) out.push(`« ${m[0]} » coupé`)
+                  }
+              }
+              return out
+            }, sel)
+          const row = await cp.evaluate(bid => {
+            const x = document.getElementById(document.getElementById(bid)?.getAttribute('aria-controls') ?? '')
+            const said = el => (el?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
+            return [...(x?.querySelector('.weigh')?.querySelectorAll(':scope > p') ?? [])].map(said)
+          }, id)
+          const wantRow = (ws.length > 1 ? [W.WEIGH_TITLE, W.weighElsewhere(ws.map(w => C.where(axis, w.seg)))] : [W.WEIGH_TITLE, ...cardOf(ws[0])]).map(norm)
+          if (row.join(' | ') !== wantRow.join(' | ')) issues.push(`${label}, ${width} px, ligne : « ${row.join(' / ').slice(0, 200)} » au lieu de « ${wantRow.join(' / ').slice(0, 200)} »`)
+          if (label === 'connus ici' && !row.some(t => / connus? ici /.test(t))) issues.push(`${label} : la phrase ne dit pas « connus ici »`)
+          if (phone) for (const x of await spillOf('.profile-chart .explain:not([hidden]) .weigh')) issues.push(`${label}, ${width} px à ${zoom} %, ligne : ${x}`)
+          // Le détail
+          await cp.locator('.profile-chart .explain:not([hidden]) .link-button').click()
+          await cp.locator(`#d-${u.kind}-${u.id} .detail-parts li`).first().waitFor({ timeout: 5000 }).catch(() => issues.push(`${label}, ${width} px : pas de parts dans le détail`))
+          const detail = await cp.evaluate(d => {
+            const body = document.getElementById(d)
+            const said = el => (el?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
+            // L'écart de chaque bloc, dans l'ordre de l'axe : « +39 points, nettement plus près »
+            const gaps = [...(body?.querySelectorAll('.detail-blocs tbody tr:not(.detail-why)') ?? [])].map(tr => said(tr.lastElementChild))
+            return {
+              title: said(body?.querySelector('.detail-weigh > .detail-title')),
+              gaps,
+              segs: [...(body?.querySelectorAll('.detail-weigh-seg') ?? [])].map(seg => ({
+                for: said(seg.querySelector('.detail-weigh-for')),
+                card: [...seg.querySelectorAll('.weigh > p')].map(said),
+                small: [...seg.querySelectorAll(':scope > p.small')].map(said),
+                parts: [...seg.querySelectorAll('.detail-parts li')].map(li => [said(li.querySelector('span')), said(li.querySelector('strong'))]),
+              })),
+            }
+          }, `d-${u.kind}-${u.id}`)
+          if (detail.title !== W.WEIGH_TITLE) issues.push(`${label}, ${width} px : intertitre du détail « ${detail.title} »`)
+          if (detail.segs.length !== ws.length) issues.push(`${label}, ${width} px : ${detail.segs.length} fiche(s) dans le détail pour ${ws.length} suite(s)`)
+          ws.forEach((w, i) => {
+            const got = detail.segs[i]
+            if (!got) return
+            const p = pts(w)
+            const want = {
+              for: ws.length > 1 ? norm(W.weighFor(C.where(axis, w.seg))) : '',
+              card: cardOf(w),
+              small: [
+                ...(w.alsoBlocs.length ? [W.weighAlso(C.whereAll(axis, w.alsoBlocs), w.alsoCount, w.suite === 'principale')] : []),
+                W.weighPartsLead(w.seg.length),
+                ...(p.at(-1) ? [W.weighRest(p.at(-1))] : []),
+              ].map(norm),
+              parts: questions.map((q, j) => [norm(q.prompt), norm(W.points(p[j]))]),
+            }
+            for (const k of ['for', 'card', 'small', 'parts'])
+              if (JSON.stringify(got[k]) !== JSON.stringify(want[k])) issues.push(`${label}, ${width} px, détail ${w.seg.join('')}, ${k} : « ${JSON.stringify(got[k]).slice(0, 180)} » au lieu de « ${JSON.stringify(want[k]).slice(0, 180)} »`)
+            // Les points affichés, parts et reste, font l'écart du tableau du bloc (une fiche d'un seul bloc)
+            if (w.seg.length === 1) {
+              const table = Number((detail.gaps[w.seg[0]] ?? '').replace('−', '-').match(/^[+-]?\d+/)?.[0])
+              const sum = got.parts.reduce((t, [, x]) => t + Number(x.replace('−', '-').match(/^[+-]?\d+/)?.[0] ?? NaN), 0) + (p.at(-1) ?? 0)
+              if (sum !== table) issues.push(`${label}, ${width} px, détail : les points font ${sum}, l’écart du tableau ${table}`)
+            }
+          })
+          if (phone) for (const x of await spillOf(`#d-${u.kind}-${u.id} .detail-weigh`)) issues.push(`${label}, ${width} px à ${zoom} %, détail : ${x}`)
+          const wide = await cp.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)
+          if (wide > 0) issues.push(`${label}, ${width} px à ${zoom} % : ${wide} px de trop`)
+          // Un autre onglet retire une réponse du sujet, sa ligne et son détail ouverts : la page relit, sans erreur (la
+          // lecture affichée est toujours celle des réponses courantes ; contre-vérification du lot 3, la page cassait)
+          if (width === 1280 && label === 'aussi et reste') {
+            const errors = []
+            cp.on('pageerror', e => errors.push(e.message))
+            const other = await cctx.newPage()
+            await other.goto(U('/'))
+            const gone = u.questions.find(q => pack.bank.questions.find(x => x.id === q)?.tier !== 'essentiel') ?? u.questions[0]
+            const after = structuredClone(c.st)
+            delete after.answers[gone]
+            await other.evaluate(([k, v]) => localStorage.setItem(k, v), [STORAGE, JSON.stringify(after)])
+            await cp.waitForTimeout(400)
+            await cp
+              .waitForFunction(() => document.querySelectorAll('.profile-chart .row').length > 0 && (document.querySelector('main [role="status"]')?.textContent ?? '').includes('Lecture prête.'), null, { timeout: 15000 })
+              .catch(() => null)
+            const rows = await cp.locator('.profile-chart .row').count()
+            if (errors.length || !rows) issues.push(`${label} : un autre onglet retire « ${gone} », ${errors.length} erreur(s) de la page${errors[0] ? ` (« ${errors[0].slice(0, 80)} »)` : ''}, ${rows} ligne(s) ensuite`)
+            else seen.push('un autre onglet retire une réponse : la page relit, sans erreur')
+            await other.close()
+          }
+          await cctx.close()
+        }
+      }
+      check(issues.length === 0, `mon profil politique (lot 3, cas repérés) : ${seen.join(', ')}, ligne et détail à 1 280 px et à 320 px texte à 200 %${issues.length ? ` : ${[...new Set(issues)].slice(0, 6).join(' ; ')}` : ''}`)
+    }
+
     // Une page lourde sur un téléphone lent (processeur bridé dix fois : bien plus de 300 ms de calcul) : tout noté sur
     // la banque entière, d'accord, pas d'accord et sans avis en rotation. Le statut « Lecture en cours » paraît (au-delà
     // de 300 ms), puis « Lecture prête. » : le calcul laisse passer la minuterie de la page, que les reprises de

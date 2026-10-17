@@ -1,14 +1,16 @@
 // Ce qui pèse le plus dans une lecture nette (lot 3, A3, plan « Approfondir Mon profil politique » approuvé le 15
 // octobre 2026), pour la page « Mon profil politique » : dans une ligne ouverte, la question qui pèse le plus dans
 // l'écart affiché, et dans elle l'avis qui y compte le plus ; dans le détail, la part de chaque question. Calcul exact,
-// sans tirage, comme la lecture (décision D1 du propriétaire) : les pièces mêmes de core/echiquier.ts, reprises sans
-// rien recopier. Rien n'y change la lecture : on décompose celle qui est faite. Aucun nom de candidat n'en sort pour la
-// page, seulement des nombres (D3).
+// sans tirage, comme la lecture (décision D1 du propriétaire) : les pièces mêmes de core/echiquier.ts (le score d'une
+// question, les questions rangées par thème, l'affinité, les moyennes par bloc et le poids de chaque candidat dans celle
+// de son bloc, les placements des avis), reprises sans rien recopier. Rien n'y change la lecture : on décompose celle qui
+// est faite, et rien, sur des réponses qui ne la donnent plus. Aucun nom de candidat n'en sort pour la page, seulement
+// des nombres (D3).
 // Un fichier à part du build, avec la fiche qui le montre (ui/profile/Weigh.tsx) : la page le charge à la demande, après
 // son premier affichage, et ne le calcule qu'à l'ouverture d'une ligne ou d'un détail.
 
-import { affinityInto, arrangements, blocMeansInto, membersOf, prepare, scoreInto, segments, TIE, vectorOf, type ReadOptions, type UnitReading } from './echiquier'
-import type { Answers, ApproachId, ElectionPack, QuestionId, Rating, TopicId } from './types'
+import { affinityInto, arrangements, blocMeansInto, blocModel, membersOf, prepare, scoresOf, segments, TIE, topicsOf, vectorOf, type ReadOptions, type UnitReading } from './echiquier'
+import type { Answers, ApproachId, ElectionPack, QuestionId, Rating } from './types'
 
 
 /**
@@ -33,6 +35,11 @@ export interface Weigh {
   parts: number[]
   /** L'écart moins la somme des parts : nul sans position de confiance basse, au calcul près */
   rest: number
+  /**
+   * L'écart que montre le tableau du détail, en points entiers : l'affinité arrondie moins la moyenne arrondie (gap de
+   * core/echiquierCopy.ts), en moyenne sur la suite, arrondie ; les parts affichées le font exactement (apportion)
+   */
+  shown: number
   /** La question qui pèse le plus (la plus grande part, la première de la banque à égalité) ; null sans part positive */
   question: QuestionId | null
   /**
@@ -44,6 +51,11 @@ export interface Weigh {
   approach: ApproachId | null
   /** Votre avis sur elle (0 sans approche citée) */
   view: Rating | 0
+  /**
+   * Les candidats que la grille classe dans les blocs de la suite (ceux de l'axe, sans ceux que les réglages retirent) ;
+   * plus que les connus quand certains n'ont pas de position sur le sujet (la phrase dit alors « connus ici »)
+   */
+  size: number
   /** Les candidats connus de la suite, ceux de ses cases ; parmi eux, ceux dont l'approche est principale, compatible, rejetée */
   known: number
   main: number
@@ -75,34 +87,24 @@ function firstMax(xs: readonly number[]): number {
  * possibles, les autres telles quelles (parmi les façons où le bloc est connu), en moyenne sur la suite. Sans position
  * de confiance basse, l'affinité d'un bloc est une somme de questions (voir BlocModel) : les parts font exactement
  * l'écart affiché. Dans la question qui pèse le plus, la part d'un avis r posé sur l'approche a : pour chaque candidat
- * connu sur la question, son poids dans l'affinité (100 / (T × n), voir affinityInto) × (v(a) − v̄) × r / (2 Σ|v|), v
- * son profil sur la question et v̄ sa moyenne sur les approches, c'est-à-dire l'écart de son score à la moyenne des
- * façons, avis par avis ; en moyenne sur les candidats connus du bloc, puis sur la suite. À l'ouverture d'une ligne
- * seulement, jamais pour une ligne fermée.
+ * connu sur la question, son poids dans l'affinité moyenne du bloc (100 / (K × T × n), celui de readUnit, voir
+ * BlocModel) × (v(a) − v̄) × r / (2 Σ|v|), v son profil sur la question et v̄ sa moyenne sur les approches, c'est-à-dire
+ * l'écart de son score à la moyenne des façons, avis par avis ; sommé sur le bloc, puis en moyenne sur la suite. À
+ * l'ouverture d'une ligne seulement, jamais pour une ligne fermée. Des réponses qui ne donnent plus la lecture (changées
+ * dans un autre onglet avant que la page ne relise) : [].
  */
 export function weighOf(pack: ElectionPack, answers: Answers, u: UnitReading, opts: Pick<ReadOptions, 'without'> = {}): Weigh[] {
-  if (u.status !== 'lecture') return []
+  // Une question de l'unité sans réponse : la lecture a été faite sur d'autres réponses (changées entre-temps, dans un
+  // autre onglet), rien plutôt qu'une erreur
+  if (u.status !== 'lecture' || u.questions.some(id => !answers[id])) return []
   const prep = prepare(pack)
   const members = membersOf(prep, opts)
-  const NP = prep.ids.length
   const qs = u.questions.map(id => prep.qIndex.get(id)!)
   const vec = qs.map(qi => vectorOf(prep.questions[qi]!, answers[prep.questions[qi]!.id]!))
-  const score = (qi: number, r: Int8Array) => {
-    const o = new Float64Array(NP)
-    scoreInto(prep, qi, r, o)
-    return o
-  }
-  const obs = qs.map((qi, j) => score(qi, vec[j]!))
-  // Les questions rangées par thème, comme readUnit (chaque thème pèse un dans une famille)
-  const topicOf = new Map<TopicId, number[]>()
-  qs.forEach((qi, j) => {
-    const t = prep.questions[qi]!.topicId
-    const list = topicOf.get(t)
-    if (list) list.push(j)
-    else topicOf.set(t, [j])
-  })
-  const byTopic = [...topicOf.values()]
-  const aff = new Float64Array(NP)
+  const obs = qs.map((qi, j) => scoresOf(prep, qi, vec[j]!))
+  // Les questions rangées par thème, celles de readUnit (chaque thème pèse un dans une famille)
+  const [, byTopic, tOf] = topicsOf(prep, qs)
+  const aff = new Float64Array(prep.ids.length)
   const S = new Float64Array(members.length)
   const blocs = (scores: readonly Float64Array[]) => {
     affinityInto(scores, byTopic, aff)
@@ -112,6 +114,9 @@ export function weighOf(pack: ElectionPack, answers: Answers, u: UnitReading, op
   // L'affinité observée de chaque candidat (NaN : inconnu sur l'unité) et de chaque bloc
   const aff0 = Float64Array.from(aff)
   const S0 = Float64Array.from(S)
+  // Des réponses qui ne donnent plus l'affinité de la lecture (un avis changé ou passé entre-temps, dans un autre
+  // onglet, avant que la page ne relise) : rien, plutôt qu'une fiche qui ne serait pas la sienne
+  if (u.cells.some((c, b) => (c.affinity === null ? S0[b] === S0[b] : !(Math.abs(c.affinity - S0[b]!) < 1e-9)))) return []
   const isKnown = (c: number) => aff0[c] === aff0[c]
   // Par question, par bloc : l'affinité observée moins sa moyenne sur les façons de poser les avis de cette question
   const partOf = qs.map((qi, j) => {
@@ -119,7 +124,7 @@ export function weighOf(pack: ElectionPack, answers: Answers, u: UnitReading, op
     const sum = new Float64Array(S.length)
     const n = new Float64Array(S.length)
     for (const a of arrangements(vec[j]!)) {
-      sc[j] = score(qi, a)
+      sc[j] = scoresOf(prep, qi, a)
       blocs(sc)
       S.forEach((x, b) => {
         if (x === x) {
@@ -134,7 +139,26 @@ export function weighOf(pack: ElectionPack, answers: Answers, u: UnitReading, op
     const mean = (f: (b: number) => number) => seg.reduce((s, b) => s + f(b), 0) / seg.length
     const gap = mean(b => u.cells[b]!.affinity! - u.cells[b]!.chance!)
     const parts = partOf.map(p => mean(b => p[b]!))
-    const w: Weigh = { seg, gap, parts, rest: gap - parts.reduce((s, x) => s + x, 0), question: null, shares: [], approach: null, view: 0, known: 0, main: 0, compatible: 0, rejects: 0, others: false, suite: null, alsoBlocs: [], alsoCount: 0 }
+    const w: Weigh = {
+      seg,
+      gap,
+      parts,
+      rest: gap - parts.reduce((s, x) => s + x, 0),
+      shown: Math.round(mean(b => Math.round(u.cells[b]!.affinity!) - Math.round(u.cells[b]!.chance!))),
+      question: null,
+      shares: [],
+      approach: null,
+      view: 0,
+      size: seg.reduce((s, b) => s + members[b]!.length, 0),
+      known: 0,
+      main: 0,
+      compatible: 0,
+      rejects: 0,
+      others: false,
+      suite: null,
+      alsoBlocs: [],
+      alsoCount: 0,
+    }
     const j = firstMax(parts)
     if (j < 0) return w
     const qi = qs[j]!
@@ -142,25 +166,20 @@ export function weighOf(pack: ElectionPack, answers: Answers, u: UnitReading, op
     const V = prep.V[qi]!
     const DEN = prep.DEN[qi]!
     const q = prep.questions[qi]!
-    const onQ = obs[j]!
-    const own = byTopic.find(js => js.includes(j))!
     w.question = q.id
-    // Le poids de la question dans l'affinité d'un candidat connu sur elle : 100 / (T × n), T thèmes où il est connu, n
-    // questions de ce thème où il l'est (affinityInto)
-    const weight = (c: number) => (onQ[c] === onQ[c] ? 100 / (byTopic.filter(js => js.some(i => obs[i]![c] === obs[i]![c])).length * own.filter(i => obs[i]![c] === obs[i]![c]).length) : 0)
-    const shares = Array.from(r, (x, a) =>
-      x
-        ? mean(b => {
-            const K = members[b]!.filter(isKnown)
-            let t = 0
-            for (const c of K) {
-              const v = V[c]!
-              if (DEN[c]) t += (weight(c) * (v[a]! - v.reduce((y, z) => y + z, 0) / v.length) * x) / (2 * DEN[c]!)
-            }
-            return t / K.length
-          })
-        : 0,
-    )
+    // La part d'un avis dans l'affinité moyenne de chaque bloc : pour chaque candidat, l'écart de son score à la moyenne
+    // des façons, (v(a) − v̄) × r / (2 Σ|v|), au poids que lui donne readUnit, 100 / (K × T × n) (blocModel : K candidats
+    // connus du bloc, T thèmes où il est connu, n questions de ce thème où il l'est)
+    const models = seg.map(b => {
+      const md = blocModel(members[b]!, tOf, byTopic.length)
+      md.set(obs)
+      return md
+    })
+    const shares = Array.from(r, (x, a) => {
+      if (!x) return 0
+      const d = Float64Array.from(V, (v, c) => (DEN[c] ? ((v[a]! - v.reduce((y, z) => y + z, 0) / v.length) * x) / (2 * DEN[c]!) : 0))
+      return mean(b => models[seg.indexOf(b)]!.x(j, d))
+    })
     w.shares = shares
     const a = firstMax(shares)
     if (a < 0) return w
