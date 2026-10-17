@@ -222,8 +222,8 @@ describe('accords', () => {
     expect(T.waitCount(7, 22)).toBe('questions sur 22')
     expect(T.waitCta('en-cours', 1)).toBe(`Continuer${NB}: 1${NB}question`)
     expect(T.waitCta('en-cours', 15)).toBe(`Continuer${NB}: 15${NB}questions`)
-    expect(T.waitCta('vide', 22)).toBe('Commencer la feuille')
-    expect(T.waitCta('sans-avis', 0)).toBe('Relire la feuille')
+    expect(T.waitCta('vide', 22)).toBe('Répondre aux questions')
+    expect(T.waitCta('sans-avis', 0)).toBe('Relire vos réponses')
     expect(T.waitText('en-cours', 22, 15, false)).toBe(
       `La lecture s’affiche au bout des 22${NB}questions du questionnaire rapide, avec le dépouillement complet${NB}: encore 15${NB}questions.`,
     )
@@ -664,8 +664,9 @@ describe('règles d’écriture', () => {
   it('plus jamais « hasard » pour dire la comparaison (D2), ni « placés au hasard », dans les textes comme dans la page', () => {
     for (const t of allTexts()) expect(/hasard/i.test(t), t).toBe(false)
     for (const file of PAGE_FILES) for (const t of pageTexts(file)) expect(/hasard/i.test(t), `${file} : « ${t.slice(0, 120)} »`).toBe(false)
-    // Les feuilles de la calibration : « des feuilles remplies par un programme, sans suivre aucun candidat »
-    for (const t of [T.SUMMARY_NOTE, T.caveats(15)[2]!, M.methodWorth()[1], M.methodBefore()]) expect(t, t).toContain('feuilles remplies par un programme')
+    // Les profils de la calibration : « des questionnaires remplis par un programme, sans suivre aucun candidat » (« des
+    // feuilles… » jusqu'au 17 octobre 2026 : « feuille » n'est plus un mot du site, tests/words.test.ts)
+    for (const t of [T.SUMMARY_NOTE, T.caveats(15)[2]!, M.methodWorth()[1], M.methodBefore()]) expect(t, t).toContain('questionnaires remplis par un programme')
   })
 
   it('aucun mot de qualité, et rien qui situe la personne : ni « surtout », ni « fragile », ni « solide », ni « presque »', () => {
@@ -768,7 +769,7 @@ describe('lignes rouges et priorités (lot 2)', () => {
     const [text, possible] = M.methodCross()
     // L'effectif qui fonde un verdict (§ 2.0 de l'étude : 30 ne donnent qu'une indication)
     expect(C.clones).toBeGreaterThanOrEqual(60)
-    expect(text).toContain(`(${C.clones} feuilles par candidat)`)
+    expect(text).toContain(`(${C.clones} questionnaires par candidat)`)
     const dec = (x: number) => String(x).replace('.', ',')
     const span = (lo: number, hi: number) => `${dec(lo)} à ${dec(hi)}${NB}%`
     const KEYS = ['random', 'neighbour', 'other'] as const
@@ -951,7 +952,7 @@ describe('ce qui pèse le plus dans cette lecture (lot 3)', () => {
     const text = M.methodWeigh()
     const dec = (x: number) => String(x).replace('.', ',')
     expect(P.clones).toBeGreaterThanOrEqual(60)
-    expect(text).toContain(`(${P.clones} feuilles par candidat)`)
+    expect(text).toContain(`(${P.clones} questionnaires par candidat)`)
     expect(text).toContain('elle paraît sous chacune des lectures nettes, quel que soit le bloc du candidat recopié')
     expect(text).toContain(
       `l’approche citée est l’approche principale de candidats du bloc dans ${dec(P.main.all)}${NB}% des fiches, de ${dec(P.main.low)}${NB}% pour un candidat recopié que la grille classe ${P.main.lowWhere} à ${dec(P.main.high)}${NB}% pour un candidat qu’elle classe ${P.main.highWhere}`,
@@ -1038,9 +1039,9 @@ describe('votre façon de répondre (lot 4)', () => {
     const text = M.methodManner(where)
     const dec = (x: number) => String(x).replace('.', ',')
     expect(P.clones).toBeGreaterThanOrEqual(60)
-    expect(text).toContain(`(${P.clones} feuilles par candidat)`)
-    expect(text).toContain('feuilles remplies par un programme, sans suivre aucun candidat')
-    expect(text).toContain(`sur ${dec(P.agreeOnly[0])}${NB}% de celles qui ne donnent que des «${NB}d’accord${NB}» (${dec(P.agreeOnly[1])}${NB}% après le seul questionnaire rapide)`)
+    expect(text).toContain(`(${P.clones} questionnaires par candidat)`)
+    expect(text).toContain('questionnaires remplis par un programme, sans suivre aucun candidat')
+    expect(text).toContain(`sur ${dec(P.agreeOnly[0])}${NB}% de ceux qui ne donnent que des «${NB}d’accord${NB}» (${dec(P.agreeOnly[1])}${NB}% après le seul questionnaire rapide)`)
     for (const [m, label] of [[P.bank, 'banque'], [P.quick, 'rapide']] as const) {
       const blocs: readonly number[] = m.blocs
       const lo = Math.min(...blocs)
@@ -1070,15 +1071,15 @@ describe('votre façon de répondre (lot 4)', () => {
     }
     expect(text).toContain('Dans cette mesure, elle paraît le plus sur les réponses recopiées des candidats que la grille classe aux extrêmes, un ordre entre blocs que la mesure n’établit pas.')
     expect(text).not.toContain('Elle paraît le plus')
-    // Ce qu'elle suit, feuille par feuille, puis dans un même bloc : plus de « pas d'accord », plus souvent la phrase
+    // Ce qu'elle suit, questionnaire par questionnaire, puis dans un même bloc : plus de « pas d'accord », plus souvent la phrase
     const S = P.byShare
     expect(text).toContain(
-      `Ce qu’elle suit, feuille par feuille, c’est la part des «${NB}pas d’accord${NB}» parmi les avis${NB}: sur la banque, elle paraît sur ${dec(S.bank[0])}${NB}% des feuilles qui en comptent moins de ${S.cut}${NB}% et sur ${dec(S.bank[1])}${NB}% des autres (${dec(S.quick[0])}${NB}% et ${dec(S.quick[1])}${NB}% au rapide)`,
+      `Ce qu’elle suit, questionnaire par questionnaire, c’est la part des «${NB}pas d’accord${NB}» parmi les avis${NB}: sur la banque, elle paraît sur ${dec(S.bank[0])}${NB}% des questionnaires qui en comptent moins de ${S.cut}${NB}% et sur ${dec(S.bank[1])}${NB}% des autres (${dec(S.quick[0])}${NB}% et ${dec(S.quick[1])}${NB}% au rapide)`,
     )
     for (const [below, above] of [S.bank, S.quick]) expect(below).toBeLessThan(above)
     const [bankWithin, quickWithin] = P.within
     expect(text).toContain(
-      `dans un même bloc, elle peut paraître sur ${bankWithin[0]} feuilles sur ${P.clones} pour un candidat recopié et sur ${bankWithin[1]} pour un autre (${quickWithin[0]} et ${quickWithin[1]} au rapide)`,
+      `dans un même bloc, elle peut paraître sur ${bankWithin[0]} questionnaires sur ${P.clones} pour un candidat recopié et sur ${bankWithin[1]} pour un autre (${quickWithin[0]} et ${quickWithin[1]} au rapide)`,
     )
     // L'écart dans un même bloc tient dans ce que montrent les blocs : au plus toutes les feuilles d'un candidat
     for (const [hi, lo] of P.within) {
@@ -1124,7 +1125,7 @@ describe('la rubrique de la Méthode : la comparaison, les deux régimes, l’av
     expect(text).toMatch(/^Jusqu’au 15 octobre 2026, la page tirait au sort 999 de ces façons de poser vos avis\u00a0; depuis, elle n’en tire plus aucune\. Sur les mêmes réponses, avant puis après\u00a0:/)
     expect(text).toContain(`dans 70${NB}% puis 71${NB}% des cas, de 44${NB}% à 91${NB}% puis de 44${NB}% à 92${NB}% selon le bloc`)
     // « Au plus un sur onze » (9,1 %), avant (9 %) comme après (8,5 %) : jamais « un sur douze » (8,3 %), sous la part publiée
-    expect(text).toContain('les feuilles remplies par un programme reçoivent toujours au plus une lecture sur un thème sur onze, et au plus 2,4 puis 2,3 lectures en moyenne sur l’ensemble')
+    expect(text).toContain('les questionnaires remplis par un programme reçoivent toujours au plus une lecture sur un thème sur onze, et au plus 2,4 puis 2,3 lectures en moyenne sur l’ensemble')
     for (const x of [P.randomThemesMax, B.randomThemesMax]) expect(100 / 11).toBeGreaterThanOrEqual(x)
     expect(text).toContain('chacun des blocs que la grille classe aux extrêmes reçoit en moyenne 1,6 puis 1,7 fois plus de leurs lectures que celui qu’elle classe à gauche, toujours 2,4 fois après le seul questionnaire rapide')
     // L'écart qui s'élargit vient de la borne prudente : en comptant tout, il ne change pas (audit --count-max 2000000)

@@ -32,7 +32,7 @@ const PATHS: Record<string, string> = {
   videos: 'M3.5 5.5h17v13h-17zM10.25 9.1v5.8L15 12z',
   // « Les candidats » : deux silhouettes, l'une derrière l'autre
   people: 'M9 11.25a3.1 3.1 0 1 0 0-6.2 3.1 3.1 0 0 0 0 6.2zM3.5 19.5c0-3.2 2.4-5.6 5.5-5.6s5.5 2.4 5.5 5.6M15.4 5.2a3 3 0 0 1 0 5.9M17.2 14.1c2 .6 3.3 2.6 3.3 5.4',
-  // « Relire la feuille » (pied de l'accueil) : un œil
+  // « Relire vos réponses » (pied de page) : un œil
   reread: 'M2.75 12S6 6 12 6s9.25 6 9.25 6S18 18 12 18 2.75 12 2.75 12zM12 14.6a2.6 2.6 0 1 0 0-5.2 2.6 2.6 0 0 0 0 5.2z',
   // Comparer : deux colonnes côte à côte
   compare: 'M4.5 5h5.5v14H4.5zM14 5h5.5v14H14z',

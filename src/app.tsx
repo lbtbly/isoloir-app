@@ -407,7 +407,7 @@ function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
         const step2Seen = items.slice(step1).some(x => state.answers[x.id])
         return (
           <Sheet
-            title={essentialTier ? 'Feuille de pointage' : 'Feuille complémentaire'}
+            title={essentialTier ? 'Les questions' : 'Questions complémentaires'}
             question={q}
             approaches={seededShuffle(q.approaches, `${state.seed}:${q.id}`)}
             topic={bank.topics.find(t => t.id === q.topicId)}
@@ -443,7 +443,7 @@ function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
         const n = fresh.size
         return (
           <Sheet
-            title="Feuille de révision"
+            title="Questions à revoir"
             question={q}
             approaches={seededShuffle(q.approaches, `${state.seed}:${q.id}`)}
             topic={bank.topics.find(t => t.id === q.topicId)}

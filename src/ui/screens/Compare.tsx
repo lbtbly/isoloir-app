@@ -17,6 +17,7 @@ import { Fragment } from 'preact'
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks'
 import { compareTable, type CandidateOverview, type QuestionRow, type RowCell, type TopicTable } from '../../core/compare'
 import { seededShuffle } from '../../core/rng'
+import { CTA_START } from '../../core/resultsCopy'
 import { comparePath } from '../../core/routes'
 import { isExcluded, knownQuestions } from '../../core/score'
 import type { SessionState } from '../../core/storage'
@@ -144,7 +145,7 @@ export function Compare({ pack, ids: asked, state }: Props) {
       </a>
       <span />
       <a class="btn-primary" href={link('/feuille/1')}>
-        Commencer la feuille
+        {CTA_START}
         <Icon name="arrow-right" />
       </a>
     </CompareBar>

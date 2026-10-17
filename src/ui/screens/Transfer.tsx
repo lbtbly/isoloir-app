@@ -7,6 +7,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks'
 import { downloadBlob } from '../../core/download'
+import { CTA_START } from '../../core/resultsCopy'
 import { importNotes, type ImportResult } from '../../core/exportData'
 import type { SessionState } from '../../core/storage'
 import { groupCode } from '../../core/transfer/base32'
@@ -142,7 +143,7 @@ function Send({ pack, state }: { pack: ElectionPack; state: SessionState }) {
         </h2>
         <p>Répondez d’abord à quelques questions, ou importez celles d’un autre appareil.</p>
         <a class="btn-primary" href={link('/feuille/1')}>
-          Commencer
+          {CTA_START}
           <Icon name="arrow-right" />
         </a>
       </section>

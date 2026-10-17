@@ -5,6 +5,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks'
 import { ratingOf } from '../../core/answers'
+import { CTA_START } from '../../core/resultsCopy'
 import { seededShuffle } from '../../core/rng'
 import type { SessionState } from '../../core/storage'
 import type { Answers, Candidate, ElectionPack, ElectionInfo, PartyMark, Position, Question, Source, Topic, TopicGroup } from '../../core/types'
@@ -190,7 +191,7 @@ export function CandidatesIndex({ pack, state }: IndexProps) {
         </a>
         <span />
         <a class="btn-primary" href={link('/feuille/1')}>
-          Commencer la feuille
+          {CTA_START}
           <Icon name="arrow-right" />
         </a>
       </CompareBar>
@@ -435,7 +436,7 @@ export function CandidatePage({ pack, candidateId, state }: PageProps) {
         </a>
         <span />
         <a class="btn-primary" href={link('/feuille/1')}>
-          Commencer la feuille
+          {CTA_START}
           <Icon name="arrow-right" />
         </a>
       </CompareBar>

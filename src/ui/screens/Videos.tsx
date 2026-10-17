@@ -7,6 +7,7 @@
 
 import type { SessionState } from '../../core/storage'
 import type { ElectionPack, Question } from '../../core/types'
+import { CTA_RESUME, CTA_START } from '../../core/resultsCopy'
 import { AiLabel } from '../components/AiLabel'
 import { FormHeader } from '../components/FormHeader'
 import { Icon } from '../components/Icon'
@@ -49,7 +50,7 @@ export function Videos({ pack, state, essential }: Props) {
   const done = essential.length > 0 && seen === essential.length
   const start = done
     ? { href: link('/resultats'), label: 'Voir mon dépouillement' }
-    : { href: link(`/feuille/${(firstOpen < 0 ? 0 : firstOpen) + 1}`), label: seen ? 'Reprendre la feuille' : 'Commencer la feuille' }
+    : { href: link(`/feuille/${(firstOpen < 0 ? 0 : firstOpen) + 1}`), label: seen ? CTA_RESUME : CTA_START }
 
   let place = 0
   return (

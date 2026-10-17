@@ -213,7 +213,7 @@ export function Sheet(props: SheetProps) {
       </main>
       {props.closed ? props.closed.foot : <SiteFooter />}
 
-      <nav class="action-bar" aria-label="Navigation de la feuille">
+      <nav class="action-bar" aria-label="Navigation des questions">
         <div class="action-bar-inner">
           <button type="button" class="btn-text" onClick={props.onBack}>
             <Icon name="arrow-left" />

@@ -3292,6 +3292,18 @@ path.ink-draw {
   }
 }
 
+/* Téléphone de 320 px : le lien d'appel d'une barre garde son libellé entier (« Répondre aux questions », « Voir mon
+   dépouillement ») sur la rangée de la flèche de retour, au prix d'un peu de marge intérieure, plutôt que de passer
+   seul dessous. Les boutons des questions et de la table ne changent pas ; le plateau de comparaison a ses propres
+   libellés courts (compare.css) */
+@container actions (max-width: 21rem) {
+  /* Sans poids de plus que la règle du texte très agrandi, ci-dessous, qui garde le dernier mot */
+  .action-bar-inner > .btn-primary:where(a:not(.tray-go)) {
+    gap: 0.45rem;
+    padding-inline: 0.9rem;
+  }
+}
+
 /* Texte très agrandi : le bouton principal prend toute une rangée plutôt que de déborder */
 @container actions (max-width: 19rem) {
   .action-bar-inner > .btn-primary {

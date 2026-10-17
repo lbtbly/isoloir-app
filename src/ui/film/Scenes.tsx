@@ -358,10 +358,10 @@ function ArtClosed() {
 function ArtPoster() {
   return (
     <div class="fp">
-      {/* La feuille, et dessous son double jaune, qui en sort */}
+      {/* La page des réponses, et dessous son double jaune, qui en sort */}
       <div class="fp-sheet">
         <p class="fp-brand">Isoloir</p>
-        <p class="fp-form">Feuille de pointage</p>
+        <p class="fp-form">Mes réponses</p>
         <svg class="diagram fp-lines" viewBox="0 0 120 92" aria-hidden="true">
           {[14, 44, 74].map((y, i) => (
             <g key={y}>
