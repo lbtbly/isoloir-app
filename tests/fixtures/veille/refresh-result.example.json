@@ -1,0 +1,92 @@
+{
+  "format": "isoloir-veille-refresh/1",
+  "electionId": "presidentielle-2027",
+  "mode": "candidates",
+  "today": "2026-10-19",
+  "candidates": [
+    {
+      "candidateId": "exemple",
+      "since": "2026-10-06",
+      "triageCompleted": true,
+      "searches": 12,
+      "findings": 2,
+      "rotation": ["sante-1", "logement-2"],
+      "programmeDetected": null,
+      "changes": [
+        {
+          "kind": "set",
+          "candidateId": "exemple",
+          "questionId": "retraites-1",
+          "approachId": "retraites-1-b",
+          "proposedApproachText": null,
+          "before": {
+            "weight": 1,
+            "nature": "declaration",
+            "confidence": "medium",
+            "summary": "Exemple fictif : elle se dit ouverte à un âge de départ plus tardif.",
+            "sources": [{ "title": "Entretien fictif", "url": "https://exemple.fr/entretien", "date": "2026-05-02", "publisher": "Exemple" }]
+          },
+          "after": {
+            "weight": 2,
+            "nature": "proposition",
+            "confidence": "high",
+            "summary": "Exemple fictif : elle propose de reporter l'âge de départ à 65 ans d'ici 2032.",
+            "sources": [
+              { "title": "Programme fictif, chapitre retraites", "url": "https://exemple.fr/programme/retraites", "date": "2026-10-14", "publisher": "Site de campagne (fictif)" },
+              { "title": "Article fictif sur le programme", "url": "https://journal.exemple.fr/article", "date": "2026-10-15", "publisher": "Journal fictif" }
+            ]
+          },
+          "cause": "prise-de-position",
+          "statedAt": "2026-10-14",
+          "evidence": { "primarySource": true, "independentOutlets": 1, "shortQuote": "reporter l'âge de départ à 65 ans" },
+          "verifier": { "verdict": "confirmed", "notes": "Le chapitre retraites du programme fictif le dit en toutes lettres." },
+          "blindRecode": { "approachId": "retraites-1-b", "weight": 2, "rejects": false, "agrees": true },
+          "rationale": "Programme publié le 14 octobre : la position devient principale."
+        },
+        {
+          "kind": "addApproach",
+          "candidateId": "exemple",
+          "questionId": "sante-1",
+          "approachId": "sante-1-NEW1",
+          "proposedApproachText": "Confier aux régions le pilotage des hôpitaux publics et de leurs budgets",
+          "before": null,
+          "after": null,
+          "cause": "nouvelle-approche",
+          "statedAt": null,
+          "evidence": { "primarySource": true, "independentOutlets": 2, "shortQuote": "" },
+          "verifier": { "verdict": "confirmed", "notes": "Aucune approche existante ne couvre la régionalisation." },
+          "blindRecode": null,
+          "rationale": "Position centrale et sourcée qui ne rentre dans aucune approche."
+        },
+        {
+          "kind": "set",
+          "candidateId": "exemple",
+          "questionId": "sante-1",
+          "approachId": "sante-1-NEW1",
+          "proposedApproachText": null,
+          "before": null,
+          "after": {
+            "weight": 2,
+            "nature": "proposition",
+            "confidence": "high",
+            "summary": "Exemple fictif : elle veut confier aux régions le pilotage des hôpitaux publics.",
+            "sources": [{ "title": "Programme fictif, chapitre santé", "url": "https://exemple.fr/programme/sante", "date": "2026-10-14", "publisher": "Site de campagne (fictif)" }]
+          },
+          "cause": "prise-de-position",
+          "statedAt": "2026-10-14",
+          "evidence": { "primarySource": true, "independentOutlets": 0, "shortQuote": "" },
+          "verifier": { "verdict": "confirmed", "notes": "Chapitre santé relu." },
+          "blindRecode": { "approachId": "sante-1-NEW1", "weight": 2, "rejects": false, "agrees": true },
+          "rationale": "Sa position sur l'approche proposée."
+        }
+      ],
+      "log": []
+    }
+  ],
+  "newQuestionSubjects": [],
+  "programmes": [{ "candidateId": "exemple", "title": "Programme fictif", "url": "https://exemple.fr/programme", "date": "2026-10-14" }],
+  "proposedApproaches": [
+    { "questionId": "sante-1", "placeholder": "sante-1-NEW1", "text": "Confier aux régions le pilotage des hôpitaux publics et de leurs budgets", "kept": true, "reason": "relue : proposer", "forbiddenHits": [] }
+  ],
+  "log": []
+}

@@ -658,7 +658,7 @@
     },
     "bank": {
       "min": 85,
-      "max": 100,
+      "max": 110,
       "approachesMin": 4,
       "approachesMax": 9,
       "maxMainShare": 0.6,

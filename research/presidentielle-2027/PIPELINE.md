@@ -1,6 +1,6 @@
 # Chaîne de données de la présidentielle 2027
 
-Ce document donne la suite exacte des commandes et des appels Workflow. Elle produit le pack `src/elections/presidentielle-2027/` à partir de la recherche en cours. Chaque **DÉCISION** revient au propriétaire. Aucun workflow ne se lance sans son accord.
+Ce document donne la suite exacte des commandes et des appels Workflow. Elle produit le pack `src/elections/presidentielle-2027/` à partir de la recherche en cours. Chaque **DÉCISION** revient au propriétaire. Aucun workflow ne se lance sans son accord. Seule exception : la veille automatique, dans le périmètre exact de l'accord permanent du 17 octobre 2026 (§15).
 
 Plan d'origine : `~/.claude/plans/enchanted-cuddling-spring.md`, phases 2 et 3. Les formats de fichiers sont décrits en tête de chaque outil, notamment `tools/build-pack.mjs` et `tools/workflows/*.js`.
 
@@ -25,13 +25,17 @@ P=~/.claude/projects/-Users-lambertbouley-Claude-Politique-primaire-de-gauche   
 
 **Environnement.** Il faut Node 22.18 ou plus récent. `build-pack`, `build-reuse` et `audit-pack` importent du TypeScript.
 
-**Construction du pack.** Une seule commande, notée BUILD ci-dessous. On la complète au fil des étapes :
+**Construction du pack.** Une seule commande, notée BUILD ci-dessous, lancée depuis la racine du worktree (la veille automatique la lance par son chemin absolu, `node <WT>/tools/veille/build.mjs`) :
 
 ```bash
-node tools/build-pack.mjs $D/question-bank-output.json $D src/elections/presidentielle-2027 $D/expansion-merged.json   # [$D/expansion-merged-2.json …] [--include <gagnant>]
+node tools/veille/build.mjs                # BUILD : build-pack, puis check-log et positions-history check
+node tools/veille/build.mjs --dry-run      # imprime la commande build-pack exacte, sans rien lancer
+node tools/veille/build.mjs --no-history   # BUILD d'essai : rien n'est consigné dans positions-history.json
 ```
 
-La commande de la version en ligne (depuis le 12 octobre 2026, vérifiée : bank.ts, positions.ts, videos.ts, `bank.json` et `revisions.json` inchangés, `check-log` sans perte) :
+Ses arguments ne s'écrivent plus à la main : ils viennent tous de `$D/build.json`, seule source du BUILD (sortie du workflow 2, dossiers, extensions dans l'ordre, `include`). Une nouvelle extension s'ajoute **en fin de `expansions` dans ce fichier** (pour la veille, `tools/veille/apply.mjs --question` le fait), jamais dans une commande à part : une session qui relancerait l'ancienne commande la perdrait. `build.mjs` refuse `--reset-revisions` (étape 11), toute option inconnue et tout argument (code 2). Il s'arrête avant de lancer quoi que ce soit (code 30) si `build.json` n'est pas conforme, si un fichier manque, ou si `include` n'est pas exactement l'ensemble des candidats `pendingPrimary` de `config.json`. Un échec de build-pack, une perte au `check-log` ou un historique incohérent sortent aussi en 30.
+
+La commande qu'il lance aujourd'hui, celle de la version en ligne (depuis le 12 octobre 2026, vérifiée : bank.ts, positions.ts, videos.ts, `bank.json` et `revisions.json` inchangés, `check-log` sans perte). Elle n'est donnée qu'en explication (`tests/veille-build.test.ts` vérifie que `build.json` la reproduit) ; on ne la lance plus à la main :
 
 ```bash
 node tools/build-pack.mjs $D/question-bank-output.json $D src/elections/presidentielle-2027 $D/expansion-merged.json $D/expansion-merged-2.json --include faure,guedj,maurel,royal
@@ -42,7 +46,7 @@ node tools/build-pack.mjs $D/question-bank-output.json $D src/elections/presiden
 - BUILD écrit `src/elections/presidentielle-2027/bank.ts`, `positions.ts` et `videos.ts` (le dossier est créé s'il manque).
 - BUILD écrit aussi `$D/bank.json`, `revisions.json` et `build-log.txt`.
 - BUILD consigne enfin dans `$D/positions-history.json` chaque position qui change, à la date du jour (étape 14). Rien n'est ajouté si rien ne change.
-- Après chaque BUILD :
+- Après chaque BUILD, `build.mjs` lance lui-même ces deux contrôles (le second sauf `--no-history`) ; à la main :
 
   ```bash
   node tools/pipeline-helpers.mjs check-log $D   # code 1 = donnée perdue (orphan, edit-miss, gapfill-miss, reuse-miss, addcand-miss…)
@@ -256,6 +260,8 @@ cp $P/<session>/workflows/wf_<runId>.json $D/add-candidate/faure.json    # le no
 > - `review` et `coverage` ;
 > - `proposedApproaches`, jamais appliquées d'office : si on les retient, les reporter dans `decisions.addApproaches` et `decisions.positions`, sachant qu'elles changent la question pour tous ;
 > - `externalFlags`, à reporter dans `decisions.externalFlags`.
+>
+> Exception : les approches proposées par la relève hebdomadaire des positions (workflow 9) se publient sans cette décision, dans les limites du §15.
 
 **Puis BUILD**, sans `--include`. Le journal doit montrer `addcand …` et `prepared <id> N positions`.
 
@@ -456,6 +462,73 @@ node tools/positions-history.mjs stamp $D src/elections/presidentielle-2027
 
 (le BUILD suivant le fait aussi). Le test échoue tant qu'une entrée attend une version déjà dépassée. Si une version pas encore publiée a déjà été estampillée et qu'un nouveau changement s'ajoute le même jour (cas du 15 octobre 2026), remettre l'ancienne `dataVersion` le temps du BUILD, puis la nouvelle, puis `stamp`.
 
+## 15. Veille automatique (depuis le 17 octobre 2026)
+
+**Accord permanent du propriétaire, daté du 2026-10-17.** Deux tâches planifiées tiennent le pack à jour sans session à la main, jusqu'au 2 mai 2027 à 20 h :
+
+| Tâche | Horaire (heure de Paris) | Ce qu'elle fait |
+|---|---|---|
+| `isoloir-veille-candidats` | `0 7 * * 0,2-6` | veille des candidatures (workflow 8) ; ne publie jamais rien |
+| `isoloir-veille-positions` | `0 6 * * 1` | veille des candidatures, puis relève des positions de chaque candidat présenté (workflow 9) et publication |
+| `isoloir-fin-de-veille` | une fois, le 2027-05-03 à 9 h | rappel : désactiver les deux tâches |
+
+**Ce qui part en production sans lui demander**, depuis la seule exécution hebdomadaire et seulement après tous les contrôles de `tools/veille/ship.mjs` :
+
+- les positions changées : forme, compatibles et rejets, changement d'approche principale, renversement prouvé ;
+- les positions nouvelles sur les questions où un candidat est encore inconnu ;
+- les approches nouvelles : au plus 2 par exécution, une par question et par 30 jours, 9 au plus par question, une lettre jamais réutilisée, chaque autre candidat présenté recodé sur la question ; « votre réponse est à revoir » au journal ;
+- les questions nouvelles : au plus une par exécution, dans la limite de **110 questions** (`quality.bank.max` de `config.json` et `checks.bank.max` d'`election.ts`, portés de 100 à 110 le même jour) ;
+- et les champs qui en découlent : `dataVersion`, `dataFrozenAt`, `notes[0]`, `changelog`, `audit`, les trois constantes exactes de la Méthode, `contextDate`.
+
+**Ce qui attend son « OK <id> »**, préparé sur une branche, avec rapport et notification :
+
+- un nouveau candidat, préparé d'office (recherche, codage de chaque question, fiche) quand il est déclaré sans condition et soutenu par un parti qui compte des élus nationaux (députés, sénateurs, députés européens élus en France : interprétation à confirmer) ou qu'il exerce ou a exercé une fonction nationale ; les autres sont « à surveiller » ;
+- un retrait (masquage préparé) ;
+- la réintégration d'un non-classé ;
+- la redéclaration d'un candidat masqué, la fiche d'un candidat présenté, un événement officiel ;
+- un changement retenu par les règles de publication (`H-…`) ;
+- **chaque portrait et chaque logo**, téléchargé fichier par fichier après son accord.
+
+**Ce que l'accord remplace, et seulement dans ce périmètre.** La règle d'en-tête (« Aucun workflow ne se lance sans son accord ») ne s'applique pas :
+
+- aux workflows 8 et 9 ;
+- aux workflows 1 et 6 d'une préparation de candidat (rien n'en est publié sans « OK ») ;
+- aux workflows 3 (`subjectsOnly`) et 4 d'une question nouvelle.
+
+La DÉCISION 5 ne s'applique pas aux approches proposées par le workflow 9 : elles sont relues (anonymat, termes interdits), puis publiées dans les limites ci-dessus. Partout ailleurs, rien ne change : les DÉCISIONS 1 à 8 et les étapes 1 à 14, les sessions ordinaires, et les approches que propose 6-add-candidate pour un nouveau candidat, qui relèvent de son « OK C-… ».
+
+**Règles qui restent en vigueur** :
+
+- étiquetage IA, sans relecture humaine ; une attribution douteuse reste inconnue ; jamais une position déduite de l'étiquette ;
+- User-Agent « IsoloirBot/1.0 », aucune donnée personnelle, aucun e-mail aux candidats ;
+- gel du 16/04/2027 0 h au 18/04 20 h et du 30/04 0 h au 02/05/2027 20 h, plus 48 h de gel souple avant chacun ; entre les deux tours, rapport seulement ;
+- jamais `--reset-revisions` ; `--include faure,guedj,maurel,royal` (dans `build.json`) ; `transfer.ts` en ajout seul ;
+- chaque changement porte `note` et `historyCause` ; les candidats masqués ne sont jamais nommés ;
+- D5 : ne jamais élargir un écart publié.
+
+**Où tout se trouve.**
+
+- `$D/VEILLE.md` : la marche à suivre des tâches, en français, lue par elles à `origin/main`.
+- `tools/veille/CONTRACT.md` : formes, règles de publication, codes de sortie. `tools/veille/*.mjs` : les seuls scripts qui écrivent, valident, poussent et déploient.
+- `tools/workflows/8-candidate-watch.js` (veille des candidatures) et `tools/workflows/9-refresh-positions.js` (relève des positions). Contrairement aux workflows 2 à 7, ils prennent `root` = le worktree de l'exécution, jamais R.
+- `tools/lire-banque.mjs` : lecture de la banque pour les agents, sans `node -e`.
+- `$D/veille/` : l'état versionné. `state.json`, `ledger.json`, `runs/` et `rapports/` avancent dans le commit publié. `policy.json`, `locks.json` et `d5-baseline.json` sont les fichiers de contrôle du propriétaire.
+- `R/.claude/veille/` : l'état local, jamais versionné (verrou, dépense, attentes, `STOP`, `PAUSE`, traces).
+
+**Ce que le propriétaire garde en main.**
+
+- `STOP` ou `PAUSE` dans `R/.claude/veille/`, ou `"paused": true` dans `veille/policy.json`, arrêtent tout.
+- `locks.json` protège une paire (candidat, question ou approche) : droit de réponse, correction.
+- Les fichiers de contrôle (`VEILLE.md`, ce fichier, `policy.json`, `locks.json`, `d5-baseline.json`) se lisent à `origin/main` et ne changent que par un commit du propriétaire : aucune exécution ne peut les valider.
+
+**Pour les autres sessions.**
+
+- Les branches `veille/*` et `accord/*` et les worktrees `veille-*` et `accord-*` appartiennent à la veille : ne pas y toucher.
+- Le lundi, `origin/main` avance par une fusion « Fusion de la branche veille/… ». Récupérer `origin/main` avant de pousser.
+- Une entrée de `decisions.json` écrite par la veille porte une clé `veille` ; une entrée sans cette clé est du propriétaire. La veille ne la remplace que par une prise de position plus récente que l'entrée et que sa source la plus récente.
+- Un BUILD à la main passe par `tools/veille/build.mjs` (étape 0) : une question ajoutée par la veille est dans `build.json`, jamais dans une commande.
+- Une personne déjà dans `config.json` (même nom normalisé) n'est jamais proposée comme nouveau candidat : un candidat ajouté à la main n'est pas préparé une seconde fois.
+
 ## Annexe : contrats entre les maillons
 
 | Maillon | Lit | Écrit |
@@ -472,6 +545,17 @@ node tools/positions-history.mjs stamp $D src/elections/presidentielle-2027
 | `7-spectrum-review.js` | `reuse.json`, `research/choisir-2027/{config,bank,explainers}.json`, séries | `spectrum-review.json` (corrections proposées, `excludedSeries`, `videoTopics`, `explanationsOnHold`) |
 | `5-candidates.js` | `CONFIG` | `candidates`, `portraits`, `downloads`, `credits` → `candidates.ts`, `media/` |
 | `audit-pack.mjs` | `bank.ts`, `positions.ts`, `candidates.ts` (sinon `config.json`), `config.quality` | `$D/audit.json` |
+| `audit-{echiquier,croix,poids,facon}.mjs --json` | le pack, les profils de `tests/fixtures/echiquier-profiles.ts` | une ligne JSON (`AUDIT_JSON`) sur stdout, le rapport lisible sur stderr |
+| `lire-banque.mjs` (lecture seule) | `$D/bank.json` | stdout : `questions`, `preflight`, `candidat`, `question-all`, `unknown` |
+| `veille/build.mjs` (BUILD, étape 0) | `$D/build.json`, `config.json` | comme `build-pack.mjs`, puis `check-log` et `positions-history check` |
+| `veille/run.mjs` | `veille/{policy,state}.json` (la politique à `origin/main`), `election.ts`, `config.json`, `R/.claude/veille/` | verrou, `runs/<runId>/run.json`, dépense, attentes (`pending`), rapport (`report`) ; imprime les arguments des workflows 8 et 9 |
+| `8-candidate-watch.js` + `veille/persist.mjs` + `veille/classify.mjs` | `CONFIG` et les arguments de `run.mjs start` | `WATCH_RESULT` → `runs/<runId>/watch.json`, puis `classify.json` et les « à surveiller » locaux |
+| `9-refresh-positions.js` + `veille/persist.mjs` | `CONFIG`, les arguments de `run.mjs start`, la banque par `lire-banque.mjs` | `REFRESH_RESULT` → `runs/<runId>/refresh-<n>.json` et `changeset.json` (local et `$D/veille/runs/<runId>/`) |
+| `veille/apply.mjs` | le changeset, `bank.json`, `decisions.json`, `config.json`, `election.ts`, `candidates.ts`, `positions-history.json`, `veille/{policy,locks}.json` (à `origin/main`), `veille/{ledger,state}.json` | `decisions.json` (entrées à clé `veille`), `veille/{ledger,state}.json`, `apply-report.json`, attentes `H-…` et `I-…` ; avec `--question` : `build.json`, `transfer.ts` et sa fixture |
+| `veille/remeasure.mjs` | le pack, les quatre audits `--json`, `veille/d5-baseline.json` (à `origin/main`) | `election.ts` (`audit`), `$D/audit.json`, `src/core/echiquierMethodCopy.ts` (nombres des trois constantes exactes) |
+| `veille/election-fields.mjs` | `apply-report.json`, `veille/state.json`, sortie de `remeasure` | `election.ts` (`dataVersion`, `dataFrozenAt`, `notes[0]`, `changelog`), `config.json` (`contextDate`), `positions-history.json` (`stamp`) |
+| `veille/commit.mjs`, `veille/ship.mjs`, `veille/rederive.mjs` | le worktree de l'exécution, `R/.claude/veille/` | commit sur `veille/*` ou `accord/*` ; fusion poussée sur main, sans forcer ; déploiement Vercel ; `last-ship.json` ; reprise dans un worktree neuf |
+| `veille/gate-time.mjs`, `veille/prod-check.mjs`, `veille/cleanup.mjs` | `src/core/freeze.ts`, `policy.json`, la production, les worktrees `veille-*` | rien (portes horaires, contrôle de l'asset servi) ; retrait des vieux worktrees `veille-*` |
 
 **Ce qui reste propre à la primaire, à dessein :**
 - `tools/workflows/1-research.js`, non modifié pendant la recherche en cours. Son prompt de complément nomme la primaire et fixe une liste de thèmes à compléter. À rendre générique après la recherche, comme 2 à 7.

@@ -17,6 +17,7 @@ import { freshState } from '../src/core/storage'
 import type { Answers, CandidateId, ElectionPack, Question, Rating, TopicWeights } from '../src/core/types'
 import { elections } from '../src/elections/all'
 import { choisir2027 } from '../src/elections/choisir-2027'
+import { election as raw } from '../src/elections/presidentielle-2027/election'
 import { computeResultsBefore } from './fixtures/score-avant-2026-10-14'
 import { manyCandidates } from './fixtures/many-candidates'
 
@@ -120,8 +121,18 @@ describe('non classés : le classement est identique à celui d’avant le score
 describe('non classés : excludedResults', () => {
   const off = excludedIds(presidentielle)
 
-  it('la présidentielle en a huit, Ségolène Royal (masquée) retirée de la liste', () => {
-    expect([...off].sort()).toEqual(['asselineau', 'batho', 'becht', 'bertrand', 'bouamrane', 'lalanne', 'markovic', 'polony'])
+  it('la présidentielle a ceux de election.ts, sans les candidats masqués (Ségolène Royal en octobre 2026)', () => {
+    // La liste écrite dans election.ts (ranking.excluded.ids), avant le chargement du pack, moins election.hidden :
+    // la veille automatique peut y ajouter un candidat ou en masquer un (décision du propriétaire du 17 octobre 2026)
+    const ids = raw.ranking?.excluded?.ids ?? []
+    const hidden = raw.hidden ?? []
+    expect([...off].sort()).toEqual(ids.filter(id => !hidden.includes(id)).sort())
+    expect(off.length).toBeGreaterThan(0)
+    // Aucun candidat masqué, même s'il est dans la liste écrite
+    for (const id of hidden) expect(off, id).not.toContain(id)
+    // Chacun est un candidat montré par le pack, une seule fois
+    expect(new Set(off).size).toBe(off.length)
+    for (const id of off) expect(presidentielle.candidates.some(c => c.id === id), id).toBe(true)
   })
 
   it('suit l’ordre de excluded ; chaque score est celui du calcul commun (scoreCandidate), sans rang', () => {
