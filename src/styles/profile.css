@@ -996,6 +996,16 @@ html:has(.profile-chart) {
   outline-offset: -3px;
 }
 
+/* Le focus dans la barre collée ne fait pas défiler la page. Le scroll-padding de la page couvre la barre elle-même
+   (--filters-h) : le navigateur jugeait ses liens cachés et remontait la page à chaque focus (flèche, Tab, Maj+Tab),
+   de 365 px au téléphone, 443 px en grand écran (contre-vérification du 17 octobre 2026). Leur zone de défilement,
+   décalée vers le bas d'autant que le scroll-padding ajoute sous la barre, tombe sous la ligne du focus : la page ne
+   bouge pas, seule la rangée défile sur le côté */
+.profile-nav:not(.is-loose) .pn-link {
+  --nav-under: calc(var(--filters-h, 0px) + max(var(--axis-stick, 0px), var(--echq-head, 0px)) + 0.75rem);
+  scroll-margin: calc(-1 * var(--nav-under)) 0 var(--nav-under);
+}
+
 @media (hover: hover) and (pointer: fine) {
   .pn-link:hover {
     color: var(--print);
@@ -1018,6 +1028,34 @@ html:has(.profile-chart) {
 .pn-subjects .pn-link[aria-current] {
   padding-bottom: 1px;
   border-bottom-width: 2px;
+}
+
+/* À la souris, une rangée qui déborde (domaines de 1 024 à 1 279 px, texte agrandi) garde une barre de défilement
+   fine : elle dit que la rangée continue, et la souris sans défilement horizontal y atteint chaque domaine. Dessinée
+   (Chrome, Safari), elle reste visible même quand le système masque les barres de défilement ; grise (3,4:1 en clair,
+   4,6:1 en sombre), pour ne pas se confondre avec le trait noir de l'élément en cours, juste au-dessus */
+@media (hover: hover) and (pointer: fine) {
+  .pn-list {
+    --pn-thumb: color-mix(in srgb, var(--print) 50%, var(--paper));
+    scrollbar-width: thin;
+    scrollbar-color: var(--pn-thumb) transparent;
+  }
+
+  @supports selector(::-webkit-scrollbar) {
+    .pn-list {
+      scrollbar-width: auto;
+      scrollbar-color: auto;
+    }
+
+    .pn-list::-webkit-scrollbar {
+      display: block;
+      height: 5px;
+    }
+
+    .pn-list::-webkit-scrollbar-thumb {
+      background: var(--pn-thumb);
+    }
+  }
 }
 
 /* En grand écran, la rangée des domaines suffit : les lignes d'un domaine tiennent dans l'écran, et l'axe collant
@@ -1224,6 +1262,12 @@ html:has(.profile-chart) {
   border-top: 0;
 }
 
+/* Aux jointures, le filet de 1.5px du domaine suivant ferme le bloc : la dernière ligne n'y garde pas son filet fin,
+   qui doublait l'autre de l'autre côté du grand blanc */
+.fam-group:has(+ .fam-group) > .fam-part:last-child > .rows > .row-item:last-child {
+  border-bottom: 0;
+}
+
 .fam-name {
   margin: 0;
   padding: var(--s4) 0 var(--s2) 0.35rem;
@@ -1238,10 +1282,12 @@ html:has(.profile-chart) {
   padding-top: var(--s3);
 }
 
-/* Dans un domaine, l'intertitre de chaque groupe sans lecture nette d'un seul côté (« Rien de net », « Seulement plus
-   loin », « Sur une seule question »…) : à l'imprimé, en gras condensé, suivi d'un filet noir qui court jusqu'au bout de
-   la ligne, comme une rubrique de formulaire. Plus petit que le nom d'un sujet, il ne le concurrence pas : il ouvre le
-   groupe, comme le filet de 1.5px ouvre le domaine. Le rangement et les mots disent « net », jamais la couleur */
+/* Dans un domaine, l'intertitre de chaque groupe (« Nettement plus près », « Rien de net », « Seulement plus loin »,
+   « Sur une seule question »…) : à l'imprimé, en gras condensé, suivi d'un filet noir qui court jusqu'au bout de la
+   ligne, comme une rubrique de formulaire. Plus petit que le nom d'un sujet, il ne le concurrence pas : il ouvre le
+   groupe, comme le filet de 1.5px ouvre le domaine. Chaque groupe a le sien, les lectures nettes comprises : sans lui,
+   la première ligne d'un domaine se lisait sous l'intertitre du groupe suivant. Le rangement et les mots disent
+   « net », jamais la couleur */
 .fam-sub {
   display: flex;
   align-items: center;

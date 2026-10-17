@@ -1070,11 +1070,15 @@ try {
           source: document.querySelector('.profile-chart .chart-source')?.textContent ?? '',
           calc: document.querySelectorAll('.profile-chart details.calc > ul > li').length,
           hasard: /hasard/i.test(document.querySelector('main')?.textContent ?? ''),
-          // Chaque liste a un nom (l'intertitre de son domaine et le sien ; celle des lectures nettes, un nom masqué)
+          // Chaque liste a un nom (l'intertitre de son domaine et le sien ; « Nettement plus près » pour les lectures nettes)
           unnamed: lists.filter(ol => {
             const ids = (ol.getAttribute('aria-labelledby') ?? '').split(/\s+/).filter(Boolean)
-            return !ids.length || ids.some(id => !text(document.getElementById(id))) || (ol.dataset.group === 'net' && !ids.some(id => /nettement/.test(text(document.getElementById(id)))))
+            return !ids.length || ids.some(id => !text(document.getElementById(id))) || (ol.dataset.group === 'net' && !ids.some(id => /nettement/i.test(text(document.getElementById(id)))))
           }).length,
+          // Chaque groupe s'ouvre sur son intertitre visible, les lectures nettes comprises (17 octobre 2026 : sans le
+          // leur, la première ligne d'un domaine se lisait sous l'intertitre du groupe suivant)
+          bare: lists.filter(ol => !(ol.previousElementSibling?.matches('.fam-sub') && ol.previousElementSibling.checkVisibility() && text(ol.previousElementSibling))).length,
+          netTitles: [...new Set(lists.filter(ol => ol.dataset.group === 'net').map(ol => text(ol.previousElementSibling)))],
           // Les noms du compte : des liens, qui se coupent en fin de ligne comme le reste de la phrase
           countLinks: [...document.querySelectorAll('.profile-chart .chart-count .count-link')].every(a => a.tagName === 'A' && getComputedStyle(a).display === 'inline'),
           // Le nom lu d'une ligne de famille contient son libellé visible (« les 3 thèmes ensemble, 5 questions »)
@@ -1103,9 +1107,11 @@ try {
           chart.calc <= 8 &&
           !chart.hasard &&
           chart.unnamed === 0 &&
+          chart.bare === 0 &&
+          chart.netTitles.every(t => t === 'Nettement plus près') &&
           chart.countLinks &&
           chart.famLabelInName,
-        `mon profil politique (${where}), les lignes : « ${chart.count || chart.state} » pour ${chart.mainRows} + ${chart.bothRows} lignes lues (et ${chart.apartRows} seulement plus loin), domaines dans l’ordre des familles ${chart.families.join() === familyOrder.join()}, cinq cases par ligne ${chart.fiveTiles}, lectures nettes dans leurs groupes ${chart.mainOk}, lignes de part et d’autre du centre hors de leur groupe (ou l’inverse) ${chart.twoBarsOutside}, toutes fermées ${chart.closed}, « Cliquez… » à la souris ${chart.hint}, « Comment c’est calculé » en ${chart.calc} points, « hasard » ${chart.hasard ? 'présent !' : 'absent'}, listes sans nom ${chart.unnamed}, noms du compte en liens ${chart.countLinks}, libellé visible des lignes de famille dans leur nom lu ${chart.famLabelInName}`,
+        `mon profil politique (${where}), les lignes : « ${chart.count || chart.state} » pour ${chart.mainRows} + ${chart.bothRows} lignes lues (et ${chart.apartRows} seulement plus loin), domaines dans l’ordre des familles ${chart.families.join() === familyOrder.join()}, cinq cases par ligne ${chart.fiveTiles}, lectures nettes dans leurs groupes ${chart.mainOk}, lignes de part et d’autre du centre hors de leur groupe (ou l’inverse) ${chart.twoBarsOutside}, toutes fermées ${chart.closed}, « Cliquez… » à la souris ${chart.hint}, « Comment c’est calculé » en ${chart.calc} points, « hasard » ${chart.hasard ? 'présent !' : 'absent'}, listes sans nom ${chart.unnamed}, groupes sans intertitre visible ${chart.bare} (lectures nettes sous « ${chart.netTitles.join(' », « ') || '—'} »), noms du compte en liens ${chart.countLinks}, libellé visible des lignes de famille dans leur nom lu ${chart.famLabelInName}`,
       )
       // Le compte de tête : les noms des lignes nettes, dans l'ordre de la page, cinq au plus, puis « et N autres » ;
       // ce qui n'a pas compté, autant que de lignes
@@ -1997,10 +2003,13 @@ try {
       const r = a.getBoundingClientRect()
       const site = document.querySelector('.form-header').getBoundingClientRect().bottom + 5
       let cover = site
+      // Dans la barre des domaines, collée ou non, seul l'en-tête du site peut couvrir le focus : le rappel des blocs et
+      // l'axe collant sont dessous (depuis le 17 octobre 2026, le focus n'y fait plus défiler la page)
+      if (a.closest('.profile-nav')) return r.top < site - 2 ? `${(a.textContent ?? '').trim().slice(0, 30)} (${Math.round(r.top)}-${Math.round(r.bottom)}, sous l’en-tête jusqu’à ${Math.round(site)})` : null
       // La barre des domaines, collée sous l'en-tête ; puis, dessous, le rappel des blocs ou l'axe collant
       const nav = document.querySelector('.profile-nav')
       const nr = nav?.getBoundingClientRect()
-      if (nav && getComputedStyle(nav).position === 'sticky' && nr.top <= site + 1 && nr.bottom > site && !a.closest('.profile-nav')) cover = nr.bottom
+      if (nav && getComputedStyle(nav).position === 'sticky' && nr.top <= site + 1 && nr.bottom > site) cover = nr.bottom
       const mini = document.querySelector('.axis-mini.is-on')
       if (mini) cover = Math.max(cover, mini.getBoundingClientRect().bottom)
       const axis = document.querySelector('.profile-chart .axis')
@@ -2153,9 +2162,11 @@ try {
     // à 375 × 812 au doigt, sur la feuille la plus longue : les domaines de la page dans leur ordre, des noms seulement ;
     // la hauteur de tout ce qui colle (en-tête, barre, rappel des blocs), mesurée au milieu des lignes ; le domaine et le
     // sujet en cours, ceux qui passent sous la ligne du focus, marqués et dans la vue de leur rangée ; un toucher sur un
-    // domaine, puis sur un sujet, y mène et donne le focus à son titre, jamais sous les éléments collants ; au clavier, une
-    // tabulation par rangée, les flèches ; en contraste forcé, le trait de l'élément en cours ; texte à 200 % ; à 1 280 px,
-    // tous les domaines sur une rangée, sans défilement
+    // domaine, puis sur chaque sujet, y mène et donne le focus à son titre, jamais sous les éléments collants, l'intertitre
+    // du groupe en vue ; au clavier, une tabulation par rangée qui suit le focus, les flèches, sans que la page défile, et
+    // le focus gardé quand elle défile ; « Le détail » ouvert, la barre suit encore ; en contraste forcé, le trait de
+    // l'élément en cours ; la règle de la moitié de l'écran (texte à 200 %, 320 × 568, 1 024 × 600, 1 024 × 768) ; à
+    // la souris, la rangée qui déborde garde sa barre de défilement ; à 1 280 px, tous les domaines sur une rangée
     {
       const navIssues = []
       const said = []
@@ -2234,7 +2245,21 @@ try {
       if (!s1.seenD || !s1.seenS) navIssues.push(`en cours hors de la vue de sa rangée (domaine ${s1.seenD}, sujet ${s1.seenS})`)
       if (s1.tabbable !== 2 || s1.currents !== 2) navIssues.push(`${s1.tabbable} élément(s) au clavier, ${s1.currents} marqué(s)`)
       if (flatStr(s1.subjectsLabel) !== `Sujets du domaine « ${s1.domainLabels[s1.curD]} »`) navIssues.push(`rangée des sujets nommée « ${s1.subjectsLabel} »`)
-      /** Ce qui a le focus, et s'il passe sous ce qui colle */
+      // Un saut qui pose la ligne du focus entre deux domaines : celui du dessus est en cours, jamais un domaine ancien
+      if (s0.pageDomains.length > mid + 3) {
+        await np.evaluate(i => {
+          const gs = document.querySelectorAll('.profile-chart .fam-group')
+          const gap = (gs[i].getBoundingClientRect().bottom + gs[i + 1].getBoundingClientRect().top) / 2
+          window.scrollTo(0, gap + scrollY - parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) - 2)
+        }, mid + 2)
+        await np.waitForTimeout(400)
+        const sg = await navState()
+        if (sg.want !== -1 || sg.curD !== mid + 2) navIssues.push(`entre les domaines ${mid + 2} et ${mid + 3} : en cours ${sg.curD} (sous la ligne ${sg.want})`)
+      }
+      /**
+       * Ce qui a le focus, et s'il passe sous ce qui colle ; sub : l'intertitre du groupe de sa ligne, visible sous ce qui
+       * colle, ou trop loin au-dessus d'elle pour tenir avec elle dans la vue
+       */
       const focusOf = () =>
         np.evaluate(() => {
           const a = document.activeElement
@@ -2242,7 +2267,17 @@ try {
           const nav = document.querySelector('.profile-nav').getBoundingClientRect()
           const mini = document.querySelector('.axis-mini.is-on')?.getBoundingClientRect()
           const cover = Math.max(nav.bottom, mini?.bottom ?? 0)
-          return { id: a.id, tag: a.tagName, top: Math.round(r.top), cover: Math.round(cover), hidden: r.top < cover - 2 || r.bottom > innerHeight }
+          const sub = a.closest('.fam-part')?.querySelector('.fam-sub')?.getBoundingClientRect()
+          const pad = getComputedStyle(document.documentElement)
+          const room = innerHeight - parseFloat(pad.scrollPaddingTop) - parseFloat(pad.scrollPaddingBottom)
+          return {
+            id: a.id,
+            tag: a.tagName,
+            top: Math.round(r.top),
+            cover: Math.round(cover),
+            hidden: r.top < cover - 2 || r.bottom > innerHeight,
+            sub: !sub || sub.top >= cover - 2 || r.bottom - sub.top >= room,
+          }
         })
       // Un toucher sur le dernier domaine, puis sur le premier : le titre reçoit le focus, sous ce qui colle
       for (const i of [s0.pageDomains.length - 1, 0]) {
@@ -2256,29 +2291,117 @@ try {
           navIssues.push(`toucher « ${s0.domainLabels[i]} » : focus ${f.tag}#${f.id} à ${f.top} (collé jusqu’à ${f.cover}), en cours ${st.curD}`)
         else said.push(`« ${s0.domainLabels[i]} » atteint (focus sur ${f.tag.toLowerCase()}#${f.id}, à ${f.top} px sous ${f.cover} px collés)`)
       }
-      // Puis un sujet du domaine en cours, le dernier de sa rangée
+      // Puis chaque sujet de chaque domaine : sa ligne reçoit le focus, sous ce qui colle, avec l'intertitre de son groupe
+      // au-dessus d'elle tant qu'ils tiennent ensemble dans la vue (contre-vérification du 17 octobre 2026 : 9 sujets sur
+      // 22 arrivaient sans lui, « Rien de net » ou « Sur une seule question » caché sous la barre)
       {
-        const st = await navState()
-        const k = st.subjectLabels.length - 1
-        await np.locator('.profile-nav .pn-subjects a').nth(k).tap()
-        await np.waitForTimeout(500)
-        const f = await focusOf()
-        const after = await navState()
-        if (!/^sj-.+-b$/.test(f.id) || f.hidden || after.curS !== k) navIssues.push(`toucher le sujet « ${st.subjectLabels[k]} » : focus ${f.tag}#${f.id} à ${f.top} (collé jusqu’à ${f.cover}), en cours ${after.curS}`)
-        else said.push(`sujet « ${st.subjectLabels[k]} » atteint`)
+        let n = 0
+        for (let d = 0; d < s0.pageDomains.length; d++) {
+          await np.locator('.profile-nav .pn-list').first().locator('a').nth(d).tap()
+          await np.waitForTimeout(250)
+          const st = await navState()
+          for (let k = 0; k < st.subjectLabels.length; k++) {
+            await np.locator('.profile-nav .pn-subjects a').nth(k).tap()
+            await np.waitForTimeout(250)
+            const f = await focusOf()
+            const after = await navState()
+            n++
+            if (!/^sj-.+-b$/.test(f.id) || f.hidden || !f.sub || after.curS !== k)
+              navIssues.push(`toucher le sujet « ${st.subjectLabels[k]} » : focus ${f.tag}#${f.id} à ${f.top} (collé jusqu’à ${f.cover}), intertitre de son groupe en vue ${f.sub}, en cours ${after.curS}`)
+          }
+        }
+        said.push(`${n} sujets atteints, chacun sous l’intertitre de son groupe`)
       }
-      // Au clavier : l'élément en cours de la rangée des domaines, flèche droite, bas vers les sujets, haut retour
+      // Au clavier, la barre collée au milieu des lignes : l'élément en cours de la rangée des domaines, flèche droite, bas
+      // vers les sujets, haut retour, Fin. Ni le focus ni les flèches ne font défiler la page (contre-vérification du 17
+      // octobre 2026 : 365 px par touche, le scroll-padding couvrant la barre elle-même), et l'élément qui a le focus reste
+      // dans la vue de sa rangée
+      await np.evaluate(i => {
+        const g = document.querySelectorAll('.profile-chart .fam-group')[i]
+        window.scrollTo(0, g.getBoundingClientRect().top + scrollY - 150)
+      }, mid)
+      await np.waitForTimeout(400)
+      /** L'élément qui a le focus : sa rangée (0, 1, ou -1 hors de la barre), son rang, dans la vue de sa rangée ; la page */
+      const keyState = () =>
+        np.evaluate(() => {
+          const a = document.activeElement
+          const ul = a?.closest('.profile-nav .pn-list')
+          const r = a.getBoundingClientRect()
+          const u = ul?.getBoundingClientRect()
+          return {
+            row: ul ? (ul.classList.contains('pn-subjects') ? 1 : 0) : -1,
+            i: ul ? [...ul.querySelectorAll('a')].indexOf(a) : -1,
+            tab: a.tabIndex,
+            seen: !!u && r.left >= u.left - 1 && r.right <= u.right + 1,
+            y: Math.round(scrollY),
+            sticky: getComputedStyle(document.querySelector('.profile-nav')).position === 'sticky' && document.querySelector('.profile-nav').getBoundingClientRect().top <= document.querySelector('.form-header').getBoundingClientRect().bottom + 6,
+          }
+        })
+      const k = [await keyState()]
       await np.locator('.profile-nav .pn-list').first().locator('a[tabindex="0"]').focus()
-      const k0 = await np.evaluate(() => [...document.querySelectorAll('.profile-nav .pn-list:first-child a')].indexOf(document.activeElement))
+      k.push(await keyState())
+      for (const key of ['ArrowRight', 'ArrowDown', 'ArrowUp', 'End']) {
+        await np.keyboard.press(key)
+        k.push(await keyState())
+      }
+      const [k_, k0, k1, k2, k3, k4] = k
+      if (!k_.sticky || k1.i !== k0.i + 1 || k2.row !== 1 || k2.tab !== 0 || k3.row !== 0 || k3.tab !== 0 || k4.i !== s0.pageDomains.length - 1 || k.some(x => x.y !== k_.y) || k.slice(1).some(x => !x.seen))
+        navIssues.push(`clavier dans la barre collée (${k_.sticky}) : ${k.map(x => `${x.row}/${x.i} y ${x.y}${x.seen ? '' : ' hors de vue'}`).join(' → ')}`)
+      else said.push(`clavier : focus et flèches sans défilement de la page (y ${k_.y}), l’élément en vue dans sa rangée`)
+      // La tabulation suit le focus : après Début puis flèche droite, Maj+Tab sort de la rangée des domaines, et Tab
+      // depuis la rangée des domaines va à celle des sujets, jamais à un autre domaine
+      await np.keyboard.press('Home')
       await np.keyboard.press('ArrowRight')
-      const k1 = await np.evaluate(() => [...document.querySelectorAll('.profile-nav .pn-list:first-child a')].indexOf(document.activeElement))
-      await np.keyboard.press('ArrowDown')
-      const k2 = await np.evaluate(() => !!document.activeElement?.closest('.pn-subjects') && document.activeElement.tabIndex === 0)
-      await np.keyboard.press('ArrowUp')
-      const k3 = await np.evaluate(() => !!document.activeElement?.closest('.pn-list:first-child') && document.activeElement.tabIndex === 0)
-      await np.keyboard.press('End')
-      const k4 = await np.evaluate(() => document.activeElement === [...document.querySelectorAll('.profile-nav .pn-list:first-child a')].at(-1))
-      if (k1 !== k0 + 1 || !k2 || !k3 || !k4) navIssues.push(`clavier : flèche droite ${k0} → ${k1}, bas ${k2}, haut ${k3}, Fin ${k4}`)
+      await np.keyboard.press('Tab')
+      const t1 = await keyState()
+      await np.keyboard.press('ArrowRight')
+      await np.keyboard.press('Shift+Tab')
+      const t2 = await keyState()
+      await np.keyboard.press('Shift+Tab')
+      const t3 = await keyState()
+      if (t1.row !== 1 || t2.row !== 0 || t3.row !== -1) navIssues.push(`tabulation : Tab ${t1.row}/${t1.i}, Maj+Tab ${t2.row}/${t2.i}, encore ${t3.row}`)
+      // Entrer dans la barre par Maj+Tab depuis la première ligne de la page (barre collée) : la page ne bouge pas
+      await np.locator('.profile-chart .row').first().focus()
+      await np.waitForTimeout(300)
+      const e1 = await keyState()
+      await np.keyboard.press('Shift+Tab')
+      await np.waitForTimeout(200)
+      const e2 = await keyState()
+      if (!e1.sticky || e2.row < 0 || e2.y !== e1.y || !e2.seen) navIssues.push(`Maj+Tab de la première ligne vers la barre (collée ${e1.sticky}) : y ${e1.y} → ${e2.y}, rangée ${e2.row}, en vue ${e2.seen}`)
+      // Le focus dans la rangée des sujets, la page défile au-delà de plusieurs domaines : il reste dans la barre, en vue
+      await np.evaluate(() => document.querySelector('.profile-nav .pn-subjects a[tabindex="0"]').focus())
+      const g0 = (await navState()).curD
+      for (let i = 0; i < 6; i++) {
+        await np.evaluate(() => scrollBy(0, 400))
+        await np.waitForTimeout(120)
+      }
+      await np.waitForTimeout(400)
+      const g1 = await keyState()
+      const g1d = (await navState()).curD
+      if (g1d === g0 || g1.row < 0 || !g1.seen) navIssues.push(`focus dans la barre, la page défile (domaine ${g0} → ${g1d}) : focus ${g1.row < 0 ? 'perdu' : `rangée ${g1.row}`}, en vue ${g1.seen}`)
+      else said.push(`focus gardé dans la barre quand la page défile (domaine ${g0} → ${g1d})`)
+      // Mais seulement quand le domaine change : la page défile dans un même domaine, la barre relit ce que l'on lit, puis
+      // le focus quitte la barre ; il n'y revient pas de lui-même
+      {
+        const toRow = i =>
+          np.evaluate(i => {
+            const g = [...document.querySelectorAll('.profile-chart .fam-group')].find(x => x.querySelectorAll('.row-item').length > 1)
+            const r = g.querySelectorAll('.row-item')[i]
+            window.scrollTo(0, r.getBoundingClientRect().top + scrollY - parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) + 6)
+          }, i)
+        await toRow(0)
+        await np.waitForTimeout(300)
+        await np.evaluate(() => document.querySelector('.profile-nav .pn-subjects a[tabindex="0"]').focus())
+        await toRow(1)
+        await np.waitForTimeout(300)
+        // Une hauteur collante qui change refait la ligne suivie : la barre relit ce que l'on lit, sans rien changer
+        await np.evaluate(() => document.documentElement.style.setProperty('--e2e-relire', '1'))
+        await np.waitForTimeout(300)
+        await np.evaluate(() => document.activeElement.blur())
+        await np.waitForTimeout(400)
+        const back = await np.evaluate(() => !!document.activeElement?.closest('.profile-nav'))
+        if (back) navIssues.push('le focus, sorti de la barre, y revient de lui-même')
+      }
       // Contraste forcé : l'élément en cours garde son trait
       await np.emulateMedia({ forcedColors: 'active' })
       const forced = await np.evaluate(() =>
@@ -2287,13 +2410,32 @@ try {
       await np.emulateMedia({ forcedColors: 'none' })
       if (!forced.every(x => (x.on ? x.w >= 2 && x.style === 'solid' : x.w === 0))) navIssues.push(`contraste forcé : ${JSON.stringify(forced.filter(x => x.on))}`)
       if (s1.wide > 0) navIssues.push(`${s1.wide} px de trop en largeur`)
+      // « Le détail » ouvert : l'en-tête de ses colonnes s'ajoute au scroll-padding, la barre suit la nouvelle ligne du focus
+      await np.locator('.profile-all > summary').click()
+      await np.locator('table.echiquier > thead').waitFor({ timeout: 8000 }).catch(() => navIssues.push('détail : pas de tableau'))
+      await np.waitForTimeout(300)
+      for (const i of [1, 3]) {
+        await np.evaluate(i => {
+          const rows = document.querySelectorAll('.profile-chart .row-item')
+          const line = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) + 2
+          window.scrollTo(0, rows[i].getBoundingClientRect().top + scrollY - line + 2)
+        }, i)
+        await np.waitForTimeout(300)
+        const d = await navState()
+        if (d.curD !== d.want || d.curS !== d.wantSubject) navIssues.push(`détail ouvert, ligne ${i} : en cours ${d.curD}/${d.curS}, sous la ligne ${d.want}/${d.wantSubject}`)
+      }
       await nctx.close()
-      // Texte à 200 % : la barre colle si tout ce qui colle tient dans la moitié de l'écran, sinon elle suit la page
-      for (const [width, zoom] of [
+      // La barre colle si l'en-tête, elle, ce qui colle sous elle (l'axe collant en grand écran, le rappel des blocs au
+      // téléphone) et la barre du bas tiennent dans la moitié de l'écran, sinon elle suit la page : texte à 200 %, petits
+      // écrans (contre-vérification du 17 octobre 2026 : 62 % de l'écran collé à 1 024 × 600, la barre restant collée)
+      for (const [width, zoom, height = 812, touch = true] of [
         [375, 200],
         [320, 200],
+        [320, 100, 568],
+        [1024, 100, 600, false],
+        [1024, 100, 768, false],
       ]) {
-        const zctx = await browser.newContext({ viewport: { width, height: 812 }, reducedMotion: 'reduce', hasTouch: true, isMobile: true })
+        const zctx = await browser.newContext({ viewport: { width, height }, reducedMotion: 'reduce', hasTouch: touch, isMobile: touch })
         await zctx.addInitScript(s => Object.entries(s).forEach(([k, v]) => localStorage.setItem(k, v)), readOk ? readStorage : state)
         await zctx.addInitScript(z => document.addEventListener('DOMContentLoaded', () => (document.documentElement.style.fontSize = `${z}%`)), zoom)
         const zp = await zctx.newPage()
@@ -2303,12 +2445,24 @@ try {
         await zp.waitForTimeout(300)
         const z = await zp.evaluate(() => {
           const nav = document.querySelector('.profile-nav')
-          // Ce que compte useStickyFilters : l'en-tête, la barre, la barre du bas
-          const chrome = ['.form-header', '.profile-nav', '.action-bar'].reduce((t, s) => t + (document.querySelector(s)?.offsetHeight ?? 0), 0)
+          // Ce que compte useStickyFilters : l'en-tête, la barre, ce qui colle sous elle, la barre du bas
+          const axis = document.querySelector('.profile-chart .axis')
+          const under = getComputedStyle(axis).position === 'sticky' ? axis.offsetHeight : document.querySelector('.profile-chart .zones')?.getClientRects().length ? document.querySelector('.axis-mini').offsetHeight : 0
+          const chrome = ['.form-header', '.profile-nav', '.action-bar'].reduce((t, s) => t + (document.querySelector(s)?.offsetHeight ?? 0), under)
           return { sticky: getComputedStyle(nav).position, chrome, half: innerHeight / 2, wide: document.documentElement.scrollWidth - document.documentElement.clientWidth }
         })
-        if ((z.chrome > z.half) !== (z.sticky === 'static') || z.wide > 0) navIssues.push(`${width} px à ${zoom} % : barre ${z.sticky}, ${z.chrome} px collés pour ${z.half} px, ${z.wide} px de trop`)
-        else said.push(`${width} px à ${zoom} % : barre ${z.sticky === 'static' ? 'dans la page' : 'collée'} (${z.chrome} px pour ${Math.round(z.half)} px)`)
+        const where = `${width} × ${height}${zoom !== 100 ? ` à ${zoom} %` : ''}`
+        if ((z.chrome > z.half) !== (z.sticky === 'static') || z.wide > 0) navIssues.push(`${where} : barre ${z.sticky}, ${z.chrome} px collés pour ${z.half} px, ${z.wide} px de trop`)
+        else said.push(`${where} : barre ${z.sticky === 'static' ? 'dans la page' : 'collée'} (${z.chrome} px pour ${Math.round(z.half)} px)`)
+        // À la souris, la rangée des domaines qui déborde garde une barre de défilement fine (scrollbar-width: thin, ou
+        // dessinée par ::-webkit-scrollbar, scrollbar-width: auto)
+        if (!touch) {
+          const o = await zp.evaluate(() => {
+            const d = document.querySelector('.profile-nav .pn-list')
+            return { over: d.scrollWidth - d.clientWidth, bar: getComputedStyle(d).scrollbarWidth }
+          })
+          if (o.over > 1 && o.bar === 'none') navIssues.push(`${where} : ${o.over} px de domaines hors de la rangée, sans barre de défilement`)
+        }
         await zctx.close()
       }
       // En grand écran : la rangée des domaines entière, sans défilement ; pas de rangée des sujets
@@ -2324,6 +2478,16 @@ try {
       })
       if (w.overflow > 1 || w.subjects) navIssues.push(`1 280 px : ${w.overflow} px de domaines hors de la rangée, rangée des sujets ${w.subjects}`)
       else said.push(`1 280 px : tous les domaines sur ${w.height} px, sans rangée des sujets`)
+      // Un saut depuis le haut de la page jusqu'entre deux domaines : celui du dessus est en cours
+      const jump = await wp.evaluate(async () => {
+        const gs = document.querySelectorAll('.profile-chart .fam-group')
+        const i = Math.min(3, gs.length - 2)
+        const gap = (gs[i].getBoundingClientRect().bottom + gs[i + 1].getBoundingClientRect().top) / 2
+        window.scrollTo(0, gap + scrollY - parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) - 2)
+        await new Promise(r => setTimeout(r, 400))
+        return { i, cur: [...document.querySelectorAll('.profile-nav .pn-list:first-child a')].findIndex(a => a.hasAttribute('aria-current')) }
+      })
+      if (jump.cur !== jump.i) navIssues.push(`1 280 px, saut du haut de la page entre les domaines ${jump.i} et ${jump.i + 1} : en cours ${jump.cur}`)
       await wctx.close()
       check(navIssues.length === 0, `mon profil politique, la barre des domaines : ${said.join(' ; ')}${navIssues.length ? ` : ${navIssues.join(' ; ')}` : ''}`)
     }

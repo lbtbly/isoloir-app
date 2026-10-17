@@ -12,7 +12,8 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
 import { ECHIQUIER, readEchiquier, segments, type BlocCell, type Mark, type UnitReading, type UnitStatus } from '../src/core/echiquier'
-import * as T from '../src/core/echiquierCopy'
+import * as C from '../src/core/echiquierCopy'
+import * as D from '../src/core/echiquierDetailCopy'
 import * as W from '../src/core/echiquierWeighCopy'
 import { word } from '../src/core/echiquierCommonCopy'
 import * as M from '../src/core/echiquierMethodCopy'
@@ -22,6 +23,8 @@ import { axisOf } from '../src/core/spectrum'
 import { elections } from '../src/elections/all'
 import { isQuick, profilesFor } from './fixtures/echiquier-profiles'
 
+/** Les mots de la page et ceux de son détail, chargés avec le tableau (core/echiquierDetailCopy.ts) : les mêmes règles */
+const T = { ...C, ...D }
 const NB = String.fromCharCode(0xa0)
 const ROOT = fileURLToPath(new URL('..', import.meta.url))
 /** Les fichiers de la page et de sa rubrique de la Méthode, dont on lit les textes (la barre des domaines et le détail compris) */
@@ -333,8 +336,10 @@ describe('le graphique « Domaine par domaine »', () => {
     expect(T.zonesLabel(5, 15)).toBe('Les cinq blocs de la grille du ministère de l’Intérieur, de l’extrême gauche à l’extrême droite, et les 15 candidats classés qu’elle y range')
     expect(T.readWithFamily('Économie et travail')).toBe(`Lu avec les autres thèmes de son domaine${NB}: «${NB}Économie et travail${NB}».`)
     expect(T.sourceLink('23 août 2026')).toBe('circulaire du 23 août 2026')
-    // Les intertitres des groupes d'un domaine (ceux des maquettes validées)
-    expect(T.GROUP_TITLE).toEqual({ apart: 'Seulement plus loin', flat: 'Rien de net', thin: 'Sur une seule question', unknown: 'Faute de candidats connus' })
+    // Les intertitres des groupes d'un domaine (ceux des maquettes validées), et depuis le 17 octobre 2026 celui des
+    // lectures nettes d'un seul côté, qui ne nomme aucun bloc
+    expect(T.GROUP_TITLE).toEqual({ net: 'Nettement plus près', apart: 'Seulement plus loin', flat: 'Rien de net', thin: 'Sur une seule question', unknown: 'Faute de candidats connus' })
+    expect(T.GROUP_TITLE.net).not.toMatch(/gauche|droite|centre|extrême|bloc/i)
     // La fiche « Pour lire plus de thèmes » : repliée, ce qu'elle reprend ; ouverte, ses thèmes
     expect(T.deeperCount(3, 8, true)).toBe(`3${NB}sans réponse, 8${NB}sur une seule question`)
     expect(T.deeperCount(0, 8, true)).toBe(`8${NB}sur une seule question`)
@@ -569,7 +574,6 @@ describe('règles d’écriture', () => {
   it('chaque phrase qui nomme un bloc l’attribue à la grille ; « qu’elle » vient toujours après « la grille »', () => {
     const chart = [
       T.zonesLabel(5, 15),
-      T.NET_LABEL,
       T.BOTH_ROW.join(''),
       T.bothRow(false).join(''),
       T.KEY_TEXT,
@@ -1233,6 +1237,10 @@ describe('la rubrique de la Méthode, un fichier à part du build', () => {
     expect(page).toContain('src/ui/profile/Nav.tsx')
     expect(files).not.toContain('src/ui/profile/ProfileDetail.tsx')
     expect(reached('src/ui/profile/ProfileDetail.tsx')).not.toContain('src/core/echiquierMethodCopy.ts')
+    // Ses libellés fixes partent avec lui (17 octobre 2026 : la place des correctifs de la barre sous le plafond de la page)
+    expect(reached('src/ui/profile/ProfileDetail.tsx')).toContain('src/core/echiquierDetailCopy.ts')
+    expect(page).not.toContain('src/core/echiquierDetailCopy.ts')
+    expect(files).not.toContain('src/core/echiquierDetailCopy.ts')
     expect(readFileSync(join(ROOT, 'src/ui/screens/Profile.tsx'), 'utf8')).toContain("onDemand<typeof import('../profile/ProfileDetail')>(() => import('../profile/ProfileDetail'))")
   })
 

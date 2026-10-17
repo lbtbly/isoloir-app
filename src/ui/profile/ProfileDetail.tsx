@@ -11,6 +11,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'preact/hooks'
 import { RATING_LABELS } from '../../core/answers'
 import { approvedOf, mainCarriers, type Echiquier, type UnitReading } from '../../core/echiquier'
 import * as T from '../../core/echiquierCopy'
+import * as D from '../../core/echiquierDetailCopy'
 import type { CandidateId, Question, TopicGroup } from '../../core/types'
 import { Icon } from '../components/Icon'
 import { link } from '../nav'
@@ -63,12 +64,12 @@ export function DetailTable({ reading, ctx, ask }: { reading: Echiquier; ctx: Pr
     <div class="echiquier-wrap">
       {/* Rôles explicites : au téléphone, les lignes passent en grille, sans rien perdre de la lecture en tableau */}
       <table class="echiquier" role="table" style={`--blocs: ${axis.length}`}>
-        <caption class="sr-only">{T.TABLE_CAPTION}</caption>
+        <caption class="sr-only">{D.TABLE_CAPTION}</caption>
         <thead role="rowgroup" ref={head}>
           <tr role="row">
             {/* Au téléphone, masquée aux yeux seulement : chaque case de bloc garde l'en-tête de sa colonne */}
             <th scope="col" role="columnheader" class="echq-theme-head">
-              {T.TABLE_THEME}
+              {D.TABLE_THEME}
             </th>
             {axis.map((a, b) => (
               <th key={a.bloc} scope="col" role="columnheader" class="bloc-head">
@@ -124,7 +125,7 @@ function UnitRows({ unit, ctx }: { unit: UnitReading; ctx: ProfileCtx }) {
         {unit.cells.map((c, b) => (
           <td key={c.bloc} role="cell" class="mk" data-bloc={labels[b]}>
             <Tile cell={c} net />
-            <span class="sr-only">{T.cellLabel(labels[b]!, c.affinity, c.mark)}</span>
+            <span class="sr-only">{D.cellLabel(labels[b]!, c.affinity, c.mark)}</span>
           </td>
         ))}
       </tr>
@@ -156,7 +157,7 @@ function Detail({ unit, ctx, deeper, labelledBy, id }: { unit: UnitReading; ctx:
     <details class="unit-detail" id={id} onToggle={e => setOpen((e.currentTarget as HTMLDetailsElement).open)}>
       <summary aria-describedby={labelledBy}>
         <Icon name="chevron" class="disclosure" />
-        <span class="summary-label">{T.DETAIL}</span>
+        <span class="summary-label">{D.DETAIL}</span>
       </summary>
       {open ? <DetailBody unit={unit} ctx={ctx} deeper={deeper} /> : null}
     </details>
@@ -206,7 +207,7 @@ function DetailBody({ unit, ctx, deeper }: { unit: UnitReading; ctx: ProfileCtx;
                   </td>
                   <td role="cell" data-head={T.DETAIL_HEADS[2]}>
                     {c.affinity === null ? '–' : `${T.pct(c.affinity)}, ${T.palier(c.affinity)}`}
-                    {c.known.length === 1 ? ` ${T.ONE_KNOWN}` : ''}
+                    {c.known.length === 1 ? ` ${D.ONE_KNOWN}` : ''}
                   </td>
                   <td role="cell" data-head={T.DETAIL_HEADS[3]}>
                     {c.chance === null ? '–' : T.pct(c.chance)}
@@ -232,9 +233,9 @@ function DetailBody({ unit, ctx, deeper }: { unit: UnitReading; ctx: ProfileCtx;
           aussi l'approche principale de candidats de l'axe, puis la part de chaque question dans l'écart, en points */}
       {weigh ? <weigh.WeighDetail u={unit} ctx={ctx} /> : null}
       {/* Un thème prioritaire : il compte double dans le classement, pas ici (lot 2, A2) */}
-      {!family && ctx.priorities.has(unit.id) ? <p class="small detail-prio">{T.PRIORITY_DETAIL}</p> : null}
+      {!family && ctx.priorities.has(unit.id) ? <p class="small detail-prio">{D.PRIORITY_DETAIL}</p> : null}
 
-      <h3 class="detail-title">{T.PER_CANDIDATE}</h3>
+      <h3 class="detail-title">{D.PER_CANDIDATE}</h3>
       <ul class="detail-people">
         {panel.map((ids, b) => (
           <li key={axis[b]!.bloc}>
@@ -243,14 +244,14 @@ function DetailBody({ unit, ctx, deeper }: { unit: UnitReading; ctx: ProfileCtx;
               .filter(id => id in unit.perCandidate)
               .map(id => {
                 const v = unit.perCandidate[id]
-                return `${nameOf(id)} ${v === null || v === undefined ? T.UNKNOWN_POSITION : T.pct(v)}${unranked.has(id) ? ` ${T.UNRANKED_FOR_YOU}` : ''}`
+                return `${nameOf(id)} ${v === null || v === undefined ? D.UNKNOWN_POSITION : T.pct(v)}${unranked.has(id) ? ` ${D.UNRANKED_FOR_YOU}` : ''}`
               })
               .join(', ')}
           </li>
         ))}
       </ul>
 
-      <h3 class="detail-title">{T.BY_QUESTION}</h3>
+      <h3 class="detail-title">{D.BY_QUESTION}</h3>
       {questions.map(q => {
         const answer = answers[q.id]
         return (
@@ -260,7 +261,7 @@ function DetailBody({ unit, ctx, deeper }: { unit: UnitReading; ctx: ProfileCtx;
               {q.approaches.map(a => {
                 const rating = answer?.ratings[a.id] ?? 0
                 const red = !!answer?.redLines.includes(a.id)
-                const view = red ? T.RED_LINE_VIEW : RATING_LABELS[rating]
+                const view = red ? D.RED_LINE_VIEW : RATING_LABELS[rating]
                 // Une ligne rouge : l'approche rayée, puis qui la franchit parmi les candidats de l'axe, hors classement
                 // compris (lot 2, A1)
                 const by = red ? crossedBy(q.id, a.id, panel, ctx.hits) : null
@@ -275,28 +276,28 @@ function DetailBody({ unit, ctx, deeper }: { unit: UnitReading; ctx: ProfileCtx;
                     </p>
                     {by?.firm.length ? (
                       <p class="detail-cross">
-                        {T.CROSSED_BY} <strong>{T.listFr(by.firm.map(nameOf))}</strong>.
+                        {D.CROSSED_BY} <strong>{T.listFr(by.firm.map(nameOf))}</strong>.
                       </p>
                     ) : null}
                     {by?.possible.length ? (
                       <p class="detail-cross">
-                        {T.MAYBE_CROSSED_BY} <strong>{T.listFr(by.possible.map(nameOf))}</strong>.
+                        {D.MAYBE_CROSSED_BY} <strong>{T.listFr(by.possible.map(nameOf))}</strong>.
                       </p>
                     ) : null}
                     <p class="detail-meta">
                       {blocs.length ? (
                         <>
-                          {T.MAIN_OF}{' '}
+                          {D.MAIN_OF}{' '}
                           {blocs.map((b, i) => (
                             <span key={b}>
                               {i ? ' · ' : ''}
                               {labels[b]}&nbsp;: {T.listFr(carriers[b]!.map(nameOf))}
                             </span>
                           ))}
-                          {both ? <span class="detail-both">. {T.BOTH_SIDES}</span> : null}
+                          {both ? <span class="detail-both">. {D.BOTH_SIDES}</span> : null}
                         </>
                       ) : (
-                        T.MAIN_OF_NONE
+                        D.MAIN_OF_NONE
                       )}
                     </p>
                   </li>
@@ -305,13 +306,13 @@ function DetailBody({ unit, ctx, deeper }: { unit: UnitReading; ctx: ProfileCtx;
             </ul>
             <p class="small">
               <a href={link('/proximite')} onClick={() => focusLater(q.id)}>
-                {T.SEE_IN_PROXIMITY}
+                {D.SEE_IN_PROXIMITY}
               </a>
             </p>
           </div>
         )
       })}
-      {unplaced ? <p class="small">{T.unplaced(unplaced, family)}</p> : null}
+      {unplaced ? <p class="small">{D.unplaced(unplaced, family)}</p> : null}
       {/* Comme la ligne ouverte : « Approfondir » seulement sans lecture (une seule question, des blocs inconnus), jamais
           sous un sujet lu, même « rien de net » (refusé par le propriétaire le 15 octobre 2026) */}
       {deeper && !isRead(unit) ? (

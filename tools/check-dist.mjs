@@ -166,7 +166,9 @@ for (const f of agreeChunks) {
 // octets) avec la barre, qui y pèse 3,6 ko. Le découpage du build range alors à part les mots de la page et son calcul
 // (echiquierCopy-*.js, commun à la page, au détail et à « Ce qui pèse le plus »), et sort du script principal deux
 // fichiers communs du JS initial (ExternalLink-*.js, brand-*.js), préchargés avec lui (le JS initial passe de 227,8 à
-// 228,0 ko). Rien de la page ne pèse sur le JS initial, ni sur une visite qui n'ouvre pas la page
+// 228,0 ko). Le même jour, les correctifs de la barre (focus, tabulation, règle de la moitié de l'écran, toucher d'un
+// sujet), 0,7 ko, tiennent sous le plafond parce que les libellés fixes du détail (1,1 ko) le rejoignent (ci-dessous) :
+// 57,4 ko (57 449 octets). Rien de la page ne pèse sur le JS initial, ni sur une visite qui n'ouvre pas la page
 const PROFILE_BUDGET = 58_000
 const profileChunks = readdirSync(join(dist, 'assets')).filter(f => /^Profile-[\w-]+\.js$/.test(f))
 if (profileChunks.length !== 1) fail(`« Mon profil politique » : ${profileChunks.length} fichier(s) assets/Profile-*.js, un attendu`)
@@ -292,10 +294,13 @@ for (const f of weighChunks) {
 // code ni la liste de ce qu'il charge (rien à précharger, vite.config.ts). Sorti de la page le 17 octobre 2026, pour faire
 // place à la barre collante des domaines sans relever le plafond de 58 ko (la page pesait alors 58,0 ko, 8 octets sous
 // le plafond, le détail compris) ; il pesait 6,7 ko. Plafond : ce qu'il ajoute à la page, lui compris, la mesure plus 15 %.
-// Ses mots restent dans le fichier commun de la page (src/core/echiquierCopy.ts, comptés dans son plafond) : on y cherche
-// donc son code, ses classes, pas ses textes
+// Ce qui dit la lecture (en-têtes des blocs, écart, façons, note) reste dans le fichier commun de la page
+// (src/core/echiquierCopy.ts, compté dans son plafond). Le même jour, ses libellés fixes (le tableau, l'affinité par
+// candidat, les lignes rouges, src/core/echiquierDetailCopy.ts) le rejoignent, pour faire place aux correctifs de la
+// barre des domaines sous le plafond de la page : 7,5 ko (7 543 octets), la page 57,4 ko (57 449 octets). On y cherche son
+// code, ses classes, et deux de ses textes, absents de la page
 const DETAIL_BUDGET = 7_700
-const DETAIL_CODE = ['echiquier-wrap', 'detail-blocs', 'detail-people']
+const DETAIL_CODE = ['echiquier-wrap', 'detail-blocs', 'detail-people', 'Question par question', 'Voir dans Qui porte quoi']
 const detailChunks = readdirSync(join(dist, 'assets')).filter(f => /^ProfileDetail-[\w-]+\.js$/.test(f))
 if (detailChunks.length !== 1) fail(`« Le détail » de « Mon profil politique » : ${detailChunks.length} fichier(s) assets/ProfileDetail-*.js, un attendu`)
 for (const f of detailChunks) {

@@ -490,14 +490,11 @@ export function Chart({ reading, ctx, quickOnly, deeper, unseen, onDetail }: Pro
   )
 }
 
-/** L'intertitre gris d'un groupe d'un domaine ; les lectures nettes d'un seul côté n'en ont pas */
-function groupTitle(kind: RowGroupKind, rows: readonly UnitReading[]): string | null {
-  if (kind === 'net') return null
-  // « Aux deux bouts à la fois » quand toutes ses lignes touchent l'extrême gauche et l'extrême droite ; sinon « Des deux
-  // côtés à la fois »
-  if (kind === 'both') return T.bothTitle(rows.every(atBothEnds))
-  return T.GROUP_TITLE[kind]
-}
+/**
+ * L'intertitre d'un groupe d'un domaine : « Aux deux bouts à la fois » quand toutes ses lignes touchent l'extrême gauche
+ * et l'extrême droite, sinon « Des deux côtés à la fois » ; les autres, le leur (« Nettement plus près »…)
+ */
+const groupTitle = (kind: RowGroupKind, rows: readonly UnitReading[]) => (kind === 'both' ? T.bothTitle(rows.every(atBothEnds)) : T.GROUP_TITLE[kind])
 
 interface FamilyProps {
   f: FamilyRows
@@ -513,8 +510,7 @@ interface FamilyProps {
 
 /**
  * Un domaine : son intertitre (plus d'un thème) ou son seul filet (un thème, dont la ligne porte le nom), puis ses
- * groupes de lignes, chacun une liste nommée par l'intertitre du domaine et le sien ; les lectures nettes d'un seul côté,
- * sans intertitre, par un nom masqué (T.NET_LABEL), que lisent seuls les lecteurs d'écran
+ * groupes de lignes, chacun sous son intertitre, une liste nommée par l'intertitre du domaine et le sien
  */
 function Family({ f, first, nameOf, open, setOpen, covered, ctx, onDetail }: FamilyProps) {
   const headId = `fam-${f.id}`
@@ -526,22 +522,14 @@ function Family({ f, first, nameOf, open, setOpen, covered, ctx, onDetail }: Fam
         </h3>
       ) : null}
       {f.groups.map(({ kind, rows }) => {
-        const title = groupTitle(kind, rows)
         const subId = `${headId}-${kind}`
         const quiet = kind === 'flat' || kind === 'thin' || kind === 'unknown'
-        const labelledBy = [f.heading ? `${headId}-h` : '', subId].filter(Boolean).join(' ')
         return (
           <div key={kind} class="fam-part">
-            {title ? (
-              <p class="fam-sub" id={subId}>
-                {title}
-              </p>
-            ) : (
-              <span id={subId} hidden>
-                {T.NET_LABEL}
-              </span>
-            )}
-            <ol class={`rows${quiet ? ' is-quiet' : ''}`} data-group={kind} aria-labelledby={labelledBy}>
+            <p class="fam-sub" id={subId}>
+              {groupTitle(kind, rows)}
+            </p>
+            <ol class={`rows${quiet ? ' is-quiet' : ''}`} data-group={kind} aria-labelledby={`${f.heading ? `${headId}-h ` : ''}${subId}`}>
               {rows.map(u => {
                 const key = unitKey(u)
                 return (
