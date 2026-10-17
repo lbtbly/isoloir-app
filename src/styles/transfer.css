@@ -115,6 +115,12 @@
   line-height: 1;
 }
 
+/* « Réponses trouvées » reçoit le focus à la lecture du code (le bouton qui l'a lu disparaît) : sans anneau, comme les
+   titres des notices */
+.transfer-title[tabindex='-1']:focus {
+  outline: none;
+}
+
 .transfer-contents {
   margin: var(--s3) 0;
   font-weight: 650;

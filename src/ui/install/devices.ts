@@ -18,10 +18,12 @@ export const MENU = {
   iosWebApp: 'Ouvrir en tant qu’app web',
   iosWebAppOther: 'Ouvrir comme web app',
   iosAdd: 'Ajouter',
-  // Dans l'application : la page d'import, puis la bulle de l'iPhone
+  // Dans l'application : la page d'import, puis la bulle de l'iPhone ; ailleurs (Firefox sous Windows), son champ
   importMine: 'Importer mes réponses',
   pasteCode: 'Coller le code',
   iosPaste: 'Coller',
+  typeCode: 'Coller ou taper le code',
+  readCode: 'Lire ce code',
   importThese: 'Importer ces réponses',
   // Android : Chrome 150 a renommé le choix (« Install and create shortcut », libellé français à relever) : on le
   // désigne par ses mots stables
@@ -47,6 +49,17 @@ export const MENU = {
 
 /** « ⋮ », « Caster… », « Installer… » : un chemin de menu */
 export const path = (steps: readonly string[]): string => steps.map(q).join(', ')
+
+/**
+ * Les boutons que les navigateurs ne désignent que par un symbole, et leur nom en mots : la page montre le symbole et dit
+ * ce nom aux lecteurs d'écran, qui liraient sinon « ≡ » « identique à » (ui/screens/Install.tsx)
+ */
+export const SYMBOLS: Record<string, string> = {
+  '•••': 'le bouton à trois points',
+  '⋮': 'le bouton à trois points',
+  '…': 'le bouton à trois points',
+  '≡': 'le bouton à trois traits',
+}
 
 /** Ce que deviennent les réponses, dit en mots (jamais par une couleur) */
 const APART = 'Vos réponses\u00a0: à faire passer une fois'
@@ -143,7 +156,7 @@ export const GUIDES: Record<DeviceKey, Guide> = {
     group: 'Ordinateur',
     name: 'Windows, avec Firefox',
     state: 'Vos réponses\u00a0: à faire passer si elle est vide',
-    lead: `L’icône d’application au bout de la barre d’adresse (Firefox 143 ou plus récent). Si l’application s’ouvre vide\u00a0: dans Firefox, ${q(MENU.installPage)} puis ${q(MENU.copyCode)}\u00a0; dans l’application, ${q(MENU.importMine)}, puis ${q(MENU.pasteCode)}.`,
+    lead: `L’icône d’application au bout de la barre d’adresse (Firefox 143 ou plus récent). Si l’application s’ouvre vide\u00a0: dans Firefox, ${q(MENU.installPage)} puis ${q(MENU.copyCode)}\u00a0; dans l’application, ${q(MENU.importMine)}, le code collé dans ${q(MENU.typeCode)}, puis ${q(MENU.readCode)}.`,
   },
   macFirefox: {
     group: 'Ordinateur',

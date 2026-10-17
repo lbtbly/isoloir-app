@@ -1,5 +1,6 @@
 // L'avis de l'accueil de l'application installée, ouverte vide, là où elle a son propre espace (iPhone, iPad, Safari du
-// Mac : core/installed.ts) : les réponses données dans Safari n'y sont pas, on dit comment les faire passer. Il porte
+// Mac : core/installed.ts) : les réponses données dans le navigateur n'y sont pas, on dit comment les faire passer. Sur
+// iPhone et iPad, elle a pu être ajoutée depuis Safari, Chrome, Edge ou Firefox, et ne sait pas lequel. Il porte
 // l'aplat bleu de l'accueil (« Importer mes réponses ») ; « Je n'avais pas répondu » le ferme pour de bon (retenu sur
 // l'appareil, sous une clé d'Isoloir, effacée avec le reste par « Tout effacer »), et la première réponse aussi.
 
@@ -42,10 +43,11 @@ export function AppWelcome({ onClose }: { onClose: () => void }) {
   return (
     <aside class="app-welcome" aria-labelledby="app-welcome-title">
       <h2 id="app-welcome-title" class="app-welcome-title">
-        Vous aviez répondu dans Safari&nbsp;?
+        Vous aviez déjà répondu&nbsp;?
       </h2>
       <p>
-        Ici, tout part de zéro&nbsp;: sur {where}, l’application ne voit pas les réponses de Safari. Faites-les passer une fois.
+        Ici, tout part de zéro&nbsp;: sur {where}, l’application ne voit pas les réponses données dans{' '}
+        {os === 'mac' ? 'Safari' : 'Safari ou un autre navigateur'}. Faites-les passer une fois.
       </p>
       <div class="app-welcome-actions">
         <a class="btn-primary" href={link('/autre-appareil/importer')}>

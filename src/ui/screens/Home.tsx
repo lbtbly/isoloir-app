@@ -151,7 +151,7 @@ export function Home({ pack, state, essential, stale, results }: Props) {
   // est dit sous le film, pour tout le monde et à tout moment
   const ctaNote = started ? '' : ctaNoteOf(pack.bank)
   const shortLabel = done ? 'Mon dépouillement' : added ? 'Répondre' : started ? 'Reprendre' : 'Commencer'
-  // L'application installée ouverte vide, là où elle a son propre espace : l'avis « Vous aviez répondu dans Safari ? »
+  // L'application installée ouverte vide, là où elle a son propre espace : l'avis « Vous aviez déjà répondu ? »
   const [welcome, closeWelcome] = useAppWelcome(Object.keys(state.answers).length === 0)
 
   return (

@@ -99,9 +99,9 @@ for (const [voice, videos] of Object.entries(inventory.voices ?? {})) {
 // préchargée par la page (modulepreload), en parallèle.
 // Budget : 241,7 ko mesurés le 6 octobre 2026, après la sortie des données (909 ko avant), plus 15 % de marge.
 // Le 14 octobre 2026, la sortie des notices et de « Partager » (src/ui/screens/load.ts) l'a ramené de 276,7 à 206,6 ko.
-// Le 17 octobre 2026, « Installer l'application » y ajoute 3,7 ko (de 228,2 à 231,9 ko) : l'annonce d'installation et la
+// Le 17 octobre 2026, « Installer l'application » y ajoute 3,9 ko (de 228,2 à 232,1 ko) : l'annonce d'installation et la
 // demande de garder les réponses, le mode installé, l'avis de l'accueil de l'application ouverte vide et ses liens ; la
-// page elle-même et la détection de l'appareil sont à part.
+// page elle-même, sa feuille de style et la détection de l'appareil sont à part.
 // Le dépasser, c'est d'abord se demander ce qui est entré dans le code de toutes les visites, avant de relever le plafond.
 const INITIAL_JS_BUDGET = 278_000
 const entry = html.match(/<script type="module"[^>]*src="\.\/(assets\/[^"]+\.js)"/)?.[1]
@@ -335,7 +335,8 @@ for (const [label, re, budget] of [
 // comptée ici. Le JS initial n'en garde que l'annonce d'installation et la demande de garder les réponses
 // (src/ui/install/prompt.ts), le mode installé (src/core/installed.ts), l'avis de l'accueil de l'application ouverte vide
 // et les liens. Plafond : la page et ce qu'elle charge en plus du JS initial, 50,1 ko mesurés le 17 octobre 2026 (dont 7,1
-// ko du codeur), plus 15 %
+// ko du codeur), plus 15 % ; 53,5 ko le même jour, après les contre-vérifications (l'application ouverte vide hors des
+// appareils d'Apple, les symboles des menus dits en mots, le statut du bouton « Installer Isoloir »)
 const INSTALL_BUDGET = 58_000
 /** Des textes de la page (ASCII, que la minification ne touche pas) : jamais dans le JS initial */
 const INSTALL_TEXTS = ['Caster, enregistrer et partager', 'Pourquoi copier d', 'Ne rien transf']
@@ -402,6 +403,14 @@ if (csp && /data:/.test(csp)) fail('la CSP permet des adresses data:')
 // avant celle de la page, et changerait l'ordre des règles
 const sheets = [...html.matchAll(/<link rel="stylesheet"[^>]*href="\.\/(assets\/[^"]+\.css)"/g)].map(m => m[1])
 if (sheets.length !== 1) fail(`dist/index.html charge ${sheets.length} feuille(s) de style (${sheets.join(', ')}), une attendue`)
+// « Installer l'application » : sa feuille (src/styles/install-page.css) vient avec la page ; celle de chaque visite n'en
+// garde que l'avis de l'application ouverte vide et les liens (src/styles/install.css)
+{
+  const initialCss = sheets.map(f => readFileSync(join(dist, f), 'utf8')).join('\n')
+  if (/\.install-steps\b|\.install-others\b|\.dg-tap\b/.test(initialCss)) fail('« Installer l’application » : les règles de la page (install-page.css) sont dans la feuille de chaque visite')
+  if (!/\.app-welcome\b/.test(initialCss)) fail('« Installer l’application » : l’avis de l’application ouverte vide (install.css) manque à la feuille de chaque visite')
+  if (!readdirSync(join(dist, 'assets')).some(f => /^Install-[\w-]+\.css$/.test(f))) fail('« Installer l’application » : pas de feuille assets/Install-*.css chargée avec la page')
+}
 // Aucun texte de la banque dans le JS initial : ni énoncé ni approche, de chaque élection du site
 // (src/elections/<id>/bank.ts) ou en préparation (research/<id>/bank.json, écrit par tools/build-pack.mjs)
 const initialCode = initial.map(f => readFileSync(join(dist, f), 'utf8')).join('\n')

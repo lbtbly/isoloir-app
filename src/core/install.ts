@@ -63,8 +63,8 @@ const IOS_BROWSERS: [RegExp, string][] = [
   [/\bDuckDuckGo\/|\bDdg\//, 'DuckDuckGo'],
 ]
 
-/** Des navigateurs qui s'annoncent comme Chrome mais n'en sont pas : leurs menus diffèrent */
-const NOT_CHROME = /\b(?:Edg|EdgA|OPR|OPT|YaBrowser|UCBrowser|MiuiBrowser|HuaweiBrowser|HeyTapBrowser|DuckDuckGo|Vivaldi|SamsungBrowser)\//
+/** Des navigateurs qui s'annoncent comme Chrome mais n'en sont pas : leurs menus diffèrent (Focus et Klar : Firefox Focus) */
+const NOT_CHROME = /\b(?:Edg|EdgA|OPR|OPT|YaBrowser|UCBrowser|MiuiBrowser|HuaweiBrowser|HeyTapBrowser|DuckDuckGo|Vivaldi|SamsungBrowser|Focus|Klar)\//
 
 const safariVersion = (ua: string) => {
   const m = /\bVersion\/(\d+)[\d.]*\b.*\bSafari\//.exec(ua)
@@ -99,7 +99,11 @@ export function detectDevice(p: Probe): Device {
     return installed ? make('iosOther', apple, '', 'separe', false) : make('inApp', apple, '', 'inconnu', false)
   }
 
-  if (/\bAndroid\b/.test(ua)) {
+  // Android ; une tablette en mode ordinateur (celui de Chrome par défaut sur les grandes tablettes) s'annonce comme un
+  // ordinateur sous Linux, mais tactile (un Chromebook dit « CrOS »). Un ordinateur sous Linux à écran tactile passe donc
+  // pour une tablette : rare, et « Autre appareil ? » reste là
+  const android = /\bAndroid\b/.test(ua) || (/\bX11\b|\bLinux\b/.test(ua) && !/\bCrOS\b/.test(ua) && p.maxTouchPoints > 1)
+  if (android) {
     if (inApp) return make('inApp', 'android', inApp, 'inconnu', false)
     // La fenêtre intégrée d'une application (WebView) : « ; wv) »
     if (/; wv\)/.test(ua)) return make('inApp', 'android', '', 'inconnu', false)

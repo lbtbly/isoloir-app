@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
 import { detectDevice, type DeviceKey } from '../src/core/install'
 import { appleApart, type Probe } from '../src/core/installed'
-import { GUIDES, GUIDE_KEYS, deviceLine, q } from '../src/ui/install/devices'
+import { GUIDES, GUIDE_KEYS, MENU, SYMBOLS, deviceLine, q } from '../src/ui/install/devices'
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url))
 
@@ -54,6 +54,13 @@ const ROWS: Row[] = [
   { name: 'Android, Opera', ua: `${ANDROID} Chrome/150.0.0.0 Mobile Safari/537.36 OPR/90.0.0.0`, key: 'other', os: 'android', storage: 'inconnu' },
   { name: 'Android, Edge', ua: `${ANDROID} Chrome/150.0.0.0 Mobile Safari/537.36 EdgA/150.0.0.0`, key: 'other', os: 'android', storage: 'inconnu' },
   { name: 'Android, Brave (s’annonce comme Chrome)', ua: `${ANDROID} Chrome/150.0.0.0 Mobile Safari/537.36`, brave: true, key: 'other', os: 'android', storage: 'inconnu' },
+  // Firefox Focus s'annonce comme Chrome, avec « Focus/ » (« Klar/ » en allemand) : ses menus ne sont pas ceux de Chrome
+  { name: 'Android, Firefox Focus', ua: 'Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Focus/131.0 Chrome/131.0.0.0 Mobile Safari/537.36', key: 'other', os: 'android', storage: 'inconnu' },
+  // Une tablette Android en mode ordinateur (celui de Chrome par défaut sur les grandes tablettes) : Linux, mais tactile
+  { name: 'tablette Android en mode ordinateur, Chrome', ua: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36', touch: 5, key: 'andChrome', os: 'android', browser: 'Chrome', storage: 'partage' },
+  { name: 'tablette Android en mode ordinateur, Samsung Internet', ua: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/28.0 Chrome/130.0.0.0 Safari/537.36', touch: 5, key: 'andSamsung', os: 'android', storage: 'partage' },
+  { name: 'Linux, Chrome (sans écran tactile)', ua: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36', key: 'deskChrome', os: 'linux', storage: 'partage', desktop: true },
+  { name: 'Chromebook tactile, Chrome', ua: 'Mozilla/5.0 (X11; CrOS x86_64 14541.0.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36', touch: 10, key: 'deskChrome', os: 'chromeos', storage: 'partage', desktop: true },
   { name: 'Windows, Chrome', ua: `${WIN} Chrome/150.0.0.0 Safari/537.36`, key: 'deskChrome', os: 'windows', browser: 'Chrome', storage: 'partage', desktop: true },
   { name: 'Mac, Chrome', ua: `${MAC}537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36`, key: 'deskChrome', os: 'mac', storage: 'partage', desktop: true },
   { name: 'Chromebook, Chrome', ua: 'Mozilla/5.0 (X11; CrOS x86_64 14541.0.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36', key: 'deskChrome', os: 'chromeos', storage: 'partage', desktop: true },
@@ -129,6 +136,20 @@ describe('la liste des appareils', () => {
 
   it('les mots de menu, entre guillemets et espaces insécables', () => {
     expect(q('Partager')).toBe('«\u00a0Partager\u00a0»')
+  })
+
+  it('un bouton désigné par un symbole (« ⋮ », « ≡ »…) a son nom en mots, dit aux lecteurs d’écran', () => {
+    const words = Object.values(MENU).flat()
+    const symbols = words.filter(w => !/\p{L}/u.test(w))
+    expect(symbols.length).toBeGreaterThan(2)
+    for (const s of symbols) expect(SYMBOLS[s], s).toMatch(/^le bouton à trois (points|traits)$/)
+  })
+
+  it('les mots de la page d’import que la page cite y sont (Firefox sous Windows : le champ et « Lire ce code »)', () => {
+    const transfer = readFileSync(join(ROOT, 'src/ui/screens/Transfer.tsx'), 'utf8')
+    for (const w of [MENU.importMine, MENU.pasteCode, MENU.typeCode, MENU.readCode, MENU.importThese]) expect(transfer, w).toContain(w)
+    expect(GUIDES.winFirefox.lead).toContain(q(MENU.typeCode))
+    expect(GUIDES.winFirefox.lead).not.toContain(q(MENU.pasteCode))
   })
 })
 

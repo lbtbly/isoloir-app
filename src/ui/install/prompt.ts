@@ -13,6 +13,8 @@ interface InstallEvent extends Event {
 }
 
 let offer: InstallEvent | null = null
+/** La fenêtre d'installation du navigateur est ouverte */
+let asking = false
 let done = false
 const listeners = new Set<() => void>()
 const tell = () => listeners.forEach(f => f())
@@ -45,18 +47,25 @@ export function onInstall(f: () => void): () => void {
   return () => listeners.delete(f)
 }
 
-/** Ouvre la fenêtre d'installation du navigateur, au geste de la personne : « accepted », « dismissed », ou null sans annonce */
+/**
+ * Ouvre la fenêtre d'installation du navigateur, au geste de la personne : « accepted », « dismissed », ou null sans
+ * annonce (ou fenêtre déjà ouverte). L'annonce reste gardée tant que la fenêtre est ouverte : le bouton reste en place, et
+ * le focus avec lui ; elle n'est oubliée qu'à la réponse
+ */
 export async function install(): Promise<'accepted' | 'dismissed' | null> {
   const e = offer
-  if (!e) return null
-  // L'annonce ne sert qu'une fois : le navigateur en enverra une autre s'il le peut encore
-  offer = null
-  tell()
+  if (!e || asking) return null
+  asking = true
   try {
     await e.prompt()
     return (await e.userChoice).outcome
   } catch {
     return null
+  } finally {
+    asking = false
+    // L'annonce ne sert qu'une fois : le navigateur en enverra une autre s'il le peut encore
+    if (offer === e) offer = null
+    tell()
   }
 }
 

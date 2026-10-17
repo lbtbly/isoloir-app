@@ -7,10 +7,11 @@
 // du navigateur ; le bouton « Installer Isoloir » ouvre la fenêtre d'installation du navigateur quand il l'a annoncée
 // (ui/install/prompt.ts), jamais de lui-même. Sur ordinateur, un QR code ouvre cette page sur le téléphone : il porte son
 // adresse, rien d'autre. Rien n'est envoyé ni gardé.
-// Chargé à la demande (ui/screens/load.ts), avec le codeur des codes de transfert : le code de chaque visite n'en contient rien.
+// Chargé à la demande (ui/screens/load.ts), avec le codeur des codes de transfert et sa feuille de style : le code de chaque
+// visite n'en contient rien.
 
 import type { RefObject } from 'preact'
-import { useEffect, useMemo, useRef, useState } from 'preact/hooks'
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks'
 import { thisDevice, type Device, type DeviceKey } from '../../core/install'
 import type { SessionState } from '../../core/storage'
 import { groupCode } from '../../core/transfer/base32'
@@ -19,10 +20,11 @@ import type { ElectionPack } from '../../core/types'
 import { FormHeader } from '../components/FormHeader'
 import { Icon } from '../components/Icon'
 import { SiteFooter } from '../components/SiteFooter'
-import { GUIDES, GUIDE_KEYS, MENU, deviceLine, noun, path, q, type Guide } from '../install/devices'
+import { GUIDES, GUIDE_KEYS, MENU, SYMBOLS, deviceLine, noun, path, q, type Guide } from '../install/devices'
 import { AndroidConfirm, AndroidMenu, AndroidMore, Apart, DeskBar, Ios18Share, Ios26Menu, Ios26More, IosAdd, IosHome, IosIcon, IosPaste, Shared } from '../install/Diagrams'
 import { canInstall, install, installedNow, onInstall } from '../install/prompt'
 import { link } from '../nav'
+import '../../styles/install-page.css'
 
 interface Props {
   pack: ElectionPack
@@ -59,12 +61,29 @@ function Gestures({ items }: { items: Gesture[] }) {
   )
 }
 
-/** Un mot de menu en gras, entre guillemets */
-const B = ({ children }: { children: string }) => (
+/** Un symbole de menu (« ⋮ ») : montré entre guillemets, dit en mots aux lecteurs d'écran (devices.ts, SYMBOLS) */
+const Sym = ({ s, strong }: { s: string; strong?: boolean }) => (
   <>
-    «&nbsp;<strong>{children}</strong>&nbsp;»
+    <span aria-hidden="true">«&nbsp;{strong ? <strong>{s}</strong> : s}&nbsp;»</span>
+    <span class="sr-only">{SYMBOLS[s]}</span>
   </>
 )
+
+/** Un mot de menu en gras, entre guillemets ; un symbole, dit en mots aux lecteurs d'écran */
+const B = ({ children }: { children: string }) =>
+  SYMBOLS[children] ? (
+    <Sym s={children} strong />
+  ) : (
+    <>
+      «&nbsp;<strong>{children}</strong>&nbsp;»
+    </>
+  )
+
+/** Les symboles de menu entre guillemets, dans un texte de devices.ts */
+const SYMBOL_IN_TEXT = new RegExp(`«\u00a0(${Object.keys(SYMBOLS).join('|')})\u00a0»`)
+
+/** Un texte de devices.ts, ses symboles de menu dits en mots aux lecteurs d'écran */
+const Spoken = ({ text }: { text: string }) => <>{text.split(SYMBOL_IN_TEXT).map((part, i) => (i % 2 ? <Sym key={i} s={part} /> : part))}</>
 
 export function Install({ pack, state }: Props) {
   const device = thisDevice()
@@ -81,12 +100,15 @@ export function Install({ pack, state }: Props) {
     }
   }, [pack, state, started])
 
-  // L'annonce d'installation du navigateur, et l'installation faite pendant la visite
+  // L'annonce d'installation du navigateur, et l'installation faite pendant la visite ; « offered » : une annonce est
+  // venue pendant la visite (la place du bouton reste, pour dire ce qu'il en est advenu)
   const [offer, setOffer] = useState(canInstall)
+  const [offered, setOffered] = useState(canInstall)
   const [done, setDone] = useState(installedNow)
   useEffect(() => {
     const sync = () => {
       setOffer(canInstall())
+      setOffered(o => o || canInstall())
       setDone(installedNow())
     }
     const stop = onInstall(sync)
@@ -104,7 +126,7 @@ export function Install({ pack, state }: Props) {
     el.focus({ preventScroll: true })
   }
 
-  const ctx: Ctx = { device, host, count, started, code, offer, done }
+  const ctx: Ctx = { device, host, count, started, code, offer, offered, done }
   const known = device.key !== 'other'
   const line = deviceLine(device)
   const title = device.installed ? 'Isoloir est installé' : 'Installer l’application'
@@ -115,7 +137,8 @@ export function Install({ pack, state }: Props) {
       <main class="sheet wide-sheet install" id="contenu" tabIndex={-1}>
         <div class="install-intro">
           <h1 class="display is-medium" tabIndex={-1}>
-            {title}
+            {/* La césure conditionnelle d'« appli-cation » ne sert qu'au texte très agrandi : sinon le mot se couperait n'importe où */}
+            {device.installed ? title : 'Installer l’appli\u00adcation'}
           </h1>
           <p class="lede">{ledeOf(ctx)}</p>
           <div class="install-device">
@@ -166,6 +189,8 @@ interface Ctx {
   code: string | null
   /** Le navigateur a annoncé qu'il sait installer : le bouton « Installer Isoloir » */
   offer: boolean
+  /** Une annonce est venue pendant la visite (servie ou non depuis) */
+  offered: boolean
   /** Installé pendant cette visite */
   done: boolean
 }
@@ -173,10 +198,13 @@ interface Ctx {
 function ledeOf({ device, started }: Ctx): string {
   if (device.installed) {
     if (device.storage !== 'separe') return `Vous êtes dans l’application. Elle s’ouvre d’un ${device.desktop ? 'clic' : 'toucher'}, sans barre d’adresse.`
+    // Sur iPhone et iPad, l'application a pu être ajoutée depuis Safari, Chrome, Edge ou Firefox : elle ne sait pas lequel
+    const mac = device.os === 'mac'
     return started
-      ? 'Vous êtes dans l’application. Elle a son propre espace\u00a0: ce que vous y changez n’arrive pas dans Safari.'
-      : `Vous êtes dans l’application. Elle démarre vide\u00a0: sur ${device.os === 'mac' ? 'Mac' : noun(device)}, elle ne voit pas les réponses de Safari.`
+      ? `Vous êtes dans l’application. Elle a son propre espace\u00a0: ce que vous y changez n’arrive pas dans ${mac ? 'Safari' : 'le navigateur'}.`
+      : `Vous êtes dans l’application. Elle démarre vide\u00a0: sur ${mac ? 'Mac' : noun(device)}, elle ne voit pas les réponses ${mac ? 'de Safari' : 'du navigateur'}.`
   }
+  if (device.key === 'inApp') return 'Cette fenêtre ne sait pas installer Isoloir\u00a0: ouvrez d’abord cette page dans votre navigateur, elle y montrera les gestes.'
   if (device.key === 'macFirefox') return 'Isoloir ouvert d’un clic, sans rien télécharger ni compte. Sur cet ordinateur, Firefox n’installe pas les sites\u00a0: voici le plus proche.'
   if (device.desktop) return 'Isoloir dans sa propre fenêtre, ouvert d’un clic. Rien à télécharger, aucun compte\u00a0: il s’installe depuis cette page.'
   if (device.os === 'iphone' || device.os === 'ipad')
@@ -275,7 +303,13 @@ function CopyBody({ ctx, next }: { ctx: Ctx; next: number }) {
           </a>
         </>
       ) : null}
-      <p class="step-note">Le code contient toutes vos réponses. Isoloir videra le presse-papiers après l’import.</p>
+      <p class="step-note">
+        {/* Le presse-papiers n'est pas qu'à Isoloir : le dire au geste même, pas seulement dans la notice de confidentialité */}
+        Le code contient toutes vos réponses.{' '}
+        {device.os === 'iphone' || device.os === 'ipad' || device.os === 'mac'
+          ? 'Le presse-papiers peut passer sur vos autres appareils Apple, et d’autres applications peuvent le lire\u00a0: Isoloir le vide après l’import.'
+          : 'D’autres applications peuvent lire le presse-papiers, et l’historique du presse-papiers de Windows, s’il est activé, en garde une copie\u00a0: Isoloir le vide après l’import.'}
+      </p>
     </>
   )
 }
@@ -283,6 +317,20 @@ function CopyBody({ ctx, next }: { ctx: Ctx; next: number }) {
 /** Dans l'application à part : coller le code */
 function PasteBody({ ctx }: { ctx: Ctx }) {
   const phone = !ctx.device.desktop
+  // Hors des appareils d'Apple (Firefox sous Windows), l'import n'a pas de bouton « Coller le code » : son champ, au clavier
+  if (ctx.device.storage !== 'separe') {
+    return (
+      <>
+        <p>
+          Cliquez <B>{MENU.importMine}</B>, en bas de page. Collez le code (Ctrl&nbsp;+&nbsp;V) dans <B>{MENU.typeCode}</B>, puis cliquez{' '}
+          <B>{MENU.readCode}</B>.
+        </p>
+        <p>
+          Vérifiez le nombre de réponses, puis cliquez <B>{MENU.importThese}</B>.
+        </p>
+      </>
+    )
+  }
   return (
     <>
       <p>
@@ -391,7 +439,7 @@ function Ios({ ctx }: { ctx: Ctx }) {
         <>
           <p>
             Touchez le bouton Partager (un carré et sa flèche),{' '}
-            {safari ? 'en haut à droite' : 'dans la barre d’adresse ou dans le menu'}. Pas en vue&nbsp;? Touchez {q(MENU.iosMore)}, puis{' '}
+            {safari ? 'en haut à droite' : 'dans la barre d’adresse ou dans le menu'}. Pas en vue&nbsp;? Touchez <Sym s={MENU.iosMore} />, puis{' '}
             {q(MENU.iosShare)}.
           </p>
           {safari ? null : (
@@ -486,37 +534,61 @@ function Ios({ ctx }: { ctx: Ctx }) {
   )
 }
 
-/** Le bouton du navigateur (Android, Chrome, Edge…), quand il a annoncé qu'il sait installer */
+/**
+ * Le bouton du navigateur (Android, Chrome, Edge…), quand il a annoncé qu'il sait installer. Il reste en place tant que
+ * la fenêtre du navigateur est ouverte ; ce qu'il en advient se dit dans un statut toujours présent (lu par les lecteurs
+ * d'écran), et le focus y passe quand le bouton s'en va
+ */
 function Native({ ctx }: { ctx: Ctx }) {
   const [status, setStatus] = useState('')
+  const [asking, setAsking] = useState(false)
+  const said = useRef<HTMLParagraphElement>(null)
+  /** Le bouton a servi : à son départ, le focus passe au message */
+  const used = useRef(false)
   const { device, offer, done } = ctx
   const where = device.desktop ? 'le Dock, le menu Démarrer ou le lanceur d’applications' : 'l’écran d’accueil, ou la liste de vos applications'
-  if (done) {
-    return (
-      <p class="install-after install-native-done" role="status">
-        <Icon name="check" />
-        Isoloir est installé. Ouvrez-le depuis {where}.
-      </p>
-    )
-  }
-  if (!offer) return status ? <p class="install-native-status" role="status">{status}</p> : null
+  const installed = `Isoloir est installé. Ouvrez-le depuis ${where}.`
+  const message = done ? installed : status
+  // Dans le même rendu que le départ du bouton : le focus ne passe jamais par la page entière
+  useLayoutEffect(() => {
+    const active = document.activeElement
+    if (message && used.current && (!active || active === document.body)) said.current?.focus()
+  }, [message, offer])
   const browser = device.browser || 'Le navigateur'
   const go = () => {
+    if (asking) return
+    used.current = true
+    setAsking(true)
     void install().then(outcome => {
-      if (outcome === 'dismissed') setStatus('Installation annulée. Le menu du navigateur la propose aussi, ci-dessous.')
+      setAsking(false)
+      if (outcome === 'accepted') setStatus(installed)
+      else if (outcome === 'dismissed') setStatus('Installation annulée. Le menu du navigateur la propose aussi, ci-dessous.')
     })
   }
   return (
-    <div class="install-native">
-      <button type="button" class="btn-primary" onClick={go}>
-        <Icon name={device.desktop ? 'install-desktop' : 'install'} />
-        Installer Isoloir
-      </button>
-      <p>
-        {device.desktop
-          ? `${browser} vous demande de confirmer. Isoloir s’ouvre ensuite dans sa fenêtre, depuis ${where}.`
-          : `${device.os === 'android' ? 'Android' : browser} vous demande de confirmer. L’icône arrive sur ${where}.`}
-      </p>
+    <div class={offer || message ? 'install-native' : 'install-native is-empty'}>
+      {offer && !done ? (
+        <>
+          {/* aria-disabled, pas disabled : le bouton garde le focus pendant que la fenêtre du navigateur est ouverte */}
+          <button type="button" class="btn-primary" aria-disabled={asking || undefined} onClick={go}>
+            <Icon name={device.desktop ? 'install-desktop' : 'install'} />
+            Installer Isoloir
+          </button>
+          <p>
+            {device.desktop
+              ? `${browser} vous demande de confirmer. Isoloir s’ouvre ensuite dans sa fenêtre, depuis ${where}.`
+              : `${device.os === 'android' ? 'Android' : browser} vous demande de confirmer. L’icône arrive sur ${where}.`}
+          </p>
+        </>
+      ) : null}
+      <div role="status">
+        {message ? (
+          <p ref={said} tabIndex={-1} class={message === installed ? 'install-after install-native-done' : 'install-native-status'}>
+            {message === installed ? <Icon name="check" /> : null}
+            {message}
+          </p>
+        ) : null}
+      </div>
     </div>
   )
 }
@@ -589,7 +661,9 @@ function AndroidOrDesk({ ctx }: { ctx: Ctx }) {
         <>
           <p>Cliquez l’icône d’installation, au bout de la barre d’adresse.</p>
           <DeskBar host={host} />
-          <p class="step-hint">Pas d’icône&nbsp;? Menu {path(MENU.chromeDesk)}.</p>
+          <p class="step-hint">
+            Pas d’icône&nbsp;? Menu <Spoken text={path(MENU.chromeDesk)} />.
+          </p>
         </>
       ),
     })
@@ -605,7 +679,9 @@ function AndroidOrDesk({ ctx }: { ctx: Ctx }) {
       body: (
         <>
           <p>Cliquez l’icône d’installation, dans la barre d’adresse (trois carrés et un plus).</p>
-          <p class="step-hint">Pas d’icône&nbsp;? Menu {path(MENU.edgeDesk)}.</p>
+          <p class="step-hint">
+            Pas d’icône&nbsp;? Menu <Spoken text={path(MENU.edgeDesk)} />.
+          </p>
         </>
       ),
     })
@@ -724,7 +800,7 @@ function Plain({ ctx, guide }: { ctx: Ctx; guide: Guide }) {
   const { device, started } = ctx
   const key: DeviceKey = device.key
   if (key === 'other') {
-    return ctx.offer || ctx.done ? (
+    return ctx.offered || ctx.done ? (
       <section class="install-section" aria-labelledby="ajout-t">
         <h2 id="ajout-t" class="install-title">
           Ce navigateur sait installer Isoloir
@@ -739,7 +815,11 @@ function Plain({ ctx, guide }: { ctx: Ctx; guide: Guide }) {
       <h2 id="ajout-t" class="install-title">
         {title}
       </h2>
-      {guide.lead ? <p class="install-say is-plain">{guide.lead}</p> : null}
+      {guide.lead ? (
+        <p class="install-say is-plain">
+          <Spoken text={guide.lead} />
+        </p>
+      ) : null}
       {key === 'inApp' && started ? (
         <a class="btn-text" href={link('/autre-appareil')}>
           <Icon name="qr" />
@@ -754,6 +834,10 @@ function Plain({ ctx, guide }: { ctx: Ctx; guide: Guide }) {
 function InApp({ ctx }: { ctx: Ctx }) {
   const { device, host, started, count } = ctx
   const apart = device.storage === 'separe'
+  const mac = device.os === 'mac'
+  // Sur iPhone et iPad, l'application a pu être ajoutée depuis Safari, Chrome, Edge ou Firefox : elle ne sait pas lequel.
+  // Sur Mac, seul Safari en fait une application à part
+  const from = mac ? 'Safari' : 'le navigateur'
   // L'iPhone garde les réponses de l'application (stockage persistant) : on ne le dit que s'il le confirme
   const [kept, setKept] = useState(false)
   useEffect(() => {
@@ -767,13 +851,17 @@ function InApp({ ctx }: { ctx: Ctx }) {
       alive = false
     }
   }, [apart])
-  const name = device.os === 'mac' ? 'Mac' : noun(device)
+  const name = mac ? 'Mac' : noun(device)
   const keptLine = kept ? (
     <p>
-      Ici, dans l’application, {device.os === 'mac' ? 'le Mac' : `l’${name}`} garde vos réponses&nbsp;; dans Safari, il peut les effacer
-      si vous n’y revenez pas pendant un moment.
+      Ici, dans l’application, {mac ? 'le Mac' : `l’${name}`} garde vos réponses&nbsp;; dans Safari, il peut les effacer si vous n’y
+      revenez pas pendant un moment.
     </p>
   ) : null
+
+  // Firefox sous Windows, ou un navigateur non reconnu : l'application peut démarrer vide comme lire les réponses du
+  // navigateur ; ouverte sans réponse, comment les faire passer
+  if (device.storage === 'inconnu' && !started) return <MaybeEmpty ctx={ctx} />
 
   if (!apart || started) {
     return (
@@ -788,7 +876,7 @@ function InApp({ ctx }: { ctx: Ctx }) {
               : 'Votre réponse est ici, sur cet appareil.'
             : 'Pas encore de réponses ici\u00a0: répondez dans l’application.'}{' '}
           {apart
-            ? 'Ce que vous changez ici n’arrive pas dans Safari, ni l’inverse.'
+            ? `Ce que vous changez ici n’arrive pas dans ${from}, ni l’inverse.`
             : device.storage === 'partage'
               ? `L’application et ${device.browser || 'le navigateur'} lisent les mêmes.`
               : ''}
@@ -806,21 +894,25 @@ function InApp({ ctx }: { ctx: Ctx }) {
     )
   }
 
-  const phone = device.os !== 'mac'
+  const phone = !mac
   return (
     <>
       <section class="install-section" aria-labelledby="reponses-t">
         <h2 id="reponses-t" class="install-title">
-          Vos réponses sont restées dans Safari&nbsp;?
+          Vos réponses sont restées dans {from}&nbsp;?
         </h2>
         <p class="install-say">Faites-les passer une fois, en deux gestes.</p>
         <Gestures
           items={[
             {
-              where: 'Dans Safari',
+              where: `Dans ${from}`,
               body: (
                 <>
-                  <p>{phone ? 'Ouvrez Safari\u00a0: glissez vers le haut depuis le bas de l’écran, ou touchez son icône.' : 'Revenez dans Safari.'}</p>
+                  <p>
+                    {phone
+                      ? 'Ouvrez le navigateur où vous aviez répondu (Safari, Chrome…)\u00a0: glissez vers le haut depuis le bas de l’écran, ou touchez son icône.'
+                      : 'Revenez dans Safari.'}
+                  </p>
                   <p>
                     En bas de la page d’Isoloir, {phone ? 'touchez' : 'cliquez'} <B>{MENU.installPage}</B>, puis <B>{MENU.copyCode}</B>.
                   </p>
@@ -844,28 +936,94 @@ function InApp({ ctx }: { ctx: Ctx }) {
             },
           ]}
         />
-        <p class="install-after">
-          <Icon name="check" />
-          Pas encore de réponses&nbsp;? Répondez ici, dans l’application&nbsp;: rien à faire passer.
-        </p>
-        <p class="install-after-link">
-          <a class="btn-text" href={link('/feuille/1')}>
-            Répondre aux questions
-            <Icon name="arrow-right" />
-          </a>
-        </p>
+        <NotYet />
       </section>
       <section class="install-section" aria-labelledby="pourquoi-t">
         <h2 id="pourquoi-t" class="install-title">
           Pourquoi elle démarre vide
         </h2>
         <figure class="install-figure">
-          <Apart where={device.os === 'mac' ? 'sur ce Mac' : `sur cet ${name}`} count="vos réponses" browser="Safari" />
+          <Apart where={mac ? 'sur ce Mac' : `sur cet ${name}`} count="vos réponses" browser={from} />
         </figure>
-        <p>Sur {name}, l’application a son propre espace, séparé de Safari. Rien ne passe de l’un à l’autre sans vous.</p>
+        <p>
+          Sur {name}, l’application a son propre espace, séparé {mac ? 'de Safari' : 'du navigateur'}. Rien ne passe de l’un à l’autre sans
+          vous.
+        </p>
         {keptLine}
       </section>
     </>
+  )
+}
+
+/** Pas encore de réponses : répondre ici, rien à faire passer */
+function NotYet() {
+  return (
+    <>
+      <p class="install-after">
+        <Icon name="check" />
+        Pas encore de réponses&nbsp;? Répondez ici, dans l’application&nbsp;: rien à faire passer.
+      </p>
+      <p class="install-after-link">
+        <a class="btn-text" href={link('/feuille/1')}>
+          Répondre aux questions
+          <Icon name="arrow-right" />
+        </a>
+      </p>
+    </>
+  )
+}
+
+/**
+ * L'application installée depuis Firefox sous Windows, ou depuis un navigateur non reconnu, ouverte sans réponse : elle
+ * démarre peut-être vide (on ne sait pas si elle voit les réponses du navigateur). Son import n'a pas de bouton « Coller
+ * le code » : le code se colle dans son champ
+ */
+function MaybeEmpty({ ctx }: { ctx: Ctx }) {
+  const { device, host } = ctx
+  const browser = device.browser || 'le navigateur'
+  const phone = !device.desktop
+  const act = phone ? 'touchez' : 'cliquez'
+  // Firefox sous Windows : « Copier le code » de cette page dans le navigateur ; ailleurs, celui de la page de transfert
+  const page = device.key === 'winFirefox' ? MENU.installPage : MENU.transfer
+  const keys = device.os === 'mac' ? '⌘\u00a0+\u00a0V' : 'Ctrl\u00a0+\u00a0V'
+  return (
+    <section class="install-section" aria-labelledby="reponses-t">
+      <h2 id="reponses-t" class="install-title">
+        Vos réponses sont restées dans {browser}&nbsp;?
+      </h2>
+      <p class="install-say">Pas encore de réponses ici. Si vous aviez répondu dans {browser}, faites-les passer une fois, en deux gestes.</p>
+      <Gestures
+        items={[
+          {
+            where: `Dans ${browser}`,
+            body: (
+              <>
+                <p>
+                  En bas de la page d’Isoloir, {act} <B>{page}</B>, puis <B>{MENU.copyCode}</B>.
+                </p>
+                <p class="step-hint">Onglet fermé&nbsp;? Tapez {host}.</p>
+              </>
+            ),
+          },
+          {
+            where: 'Ici, dans l’application',
+            body: (
+              <>
+                <p>
+                  {phone ? 'Touchez' : 'Cliquez'} <B>{MENU.importMine}</B>. Collez le code dans <B>{MENU.typeCode}</B>{' '}
+                  {phone ? `(touchez longuement le champ, puis ${q(MENU.iosPaste)})` : `(${keys})`}, puis {act} <B>{MENU.readCode}</B>.
+                </p>
+                <a class="btn-primary" href={link('/autre-appareil/importer')}>
+                  <Icon name="paste" />
+                  {MENU.importMine}
+                </a>
+              </>
+            ),
+          },
+        ]}
+      />
+      <NotYet />
+    </section>
   )
 }
 
@@ -946,16 +1104,24 @@ function Others({ sectionRef, keys, open, title }: { sectionRef: RefObject<HTMLE
                   <span class="other-state">{g.state}</span>
                 </summary>
                 <div class="other-body">
-                  {g.lead ? <p>{g.lead}</p> : null}
+                  {g.lead ? (
+                    <p>
+                      <Spoken text={g.lead} />
+                    </p>
+                  ) : null}
                   {g.steps ? (
                     <ol>
                       {g.steps.map(s => (
-                        <li key={s}>{s}</li>
+                        <li key={s}>
+                          <Spoken text={s} />
+                        </li>
                       ))}
                     </ol>
                   ) : null}
                   {g.after?.map(s => (
-                    <p key={s}>{s}</p>
+                    <p key={s}>
+                      <Spoken text={s} />
+                    </p>
                   ))}
                 </div>
               </details>

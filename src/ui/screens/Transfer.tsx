@@ -5,16 +5,16 @@
 // porte les réponses ; l'éditeur ne les voit jamais.
 // Chargé à la demande (ui/screens/load.ts), avec le QR code et le codec : le code de chaque visite n'en contient rien.
 // Dans l'application installée qui a son propre espace (iPhone, iPad, Safari du Mac : core/installed.ts), l'import ouvre sur
-// « Coller le code » : le code copié dans Safari (page « Installer l'application ») se lit d'un geste ; après un import
-// pris dans le presse-papiers, Isoloir le vide.
+// « Coller le code » : le code copié dans le navigateur (page « Installer l'application ») se lit d'un geste ; après un
+// import pris dans le presse-papiers, Isoloir le vide.
 
-import { useEffect, useMemo, useRef, useState } from 'preact/hooks'
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks'
 import { downloadBlob } from '../../core/download'
 import { appApart } from '../../core/installed'
 import { importNotes, type ImportResult } from '../../core/exportData'
 import type { SessionState } from '../../core/storage'
-import { groupCode } from '../../core/transfer/base32'
-import { encodeTransfer, parseCode } from '../../core/transfer/codec'
+import { groupCode, normalizeCode } from '../../core/transfer/base32'
+import { encodeTransfer, extractCode, looksLikeCode, parseCode } from '../../core/transfer/codec'
 import { MAIL_SUBJECT, transferMailBody, transferMailto } from '../../core/transferMail'
 import { qrModules, qrPath } from '../../core/transfer/qr'
 import { sheetContents } from '../../core/transfer/summary'
@@ -329,6 +329,13 @@ function Send({ pack, state }: { pack: ElectionPack; state: SessionState }) {
 
 /** L'appareil de l'application à part, nommé dans la phrase d'import */
 const where = (os: string | null) => (os === 'mac' ? 'ce Mac' : os === 'ipad' ? 'cet iPad' : 'cet iPhone')
+/**
+ * Le navigateur où les réponses ont été copiées : Safari sur Mac (seul à y faire une application à part) ; sur iPhone et
+ * iPad, l'application a pu être ajoutée depuis Safari, Chrome, Edge ou Firefox, et ne sait pas lequel
+ */
+const fromOf = (os: string | null) => (os === 'mac' ? 'Safari' : 'le navigateur')
+/** Le code que porte un texte (collé ou tapé), mis en forme : deux textes au même code se reconnaissent */
+const codeIn = (text: string) => normalizeCode(extractCode(text))
 
 const CAMERA_ERRORS: Record<CameraError, string> = {
   refusee: 'Caméra refusée. Autorisez-la dans les réglages du navigateur, ou choisissez une image.',
@@ -355,8 +362,16 @@ function Receive({ pack, state, setState }: Props) {
   const [pasteNote, setPasteNote] = useState<string | null>(null)
   /** Les réponses trouvées viennent du presse-papiers : il sera vidé à l'import */
   const fromClip = useRef(false)
+  /** Le dernier texte collé dans le champ : le code lu n'est pris du presse-papiers que s'il est celui-là */
+  const pasted = useRef<string | null>(null)
+  /** « Réponses trouvées » : le focus y passe, le bouton qui a lu le code n'est plus là */
+  const found = useRef<HTMLHeadingElement>(null)
 
   useEffect(() => setError(null), [text])
+  // Dans le même rendu que le titre : le focus ne passe jamais par la page entière
+  useLayoutEffect(() => {
+    if (pending) found.current?.focus()
+  }, [pending])
   // Quitter la page ou l'onglet « Importer » arrête la caméra
   useEffect(
     () => () => {
@@ -373,6 +388,8 @@ function Receive({ pack, state, setState }: Props) {
       return
     }
     setError(null)
+    // Collé puis effacé, ou retouché au clavier : ce n'est plus le presse-papiers, Isoloir n'y touche pas
+    fromClip.current = pasted.current !== null && codeIn(pasted.current) === codeIn(value)
     setPending(res)
   }
 
@@ -440,16 +457,19 @@ function Receive({ pack, state, setState }: Props) {
       return
     }
     setPasteNote(null)
+    // Où aller chercher le code, s'il n'est pas dans le presse-papiers
+    const again = `Dans ${apart === 'mac' ? 'Safari' : 'le navigateur où vous aviez répondu'}, «\u00a0Installer l’application\u00a0», puis «\u00a0Copier le code\u00a0».`
     clip.readText().then(
       t => {
         if (!alive.current) return
         if (!t.trim()) {
-          setPasteNote('Le presse-papiers est vide. Dans Safari, «\u00a0Installer l’application\u00a0», puis «\u00a0Copier le code\u00a0».')
+          setPasteNote(`Le presse-papiers est vide. ${again}`)
           return
         }
         const res = parseCode(t, pack)
         if (!res.ok) {
-          setPasteNote(res.error)
+          // Une adresse, un mot… : rien qui ressemble à un code (pas une faute de frappe : rien n'a été tapé)
+          setPasteNote(looksLikeCode(t) ? res.error : `Le presse-papiers ne contient pas de code Isoloir. ${again}`)
           return
         }
         fromClip.current = true
@@ -472,7 +492,7 @@ function Receive({ pack, state, setState }: Props) {
     const notes = importNotes(pending, pack)
     return (
       <section class="transfer-panel is-receive" aria-labelledby="receive-title">
-        <h2 id="receive-title" class="transfer-title" tabIndex={-1}>
+        <h2 id="receive-title" class="transfer-title" tabIndex={-1} ref={found}>
           Réponses trouvées
         </h2>
         <p class="transfer-contents">{sheetContents(pending.state)}</p>
@@ -510,7 +530,7 @@ function Receive({ pack, state, setState }: Props) {
         Importez vos réponses
       </h2>
       <p class="transfer-receive-lede">
-        {apart ? `Copiées dans Safari, sur ${where(apart)}\u00a0? Collez-les ici.` : 'Depuis un autre appareil, ou depuis votre copie par e-mail.'}
+        {apart ? `Copiées dans ${fromOf(apart)}, sur ${where(apart)}\u00a0? Collez-les ici.` : 'Depuis un autre appareil, ou depuis votre copie par e-mail.'}
       </p>
       <ol class="transfer-ways">
         {apart ? (
@@ -520,7 +540,7 @@ function Receive({ pack, state, setState }: Props) {
             </span>
             <div class="way">
               <h3>Coller le code</h3>
-              <p>Le code copié dans Safari, ou dans votre e-mail.</p>
+              <p>Le code copié dans {fromOf(apart)}, ou dans votre e-mail.</p>
               <button type="button" class="btn-primary" onClick={paste}>
                 <Icon name="paste" />
                 Coller le code
@@ -609,7 +629,7 @@ function Receive({ pack, state, setState }: Props) {
               placeholder="XXXX XXXX XXXX XXXX…"
               value={text}
               onInput={e => setText((e.currentTarget as HTMLTextAreaElement).value)}
-              onPaste={() => (fromClip.current = true)}
+              onPaste={e => (pasted.current = e.clipboardData?.getData('text') ?? null)}
               aria-describedby={error ? 'transfer-error' : undefined}
               aria-invalid={error ? true : undefined}
             />

@@ -22,7 +22,8 @@ import { Home } from './ui/screens/Home'
 import './styles/legal.css'
 // « Continuer sur un autre appareil » (chargé à la demande) : son style dans la feuille de la page, comme les notices
 import './styles/transfer.css'
-// « Installer l'application » (chargée à la demande), et l'avis de l'accueil de l'application ouverte vide : de même
+// L'avis de l'accueil de l'application ouverte vide et les liens vers « Installer l'application » ; la page, chargée à la
+// demande, a sa feuille, chargée avec elle (styles/install-page.css)
 import './styles/install.css'
 import { Priorities } from './ui/screens/Priorities'
 import { Proximity } from './ui/screens/Proximity'

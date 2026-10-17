@@ -364,17 +364,19 @@ export function DeskBar({ host }: { host: string }) {
 
 /** Le navigateur et l'application, côte à côte : rien de partagé ; le code fait le tour par vos doigts, une fois */
 export function Apart({ where, count, browser }: { where: string; count: string; browser: string }) {
+  // « le navigateur » (l'application d'un iPhone ne sait pas lequel l'a ajoutée), en tête de phrase et de sa boîte
+  const label = browser.charAt(0).toUpperCase() + browser.slice(1)
   return (
     <Step
       id="dg-apart"
       wide
-      title={`${browser} et l’application, sur le même appareil`}
+      title={`${label} et l’application, sur le même appareil`}
       desc={`Deux espaces séparés sur le même appareil : ${browser} garde vos réponses ; l’application installée démarre vide. Rien n’est partagé entre les deux. Le code de vos réponses passe une fois de l’un à l’autre, par vous : copier dans ${browser}, coller dans l’application.`}
       h={180}
     >
       <rect class="dg-box dg-strong" x="3" y="22" width="106" height="72" />
       <text class="dg-label dg-bold" x="12" y="42">
-        {browser}
+        {label}
       </text>
       <rect class="dg-box dg-ink-box" x="11" y="54" width="90" height="28" />
       <text class="dg-small dg-ink-text" x="56" y="72" text-anchor="middle">
