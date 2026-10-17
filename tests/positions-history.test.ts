@@ -1,7 +1,10 @@
 // Historique des positions (research/presidentielle-2027/positions-history.json, décision du propriétaire du
 // 2026-10-15) : son rejeu redonne positions.ts, la chaîne est cohérente, le format est stable, chaque entrée dit sa
 // cause, et la consignation (tools/positions-history.mjs : appendFromBuild, appelée par build-pack à chaque BUILD,
-// append, stamp, rebuild) est idempotente et part de l'état que l'historique connaît.
+// append, stamp, rebuild) est idempotente et part de l'état que l'historique connaît. Les cas connus sont bornés à
+// leur jour, et les règles sur les causes valent pour tout BUILD : un rafraîchissement légitime de la veille
+// automatique (décision du propriétaire du 17 octobre 2026) passe, un changement attribué au candidat sans date ni
+// note propre de decisions.json est refusé.
 import { execFileSync } from 'node:child_process'
 import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
@@ -11,7 +14,8 @@ import { afterEach, describe, expect, it } from 'vitest'
 import type { Position, PositionTable } from '../src/core/types'
 import {
   CANDIDATE_CAUSES, CHANGE_CAUSES, CHANGE_KINDS, HISTORY_FORMAT, byCandidate, chainErrors, changeKinds, changeLevel, emptyHistory,
-  labelAt, recordChanges, recordLabels, replay, stampDataVersion, stanceOf, withoutEmptyRows, type LabelQuestion, type PositionsHistory,
+  labelAt, recordChanges, recordLabels, replay, stampDataVersion, stanceOf, withoutEmptyRows, type ChangeCause, type LabelQuestion,
+  type PositionChange, type PositionsHistory,
 } from '../src/core/positionsHistory'
 import { appendFromBuild } from '../tools/positions-history.mjs'
 import { positions } from '../src/elections/presidentielle-2027/positions'
@@ -21,6 +25,79 @@ import { candidates } from '../src/elections/presidentielle-2027/candidates'
 const history: PositionsHistory = JSON.parse(
   readFileSync(new URL('../research/presidentielle-2027/positions-history.json', import.meta.url), 'utf8'),
 )
+
+/** Format d'une date de prise de position : AAAA-MM-JJ, ou AAAA-MM quand seul le mois est connu */
+const STATED = /^\d{4}-\d{2}(-\d{2})?$/
+
+/**
+ * Les règles de toujours sur les causes, pour toute entrée, celles des BUILD de la veille automatique comprises
+ * (décision du propriétaire du 17 octobre 2026) : aucune cause non précisée ; une cause qui attribue le changement au
+ * candidat (CANDIDATE_CAUSES) a la date de sa prise de position, au plus tard le jour de l'entrée, et vient d'une note
+ * propre de decisions.json (note et historyCause de la position), jamais d'une inférence ni d'une note d'ensemble
+ * (historyNotes) ; aucune autre cause n'a de date. Rend « <id> : <règle> » pour chaque entrée qui en enfreint une
+ */
+function causeErrors(entries: readonly PositionChange[]): string[] {
+  const out: string[] = []
+  for (const e of entries) {
+    if (e.cause === 'non-précisée') out.push(`${e.id} : cause non précisée`)
+    if (CANDIDATE_CAUSES.includes(e.cause)) {
+      if (!e.statedAt || !STATED.test(e.statedAt)) out.push(`${e.id} : prise de position sans date`)
+      else if (e.statedAt > e.date) out.push(`${e.id} : prise de position datée après son entrée`)
+      if (e.reasonFrom !== 'decisions.json' || !e.reason) out.push(`${e.id} : prise de position sans note propre de decisions.json`)
+    }
+    if (e.cause !== 'prise-de-position' && e.statedAt !== null) out.push(`${e.id} : date de prise de position pour la cause ${e.cause}`)
+  }
+  return out
+}
+
+/**
+ * Les causes des cas connus, bornées à leurs jours (8, 14 et 15 octobre 2026) : vraies quelles que soient les entrées
+ * des BUILD suivants
+ */
+function expectKnownCauses(entries: readonly PositionChange[]): void {
+  expect(entries.filter(e => e.date === '2026-10-08').every(e => e.cause === 'première-publication')).toBe(true)
+  const on = (date: string, c: string, a: string) => entries.find(e => e.date === date && e.candidateId === c && e.approachId === a)
+  // 14 octobre : Natacha Polony entre, deux approches entrent dans la banque, le reste est une relecture
+  const polony = entries.filter(e => e.candidateId === 'polony' && e.date === '2026-10-14')
+  expect(polony.length).toBeGreaterThan(0)
+  expect(polony.every(e => e.cause === 'nouveau-candidat')).toBe(true)
+  expect(on('2026-10-14', 'cazeneuve', 'finances_publiques-1-h')?.cause).toBe('nouvelle-approche')
+  expect(on('2026-10-14', 'philippe', 'finances_publiques-1-a')?.cause).toBe('relecture')
+  // 15 octobre : le plan de Bruno Retailleau (12 octobre) est une prise de position ; l'inversion de Florian
+  // Philippot, une relecture de son livret déjà cité
+  expect(on('2026-10-15', 'retailleau', 'finances_publiques-1-a')).toMatchObject({ cause: 'prise-de-position', statedAt: '2026-10-12' })
+  expect(on('2026-10-15', 'philippot', 'finances_publiques-1-g')).toMatchObject({ cause: 'relecture', statedAt: null })
+  // Jusqu'au 15 octobre inclus, aucune autre prise de position consignée ; les suivantes suivent les règles de toujours
+  const own = entries.filter(e => CANDIDATE_CAUSES.includes(e.cause) && e.date <= '2026-10-15')
+  expect(own.length).toBeGreaterThan(0)
+  expect(own.every(e => e.candidateId === 'retailleau')).toBe(true)
+}
+
+/** La raison d'un changement, telle que build-pack la tire de decisions.json (reasonOf de recordChanges) */
+type Why = { reason: string | null; from: string | null; cause?: ChangeCause | null; statedAt?: string | null }
+/** Jour d'un BUILD fictif de la veille, après les cas connus */
+const FUTURE = '2026-10-20'
+/**
+ * L'historique réel suivi d'un BUILD fictif de la veille, le 20 octobre 2026 (recordChanges, comme build-pack) : pour
+ * chaque candidat donné, sa première position connue change de résumé et de sources (par défaut, une source datée du
+ * 18 octobre), avec la raison donnée. Rend toutes les entrées ; l'historique réel n'est pas touché
+ */
+function futureBuild(changes: Record<string, { why: Why | undefined; sources?: Position['sources'] }>): PositionChange[] {
+  const h: PositionsHistory = structuredClone(history)
+  const previous = replay(h.entries)
+  const next: PositionTable = structuredClone(previous)
+  for (const [id, { sources }] of Object.entries(changes)) {
+    const [ap, p] = Object.entries(next[id] ?? {}).sort(([a], [b]) => a.localeCompare(b))[0]!
+    next[id]![ap] = { ...p, summary: `${p.summary} Précisé depuis.`, sources: sources ?? [{ title: 'Entretien', url: 'https://exemple.fr/entretien', date: '2026-10-18' }] }
+  }
+  const stats = recordChanges(h, {
+    date: FUTURE, origin: 'build-pack', previous, next, dataVersion: { before: election.dataVersion, after: null },
+    reasonOf: c => changes[c.candidateId]?.why,
+  })
+  expect(stats).toEqual({ added: Object.keys(changes).length, updated: 0, removed: 0 })
+  expect(chainErrors(h.entries)).toEqual([])
+  return h.entries
+}
 
 describe('historique de la présidentielle', () => {
   it('le rejeu de toutes les entrées redonne positions.ts', () => {
@@ -75,9 +152,12 @@ describe('historique de la présidentielle', () => {
 
   it('cas connus du rétroactif (14 octobre 2026)', () => {
     const on = (date: string, c: string, a: string) => history.entries.find(e => e.date === date && e.candidateId === c && e.approachId === a)
-    const polony = history.entries.filter(e => e.candidateId === 'polony')
+    // Natacha Polony entre le 14 octobre : ce jour-là, rien que des ajouts, et rien d'elle avant. Ses changements
+    // ultérieurs (veille automatique, décision du propriétaire du 17 octobre 2026) ne touchent pas ce cas.
+    const polony = history.entries.filter(e => e.candidateId === 'polony' && e.date === '2026-10-14')
     expect(polony.length).toBeGreaterThan(0)
-    expect(polony.every(e => e.date === '2026-10-14' && e.kinds[0] === 'ajout')).toBe(true)
+    expect(polony.every(e => e.kinds[0] === 'ajout')).toBe(true)
+    expect(history.entries.filter(e => e.candidateId === 'polony' && e.date < '2026-10-14').map(e => e.id)).toEqual([])
     expect(on('2026-10-14', 'cazeneuve', 'finances_publiques-1-h')?.stance).toEqual({ before: 'inconnue', after: 'principale' })
     expect(on('2026-10-14', 'cazeneuve', 'finances_publiques-1-c')?.after?.weight).toBe(1)
     expect(on('2026-10-14', 'philippe', 'finances_publiques-1-a')?.stance).toEqual({ before: 'compatible', after: 'principale' })
@@ -88,21 +168,44 @@ describe('historique de la présidentielle', () => {
     expect(lepen?.dataVersion).toEqual({ before: '2026-10-12.1', after: '2026-10-14.1' })
   })
 
-  it('causes : aucune non précisée ; seules les prises de position sont attribuées au candidat', () => {
-    expect(history.entries.filter(e => e.cause === 'non-précisée').map(e => e.id)).toEqual([])
-    expect(history.entries.filter(e => e.date === '2026-10-08').every(e => e.cause === 'première-publication')).toBe(true)
-    const on = (date: string, c: string, a: string) => history.entries.find(e => e.date === date && e.candidateId === c && e.approachId === a)
-    // 14 octobre : Natacha Polony entre, deux approches entrent dans la banque, le reste est une relecture
-    expect(history.entries.filter(e => e.candidateId === 'polony').every(e => e.cause === 'nouveau-candidat')).toBe(true)
-    expect(on('2026-10-14', 'cazeneuve', 'finances_publiques-1-h')?.cause).toBe('nouvelle-approche')
-    expect(on('2026-10-14', 'philippe', 'finances_publiques-1-a')?.cause).toBe('relecture')
-    // 15 octobre : le plan de Bruno Retailleau (12 octobre) est une prise de position ; l'inversion de Florian
-    // Philippot, une relecture de son livret déjà cité
-    expect(on('2026-10-15', 'retailleau', 'finances_publiques-1-a')).toMatchObject({ cause: 'prise-de-position', statedAt: '2026-10-12' })
-    expect(on('2026-10-15', 'philippot', 'finances_publiques-1-g')).toMatchObject({ cause: 'relecture', statedAt: null })
-    const own = history.entries.filter(e => CANDIDATE_CAUSES.includes(e.cause))
-    expect(own.length).toBeGreaterThan(0)
-    expect(own.every(e => e.candidateId === 'retailleau')).toBe(true)
+  it('causes, règles de toujours : aucune non précisée ; un changement attribué au candidat a sa date et sa note de decisions.json', () => {
+    expect(history.entries.filter(e => CANDIDATE_CAUSES.includes(e.cause)).length).toBeGreaterThan(0)
+    expect(causeErrors(history.entries)).toEqual([])
+  })
+
+  it('causes des cas connus (8, 14 et 15 octobre 2026) ; jusqu’au 15, seules les prises de position de Bruno Retailleau', () => {
+    expectKnownCauses(history.entries)
+  })
+
+  it('un BUILD postérieur de la veille : une prise de position datée d’un autre candidat passe ; sans date ni note, refusée', () => {
+    // Le premier candidat, dans l'ordre, ni Bruno Retailleau (seules prises de position jusqu'au 15 octobre) ni Natacha
+    // Polony (entrée le 14 octobre)
+    const other = Object.keys(positions).filter(id => id !== 'retailleau' && id !== 'polony' && Object.keys(positions[id] ?? {}).length).sort()[0]!
+    const own = (statedAt?: string | null): Why => ({ reason: 'AVANT : … APRÈS : … (veille)', from: 'decisions.json', cause: 'prise-de-position', statedAt })
+    const ok = futureBuild({ [other]: { why: own('2026-10-18') }, polony: { why: { ...own(), cause: 'relecture' } } })
+    expect(ok.filter(e => e.date === FUTURE).map(e => [e.candidateId, e.cause, e.statedAt]).sort()).toEqual(
+      [[other, 'prise-de-position', '2026-10-18'], ['polony', 'relecture', null]].sort())
+    expect(causeErrors(ok)).toEqual([])
+    expectKnownCauses(ok)
+    // Ce que les anciennes assertions, non bornées dans le temps, auraient refusé à tort
+    expect(ok.filter(e => CANDIDATE_CAUSES.includes(e.cause)).every(e => e.candidateId === 'retailleau')).toBe(false)
+    expect(ok.filter(e => e.candidateId === 'polony').every(e => e.date === '2026-10-14')).toBe(false)
+    // Une source datée suffit à dater la prise de position (comme build-pack, latestSourceDate)
+    expect(causeErrors(futureBuild({ [other]: { why: own() } }))).toEqual([])
+    // Refusés : chacun donne exactement une erreur, sur l'entrée du 20 octobre
+    const refused = (why: Why | undefined, sources?: Position['sources']) => {
+      const errors = causeErrors(futureBuild({ [other]: { why, sources } }))
+      expect(errors, JSON.stringify(why)).toHaveLength(1)
+      expect(errors[0]!.startsWith(`${FUTURE}:${other}:`), errors[0]).toBe(true)
+      return errors[0]!.replace(/^\S+ : /, '')
+    }
+    const undated = [{ title: 'Entretien', url: 'https://exemple.fr/entretien' }]
+    expect(refused(own(), undated)).toBe('prise de position sans date')
+    expect(refused(own('2026-10-21'))).toBe('prise de position datée après son entrée')
+    expect(refused({ ...own('2026-10-18'), from: 'decisions.json (historyNotes)' })).toBe('prise de position sans note propre de decisions.json')
+    expect(refused({ ...own('2026-10-18'), reason: null })).toBe('prise de position sans note propre de decisions.json')
+    expect(refused({ ...own('2026-10-18'), cause: 'relecture' })).toBe('date de prise de position pour la cause relecture')
+    expect(refused(undefined)).toBe('cause non précisée')
   })
 })
 

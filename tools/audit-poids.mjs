@@ -16,11 +16,28 @@
 // (readEchiquier, chartRows, weighOf). Les chiffres publiés sont dans ECHIQUIER_WEIGH (src/core/echiquierMethodCopy.ts) ;
 // à refaire après une mise à jour des positions.
 //
-// Usage : node tools/audit-poids.mjs [<id>] [--noisy 60] [--quick]
+// Usage : node tools/audit-poids.mjs [<id>] [--noisy 60] [--quick] [--json]
 //   <id>      : l'élection (par défaut presidentielle-2027) ; elle doit avoir un axe (election.spectrum.axis)
 //   --noisy   : clones bruités par candidat (60 pour ECHIQUIER_WEIGH : la porte D5 en demande 60 pour un verdict, 30 ne
 //               donnent qu'une indication)
 //   --quick   : refaire la mesure sur le seul questionnaire rapide (lignes de famille surtout)
+//   --json    : le même calcul ; le rapport lisible passe sur stderr, et stdout ne reçoit qu'une ligne JSON (contrat de
+//               la veille, tools/veille/CONTRACT.md, c.10 AUDIT_JSON), pour tools/veille/remeasure.mjs :
+//               { tool: 'audit-poids', electionId, options: { noisy, quick }, measured, extra }
+//     measured : la forme de ECHIQUIER_WEIGH, sans measured ni clones, à 0,1 près : main ({ all, low, lowWhere, high,
+//                highWhere, without, withoutLow, withoutHigh }, par bloc vrai), compatible, rejects et none ({ all,
+//                without }), mainGap, reference ([avec, sans]), cited ([le plus bas, le plus haut], avec le candidat) et
+//                compatibleShare ({ low, lowWhere, high, highWhere }, des données : le calcul exact de
+//                tests/echiquier-copy.test.ts) ; avec --quick, en plus (le passage refait aussi la banque, aux mêmes
+//                graines) : quick ({ main, mainLow, mainHigh, compatible, compatibleLow, compatibleHigh }, avec le
+//                candidat) ;
+//     extra    : blocs (election.spectrum.axis[].bloc, dans l'ordre) et where (leurs mots) ; verdicts, par écart D5 :
+//                « shown|main|compatible|rejects|none » + « .with|.without », préfixés « quick. » au rapide (shown : la
+//                fiche ou le renvoi montrés) ; gaps, aux mêmes clés : { gap, low, high, reference } en points ;
+//                compatibleShareBlocs (les 5 parts de compatibleShare, dans l'ordre de l'axe) et
+//                compatibleShareQuickBlocs (les mêmes sur les seules questions du rapide, avec --quick) ; suitesByBloc
+//                (et suitesByBlocQuick) : { main|compatible|rejects|none: { with, without } }, la part de chaque bloc
+//                vrai (null sans fiche) ; citedBy ({ low, high } : les candidats classés des bornes de cited)
 // Il faut Node 22.18+ (TypeScript sans compilation).
 import { importSite, useSiteModules } from './site-modules.mjs'
 
@@ -33,6 +50,9 @@ const opt = (name, fallback) => {
 const id = argv.find((a, i) => !a.startsWith('--') && !OPTIONS.includes(argv[i - 1])) ?? 'presidentielle-2027'
 const NOISY = opt('--noisy', 60)
 const QUICK = argv.includes('--quick')
+const JSON_OUT = argv.includes('--json')
+// --json : le rapport lisible, inchangé, passe sur stderr ; stdout ne reçoit que la ligne JSON de la fin
+if (JSON_OUT) console.log = console.error
 
 useSiteModules()
 const { elections } = await importSite('src/elections/all.ts')
@@ -103,7 +123,8 @@ function compatibleShare(only = () => true) {
   })
 }
 
-function run(kind, makeClones, share) {
+/** sink : reçoit, pour --json, les comptes des suites bloc par bloc, sans rien changer au rapport */
+function run(kind, makeClones, share, sink = {}) {
   console.log(`\n=== ${kind} : ${NOISY} clones bruités par candidat, ${P.ranked.length} candidats ===`)
   console.log(`  part des approches compatibles parmi les positions des candidats de chaque bloc : ${share.map((x, b) => `${SH[b]} ${r1(x)} %`).join(' | ')}`)
   const summary = {}
@@ -186,6 +207,7 @@ function run(kind, makeClones, share) {
       console.log(`    par bloc de la fiche : ${row(bySuiteFiche[s])}`)
       summary[w].suites[s] = { all: pct(tot.k, tot.n), min: g.min, max: g.max, gap: g, verdict, fiche: bySuiteFiche[s].map(c => (c.n ? r1(pct(c.k, c.n)) : null)) }
     }
+    sink[w] = { bySuiteTrue }
     const per = [...cited].filter(([, x]) => x.n).map(([c, x]) => [c, pct(x.k, x.n), x.n])
     console.log(`  approche citée, l’approche principale du candidat (parmi les fiches de son bloc) : ${per.map(([c, p, n]) => `${names.get(c)} ${r1(p)} % (${n})`).join(' · ')}`)
     const ps = per.map(x => x[1])
@@ -196,10 +218,12 @@ function run(kind, makeClones, share) {
 
 const t0 = Date.now()
 console.log(`Ce qui pèse le plus : audit de ${id}, ${P.ranked.length} candidats sur l'axe, ${NOISY} clones bruités par candidat`)
-const bank = run('banque', cid => Array.from({ length: NOISY }, (_, s) => P.noisy(P.cloneLarge(cid), `n:${cid}:${s}`)), compatibleShare())
+const sinks = { bank: {}, quick: {} }
+const bank = run('banque', cid => Array.from({ length: NOISY }, (_, s) => P.noisy(P.cloneLarge(cid), `n:${cid}:${s}`)), compatibleShare(), sinks.bank)
 console.log(`\n${JSON.stringify(bank)}`)
+let quick = null
 if (QUICK) {
-  const quick = run('questionnaire rapide seul', cid => Array.from({ length: NOISY }, (_, s) => P.noisy(P.cloneLarge(cid, isQuick), `nq:${cid}:${s}`)), compatibleShare(isQuick))
+  quick = run('questionnaire rapide seul', cid => Array.from({ length: NOISY }, (_, s) => P.noisy(P.cloneLarge(cid, isQuick), `nq:${cid}:${s}`)), compatibleShare(isQuick), sinks.quick)
   console.log(`\n${JSON.stringify(quick)}`)
 }
 famTimes.sort((a, b) => a - b)
@@ -208,3 +232,104 @@ console.log(
   `\nOuverture d’une ligne de famille (calcul de la fiche, ${famTimes.length} lignes) : médiane ${r1(q(0.5))} ms, 99e centile ${r1(q(0.99))} ms, au plus ${r1(famTimes.at(-1))} ms ; × 5 (téléphone lent) : ${r1(5 * q(0.5))}, ${r1(5 * q(0.99))} et ${r1(5 * famTimes.at(-1))} ms`,
 )
 console.log(`\n${Math.round((Date.now() - t0) / 1000)} s`)
+
+// --json : une ligne, les mêmes chiffres, à la forme de ECHIQUIER_WEIGH (contrat de la veille, c.10 AUDIT_JSON)
+if (JSON_OUT) {
+  const WITH = 'avec le candidat'
+  const WITHOUT = 'sans le candidat'
+  const KEYS = { principale: 'main', compatible: 'compatible', rejet: 'rejects', aucun: 'none' }
+  const WHERE = pack.election.spectrum.axis.map(a => a.where)
+  /** Le bloc d'une part, parmi les parts bloc par bloc (le premier en cas d'égalité ; null exclus) */
+  const whereOf = (xs, x) => (x === null || !Number.isFinite(x) ? null : WHERE[xs.indexOf(x)] ?? null)
+  const perBloc = cells => cells.map(c => (c.n ? r1(pct(c.k, c.n)) : null))
+  const verdicts = {}
+  const gaps = {}
+  const note = (key, g, ref, verdict) => {
+    verdicts[key] = verdict
+    gaps[key] = { gap: r1(g.gap), low: r1(g.low), high: r1(g.high), reference: r1(ref.gap) }
+  }
+  /** Les verdicts d'un passage, et ses suites bloc vrai par bloc vrai */
+  function pass(summary, sink, prefix) {
+    const byBloc = {}
+    for (const [w, tag] of [[WITH, 'with'], [WITHOUT, 'without']]) {
+      note(`${prefix}shown.${tag}`, summary[w].shown, summary[w].ref, summary[w].shownVerdict)
+      for (const [suite, key] of Object.entries(KEYS)) {
+        note(`${prefix}${key}.${tag}`, summary[w].suites[suite].gap, summary[w].ref, summary[w].suites[suite].verdict)
+        byBloc[key] ??= {}
+        byBloc[key][tag] = perBloc(sink[w].bySuiteTrue[suite])
+      }
+    }
+    return byBloc
+  }
+  /**
+   * La part des approches compatibles (poids effectif 1) parmi les positions (poids effectif non nul) des candidats de
+   * chaque bloc : le calcul exact de tests/echiquier-copy.test.ts (ECHIQUIER_WEIGH.compatibleShare), arrondi de même ;
+   * only : les seules questions retenues (le rapide)
+   */
+  const exactShare = only => {
+    const ids = only ? new Set(pack.bank.questions.filter(only).flatMap(q => q.approaches.map(a => a.id))) : null
+    return P.panel.map(list => {
+      let one = 0
+      let all = 0
+      for (const c of list)
+        for (const [a, pos] of Object.entries(pack.positions[c] ?? {})) {
+          if (ids && !ids.has(a)) continue
+          const e = effectiveWeight(pos)
+          if (e) all++
+          if (e === 1) one++
+        }
+      return all ? Math.round((1000 * one) / all) / 10 : null
+    })
+  }
+  const shareBlocs = exactShare(null)
+  const okShares = shareBlocs.filter(x => x !== null)
+  const [sw, so] = [bank[WITH], bank[WITHOUT]]
+  const main = pass(bank, sinks.bank, '')
+  const measured = {
+    main: {
+      all: r1(sw.suites.principale.all),
+      low: r1(sw.suites.principale.min),
+      lowWhere: whereOf(main.main.with, r1(sw.suites.principale.min)),
+      high: r1(sw.suites.principale.max),
+      highWhere: whereOf(main.main.with, r1(sw.suites.principale.max)),
+      without: r1(so.suites.principale.all),
+      withoutLow: r1(so.suites.principale.min),
+      withoutHigh: r1(so.suites.principale.max),
+    },
+    compatible: { all: r1(sw.suites.compatible.all), without: r1(so.suites.compatible.all) },
+    rejects: { all: r1(sw.suites.rejet.all), without: r1(so.suites.rejet.all) },
+    none: { all: r1(sw.suites.aucun.all), without: r1(so.suites.aucun.all) },
+    mainGap: r1(sw.suites.principale.gap.gap),
+    reference: [r1(sw.ref.gap), r1(so.ref.gap)],
+    compatibleShare: {
+      low: okShares.length ? Math.min(...okShares) : null,
+      lowWhere: okShares.length ? WHERE[shareBlocs.indexOf(Math.min(...okShares))] : null,
+      high: okShares.length ? Math.max(...okShares) : null,
+      highWhere: okShares.length ? WHERE[shareBlocs.indexOf(Math.max(...okShares))] : null,
+    },
+    cited: [r1(sw.cited.min), r1(sw.cited.max)],
+  }
+  const extra = {
+    blocs: pack.election.spectrum.axis.map(a => a.bloc),
+    where: WHERE,
+    verdicts,
+    gaps,
+    compatibleShareBlocs: shareBlocs,
+    suitesByBloc: main,
+    citedBy: { low: sw.cited.low ?? null, high: sw.cited.high ?? null },
+  }
+  if (quick) {
+    const q = quick[WITH]
+    extra.suitesByBlocQuick = pass(quick, sinks.quick, 'quick.')
+    extra.compatibleShareQuickBlocs = exactShare(isQuick)
+    measured.quick = {
+      main: r1(q.suites.principale.all),
+      mainLow: r1(q.suites.principale.min),
+      mainHigh: r1(q.suites.principale.max),
+      compatible: r1(q.suites.compatible.all),
+      compatibleLow: r1(q.suites.compatible.min),
+      compatibleHigh: r1(q.suites.compatible.max),
+    }
+  }
+  process.stdout.write(`${JSON.stringify({ tool: 'audit-poids', electionId: id, options: { noisy: NOISY, quick: QUICK }, measured, extra })}\n`)
+}

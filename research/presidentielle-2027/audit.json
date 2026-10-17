@@ -32,7 +32,7 @@
     },
     "bank": {
       "min": 85,
-      "max": 100,
+      "max": 110,
       "approachesMin": 4,
       "approachesMax": 9,
       "maxMainShare": 0.6,
@@ -2544,7 +2544,7 @@
     },
     {
       "id": "bank-count",
-      "label": "banque : 85 à 100 questions, plus que le questionnaire rapide",
+      "label": "banque : 85 à 110 questions, plus que le questionnaire rapide",
       "hard": true,
       "ok": true,
       "detail": "il y en a 100"

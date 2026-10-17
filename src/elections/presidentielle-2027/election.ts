@@ -99,7 +99,10 @@ export const election: ElectionInfo = {
     // l'étape 1 (décision du propriétaire du 7 octobre 2026)
     step1: { count: 10, minKnownShare: 0.85, minKnownPerCandidate: 8, exempt: ['markovic'] },
     quick: { min: 22, max: 26, minKnownShare: 0.75, minCandidateShare: 0.7, maxSpread: 6 },
-    bank: { min: 85, max: 100, approachesMin: 4, approachesMax: 9, maxMainShare: 0.6, maxMainShareScope: 'quick', minCandidateShare: 0.4 },
+    // Plafond de la banque porté de 100 à 110 questions (décision du propriétaire du 17 octobre 2026, veille
+    // automatique : une nouvelle question approfondie peut partir en production quand tous les contrôles passent) ;
+    // research/presidentielle-2027/config.json (quality.bank.max) porte la même valeur, dans le même commit (packs.test)
+    bank: { min: 85, max: 110, approachesMin: 4, approachesMax: 9, maxMainShare: 0.6, maxMainShareScope: 'quick', minCandidateShare: 0.4 },
     audit: { step1: [3, 2], quick: [4, 2.5] },
   },
   // Veille et jours de vote : du vendredi, 0 h à Paris (veille du vote du samedi outre-mer), à la clôture du dimanche

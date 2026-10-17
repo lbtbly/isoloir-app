@@ -1,0 +1,79 @@
+{
+  "format": "isoloir-veille-policy/1",
+  "electionId": "presidentielle-2027",
+  "paused": false,
+  "pausedReason": null,
+  "softFreezeHours": 48,
+  "hebdoHorizonHours": 8,
+  "endAt": "2027-05-02T20:00:00+02:00",
+  "freezeFrom": "election.freezeWindows",
+  "extraFreezeWindows": [],
+  "reportOnlyBetweenRounds": true,
+  "budgets": {
+    "dailyTokens": 800000,
+    "dailyWithPrepTokens": 3000000,
+    "weeklyTokens": 12000000,
+    "monthlyTokens": 45000000,
+    "monthlySoftShare": 0.8,
+    "usageStopPercent": 85
+  },
+  "caps": {
+    "changesPerRun": 15,
+    "changesPerCandidate": 5,
+    "newApproachesPerRun": 2,
+    "approachCooldownDays": 30,
+    "newQuestionsPerRun": 1,
+    "bankMax": 110,
+    "prepsPerDay": 1,
+    "prepsPerWeek": 2,
+    "programmePassesPerWeek": 2,
+    "verifyPacket": 60,
+    "watchChecks": 8
+  },
+  "rotation": {
+    "unknownDeepPerCandidate": 10,
+    "overlapDays": 3,
+    "watchLookbackDays": 3,
+    "watchMaxLookbackDays": 21
+  },
+  "holdReversals": false,
+  "mepCountsAsNational": true,
+  "newQuestion": {
+    "minCandidates": 2,
+    "minCandidateBlocs": 2,
+    "minKnown": 10,
+    "minBlocs": 3,
+    "maxMainShare": 0.6,
+    "approachesMin": 4,
+    "approachesMax": 9,
+    "tier": "approfondi"
+  },
+  "lock": {
+    "staleHeartbeatHours": 4,
+    "maxAgeHours": 24
+  },
+  "retries": {
+    "moved": 2,
+    "data": 3
+  },
+  "minSearches": {
+    "watch": 10,
+    "triage": 8
+  },
+  "holdExpiryDays": 14,
+  "reminderHours": 48,
+  "cleanupDays": 14,
+  "remeasure": {
+    "profiles": 1000,
+    "noisy": 60
+  },
+  "ship": {
+    "port": 4371,
+    "accordPort": 4372,
+    "prodUrl": "https://isoloir.vercel.app/",
+    "vercelProject": "isoloir",
+    "vercelScope": "lbtbly",
+    "checkAttempts": 3,
+    "checkDelaySeconds": 20
+  }
+}

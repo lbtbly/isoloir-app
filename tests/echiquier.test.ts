@@ -444,6 +444,32 @@ function notMoreThanExact(bound: UnitReading, exact: UnitReading, where: string)
 
 const real = elections.find(p => p.election.id === 'presidentielle-2027')! as ElectionPack
 
+/** Au plus tant de façons pour l'exemple de la page : la force brute les énumère une à une */
+const EXAMPLE_MAX_WAYS = 2000
+
+/**
+ * L'exemple de la page, cherché dans les données du jour : pour chaque candidat que la grille classe à l'extrême
+ * gauche (bloc 0, dans l'ordre de la grille), ses réponses recopiées puis brouillées (graines « ex:<id>:1 » à
+ * « ex:<id>:3 »), réduites aux questions d'un seul thème (dans l'ordre de la banque) ; le premier thème compté en
+ * entier, d'au moins dix façons (sinon aucune marque) et d'au plus EXAMPLE_MAX_WAYS, où ce bloc a ▲ et un compte
+ */
+function pageExample(p: ElectionPack): { answers: Answers; u: UnitReading; where: string } | undefined {
+  const P = profilesFor(p)
+  for (const id of panelOf(p)[0] ?? []) {
+    for (let seed = 1; seed <= 3; seed++) {
+      const all = P.toAnswers(P.noisy(P.cloneLarge(id), `ex:${id}:${seed}`))
+      for (const t of p.bank.topics) {
+        const answers = Object.fromEntries(Object.entries(all).filter(([q]) => p.bank.questions.find(x => x.id === q)?.topicId === t.id))
+        if (!Object.keys(answers).length) continue
+        const u = units(readEchiquier(fresh(p), answers)).find(x => x.kind === 'theme' && x.id === t.id)
+        const c = u?.cells[0]
+        if (u?.exact && u.ways >= 10 && u.ways <= EXAMPLE_MAX_WAYS && c?.mark === 'pres' && c.alike !== null) return { answers, u, where: `${id}, ex:${id}:${seed}, thème ${t.id}` }
+      }
+    }
+  }
+  return undefined
+}
+
 describe('compter, sinon calculer', () => {
   it('le compte complet égale la force brute : confiance basse, blocs de deux candidats, un seul candidat connu', () => {
     const profiles: [Answers, string[]][] = [
@@ -510,13 +536,23 @@ describe('compter, sinon calculer', () => {
         })
       }
     }
-    // L'exemple de la page (maquette du 15 octobre 2026) : un clone bruité d'une candidate que la grille classe à
-    // l'extrême gauche, thème Europe, deux questions : 252 façons, 6 qui en rapprochent autant, la sienne comprise
-    const P = profilesFor(real)
-    const all = P.toAnswers(P.noisy(P.cloneLarge('arthaud'), 'ex:arthaud:1'))
-    const europe = Object.fromEntries(Object.entries(all).filter(([id]) => real.bank.questions.find(q => q.id === id)!.topicId === 'europe'))
-    const eu = unit(readEchiquier(fresh(real), europe), 'theme', 'europe')
-    expect([eu.ways, eu.exact, eu.cells[0]!.mark, eu.cells[0]!.alike]).toEqual([252, true, 'pres', 6])
+    // L'exemple de la page (maquette du 15 octobre 2026), sur l'élection réelle : un clone bruité d'un candidat que la
+    // grille classe à l'extrême gauche, réduit à un seul thème, compté en entier, ▲ pour ce bloc, avec le compte de
+    // « Le détail » (les façons qui en rapprochent autant, la sienne comprise). En octobre 2026 : Nathalie Arthaud,
+    // thème Europe, deux questions, 252 façons, 6. Les positions changent (veille automatique, décision du propriétaire
+    // du 17 octobre 2026) : l'exemple est le premier qui se trouve dans les données du jour, et son compte est celui de
+    // la force brute, écrite à part
+    const found = pageExample(real)
+    expect(found, 'aucun thème réduit, compté en entier, ne marque ▲ le bloc de l’extrême gauche').toBeDefined()
+    const { answers, u: eu, where } = found!
+    const brute = bruteForce(real, answers, eu)
+    expect([eu.exact, eu.cells[0]!.mark], where).toEqual([true, 'pres'])
+    expect([eu.arrangements, eu.ways], where).toEqual([brute.N, brute.N])
+    expect(brute.known, where).toContain(0)
+    expect(Math.abs(eu.cells[0]!.p! - brute.p[0]!), where).toBeLessThan(1e-12)
+    expect(eu.cells[0]!.alike, where).toBe(brute.alike[0])
+    expect(eu.cells[0]!.alike!, where).toBeGreaterThanOrEqual(1)
+    expect(eu.cells[0]!.alike!, where).toBeLessThanOrEqual(Math.round(eu.cells[0]!.p! * eu.ways))
   })
 
   it('moins de dix façons : aucune marque, la façon observée pèse déjà plus d’une sur dix (p ≥ 1 / N)', () => {
@@ -627,7 +663,12 @@ describe('compter, sinon calculer', () => {
     const full = family({ countMax: 1e7 })
     const fine = family({})
     const coarse = family({ refine: false })
-    expect([full.exact, fine.exact, coarse.exact, fine.arrangements]).toEqual([true, false, false, 972_000])
+    // Les façons, recomptées à part : le produit des placements distincts des avis de chaque question, sur ses approches
+    // du jour (972 000 en octobre 2026 ; une approche ajoutée à l'une de ces questions par la veille en change le compte)
+    const ways = real.bank.questions.filter(q => answers[q.id]).reduce((n, q) => n * permutations(q.approaches.map(a => answers[q.id]!.ratings[a.id] ?? 0)).length, 1)
+    expect(ways).toBeGreaterThan(ECHIQUIER.COUNT_MAX)
+    expect(ways).toBeLessThanOrEqual(1e7)
+    expect([full.exact, fine.exact, coarse.exact, fine.arrangements]).toEqual([true, false, false, ways])
     notMoreThanExact(fine, full, 'grille affinée')
     notMoreThanExact(coarse, full, 'sans affiner')
     // Sur une grille d'un demi-point, l'arrondi dépasse le vingtième de l'écart-type de chaque bloc : toutes les lois

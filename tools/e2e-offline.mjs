@@ -45,6 +45,8 @@
 // Tout le reste vient des données : research/<id>/bank.json (questions, temps, question de fin, fiches),
 // research/<id>/decisions.json (contrôle croisé du premier dépouillement), et le pack lui-même (candidats,
 // familles de thèmes, périmètre vidéo, dates), lu avec le registre par Node (TypeScript sans compilation, Node 22.18+).
+// Serveur d'aperçu : sortie 2 s'il ne démarre pas (port pris) ou s'il ne sert pas l'asset index-*.js de dist/index.html
+// (un aperçu orphelin d'un autre worktree) ; il est toujours arrêté en partant, même sur SIGTERM ou SIGINT.
 import { chromium } from 'playwright-core'
 import { spawn } from 'node:child_process'
 import { existsSync, mkdtempSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
@@ -164,7 +166,48 @@ const flat = s => (s ?? '').replace(/\u00ad/g, '').replace(/[\u00a0\u202f]/g, ' 
 const isMark = (got, s, v) => marks(s, v).includes(flat(got))
 
 const server = spawn('pnpm', ['vite', 'preview', '--port', String(port), '--strictPort'], { stdio: 'ignore', cwd: ROOT })
+let serverExit = null
+server.on('exit', (code, signal) => {
+  serverExit = { code, signal }
+})
+const stopServer = () => {
+  try {
+    server.kill()
+  } catch {
+    // déjà arrêté
+  }
+}
+// Tué de l'extérieur (délai d'un lanceur, session close) : ne jamais laisser l'aperçu tourner derrière soi
+process.on('SIGTERM', () => {
+  stopServer()
+  process.exit(143)
+})
+process.on('SIGINT', () => {
+  stopServer()
+  process.exit(130)
+})
 await new Promise(r => setTimeout(r, 1500))
+// Le serveur est-il le nôtre, et sert-il ce dist/ ? Avec --strictPort, un port pris fait sortir vite aussitôt, en
+// silence : sans ce contrôle, l'e2e parcourrait l'aperçu orphelin d'un autre worktree, et son dist à lui
+const indexAssetIn = html => /assets\/index-[A-Za-z0-9_-]+\.js/.exec(String(html ?? ''))?.[0] ?? null
+if (serverExit) {
+  console.error(`Le serveur d’aperçu n’a pas démarré (port ${port} pris ?) : code ${serverExit.code ?? serverExit.signal}`)
+  process.exit(2)
+}
+{
+  const expected = indexAssetIn(readFileSync(join(ROOT, 'dist', 'index.html'), 'utf8'))
+  let served = null
+  try {
+    served = indexAssetIn(await (await fetch(base, { signal: AbortSignal.timeout(10000) })).text())
+  } catch (e) {
+    served = `illisible (${e?.message ?? e})`
+  }
+  if (!expected || served !== expected) {
+    console.error(`Le serveur du port ${port} ne sert pas ce dist/ (${served ?? 'aucun asset'} au lieu de ${expected ?? 'aucun asset dans dist/index.html'}) : un autre aperçu tourne-t-il ?`)
+    stopServer()
+    process.exit(2)
+  }
+}
 
 const failures = []
 /** Fichiers du transfert de réponses (image du QR code, vidéo de la caméra simulée), hors du dépôt */
@@ -276,8 +319,9 @@ console.log(`Élection ${entry.id}${entry.slug ? ` (#/${entry.slug}/…)` : ' (p
 }
 
 // Jamais de son pendant les essais : la machine est celle du propriétaire
-const browser = await chromium.launch({ args: ['--mute-audio'] })
+let browser = null
 try {
+  browser = await chromium.launch({ args: ['--mute-audio'] })
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, acceptDownloads: true, reducedMotion: 'reduce' })
   const page = await ctx.newPage()
   const foreign = []
@@ -4046,8 +4090,8 @@ try {
     await tc.close()
   }
 } finally {
-  await browser.close()
-  server.kill()
+  await browser?.close()
+  stopServer()
 }
 if (failures.length) {
   console.error(`\n${failures.length} échec(s)`)
