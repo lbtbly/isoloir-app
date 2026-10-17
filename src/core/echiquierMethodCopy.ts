@@ -113,7 +113,7 @@ export const ECHIQUIER_BEFORE = {
  * vrai (%), sur la banque :
  * - sans viser personne : avec le candidat 1,1 (centre) à 3,5 (extrême gauche), sans lui 0,9 à 3,3 ;
  * - un bloc voisin : avec 2,7 (centre) à 6,4 (extrême droite), sans 2,8 à 6,9 ;
- * - l'autre côté : avec 1,3 à 2,8, sans 1,3 à 2,4.
+ * - l'autre côté : avec 1,2 à 2,8, sans 1,3 à 2,4.
  * Écarts entre blocs : de 1,1 à 4,1 points (fourchettes de Wilson de 0 à 8 points), sous la référence du même passage,
  * 16,5 points avec le candidat (de 27 à 43,5 % des sujets lus nettement) et 15,9 sans lui : « passe » dans les six cas (la
  * borne haute de l'écart reste sous la référence ; la règle D5, § 2.0 de l'étude). Au seul questionnaire rapide (lignes de
@@ -123,8 +123,8 @@ export const ECHIQUIER_BEFORE = {
  * [8,3–20,7] pour 15,2, et sans lui de 3,9 à 19,7 %, 15,8 points [6–23,1] pour 17,5 : non établi, avec et sans lui.
  * « Pourrait franchir » (niveau « possible » de core/score.ts) : de 11,9 à 17,2 % des noms cités selon le scénario, avec
  * ou sans le candidat, sur la banque ; de 5,3 à 18 % au rapide. Les trois scénarios réunis, par bloc de la croix, sur la
- * banque : de 4,2 % (droite, 7 sur 168) à 27,3 % (extrême droite, 27 sur 99) avec le candidat, 23,1 points [11,1–34,7]
- * pour 16,5 ; de 2,9 % (droite) à 25 % (extrême droite) sans lui, 22,1 points [7,2–37,2] pour 15,9 : non établi, avec et
+ * banque : de 4,2 % (droite, 7 sur 168) à 26,5 % (extrême droite, 26 sur 98) avec le candidat, 22,4 points [10,4–34]
+ * pour 16,5 ; de 2,9 % (droite) à 23,5 % (extrême droite) sans lui, 20,7 points [5,9–35,8] pour 15,9 : non établi, avec et
  * sans lui (l'écart ponctuel dépasse la référence, sa borne basse non). Au rapide : de 0 % (droite, 0 sur 113) à 19 %
  * (extrême gauche, 23 sur 121) avec le candidat, 19 points [9,7–31,9] pour 15,2 ; de 0 à 27,6 % (gauche) sans lui, 27,6
  * points [9,2–45,7] pour 17,5 : non établi. La cause : « pourrait franchir » vient des positions déduites, ou de confiance
@@ -136,8 +136,10 @@ export const ECHIQUIER_BEFORE = {
  * (schéma « audit »), deux lignes rouges de même : 3,0 % des lignes lues sur la banque, 4,6 % au rapide. À 30 clones, la
  * mesure du 15 octobre 2026 donnait les mêmes issues pour la croix sur la banque (écarts de 1,8 à 5,5 points pour 14,4 et
  * 14,9), au rapide un second « non établi » (sans viser personne, sans le candidat : 10,8 points [0–24,7] pour 19,9),
- * qui passe à 60. Mesure : node tools/audit-croix.mjs --quick ; à refaire après une mise à jour des positions, et à
- * reporter ici
+ * qui passe à 60. Remesurée le 17 octobre 2026, la croix ne nommant plus que les candidats connus sur le sujet (décision
+ * du propriétaire) : l'autre côté, avec le candidat, 1,3 → 1,2 ; « pourrait franchir », par bloc de la croix, sur la
+ * banque, 27,3 → 26,5 avec le candidat et 25 → 23,5 sans lui ; le reste identique, et les mêmes issues. Mesure : node
+ * tools/audit-croix.mjs --quick ; à refaire après une mise à jour des positions, et à reporter ici
  */
 export const ECHIQUIER_CROSS = {
   measured: '2026-10-17',
@@ -149,7 +151,7 @@ export const ECHIQUIER_CROSS = {
    */
   random: { withMin: 1.1, withMax: 3.5, withoutMin: 0.9, withoutMax: 3.3 },
   neighbour: { withMin: 2.7, withMax: 6.4, withoutMin: 2.8, withoutMax: 6.9 },
-  other: { withMin: 1.3, withMax: 2.8, withoutMin: 1.3, withoutMax: 2.4 },
+  other: { withMin: 1.2, withMax: 2.8, withoutMin: 1.3, withoutMax: 2.4 },
   /** L'écart le plus large entre blocs, en points, et la référence du même passage (sujets lus nettement), avec puis sans */
   gapMax: 4.1,
   reference: [16.5, 15.9],
@@ -170,7 +172,7 @@ export const ECHIQUIER_CROSS = {
    * La même part, les trois scénarios réunis, selon le bloc de la croix : la plus basse et la plus haute avec le candidat
    * (et leurs blocs), puis sans lui ; non établi, sur la banque comme au rapide
    */
-  possibleBlocs: { low: 4.2, lowWhere: 'à droite', high: 27.3, highWhere: 'à l’extrême droite', withoutLow: 2.9, withoutHigh: 25 },
+  possibleBlocs: { low: 4.2, lowWhere: 'à droite', high: 26.5, highWhere: 'à l’extrême droite', withoutLow: 2.9, withoutHigh: 23.5 },
   possibleBlocsQuick: { low: 0, lowWhere: 'à droite', high: 19, highWhere: 'à l’extrême gauche', withoutLow: 0, withoutHigh: 27.6 },
   /** Part des positions déduites, ou de confiance basse, parmi celles qu'une ligne rouge peut viser, selon le bloc (%) */
   deduced: { low: 5.7, lowWhere: 'à droite', high: 31.3, highWhere: 'à l’extrême gauche' },
