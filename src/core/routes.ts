@@ -37,6 +37,11 @@ export type Route =
    * « import » (#/autre-appareil/importer) : la page s'ouvre sur « Importer mes réponses »
    */
   | { name: 'transfer'; import?: true }
+  /**
+   * Le journal des données ; « n » : l'entrée à ouvrir (#/journal/8) ; « query » : les filtres écrits après « ? »
+   * (#/journal?candidat=retailleau), lus par la page (core/journal.ts)
+   */
+  | { name: 'journal'; n?: number; query?: string }
 
 /** Les noms de pages : un premier segment qui n'en est pas un est un préfixe d'élection */
 const PAGES = new Set([
@@ -64,6 +69,8 @@ const PAGES = new Set([
   'a-table',
   // « Continuer sur un autre appareil » : sans lui ici, #/autre-appareil serait lu comme le préfixe d'une élection
   'autre-appareil',
+  // Le journal des données : sans lui ici, #/journal serait lu comme le préfixe d'une élection
+  'journal',
 ])
 
 /** Forme d'un préfixe d'élection (slug ou alias) */
@@ -76,9 +83,17 @@ export interface Place {
   route: Route
   /** Le chemin sans le préfixe, tel qu'écrit : '/', '/resultats', '/candidat/royal' */
   path: string
+  /** Ce qui suit « ? », point d'interrogation compris : '?candidat=retailleau' ; absent sans paramètres */
+  query?: string
 }
 
 const segments = (hash: string) => hash.replace(/^#?\/?/, '').split('/').filter(Boolean)
+
+/** Une adresse coupée à « ? » : le chemin, et ses paramètres (seul le journal des données en lit) */
+function splitQuery(hash: string): [string, string] {
+  const i = hash.indexOf('?')
+  return i < 0 ? [hash, ''] : [hash.slice(0, i), hash.slice(i)]
+}
 
 /** La page d'un chemin sans préfixe (« #/resultats », « /resultats » ou « resultats ») ; inconnue : l'accueil */
 export function parseRoute(path: string): Route {
@@ -104,6 +119,8 @@ export function parseRoute(path: string): Route {
     case 'partager':
       return { name: 'share' }
     case 'methode':
+      // L'ancienne rubrique « Journal des données » de la Méthode est devenue une page (canonicalPath)
+      if (arg === 'journal') return { name: 'journal' }
       return arg ? { name: 'method', anchor: arg } : { name: 'method' }
     case 'confidentialite':
       return { name: 'privacy' }
@@ -125,6 +142,10 @@ export function parseRoute(path: string): Route {
       return { name: 'table' }
     case 'autre-appareil':
       return arg === 'importer' ? { name: 'transfer', import: true } : { name: 'transfer' }
+    case 'journal': {
+      const entry = Number(arg)
+      return Number.isInteger(entry) && entry > 0 && String(entry) === arg ? { name: 'journal', n: entry } : { name: 'journal' }
+    }
     default:
       return { name: 'home' }
   }
@@ -152,15 +173,18 @@ export function comparePath(ids: readonly string[]): string {
 
 /** Analyse une adresse : son préfixe d'élection éventuel, sa page et son chemin sans préfixe */
 export function parseLocation(hash: string): Place {
-  const parts = segments(hash)
+  const [bare, query] = splitQuery(hash)
+  const parts = segments(bare)
   const head = parts[0]
+  const withQuery = (route: Route): Route => (route.name === 'journal' && query.length > 1 ? { ...route, query } : route)
+  const q = query ? { query } : {}
   if (head && !PAGES.has(head) && PREFIX.test(head)) {
     const rest = parts.slice(1)
     const path = `/${rest.join('/')}`
-    return { slug: head, route: parseRoute(path), path }
+    return { slug: head, route: withQuery(parseRoute(path)), path, ...q }
   }
   const path = `/${parts.join('/')}`
-  return { slug: '', route: parseRoute(path), path }
+  return { slug: '', route: withQuery(parseRoute(path)), path, ...q }
 }
 
 /** L'adresse d'un chemin dans une élection : withBase('', '/resultats') → '#/resultats' ; withBase('x', '/') → '#/x/' */
@@ -169,9 +193,12 @@ export function withBase(slug: string, path: string): string {
   return slug ? `#/${slug}${p}` : `#${p}`
 }
 
-/** Le chemin à écrire pour un chemin lu : l'ancienne page d'essai des vidéos devient la page des vidéos */
+/**
+ * Le chemin à écrire pour un chemin lu : l'ancienne page d'essai des vidéos devient la page des vidéos, l'ancienne
+ * rubrique du journal dans la Méthode (#/methode/journal) la page du journal
+ */
 export function canonicalPath(path: string): string {
-  return path.replace(/^\/essai-videos(?=\/|$)/, '/videos')
+  return path.replace(/^\/essai-videos(?=\/|$)/, '/videos').replace(/^\/methode\/journal\/?$/, '/journal')
 }
 
 /** Ce que le routage doit savoir d'une élection du registre, sans la charger */
@@ -196,7 +223,7 @@ export interface Resolved<E extends ElectionRef> {
 }
 
 /** Les pages d'une élection retirée qui ont leur pareille dans l'élection par défaut : même chemin, sans le préfixe */
-const KEPT_ON_RETIRE = new Set<Route['name']>(['method', 'privacy', 'legal', 'candidates'])
+const KEPT_ON_RETIRE = new Set<Route['name']>(['method', 'privacy', 'legal', 'candidates', 'journal'])
 
 /**
  * Choisit l'élection et la page d'une adresse.
@@ -237,7 +264,7 @@ export function resolvePlace<E extends ElectionRef>(place: Place, elections: rea
       if (fallback.candidateIds.includes(route.id)) return { election: fallback, route, redirect: withBase('', `/candidat/${route.id}`) }
       if (hiddenIn(fallback, route.id)) return toCandidates(fallback)
     }
-    if (KEPT_ON_RETIRE.has(route.name)) return { election: fallback, route, redirect: withBase('', place.path) }
+    if (KEPT_ON_RETIRE.has(route.name)) return { election: fallback, route, redirect: withBase('', canonicalPath(place.path)) + (place.query ?? '') }
     return { election: fallback, route: { name: 'home' }, redirect: withBase('', '/') }
   }
   if (!place.slug) {
@@ -256,7 +283,7 @@ export function resolvePlace<E extends ElectionRef>(place: Place, elections: rea
       if (other) return { election: other, route, redirect: withBase(other.slug, place.path) }
     }
     const path = canonicalPath(place.path)
-    return path === place.path ? { election: fallback, route } : { election: fallback, route, redirect: withBase('', path) }
+    return path === place.path ? { election: fallback, route } : { election: fallback, route, redirect: withBase('', path) + (place.query ?? '') }
   }
   const named = elections.find(e => e.slug === place.slug || e.id === place.slug || e.aliases?.includes(place.slug))
   if (!named) return { election: fallback, route: { name: 'home' } }
@@ -265,5 +292,5 @@ export function resolvePlace<E extends ElectionRef>(place: Place, elections: rea
   if (compared) return compared
   const path = canonicalPath(place.path)
   if (named.slug === place.slug && path === place.path) return { election: named, route }
-  return { election: named, route, redirect: withBase(named.slug, path) }
+  return { election: named, route, redirect: withBase(named.slug, path) + (place.query ?? '') }
 }

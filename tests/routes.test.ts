@@ -97,7 +97,7 @@ describe('withBase et canonicalPath', () => {
   })
 
   it('chaque adresse relue redonne la même page', () => {
-    for (const path of ['/', '/feuille/4', '/approfondi/2', '/resultats', '/profil', '/a-table', '/autre-appareil', '/autre-appareil/importer', '/methode/ia', '/methode/profil', '/approfondir/defense', '/candidat/x', '/comparer/x,y', '/comparer', '/sujets/a-1', '/videos/v']) {
+    for (const path of ['/', '/feuille/4', '/approfondi/2', '/resultats', '/profil', '/a-table', '/autre-appareil', '/autre-appareil/importer', '/methode/ia', '/methode/profil', '/approfondir/defense', '/candidat/x', '/comparer/x,y', '/comparer', '/sujets/a-1', '/videos/v', '/journal', '/journal/8']) {
       for (const slug of ['', 'autre-2030']) {
         const place = parseLocation(withBase(slug, path))
         expect(place.slug, `${slug} ${path}`).toBe(slug)
@@ -256,6 +256,40 @@ describe('resolvePlace : adresses d’une élection retirée du site', () => {
 
   it('sans liste de préfixes retirés, un tel préfixe reste un préfixe inconnu', () => {
     expect(resolvePlace(parseLocation('#/ancienne-2026/resultats'), [current])).toEqual({ election: current, route: { name: 'home' } })
+  })
+})
+
+describe('le journal des données (#/journal)', () => {
+  const current: ElectionRef = { id: 'presidentielle-2027', slug: '', archived: false, candidateIds: ['a', 'b'] }
+  const at = (hash: string) => resolvePlace(parseLocation(hash), [current], ['ancienne-2026'])
+
+  it('la page, une entrée par son numéro, et rien d’autre comme numéro', () => {
+    expect(parseRoute('#/journal')).toEqual({ name: 'journal' })
+    expect(parseRoute('#/journal/8')).toEqual({ name: 'journal', n: 8 })
+    for (const bad of ['#/journal/0', '#/journal/08', '#/journal/8a', '#/journal/-2', '#/journal/1.5']) expect(parseRoute(bad), bad).toEqual({ name: 'journal' })
+  })
+
+  it('les filtres après « ? » vont à la page, et n’en font pas un préfixe d’élection', () => {
+    expect(parseLocation('#/journal?candidat=a&depuis=2026-10-14')).toEqual({
+      slug: '',
+      route: { name: 'journal', query: '?candidat=a&depuis=2026-10-14' },
+      path: '/journal',
+      query: '?candidat=a&depuis=2026-10-14',
+    })
+    expect(at('#/journal?candidat=a')).toEqual({ election: current, route: { name: 'journal', query: '?candidat=a' } })
+    // Une autre page ne reçoit rien de ce qui suit « ? »
+    expect(parseLocation('#/resultats?x=1').route).toEqual({ name: 'results' })
+    expect(parseLocation('#/journal?').route).toEqual({ name: 'journal' })
+  })
+
+  it('l’ancienne rubrique de la Méthode mène à la page, filtres gardés quand une adresse est corrigée', () => {
+    expect(canonicalPath('/methode/journal')).toBe('/journal')
+    expect(canonicalPath('/methode/journal/')).toBe('/journal')
+    expect(canonicalPath('/methode/ia')).toBe('/methode/ia')
+    expect(at('#/methode/journal')).toEqual({ election: current, route: { name: 'journal' }, redirect: '#/journal' })
+    expect(at('#/ancienne-2026/methode/journal')).toEqual({ election: current, route: { name: 'journal' }, redirect: '#/journal' })
+    expect(at('#/ancienne-2026/journal/3')).toEqual({ election: current, route: { name: 'journal', n: 3 }, redirect: '#/journal/3' })
+    expect(at('#/presidentielle-2027/journal?theme=x')).toEqual({ election: current, route: { name: 'journal', query: '?theme=x' }, redirect: '#/journal?theme=x' })
   })
 })
 

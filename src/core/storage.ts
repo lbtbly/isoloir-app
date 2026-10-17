@@ -18,10 +18,30 @@ export interface SessionState {
   weights: TopicWeights
   /** Thèmes choisis pour l'approfondissement */
   deepTopics: TopicId[]
-  /** Classement vu lors de la dernière visite des résultats, pour signaler les changements */
-  lastSeenRanking: { candidateId: CandidateId; score: number | null }[] | null
-  /** Version des données lors de la dernière visite, si elles ont changé depuis */
+  /**
+   * Classement vu lors de la dernière visite des résultats, pour signaler les changements (« +3 pts depuis votre
+   * dernier passage ») ; suit chaque visite (ui/screens/Results.tsx), gardé quand les données changent
+   */
+  lastSeenRanking: SeenRanking | null
+  /**
+   * Ce sur quoi ce classement a été calculé, et quand : l'empreinte des réponses et des priorités (inputsKey) et
+   * l'instant de la visite. À la mise à jour des données, ils passent dans beforeUpdate
+   */
+  lastSeenBasis: { inputs: string; at: string } | null
+  /**
+   * Version des données lors de la dernière visite, si elles ont changé depuis ; la plus ancienne tant que l'avis de
+   * mise à jour n'est pas refermé (« Compris »), d'une mise à jour à l'autre
+   */
   dataUpdatedFrom: string | null
+  /**
+   * Le classement de la dernière visite d'avant la mise à jour des données, figé jusqu'à « Compris » (décision du
+   * propriétaire du 17 octobre 2026) : l'avis du dépouillement dit d'après lui ce qui a bougé pour la personne, et le
+   * journal des données compte « après votre dernier passage » depuis sa visite. inputs : l'empreinte des réponses et
+   * des priorités prise à la mise à jour, si la personne n'y avait rien changé depuis cette visite, sinon null (l'avis
+   * ne dit alors rien de précis) ; at : l'instant de la visite ; left : les candidats de ce classement qui ne sont plus
+   * présentés ou plus classés, retirés de ranking et seulement comptés
+   */
+  beforeUpdate: { ranking: SeenRanking; inputs: string | null; at: string | null; left: number } | null
   /**
    * Date où le questionnaire rapide a été complété pour la dernière fois. Elle est gardée si une question
    * y est ajoutée ensuite : c'est ce qui permet de signaler « nouvelle question depuis le … ».
@@ -29,6 +49,9 @@ export interface SessionState {
   essentialDoneAt: string | null
   updatedAt: string
 }
+
+/** Un classement mémorisé : chaque candidat classé et son score affiché, dans l'ordre */
+export type SeenRanking = { candidateId: CandidateId; score: number | null }[]
 
 export function storageKey(electionId: string): string {
   return `${STORAGE_PREFIX}${electionId}`
@@ -44,7 +67,9 @@ export function freshState(electionId: string, dataVersion: string): SessionStat
     weights: {},
     deepTopics: [],
     lastSeenRanking: null,
+    lastSeenBasis: null,
     dataUpdatedFrom: null,
+    beforeUpdate: null,
     essentialDoneAt: null,
     updatedAt: new Date().toISOString(),
   }
@@ -64,6 +89,47 @@ function isRecord(v: unknown): v is Record<string, unknown> {
 }
 
 const SEED = /^[0-9a-f]{16}$/
+const INPUTS = /^[0-9a-f]{8}$/
+
+/**
+ * L'empreinte des réponses et des priorités, sur lesquelles se calcule le classement : la même pour les mêmes avis, quel
+ * que soit l'ordre des clés ; huit chiffres hexadécimaux, dont on ne peut rien relire. Elle dit seulement si la
+ * personne a changé quelque chose entre deux visites des résultats.
+ */
+export function inputsKey(answers: unknown, weights: unknown): string {
+  const sorted = (v: unknown): unknown => {
+    if (Array.isArray(v)) {
+      const items = v.map(sorted)
+      return items.every(x => typeof x === 'string') ? [...(items as string[])].sort() : items
+    }
+    return isRecord(v) ? Object.fromEntries(Object.keys(v).sort().map(k => [k, sorted(v[k])])) : v
+  }
+  const text = JSON.stringify([sorted(answers ?? {}), sorted(weights ?? {})])
+  // FNV-1a sur 32 bits
+  let h = 0x811c9dc5
+  for (let i = 0; i < text.length; i++) h = Math.imul(h ^ text.charCodeAt(i), 0x01000193)
+  return (h >>> 0).toString(16).padStart(8, '0')
+}
+
+/**
+ * Lit un classement mémorisé : les lignes valides des candidats présentés et classés (rows), et le nombre de lignes
+ * valides retirées parce que leur candidat ne l'est plus (dropped : masqué, retiré, ou devenu non classé)
+ */
+function readRanking(raw: unknown, known: ReadonlySet<string>): { rows: SeenRanking; dropped: number } | null {
+  if (!Array.isArray(raw)) return null
+  const seen = new Set<string>()
+  const rows: SeenRanking = []
+  let dropped = 0
+  for (const r of raw.slice(0, 200)) {
+    if (!isRecord(r) || typeof r.candidateId !== 'string' || seen.has(r.candidateId)) continue
+    const ok = r.score === null || (typeof r.score === 'number' && Number.isFinite(r.score) && r.score >= 0 && r.score <= 100)
+    if (!ok) continue
+    seen.add(r.candidateId)
+    if (known.has(r.candidateId)) rows.push({ candidateId: r.candidateId, score: r.score as number | null })
+    else dropped++
+  }
+  return { rows, dropped }
+}
 const MAX_IDS = 12
 const strings = (v: unknown) =>
   Array.isArray(v) ? v.slice(0, MAX_IDS).filter((x): x is string => typeof x === 'string') : []
@@ -133,19 +199,44 @@ export function sanitizeState(raw: unknown, pack: ElectionPack): SessionState | 
   // (ou venu d'un double importé) ne doit pas en garder, ni le recopier dans le prochain double
   const off = new Set(pack.election.ranking?.excluded?.ids ?? [])
   const known = new Set(pack.candidates.map(c => c.id).filter(id => !off.has(id)))
-  const seen = new Set<string>()
-  const lastSeenRanking =
-    !versionChanged && Array.isArray(raw.lastSeenRanking)
-      ? raw.lastSeenRanking.filter((r): r is { candidateId: string; score: number | null } => {
-          if (!isRecord(r) || typeof r.candidateId !== 'string' || seen.has(r.candidateId)) return false
-          if (!known.has(r.candidateId)) return false
-          const ok = r.score === null || (typeof r.score === 'number' && Number.isFinite(r.score) && r.score >= 0 && r.score <= 100)
-          if (ok) seen.add(r.candidateId)
-          return ok
-        })
-      : null
+  // Gardé d'une version des données à l'autre (décision du propriétaire du 17 octobre 2026)
+  const lastSeen = readRanking(raw.lastSeenRanking, known)
+  const lastSeenRanking = lastSeen?.rows ?? null
+  const basis = isRecord(raw.lastSeenBasis) ? raw.lastSeenBasis : null
+  const lastSeenBasis =
+    basis && typeof basis.inputs === 'string' && INPUTS.test(basis.inputs) && isoOrNull(basis.at) ? { inputs: basis.inputs, at: basis.at as string } : null
   const answers = migrateAnswers(raw.answers, bank)
   const updatedAt = isoOrNull(raw.updatedAt)
+  const dataUpdatedFrom =
+    typeof raw.dataUpdatedFrom === 'string' && raw.dataUpdatedFrom !== dataVersion
+      ? raw.dataUpdatedFrom.slice(0, 40)
+      : versionChanged
+        ? String(raw.dataVersion).slice(0, 40)
+        : null
+  // Le classement d'avant la mise à jour : pris à la mise à jour (le dernier vu), ou celui d'une mise à jour d'avant
+  // que l'avis n'a pas refermée ; ce qu'il a perdu de candidats est compté à part. L'empreinte n'est gardée que si les
+  // réponses enregistrées sont celles de cette visite (la personne n'a rien changé entre-temps) ; elle est prise sur
+  // les réponses lues, après la mise à jour : ce que les données ont changé dans les réponses n'est pas de son fait
+  let beforeUpdate: SessionState['beforeUpdate'] = null
+  const kept = dataUpdatedFrom && isRecord(raw.beforeUpdate) ? raw.beforeUpdate : null
+  const keptRanking = kept ? readRanking(kept.ranking, known) : null
+  const sameInputs = (was: unknown) => typeof was === 'string' && INPUTS.test(was) && was === inputsKey(raw.answers, raw.weights)
+  if (kept && keptRanking) {
+    const left = typeof kept.left === 'number' && Number.isInteger(kept.left) && kept.left >= 0 && kept.left <= 200 ? kept.left : 0
+    beforeUpdate = {
+      ranking: keptRanking.rows,
+      inputs: sameInputs(kept.inputs) ? inputsKey(answers, weights) : null,
+      at: isoOrNull(kept.at),
+      left: left + keptRanking.dropped,
+    }
+  } else if (versionChanged && lastSeen && (lastSeen.rows.length || lastSeen.dropped)) {
+    beforeUpdate = {
+      ranking: lastSeen.rows,
+      inputs: sameInputs(lastSeenBasis?.inputs) ? inputsKey(answers, weights) : null,
+      at: lastSeenBasis?.at ?? null,
+      left: lastSeen.dropped,
+    }
+  }
   return {
     format: FORMAT,
     electionId,
@@ -155,11 +246,10 @@ export function sanitizeState(raw: unknown, pack: ElectionPack): SessionState | 
     weights,
     deepTopics,
     lastSeenRanking,
-    dataUpdatedFrom: versionChanged
-      ? String(raw.dataVersion).slice(0, 40)
-      : typeof raw.dataUpdatedFrom === 'string'
-        ? raw.dataUpdatedFrom.slice(0, 40)
-        : null,
+    // Une mise à jour : l'empreinte d'avant ne dit plus rien des réponses lues ; la prochaine visite l'écrit
+    lastSeenBasis: versionChanged ? null : lastSeenBasis,
+    dataUpdatedFrom,
+    beforeUpdate,
     // Sauvegarde antérieure à ce champ : la dernière modification en tient lieu, si la feuille est complète
     essentialDoneAt: isoOrNull(raw.essentialDoneAt) ?? (essentialComplete(bank, answers) ? updatedAt : null),
     updatedAt: updatedAt ?? new Date().toISOString(),

@@ -91,6 +91,14 @@ export function Method({ pack, anchor }: { pack: ElectionPack; /** Rubrique à m
       floor: others.length ? Math.min(...others) : null,
     }
   }, [exclusion, candidates, pack])
+  // Le journal des données, en une phrase : son nombre d'entrées et ses dates (« du 8 au 15 octobre 2026 »)
+  const journal = useMemo(() => {
+    const days = election.changelog.map(c => c.date).sort()
+    const [from = '', to = ''] = [days[0], days.at(-1)]
+    const day = (d: string) => (Number(d.slice(8, 10)) === 1 ? '1er' : String(Number(d.slice(8, 10))))
+    const range = from === to ? `le ${formatDate(to)}` : `du ${from.slice(0, 7) === to.slice(0, 7) ? day(from) : formatDate(from)} au ${formatDate(to)}`
+    return { count: days.length, range }
+  }, [election.changelog])
   const step1Questions = useMemo(() => bank.questions.filter(q => q.step === 1), [bank])
   const step1 = step1Questions.length
   const closing = bank.questions.filter(q => q.last && q.tier === 'essentiel')
@@ -278,7 +286,8 @@ export function Method({ pack, anchor }: { pack: ElectionPack; /** Rubrique à m
             </p>
             <p>
               {`La liste est propre à cette élection et révisable\u00a0: un candidat la quitte dès que ses positions sont connues sur assez de questions, par exemple quand son programme est publié. Chaque changement est daté dans le `}
-              <SectionLink id="journal">journal des données</SectionLink>.
+              {/* Le journal réglé sur « Liste des candidats » */}
+              <a href={link('/journal?change=candidats')}>journal des données</a>.
             </p>
           </>
         ) : null}
@@ -402,7 +411,7 @@ export function Method({ pack, anchor }: { pack: ElectionPack; /** Rubrique à m
               'La marche à suivre pour la signaler, droit de réponse compris, est dans les '
             )}
             <a href={link('/mentions-legales')}>mentions légales</a>&nbsp;; chaque correction est datée dans le{' '}
-            <SectionLink id="journal">journal des données</SectionLink>.
+            <a href={link('/journal')}>journal des données</a>.
           </p>
           <p class="small">
             Signaler les textes générés par une IA et publiés pour informer le public, quand ils ne sont pas relus par
@@ -416,16 +425,19 @@ export function Method({ pack, anchor }: { pack: ElectionPack; /** Rubrique à m
           {`Outil édité par un citoyen, à titre personnel, ${election.copy.independence.method}, et sans financement. Le code exécuté par votre navigateur peut être inspecté\u00a0; il sera publié sous licence MIT.`}
         </p>
 
+        {/* Le journal des données est une page à part depuis le 17 octobre 2026 (#/journal, décision du propriétaire) ;
+            l'ancienne adresse de cette rubrique, #/methode/journal, y mène */}
         <h2 id="journal" tabIndex={-1}>
           Journal des données
         </h2>
-        <ul>
-          {election.changelog.map(c => (
-            <li key={c.date + c.text}>
-              {formatDate(c.date)} : {c.text}
-            </li>
-          ))}
-        </ul>
+        <p>
+          {`Chaque changement des données est daté et numéroté dans le journal des données\u00a0: ${journal.count}\u00a0entrée${journal.count > 1 ? 's' : ''}, ${journal.range}. On peut n’y lire que ce qui concerne un candidat, un thème ou une période.`}
+        </p>
+        <p>
+          <a class="g-link" href={link('/journal')}>
+            Ouvrir le journal des données
+          </a>
+        </p>
       </main>
       <SiteFooter />
       <nav class="action-bar" aria-label="Retour">

@@ -249,7 +249,7 @@
   }
 }
 
-/* Le journal : la date en petit gris, la première phrase de l'entrée, entre filets ; la date dans sa colonne dès que
+/* Le journal : la date en petit gris, le titre de l'entrée, entre filets ; la date dans sa colonne dès que
    le journal a la place (40rem de conteneur : sur toute la largeur dès 48rem d'écran ; dans la colonne de l'affiche,
    avec des questions à revoir, à partir de 78rem environ d'écran) */
 .back-news {
@@ -263,6 +263,11 @@
   font-stretch: 72%;
   font-size: 1.65rem;
   line-height: 1.05;
+}
+
+/* La mention IA des titres, collée sous le titre, avant la liste */
+.back-news > .back-news-ai {
+  margin: calc(-1 * var(--s2)) 0 var(--s3);
 }
 
 .back-news-list {
@@ -286,6 +291,25 @@
 .back-news-list time {
   font-size: 0.8125rem;
   font-weight: 700;
+  color: var(--print-soft);
+}
+
+/* Le titre de l'entrée, vers elle dans le journal, et son effet sur le classement en petit gris */
+.back-news-item {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.back-news-item > a {
+  font-weight: 750;
+  line-height: 1.3;
+  color: var(--print);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+
+.back-news-effect {
+  font-size: var(--text-sm);
   color: var(--print-soft);
 }
 

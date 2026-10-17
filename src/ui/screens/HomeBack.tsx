@@ -2,47 +2,50 @@
 // page d'accueil doit être différente et adaptée »), questionnaire rapide terminé et au moins un avis compté (Home.tsx).
 // En tête, à la place du film qui explique l'outil à qui ne le connaît pas : les questions à revoir, son affiche (la
 // même qu'au dépouillement, components/Leader.tsx), l'entrée de « Mon profil politique » (le cadre de l'accueil vierge,
-// components/ProfileEntry.tsx), ce qui est nouveau depuis ses réponses, puis les suites en panneaux, dans l'ordre de
-// « Et maintenant ». Le film et les garanties restent plus bas, pour qui veut les revoir.
+// components/ProfileEntry.tsx), ce qui est nouveau depuis ses réponses (les titres du journal des données, chacun vers
+// son entrée), puis les suites en panneaux, dans l'ordre de « Et maintenant ». Le film et les garanties restent plus
+// bas, pour qui veut les revoir.
 
 import type { ComponentChildren } from 'preact'
 import { frozenAt } from '../../core/freeze'
 import { PROFILE_TITLE } from '../../core/resultsCopy'
 import type { Results } from '../../core/score'
 import type { SessionState } from '../../core/storage'
-import type { ElectionPack, Question } from '../../core/types'
+import type { ChangelogEntry, ElectionPack, Question } from '../../core/types'
+import { AiLabel } from '../components/AiLabel'
 import { ChangedQuestions } from '../components/ChangedQuestions'
 import { Icon } from '../components/Icon'
 import { Leader } from '../components/Leader'
 import { formatDate, formatMoment } from '../format'
 import { link } from '../nav'
+import { presetOnClick } from '../journalPreset'
 import { hasTable } from '../table/load'
 import '../../styles/home-back.css'
-
-type Entry = { date: string; text: string }
 
 /** Le jour, à Paris, d'un instant ISO (en UTC) : celui des dates du journal des données */
 const PARIS_DAY = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris', year: 'numeric', month: '2-digit', day: '2-digit' })
 export const parisDay = (iso: string): string => PARIS_DAY.format(new Date(iso))
 
-/**
- * Ce qui est nouveau depuis ses réponses : les jours du journal des données postérieurs au jour (à Paris) où le
- * questionnaire rapide a été terminé, les plus récents d'abord, une entrée par jour (à date égale, la première écrite,
- * celle qui dit l'effet sur le classement, comme en tête du dépouillement ; le détail reste dans la Méthode). Sans date
- * de réponses, rien.
- */
-export function newsSince(changelog: readonly Entry[], since: string | null, max = 3): Entry[] {
-  if (!since || Number.isNaN(Date.parse(since))) return []
-  const day = parisDay(since)
-  const days = new Set<string>()
-  return changelog
-    .filter(e => e.date > day && !days.has(e.date) && !!days.add(e.date))
-    .sort((a, b) => b.date.localeCompare(a.date))
-    .slice(0, max)
-}
+/** « 12 octobre », sans l'année : le jour des réponses, dans l'année du journal */
+const dayMonth = (day: string): string => formatDate(day).replace(/\u00a0\d{4}$/, '')
 
-/** La première phrase d'une entrée du journal : la carte reste courte */
+/** La première phrase d'une entrée du journal : le titre d'une entrée qui n'en a pas */
 export const firstSentence = (text: string): string => text.match(/^.+?[.!?](?=\s+\p{Lu}|$)/u)?.[0] ?? text
+
+/**
+ * Ce qui est nouveau depuis ses réponses : les entrées du journal des données publiées après le jour (à Paris) où le
+ * questionnaire rapide a été terminé ; d'abord ce qui peut changer le classement : ces entrées seules s'il y en a, sinon
+ * les autres ; les plus récentes d'abord (puis le numéro, l'ordre de publication), « max » au plus, et le nombre de
+ * toutes en tout, pour le lien vers le journal. Sans date de réponses, rien.
+ */
+export function newsSince(changelog: readonly ChangelogEntry[], since: string | null, max = 3): { shown: ChangelogEntry[]; total: number } {
+  if (!since || Number.isNaN(Date.parse(since))) return { shown: [], total: 0 }
+  const day = parisDay(since)
+  const after = changelog.filter(e => e.date > day)
+  const moving = after.filter(e => e.effect === 'peut-changer')
+  const shown = [...(moving.length ? moving : after)].sort((a, b) => b.date.localeCompare(a.date) || (b.n ?? 0) - (a.n ?? 0)).slice(0, max)
+  return { shown, total: after.length }
+}
 
 interface Props {
   pack: ElectionPack
@@ -122,22 +125,32 @@ export function WelcomeBack({ pack, state, results, stale, essentialCount, profi
             </a>
           </Leader>
           {profile}
-          {news.length && doneAt ? (
+          {news.total && doneAt ? (
             <section class="back-news" aria-labelledby="back-news-title">
               {/* Sans date : celle du chapeau est à l'heure de l'appareil, le tri des jours du journal à celle de Paris */}
               <h2 id="back-news-title" class="back-news-title">
                 Nouveau depuis vos réponses
               </h2>
+              {/* Les titres du journal sont rédigés par IA : la mention avant eux, la première fois qu'on peut les lire */}
+              <AiLabel kind="journal" more="lien" class="back-news-ai" />
               <ol class="back-news-list">
-                {news.map(e => (
-                  <li key={e.date}>
+                {news.shown.map(e => (
+                  <li key={`${e.date}:${e.n ?? e.text}`}>
                     <time dateTime={e.date}>{formatDate(e.date)}</time>
-                    <span>{firstSentence(e.text)}</span>
+                    <span class="back-news-item">
+                      <a href={link(e.n ? `/journal/${e.n}` : '/journal')}>{e.title ?? firstSentence(e.text)}</a>
+                      {e.effect === 'peut-changer' || e.effect === 'sans-effet' ? (
+                        <span class="back-news-effect">{`Classement\u00a0: ${e.effect === 'peut-changer' ? 'peut changer' : 'sans effet'}`}</span>
+                      ) : null}
+                    </span>
                   </li>
                 ))}
               </ol>
-              <a class="g-link" href={link('/methode/journal')}>
-                Tout le journal des données
+              {/* Le journal réglé sur « Après vos réponses », passé en mémoire (clic simple), jamais dans l'adresse. Le jour
+                  des réponses n'y est pas compté (les entrées n'ont qu'une date) : « après le 12 octobre », et non
+                  « depuis vos réponses », qui laisserait croire qu'aucune entrée de ce jour-là n'a suivi */}
+              <a class="g-link" href={link('/journal')} onClick={presetOnClick('reponses')}>
+                {`Tout ce qui a changé après le ${dayMonth(parisDay(doneAt))} (${news.total}\u00a0entrée${news.total > 1 ? 's' : ''})`}
               </a>
             </section>
           ) : null}

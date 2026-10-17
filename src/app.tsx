@@ -26,7 +26,7 @@ import { Priorities } from './ui/screens/Priorities'
 import { Proximity } from './ui/screens/Proximity'
 import { Results } from './ui/screens/Results'
 import { CandidatePage, CandidatesIndex } from './ui/screens/Candidates'
-import { legalScreen, methodScreen, prepareScreens, privacyScreen, shareScreen, transferScreen } from './ui/screens/load'
+import { journalScreen, legalScreen, methodScreen, prepareScreens, privacyScreen, shareScreen, transferScreen } from './ui/screens/load'
 import { clearSelections } from './ui/compare/selection'
 import { compareNow, loadCompare } from './ui/compare/load'
 import { loadProfile, profileNow } from './ui/profile/load'
@@ -519,6 +519,13 @@ function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
         return onDemandScreen('legal', legalScreen, 'Les mentions légales', 'des mentions légales', m => (
           <m.Legal pack={pack} seed={state.seed} />
         ))
+      case 'journal': {
+        // Une autre entrée ou d'autres filtres demandés par un lien (#/journal/8, #/journal?…) remontent la page
+        const { n, query } = route
+        return onDemandScreen(`journal:${n ?? ''}:${query ?? ''}`, journalScreen, 'Les pages du journal', 'du journal', m => (
+          <m.Journal pack={pack} state={state} n={n} query={query} answered={id => isAnswered(state.answers[id])} />
+        ))
+      }
       case 'candidates':
         return <CandidatesIndex pack={pack} state={state} essential={essential} />
       case 'candidate':
@@ -642,6 +649,8 @@ function titleFor(route: Route): string {
       return 'À table'
     case 'transfer':
       return 'Transférer vos réponses'
+    case 'journal':
+      return 'Journal des données'
     default:
       return 'Isoloir'
   }

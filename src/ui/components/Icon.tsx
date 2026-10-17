@@ -51,6 +51,11 @@ const PATHS: Record<string, string> = {
   copy: 'M8.5 8.5h11v11h-11zM15.5 8.5V4.5h-11v11h4',
   mail: 'M3.5 6h17v12h-17zM3.5 6.5l8.5 7 8.5-7',
   keyboard: 'M3 7h18v10H3zM6.5 10.5h1M10 10.5h1M13.5 10.5h1M17 10.5h.5M7.5 14h9',
+  // Journal des données : une flèche montante (revenir aux filtres), les filtres (trois réglettes et leurs curseurs),
+  // une calculatrice pour « Calcul et pages du site »
+  'arrow-up': 'M12 19V6M6 11l6-6 6 6',
+  filters: 'M4 7h9M17 7h3M15 5v4M4 12h3M11 12h9M9 10v4M4 17h11M19 17h1M17 15v4',
+  calc: 'M6.5 3.5h11v17h-11zM9 7h6v2.5H9zM9.25 13h.5M12 13h.5M14.75 13h.5M9.25 16.5h.5M12 16.5h.5M14.75 16.5h.5',
   plane:
     'M12 2.8c.8 0 1.4.7 1.4 1.6v5l7.1 4.2v2l-7.1-2.1v4.2l2.3 1.8v1.7L12 20.3l-3.7.9v-1.7l2.3-1.8v-4.2l-7.1 2.1v-2l7.1-4.2v-5c0-.9.6-1.6 1.4-1.6z',
 }

@@ -21,11 +21,13 @@ import { Logo } from './Logo'
 import '../../styles/footer.css'
 
 /**
- * Les notices, dans l'ordre de lecture : comment l'outil est fait, ce qu'il garde, qui le publie. Chemins dans
- * l'élection affichée ; « page » se lit sur le chemin sans préfixe d'élection.
+ * Les notices, dans l'ordre de lecture : comment l'outil est fait, ce qui y change, ce qu'il garde, qui le publie.
+ * Chemins dans l'élection affichée ; « page » se lit sur le chemin sans préfixe d'élection.
  */
 const LINKS = [
   { path: '/methode', label: 'Méthode et sources', page: /^\/methode(\/|$)/ },
+  // Le journal des données, sorti de la Méthode le 17 octobre 2026 (décision du propriétaire)
+  { path: '/journal', label: 'Journal des données', page: /^\/journal(\/|$)/ },
   { path: '/confidentialite', label: 'Confidentialité', page: /^\/confidentialite\/?$/ },
   { path: '/mentions-legales', label: 'Mentions légales', page: /^\/mentions-legales\/?$/ },
 ]
