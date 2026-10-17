@@ -12,18 +12,22 @@ import { PROFILE_TITLE } from '../../core/resultsCopy'
 import type { Results } from '../../core/score'
 import type { SessionState } from '../../core/storage'
 import type { ChangelogEntry, ElectionPack, Question } from '../../core/types'
+import { AiLabel } from '../components/AiLabel'
 import { ChangedQuestions } from '../components/ChangedQuestions'
 import { Icon } from '../components/Icon'
 import { Leader } from '../components/Leader'
 import { formatDate, formatMoment } from '../format'
 import { link } from '../nav'
-import { presetJournal } from '../journalPreset'
+import { presetOnClick } from '../journalPreset'
 import { hasTable } from '../table/load'
 import '../../styles/home-back.css'
 
 /** Le jour, à Paris, d'un instant ISO (en UTC) : celui des dates du journal des données */
 const PARIS_DAY = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris', year: 'numeric', month: '2-digit', day: '2-digit' })
 export const parisDay = (iso: string): string => PARIS_DAY.format(new Date(iso))
+
+/** « 12 octobre », sans l'année : le jour des réponses, dans l'année du journal */
+const dayMonth = (day: string): string => formatDate(day).replace(/\u00a0\d{4}$/, '')
 
 /** La première phrase d'une entrée du journal : le titre d'une entrée qui n'en a pas */
 export const firstSentence = (text: string): string => text.match(/^.+?[.!?](?=\s+\p{Lu}|$)/u)?.[0] ?? text
@@ -127,6 +131,8 @@ export function WelcomeBack({ pack, state, results, stale, essentialCount, profi
               <h2 id="back-news-title" class="back-news-title">
                 Nouveau depuis vos réponses
               </h2>
+              {/* Les titres du journal sont rédigés par IA : la mention avant eux, la première fois qu'on peut les lire */}
+              <AiLabel kind="journal" more="lien" class="back-news-ai" />
               <ol class="back-news-list">
                 {news.shown.map(e => (
                   <li key={`${e.date}:${e.n ?? e.text}`}>
@@ -140,9 +146,11 @@ export function WelcomeBack({ pack, state, results, stale, essentialCount, profi
                   </li>
                 ))}
               </ol>
-              {/* Le journal réglé sur « Après vos réponses », passé en mémoire : jamais dans l'adresse */}
-              <a class="g-link" href={link('/journal')} onClick={() => presetJournal('reponses')}>
-                {`Tout ce qui a changé depuis vos réponses (${news.total}\u00a0entrée${news.total > 1 ? 's' : ''})`}
+              {/* Le journal réglé sur « Après vos réponses », passé en mémoire (clic simple), jamais dans l'adresse. Le jour
+                  des réponses n'y est pas compté (les entrées n'ont qu'une date) : « après le 12 octobre », et non
+                  « depuis vos réponses », qui laisserait croire qu'aucune entrée de ce jour-là n'a suivi */}
+              <a class="g-link" href={link('/journal')} onClick={presetOnClick('reponses')}>
+                {`Tout ce qui a changé après le ${dayMonth(parisDay(doneAt))} (${news.total}\u00a0entrée${news.total > 1 ? 's' : ''})`}
               </a>
             </section>
           ) : null}

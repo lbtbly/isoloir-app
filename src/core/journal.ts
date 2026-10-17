@@ -93,16 +93,17 @@ export function peopleFromHistory(lines: readonly HistoryLine[], changelog: read
 /**
  * L'effet d'une entrée sur le classement, d'après ses candidats (masqués compris) : « peut-changer » si et seulement si
  * une position change sur le fond, une question gagne ou perd une approche, ou un candidat classé arrive ou part. La
- * première publication n'a pas d'avant. Les tests vérifient que chaque entrée dit le même effet (ChangelogEntry.effect).
+ * première publication n'a pas d'avant. off : les candidats non classés de l'élection, masqués compris (le départ de
+ * l'un d'eux ne change pas le classement). Les tests vérifient que chaque entrée dit le même effet (ChangelogEntry.effect).
  */
-export function effectFrom(e: ChangelogEntry, people: readonly JournalPerson[]): JournalEffect {
+export function effectFrom(e: ChangelogEntry, people: readonly JournalPerson[], off: ReadonlySet<CandidateId> = new Set()): JournalEffect {
   if (people.some(p => p.causes.some(c => c.cause === 'première-publication'))) return 'première-version'
   const unranked = new Set(e.unranked ?? [])
   const moves =
     people.some(p => levelOf(p) === 'fond') ||
     !!e.kinds?.includes('questions') ||
     people.some(p => isArrival(p) && !unranked.has(p.id)) ||
-    (e.departed?.length ?? 0) > 0
+    (e.departed ?? []).some(id => !off.has(id))
   return moves ? 'peut-changer' : 'sans-effet'
 }
 
@@ -191,13 +192,21 @@ export interface JournalContext {
   answeredDay: string | null
   /** Version des données du dernier passage, tant que l'avis de mise à jour n'est pas refermé ; null sinon */
   seenVersion: string | null
+  /** Jour (à Paris) de ce passage, s'il est connu (core/storage.ts, beforeUpdate) */
+  seenDay: string | null
 }
 
-/** L'entrée passe le filtre de la période */
-export function inPeriod(item: JournalItem, depuis: string | undefined, ctx: Pick<JournalContext, 'answeredDay' | 'seenVersion'>): boolean {
+/**
+ * L'entrée passe le filtre de la période. Les entrées n'ont qu'une date : le jour des réponses n'est pas compté (rien
+ * ne dit si une entrée de ce jour-là a suivi), ni celui du dernier passage, sauf pour une entrée publiée avec une
+ * version des données plus récente que celle qu'il a vue (une entrée sans nouvelle version, publiée le lendemain,
+ * compte aussi)
+ */
+export function inPeriod(item: JournalItem, depuis: string | undefined, ctx: Pick<JournalContext, 'answeredDay' | 'seenVersion' | 'seenDay'>): boolean {
   if (!depuis) return true
   if (depuis === 'reponses') return !!ctx.answeredDay && item.date > ctx.answeredDay
-  if (depuis === 'passage') return !!ctx.seenVersion && item.versions.some(v => newerVersion(v, ctx.seenVersion!))
+  if (depuis === 'passage')
+    return !!ctx.seenVersion && (item.versions.some(v => newerVersion(v, ctx.seenVersion!)) || (!!ctx.seenDay && item.date > ctx.seenDay))
   return item.date >= depuis
 }
 

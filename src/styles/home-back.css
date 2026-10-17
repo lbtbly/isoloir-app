@@ -265,6 +265,11 @@
   line-height: 1.05;
 }
 
+/* La mention IA des titres, collée sous le titre, avant la liste */
+.back-news > .back-news-ai {
+  margin: calc(-1 * var(--s2)) 0 var(--s3);
+}
+
 .back-news-list {
   list-style: none;
   margin: 0 0 var(--s3);

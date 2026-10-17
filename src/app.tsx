@@ -22,8 +22,6 @@ import { Home } from './ui/screens/Home'
 import './styles/legal.css'
 // « Continuer sur un autre appareil » (chargé à la demande) : son style dans la feuille de la page, comme les notices
 import './styles/transfer.css'
-// Le journal des données (chargé à la demande) : de même
-import './styles/journal.css'
 import { Priorities } from './ui/screens/Priorities'
 import { Proximity } from './ui/screens/Proximity'
 import { Results } from './ui/screens/Results'

@@ -3,7 +3,8 @@
    feuille modale (« Filtres », avec le nombre de filtres posés), sur ordinateur ils restent visibles. Le reste vient des
    classes du site : .display, .lede, .ai-label, .filter-select, .select-chevron, .filter-chips, .filter-chip, .chip-n,
    .btn-text, .btn-primary, menus repliables. Rien que des jetons : le papier carbone vient tout seul. Aucune couleur
-   nouvelle : l'imprimé noir dit les faits, le gris les précise. Chargé avec la feuille de la page (app.tsx). */
+   nouvelle : l'imprimé noir dit les faits, le gris les précise. Chargé avec la page (Journal.tsx), comme le style de
+   « À table » et de « Mon profil politique » : la feuille de toutes les visites n'en a rien. */
 
 .journal {
   --measure: 60ch;
@@ -85,6 +86,30 @@ html:has(.jr-summary) {
   border-color: var(--rule);
   color: var(--print-soft);
   cursor: default;
+}
+
+/* Contraste forcé : le mode efface l'aplat du négatif, et le chevron (SVG) garderait sa couleur. Un filtre posé, une
+   pastille enfoncée et « Filtres » avec des filtres posés prennent les couleurs système de la sélection */
+@media (forced-colors: active) {
+  .jr-select.is-set select,
+  .jr-chips .filter-chip[aria-pressed='true'],
+  .jr-open.is-set {
+    forced-color-adjust: none;
+    background: SelectedItem;
+    border-color: SelectedItem;
+    color: SelectedItemText;
+  }
+
+  /* La liste ouverte du menu garde les couleurs du mode */
+  .jr-select.is-set select option,
+  .jr-select.is-set select optgroup {
+    forced-color-adjust: auto;
+  }
+
+  .jr-select.is-set .select-chevron {
+    forced-color-adjust: none;
+    color: SelectedItemText;
+  }
 }
 
 @media (min-width: 48rem) {
@@ -181,6 +206,16 @@ html:has(.jr-summary) {
 .jr-count b {
   font-weight: 800;
   font-variant-numeric: tabular-nums;
+}
+
+/* Le focus y vient après « Tout afficher » ou un bouton de « Aucune entrée », qui disparaissent */
+.jr-count:focus {
+  outline: none;
+}
+
+.jr-count:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
 }
 
 .jr-words {
@@ -293,6 +328,7 @@ html:has(.jr-summary) {
    avion (voilé, en papier carbone). Le titre, les quatre menus, puis « Effacer les filtres » et « Voir N entrées », toujours à portée du pouce. */
 
 .jr-sheet {
+  container: jr-sheet / inline-size;
   position: fixed;
   inset: auto 0 0;
   width: 100%;
@@ -311,6 +347,14 @@ html:has(.jr-summary) {
   display: flex;
   flex-direction: column;
   animation: jr-sheet-in 220ms var(--ease-out);
+}
+
+/* Sous le double filet, la tête, les menus et le pied ; seuls les menus défilent, d'ordinaire */
+.jr-sheet-in {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
 /* Le second trait du double filet, 4px sous le premier */
@@ -426,6 +470,40 @@ html:has(.jr-sheet[open]) {
 
 .jr-sheet-foot .btn-primary {
   margin-left: auto;
+}
+
+/* Assez de place (paysage, tablette étroite) : le compte à côté des boutons, sur une seule rangée */
+@container jr-sheet-foot (min-width: 32rem) {
+  .jr-sheet-count {
+    flex: 1 1 auto;
+  }
+}
+
+/* Texte très agrandi (moins de 19rem de feuille : la largeur en rem suit le texte) ou écran bas (téléphone en
+   paysage) : toute la feuille défile, le pied suit les menus, plutôt qu'une étroite fenêtre de défilement entre la tête
+   et le pied fixes */
+@container jr-sheet (max-width: 19rem) {
+  .jr-sheet-in {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .jr-sheet-body {
+    flex: none;
+    overflow: visible;
+  }
+}
+
+@media (max-height: 30rem) {
+  .jr-sheet-in {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .jr-sheet-body {
+    flex: none;
+    overflow: visible;
+  }
 }
 
 /* Texte très agrandi : le bouton prend toute la rangée, et le compte, qu'il redit, n'est plus lu qu'à voix haute (la

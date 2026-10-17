@@ -38,6 +38,8 @@ const pack = elections.find(p => p.election.id === 'presidentielle-2027')!
 const log = election.changelog
 const questionIds = new Set(pack.bank.questions.map(q => q.id))
 const hidden = new Set(election.hidden ?? [])
+/** Les candidats non classés, masqués compris (la liste de election.ts, avant le chargement du pack) */
+const off = new Set(election.ranking?.excluded?.ids ?? [])
 /** Les candidats d'une entrée, masqués compris (le fichier généré, avant l'export du pack) */
 const peopleOf = (e: ChangelogEntry): JournalPerson[] => rawJournal[e.n!]?.people ?? []
 /** Les questions d'une entrée : celles de ses candidats et de ses parties */
@@ -70,6 +72,20 @@ describe('journal des données : les entrées', () => {
     // Les précisions venues après coup sont datées, à part, et non plus entre crochets dans le texte
     expect(e.text).not.toMatch(/\[précision/i)
     for (const note of e.notes ?? []) expect(note.date > e.date && /^\p{Lu}.*\.$/u.test(note.text), note.text).toBe(true)
+  })
+
+  it('les natures disent ce que dit le texte : des vidéos, « Fiches et vidéos » ; des chiffres mesurés à nouveau ou une page du site, « Calcul et pages du site »', () => {
+    const missing: string[] = []
+    for (const e of log) {
+      const text = spaces(e.text)
+      if (/vidéo/i.test(text) && !e.kinds?.includes('explications')) missing.push(`N° ${e.n} : explications`)
+      if (/mesurés à nouveau|page « |Nouvelle page|pages (?:et les vidéos )?propres/.test(text) && !e.kinds?.includes('site')) missing.push(`N° ${e.n} : site`)
+    }
+    expect(missing).toEqual([])
+  })
+
+  it('la version actuelle des données a son entrée : « Voir ce qui a changé » ne mène jamais à un journal vide', () => {
+    expect(log.some(e => e.versions?.includes(election.dataVersion))).toBe(true)
   })
 
   it('tout candidat nommé dans le titre ou le texte est étiqueté, masqués compris', () => {
@@ -107,7 +123,7 @@ describe('journal des données : les entrées', () => {
 
   it('« peut changer le classement » si et seulement si une position change sur le fond, une question gagne une approche, ou un candidat classé arrive ou part', () => {
     for (const e of log) {
-      expect(effectFrom(e, peopleOf(e)), `N° ${e.n} ${e.title}`).toBe(e.effect)
+      expect(effectFrom(e, peopleOf(e), off), `N° ${e.n} ${e.title}`).toBe(e.effect)
       if (/le classement ne change(nt)? pas/.test(e.text)) expect(e.effect, `N° ${e.n}`).toBe('sans-effet')
     }
     // La règle elle-même, sur des entrées d'essai
@@ -120,6 +136,9 @@ describe('journal des données : les entrées', () => {
     expect(effectFrom(e(), [p('a', 'nouveau-candidat', true)])).toBe('peut-changer')
     expect(effectFrom(e({ unranked: ['a'] }), [p('a', 'nouveau-candidat', true)])).toBe('sans-effet')
     expect(effectFrom(e({ departed: ['x'] }), [])).toBe('peut-changer')
+    // Le départ d'un candidat non classé ne change pas le classement ; celui d'un classé, si
+    expect(effectFrom(e({ kinds: ['candidats'], departed: ['x'] }), [], new Set(['x']))).toBe('sans-effet')
+    expect(effectFrom(e({ kinds: ['candidats'], departed: ['x', 'y'] }), [], new Set(['x']))).toBe('peut-changer')
     expect(effectFrom(e({ kinds: ['site'] }), [])).toBe('sans-effet')
     expect(effectFrom(e(), [p('a', 'première-publication', true)])).toBe('première-version')
   })
@@ -217,7 +236,7 @@ describe('journal des données : candidats tirés de l’historique', () => {
 describe('journal des données : filtres et adresse', () => {
   const items = journalItems(pack)
   const families = (i: JournalItem) => (i.questions.length ? ['economie'] : [])
-  const ctx: JournalContext = { families, answeredDay: '2026-10-12', seenVersion: '2026-10-14.1' }
+  const ctx: JournalContext = { families, answeredDay: '2026-10-12', seenVersion: '2026-10-14.1', seenDay: null }
   const valid: FilterValues = {
     candidat: new Set(pack.candidates.map(c => c.id)),
     theme: new Set(['economie', 'europe']),
@@ -238,7 +257,7 @@ describe('journal des données : filtres et adresse', () => {
     expect(parseJournalQuery('', valid)).toEqual({})
   })
 
-  it('la période : un jour compris ; après vos réponses, le jour exclu ; après votre dernier passage, par version des données', () => {
+  it('la période : un jour compris ; après vos réponses, le jour exclu ; après votre dernier passage, par version des données et par jour', () => {
     const at = (date: string, versions: string[]) => ({ ...items[0]!, date, versions })
     expect(inPeriod(at('2026-10-14', ['2026-10-14.1']), '2026-10-14', ctx)).toBe(true)
     expect(inPeriod(at('2026-10-13', ['2026-10-12.1']), '2026-10-14', ctx)).toBe(false)
@@ -251,6 +270,13 @@ describe('journal des données : filtres et adresse', () => {
     // Le 15 octobre : deux versions des données, 15.1 puis 15.2 ; un passage sur 15.1 ne garde que ce qui est venu après
     const seen151 = items.filter(i => inPeriod(i, 'passage', { ...ctx, seenVersion: '2026-10-15.1' })).map(i => i.n)
     expect(seen151.sort((a, b) => a - b)).toEqual([8, 11])
+    // Une entrée publiée sans nouvelle version, après le jour du passage, compte aussi ; le jour même, non (les
+    // entrées n'ont qu'une date). Passage le 9 octobre sur 2026-10-09.1 : N° 3 (10 octobre, même version) en est
+    const seen091 = (seenDay: string | null) =>
+      items.filter(i => inPeriod(i, 'passage', { ...ctx, seenVersion: '2026-10-09.1', seenDay })).map(i => i.n).sort((a, b) => a - b)
+    expect(seen091(null)).toEqual([4, 5, 6, 7, 8, 9, 10, 11])
+    expect(seen091('2026-10-09')).toEqual([3, 4, 5, 6, 7, 8, 9, 10, 11])
+    expect(seen091('2026-10-10')).toEqual([4, 5, 6, 7, 8, 9, 10, 11])
     expect(newerVersion('2026-10-15.10', '2026-10-15.9')).toBe(true)
     expect(newerVersion('n’importe quoi', '2026-10-15.9')).toBe(false)
   })
@@ -278,6 +304,9 @@ describe('l’avis du dépouillement après une mise à jour des données : ce q
     expect(updateMoves(r(['a', 60], ['b', 50], ['c', 40]), r(['b', 62], ['a', 60], ['c', 40]))).toBe('Pour vous\u00a0: 2\u00a0candidats ont changé de place.')
     expect(updateMoves(r(['a', 60], ['b', 50]), r(['a', 60], ['n', 55], ['b', 50]))).toBe('Pour vous\u00a0: même ordre pour les autres\u00a0; un candidat est entré au classement.')
     expect(updateMoves(r(['a', 60], ['x', 55], ['b', 50]), r(['a', 60], ['b', 51]))).toBe('Pour vous\u00a0: même ordre, un score a bougé\u00a0; un candidat l’a quitté.')
+    // Ceux qui ne sont plus présentés ou plus classés, retirés du classement gardé à la lecture (core/storage.ts), comptés à part
+    expect(updateMoves(r(['a', 60], ['b', 50]), r(['a', 60], ['b', 50]), 1)).toBe('Pour vous\u00a0: même ordre pour les autres\u00a0; un candidat l’a quitté.')
+    expect(updateMoves([], r(['a', 60]), 2)).toBe('Pour vous\u00a0: un candidat est entré au classement\u00a0; 2\u00a0candidats l’ont quitté.')
   })
 })
 

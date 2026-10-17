@@ -1399,6 +1399,9 @@ try {
             changed: !!document.querySelector('.back-hero.has-changed .back-intro .changed'),
             // La date du journal dans sa colonne : deux pistes à la grille de chaque entrée
             newsCols: li ? getComputedStyle(li).gridTemplateColumns.split(' ').length : 0,
+            // Les titres du journal sont rédigés par IA : la mention avant le premier
+            newsAi: !!(document.querySelector('.back-news .ai-label')?.compareDocumentPosition(document.querySelector('.back-news-list a')) & Node.DOCUMENT_POSITION_FOLLOWING),
+            newsAll: document.querySelector('.back-news > .g-link')?.textContent ?? '',
             vh: innerHeight,
             wide: document.documentElement.scrollWidth > innerWidth,
           }
@@ -1415,8 +1418,8 @@ try {
       for (const width of [1024, 1280]) {
         const full = await homeIn({ width, height: 900 }, withNews)
         check(
-          full.ready && full.frame && full.hero && full.frame.l === full.hero.l && full.frame.w === full.hero.w && full.newsCols === 2 && !full.wide,
-          `accueil de retour à ${width} px : le cadre sur toute la largeur, la date du journal dans sa colonne (${full.newsCols} pistes)`,
+          full.ready && full.frame && full.hero && full.frame.l === full.hero.l && full.frame.w === full.hero.w && full.newsCols === 2 && full.newsAi && /^Tout ce qui a changé après le \d/.test(flat(full.newsAll)) && !full.wide,
+          `accueil de retour à ${width} px : le cadre sur toute la largeur, la date du journal dans sa colonne (${full.newsCols} pistes), la mention IA avant ses titres, « ${flat(full.newsAll)} »`,
         )
         if (!revoir) continue
         const back = await homeIn({ width, height: 900 }, revoir)
@@ -2954,8 +2957,9 @@ try {
   // chargée à la demande ; au téléphone, les filtres dans une feuille modale (titre, focus gardé dedans, Échap, retour du
   // focus, « Effacer les filtres », « Voir N entrées ») ; l'adresse suit les filtres, jamais les choix calculés sur
   // l'appareil ; une entrée par son numéro ; l'ancienne rubrique de la Méthode ; aucune entrée ; l'avis du dépouillement,
-  // qui ouvre le journal sur « après votre dernier passage » ; sur ordinateur, les filtres sur la page, en pastilles, et
-  // la ligne collée ; rien en largeur à 320, 375 et 1 280 px
+  // qui dit ce qui a bougé et ouvre le journal sur « après votre dernier passage » ; sur ordinateur, les filtres sur la
+  // page, en pastilles, et la ligne collée ; rien en largeur à 320, 375 et 1 280 px. Le focus ne tombe jamais sur la page
+  // quand le bouton touché disparaît, se désactive ou se cache (contre-vérification du 17 octobre 2026)
   if (JOURNAL) {
     const { journalItems, newerVersion } = await importSite('src/core/journal.ts')
     const items = journalItems(pack)
@@ -3005,14 +3009,36 @@ try {
       `filtre posé dans la feuille : l’adresse le porte (${picked.hash}), « ${flat(picked.see)} », « Filtres » le compte ; Échap la referme, le focus revient au bouton, ${closed.shown} entrées`,
     )
     await jp.locator('.jr-open').click()
-    await jp.locator('.jr-sheet-foot .btn-text').click()
-    const cleared = await jp.evaluate(() => ({ hash: decodeURI(location.hash), see: document.querySelector('.jr-sheet .btn-primary')?.textContent ?? '' }))
+    // « Effacer les filtres », au clavier : il s'éteint de lui-même, le focus passe à « Voir N entrées »
+    await jp.locator('.jr-sheet-foot .btn-text').focus()
+    await jp.keyboard.press('Enter')
+    const cleared = await jp.evaluate(() => ({
+      hash: decodeURI(location.hash),
+      see: document.querySelector('.jr-sheet .btn-primary')?.textContent ?? '',
+      focus: document.activeElement === document.querySelector('.jr-sheet .btn-primary'),
+    }))
     await jp.locator('.jr-sheet-foot .btn-primary').click()
     const seen = await jp.evaluate(() => ({ open: document.querySelector('dialog.jr-sheet').open, back: document.activeElement?.classList.contains('jr-open'), shown: document.querySelectorAll('.jr-entry').length }))
     check(
-      cleared.hash === L('/journal') && flat(cleared.see) === flat(`Voir ${entries(TOTAL)}`) && !seen.open && seen.back && seen.shown === TOTAL,
-      `« Effacer les filtres » remet l’adresse à ${cleared.hash}, « ${flat(cleared.see)} » referme la feuille sur les ${seen.shown} entrées`,
+      cleared.hash === L('/journal') && flat(cleared.see) === flat(`Voir ${entries(TOTAL)}`) && cleared.focus && !seen.open && seen.back && seen.shown === TOTAL,
+      `« Effacer les filtres » remet l’adresse à ${cleared.hash} et passe le focus à « ${flat(cleared.see)} », qui referme la feuille sur les ${seen.shown} entrées`,
     )
+    // Un toucher sur la bande haute de la feuille (son double filet) la laisse ouverte ; sur le fond, au-dessus, la referme
+    await jp.locator('.jr-open').click()
+    const band = await jp.evaluate(() => document.querySelector('dialog.jr-sheet').getBoundingClientRect().top)
+    await jp.mouse.click(60, band + 2)
+    const onBand = await jp.evaluate(() => document.querySelector('dialog.jr-sheet').open)
+    await jp.mouse.click(60, Math.max(4, band - 40))
+    const onBackdrop = await jp.evaluate(() => ({ open: document.querySelector('dialog.jr-sheet').open, back: document.activeElement?.classList.contains('jr-open') }))
+    check(onBand && !onBackdrop.open && onBackdrop.back, `feuille des filtres : un toucher sur sa bande haute la laisse ouverte, sur le fond la referme (focus rendu à « Filtres »)`)
+    // La fenêtre élargie la feuille ouverte (téléphone tourné) : la feuille se referme, le focus va au premier filtre de la
+    // page, le bouton « Filtres » n'étant plus affiché
+    await jp.locator('.jr-open').click()
+    await jp.setViewportSize({ width: 1024, height: 700 })
+    await jp.waitForTimeout(200)
+    const widened = await jp.evaluate(() => ({ open: document.querySelector('dialog.jr-sheet').open, focus: !!document.activeElement?.closest('#filtres .is-candidat') }))
+    check(!widened.open && widened.focus, `la feuille ouverte, la fenêtre passe à 1 024 px : elle se referme, le focus au premier filtre de la page`)
+    await jp.setViewportSize({ width: 375, height: 812 })
     // 320 px, la feuille ouverte : rien en largeur, ni dans la page ni dans la feuille
     await jp.setViewportSize({ width: 320, height: 640 })
     await jp.locator('.jr-open').click()
@@ -3023,16 +3049,21 @@ try {
     await jp.keyboard.press('Escape')
     check(!narrow.page && !narrow.sheet && narrow.see, `journal à 320 px, la feuille ouverte : rien en largeur`)
     await jp.setViewportSize({ width: 375, height: 812 })
-    // Une entrée par son numéro (l'accueil de retour y mène) : ouverte, son titre au focus, sous la ligne collante
-    const one = items.find(i => i.effect === 'peut-changer') ?? items[0]
+    // Une entrée par son numéro (l'accueil de retour y mène) : ouverte, son titre au focus, la page défilée jusqu'à elle,
+    // sous la ligne collante et dans la moitié haute de l'écran. La plus ancienne qui peut changer le classement : loin
+    // du haut de la page
+    const one = items.findLast(i => i.effect === 'peut-changer') ?? items.at(-1)
     await jp.goto(U(`/journal/${one.n}`))
     await jp.waitForTimeout(500)
     const opened1 = await jp.evaluate(n => {
       const t = document.getElementById(`entree-${n}`)
       const bar = document.querySelector('.jr-summary').getBoundingClientRect()
-      return { open: !!t?.closest('.jr-entry')?.querySelector('.jr-more')?.open, focus: document.activeElement?.id, top: t?.getBoundingClientRect().top ?? -1, below: bar.bottom }
+      return { open: !!t?.closest('.jr-entry')?.querySelector('.jr-more')?.open, focus: document.activeElement?.id, top: t?.getBoundingClientRect().top ?? -1, below: bar.bottom, scrolled: scrollY, half: innerHeight / 2 }
     }, one.n)
-    check(opened1.open && opened1.focus === `entree-${one.n}` && opened1.top >= opened1.below - 1, `#/journal/${one.n} : l’entrée ouverte, son titre au focus, sous la ligne collante (${Math.round(opened1.top)} ≥ ${Math.round(opened1.below)})`)
+    check(
+      opened1.open && opened1.focus === `entree-${one.n}` && opened1.scrolled > 0 && opened1.top >= opened1.below - 1 && opened1.top < opened1.half,
+      `#/journal/${one.n} : l’entrée ouverte, son titre au focus, la page défilée (${Math.round(opened1.scrolled)} px), sous la ligne collante et dans la moitié haute (${Math.round(opened1.below)} ≤ ${Math.round(opened1.top)} < ${Math.round(opened1.half)})`,
+    )
     // L'ancienne rubrique de la Méthode mène à la page
     await jp.goto(U('/methode/journal'))
     await jp.locator('.jr-entry').first().waitFor()
@@ -3044,29 +3075,103 @@ try {
       await jp.goto(U(`/journal?candidat=${quiet.id}&depuis=${last}`))
       await jp.locator('.jr-empty').waitFor()
       const none = await jp.evaluate(() => ({ entries: document.querySelectorAll('.jr-entry').length, ways: [...document.querySelectorAll('.jr-empty-actions button')].map(b => b.textContent) }))
-      check(none.entries === 0 && none.ways.length === 3 && none.ways.every(w => /\(\d+/.test(w)), `aucune entrée : ${none.ways.map(flat).join(' · ')}`)
+      // Un bouton de « Aucune entrée », au clavier : le bloc disparaît, le focus passe à la ligne du compte
+      await jp.locator('.jr-empty-actions button').first().focus()
+      await jp.keyboard.press('Enter')
+      const out = await jp.evaluate(() => ({ focus: document.activeElement?.classList.contains('jr-count'), shown: document.querySelectorAll('.jr-entry').length }))
+      check(
+        none.entries === 0 && none.ways.length === 3 && none.ways.every(w => /\(\d+/.test(w)) && out.focus && out.shown > 0,
+        `aucune entrée : ${none.ways.map(flat).join(' · ')} ; le premier lève son filtre (${out.shown} entrées) et passe le focus à la ligne du compte`,
+      )
     }
     await jc.close()
 
-    // L'avis du dépouillement, données mises à jour depuis la visite : « Voir ce qui a changé » ouvre le journal sur
-    // « après votre dernier passage », passé en mémoire, jamais dans l'adresse
+    // L'avis du dépouillement, données mises à jour depuis la visite du 9 octobre : ce qui a bougé pour la personne,
+    // d'après le classement de cette visite (un score y est baissé de 3 points, pour l'exemple), dit une fois et figé
+    // jusqu'à « Compris » ; le repère des « +3 pts depuis votre dernier passage » suit, lui, chaque visite.
+    // « Voir ce qui a changé » ouvre le journal sur « après votre dernier passage », passé en mémoire pour un clic simple
+    // seulement, jamais dans l'adresse
+    const { inputsKey } = await importSite('src/core/storage.ts')
     const oldest = items.at(-1).versions[0]
-    const before = { ...JSON.parse(saved[STORAGE]), dataVersion: oldest }
+    const visitedAt = '2026-10-09T10:00:00.000Z'
+    const was = JSON.parse(saved[STORAGE])
+    const lower = (was.lastSeenRanking ?? []).findIndex(r => r.score !== null && r.score >= 3)
+    const before = {
+      ...was,
+      dataVersion: oldest,
+      dataUpdatedFrom: null,
+      beforeUpdate: null,
+      lastSeenRanking: (was.lastSeenRanking ?? []).map((r, i) => (i === lower ? { ...r, score: r.score - 3 } : r)),
+      lastSeenBasis: { inputs: inputsKey(was.answers, was.weights), at: visitedAt },
+    }
     const pc = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' })
-    await pc.addInitScript(st => Object.entries(st).forEach(([k, v]) => localStorage.setItem(k, v)), { ...saved, [STORAGE]: JSON.stringify(before) })
+    // Une seule fois : les rechargements gardent ce que la page a écrit
+    await pc.addInitScript(
+      ([st, key]) => localStorage.getItem(key) || Object.entries(st).forEach(([k, v]) => localStorage.setItem(k, v)),
+      [{ ...saved, [STORAGE]: JSON.stringify(before) }, STORAGE],
+    )
     const pp = await pc.newPage()
-    await pp.goto(U('/resultats'))
-    const notice = pp.locator(`.notice a[href="${L('/journal')}"]`)
-    await notice.waitFor()
-    const said = flat(await pp.locator('.notice p').first().textContent())
-    await notice.click()
+    // Une visite : la page chargée de nouveau (une adresse qui ne change que par le fragment ne la recharge pas)
+    const visit = async () => {
+      if (pp.url().startsWith('http') && hashOf(pp) === L('/resultats')) await pp.reload()
+      else await pp.goto(U('/resultats'))
+      await pp.locator('.notice a').first().waitFor()
+      await pp.waitForTimeout(300)
+      return pp.evaluate(() => ({
+        said: document.querySelector('.notice p')?.textContent ?? '',
+        deltas: [...document.querySelectorAll('.board-row')].filter(r => /depuis votre dernier passage/.test(r.textContent ?? '')).length,
+      }))
+    }
+    const first = await visit()
+    // Une étoile touchée l'avis ouvert : la phrase ne change pas. Celle d'un thème déjà prioritaire s'il y en a (la
+    // retirer n'est jamais refusé), sinon la première
+    const starAt = await pp.evaluate(() => Math.max(0, [...document.querySelectorAll('.pv-grid .star-toggle')].findIndex(b => b.closest('tr')?.classList.contains('is-priority'))))
+    const star = pp.locator('.pv-grid .star-toggle').nth(starAt)
+    await star.click()
+    await pp.waitForTimeout(300)
+    const starred = flat(await pp.locator('.notice p').first().textContent())
+    await star.click()
+    await pp.waitForTimeout(300)
+    // Seconde visite sans « Compris », sans rien changer : la même phrase, plus d'écart « depuis votre dernier passage »
+    const second = await visit()
+    check(
+      lower >= 0 && /Pour vous\s*:.*un score a bougé/.test(flat(first.said)) && first.deltas >= 1 && starred === flat(first.said) && flat(second.said) === flat(first.said) && second.deltas === 0,
+      `l’avis du dépouillement : « ${flat(first.said)} », ${first.deltas} écart(s) « depuis votre dernier passage » ; la même phrase une étoile posée, et à la visite suivante, sans plus d’écart (${second.deltas})`,
+    )
+    // Cmd ou Ctrl+clic sur « Voir ce qui a changé » : le journal s'ouvre ailleurs, et ne règle pas le journal ouvert
+    // ensuite dans cet onglet
+    const link = pp.locator(`.notice a[href="${L('/journal')}"]`)
+    const popup = pc.waitForEvent('page', { timeout: 3000 }).catch(() => null)
+    await link.click({ modifiers: ['ControlOrMeta'] })
+    await (await popup)?.close()
+    const stayed = hashOf(pp)
+    await pp.evaluate(path => (location.hash = path), L('/journal'))
+    await pp.locator('.jr-entry').first().waitFor()
+    const plainLater = await pp.evaluate(() => ({ words: document.querySelector('.jr-words')?.textContent ?? '', shown: document.querySelectorAll('.jr-entry').length }))
+    // Un clic simple : le journal sur « après votre dernier passage », versions plus récentes que celle vue, ou publiées
+    // après le jour de la visite
+    await pp.evaluate(path => (location.hash = path), L('/resultats'))
+    await link.waitFor()
+    await link.click()
     await pp.locator('.jr-entry').first().waitFor()
     const passage = await pp.evaluate(() => ({ hash: decodeURI(location.hash), words: document.querySelector('.jr-words')?.textContent ?? '', shown: document.querySelectorAll('.jr-entry').length }))
-    const expected = items.filter(i => i.versions.some(v => newerVersion(v, oldest))).length
+    const seenDay = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(new Date(visitedAt))
+    const expected = items.filter(i => i.versions.some(v => newerVersion(v, oldest)) || i.date > seenDay).length
     check(
-      /Pour vous\s*:/.test(said) && passage.hash === L('/journal') && flat(passage.words).includes('après votre dernier passage') && passage.shown === expected,
-      `l’avis du dépouillement (« ${said} ») ouvre le journal sur « après votre dernier passage » : ${passage.shown} entrées, adresse ${passage.hash}`,
+      stayed === L('/resultats') && plainLater.shown === TOTAL && !flat(plainLater.words).includes('passage'),
+      `Cmd ou Ctrl+clic sur « Voir ce qui a changé » : l’onglet reste sur ${stayed}, et le journal ouvert ensuite ici n’est pas filtré (${plainLater.shown} entrées)`,
     )
+    check(
+      passage.hash === L('/journal') && flat(passage.words).includes('après votre dernier passage') && passage.shown === expected,
+      `l’avis du dépouillement ouvre le journal sur « après votre dernier passage » : ${passage.shown} entrées, adresse ${passage.hash}`,
+    )
+    // Les réponses changées depuis (une étoile gardée) : l'avis ne dit plus rien de précis
+    await pp.evaluate(path => (location.hash = path), L('/resultats'))
+    await star.waitFor()
+    await star.click()
+    await pp.waitForTimeout(300)
+    const changed = await visit()
+    check(/Votre résultat a pu changer\./.test(flat(changed.said)), `une priorité changée depuis la mise à jour : l’avis dit « ${flat(changed.said)} »`)
     await pc.close()
 
     // Ordinateur : les filtres sur la page, « Ce qui change » en pastilles avec leur nombre ; la ligne collée
@@ -3080,8 +3185,21 @@ try {
       chips: document.querySelectorAll('.jr-chips .filter-chip').length,
       button: !!document.querySelector('.jr-open')?.offsetParent,
     }))
+    // Au clavier, les filtres suivent la grille : du thème à la période (même rangée), puis aux pastilles
+    await dp.locator('.jr-tools .is-theme select').focus()
+    await dp.keyboard.press('Tab')
+    const afterTheme = await dp.evaluate(() => !!document.activeElement?.closest('.jr-tools .is-depuis'))
+    await dp.keyboard.press('Tab')
+    const afterPeriod = await dp.evaluate(() => !!document.activeElement?.closest('.jr-tools .is-change'))
+    check(afterTheme && afterPeriod, `journal sur ordinateur : au clavier, le thème, la période, puis « Ce qui change », dans l’ordre de la grille`)
     await dp.locator('.jr-chips .filter-chip', { hasText: 'Positions' }).click()
     const chip = await dp.evaluate(() => ({ hash: decodeURI(location.hash), pressed: document.querySelector('.jr-chips .filter-chip[aria-pressed="true"]')?.textContent ?? '' }))
+    // « Tout afficher », au clavier : le bouton disparaît, le focus passe à la ligne du compte
+    await dp.locator('.jr-reset').focus()
+    await dp.keyboard.press('Enter')
+    const reset = await dp.evaluate(() => ({ focus: document.activeElement?.classList.contains('jr-count'), shown: document.querySelectorAll('.jr-entry').length, hash: decodeURI(location.hash) }))
+    check(reset.focus && reset.shown === TOTAL && reset.hash === L('/journal'), `« Tout afficher » : ${reset.shown} entrées, le focus à la ligne du compte`)
+    await dp.locator('.jr-chips .filter-chip', { hasText: 'Positions' }).click()
     await dp.evaluate(() => window.scrollTo(0, document.querySelector('.jr-day:last-of-type')?.getBoundingClientRect().top + scrollY))
     await dp.waitForTimeout(300)
     const stuck = await dp.evaluate(() => ({ stuck: document.querySelector('.jr-summary').classList.contains('is-stuck'), up: !!document.querySelector('.jr-up')?.offsetParent, wide: document.documentElement.scrollWidth > innerWidth }))
@@ -3089,6 +3207,11 @@ try {
       desk.inline === 'block' && desk.chips === 6 && !desk.button && chip.hash === L('/journal?change=positions') && /^Positions/.test(flat(chip.pressed)) && stuck.stuck && stuck.up && !stuck.wide,
       `journal sur ordinateur : les filtres sur la page, ${desk.chips} pastilles, « ${flat(chip.pressed)} » enfoncée (${chip.hash}) ; défilée, la ligne collée propose « Filtres »`,
     )
+    // Le lien « Journal des données » du pied de page, le journal filtré : les filtres suivent l'adresse
+    await dp.locator(`.site-foot a[href="${L('/journal')}"]`).click()
+    await dp.waitForTimeout(200)
+    const footed = await dp.evaluate(() => ({ hash: decodeURI(location.hash), shown: document.querySelectorAll('.jr-entry').length, pressed: document.querySelector('.jr-chips .filter-chip[aria-pressed="true"]')?.textContent ?? '' }))
+    check(footed.hash === L('/journal') && footed.shown === TOTAL && /^Tout/.test(flat(footed.pressed)), `le pied de page sur le journal filtré : ${footed.hash}, ${footed.shown} entrées, aucun filtre`)
     await dc.close()
   }
 

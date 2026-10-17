@@ -220,9 +220,9 @@ export const election: ElectionInfo = {
       // -03-p27) ; le détail (avant, après, raison, sources) est dans research/presidentielle-2027/positions-history.json
       // et dans les notes de decisions.json
       n: 8,
-      title: 'Dette\u00a0: positions de Florian Philippot et Bruno Retailleau revues',
+      title: 'Positions de Florian Philippot et de Bruno Retailleau revues',
       versions: ['2026-10-15.1', '2026-10-15.2'],
-      kinds: ['positions', 'explications'],
+      kinds: ['positions', 'explications', 'site'],
       effect: 'peut-changer',
       parts: [{ label: 'La fiche et la vidéo mises à jour', questions: ['industrie_economie-3'] }],
       text: 'Positions revues sur la question «\u00a0Quelle stratégie pour les finances publiques face à la dette\u00a0?\u00a0»\u00a0: pour Florian Philippot, son approche principale devient les économies d’abord sur le fonctionnement de l’État, et celle qui vise l’immigration, l’aide internationale et la contribution européenne devient son approche compatible\u00a0; pour Bruno Retailleau, résumés et sources mis à jour d’après son plan d’économies du 12 octobre 2026, ses approches restant les mêmes. D’après ce plan, ses positions sont revues de même, approches inchangées, sur six autres questions\u00a0: nombre d’agents publics, accès aux services publics, niveau des impôts, aides aux entreprises, règles pour l’endettement de l’État (référendum sur la règle d’or budgétaire votée en 2011) et rôle de la Sécurité sociale dans le remboursement des soins (jours de carence et économies sur les arrêts maladie\u00a0; la hausse des franchises médicales évoquée en 2025 n’est plus reprise). La fiche «\u00a0Comprendre l’enjeu\u00a0» sur l’État au capital des entreprises et la vidéo «\u00a0L’État actionnaire\u00a0» donnent désormais la valeur des participations de l’État au 30 juin 2026, d’après le rapport annexé au projet de loi de finances pour 2027. Positions et chiffres relevés le 15 octobre et vérifiés automatiquement par une IA contre leurs sources, sans relecture humaine une par une. Les chiffres publiés sur la page «\u00a0Mon profil politique\u00a0» ont été mesurés à nouveau.',
@@ -244,7 +244,7 @@ export const election: ElectionInfo = {
       // Décisions du propriétaire du 2026-10-15 (n° 1 et 2), écrite après les deux entrées du même jour. Elle précise en
       // partie l'entrée du 14 octobre sur le score indicatif. Les données ne changent pas : pas de nouvelle dataVersion
       n: 10,
-      title: 'Non classés\u00a0: score indicatif montré dès 5 de vos réponses',
+      title: 'Non classés\u00a0: score indicatif s’ils sont connus sur 5 de vos réponses',
       versions: ['2026-10-15.1'],
       kinds: ['site'],
       effect: 'sans-effet',
@@ -272,7 +272,7 @@ export const election: ElectionInfo = {
       n: 6,
       title: 'Natacha Polony ajoutée, non classée\u00a0; deux questions complétées',
       versions: ['2026-10-14.1'],
-      kinds: ['candidats', 'positions', 'questions'],
+      kinds: ['candidats', 'positions', 'questions', 'site'],
       effect: 'peut-changer',
       unranked: ['polony'],
       parts: [{ label: 'Les 2 questions qui gagnent une approche', questions: ['finances_publiques-1', 'europe-3'] }],
@@ -295,7 +295,7 @@ export const election: ElectionInfo = {
       n: 4,
       title: 'Primaire\u00a0: seul Raphaël Glucksmann reste présenté',
       versions: ['2026-10-12.1'],
-      kinds: ['candidats', 'site'],
+      kinds: ['candidats', 'explications', 'site'],
       effect: 'peut-changer',
       named: ['glucksmann'],
       departed: ['faure', 'guedj', 'maurel', 'royal'],

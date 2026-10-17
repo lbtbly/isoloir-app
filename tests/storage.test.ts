@@ -2,7 +2,8 @@ import { describe, expect, it } from 'vitest'
 import { buildExport, parseImport } from '../src/core/exportData'
 import { currentAnswers, staleQuestions } from '../src/core/revisions'
 import { computeResults } from '../src/core/score'
-import { essentialComplete, freshState, migrateAnswers, sanitizeState } from '../src/core/storage'
+import { essentialComplete, freshState, inputsKey, migrateAnswers, sanitizeState } from '../src/core/storage'
+import { updateMoves } from '../src/core/resultsCopy'
 import type { ElectionPack } from '../src/core/types'
 import { pack } from './fixture'
 
@@ -74,22 +75,75 @@ describe('sanitizeState', () => {
 })
 
 describe('mise à jour des données entre deux visites', () => {
-  // Décision du propriétaire du 17 octobre 2026 : l'avis du dépouillement dit ce qui a bougé pour la personne
+  // Décision du propriétaire du 17 octobre 2026 : l'avis du dépouillement dit ce qui a bougé pour la personne, d'après le
+  // classement de sa dernière visite d'avant la mise à jour (beforeUpdate), figé jusqu'à « Compris » ; le repère des
+  // « +3 pts depuis votre dernier passage » (lastSeenRanking) suit, lui, chaque visite
   const ranking = pack.candidates.map((c, i) => ({ candidateId: c.id, score: 60 - i }))
+  const answers = { q1: { ratings: { q1a: 1 as const }, redLines: [] } }
+  const weights = { t1: 2 as const }
+  const at = '2026-10-12T10:00:00.000Z'
+  /** Une visite des résultats sur ces réponses, en version 0 */
+  const visited = (o: object = {}) => ({ ...freshState('test', '0'), answers, weights, lastSeenRanking: ranking, lastSeenBasis: { inputs: inputsKey(answers, weights), at }, ...o })
 
-  it('le classement de la visite d’avant est gardé, et la version d’avant est notée', () => {
-    const state = sanitizeState({ ...freshState('test', '0'), lastSeenRanking: ranking }, pack)
+  it('l’empreinte des réponses et des priorités : la même quel que soit l’ordre des clés, autre dès qu’un avis change', () => {
+    const k = inputsKey({ q1: { ratings: { q1a: 1, q1b: -1 }, redLines: ['q1b', 'q1c'] } }, { t1: 2, t2: 0.5 })
+    expect(k).toMatch(/^[0-9a-f]{8}$/)
+    expect(inputsKey({ q1: { redLines: ['q1c', 'q1b'], ratings: { q1b: -1, q1a: 1 } } }, { t2: 0.5, t1: 2 })).toBe(k)
+    expect(inputsKey({ q1: { ratings: { q1a: 1, q1b: 1 }, redLines: ['q1b', 'q1c'] } }, { t1: 2, t2: 0.5 })).not.toBe(k)
+    expect(inputsKey({ q1: { ratings: { q1a: 1, q1b: -1 }, redLines: ['q1b', 'q1c'] } }, { t1: 2 })).not.toBe(k)
+  })
+
+  it('le classement de la visite d’avant est gardé à part, avec l’instant de la visite, et la version d’avant est notée', () => {
+    const state = sanitizeState(visited(), pack)
     expect(state?.dataVersion).toBe('1')
     expect(state?.dataUpdatedFrom).toBe('0')
     expect(state?.lastSeenRanking).toEqual(ranking)
+    expect(state?.beforeUpdate).toEqual({ ranking, inputs: inputsKey(state!.answers, state!.weights), at, left: 0 })
+    // Mêmes réponses, mêmes priorités : l'avis dit ce qui a bougé
+    expect(updateMoves(state!.beforeUpdate!.ranking, ranking, state!.beforeUpdate!.left)).toBe('Pour vous\u00a0: rien n’a bougé, même ordre, mêmes scores.')
   })
 
-  it('deux mises à jour avant « Compris » : la plus ancienne version reste celle du dernier passage', () => {
-    const state = sanitizeState({ ...freshState('test', '0.5'), dataUpdatedFrom: '0', lastSeenRanking: ranking }, pack)
+  it('des réponses changées entre la visite et la mise à jour : l’avis ne dit rien de précis', () => {
+    const state = sanitizeState(visited({ answers: { ...answers, q2: { ratings: { q2a: 1 }, redLines: [] } } }), pack)
+    expect(state?.beforeUpdate?.ranking).toEqual(ranking)
+    expect(state?.beforeUpdate?.inputs).toBeNull()
+    // Sans empreinte (sauvegarde d'avant le 17 octobre 2026) : de même
+    expect(sanitizeState(visited({ lastSeenBasis: undefined }), pack)?.beforeUpdate?.inputs).toBeNull()
+  })
+
+  it('deux mises à jour avant « Compris » : la plus ancienne version et le plus ancien classement restent ceux du dernier passage', () => {
+    const first = sanitizeState(visited({ dataVersion: '0' }), { ...pack, election: { ...pack.election, dataVersion: '0.5' } })!
+    // Une visite après la première mise à jour : le repère suit, l'avis garde le classement d'avant
+    const later = ranking.map(r => ({ ...r, score: r.score + 1 }))
+    const state = sanitizeState({ ...first, lastSeenRanking: later, lastSeenBasis: { inputs: inputsKey(first.answers, first.weights), at: '2026-10-14T10:00:00.000Z' } }, pack)
     expect(state?.dataUpdatedFrom).toBe('0')
-    expect(state?.lastSeenRanking).toEqual(ranking)
-    // Même version, avis refermé : rien à dire
-    expect(sanitizeState({ ...freshState('test', '1'), dataUpdatedFrom: null }, pack)?.dataUpdatedFrom).toBeNull()
+    expect(state?.lastSeenRanking).toEqual(later)
+    expect(state?.beforeUpdate).toEqual({ ranking, inputs: inputsKey(state!.answers, state!.weights), at, left: 0 })
+    // Même version, avis refermé (« Compris ») : rien à dire, rien de gardé
+    const closed = sanitizeState({ ...state, dataUpdatedFrom: null, beforeUpdate: null }, pack)
+    expect(closed?.dataUpdatedFrom).toBeNull()
+    expect(closed?.beforeUpdate).toBeNull()
+    // Une valeur douteuse : ignorée
+    expect(sanitizeState({ ...state, beforeUpdate: { ranking: 'x', left: -1 } }, pack)?.beforeUpdate).toBeNull()
+  })
+
+  it('un candidat qui ne fait plus partie du classement (masqué, retiré ou devenu non classé) est compté parmi ceux qui l’ont quitté', () => {
+    // a et b : les deux en tête à la visite ; depuis, a n'est plus présenté et b n'est plus classé
+    const now: ElectionPack = {
+      ...pack,
+      candidates: pack.candidates.filter(c => c.id !== 'a'),
+      election: { ...pack.election, ranking: { minCoverageShare: 0.5, excluded: { ids: ['b'], reason: 'test', since: '2026-10-01' } } },
+    }
+    const state = sanitizeState(visited(), now)!
+    expect(state.lastSeenRanking).toEqual([{ candidateId: 'c', score: 58 }])
+    expect(state.beforeUpdate).toMatchObject({ ranking: [{ candidateId: 'c', score: 58 }], left: 2 })
+    // L'avis ne dit pas « rien n'a bougé » : les deux sont comptés
+    expect(updateMoves(state.beforeUpdate!.ranking, [{ candidateId: 'c', score: 58 }], state.beforeUpdate!.left)).toBe(
+      'Pour vous\u00a0: même ordre pour les autres\u00a0; 2\u00a0candidats l’ont quitté.',
+    )
+    // Une seconde mise à jour avant « Compris » : le compte s'ajoute
+    const again = sanitizeState({ ...state, dataVersion: '0.9' }, { ...now, candidates: now.candidates.filter(c => c.id !== 'c') })!
+    expect(again.beforeUpdate).toMatchObject({ ranking: [], left: 3 })
   })
 })
 

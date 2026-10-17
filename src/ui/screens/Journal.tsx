@@ -8,11 +8,13 @@
 //
 // Rien ne quitte l'appareil : « Vous y avez répondu », « après vos réponses » et « après votre dernier passage » se
 // calculent sur la feuille de l'appareil et ne vont jamais dans l'adresse, qui ne porte que les filtres
-// (#/journal?candidat=retailleau). Un fichier à part, chargé à la demande (ui/screens/load.ts) ; son style est dans la
-// feuille de la page (styles/journal.css, importé par app.tsx).
+// (#/journal?candidat=retailleau). Un fichier à part, chargé à la demande (ui/screens/load.ts), avec son style
+// (styles/journal.css), comme « À table » et « Mon profil politique » : la feuille de toutes les visites n'en a rien.
 
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks'
 import { APP_NAME } from '../../core/app'
+import { seededShuffle } from '../../core/rng'
+import { parseLocation } from '../../core/routes'
 import {
   FILTER_KEYS,
   JOURNAL_KINDS,
@@ -38,6 +40,7 @@ import { SiteFooter } from '../components/SiteFooter'
 import { takeJournalPreset } from '../journalPreset'
 import { go, link, rewrite } from '../nav'
 import { useStickyFilters } from '../useStickyFilters'
+import '../../styles/journal.css'
 
 const NB = '\u00a0'
 const MONTHS = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
@@ -67,12 +70,13 @@ function spanOf(from: string, to: string): string {
   return from === to ? `le ${fullDate(to)}` : `du ${start} au ${fullDate(to)}`
 }
 
-/** Ce que disent les choix « Pour vous » de la période, dans le menu et en mots sous lui */
+/**
+ * Ce que disent les choix « Pour vous » de la période, dans le menu et en mots sous lui. Le jour des réponses n'est pas
+ * compté (core/journal.ts, inPeriod) : « après le 12 octobre », pour ne pas laisser croire qu'aucune entrée de ce jour-là
+ * n'a suivi les réponses
+ */
 const localLabel = (since: LocalSince, answeredDay: string | null) =>
-  since === 'reponses' ? `Après vos réponses du ${answeredDay ? dayLabel(answeredDay) : ''}` : 'Après votre dernier passage'
-
-/** Le nom d'un candidat par son nom de famille, pour l'ordre alphabétique (« Le Pen » à L) */
-const surname = (name: string) => name.split(' ').slice(1).join(' ') || name
+  since === 'reponses' ? `Après le ${answeredDay ? dayLabel(answeredDay) : ''}, jour de vos réponses` : 'Après votre dernier passage'
 
 interface Props {
   pack: ElectionPack
@@ -122,29 +126,46 @@ export function Journal({ pack, state, n, query, answered }: Props) {
   }, [groups, questionById])
   const familyLabel = useMemo(() => new Map(groups.map(g => [g.id, g.label])), [groups])
   const families = useMemo(() => groups.filter(g => items.some(i => familiesOf(i).includes(g.id))), [groups, items, familiesOf])
-  // Les candidats présentés, chacun avec son parti, par nom de famille : chacun a au moins une entrée (tests/journal.test.ts)
-  const presented = useMemo(() => [...candidates].sort((a, b) => surname(a.name).localeCompare(surname(b.name), 'fr')), [candidates])
+  // Les candidats présentés, chacun avec son parti, dans l'ordre du site, tiré au hasard sur l'appareil (le même qu'à
+  // l'accueil et dans la comparaison, la Méthode le dit) : jamais les mêmes noms en tête. Chacun a au moins une entrée
+  // (tests/journal.test.ts)
+  const presented = useMemo(() => seededShuffle(candidates, `${state.seed}:people`), [candidates, state.seed])
+  const siteOrder = useMemo(() => new Map(presented.map((c, i) => [c.id, i])), [presented])
   const days = useMemo(() => [...new Set(items.map(i => i.date))].sort((a, b) => b.localeCompare(a)), [items])
 
   // Ce que l'appareil sait, pour les deux choix « Pour vous » : rien n'en sort, rien n'en va dans l'adresse
   const answeredDay = state.essentialDoneAt && !Number.isNaN(Date.parse(state.essentialDoneAt)) ? parisDay(state.essentialDoneAt) : null
   const seenVersion = state.dataUpdatedFrom
+  const seenAt = state.beforeUpdate?.at
+  const seenDay = seenVersion && seenAt ? parisDay(seenAt) : null
   const locals = (['reponses', 'passage'] as const).filter(s => (s === 'reponses' ? !!answeredDay : !!seenVersion))
-  const ctx: JournalContext = { families: familiesOf, answeredDay, seenVersion }
+  const ctx: JournalContext = { families: familiesOf, answeredDay, seenVersion, seenDay }
 
-  const [filters, setFilters] = useState<JournalFilters>(() => {
-    // Une entrée demandée (#/journal/8) s'ouvre sans filtre ; sinon, ceux de l'adresse, et le choix passé en mémoire
-    if (n) return {}
-    const f = parseJournalQuery(query ?? '', {
+  /** Les filtres d'une adresse, et le choix passé en mémoire par la page d'où l'on vient (pris une fois, toujours) */
+  const fromAddress = (q: string | undefined, entry: number | undefined): JournalFilters => {
+    const preset = takeJournalPreset()
+    // Une entrée demandée (#/journal/8) s'ouvre sans filtre
+    if (entry) return {}
+    const f = parseJournalQuery(q ?? '', {
       candidat: new Set(candidates.map(c => c.id)),
       theme: new Set(families.map(g => g.id)),
       change: new Set(JOURNAL_KINDS),
       depuis: new Set(days.slice(0, -1)),
     })
-    const preset = takeJournalPreset()
     if (preset && locals.includes(preset)) f.depuis = preset
     return f
-  })
+  }
+  const [filters, setFilters] = useState<JournalFilters>(() => fromAddress(query, n))
+  useEffect(() => {
+    // Un lien vers le journal depuis le journal (le pied de page) : l'écran reste le même (app.tsx), les filtres suivent
+    // l'adresse. Les filtres posés ici réécrivent l'adresse sans hashchange (nav.ts, rewrite)
+    const onHash = () => {
+      const { route } = parseLocation(location.hash)
+      if (route.name === 'journal' && !route.n) setFilters(fromAddress(route.query, undefined))
+    }
+    window.addEventListener('hashchange', onHash)
+    return () => window.removeEventListener('hashchange', onHash)
+  }, [])
   const shown = items.filter(i => matches(i, filters, ctx))
   const active = activeFilters(filters)
   const count = (f: JournalFilters, skip?: FilterKey) => items.filter(i => matches(i, f, ctx, skip)).length
@@ -159,6 +180,15 @@ export function Journal({ pack, state, n, query, answered }: Props) {
     if (top < 0) sentinel.current?.scrollIntoView({ block: 'start' })
   }
   const set = (key: FilterKey, value: string | undefined) => apply({ ...filters, [key]: value || undefined })
+  /**
+   * Pose les filtres depuis un bouton qui va disparaître (« Tout afficher », les boutons de « Aucune entrée ») : le focus
+   * passe à la ligne du compte, qui dit ce qui est affiché, plutôt que de tomber sur la page
+   */
+  const countLine = useRef<HTMLParagraphElement>(null)
+  const applyAndSay = (f: JournalFilters) => {
+    apply(f)
+    countLine.current?.focus({ preventScroll: true })
+  }
 
   // « Lire la suite » ouvert : l'entrée de l'adresse à l'arrivée, puis ce que la personne ouvre
   const [open, setOpen] = useState<ReadonlySet<number>>(() => new Set(n ? [n] : []))
@@ -203,6 +233,7 @@ export function Journal({ pack, state, n, query, answered }: Props) {
   const sheet = useRef<HTMLDialogElement>(null)
   const opener = useRef<HTMLButtonElement>(null)
   const sheetTitle = useRef<HTMLHeadingElement>(null)
+  const seeButton = useRef<HTMLButtonElement>(null)
   const [sheetOpen, setSheetOpen] = useState(false)
   const openSheet = () => {
     const d = sheet.current
@@ -281,7 +312,7 @@ export function Journal({ pack, state, n, query, answered }: Props) {
 
         <div class="jr-sentinel" ref={sentinel} />
         <div class={['jr-summary', filtered && 'is-filtered', stuck && !loose && 'is-stuck', loose && 'is-loose'].filter(Boolean).join(' ')} ref={summary}>
-          <p class="jr-count" role="status">
+          <p class="jr-count" role="status" tabIndex={-1} ref={countLine}>
             {filtered ? (
               <>
                 <b>{entries(shown.length)}</b> sur {total}
@@ -299,7 +330,7 @@ export function Journal({ pack, state, n, query, answered }: Props) {
           </p>
           <p class="jr-acts">
             {filtered && shown.length ? (
-              <button type="button" class="btn-text jr-reset" onClick={() => apply({})}>
+              <button type="button" class="btn-text jr-reset" onClick={() => applyAndSay({})}>
                 Tout afficher
               </button>
             ) : null}
@@ -346,6 +377,7 @@ export function Journal({ pack, state, n, query, answered }: Props) {
                       onToggle={on => toggle(item.n, on)}
                       chosen={filters.candidat}
                       byId={byId}
+                      siteOrder={siteOrder}
                       families={familiesOf(item).map(g => familyLabel.get(g) ?? g)}
                       questionList={ids => (
                         <Questions ids={byTopic(ids)} questionById={questionById} topicLabel={topicLabel} answered={answered} />
@@ -358,7 +390,7 @@ export function Journal({ pack, state, n, query, answered }: Props) {
             )
           })
         ) : (
-          <Empty filters={filters} items={items} ctx={ctx} total={total} words={{ byId, familyLabel, sinceWords }} onApply={apply} />
+          <Empty filters={filters} items={items} ctx={ctx} total={total} words={{ byId, familyLabel, sinceWords }} onApply={applyAndSay} />
         )}
       </main>
       <SiteFooter />
@@ -379,44 +411,62 @@ export function Journal({ pack, state, n, query, answered }: Props) {
         aria-labelledby="jr-sheet-title"
         onClose={() => {
           setSheetOpen(false)
-          opener.current?.focus()
+          // Le focus revient au bouton ; la fenêtre élargie (téléphone tourné), le bouton n'est plus affiché : au premier
+          // des filtres de la page
+          if (opener.current?.offsetParent) opener.current.focus()
+          else document.querySelector<HTMLElement>('#filtres select')?.focus({ preventScroll: true })
         }}
         onKeyDown={keepFocus}
         onClick={e => {
-          // Un toucher sur le fond, hors de la feuille, la referme
-          if (e.target === sheet.current) closeSheet()
+          // Un toucher sur le fond, hors de la feuille, la referme ; sur sa bande haute (le double filet, qui est le
+          // dialog lui-même), non
+          const d = sheet.current
+          if (!d || e.target !== d) return
+          const r = d.getBoundingClientRect()
+          if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) closeSheet()
         }}
       >
-        <div class="jr-sheet-head">
-          <h2 class="jr-sheet-title" id="jr-sheet-title" tabIndex={-1} ref={sheetTitle}>
-            Filtres
-          </h2>
-          <button type="button" class="btn-text jr-sheet-close" onClick={closeSheet}>
-            <Icon name="cross" />
-            <span class="sr-only">Fermer les filtres</span>
-          </button>
-        </div>
-        <div class="jr-sheet-body">
-          <Fields idp="jr-sheet" {...fieldsProps} />
-        </div>
-        <div class="jr-sheet-foot">
-          <p class="jr-sheet-count" role="status">
-            {filtered ? (
-              <>
-                <b>{entries(shown.length)}</b> sur {total}
-              </>
-            ) : (
-              <>
-                <b>{entries(total)}</b>, aucun filtre posé
-              </>
-            )}
-          </p>
-          <button type="button" class="btn-text" disabled={!filtered} onClick={() => apply({})}>
-            Effacer les filtres
-          </button>
-          <button type="button" class="btn-primary" onClick={closeSheet}>
-            Voir {entries(shown.length)}
-          </button>
+        <div class="jr-sheet-in">
+          <div class="jr-sheet-head">
+            <h2 class="jr-sheet-title" id="jr-sheet-title" tabIndex={-1} ref={sheetTitle}>
+              Filtres
+            </h2>
+            <button type="button" class="btn-text jr-sheet-close" onClick={closeSheet}>
+              <Icon name="cross" />
+              <span class="sr-only">Fermer les filtres</span>
+            </button>
+          </div>
+          <div class="jr-sheet-body">
+            <Fields idp="jr-sheet" {...fieldsProps} />
+          </div>
+          <div class="jr-sheet-foot">
+            <p class="jr-sheet-count" role="status">
+              {filtered ? (
+                <>
+                  <b>{entries(shown.length)}</b> sur {total}
+                </>
+              ) : (
+                <>
+                  <b>{entries(total)}</b>, aucun filtre posé
+                </>
+              )}
+            </p>
+            {/* Le bouton s'éteint de lui-même : le focus passe à « Voir N entrées » */}
+            <button
+              type="button"
+              class="btn-text"
+              disabled={!filtered}
+              onClick={() => {
+                apply({})
+                seeButton.current?.focus()
+              }}
+            >
+              Effacer les filtres
+            </button>
+            <button type="button" class="btn-primary" ref={seeButton} onClick={closeSheet}>
+              Voir {entries(shown.length)}
+            </button>
+          </div>
         </div>
       </dialog>
     </div>
@@ -438,9 +488,36 @@ interface FieldsProps {
   count: (f: JournalFilters, skip?: FilterKey) => number
 }
 
-/** Les quatre filtres : candidat, thème, ce qui change, période */
+/**
+ * Les quatre filtres : candidat, thème, ce qui change, période. Sur la page, la période vient avant « Ce qui change » :
+ * le clavier suit la grille, rangée par rangée (les trois menus, puis les pastilles dessous)
+ */
 function Fields({ idp, chips, filters: f, set, presented, families, locals, answeredDay, days, count }: FieldsProps) {
   const changeLabel = `${idp}-change`
+  const period = (
+    <label class="jr-field is-depuis">
+      <span class="jr-field-label">Période</span>
+      <Select value={f.depuis} onChange={v => set('depuis', v)}>
+        <option value="">Tout le journal</option>
+        {locals.length ? (
+          <optgroup label="Pour vous, calculé sur cet appareil">
+            {locals.map(s => (
+              <option key={s} value={s}>
+                {localLabel(s, answeredDay)}
+              </option>
+            ))}
+          </optgroup>
+        ) : null}
+        {days.length > 1 ? (
+          <optgroup label="Par date">
+            {days.slice(0, -1).map(d => (
+              <option key={d} value={d}>{`À partir du ${dayLabel(d)}`}</option>
+            ))}
+          </optgroup>
+        ) : null}
+      </Select>
+    </label>
+  )
   return (
     <div class="jr-fields">
       <label class="jr-field is-candidat">
@@ -463,6 +540,7 @@ function Fields({ idp, chips, filters: f, set, presented, families, locals, answ
           ))}
         </Select>
       </label>
+      {chips ? period : null}
       <div class="jr-field is-change">
         <span class="jr-field-label" id={changeLabel}>
           Ce qui change
@@ -504,28 +582,7 @@ function Fields({ idp, chips, filters: f, set, presented, families, locals, answ
           </Select>
         )}
       </div>
-      <label class="jr-field is-depuis">
-        <span class="jr-field-label">Période</span>
-        <Select value={f.depuis} onChange={v => set('depuis', v)}>
-          <option value="">Tout le journal</option>
-          {locals.length ? (
-            <optgroup label="Pour vous, calculé sur cet appareil">
-              {locals.map(s => (
-                <option key={s} value={s}>
-                  {localLabel(s, answeredDay)}
-                </option>
-              ))}
-            </optgroup>
-          ) : null}
-          {days.length > 1 ? (
-            <optgroup label="Par date">
-              {days.slice(0, -1).map(d => (
-                <option key={d} value={d}>{`À partir du ${dayLabel(d)}`}</option>
-              ))}
-            </optgroup>
-          ) : null}
-        </Select>
-      </label>
+      {chips ? null : period}
     </div>
   )
 }
@@ -549,6 +606,8 @@ interface EntryProps {
   /** Le candidat du filtre : sa ligne d'abord, et l'effet pour lui */
   chosen?: string
   byId: Map<string, Candidate>
+  /** L'ordre du site, tiré au hasard sur l'appareil : celui du menu des candidats */
+  siteOrder: Map<string, number>
   families: string[]
   questionList: (ids: readonly QuestionId[]) => preact.ComponentChildren
   answered: (id: QuestionId) => boolean
@@ -613,17 +672,18 @@ function Name({ c }: { c: Candidate }) {
 /** Les phrases du texte, une par paragraphe */
 const sentences = (text: string) => text.split(/(?<=[.!?])\s+(?=\p{Lu})/u)
 
-function Entry({ item, open, onToggle, chosen, byId, families, questionList, answered }: EntryProps) {
+function Entry({ item, open, onToggle, chosen, byId, siteOrder, families, questionList, answered }: EntryProps) {
   const first = item.effect === 'première-version'
   const people = item.people.filter(p => byId.has(p.id))
-  // Rangés par rôle : ceux que le titre nomme, dans son ordre, puis les arrivées, puis les autres, par nom de famille
+  // Rangés par rôle : ceux que le titre nomme, dans son ordre, puis les arrivées, puis les autres, dans l'ordre du site
   const at = (id: string) => item.title.indexOf(byId.get(id)?.name ?? '\u0000')
+  const place = (id: string) => siteOrder.get(id) ?? 1e3
   const named = item.named.map(id => byId.get(id)).filter((c): c is Candidate => !!c)
   const ranked = [...people].sort((a, b) => {
     const ta = at(a.id)
     const tb = at(b.id)
     if (ta >= 0 || tb >= 0) return (ta < 0 ? 1e3 : ta) - (tb < 0 ? 1e3 : tb)
-    return Number(levelOf(b) === 'arrivée') - Number(levelOf(a) === 'arrivée') || surname(byId.get(a.id)!.name).localeCompare(surname(byId.get(b.id)!.name), 'fr')
+    return Number(levelOf(b) === 'arrivée') - Number(levelOf(a) === 'arrivée') || place(a.id) - place(b.id)
   })
   const everyone = [...named, ...ranked.map(p => byId.get(p.id)!)]
   // Les candidats de l'entrée : jusqu'à trois, nommés ; au-delà, ceux que le titre nomme et un nombre
@@ -685,7 +745,7 @@ function Entry({ item, open, onToggle, chosen, byId, families, questionList, ans
       <h4 class="jr-sub">{`Les ${plural(everyone.length, 'candidat')}`}</h4>
       <p class="jr-names">
         {[...everyone]
-          .sort((a, b) => surname(a.name).localeCompare(surname(b.name), 'fr'))
+          .sort((a, b) => place(a.id) - place(b.id))
           .map((c, i) => (
             <span key={c.id}>
               {i ? ', ' : ''}
@@ -708,14 +768,18 @@ function Entry({ item, open, onToggle, chosen, byId, families, questionList, ans
 
   return (
     <li class="jr-entry">
+      {/* À l'écran, les pictogrammes séparent les natures ; à la lecture vocale, une virgule entre elles, un point avant
+          le numéro */}
       <p class="jr-head">
         <span class="jr-kinds">
-          {item.kinds.map(k => (
+          {item.kinds.map((k, i) => (
             <span key={k}>
+              {i ? <span class="sr-only">, </span> : null}
               <Icon name={KIND_ICONS[k]} />
               {KIND_LABELS[k]}
             </span>
           ))}
+          <span class="sr-only">. </span>
         </span>
         <span class="jr-n">{`N°${NB}${item.n}`}</span>
       </p>

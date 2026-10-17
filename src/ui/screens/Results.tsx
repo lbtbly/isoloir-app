@@ -11,7 +11,8 @@ import { loadReport, prepareReport, reportNow } from '../report/load'
 import { prepareProfile } from '../profile/load'
 import { hasTable } from '../table/load'
 import { frozenAt } from '../../core/freeze'
-import { presetJournal } from '../journalPreset'
+import { presetOnClick } from '../journalPreset'
+import { parisDay } from './HomeBack'
 import { axisOf } from '../../core/spectrum'
 import {
   AGREE_HEADS,
@@ -83,7 +84,7 @@ import {
   type Results as ResultsData,
   type UnrankedResult,
 } from '../../core/score'
-import type { SessionState } from '../../core/storage'
+import { inputsKey, type SessionState } from '../../core/storage'
 import type { Candidate, ElectionPack, Question, TopicId, TopicWeights } from '../../core/types'
 import { ChangedQuestions } from '../components/ChangedQuestions'
 import { ConfirmErase } from '../components/ConfirmErase'
@@ -190,16 +191,35 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
   const incompatible = results.allIncompatible ? [] : ranking.filter(r => !r.compatible)
   const [first, second] = ranking
 
-  // Mémorise le classement affiché pour signaler les changements la prochaine fois, y compris après un
-  // changement de priorités fait sur cette page ; pas tant que l'avis de mise à jour des données est ouvert : il dit ce
-  // qui a bougé depuis la visite d'avant, jusqu'à « Compris »
+  // Mémorise le classement affiché pour signaler les changements la prochaine fois, y compris après un changement de
+  // priorités fait sur cette page, avec l'empreinte des réponses et des priorités sur lesquelles il est calculé et
+  // l'instant de la visite (core/storage.ts, lastSeenBasis), réécrit au plus une fois par jour (à Paris : le jour des
+  // dates du journal) quand rien d'autre ne change : un autre onglet ouvert sur le dépouillement relit l'état écrit ici
+  // sans le réécrire. L'avis de mise à jour garde à part le classement d'avant la mise à jour (beforeUpdate)
   useEffect(() => {
+    if (allResults.answered === 0) return
     const now = snapshot(allResults)
+    const inputs = inputsKey(state.answers, state.weights)
+    const at = new Date().toISOString()
     const seen = state.lastSeenRanking
+    const basis = state.lastSeenBasis
     const same =
-      seen && seen.length === now.length && seen.every((p, i) => p.candidateId === now[i]?.candidateId && p.score === now[i]?.score)
-    if (!same && allResults.answered > 0 && !state.dataUpdatedFrom) update({ lastSeenRanking: now })
+      seen &&
+      seen.length === now.length &&
+      seen.every((p, i) => p.candidateId === now[i]?.candidateId && p.score === now[i]?.score) &&
+      basis?.inputs === inputs &&
+      parisDay(basis.at) === parisDay(at)
+    if (!same) update({ lastSeenRanking: now, lastSeenBasis: { inputs, at } })
   }, [allResults])
+
+  // Ce que la mise à jour des données a changé pour la personne, dit une fois, à l'ouverture de la page (une étoile posée
+  // ensuite ne le change pas) : d'après le classement d'avant la mise à jour, s'il a été calculé sur les mêmes réponses
+  // et priorités qu'aujourd'hui ; si la personne a changé quelque chose depuis, la phrase d'avant (updateMoves)
+  const [moves] = useState(() => {
+    const before = state.beforeUpdate
+    const same = !!before?.inputs && before.inputs === inputsKey(state.answers, state.weights)
+    return updateMoves(same ? before!.ranking : null, snapshot(allResults), before?.left ?? 0)
+  })
 
   useLayoutEffect(() => {
     const results = allResults
@@ -572,15 +592,16 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
             )}
             {state.dataUpdatedFrom ? (
               // Ce qui a bougé pour la personne, et le journal réglé sur « Après votre dernier passage » (passé en
-              // mémoire, jamais dans l'adresse) ; « Compris » referme l'avis et prend ce classement pour repère
+              // mémoire, jamais dans l'adresse, et seulement pour un clic simple) ; « Compris » referme l'avis et oublie
+              // le classement d'avant la mise à jour
               <div class="notice" role="status">
-                <p>{`${DATA_UPDATED} ${updateMoves(previous, snapshot(allResults))}`}</p>
+                <p>{`${DATA_UPDATED} ${moves}`}</p>
                 <span class="confirm">
-                  <a class="btn-text" href={link('/journal')} onClick={() => presetJournal('passage')}>
+                  <a class="btn-text" href={link('/journal')} onClick={presetOnClick('passage')}>
                     {DATA_UPDATED_LINK}
                     <Icon name="arrow-right" />
                   </a>
-                  <button type="button" class="btn-text" onClick={() => update({ dataUpdatedFrom: null, lastSeenRanking: snapshot(allResults) })}>
+                  <button type="button" class="btn-text" onClick={() => update({ dataUpdatedFrom: null, beforeUpdate: null })}>
                     Compris
                   </button>
                 </span>
