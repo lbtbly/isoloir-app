@@ -232,6 +232,14 @@ export const PEEK_GO = 'Voir où j’en suis et un exemple'
  * aucune n'est symétrique, chaque palier paraît au moins deux fois
  */
 export const PROFILE_PEEK = '343211354352135'
+/**
+ * Ses lectures fictives, dans le même ordre : « + » nettement plus près, « - » nettement plus loin, « . » rien de net ;
+ * une case nette est pleine, les autres atténuées (« pâle sauf net », décision du propriétaire du 17 octobre 2026). Neutres
+ * comme les paliers (tests/results-copy.test.ts) : autant de « + » que de « - » par colonne, les colonnes 1 et 5, 2 et 4
+ * en miroir, « + » sur « proche » ou « très proche » seulement, « - » sur « éloigné » ou « très éloigné », et chaque sujet
+ * garde un « très proche » ou un « très éloigné » atténué
+ */
+export const PROFILE_PEEK_NET = '.+.-....+..-...'
 /** La fiche « Où vous en êtes » de la tendance : ce qui vient au bout du questionnaire rapide ; le nom de la page est un lien */
 export const trendNext = (total: number) =>
   [`Au bout des ${total}\u00a0questions\u00a0: le dépouillement complet et «\u00a0`, PROFILE_TITLE, '\u00a0».'] as const

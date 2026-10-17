@@ -168,8 +168,14 @@ for (const f of agreeChunks) {
 // fichiers communs du JS initial (ExternalLink-*.js, brand-*.js), préchargés avec lui (le JS initial passe de 227,8 à
 // 228,0 ko). Le même jour, les correctifs de la barre (focus, tabulation, règle de la moitié de l'écran, toucher d'un
 // sujet), 0,7 ko, tiennent sous le plafond parce que les libellés fixes du détail (1,1 ko) le rejoignent (ci-dessous) :
-// 57,4 ko (57 449 octets). Rien de la page ne pèse sur le JS initial, ni sur une visite qui n'ouvre pas la page
-const PROFILE_BUDGET = 58_000
+// 57,4 ko (57 449 octets). Le 17 octobre 2026 encore, les couleurs « pâle sauf net » (décision du propriétaire, sur
+// maquette : une case pleine sur une lecture nette seulement, atténuée ailleurs ; la classe de la case selon sa lecture,
+// les deux lignes de la légende, « Pleine » et « Atténuée », et les phrases de « Comment c'est calculé » qui le disent)
+// ajoutent 0,9 ko (853 octets) : 58,3 ko (58 302 octets), et le propriétaire relève le plafond à 58,5 ko plutôt que de
+// raccourcir ces phrases ; les lectures fictives de l'aperçu de l'accueil (PROFILE_PEEK_NET, core/resultsCopy.ts)
+// ajoutent 72 octets au JS initial (228 458 octets). Rien de la page ne pèse sur le JS initial, ni sur une visite qui
+// n'ouvre pas la page
+const PROFILE_BUDGET = 58_500
 const profileChunks = readdirSync(join(dist, 'assets')).filter(f => /^Profile-[\w-]+\.js$/.test(f))
 if (profileChunks.length !== 1) fail(`« Mon profil politique » : ${profileChunks.length} fichier(s) assets/Profile-*.js, un attendu`)
 const modulePreloads = [...html.matchAll(/<link rel="modulepreload"[^>]*href="\.\/(assets\/[^"]+)"/g)].map(m => m[1])

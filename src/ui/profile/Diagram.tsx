@@ -1,13 +1,14 @@
 // Le schéma de la rubrique « Mon profil politique » de la Méthode, au trait comme les autres (components/Diagrams.tsx),
-// à l'encre seule : de vos avis à la couleur de chaque case et à sa lecture nette, en mots (aucun symbole). Dans le
-// fichier à part de la rubrique, chargé à la demande par la Méthode (ui/profile/load.ts).
+// à l'encre seule : de vos avis au palier de chaque case et à sa lecture nette, en mots (aucun symbole), qui seule rend
+// sa couleur pleine (décision du propriétaire du 17 octobre 2026). Dans le fichier à part de la rubrique, chargé à la
+// demande par la Méthode (ui/profile/load.ts).
 
 import { Arrow, Figure } from '../components/Diagrams'
 
 const STEPS = [
   { label: 'Vos avis', sub: 'd’accord, pas d’accord, sans avis' },
   { label: 'Votre affinité par thème', sub: 'avec chaque candidat : le calcul du score' },
-  { label: 'Moyenne par bloc de la grille', sub: 'c’est la couleur de sa case' },
+  { label: 'Moyenne par bloc de la grille', sub: 'c’est le palier de sa case' },
   { label: 'Comparée à vos mêmes avis', sub: 'posés de toutes les autres façons' },
 ]
 
@@ -18,7 +19,7 @@ export function ProfileDiagram() {
   return (
     <Figure
       title="Comment se lit un bloc de la grille"
-      desc="Vos avis donnent votre affinité par thème avec chaque candidat, le calcul même du score. On en fait la moyenne par bloc de la grille des nuances, qui colore sa case, puis on la compare à celle de vos mêmes avis, posés de toutes les autres façons sur les approches : nettement plus près, rien de net, ou nettement plus loin."
+      desc="Vos avis donnent votre affinité par thème avec chaque candidat, le calcul même du score. On en fait la moyenne par bloc de la grille des nuances, qui donne le palier de sa case, puis on la compare à celle de vos mêmes avis, posés de toutes les autres façons sur les approches : nettement plus près ou nettement plus loin, sa couleur est pleine ; rien de net, elle reste atténuée."
       viewBox="0 0 360 312"
     >
       {STEPS.map((s, i) => (

@@ -225,15 +225,34 @@ const homeEntry = pg =>
       text: [...(card?.querySelectorAll('.hp-tag, .hp-body, .pb-body') ?? [])].map(e => e.textContent).join(' ').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim(),
     }
   })
-/** Le fond des cases d'un palier, sous un sélecteur : { « tres-proche » : « rgb(…) », … } */
+/**
+ * Le fond des cases d'un palier, pleines et atténuées, sous un sélecteur : { « aff-tres-proche » : « rgb(…) »,
+ * « aff-proche is-net » : « rgb(…) », … } ; bad : une case pleine hors de l'aplat de son palier, une atténuée hors de sa
+ * teinte (« pâle sauf net », décision du propriétaire du 17 octobre 2026) ; net : les cases pleines
+ */
 const tileColors = (pg, sel) =>
   pg.evaluate(sel => {
-    const out = {}
+    const colors = {}
+    const bad = []
+    let net = 0
+    const probe = document.createElement('span')
+    document.body.append(probe)
+    const css = v => {
+      probe.style.backgroundColor = v
+      return getComputedStyle(probe).backgroundColor
+    }
     for (const t of document.querySelectorAll(`${sel} .tile`)) {
       const k = [...t.classList].find(c => c.startsWith('aff-'))
-      if (k) out[k] = getComputedStyle(t).backgroundColor
+      if (!k) continue
+      const full = t.classList.contains('is-net')
+      const bg = getComputedStyle(t).backgroundColor
+      colors[full ? `${k} is-net` : k] = bg
+      if (full) net++
+      const want = css(full ? `var(--${k})` : `var(--${k}-tint)`)
+      if (bg !== want) bad.push(`${k}${full ? ' pleine' : ' atténuée'} : ${bg} au lieu de ${want}`)
     }
-    return out
+    probe.remove()
+    return { colors, bad, net }
   }, sel)
 /** Les mots coupés sur deux lignes (un mot dont les rectangles tiennent sur deux hauteurs) sous ces sélecteurs */
 const cutWords = (pg, sel) =>
@@ -337,8 +356,11 @@ try {
       hashOf(page) === L('/profil') && w.focused && w.where === 'Pas encore de réponse' && w.count === `0 question sur ${QUICK}` && w.cta === 'Commencer la feuille' && w.href === L('/feuille/1') && w.tiles === 15 && w.words && w.tables === 0 && w.deepen && keys.length === 0,
       `mon profil politique, page d’attente (feuille vierge) : focus au titre ${w.focused}, « ${w.where} », « ${w.count} », bouton « ${w.cta} » vers ${w.href}, exemple de ${w.tiles} cases avec leurs mots ${w.words}, ${w.tables} tableau, rien d’enregistré (${keys.join(', ') || 'aucune clé'})`,
     )
-    // Les teintes de l'aperçu sont celles des cases de la page, en clair comme en sombre ; en contraste forcé, chaque case
-    // garde son cadre
+    // Les teintes de l'aperçu sont celles des cases de la page, en clair comme en sombre : pleines sur les lectures
+    // fictives nettes (PROFILE_PEEK_NET), atténuées ailleurs ; en contraste forcé, chaque case garde son cadre, épais sur
+    // une case pleine
+    const { PROFILE_PEEK_NET } = await importSite('src/core/resultsCopy.ts')
+    const fictive = [...PROFILE_PEEK_NET].filter(m => m !== '.').length
     const shades = {}
     for (const scheme of ['light', 'dark']) {
       await page.emulateMedia({ colorScheme: scheme })
@@ -351,11 +373,18 @@ try {
       shades[scheme].home = await tileColors(page, '.home-profile')
     }
     await page.emulateMedia({ colorScheme: 'light', forcedColors: 'active' })
-    const framed = await page.locator('.home-profile .tile').evaluateAll(ts => ts.every(t => getComputedStyle(t).outlineStyle === 'solid' && parseFloat(getComputedStyle(t).outlineWidth) >= 1))
+    const framed = await page.locator('.home-profile .tile').evaluateAll(ts =>
+      ts.every(t => getComputedStyle(t).outlineStyle === 'solid' && parseFloat(getComputedStyle(t).outlineWidth) >= (t.classList.contains('is-net') ? 3 : 1)),
+    )
     await page.emulateMedia({ colorScheme: 'light', forcedColors: 'none' })
-    const same = ['light', 'dark'].every(k => Object.keys(shades[k].page).length === 5 && JSON.stringify(shades[k].page) === JSON.stringify(Object.fromEntries(Object.keys(shades[k].page).map(b => [b, shades[k].home[b]]))))
-    const distinct = new Set(Object.values(shades.light.home)).size === 5
-    check(same && distinct && framed, `mon profil politique, aperçu de l’accueil : les teintes des cases de la page (clair et sombre ${same}, cinq paliers distincts ${distinct}), cadre en contraste forcé ${framed}`)
+    const same = ['light', 'dark'].every(k => Object.keys(shades[k].page.colors).length === 5 && JSON.stringify(shades[k].page.colors) === JSON.stringify(Object.fromEntries(Object.keys(shades[k].page.colors).map(b => [b, shades[k].home.colors[b]]))))
+    const distinct = new Set(Object.values(shades.light.home.colors)).size === 5
+    const ruled = ['light', 'dark'].flatMap(k => [...shades[k].page.bad, ...shades[k].home.bad])
+    const full = ['light', 'dark'].every(k => shades[k].page.net === fictive && shades[k].home.net === fictive)
+    check(
+      same && distinct && framed && full && !ruled.length,
+      `mon profil politique, aperçu de l’accueil : les teintes des cases de la page (clair et sombre ${same}, cinq teintes distinctes ${distinct}), ${shades.light.home.net} cases pleines sur ${fictive} lectures fictives nettes ${full}, aplat ou teinte de leur palier ${ruled.length ? ruled.slice(0, 3).join(' ; ') : 'oui'}, cadre en contraste forcé ${framed}`,
+    )
   } else {
     check((await page.locator('.home-profile').count()) === 0, 'accueil : pas d’entrée « Mon profil politique » sans axe de la grille')
   }
@@ -917,14 +946,18 @@ try {
 
     /** Les couleurs du graphique d'une page déjà lue, dans le thème de couleurs du moment */
     const { AFFINITY_BANDS } = await importSite('src/core/affinity.ts')
+    const { KEY_NET, KEY_FLAT } = await importSite('src/core/echiquierCopy.ts')
     const profileColors = async (pg, where) => {
       // Les couleurs des cases, et elles seules (décision du propriétaire du 12 octobre 2026) : chaque case du graphique,
-      // du détail, de la légende et d'une ligne ouverte au palier de son mot, sur l'échelle d'affinité du site (les deux
-      // bouts en aplat de leur teinte, « proche », « mitigé » et « éloigné » en lavis de la leur sur le papier), le mot à
-      // 4,5:1 au moins sur sa case ; « ? inconnu » sur le papier ; la légende, les cinq paliers dans l'ordre du site ; les
-      // en-têtes de colonne, le rappel collant et les en-têtes du détail sur le papier, sans pastel de bloc ; aucun autre
-      // fond que le papier, les lavis de l'encre et ces cases ; aucun symbole ▲ ▽ sur la page
-      const colors = await pg.evaluate(bands => {
+      // du détail, de la légende et d'une ligne ouverte au palier de son mot, sur l'échelle d'affinité du site ; « pâle
+      // sauf net » (décision du 17 octobre 2026) : pleine (l'aplat du palier ; au palier « mitigé », celui de « proche »
+      // ou de « éloigné », selon son sens) sur une lecture nette et elle seule, celle que dit sa ligne, son bloc ou ses
+      // mots, atténuée ailleurs (la teinte du palier ; une petite case, plus soutenue, sans atteindre l'aplat) ; le mot à
+      // 4,5:1 au moins sur sa case, l'aplat à 4,5:1 au moins de la teinte du même palier ; « ? inconnu » sur le papier ;
+      // la légende, les cinq paliers dans l'ordre du site, puis « Pleine » et « Atténuée » ; les en-têtes de colonne, le
+      // rappel collant et les en-têtes du détail sur le papier, sans pastel de bloc ; aucun autre fond que le papier, les
+      // lavis de l'encre et ces cases ; aucun symbole ▲ ▽ sur la page
+      const colors = await pg.evaluate(([bands, keyWords]) => {
         const probe = document.createElement('span')
         document.querySelector('.screen-profile')?.append(probe)
         const parse = s => {
@@ -948,6 +981,7 @@ try {
         const ink = rgb('var(--ink)')
         const red = rgb('var(--red)')
         const aff = Object.fromEntries(bands.map(b => [b.key, rgb(`var(--aff-${b.key})`)]))
+        const tint = Object.fromEntries(bands.map(b => [b.key, rgb(`var(--aff-${b.key}-tint)`)]))
         const pastels = ['vert', 'rouge', 'jaune', 'bleu'].map(t => rgb(`var(--pastel-${t})`))
         probe.remove()
         const near = (a, b) => !!b && a.slice(0, 3).every((x, i) => Math.abs(x - b[i]) <= 2)
@@ -966,24 +1000,63 @@ try {
         const bad = []
         const name = el => `${el.tagName.toLowerCase()}.${String(el.className).trim().replace(/\s+/g, '.')}`
         const bg = el => parse(getComputedStyle(el).backgroundColor)
+        // Un fond calculé, quelle que soit sa notation (un color-mix en oklab compris), en sRGB 0-255, par le canevas
+        const pen = document.createElement('canvas').getContext('2d', { willReadFrequently: true })
+        const paint = el => {
+          pen.clearRect(0, 0, 1, 1)
+          pen.fillStyle = getComputedStyle(el).backgroundColor
+          pen.fillRect(0, 0, 1, 1)
+          return [...pen.getImageData(0, 0, 1, 1).data]
+        }
         const label = Object.fromEntries(bands.map(b => [b.key, b.label]))
-        // Chaque case : le fond de son palier, son mot (s'il en porte un), et ce mot lisible dessus
+        /**
+         * La lecture d'une case : celle de sa colonne sur une ligne (data-net), de son bloc dans une ligne ouverte (« Votre
+         * affinité, bloc par bloc »), ses mots dans le détail ; « pres », « loin » ou null ; undefined pour la légende
+         */
+        const readingOf = t => {
+          if (t.parentElement?.matches('.cell')) return t.parentElement.dataset.net ?? null
+          const li = t.closest('.explain-blocs li')
+          if (li) return li.classList.contains('is-net') ? (/près/.test(li.querySelector('.eb-net')?.textContent ?? '') ? 'pres' : 'loin') : null
+          if (t.closest('td.mk')) {
+            const w = t.querySelector('.tile-net')?.textContent ?? ''
+            return /plus près/.test(w) ? 'pres' : /plus loin/.test(w) ? 'loin' : null
+          }
+          return undefined
+        }
+        // L'aplat de chaque palier se détache de sa teinte (une case pleine, d'une atténuée du même palier)
+        for (const b of bands) if (ratio(aff[b.key], tint[b.key]) < 4.5) bad.push(`${b.key} : aplat à ${ratio(aff[b.key], tint[b.key]).toFixed(2)}:1 de sa teinte`)
+        // Chaque case : le fond de son palier, plein sur une lecture nette, atténué ailleurs ; son mot (s'il en porte un),
+        // et ce mot lisible dessus
         let tiles = 0
+        let full = 0
         let minRatio = 99
         const seen = new Set()
         for (const t of document.querySelectorAll('main .profile-chart .tile, main .echiquier .tile')) {
           tiles++
           const key = [...t.classList].find(c => c.startsWith('aff-'))?.slice(4) ?? (t.classList.contains('is-inconnu') ? 'inconnu' : null)
-          const b = bg(t)
+          const b = paint(t)
           const word = t.querySelector('.tile-word')?.textContent.replace(/\s+/g, ' ').trim()
+          const isNet = t.classList.contains('is-net')
+          const reading = readingOf(t)
           if (!key) bad.push(`${name(t)} : une case sans palier`)
           else if (key === 'inconnu') {
             if (!near(b, paper)) bad.push(`${name(t)} : « inconnu » hors du papier`)
+            if (isNet) bad.push(`${name(t)} : « inconnu » plein`)
             if (word !== undefined && word !== '? inconnu') bad.push(`${name(t)} : « ${word} » pour un bloc inconnu`)
           } else {
             seen.add(key)
-            const ok = key === 'tres-proche' || key === 'tres-eloigne' ? near(b, aff[key]) : onSegment(b, aff[key], 0.05) && !near(b, aff[key])
-            if (!ok) bad.push(`${name(t)} ${key} : fond ${getComputedStyle(t).backgroundColor}`)
+            if (isNet && reading !== undefined) full++
+            if (reading !== undefined && isNet !== !!reading) bad.push(`${name(t)} ${key} : ${isNet ? 'pleine' : 'atténuée'} pour une lecture ${reading ?? 'sans rien de net'}`)
+            // Pleine : l'aplat de son palier ; au palier « mitigé », celui de son sens
+            const sens = key !== 'mitige' ? key : t.classList.contains('is-sens-pres') ? 'proche' : t.classList.contains('is-sens-loin') ? 'eloigne' : null
+            if (isNet && key === 'mitige' && (!sens || (reading && sens !== (reading === 'pres' ? 'proche' : 'eloigne')))) bad.push(`${name(t)} : « mitigé » net sans le sens de sa lecture (${reading})`)
+            const small = t.classList.contains('key-tile')
+            const ok = isNet
+              ? near(b, aff[sens ?? key])
+              : small
+                ? !near(b, tint[key]) && !near(b, aff[key]) && ratio(b, paper) >= 1.25 && ratio(b, paper) < ratio(aff[key], paper)
+                : near(b, tint[key])
+            if (!ok) bad.push(`${name(t)} ${key}${isNet ? ' pleine' : ' atténuée'} : fond ${getComputedStyle(t).backgroundColor}`)
             if (word !== undefined && word !== label[key]) bad.push(`${name(t)} : « ${word} » sur la case ${key}`)
           }
           if (t.textContent.trim()) minRatio = Math.min(minRatio, ratio(parse(getComputedStyle(t).color), key === 'inconnu' ? paper : b))
@@ -1003,19 +1076,27 @@ try {
           if (!clear(c) && ![print, soft, paper, onPrint].some(x => near(c, x)) && !(el.matches('.row-prio') && near(c, ink)) && !(el.matches('.detail-meta .is-red') && near(c, red)))
             bad.push(`${name(el)} encre ${cs.color}`)
         }
-        // La légende : les cinq paliers, dans l'ordre du site, puis « inconnu » s'il paraît
-        const key = [...document.querySelectorAll('main .profile-chart .key-scale li')].map(li => li.textContent.replace(/\s+/g, ' ').trim())
+        // La légende : les cinq paliers, dans l'ordre du site, puis « inconnu » s'il paraît, atténués ; dessous, la même
+        // pastille pleine (« Pleine : … ») puis atténuée (« Atténuée : … »)
+        const key = [...document.querySelectorAll('main .profile-chart .key-scale:not(.key-pair) li')].map(li => li.textContent.replace(/\s+/g, ' ').trim())
         const want = bands.map(b => b.label).join('|')
         if (key.slice(0, bands.length).join('|') !== want || key.length > bands.length + 1) bad.push(`légende : ${key.join(', ')}`)
+        if (document.querySelector('main .profile-chart .key-scale:not(.key-pair) .tile.is-net')) bad.push('légende : un palier plein')
+        const pair = [...document.querySelectorAll('main .profile-chart .key-pair li')]
+        const pairText = pair.map(li => li.textContent.replace(/\s+/g, ' ').trim()).join('|')
+        if (pairText !== keyWords.map(w => w.replace(/\s+/g, ' ')).join('|') || pair.map(li => li.querySelector('.tile')?.classList.contains('is-net')).join() !== 'true,false')
+          bad.push(`légende, pleine et atténuée : ${pairText}`)
         // Les en-têtes de colonne, du rappel et du détail : neutres
         for (const el of document.querySelectorAll('main .profile-chart .zone, .axis-mini-inner > span, main .echiquier th.bloc-head'))
           if (!clear(bg(el)) && !near(bg(el), paper)) bad.push(`${name(el)} : en-tête coloré (${getComputedStyle(el).backgroundColor})`)
         const glyphs = /[▲▽]/.test(document.querySelector('main')?.textContent ?? '')
-        return { bad: [...new Set(bad)].slice(0, 5), tiles, seen: seen.size, minRatio, glyphs, scheme: matchMedia('(prefers-color-scheme: dark)').matches ? 'sombre' : 'clair' }
-      }, AFFINITY_BANDS)
+        return { bad: [...new Set(bad)].slice(0, 5), tiles, full, seen: seen.size, minRatio, glyphs, scheme: matchMedia('(prefers-color-scheme: dark)').matches ? 'sombre' : 'clair' }
+      }, [AFFINITY_BANDS, [KEY_NET, KEY_FLAT]])
+      // Une page de lectures nettes a des cases pleines (la légende mise à part)
+      const wantFull = /lectures nettes/.test(where)
       check(
-        colors.bad.length === 0 && colors.tiles > 0 && colors.minRatio >= 4.5 && !colors.glyphs,
-        `mon profil politique (${where}), couleurs des cases (${colors.scheme}) : ${colors.tiles} cases au palier de leur mot (${colors.seen} paliers vus), mot à ${colors.minRatio === 99 ? '–' : colors.minRatio.toFixed(1)}:1 au moins, légende dans l’ordre du site, en-têtes neutres, aucun pastel de bloc, ${colors.glyphs ? 'des ▲ ▽ !' : 'aucun ▲ ▽'}${colors.bad.length ? ` : ${colors.bad.join(' ; ')}` : ''}`,
+        colors.bad.length === 0 && colors.tiles > 0 && colors.minRatio >= 4.5 && !colors.glyphs && (!wantFull || colors.full > 0),
+        `mon profil politique (${where}), couleurs des cases (${colors.scheme}) : ${colors.tiles} cases au palier de leur mot (${colors.seen} paliers vus), ${colors.full} pleines, chacune sur une lecture nette, mot à ${colors.minRatio === 99 ? '–' : colors.minRatio.toFixed(1)}:1 au moins, légende dans l’ordre du site puis pleine et atténuée, en-têtes neutres, aucun pastel de bloc, ${colors.glyphs ? 'des ▲ ▽ !' : 'aucun ▲ ▽'}${colors.bad.length ? ` : ${colors.bad.join(' ; ')}` : ''}`,
       )
     }
 

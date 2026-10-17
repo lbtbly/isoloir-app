@@ -199,7 +199,7 @@ export const methodIntro = (blocs: number) =>
 export const METHOD_INTRO_LINK = 'l’ordre des candidats'
 /** Le schéma, en mots */
 export const METHOD_DIAGRAM_CAPTION = fr(
-  'Vos avis donnent votre affinité par thème avec chaque candidat, le calcul même du score. On en fait la moyenne par bloc de la grille, qui colore sa case, puis on la compare à celle de vos mêmes avis, posés de toutes les autres façons sur les approches : nettement plus près, rien de net, ou nettement plus loin.',
+  'Vos avis donnent votre affinité par thème avec chaque candidat, le calcul même du score. On en fait la moyenne par bloc de la grille, qui donne le palier de sa case, puis on la compare à celle de vos mêmes avis, posés de toutes les autres façons sur les approches : nettement plus près ou nettement plus loin, sa couleur est pleine ; rien de net, elle reste atténuée.',
 )
 export const methodWho = (panel: number, unscored: number, minBloc: number, maxBloc: number, othersEmpty: boolean) =>
   fr(

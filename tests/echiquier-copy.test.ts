@@ -365,15 +365,15 @@ describe('le graphique « Domaine par domaine »', () => {
 
   it('l’affichage dédié (D1) : des constats, la seule cause dite étant celle que le calcul rend certaine', () => {
     // C1 : une seule question
-    expect(T.unitSentence(axis, reading('une-question'))).toBe(`Sur une seule question, la page ne conclut pas${NB}: il en faut deux pour lire un thème. Ces couleurs donnent seulement votre affinité.`)
+    expect(T.unitSentence(axis, reading('une-question'))).toBe(`Sur une seule question, la page ne conclut pas${NB}: il en faut deux pour lire un thème. Ces couleurs, atténuées, donnent seulement votre affinité.`)
     // C2 : rien de net, le thème ou le domaine
     expect(T.unitSentence(axis, reading('aucun'))).toBe(
-      `Rien de net${NB}: sur ce thème, vos réponses ne se distinguent pas assez des autres façons de poser vos mêmes avis, quelle que soit la couleur des cases.`,
+      `Rien de net${NB}: sur ce thème, vos réponses ne se distinguent pas assez des autres façons de poser vos mêmes avis, quel que soit le palier des cases.`,
     )
     expect(T.unitSentence(axis, reading('aucun', [], [], [], 'famille'))).toContain('sur ce domaine, vos réponses')
     // Un bloc s'écarte nettement des autres façons, mais reste trop près de 50 % : la phrase toujours vraie, sans cause
     expect(T.unitSentence(axis, reading('aucun', [], [], [], 'theme', undefined, 252, true))).toBe(
-      `Rien de net${NB}: sur ce thème, vos réponses ne se rapprochent ni ne s’écartent nettement des candidats d’aucun bloc, quelle que soit la couleur des cases.`,
+      `Rien de net${NB}: sur ce thème, vos réponses ne se rapprochent ni ne s’écartent nettement des candidats d’aucun bloc, quel que soit le palier des cases.`,
     )
     expect(T.unitSentence(axis, reading('aucun', [], [], [], 'famille', undefined, 252, true))).not.toMatch(/distinguent/)
     // C2 bis : moins de dix façons ; une seule
@@ -406,7 +406,7 @@ describe('le graphique « Domaine par domaine »', () => {
     // C5 bis, C9
     expect(T.NOTHING_TESTABLE).toBe(`Pas encore de sujet à lire${NB}: il faut deux questions sur un même thème, ou deux thèmes répondus dans un même domaine.`)
     expect(T.UNIFORM).toBe(
-      `Sur chaque question, vos réponses donnent le même avis à toutes les approches${NB}: il n’y a qu’une façon de poser ces avis, la vôtre, donc rien à comparer. Les couleurs donnent seulement votre affinité.`,
+      `Sur chaque question, vos réponses donnent le même avis à toutes les approches${NB}: il n’y a qu’une façon de poser ces avis, la vôtre, donc rien à comparer. Les couleurs, atténuées, donnent seulement votre affinité.`,
     )
     // Jamais « c'est fréquent », jamais une cause sur la personne
     for (const t of [...T.NOTHING_CAUSES.flatMap(c => T.nothingAnywhere(c)), T.NOT_CENTRE, T.NOTHING_TESTABLE, T.UNIFORM, ...allSentences()]) {
@@ -475,22 +475,29 @@ describe('le graphique « Domaine par domaine »', () => {
     expect(T.cellLabel('Centre', 52, 'rien')).toBe(`Centre (grille du ministère de l’Intérieur)${NB}: mitigé`)
     expect(T.cellLabel('Centre', null, 'inconnu')).toBe(`Centre (grille du ministère de l’Intérieur)${NB}: inconnu`)
     expect(T.netWord('rien')).toBeNull()
-    // Les paliers et leurs bornes, tels que les donne « Comment c'est calculé »
+    // Les paliers et leurs bornes, tels que les donne « Comment c'est calculé » ; puis la couleur pleine sur une lecture
+    // nette seulement, atténuée ailleurs, et celle d'une case nette « mitigé » (« pâle sauf net », 17 octobre 2026)
     expect(T.HOW_COLOR).toBe(
-      `La couleur d’une case donne votre affinité moyenne avec les candidats du bloc, selon les paliers du site${NB}: très proche (80 à 100${NB}%), proche (60 à 79${NB}%), mitigé (40 à 59${NB}%), éloigné (20 à 39${NB}%), très éloigné (0 à 19${NB}%).`,
+      `La couleur d’une case donne votre affinité moyenne avec les candidats du bloc, selon les paliers du site${NB}: très proche (80 à 100${NB}%), proche (60 à 79${NB}%), mitigé (40 à 59${NB}%), éloigné (20 à 39${NB}%), très éloigné (0 à 19${NB}%). Elle n’est pleine que si vos réponses sont nettement plus près ou nettement plus loin de ce bloc${NB}; sinon, elle est atténuée, et le palier reste écrit. Nettement plus près, une case «${NB}mitigé${NB}» prend le vert de «${NB}proche${NB}»${NB}; nettement plus loin, l’orangé de «${NB}éloigné${NB}».`,
     )
-    // Ce que la couleur ne dit pas : « nettement » ; la façon de répondre (les deux paliers de chaque côté, les bouts
+    // La légende le dit en deux lignes, sous les paliers
+    expect(T.KEY_NET).toBe(`Pleine${NB}: nettement plus près ou plus loin`)
+    expect(T.KEY_FLAT).toBe(`Atténuée${NB}: rien de net`)
+    // Ce que le palier ne dit pas : « nettement » ; la façon de répondre (les deux paliers de chaque côté, les bouts
     // compris : c'est eux que donne une façon de répondre tranchée ; tout approuver, tout désapprouver, mesurés le 15
     // octobre 2026), l'accord des candidats d'un bloc, sans comparer des blocs par leur taille (l'écart ne se mesure
-    // pas) ; une lecture nette peut tomber sur « mitigé »
-    expect(T.COLORS_CHANCE).toMatch(/^La couleur seule ne dit pas «.nettement.»/)
+    // pas) ; d'où la couleur pleine sur les seules lectures nettes
+    expect(T.COLORS_CHANCE).toMatch(/^Le palier seul ne dit pas «.nettement.»/)
     expect(T.COLORS_CHANCE).toContain(`Qui approuve beaucoup voit le plus souvent «${NB}proche${NB}» et «${NB}très proche${NB}»`)
     expect(T.COLORS_CHANCE).toContain(`qui désapprouve beaucoup «${NB}éloigné${NB}» et «${NB}très éloigné${NB}»`)
-    expect(T.COLORS_CHANCE).toContain(`tout approuver colore 97${NB}cases sur 100 en «${NB}très proche${NB}», tout désapprouver 96 sur 100 en «${NB}très éloigné${NB}»`)
-    expect(T.COLORS_CHANCE).toMatch(/quand ils ne pensent pas pareil, elle est moins tranchée/)
+    expect(T.COLORS_CHANCE).toContain(`tout approuver donne 97${NB}cases sur 100 «${NB}très proche${NB}», tout désapprouver 96 sur 100 «${NB}très éloigné${NB}»`)
+    expect(T.COLORS_CHANCE).toMatch(/quand ils ne pensent pas pareil, il est moins tranché/)
     expect(T.COLORS_CHANCE).not.toMatch(/quatre|un bloc de deux|surtout|presque/)
     expect(T.COLORS_CHANCE).toContain('Seules les lectures nettes comparent vos réponses aux autres façons de poser vos mêmes avis')
-    expect(T.COLORS_CHANCE).toMatch(/une lecture nette peut tomber sur une case «.mitigé.»\.$/)
+    expect(T.COLORS_CHANCE).toMatch(/c’est pourquoi la couleur n’est pleine que sur elles\.$/)
+    // « rien de net » laisse la couleur atténuée, quel que soit le palier ; « ? » lié à « inconnu »
+    expect(T.HOW_MARKS[1]).toMatch(/Sinon, rien de net, quel que soit le palier\u00a0: la couleur reste atténuée\.$/)
+    expect(T.HOW_MARKS[2]).toBe(`?${NB}inconnu${NB}: aucun candidat du bloc n’est connu sur vos questions.`)
   })
 })
 
@@ -541,7 +548,7 @@ describe('formes des blocs', () => {
     )
     // « Rien de net » ne nomme pas la grille : la phrase qui suit la nomme, sans pronom
     expect(T.unitSentence(axis, reading('aucun', [], [], [2]))).toBe(
-      `Rien de net${NB}: sur ce thème, vos réponses ne se distinguent pas assez des autres façons de poser vos mêmes avis, quelle que soit la couleur des cases. La position des candidats que la grille classe au centre n’est pas connue ici${NB}: la lecture se fait sans eux.`,
+      `Rien de net${NB}: sur ce thème, vos réponses ne se distinguent pas assez des autres façons de poser vos mêmes avis, quel que soit le palier des cases. La position des candidats que la grille classe au centre n’est pas connue ici${NB}: la lecture se fait sans eux.`,
     )
   })
 
@@ -1263,7 +1270,7 @@ describe('sur des feuilles réelles : « Rien de net » ne dit « ne se distingu
     expect(eco.distinct).toBe(true)
     expect(apartFromOthers(eco)).toBe(true)
     expect(T.unitSentence(axis, eco)).toBe(
-      `Rien de net${NB}: sur ce domaine, vos réponses ne se rapprochent ni ne s’écartent nettement des candidats d’aucun bloc, quelle que soit la couleur des cases.`,
+      `Rien de net${NB}: sur ce domaine, vos réponses ne se rapprochent ni ne s’écartent nettement des candidats d’aucun bloc, quel que soit le palier des cases.`,
     )
   })
 

@@ -19,12 +19,14 @@
 // Une lecture, pas une étiquette (DESIGN.md, The Reading Not Label Rule) : le sujet des phrases est toujours « vos
 // réponses », les blocs sont attribués à « la grille » ; les blocs n'ont pas de couleur : chaque case prend celle de
 // l'échelle d'affinité du site (décision du propriétaire du 12 octobre 2026), jamais seule, toujours avec le mot de son
-// palier ; aucun symbole de lecture, les mots « nettement plus près » et « nettement plus loin » ; les pourcentages ne
+// palier, pleine sur une case nette seulement, atténuée ailleurs (« pâle sauf net », décision du 17 octobre 2026) ;
+// aucun symbole de lecture, les mots « nettement plus près » et « nettement plus loin » ; les pourcentages ne
 // paraissent que dans « Le détail » et dans la liste d'une ligne ouverte ; ni point, ni moyenne entre thèmes, ni
 // synthèse globale. Jamais sur l'affiche ni dans le PDF.
 // Tant que la page ne s'affiche pas (core/profileAccess.ts : questionnaire rapide pas fini, ou aucun avis), une page
 // d'attente : ce qui manque, en bâtons comme la fiche de la tendance, le bouton qui y ramène, puis un exemple fictif de la
-// lecture (la grille de l'aperçu de l'accueil, avec ses mots) et ce qu'apporte ensuite « Approfondir ». Une fois la page
+// lecture (la grille de l'aperçu de l'accueil, avec ses mots et ses lectures fictives) et ce qu'apporte ensuite
+// « Approfondir ». Une fois la page
 // affichée, tant que des thèmes ne se lisent pas seuls faute de questions, la fiche « Pour lire plus de thèmes » les
 // nomme, dans le graphique (après les domaines, repliée ; sous le compte, ouverte, au seul questionnaire rapide) : chacun
 // mène à « Approfondir », coché, comme « Approfondir ce thème » d'une ligne ; son adresse (#/approfondir/<thème>) y met
@@ -38,7 +40,7 @@ import { hasOpinion, priorityTopics } from '../../core/answers'
 import { deeperTopics, echiquierCached, panelOf, readEchiquierAsync, type Echiquier, type UnitReading } from '../../core/echiquier'
 import * as T from '../../core/echiquierCopy'
 import { profileAccess } from '../../core/profileAccess'
-import { PROFILE_PEEK } from '../../core/resultsCopy'
+import { PROFILE_PEEK, PROFILE_PEEK_NET } from '../../core/resultsCopy'
 import { currentAnswers } from '../../core/revisions'
 import type { Results } from '../../core/score'
 import { excludedIds } from '../../core/score'
@@ -258,6 +260,8 @@ const Title = () => (
 
 /** Les cinq paliers de l'exemple, de « très éloigné » à « très proche » : une affinité au milieu de chacun */
 const EXAMPLE_AFFINITY = [10, 30, 50, 70, 90]
+/** La lecture fictive d'une case de l'exemple (core/resultsCopy.ts, PROFILE_PEEK_NET) : pleine si elle est nette */
+const exampleMark = (i: number) => (PROFILE_PEEK_NET[i] === '+' ? 'pres' : PROFILE_PEEK_NET[i] === '-' ? 'loin' : 'rien')
 
 /**
  * La page d'attente : la fiche d'état (comme « Où vous en êtes » de la tendance, dont elle reprend les styles), le bouton
@@ -308,7 +312,7 @@ function Waiting({ pack, wait, seen, total, left, added, href }: { pack: Electio
               <span class="ex-name">{T.exampleRow(r + 1)}</span>
               {row.map((d, b) => (
                 <span key={b} class="ex-cell" data-bloc={axis[b]?.short}>
-                  <Tile cell={{ affinity: EXAMPLE_AFFINITY[d - 1]!, mark: 'rien' }} />
+                  <Tile cell={{ affinity: EXAMPLE_AFFINITY[d - 1]!, mark: exampleMark(r * 5 + b) }} />
                 </span>
               ))}
             </div>

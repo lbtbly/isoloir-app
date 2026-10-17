@@ -1472,55 +1472,67 @@ path.ink-draw {
 
 /* ——— Échelle d'affinité (rouge → vert), toujours doublée d'un libellé ——— */
 
-.aff-tres-eloigne { --aff: var(--aff-tres-eloigne); --aff-tint: var(--aff-tres-eloigne-tint); }
-.aff-eloigne { --aff: var(--aff-eloigne); --aff-tint: var(--aff-eloigne-tint); }
-.aff-mitige { --aff: var(--aff-mitige); --aff-tint: var(--aff-mitige-tint); }
-.aff-proche { --aff: var(--aff-proche); --aff-tint: var(--aff-proche-tint); }
-.aff-tres-proche { --aff: var(--aff-tres-proche); --aff-tint: var(--aff-tres-proche-tint); }
+.aff-tres-eloigne { --aff: var(--aff-tres-eloigne); --aff-tint: var(--aff-tres-eloigne-tint); --aff-ink: var(--aff-tres-eloigne-ink); }
+.aff-eloigne { --aff: var(--aff-eloigne); --aff-tint: var(--aff-eloigne-tint); --aff-ink: var(--aff-eloigne-ink); }
+.aff-mitige { --aff: var(--aff-mitige); --aff-tint: var(--aff-mitige-tint); --aff-ink: var(--aff-mitige-ink); }
+.aff-proche { --aff: var(--aff-proche); --aff-tint: var(--aff-proche-tint); --aff-ink: var(--aff-proche-ink); }
+.aff-tres-proche { --aff: var(--aff-tres-proche); --aff-tint: var(--aff-tres-proche-tint); --aff-ink: var(--aff-tres-proche-ink); }
 
-/* Une case de « Mon profil politique » (ui/profile/Chart.tsx, Tile ; et l'aperçu fictif de l'accueil,
+/* Une case de « Mon profil politique » (ui/profile/Chart.tsx, Tile et tileClass ; et l'aperçu fictif de l'accueil,
    ui/components/ProfileEntry.tsx) : le palier de votre affinité moyenne avec les candidats du bloc, sur l'échelle du site
-   (core/affinity.ts). Les deux bouts en aplat soutenu, le mot au papier (--on-print : 6,1:1 sur « très proche », 6,6:1
-   sur « très éloigné » ; en sombre 9,8 et 7,0:1) ; « proche » et « éloigné » en lavis de leur teinte à 38 % sur le
-   papier, le mot à l'imprimé (10,3 et 10,0:1 ; en sombre 5,9 et 6,6:1) ; « mitigé », le plus discret, en lavis du gris
-   de l'échelle à 25 %, le mot en gris (5,8:1 ; 5,1:1 en sombre), assez soutenu pour se distinguer du lavis d'une ligne
-   ouverte. Sans candidat connu, « ? inconnu » sur le papier, dans un cadre en tirets. Contrôlés par
-   tools/e2e-offline.mjs, en clair et en sombre. */
+   (core/affinity.ts), son mot toujours écrit. « Pâle sauf net » (décision du propriétaire du 17 octobre 2026) : par
+   défaut, une case est atténuée ; seule .tile.is-net la rend pleine, si bien qu'une case qui oublierait sa classe tombe du
+   côté qui ne contredit jamais la lecture.
+   - Atténuée (rien de net, une seule question, sans comparaison) : la teinte du palier (--aff-*-tint), un filet de sa
+     couleur à 22 %, le mot à l'encre du palier (--aff-*-ink) : très proche 6,2:1, proche 5,7:1, mitigé 5,9:1, éloigné
+     5,7:1, très éloigné 5,6:1 ; en sombre, l'encre est la couleur du palier, de 5,3 à 8,0:1. Sans le filet, la teinte de
+     « mitigé » se confondrait avec le lavis d'une ligne ouverte (1,03:1).
+   - Pleine (nettement plus près, nettement plus loin) : l'aplat du palier, le mot au papier (--on-print) : de 5,2 à
+     6,6:1, en sombre de 7,0 à 10,9:1 ; elle se détache de la case atténuée du même palier à 4,5:1 au moins (le lavis à
+     38 % de la veille n'en était qu'à 1,5:1). Au palier « mitigé », l'aplat de son sens : celui de « proche » si
+     nettement plus près (is-sens-pres), celui de « éloigné » si nettement plus loin (is-sens-loin) ; le mot « Mitigé »
+     reste écrit.
+   Sans candidat connu, « ? inconnu » sur le papier, dans un cadre en tirets. Les petites cases (profile.css, .key-tile)
+   ont leur propre teinte atténuée. En contraste forcé, les couleurs tombent, le mot reste : une case pleine prend un
+   cadre de 3 px, les autres gardent le cadre fin. Contrôlés par tools/e2e-offline.mjs, en clair et en sombre. */
 .tile {
-  --tile: color-mix(in srgb, var(--aff-mitige) 25%, var(--paper));
-  --tile-ink: var(--print-soft);
+  --tile: var(--aff-tint, var(--aff-mitige-tint));
+  --tile-ink: var(--aff-ink, var(--aff-mitige-ink));
   background: var(--tile);
   color: var(--tile-ink);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--aff, var(--aff-mitige)) 22%, transparent);
   /* Invisible, sauf en contraste forcé : le cadre de la case, quand les couleurs tombent */
   outline: 1px solid transparent;
   outline-offset: -1px;
 }
 
-.tile.aff-tres-proche {
-  --tile: var(--aff-tres-proche);
+.tile.is-net {
+  --tile: var(--aff);
   --tile-ink: var(--on-print);
+  box-shadow: none;
 }
 
-.tile.aff-proche {
-  --tile: color-mix(in srgb, var(--aff-proche) 38%, var(--paper));
-  --tile-ink: var(--print);
+.tile.is-net.is-sens-pres {
+  --tile: var(--aff-proche);
 }
 
-.tile.aff-eloigne {
-  --tile: color-mix(in srgb, var(--aff-eloigne) 38%, var(--paper));
-  --tile-ink: var(--print);
-}
-
-.tile.aff-tres-eloigne {
-  --tile: var(--aff-tres-eloigne);
-  --tile-ink: var(--on-print);
+.tile.is-net.is-sens-loin {
+  --tile: var(--aff-eloigne);
 }
 
 .tile.is-inconnu {
   --tile: var(--paper);
   --tile-ink: var(--print-soft);
+  box-shadow: none;
   outline: var(--line) dashed var(--rule);
   outline-offset: calc(-1 * var(--line));
+}
+
+@media (forced-colors: active) {
+  .tile.is-net {
+    outline: 3px solid CanvasText;
+    outline-offset: -3px;
+  }
 }
 
 .aff-cell {

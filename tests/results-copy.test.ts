@@ -304,4 +304,37 @@ describe('entrées de « Mon profil politique » (accueil, dépouillement, tenda
     // Chaque palier paraît au moins deux fois
     for (const d of '12345') expect(peek.split(d).length - 1, d).toBeGreaterThanOrEqual(2)
   })
+
+  it('ses lectures fictives (cases pleines) sont neutres aussi', () => {
+    // « Pâle sauf net » (décision du propriétaire du 17 octobre 2026) : une case fictive nette est pleine, les autres
+    // atténuées ; ni bloc favori, ni sens favori
+    const peek = copy.PROFILE_PEEK
+    const net = copy.PROFILE_PEEK_NET
+    expect(net).toMatch(/^[.+-]{15}$/)
+    const at = (r: number, c: number) => ({ d: Number(peek[r * 5 + c]), m: net[r * 5 + c]! })
+    const col = (c: number) => [0, 1, 2].map(r => at(r, c))
+    // Autant de « + » que de « - » dans chaque colonne, et autant en tout : aucun bloc ni aucun sens n'est favorisé
+    for (const c of [0, 1, 2, 3, 4]) {
+      const ms = col(c).map(x => x.m)
+      expect(ms.filter(m => m === '+').length, `colonne ${c + 1}`).toBe(ms.filter(m => m === '-').length)
+    }
+    expect(net.split('+').length).toBe(net.split('-').length)
+    expect(net).toMatch(/[+-]/)
+    // Miroir gauche-droite : les colonnes 1 et 5, 2 et 4, ont les mêmes cases, palier et lecture compris
+    const sorted = (c: number) =>
+      col(c)
+        .map(x => `${x.d}${x.m}`)
+        .sort()
+        .join(' ')
+    expect(sorted(0)).toBe(sorted(4))
+    expect(sorted(1)).toBe(sorted(3))
+    // « + » (nettement plus près) sur « proche » ou « très proche » seulement, « - » sur « éloigné » ou « très éloigné » :
+    // aucune case nette « mitigé », dont la couleur serait celle d'un autre palier
+    for (let i = 0; i < 15; i++) {
+      if (net[i] === '+') expect(Number(peek[i]), `case ${i + 1}`).toBeGreaterThanOrEqual(4)
+      if (net[i] === '-') expect(Number(peek[i]), `case ${i + 1}`).toBeLessThanOrEqual(2)
+    }
+    // Chaque sujet garde un « très proche » ou un « très éloigné » atténué : les deux bouts de l'échelle restent à lire
+    for (const r of [0, 1, 2]) expect([0, 1, 2, 3, 4].some(c => at(r, c).m === '.' && [1, 5].includes(at(r, c).d)), `sujet ${r + 1}`).toBe(true)
+  })
 })
