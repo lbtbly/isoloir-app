@@ -19,12 +19,17 @@
 // vers un candidat masqué, tous corrigés ; accueil sans rien de la primaire, même avec sa feuille sur l'appareil.
 // « Mon profil politique » (#/profil) : ses entrées selon l'état de la feuille (accueil vierge : l'aperçu fictif après la
 // liste de confiance ; feuille en cours : sous l'état de la feuille ; tendance : une ligne de « Où vous en êtes », pas de
-// bandeau ; résultat complet : le bandeau sous l'affiche, le panneau et le lien sous « Par thème » ; accueil prêt :
-// « Voir mon profil politique »), leurs liens et leurs teintes (celles des cases de la page, clair et sombre, contraste
+// bandeau ; résultat complet : le bandeau sous l'affiche, le panneau et le lien sous « Par thème » ; accueil prêt : le
+// cadre de l'accueil vierge, sa grille fictive et « Voir mon profil politique », sur toute la largeur en grand écran,
+// dans la colonne de l'affiche avec des questions à revoir ; dès la première réponse, « ce ne sont pas vos réponses »
+// au-dessus de la grille ; questions ajoutées : « de nouveau » après un avis, la phrase générale après tout passé ; le
+// journal de l'accueil de retour, sa date dans sa colonne à 1 024 et 1 280 px), leurs liens et leurs teintes (celles
+// des cases de la page, clair et sombre, contraste
 // forcé) ; la page d'attente (pas encore de réponse, pas encore assez : le compte, le bouton qui ramène à la première
 // question non vue, l'exemple fictif, sans tableau) ; la fiche « Pour lire plus de thèmes » (questionnaire rapide seul,
 // mais pas tout approfondi) et « Approfondir ce thème », qui coche le thème ; puis la page lue sur l'appareil (mention
-// IA), son graphique « une ligne par sujet » (axe, lignes, clavier, survol, plis, détail replié) aux couleurs de
+// IA), son graphique « une ligne par sujet » (axe, lignes, clavier, survol, plis, détail replié, chargé à son ouverture ;
+// la barre collante des domaines et de leurs sujets : en cours, toucher, focus, clavier, hauteur collée) aux couleurs de
 // l'échelle d'affinité et à elles seules (clair et sombre), sans nouvelle clé de stockage, sans défilement en largeur ni
 // texte rogné ou mot coupé (320, 390, 1 280 px, texte à 125 et 200 %, entrées comprises), sans focus caché sous
 // l'en-tête, l'axe collant ou l'en-tête des colonnes, et sans effet sur l'affiche JPG ; sa rubrique de la Méthode, hors
@@ -251,6 +256,8 @@ const homeEntry = pg =>
     return {
       n: document.querySelectorAll('.home-profile').length,
       ready: !!card?.classList.contains('is-ready'),
+      // Dès la première réponse, la mention au-dessus de la grille (lue avant elle) ; pour un nouveau visiteur, dessous
+      tagFirst: !!card?.querySelector('.hp-peek > .hp-tag.is-first:first-child'),
       href: card?.getAttribute('href') ?? null,
       afterProof: before(at('.home-proof'), card) && before(card, at('.journey')),
       afterStatus: !!card && card.previousElementSibling === at('.home-status') && before(card, at('.home-proof')),
@@ -362,7 +369,7 @@ try {
   if (PROFILE) {
     const fresh = await homeEntry(page)
     check(
-      fresh.n === 1 && !fresh.ready && fresh.href === L('/profil') && fresh.afterProof && fresh.tiles === 15 && fresh.text.includes('Exemple fictif') && fresh.text.includes('Voir où j’en suis et un exemple') && fresh.text.includes(`Il s’affiche au bout des ${QUICK} questions du questionnaire rapide.`) && !fresh.text.includes('Voir mon profil politique'),
+      fresh.n === 1 && !fresh.ready && fresh.href === L('/profil') && fresh.afterProof && fresh.tiles === 15 && fresh.text.includes('Exemple fictif') && !fresh.text.includes('pas vos réponses') && !fresh.tagFirst && fresh.text.includes('Voir où j’en suis et un exemple') && fresh.text.includes(`Il s’affiche au bout des ${QUICK} questions du questionnaire rapide.`) && !fresh.text.includes('Voir mon profil politique'),
       `mon profil politique, accueil vierge : aperçu après la liste de confiance ${fresh.afterProof}, ${fresh.tiles} cases masquées aux lecteurs d’écran, « ${fresh.text.slice(0, 90)}… »`,
     )
     await page.locator('.home-profile').click()
@@ -657,7 +664,7 @@ try {
         `accueil, feuille en cours : « ${status} », puis « encore ${left} » dans l’aperçu (${STEP1} + ${left} = ${QUICK})`,
       )
       check(
-        going.n === 1 && !going.ready && going.afterStatus && going.tiles === 15 && going.text.includes(`: encore ${left} question${left > 1 ? 's' : ''}.`),
+        going.n === 1 && !going.ready && going.afterStatus && going.tiles === 15 && going.tagFirst && going.text.startsWith('Exemple fictif : ce ne sont pas vos réponses.') && going.text.includes(`: encore ${left} question${left > 1 ? 's' : ''}.`),
         `mon profil politique, accueil d’une feuille en cours : l’aperçu sous l’état de la feuille ${going.afterStatus}, « …${going.text.slice(going.text.indexOf('Il s’affiche'), going.text.indexOf('Voir où j’en suis')).trim()} »`,
       )
     }
@@ -887,8 +894,24 @@ try {
     const saved = await page.evaluate(key => JSON.parse(localStorage.getItem(key) ?? '{}'), STORAGE)
     const answeredTopics = new Set(pack.bank.questions.filter(q => Object.keys(saved.answers?.[q.id]?.ratings ?? {}).length && !saved.answers[q.id].skipped).map(q => q.topicId))
     const familiesShown = groups.filter(g => g.topicIds.length > 1 && g.topicIds.filter(t => answeredTopics.has(t)).length > 1).length
-    const rows = await page.locator('main table.echiquier > tbody > tr > th[scope="row"]').count()
     const detailLabel = flat(await page.locator('main .profile-all > summary').textContent().catch(() => ''))
+    // « Le détail, sujet par sujet » : un fichier à part (ProfileDetail-*.js), chargé hors ligne à la première ouverture du
+    // tableau, jamais avant (demande du 17 octobre 2026 : faire place à la barre des domaines sans relever le plafond)
+    const detailFile = () => page.evaluate(() => performance.getEntriesByType('resource').some(e => /\/ProfileDetail-[\w-]+\.js$/.test(e.name)))
+    const detailBefore = await detailFile()
+    const tableBefore = await page.locator('main table.echiquier').count()
+    await page.locator('main .profile-all > summary').click()
+    const tableShown = await page
+      .locator('main .profile-all[open] table.echiquier > tbody > tr > th[scope="row"]')
+      .first()
+      .waitFor({ timeout: 5000 })
+      .then(() => true, () => false)
+    const detailAfter = await detailFile()
+    check(
+      !detailBefore && tableBefore === 0 && tableShown && detailAfter,
+      `mon profil politique : « Le détail », un fichier à part, pas chargé avant l’ouverture du tableau (${!detailBefore}, ${tableBefore} tableau), puis chargé hors ligne à son ouverture (${detailAfter}, tableau ${tableShown})`,
+    )
+    const rows = await page.locator('main table.echiquier > tbody > tr > th[scope="row"]').count()
     // Chaque case du détail se dit par un texte dans la case, la case dessinée masquée aux lecteurs d'écran : le bloc, la
     // grille, le palier et, s'il y a lieu, la lecture nette ; pas d'aria-label, pris en compte inégalement dans un tableau
     const detailCells = await page.locator('main table.echiquier td.mk').evaluateAll(tds => {
@@ -900,6 +923,8 @@ try {
       detailCells.n >= rows && detailCells.bad.length === 0,
       `mon profil politique, détail : ${detailCells.n} cases, chacune dite par un texte dans la case (bloc, grille, palier, lecture nette)${detailCells.bad.length ? ` : ${detailCells.bad.join(' ; ')}` : ''}`,
     )
+    // Le tableau replié de nouveau, comme à l'arrivée
+    await page.locator('main .profile-all > summary').click()
     // « Ce qui pèse le plus » (lot 3) : son fichier à part ne se charge qu'à la première ouverture d'une ligne, d'un détail
     // ou de « Comment c'est calculé » (décision du propriétaire du 17 octobre 2026), hors ligne lui aussi (il est dans la
     // copie hors ligne) ; « Comment c'est calculé » ouvert en dit alors la règle
@@ -1095,11 +1120,15 @@ try {
           source: document.querySelector('.profile-chart .chart-source')?.textContent ?? '',
           calc: document.querySelectorAll('.profile-chart details.calc > ul > li').length,
           hasard: /hasard/i.test(document.querySelector('main')?.textContent ?? ''),
-          // Chaque liste a un nom (l'intertitre de son domaine et le sien ; celle des lectures nettes, un nom masqué)
+          // Chaque liste a un nom (l'intertitre de son domaine et le sien ; « Nettement plus près » pour les lectures nettes)
           unnamed: lists.filter(ol => {
             const ids = (ol.getAttribute('aria-labelledby') ?? '').split(/\s+/).filter(Boolean)
-            return !ids.length || ids.some(id => !text(document.getElementById(id))) || (ol.dataset.group === 'net' && !ids.some(id => /nettement/.test(text(document.getElementById(id)))))
+            return !ids.length || ids.some(id => !text(document.getElementById(id))) || (ol.dataset.group === 'net' && !ids.some(id => /nettement/i.test(text(document.getElementById(id)))))
           }).length,
+          // Chaque groupe s'ouvre sur son intertitre visible, les lectures nettes comprises (17 octobre 2026 : sans le
+          // leur, la première ligne d'un domaine se lisait sous l'intertitre du groupe suivant)
+          bare: lists.filter(ol => !(ol.previousElementSibling?.matches('.fam-sub') && ol.previousElementSibling.checkVisibility() && text(ol.previousElementSibling))).length,
+          netTitles: [...new Set(lists.filter(ol => ol.dataset.group === 'net').map(ol => text(ol.previousElementSibling)))],
           // Les noms du compte : des liens, qui se coupent en fin de ligne comme le reste de la phrase
           countLinks: [...document.querySelectorAll('.profile-chart .chart-count .count-link')].every(a => a.tagName === 'A' && getComputedStyle(a).display === 'inline'),
           // Le nom lu d'une ligne de famille contient son libellé visible (« les 3 thèmes ensemble, 5 questions »)
@@ -1128,9 +1157,11 @@ try {
           chart.calc <= 8 &&
           !chart.hasard &&
           chart.unnamed === 0 &&
+          chart.bare === 0 &&
+          chart.netTitles.every(t => t === 'Nettement plus près') &&
           chart.countLinks &&
           chart.famLabelInName,
-        `mon profil politique (${where}), les lignes : « ${chart.count || chart.state} » pour ${chart.mainRows} + ${chart.bothRows} lignes lues (et ${chart.apartRows} seulement plus loin), domaines dans l’ordre des familles ${chart.families.join() === familyOrder.join()}, cinq cases par ligne ${chart.fiveTiles}, lectures nettes dans leurs groupes ${chart.mainOk}, lignes de part et d’autre du centre hors de leur groupe (ou l’inverse) ${chart.twoBarsOutside}, toutes fermées ${chart.closed}, « Cliquez… » à la souris ${chart.hint}, « Comment c’est calculé » en ${chart.calc} points, « hasard » ${chart.hasard ? 'présent !' : 'absent'}, listes sans nom ${chart.unnamed}, noms du compte en liens ${chart.countLinks}, libellé visible des lignes de famille dans leur nom lu ${chart.famLabelInName}`,
+        `mon profil politique (${where}), les lignes : « ${chart.count || chart.state} » pour ${chart.mainRows} + ${chart.bothRows} lignes lues (et ${chart.apartRows} seulement plus loin), domaines dans l’ordre des familles ${chart.families.join() === familyOrder.join()}, cinq cases par ligne ${chart.fiveTiles}, lectures nettes dans leurs groupes ${chart.mainOk}, lignes de part et d’autre du centre hors de leur groupe (ou l’inverse) ${chart.twoBarsOutside}, toutes fermées ${chart.closed}, « Cliquez… » à la souris ${chart.hint}, « Comment c’est calculé » en ${chart.calc} points, « hasard » ${chart.hasard ? 'présent !' : 'absent'}, listes sans nom ${chart.unnamed}, groupes sans intertitre visible ${chart.bare} (lectures nettes sous « ${chart.netTitles.join(' », « ') || '—'} »), noms du compte en liens ${chart.countLinks}, libellé visible des lignes de famille dans leur nom lu ${chart.famLabelInName}`,
       )
       // Le compte de tête : les noms des lignes nettes, dans l'ordre de la page, cinq au plus, puis « et N autres » ;
       // ce qui n'a pas compté, autant que de lignes
@@ -1377,13 +1408,15 @@ try {
       `affiche JPG : la même avant et après « Mon profil politique » (${before?.hash.slice(0, 12)}…, ${after?.hash.slice(0, 12)}…), rien de la page dans son texte de remplacement`,
     )
 
-    // L'accueil, une fois la page prête : le bandeau « Voir mon profil politique », sans aperçu, sous l'affiche du plus proche
+    // L'accueil, une fois la page prête : le cadre de l'accueil vierge (demande du propriétaire du 17/10/2026), sous
+    // l'affiche du plus proche ; « ce ne sont pas vos réponses » au-dessus de la grille fictive, « Le vôtre est prêt » et
+    // « Voir mon profil politique », vers la page
     await page.goto(U('/'))
     await page.locator('.home-profile').waitFor()
     const ready = await homeEntry(page)
     check(
-      ready.n === 1 && ready.ready && ready.afterLeader && ready.tiles === 0 && ready.href === L('/profil') && ready.text.startsWith('Voir mon profil politique'),
-      `mon profil politique, accueil prêt : « ${ready.text.slice(0, 40)}… » sous l’affiche du plus proche ${ready.afterLeader}, sans aperçu (${ready.tiles} case)`,
+      ready.n === 1 && ready.ready && ready.afterLeader && ready.tiles === 15 && ready.href === L('/profil') && ready.tagFirst && ready.text.startsWith('Exemple fictif : ce ne sont pas vos réponses. Mon profil politique') && ready.text.includes('Le vôtre est prêt : il se calcule sur cet appareil quand vous l’ouvrez.') && ready.text.endsWith('Voir mon profil politique') && !ready.text.includes('Voir où j’en suis'),
+      `mon profil politique, accueil prêt : le cadre de l’accueil vierge sous l’affiche du plus proche ${ready.afterLeader}, ${ready.tiles} cases fictives, « ${ready.text.slice(0, 50)}… ${ready.text.slice(-26)} »`,
     )
 
     // En grand écran : le bandeau du dépouillement sous l'affiche, dans sa colonne ; une feuille tout approfondie (un avis
@@ -1398,6 +1431,86 @@ try {
         }
       }, quickState)
       const wp = await wctx.newPage()
+      // L'accueil prêt : le cadre sur toute la largeur de l'accueil de retour, sous l'affiche, la grille à gauche et
+      // ses mots dans les cases, comme sur l'accueil vierge
+      await wp.goto(U('/'))
+      await wp.locator('.home-profile').waitFor()
+      const frame = await wp.evaluate(() => {
+        const box = sel => document.querySelector(sel)?.getBoundingClientRect()
+        const f = box('.home-profile'), h = box('.back-hero'), l = box('.back-leader'), g = box('.home-profile .hp-tiles'), t = box('.home-profile .hp-body')
+        const words = [...document.querySelectorAll('.home-profile .hp-word')].filter(w => w.checkVisibility()).length
+        return f && h && l && g && t ? { left: Math.round(f.left - h.left), width: Math.round(f.width - h.width), below: Math.round(f.top - l.bottom), gridLeft: g.right <= t.left, words } : null
+      })
+      check(
+        !!frame && frame.left === 0 && frame.width === 0 && frame.below > 0 && frame.gridLeft && frame.words === 15,
+        `mon profil politique, accueil prêt à 1 280 px : le cadre sur toute la largeur, sous l’affiche, la grille à gauche et ses mots (${JSON.stringify(frame)})`,
+      )
+
+      // D'autres états de l'accueil, chacun dans son contexte : la feuille du parcours, modifiée
+      const quick = JSON.parse(quickState[STORAGE])
+      const homeIn = async (viewport, st) => {
+        const ctx = await browser.newContext({ viewport, reducedMotion: 'reduce' })
+        await ctx.addInitScript(s => Object.entries(s).forEach(([k, v]) => localStorage.setItem(k, v)), { ...quickState, [STORAGE]: JSON.stringify(st) })
+        const pg = await ctx.newPage()
+        await pg.goto(U('/'))
+        await pg.locator('.home-profile').waitFor()
+        const entryNow = await homeEntry(pg)
+        const layout = await pg.evaluate(() => {
+          const box = sel => {
+            const b = document.querySelector(sel)?.getBoundingClientRect()
+            return b ? { l: Math.round(b.left), t: Math.round(b.top + scrollY), b: Math.round(b.bottom + scrollY), w: Math.round(b.width) } : null
+          }
+          const li = document.querySelector('.back-news-list > li')
+          return {
+            hero: box('.back-hero'),
+            leader: box('.back-leader'),
+            frame: box('.home-profile'),
+            changed: !!document.querySelector('.back-hero.has-changed .back-intro .changed'),
+            // La date du journal dans sa colonne : deux pistes à la grille de chaque entrée
+            newsCols: li ? getComputedStyle(li).gridTemplateColumns.split(' ').length : 0,
+            vh: innerHeight,
+            wide: document.documentElement.scrollWidth > innerWidth,
+          }
+        })
+        await ctx.close()
+        return { ...entryNow, ...layout }
+      }
+      // Un questionnaire fini plus tôt, pour que « Nouveau depuis vos réponses » ait des entrées
+      const earlier = '2026-10-10T10:00:00.000Z'
+      const withNews = { ...quick, essentialDoneAt: earlier }
+      // Une réponse rapide avec un avis, d'une révision plus ancienne : la question est à revoir, la page reste prête
+      const revId = quickQs.map(q => q.id).find(id => Object.values(quick.answers[id]?.ratings ?? {}).some(v => v))
+      const revoir = revId ? { ...withNews, answers: { ...quick.answers, [revId]: { ...quick.answers[revId], rev: 999 } } } : null
+      for (const width of [1024, 1280]) {
+        const full = await homeIn({ width, height: 900 }, withNews)
+        check(
+          full.ready && full.frame && full.hero && full.frame.l === full.hero.l && full.frame.w === full.hero.w && full.newsCols === 2 && !full.wide,
+          `accueil de retour à ${width} px : le cadre sur toute la largeur, la date du journal dans sa colonne (${full.newsCols} pistes)`,
+        )
+        if (!revoir) continue
+        const back = await homeIn({ width, height: 900 }, revoir)
+        // Avec la carte des questions à revoir, le cadre reste dans la colonne de l'affiche, sous elle : pas de vide à
+        // côté de la carte ; à 1 280 px, dans le premier écran
+        check(
+          back.ready && back.changed && back.frame && back.leader && back.frame.l === back.leader.l && back.frame.w === back.leader.w && back.frame.t > back.leader.b && (width < 1280 || back.frame.b <= back.vh) && !back.wide,
+          `accueil de retour à ${width} px, une question à revoir : le cadre sous l’affiche, dans sa colonne (${JSON.stringify({ frame: back.frame, leader: back.leader, vh: back.vh })})`,
+        )
+      }
+      // Questions ajoutées depuis un questionnaire fini : avec un avis, la page s'est affichée et revient ; après tout
+      // passé, elle ne s'est jamais affichée, la phrase générale
+      const gone = quickQs.slice(-2).map(q => q.id)
+      const minus = answers => Object.fromEntries(Object.entries(answers).filter(([id]) => !gone.includes(id)))
+      const added = await homeIn({ width: 390, height: 844 }, { ...withNews, answers: minus(quick.answers) })
+      check(
+        added.n === 1 && !added.ready && added.afterStatus && added.tagFirst && added.text.includes('Il s’affiche de nouveau une fois les 2 nouvelles questions vues.') && added.text.endsWith('Voir où j’en suis et un exemple'),
+        `mon profil politique, accueil après 2 questions ajoutées : « …${added.text.slice(added.text.indexOf('Il s’affiche'))} »`,
+      )
+      const passed = Object.fromEntries(quickQs.filter(q => !gone.includes(q.id)).map(q => [q.id, { ratings: {}, redLines: [], skipped: true, ...(q.rev ? { rev: q.rev } : {}) }]))
+      const addedPassed = await homeIn({ width: 390, height: 844 }, { ...withNews, answers: passed })
+      check(
+        addedPassed.n === 1 && !addedPassed.ready && !addedPassed.text.includes('de nouveau') && addedPassed.text.includes(`Il s’affiche au bout des ${QUICK} questions du questionnaire rapide : encore 2 questions.`),
+        `mon profil politique, accueil après 2 questions ajoutées, tout passé : « …${addedPassed.text.slice(addedPassed.text.indexOf('Il s’affiche'))} »`,
+      )
       await wp.goto(U('/resultats'))
       await heading(wp, 'Votre dépouillement')
       const column = await wp.evaluate(() => {
@@ -2022,11 +2135,18 @@ try {
       const r = a.getBoundingClientRect()
       const site = document.querySelector('.form-header').getBoundingClientRect().bottom + 5
       let cover = site
+      // Dans la barre des domaines, collée ou non, seul l'en-tête du site peut couvrir le focus : le rappel des blocs et
+      // l'axe collant sont dessous (depuis le 17 octobre 2026, le focus n'y fait plus défiler la page)
+      if (a.closest('.profile-nav')) return r.top < site - 2 ? `${(a.textContent ?? '').trim().slice(0, 30)} (${Math.round(r.top)}-${Math.round(r.bottom)}, sous l’en-tête jusqu’à ${Math.round(site)})` : null
+      // La barre des domaines, collée sous l'en-tête ; puis, dessous, le rappel des blocs ou l'axe collant
+      const nav = document.querySelector('.profile-nav')
+      const nr = nav?.getBoundingClientRect()
+      if (nav && getComputedStyle(nav).position === 'sticky' && nr.top <= site + 1 && nr.bottom > site) cover = nr.bottom
       const mini = document.querySelector('.axis-mini.is-on')
       if (mini) cover = Math.max(cover, mini.getBoundingClientRect().bottom)
       const axis = document.querySelector('.profile-chart .axis')
       const ar = axis.getBoundingClientRect()
-      if (getComputedStyle(axis).position === 'sticky' && ar.top <= site + 1 && ar.bottom > site && !a.closest('.axis')) cover = Math.max(cover, ar.bottom)
+      if (getComputedStyle(axis).position === 'sticky' && ar.top <= cover + 1 && ar.bottom > cover && !a.closest('.axis')) cover = Math.max(cover, ar.bottom)
       const head = a.closest('.profile-all') ? document.querySelector('table.echiquier > thead')?.getBoundingClientRect() : null
       if (head && head.height > 0 && head.top <= site + 1 && !a.closest('thead')) cover = Math.max(cover, head.bottom)
       return r.top < cover - 2 ? `${(a.textContent ?? '').trim().slice(0, 30)} (${Math.round(r.top)}-${Math.round(r.bottom)}, couvert jusqu’à ${Math.round(cover)})` : null
@@ -2125,7 +2245,7 @@ try {
       const wide = await lp.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)
       if (wide > 0) layoutIssues.push(`${width} px à ${zoom} % (${which}) : ${wide} px de trop`)
       const clipped = await lp.evaluate(() =>
-        [...document.querySelectorAll('.profile-chart .row-name, .profile-chart .zone-bloc, .profile-chart .tile, main .echiquier .tile')]
+        [...document.querySelectorAll('.profile-chart .row-name, .profile-chart .zone-bloc, .profile-chart .tile, main .echiquier .tile, .profile-nav .pn-link')]
           .filter(e => e.checkVisibility() && (e.scrollWidth > e.clientWidth + 1 || (e.classList.contains('tile') && e.scrollHeight > e.clientHeight + 1)))
           .map(e => e.textContent.trim().slice(0, 24)),
       )
@@ -2168,7 +2288,341 @@ try {
       await lctx.close()
     }
     check(layoutIssues.length === 0 && miniRuns.some(Boolean), `mon profil politique : rien en largeur, ni rogné, ni mot coupé à 320, 390 et 1 280 px, au texte normal et à 200 % (rappel des blocs vu ${miniRuns.filter(Boolean).length} fois sur ${miniRuns.length}), « Touchez… » au doigt${layoutIssues.length ? ` : ${layoutIssues.join(' ; ')}` : ''}`)
-    check(focusIssues.length === 0, `mon profil politique, au clavier à 390 et 1 280 px : aucun focus caché sous l’en-tête, l’axe collant ou son rappel, ni l’en-tête des colonnes du détail${focusIssues.length ? ` : ${focusIssues.slice(0, 3).join(' ; ')}` : ''}`)
+    check(focusIssues.length === 0, `mon profil politique, au clavier à 390 et 1 280 px : aucun focus caché sous l’en-tête, la barre des domaines, l’axe collant ou son rappel, ni l’en-tête des colonnes du détail${focusIssues.length ? ` : ${focusIssues.slice(0, 3).join(' ; ')}` : ''}`)
+
+    // La barre collante des domaines, puis des sujets du domaine en cours (demande du propriétaire du 17 octobre 2026),
+    // à 375 × 812 au doigt, sur la feuille la plus longue : les domaines de la page dans leur ordre, des noms seulement ;
+    // la hauteur de tout ce qui colle (en-tête, barre, rappel des blocs), mesurée au milieu des lignes ; le domaine et le
+    // sujet en cours, ceux qui passent sous la ligne du focus, marqués et dans la vue de leur rangée ; un toucher sur un
+    // domaine, puis sur chaque sujet, y mène et donne le focus à son titre, jamais sous les éléments collants, l'intertitre
+    // du groupe en vue ; au clavier, une tabulation par rangée qui suit le focus, les flèches, sans que la page défile, et
+    // le focus gardé quand elle défile ; « Le détail » ouvert, la barre suit encore ; en contraste forcé, le trait de
+    // l'élément en cours ; la règle de la moitié de l'écran (texte à 200 %, 320 × 568, 1 024 × 600, 1 024 × 768) ; à
+    // la souris, la rangée qui déborde garde sa barre de défilement ; à 1 280 px, tous les domaines sur une rangée
+    {
+      const navIssues = []
+      const said = []
+      const nctx = await browser.newContext({ viewport: { width: 375, height: 812 }, reducedMotion: 'reduce', hasTouch: true, isMobile: true })
+      await nctx.addInitScript(s => Object.entries(s).forEach(([k, v]) => localStorage.setItem(k, v)), readOk ? readStorage : state)
+      const np = await nctx.newPage()
+      await np.goto(U('/profil'))
+      await np.locator('[role="status"]', { hasText: 'Lecture prête.' }).waitFor({ timeout: 8000 }).catch(() => navIssues.push('pas de lecture'))
+      /** La barre, la page et ce qui colle, tels qu'ils sont à l'écran */
+      const navState = () =>
+        np.evaluate(() => {
+          const text = el => (el?.textContent ?? '').replace(/[  ]/g, ' ').replace(/\s+/g, ' ').trim()
+          const nav = document.querySelector('.profile-nav')
+          const [domains, subjects] = [...(nav?.querySelectorAll('.pn-list') ?? [])]
+          const links = ul => [...(ul?.querySelectorAll('a') ?? [])]
+          const header = document.querySelector('.form-header').getBoundingClientRect()
+          const nr = nav?.getBoundingClientRect()
+          const mini = document.querySelector('.axis-mini.is-on')?.getBoundingClientRect()
+          const line = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) + 2
+          // Le domaine et la ligne sous la ligne du focus, lus sur la page
+          const groups = [...document.querySelectorAll('.profile-chart .fam-group')]
+          const group = groups.find(g => g.getBoundingClientRect().top <= line && g.getBoundingClientRect().bottom > line)
+          // La ligne sous la ligne du focus, ou celle qui suit l'intertitre qui y passe
+          const lines = group ? [...group.querySelectorAll('.row-item')] : []
+          const at = lines.findIndex(r => r.getBoundingClientRect().bottom > line)
+          const current = ul => links(ul).findIndex(a => a.getAttribute('aria-current') === 'location')
+          const inView = (ul, i) => {
+            const a = links(ul)[i]?.getBoundingClientRect()
+            const u = ul?.getBoundingClientRect()
+            return !!a && !!u && a.left >= u.left - 1 && a.right <= u.right + 1
+          }
+          return {
+            label: nav?.getAttribute('aria-label') ?? '',
+            sticky: nav ? getComputedStyle(nav).position : '',
+            domainLabels: links(domains).map(text),
+            pageDomains: groups.map(g => g.id.replace(/^fam-/, '')),
+            familyLabels: groups.map(g => text(g.querySelector('.fam-name')) || null),
+            heights: { header: Math.round(header.height), navTop: nr ? Math.round(nr.top) : null, nav: nr ? Math.round(nr.height) : 0, mini: mini ? Math.round(mini.height) : 0, bottom: Math.round(Math.max(nr?.bottom ?? 0, mini?.bottom ?? 0, header.bottom)) },
+            want: group ? groups.indexOf(group) : -1,
+            wantSubject: group ? (at < 0 ? lines.length - 1 : at) : -1,
+            curD: current(domains),
+            curS: current(subjects),
+            seenD: inView(domains, current(domains)),
+            seenS: inView(subjects, current(subjects)),
+            tabbable: [...(nav?.querySelectorAll('a') ?? [])].filter(a => a.tabIndex === 0).length,
+            currents: [...(nav?.querySelectorAll('[aria-current]') ?? [])].length,
+            // Rien d'une lecture : ni case, ni marque nette, ni couleur d'un bloc
+            reading: !!nav?.querySelector('.tile, [data-net], .key-tile'),
+            subjectsLabel: subjects?.getAttribute('aria-label') ?? '',
+            subjectLabels: links(subjects).map(text),
+            wide: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+          }
+        })
+      const flatStr = s => s.replace(/[  ]/g, ' ')
+      const groupLabel = new Map(groups.map(g => [g.id, g.label]))
+      const s0 = await navState()
+      if (s0.label !== 'Aller à un domaine ou à un sujet') navIssues.push(`nom de la barre « ${s0.label} »`)
+      if (s0.domainLabels.join('|') !== s0.pageDomains.map(id => groupLabel.get(id)).join('|')) navIssues.push(`domaines « ${s0.domainLabels.join(', ')} » au lieu de ceux de la page`)
+      if (s0.pageDomains.join() !== groups.map(g => g.id).filter(id => s0.pageDomains.includes(id)).join()) navIssues.push('domaines hors de l’ordre des familles')
+      if (s0.reading) navIssues.push('une lecture dans la barre')
+      // Au milieu des lignes : le domaine du milieu de la page sous la ligne du focus
+      const mid = Math.floor(s0.pageDomains.length / 2)
+      await np.evaluate(i => {
+        const g = document.querySelectorAll('.profile-chart .fam-group')[i]
+        const row = g.querySelectorAll('.row-item')[Math.min(1, g.querySelectorAll('.row-item').length - 1)]
+        window.scrollTo(0, row.getBoundingClientRect().top + scrollY - parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) + 6)
+      }, mid)
+      await np.waitForTimeout(400)
+      const s1 = await navState()
+      const stack = s1.heights.bottom
+      said.push(`hauteur collée à 375 × 812 : en-tête ${s1.heights.header} + barre ${s1.heights.nav} + rappel ${s1.heights.mini} = ${stack} px (${Math.round((100 * stack) / 812)} %)`)
+      if (s1.sticky !== 'sticky' || s1.heights.navTop === null || Math.abs(s1.heights.navTop - (s1.heights.header + 5)) > 2) navIssues.push(`barre pas collée sous l’en-tête (${s1.sticky}, ${s1.heights.navTop})`)
+      if (!s1.heights.mini) navIssues.push('rappel des blocs absent sous la barre')
+      if (stack > 0.25 * 812) navIssues.push(`ce qui colle prend ${stack} px, plus du quart de l’écran`)
+      if (s1.curD !== s1.want || s1.curS !== s1.wantSubject) navIssues.push(`en cours ${s1.curD}/${s1.curS}, sous la ligne ${s1.want}/${s1.wantSubject}`)
+      if (!s1.seenD || !s1.seenS) navIssues.push(`en cours hors de la vue de sa rangée (domaine ${s1.seenD}, sujet ${s1.seenS})`)
+      if (s1.tabbable !== 2 || s1.currents !== 2) navIssues.push(`${s1.tabbable} élément(s) au clavier, ${s1.currents} marqué(s)`)
+      if (flatStr(s1.subjectsLabel) !== `Sujets du domaine « ${s1.domainLabels[s1.curD]} »`) navIssues.push(`rangée des sujets nommée « ${s1.subjectsLabel} »`)
+      // Un saut qui pose la ligne du focus entre deux domaines : celui du dessus est en cours, jamais un domaine ancien
+      if (s0.pageDomains.length > mid + 3) {
+        await np.evaluate(i => {
+          const gs = document.querySelectorAll('.profile-chart .fam-group')
+          const gap = (gs[i].getBoundingClientRect().bottom + gs[i + 1].getBoundingClientRect().top) / 2
+          window.scrollTo(0, gap + scrollY - parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) - 2)
+        }, mid + 2)
+        await np.waitForTimeout(400)
+        const sg = await navState()
+        if (sg.want !== -1 || sg.curD !== mid + 2) navIssues.push(`entre les domaines ${mid + 2} et ${mid + 3} : en cours ${sg.curD} (sous la ligne ${sg.want})`)
+      }
+      /**
+       * Ce qui a le focus, et s'il passe sous ce qui colle ; sub : l'intertitre du groupe de sa ligne, visible sous ce qui
+       * colle, ou trop loin au-dessus d'elle pour tenir avec elle dans la vue
+       */
+      const focusOf = () =>
+        np.evaluate(() => {
+          const a = document.activeElement
+          const r = a.getBoundingClientRect()
+          const nav = document.querySelector('.profile-nav').getBoundingClientRect()
+          const mini = document.querySelector('.axis-mini.is-on')?.getBoundingClientRect()
+          const cover = Math.max(nav.bottom, mini?.bottom ?? 0)
+          const sub = a.closest('.fam-part')?.querySelector('.fam-sub')?.getBoundingClientRect()
+          const pad = getComputedStyle(document.documentElement)
+          const room = innerHeight - parseFloat(pad.scrollPaddingTop) - parseFloat(pad.scrollPaddingBottom)
+          return {
+            id: a.id,
+            tag: a.tagName,
+            top: Math.round(r.top),
+            cover: Math.round(cover),
+            hidden: r.top < cover - 2 || r.bottom > innerHeight,
+            sub: !sub || sub.top >= cover - 2 || r.bottom - sub.top >= room,
+          }
+        })
+      // Un toucher sur le dernier domaine, puis sur le premier : le titre reçoit le focus, sous ce qui colle
+      for (const i of [s0.pageDomains.length - 1, 0]) {
+        await np.locator('.profile-nav .pn-list').first().locator('a').nth(i).tap()
+        await np.waitForTimeout(500)
+        const f = await focusOf()
+        const st = await navState()
+        const id = s0.pageDomains[i]
+        const want = s0.familyLabels[i] ? `fam-${id}-h` : null
+        if ((want && f.id !== want) || (!want && !/^sj-.+-b$/.test(f.id)) || f.hidden || st.curD !== i)
+          navIssues.push(`toucher « ${s0.domainLabels[i]} » : focus ${f.tag}#${f.id} à ${f.top} (collé jusqu’à ${f.cover}), en cours ${st.curD}`)
+        else said.push(`« ${s0.domainLabels[i]} » atteint (focus sur ${f.tag.toLowerCase()}#${f.id}, à ${f.top} px sous ${f.cover} px collés)`)
+      }
+      // Puis chaque sujet de chaque domaine : sa ligne reçoit le focus, sous ce qui colle, avec l'intertitre de son groupe
+      // au-dessus d'elle tant qu'ils tiennent ensemble dans la vue (contre-vérification du 17 octobre 2026 : 9 sujets sur
+      // 22 arrivaient sans lui, « Rien de net » ou « Sur une seule question » caché sous la barre)
+      {
+        let n = 0
+        for (let d = 0; d < s0.pageDomains.length; d++) {
+          await np.locator('.profile-nav .pn-list').first().locator('a').nth(d).tap()
+          await np.waitForTimeout(250)
+          const st = await navState()
+          for (let k = 0; k < st.subjectLabels.length; k++) {
+            await np.locator('.profile-nav .pn-subjects a').nth(k).tap()
+            await np.waitForTimeout(250)
+            const f = await focusOf()
+            const after = await navState()
+            n++
+            if (!/^sj-.+-b$/.test(f.id) || f.hidden || !f.sub || after.curS !== k)
+              navIssues.push(`toucher le sujet « ${st.subjectLabels[k]} » : focus ${f.tag}#${f.id} à ${f.top} (collé jusqu’à ${f.cover}), intertitre de son groupe en vue ${f.sub}, en cours ${after.curS}`)
+          }
+        }
+        said.push(`${n} sujets atteints, chacun sous l’intertitre de son groupe`)
+      }
+      // Au clavier, la barre collée au milieu des lignes : l'élément en cours de la rangée des domaines, flèche droite, bas
+      // vers les sujets, haut retour, Fin. Ni le focus ni les flèches ne font défiler la page (contre-vérification du 17
+      // octobre 2026 : 365 px par touche, le scroll-padding couvrant la barre elle-même), et l'élément qui a le focus reste
+      // dans la vue de sa rangée
+      await np.evaluate(i => {
+        const g = document.querySelectorAll('.profile-chart .fam-group')[i]
+        window.scrollTo(0, g.getBoundingClientRect().top + scrollY - 150)
+      }, mid)
+      await np.waitForTimeout(400)
+      /** L'élément qui a le focus : sa rangée (0, 1, ou -1 hors de la barre), son rang, dans la vue de sa rangée ; la page */
+      const keyState = () =>
+        np.evaluate(() => {
+          const a = document.activeElement
+          const ul = a?.closest('.profile-nav .pn-list')
+          const r = a.getBoundingClientRect()
+          const u = ul?.getBoundingClientRect()
+          return {
+            row: ul ? (ul.classList.contains('pn-subjects') ? 1 : 0) : -1,
+            i: ul ? [...ul.querySelectorAll('a')].indexOf(a) : -1,
+            tab: a.tabIndex,
+            seen: !!u && r.left >= u.left - 1 && r.right <= u.right + 1,
+            y: Math.round(scrollY),
+            sticky: getComputedStyle(document.querySelector('.profile-nav')).position === 'sticky' && document.querySelector('.profile-nav').getBoundingClientRect().top <= document.querySelector('.form-header').getBoundingClientRect().bottom + 6,
+          }
+        })
+      const k = [await keyState()]
+      await np.locator('.profile-nav .pn-list').first().locator('a[tabindex="0"]').focus()
+      k.push(await keyState())
+      for (const key of ['ArrowRight', 'ArrowDown', 'ArrowUp', 'End']) {
+        await np.keyboard.press(key)
+        k.push(await keyState())
+      }
+      const [k_, k0, k1, k2, k3, k4] = k
+      if (!k_.sticky || k1.i !== k0.i + 1 || k2.row !== 1 || k2.tab !== 0 || k3.row !== 0 || k3.tab !== 0 || k4.i !== s0.pageDomains.length - 1 || k.some(x => x.y !== k_.y) || k.slice(1).some(x => !x.seen))
+        navIssues.push(`clavier dans la barre collée (${k_.sticky}) : ${k.map(x => `${x.row}/${x.i} y ${x.y}${x.seen ? '' : ' hors de vue'}`).join(' → ')}`)
+      else said.push(`clavier : focus et flèches sans défilement de la page (y ${k_.y}), l’élément en vue dans sa rangée`)
+      // La tabulation suit le focus : après Début puis flèche droite, Maj+Tab sort de la rangée des domaines, et Tab
+      // depuis la rangée des domaines va à celle des sujets, jamais à un autre domaine
+      await np.keyboard.press('Home')
+      await np.keyboard.press('ArrowRight')
+      await np.keyboard.press('Tab')
+      const t1 = await keyState()
+      await np.keyboard.press('ArrowRight')
+      await np.keyboard.press('Shift+Tab')
+      const t2 = await keyState()
+      await np.keyboard.press('Shift+Tab')
+      const t3 = await keyState()
+      if (t1.row !== 1 || t2.row !== 0 || t3.row !== -1) navIssues.push(`tabulation : Tab ${t1.row}/${t1.i}, Maj+Tab ${t2.row}/${t2.i}, encore ${t3.row}`)
+      // Entrer dans la barre par Maj+Tab depuis la première ligne de la page (barre collée) : la page ne bouge pas
+      await np.locator('.profile-chart .row').first().focus()
+      await np.waitForTimeout(300)
+      const e1 = await keyState()
+      await np.keyboard.press('Shift+Tab')
+      await np.waitForTimeout(200)
+      const e2 = await keyState()
+      if (!e1.sticky || e2.row < 0 || e2.y !== e1.y || !e2.seen) navIssues.push(`Maj+Tab de la première ligne vers la barre (collée ${e1.sticky}) : y ${e1.y} → ${e2.y}, rangée ${e2.row}, en vue ${e2.seen}`)
+      // Le focus dans la rangée des sujets, la page défile au-delà de plusieurs domaines : il reste dans la barre, en vue
+      await np.evaluate(() => document.querySelector('.profile-nav .pn-subjects a[tabindex="0"]').focus())
+      const g0 = (await navState()).curD
+      for (let i = 0; i < 6; i++) {
+        await np.evaluate(() => scrollBy(0, 400))
+        await np.waitForTimeout(120)
+      }
+      await np.waitForTimeout(400)
+      const g1 = await keyState()
+      const g1d = (await navState()).curD
+      if (g1d === g0 || g1.row < 0 || !g1.seen) navIssues.push(`focus dans la barre, la page défile (domaine ${g0} → ${g1d}) : focus ${g1.row < 0 ? 'perdu' : `rangée ${g1.row}`}, en vue ${g1.seen}`)
+      else said.push(`focus gardé dans la barre quand la page défile (domaine ${g0} → ${g1d})`)
+      // Mais seulement quand le domaine change : la page défile dans un même domaine, la barre relit ce que l'on lit, puis
+      // le focus quitte la barre ; il n'y revient pas de lui-même
+      {
+        const toRow = i =>
+          np.evaluate(i => {
+            const g = [...document.querySelectorAll('.profile-chart .fam-group')].find(x => x.querySelectorAll('.row-item').length > 1)
+            const r = g.querySelectorAll('.row-item')[i]
+            window.scrollTo(0, r.getBoundingClientRect().top + scrollY - parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) + 6)
+          }, i)
+        await toRow(0)
+        await np.waitForTimeout(300)
+        await np.evaluate(() => document.querySelector('.profile-nav .pn-subjects a[tabindex="0"]').focus())
+        await toRow(1)
+        await np.waitForTimeout(300)
+        // Une hauteur collante qui change refait la ligne suivie : la barre relit ce que l'on lit, sans rien changer
+        await np.evaluate(() => document.documentElement.style.setProperty('--e2e-relire', '1'))
+        await np.waitForTimeout(300)
+        await np.evaluate(() => document.activeElement.blur())
+        await np.waitForTimeout(400)
+        const back = await np.evaluate(() => !!document.activeElement?.closest('.profile-nav'))
+        if (back) navIssues.push('le focus, sorti de la barre, y revient de lui-même')
+      }
+      // Contraste forcé : l'élément en cours garde son trait
+      await np.emulateMedia({ forcedColors: 'active' })
+      const forced = await np.evaluate(() =>
+        [...document.querySelectorAll('.profile-nav a')].map(a => ({ on: a.hasAttribute('aria-current'), w: parseFloat(getComputedStyle(a).borderBottomWidth), style: getComputedStyle(a).borderBottomStyle })),
+      )
+      await np.emulateMedia({ forcedColors: 'none' })
+      if (!forced.every(x => (x.on ? x.w >= 2 && x.style === 'solid' : x.w === 0))) navIssues.push(`contraste forcé : ${JSON.stringify(forced.filter(x => x.on))}`)
+      if (s1.wide > 0) navIssues.push(`${s1.wide} px de trop en largeur`)
+      // « Le détail » ouvert : l'en-tête de ses colonnes s'ajoute au scroll-padding, la barre suit la nouvelle ligne du focus
+      await np.locator('.profile-all > summary').click()
+      await np.locator('table.echiquier > thead').waitFor({ timeout: 8000 }).catch(() => navIssues.push('détail : pas de tableau'))
+      await np.waitForTimeout(300)
+      for (const i of [1, 3]) {
+        await np.evaluate(i => {
+          const rows = document.querySelectorAll('.profile-chart .row-item')
+          const line = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) + 2
+          window.scrollTo(0, rows[i].getBoundingClientRect().top + scrollY - line + 2)
+        }, i)
+        await np.waitForTimeout(300)
+        const d = await navState()
+        if (d.curD !== d.want || d.curS !== d.wantSubject) navIssues.push(`détail ouvert, ligne ${i} : en cours ${d.curD}/${d.curS}, sous la ligne ${d.want}/${d.wantSubject}`)
+      }
+      await nctx.close()
+      // La barre colle si l'en-tête, elle, ce qui colle sous elle (l'axe collant en grand écran, le rappel des blocs au
+      // téléphone) et la barre du bas tiennent dans la moitié de l'écran, sinon elle suit la page : texte à 200 %, petits
+      // écrans (contre-vérification du 17 octobre 2026 : 62 % de l'écran collé à 1 024 × 600, la barre restant collée)
+      for (const [width, zoom, height = 812, touch = true] of [
+        [375, 200],
+        [320, 200],
+        [320, 100, 568],
+        [1024, 100, 600, false],
+        [1024, 100, 768, false],
+      ]) {
+        const zctx = await browser.newContext({ viewport: { width, height }, reducedMotion: 'reduce', hasTouch: touch, isMobile: touch })
+        await zctx.addInitScript(s => Object.entries(s).forEach(([k, v]) => localStorage.setItem(k, v)), readOk ? readStorage : state)
+        await zctx.addInitScript(z => document.addEventListener('DOMContentLoaded', () => (document.documentElement.style.fontSize = `${z}%`)), zoom)
+        const zp = await zctx.newPage()
+        await zp.goto(U('/profil'))
+        await zp.locator('[role="status"]', { hasText: 'Lecture prête.' }).waitFor({ timeout: 8000 }).catch(() => navIssues.push(`${width} px à ${zoom} % : pas de lecture`))
+        // La barre se mesure à la première image (ResizeObserver de useStickyFilters)
+        await zp.waitForTimeout(300)
+        const z = await zp.evaluate(() => {
+          const nav = document.querySelector('.profile-nav')
+          // Ce que compte useStickyFilters : l'en-tête, la barre, ce qui colle sous elle, la barre du bas
+          const axis = document.querySelector('.profile-chart .axis')
+          const under = getComputedStyle(axis).position === 'sticky' ? axis.offsetHeight : document.querySelector('.profile-chart .zones')?.getClientRects().length ? document.querySelector('.axis-mini').offsetHeight : 0
+          const chrome = ['.form-header', '.profile-nav', '.action-bar'].reduce((t, s) => t + (document.querySelector(s)?.offsetHeight ?? 0), under)
+          return { sticky: getComputedStyle(nav).position, chrome, half: innerHeight / 2, wide: document.documentElement.scrollWidth - document.documentElement.clientWidth }
+        })
+        const where = `${width} × ${height}${zoom !== 100 ? ` à ${zoom} %` : ''}`
+        if ((z.chrome > z.half) !== (z.sticky === 'static') || z.wide > 0) navIssues.push(`${where} : barre ${z.sticky}, ${z.chrome} px collés pour ${z.half} px, ${z.wide} px de trop`)
+        else said.push(`${where} : barre ${z.sticky === 'static' ? 'dans la page' : 'collée'} (${z.chrome} px pour ${Math.round(z.half)} px)`)
+        // À la souris, la rangée des domaines qui déborde garde une barre de défilement fine (scrollbar-width: thin, ou
+        // dessinée par ::-webkit-scrollbar, scrollbar-width: auto)
+        if (!touch) {
+          const o = await zp.evaluate(() => {
+            const d = document.querySelector('.profile-nav .pn-list')
+            return { over: d.scrollWidth - d.clientWidth, bar: getComputedStyle(d).scrollbarWidth }
+          })
+          if (o.over > 1 && o.bar === 'none') navIssues.push(`${where} : ${o.over} px de domaines hors de la rangée, sans barre de défilement`)
+        }
+        await zctx.close()
+      }
+      // En grand écran : la rangée des domaines entière, sans défilement ; pas de rangée des sujets
+      const wctx = await browser.newContext({ viewport: { width: 1280, height: 900 }, reducedMotion: 'reduce' })
+      await wctx.addInitScript(s => Object.entries(s).forEach(([k, v]) => localStorage.setItem(k, v)), readOk ? readStorage : state)
+      const wp = await wctx.newPage()
+      await wp.goto(U('/profil'))
+      await wp.locator('[role="status"]', { hasText: 'Lecture prête.' }).waitFor({ timeout: 8000 }).catch(() => navIssues.push('1 280 px : pas de lecture'))
+      const w = await wp.evaluate(() => {
+        const [d, s] = document.querySelectorAll('.profile-nav .pn-list')
+        const nav = document.querySelector('.profile-nav').getBoundingClientRect()
+        return { overflow: d.scrollWidth - d.clientWidth, subjects: s?.checkVisibility() ?? false, height: Math.round(nav.height) }
+      })
+      if (w.overflow > 1 || w.subjects) navIssues.push(`1 280 px : ${w.overflow} px de domaines hors de la rangée, rangée des sujets ${w.subjects}`)
+      else said.push(`1 280 px : tous les domaines sur ${w.height} px, sans rangée des sujets`)
+      // Un saut depuis le haut de la page jusqu'entre deux domaines : celui du dessus est en cours
+      const jump = await wp.evaluate(async () => {
+        const gs = document.querySelectorAll('.profile-chart .fam-group')
+        const i = Math.min(3, gs.length - 2)
+        const gap = (gs[i].getBoundingClientRect().bottom + gs[i + 1].getBoundingClientRect().top) / 2
+        window.scrollTo(0, gap + scrollY - parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) - 2)
+        await new Promise(r => setTimeout(r, 400))
+        return { i, cur: [...document.querySelectorAll('.profile-nav .pn-list:first-child a')].findIndex(a => a.hasAttribute('aria-current')) }
+      })
+      if (jump.cur !== jump.i) navIssues.push(`1 280 px, saut du haut de la page entre les domaines ${jump.i} et ${jump.i + 1} : en cours ${jump.cur}`)
+      await wctx.close()
+      check(navIssues.length === 0, `mon profil politique, la barre des domaines : ${said.join(' ; ')}${navIssues.length ? ` : ${navIssues.join(' ; ')}` : ''}`)
+    }
 
     // Ses entrées et sa page d'attente, au texte agrandi (320 px à 200 %, 390 px à 125 %) : l'accueil vierge et prêt, le
     // dépouillement, la page d'attente d'une feuille en cours ; rien en largeur, aucun mot coupé hors des titres (qui

@@ -154,9 +154,13 @@
 }
 
 /* ——— L'accueil de retour (ui/screens/HomeBack.tsx) ———
-   Comme le héros du dépouillement : l'introduction (titre, phrase, questions à revoir) puis l'affiche du plus proche
-   et le journal, empilés au téléphone, côte à côte à partir de 64rem (5fr / 7fr, alignés en haut). Puis les panneaux
-   de « Et maintenant ». */
+   Comme le héros du dépouillement : l'introduction (titre, phrase, questions à revoir) puis l'affiche du plus proche,
+   le cadre de « Mon profil politique » et le journal, empilés au téléphone. À partir de 64rem, l'introduction et
+   l'affiche côte à côte (5fr / 7fr, alignées en haut), puis le cadre sur toute la largeur, comme sur l'accueil vierge
+   (la grille fictive à gauche, ses mots dans les cases), et le journal dessous : l'ordre de lecture reste celui du
+   téléphone. Avec des questions à revoir, leur carte allonge l'introduction : le cadre et le journal restent alors dans
+   la colonne de l'affiche, sous elle, plutôt que de laisser un vide à côté de la carte. Puis les panneaux de « Et
+   maintenant ». */
 
 .back-hero {
   display: grid;
@@ -167,7 +171,7 @@
 @media (min-width: 64rem) {
   .back-hero {
     grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    gap: var(--s8);
+    gap: var(--s6) var(--s8);
     align-items: start;
   }
 }
@@ -205,7 +209,7 @@
   vertical-align: -0.15em;
 }
 
-/* L'affiche, puis le journal : dans la colonne de droite en grand écran */
+/* L'affiche, le cadre de « Mon profil politique », puis le journal */
 .back-side {
   display: grid;
   align-content: start;
@@ -213,7 +217,8 @@
   min-width: 0;
 }
 
-/* Le bandeau de « Mon profil politique » collé sous l'affiche, comme au dépouillement ; le journal un peu plus loin */
+/* Le cadre de « Mon profil politique » collé sous l'affiche au téléphone ; le journal un peu plus loin (en grand
+   écran, l'écart des rangées suffit) */
 .back-side > .home-profile {
   margin: 0;
 }
@@ -222,8 +227,33 @@
   margin-top: var(--s4);
 }
 
-/* Le journal : la date en petit gris, la première phrase de l'entrée, entre filets */
+/* En grand écran, la colonne de l'affiche s'ouvre : l'affiche à droite de l'introduction, le cadre de « Mon profil
+   politique » et le journal sur toute la largeur, dessous ; l'écart des rangées sépare le journal du cadre. Avec la
+   carte des questions à revoir, la colonne reste fermée (l'affiche, le cadre et le journal empilés à droite) */
+@media (min-width: 64rem) {
+  .back-hero:not(.has-changed) > .back-side {
+    display: contents;
+  }
+
+  .back-hero:not(.has-changed) > .back-side > * {
+    grid-column: 1 / -1;
+  }
+
+  .back-hero:not(.has-changed) > .back-side > .back-leader {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .back-hero:not(.has-changed) > .back-side > .back-news {
+    margin-top: 0;
+  }
+}
+
+/* Le journal : la date en petit gris, la première phrase de l'entrée, entre filets ; la date dans sa colonne dès que
+   le journal a la place (40rem de conteneur : sur toute la largeur dès 48rem d'écran ; dans la colonne de l'affiche,
+   avec des questions à revoir, à partir de 78rem environ d'écran) */
 .back-news {
+  container: news / inline-size;
   max-width: 48rem;
 }
 
@@ -259,7 +289,7 @@
   color: var(--print-soft);
 }
 
-@media (min-width: 48rem) and (max-width: 63.99rem), (min-width: 80rem) {
+@container news (min-width: 40rem) {
   .back-news-list > li {
     grid-template-columns: 9.5rem minmax(0, 1fr);
     gap: var(--s4);

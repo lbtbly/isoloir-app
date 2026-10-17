@@ -18,7 +18,11 @@ export interface ProfileAccess {
   left: number
   /** Où reprendre : la première question rapide pas encore vue, sinon la première de la feuille */
   href: string
-  /** Questions ajoutées au questionnaire rapide depuis qu'il a été fini une fois */
+  /**
+   * Questions ajoutées au questionnaire rapide depuis qu'il a été fini une fois, avec au moins un avis qui compte : la
+   * page s'est déjà affichée et revient une fois ces questions vues (l'accueil et la page d'attente disent « de
+   * nouveau »). Fini sans aucun avis (tout passé), elle ne s'est jamais affichée : false, la phrase générale
+   */
   added: boolean
 }
 
@@ -40,5 +44,5 @@ export function profileAccess(
   const seen = total - left
   const opinions = questions.some(q => hasOpinion(current[q.id]))
   const state: ProfileAccessState = left ? (seen || opinions ? 'en-cours' : 'vide') : opinions ? 'pret' : 'sans-avis'
-  return { state, seen, total, left, href: `/feuille/${first < 0 ? 1 : first + 1}`, added: left > 0 && !!essentialDoneAt }
+  return { state, seen, total, left, href: `/feuille/${first < 0 ? 1 : first + 1}`, added: left > 0 && !!essentialDoneAt && opinions }
 }

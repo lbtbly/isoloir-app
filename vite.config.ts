@@ -160,9 +160,10 @@ export default defineConfig({
     target: 'es2022',
     sourcemap: false,
     // Pas de polyfill de préchargement : il ferait des fetch(), bloqués par la CSP et inutiles ici. « Ce qui pèse le plus »
-    // de « Mon profil politique » (src/ui/profile/Weigh.tsx) n'est chargé que par la page, dont il reprend les fichiers,
-    // déjà là : rien à précharger, et la page n'en garde pas la liste (tools/check-dist.mjs compte son poids)
-    modulePreload: { polyfill: false, resolveDependencies: (file, deps) => (/(^|\/)Weigh-[\w-]+\.js$/.test(file) ? [] : deps) },
+    // de « Mon profil politique » (src/ui/profile/Weigh.tsx) et « Le détail, sujet par sujet » (ProfileDetail.tsx) ne sont
+    // chargés que par la page, dont ils reprennent les fichiers, déjà là : rien à précharger, et la page n'en garde pas la
+    // liste (tools/check-dist.mjs compte leur poids)
+    modulePreload: { polyfill: false, resolveDependencies: (file, deps) => (/(^|\/)(?:Weigh|ProfileDetail)-[\w-]+\.js$/.test(file) ? [] : deps) },
     // Aucune ressource en data: (logos SVG de quelques Ko compris) : la CSP n'autorise que les images du site
     assetsInlineLimit: 0,
     // Le code commun du JS initial, en fichiers fixes : Preact (son cœur, ses hooks et le JSX) d'un seul tenant, et
