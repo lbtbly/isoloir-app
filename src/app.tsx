@@ -219,13 +219,16 @@ function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
     ro.observe(bar)
     return () => ro.disconnect()
   })
-  // Idem pour l'en-tête fixe, sous lequel se calent les barres de filtres collantes
+  // Idem pour l'en-tête fixe, sous lequel se calent les barres de filtres collantes. Chaque écran a le sien : celui
+  // qu'on quitte, démonté, reste observé jusqu'à l'effet suivant et s'y mesure à 0 px ; cette mesure est ignorée,
+  // sans quoi tout ce qui colle sous l'en-tête passerait derrière lui le temps que le nouveau soit observé (même
+  // hauteur sur toutes les pages : l'ancienne valeur reste juste)
   useEffect(() => {
     const header = document.querySelector<HTMLElement>('.form-header')
     if (!header || typeof ResizeObserver === 'undefined') return
-    const ro = new ResizeObserver(() =>
-      document.documentElement.style.setProperty('--header-real', `${header.offsetHeight}px`),
-    )
+    const ro = new ResizeObserver(() => {
+      if (header.isConnected) document.documentElement.style.setProperty('--header-real', `${header.offsetHeight}px`)
+    })
     ro.observe(header)
     return () => ro.disconnect()
   })
