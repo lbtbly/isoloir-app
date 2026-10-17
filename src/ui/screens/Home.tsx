@@ -3,7 +3,7 @@ import { link } from '../nav'
 import { firstStepSize } from '../../core/order'
 import { isAnswered } from '../../core/answers'
 import { profileAccess } from '../../core/profileAccess'
-import { PROFILE_SEE, profileHome, profileWhen } from '../../core/resultsCopy'
+import { PEEK_GO, PEEK_TAG, PEEK_TAG_MINE, PROFILE_READY, PROFILE_SEE, profileHome, profileWhen } from '../../core/resultsCopy'
 import { currentAnswers } from '../../core/revisions'
 import { axisOf } from '../../core/spectrum'
 import type { Results } from '../../core/score'
@@ -12,7 +12,7 @@ import type { ElectionPack, Question } from '../../core/types'
 import { AI_METHOD_PATH } from '../components/AiLabel'
 import { AirplaneSection } from '../components/Airplane'
 import { ChangedQuestions } from '../components/ChangedQuestions'
-import { ProfileBand, ProfilePeek } from '../components/ProfileEntry'
+import { ProfilePeek } from '../components/ProfileEntry'
 import { FormHeader } from '../components/FormHeader'
 import { Icon } from '../components/Icon'
 import { Journey } from '../components/Journey'
@@ -128,13 +128,19 @@ export function Home({ pack, state, essential, stale, results }: Props) {
     </div>
   )
 
-  // Son entrée : le bandeau une fois la page prête ; avant, l'aperçu fictif et quand elle s'affiche. Sous l'état de la
-  // feuille pour qui a commencé ; pour un nouveau visiteur, après la liste de confiance, au premier défilement
+  // Son entrée : le même cadre à tous les états (demande du propriétaire du 17/10/2026), la grille fictive et ce que
+  // montre la page ; avant la page, quand elle s'affiche et « Voir où j’en suis et un exemple » ; prête, « Il est prêt »
+  // et « Voir mon profil politique ». Sous l'affiche de l'accueil de retour ; sous l'état de la feuille pour qui a
+  // commencé ; pour un nouveau visiteur, après la liste de confiance, au premier défilement
   const profileEntry =
-    !access || !axis ? null : ready ? (
-      <ProfileBand cls="home-profile is-ready" title={PROFILE_SEE} text={profileHome(axis)} axis={axis} />
-    ) : (
-      <ProfilePeek text={profileHome(axis)} when={profileWhen(access.total, access.left, access.state === 'sans-avis')} />
+    !access || !axis ? null : (
+      <ProfilePeek
+        ready={ready}
+        text={profileHome(axis)}
+        when={ready ? PROFILE_READY : profileWhen(access.total, access.left, access.state === 'sans-avis', access.added)}
+        tag={access.state === 'vide' ? PEEK_TAG : PEEK_TAG_MINE}
+        go={ready ? PROFILE_SEE : PEEK_GO}
+      />
     )
   const profileFirst = !!access && access.state !== 'vide'
 
@@ -206,7 +212,7 @@ export function Home({ pack, state, essential, stale, results }: Props) {
         {!back ? <ChangedQuestions questions={stale} topics={topicsById} /> : null}
         {back ? (
           <>
-            {/* Le film, pour qui veut revoir le principe ; la page prête, son bandeau est sous l'affiche (HomeBack). Le
+            {/* Le film, pour qui veut revoir le principe ; la page prête, son cadre est sous l'affiche (HomeBack). Le
                 titre n'est pas un intertitre : chaque scène du film en porte un, au même niveau, sous le h1 de la page */}
             <section class="home-film is-back" aria-labelledby="film-title">
               <p id="film-title" class="section-title">

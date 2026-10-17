@@ -1,8 +1,9 @@
 // L'accueil de qui a déjà son dépouillement (demande du propriétaire du 14/10/2026 : « si un dépouillement existe, la
 // page d'accueil doit être différente et adaptée »), questionnaire rapide terminé et au moins un avis compté (Home.tsx).
 // En tête, à la place du film qui explique l'outil à qui ne le connaît pas : les questions à revoir, son affiche (la
-// même qu'au dépouillement, components/Leader.tsx), son profil, ce qui est nouveau depuis ses réponses, puis les suites
-// en panneaux, dans l'ordre de « Et maintenant ». Le film et les garanties restent plus bas, pour qui veut les revoir.
+// même qu'au dépouillement, components/Leader.tsx), l'entrée de « Mon profil politique » (le cadre de l'accueil vierge,
+// components/ProfileEntry.tsx), ce qui est nouveau depuis ses réponses, puis les suites en panneaux, dans l'ordre de
+// « Et maintenant ». Le film et les garanties restent plus bas, pour qui veut les revoir.
 
 import type { ComponentChildren } from 'preact'
 import { frozenAt } from '../../core/freeze'
@@ -52,7 +53,7 @@ interface Props {
   essentialCount: number
   /** « Mon profil politique » est prêt (même règle que la page et le dépouillement) */
   profileReady: boolean
-  /** Son bandeau, la page prête : sous l'affiche, comme au dépouillement */
+  /** Son cadre, la page prête : sous l'affiche au téléphone, sur toute la largeur sous l'affiche en grand écran */
   profile?: ComponentChildren
 }
 

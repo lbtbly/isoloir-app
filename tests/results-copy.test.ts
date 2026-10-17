@@ -226,6 +226,16 @@ describe('entrées de « Mon profil politique » (accueil, dépouillement, tenda
     expect(copy.profileWhen(22, 1)).toBe(`Il s’affiche au bout des 22${NB}questions du questionnaire rapide${NB}: encore 1${NB}question.`)
     expect(copy.profileWhen(22, 0)).toBe(`Il s’affiche au bout des 22${NB}questions du questionnaire rapide.`)
     expect(copy.profileWhen(22, 0, true)).toBe(`Il se lit sur vos avis${NB}: placez au moins un repère, «${NB}d’accord${NB}» ou «${NB}pas d’accord${NB}».`)
+    // Des questions ajoutées depuis un questionnaire fini : la page s'est déjà affichée, elle revient une fois vues
+    expect(copy.profileWhen(22, 2, false, true)).toBe(`Il s’affiche de nouveau une fois les 2${NB}nouvelles questions vues.`)
+    expect(copy.profileWhen(22, 1, false, true)).toBe('Il s’affiche de nouveau une fois la nouvelle question vue.')
+    expect(copy.profileWhen(22, 0, true, true)).toBe(copy.profileWhen(22, 0, true))
+    // La page prête : le même cadre, ce qu'il en est à la place de quand elle s'affiche, et l'appel vers la page
+    expect(copy.PROFILE_READY).toBe('Il est prêt, calculé sur cet appareil à partir de vos réponses.')
+    expect(copy.PROFILE_SEE).toBe('Voir mon profil politique')
+    // La grille reste un exemple fictif ; dès la première réponse, la mention dit qu'elle n'est pas la sienne
+    expect(copy.PEEK_TAG).toBe('Exemple fictif')
+    expect(copy.PEEK_TAG_MINE).toBe('Exemple fictif, pas vos réponses')
     expect(copy.trendNext(22).join('')).toBe(`Au bout des 22${NB}questions${NB}: le dépouillement complet et «${NB}Mon profil politique${NB}».`)
     expect(copy.trendNext(22)[1]).toBe(copy.PROFILE_TITLE)
     // L'appel de l'aperçu dit ce que montre la page d'attente, dans l'ordre : l'état de la feuille, puis l'exemple
@@ -248,9 +258,12 @@ describe('entrées de « Mon profil politique » (accueil, dépouillement, tenda
       copy.profileHome(axis),
       ...[22, 15, 1, 0].map(n => copy.profileWhen(22, n)),
       copy.profileWhen(22, 0, true),
+      ...[2, 1].map(n => copy.profileWhen(22, n, false, true)),
+      copy.PROFILE_READY,
       copy.trendNext(22).join(''),
       copy.PROFILE_SEE,
       copy.PEEK_TAG,
+      copy.PEEK_TAG_MINE,
       copy.PEEK_GO,
       copy.PROFILE_PANEL,
       copy.deepenTouched('Israël et Gaza', 2, 3, 15),

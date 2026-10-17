@@ -19,8 +19,9 @@
 // vers un candidat masqué, tous corrigés ; accueil sans rien de la primaire, même avec sa feuille sur l'appareil.
 // « Mon profil politique » (#/profil) : ses entrées selon l'état de la feuille (accueil vierge : l'aperçu fictif après la
 // liste de confiance ; feuille en cours : sous l'état de la feuille ; tendance : une ligne de « Où vous en êtes », pas de
-// bandeau ; résultat complet : le bandeau sous l'affiche, le panneau et le lien sous « Par thème » ; accueil prêt :
-// « Voir mon profil politique »), leurs liens et leurs teintes (celles des cases de la page, clair et sombre, contraste
+// bandeau ; résultat complet : le bandeau sous l'affiche, le panneau et le lien sous « Par thème » ; accueil prêt : le
+// cadre de l'accueil vierge, sa grille fictive et « Voir mon profil politique », sur toute la largeur en grand écran),
+// leurs liens et leurs teintes (celles des cases de la page, clair et sombre, contraste
 // forcé) ; la page d'attente (pas encore de réponse, pas encore assez : le compte, le bouton qui ramène à la première
 // question non vue, l'exemple fictif, sans tableau) ; la fiche « Pour lire plus de thèmes » (questionnaire rapide seul,
 // mais pas tout approfondi) et « Approfondir ce thème », qui coche le thème ; puis la page lue sur l'appareil (mention
@@ -318,7 +319,7 @@ try {
   if (PROFILE) {
     const fresh = await homeEntry(page)
     check(
-      fresh.n === 1 && !fresh.ready && fresh.href === L('/profil') && fresh.afterProof && fresh.tiles === 15 && fresh.text.includes('Exemple fictif') && fresh.text.includes('Voir où j’en suis et un exemple') && fresh.text.includes(`Il s’affiche au bout des ${QUICK} questions du questionnaire rapide.`) && !fresh.text.includes('Voir mon profil politique'),
+      fresh.n === 1 && !fresh.ready && fresh.href === L('/profil') && fresh.afterProof && fresh.tiles === 15 && fresh.text.includes('Exemple fictif') && !fresh.text.includes('pas vos réponses') && fresh.text.includes('Voir où j’en suis et un exemple') && fresh.text.includes(`Il s’affiche au bout des ${QUICK} questions du questionnaire rapide.`) && !fresh.text.includes('Voir mon profil politique'),
       `mon profil politique, accueil vierge : aperçu après la liste de confiance ${fresh.afterProof}, ${fresh.tiles} cases masquées aux lecteurs d’écran, « ${fresh.text.slice(0, 90)}… »`,
     )
     await page.locator('.home-profile').click()
@@ -613,7 +614,7 @@ try {
         `accueil, feuille en cours : « ${status} », puis « encore ${left} » dans l’aperçu (${STEP1} + ${left} = ${QUICK})`,
       )
       check(
-        going.n === 1 && !going.ready && going.afterStatus && going.tiles === 15 && going.text.includes(`: encore ${left} question${left > 1 ? 's' : ''}.`),
+        going.n === 1 && !going.ready && going.afterStatus && going.tiles === 15 && going.text.startsWith('Exemple fictif, pas vos réponses') && going.text.includes(`: encore ${left} question${left > 1 ? 's' : ''}.`),
         `mon profil politique, accueil d’une feuille en cours : l’aperçu sous l’état de la feuille ${going.afterStatus}, « …${going.text.slice(going.text.indexOf('Il s’affiche'), going.text.indexOf('Voir où j’en suis')).trim()} »`,
       )
     }
@@ -1333,13 +1334,15 @@ try {
       `affiche JPG : la même avant et après « Mon profil politique » (${before?.hash.slice(0, 12)}…, ${after?.hash.slice(0, 12)}…), rien de la page dans son texte de remplacement`,
     )
 
-    // L'accueil, une fois la page prête : le bandeau « Voir mon profil politique », sans aperçu, sous l'affiche du plus proche
+    // L'accueil, une fois la page prête : le cadre de l'accueil vierge (demande du propriétaire du 17/10/2026), sous
+    // l'affiche du plus proche ; la grille fictive, « pas vos réponses », « Il est prêt » et « Voir mon profil politique »,
+    // vers la page
     await page.goto(U('/'))
     await page.locator('.home-profile').waitFor()
     const ready = await homeEntry(page)
     check(
-      ready.n === 1 && ready.ready && ready.afterLeader && ready.tiles === 0 && ready.href === L('/profil') && ready.text.startsWith('Voir mon profil politique'),
-      `mon profil politique, accueil prêt : « ${ready.text.slice(0, 40)}… » sous l’affiche du plus proche ${ready.afterLeader}, sans aperçu (${ready.tiles} case)`,
+      ready.n === 1 && ready.ready && ready.afterLeader && ready.tiles === 15 && ready.href === L('/profil') && ready.text.startsWith('Exemple fictif, pas vos réponses Mon profil politique') && ready.text.includes('Il est prêt') && ready.text.endsWith('Voir mon profil politique') && !ready.text.includes('Voir où j’en suis'),
+      `mon profil politique, accueil prêt : le cadre de l’accueil vierge sous l’affiche du plus proche ${ready.afterLeader}, ${ready.tiles} cases fictives, « ${ready.text.slice(0, 50)}… ${ready.text.slice(-26)} »`,
     )
 
     // En grand écran : le bandeau du dépouillement sous l'affiche, dans sa colonne ; une feuille tout approfondie (un avis
@@ -1354,6 +1357,20 @@ try {
         }
       }, quickState)
       const wp = await wctx.newPage()
+      // L'accueil prêt : le cadre sur toute la largeur de l'accueil de retour, sous l'affiche, la grille à gauche et
+      // ses mots dans les cases, comme sur l'accueil vierge
+      await wp.goto(U('/'))
+      await wp.locator('.home-profile').waitFor()
+      const frame = await wp.evaluate(() => {
+        const box = sel => document.querySelector(sel)?.getBoundingClientRect()
+        const f = box('.home-profile'), h = box('.back-hero'), l = box('.back-leader'), g = box('.home-profile .hp-tiles'), t = box('.home-profile .hp-body')
+        const words = [...document.querySelectorAll('.home-profile .hp-word')].filter(w => w.checkVisibility()).length
+        return f && h && l && g && t ? { left: Math.round(f.left - h.left), width: Math.round(f.width - h.width), below: Math.round(f.top - l.bottom), gridLeft: g.right <= t.left, words } : null
+      })
+      check(
+        !!frame && frame.left === 0 && frame.width === 0 && frame.below > 0 && frame.gridLeft && frame.words === 15,
+        `mon profil politique, accueil prêt à 1 280 px : le cadre sur toute la largeur, sous l’affiche, la grille à gauche et ses mots (${JSON.stringify(frame)})`,
+      )
       await wp.goto(U('/resultats'))
       await heading(wp, 'Votre dépouillement')
       const column = await wp.evaluate(() => {
