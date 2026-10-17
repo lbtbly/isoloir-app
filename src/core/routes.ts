@@ -37,6 +37,8 @@ export type Route =
    * « import » (#/autre-appareil/importer) : la page s'ouvre sur « Importer mes réponses »
    */
   | { name: 'transfer'; import?: true }
+  /** « Installer l'application » : Isoloir sur l'écran d'accueil, et les réponses qui y passent */
+  | { name: 'install' }
 
 /** Les noms de pages : un premier segment qui n'en est pas un est un préfixe d'élection */
 const PAGES = new Set([
@@ -64,6 +66,8 @@ const PAGES = new Set([
   'a-table',
   // « Continuer sur un autre appareil » : sans lui ici, #/autre-appareil serait lu comme le préfixe d'une élection
   'autre-appareil',
+  // « Installer l'application » : de même pour #/installer
+  'installer',
 ])
 
 /** Forme d'un préfixe d'élection (slug ou alias) */
@@ -125,6 +129,8 @@ export function parseRoute(path: string): Route {
       return { name: 'table' }
     case 'autre-appareil':
       return arg === 'importer' ? { name: 'transfer', import: true } : { name: 'transfer' }
+    case 'installer':
+      return { name: 'install' }
     default:
       return { name: 'home' }
   }

@@ -51,6 +51,11 @@ const PATHS: Record<string, string> = {
   copy: 'M8.5 8.5h11v11h-11zM15.5 8.5V4.5h-11v11h4',
   mail: 'M3.5 6h17v12h-17zM3.5 6.5l8.5 7 8.5-7',
   keyboard: 'M3 7h18v10H3zM6.5 10.5h1M10 10.5h1M13.5 10.5h1M17 10.5h.5M7.5 14h9',
+  // « Installer l'application » (ui/screens/Install.tsx) : un téléphone et un plus ; sur ordinateur, un écran et une
+  // flèche ; « Coller le code » : une planchette à pince
+  install: 'M8 3h8a1.5 1.5 0 0 1 1.5 1.5v15A1.5 1.5 0 0 1 16 21H8a1.5 1.5 0 0 1-1.5-1.5v-15A1.5 1.5 0 0 1 8 3zM12 8.5v6M9 11.5h6M10.5 18h3',
+  'install-desktop': 'M3.5 4.5h17v11h-17zM9 20h6M12 15.5V20M12 7v5.5M9.5 10l2.5 2.5 2.5-2.5',
+  paste: 'M9 3.5h6v3H9zM9 5H5.5v15.5h13V5H15M8.5 11h7M8.5 14.5h7M8.5 18h4',
   plane:
     'M12 2.8c.8 0 1.4.7 1.4 1.6v5l7.1 4.2v2l-7.1-2.1v4.2l2.3 1.8v1.7L12 20.3l-3.7.9v-1.7l2.3-1.8v-4.2l-7.1 2.1v-2l7.1-4.2v-5c0-.9.6-1.6 1.4-1.6z',
 }

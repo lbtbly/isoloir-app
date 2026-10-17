@@ -1,7 +1,9 @@
 // Fichiers de la marque, générés depuis src/core/brand.ts (seule source de la géométrie et des couleurs) :
 // - public/brand/isoloir-{stacked,horizontal,mark}-{color,grey,white}.svg : SVG autonomes, couleurs en dur ;
 // - public/favicon.svg : le pictogramme sans ombre, lisible à 16 px, disque éclairci en mode sombre ;
-// - public/apple-touch-icon.png (180), public/icon-192.png, public/icon-512.png : pictogramme sur blanc.
+// - public/apple-touch-icon.png (180), public/icon-192.png, public/icon-512.png : pictogramme sur blanc ;
+// - public/icon-maskable-512.png : le même, resserré dans la zone sûre des icônes « maskable » (le cercle central de 80 %
+//   que garde Android, quelle que soit la forme de son lanceur), pour le manifeste (public/manifest.webmanifest).
 // Usage : node tools/build-brand.mjs   (Node 22.18+ ou 23.6+ : brand.ts est importé tel quel)
 import { chromium } from 'playwright-core'
 import { mkdirSync, writeFileSync } from 'node:fs'
@@ -43,7 +45,8 @@ const favicon = [
 write('favicon.svg', favicon + '\n')
 
 // Icônes PNG : le pictogramme complet (ombre comprise) sur fond blanc, avec une marge qui laisse
-// la place aux coins arrondis des écrans d'accueil
+// la place aux coins arrondis des écrans d'accueil ; l'icône « maskable » en laisse davantage : à 0,56, le pictogramme
+// tient dans le cercle de 80 % de diamètre que tout lanceur Android garde (rognée à 0,8, elle perdrait le rideau)
 // Son coupé : aucun outil ne doit jouer de son (règle du propriétaire)
 const browser = await chromium.launch({ args: ['--mute-audio'] })
 try {
@@ -52,6 +55,7 @@ try {
     ['apple-touch-icon.png', 180, 0.76],
     ['icon-192.png', 192, 0.8],
     ['icon-512.png', 512, 0.8],
+    ['icon-maskable-512.png', 512, 0.56],
   ]) {
     const b = mark.bounds
     const span = Math.max(b.width, b.height) / fill

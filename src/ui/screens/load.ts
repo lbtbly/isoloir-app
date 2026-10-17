@@ -27,6 +27,8 @@ export const legalScreen = onDemand<typeof import('./Legal')>(() => import('./Le
 export const shareScreen = onDemand<typeof import('./Share')>(() => import('./Share'))
 /** « Continuer sur un autre appareil » (codes de reprise, QR code, caméra) : jamais préparé d'avance, rarement ouvert */
 export const transferScreen = onDemand<typeof import('./Transfer')>(() => import('./Transfer'))
+/** « Installer l'application » (avec le codeur des codes de reprise, pour « Copier le code ») : de même */
+export const installScreen = onDemand<typeof import('./Install')>(() => import('./Install'))
 
 /** Prépare ces écrans quand le navigateur a un moment */
 export function prepareScreens() {
@@ -46,6 +48,8 @@ export function screenLoader(route: Route): (() => Promise<unknown>) | null {
       return shareScreen.load
     case 'transfer':
       return transferScreen.load
+    case 'install':
+      return installScreen.load
     case 'compare':
       return loadCompare
     case 'profile':

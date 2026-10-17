@@ -11,6 +11,7 @@ import type { Round } from '../../core/types'
 import { formatDayRange } from '../format'
 import { currentPath, link } from '../nav'
 import { axisOf } from '../../core/spectrum'
+import { isInstalled } from '../../core/installed'
 import { AI_METHOD_PATH } from './AiLabel'
 import { ConfirmErase } from './ConfirmErase'
 import { useCurrentElection } from './CurrentElection'
@@ -164,6 +165,15 @@ function SheetColumn() {
             Importer mes réponses
           </a>
         </li>
+        {/* « Installer l'application » : partout, sauf dans l'application installée */}
+        {isInstalled() ? null : (
+          <li>
+            <a class="btn-text foot-install" href={link('/installer')} aria-current={/^\/installer\/?$/.test(currentPath()) ? 'page' : undefined}>
+              <Icon name="install" />
+              Installer l’application
+            </a>
+          </li>
+        )}
         <li>
           <button type="button" class="btn-text" ref={importButton} onClick={() => file.current?.click()}>
             <Icon name="upload" />

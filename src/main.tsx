@@ -4,6 +4,7 @@ import './styles/app.css'
 import { render } from 'preact'
 import { App, locate } from './app'
 import { loadElection } from './elections'
+import { watchInstall } from './ui/install/prompt'
 import { screenLoader } from './ui/screens/load'
 
 // L'élection de l'adresse (l'élection par défaut, sauf adresse d'une autre) est un fichier à part : on la
@@ -23,6 +24,10 @@ const { election, route } = locate()
 const screen = screenLoader(route)?.().catch(() => undefined)
 Promise.all([loadElection(election), screen]).then(start, start)
 setTimeout(start, 4000)
+
+// L'annonce d'installation du navigateur, gardée pour le bouton « Installer Isoloir » (jamais d'invite de lui-même), et la
+// demande de garder les réponses : dès l'ouverture, avant le premier rendu (ui/install/prompt.ts)
+watchInstall()
 
 // Copie hors ligne, pour que tout marche en mode avion (en production seulement : le serveur de dev se recharge à chaud)
 if (import.meta.env.PROD && 'serviceWorker' in navigator) {

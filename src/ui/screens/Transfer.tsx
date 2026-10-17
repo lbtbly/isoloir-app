@@ -4,9 +4,13 @@
 // lu ici par la caméra, une image ou au clavier. Rien ne passe par un serveur d'Isoloir : ni compte, ni adresse qui
 // porte les réponses ; l'éditeur ne les voit jamais.
 // Chargé à la demande (ui/screens/load.ts), avec le QR code et le codec : le code de chaque visite n'en contient rien.
+// Dans l'application installée qui a son propre espace (iPhone, iPad, Safari du Mac : core/installed.ts), l'import ouvre sur
+// « Coller le code » : le code copié dans Safari (page « Installer l'application ») se lit d'un geste ; après un import
+// pris dans le presse-papiers, Isoloir le vide.
 
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks'
 import { downloadBlob } from '../../core/download'
+import { appApart } from '../../core/installed'
 import { importNotes, type ImportResult } from '../../core/exportData'
 import type { SessionState } from '../../core/storage'
 import { groupCode } from '../../core/transfer/base32'
@@ -323,6 +327,9 @@ function Send({ pack, state }: { pack: ElectionPack; state: SessionState }) {
   )
 }
 
+/** L'appareil de l'application à part, nommé dans la phrase d'import */
+const where = (os: string | null) => (os === 'mac' ? 'ce Mac' : os === 'ipad' ? 'cet iPad' : 'cet iPhone')
+
 const CAMERA_ERRORS: Record<CameraError, string> = {
   refusee: 'Caméra refusée. Autorisez-la dans les réglages du navigateur, ou choisissez une image.',
   absente: 'Pas de caméra ici : choisissez une image ou collez le code.',
@@ -342,6 +349,12 @@ function Receive({ pack, state, setState }: Props) {
   const stopCamera = useRef<(() => void) | null>(null)
   const alive = useRef(true)
   const started = Object.keys(state.answers).length > 0
+  // L'application à part : « Coller le code » en premier (A), le reste à la suite
+  const apart = appApart()
+  const letters = apart ? ['B', 'C', 'D'] : ['A', 'B', 'C']
+  const [pasteNote, setPasteNote] = useState<string | null>(null)
+  /** Les réponses trouvées viennent du presse-papiers : il sera vidé à l'import */
+  const fromClip = useRef(false)
 
   useEffect(() => setError(null), [text])
   // Quitter la page ou l'onglet « Importer » arrête la caméra
@@ -383,6 +396,7 @@ function Receive({ pack, state, setState }: Props) {
           }
           stopCamera.current = null
           setCamera('off')
+          fromClip.current = false
           setPending(res)
           return true
         },
@@ -414,10 +428,41 @@ function Receive({ pack, state, setState }: Props) {
       return
     }
     setImageNote(null)
+    fromClip.current = false
     setPending(res)
   }
 
+  // « Coller le code » : le presse-papiers lu dans le geste même (l'iPhone peut afficher sa bulle « Coller »), aussitôt
+  const paste = () => {
+    const clip = typeof navigator === 'undefined' ? undefined : navigator.clipboard
+    if (!clip?.readText) {
+      setPasteNote('Ce navigateur ne lit pas le presse-papiers : collez le code dans le champ D.')
+      return
+    }
+    setPasteNote(null)
+    clip.readText().then(
+      t => {
+        if (!alive.current) return
+        if (!t.trim()) {
+          setPasteNote('Le presse-papiers est vide. Dans Safari, «\u00a0Installer l’application\u00a0», puis «\u00a0Copier le code\u00a0».')
+          return
+        }
+        const res = parseCode(t, pack)
+        if (!res.ok) {
+          setPasteNote(res.error)
+          return
+        }
+        fromClip.current = true
+        setPending(res)
+      },
+      () => alive.current && setPasteNote('Le presse-papiers n’a pas pu être lu : collez le code dans le champ D.'),
+    )
+  }
+
   const apply = (next: SessionState) => {
+    // Pris dans le presse-papiers : vidé dans le geste même, le code n'y traîne plus
+    if (fromClip.current) navigator.clipboard?.writeText('').catch(() => undefined)
+    fromClip.current = false
     setPending(null)
     setState(next)
     go('/resultats')
@@ -438,11 +483,19 @@ function Receive({ pack, state, setState }: Props) {
             <p>Votre dépouillement et votre profil politique suivront.</p>
           )}
           {notes.length ? <p>{notes.join(' ')}</p> : null}
+          {fromClip.current ? <p>Isoloir videra aussi le presse-papiers.</p> : null}
           <div class="link-row">
             <button type="button" class="btn-primary" onClick={() => apply(pending.state)}>
               {started ? 'Remplacer mes réponses' : 'Importer ces réponses'}
             </button>
-            <button type="button" class="btn-text" onClick={() => setPending(null)}>
+            <button
+              type="button"
+              class="btn-text"
+              onClick={() => {
+                fromClip.current = false
+                setPending(null)
+              }}
+            >
               Annuler
             </button>
           </div>
@@ -456,11 +509,36 @@ function Receive({ pack, state, setState }: Props) {
       <h2 id="receive-title" class="transfer-title">
         Importez vos réponses
       </h2>
-      <p class="transfer-receive-lede">Depuis un autre appareil, ou depuis votre copie par e-mail.</p>
+      <p class="transfer-receive-lede">
+        {apart ? `Copiées dans Safari, sur ${where(apart)}\u00a0? Collez-les ici.` : 'Depuis un autre appareil, ou depuis votre copie par e-mail.'}
+      </p>
       <ol class="transfer-ways">
+        {apart ? (
+          <li>
+            <span class="row-letter" aria-hidden="true">
+              A
+            </span>
+            <div class="way">
+              <h3>Coller le code</h3>
+              <p>Le code copié dans Safari, ou dans votre e-mail.</p>
+              <button type="button" class="btn-primary" onClick={paste}>
+                <Icon name="paste" />
+                Coller le code
+              </button>
+              <p class="way-hint">
+                {apart === 'mac'
+                  ? 'Si le Mac affiche «\u00a0Coller\u00a0», cliquez-le.'
+                  : `Si l’${apart === 'ipad' ? 'iPad' : 'iPhone'} affiche «\u00a0Coller\u00a0», touchez-le.`}
+              </p>
+              <p class="transfer-note" role="status">
+                {pasteNote}
+              </p>
+            </div>
+          </li>
+        ) : null}
         <li>
           <span class="row-letter" aria-hidden="true">
-            A
+            {letters[0]}
           </span>
           <div class="way">
             <h3>Scanner le QR code</h3>
@@ -472,7 +550,7 @@ function Receive({ pack, state, setState }: Props) {
             </div>
             {camera === 'off' ? <p>Avec la caméra. Rien n’est filmé ni envoyé.</p> : null}
             {camera === 'off' ? (
-              <button type="button" class="btn-primary" onClick={() => void openCamera()}>
+              <button type="button" class={apart ? 'btn-text' : 'btn-primary'} onClick={() => void openCamera()}>
                 <Icon name="camera" />
                 Ouvrir la caméra
               </button>
@@ -488,7 +566,7 @@ function Receive({ pack, state, setState }: Props) {
         </li>
         <li>
           <span class="row-letter" aria-hidden="true">
-            B
+            {letters[1]}
           </span>
           <div class="way">
             <h3>Choisir une image</h3>
@@ -514,13 +592,13 @@ function Receive({ pack, state, setState }: Props) {
         </li>
         <li>
           <span class="row-letter" aria-hidden="true">
-            C
+            {letters[2]}
           </span>
           <div class="way">
             <h3>
-              <label for="transfer-code">Coller ou taper le code</label>
+              <label for="transfer-code">{apart ? 'Taper le code' : 'Coller ou taper le code'}</label>
             </h3>
-            <p>Copié sur l’autre appareil ou dans l’e-mail.</p>
+            <p>{apart ? 'Recopié lettre par lettre, ou collé ici.' : 'Copié sur l’autre appareil ou dans l’e-mail.'}</p>
             <textarea
               id="transfer-code"
               class="code-input"
@@ -531,6 +609,7 @@ function Receive({ pack, state, setState }: Props) {
               placeholder="XXXX XXXX XXXX XXXX…"
               value={text}
               onInput={e => setText((e.currentTarget as HTMLTextAreaElement).value)}
+              onPaste={() => (fromClip.current = true)}
               aria-describedby={error ? 'transfer-error' : undefined}
               aria-invalid={error ? true : undefined}
             />

@@ -26,6 +26,7 @@ import { formatMoment } from '../format'
 import { useReveal } from '../useReveal'
 import { prepareProfile } from '../profile/load'
 import { isMany } from '../many'
+import { AppWelcome, useAppWelcome } from '../install/Welcome'
 import { WelcomeBack } from './HomeBack'
 
 interface Props {
@@ -150,12 +151,15 @@ export function Home({ pack, state, essential, stale, results }: Props) {
   // est dit sous le film, pour tout le monde et à tout moment
   const ctaNote = started ? '' : ctaNoteOf(pack.bank)
   const shortLabel = done ? 'Mon dépouillement' : added ? 'Répondre' : started ? 'Reprendre' : 'Commencer'
+  // L'application installée ouverte vide, là où elle a son propre espace : l'avis « Vous aviez répondu dans Safari ? »
+  const [welcome, closeWelcome] = useAppWelcome(Object.keys(state.answers).length === 0)
 
   return (
     <div class="screen screen-home">
       {/* Une seule barre : l'en-tête porte l'appel principal, toujours visible */}
-      {/* Des questions à revoir : leur carte porte le seul aplat bleu de la vue, l'appel de l'en-tête passe au trait */}
-      <FormHeader title={election.shortName} home action={{ href: startHref, label: startLabel, short: shortLabel, quiet: stale.length > 0 }} />
+      {/* Des questions à revoir, ou l'avis de l'application ouverte vide : leur carte porte le seul aplat bleu de la vue,
+          l'appel de l'en-tête passe au trait */}
+      <FormHeader title={election.shortName} home action={{ href: startHref, label: startLabel, short: shortLabel, quiet: stale.length > 0 || welcome }} />
       <main class="sheet home-sheet" id="contenu" tabIndex={-1} ref={sheet}>
         {back ? (
           <WelcomeBack
@@ -172,6 +176,7 @@ export function Home({ pack, state, essential, stale, results }: Props) {
             <h1 class="sr-only" tabIndex={-1}>
               Isoloir : pointez les idées qui vous ressemblent
             </h1>
+            {welcome ? <AppWelcome onClose={closeWelcome} /> : null}
             {/* Le héros : le film du principe, sur un exemple fictif */}
             <section class="home-film" aria-label="Comment marche Isoloir, en cinq scènes">
               <FilmPlayer cta={{ href: startHref, label: startLabel, note: ctaNote }} />

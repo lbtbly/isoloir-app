@@ -17,6 +17,7 @@ import { Leader } from '../components/Leader'
 import { formatDate, formatMoment } from '../format'
 import { link } from '../nav'
 import { hasTable } from '../table/load'
+import { InstallLink } from '../install/InstallLink'
 import '../../styles/home-back.css'
 
 type Entry = { date: string; text: string }
@@ -159,6 +160,7 @@ export function WelcomeBack({ pack, state, results, stale, essentialCount, profi
             </li>
           ))}
         </ul>
+        <InstallLink />
       </section>
     </div>
   )

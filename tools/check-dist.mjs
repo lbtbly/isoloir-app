@@ -99,6 +99,9 @@ for (const [voice, videos] of Object.entries(inventory.voices ?? {})) {
 // préchargée par la page (modulepreload), en parallèle.
 // Budget : 241,7 ko mesurés le 6 octobre 2026, après la sortie des données (909 ko avant), plus 15 % de marge.
 // Le 14 octobre 2026, la sortie des notices et de « Partager » (src/ui/screens/load.ts) l'a ramené de 276,7 à 206,6 ko.
+// Le 17 octobre 2026, « Installer l'application » y ajoute 3,7 ko (de 228,2 à 231,9 ko) : l'annonce d'installation et la
+// demande de garder les réponses, le mode installé, l'avis de l'accueil de l'application ouverte vide et ses liens ; la
+// page elle-même et la détection de l'appareil sont à part.
 // Le dépasser, c'est d'abord se demander ce qui est entré dans le code de toutes les visites, avant de relever le plafond.
 const INITIAL_JS_BUDGET = 278_000
 const entry = html.match(/<script type="module"[^>]*src="\.\/(assets\/[^"]+\.js)"/)?.[1]
@@ -325,6 +328,64 @@ for (const [label, re, budget] of [
     if (size > budget) fail(`${label} : assets/${f} pèse ${(size / 1000).toFixed(1)} ko, plafond de ${budget / 1000} ko`)
   }
 }
+// « Installer l'application » (src/ui/screens/Install.tsx, ses schémas et les mots des menus, src/ui/install/ ; la
+// détection de l'appareil, src/core/install.ts) : un fichier à part, chargé à la demande, jamais dans le JS initial ni
+// préchargé. Il reprend le codeur des codes de transfert (« Copier le code ») dans un fichier commun avec la page de
+// transfert, et ne charge la bibliothèque des QR codes qu'au QR code de l'ordinateur, par import() : elle n'est pas
+// comptée ici. Le JS initial n'en garde que l'annonce d'installation et la demande de garder les réponses
+// (src/ui/install/prompt.ts), le mode installé (src/core/installed.ts), l'avis de l'accueil de l'application ouverte vide
+// et les liens. Plafond : la page et ce qu'elle charge en plus du JS initial, 50,1 ko mesurés le 17 octobre 2026 (dont 7,1
+// ko du codeur), plus 15 %
+const INSTALL_BUDGET = 58_000
+/** Des textes de la page (ASCII, que la minification ne touche pas) : jamais dans le JS initial */
+const INSTALL_TEXTS = ['Caster, enregistrer et partager', 'Pourquoi copier d', 'Ne rien transf']
+const installChunks = readdirSync(join(dist, 'assets')).filter(f => /^Install-[\w-]+\.js$/.test(f))
+if (installChunks.length !== 1) fail(`« Installer l’application » : ${installChunks.length} fichier(s) assets/Install-*.js, un attendu (chargé à la demande, src/ui/screens/load.ts)`)
+for (const f of installChunks) {
+  const label = '« Installer l’application »'
+  if (initial.includes(join('assets', f))) fail(`${label} : assets/${f} est dans le JS initial (il doit n'être chargé que par import())`)
+  const own = loadedWith(join('assets', f)).filter(x => !initial.includes(x))
+  for (const x of own) if (html.includes(`href="./${x}"`)) fail(`${label} : ${x} est préchargé par dist/index.html`)
+  if (own.some(x => /^assets\/qr-[\w-]+\.js$/.test(x))) fail(`${label} : la bibliothèque des QR codes vient avec la page (elle ne doit venir qu'au QR code de l'ordinateur)`)
+  const size = own.reduce((t, x) => t + statSync(join(dist, x)).size, 0)
+  if (size > INSTALL_BUDGET) fail(`${label} : assets/${f} et ce qu’il charge en plus du JS initial (${own.join(', ')}) pèsent ${(size / 1000).toFixed(1)} ko, plafond de ${INSTALL_BUDGET / 1000} ko`)
+}
+
+// Le manifeste de l'application installée (public/manifest.webmanifest) : lié par la page, des adresses relatives au site
+// (elles suivent l'hébergeur), l'ouverture en application (standalone), des icônes livrées à leur taille dont une
+// « maskable », et gardé par la copie hors ligne avec ses icônes ; la CSP ne permet que celui du site
+if (csp && !csp.includes("manifest-src 'self'")) fail('CSP : manifest-src \'self\' manquant')
+if (html.match(/<link rel="manifest" href="([^"]+)"/)?.[1] !== './manifest.webmanifest') fail('dist/index.html : <link rel="manifest" href="./manifest.webmanifest"> absent')
+if (!/<meta name="apple-mobile-web-app-title" content="Isoloir"/.test(html)) fail('dist/index.html : le nom de l’icône sur iPhone (apple-mobile-web-app-title) est absent')
+let manifest = null
+try {
+  manifest = JSON.parse(readFileSync(join(dist, 'manifest.webmanifest'), 'utf8'))
+} catch (e) {
+  fail(`dist/manifest.webmanifest illisible : ${e.message}`)
+}
+if (manifest) {
+  for (const k of ['id', 'start_url', 'scope']) if (manifest[k] !== './') fail(`manifeste : ${k} vaut « ${manifest[k]} », « ./ » attendu (le site, quel que soit l’hébergeur)`)
+  if (manifest.display !== 'standalone') fail(`manifeste : display « ${manifest.display} », « standalone » attendu`)
+  if (!manifest.name || !manifest.short_name || manifest.lang !== 'fr') fail('manifeste : name, short_name ou lang (fr) manquant')
+  if (/https?:|\/\//.test(JSON.stringify({ ...manifest, description: '' }))) fail('manifeste : une adresse absolue (tout doit être relatif au site)')
+  const icons = manifest.icons ?? []
+  if (!icons.some(i => i.purpose === 'maskable')) fail('manifeste : pas d’icône « maskable » (Android la rognerait)')
+  if (!icons.some(i => i.purpose !== 'maskable' && i.sizes === '512x512')) fail('manifeste : pas d’icône de 512 px')
+  for (const i of icons) {
+    const file = join(dist, i.src ?? '')
+    if (!i.src || !existsSync(file)) {
+      fail(`manifeste : icône ${i.src} absente du build`)
+      continue
+    }
+    // Les dimensions écrites dans l'en-tête PNG (IHDR, octets 16 à 24)
+    const png = readFileSync(file)
+    const sizes = `${png.readUInt32BE(16)}x${png.readUInt32BE(20)}`
+    if (png.subarray(1, 4).toString('latin1') !== 'PNG' || sizes !== i.sizes) fail(`manifeste : ${i.src} fait ${sizes}, ${i.sizes} annoncé`)
+    if (!listed.includes(`./${i.src}`)) fail(`sw.js ne garde pas ${i.src} (icône du manifeste) pour le hors-ligne`)
+  }
+  if (!listed.includes('./manifest.webmanifest')) fail('sw.js ne garde pas manifest.webmanifest pour le hors-ligne')
+}
+
 // La caméra n'est demandée que par le lecteur des codes, pour l'image seule (jamais le micro) ; ni la partie DOM de la
 // bibliothèque qr (qr/dom.js : un fetch( en commentaire, une image en adresse data:), ni aucune adresse data:, bloquée
 // par la CSP (img-src 'self' blob:)
@@ -361,6 +422,11 @@ for (const text of PROFILE_METHOD_TEXTS) {
 for (const text of WEIGH_TEXTS) {
   if (initialCode.includes(text)) fail(`« Mon profil politique » : « ${text}… », un texte de « Ce qui pèse le plus », est dans le JS initial`)
 }
+for (const text of INSTALL_TEXTS) {
+  if (initialCode.includes(text)) fail(`« Installer l’application » : « ${text}… », un texte de la page, est dans le JS initial`)
+}
+// L'annonce d'installation est gardée dès l'ouverture (src/ui/install/prompt.ts), sans l'invite du navigateur
+if (!/addEventListener\(\s*[`'"]beforeinstallprompt[`'"]\s*,\s*\w+\s*=>\s*\{\s*\w+\.preventDefault\(\)/.test(initialCode)) fail('JS initial : l’annonce d’installation (beforeinstallprompt) n’y est pas gardée sans invite (preventDefault)')
 const dirsOf = root => (existsSync(root) ? readdirSync(root, { withFileTypes: true }).filter(d => d.isDirectory()).map(d => d.name) : [])
 const bankTexts = new Map() // texte → élection
 for (const id of dirsOf('src/elections')) {
@@ -446,6 +512,10 @@ for (const f of weighChunks) {
   console.log(`  « Ce qui pèse le plus » de « Mon profil politique » : assets/${f} et ce qu’il ajoute à la page, ${(added / 1000).toFixed(1)} ko sur ${WEIGH_BUDGET / 1000} ko permis, chargé à la première ouverture d'une ligne`)
   // La page et ce qu'elle charge une fois une ligne, un détail ou « Comment c'est calculé » ouverts (voir WEIGH_BUDGET)
   for (const p of profileChunks) console.log(`  « Mon profil politique », une ligne ouverte : ${((bytesOf(ownOf(p)) + added) / 1000).toFixed(1)} ko`)
+}
+for (const f of installChunks) {
+  const own = loadedWith(join('assets', f)).filter(x => !initial.includes(x))
+  console.log(`  « Installer l’application » : assets/${f} et ce qu’il charge en plus du JS initial (${own.join(', ')}), ${(own.reduce((t, x) => t + statSync(join(dist, x)).size, 0) / 1000).toFixed(1)} ko sur ${INSTALL_BUDGET / 1000} ko permis, chargé à la demande`)
 }
 for (const f of crossChunks) console.log(`  lectures croisées de « Mon profil politique » : assets/${f} et ce qu’elles ajoutent à la page, ${(bytesOf(crossAdded(f)) / 1000).toFixed(1)} ko sur ${CROSS_BUDGET / 1000} ko permis, chargées à la demande`)
 

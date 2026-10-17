@@ -166,6 +166,16 @@ export function Privacy({ eraseAll }: { eraseAll: () => void }) {
             l’envoyez, à vous-même.
           </p>
           <p>
+            Installée sur l’écran d’accueil (page «&nbsp;Installer l’application&nbsp;»), l’application garde vos réponses comme
+            le navigateur, sur l’appareil. Sur iPhone, iPad et Mac avec Safari, elle a son propre espace&nbsp;: vos réponses y
+            passent par le code, copié dans Safari puis collé dans l’application. Le presse-papiers est celui de l’appareil&nbsp;:
+            d’autres applications peuvent le lire, et Apple peut le partager avec vos autres appareils (presse-papiers
+            universel)&nbsp;; Isoloir le vide après l’import. Dans l’application ouverte vide, «&nbsp;Je n’avais pas
+            répondu&nbsp;» est retenu sous la clé «&nbsp;<code>{STORAGE_PREFIX}accueil-application</code>&nbsp;». Au démarrage,
+            Isoloir demande au navigateur de ne pas effacer de lui-même ce qu’il garde (stockage persistant)&nbsp;; rien n’est
+            envoyé.
+          </p>
+          <p>
             Ces stockages servent seulement au service que vous demandez&nbsp;: reprendre votre feuille là où vous
             l’avez laissée, et ouvrir le site sans réseau. Rien n’en est
             transmis, ni au site ni à un tiers. La loi

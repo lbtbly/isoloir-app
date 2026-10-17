@@ -22,11 +22,13 @@ import { Home } from './ui/screens/Home'
 import './styles/legal.css'
 // « Continuer sur un autre appareil » (chargé à la demande) : son style dans la feuille de la page, comme les notices
 import './styles/transfer.css'
+// « Installer l'application » (chargée à la demande), et l'avis de l'accueil de l'application ouverte vide : de même
+import './styles/install.css'
 import { Priorities } from './ui/screens/Priorities'
 import { Proximity } from './ui/screens/Proximity'
 import { Results } from './ui/screens/Results'
 import { CandidatePage, CandidatesIndex } from './ui/screens/Candidates'
-import { legalScreen, methodScreen, prepareScreens, privacyScreen, shareScreen, transferScreen } from './ui/screens/load'
+import { installScreen, legalScreen, methodScreen, prepareScreens, privacyScreen, shareScreen, transferScreen } from './ui/screens/load'
 import { clearSelections } from './ui/compare/selection'
 import { compareNow, loadCompare } from './ui/compare/load'
 import { loadProfile, profileNow } from './ui/profile/load'
@@ -504,6 +506,8 @@ function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
         return onDemandScreen('transfer', transferScreen, 'La page pour un autre appareil', 'de la page', m => (
           <m.Transfer pack={pack} state={state} setState={setState} importing={!!route.import} />
         ))
+      case 'install':
+        return onDemandScreen('install', installScreen, 'Les pages de l’installation', 'de la page', m => <m.Install pack={pack} state={state} />)
       case 'method': {
         const anchor = route.anchor
         return onDemandScreen('method', methodScreen, 'Les pages de la méthode', 'de la méthode', m => (
@@ -641,6 +645,8 @@ function titleFor(route: Route): string {
       return 'À table'
     case 'transfer':
       return 'Transférer vos réponses'
+    case 'install':
+      return 'Installer l’application'
     default:
       return 'Isoloir'
   }
