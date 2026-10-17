@@ -53,7 +53,10 @@ interface Props {
   essentialCount: number
   /** « Mon profil politique » est prêt (même règle que la page et le dépouillement) */
   profileReady: boolean
-  /** Son cadre, la page prête : sous l'affiche au téléphone, sur toute la largeur sous l'affiche en grand écran */
+  /**
+   * Son cadre, la page prête : sous l'affiche au téléphone ; en grand écran, sur toute la largeur sous le héros, ou dans
+   * la colonne de l'affiche quand la carte des questions à revoir occupe celle de l'introduction
+   */
   profile?: ComponentChildren
 }
 
@@ -91,7 +94,8 @@ export function WelcomeBack({ pack, state, results, stale, essentialCount, profi
 
   return (
     <div class="welcome-back">
-      <div class="back-hero">
+      {/* Des questions à revoir : leur carte allonge l'introduction, l'affiche garde sa colonne (home-back.css) */}
+      <div class={stale.length ? 'back-hero has-changed' : 'back-hero'}>
         <div class="back-intro">
           <h1 class="display is-medium" tabIndex={-1}>
             Votre dépouillement vous attend

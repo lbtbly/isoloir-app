@@ -193,8 +193,11 @@ export const PROFILE_PANEL = 'Thème par thème, vos réponses se rapprochent-el
 export const PROFILE_GRID_LINK = 'Les mêmes thèmes, bloc par bloc\u00a0: «\u00a0Mon profil politique\u00a0»'
 /** L'appel de l'accueil, une fois la page prête */
 export const PROFILE_SEE = 'Voir mon profil politique'
-/** L'accueil, une fois la page prête : à la place de quand elle s'affiche */
-export const PROFILE_READY = 'Il est prêt, calculé sur cet appareil à partir de vos réponses.'
+/**
+ * L'accueil, une fois la page prête, à la place de quand elle s'affiche : « le vôtre », face à la grille fictive juste à
+ * côté ; il se calcule à l'ouverture de la page (l'accueil n'en charge que le code), sur l'appareil
+ */
+export const PROFILE_READY = 'Le vôtre est prêt\u00a0: il se calcule sur cet appareil quand vous l’ouvrez.'
 /**
  * Ce que montre la page, sans aucune donnée de la personne (l'accueil et le bandeau du dépouillement) ; les deux bouts
  * viennent de l'axe de la grille : « …, de l’extrême gauche à l’extrême droite. »
@@ -204,7 +207,8 @@ export const profileHome = (axis: readonly SpectrumAxisBloc[]) =>
 /**
  * L'accueil, avant la page : quand elle s'affiche. left : questions du questionnaire rapide qui restent (rien de dit
  * avant de commencer) ; noOpinion : tout est vu, sans aucun avis ; added : les questions qui restent ont été ajoutées
- * depuis un questionnaire fini (la page s'est déjà affichée), comme le dit sa page d'attente
+ * depuis un questionnaire fini avec au moins un avis (core/profileAccess.ts : la page s'est déjà affichée ; sans avis,
+ * « de nouveau » serait faux), comme le dit sa page d'attente
  */
 export const profileWhen = (total: number, left: number, noOpinion = false, added = false) =>
   noOpinion
@@ -215,10 +219,11 @@ export const profileWhen = (total: number, left: number, noOpinion = false, adde
 /**
  * L'aperçu de l'accueil : sa mention, et l'appel qui mène à la page d'attente. Celle-ci montre d'abord l'état de la
  * feuille et son bouton, puis l'exemple (au téléphone, sous le premier écran) : l'appel dit les deux, dans cet ordre.
- * Dès la première réponse, la mention dit aussi que la grille n'est pas la sienne (la page prête, son lien est à côté)
+ * Dès la première réponse, la mention passe au-dessus de la grille et dit qu'elle n'est pas la sienne, avant qu'on la
+ * lise (la page prête, la grille est juste sous l'affiche de son dépouillement, aux mêmes mots et aux mêmes teintes)
  */
 export const PEEK_TAG = 'Exemple fictif'
-export const PEEK_TAG_MINE = 'Exemple fictif, pas vos réponses'
+export const PEEK_TAG_MINE = 'Exemple fictif\u00a0: ce ne sont pas vos réponses.'
 export const PEEK_GO = 'Voir où j’en suis et un exemple'
 /**
  * La grille fictive de l'aperçu (accueil) et de l'exemple (page d'attente) : 3 sujets de 5 blocs, lus par lignes,

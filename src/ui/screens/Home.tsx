@@ -3,7 +3,7 @@ import { link } from '../nav'
 import { firstStepSize } from '../../core/order'
 import { isAnswered } from '../../core/answers'
 import { profileAccess } from '../../core/profileAccess'
-import { PEEK_GO, PEEK_TAG, PEEK_TAG_MINE, PROFILE_READY, PROFILE_SEE, profileHome, profileWhen } from '../../core/resultsCopy'
+import { PEEK_GO, PROFILE_READY, PROFILE_SEE, profileHome, profileWhen } from '../../core/resultsCopy'
 import { currentAnswers } from '../../core/revisions'
 import { axisOf } from '../../core/spectrum'
 import type { Results } from '../../core/score'
@@ -129,20 +129,22 @@ export function Home({ pack, state, essential, stale, results }: Props) {
   )
 
   // Son entrée : le même cadre à tous les états (demande du propriétaire du 17/10/2026), la grille fictive et ce que
-  // montre la page ; avant la page, quand elle s'affiche et « Voir où j’en suis et un exemple » ; prête, « Il est prêt »
-  // et « Voir mon profil politique ». Sous l'affiche de l'accueil de retour ; sous l'état de la feuille pour qui a
-  // commencé ; pour un nouveau visiteur, après la liste de confiance, au premier défilement
+  // montre la page ; avant la page, quand elle s'affiche et « Voir où j’en suis et un exemple » ; prête, « Le vôtre est
+  // prêt » et « Voir mon profil politique ». Dès la première réponse, la mention au-dessus de la grille : ce ne sont pas
+  // ses réponses. Questions ajoutées : « de nouveau » seulement si la page s'est déjà affichée (au moins un avis). Sous
+  // l'affiche de l'accueil de retour ; sous l'état de la feuille pour qui a commencé ; pour un nouveau visiteur, après la
+  // liste de confiance, au premier défilement
+  const mine = !!access && access.state !== 'vide'
   const profileEntry =
     !access || !axis ? null : (
       <ProfilePeek
         ready={ready}
         text={profileHome(axis)}
         when={ready ? PROFILE_READY : profileWhen(access.total, access.left, access.state === 'sans-avis', access.added)}
-        tag={access.state === 'vide' ? PEEK_TAG : PEEK_TAG_MINE}
+        mine={mine}
         go={ready ? PROFILE_SEE : PEEK_GO}
       />
     )
-  const profileFirst = !!access && access.state !== 'vide'
 
   // La note sous l'appel final du film : la promesse au premier passage ; ensuite, l'état de la feuille
   // est dit sous le film, pour tout le monde et à tout moment
@@ -225,9 +227,9 @@ export function Home({ pack, state, essential, stale, results }: Props) {
           </>
         ) : (
           <>
-            {profileFirst ? profileEntry : null}
+            {mine ? profileEntry : null}
             {proof}
-            {profileFirst ? null : profileEntry}
+            {mine ? null : profileEntry}
           </>
         )}
 

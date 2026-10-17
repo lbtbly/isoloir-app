@@ -3698,9 +3698,10 @@ line.dg-thick {
 
 /* ——— « Mon profil politique » : ses entrées (ui/components/ProfileEntry.tsx), sur l'accueil et le dépouillement ———
    À l'encre, comme son panneau de « Et maintenant » : papier, filet de 1.5px et filet supérieur de 3px, sans pastel (le
-   pastel y prendrait le sens d'un bloc de la grille). Le bandeau, une fois la page prête : le nom de la page et sa
-   phrase, puis les cinq blocs de la grille en têtes de colonnes, neutres. L'aperçu, avant : la grille fictive aux teintes des cases de
-   la page (.tile), « Exemple fictif », puis le nom, la phrase, quand la page s'affiche et « Voir un exemple ». */
+   pastel y prendrait le sens d'un bloc de la grille). Le bandeau, au dépouillement complet : le nom de la page et sa
+   phrase, puis les cinq blocs de la grille en têtes de colonnes, neutres. L'aperçu, sur l'accueil à tous les états de
+   la feuille : la grille fictive aux teintes des cases de la page (.tile) et sa mention (sous la grille pour un nouveau
+   visiteur, au-dessus dès la première réponse), puis le nom, la phrase, où en est la page et l'appel. */
 .profile-band,
 .profile-peek {
   color: var(--print);
@@ -3726,7 +3727,7 @@ line.dg-thick {
   gap: var(--s4);
 }
 
-/* Large (colonne de l'affiche, accueil en grand écran) : le nom et sa phrase à gauche, les colonnes à droite */
+/* Large (colonne de l'affiche du dépouillement, en grand écran) : le nom et sa phrase à gauche, les colonnes à droite */
 @container band (min-width: 34rem) {
   .pb-in {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
@@ -3858,6 +3859,21 @@ line.dg-thick {
 .hp-tag {
   font-size: var(--text-xs);
   color: var(--print-soft);
+}
+
+/* Dès la première réponse, au-dessus de la grille, lue avant elle : « ce ne sont pas vos réponses », comme la mention
+   d'exemple des panneaux de « À vous d'essayer » (.panel-tag) */
+.hp-tag.is-first {
+  display: flex;
+  gap: 0.4rem;
+  align-items: flex-start;
+  font-weight: 650;
+}
+
+.hp-tag.is-first .icon {
+  flex: none;
+  width: 1rem;
+  height: 1rem;
 }
 
 .hp-body {

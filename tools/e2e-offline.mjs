@@ -20,8 +20,11 @@
 // « Mon profil politique » (#/profil) : ses entrées selon l'état de la feuille (accueil vierge : l'aperçu fictif après la
 // liste de confiance ; feuille en cours : sous l'état de la feuille ; tendance : une ligne de « Où vous en êtes », pas de
 // bandeau ; résultat complet : le bandeau sous l'affiche, le panneau et le lien sous « Par thème » ; accueil prêt : le
-// cadre de l'accueil vierge, sa grille fictive et « Voir mon profil politique », sur toute la largeur en grand écran),
-// leurs liens et leurs teintes (celles des cases de la page, clair et sombre, contraste
+// cadre de l'accueil vierge, sa grille fictive et « Voir mon profil politique », sur toute la largeur en grand écran,
+// dans la colonne de l'affiche avec des questions à revoir ; dès la première réponse, « ce ne sont pas vos réponses »
+// au-dessus de la grille ; questions ajoutées : « de nouveau » après un avis, la phrase générale après tout passé ; le
+// journal de l'accueil de retour, sa date dans sa colonne à 1 024 et 1 280 px), leurs liens et leurs teintes (celles
+// des cases de la page, clair et sombre, contraste
 // forcé) ; la page d'attente (pas encore de réponse, pas encore assez : le compte, le bouton qui ramène à la première
 // question non vue, l'exemple fictif, sans tableau) ; la fiche « Pour lire plus de thèmes » (questionnaire rapide seul,
 // mais pas tout approfondi) et « Approfondir ce thème », qui coche le thème ; puis la page lue sur l'appareil (mention
@@ -209,6 +212,8 @@ const homeEntry = pg =>
     return {
       n: document.querySelectorAll('.home-profile').length,
       ready: !!card?.classList.contains('is-ready'),
+      // Dès la première réponse, la mention au-dessus de la grille (lue avant elle) ; pour un nouveau visiteur, dessous
+      tagFirst: !!card?.querySelector('.hp-peek > .hp-tag.is-first:first-child'),
       href: card?.getAttribute('href') ?? null,
       afterProof: before(at('.home-proof'), card) && before(card, at('.journey')),
       afterStatus: !!card && card.previousElementSibling === at('.home-status') && before(card, at('.home-proof')),
@@ -319,7 +324,7 @@ try {
   if (PROFILE) {
     const fresh = await homeEntry(page)
     check(
-      fresh.n === 1 && !fresh.ready && fresh.href === L('/profil') && fresh.afterProof && fresh.tiles === 15 && fresh.text.includes('Exemple fictif') && !fresh.text.includes('pas vos réponses') && fresh.text.includes('Voir où j’en suis et un exemple') && fresh.text.includes(`Il s’affiche au bout des ${QUICK} questions du questionnaire rapide.`) && !fresh.text.includes('Voir mon profil politique'),
+      fresh.n === 1 && !fresh.ready && fresh.href === L('/profil') && fresh.afterProof && fresh.tiles === 15 && fresh.text.includes('Exemple fictif') && !fresh.text.includes('pas vos réponses') && !fresh.tagFirst && fresh.text.includes('Voir où j’en suis et un exemple') && fresh.text.includes(`Il s’affiche au bout des ${QUICK} questions du questionnaire rapide.`) && !fresh.text.includes('Voir mon profil politique'),
       `mon profil politique, accueil vierge : aperçu après la liste de confiance ${fresh.afterProof}, ${fresh.tiles} cases masquées aux lecteurs d’écran, « ${fresh.text.slice(0, 90)}… »`,
     )
     await page.locator('.home-profile').click()
@@ -614,7 +619,7 @@ try {
         `accueil, feuille en cours : « ${status} », puis « encore ${left} » dans l’aperçu (${STEP1} + ${left} = ${QUICK})`,
       )
       check(
-        going.n === 1 && !going.ready && going.afterStatus && going.tiles === 15 && going.text.startsWith('Exemple fictif, pas vos réponses') && going.text.includes(`: encore ${left} question${left > 1 ? 's' : ''}.`),
+        going.n === 1 && !going.ready && going.afterStatus && going.tiles === 15 && going.tagFirst && going.text.startsWith('Exemple fictif : ce ne sont pas vos réponses.') && going.text.includes(`: encore ${left} question${left > 1 ? 's' : ''}.`),
         `mon profil politique, accueil d’une feuille en cours : l’aperçu sous l’état de la feuille ${going.afterStatus}, « …${going.text.slice(going.text.indexOf('Il s’affiche'), going.text.indexOf('Voir où j’en suis')).trim()} »`,
       )
     }
@@ -1335,13 +1340,13 @@ try {
     )
 
     // L'accueil, une fois la page prête : le cadre de l'accueil vierge (demande du propriétaire du 17/10/2026), sous
-    // l'affiche du plus proche ; la grille fictive, « pas vos réponses », « Il est prêt » et « Voir mon profil politique »,
-    // vers la page
+    // l'affiche du plus proche ; « ce ne sont pas vos réponses » au-dessus de la grille fictive, « Le vôtre est prêt » et
+    // « Voir mon profil politique », vers la page
     await page.goto(U('/'))
     await page.locator('.home-profile').waitFor()
     const ready = await homeEntry(page)
     check(
-      ready.n === 1 && ready.ready && ready.afterLeader && ready.tiles === 15 && ready.href === L('/profil') && ready.text.startsWith('Exemple fictif, pas vos réponses Mon profil politique') && ready.text.includes('Il est prêt') && ready.text.endsWith('Voir mon profil politique') && !ready.text.includes('Voir où j’en suis'),
+      ready.n === 1 && ready.ready && ready.afterLeader && ready.tiles === 15 && ready.href === L('/profil') && ready.tagFirst && ready.text.startsWith('Exemple fictif : ce ne sont pas vos réponses. Mon profil politique') && ready.text.includes('Le vôtre est prêt : il se calcule sur cet appareil quand vous l’ouvrez.') && ready.text.endsWith('Voir mon profil politique') && !ready.text.includes('Voir où j’en suis'),
       `mon profil politique, accueil prêt : le cadre de l’accueil vierge sous l’affiche du plus proche ${ready.afterLeader}, ${ready.tiles} cases fictives, « ${ready.text.slice(0, 50)}… ${ready.text.slice(-26)} »`,
     )
 
@@ -1370,6 +1375,72 @@ try {
       check(
         !!frame && frame.left === 0 && frame.width === 0 && frame.below > 0 && frame.gridLeft && frame.words === 15,
         `mon profil politique, accueil prêt à 1 280 px : le cadre sur toute la largeur, sous l’affiche, la grille à gauche et ses mots (${JSON.stringify(frame)})`,
+      )
+
+      // D'autres états de l'accueil, chacun dans son contexte : la feuille du parcours, modifiée
+      const quick = JSON.parse(quickState[STORAGE])
+      const homeIn = async (viewport, st) => {
+        const ctx = await browser.newContext({ viewport, reducedMotion: 'reduce' })
+        await ctx.addInitScript(s => Object.entries(s).forEach(([k, v]) => localStorage.setItem(k, v)), { ...quickState, [STORAGE]: JSON.stringify(st) })
+        const pg = await ctx.newPage()
+        await pg.goto(U('/'))
+        await pg.locator('.home-profile').waitFor()
+        const entryNow = await homeEntry(pg)
+        const layout = await pg.evaluate(() => {
+          const box = sel => {
+            const b = document.querySelector(sel)?.getBoundingClientRect()
+            return b ? { l: Math.round(b.left), t: Math.round(b.top + scrollY), b: Math.round(b.bottom + scrollY), w: Math.round(b.width) } : null
+          }
+          const li = document.querySelector('.back-news-list > li')
+          return {
+            hero: box('.back-hero'),
+            leader: box('.back-leader'),
+            frame: box('.home-profile'),
+            changed: !!document.querySelector('.back-hero.has-changed .back-intro .changed'),
+            // La date du journal dans sa colonne : deux pistes à la grille de chaque entrée
+            newsCols: li ? getComputedStyle(li).gridTemplateColumns.split(' ').length : 0,
+            vh: innerHeight,
+            wide: document.documentElement.scrollWidth > innerWidth,
+          }
+        })
+        await ctx.close()
+        return { ...entryNow, ...layout }
+      }
+      // Un questionnaire fini plus tôt, pour que « Nouveau depuis vos réponses » ait des entrées
+      const earlier = '2026-10-10T10:00:00.000Z'
+      const withNews = { ...quick, essentialDoneAt: earlier }
+      // Une réponse rapide avec un avis, d'une révision plus ancienne : la question est à revoir, la page reste prête
+      const revId = quickQs.map(q => q.id).find(id => Object.values(quick.answers[id]?.ratings ?? {}).some(v => v))
+      const revoir = revId ? { ...withNews, answers: { ...quick.answers, [revId]: { ...quick.answers[revId], rev: 999 } } } : null
+      for (const width of [1024, 1280]) {
+        const full = await homeIn({ width, height: 900 }, withNews)
+        check(
+          full.ready && full.frame && full.hero && full.frame.l === full.hero.l && full.frame.w === full.hero.w && full.newsCols === 2 && !full.wide,
+          `accueil de retour à ${width} px : le cadre sur toute la largeur, la date du journal dans sa colonne (${full.newsCols} pistes)`,
+        )
+        if (!revoir) continue
+        const back = await homeIn({ width, height: 900 }, revoir)
+        // Avec la carte des questions à revoir, le cadre reste dans la colonne de l'affiche, sous elle : pas de vide à
+        // côté de la carte ; à 1 280 px, dans le premier écran
+        check(
+          back.ready && back.changed && back.frame && back.leader && back.frame.l === back.leader.l && back.frame.w === back.leader.w && back.frame.t > back.leader.b && (width < 1280 || back.frame.b <= back.vh) && !back.wide,
+          `accueil de retour à ${width} px, une question à revoir : le cadre sous l’affiche, dans sa colonne (${JSON.stringify({ frame: back.frame, leader: back.leader, vh: back.vh })})`,
+        )
+      }
+      // Questions ajoutées depuis un questionnaire fini : avec un avis, la page s'est affichée et revient ; après tout
+      // passé, elle ne s'est jamais affichée, la phrase générale
+      const gone = quickQs.slice(-2).map(q => q.id)
+      const minus = answers => Object.fromEntries(Object.entries(answers).filter(([id]) => !gone.includes(id)))
+      const added = await homeIn({ width: 390, height: 844 }, { ...withNews, answers: minus(quick.answers) })
+      check(
+        added.n === 1 && !added.ready && added.afterStatus && added.tagFirst && added.text.includes('Il s’affiche de nouveau une fois les 2 nouvelles questions vues.') && added.text.endsWith('Voir où j’en suis et un exemple'),
+        `mon profil politique, accueil après 2 questions ajoutées : « …${added.text.slice(added.text.indexOf('Il s’affiche'))} »`,
+      )
+      const passed = Object.fromEntries(quickQs.filter(q => !gone.includes(q.id)).map(q => [q.id, { ratings: {}, redLines: [], skipped: true, ...(q.rev ? { rev: q.rev } : {}) }]))
+      const addedPassed = await homeIn({ width: 390, height: 844 }, { ...withNews, answers: passed })
+      check(
+        addedPassed.n === 1 && !addedPassed.ready && !addedPassed.text.includes('de nouveau') && addedPassed.text.includes(`Il s’affiche au bout des ${QUICK} questions du questionnaire rapide : encore 2 questions.`),
+        `mon profil politique, accueil après 2 questions ajoutées, tout passé : « …${addedPassed.text.slice(addedPassed.text.indexOf('Il s’affiche'))} »`,
       )
       await wp.goto(U('/resultats'))
       await heading(wp, 'Votre dépouillement')

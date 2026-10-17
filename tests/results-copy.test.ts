@@ -226,16 +226,20 @@ describe('entrées de « Mon profil politique » (accueil, dépouillement, tenda
     expect(copy.profileWhen(22, 1)).toBe(`Il s’affiche au bout des 22${NB}questions du questionnaire rapide${NB}: encore 1${NB}question.`)
     expect(copy.profileWhen(22, 0)).toBe(`Il s’affiche au bout des 22${NB}questions du questionnaire rapide.`)
     expect(copy.profileWhen(22, 0, true)).toBe(`Il se lit sur vos avis${NB}: placez au moins un repère, «${NB}d’accord${NB}» ou «${NB}pas d’accord${NB}».`)
-    // Des questions ajoutées depuis un questionnaire fini : la page s'est déjà affichée, elle revient une fois vues
+    // Des questions ajoutées depuis un questionnaire fini avec un avis : la page s'est déjà affichée, elle revient une
+    // fois vues (après tout passé, profileAccess donne added = false : la phrase générale, voir tests/profile-access.test.ts)
     expect(copy.profileWhen(22, 2, false, true)).toBe(`Il s’affiche de nouveau une fois les 2${NB}nouvelles questions vues.`)
     expect(copy.profileWhen(22, 1, false, true)).toBe('Il s’affiche de nouveau une fois la nouvelle question vue.')
     expect(copy.profileWhen(22, 0, true, true)).toBe(copy.profileWhen(22, 0, true))
-    // La page prête : le même cadre, ce qu'il en est à la place de quand elle s'affiche, et l'appel vers la page
-    expect(copy.PROFILE_READY).toBe('Il est prêt, calculé sur cet appareil à partir de vos réponses.')
+    // La page prête : le même cadre ; « le vôtre », face à la grille fictive, à la place de quand elle s'affiche (il se
+    // calcule à l'ouverture, pas avant), et l'appel vers la page
+    expect(copy.PROFILE_READY).toBe(`Le vôtre est prêt${NB}: il se calcule sur cet appareil quand vous l’ouvrez.`)
+    expect(copy.PROFILE_READY).not.toMatch(/calculé/)
     expect(copy.PROFILE_SEE).toBe('Voir mon profil politique')
-    // La grille reste un exemple fictif ; dès la première réponse, la mention dit qu'elle n'est pas la sienne
+    // La grille reste un exemple fictif ; dès la première réponse, la mention (au-dessus de la grille) dit qu'elle n'est
+    // pas la sienne
     expect(copy.PEEK_TAG).toBe('Exemple fictif')
-    expect(copy.PEEK_TAG_MINE).toBe('Exemple fictif, pas vos réponses')
+    expect(copy.PEEK_TAG_MINE).toBe(`Exemple fictif${NB}: ce ne sont pas vos réponses.`)
     expect(copy.trendNext(22).join('')).toBe(`Au bout des 22${NB}questions${NB}: le dépouillement complet et «${NB}Mon profil politique${NB}».`)
     expect(copy.trendNext(22)[1]).toBe(copy.PROFILE_TITLE)
     // L'appel de l'aperçu dit ce que montre la page d'attente, dans l'ordre : l'état de la feuille, puis l'exemple
