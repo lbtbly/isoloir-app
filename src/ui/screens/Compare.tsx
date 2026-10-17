@@ -13,7 +13,7 @@
 // d'affichage (grille, bloc) : leurs rôles sont écrits en toutes lettres pour que le tableau reste un tableau pour
 // les lecteurs d'écran (en-têtes de colonne : les candidats ; en-têtes de ligne : les thèmes et les questions).
 
-import { Fragment } from 'preact'
+import { Fragment, type ComponentChildren } from 'preact'
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks'
 import { compareTable, type CandidateOverview, type QuestionRow, type RowCell, type TopicTable } from '../../core/compare'
 import { seededShuffle } from '../../core/rng'
@@ -40,6 +40,13 @@ interface Props {
   /** Les candidats de l'adresse, dans son ordre (inconnus et surnombre compris : l'écran les écarte et le dit) */
   ids: string[]
   state: SessionState
+  /**
+   * L'appel aux questions de la barre du bas (components/QuestionsCta.tsx), donné par le site (src/app.tsx) plutôt
+   * qu'importé ici : l'importer depuis ce fichier, chargé à la demande, ferait sortir du script principal des modules
+   * qu'ils partagent (le build y verrait une deuxième feuille de style, que tools/check-dist.mjs refuse), comme la
+   * feuille de la table (ui/table/Table.tsx)
+   */
+  cta: ComponentChildren
 }
 
 /** Ce qui est affiché : tout, seulement les différences, seulement les oppositions radicales */
@@ -74,7 +81,7 @@ const of = (name: string) => `${de(name)}${name}`
 /** Repère d'un groupe de même approche, dans l'ordre des colonnes : A, B… */
 const markOf = (group: number) => String.fromCharCode(65 + group)
 
-export function Compare({ pack, ids: asked, state }: Props) {
+export function Compare({ pack, ids: asked, state, cta }: Props) {
   const { election, candidates } = pack
   const byId = useMemo(() => new Map(candidates.map(c => [c.id, c])), [candidates])
   const askedKey = asked.join(',')
@@ -143,10 +150,7 @@ export function Compare({ pack, ids: asked, state }: Props) {
         <span class="btn-label">Les candidats</span>
       </a>
       <span />
-      <a class="btn-primary" href={link('/feuille/1')}>
-        Commencer la feuille
-        <Icon name="arrow-right" />
-      </a>
+      {cta}
     </CompareBar>
   )
 

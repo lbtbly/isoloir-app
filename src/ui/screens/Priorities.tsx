@@ -44,7 +44,7 @@ export function Priorities({ pack, state, update, essential }: Props) {
 
   return (
     <div class="screen screen-sheet">
-      <FormHeader title="Feuille de pointage" right={<span class="locator-topic">Priorités</span>} />
+      <FormHeader title="Vos priorités" right={<span class="locator-topic">Priorités</span>} />
       <main class="sheet has-margin" id="contenu" tabIndex={-1}>
         <h1 class="q-prompt" tabIndex={-1}>
           Quels sujets comptent le plus pour vous ?
@@ -59,7 +59,7 @@ export function Priorities({ pack, state, update, essential }: Props) {
             : `${chosen.length} thème${chosen.length > 1 ? 's' : ''} choisi${chosen.length > 1 ? 's' : ''} sur ${MAX_PRIORITIES} possibles.`}
         </p>
         {topics.length === 0 ? (
-          <p>Donnez d’abord votre avis dans la feuille : les priorités ne portent que sur les thèmes où vous avez répondu.</p>
+          <p>Répondez d’abord aux questions : les priorités ne portent que sur les thèmes où vous avez répondu.</p>
         ) : (
           <ul class="approaches is-topics" aria-label="Thèmes">
             {topics.map(t => {
@@ -96,7 +96,7 @@ export function Priorities({ pack, state, update, essential }: Props) {
         <div class="action-bar-inner">
           <button type="button" class="btn-text" onClick={() => go(`/feuille/${lastQuestion}`)}>
             <Icon name="arrow-left" />
-            Feuille
+            Questions
           </button>
           <span />
           <button type="button" class="btn-primary" onClick={() => go('/resultats')}>

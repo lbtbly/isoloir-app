@@ -1,0 +1,538 @@
+/* ——— « Installer l'application » (#/installer, ui/screens/Install.tsx) ———
+   Une notice, sur le modèle de « Transférez vos réponses » : au téléphone, tout en une colonne ; dès 64rem, l'introduction
+   à gauche (5fr), les gestes à droite (7fr). Seulement des jetons (tokens.css) : le papier carbone suit. Chargée avec la
+   page, à la demande : la feuille de chaque visite n'en garde que l'avis de l'application et les liens (install.css) */
+
+.install {
+  display: grid;
+  gap: 0 var(--s8);
+  align-items: start;
+}
+
+.install-intro .display {
+  margin-bottom: var(--s4);
+}
+
+.install-intro .lede {
+  margin-bottom: var(--s4);
+}
+
+/* « Cet appareil » : une ligne de formulaire, libellé gris au-dessus de la valeur, comme les champs des notices */
+.install-device {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0 var(--s4);
+  max-width: 34rem;
+  padding: var(--s2) 0 var(--s3);
+  border-top: var(--line) solid var(--rule-strong);
+  border-bottom: var(--hair) solid var(--rule);
+}
+
+.install-device-label {
+  flex: 0 0 100%;
+  margin: 0;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--print-soft);
+}
+
+/* Même corps que le nom d'une ligne de « Transférez vos réponses » */
+.install-device-value {
+  flex: 1 1 9rem;
+  min-width: 0;
+  margin: 0;
+  font-weight: 800;
+  font-stretch: 80%;
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+
+.install-device-sub {
+  display: block;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.install-device .btn-text {
+  min-height: 2.25rem;
+  padding-block: 0.2rem;
+  white-space: nowrap;
+}
+
+.install-section {
+  margin-top: var(--s7);
+}
+
+/* « Autre appareil ? » y mène : le titre de la liste ne passe pas sous l'en-tête fixe */
+.install-others-section {
+  scroll-margin-top: calc(var(--header-real, 3.5rem) + var(--s3));
+}
+
+.install-others-section:focus {
+  outline: none;
+}
+
+.install-title {
+  margin: 0 0 var(--s3);
+  overflow-wrap: anywhere;
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: clamp(1.6rem, 6vw, 2.15rem);
+  line-height: 1;
+}
+
+.install-say {
+  max-width: 34rem;
+  margin: 0 0 var(--s4);
+  font-size: 1.125rem;
+  line-height: 1.45;
+  font-weight: 650;
+}
+
+.install-say.is-plain {
+  font-weight: 400;
+}
+
+.install-say .tab {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ——— Les gestes : des règles numérotées, le numéro dans la colonne de marge ——— */
+
+.install-steps {
+  container: steps / inline-size;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: var(--line) solid var(--rule-strong);
+  border-bottom: var(--line) solid var(--rule-strong);
+}
+
+.install-steps > li {
+  display: grid;
+  grid-template-columns: var(--margin-col) minmax(0, 1fr);
+}
+
+.install-steps > li + li {
+  border-top: var(--hair) solid var(--rule);
+}
+
+.step-n {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.7rem;
+  border-right: var(--hair) solid var(--rule);
+  font-weight: 850;
+  font-stretch: 70%;
+  font-size: 1.65rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.step-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: start;
+  gap: var(--s2);
+  min-width: 0;
+  padding: 0.8rem 0 var(--s4) var(--s4);
+}
+
+.step-body p {
+  margin: 0;
+  max-width: 34rem;
+}
+
+.step-body strong {
+  font-weight: 750;
+}
+
+/* Colonne étroite (320px, ou texte agrandi) : le numéro passe au-dessus du geste, le schéma garde toute la largeur */
+@container steps (width < 20rem) {
+  .install-steps > li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .step-n {
+    justify-content: start;
+    padding-top: var(--s3);
+    border-right: 0;
+  }
+
+  .step-body {
+    padding: var(--s1) 0 var(--s4);
+  }
+}
+
+/* Où se fait le geste (« Ici, dans Safari », « Dans l'application ») : petit gris 700, comme le thème d'une question */
+.step-where {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--print-soft);
+}
+
+/* Les schémas des gestes : dessinés sur 280 unités, montrés à 280px au plus, donc à l'échelle 1:1 dès 375px de large
+   (libellé 14px, légende 12px réels) ; plus étroit, ils rétrécissent avec leur colonne */
+.step-dg {
+  width: 100%;
+  max-width: 17.5rem;
+  margin: var(--s1) 0 0;
+}
+
+.step-note {
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.step-hint {
+  font-size: var(--text-sm);
+}
+
+/* Ce que le bouton vient de faire (role=status) : vide, il ne prend pas de place */
+.step-status {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  font-weight: 650;
+}
+
+.step-status:empty {
+  display: none;
+}
+
+.step-status .icon,
+.install-after .icon {
+  flex: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: 0.15rem;
+  stroke-width: 2.4;
+}
+
+/* La copie refusée : le code en clair, à sélectionner à la main (la boîte de « Ou copiez le code ») */
+.step-body .code-text {
+  width: 100%;
+  max-width: 34rem;
+  max-height: 8.5rem;
+  margin: 0;
+  font-size: 0.95rem;
+  user-select: all;
+  -webkit-user-select: all;
+}
+
+/* Le bouton du navigateur (Android, Chrome, Edge…), au-dessus du chemin par le menu */
+.install-native {
+  display: grid;
+  justify-items: start;
+  margin: 0 0 var(--s5);
+}
+
+.install-native > * + * {
+  margin-top: var(--s2);
+}
+
+/* Le statut vide reste dans la page (pour être lu quand il se remplit), sans place */
+.install-native > [role='status']:empty {
+  margin: 0;
+}
+
+.install-native > p {
+  margin-bottom: 0;
+  max-width: 30rem;
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.install-native.is-empty {
+  margin: 0;
+}
+
+/* Ce qu'il est advenu du bouton (role=status, toujours là) ; le focus y passe quand le bouton s'en va, sans anneau,
+   comme les titres des notices */
+.install-native-status {
+  margin: 0;
+  font-size: var(--text-sm);
+  font-weight: 650;
+}
+
+.install-native .install-after {
+  margin: 0;
+}
+
+.install-native [tabindex='-1']:focus {
+  outline: none;
+}
+
+.install-or {
+  margin: 0 0 var(--s2);
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+.install-after {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  max-width: 34rem;
+  margin: var(--s4) 0 0;
+  font-weight: 650;
+}
+
+.install-after .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.install-after-note,
+.install-after-link {
+  max-width: 34rem;
+  margin: var(--s2) 0 0 1.8rem;
+}
+
+.install-after-note {
+  color: var(--print-soft);
+}
+
+.install-section .how-to {
+  margin-top: var(--s4);
+}
+
+.install-section .how-to p {
+  margin: 0 0 var(--s3);
+  max-width: 34rem;
+}
+
+.install-section > p:not([class]) {
+  max-width: 34rem;
+  margin: 0 0 var(--s3);
+}
+
+.install-figure {
+  margin: 0 0 var(--s4);
+}
+
+.install-figure .diagram {
+  max-width: 17.5rem;
+  margin: 0;
+}
+
+.install-figure figcaption {
+  max-width: 30rem;
+  margin-top: var(--s2);
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.install .btn-primary {
+  min-width: 0;
+  max-width: 100%;
+  white-space: normal;
+  text-align: start;
+}
+
+/* ——— Les autres appareils : des lignes repliables de formulaire, rangées par famille ——— */
+
+.install-others {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: var(--line) solid var(--rule-strong);
+  border-bottom: var(--line) solid var(--rule-strong);
+}
+
+.install-others > li + li {
+  border-top: var(--hair) solid var(--rule);
+}
+
+.install-others > li.other-group {
+  padding: var(--s4) 0 var(--s1);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--print-soft);
+}
+
+.install-others > li.other-group:first-child {
+  padding-top: var(--s2);
+}
+
+.install-others > li.other-group + li {
+  border-top: 0;
+}
+
+.install-others details {
+  max-width: none;
+  font-size: var(--text);
+}
+
+/* Un nom plus large que sa ligne (texte très agrandi) se coupe plutôt que de pousser la page sur le côté */
+.install-others summary {
+  overflow-wrap: anywhere;
+  display: grid;
+  grid-template-columns: 1rem minmax(0, 1fr);
+  align-items: start;
+  column-gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.6rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.install-others summary::-webkit-details-marker {
+  display: none;
+}
+
+.install-others summary .disclosure {
+  margin-top: 0.2rem;
+}
+
+.other-name {
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+details[open] > summary .other-name {
+  text-decoration: none;
+}
+
+/* Ce qui arrive aux réponses : en mots, jamais par une couleur */
+.other-state {
+  grid-column: 2;
+  font-size: var(--text-sm);
+  font-weight: 650;
+  color: var(--print-soft);
+}
+
+.other-body {
+  overflow-wrap: anywhere;
+  padding: 0 0 var(--s4) 1.5rem;
+}
+
+.other-body ol {
+  margin: 0 0 var(--s2);
+  padding-left: 1.2rem;
+  max-width: 34rem;
+  font-size: var(--text-sm);
+}
+
+.other-body li {
+  margin: 0.3rem 0;
+}
+
+.other-body p {
+  margin: 0 0 var(--s2);
+  max-width: 34rem;
+  font-size: var(--text-sm);
+}
+
+/* Sur ordinateur, un QR code pour ouvrir cette page sur le téléphone : l'adresse publique de la page, rien d'autre */
+.install-phone {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s4);
+  align-items: center;
+  max-width: 30rem;
+  margin-top: var(--s6);
+  padding: var(--s4);
+  box-shadow:
+    inset 0 var(--thick) 0 var(--rule-strong),
+    inset 0 0 0 var(--line) var(--rule-strong);
+}
+
+.install-phone > div:last-child {
+  flex: 1 1 12rem;
+  min-width: 0;
+}
+
+.install-phone .qr-plate {
+  flex: 0 0 7rem;
+  max-width: 7rem;
+}
+
+.install-phone-title {
+  margin: 0 0 var(--s1);
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: 1.4rem;
+  line-height: 1.05;
+}
+
+.install-phone p {
+  margin: 0 0 var(--s2);
+  font-size: var(--text-sm);
+}
+
+.install-phone p:last-child {
+  margin-bottom: 0;
+}
+
+/* ——— Schémas des gestes : ce qui leur est propre (le reste vient des schémas du site). Tout au trait : le papier est
+   le seul remplissage ; seuls les points de « ••• » et de « ⋮ » sont pleins, comme des lettres ——— */
+
+.diagram .dg-open {
+  fill: none;
+}
+
+.diagram .dg-ghost {
+  fill: var(--paper);
+  stroke: var(--rule);
+  stroke-width: 1.2;
+}
+
+.diagram .dg-icon-frame {
+  fill: none;
+  stroke: var(--rule);
+  stroke-width: 1;
+}
+
+.diagram .dg-hair {
+  stroke: var(--rule);
+  stroke-width: 1;
+}
+
+/* Le geste à faire : un cadre de bille autour du bouton, la flèche et son mot (« touchez ») */
+.diagram .dg-tap {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2;
+}
+
+.diagram .dg-dash {
+  fill: none;
+  stroke: var(--print-soft);
+  stroke-width: 1.2;
+  stroke-dasharray: 4 3;
+}
+
+.diagram .dg-dot {
+  fill: var(--print);
+}
+
+.diagram .dg-glyph {
+  fill: none;
+  stroke: var(--print);
+  stroke-width: 1.6;
+}
+
+.diagram .dg-glyph-soft {
+  fill: none;
+  stroke: var(--rule-strong);
+  stroke-width: 1.4;
+}
+
+/* ——— Grand écran : l'introduction à gauche (5fr), les gestes à droite (7fr), comme « Transférez vos réponses » ——— */
+
+@media (min-width: 64rem) {
+  .install {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  }
+
+  .install-main > .install-section:first-child {
+    margin-top: 0;
+  }
+}

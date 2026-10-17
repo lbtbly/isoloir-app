@@ -205,84 +205,144 @@ export const election: ElectionInfo = {
   // En ligne depuis le 8 octobre 2026 (révisions remises à 1 par `node tools/build-pack.mjs … --reset-revisions`) :
   // une réponse donnée sur une version antérieure d'une question est mise de côté, à revoir.
   revisionTracking: true,
+  // Journal des données, page #/journal (décision du propriétaire du 17 octobre 2026, sur maquette) : une entrée par
+  // publication, numérotée dans l'ordre (n, l'adresse #/journal/8), avec un titre court (70 signes au plus, rédigé par
+  // IA comme le texte), la ou les versions des données publiées avec elle, ce qu'elle change (kinds) et son effet sur le
+  // classement, que les tests recalculent (tests/journal.test.ts). Les candidats dont les positions changent, leurs
+  // causes et leurs questions ne s'écrivent pas ici : tools/build-journal.mjs les tire de l'historique des positions
+  // (research/presidentielle-2027/positions-history.json) dans journal.ts, d'après versions. Ajouter une entrée : la
+  // version des données (dataVersion) d'abord, puis l'entrée avec cette version, puis node tools/build-journal.mjs
+  // presidentielle-2027. Une précision venue après coup va dans notes, datée, et non entre crochets dans le texte.
   changelog: [
     {
       date: '2026-10-15',
       // Décisions du propriétaire du 2026-10-15 (n° 3 et 4, dataVersion 2026-10-15.1 ; suivis n° 2 et 3,
-      // 2026-10-15.2), fondues en une seule entrée à la relecture finale du même jour : en tête du
-      // dépouillement d'un visiteur qui revient (Results, latestChange : à date égale, la première écrite) et seule
-      // montrée pour ce jour sur l'accueil (HomeBack, newsSince). Ce qui peut changer le résultat d'abord (Philippot,
-      // approches inversées ; profils mesurés à nouveau), puis les questions de Retailleau revues d'après son plan
+      // 2026-10-15.2), fondues en une seule entrée à la relecture finale du même jour. Ce qui peut changer le résultat
+      // d'abord (Philippot, approches inversées ; profils mesurés à nouveau), puis les questions de Retailleau revues d'après son plan
       // (approches inchangées), puis la fiche et la vidéo « L'État actionnaire » (passages industrie-etat-02-p27 et
       // -03-p27) ; le détail (avant, après, raison, sources) est dans research/presidentielle-2027/positions-history.json
       // et dans les notes de decisions.json
+      n: 8,
+      title: 'Positions de Florian Philippot et de Bruno Retailleau revues',
+      versions: ['2026-10-15.1', '2026-10-15.2'],
+      kinds: ['positions', 'explications', 'site'],
+      effect: 'peut-changer',
+      parts: [{ label: 'La fiche et la vidéo mises à jour', questions: ['industrie_economie-3'] }],
       text: 'Positions revues sur la question «\u00a0Quelle stratégie pour les finances publiques face à la dette\u00a0?\u00a0»\u00a0: pour Florian Philippot, son approche principale devient les économies d’abord sur le fonctionnement de l’État, et celle qui vise l’immigration, l’aide internationale et la contribution européenne devient son approche compatible\u00a0; pour Bruno Retailleau, résumés et sources mis à jour d’après son plan d’économies du 12 octobre 2026, ses approches restant les mêmes. D’après ce plan, ses positions sont revues de même, approches inchangées, sur six autres questions\u00a0: nombre d’agents publics, accès aux services publics, niveau des impôts, aides aux entreprises, règles pour l’endettement de l’État (référendum sur la règle d’or budgétaire votée en 2011) et rôle de la Sécurité sociale dans le remboursement des soins (jours de carence et économies sur les arrêts maladie\u00a0; la hausse des franchises médicales évoquée en 2025 n’est plus reprise). La fiche «\u00a0Comprendre l’enjeu\u00a0» sur l’État au capital des entreprises et la vidéo «\u00a0L’État actionnaire\u00a0» donnent désormais la valeur des participations de l’État au 30 juin 2026, d’après le rapport annexé au projet de loi de finances pour 2027. Positions et chiffres relevés le 15 octobre et vérifiés automatiquement par une IA contre leurs sources, sans relecture humaine une par une. Les chiffres publiés sur la page «\u00a0Mon profil politique\u00a0» ont été mesurés à nouveau.',
     },
     {
       date: '2026-10-15',
       // Décision du propriétaire du 2026-10-15 (n° 6) : fiches industrie_economie-3, education-2 et territoires-1,
       // alignées sur les faits vérifiés des vidéos corrigées ; sans effet sur le score
+      n: 9,
+      title: 'Trois fiches «\u00a0Comprendre l’enjeu\u00a0» complétées',
+      versions: ['2026-10-15.1'],
+      kinds: ['explications'],
+      effect: 'sans-effet',
+      parts: [{ label: 'Les trois fiches', questions: ['industrie_economie-3', 'education-2', 'territoires-1'] }],
       text: 'Trois fiches «\u00a0Comprendre l’enjeu\u00a0» complétées\u00a0: l’État au capital des entreprises (le droit européen laisse chaque pays libre du régime de propriété\u00a0; règles sur les aides d’État), le financement des écoles privées sous contrat (part de l’État à l’école, au collège et au lycée, dans le privé et dans le public) et l’accès aux services publics (nombre de maternités depuis 2000, selon la Cour des comptes). Textes rédigés par IA et vérifiés automatiquement sur leurs sources, sans relecture humaine.',
     },
     {
       date: '2026-10-15',
-      // Décisions du propriétaire du 2026-10-15 (n° 1 et 2). Écrite après les deux entrées du même jour : à date égale,
-      // c'est la première écrite qui s'affiche en tête du dépouillement d'un visiteur qui revient (Results,
-      // latestChange). Elle précise en partie l'entrée du 14 octobre sur le score indicatif. Les données ne changent
-      // pas : pas de nouvelle dataVersion
+      // Décisions du propriétaire du 2026-10-15 (n° 1 et 2), écrite après les deux entrées du même jour. Elle précise en
+      // partie l'entrée du 14 octobre sur le score indicatif. Les données ne changent pas : pas de nouvelle dataVersion
+      n: 10,
+      title: 'Non classés\u00a0: score indicatif s’ils sont connus sur 5 de vos réponses',
+      versions: ['2026-10-15.1'],
+      kinds: ['site'],
+      effect: 'sans-effet',
       text: 'Le score indicatif d’un candidat non classé n’est plus montré que si sa position est connue sur au moins 5 de vos réponses, et l’affiche du dépouillement précise désormais «\u00a0parmi les candidats classés\u00a0».',
     },
     {
       date: '2026-10-15',
-      // Décisions du propriétaire du 2026-10-15 (D1, D2, variante a′ ; borne prudente admise, avant et après publiés).
-      // Écrite après les trois entrées du même jour : à date égale, c'est la première écrite qui s'affiche en tête du
-      // dépouillement d'un visiteur qui revient (Results, latestChange). Sans effet sur le score ni sur le classement ;
+      // Décisions du propriétaire du 2026-10-15 (D1, D2, variante a′ ; borne prudente admise, avant et après publiés),
+      // écrite après les trois entrées du même jour. Sans effet sur le score ni sur le classement ;
       // chiffres publiés : core/echiquierMethodCopy.ts (ECHIQUIER_PUBLISHED, ECHIQUIER_BEFORE, avec les tirages sur les
       // mêmes feuilles ; tests/echiquier-copy.test.ts vérifie que ce texte les reprend). Les données ne changent pas : pas
       // de nouvelle dataVersion
-      text: 'La page «\u00a0Mon profil politique\u00a0» ne tire plus rien au sort\u00a0: vos réponses sont comparées à toutes les autres façons de poser vos mêmes avis, comptées une à une jusqu’à cent mille, et au-delà par une borne prudente, qui peut manquer une lecture mais n’en invente jamais\u00a0; les mêmes réponses donnent toujours la même lecture. Les sujets y sont rangés domaine par domaine, et la page dit quand vos réponses ne permettent pas de conclure. Une ligne ouverte dit aussi ce qui pèse le plus dans une lecture nette, et quels candidats du bloc franchissent vos lignes rouges\u00a0; vos thèmes prioritaires y sont signalés, et une phrase dit quand votre façon de répondre colore les cases. Chiffres publiés mesurés à nouveau, sur les mêmes réponses qu’avant\u00a0: sans le candidat recopié, la page désigne son bloc dans 71\u00a0% des cas (70\u00a0% avant), de 44 à 92\u00a0% selon le bloc (de 44 à 91\u00a0% avant, l’écart d’un point venant de la borne prudente)\u00a0; des feuilles remplies par un programme, sans suivre aucun candidat, reçoivent toujours au plus une lecture sur un thème sur onze, et au plus 2,3 lectures en moyenne sur l’ensemble des thèmes (2,4 avant)\u00a0; quand on n’approuve qu’une approche par question, chacun des blocs que la grille classe aux extrêmes en reçoit en moyenne 1,7 fois plus que celui qu’elle classe à gauche (1,6 avant), et toujours 2,4 fois au seul questionnaire rapide\u00a0: le calcul sans tirage accentue un peu ce déséquilibre. Le score et le classement ne changent pas.',
+      n: 11,
+      title: 'Mon profil politique\u00a0: plus de tirage au sort',
+      versions: ['2026-10-15.2'],
+      kinds: ['site'],
+      effect: 'sans-effet',
+      text: 'La page «\u00a0Mon profil politique\u00a0» ne tire plus rien au sort\u00a0: vos réponses sont comparées à toutes les autres façons de poser vos mêmes avis, comptées une à une jusqu’à cent mille, et au-delà par une borne prudente, qui peut manquer une lecture mais n’en invente jamais\u00a0; les mêmes réponses donnent toujours la même lecture. Les sujets y sont rangés domaine par domaine, et la page dit quand vos réponses ne permettent pas de conclure. Une ligne ouverte dit aussi ce qui pèse le plus dans une lecture nette, et quels candidats du bloc franchissent vos lignes rouges\u00a0; vos thèmes prioritaires y sont signalés, et une phrase dit quand votre façon de répondre colore les cases. Chiffres publiés mesurés à nouveau, sur les mêmes réponses qu’avant\u00a0: sans le candidat recopié, la page désigne son bloc dans 71\u00a0% des cas (70\u00a0% avant), de 44 à 92\u00a0% selon le bloc (de 44 à 91\u00a0% avant, l’écart d’un point venant de la borne prudente)\u00a0; des questionnaires remplis par un programme, sans suivre aucun candidat, reçoivent toujours au plus une lecture sur un thème sur onze, et au plus 2,3 lectures en moyenne sur l’ensemble des thèmes (2,4 avant)\u00a0; quand on n’approuve qu’une approche par question, chacun des blocs que la grille classe aux extrêmes en reçoit en moyenne 1,7 fois plus que celui qu’elle classe à gauche (1,6 avant), et toujours 2,4 fois au seul questionnaire rapide\u00a0: le calcul sans tirage accentue un peu ce déséquilibre. Le score et le classement ne changent pas.',
     },
     {
       date: '2026-10-14',
-      // En tête du dépouillement d'un visiteur qui revient (Results, latestChange : à date égale, la première écrite) :
-      // l'effet sur le classement d'abord (aucun : elle n'est pas classée), puis les deux questions à revoir (révision 2
-      // de finances_publiques-1 et d'europe-3) ; le détail est dans l'entrée suivante, montrée par la seule Méthode
-      text: 'Nouvelle candidate, Natacha Polony, déclarée le 14 octobre 2026\u00a0: elle n’est pas classée, ses positions n’étant connues que sur 28 questions sur 100 (23 candidats, dont 15 classés). Deux questions, sur les finances publiques et sur le marché unique européen, gagnent une approche\u00a0: si vous y aviez répondu, votre réponse est à revoir.',
+      // L'effet sur le classement d'abord (aucun pour elle : elle n'est pas classée), puis les deux questions à revoir
+      // (révision 2 de finances_publiques-1 et d'europe-3), puis leur détail, qui était une entrée à part (« Détail de la
+      // mise à jour du 14 octobre »), fondue dans celle-ci le 17 octobre 2026 (décision du propriétaire)
+      n: 6,
+      title: 'Natacha Polony ajoutée, non classée\u00a0; deux questions complétées',
+      versions: ['2026-10-14.1'],
+      kinds: ['candidats', 'positions', 'questions', 'site'],
+      effect: 'peut-changer',
+      unranked: ['polony'],
+      parts: [{ label: 'Les 2 questions qui gagnent une approche', questions: ['finances_publiques-1', 'europe-3'] }],
+      text: 'Nouvelle candidate, Natacha Polony, déclarée le 14 octobre 2026\u00a0: elle n’est pas classée, ses positions n’étant connues que sur 28 questions sur 100 (23 candidats, dont 15 classés). Deux questions, sur les finances publiques et sur le marché unique européen, gagnent une approche\u00a0: si vous y aviez répondu, votre réponse est à revoir. Les deux questions qui gagnent une approche sont «\u00a0Quelle stratégie pour les finances publiques face à la dette\u00a0?\u00a0» (relancer la production en France pour accroître les recettes publiques) et «\u00a0Comment faire évoluer les règles du marché unique européen\u00a0?\u00a0» (priorité, dans la commande publique, aux entreprises qui produisent en France). Sur ces deux questions, positions ajoutées ou revues pour François Asselineau, Bernard Cazeneuve, Nicolas Dupont-Aignan, Raphaël Glucksmann, Marine Le Pen, Jean-Luc Mélenchon et Édouard Philippe. Ces positions et celles de Natacha Polony ont été relevées le 14 octobre et vérifiées automatiquement par une IA contre leurs sources, sans relecture humaine une par une. Les chiffres publiés sur la page «\u00a0Mon profil politique\u00a0» ont été mesurés à nouveau.',
     },
     {
       date: '2026-10-14',
-      text: 'Détail de la mise à jour du 14 octobre\u00a0: les deux questions qui gagnent une approche sont «\u00a0Quelle stratégie pour les finances publiques face à la dette\u00a0?\u00a0» (relancer la production en France pour accroître les recettes publiques) et «\u00a0Comment faire évoluer les règles du marché unique européen\u00a0?\u00a0» (priorité, dans la commande publique, aux entreprises qui produisent en France). Sur ces deux questions, positions ajoutées ou revues pour François Asselineau, Bernard Cazeneuve, Nicolas Dupont-Aignan, Raphaël Glucksmann, Marine Le Pen, Jean-Luc Mélenchon et Édouard Philippe. Ces positions et celles de Natacha Polony ont été relevées le 14 octobre et vérifiées automatiquement par une IA contre leurs sources, sans relecture humaine une par une. Les chiffres publiés sur la page «\u00a0Mon profil politique\u00a0» ont été mesurés à nouveau.',
-    },
-    {
-      date: '2026-10-14',
-      // Décision du propriétaire du 14 octobre 2026. Écrite après les deux entrées du même jour : à date égale, c'est la
-      // première écrite qui s'affiche en tête du dépouillement d'un visiteur qui revient (Results, latestChange). Les
-      // données ne changent pas : pas de nouvelle dataVersion
+      // Décision du propriétaire du 14 octobre 2026, écrite après l'entrée du même jour. Les données ne changent pas :
+      // pas de nouvelle dataVersion
+      n: 7,
+      title: 'Non classés\u00a0: un score indicatif, sans rang',
+      versions: ['2026-10-14.1'],
+      kinds: ['site'],
+      effect: 'sans-effet',
       text: 'Les candidats non classés ont désormais, sous le classement, un score indicatif, calculé sur leurs seules positions connues et donné pour information seulement\u00a0: ils restent sans rang.',
     },
     {
       date: '2026-10-12',
-      // Affichée aussi en tête du dépouillement d'un visiteur qui revient (Results, « mises à jour depuis votre dernier
-      // passage ») : l'effet sur le classement d'abord, sans score ni nom des candidats masqués (le score est sur la fiche)
+      // L'effet sur le classement d'abord, sans score ni nom des candidats masqués (le score est sur la fiche)
+      n: 4,
+      title: 'Primaire\u00a0: seul Raphaël Glucksmann reste présenté',
+      versions: ['2026-10-12.1'],
+      kinds: ['candidats', 'explications', 'site'],
+      effect: 'peut-changer',
+      named: ['glucksmann'],
+      departed: ['faure', 'guedj', 'maurel', 'royal'],
       text: 'Les quatre candidats de la primaire «\u00a0Choisir 2027\u00a0» qui n’ont pas été désignés ne sont plus présentés\u00a0: 22 candidats, dont 15 classés. Raphaël Glucksmann y a été désigné dès le premier tour, le 11 octobre 2026. Les pages et les vidéos propres à la primaire ne sont plus en ligne.',
     },
     {
       date: '2026-10-12',
       // Nouvelle page, sans effet sur le score (METHOD_VERSION reste 2.0) ; chiffres publiés : core/echiquierMethodCopy.ts.
-      // Écrite après l'entrée du même jour : à date égale, c'est la première écrite qui s'affiche en tête du dépouillement
-      // d'un visiteur qui revient (Results, latestChange), et c'est elle qui dit ce qui change dans son classement
+      // Écrite après l'entrée du même jour
+      n: 5,
+      title: 'Nouvelle page «\u00a0Mon profil politique\u00a0»',
+      versions: ['2026-10-12.1'],
+      kinds: ['site'],
+      effect: 'sans-effet',
       text: 'Nouvelle page «\u00a0Mon profil politique\u00a0», après le dépouillement\u00a0: lecture de vos réponses, thème par thème, au regard de la grille des nuances du ministère de l’Intérieur. Le score et le classement ne changent pas.',
     },
     {
       date: '2026-10-10',
-      text: 'Retour des vidéos « Les sujets », dans une version propre à la présidentielle : chiffres mis à jour et formulations rééquilibrées après une relecture par IA sous trois sensibilités (gauche, centre, droite), 93 passages réenregistrés et redessinés. Les vidéos sans question correspondante dans cette élection ne sont pas montrées ; elles restent dans l’archive de la primaire [précision du 12 octobre\u00a0: cette archive n’est plus en ligne]. Chaque question renvoie à ses vidéos (« En vidéo »).',
+      n: 3,
+      title: 'Les vidéos «\u00a0Les sujets\u00a0» reviennent, version présidentielle',
+      versions: ['2026-10-09.1'],
+      kinds: ['explications'],
+      effect: 'sans-effet',
+      notes: [{ date: '2026-10-12', text: 'Cette archive n’est plus en ligne.' }],
+      text: 'Retour des vidéos « Les sujets », dans une version propre à la présidentielle : chiffres mis à jour et formulations rééquilibrées après une relecture par IA sous trois sensibilités (gauche, centre, droite), 93 passages réenregistrés et redessinés. Les vidéos sans question correspondante dans cette élection ne sont pas montrées ; elles restent dans l’archive de la primaire. Chaque question renvoie à ses vidéos (« En vidéo »).',
     },
     {
       date: '2026-10-09',
-      text: 'Ajout des cinq candidats de la primaire «\u00a0Choisir 2027\u00a0» (Olivier Faure, Raphaël Glucksmann, Jérôme Guedj, Emmanuel Maurel, Ségolène Royal), présentés jusqu’à son second tour du 17 octobre\u00a0: seule la personne désignée restera ensuite [précision du 12 octobre\u00a0: il n’y a pas eu de second tour]. Ségolène Royal n’est pas classée, ses positions n’étant connues que sur 38 questions sur 100. Positions de Gabriel Attal et de Jérôme Guedj complétées sur la protection des agriculteurs face aux importations. La page des candidats les présente de l’extrême gauche à l’extrême droite, selon la grille des nuances politiques du ministère de l’Intérieur, à la couleur et avec le logo de chaque parti.',
+      n: 2,
+      title: 'Cinq candidats de la primaire ajoutés',
+      versions: ['2026-10-09.1'],
+      kinds: ['candidats', 'positions', 'site'],
+      effect: 'peut-changer',
+      unranked: ['royal'],
+      notes: [{ date: '2026-10-12', text: 'Il n’y a pas eu de second tour.' }],
+      text: 'Ajout des cinq candidats de la primaire «\u00a0Choisir 2027\u00a0» (Olivier Faure, Raphaël Glucksmann, Jérôme Guedj, Emmanuel Maurel, Ségolène Royal), présentés jusqu’à son second tour du 17 octobre\u00a0: seule la personne désignée restera ensuite. Ségolène Royal n’est pas classée, ses positions n’étant connues que sur 38 questions sur 100. Positions de Gabriel Attal et de Jérôme Guedj complétées sur la protection des agriculteurs face aux importations. La page des candidats les présente de l’extrême gauche à l’extrême droite, selon la grille des nuances politiques du ministère de l’Intérieur, à la couleur et avec le logo de chaque parti.',
     },
     {
       date: '2026-10-08',
+      n: 1,
+      title: 'Première version en ligne\u00a0: 21 candidats',
+      versions: ['2026-10-08.1'],
+      kinds: ['candidats', 'positions', 'site'],
+      effect: 'première-version',
       text: 'Première version en ligne : 21 candidats déclarés au 6 octobre 2026, dont deux (Éric Zemmour, Xavier Bertrand) qui ont annoncé leur candidature sans l’avoir encore officialisée ; positions relevées et vérifiées automatiquement par une IA contre leurs sources, sans relecture humaine une par une. Sept candidats ne sont pas classés, faute de positions connues sur au moins la moitié des questions (de 7 à 47 sur 100) : leurs fiches et leurs positions restent consultables, et la liste sera revue à mesure que leurs programmes seront publiés. Un candidat connu sur moins de la moitié de vos réponses apparaît sous le classement, avec son score à titre indicatif (voir la méthode).',
     },
   ],

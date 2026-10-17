@@ -21,9 +21,13 @@ const WORDS = ['zéro', 'un', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept', 
 /** Un nombre en lettres, jusqu'à vingt ; au-delà, en chiffres */
 export const word = (n: number) => WORDS[n] ?? String(n)
 
-/** Point 3 de « Comment c'est calculé » : la couleur d'une case, palier par palier (core/affinity.ts) */
+/**
+ * Point 3 de « Comment c'est calculé » : la couleur d'une case, palier par palier (core/affinity.ts), pleine sur une
+ * lecture nette seulement, atténuée ailleurs (« pâle sauf net », décision du propriétaire du 17 octobre 2026 ;
+ * styles/app.css, .tile)
+ */
 export const HOW_COLOR = fr(
-  `La couleur d’une case donne votre affinité moyenne avec les candidats du bloc, selon les paliers du site : ${AFFINITY_BANDS.map(b => `${b.label.toLocaleLowerCase('fr')} (${bandRange(b)})`).join(', ')}.`,
+  `La couleur d’une case donne votre affinité moyenne avec les candidats du bloc, selon les paliers du site : ${AFFINITY_BANDS.map(b => `${b.label.toLocaleLowerCase('fr')} (${bandRange(b)})`).join(', ')}. Elle n’est pleine que si vos réponses sont nettement plus près ou nettement plus loin de ce bloc ; sinon, elle est atténuée, et le palier reste écrit. Nettement plus près, une case « mitigé » prend le vert de « proche » ; nettement plus loin, l’orangé de « éloigné ».`,
 )
 /**
  * Point 6 de « Comment c'est calculé » : ce que la couleur ne dit pas (le même texte dans la Méthode). Mesuré sur la
@@ -32,11 +36,13 @@ export const HOW_COLOR = fr(
  * et 23 % de « proche » (12 octobre). L'écart entre blocs de quatre et de deux candidats, lui, ne se mesure pas (1 à 2
  * points, dans un sens ou dans l'autre selon les réponses) : on ne le dit pas. Une lecture nette peut tomber sur une case
  * « mitigé » : « nettement plus près » commence à 55 %, « proche » à 60 % ; « nettement plus loin » à 45 %, « éloigné » à
- * 39 %. Plus jamais « hasard » pour dire la comparaison (décision du propriétaire du 15 octobre 2026) : ce sont « les
- * autres façons de poser vos mêmes avis »
+ * 39 % (HOW_COLOR dit la couleur qu'elle prend alors). Depuis le 17 octobre 2026, la couleur n'est pleine que sur une
+ * lecture nette : le texte dit « le palier », et non plus « la couleur », pour ce qui dépend de la façon de répondre.
+ * Plus jamais « hasard » pour dire la comparaison (décision du propriétaire du 15 octobre 2026) : ce sont « les autres
+ * façons de poser vos mêmes avis »
  */
 export const COLORS_CHANCE = fr(
-  `La couleur seule ne dit pas « nettement » : elle dépend aussi de votre façon de répondre. Qui approuve beaucoup voit le plus souvent « proche » et « très proche », qui désapprouve beaucoup « éloigné » et « très éloigné » : tout approuver colore 97${NB}cases sur 100 en « très proche », tout désapprouver 96 sur 100 en « très éloigné ». Et la couleur d’un bloc vient de la moyenne de ses candidats : quand ils ne pensent pas pareil, elle est moins tranchée que votre affinité avec certains d’entre eux dans « Par thème ». Seules les lectures nettes comparent vos réponses aux autres façons de poser vos mêmes avis ; elles ne suivent pas les paliers : une lecture nette peut tomber sur une case « mitigé ».`,
+  `Le palier seul ne dit pas « nettement » : il dépend aussi de votre façon de répondre. Qui approuve beaucoup voit le plus souvent « proche » et « très proche », qui désapprouve beaucoup « éloigné » et « très éloigné » : tout approuver donne 97${NB}cases sur 100 « très proche », tout désapprouver 96 sur 100 « très éloigné ». Et le palier d’un bloc vient de la moyenne de ses candidats : quand ils ne pensent pas pareil, il est moins tranché que votre affinité avec certains d’entre eux dans « Par thème ». Seules les lectures nettes comparent vos réponses aux autres façons de poser vos mêmes avis : c’est pourquoi la couleur n’est pleine que sur elles.`,
 )
 
 /**

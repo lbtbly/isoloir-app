@@ -55,7 +55,7 @@ export const SECRET = [
   'Si tous les autres comparent leurs votes, ils peuvent deviner le vôtre, comme dans un tout petit bureau de vote. À trois, c’est plus facile' + NB + ': mieux vaut être quatre ou plus.',
   'Avec un lecteur d’écran, le bulletin est lu à voix haute : mettez des écouteurs.',
   'Recharger la page fait perdre la séance : rien n’est gardé, même pour la reprendre.',
-  'La table ne montre pas la feuille du propriétaire du téléphone et n’y touche pas. Un autre onglet ouvert sur Isoloir, lui, la montrerait.',
+  'La table ne montre pas les réponses du propriétaire du téléphone et n’y touche pas. Un autre onglet ouvert sur Isoloir, lui, les montrerait.',
 ]
 
 /** Les trois règles de table de « Vous voulez en parler ? » */

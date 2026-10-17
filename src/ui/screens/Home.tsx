@@ -3,7 +3,7 @@ import { link } from '../nav'
 import { firstStepSize } from '../../core/order'
 import { isAnswered } from '../../core/answers'
 import { profileAccess } from '../../core/profileAccess'
-import { PEEK_GO, PROFILE_READY, PROFILE_SEE, profileHome, profileWhen } from '../../core/resultsCopy'
+import { CTA_RESUME, CTA_START, PEEK_GO, PROFILE_READY, PROFILE_SEE, profileHome, profileWhen } from '../../core/resultsCopy'
 import { currentAnswers } from '../../core/revisions'
 import { axisOf } from '../../core/spectrum'
 import type { Results } from '../../core/score'
@@ -26,6 +26,7 @@ import { formatMoment } from '../format'
 import { useReveal } from '../useReveal'
 import { prepareProfile } from '../profile/load'
 import { isMany } from '../many'
+import { AppWelcome, useAppWelcome } from '../install/Welcome'
 import { WelcomeBack } from './HomeBack'
 
 interface Props {
@@ -91,8 +92,8 @@ export function Home({ pack, state, essential, stale, results }: Props) {
     : added
       ? `Répondre ${added > 1 ? `aux ${added} nouvelles questions` : 'à la nouvelle question'}`
       : started
-        ? 'Reprendre la feuille'
-        : 'Commencer la feuille'
+        ? CTA_RESUME
+        : CTA_START
 
 
   /** Sous le film : la liste de confiance et le tampon daté */
@@ -149,13 +150,16 @@ export function Home({ pack, state, essential, stale, results }: Props) {
   // La note sous l'appel final du film : la promesse au premier passage ; ensuite, l'état de la feuille
   // est dit sous le film, pour tout le monde et à tout moment
   const ctaNote = started ? '' : ctaNoteOf(pack.bank)
-  const shortLabel = done ? 'Mon dépouillement' : added ? 'Répondre' : started ? 'Reprendre' : 'Commencer'
+  const shortLabel = done ? 'Mon dépouillement' : started && !added ? 'Reprendre' : 'Répondre'
+  // L'application installée ouverte vide, là où elle a son propre espace : l'avis « Vous aviez déjà répondu ? »
+  const [welcome, closeWelcome] = useAppWelcome(Object.keys(state.answers).length === 0)
 
   return (
     <div class="screen screen-home">
       {/* Une seule barre : l'en-tête porte l'appel principal, toujours visible */}
-      {/* Des questions à revoir : leur carte porte le seul aplat bleu de la vue, l'appel de l'en-tête passe au trait */}
-      <FormHeader title={election.shortName} home action={{ href: startHref, label: startLabel, short: shortLabel, quiet: stale.length > 0 }} />
+      {/* Des questions à revoir, ou l'avis de l'application ouverte vide : leur carte porte le seul aplat bleu de la vue,
+          l'appel de l'en-tête passe au trait */}
+      <FormHeader title={election.shortName} home action={{ href: startHref, label: startLabel, short: shortLabel, quiet: stale.length > 0 || welcome }} />
       <main class="sheet home-sheet" id="contenu" tabIndex={-1} ref={sheet}>
         {back ? (
           <WelcomeBack
@@ -172,6 +176,7 @@ export function Home({ pack, state, essential, stale, results }: Props) {
             <h1 class="sr-only" tabIndex={-1}>
               Isoloir : pointez les idées qui vous ressemblent
             </h1>
+            {welcome ? <AppWelcome onClose={closeWelcome} /> : null}
             {/* Le héros : le film du principe, sur un exemple fictif */}
             <section class="home-film" aria-label="Comment marche Isoloir, en cinq scènes">
               <FilmPlayer cta={{ href: startHref, label: startLabel, note: ctaNote }} />
@@ -179,7 +184,7 @@ export function Home({ pack, state, essential, stale, results }: Props) {
           </>
         )}
 
-        {/* Où en est la feuille, sous le film (le questionnaire complet, c'est l'accueil de retour qui le dit) */}
+        {/* Où en sont les réponses, sous le film (le questionnaire complet, c'est l'accueil de retour qui le dit) */}
         {!back && started ? (
           <div class="home-status">
             {done && state.essentialDoneAt ? (
@@ -199,7 +204,7 @@ export function Home({ pack, state, essential, stale, results }: Props) {
               <p class="progress-note">
                 {/* Les questions vues, répondues ou passées : le compte de la tendance et de l'aperçu de « Mon profil
                     politique », juste dessous (17 restent quand 5 sur 22 sont vues) */}
-                Feuille en cours : {seen} question{seen > 1 ? 's' : ''} sur {essential.length}
+                Vous avez vu {seen} question{seen > 1 ? 's' : ''} sur {essential.length}
                 {seen > answered ? `, dont ${seen - answered} passée${seen - answered > 1 ? 's' : ''}` : ''}.
                 {step1Done && !done ? (
                   <>

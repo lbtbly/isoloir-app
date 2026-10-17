@@ -235,8 +235,8 @@ describe('accords', () => {
     expect(T.waitCount(7, 22)).toBe('questions sur 22')
     expect(T.waitCta('en-cours', 1)).toBe(`Continuer${NB}: 1${NB}question`)
     expect(T.waitCta('en-cours', 15)).toBe(`Continuer${NB}: 15${NB}questions`)
-    expect(T.waitCta('vide', 22)).toBe('Commencer la feuille')
-    expect(T.waitCta('sans-avis', 0)).toBe('Relire la feuille')
+    expect(T.waitCta('vide', 22)).toBe('Répondre aux questions')
+    expect(T.waitCta('sans-avis', 0)).toBe('Relire mes réponses')
     expect(T.waitText('en-cours', 22, 15, false)).toBe(
       `La lecture s’affiche au bout des 22${NB}questions du questionnaire rapide, avec le dépouillement complet${NB}: encore 15${NB}questions.`,
     )
@@ -365,15 +365,15 @@ describe('le graphique « Domaine par domaine »', () => {
 
   it('l’affichage dédié (D1) : des constats, la seule cause dite étant celle que le calcul rend certaine', () => {
     // C1 : une seule question
-    expect(T.unitSentence(axis, reading('une-question'))).toBe(`Sur une seule question, la page ne conclut pas${NB}: il en faut deux pour lire un thème. Ces couleurs donnent seulement votre affinité.`)
+    expect(T.unitSentence(axis, reading('une-question'))).toBe(`Sur une seule question, la page ne conclut pas${NB}: il en faut deux pour lire un thème. Ces couleurs, atténuées, donnent seulement votre affinité.`)
     // C2 : rien de net, le thème ou le domaine
     expect(T.unitSentence(axis, reading('aucun'))).toBe(
-      `Rien de net${NB}: sur ce thème, vos réponses ne se distinguent pas assez des autres façons de poser vos mêmes avis, quelle que soit la couleur des cases.`,
+      `Rien de net${NB}: sur ce thème, vos réponses ne se distinguent pas assez des autres façons de poser vos mêmes avis, quel que soit le palier des cases.`,
     )
     expect(T.unitSentence(axis, reading('aucun', [], [], [], 'famille'))).toContain('sur ce domaine, vos réponses')
     // Un bloc s'écarte nettement des autres façons, mais reste trop près de 50 % : la phrase toujours vraie, sans cause
     expect(T.unitSentence(axis, reading('aucun', [], [], [], 'theme', undefined, 252, true))).toBe(
-      `Rien de net${NB}: sur ce thème, vos réponses ne se rapprochent ni ne s’écartent nettement des candidats d’aucun bloc, quelle que soit la couleur des cases.`,
+      `Rien de net${NB}: sur ce thème, vos réponses ne se rapprochent ni ne s’écartent nettement des candidats d’aucun bloc, quel que soit le palier des cases.`,
     )
     expect(T.unitSentence(axis, reading('aucun', [], [], [], 'famille', undefined, 252, true))).not.toMatch(/distinguent/)
     // C2 bis : moins de dix façons ; une seule
@@ -406,7 +406,7 @@ describe('le graphique « Domaine par domaine »', () => {
     // C5 bis, C9
     expect(T.NOTHING_TESTABLE).toBe(`Pas encore de sujet à lire${NB}: il faut deux questions sur un même thème, ou deux thèmes répondus dans un même domaine.`)
     expect(T.UNIFORM).toBe(
-      `Sur chaque question, vos réponses donnent le même avis à toutes les approches${NB}: il n’y a qu’une façon de poser ces avis, la vôtre, donc rien à comparer. Les couleurs donnent seulement votre affinité.`,
+      `Sur chaque question, vos réponses donnent le même avis à toutes les approches${NB}: il n’y a qu’une façon de poser ces avis, la vôtre, donc rien à comparer. Les couleurs, atténuées, donnent seulement votre affinité.`,
     )
     // Jamais « c'est fréquent », jamais une cause sur la personne
     for (const t of [...T.NOTHING_CAUSES.flatMap(c => T.nothingAnywhere(c)), T.NOT_CENTRE, T.NOTHING_TESTABLE, T.UNIFORM, ...allSentences()]) {
@@ -416,8 +416,15 @@ describe('le graphique « Domaine par domaine »', () => {
 
   it('« Comment c’est calculé » : huit points au plus (le reste est dans la Méthode), et l’exemple dit le bon compte', () => {
     const code = readFileSync(join(ROOT, 'src/ui/profile/Chart.tsx'), 'utf8')
-    const calc = code.slice(code.indexOf('<details class="calc">'), code.indexOf('</details>', code.indexOf('<details class="calc">')))
+    // La balise ouvrante porte aussi son onToggle (chargement de « Ce qui pèse le plus ») : sans le « > » final
+    const start = code.indexOf('<details class="calc"')
+    expect(start).toBeGreaterThan(0)
+    const calc = code.slice(start, code.indexOf('</details>', start))
     const top = calc.replace(/<ol class="calc-example">[\s\S]*?<\/ol>/, '')
+    // Un renommage ne rend plus le test vide sans que personne le voie : les points sont là, l'exemple à part
+    expect(top.length).toBeGreaterThan(0)
+    expect(calc).toContain('<ol class="calc-example">')
+    expect((top.match(/<li[ >]/g) ?? []).length).toBeGreaterThan(0)
     expect((top.match(/<li[ >]/g) ?? []).length).toBeLessThanOrEqual(8)
     expect(T.HOW_EXAMPLE).toHaveLength(5)
     // 5! / (1! 1! 3!) = 20 ; 20 × 20 = 400 ; une sur dix au plus : 40
@@ -475,22 +482,29 @@ describe('le graphique « Domaine par domaine »', () => {
     expect(T.cellLabel('Centre', 52, 'rien')).toBe(`Centre (grille du ministère de l’Intérieur)${NB}: mitigé`)
     expect(T.cellLabel('Centre', null, 'inconnu')).toBe(`Centre (grille du ministère de l’Intérieur)${NB}: inconnu`)
     expect(T.netWord('rien')).toBeNull()
-    // Les paliers et leurs bornes, tels que les donne « Comment c'est calculé »
+    // Les paliers et leurs bornes, tels que les donne « Comment c'est calculé » ; puis la couleur pleine sur une lecture
+    // nette seulement, atténuée ailleurs, et celle d'une case nette « mitigé » (« pâle sauf net », 17 octobre 2026)
     expect(T.HOW_COLOR).toBe(
-      `La couleur d’une case donne votre affinité moyenne avec les candidats du bloc, selon les paliers du site${NB}: très proche (80 à 100${NB}%), proche (60 à 79${NB}%), mitigé (40 à 59${NB}%), éloigné (20 à 39${NB}%), très éloigné (0 à 19${NB}%).`,
+      `La couleur d’une case donne votre affinité moyenne avec les candidats du bloc, selon les paliers du site${NB}: très proche (80 à 100${NB}%), proche (60 à 79${NB}%), mitigé (40 à 59${NB}%), éloigné (20 à 39${NB}%), très éloigné (0 à 19${NB}%). Elle n’est pleine que si vos réponses sont nettement plus près ou nettement plus loin de ce bloc${NB}; sinon, elle est atténuée, et le palier reste écrit. Nettement plus près, une case «${NB}mitigé${NB}» prend le vert de «${NB}proche${NB}»${NB}; nettement plus loin, l’orangé de «${NB}éloigné${NB}».`,
     )
-    // Ce que la couleur ne dit pas : « nettement » ; la façon de répondre (les deux paliers de chaque côté, les bouts
+    // La légende le dit en deux lignes, sous les paliers
+    expect(T.KEY_NET).toBe(`Pleine${NB}: nettement plus près ou plus loin`)
+    expect(T.KEY_FLAT).toBe(`Atténuée${NB}: rien de net`)
+    // Ce que le palier ne dit pas : « nettement » ; la façon de répondre (les deux paliers de chaque côté, les bouts
     // compris : c'est eux que donne une façon de répondre tranchée ; tout approuver, tout désapprouver, mesurés le 15
     // octobre 2026), l'accord des candidats d'un bloc, sans comparer des blocs par leur taille (l'écart ne se mesure
-    // pas) ; une lecture nette peut tomber sur « mitigé »
-    expect(T.COLORS_CHANCE).toMatch(/^La couleur seule ne dit pas «.nettement.»/)
+    // pas) ; d'où la couleur pleine sur les seules lectures nettes
+    expect(T.COLORS_CHANCE).toMatch(/^Le palier seul ne dit pas «.nettement.»/)
     expect(T.COLORS_CHANCE).toContain(`Qui approuve beaucoup voit le plus souvent «${NB}proche${NB}» et «${NB}très proche${NB}»`)
     expect(T.COLORS_CHANCE).toContain(`qui désapprouve beaucoup «${NB}éloigné${NB}» et «${NB}très éloigné${NB}»`)
-    expect(T.COLORS_CHANCE).toContain(`tout approuver colore 97${NB}cases sur 100 en «${NB}très proche${NB}», tout désapprouver 96 sur 100 en «${NB}très éloigné${NB}»`)
-    expect(T.COLORS_CHANCE).toMatch(/quand ils ne pensent pas pareil, elle est moins tranchée/)
+    expect(T.COLORS_CHANCE).toContain(`tout approuver donne 97${NB}cases sur 100 «${NB}très proche${NB}», tout désapprouver 96 sur 100 «${NB}très éloigné${NB}»`)
+    expect(T.COLORS_CHANCE).toMatch(/quand ils ne pensent pas pareil, il est moins tranché/)
     expect(T.COLORS_CHANCE).not.toMatch(/quatre|un bloc de deux|surtout|presque/)
     expect(T.COLORS_CHANCE).toContain('Seules les lectures nettes comparent vos réponses aux autres façons de poser vos mêmes avis')
-    expect(T.COLORS_CHANCE).toMatch(/une lecture nette peut tomber sur une case «.mitigé.»\.$/)
+    expect(T.COLORS_CHANCE).toMatch(/c’est pourquoi la couleur n’est pleine que sur elles\.$/)
+    // « rien de net » laisse la couleur atténuée, quel que soit le palier ; « ? » lié à « inconnu »
+    expect(T.HOW_MARKS[1]).toMatch(/Sinon, rien de net, quel que soit le palier\u00a0: la couleur reste atténuée\.$/)
+    expect(T.HOW_MARKS[2]).toBe(`?${NB}inconnu${NB}: aucun candidat du bloc n’est connu sur vos questions.`)
   })
 })
 
@@ -541,7 +555,7 @@ describe('formes des blocs', () => {
     )
     // « Rien de net » ne nomme pas la grille : la phrase qui suit la nomme, sans pronom
     expect(T.unitSentence(axis, reading('aucun', [], [], [2]))).toBe(
-      `Rien de net${NB}: sur ce thème, vos réponses ne se distinguent pas assez des autres façons de poser vos mêmes avis, quelle que soit la couleur des cases. La position des candidats que la grille classe au centre n’est pas connue ici${NB}: la lecture se fait sans eux.`,
+      `Rien de net${NB}: sur ce thème, vos réponses ne se distinguent pas assez des autres façons de poser vos mêmes avis, quel que soit le palier des cases. La position des candidats que la grille classe au centre n’est pas connue ici${NB}: la lecture se fait sans eux.`,
     )
   })
 
@@ -678,8 +692,9 @@ describe('règles d’écriture', () => {
   it('plus jamais « hasard » pour dire la comparaison (D2), ni « placés au hasard », dans les textes comme dans la page', () => {
     for (const t of allTexts()) expect(/hasard/i.test(t), t).toBe(false)
     for (const file of PAGE_FILES) for (const t of pageTexts(file)) expect(/hasard/i.test(t), `${file} : « ${t.slice(0, 120)} »`).toBe(false)
-    // Les feuilles de la calibration : « des feuilles remplies par un programme, sans suivre aucun candidat »
-    for (const t of [T.SUMMARY_NOTE, T.caveats(15)[2]!, M.methodWorth()[1], M.methodBefore()]) expect(t, t).toContain('feuilles remplies par un programme')
+    // Les profils de la calibration : « des questionnaires remplis par un programme, sans suivre aucun candidat » (« des
+    // feuilles… » jusqu'au 17 octobre 2026 : « feuille » n'est plus un mot du site, tests/words.test.ts)
+    for (const t of [T.SUMMARY_NOTE, T.caveats(15)[2]!, M.methodWorth()[1], M.methodBefore()]) expect(t, t).toContain('questionnaires remplis par un programme')
   })
 
   it('aucun mot de qualité, et rien qui situe la personne : ni « surtout », ni « fragile », ni « solide », ni « presque »', () => {
@@ -782,7 +797,7 @@ describe('lignes rouges et priorités (lot 2)', () => {
     const [text, possible] = M.methodCross()
     // L'effectif qui fonde un verdict (§ 2.0 de l'étude : 30 ne donnent qu'une indication)
     expect(C.clones).toBeGreaterThanOrEqual(60)
-    expect(text).toContain(`(${C.clones} feuilles par candidat)`)
+    expect(text).toContain(`(${C.clones} questionnaires par candidat)`)
     const dec = (x: number) => String(x).replace('.', ',')
     const span = (lo: number, hi: number) => `${dec(lo)} à ${dec(hi)}${NB}%`
     const KEYS = ['random', 'neighbour', 'other'] as const
@@ -965,7 +980,7 @@ describe('ce qui pèse le plus dans cette lecture (lot 3)', () => {
     const text = M.methodWeigh()
     const dec = (x: number) => String(x).replace('.', ',')
     expect(P.clones).toBeGreaterThanOrEqual(60)
-    expect(text).toContain(`(${P.clones} feuilles par candidat)`)
+    expect(text).toContain(`(${P.clones} questionnaires par candidat)`)
     expect(text).toContain('elle paraît sous chacune des lectures nettes, quel que soit le bloc du candidat recopié')
     expect(text).toContain(
       `l’approche citée est l’approche principale de candidats du bloc dans ${dec(P.main.all)}${NB}% des fiches, de ${dec(P.main.low)}${NB}% pour un candidat recopié que la grille classe ${P.main.lowWhere} à ${dec(P.main.high)}${NB}% pour un candidat qu’elle classe ${P.main.highWhere}`,
@@ -1052,9 +1067,12 @@ describe('votre façon de répondre (lot 4)', () => {
     const text = M.methodManner(where)
     const dec = (x: number) => String(x).replace('.', ',')
     expect(P.clones).toBeGreaterThanOrEqual(60)
-    expect(text).toContain(`(${P.clones} feuilles par candidat)`)
-    expect(text).toContain('feuilles remplies par un programme, sans suivre aucun candidat')
-    expect(text).toContain(`sur ${dec(P.agreeOnly[0])}${NB}% de celles qui ne donnent que des «${NB}d’accord${NB}» (${dec(P.agreeOnly[1])}${NB}% après le seul questionnaire rapide)`)
+    expect(text).toContain(`(${P.clones} questionnaires par candidat)`)
+    expect(text).toContain('questionnaires remplis par un programme, sans suivre aucun candidat')
+    // Les accords suivent « questionnaires » (« des feuilles » jusqu'au 17/10/2026), jusqu'au pronom qui les reprend
+    expect(text).toMatch(/questionnaires par candidat\)\s?:\s?elle paraît sur [\d,]+\s?% d’entre eux,/)
+    expect(text).not.toMatch(/\b(toutes celles|celles qui|elles n’approuvent)|d’entre elles/)
+    expect(text).toContain(`sur ${dec(P.agreeOnly[0])}${NB}% de ceux qui ne donnent que des «${NB}d’accord${NB}» (${dec(P.agreeOnly[1])}${NB}% après le seul questionnaire rapide)`)
     for (const [m, label] of [[P.bank, 'banque'], [P.quick, 'rapide']] as const) {
       const blocs: readonly number[] = m.blocs
       const lo = Math.min(...blocs)
@@ -1084,15 +1102,15 @@ describe('votre façon de répondre (lot 4)', () => {
     }
     expect(text).toContain('Dans cette mesure, elle paraît le plus sur les réponses recopiées des candidats que la grille classe aux extrêmes, un ordre entre blocs que la mesure n’établit pas.')
     expect(text).not.toContain('Elle paraît le plus')
-    // Ce qu'elle suit, feuille par feuille, puis dans un même bloc : plus de « pas d'accord », plus souvent la phrase
+    // Ce qu'elle suit, questionnaire par questionnaire, puis dans un même bloc : plus de « pas d'accord », plus souvent la phrase
     const S = P.byShare
     expect(text).toContain(
-      `Ce qu’elle suit, feuille par feuille, c’est la part des «${NB}pas d’accord${NB}» parmi les avis${NB}: sur la banque, elle paraît sur ${dec(S.bank[0])}${NB}% des feuilles qui en comptent moins de ${S.cut}${NB}% et sur ${dec(S.bank[1])}${NB}% des autres (${dec(S.quick[0])}${NB}% et ${dec(S.quick[1])}${NB}% au rapide)`,
+      `Ce qu’elle suit, questionnaire par questionnaire, c’est la part des «${NB}pas d’accord${NB}» parmi les avis${NB}: sur la banque, elle paraît sur ${dec(S.bank[0])}${NB}% des questionnaires qui en comptent moins de ${S.cut}${NB}% et sur ${dec(S.bank[1])}${NB}% des autres (${dec(S.quick[0])}${NB}% et ${dec(S.quick[1])}${NB}% au rapide)`,
     )
     for (const [below, above] of [S.bank, S.quick]) expect(below).toBeLessThan(above)
     const [bankWithin, quickWithin] = P.within
     expect(text).toContain(
-      `dans un même bloc, elle peut paraître sur ${bankWithin[0]} feuilles sur ${P.clones} pour un candidat recopié et sur ${bankWithin[1]} pour un autre (${quickWithin[0]} et ${quickWithin[1]} au rapide)`,
+      `dans un même bloc, elle peut paraître sur ${bankWithin[0]} questionnaires sur ${P.clones} pour un candidat recopié et sur ${bankWithin[1]} pour un autre (${quickWithin[0]} et ${quickWithin[1]} au rapide)`,
     )
     // L'écart dans un même bloc tient dans ce que montrent les blocs : au plus toutes les feuilles d'un candidat
     for (const [hi, lo] of P.within) {
@@ -1138,7 +1156,7 @@ describe('la rubrique de la Méthode : la comparaison, les deux régimes, l’av
     expect(text).toMatch(/^Jusqu’au 15 octobre 2026, la page tirait au sort 999 de ces façons de poser vos avis\u00a0; depuis, elle n’en tire plus aucune\. Sur les mêmes réponses, avant puis après\u00a0:/)
     expect(text).toContain(`dans 70${NB}% puis 71${NB}% des cas, de 44${NB}% à 91${NB}% puis de 44${NB}% à 92${NB}% selon le bloc`)
     // « Au plus un sur onze » (9,1 %), avant (9 %) comme après (8,5 %) : jamais « un sur douze » (8,3 %), sous la part publiée
-    expect(text).toContain('les feuilles remplies par un programme reçoivent toujours au plus une lecture sur un thème sur onze, et au plus 2,4 puis 2,3 lectures en moyenne sur l’ensemble')
+    expect(text).toContain('les questionnaires remplis par un programme reçoivent toujours au plus une lecture sur un thème sur onze, et au plus 2,4 puis 2,3 lectures en moyenne sur l’ensemble')
     for (const x of [P.randomThemesMax, B.randomThemesMax]) expect(100 / 11).toBeGreaterThanOrEqual(x)
     expect(text).toContain('chacun des blocs que la grille classe aux extrêmes reçoit en moyenne 1,6 puis 1,7 fois plus de leurs lectures que celui qu’elle classe à gauche, toujours 2,4 fois après le seul questionnaire rapide')
     // L'écart qui s'élargit vient de la borne prudente : en comptant tout, il ne change pas (audit --count-max 2000000)
@@ -1263,7 +1281,7 @@ describe('sur des feuilles réelles : « Rien de net » ne dit « ne se distingu
     expect(eco.distinct).toBe(true)
     expect(apartFromOthers(eco)).toBe(true)
     expect(T.unitSentence(axis, eco)).toBe(
-      `Rien de net${NB}: sur ce domaine, vos réponses ne se rapprochent ni ne s’écartent nettement des candidats d’aucun bloc, quelle que soit la couleur des cases.`,
+      `Rien de net${NB}: sur ce domaine, vos réponses ne se rapprochent ni ne s’écartent nettement des candidats d’aucun bloc, quel que soit le palier des cases.`,
     )
   })
 

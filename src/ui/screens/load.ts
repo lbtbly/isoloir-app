@@ -1,6 +1,6 @@
-// Les écrans qu'on ouvre rarement (les trois notices : la Méthode, la Confidentialité, les Mentions légales ; et
-// « Partager », avec les aides de l'affiche, core/shareImage.ts) sont chacun un fichier à part du build, chargé à la
-// première visite de son adresse, comme la comparaison (ui/compare/load.ts) et « Mon profil politique »
+// Les écrans qu'on ouvre rarement (les trois notices : la Méthode, la Confidentialité, les Mentions légales ; le journal
+// des données ; « Partager », avec les aides de l'affiche, core/shareImage.ts) sont chacun un fichier à part du build,
+// chargé à la première visite de son adresse, comme la comparaison (ui/compare/load.ts) et « Mon profil politique »
 // (ui/profile/load.ts) : le code que télécharge chaque visite n'en contient rien. Le pied de page mène aux notices de
 // partout, le dépouillement à « Partager » : ils se préparent quand le navigateur a un moment, une fois la page
 // affichée (app.tsx), pour s'ouvrir sans attendre ; une adresse qui mène directement à l'un d'eux le charge avant le
@@ -25,12 +25,16 @@ export const privacyScreen = onDemand<typeof import('./Privacy')>(() => import('
 export const legalScreen = onDemand<typeof import('./Legal')>(() => import('./Legal'))
 /** « Partager » */
 export const shareScreen = onDemand<typeof import('./Share')>(() => import('./Share'))
+/** Le journal des données (#/journal), que le pied de page propose de partout, comme les notices */
+export const journalScreen = onDemand<typeof import('./Journal')>(() => import('./Journal'))
 /** « Continuer sur un autre appareil » (codes de reprise, QR code, caméra) : jamais préparé d'avance, rarement ouvert */
 export const transferScreen = onDemand<typeof import('./Transfer')>(() => import('./Transfer'))
+/** « Installer l'application » (avec le codeur des codes de reprise, pour « Copier le code ») : de même */
+export const installScreen = onDemand<typeof import('./Install')>(() => import('./Install'))
 
 /** Prépare ces écrans quand le navigateur a un moment */
 export function prepareScreens() {
-  for (const screen of [methodScreen, shareScreen, privacyScreen, legalScreen]) screen.prepare()
+  for (const screen of [methodScreen, shareScreen, privacyScreen, legalScreen, journalScreen]) screen.prepare()
 }
 
 /** Le chargement de l'écran d'une adresse, s'il est un fichier à part (ceux-ci, la comparaison, le profil) ; null sinon */
@@ -46,6 +50,10 @@ export function screenLoader(route: Route): (() => Promise<unknown>) | null {
       return shareScreen.load
     case 'transfer':
       return transferScreen.load
+    case 'journal':
+      return journalScreen.load
+    case 'install':
+      return installScreen.load
     case 'compare':
       return loadCompare
     case 'profile':

@@ -33,6 +33,18 @@ const KEPT = [
     until: 'Il contient toutes vos réponses : ne le publiez jamais. Une copie gardée dans vos e-mails ou dans des photos sauvegardées en ligne y reste',
   },
   {
+    icon: 'copy',
+    what: 'Le code copié (« Copier le code »)',
+    where: 'Dans le presse-papiers de l’appareil',
+    until: 'Isoloir le vide après l’import. D’autres applications peuvent le lire ; Apple peut le passer à vos autres appareils (presse-papiers universel), et l’historique du presse-papiers de Windows, s’il est activé, en garde une copie',
+  },
+  {
+    icon: 'install',
+    what: 'Les réponses de l’application installée',
+    where: 'Dans l’application, sur cet appareil',
+    until: 'Jusqu’à « Tout effacer » dans l’application. Sur iPhone, iPad et Mac avec Safari, elle a son propre espace : « Tout effacer » dans le navigateur ne les efface pas, ni l’inverse',
+  },
+  {
     icon: 'plane',
     what: 'Une copie de l’application',
     where: 'Dans ce navigateur, pour marcher hors ligne',
@@ -117,7 +129,7 @@ export function Privacy({ eraseAll }: { eraseAll: () => void }) {
           </SectionTitle>
           <AirplaneDiagram />
           <p class="caption">
-            Une fois la page chargée, coupez le réseau&nbsp;: la feuille, le dépouillement, l’image, le PDF, le double et le
+            Une fois la page chargée, coupez le réseau&nbsp;: les questions, le dépouillement, l’image, le PDF, le double et le
             transfert par QR code marchent toujours, jusqu’au résultat. Sans réseau, rien ne peut sortir de l’appareil. Vous pouvez tout effacer avant
             de le rallumer.
           </p>
@@ -166,8 +178,19 @@ export function Privacy({ eraseAll }: { eraseAll: () => void }) {
             l’envoyez, à vous-même.
           </p>
           <p>
-            Ces stockages servent seulement au service que vous demandez&nbsp;: reprendre votre feuille là où vous
-            l’avez laissée, et ouvrir le site sans réseau. Rien n’en est
+            Installée sur l’écran d’accueil (page «&nbsp;Installer l’application&nbsp;»), l’application garde vos réponses comme
+            le navigateur, sur l’appareil. Sur iPhone, iPad et Mac avec Safari, elle a son propre espace (avec Firefox sous
+            Windows, peut-être aussi)&nbsp;: vos réponses y passent par le code, copié dans le navigateur puis collé dans
+            l’application. Le presse-papiers est celui de l’appareil&nbsp;: d’autres applications peuvent le lire, Apple peut le
+            partager avec vos autres appareils (presse-papiers universel), et l’historique du presse-papiers de Windows, s’il est
+            activé, en garde une copie&nbsp;; Isoloir le vide après l’import. Dans l’application ouverte vide, «&nbsp;Je n’avais pas
+            répondu&nbsp;» est retenu sous la clé «&nbsp;<code>{STORAGE_PREFIX}accueil-application</code>&nbsp;». Au démarrage,
+            Isoloir demande au navigateur de ne pas effacer de lui-même ce qu’il garde (stockage persistant)&nbsp;; rien n’est
+            envoyé.
+          </p>
+          <p>
+            Ces stockages servent seulement au service que vous demandez&nbsp;: reprendre vos réponses là où vous
+            les avez laissées, et ouvrir le site sans réseau. Rien n’en est
             transmis, ni au site ni à un tiers. La loi
             dispense ce type de stockage de votre consentement (loi Informatique et Libertés, art.&nbsp;82)&nbsp;: d’où
             l’absence de bandeau. Le bouton ci-dessous efface la progression et le stockage de session&nbsp;; les

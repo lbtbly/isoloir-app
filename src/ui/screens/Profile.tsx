@@ -19,16 +19,18 @@
 // Une lecture, pas une étiquette (DESIGN.md, The Reading Not Label Rule) : le sujet des phrases est toujours « vos
 // réponses », les blocs sont attribués à « la grille » ; les blocs n'ont pas de couleur : chaque case prend celle de
 // l'échelle d'affinité du site (décision du propriétaire du 12 octobre 2026), jamais seule, toujours avec le mot de son
-// palier ; aucun symbole de lecture, les mots « nettement plus près » et « nettement plus loin » ; les pourcentages ne
+// palier, pleine sur une case nette seulement, atténuée ailleurs (« pâle sauf net », décision du 17 octobre 2026) ;
+// aucun symbole de lecture, les mots « nettement plus près » et « nettement plus loin » ; les pourcentages ne
 // paraissent que dans « Le détail » et dans la liste d'une ligne ouverte ; ni point, ni moyenne entre thèmes, ni
 // synthèse globale. Jamais sur l'affiche ni dans le PDF.
 // Tant que la page ne s'affiche pas (core/profileAccess.ts : questionnaire rapide pas fini, ou aucun avis), une page
 // d'attente : ce qui manque, en bâtons comme la fiche de la tendance, le bouton qui y ramène, puis un exemple fictif de la
-// lecture (la grille de l'aperçu de l'accueil, avec ses mots) et ce qu'apporte ensuite « Approfondir ». Une fois la page
-// affichée, tant que des thèmes ne se lisent pas seuls faute de questions, la fiche « Pour lire plus de thèmes » les
-// nomme, dans le graphique (après les domaines, repliée ; sous le compte, ouverte, au seul questionnaire rapide) : chacun
-// mène à « Approfondir », coché, comme « Approfondir ce thème » d'une ligne ; son adresse (#/approfondir/<thème>) y met
-// le thème en tête, dit ce qui est coché, et la feuille commence par lui.
+// lecture (la grille de l'aperçu de l'accueil, avec ses mots et ses lectures fictives, et dessous, comme sous les paliers
+// de la légende, ce que disent une case pleine et une case atténuée) et ce qu'apporte ensuite « Approfondir ». Une fois
+// la page affichée, tant que des thèmes ne se lisent pas seuls faute de questions, la fiche « Pour lire plus de thèmes »
+// les nomme, dans le graphique (après les domaines, repliée ; sous le compte, ouverte, au seul questionnaire rapide) :
+// chacun mène à « Approfondir », coché, comme « Approfondir ce thème » d'une ligne ; son adresse (#/approfondir/<thème>)
+// y met le thème en tête, dit ce qui est coché, et la feuille commence par lui.
 // Fichier à part du build, chargé à la demande (ui/profile/load.ts) ; la rubrique de la Méthode qui l'explique
 // (ui/profile/MethodSection.tsx) en est un autre, sans la page ni son calcul.
 
@@ -38,7 +40,7 @@ import { hasOpinion, priorityTopics } from '../../core/answers'
 import { deeperTopics, echiquierCached, panelOf, readEchiquierAsync, type Echiquier, type UnitReading } from '../../core/echiquier'
 import * as T from '../../core/echiquierCopy'
 import { profileAccess } from '../../core/profileAccess'
-import { PROFILE_PEEK } from '../../core/resultsCopy'
+import { PROFILE_PEEK, PROFILE_PEEK_NET } from '../../core/resultsCopy'
 import { currentAnswers } from '../../core/revisions'
 import type { Results } from '../../core/score'
 import { excludedIds } from '../../core/score'
@@ -52,7 +54,7 @@ import { ProgressTally } from '../components/ProgressTally'
 import { SiteFooter } from '../components/SiteFooter'
 import { onDemand, useOnDemand } from '../lazy'
 import { link } from '../nav'
-import { Chart, Tile, type ProfileCtx } from '../profile/Chart'
+import { Chart, KeyPair, Tile, type ProfileCtx } from '../profile/Chart'
 import type { DetailAsk } from '../profile/ProfileDetail'
 import { hitsOf } from '../profile/rows'
 import '../../styles/profile.css'
@@ -258,11 +260,13 @@ const Title = () => (
 
 /** Les cinq paliers de l'exemple, de « très éloigné » à « très proche » : une affinité au milieu de chacun */
 const EXAMPLE_AFFINITY = [10, 30, 50, 70, 90]
+/** La lecture fictive d'une case de l'exemple (core/resultsCopy.ts, PROFILE_PEEK_NET) : pleine si elle est nette */
+const exampleMark = (i: number) => (PROFILE_PEEK_NET[i] === '+' ? 'pres' : PROFILE_PEEK_NET[i] === '-' ? 'loin' : 'rien')
 
 /**
  * La page d'attente : la fiche d'état (comme « Où vous en êtes » de la tendance, dont elle reprend les styles), le bouton
  * qui ramène aux questions, puis l'exemple fictif, une grille de 3 sujets sur les 5 blocs, aux cases de la page et à leurs
- * mots, et ce qu'apporte ensuite « Approfondir »
+ * mots, pleine et atténuée dessous, et ce qu'apporte ensuite « Approfondir »
  */
 function Waiting({ pack, wait, seen, total, left, added, href }: { pack: ElectionPack; wait: T.WaitState; seen: number; total: number; left: number; added: boolean; href: string }) {
   const axis = axisOf(pack.election) ?? []
@@ -295,7 +299,9 @@ function Waiting({ pack, wait, seen, total, left, added, href }: { pack: Electio
       <section class="profile-example" aria-labelledby="example-title">
         <h2 id="example-title">{T.EXAMPLE_TITLE}</h2>
         <p class="ex-note">{T.EXAMPLE_NOTE}</p>
-        {/* Une illustration, masquée aux lecteurs d'écran : la mention et la phrase des couleurs disent ce qu'elle montre */}
+        {/* Une illustration, masquée aux lecteurs d'écran : la mention la dit fictive, aux couleurs illustratives ; dessous,
+            pleine et atténuée, comme sous les paliers de la légende de la page (décision du propriétaire du 17 octobre
+            2026 : la couleur ne dit jamais rien seule), puis la phrase qui dit ce qu'est une case */}
         <div class="ex-grid" aria-hidden="true">
           <div class="ex-head">
             <span />
@@ -308,12 +314,13 @@ function Waiting({ pack, wait, seen, total, left, added, href }: { pack: Electio
               <span class="ex-name">{T.exampleRow(r + 1)}</span>
               {row.map((d, b) => (
                 <span key={b} class="ex-cell" data-bloc={axis[b]?.short}>
-                  <Tile cell={{ affinity: EXAMPLE_AFFINITY[d - 1]!, mark: 'rien' }} />
+                  <Tile cell={{ affinity: EXAMPLE_AFFINITY[d - 1]!, mark: exampleMark(r * 5 + b) }} />
                 </span>
               ))}
             </div>
           ))}
         </div>
+        <KeyPair />
         <p class="ex-key">{T.KEY_TEXT}</p>
       </section>
 

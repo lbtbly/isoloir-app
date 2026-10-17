@@ -22,11 +22,14 @@ import { Home } from './ui/screens/Home'
 import './styles/legal.css'
 // « Continuer sur un autre appareil » (chargé à la demande) : son style dans la feuille de la page, comme les notices
 import './styles/transfer.css'
+// L'avis de l'accueil de l'application ouverte vide et les liens vers « Installer l'application » ; la page, chargée à la
+// demande, a sa feuille, chargée avec elle (styles/install-page.css)
+import './styles/install.css'
 import { Priorities } from './ui/screens/Priorities'
 import { Proximity } from './ui/screens/Proximity'
 import { Results } from './ui/screens/Results'
 import { CandidatePage, CandidatesIndex } from './ui/screens/Candidates'
-import { legalScreen, methodScreen, prepareScreens, privacyScreen, shareScreen, transferScreen } from './ui/screens/load'
+import { installScreen, journalScreen, legalScreen, methodScreen, prepareScreens, privacyScreen, shareScreen, transferScreen } from './ui/screens/load'
 import { clearSelections } from './ui/compare/selection'
 import { compareNow, loadCompare } from './ui/compare/load'
 import { loadProfile, profileNow } from './ui/profile/load'
@@ -35,6 +38,7 @@ import { useOnDemand, type OnDemand } from './ui/lazy'
 import { axisOf } from './core/spectrum'
 import { Topics } from './ui/screens/Topics'
 import { Videos } from './ui/screens/Videos'
+import { QuestionsCta } from './ui/components/QuestionsCta'
 import { useOnline } from './ui/useOnline'
 import { VideoHost } from './ui/videos/Host'
 import { hasVideos, setVideoScope } from './ui/videos/load'
@@ -407,7 +411,7 @@ function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
         const step2Seen = items.slice(step1).some(x => state.answers[x.id])
         return (
           <Sheet
-            title={essentialTier ? 'Feuille de pointage' : 'Feuille complémentaire'}
+            title={essentialTier ? 'Les questions' : 'Questions complémentaires'}
             question={q}
             approaches={seededShuffle(q.approaches, `${state.seed}:${q.id}`)}
             topic={bank.topics.find(t => t.id === q.topicId)}
@@ -443,7 +447,7 @@ function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
         const n = fresh.size
         return (
           <Sheet
-            title="Feuille de révision"
+            title="Questions à revoir"
             question={q}
             approaches={seededShuffle(q.approaches, `${state.seed}:${q.id}`)}
             topic={bank.topics.find(t => t.id === q.topicId)}
@@ -504,6 +508,8 @@ function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
         return onDemandScreen('transfer', transferScreen, 'La page pour un autre appareil', 'de la page', m => (
           <m.Transfer pack={pack} state={state} setState={setState} importing={!!route.import} />
         ))
+      case 'install':
+        return onDemandScreen('install', installScreen, 'Les pages de l’installation', 'de la page', m => <m.Install pack={pack} state={state} />)
       case 'method': {
         const anchor = route.anchor
         return onDemandScreen('method', methodScreen, 'Les pages de la méthode', 'de la méthode', m => (
@@ -518,10 +524,17 @@ function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
         return onDemandScreen('legal', legalScreen, 'Les mentions légales', 'des mentions légales', m => (
           <m.Legal pack={pack} seed={state.seed} />
         ))
+      case 'journal': {
+        // Une autre entrée ou d'autres filtres demandés par un lien (#/journal/8, #/journal?…) remontent la page
+        const { n, query } = route
+        return onDemandScreen(`journal:${n ?? ''}:${query ?? ''}`, journalScreen, 'Les pages du journal', 'du journal', m => (
+          <m.Journal pack={pack} state={state} n={n} query={query} answered={id => isAnswered(state.answers[id])} />
+        ))
+      }
       case 'candidates':
-        return <CandidatesIndex pack={pack} state={state} />
+        return <CandidatesIndex pack={pack} state={state} essential={essential} />
       case 'candidate':
-        return <CandidatePage pack={pack} candidateId={route.id} state={state} />
+        return <CandidatePage pack={pack} candidateId={route.id} state={state} essential={essential} />
       case 'compare':
         // Arrivée par un lien (pas à l'ouverture de la page) : le titre prendra le focus une fois l'écran chargé
         return (
@@ -533,7 +546,7 @@ function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
             loading="de la comparaison"
             focusOnLoad={!firstRender.current}
             onLoaded={() => setLoadedScreens(n => n + 1)}
-            render={m => <m.Compare pack={pack} ids={route.ids} state={state} />}
+            render={m => <m.Compare pack={pack} ids={route.ids} state={state} cta={<QuestionsCta essential={essential} answers={state.answers} />} />}
           />
         )
       case 'topics':
@@ -641,6 +654,10 @@ function titleFor(route: Route): string {
       return 'À table'
     case 'transfer':
       return 'Transférer vos réponses'
+    case 'journal':
+      return 'Journal des données'
+    case 'install':
+      return 'Installer l’application'
     default:
       return 'Isoloir'
   }

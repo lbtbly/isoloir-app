@@ -218,7 +218,7 @@ function RevealLegend() {
       </h2>
       <div class="legend-col">
         <h3 class="legend-head">Votre avis</h3>
-        <p class="legend-desc">À gauche de chaque approche, le repère de votre feuille.</p>
+        <p class="legend-desc">À gauche de chaque approche, le repère de votre réponse.</p>
         <ul class="legend-items is-you">
           <li>
             <RatingMark value={1} redLine={false} />

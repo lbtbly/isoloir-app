@@ -26,7 +26,7 @@
 // journal de l'accueil de retour, sa date dans sa colonne à 1 024 et 1 280 px), leurs liens et leurs teintes (celles
 // des cases de la page, clair et sombre, contraste
 // forcé) ; la page d'attente (pas encore de réponse, pas encore assez : le compte, le bouton qui ramène à la première
-// question non vue, l'exemple fictif, sans tableau) ; la fiche « Pour lire plus de thèmes » (questionnaire rapide seul,
+// question non vue, l'exemple fictif et, dessous, pleine et atténuée, sans tableau) ; la fiche « Pour lire plus de thèmes » (questionnaire rapide seul,
 // mais pas tout approfondi) et « Approfondir ce thème », qui coche le thème ; puis la page lue sur l'appareil (mention
 // IA), son graphique « une ligne par sujet » (axe, lignes, clavier, survol, plis, détail replié, chargé à son ouverture ;
 // la barre collante des domaines et de leurs sujets : en cours, toucher, focus, clavier, hauteur collée) aux couleurs de
@@ -35,6 +35,12 @@
 // l'en-tête, l'axe collant ou l'en-tête des colonnes, et sans effet sur l'affiche JPG ; sa rubrique de la Méthode, hors
 // ligne, chargée sans la page ; le statut « Lecture en cours » d'une page lourde, processeur bridé ; rien de tout cela
 // sans axe.
+// « Installer l'application » (#/installer), en imitant chaque appareil (iPhone avec Safari d'iOS 26 et 18, Android
+// avec Chrome, ordinateur, Windows avec Firefox, fenêtre d'Instagram, appareil non reconnu) et le mode installé : la
+// copie du code dans le geste, le bouton du navigateur sans invite de lui-même (le focus et le statut après sa fenêtre),
+// le QR code de la seule adresse, l'avis de l'application ouverte vide, l'import par « Coller le code » et le
+// presse-papiers vidé (et lui seul : jamais un texte collé puis effacé), les symboles des menus dits en mots, la feuille
+// de la page chargée avec elle, le manifeste gardé hors ligne.
 //
 // Usage : pnpm build && node tools/e2e-offline.mjs [port] [--pack <id>] [--prefix <slug>]
 //   --pack <id>     : l'élection à parcourir (par défaut, celle du registre sans préfixe : src/elections/index.ts)
@@ -72,6 +78,8 @@ const { orderedQuestions } = await importSite('src/core/order.ts')
 const { RETIRED_PREFIXES = [] } = await importSite('src/elections/index.ts')
 // Seuil du score indicatif des non classés et accroche de l'affiche (décisions du propriétaire du 2026-10-15)
 const { EXCLUDED_MIN_KNOWN } = await importSite('src/core/score.ts')
+/** La paire de la légende, pleine puis atténuée, telle que la lit waitInfo (« pâle sauf net », 17 octobre 2026) */
+const PAIR = await importSite('src/core/echiquierCopy.ts').then(T => `pleine ${T.KEY_NET.replace(/\s+/g, ' ')}|atténuée ${T.KEY_FLAT.replace(/\s+/g, ' ')}`)
 const { leaderLead } = await importSite('src/core/resultsCopy.ts')
 let site
 try {
@@ -234,6 +242,9 @@ const waitInfo = pg =>
     const t = sel => (document.querySelector(sel)?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
     const cta = document.querySelector('main .profile-wait a.btn-primary')
     const tiles = [...document.querySelectorAll('main .ex-grid[aria-hidden="true"] .tile')]
+    // Sous l'exemple, la paire de la légende (décision du propriétaire du 17 octobre 2026) : entre la grille et la phrase
+    // des couleurs, ses mots et ses deux pastilles, pleine puis atténuée
+    const pair = document.querySelector('main .profile-example .key-pair')
     return {
       where: t('main .profile-wait .trend-where'),
       count: t('main .profile-wait .trend-count'),
@@ -242,6 +253,7 @@ const waitInfo = pg =>
       href: cta?.getAttribute('href') ?? null,
       tiles: tiles.length,
       words: tiles.every(x => (x.textContent ?? '').trim().length > 2),
+      pair: pair?.checkVisibility() && pair.previousElementSibling?.matches('.ex-grid') && pair.nextElementSibling?.matches('.ex-key') ? [...pair.querySelectorAll('li')].map(li => `${li.querySelector('.tile')?.classList.contains('is-net') ? 'pleine' : 'atténuée'} ${(li.textContent ?? '').replace(/\s+/g, ' ').trim()}`).join('|') : null,
       tables: document.querySelectorAll('main table').length,
       deepen: t('main .wait-deepen').length > 20,
       focused: !!document.activeElement?.matches('main h1'),
@@ -268,15 +280,43 @@ const homeEntry = pg =>
       text: [...(card?.querySelectorAll('.hp-tag, .hp-body, .pb-body') ?? [])].map(e => e.textContent).join(' ').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim(),
     }
   })
-/** Le fond des cases d'un palier, sous un sélecteur : { « tres-proche » : « rgb(…) », … } */
+/**
+ * Le fond des cases d'un palier, pleines et atténuées, sous un sélecteur : { « aff-tres-proche » : « rgb(…) »,
+ * « aff-proche is-net » : « rgb(…) », « aff-mitige is-net is-sens-pres » : « rgb(…) », … } ; bad : une case pleine hors
+ * de l'aplat de son palier (au palier « mitigé », de celui de son sens), une atténuée hors de sa teinte (« pâle sauf
+ * net », décision du propriétaire du 17 octobre 2026) ; net : les cases pleines ; paliers : les paliers vus, pleins ou
+ * atténués
+ */
 const tileColors = (pg, sel) =>
   pg.evaluate(sel => {
-    const out = {}
+    const colors = {}
+    const bad = []
+    const paliers = new Set()
+    let net = 0
+    const probe = document.createElement('span')
+    document.body.append(probe)
+    const css = v => {
+      probe.style.backgroundColor = v
+      return getComputedStyle(probe).backgroundColor
+    }
     for (const t of document.querySelectorAll(`${sel} .tile`)) {
       const k = [...t.classList].find(c => c.startsWith('aff-'))
-      if (k) out[k] = getComputedStyle(t).backgroundColor
+      if (!k) continue
+      paliers.add(k)
+      const full = t.classList.contains('is-net')
+      const sens = ['is-sens-pres', 'is-sens-loin'].find(c => t.classList.contains(c))
+      const bg = getComputedStyle(t).backgroundColor
+      colors[full ? `${k} is-net${sens ? ` ${sens}` : ''}` : k] = bg
+      if (full) net++
+      // Pleine : l'aplat de son palier ; au palier « mitigé », celui de « proche » ou de « éloigné », selon son sens
+      const flat = k !== 'aff-mitige' ? k : sens === 'is-sens-pres' ? 'aff-proche' : sens === 'is-sens-loin' ? 'aff-eloigne' : null
+      if (full && !flat) bad.push(`${k} pleine sans le sens de sa lecture`)
+      if (sens && (!full || k !== 'aff-mitige')) bad.push(`${k}${full ? ' pleine' : ' atténuée'} avec ${sens}`)
+      const want = css(full ? `var(--${flat ?? k})` : `var(--${k}-tint)`)
+      if (bg !== want) bad.push(`${k}${full ? ' pleine' : ' atténuée'} : ${bg} au lieu de ${want}`)
     }
-    return out
+    probe.remove()
+    return { colors, bad, net, paliers: paliers.size }
   }, sel)
 /** Les mots coupés sur deux lignes (un mot dont les rectangles tiennent sur deux hauteurs) sous ces sélecteurs */
 const cutWords = (pg, sel) =>
@@ -345,7 +385,13 @@ try {
   await page.locator('.home-film .film-stage').waitFor()
   const firstCta = await page.locator('.header-cta').getAttribute('href').catch(() => null)
   const homeBars = await page.locator('.action-bar').count()
-  check(firstCta === L('/feuille/1') && homeBars === 0, `accueil : l’en-tête mène à la question 1, pas de barre d’actions en bas (${firstCta}, ${homeBars} barre)`)
+  // Son libellé parle de questions, jamais de feuille (décision du propriétaire du 17/10/2026) : le long, ou le court
+  // quand la place manque
+  const ctaShown = flat(await page.locator('.header-cta').innerText().catch(() => ''))
+  check(
+    firstCta === L('/feuille/1') && homeBars === 0 && ['Répondre aux questions', 'Répondre'].includes(ctaShown),
+    `accueil : l’en-tête mène à la question 1 par « ${ctaShown} », pas de barre d’actions en bas (${firstCta}, ${homeBars} barre)`,
+  )
   // Mouvement réduit (réglage du contexte) : le film ne démarre pas, chaque chapitre montre son image fixe
   const playing = await page.locator('.film-scene.is-play').count()
   const playLabel = ((await page.locator('.film-play').textContent().catch(() => '')) ?? '').trim()
@@ -378,11 +424,14 @@ try {
     const w = await waitInfo(page)
     const keys = await page.evaluate(() => Object.keys(localStorage).filter(k => k.startsWith('isoloir')))
     check(
-      hashOf(page) === L('/profil') && w.focused && w.where === 'Pas encore de réponse' && w.count === `0 question sur ${QUICK}` && w.cta === 'Commencer la feuille' && w.href === L('/feuille/1') && w.tiles === 15 && w.words && w.tables === 0 && w.deepen && keys.length === 0,
-      `mon profil politique, page d’attente (feuille vierge) : focus au titre ${w.focused}, « ${w.where} », « ${w.count} », bouton « ${w.cta} » vers ${w.href}, exemple de ${w.tiles} cases avec leurs mots ${w.words}, ${w.tables} tableau, rien d’enregistré (${keys.join(', ') || 'aucune clé'})`,
+      hashOf(page) === L('/profil') && w.focused && w.where === 'Pas encore de réponse' && w.count === `0 question sur ${QUICK}` && w.cta === 'Répondre aux questions' && w.href === L('/feuille/1') && w.tiles === 15 && w.words && w.pair === PAIR && w.tables === 0 && w.deepen && keys.length === 0,
+      `mon profil politique, page d’attente (feuille vierge) : focus au titre ${w.focused}, « ${w.where} », « ${w.count} », bouton « ${w.cta} » vers ${w.href}, exemple de ${w.tiles} cases avec leurs mots ${w.words}, dessous « ${w.pair} », ${w.tables} tableau, rien d’enregistré (${keys.join(', ') || 'aucune clé'})`,
     )
-    // Les teintes de l'aperçu sont celles des cases de la page, en clair comme en sombre ; en contraste forcé, chaque case
-    // garde son cadre
+    // Les teintes de l'aperçu sont celles des cases de la page, en clair comme en sombre : pleines sur les lectures
+    // fictives nettes (PROFILE_PEEK_NET), atténuées ailleurs ; en contraste forcé, chaque case garde son cadre, épais sur
+    // une case pleine
+    const { PROFILE_PEEK_NET } = await importSite('src/core/resultsCopy.ts')
+    const fictive = [...PROFILE_PEEK_NET].filter(m => m !== '.').length
     const shades = {}
     for (const scheme of ['light', 'dark']) {
       await page.emulateMedia({ colorScheme: scheme })
@@ -395,11 +444,24 @@ try {
       shades[scheme].home = await tileColors(page, '.home-profile')
     }
     await page.emulateMedia({ colorScheme: 'light', forcedColors: 'active' })
-    const framed = await page.locator('.home-profile .tile').evaluateAll(ts => ts.every(t => getComputedStyle(t).outlineStyle === 'solid' && parseFloat(getComputedStyle(t).outlineWidth) >= 1))
+    const framed = await page.locator('.home-profile .tile').evaluateAll(ts =>
+      ts.every(t => getComputedStyle(t).outlineStyle === 'solid' && parseFloat(getComputedStyle(t).outlineWidth) >= (t.classList.contains('is-net') ? 3 : 1)),
+    )
     await page.emulateMedia({ colorScheme: 'light', forcedColors: 'none' })
-    const same = ['light', 'dark'].every(k => Object.keys(shades[k].page).length === 5 && JSON.stringify(shades[k].page) === JSON.stringify(Object.fromEntries(Object.keys(shades[k].page).map(b => [b, shades[k].home[b]]))))
-    const distinct = new Set(Object.values(shades.light.home)).size === 5
-    check(same && distinct && framed, `mon profil politique, aperçu de l’accueil : les teintes des cases de la page (clair et sombre ${same}, cinq paliers distincts ${distinct}), cadre en contraste forcé ${framed}`)
+    // Sorte de case par sorte de case (palier, pleine ou atténuée, sens d'un « mitigé » net), les mêmes sur la page et sur
+    // l'accueil, et la même teinte ; les cinq paliers vus des deux côtés, pleins ou atténués ; chaque sorte de case a sa
+    // teinte (une case nette « mitigé » prend celle de son sens, contrôlée par bad)
+    const kinds = o => Object.keys(o).sort().join('|')
+    const same = ['light', 'dark'].every(k => kinds(shades[k].page.colors) === kinds(shades[k].home.colors) && Object.keys(shades[k].page.colors).every(c => shades[k].page.colors[c] === shades[k].home.colors[c]))
+    const five = ['light', 'dark'].every(k => shades[k].page.paliers === 5 && shades[k].home.paliers === 5)
+    const own = Object.entries(shades.light.home.colors).filter(([c]) => !c.includes('is-sens-'))
+    const distinct = new Set(own.map(([, v]) => v)).size === own.length
+    const ruled = ['light', 'dark'].flatMap(k => [...shades[k].page.bad, ...shades[k].home.bad])
+    const full = ['light', 'dark'].every(k => shades[k].page.net === fictive && shades[k].home.net === fictive)
+    check(
+      same && five && distinct && framed && full && !ruled.length,
+      `mon profil politique, aperçu de l’accueil : les teintes des cases de la page, sorte par sorte (clair et sombre ${same} : ${kinds(shades.light.home.colors).replace(/\|/g, ', ')}), cinq paliers vus ${five}, une teinte par sorte de case ${distinct}, ${shades.light.home.net} cases pleines sur ${fictive} lectures fictives nettes ${full}, aplat ou teinte de leur palier ${ruled.length ? ruled.slice(0, 3).join(' ; ') : 'oui'}, cadre en contraste forcé ${framed}`,
+    )
   } else {
     check((await page.locator('.home-profile').count()) === 0, 'accueil : pas d’entrée « Mon profil politique » sans axe de la grille')
   }
@@ -660,7 +722,7 @@ try {
       // La ligne d'état compte les questions vues, comme l'aperçu juste dessous : les deux comptes font le questionnaire
       const status = flat(await page.locator('.home-status .progress-note').textContent().catch(() => ''))
       check(
-        status.startsWith(`Feuille en cours : ${STEP1} question${STEP1 > 1 ? 's' : ''} sur ${QUICK}.`),
+        status.startsWith(`Vous avez vu ${STEP1} question${STEP1 > 1 ? 's' : ''} sur ${QUICK}.`),
         `accueil, feuille en cours : « ${status} », puis « encore ${left} » dans l’aperçu (${STEP1} + ${left} = ${QUICK})`,
       )
       check(
@@ -688,8 +750,8 @@ try {
         `mon profil politique, pendant la tendance : pas de bandeau (${trendBand}), ${trendLinks.length} lien, dans « Où vous en êtes » (« ${line} »)`,
       )
       check(
-        w.focused && w.where === 'Pas encore assez de réponses' && w.count === `${STEP1} questions sur ${QUICK}` && w.text.includes(`encore ${left} question`) && w.cta === `Continuer : ${left} question${left > 1 ? 's' : ''}` && w.href === L(`/feuille/${STEP1 + 1}`) && w.tiles === 15 && w.tables === 0,
-        `mon profil politique, page d’attente (tendance, hors ligne) : « ${w.where} », « ${w.count} », « ${w.text} », bouton « ${w.cta} » vers ${w.href}, ${w.tables} tableau`,
+        w.focused && w.where === 'Pas encore assez de réponses' && w.count === `${STEP1} questions sur ${QUICK}` && w.text.includes(`encore ${left} question`) && w.cta === `Continuer : ${left} question${left > 1 ? 's' : ''}` && w.href === L(`/feuille/${STEP1 + 1}`) && w.tiles === 15 && w.pair === PAIR && w.tables === 0,
+        `mon profil politique, page d’attente (tendance, hors ligne) : « ${w.where} », « ${w.count} », « ${w.text} », bouton « ${w.cta} » vers ${w.href}, pleine et atténuée sous l’exemple ${w.pair === PAIR}, ${w.tables} tableau`,
       )
       await page.goto(U('/resultats'))
       await heading(page, 'Une première tendance')
@@ -961,14 +1023,19 @@ try {
 
     /** Les couleurs du graphique d'une page déjà lue, dans le thème de couleurs du moment */
     const { AFFINITY_BANDS } = await importSite('src/core/affinity.ts')
+    const { KEY_NET, KEY_FLAT } = await importSite('src/core/echiquierCopy.ts')
     const profileColors = async (pg, where) => {
       // Les couleurs des cases, et elles seules (décision du propriétaire du 12 octobre 2026) : chaque case du graphique,
-      // du détail, de la légende et d'une ligne ouverte au palier de son mot, sur l'échelle d'affinité du site (les deux
-      // bouts en aplat de leur teinte, « proche », « mitigé » et « éloigné » en lavis de la leur sur le papier), le mot à
-      // 4,5:1 au moins sur sa case ; « ? inconnu » sur le papier ; la légende, les cinq paliers dans l'ordre du site ; les
-      // en-têtes de colonne, le rappel collant et les en-têtes du détail sur le papier, sans pastel de bloc ; aucun autre
-      // fond que le papier, les lavis de l'encre et ces cases ; aucun symbole ▲ ▽ sur la page
-      const colors = await pg.evaluate(bands => {
+      // du détail, de la légende et d'une ligne ouverte au palier de son mot, sur l'échelle d'affinité du site ; « pâle
+      // sauf net » (décision du 17 octobre 2026) : pleine (l'aplat du palier ; au palier « mitigé », celui de « proche »
+      // ou de « éloigné », selon son sens) sur une lecture nette et elle seule, celle que dit sa ligne, son bloc ou ses
+      // mots, atténuée ailleurs (la teinte du palier ; une petite case, plus soutenue, sans atteindre l'aplat) ; le mot à
+      // 4,5:1 au moins sur sa case, l'aplat à 4,5:1 au moins de la teinte du même palier ; « ? inconnu » sur le papier ;
+      // la légende, les cinq paliers dans l'ordre du site, puis « Pleine » et « Atténuée », une seule paire en vue, dans
+      // l'axe au téléphone, juste sous l'axe collant à l'ordinateur (17 octobre 2026) ; les en-têtes de colonne, le
+      // rappel collant et les en-têtes du détail sur le papier, sans pastel de bloc ; aucun autre fond que le papier, les
+      // lavis de l'encre et ces cases ; aucun symbole ▲ ▽ sur la page
+      const colors = await pg.evaluate(([bands, keyWords]) => {
         const probe = document.createElement('span')
         document.querySelector('.screen-profile')?.append(probe)
         const parse = s => {
@@ -992,6 +1059,7 @@ try {
         const ink = rgb('var(--ink)')
         const red = rgb('var(--red)')
         const aff = Object.fromEntries(bands.map(b => [b.key, rgb(`var(--aff-${b.key})`)]))
+        const tint = Object.fromEntries(bands.map(b => [b.key, rgb(`var(--aff-${b.key}-tint)`)]))
         const pastels = ['vert', 'rouge', 'jaune', 'bleu'].map(t => rgb(`var(--pastel-${t})`))
         probe.remove()
         const near = (a, b) => !!b && a.slice(0, 3).every((x, i) => Math.abs(x - b[i]) <= 2)
@@ -1010,24 +1078,73 @@ try {
         const bad = []
         const name = el => `${el.tagName.toLowerCase()}.${String(el.className).trim().replace(/\s+/g, '.')}`
         const bg = el => parse(getComputedStyle(el).backgroundColor)
+        // Un fond calculé, quelle que soit sa notation (un color-mix en oklab compris), en sRGB 0-255, par le canevas
+        const pen = document.createElement('canvas').getContext('2d', { willReadFrequently: true })
+        const paint = el => {
+          pen.clearRect(0, 0, 1, 1)
+          pen.fillStyle = getComputedStyle(el).backgroundColor
+          pen.fillRect(0, 0, 1, 1)
+          return [...pen.getImageData(0, 0, 1, 1).data]
+        }
         const label = Object.fromEntries(bands.map(b => [b.key, b.label]))
-        // Chaque case : le fond de son palier, son mot (s'il en porte un), et ce mot lisible dessus
+        /**
+         * La lecture d'une case : celle de sa colonne sur une ligne (data-net), de son bloc dans une ligne ouverte (« Votre
+         * affinité, bloc par bloc »), ses mots dans le détail ; « pres », « loin » ou null ; undefined pour la légende
+         */
+        const readingOf = t => {
+          if (t.parentElement?.matches('.cell')) return t.parentElement.dataset.net ?? null
+          const li = t.closest('.explain-blocs li')
+          if (li) return li.classList.contains('is-net') ? (/près/.test(li.querySelector('.eb-net')?.textContent ?? '') ? 'pres' : 'loin') : null
+          if (t.closest('td.mk')) {
+            const w = t.querySelector('.tile-net')?.textContent ?? ''
+            return /plus près/.test(w) ? 'pres' : /plus loin/.test(w) ? 'loin' : null
+          }
+          return undefined
+        }
+        // L'aplat de chaque palier se détache de sa teinte (une case pleine, d'une atténuée du même palier)
+        for (const b of bands) if (ratio(aff[b.key], tint[b.key]) < 4.5) bad.push(`${b.key} : aplat à ${ratio(aff[b.key], tint[b.key]).toFixed(2)}:1 de sa teinte`)
+        // Chaque case : le fond de son palier, plein sur une lecture nette, atténué ailleurs ; son mot (s'il en porte un),
+        // et ce mot lisible dessus
         let tiles = 0
+        let full = 0
         let minRatio = 99
         const seen = new Set()
+        // Par place, les cases contrôlées, les pleines et les « mitigé » nettes : les lignes, une ligne ouverte (« Votre
+        // affinité, bloc par bloc », montée à l'ouverture seulement), le détail (son tableau ouvert), la légende
+        const places = Object.fromEntries(['lignes', 'ouverte', 'détail', 'légende'].map(p => [p, { tiles: 0, full: 0, mitige: 0 }]))
+        const placeOf = t => (t.closest('.chart-key, .key-pair') ? 'légende' : t.closest('.explain-blocs') ? 'ouverte' : t.closest('.echiquier') ? 'détail' : 'lignes')
         for (const t of document.querySelectorAll('main .profile-chart .tile, main .echiquier .tile')) {
           tiles++
           const key = [...t.classList].find(c => c.startsWith('aff-'))?.slice(4) ?? (t.classList.contains('is-inconnu') ? 'inconnu' : null)
-          const b = bg(t)
+          const b = paint(t)
           const word = t.querySelector('.tile-word')?.textContent.replace(/\s+/g, ' ').trim()
+          const isNet = t.classList.contains('is-net')
+          const reading = readingOf(t)
+          if (t.checkVisibility()) {
+            const at = places[placeOf(t)]
+            at.tiles++
+            if (isNet) at.full++
+            if (isNet && key === 'mitige') at.mitige++
+          }
           if (!key) bad.push(`${name(t)} : une case sans palier`)
           else if (key === 'inconnu') {
             if (!near(b, paper)) bad.push(`${name(t)} : « inconnu » hors du papier`)
+            if (isNet) bad.push(`${name(t)} : « inconnu » plein`)
             if (word !== undefined && word !== '? inconnu') bad.push(`${name(t)} : « ${word} » pour un bloc inconnu`)
           } else {
             seen.add(key)
-            const ok = key === 'tres-proche' || key === 'tres-eloigne' ? near(b, aff[key]) : onSegment(b, aff[key], 0.05) && !near(b, aff[key])
-            if (!ok) bad.push(`${name(t)} ${key} : fond ${getComputedStyle(t).backgroundColor}`)
+            if (isNet && reading !== undefined) full++
+            if (reading !== undefined && isNet !== !!reading) bad.push(`${name(t)} ${key} : ${isNet ? 'pleine' : 'atténuée'} pour une lecture ${reading ?? 'sans rien de net'}`)
+            // Pleine : l'aplat de son palier ; au palier « mitigé », celui de son sens
+            const sens = key !== 'mitige' ? key : t.classList.contains('is-sens-pres') ? 'proche' : t.classList.contains('is-sens-loin') ? 'eloigne' : null
+            if (isNet && key === 'mitige' && (!sens || (reading && sens !== (reading === 'pres' ? 'proche' : 'eloigne')))) bad.push(`${name(t)} : « mitigé » net sans le sens de sa lecture (${reading})`)
+            const small = t.classList.contains('key-tile')
+            const ok = isNet
+              ? near(b, aff[sens ?? key])
+              : small
+                ? !near(b, tint[key]) && !near(b, aff[key]) && ratio(b, paper) >= 1.25 && ratio(b, paper) < ratio(aff[key], paper)
+                : near(b, tint[key])
+            if (!ok) bad.push(`${name(t)} ${key}${isNet ? ' pleine' : ' atténuée'} : fond ${getComputedStyle(t).backgroundColor}`)
             if (word !== undefined && word !== label[key]) bad.push(`${name(t)} : « ${word} » sur la case ${key}`)
           }
           if (t.textContent.trim()) minRatio = Math.min(minRatio, ratio(parse(getComputedStyle(t).color), key === 'inconnu' ? paper : b))
@@ -1042,24 +1159,86 @@ try {
             if (!near(c, onAction)) bad.push(`${name(el)} : lettres du bouton principal ${cs.color}`)
             continue
           }
+          // Votre avis dans « Ce qui pèse le plus » (lot 3), dans une ligne nette ouverte et dans le détail : le repère de
+          // la mini-réglette de « Qui porte quoi », dans le ton de son cran (l'aplat d'un palier de l'échelle du site), en
+          // gris pour « mitigé », au rouge du stylo sur une ligne rouge ; ses crans et son filet en gris
+          if (el.closest('.weigh .rating-mark')) {
+            const tone = x => clear(x) || [paper, print, soft, red, ...Object.values(aff)].some(y => near(x, y))
+            if (!tone(b) || !tone(c)) bad.push(`${name(el)} : votre avis hors du ton de son cran (${cs.backgroundColor}, ${cs.color})`)
+            continue
+          }
           if (!clear(b) && !near(b, paper) && !near(b, print) && !onWash(b)) bad.push(`${name(el)} fond ${cs.backgroundColor}`)
           if (!clear(b) && pastels.some(x => near(b, x))) bad.push(`${name(el)} : un pastel (${cs.backgroundColor})`)
           if (!clear(c) && ![print, soft, paper, onPrint].some(x => near(c, x)) && !(el.matches('.row-prio') && near(c, ink)) && !(el.matches('.detail-meta .is-red') && near(c, red)))
             bad.push(`${name(el)} encre ${cs.color}`)
         }
-        // La légende : les cinq paliers, dans l'ordre du site, puis « inconnu » s'il paraît
-        const key = [...document.querySelectorAll('main .profile-chart .key-scale li')].map(li => li.textContent.replace(/\s+/g, ' ').trim())
+        // La légende : les cinq paliers, dans l'ordre du site, puis « inconnu » s'il paraît, atténués ; dessous, la même
+        // pastille pleine (« Pleine : … ») puis atténuée (« Atténuée : … »)
+        const key = [...document.querySelectorAll('main .profile-chart .key-scale:not(.key-pair) li')].map(li => li.textContent.replace(/\s+/g, ' ').trim())
         const want = bands.map(b => b.label).join('|')
         if (key.slice(0, bands.length).join('|') !== want || key.length > bands.length + 1) bad.push(`légende : ${key.join(', ')}`)
+        if (document.querySelector('main .profile-chart .key-scale:not(.key-pair) .tile.is-net')) bad.push('légende : un palier plein')
+        // Une seule paire en vue (décision du propriétaire du 17 octobre 2026) : au téléphone, dans la légende de l'axe ; à
+        // l'ordinateur, l'axe collant, juste sous lui, hors de ce qui colle
+        const pairs = [...document.querySelectorAll('main .profile-chart .key-pair')].filter(x => x.checkVisibility())
+        const axisEl = document.querySelector('main .profile-chart .axis')
+        const stuck = getComputedStyle(axisEl).position === 'sticky'
+        if (pairs.length !== 1) bad.push(`légende : ${pairs.length} paires pleine et atténuée en vue`)
+        else if (stuck ? pairs[0].closest('.axis') || pairs[0].previousElementSibling !== axisEl : !pairs[0].closest('.axis .chart-key'))
+          bad.push(`légende : pleine et atténuée ${pairs[0].closest('.axis') ? 'dans l’axe' : 'hors de l’axe'}, l’axe ${stuck ? 'collant' : 'dans la page'}`)
+        const pair = [...(pairs[0]?.querySelectorAll('li') ?? [])]
+        const pairText = pair.map(li => li.textContent.replace(/\s+/g, ' ').trim()).join('|')
+        if (pairText !== keyWords.map(w => w.replace(/\s+/g, ' ')).join('|') || pair.map(li => li.querySelector('.tile')?.classList.contains('is-net')).join() !== 'true,false')
+          bad.push(`légende, pleine et atténuée : ${pairText}`)
         // Les en-têtes de colonne, du rappel et du détail : neutres
         for (const el of document.querySelectorAll('main .profile-chart .zone, .axis-mini-inner > span, main .echiquier th.bloc-head'))
           if (!clear(bg(el)) && !near(bg(el), paper)) bad.push(`${name(el)} : en-tête coloré (${getComputedStyle(el).backgroundColor})`)
         const glyphs = /[▲▽]/.test(document.querySelector('main')?.textContent ?? '')
-        return { bad: [...new Set(bad)].slice(0, 5), tiles, seen: seen.size, minRatio, glyphs, scheme: matchMedia('(prefers-color-scheme: dark)').matches ? 'sombre' : 'clair' }
-      }, AFFINITY_BANDS)
+        return { bad: [...new Set(bad)].slice(0, 12), tiles, full, places, seen: seen.size, minRatio, glyphs, scheme: matchMedia('(prefers-color-scheme: dark)').matches ? 'sombre' : 'clair' }
+      }, [AFFINITY_BANDS, [KEY_NET, KEY_FLAT]])
+      // Une page de lectures nettes a des cases pleines (la légende mise à part) ; une ligne nette ouverte, des petites
+      // cases pleines ; le détail ouvert sur une lecture nette, des cases pleines ; une case nette « mitigé », dans chacun
+      // des trois (contre-vérification du 17 octobre 2026 : ni la ligne ouverte ni « mitigé » net n'étaient contrôlés)
+      const P = colors.places
+      const want = [
+        [/lectures nettes/.test(where), 'lignes', P.lignes.full > 0],
+        [/ligne nette ouverte/.test(where), 'ligne ouverte', P.ouverte.tiles >= 5 && P.ouverte.full > 0],
+        [/détail/.test(where), 'détail', P['détail'].full > 0],
+        [/« mitigé »/.test(where), '« mitigé » net', P.lignes.mitige > 0 && P.ouverte.mitige > 0 && P['détail'].mitige > 0],
+      ].filter(([on, , ok]) => on && !ok)
       check(
-        colors.bad.length === 0 && colors.tiles > 0 && colors.minRatio >= 4.5 && !colors.glyphs,
-        `mon profil politique (${where}), couleurs des cases (${colors.scheme}) : ${colors.tiles} cases au palier de leur mot (${colors.seen} paliers vus), mot à ${colors.minRatio === 99 ? '–' : colors.minRatio.toFixed(1)}:1 au moins, légende dans l’ordre du site, en-têtes neutres, aucun pastel de bloc, ${colors.glyphs ? 'des ▲ ▽ !' : 'aucun ▲ ▽'}${colors.bad.length ? ` : ${colors.bad.join(' ; ')}` : ''}`,
+        colors.bad.length === 0 && colors.tiles > 0 && colors.minRatio >= 4.5 && !colors.glyphs && !want.length,
+        `mon profil politique (${where}), couleurs des cases (${colors.scheme}) : ${colors.tiles} cases au palier de leur mot (${colors.seen} paliers vus), ${colors.full} pleines, chacune sur une lecture nette (vues, pleines dont « mitigé » : ${Object.entries(P).map(([p, x]) => `${p} ${x.tiles}, ${x.full} dont ${x.mitige}`).join(' ; ')}), mot à ${colors.minRatio === 99 ? '–' : colors.minRatio.toFixed(1)}:1 au moins, légende dans l’ordre du site puis pleine et atténuée, en-têtes neutres, aucun pastel de bloc, ${colors.glyphs ? 'des ▲ ▽ !' : 'aucun ▲ ▽'}${want.length ? ` ; manquent : ${want.map(w => w[1]).join(', ')}` : ''}${colors.bad.length ? ` : ${colors.bad.join(' ; ')}` : ''}`,
+      )
+    }
+
+    /**
+     * En contraste forcé, les couleurs tombent et les cadres restent : chaque case de la page (lignes, ligne ouverte,
+     * détail, légende), un cadre plein, épais (3 px) sur une case pleine, fin ailleurs, en tirets sur « ? inconnu » ;
+     * places : celles qui doivent avoir des cases pleines
+     */
+    const forcedFrames = async (pg, where, places) => {
+      await pg.emulateMedia({ forcedColors: 'active' })
+      const f = await pg.evaluate(() => {
+        const out = { bad: [], full: {}, tiles: 0 }
+        for (const t of document.querySelectorAll('main .profile-chart .tile, main .echiquier .tile')) {
+          if (!t.checkVisibility()) continue
+          out.tiles++
+          const cs = getComputedStyle(t)
+          const w = parseFloat(cs.outlineWidth)
+          const net = t.classList.contains('is-net')
+          const style = t.classList.contains('is-inconnu') ? 'dashed' : 'solid'
+          const place = t.closest('.chart-key, .key-pair') ? 'légende' : t.closest('.explain-blocs') ? 'ligne ouverte' : t.closest('.echiquier') ? 'détail' : 'lignes'
+          if (net) out.full[place] = (out.full[place] ?? 0) + 1
+          if (cs.outlineStyle !== style || (net ? w < 3 : w < 1 || w >= 3)) out.bad.push(`${place}, ${t.className} : ${cs.outlineStyle} ${cs.outlineWidth}`)
+        }
+        return out
+      })
+      await pg.emulateMedia({ forcedColors: 'none' })
+      const missing = places.filter(p => !f.full[p])
+      check(
+        f.tiles > 0 && !f.bad.length && !missing.length,
+        `mon profil politique (${where}), contraste forcé : ${f.tiles} cases, chacune dans son cadre, épais sur les cases pleines (${Object.entries(f.full).map(([p, n]) => `${p} ${n}`).join(', ') || 'aucune'})${missing.length ? `, aucune case pleine vue : ${missing.join(', ')}` : ''}${f.bad.length ? ` : ${f.bad.slice(0, 4).join(' ; ')}` : ''}`,
       )
     }
 
@@ -1331,7 +1510,7 @@ try {
         const a = await arrival()
         const n = openOf(pickId)
         const total = n + openOf(other.id)
-        const note = `Le thème « ${pick} » est coché : la feuille commence par ${n > 1 ? `ses ${n} questions` : 'sa question'}. Un autre thème est aussi coché : ${total} questions en tout.`
+        const note = `Le thème « ${pick} » est coché : vous commencez par ${n > 1 ? `ses ${n} questions` : 'sa question'}. Un autre thème est aussi coché : ${total} questions en tout.`
         const list = orderedQuestions(pack.bank, 'approfondi', st.seed, [pickId, other.id])
         const seen = new Set(Object.keys(st.answers ?? {}))
         const own = list.filter(q => q.topicId === pickId)
@@ -1468,6 +1647,9 @@ try {
             changed: !!document.querySelector('.back-hero.has-changed .back-intro .changed'),
             // La date du journal dans sa colonne : deux pistes à la grille de chaque entrée
             newsCols: li ? getComputedStyle(li).gridTemplateColumns.split(' ').length : 0,
+            // Les titres du journal sont rédigés par IA : la mention avant le premier
+            newsAi: !!(document.querySelector('.back-news .ai-label')?.compareDocumentPosition(document.querySelector('.back-news-list a')) & Node.DOCUMENT_POSITION_FOLLOWING),
+            newsAll: document.querySelector('.back-news > .g-link')?.textContent ?? '',
             vh: innerHeight,
             wide: document.documentElement.scrollWidth > innerWidth,
           }
@@ -1484,8 +1666,8 @@ try {
       for (const width of [1024, 1280]) {
         const full = await homeIn({ width, height: 900 }, withNews)
         check(
-          full.ready && full.frame && full.hero && full.frame.l === full.hero.l && full.frame.w === full.hero.w && full.newsCols === 2 && !full.wide,
-          `accueil de retour à ${width} px : le cadre sur toute la largeur, la date du journal dans sa colonne (${full.newsCols} pistes)`,
+          full.ready && full.frame && full.hero && full.frame.l === full.hero.l && full.frame.w === full.hero.w && full.newsCols === 2 && full.newsAi && /^Tout ce qui a changé après le \d/.test(flat(full.newsAll)) && !full.wide,
+          `accueil de retour à ${width} px : le cadre sur toute la largeur, la date du journal dans sa colonne (${full.newsCols} pistes), la mention IA avant ses titres, « ${flat(full.newsAll)} »`,
         )
         if (!revoir) continue
         const back = await homeIn({ width, height: 900 }, revoir)
@@ -1620,6 +1802,17 @@ try {
         sticky === 'sticky' && /^Vos réponses se rapprochent nettement/.test(opened.lead) && opened.who > 0 && toDetail.focus && toDetail.blocs === 5 && whyOk,
         `mon profil politique (lectures nettes, 1 280 px) : axe ${sticky}, ligne ouverte « ${opened.lead.slice(0, 50)}… » (${opened.who} bloc(s) nettement plus près ou plus loin, en mots), « Voir le détail » : focus ${toDetail.focus}, ${toDetail.blocs} blocs, ${toDetail.why.length} phrase(s) des façons pour ${toDetail.nets} lecture(s) nette(s)${toDetail.exact ? '' : ' (borne : aucune attendue)'} (« ${toDetail.why[0] ?? ''} »)`,
       )
+      // La ligne nette encore ouverte et « Le détail » ouvert sur elle : les petites cases de « Votre affinité, bloc par
+      // bloc » et celles du détail suivent la même règle (pleines sur un bloc net seulement), en sombre puis en clair ; en
+      // contraste forcé, le cadre épais sur chaque case pleine des lignes, de la ligne ouverte, du détail et de la légende
+      {
+        const where = 'lectures nettes, une ligne nette ouverte et le détail, 1 280 px'
+        await profileColors(rp, where)
+        await rp.emulateMedia({ colorScheme: 'light' })
+        await profileColors(rp, where)
+        await forcedFrames(rp, where, ['lignes', 'ligne ouverte', 'détail', 'légende'])
+        await rp.emulateMedia({ colorScheme: 'dark' })
+      }
       // « Approfondir » jamais sous un sujet lu sans tendance nette (« Rien de net ») : ni dans sa ligne ouverte, ni dans
       // son détail (refusé par le propriétaire le 15 octobre 2026)
       const flatDetails = await rp.evaluate(async () => {
@@ -1988,6 +2181,47 @@ try {
         }
       }
       check(issues.length === 0, `mon profil politique (lot 3, cas repérés) : ${seen.join(', ')}, ligne et détail à 1 280 px et à 320 px texte à 200 %${issues.length ? ` : ${[...new Set(issues)].slice(0, 6).join(' ; ')}` : ''}`)
+    }
+
+    // « Pâle sauf net », une case nette au palier « mitigé » (décision du propriétaire du 17 octobre 2026 ; la feuille
+    // mêlée ci-dessus n'en porte pas forcément) : sur le clone bruité de la maquette (graine « n:attal:11 », le
+    // questionnaire rapide vu en entier), la première ligne qui en porte une, ouverte, puis son détail : sa case dans la
+    // ligne, sa petite case dans « Votre affinité, bloc par bloc » et sa case du détail, pleines dans l'aplat de leur sens,
+    // « Mitigé » écrit, en sombre et en clair ; en contraste forcé, le cadre épais
+    {
+      const { profilesFor } = await importSite('tests/fixtures/echiquier-profiles.ts')
+      const { chartRows: rowsOfChart } = await importSite('src/ui/profile/rows.ts')
+      const { currentAnswers: currentOf } = await importSite('src/core/revisions.ts')
+      const { affinityBand } = await importSite('src/core/affinity.ts')
+      const P = profilesFor(pack)
+      const answers = P.toAnswers(P.noisy(P.cloneLarge('attal'), 'n:attal:11'))
+      for (const q of pack.bank.questions) {
+        if (answers[q.id] && q.rev) answers[q.id].rev = q.rev
+        if (q.tier === 'essentiel' && !answers[q.id]) answers[q.id] = { ratings: {}, redLines: [], skipped: true, ...(q.rev ? { rev: q.rev } : {}) }
+      }
+      const st = sanitizeState({ ...freshState(pack.election.id, pack.election.dataVersion), answers, essentialDoneAt: new Date().toISOString() }, pack)
+      const shown = rowsOfChart(groups, readEchiquier(pack, currentOf(pack, st.answers)), u => u.id)
+      const u = [...shown.read, ...shown.apart].find(x => x.cells.some(c => affinityBand(c.affinity)?.key === 'mitige' && (c.mark === 'pres' || c.mark === 'loin')))
+      if (!u) check(false, 'mon profil politique, case nette « mitigé » : aucune sur le clone bruité n:attal:11')
+      else {
+        const mctx = await browser.newContext({ viewport: { width: 1280, height: 900 }, reducedMotion: 'reduce', colorScheme: 'dark' })
+        await mctx.addInitScript(x => Object.entries(x).forEach(([k, v]) => localStorage.setItem(k, v)), { [STORAGE]: JSON.stringify(st) })
+        const mp = await mctx.newPage()
+        await mp.goto(U('/profil'))
+        await mp.locator('[role="status"]', { hasText: 'Lecture prête.' }).waitFor({ timeout: 8000 }).catch(() => null)
+        const id = `sj-${u.kind}-${u.id}-b`
+        await mp.locator(`#${id}`).click()
+        await mp.waitForFunction(bid => !!document.getElementById(document.getElementById(bid)?.getAttribute('aria-controls') ?? '')?.querySelector('.explain-blocs'), id, { timeout: 5000 }).catch(() => null)
+        await mp.locator('.profile-chart .explain:not([hidden]) .link-button').click()
+        await mp.locator(`#d-${u.kind}-${u.id} .detail-blocs tbody tr`).first().waitFor({ timeout: 5000 }).catch(() => null)
+        await mp.waitForTimeout(200)
+        const where = `case nette « mitigé », ${u.kind}-${u.id} ouverte et son détail, 1 280 px`
+        await profileColors(mp, where)
+        await mp.emulateMedia({ colorScheme: 'light' })
+        await profileColors(mp, where)
+        await forcedFrames(mp, where, ['lignes', 'ligne ouverte', 'détail', 'légende'])
+        await mctx.close()
+      }
     }
 
     // Lot 4, « Votre façon de répondre » : la phrase, sans titre, après les domaines et avant la fiche repliée, quand presque
@@ -2559,13 +2793,17 @@ try {
       await nctx.close()
       // La barre colle si l'en-tête, elle, ce qui colle sous elle (l'axe collant en grand écran, le rappel des blocs au
       // téléphone) et la barre du bas tiennent dans la moitié de l'écran, sinon elle suit la page : texte à 200 %, petits
-      // écrans (contre-vérification du 17 octobre 2026 : 62 % de l'écran collé à 1 024 × 600, la barre restant collée)
-      for (const [width, zoom, height = 812, touch = true] of [
+      // écrans (contre-vérification du 17 octobre 2026 : 62 % de l'écran collé à 1 024 × 600, la barre restant collée).
+      // stick : elle doit coller. « Pleine » et « Atténuée » hors de l'axe collant, à l'ordinateur (décision du
+      // propriétaire du 17 octobre 2026), elle colle de nouveau à 1 024 × 768 et dans la fenêtre d'un navigateur d'un
+      // portable 1 366 × 768 (657 px de haut), comme avant les couleurs ; l'axe collant n'y porte aucune paire
+      for (const [width, zoom, height = 812, touch = true, stick = false] of [
         [375, 200],
         [320, 200],
         [320, 100, 568],
         [1024, 100, 600, false],
-        [1024, 100, 768, false],
+        [1024, 100, 768, false, true],
+        [1366, 100, 657, false, true],
       ]) {
         const zctx = await browser.newContext({ viewport: { width, height }, reducedMotion: 'reduce', hasTouch: touch, isMobile: touch })
         await zctx.addInitScript(s => Object.entries(s).forEach(([k, v]) => localStorage.setItem(k, v)), readOk ? readStorage : state)
@@ -2581,11 +2819,13 @@ try {
           const axis = document.querySelector('.profile-chart .axis')
           const under = getComputedStyle(axis).position === 'sticky' ? axis.offsetHeight : document.querySelector('.profile-chart .zones')?.getClientRects().length ? document.querySelector('.axis-mini').offsetHeight : 0
           const chrome = ['.form-header', '.profile-nav', '.action-bar'].reduce((t, s) => t + (document.querySelector(s)?.offsetHeight ?? 0), under)
-          return { sticky: getComputedStyle(nav).position, chrome, half: innerHeight / 2, wide: document.documentElement.scrollWidth - document.documentElement.clientWidth }
+          const inAxis = [...axis.querySelectorAll('.key-pair')].some(x => x.checkVisibility())
+          return { sticky: getComputedStyle(nav).position, chrome, half: innerHeight / 2, wide: document.documentElement.scrollWidth - document.documentElement.clientWidth, axisStuck: getComputedStyle(axis).position === 'sticky', inAxis }
         })
         const where = `${width} × ${height}${zoom !== 100 ? ` à ${zoom} %` : ''}`
         if ((z.chrome > z.half) !== (z.sticky === 'static') || z.wide > 0) navIssues.push(`${where} : barre ${z.sticky}, ${z.chrome} px collés pour ${z.half} px, ${z.wide} px de trop`)
-        else said.push(`${where} : barre ${z.sticky === 'static' ? 'dans la page' : 'collée'} (${z.chrome} px pour ${Math.round(z.half)} px)`)
+        else if (stick && (z.sticky === 'static' || (z.axisStuck && z.inAxis))) navIssues.push(`${where} : barre ${z.sticky}, ${z.chrome} px pour ${z.half} px, pleine et atténuée ${z.inAxis ? 'dans' : 'hors de'} l’axe collant`)
+        else said.push(`${where} : barre ${z.sticky === 'static' ? 'dans la page' : 'collée'} (${z.chrome} px pour ${Math.round(z.half)} px${stick ? ', pleine et atténuée hors de l’axe collant' : ''})`)
         // À la souris, la rangée des domaines qui déborde garde une barre de défilement fine (scrollbar-width: thin, ou
         // dessinée par ::-webkit-scrollbar, scrollbar-width: auto)
         if (!touch) {
@@ -2631,7 +2871,7 @@ try {
     for (const q of quickQs.slice(0, Math.ceil(QUICK / 2))) delete going.answers[q.id]
     const goingState = { ...state, [STORAGE]: JSON.stringify({ ...going, essentialDoneAt: null }) }
     const entryIssues = []
-    const TEXTS = '.pb-text, .pb-axis, .hp-text, .hp-when, .hp-go, .hp-tag, .hp-word, .trend-next, .profile-wait .trend-text, .profile-wait .trend-where, .profile-example .ex-note, .ex-name, .ex-head, .ex-grid .tile, .ex-key, .wait-deepen'
+    const TEXTS = '.pb-text, .pb-axis, .hp-text, .hp-when, .hp-go, .hp-tag, .hp-word, .trend-next, .profile-wait .trend-text, .profile-wait .trend-where, .profile-example .ex-note, .ex-name, .ex-head, .ex-grid .tile, .profile-example .key-pair li, .ex-key, .wait-deepen'
     for (const [width, zoom] of [[320, 200], [390, 125]])
       for (const [label, storage, path, sel] of [
         ['accueil vierge', {}, '/', '.home-profile'],
@@ -3203,6 +3443,8 @@ try {
       [
         [`accueil (${QUICK} réponses)`, '/', '.home-film'],
         ['question', '/feuille/2', '.approaches > li'],
+        // Son titre (« Vos priorités ») n'est plus imprimé, comme celui des questions
+        ['priorités', '/priorites', '.approaches.is-topics > li'],
         ['résultats', '/resultats', '.board-row'],
         ['sujets', '/sujets', '.topic-fiche'],
         ['candidats', '/candidats', '.people-panel-link'],
@@ -3215,7 +3457,7 @@ try {
     ],
     ...(STEP1 ? [[trendSaved, [['tendance', '/resultats', '.board-row']]]] : []),
   ]
-  const pageNames = ['Feuille de pointage', 'Feuille complémentaire', 'Feuille de révision', 'Résultats', 'Notice', 'Méthode', 'Mentions légales', 'Confidentialité', 'Essai vidéos', 'Les vidéos', 'Qui porte quoi', 'Partager', 'Priorités', 'Les sujets', 'Les candidats']
+  const pageNames = ['Les questions', 'Questions complémentaires', 'Questions à revoir', 'Résultats', 'Notice', 'Méthode', 'Mentions légales', 'Confidentialité', 'Essai vidéos', 'Les vidéos', 'Qui porte quoi', 'Partager', 'Priorités', 'Vos priorités', 'Les sujets', 'Les candidats']
   const headerWidths = [320, 360, 390, 768, 1024, 1440]
   const measureBar = p =>
     p.evaluate(() => {
@@ -3294,6 +3536,70 @@ try {
   }
   await zctx.close()
   check(zoomIssues.length === 0, `en-tête, texte à 200 % sur 320 px : rien ne sort de la barre${zoomIssues.length ? ` : ${zoomIssues.join(', ')}` : ''}`)
+  // 7 ter. L'appel aux questions des barres du bas, le même sur chaque page de consultation (components/QuestionsCta.tsx) :
+  // appareil vierge, « Répondre aux questions » vers la question 1 ; en cours, « Reprendre mes réponses » vers la
+  // première question pas encore vue ; questionnaire rapide fini, « Voir mon dépouillement ». Texte à 200 % sur 320 px :
+  // « Répondre » ou « Reprendre » seul, sur une ligne, le libellé entier restant le nom du lien
+  const ctaPages = [
+    ['sujets', '/sujets'],
+    ...(VIDEOS_SHOWN ? [['vidéos', '/videos']] : []),
+    ['candidats', '/candidats'],
+    ['fiche candidat', `/candidat/${FICHE.id}`],
+    ['comparer', `/comparer/${pack.candidates.slice(0, 2).map(c => c.id).join(',')}`],
+  ]
+  const trendState = JSON.parse(trendSaved[STORAGE])
+  const nextOpen = orderedQuestions(pack.bank, 'essentiel', trendState.seed).findIndex(q => !trendState.answers[q.id])
+  const ctaStates = [
+    ['vierge', null, 'Répondre aux questions', 'Répondre', L('/feuille/1')],
+    ['en cours', trendSaved, 'Reprendre mes réponses', 'Reprendre', L(`/feuille/${nextOpen + 1}`)],
+    ['fini', saved, 'Voir mon dépouillement', null, L('/resultats')],
+  ]
+  const ctaIssues = []
+  for (const [what, st, long, short, href] of ctaStates) {
+    for (const zoom of [100, 200]) {
+      const cctx = await browser.newContext({ viewport: { width: zoom === 100 ? 390 : 320, height: 740 }, reducedMotion: 'reduce' })
+      if (st) await cctx.addInitScript(s => Object.entries(s).forEach(([k, v]) => localStorage.setItem(k, v)), st)
+      if (zoom !== 100) await cctx.addInitScript(z => document.addEventListener('DOMContentLoaded', () => (document.documentElement.style.fontSize = `${z}%`)), zoom)
+      const cp = await cctx.newPage()
+      for (const [where, path] of ctaPages) {
+        await cp.goto(U(path))
+        const cta = cp.locator('nav.action-bar .action-bar-inner > a.btn-primary')
+        await cta.first().waitFor()
+        await cp.waitForTimeout(60)
+        // Ce qui se voit (les morceaux du libellé qui ont une taille) et ses lignes ; le nom du lien, par son rôle
+        const got = await cta.first().evaluate(a => {
+          const parts = [...a.childNodes].filter(n => (n.nodeType === 3 ? n.textContent.trim() : n.matches?.('span')))
+          // Un morceau rogné (le libellé entier, gardé pour les lecteurs d'écran) n'a qu'un pixel de large
+          const shown = parts.filter(n => {
+            if (n.nodeType !== 3) return n.getBoundingClientRect().width > 2
+            const r = document.createRange()
+            r.selectNodeContents(n)
+            return [...r.getClientRects()].some(x => x.width > 2 && x.height > 2)
+          })
+          const r = document.createRange()
+          r.selectNodeContents(shown[0] ?? a)
+          return {
+            shown: shown.map(n => n.textContent.trim()).join(' '),
+            lines: new Set([...r.getClientRects()].filter(x => x.width > 2).map(x => Math.round(x.top))).size,
+            href: a.getAttribute('href'),
+            out: a.scrollWidth > a.clientWidth + 1,
+          }
+        })
+        const named = await cp.locator('nav.action-bar').getByRole('link', { name: long, exact: true }).count()
+        const visible = zoom === 200 && short ? short : long
+        const count = await cta.count()
+        if (count !== 1 || got.href !== href || named !== 1 || got.shown !== visible) ctaIssues.push(`${where}, ${what}, ${zoom} % : « ${got.shown} » vers ${got.href}, nom « ${long} » ${named} fois (${count} appel)`)
+        // Le libellé court tient sur une ligne ; « Voir mon dépouillement » n'a pas de libellé court : « dépouillement »,
+        // qui ne tient pas seul sur la ligne d'un téléphone de 320 px à 200 %, s'y coupe sans déborder
+        if (got.out || (zoom === 200 && short && got.lines !== 1)) ctaIssues.push(`${where}, ${what}, ${zoom} % : ${got.lines} ligne(s)${got.out ? ', déborde' : ''}`)
+      }
+      await cctx.close()
+    }
+  }
+  check(
+    ctaIssues.length === 0,
+    `barres du bas (${ctaPages.map(([w]) => w).join(', ')}) : « Répondre aux questions », « Reprendre mes réponses » vers la question ${nextOpen + 1}, « Voir mon dépouillement » selon les réponses ; à 200 % sur 320 px, « Répondre » ou « Reprendre » sur une ligne, le libellé entier pour nom${ctaIssues.length ? ` : ${ctaIssues.join(' ; ')}` : ''}`,
+  )
   await page.goto(U('/candidats'))
   await page.locator('.people-panel-link').first().click()
   await page.locator('.bristol').first().waitFor()
@@ -3316,8 +3622,11 @@ try {
   // Ces trois liens et rien d'autre (l'ancien lien « Élections passées » vers #/archives est retiré).
   // Le même pied partout (demande du propriétaire du 2026-10-15) : pleine largeur sur fond d'encre, avec les actions sur
   // la feuille (« Importer mes réponses », « Reprendre depuis un fichier »…), sauf pendant une table (section 10)
-  const footScreens = ['/', '/feuille/2', '/resultats', '/proximite', '/candidats', `/candidat/${FICHE.id}`, '/sujets', '/methode', '/confidentialite', '/mentions-legales', '/priorites', '/approfondir', '/partager', '/autre-appareil', ...(PROFILE ? ['/profil', '/a-table'] : [])]
-  const notices = [L('/methode'), L('/confidentialite'), L('/mentions-legales')]
+  // Le journal des données, entre la Méthode et la Confidentialité, depuis le 17 octobre 2026 (élections qui ont la page)
+  // « Installer l'application » (17 octobre 2026) : le même pied, et aucun texte qui dise « feuille »
+  const JOURNAL = pack.election.changelog.some(e => e.n)
+  const footScreens = ['/', '/feuille/2', '/resultats', '/proximite', '/candidats', `/candidat/${FICHE.id}`, '/sujets', '/methode', ...(JOURNAL ? ['/journal'] : []), '/confidentialite', '/mentions-legales', '/priorites', '/approfondir', '/partager', '/autre-appareil', '/installer', ...(PROFILE ? ['/profil', '/a-table'] : [])]
+  const notices = [L('/methode'), ...(JOURNAL ? [L('/journal')] : []), L('/confidentialite'), L('/mentions-legales')]
   const footIssues = []
   for (const path of footScreens) {
     const titleBefore = await page.title()
@@ -3342,21 +3651,288 @@ try {
         dark: !!foot[0] && getComputedStyle(foot[0]).backgroundColor !== getComputedStyle(document.body).backgroundColor,
         full: !!foot[0] && Math.round(foot[0].getBoundingClientRect().width) >= document.documentElement.clientWidth - 1,
         actions: [...(foot[0]?.querySelectorAll('.home-foot-actions a, .home-foot-actions button') ?? [])].map(a => a.textContent.trim()),
+        // « Réponses » et « questions », jamais « feuille » (17/10/2026) : le texte de la page et l'aide des lecteurs d'écran
+        sheet: [document.body.innerText, ...[...document.querySelectorAll('[aria-label], [title], [alt]')].map(e => `${e.getAttribute('aria-label') ?? ''} ${e.getAttribute('title') ?? ''} ${e.getAttribute('alt') ?? ''}`)]
+          .join(' ')
+          .match(/\bfeuilles?\b[^.\n]{0,40}/gi) ?? [],
       }
     }, notices.map(h => `.form-header a[href="${h}"]`).join(', '))
     const expected = notices.includes(L(path)) ? L(path) : ''
     const ok =
       f.count === 1 && landmarks === 1 && f.hrefs.join(' ') === notices.join(' ') && f.current.join(' ') === expected && f.inHeader === 0 && !f.masked &&
-      f.dark && f.full && f.actions.includes('Importer mes réponses') && f.actions.includes('Reprendre depuis un fichier') && f.actions.includes('Transférer mes réponses')
-    if (!ok) footIssues.push(`${path} (${f.count} pied, ${landmarks} repère, liens ${f.hrefs.join(' ')}, courant ${f.current.join(' ') || '-'}, ${f.inHeader} dans l’en-tête${f.masked ? ', masqué par la barre' : ''}, sombre ${f.dark}, pleine largeur ${f.full}, actions ${f.actions.join(' · ')})`)
+      f.dark && f.full && f.actions.includes('Importer mes réponses') && f.actions.includes('Reprendre depuis un fichier') && f.actions.includes('Transférer mes réponses') &&
+      f.sheet.length === 0
+    if (!ok) footIssues.push(`${path} (${f.count} pied, ${landmarks} repère, liens ${f.hrefs.join(' ')}, courant ${f.current.join(' ') || '-'}, ${f.inHeader} dans l’en-tête${f.masked ? ', masqué par la barre' : ''}, sombre ${f.dark}, pleine largeur ${f.full}, actions ${f.actions.join(' · ')}${f.sheet.length ? `, « ${f.sheet.join(' », « ')} »` : ''})`)
   }
   check(
     footIssues.length === 0,
-    `pied de page sur ${footScreens.length} écrans : le même partout (fond d’encre, pleine largeur, actions sur la feuille), méthode, confidentialité et mentions légales en bas, pas dans l’en-tête${footIssues.length ? ` : ${footIssues.join(' ; ')}` : ''}`,
+    `pied de page sur ${footScreens.length} écrans : le même partout (fond d’encre, pleine largeur, actions sur les réponses), aucun texte qui dise « feuille », méthode, ${JOURNAL ? 'journal des données, ' : ''}confidentialité et mentions légales en bas, pas dans l’en-tête${footIssues.length ? ` : ${footIssues.join(' ; ')}` : ''}`,
   )
 
   check(foreign.length === 0, `aucune requête vers un autre site${foreign.length ? ` : ${foreign.join(', ')}` : ''}`)
   await ctx.close()
+
+  // 7 bis ter. Journal des données (#/journal, décision du propriétaire du 17 octobre 2026, sur maquette) : la page,
+  // chargée à la demande ; au téléphone, les filtres dans une feuille modale (titre, focus gardé dedans, Échap, retour du
+  // focus, « Effacer les filtres », « Voir N entrées ») ; l'adresse suit les filtres, jamais les choix calculés sur
+  // l'appareil ; une entrée par son numéro ; l'ancienne rubrique de la Méthode ; aucune entrée ; l'avis du dépouillement,
+  // qui dit ce qui a bougé et ouvre le journal sur « après votre dernier passage » ; sur ordinateur, les filtres sur la
+  // page, en pastilles, et la ligne collée ; rien en largeur à 320, 375 et 1 280 px. Le focus ne tombe jamais sur la page
+  // quand le bouton touché disparaît, se désactive ou se cache (contre-vérification du 17 octobre 2026)
+  if (JOURNAL) {
+    const { journalItems, newerVersion } = await importSite('src/core/journal.ts')
+    const items = journalItems(pack)
+    const TOTAL = items.length
+    const entries = n => `${n}\u00a0entrée${n > 1 ? 's' : ''}`
+    const of = id => items.filter(i => i.people.some(p => p.id === id) || i.named.includes(id)).length
+    // Le candidat de la plus récente entrée « Positions »
+    const who = items.find(i => i.people.length)?.people[0]?.id
+    const jc = await browser.newContext({ viewport: { width: 375, height: 812 }, reducedMotion: 'reduce', isMobile: true, hasTouch: true })
+    await jc.addInitScript(st => Object.entries(st).forEach(([k, v]) => localStorage.setItem(k, v)), saved)
+    const jp = await jc.newPage()
+    await jp.goto(U('/journal'))
+    await jp.locator('.jr-entry').first().waitFor()
+    const phone = await jp.evaluate(() => ({
+      entries: document.querySelectorAll('.jr-entry').length,
+      inline: getComputedStyle(document.querySelector('.jr-tools')).display,
+      button: !!document.querySelector('.jr-open')?.offsetParent,
+      aiFirst: !!(document.querySelector('main .ai-label')?.compareDocumentPosition(document.querySelector('.jr-title')) & Node.DOCUMENT_POSITION_FOLLOWING),
+      wide: document.documentElement.scrollWidth > innerWidth,
+    }))
+    check(
+      phone.entries === TOTAL && phone.inline === 'none' && phone.button && phone.aiFirst && !phone.wide,
+      `journal au téléphone : ${phone.entries} entrées sur ${TOTAL}, les filtres derrière « Filtres », la mention IA avant le premier titre, rien en largeur`,
+    )
+    await jp.locator('.jr-open').click()
+    const opened = await jp.evaluate(() => {
+      const d = document.querySelector('dialog.jr-sheet')
+      return { open: d.open, modal: d.matches(':modal'), focus: document.activeElement?.id, title: document.getElementById(d.getAttribute('aria-labelledby'))?.textContent }
+    })
+    const stops = []
+    for (let i = 0; i < 9; i++) {
+      await jp.keyboard.press('Tab')
+      stops.push(await jp.evaluate(() => !!document.activeElement?.closest('dialog.jr-sheet')))
+    }
+    check(opened.open && opened.modal && opened.focus === 'jr-sheet-title' && opened.title === 'Filtres' && stops.every(Boolean), `feuille des filtres : modale, titrée « ${opened.title} », le focus sur son titre puis gardé dedans (${stops.filter(Boolean).length} Tab sur ${stops.length})`)
+    await jp.locator('.jr-sheet .is-candidat select').selectOption(who)
+    const picked = await jp.evaluate(() => ({
+      hash: decodeURI(location.hash),
+      see: document.querySelector('.jr-sheet .btn-primary')?.textContent ?? '',
+      n: document.querySelector('.jr-open .chip-n')?.textContent ?? '',
+      set: document.querySelector('.jr-open')?.classList.contains('is-set'),
+    }))
+    await jp.keyboard.press('Escape')
+    const closed = await jp.evaluate(() => ({ open: document.querySelector('dialog.jr-sheet').open, back: document.activeElement?.classList.contains('jr-open'), shown: document.querySelectorAll('.jr-entry').length }))
+    check(
+      picked.hash === L(`/journal?candidat=${who}`) && flat(picked.see) === flat(`Voir ${entries(of(who))}`) && /^,?\s*1/.test(flat(picked.n)) && picked.set && !closed.open && closed.back && closed.shown === of(who),
+      `filtre posé dans la feuille : l’adresse le porte (${picked.hash}), « ${flat(picked.see)} », « Filtres » le compte ; Échap la referme, le focus revient au bouton, ${closed.shown} entrées`,
+    )
+    await jp.locator('.jr-open').click()
+    // « Effacer les filtres », au clavier : il s'éteint de lui-même, le focus passe à « Voir N entrées »
+    await jp.locator('.jr-sheet-foot .btn-text').focus()
+    await jp.keyboard.press('Enter')
+    const cleared = await jp.evaluate(() => ({
+      hash: decodeURI(location.hash),
+      see: document.querySelector('.jr-sheet .btn-primary')?.textContent ?? '',
+      focus: document.activeElement === document.querySelector('.jr-sheet .btn-primary'),
+    }))
+    await jp.locator('.jr-sheet-foot .btn-primary').click()
+    const seen = await jp.evaluate(() => ({ open: document.querySelector('dialog.jr-sheet').open, back: document.activeElement?.classList.contains('jr-open'), shown: document.querySelectorAll('.jr-entry').length }))
+    check(
+      cleared.hash === L('/journal') && flat(cleared.see) === flat(`Voir ${entries(TOTAL)}`) && cleared.focus && !seen.open && seen.back && seen.shown === TOTAL,
+      `« Effacer les filtres » remet l’adresse à ${cleared.hash} et passe le focus à « ${flat(cleared.see)} », qui referme la feuille sur les ${seen.shown} entrées`,
+    )
+    // Un toucher sur la bande haute de la feuille (son double filet) la laisse ouverte ; sur le fond, au-dessus, la referme
+    await jp.locator('.jr-open').click()
+    const band = await jp.evaluate(() => document.querySelector('dialog.jr-sheet').getBoundingClientRect().top)
+    await jp.mouse.click(60, band + 2)
+    const onBand = await jp.evaluate(() => document.querySelector('dialog.jr-sheet').open)
+    await jp.mouse.click(60, Math.max(4, band - 40))
+    const onBackdrop = await jp.evaluate(() => ({ open: document.querySelector('dialog.jr-sheet').open, back: document.activeElement?.classList.contains('jr-open') }))
+    check(onBand && !onBackdrop.open && onBackdrop.back, `feuille des filtres : un toucher sur sa bande haute la laisse ouverte, sur le fond la referme (focus rendu à « Filtres »)`)
+    // La fenêtre élargie la feuille ouverte (téléphone tourné) : la feuille se referme, le focus va au premier filtre de la
+    // page, le bouton « Filtres » n'étant plus affiché
+    await jp.locator('.jr-open').click()
+    await jp.setViewportSize({ width: 1024, height: 700 })
+    await jp.waitForTimeout(200)
+    const widened = await jp.evaluate(() => ({ open: document.querySelector('dialog.jr-sheet').open, focus: !!document.activeElement?.closest('#filtres .is-candidat') }))
+    check(!widened.open && widened.focus, `la feuille ouverte, la fenêtre passe à 1 024 px : elle se referme, le focus au premier filtre de la page`)
+    await jp.setViewportSize({ width: 375, height: 812 })
+    // 320 px, la feuille ouverte : rien en largeur, ni dans la page ni dans la feuille
+    await jp.setViewportSize({ width: 320, height: 640 })
+    await jp.locator('.jr-open').click()
+    const narrow = await jp.evaluate(() => {
+      const d = document.querySelector('dialog.jr-sheet')
+      return { page: document.documentElement.scrollWidth > innerWidth, sheet: d.scrollWidth > d.clientWidth + 1, see: d.querySelector('.btn-primary').getBoundingClientRect().right <= innerWidth }
+    })
+    await jp.keyboard.press('Escape')
+    check(!narrow.page && !narrow.sheet && narrow.see, `journal à 320 px, la feuille ouverte : rien en largeur`)
+    await jp.setViewportSize({ width: 375, height: 812 })
+    // Une entrée par son numéro (l'accueil de retour y mène) : ouverte, son titre au focus, la page défilée jusqu'à elle,
+    // sous la ligne collante et dans la moitié haute de l'écran. La plus ancienne qui peut changer le classement : loin
+    // du haut de la page
+    const one = items.findLast(i => i.effect === 'peut-changer') ?? items.at(-1)
+    await jp.goto(U(`/journal/${one.n}`))
+    await jp.waitForTimeout(500)
+    const opened1 = await jp.evaluate(n => {
+      const t = document.getElementById(`entree-${n}`)
+      const bar = document.querySelector('.jr-summary').getBoundingClientRect()
+      return { open: !!t?.closest('.jr-entry')?.querySelector('.jr-more')?.open, focus: document.activeElement?.id, top: t?.getBoundingClientRect().top ?? -1, below: bar.bottom, scrolled: scrollY, half: innerHeight / 2 }
+    }, one.n)
+    check(
+      opened1.open && opened1.focus === `entree-${one.n}` && opened1.scrolled > 0 && opened1.top >= opened1.below - 1 && opened1.top < opened1.half,
+      `#/journal/${one.n} : l’entrée ouverte, son titre au focus, la page défilée (${Math.round(opened1.scrolled)} px), sous la ligne collante et dans la moitié haute (${Math.round(opened1.below)} ≤ ${Math.round(opened1.top)} < ${Math.round(opened1.half)})`,
+    )
+    // L'ancienne rubrique de la Méthode mène à la page
+    await jp.goto(U('/methode/journal'))
+    await jp.locator('.jr-entry').first().waitFor()
+    check(hashOf(jp) === L('/journal') && (await jp.locator('main h1').textContent()) === 'Journal des données', `l’ancienne adresse #/methode/journal mène au journal (${hashOf(jp)})`)
+    // Aucune entrée : un candidat sans rien depuis le dernier jour ; de quoi en sortir, chacun avec son nombre
+    const last = [...new Set(items.map(i => i.date))].sort().at(-1)
+    const quiet = pack.candidates.find(c => of(c.id) && !items.some(i => i.date >= last && (i.people.some(p => p.id === c.id) || i.named.includes(c.id))))
+    if (quiet) {
+      await jp.goto(U(`/journal?candidat=${quiet.id}&depuis=${last}`))
+      await jp.locator('.jr-empty').waitFor()
+      const none = await jp.evaluate(() => ({ entries: document.querySelectorAll('.jr-entry').length, ways: [...document.querySelectorAll('.jr-empty-actions button')].map(b => b.textContent) }))
+      // Un bouton de « Aucune entrée », au clavier : le bloc disparaît, le focus passe à la ligne du compte
+      await jp.locator('.jr-empty-actions button').first().focus()
+      await jp.keyboard.press('Enter')
+      const out = await jp.evaluate(() => ({ focus: document.activeElement?.classList.contains('jr-count'), shown: document.querySelectorAll('.jr-entry').length }))
+      check(
+        none.entries === 0 && none.ways.length === 3 && none.ways.every(w => /\(\d+/.test(w)) && out.focus && out.shown > 0,
+        `aucune entrée : ${none.ways.map(flat).join(' · ')} ; le premier lève son filtre (${out.shown} entrées) et passe le focus à la ligne du compte`,
+      )
+    }
+    await jc.close()
+
+    // L'avis du dépouillement, données mises à jour depuis la visite du 9 octobre : ce qui a bougé pour la personne,
+    // d'après le classement de cette visite (un score y est baissé de 3 points, pour l'exemple), dit une fois et figé
+    // jusqu'à « Compris » ; le repère des « +3 pts depuis votre dernier passage » suit, lui, chaque visite.
+    // « Voir ce qui a changé » ouvre le journal sur « après votre dernier passage », passé en mémoire pour un clic simple
+    // seulement, jamais dans l'adresse
+    const { inputsKey } = await importSite('src/core/storage.ts')
+    const oldest = items.at(-1).versions[0]
+    const visitedAt = '2026-10-09T10:00:00.000Z'
+    const was = JSON.parse(saved[STORAGE])
+    const lower = (was.lastSeenRanking ?? []).findIndex(r => r.score !== null && r.score >= 3)
+    const before = {
+      ...was,
+      dataVersion: oldest,
+      dataUpdatedFrom: null,
+      beforeUpdate: null,
+      lastSeenRanking: (was.lastSeenRanking ?? []).map((r, i) => (i === lower ? { ...r, score: r.score - 3 } : r)),
+      lastSeenBasis: { inputs: inputsKey(was.answers, was.weights), at: visitedAt },
+    }
+    const pc = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' })
+    // Une seule fois : les rechargements gardent ce que la page a écrit
+    await pc.addInitScript(
+      ([st, key]) => localStorage.getItem(key) || Object.entries(st).forEach(([k, v]) => localStorage.setItem(k, v)),
+      [{ ...saved, [STORAGE]: JSON.stringify(before) }, STORAGE],
+    )
+    const pp = await pc.newPage()
+    // Une visite : la page chargée de nouveau (une adresse qui ne change que par le fragment ne la recharge pas)
+    const visit = async () => {
+      if (pp.url().startsWith('http') && hashOf(pp) === L('/resultats')) await pp.reload()
+      else await pp.goto(U('/resultats'))
+      await pp.locator('.notice a').first().waitFor()
+      await pp.waitForTimeout(300)
+      return pp.evaluate(() => ({
+        said: document.querySelector('.notice p')?.textContent ?? '',
+        deltas: [...document.querySelectorAll('.board-row')].filter(r => /depuis votre dernier passage/.test(r.textContent ?? '')).length,
+      }))
+    }
+    const first = await visit()
+    // Une étoile touchée l'avis ouvert : la phrase ne change pas. Celle d'un thème déjà prioritaire s'il y en a (la
+    // retirer n'est jamais refusé), sinon la première
+    const starAt = await pp.evaluate(() => Math.max(0, [...document.querySelectorAll('.pv-grid .star-toggle')].findIndex(b => b.closest('tr')?.classList.contains('is-priority'))))
+    const star = pp.locator('.pv-grid .star-toggle').nth(starAt)
+    await star.click()
+    await pp.waitForTimeout(300)
+    const starred = flat(await pp.locator('.notice p').first().textContent())
+    await star.click()
+    await pp.waitForTimeout(300)
+    // Seconde visite sans « Compris », sans rien changer : la même phrase, plus d'écart « depuis votre dernier passage »
+    const second = await visit()
+    check(
+      lower >= 0 && /Pour vous\s*:.*un score a bougé/.test(flat(first.said)) && first.deltas >= 1 && starred === flat(first.said) && flat(second.said) === flat(first.said) && second.deltas === 0,
+      `l’avis du dépouillement : « ${flat(first.said)} », ${first.deltas} écart(s) « depuis votre dernier passage » ; la même phrase une étoile posée, et à la visite suivante, sans plus d’écart (${second.deltas})`,
+    )
+    // Cmd ou Ctrl+clic sur « Voir ce qui a changé » : le journal s'ouvre ailleurs, et ne règle pas le journal ouvert
+    // ensuite dans cet onglet
+    const link = pp.locator(`.notice a[href="${L('/journal')}"]`)
+    const popup = pc.waitForEvent('page', { timeout: 3000 }).catch(() => null)
+    await link.click({ modifiers: ['ControlOrMeta'] })
+    await (await popup)?.close()
+    const stayed = hashOf(pp)
+    await pp.evaluate(path => (location.hash = path), L('/journal'))
+    await pp.locator('.jr-entry').first().waitFor()
+    const plainLater = await pp.evaluate(() => ({ words: document.querySelector('.jr-words')?.textContent ?? '', shown: document.querySelectorAll('.jr-entry').length }))
+    // Un clic simple : le journal sur « après votre dernier passage », versions plus récentes que celle vue, ou publiées
+    // après le jour de la visite
+    await pp.evaluate(path => (location.hash = path), L('/resultats'))
+    await link.waitFor()
+    await link.click()
+    await pp.locator('.jr-entry').first().waitFor()
+    const passage = await pp.evaluate(() => ({ hash: decodeURI(location.hash), words: document.querySelector('.jr-words')?.textContent ?? '', shown: document.querySelectorAll('.jr-entry').length }))
+    const seenDay = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Paris' }).format(new Date(visitedAt))
+    const expected = items.filter(i => i.versions.some(v => newerVersion(v, oldest)) || i.date > seenDay).length
+    check(
+      stayed === L('/resultats') && plainLater.shown === TOTAL && !flat(plainLater.words).includes('passage'),
+      `Cmd ou Ctrl+clic sur « Voir ce qui a changé » : l’onglet reste sur ${stayed}, et le journal ouvert ensuite ici n’est pas filtré (${plainLater.shown} entrées)`,
+    )
+    check(
+      passage.hash === L('/journal') && flat(passage.words).includes('après votre dernier passage') && passage.shown === expected,
+      `l’avis du dépouillement ouvre le journal sur « après votre dernier passage » : ${passage.shown} entrées, adresse ${passage.hash}`,
+    )
+    // Les réponses changées depuis (une étoile gardée) : l'avis ne dit plus rien de précis
+    await pp.evaluate(path => (location.hash = path), L('/resultats'))
+    await star.waitFor()
+    await star.click()
+    await pp.waitForTimeout(300)
+    const changed = await visit()
+    check(/Votre résultat a pu changer\./.test(flat(changed.said)), `une priorité changée depuis la mise à jour : l’avis dit « ${flat(changed.said)} »`)
+    await pc.close()
+
+    // Ordinateur : les filtres sur la page, « Ce qui change » en pastilles avec leur nombre ; la ligne collée
+    const dc = await browser.newContext({ viewport: { width: 1280, height: 800 }, reducedMotion: 'reduce' })
+    await dc.addInitScript(st => Object.entries(st).forEach(([k, v]) => localStorage.setItem(k, v)), saved)
+    const dp = await dc.newPage()
+    await dp.goto(U('/journal'))
+    await dp.locator('.jr-entry').first().waitFor()
+    const desk = await dp.evaluate(() => ({
+      inline: getComputedStyle(document.querySelector('.jr-tools')).display,
+      chips: document.querySelectorAll('.jr-chips .filter-chip').length,
+      button: !!document.querySelector('.jr-open')?.offsetParent,
+    }))
+    // Au clavier, les filtres suivent la grille : du thème à la période (même rangée), puis aux pastilles
+    await dp.locator('.jr-tools .is-theme select').focus()
+    await dp.keyboard.press('Tab')
+    const afterTheme = await dp.evaluate(() => !!document.activeElement?.closest('.jr-tools .is-depuis'))
+    await dp.keyboard.press('Tab')
+    const afterPeriod = await dp.evaluate(() => !!document.activeElement?.closest('.jr-tools .is-change'))
+    check(afterTheme && afterPeriod, `journal sur ordinateur : au clavier, le thème, la période, puis « Ce qui change », dans l’ordre de la grille`)
+    await dp.locator('.jr-chips .filter-chip', { hasText: 'Positions' }).click()
+    const chip = await dp.evaluate(() => ({ hash: decodeURI(location.hash), pressed: document.querySelector('.jr-chips .filter-chip[aria-pressed="true"]')?.textContent ?? '' }))
+    // « Tout afficher », au clavier : le bouton disparaît, le focus passe à la ligne du compte
+    await dp.locator('.jr-reset').focus()
+    await dp.keyboard.press('Enter')
+    const reset = await dp.evaluate(() => ({ focus: document.activeElement?.classList.contains('jr-count'), shown: document.querySelectorAll('.jr-entry').length, hash: decodeURI(location.hash) }))
+    check(reset.focus && reset.shown === TOTAL && reset.hash === L('/journal'), `« Tout afficher » : ${reset.shown} entrées, le focus à la ligne du compte`)
+    await dp.locator('.jr-chips .filter-chip', { hasText: 'Positions' }).click()
+    await dp.evaluate(() => window.scrollTo(0, document.querySelector('.jr-day:last-of-type')?.getBoundingClientRect().top + scrollY))
+    await dp.waitForTimeout(300)
+    const stuck = await dp.evaluate(() => ({ stuck: document.querySelector('.jr-summary').classList.contains('is-stuck'), up: !!document.querySelector('.jr-up')?.offsetParent, wide: document.documentElement.scrollWidth > innerWidth }))
+    check(
+      desk.inline === 'block' && desk.chips === 6 && !desk.button && chip.hash === L('/journal?change=positions') && /^Positions/.test(flat(chip.pressed)) && stuck.stuck && stuck.up && !stuck.wide,
+      `journal sur ordinateur : les filtres sur la page, ${desk.chips} pastilles, « ${flat(chip.pressed)} » enfoncée (${chip.hash}) ; défilée, la ligne collée propose « Filtres »`,
+    )
+    // Le lien « Journal des données » du pied de page, le journal filtré : les filtres suivent l'adresse
+    await dp.locator(`.site-foot a[href="${L('/journal')}"]`).click()
+    await dp.waitForTimeout(200)
+    const footed = await dp.evaluate(() => ({ hash: decodeURI(location.hash), shown: document.querySelectorAll('.jr-entry').length, pressed: document.querySelector('.jr-chips .filter-chip[aria-pressed="true"]')?.textContent ?? '' }))
+    check(footed.hash === L('/journal') && footed.shown === TOTAL && /^Tout/.test(flat(footed.pressed)), `le pied de page sur le journal filtré : ${footed.hash}, ${footed.shown} entrées, aucun filtre`)
+    await dc.close()
+  }
 
   // 7 ter. Grand écran : le menu en ligne dans l'en-tête, le lien courant marqué, sans bouton « Menu »
   const wide = await browser.newContext({ viewport: { width: 1440, height: 900 }, reducedMotion: 'reduce' })
@@ -3858,6 +4434,7 @@ try {
       '/', '/resultats', '/proximite', '/candidats', `/candidat/${FICHE.id}`, `/comparer/${pack.candidates.slice(0, 4).map(c => c.id).join(',')}`,
       '/partager', '/profil', '/sujets', ...(VIDEOS_SHOWN ? ['/videos'] : []), '/feuille/1', '/approfondir', '/priorites',
       ...(PROFILE ? ['/a-table'] : []), '/autre-appareil', '/autre-appareil/importer', '/methode', '/confidentialite', '/mentions-legales',
+      ...(pack.election.changelog.some(e => e.n) ? ['/journal'] : []),
     ]
     const sizesWide = [[1920, 200], [1280, 200], [1024, 200], [768, 200], [390, 200], [320, 200]]
     const wideIssues = []
@@ -4088,6 +4665,409 @@ try {
     check(ended === 'C’est effacé.' && afterReload === 'La table a été interrompue.' && unlockedAt === L('/'), `à table : « ${ended} », puis après rechargement « ${afterReload} », puis déverrouillage vers ${unlockedAt}`)
     check(tableForeign.length === 0, `à table : aucune requête hors du site ni envoi (${tableForeign.slice(0, 3).join(', ') || 'aucune'})`)
     await tc.close()
+  }
+  // 11. « Installer l'application » (#/installer), hors ligne, en imitant chaque appareil (navigateur, système, mode
+  // installé) : iPhone avec Safari d'iOS 26 (copier d'abord, 7 gestes, « Copier le code » dans le geste même), d'iOS 18
+  // (6 gestes), sans réponse (ni copie ni aplat bleu) ; Android avec Chrome (le bouton « Installer Isoloir » à l'annonce
+  // du navigateur, jamais d'invite de lui-même, l'installation suivie, acceptée ou annulée : le statut dit ce qu'il en est
+  // et reçoit le focus) ; ordinateur (deux colonnes, QR code de la seule adresse de la page ; un texte collé puis effacé
+  // laisse le presse-papiers intact) ; Windows avec Firefox (le code collé dans le champ, comme l'import de son
+  // application le montre) ; Instagram (ouvrir d'abord le navigateur) ; appareil non reconnu (la liste ouverte). Puis
+  // l'application installée sur iPhone : l'avis de l'accueil (l'appel de l'en-tête au trait, « Je n'avais pas répondu »
+  // retenu, ses mots entiers à 320 px texte à 200 %), ni la ligne du pied ni le lien de « Et maintenant », l'import qui
+  // ouvre sur « Coller le code » (un presse-papiers sans code le dit), le code copié dans le navigateur collé, le focus sur
+  // « Réponses trouvées », les mêmes réponses, le presse-papiers vidé. « Autre appareil ? » ne change pas d'adresse ;
+  // rien ne défile sur le côté (320 px à 200 %, 375, 1 280) ; le texte des schémas fait 12 px au moins à 375 px ; aucun
+  // symbole de menu (« ⋮ », « ≡ »…) sans son nom en mots ; la feuille de la page vient avec elle, hors ligne ; le
+  // manifeste est gardé hors ligne ; aucune requête hors du site ni violation de la CSP
+  {
+    const IPHONE = token => `Mozilla/5.0 (iPhone; CPU iPhone OS ${token} like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko)`
+    const UA = {
+      ios26: `${IPHONE('18_6')} Version/26.0 Mobile/15E148 Safari/604.1`,
+      ios18: `${IPHONE('18_5')} Version/18.5 Mobile/15E148 Safari/604.1`,
+      // L'application de l'écran d'accueil : le même moteur, sans « Safari/ »
+      iosApp: `${IPHONE('18_6')} Mobile/15E148`,
+      android: 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Mobile Safari/537.36',
+      opera: 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Mobile Safari/537.36 OPR/90.0.0.0',
+      desk: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36',
+      winFirefox: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0',
+      instagram: `${IPHONE('18_6')} Mobile/15E148 Instagram 350.0.0.0 (iPhone15,2; iOS 18_6; fr_FR; fr; scale=3.00; 1179x2556)`,
+    }
+    /** Le mode installé, imité : navigator.standalone et display-mode: standalone */
+    const STANDALONE = () => {
+      Object.defineProperty(Navigator.prototype, 'standalone', { get: () => true, configurable: true })
+      const mm = window.matchMedia.bind(window)
+      window.matchMedia = q =>
+        /display-mode:\s*standalone/.test(q)
+          ? { matches: true, media: q, onchange: null, addEventListener() {}, removeEventListener() {}, addListener() {}, removeListener() {}, dispatchEvent: () => false }
+          : mm(q)
+    }
+    /** L'annonce d'installation de Chrome, imitée : compte les fenêtres d'installation ouvertes, puis l'installation (ou son refus) */
+    const OFFER = outcome => {
+      window.__prompts = 0
+      addEventListener('load', () =>
+        setTimeout(() => {
+          let choose
+          const e = new Event('beforeinstallprompt', { cancelable: true })
+          e.userChoice = new Promise(r => (choose = r))
+          e.prompt = async () => {
+            window.__prompts++
+            choose({ outcome })
+            if (outcome === 'accepted') setTimeout(() => dispatchEvent(new Event('appinstalled')), 50)
+          }
+          dispatchEvent(e)
+          window.__prevented = e.defaultPrevented
+        }, 30),
+      )
+    }
+    // 22 réponses rapides (une approche d'accord par question), la feuille d'un visiteur ordinaire
+    const instAnswers = Object.fromEntries(
+      pack.bank.questions.filter(q => q.tier === 'essentiel').map((q, i) => [q.id, { ratings: { [q.approaches[i % q.approaches.length].id]: 1 }, redLines: [] }]),
+    )
+    const now = new Date().toISOString()
+    const instState = JSON.stringify({ format: 3, electionId: entry.id, dataVersion: pack.election.dataVersion, seed: '0123456789abcdef', answers: instAnswers, weights: {}, deepTopics: [], lastSeenRanking: null, dataUpdatedFrom: null, essentialDoneAt: now, updatedAt: now })
+    const N_ANSWERS = Object.keys(instAnswers).length
+    const instForeign = []
+    const instCsp = []
+    const contexts = []
+    /** Un appareil imité, chargé en ligne (sa copie hors ligne s'installe), puis coupé du réseau */
+    const imitate = async (ua, { width = 375, height = 812, standalone = false, offer = false, filled = false, zoom = 100, mobile = width < 768, offline = true } = {}) => {
+      const c = await browser.newContext({ viewport: { width, height }, userAgent: ua, isMobile: mobile, hasTouch: mobile, reducedMotion: 'reduce', permissions: ['clipboard-read', 'clipboard-write'] })
+      contexts.push(c)
+      await c.addInitScript(() => {
+        window.__csp = []
+        addEventListener('securitypolicyviolation', e => window.__csp.push(`${e.violatedDirective} ${e.blockedURI}`))
+      })
+      if (standalone) await c.addInitScript(STANDALONE)
+      if (offer) await c.addInitScript(OFFER, offer === true ? 'accepted' : offer)
+      if (filled) await c.addInitScript(([k, s]) => localStorage.getItem(k) || localStorage.setItem(k, s), [STORAGE, instState])
+      if (zoom !== 100) await c.addInitScript(z => document.addEventListener('DOMContentLoaded', () => (document.documentElement.style.fontSize = `${z}%`)), zoom)
+      const p = await c.newPage()
+      p.on('request', r => {
+        const u = r.url()
+        if (!u.startsWith(base) && !u.startsWith('blob:') && !u.startsWith('data:')) instForeign.push(u)
+      })
+      await p.goto(HOME)
+      await p.evaluate(() => navigator.serviceWorker.ready)
+      await p.waitForFunction(() => !!navigator.serviceWorker.controller, null, { timeout: 5000 }).catch(() => null)
+      if (offline) await c.setOffline(true)
+      return p
+    }
+    const visit = async (p, path) => {
+      await p.goto(U(path))
+      await p.locator('main h1').first().waitFor()
+      await p.evaluate(() => document.fonts.ready)
+      await p.waitForTimeout(250)
+    }
+    /** Ce que montre la page « Installer l'application » */
+    const installInfo = p =>
+      p.evaluate(() => {
+        const t = el => (el?.textContent ?? '').replace(/\u00ad/g, '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
+        const first = document.querySelector('.install-main > .install-section')
+        const visible = el => el.checkVisibility()
+        return {
+          h1: t(document.querySelector('main h1')),
+          // innerText : la version du système, sur sa ligne, se lit séparée du nom
+          device: (document.querySelector('.install-device-value')?.innerText ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim(),
+          other: !!document.querySelector('.install-device button'),
+          steps: first?.querySelectorAll('.install-steps > li').length ?? 0,
+          say: t(first?.querySelector('.install-say')),
+          copy: [...(first?.querySelectorAll('.btn-primary') ?? [])].map(t).join(' | '),
+          primaries: [...document.querySelectorAll('main .btn-primary:not(.is-outline)')].filter(visible).length,
+          native: t(document.querySelector('.install-native .btn-primary')),
+          noTransfer: [...document.querySelectorAll('.how-to summary')].some(s => /Ne rien transf/.test(s.textContent)),
+          why: !!document.getElementById('pourquoi-t'),
+          others: [...document.querySelectorAll('.install-others .other-name')].map(t),
+          open: [...document.querySelectorAll('.install-others details[open] .other-name')].map(t),
+          othersTitle: t(document.getElementById('autres-t')),
+          foot: document.querySelector(`.site-foot a[href$="/installer"]`)?.getAttribute('aria-current') ?? (document.querySelector('.site-foot a[href$="/installer"]') ? 'lien' : 'aucun'),
+          wide: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+          // Les symboles des menus (« ⋮ », « ≡ », « ••• », « … ») lus tels quels par un lecteur d'écran : hors d'un aria-hidden
+          // et d'un schéma (titré et décrit en mots) ; et leurs noms en mots, dits aux lecteurs d'écran
+          bareSymbols: (() => {
+            const out = []
+            const w = document.createTreeWalker(document.querySelector('main'), NodeFilter.SHOW_TEXT)
+            for (let n = w.nextNode(); n; n = w.nextNode()) {
+              if (!/[•⋮≡]|«\u00a0…\u00a0»/.test(n.data) || n.parentElement.closest('svg, [aria-hidden="true"]')) continue
+              out.push(n.data.trim().slice(0, 30))
+            }
+            return out
+          })(),
+          spokenSymbols: [...document.querySelectorAll('main .sr-only')].filter(x => /^le bouton à trois/.test(x.textContent)).length,
+          // La feuille de la page (chargée avec elle) : les gestes ont leurs filets
+          styled: !!first?.querySelector('.install-steps') && parseFloat(getComputedStyle(first.querySelector('.install-steps')).borderTopWidth) > 0,
+          // Le texte des schémas, à sa taille réelle (le schéma rétrécit avec sa colonne)
+          dgMin: Math.min(
+            ...[...document.querySelectorAll('.step-dg text, .install-figure .diagram text')].map(x => {
+              const svg = x.ownerSVGElement
+              return parseFloat(getComputedStyle(x).fontSize) * (svg.getBoundingClientRect().width / svg.viewBox.baseVal.width)
+            }),
+          ),
+        }
+      })
+    const ALL_GUIDES = 13
+
+    // iPhone, Safari d'iOS 26, 22 réponses : copier d'abord
+    const sp = await imitate(UA.ios26, { filled: true })
+    await visit(sp, '/installer')
+    const a = await installInfo(sp)
+    check(
+      a.h1 === 'Installer l’application' && a.device === 'iPhone, avec Safari iOS 26' && a.steps === 7 && a.copy === 'Copier le code' && a.primaries === 1 && !a.native && a.noTransfer && a.why,
+      `installer, iPhone avec Safari d’iOS 26 : « ${a.device} », ${a.steps} gestes dont « ${a.copy} » d’abord (le seul aplat bleu : ${a.primaries}), « Ne rien transférer ? », « Pourquoi copier d’abord ? »`,
+    )
+    check(a.others.length === ALL_GUIDES - 1 && !a.others.includes('iPhone ou iPad, avec Safari (iOS 26)') && a.foot === 'page', `installer : la liste des autres appareils sans le sien (${a.others.length}), la ligne du pied marquée (${a.foot})`)
+    check(a.wide <= 0 && a.dgMin >= 11.9, `installer, 375 px : rien sur le côté (${a.wide} px), texte des schémas à ${a.dgMin.toFixed(1)} px au moins`)
+    check(a.styled, 'installer : la feuille de la page vient avec elle, hors ligne (les gestes ont leurs filets)')
+    check(a.bareSymbols.length === 0 && a.spokenSymbols >= 3, `installer, iPhone : aucun symbole de menu sans son nom en mots (${a.bareSymbols.join(' | ') || 'aucun'}), ${a.spokenSymbols} noms dits aux lecteurs d’écran`)
+    // « Autre appareil ? » : la liste, sans changer d'adresse
+    const hashBefore = hashOf(sp)
+    await sp.getByRole('button', { name: 'Autre appareil ?' }).click()
+    await sp.waitForTimeout(200)
+    const jumped = await sp.evaluate(() => ({ id: document.activeElement?.id, top: Math.round(document.getElementById('autres').getBoundingClientRect().top) }))
+    check(hashOf(sp) === hashBefore && jumped.id === 'autres' && jumped.top >= 0 && jumped.top < 200, `installer : « Autre appareil ? » mène à la liste (focus ${jumped.id}, à ${jumped.top} px du haut) sans changer d’adresse (${hashOf(sp)})`)
+    // « Copier le code », dans le geste même
+    await sp.getByRole('button', { name: 'Copier le code' }).click()
+    await sp.locator('.step-status').filter({ hasText: 'Code copié' }).waitFor({ timeout: 2000 }).catch(() => null)
+    const copied = flat(await sp.locator('.step-status').first().textContent())
+    const code = await sp.evaluate(() => navigator.clipboard.readText())
+    check(copied === 'Code copié. Passez au geste 2.' && /^[0-9A-Z]{30,}$/.test(code), `installer : « Copier le code » met le code dans le presse-papiers hors ligne (« ${copied} », ${code.length} caractères)`)
+    // Le lien discret sous « Et maintenant », et le manifeste gardé hors ligne
+    await visit(sp, '/resultats')
+    const nextInstall = await sp.locator('.next-block .next-install a').getAttribute('href').catch(() => null)
+    const manifest = await sp.evaluate(async () => {
+      const r = await caches.match('./manifest.webmanifest')
+      return r ? r.json() : null
+    })
+    check(nextInstall === L('/installer'), `installer : un lien discret sous « Et maintenant » (${nextInstall})`)
+    check(manifest?.display === 'standalone' && manifest?.start_url === './' && manifest?.icons?.some(i => i.purpose === 'maskable'), `installer : le manifeste est dans la copie hors ligne (display ${manifest?.display}, start_url ${manifest?.start_url}, icône maskable)`)
+
+    // 320 px, texte à 200 % : rien ne défile sur le côté. En ligne : hors ligne, le rideau « Isoloir fermé » de l'en-tête
+    // dépasse lui-même à cette taille, sur toutes les pages (à reprendre à part)
+    const zp = await imitate(UA.ios26, { width: 320, height: 740, filled: true, zoom: 200, offline: false })
+    await visit(zp, '/installer')
+    const z = await installInfo(zp)
+    check(z.wide <= 0 && z.steps === 7, `installer, 320 px texte à 200 % : rien sur le côté (${z.wide} px)`)
+
+    // iPhone, Safari d'iOS 18 : sa propre suite, sans le réglage d'iOS 26
+    const s18 = await imitate(UA.ios18, { filled: true })
+    await visit(s18, '/installer')
+    const b18 = await installInfo(s18)
+    check(b18.device === 'iPhone, avec Safari iOS 18' && b18.steps === 6 && !b18.noTransfer && b18.why, `installer, iPhone avec Safari d’iOS 18 : ${b18.steps} gestes, sans « Ne rien transférer ? » (« ${b18.device} »)`)
+
+    // iPhone, sans réponse : ni copie, ni aplat bleu (rien ne s'installe par un bouton sur iPhone)
+    const se = await imitate(UA.ios26)
+    await visit(se, '/installer')
+    const e0 = await installInfo(se)
+    check(e0.steps === 5 && !e0.copy && e0.primaries === 0 && !e0.why && /^Pas encore de réponses ici/.test(e0.say), `installer, iPhone sans réponse : ${e0.steps} gestes, aucun aplat bleu, « ${e0.say.slice(0, 40)}… »`)
+
+    // Android, Chrome : le bouton à l'annonce du navigateur, jamais d'invite de lui-même
+    const ap = await imitate(UA.android, { filled: true, offer: true })
+    await visit(ap, '/installer')
+    await ap.locator('.install-native .btn-primary').waitFor({ timeout: 3000 }).catch(() => null)
+    const an = await installInfo(ap)
+    const before = await ap.evaluate(() => ({ prompts: window.__prompts, prevented: window.__prevented }))
+    // Au clavier : le bouton s'en va après la fenêtre du navigateur, le focus passe au statut (jamais à la page entière)
+    await ap.locator('.install-native .btn-primary').focus().catch(() => null)
+    await ap.keyboard.press('Enter')
+    await ap.locator('.install-native-done').waitFor({ timeout: 3000 }).catch(() => null)
+    await ap.waitForTimeout(150)
+    const after = await ap.evaluate(() => ({
+      prompts: window.__prompts,
+      done: (document.querySelector('.install-native-done')?.textContent ?? '').replace(/\s+/g, ' ').trim(),
+      status: !!document.querySelector('.install-native [role="status"] .install-native-done'),
+      focus: !!document.activeElement?.classList.contains('install-native-done'),
+    }))
+    const follow = flat(await ap.locator('#reponses-t + .install-say').textContent().catch(() => ''))
+    check(an.device === 'Android, avec Chrome' && an.native === 'Installer Isoloir' && an.steps === 3 && !an.copy.includes('Copier') && an.primaries === 1, `installer, Android avec Chrome : le bouton « ${an.native} », le menu en ${an.steps} gestes, pas de copie`)
+    check(before.prevented === true && before.prompts === 0 && after.prompts === 1 && /^Isoloir est installé/.test(after.done), `installer, Android : aucune invite du navigateur avant le geste (${before.prompts}), une au toucher (${after.prompts}), puis « ${after.done} »`)
+    check(after.status && after.focus, `installer, Android : « Isoloir est installé » dans le statut toujours présent, et le focus y passe (${after.focus})`)
+    // Installation annulée : le statut le dit, le focus y passe, le chemin par le menu reste
+    const ad = await imitate(UA.android, { filled: true, offer: 'dismissed' })
+    await visit(ad, '/installer')
+    await ad.locator('.install-native .btn-primary').waitFor({ timeout: 3000 }).catch(() => null)
+    await ad.locator('.install-native .btn-primary').focus().catch(() => null)
+    await ad.keyboard.press('Enter')
+    await ad.locator('.install-native-status').waitFor({ timeout: 3000 }).catch(() => null)
+    await ad.waitForTimeout(150)
+    const dismissed = await ad.evaluate(() => ({
+      status: (document.querySelector('.install-native [role="status"]')?.textContent ?? '').trim(),
+      focus: !!document.activeElement?.classList.contains('install-native-status'),
+      button: !!document.querySelector('.install-native .btn-primary'),
+      menu: document.querySelectorAll('.install-main .install-steps > li').length,
+    }))
+    check(/^Installation annulée/.test(dismissed.status) && dismissed.focus && !dismissed.button && dismissed.menu === 3, `installer, Android, installation annulée : « ${dismissed.status} », le focus sur le statut (${dismissed.focus}), le menu en ${dismissed.menu} gestes`)
+    check(follow.includes(`vos ${N_ANSWERS} réponses y sont`), `installer, Android : « Vos réponses vous suivent » (« ${follow.slice(-40)} »)`)
+
+    // Ordinateur, Chrome, 1 280 px : deux colonnes, et le QR code de la seule adresse de la page
+    const dp = await imitate(UA.desk, { width: 1280, height: 900, filled: true, offer: true })
+    await visit(dp, '/installer')
+    await dp.locator('.install-phone svg.qr path').waitFor({ timeout: 3000 }).catch(() => null)
+    const dk = await installInfo(dp)
+    const desk = await dp.evaluate(() => {
+      const intro = document.querySelector('.install-intro').getBoundingClientRect()
+      const main = document.querySelector('.install-main').getBoundingClientRect()
+      return { columns: intro.right <= main.left + 1 && Math.abs(intro.top - main.top) < 80, d: document.querySelector('.install-phone svg.qr path')?.getAttribute('d') ?? '' }
+    })
+    // Le même dessin que la page, fait ici à partir de l'adresse attendue (et d'elle seule)
+    const rows = encodeQR(`${base}${L('/installer')}`, 'raw', { ecc: 'medium', border: 2 })
+    let wantD = ''
+    rows.forEach((row, y) => {
+      for (let x = 0; x < row.length; x++) {
+        if (!row[x]) continue
+        const start = x
+        while (row[x + 1]) x++
+        wantD += `M${start} ${y}h${x + 1 - start}v1h${start - x - 1}z`
+      }
+    })
+    check(dk.device === 'Ordinateur, avec Chrome' && desk.columns && dk.native === 'Installer Isoloir' && dk.wide <= 0, `installer, ordinateur avec Chrome à 1 280 px : deux colonnes (${desk.columns}), « ${dk.native} », rien sur le côté (${dk.wide} px)`)
+    check(!!desk.d && desk.d === wantD, `installer, ordinateur : le QR code porte l’adresse de la page, ${base}${L('/installer')}, et rien d’autre`)
+    check(dk.bareSymbols.length === 0 && dk.spokenSymbols >= 3, `installer, ordinateur : aucun symbole de menu sans son nom en mots (${dk.bareSymbols.join(' | ') || 'aucun'})`)
+    // Un texte sans rapport collé dans le champ, effacé, puis le code tapé : Isoloir ne vide pas le presse-papiers
+    await dp.goto(U('/autre-appareil/importer'))
+    await dp.locator('#transfer-code').waitFor()
+    await dp.evaluate(() => navigator.clipboard.writeText('mon mot de passe'))
+    await dp.locator('#transfer-code').focus()
+    await dp.keyboard.press('ControlOrMeta+V')
+    await dp.keyboard.press('ControlOrMeta+A')
+    await dp.keyboard.press('Backspace')
+    await dp.locator('#transfer-code').fill(code)
+    await dp.getByRole('button', { name: 'Lire ce code' }).click()
+    const foundDesk = await heading(dp, 'Réponses trouvées')
+    const deskClear = await dp.locator('.notice').filter({ hasText: 'Isoloir videra aussi le presse-papiers.' }).count()
+    await dp.getByRole('button', { name: 'Remplacer mes réponses' }).click()
+    await dp.waitForTimeout(200)
+    const deskClip = await dp.evaluate(() => navigator.clipboard.readText())
+    check(foundDesk && deskClear === 0 && deskClip === 'mon mot de passe', `installer, import : un texte collé puis effacé, le code tapé, le presse-papiers reste intact (« ${deskClip} »)`)
+
+    // Windows, Firefox : son application n'a pas « Coller le code » ; la page dit de coller le code dans le champ, et son
+    // import l'a bien (« Coller ou taper le code », « Lire ce code ») ; ouverte vide, elle dit comment les faire passer
+    const wf = await imitate(UA.winFirefox, { width: 1280, height: 900, filled: true })
+    await visit(wf, '/installer')
+    const wfInfo = await installInfo(wf)
+    const wfApp = await imitate(UA.winFirefox, { width: 1280, height: 900, standalone: true })
+    await visit(wfApp, '/installer')
+    const wfEmpty = await wfApp.evaluate(() => ({
+      title: (document.getElementById('reponses-t')?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').trim(),
+      link: document.querySelector('.install-main .btn-primary')?.getAttribute('href') ?? null,
+    }))
+    await wfApp.goto(U('/autre-appareil/importer'))
+    await wfApp.locator('.transfer-ways').waitFor()
+    const wfImport = await wfApp.evaluate(() => ({
+      ways: [...document.querySelectorAll('.transfer-ways .way h3')].map(h => h.textContent.trim()),
+      buttons: [...document.querySelectorAll('.transfer-ways button')].map(b => b.textContent.trim()),
+    }))
+    const wfSteps = flat(await wf.locator('.install-main .install-steps').first().textContent())
+    check(
+      wfInfo.steps === 3 && wfSteps.includes('« Coller ou taper le code »') && wfSteps.includes('« Lire ce code »') && !wfSteps.includes('« Coller le code »') && wfImport.ways.includes('Coller ou taper le code') && wfImport.buttons.includes('Lire ce code') && !wfImport.buttons.includes('Coller le code'),
+      `installer, Windows avec Firefox : la page dit de coller le code dans « Coller ou taper le code », puis « Lire ce code », comme son application les montre (${wfImport.ways.join(', ')})`,
+    )
+    check(wfEmpty.title === 'Vos réponses sont restées dans Firefox ?' && wfEmpty.link === L('/autre-appareil/importer'), `installer, Windows avec Firefox, application ouverte vide : « ${wfEmpty.title} », « Importer mes réponses » (${wfEmpty.link})`)
+    // Instagram : cette fenêtre ne sait pas installer, le chapeau le dit comme la section
+    const ig = await imitate(UA.instagram)
+    await visit(ig, '/installer')
+    const igLede = flat(await ig.locator('.install-intro .lede').textContent())
+    check(/^Cette fenêtre ne sait pas installer/.test(igLede) && !/depuis cette page/.test(igLede), `installer, Instagram : « ${igLede.slice(0, 60)}… »`)
+
+    // Appareil non reconnu : la liste ouverte sur « Autre navigateur »
+    const op = await imitate(UA.opera)
+    await visit(op, '/installer')
+    const o = await installInfo(op)
+    check(/^Non reconnu\b/.test(o.device) && !o.other && o.othersTitle === 'Choisissez votre appareil' && o.others.length === ALL_GUIDES && o.open.length === 1 && /^Autre navigateur/.test(o.open[0]), `installer, appareil non reconnu : « ${o.othersTitle} », ${o.others.length} appareils, « ${o.open[0]} » ouvert`)
+
+    // L'application installée sur iPhone, ouverte vide, hors ligne
+    const app = await imitate(UA.iosApp, { standalone: true })
+    await app.goto(HOME)
+    await app.locator('main h1').first().waitFor({ state: 'attached' })
+    await app.waitForTimeout(300)
+    const welcome = await app.evaluate(() => ({
+      shown: !!document.querySelector('.app-welcome'),
+      title: (document.querySelector('.app-welcome-title')?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').trim(),
+      primary: document.querySelector('.app-welcome .btn-primary')?.getAttribute('href') ?? null,
+      how: [...document.querySelectorAll('.app-welcome a.btn-text')].map(x => x.getAttribute('href')),
+      quiet: !!document.querySelector('.header-cta.is-outline'),
+      foot: !!document.querySelector('.site-foot a[href$="/installer"]'),
+    }))
+    check(
+      welcome.shown && welcome.title === 'Vous aviez déjà répondu ?' && welcome.primary === L('/autre-appareil/importer') && welcome.how.includes(L('/installer')) && welcome.quiet,
+      `installer, application ouverte vide : l’avis « ${welcome.title} », « Importer mes réponses » (${welcome.primary}), « Comment faire », l’appel de l’en-tête au trait (${welcome.quiet})`,
+    )
+    check(!welcome.foot, `installer, application : pas de ligne « Installer l’application » au pied`)
+    await visit(app, '/installer')
+    const inApp = await installInfo(app)
+    check(inApp.h1 === 'Isoloir est installé' && inApp.device === 'iPhone, dans l’application' && inApp.steps === 2 && inApp.others.length === ALL_GUIDES && inApp.foot === 'aucun', `installer, dans l’application : « ${inApp.h1} », « ${inApp.device} », ${inApp.steps} gestes pour faire passer les réponses`)
+    // L'import ouvre sur « Coller le code » ; le code copié dans Safari donne les mêmes réponses ; le presse-papiers est vidé
+    await app.goto(U('/autre-appareil/importer'))
+    await app.locator('.transfer-ways').waitFor()
+    const ways = await app.evaluate(() => ({
+      first: document.querySelector('.transfer-ways > li .way h3')?.textContent ?? '',
+      firstPrimary: !!document.querySelector('.transfer-ways > li:first-child .btn-primary'),
+      camera: document.querySelector('.transfer-ways > li:nth-child(2) button')?.className ?? '',
+    }))
+    // Un presse-papiers sans code (une adresse, un mot) : la page le dit, sans parler d'un code mal tapé
+    await app.evaluate(() => navigator.clipboard.writeText('https://exemple.fr/'))
+    await app.getByRole('button', { name: 'Coller le code' }).click()
+    await app.waitForTimeout(200)
+    const notCode = flat(await app.locator('.transfer-ways > li:first-child [role="status"]').textContent())
+    check(/^Le presse-papiers ne contient pas de code Isoloir\. Dans le navigateur où vous aviez répondu/.test(notCode), `installer, application : un presse-papiers sans code, « ${notCode.slice(0, 60)}… »`)
+    await app.evaluate(t => navigator.clipboard.writeText(t), code)
+    await app.getByRole('button', { name: 'Coller le code' }).focus()
+    await app.keyboard.press('Enter')
+    const foundApp = await heading(app, 'Réponses trouvées')
+    const foundFocus = await app.waitForFunction(() => document.activeElement?.id === 'receive-title', null, { timeout: 1000 }).then(() => true, () => false)
+    check(foundFocus, 'installer, application : le focus passe à « Réponses trouvées » (le bouton qui a lu le code n’est plus là)')
+    const willClear = await app.locator('.notice').filter({ hasText: 'Isoloir videra aussi le presse-papiers.' }).count()
+    await app.getByRole('button', { name: 'Importer ces réponses' }).click()
+    await app.waitForFunction(h => location.hash === h, L('/resultats'), { timeout: 3000 }).catch(() => null)
+    await app.waitForTimeout(200)
+    const gotApp = await app.evaluate(key => JSON.parse(localStorage.getItem(key) ?? '{}'), STORAGE)
+    const clip = await app.evaluate(() => navigator.clipboard.readText())
+    const sameAnswers = JSON.stringify(Object.keys(gotApp.answers ?? {}).sort()) === JSON.stringify(Object.keys(instAnswers).sort())
+    check(ways.first === 'Coller le code' && ways.firstPrimary && ways.camera === 'btn-text', `installer, import dans l’application : « ${ways.first} » d’abord, en aplat bleu ; la caméra au trait`)
+    check(foundApp && willClear === 1 && hashOf(app) === L('/resultats') && sameAnswers && clip === '', `installer, application : le code collé, ${Object.keys(gotApp.answers ?? {}).length} réponses importées hors ligne, presse-papiers vidé (« ${clip} »)`)
+    await app.goto(HOME)
+    await app.waitForTimeout(300)
+    check((await app.locator('.app-welcome').count()) === 0, 'installer, application : l’avis disparaît une fois les réponses importées')
+    // L'avis à 320 px, texte à 200 % : « Importer mes réponses » garde ses mots entiers (en ligne, comme plus haut)
+    const az = await imitate(UA.iosApp, { standalone: true, width: 320, height: 740, zoom: 200, offline: false })
+    await az.goto(HOME)
+    await az.locator('.app-welcome').waitFor({ timeout: 3000 }).catch(() => null)
+    const azCut = await az.evaluate(() => {
+      const out = []
+      const b = document.querySelector('.app-welcome .btn-primary')
+      if (!b) return ['(absent)']
+      const w = document.createTreeWalker(b, NodeFilter.SHOW_TEXT)
+      for (let n = w.nextNode(); n; n = w.nextNode()) {
+        for (const m of n.data.matchAll(/\S+/g)) {
+          const r = document.createRange()
+          r.setStart(n, m.index)
+          r.setEnd(n, m.index + m[0].length)
+          if (new Set([...r.getClientRects()].filter(x => x.width > 0).map(x => Math.round(x.top))).size > 1) out.push(m[0])
+        }
+      }
+      return out
+    })
+    check(azCut.length === 0, `installer, avis de l’application à 320 px texte à 200 % : « Importer mes réponses » sans mot coupé (${azCut.join(', ') || 'aucun'})`)
+    // « Je n'avais pas répondu » : l'avis se ferme, l'appel de l'en-tête reprend l'aplat, et c'est retenu
+    const fresh = await imitate(UA.iosApp, { standalone: true })
+    await fresh.goto(HOME)
+    await fresh.locator('.app-welcome').waitFor({ timeout: 3000 }).catch(() => null)
+    await fresh.getByRole('button', { name: 'Je n’avais pas répondu' }).click()
+    await fresh.waitForTimeout(200)
+    const closedNow = await fresh.evaluate(() => ({ gone: !document.querySelector('.app-welcome'), quiet: !!document.querySelector('.header-cta.is-outline'), focus: !!document.activeElement?.classList.contains('header-cta'), kept: localStorage.getItem('isoloir:accueil-application') }))
+    await fresh.reload()
+    await fresh.waitForTimeout(400)
+    const stillClosed = (await fresh.locator('.app-welcome').count()) === 0
+    check(closedNow.gone && !closedNow.quiet && closedNow.focus && closedNow.kept === 'ferme' && stillClosed, `installer, « Je n’avais pas répondu » : l’avis se ferme, l’appel de l’en-tête reprend l’aplat et le focus, retenu après rechargement (${closedNow.kept})`)
+    // Un navigateur ordinaire, sans réponse : ni avis, la ligne du pied
+    const plain = await imitate(UA.android)
+    await plain.goto(HOME)
+    await plain.locator('main h1').first().waitFor({ state: 'attached' })
+    await plain.waitForTimeout(300)
+    check((await plain.locator('.app-welcome').count()) === 0 && (await plain.locator('.site-foot a[href$="/installer"]').count()) === 1, 'installer, navigateur sans réponse : pas d’avis, la ligne « Installer l’application » au pied')
+
+    for (const c of contexts) for (const pg of c.pages()) instCsp.push(...((await pg.evaluate(() => window.__csp).catch(() => [])) ?? []))
+    check(instForeign.length === 0 && instCsp.length === 0, `installer : aucune requête hors du site ni violation de la CSP, sur ${contexts.length} appareils imités (${[...instForeign, ...instCsp].slice(0, 3).join(', ') || 'aucune'})`)
+    for (const c of contexts) await c.close()
   }
 } finally {
   await browser?.close()

@@ -28,6 +28,57 @@ export const LINK_SOURCES = 'Méthode et sources'
 /** Sous le rang de candidats à égalité */
 export const TIE_MARK = 'ex æquo'
 
+// Les appels qui mènent aux questions, les mêmes sur tous les écrans (accueil, sujets, vidéos, candidats, comparaison,
+// résultats, « Mon profil politique ») : on parle de « réponses » et de « questions », jamais de « feuille » (décision du
+// propriétaire du 17 octobre 2026). Un bouton parle à la première personne, comme « Transférer mes réponses » et « Voir
+// mon dépouillement » ; un titre, à la deuxième (« Vos réponses »). L'en-tête de l'accueil et les barres du bas ont
+// leurs libellés courts à part (Home.tsx, components/QuestionsCta.tsx) ; le pied de page écrit le sien mot pour mot
+// (tests/words.test.ts)
+export const CTA_START = 'Répondre aux questions'
+export const CTA_RESUME = 'Reprendre mes réponses'
+export const CTA_REREAD = 'Relire mes réponses'
+
+/** L'avis du dépouillement après une mise à jour des données (décision du propriétaire du 17 octobre 2026) */
+export const DATA_UPDATED = 'Les données ont été mises à jour depuis votre dernier passage.'
+export const DATA_UPDATED_LINK = 'Voir ce qui a changé'
+
+/**
+ * Ce que la mise à jour a changé pour la personne, d'après le classement de sa dernière visite d'avant la mise à jour
+ * (core/storage.ts, beforeUpdate), calculé sur les mêmes réponses et priorités : l'ordre d'abord, puis les scores, puis
+ * les candidats arrivés au classement ou qui l'ont quitté ; gone : ceux qui l'ont quitté parce qu'ils ne sont plus
+ * présentés ou plus classés, déjà retirés de before. Sans repère, la phrase d'avant.
+ */
+export function updateMoves(
+  before: readonly { candidateId: string; score: number | null }[] | null,
+  now: readonly { candidateId: string; score: number | null }[],
+  gone = 0,
+): string {
+  if (!before || (!before.length && !gone)) return 'Votre résultat a pu changer.'
+  const was = new Map(before.map(p => [p.candidateId, p.score]))
+  const common = now.filter(p => was.has(p.candidateId))
+  const kept = new Set(common.map(p => p.candidateId))
+  const order = before.filter(p => kept.has(p.candidateId))
+  const moved = common.filter((p, i) => order[i]?.candidateId !== p.candidateId).length
+  const scores = common.filter(p => was.get(p.candidateId) !== p.score).length
+  const added = now.length - common.length
+  const left = before.length - common.length + gone
+  // Aucun candidat resté au classement : rien à dire de l'ordre ni des scores
+  const parts = !common.length && (added || left)
+    ? []
+    : [
+        moved
+          ? `${moved}\u00a0candidats ont changé de place`
+          : scores
+            ? `même ordre, ${scores > 1 ? `${scores}\u00a0scores ont bougé` : 'un score a bougé'}`
+            : added || left
+              ? 'même ordre pour les autres'
+              : 'rien n’a bougé, même ordre, mêmes scores',
+      ]
+  if (added) parts.push(added > 1 ? `${added}\u00a0candidats sont entrés au classement` : 'un candidat est entré au classement')
+  if (left) parts.push(left > 1 ? `${left}\u00a0candidats l’ont quitté` : 'un candidat l’a quitté')
+  return `Pour vous\u00a0: ${parts.join('\u00a0; ')}.`
+}
+
 /** « A », « A et B », « A, B et C » */
 export const joinNames = (names: string[]) =>
   names.length < 2 ? (names[0] ?? '') : `${names.slice(0, -1).join(', ')} et ${names.at(-1)}`
@@ -232,6 +283,14 @@ export const PEEK_GO = 'Voir où j’en suis et un exemple'
  * aucune n'est symétrique, chaque palier paraît au moins deux fois
  */
 export const PROFILE_PEEK = '343211354352135'
+/**
+ * Ses lectures fictives, dans le même ordre : « + » nettement plus près, « - » nettement plus loin, « . » rien de net ;
+ * une case nette est pleine, les autres atténuées (« pâle sauf net », décision du propriétaire du 17 octobre 2026). Neutres
+ * comme les paliers (tests/results-copy.test.ts) : autant de « + » que de « - » par colonne, les colonnes 1 et 5, 2 et 4
+ * en miroir, « + » sur « proche » ou « très proche » seulement, « - » sur « éloigné » ou « très éloigné », et chaque sujet
+ * garde un « très proche » ou un « très éloigné » atténué
+ */
+export const PROFILE_PEEK_NET = '.+.-....+..-...'
 /** La fiche « Où vous en êtes » de la tendance : ce qui vient au bout du questionnaire rapide ; le nom de la page est un lien */
 export const trendNext = (total: number) =>
   [`Au bout des ${total}\u00a0questions\u00a0: le dépouillement complet et «\u00a0`, PROFILE_TITLE, '\u00a0».'] as const
@@ -241,7 +300,7 @@ export const trendNext = (total: number) =>
  */
 export const deepenTouched = (label: string, n: number, others: number, total: number) =>
   others
-    ? `Le thème «\u00a0${label}\u00a0» est coché\u00a0: la feuille commence par ${n > 1 ? `ses ${n}\u00a0questions` : 'sa question'}. ${others > 1 ? `${others}\u00a0autres thèmes sont aussi cochés` : 'Un autre thème est aussi coché'}\u00a0: ${total}\u00a0questions en tout.`
+    ? `Le thème «\u00a0${label}\u00a0» est coché\u00a0: vous commencez par ${n > 1 ? `ses ${n}\u00a0questions` : 'sa question'}. ${others > 1 ? `${others}\u00a0autres thèmes sont aussi cochés` : 'Un autre thème est aussi coché'}\u00a0: ${total}\u00a0questions en tout.`
     : `Le thème «\u00a0${label}\u00a0» est coché\u00a0: ${n}\u00a0question${n > 1 ? 's' : ''}.`
 
 /** À garder en tête : les trois mises en garde */
