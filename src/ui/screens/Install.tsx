@@ -13,6 +13,7 @@
 import type { RefObject } from 'preact'
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks'
 import { thisDevice, type Device, type DeviceKey } from '../../core/install'
+import { CTA_START } from '../../core/resultsCopy'
 import type { SessionState } from '../../core/storage'
 import { groupCode } from '../../core/transfer/base32'
 import { encodeTransfer } from '../../core/transfer/codec'
@@ -885,7 +886,7 @@ function InApp({ ctx }: { ctx: Ctx }) {
         {started ? null : (
           <p>
             <a class="btn-text" href={link('/feuille/1')}>
-              Répondre aux questions
+              {CTA_START}
               <Icon name="arrow-right" />
             </a>
           </p>
@@ -965,7 +966,7 @@ function NotYet() {
       </p>
       <p class="install-after-link">
         <a class="btn-text" href={link('/feuille/1')}>
-          Répondre aux questions
+          {CTA_START}
           <Icon name="arrow-right" />
         </a>
       </p>

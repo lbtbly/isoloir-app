@@ -3354,8 +3354,9 @@ try {
   // Le même pied partout (demande du propriétaire du 2026-10-15) : pleine largeur sur fond d'encre, avec les actions sur
   // la feuille (« Importer mes réponses », « Reprendre depuis un fichier »…), sauf pendant une table (section 10)
   // Le journal des données, entre la Méthode et la Confidentialité, depuis le 17 octobre 2026 (élections qui ont la page)
+  // « Installer l'application » (17 octobre 2026) : le même pied, et aucun texte qui dise « feuille »
   const JOURNAL = pack.election.changelog.some(e => e.n)
-  const footScreens = ['/', '/feuille/2', '/resultats', '/proximite', '/candidats', `/candidat/${FICHE.id}`, '/sujets', '/methode', ...(JOURNAL ? ['/journal'] : []), '/confidentialite', '/mentions-legales', '/priorites', '/approfondir', '/partager', '/autre-appareil', ...(PROFILE ? ['/profil', '/a-table'] : [])]
+  const footScreens = ['/', '/feuille/2', '/resultats', '/proximite', '/candidats', `/candidat/${FICHE.id}`, '/sujets', '/methode', ...(JOURNAL ? ['/journal'] : []), '/confidentialite', '/mentions-legales', '/priorites', '/approfondir', '/partager', '/autre-appareil', '/installer', ...(PROFILE ? ['/profil', '/a-table'] : [])]
   const notices = [L('/methode'), ...(JOURNAL ? [L('/journal')] : []), L('/confidentialite'), L('/mentions-legales')]
   const footIssues = []
   for (const path of footScreens) {
