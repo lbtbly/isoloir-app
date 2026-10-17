@@ -28,6 +28,16 @@ export const LINK_SOURCES = 'Méthode et sources'
 /** Sous le rang de candidats à égalité */
 export const TIE_MARK = 'ex æquo'
 
+// Les appels qui mènent aux questions, les mêmes sur tous les écrans (accueil, sujets, vidéos, candidats, comparaison,
+// résultats, « Mon profil politique ») : on parle de « réponses » et de « questions », jamais de « feuille » (décision du
+// propriétaire du 17 octobre 2026). Un bouton parle à la première personne, comme « Transférer mes réponses » et « Voir
+// mon dépouillement » ; un titre, à la deuxième (« Vos réponses »). L'en-tête de l'accueil et les barres du bas ont
+// leurs libellés courts à part (Home.tsx, components/QuestionsCta.tsx) ; le pied de page écrit le sien mot pour mot
+// (tests/words.test.ts)
+export const CTA_START = 'Répondre aux questions'
+export const CTA_RESUME = 'Reprendre mes réponses'
+export const CTA_REREAD = 'Relire mes réponses'
+
 /** « A », « A et B », « A, B et C » */
 export const joinNames = (names: string[]) =>
   names.length < 2 ? (names[0] ?? '') : `${names.slice(0, -1).join(', ')} et ${names.at(-1)}`
@@ -241,7 +251,7 @@ export const trendNext = (total: number) =>
  */
 export const deepenTouched = (label: string, n: number, others: number, total: number) =>
   others
-    ? `Le thème «\u00a0${label}\u00a0» est coché\u00a0: la feuille commence par ${n > 1 ? `ses ${n}\u00a0questions` : 'sa question'}. ${others > 1 ? `${others}\u00a0autres thèmes sont aussi cochés` : 'Un autre thème est aussi coché'}\u00a0: ${total}\u00a0questions en tout.`
+    ? `Le thème «\u00a0${label}\u00a0» est coché\u00a0: vous commencez par ${n > 1 ? `ses ${n}\u00a0questions` : 'sa question'}. ${others > 1 ? `${others}\u00a0autres thèmes sont aussi cochés` : 'Un autre thème est aussi coché'}\u00a0: ${total}\u00a0questions en tout.`
     : `Le thème «\u00a0${label}\u00a0» est coché\u00a0: ${n}\u00a0question${n > 1 ? 's' : ''}.`
 
 /** À garder en tête : les trois mises en garde */

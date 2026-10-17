@@ -117,7 +117,7 @@ export function Privacy({ eraseAll }: { eraseAll: () => void }) {
           </SectionTitle>
           <AirplaneDiagram />
           <p class="caption">
-            Une fois la page chargée, coupez le réseau&nbsp;: la feuille, le dépouillement, l’image, le PDF, le double et le
+            Une fois la page chargée, coupez le réseau&nbsp;: les questions, le dépouillement, l’image, le PDF, le double et le
             transfert par QR code marchent toujours, jusqu’au résultat. Sans réseau, rien ne peut sortir de l’appareil. Vous pouvez tout effacer avant
             de le rallumer.
           </p>
@@ -166,8 +166,8 @@ export function Privacy({ eraseAll }: { eraseAll: () => void }) {
             l’envoyez, à vous-même.
           </p>
           <p>
-            Ces stockages servent seulement au service que vous demandez&nbsp;: reprendre votre feuille là où vous
-            l’avez laissée, et ouvrir le site sans réseau. Rien n’en est
+            Ces stockages servent seulement au service que vous demandez&nbsp;: reprendre vos réponses là où vous
+            les avez laissées, et ouvrir le site sans réseau. Rien n’en est
             transmis, ni au site ni à un tiers. La loi
             dispense ce type de stockage de votre consentement (loi Informatique et Libertés, art.&nbsp;82)&nbsp;: d’où
             l’absence de bandeau. Le bouton ci-dessous efface la progression et le stockage de session&nbsp;; les

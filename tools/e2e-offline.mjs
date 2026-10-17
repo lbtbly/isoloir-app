@@ -301,7 +301,13 @@ try {
   await page.locator('.home-film .film-stage').waitFor()
   const firstCta = await page.locator('.header-cta').getAttribute('href').catch(() => null)
   const homeBars = await page.locator('.action-bar').count()
-  check(firstCta === L('/feuille/1') && homeBars === 0, `accueil : l’en-tête mène à la question 1, pas de barre d’actions en bas (${firstCta}, ${homeBars} barre)`)
+  // Son libellé parle de questions, jamais de feuille (décision du propriétaire du 17/10/2026) : le long, ou le court
+  // quand la place manque
+  const ctaShown = flat(await page.locator('.header-cta').innerText().catch(() => ''))
+  check(
+    firstCta === L('/feuille/1') && homeBars === 0 && ['Répondre aux questions', 'Répondre'].includes(ctaShown),
+    `accueil : l’en-tête mène à la question 1 par « ${ctaShown} », pas de barre d’actions en bas (${firstCta}, ${homeBars} barre)`,
+  )
   // Mouvement réduit (réglage du contexte) : le film ne démarre pas, chaque chapitre montre son image fixe
   const playing = await page.locator('.film-scene.is-play').count()
   const playLabel = ((await page.locator('.film-play').textContent().catch(() => '')) ?? '').trim()
@@ -334,7 +340,7 @@ try {
     const w = await waitInfo(page)
     const keys = await page.evaluate(() => Object.keys(localStorage).filter(k => k.startsWith('isoloir')))
     check(
-      hashOf(page) === L('/profil') && w.focused && w.where === 'Pas encore de réponse' && w.count === `0 question sur ${QUICK}` && w.cta === 'Commencer la feuille' && w.href === L('/feuille/1') && w.tiles === 15 && w.words && w.tables === 0 && w.deepen && keys.length === 0,
+      hashOf(page) === L('/profil') && w.focused && w.where === 'Pas encore de réponse' && w.count === `0 question sur ${QUICK}` && w.cta === 'Répondre aux questions' && w.href === L('/feuille/1') && w.tiles === 15 && w.words && w.tables === 0 && w.deepen && keys.length === 0,
       `mon profil politique, page d’attente (feuille vierge) : focus au titre ${w.focused}, « ${w.where} », « ${w.count} », bouton « ${w.cta} » vers ${w.href}, exemple de ${w.tiles} cases avec leurs mots ${w.words}, ${w.tables} tableau, rien d’enregistré (${keys.join(', ') || 'aucune clé'})`,
     )
     // Les teintes de l'aperçu sont celles des cases de la page, en clair comme en sombre ; en contraste forcé, chaque case
@@ -616,7 +622,7 @@ try {
       // La ligne d'état compte les questions vues, comme l'aperçu juste dessous : les deux comptes font le questionnaire
       const status = flat(await page.locator('.home-status .progress-note').textContent().catch(() => ''))
       check(
-        status.startsWith(`Feuille en cours : ${STEP1} question${STEP1 > 1 ? 's' : ''} sur ${QUICK}.`),
+        status.startsWith(`Vous avez vu ${STEP1} question${STEP1 > 1 ? 's' : ''} sur ${QUICK}.`),
         `accueil, feuille en cours : « ${status} », puis « encore ${left} » dans l’aperçu (${STEP1} + ${left} = ${QUICK})`,
       )
       check(
@@ -1287,7 +1293,7 @@ try {
         const a = await arrival()
         const n = openOf(pickId)
         const total = n + openOf(other.id)
-        const note = `Le thème « ${pick} » est coché : la feuille commence par ${n > 1 ? `ses ${n} questions` : 'sa question'}. Un autre thème est aussi coché : ${total} questions en tout.`
+        const note = `Le thème « ${pick} » est coché : vous commencez par ${n > 1 ? `ses ${n} questions` : 'sa question'}. Un autre thème est aussi coché : ${total} questions en tout.`
         const list = orderedQuestions(pack.bank, 'approfondi', st.seed, [pickId, other.id])
         const seen = new Set(Object.keys(st.answers ?? {}))
         const own = list.filter(q => q.topicId === pickId)
@@ -3159,6 +3165,8 @@ try {
       [
         [`accueil (${QUICK} réponses)`, '/', '.home-film'],
         ['question', '/feuille/2', '.approaches > li'],
+        // Son titre (« Vos priorités ») n'est plus imprimé, comme celui des questions
+        ['priorités', '/priorites', '.approaches.is-topics > li'],
         ['résultats', '/resultats', '.board-row'],
         ['sujets', '/sujets', '.topic-fiche'],
         ['candidats', '/candidats', '.people-panel-link'],
@@ -3171,7 +3179,7 @@ try {
     ],
     ...(STEP1 ? [[trendSaved, [['tendance', '/resultats', '.board-row']]]] : []),
   ]
-  const pageNames = ['Feuille de pointage', 'Feuille complémentaire', 'Feuille de révision', 'Résultats', 'Notice', 'Méthode', 'Mentions légales', 'Confidentialité', 'Essai vidéos', 'Les vidéos', 'Qui porte quoi', 'Partager', 'Priorités', 'Les sujets', 'Les candidats']
+  const pageNames = ['Les questions', 'Questions complémentaires', 'Questions à revoir', 'Résultats', 'Notice', 'Méthode', 'Mentions légales', 'Confidentialité', 'Essai vidéos', 'Les vidéos', 'Qui porte quoi', 'Partager', 'Priorités', 'Vos priorités', 'Les sujets', 'Les candidats']
   const headerWidths = [320, 360, 390, 768, 1024, 1440]
   const measureBar = p =>
     p.evaluate(() => {
@@ -3250,6 +3258,70 @@ try {
   }
   await zctx.close()
   check(zoomIssues.length === 0, `en-tête, texte à 200 % sur 320 px : rien ne sort de la barre${zoomIssues.length ? ` : ${zoomIssues.join(', ')}` : ''}`)
+  // 7 ter. L'appel aux questions des barres du bas, le même sur chaque page de consultation (components/QuestionsCta.tsx) :
+  // appareil vierge, « Répondre aux questions » vers la question 1 ; en cours, « Reprendre mes réponses » vers la
+  // première question pas encore vue ; questionnaire rapide fini, « Voir mon dépouillement ». Texte à 200 % sur 320 px :
+  // « Répondre » ou « Reprendre » seul, sur une ligne, le libellé entier restant le nom du lien
+  const ctaPages = [
+    ['sujets', '/sujets'],
+    ...(VIDEOS_SHOWN ? [['vidéos', '/videos']] : []),
+    ['candidats', '/candidats'],
+    ['fiche candidat', `/candidat/${FICHE.id}`],
+    ['comparer', `/comparer/${pack.candidates.slice(0, 2).map(c => c.id).join(',')}`],
+  ]
+  const trendState = JSON.parse(trendSaved[STORAGE])
+  const nextOpen = orderedQuestions(pack.bank, 'essentiel', trendState.seed).findIndex(q => !trendState.answers[q.id])
+  const ctaStates = [
+    ['vierge', null, 'Répondre aux questions', 'Répondre', L('/feuille/1')],
+    ['en cours', trendSaved, 'Reprendre mes réponses', 'Reprendre', L(`/feuille/${nextOpen + 1}`)],
+    ['fini', saved, 'Voir mon dépouillement', null, L('/resultats')],
+  ]
+  const ctaIssues = []
+  for (const [what, st, long, short, href] of ctaStates) {
+    for (const zoom of [100, 200]) {
+      const cctx = await browser.newContext({ viewport: { width: zoom === 100 ? 390 : 320, height: 740 }, reducedMotion: 'reduce' })
+      if (st) await cctx.addInitScript(s => Object.entries(s).forEach(([k, v]) => localStorage.setItem(k, v)), st)
+      if (zoom !== 100) await cctx.addInitScript(z => document.addEventListener('DOMContentLoaded', () => (document.documentElement.style.fontSize = `${z}%`)), zoom)
+      const cp = await cctx.newPage()
+      for (const [where, path] of ctaPages) {
+        await cp.goto(U(path))
+        const cta = cp.locator('nav.action-bar .action-bar-inner > a.btn-primary')
+        await cta.first().waitFor()
+        await cp.waitForTimeout(60)
+        // Ce qui se voit (les morceaux du libellé qui ont une taille) et ses lignes ; le nom du lien, par son rôle
+        const got = await cta.first().evaluate(a => {
+          const parts = [...a.childNodes].filter(n => (n.nodeType === 3 ? n.textContent.trim() : n.matches?.('span')))
+          // Un morceau rogné (le libellé entier, gardé pour les lecteurs d'écran) n'a qu'un pixel de large
+          const shown = parts.filter(n => {
+            if (n.nodeType !== 3) return n.getBoundingClientRect().width > 2
+            const r = document.createRange()
+            r.selectNodeContents(n)
+            return [...r.getClientRects()].some(x => x.width > 2 && x.height > 2)
+          })
+          const r = document.createRange()
+          r.selectNodeContents(shown[0] ?? a)
+          return {
+            shown: shown.map(n => n.textContent.trim()).join(' '),
+            lines: new Set([...r.getClientRects()].filter(x => x.width > 2).map(x => Math.round(x.top))).size,
+            href: a.getAttribute('href'),
+            out: a.scrollWidth > a.clientWidth + 1,
+          }
+        })
+        const named = await cp.locator('nav.action-bar').getByRole('link', { name: long, exact: true }).count()
+        const visible = zoom === 200 && short ? short : long
+        const count = await cta.count()
+        if (count !== 1 || got.href !== href || named !== 1 || got.shown !== visible) ctaIssues.push(`${where}, ${what}, ${zoom} % : « ${got.shown} » vers ${got.href}, nom « ${long} » ${named} fois (${count} appel)`)
+        // Le libellé court tient sur une ligne ; « Voir mon dépouillement » n'a pas de libellé court : « dépouillement »,
+        // qui ne tient pas seul sur la ligne d'un téléphone de 320 px à 200 %, s'y coupe sans déborder
+        if (got.out || (zoom === 200 && short && got.lines !== 1)) ctaIssues.push(`${where}, ${what}, ${zoom} % : ${got.lines} ligne(s)${got.out ? ', déborde' : ''}`)
+      }
+      await cctx.close()
+    }
+  }
+  check(
+    ctaIssues.length === 0,
+    `barres du bas (${ctaPages.map(([w]) => w).join(', ')}) : « Répondre aux questions », « Reprendre mes réponses » vers la question ${nextOpen + 1}, « Voir mon dépouillement » selon les réponses ; à 200 % sur 320 px, « Répondre » ou « Reprendre » sur une ligne, le libellé entier pour nom${ctaIssues.length ? ` : ${ctaIssues.join(' ; ')}` : ''}`,
+  )
   await page.goto(U('/candidats'))
   await page.locator('.people-panel-link').first().click()
   await page.locator('.bristol').first().waitFor()
@@ -3298,17 +3370,22 @@ try {
         dark: !!foot[0] && getComputedStyle(foot[0]).backgroundColor !== getComputedStyle(document.body).backgroundColor,
         full: !!foot[0] && Math.round(foot[0].getBoundingClientRect().width) >= document.documentElement.clientWidth - 1,
         actions: [...(foot[0]?.querySelectorAll('.home-foot-actions a, .home-foot-actions button') ?? [])].map(a => a.textContent.trim()),
+        // « Réponses » et « questions », jamais « feuille » (17/10/2026) : le texte de la page et l'aide des lecteurs d'écran
+        sheet: [document.body.innerText, ...[...document.querySelectorAll('[aria-label], [title], [alt]')].map(e => `${e.getAttribute('aria-label') ?? ''} ${e.getAttribute('title') ?? ''} ${e.getAttribute('alt') ?? ''}`)]
+          .join(' ')
+          .match(/\bfeuilles?\b[^.\n]{0,40}/gi) ?? [],
       }
     }, notices.map(h => `.form-header a[href="${h}"]`).join(', '))
     const expected = notices.includes(L(path)) ? L(path) : ''
     const ok =
       f.count === 1 && landmarks === 1 && f.hrefs.join(' ') === notices.join(' ') && f.current.join(' ') === expected && f.inHeader === 0 && !f.masked &&
-      f.dark && f.full && f.actions.includes('Importer mes réponses') && f.actions.includes('Reprendre depuis un fichier') && f.actions.includes('Transférer mes réponses')
-    if (!ok) footIssues.push(`${path} (${f.count} pied, ${landmarks} repère, liens ${f.hrefs.join(' ')}, courant ${f.current.join(' ') || '-'}, ${f.inHeader} dans l’en-tête${f.masked ? ', masqué par la barre' : ''}, sombre ${f.dark}, pleine largeur ${f.full}, actions ${f.actions.join(' · ')})`)
+      f.dark && f.full && f.actions.includes('Importer mes réponses') && f.actions.includes('Reprendre depuis un fichier') && f.actions.includes('Transférer mes réponses') &&
+      f.sheet.length === 0
+    if (!ok) footIssues.push(`${path} (${f.count} pied, ${landmarks} repère, liens ${f.hrefs.join(' ')}, courant ${f.current.join(' ') || '-'}, ${f.inHeader} dans l’en-tête${f.masked ? ', masqué par la barre' : ''}, sombre ${f.dark}, pleine largeur ${f.full}, actions ${f.actions.join(' · ')}${f.sheet.length ? `, « ${f.sheet.join(' », « ')} »` : ''})`)
   }
   check(
     footIssues.length === 0,
-    `pied de page sur ${footScreens.length} écrans : le même partout (fond d’encre, pleine largeur, actions sur la feuille), méthode, confidentialité et mentions légales en bas, pas dans l’en-tête${footIssues.length ? ` : ${footIssues.join(' ; ')}` : ''}`,
+    `pied de page sur ${footScreens.length} écrans : le même partout (fond d’encre, pleine largeur, actions sur les réponses), aucun texte qui dise « feuille », méthode, confidentialité et mentions légales en bas, pas dans l’en-tête${footIssues.length ? ` : ${footIssues.join(' ; ')}` : ''}`,
   )
 
   check(foreign.length === 0, `aucune requête vers un autre site${foreign.length ? ` : ${foreign.join(', ')}` : ''}`)

@@ -1,6 +1,6 @@
 // Le pied de page, le même sur tous les écrans (demande du propriétaire du 2026-10-15) : pleine largeur, sur fond
 // d'encre d'imprimerie, la feuille en négatif. En tête, le logo et les dates du vote ; dessous, des colonnes titrées :
-// « Votre feuille » (les actions sur les réponses de cet appareil, fournies par l'application : FootContext.ts),
+// « Vos réponses » (les actions sur les réponses de cet appareil, fournies par l'application : FootContext.ts),
 // « À table » (s'il y en a une), « Qui fait Isoloir » (la mention d'indépendance et d'usage de l'IA, les notices).
 // Un seul composant pour tous les écrans : le changer ici le change partout. Seule la table en cours ne l'affiche pas
 // (son pied fermé, ui/questionnaire/Sheet.tsx). Il suit le contenu, hors du <main> : c'est le pied de la page (repère
@@ -99,7 +99,7 @@ function Vote() {
 }
 
 /**
- * « Votre feuille » : relire, transférer ou importer ses réponses, reprendre depuis un fichier (le double, une image de
+ * « Vos réponses » : relire, transférer ou importer ses réponses, reprendre depuis un fichier (le double, une image de
  * QR code ou un code), tout effacer ; avec, dessous, ce que ces actions ont à dire (import en attente, erreur,
  * effacement fait, stockage refusé). Les actions viennent de l'application (FootContext.ts)
  */
@@ -132,13 +132,13 @@ function SheetColumn() {
   const lede = !saved
     ? undefined
     : started
-      ? 'Elle reste sur cet appareil. Pour la retrouver ailleurs, transférez vos réponses.'
-      : 'Commencée sur un autre appareil\u00a0? Importez vos réponses.'
+      ? 'Elles restent sur cet appareil. Pour les retrouver ailleurs, transférez-les.'
+      : 'Vous avez commencé sur un autre appareil\u00a0? Importez vos réponses.'
 
   return (
     <section class="home-foot-col" aria-labelledby="foot-sheet">
       <h2 id="foot-sheet" class="home-foot-title">
-        Votre feuille
+        Vos réponses
       </h2>
       {lede ? <p class="home-foot-text">{lede}</p> : null}
       <ul class="home-foot-actions">
@@ -146,7 +146,7 @@ function SheetColumn() {
           <li>
             <a class="btn-text" href={link(`/feuille/1`)}>
               <Icon name="reread" />
-              Relire la feuille
+              Relire mes réponses
             </a>
           </li>
         ) : null}
@@ -197,7 +197,7 @@ function SheetColumn() {
       {pending ? (
         <div class="notice" role="alert">
           <p>
-            {started ? 'Remplacer la feuille en cours par celle du fichier\u00a0? ' : ''}
+            {started ? 'Remplacer vos réponses par celles du fichier\u00a0? ' : ''}
             {pending.note}
           </p>
           <span class="confirm">
@@ -209,7 +209,7 @@ function SheetColumn() {
                 pending.take()
               }}
             >
-              {started ? 'Remplacer ma feuille' : 'Continuer'}
+              {started ? 'Remplacer mes réponses' : 'Continuer'}
             </button>
             <button
               type="button"

@@ -22,6 +22,7 @@ import {
   caveats,
   count,
   CROSSING_DIVIDER,
+  CTA_START,
   emptyRanking,
   excludedLede,
   excludedTitle,
@@ -424,7 +425,7 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
           </p>
           <p>
             <a class="btn-primary" href={link('/feuille/1')}>
-              Remplir la feuille
+              {CTA_START}
               <Icon name="arrow-right" />
             </a>
           </p>

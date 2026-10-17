@@ -30,11 +30,11 @@ export function Ended({ kind, onUnlock }: { kind: 'ended' | 'interrupted'; onUnl
           <p>La page a été rechargée&nbsp;: les bulletins sont perdus, rien n’avait été gardé.</p>
         )}
         <p>Rendez le téléphone à son propriétaire.</p>
-        <p class="small">Chacun peut faire sa propre feuille, seul, sur son téléphone&nbsp;: isoloir.vercel.app</p>
+        <p class="small">Chacun peut aussi répondre aux questions seul, sur son téléphone&nbsp;: isoloir.vercel.app</p>
         {asking ? (
           <div class="consent" role="group" aria-label="Confirmer le retour à Isoloir">
             <p tabIndex={-1} ref={question}>
-              Revenir à Isoloir montre la feuille et le dépouillement du propriétaire de ce téléphone.
+              Revenir à Isoloir montre les réponses et le dépouillement du propriétaire de ce téléphone.
             </p>
             <div class="consent-actions">
               <button type="button" class="btn-primary" onClick={onUnlock}>

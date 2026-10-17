@@ -75,7 +75,7 @@ export function Deepen({ pack, state, results, update, topic }: Props) {
 
   return (
     <div class="screen screen-sheet">
-      <FormHeader title="Feuille complémentaire" right={election.shortName} />
+      <FormHeader title="Questions complémentaires" right={election.shortName} />
       <main class="sheet has-margin" id="contenu" tabIndex={-1}>
         <h1 class="q-prompt" tabIndex={-1}>
           Quels thèmes voulez-vous approfondir ?

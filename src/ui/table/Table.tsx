@@ -448,7 +448,7 @@ export function Table({ pack, Sheet }: { pack: ElectionPack; Sheet: typeof Sheet
           <Confirm
             where="Effacer"
             title="Effacer la table ?"
-            text="Les bulletins et le dépouillement de cette table seront effacés. La feuille du propriétaire du téléphone n’est pas touchée."
+            text="Les bulletins et le dépouillement de cette table seront effacés. Les réponses du propriétaire du téléphone ne sont pas touchées."
             yes="Effacer la table"
             onYes={wipe}
             onNo={() => setPhase(phase.back)}

@@ -66,7 +66,7 @@ export const SCENES: Scene[] = [
     title: 'Vous gardez votre affiche.',
     text: fr('Un double fabriqué sur l’appareil, à garder ou à partager. Il montre des pourcentages, jamais vos réponses.'),
     alt: fr(
-      'Un double jaune, « Mon dépouillement », sort de sous la feuille : Candidat 1, 82 % ; Candidat 2, 41 % ; Candidat 3, 23 %. En pied : fabriqué sur cet appareil, rien n’a été envoyé.',
+      'Un double jaune, « Mon dépouillement », sort de sous la page « Mes réponses » : Candidat 1, 82 % ; Candidat 2, 41 % ; Candidat 3, 23 %. En pied : fabriqué sur cet appareil, rien n’a été envoyé.',
     ),
     ms: 6500,
   },

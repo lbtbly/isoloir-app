@@ -246,14 +246,14 @@ describe('entrées de « Mon profil politique » (accueil, dépouillement, tenda
     expect(copy.PEEK_GO).toBe('Voir où j’en suis et un exemple')
   })
 
-  it('« Approfondir », arrivé d’un thème touché : ce qui est coché, et par où commence la feuille', () => {
+  it('« Approfondir », arrivé d’un thème touché : ce qui est coché, et par où commencent les questions', () => {
     expect(copy.deepenTouched('Israël et Gaza', 2, 0, 2)).toBe(`Le thème «${NB}Israël et Gaza${NB}» est coché${NB}: 2${NB}questions.`)
     expect(copy.deepenTouched('Défense', 1, 0, 1)).toBe(`Le thème «${NB}Défense${NB}» est coché${NB}: 1${NB}question.`)
     expect(copy.deepenTouched('Israël et Gaza', 2, 3, 15)).toBe(
-      `Le thème «${NB}Israël et Gaza${NB}» est coché${NB}: la feuille commence par ses 2${NB}questions. 3${NB}autres thèmes sont aussi cochés${NB}: 15${NB}questions en tout.`,
+      `Le thème «${NB}Israël et Gaza${NB}» est coché${NB}: vous commencez par ses 2${NB}questions. 3${NB}autres thèmes sont aussi cochés${NB}: 15${NB}questions en tout.`,
     )
     expect(copy.deepenTouched('Défense', 1, 1, 4)).toBe(
-      `Le thème «${NB}Défense${NB}» est coché${NB}: la feuille commence par sa question. Un autre thème est aussi coché${NB}: 4${NB}questions en tout.`,
+      `Le thème «${NB}Défense${NB}» est coché${NB}: vous commencez par sa question. Un autre thème est aussi coché${NB}: 4${NB}questions en tout.`,
     )
   })
 

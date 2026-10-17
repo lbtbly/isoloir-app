@@ -152,7 +152,7 @@ export function Method({ pack, anchor }: { pack: ElectionPack; /** Rubrique à m
               {' '}
               Une exception : la question «&nbsp;{q.prompt.replace(/ ([?!:;])/g, '\u00a0$1')}&nbsp;» vient toujours{' '}
               {q.step === 1 ? `en ${step1}e position, juste avant la première tendance` : 'en dernier dans le questionnaire rapide'}
-              , pour ne pas ouvrir la feuille sur elle.
+              , pour ne pas commencer par elle.
             </span>
           ))}{' '}
           Les candidats sont aussi présentés dans un ordre aléatoire partout où ils ne sont pas classés

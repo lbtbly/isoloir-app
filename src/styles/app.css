@@ -3292,7 +3292,25 @@ path.ink-draw {
   }
 }
 
-/* Texte très agrandi : le bouton principal prend toute une rangée plutôt que de déborder */
+/* Téléphone de 320 px : le lien d'appel d'une barre garde son libellé entier (« Répondre aux questions », « Voir mon
+   dépouillement ») sur la rangée de la flèche de retour, au prix d'un peu de marge intérieure, plutôt que de passer
+   seul dessous. Les boutons des questions et de la table ne changent pas ; le plateau de comparaison a ses propres
+   libellés courts (compare.css) */
+@container actions (max-width: 21rem) {
+  /* Sans poids de plus que la règle du texte très agrandi, ci-dessous, qui garde le dernier mot */
+  .action-bar-inner > .btn-primary:where(a:not(.tray-go)) {
+    gap: 0.45rem;
+    padding-inline: 0.9rem;
+  }
+}
+
+/* L'appel aux questions d'une barre (components/QuestionsCta.tsx) : son libellé court attend le texte très agrandi */
+.bar-cta-short {
+  display: none;
+}
+
+/* Texte très agrandi : le bouton principal prend toute une rangée plutôt que de déborder ; un mot plus long que la
+   rangée (« dépouillement ») se coupe, comme sur « Les sujets » (topics.css) */
 @container actions (max-width: 19rem) {
   .action-bar-inner > .btn-primary {
     flex: 1 1 100%;
@@ -3301,6 +3319,23 @@ path.ink-draw {
     padding-inline: var(--s3);
     white-space: normal;
     text-align: center;
+    hyphens: auto;
+    overflow-wrap: anywhere;
+  }
+
+  /* « Répondre » ou « Reprendre » seul, comme dans l'en-tête de l'accueil : « Répondre aux questions » y prenait trois
+     lignes, et la barre fixe, 41 % d'un écran de 320 px. Le libellé entier reste le nom du lien */
+  .bar-cta-long {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .bar-cta-short {
+    display: inline;
   }
 }
 

@@ -14,8 +14,8 @@
 // - aucun mot de qualité (« surtout », « fragile », « solide », « presque ») ; jamais « vous êtes au centre »,
 //   « modéré », « incohérent », « personne ne vous représente » ; chaque phrase ne paraît que quand elle est vraie ;
 // - la comparaison se dit « les autres façons de poser vos mêmes avis », jamais « hasard » ; les profils de la
-//   calibration sont « des feuilles remplies par un programme, sans suivre aucun candidat » (décision du propriétaire du
-//   15 octobre 2026, D2).
+//   calibration sont « des questionnaires remplis par un programme, sans suivre aucun candidat » (décision du
+//   propriétaire du 15 octobre 2026, D2 ; « des feuilles… » jusqu'au 17 octobre, où « feuille » quitte le site).
 // Vocabulaire : un « domaine » est une famille de thèmes (pack.topicGroups), un « sujet » une ligne du graphique (un
 // thème, ou sa famille entière), un « thème » celui de la banque.
 // Typographie du site : espaces insécables avant « : ; ? ! », dans les guillemets et devant « % » (fr()).
@@ -23,7 +23,7 @@
 
 import { affinityBand } from './affinity'
 import { fr, PRIVACY, word } from './echiquierCommonCopy'
-import { joinNames, signed } from './resultsCopy'
+import { CTA_REREAD, CTA_START, joinNames, signed } from './resultsCopy'
 import type { Mark, UnitReading } from './echiquier'
 import { ECHIQUIER, segments } from './echiquier'
 import type { SpectrumAxisBloc } from './types'
@@ -89,9 +89,9 @@ export function waitText(state: WaitState, total: number, left: number, added: b
           : `La lecture ${when} : encore ${plural(left, 'question')}.`,
   )
 }
-/** Le bouton de la fiche : les libellés de l'accueil et de la tendance */
+/** Le bouton de la fiche : les libellés de l'accueil et du pied de page (core/resultsCopy.ts) */
 export const waitCta = (state: WaitState, left: number) =>
-  state === 'vide' ? 'Commencer la feuille' : state === 'sans-avis' ? 'Relire la feuille' : fr(`Continuer : ${plural(left, 'question')}`)
+  state === 'vide' ? CTA_START : state === 'sans-avis' ? CTA_REREAD : fr(`Continuer : ${plural(left, 'question')}`)
 /** L'exemple : la grille fictive de l'aperçu de l'accueil (core/resultsCopy.ts, PROFILE_PEEK), avec ses mots */
 export const EXAMPLE_TITLE = 'À quoi ressemblera la lecture'
 export const EXAMPLE_NOTE = fr('Exemple fictif : ces sujets n’existent pas, et les couleurs sont illustratives.')
@@ -330,7 +330,7 @@ export function oneQuestion(axis: readonly SpectrumAxisBloc[], carriers: readonl
 export const SUMMARY_TITLE = /* @__PURE__ */ fr('Où vos réponses se rapprochent nettement d’un bloc de la grille')
 /** Sous le graphique, en petit corps gris : ce que vaut une lecture nette, chiffres de la Méthode (ECHIQUIER_PUBLISHED) */
 export const SUMMARY_NOTE = fr(
-  'Selon la grille des nuances du ministère de l’Intérieur. Une lecture nette n’est pas une certitude : des feuilles remplies par un programme, sans suivre aucun candidat, en obtiennent aussi une ou deux sur l’ensemble des thèmes, un peu plus selon la façon de répondre. Chaque lecture se vérifie dans son détail.',
+  'Selon la grille des nuances du ministère de l’Intérieur. Une lecture nette n’est pas une certitude : des questionnaires remplis par un programme, sans suivre aucun candidat, en obtiennent aussi une ou deux sur l’ensemble des thèmes, un peu plus selon la façon de répondre. Chaque lecture se vérifie dans son détail.',
 )
 export const nothingLine = (n: number) => fr(`Rien de net : ${plural(n, 'thème')}`)
 export const apartLine = (n: number) => fr(`Seulement plus loin d’un bloc : ${plural(n, 'thème')}`)
@@ -586,7 +586,7 @@ export const CAVEATS_TITLE = 'À garder en tête'
 export const caveats = (panel: number) => [
   fr('La grille classe des partis et des candidats, pas des idées : une même approche est souvent portée dans plusieurs blocs, et les candidats d’un même bloc ne pensent pas tous pareil.'),
   fr(`Une lecture situe vos réponses par rapport à ces ${panel} candidats, tels que la grille les range ; elle changerait avec d’autres candidats.`),
-  fr('Sur peu de questions, des feuilles remplies par un programme, sans suivre aucun candidat, obtiennent parfois une lecture nette, elles aussi.'),
+  fr('Sur peu de questions, des questionnaires remplis par un programme, sans suivre aucun candidat, obtiennent parfois une lecture nette, eux aussi.'),
   fr('Ce n’est ni un test, ni une étiquette, ni une consigne de vote.'),
 ]
 export const METHOD_LINK = 'La méthode en détail'
