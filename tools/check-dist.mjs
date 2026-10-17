@@ -101,7 +101,8 @@ for (const [voice, videos] of Object.entries(inventory.voices ?? {})) {
 // Le 14 octobre 2026, la sortie des notices et de « Partager » (src/ui/screens/load.ts) l'a ramené de 276,7 à 206,6 ko.
 // Le 17 octobre 2026, « Installer l'application » y ajoute 3,9 ko (de 228,2 à 232,1 ko) : l'annonce d'installation et la
 // demande de garder les réponses, le mode installé, l'avis de l'accueil de l'application ouverte vide et ses liens ; la
-// page elle-même, sa feuille de style et la détection de l'appareil sont à part.
+// page elle-même, sa feuille de style et la détection de l'appareil sont à part. Avec le journal des données (son lien,
+// l'avis « Pour vous » du dépouillement et l'empreinte des résultats), fusionné le même jour : 236,7 ko.
 // Le dépasser, c'est d'abord se demander ce qui est entré dans le code de toutes les visites, avant de relever le plafond.
 const INITIAL_JS_BUDGET = 278_000
 const entry = html.match(/<script type="module"[^>]*src="\.\/(assets\/[^"]+\.js)"/)?.[1]
