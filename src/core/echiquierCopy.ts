@@ -73,19 +73,21 @@ export const waitCount = (seen: number, total: number) => `question${seen > 1 ? 
  * La phrase de la fiche ; left : questions rapides qui restent ; added : ajoutées depuis un questionnaire fini. Elle
  * nomme « la lecture » plutôt qu'un pronom : après « le questionnaire rapide », « il » se rapporterait à lui
  */
-export const waitText = (state: WaitState, total: number, left: number, added: boolean) =>
-  fr(
+export function waitText(state: WaitState, total: number, left: number, added: boolean): string {
+  // Quand la lecture s'affiche : la même fin pour une feuille vierge et pour une feuille en cours
+  const when = `s’affiche au bout des ${plural(total, 'question')} du questionnaire rapide, avec le dépouillement complet`
+  const many = left > 1
+  return fr(
     state === 'vide'
-      ? `La lecture se fait sur vos réponses : elle s’affiche au bout des ${plural(total, 'question')} du questionnaire rapide, avec le dépouillement complet.`
+      ? `La lecture se fait sur vos réponses : elle ${when}.`
       : state === 'sans-avis'
         ? // Toutes les questions du questionnaire rapide vues, mais aucun avis qui compte : passées, vues sans avis, ou à revoir
           'Aucune de vos réponses ne donne encore d’avis qui compte : la lecture se fait sur vos « d’accord » et vos « pas d’accord », hors questions passées et questions à revoir.'
         : added
-          ? left > 1
-            ? `${plural(left, 'question')} ont été ajoutées au questionnaire rapide depuis vos réponses : la lecture s’affiche de nouveau une fois ces questions vues.`
-            : 'Une question a été ajoutée au questionnaire rapide depuis vos réponses : la lecture s’affiche de nouveau une fois cette question vue.'
-          : `La lecture s’affiche au bout des ${plural(total, 'question')} du questionnaire rapide, avec le dépouillement complet : encore ${plural(left, 'question')}.`,
+          ? `${many ? `${plural(left, 'question')} ont été ajoutées` : 'Une question a été ajoutée'} au questionnaire rapide depuis vos réponses : la lecture s’affiche de nouveau une fois ${many ? 'ces questions vues' : 'cette question vue'}.`
+          : `La lecture ${when} : encore ${plural(left, 'question')}.`,
   )
+}
 /** Le bouton de la fiche : les libellés de l'accueil et de la tendance */
 export const waitCta = (state: WaitState, left: number) =>
   state === 'vide' ? 'Commencer la feuille' : state === 'sans-avis' ? 'Relire la feuille' : fr(`Continuer : ${plural(left, 'question')}`)
@@ -101,8 +103,10 @@ export const WAIT_DEEPEN = fr(
 // (core/echiquier.ts, deeperTopics) : après les domaines, repliée ; ouverte sous le compte au seul questionnaire rapide,
 // ou quand rien n'est net nulle part
 export const DEEPER_TITLE = 'Pour lire plus de thèmes'
-export const deeperLede = (quickOnly: boolean) =>
-  fr(quickOnly ? 'Après le questionnaire rapide, la lecture se fait par domaine : il faut au moins deux questions pour lire un thème seul.' : 'Il faut au moins deux questions pour lire un thème seul.')
+export const deeperLede = (quickOnly: boolean) => {
+  const rule = 'il faut au moins deux questions pour lire un thème seul.'
+  return fr(quickOnly ? `Après le questionnaire rapide, la lecture se fait par domaine : ${rule}` : cap(rule))
+}
 /**
  * Ce que compte la fiche, sur sa ligne : repliée, ce qu'elle reprend (« 3 sans réponse, 8 sur une seule question ») ;
  * ouverte, le nombre de ses thèmes
@@ -122,14 +126,14 @@ export const STATUS_READY = 'Lecture prête.'
 // ——— Comment c'est calculé : huit points au plus, le reste dans la Méthode ———
 
 /** Point 1 : qui compte ; panel : candidats de l'axe ; unscored : candidats non classés de l'élection */
-export const howWho = (panel: number, unscored: number) =>
-  fr(
+export const howWho = (panel: number, unscored: number) => {
+  const others = 'le bloc « Autres » de la grille (écologistes, divers), qui n’est pas une place entre la gauche et le centre.'
+  return fr(
     `Comptent les ${panel} candidats classés. ${
-      unscored
-        ? `Ne comptent pas : ${unscored > 1 ? `les ${unscored} candidats non classés` : 'le candidat non classé'}, ni le bloc « Autres » de la grille (écologistes, divers), qui n’est pas une place entre la gauche et le centre.`
-        : 'Ne compte pas : le bloc « Autres » de la grille (écologistes, divers), qui n’est pas une place entre la gauche et le centre.'
+      unscored ? `Ne comptent pas : ${unscored > 1 ? `les ${unscored} candidats non classés` : 'le candidat non classé'}, ni ${others}` : `Ne compte pas : ${others}`
     }`,
   )
+}
 /** Point 2 : le calcul, et ce à quoi on le compare (toutes les façons, la vôtre comprise, comme la moyenne du détail) */
 export const HOW_CALC = fr(
   'Pour chaque bloc, on fait la moyenne de votre affinité, sur le thème, avec ses candidats (les pourcentages de « Par thème »). Puis le même calcul pour toutes les façons de poser vos mêmes avis, la vôtre et toutes les autres : sur chaque question, autant de « d’accord », de « pas d’accord » et de « sans avis », répartis entre ses approches. Ce qui compte : où vont vos avis, pas leur nombre.',
@@ -266,13 +270,13 @@ export function unitSentence(axis: readonly SpectrumAxisBloc[], r: Pick<UnitRead
       break
     case 'aucun':
       text =
-        r.ways === 1
-          ? 'Rien de net : vos mêmes avis ne pouvaient se poser que d’une seule façon sur ces questions, la vôtre ; rien à comparer.'
-          : r.ways < MIN_WAYS
-            ? `Rien de net : vos mêmes avis ne pouvaient se poser que de ${r.ways}${NB}façons sur ces questions, trop peu pour conclure (il en faut au moins dix).`
-            : r.distinct
-              ? `Rien de net : sur ${r.kind === 'famille' ? 'ce domaine' : 'ce thème'}, vos réponses ne se rapprochent ni ne s’écartent nettement des candidats d’aucun bloc, quelle que soit la couleur des cases.`
-              : `Rien de net : sur ${r.kind === 'famille' ? 'ce domaine' : 'ce thème'}, vos réponses ne se distinguent pas assez des autres façons de poser vos mêmes avis, quelle que soit la couleur des cases.`
+        r.ways < MIN_WAYS
+          ? `Rien de net : vos mêmes avis ne pouvaient se poser que ${
+              r.ways === 1 ? 'd’une seule façon sur ces questions, la vôtre ; rien à comparer' : `de ${r.ways}${NB}façons sur ces questions, trop peu pour conclure (il en faut au moins dix)`
+            }.`
+          : `Rien de net : sur ${r.kind === 'famille' ? 'ce domaine' : 'ce thème'}, vos réponses ne ${
+              r.distinct ? 'se rapprochent ni ne s’écartent nettement des candidats d’aucun bloc' : 'se distinguent pas assez des autres façons de poser vos mêmes avis'
+            }, quelle que soit la couleur des cases.`
       break
     case 'blocs-inconnus':
       return fr(
@@ -297,6 +301,11 @@ export const ONE_QUESTION_LEAD = fr('Sur une seule question, la page ne conclut 
 /** La même, en bref : le nom lu d'une ligne */
 export const ONE_QUESTION = fr('Une seule question : pas de lecture nette.')
 export const DEEPEN_THEME = 'Approfondir ce thème'
+/**
+ * Ce que dit la page d'une approche qu'aucun candidat classé ne porte en principal : dans le constat d'une seule question,
+ * le détail et les accords qu'il compte à part ; écrit une fois (le plafond du fichier de la page)
+ */
+const NO_MAIN = 'approche principale d’aucun candidat classé'
 
 /**
  * Le constat d'un thème lu sur une seule question : qui porte en approche principale ce que vous y approuvez (vrai par
@@ -307,13 +316,13 @@ export const DEEPEN_THEME = 'Approfondir ce thème'
 export function oneQuestion(axis: readonly SpectrumAxisBloc[], carriers: readonly (readonly string[])[] | null, placed = 1, unplaced = 0): string | null {
   if (!carriers) return null
   const total = carriers.reduce((n, names) => n + names.length, 0)
-  if (!total || !placed) return fr('Ce que vous y approuvez n’est l’approche principale d’aucun candidat classé.')
+  if (!total || !placed) return fr(`Ce que vous y approuvez n’est l’${NO_MAIN}.`)
   // Bloc par bloc, chacun avec ses porteurs : « à gauche (A, B) et à droite (C) »
   const parts = carriers.flatMap((names, b) => (names.length ? [`${axis[b]!.where} (${names.join(', ')})`] : []))
   const whose = `${total > 1 ? 'de candidats' : 'd’un candidat'} que la grille classe ${listFr(parts)}`
   if (!unplaced)
     return fr(placed > 1 ? `Ce que vous y approuvez, ce sont les approches principales ${whose}.` : `Ce que vous y approuvez est l’approche principale ${whose}.`)
-  const rest = unplaced > 1 ? 'les autres ne sont l’approche principale d’aucun candidat classé' : 'l’autre n’est l’approche principale d’aucun candidat classé'
+  const rest = unplaced > 1 ? `les autres ne sont l’${NO_MAIN}` : `l’autre n’est l’${NO_MAIN}`
   return fr(
     placed > 1
       ? `Parmi ce que vous y approuvez, ${placed} approches sont les approches principales ${whose} ; ${rest}.`
@@ -492,6 +501,16 @@ export function crossLine(names: readonly string[], possible: boolean, count: nu
   const verb = possible ? `${many ? 'pourraient' : 'pourrait'} franchir` : many ? 'franchissent' : 'franchit'
   return fr(`${listFr([...names])} ${verb} ${redLines(count)} sur ce sujet${themes?.length ? ` (${listFr(themes.map(t => `« ${t} »`))})` : ''}.`)
 }
+/**
+ * Votre façon de répondre (lot 4, A5) : une phrase, sans titre, après les domaines, quand presque toutes les cases mises
+ * à l'épreuve ont leur point de comparaison du même côté (ui/profile/rows.ts, mannerOf). near : du côté « proche » ;
+ * k questions sur n ont plus d'avis de ce côté que de l'autre. 25 mots au plus, aucun nom de bloc ni de candidat : un
+ * constat chiffré sur la feuille, jamais un portrait (effet Barnum). « pas d’accord » ne se coupe pas entre ses guillemets
+ */
+export const manner = (near: boolean, k: number, n: number) =>
+  fr(
+    `Sur ${plural(k, 'question')} sur ${n}, vos réponses sont en majorité des « ${near ? '' : `pas${NB}`}d’accord » : une case « ${near ? 'proche' : 'éloigné'} », seule, dit peu ; les lectures nettes en tiennent compte.`,
+  )
 /** Sous le graphique : la source des colonnes, autour du lien (posé par la page) */
 export const SOURCE = [
   fr('Les cinq colonnes sont les blocs de la grille des nuances politiques du ministère de l’Intérieur ('),
@@ -583,15 +602,17 @@ export const MAYBE_CROSSED_BY = fr('Pourrait être franchie par :')
 export const PRIORITY_DETAIL = fr('Votre priorité : ce thème compte double dans votre classement, pas dans cette lecture.')
 export const MAIN_OF = fr('Approche principale de :')
 export const BOTH_SIDES = 'Portée des deux côtés'
-export const MAIN_OF_NONE = 'Approche principale d’aucun candidat classé'
+export const MAIN_OF_NONE = cap(NO_MAIN)
 export const SEE_IN_PROXIMITY = 'Voir dans Qui porte quoi'
 /** Accords sur des approches que ne porte en principal aucun candidat classé */
-export const unplaced = (n: number, family: boolean) =>
-  fr(
-    n > 1
-      ? `${n} de vos accords ${family ? 'sur ces thèmes' : 'sur ce thème'} portent sur des approches qui ne sont l’approche principale d’aucun candidat classé : elles ne rapprochent d’aucun bloc en particulier.`
-      : `Un de vos accords ${family ? 'sur ces thèmes' : 'sur ce thème'} porte sur une approche qui n’est l’approche principale d’aucun candidat classé : elle ne rapproche d’aucun bloc en particulier.`,
+export const unplaced = (n: number, family: boolean) => {
+  const many = n > 1
+  return fr(
+    `${many ? `${n} de vos accords` : 'Un de vos accords'} ${family ? 'sur ces thèmes' : 'sur ce thème'} ${
+      many ? 'portent sur des approches qui ne sont' : 'porte sur une approche qui n’est'
+    } l’${NO_MAIN} : ${many ? 'elles ne rapprochent' : 'elle ne rapproche'} d’aucun bloc en particulier.`,
   )
+}
 
 // ——— À garder en tête ———
 

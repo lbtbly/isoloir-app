@@ -1823,6 +1823,93 @@ try {
       check(issues.length === 0, `mon profil politique (lot 3, cas repérés) : ${seen.join(', ')}, ligne et détail à 1 280 px et à 320 px texte à 200 %${issues.length ? ` : ${[...new Set(issues)].slice(0, 6).join(' ; ')}` : ''}`)
     }
 
+    // Lot 4, « Votre façon de répondre » : la phrase, sans titre, après les domaines et avant la fiche repliée, quand presque
+    // toutes les cases mises à l'épreuve ont leur point de comparaison du même côté (ui/profile/rows.ts, mannerOf), mot
+    // pour mot celle du calcul. Ses deux côtés : un clone bruité réel (graine « n:<id>:<s> » de tools/audit-echiquier.mjs,
+    // le questionnaire rapide vu en entier), côté « éloigné », la fiche repliée après elle ; une feuille remplie par un
+    // programme qui approuve tout sauf une approche, au seul questionnaire rapide, côté « proche », la fiche ouverte sous le
+    // compte. Rien avec des avis uniformes (C9), ni sur la feuille mêlée des lectures nettes ci-dessus si le calcul n'en
+    // dit rien. À 390 px, puis à 320 px texte à 200 % : rien ne sort de la page
+    {
+      const C = await importSite('src/core/echiquierCopy.ts')
+      const { profilesFor } = await importSite('tests/fixtures/echiquier-profiles.ts')
+      const { chartRows: rowsOfChart, mannerOf, uniformViews } = await importSite('src/ui/profile/rows.ts')
+      const { currentAnswers: currentOf } = await importSite('src/core/revisions.ts')
+      const P = profilesFor(pack)
+      const quickOnly = q => q.tier === 'essentiel'
+      const norm = t => (t ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
+      /** Une feuille telle que la page l'enregistre : le questionnaire rapide vu en entier */
+      const stateOf = answers => {
+        for (const q of pack.bank.questions) {
+          if (answers[q.id] && q.rev) answers[q.id].rev = q.rev
+          if (q.tier === 'essentiel' && !answers[q.id]) answers[q.id] = { ratings: {}, redLines: [], skipped: true, ...(q.rev ? { rev: q.rev } : {}) }
+        }
+        return sanitizeState({ ...freshState(pack.election.id, pack.election.dataVersion), answers, essentialDoneAt: new Date().toISOString() }, pack)
+      }
+      /** La phrase que donne le calcul, comme la page : rien avec des avis uniformes */
+      const wanted = st => {
+        const cur = currentOf(pack, st.answers)
+        if (uniformViews(pack.bank.questions, cur)) return null
+        const m = mannerOf(rowsOfChart(groups, readEchiquier(pack, cur), u => u.id), pack.bank.questions, cur)
+        return m ? { near: m.near, text: norm(C.manner(m.near, m.k, m.n)) } : null
+      }
+      const agreeAll = Object.fromEntries(pack.bank.questions.filter(quickOnly).map(q => [q.id, { ratings: Object.fromEntries(q.approaches.map(a => [a.id, 1])), redLines: [] }]))
+      const cases = [
+        ['clone bruité d’Anasse Kazib', stateOf(P.toAnswers(P.noisy(P.cloneLarge('kazib'), 'n:kazib:5'))), false],
+        ['tout sauf un, rapide seul', stateOf(P.toAnswers(P.randomProfile('e2e-facon:tout-sauf-un:0', 'tout-sauf-un', quickOnly))), true],
+        ['avis uniformes', stateOf(agreeAll), null],
+        ['feuille mêlée', readState, undefined],
+      ]
+      const issues = []
+      const seen = []
+      for (const [label, st, side] of cases) {
+        const want = wanted(st)
+        if (side !== undefined && (want?.near ?? null) !== side) issues.push(`${label} : le calcul donne ${want ? (want.near ? '« proche »' : '« éloigné »') : 'aucune phrase'}`)
+        for (const [width, zoom] of [
+          [390, 100],
+          [320, 200],
+        ]) {
+          const fctx = await browser.newContext({ viewport: { width, height: 844 }, reducedMotion: 'reduce', hasTouch: true, isMobile: true })
+          await fctx.addInitScript(x => Object.entries(x).forEach(([k, v]) => localStorage.setItem(k, v)), { [STORAGE]: JSON.stringify(st) })
+          if (zoom !== 100) await fctx.addInitScript(z => document.addEventListener('DOMContentLoaded', () => (document.documentElement.style.fontSize = `${z}%`)), zoom)
+          const fp = await fctx.newPage()
+          await fp.goto(U('/profil'))
+          await fp.locator('[role="status"]', { hasText: 'Lecture prête.' }).waitFor({ timeout: 20000 }).catch(() => issues.push(`${label}, ${width} px : pas de lecture`))
+          const got = await fp.evaluate(() => {
+            const after = (a, b) => !!a && !!b && !!(a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING)
+            const p = document.querySelector('.profile-chart .manner')
+            const card = document.querySelector('.profile-chart .deeper-card')
+            const r = p?.getBoundingClientRect()
+            return {
+              n: document.querySelectorAll('.profile-chart .manner').length,
+              text: p?.textContent ?? null,
+              afterFamilies: after([...document.querySelectorAll('.profile-chart .fam-group')].at(-1), p),
+              card: !card ? 'aucune' : card.closest('.chart-head') ? 'sous le compte' : after(p, card) ? 'après la phrase' : 'avant la phrase',
+              beforeNote: after(p, document.querySelector('.profile-chart .chart-note')),
+              // Sans titre : rien qui la nomme, ni intertitre juste avant elle
+              titled: !!p && (/^H\d$/.test(p.previousElementSibling?.tagName ?? '') || p.hasAttribute('aria-labelledby')),
+              inside: !r || (r.left >= 0 && r.right <= document.documentElement.clientWidth + 1),
+              uniform: document.querySelector('.profile-chart .chart-state')?.textContent ?? '',
+              wide: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+            }
+          })
+          const where = `${label}, ${width} px${zoom === 100 ? '' : ` à ${zoom} %`}`
+          if (got.n !== (want ? 1 : 0)) issues.push(`${where} : ${got.n} phrase(s), ${want ? 'une' : 'aucune'} attendue`)
+          if (want) {
+            if (norm(got.text) !== want.text) issues.push(`${where} : « ${norm(got.text)} » au lieu de « ${want.text} »`)
+            if (!got.afterFamilies || !got.beforeNote || got.titled) issues.push(`${where} : place ${JSON.stringify(got)}`)
+            if (label.startsWith('clone') && got.card !== 'après la phrase') issues.push(`${where} : la fiche ${got.card}`)
+            if (label.includes('rapide') && got.card !== 'sous le compte') issues.push(`${where} : la fiche ${got.card}`)
+          }
+          if (label === 'avis uniformes' && norm(got.uniform) !== norm(C.UNIFORM)) issues.push(`${where} : pas l’état des avis uniformes (« ${norm(got.uniform).slice(0, 60)} »)`)
+          if (got.wide > 0 || !got.inside) issues.push(`${where} : ${got.wide} px de trop, phrase dans la page ${got.inside}`)
+          if (width === 390) seen.push(`${label} ${want ? `(« ${want.near ? 'proche' : 'éloigné'} », fiche ${got.card})` : '(aucune phrase)'}`)
+          await fctx.close()
+        }
+      }
+      check(issues.length === 0, `mon profil politique (lot 4, votre façon de répondre) : ${seen.join(', ')}, à 390 px et à 320 px texte à 200 %${issues.length ? ` : ${[...new Set(issues)].slice(0, 6).join(' ; ')}` : ''}`)
+    }
+
     // Une page lourde sur un téléphone lent (processeur bridé dix fois : bien plus de 300 ms de calcul) : tout noté sur
     // la banque entière, d'accord, pas d'accord et sans avis en rotation. Le statut « Lecture en cours » paraît (au-delà
     // de 300 ms), puis « Lecture prête. » : le calcul laisse passer la minuterie de la page, que les reprises de

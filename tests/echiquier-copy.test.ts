@@ -155,8 +155,13 @@ function allTexts(): string[] {
   out.push(...allCrossLines(), T.rowMeta(1, true), T.rowMeta(4, true), T.rowMeta(4, false), ...M.methodCross(), M.METHOD_PRIORITY)
   // Ce qui pèse le plus (lot 3)
   out.push(...allWeighTexts(), M.methodWeigh(), M.METHOD_WEIGH)
+  // Votre façon de répondre (lot 4)
+  out.push(...allManners(), M.methodManner(axis.map(a => a.where)), M.METHOD_MANNER)
   return out
 }
+
+/** La phrase « Votre façon de répondre », des deux côtés, de la plus petite feuille à la banque entière */
+const allManners = () => [false, true].flatMap(near => [[2, 2], [2, 3], [31, 41], [12, 12], [145, 163]].map(([k, n]) => T.manner(near, k!, n!)))
 
 /** Les suites contiguës de blocs de l'axe, telles que la fiche les dit (where) */
 const contiguous = () => subsets(axis.length).filter(s => segments(s).length === 1)
@@ -565,7 +570,22 @@ describe('règles d’écriture', () => {
       T.NOTHING_TESTABLE,
       T.UNIFORM,
     ]
-    const texts = [...sentences, ...M.methodWorth(), M.methodBefore(), ...M.methodCross(), M.METHOD_CROSS_WHERE, M.METHOD_PRIORITY, M.METHOD_WEIGH, M.methodWeigh(), ...allWeighTexts(), ...allSummaries(), ...chart]
+    const texts = [
+      ...sentences,
+      ...M.methodWorth(),
+      M.methodBefore(),
+      ...M.methodCross(),
+      M.METHOD_CROSS_WHERE,
+      M.METHOD_PRIORITY,
+      M.METHOD_WEIGH,
+      M.methodWeigh(),
+      M.METHOD_MANNER,
+      M.methodManner(axis.map(a => a.where)),
+      ...allWeighTexts(),
+      ...allManners(),
+      ...allSummaries(),
+      ...chart,
+    ]
     for (const s of texts) {
       if (BLOC.test(s)) expect(/la grille/.test(s), s).toBe(true)
       for (const m of s.matchAll(/qu’elle classe/g)) expect(s.slice(0, m.index).includes('la grille'), s).toBe(true)
@@ -581,7 +601,7 @@ describe('règles d’écriture', () => {
 
   it('le sujet est « vos réponses » (ou ce que vous approuvez), jamais la personne', () => {
     for (const s of allSentences().filter(x => /rapprochent|écartent/.test(x))) expect(/Vos réponses|vos réponses/.test(s), s).toBe(true)
-    for (const s of [T.BOTH_ROW[1], T.bothRow(false)[1], T.countNear(3).join(''), T.countApart(1).join(''), ...T.NOTHING_CAUSES.map(c => T.nothingAnywhere(c).join('')), T.UNIFORM])
+    for (const s of [T.BOTH_ROW[1], T.bothRow(false)[1], T.countNear(3).join(''), T.countApart(1).join(''), ...T.NOTHING_CAUSES.map(c => T.nothingAnywhere(c).join('')), T.UNIFORM, ...allManners()])
       expect(/Vos réponses|vos réponses/.test(s), s).toBe(true)
     // La Méthode aussi : ce sont des réponses qui sont lues, pas une personne
     for (const s of M.methodWorth()) {
@@ -594,7 +614,7 @@ describe('règles d’écriture', () => {
     for (const s of [...sentences, T.SUMMARY_TITLE, T.SUMMARY_NOTE, ...subsets(axis.length).map(x => T.groupLabel(axis, x))]) expect(s, s).not.toContain('%')
     // Le graphique non plus : les pourcentages ne paraissent que dans « Le détail » et la liste d'une ligne ouverte
     const chart = [...allSummaries(), T.KEY_TEXT, ...T.BOTH_ROW, ...T.bothRow(false), T.BLOC_NOTE, T.COLORS_NOTE, ...T.countNear(7), ...T.countApart(7), T.countRest(1, 2, 3, 4, 5)!]
-    for (const s of [...chart, ...T.NOTHING_CAUSES.flatMap(c => T.nothingAnywhere(c)), T.NOT_CENTRE, T.NOTHING_TESTABLE, T.UNIFORM, ...Object.values(T.GROUP_TITLE)]) expect(s, s).not.toContain('%')
+    for (const s of [...chart, ...T.NOTHING_CAUSES.flatMap(c => T.nothingAnywhere(c)), T.NOT_CENTRE, T.NOTHING_TESTABLE, T.UNIFORM, ...Object.values(T.GROUP_TITLE), ...allManners()]) expect(s, s).not.toContain('%')
   })
 
   it('aucun symbole de lecture : ni ▲ ni ▽ ni point, dans les textes du module comme dans ceux de la page ; seul « ? » reste', () => {
@@ -975,6 +995,93 @@ describe('ce qui pèse le plus dans cette lecture (lot 3)', () => {
     // À droite la plus basse, à gauche la plus haute (les libellés publiés)
     expect(shares.indexOf(C.low)).toBe(3)
     expect(shares.indexOf(C.high)).toBe(1)
+  })
+})
+
+describe('votre façon de répondre (lot 4)', () => {
+  const pack = elections.find(p => p.election.id === 'presidentielle-2027')!
+  const where = axis.map(a => a.where)
+  const words = (s: string) => s.split(/\s+/).filter(w => /[\p{L}\d]/u.test(w)).length
+  /** « à gauche », « à gauche ou à droite » : les blocs à égalité */
+  const listOf = (xs: string[]) => (xs.length > 1 ? `${xs.slice(0, -1).join(', ')} ou ${xs.at(-1)}` : xs[0])
+
+  it('la phrase des maquettes validées, des deux côtés : un constat chiffré sur la feuille, 25 mots au plus, sans titre', () => {
+    expect(T.manner(false, 31, 41)).toBe(
+      `Sur 31${NB}questions sur 41, vos réponses sont en majorité des «${NB}pas${NB}d’accord${NB}»${NB}: une case «${NB}éloigné${NB}», seule, dit peu${NB}; les lectures nettes en tiennent compte.`,
+    )
+    expect(T.manner(true, 12, 20)).toBe(
+      `Sur 12${NB}questions sur 20, vos réponses sont en majorité des «${NB}d’accord${NB}»${NB}: une case «${NB}proche${NB}», seule, dit peu${NB}; les lectures nettes en tiennent compte.`,
+    )
+    for (const t of allManners()) {
+      expect(words(t), t).toBeLessThanOrEqual(25)
+      // Le sujet : vos réponses ; aucun bloc, aucun candidat, aucun pourcentage
+      expect(t).toContain('vos réponses sont en majorité des')
+      expect(/extrême|gauche|droite|centre|grille|%/i.test(t), t).toBe(false)
+      for (const c of pack.candidates) expect(t).not.toContain(c.name.split(' ').slice(1).join(' '))
+    }
+  })
+
+  it('la Méthode : la règle même de la page, ce qu’elle ne change pas', () => {
+    expect(M.METHOD_MANNER).toContain(`sur 9 des cases mises à l’épreuve sur 10 au moins, la moyenne des autres façons de poser vos mêmes avis tombe à 39${NB}% ou moins (à 60${NB}% ou plus pour «${NB}proche${NB}»)`)
+    expect(M.METHOD_MANNER).toContain('plus de la moitié de vos questions répondues')
+    expect(M.METHOD_MANNER).toContain('jamais quand, sur chaque question, vos réponses donnent le même avis à toutes les approches')
+    expect(M.METHOD_MANNER).toMatch(/Elle ne change ni la couleur, ni la lecture, ni l’ordre\.$/)
+    // Les seuils dits sont ceux du calcul (ui/profile/rows.ts, mannerOf)
+    const rows = readFileSync(join(ROOT, 'src/ui/profile/rows.ts'), 'utf8')
+    for (const x of ['if (m <= 39) far++', 'else if (m >= 60) near++', '10 * far >= 9 * cells && 2 * no > n', '10 * near >= 9 * cells && 2 * yes > n']) expect(rows).toContain(x)
+  })
+
+  it('la Méthode publie le taux d’affichage par façon de répondre, puis bloc par bloc, avec et sans le candidat (D5)', () => {
+    const P = M.ECHIQUIER_MANNER
+    const text = M.methodManner(where)
+    const dec = (x: number) => String(x).replace('.', ',')
+    expect(P.clones).toBeGreaterThanOrEqual(60)
+    expect(text).toContain(`(${P.clones} feuilles par candidat)`)
+    expect(text).toContain('feuilles remplies par un programme, sans suivre aucun candidat')
+    expect(text).toContain(`sur ${dec(P.agreeOnly[0])}${NB}% de celles qui ne donnent que des «${NB}d’accord${NB}» (${dec(P.agreeOnly[1])}${NB}% après le seul questionnaire rapide)`)
+    for (const [m, label] of [[P.bank, 'banque'], [P.quick, 'rapide']] as const) {
+      const blocs: readonly number[] = m.blocs
+      const lo = Math.min(...blocs)
+      const hi = Math.max(...blocs)
+      // Les blocs nommés sont ceux de la mesure : le plus bas (tous ceux qui le sont) et le plus haut
+      expect(m.lowWhere, label).toBe(listOf(blocs.flatMap((x, b) => (x === lo ? [where[b]!] : []))))
+      expect(m.highWhere, label).toBe(where[blocs.indexOf(hi)])
+      expect(text).toContain(`de ${dec(lo)}${NB}% pour un candidat`)
+      expect(text).toContain(`à ${dec(hi)}${NB}% pour un candidat qu’elle classe ${m.highWhere}`)
+      expect(text).toContain(`(${dec(m.without)}${NB}%, de ${dec(Math.min(...m.withoutBlocs))} à ${dec(Math.max(...m.withoutBlocs))}${NB}%, sans lui`)
+      expect(lo).toBeLessThanOrEqual(m.all)
+      expect(m.all).toBeLessThanOrEqual(hi)
+    }
+    // Les écarts, non établis, dits tels quels ; la référence du même passage, celle de la croix (lot 2)
+    expect(text).toContain(`Ces écarts entre blocs, de ${dec(P.gap[0])} points sur la banque entière (${dec(P.gap[1])} sans lui) et de ${dec(P.quickGap[0])} au rapide (${dec(P.quickGap[1])}), ne sont pas établis`)
+    expect(P.reference).toEqual(M.ECHIQUIER_CROSS.reference)
+    expect(P.quickReference).toEqual(M.ECHIQUIER_CROSS.quick.reference)
+    expect(P.gap[0]).toBeCloseTo(Math.max(...P.bank.blocs) - Math.min(...P.bank.blocs), 1)
+    expect(P.quickGap[0]).toBeCloseTo(Math.max(...P.quick.blocs) - Math.min(...P.quick.blocs), 1)
+    // La phrase paraît le plus pour les deux blocs que la grille classe aux extrêmes, qui comptent le plus de « pas d'accord »
+    const ends = [0, axis.length - 1]
+    for (const [shownBy, style] of [[P.bank.blocs, P.style], [P.quick.blocs, P.styleQuick]] as const) {
+      const top2 = (xs: readonly number[]) => [...xs.keys()].sort((a, b) => xs[b]! - xs[a]!).slice(0, 2).sort()
+      expect(top2(shownBy)).toEqual(ends)
+      expect(top2(style)).toEqual(ends)
+    }
+    expect(text).toContain('Elle paraît le plus sur les réponses recopiées des candidats que la grille classe aux extrêmes, qui comptent le plus de «')
+    expect(text).not.toMatch(/hasard|Infinity|NaN|\d\.\d|undefined/)
+  })
+
+  it('la part des « pas d’accord » que la Méthode publie : celle des clones bruités, bloc par bloc (60 par candidat)', () => {
+    const P = profilesFor(pack)
+    for (const [only, seed, published] of [[undefined, 'n', M.ECHIQUIER_MANNER.style], [isQuick, 'nq', M.ECHIQUIER_MANNER.styleQuick]] as const) {
+      const acc = axis.map(() => ({ no: 0, all: 0 }))
+      for (const cid of P.ranked)
+        for (let s = 0; s < M.ECHIQUIER_MANNER.clones; s++)
+          for (const a of Object.values(P.toAnswers(P.noisy(P.cloneLarge(cid, only), `${seed}:${cid}:${s}`)))) {
+            const v = Object.values(a.ratings)
+            acc[P.blocOf(cid)]!.all += v.length
+            acc[P.blocOf(cid)]!.no += v.filter(r => r < 0).length
+          }
+      expect(acc.map(x => Math.round((1000 * x.no) / x.all) / 10)).toEqual([...published])
+    }
   })
 })
 

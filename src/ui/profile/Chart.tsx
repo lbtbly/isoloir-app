@@ -23,6 +23,9 @@
 // grille classe là, en nombres, sans aucun nom ; calculé à l'ouverture seulement. Un fichier à part du build, avec son
 // calcul (ui/profile/Weigh.tsx, core/echiquierWeigh.ts), chargé après le premier affichage du graphique (la page reste
 // sous son plafond) : la note sur le bloc entier s'efface quand la fiche est là.
+// Lot 4 : après les domaines, avant la fiche repliée, une phrase sans titre sur la façon de répondre, quand presque toutes
+// les cases mises à l'épreuve ont leur point de comparaison du même côté (rows.ts, mannerOf) ; jamais avec des avis
+// uniformes (C9).
 // Rien n'est recalculé : les lignes rangent la lecture (ui/profile/rows.ts) ; les phrases sont celles du site
 // (core/echiquierCopy.ts).
 
@@ -41,7 +44,7 @@ import { InkCross } from '../components/Ink'
 import { formatDate } from '../format'
 import { onDemand, useOnDemand } from '../lazy'
 import { link } from '../nav'
-import { acrossCentre, atBothEnds, chartRows, crossingsOf, headOf, splitsABloc, uniformViews, unitKey, type FamilyRows, type RowGroupKind } from './rows'
+import { acrossCentre, atBothEnds, chartRows, crossingsOf, headOf, mannerOf, splitsABloc, uniformViews, unitKey, type FamilyRows, type RowGroupKind } from './rows'
 
 /** Ce que le graphique, ses lignes et le tableau du détail partagent */
 export interface ProfileCtx {
@@ -174,6 +177,8 @@ export function Chart({ reading, ctx, quickOnly, deeper, unseen, onDetail }: Pro
   // sous le compte au seul questionnaire rapide et quand rien n'est net nulle part, sinon après les domaines, repliée
   // (rows.ts, headOf)
   const { state: head, cause, deeperOnTop } = headOf(rows, reading.themes, { uniform: uniformViews(pack.bank.questions, answers), quickOnly, hasDeeper })
+  // Votre façon de répondre (lot 4), après les domaines : jamais avec des avis uniformes (C9), où rien n'est comparé
+  const manner = head === 'uniform' ? null : mannerOf(rows, pack.bank.questions, answers)
   // Les thèmes sans réponse que la fiche ne cite pas (plus rien à approfondir) : leur ligne, sans doublon
   const unanswered = reading.unanswered.filter(id => !deeper.none.includes(id))
   // Par ligne d'un thème sans lecture : le nom de la famille lue à sa place
@@ -396,6 +401,7 @@ export function Chart({ reading, ctx, quickOnly, deeper, unseen, onDetail }: Pro
                 onDetail={onDetail}
               />
             ))}
+            {manner ? <p class="manner">{T.manner(manner.near, manner.k, manner.n)}</p> : null}
             {unanswered.length ? (
               <p class="unanswered">
                 <strong>{T.unansweredLine(unanswered.length)}</strong>

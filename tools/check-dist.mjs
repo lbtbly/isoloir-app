@@ -156,7 +156,9 @@ for (const f of agreeChunks) {
 // la page et ce qu'elle charge en plus du JS initial (43,8 ko le 15 octobre 2026 ; 54,1 ko après le lot 1, 57,1 ko après
 // le lot 2, les lignes rouges et les priorités, 57,2 ko après ses correctifs du 17 octobre ; 58,0 ko après le lot 3, dont
 // « Ce qui pèse le plus » est sorti dans son propre fichier, ci-dessous, et encore 58,0 ko après ses correctifs, à 3 octets
-// du plafond) : un code passé dans un fichier commun y reste compté. Rien de cela ne pèse sur le JS initial, ni sur une
+// du plafond ; 57,9 ko après le lot 4, « Votre façon de répondre », qui pèse 0,7 ko : la place vient de textes répétés de
+// la page mis en commun, mot pour mot, et du cadre que partagent la page et son attente, sans rien changer à ce qu'ils
+// disent ni à ce qu'ils affichent) : un code passé dans un fichier commun y reste compté. Rien de cela ne pèse sur le JS initial, ni sur une
 // visite qui n'ouvre pas la page
 const PROFILE_BUDGET = 58_000
 const profileChunks = readdirSync(join(dist, 'assets')).filter(f => /^Profile-[\w-]+\.js$/.test(f))
@@ -192,10 +194,12 @@ const PROFILE_METHOD_TEXTS = ['Pourquoi ni moyenne ni point', 'on a recopi']
 // d'où 18,5 ko, la mesure plus 15 % ; 18 ko le 17 octobre, la même mesure publiée en entier (à 60 feuilles par
 // candidat, le seul questionnaire rapide avec et sans le candidat, « pourrait franchir » bloc par bloc et sa cause) ; 21,4
 // ko le même jour avec « Ce qui pèse le plus » (lot 3 : sa règle, et sa mesure de neutralité bloc par bloc, avec et sans le
-// candidat, sur la banque et au seul questionnaire rapide, que D5 oblige à publier), d'où 24,6 ko, la mesure plus 15 %. Un
-// code de la page qu'elle importerait passerait par un fichier commun avec la page : le plafond le compte, et le texte du
-// calcul y est cherché
-const PROFILE_METHOD_BUDGET = 24_600
+// candidat, sur la banque et au seul questionnaire rapide, que D5 oblige à publier), d'où 24,6 ko, la mesure plus 15 % ;
+// 25,2 ko le même jour avec « Votre façon de répondre » (lot 4 : sa règle, et son taux d'affichage par façon de répondre
+// puis bloc par bloc, avec et sans le candidat, sur la banque et au seul questionnaire rapide, que D5 oblige à publier),
+// d'où 29 ko, la mesure plus 15 %. Un code de la page qu'elle importerait passerait par un fichier commun avec la page :
+// le plafond le compte, et le texte du calcul y est cherché
+const PROFILE_METHOD_BUDGET = 29_000
 const methodSectionChunks = readdirSync(join(dist, 'assets')).filter(f => /^MethodSection-[\w-]+\.js$/.test(f))
 if (methodSectionChunks.length !== 1) fail(`rubrique « Mon profil politique » de la Méthode : ${methodSectionChunks.length} fichier(s) assets/MethodSection-*.js, un attendu`)
 /** Ce que la Méthode a déjà chargé quand elle demande sa rubrique : son écran (src/ui/screens/Method.tsx) et ce qu'il charge */

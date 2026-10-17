@@ -6,7 +6,8 @@
 // question et ceux dont trop de blocs sont inconnus (variante a′, validée par le propriétaire le 15 octobre 2026). Rien
 // n'est recalculé ici : on range les lectures. Puis ce que la page sait déjà de la feuille, posé sur les lignes sans rien
 // changer aux lectures (lot 2) : les lignes rouges franchies, sous un bloc nettement plus près (les thèmes prioritaires
-// suivent la règle du dépouillement, core/answers.ts : priorityTopics).
+// suivent la règle du dépouillement, core/answers.ts : priorityTopics). Enfin la façon de répondre (lot 4), comptée sur
+// les lignes et la feuille, sans aucun test.
 
 import { hasOpinion } from '../../core/answers'
 import type { Echiquier, UnitReading } from '../../core/echiquier'
@@ -178,6 +179,58 @@ export function headOf(
     else if (rows.flat.every(u => u.ways >= MIN_WAYS && !u.distinct)) cause = 'alike'
   }
   return { state, cause, deeperOnTop: o.hasDeeper && (state === 'nothing' || (o.quickOnly && state !== 'untestable')) }
+}
+
+// ——— Votre façon de répondre (lot 4, A5) : un constat sur la feuille, qui ne crée ni ne change aucune lecture ———
+
+/**
+ * La phrase « Votre façon de répondre », après les domaines : near, du côté « proche » (vos « d'accord ») ; sinon du
+ * côté « éloigné » (vos « pas d'accord ») ; k, les questions répondues qui ont plus d'avis de ce côté que de l'autre ;
+ * n, les questions répondues
+ */
+export interface Manner {
+  near: boolean
+  k: number
+  n: number
+}
+
+/**
+ * Le côté de la phrase « Votre façon de répondre » (A5), compté sans aucun test : au moins 9 des cases mises à l'épreuve
+ * sur 10 (celles des lignes lues nettement, des écarts et des sujets sans rien de net, un bloc connu) ont pour moyenne
+ * des autres façons de poser les mêmes avis (BlocCell.chance, arrondie comme le détail) 39 % ou moins, au palier
+ * « éloigné » ou « très éloigné », ou 60 % ou plus, au palier « proche » ou « très proche » (core/affinity.ts) ; et plus
+ * de la moitié des questions répondues ont plus de « pas d'accord » que de « d'accord » (côté « éloigné »), ou l'inverse.
+ * Sinon null. Jamais avec des avis uniformes (C9) : la page ne l'y demande pas, rien n'y est comparé. answers : celles
+ * qui comptent (hors questions à revoir), comme la lecture
+ */
+export function mannerOf(rows: Pick<ChartRows, 'read' | 'apart' | 'flat'>, questions: readonly Question[], answers: Answers): Manner | null {
+  let cells = 0
+  let far = 0
+  let near = 0
+  for (const u of [...rows.read, ...rows.apart, ...rows.flat])
+    for (const c of u.cells) {
+      if (c.chance === null) continue
+      cells++
+      const m = Math.round(c.chance)
+      if (m <= 39) far++
+      else if (m >= 60) near++
+    }
+  let n = 0
+  let no = 0
+  let yes = 0
+  for (const q of questions) {
+    const a = answers[q.id]
+    if (!hasOpinion(a)) continue
+    n++
+    // Les avis valent 1 (d'accord) ou −1 (pas d'accord) : leur somme dit lequel l'emporte sur la question
+    const s = Object.values(a.ratings).reduce<number>((t, r) => t + r, 0)
+    if (s < 0) no++
+    else if (s > 0) yes++
+  }
+  if (!cells) return null
+  if (10 * far >= 9 * cells && 2 * no > n) return { near: false, k: no, n }
+  if (10 * near >= 9 * cells && 2 * yes > n) return { near: true, k: yes, n }
+  return null
 }
 
 // ——— Lignes rouges et priorités (lot 2) : rien ne change la couleur, la lecture ni l'ordre des lignes ———

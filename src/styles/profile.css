@@ -1471,6 +1471,16 @@ html:has(.profile-chart) {
   font-weight: 650;
 }
 
+/* Votre façon de répondre (lot 4) : une phrase, sans titre, après les domaines, au corps du texte ; la note qui suit le
+   graphique est en petit corps gris, sous un filet : elle ne se lit pas comme une mise en garde */
+.manner {
+  max-width: 58ch;
+  margin: var(--s5) 0 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+}
+
 .unanswered {
   margin: var(--s4) 0 0;
   padding: 0.7rem 0;

@@ -4,7 +4,8 @@
 // l'axe dans core/echiquierPanel.ts ; le code de toutes les visites n'en contient rien. Ses chiffres viennent de
 // ECHIQUIER_PUBLISHED (core/echiquierMethodCopy.ts), mesurés par tools/audit-echiquier.mjs ; ceux de la croix des lignes
 // rouges, de ECHIQUIER_CROSS (lot 2, mesure de neutralité bloc par bloc, D5) ; ceux de « Ce qui pèse le plus », de
-// ECHIQUIER_WEIGH (lot 3, la même mesure).
+// ECHIQUIER_WEIGH (lot 3, la même mesure) ; ceux de « Votre façon de répondre », de ECHIQUIER_MANNER (lot 4, la même
+// mesure, et par façon de répondre).
 
 import { panelOf } from '../../core/echiquierPanel'
 import * as T from '../../core/echiquierMethodCopy'
@@ -75,6 +76,10 @@ export function ProfileMethod({ pack }: { pack: ElectionPack }) {
         <strong>Ce qui pèse le plus.</strong> {T.METHOD_WEIGH}
       </p>
       <p>{T.methodWeigh()}</p>
+      <p>
+        <strong>Votre façon de répondre.</strong> {T.METHOD_MANNER}
+      </p>
+      <p>{T.methodManner(axis.map(a => a.where))}</p>
       <p>
         <strong>Limites.</strong> {T.METHOD_LIMITS[0]}
         <SectionLink id="ordre-des-candidats">{T.METHOD_INTRO_LINK}</SectionLink>

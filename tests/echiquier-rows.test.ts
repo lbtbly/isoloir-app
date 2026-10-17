@@ -2,8 +2,9 @@
 // quels sujets, sous quel domaine, dans quel groupe, dans quel ordre (variante a′, décision du propriétaire du 15
 // octobre 2026). Un sujet, c'est un thème lu ; à défaut, sa famille entière, comme la synthèse du calcul. Sur des
 // lectures factices (l'ordre), puis sur l'élection réelle (rien de perdu, rien en double) ; les avis uniformes ; l'état
-// de la tête du graphique (l'affichage dédié, D1), qui ne dit une cause que quand elle est vraie ; enfin les lignes rouges
-// et les priorités (lot 2), posées sur les lignes sans rien changer aux lectures.
+// de la tête du graphique (l'affichage dédié, D1), qui ne dit une cause que quand elle est vraie ; les lignes rouges et
+// les priorités (lot 2), posées sur les lignes sans rien changer aux lectures ; enfin la façon de répondre (lot 4),
+// comptée sur les lignes et la feuille, qui ne paraît que quand elle est vraie.
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -26,12 +27,13 @@ import {
   groupOf,
   headOf,
   hitsOf,
+  mannerOf,
   splitsABloc,
   uniformViews,
   unitKey,
   type ChartRows,
 } from '../src/ui/profile/rows'
-import { profilesFor } from './fixtures/echiquier-profiles'
+import { isQuick, profilesFor } from './fixtures/echiquier-profiles'
 
 /**
  * Une lecture factice : statut, blocs ▲ et ▽ sur un axe de cinq blocs ; ways, ses façons de poser les mêmes avis ;
@@ -449,4 +451,101 @@ describe('lignes rouges et priorités (lot 2) : posées sur les lignes, sans rie
     expect(crosses).toBeGreaterThan(0)
     expect(reordered).toBeGreaterThan(0)
   })
+})
+
+describe('votre façon de répondre (lot 4) : comptée sur les cases mises à l’épreuve et sur la feuille, sans aucun test', () => {
+  const pack = elections.find(p => p.election.id === 'presidentielle-2027')!
+  const Q = pack.bank.questions
+  /** Une ligne mise à l'épreuve, la moyenne des autres façons de poser les mêmes avis donnée bloc par bloc (null : inconnu) */
+  const tried = (chances: (number | null)[]) => {
+    const u = unit('theme', 't', 'aucun')
+    return { ...u, cells: u.cells.map((c, b) => ({ ...c, chance: chances[b] ?? null })) }
+  }
+  const rowsOf = (...rows: UnitReading[]) => ({ read: [], apart: [], flat: rows })
+  /** Des réponses aux premières questions de la banque : sur chacune, autant de « d'accord » et de « pas d'accord » que dit sa paire */
+  const sheet = (...views: [number, number][]): Answers =>
+    Object.fromEntries(
+      views.map(([yes, no], i) => {
+        const q = Q[i]!
+        return [q.id, { ratings: Object.fromEntries(q.approaches.slice(0, yes + no).map((a, k) => [a.id, k < yes ? 1 : -1])), redLines: [] }]
+      }),
+    )
+  const mostlyNo = sheet([1, 2], [1, 2], [0, 1], [2, 1])
+  const mostlyYes = sheet([2, 1], [2, 0], [1, 0], [1, 2])
+
+  it('9 cases mises à l’épreuve sur 10 au moins du même côté, et plus de la moitié des questions répondues dans ce sens', () => {
+    const far = rowsOf(tried([30, 25, 39, 12, 20]), tried([33, 38, 28, 35, 61]))
+    expect(mannerOf(far, Q, mostlyNo)).toEqual({ near: false, k: 3, n: 4 })
+    // Deux cases sur dix de l'autre côté : rien
+    expect(mannerOf(rowsOf(tried([30, 25, 39, 12, 20]), tried([33, 38, 28, 52, 61])), Q, mostlyNo)).toBeNull()
+    // Le côté « proche », de même
+    const near = rowsOf(tried([60, 81, 75, 66, 70]), tried([62, 90, 59.5, 64, 77]))
+    expect(mannerOf(near, Q, mostlyYes)).toEqual({ near: true, k: 3, n: 4 })
+    // Les cases d'un côté, les réponses en majorité de l'autre : rien
+    expect(mannerOf(far, Q, mostlyYes)).toBeNull()
+    expect(mannerOf(near, Q, mostlyNo)).toBeNull()
+  })
+
+  it('la moyenne arrondie comme le détail : 39,49 compte « éloigné », 39,5 non ; 59,5 compte « proche » ; les blocs inconnus ne comptent pas', () => {
+    const at = (x: number) => rowsOf(tried([x, x, x, x, x]), tried([30, 30, 30, 30, 30]))
+    expect(mannerOf(at(39.49), Q, mostlyNo)?.near).toBe(false)
+    expect(mannerOf(at(39.5), Q, mostlyNo)).toBeNull()
+    expect(mannerOf(rowsOf(tried([59.5, 70, 70, 70, 70]), tried([80, 80, 80, 80, 80])), Q, mostlyYes)?.near).toBe(true)
+    // Neuf cases connues sur neuf : le bloc inconnu n'est pas une case mise à l'épreuve
+    expect(mannerOf(rowsOf(tried([30, 30, null, 30, 30]), tried([30, 30, 30, 30, 30])), Q, mostlyNo)).toEqual({ near: false, k: 3, n: 4 })
+    // Aucune case mise à l'épreuve : rien à dire
+    expect(mannerOf(rowsOf(tried([null, null, null, null, null])), Q, mostlyNo)).toBeNull()
+    expect(mannerOf(rowsOf(), Q, mostlyNo)).toBeNull()
+    // Les lectures nettes et les écarts comptent comme les sujets sans rien de net
+    const one = tried([30, 30, 30, 30, 30])
+    expect(mannerOf({ read: [one], apart: [one], flat: [] }, Q, mostlyNo)).toEqual({ near: false, k: 3, n: 4 })
+  })
+
+  it('la majorité des questions répondues : la moitié ne suffit pas ; les questions passées ou sans avis ne comptent pas', () => {
+    const far = rowsOf(tried([30, 30, 30, 30, 30]), tried([30, 30, 30, 30, 30]))
+    // Deux questions sur quatre : la moitié, pas plus
+    expect(mannerOf(far, Q, sheet([1, 2], [1, 2], [2, 1], [1, 1]))).toBeNull()
+    // Une question passée, une autre vue sans avis : ni k ni n
+    const answers = { ...sheet([1, 2], [1, 2], [2, 1]), [Q[5]!.id]: { ratings: {}, redLines: [], skipped: true }, [Q[6]!.id]: { ratings: {}, redLines: [] } }
+    expect(mannerOf(far, Q, answers)).toEqual({ near: false, k: 2, n: 3 })
+  })
+
+  it('jamais avec des avis uniformes (C9) : la page ne la demande pas, rien n’y est comparé', () => {
+    const ROOT = fileURLToPath(new URL('..', import.meta.url))
+    const chart = readFileSync(join(ROOT, 'src/ui/profile/Chart.tsx'), 'utf8')
+    expect(chart).toContain("const manner = head === 'uniform' ? null : mannerOf(rows, pack.bank.questions, answers)")
+    // Tout « d'accord » : uniforme, et la tête le dit ; la phrase, demandée, dirait « proche » sur des cases sans comparaison
+    const all: Answers = Object.fromEntries(Q.map(q => [q.id, { ratings: Object.fromEntries(q.approaches.map(a => [a.id, 1 as const])), redLines: [] }]))
+    const reading = readEchiquier(pack, all)
+    const rows = chartRows(pack.topicGroups!, reading, u => u.id)
+    expect(headOf(rows, reading.themes, { uniform: uniformViews(Q, all), quickOnly: false, hasDeeper: false }).state).toBe('uniform')
+  })
+
+  it('sur des feuilles réelles : chaque phrase dit ce qui est, et paraît pour les façons de répondre qu’elle décrit', () => {
+    const P = profilesFor(pack)
+    const groups = pack.topicGroups!
+    const shown = { 'un-choix': 0, 'tout-sauf-un': 0, audit: 0, uniforme: 0, clones: 0 }
+    const sheets: [keyof typeof shown, Answers][] = [
+      ...(['un-choix', 'tout-sauf-un', 'audit', 'uniforme'] as const).flatMap(scheme => [0, 1, 2].map(i => [scheme, P.toAnswers(P.randomProfile(`facon:${scheme}:${i}`, scheme, isQuick))] as [keyof typeof shown, Answers])),
+      ...P.ranked.map(id => ['clones', P.toAnswers(P.noisy(P.cloneLarge(id, isQuick), `nq:${id}:0`))] as [keyof typeof shown, Answers]),
+    ]
+    for (const [kind, answers] of sheets) {
+      const rows = chartRows(groups, readEchiquier(pack, answers), u => u.id)
+      const m = mannerOf(rows, Q, answers)
+      if (!m) continue
+      shown[kind]++
+      // Les questions répondues, et celles où l'emporte le côté de la phrase, comptées à part
+      const views = Object.values(answers).map(a => Object.values(a.ratings))
+      expect(m.n).toBe(views.length)
+      expect(m.k).toBe(views.filter(v => (m.near ? 1 : -1) * v.reduce((t, r) => t + r, 0) > 0).length)
+      expect(2 * m.k).toBeGreaterThan(m.n)
+      // Neuf cases sur dix au moins de ce côté, la moyenne arrondie comme le détail
+      const chances = [...rows.read, ...rows.apart, ...rows.flat].flatMap(u => u.cells.flatMap(c => (c.chance === null ? [] : [Math.round(c.chance)])))
+      expect(chances.filter(x => (m.near ? x >= 60 : x <= 39)).length / chances.length).toBeGreaterThanOrEqual(0.9)
+    }
+    // Un seul accord par question et des désaccords ailleurs, tout sauf un : chaque fois ; des avis mêlés : jamais
+    expect(shown).toMatchObject({ 'un-choix': 3, 'tout-sauf-un': 3, audit: 0, uniforme: 0 })
+    expect(shown.clones).toBeGreaterThan(0)
+    expect(shown.clones).toBeLessThan(P.ranked.length)
+  }, 30_000)
 })

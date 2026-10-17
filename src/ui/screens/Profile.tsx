@@ -31,7 +31,7 @@
 // Fichier à part du build, chargé à la demande (ui/profile/load.ts) ; la rubrique de la Méthode qui l'explique
 // (ui/profile/MethodSection.tsx) en est un autre, sans la page ni son calcul.
 
-import { Fragment } from 'preact'
+import { Fragment, type ComponentChildren } from 'preact'
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks'
 import { hasOpinion, priorityTopics, RATING_LABELS } from '../../core/answers'
 import { approvedOf, deeperTopics, echiquierCached, mainCarriers, panelOf, readEchiquierAsync, type Echiquier, type UnitReading } from '../../core/echiquier'
@@ -153,75 +153,97 @@ export function Profile({ pack, state, essential, results, update }: Props) {
   if (access.state !== 'pret') return <Waiting pack={pack} wait={access.state} seen={access.seen} total={access.total} left={access.left} added={access.added} href={access.href} />
 
   return (
-    <div class="screen screen-wide screen-profile">
-      <FormHeader title="Résultats" right={election.shortName} />
-      <main class="sheet wide-sheet profile-sheet" id="contenu" tabIndex={-1}>
-        <div class="profile-intro">
-          <h1 class="display is-medium" tabIndex={-1}>
-            {T.PROFILE_TITLE}
-          </h1>
-          <div class="profile-intro-text">
-            <p class="lede">
-              {T.LEDE} {T.LEDE_VOTE[0]}
-              <a href={link('/resultats')}>
-                {T.LEDE_VOTE[1]}
-                <Icon name="arrow-right" />
-              </a>
-            </p>
-            {/* Les positions des candidats, résumées par IA, nourrissent tout le calcul, et les lignes ouvertes comme le
-                détail citent les approches des questions, rédigées par IA : la mention vient en tête */}
-            <AiLabel kind="approches" class="profile-ai" />
-            <p class="profile-privacy">{T.PRIVACY}</p>
+    <Sheet
+      pack={pack}
+      bar={
+        <nav class="action-bar" aria-label="Suite">
+          <div class="action-bar-inner">
+            <a class="btn-text" href={link('/resultats')}>
+              <Icon name="arrow-left" />
+              Résultats
+            </a>
+            <span />
+            <a class="btn-primary" href={link('/proximite')}>
+              Qui porte quoi
+              <Icon name="arrow-right" />
+            </a>
           </div>
-        </div>
-
-        {/* Lu par les lecteurs d'écran : « Lecture en cours » au-delà de 300 ms, puis « Lecture prête. », une fois */}
-        <p class={busy ? 'small profile-status' : 'sr-only'} role="status">
-          {busy ? T.STATUS_BUSY : status}
-        </p>
-
-        {reading ? <Chart reading={reading} ctx={ctx} quickOnly={quickOnly} deeper={deeper} unseen={unseen} onDetail={openDetail} /> : null}
-
-        <section class="profile-keep" aria-labelledby="keep-title">
-          <h2 id="keep-title">{T.CAVEATS_TITLE}</h2>
-          <ul>
-            {T.caveats(ctx.panel.flat().length).map(c => (
-              <li key={c}>{c}</li>
-            ))}
-          </ul>
-          <p class="small">
-            <a href={link('/methode/profil')}>{T.METHOD_LINK}</a>
+        </nav>
+      }
+    >
+      <div class="profile-intro">
+        <Title />
+        <div class="profile-intro-text">
+          <p class="lede">
+            {T.LEDE} {T.LEDE_VOTE[0]}
+            <a href={link('/resultats')}>
+              {T.LEDE_VOTE[1]}
+              <Icon name="arrow-right" />
+            </a>
           </p>
-        </section>
+          {/* Les positions des candidats, résumées par IA, nourrissent tout le calcul, et les lignes ouvertes comme le
+              détail citent les approches des questions, rédigées par IA : la mention vient en tête */}
+          <AiLabel kind="approches" class="profile-ai" />
+          <p class="profile-privacy">{T.PRIVACY}</p>
+        </div>
+      </div>
 
-        {reading ? (
-          <section class="profile-detail" aria-labelledby="detail-title">
-            <h2 id="detail-title">{T.DETAIL_TITLE}</h2>
-            <p>{T.DETAIL_INTRO}</p>
-            <details class="profile-all" ref={all}>
-              <summary>{T.detailShow(reading.themes.length, reading.families.length)}</summary>
-              <DetailTable reading={reading} ctx={ctx} />
-            </details>
-          </section>
-        ) : null}
+      {/* Lu par les lecteurs d'écran : « Lecture en cours » au-delà de 300 ms, puis « Lecture prête. », une fois */}
+      <p class={busy ? 'small profile-status' : 'sr-only'} role="status">
+        {busy ? T.STATUS_BUSY : status}
+      </p>
+
+      {reading ? <Chart reading={reading} ctx={ctx} quickOnly={quickOnly} deeper={deeper} unseen={unseen} onDetail={openDetail} /> : null}
+
+      <section class="profile-keep" aria-labelledby="keep-title">
+        <h2 id="keep-title">{T.CAVEATS_TITLE}</h2>
+        <ul>
+          {T.caveats(ctx.panel.flat().length).map(c => (
+            <li key={c}>{c}</li>
+          ))}
+        </ul>
+        <p class="small">
+          <a href={link('/methode/profil')}>{T.METHOD_LINK}</a>
+        </p>
+      </section>
+
+      {reading ? (
+        <section class="profile-detail" aria-labelledby="detail-title">
+          <h2 id="detail-title">{T.DETAIL_TITLE}</h2>
+          <p>{T.DETAIL_INTRO}</p>
+          <details class="profile-all" ref={all}>
+            <summary>{T.detailShow(reading.themes.length, reading.families.length)}</summary>
+            <DetailTable reading={reading} ctx={ctx} />
+          </details>
+        </section>
+      ) : null}
+    </Sheet>
+  )
+}
+
+/**
+ * Le cadre des deux états de la page, la lecture et l'attente : l'en-tête du site, la feuille sur toute la largeur, le
+ * pied de page ; bar, la barre du bas de la lecture
+ */
+function Sheet({ pack, bar, children }: { pack: ElectionPack; bar?: ComponentChildren; children: ComponentChildren }) {
+  return (
+    <div class="screen screen-wide screen-profile">
+      <FormHeader title="Résultats" right={pack.election.shortName} />
+      <main class="sheet wide-sheet profile-sheet" id="contenu" tabIndex={-1}>
+        {children}
       </main>
       <SiteFooter />
-      <nav class="action-bar" aria-label="Suite">
-        <div class="action-bar-inner">
-          <a class="btn-text" href={link('/resultats')}>
-            <Icon name="arrow-left" />
-            Résultats
-          </a>
-          <span />
-          <a class="btn-primary" href={link('/proximite')}>
-            Qui porte quoi
-            <Icon name="arrow-right" />
-          </a>
-        </div>
-      </nav>
+      {bar}
     </div>
   )
 }
+
+/** Le titre de la page, qui reçoit le focus à l'arrivée */
+const Title = () => (
+  <h1 class="display is-medium" tabIndex={-1}>
+    {T.PROFILE_TITLE}
+  </h1>
+)
 
 /** Les cinq paliers de l'exemple, de « très éloigné » à « très proche » : une affinité au milieu de chacun */
 const EXAMPLE_AFFINITY = [10, 30, 50, 70, 90]
@@ -235,66 +257,60 @@ function Waiting({ pack, wait, seen, total, left, added, href }: { pack: Electio
   const axis = axisOf(pack.election) ?? []
   const rows = [0, 1, 2].map(r => [...PROFILE_PEEK.slice(r * 5, r * 5 + 5)].map(Number))
   return (
-    <div class="screen screen-wide screen-profile">
-      <FormHeader title="Résultats" right={pack.election.shortName} />
-      <main class="sheet wide-sheet profile-sheet" id="contenu" tabIndex={-1}>
-        <div class="wait-hero">
-          <div class="wait-intro">
-            <h1 class="display is-medium" tabIndex={-1}>
-              {T.PROFILE_TITLE}
-            </h1>
-            <p class="lede">
-              {T.LEDE} {T.LEDE_WAIT}
-            </p>
-          </div>
-          <section class="trend profile-wait" aria-labelledby="wait-title">
-            <h2 id="wait-title" class="trend-title">
-              <span class="trend-where">{T.WAIT_WHERE[wait]}</span>{' '}
-              <span class="trend-count">
-                <span class="trend-figure">{seen}</span> {T.waitCount(seen, total)}
-              </span>
-            </h2>
-            <ProgressTally done={seen} total={total} />
-            <p class="trend-text">{T.waitText(wait, total, left, added)}</p>
-            <a class="btn-primary is-wide trend-cta" href={link(href)}>
-              {T.waitCta(wait, left)}
-              <Icon name="arrow-right" />
-            </a>
-          </section>
+    <Sheet pack={pack}>
+      <div class="wait-hero">
+        <div class="wait-intro">
+          <Title />
+          <p class="lede">
+            {T.LEDE} {T.LEDE_WAIT}
+          </p>
         </div>
+        <section class="trend profile-wait" aria-labelledby="wait-title">
+          <h2 id="wait-title" class="trend-title">
+            <span class="trend-where">{T.WAIT_WHERE[wait]}</span>{' '}
+            <span class="trend-count">
+              <span class="trend-figure">{seen}</span> {T.waitCount(seen, total)}
+            </span>
+          </h2>
+          <ProgressTally done={seen} total={total} />
+          <p class="trend-text">{T.waitText(wait, total, left, added)}</p>
+          <a class="btn-primary is-wide trend-cta" href={link(href)}>
+            {T.waitCta(wait, left)}
+            <Icon name="arrow-right" />
+          </a>
+        </section>
+      </div>
 
-        <section class="profile-example" aria-labelledby="example-title">
-          <h2 id="example-title">{T.EXAMPLE_TITLE}</h2>
-          <p class="ex-note">{T.EXAMPLE_NOTE}</p>
-          {/* Une illustration, masquée aux lecteurs d'écran : la mention et la phrase des couleurs disent ce qu'elle montre */}
-          <div class="ex-grid" aria-hidden="true">
-            <div class="ex-head">
-              <span />
-              {axis.map(a => (
-                <span key={a.bloc}>{a.short}</span>
-              ))}
-            </div>
-            {rows.map((row, r) => (
-              <div key={r} class="ex-row">
-                <span class="ex-name">{T.exampleRow(r + 1)}</span>
-                {row.map((d, b) => (
-                  <span key={b} class="ex-cell" data-bloc={axis[b]?.short}>
-                    <Tile cell={{ affinity: EXAMPLE_AFFINITY[d - 1]!, mark: 'rien' }} />
-                  </span>
-                ))}
-              </div>
+      <section class="profile-example" aria-labelledby="example-title">
+        <h2 id="example-title">{T.EXAMPLE_TITLE}</h2>
+        <p class="ex-note">{T.EXAMPLE_NOTE}</p>
+        {/* Une illustration, masquée aux lecteurs d'écran : la mention et la phrase des couleurs disent ce qu'elle montre */}
+        <div class="ex-grid" aria-hidden="true">
+          <div class="ex-head">
+            <span />
+            {axis.map(a => (
+              <span key={a.bloc}>{a.short}</span>
             ))}
           </div>
-          <p class="ex-key">{T.KEY_TEXT}</p>
-        </section>
+          {rows.map((row, r) => (
+            <div key={r} class="ex-row">
+              <span class="ex-name">{T.exampleRow(r + 1)}</span>
+              {row.map((d, b) => (
+                <span key={b} class="ex-cell" data-bloc={axis[b]?.short}>
+                  <Tile cell={{ affinity: EXAMPLE_AFFINITY[d - 1]!, mark: 'rien' }} />
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+        <p class="ex-key">{T.KEY_TEXT}</p>
+      </section>
 
-        <p class="wait-deepen">
-          <Icon name="deepen" />
-          <span>{T.WAIT_DEEPEN}</span>
-        </p>
-      </main>
-      <SiteFooter />
-    </div>
+      <p class="wait-deepen">
+        <Icon name="deepen" />
+        <span>{T.WAIT_DEEPEN}</span>
+      </p>
+    </Sheet>
   )
 }
 
