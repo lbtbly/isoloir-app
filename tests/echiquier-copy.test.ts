@@ -12,7 +12,8 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
 import { ECHIQUIER, readEchiquier, segments, type BlocCell, type Mark, type UnitReading, type UnitStatus } from '../src/core/echiquier'
-import * as T from '../src/core/echiquierCopy'
+import * as C from '../src/core/echiquierCopy'
+import * as D from '../src/core/echiquierDetailCopy'
 import * as W from '../src/core/echiquierWeighCopy'
 import { word } from '../src/core/echiquierCommonCopy'
 import * as M from '../src/core/echiquierMethodCopy'
@@ -22,8 +23,20 @@ import { axisOf } from '../src/core/spectrum'
 import { elections } from '../src/elections/all'
 import { isQuick, profilesFor } from './fixtures/echiquier-profiles'
 
+/** Les mots de la page et ceux de son détail, chargés avec le tableau (core/echiquierDetailCopy.ts) : les mêmes règles */
+const T = { ...C, ...D }
 const NB = String.fromCharCode(0xa0)
 const ROOT = fileURLToPath(new URL('..', import.meta.url))
+/** Les fichiers de la page et de sa rubrique de la Méthode, dont on lit les textes (la barre des domaines et le détail compris) */
+const PAGE_FILES = [
+  'src/ui/screens/Profile.tsx',
+  'src/ui/profile/Chart.tsx',
+  'src/ui/profile/Nav.tsx',
+  'src/ui/profile/ProfileDetail.tsx',
+  'src/ui/profile/Weigh.tsx',
+  'src/ui/profile/MethodSection.tsx',
+  'src/ui/profile/Diagram.tsx',
+]
 const axis = axisOf(elections.find(p => p.election.id === 'presidentielle-2027')!.election)!
 
 /** Les libellés de la grille, ceux des colonnes : « Extrême gauche » */
@@ -272,8 +285,9 @@ describe('accords', () => {
     expect(M.METHOD_REGIMES).toContain('une borne prudente, qui peut manquer une lecture que ferait le compte complet, jamais en inventer une')
     expect(M.methodChance(5)).toContain(`Rien n’est tiré au sort${NB}: mêmes réponses, même lecture.`)
     expect(M.methodChance(5)).toContain(`«${NB}Nettement${NB}»${NB}: une de ces façons sur dix au plus atteint un tel écart, avec un bloc ou un autre.`)
-    // La page passe le nombre que la note peut dire, jamais N brut (arrangements, qui peut valoir 10²⁵)
-    const page = readFileSync(join(ROOT, 'src/ui/screens/Profile.tsx'), 'utf8')
+    // La page passe le nombre que la note peut dire, jamais N brut (arrangements, qui peut valoir 10²⁵) ; le tableau du
+    // détail est un fichier à part, chargé à son ouverture (ui/profile/ProfileDetail.tsx)
+    const page = readFileSync(join(ROOT, 'src/ui/profile/ProfileDetail.tsx'), 'utf8')
     expect(page).toContain('T.chanceNote(unit.exact, unit.ways)')
     expect(page).not.toMatch(/chanceNote\([^)]*arrangements/)
     // Le compte d'un bloc, sous sa ligne du détail, seulement quand tout a été compté
@@ -322,8 +336,10 @@ describe('le graphique « Domaine par domaine »', () => {
     expect(T.zonesLabel(5, 15)).toBe('Les cinq blocs de la grille du ministère de l’Intérieur, de l’extrême gauche à l’extrême droite, et les 15 candidats classés qu’elle y range')
     expect(T.readWithFamily('Économie et travail')).toBe(`Lu avec les autres thèmes de son domaine${NB}: «${NB}Économie et travail${NB}».`)
     expect(T.sourceLink('23 août 2026')).toBe('circulaire du 23 août 2026')
-    // Les intertitres des groupes d'un domaine (ceux des maquettes validées)
-    expect(T.GROUP_TITLE).toEqual({ apart: 'Seulement plus loin', flat: 'Rien de net', thin: 'Sur une seule question', unknown: 'Faute de candidats connus' })
+    // Les intertitres des groupes d'un domaine (ceux des maquettes validées), et depuis le 17 octobre 2026 celui des
+    // lectures nettes d'un seul côté, qui ne nomme aucun bloc
+    expect(T.GROUP_TITLE).toEqual({ net: 'Nettement plus près', apart: 'Seulement plus loin', flat: 'Rien de net', thin: 'Sur une seule question', unknown: 'Faute de candidats connus' })
+    expect(T.GROUP_TITLE.net).not.toMatch(/gauche|droite|centre|extrême|bloc/i)
     // La fiche « Pour lire plus de thèmes » : repliée, ce qu'elle reprend ; ouverte, ses thèmes
     expect(T.deeperCount(3, 8, true)).toBe(`3${NB}sans réponse, 8${NB}sur une seule question`)
     expect(T.deeperCount(0, 8, true)).toBe(`8${NB}sur une seule question`)
@@ -558,7 +574,6 @@ describe('règles d’écriture', () => {
   it('chaque phrase qui nomme un bloc l’attribue à la grille ; « qu’elle » vient toujours après « la grille »', () => {
     const chart = [
       T.zonesLabel(5, 15),
-      T.NET_LABEL,
       T.BOTH_ROW.join(''),
       T.bothRow(false).join(''),
       T.KEY_TEXT,
@@ -619,7 +634,7 @@ describe('règles d’écriture', () => {
 
   it('aucun symbole de lecture : ni ▲ ni ▽ ni point, dans les textes du module comme dans ceux de la page ; seul « ? » reste', () => {
     for (const t of allTexts()) expect(/[▲▽△▼·]/.test(t), t).toBe(false)
-    for (const file of ['src/ui/screens/Profile.tsx', 'src/ui/profile/Chart.tsx', 'src/ui/profile/Weigh.tsx', 'src/ui/profile/MethodSection.tsx', 'src/ui/profile/Diagram.tsx']) {
+    for (const file of PAGE_FILES) {
       const code = readFileSync(join(ROOT, file), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '')
       expect(/[▲▽△▼]/.test(code), file).toBe(false)
     }
@@ -636,7 +651,7 @@ describe('règles d’écriture', () => {
     }
     for (const t of allTexts()) check('echiquierCopy', t)
     // Les fichiers de la page, sans leurs commentaires : leurs textes sont du JSX ou des chaînes
-    for (const file of ['src/ui/screens/Profile.tsx', 'src/ui/profile/Chart.tsx', 'src/ui/profile/Weigh.tsx', 'src/ui/profile/MethodSection.tsx', 'src/ui/profile/Diagram.tsx']) {
+    for (const file of PAGE_FILES) {
       const code = readFileSync(join(ROOT, file), 'utf8')
         .replace(/\/\*[\s\S]*?\*\//g, '')
         .split('\n')
@@ -659,7 +674,6 @@ describe('règles d’écriture', () => {
       .join('\n')
     return [...code.matchAll(/'([^'\n]*)'|`([^`]*)`|"([^"\n]*)"|>([^<>{}\n]+)</g)].map(m => m[1] ?? m[2] ?? m[3] ?? m[4] ?? '').filter(t => /[a-zà-ÿ]{3}/i.test(t))
   }
-  const PAGE_FILES = ['src/ui/screens/Profile.tsx', 'src/ui/profile/Chart.tsx', 'src/ui/profile/Weigh.tsx', 'src/ui/profile/MethodSection.tsx', 'src/ui/profile/Diagram.tsx']
 
   it('plus jamais « hasard » pour dire la comparaison (D2), ni « placés au hasard », dans les textes comme dans la page', () => {
     for (const t of allTexts()) expect(/hasard/i.test(t), t).toBe(false)
@@ -1217,6 +1231,17 @@ describe('la rubrique de la Méthode, un fichier à part du build', () => {
       expect(files, f).not.toContain(f)
     }
     expect(reached('src/ui/profile/Weigh.tsx')).not.toContain('src/core/echiquierMethodCopy.ts')
+    // « Le détail, sujet par sujet » : un fichier à part, chargé par la page à l'ouverture du tableau (son import est
+    // dynamique), qui n'emporte pas la rubrique ; la barre des domaines, elle, est dans la page
+    expect(page).not.toContain('src/ui/profile/ProfileDetail.tsx')
+    expect(page).toContain('src/ui/profile/Nav.tsx')
+    expect(files).not.toContain('src/ui/profile/ProfileDetail.tsx')
+    expect(reached('src/ui/profile/ProfileDetail.tsx')).not.toContain('src/core/echiquierMethodCopy.ts')
+    // Ses libellés fixes partent avec lui (17 octobre 2026 : la place des correctifs de la barre sous le plafond de la page)
+    expect(reached('src/ui/profile/ProfileDetail.tsx')).toContain('src/core/echiquierDetailCopy.ts')
+    expect(page).not.toContain('src/core/echiquierDetailCopy.ts')
+    expect(files).not.toContain('src/core/echiquierDetailCopy.ts')
+    expect(readFileSync(join(ROOT, 'src/ui/screens/Profile.tsx'), 'utf8')).toContain("onDemand<typeof import('../profile/ProfileDetail')>(() => import('../profile/ProfileDetail'))")
   })
 
   it('dit l’écart du calcul, qu’elle prend sans lui : ECHIQUIER.GAP est CLOSE_GAP', () => {

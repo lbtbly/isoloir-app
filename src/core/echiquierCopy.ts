@@ -39,7 +39,7 @@ export const listFr = joinNames
 /** « 1 question », « 3 questions » (nombre et nom soudés) */
 const plural = (n: number, word: string) => `${n}${NB}${word}${n > 1 ? 's' : ''}`
 
-const cap = (s: string) => s.charAt(0).toLocaleUpperCase('fr') + s.slice(1)
+export const cap = (s: string) => s.charAt(0).toLocaleUpperCase('fr') + s.slice(1)
 
 // ——— Noms ———
 
@@ -196,12 +196,6 @@ export const UNKNOWN_WORD = 'inconnu'
 export const palier = (affinity: number | null) => affinityBand(affinity)?.label.toLocaleLowerCase('fr') ?? UNKNOWN_WORD
 /** La lecture nette d'une case, en mots ; null : rien de net */
 export const netWord = (mark: Mark) => (mark === 'pres' || mark === 'loin' ? MARK_WORD[mark] : null)
-/**
- * Nom d'une case pour les lecteurs d'écran : « Droite (grille du ministère de l’Intérieur) : proche, nettement plus
- * près »
- */
-export const cellLabel = (blocLabel: string, affinity: number | null, mark: Mark) =>
-  fr(`${blocLabel} (grille du ministère de l’Intérieur) : ${[palier(affinity), netWord(mark)].filter(Boolean).join(', ')}`)
 
 // ——— Formes des blocs dans les phrases ———
 
@@ -306,7 +300,7 @@ export const DEEPEN_THEME = 'Approfondir ce thème'
  * Ce que dit la page d'une approche qu'aucun candidat classé ne porte en principal : dans le constat d'une seule question,
  * le détail et les accords qu'il compte à part ; écrit une fois (le plafond du fichier de la page)
  */
-const NO_MAIN = 'approche principale d’aucun candidat classé'
+export const NO_MAIN = 'approche principale d’aucun candidat classé'
 
 /**
  * Le constat d'un thème lu sur une seule question : qui porte en approche principale ce que vous y approuvez (vrai par
@@ -453,12 +447,12 @@ export function rowSummary(labels: readonly string[], name: string, meta: string
 }
 
 /**
- * Les groupes d'un domaine, sous un court intertitre gris (ui/profile/rows.ts) ; les lectures nettes d'un seul côté
- * n'en ont pas, seulement un nom pour les lecteurs d'écran (NET_LABEL, masqué, après celui du domaine). Le rangement et
- * les mots disent « net », jamais la couleur.
+ * Les groupes d'un domaine, chacun sous un court intertitre (ui/profile/rows.ts), les lectures nettes d'un seul côté
+ * comprises depuis le 17 octobre 2026 : sans le leur, la première ligne d'un domaine se lisait sous l'intertitre du
+ * groupe suivant (« Culture et audiovisuel public », nette, lue « rien de net » sur une capture de la production). Aucun
+ * bloc nommé. Le rangement et les mots disent « net », jamais la couleur.
  */
-export const NET_LABEL = fr('Sujets où vos réponses se rapprochent nettement d’un bloc de la grille')
-export const GROUP_TITLE = { apart: 'Seulement plus loin', flat: 'Rien de net', thin: 'Sur une seule question', unknown: 'Faute de candidats connus' } as const
+export const GROUP_TITLE = { net: 'Nettement plus près', apart: 'Seulement plus loin', flat: 'Rien de net', thin: 'Sur une seule question', unknown: 'Faute de candidats connus' } as const
 /**
  * Les lectures de part et d'autre du centre, sans lui (ui/profile/rows.ts, acrossCentre) : l'intertitre de leur groupe,
  * et la note d'une ligne ouverte. « Aux deux bouts » quand elles touchent l'extrême gauche et l'extrême droite ; sinon
@@ -538,18 +532,16 @@ export const DETAIL_INTRO = fr(
 /** Le bouton du tableau : ses thèmes, et leurs domaines entiers quand il y en a (une ligne chacun) */
 export const detailShow = (themes: number, families: number) =>
   themes > 1 ? `Afficher le détail des ${themes} thèmes${families ? ' et de leurs domaines' : ''}` : 'Afficher le détail du thème'
+/** Le tableau, un fichier à part chargé à son ouverture, n'a pas pu venir (hors ligne avant la copie hors ligne) */
+export const DETAIL_FAILED = fr('Le détail n’a pas pu être chargé : rechargez la page pour le lire.')
 
-// ——— Le tableau ———
-
-export const TABLE_CAPTION = 'Vos réponses face aux candidats de chaque bloc de la grille, par thème'
-export const TABLE_THEME = 'Thème'
 
 // ——— Le détail d'une unité ———
+// Ses libellés fixes sont dans core/echiquierDetailCopy.ts, avec le tableau, chargés avec lui ; restent ici ceux qui
+// disent la lecture (en-têtes des blocs, écart, façons, note), que la page et la Méthode partagent avec lui
 
-export const DETAIL = 'Le détail'
 export const DETAIL_HEADS = ['Bloc', 'Candidats connus', 'Votre affinité moyenne', 'Avec vos mêmes avis, autrement placés', 'Écart'] as const
 export const NONE_KNOWN = MARK_WORD.inconnu
-export const ONE_KNOWN = '(un seul candidat connu)'
 /** « 65 % » */
 export const pct = (v: number) => `${Math.round(v)}${NB}%`
 /** L'écart aux autres façons de poser vos mêmes avis, en points signés, et la lecture nette en mots : « +42 points, nettement plus près » */
@@ -586,34 +578,7 @@ export const chanceNote = (exact: boolean, ways: number) =>
           exact ? '' : ' Au-delà de cent mille façons, cette part se calcule bloc par bloc, puis s’additionne : une borne prudente, qui peut manquer une lecture, jamais en inventer une.'
         }`,
   )
-export const PER_CANDIDATE = 'Votre affinité avec chaque candidat'
-export const UNKNOWN_POSITION = '(position inconnue)'
-export const UNRANKED_FOR_YOU = '(hors classement pour vous)'
-export const BY_QUESTION = 'Question par question'
 export const YOUR_VIEW = fr('Votre avis :')
-export const RED_LINE_VIEW = 'Pas d’accord, ligne rouge'
-/**
- * Sous une approche marquée ligne rouge (rayée) : qui la franchit, parmi les candidats de l'axe (hors classement compris),
- * dans l'ordre de la grille puis alphabétique ; ceux dont la position est déduite, ou de confiance basse, à part (la page
- * pose les noms)
- */
-export const CROSSED_BY = fr('Franchie par :')
-export const MAYBE_CROSSED_BY = fr('Pourrait être franchie par :')
-/** Le détail d'un thème prioritaire (lot 2, A2) */
-export const PRIORITY_DETAIL = fr('Votre priorité : ce thème compte double dans votre classement, pas dans cette lecture.')
-export const MAIN_OF = fr('Approche principale de :')
-export const BOTH_SIDES = 'Portée des deux côtés'
-export const MAIN_OF_NONE = cap(NO_MAIN)
-export const SEE_IN_PROXIMITY = 'Voir dans Qui porte quoi'
-/** Accords sur des approches que ne porte en principal aucun candidat classé */
-export const unplaced = (n: number, family: boolean) => {
-  const many = n > 1
-  return fr(
-    `${many ? `${n} de vos accords` : 'Un de vos accords'} ${family ? 'sur ces thèmes' : 'sur ce thème'} ${
-      many ? 'portent sur des approches qui ne sont' : 'porte sur une approche qui n’est'
-    } l’${NO_MAIN} : ${many ? 'elles ne rapprochent' : 'elle ne rapproche'} d’aucun bloc en particulier.`,
-  )
-}
 
 // ——— À garder en tête ———
 
@@ -625,3 +590,11 @@ export const caveats = (panel: number) => [
   fr('Ce n’est ni un test, ni une étiquette, ni une consigne de vote.'),
 ]
 export const METHOD_LINK = 'La méthode en détail'
+
+// ——— La barre collante, domaine par domaine puis sujet par sujet (ui/profile/Nav.tsx) ———
+// Des noms seulement : ni groupe, ni lecture, ni couleur ; l'ordre est celui des domaines, puis celui des lignes
+
+export const NAV_LABEL = 'Aller à un domaine ou à un sujet'
+export const NAV_DOMAINS = 'Domaines'
+/** La liste des sujets du domaine en cours */
+export const navSubjects = (domain: string) => fr(`Sujets du domaine « ${domain} »`)

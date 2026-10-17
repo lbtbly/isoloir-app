@@ -159,8 +159,16 @@ for (const f of agreeChunks) {
 // du plafond ; 57,9 ko après le lot 4, « Votre façon de répondre », qui pèse 0,7 ko : la place vient de textes répétés de
 // la page mis en commun, mot pour mot, et du cadre que partagent la page et son attente, sans rien changer à ce qu'ils
 // disent ni à ce qu'ils affichent ; encore 57,9 ko après ses correctifs du 17 octobre, mannerOf écartant lui-même les
-// avis uniformes) : un code passé dans un fichier commun y reste compté. Rien de cela ne pèse sur le JS initial, ni sur une
-// visite qui n'ouvre pas la page
+// avis uniformes ; 58,0 ko le 17 octobre, 57 992 octets, au matin de la barre des domaines) : un code passé dans un
+// fichier commun y reste compté. Le 17 octobre 2026, pour la barre collante des domaines et de leurs sujets
+// (src/ui/profile/Nav.tsx, demande du propriétaire) sans relever le plafond, « Le détail, sujet par sujet » sort dans son
+// propre fichier (ProfileDetail, ci-dessous, 6,7 ko) : la page passe à 54,2 ko (54 168 octets), puis à 57,9 ko (57 879
+// octets) avec la barre, qui y pèse 3,6 ko. Le découpage du build range alors à part les mots de la page et son calcul
+// (echiquierCopy-*.js, commun à la page, au détail et à « Ce qui pèse le plus »), et sort du script principal deux
+// fichiers communs du JS initial (ExternalLink-*.js, brand-*.js), préchargés avec lui (le JS initial passe de 227,8 à
+// 228,0 ko). Le même jour, les correctifs de la barre (focus, tabulation, règle de la moitié de l'écran, toucher d'un
+// sujet), 0,7 ko, tiennent sous le plafond parce que les libellés fixes du détail (1,1 ko) le rejoignent (ci-dessous) :
+// 57,4 ko (57 449 octets). Rien de la page ne pèse sur le JS initial, ni sur une visite qui n'ouvre pas la page
 const PROFILE_BUDGET = 58_000
 const profileChunks = readdirSync(join(dist, 'assets')).filter(f => /^Profile-[\w-]+\.js$/.test(f))
 if (profileChunks.length !== 1) fail(`« Mon profil politique » : ${profileChunks.length} fichier(s) assets/Profile-*.js, un attendu`)
@@ -277,6 +285,38 @@ for (const f of weighChunks) {
       const code = readFileSync(join(dist, x), 'utf8')
       for (const text of WEIGH_TEXTS) if (code.includes(text)) fail(`« Mon profil politique » : ${x}, que la page charge, contient « ${text}… », un texte de « Ce qui pèse le plus »`)
       if (code.includes(`"./${f}"`)) fail(`« Mon profil politique » : ${x} précharge assets/${f}`)
+    }
+}
+// « Le détail, sujet par sujet » de « Mon profil politique » (src/ui/profile/ProfileDetail.tsx : le tableau complet,
+// chaque unité, son détail replié, l'affinité par candidat, question par question, et qui franchit chaque ligne rouge) :
+// un fichier à part, chargé par la page à la première ouverture du tableau (son bouton, ou « Voir le détail » d'une
+// ligne), sur le modèle de « Ce qui pèse le plus » ; jamais dans le JS initial ni préchargé, et la page n'en garde ni le
+// code ni la liste de ce qu'il charge (rien à précharger, vite.config.ts). Sorti de la page le 17 octobre 2026, pour faire
+// place à la barre collante des domaines sans relever le plafond de 58 ko (la page pesait alors 58,0 ko, 8 octets sous
+// le plafond, le détail compris) ; il pesait 6,7 ko. Plafond : ce qu'il ajoute à la page, lui compris, la mesure plus 15 %.
+// Ce qui dit la lecture (en-têtes des blocs, écart, façons, note) reste dans le fichier commun de la page
+// (src/core/echiquierCopy.ts, compté dans son plafond). Le même jour, ses libellés fixes (le tableau, l'affinité par
+// candidat, les lignes rouges, src/core/echiquierDetailCopy.ts) le rejoignent, pour faire place aux correctifs de la
+// barre des domaines sous le plafond de la page : 7,5 ko (7 543 octets), la page 57,4 ko (57 449 octets). On y cherche son
+// code, ses classes, et deux de ses textes, absents de la page
+const DETAIL_BUDGET = 7_700
+const DETAIL_CODE = ['echiquier-wrap', 'detail-blocs', 'detail-people', 'Question par question', 'Voir dans Qui porte quoi']
+const detailChunks = readdirSync(join(dist, 'assets')).filter(f => /^ProfileDetail-[\w-]+\.js$/.test(f))
+if (detailChunks.length !== 1) fail(`« Le détail » de « Mon profil politique » : ${detailChunks.length} fichier(s) assets/ProfileDetail-*.js, un attendu`)
+for (const f of detailChunks) {
+  const label = '« Le détail » de « Mon profil politique »'
+  if (initial.includes(join('assets', f))) fail(`${label} : assets/${f} est dans le JS initial (il doit n'être chargé que par import())`)
+  for (const x of ownOf(f)) if (modulePreloads.includes(x)) fail(`${label} : ${x} est préchargé par dist/index.html`)
+  const added = ownOf(f).filter(x => !profileChunks.some(p => ownOf(p).includes(x)))
+  const size = bytesOf(added)
+  if (size > DETAIL_BUDGET) fail(`${label} : assets/${f} et ce qu’il ajoute à la page (${added.join(', ')}) pèsent ${(size / 1000).toFixed(1)} ko, plafond de ${DETAIL_BUDGET / 1000} ko`)
+  const code = readFileSync(join(dist, 'assets', f), 'utf8')
+  for (const text of DETAIL_CODE) if (!code.includes(text)) fail(`${label} : assets/${f} ne contient pas « ${text} » (le tableau du détail)`)
+  for (const p of profileChunks)
+    for (const x of ownOf(p)) {
+      const page = readFileSync(join(dist, x), 'utf8')
+      for (const text of DETAIL_CODE) if (page.includes(text)) fail(`« Mon profil politique » : ${x}, que la page charge, contient « ${text} », le code du détail`)
+      if (page.includes(`"./${f}"`)) fail(`« Mon profil politique » : ${x} précharge assets/${f}`)
     }
 }
 // « À table » (src/ui/table/Table.tsx : l'enchaînement d'une séance, ses écrans, son dépouillement, son vivier et son
@@ -446,6 +486,10 @@ for (const f of weighChunks) {
   console.log(`  « Ce qui pèse le plus » de « Mon profil politique » : assets/${f} et ce qu’il ajoute à la page, ${(added / 1000).toFixed(1)} ko sur ${WEIGH_BUDGET / 1000} ko permis, chargé à la première ouverture d'une ligne`)
   // La page et ce qu'elle charge une fois une ligne, un détail ou « Comment c'est calculé » ouverts (voir WEIGH_BUDGET)
   for (const p of profileChunks) console.log(`  « Mon profil politique », une ligne ouverte : ${((bytesOf(ownOf(p)) + added) / 1000).toFixed(1)} ko`)
+}
+for (const f of detailChunks) {
+  const added = bytesOf(ownOf(f).filter(x => !profileChunks.some(p => ownOf(p).includes(x))))
+  console.log(`  « Le détail » de « Mon profil politique » : assets/${f} et ce qu’il ajoute à la page, ${(added / 1000).toFixed(1)} ko sur ${DETAIL_BUDGET / 1000} ko permis, chargé à la première ouverture du tableau`)
 }
 for (const f of crossChunks) console.log(`  lectures croisées de « Mon profil politique » : assets/${f} et ce qu’elles ajoutent à la page, ${(bytesOf(crossAdded(f)) / 1000).toFixed(1)} ko sur ${CROSS_BUDGET / 1000} ko permis, chargées à la demande`)
 
