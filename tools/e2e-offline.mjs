@@ -35,6 +35,12 @@
 // l'en-tête, l'axe collant ou l'en-tête des colonnes, et sans effet sur l'affiche JPG ; sa rubrique de la Méthode, hors
 // ligne, chargée sans la page ; le statut « Lecture en cours » d'une page lourde, processeur bridé ; rien de tout cela
 // sans axe.
+// « Installer l'application » (#/installer), en imitant chaque appareil (iPhone avec Safari d'iOS 26 et 18, Android
+// avec Chrome, ordinateur, Windows avec Firefox, fenêtre d'Instagram, appareil non reconnu) et le mode installé : la
+// copie du code dans le geste, le bouton du navigateur sans invite de lui-même (le focus et le statut après sa fenêtre),
+// le QR code de la seule adresse, l'avis de l'application ouverte vide, l'import par « Coller le code » et le
+// presse-papiers vidé (et lui seul : jamais un texte collé puis effacé), les symboles des menus dits en mots, la feuille
+// de la page chargée avec elle, le manifeste gardé hors ligne.
 //
 // Usage : pnpm build && node tools/e2e-offline.mjs [port] [--pack <id>] [--prefix <slug>]
 //   --pack <id>     : l'élection à parcourir (par défaut, celle du registre sans préfixe : src/elections/index.ts)
@@ -4389,6 +4395,409 @@ try {
     check(ended === 'C’est effacé.' && afterReload === 'La table a été interrompue.' && unlockedAt === L('/'), `à table : « ${ended} », puis après rechargement « ${afterReload} », puis déverrouillage vers ${unlockedAt}`)
     check(tableForeign.length === 0, `à table : aucune requête hors du site ni envoi (${tableForeign.slice(0, 3).join(', ') || 'aucune'})`)
     await tc.close()
+  }
+  // 11. « Installer l'application » (#/installer), hors ligne, en imitant chaque appareil (navigateur, système, mode
+  // installé) : iPhone avec Safari d'iOS 26 (copier d'abord, 7 gestes, « Copier le code » dans le geste même), d'iOS 18
+  // (6 gestes), sans réponse (ni copie ni aplat bleu) ; Android avec Chrome (le bouton « Installer Isoloir » à l'annonce
+  // du navigateur, jamais d'invite de lui-même, l'installation suivie, acceptée ou annulée : le statut dit ce qu'il en est
+  // et reçoit le focus) ; ordinateur (deux colonnes, QR code de la seule adresse de la page ; un texte collé puis effacé
+  // laisse le presse-papiers intact) ; Windows avec Firefox (le code collé dans le champ, comme l'import de son
+  // application le montre) ; Instagram (ouvrir d'abord le navigateur) ; appareil non reconnu (la liste ouverte). Puis
+  // l'application installée sur iPhone : l'avis de l'accueil (l'appel de l'en-tête au trait, « Je n'avais pas répondu »
+  // retenu, ses mots entiers à 320 px texte à 200 %), ni la ligne du pied ni le lien de « Et maintenant », l'import qui
+  // ouvre sur « Coller le code » (un presse-papiers sans code le dit), le code copié dans le navigateur collé, le focus sur
+  // « Réponses trouvées », les mêmes réponses, le presse-papiers vidé. « Autre appareil ? » ne change pas d'adresse ;
+  // rien ne défile sur le côté (320 px à 200 %, 375, 1 280) ; le texte des schémas fait 12 px au moins à 375 px ; aucun
+  // symbole de menu (« ⋮ », « ≡ »…) sans son nom en mots ; la feuille de la page vient avec elle, hors ligne ; le
+  // manifeste est gardé hors ligne ; aucune requête hors du site ni violation de la CSP
+  {
+    const IPHONE = token => `Mozilla/5.0 (iPhone; CPU iPhone OS ${token} like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko)`
+    const UA = {
+      ios26: `${IPHONE('18_6')} Version/26.0 Mobile/15E148 Safari/604.1`,
+      ios18: `${IPHONE('18_5')} Version/18.5 Mobile/15E148 Safari/604.1`,
+      // L'application de l'écran d'accueil : le même moteur, sans « Safari/ »
+      iosApp: `${IPHONE('18_6')} Mobile/15E148`,
+      android: 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Mobile Safari/537.36',
+      opera: 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Mobile Safari/537.36 OPR/90.0.0.0',
+      desk: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36',
+      winFirefox: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0',
+      instagram: `${IPHONE('18_6')} Mobile/15E148 Instagram 350.0.0.0 (iPhone15,2; iOS 18_6; fr_FR; fr; scale=3.00; 1179x2556)`,
+    }
+    /** Le mode installé, imité : navigator.standalone et display-mode: standalone */
+    const STANDALONE = () => {
+      Object.defineProperty(Navigator.prototype, 'standalone', { get: () => true, configurable: true })
+      const mm = window.matchMedia.bind(window)
+      window.matchMedia = q =>
+        /display-mode:\s*standalone/.test(q)
+          ? { matches: true, media: q, onchange: null, addEventListener() {}, removeEventListener() {}, addListener() {}, removeListener() {}, dispatchEvent: () => false }
+          : mm(q)
+    }
+    /** L'annonce d'installation de Chrome, imitée : compte les fenêtres d'installation ouvertes, puis l'installation (ou son refus) */
+    const OFFER = outcome => {
+      window.__prompts = 0
+      addEventListener('load', () =>
+        setTimeout(() => {
+          let choose
+          const e = new Event('beforeinstallprompt', { cancelable: true })
+          e.userChoice = new Promise(r => (choose = r))
+          e.prompt = async () => {
+            window.__prompts++
+            choose({ outcome })
+            if (outcome === 'accepted') setTimeout(() => dispatchEvent(new Event('appinstalled')), 50)
+          }
+          dispatchEvent(e)
+          window.__prevented = e.defaultPrevented
+        }, 30),
+      )
+    }
+    // 22 réponses rapides (une approche d'accord par question), la feuille d'un visiteur ordinaire
+    const instAnswers = Object.fromEntries(
+      pack.bank.questions.filter(q => q.tier === 'essentiel').map((q, i) => [q.id, { ratings: { [q.approaches[i % q.approaches.length].id]: 1 }, redLines: [] }]),
+    )
+    const now = new Date().toISOString()
+    const instState = JSON.stringify({ format: 3, electionId: entry.id, dataVersion: pack.election.dataVersion, seed: '0123456789abcdef', answers: instAnswers, weights: {}, deepTopics: [], lastSeenRanking: null, dataUpdatedFrom: null, essentialDoneAt: now, updatedAt: now })
+    const N_ANSWERS = Object.keys(instAnswers).length
+    const instForeign = []
+    const instCsp = []
+    const contexts = []
+    /** Un appareil imité, chargé en ligne (sa copie hors ligne s'installe), puis coupé du réseau */
+    const imitate = async (ua, { width = 375, height = 812, standalone = false, offer = false, filled = false, zoom = 100, mobile = width < 768, offline = true } = {}) => {
+      const c = await browser.newContext({ viewport: { width, height }, userAgent: ua, isMobile: mobile, hasTouch: mobile, reducedMotion: 'reduce', permissions: ['clipboard-read', 'clipboard-write'] })
+      contexts.push(c)
+      await c.addInitScript(() => {
+        window.__csp = []
+        addEventListener('securitypolicyviolation', e => window.__csp.push(`${e.violatedDirective} ${e.blockedURI}`))
+      })
+      if (standalone) await c.addInitScript(STANDALONE)
+      if (offer) await c.addInitScript(OFFER, offer === true ? 'accepted' : offer)
+      if (filled) await c.addInitScript(([k, s]) => localStorage.getItem(k) || localStorage.setItem(k, s), [STORAGE, instState])
+      if (zoom !== 100) await c.addInitScript(z => document.addEventListener('DOMContentLoaded', () => (document.documentElement.style.fontSize = `${z}%`)), zoom)
+      const p = await c.newPage()
+      p.on('request', r => {
+        const u = r.url()
+        if (!u.startsWith(base) && !u.startsWith('blob:') && !u.startsWith('data:')) instForeign.push(u)
+      })
+      await p.goto(HOME)
+      await p.evaluate(() => navigator.serviceWorker.ready)
+      await p.waitForFunction(() => !!navigator.serviceWorker.controller, null, { timeout: 5000 }).catch(() => null)
+      if (offline) await c.setOffline(true)
+      return p
+    }
+    const visit = async (p, path) => {
+      await p.goto(U(path))
+      await p.locator('main h1').first().waitFor()
+      await p.evaluate(() => document.fonts.ready)
+      await p.waitForTimeout(250)
+    }
+    /** Ce que montre la page « Installer l'application » */
+    const installInfo = p =>
+      p.evaluate(() => {
+        const t = el => (el?.textContent ?? '').replace(/\u00ad/g, '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
+        const first = document.querySelector('.install-main > .install-section')
+        const visible = el => el.checkVisibility()
+        return {
+          h1: t(document.querySelector('main h1')),
+          // innerText : la version du système, sur sa ligne, se lit séparée du nom
+          device: (document.querySelector('.install-device-value')?.innerText ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim(),
+          other: !!document.querySelector('.install-device button'),
+          steps: first?.querySelectorAll('.install-steps > li').length ?? 0,
+          say: t(first?.querySelector('.install-say')),
+          copy: [...(first?.querySelectorAll('.btn-primary') ?? [])].map(t).join(' | '),
+          primaries: [...document.querySelectorAll('main .btn-primary:not(.is-outline)')].filter(visible).length,
+          native: t(document.querySelector('.install-native .btn-primary')),
+          noTransfer: [...document.querySelectorAll('.how-to summary')].some(s => /Ne rien transf/.test(s.textContent)),
+          why: !!document.getElementById('pourquoi-t'),
+          others: [...document.querySelectorAll('.install-others .other-name')].map(t),
+          open: [...document.querySelectorAll('.install-others details[open] .other-name')].map(t),
+          othersTitle: t(document.getElementById('autres-t')),
+          foot: document.querySelector(`.site-foot a[href$="/installer"]`)?.getAttribute('aria-current') ?? (document.querySelector('.site-foot a[href$="/installer"]') ? 'lien' : 'aucun'),
+          wide: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+          // Les symboles des menus (« ⋮ », « ≡ », « ••• », « … ») lus tels quels par un lecteur d'écran : hors d'un aria-hidden
+          // et d'un schéma (titré et décrit en mots) ; et leurs noms en mots, dits aux lecteurs d'écran
+          bareSymbols: (() => {
+            const out = []
+            const w = document.createTreeWalker(document.querySelector('main'), NodeFilter.SHOW_TEXT)
+            for (let n = w.nextNode(); n; n = w.nextNode()) {
+              if (!/[•⋮≡]|«\u00a0…\u00a0»/.test(n.data) || n.parentElement.closest('svg, [aria-hidden="true"]')) continue
+              out.push(n.data.trim().slice(0, 30))
+            }
+            return out
+          })(),
+          spokenSymbols: [...document.querySelectorAll('main .sr-only')].filter(x => /^le bouton à trois/.test(x.textContent)).length,
+          // La feuille de la page (chargée avec elle) : les gestes ont leurs filets
+          styled: !!first?.querySelector('.install-steps') && parseFloat(getComputedStyle(first.querySelector('.install-steps')).borderTopWidth) > 0,
+          // Le texte des schémas, à sa taille réelle (le schéma rétrécit avec sa colonne)
+          dgMin: Math.min(
+            ...[...document.querySelectorAll('.step-dg text, .install-figure .diagram text')].map(x => {
+              const svg = x.ownerSVGElement
+              return parseFloat(getComputedStyle(x).fontSize) * (svg.getBoundingClientRect().width / svg.viewBox.baseVal.width)
+            }),
+          ),
+        }
+      })
+    const ALL_GUIDES = 13
+
+    // iPhone, Safari d'iOS 26, 22 réponses : copier d'abord
+    const sp = await imitate(UA.ios26, { filled: true })
+    await visit(sp, '/installer')
+    const a = await installInfo(sp)
+    check(
+      a.h1 === 'Installer l’application' && a.device === 'iPhone, avec Safari iOS 26' && a.steps === 7 && a.copy === 'Copier le code' && a.primaries === 1 && !a.native && a.noTransfer && a.why,
+      `installer, iPhone avec Safari d’iOS 26 : « ${a.device} », ${a.steps} gestes dont « ${a.copy} » d’abord (le seul aplat bleu : ${a.primaries}), « Ne rien transférer ? », « Pourquoi copier d’abord ? »`,
+    )
+    check(a.others.length === ALL_GUIDES - 1 && !a.others.includes('iPhone ou iPad, avec Safari (iOS 26)') && a.foot === 'page', `installer : la liste des autres appareils sans le sien (${a.others.length}), la ligne du pied marquée (${a.foot})`)
+    check(a.wide <= 0 && a.dgMin >= 11.9, `installer, 375 px : rien sur le côté (${a.wide} px), texte des schémas à ${a.dgMin.toFixed(1)} px au moins`)
+    check(a.styled, 'installer : la feuille de la page vient avec elle, hors ligne (les gestes ont leurs filets)')
+    check(a.bareSymbols.length === 0 && a.spokenSymbols >= 3, `installer, iPhone : aucun symbole de menu sans son nom en mots (${a.bareSymbols.join(' | ') || 'aucun'}), ${a.spokenSymbols} noms dits aux lecteurs d’écran`)
+    // « Autre appareil ? » : la liste, sans changer d'adresse
+    const hashBefore = hashOf(sp)
+    await sp.getByRole('button', { name: 'Autre appareil ?' }).click()
+    await sp.waitForTimeout(200)
+    const jumped = await sp.evaluate(() => ({ id: document.activeElement?.id, top: Math.round(document.getElementById('autres').getBoundingClientRect().top) }))
+    check(hashOf(sp) === hashBefore && jumped.id === 'autres' && jumped.top >= 0 && jumped.top < 200, `installer : « Autre appareil ? » mène à la liste (focus ${jumped.id}, à ${jumped.top} px du haut) sans changer d’adresse (${hashOf(sp)})`)
+    // « Copier le code », dans le geste même
+    await sp.getByRole('button', { name: 'Copier le code' }).click()
+    await sp.locator('.step-status').filter({ hasText: 'Code copié' }).waitFor({ timeout: 2000 }).catch(() => null)
+    const copied = flat(await sp.locator('.step-status').first().textContent())
+    const code = await sp.evaluate(() => navigator.clipboard.readText())
+    check(copied === 'Code copié. Passez au geste 2.' && /^[0-9A-Z]{30,}$/.test(code), `installer : « Copier le code » met le code dans le presse-papiers hors ligne (« ${copied} », ${code.length} caractères)`)
+    // Le lien discret sous « Et maintenant », et le manifeste gardé hors ligne
+    await visit(sp, '/resultats')
+    const nextInstall = await sp.locator('.next-block .next-install a').getAttribute('href').catch(() => null)
+    const manifest = await sp.evaluate(async () => {
+      const r = await caches.match('./manifest.webmanifest')
+      return r ? r.json() : null
+    })
+    check(nextInstall === L('/installer'), `installer : un lien discret sous « Et maintenant » (${nextInstall})`)
+    check(manifest?.display === 'standalone' && manifest?.start_url === './' && manifest?.icons?.some(i => i.purpose === 'maskable'), `installer : le manifeste est dans la copie hors ligne (display ${manifest?.display}, start_url ${manifest?.start_url}, icône maskable)`)
+
+    // 320 px, texte à 200 % : rien ne défile sur le côté. En ligne : hors ligne, le rideau « Isoloir fermé » de l'en-tête
+    // dépasse lui-même à cette taille, sur toutes les pages (à reprendre à part)
+    const zp = await imitate(UA.ios26, { width: 320, height: 740, filled: true, zoom: 200, offline: false })
+    await visit(zp, '/installer')
+    const z = await installInfo(zp)
+    check(z.wide <= 0 && z.steps === 7, `installer, 320 px texte à 200 % : rien sur le côté (${z.wide} px)`)
+
+    // iPhone, Safari d'iOS 18 : sa propre suite, sans le réglage d'iOS 26
+    const s18 = await imitate(UA.ios18, { filled: true })
+    await visit(s18, '/installer')
+    const b18 = await installInfo(s18)
+    check(b18.device === 'iPhone, avec Safari iOS 18' && b18.steps === 6 && !b18.noTransfer && b18.why, `installer, iPhone avec Safari d’iOS 18 : ${b18.steps} gestes, sans « Ne rien transférer ? » (« ${b18.device} »)`)
+
+    // iPhone, sans réponse : ni copie, ni aplat bleu (rien ne s'installe par un bouton sur iPhone)
+    const se = await imitate(UA.ios26)
+    await visit(se, '/installer')
+    const e0 = await installInfo(se)
+    check(e0.steps === 5 && !e0.copy && e0.primaries === 0 && !e0.why && /^Pas encore de réponses ici/.test(e0.say), `installer, iPhone sans réponse : ${e0.steps} gestes, aucun aplat bleu, « ${e0.say.slice(0, 40)}… »`)
+
+    // Android, Chrome : le bouton à l'annonce du navigateur, jamais d'invite de lui-même
+    const ap = await imitate(UA.android, { filled: true, offer: true })
+    await visit(ap, '/installer')
+    await ap.locator('.install-native .btn-primary').waitFor({ timeout: 3000 }).catch(() => null)
+    const an = await installInfo(ap)
+    const before = await ap.evaluate(() => ({ prompts: window.__prompts, prevented: window.__prevented }))
+    // Au clavier : le bouton s'en va après la fenêtre du navigateur, le focus passe au statut (jamais à la page entière)
+    await ap.locator('.install-native .btn-primary').focus().catch(() => null)
+    await ap.keyboard.press('Enter')
+    await ap.locator('.install-native-done').waitFor({ timeout: 3000 }).catch(() => null)
+    await ap.waitForTimeout(150)
+    const after = await ap.evaluate(() => ({
+      prompts: window.__prompts,
+      done: (document.querySelector('.install-native-done')?.textContent ?? '').replace(/\s+/g, ' ').trim(),
+      status: !!document.querySelector('.install-native [role="status"] .install-native-done'),
+      focus: !!document.activeElement?.classList.contains('install-native-done'),
+    }))
+    const follow = flat(await ap.locator('#reponses-t + .install-say').textContent().catch(() => ''))
+    check(an.device === 'Android, avec Chrome' && an.native === 'Installer Isoloir' && an.steps === 3 && !an.copy.includes('Copier') && an.primaries === 1, `installer, Android avec Chrome : le bouton « ${an.native} », le menu en ${an.steps} gestes, pas de copie`)
+    check(before.prevented === true && before.prompts === 0 && after.prompts === 1 && /^Isoloir est installé/.test(after.done), `installer, Android : aucune invite du navigateur avant le geste (${before.prompts}), une au toucher (${after.prompts}), puis « ${after.done} »`)
+    check(after.status && after.focus, `installer, Android : « Isoloir est installé » dans le statut toujours présent, et le focus y passe (${after.focus})`)
+    // Installation annulée : le statut le dit, le focus y passe, le chemin par le menu reste
+    const ad = await imitate(UA.android, { filled: true, offer: 'dismissed' })
+    await visit(ad, '/installer')
+    await ad.locator('.install-native .btn-primary').waitFor({ timeout: 3000 }).catch(() => null)
+    await ad.locator('.install-native .btn-primary').focus().catch(() => null)
+    await ad.keyboard.press('Enter')
+    await ad.locator('.install-native-status').waitFor({ timeout: 3000 }).catch(() => null)
+    await ad.waitForTimeout(150)
+    const dismissed = await ad.evaluate(() => ({
+      status: (document.querySelector('.install-native [role="status"]')?.textContent ?? '').trim(),
+      focus: !!document.activeElement?.classList.contains('install-native-status'),
+      button: !!document.querySelector('.install-native .btn-primary'),
+      menu: document.querySelectorAll('.install-main .install-steps > li').length,
+    }))
+    check(/^Installation annulée/.test(dismissed.status) && dismissed.focus && !dismissed.button && dismissed.menu === 3, `installer, Android, installation annulée : « ${dismissed.status} », le focus sur le statut (${dismissed.focus}), le menu en ${dismissed.menu} gestes`)
+    check(follow.includes(`vos ${N_ANSWERS} réponses y sont`), `installer, Android : « Vos réponses vous suivent » (« ${follow.slice(-40)} »)`)
+
+    // Ordinateur, Chrome, 1 280 px : deux colonnes, et le QR code de la seule adresse de la page
+    const dp = await imitate(UA.desk, { width: 1280, height: 900, filled: true, offer: true })
+    await visit(dp, '/installer')
+    await dp.locator('.install-phone svg.qr path').waitFor({ timeout: 3000 }).catch(() => null)
+    const dk = await installInfo(dp)
+    const desk = await dp.evaluate(() => {
+      const intro = document.querySelector('.install-intro').getBoundingClientRect()
+      const main = document.querySelector('.install-main').getBoundingClientRect()
+      return { columns: intro.right <= main.left + 1 && Math.abs(intro.top - main.top) < 80, d: document.querySelector('.install-phone svg.qr path')?.getAttribute('d') ?? '' }
+    })
+    // Le même dessin que la page, fait ici à partir de l'adresse attendue (et d'elle seule)
+    const rows = encodeQR(`${base}${L('/installer')}`, 'raw', { ecc: 'medium', border: 2 })
+    let wantD = ''
+    rows.forEach((row, y) => {
+      for (let x = 0; x < row.length; x++) {
+        if (!row[x]) continue
+        const start = x
+        while (row[x + 1]) x++
+        wantD += `M${start} ${y}h${x + 1 - start}v1h${start - x - 1}z`
+      }
+    })
+    check(dk.device === 'Ordinateur, avec Chrome' && desk.columns && dk.native === 'Installer Isoloir' && dk.wide <= 0, `installer, ordinateur avec Chrome à 1 280 px : deux colonnes (${desk.columns}), « ${dk.native} », rien sur le côté (${dk.wide} px)`)
+    check(!!desk.d && desk.d === wantD, `installer, ordinateur : le QR code porte l’adresse de la page, ${base}${L('/installer')}, et rien d’autre`)
+    check(dk.bareSymbols.length === 0 && dk.spokenSymbols >= 3, `installer, ordinateur : aucun symbole de menu sans son nom en mots (${dk.bareSymbols.join(' | ') || 'aucun'})`)
+    // Un texte sans rapport collé dans le champ, effacé, puis le code tapé : Isoloir ne vide pas le presse-papiers
+    await dp.goto(U('/autre-appareil/importer'))
+    await dp.locator('#transfer-code').waitFor()
+    await dp.evaluate(() => navigator.clipboard.writeText('mon mot de passe'))
+    await dp.locator('#transfer-code').focus()
+    await dp.keyboard.press('ControlOrMeta+V')
+    await dp.keyboard.press('ControlOrMeta+A')
+    await dp.keyboard.press('Backspace')
+    await dp.locator('#transfer-code').fill(code)
+    await dp.getByRole('button', { name: 'Lire ce code' }).click()
+    const foundDesk = await heading(dp, 'Réponses trouvées')
+    const deskClear = await dp.locator('.notice').filter({ hasText: 'Isoloir videra aussi le presse-papiers.' }).count()
+    await dp.getByRole('button', { name: 'Remplacer mes réponses' }).click()
+    await dp.waitForTimeout(200)
+    const deskClip = await dp.evaluate(() => navigator.clipboard.readText())
+    check(foundDesk && deskClear === 0 && deskClip === 'mon mot de passe', `installer, import : un texte collé puis effacé, le code tapé, le presse-papiers reste intact (« ${deskClip} »)`)
+
+    // Windows, Firefox : son application n'a pas « Coller le code » ; la page dit de coller le code dans le champ, et son
+    // import l'a bien (« Coller ou taper le code », « Lire ce code ») ; ouverte vide, elle dit comment les faire passer
+    const wf = await imitate(UA.winFirefox, { width: 1280, height: 900, filled: true })
+    await visit(wf, '/installer')
+    const wfInfo = await installInfo(wf)
+    const wfApp = await imitate(UA.winFirefox, { width: 1280, height: 900, standalone: true })
+    await visit(wfApp, '/installer')
+    const wfEmpty = await wfApp.evaluate(() => ({
+      title: (document.getElementById('reponses-t')?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').trim(),
+      link: document.querySelector('.install-main .btn-primary')?.getAttribute('href') ?? null,
+    }))
+    await wfApp.goto(U('/autre-appareil/importer'))
+    await wfApp.locator('.transfer-ways').waitFor()
+    const wfImport = await wfApp.evaluate(() => ({
+      ways: [...document.querySelectorAll('.transfer-ways .way h3')].map(h => h.textContent.trim()),
+      buttons: [...document.querySelectorAll('.transfer-ways button')].map(b => b.textContent.trim()),
+    }))
+    const wfSteps = flat(await wf.locator('.install-main .install-steps').first().textContent())
+    check(
+      wfInfo.steps === 3 && wfSteps.includes('« Coller ou taper le code »') && wfSteps.includes('« Lire ce code »') && !wfSteps.includes('« Coller le code »') && wfImport.ways.includes('Coller ou taper le code') && wfImport.buttons.includes('Lire ce code') && !wfImport.buttons.includes('Coller le code'),
+      `installer, Windows avec Firefox : la page dit de coller le code dans « Coller ou taper le code », puis « Lire ce code », comme son application les montre (${wfImport.ways.join(', ')})`,
+    )
+    check(wfEmpty.title === 'Vos réponses sont restées dans Firefox ?' && wfEmpty.link === L('/autre-appareil/importer'), `installer, Windows avec Firefox, application ouverte vide : « ${wfEmpty.title} », « Importer mes réponses » (${wfEmpty.link})`)
+    // Instagram : cette fenêtre ne sait pas installer, le chapeau le dit comme la section
+    const ig = await imitate(UA.instagram)
+    await visit(ig, '/installer')
+    const igLede = flat(await ig.locator('.install-intro .lede').textContent())
+    check(/^Cette fenêtre ne sait pas installer/.test(igLede) && !/depuis cette page/.test(igLede), `installer, Instagram : « ${igLede.slice(0, 60)}… »`)
+
+    // Appareil non reconnu : la liste ouverte sur « Autre navigateur »
+    const op = await imitate(UA.opera)
+    await visit(op, '/installer')
+    const o = await installInfo(op)
+    check(/^Non reconnu\b/.test(o.device) && !o.other && o.othersTitle === 'Choisissez votre appareil' && o.others.length === ALL_GUIDES && o.open.length === 1 && /^Autre navigateur/.test(o.open[0]), `installer, appareil non reconnu : « ${o.othersTitle} », ${o.others.length} appareils, « ${o.open[0]} » ouvert`)
+
+    // L'application installée sur iPhone, ouverte vide, hors ligne
+    const app = await imitate(UA.iosApp, { standalone: true })
+    await app.goto(HOME)
+    await app.locator('main h1').first().waitFor({ state: 'attached' })
+    await app.waitForTimeout(300)
+    const welcome = await app.evaluate(() => ({
+      shown: !!document.querySelector('.app-welcome'),
+      title: (document.querySelector('.app-welcome-title')?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').trim(),
+      primary: document.querySelector('.app-welcome .btn-primary')?.getAttribute('href') ?? null,
+      how: [...document.querySelectorAll('.app-welcome a.btn-text')].map(x => x.getAttribute('href')),
+      quiet: !!document.querySelector('.header-cta.is-outline'),
+      foot: !!document.querySelector('.site-foot a[href$="/installer"]'),
+    }))
+    check(
+      welcome.shown && welcome.title === 'Vous aviez déjà répondu ?' && welcome.primary === L('/autre-appareil/importer') && welcome.how.includes(L('/installer')) && welcome.quiet,
+      `installer, application ouverte vide : l’avis « ${welcome.title} », « Importer mes réponses » (${welcome.primary}), « Comment faire », l’appel de l’en-tête au trait (${welcome.quiet})`,
+    )
+    check(!welcome.foot, `installer, application : pas de ligne « Installer l’application » au pied`)
+    await visit(app, '/installer')
+    const inApp = await installInfo(app)
+    check(inApp.h1 === 'Isoloir est installé' && inApp.device === 'iPhone, dans l’application' && inApp.steps === 2 && inApp.others.length === ALL_GUIDES && inApp.foot === 'aucun', `installer, dans l’application : « ${inApp.h1} », « ${inApp.device} », ${inApp.steps} gestes pour faire passer les réponses`)
+    // L'import ouvre sur « Coller le code » ; le code copié dans Safari donne les mêmes réponses ; le presse-papiers est vidé
+    await app.goto(U('/autre-appareil/importer'))
+    await app.locator('.transfer-ways').waitFor()
+    const ways = await app.evaluate(() => ({
+      first: document.querySelector('.transfer-ways > li .way h3')?.textContent ?? '',
+      firstPrimary: !!document.querySelector('.transfer-ways > li:first-child .btn-primary'),
+      camera: document.querySelector('.transfer-ways > li:nth-child(2) button')?.className ?? '',
+    }))
+    // Un presse-papiers sans code (une adresse, un mot) : la page le dit, sans parler d'un code mal tapé
+    await app.evaluate(() => navigator.clipboard.writeText('https://exemple.fr/'))
+    await app.getByRole('button', { name: 'Coller le code' }).click()
+    await app.waitForTimeout(200)
+    const notCode = flat(await app.locator('.transfer-ways > li:first-child [role="status"]').textContent())
+    check(/^Le presse-papiers ne contient pas de code Isoloir\. Dans le navigateur où vous aviez répondu/.test(notCode), `installer, application : un presse-papiers sans code, « ${notCode.slice(0, 60)}… »`)
+    await app.evaluate(t => navigator.clipboard.writeText(t), code)
+    await app.getByRole('button', { name: 'Coller le code' }).focus()
+    await app.keyboard.press('Enter')
+    const foundApp = await heading(app, 'Réponses trouvées')
+    const foundFocus = await app.waitForFunction(() => document.activeElement?.id === 'receive-title', null, { timeout: 1000 }).then(() => true, () => false)
+    check(foundFocus, 'installer, application : le focus passe à « Réponses trouvées » (le bouton qui a lu le code n’est plus là)')
+    const willClear = await app.locator('.notice').filter({ hasText: 'Isoloir videra aussi le presse-papiers.' }).count()
+    await app.getByRole('button', { name: 'Importer ces réponses' }).click()
+    await app.waitForFunction(h => location.hash === h, L('/resultats'), { timeout: 3000 }).catch(() => null)
+    await app.waitForTimeout(200)
+    const gotApp = await app.evaluate(key => JSON.parse(localStorage.getItem(key) ?? '{}'), STORAGE)
+    const clip = await app.evaluate(() => navigator.clipboard.readText())
+    const sameAnswers = JSON.stringify(Object.keys(gotApp.answers ?? {}).sort()) === JSON.stringify(Object.keys(instAnswers).sort())
+    check(ways.first === 'Coller le code' && ways.firstPrimary && ways.camera === 'btn-text', `installer, import dans l’application : « ${ways.first} » d’abord, en aplat bleu ; la caméra au trait`)
+    check(foundApp && willClear === 1 && hashOf(app) === L('/resultats') && sameAnswers && clip === '', `installer, application : le code collé, ${Object.keys(gotApp.answers ?? {}).length} réponses importées hors ligne, presse-papiers vidé (« ${clip} »)`)
+    await app.goto(HOME)
+    await app.waitForTimeout(300)
+    check((await app.locator('.app-welcome').count()) === 0, 'installer, application : l’avis disparaît une fois les réponses importées')
+    // L'avis à 320 px, texte à 200 % : « Importer mes réponses » garde ses mots entiers (en ligne, comme plus haut)
+    const az = await imitate(UA.iosApp, { standalone: true, width: 320, height: 740, zoom: 200, offline: false })
+    await az.goto(HOME)
+    await az.locator('.app-welcome').waitFor({ timeout: 3000 }).catch(() => null)
+    const azCut = await az.evaluate(() => {
+      const out = []
+      const b = document.querySelector('.app-welcome .btn-primary')
+      if (!b) return ['(absent)']
+      const w = document.createTreeWalker(b, NodeFilter.SHOW_TEXT)
+      for (let n = w.nextNode(); n; n = w.nextNode()) {
+        for (const m of n.data.matchAll(/\S+/g)) {
+          const r = document.createRange()
+          r.setStart(n, m.index)
+          r.setEnd(n, m.index + m[0].length)
+          if (new Set([...r.getClientRects()].filter(x => x.width > 0).map(x => Math.round(x.top))).size > 1) out.push(m[0])
+        }
+      }
+      return out
+    })
+    check(azCut.length === 0, `installer, avis de l’application à 320 px texte à 200 % : « Importer mes réponses » sans mot coupé (${azCut.join(', ') || 'aucun'})`)
+    // « Je n'avais pas répondu » : l'avis se ferme, l'appel de l'en-tête reprend l'aplat, et c'est retenu
+    const fresh = await imitate(UA.iosApp, { standalone: true })
+    await fresh.goto(HOME)
+    await fresh.locator('.app-welcome').waitFor({ timeout: 3000 }).catch(() => null)
+    await fresh.getByRole('button', { name: 'Je n’avais pas répondu' }).click()
+    await fresh.waitForTimeout(200)
+    const closedNow = await fresh.evaluate(() => ({ gone: !document.querySelector('.app-welcome'), quiet: !!document.querySelector('.header-cta.is-outline'), focus: !!document.activeElement?.classList.contains('header-cta'), kept: localStorage.getItem('isoloir:accueil-application') }))
+    await fresh.reload()
+    await fresh.waitForTimeout(400)
+    const stillClosed = (await fresh.locator('.app-welcome').count()) === 0
+    check(closedNow.gone && !closedNow.quiet && closedNow.focus && closedNow.kept === 'ferme' && stillClosed, `installer, « Je n’avais pas répondu » : l’avis se ferme, l’appel de l’en-tête reprend l’aplat et le focus, retenu après rechargement (${closedNow.kept})`)
+    // Un navigateur ordinaire, sans réponse : ni avis, la ligne du pied
+    const plain = await imitate(UA.android)
+    await plain.goto(HOME)
+    await plain.locator('main h1').first().waitFor({ state: 'attached' })
+    await plain.waitForTimeout(300)
+    check((await plain.locator('.app-welcome').count()) === 0 && (await plain.locator('.site-foot a[href$="/installer"]').count()) === 1, 'installer, navigateur sans réponse : pas d’avis, la ligne « Installer l’application » au pied')
+
+    for (const c of contexts) for (const pg of c.pages()) instCsp.push(...((await pg.evaluate(() => window.__csp).catch(() => [])) ?? []))
+    check(instForeign.length === 0 && instCsp.length === 0, `installer : aucune requête hors du site ni violation de la CSP, sur ${contexts.length} appareils imités (${[...instForeign, ...instCsp].slice(0, 3).join(', ') || 'aucune'})`)
+    for (const c of contexts) await c.close()
   }
 } finally {
   await browser.close()

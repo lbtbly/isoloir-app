@@ -42,6 +42,8 @@ export type Route =
    * (#/journal?candidat=retailleau), lus par la page (core/journal.ts)
    */
   | { name: 'journal'; n?: number; query?: string }
+  /** « Installer l'application » : Isoloir sur l'écran d'accueil, et les réponses qui y passent */
+  | { name: 'install' }
 
 /** Les noms de pages : un premier segment qui n'en est pas un est un préfixe d'élection */
 const PAGES = new Set([
@@ -71,6 +73,8 @@ const PAGES = new Set([
   'autre-appareil',
   // Le journal des données : sans lui ici, #/journal serait lu comme le préfixe d'une élection
   'journal',
+  // « Installer l'application » : de même pour #/installer
+  'installer',
 ])
 
 /** Forme d'un préfixe d'élection (slug ou alias) */
@@ -146,6 +150,8 @@ export function parseRoute(path: string): Route {
       const entry = Number(arg)
       return Number.isInteger(entry) && entry > 0 && String(entry) === arg ? { name: 'journal', n: entry } : { name: 'journal' }
     }
+    case 'installer':
+      return { name: 'install' }
     default:
       return { name: 'home' }
   }

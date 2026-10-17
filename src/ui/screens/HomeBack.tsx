@@ -20,6 +20,7 @@ import { formatDate, formatMoment } from '../format'
 import { link } from '../nav'
 import { presetOnClick } from '../journalPreset'
 import { hasTable } from '../table/load'
+import { InstallLink } from '../install/InstallLink'
 import '../../styles/home-back.css'
 
 /** Le jour, à Paris, d'un instant ISO (en UTC) : celui des dates du journal des données */
@@ -172,6 +173,7 @@ export function WelcomeBack({ pack, state, results, stale, essentialCount, profi
             </li>
           ))}
         </ul>
+        <InstallLink />
       </section>
     </div>
   )

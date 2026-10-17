@@ -56,6 +56,11 @@ const PATHS: Record<string, string> = {
   'arrow-up': 'M12 19V6M6 11l6-6 6 6',
   filters: 'M4 7h9M17 7h3M15 5v4M4 12h3M11 12h9M9 10v4M4 17h11M19 17h1M17 15v4',
   calc: 'M6.5 3.5h11v17h-11zM9 7h6v2.5H9zM9.25 13h.5M12 13h.5M14.75 13h.5M9.25 16.5h.5M12 16.5h.5M14.75 16.5h.5',
+  // « Installer l'application » (ui/screens/Install.tsx) : un téléphone et un plus ; sur ordinateur, un écran et une
+  // flèche ; « Coller le code » : une planchette à pince
+  install: 'M8 3h8a1.5 1.5 0 0 1 1.5 1.5v15A1.5 1.5 0 0 1 16 21H8a1.5 1.5 0 0 1-1.5-1.5v-15A1.5 1.5 0 0 1 8 3zM12 8.5v6M9 11.5h6M10.5 18h3',
+  'install-desktop': 'M3.5 4.5h17v11h-17zM9 20h6M12 15.5V20M12 7v5.5M9.5 10l2.5 2.5 2.5-2.5',
+  paste: 'M9 3.5h6v3H9zM9 5H5.5v15.5h13V5H15M8.5 11h7M8.5 14.5h7M8.5 18h4',
   plane:
     'M12 2.8c.8 0 1.4.7 1.4 1.6v5l7.1 4.2v2l-7.1-2.1v4.2l2.3 1.8v1.7L12 20.3l-3.7.9v-1.7l2.3-1.8v-4.2l-7.1 2.1v-2l7.1-4.2v-5c0-.9.6-1.6 1.4-1.6z',
 }

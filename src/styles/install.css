@@ -1,0 +1,90 @@
+/* ——— Ce que la feuille de chaque visite garde d'« Installer l'application » : l'avis de l'accueil de l'application
+   ouverte vide (ui/install/Welcome.tsx), l'import « Coller le code » de l'application à part (ui/screens/Transfer.tsx), et
+   les liens vers la page (pied de page, « Et maintenant »). La page elle-même a sa feuille, chargée avec elle
+   (install-page.css). Seulement des jetons (tokens.css) : le papier carbone suit ——— */
+
+/* ——— L'avis de l'accueil de l'application ouverte vide (iPhone, iPad ou Mac, aucune réponse) ——— */
+
+.app-welcome .btn-primary {
+  min-width: 0;
+  max-width: 100%;
+  white-space: normal;
+  text-align: start;
+}
+
+.app-welcome {
+  max-width: 46rem;
+  margin: var(--s4) 0 var(--s5);
+  /* Sur les côtés, resserré au texte très agrandi sur téléphone (320px à 200 %) ; inchangé sinon */
+  padding: var(--s4) clamp(var(--s2), 5vw, var(--s4));
+  overflow-wrap: anywhere;
+  box-shadow:
+    inset 0 var(--thick) 0 var(--rule-strong),
+    inset 0 0 0 var(--line) var(--rule-strong);
+}
+
+.app-welcome-title {
+  margin: 0;
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: 1.65rem;
+  line-height: 1.02;
+}
+
+.app-welcome p {
+  margin: var(--s2) 0 var(--s3);
+  max-width: 34rem;
+}
+
+.app-welcome-actions {
+  container: welcome-actions / inline-size;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s2) var(--s5);
+}
+
+.app-welcome-more {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1) var(--s5);
+}
+
+/* Texte très agrandi (14rem de colonne, qu'aucun téléphone n'atteint à texte normal) : « Importer mes réponses » perd son
+   pictogramme et resserre ses marges, pour que ses mots tiennent entiers plutôt que de se couper lettre par lettre */
+@container welcome-actions (width < 14rem) {
+  .app-welcome .btn-primary {
+    padding-inline: var(--s3);
+  }
+
+  .app-welcome .btn-primary .icon {
+    display: none;
+  }
+}
+
+/* ——— L'import dans l'application à part : « Coller le code » d'abord ——— */
+
+.way-hint {
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+/* La ligne du pied de page (components/SiteFooter.tsx) : « l'application », un mot long, se coupe au texte très agrandi
+   (320px à 200 %) plutôt que de déborder de sa colonne */
+.home-foot-actions .foot-install {
+  overflow-wrap: anywhere;
+}
+
+/* Le lien discret sous « Et maintenant » (ui/install/InstallLink.tsx) : un bouton texte et sa phrase, sans panneau */
+.next-install {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 var(--s3);
+  margin: var(--s4) 0 0;
+}
+
+.next-install-desc {
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}

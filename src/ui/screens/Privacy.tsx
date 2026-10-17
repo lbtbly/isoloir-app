@@ -33,6 +33,18 @@ const KEPT = [
     until: 'Il contient toutes vos réponses : ne le publiez jamais. Une copie gardée dans vos e-mails ou dans des photos sauvegardées en ligne y reste',
   },
   {
+    icon: 'copy',
+    what: 'Le code copié (« Copier le code »)',
+    where: 'Dans le presse-papiers de l’appareil',
+    until: 'Isoloir le vide après l’import. D’autres applications peuvent le lire ; Apple peut le passer à vos autres appareils (presse-papiers universel), et l’historique du presse-papiers de Windows, s’il est activé, en garde une copie',
+  },
+  {
+    icon: 'install',
+    what: 'Les réponses de l’application installée',
+    where: 'Dans l’application, sur cet appareil',
+    until: 'Jusqu’à « Tout effacer » dans l’application. Sur iPhone, iPad et Mac avec Safari, elle a son propre espace : « Tout effacer » dans le navigateur ne les efface pas, ni l’inverse',
+  },
+  {
     icon: 'plane',
     what: 'Une copie de l’application',
     where: 'Dans ce navigateur, pour marcher hors ligne',
@@ -164,6 +176,17 @@ export function Privacy({ eraseAll }: { eraseAll: () => void }) {
             caméra s’arrête dès le code lu. Le code ne passe ni par un serveur d’{APP_NAME}, ni par l’adresse d’une page.
             La copie par e-mail, elle, passe par la messagerie que vous choisissez, qui la garde&nbsp;: c’est vous qui
             l’envoyez, à vous-même.
+          </p>
+          <p>
+            Installée sur l’écran d’accueil (page «&nbsp;Installer l’application&nbsp;»), l’application garde vos réponses comme
+            le navigateur, sur l’appareil. Sur iPhone, iPad et Mac avec Safari, elle a son propre espace (avec Firefox sous
+            Windows, peut-être aussi)&nbsp;: vos réponses y passent par le code, copié dans le navigateur puis collé dans
+            l’application. Le presse-papiers est celui de l’appareil&nbsp;: d’autres applications peuvent le lire, Apple peut le
+            partager avec vos autres appareils (presse-papiers universel), et l’historique du presse-papiers de Windows, s’il est
+            activé, en garde une copie&nbsp;; Isoloir le vide après l’import. Dans l’application ouverte vide, «&nbsp;Je n’avais pas
+            répondu&nbsp;» est retenu sous la clé «&nbsp;<code>{STORAGE_PREFIX}accueil-application</code>&nbsp;». Au démarrage,
+            Isoloir demande au navigateur de ne pas effacer de lui-même ce qu’il garde (stockage persistant)&nbsp;; rien n’est
+            envoyé.
           </p>
           <p>
             Ces stockages servent seulement au service que vous demandez&nbsp;: reprendre vos réponses là où vous

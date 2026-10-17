@@ -102,6 +102,7 @@ import { percent } from '../format'
 import { isMany } from '../many'
 import { useOnline } from '../useOnline'
 import { MAX_PRIORITIES } from './Priorities'
+import { InstallLink } from '../install/InstallLink'
 
 interface Props {
   pack: ElectionPack
@@ -850,6 +851,7 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
               </li>
             ))}
           </ul>
+          {provisional ? null : <InstallLink />}
         </section>
 
         <div class="results-foot">
