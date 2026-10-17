@@ -7,7 +7,9 @@
 // « Pâle sauf net » (décision du propriétaire du 17 octobre 2026) : la couleur n'est pleine que sur une case nettement
 // plus près ou nettement plus loin, atténuée partout ailleurs ; une case nette au palier « mitigé » prend le vert de
 // « proche » ou l'orangé de « éloigné », selon son sens, le mot « Mitigé » toujours écrit (styles/app.css, .tile). La
-// légende le dit sous les paliers.
+// légende le dit sous les paliers (KeyPair) : au téléphone, dans l'axe ; à l'ordinateur, juste sous l'axe, hors de ce
+// qui colle (décision du propriétaire du 17 octobre 2026 : l'axe collant garde sa hauteur, et la barre des domaines
+// colle aux mêmes hauteurs d'écran qu'avant).
 // Variante a′ (décision du propriétaire du 15 octobre 2026) : les lignes sont groupées sous les neuf domaines, dans leur
 // ordre ; dans chacun, les lectures nettes, puis les écarts, puis les sujets sans tendance nette, puis ceux d'une seule
 // question, chaque groupe sans lecture nette sous un court intertitre gris (ui/profile/rows.ts). Aucun symbole de
@@ -154,6 +156,24 @@ export function Tile({ cell, net = false }: { cell: Pick<BlocCell, 'affinity' | 
     </span>
   )
 }
+
+/**
+ * Pleine et atténuée, deux pastilles du même palier (« pâle sauf net », décision du propriétaire du 17 octobre 2026) :
+ * dans la légende de l'axe au téléphone, juste sous l'axe à l'ordinateur, hors de ce qui colle (profile.css, .key-pair),
+ * et sous l'exemple fictif de la page d'attente (ui/screens/Profile.tsx)
+ */
+export const KeyPair = () => (
+  <ul class="key-scale key-pair">
+    <li>
+      <span class="key-tile tile aff-tres-proche is-net" aria-hidden="true" />
+      {T.KEY_NET}
+    </li>
+    <li>
+      <span class="key-tile tile aff-tres-proche" aria-hidden="true" />
+      {T.KEY_FLAT}
+    </li>
+  </ul>
+)
 
 /** Un nom qui ne se coupe pas à son trait d'union (« Jean-Luc » d'un tenant), mais toujours entre ses mots */
 const keepHyphens = (name: string) => name.split(/(\s+)/).map((w, i) => (w.includes('-') ? <span key={i} class="nw">{w}</span> : w))
@@ -374,56 +394,52 @@ export function Chart({ reading, ctx, quickOnly, deeper, unseen, onDetail }: Pro
               l'axe collant dessous, au plus près des colonnes */}
           {all.length && domains.length > 1 ? <Nav domains={domains} rows={rowsEl} /> : null}
           {all.length ? (
-            <div class="axis" ref={axisEl}>
-              <div class="chart-key">
-                <ul class="key-scale" aria-label={T.KEY_LABEL}>
-                  {AFFINITY_BANDS.map(b => (
-                    <li key={b.key}>
-                      <span class={`key-tile tile aff-${b.key}`} aria-hidden="true" />
-                      {b.label}
+            <>
+              <div class="axis" ref={axisEl}>
+                <div class="chart-key">
+                  <ul class="key-scale" aria-label={T.KEY_LABEL}>
+                    {AFFINITY_BANDS.map(b => (
+                      <li key={b.key}>
+                        <span class={`key-tile tile aff-${b.key}`} aria-hidden="true" />
+                        {b.label}
+                      </li>
+                    ))}
+                    {hasUnknown ? (
+                      <li>
+                        <span class="key-tile tile is-inconnu" aria-hidden="true">
+                          {T.UNKNOWN_GLYPH}
+                        </span>
+                        {T.UNKNOWN_WORD}
+                      </li>
+                    ) : null}
+                  </ul>
+                  {/* Pleine et atténuée, au téléphone : sous les paliers (à l'ordinateur, masquée ici : sous l'axe) */}
+                  <KeyPair />
+                  <p class="key-text">{T.KEY_TEXT}</p>
+                </div>
+                <ol class="zones" ref={zones} aria-label={T.zonesLabel(axis.length, panelSize)}>
+                  {axis.map((a, b) => (
+                    <li key={a.bloc} class="zone">
+                      <span class="zone-bloc">{labels[b]}</span>
+                      <ul class="zone-names">
+                        {panel[b]!.map(id => {
+                          const full = names.get(id) ?? id
+                          return (
+                            <li key={id}>
+                              <span class="n-last">{surname(full)}</span>
+                              <span class="n-full">{full}</span>
+                            </li>
+                          )
+                        })}
+                      </ul>
                     </li>
                   ))}
-                  {hasUnknown ? (
-                    <li>
-                      <span class="key-tile tile is-inconnu" aria-hidden="true">
-                        {T.UNKNOWN_GLYPH}
-                      </span>
-                      {T.UNKNOWN_WORD}
-                    </li>
-                  ) : null}
-                </ul>
-                {/* Pleine et atténuée, deux pastilles du même palier : à l'ordinateur, sous les blocs, sur une ligne */}
-                <ul class="key-scale key-pair">
-                  <li>
-                    <span class="key-tile tile aff-tres-proche is-net" aria-hidden="true" />
-                    {T.KEY_NET}
-                  </li>
-                  <li>
-                    <span class="key-tile tile aff-tres-proche" aria-hidden="true" />
-                    {T.KEY_FLAT}
-                  </li>
-                </ul>
-                <p class="key-text">{T.KEY_TEXT}</p>
+                </ol>
               </div>
-              <ol class="zones" ref={zones} aria-label={T.zonesLabel(axis.length, panelSize)}>
-                {axis.map((a, b) => (
-                  <li key={a.bloc} class="zone">
-                    <span class="zone-bloc">{labels[b]}</span>
-                    <ul class="zone-names">
-                      {panel[b]!.map(id => {
-                        const full = names.get(id) ?? id
-                        return (
-                          <li key={id}>
-                            <span class="n-last">{surname(full)}</span>
-                            <span class="n-full">{full}</span>
-                          </li>
-                        )
-                      })}
-                    </ul>
-                  </li>
-                ))}
-              </ol>
-            </div>
+              {/* À l'ordinateur, pleine et atténuée juste sous l'axe, sur une ligne, hors de ce qui colle : l'axe collant
+                  garde sa hauteur (au téléphone, masquée ici : dans la légende) */}
+              <KeyPair />
+            </>
           ) : null}
 
           <div class="rows-wrap" ref={rowsEl}>

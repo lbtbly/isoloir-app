@@ -173,8 +173,10 @@ for (const f of agreeChunks) {
 // les deux lignes de la légende, « Pleine » et « Atténuée », et les phrases de « Comment c'est calculé » qui le disent)
 // ajoutent 0,9 ko (853 octets) : 58,3 ko (58 302 octets), et le propriétaire relève le plafond à 58,5 ko plutôt que de
 // raccourcir ces phrases ; les lectures fictives de l'aperçu de l'accueil (PROFILE_PEEK_NET, core/resultsCopy.ts)
-// ajoutent 72 octets au JS initial (228 458 octets). Rien de la page ne pèse sur le JS initial, ni sur une visite qui
-// n'ouvre pas la page
+// ajoutent 72 octets au JS initial (228 458 octets). Le même jour, les retouches du propriétaire (« Pleine » et
+// « Atténuée » juste sous l'axe à l'ordinateur, hors de ce qui colle, et sous l'exemple de la page d'attente : un seul
+// composant, KeyPair, à trois places) ajoutent 50 octets : 58 352 octets. Rien de la page ne pèse sur le JS initial, ni
+// sur une visite qui n'ouvre pas la page
 const PROFILE_BUDGET = 58_500
 const profileChunks = readdirSync(join(dist, 'assets')).filter(f => /^Profile-[\w-]+\.js$/.test(f))
 if (profileChunks.length !== 1) fail(`« Mon profil politique » : ${profileChunks.length} fichier(s) assets/Profile-*.js, un attendu`)

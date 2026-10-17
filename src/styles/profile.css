@@ -435,6 +435,14 @@ html:has(.profile-chart) {
   text-align: center;
 }
 
+/* Sous l'exemple, pleine et atténuée, comme sous les paliers de la légende de la page (décision du propriétaire du 17
+   octobre 2026) */
+.profile-example .key-pair {
+  margin: var(--s3) 0 0;
+  font-size: var(--text-xs);
+  line-height: 1.35;
+}
+
 @container ex (min-width: 20rem) {
   .ex-head,
   .ex-row {
@@ -716,7 +724,8 @@ html:has(.profile-chart) {
 }
 
 /* La légende : les cinq paliers, dans l'ordre du site (très proche d'abord), et « ? inconnu » s'il paraît ; dessous, la
-   même pastille pleine et atténuée (.key-pair, décision du propriétaire du 17 octobre 2026) */
+   même pastille pleine et atténuée (.key-pair, Chart.tsx, KeyPair ; décision du propriétaire du 17 octobre 2026), au
+   téléphone dans la légende, à l'ordinateur juste sous l'axe (ci-dessous, .axis + .key-pair) */
 .chart-key {
   padding: 0 0 var(--s3);
   font-size: var(--text-xs);
@@ -759,6 +768,11 @@ html:has(.profile-chart) {
 
 .key-pair {
   margin-top: -0.05rem;
+}
+
+/* La paire de l'ordinateur, juste sous l'axe : au téléphone, celle de la légende suffit */
+.axis + .key-pair {
+  display: none;
 }
 
 .key-text {
@@ -837,9 +851,10 @@ html:has(.profile-chart) {
     grid-template-columns: var(--label-w) minmax(0, 1fr);
   }
 
-  /* La légende entre dans la grille de l'axe : les paliers et sa phrase à gauche des blocs ; pleine et atténuée dessous,
-     sur toute la largeur, en une ligne. L'axe collant ne grandit que de cette ligne (36 px) ; dans la colonne de la
-     légende, « Pleine : nettement plus près ou plus loin » passait sur deux lignes, et l'axe grandissait de 74 px */
+  /* La légende entre dans la grille de l'axe : les paliers et sa phrase à gauche des blocs. Pleine et atténuée n'y sont
+     plus (dans la colonne de la légende, « Pleine : nettement plus près ou plus loin » passait sur deux lignes, et l'axe
+     collant grandissait de 74 px ; sous les blocs, de 36 px, et la barre des domaines ne collait plus sur un écran
+     d'ordinateur court) : elles passent juste sous l'axe, ci-dessous */
   .chart-key {
     display: contents;
     font-size: var(--text-sm);
@@ -880,14 +895,21 @@ html:has(.profile-chart) {
   }
 
   .chart-key > .key-pair {
-    grid-column: 1 / -1;
-    grid-row: 3;
+    display: none;
+  }
+
+  /* Pleine et atténuée, juste sous l'axe, sur toute la largeur, en une ligne, hors de ce qui colle (décision du
+     propriétaire du 17 octobre 2026) : l'axe collant garde sa hauteur (129 px à 1 280 px de large), la barre des domaines
+     colle aux mêmes hauteurs d'écran qu'avant les couleurs ; à l'arrivée, la paire est en vue sous les blocs, et défile
+     sous l'axe avec les lignes */
+  .axis + .key-pair {
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem 1.6rem;
     margin: 0;
     padding: 0.45rem 0 0.5rem;
     font-size: var(--text-sm);
+    line-height: 1.35;
   }
 
   .zones {

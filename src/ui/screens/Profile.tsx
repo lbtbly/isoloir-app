@@ -25,12 +25,12 @@
 // synthèse globale. Jamais sur l'affiche ni dans le PDF.
 // Tant que la page ne s'affiche pas (core/profileAccess.ts : questionnaire rapide pas fini, ou aucun avis), une page
 // d'attente : ce qui manque, en bâtons comme la fiche de la tendance, le bouton qui y ramène, puis un exemple fictif de la
-// lecture (la grille de l'aperçu de l'accueil, avec ses mots et ses lectures fictives) et ce qu'apporte ensuite
-// « Approfondir ». Une fois la page
-// affichée, tant que des thèmes ne se lisent pas seuls faute de questions, la fiche « Pour lire plus de thèmes » les
-// nomme, dans le graphique (après les domaines, repliée ; sous le compte, ouverte, au seul questionnaire rapide) : chacun
-// mène à « Approfondir », coché, comme « Approfondir ce thème » d'une ligne ; son adresse (#/approfondir/<thème>) y met
-// le thème en tête, dit ce qui est coché, et la feuille commence par lui.
+// lecture (la grille de l'aperçu de l'accueil, avec ses mots et ses lectures fictives, et dessous, comme sous les paliers
+// de la légende, ce que disent une case pleine et une case atténuée) et ce qu'apporte ensuite « Approfondir ». Une fois
+// la page affichée, tant que des thèmes ne se lisent pas seuls faute de questions, la fiche « Pour lire plus de thèmes »
+// les nomme, dans le graphique (après les domaines, repliée ; sous le compte, ouverte, au seul questionnaire rapide) :
+// chacun mène à « Approfondir », coché, comme « Approfondir ce thème » d'une ligne ; son adresse (#/approfondir/<thème>)
+// y met le thème en tête, dit ce qui est coché, et la feuille commence par lui.
 // Fichier à part du build, chargé à la demande (ui/profile/load.ts) ; la rubrique de la Méthode qui l'explique
 // (ui/profile/MethodSection.tsx) en est un autre, sans la page ni son calcul.
 
@@ -54,7 +54,7 @@ import { ProgressTally } from '../components/ProgressTally'
 import { SiteFooter } from '../components/SiteFooter'
 import { onDemand, useOnDemand } from '../lazy'
 import { link } from '../nav'
-import { Chart, Tile, type ProfileCtx } from '../profile/Chart'
+import { Chart, KeyPair, Tile, type ProfileCtx } from '../profile/Chart'
 import type { DetailAsk } from '../profile/ProfileDetail'
 import { hitsOf } from '../profile/rows'
 import '../../styles/profile.css'
@@ -266,7 +266,7 @@ const exampleMark = (i: number) => (PROFILE_PEEK_NET[i] === '+' ? 'pres' : PROFI
 /**
  * La page d'attente : la fiche d'état (comme « Où vous en êtes » de la tendance, dont elle reprend les styles), le bouton
  * qui ramène aux questions, puis l'exemple fictif, une grille de 3 sujets sur les 5 blocs, aux cases de la page et à leurs
- * mots, et ce qu'apporte ensuite « Approfondir »
+ * mots, pleine et atténuée dessous, et ce qu'apporte ensuite « Approfondir »
  */
 function Waiting({ pack, wait, seen, total, left, added, href }: { pack: ElectionPack; wait: T.WaitState; seen: number; total: number; left: number; added: boolean; href: string }) {
   const axis = axisOf(pack.election) ?? []
@@ -299,9 +299,9 @@ function Waiting({ pack, wait, seen, total, left, added, href }: { pack: Electio
       <section class="profile-example" aria-labelledby="example-title">
         <h2 id="example-title">{T.EXAMPLE_TITLE}</h2>
         <p class="ex-note">{T.EXAMPLE_NOTE}</p>
-        {/* Une illustration, masquée aux lecteurs d'écran : la mention la dit fictive, aux couleurs illustratives, et la
-            phrase dessous dit ce qu'est une case. Ce que veut dire une case pleine n'est pas écrit ici, comme sur la
-            maquette validée : seule la légende de la page le dit (DESIGN.md, Page d'attente) */}
+        {/* Une illustration, masquée aux lecteurs d'écran : la mention la dit fictive, aux couleurs illustratives ; dessous,
+            pleine et atténuée, comme sous les paliers de la légende de la page (décision du propriétaire du 17 octobre
+            2026 : la couleur ne dit jamais rien seule), puis la phrase qui dit ce qu'est une case */}
         <div class="ex-grid" aria-hidden="true">
           <div class="ex-head">
             <span />
@@ -320,6 +320,7 @@ function Waiting({ pack, wait, seen, total, left, added, href }: { pack: Electio
             </div>
           ))}
         </div>
+        <KeyPair />
         <p class="ex-key">{T.KEY_TEXT}</p>
       </section>
 

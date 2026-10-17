@@ -26,7 +26,7 @@
 // journal de l'accueil de retour, sa date dans sa colonne à 1 024 et 1 280 px), leurs liens et leurs teintes (celles
 // des cases de la page, clair et sombre, contraste
 // forcé) ; la page d'attente (pas encore de réponse, pas encore assez : le compte, le bouton qui ramène à la première
-// question non vue, l'exemple fictif, sans tableau) ; la fiche « Pour lire plus de thèmes » (questionnaire rapide seul,
+// question non vue, l'exemple fictif et, dessous, pleine et atténuée, sans tableau) ; la fiche « Pour lire plus de thèmes » (questionnaire rapide seul,
 // mais pas tout approfondi) et « Approfondir ce thème », qui coche le thème ; puis la page lue sur l'appareil (mention
 // IA), son graphique « une ligne par sujet » (axe, lignes, clavier, survol, plis, détail replié, chargé à son ouverture ;
 // la barre collante des domaines et de leurs sujets : en cours, toucher, focus, clavier, hauteur collée) aux couleurs de
@@ -70,6 +70,8 @@ const { orderedQuestions } = await importSite('src/core/order.ts')
 const { RETIRED_PREFIXES = [] } = await importSite('src/elections/index.ts')
 // Seuil du score indicatif des non classés et accroche de l'affiche (décisions du propriétaire du 2026-10-15)
 const { EXCLUDED_MIN_KNOWN } = await importSite('src/core/score.ts')
+/** La paire de la légende, pleine puis atténuée, telle que la lit waitInfo (« pâle sauf net », 17 octobre 2026) */
+const PAIR = await importSite('src/core/echiquierCopy.ts').then(T => `pleine ${T.KEY_NET.replace(/\s+/g, ' ')}|atténuée ${T.KEY_FLAT.replace(/\s+/g, ' ')}`)
 const { leaderLead } = await importSite('src/core/resultsCopy.ts')
 let site
 try {
@@ -191,6 +193,9 @@ const waitInfo = pg =>
     const t = sel => (document.querySelector(sel)?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
     const cta = document.querySelector('main .profile-wait a.btn-primary')
     const tiles = [...document.querySelectorAll('main .ex-grid[aria-hidden="true"] .tile')]
+    // Sous l'exemple, la paire de la légende (décision du propriétaire du 17 octobre 2026) : entre la grille et la phrase
+    // des couleurs, ses mots et ses deux pastilles, pleine puis atténuée
+    const pair = document.querySelector('main .profile-example .key-pair')
     return {
       where: t('main .profile-wait .trend-where'),
       count: t('main .profile-wait .trend-count'),
@@ -199,6 +204,7 @@ const waitInfo = pg =>
       href: cta?.getAttribute('href') ?? null,
       tiles: tiles.length,
       words: tiles.every(x => (x.textContent ?? '').trim().length > 2),
+      pair: pair?.checkVisibility() && pair.previousElementSibling?.matches('.ex-grid') && pair.nextElementSibling?.matches('.ex-key') ? [...pair.querySelectorAll('li')].map(li => `${li.querySelector('.tile')?.classList.contains('is-net') ? 'pleine' : 'atténuée'} ${(li.textContent ?? '').replace(/\s+/g, ' ').trim()}`).join('|') : null,
       tables: document.querySelectorAll('main table').length,
       deepen: t('main .wait-deepen').length > 20,
       focused: !!document.activeElement?.matches('main h1'),
@@ -362,8 +368,8 @@ try {
     const w = await waitInfo(page)
     const keys = await page.evaluate(() => Object.keys(localStorage).filter(k => k.startsWith('isoloir')))
     check(
-      hashOf(page) === L('/profil') && w.focused && w.where === 'Pas encore de réponse' && w.count === `0 question sur ${QUICK}` && w.cta === 'Commencer la feuille' && w.href === L('/feuille/1') && w.tiles === 15 && w.words && w.tables === 0 && w.deepen && keys.length === 0,
-      `mon profil politique, page d’attente (feuille vierge) : focus au titre ${w.focused}, « ${w.where} », « ${w.count} », bouton « ${w.cta} » vers ${w.href}, exemple de ${w.tiles} cases avec leurs mots ${w.words}, ${w.tables} tableau, rien d’enregistré (${keys.join(', ') || 'aucune clé'})`,
+      hashOf(page) === L('/profil') && w.focused && w.where === 'Pas encore de réponse' && w.count === `0 question sur ${QUICK}` && w.cta === 'Commencer la feuille' && w.href === L('/feuille/1') && w.tiles === 15 && w.words && w.pair === PAIR && w.tables === 0 && w.deepen && keys.length === 0,
+      `mon profil politique, page d’attente (feuille vierge) : focus au titre ${w.focused}, « ${w.where} », « ${w.count} », bouton « ${w.cta} » vers ${w.href}, exemple de ${w.tiles} cases avec leurs mots ${w.words}, dessous « ${w.pair} », ${w.tables} tableau, rien d’enregistré (${keys.join(', ') || 'aucune clé'})`,
     )
     // Les teintes de l'aperçu sont celles des cases de la page, en clair comme en sombre : pleines sur les lectures
     // fictives nettes (PROFILE_PEEK_NET), atténuées ailleurs ; en contraste forcé, chaque case garde son cadre, épais sur
@@ -688,8 +694,8 @@ try {
         `mon profil politique, pendant la tendance : pas de bandeau (${trendBand}), ${trendLinks.length} lien, dans « Où vous en êtes » (« ${line} »)`,
       )
       check(
-        w.focused && w.where === 'Pas encore assez de réponses' && w.count === `${STEP1} questions sur ${QUICK}` && w.text.includes(`encore ${left} question`) && w.cta === `Continuer : ${left} question${left > 1 ? 's' : ''}` && w.href === L(`/feuille/${STEP1 + 1}`) && w.tiles === 15 && w.tables === 0,
-        `mon profil politique, page d’attente (tendance, hors ligne) : « ${w.where} », « ${w.count} », « ${w.text} », bouton « ${w.cta} » vers ${w.href}, ${w.tables} tableau`,
+        w.focused && w.where === 'Pas encore assez de réponses' && w.count === `${STEP1} questions sur ${QUICK}` && w.text.includes(`encore ${left} question`) && w.cta === `Continuer : ${left} question${left > 1 ? 's' : ''}` && w.href === L(`/feuille/${STEP1 + 1}`) && w.tiles === 15 && w.pair === PAIR && w.tables === 0,
+        `mon profil politique, page d’attente (tendance, hors ligne) : « ${w.where} », « ${w.count} », « ${w.text} », bouton « ${w.cta} » vers ${w.href}, pleine et atténuée sous l’exemple ${w.pair === PAIR}, ${w.tables} tableau`,
       )
       await page.goto(U('/resultats'))
       await heading(page, 'Une première tendance')
@@ -969,7 +975,8 @@ try {
       // ou de « éloigné », selon son sens) sur une lecture nette et elle seule, celle que dit sa ligne, son bloc ou ses
       // mots, atténuée ailleurs (la teinte du palier ; une petite case, plus soutenue, sans atteindre l'aplat) ; le mot à
       // 4,5:1 au moins sur sa case, l'aplat à 4,5:1 au moins de la teinte du même palier ; « ? inconnu » sur le papier ;
-      // la légende, les cinq paliers dans l'ordre du site, puis « Pleine » et « Atténuée » ; les en-têtes de colonne, le
+      // la légende, les cinq paliers dans l'ordre du site, puis « Pleine » et « Atténuée », une seule paire en vue, dans
+      // l'axe au téléphone, juste sous l'axe collant à l'ordinateur (17 octobre 2026) ; les en-têtes de colonne, le
       // rappel collant et les en-têtes du détail sur le papier, sans pastel de bloc ; aucun autre fond que le papier, les
       // lavis de l'encre et ces cases ; aucun symbole ▲ ▽ sur la page
       const colors = await pg.evaluate(([bands, keyWords]) => {
@@ -1049,7 +1056,7 @@ try {
         // Par place, les cases contrôlées, les pleines et les « mitigé » nettes : les lignes, une ligne ouverte (« Votre
         // affinité, bloc par bloc », montée à l'ouverture seulement), le détail (son tableau ouvert), la légende
         const places = Object.fromEntries(['lignes', 'ouverte', 'détail', 'légende'].map(p => [p, { tiles: 0, full: 0, mitige: 0 }]))
-        const placeOf = t => (t.closest('.chart-key') ? 'légende' : t.closest('.explain-blocs') ? 'ouverte' : t.closest('.echiquier') ? 'détail' : 'lignes')
+        const placeOf = t => (t.closest('.chart-key, .key-pair') ? 'légende' : t.closest('.explain-blocs') ? 'ouverte' : t.closest('.echiquier') ? 'détail' : 'lignes')
         for (const t of document.querySelectorAll('main .profile-chart .tile, main .echiquier .tile')) {
           tiles++
           const key = [...t.classList].find(c => c.startsWith('aff-'))?.slice(4) ?? (t.classList.contains('is-inconnu') ? 'inconnu' : null)
@@ -1115,7 +1122,15 @@ try {
         const want = bands.map(b => b.label).join('|')
         if (key.slice(0, bands.length).join('|') !== want || key.length > bands.length + 1) bad.push(`légende : ${key.join(', ')}`)
         if (document.querySelector('main .profile-chart .key-scale:not(.key-pair) .tile.is-net')) bad.push('légende : un palier plein')
-        const pair = [...document.querySelectorAll('main .profile-chart .key-pair li')]
+        // Une seule paire en vue (décision du propriétaire du 17 octobre 2026) : au téléphone, dans la légende de l'axe ; à
+        // l'ordinateur, l'axe collant, juste sous lui, hors de ce qui colle
+        const pairs = [...document.querySelectorAll('main .profile-chart .key-pair')].filter(x => x.checkVisibility())
+        const axisEl = document.querySelector('main .profile-chart .axis')
+        const stuck = getComputedStyle(axisEl).position === 'sticky'
+        if (pairs.length !== 1) bad.push(`légende : ${pairs.length} paires pleine et atténuée en vue`)
+        else if (stuck ? pairs[0].closest('.axis') || pairs[0].previousElementSibling !== axisEl : !pairs[0].closest('.axis .chart-key'))
+          bad.push(`légende : pleine et atténuée ${pairs[0].closest('.axis') ? 'dans l’axe' : 'hors de l’axe'}, l’axe ${stuck ? 'collant' : 'dans la page'}`)
+        const pair = [...(pairs[0]?.querySelectorAll('li') ?? [])]
         const pairText = pair.map(li => li.textContent.replace(/\s+/g, ' ').trim()).join('|')
         if (pairText !== keyWords.map(w => w.replace(/\s+/g, ' ')).join('|') || pair.map(li => li.querySelector('.tile')?.classList.contains('is-net')).join() !== 'true,false')
           bad.push(`légende, pleine et atténuée : ${pairText}`)
@@ -1157,7 +1172,7 @@ try {
           const w = parseFloat(cs.outlineWidth)
           const net = t.classList.contains('is-net')
           const style = t.classList.contains('is-inconnu') ? 'dashed' : 'solid'
-          const place = t.closest('.chart-key') ? 'légende' : t.closest('.explain-blocs') ? 'ligne ouverte' : t.closest('.echiquier') ? 'détail' : 'lignes'
+          const place = t.closest('.chart-key, .key-pair') ? 'légende' : t.closest('.explain-blocs') ? 'ligne ouverte' : t.closest('.echiquier') ? 'détail' : 'lignes'
           if (net) out.full[place] = (out.full[place] ?? 0) + 1
           if (cs.outlineStyle !== style || (net ? w < 3 : w < 1 || w >= 3)) out.bad.push(`${place}, ${t.className} : ${cs.outlineStyle} ${cs.outlineWidth}`)
         }
@@ -2719,13 +2734,17 @@ try {
       await nctx.close()
       // La barre colle si l'en-tête, elle, ce qui colle sous elle (l'axe collant en grand écran, le rappel des blocs au
       // téléphone) et la barre du bas tiennent dans la moitié de l'écran, sinon elle suit la page : texte à 200 %, petits
-      // écrans (contre-vérification du 17 octobre 2026 : 62 % de l'écran collé à 1 024 × 600, la barre restant collée)
-      for (const [width, zoom, height = 812, touch = true] of [
+      // écrans (contre-vérification du 17 octobre 2026 : 62 % de l'écran collé à 1 024 × 600, la barre restant collée).
+      // stick : elle doit coller. « Pleine » et « Atténuée » hors de l'axe collant, à l'ordinateur (décision du
+      // propriétaire du 17 octobre 2026), elle colle de nouveau à 1 024 × 768 et dans la fenêtre d'un navigateur d'un
+      // portable 1 366 × 768 (657 px de haut), comme avant les couleurs ; l'axe collant n'y porte aucune paire
+      for (const [width, zoom, height = 812, touch = true, stick = false] of [
         [375, 200],
         [320, 200],
         [320, 100, 568],
         [1024, 100, 600, false],
-        [1024, 100, 768, false],
+        [1024, 100, 768, false, true],
+        [1366, 100, 657, false, true],
       ]) {
         const zctx = await browser.newContext({ viewport: { width, height }, reducedMotion: 'reduce', hasTouch: touch, isMobile: touch })
         await zctx.addInitScript(s => Object.entries(s).forEach(([k, v]) => localStorage.setItem(k, v)), readOk ? readStorage : state)
@@ -2741,11 +2760,13 @@ try {
           const axis = document.querySelector('.profile-chart .axis')
           const under = getComputedStyle(axis).position === 'sticky' ? axis.offsetHeight : document.querySelector('.profile-chart .zones')?.getClientRects().length ? document.querySelector('.axis-mini').offsetHeight : 0
           const chrome = ['.form-header', '.profile-nav', '.action-bar'].reduce((t, s) => t + (document.querySelector(s)?.offsetHeight ?? 0), under)
-          return { sticky: getComputedStyle(nav).position, chrome, half: innerHeight / 2, wide: document.documentElement.scrollWidth - document.documentElement.clientWidth }
+          const inAxis = [...axis.querySelectorAll('.key-pair')].some(x => x.checkVisibility())
+          return { sticky: getComputedStyle(nav).position, chrome, half: innerHeight / 2, wide: document.documentElement.scrollWidth - document.documentElement.clientWidth, axisStuck: getComputedStyle(axis).position === 'sticky', inAxis }
         })
         const where = `${width} × ${height}${zoom !== 100 ? ` à ${zoom} %` : ''}`
         if ((z.chrome > z.half) !== (z.sticky === 'static') || z.wide > 0) navIssues.push(`${where} : barre ${z.sticky}, ${z.chrome} px collés pour ${z.half} px, ${z.wide} px de trop`)
-        else said.push(`${where} : barre ${z.sticky === 'static' ? 'dans la page' : 'collée'} (${z.chrome} px pour ${Math.round(z.half)} px)`)
+        else if (stick && (z.sticky === 'static' || (z.axisStuck && z.inAxis))) navIssues.push(`${where} : barre ${z.sticky}, ${z.chrome} px pour ${z.half} px, pleine et atténuée ${z.inAxis ? 'dans' : 'hors de'} l’axe collant`)
+        else said.push(`${where} : barre ${z.sticky === 'static' ? 'dans la page' : 'collée'} (${z.chrome} px pour ${Math.round(z.half)} px${stick ? ', pleine et atténuée hors de l’axe collant' : ''})`)
         // À la souris, la rangée des domaines qui déborde garde une barre de défilement fine (scrollbar-width: thin, ou
         // dessinée par ::-webkit-scrollbar, scrollbar-width: auto)
         if (!touch) {
@@ -2791,7 +2812,7 @@ try {
     for (const q of quickQs.slice(0, Math.ceil(QUICK / 2))) delete going.answers[q.id]
     const goingState = { ...state, [STORAGE]: JSON.stringify({ ...going, essentialDoneAt: null }) }
     const entryIssues = []
-    const TEXTS = '.pb-text, .pb-axis, .hp-text, .hp-when, .hp-go, .hp-tag, .hp-word, .trend-next, .profile-wait .trend-text, .profile-wait .trend-where, .profile-example .ex-note, .ex-name, .ex-head, .ex-grid .tile, .ex-key, .wait-deepen'
+    const TEXTS = '.pb-text, .pb-axis, .hp-text, .hp-when, .hp-go, .hp-tag, .hp-word, .trend-next, .profile-wait .trend-text, .profile-wait .trend-where, .profile-example .ex-note, .ex-name, .ex-head, .ex-grid .tile, .profile-example .key-pair li, .ex-key, .wait-deepen'
     for (const [width, zoom] of [[320, 200], [390, 125]])
       for (const [label, storage, path, sel] of [
         ['accueil vierge', {}, '/', '.home-profile'],
