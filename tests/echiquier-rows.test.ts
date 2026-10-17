@@ -510,15 +510,52 @@ describe('votre façon de répondre (lot 4) : comptée sur les cases mises à l�
     expect(mannerOf(far, Q, answers)).toEqual({ near: false, k: 2, n: 3 })
   })
 
-  it('jamais avec des avis uniformes (C9) : la page ne la demande pas, rien n’y est comparé', () => {
+  it('seuls comptent les sujets qui ont une autre façon de poser les mêmes avis : avec une seule, rien n’est comparé', () => {
+    const once = (chances: (number | null)[]) => ({ ...tried(chances), ways: 1, arrangements: 1 })
+    // Des cases « éloigné » sur des sujets à une seule façon : leur moyenne n'est que leur affinité, elles ne comptent pas
+    expect(mannerOf(rowsOf(once([30, 30, 30, 30, 30])), Q, mostlyNo)).toBeNull()
+    expect(mannerOf(rowsOf(once([30, 25, 20, 30, 30]), once([30, 30, 30, 30, 30]), tried([45, 50, 55, 50, 45])), Q, mostlyNo)).toBeNull()
+    // Ni pour, ni contre : les sujets à une seule façon ne retiennent pas non plus la phrase
+    expect(mannerOf(rowsOf(once([70, 70, 70, 70, 70]), once([50, 50, 50, 50, 50]), tried([30, 30, 30, 30, 30])), Q, mostlyNo)).toEqual({ near: false, k: 3, n: 4 })
+    // Deux façons suffisent ; au-delà de cent mille (Infinity), de même
+    expect(mannerOf(rowsOf({ ...tried([30, 30, 30, 30, 30]), ways: 2, arrangements: 2 }), Q, mostlyNo)).toEqual({ near: false, k: 3, n: 4 })
+    expect(mannerOf(rowsOf({ ...tried([30, 30, 30, 30, 30]), ways: Infinity, arrangements: 1e7 }), Q, mostlyNo)).toEqual({ near: false, k: 3, n: 4 })
+  })
+
+  it('près des avis uniformes : une feuille réelle où presque tous les sujets n’ont qu’une façon, comptée sur les autres seuls', () => {
+    // Au seul questionnaire rapide, « pas d'accord » partout, sauf une approche laissée sans avis à la première question
+    const quick = Q.filter(isQuick)
+    const answers: Answers = Object.fromEntries(
+      quick.map((q, i) => [q.id, { ratings: Object.fromEntries(q.approaches.flatMap((a, j) => (i === 0 && j === 0 ? [] : [[a.id, -1 as const]]))), redLines: [] }]),
+    )
+    expect(uniformViews(Q, answers)).toBe(false)
+    const rows = chartRows(pack.topicGroups!, readEchiquier(pack, answers), u => u.id)
+    const pick = (keep: (u: UnitReading) => boolean) => ({ read: rows.read.filter(keep), apart: rows.apart.filter(keep), flat: rows.flat.filter(keep) })
+    const single = pick(u => u.ways === 1)
+    const several = pick(u => u.ways > 1)
+    const all = (r: typeof single) => [...r.read, ...r.apart, ...r.flat]
+    // La plupart des sujets n'ont qu'une façon, et toutes leurs cases sont au palier « éloigné » : elles ne comptent pas
+    expect(all(single).length).toBeGreaterThan(all(several).length)
+    expect(all(several).length).toBeGreaterThan(0)
+    expect(all(single).every(u => u.cells.every(c => c.chance === null || Math.round(c.chance) <= 39))).toBe(true)
+    expect(mannerOf(single, Q, answers)).toBeNull()
+    expect(mannerOf(rows, Q, answers)).toEqual(mannerOf(several, Q, answers))
+  })
+
+  it('jamais avec des avis uniformes (C9) : chaque sujet n’y a qu’une façon, rien n’y est comparé', () => {
     const ROOT = fileURLToPath(new URL('..', import.meta.url))
     const chart = readFileSync(join(ROOT, 'src/ui/profile/Chart.tsx'), 'utf8')
-    expect(chart).toContain("const manner = head === 'uniform' ? null : mannerOf(rows, pack.bank.questions, answers)")
-    // Tout « d'accord » : uniforme, et la tête le dit ; la phrase, demandée, dirait « proche » sur des cases sans comparaison
-    const all: Answers = Object.fromEntries(Q.map(q => [q.id, { ratings: Object.fromEntries(q.approaches.map(a => [a.id, 1 as const])), redLines: [] }]))
-    const reading = readEchiquier(pack, all)
-    const rows = chartRows(pack.topicGroups!, reading, u => u.id)
-    expect(headOf(rows, reading.themes, { uniform: uniformViews(Q, all), quickOnly: false, hasDeeper: false }).state).toBe('uniform')
+    expect(chart).toContain('const manner = mannerOf(rows, pack.bank.questions, answers)')
+    // Tout « d'accord », tout « pas d'accord », l'un puis l'autre d'une question à la suivante : uniforme, et la tête le
+    // dit ; la phrase, demandée, ne dit rien
+    for (const of of [() => 1 as const, () => -1 as const, (i: number) => (i % 2 ? 1 : -1) as 1 | -1]) {
+      const sheet: Answers = Object.fromEntries(Q.map((q, i) => [q.id, { ratings: Object.fromEntries(q.approaches.map(a => [a.id, of(i)])), redLines: [] }]))
+      const reading = readEchiquier(pack, sheet)
+      const rows = chartRows(pack.topicGroups!, reading, u => u.id)
+      expect(headOf(rows, reading.themes, { uniform: uniformViews(Q, sheet), quickOnly: false, hasDeeper: false }).state).toBe('uniform')
+      expect([...rows.read, ...rows.apart, ...rows.flat].every(u => u.ways === 1)).toBe(true)
+      expect(mannerOf(rows, Q, sheet)).toBeNull()
+    }
   })
 
   it('sur des feuilles réelles : chaque phrase dit ce qui est, et paraît pour les façons de répondre qu’elle décrit', () => {
@@ -539,8 +576,8 @@ describe('votre façon de répondre (lot 4) : comptée sur les cases mises à l�
       expect(m.n).toBe(views.length)
       expect(m.k).toBe(views.filter(v => (m.near ? 1 : -1) * v.reduce((t, r) => t + r, 0) > 0).length)
       expect(2 * m.k).toBeGreaterThan(m.n)
-      // Neuf cases sur dix au moins de ce côté, la moyenne arrondie comme le détail
-      const chances = [...rows.read, ...rows.apart, ...rows.flat].flatMap(u => u.cells.flatMap(c => (c.chance === null ? [] : [Math.round(c.chance)])))
+      // Neuf cases sur dix au moins de ce côté, la moyenne arrondie comme le détail, sur les sujets qui ont une autre façon
+      const chances = [...rows.read, ...rows.apart, ...rows.flat].flatMap(u => (u.ways > 1 ? u.cells : []).flatMap(c => (c.chance === null ? [] : [Math.round(c.chance)])))
       expect(chances.filter(x => (m.near ? x >= 60 : x <= 39)).length / chances.length).toBeGreaterThanOrEqual(0.9)
     }
     // Un seul accord par question et des désaccords ailleurs, tout sauf un : chaque fois ; des avis mêlés : jamais

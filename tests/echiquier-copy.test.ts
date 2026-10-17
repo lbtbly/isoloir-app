@@ -1024,11 +1024,11 @@ describe('votre façon de répondre (lot 4)', () => {
   it('la Méthode : la règle même de la page, ce qu’elle ne change pas', () => {
     expect(M.METHOD_MANNER).toContain(`sur 9 des cases mises à l’épreuve sur 10 au moins, la moyenne des autres façons de poser vos mêmes avis tombe à 39${NB}% ou moins (à 60${NB}% ou plus pour «${NB}proche${NB}»)`)
     expect(M.METHOD_MANNER).toContain('plus de la moitié de vos questions répondues')
-    expect(M.METHOD_MANNER).toContain('jamais quand, sur chaque question, vos réponses donnent le même avis à toutes les approches')
+    expect(M.METHOD_MANNER).toContain(`Seuls comptent les sujets où vos mêmes avis peuvent se poser d’une autre façon${NB}: jamais, donc, quand, sur chaque question, vos réponses donnent le même avis à toutes les approches`)
     expect(M.METHOD_MANNER).toMatch(/Elle ne change ni la couleur, ni la lecture, ni l’ordre\.$/)
     // Les seuils dits sont ceux du calcul (ui/profile/rows.ts, mannerOf)
     const rows = readFileSync(join(ROOT, 'src/ui/profile/rows.ts'), 'utf8')
-    for (const x of ['if (m <= 39) far++', 'else if (m >= 60) near++', '10 * far >= 9 * cells && 2 * no > n', '10 * near >= 9 * cells && 2 * yes > n']) expect(rows).toContain(x)
+    for (const x of ['if (c.chance === null || u.ways < 2) continue', 'if (m <= 39) far++', 'else if (m >= 60) near++', '10 * far >= 9 * cells && 2 * no > n', '10 * near >= 9 * cells && 2 * yes > n']) expect(rows).toContain(x)
   })
 
   it('la Méthode publie le taux d’affichage par façon de répondre, puis bloc par bloc, avec et sans le candidat (D5)', () => {
@@ -1058,14 +1058,32 @@ describe('votre façon de répondre (lot 4)', () => {
     expect(P.quickReference).toEqual(M.ECHIQUIER_CROSS.quick.reference)
     expect(P.gap[0]).toBeCloseTo(Math.max(...P.bank.blocs) - Math.min(...P.bank.blocs), 1)
     expect(P.quickGap[0]).toBeCloseTo(Math.max(...P.quick.blocs) - Math.min(...P.quick.blocs), 1)
-    // La phrase paraît le plus pour les deux blocs que la grille classe aux extrêmes, qui comptent le plus de « pas d'accord »
+    // Dans cette mesure, la phrase paraît le plus pour les deux blocs que la grille classe aux extrêmes, qui comptent le plus
+    // de « pas d'accord » ; un ordre entre blocs que la mesure n'établit pas (les intervalles se recouvrent), dit tel quel
     const ends = [0, axis.length - 1]
     for (const [shownBy, style] of [[P.bank.blocs, P.style], [P.quick.blocs, P.styleQuick]] as const) {
       const top2 = (xs: readonly number[]) => [...xs.keys()].sort((a, b) => xs[b]! - xs[a]!).slice(0, 2).sort()
       expect(top2(shownBy)).toEqual(ends)
       expect(top2(style)).toEqual(ends)
     }
-    expect(text).toContain('Elle paraît le plus sur les réponses recopiées des candidats que la grille classe aux extrêmes, qui comptent le plus de «')
+    expect(text).toContain('Dans cette mesure, elle paraît le plus sur les réponses recopiées des candidats que la grille classe aux extrêmes, un ordre entre blocs que la mesure n’établit pas.')
+    expect(text).not.toContain('Elle paraît le plus')
+    // Ce qu'elle suit, feuille par feuille, puis dans un même bloc : plus de « pas d'accord », plus souvent la phrase
+    const S = P.byShare
+    expect(text).toContain(
+      `Ce qu’elle suit, feuille par feuille, c’est la part des «${NB}pas d’accord${NB}» parmi les avis${NB}: sur la banque, elle paraît sur ${dec(S.bank[0])}${NB}% des feuilles qui en comptent moins de ${S.cut}${NB}% et sur ${dec(S.bank[1])}${NB}% des autres (${dec(S.quick[0])}${NB}% et ${dec(S.quick[1])}${NB}% au rapide)`,
+    )
+    for (const [below, above] of [S.bank, S.quick]) expect(below).toBeLessThan(above)
+    const [bankWithin, quickWithin] = P.within
+    expect(text).toContain(
+      `dans un même bloc, elle peut paraître sur ${bankWithin[0]} feuilles sur ${P.clones} pour un candidat recopié et sur ${bankWithin[1]} pour un autre (${quickWithin[0]} et ${quickWithin[1]} au rapide)`,
+    )
+    // L'écart dans un même bloc tient dans ce que montrent les blocs : au plus toutes les feuilles d'un candidat
+    for (const [hi, lo] of P.within) {
+      expect(hi).toBeGreaterThan(lo)
+      expect(hi).toBeLessThanOrEqual(P.clones)
+    }
+    expect(text).toContain('Bloc par bloc, cette part est la plus forte chez les candidats que la grille classe aux extrêmes')
     expect(text).not.toMatch(/hasard|Infinity|NaN|\d\.\d|undefined/)
   })
 

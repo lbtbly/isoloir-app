@@ -158,7 +158,8 @@ for (const f of agreeChunks) {
 // « Ce qui pèse le plus » est sorti dans son propre fichier, ci-dessous, et encore 58,0 ko après ses correctifs, à 3 octets
 // du plafond ; 57,9 ko après le lot 4, « Votre façon de répondre », qui pèse 0,7 ko : la place vient de textes répétés de
 // la page mis en commun, mot pour mot, et du cadre que partagent la page et son attente, sans rien changer à ce qu'ils
-// disent ni à ce qu'ils affichent) : un code passé dans un fichier commun y reste compté. Rien de cela ne pèse sur le JS initial, ni sur une
+// disent ni à ce qu'ils affichent ; encore 57,9 ko après ses correctifs du 17 octobre, mannerOf écartant lui-même les
+// avis uniformes) : un code passé dans un fichier commun y reste compté. Rien de cela ne pèse sur le JS initial, ni sur une
 // visite qui n'ouvre pas la page
 const PROFILE_BUDGET = 58_000
 const profileChunks = readdirSync(join(dist, 'assets')).filter(f => /^Profile-[\w-]+\.js$/.test(f))
@@ -197,7 +198,8 @@ const PROFILE_METHOD_TEXTS = ['Pourquoi ni moyenne ni point', 'on a recopi']
 // candidat, sur la banque et au seul questionnaire rapide, que D5 oblige à publier), d'où 24,6 ko, la mesure plus 15 % ;
 // 25,2 ko le même jour avec « Votre façon de répondre » (lot 4 : sa règle, et son taux d'affichage par façon de répondre
 // puis bloc par bloc, avec et sans le candidat, sur la banque et au seul questionnaire rapide, que D5 oblige à publier),
-// d'où 29 ko, la mesure plus 15 %. Un code de la page qu'elle importerait passerait par un fichier commun avec la page :
+// d'où 29 ko, la mesure plus 15 % ; 26 ko après ses correctifs du même jour (l'ordre entre blocs, non établi, et ce que
+// l'affichage suit, feuille par feuille et dans un même bloc), sous ce plafond. Un code de la page qu'elle importerait passerait par un fichier commun avec la page :
 // le plafond le compte, et le texte du calcul y est cherché
 const PROFILE_METHOD_BUDGET = 29_000
 const methodSectionChunks = readdirSync(join(dist, 'assets')).filter(f => /^MethodSection-[\w-]+\.js$/.test(f))

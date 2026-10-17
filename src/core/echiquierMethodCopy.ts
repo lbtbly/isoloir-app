@@ -388,15 +388,18 @@ export const methodWeigh = (m: typeof ECHIQUIER_WEIGH = ECHIQUIER_WEIGH) =>
   )
 /**
  * « Votre façon de répondre » (lot 4, A5 ; ui/profile/rows.ts, mannerOf) : quand la phrase paraît, ce qu'elle ne change
- * pas. Le même seuil que la page : 9 cases sur 10 au moins, la moyenne des autres façons arrondie comme le détail
+ * pas. Le même seuil que la page : 9 cases sur 10 au moins, la moyenne des autres façons arrondie comme le détail, sur
+ * les seuls sujets qui ont une autre façon de poser les mêmes avis
  */
 export const METHOD_MANNER = fr(
-  'Après les domaines, une phrase sans titre dit, quand c’est vrai, que vos réponses sont en majorité des « pas d’accord » et qu’une case « éloigné », seule, dit peu ; de même pour des « d’accord » et une case « proche ». Elle paraît quand, sur 9 des cases mises à l’épreuve sur 10 au moins, la moyenne des autres façons de poser vos mêmes avis tombe à 39 % ou moins (à 60 % ou plus pour « proche »), et que plus de la moitié de vos questions répondues ont plus de « pas d’accord » que de « d’accord » (ou l’inverse) ; jamais quand, sur chaque question, vos réponses donnent le même avis à toutes les approches. Elle ne change ni la couleur, ni la lecture, ni l’ordre.',
+  'Après les domaines, une phrase sans titre dit, quand c’est vrai, que vos réponses sont en majorité des « pas d’accord » et qu’une case « éloigné », seule, dit peu ; de même pour des « d’accord » et une case « proche ». Elle paraît quand, sur 9 des cases mises à l’épreuve sur 10 au moins, la moyenne des autres façons de poser vos mêmes avis tombe à 39 % ou moins (à 60 % ou plus pour « proche »), et que plus de la moitié de vos questions répondues ont plus de « pas d’accord » que de « d’accord » (ou l’inverse). Seuls comptent les sujets où vos mêmes avis peuvent se poser d’une autre façon : jamais, donc, quand, sur chaque question, vos réponses donnent le même avis à toutes les approches. Elle ne change ni la couleur, ni la lecture, ni l’ordre.',
 )
 /**
  * La mesure de « Votre façon de répondre » (lot 4, A5), par façon de répondre puis bloc par bloc (D5, décision du
  * propriétaire du 15 octobre 2026), mesurée le 17 octobre 2026 par tools/audit-facon.mjs --quick : le calcul même de la
- * page (readEchiquier, chartRows, uniformViews, mannerOf).
+ * page (readEchiquier, chartRows, mannerOf ; uniformViews pour compter à part les avis uniformes). Refaite le même jour
+ * après la contre-vérification, mannerOf ne comptant plus que les sujets qui ont une autre façon de poser les mêmes
+ * avis : tous les chiffres ci-dessous sont identiques.
  * Feuilles remplies par un programme, sans suivre aucun candidat (400 par façon de répondre sur la banque, 2 000 au seul
  * questionnaire rapide ; graines « audit-facon:<schéma>:<i> ») : un seul « d'accord » par question et des « pas
  * d'accord » ailleurs, 100 %, côté « éloigné » ; tout sauf un, 100 %, côté « proche » ; des accords seuls (30 % des
@@ -412,13 +415,22 @@ export const METHOD_MANNER = fr(
  *   établi ;
  * - rapide, avec le candidat : 34,7 %, de 26,1 (gauche) à 47,2 (extrême droite) ; 21,1 points [7,1–34,3] pour 15,2 : non
  *   établi ; sans lui, 34,6 %, de 25 à 46,7 ; 21,7 points [7,7–34,7] pour 17,5 : non établi.
- * Ce que ces écarts suivent : la part des « pas d'accord » parmi les avis des clones de chaque bloc, de 70,8 % (droite) à
- * 72,9 % (extrême droite) sur la banque (extrême gauche 72,7, centre 72,1, gauche 71,5), de 71 % (gauche) à 74,1 %
- * (extrême gauche) au rapide (extrême droite 73,6, centre 72,5, droite 71,6) : les deux blocs que la grille classe aux
- * extrêmes en comptent le plus, et la phrase y paraît le plus, sur la banque comme au rapide ; le seuil de 9 cases sur
- * 10 accentue ces différences de 2 à 3 points. À 30 clones (une indication), les mêmes issues : 8,9 et 8,1 points sur la
- * banque, 23,3 et 25,6 au rapide, non établis. Un candidat d'un même bloc peut s'écarter beaucoup des autres : au rapide,
- * 6 feuilles sur 60 pour Raphaël Glucksmann, 31 pour Éric Zemmour. À refaire après une mise à jour des positions, et à
+ * Dans cette mesure, la phrase paraît le plus sur les clones des deux blocs que la grille classe aux extrêmes, sur la
+ * banque comme au rapide ; mais les intervalles se recouvrent (au rapide, extrême gauche 37,5 % [31,6–43,8], centre
+ * 33,3 % [25,5–42,2] ; sur la banque, extrême droite 7,8 % [4,7–12,6], centre 2,5 % [0,9–7,1]) : cet ordre entre blocs
+ * n'est pas établi, et la Méthode le dit (contre-vérification du 17 octobre 2026).
+ * Ce que l'affichage suit, feuille par feuille : la part des « pas d'accord » parmi les avis de la feuille. Clones
+ * bruités, avec le candidat, par tranche de 5 points de cette part : banque, 0 sur 11 (60 à 65 %), 0 sur 203, 9 sur 516,
+ * 41 sur 168, 2 sur 2 (80 à 85 %), soit 1,2 % des feuilles sous 75 % et 25,3 % des autres ; rapide, 0 sur 3 (55 à 60 %),
+ * 1 sur 33, 19 sur 199, 125 sur 400, 129 sur 222, 35 sur 40, 3 sur 3 (85 à 90 %), soit 22,8 % et 63 %. Candidat par
+ * candidat, de même : dans un même bloc, sur la banque, 0 feuille sur 60 pour Jean-Luc Mélenchon (68,3 % de « pas
+ * d'accord » parmi ses avis), 16 pour Anasse Kazib (74,8 %), à l'extrême gauche ; au rapide, 6 pour Raphaël Glucksmann
+ * (68,4 %), 24 pour Fabien Roussel (73,2 %), à gauche : les plus grands écarts entre deux candidats d'un même bloc.
+ * Bloc par bloc, cette part va de 70,8 % (droite) à 72,9 % (extrême droite) sur la banque (extrême gauche 72,7, centre
+ * 72,1, gauche 71,5), de 71 % (gauche) à 74,1 % (extrême gauche) au rapide (extrême droite 73,6, centre 72,5, droite
+ * 71,6) : les deux blocs que la grille classe aux extrêmes en comptent le plus, sur la banque comme au rapide ; le seuil
+ * de 9 cases sur 10 accentue ces différences de 2 à 3 points. À 30 clones (une indication), les mêmes issues : 8,9 et 8,1
+ * points sur la banque, 23,3 et 25,6 au rapide, non établis. À refaire après une mise à jour des positions, et à
  * reporter ici
  */
 export const ECHIQUIER_MANNER = {
@@ -456,20 +468,35 @@ export const ECHIQUIER_MANNER = {
   /** La part des « pas d'accord » parmi les avis des clones bruités, bloc vrai par bloc vrai (%), banque puis rapide */
   style: [72.7, 71.5, 72.1, 70.8, 72.9],
   styleQuick: [74.1, 71, 72.5, 71.6, 73.6],
+  /**
+   * Ce que l'affichage suit, feuille par feuille (clones bruités, avec le candidat) : la part des feuilles qui montrent
+   * la phrase (%) parmi celles qui comptent moins de cut % de « pas d'accord » parmi leurs avis, puis parmi les autres ;
+   * sur la banque, puis au rapide
+   */
+  byShare: { cut: 75, bank: [1.2, 25.3], quick: [22.8, 63] },
+  /**
+   * Le plus grand écart entre deux candidats recopiés d'un même bloc : les feuilles (sur clones) qui montrent la phrase,
+   * pour l'un puis pour l'autre ; sur la banque, puis au rapide
+   */
+  within: [
+    [16, 0],
+    [24, 6],
+  ],
 } as const
 
 /** « 1,1 à 13,8 % » : le plus bas et le plus haut d'une mesure bloc par bloc */
 const spread = (xs: readonly number[]) => range(Math.min(...xs), Math.max(...xs))
 /**
  * La mesure de « Votre façon de répondre » : sur des feuilles remplies par un programme, façon de répondre par façon de
- * répondre ; puis bloc par bloc, sur la banque et au seul questionnaire rapide, avec et sans le candidat (D5) ; et ce que
- * ses écarts suivent. where : le nom de chaque bloc de l'axe dans une phrase (« à l’extrême gauche »), dans son ordre
+ * répondre ; puis bloc par bloc, sur la banque et au seul questionnaire rapide, avec et sans le candidat (D5) ; l'ordre
+ * entre blocs, que la mesure n'établit pas ; et ce que l'affichage suit, feuille par feuille, dans un même bloc, puis
+ * bloc par bloc. where : le nom de chaque bloc de l'axe dans une phrase (« à l’extrême gauche »), dans son ordre
  */
 export const methodManner = (where: readonly string[], m: typeof ECHIQUIER_MANNER = ECHIQUIER_MANNER) => {
   const top = (xs: readonly number[]) => xs.indexOf(Math.max(...xs))
   const low = (xs: readonly number[]) => xs.indexOf(Math.min(...xs))
   return fr(
-    `Sur des feuilles remplies par un programme, sans suivre aucun candidat, elle paraît sur toutes celles qui n’approuvent qu’une approche par question et désapprouvent les autres (côté « éloigné »), sur toutes celles qui approuvent tout sauf une approche (côté « proche »), sur ${decimal(m.agreeOnly[0])} % de celles qui ne donnent que des « d’accord » (${decimal(m.agreeOnly[1])} % après le seul questionnaire rapide), jamais quand les avis sont mêlés, ni quand elles n’approuvent qu’une approche sans rien dire des autres. Pour l’éprouver bloc par bloc, on a repris les réponses recopiées, puis brouillées, de chaque candidat classé (${m.clones} feuilles par candidat) : elle paraît sur ${decimal(m.bank.all)} % d’entre elles, toujours côté « éloigné », de ${decimal(Math.min(...m.bank.blocs))} % pour un candidat recopié que la grille classe ${m.bank.lowWhere} à ${decimal(Math.max(...m.bank.blocs))} % pour un candidat qu’elle classe ${m.bank.highWhere} (${decimal(m.bank.without)} %, de ${spread(m.bank.withoutBlocs)}, sans lui dans le calcul) ; après le seul questionnaire rapide, sur ${decimal(m.quick.all)} %, de ${decimal(Math.min(...m.quick.blocs))} % pour un candidat qu’elle classe ${m.quick.lowWhere} à ${decimal(Math.max(...m.quick.blocs))} % pour un candidat qu’elle classe ${m.quick.highWhere} (${decimal(m.quick.without)} %, de ${spread(m.quick.withoutBlocs)}, sans lui). Ces écarts entre blocs, de ${decimal(m.gap[0])} points sur la banque entière (${decimal(m.gap[1])} sans lui) et de ${decimal(m.quickGap[0])} au rapide (${decimal(m.quickGap[1])}), ne sont pas établis : la mesure ne permet de dire ni qu’ils restent sous celui des lectures nettes elles-mêmes (${decimal(m.reference[0])} et ${decimal(m.reference[1])} points sur la banque, ${decimal(m.quickReference[0])} et ${decimal(m.quickReference[1])} au rapide, avec et sans le candidat), ni qu’ils le dépassent. Elle paraît le plus sur les réponses recopiées des candidats que la grille classe aux extrêmes, qui comptent le plus de « pas d’accord » parmi leurs avis : sur la banque, de ${decimal(Math.min(...m.style))} % (${where[low(m.style)]}) à ${decimal(Math.max(...m.style))} % (${where[top(m.style)]}) ; au rapide, de ${decimal(Math.min(...m.styleQuick))} % (${where[low(m.styleQuick)]}) à ${decimal(Math.max(...m.styleQuick))} % (${where[top(m.styleQuick)]}) ; le seuil de 9 cases sur 10 accentue ces différences.`,
+    `Sur des feuilles remplies par un programme, sans suivre aucun candidat, elle paraît sur toutes celles qui n’approuvent qu’une approche par question et désapprouvent les autres (côté « éloigné »), sur toutes celles qui approuvent tout sauf une approche (côté « proche »), sur ${decimal(m.agreeOnly[0])} % de celles qui ne donnent que des « d’accord » (${decimal(m.agreeOnly[1])} % après le seul questionnaire rapide), jamais quand les avis sont mêlés, ni quand elles n’approuvent qu’une approche sans rien dire des autres. Pour l’éprouver bloc par bloc, on a repris les réponses recopiées, puis brouillées, de chaque candidat classé (${m.clones} feuilles par candidat) : elle paraît sur ${decimal(m.bank.all)} % d’entre elles, toujours côté « éloigné », de ${decimal(Math.min(...m.bank.blocs))} % pour un candidat recopié que la grille classe ${m.bank.lowWhere} à ${decimal(Math.max(...m.bank.blocs))} % pour un candidat qu’elle classe ${m.bank.highWhere} (${decimal(m.bank.without)} %, de ${spread(m.bank.withoutBlocs)}, sans lui dans le calcul) ; après le seul questionnaire rapide, sur ${decimal(m.quick.all)} %, de ${decimal(Math.min(...m.quick.blocs))} % pour un candidat qu’elle classe ${m.quick.lowWhere} à ${decimal(Math.max(...m.quick.blocs))} % pour un candidat qu’elle classe ${m.quick.highWhere} (${decimal(m.quick.without)} %, de ${spread(m.quick.withoutBlocs)}, sans lui). Ces écarts entre blocs, de ${decimal(m.gap[0])} points sur la banque entière (${decimal(m.gap[1])} sans lui) et de ${decimal(m.quickGap[0])} au rapide (${decimal(m.quickGap[1])}), ne sont pas établis : la mesure ne permet de dire ni qu’ils restent sous celui des lectures nettes elles-mêmes (${decimal(m.reference[0])} et ${decimal(m.reference[1])} points sur la banque, ${decimal(m.quickReference[0])} et ${decimal(m.quickReference[1])} au rapide, avec et sans le candidat), ni qu’ils le dépassent. Dans cette mesure, elle paraît le plus sur les réponses recopiées des candidats que la grille classe aux extrêmes, un ordre entre blocs que la mesure n’établit pas. Ce qu’elle suit, feuille par feuille, c’est la part des « pas d’accord » parmi les avis : sur la banque, elle paraît sur ${decimal(m.byShare.bank[0])} % des feuilles qui en comptent moins de ${m.byShare.cut} % et sur ${decimal(m.byShare.bank[1])} % des autres (${decimal(m.byShare.quick[0])} % et ${decimal(m.byShare.quick[1])} % au rapide) ; dans un même bloc, elle peut paraître sur ${m.within[0][0]} feuilles sur ${m.clones} pour un candidat recopié et sur ${m.within[0][1]} pour un autre (${m.within[1][0]} et ${m.within[1][1]} au rapide). Bloc par bloc, cette part est la plus forte chez les candidats que la grille classe aux extrêmes : sur la banque, de ${decimal(Math.min(...m.style))} % (${where[low(m.style)]}) à ${decimal(Math.max(...m.style))} % (${where[top(m.style)]}) ; au rapide, de ${decimal(Math.min(...m.styleQuick))} % (${where[low(m.styleQuick)]}) à ${decimal(Math.max(...m.styleQuick))} % (${where[top(m.styleQuick)]}) ; le seuil de 9 cases sur 10 accentue ces différences.`,
   )
 }
 export const METHOD_LIMITS = [

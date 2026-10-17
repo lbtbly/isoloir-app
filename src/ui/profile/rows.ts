@@ -200,8 +200,10 @@ export interface Manner {
  * des autres façons de poser les mêmes avis (BlocCell.chance, arrondie comme le détail) 39 % ou moins, au palier
  * « éloigné » ou « très éloigné », ou 60 % ou plus, au palier « proche » ou « très proche » (core/affinity.ts) ; et plus
  * de la moitié des questions répondues ont plus de « pas d'accord » que de « d'accord » (côté « éloigné »), ou l'inverse.
- * Sinon null. Jamais avec des avis uniformes (C9) : la page ne l'y demande pas, rien n'y est comparé. answers : celles
- * qui comptent (hors questions à revoir), comme la lecture
+ * Sinon null. Seuls comptent les sujets dont les avis se posent d'au moins deux façons (UnitReading.ways) : avec une
+ * seule, il n'y a pas d'autre façon, et la moyenne n'est que l'affinité de la case. Donc jamais avec des avis uniformes
+ * (C9), où chaque sujet n'en a qu'une : rien n'y est comparé. answers : celles qui comptent (hors questions à revoir),
+ * comme la lecture
  */
 export function mannerOf(rows: Pick<ChartRows, 'read' | 'apart' | 'flat'>, questions: readonly Question[], answers: Answers): Manner | null {
   let cells = 0
@@ -209,7 +211,7 @@ export function mannerOf(rows: Pick<ChartRows, 'read' | 'apart' | 'flat'>, quest
   let near = 0
   for (const u of [...rows.read, ...rows.apart, ...rows.flat])
     for (const c of u.cells) {
-      if (c.chance === null) continue
+      if (c.chance === null || u.ways < 2) continue
       cells++
       const m = Math.round(c.chance)
       if (m <= 39) far++

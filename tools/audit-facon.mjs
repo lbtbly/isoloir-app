@@ -10,8 +10,9 @@
 //   de tools/audit-echiquier.mjs), avec et sans le candidat dans le calcul : la part des feuilles qui montrent la phrase,
 //   l'écart entre blocs et sa fourchette, comparés à la référence du même passage (la part des sujets mis à l'épreuve
 //   lus nettement, celle des audits de la croix et de « Ce qui pèse le plus ») : passe, ne passe pas, non établi ; et ce
-//   que ces écarts suivent, la façon de répondre des clones de chaque bloc (la part des « pas d'accord » parmi leurs
-//   avis).
+//   que ces écarts suivent, la façon de répondre des clones (la part des « pas d'accord » parmi leurs avis) : bloc par
+//   bloc, candidat par candidat, et feuille par feuille, par tranche de 5 points de cette part ; et le plus grand écart
+//   entre deux candidats recopiés d'un même bloc.
 // Le calcul même de la page (readEchiquier, chartRows, uniformViews, mannerOf). Les chiffres publiés sont dans
 // ECHIQUIER_MANNER (src/core/echiquierMethodCopy.ts) ; à refaire après une mise à jour des positions.
 //
@@ -86,14 +87,21 @@ function noShare(answers) {
 }
 
 /**
- * Ce que la page montrerait pour ces réponses : la phrase et son côté (comme ui/profile/Chart.tsx : rien avec des avis
- * uniformes), et ses lignes, pour la référence
+ * Ce que la page montrerait pour ces réponses : la phrase et son côté (comme ui/profile/Chart.tsx : mannerOf seul, qui
+ * ne dit rien avec des avis uniformes), et ses lignes, pour la référence ; uniform, compté à part
  */
 function look(answers, opts = {}) {
   const rows = chartRows(groups, readEchiquier(pack, answers, opts), label)
-  const uniform = uniformViews(Q, answers)
-  return { rows, uniform, manner: uniform ? null : mannerOf(rows, Q, answers) }
+  return { rows, uniform: uniformViews(Q, answers), manner: mannerOf(rows, Q, answers) }
 }
+/** La tranche de 5 points où tombe la part des « pas d'accord » d'une feuille (« 70 » : de 70 à moins de 75 %) */
+const bandOf = sh => 5 * Math.floor(pct(sh.no, sh.n) / 5)
+/** « 60–65 % 1/33 · 65–70 % 0/203 · … » : la phrase, tranche par tranche */
+const bands = m => [...m.entries()].sort((a, b) => a[0] - b[0]).map(([b, c]) => `${b}–${b + 5} % ${c.k}/${c.n}`).join(' · ')
+/** La part des « pas d'accord » où la Méthode coupe les feuilles en deux (ECHIQUIER_MANNER.byShare.cut) */
+const CUT = 75
+/** Les tranches sous CUT, puis les autres, réunies : { k, n } */
+const cutOf = m => [0, 1].map(above => [...m.entries()].filter(([b]) => b >= CUT === !!above).reduce((a, [, c]) => ({ k: a.k + c.k, n: a.n + c.n }), { k: 0, n: 0 }))
 
 const t0 = Date.now()
 console.log(`Votre façon de répondre : audit de ${id}, ${P.ranked.length} candidats sur l'axe`)
@@ -155,25 +163,36 @@ function run(kind, makeClones) {
     const near = SH.map(() => 0)
     const style = blank() // « pas d'accord » / avis donnés, par bloc vrai
     const byCandidate = []
+    const perCandidate = SH.map(() => []) // feuilles qui montrent la phrase, candidat par candidat, par bloc vrai
+    const byBand = new Map() // feuilles qui montrent la phrase / feuilles, par tranche de la part des « pas d'accord »
     for (const cid of P.ranked) {
       const t = P.blocOf(cid)
       let k = 0
+      let no = 0
+      let all = 0
       for (const v of makeClones(cid)) {
         const answers = P.toAnswers(v)
         const r = look(answers, without ? { without: [cid] } : {})
         const sh = noShare(answers)
         style[t].k += sh.no
         style[t].n += sh.n
+        no += sh.no
+        all += sh.n
         ref[t].n += r.rows.read.length + r.rows.apart.length + r.rows.flat.length
         ref[t].k += r.rows.read.length
         shown[t].n++
+        const band = byBand.get(bandOf(sh)) ?? { k: 0, n: 0 }
+        byBand.set(bandOf(sh), band)
+        band.n++
         if (!r.manner) continue
+        band.k++
         shown[t].k++
         k++
         if (r.manner.near) near[t]++
         else far[t]++
       }
-      byCandidate.push(`${cid} ${k}`)
+      byCandidate.push(`${cid} ${k} (${r1(pct(no, all))} %)`)
+      perCandidate[t].push(k)
     }
     const w = without ? 'sans le candidat' : 'avec le candidat'
     const rg = gapOf(ref)
@@ -187,7 +206,13 @@ function run(kind, makeClones) {
     console.log(`    « pas d’accord » parmi les avis, par bloc vrai : ${row(style)}`)
     console.log(`    côté, par bloc vrai : ${SH.map((s, b) => `${s} « éloigné » ${far[b]}, « proche » ${near[b]}`).join(' | ')}`)
     console.log(`    écart ${r1(g.gap)} pts [${r1(g.low)}–${r1(g.high)}] ; référence ${r1(rg.gap)} pts : ${verdict}`)
-    console.log(`    par candidat (sur ${NOISY}) : ${byCandidate.join(' · ')}`)
+    console.log(`    par candidat (sur ${NOISY}, et la part des « pas d’accord » parmi ses avis) : ${byCandidate.join(' · ')}`)
+    // Au sein d'un bloc : le plus grand écart entre deux candidats recopiés
+    const within = perCandidate.map(ks => [Math.min(...ks), Math.max(...ks)]).reduce((a, b) => (b[1] - b[0] > a[1] - a[0] ? b : a))
+    console.log(`    au sein d’un bloc, au plus : de ${within[0]} à ${within[1]} feuilles sur ${NOISY} selon le candidat recopié`)
+    console.log(`    par tranche de la part des « pas d’accord » de la feuille : ${bands(byBand)}`)
+    const [below, above] = cutOf(byBand)
+    console.log(`    sous ${CUT} % de « pas d’accord » : ${share(below.k, below.n)} ; ${CUT} % ou plus : ${share(above.k, above.n)}`)
     summary[w] = {
       all: r1(pct(tot.k, tot.n)),
       blocs: shown.map(c => r1(pct(c.k, c.n))),
@@ -197,6 +222,9 @@ function run(kind, makeClones) {
       gap: [r1(g.gap), r1(g.low), r1(g.high)],
       reference: [r1(rg.gap), r1(rg.low), r1(rg.high)],
       verdict,
+      within,
+      byShare: [r1(pct(below.k, below.n)), r1(pct(above.k, above.n))],
+      bands: Object.fromEntries([...byBand.entries()].sort((a, b) => a[0] - b[0]).map(([b, c]) => [b, [c.k, c.n]])),
     }
   }
   return summary

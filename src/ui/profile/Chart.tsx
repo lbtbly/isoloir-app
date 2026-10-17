@@ -24,8 +24,8 @@
 // calcul (ui/profile/Weigh.tsx, core/echiquierWeigh.ts), chargé après le premier affichage du graphique (la page reste
 // sous son plafond) : la note sur le bloc entier s'efface quand la fiche est là.
 // Lot 4 : après les domaines, avant la fiche repliée, une phrase sans titre sur la façon de répondre, quand presque toutes
-// les cases mises à l'épreuve ont leur point de comparaison du même côté (rows.ts, mannerOf) ; jamais avec des avis
-// uniformes (C9).
+// les cases mises à l'épreuve ont leur point de comparaison du même côté (rows.ts, mannerOf), sur les seuls sujets qui
+// ont une autre façon de poser les mêmes avis ; donc jamais avec des avis uniformes (C9).
 // Rien n'est recalculé : les lignes rangent la lecture (ui/profile/rows.ts) ; les phrases sont celles du site
 // (core/echiquierCopy.ts).
 
@@ -178,7 +178,8 @@ export function Chart({ reading, ctx, quickOnly, deeper, unseen, onDetail }: Pro
   // (rows.ts, headOf)
   const { state: head, cause, deeperOnTop } = headOf(rows, reading.themes, { uniform: uniformViews(pack.bank.questions, answers), quickOnly, hasDeeper })
   // Votre façon de répondre (lot 4), après les domaines : jamais avec des avis uniformes (C9), où rien n'est comparé
-  const manner = head === 'uniform' ? null : mannerOf(rows, pack.bank.questions, answers)
+  // (mannerOf ne compte que les sujets qui ont une autre façon de poser les mêmes avis)
+  const manner = mannerOf(rows, pack.bank.questions, answers)
   // Les thèmes sans réponse que la fiche ne cite pas (plus rien à approfondir) : leur ligne, sans doublon
   const unanswered = reading.unanswered.filter(id => !deeper.none.includes(id))
   // Par ligne d'un thème sans lecture : le nom de la famille lue à sa place

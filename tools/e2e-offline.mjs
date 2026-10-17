@@ -1828,12 +1828,13 @@ try {
     // pour mot celle du calcul. Ses deux côtés : un clone bruité réel (graine « n:<id>:<s> » de tools/audit-echiquier.mjs,
     // le questionnaire rapide vu en entier), côté « éloigné », la fiche repliée après elle ; une feuille remplie par un
     // programme qui approuve tout sauf une approche, au seul questionnaire rapide, côté « proche », la fiche ouverte sous le
-    // compte. Rien avec des avis uniformes (C9), ni sur la feuille mêlée des lectures nettes ci-dessus si le calcul n'en
-    // dit rien. À 390 px, puis à 320 px texte à 200 % : rien ne sort de la page
+    // compte. Rien avec des avis uniformes (C9 : le calcul seul n'y compte aucun sujet, chacun n'ayant qu'une façon de poser
+    // les mêmes avis), ni sur la feuille mêlée des lectures nettes ci-dessus si le calcul n'en dit rien. À 390 px, puis à
+    // 320 px texte à 200 % : rien ne sort de la page
     {
       const C = await importSite('src/core/echiquierCopy.ts')
       const { profilesFor } = await importSite('tests/fixtures/echiquier-profiles.ts')
-      const { chartRows: rowsOfChart, mannerOf, uniformViews } = await importSite('src/ui/profile/rows.ts')
+      const { chartRows: rowsOfChart, mannerOf } = await importSite('src/ui/profile/rows.ts')
       const { currentAnswers: currentOf } = await importSite('src/core/revisions.ts')
       const P = profilesFor(pack)
       const quickOnly = q => q.tier === 'essentiel'
@@ -1846,10 +1847,9 @@ try {
         }
         return sanitizeState({ ...freshState(pack.election.id, pack.election.dataVersion), answers, essentialDoneAt: new Date().toISOString() }, pack)
       }
-      /** La phrase que donne le calcul, comme la page : rien avec des avis uniformes */
+      /** La phrase que donne le calcul, comme la page (rien avec des avis uniformes : mannerOf n'y compte aucun sujet) */
       const wanted = st => {
         const cur = currentOf(pack, st.answers)
-        if (uniformViews(pack.bank.questions, cur)) return null
         const m = mannerOf(rowsOfChart(groups, readEchiquier(pack, cur), u => u.id), pack.bank.questions, cur)
         return m ? { near: m.near, text: norm(C.manner(m.near, m.k, m.n)) } : null
       }
