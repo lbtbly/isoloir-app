@@ -26,6 +26,7 @@ export function ProfileMethod({ pack }: { pack: ElectionPack }) {
   const othersEmpty = candidates.every(c => off.has(c.id) || onAxis.has(blocOf(election, c) ?? ''))
   const [intro, introEnd] = T.methodIntro(axis.length)
   const [worthClones, worthSheets] = T.methodWorth()
+  const [cross, crossPossible] = T.methodCross()
   return (
     <>
       <p>
@@ -65,9 +66,10 @@ export function ProfileMethod({ pack }: { pack: ElectionPack }) {
         <strong>Avant et après.</strong> {T.methodBefore()}
       </p>
       <p>
-        <strong>Lignes rouges et priorités.</strong> {T.METHOD_CROSS_WHERE} {T.HOW_CROSS} {T.HOW_PRIORITY}
+        <strong>Lignes rouges et priorités.</strong> {T.METHOD_CROSS_WHERE} {T.HOW_CROSS} {T.METHOD_PRIORITY}
       </p>
-      <p>{T.methodCross()}</p>
+      <p>{cross}</p>
+      <p>{crossPossible}</p>
       <p>
         <strong>Limites.</strong> {T.METHOD_LIMITS[0]}
         <SectionLink id="ordre-des-candidats">{T.METHOD_INTRO_LINK}</SectionLink>

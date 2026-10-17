@@ -1466,12 +1466,12 @@ try {
 
       // Lot 2 : les lignes rouges et la priorité, telles que les calcule le site (mêmes réponses, même calcul) ; la croix
       // sous chaque bloc nettement plus près qui a un candidat qui franchit, et seulement là ; son nom lu ; la note sur le
-      // bloc entier effacée ; « prioritaire » sur la ligne fermée du thème, dans son nom lu ; dans le détail, l'approche
-      // rayée et « Franchie par »
+      // bloc entier effacée quand la croix nomme certains candidats d'un bloc, pas tous (splitsABloc) ; « prioritaire » sur
+      // la ligne fermée du thème, dans son nom lu ; dans le détail, l'approche rayée et « Franchie par »
       {
         const { computeResults } = await importSite('src/core/score.ts')
         const { currentAnswers } = await importSite('src/core/revisions.ts')
-        const { chartRows: rowsOfChart, crossingsOf, hitsOf } = await importSite('src/ui/profile/rows.ts')
+        const { chartRows: rowsOfChart, crossingsOf, hitsOf, splitsABloc } = await importSite('src/ui/profile/rows.ts')
         const C = await importSite('src/core/echiquierCopy.ts')
         const cur = currentAnswers(pack, readState.answers)
         const hits = hitsOf(computeResults(pack, cur, readState.weights, readState.seed))
@@ -1479,10 +1479,12 @@ try {
         const topicLabel = new Map(pack.bank.topics.map(t => [t.id, t.label]))
         const topicOfQ = new Map(pack.bank.questions.map(q => [q.id, q.topicId]))
         const read = rowsOfChart(groups, readEchiquier(pack, cur), u => u.id).read
+        const topicOrder = pack.bank.topics.map(t => t.id)
+        const crossOf = new Map(read.map(u => [`sj-${u.kind}-${u.id}-b`, crossingsOf(u, axisPanel, hits, q => topicOfQ.get(q), topicOrder)]))
         const want = new Map(
           read.map(u => [
             `sj-${u.kind}-${u.id}-b`,
-            crossingsOf(u, axisPanel, hits, q => topicOfQ.get(q)).map(gs =>
+            crossOf.get(`sj-${u.kind}-${u.id}-b`).map(gs =>
               gs.map(g => C.crossLine(g.ids.map(id => names.get(id) ?? id), g.level === 'possible', g.count, u.kind === 'famille' ? g.topics.map(t => topicLabel.get(t) ?? t) : null)).join(' '),
             ),
           ]),
@@ -1507,7 +1509,7 @@ try {
           const norm = t => t.replace(/[\u00a0\u202f]/g, ' ')
           if (got.texts.map(norm).join('|') !== texts.map(norm).join('|')) issues.push(`${id} : « ${got.texts.filter(Boolean).join(' / ')} » au lieu de « ${texts.filter(Boolean).join(' / ')} »`)
           if (!got.named || !got.underNet || !got.gray) issues.push(`${id} : croix ${JSON.stringify(got)}`)
-          if (texts.some(Boolean) === got.note) issues.push(`${id} : note sur le bloc entier ${got.note}`)
+          if (splitsABloc(crossOf.get(id), axisPanel) === got.note) issues.push(`${id} : note sur le bloc entier ${got.note}`)
           await rp.locator(`#${id}`).click()
         }
         const prio = await rp.evaluate(t => {
@@ -1663,7 +1665,46 @@ try {
           if (stop) focusIssues.push(`${width} px : ${stop}`)
         }
       }
+      // Au téléphone, texte à 200 %, chaque ligne ouverte tour à tour (elles s'ouvrent une à une) : la liste des blocs, leurs
+      // noms et leurs croix ne sortent ni de leur ligne de bloc, ni de la page, et aucun mot ne s'y coupe, sinon après un
+      // trait d'union (« Dupont-Aignan », « franchissent » et « nettement » sortaient de leur colonne à 320 px :
+      // contre-vérification du lot 2)
+      if (phone && zoom === 200 && which === 'lectures') {
+        const ids = await lp.locator('.profile-chart .row').evaluateAll(bs => bs.map(b => b.id))
+        const spill = new Set()
+        let opened = 0
+        for (const id of ids) {
+          if ((await lp.locator(`#${id}`).getAttribute('aria-expanded')) !== 'true') await lp.locator(`#${id}`).click()
+          const x = await lp.evaluate(bid => {
+            const ex = document.getElementById(document.getElementById(bid)?.getAttribute('aria-controls') ?? '')
+            const out = { wide: document.documentElement.scrollWidth - document.documentElement.clientWidth, spill: [], cut: [], blocs: 0 }
+            for (const li of ex?.querySelectorAll('.explain-blocs li') ?? []) {
+              if (!li.checkVisibility()) continue
+              out.blocs++
+              const right = li.getBoundingClientRect().right
+              const walker = document.createTreeWalker(li, NodeFilter.SHOW_TEXT)
+              for (let n = walker.nextNode(); n; n = walker.nextNode())
+                for (const m of n.data.matchAll(/[^\s-]+-?/g)) {
+                  const r = document.createRange()
+                  r.setStart(n, m.index)
+                  r.setEnd(n, m.index + m[0].length)
+                  const rects = [...r.getClientRects()].filter(q => q.width > 0)
+                  if (rects.some(q => q.right > right + 1)) out.spill.push(m[0])
+                  if (new Set(rects.map(q => Math.round(q.top))).size > 1) out.cut.push(m[0])
+                }
+            }
+            return out
+          }, id)
+          if (x.blocs) opened++
+          if (x.wide > 0) spill.add(`${id} : ${x.wide} px de trop`)
+          for (const w of x.spill) spill.add(`${id} : « ${w} » sort de sa ligne`)
+          for (const w of x.cut) spill.add(`${id} : « ${w} » coupé`)
+        }
+        if (!opened) layoutIssues.push(`${width} px à ${zoom} % (${which}) : aucune ligne ouverte`)
+        if (spill.size) layoutIssues.push(`${width} px à ${zoom} % (${which}), lignes ouvertes une à une (${opened}) : ${[...spill].slice(0, 6).join(', ')}`)
+      }
       // Une ligne ouverte et le détail ouvert
+      await lp.locator('.profile-chart .row[aria-expanded="true"]').evaluateAll(bs => bs.forEach(b => b.click()))
       await lp.locator('.profile-chart .row').first().click().catch(() => null)
       await lp.evaluate(() => {
         const d = document.querySelector('main .profile-all')
@@ -1680,14 +1721,15 @@ try {
       )
       if (clipped.length) layoutIssues.push(`${width} px à ${zoom} % (${which}) : rogné ${clipped.slice(0, 3).join(', ')}`)
       // Aucun mot du palier, ni de la lecture nette, ni de la liste d'une ligne ouverte coupé sur deux lignes : une coupure
-      // dans la case ne déborde pas, il faut la chercher mot par mot (les rectangles d'un mot sur deux hauteurs)
+      // dans la case ne déborde pas, il faut la chercher mot par mot (les rectangles d'un mot sur deux hauteurs). Seule
+      // permise : après le trait d'union d'un nom composé, au texte très agrandi (« Dupont- / Aignan »)
       const cut = await lp.evaluate(() => {
         const out = new Set()
         for (const el of document.querySelectorAll('main .tile-word, main .tile-net, main .explain-blocs li')) {
           if (!el.checkVisibility()) continue
           const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT)
           for (let n = walker.nextNode(); n; n = walker.nextNode())
-            for (const m of n.data.matchAll(/\S+/g)) {
+            for (const m of n.data.matchAll(/[^\s-]+-?/g)) {
               const r = document.createRange()
               r.setStart(n, m.index)
               r.setEnd(n, m.index + m[0].length)
@@ -1771,15 +1813,20 @@ try {
         return {
           diagram: parts.some(el => el.matches('svg.diagram') && el.querySelector('title')?.textContent === 'Comment se lit un bloc de la grille'),
           heads: parts.flatMap(el => [...el.querySelectorAll(':scope > strong')].map(s => s.textContent.trim())),
+          // La mesure de neutralité de la croix (D5, lot 2), publiée en deux paragraphes : la croix, puis « pourrait franchir »
+          cross: parts.filter(el => {
+            const t = (el.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ')
+            return (t.includes('quand ces lignes rouges ne visent personne') && t.includes('qui n’est pas établi')) || (t.startsWith('« Pourrait franchir » fait de') && t.includes('Ces écarts ne sont pas établis non plus.'))
+          }).length,
           failed: (document.querySelector('main')?.textContent ?? '').includes('n’a pas pu être chargée'),
           section: files.filter(f => /^MethodSection-[\w-]+\.js$/.test(f)).length,
           page: files.filter(f => /^Profile-[\w-]+\.(?:js|css)$/.test(f)),
         }
       })
-      const HEADS = ['Qui compte.', 'Le calcul.', 'La comparaison.', 'Compter, sinon calculer.', 'Les couleurs.', 'Quand on ne lit pas.', 'Pourquoi ni moyenne ni point.', 'Ce que valent ces lectures.', 'Avant et après.', 'Limites.', 'Vie privée.']
+      const HEADS = ['Qui compte.', 'Le calcul.', 'La comparaison.', 'Compter, sinon calculer.', 'Les couleurs.', 'Quand on ne lit pas.', 'Pourquoi ni moyenne ni point.', 'Ce que valent ces lectures.', 'Avant et après.', 'Lignes rouges et priorités.', 'Limites.', 'Vie privée.']
       check(
-        shown && rub.diagram && HEADS.every(t => rub.heads.includes(t)) && !rub.failed && rub.section === 1 && rub.page.length === 0,
-        `mon profil politique, rubrique de la Méthode hors ligne (page rechargée) : schéma ${rub.diagram}, ${rub.heads.length} intertitres sur ${HEADS.length}, son fichier à part chargé (${rub.section}), sans la page${rub.page.length ? ` (chargée : ${rub.page.join(', ')})` : ''}${rub.failed ? ', « n’a pas pu être chargée »' : ''}`,
+        shown && rub.diagram && HEADS.every(t => rub.heads.includes(t)) && rub.cross === 2 && !rub.failed && rub.section === 1 && rub.page.length === 0,
+        `mon profil politique, rubrique de la Méthode hors ligne (page rechargée) : schéma ${rub.diagram}, ${rub.heads.length} intertitres sur ${HEADS.length}, mesure de la croix en ${rub.cross} paragraphe(s) sur 2, son fichier à part chargé (${rub.section}), sans la page${rub.page.length ? ` (chargée : ${rub.page.join(', ')})` : ''}${rub.failed ? ', « n’a pas pu être chargée »' : ''}`,
       )
       await mctx.close()
     }

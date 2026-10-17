@@ -7,14 +7,17 @@
 // du centre, les deux bouts). Il imprime, bloc vrai par bloc vrai, la part des lignes lues nettement (rows.read) qui
 // montrent une croix, ses intervalles de Wilson à 95 %, l'écart entre blocs et sa fourchette, comparés à la référence du
 // même passage (la part des sujets mis à l'épreuve lus nettement) : passe, ne passe pas, non établi ; puis la part de
-// « pourrait franchir » parmi les noms cités, par bloc de la croix et par bloc vrai ; enfin les feuilles remplies par un
-// programme, sans suivre aucun candidat (schéma « audit »), avec deux lignes rouges de même. Le calcul même de la page
+// « pourrait franchir » parmi les noms cités, par bloc de la croix et par bloc vrai, avec son issue, les trois scénarios
+// réunis, contre la même référence ; les noms « mêlés » (une ligne rouge sûrement franchie, une autre seulement
+// possible, sur la même ligne : seule la première compte) ; enfin les feuilles remplies par un programme, sans suivre
+// aucun candidat (schéma « audit »), avec deux lignes rouges de même. Le calcul même de la page
 // (readEchiquier, chartRows, crossingsOf, computeResults). Les chiffres publiés sont dans ECHIQUIER_CROSS
 // (src/core/echiquierMethodCopy.ts) ; à refaire après une mise à jour des positions.
 //
 // Usage : node tools/audit-croix.mjs [<id>] [--noisy 30] [--quick] [--sheets 200]
 //   <id>      : l'élection (par défaut presidentielle-2027) ; elle doit avoir un axe (election.spectrum.axis)
-//   --noisy   : clones bruités par candidat (30 pour ECHIQUIER_CROSS ; la porte D5 en demande 60 pour un verdict)
+//   --noisy   : clones bruités par candidat (60 pour ECHIQUIER_CROSS : la porte D5 en demande 60 pour un verdict, 30
+//               ne donnent qu'une indication)
 //   --quick   : refaire la mesure sur le seul questionnaire rapide (lignes de famille surtout)
 //   --sheets  : feuilles d'essai sur la banque entière (cinq fois plus au rapide) ; 0 pour s'en passer
 // Il faut Node 22.18+ (TypeScript sans compilation).
@@ -27,7 +30,7 @@ const opt = (name, fallback) => {
   return i < 0 ? fallback : Number(argv[i + 1])
 }
 const id = argv.find((a, i) => !a.startsWith('--') && !OPTIONS.includes(argv[i - 1])) ?? 'presidentielle-2027'
-const NOISY = opt('--noisy', 30)
+const NOISY = opt('--noisy', 60)
 const SHEETS = opt('--sheets', 200)
 const QUICK = argv.includes('--quick')
 
@@ -49,6 +52,7 @@ const B = SH.length
 const C = (B - 1) / 2
 const groups = pack.topicGroups
 const topicOf = new Map(pack.bank.questions.map(q => [q.id, q.topicId]))
+const order = pack.bank.topics.map(t => t.id)
 const label = u => u.id
 const r1 = x => Math.round(x * 10) / 10
 const pct = (a, b) => (b ? (100 * a) / b : 0)
@@ -72,6 +76,7 @@ const gapOf = cells => {
     high: Math.max(...ci.map(x => x[1])) - Math.min(...ci.map(x => x[0])),
   }
 }
+const verdictOf = (g, ref) => (g.high < ref ? 'passe' : g.low > ref ? 'ne passe pas' : 'non établi')
 const row = cells => cells.map((c, b) => `${SH[b]} ${c.n ? `${c.k}/${c.n} ${r1(pct(c.k, c.n))} % [${r1(wilson(c.k, c.n)[0])}–${r1(wilson(c.k, c.n)[1])}]` : '–'}`).join(' | ')
 
 /** Les blocs d'un candidat de l'axe qui porte une approche (poids > 0 : celle qu'une ligne rouge peut viser) */
@@ -130,13 +135,16 @@ function run(kind, makeClones) {
           if (!Object.values(answers).some(a => a.redLines.length)) acc.noPool++
           const hits = hitsOf(computeResults(pack, answers, {}, 'd5'))
           for (const u of rows.read) {
-            const cross = crossingsOf(u, panel, hits, q => topicOf.get(q))
+            const cross = crossingsOf(u, panel, hits, q => topicOf.get(q), order)
             const shown = cross.some(g => g.length)
             acc.show[t].n++
             if (shown) acc.show[t].k++
             cross.forEach((gs, b) => {
               for (const g of gs)
                 for (const id of g.ids) {
+                  // Mêlé : une ligne rouge de la ligne sûrement franchie, une autre seulement possible (la phrase ne dit
+                  // que la première ; le détail dit l'autre)
+                  if (g.level === 'touche' && hits.get(id)?.some(h => h.level === 'possible' && u.questions.includes(h.questionId))) acc.mixed++
                   acc.whoBloc[b]++
                   acc.possibleByCross[b].n++
                   acc.possibleByTrue[t].n++
@@ -159,7 +167,7 @@ function run(kind, makeClones) {
       const g = gapOf(acc.show)
       const tot = acc.show.reduce((a, c) => ({ k: a.k + c.k, n: a.n + c.n }), { k: 0, n: 0 })
       const ptot = acc.possibleByCross.reduce((a, c) => ({ k: a.k + c.k, n: a.n + c.n }), { k: 0, n: 0 })
-      const verdict = g.high < rg.gap ? 'passe' : g.low > rg.gap ? 'ne passe pas' : 'non établi'
+      const verdict = verdictOf(g, rg.gap)
       const whoTot = acc.whoBloc.reduce((a, b) => a + b, 0)
       console.log(`  ${name.padEnd(20)} croix sur ${tot.k}/${tot.n} lignes lues, ${r1(pct(tot.k, tot.n))} %`)
       console.log(`    par bloc vrai : ${row(acc.show)}`)
@@ -168,15 +176,29 @@ function run(kind, makeClones) {
       console.log(`    « pourrait franchir », par bloc vrai : ${row(acc.possibleByTrue)}`)
       console.log(`    noms cités, par bloc de la croix : ${acc.whoBloc.map((n, b) => `${SH[b]} ${n} (${r1(pct(n, whoTot))} %)`).join(' · ')} ; mêlés ${acc.mixed} ; clones sans ligne rouge possible ${acc.noPool}`)
       const byBloc = acc.show.filter(c => c.n).map(c => pct(c.k, c.n))
-      pooled[w] ??= blank()
-      acc.possibleByCross.forEach((c, b) => {
-        pooled[w][b].k += c.k
-        pooled[w][b].n += c.n
-      })
-      summary[w].scen[name] = { all: pct(tot.k, tot.n), min: Math.min(...byBloc), max: Math.max(...byBloc), gap: g, verdict, possible: pct(ptot.k, ptot.n), possibleBlocs: acc.possibleByCross.map(c => (c.n ? pct(c.k, c.n) : null)) }
+      pooled[w] ??= { cross: blank(), true: blank(), mixed: 0 }
+      pooled[w].mixed += acc.mixed
+      for (const [to, from] of [[pooled[w].cross, acc.possibleByCross], [pooled[w].true, acc.possibleByTrue]])
+        from.forEach((c, b) => {
+          to[b].k += c.k
+          to[b].n += c.n
+        })
+      summary[w].scen[name] = { all: pct(tot.k, tot.n), min: Math.min(...byBloc), max: Math.max(...byBloc), gap: g, verdict, possible: pct(ptot.k, ptot.n), possibleBlocs: acc.possibleByCross.map(c => (c.n ? pct(c.k, c.n) : null)), mixed: acc.mixed }
     }
+    // « Pourrait franchir », les trois scénarios réunis : sa part parmi les noms cités, bloc par bloc, contre la référence
+    // du même passage (la règle D5 d'un élément qui ne crée aucune lecture)
+    for (const by of ['cross', 'true']) {
+      const cells = pooled[w][by]
+      const g = gapOf(cells)
+      const ps = cells.filter(c => c.n).map(c => pct(c.k, c.n))
+      const verdict = verdictOf(g, rg.gap)
+      console.log(`  « pourrait franchir », trois scénarios réunis, ${w}, par bloc ${by === 'cross' ? 'de la croix' : 'vrai'} : ${row(cells)}`)
+      console.log(`    écart ${r1(g.gap)} pts [${r1(g.low)}–${r1(g.high)}] ; référence ${r1(rg.gap)} pts : ${verdict}`)
+      summary[w][`possible-${by}`] = { min: Math.min(...ps), max: Math.max(...ps), blocs: cells.map(c => (c.n ? `${c.k}/${c.n}` : null)), gap: g, verdict }
+    }
+    console.log(`  noms mêlés, trois scénarios réunis : ${pooled[w].mixed}`)
+    summary[w].mixed = pooled[w].mixed
   }
-  for (const [w, cells] of Object.entries(pooled)) console.log(`  « pourrait franchir », trois scénarios réunis, ${w}, par bloc de la croix : ${row(cells)}`)
   return summary
 }
 
@@ -202,7 +224,7 @@ if (SHEETS) {
       const hits = hitsOf(computeResults(pack, answers, {}, 'd5'))
       for (const u of rows.read) {
         n++
-        if (crossingsOf(u, P.panel, hits, q => topicOf.get(q)).some(g => g.length)) k++
+        if (crossingsOf(u, P.panel, hits, q => topicOf.get(q), order).some(g => g.length)) k++
       }
     }
     console.log(`\nFeuilles d’essai (audit${only ? ', rapide seul' : ''}), deux lignes rouges sans viser personne : croix sur ${k}/${n} lignes lues, ${r1(pct(k, n))} % [${r1(wilson(k, n)[0])}–${r1(wilson(k, n)[1])}]`)

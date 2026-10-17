@@ -2,7 +2,7 @@
 // et des lignes rouges. Une seule règle lie les deux : une ligne rouge est toujours notée « pas d'accord ».
 // Module sans dépendance aux candidats : utilisé aussi par le questionnaire.
 
-import type { Answer, ApproachId, Rating } from './types'
+import type { Answer, Answers, ApproachId, QuestionBank, Rating, TopicId, TopicWeights } from './types'
 
 export const EMPTY_ANSWER: Answer = { ratings: {}, redLines: [] }
 
@@ -44,4 +44,19 @@ export function withRedLine(answer: Answer, id: ApproachId, on: boolean): Answer
     ratings: { ...answer.ratings, [id]: -1 },
     redLines: answer.redLines.includes(id) ? answer.redLines : [...answer.redLines, id],
   }
+}
+
+/** Les thèmes où vous avez donné au moins un avis : seuls ceux-là peuvent peser (la page des priorités) */
+export function topicsWithOpinion(bank: Pick<QuestionBank, 'questions'>, answers: Answers): Set<TopicId> {
+  return new Set(bank.questions.filter(q => hasOpinion(answers[q.id])).map(q => q.topicId))
+}
+
+/**
+ * Vos priorités, dans l'ordre de la banque : les thèmes de poids 2 où vous avez donné au moins un avis. Une seule règle
+ * pour la page des priorités, le dépouillement, son PDF et « Mon profil politique », pour que « prioritaire » dise
+ * partout la même chose
+ */
+export function priorityTopics(bank: Pick<QuestionBank, 'questions' | 'topics'>, answers: Answers, weights: TopicWeights): TopicId[] {
+  const answered = topicsWithOpinion(bank, answers)
+  return bank.topics.filter(t => answered.has(t.id) && weights[t.id] === 2).map(t => t.id)
 }

@@ -154,7 +154,8 @@ for (const f of agreeChunks) {
 // pèse le plus », « Votre façon de répondre »), et le calcul sans tirage (compte complet jusqu'à cent mille façons,
 // lois par bloc et addition au-delà), qui pèse environ 3,5 ko de plus que les tirages qu'il remplace. Le plafond compte
 // la page et ce qu'elle charge en plus du JS initial (43,8 ko le 15 octobre 2026 ; 54,1 ko après le lot 1, 57,1 ko après
-// le lot 2, les lignes rouges et les priorités) : un code passé dans un fichier commun y reste compté. Rien de cela ne
+// le lot 2, les lignes rouges et les priorités, 57,2 ko après ses correctifs du 17 octobre) : un code passé dans un
+// fichier commun y reste compté. Rien de cela ne
 // pèse sur le JS initial, ni sur une visite qui n'ouvre pas la page
 const PROFILE_BUDGET = 58_000
 const profileChunks = readdirSync(join(dist, 'assets')).filter(f => /^Profile-[\w-]+\.js$/.test(f))
@@ -187,7 +188,8 @@ const PROFILE_METHOD_TEXTS = ['Pourquoi ni moyenne ni point', 'on a recopi']
 // régimes, « compter, sinon calculer », et l'avant et l'après, que le propriétaire a demandé de publier), d'où 15,2 ko,
 // toujours la mesure plus 15 % ; puis 16,1 ko avec les mots du lot 2 (lignes rouges et priorités, et la mesure de
 // neutralité de la croix bloc par bloc, avec et sans le candidat, que la décision D5 du propriétaire oblige à publier),
-// d'où 18,5 ko, la mesure plus 15 %. Un code de la page qu'elle importerait passerait par un fichier commun avec la page :
+// d'où 18,5 ko, la mesure plus 15 % ; 18 ko le 17 octobre, la même mesure publiée en entier (à 60 feuilles par
+// candidat, le seul questionnaire rapide avec et sans le candidat, « pourrait franchir » bloc par bloc et sa cause). Un code de la page qu'elle importerait passerait par un fichier commun avec la page :
 // le plafond le compte, et le texte du calcul y est cherché
 const PROFILE_METHOD_BUDGET = 18_500
 const methodSectionChunks = readdirSync(join(dist, 'assets')).filter(f => /^MethodSection-[\w-]+\.js$/.test(f))

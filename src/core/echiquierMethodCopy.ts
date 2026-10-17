@@ -103,50 +103,77 @@ export const ECHIQUIER_BEFORE = {
  * La croix des lignes rouges (lot 2, A1), contrôle de neutralité bloc par bloc (D5, décision du propriétaire du 15
  * octobre 2026) : elle ne crée, ne change ni ne qualifie aucune lecture (l'écart publié ne bouge donc pas) ; on publie son
  * taux d'affichage, bloc vrai par bloc vrai, avec et sans le candidat, comparé à la référence du même passage, la part des
- * sujets lus nettement. Mesuré le 15 octobre 2026 avec le calcul même de la page (readEchiquier, ui/profile/rows.ts :
- * chartRows et crossingsOf ; core/score.ts : computeResults), sur 30 clones bruités par candidat (graines « n:<id>:<s> »
- * de tools/audit-echiquier.mjs), deux lignes rouges posées parmi leurs « pas d'accord » (une entrée de test, tirée d'une
- * graine), selon trois scénarios : sans viser personne ; parmi les approches que porte un candidat d'un bloc voisin ;
- * parmi celles d'un candidat de l'autre côté du centre (pour un clone du centre, les deux bouts). Part des lignes lues
- * nettement (rows.read) qui montrent une croix, la plus basse et la plus haute selon le bloc vrai (%) :
- * - sans viser personne : avec le candidat 1,2 (centre) à 3,8 (extrême gauche), sans lui 0,5 à 3,3 ;
- * - un bloc voisin : avec 3,2 (gauche) à 6,6 (extrême droite), sans 1,8 à 7,2 ;
- * - l'autre côté : avec 1,0 à 3,6, sans 0,5 à 2,3.
- * Écarts entre blocs : de 1,8 à 5,5 points (fourchettes de Wilson de 0 à 10,7 points), sous la référence du même passage,
- * 14,4 points avec le candidat (de 27,9 à 42,3 % des sujets lus nettement) et 14,9 sans lui : « passe » dans les six cas
- * (la borne haute de l'écart reste sous la référence ; la règle D5, § 2.0 de l'étude). À 60 clones par candidat, les mêmes
- * issues (écarts de 1,1 à 4,1 points, références 16,5 et 15,9). Au seul questionnaire rapide (lignes de famille surtout),
- * la croix paraît plus souvent, et l'écart n'est pas établi quand les lignes rouges visent un bloc voisin : avec le
- * candidat, de 5,0 (centre) à 16,4 % (extrême droite), écart 11,4 points [0,5–21,6] pour une référence de 16,9 ; sans lui,
- * de 2,7 à 19,4 %, 16,7 points [0–26,3] pour 19,9 ; sans viser personne, sans lui, de 0 à 10,8 % (non établi, sur peu
- * de lignes) ; à 60 clones, toujours non établi en visant un bloc voisin (15,1 et 15,8 points pour 15,2 et 17,5).
- * « Pourrait franchir » (niveau « possible » de core/score.ts) : de 11,8 à 21,7 % des noms cités selon le scénario,
- * avec ou sans le candidat ; les trois scénarios réunis, par bloc de la croix, de 8,0 % (droite, 7 sur 88) à 28,8 %
- * (extrême droite, 15 sur 52) avec le candidat, de 6,3 à 25,0 % sans lui : pas l'extrême gauche seule, comme le craignait
- * l'étude. Un candidat qui franchit sûrement une ligne rouge de la ligne n'est compté qu'à ce niveau (crossingsOf) : aucun
- * n'en avait aussi une autre seulement possible sur la banque, un seul au rapide. Feuilles remplies par un programme,
- * sans suivre aucun candidat (schéma « audit »), deux lignes rouges de même : 3,0 % des lignes lues sur la banque, 4,6 %
- * au rapide. Mesure : node tools/audit-croix.mjs --quick (--noisy 60 pour la porte D5) ; à refaire après une mise à jour
- * des positions, et à reporter ici
+ * sujets lus nettement, et la répartition de « pourrait franchir » bloc par bloc. Mesuré avec le calcul même de la page
+ * (readEchiquier, ui/profile/rows.ts : chartRows et crossingsOf ; core/score.ts : computeResults), sur 60 clones bruités
+ * par candidat, l'effectif qui fonde un verdict (§ 2.0 de l'étude : 30 ne donnent qu'une indication ; graines
+ * « n:<id>:<s> » et « nq:<id>:<s> » de tools/audit-echiquier.mjs), deux lignes rouges posées parmi leurs « pas d'accord »
+ * (une entrée de test, tirée d'une graine), selon trois scénarios : sans viser personne ; parmi les approches que porte un
+ * candidat d'un bloc voisin ; parmi celles d'un candidat de l'autre côté du centre (pour un clone du centre, les deux
+ * bouts). Part des lignes lues nettement (rows.read) qui montrent une croix, la plus basse et la plus haute selon le bloc
+ * vrai (%), sur la banque :
+ * - sans viser personne : avec le candidat 1,1 (centre) à 3,5 (extrême gauche), sans lui 0,9 à 3,3 ;
+ * - un bloc voisin : avec 2,7 (centre) à 6,4 (extrême droite), sans 2,8 à 6,9 ;
+ * - l'autre côté : avec 1,3 à 2,8, sans 1,3 à 2,4.
+ * Écarts entre blocs : de 1,1 à 4,1 points (fourchettes de Wilson de 0 à 8 points), sous la référence du même passage,
+ * 16,5 points avec le candidat (de 27 à 43,5 % des sujets lus nettement) et 15,9 sans lui : « passe » dans les six cas (la
+ * borne haute de l'écart reste sous la référence ; la règle D5, § 2.0 de l'étude). Au seul questionnaire rapide (lignes de
+ * famille surtout), la croix paraît plus souvent : sans viser personne, de 2,9 à 8,6 % avec le candidat (5,6 points
+ * [0–11,8] pour une référence de 15,2 : passe), de 1 à 7,5 % sans lui (6,5 [0–12,1] pour 17,5 : passe) ; l'autre côté, de
+ * 2,4 à 4 % (passe) et de 0 à 5,3 % (passe) ; un bloc voisin, de 2,9 (centre) à 18 % (extrême gauche), 15,1 points
+ * [8,3–20,7] pour 15,2, et sans lui de 3,9 à 19,7 %, 15,8 points [6–23,1] pour 17,5 : non établi, avec et sans lui.
+ * « Pourrait franchir » (niveau « possible » de core/score.ts) : de 11,9 à 17,2 % des noms cités selon le scénario, avec
+ * ou sans le candidat, sur la banque ; de 5,3 à 18 % au rapide. Les trois scénarios réunis, par bloc de la croix, sur la
+ * banque : de 4,2 % (droite, 7 sur 168) à 27,3 % (extrême droite, 27 sur 99) avec le candidat, 23,1 points [11,1–34,7]
+ * pour 16,5 ; de 2,9 % (droite) à 25 % (extrême droite) sans lui, 22,1 points [7,2–37,2] pour 15,9 : non établi, avec et
+ * sans lui (l'écart ponctuel dépasse la référence, sa borne basse non). Au rapide : de 0 % (droite, 0 sur 113) à 19 %
+ * (extrême gauche, 23 sur 121) avec le candidat, 19 points [9,7–31,9] pour 15,2 ; de 0 à 27,6 % (gauche) sans lui, 27,6
+ * points [9,2–45,7] pour 17,5 : non établi. La cause : « pourrait franchir » vient des positions déduites, ou de confiance
+ * basse, et leur part parmi celles qu'une ligne rouge peut viser va de 5,7 % pour les candidats que la grille classe à
+ * droite à 31,3 % pour ceux qu'elle classe à l'extrême gauche (30,6 % à l'extrême droite, 22,9 % à gauche, 9,3 % au
+ * centre) ; les positions écrites à rechercher (PLAN, « Hors périmètre ») la réduiraient. Un candidat qui franchit sûrement
+ * une ligne rouge de la ligne n'est compté qu'à ce niveau (crossingsOf) : aucun n'en avait aussi une autre seulement
+ * possible sur la banque, un seul au rapide (« mêlés »). Feuilles remplies par un programme, sans suivre aucun candidat
+ * (schéma « audit »), deux lignes rouges de même : 3,0 % des lignes lues sur la banque, 4,6 % au rapide. À 30 clones, la
+ * mesure du 15 octobre 2026 donnait les mêmes issues pour la croix sur la banque (écarts de 1,8 à 5,5 points pour 14,4 et
+ * 14,9), au rapide un second « non établi » (sans viser personne, sans le candidat : 10,8 points [0–24,7] pour 19,9),
+ * qui passe à 60. Mesure : node tools/audit-croix.mjs --quick ; à refaire après une mise à jour des positions, et à
+ * reporter ici
  */
 export const ECHIQUIER_CROSS = {
-  measured: '2026-10-15',
-  /** Clones bruités par candidat */
-  clones: 30,
-  /** Part des lignes lues nettement qui montrent une croix, selon le bloc vrai, la plus basse et la plus haute (%) */
-  random: { withMin: 1.2, withMax: 3.8, withoutMin: 0.5, withoutMax: 3.3 },
-  neighbour: { withMin: 3.2, withMax: 6.6, withoutMin: 1.8, withoutMax: 7.2 },
-  other: { withMin: 1, withMax: 3.6, withoutMin: 0.5, withoutMax: 2.3 },
+  measured: '2026-10-17',
+  /** Clones bruités par candidat : l'effectif de la porte D5 */
+  clones: 60,
+  /**
+   * Sur la banque : part des lignes lues nettement qui montrent une croix, selon le bloc vrai, la plus basse et la plus
+   * haute (%), avec puis sans le candidat
+   */
+  random: { withMin: 1.1, withMax: 3.5, withoutMin: 0.9, withoutMax: 3.3 },
+  neighbour: { withMin: 2.7, withMax: 6.4, withoutMin: 2.8, withoutMax: 6.9 },
+  other: { withMin: 1.3, withMax: 2.8, withoutMin: 1.3, withoutMax: 2.4 },
   /** L'écart le plus large entre blocs, en points, et la référence du même passage (sujets lus nettement), avec puis sans */
-  gapMax: 5.5,
-  reference: [14.4, 14.9],
-  /** Au seul questionnaire rapide, lignes rouges visant un bloc voisin, avec le candidat : la plus basse et la plus haute (%) */
-  quickNeighbour: [5, 16.4],
-  /** « Pourrait franchir » : part des noms cités, selon le scénario (%) */
-  possible: [11.8, 21.7],
-  /** La même part, trois scénarios réunis, avec le candidat : le bloc de la croix où elle est la plus basse, la plus haute */
-  possibleLow: { where: 'à droite', pct: 8 },
-  possibleHigh: { where: 'à l’extrême droite', pct: 28.8 },
+  gapMax: 4.1,
+  reference: [16.5, 15.9],
+  /** Au seul questionnaire rapide, de même ; neighbourGap : l'écart du bloc voisin, avec puis sans, non établi */
+  quick: {
+    random: { withMin: 2.9, withMax: 8.6, withoutMin: 1, withoutMax: 7.5 },
+    neighbour: { withMin: 2.9, withMax: 18, withoutMin: 3.9, withoutMax: 19.7 },
+    other: { withMin: 2.4, withMax: 4, withoutMin: 0, withoutMax: 5.3 },
+    /** L'écart le plus large des deux scénarios qui passent */
+    gapMax: 6.5,
+    neighbourGap: [15.1, 15.8],
+    reference: [15.2, 17.5],
+  },
+  /** « Pourrait franchir » : part des noms cités, selon le scénario, avec ou sans le candidat (%) : banque, puis rapide */
+  possible: [11.9, 17.2],
+  possibleQuick: [5.3, 18],
+  /**
+   * La même part, les trois scénarios réunis, selon le bloc de la croix : la plus basse et la plus haute avec le candidat
+   * (et leurs blocs), puis sans lui ; non établi, sur la banque comme au rapide
+   */
+  possibleBlocs: { low: 4.2, lowWhere: 'à droite', high: 27.3, highWhere: 'à l’extrême droite', withoutLow: 2.9, withoutHigh: 25 },
+  possibleBlocsQuick: { low: 0, lowWhere: 'à droite', high: 19, highWhere: 'à l’extrême gauche', withoutLow: 0, withoutHigh: 27.6 },
+  /** Part des positions déduites, ou de confiance basse, parmi celles qu'une ligne rouge peut viser, selon le bloc (%) */
+  deduced: { low: 5.7, lowWhere: 'à droite', high: 31.3, highWhere: 'à l’extrême gauche' },
 } as const
 
 /** « 1,4 » */
@@ -252,18 +279,38 @@ export const methodBefore = (m: typeof ECHIQUIER_PUBLISHED = ECHIQUIER_PUBLISHED
 }
 /**
  * « Lignes rouges et priorités » (lot 2) : où paraît la croix, ce qu'elle ne change pas (HOW_CROSS), ce que deviennent
- * les priorités (HOW_PRIORITY), puis la mesure de neutralité de la croix, bloc par bloc (ECHIQUIER_CROSS, D5)
+ * les priorités (METHOD_PRIORITY), puis la mesure de neutralité de la croix, bloc par bloc (ECHIQUIER_CROSS, D5)
  */
 export const METHOD_CROSS_WHERE = fr(
   'Sous un bloc nettement plus près, une croix nomme ceux de ses candidats qui franchissent une ligne rouge posée sur un thème du sujet (« pourrait franchir » quand leur position est déduite ou incertaine, comme dans vos résultats) ; la ligne fermée d’un thème dit seulement s’il est prioritaire.',
 )
-export { HOW_CROSS, HOW_PRIORITY } from './echiquierCommonCopy'
+export { HOW_CROSS } from './echiquierCommonCopy'
+/**
+ * Les priorités, la règle de HOW_PRIORITY (core/echiquierCopy.ts, « Comment c'est calculé » de la page), où « ici »
+ * serait la Méthode : elle nomme la page, comme methodIntro
+ */
+export const METHOD_PRIORITY = fr(
+  'Les priorités comptent double dans votre classement, pas sur la page « Mon profil politique » ; et chaque bloc y est la moyenne de ses candidats : sa lecture peut donc différer de votre classement.',
+)
 /** « 1,2 à 3,8 % », « 1 à 3,6 % » */
 const range = (lo: number, hi: number) => `${decimal(lo)} à ${decimal(hi)} %`
-export const methodCross = (m: typeof ECHIQUIER_CROSS = ECHIQUIER_CROSS) =>
-  fr(
-    `Pour éprouver la croix, on a posé deux lignes rouges parmi les « pas d’accord » des réponses recopiées, puis brouillées, de chaque candidat classé (${m.clones} feuilles par candidat). Selon le bloc du candidat recopié, la croix paraît sur ${range(m.random.withMin, m.random.withMax)} des sujets lus nettement quand ces lignes rouges ne visent personne (${range(m.random.withoutMin, m.random.withoutMax)} sans lui dans le calcul), sur ${range(m.neighbour.withMin, m.neighbour.withMax)} quand elles visent les candidats d’un bloc voisin (${range(m.neighbour.withoutMin, m.neighbour.withoutMax)}), sur ${range(m.other.withMin, m.other.withMax)} quand elles visent ceux de l’autre côté du centre de la grille (${range(m.other.withoutMin, m.other.withoutMax)}). Ces écarts entre blocs, de ${decimal(m.gapMax)} points au plus, restent sous celui des lectures nettes elles-mêmes (${decimal(m.reference[0])} points avec le candidat, ${decimal(m.reference[1])} sans lui). Après le seul questionnaire rapide, la croix paraît plus souvent, et quand les lignes rouges visent un bloc voisin, son écart entre blocs n’est pas établi (${range(m.quickNeighbour[0], m.quickNeighbour[1])} selon le bloc). « Pourrait franchir » fait de ${range(m.possible[0], m.possible[1])} des noms cités selon les cas ; selon le bloc, de ${decimal(m.possibleLow.pct)} % sous celui que la grille classe ${m.possibleLow.where} à ${decimal(m.possibleHigh.pct)} % sous celui qu’elle classe ${m.possibleHigh.where}.`,
-  )
+/**
+ * La mesure de neutralité de la croix (D5), en deux paragraphes : la croix elle-même, sur la banque puis au seul
+ * questionnaire rapide, avec et sans le candidat ; puis « pourrait franchir », bloc par bloc, et d'où vient son écart
+ */
+export const methodCross = (m: typeof ECHIQUIER_CROSS = ECHIQUIER_CROSS) => {
+  const q = m.quick
+  const pb = m.possibleBlocs
+  const pq = m.possibleBlocsQuick
+  return [
+    fr(
+      `Pour éprouver la croix, on a posé deux lignes rouges parmi les « pas d’accord » des réponses recopiées, puis brouillées, de chaque candidat classé (${m.clones} feuilles par candidat). Selon le bloc du candidat recopié, la croix paraît sur ${range(m.random.withMin, m.random.withMax)} des sujets lus nettement quand ces lignes rouges ne visent personne (${range(m.random.withoutMin, m.random.withoutMax)} sans lui dans le calcul), sur ${range(m.neighbour.withMin, m.neighbour.withMax)} quand elles visent les candidats d’un bloc voisin (${range(m.neighbour.withoutMin, m.neighbour.withoutMax)}), sur ${range(m.other.withMin, m.other.withMax)} quand elles visent ceux de l’autre côté du centre de la grille (${range(m.other.withoutMin, m.other.withoutMax)}). Ces écarts entre blocs, de ${decimal(m.gapMax)} points au plus, restent sous celui des lectures nettes elles-mêmes (${decimal(m.reference[0])} points avec le candidat, ${decimal(m.reference[1])} sans lui). Après le seul questionnaire rapide, la croix paraît plus souvent : sur ${range(q.random.withMin, q.random.withMax)} des sujets lus nettement quand les lignes rouges ne visent personne (${range(q.random.withoutMin, q.random.withoutMax)} sans lui), sur ${range(q.other.withMin, q.other.withMax)} quand elles visent l’autre côté (${range(q.other.withoutMin, q.other.withoutMax)}), des écarts de ${decimal(q.gapMax)} points au plus, sous ceux des lectures nettes (${decimal(q.reference[0])} et ${decimal(q.reference[1])} points, avec et sans lui) ; mais sur ${range(q.neighbour.withMin, q.neighbour.withMax)} quand elles visent un bloc voisin (${range(q.neighbour.withoutMin, q.neighbour.withoutMax)} sans lui), un écart de ${decimal(q.neighbourGap[0])} points (${decimal(q.neighbourGap[1])} sans lui) qui n’est pas établi : la mesure ne permet de dire ni qu’il reste sous celui des lectures nettes, ni qu’il le dépasse.`,
+    ),
+    fr(
+      `« Pourrait franchir » fait de ${range(m.possible[0], m.possible[1])} des noms cités selon les cas sur la banque entière, de ${range(m.possibleQuick[0], m.possibleQuick[1])} après le seul questionnaire rapide. Selon le bloc, sur la banque, de ${decimal(pb.low)} % sous celui que la grille classe ${pb.lowWhere} à ${decimal(pb.high)} % sous celui qu’elle classe ${pb.highWhere} (${range(pb.withoutLow, pb.withoutHigh)} sans le candidat) ; au rapide, de ${decimal(pq.low)} % sous celui qu’elle classe ${pq.lowWhere} à ${decimal(pq.high)} % sous celui qu’elle classe ${pq.highWhere} (${range(pq.withoutLow, pq.withoutHigh)} sans lui). Ces écarts ne sont pas établis non plus. « Pourrait franchir » vient des positions déduites, ou de confiance basse ; parmi les positions qu’une ligne rouge peut viser, elles en font ${decimal(m.deduced.low)} % chez les candidats que la grille classe ${m.deduced.lowWhere}, ${decimal(m.deduced.high)} % chez ceux qu’elle classe ${m.deduced.highWhere}.`,
+    ),
+  ] as const
+}
 export const METHOD_LIMITS = [
   fr('La grille classe des partis et des candidats, pas des idées ; la présidentielle n’attribue pas de nuances, et certaines ont été déduites (voir '),
   fr('). Une lecture dépend des candidats en lice et de leurs positions, recherchées et résumées par IA : elle peut changer quand elles sont mises à jour. Ce n’est ni un test, ni une étiquette, ni une consigne de vote.'),

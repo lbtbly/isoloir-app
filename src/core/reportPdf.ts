@@ -10,7 +10,7 @@
 // ajoutées) ; les autres viennent de resultsCopy.ts.
 
 import { affinityBand, AFFINITY_BANDS, bandRange, type AffinityBand } from './affinity'
-import { hasOpinion } from './answers'
+import { priorityTopics } from './answers'
 import { APP_NAME, APP_URL } from './app'
 import { Flow, type Block, type FlowLogEntry } from './pdf/flow'
 import { cross, identityTile, info, initials, miniTally, stamp, star, swatch, tally } from './pdf/shapes'
@@ -216,9 +216,8 @@ export function renderReport(input: ReportInput): ReportOutput {
   const incompatible = allIncompatible ? [] : ranking.filter(r => !r.compatible)
   const flagged = (r: Pick<CandidateResult, 'compatible'>) => !r.compatible && !allIncompatible
   // Priorités : les thèmes répondus qui comptent double, dans l'ordre de la banque (jamais les étoiles vides de la page)
-  const answeredTopics = new Set(bank.questions.filter(q => hasOpinion(state.answers[q.id])).map(q => q.topicId))
-  const chosen = bank.topics.filter(t => answeredTopics.has(t.id) && state.weights[t.id] === 2)
-  const chosenIds = new Set(chosen.map(t => t.id))
+  const chosenIds = new Set(priorityTopics(bank, state.answers, state.weights))
+  const chosen = bank.topics.filter(t => chosenIds.has(t.id))
   const withRed = [...ranking, ...unranked, ...excludedResults].filter(r => r.dealbreakers.length > 0)
 
   const frozen = election.dataFrozenAt

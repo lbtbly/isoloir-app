@@ -29,7 +29,7 @@
 
 import { Fragment } from 'preact'
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks'
-import { hasOpinion, RATING_LABELS } from '../../core/answers'
+import { hasOpinion, priorityTopics, RATING_LABELS } from '../../core/answers'
 import { approvedOf, deeperTopics, echiquierCached, mainCarriers, panelOf, readEchiquierAsync, type Echiquier, type UnitReading } from '../../core/echiquier'
 import * as T from '../../core/echiquierCopy'
 import { profileAccess } from '../../core/profileAccess'
@@ -47,7 +47,7 @@ import { ProgressTally } from '../components/ProgressTally'
 import { SiteFooter } from '../components/SiteFooter'
 import { link } from '../nav'
 import { Chart, deeperOf, isRead, oneQuestionFact, Tile, type ProfileCtx } from '../profile/Chart'
-import { crossedBy, hitsOf, priorityTopics } from '../profile/rows'
+import { crossedBy, hitsOf } from '../profile/rows'
 import '../../styles/profile.css'
 
 interface Props {
@@ -120,8 +120,9 @@ export function Profile({ pack, state, essential, results, update }: Props) {
       deepen,
       hits: hitsOf(results),
       redLines: results.redLineCount > 0,
-      priorities: priorityTopics(bank.questions, state.answers, state.weights),
+      priorities: new Set(priorityTopics(bank, state.answers, state.weights)),
       topicOf: new Map(bank.questions.map(q => [q.id, q.topicId])),
+      topicOrder: bank.topics.map(t => t.id),
     }
   }, [pack, axis, election, candidates, results, answers, state, bank])
 
@@ -510,7 +511,8 @@ function DetailBody({ unit, ctx, deeper }: { unit: UnitReading; ctx: ProfileCtx;
                 const rating = answer?.ratings[a.id] ?? 0
                 const red = !!answer?.redLines.includes(a.id)
                 const view = red ? T.RED_LINE_VIEW : RATING_LABELS[rating]
-                // Une ligne rouge : l'approche rayée, puis qui la franchit parmi les candidats classés (lot 2, A1)
+                // Une ligne rouge : l'approche rayée, puis qui la franchit parmi les candidats de l'axe, hors classement
+                // compris (lot 2, A1)
                 const by = red ? crossedBy(q.id, a.id, panel, ctx.hits) : null
                 const carriers = mainCarriers(pack, q.id, a.id)
                 const blocs = carriers.flatMap((ids, b) => (ids.length ? [b] : []))

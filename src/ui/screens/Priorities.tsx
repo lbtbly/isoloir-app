@@ -1,6 +1,6 @@
 import { useState } from 'preact/hooks'
 import { go } from '../nav'
-import { hasOpinion } from '../../core/answers'
+import { priorityTopics, topicsWithOpinion } from '../../core/answers'
 import type { SessionState } from '../../core/storage'
 import type { ElectionPack, Question, TopicWeights } from '../../core/types'
 import { FormHeader } from '../components/FormHeader'
@@ -19,9 +19,9 @@ interface Props {
 
 export function Priorities({ pack, state, update, essential }: Props) {
   // Seuls les thèmes où vous avez donné un avis peuvent peser : les autres seraient sans effet
-  const answeredTopics = new Set(pack.bank.questions.filter(q => hasOpinion(state.answers[q.id])).map(q => q.topicId))
+  const answeredTopics = topicsWithOpinion(pack.bank, state.answers)
   const topics = pack.bank.topics.filter(t => answeredTopics.has(t.id))
-  const chosen = topics.filter(t => state.weights[t.id] === 2).map(t => t.id)
+  const chosen = priorityTopics(pack.bank, state.answers, state.weights)
   const [touched, setTouched] = useState<string | null>(null)
   const [refused, setRefused] = useState(false)
 

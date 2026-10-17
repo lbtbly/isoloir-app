@@ -4,8 +4,11 @@
 // lectures factices (l'ordre), puis sur l'élection réelle (rien de perdu, rien en double) ; les avis uniformes ; l'état
 // de la tête du graphique (l'affichage dédié, D1), qui ne dit une cause que quand elle est vraie ; enfin les lignes rouges
 // et les priorités (lot 2), posées sur les lignes sans rien changer aux lectures.
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
-import { hasOpinion } from '../src/core/answers'
+import { priorityTopics, topicsWithOpinion } from '../src/core/answers'
 import type { BlocCell, Mark, UnitReading, UnitStatus } from '../src/core/echiquier'
 import { panelOf, readEchiquier } from '../src/core/echiquier'
 import { hashString, mulberry32 } from '../src/core/rng'
@@ -23,7 +26,7 @@ import {
   groupOf,
   headOf,
   hitsOf,
-  priorityTopics,
+  splitsABloc,
   uniformViews,
   unitKey,
   type ChartRows,
@@ -303,6 +306,8 @@ describe('lignes rouges et priorités (lot 2) : posées sur les lignes, sans rie
   const hit = (questionId: string, approachId: string, level: DealbreakerHit['level'] = 'touche'): DealbreakerHit => ({ questionId, approachId, level })
   const panel = [['arthaud', 'kazib', 'labib'], ['glucksmann'], ['attal'], ['retailleau'], ['lepen', 'zemmour']]
   const topicOf = (q: string) => ({ q1: 'retraites', q2: 'retraites', q3: 'logement', q9: 'europe' })[q]
+  // L'ordre de la banque, qui n'est pas celui des thèmes de la lecture (u.topicIds suit celui des réponses)
+  const order = ['logement', 'retraites', 'europe']
 
   it('la croix : sous un bloc nettement plus près seulement, pour une ligne rouge posée sur une question de la ligne', () => {
     const u = { ...unit('theme', 'retraites', 'lecture', [0], [4]), topicIds: ['retraites'], questions: ['q1', 'q2'] }
@@ -315,7 +320,7 @@ describe('lignes rouges et priorités (lot 2) : posées sur les lignes, sans rie
       ['lepen', [hit('q1', 'a')]],
       ['glucksmann', [hit('q1', 'a')]],
     ])
-    const c = crossingsOf(u, panel, hits, topicOf)
+    const c = crossingsOf(u, panel, hits, topicOf, order)
     expect(c.map(g => g.length)).toEqual([1, 0, 0, 0, 0])
     // Les noms dans l'ordre de l'axe (alphabétique au sein du bloc), groupés : autant de lignes rouges, de la même façon
     expect(c[0]).toEqual([{ ids: ['arthaud', 'labib'], level: 'touche', count: 1, topics: ['retraites'] }])
@@ -330,17 +335,29 @@ describe('lignes rouges et priorités (lot 2) : posées sur les lignes, sans rie
       ['zemmour', [hit('q3', 'd')]],
       ['lepen', [hit('q3', 'd')]],
     ])
-    const c = crossingsOf(u, panel, hits, topicOf)
+    const c = crossingsOf(u, panel, hits, topicOf, order)
     expect(c[0]).toEqual([
       { ids: ['arthaud'], level: 'possible', count: 1, topics: ['retraites'] },
       { ids: ['kazib'], level: 'touche', count: 2, topics: ['retraites'] },
       // Une ligne rouge sûrement franchie : seules celles-là comptent (le détail dit le reste)
       { ids: ['labib'], level: 'touche', count: 1, topics: ['retraites'] },
     ])
-    // Les thèmes dans l'ordre de la banque, pas celui des lignes rouges
-    const both = crossingsOf(u, panel, new Map([['kazib', [hit('q3', 'd'), hit('q1', 'a')]]]), topicOf)
-    expect(both[0]).toEqual([{ ids: ['kazib'], level: 'touche', count: 2, topics: ['retraites', 'logement'] }])
+    // Les thèmes dans l'ordre de la banque, ni celui des lignes rouges, ni celui de la lecture (u.topicIds)
+    const both = crossingsOf(u, panel, new Map([['kazib', [hit('q1', 'a'), hit('q3', 'd')]]]), topicOf, order)
+    expect(both[0]).toEqual([{ ids: ['kazib'], level: 'touche', count: 2, topics: ['logement', 'retraites'] }])
     expect(c[4]).toEqual([{ ids: ['lepen', 'zemmour'], level: 'touche', count: 1, topics: ['logement'] }])
+  })
+
+  it('la note sur le bloc entier s’efface quand la croix nomme certains candidats d’un bloc, pas tous', () => {
+    const g = (ids: string[]) => ({ ids, level: 'touche' as const, count: 1, topics: ['retraites'] })
+    // Deux des trois candidats du premier bloc : la croix montre qu'ils ne pensent pas pareil
+    expect(splitsABloc([[g(['arthaud', 'labib'])], [], [], [], []], panel)).toBe(true)
+    // Tout le bloc, même en deux groupes (une ligne rouge sûre, une autre possible) : elle ne l'illustre pas
+    expect(splitsABloc([[g(['arthaud']), { ...g(['kazib', 'labib']), level: 'possible' }], [], [], [], []], panel)).toBe(false)
+    expect(splitsABloc([[], [g(['glucksmann'])], [], [], [g(['lepen', 'zemmour'])]], panel)).toBe(false)
+    // Un bloc nommé en entier, un autre en partie : elle l'illustre
+    expect(splitsABloc([[], [g(['glucksmann'])], [], [], [g(['zemmour'])]], panel)).toBe(true)
+    expect(splitsABloc([[], [], [], [], []], panel)).toBe(false)
   })
 
   it('le détail : qui franchit une ligne rouge, dans l’ordre de la grille puis alphabétique ; la position déduite à part', () => {
@@ -364,13 +381,26 @@ describe('lignes rouges et priorités (lot 2) : posées sur les lignes, sans rie
       [other.id]: { ratings: {}, redLines: [], skipped: true },
     }
     const weights = { [q1!.topicId]: 2, [other.topicId]: 2 } as const
-    expect([...priorityTopics(pack.bank.questions, answers, weights)]).toEqual([q1!.topicId])
+    expect(priorityTopics(pack.bank, answers, weights)).toEqual([q1!.topicId])
+    expect([...topicsWithOpinion(pack.bank, answers)]).toEqual([q1!.topicId])
     // Sans avis : le poids ne compte pas (la page des priorités ne le permet pas) ; poids 1 : rien
-    expect(priorityTopics(pack.bank.questions, {}, weights).size).toBe(0)
-    expect(priorityTopics(pack.bank.questions, answers, { [q1!.topicId]: 1 }).size).toBe(0)
-    // La règle du dépouillement (ui/screens/Results.tsx) : les thèmes répondus de poids 2
-    const answered = new Set(pack.bank.questions.filter(q => hasOpinion(answers[q.id])).map(q => q.topicId))
-    expect(new Set(pack.bank.topics.filter(t => answered.has(t.id) && weights[t.id as keyof typeof weights] === 2).map(t => t.id))).toEqual(priorityTopics(pack.bank.questions, answers, weights))
+    expect(priorityTopics(pack.bank, {}, weights)).toEqual([])
+    expect(priorityTopics(pack.bank, answers, { [q1!.topicId]: 1 })).toEqual([])
+    // Dans l'ordre de la banque, quel que soit celui des réponses ou des poids
+    const last = pack.bank.questions.at(-1)!
+    const both: Answers = { [last.id]: { ratings: { [last.approaches[0]!.id]: -1 }, redLines: [] }, ...answers }
+    expect(priorityTopics(pack.bank, both, { [last.topicId]: 2, [q1!.topicId]: 2 })).toEqual(pack.bank.topics.map(t => t.id).filter(t => t === q1!.topicId || t === last.topicId))
+  })
+
+  it('prioritaire : une seule règle (core/answers.ts), pour la page des priorités, le dépouillement, son PDF et le profil', () => {
+    const ROOT = fileURLToPath(new URL('..', import.meta.url))
+    for (const file of ['src/ui/screens/Priorities.tsx', 'src/ui/screens/Results.tsx', 'src/core/reportPdf.ts', 'src/ui/screens/Profile.tsx']) {
+      const code = readFileSync(join(ROOT, file), 'utf8')
+      expect(code, file).toMatch(/priorityTopics\((pack\.)?bank, state\.answers, state\.weights\)/)
+      // Aucune copie de la règle : ni « poids 2 » à côté d'un filtre sur les avis
+      expect(code, file).not.toMatch(/hasOpinion\([^)]*\)\)[^\n]*=== 2|=== 2 && hasOpinion/)
+      expect(code, file).not.toMatch(/answeredTopics\.has\(t\.id\) && state\.weights/)
+    }
   })
 
   it('sur l’élection réelle : la croix ne change ni la lecture ni l’ordre ; chaque nom cité franchit une ligne rouge de la ligne', () => {
@@ -378,8 +408,11 @@ describe('lignes rouges et priorités (lot 2) : posées sur les lignes, sans rie
     const P = profilesFor(pack)
     const groups = pack.topicGroups!
     const topic = new Map(pack.bank.questions.map(q => [q.id, q.topicId]))
+    const bankOrder = pack.bank.topics.map(t => t.id)
     let crosses = 0
-    for (const cid of ['melenchon', 'glucksmann', 'retailleau', 'lepen']) {
+    // Les croix d'une ligne de famille dont la lecture range les thèmes autrement que la banque
+    let reordered = 0
+    for (const cid of ['arthaud', 'melenchon', 'glucksmann', 'retailleau', 'lepen']) {
       for (let s = 0; s < 3; s++) {
         const base = P.toAnswers(P.noisy(P.cloneLarge(cid), `n:${cid}:${s}`))
         // Toutes les approches « pas d'accord » portées par un candidat de l'axe deviennent des lignes rouges
@@ -394,9 +427,12 @@ describe('lignes rouges et priorités (lot 2) : posées sur les lignes, sans rie
         expect(keys(chartRows(groups, before, u => u.id).read)).toEqual(keys(rows.read))
         const hits = hitsOf(computeResults(pack, red, {}, 'croix'))
         for (const u of rows.read) {
-          crossingsOf(u, P.panel, hits, q => topic.get(q)).forEach((gs, b) => {
+          crossingsOf(u, P.panel, hits, q => topic.get(q), bankOrder).forEach((gs, b) => {
             if (gs.length) expect(u.cells[b]!.mark).toBe('pres')
-            for (const g of gs)
+            for (const g of gs) {
+              // Les thèmes cités dans l'ordre de la banque, même quand la lecture les range autrement
+              expect(g.topics).toEqual(bankOrder.filter(t => g.topics.includes(t)))
+              if (u.kind === 'famille' && g.topics.length > 1 && g.topics.join() !== u.topicIds.filter(t => g.topics.includes(t)).join()) reordered++
               for (const id of g.ids) {
                 crosses++
                 expect(P.panel[b]).toContain(id)
@@ -405,10 +441,12 @@ describe('lignes rouges et priorités (lot 2) : posées sur les lignes, sans rie
                 expect([g.level, g.count]).toEqual(firm ? ['touche', firm] : ['possible', mine.length])
                 for (const h of mine) expect(red[h.questionId]!.redLines).toContain(h.approachId)
               }
+            }
           })
         }
       }
     }
     expect(crosses).toBeGreaterThan(0)
+    expect(reordered).toBeGreaterThan(0)
   })
 })

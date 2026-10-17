@@ -14,7 +14,8 @@ import { ECHIQUIER, readEchiquier, type BlocCell, type Mark, type UnitReading, t
 import * as T from '../src/core/echiquierCopy'
 import { word } from '../src/core/echiquierCommonCopy'
 import * as M from '../src/core/echiquierMethodCopy'
-import { CLOSE_GAP } from '../src/core/score'
+import { panelOf } from '../src/core/echiquierPanel'
+import { CLOSE_GAP, dealbreakerLevel } from '../src/core/score'
 import { axisOf } from '../src/core/spectrum'
 import { elections } from '../src/elections/all'
 import { isQuick, profilesFor } from './fixtures/echiquier-profiles'
@@ -149,16 +150,21 @@ function allTexts(): string[] {
   out.push(...allSentences(), ...allFacts())
   for (const s of subsets(axis.length)) out.push(T.groupLabel(axis, s))
   // Lignes rouges et priorités (lot 2)
-  out.push(...allCrossLines(), T.rowMeta(1, true), T.rowMeta(4, true), T.rowMeta(4, false), M.methodCross())
+  out.push(...allCrossLines(), T.rowMeta(1, true), T.rowMeta(4, true), T.rowMeta(4, false), ...M.methodCross(), M.METHOD_PRIORITY)
   return out
 }
+
+/**
+ * Les thèmes d'une ligne de famille, tels que la croix les cite : un ou plusieurs, et de vrais noms de la banque qui
+ * contiennent déjà « et » ou une virgule
+ */
+const CROSS_THEMES = [null, ['Europe'], ['Retraites', 'Logement'], ['Salaires et travail'], ['Territoires et services publics', 'Agriculture, alimentation et animaux'], ['Retraites', 'Industrie et entreprises', 'Salaires et travail']]
 
 /** Les phrases de la croix des lignes rouges : un nom ou plusieurs, « franchit », « pourrait franchir » ou les deux, thèmes */
 function allCrossLines(): string[] {
   const out: string[] = []
   for (const names of [['Florian Philippot'], ['Nathalie Arthaud', 'Selma Labib'], ['Nathalie Arthaud', 'Anasse Kazib', 'Selma Labib']])
-    for (const possible of [false, true])
-      for (const count of [1, 2, 3]) for (const themes of [null, ['Europe'], ['Retraites', 'Logement']]) out.push(T.crossLine(names, possible, count, themes))
+    for (const possible of [false, true]) for (const count of [1, 2, 3]) for (const themes of CROSS_THEMES) out.push(T.crossLine(names, possible, count, themes))
   return out
 }
 
@@ -522,7 +528,7 @@ describe('règles d’écriture', () => {
       T.NOTHING_TESTABLE,
       T.UNIFORM,
     ]
-    const texts = [...sentences, ...M.methodWorth(), M.methodBefore(), M.methodCross(), M.METHOD_CROSS_WHERE, ...allSummaries(), ...chart]
+    const texts = [...sentences, ...M.methodWorth(), M.methodBefore(), ...M.methodCross(), M.METHOD_CROSS_WHERE, M.METHOD_PRIORITY, ...allSummaries(), ...chart]
     for (const s of texts) {
       if (BLOC.test(s)) expect(/la grille/.test(s), s).toBe(true)
       for (const m of s.matchAll(/qu’elle classe/g)) expect(s.slice(0, m.index).includes('la grille'), s).toBe(true)
@@ -627,9 +633,22 @@ describe('lignes rouges et priorités (lot 2)', () => {
     expect(T.crossLine(['Florian Philippot'], true, 1, null)).toBe('Florian Philippot pourrait franchir une de vos lignes rouges sur ce sujet.')
     expect(T.crossLine(['Nathalie Arthaud', 'Selma Labib'], true, 2, null)).toBe(`Nathalie Arthaud et Selma Labib pourraient franchir 2${NB}de vos lignes rouges sur ce sujet.`)
     expect(T.crossLine(['Jean-Luc Mélenchon'], false, 2, null)).toBe(`Jean-Luc Mélenchon franchit 2${NB}de vos lignes rouges sur ce sujet.`)
-    // Une ligne de famille : le thème de ces lignes rouges
-    expect(T.crossLine(['Florian Philippot'], false, 1, ['Europe'])).toBe('Florian Philippot franchit une de vos lignes rouges sur ce sujet (Europe).')
-    expect(T.crossLine(['Florian Philippot'], false, 2, ['Retraites', 'Logement'])).toBe(`Florian Philippot franchit 2${NB}de vos lignes rouges sur ce sujet (Retraites et Logement).`)
+    // Une ligne de famille : le thème de ces lignes rouges, entre guillemets comme readWithFamily
+    expect(T.crossLine(['Florian Philippot'], false, 1, ['Europe'])).toBe(`Florian Philippot franchit une de vos lignes rouges sur ce sujet («${NB}Europe${NB}»).`)
+    expect(T.crossLine(['Florian Philippot'], false, 2, ['Retraites', 'Logement'])).toBe(`Florian Philippot franchit 2${NB}de vos lignes rouges sur ce sujet («${NB}Retraites${NB}» et «${NB}Logement${NB}»).`)
+    expect(T.crossLine(['Jean-Luc Mélenchon'], false, 2, ['Territoires et services publics', 'Agriculture, alimentation et animaux'])).toBe(
+      `Jean-Luc Mélenchon franchit 2${NB}de vos lignes rouges sur ce sujet («${NB}Territoires et services publics${NB}» et «${NB}Agriculture, alimentation et animaux${NB}»).`,
+    )
+    // Les vrais noms de thèmes contiennent souvent « et » ou une virgule : entre guillemets, on les compte et on les
+    // retrouve tels quels, quel que soit leur nombre
+    const pack = elections.find(p => p.election.id === 'presidentielle-2027')!
+    const real = pack.bank.topics.map(t => t.label)
+    expect(real.filter(l => / et |, /.test(l)).length).toBeGreaterThan(1)
+    for (const themes of [real.slice(0, 2), real.slice(0, 3), real.filter(l => / et |, /.test(l)).slice(0, 4)]) {
+      const t = T.crossLine(['Jean-Luc Mélenchon'], false, themes.length, themes)
+      const inParens = t.slice(t.indexOf(' (') + 2, -2)
+      expect([...inParens.matchAll(/«\u00a0(.+?)\u00a0»/g)].map(m => m[1]), t).toEqual(themes)
+    }
     expect(T.CROSS_LABEL).toBe('ligne rouge franchie')
     // Jamais un mot de lecture, de couleur ni de palier : la croix ne dit rien d'un bloc
     for (const t of allCrossLines()) {
@@ -653,41 +672,102 @@ describe('lignes rouges et priorités (lot 2)', () => {
     expect(T.DEEPER_PRIO).toBe(`Dont vos priorités${NB}:`)
   })
 
-  it('« Comment c’est calculé » et la Méthode : les mêmes mots pour les priorités et pour ce que la croix ne change pas', () => {
+  it('l’étiquette IA de la page : les approches vérifiées comme le dit la Méthode, sans renvoi à des sources que la page ne cite pas', () => {
+    const code = readFileSync(join(ROOT, 'src/ui/components/AiLabel.tsx'), 'utf8')
+    const lead = code.match(/approches: \{ lead: '([^']+)'/)?.[1]
+    const what = code.match(/approches:\s*\n\s*'([^']+)'/)?.[1]
+    // « par IA » soudé : « IA » ne commence jamais seul une ligne
+    expect(lead).toBe('Approches rédigées et positions résumées par\\u00a0IA')
+    // Les approches : une IA, au regard du principe de neutralité, et des tests qui refusent tout nom de candidat
+    // (Method.tsx) ; seules les positions sont vérifiées contre leurs sources, citées dans « Qui porte quoi »
+    expect(what).toContain('Les approches des questions ont été rédigées par une IA')
+    expect(what).toContain('au regard du principe de neutralité, et par des tests qui refusent tout nom de candidat')
+    expect(what).toContain('Qui porte quoi')
+    expect(what).not.toMatch(/les unes et les autres|approches[^.]*contre ces sources/)
+    // La fin de la note : un point, comme pour la feuille, sans « chaque source est citée »
+    expect(code).toMatch(/const check = kind === 'feuille' \|\| kind === 'texte' \|\| kind === 'approches' \? '\.'/)
+  })
+
+  it('« Comment c’est calculé » et la Méthode : les mêmes mots pour ce que la croix ne change pas ; les priorités, une règle', () => {
     expect(T.HOW_CROSS).toBe(M.HOW_CROSS)
-    expect(T.HOW_PRIORITY).toBe(M.HOW_PRIORITY)
     expect(T.HOW_CROSS).toBe(`La croix d’une ligne rouge ne change ni la couleur, ni la lecture, ni l’ordre${NB}: votre ligne rouge y compte déjà comme un «${NB}pas d’accord${NB}».`)
+    // Une règle, vraie même pour qui n'a choisi aucune priorité : « les priorités », jamais « vos priorités »
     expect(T.HOW_PRIORITY).toBe(
-      `Vos priorités comptent double dans votre classement, pas ici${NB}; et chaque bloc est la moyenne de ses candidats${NB}: cette lecture peut donc différer de votre classement.`,
+      `Les priorités comptent double dans votre classement, pas ici${NB}; et chaque bloc est la moyenne de ses candidats${NB}: cette lecture peut donc différer de votre classement.`,
     )
+    // Dans la Méthode, « ici » serait la Méthode : la règle nomme la page
+    expect(M.METHOD_PRIORITY).toBe(
+      `Les priorités comptent double dans votre classement, pas sur la page «${NB}Mon profil politique${NB}»${NB}; et chaque bloc y est la moyenne de ses candidats${NB}: sa lecture peut donc différer de votre classement.`,
+    )
+    expect(M.METHOD_PRIORITY).not.toMatch(/\bici\b|Vos priorités/)
     // Un seul point de plus au plus : le huitième, et la Méthode les reprend
     const code = readFileSync(join(ROOT, 'src/ui/profile/MethodSection.tsx'), 'utf8')
-    for (const x of ['T.METHOD_CROSS_WHERE', 'T.HOW_CROSS', 'T.HOW_PRIORITY', 'T.methodCross()']) expect(code, x).toContain(x)
+    for (const x of ['T.METHOD_CROSS_WHERE', 'T.HOW_CROSS', 'T.METHOD_PRIORITY', 'T.methodCross()']) expect(code, x).toContain(x)
+    expect(code).not.toContain('T.HOW_PRIORITY')
   })
 
   it('la Méthode publie la neutralité de la croix bloc par bloc, avec et sans le candidat (D5), et « pourrait franchir » bloc par bloc', () => {
     const C = M.ECHIQUIER_CROSS
-    const text = M.methodCross()
-    expect(C.clones).toBeGreaterThanOrEqual(30)
+    const [text, possible] = M.methodCross()
+    // L'effectif qui fonde un verdict (§ 2.0 de l'étude : 30 ne donnent qu'une indication)
+    expect(C.clones).toBeGreaterThanOrEqual(60)
     expect(text).toContain(`(${C.clones} feuilles par candidat)`)
-    const span = (lo: number, hi: number) => `${String(lo).replace('.', ',')} à ${String(hi).replace('.', ',')}${NB}%`
-    for (const k of ['random', 'neighbour', 'other'] as const) {
-      expect(text).toContain(span(C[k].withMin, C[k].withMax))
-      expect(text).toContain(span(C[k].withoutMin, C[k].withoutMax))
-      expect(C[k].withMin).toBeLessThanOrEqual(C[k].withMax)
-      expect(C[k].withoutMin).toBeLessThanOrEqual(C[k].withoutMax)
-    }
-    // L'écart entre blocs le plus large reste sous la référence du même passage ; le rapide, non établi, est dit
+    const dec = (x: number) => String(x).replace('.', ',')
+    const span = (lo: number, hi: number) => `${dec(lo)} à ${dec(hi)}${NB}%`
+    const KEYS = ['random', 'neighbour', 'other'] as const
+    // Sur la banque, puis au seul questionnaire rapide : chaque fourchette, avec et sans le candidat
+    for (const C2 of [C, C.quick])
+      for (const k of KEYS) {
+        expect(text).toContain(span(C2[k].withMin, C2[k].withMax))
+        expect(text).toContain(span(C2[k].withoutMin, C2[k].withoutMax))
+        expect(C2[k].withMin).toBeLessThanOrEqual(C2[k].withMax)
+        expect(C2[k].withoutMin).toBeLessThanOrEqual(C2[k].withoutMax)
+      }
+    // Sur la banque, l'écart entre blocs le plus large reste sous la référence du même passage, et c'est dit
+    const widest = (C2: typeof C | typeof C.quick, ks: readonly (typeof KEYS)[number][]) =>
+      Math.max(...ks.flatMap(k => [C2[k].withMax - C2[k].withMin, C2[k].withoutMax - C2[k].withoutMin]))
     expect(C.gapMax).toBeLessThan(Math.min(...C.reference))
-    expect(Math.max(...(['random', 'neighbour', 'other'] as const).flatMap(k => [C[k].withMax - C[k].withMin, C[k].withoutMax - C[k].withoutMin]))).toBeLessThanOrEqual(C.gapMax + 0.05)
-    expect(text).toContain('n’est pas établi')
-    expect(text).toContain(span(C.quickNeighbour[0], C.quickNeighbour[1]))
-    expect(text).toContain(`«${NB}Pourrait franchir${NB}» fait de ${span(C.possible[0], C.possible[1])} des noms cités`)
-    expect(text).toContain(`selon le bloc, de 8${NB}% sous celui que la grille classe à droite à 28,8${NB}% sous celui qu’elle classe à l’extrême droite`)
+    expect(widest(C, KEYS)).toBeLessThanOrEqual(C.gapMax + 0.05)
+    expect(text).toContain(`de ${dec(C.gapMax)} points au plus, restent sous celui des lectures nettes elles-mêmes (${dec(C.reference[0])} points avec le candidat, ${dec(C.reference[1])} sans lui)`)
+    // Au rapide : les deux scénarios qui passent, sous la référence ; le bloc voisin, non établi avec et sans le candidat
+    expect(widest(C.quick, ['random', 'other'])).toBeLessThanOrEqual(C.quick.gapMax + 0.05)
+    expect(C.quick.gapMax).toBeLessThan(Math.min(...C.quick.reference))
+    expect(text).toContain(`des écarts de ${dec(C.quick.gapMax)} points au plus, sous ceux des lectures nettes (${dec(C.quick.reference[0])} et ${dec(C.quick.reference[1])} points, avec et sans lui)`)
+    expect(text).toContain(`un écart de ${dec(C.quick.neighbourGap[0])} points (${dec(C.quick.neighbourGap[1])} sans lui) qui n’est pas établi`)
+    expect(text).toContain('la mesure ne permet de dire ni qu’il reste sous celui des lectures nettes, ni qu’il le dépasse')
+    // « Pourrait franchir » : sur la banque entière, puis au rapide ; bloc par bloc, avec et sans le candidat, non établi ; sa cause
+    expect(possible).toContain(`«${NB}Pourrait franchir${NB}» fait de ${span(C.possible[0], C.possible[1])} des noms cités selon les cas sur la banque entière, de ${span(C.possibleQuick[0], C.possibleQuick[1])} après le seul questionnaire rapide`)
+    const pb = C.possibleBlocs
+    const pq = C.possibleBlocsQuick
+    expect(possible).toContain(`de ${dec(pb.low)}${NB}% sous celui que la grille classe ${pb.lowWhere} à ${dec(pb.high)}${NB}% sous celui qu’elle classe ${pb.highWhere} (${span(pb.withoutLow, pb.withoutHigh)} sans le candidat)`)
+    expect(possible).toContain(`au rapide, de ${dec(pq.low)}${NB}% sous celui qu’elle classe ${pq.lowWhere} à ${dec(pq.high)}${NB}% sous celui qu’elle classe ${pq.highWhere} (${span(pq.withoutLow, pq.withoutHigh)} sans lui)`)
+    expect(possible).toContain('Ces écarts ne sont pas établis non plus.')
+    expect(possible).toContain(`elles en font ${dec(C.deduced.low)}${NB}% chez les candidats que la grille classe ${C.deduced.lowWhere}, ${dec(C.deduced.high)}${NB}% chez ceux qu’elle classe ${C.deduced.highWhere}`)
     // Ni « sur de », ni « hasard » : les lignes rouges « ne visent personne »
-    expect(text).not.toMatch(/sur de |hasard/)
+    for (const t of [text, possible]) expect(t).not.toMatch(/sur de |hasard/)
     expect(text).toContain('quand ces lignes rouges ne visent personne')
     expect(text).toContain(`parmi les «${NB}pas d’accord${NB}» des réponses recopiées`)
+  })
+
+  it('la part des positions déduites, ou de confiance basse, que la Méthode publie : celle des données, bloc par bloc', () => {
+    const pack = elections.find(p => p.election.id === 'presidentielle-2027')!
+    const shares = panelOf(pack).map(ids => {
+      let n = 0
+      let k = 0
+      for (const id of ids)
+        for (const pos of Object.values(pack.positions[id] ?? {})) {
+          const level = dealbreakerLevel(pos)
+          if (level) n++
+          if (level === 'possible') k++
+        }
+      return Math.round((1000 * k) / n) / 10
+    })
+    const D = M.ECHIQUIER_CROSS.deduced
+    expect(Math.min(...shares)).toBe(D.low)
+    expect(Math.max(...shares)).toBe(D.high)
+    // À droite la plus basse, à l'extrême gauche la plus haute (les libellés publiés)
+    expect(shares.indexOf(D.low)).toBe(3)
+    expect(shares.indexOf(D.high)).toBe(0)
   })
 })
 

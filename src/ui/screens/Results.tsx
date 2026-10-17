@@ -2,7 +2,7 @@ import type { ComponentChildren } from 'preact'
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks'
 import { getBase, go, link } from '../nav'
 import { affinityBand, AFFINITY_BANDS, bandRange } from '../../core/affinity'
-import { hasOpinion } from '../../core/answers'
+import { priorityTopics, topicsWithOpinion } from '../../core/answers'
 import { buildExport, downloadBlob, exportFileName } from '../../core/exportData'
 import { currentAnswers } from '../../core/revisions'
 import { comparePath } from '../../core/routes'
@@ -237,9 +237,10 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
     return `${d > 0 ? '+' : '−'}${Math.abs(d)} pt${Math.abs(d) > 1 ? 's' : ''} ${since}`
   }
 
-  // Priorités : seuls les thèmes où vous avez donné un avis peuvent peser, comme sur la page des priorités
-  const answeredTopics = new Set(bank.questions.filter(q => hasOpinion(state.answers[q.id])).map(q => q.topicId))
-  const chosen = bank.topics.filter(t => answeredTopics.has(t.id) && state.weights[t.id] === 2).map(t => t.id)
+  // Priorités : seuls les thèmes où vous avez donné un avis peuvent peser, la règle de la page des priorités
+  // (core/answers.ts, la même dans « Mon profil politique »)
+  const answeredTopics = topicsWithOpinion(bank, state.answers)
+  const chosen = priorityTopics(bank, state.answers, state.weights)
   const full = chosen.length >= MAX_PRIORITIES
   // Thèmes de la ligne « Vos priorités » : ceux choisis, plus ceux retirés depuis cette ligne, qui y restent
   // (étoile vide) pour garder leur place et le focus jusqu'au prochain passage

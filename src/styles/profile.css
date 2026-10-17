@@ -1258,9 +1258,24 @@ html:has(.profile-chart) {
   stroke-width: 3;
 }
 
-/* Texte très agrandi (14rem de graphique au plus) : la croix entre dans la phrase, qui reprend toute la largeur ; aucun
-   mot ne sort de sa colonne ni ne se coupe */
+/* Texte très agrandi (14rem de graphique au plus : 320 px à 200 %) : la liste des blocs passe sur une seule colonne, la
+   case en tête de la ligne de son bloc, pour que chaque mot ait toute la largeur (« franchissent », « entreprises, »
+   sortaient de la leur) ; un nom composé y passe à la ligne après son trait d'union (« Dupont-Aignan » sortait de la
+   page), jamais au milieu d'un mot ; la croix entre dans la phrase */
 @container plot (max-width: 14rem) {
+  .explain-blocs li {
+    display: block;
+  }
+
+  .explain-blocs .key-tile {
+    margin: 0 0.4rem 0 0;
+    vertical-align: -0.1em;
+  }
+
+  .explain-blocs .nw {
+    white-space: normal;
+  }
+
   .eb-cross {
     display: block;
   }

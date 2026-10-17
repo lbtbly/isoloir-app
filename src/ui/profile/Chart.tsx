@@ -35,7 +35,7 @@ import { Icon } from '../components/Icon'
 import { InkCross } from '../components/Ink'
 import { formatDate } from '../format'
 import { link } from '../nav'
-import { acrossCentre, atBothEnds, chartRows, crossingsOf, headOf, uniformViews, unitKey, type FamilyRows, type RowGroupKind } from './rows'
+import { acrossCentre, atBothEnds, chartRows, crossingsOf, headOf, splitsABloc, uniformViews, unitKey, type FamilyRows, type RowGroupKind } from './rows'
 
 /** Ce que le graphique, ses lignes et le tableau du détail partagent */
 export interface ProfileCtx {
@@ -61,10 +61,12 @@ export interface ProfileCtx {
   hits: ReadonlyMap<CandidateId, readonly DealbreakerHit[]>
   /** Au moins une ligne rouge posée : « Comment c'est calculé » dit alors ce que la croix ne change pas */
   redLines: boolean
-  /** Les thèmes prioritaires, comme au dépouillement (rows.ts, priorityTopics) */
+  /** Les thèmes prioritaires, la règle du dépouillement (core/answers.ts, priorityTopics) */
   priorities: ReadonlySet<TopicId>
   /** Le thème de chaque question */
   topicOf: ReadonlyMap<QuestionId, TopicId>
+  /** Les thèmes de la banque, dans son ordre (celui des domaines) : la croix d'une ligne de famille cite les siens ainsi */
+  topicOrder: readonly TopicId[]
 }
 
 /** Une unité qui a une lecture (même « rien de net ») ; sinon : une seule question, ou trop de blocs inconnus */
@@ -674,8 +676,8 @@ function Explain({ u, family, ctx, onDetail }: { u: UnitReading; family: string 
   const deeper = !read && deeperOf(u, ctx)
   const both = read && acrossCentre(u) ? T.bothRow(atBothEnds(u)) : null
   // Sous chaque bloc nettement plus près : qui franchit une ligne rouge posée sur un thème de la ligne (rows.ts) ; pour
-  // une ligne de famille, la phrase nomme le thème de ces lignes rouges
-  const crossings = crossingsOf(u, panel, ctx.hits, q => ctx.topicOf.get(q))
+  // une ligne de famille, la phrase nomme le thème de ces lignes rouges, dans l'ordre de la banque
+  const crossings = crossingsOf(u, panel, ctx.hits, q => ctx.topicOf.get(q), ctx.topicOrder)
   const crossText = (b: number) =>
     crossings[b]!.map(g =>
       T.crossLine(
@@ -696,8 +698,9 @@ function Explain({ u, family, ctx, onDetail }: { u: UnitReading; family: string 
       ) : null}
       {fact ? <p class="explain-fact">{fact}</p> : null}
       {family ? <p class="explain-note">{T.readWithFamily(family)}</p> : null}
-      {/* La note sur le bloc entier s'efface quand une croix l'illustre (au plus deux nouveautés par ligne ouverte) */}
-      {net && !crossings.some(g => g.length) ? <p class="explain-note">{T.BLOC_NOTE}</p> : null}
+      {/* La note sur le bloc entier s'efface quand une croix l'illustre, en nommant certains candidats d'un bloc et pas les
+          autres (au plus deux nouveautés par ligne ouverte) ; une croix qui nomme tout son bloc la laisse */}
+      {net && !splitsABloc(crossings, panel) ? <p class="explain-note">{T.BLOC_NOTE}</p> : null}
       <div class="explain-blocs">
         <p class="eb-title">{T.BLOCS_TITLE}</p>
         <ul>

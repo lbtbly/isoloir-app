@@ -140,10 +140,18 @@ export const HOW_CALC = fr(
  */
 export { COLORS_CHANCE, HOW_COLOR } from './echiquierCommonCopy'
 /**
- * Point 8, après HOW_NO_EFFECT : les priorités, qui ne comptent pas ici, et la croix des lignes rouges, qui ne change rien
- * (seulement quand vous avez posé une ligne rouge) ; les mêmes textes dans la Méthode (core/echiquierCommonCopy.ts)
+ * Point 8, après HOW_NO_EFFECT : la croix des lignes rouges, qui ne change rien (seulement quand vous avez posé une ligne
+ * rouge), dans les mots de la Méthode (core/echiquierCommonCopy.ts)
  */
-export { HOW_CROSS, HOW_PRIORITY } from './echiquierCommonCopy'
+export { HOW_CROSS } from './echiquierCommonCopy'
+/**
+ * Point 8 : les priorités (lot 2, A2), pourquoi la lecture peut différer du classement. Une règle, vraie même pour qui
+ * n'a choisi aucune priorité (« les priorités », pas « vos priorités ») ; la Méthode a ses propres mots
+ * (core/echiquierMethodCopy.ts, METHOD_PRIORITY), où « ici » serait la Méthode
+ */
+export const HOW_PRIORITY = fr(
+  'Les priorités comptent double dans votre classement, pas ici ; et chaque bloc est la moyenne de ses candidats : cette lecture peut donc différer de votre classement.',
+)
 /**
  * Point 4, en un seul point : les lectures nettes, avec leur écart et leur seuil (ECHIQUIER.GAP : d'au moins 5 points,
  * à 55 % au moins ou 45 % au plus, comme dans la Méthode), et le bloc inconnu. Le seuil est dit : sans lui, une unité qui
@@ -474,13 +482,15 @@ const redLines = (n: number) => (n > 1 ? `${n}${NB}de vos lignes rouges` : 'une 
  * La phrase de la croix, pour des candidats qui franchissent autant de lignes rouges de la ligne, de la même façon : names,
  * dans l'ordre de la grille puis alphabétique ; possible, ils pourraient les franchir (position déduite, ou de confiance
  * basse : « pourrait franchir », le mot du dépouillement), sinon ils les franchissent ; count, combien ; themes, pour une
- * ligne de famille, les thèmes de ces lignes rouges (« sur ce sujet (Europe) »), sinon null. « Nathalie Arthaud et Selma
- * Labib franchissent une de vos lignes rouges sur ce sujet. »
+ * ligne de famille, les thèmes de ces lignes rouges, dans l'ordre de la banque (« sur ce sujet (« Europe ») »), sinon
+ * null. Chaque thème entre guillemets, comme readWithFamily : beaucoup de noms de thèmes contiennent déjà « et » ou une
+ * virgule (« Salaires et travail », « Agriculture, alimentation et animaux »), qu'on ne saurait plus compter sans eux.
+ * « Nathalie Arthaud et Selma Labib franchissent une de vos lignes rouges sur ce sujet. »
  */
 export function crossLine(names: readonly string[], possible: boolean, count: number, themes: readonly string[] | null): string {
   const many = names.length > 1
   const verb = possible ? `${many ? 'pourraient' : 'pourrait'} franchir` : many ? 'franchissent' : 'franchit'
-  return fr(`${listFr([...names])} ${verb} ${redLines(count)} sur ce sujet${themes?.length ? ` (${listFr([...themes])})` : ''}.`)
+  return fr(`${listFr([...names])} ${verb} ${redLines(count)} sur ce sujet${themes?.length ? ` (${listFr(themes.map(t => `« ${t} »`))})` : ''}.`)
 }
 /** Sous le graphique : la source des colonnes, autour du lien (posé par la page) */
 export const SOURCE = [
@@ -563,8 +573,9 @@ export const BY_QUESTION = 'Question par question'
 export const YOUR_VIEW = fr('Votre avis :')
 export const RED_LINE_VIEW = 'Pas d’accord, ligne rouge'
 /**
- * Sous une approche marquée ligne rouge (rayée) : qui la franchit, parmi les candidats classés, dans l'ordre de la grille
- * puis alphabétique ; ceux dont la position est déduite, ou de confiance basse, à part (la page pose les noms)
+ * Sous une approche marquée ligne rouge (rayée) : qui la franchit, parmi les candidats de l'axe (hors classement compris),
+ * dans l'ordre de la grille puis alphabétique ; ceux dont la position est déduite, ou de confiance basse, à part (la page
+ * pose les noms)
  */
 export const CROSSED_BY = fr('Franchie par :')
 export const MAYBE_CROSSED_BY = fr('Pourrait être franchie par :')

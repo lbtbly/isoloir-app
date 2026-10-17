@@ -48,14 +48,6 @@ export const HOW_CROSS = fr(
   'La croix d’une ligne rouge ne change ni la couleur, ni la lecture, ni l’ordre : votre ligne rouge y compte déjà comme un « pas d’accord ».',
 )
 /**
- * Les priorités (lot 2, A2) : pourquoi la lecture peut différer du classement, dans « Comment c'est calculé » de la page
- * et dans la rubrique de la Méthode
- */
-export const HOW_PRIORITY = fr(
-  'Vos priorités comptent double dans votre classement, pas ici ; et chaque bloc est la moyenne de ses candidats : cette lecture peut donc différer de votre classement.',
-)
-
-/**
  * Ce qui reste sur l'appareil : sous le chapeau de la page (décision du propriétaire du 15 octobre 2026) et en fin de la
  * rubrique de la Méthode (« Vie privée »)
  */

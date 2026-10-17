@@ -5,13 +5,14 @@
 // chacune, les lectures nettes, puis les écarts, puis les sujets sans tendance nette, puis les thèmes d'une seule
 // question et ceux dont trop de blocs sont inconnus (variante a′, validée par le propriétaire le 15 octobre 2026). Rien
 // n'est recalculé ici : on range les lectures. Puis ce que la page sait déjà de la feuille, posé sur les lignes sans rien
-// changer aux lectures (lot 2) : les lignes rouges franchies, sous un bloc nettement plus près, et les thèmes prioritaires.
+// changer aux lectures (lot 2) : les lignes rouges franchies, sous un bloc nettement plus près (les thèmes prioritaires
+// suivent la règle du dépouillement, core/answers.ts : priorityTopics).
 
 import { hasOpinion } from '../../core/answers'
 import type { Echiquier, UnitReading } from '../../core/echiquier'
 import { MIN_WAYS, type NothingCause } from '../../core/echiquierCopy'
 import type { DealbreakerHit, Results } from '../../core/score'
-import type { Answers, CandidateId, Question, QuestionId, TopicGroup, TopicId, TopicWeights } from '../../core/types'
+import type { Answers, CandidateId, Question, QuestionId, TopicGroup, TopicId } from '../../core/types'
 
 /**
  * Les groupes d'un domaine, dans cet ordre : net, nettement plus près d'un seul côté du centre (ou du centre lui-même,
@@ -204,7 +205,7 @@ export interface Crossing {
   level: DealbreakerHit['level']
   /** Combien de lignes rouges de la ligne, à ce niveau */
   count: number
-  /** Les thèmes de ces lignes rouges, dans l'ordre de la banque */
+  /** Les thèmes de ces lignes rouges, dans l'ordre de la banque (celui des domaines et de leurs thèmes) */
   topics: TopicId[]
 }
 
@@ -214,13 +215,15 @@ export interface Crossing {
  * autant, de la même façon, sur les mêmes thèmes. Un candidat qui en franchit sûrement n'est compté que pour celles-là (la
  * phrase reste vraie ; le détail dit le reste, approche par approche). Un tableau par bloc de l'axe, vide sous un bloc qui
  * n'est pas nettement plus près. Tous les candidats du bloc comptent, même inconnus sur la ligne : une position seulement
- * probable n'y compte pas, mais elle fait « pourrait franchir ». topicOf : le thème d'une question
+ * probable n'y compte pas, mais elle fait « pourrait franchir ». topicOf : le thème d'une question ; order : les thèmes
+ * de la banque, dans son ordre (u.topicIds suit celui des réponses, pas celui de la page)
  */
 export function crossingsOf(
-  u: Pick<UnitReading, 'cells' | 'questions' | 'topicIds'>,
+  u: Pick<UnitReading, 'cells' | 'questions'>,
   panel: readonly (readonly CandidateId[])[],
   hits: ReadonlyMap<CandidateId, readonly DealbreakerHit[]>,
   topicOf: (q: QuestionId) => TopicId | undefined,
+  order: readonly TopicId[],
 ): Crossing[][] {
   return u.cells.map((c, b) => {
     if (c.mark !== 'pres') return []
@@ -231,7 +234,7 @@ export function crossingsOf(
       const counted = firm.length ? firm : mine
       if (!counted.length) continue
       const level = firm.length ? 'touche' : 'possible'
-      const topics = u.topicIds.filter(t => counted.some(h => topicOf(h.questionId) === t))
+      const topics = order.filter(t => counted.some(h => topicOf(h.questionId) === t))
       const key = `${level}:${counted.length}:${topics.join(',')}`
       const g = groups.get(key)
       if (g) g.ids.push(id)
@@ -242,8 +245,21 @@ export function crossingsOf(
 }
 
 /**
- * Dans « Le détail », sous une approche marquée ligne rouge : qui la franchit, parmi les candidats de l'axe, dans l'ordre
- * de la grille puis alphabétique ; firm, la position prise et vérifiée ; possible, déduite ou de confiance basse
+ * La croix montre que des candidats d'un même bloc ne pensent pas pareil : sous au moins un bloc, elle en nomme certains,
+ * pas tous. La note sur le bloc entier (BLOC_NOTE) s'efface alors, et seulement alors : une croix qui nomme tout son bloc
+ * ne l'illustre pas
+ */
+export function splitsABloc(crossings: readonly (readonly Crossing[])[], panel: readonly (readonly CandidateId[])[]): boolean {
+  return crossings.some((gs, b) => {
+    const named = gs.reduce((n, g) => n + g.ids.length, 0)
+    return named > 0 && named < (panel[b]?.length ?? 0)
+  })
+}
+
+/**
+ * Dans « Le détail », sous une approche marquée ligne rouge : qui la franchit, parmi les candidats de l'axe (hors
+ * classement compris), dans l'ordre de la grille puis alphabétique ; firm, la position prise et vérifiée ; possible,
+ * déduite ou de confiance basse
  */
 export function crossedBy(
   questionId: QuestionId,
@@ -257,13 +273,4 @@ export function crossedBy(
     if (h) out[h.level === 'touche' ? 'firm' : 'possible'].push(id)
   }
   return out
-}
-
-/**
- * Les thèmes prioritaires (A2), comme au dépouillement (ui/screens/Results.tsx, « Vos priorités ») : de poids 2, et avec au
- * moins un avis sur une de leurs questions, dans la feuille enregistrée, pour que « prioritaire » dise la même chose sur
- * les deux pages
- */
-export function priorityTopics(questions: readonly Question[], answers: Answers, weights: TopicWeights): Set<TopicId> {
-  return new Set(questions.filter(q => weights[q.topicId] === 2 && hasOpinion(answers[q.id])).map(q => q.topicId))
 }
