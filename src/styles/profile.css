@@ -42,8 +42,8 @@ html:has(.profile-chart) {
   color: var(--print-soft);
 }
 
-/* Les cases (Chart.tsx, Tile) : leurs teintes, l'échelle d'affinité du site, sont dans app.css (.tile), pour que
-   l'aperçu de l'accueil (ui/components/ProfileEntry.tsx) prenne exactement les mêmes. */
+/* Les cases (Chart.tsx, Tile) : leurs teintes, l'échelle d'affinité du site, atténuées sauf sur une lecture nette, sont
+   dans app.css (.tile), pour que l'aperçu de l'accueil (ui/components/ProfileEntry.tsx) prenne exactement les mêmes. */
 .tile-q {
   font-weight: 800;
 }
@@ -435,6 +435,14 @@ html:has(.profile-chart) {
   text-align: center;
 }
 
+/* Sous l'exemple, pleine et atténuée, comme sous les paliers de la légende de la page (décision du propriétaire du 17
+   octobre 2026) */
+.profile-example .key-pair {
+  margin: var(--s3) 0 0;
+  font-size: var(--text-xs);
+  line-height: 1.35;
+}
+
 @container ex (min-width: 20rem) {
   .ex-head,
   .ex-row {
@@ -715,7 +723,9 @@ html:has(.profile-chart) {
   }
 }
 
-/* La légende : les cinq paliers, dans l'ordre du site (très proche d'abord), et « ? inconnu » s'il paraît */
+/* La légende : les cinq paliers, dans l'ordre du site (très proche d'abord), et « ? inconnu » s'il paraît ; dessous, la
+   même pastille pleine et atténuée (.key-pair, Chart.tsx, KeyPair ; décision du propriétaire du 17 octobre 2026), au
+   téléphone dans la légende, à l'ordinateur juste sous l'axe (ci-dessous, .axis + .key-pair) */
 .chart-key {
   padding: 0 0 var(--s3);
   font-size: var(--text-xs);
@@ -746,6 +756,23 @@ html:has(.profile-chart) {
   height: 1rem;
   font-size: 0.7rem;
   line-height: 1;
+}
+
+/* Une petite case atténuée (la légende, « Votre affinité, bloc par bloc ») : sans filet et deux fois plus teintée que la
+   grande (--key-mix) ; un filet sur 1rem la faisait passer pour une case à cocher vide, et « mitigé » se confondait avec
+   « ? inconnu ». Pleine, elle prend l'aplat de la grande */
+.key-tile.tile:not(.is-inconnu, .is-net) {
+  --tile: color-mix(in oklab, var(--aff) var(--key-mix), var(--paper));
+  box-shadow: none;
+}
+
+.key-pair {
+  margin-top: -0.05rem;
+}
+
+/* La paire de l'ordinateur, juste sous l'axe : au téléphone, celle de la légende suffit */
+.axis + .key-pair {
+  display: none;
 }
 
 .key-text {
@@ -824,12 +851,20 @@ html:has(.profile-chart) {
     grid-template-columns: var(--label-w) minmax(0, 1fr);
   }
 
+  /* La légende entre dans la grille de l'axe : les paliers et sa phrase à gauche des blocs. Pleine et atténuée n'y sont
+     plus (dans la colonne de la légende, « Pleine : nettement plus près ou plus loin » passait sur deux lignes, et l'axe
+     collant grandissait de 74 px ; sous les blocs, de 36 px, et la barre des domaines ne collait plus sur un écran
+     d'ordinateur court) : elles passent juste sous l'axe, ci-dessous */
   .chart-key {
+    display: contents;
+    font-size: var(--text-sm);
+  }
+
+  .chart-key > .key-scale:not(.key-pair) {
     grid-column: 1;
     grid-row: 1;
     align-self: end;
-    padding: 0 var(--s5) 0.7rem 0;
-    font-size: var(--text-sm);
+    padding-right: var(--s5);
   }
 
   /* En deux colonnes, chacune de haut en bas : très proche, proche, mitigé ; puis éloigné, très éloigné, inconnu */
@@ -852,9 +887,34 @@ html:has(.profile-chart) {
     font-size: var(--text-xs);
   }
 
+  .chart-key > .key-text {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: start;
+    padding: 0 var(--s5) 0.7rem 0;
+  }
+
+  .chart-key > .key-pair {
+    display: none;
+  }
+
+  /* Pleine et atténuée, juste sous l'axe, sur toute la largeur, en une ligne, hors de ce qui colle (décision du
+     propriétaire du 17 octobre 2026) : l'axe collant garde sa hauteur (129 px à 1 280 px de large), la barre des domaines
+     colle aux mêmes hauteurs d'écran qu'avant les couleurs ; à l'arrivée, la paire est en vue sous les blocs, et défile
+     sous l'axe avec les lignes */
+  .axis + .key-pair {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.6rem;
+    margin: 0;
+    padding: 0.45rem 0 0.5rem;
+    font-size: var(--text-sm);
+    line-height: 1.35;
+  }
+
   .zones {
     grid-column: 2;
-    grid-row: 1;
+    grid-row: 1 / span 2;
   }
 
   .zone {

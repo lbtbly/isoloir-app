@@ -160,12 +160,13 @@ export const HOW_PRIORITY = fr(
 /**
  * Point 4, en un seul point : les lectures nettes, avec leur écart et leur seuil (ECHIQUIER.GAP : d'au moins 5 points,
  * à 55 % au moins ou 45 % au plus, comme dans la Méthode), et le bloc inconnu. Le seuil est dit : sans lui, une unité qui
- * s'écarte nettement des autres façons sans s'éloigner assez de 50 % paraîtrait contredire « Rien de net »
+ * s'écarte nettement des autres façons sans s'éloigner assez de 50 % paraîtrait contredire « Rien de net ». Depuis le 17
+ * octobre 2026, la couleur pleine dit aussi « net » : « rien de net » laisse la couleur atténuée, quel que soit le palier
  */
 export const HOW_MARKS: readonly string[] = [
   fr(`Nettement plus près : votre affinité avec ce bloc dépasse nettement celle des autres façons de poser vos mêmes avis, d’au moins ${ECHIQUIER.GAP}${NB}points, et atteint ${50 + ECHIQUIER.GAP} % au moins.`),
-  fr(`Nettement plus loin : elle reste nettement en dessous, d’au moins ${ECHIQUIER.GAP}${NB}points, à ${50 - ECHIQUIER.GAP} % au plus. Sinon, rien de net, quelle que soit la couleur.`),
-  fr('? inconnu : aucun candidat du bloc n’est connu sur vos questions.'),
+  fr(`Nettement plus loin : elle reste nettement en dessous, d’au moins ${ECHIQUIER.GAP}${NB}points, à ${50 - ECHIQUIER.GAP} % au plus. Sinon, rien de net, quel que soit le palier : la couleur reste atténuée.`),
+  fr(`?${NB}inconnu : aucun candidat du bloc n’est connu sur vos questions.`),
 ]
 /** Point 5 : « nettement », le seuil du test (p ≤ 0,10), puis son exemple, sur des questions fictives */
 export const HOW_NETTEMENT = fr(
@@ -271,7 +272,7 @@ export function unitSentence(axis: readonly SpectrumAxisBloc[], r: Pick<UnitRead
             }.`
           : `Rien de net : sur ${r.kind === 'famille' ? 'ce domaine' : 'ce thème'}, vos réponses ne ${
               r.distinct ? 'se rapprochent ni ne s’écartent nettement des candidats d’aucun bloc' : 'se distinguent pas assez des autres façons de poser vos mêmes avis'
-            }, quelle que soit la couleur des cases.`
+            }, quel que soit le palier des cases.`
       break
     case 'blocs-inconnus':
       return fr(
@@ -292,7 +293,7 @@ export function unitSentence(axis: readonly SpectrumAxisBloc[], r: Pick<UnitRead
 export const MIN_WAYS = 10
 
 /** Une ligne d'une seule question, ouverte : la règle, puis ce que disent ses couleurs */
-export const ONE_QUESTION_LEAD = fr('Sur une seule question, la page ne conclut pas : il en faut deux pour lire un thème. Ces couleurs donnent seulement votre affinité.')
+export const ONE_QUESTION_LEAD = fr('Sur une seule question, la page ne conclut pas : il en faut deux pour lire un thème. Ces couleurs, atténuées, donnent seulement votre affinité.')
 /** La même, en bref : le nom lu d'une ligne */
 export const ONE_QUESTION = fr('Une seule question : pas de lecture nette.')
 export const DEEPEN_THEME = 'Approfondir ce thème'
@@ -406,7 +407,7 @@ export const YOUR_RANKING = [fr('Votre classement : '), 'Résultats'] as const
 export const NOTHING_TESTABLE = fr('Pas encore de sujet à lire : il faut deux questions sur un même thème, ou deux thèmes répondus dans un même domaine.')
 /** C9 : chaque question répondue donne le même avis à toutes ses approches (rows.ts, uniformViews) */
 export const UNIFORM = fr(
-  'Sur chaque question, vos réponses donnent le même avis à toutes les approches : il n’y a qu’une façon de poser ces avis, la vôtre, donc rien à comparer. Les couleurs donnent seulement votre affinité.',
+  'Sur chaque question, vos réponses donnent le même avis à toutes les approches : il n’y a qu’une façon de poser ces avis, la vôtre, donc rien à comparer. Les couleurs, atténuées, donnent seulement votre affinité.',
 )
 /** Au-dessus du graphique, selon le pointeur : le doigt ou la souris */
 export const HINT_TOUCH = 'Touchez un sujet pour voir pourquoi.'
@@ -414,6 +415,12 @@ export const HINT_CLICK = 'Cliquez sur un sujet pour voir pourquoi.'
 /** La légende : les cinq paliers du site (core/affinity.ts), puis sa phrase */
 export const KEY_LABEL = 'Les couleurs des cases'
 export const KEY_TEXT = fr('Chaque case : votre affinité moyenne, sur ce sujet, avec les candidats du bloc.')
+/**
+ * Sous les paliers, deux pastilles du même palier : la couleur pleine d'une case nette, atténuée ailleurs (« pâle sauf
+ * net », décision du propriétaire du 17 octobre 2026)
+ */
+export const KEY_NET = fr('Pleine : nettement plus près ou plus loin')
+export const KEY_FLAT = fr('Atténuée : rien de net')
 /** Nom de la liste des blocs, pour les lecteurs d'écran */
 export const zonesLabel = (blocs: number, panel: number) =>
   fr(`Les ${word(blocs)} blocs de la grille du ministère de l’Intérieur, de l’extrême gauche à l’extrême droite, et les ${panel} candidats classés qu’elle y range`)
@@ -450,7 +457,8 @@ export function rowSummary(labels: readonly string[], name: string, meta: string
  * Les groupes d'un domaine, chacun sous un court intertitre (ui/profile/rows.ts), les lectures nettes d'un seul côté
  * comprises depuis le 17 octobre 2026 : sans le leur, la première ligne d'un domaine se lisait sous l'intertitre du
  * groupe suivant (« Culture et audiovisuel public », nette, lue « rien de net » sur une capture de la production). Aucun
- * bloc nommé. Le rangement et les mots disent « net », jamais la couleur.
+ * bloc nommé. Le rangement et les mots disent « net » ; depuis le 17 octobre 2026, la couleur aussi, pleine sur une case
+ * nette seulement (styles/app.css, .tile.is-net), jamais celle d'un bloc.
  */
 export const GROUP_TITLE = { net: 'Nettement plus près', apart: 'Seulement plus loin', flat: 'Rien de net', thin: 'Sur une seule question', unknown: 'Faute de candidats connus' } as const
 /**

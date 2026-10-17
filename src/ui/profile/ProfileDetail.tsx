@@ -119,7 +119,8 @@ function UnitRows({ unit, ctx }: { unit: UnitReading; ctx: ProfileCtx }) {
         <th scope="row" role="rowheader" id={rowId}>
           <span class="unit-name">{name}</span> <span class="unit-n">{T.onQuestions(unit.questions.length)}</span>
         </th>
-        {/* Chaque case : le palier, en couleur et en mot, et sa lecture nette en mots ; pour les lecteurs d'écran, un texte
+        {/* Chaque case : le palier, en couleur et en mot, et sa lecture nette en mots, qui rend la couleur pleine (Tile,
+            atténuée sinon) ; pour les lecteurs d'écran, un texte
             dans la case qui dit les deux (la case dessinée leur est masquée), lu en mode lecture comme en navigation de
             tableau */}
         {unit.cells.map((c, b) => (

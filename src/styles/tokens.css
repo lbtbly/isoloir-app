@@ -59,6 +59,17 @@
   --aff-mitige-tint: #eeeeee;
   --aff-proche-tint: #ebf7de;
   --aff-tres-proche-tint: #dcf7e1;
+  /* L'encre d'un palier sur sa teinte : le mot d'une case atténuée de « Mon profil politique » (décision du propriétaire
+     du 17 octobre 2026, « pâle sauf net » ; app.css, .tile). Très proche 6,2:1, proche 5,7:1, mitigé 5,9:1, éloigné
+     5,7:1, très éloigné 5,6:1 ; en sombre, la couleur même du palier, de 5,3 à 8,0:1 */
+  --aff-tres-eloigne-ink: #b7191c;
+  --aff-eloigne-ink: #9c4400;
+  --aff-mitige-ink: #5a5a5a;
+  --aff-proche-ink: #4a690c;
+  --aff-tres-proche-ink: #00672a;
+  /* La part du palier dans une petite case atténuée (légende, « Votre affinité, bloc par bloc ») : le double de celle de
+     sa teinte, 10 % en clair, 20 % en sombre */
+  --key-mix: 21%;
 
   /* Jaune autocopiant : le double qu'on emporte (affiche, aperçu du parcours). Il ne change pas en sombre. */
   --copy: #f2e7a6;
@@ -151,6 +162,12 @@
     --aff-mitige-tint: #262626;
     --aff-proche-tint: #273219;
     --aff-tres-proche-tint: #14361d;
+    --aff-tres-eloigne-ink: #f9786c;
+    --aff-eloigne-ink: #f9a275;
+    --aff-mitige-ink: #b1b1b1;
+    --aff-proche-ink: #acd476;
+    --aff-tres-proche-ink: #67d283;
+    --key-mix: 40%;
     /* Pastels en papier carbone : même teinte, aplat sombre ; toutes les encres claires y passent
        4,5:1 au moins (imprimé 11:1, gris 6:1, rouge stylo 4,8:1) */
     --pastel-vert: #1b3122;
@@ -187,6 +204,12 @@
   --aff-mitige-tint: #262626;
   --aff-proche-tint: #273219;
   --aff-tres-proche-tint: #14361d;
+  --aff-tres-eloigne-ink: #f9786c;
+  --aff-eloigne-ink: #f9a275;
+  --aff-mitige-ink: #b1b1b1;
+  --aff-proche-ink: #acd476;
+  --aff-tres-proche-ink: #67d283;
+  --key-mix: 40%;
   --pastel-vert: #1b3122;
   --pastel-rouge: #3d241f;
   --pastel-jaune: #322b13;
