@@ -70,7 +70,8 @@ export const WAIT_WHERE: Record<WaitState, string> = {
 /** « 0 question sur 22 », « 7 questions sur 22 » : le chiffre est posé à part, en grand */
 export const waitCount = (seen: number, total: number) => `question${seen > 1 ? 's' : ''} sur ${total}`
 /**
- * La phrase de la fiche ; left : questions rapides qui restent ; added : ajoutées depuis un questionnaire fini. Elle
+ * La phrase de la fiche ; left : questions rapides qui restent ; added : ajoutées depuis un questionnaire fini avec au
+ * moins un avis (core/profileAccess.ts : la lecture s'est déjà affichée ; après tout passé, false, la phrase générale). Elle
  * nomme « la lecture » plutôt qu'un pronom : après « le questionnaire rapide », « il » se rapporterait à lui
  */
 export function waitText(state: WaitState, total: number, left: number, added: boolean): string {

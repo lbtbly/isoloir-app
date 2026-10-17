@@ -54,6 +54,16 @@ describe('profileAccess : la page s’affiche au bout du questionnaire rapide, a
     expect(access(answers).added).toBe(false)
   })
 
+  it('questions ajoutées après un questionnaire fini sans aucun avis : la page ne s’est jamais affichée', () => {
+    // Tout passé, puis une question ajoutée : sans avis, « de nouveau » serait faux, l'accueil et la page d'attente
+    // gardent la phrase générale
+    const passed = sheet(essential.slice(0, -1), () => skip)
+    expect(access(passed, passed, '2026-10-12T10:00:00.000Z')).toMatchObject({ state: 'en-cours', left: 1, added: false })
+    // Un avis sur une question approfondie suffit : la page s'est affichée, elle revient une fois la question vue
+    const deepAgreed = { ...passed, [deep[0]!.id]: agree(deep[0]!) }
+    expect(access(deepAgreed, deepAgreed, '2026-10-12T10:00:00.000Z').added).toBe(true)
+  })
+
   it('les avis comptés sont ceux qui comptent : tous sur des questions à revoir, la page attend', () => {
     expect(access(sheet(essential), {}).state).toBe('sans-avis')
   })
