@@ -311,6 +311,74 @@ export const methodCross = (m: typeof ECHIQUIER_CROSS = ECHIQUIER_CROSS) => {
     ),
   ] as const
 }
+/**
+ * « Ce qui pèse le plus » (lot 3, A3 ; core/echiquierWeigh.ts) : où paraît la fiche, ce qu'elle dit et comment elle se
+ * calcule, ce qu'elle ne change pas. Le même calcul que « Comment c'est calculé » de la page (HOW_WEIGH), dit pour la
+ * Méthode : il nomme la page et ce que donne le détail
+ */
+export const METHOD_WEIGH = fr(
+  'Sous une lecture nette, la ligne ouverte dit ce qui y pèse le plus : la question dont vos avis, posés de toutes les autres façons sur ses approches, les autres questions telles quelles, changent le plus votre affinité avec le bloc ; puis, dans cette question, l’avis qui y compte le plus, le texte entier de son approche, et ce qu’elle est pour les candidats que la grille classe là, en nombres, sans aucun nom : leur approche principale, compatible, rejetée, ou portée par aucun. Le détail donne la part de chaque question, en points : sans position incertaine, ces parts font exactement l’écart avec les autres façons de poser vos mêmes avis. Les approches vous ont été présentées sans nom de candidat : les rapprochements sont calculés ensuite. Rien de cela ne change la couleur, la lecture ni l’ordre.',
+)
+/**
+ * La mesure de neutralité de « Ce qui pèse le plus », bloc par bloc (D5, décision du propriétaire du 15 octobre 2026),
+ * mesurée le 17 octobre 2026 par tools/audit-poids.mjs --quick, sur 60 clones bruités par candidat (graines « n: » et
+ * « nq: » de tools/audit-echiquier.mjs), avec et sans le candidat recopié dans le calcul. La fiche, ou sur des blocs non
+ * voisins le renvoi au détail, paraît sous 100 % des lignes lues nettement de chaque bloc vrai (aucune ligne sans fiche ;
+ * 25 renvois sur 5 450 lignes avec le candidat, 13 sur 3 379 sans lui) : « passe ». Ce qu'elle dit, part des fiches,
+ * selon le bloc vrai, sur la banque :
+ * - avec le candidat (référence du même passage : 16,5 points [12,8–20,2]) : approche principale 86,2 % (de 77,5 à
+ *   gauche à 90,8 à droite ; 13,3 points [8,9–17,6] : non établi), compatible 10,8 % (de 7,5 à droite à 17,6 à l'extrême
+ *   droite ; 10,1 [6–14,2] : passe), rejetée 1,7 % (6,6 [4,5–8,6] : passe), portée par aucun 1,3 % (1,4 [0–3] : passe) ;
+ * - sans lui (15,9 points [13,3–18,5]) : principale 80 % (de 75 au centre à 83,8 à droite ; 8,8 [2,3–15,5] : passe),
+ *   compatible 16,5 % (9,2 [3–15,7] : passe), rejetée 2 % et portée par aucun 1,4 % (passe).
+ * Au seul questionnaire rapide : avec le candidat (15,2 points [8,9–21,4]), principale 90,9 % (de 85 à l'extrême
+ * gauche à 97,7 à droite ; 12,7 [7,3–17,6] : non établi), compatible 7,9 % (de 0,9 à droite à 14,3 à l'extrême gauche ;
+ * 13,4 [8,6–17,7] : non établi) ; sans lui (17,5 points [12,2–22,6]), principale 86,2 % (de 78 à gauche à 95,4 à droite ;
+ * 17,4 [8,2–29] : non établi), compatible 11,8 % (de 3,3 à 19,8 ; 16,5 [7,6–27,4] : non établi) ; rejetée et portée par
+ * aucun, moins de 1,2 %, passent. La cause : la part des approches compatibles parmi les positions des candidats de
+ * chaque bloc, de 37,1 % à droite à 52 % à gauche (41,7 au centre, 41,9 à l'extrême droite, 49,7 à l'extrême gauche).
+ * Selon le candidat, l'approche citée est son approche principale dans 16,3 % (Fabien Roussel) à 72,3 % (Bruno
+ * Retailleau) des fiches de son bloc, sur la banque avec lui ; de 15,3 à 73,9 % sans lui ; au rapide, de 16,1 %
+ * (Jean-Luc Mélenchon) à 77 % (Nicolas Dupont-Aignan). Une question porte au moins la moitié de l'écart dans 50,6 % des
+ * fiches (66,5 % au rapide) ; « Aussi approche principale… » paraît dans le détail de 51,1 % ; un reste de plus de 2
+ * points (positions de confiance basse) dans 1,7 %. À 30 clones (une indication), les mêmes parts, à un point près ; sur
+ * la banque, avec le candidat, l'approche compatible restait non établie (8,6 points [3–14,4] pour 14,4), et sans lui
+ * l'approche principale et compatible aussi (7,2 [0–16,5] et 6,7 [0–15,6] pour 14,9) : 60 les tranchent. Le calcul
+ * d'une fiche, sur les 1 880 lignes de famille des clones : 0,1 ms en médiane, 1,1 ms au 99e centile, 1,7 ms au plus
+ * (sur Mac ; cinq fois plus sur un téléphone lent, moins d'un centième de seconde). À refaire après une mise à jour des
+ * positions, et à reporter ici
+ */
+export const ECHIQUIER_WEIGH = {
+  measured: '2026-10-17',
+  /** Clones bruités par candidat : l'effectif de la porte D5 */
+  clones: 60,
+  /**
+   * Sur la banque, part des fiches (%) : en tout, puis la plus basse et la plus haute selon le bloc vrai (et leurs blocs) ;
+   * avec puis sans le candidat
+   */
+  main: { all: 86.2, low: 77.5, lowWhere: 'à gauche', high: 90.8, highWhere: 'à droite', without: 80, withoutLow: 75, withoutHigh: 83.8 },
+  compatible: { all: 10.8, without: 16.5 },
+  rejects: { all: 1.7, without: 2 },
+  none: { all: 1.3, without: 1.4 },
+  /** L'écart de l'approche principale avec le candidat, non établi, et la référence du même passage, avec puis sans */
+  mainGap: 13.3,
+  reference: [16.5, 15.9],
+  /** Au seul questionnaire rapide : l'approche principale et l'approche compatible, avec le candidat ; non établies, avec et sans lui */
+  quick: { main: 90.9, mainLow: 85, mainHigh: 97.7, compatible: 7.9, compatibleLow: 0.9, compatibleHigh: 14.3 },
+  /** La part des approches compatibles parmi les positions des candidats de chaque bloc : la plus basse et la plus haute */
+  compatibleShare: { low: 37.1, lowWhere: 'à droite', high: 52, highWhere: 'à gauche' },
+  /** Selon le candidat, la part des fiches de son bloc dont l'approche citée est son approche principale (%), sur la banque avec lui */
+  cited: [16.3, 72.3],
+} as const
+
+/**
+ * La mesure de neutralité de « Ce qui pèse le plus » (D5) : la fiche sous chaque lecture nette, puis ce qu'elle dit, bloc
+ * par bloc, sur la banque avec et sans le candidat, puis au seul questionnaire rapide, et d'où vient l'écart
+ */
+export const methodWeigh = (m: typeof ECHIQUIER_WEIGH = ECHIQUIER_WEIGH) =>
+  fr(
+    `Pour éprouver cette fiche, on a repris les réponses recopiées, puis brouillées, de chaque candidat classé (${m.clones} feuilles par candidat) : elle paraît sous chacune des lectures nettes, quel que soit le bloc du candidat recopié. Sur la banque entière, l’approche citée est l’approche principale de candidats du bloc dans ${decimal(m.main.all)} % des fiches, de ${decimal(m.main.low)} % pour un candidat recopié que la grille classe ${m.main.lowWhere} à ${decimal(m.main.high)} % pour un candidat qu’elle classe ${m.main.highWhere} (${decimal(m.main.without)} %, de ${range(m.main.withoutLow, m.main.withoutHigh)}, sans lui dans le calcul) ; seulement compatible dans ${decimal(m.compatible.all)} % (${decimal(m.compatible.without)} % sans lui), rejetée dans ${decimal(m.rejects.all)} % (${decimal(m.rejects.without)} %), portée par aucun dans ${decimal(m.none.all)} % (${decimal(m.none.without)} %). Ces écarts entre blocs restent sous celui des lectures nettes elles-mêmes (${decimal(m.reference[0])} points avec le candidat, ${decimal(m.reference[1])} sans lui), sauf celui de l’approche principale avec le candidat, ${decimal(m.mainGap)} points, que la mesure ne permet de dire ni sous celui des lectures nettes, ni au-dessus. Après le seul questionnaire rapide, l’approche principale fait ${decimal(m.quick.main)} % des fiches (de ${range(m.quick.mainLow, m.quick.mainHigh)} selon le bloc) et l’approche seulement compatible ${decimal(m.quick.compatible)} % (de ${range(m.quick.compatibleLow, m.quick.compatibleHigh)}) : ces deux écarts ne sont établis ni avec ni sans le candidat. Les écarts suivent la part des approches compatibles parmi les positions des candidats de chaque bloc, de ${decimal(m.compatibleShare.low)} % chez ceux que la grille classe ${m.compatibleShare.lowWhere} à ${decimal(m.compatibleShare.high)} % chez ceux qu’elle classe ${m.compatibleShare.highWhere}. Au sein d’un bloc, l’approche citée est, selon le candidat, son approche principale dans ${range(m.cited[0], m.cited[1])} des fiches de son bloc.`,
+  )
 export const METHOD_LIMITS = [
   fr('La grille classe des partis et des candidats, pas des idées ; la présidentielle n’attribue pas de nuances, et certaines ont été déduites (voir '),
   fr('). Une lecture dépend des candidats en lice et de leurs positions, recherchées et résumées par IA : elle peut changer quand elles sont mises à jour. Ce n’est ni un test, ni une étiquette, ni une consigne de vote.'),

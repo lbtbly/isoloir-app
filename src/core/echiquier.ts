@@ -26,6 +26,8 @@
 // position de confiance basse rend la question inconnue pour lui (dans la comparaison aussi : selon la façon de poser
 // les avis, il est connu ou non sur la question, et le calcul en tient compte exactement).
 // Fichier à part du build, chargé à la demande avec la page (ui/profile/load.ts).
+// Ce qui pèse le plus dans une lecture nette (lot 3, A3) se calcule à part (core/echiquierWeigh.ts, un autre fichier
+// du build, chargé par la page à la demande), avec les pièces mêmes de ce calcul, reprises en fin de fichier.
 
 import { hasOpinion } from './answers'
 import { panelOf } from './echiquierPanel'
@@ -895,6 +897,12 @@ function* readUnit(
   return reading
 }
 
+/** Les candidats de chaque bloc de l'axe, par leur indice dans Prep.ids, sans ceux que les réglages retirent */
+function membersOf(prep: Prep, opts: Pick<ReadOptions, 'without'>): number[][] {
+  const without = new Set(opts.without ?? [])
+  return prep.axis.map((_, b) => prep.ids.flatMap((id, c) => (prep.blocIndex[c] === b && !without.has(id) ? [c] : [])))
+}
+
 /** Les blocs ▲ d'une unité, en suites contiguës de l'axe : [[0, 1], [4]] */
 export function segments(indices: readonly number[]): number[][] {
   const out: number[][] = []
@@ -913,8 +921,7 @@ export function segments(indices: readonly number[]): number[][] {
  */
 function* steps(pack: ElectionPack, answers: Answers, opts: ReadOptions): Generator<void, Echiquier, void> {
   const prep = prepare(pack)
-  const without = new Set(opts.without ?? [])
-  const members = prep.axis.map((_, b) => prep.ids.flatMap((id, c) => (prep.blocIndex[c] === b && !without.has(id) ? [c] : [])))
+  const members = membersOf(prep, opts)
   const vectors = new Map<number, Int8Array>()
   prep.questions.forEach((q, qi) => {
     const a = answers[q.id]
@@ -1139,3 +1146,9 @@ export function deeperTopics(pack: Pick<ElectionPack, 'bank'>, current: Answers,
   }
   return { thin, none }
 }
+
+// ——— Les pièces du calcul que reprend « Ce qui pèse le plus » (core/echiquierWeigh.ts) ———
+// La décomposition d'une lecture nette (lot 3) refait le même calcul, sans rien en recopier : le précalcul par pack, les
+// avis d'une réponse, le score d'une question, l'affinité, les moyennes par bloc, les placements des avis, les candidats
+// de l'axe et la tolérance des égalités. Seul ce fichier-là s'en sert.
+export { affinityInto, arrangements, blocMeansInto, membersOf, prepare, scoreInto, TIE, vectorOf }

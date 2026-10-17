@@ -4,18 +4,20 @@
 // Reading Not Label Rule) : le sujet est toujours « vos réponses », un bloc est toujours attribué à la grille, aucun mot
 // d'étiquette ni de qualité, plus jamais « hasard » pour dire la comparaison (D2), aucun « % » dans la synthèse et les
 // phrases, aucun symbole de lecture (seul « ? » reste), les espaces insécables du site ; l'affichage dédié (D1) : chaque
-// état dit un constat, sans cause prêtée à la personne. Puis le découpage du build : la rubrique n'emporte ni le calcul
-// de la page ni ses mots.
+// état dit un constat, sans cause prêtée à la personne. Ceux de « Ce qui pèse le plus » (lot 3,
+// core/echiquierWeighCopy.ts) : les phrases des maquettes validées, en nombres, sans aucun nom de candidat. Puis le
+// découpage du build : la rubrique n'emporte ni le calcul de la page ni ses mots, ni la page la fiche.
 import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
-import { ECHIQUIER, readEchiquier, type BlocCell, type Mark, type UnitReading, type UnitStatus } from '../src/core/echiquier'
+import { ECHIQUIER, readEchiquier, segments, type BlocCell, type Mark, type UnitReading, type UnitStatus } from '../src/core/echiquier'
 import * as T from '../src/core/echiquierCopy'
+import * as W from '../src/core/echiquierWeighCopy'
 import { word } from '../src/core/echiquierCommonCopy'
 import * as M from '../src/core/echiquierMethodCopy'
 import { panelOf } from '../src/core/echiquierPanel'
-import { CLOSE_GAP, dealbreakerLevel } from '../src/core/score'
+import { CLOSE_GAP, dealbreakerLevel, effectiveWeight } from '../src/core/score'
 import { axisOf } from '../src/core/spectrum'
 import { elections } from '../src/elections/all'
 import { isQuick, profilesFor } from './fixtures/echiquier-profiles'
@@ -119,7 +121,7 @@ function allTexts(): string[] {
     else if (Array.isArray(v)) v.forEach(walk)
     else if (v && typeof v === 'object') Object.values(v).forEach(walk)
   }
-  for (const v of [...Object.values(T), ...Object.values(M)]) if (typeof v !== 'function') walk(v)
+  for (const v of [...Object.values(T), ...Object.values(M), ...Object.values(W)]) if (typeof v !== 'function') walk(v)
   for (const n of [1, 2, 7]) {
     out.push(T.howWho(15, n), T.onQuestions(n), T.familyHead(n + 1), T.nothingLine(n), T.apartLine(n), T.noReadingLine(n), T.unansweredLine(n))
     out.push(...T.caveats(15), T.unplaced(n, false), T.unplaced(n, true), T.chanceNote(true, n * 12), T.chanceNote(true, n * 12_345), T.chanceNote(false, Number.POSITIVE_INFINITY))
@@ -151,6 +153,38 @@ function allTexts(): string[] {
   for (const s of subsets(axis.length)) out.push(T.groupLabel(axis, s))
   // Lignes rouges et priorités (lot 2)
   out.push(...allCrossLines(), T.rowMeta(1, true), T.rowMeta(4, true), T.rowMeta(4, false), ...M.methodCross(), M.METHOD_PRIORITY)
+  // Ce qui pèse le plus (lot 3)
+  out.push(...allWeighTexts(), M.methodWeigh(), M.METHOD_WEIGH)
+  return out
+}
+
+/** Les suites contiguës de blocs de l'axe, telles que la fiche les dit (where) */
+const contiguous = () => subsets(axis.length).filter(s => segments(s).length === 1)
+
+/**
+ * Les phrases de « Ce qui pèse le plus » : chaque suite pour chaque suite de blocs, de un à sept candidats connus, k
+ * d'entre eux, avec ou sans compatibles, « ils en portent d'autres » ou non ; le renvoi au détail, le détail, la règle
+ */
+function allWeighTexts(): string[] {
+  const out: string[] = []
+  for (const seg of contiguous()) {
+    const where = T.where(axis, seg)
+    for (const n of [1, 2, 3, 4, 7])
+      for (let k = 1; k <= n; k++) {
+        const base = { known: n, main: 0, compatible: 0, rejects: 0, others: true }
+        out.push(W.weighWho(where, { ...base, suite: 'principale', main: k }))
+        for (const m of [1, 2]) if (k + m <= n) out.push(W.weighWho(where, { ...base, suite: 'principale', main: k, compatible: m }))
+        out.push(W.weighWho(where, { ...base, suite: 'compatible', compatible: k }), W.weighWho(where, { ...base, suite: 'rejet', rejects: k }))
+      }
+    for (const n of [1, 3]) for (const others of [true, false]) out.push(W.weighWho(where, { suite: 'aucun', known: n, main: 0, compatible: 0, rejects: 0, others }))
+    out.push(W.weighFor(where))
+    for (const count of [1, 3]) for (const also of [true, false]) out.push(W.weighAlso(where, count, also))
+  }
+  out.push(W.weighElsewhere([T.where(axis, [1]), T.where(axis, [3])]), W.weighElsewhere([T.where(axis, [0]), T.where(axis, [2]), T.where(axis, [4])]))
+  out.push(W.weighAlso(T.whereAll(axis, [0, 3, 4]), 4, true), W.weighPartsLead(1), W.weighPartsLead(2), W.weighRest(2.4), W.weighRest(-1.6))
+  for (const x of [-12.4, -1, 0, 0.4, 1, 18.6]) out.push(W.points(x))
+  for (const [v, r] of [[1, false], [-1, false], [-1, true]] as const) out.push(W.weighView(v, r))
+  out.push(W.quoted('Ramener l’âge légal à 60 ans à taux plein, sans allonger la durée de cotisation'), W.HOW_WEIGH, W.WEIGH_TITLE)
   return out
 }
 
@@ -528,7 +562,7 @@ describe('règles d’écriture', () => {
       T.NOTHING_TESTABLE,
       T.UNIFORM,
     ]
-    const texts = [...sentences, ...M.methodWorth(), M.methodBefore(), ...M.methodCross(), M.METHOD_CROSS_WHERE, M.METHOD_PRIORITY, ...allSummaries(), ...chart]
+    const texts = [...sentences, ...M.methodWorth(), M.methodBefore(), ...M.methodCross(), M.METHOD_CROSS_WHERE, M.METHOD_PRIORITY, M.METHOD_WEIGH, M.methodWeigh(), ...allWeighTexts(), ...allSummaries(), ...chart]
     for (const s of texts) {
       if (BLOC.test(s)) expect(/la grille/.test(s), s).toBe(true)
       for (const m of s.matchAll(/qu’elle classe/g)) expect(s.slice(0, m.index).includes('la grille'), s).toBe(true)
@@ -562,7 +596,7 @@ describe('règles d’écriture', () => {
 
   it('aucun symbole de lecture : ni ▲ ni ▽ ni point, dans les textes du module comme dans ceux de la page ; seul « ? » reste', () => {
     for (const t of allTexts()) expect(/[▲▽△▼·]/.test(t), t).toBe(false)
-    for (const file of ['src/ui/screens/Profile.tsx', 'src/ui/profile/Chart.tsx', 'src/ui/profile/MethodSection.tsx', 'src/ui/profile/Diagram.tsx']) {
+    for (const file of ['src/ui/screens/Profile.tsx', 'src/ui/profile/Chart.tsx', 'src/ui/profile/Weigh.tsx', 'src/ui/profile/MethodSection.tsx', 'src/ui/profile/Diagram.tsx']) {
       const code = readFileSync(join(ROOT, file), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '')
       expect(/[▲▽△▼]/.test(code), file).toBe(false)
     }
@@ -579,7 +613,7 @@ describe('règles d’écriture', () => {
     }
     for (const t of allTexts()) check('echiquierCopy', t)
     // Les fichiers de la page, sans leurs commentaires : leurs textes sont du JSX ou des chaînes
-    for (const file of ['src/ui/screens/Profile.tsx', 'src/ui/profile/Chart.tsx', 'src/ui/profile/MethodSection.tsx', 'src/ui/profile/Diagram.tsx']) {
+    for (const file of ['src/ui/screens/Profile.tsx', 'src/ui/profile/Chart.tsx', 'src/ui/profile/Weigh.tsx', 'src/ui/profile/MethodSection.tsx', 'src/ui/profile/Diagram.tsx']) {
       const code = readFileSync(join(ROOT, file), 'utf8')
         .replace(/\/\*[\s\S]*?\*\//g, '')
         .split('\n')
@@ -602,7 +636,7 @@ describe('règles d’écriture', () => {
       .join('\n')
     return [...code.matchAll(/'([^'\n]*)'|`([^`]*)`|"([^"\n]*)"|>([^<>{}\n]+)</g)].map(m => m[1] ?? m[2] ?? m[3] ?? m[4] ?? '').filter(t => /[a-zà-ÿ]{3}/i.test(t))
   }
-  const PAGE_FILES = ['src/ui/screens/Profile.tsx', 'src/ui/profile/Chart.tsx', 'src/ui/profile/MethodSection.tsx', 'src/ui/profile/Diagram.tsx']
+  const PAGE_FILES = ['src/ui/screens/Profile.tsx', 'src/ui/profile/Chart.tsx', 'src/ui/profile/Weigh.tsx', 'src/ui/profile/MethodSection.tsx', 'src/ui/profile/Diagram.tsx']
 
   it('plus jamais « hasard » pour dire la comparaison (D2), ni « placés au hasard », dans les textes comme dans la page', () => {
     for (const t of allTexts()) expect(/hasard/i.test(t), t).toBe(false)
@@ -612,7 +646,7 @@ describe('règles d’écriture', () => {
   })
 
   it('aucun mot de qualité, et rien qui situe la personne : ni « surtout », ni « fragile », ni « solide », ni « presque »', () => {
-    const FORBIDDEN = [/\bsurtout\b/i, /fragile/i, /solide/i, /presque/i, /vous êtes au centre/i, /modéré/i, /incohéren/i, /personne ne vous représente/i, /c’est fréquent/i]
+    const FORBIDDEN = [/\bsurtout\b/i, /fragile/i, /solide/i, /presque/i, /vous êtes au centre/i, /modéré/i, /incohéren/i, /personne ne vous représente/i, /c’est fréquent/i, /dans l’autre sens/i]
     for (const t of allTexts()) for (const re of FORBIDDEN) expect(re.test(t), `${re} dans « ${t.slice(0, 120)} »`).toBe(false)
     for (const file of PAGE_FILES) for (const t of pageTexts(file)) for (const re of FORBIDDEN) expect(re.test(t), `${file} : ${re} dans « ${t.slice(0, 120)} »`).toBe(false)
   })
@@ -771,6 +805,137 @@ describe('lignes rouges et priorités (lot 2)', () => {
   })
 })
 
+describe('ce qui pèse le plus dans cette lecture (lot 3)', () => {
+  const where = (seg: number[]) => T.where(axis, seg)
+  const w = (suite: 'principale' | 'compatible' | 'rejet' | 'aucun', known: number, k: number, extra: Partial<{ compatible: number; others: boolean }> = {}) => ({
+    suite,
+    known,
+    main: suite === 'principale' ? k : 0,
+    compatible: suite === 'compatible' ? k : (extra.compatible ?? 0),
+    rejects: suite === 'rejet' ? k : 0,
+    others: extra.others ?? true,
+  })
+
+  it('les quatre suites des maquettes validées, en nombres, sans aucun nom', () => {
+    expect(W.WEIGH_TITLE).toBe('Ce qui pèse le plus dans cette lecture')
+    expect(W.weighWho(where([0]), w('principale', 4, 2, { compatible: 1 }))).toBe(`Approche principale de 2${NB}des 4${NB}candidats que la grille classe à l’extrême gauche${NB}; compatible pour 1${NB}autre.`)
+    expect(W.weighWho(where([4]), w('principale', 3, 2))).toBe(`Approche principale de 2${NB}des 3${NB}candidats que la grille classe à l’extrême droite.`)
+    expect(W.weighWho(where([2]), w('compatible', 2, 1))).toBe(`Approche compatible pour 1${NB}des 2${NB}candidats que la grille classe au centre.`)
+    expect(W.weighWho(where([3]), w('rejet', 3, 2))).toBe(`2${NB}des 3${NB}candidats que la grille classe à droite rejettent cette approche.`)
+    expect(W.weighWho(where([1]), w('aucun', 3, 0))).toBe(`Aucun des 3${NB}candidats que la grille classe à gauche ne porte cette approche${NB}: ils en portent d’autres.`)
+  })
+
+  it('un seul, tous, un candidat connu ; « ils en portent d’autres » seulement quand c’est vrai ; une suite de blocs', () => {
+    expect(W.weighWho(where([0]), w('principale', 4, 1, { compatible: 2 }))).toBe(`Approche principale d’un des 4${NB}candidats que la grille classe à l’extrême gauche${NB}; compatible pour 2${NB}autres.`)
+    expect(W.weighWho(where([3]), w('principale', 3, 3))).toBe(`Approche principale des 3${NB}candidats que la grille classe à droite.`)
+    expect(W.weighWho(where([2]), w('principale', 1, 1))).toBe('Approche principale du candidat que la grille classe au centre.')
+    expect(W.weighWho(where([1]), w('compatible', 3, 3))).toBe(`Approche compatible pour les 3${NB}candidats que la grille classe à gauche.`)
+    expect(W.weighWho(where([2]), w('compatible', 1, 1))).toBe('Approche compatible pour le candidat que la grille classe au centre.')
+    expect(W.weighWho(where([3]), w('rejet', 3, 1))).toBe(`Un des 3${NB}candidats que la grille classe à droite rejette cette approche.`)
+    expect(W.weighWho(where([3]), w('rejet', 3, 3))).toBe(`Les 3${NB}candidats que la grille classe à droite rejettent cette approche.`)
+    expect(W.weighWho(where([3]), w('rejet', 1, 1))).toBe('Le candidat que la grille classe à droite rejette cette approche.')
+    expect(W.weighWho(where([1]), w('aucun', 3, 0, { others: false }))).toBe(`Aucun des 3${NB}candidats que la grille classe à gauche ne porte cette approche.`)
+    expect(W.weighWho(where([1]), w('aucun', 1, 0))).toBe(`Le candidat que la grille classe à gauche ne porte pas cette approche${NB}: il en porte d’autres.`)
+    expect(W.weighWho(where([1]), w('aucun', 1, 0, { others: false }))).toBe('Le candidat que la grille classe à gauche ne porte pas cette approche.')
+    expect(W.weighWho(where([0, 1]), w('principale', 7, 1, { compatible: 4 }))).toBe(`Approche principale d’un des 7${NB}candidats que la grille classe à l’extrême gauche et à gauche${NB}; compatible pour 4${NB}autres.`)
+    // Jamais « 1 des », « 3 des 3 », ni « 0 » : chaque nombre se dit comme il se lit
+    for (const t of allWeighTexts()) expect(/(^|[^\d])(0|1)\u00a0des|\b(\d+)\u00a0des \3\u00a0/.test(t.replace(/pour 1\u00a0des/g, '')), t).toBe(false)
+  })
+
+  it('votre avis en entier, l’approche entre guillemets ; le renvoi au détail, ce qu’il donne, la part de chaque question', () => {
+    expect(T.YOUR_VIEW).toBe(`Votre avis${NB}:`)
+    expect([W.weighView(1, false), W.weighView(-1, false), W.weighView(-1, true)]).toEqual(['d’accord', 'pas d’accord', 'pas d’accord, ligne rouge'])
+    expect(W.quoted('Ramener l’âge légal à 60 ans à taux plein, sans allonger la durée de cotisation')).toBe(`«${NB}Ramener l’âge légal à 60 ans à taux plein, sans allonger la durée de cotisation${NB}»`)
+    expect(W.weighElsewhere([where([1]), where([3])])).toBe('Le détail le donne pour les candidats que la grille classe à gauche, puis pour ceux qu’elle classe à droite.')
+    expect(W.weighElsewhere([where([0]), where([2]), where([4])])).toBe('Le détail le donne pour les candidats que la grille classe à l’extrême gauche, pour ceux qu’elle classe au centre, puis pour ceux qu’elle classe à l’extrême droite.')
+    expect(W.weighFor(where([0, 1]))).toBe(`Pour les candidats que la grille classe à l’extrême gauche et à gauche${NB}:`)
+    // Dans le détail seulement : « Aussi… » quand l'approche est déjà principale dans la fiche, sinon sans « Aussi »
+    expect(W.weighAlso(T.whereAll(axis, [3, 4]), 3, true)).toBe('Aussi approche principale de candidats que la grille classe à droite et à l’extrême droite.')
+    expect(W.weighAlso(where([1]), 1, false)).toBe('Approche principale d’un candidat que la grille classe à gauche.')
+    expect(W.weighPartsLead(1)).toMatch(/^Part de chaque question dans l’écart avec les autres façons de poser vos mêmes avis\u00a0: /)
+    expect(W.weighPartsLead(2)).toMatch(/^Part de chaque question dans l’écart moyen de ces blocs avec /)
+    expect([W.points(12.4), W.points(-3.2), W.points(0.4), W.points(1), W.points(-0.5)]).toEqual([`+12${NB}points`, `−3${NB}points`, `0${NB}point`, `+1${NB}point`, `0${NB}point`])
+    expect(W.weighRest(2.4)).toBe(`Reste de l’écart, +2${NB}points${NB}: sur certaines questions, une position incertaine rend un candidat connu ou non selon la façon de poser vos avis.`)
+  })
+
+  it('« Comment c’est calculé » et la Méthode : la règle des maquettes, et ce que la fiche ne change pas', () => {
+    expect(W.HOW_WEIGH).toBe(
+      `Ce qui pèse le plus${NB}: la question dont vos avis, posés de toutes les autres façons sur ses approches, changent le plus votre affinité avec le bloc${NB}; puis, dans cette question, l’avis qui y compte le plus. Les approches vous ont été présentées sans nom de candidat${NB}: les rapprochements sont calculés ensuite.`,
+    )
+    expect(M.METHOD_WEIGH).toMatch(/^Sous une lecture nette, la ligne ouverte dit ce qui y pèse le plus\u00a0: /)
+    expect(M.METHOD_WEIGH).toContain('en nombres, sans aucun nom')
+    expect(M.METHOD_WEIGH).toContain('sans position incertaine, ces parts font exactement l’écart avec les autres façons de poser vos mêmes avis')
+    expect(M.METHOD_WEIGH).toMatch(/Rien de cela ne change la couleur, la lecture ni l’ordre\.$/)
+    // La page dit la règle une fois la fiche chargée, dans son point 2 : jamais un neuvième point
+    const chart = readFileSync(join(ROOT, 'src/ui/profile/Chart.tsx'), 'utf8')
+    expect(chart).toContain('{weigh ? ` ${weigh.HOW_WEIGH}` : null}')
+    const section = readFileSync(join(ROOT, 'src/ui/profile/MethodSection.tsx'), 'utf8')
+    for (const x of ['T.METHOD_WEIGH', 'T.methodWeigh()', '<strong>Ce qui pèse le plus.</strong>']) expect(section, x).toContain(x)
+  })
+
+  it('aucun nom de candidat, aucun « % », aucun mot de qualité dans la fiche ; chaque bloc attribué à la grille', () => {
+    const pack = elections.find(p => p.election.id === 'presidentielle-2027')!
+    const names = pack.candidates.flatMap(c => [c.name, c.name.split(' ').slice(1).join(' ')]).filter(n => n.length > 3)
+    const texts = allWeighTexts().filter(t => !t.startsWith('«'))
+    for (const t of texts) {
+      for (const n of names) expect(t.includes(n), `${n} dans « ${t} »`).toBe(false)
+      expect(t, t).not.toContain('%')
+      expect(/surtout|fragile|solide|presque|tire dans|hasard/i.test(t), t).toBe(false)
+    }
+    // Chaque phrase qui compte des candidats les attribue à la grille (la règle et le reste ne comptent personne)
+    for (const t of texts.filter(x => /candidat/.test(x) && x !== W.HOW_WEIGH && !/^Reste/.test(x))) expect(t, t).toMatch(/que la grille classe/)
+  })
+
+  it('la Méthode publie la neutralité de la fiche bloc par bloc, avec et sans le candidat (D5)', () => {
+    const P = M.ECHIQUIER_WEIGH
+    const text = M.methodWeigh()
+    const dec = (x: number) => String(x).replace('.', ',')
+    expect(P.clones).toBeGreaterThanOrEqual(60)
+    expect(text).toContain(`(${P.clones} feuilles par candidat)`)
+    expect(text).toContain('elle paraît sous chacune des lectures nettes, quel que soit le bloc du candidat recopié')
+    expect(text).toContain(
+      `l’approche citée est l’approche principale de candidats du bloc dans ${dec(P.main.all)}${NB}% des fiches, de ${dec(P.main.low)}${NB}% pour un candidat recopié que la grille classe ${P.main.lowWhere} à ${dec(P.main.high)}${NB}% pour un candidat qu’elle classe ${P.main.highWhere}`,
+    )
+    expect(text).toContain(`(${dec(P.main.without)}${NB}%, de ${dec(P.main.withoutLow)} à ${dec(P.main.withoutHigh)}${NB}%, sans lui dans le calcul)`)
+    expect(P.main.low).toBeLessThanOrEqual(P.main.all)
+    expect(P.main.all).toBeLessThanOrEqual(P.main.high)
+    expect(P.main.withoutLow).toBeLessThanOrEqual(P.main.without)
+    // Les quatre suites font toutes les fiches, avec et sans le candidat (à l'arrondi près)
+    expect(Math.abs(P.main.all + P.compatible.all + P.rejects.all + P.none.all - 100)).toBeLessThan(0.3)
+    expect(Math.abs(P.main.without + P.compatible.without + P.rejects.without + P.none.without - 100)).toBeLessThan(0.3)
+    // L'écart de l'approche principale avec le candidat : non établi, dit tel quel, et sous la référence ponctuellement
+    expect(text).toContain(`sauf celui de l’approche principale avec le candidat, ${dec(P.mainGap)} points, que la mesure ne permet de dire ni sous celui des lectures nettes, ni au-dessus`)
+    expect(P.mainGap).toBeLessThan(P.reference[0])
+    expect(text).toContain(`(${dec(P.reference[0])} points avec le candidat, ${dec(P.reference[1])} sans lui)`)
+    expect(text).toContain('ces deux écarts ne sont établis ni avec ni sans le candidat')
+    // La cause, la part des approches compatibles bloc par bloc, et la part de chaque candidat
+    expect(text).toContain(`de ${dec(P.compatibleShare.low)}${NB}% chez ceux que la grille classe ${P.compatibleShare.lowWhere} à ${dec(P.compatibleShare.high)}${NB}% chez ceux qu’elle classe ${P.compatibleShare.highWhere}`)
+    expect(text).toContain(`son approche principale dans ${dec(P.cited[0])} à ${dec(P.cited[1])}${NB}% des fiches de son bloc`)
+    expect(text).not.toMatch(/hasard|Infinity|NaN|\d\.\d/)
+  })
+
+  it('la part des approches compatibles, que la Méthode publie : celle des données, bloc par bloc', () => {
+    const pack = elections.find(p => p.election.id === 'presidentielle-2027')!
+    const shares = panelOf(pack).map(ids => {
+      let one = 0
+      let all = 0
+      for (const id of ids)
+        for (const pos of Object.values(pack.positions[id] ?? {})) {
+          const e = effectiveWeight(pos)
+          if (e) all++
+          if (e === 1) one++
+        }
+      return Math.round((1000 * one) / all) / 10
+    })
+    const C = M.ECHIQUIER_WEIGH.compatibleShare
+    expect(Math.min(...shares)).toBe(C.low)
+    expect(Math.max(...shares)).toBe(C.high)
+    // À droite la plus basse, à gauche la plus haute (les libellés publiés)
+    expect(shares.indexOf(C.low)).toBe(3)
+    expect(shares.indexOf(C.high)).toBe(1)
+  })
+})
+
 describe('la rubrique de la Méthode : la comparaison, les deux régimes, l’avant et l’après', () => {
   it('publie la neutralité bloc par bloc, sans puis avec le candidat (D5)', () => {
     const [clones] = M.methodWorth()
@@ -877,6 +1042,12 @@ describe('la rubrique de la Méthode, un fichier à part du build', () => {
     const page = reached('src/ui/screens/Profile.tsx')
     expect(page).toContain('src/core/echiquier.ts')
     expect(page).not.toContain('src/core/echiquierMethodCopy.ts')
+    // « Ce qui pèse le plus » (lot 3) : un fichier à part, chargé par la page à la demande, qui n'emporte pas la rubrique
+    for (const f of ['src/ui/profile/Weigh.tsx', 'src/core/echiquierWeigh.ts', 'src/core/echiquierWeighCopy.ts']) {
+      expect(page, f).not.toContain(f)
+      expect(files, f).not.toContain(f)
+    }
+    expect(reached('src/ui/profile/Weigh.tsx')).not.toContain('src/core/echiquierMethodCopy.ts')
   })
 
   it('dit l’écart du calcul, qu’elle prend sans lui : ECHIQUIER.GAP est CLOSE_GAP', () => {

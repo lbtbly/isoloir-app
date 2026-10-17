@@ -323,7 +323,7 @@ export function oneQuestion(axis: readonly SpectrumAxisBloc[], carriers: readonl
 
 // ——— Synthèse ———
 
-export const SUMMARY_TITLE = fr('Où vos réponses se rapprochent nettement d’un bloc de la grille')
+export const SUMMARY_TITLE = /* @__PURE__ */ fr('Où vos réponses se rapprochent nettement d’un bloc de la grille')
 /** Sous le graphique, en petit corps gris : ce que vaut une lecture nette, chiffres de la Méthode (ECHIQUIER_PUBLISHED) */
 export const SUMMARY_NOTE = fr(
   'Selon la grille des nuances du ministère de l’Intérieur. Une lecture nette n’est pas une certitude : des feuilles remplies par un programme, sans suivre aucun candidat, en obtiennent aussi une ou deux sur l’ensemble des thèmes, un peu plus selon la façon de répondre. Chaque lecture se vérifie dans son détail.',

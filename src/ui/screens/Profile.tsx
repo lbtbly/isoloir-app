@@ -11,6 +11,10 @@
 // 2026) : les lignes rouges que franchit chaque candidat, prises au dépouillement (results), qu'une ligne ouverte montre
 // sous un bloc nettement plus près et que le détail dit sous l'approche rayée ; les thèmes prioritaires, comme au
 // dépouillement, que dit la ligne fermée (« prioritaire »), le détail et la fiche « Pour lire plus de thèmes ».
+// Ce qui pèse le plus dans une lecture nette (lot 3, ui/profile/Weigh.tsx, un fichier à part chargé après le premier
+// affichage) : la fiche d'une ligne ouverte (ui/profile/Chart.tsx), et dans le détail, pour chaque suite de blocs
+// nettement plus près, la même fiche, où l'approche citée est aussi l'approche principale de candidats, et la part de
+// chaque question en points.
 // Une lecture, pas une étiquette (DESIGN.md, The Reading Not Label Rule) : le sujet des phrases est toujours « vos
 // réponses », les blocs sont attribués à « la grille » ; les blocs n'ont pas de couleur : chaque case prend celle de
 // l'échelle d'affinité du site (décision du propriétaire du 12 octobre 2026), jamais seule, toujours avec le mot de son
@@ -46,7 +50,7 @@ import { Icon } from '../components/Icon'
 import { ProgressTally } from '../components/ProgressTally'
 import { SiteFooter } from '../components/SiteFooter'
 import { link } from '../nav'
-import { Chart, deeperOf, isRead, oneQuestionFact, Tile, type ProfileCtx } from '../profile/Chart'
+import { Chart, deeperOf, isRead, oneQuestionFact, Tile, useWeigh, type ProfileCtx } from '../profile/Chart'
 import { crossedBy, hitsOf } from '../profile/rows'
 import '../../styles/profile.css'
 
@@ -430,6 +434,9 @@ function DetailBody({ unit, ctx, deeper }: { unit: UnitReading; ctx: ProfileCtx;
   for (const q of questions)
     for (const a of approvedOf(q, answers[q.id])) if (mainCarriers(pack, q.id, a).every(ids => !ids.length)) unplaced++
   const middle = (axis.length - 1) / 2
+  // Ce qui pèse le plus (lot 3), à l'ouverture du détail seulement : chaque suite de blocs nettement plus près, dès que
+  // son fichier est là (ui/profile/Weigh.tsx)
+  const [weigh] = useWeigh()
   return (
     <div class="detail-body">
       {/* Rôles explicites : à l'étroit, chaque bloc passe en quelques lignes nommées */}
@@ -481,6 +488,9 @@ function DetailBody({ unit, ctx, deeper }: { unit: UnitReading; ctx: ProfileCtx;
         </tbody>
       </table>
       {tested ? <p class="small">{T.chanceNote(unit.exact, unit.ways)}</p> : null}
+      {/* Ce qui pèse le plus (lot 3, A3) : pour chaque suite de blocs nettement plus près, sa fiche, où l'approche citée est
+          aussi l'approche principale de candidats de l'axe, puis la part de chaque question dans l'écart, en points */}
+      {weigh ? <weigh.WeighDetail weighs={weigh.weighsOf(unit, ctx)} ctx={ctx} questions={questions} /> : null}
       {/* Un thème prioritaire : il compte double dans le classement, pas ici (lot 2, A2) */}
       {!family && ctx.priorities.has(unit.id) ? <p class="small detail-prio">{T.PRIORITY_DETAIL}</p> : null}
 

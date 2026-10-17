@@ -856,6 +856,12 @@ try {
       detailCells.n >= rows && detailCells.bad.length === 0,
       `mon profil politique, détail : ${detailCells.n} cases, chacune dite par un texte dans la case (bloc, grille, palier, lecture nette)${detailCells.bad.length ? ` : ${detailCells.bad.join(' ; ')}` : ''}`,
     )
+    // « Ce qui pèse le plus » (lot 3) : son fichier à part arrive après le premier affichage, hors ligne lui aussi (il est
+    // dans la copie hors ligne), et « Comment c'est calculé » en dit alors la règle
+    const weighLoaded = await page
+      .waitForFunction(() => performance.getEntriesByType('resource').some(e => /\/Weigh-[\w-]+\.js$/.test(e.name)) && (document.querySelector('main details.calc')?.textContent ?? '').includes('Ce qui pèse le plus'), null, { timeout: 5000 })
+      .then(() => true, () => false)
+    check(weighLoaded, `mon profil politique : « Ce qui pèse le plus », un fichier à part chargé hors ligne après le premier affichage, et sa règle dans « Comment c’est calculé » (${weighLoaded})`)
     check(
       panelTitle === 'Mon profil politique' && panelPlace === 1 && gridLink === 1 && barShortcuts === 2,
       `mon profil politique : panneau « ${panelTitle} » en ${panelPlace + 1}e place de « Et maintenant », lien sous « Par thème » (${gridLink}), toujours deux raccourcis dans la barre (${barShortcuts})`,
@@ -1472,6 +1478,7 @@ try {
         const { computeResults } = await importSite('src/core/score.ts')
         const { currentAnswers } = await importSite('src/core/revisions.ts')
         const { chartRows: rowsOfChart, crossingsOf, hitsOf, splitsABloc } = await importSite('src/ui/profile/rows.ts')
+        const { weighOf } = await importSite('src/core/echiquierWeigh.ts')
         const C = await importSite('src/core/echiquierCopy.ts')
         const cur = currentAnswers(pack, readState.answers)
         const hits = hitsOf(computeResults(pack, cur, readState.weights, readState.seed))
@@ -1509,7 +1516,10 @@ try {
           const norm = t => t.replace(/[\u00a0\u202f]/g, ' ')
           if (got.texts.map(norm).join('|') !== texts.map(norm).join('|')) issues.push(`${id} : « ${got.texts.filter(Boolean).join(' / ')} » au lieu de « ${texts.filter(Boolean).join(' / ')} »`)
           if (!got.named || !got.underNet || !got.gray) issues.push(`${id} : croix ${JSON.stringify(got)}`)
-          if (splitsABloc(crossOf.get(id), axisPanel) === got.note) issues.push(`${id} : note sur le bloc entier ${got.note}`)
+          // La note s'efface aussi quand la fiche « Ce qui pèse le plus » est là (lot 3)
+          const ws = weighOf(pack, cur, read.find(r => `sj-${r.kind}-${r.id}-b` === id))
+          const card = ws.length === 1 && !!ws[0].suite
+          if ((splitsABloc(crossOf.get(id), axisPanel) || card) === got.note) issues.push(`${id} : note sur le bloc entier ${got.note}`)
           await rp.locator(`#${id}`).click()
         }
         const prio = await rp.evaluate(t => {
@@ -1549,6 +1559,84 @@ try {
             detail.by.length > 0 &&
             detail.by.every(t => /^(Franchie par|Pourrait être franchie par) : .+\.$/.test(t)),
           `mon profil politique (lectures nettes, lot 2) : croix sur ${crossed.length} ligne(s) lue(s) (« ${crossed[0]?.[1].filter(Boolean)[0] ?? ''} »)${issues.length ? ` : ${issues.join(' ; ')}` : ''} ; « prioritaire » sur la ligne de ${prioTopic} (« ${prio.word} », nom lu « …${prio.said.slice(0, 60)}… », ${prio.others} en tout) ; détail : ${detail.struck} approche(s) rayée(s) sur ${detail.want}, « ${detail.by.join(' / ')} »`,
+        )
+      }
+
+      // Lot 3 : « Ce qui pèse le plus dans cette lecture », tel que le calcule le site (mêmes réponses, même calcul) : dans
+      // chaque ligne lue nettement, la fiche (intertitre, question, votre avis, l'approche entière, la suite en nombres),
+      // ou sur des blocs non voisins le renvoi au détail ; aucun nom de candidat dans la fiche ; la note sur le bloc entier
+      // effacée quand la fiche est là ; le repère de la mini-réglette, masqué aux lecteurs d'écran. Puis le détail d'une
+      // ligne : la fiche et la part de chaque question, en points
+      {
+        const { weighOf } = await importSite('src/core/echiquierWeigh.ts')
+        const W = await importSite('src/core/echiquierWeighCopy.ts')
+        const C = await importSite('src/core/echiquierCopy.ts')
+        const { currentAnswers } = await importSite('src/core/revisions.ts')
+        const { chartRows: rowsOfChart } = await importSite('src/ui/profile/rows.ts')
+        const cur = currentAnswers(pack, readState.answers)
+        const axis = pack.election.spectrum.axis
+        const norm = t => (t ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
+        const read = rowsOfChart(groups, readEchiquier(pack, cur), u => u.id).read
+        const issues = []
+        let cards = 0
+        let elsewhere = 0
+        await rp.locator('.profile-chart .row[aria-expanded="true"]').evaluateAll(bs => bs.forEach(b => b.click()))
+        for (const u of read) {
+          const id = `sj-${u.kind}-${u.id}-b`
+          const ws = weighOf(pack, cur, u)
+          const card = ws.length === 1 && ws[0].suite
+          const away = ws.length > 1 && ws.every(w => w.suite)
+          let want = []
+          if (card) {
+            const w = ws[0]
+            const q = pack.bank.questions.find(x => x.id === w.question)
+            const a = q.approaches.find(x => x.id === w.approach)
+            want = [W.WEIGH_TITLE, q.prompt, `${C.YOUR_VIEW} ${W.weighView(w.view, !!cur[q.id]?.redLines.includes(a.id))}`, W.quoted(a.text), W.weighWho(C.where(axis, w.seg), w)]
+            cards++
+          } else if (away) {
+            want = [W.WEIGH_TITLE, W.weighElsewhere(ws.map(w => C.where(axis, w.seg)))]
+            elsewhere++
+          }
+          await rp.locator(`#${id}`).click()
+          await rp.waitForFunction(bid => !!document.getElementById(document.getElementById(bid)?.getAttribute('aria-controls') ?? '')?.querySelector('.explain-blocs'), id)
+          const got = await rp.evaluate(bid => {
+            const x = document.getElementById(document.getElementById(bid)?.getAttribute('aria-controls') ?? '')
+            const said = el => (el?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
+            const fiche = x?.querySelector('.weigh')
+            return {
+              texts: [...(fiche?.querySelectorAll(':scope > p') ?? [])].map(said),
+              note: [...(x?.querySelectorAll('.explain-note') ?? [])].some(p => /bloc entier/.test(said(p))),
+              ruler: !fiche?.querySelector('.rating-mark') || fiche.querySelector('.mini-ruler')?.getAttribute('aria-hidden') === 'true',
+              before: !fiche || !!(fiche.compareDocumentPosition(x.querySelector('.explain-blocs')) & Node.DOCUMENT_POSITION_FOLLOWING),
+            }
+          }, id)
+          if (got.texts.join(' | ') !== want.map(norm).join(' | ')) issues.push(`${u.kind}-${u.id} : « ${got.texts.join(' / ').slice(0, 160)} » au lieu de « ${want.map(norm).join(' / ').slice(0, 160)} »`)
+          if (card && got.note) issues.push(`${u.kind}-${u.id} : note sur le bloc entier avec la fiche`)
+          if (!got.ruler || !got.before) issues.push(`${u.kind}-${u.id} : repère ${got.ruler}, fiche avant les blocs ${got.before}`)
+          for (const c of pack.candidates) if (got.texts.some(t => t.includes(c.name))) issues.push(`${u.kind}-${u.id} : « ${c.name} » dans la fiche`)
+          await rp.locator(`#${id}`).click()
+        }
+        // Le détail de la première ligne qui a une fiche : la fiche, puis la part de chaque question, en points
+        let parts = { n: 0, want: 0, ok: false, title: false }
+        const first = read.find(u => {
+          const ws = weighOf(pack, cur, u)
+          return ws.length === 1 && ws[0].suite
+        })
+        if (first) {
+          const id = `sj-${first.kind}-${first.id}-b`
+          await rp.locator(`#${id}`).click()
+          await rp.locator('.profile-chart .explain:not([hidden]) .link-button').click()
+          await rp.locator(`#d-${first.kind}-${first.id} .detail-parts li`).first().waitFor({ timeout: 3000 }).catch(() => null)
+          parts = await rp.evaluate(d => {
+            const body = document.getElementById(d)
+            const items = [...(body?.querySelectorAll('.detail-parts li') ?? [])].map(li => (li.querySelector('strong')?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' '))
+            return { n: items.length, ok: items.every(t => /^(\+|−)?\d+ points?$/.test(t)), title: (body?.querySelector('.detail-weigh .detail-title')?.textContent ?? '') === 'Ce qui pèse le plus dans cette lecture', want: 0 }
+          }, `d-${first.kind}-${first.id}`)
+          parts.want = first.questions.length
+        }
+        check(
+          read.length > 0 && cards > 0 && issues.length === 0 && (!first || (parts.n === parts.want && parts.ok && parts.title)),
+          `mon profil politique (lectures nettes, lot 3) : « Ce qui pèse le plus » dans ${cards} ligne(s) sur ${read.length}, ${elsewhere} renvoi(s) au détail${issues.length ? ` : ${issues.slice(0, 3).join(' ; ')}` : ''} ; détail : ${parts.n} part(s) sur ${parts.want} question(s), en points ${parts.ok}`,
         )
       }
       await rctx.close()
@@ -1818,15 +1906,20 @@ try {
             const t = (el.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ')
             return (t.includes('quand ces lignes rouges ne visent personne') && t.includes('qui n’est pas établi')) || (t.startsWith('« Pourrait franchir » fait de') && t.includes('Ces écarts ne sont pas établis non plus.'))
           }).length,
+          // La mesure de « Ce qui pèse le plus » (D5, lot 3), un paragraphe après sa règle
+          weigh: parts.filter(el => {
+            const t = (el.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ')
+            return t.startsWith('Pour éprouver cette fiche') && t.includes('ne sont établis ni avec ni sans le candidat')
+          }).length,
           failed: (document.querySelector('main')?.textContent ?? '').includes('n’a pas pu être chargée'),
           section: files.filter(f => /^MethodSection-[\w-]+\.js$/.test(f)).length,
           page: files.filter(f => /^Profile-[\w-]+\.(?:js|css)$/.test(f)),
         }
       })
-      const HEADS = ['Qui compte.', 'Le calcul.', 'La comparaison.', 'Compter, sinon calculer.', 'Les couleurs.', 'Quand on ne lit pas.', 'Pourquoi ni moyenne ni point.', 'Ce que valent ces lectures.', 'Avant et après.', 'Lignes rouges et priorités.', 'Limites.', 'Vie privée.']
+      const HEADS = ['Qui compte.', 'Le calcul.', 'La comparaison.', 'Compter, sinon calculer.', 'Les couleurs.', 'Quand on ne lit pas.', 'Pourquoi ni moyenne ni point.', 'Ce que valent ces lectures.', 'Avant et après.', 'Lignes rouges et priorités.', 'Ce qui pèse le plus.', 'Limites.', 'Vie privée.']
       check(
-        shown && rub.diagram && HEADS.every(t => rub.heads.includes(t)) && rub.cross === 2 && !rub.failed && rub.section === 1 && rub.page.length === 0,
-        `mon profil politique, rubrique de la Méthode hors ligne (page rechargée) : schéma ${rub.diagram}, ${rub.heads.length} intertitres sur ${HEADS.length}, mesure de la croix en ${rub.cross} paragraphe(s) sur 2, son fichier à part chargé (${rub.section}), sans la page${rub.page.length ? ` (chargée : ${rub.page.join(', ')})` : ''}${rub.failed ? ', « n’a pas pu être chargée »' : ''}`,
+        shown && rub.diagram && HEADS.every(t => rub.heads.includes(t)) && rub.cross === 2 && rub.weigh === 1 && !rub.failed && rub.section === 1 && rub.page.length === 0,
+        `mon profil politique, rubrique de la Méthode hors ligne (page rechargée) : schéma ${rub.diagram}, ${rub.heads.length} intertitres sur ${HEADS.length}, mesure de la croix en ${rub.cross} paragraphe(s) sur 2, de « Ce qui pèse le plus » en ${rub.weigh} sur 1, son fichier à part chargé (${rub.section}), sans la page${rub.page.length ? ` (chargée : ${rub.page.join(', ')})` : ''}${rub.failed ? ', « n’a pas pu être chargée »' : ''}`,
       )
       await mctx.close()
     }

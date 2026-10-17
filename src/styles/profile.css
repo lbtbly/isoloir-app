@@ -1295,6 +1295,116 @@ html:has(.profile-chart) {
   color: var(--print-soft);
 }
 
+/* Ce qui pèse le plus dans cette lecture (lot 3), dans la ligne ouverte d'une lecture nette, après sa phrase : sans
+   cadre, un filet fin en haut ; la question en petit corps gris, votre avis écrit en entier avec le repère de la
+   mini-réglette de « Qui porte quoi » (app.css, .rating-mark), l'approche entre guillemets, puis des nombres */
+.weigh {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.4rem;
+  min-width: 0;
+  max-width: 54ch;
+  margin: 0;
+  padding-top: var(--s3);
+  border-top: var(--hair) solid var(--rule);
+  font-size: var(--text-sm);
+  line-height: 1.45;
+}
+
+.weigh p {
+  margin: 0;
+}
+
+.weigh-title {
+  font-weight: 800;
+}
+
+.weigh-q {
+  font-size: var(--text-xs);
+  font-weight: 650;
+  line-height: 1.35;
+  color: var(--print-soft);
+}
+
+.weigh .rating-mark {
+  grid-area: auto;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+  font-size: var(--text-sm);
+}
+
+.weigh-view-k {
+  color: var(--print);
+  font-weight: 650;
+}
+
+.weigh-a {
+  font-size: 1rem;
+}
+
+/* Au téléphone, « Votre affinité, bloc par bloc » reçoit le même filet quand la fiche la précède */
+@container plot (max-width: 49.99rem) {
+  .weigh + .explain-blocs {
+    padding-top: var(--s3);
+    border-top: var(--hair) solid var(--rule);
+  }
+}
+
+/* Texte très agrandi (14rem de graphique au plus : 320 px à 200 %) : le repère passe au-dessus de « Votre avis », et un
+   mot trop long pour la ligne (« complémentaires », « rembourser ») se coupe, avec un trait d'union, au lieu d'élargir la
+   ligne ouverte hors de la page */
+@container plot (max-width: 14rem) {
+  .weigh {
+    hyphens: auto;
+    hyphenate-limit-chars: 8 3 3;
+    overflow-wrap: break-word;
+  }
+
+  .weigh .rating-mark {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+}
+
+/* Dans le détail : la fiche sous son intertitre, sans filet ; puis la part de chaque question, son nombre à droite */
+.detail-weigh .weigh {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.detail-weigh-for {
+  margin: var(--s2) 0 0.3rem;
+  font-weight: 700;
+}
+
+.detail-weigh .small {
+  max-width: 62ch;
+}
+
+.detail-parts {
+  max-width: 62ch;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-variant-numeric: tabular-nums;
+}
+
+.detail-parts li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--s3);
+  padding: 0.3rem 0;
+  border-top: var(--hair) solid var(--rule);
+}
+
+.detail-parts strong {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
 .explain-foot {
   display: flex;
   flex-wrap: wrap;
@@ -1328,7 +1438,8 @@ html:has(.profile-chart) {
   .explain-lead,
   .explain-both,
   .explain-fact,
-  .explain-note {
+  .explain-note,
+  .weigh {
     grid-column: 2;
   }
 

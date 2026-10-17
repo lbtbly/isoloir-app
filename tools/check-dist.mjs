@@ -154,7 +154,8 @@ for (const f of agreeChunks) {
 // pèse le plus », « Votre façon de répondre »), et le calcul sans tirage (compte complet jusqu'à cent mille façons,
 // lois par bloc et addition au-delà), qui pèse environ 3,5 ko de plus que les tirages qu'il remplace. Le plafond compte
 // la page et ce qu'elle charge en plus du JS initial (43,8 ko le 15 octobre 2026 ; 54,1 ko après le lot 1, 57,1 ko après
-// le lot 2, les lignes rouges et les priorités, 57,2 ko après ses correctifs du 17 octobre) : un code passé dans un
+// le lot 2, les lignes rouges et les priorités, 57,2 ko après ses correctifs du 17 octobre ; 58,0 ko après le lot 3, dont
+// « Ce qui pèse le plus » est sorti dans son propre fichier, ci-dessous) : un code passé dans un
 // fichier commun y reste compté. Rien de cela ne
 // pèse sur le JS initial, ni sur une visite qui n'ouvre pas la page
 const PROFILE_BUDGET = 58_000
@@ -189,9 +190,12 @@ const PROFILE_METHOD_TEXTS = ['Pourquoi ni moyenne ni point', 'on a recopi']
 // toujours la mesure plus 15 % ; puis 16,1 ko avec les mots du lot 2 (lignes rouges et priorités, et la mesure de
 // neutralité de la croix bloc par bloc, avec et sans le candidat, que la décision D5 du propriétaire oblige à publier),
 // d'où 18,5 ko, la mesure plus 15 % ; 18 ko le 17 octobre, la même mesure publiée en entier (à 60 feuilles par
-// candidat, le seul questionnaire rapide avec et sans le candidat, « pourrait franchir » bloc par bloc et sa cause). Un code de la page qu'elle importerait passerait par un fichier commun avec la page :
-// le plafond le compte, et le texte du calcul y est cherché
-const PROFILE_METHOD_BUDGET = 18_500
+// candidat, le seul questionnaire rapide avec et sans le candidat, « pourrait franchir » bloc par bloc et sa cause) ; 21,4
+// ko le même jour avec « Ce qui pèse le plus » (lot 3 : sa règle, et sa mesure de neutralité bloc par bloc, avec et sans le
+// candidat, sur la banque et au seul questionnaire rapide, que D5 oblige à publier), d'où 24,6 ko, la mesure plus 15 %. Un
+// code de la page qu'elle importerait passerait par un fichier commun avec la page : le plafond le compte, et le texte du
+// calcul y est cherché
+const PROFILE_METHOD_BUDGET = 24_600
 const methodSectionChunks = readdirSync(join(dist, 'assets')).filter(f => /^MethodSection-[\w-]+\.js$/.test(f))
 if (methodSectionChunks.length !== 1) fail(`rubrique « Mon profil politique » de la Méthode : ${methodSectionChunks.length} fichier(s) assets/MethodSection-*.js, un attendu`)
 /** Ce que la Méthode a déjà chargé quand elle demande sa rubrique : son écran (src/ui/screens/Method.tsx) et ce qu'il charge */
@@ -238,6 +242,31 @@ for (const f of crossChunks) {
   for (const x of ownOf(f)) if (modulePreloads.includes(x)) fail(`${label} : ${x} est préchargé par dist/index.html`)
   const size = bytesOf(crossAdded(f))
   if (size > CROSS_BUDGET) fail(`${label} : assets/${f} et ce qu’elles ajoutent à la page (${crossAdded(f).join(', ')}) pèsent ${(size / 1000).toFixed(1)} ko, plafond de ${CROSS_BUDGET / 1000} ko`)
+}
+// « Ce qui pèse le plus dans cette lecture » (lot 3 du plan « Approfondir Mon profil politique » approuvé le 15 octobre
+// 2026 : src/ui/profile/Weigh.tsx, son calcul, src/core/echiquierWeigh.ts, et ses mots, src/core/echiquierWeighCopy.ts) :
+// un fichier à part, chargé par la page après son premier affichage, jamais dans le JS initial ni préchargé. Il pesait
+// 6,6 ko le 17 octobre 2026, que le fichier de la page ne pouvait plus porter sous son plafond de 58 ko (63,5 ko en un
+// seul fichier) ; il reprend le calcul de la page sans le recopier (ses pièces, exportées par src/core/echiquier.ts), et
+// la page ne garde rien de ses mots. Plafond : ce qu'il ajoute à la page, lui compris, la mesure plus 15 %
+const WEIGH_BUDGET = 7_600
+const WEIGH_TEXTS = ['Ce qui p', 'Part de chaque question']
+const weighChunks = readdirSync(join(dist, 'assets')).filter(f => /^Weigh-[\w-]+\.js$/.test(f))
+if (weighChunks.length !== 1) fail(`« Ce qui pèse le plus » de « Mon profil politique » : ${weighChunks.length} fichier(s) assets/Weigh-*.js, un attendu`)
+for (const f of weighChunks) {
+  const label = '« Ce qui pèse le plus » de « Mon profil politique »'
+  if (initial.includes(join('assets', f))) fail(`${label} : assets/${f} est dans le JS initial (il doit n'être chargé que par import())`)
+  for (const x of ownOf(f)) if (modulePreloads.includes(x)) fail(`${label} : ${x} est préchargé par dist/index.html`)
+  const added = ownOf(f).filter(x => !profileChunks.some(p => ownOf(p).includes(x)))
+  const size = bytesOf(added)
+  if (size > WEIGH_BUDGET) fail(`${label} : assets/${f} et ce qu’il ajoute à la page (${added.join(', ')}) pèsent ${(size / 1000).toFixed(1)} ko, plafond de ${WEIGH_BUDGET / 1000} ko`)
+  // La page n'en garde rien : ni ses mots, ni la liste de ce qu'il charge (rien à précharger, vite.config.ts)
+  for (const p of profileChunks)
+    for (const x of ownOf(p)) {
+      const code = readFileSync(join(dist, x), 'utf8')
+      for (const text of WEIGH_TEXTS) if (code.includes(text)) fail(`« Mon profil politique » : ${x}, que la page charge, contient « ${text}… », un texte de « Ce qui pèse le plus »`)
+      if (code.includes(`"./${f}"`)) fail(`« Mon profil politique » : ${x} précharge assets/${f}`)
+    }
 }
 // « À table » (src/ui/table/Table.tsx : l'enchaînement d'une séance, ses écrans, son dépouillement, son vivier et son
 // image) : un fichier à part, chargé à la demande (src/ui/table/load.ts), jamais dans le JS initial ni préchargé. Une
@@ -317,6 +346,9 @@ for (const text of PROFILE_CALC_TEXTS) {
 }
 for (const text of PROFILE_METHOD_TEXTS) {
   if (initialCode.includes(text)) fail(`« Mon profil politique » : « ${text}… », un texte de sa rubrique de la Méthode, est dans le JS initial`)
+}
+for (const text of WEIGH_TEXTS) {
+  if (initialCode.includes(text)) fail(`« Mon profil politique » : « ${text}… », un texte de « Ce qui pèse le plus », est dans le JS initial`)
 }
 const dirsOf = root => (existsSync(root) ? readdirSync(root, { withFileTypes: true }).filter(d => d.isDirectory()).map(d => d.name) : [])
 const bankTexts = new Map() // texte → élection
@@ -398,6 +430,8 @@ for (const f of agreeChunks) console.log(`  image « Accords et désaccords » :
 for (const f of tableChunks) console.log(`  « À table » : assets/${f}, ${(statSync(join(dist, 'assets', f)).size / 1000).toFixed(1)} ko sur ${TABLE_BUDGET / 1000} ko permis, chargé à la demande`)
 for (const f of profileChunks) console.log(`  « Mon profil politique » : assets/${f} et ce qu’il charge en plus du JS initial, ${(bytesOf(ownOf(f)) / 1000).toFixed(1)} ko sur ${PROFILE_BUDGET / 1000} ko permis, chargé à la demande`)
 for (const f of methodSectionChunks) console.log(`  rubrique « Mon profil politique » de la Méthode : assets/${f} et ce qu’elle ajoute à la Méthode, ${(bytesOf(methodAdded(f)) / 1000).toFixed(1)} ko sur ${PROFILE_METHOD_BUDGET / 1000} ko permis, chargée à la demande`)
+for (const f of weighChunks)
+  console.log(`  « Ce qui pèse le plus » de « Mon profil politique » : assets/${f} et ce qu’il ajoute à la page, ${(bytesOf(ownOf(f).filter(x => !profileChunks.some(p => ownOf(p).includes(x)))) / 1000).toFixed(1)} ko sur ${WEIGH_BUDGET / 1000} ko permis, chargé après la page`)
 for (const f of crossChunks) console.log(`  lectures croisées de « Mon profil politique » : assets/${f} et ce qu’elles ajoutent à la page, ${(bytesOf(crossAdded(f)) / 1000).toFixed(1)} ko sur ${CROSS_BUDGET / 1000} ko permis, chargées à la demande`)
 
 // Voix des vidéos : un avertissement pour un fichier livré mais pas inscrit (jamais lu, poids inutile)

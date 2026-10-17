@@ -18,6 +18,11 @@
 // Lot 2 : une ligne fermée ne reçoit que le mot « prioritaire », sur un thème prioritaire ; une ligne ouverte, sous un bloc
 // nettement plus près, la croix des lignes rouges que franchissent ses candidats sur ce sujet, seule au stylo rouge, le
 // texte en gris. Ni l'une ni l'autre ne change la couleur, la lecture ni l'ordre des lignes.
+// Lot 3 : une ligne ouverte d'une lecture nette reçoit, après sa phrase, « Ce qui pèse le plus dans cette lecture » : la
+// question qui pèse le plus, votre avis en entier, le texte de l'approche, puis ce qu'elle est pour les candidats que la
+// grille classe là, en nombres, sans aucun nom ; calculé à l'ouverture seulement. Un fichier à part du build, avec son
+// calcul (ui/profile/Weigh.tsx, core/echiquierWeigh.ts), chargé après le premier affichage du graphique (la page reste
+// sous son plafond) : la note sur le bloc entier s'efface quand la fiche est là.
 // Rien n'est recalculé : les lignes rangent la lecture (ui/profile/rows.ts) ; les phrases sont celles du site
 // (core/echiquierCopy.ts).
 
@@ -34,6 +39,7 @@ import { ExternalLink } from '../components/ExternalLink'
 import { Icon } from '../components/Icon'
 import { InkCross } from '../components/Ink'
 import { formatDate } from '../format'
+import { onDemand, useOnDemand } from '../lazy'
 import { link } from '../nav'
 import { acrossCentre, atBothEnds, chartRows, crossingsOf, headOf, splitsABloc, uniformViews, unitKey, type FamilyRows, type RowGroupKind } from './rows'
 
@@ -68,6 +74,11 @@ export interface ProfileCtx {
   /** Les thèmes de la banque, dans son ordre (celui des domaines) : la croix d'une ligne de famille cite les siens ainsi */
   topicOrder: readonly TopicId[]
 }
+
+/** « Ce qui pèse le plus » (lot 3) et son calcul : un fichier à part du build, chargé à la demande */
+const weighModule = onDemand<typeof import('./Weigh')>(() => import('./Weigh'))
+/** Le module de « Ce qui pèse le plus » dès qu'il est là (null avant), et l'échec de son chargement */
+export const useWeigh = () => useOnDemand(weighModule.now, weighModule.load)
 
 /** Une unité qui a une lecture (même « rien de net ») ; sinon : une seule question, ou trop de blocs inconnus */
 export const isRead = (u: UnitReading) => u.status !== 'une-question' && u.status !== 'blocs-inconnus'
@@ -170,6 +181,9 @@ export function Chart({ reading, ctx, quickOnly, deeper, unseen, onDetail }: Pro
 
   // Une seule ligne ouverte
   const [open, setOpen] = useState<string | null>(null)
+  // « Ce qui pèse le plus » se charge après le premier affichage, pour qu'une ligne s'ouvre sans l'attendre ; « Comment
+  // c'est calculé » en dit la règle une fois la fiche là
+  const [weigh] = useWeigh()
 
   const plot = useRef<HTMLDivElement>(null)
   const axisEl = useRef<HTMLDivElement>(null)
@@ -414,7 +428,11 @@ export function Chart({ reading, ctx, quickOnly, deeper, unseen, onDetail }: Pro
           <summary>{T.CALC_TITLE}</summary>
           <ul>
             <li>{T.howWho(panelSize, ctx.unscored)}</li>
-            <li>{T.HOW_CALC}</li>
+            {/* Le calcul, puis ce qui pèse le plus dans une lecture nette (lot 3), qui en reprend les façons */}
+            <li>
+              {T.HOW_CALC}
+              {weigh ? ` ${weigh.HOW_WEIGH}` : null}
+            </li>
             <li>{T.HOW_COLOR}</li>
             <li>{T.HOW_MARKS.join(' ')}</li>
             <li>
@@ -664,9 +682,10 @@ function Row({ u, name, family, open, onToggle, ctx, onDetail }: RowProps) {
 }
 
 /**
- * L'explication d'une ligne ouverte : la phrase du site, la note sur le bloc entier quand il y a une lecture nette, puis
- * chaque bloc, son palier en mots, son affinité moyenne (celle du détail) et sa lecture nette s'il y en a une, avec
- * alors ses candidats ; le lien vers le détail, ou vers « Approfondir » pour un thème sans lecture
+ * L'explication d'une ligne ouverte : la phrase du site, la note sur le bloc entier quand il y a une lecture nette (sauf
+ * quand « Ce qui pèse le plus » l'illustre), puis cette fiche, puis chaque bloc, son palier en mots, son affinité moyenne
+ * (celle du détail) et sa lecture nette s'il y en a une, avec alors ses candidats ; le lien vers le détail, ou vers
+ * « Approfondir » pour un thème sans lecture
  */
 function Explain({ u, family, ctx, onDetail }: { u: UnitReading; family: string | null; ctx: ProfileCtx; onDetail: (u: UnitReading) => void }) {
   const { axis, labels, names, panel, topicLabel } = ctx
@@ -687,6 +706,13 @@ function Explain({ u, family, ctx, onDetail }: { u: UnitReading; family: string 
         u.kind === 'famille' ? g.topics.map(t => topicLabel.get(t) ?? t) : null,
       ),
     ).join(' ')
+  // Ce qui pèse le plus (lot 3), calculé à l'ouverture de la ligne seulement : une fiche quand les blocs nettement plus
+  // près se suivent sur l'axe ; sur des blocs non voisins, un renvoi au détail (ui/profile/Weigh.tsx). La note sur le bloc
+  // entier attend le module (elle s'effacerait aussitôt la fiche venue) ; sans lui, elle reste, comme sans fiche
+  const [weigh, weighFailed] = useWeigh()
+  const weighs = useMemo(() => (weigh ? weigh.weighsOf(u, ctx) : []), [weigh, u, ctx])
+  const card = !!weigh && weigh.showsCard(weighs)
+  const waiting = u.status === 'lecture' && !weigh && !weighFailed
   return (
     <div class="explain-inner">
       <p class="explain-lead">{T.unitSentence(axis, u)}</p>
@@ -698,9 +724,11 @@ function Explain({ u, family, ctx, onDetail }: { u: UnitReading; family: string 
       ) : null}
       {fact ? <p class="explain-fact">{fact}</p> : null}
       {family ? <p class="explain-note">{T.readWithFamily(family)}</p> : null}
-      {/* La note sur le bloc entier s'efface quand une croix l'illustre, en nommant certains candidats d'un bloc et pas les
-          autres (au plus deux nouveautés par ligne ouverte) ; une croix qui nomme tout son bloc la laisse */}
-      {net && !splitsABloc(crossings, panel) ? <p class="explain-note">{T.BLOC_NOTE}</p> : null}
+      {/* La note sur le bloc entier s'efface quand la fiche « Ce qui pèse le plus » est là, ou quand une croix l'illustre,
+          en nommant certains candidats d'un bloc et pas les autres (au plus deux nouveautés par ligne ouverte) ; une
+          croix qui nomme tout son bloc la laisse */}
+      {net && !card && !waiting && !splitsABloc(crossings, panel) ? <p class="explain-note">{T.BLOC_NOTE}</p> : null}
+      {weigh ? <weigh.WeighRow weighs={weighs} ctx={ctx} /> : null}
       <div class="explain-blocs">
         <p class="eb-title">{T.BLOCS_TITLE}</p>
         <ul>
