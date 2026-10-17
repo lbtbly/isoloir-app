@@ -2906,8 +2906,10 @@ try {
   // Ces trois liens et rien d'autre (l'ancien lien « Élections passées » vers #/archives est retiré).
   // Le même pied partout (demande du propriétaire du 2026-10-15) : pleine largeur sur fond d'encre, avec les actions sur
   // la feuille (« Importer mes réponses », « Reprendre depuis un fichier »…), sauf pendant une table (section 10)
-  const footScreens = ['/', '/feuille/2', '/resultats', '/proximite', '/candidats', `/candidat/${FICHE.id}`, '/sujets', '/methode', '/confidentialite', '/mentions-legales', '/priorites', '/approfondir', '/partager', '/autre-appareil', ...(PROFILE ? ['/profil', '/a-table'] : [])]
-  const notices = [L('/methode'), L('/confidentialite'), L('/mentions-legales')]
+  // Le journal des données, entre la Méthode et la Confidentialité, depuis le 17 octobre 2026 (élections qui ont la page)
+  const JOURNAL = pack.election.changelog.some(e => e.n)
+  const footScreens = ['/', '/feuille/2', '/resultats', '/proximite', '/candidats', `/candidat/${FICHE.id}`, '/sujets', '/methode', ...(JOURNAL ? ['/journal'] : []), '/confidentialite', '/mentions-legales', '/priorites', '/approfondir', '/partager', '/autre-appareil', ...(PROFILE ? ['/profil', '/a-table'] : [])]
+  const notices = [L('/methode'), ...(JOURNAL ? [L('/journal')] : []), L('/confidentialite'), L('/mentions-legales')]
   const footIssues = []
   for (const path of footScreens) {
     const titleBefore = await page.title()
@@ -2942,11 +2944,153 @@ try {
   }
   check(
     footIssues.length === 0,
-    `pied de page sur ${footScreens.length} écrans : le même partout (fond d’encre, pleine largeur, actions sur la feuille), méthode, confidentialité et mentions légales en bas, pas dans l’en-tête${footIssues.length ? ` : ${footIssues.join(' ; ')}` : ''}`,
+    `pied de page sur ${footScreens.length} écrans : le même partout (fond d’encre, pleine largeur, actions sur la feuille), méthode, ${JOURNAL ? 'journal des données, ' : ''}confidentialité et mentions légales en bas, pas dans l’en-tête${footIssues.length ? ` : ${footIssues.join(' ; ')}` : ''}`,
   )
 
   check(foreign.length === 0, `aucune requête vers un autre site${foreign.length ? ` : ${foreign.join(', ')}` : ''}`)
   await ctx.close()
+
+  // 7 bis ter. Journal des données (#/journal, décision du propriétaire du 17 octobre 2026, sur maquette) : la page,
+  // chargée à la demande ; au téléphone, les filtres dans une feuille modale (titre, focus gardé dedans, Échap, retour du
+  // focus, « Effacer les filtres », « Voir N entrées ») ; l'adresse suit les filtres, jamais les choix calculés sur
+  // l'appareil ; une entrée par son numéro ; l'ancienne rubrique de la Méthode ; aucune entrée ; l'avis du dépouillement,
+  // qui ouvre le journal sur « après votre dernier passage » ; sur ordinateur, les filtres sur la page, en pastilles, et
+  // la ligne collée ; rien en largeur à 320, 375 et 1 280 px
+  if (JOURNAL) {
+    const { journalItems, newerVersion } = await importSite('src/core/journal.ts')
+    const items = journalItems(pack)
+    const TOTAL = items.length
+    const entries = n => `${n}\u00a0entrée${n > 1 ? 's' : ''}`
+    const of = id => items.filter(i => i.people.some(p => p.id === id) || i.named.includes(id)).length
+    // Le candidat de la plus récente entrée « Positions »
+    const who = items.find(i => i.people.length)?.people[0]?.id
+    const jc = await browser.newContext({ viewport: { width: 375, height: 812 }, reducedMotion: 'reduce', isMobile: true, hasTouch: true })
+    await jc.addInitScript(st => Object.entries(st).forEach(([k, v]) => localStorage.setItem(k, v)), saved)
+    const jp = await jc.newPage()
+    await jp.goto(U('/journal'))
+    await jp.locator('.jr-entry').first().waitFor()
+    const phone = await jp.evaluate(() => ({
+      entries: document.querySelectorAll('.jr-entry').length,
+      inline: getComputedStyle(document.querySelector('.jr-tools')).display,
+      button: !!document.querySelector('.jr-open')?.offsetParent,
+      aiFirst: !!(document.querySelector('main .ai-label')?.compareDocumentPosition(document.querySelector('.jr-title')) & Node.DOCUMENT_POSITION_FOLLOWING),
+      wide: document.documentElement.scrollWidth > innerWidth,
+    }))
+    check(
+      phone.entries === TOTAL && phone.inline === 'none' && phone.button && phone.aiFirst && !phone.wide,
+      `journal au téléphone : ${phone.entries} entrées sur ${TOTAL}, les filtres derrière « Filtres », la mention IA avant le premier titre, rien en largeur`,
+    )
+    await jp.locator('.jr-open').click()
+    const opened = await jp.evaluate(() => {
+      const d = document.querySelector('dialog.jr-sheet')
+      return { open: d.open, modal: d.matches(':modal'), focus: document.activeElement?.id, title: document.getElementById(d.getAttribute('aria-labelledby'))?.textContent }
+    })
+    const stops = []
+    for (let i = 0; i < 9; i++) {
+      await jp.keyboard.press('Tab')
+      stops.push(await jp.evaluate(() => !!document.activeElement?.closest('dialog.jr-sheet')))
+    }
+    check(opened.open && opened.modal && opened.focus === 'jr-sheet-title' && opened.title === 'Filtres' && stops.every(Boolean), `feuille des filtres : modale, titrée « ${opened.title} », le focus sur son titre puis gardé dedans (${stops.filter(Boolean).length} Tab sur ${stops.length})`)
+    await jp.locator('.jr-sheet .is-candidat select').selectOption(who)
+    const picked = await jp.evaluate(() => ({
+      hash: decodeURI(location.hash),
+      see: document.querySelector('.jr-sheet .btn-primary')?.textContent ?? '',
+      n: document.querySelector('.jr-open .chip-n')?.textContent ?? '',
+      set: document.querySelector('.jr-open')?.classList.contains('is-set'),
+    }))
+    await jp.keyboard.press('Escape')
+    const closed = await jp.evaluate(() => ({ open: document.querySelector('dialog.jr-sheet').open, back: document.activeElement?.classList.contains('jr-open'), shown: document.querySelectorAll('.jr-entry').length }))
+    check(
+      picked.hash === L(`/journal?candidat=${who}`) && flat(picked.see) === flat(`Voir ${entries(of(who))}`) && /^,?\s*1/.test(flat(picked.n)) && picked.set && !closed.open && closed.back && closed.shown === of(who),
+      `filtre posé dans la feuille : l’adresse le porte (${picked.hash}), « ${flat(picked.see)} », « Filtres » le compte ; Échap la referme, le focus revient au bouton, ${closed.shown} entrées`,
+    )
+    await jp.locator('.jr-open').click()
+    await jp.locator('.jr-sheet-foot .btn-text').click()
+    const cleared = await jp.evaluate(() => ({ hash: decodeURI(location.hash), see: document.querySelector('.jr-sheet .btn-primary')?.textContent ?? '' }))
+    await jp.locator('.jr-sheet-foot .btn-primary').click()
+    const seen = await jp.evaluate(() => ({ open: document.querySelector('dialog.jr-sheet').open, back: document.activeElement?.classList.contains('jr-open'), shown: document.querySelectorAll('.jr-entry').length }))
+    check(
+      cleared.hash === L('/journal') && flat(cleared.see) === flat(`Voir ${entries(TOTAL)}`) && !seen.open && seen.back && seen.shown === TOTAL,
+      `« Effacer les filtres » remet l’adresse à ${cleared.hash}, « ${flat(cleared.see)} » referme la feuille sur les ${seen.shown} entrées`,
+    )
+    // 320 px, la feuille ouverte : rien en largeur, ni dans la page ni dans la feuille
+    await jp.setViewportSize({ width: 320, height: 640 })
+    await jp.locator('.jr-open').click()
+    const narrow = await jp.evaluate(() => {
+      const d = document.querySelector('dialog.jr-sheet')
+      return { page: document.documentElement.scrollWidth > innerWidth, sheet: d.scrollWidth > d.clientWidth + 1, see: d.querySelector('.btn-primary').getBoundingClientRect().right <= innerWidth }
+    })
+    await jp.keyboard.press('Escape')
+    check(!narrow.page && !narrow.sheet && narrow.see, `journal à 320 px, la feuille ouverte : rien en largeur`)
+    await jp.setViewportSize({ width: 375, height: 812 })
+    // Une entrée par son numéro (l'accueil de retour y mène) : ouverte, son titre au focus, sous la ligne collante
+    const one = items.find(i => i.effect === 'peut-changer') ?? items[0]
+    await jp.goto(U(`/journal/${one.n}`))
+    await jp.waitForTimeout(500)
+    const opened1 = await jp.evaluate(n => {
+      const t = document.getElementById(`entree-${n}`)
+      const bar = document.querySelector('.jr-summary').getBoundingClientRect()
+      return { open: !!t?.closest('.jr-entry')?.querySelector('.jr-more')?.open, focus: document.activeElement?.id, top: t?.getBoundingClientRect().top ?? -1, below: bar.bottom }
+    }, one.n)
+    check(opened1.open && opened1.focus === `entree-${one.n}` && opened1.top >= opened1.below - 1, `#/journal/${one.n} : l’entrée ouverte, son titre au focus, sous la ligne collante (${Math.round(opened1.top)} ≥ ${Math.round(opened1.below)})`)
+    // L'ancienne rubrique de la Méthode mène à la page
+    await jp.goto(U('/methode/journal'))
+    await jp.locator('.jr-entry').first().waitFor()
+    check(hashOf(jp) === L('/journal') && (await jp.locator('main h1').textContent()) === 'Journal des données', `l’ancienne adresse #/methode/journal mène au journal (${hashOf(jp)})`)
+    // Aucune entrée : un candidat sans rien depuis le dernier jour ; de quoi en sortir, chacun avec son nombre
+    const last = [...new Set(items.map(i => i.date))].sort().at(-1)
+    const quiet = pack.candidates.find(c => of(c.id) && !items.some(i => i.date >= last && (i.people.some(p => p.id === c.id) || i.named.includes(c.id))))
+    if (quiet) {
+      await jp.goto(U(`/journal?candidat=${quiet.id}&depuis=${last}`))
+      await jp.locator('.jr-empty').waitFor()
+      const none = await jp.evaluate(() => ({ entries: document.querySelectorAll('.jr-entry').length, ways: [...document.querySelectorAll('.jr-empty-actions button')].map(b => b.textContent) }))
+      check(none.entries === 0 && none.ways.length === 3 && none.ways.every(w => /\(\d+/.test(w)), `aucune entrée : ${none.ways.map(flat).join(' · ')}`)
+    }
+    await jc.close()
+
+    // L'avis du dépouillement, données mises à jour depuis la visite : « Voir ce qui a changé » ouvre le journal sur
+    // « après votre dernier passage », passé en mémoire, jamais dans l'adresse
+    const oldest = items.at(-1).versions[0]
+    const before = { ...JSON.parse(saved[STORAGE]), dataVersion: oldest }
+    const pc = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' })
+    await pc.addInitScript(st => Object.entries(st).forEach(([k, v]) => localStorage.setItem(k, v)), { ...saved, [STORAGE]: JSON.stringify(before) })
+    const pp = await pc.newPage()
+    await pp.goto(U('/resultats'))
+    const notice = pp.locator(`.notice a[href="${L('/journal')}"]`)
+    await notice.waitFor()
+    const said = flat(await pp.locator('.notice p').first().textContent())
+    await notice.click()
+    await pp.locator('.jr-entry').first().waitFor()
+    const passage = await pp.evaluate(() => ({ hash: decodeURI(location.hash), words: document.querySelector('.jr-words')?.textContent ?? '', shown: document.querySelectorAll('.jr-entry').length }))
+    const expected = items.filter(i => i.versions.some(v => newerVersion(v, oldest))).length
+    check(
+      /Pour vous\s*:/.test(said) && passage.hash === L('/journal') && flat(passage.words).includes('après votre dernier passage') && passage.shown === expected,
+      `l’avis du dépouillement (« ${said} ») ouvre le journal sur « après votre dernier passage » : ${passage.shown} entrées, adresse ${passage.hash}`,
+    )
+    await pc.close()
+
+    // Ordinateur : les filtres sur la page, « Ce qui change » en pastilles avec leur nombre ; la ligne collée
+    const dc = await browser.newContext({ viewport: { width: 1280, height: 800 }, reducedMotion: 'reduce' })
+    await dc.addInitScript(st => Object.entries(st).forEach(([k, v]) => localStorage.setItem(k, v)), saved)
+    const dp = await dc.newPage()
+    await dp.goto(U('/journal'))
+    await dp.locator('.jr-entry').first().waitFor()
+    const desk = await dp.evaluate(() => ({
+      inline: getComputedStyle(document.querySelector('.jr-tools')).display,
+      chips: document.querySelectorAll('.jr-chips .filter-chip').length,
+      button: !!document.querySelector('.jr-open')?.offsetParent,
+    }))
+    await dp.locator('.jr-chips .filter-chip', { hasText: 'Positions' }).click()
+    const chip = await dp.evaluate(() => ({ hash: decodeURI(location.hash), pressed: document.querySelector('.jr-chips .filter-chip[aria-pressed="true"]')?.textContent ?? '' }))
+    await dp.evaluate(() => window.scrollTo(0, document.querySelector('.jr-day:last-of-type')?.getBoundingClientRect().top + scrollY))
+    await dp.waitForTimeout(300)
+    const stuck = await dp.evaluate(() => ({ stuck: document.querySelector('.jr-summary').classList.contains('is-stuck'), up: !!document.querySelector('.jr-up')?.offsetParent, wide: document.documentElement.scrollWidth > innerWidth }))
+    check(
+      desk.inline === 'block' && desk.chips === 6 && !desk.button && chip.hash === L('/journal?change=positions') && /^Positions/.test(flat(chip.pressed)) && stuck.stuck && stuck.up && !stuck.wide,
+      `journal sur ordinateur : les filtres sur la page, ${desk.chips} pastilles, « ${flat(chip.pressed)} » enfoncée (${chip.hash}) ; défilée, la ligne collée propose « Filtres »`,
+    )
+    await dc.close()
+  }
 
   // 7 ter. Grand écran : le menu en ligne dans l'en-tête, le lien courant marqué, sans bouton « Menu »
   const wide = await browser.newContext({ viewport: { width: 1440, height: 900 }, reducedMotion: 'reduce' })
@@ -3448,6 +3592,7 @@ try {
       '/', '/resultats', '/proximite', '/candidats', `/candidat/${FICHE.id}`, `/comparer/${pack.candidates.slice(0, 4).map(c => c.id).join(',')}`,
       '/partager', '/profil', '/sujets', ...(VIDEOS_SHOWN ? ['/videos'] : []), '/feuille/1', '/approfondir', '/priorites',
       ...(PROFILE ? ['/a-table'] : []), '/autre-appareil', '/autre-appareil/importer', '/methode', '/confidentialite', '/mentions-legales',
+      ...(pack.election.changelog.some(e => e.n) ? ['/journal'] : []),
     ]
     const sizesWide = [[1920, 200], [1280, 200], [1024, 200], [768, 200], [390, 200], [320, 200]]
     const wideIssues = []

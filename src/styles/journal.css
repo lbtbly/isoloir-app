@@ -1,0 +1,942 @@
+/* ——— Journal des données (#/journal, ui/screens/Journal.tsx) ———
+   Décision du propriétaire du 17 octobre 2026, sur maquette, avec une retouche : au téléphone, les filtres sont dans une
+   feuille modale (« Filtres », avec le nombre de filtres posés), sur ordinateur ils restent visibles. Le reste vient des
+   classes du site : .display, .lede, .ai-label, .filter-select, .select-chevron, .filter-chips, .filter-chip, .chip-n,
+   .btn-text, .btn-primary, menus repliables. Rien que des jetons : le papier carbone vient tout seul. Aucune couleur
+   nouvelle : l'imprimé noir dit les faits, le gris les précise. Chargé avec la feuille de la page (app.tsx). */
+
+.journal {
+  --measure: 60ch;
+}
+
+.journal .lede {
+  max-width: 36rem;
+}
+
+.jr-ai {
+  margin: var(--s3) 0 0;
+}
+
+/* Le focus ne passe jamais sous l'en-tête ni sous la ligne collante (--filters-h, useStickyFilters) */
+html:has(.jr-summary) {
+  scroll-padding-top: calc(var(--header-real, 3.5rem) + var(--filters-h, 3rem) + 0.75rem);
+}
+
+/* ——— Les filtres ———
+   Ordinateur (dès 48rem) : trois menus natifs et « Ce qui change » en pastilles (le modèle de « Les sujets »), visibles
+   sous le chapeau. Téléphone : les mêmes quatre menus, dans la feuille modale. Pas de nombre dans les menus : il
+   resterait affiché dans le menu refermé (iPhone) et ignorerait les autres filtres. */
+
+.jr-tools {
+  container: jr-tools / inline-size;
+  display: none;
+  margin: var(--s5) 0 0;
+  scroll-margin-top: calc(var(--header-real, 3.5rem) + var(--s3));
+}
+
+.jr-fields {
+  display: grid;
+  gap: var(--s3);
+}
+
+.jr-field {
+  display: grid;
+  align-content: start;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.jr-field-label {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--print-soft);
+}
+
+/* Le menu du site (.filter-select), gardé à toutes les largeurs ici */
+.jr-select {
+  display: block;
+}
+
+/* 16 px au téléphone : sous 16 px, Safari agrandit la page à chaque menu touché */
+.jr-select select {
+  font-size: 1rem;
+}
+
+/* Un filtre posé s'imprime en négatif, comme une pastille enfoncée : on voit d'un coup d'œil ce qui trie */
+.jr-select.is-set select {
+  background: var(--print);
+  border-color: var(--print);
+  color: var(--on-print);
+}
+
+.jr-select.is-set .select-chevron {
+  color: var(--on-print);
+}
+
+.jr-select select option,
+.jr-select select optgroup {
+  background: var(--paper);
+  color: var(--print);
+}
+
+/* Une pastille qui ne garderait rien : grisée et inactive */
+.jr-chips .filter-chip:disabled {
+  border-color: var(--rule);
+  color: var(--print-soft);
+  cursor: default;
+}
+
+@media (min-width: 48rem) {
+  .jr-tools {
+    display: block;
+  }
+
+  .jr-filters {
+    padding: var(--s3) 0;
+    border-top: var(--thick) solid var(--rule-strong);
+  }
+
+  .jr-tools .jr-fields {
+    grid-template-columns: minmax(0, 1.45fr) minmax(0, 1.1fr) minmax(0, 1fr);
+    grid-template-areas:
+      'cand theme depuis'
+      'change change change';
+  }
+
+  .jr-field.is-candidat {
+    grid-area: cand;
+  }
+
+  .jr-field.is-theme {
+    grid-area: theme;
+  }
+
+  .jr-field.is-depuis {
+    grid-area: depuis;
+  }
+
+  .jr-field.is-change {
+    grid-area: change;
+  }
+
+  .jr-tools .jr-select select {
+    font-size: var(--text-sm);
+  }
+
+  .jr-chips {
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+}
+
+/* Texte très agrandi : les trois menus l'un sous l'autre */
+@container jr-tools (max-width: 34rem) {
+  .jr-tools .jr-fields {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'cand' 'theme' 'depuis' 'change';
+  }
+}
+
+/* ——— La ligne du compte ———
+   Le compte, ce que retiennent les filtres en mots, et de quoi les changer. Elle colle sous l'en-tête (useStickyFilters :
+   hauteur publiée dans --filters-h, décollée sur un écran court) ; une fois collée, elle tient sur une ligne. */
+
+.jr-sentinel {
+  height: 0;
+}
+
+.jr-summary {
+  container: jr-summary / inline-size;
+  position: sticky;
+  top: calc(var(--header-real, 3.5rem) + 5px);
+  z-index: 5;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    'count acts'
+    'words words';
+  align-items: center;
+  column-gap: var(--s3);
+  margin: var(--s4) calc(-1 * var(--gutter)) 0;
+  padding: 0 var(--gutter);
+  border-top: var(--line) solid var(--rule-strong);
+  border-bottom: var(--hair) solid var(--rule);
+  background: var(--paper);
+}
+
+.jr-summary.is-loose {
+  position: static;
+}
+
+.jr-count {
+  grid-area: count;
+  min-width: 0;
+  margin: 0;
+  padding-block: 0.6rem;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.jr-count b {
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.jr-words {
+  grid-area: words;
+  min-width: 0;
+  margin: -0.35rem 0 0;
+  padding-bottom: 0.6rem;
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.jr-acts {
+  grid-area: acts;
+  display: flex;
+  align-items: center;
+  gap: 0 var(--s4);
+  margin: 0;
+  padding-block: 0.35rem;
+}
+
+.jr-acts .btn-text {
+  min-height: 2.75rem;
+  padding-block: 0;
+}
+
+.jr-up .icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Le bouton de la feuille modale : une pastille de filtre ; des filtres posés, elle s'imprime en négatif avec leur nombre */
+.jr-open {
+  gap: 0.4rem;
+  padding: 0 0.65rem;
+}
+
+.jr-open .icon {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.jr-open.is-set {
+  background: var(--print);
+  border-color: var(--print);
+  color: var(--on-print);
+}
+
+.jr-open.is-set .chip-n {
+  color: inherit;
+  font-weight: 800;
+}
+
+/* Collée : une seule ligne, les filtres en mots coupés au besoin */
+.jr-summary.is-stuck {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas: 'count words acts';
+}
+
+.jr-summary.is-stuck .jr-words {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Téléphone : la feuille modale à la place des filtres, et « Effacer les filtres » dedans */
+.jr-up,
+.jr-reset {
+  display: none;
+}
+
+@container jr-summary (max-width: 20rem) {
+  .jr-summary.is-stuck .jr-words {
+    display: none;
+  }
+}
+
+@media (min-width: 48rem) {
+  .jr-open {
+    display: none;
+  }
+
+  .jr-reset {
+    display: inline-flex;
+  }
+
+  .jr-summary.is-stuck .jr-reset {
+    display: none;
+  }
+
+  .jr-summary.is-stuck .jr-up {
+    display: inline-flex;
+  }
+
+  /* Sans filtre : le compte et la période sur une seule ligne */
+  .jr-summary:not(.is-filtered) {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas: 'count words acts';
+  }
+
+  .jr-summary:not(.is-filtered) .jr-words {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* ——— La feuille modale des filtres (téléphone) ———
+   Posée en bas de l'écran, sous le double filet de l'en-tête renversé ; le fond s'assombrit comme la fenêtre du mode
+   avion (voilé, en papier carbone). Le titre, les quatre menus, puis « Effacer les filtres » et « Voir N entrées », toujours à portée du pouce. */
+
+.jr-sheet {
+  position: fixed;
+  inset: auto 0 0;
+  width: 100%;
+  max-width: none;
+  max-height: min(90dvh, 44rem);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-top: var(--thick) solid var(--rule-strong);
+  background: var(--paper);
+  color: var(--print);
+}
+
+.jr-sheet[open] {
+  display: flex;
+  flex-direction: column;
+  animation: jr-sheet-in 220ms var(--ease-out);
+}
+
+/* Le second trait du double filet, 4px sous le premier */
+.jr-sheet::before {
+  content: '';
+  flex: none;
+  margin-top: 4px;
+  border-top: var(--hair) solid var(--rule-strong);
+}
+
+.jr-sheet::backdrop {
+  background: color-mix(in srgb, var(--print) 45%, transparent);
+}
+
+@keyframes jr-sheet-in {
+  from {
+    transform: translateY(1.5rem);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jr-sheet[open] {
+    animation: none;
+  }
+}
+
+/* La page ne défile pas sous la feuille */
+html:has(.jr-sheet[open]) {
+  overflow: hidden;
+}
+
+.jr-sheet-head {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s3);
+  padding: var(--s2) var(--gutter) 0;
+}
+
+.jr-sheet-title {
+  margin: 0;
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.jr-sheet-title:focus {
+  outline: none;
+}
+
+.jr-sheet-title:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.jr-sheet-close {
+  justify-content: center;
+  width: 2.75rem;
+  min-height: 2.75rem;
+  margin-right: -0.6rem;
+  padding: 0;
+}
+
+.jr-sheet-close .icon {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.jr-sheet-body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--s3) var(--gutter) var(--s4);
+}
+
+.jr-sheet-foot {
+  container: jr-sheet-foot / inline-size;
+  flex: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s2) var(--s4);
+  padding: var(--s3) var(--gutter) calc(var(--s3) + env(safe-area-inset-bottom, 0px));
+  border-top: var(--line) solid var(--rule-strong);
+}
+
+.jr-sheet-count {
+  flex: 1 1 100%;
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.jr-sheet-count b {
+  font-weight: 800;
+  color: var(--print);
+  font-variant-numeric: tabular-nums;
+}
+
+.jr-sheet-foot .btn-text {
+  min-height: 2.75rem;
+}
+
+.jr-sheet-foot .btn-text:disabled {
+  color: var(--print-soft);
+  text-decoration-color: var(--rule);
+  cursor: default;
+}
+
+.jr-sheet-foot .btn-primary {
+  margin-left: auto;
+}
+
+/* Texte très agrandi : le bouton prend toute la rangée, et le compte, qu'il redit, n'est plus lu qu'à voix haute (la
+   feuille garde la place pour les menus) */
+@container jr-sheet-foot (max-width: 19rem) {
+  .jr-sheet-foot .btn-primary {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+
+  .jr-sheet-count {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+/* ——— Un jour du journal ——— */
+
+.jr-day {
+  margin-top: var(--s5);
+}
+
+.jr-date {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin: 0;
+  padding-top: var(--s2);
+  border-top: var(--thick) solid var(--rule-strong);
+  font-weight: 800;
+  font-stretch: 80%;
+  font-size: 1.15rem;
+  line-height: 1.1;
+}
+
+.jr-date-d {
+  font-weight: 850;
+  font-stretch: 70%;
+  font-size: 2.3rem;
+  line-height: 0.9;
+  font-variant-numeric: tabular-nums;
+}
+
+.jr-entries {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ——— Une entrée : sa nature et son numéro, son titre, trois faits, et « Lire la suite » ——— */
+
+.jr-entry {
+  padding: var(--s4) 0 var(--s1);
+  border-top: var(--hair) solid var(--rule);
+}
+
+.jr-entry:first-child {
+  border-top: 0;
+}
+
+.jr-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--s3);
+  margin: 0;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--print-soft);
+}
+
+.jr-kinds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem var(--s4);
+}
+
+.jr-kinds > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.jr-kinds .icon {
+  flex: none;
+  width: 1.05rem;
+  height: 1.05rem;
+  color: var(--print);
+}
+
+/* Le numéro, comme un procès-verbal : stable, il donne l'adresse de l'entrée (#/journal/8) */
+.jr-n {
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--print);
+}
+
+.jr-title {
+  max-width: var(--measure);
+  margin: var(--s2) 0 0;
+  font-size: 1.2rem;
+  font-weight: 800;
+  font-stretch: 85%;
+  line-height: 1.2;
+  overflow-wrap: break-word;
+  scroll-margin-top: calc(var(--header-real, 3.5rem) + var(--filters-h, 3rem) + var(--s6));
+}
+
+.jr-title:focus {
+  outline: none;
+}
+
+.jr-title:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.jr-facts {
+  max-width: var(--measure);
+  margin: var(--s2) 0 0;
+  font-size: var(--text-sm);
+  line-height: 1.4;
+}
+
+.jr-facts > div {
+  margin-top: 0.2rem;
+}
+
+.jr-facts dt,
+.jr-facts dd {
+  display: inline;
+}
+
+.jr-facts dt {
+  font-weight: 700;
+  color: var(--print);
+}
+
+.jr-facts dd {
+  margin: 0;
+  color: var(--print-soft);
+}
+
+.jr-facts dd a {
+  color: var(--print);
+  font-weight: 650;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+
+/* L'effet sur le classement : dit en mots, sans cadre ; « peut changer » à l'encre, « sans effet » en gris */
+.jr-effect.is-yes dd {
+  color: var(--print);
+}
+
+.jr-effect b {
+  font-weight: 800;
+}
+
+.jr-party {
+  font-weight: 450;
+  color: var(--print-soft);
+}
+
+.jr-out,
+.jr-out-line {
+  color: var(--print-soft);
+}
+
+/* Lire la suite : un menu repliable du site (chevron dessiné, libellé souligné) */
+.jr-more > summary,
+.jr-rest > summary {
+  display: flex;
+  align-items: flex-start;
+  gap: 0 0.45rem;
+  min-height: 2.75rem;
+  padding-block: 0.6rem;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+.jr-more > summary .disclosure,
+.jr-rest > summary .disclosure {
+  flex: none;
+  margin-top: 0.15rem;
+}
+
+.jr-more > summary::-webkit-details-marker,
+.jr-rest > summary::-webkit-details-marker {
+  display: none;
+}
+
+.jr-more-n {
+  margin-left: 0.35rem;
+  font-weight: 450;
+  color: var(--print-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.jr-body {
+  padding: var(--s1) 0 var(--s3);
+}
+
+.jr-text {
+  max-width: var(--measure);
+}
+
+.jr-text p {
+  margin: 0 0 var(--s2);
+}
+
+.jr-note {
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.jr-note b {
+  font-weight: 700;
+  color: var(--print);
+}
+
+.jr-sub {
+  margin: var(--s4) 0 var(--s2);
+  font-weight: 800;
+  font-stretch: 80%;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
+.jr-body > .jr-sub:first-child {
+  margin-top: var(--s2);
+}
+
+.jr-rest {
+  margin-top: var(--s1);
+}
+
+.jr-who.is-mine {
+  margin-top: var(--s2);
+}
+
+/* Candidat par candidat : ce qui arrive à ses positions, une phrase par cause, puis l'effet sur son score */
+.jr-who {
+  max-width: var(--measure);
+  margin: 0;
+  border-top: var(--line) solid var(--rule-strong);
+  border-bottom: var(--line) solid var(--rule-strong);
+}
+
+.jr-who > div {
+  padding: var(--s3) 0;
+  border-top: var(--hair) solid var(--rule);
+}
+
+.jr-who > div:first-child {
+  border-top: 0;
+}
+
+.jr-who dt {
+  font-weight: 750;
+}
+
+.jr-who dt a {
+  color: var(--print);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+
+.jr-who dd {
+  margin: 0.25rem 0 0;
+  font-size: var(--text-sm);
+}
+
+.jr-who dd p {
+  margin: 0 0 0.2rem;
+}
+
+.jr-score {
+  color: var(--print-soft);
+}
+
+.jr-score.is-yes {
+  font-weight: 750;
+  color: var(--print);
+}
+
+.jr-who .jr-questions {
+  margin-top: var(--s2);
+  border-bottom: 0;
+}
+
+.jr-out-line {
+  max-width: var(--measure);
+  margin: var(--s2) 0 0;
+  font-size: var(--text-sm);
+}
+
+.jr-names {
+  max-width: var(--measure);
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+.jr-names a {
+  color: var(--print);
+  font-weight: 650;
+}
+
+/* Les questions touchées : lignes de formulaire, comme la carte des questions à revoir */
+.jr-questions {
+  max-width: var(--measure);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: var(--line) solid var(--rule-strong);
+  border-bottom: var(--line) solid var(--rule-strong);
+}
+
+.jr-questions li {
+  margin: 0;
+  border-top: var(--hair) solid var(--rule);
+}
+
+.jr-questions li:first-child {
+  border-top: 0;
+}
+
+.jr-questions a {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: var(--s3);
+  align-items: center;
+  padding: var(--s2) 0;
+  color: var(--print);
+  text-decoration: none;
+}
+
+.jr-questions a > .icon {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.jr-q-theme {
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--print-soft);
+}
+
+.jr-q-text {
+  display: block;
+  font-weight: 650;
+  line-height: 1.35;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+
+/* Calculé sur l'appareil, jamais envoyé : la coche est doublée de son mot */
+.jr-mine {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.2rem;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--print-soft);
+}
+
+.jr-mine .icon {
+  width: 0.95rem;
+  height: 0.95rem;
+  color: var(--print);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .jr-questions a:hover {
+    background: color-mix(in srgb, var(--print) 3%, var(--paper));
+  }
+}
+
+/* ——— Aucune entrée : un avis encadré, sur papier, avec de quoi en sortir ——— */
+
+.jr-empty {
+  max-width: var(--measure);
+  margin: var(--s5) 0 0;
+  padding: var(--s4);
+  border: var(--line) solid var(--rule-strong);
+  box-shadow: inset 0 var(--thick) 0 var(--rule-strong);
+}
+
+.jr-empty-title {
+  margin: var(--s1) 0 var(--s2);
+  overflow-wrap: anywhere;
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: clamp(1.6rem, 6vw, 2.15rem);
+  line-height: 1;
+}
+
+.jr-empty p {
+  margin: 0 0 var(--s2);
+}
+
+.jr-empty-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--s4);
+  margin: var(--s2) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.jr-empty-actions .btn-text {
+  min-height: 2.75rem;
+  text-align: start;
+}
+
+/* ——— Grand écran : la marge imprimée porte le compte et les dates (The Printed Margin Rule) ——— */
+
+@media (min-width: 64rem) {
+  .sheet.has-margin > .jr-summary,
+  .sheet.has-margin > .jr-day,
+  .sheet.has-margin > .jr-empty-row {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: var(--margin-wide) minmax(0, 1fr);
+    column-gap: var(--s6);
+    align-items: baseline;
+  }
+
+  .sheet.has-margin > .jr-summary,
+  .sheet.has-margin > .jr-summary:not(.is-filtered),
+  .sheet.has-margin > .jr-summary.is-stuck {
+    grid-template-columns: var(--margin-wide) minmax(0, 1fr) auto;
+    grid-template-areas: 'count words acts';
+    margin: var(--s2) 0 0;
+    padding: 0;
+    border-top: 0;
+  }
+
+  /* La ligne collante couvre le filet de la marge : elle le retrace, et porte le filet de la feuille */
+  .sheet.has-margin > .jr-summary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(var(--margin-wide) + var(--s6) / 2);
+    border-left: var(--hair) solid var(--rule);
+  }
+
+  .sheet.has-margin > .jr-summary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: calc(var(--margin-wide) + var(--s6));
+    border-top: var(--line) solid var(--rule-strong);
+  }
+
+  .sheet.has-margin > .jr-summary > .jr-count {
+    text-align: right;
+  }
+
+  .sheet.has-margin > .jr-summary .jr-words {
+    margin: 0;
+    padding: 0.6rem 0;
+  }
+
+  .sheet.has-margin > .jr-day {
+    align-items: start;
+  }
+
+  .sheet.has-margin > .jr-day > .jr-date {
+    grid-column: 1;
+    position: sticky;
+    top: calc(var(--header-real, 3.5rem) + 5px + var(--filters-h, 3rem));
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+    padding-top: var(--s3);
+    border-top: 0;
+    text-align: right;
+  }
+
+  .sheet.has-margin > .jr-day .jr-date-d {
+    font-size: 3.5rem;
+  }
+
+  .sheet.has-margin > .jr-day .jr-date-m {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    font-stretch: 100%;
+    color: var(--print-soft);
+  }
+
+  .sheet.has-margin > .jr-day > .jr-entries {
+    grid-column: 2;
+    border-top: var(--thick) solid var(--rule-strong);
+  }
+
+  .sheet.has-margin > .jr-empty-row > .jr-empty {
+    grid-column: 2;
+  }
+}

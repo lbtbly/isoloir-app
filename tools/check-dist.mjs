@@ -305,6 +305,19 @@ for (const name of ['Method', 'Privacy', 'Legal', 'Share']) {
     if (modulePreloads.includes(`assets/${f}`)) fail(`écran ${name} : assets/${f} est préchargé par dist/index.html`)
   }
 }
+// Le journal des données (src/ui/screens/Journal.tsx ; ses calculs, src/core/journal.ts : filtres, adresse, candidats et
+// effet de chaque entrée) : un fichier à part, chargé à la demande (src/ui/screens/load.ts), jamais dans le JS initial ni
+// préchargé ; ses calculs non plus (l'accueil de retour et l'avis du dépouillement lisent le journal de l'élection
+// directement : titre, numéro, effet). Plafond : 21,1 ko mesurés le 17 octobre 2026, plus 15 %
+const JOURNAL_BUDGET = 24_300
+const journalChunks = readdirSync(join(dist, 'assets')).filter(f => /^Journal-[\w-]+\.js$/.test(f))
+if (journalChunks.length !== 1) fail(`journal des données : ${journalChunks.length} fichier(s) assets/Journal-*.js, un attendu (chargé à la demande, src/ui/screens/load.ts)`)
+for (const f of journalChunks) {
+  if (initial.includes(join('assets', f))) fail(`journal des données : assets/${f} est dans le JS initial (il doit n'être chargé que par import())`)
+  if (modulePreloads.includes(`assets/${f}`)) fail(`journal des données : assets/${f} est préchargé par dist/index.html`)
+  const size = statSync(join(dist, 'assets', f)).size
+  if (size > JOURNAL_BUDGET) fail(`journal des données : assets/${f} pèse ${(size / 1000).toFixed(1)} ko, plafond de ${JOURNAL_BUDGET / 1000} ko`)
+}
 // « Transférez vos réponses » (src/ui/screens/Transfer.tsx ; codes de transfert, src/core/transfer ; QR codes, bibliothèque
 // qr) : des fichiers à part, chargés à la demande, jamais dans le JS initial ni préchargés. Le lecteur (caméra, images,
 // fichiers : src/ui/transfer/read.ts) vient avec la page ou avec « Reprendre depuis un fichier » ; le décodeur
@@ -344,6 +357,8 @@ if (sheets.length !== 1) fail(`dist/index.html charge ${sheets.length} feuille(s
 // Aucun texte de la banque dans le JS initial : ni énoncé ni approche, de chaque élection du site
 // (src/elections/<id>/bank.ts) ou en préparation (research/<id>/bank.json, écrit par tools/build-pack.mjs)
 const initialCode = initial.map(f => readFileSync(join(dist, f), 'utf8')).join('\n')
+// Les calculs du journal des données (core/journal.ts) ne sont que dans son fichier : ni ses natures ni ses filtres au JS initial
+if (initialCode.includes('Calcul et pages du site')) fail('journal des données : ses natures (core/journal.ts, KIND_LABELS) sont dans le JS initial')
 // Les codes de transfert (core/transfer) ne sont lus et fabriqués qu'à la demande : leur alphabet n'est pas dans le JS initial
 if (initialCode.includes('0123456789ABCDEFGHJKMNPQRSTVWXYZ')) fail('codes de transfert : leur alphabet (core/transfer/base32.ts) est dans le JS initial')
 // « Mon profil politique » : ses entrées (l'accueil, le dépouillement, la tendance) n'emportent dans le JS initial que
@@ -439,6 +454,7 @@ if (initialBytes) console.log(`  JS initial : ${(initialBytes / 1000).toFixed(1)
 for (const f of reportChunks) console.log(`  dépouillement en PDF : assets/${f}, ${(statSync(join(dist, 'assets', f)).size / 1000).toFixed(1)} ko sur ${REPORT_BUDGET / 1000} ko permis, chargé à la demande`)
 for (const f of agreeChunks) console.log(`  image « Accords et désaccords » : assets/${f}, ${(statSync(join(dist, 'assets', f)).size / 1000).toFixed(1)} ko sur ${AGREE_BUDGET / 1000} ko permis, chargée à la demande`)
 for (const f of tableChunks) console.log(`  « À table » : assets/${f}, ${(statSync(join(dist, 'assets', f)).size / 1000).toFixed(1)} ko sur ${TABLE_BUDGET / 1000} ko permis, chargé à la demande`)
+for (const f of journalChunks) console.log(`  journal des données : assets/${f}, ${(statSync(join(dist, 'assets', f)).size / 1000).toFixed(1)} ko sur ${JOURNAL_BUDGET / 1000} ko permis, chargé à la demande`)
 for (const f of profileChunks) console.log(`  « Mon profil politique » : assets/${f} et ce qu’il charge en plus du JS initial, ${(bytesOf(ownOf(f)) / 1000).toFixed(1)} ko sur ${PROFILE_BUDGET / 1000} ko permis, chargé à la demande`)
 for (const f of methodSectionChunks) console.log(`  rubrique « Mon profil politique » de la Méthode : assets/${f} et ce qu’elle ajoute à la Méthode, ${(bytesOf(methodAdded(f)) / 1000).toFixed(1)} ko sur ${PROFILE_METHOD_BUDGET / 1000} ko permis, chargée à la demande`)
 for (const f of weighChunks) {

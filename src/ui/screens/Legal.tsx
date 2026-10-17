@@ -185,8 +185,7 @@ export function Legal({ pack, seed }: { pack: ElectionPack; seed: string }) {
               «&nbsp;inconnue&nbsp;»&nbsp;: elle sort du calcul plutôt que de rester supposée.
             </li>
             <li>
-              <strong>Trace.</strong> Chaque correction est datée dans le journal des données, en bas de la page{' '}
-              <a href={link('/methode')}>Méthode et sources</a>.
+              <strong>Trace.</strong> Chaque correction est datée dans le <a href={link('/journal')}>journal des données</a>.
             </li>
           </ul>
 

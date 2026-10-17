@@ -22,7 +22,7 @@ import { link } from '../nav'
 import '../../styles/ai-label.css'
 
 /** Ce que l'étiquette accompagne : le texte de la mention et de son explication en dépend */
-export type AiKind = 'feuille' | 'fiche' | 'fiches' | 'positions' | 'approches' | 'resumes' | 'parcours' | 'texte' | 'video' | 'videos'
+export type AiKind = 'feuille' | 'fiche' | 'fiches' | 'positions' | 'approches' | 'resumes' | 'parcours' | 'texte' | 'video' | 'videos' | 'journal'
 
 /** Rubrique « Usage de l'IA » de la notice Méthode et sources (ancre stable), en chemin : link(AI_METHOD_PATH) */
 export const AI_METHOD_PATH = '/methode/ia'
@@ -43,6 +43,8 @@ const LABEL: Record<AiKind, { lead: string; rest?: string }> = {
   video: { lead: 'Texte rédigé par IA', rest: 'vérifié automatiquement' },
   // La page « Les sujets en vidéo » : les textes de toutes les vidéos
   videos: { lead: 'Textes rédigés par IA', rest: 'vérifiés automatiquement' },
+  // Le journal des données : les titres courts et les textes des entrées ; ce qui vient des données ne l'est pas
+  journal: { lead: 'Titres et textes rédigés par IA' },
 }
 
 /** La première phrase de l'explication, propre à chaque texte */
@@ -67,6 +69,8 @@ const WHAT: Record<AiKind, string> = {
     'Le texte de cette vidéo a été rédigé par une IA (Claude, d’Anthropic) à partir des fiches et des sources citées, puis vérifié automatiquement contre elles.',
   videos:
     'Les textes de ces vidéos ont été rédigés par une IA (Claude, d’Anthropic) à partir des fiches et des sources citées, puis vérifiés automatiquement contre elles.',
+  journal:
+    'Les titres et les textes de ce journal ont été rédigés par une IA (Claude, d’Anthropic), d’après les décisions de l’éditeur. Le reste de chaque entrée est tiré des données, sans rédaction\u00a0: ses candidats, ses thèmes, ses questions et son effet sur le classement.',
 }
 
 interface Props {
@@ -122,11 +126,12 @@ export function AiNote({ kind, voice, onLeave }: { kind: AiKind; voice?: boolean
   // Les approches et les points d'accord ne citent pas de source à côté d'eux, ni « Mon profil politique » (ses positions
   // renvoient à « Qui porte quoi ») : pas de renvoi aux sources
   const check = kind === 'feuille' || kind === 'texte' || kind === 'approches' ? '.' : '\u00a0: chaque source est citée pour que vous puissiez vérifier.'
+  // Le journal des données ne cite pas de sources : ses entrées disent ce qui a changé dans les données
   return (
     <>
       <p>
         {WHAT[kind]}
-        {voiceLine} Les textes d’{APP_NAME} ne sont pas relus un par un par une personne{check}
+        {voiceLine} Les textes d’{APP_NAME} ne sont pas relus un par un par une personne{kind === 'journal' ? '.' : check}
       </p>
       <p>
         Une erreur&nbsp;?{' '}

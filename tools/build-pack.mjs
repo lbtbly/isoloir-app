@@ -119,6 +119,7 @@ import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync } from 
 import { basename, dirname, join, resolve } from 'node:path'
 import { FORM_THRESHOLD, editRatio, nextRevision, normalizeText, questionText } from '../src/core/revisions.ts'
 import { appendFromBuild } from './positions-history.mjs'
+import { writeJournal } from './build-journal.mjs'
 
 const USAGE = 'Usage : node tools/build-pack.mjs <workflow-output.json> <research-dir> <election-src-dir> [expansion.json…] [--include <id>[,<id>…]] [--reset-revisions] [--no-history]'
 const argv = process.argv.slice(2)
@@ -620,12 +621,16 @@ if (videoScope) {
   )
 }
 writeFileSync(join(researchDir, 'build-log.txt'), log.join('\n'))
+// Les candidats du journal des données (tools/build-journal.mjs), d'après l'historique tout juste consigné : une ligne
+// d'une version des données qu'aucune entrée ne porte encore attend la sienne (tests/journal.test.ts le signale)
+const journalResult = history ? await writeJournal({ id: electionId, researchDir, srcDir }) : null
 const ess = bankQuestions.filter(q => q.tier === 'essentiel').length
 console.log(`topics ${usedTopics.length}, questions ${bankQuestions.length} (essentiel ${ess}, approfondi ${bankQuestions.length - ess}), log ${log.length} lignes`)
 if (Object.keys(prepared).length || include) {
   console.log(`candidats publiés ${published.length}${Object.keys(prepared).length ? `, préparés sans publication : ${Object.keys(prepared).join(', ')}` : ''}`)
 }
 if (videoScope) console.log(`vidéos : ${Object.keys(videoScope.topics).length} séries, ${Object.keys(videoScope.questions).length} questions reliées`)
+if (journalResult?.changed) console.log(`journal des données : ${journalResult.out} réécrit`)
 if (historyResult) {
   const { date, added, updated, removed, stamped, labels, drift, diskDrift } = historyResult
   console.log(`historique des positions ${date} : ${added} entrées ajoutées, ${updated} fondues, ${removed} annulées${stamped ? `, ${stamped} estampillées` : ''}${labels ? `, ${labels} libellés` : ''}`)

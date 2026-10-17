@@ -312,6 +312,70 @@ export interface ScoringExclusion {
   joined?: Partial<Record<CandidateId, string>>
 }
 
+/**
+ * Ce que change une entrée du journal des données, un ou plusieurs (mêmes mots sur l'entrée et dans le filtre « Ce qui
+ * change », core/journal.ts) : la liste des candidats, leurs positions, les questions (une approche ajoutée ou
+ * retirée), les fiches « Comprendre l'enjeu » et les vidéos, le calcul et les pages du site
+ */
+export type JournalKind = 'candidats' | 'positions' | 'questions' | 'explications' | 'site'
+
+/**
+ * Effet d'une entrée sur le classement, vérifié par les tests (tests/journal.test.ts) : « peut-changer » si et seulement
+ * si une position change sur le fond, une question gagne ou perd une approche, ou un candidat classé arrive ou part
+ */
+export type JournalEffect = 'peut-changer' | 'sans-effet' | 'première-version'
+
+/**
+ * Une entrée du journal des données. date et text pour toutes les élections ; les autres champs (décision du
+ * propriétaire du 17 octobre 2026, page #/journal) pour celles qui ont la page, vérifiés par les tests. Les candidats
+ * dont les positions changent, leurs causes et leurs questions ne s'écrivent pas ici : ils viennent de l'historique
+ * des positions (ElectionPack.journal, tools/build-journal.mjs).
+ */
+export interface ChangelogEntry {
+  /** Jour de publication, AAAA-MM-JJ (à Paris) */
+  date: string
+  /** Le texte entier, rédigé par IA, sous « Lire la suite » */
+  text: string
+  /** Numéro stable, dans l'ordre de publication : l'adresse de l'entrée (#/journal/8) */
+  n?: number
+  /** Titre court, 70 signes au plus, rédigé par IA ; il ne fait jamais dire à un candidat qu'il change quand seule notre lecture change */
+  title?: string
+  /** Version(s) des données en vigueur à la publication (dataVersion) : celles des lignes de l'historique qu'elle raconte */
+  versions?: string[]
+  kinds?: JournalKind[]
+  effect?: JournalEffect
+  /** Ce qui n'est pas une position de candidat : fiches, vidéos, questions qui gagnent une approche, avec leur titre */
+  parts?: { label: string; questions: QuestionId[] }[]
+  /** Candidats nommés sans que leurs positions changent (désigné par la primaire, par exemple) */
+  named?: CandidateId[]
+  /** Candidats arrivés ce jour-là sans être classés (election.ranking.excluded) : leur arrivée ne change pas le classement */
+  unranked?: CandidateId[]
+  /** Candidats qui ne sont plus présentés à partir de cette entrée */
+  departed?: CandidateId[]
+  /** Précisions ajoutées après coup, datées */
+  notes?: { date: string; text: string }[]
+}
+
+/**
+ * Ce qui arrive aux positions d'un candidat dans une entrée du journal, tiré de l'historique des positions
+ * (research/<id>/positions-history.json) par tools/build-journal.mjs : une cause par ligne distincte de l'historique,
+ * dans son ordre ; fond : la position elle-même change (ajout, retrait, poids), sinon seule sa justification
+ */
+export interface JournalPerson {
+  id: CandidateId
+  causes: { cause: string; fond: boolean }[]
+  /** Les questions où ses positions changent ; à son arrivée, aucune (toutes ses positions sont publiées) */
+  questions: QuestionId[]
+  /** Date de sa prise de position, quand c'en est une (AAAA-MM-JJ) */
+  statedAt: string | null
+}
+
+/**
+ * Les candidats de chaque entrée du journal, par numéro d'entrée. hidden : les candidats masqués (election.hidden),
+ * retirés de people par l'export du pack (core/visible.ts), comptés seulement, et parmi eux ceux qui arrivaient
+ */
+export type JournalPeople = Record<number, { people: JournalPerson[]; hidden?: { count: number; arrivals: number } }>
+
 export interface ElectionInfo {
   id: string
   kind: ElectionKind
@@ -343,7 +407,8 @@ export interface ElectionInfo {
    * et à revoir. Désactivé pendant la phase de test, où les questions bougent encore.
    */
   revisionTracking?: boolean
-  changelog: { date: string; text: string }[]
+  /** Journal des données (page #/journal, core/journal.ts) */
+  changelog: ChangelogEntry[]
   /** Phrases propres à l'élection */
   copy: ElectionCopy
   /** Questionnaire rapide : nombre de questions du premier dépouillement */
@@ -407,6 +472,8 @@ export interface ElectionPack {
   }
   /** Numéros stables des questions et des thèmes dans les codes de reprise ; absent : pas de code pour cette élection */
   transfer?: TransferSlots
+  /** Les candidats des entrées du journal des données (src/elections/<id>/journal.ts, généré) ; absent : aucun */
+  journal?: JournalPeople
 }
 
 /**

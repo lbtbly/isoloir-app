@@ -73,6 +73,26 @@ describe('sanitizeState', () => {
   })
 })
 
+describe('mise à jour des données entre deux visites', () => {
+  // Décision du propriétaire du 17 octobre 2026 : l'avis du dépouillement dit ce qui a bougé pour la personne
+  const ranking = pack.candidates.map((c, i) => ({ candidateId: c.id, score: 60 - i }))
+
+  it('le classement de la visite d’avant est gardé, et la version d’avant est notée', () => {
+    const state = sanitizeState({ ...freshState('test', '0'), lastSeenRanking: ranking }, pack)
+    expect(state?.dataVersion).toBe('1')
+    expect(state?.dataUpdatedFrom).toBe('0')
+    expect(state?.lastSeenRanking).toEqual(ranking)
+  })
+
+  it('deux mises à jour avant « Compris » : la plus ancienne version reste celle du dernier passage', () => {
+    const state = sanitizeState({ ...freshState('test', '0.5'), dataUpdatedFrom: '0', lastSeenRanking: ranking }, pack)
+    expect(state?.dataUpdatedFrom).toBe('0')
+    expect(state?.lastSeenRanking).toEqual(ranking)
+    // Même version, avis refermé : rien à dire
+    expect(sanitizeState({ ...freshState('test', '1'), dataUpdatedFrom: null }, pack)?.dataUpdatedFrom).toBeNull()
+  })
+})
+
 describe('export / import', () => {
   const state = {
     ...freshState('test', '1'),

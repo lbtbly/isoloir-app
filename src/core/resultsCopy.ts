@@ -28,6 +28,39 @@ export const LINK_SOURCES = 'Méthode et sources'
 /** Sous le rang de candidats à égalité */
 export const TIE_MARK = 'ex æquo'
 
+/** L'avis du dépouillement après une mise à jour des données (décision du propriétaire du 17 octobre 2026) */
+export const DATA_UPDATED = 'Les données ont été mises à jour depuis votre dernier passage.'
+export const DATA_UPDATED_LINK = 'Voir ce qui a changé'
+
+/**
+ * Ce que la mise à jour a changé pour la personne, d'après le classement gardé de sa visite précédente
+ * (lastSeenRanking, le repère des « +3 pts depuis votre dernier passage ») : l'ordre d'abord, puis les scores, puis les
+ * candidats arrivés au classement ou qui l'ont quitté. Sans repère, la phrase d'avant.
+ */
+export function updateMoves(before: readonly { candidateId: string; score: number | null }[] | null, now: readonly { candidateId: string; score: number | null }[]): string {
+  if (!before?.length) return 'Votre résultat a pu changer.'
+  const was = new Map(before.map(p => [p.candidateId, p.score]))
+  const common = now.filter(p => was.has(p.candidateId))
+  const kept = new Set(common.map(p => p.candidateId))
+  const order = before.filter(p => kept.has(p.candidateId))
+  const moved = common.filter((p, i) => order[i]?.candidateId !== p.candidateId).length
+  const scores = common.filter(p => was.get(p.candidateId) !== p.score).length
+  const added = now.length - common.length
+  const left = before.length - common.length
+  const parts = [
+    moved
+      ? `${moved}\u00a0candidats ont changé de place`
+      : scores
+        ? `même ordre, ${scores > 1 ? `${scores}\u00a0scores ont bougé` : 'un score a bougé'}`
+        : added || left
+          ? 'même ordre pour les autres'
+          : 'rien n’a bougé, même ordre, mêmes scores',
+  ]
+  if (added) parts.push(added > 1 ? `${added}\u00a0candidats sont entrés au classement` : 'un candidat est entré au classement')
+  if (left) parts.push(left > 1 ? `${left}\u00a0candidats l’ont quitté` : 'un candidat l’a quitté')
+  return `Pour vous\u00a0: ${parts.join('\u00a0; ')}.`
+}
+
 /** « A », « A et B », « A, B et C » */
 export const joinNames = (names: string[]) =>
   names.length < 2 ? (names[0] ?? '') : `${names.slice(0, -1).join(', ')} et ${names.at(-1)}`

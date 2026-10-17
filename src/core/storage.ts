@@ -18,9 +18,15 @@ export interface SessionState {
   weights: TopicWeights
   /** Thèmes choisis pour l'approfondissement */
   deepTopics: TopicId[]
-  /** Classement vu lors de la dernière visite des résultats, pour signaler les changements */
+  /**
+   * Classement vu lors de la dernière visite des résultats, pour signaler les changements ; gardé quand les données
+   * changent, et pas mis à jour tant que l'avis de mise à jour est ouvert : il dit ce qui a bougé pour la personne
+   */
   lastSeenRanking: { candidateId: CandidateId; score: number | null }[] | null
-  /** Version des données lors de la dernière visite, si elles ont changé depuis */
+  /**
+   * Version des données lors de la dernière visite, si elles ont changé depuis ; la plus ancienne tant que l'avis de
+   * mise à jour n'est pas refermé (« Compris »), d'une mise à jour à l'autre
+   */
   dataUpdatedFrom: string | null
   /**
    * Date où le questionnaire rapide a été complété pour la dernière fois. Elle est gardée si une question
@@ -134,8 +140,10 @@ export function sanitizeState(raw: unknown, pack: ElectionPack): SessionState | 
   const off = new Set(pack.election.ranking?.excluded?.ids ?? [])
   const known = new Set(pack.candidates.map(c => c.id).filter(id => !off.has(id)))
   const seen = new Set<string>()
+  // Gardé d'une version des données à l'autre (décision du propriétaire du 17 octobre 2026) : l'avis de mise à jour du
+  // dépouillement dit ce qui a bougé pour la personne depuis
   const lastSeenRanking =
-    !versionChanged && Array.isArray(raw.lastSeenRanking)
+    Array.isArray(raw.lastSeenRanking)
       ? raw.lastSeenRanking.filter((r): r is { candidateId: string; score: number | null } => {
           if (!isRecord(r) || typeof r.candidateId !== 'string' || seen.has(r.candidateId)) return false
           if (!known.has(r.candidateId)) return false
@@ -155,11 +163,12 @@ export function sanitizeState(raw: unknown, pack: ElectionPack): SessionState | 
     weights,
     deepTopics,
     lastSeenRanking,
-    dataUpdatedFrom: versionChanged
-      ? String(raw.dataVersion).slice(0, 40)
-      : typeof raw.dataUpdatedFrom === 'string'
+    dataUpdatedFrom:
+      typeof raw.dataUpdatedFrom === 'string' && raw.dataUpdatedFrom !== dataVersion
         ? raw.dataUpdatedFrom.slice(0, 40)
-        : null,
+        : versionChanged
+          ? String(raw.dataVersion).slice(0, 40)
+          : null,
     // Sauvegarde antérieure à ce champ : la dernière modification en tient lieu, si la feuille est complète
     essentialDoneAt: isoOrNull(raw.essentialDoneAt) ?? (essentialComplete(bank, answers) ? updatedAt : null),
     updatedAt: updatedAt ?? new Date().toISOString(),

@@ -97,10 +97,10 @@ describe('présidentielle : aucun texte montré ne nomme un candidat masqué', (
     expect(found).toEqual([])
   })
 
-  it('ni dans l’entrée la plus récente du journal, lue aussi en tête du dépouillement d’un visiteur qui revient', () => {
-    const latest = pack.election.changelog.reduce<{ date: string; text: string } | undefined>((a, c) => (!a || c.date > a.date ? c : a), undefined)
+  it('ni dans les titres du journal des données, lus aussi sur l’accueil d’un visiteur qui revient', () => {
+    // Le texte entier des entrées, sous « Lire la suite », les nomme quand il dit leur arrivée (décision du propriétaire)
     const found: string[] = []
-    scan(found, `journal du ${latest?.date}`, latest?.text)
+    for (const e of pack.election.changelog) scan(found, `journal, N° ${e.n}`, e.title)
     expect(found).toEqual([])
   })
 })

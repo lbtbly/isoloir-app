@@ -11,6 +11,7 @@ import { loadReport, prepareReport, reportNow } from '../report/load'
 import { prepareProfile } from '../profile/load'
 import { hasTable } from '../table/load'
 import { frozenAt } from '../../core/freeze'
+import { presetJournal } from '../journalPreset'
 import { axisOf } from '../../core/spectrum'
 import {
   AGREE_HEADS,
@@ -22,6 +23,8 @@ import {
   caveats,
   count,
   CROSSING_DIVIDER,
+  DATA_UPDATED,
+  DATA_UPDATED_LINK,
   emptyRanking,
   excludedLede,
   excludedTitle,
@@ -63,6 +66,7 @@ import {
   unrankedLede,
   unrankedTitle,
   UNSTABLE_NOTE,
+  updateMoves,
 } from '../../core/resultsCopy'
 import {
   CLOSE_GAP,
@@ -112,13 +116,6 @@ interface Props {
 
 /** Élection nombreuse : la grille par thème montre d'abord ce nombre de candidats, les premiers du classement */
 const GRID_FIRST = 5
-
-/**
- * L'entrée la plus récente du journal des données, quel que soit son ordre (la primaire le tient dans l'ordre
- * chronologique, la présidentielle du plus récent au plus ancien) ; à date égale, la première écrite
- */
-export const latestChange = <T extends { date: string }>(log: readonly T[]): T | undefined =>
-  log.reduce<T | undefined>((a, c) => (!a || c.date > a.date ? c : a), undefined)
 
 type Snapshot = SessionState['lastSeenRanking']
 
@@ -194,13 +191,14 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
   const [first, second] = ranking
 
   // Mémorise le classement affiché pour signaler les changements la prochaine fois, y compris après un
-  // changement de priorités fait sur cette page
+  // changement de priorités fait sur cette page ; pas tant que l'avis de mise à jour des données est ouvert : il dit ce
+  // qui a bougé depuis la visite d'avant, jusqu'à « Compris »
   useEffect(() => {
     const now = snapshot(allResults)
     const seen = state.lastSeenRanking
     const same =
       seen && seen.length === now.length && seen.every((p, i) => p.candidateId === now[i]?.candidateId && p.score === now[i]?.score)
-    if (!same && allResults.answered > 0) update({ lastSeenRanking: now })
+    if (!same && allResults.answered > 0 && !state.dataUpdatedFrom) update({ lastSeenRanking: now })
   }, [allResults])
 
   useLayoutEffect(() => {
@@ -573,15 +571,20 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
               </div>
             )}
             {state.dataUpdatedFrom ? (
-              <p class="notice" role="status">
-                Les données ont été mises à jour depuis votre dernier passage (
-                {/* Le texte du journal finit par un point : retiré ici, avant la parenthèse fermante */}
-                {latestChange(election.changelog)?.text.replace(/\.$/, '') ?? `version ${election.dataVersion}`}). Votre résultat a pu
-                changer.{' '}
-                <button type="button" class="btn-text" onClick={() => update({ dataUpdatedFrom: null })}>
-                  Compris
-                </button>
-              </p>
+              // Ce qui a bougé pour la personne, et le journal réglé sur « Après votre dernier passage » (passé en
+              // mémoire, jamais dans l'adresse) ; « Compris » referme l'avis et prend ce classement pour repère
+              <div class="notice" role="status">
+                <p>{`${DATA_UPDATED} ${updateMoves(previous, snapshot(allResults))}`}</p>
+                <span class="confirm">
+                  <a class="btn-text" href={link('/journal')} onClick={() => presetJournal('passage')}>
+                    {DATA_UPDATED_LINK}
+                    <Icon name="arrow-right" />
+                  </a>
+                  <button type="button" class="btn-text" onClick={() => update({ dataUpdatedFrom: null, lastSeenRanking: snapshot(allResults) })}>
+                    Compris
+                  </button>
+                </span>
+              </div>
             ) : null}
             {!saved ? (
               <p class="notice" role="status">
