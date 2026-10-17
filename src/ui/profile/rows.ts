@@ -50,6 +50,32 @@ export interface ChartRows {
   unread: { unit: UnitReading; family: string | null }[]
 }
 
+/**
+ * La barre collante « domaine par domaine, puis sujet par sujet » (ui/profile/Nav.tsx) : un domaine, l'élément où elle
+ * mène (son intertitre ; sans intertitre, un domaine d'un seul thème, la ligne de ce thème), et ses sujets dans l'ordre
+ * de la page. Seulement des noms : ni groupe, ni lecture, ni couleur
+ */
+export interface NavDomain {
+  /** Identifiant de la famille (pack.topicGroups), dans leur ordre */
+  id: string
+  label: string
+  /** L'identifiant de l'élément qui reçoit le focus quand la barre y mène */
+  focus: string
+  subjects: { key: string; label: string; focus: string }[]
+}
+
+/**
+ * Les domaines de la barre, dans l'ordre des familles (celui des domaines de la page), chacun avec ses sujets dans
+ * l'ordre de leurs lignes ; name : le nom visible d'une ligne (le thème, ou « Les 3 thèmes ensemble » pour sa famille)
+ */
+export function navOf(families: readonly FamilyRows[], name: (u: UnitReading) => string): NavDomain[] {
+  return families.map(f => {
+    const rows = f.groups.flatMap(g => g.rows)
+    const subjects = rows.map(u => ({ key: unitKey(u), label: name(u), focus: `sj-${unitKey(u)}-b` }))
+    return { id: f.id, label: f.label, focus: f.heading ? `fam-${f.id}-h` : subjects[0]!.focus, subjects }
+  })
+}
+
 /** Une unité qui a été mise à l'épreuve : comparée aux autres façons de poser les mêmes avis */
 export const tested = (u: UnitReading | undefined): u is UnitReading => !!u && (u.status === 'lecture' || u.status === 'ecarts' || u.status === 'aucun')
 

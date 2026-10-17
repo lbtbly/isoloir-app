@@ -28,6 +28,7 @@ import {
   headOf,
   hitsOf,
   mannerOf,
+  navOf,
   splitsABloc,
   uniformViews,
   unitKey,
@@ -216,6 +217,45 @@ describe('le rangement des lignes, domaine par domaine', () => {
       for (const u of rows.flat) expect(u.status).toBe('aucun')
       for (const { unit: u } of rows.unread) expect(['une-question', 'blocs-inconnus']).toContain(u.status)
     }
+  })
+})
+
+describe('la barre collante, domaine par domaine puis sujet par sujet', () => {
+  const pack = elections.find(p => p.election.id === 'presidentielle-2027')!
+  const groups = pack.topicGroups ?? []
+  const P = profilesFor(pack)
+
+  it('les domaines dans l’ordre des familles, chacun avec ses sujets dans l’ordre de ses lignes ; des noms, rien d’une lecture', () => {
+    const name = (u: UnitReading) => `nom-${unitKey(u)}`
+    for (const sheet of [P.noisy(P.cloneLarge(P.ranked[0]!), 'nav:0'), P.noisy(P.cloneLarge(P.ranked.at(-1)!, isQuick), 'nav:1'), P.randomProfile('nav:2', 'audit')]) {
+      const rows = chartRows(groups, readEchiquier(pack, P.toAnswers(sheet)), u => u.id)
+      const nav = navOf(rows.families, name)
+      // Les domaines de la page, dans leur ordre (celui des familles), et seulement eux
+      expect(nav.map(d => d.id)).toEqual(rows.families.map(f => f.id))
+      expect(nav.map(d => d.label)).toEqual(rows.families.map(f => f.label))
+      for (const [i, d] of nav.entries()) {
+        const f = rows.families[i]!
+        const lines = f.groups.flatMap(g => g.rows)
+        // Chaque ligne du domaine, une fois, dans l'ordre de la page, sous son nom visible ; son bouton reçoit le focus
+        expect(d.subjects.map(x => x.key)).toEqual(lines.map(unitKey))
+        expect(d.subjects.map(x => x.label)).toEqual(lines.map(name))
+        expect(d.subjects.map(x => x.focus)).toEqual(lines.map(u => `sj-${unitKey(u)}-b`))
+        // Le domaine mène à son intertitre, ou, sans intertitre (un seul thème), à sa ligne
+        expect(d.focus).toBe(f.heading ? `fam-${f.id}-h` : `sj-${unitKey(lines[0]!)}-b`)
+        // Rien que des noms et des adresses : ni groupe, ni statut, ni lecture
+        expect(Object.keys(d).sort()).toEqual(['focus', 'id', 'label', 'subjects'])
+        for (const x of d.subjects) expect(Object.keys(x).sort()).toEqual(['focus', 'key', 'label'])
+      }
+    }
+  })
+
+  it('la barre ne dit aucune lecture : ni mot de groupe, ni couleur, ni marque, et elle suit l’ordre des familles', () => {
+    const ROOT = fileURLToPath(new URL('..', import.meta.url))
+    const code = readFileSync(join(ROOT, 'src/ui/profile/Nav.tsx'), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '')
+    // Ni les mots des groupes, ni les lectures (statut, marques, cases, affinité), ni les teintes des blocs ou de l'échelle
+    for (const re of [/GROUP_TITLE/, /bothTitle/, /netWord/, /\.status\b/, /\.mark\b/, /\.cells\b/, /affinity/i, /\bTile\b/, /aff-/, /pastel/, /--bloc/]) expect(re.test(code), String(re)).toBe(false)
+    const chart = readFileSync(join(ROOT, 'src/ui/profile/Chart.tsx'), 'utf8')
+    expect(chart).toContain('navOf(families, u => (u.kind === \'famille\' ? T.familyHead(u.topicIds.length) : nameOf(u)))')
   })
 })
 

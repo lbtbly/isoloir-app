@@ -537,6 +537,8 @@ export const DETAIL_INTRO = fr(
 /** Le bouton du tableau : ses thèmes, et leurs domaines entiers quand il y en a (une ligne chacun) */
 export const detailShow = (themes: number, families: number) =>
   themes > 1 ? `Afficher le détail des ${themes} thèmes${families ? ' et de leurs domaines' : ''}` : 'Afficher le détail du thème'
+/** Le tableau, un fichier à part chargé à son ouverture, n'a pas pu venir (hors ligne avant la copie hors ligne) */
+export const DETAIL_FAILED = fr('Le détail n’a pas pu être chargé : rechargez la page pour le lire.')
 
 // ——— Le tableau ———
 
@@ -624,3 +626,11 @@ export const caveats = (panel: number) => [
   fr('Ce n’est ni un test, ni une étiquette, ni une consigne de vote.'),
 ]
 export const METHOD_LINK = 'La méthode en détail'
+
+// ——— La barre collante, domaine par domaine puis sujet par sujet (ui/profile/Nav.tsx) ———
+// Des noms seulement : ni groupe, ni lecture, ni couleur ; l'ordre est celui des domaines, puis celui des lignes
+
+export const NAV_LABEL = 'Aller à un domaine ou à un sujet'
+export const NAV_DOMAINS = 'Domaines'
+/** La liste des sujets du domaine en cours */
+export const navSubjects = (domain: string) => fr(`Sujets du domaine « ${domain} »`)

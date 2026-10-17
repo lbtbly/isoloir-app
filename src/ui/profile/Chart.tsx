@@ -12,7 +12,8 @@
 // du compte (D1) : rien de net nulle part, aucun sujet à l'épreuve, des avis uniformes. Chaque ligne est un bouton qui
 // déplie, sous elle, la phrase du site et chaque bloc avec son palier, son affinité et sa lecture nette ; une seule
 // ouverte à la fois. Au clavier : Tab, Entrée, Espace, flèches haut et bas, Début et Fin. Au téléphone, un rappel des
-// cinq blocs reste sous l'en-tête pendant qu'on parcourt les lignes ; en grand écran, l'axe entier y colle. La fiche
+// cinq blocs reste sous l'en-tête pendant qu'on parcourt les lignes ; en grand écran, l'axe entier y colle ; entre
+// l'en-tête et eux, la barre collante des domaines, puis des sujets du domaine en cours (ui/profile/Nav.tsx). La fiche
 // « Pour lire plus de thèmes » suit les domaines, repliée ; ouverte sous le compte au seul questionnaire rapide, ou
 // quand rien n'est net nulle part.
 // Lot 2 : une ligne fermée ne reçoit que le mot « prioritaire », sur un thème prioritaire ; une ligne ouverte, sous un bloc
@@ -44,7 +45,8 @@ import { InkCross } from '../components/Ink'
 import { formatDate } from '../format'
 import { onDemand, useOnDemand } from '../lazy'
 import { link } from '../nav'
-import { acrossCentre, atBothEnds, chartRows, crossingsOf, headOf, mannerOf, splitsABloc, uniformViews, unitKey, type FamilyRows, type RowGroupKind } from './rows'
+import { Nav } from './Nav'
+import { acrossCentre, atBothEnds, chartRows, crossingsOf, headOf, mannerOf, navOf, splitsABloc, uniformViews, unitKey, type FamilyRows, type RowGroupKind } from './rows'
 
 /** Ce que le graphique, ses lignes et le tableau du détail partagent */
 export interface ProfileCtx {
@@ -174,6 +176,8 @@ export function Chart({ reading, ctx, quickOnly, deeper, unseen, onDetail }: Pro
   // Les libellés ne changent qu'avec le pack : les familles et la lecture suffisent à refaire le rangement
   const rows = useMemo(() => chartRows(groups, reading, nameOf), [groups, reading])
   const { families, read, apart, flat, unread } = rows
+  // La barre collante : les domaines, puis les sujets du domaine en cours, sous leurs noms visibles (rows.ts, navOf)
+  const domains = useMemo(() => navOf(families, u => (u.kind === 'famille' ? T.familyHead(u.topicIds.length) : nameOf(u))), [rows])
   const panelSize = panel.flat().length
   const all = families.flatMap(f => f.groups.flatMap(g => g.rows))
   // « ? inconnu » n'entre dans la légende que s'il paraît dans une ligne
@@ -203,9 +207,10 @@ export function Chart({ reading, ctx, quickOnly, deeper, unseen, onDetail }: Pro
   const rowsEl = useRef<HTMLDivElement>(null)
   const mini = useRef<HTMLDivElement>(null)
 
-  // Le rappel des blocs (téléphone) paraît quand l'axe complet a quitté l'écran, tant que des lignes restent visibles.
-  // Ce qui reçoit le focus s'arrête sous l'en-tête et sous l'axe collant ou son rappel, jamais caché (WCAG 2.4.11) :
-  // leur hauteur va dans --axis-stick, que lit le scroll-padding de la page (profile.css).
+  // Le rappel des blocs (téléphone) paraît quand l'axe complet a quitté l'écran, tant que des lignes restent visibles,
+  // sous la barre des domaines quand elle colle (Nav.tsx, --filters-h). Ce qui reçoit le focus s'arrête sous l'en-tête,
+  // la barre et l'axe collant ou son rappel, jamais caché (WCAG 2.4.11) : leur hauteur va dans --axis-stick, que lit le
+  // scroll-padding de la page (profile.css).
   useEffect(() => {
     const html = document.documentElement
     let ticking = false
@@ -217,7 +222,8 @@ export function Chart({ reading, ctx, quickOnly, deeper, unseen, onDetail }: Pro
       const sticky = getComputedStyle(a).position === 'sticky'
       // Texte très agrandi : les lignes passent en liste et les colonnes s'effacent ; pas de rappel non plus
       const columns = zones.current.getClientRects().length > 0
-      const top = (document.querySelector('.form-header')?.getBoundingClientRect().bottom ?? 0) + 5
+      const nav = document.querySelector<HTMLElement>('.profile-nav')
+      const top = (document.querySelector('.form-header')?.getBoundingClientRect().bottom ?? 0) + 5 + (nav && getComputedStyle(nav).position === 'sticky' ? nav.offsetHeight : 0)
       const on = columns && !sticky && zones.current.getBoundingClientRect().bottom < top && rowsEl.current.getBoundingClientRect().bottom > top + 60
       m.classList.toggle('is-on', on)
       html.style.setProperty('--axis-stick', `${sticky ? a.offsetHeight : columns ? m.offsetHeight : 0}px`)
@@ -231,6 +237,8 @@ export function Chart({ reading, ctx, quickOnly, deeper, unseen, onDetail }: Pro
     addEventListener('resize', later)
     const ro = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(later)
     if (axisEl.current) ro?.observe(axisEl.current)
+    const navEl = document.querySelector('.profile-nav')
+    if (navEl) ro?.observe(navEl)
     place()
     return () => {
       removeEventListener('scroll', later)
@@ -352,6 +360,9 @@ export function Chart({ reading, ctx, quickOnly, deeper, unseen, onDetail }: Pro
             ) : null}
           </div>
 
+          {/* La barre collante, avant l'axe : à l'arrivée, sous le compte ; ensuite sous l'en-tête, le rappel des blocs ou
+              l'axe collant dessous, au plus près des colonnes */}
+          {all.length && domains.length > 1 ? <Nav domains={domains} rows={rowsEl} /> : null}
           {all.length ? (
             <div class="axis" ref={axisEl}>
               <div class="chart-key">
@@ -510,7 +521,7 @@ function Family({ f, first, nameOf, open, setOpen, covered, ctx, onDetail }: Fam
   return (
     <div class={`fam-group${first ? ' is-first' : ''}`} id={headId}>
       {f.heading ? (
-        <h3 class="fam-name" id={`${headId}-h`}>
+        <h3 class="fam-name" id={`${headId}-h`} tabIndex={-1}>
           {f.label}
         </h3>
       ) : null}
@@ -660,7 +671,7 @@ function Row({ u, name, family, open, onToggle, ctx, onDetail }: RowProps) {
   const prio = !famille && ctx.priorities.has(u.id)
   const spoken = famille ? `${T.themesTogether(u.topicIds.length)}, ${meta}` : T.rowMeta(u.questions.length, prio)
   return (
-    <li class="row-item">
+    <li class="row-item" data-key={unitKey(u)}>
       <button type="button" class="row" id={`${id}-b`} aria-expanded={open ? 'true' : 'false'} aria-controls={`${id}-x`} onClick={onToggle}>
         <span class="row-label">
           <span class="row-text" aria-hidden="true">
