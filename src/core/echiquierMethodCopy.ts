@@ -282,7 +282,7 @@ export const methodBefore = (m: typeof ECHIQUIER_PUBLISHED = ECHIQUIER_PUBLISHED
  * les priorités (METHOD_PRIORITY), puis la mesure de neutralité de la croix, bloc par bloc (ECHIQUIER_CROSS, D5)
  */
 export const METHOD_CROSS_WHERE = fr(
-  'Sous un bloc nettement plus près, une croix nomme ceux de ses candidats qui franchissent une ligne rouge posée sur un thème du sujet (« pourrait franchir » quand leur position est déduite ou incertaine, comme dans vos résultats) ; la ligne fermée d’un thème dit seulement s’il est prioritaire.',
+  'Sous un bloc nettement plus près, une croix nomme ceux de ses candidats connus sur le sujet qui franchissent une ligne rouge posée sur un de ses thèmes (« pourrait franchir » quand leur position est déduite ou incertaine, comme dans vos résultats) ; le détail, sous l’approche rayée, nomme tous ceux qui la franchissent ou pourraient la franchir. La ligne fermée d’un thème dit seulement s’il est prioritaire.',
 )
 export { HOW_CROSS } from './echiquierCommonCopy'
 /**

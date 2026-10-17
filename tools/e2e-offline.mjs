@@ -856,12 +856,22 @@ try {
       detailCells.n >= rows && detailCells.bad.length === 0,
       `mon profil politique, détail : ${detailCells.n} cases, chacune dite par un texte dans la case (bloc, grille, palier, lecture nette)${detailCells.bad.length ? ` : ${detailCells.bad.join(' ; ')}` : ''}`,
     )
-    // « Ce qui pèse le plus » (lot 3) : son fichier à part arrive après le premier affichage, hors ligne lui aussi (il est
-    // dans la copie hors ligne), et « Comment c'est calculé » en dit alors la règle
+    // « Ce qui pèse le plus » (lot 3) : son fichier à part ne se charge qu'à la première ouverture d'une ligne, d'un détail
+    // ou de « Comment c'est calculé » (décision du propriétaire du 17 octobre 2026), hors ligne lui aussi (il est dans la
+    // copie hors ligne) ; « Comment c'est calculé » ouvert en dit alors la règle
+    const weighed = () => page.evaluate(() => performance.getEntriesByType('resource').some(e => /\/Weigh-[\w-]+\.js$/.test(e.name)))
+    await page.waitForTimeout(1500)
+    const weighBefore = await weighed()
+    const calcWasOpen = await page.locator('main details.calc').evaluate(d => d.open)
+    if (!calcWasOpen) await page.locator('main details.calc > summary').click()
     const weighLoaded = await page
       .waitForFunction(() => performance.getEntriesByType('resource').some(e => /\/Weigh-[\w-]+\.js$/.test(e.name)) && (document.querySelector('main details.calc')?.textContent ?? '').includes('Ce qui pèse le plus'), null, { timeout: 5000 })
       .then(() => true, () => false)
-    check(weighLoaded, `mon profil politique : « Ce qui pèse le plus », un fichier à part chargé hors ligne après le premier affichage, et sa règle dans « Comment c’est calculé » (${weighLoaded})`)
+    if (!calcWasOpen) await page.locator('main details.calc > summary').click()
+    check(
+      !weighBefore && weighLoaded,
+      `mon profil politique : « Ce qui pèse le plus », un fichier à part, pas chargé avant une ouverture (${!weighBefore}), puis chargé hors ligne à l'ouverture de « Comment c’est calculé », qui en dit la règle (${weighLoaded})`,
+    )
     check(
       panelTitle === 'Mon profil politique' && panelPlace === 1 && gridLink === 1 && barShortcuts === 2,
       `mon profil politique : panneau « ${panelTitle} » en ${panelPlace + 1}e place de « Et maintenant », lien sous « Par thème » (${gridLink}), toujours deux raccourcis dans la barre (${barShortcuts})`,
@@ -1487,7 +1497,7 @@ try {
         const topicOfQ = new Map(pack.bank.questions.map(q => [q.id, q.topicId]))
         const read = rowsOfChart(groups, readEchiquier(pack, cur), u => u.id).read
         const topicOrder = pack.bank.topics.map(t => t.id)
-        const crossOf = new Map(read.map(u => [`sj-${u.kind}-${u.id}-b`, crossingsOf(u, axisPanel, hits, q => topicOfQ.get(q), topicOrder)]))
+        const crossOf = new Map(read.map(u => [`sj-${u.kind}-${u.id}-b`, crossingsOf(u, hits, q => topicOfQ.get(q), topicOrder)]))
         const want = new Map(
           read.map(u => [
             `sj-${u.kind}-${u.id}-b`,

@@ -926,7 +926,9 @@ describe('ce qui pèse le plus dans cette lecture (lot 3)', () => {
     expect(M.METHOD_WEIGH).toMatch(/Rien de cela ne change la couleur, la lecture ni l’ordre\.$/)
     // La page dit la règle une fois la fiche chargée, dans son point 2 : jamais un neuvième point
     const chart = readFileSync(join(ROOT, 'src/ui/profile/Chart.tsx'), 'utf8')
-    expect(chart).toContain('{weigh ? ` ${weigh.HOW_WEIGH}` : null}')
+    // La règle ne paraît, et la fiche ne se charge, qu'une fois « Comment c'est calculé » ouvert (décision du 17 octobre 2026)
+    expect(chart).toContain('{calc ? <HowWeigh /> : null}')
+    expect(chart).toContain('return weigh && ` ${weigh.HOW_WEIGH}`')
     const section = readFileSync(join(ROOT, 'src/ui/profile/MethodSection.tsx'), 'utf8')
     for (const x of ['T.METHOD_WEIGH', 'T.methodWeigh()', '<strong>Ce qui pèse le plus.</strong>']) expect(section, x).toContain(x)
   })

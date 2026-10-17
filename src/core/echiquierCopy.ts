@@ -481,7 +481,7 @@ export const SEE_DETAIL = 'Voir le détail'
 export const readWithFamily = (family: string) => fr(`Lu avec les autres thèmes de son domaine : « ${family} ».`)
 
 // La croix des lignes rouges (lot 2, A1), dans une ligne ouverte, sous un bloc nettement plus près : qui, parmi ses
-// candidats, franchit une ligne rouge posée sur un thème de la ligne (ui/profile/rows.ts, crossingsOf). Seule la croix est
+// candidats connus sur la ligne, franchit une ligne rouge posée sur un de ses thèmes (ui/profile/rows.ts, crossingsOf). Seule la croix est
 // au stylo rouge, le texte reste gris ; elle ne change ni la couleur, ni la lecture, ni l'ordre (HOW_CROSS).
 /** Le nom lu de la croix */
 export const CROSS_LABEL = 'ligne rouge franchie'
@@ -547,7 +547,7 @@ export const TABLE_THEME = 'Thème'
 
 export const DETAIL = 'Le détail'
 export const DETAIL_HEADS = ['Bloc', 'Candidats connus', 'Votre affinité moyenne', 'Avec vos mêmes avis, autrement placés', 'Écart'] as const
-export const NONE_KNOWN = 'aucun candidat connu'
+export const NONE_KNOWN = MARK_WORD.inconnu
 export const ONE_KNOWN = '(un seul candidat connu)'
 /** « 65 % » */
 export const pct = (v: number) => `${Math.round(v)}${NB}%`

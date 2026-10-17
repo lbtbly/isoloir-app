@@ -269,21 +269,21 @@ export interface Crossing {
  * une ligne rouge posée sur une question de la ligne, c'est-à-dire sur un de ses thèmes ; groupés quand ils en franchissent
  * autant, de la même façon, sur les mêmes thèmes. Un candidat qui en franchit sûrement n'est compté que pour celles-là (la
  * phrase reste vraie ; le détail dit le reste, approche par approche). Un tableau par bloc de l'axe, vide sous un bloc qui
- * n'est pas nettement plus près. Tous les candidats du bloc comptent, même inconnus sur la ligne : une position seulement
- * probable n'y compte pas, mais elle fait « pourrait franchir ». topicOf : le thème d'une question ; order : les thèmes
- * de la banque, dans son ordre (u.topicIds suit celui des réponses, pas celui de la page)
+ * n'est pas nettement plus près. Seuls comptent les candidats du bloc connus sur la ligne (BlocCell.known : décision du
+ * propriétaire du 17 octobre 2026) : la croix ne nomme jamais un candidat dont la lecture ne tient pas compte ; « Le
+ * détail » garde, sous l'approche rayée, tous ceux qui la franchissent ou pourraient la franchir. topicOf : le thème d'une
+ * question ; order : les thèmes de la banque, dans son ordre (u.topicIds suit celui des réponses, pas celui de la page)
  */
 export function crossingsOf(
   u: Pick<UnitReading, 'cells' | 'questions'>,
-  panel: readonly (readonly CandidateId[])[],
   hits: ReadonlyMap<CandidateId, readonly DealbreakerHit[]>,
   topicOf: (q: QuestionId) => TopicId | undefined,
   order: readonly TopicId[],
 ): Crossing[][] {
-  return u.cells.map((c, b) => {
+  return u.cells.map(c => {
     if (c.mark !== 'pres') return []
     const groups = new Map<string, Crossing>()
-    for (const id of panel[b] ?? []) {
+    for (const id of c.known) {
       const mine = (hits.get(id) ?? []).filter(h => u.questions.includes(h.questionId))
       const firm = mine.filter(h => h.level === 'touche')
       const counted = firm.length ? firm : mine

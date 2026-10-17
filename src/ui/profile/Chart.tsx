@@ -83,6 +83,12 @@ const weighModule = onDemand<typeof import('./Weigh')>(() => import('./Weigh'))
 /** Le module de « Ce qui pèse le plus » dès qu'il est là (null avant), et l'échec de son chargement */
 export const useWeigh = () => useOnDemand(weighModule.now, weighModule.load)
 
+/** La règle de « Ce qui pèse le plus », dans « Comment c'est calculé » ouvert : son fichier se charge alors, s'il ne l'est pas */
+function HowWeigh() {
+  const [weigh] = useWeigh()
+  return weigh && ` ${weigh.HOW_WEIGH}`
+}
+
 /** Une unité qui a une lecture (même « rien de net ») ; sinon : une seule question, ou trop de blocs inconnus */
 export const isRead = (u: UnitReading) => u.status !== 'une-question' && u.status !== 'blocs-inconnus'
 
@@ -187,9 +193,9 @@ export function Chart({ reading, ctx, quickOnly, deeper, unseen, onDetail }: Pro
 
   // Une seule ligne ouverte
   const [open, setOpen] = useState<string | null>(null)
-  // « Ce qui pèse le plus » se charge après le premier affichage, pour qu'une ligne s'ouvre sans l'attendre ; « Comment
-  // c'est calculé » en dit la règle une fois la fiche là
-  const [weigh] = useWeigh()
+  // « Ce qui pèse le plus » ne se charge qu'à la première ouverture d'une ligne, d'un détail ou de « Comment c'est calculé »
+  // (décision du propriétaire du 17 octobre 2026 : la page reste sous son plafond) ; ce dernier en dit alors la règle
+  const [calc, setCalc] = useState(false)
 
   const plot = useRef<HTMLDivElement>(null)
   const axisEl = useRef<HTMLDivElement>(null)
@@ -431,14 +437,14 @@ export function Chart({ reading, ctx, quickOnly, deeper, unseen, onDetail }: Pro
           {T.SOURCE[1]} {T.sourceWho(panelSize)} {T.COLORS_NOTE}
         </p>
         {/* Huit points au plus : le reste est dans la Méthode */}
-        <details class="calc">
+        <details class="calc" onToggle={e => setCalc((e.currentTarget as HTMLDetailsElement).open)}>
           <summary>{T.CALC_TITLE}</summary>
           <ul>
             <li>{T.howWho(panelSize, ctx.unscored)}</li>
             {/* Le calcul, puis ce qui pèse le plus dans une lecture nette (lot 3), qui en reprend les façons */}
             <li>
               {T.HOW_CALC}
-              {weigh ? ` ${weigh.HOW_WEIGH}` : null}
+              {calc ? <HowWeigh /> : null}
             </li>
             <li>{T.HOW_COLOR}</li>
             <li>{T.HOW_MARKS.join(' ')}</li>
@@ -703,7 +709,7 @@ function Explain({ u, family, ctx, onDetail }: { u: UnitReading; family: string 
   const both = read && acrossCentre(u) ? T.bothRow(atBothEnds(u)) : null
   // Sous chaque bloc nettement plus près : qui franchit une ligne rouge posée sur un thème de la ligne (rows.ts) ; pour
   // une ligne de famille, la phrase nomme le thème de ces lignes rouges, dans l'ordre de la banque
-  const crossings = crossingsOf(u, panel, ctx.hits, q => ctx.topicOf.get(q), ctx.topicOrder)
+  const crossings = crossingsOf(u, ctx.hits, q => ctx.topicOf.get(q), ctx.topicOrder)
   const crossText = (b: number) =>
     crossings[b]!.map(g =>
       T.crossLine(

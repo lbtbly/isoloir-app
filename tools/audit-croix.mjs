@@ -135,7 +135,7 @@ function run(kind, makeClones) {
           if (!Object.values(answers).some(a => a.redLines.length)) acc.noPool++
           const hits = hitsOf(computeResults(pack, answers, {}, 'd5'))
           for (const u of rows.read) {
-            const cross = crossingsOf(u, panel, hits, q => topicOf.get(q), order)
+            const cross = crossingsOf(u, hits, q => topicOf.get(q), order)
             const shown = cross.some(g => g.length)
             acc.show[t].n++
             if (shown) acc.show[t].k++
@@ -224,7 +224,7 @@ if (SHEETS) {
       const hits = hitsOf(computeResults(pack, answers, {}, 'd5'))
       for (const u of rows.read) {
         n++
-        if (crossingsOf(u, P.panel, hits, q => topicOf.get(q), order).some(g => g.length)) k++
+        if (crossingsOf(u, hits, q => topicOf.get(q), order).some(g => g.length)) k++
       }
     }
     console.log(`\nFeuilles d’essai (audit${only ? ', rapide seul' : ''}), deux lignes rouges sans viser personne : croix sur ${k}/${n} lignes lues, ${r1(pct(k, n))} % [${r1(wilson(k, n)[0])}–${r1(wilson(k, n)[1])}]`)

@@ -310,9 +310,11 @@ describe('lignes rouges et priorités (lot 2) : posées sur les lignes, sans rie
   const topicOf = (q: string) => ({ q1: 'retraites', q2: 'retraites', q3: 'logement', q9: 'europe' })[q]
   // L'ordre de la banque, qui n'est pas celui des thèmes de la lecture (u.topicIds suit celui des réponses)
   const order = ['logement', 'retraites', 'europe']
+  // Les candidats connus sur la ligne, bloc par bloc (BlocCell.known) : tous ceux du panel, sauf ceux qu'on retire
+  const known = (u: UnitReading, without: string[] = []): UnitReading => ({ ...u, cells: u.cells.map((c, b) => ({ ...c, known: panel[b]!.filter(id => !without.includes(id)) })) })
 
   it('la croix : sous un bloc nettement plus près seulement, pour une ligne rouge posée sur une question de la ligne', () => {
-    const u = { ...unit('theme', 'retraites', 'lecture', [0], [4]), topicIds: ['retraites'], questions: ['q1', 'q2'] }
+    const u = known({ ...unit('theme', 'retraites', 'lecture', [0], [4]), topicIds: ['retraites'], questions: ['q1', 'q2'] })
     const hits = new Map([
       ['labib', [hit('q1', 'a')]],
       ['arthaud', [hit('q2', 'b')]],
@@ -322,14 +324,17 @@ describe('lignes rouges et priorités (lot 2) : posées sur les lignes, sans rie
       ['lepen', [hit('q1', 'a')]],
       ['glucksmann', [hit('q1', 'a')]],
     ])
-    const c = crossingsOf(u, panel, hits, topicOf, order)
+    const c = crossingsOf(u, hits, topicOf, order)
     expect(c.map(g => g.length)).toEqual([1, 0, 0, 0, 0])
     // Les noms dans l'ordre de l'axe (alphabétique au sein du bloc), groupés : autant de lignes rouges, de la même façon
     expect(c[0]).toEqual([{ ids: ['arthaud', 'labib'], level: 'touche', count: 1, topics: ['retraites'] }])
+    // Un candidat inconnu sur la ligne n'est jamais nommé par la croix (décision du propriétaire du 17 octobre 2026) : le
+    // détail le garde sous l'approche rayée
+    expect(crossingsOf(known(u, ['labib']), hits, topicOf, order)[0]).toEqual([{ ids: ['arthaud'], level: 'touche', count: 1, topics: ['retraites'] }])
   })
 
   it('« pourrait franchir », deux lignes rouges, les deux à la fois : un groupe chacun ; une ligne de famille dit les thèmes', () => {
-    const u = { ...unit('famille', 'social', 'lecture', [0, 4]), topicIds: ['retraites', 'logement'], questions: ['q1', 'q2', 'q3'] }
+    const u = known({ ...unit('famille', 'social', 'lecture', [0, 4]), topicIds: ['retraites', 'logement'], questions: ['q1', 'q2', 'q3'] })
     const hits = new Map([
       ['arthaud', [hit('q1', 'a', 'possible')]],
       ['kazib', [hit('q1', 'a'), hit('q2', 'b')]],
@@ -337,7 +342,7 @@ describe('lignes rouges et priorités (lot 2) : posées sur les lignes, sans rie
       ['zemmour', [hit('q3', 'd')]],
       ['lepen', [hit('q3', 'd')]],
     ])
-    const c = crossingsOf(u, panel, hits, topicOf, order)
+    const c = crossingsOf(u, hits, topicOf, order)
     expect(c[0]).toEqual([
       { ids: ['arthaud'], level: 'possible', count: 1, topics: ['retraites'] },
       { ids: ['kazib'], level: 'touche', count: 2, topics: ['retraites'] },
@@ -345,7 +350,7 @@ describe('lignes rouges et priorités (lot 2) : posées sur les lignes, sans rie
       { ids: ['labib'], level: 'touche', count: 1, topics: ['retraites'] },
     ])
     // Les thèmes dans l'ordre de la banque, ni celui des lignes rouges, ni celui de la lecture (u.topicIds)
-    const both = crossingsOf(u, panel, new Map([['kazib', [hit('q1', 'a'), hit('q3', 'd')]]]), topicOf, order)
+    const both = crossingsOf(u, new Map([['kazib', [hit('q1', 'a'), hit('q3', 'd')]]]), topicOf, order)
     expect(both[0]).toEqual([{ ids: ['kazib'], level: 'touche', count: 2, topics: ['logement', 'retraites'] }])
     expect(c[4]).toEqual([{ ids: ['lepen', 'zemmour'], level: 'touche', count: 1, topics: ['logement'] }])
   })
@@ -429,7 +434,7 @@ describe('lignes rouges et priorités (lot 2) : posées sur les lignes, sans rie
         expect(keys(chartRows(groups, before, u => u.id).read)).toEqual(keys(rows.read))
         const hits = hitsOf(computeResults(pack, red, {}, 'croix'))
         for (const u of rows.read) {
-          crossingsOf(u, P.panel, hits, q => topic.get(q), bankOrder).forEach((gs, b) => {
+          crossingsOf(u, hits, q => topic.get(q), bankOrder).forEach((gs, b) => {
             if (gs.length) expect(u.cells[b]!.mark).toBe('pres')
             for (const g of gs) {
               // Les thèmes cités dans l'ordre de la banque, même quand la lecture les range autrement
