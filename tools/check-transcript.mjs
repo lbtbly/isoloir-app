@@ -28,7 +28,8 @@ const norm = s =>
     .trim()
     .toLowerCase()
 
-const browser = await chromium.launch()
+// Son coupé : aucun outil ne doit jouer de son (règle du propriétaire)
+const browser = await chromium.launch({ args: ['--mute-audio'] })
 const failures = []
 try {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' })

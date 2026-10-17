@@ -50,9 +50,9 @@
     "date": "2026-10-04 23:24:47"
   },
   "_calcul": {
-    "secondes_calcul": 81778.97843623161,
-    "secondes_audio": 31984.775500000043,
-    "prises": 8493
+    "secondes_calcul": 81881.38211989403,
+    "secondes_audio": 32031.977500000034,
+    "prises": 8505
   },
   "aigue/retraites-intro-02": {
     "mode": "clone-phrases",
@@ -57905,5 +57905,111 @@
     ],
     "sons": [],
     "date": "2026-10-15 13:49:37"
+  },
+  "aigue/industrie-etat-02-p27": {
+    "mode": "clone-phrases",
+    "texte": "Au trente juin deux mille vingt-six, l'Agence des participations de l'État gérait ses parts dans quatre-vingt-sept entités. Leur valeur était estimée à deux cent vingt-neuf virgule six milliards d'euros.",
+    "auto": false,
+    "print": "e6b41f6b",
+    "duree": 8.99,
+    "gain_db": -0.04,
+    "cible_f0": 243.8,
+    "f0_median": 251.8,
+    "f0_iqr_st": 3.61,
+    "f0_debut": 255.4,
+    "f0_fin": 251.0,
+    "phrases": [
+      {
+        "prise": 3,
+        "graine": 41769,
+        "f0_median": 248.1,
+        "f0_iqr_st": 4.3,
+        "f0_debut": 245.0,
+        "f0_fin": 243.4,
+        "fin_dt": -4.93,
+        "debit_syll_s": 5.99,
+        "debit_rel": 1.17,
+        "ecart_cible_dt": 0.3,
+        "saut_dt": 0.65,
+        "tolerance_dt": 0.0,
+        "question": false,
+        "texte": "Au trente juin deux mille vingt-six, l'Agence des participations de l'État gérait ses parts dans quatre-vingt-sept entités.",
+        "n_prises": 3,
+        "sons": []
+      },
+      {
+        "prise": 3,
+        "graine": 854459,
+        "f0_median": 254.7,
+        "f0_iqr_st": 2.76,
+        "f0_debut": 257.9,
+        "f0_fin": 225.6,
+        "fin_dt": -5.26,
+        "debit_syll_s": 6.56,
+        "debit_rel": 1.28,
+        "ecart_cible_dt": 0.76,
+        "saut_dt": 1.0,
+        "tolerance_dt": 4.93,
+        "question": false,
+        "texte": "Leur valeur était estimée à deux cent vingt-neuf virgule six milliards d'euros.",
+        "n_prises": 3,
+        "sons": []
+      }
+    ],
+    "sons": [],
+    "date": "2026-10-15 18:55:26"
+  },
+  "aigue/industrie-etat-03-p27": {
+    "mode": "clone-phrases",
+    "texte": "Les sociétés cotées en Bourse en représentent soixante-dix-sept virgule six milliards. Un an plus tôt, l'ensemble valait deux cent neuf virgule un milliards.",
+    "auto": false,
+    "print": "79e30987",
+    "duree": 7.43,
+    "gain_db": 0.0,
+    "cible_f0": 243.8,
+    "f0_median": 245.9,
+    "f0_iqr_st": 3.09,
+    "f0_debut": 254.0,
+    "f0_fin": 237.8,
+    "phrases": [
+      {
+        "prise": 2,
+        "graine": 922438,
+        "f0_median": 245.4,
+        "f0_iqr_st": 3.3,
+        "f0_debut": 249.8,
+        "f0_fin": 228.0,
+        "fin_dt": -6.82,
+        "debit_syll_s": 5.95,
+        "debit_rel": 1.16,
+        "ecart_cible_dt": 0.11,
+        "saut_dt": 1.76,
+        "tolerance_dt": 5.26,
+        "question": false,
+        "texte": "Les sociétés cotées en Bourse en représentent soixante-dix-sept virgule six milliards.",
+        "n_prises": 3,
+        "sons": []
+      },
+      {
+        "prise": 2,
+        "graine": 785708,
+        "f0_median": 246.0,
+        "f0_iqr_st": 2.95,
+        "f0_debut": 257.8,
+        "f0_fin": 234.0,
+        "fin_dt": -4.21,
+        "debit_syll_s": 5.35,
+        "debit_rel": 1.04,
+        "ecart_cible_dt": 0.16,
+        "saut_dt": 2.13,
+        "tolerance_dt": 6.0,
+        "question": false,
+        "texte": "Un an plus tôt, l'ensemble valait deux cent neuf virgule un milliards.",
+        "n_prises": 3,
+        "sons": []
+      }
+    ],
+    "sons": [],
+    "date": "2026-10-15 18:55:26"
   }
 }

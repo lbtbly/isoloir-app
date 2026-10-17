@@ -19,16 +19,17 @@ export const election: ElectionInfo = {
     { label: 'Premier tour', start: '2027-04-17T08:00:00-04:00', end: '2027-04-18T20:00:00+02:00' },
     { label: 'Second tour', start: '2027-05-01T08:00:00-04:00', end: '2027-05-02T20:00:00+02:00' },
   ],
-  dataVersion: '2026-10-15.1',
+  dataVersion: '2026-10-15.2',
   // Avancée au 15 octobre 2026 (convention de PIPELINE §12 : la date suit les positions relevées à nouveau) : les
   // positions de Bruno Retailleau et de Florian Philippot sur finances_publiques-1, et quatre autres de Bruno Retailleau
-  // tirées du même plan, sont relevées le 15 (décisions du propriétaire du 2026-10-15), celles de Natacha Polony et des
-  // deux approches ajoutées le 14 ; les autres sont
+  // tirées du même plan, sont relevées le 15 (décisions du propriétaire du 2026-10-15), puis deux autres encore en
+  // 2026-10-15.2 (finances_publiques-2-a, règle d'or ; sante-2-e, arrêts maladie : décision n° 2 du suivi du même jour),
+  // celles de Natacha Polony et des deux approches ajoutées le 14 ; les autres sont
   // restées arrêtées au 9 octobre, ce que dit la première note (Méthode, juste après la date)
   dataFrozenAt: '2026-10-15',
   finalists: null,
   notes: [
-    'Les positions de Bruno Retailleau tirées de son plan d’économies du 12 octobre 2026 (dette, agents publics, services publics, impôts, aides aux entreprises) et celle de Florian Philippot sur la stratégie face à la dette publique ont été relevées le 15 octobre 2026, celles de Natacha Polony, déclarée le 14 octobre 2026, et celles qui portent sur les deux approches ajoutées ce jour-là, le 14 octobre\u00a0; les autres n’ont pas été relevées à nouveau depuis le 9 octobre 2026.',
+    'Les positions de Bruno Retailleau tirées de son plan d’économies du 12 octobre 2026 (dette, agents publics, services publics, impôts, aides aux entreprises, règle d’or budgétaire, arrêts maladie) et celle de Florian Philippot sur la stratégie face à la dette publique ont été relevées le 15 octobre 2026, celles de Natacha Polony, déclarée le 14 octobre 2026, et celles qui portent sur les deux approches ajoutées ce jour-là, le 14 octobre\u00a0; les autres n’ont pas été relevées à nouveau depuis le 9 octobre 2026.',
     'Les positions ont été relevées dans des sources publiques récentes (déclarations, interviews, propositions de loi, votes, programmes des partis) et peuvent avoir évolué depuis.',
     'Beaucoup de candidats n’ont pas encore publié leur programme : les positions inconnues sont donc fréquentes.',
   ],
@@ -204,10 +205,15 @@ export const election: ElectionInfo = {
   changelog: [
     {
       date: '2026-10-15',
-      // Décisions du propriétaire du 2026-10-15 (n° 3 et 4). En tête du dépouillement d'un visiteur qui revient (Results,
-      // latestChange : à date égale, la première écrite) : ce qui change, pour qui ; le détail (avant, après, raison,
-      // sources) est dans research/presidentielle-2027/positions-history.json et dans les notes de decisions.json
-      text: 'Positions revues sur la question «\u00a0Quelle stratégie pour les finances publiques face à la dette\u00a0?\u00a0»\u00a0: pour Bruno Retailleau, résumés et sources mis à jour d’après son plan d’économies du 12 octobre 2026, ses approches restant les mêmes, comme sur quatre autres questions (nombre d’agents publics, accès aux services publics, niveau des impôts, aides aux entreprises)\u00a0; pour Florian Philippot, son approche principale devient les économies d’abord sur le fonctionnement de l’État, et celle qui vise l’immigration, l’aide internationale et la contribution européenne devient son approche compatible. Positions relevées le 15 octobre et vérifiées automatiquement par une IA contre leurs sources, sans relecture humaine une par une. Les chiffres publiés sur la page «\u00a0Mon profil politique\u00a0» ont été mesurés à nouveau.',
+      // Décisions du propriétaire du 2026-10-15 (n° 3 et 4, dataVersion 2026-10-15.1 ; suivis n° 2 et 3,
+      // 2026-10-15.2), fondues en une seule entrée à la relecture finale du même jour : en tête du
+      // dépouillement d'un visiteur qui revient (Results, latestChange : à date égale, la première écrite) et seule
+      // montrée pour ce jour sur l'accueil (HomeBack, newsSince). Ce qui peut changer le résultat d'abord (Philippot,
+      // approches inversées ; profils mesurés à nouveau), puis les questions de Retailleau revues d'après son plan
+      // (approches inchangées), puis la fiche et la vidéo « L'État actionnaire » (passages industrie-etat-02-p27 et
+      // -03-p27) ; le détail (avant, après, raison, sources) est dans research/presidentielle-2027/positions-history.json
+      // et dans les notes de decisions.json
+      text: 'Positions revues sur la question «\u00a0Quelle stratégie pour les finances publiques face à la dette\u00a0?\u00a0»\u00a0: pour Florian Philippot, son approche principale devient les économies d’abord sur le fonctionnement de l’État, et celle qui vise l’immigration, l’aide internationale et la contribution européenne devient son approche compatible\u00a0; pour Bruno Retailleau, résumés et sources mis à jour d’après son plan d’économies du 12 octobre 2026, ses approches restant les mêmes. D’après ce plan, ses positions sont revues de même, approches inchangées, sur six autres questions\u00a0: nombre d’agents publics, accès aux services publics, niveau des impôts, aides aux entreprises, règles pour l’endettement de l’État (référendum sur la règle d’or budgétaire votée en 2011) et rôle de la Sécurité sociale dans le remboursement des soins (jours de carence et économies sur les arrêts maladie\u00a0; la hausse des franchises médicales évoquée en 2025 n’est plus reprise). La fiche «\u00a0Comprendre l’enjeu\u00a0» sur l’État au capital des entreprises et la vidéo «\u00a0L’État actionnaire\u00a0» donnent désormais la valeur des participations de l’État au 30 juin 2026, d’après le rapport annexé au projet de loi de finances pour 2027. Positions et chiffres relevés le 15 octobre et vérifiés automatiquement par une IA contre leurs sources, sans relecture humaine une par une. Les chiffres publiés sur la page «\u00a0Mon profil politique\u00a0» ont été mesurés à nouveau.',
     },
     {
       date: '2026-10-15',

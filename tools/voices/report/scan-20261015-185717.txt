@@ -1,0 +1,9 @@
+Contrôle des sons parasites — 2026-10-15 18:57:16
+Commande : generate.py --scan --voice aigue --segment industrie-etat-02-p27 --segment industrie-etat-03-p27
+Détecteur : artefacts.py (alignement Qwen3-ForcedAligner, seuils étalonnés : voir artefacts.py et README.md). Net : à refaire ; léger : signalé seulement.
+
+aigue / industrie-etat-02-p27 — 8.99 s : ok
+aigue / industrie-etat-03-p27 — 7.43 s : ok
+
+À refaire (0) : aucun
+Temps : 2 s pour 2 passage(s), chargement du modèle d'alignement compris.

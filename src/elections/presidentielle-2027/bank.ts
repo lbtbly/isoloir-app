@@ -2038,13 +2038,13 @@ export const bank: QuestionBank = {
         ],
         "figures": [
           {
-            "value": "209,1 Md€",
-            "label": "Valeur des participations de l’État suivies par l’Agence des participations de l’État au 30 juin 2025 (86 entités : 72 entreprises non cotées, 10 entreprises cotées et 4 structures de défaisance ou entités en extinction), contre 179,5 Md€ un an plus tôt. Dont 67,9 Md€ dans des sociétés cotées en Bourse, contre 50 Md€ en 2024.",
-            "date": "30 juin 2025",
+            "value": "229,6 Md€",
+            "label": "Valeur des participations de l’État suivies par l’Agence des participations de l’État au 30 juin 2026 (87 entités : 72 entreprises non cotées, 11 entreprises cotées et 4 structures de défaisance ou entités en extinction), contre 209,1 Md€ un an plus tôt. Dont 77,6 Md€ dans des sociétés cotées en Bourse, en hausse de 12,5 % sur un an (Eutelsat compté dès juin 2025).",
+            "date": "30 juin 2026",
             "source": {
-              "title": "Rapport relatif à l’État actionnaire (annexe au projet de loi de finances pour 2026)",
-              "url": "https://www2.assemblee-nationale.fr/static/17/Annexes-DL/PLF-2026/10-Jaune2026_Etat_actionnaire.pdf",
-              "date": "2025-10",
+              "title": "Rapport relatif à l’État actionnaire (annexe au projet de loi de finances pour 2027)",
+              "url": "https://www2.assemblee-nationale.fr/static/17/Annexes-DL/PLF_2027/10-Jaune-2027-Etat-actionnaire.pdf",
+              "date": "2026-10",
               "publisher": "Agence des participations de l’État (annexe budgétaire publiée par l’Assemblée nationale)"
             },
             "chart": {
@@ -2052,24 +2052,24 @@ export const bank: QuestionBank = {
               "unit": "Md€",
               "items": [
                 {
-                  "label": "Juin 2024",
-                  "value": 179.5
-                },
-                {
                   "label": "Juin 2025",
                   "value": 209.1
+                },
+                {
+                  "label": "Juin 2026",
+                  "value": 229.6
                 }
               ]
             }
           },
           {
-            "value": "2 469 M€",
-            "label": "Dividendes reçus en argent par l’État actionnaire en 2024. Pour l’année 2025, les entreprises à participation publique avaient déjà versé plus de 4,3 Md€ à la date du rapport. Ces dividendes sont versés au budget général de l’État.",
-            "date": "2024",
+            "value": "4 719 M€",
+            "label": "Dividendes reçus en argent par l’État actionnaire en 2025, contre 2,5 Md€ en 2024. Cette hausse vient surtout d’un dividende exceptionnel de 2 Md€ versé par EDF. S’y ajoutent 168 M€ de dividendes reçus en titres.",
+            "date": "2025",
             "source": {
-              "title": "Rapport relatif à l’État actionnaire (annexe au projet de loi de finances pour 2026)",
-              "url": "https://www2.assemblee-nationale.fr/static/17/Annexes-DL/PLF-2026/10-Jaune2026_Etat_actionnaire.pdf",
-              "date": "2025-10",
+              "title": "Rapport relatif à l’État actionnaire (annexe au projet de loi de finances pour 2027)",
+              "url": "https://www2.assemblee-nationale.fr/static/17/Annexes-DL/PLF_2027/10-Jaune-2027-Etat-actionnaire.pdf",
+              "date": "2026-10",
               "publisher": "Agence des participations de l’État (annexe budgétaire publiée par l’Assemblée nationale)"
             }
           },

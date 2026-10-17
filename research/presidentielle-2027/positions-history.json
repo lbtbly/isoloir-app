@@ -112143,6 +112143,137 @@
           }
         ]
       }
+    },
+    {
+      "id": "2026-10-15:retailleau:finances_publiques-2-a",
+      "date": "2026-10-15",
+      "candidateId": "retailleau",
+      "questionId": "finances_publiques-2",
+      "approachId": "finances_publiques-2-a",
+      "rev": 1,
+      "kinds": [
+        "résumé",
+        "confiance",
+        "sources"
+      ],
+      "change": "forme",
+      "stance": {
+        "before": "principale",
+        "after": "principale"
+      },
+      "cause": "prise-de-position",
+      "statedAt": "2026-10-12",
+      "dataVersion": {
+        "before": "2026-10-15.1",
+        "after": "2026-10-15.2"
+      },
+      "origin": "build-pack",
+      "commit": null,
+      "reason": "Mise à jour du 15 octobre 2026 (décision du propriétaire du 2026-10-15, n° 2 a), d’après sa prise de position du 12 octobre 2026, après vérification. Poids 2 et nature inchangés ; confiance medium → high ; résumé et sources remplacés. AVANT (publié depuis le 8 octobre 2026) : « Selon la Fondation iFRAP, il veut instaurer une règle d’or budgétaire dans la révision constitutionnelle soumise à référendum dès 2027. » Poids 2, proposition, medium. Source unique : comparateur iFRAP (date « 2026 »). APRÈS : source primaire, message du candidat sur X publié le 12/10/2026 à 11 h 42 (UTC), texte complet relu le 15/10/2026 (API fxtwitter et syndication de X). Il y propose à Emmanuel Macron de soumettre à référendum la règle d’or budgétaire votée par l’Assemblée nationale et le Sénat en 2011, jamais soumise aux Français : inscrire dans la Constitution un plafond de dépenses et une trajectoire de redressement que les budgets devront respecter ; à défaut, il la soumettra aux Français « dès les cent premiers jours de mon mandat ». Public Sénat (12/10/2026, conférence de presse du même jour) le confirme : il s’engage à soumettre par référendum le projet de loi constitutionnelle relatif à l’équilibre des finances publiques adopté par les deux chambres en juillet 2011 (lois-cadres fixant une trajectoire et des plafonds de dépenses annuels). Texte de 2011 relu le 15/10/2026 (Assemblée nationale, texte adopté n° 722 rect. du 13 juillet 2011, voté en termes identiques par les deux assemblées, définitif seulement après approbation par référendum ou par le Congrès, qui n’a jamais eu lieu) : des lois-cadres d’équilibre des finances publiques, d’au moins trois ans, fixent chaque année un plafond de dépenses et un minimum de mesures nouvelles de recettes qui s’imposent aux lois de finances et de financement de la sécurité sociale, en vue de l’équilibre des comptes publics. D’où le maintien sur a en principale, comme Philippe, Attal, Bertrand et Le Pen. Le « dès 2027 » de l’iFRAP correspond aux cent premiers jours du mandat ; aucune source du 12/10 ne rattache ce référendum à la révision constitutionnelle sur l’immigration, d’où son retrait du résumé. L’iFRAP, non datée et changeante, quitte les sources (même traitement que finances_publiques-1-a). La dépêche AFP du 12/10/2026 (Boursorama), LCP et 20 Minutes avec AFP n’en parlent pas. Textes dans le scratchpad de la session, sous suivis-15-10/dec2/ (dl/fx-regledor.json, dl/syn-regledor.json, ta0722.txt) et maj-15-10/retailleau-fp1/ps.txt.",
+      "reasonFrom": "decisions.json",
+      "before": {
+        "weight": 2,
+        "nature": "proposition",
+        "confidence": "medium",
+        "summary": "Selon la Fondation iFRAP, il veut instaurer une règle d’or budgétaire dans la révision constitutionnelle soumise à référendum dès 2027.",
+        "sources": [
+          {
+            "title": "Fondation IFRAP – Comparateur Présidentielles 2027",
+            "url": "https://www.ifrap.org/comparateurs/presidentielles-2027",
+            "date": "2026",
+            "publisher": "Fondation iFRAP"
+          }
+        ]
+      },
+      "after": {
+        "weight": 2,
+        "nature": "proposition",
+        "confidence": "high",
+        "summary": "Il veut soumettre à référendum, dans les cent premiers jours de son mandat, la règle d’or budgétaire votée par les deux assemblées en 2011 et restée sans suite : inscrire dans la Constitution un plafond de dépenses et une trajectoire de redressement qui s’imposeraient aux budgets.",
+        "sources": [
+          {
+            "title": "Bruno Retailleau sur X – référendum sur la règle d’or budgétaire",
+            "url": "https://x.com/BrunoRetailleau/status/2109610761441993158",
+            "date": "2026-10-12",
+            "publisher": "X (compte de Bruno Retailleau)"
+          },
+          {
+            "title": "Présidentielle 2027 : Bruno Retailleau s’engage sur un plan d’économies de près de 200 milliards d’euros, s’il est élu",
+            "url": "https://www.publicsenat.fr/actualites/economie/presidentielle-2027-bruno-retailleau-sengage-sur-un-plan-deconomies-de-pres-de-200-milliards-deuros-sil-est-elu",
+            "date": "2026-10-12",
+            "publisher": "Public Sénat"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-10-15:retailleau:sante-2-e",
+      "date": "2026-10-15",
+      "candidateId": "retailleau",
+      "questionId": "sante-2",
+      "approachId": "sante-2-e",
+      "rev": 1,
+      "kinds": [
+        "résumé",
+        "confiance",
+        "nature",
+        "sources"
+      ],
+      "change": "forme",
+      "stance": {
+        "before": "compatible",
+        "after": "compatible"
+      },
+      "cause": "prise-de-position",
+      "statedAt": "2026-10-12",
+      "dataVersion": {
+        "before": "2026-10-15.1",
+        "after": "2026-10-15.2"
+      },
+      "origin": "build-pack",
+      "commit": null,
+      "reason": "Mise à jour du 15 octobre 2026 (décision du propriétaire du 2026-10-15, n° 2 b), d’après le plan chiffré présenté le 12 octobre 2026 en conférence de presse au siège de LR, après vérification. Poids 1 inchangé (compatible) ; nature declaration → proposition ; confiance medium → high ; résumé et sources remplacés. AVANT (publié depuis le 8 octobre 2026) : « Avant sa déclaration de candidature, il évoquait une hausse des franchises médicales. » Poids 1, déclaration, medium. Source : Planet.fr (29/08/2025, « Il souhaite augmenter les franchises médicales », sans source précise pour ce point). APRÈS : Public Sénat (12/10/2026) : 4 Md€ attendus des arrêts maladie, par des réexamens périodiques, la surveillance des médecins aux prescriptions jugées préoccupantes et un jour de carence « d’ordre public » dans le privé, « que personne ne pourra racheter », pas même la prévoyance de l’entreprise ; pas d’engagement chiffré sur les quelque 280 Md€ de dépenses de santé, qu’il dit préserver de l’effort, les gains d’efficience devant être réinvestis dans les soins. LCP et dépêche AFP (12/10/2026) : 4 Md€ sur les arrêts maladie. Acteurs publics (12/10/2026, tableau remis à la presse) : trois jours de carence dans la fonction publique, à l’image du privé, avec les autorisations d’absence (3 Md€, comptés dans la part de l’État et non dans les 4 Md€, d’où leur place à part dans le résumé). iFRAP, relue le 15/10/2026 : réexamen médical obligatoire des arrêts après trois et six mois, fin des arrêts prescrits en téléconsultation, jour de carence non indemnisé et non rachetable (4 Md€). Aucune source du 12/10 ne parle des franchises médicales : la hausse évoquée en 2025 (Planet.fr, secondaire ; une tribune qu’il signe le 3 septembre 2025 sur republicains.fr la lie à la fin de la gratuité des soins pour les étrangers en situation irrégulière, dans une phrase ambiguë) n’est plus reprise ; elle reste dans positions-history.json. Poids 1, comme Édouard Philippe sur la même approche (jours non indemnisés, rien sur les franchises : poids 1, proposition, high). Pas de position sur sante-2-c ni sur sante-2-f : préserver la santé de l’effort n’engage ni sur les remboursements ni sur une stabilisation des dépenses. Textes dans le scratchpad, sous maj-15-10/retailleau-fp1/ (ps.txt, lcp.txt, ap.txt, ifrap.txt) et suivis-15-10/dec2/ (planet-0829.txt, lr-tribune.txt).",
+      "reasonFrom": "decisions.json",
+      "before": {
+        "weight": 1,
+        "nature": "declaration",
+        "confidence": "medium",
+        "summary": "Avant sa déclaration de candidature, il évoquait une hausse des franchises médicales.",
+        "sources": [
+          {
+            "title": "Planet.fr (d’après Le Figaro Magazine) – les premières propositions de Bruno Retailleau pour 2027",
+            "url": "https://www.planet.fr/politique-limiter-le-nombre-de-fonctionnaires-retraite-par-capitalisation-les-premieres-propositions-de-bruno-retailleau-pour-2027.2987506.29334.html",
+            "date": "2025-08-29",
+            "publisher": "Planet.fr"
+          }
+        ]
+      },
+      "after": {
+        "weight": 1,
+        "nature": "proposition",
+        "confidence": "high",
+        "summary": "Son plan du 12 octobre 2026 attend 4 Md€ des arrêts maladie, avec dans le privé un jour de carence que personne, pas même la prévoyance d’entreprise, ne pourrait indemniser ; il prévoit aussi trois jours de carence pour les fonctionnaires, sans se prononcer sur les franchises médicales.",
+        "sources": [
+          {
+            "title": "Présidentielle 2027 : Bruno Retailleau s’engage sur un plan d’économies de près de 200 milliards d’euros, s’il est élu",
+            "url": "https://www.publicsenat.fr/actualites/economie/presidentielle-2027-bruno-retailleau-sengage-sur-un-plan-deconomies-de-pres-de-200-milliards-deuros-sil-est-elu",
+            "date": "2026-10-12",
+            "publisher": "Public Sénat"
+          },
+          {
+            "title": "Bruno Retailleau veut faire travailler davantage les fonctionnaires",
+            "url": "https://acteurspublics.fr/articles/bruno-retailleau-veut-faire-travailler-davantage-les-fonctionnaires/",
+            "date": "2026-10-12",
+            "publisher": "Acteurs publics"
+          },
+          {
+            "title": "Face à une France « quasiment en faillite », Bruno Retailleau présente un plan d’économies de 197 milliards d’euros sur cinq ans",
+            "url": "https://lcp.fr/actualites/face-a-une-france-quasiment-en-faillite-bruno-retailleau-presente-un-plan-d-economies-de",
+            "date": "2026-10-12",
+            "publisher": "LCP"
+          }
+        ]
+      }
     }
   ]
 }
