@@ -1,12 +1,16 @@
 // La rubrique « Mon profil politique » de la Méthode (#/methode/profil), sous son titre, que la Méthode pose elle-même
-// (l'ancre existe dès l'ouverture). Dans le fichier à part de la page, chargé à la demande : le code de toutes les
-// visites n'en contient rien. Ses chiffres viennent de ECHIQUIER_PUBLISHED (core/echiquierCopy.ts), mesurés par
-// tools/audit-echiquier.mjs.
+// (l'ancre existe dès l'ouverture). Un fichier à part du build, chargé à la demande par la Méthode (ui/profile/load.ts),
+// sans la page ni son calcul (core/echiquier.ts) : ses mots sont dans core/echiquierMethodCopy.ts, les candidats de
+// l'axe dans core/echiquierPanel.ts ; le code de toutes les visites n'en contient rien. Ses chiffres viennent de
+// ECHIQUIER_PUBLISHED (core/echiquierMethodCopy.ts), mesurés par tools/audit-echiquier.mjs ; ceux de la croix des lignes
+// rouges, de ECHIQUIER_CROSS (lot 2, mesure de neutralité bloc par bloc, D5) ; ceux de « Ce qui pèse le plus », de
+// ECHIQUIER_WEIGH (lot 3, la même mesure) ; ceux de « Votre façon de répondre », de ECHIQUIER_MANNER (lot 4, la même
+// mesure, et par façon de répondre).
 
-import { blocOf, ECHIQUIER, panelOf } from '../../core/echiquier'
-import * as T from '../../core/echiquierCopy'
-import { excludedIds } from '../../core/score'
-import { axisOf } from '../../core/spectrum'
+import { panelOf } from '../../core/echiquierPanel'
+import * as T from '../../core/echiquierMethodCopy'
+import { CLOSE_GAP, excludedIds } from '../../core/score'
+import { axisOf, blocOf } from '../../core/spectrum'
 import type { ElectionPack } from '../../core/types'
 import { SectionLink } from '../components/LegalBits'
 import { ProfileDiagram } from './Diagram'
@@ -23,7 +27,8 @@ export function ProfileMethod({ pack }: { pack: ElectionPack }) {
   const onAxis = new Set(axis.map(a => a.bloc))
   const othersEmpty = candidates.every(c => off.has(c.id) || onAxis.has(blocOf(election, c) ?? ''))
   const [intro, introEnd] = T.methodIntro(axis.length)
-  const [worthClones, worthChance] = T.methodWorth()
+  const [worthClones, worthSheets] = T.methodWorth()
+  const [cross, crossPossible] = T.methodCross()
   return (
     <>
       <p>
@@ -40,7 +45,11 @@ export function ProfileMethod({ pack }: { pack: ElectionPack }) {
         <strong>Le calcul.</strong> {T.METHOD_CALC}
       </p>
       <p>
-        <strong>Le hasard.</strong> {T.methodChance(ECHIQUIER.GAP)}
+        {/* L'écart minimal des lectures nettes : ECHIQUIER.GAP du calcul (core/echiquier.ts), qui est CLOSE_GAP */}
+        <strong>La comparaison.</strong> {T.methodChance(CLOSE_GAP)}
+      </p>
+      <p>
+        <strong>Compter, sinon calculer.</strong> {T.METHOD_REGIMES}
       </p>
       <p>
         <strong>Les couleurs.</strong> {T.HOW_COLOR} {T.COLORS_CHANCE}
@@ -54,7 +63,23 @@ export function ProfileMethod({ pack }: { pack: ElectionPack }) {
       <p>
         <strong>Ce que valent ces lectures.</strong> {worthClones}
       </p>
-      <p>{worthChance}</p>
+      <p>{worthSheets}</p>
+      <p>
+        <strong>Avant et après.</strong> {T.methodBefore()}
+      </p>
+      <p>
+        <strong>Lignes rouges et priorités.</strong> {T.METHOD_CROSS_WHERE} {T.HOW_CROSS} {T.METHOD_PRIORITY}
+      </p>
+      <p>{cross}</p>
+      <p>{crossPossible}</p>
+      <p>
+        <strong>Ce qui pèse le plus.</strong> {T.METHOD_WEIGH}
+      </p>
+      <p>{T.methodWeigh()}</p>
+      <p>
+        <strong>Votre façon de répondre.</strong> {T.METHOD_MANNER}
+      </p>
+      <p>{T.methodManner(axis.map(a => a.where))}</p>
       <p>
         <strong>Limites.</strong> {T.METHOD_LIMITS[0]}
         <SectionLink id="ordre-des-candidats">{T.METHOD_INTRO_LINK}</SectionLink>

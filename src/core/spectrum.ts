@@ -1,7 +1,7 @@
 // La grille des nuances politiques d'une élection (election.spectrum) : l'ordre de la page des candidats, et l'axe de
 // la page « Mon profil politique ». Petit et pur : chargé avec le code de toutes les visites (la page des candidats, le
-// dépouillement et la Méthode s'en servent). Les candidats qui comptent sur l'axe (panelOf) sont avec le calcul de la
-// page, chargé à la demande (core/echiquier.ts).
+// dépouillement et la Méthode s'en servent). Les candidats qui comptent sur l'axe (panelOf) sont à part
+// (core/echiquierPanel.ts), avec le calcul de la page et sa rubrique de la Méthode, chargés à la demande.
 
 import type { Candidate, ElectionInfo, SpectrumAxisBloc } from './types'
 

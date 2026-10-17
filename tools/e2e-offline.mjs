@@ -27,7 +27,9 @@
 // IA), son graphique « une ligne par sujet » (axe, lignes, clavier, survol, plis, détail replié) aux couleurs de
 // l'échelle d'affinité et à elles seules (clair et sombre), sans nouvelle clé de stockage, sans défilement en largeur ni
 // texte rogné ou mot coupé (320, 390, 1 280 px, texte à 125 et 200 %, entrées comprises), sans focus caché sous
-// l'en-tête, l'axe collant ou l'en-tête des colonnes, et sans effet sur l'affiche JPG ; rien de tout cela sans axe.
+// l'en-tête, l'axe collant ou l'en-tête des colonnes, et sans effet sur l'affiche JPG ; sa rubrique de la Méthode, hors
+// ligne, chargée sans la page ; le statut « Lecture en cours » d'une page lourde, processeur bridé ; rien de tout cela
+// sans axe.
 //
 // Usage : pnpm build && node tools/e2e-offline.mjs [port] [--pack <id>] [--prefix <slug>]
 //   --pack <id>     : l'élection à parcourir (par défaut, celle du registre sans préfixe : src/elections/index.ts)
@@ -772,12 +774,13 @@ try {
 
   // 4 quinquies. « Mon profil politique », hors ligne comme tout le reste (le fichier à part de la page est dans la copie
   // hors ligne) : le panneau de « Et maintenant » et le lien sous « Par thème » ; la page, arrivée par le panneau (focus
-  // au titre), sa mention IA en tête, « Calcul sans IA », le statut « Lecture prête. » ; le graphique « Sujet par
-  // sujet » (cinq colonnes et leurs candidats, une ligne par sujet, autant de lectures nettes que le dit le compte,
-  // rangées par section : d'abord les lectures nettes, celles des deux bords à part, puis les sujets sans tendance nette
-  // et ceux d'une seule question, visibles, autant que le disent leurs intertitres), au clavier (Entrée, Espace, flèches,
-  // Début, Fin ; une seule ligne ouverte), « Voir le détail » qui ouvre le tableau complet (une ligne par thème répondu
-  // et par famille affichée) ; les couleurs des cases, l'échelle d'affinité du site, et elles seules, en clair comme en
+  // au titre), sa mention IA en tête, « Calcul sans IA », le statut « Lecture prête. » ; le graphique « Domaine par
+  // domaine » (cinq colonnes et leurs candidats, une ligne par sujet, sous les domaines dans l'ordre des familles ; dans
+  // chacun, les lectures nettes, celles des deux bords à part, puis les écarts, puis les sujets sans tendance nette et
+  // ceux d'une seule question, visibles sous leur intertitre ; autant de lectures nettes que le dit le compte de tête,
+  // dont chaque nom ouvre sa ligne, et autant de sujets sans rien de net et de thèmes d'une seule question que le dit
+  // ce qui n'a pas compté), au clavier (Entrée, Espace, flèches, Début, Fin ; une seule ligne ouverte), « Voir le
+  // détail » qui ouvre le tableau complet (une ligne par thème répondu et par famille affichée) ; les couleurs des cases, l'échelle d'affinité du site, et elles seules, en clair comme en
   // sombre (chaque case au palier de son mot, le mot à 4,5:1 au moins ; en-têtes de colonne neutres, aucun pastel de
   // bloc ; aucun symbole ▲ ▽) ; aucune nouvelle clé de stockage ni de session
   // (seule « isoloir-focus », le temps d'un clic vers « Qui porte quoi ») ; rien en largeur à 320, 390 et 1 280 px, ni
@@ -853,12 +856,37 @@ try {
       detailCells.n >= rows && detailCells.bad.length === 0,
       `mon profil politique, détail : ${detailCells.n} cases, chacune dite par un texte dans la case (bloc, grille, palier, lecture nette)${detailCells.bad.length ? ` : ${detailCells.bad.join(' ; ')}` : ''}`,
     )
+    // « Ce qui pèse le plus » (lot 3) : son fichier à part ne se charge qu'à la première ouverture d'une ligne, d'un détail
+    // ou de « Comment c'est calculé » (décision du propriétaire du 17 octobre 2026), hors ligne lui aussi (il est dans la
+    // copie hors ligne) ; « Comment c'est calculé » ouvert en dit alors la règle
+    const weighed = () => page.evaluate(() => performance.getEntriesByType('resource').some(e => /\/Weigh-[\w-]+\.js$/.test(e.name)))
+    await page.waitForTimeout(1500)
+    const weighBefore = await weighed()
+    const calcWasOpen = await page.locator('main details.calc').evaluate(d => d.open)
+    if (!calcWasOpen) await page.locator('main details.calc > summary').click()
+    const weighLoaded = await page
+      .waitForFunction(() => performance.getEntriesByType('resource').some(e => /\/Weigh-[\w-]+\.js$/.test(e.name)) && (document.querySelector('main details.calc')?.textContent ?? '').includes('Ce qui pèse le plus'), null, { timeout: 5000 })
+      .then(() => true, () => false)
+    if (!calcWasOpen) await page.locator('main details.calc > summary').click()
+    check(
+      !weighBefore && weighLoaded,
+      `mon profil politique : « Ce qui pèse le plus », un fichier à part, pas chargé avant une ouverture (${!weighBefore}), puis chargé hors ligne à l'ouverture de « Comment c’est calculé », qui en dit la règle (${weighLoaded})`,
+    )
     check(
       panelTitle === 'Mon profil politique' && panelPlace === 1 && gridLink === 1 && barShortcuts === 2,
       `mon profil politique : panneau « ${panelTitle} » en ${panelPlace + 1}e place de « Et maintenant », lien sous « Par thème » (${gridLink}), toujours deux raccourcis dans la barre (${barShortcuts})`,
     )
     check(
-      focused && h1 === 'Mon profil politique' && /^Mon profil politique · Isoloir$/.test(title) && aiLabel && main.includes('Positions résumées par IA') && main.includes('Calcul sans IA') && status === 'Lecture prête.' && rows === answeredTopics.size + familiesShown && detailLabel === `Afficher le détail des ${rows} sujets`,
+      focused &&
+        h1 === 'Mon profil politique' &&
+        /^Mon profil politique · Isoloir$/.test(title) &&
+        aiLabel &&
+        main.includes('Approches rédigées et positions résumées par IA') &&
+        main.includes('Calcul sans IA') &&
+        main.includes('Une lecture, pas un conseil de vote : le classement est dans Résultats') &&
+        status === 'Lecture prête.' &&
+        rows === answeredTopics.size + familiesShown &&
+        detailLabel === (answeredTopics.size > 1 ? `Afficher le détail des ${answeredTopics.size} thèmes${familiesShown ? ' et de leurs domaines' : ''}` : 'Afficher le détail du thème'),
       `mon profil politique : focus au titre ${focused}, onglet « ${title} », mention IA ${aiLabel}, « Calcul sans IA », statut « ${status} », détail replié « ${detailLabel} », ${rows} lignes (${answeredTopics.size} thèmes répondus + ${familiesShown} familles)`,
     )
 
@@ -891,6 +919,9 @@ try {
         // graphique, seul autorisé à sortir du papier et de l'encre, et seulement dans ces deux couleurs-là
         const action = rgb('var(--action)')
         const onAction = rgb('var(--on-action)')
+        // « prioritaire », au bleu bille des choix de la personne, et la ligne rouge du détail, au rouge de la croix (lot 2)
+        const ink = rgb('var(--ink)')
+        const red = rgb('var(--red)')
         const aff = Object.fromEntries(bands.map(b => [b.key, rgb(`var(--aff-${b.key})`)]))
         const pastels = ['vert', 'rouge', 'jaune', 'bleu'].map(t => rgb(`var(--pastel-${t})`))
         probe.remove()
@@ -944,7 +975,8 @@ try {
           }
           if (!clear(b) && !near(b, paper) && !near(b, print) && !onWash(b)) bad.push(`${name(el)} fond ${cs.backgroundColor}`)
           if (!clear(b) && pastels.some(x => near(b, x))) bad.push(`${name(el)} : un pastel (${cs.backgroundColor})`)
-          if (!clear(c) && ![print, soft, paper, onPrint].some(x => near(c, x))) bad.push(`${name(el)} encre ${cs.color}`)
+          if (!clear(c) && ![print, soft, paper, onPrint].some(x => near(c, x)) && !(el.matches('.row-prio') && near(c, ink)) && !(el.matches('.detail-meta .is-red') && near(c, red)))
+            bad.push(`${name(el)} encre ${cs.color}`)
         }
         // La légende : les cinq paliers, dans l'ordre du site, puis « inconnu » s'il paraît
         const key = [...document.querySelectorAll('main .profile-chart .key-scale li')].map(li => li.textContent.replace(/\s+/g, ' ').trim())
@@ -962,14 +994,13 @@ try {
       )
     }
 
-    /** Le graphique « Sujet par sujet » d'une page déjà lue : axe, lignes et leurs sections, clavier, couleurs des cases */
+    /** Le graphique « Domaine par domaine » d'une page déjà lue : axe, domaines, lignes et leurs groupes, compte, clavier, couleurs des cases */
     const profileChart = async (pg, where) => {
-      // Le graphique : l'axe (cinq colonnes et leurs candidats), les lignes et leurs sections, le compte
-      const { MAIN_LABEL, BOTH_TITLE, SIDES_TITLE, APART_TITLE } = await importSite('src/core/echiquierCopy.ts')
-      const chart = await pg.evaluate(([MAIN, BOTH, SIDES, APART]) => {
+      // Le graphique : l'axe (cinq colonnes et leurs candidats), les domaines, leurs groupes de lignes, le compte
+      const chart = await pg.evaluate(() => {
         const zones = [...document.querySelectorAll('.profile-chart .zone')]
         const lists = [...document.querySelectorAll('.profile-chart ol.rows')]
-        const listOf = label => lists.filter(ol => ol.getAttribute('aria-label') === label).flatMap(ol => [...ol.querySelectorAll(':scope > li > .row')])
+        const listOf = kind => lists.filter(ol => ol.dataset.group === kind).flatMap(ol => [...ol.querySelectorAll(':scope > li > .row')])
         const all = [...document.querySelectorAll('.profile-chart ol.rows > li > .row')]
         const net = (r, k) => [...r.querySelectorAll('.cell')].flatMap((c, b) => (c.dataset.net === k ? [b] : []))
         // De part et d'autre du centre, sans lui : dans « Aux deux bouts » ou « Des deux côtés », et elles seules
@@ -977,49 +1008,113 @@ try {
           const n = net(r, 'pres')
           return n.some(b => b < 2) && n.some(b => b > 2) && !n.includes(2)
         }
-        const inBoth = r => [BOTH, SIDES].includes(r.closest('ol')?.getAttribute('aria-label'))
-        // Les sections du bas : leur intertitre annonce leur nombre de lignes ; aucune lecture nette n'y est
-        const quiet = [...document.querySelectorAll('.profile-chart ol.rows.is-quiet')].map(ol => ({
-          title: ol.getAttribute('aria-label') ?? '',
-          n: Number((ol.getAttribute('aria-label') ?? '').match(/^(\d+)/)?.[1] ?? -1),
-          rows: ol.querySelectorAll(':scope > li > .row').length,
-          netRows: [...ol.querySelectorAll(':scope > li > .row')].filter(r => r.querySelector('.cell[data-net]')).length,
-          visible: ol.checkVisibility(),
-        }))
-        const count = document.querySelector('.profile-chart .chart-count')?.textContent ?? ''
+        // Les groupes sans lecture nette : visibles, sous un intertitre, sans aucune lecture nette
+        const quiet = lists
+          .filter(ol => ['flat', 'thin', 'unknown'].includes(ol.dataset.group))
+          .map(ol => ({
+            group: ol.dataset.group,
+            title: ol.previousElementSibling?.matches('.fam-sub') ? ol.previousElementSibling.textContent.trim() : '',
+            rows: ol.querySelectorAll(':scope > li > .row').length,
+            netRows: [...ol.querySelectorAll(':scope > li > .row')].filter(r => r.querySelector('.cell[data-net]')).length,
+            visible: ol.checkVisibility(),
+          }))
+        const text = el => (el?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
+        // Les noms du compte de tête, dans l'ordre de la page ; ceux des lignes nettes, dans le même ordre
+        const names = [...document.querySelectorAll('.profile-chart .chart-count .count-link')].map(text)
+        const readRows = [...listOf('net'), ...listOf('both')].sort((a, b) => (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1))
         return {
           zones: zones.length,
           names: zones.map(zn => zn.querySelectorAll('.zone-names li').length),
-          mainRows: listOf(MAIN).length,
-          bothRows: listOf(BOTH).length + listOf(SIDES).length,
-          apartRows: listOf(APART).length,
+          families: [...document.querySelectorAll('.profile-chart .fam-group')].map(f => f.id.replace(/^fam-/, '')),
+          mainRows: listOf('net').length,
+          bothRows: listOf('both').length,
+          apartRows: listOf('apart').length,
+          flatRows: listOf('flat').length,
+          thinRows: listOf('thin').length,
           all: all.length,
-          count: count.replace(/\s+/g, ' '),
-          // Chaque ligne : cinq cases ; une lecture nette plus près dans les sections du haut, seulement plus loin dans la sienne
+          count: text(document.querySelector('.profile-chart .chart-count')),
+          state: text(document.querySelector('.profile-chart .chart-state')),
+          rest: text(document.querySelector('.profile-chart .chart-rest')),
+          countNames: names,
+          // Une ligne de famille s'écrit « Les 5 thèmes ensemble » sous l'intertitre de son domaine : le compte la nomme par lui
+          readNames: readRows.map(r => (r.id.startsWith('sj-famille-') ? text(r.closest('.fam-group')?.querySelector('.fam-name')) : text(r.querySelector('.row-name')))),
+          readIds: readRows.map(r => r.id),
+          // Les lignes que nomme le compte : les lectures nettes ; sans elles (C6), les sujets seulement plus loin
+          countIds: (readRows.length ? readRows : listOf('apart')).map(r => r.id),
+          // Chaque ligne : cinq cases ; une lecture nette plus près dans les groupes du haut, seulement plus loin dans le sien
           fiveTiles: all.every(r => r.querySelectorAll('.strip > .cell > .tile').length === 5),
-          mainOk: [...listOf(MAIN), ...listOf(BOTH), ...listOf(SIDES)].every(r => net(r, 'pres').length > 0) && listOf(APART).every(r => !net(r, 'pres').length && net(r, 'loin').length > 0),
-          twoBarsOutside: all.filter(r => net(r, 'pres').length && across(r) !== inBoth(r)).length,
+          mainOk: [...listOf('net'), ...listOf('both')].every(r => net(r, 'pres').length > 0) && listOf('apart').every(r => !net(r, 'pres').length && net(r, 'loin').length > 0),
+          twoBarsOutside: all.filter(r => net(r, 'pres').length && across(r) !== (r.closest('ol')?.dataset.group === 'both')).length,
           quiet,
           closed: all.every(r => r.getAttribute('aria-expanded') === 'false' && document.getElementById(r.getAttribute('aria-controls'))?.hidden),
           hint: document.querySelector('.profile-chart .hint-click')?.checkVisibility() ?? false,
           source: document.querySelector('.profile-chart .chart-source')?.textContent ?? '',
+          calc: document.querySelectorAll('.profile-chart details.calc > ul > li').length,
+          hasard: /hasard/i.test(document.querySelector('main')?.textContent ?? ''),
+          // Chaque liste a un nom (l'intertitre de son domaine et le sien ; celle des lectures nettes, un nom masqué)
+          unnamed: lists.filter(ol => {
+            const ids = (ol.getAttribute('aria-labelledby') ?? '').split(/\s+/).filter(Boolean)
+            return !ids.length || ids.some(id => !text(document.getElementById(id))) || (ol.dataset.group === 'net' && !ids.some(id => /nettement/.test(text(document.getElementById(id)))))
+          }).length,
+          // Les noms du compte : des liens, qui se coupent en fin de ligne comme le reste de la phrase
+          countLinks: [...document.querySelectorAll('.profile-chart .chart-count .count-link')].every(a => a.tagName === 'A' && getComputedStyle(a).display === 'inline'),
+          // Le nom lu d'une ligne de famille contient son libellé visible (« les 3 thèmes ensemble, 5 questions »)
+          famLabelInName: all
+            .filter(r => r.id.startsWith('sj-famille-'))
+            .every(r => text(r.querySelector('.sr-only')).toLowerCase().includes(`${text(r.querySelector('.row-name'))}, ${text(r.querySelector('.row-meta'))}`.toLowerCase())),
         }
-      }, [MAIN_LABEL, BOTH_TITLE, SIDES_TITLE, APART_TITLE])
+      })
       const readCount = Number(chart.count.match(/^Sur (\d+)/)?.[1] ?? 0)
-      const mainRows = chart.mainRows
+      const shownNames = Math.min(5, readCount)
       const ranked = Number(chart.source.match(/Comptent les (\d+) candidats classés/)?.[1] ?? -1)
+      const familyOrder = groups.map(g => g.id).filter(id => chart.families.includes(id))
       check(
         chart.zones === 5 && chart.names.every(n => n > 0) && chart.names.reduce((a, b) => a + b, 0) === ranked,
         `mon profil politique (${where}), l’axe : ${chart.zones} colonnes, candidats ${chart.names.join(' + ')} = ${ranked} classés`,
       )
       check(
-        readCount === mainRows + chart.bothRows && (readCount > 0 || /^Pour ces réponses, aucun sujet/.test(chart.count)) && chart.fiveTiles && chart.mainOk && chart.twoBarsOutside === 0 && chart.closed && chart.hint,
-        `mon profil politique (${where}), les lignes : « ${chart.count} » pour ${mainRows} + ${chart.bothRows} lignes lues (et ${chart.apartRows} seulement plus loin), cinq cases par ligne ${chart.fiveTiles}, lectures nettes dans leurs sections ${chart.mainOk}, lignes de part et d’autre du centre hors de leur section (ou l’inverse) ${chart.twoBarsOutside}, toutes fermées ${chart.closed}, « Cliquez… » à la souris ${chart.hint}`,
+        readCount === chart.mainRows + chart.bothRows &&
+          (readCount > 0 || /^Sur aucun sujet/.test(chart.count) || chart.state.length > 0) &&
+          chart.families.join() === familyOrder.join() &&
+          chart.fiveTiles &&
+          chart.mainOk &&
+          chart.twoBarsOutside === 0 &&
+          chart.closed &&
+          chart.hint &&
+          chart.calc <= 8 &&
+          !chart.hasard &&
+          chart.unnamed === 0 &&
+          chart.countLinks &&
+          chart.famLabelInName,
+        `mon profil politique (${where}), les lignes : « ${chart.count || chart.state} » pour ${chart.mainRows} + ${chart.bothRows} lignes lues (et ${chart.apartRows} seulement plus loin), domaines dans l’ordre des familles ${chart.families.join() === familyOrder.join()}, cinq cases par ligne ${chart.fiveTiles}, lectures nettes dans leurs groupes ${chart.mainOk}, lignes de part et d’autre du centre hors de leur groupe (ou l’inverse) ${chart.twoBarsOutside}, toutes fermées ${chart.closed}, « Cliquez… » à la souris ${chart.hint}, « Comment c’est calculé » en ${chart.calc} points, « hasard » ${chart.hasard ? 'présent !' : 'absent'}, listes sans nom ${chart.unnamed}, noms du compte en liens ${chart.countLinks}, libellé visible des lignes de famille dans leur nom lu ${chart.famLabelInName}`,
+      )
+      // Le compte de tête : les noms des lignes nettes, dans l'ordre de la page, cinq au plus, puis « et N autres » ;
+      // ce qui n'a pas compté, autant que de lignes
+      const restFlat = Number(chart.rest.match(/rien de net sur (\d+) sujets?/i)?.[1] ?? 0)
+      const restThin = Number(chart.rest.match(/(\d+) thèmes? sur une seule question/)?.[1] ?? 0)
+      check(
+        (readCount === 0 || (chart.countNames.join('|') === chart.readNames.slice(0, shownNames).join('|') && (readCount <= 5 ? chart.count.endsWith('.') && !/ autres?\.$/.test(chart.count) : chart.count.endsWith(` et ${readCount - 5} autre${readCount - 5 > 1 ? 's' : ''}.`)))) &&
+          (!chart.rest || (restFlat === chart.flatRows && restThin === chart.thinRows)),
+        `mon profil politique (${where}), le compte de tête : ${chart.countNames.length} noms (« ${chart.countNames.join(' », « ')} ») pour ${readCount} lignes nettes, « ${chart.rest} » pour ${chart.flatRows} sans rien de net et ${chart.thinRows} d’une seule question`,
       )
       check(
-        chart.quiet.every(q => q.visible && q.rows === q.n && q.netRows === 0),
+        chart.quiet.every(q => q.visible && q.title && q.netRows === 0),
         `mon profil politique (${where}), les sujets sans lecture nette, visibles sous leur intertitre : ${chart.quiet.map(q => `« ${q.title} » ${q.rows} lignes`).join(', ') || 'aucun'}`,
       )
+      // Un nom du compte ouvre sa ligne et lui donne le focus
+      if (chart.countNames.length) {
+        await pg.locator('.profile-chart .chart-count .count-link').first().click()
+        await pg.waitForTimeout(150)
+        const opened = await pg.evaluate(() => {
+          const b = document.activeElement
+          return { row: !!b?.matches('.profile-chart .row'), expanded: b?.getAttribute('aria-expanded'), id: b?.id ?? '' }
+        })
+        check(
+          opened.row && opened.expanded === 'true' && opened.id === chart.countIds[0],
+          `mon profil politique (${where}), le premier nom du compte (« ${chart.countNames[0]} ») ouvre sa ligne et lui donne le focus : ${JSON.stringify(opened)}`,
+        )
+        await pg.locator('.profile-chart .row[aria-expanded="true"]').evaluateAll(bs => bs.forEach(b => b.click()))
+      }
 
       // Au clavier : Entrée ouvre, flèche bas passe à la suivante, Espace l'ouvre et referme la première, Fin et Début
       const buttons = pg.locator('.profile-chart .row')
@@ -1057,8 +1152,9 @@ try {
     }
     await profileChart(page, 'parcours, 390 px')
 
-    // Pour lire plus de thèmes (questionnaire rapide seul) : avant le graphique ; les thèmes d'une seule question et ceux
-    // sans réponse qui ont encore des questions approfondies, tels qu'on les compte depuis la feuille enregistrée ; un
+    // Pour lire plus de thèmes (questionnaire rapide seul) : ouverte sous le compte, dans la tête du graphique ; les thèmes
+    // d'une seule question et ceux sans réponse qui ont encore des questions approfondies, tels qu'on les compte depuis la
+    // feuille enregistrée ; un
     // thème de la fiche, puis « Approfondir ce thème » d'une ligne, mènent à « Approfondir » avec ce thème coché (le champ
     // existant, rien d'autre d'enregistré), qu'on décoche ensuite
     {
@@ -1072,14 +1168,15 @@ try {
         if (n === 0) expected.none.push(t.label)
         else if (n === 1) expected.thin.push(t.label)
       }
-      const fold = page.locator('main .profile-deeper details.deeper-fold')
+      const fold = page.locator('main .deeper-card details.deeper-fold')
       if ((await fold.count()) && !(await fold.evaluate(d => d.open))) await fold.locator('summary').click()
       const fiche = await page.evaluate(() => {
-        const f = document.querySelector('main .profile-deeper')
+        const f = document.querySelector('main .deeper-card')
         const names = el => [...(el?.querySelectorAll('.deeper-topics a') ?? [])].map(a => [...a.childNodes].filter(n => n.nodeType === 3).map(n => n.data).join('').trim())
         return {
-          n: document.querySelectorAll('main .profile-deeper').length,
-          first: !!f && !!(f.compareDocumentPosition(document.querySelector('main .profile-chart')) & Node.DOCUMENT_POSITION_FOLLOWING),
+          n: document.querySelectorAll('main .deeper-card').length,
+          // Au seul questionnaire rapide : ouverte, sous le compte, avant l'axe
+          first: !!f && !!f.closest('.profile-chart .chart-head') && !!f.querySelector(':scope > details[open]') && !!(f.compareDocumentPosition(document.querySelector('main .profile-chart .axis')) & Node.DOCUMENT_POSITION_FOLLOWING),
           thin: names(f?.querySelector('.deeper-fold') ?? [...(f?.querySelectorAll('.deeper-lists > p') ?? [])].find(p => p.textContent.startsWith('Sur une seule'))),
           none: names([...(f?.querySelectorAll('.deeper-lists > p') ?? [])].find(p => p.textContent.startsWith('Sans réponse'))),
           go: f?.querySelector('a.btn-text')?.getAttribute('href') ?? null,
@@ -1087,7 +1184,7 @@ try {
       })
       check(
         fiche.n === 1 && fiche.first && fiche.thin.join('|') === expected.thin.join('|') && fiche.none.join('|') === expected.none.join('|') && fiche.go === L('/approfondir'),
-        `mon profil politique, questionnaire rapide seul : fiche « Pour lire plus de thèmes » avant le graphique ${fiche.first}, ${fiche.thin.length} thèmes sur une seule question (attendus ${expected.thin.length}) et ${fiche.none.length} sans réponse (attendus ${expected.none.length}), « Choisir les thèmes à approfondir » vers ${fiche.go}`,
+        `mon profil politique, questionnaire rapide seul : fiche « Pour lire plus de thèmes » ouverte sous le compte ${fiche.first}, ${fiche.thin.length} thèmes sur une seule question (attendus ${expected.thin.length}) et ${fiche.none.length} sans réponse (attendus ${expected.none.length}), « Choisir les thèmes à approfondir » vers ${fiche.go}`,
       )
       // Les questions approfondies d'un thème encore sans avis (la règle de la page Approfondir)
       const openOf = id => pack.bank.questions.filter(q => q.topicId === id && q.tier === 'approfondi' && !opinion(st.answers?.[q.id])).length
@@ -1120,12 +1217,12 @@ try {
         return ok ? 'oui' : `non (${JSON.stringify(a)} ; attendu « ${note} » ; ${keys.join(', ')} ; ${left} encore cochés ; après : ${after.first}, « ${after.note} »)`
       }
       const pick = expected.thin[0] ?? expected.none[0]
-      await page.locator('main .profile-deeper .deeper-topics a').filter({ hasText: pick }).first().click()
+      await page.locator('main .deeper-card .deeper-topics a').filter({ hasText: pick }).first().click()
       const fromFiche = await pressedOn(pick)
       // « Approfondir ce thème » d'une ligne sur une seule question
       await page.goto(U('/profil'))
       await page.locator('[role="status"]', { hasText: 'Lecture prête.' }).waitFor({ timeout: 8000 }).catch(() => null)
-      const rows = page.locator('.profile-chart ol.rows.is-quiet').last().locator('.row')
+      const rows = page.locator('.profile-chart ol.rows[data-group="thin"] .row')
       let fromRow = 'aucune ligne avec le lien'
       for (let i = 0, n = await rows.count(); i < n; i++) {
         await rows.nth(i).click()
@@ -1152,9 +1249,9 @@ try {
         await page.evaluate(label => [...document.querySelectorAll('.is-topics .approach-main')].find(b => b.querySelector('.topic-label')?.textContent?.trim() === label)?.click(), other.label)
         await page.goto(U('/profil'))
         await page.locator('[role="status"]', { hasText: 'Lecture prête.' }).waitFor({ timeout: 8000 }).catch(() => null)
-        const fold2 = page.locator('main .profile-deeper details.deeper-fold')
+        const fold2 = page.locator('main .deeper-card details.deeper-fold')
         if ((await fold2.count()) && !(await fold2.evaluate(d => d.open))) await fold2.locator('summary').click()
-        await page.locator('main .profile-deeper .deeper-topics a').filter({ hasText: pick }).first().click()
+        await page.locator('main .deeper-card .deeper-topics a').filter({ hasText: pick }).first().click()
         await page.locator('main h1', { hasText: 'Quels thèmes voulez-vous approfondir' }).waitFor({ timeout: 4000 }).catch(() => null)
         const a = await arrival()
         const n = openOf(pickId)
@@ -1199,7 +1296,10 @@ try {
 
 
     // « Voir le détail » d'une ligne lue : le tableau replié s'ouvre sur le détail de l'unité, qui reçoit le focus ; puis
-    // son lien vers « Qui porte quoi » : la seule clé de session, effacée à l'arrivée
+    // son lien vers « Qui porte quoi » : la seule clé de session, effacée à l'arrivée. La lecture d'abord (le tableau
+    // replié ne paraît qu'avec elle) : sur une machine chargée, elle dépasse les 8 s attendues plus haut, et le chemin
+    // choisi sans elle (aucune ligne lue) attendrait un tableau qui n'est pas encore là
+    await page.locator('main .profile-all').waitFor({ timeout: 60000 })
     const readRow = page.locator('.profile-chart .row:has(.strip)').first()
     let detailRows = 0
     let detailFocus = false
@@ -1209,12 +1309,12 @@ try {
       await page.locator('main .profile-all[open] .unit-detail[open] .detail-blocs tbody tr').first().waitFor({ timeout: 3000 }).catch(() => null)
       await page.waitForTimeout(100)
       detailFocus = await page.evaluate(() => !!document.activeElement?.matches('.profile-all[open] .unit-detail[open] > summary'))
-      detailRows = await page.locator('main .unit-detail[open] .detail-blocs tbody tr').count()
+      detailRows = await page.locator('main .unit-detail[open] .detail-blocs tbody tr:not(.detail-why)').count()
     } else {
       await page.locator('main .profile-all > summary').click()
       await page.locator('main .unit-detail summary').first().click()
       await page.locator('main .unit-detail[open] .detail-blocs tbody tr').first().waitFor({ timeout: 3000 }).catch(() => null)
-      detailRows = await page.locator('main .unit-detail[open] .detail-blocs tbody tr').count()
+      detailRows = await page.locator('main .unit-detail[open] .detail-blocs tbody tr:not(.detail-why)').count()
       detailFocus = true
     }
     check(detailRows === 5 && detailFocus, `mon profil politique, « Voir le détail » : le tableau s’ouvre sur l’unité (focus ${detailFocus}), détail de ${detailRows} blocs`)
@@ -1267,7 +1367,7 @@ try {
       await wp.goto(U('/profil'))
       await wp.reload()
       await wp.locator('[role="status"]', { hasText: 'Lecture prête.' }).waitFor({ timeout: 15000 }).catch(() => null)
-      const allDeep = await wp.evaluate(() => ({ chart: document.querySelectorAll('main .profile-chart').length, fiche: document.querySelectorAll('main .profile-deeper').length }))
+      const allDeep = await wp.evaluate(() => ({ chart: document.querySelectorAll('main .profile-chart').length, fiche: document.querySelectorAll('main .deeper-card').length }))
       check(
         !!column && column.left === 0 && column.width === 0 && column.below > 0 && allDeep.chart === 1 && allDeep.fiche === 0,
         `mon profil politique, 1 280 px : bandeau dans la colonne de l’affiche, dessous (${JSON.stringify(column)}) ; tout approfondi, pas de fiche « Pour lire plus de thèmes » (${allDeep.fiche})`,
@@ -1295,7 +1395,24 @@ try {
         ? { ratings: Object.fromEntries(q.approaches.map((a, i) => [a.id, mains[i] ? 1 : -1])), redLines: [], ...(q.rev ? { rev: q.rev } : {}) }
         : { ratings: {}, redLines: [], skipped: true, ...(q.rev ? { rev: q.rev } : {}) }
     }
-    const readState = sanitizeState({ ...freshState(pack.election.id, pack.election.dataVersion), answers: readAnswers, essentialDoneAt: new Date().toISOString() }, pack)
+    // Lot 2 : deux lignes rouges, sur des « pas d'accord » que porte un autre candidat du premier bloc, dans la première
+    // moitié des familles (la croix paraît sous un bloc nettement plus près) ; et un thème prioritaire, le premier de la
+    // seconde moitié qui a un avis. Rien de cela ne change la lecture
+    const redPicks = []
+    for (const q of pack.bank.questions) {
+      const a = readAnswers[q.id]
+      if (redPicks.length >= 2 || !firstHalf.has(q.topicId) || a.skipped) continue
+      const x = q.approaches.find(ap => a.ratings[ap.id] === -1 && axisPanel[0].some(id => id !== leftId && (pack.positions[id]?.[ap.id]?.weight ?? 0) > 0))
+      if (x) {
+        a.redLines = [x.id]
+        redPicks.push(q.id)
+      }
+    }
+    const prioTopic = pack.bank.questions.find(q => !firstHalf.has(q.topicId) && !readAnswers[q.id].skipped)?.topicId
+    const readState = sanitizeState(
+      { ...freshState(pack.election.id, pack.election.dataVersion), answers: readAnswers, weights: prioTopic ? { [prioTopic]: 2 } : {}, essentialDoneAt: new Date().toISOString() },
+      pack,
+    )
     const readOk = readEchiquier(pack, readState.answers).summary.length > 0
     const readStorage = { [STORAGE]: JSON.stringify(readState) }
     if (readOk) {
@@ -1312,7 +1429,7 @@ try {
       await profileColors(rp, 'lectures nettes, 1 280 px')
       await rp.emulateMedia({ colorScheme: 'dark' })
       // « Voir le détail » depuis une ligne lue : le tableau s'ouvre sur l'unité, qui reçoit le focus
-      const firstRead = rp.locator('.profile-chart .row').first()
+      const firstRead = rp.locator('.profile-chart ol.rows[data-group="net"] .row').first()
       await firstRead.click()
       const opened = await rp.evaluate(() => {
         const b = document.querySelector('.profile-chart .row[aria-expanded="true"]')
@@ -1322,16 +1439,530 @@ try {
       await rp.locator('.profile-chart .explain:not([hidden]) .link-button').click()
       await rp.locator('main .profile-all[open] .unit-detail[open] .detail-blocs tbody tr').first().waitFor({ timeout: 3000 }).catch(() => null)
       await rp.waitForTimeout(100)
-      const toDetail = await rp.evaluate(() => ({
-        focus: !!document.activeElement?.matches('.profile-all[open] .unit-detail[open] > summary'),
-        blocs: document.querySelectorAll('.profile-all .unit-detail[open] .detail-blocs tbody tr').length,
-      }))
+      // Sous chaque bloc lu nettement d'une unité comptée en entier, combien de façons, et combien rapprochent (ou
+      // éloignent) au moins autant de lui ; aucune sous un bloc sans lecture nette
+      const toDetail = await rp.evaluate(() => {
+        const rows = [...document.querySelectorAll('.profile-all .unit-detail[open] .detail-blocs tbody tr')]
+        const blocs = rows.filter(r => !r.matches('.detail-why'))
+        const why = rows.filter(r => r.matches('.detail-why'))
+        const note = document.querySelector('.profile-all .unit-detail[open] .detail-blocs + p')?.textContent ?? ''
+        return {
+          focus: !!document.activeElement?.matches('.profile-all[open] .unit-detail[open] > summary'),
+          blocs: blocs.length,
+          exact: !/plus de cent mille/.test(note),
+          nets: blocs.filter(r => /nettement plus (près|loin)$/.test(r.lastElementChild?.textContent?.trim() ?? '')).length,
+          why: why.map(r => (r.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').trim()),
+          placed: why.every(r => r.previousElementSibling?.matches('.has-why')),
+        }
+      })
+      const whyOk =
+        toDetail.why.length === (toDetail.exact ? toDetail.nets : 0) &&
+        toDetail.placed &&
+        toDetail.why.every(t => /^Vos mêmes avis pouvaient se poser de [\d ]+ façons sur ces approches ; ([\d ]+, dont la vôtre, (rapprochent|éloignent) au moins|seule la vôtre (rapproche|éloigne)) autant de ce bloc\.$/.test(t))
       check(
-        sticky === 'sticky' && /^Vos réponses se rapprochent nettement/.test(opened.lead) && opened.who > 0 && toDetail.focus && toDetail.blocs === 5,
-        `mon profil politique (lectures nettes, 1 280 px) : axe ${sticky}, ligne ouverte « ${opened.lead.slice(0, 50)}… » (${opened.who} bloc(s) nettement plus près ou plus loin, en mots), « Voir le détail » : focus ${toDetail.focus}, ${toDetail.blocs} blocs`,
+        sticky === 'sticky' && /^Vos réponses se rapprochent nettement/.test(opened.lead) && opened.who > 0 && toDetail.focus && toDetail.blocs === 5 && whyOk,
+        `mon profil politique (lectures nettes, 1 280 px) : axe ${sticky}, ligne ouverte « ${opened.lead.slice(0, 50)}… » (${opened.who} bloc(s) nettement plus près ou plus loin, en mots), « Voir le détail » : focus ${toDetail.focus}, ${toDetail.blocs} blocs, ${toDetail.why.length} phrase(s) des façons pour ${toDetail.nets} lecture(s) nette(s)${toDetail.exact ? '' : ' (borne : aucune attendue)'} (« ${toDetail.why[0] ?? ''} »)`,
       )
+      // « Approfondir » jamais sous un sujet lu sans tendance nette (« Rien de net ») : ni dans sa ligne ouverte, ni dans
+      // son détail (refusé par le propriétaire le 15 octobre 2026)
+      const flatDetails = await rp.evaluate(async () => {
+        const says = [...document.querySelectorAll('.profile-all tr.say')].filter(tr => /^Rien de net/.test(tr.querySelector('.say-text')?.textContent?.trim() ?? ''))
+        for (const tr of says) {
+          const d = tr.querySelector('details.unit-detail')
+          if (d) d.open = true
+        }
+        await new Promise(r => setTimeout(r, 400))
+        const deepens = tr => [...tr.querySelectorAll('a')].some(a => /approfondir/.test(a.getAttribute('href') ?? ''))
+        return { n: says.length, opened: says.filter(tr => tr.querySelector('.detail-body')).length, deepen: says.filter(deepens).length }
+      })
+      check(
+        flatDetails.n > 0 && flatDetails.opened === flatDetails.n && flatDetails.deepen === 0,
+        `mon profil politique (lectures nettes, 1 280 px) : « Approfondir » sous ${flatDetails.deepen} des ${flatDetails.n} sujets « Rien de net » du tableau (${flatDetails.opened} détails ouverts)`,
+      )
+
+      // Lot 2 : les lignes rouges et la priorité, telles que les calcule le site (mêmes réponses, même calcul) ; la croix
+      // sous chaque bloc nettement plus près qui a un candidat qui franchit, et seulement là ; son nom lu ; la note sur le
+      // bloc entier effacée quand la croix nomme certains candidats d'un bloc, pas tous (splitsABloc) ; « prioritaire » sur
+      // la ligne fermée du thème, dans son nom lu ; dans le détail, l'approche rayée et « Franchie par »
+      {
+        const { computeResults } = await importSite('src/core/score.ts')
+        const { currentAnswers } = await importSite('src/core/revisions.ts')
+        const { chartRows: rowsOfChart, crossingsOf, hitsOf, splitsABloc } = await importSite('src/ui/profile/rows.ts')
+        const { weighOf } = await importSite('src/core/echiquierWeigh.ts')
+        const C = await importSite('src/core/echiquierCopy.ts')
+        const cur = currentAnswers(pack, readState.answers)
+        const hits = hitsOf(computeResults(pack, cur, readState.weights, readState.seed))
+        const names = new Map(pack.candidates.map(c => [c.id, c.name]))
+        const topicLabel = new Map(pack.bank.topics.map(t => [t.id, t.label]))
+        const topicOfQ = new Map(pack.bank.questions.map(q => [q.id, q.topicId]))
+        const read = rowsOfChart(groups, readEchiquier(pack, cur), u => u.id).read
+        const topicOrder = pack.bank.topics.map(t => t.id)
+        const crossOf = new Map(read.map(u => [`sj-${u.kind}-${u.id}-b`, crossingsOf(u, hits, q => topicOfQ.get(q), topicOrder)]))
+        const want = new Map(
+          read.map(u => [
+            `sj-${u.kind}-${u.id}-b`,
+            crossOf.get(`sj-${u.kind}-${u.id}-b`).map(gs =>
+              gs.map(g => C.crossLine(g.ids.map(id => names.get(id) ?? id), g.level === 'possible', g.count, u.kind === 'famille' ? g.topics.map(t => topicLabel.get(t) ?? t) : null)).join(' '),
+            ),
+          ]),
+        )
+        const crossed = [...want].filter(([, texts]) => texts.some(Boolean))
+        const issues = []
+        // Toutes fermées d'abord (« Voir le détail » a laissé la première ouverte)
+        await rp.locator('.profile-chart .row[aria-expanded="true"]').evaluateAll(bs => bs.forEach(b => b.click()))
+        for (const [id, texts] of [...crossed, ...[...want].filter(([, t]) => !t.some(Boolean)).slice(0, 1)]) {
+          await rp.locator(`#${id}`).click()
+          const got = await rp.evaluate(bid => {
+            const x = document.getElementById(document.getElementById(bid)?.getAttribute('aria-controls') ?? '')
+            const said = el => (el?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
+            return {
+              texts: [...(x?.querySelectorAll('.explain-blocs > ul > li') ?? [])].map(li => said(li.querySelector('.eb-cross > span:last-child'))),
+              named: [...(x?.querySelectorAll('.eb-cross .x') ?? [])].every(e => e.getAttribute('role') === 'img' && e.getAttribute('aria-label') === 'ligne rouge franchie' && !!e.querySelector('svg.ink-cross')),
+              underNet: [...(x?.querySelectorAll('.eb-cross') ?? [])].every(e => e.closest('li')?.matches('.is-net') && !!e.closest('li')?.querySelector('.eb-who')),
+              note: [...(x?.querySelectorAll('.explain-note') ?? [])].some(p => /bloc entier/.test(said(p))),
+              gray: [...(x?.querySelectorAll('.eb-cross > span:last-child') ?? [])].every(e => getComputedStyle(e).color === getComputedStyle(document.querySelector('.eb-who') ?? e).color),
+            }
+          }, id)
+          const norm = t => t.replace(/[\u00a0\u202f]/g, ' ')
+          if (got.texts.map(norm).join('|') !== texts.map(norm).join('|')) issues.push(`${id} : « ${got.texts.filter(Boolean).join(' / ')} » au lieu de « ${texts.filter(Boolean).join(' / ')} »`)
+          if (!got.named || !got.underNet || !got.gray) issues.push(`${id} : croix ${JSON.stringify(got)}`)
+          // La note s'efface aussi quand la fiche « Ce qui pèse le plus » est là (lot 3)
+          const ws = weighOf(pack, cur, read.find(r => `sj-${r.kind}-${r.id}-b` === id))
+          const card = ws.length === 1 && !!ws[0].suite
+          if ((splitsABloc(crossOf.get(id), axisPanel) || card) === got.note) issues.push(`${id} : note sur le bloc entier ${got.note}`)
+          await rp.locator(`#${id}`).click()
+        }
+        const prio = await rp.evaluate(t => {
+          const b = document.getElementById(`sj-theme-${t}-b`)
+          return {
+            row: !!b,
+            word: (b?.querySelector('.row-meta .row-prio')?.textContent ?? '').trim(),
+            said: (b?.querySelector('.sr-only')?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' '),
+            others: document.querySelectorAll('.profile-chart .row-prio').length,
+          }
+        }, prioTopic)
+        // Le détail d'une ligne qui a une croix : chaque ligne rouge de ses questions rayée, et qui la franchit
+        let detail = { struck: 0, want: 0, by: [] }
+        if (crossed.length) {
+          const [id] = crossed[0]
+          if ((await rp.locator(`#${id}`).getAttribute('aria-expanded')) !== 'true') await rp.locator(`#${id}`).click()
+          await rp.locator('.profile-chart .explain:not([hidden]) .link-button').click()
+          await rp.locator('main .profile-all[open] .unit-detail[open] .detail-approaches').first().waitFor({ timeout: 3000 }).catch(() => null)
+          const u = read.find(r => `sj-${r.kind}-${r.id}-b` === id)
+          detail = await rp.evaluate(d => {
+            const body = document.getElementById(d)
+            return {
+              struck: body?.querySelectorAll('.detail-approach.is-struck').length ?? 0,
+              by: [...(body?.querySelectorAll('.detail-cross') ?? [])].map(p => (p.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').trim()),
+            }
+          }, `d-${u.kind}-${u.id}`)
+          detail.want = u.questions.reduce((n, q) => n + (cur[q]?.redLines.length ?? 0), 0)
+        }
+        check(
+          crossed.length > 0 &&
+            issues.length === 0 &&
+            prio.row &&
+            prio.word === 'prioritaire' &&
+            prio.said.includes(', prioritaire. Selon la grille') &&
+            prio.others === 1 &&
+            detail.struck === detail.want &&
+            detail.by.length > 0 &&
+            detail.by.every(t => /^(Franchie par|Pourrait être franchie par) : .+\.$/.test(t)),
+          `mon profil politique (lectures nettes, lot 2) : croix sur ${crossed.length} ligne(s) lue(s) (« ${crossed[0]?.[1].filter(Boolean)[0] ?? ''} »)${issues.length ? ` : ${issues.join(' ; ')}` : ''} ; « prioritaire » sur la ligne de ${prioTopic} (« ${prio.word} », nom lu « …${prio.said.slice(0, 60)}… », ${prio.others} en tout) ; détail : ${detail.struck} approche(s) rayée(s) sur ${detail.want}, « ${detail.by.join(' / ')} »`,
+        )
+      }
+
+      // Lot 3 : « Ce qui pèse le plus dans cette lecture », tel que le calcule le site (mêmes réponses, même calcul) : dans
+      // chaque ligne lue nettement, la fiche (intertitre, question, votre avis, l'approche entière, la suite en nombres),
+      // ou sur des blocs non voisins le renvoi au détail ; aucun nom de candidat dans la fiche ; la note sur le bloc entier
+      // effacée quand la fiche est là ; le repère de la mini-réglette, masqué aux lecteurs d'écran. Puis le détail d'une
+      // ligne : la fiche et la part de chaque question, en points
+      {
+        const { weighOf } = await importSite('src/core/echiquierWeigh.ts')
+        const W = await importSite('src/core/echiquierWeighCopy.ts')
+        const C = await importSite('src/core/echiquierCopy.ts')
+        const { currentAnswers } = await importSite('src/core/revisions.ts')
+        const { chartRows: rowsOfChart } = await importSite('src/ui/profile/rows.ts')
+        const cur = currentAnswers(pack, readState.answers)
+        const axis = pack.election.spectrum.axis
+        const norm = t => (t ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
+        const read = rowsOfChart(groups, readEchiquier(pack, cur), u => u.id).read
+        const issues = []
+        let cards = 0
+        let elsewhere = 0
+        await rp.locator('.profile-chart .row[aria-expanded="true"]').evaluateAll(bs => bs.forEach(b => b.click()))
+        for (const u of read) {
+          const id = `sj-${u.kind}-${u.id}-b`
+          const ws = weighOf(pack, cur, u)
+          const card = ws.length === 1 && ws[0].suite
+          const away = ws.length > 1 && ws.every(w => w.suite)
+          let want = []
+          if (card) {
+            const w = ws[0]
+            const q = pack.bank.questions.find(x => x.id === w.question)
+            const a = q.approaches.find(x => x.id === w.approach)
+            want = [W.WEIGH_TITLE, q.prompt, `${C.YOUR_VIEW} ${W.weighView(w.view, !!cur[q.id]?.redLines.includes(a.id))}`, W.quoted(a.text), W.weighWho(C.where(axis, w.seg), w)]
+            cards++
+          } else if (away) {
+            want = [W.WEIGH_TITLE, W.weighElsewhere(ws.map(w => C.where(axis, w.seg)))]
+            elsewhere++
+          }
+          await rp.locator(`#${id}`).click()
+          await rp.waitForFunction(bid => !!document.getElementById(document.getElementById(bid)?.getAttribute('aria-controls') ?? '')?.querySelector('.explain-blocs'), id)
+          const got = await rp.evaluate(bid => {
+            const x = document.getElementById(document.getElementById(bid)?.getAttribute('aria-controls') ?? '')
+            const said = el => (el?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
+            const fiche = x?.querySelector('.weigh')
+            return {
+              texts: [...(fiche?.querySelectorAll(':scope > p') ?? [])].map(said),
+              note: [...(x?.querySelectorAll('.explain-note') ?? [])].some(p => /bloc entier/.test(said(p))),
+              ruler: !fiche?.querySelector('.rating-mark') || fiche.querySelector('.mini-ruler')?.getAttribute('aria-hidden') === 'true',
+              before: !fiche || !!(fiche.compareDocumentPosition(x.querySelector('.explain-blocs')) & Node.DOCUMENT_POSITION_FOLLOWING),
+            }
+          }, id)
+          if (got.texts.join(' | ') !== want.map(norm).join(' | ')) issues.push(`${u.kind}-${u.id} : « ${got.texts.join(' / ').slice(0, 160)} » au lieu de « ${want.map(norm).join(' / ').slice(0, 160)} »`)
+          if (card && got.note) issues.push(`${u.kind}-${u.id} : note sur le bloc entier avec la fiche`)
+          if (!got.ruler || !got.before) issues.push(`${u.kind}-${u.id} : repère ${got.ruler}, fiche avant les blocs ${got.before}`)
+          for (const c of pack.candidates) if (got.texts.some(t => t.includes(c.name))) issues.push(`${u.kind}-${u.id} : « ${c.name} » dans la fiche`)
+          await rp.locator(`#${id}`).click()
+        }
+        // Le détail de la première ligne qui a une fiche : la fiche, puis la part de chaque question, en points
+        let parts = { n: 0, want: 0, ok: false, title: false }
+        const first = read.find(u => {
+          const ws = weighOf(pack, cur, u)
+          return ws.length === 1 && ws[0].suite
+        })
+        if (first) {
+          const id = `sj-${first.kind}-${first.id}-b`
+          await rp.locator(`#${id}`).click()
+          await rp.locator('.profile-chart .explain:not([hidden]) .link-button').click()
+          await rp.locator(`#d-${first.kind}-${first.id} .detail-parts li`).first().waitFor({ timeout: 3000 }).catch(() => null)
+          parts = await rp.evaluate(d => {
+            const body = document.getElementById(d)
+            const items = [...(body?.querySelectorAll('.detail-parts li') ?? [])].map(li => (li.querySelector('strong')?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' '))
+            return { n: items.length, ok: items.every(t => /^(\+|−)?\d+ points?$/.test(t)), title: (body?.querySelector('.detail-weigh .detail-title')?.textContent ?? '') === 'Ce qui pèse le plus dans cette lecture', want: 0 }
+          }, `d-${first.kind}-${first.id}`)
+          parts.want = first.questions.length
+        }
+        check(
+          read.length > 0 && cards > 0 && issues.length === 0 && (!first || (parts.n === parts.want && parts.ok && parts.title)),
+          `mon profil politique (lectures nettes, lot 3) : « Ce qui pèse le plus » dans ${cards} ligne(s) sur ${read.length}, ${elsewhere} renvoi(s) au détail${issues.length ? ` : ${issues.slice(0, 3).join(' ; ')}` : ''} ; détail : ${parts.n} part(s) sur ${parts.want} question(s), en points ${parts.ok}`,
+        )
+      }
       await rctx.close()
     } else console.log('– mon profil politique : aucune lecture nette pour le second état, contrôles en grand écran sautés')
+
+    // Lot 3, ce que la feuille ci-dessus ne montre pas forcément (contre-vérifications du 17 octobre 2026), sur des clones
+    // bruités réels (graines « n:<id>:<s> » de tools/audit-echiquier.mjs ; le questionnaire rapide vu en entier) : le
+    // renvoi au détail d'une lecture sur des blocs non voisins, puis le détail, une fiche par suite de blocs, nommée ;
+    // « Aussi approche principale… » et le reste de l'écart ; la phrase qui ne compte que les candidats connus sur le
+    // sujet (« connus ici »). Le détail : chaque fiche, et les points qui font exactement l'écart du tableau. Puis, à 320 px
+    // et texte à 200 %, la ligne ouverte et le détail : rien ne sort de la fiche, et seul un mot trop long pour la ligne
+    // entière s'y coupe
+    {
+      const { weighOf } = await importSite('src/core/echiquierWeigh.ts')
+      const W = await importSite('src/core/echiquierWeighCopy.ts')
+      const C = await importSite('src/core/echiquierCopy.ts')
+      const { profilesFor } = await importSite('tests/fixtures/echiquier-profiles.ts')
+      const { chartRows: rowsOfChart } = await importSite('src/ui/profile/rows.ts')
+      const { currentAnswers: currentAnswersOf } = await importSite('src/core/revisions.ts')
+      const P = profilesFor(pack)
+      const axis = pack.election.spectrum.axis
+      const norm = t => (t ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
+      /** Une feuille de clone bruité, telle que la page l'enregistre, et ses lignes lues nettement */
+      const sheetOf = (cid, seed) => {
+        const answers = P.toAnswers(P.noisy(P.cloneLarge(cid), `n:${cid}:${seed}`))
+        for (const q of pack.bank.questions) {
+          if (answers[q.id] && q.rev) answers[q.id].rev = q.rev
+          if (q.tier === 'essentiel' && !answers[q.id]) answers[q.id] = { ratings: {}, redLines: [], skipped: true, ...(q.rev ? { rev: q.rev } : {}) }
+        }
+        const st = sanitizeState({ ...freshState(pack.election.id, pack.election.dataVersion), answers, essentialDoneAt: new Date().toISOString() }, pack)
+        const cur = currentAnswersOf(pack, st.answers)
+        return { st, cur, read: rowsOfChart(groups, readEchiquier(pack, cur), u => u.id).read }
+      }
+      /** La première ligne qui convient, d'abord sur les feuilles repérées, sinon sur les dix premières de chaque candidat */
+      const find = (hints, fits) => {
+        const tries = [...hints, ...P.ranked.flatMap(cid => Array.from({ length: 10 }, (_, s) => [cid, s]))]
+        for (const [cid, seed] of tries) {
+          const sh = sheetOf(cid, seed)
+          for (const u of sh.read) {
+            const ws = weighOf(pack, sh.cur, u)
+            if (fits(ws)) return { ...sh, u, ws, name: `${cid}:${seed} ${u.kind}-${u.id}` }
+          }
+        }
+        return null
+      }
+      const pts = w => W.apportion([...w.parts, w.rest], w.shown)
+      const cases = [
+        ['renvoi', find([['glucksmann', 7], ['retailleau', 4]], ws => ws.length > 1 && ws.every(w => w.suite) && ws.some(w => w.alsoBlocs.length))],
+        ['aussi et reste', find([['labib', 3], ['glucksmann', 7]], ws => ws.length === 1 && !!ws[0].suite && ws[0].alsoBlocs.length > 0 && pts(ws[0]).at(-1) !== 0)],
+        ['connus ici', find([['melenchon', 3], ['labib', 30]], ws => ws.length === 1 && !!ws[0].suite && ws[0].known < ws[0].size)],
+      ]
+      const issues = []
+      const seen = []
+      for (const [label, c] of cases) {
+        if (!c) {
+          issues.push(`${label} : aucune feuille trouvée`)
+          continue
+        }
+        seen.push(`${label} (${c.name})`)
+        const { u, ws, cur } = c
+        const id = `sj-${u.kind}-${u.id}-b`
+        const questions = u.questions.map(q => pack.bank.questions.find(x => x.id === q))
+        const cardOf = w => {
+          const q = pack.bank.questions.find(x => x.id === w.question)
+          const a = q.approaches.find(x => x.id === w.approach)
+          return [q.prompt, `${C.YOUR_VIEW} ${W.weighView(w.view, !!cur[q.id]?.redLines.includes(a.id))}`, W.quoted(a.text), W.weighWho(C.where(axis, w.seg), w)].map(norm)
+        }
+        for (const [width, zoom] of [
+          [1280, 100],
+          [320, 200],
+        ]) {
+          const phone = width < 600
+          const cctx = await browser.newContext({ viewport: { width, height: 800 }, reducedMotion: 'reduce', hasTouch: phone, isMobile: phone })
+          await cctx.addInitScript(x => Object.entries(x).forEach(([k, v]) => localStorage.setItem(k, v)), { [STORAGE]: JSON.stringify(c.st) })
+          if (zoom !== 100) await cctx.addInitScript(z => document.addEventListener('DOMContentLoaded', () => (document.documentElement.style.fontSize = `${z}%`)), zoom)
+          const cp = await cctx.newPage()
+          await cp.goto(U('/profil'))
+          await cp.locator('[role="status"]', { hasText: 'Lecture prête.' }).waitFor({ timeout: 8000 }).catch(() => issues.push(`${label}, ${width} px : pas de lecture`))
+          await cp.locator(`#${id}`).click()
+          await cp.waitForFunction(bid => !!document.getElementById(document.getElementById(bid)?.getAttribute('aria-controls') ?? '')?.querySelector('.weigh'), id, { timeout: 5000 }).catch(() => issues.push(`${label}, ${width} px : pas de fiche dans la ligne`))
+          // Ce qui sort de la fiche (sa boîte), et les mots coupés qui tenaient sur une ligne entière
+          const spillOf = sel =>
+            cp.evaluate(sel => {
+              const out = []
+              for (const box of document.querySelectorAll(sel)) {
+                if (!box.checkVisibility()) continue
+                const r0 = box.getBoundingClientRect()
+                const walker = document.createTreeWalker(box, NodeFilter.SHOW_TEXT)
+                // Un mot, ce qui ne se coupe pas : les espaces insécables le prolongent (« Accompagner » collé à son
+                // guillemet), un trait d'union le finit (« Nouvelle- / Calédonie »)
+                for (let n = walker.nextNode(); n; n = walker.nextNode())
+                  for (const m of n.data.matchAll(/[^ \t\n-]+-?/g)) {
+                    const r = document.createRange()
+                    r.setStart(n, m.index)
+                    r.setEnd(n, m.index + m[0].length)
+                    const rects = [...r.getClientRects()].filter(q => q.width > 0)
+                    if (rects.some(q => q.right > r0.right + 1 || q.left < r0.left - 1)) out.push(`« ${m[0]} » sort de ${sel}`)
+                    const lines = new Set(rects.map(q => Math.round(q.top))).size
+                    const host = n.parentElement.closest('p, li, span') ?? box
+                    if (lines > 1 && rects.reduce((t, q) => t + q.width, 0) < host.getBoundingClientRect().width - 1) out.push(`« ${m[0]} » coupé`)
+                  }
+              }
+              return out
+            }, sel)
+          const row = await cp.evaluate(bid => {
+            const x = document.getElementById(document.getElementById(bid)?.getAttribute('aria-controls') ?? '')
+            const said = el => (el?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
+            return [...(x?.querySelector('.weigh')?.querySelectorAll(':scope > p') ?? [])].map(said)
+          }, id)
+          const wantRow = (ws.length > 1 ? [W.WEIGH_TITLE, W.weighElsewhere(ws.map(w => C.where(axis, w.seg)))] : [W.WEIGH_TITLE, ...cardOf(ws[0])]).map(norm)
+          if (row.join(' | ') !== wantRow.join(' | ')) issues.push(`${label}, ${width} px, ligne : « ${row.join(' / ').slice(0, 200)} » au lieu de « ${wantRow.join(' / ').slice(0, 200)} »`)
+          if (label === 'connus ici' && !row.some(t => / connus? ici /.test(t))) issues.push(`${label} : la phrase ne dit pas « connus ici »`)
+          if (phone) for (const x of await spillOf('.profile-chart .explain:not([hidden]) .weigh')) issues.push(`${label}, ${width} px à ${zoom} %, ligne : ${x}`)
+          // Le détail
+          await cp.locator('.profile-chart .explain:not([hidden]) .link-button').click()
+          await cp.locator(`#d-${u.kind}-${u.id} .detail-parts li`).first().waitFor({ timeout: 5000 }).catch(() => issues.push(`${label}, ${width} px : pas de parts dans le détail`))
+          const detail = await cp.evaluate(d => {
+            const body = document.getElementById(d)
+            const said = el => (el?.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
+            // L'écart de chaque bloc, dans l'ordre de l'axe : « +39 points, nettement plus près »
+            const gaps = [...(body?.querySelectorAll('.detail-blocs tbody tr:not(.detail-why)') ?? [])].map(tr => said(tr.lastElementChild))
+            return {
+              title: said(body?.querySelector('.detail-weigh > .detail-title')),
+              gaps,
+              segs: [...(body?.querySelectorAll('.detail-weigh-seg') ?? [])].map(seg => ({
+                for: said(seg.querySelector('.detail-weigh-for')),
+                card: [...seg.querySelectorAll('.weigh > p')].map(said),
+                small: [...seg.querySelectorAll(':scope > p.small')].map(said),
+                parts: [...seg.querySelectorAll('.detail-parts li')].map(li => [said(li.querySelector('span')), said(li.querySelector('strong'))]),
+              })),
+            }
+          }, `d-${u.kind}-${u.id}`)
+          if (detail.title !== W.WEIGH_TITLE) issues.push(`${label}, ${width} px : intertitre du détail « ${detail.title} »`)
+          if (detail.segs.length !== ws.length) issues.push(`${label}, ${width} px : ${detail.segs.length} fiche(s) dans le détail pour ${ws.length} suite(s)`)
+          ws.forEach((w, i) => {
+            const got = detail.segs[i]
+            if (!got) return
+            const p = pts(w)
+            const want = {
+              for: ws.length > 1 ? norm(W.weighFor(C.where(axis, w.seg))) : '',
+              card: cardOf(w),
+              small: [
+                ...(w.alsoBlocs.length ? [W.weighAlso(C.whereAll(axis, w.alsoBlocs), w.alsoCount, w.suite === 'principale')] : []),
+                W.weighPartsLead(w.seg.length),
+                ...(p.at(-1) ? [W.weighRest(p.at(-1))] : []),
+              ].map(norm),
+              parts: questions.map((q, j) => [norm(q.prompt), norm(W.points(p[j]))]),
+            }
+            for (const k of ['for', 'card', 'small', 'parts'])
+              if (JSON.stringify(got[k]) !== JSON.stringify(want[k])) issues.push(`${label}, ${width} px, détail ${w.seg.join('')}, ${k} : « ${JSON.stringify(got[k]).slice(0, 180)} » au lieu de « ${JSON.stringify(want[k]).slice(0, 180)} »`)
+            // Les points affichés, parts et reste, font l'écart du tableau du bloc (une fiche d'un seul bloc)
+            if (w.seg.length === 1) {
+              const table = Number((detail.gaps[w.seg[0]] ?? '').replace('−', '-').match(/^[+-]?\d+/)?.[0])
+              const sum = got.parts.reduce((t, [, x]) => t + Number(x.replace('−', '-').match(/^[+-]?\d+/)?.[0] ?? NaN), 0) + (p.at(-1) ?? 0)
+              if (sum !== table) issues.push(`${label}, ${width} px, détail : les points font ${sum}, l’écart du tableau ${table}`)
+            }
+          })
+          if (phone) for (const x of await spillOf(`#d-${u.kind}-${u.id} .detail-weigh`)) issues.push(`${label}, ${width} px à ${zoom} %, détail : ${x}`)
+          const wide = await cp.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)
+          if (wide > 0) issues.push(`${label}, ${width} px à ${zoom} % : ${wide} px de trop`)
+          // Un autre onglet retire une réponse du sujet, sa ligne et son détail ouverts : la page relit, sans erreur (la
+          // lecture affichée est toujours celle des réponses courantes ; contre-vérification du lot 3, la page cassait)
+          if (width === 1280 && label === 'aussi et reste') {
+            const errors = []
+            cp.on('pageerror', e => errors.push(e.message))
+            const other = await cctx.newPage()
+            await other.goto(U('/'))
+            const gone = u.questions.find(q => pack.bank.questions.find(x => x.id === q)?.tier !== 'essentiel') ?? u.questions[0]
+            const after = structuredClone(c.st)
+            delete after.answers[gone]
+            await other.evaluate(([k, v]) => localStorage.setItem(k, v), [STORAGE, JSON.stringify(after)])
+            await cp.waitForTimeout(400)
+            await cp
+              .waitForFunction(() => document.querySelectorAll('.profile-chart .row').length > 0 && (document.querySelector('main [role="status"]')?.textContent ?? '').includes('Lecture prête.'), null, { timeout: 15000 })
+              .catch(() => null)
+            const rows = await cp.locator('.profile-chart .row').count()
+            if (errors.length || !rows) issues.push(`${label} : un autre onglet retire « ${gone} », ${errors.length} erreur(s) de la page${errors[0] ? ` (« ${errors[0].slice(0, 80)} »)` : ''}, ${rows} ligne(s) ensuite`)
+            else seen.push('un autre onglet retire une réponse : la page relit, sans erreur')
+            await other.close()
+          }
+          await cctx.close()
+        }
+      }
+      check(issues.length === 0, `mon profil politique (lot 3, cas repérés) : ${seen.join(', ')}, ligne et détail à 1 280 px et à 320 px texte à 200 %${issues.length ? ` : ${[...new Set(issues)].slice(0, 6).join(' ; ')}` : ''}`)
+    }
+
+    // Lot 4, « Votre façon de répondre » : la phrase, sans titre, après les domaines et avant la fiche repliée, quand presque
+    // toutes les cases mises à l'épreuve ont leur point de comparaison du même côté (ui/profile/rows.ts, mannerOf), mot
+    // pour mot celle du calcul. Ses deux côtés : un clone bruité réel (graine « n:<id>:<s> » de tools/audit-echiquier.mjs,
+    // le questionnaire rapide vu en entier), côté « éloigné », la fiche repliée après elle ; une feuille remplie par un
+    // programme qui approuve tout sauf une approche, au seul questionnaire rapide, côté « proche », la fiche ouverte sous le
+    // compte. Rien avec des avis uniformes (C9 : le calcul seul n'y compte aucun sujet, chacun n'ayant qu'une façon de poser
+    // les mêmes avis), ni sur la feuille mêlée des lectures nettes ci-dessus si le calcul n'en dit rien. À 390 px, puis à
+    // 320 px texte à 200 % : rien ne sort de la page
+    {
+      const C = await importSite('src/core/echiquierCopy.ts')
+      const { profilesFor } = await importSite('tests/fixtures/echiquier-profiles.ts')
+      const { chartRows: rowsOfChart, mannerOf } = await importSite('src/ui/profile/rows.ts')
+      const { currentAnswers: currentOf } = await importSite('src/core/revisions.ts')
+      const P = profilesFor(pack)
+      const quickOnly = q => q.tier === 'essentiel'
+      const norm = t => (t ?? '').replace(/[\u00a0\u202f]/g, ' ').replace(/\s+/g, ' ').trim()
+      /** Une feuille telle que la page l'enregistre : le questionnaire rapide vu en entier */
+      const stateOf = answers => {
+        for (const q of pack.bank.questions) {
+          if (answers[q.id] && q.rev) answers[q.id].rev = q.rev
+          if (q.tier === 'essentiel' && !answers[q.id]) answers[q.id] = { ratings: {}, redLines: [], skipped: true, ...(q.rev ? { rev: q.rev } : {}) }
+        }
+        return sanitizeState({ ...freshState(pack.election.id, pack.election.dataVersion), answers, essentialDoneAt: new Date().toISOString() }, pack)
+      }
+      /** La phrase que donne le calcul, comme la page (rien avec des avis uniformes : mannerOf n'y compte aucun sujet) */
+      const wanted = st => {
+        const cur = currentOf(pack, st.answers)
+        const m = mannerOf(rowsOfChart(groups, readEchiquier(pack, cur), u => u.id), pack.bank.questions, cur)
+        return m ? { near: m.near, text: norm(C.manner(m.near, m.k, m.n)) } : null
+      }
+      const agreeAll = Object.fromEntries(pack.bank.questions.filter(quickOnly).map(q => [q.id, { ratings: Object.fromEntries(q.approaches.map(a => [a.id, 1])), redLines: [] }]))
+      const cases = [
+        ['clone bruité d’Anasse Kazib', stateOf(P.toAnswers(P.noisy(P.cloneLarge('kazib'), 'n:kazib:5'))), false],
+        ['tout sauf un, rapide seul', stateOf(P.toAnswers(P.randomProfile('e2e-facon:tout-sauf-un:0', 'tout-sauf-un', quickOnly))), true],
+        ['avis uniformes', stateOf(agreeAll), null],
+        ['feuille mêlée', readState, undefined],
+      ]
+      const issues = []
+      const seen = []
+      for (const [label, st, side] of cases) {
+        const want = wanted(st)
+        if (side !== undefined && (want?.near ?? null) !== side) issues.push(`${label} : le calcul donne ${want ? (want.near ? '« proche »' : '« éloigné »') : 'aucune phrase'}`)
+        for (const [width, zoom] of [
+          [390, 100],
+          [320, 200],
+        ]) {
+          const fctx = await browser.newContext({ viewport: { width, height: 844 }, reducedMotion: 'reduce', hasTouch: true, isMobile: true })
+          await fctx.addInitScript(x => Object.entries(x).forEach(([k, v]) => localStorage.setItem(k, v)), { [STORAGE]: JSON.stringify(st) })
+          if (zoom !== 100) await fctx.addInitScript(z => document.addEventListener('DOMContentLoaded', () => (document.documentElement.style.fontSize = `${z}%`)), zoom)
+          const fp = await fctx.newPage()
+          await fp.goto(U('/profil'))
+          await fp.locator('[role="status"]', { hasText: 'Lecture prête.' }).waitFor({ timeout: 20000 }).catch(() => issues.push(`${label}, ${width} px : pas de lecture`))
+          const got = await fp.evaluate(() => {
+            const after = (a, b) => !!a && !!b && !!(a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING)
+            const p = document.querySelector('.profile-chart .manner')
+            const card = document.querySelector('.profile-chart .deeper-card')
+            const r = p?.getBoundingClientRect()
+            return {
+              n: document.querySelectorAll('.profile-chart .manner').length,
+              text: p?.textContent ?? null,
+              afterFamilies: after([...document.querySelectorAll('.profile-chart .fam-group')].at(-1), p),
+              card: !card ? 'aucune' : card.closest('.chart-head') ? 'sous le compte' : after(p, card) ? 'après la phrase' : 'avant la phrase',
+              beforeNote: after(p, document.querySelector('.profile-chart .chart-note')),
+              // Sans titre : rien qui la nomme, ni intertitre juste avant elle
+              titled: !!p && (/^H\d$/.test(p.previousElementSibling?.tagName ?? '') || p.hasAttribute('aria-labelledby')),
+              inside: !r || (r.left >= 0 && r.right <= document.documentElement.clientWidth + 1),
+              uniform: document.querySelector('.profile-chart .chart-state')?.textContent ?? '',
+              wide: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+            }
+          })
+          const where = `${label}, ${width} px${zoom === 100 ? '' : ` à ${zoom} %`}`
+          if (got.n !== (want ? 1 : 0)) issues.push(`${where} : ${got.n} phrase(s), ${want ? 'une' : 'aucune'} attendue`)
+          if (want) {
+            if (norm(got.text) !== want.text) issues.push(`${where} : « ${norm(got.text)} » au lieu de « ${want.text} »`)
+            if (!got.afterFamilies || !got.beforeNote || got.titled) issues.push(`${where} : place ${JSON.stringify(got)}`)
+            if (label.startsWith('clone') && got.card !== 'après la phrase') issues.push(`${where} : la fiche ${got.card}`)
+            if (label.includes('rapide') && got.card !== 'sous le compte') issues.push(`${where} : la fiche ${got.card}`)
+          }
+          if (label === 'avis uniformes' && norm(got.uniform) !== norm(C.UNIFORM)) issues.push(`${where} : pas l’état des avis uniformes (« ${norm(got.uniform).slice(0, 60)} »)`)
+          if (got.wide > 0 || !got.inside) issues.push(`${where} : ${got.wide} px de trop, phrase dans la page ${got.inside}`)
+          if (width === 390) seen.push(`${label} ${want ? `(« ${want.near ? 'proche' : 'éloigné'} », fiche ${got.card})` : '(aucune phrase)'}`)
+          await fctx.close()
+        }
+      }
+      check(issues.length === 0, `mon profil politique (lot 4, votre façon de répondre) : ${seen.join(', ')}, à 390 px et à 320 px texte à 200 %${issues.length ? ` : ${[...new Set(issues)].slice(0, 6).join(' ; ')}` : ''}`)
+    }
+
+    // Une page lourde sur un téléphone lent (processeur bridé dix fois : bien plus de 300 ms de calcul) : tout noté sur
+    // la banque entière, d'accord, pas d'accord et sans avis en rotation. Le statut « Lecture en cours » paraît (au-delà
+    // de 300 ms), puis « Lecture prête. » : le calcul laisse passer la minuterie de la page, que les reprises de
+    // scheduler.yield, sous Chromium, feraient attendre jusqu'à la fin (contre-vérification du 15 octobre 2026)
+    {
+      const { STATUS_BUSY, STATUS_READY } = await importSite('src/core/echiquierCopy.ts')
+      const heavyAnswers = {}
+      pack.bank.questions.forEach((q, qi) => {
+        const ratings = Object.fromEntries(q.approaches.flatMap((a, i) => ([1, -1, 0][(qi + i) % 3] ? [[a.id, [1, -1, 0][(qi + i) % 3]]] : [])))
+        heavyAnswers[q.id] = { ratings, redLines: [], ...(q.rev ? { rev: q.rev } : {}) }
+      })
+      const heavy = sanitizeState({ ...freshState(pack.election.id, pack.election.dataVersion), answers: heavyAnswers, essentialDoneAt: new Date().toISOString() }, pack)
+      const hctx = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce', hasTouch: true, isMobile: true })
+      await hctx.addInitScript(s => {
+        Object.entries(s).forEach(([k, v]) => localStorage.setItem(k, v))
+        window.__statuses = []
+        const watch = () =>
+          new MutationObserver(() => {
+            const text = document.querySelector('main [role="status"]')?.textContent ?? ''
+            if (text && window.__statuses.at(-1) !== text) window.__statuses.push(text)
+          }).observe(document, { subtree: true, childList: true, characterData: true })
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', watch)
+        else watch()
+      }, { [STORAGE]: JSON.stringify(heavy) })
+      const hp = await hctx.newPage()
+      await hp.goto(HOME)
+      await hp.waitForLoadState('networkidle')
+      const cdp = await hctx.newCDPSession(hp)
+      await cdp.send('Emulation.setCPUThrottlingRate', { rate: 10 })
+      // Le statut de l'accueil (en ligne, hors ligne) ne compte pas
+      await hp.evaluate(() => (window.__statuses = []))
+      const t0 = Date.now()
+      await hp.goto(U('/profil'))
+      await hp.locator('[role="status"]', { hasText: STATUS_READY }).waitFor({ timeout: 30000 }).catch(() => null)
+      const ms = Date.now() - t0
+      const statuses = await hp.evaluate(() => window.__statuses)
+      await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 })
+      check(
+        statuses.join(' → ') === `${STATUS_BUSY} → ${STATUS_READY}`,
+        `mon profil politique, page lourde, processeur bridé dix fois : « ${statuses.join(' » → « ')} » en ${ms} ms (« Lecture en cours » attendu avant « Lecture prête. »)`,
+      )
+      await hctx.close()
+    }
 
     // Mise en page : rien en largeur à 320, 390 et 1 280 px, ni au texte agrandi à 200 % (une ligne ouverte et le détail
     // ouvert) ; aucun nom de sujet ni mot de case rogné, ni coupé sur deux lignes ; l'indication au doigt sur un téléphone. Au clavier, en remontant
@@ -1400,7 +2031,46 @@ try {
           if (stop) focusIssues.push(`${width} px : ${stop}`)
         }
       }
+      // Au téléphone, texte à 200 %, chaque ligne ouverte tour à tour (elles s'ouvrent une à une) : la liste des blocs, leurs
+      // noms et leurs croix ne sortent ni de leur ligne de bloc, ni de la page, et aucun mot ne s'y coupe, sinon après un
+      // trait d'union (« Dupont-Aignan », « franchissent » et « nettement » sortaient de leur colonne à 320 px :
+      // contre-vérification du lot 2)
+      if (phone && zoom === 200 && which === 'lectures') {
+        const ids = await lp.locator('.profile-chart .row').evaluateAll(bs => bs.map(b => b.id))
+        const spill = new Set()
+        let opened = 0
+        for (const id of ids) {
+          if ((await lp.locator(`#${id}`).getAttribute('aria-expanded')) !== 'true') await lp.locator(`#${id}`).click()
+          const x = await lp.evaluate(bid => {
+            const ex = document.getElementById(document.getElementById(bid)?.getAttribute('aria-controls') ?? '')
+            const out = { wide: document.documentElement.scrollWidth - document.documentElement.clientWidth, spill: [], cut: [], blocs: 0 }
+            for (const li of ex?.querySelectorAll('.explain-blocs li') ?? []) {
+              if (!li.checkVisibility()) continue
+              out.blocs++
+              const right = li.getBoundingClientRect().right
+              const walker = document.createTreeWalker(li, NodeFilter.SHOW_TEXT)
+              for (let n = walker.nextNode(); n; n = walker.nextNode())
+                for (const m of n.data.matchAll(/[^\s-]+-?/g)) {
+                  const r = document.createRange()
+                  r.setStart(n, m.index)
+                  r.setEnd(n, m.index + m[0].length)
+                  const rects = [...r.getClientRects()].filter(q => q.width > 0)
+                  if (rects.some(q => q.right > right + 1)) out.spill.push(m[0])
+                  if (new Set(rects.map(q => Math.round(q.top))).size > 1) out.cut.push(m[0])
+                }
+            }
+            return out
+          }, id)
+          if (x.blocs) opened++
+          if (x.wide > 0) spill.add(`${id} : ${x.wide} px de trop`)
+          for (const w of x.spill) spill.add(`${id} : « ${w} » sort de sa ligne`)
+          for (const w of x.cut) spill.add(`${id} : « ${w} » coupé`)
+        }
+        if (!opened) layoutIssues.push(`${width} px à ${zoom} % (${which}) : aucune ligne ouverte`)
+        if (spill.size) layoutIssues.push(`${width} px à ${zoom} % (${which}), lignes ouvertes une à une (${opened}) : ${[...spill].slice(0, 6).join(', ')}`)
+      }
       // Une ligne ouverte et le détail ouvert
+      await lp.locator('.profile-chart .row[aria-expanded="true"]').evaluateAll(bs => bs.forEach(b => b.click()))
       await lp.locator('.profile-chart .row').first().click().catch(() => null)
       await lp.evaluate(() => {
         const d = document.querySelector('main .profile-all')
@@ -1417,14 +2087,15 @@ try {
       )
       if (clipped.length) layoutIssues.push(`${width} px à ${zoom} % (${which}) : rogné ${clipped.slice(0, 3).join(', ')}`)
       // Aucun mot du palier, ni de la lecture nette, ni de la liste d'une ligne ouverte coupé sur deux lignes : une coupure
-      // dans la case ne déborde pas, il faut la chercher mot par mot (les rectangles d'un mot sur deux hauteurs)
+      // dans la case ne déborde pas, il faut la chercher mot par mot (les rectangles d'un mot sur deux hauteurs). Seule
+      // permise : après le trait d'union d'un nom composé, au texte très agrandi (« Dupont- / Aignan »)
       const cut = await lp.evaluate(() => {
         const out = new Set()
         for (const el of document.querySelectorAll('main .tile-word, main .tile-net, main .explain-blocs li')) {
           if (!el.checkVisibility()) continue
           const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT)
           for (let n = walker.nextNode(); n; n = walker.nextNode())
-            for (const m of n.data.matchAll(/\S+/g)) {
+            for (const m of n.data.matchAll(/[^\s-]+-?/g)) {
               const r = document.createRange()
               r.setStart(n, m.index)
               r.setEnd(n, m.index + m[0].length)
@@ -1487,6 +2158,49 @@ try {
         await ectx.close()
       }
     check(entryIssues.length === 0, `mon profil politique, entrées et page d’attente au texte agrandi (320 px à 200 %, 390 px à 125 %) : rien en largeur, aucun mot coupé ni case rognée${entryIssues.length ? ` : ${entryIssues.join(' ; ')}` : ''}`)
+
+    // Sa rubrique de la Méthode (#/methode/profil), page rechargée hors ligne depuis la copie hors ligne : son fichier à
+    // part (MethodSection-*.js) arrive sous le titre, avec son schéma, ses chiffres et sa fin (« Vie privée »), sans la
+    // page ni son calcul (ni Profile-*.js, ni sa feuille de style)
+    {
+      const mctx = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' })
+      const mp = await mctx.newPage()
+      await mp.goto(U('/methode/profil'))
+      await mp.evaluate(() => navigator.serviceWorker.ready)
+      await mp.waitForFunction(() => !!navigator.serviceWorker.controller, null, { timeout: 5000 }).catch(() => null)
+      await mctx.setOffline(true)
+      await mp.reload()
+      const shown = await mp.locator('main strong', { hasText: 'Vie privée' }).first().waitFor({ timeout: 8000 }).then(() => true, () => false)
+      const rub = await mp.evaluate(() => {
+        const h = document.getElementById('profil')
+        const parts = []
+        for (let el = h?.nextElementSibling; el && el.tagName !== 'H2'; el = el.nextElementSibling) parts.push(el)
+        const files = performance.getEntriesByType('resource').map(e => new URL(e.name).pathname.split('/').pop())
+        return {
+          diagram: parts.some(el => el.matches('svg.diagram') && el.querySelector('title')?.textContent === 'Comment se lit un bloc de la grille'),
+          heads: parts.flatMap(el => [...el.querySelectorAll(':scope > strong')].map(s => s.textContent.trim())),
+          // La mesure de neutralité de la croix (D5, lot 2), publiée en deux paragraphes : la croix, puis « pourrait franchir »
+          cross: parts.filter(el => {
+            const t = (el.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ')
+            return (t.includes('quand ces lignes rouges ne visent personne') && t.includes('qui n’est pas établi')) || (t.startsWith('« Pourrait franchir » fait de') && t.includes('Ces écarts ne sont pas établis non plus.'))
+          }).length,
+          // La mesure de « Ce qui pèse le plus » (D5, lot 3), un paragraphe après sa règle
+          weigh: parts.filter(el => {
+            const t = (el.textContent ?? '').replace(/[\u00a0\u202f]/g, ' ')
+            return t.startsWith('Pour éprouver cette fiche') && t.includes('ne sont établis ni avec ni sans le candidat')
+          }).length,
+          failed: (document.querySelector('main')?.textContent ?? '').includes('n’a pas pu être chargée'),
+          section: files.filter(f => /^MethodSection-[\w-]+\.js$/.test(f)).length,
+          page: files.filter(f => /^Profile-[\w-]+\.(?:js|css)$/.test(f)),
+        }
+      })
+      const HEADS = ['Qui compte.', 'Le calcul.', 'La comparaison.', 'Compter, sinon calculer.', 'Les couleurs.', 'Quand on ne lit pas.', 'Pourquoi ni moyenne ni point.', 'Ce que valent ces lectures.', 'Avant et après.', 'Lignes rouges et priorités.', 'Ce qui pèse le plus.', 'Limites.', 'Vie privée.']
+      check(
+        shown && rub.diagram && HEADS.every(t => rub.heads.includes(t)) && rub.cross === 2 && rub.weigh === 1 && !rub.failed && rub.section === 1 && rub.page.length === 0,
+        `mon profil politique, rubrique de la Méthode hors ligne (page rechargée) : schéma ${rub.diagram}, ${rub.heads.length} intertitres sur ${HEADS.length}, mesure de la croix en ${rub.cross} paragraphe(s) sur 2, de « Ce qui pèse le plus » en ${rub.weigh} sur 1, son fichier à part chargé (${rub.section}), sans la page${rub.page.length ? ` (chargée : ${rub.page.join(', ')})` : ''}${rub.failed ? ', « n’a pas pu être chargée »' : ''}`,
+      )
+      await mctx.close()
+    }
   } else console.log('– mon profil politique : pas d’axe pour cette élection, contrôles sautés')
 
   // 4 bis. La fenêtre de confidentialité s'ouvre depuis la barre du bas et se ferme

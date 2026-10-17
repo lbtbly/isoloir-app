@@ -3,9 +3,18 @@
 // de l'Intérieur : votre affinité moyenne avec ses candidats, en couleur, et vos réponses s'en rapprochent-elles
 // nettement, s'en écartent-elles nettement, ou rien de net ? Le calcul (core/echiquier.ts) se fait sur l'appareil, sans
 // IA, à l'affichage ; rien n'est enregistré, ni dans l'adresse.
-// La page, sur toute la largeur comme le dépouillement : le titre et la mention IA en tête ; « Sujet par sujet », le
-// graphique, une ligne par sujet lu (ui/profile/Chart.tsx) ; « À garder en tête » ; puis « Le détail, sujet par
-// sujet », le tableau complet de chaque unité, replié.
+// La page, sur toute la largeur comme le dépouillement : le titre, le chapeau (une lecture, pas un conseil de vote : le
+// classement est dans Résultats), la mention IA et ce qui reste sur l'appareil en tête ; « Domaine par domaine », le
+// graphique, une ligne par sujet sous son domaine (ui/profile/Chart.tsx) ; « À garder en tête » ; puis « Le détail, sujet
+// par sujet », le tableau complet de chaque unité, replié.
+// Ce que la page sait déjà de la feuille, posé sur les lignes sans rien changer aux lectures (lot 2, plan du 15 octobre
+// 2026) : les lignes rouges que franchit chaque candidat, prises au dépouillement (results), qu'une ligne ouverte montre
+// sous un bloc nettement plus près et que le détail dit sous l'approche rayée ; les thèmes prioritaires, comme au
+// dépouillement, que dit la ligne fermée (« prioritaire »), le détail et la fiche « Pour lire plus de thèmes ».
+// Ce qui pèse le plus dans une lecture nette (lot 3, ui/profile/Weigh.tsx, un fichier à part chargé après le premier
+// affichage) : la fiche d'une ligne ouverte (ui/profile/Chart.tsx), et dans le détail, pour chaque suite de blocs
+// nettement plus près, la même fiche, où l'approche citée est aussi l'approche principale de candidats, et la part de
+// chaque question en points.
 // Une lecture, pas une étiquette (DESIGN.md, The Reading Not Label Rule) : le sujet des phrases est toujours « vos
 // réponses », les blocs sont attribués à « la grille » ; les blocs n'ont pas de couleur : chaque case prend celle de
 // l'échelle d'affinité du site (décision du propriétaire du 12 octobre 2026), jamais seule, toujours avec le mot de son
@@ -16,12 +25,15 @@
 // d'attente : ce qui manque, en bâtons comme la fiche de la tendance, le bouton qui y ramène, puis un exemple fictif de la
 // lecture (la grille de l'aperçu de l'accueil, avec ses mots) et ce qu'apporte ensuite « Approfondir ». Une fois la page
 // affichée, tant que des thèmes ne se lisent pas seuls faute de questions, la fiche « Pour lire plus de thèmes » les
-// nomme, avant le graphique : chacun mène à « Approfondir », coché, comme « Approfondir ce thème » d'une ligne ; son
-// adresse (#/approfondir/<thème>) y met le thème en tête, dit ce qui est coché, et la feuille commence par lui.
-// Fichier à part du build, chargé à la demande (ui/profile/load.ts), avec la rubrique de la Méthode qui l'explique.
+// nomme, dans le graphique (après les domaines, repliée ; sous le compte, ouverte, au seul questionnaire rapide) : chacun
+// mène à « Approfondir », coché, comme « Approfondir ce thème » d'une ligne ; son adresse (#/approfondir/<thème>) y met
+// le thème en tête, dit ce qui est coché, et la feuille commence par lui.
+// Fichier à part du build, chargé à la demande (ui/profile/load.ts) ; la rubrique de la Méthode qui l'explique
+// (ui/profile/MethodSection.tsx) en est un autre, sans la page ni son calcul.
 
+import { Fragment, type ComponentChildren } from 'preact'
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks'
-import { hasOpinion, RATING_LABELS } from '../../core/answers'
+import { hasOpinion, priorityTopics, RATING_LABELS } from '../../core/answers'
 import { approvedOf, deeperTopics, echiquierCached, mainCarriers, panelOf, readEchiquierAsync, type Echiquier, type UnitReading } from '../../core/echiquier'
 import * as T from '../../core/echiquierCopy'
 import { profileAccess } from '../../core/profileAccess'
@@ -38,11 +50,9 @@ import { Icon } from '../components/Icon'
 import { ProgressTally } from '../components/ProgressTally'
 import { SiteFooter } from '../components/SiteFooter'
 import { link } from '../nav'
-import { Chart, deeperOf, oneQuestionFact, Tile, type ProfileCtx } from '../profile/Chart'
+import { Chart, deeperOf, isRead, oneQuestionFact, Tile, useWeigh, type ProfileCtx } from '../profile/Chart'
+import { crossedBy, hitsOf } from '../profile/rows'
 import '../../styles/profile.css'
-
-// La rubrique de la Méthode, dans le même fichier du build : la Méthode la charge à la demande
-export { ProfileMethod } from '../profile/MethodSection'
 
 interface Props {
   pack: ElectionPack
@@ -64,7 +74,11 @@ export function Profile({ pack, state, essential, results, update }: Props) {
   // case cochée ; rien n'est décoché, rien d'autre n'est enregistré)
   const deepen = (ids: string[]) => update({ deepTopics: [...new Set([...state.deepTopics, ...ids])] })
 
-  const [reading, setReading] = useState<Echiquier | null>(() => (ready ? echiquierCached(pack, answers) : null))
+  const [held, setReading] = useState<Echiquier | null>(() => (ready ? echiquierCached(pack, answers) : null))
+  // La lecture affichée est toujours celle des réponses courantes : quand elles changent (dans un autre onglet), celle
+  // déjà calculée pour elles, sinon rien jusqu'à la nouvelle, jamais l'ancienne avec les nouvelles réponses (la page,
+  // ses lignes ouvertes et leur fiche « Ce qui pèse le plus » les lisent ensemble)
+  const reading = held && echiquierCached(pack, answers)
   const [busy, setBusy] = useState(false)
   const [status, setStatus] = useState('')
   useEffect(() => {
@@ -77,7 +91,8 @@ export function Profile({ pack, state, essential, results, update }: Props) {
     }
     setReading(null)
     setStatus('')
-    // Le statut ne paraît qu'au-delà de 300 ms, pour éviter un éclair ; la page se rend en une fois, une fois tout lu
+    // Le statut ne paraît qu'au-delà de 300 ms, pour éviter un éclair (le calcul laisse passer cette minuterie, voir
+    // readEchiquierAsync) ; la page se rend en une fois, une fois tout lu
     const ctrl = new AbortController()
     const slow = window.setTimeout(() => setBusy(true), 300)
     readEchiquierAsync(pack, answers, ctrl.signal).then(
@@ -111,11 +126,19 @@ export function Profile({ pack, state, essential, results, update }: Props) {
       groups: pack.topicGroups?.length ? pack.topicGroups : bank.topics.map(t => ({ id: t.id, label: t.label, topicIds: [t.id] })),
       unscored: excludedIds(pack).filter(id => present.has(id)).length,
       deepen,
+      hits: hitsOf(results),
+      redLines: results.redLineCount > 0,
+      priorities: new Set(priorityTopics(bank, state.answers, state.weights)),
+      topicOf: new Map(bank.questions.map(q => [q.id, q.topicId])),
+      topicOrder: bank.topics.map(t => t.id),
     }
   }, [pack, axis, election, candidates, results, answers, state, bank])
 
   const quickOnly = !bank.questions.some(q => q.tier !== 'essentiel' && hasOpinion(answers[q.id]))
   const deeper = useMemo(() => deeperTopics(pack, answers, state.answers), [pack, answers, state.answers])
+  // Ce qui ne compte pas, dit par le compte de tête : les questions vues sans avis qui compte (passées, vues sans avis, à
+  // revoir)
+  const unseen = bank.questions.filter(q => state.answers[q.id] && !hasOpinion(answers[q.id])).length
 
   // « Voir le détail » d'une ligne : le tableau replié s'ouvre, puis le détail de l'unité, qui reçoit le focus
   const all = useRef<HTMLDetailsElement>(null)
@@ -129,73 +152,98 @@ export function Profile({ pack, state, essential, results, update }: Props) {
 
   if (access.state !== 'pret') return <Waiting pack={pack} wait={access.state} seen={access.seen} total={access.total} left={access.left} added={access.added} href={access.href} />
 
-  const units = reading ? reading.themes.length + reading.families.length : 0
+  return (
+    <Sheet
+      pack={pack}
+      bar={
+        <nav class="action-bar" aria-label="Suite">
+          <div class="action-bar-inner">
+            <a class="btn-text" href={link('/resultats')}>
+              <Icon name="arrow-left" />
+              Résultats
+            </a>
+            <span />
+            <a class="btn-primary" href={link('/proximite')}>
+              Qui porte quoi
+              <Icon name="arrow-right" />
+            </a>
+          </div>
+        </nav>
+      }
+    >
+      <div class="profile-intro">
+        <Title />
+        <div class="profile-intro-text">
+          <p class="lede">
+            {T.LEDE} {T.LEDE_VOTE[0]}
+            <a href={link('/resultats')}>
+              {T.LEDE_VOTE[1]}
+              <Icon name="arrow-right" />
+            </a>
+          </p>
+          {/* Les positions des candidats, résumées par IA, nourrissent tout le calcul, et les lignes ouvertes comme le
+              détail citent les approches des questions, rédigées par IA : la mention vient en tête */}
+          <AiLabel kind="approches" class="profile-ai" />
+          <p class="profile-privacy">{T.PRIVACY}</p>
+        </div>
+      </div>
 
+      {/* Lu par les lecteurs d'écran : « Lecture en cours » au-delà de 300 ms, puis « Lecture prête. », une fois */}
+      <p class={busy ? 'small profile-status' : 'sr-only'} role="status">
+        {busy ? T.STATUS_BUSY : status}
+      </p>
+
+      {reading ? <Chart reading={reading} ctx={ctx} quickOnly={quickOnly} deeper={deeper} unseen={unseen} onDetail={openDetail} /> : null}
+
+      <section class="profile-keep" aria-labelledby="keep-title">
+        <h2 id="keep-title">{T.CAVEATS_TITLE}</h2>
+        <ul>
+          {T.caveats(ctx.panel.flat().length).map(c => (
+            <li key={c}>{c}</li>
+          ))}
+        </ul>
+        <p class="small">
+          <a href={link('/methode/profil')}>{T.METHOD_LINK}</a>
+        </p>
+      </section>
+
+      {reading ? (
+        <section class="profile-detail" aria-labelledby="detail-title">
+          <h2 id="detail-title">{T.DETAIL_TITLE}</h2>
+          <p>{T.DETAIL_INTRO}</p>
+          <details class="profile-all" ref={all}>
+            <summary>{T.detailShow(reading.themes.length, reading.families.length)}</summary>
+            <DetailTable reading={reading} ctx={ctx} />
+          </details>
+        </section>
+      ) : null}
+    </Sheet>
+  )
+}
+
+/**
+ * Le cadre des deux états de la page, la lecture et l'attente : l'en-tête du site, la feuille sur toute la largeur, le
+ * pied de page ; bar, la barre du bas de la lecture
+ */
+function Sheet({ pack, bar, children }: { pack: ElectionPack; bar?: ComponentChildren; children: ComponentChildren }) {
   return (
     <div class="screen screen-wide screen-profile">
-      <FormHeader title="Résultats" right={election.shortName} />
+      <FormHeader title="Résultats" right={pack.election.shortName} />
       <main class="sheet wide-sheet profile-sheet" id="contenu" tabIndex={-1}>
-        <div class="profile-intro">
-          <h1 class="display is-medium" tabIndex={-1}>
-            {T.PROFILE_TITLE}
-          </h1>
-          <div class="profile-intro-text">
-            <p class="lede">{T.LEDE}</p>
-            {/* Les positions des candidats, résumées par IA, nourrissent tout le calcul : la mention vient en tête */}
-            <AiLabel kind="positions" class="profile-ai" />
-            <p class="small profile-noai">{T.NO_AI}</p>
-          </div>
-        </div>
-
-        {deeper.thin.length || deeper.none.length ? <Deeper deeper={deeper} quickOnly={quickOnly} ctx={ctx} /> : null}
-
-        {/* Lu par les lecteurs d'écran : « Lecture en cours » au-delà de 300 ms, puis « Lecture prête. », une fois */}
-        <p class={busy ? 'small profile-status' : 'sr-only'} role="status">
-          {busy ? T.STATUS_BUSY : status}
-        </p>
-
-        {reading ? <Chart reading={reading} ctx={ctx} quickOnly={quickOnly} onDetail={openDetail} /> : null}
-
-        <section class="profile-keep" aria-labelledby="keep-title">
-          <h2 id="keep-title">{T.CAVEATS_TITLE}</h2>
-          <ul>
-            {T.caveats(ctx.panel.flat().length).map(c => (
-              <li key={c}>{c}</li>
-            ))}
-          </ul>
-          <p class="small">
-            <a href={link('/methode/profil')}>{T.METHOD_LINK}</a>
-          </p>
-        </section>
-
-        {reading ? (
-          <section class="profile-detail" aria-labelledby="detail-title">
-            <h2 id="detail-title">{T.DETAIL_TITLE}</h2>
-            <p>{T.DETAIL_INTRO}</p>
-            <details class="profile-all" ref={all}>
-              <summary>{T.detailShow(units)}</summary>
-              <DetailTable reading={reading} ctx={ctx} />
-            </details>
-          </section>
-        ) : null}
+        {children}
       </main>
       <SiteFooter />
-      <nav class="action-bar" aria-label="Suite">
-        <div class="action-bar-inner">
-          <a class="btn-text" href={link('/resultats')}>
-            <Icon name="arrow-left" />
-            Résultats
-          </a>
-          <span />
-          <a class="btn-primary" href={link('/proximite')}>
-            Qui porte quoi
-            <Icon name="arrow-right" />
-          </a>
-        </div>
-      </nav>
+      {bar}
     </div>
   )
 }
+
+/** Le titre de la page, qui reçoit le focus à l'arrivée */
+const Title = () => (
+  <h1 class="display is-medium" tabIndex={-1}>
+    {T.PROFILE_TITLE}
+  </h1>
+)
 
 /** Les cinq paliers de l'exemple, de « très éloigné » à « très proche » : une affinité au milieu de chacun */
 const EXAMPLE_AFFINITY = [10, 30, 50, 70, 90]
@@ -209,125 +257,60 @@ function Waiting({ pack, wait, seen, total, left, added, href }: { pack: Electio
   const axis = axisOf(pack.election) ?? []
   const rows = [0, 1, 2].map(r => [...PROFILE_PEEK.slice(r * 5, r * 5 + 5)].map(Number))
   return (
-    <div class="screen screen-wide screen-profile">
-      <FormHeader title="Résultats" right={pack.election.shortName} />
-      <main class="sheet wide-sheet profile-sheet" id="contenu" tabIndex={-1}>
-        <div class="wait-hero">
-          <div class="wait-intro">
-            <h1 class="display is-medium" tabIndex={-1}>
-              {T.PROFILE_TITLE}
-            </h1>
-            <p class="lede">{T.LEDE}</p>
-          </div>
-          <section class="trend profile-wait" aria-labelledby="wait-title">
-            <h2 id="wait-title" class="trend-title">
-              <span class="trend-where">{T.WAIT_WHERE[wait]}</span>{' '}
-              <span class="trend-count">
-                <span class="trend-figure">{seen}</span> {T.waitCount(seen, total)}
-              </span>
-            </h2>
-            <ProgressTally done={seen} total={total} />
-            <p class="trend-text">{T.waitText(wait, total, left, added)}</p>
-            <a class="btn-primary is-wide trend-cta" href={link(href)}>
-              {T.waitCta(wait, left)}
-              <Icon name="arrow-right" />
-            </a>
-          </section>
+    <Sheet pack={pack}>
+      <div class="wait-hero">
+        <div class="wait-intro">
+          <Title />
+          <p class="lede">
+            {T.LEDE} {T.LEDE_WAIT}
+          </p>
         </div>
+        <section class="trend profile-wait" aria-labelledby="wait-title">
+          <h2 id="wait-title" class="trend-title">
+            <span class="trend-where">{T.WAIT_WHERE[wait]}</span>{' '}
+            <span class="trend-count">
+              <span class="trend-figure">{seen}</span> {T.waitCount(seen, total)}
+            </span>
+          </h2>
+          <ProgressTally done={seen} total={total} />
+          <p class="trend-text">{T.waitText(wait, total, left, added)}</p>
+          <a class="btn-primary is-wide trend-cta" href={link(href)}>
+            {T.waitCta(wait, left)}
+            <Icon name="arrow-right" />
+          </a>
+        </section>
+      </div>
 
-        <section class="profile-example" aria-labelledby="example-title">
-          <h2 id="example-title">{T.EXAMPLE_TITLE}</h2>
-          <p class="ex-note">{T.EXAMPLE_NOTE}</p>
-          {/* Une illustration, masquée aux lecteurs d'écran : la mention et la phrase des couleurs disent ce qu'elle montre */}
-          <div class="ex-grid" aria-hidden="true">
-            <div class="ex-head">
-              <span />
-              {axis.map(a => (
-                <span key={a.bloc}>{a.short}</span>
-              ))}
-            </div>
-            {rows.map((row, r) => (
-              <div key={r} class="ex-row">
-                <span class="ex-name">{T.exampleRow(r + 1)}</span>
-                {row.map((d, b) => (
-                  <span key={b} class="ex-cell" data-bloc={axis[b]?.short}>
-                    <Tile cell={{ affinity: EXAMPLE_AFFINITY[d - 1]!, mark: 'rien' }} />
-                  </span>
-                ))}
-              </div>
+      <section class="profile-example" aria-labelledby="example-title">
+        <h2 id="example-title">{T.EXAMPLE_TITLE}</h2>
+        <p class="ex-note">{T.EXAMPLE_NOTE}</p>
+        {/* Une illustration, masquée aux lecteurs d'écran : la mention et la phrase des couleurs disent ce qu'elle montre */}
+        <div class="ex-grid" aria-hidden="true">
+          <div class="ex-head">
+            <span />
+            {axis.map(a => (
+              <span key={a.bloc}>{a.short}</span>
             ))}
           </div>
-          <p class="ex-key">{T.KEY_TEXT}</p>
-        </section>
+          {rows.map((row, r) => (
+            <div key={r} class="ex-row">
+              <span class="ex-name">{T.exampleRow(r + 1)}</span>
+              {row.map((d, b) => (
+                <span key={b} class="ex-cell" data-bloc={axis[b]?.short}>
+                  <Tile cell={{ affinity: EXAMPLE_AFFINITY[d - 1]!, mark: 'rien' }} />
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+        <p class="ex-key">{T.KEY_TEXT}</p>
+      </section>
 
-        <p class="wait-deepen">
-          <Icon name="deepen" />
-          <span>{T.WAIT_DEEPEN}</span>
-        </p>
-      </main>
-      <SiteFooter />
-    </div>
-  )
-}
-
-/**
- * Pour lire plus de thèmes : ceux d'une seule question, puis ceux sans réponse, qui ont encore des questions
- * approfondies ; chacun mène à « Approfondir », coché ; puis le choix libre des thèmes
- */
-function Deeper({ deeper, quickOnly, ctx }: { deeper: { thin: string[]; none: string[] }; quickOnly: boolean; ctx: ProfileCtx }) {
-  // En grand écran, la place ne manque pas : la longue liste est ouverte d'emblée
-  const [wide] = useState(() => matchMedia('(min-width: 64rem)').matches)
-  // Le séparateur reste collé au thème qui le précède : une ligne ne commence jamais par lui
-  const list = (ids: string[]) => (
-    <span class="deeper-topics">
-      {ids.map((id, i) => (
-        <span key={id}>
-          {/* Le nom lu commence par l'action, puis le nom visible du thème */}
-          <a href={link(`/approfondir/${id}`)} onClick={() => ctx.deepen([id])} aria-label={`${T.DEEPER_THEME} ${ctx.topicLabel.get(id) ?? id}`}>
-            {ctx.topicLabel.get(id) ?? id}
-          </a>
-          {i < ids.length - 1 ? '\u00a0· ' : null}
-        </span>
-      ))}
-    </span>
-  )
-  return (
-    <section class="profile-deeper" aria-labelledby="deeper-title">
-      <div class="deeper-head">
-        <h2 id="deeper-title">
-          <Icon name="deepen" class="deeper-icon" />
-          {T.DEEPER_TITLE}
-        </h2>
-        <p>{T.deeperLede(quickOnly)}</p>
-      </div>
-      <div class="deeper-lists">
-        {deeper.none.length ? (
-          <p>
-            <strong>{T.unansweredLine(deeper.none.length)}</strong>
-            {list(deeper.none)}
-          </p>
-        ) : null}
-        {/* Une longue liste se replie derrière son compte, la fiche reste courte avant le graphique */}
-        {deeper.thin.length > 6 ? (
-          <details class="deeper-fold" open={wide}>
-            <summary>
-              <Icon name="chevron" class="disclosure" />
-              <span class="summary-label">{T.thinLine(deeper.thin.length)}</span>
-            </summary>
-            <p>{list(deeper.thin)}</p>
-          </details>
-        ) : deeper.thin.length ? (
-          <p>
-            <strong>{T.thinLine(deeper.thin.length)}</strong>
-            {list(deeper.thin)}
-          </p>
-        ) : null}
-        <a class="btn-text" href={link('/approfondir')}>
-          <Icon name="deepen" />
-          {T.DEEPER_GO}
-        </a>
-      </div>
-    </section>
+      <p class="wait-deepen">
+        <Icon name="deepen" />
+        <span>{T.WAIT_DEEPEN}</span>
+      </p>
+    </Sheet>
   )
 }
 
@@ -471,6 +454,9 @@ function DetailBody({ unit, ctx, deeper }: { unit: UnitReading; ctx: ProfileCtx;
   for (const q of questions)
     for (const a of approvedOf(q, answers[q.id])) if (mainCarriers(pack, q.id, a).every(ids => !ids.length)) unplaced++
   const middle = (axis.length - 1) / 2
+  // Ce qui pèse le plus (lot 3), à l'ouverture du détail seulement : chaque suite de blocs nettement plus près, dès que
+  // son fichier est là (ui/profile/Weigh.tsx)
+  const [weigh] = useWeigh()
   return (
     <div class="detail-body">
       {/* Rôles explicites : à l'étroit, chaque bloc passe en quelques lignes nommées */}
@@ -485,29 +471,48 @@ function DetailBody({ unit, ctx, deeper }: { unit: UnitReading; ctx: ProfileCtx;
           </tr>
         </thead>
         <tbody role="rowgroup">
-          {unit.cells.map((c, b) => (
-            <tr key={c.bloc} role="row">
-              <th scope="row" role="rowheader">
-                {labels[b]}
-              </th>
-              <td role="cell" data-head={T.DETAIL_HEADS[1]}>
-                {c.known.length ? T.listFr(c.known.map(nameOf)) : T.NONE_KNOWN}
-              </td>
-              <td role="cell" data-head={T.DETAIL_HEADS[2]}>
-                {c.affinity === null ? '–' : `${T.pct(c.affinity)}, ${T.palier(c.affinity)}`}
-                {c.known.length === 1 ? ` ${T.ONE_KNOWN}` : ''}
-              </td>
-              <td role="cell" data-head={T.DETAIL_HEADS[3]}>
-                {c.chance === null ? '–' : T.pct(c.chance)}
-              </td>
-              <td role="cell" data-head={T.DETAIL_HEADS[4]}>
-                {c.affinity === null || c.chance === null ? '–' : T.gap(c.affinity, c.chance, c.mark)}
-              </td>
-            </tr>
-          ))}
+          {unit.cells.map((c, b) => {
+            // Sous un bloc lu nettement, quand toutes les façons ont été comptées : combien en rapprochent (ou en
+            // éloignent) au moins autant que la vôtre
+            const why = unit.exact && c.alike !== null && (c.mark === 'pres' || c.mark === 'loin') ? T.detailWhy(unit.ways, c.alike, c.mark) : null
+            return (
+              <Fragment key={c.bloc}>
+                <tr role="row" class={why ? 'has-why' : undefined}>
+                  <th scope="row" role="rowheader">
+                    {labels[b]}
+                  </th>
+                  <td role="cell" data-head={T.DETAIL_HEADS[1]}>
+                    {c.known.length ? T.listFr(c.known.map(nameOf)) : T.NONE_KNOWN}
+                  </td>
+                  <td role="cell" data-head={T.DETAIL_HEADS[2]}>
+                    {c.affinity === null ? '–' : `${T.pct(c.affinity)}, ${T.palier(c.affinity)}`}
+                    {c.known.length === 1 ? ` ${T.ONE_KNOWN}` : ''}
+                  </td>
+                  <td role="cell" data-head={T.DETAIL_HEADS[3]}>
+                    {c.chance === null ? '–' : T.pct(c.chance)}
+                  </td>
+                  <td role="cell" data-head={T.DETAIL_HEADS[4]}>
+                    {c.affinity === null || c.chance === null ? '–' : T.gap(c.affinity, c.chance, c.mark)}
+                  </td>
+                </tr>
+                {why ? (
+                  <tr role="row" class="detail-why">
+                    <td role="cell" colSpan={5}>
+                      {why}
+                    </td>
+                  </tr>
+                ) : null}
+              </Fragment>
+            )
+          })}
         </tbody>
       </table>
-      {tested ? <p class="small">{T.chanceNote(unit.exact, unit.arrangements)}</p> : null}
+      {tested ? <p class="small">{T.chanceNote(unit.exact, unit.ways)}</p> : null}
+      {/* Ce qui pèse le plus (lot 3, A3) : pour chaque suite de blocs nettement plus près, sa fiche, où l'approche citée est
+          aussi l'approche principale de candidats de l'axe, puis la part de chaque question dans l'écart, en points */}
+      {weigh ? <weigh.WeighDetail u={unit} ctx={ctx} /> : null}
+      {/* Un thème prioritaire : il compte double dans le classement, pas ici (lot 2, A2) */}
+      {!family && ctx.priorities.has(unit.id) ? <p class="small detail-prio">{T.PRIORITY_DETAIL}</p> : null}
 
       <h3 class="detail-title">{T.PER_CANDIDATE}</h3>
       <ul class="detail-people">
@@ -534,16 +539,30 @@ function DetailBody({ unit, ctx, deeper }: { unit: UnitReading; ctx: ProfileCtx;
             <ul class="detail-approaches">
               {q.approaches.map(a => {
                 const rating = answer?.ratings[a.id] ?? 0
-                const view = answer?.redLines.includes(a.id) ? T.RED_LINE_VIEW : RATING_LABELS[rating]
+                const red = !!answer?.redLines.includes(a.id)
+                const view = red ? T.RED_LINE_VIEW : RATING_LABELS[rating]
+                // Une ligne rouge : l'approche rayée, puis qui la franchit parmi les candidats de l'axe, hors classement
+                // compris (lot 2, A1)
+                const by = red ? crossedBy(q.id, a.id, panel, ctx.hits) : null
                 const carriers = mainCarriers(pack, q.id, a.id)
                 const blocs = carriers.flatMap((ids, b) => (ids.length ? [b] : []))
                 const both = blocs.some(b => b < middle) && blocs.some(b => b > middle)
                 return (
                   <li key={a.id}>
-                    <p class="detail-approach">{a.text}</p>
+                    <p class={`detail-approach${red ? ' is-struck' : ''}`}>{a.text}</p>
                     <p class="detail-meta">
-                      {T.YOUR_VIEW} <strong>{view}</strong>
+                      {T.YOUR_VIEW} <strong class={red ? 'is-red' : undefined}>{view}</strong>
                     </p>
+                    {by?.firm.length ? (
+                      <p class="detail-cross">
+                        {T.CROSSED_BY} <strong>{T.listFr(by.firm.map(nameOf))}</strong>.
+                      </p>
+                    ) : null}
+                    {by?.possible.length ? (
+                      <p class="detail-cross">
+                        {T.MAYBE_CROSSED_BY} <strong>{T.listFr(by.possible.map(nameOf))}</strong>.
+                      </p>
+                    ) : null}
                     <p class="detail-meta">
                       {blocs.length ? (
                         <>
@@ -573,7 +592,9 @@ function DetailBody({ unit, ctx, deeper }: { unit: UnitReading; ctx: ProfileCtx;
         )
       })}
       {unplaced ? <p class="small">{T.unplaced(unplaced, family)}</p> : null}
-      {deeper ? (
+      {/* Comme la ligne ouverte : « Approfondir » seulement sans lecture (une seule question, des blocs inconnus), jamais
+          sous un sujet lu, même « rien de net » (refusé par le propriétaire le 15 octobre 2026) */}
+      {deeper && !isRead(unit) ? (
         <p class="small">
           <a href={link('/approfondir')}>Approfondir</a>
         </p>

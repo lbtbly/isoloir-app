@@ -159,9 +159,27 @@ export default defineConfig({
   build: {
     target: 'es2022',
     sourcemap: false,
-    // Pas de polyfill de préchargement : il ferait des fetch(), bloqués par la CSP et inutiles ici
-    modulePreload: { polyfill: false },
+    // Pas de polyfill de préchargement : il ferait des fetch(), bloqués par la CSP et inutiles ici. « Ce qui pèse le plus »
+    // de « Mon profil politique » (src/ui/profile/Weigh.tsx) n'est chargé que par la page, dont il reprend les fichiers,
+    // déjà là : rien à précharger, et la page n'en garde pas la liste (tools/check-dist.mjs compte son poids)
+    modulePreload: { polyfill: false, resolveDependencies: (file, deps) => (/(^|\/)Weigh-[\w-]+\.js$/.test(file) ? [] : deps) },
     // Aucune ressource en data: (logos SVG de quelques Ko compris) : la CSP n'autorise que les images du site
     assetsInlineLimit: 0,
+    // Le code commun du JS initial, en fichiers fixes : Preact (son cœur, ses hooks et le JSX) d'un seul tenant, et
+    // l'identité du site avec ses mentions légales (src/core/app.ts, legal.ts). Sans cela, le découpage automatique les
+    // range selon les fichiers à part qui s'en servent : la rubrique « Mon profil politique » de la Méthode, chargée à
+    // part (src/ui/profile/MethodSection.tsx), sans hooks ni src/core/app.ts, les éclatait en huit fichiers du JS
+    // initial au lieu de cinq (mesuré le 15 octobre 2026), et la page en préchargeait un que le script principal
+    // n'importe pas lui-même (tools/check-dist.mjs)
+    rolldownOptions: {
+      output: {
+        codeSplitting: {
+          groups: [
+            { name: 'preact', test: /[\\/]node_modules[\\/]preact[\\/]/ },
+            { name: 'app', test: /[\\/]src[\\/]core[\\/](?:app|legal)\.ts$/ },
+          ],
+        },
+      },
+    },
   },
 })

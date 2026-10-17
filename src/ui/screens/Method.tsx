@@ -11,7 +11,7 @@ import { Icon } from '../components/Icon'
 import { SectionLink, goToSection } from '../components/LegalBits'
 import { formatDate, formatSourceDate, shareText } from '../format'
 import { hasVideos } from '../videos/load'
-import { loadProfile, profileNow } from '../profile/load'
+import { loadProfileMethod, profileMethodNow } from '../profile/load'
 import { useOnDemand } from '../lazy'
 import { axisOf } from '../../core/spectrum'
 import '../../styles/ai-label.css'
@@ -20,11 +20,11 @@ import '../../styles/ai-label.css'
 const joinNames = (names: string[]) => (names.length < 2 ? (names[0] ?? '') : `${names.slice(0, -1).join(', ')} et ${names.at(-1)}`)
 
 /**
- * La rubrique « Mon profil politique », du fichier à part de la page (ui/profile/load.ts) : rien tant qu'il se charge ;
- * un échec (hors ligne avant la copie hors ligne) le dit en une ligne
+ * La rubrique « Mon profil politique », de son fichier à part (ui/profile/load.ts), sans la page ni son calcul : rien
+ * tant qu'il se charge ; un échec (hors ligne avant la copie hors ligne) le dit en une ligne
  */
 function ProfileSection({ pack }: { pack: ElectionPack }) {
-  const [mod, failed] = useOnDemand(profileNow, loadProfile, keepPlace)
+  const [mod, failed] = useOnDemand(profileMethodNow, loadProfileMethod, keepPlace)
   if (mod) return <mod.ProfileMethod pack={pack} />
   return failed ? <p class="small">Cette rubrique n’a pas pu être chargée&nbsp;: rechargez la page pour la lire.</p> : null
 }
@@ -252,7 +252,7 @@ export function Method({ pack, anchor }: { pack: ElectionPack; /** Rubrique à m
         ) : null}
 
         {/* La page « Mon profil politique » (election.spectrum.axis) ; lien direct : #/methode/profil. Le titre est ici,
-            pour que l'ancre existe dès l'ouverture ; la rubrique vient du fichier à part de la page, chargé à la demande */}
+            pour que l'ancre existe dès l'ouverture ; la rubrique vient de son fichier à part, chargé à la demande */}
         {axisOf(election) ? (
           <>
             <h2 id="profil" tabIndex={-1}>

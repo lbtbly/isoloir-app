@@ -1,15 +1,15 @@
 // Calibration de la page « Mon profil politique » sur l'élection réelle (cahier des charges, § 4.2) : les clones des
-// candidats classés sont lus de leur côté et presque jamais de l'autre ; des réponses tirées au hasard ne reçoivent
-// qu'une lecture rare, également répartie entre les blocs quand les avis sont mêlés, moins également quand on n'approuve
-// qu'une approche par question (ce que dit la Méthode, chiffres à l'appui) ; deux profils composés (la demande du
-// propriétaire) se lisent comme on l'attend. Les bornes prennent environ 5 points de marge sous la mesure du 12 octobre 2026 : une mise à jour
+// candidats classés sont lus de leur côté et presque jamais de l'autre ; des feuilles d'essai, remplies par un programme
+// sans suivre aucun candidat, ne reçoivent qu'une lecture rare, également répartie entre les blocs quand les avis sont
+// mêlés, moins également quand on n'approuve qu'une approche par question (ce que dit la Méthode, chiffres à l'appui) ;
+// deux profils composés (la demande du propriétaire) se lisent comme on l'attend. Le tout par le calcul même de la page. Les bornes prennent environ 5 points de marge sous la mesure du 12 octobre 2026 : une mise à jour
 // légitime des positions ne casse pas la CI, mais une borne franchie signale un changement à expliquer au journal.
 // Les chiffres que publie la Méthode (ECHIQUIER_PUBLISHED) doivent rester à 5 points de la mesure ; sinon, relancer
 // node tools/audit-echiquier.mjs, reporter ses chiffres et le dire au journal.
 import { describe, expect, it } from 'vitest'
 import { hasOpinion } from '../src/core/answers'
 import { readEchiquier, type Echiquier, type ReadOptions } from '../src/core/echiquier'
-import { ECHIQUIER_PUBLISHED } from '../src/core/echiquierCopy'
+import { ECHIQUIER_PUBLISHED } from '../src/core/echiquierMethodCopy'
 import { computeResults, effectiveWeight } from '../src/core/score'
 import type { ElectionPack, Question } from '../src/core/types'
 import { elections } from '../src/elections/all'
@@ -38,10 +38,14 @@ const summaryShares = (acc: Tally) => {
   const total = acc.summaryShare.reduce((a, b) => a + b, 0)
   return acc.summaryShare.map(n => pct(n, total))
 }
-/** Le seul questionnaire rapide se lit bien plus vite : cinq fois plus de profils, pour des parts stables */
+/**
+ * Les feuilles d'essai, lues par le calcul même de la page (rien n'y est tiré au sort, aucun réglage propre à la
+ * calibration : jusqu'au 15 octobre 2026, elles l'étaient avec 199 tirages au lieu des 999 de la page). Le seul
+ * questionnaire rapide se lit bien plus vite : cinq fois plus de feuilles, pour des parts stables
+ */
 function randoms(scheme: Scheme, only?: (q: Question) => boolean): Tally {
   const acc = tally()
-  for (let i = 0; i < (only ? 5 * N_RANDOM : N_RANDOM); i++) count(acc, readEchiquier(pack, toAnswers(randomProfile(`echiquier:${scheme}${only ? '-rapide' : ''}:${i}`, scheme, only)), { draws: 199 }), null)
+  for (let i = 0; i < (only ? 5 * N_RANDOM : N_RANDOM); i++) count(acc, readEchiquier(pack, toAnswers(randomProfile(`echiquier:${scheme}${only ? '-rapide' : ''}:${i}`, scheme, only))), null)
   return acc
 }
 
@@ -103,7 +107,7 @@ describe('calibration sur l’élection réelle', { timeout: 120_000 }, () => {
   const softChoice = randoms('un-choix-doux')
   const oneChoiceQuick = randoms('un-choix', isQuick)
   const softChoiceQuick = randoms('un-choix-doux', isQuick)
-  it('R1 à R7 : réponses tirées au hasard', () => {
+  it('R1 à R7 : feuilles remplies par un programme, sans suivre aucun candidat', () => {
     const agreeOnly = randoms('accord-seul')
     const allButOne = randoms('tout-sauf-un')
     for (const [name, acc] of [['audit', audit], ['uniforme', uniform], ['un-choix', oneChoice]] as const) expect(pct(acc.read, acc.themes), `R1 ${name}`).toBeLessThanOrEqual(10)
@@ -167,6 +171,10 @@ describe('calibration sur l’élection réelle', { timeout: 120_000 }, () => {
     expect(Math.abs(Math.min(...byBloc) - P.hitWithoutMin), 'juste, sans lui, bloc le moins juste').toBeLessThanOrEqual(5)
     expect(Math.abs(Math.max(...byBloc) - P.hitWithoutMax), 'juste, sans lui, bloc le plus juste').toBeLessThanOrEqual(5)
     expect(Math.abs(pct(large.hit, large.read) - P.hitWith), 'juste, avec lui').toBeLessThanOrEqual(5)
+    // Avec lui aussi, bloc vrai par bloc vrai (la neutralité D5 se mesure avec et sans le candidat)
+    const byBlocWith = large.perBloc.filter(a => a.read).map(a => pct(a.hit, a.read))
+    expect(Math.abs(Math.min(...byBlocWith) - P.hitWithMin), 'juste, avec lui, bloc le moins juste').toBeLessThanOrEqual(5)
+    expect(Math.abs(Math.max(...byBlocWith) - P.hitWithMax), 'juste, avec lui, bloc le plus juste').toBeLessThanOrEqual(5)
     expect(Math.abs(pct(largeWithout.wrong, largeWithout.themes) - P.wrongSideWithout), 'mauvais côté, sans lui').toBeLessThanOrEqual(1)
     // Les glissements que nomme la Méthode, des deux côtés (sans lui) : gauche lue à l'extrême gauche ; centre et
     // extrême droite lus à droite ; droite lue au centre et à l'extrême droite
@@ -176,10 +184,10 @@ describe('calibration sur l’élection réelle', { timeout: 120_000 }, () => {
       const a = largeWithout.perBloc[from]!
       expect(pct(a.share[to]!, a.read), `clones du bloc ${from} lus au bloc ${to}`).toBeGreaterThanOrEqual(15)
     }
-    expect(Math.abs(pct(audit.read, audit.themes) - P.randomThemes), 'thèmes lus au hasard').toBeLessThanOrEqual(5)
-    expect(Math.abs(pct(softChoice.read, softChoice.themes) - P.randomThemesMax), 'thèmes lus au hasard, un seul accord').toBeLessThanOrEqual(5)
-    expect(Math.abs(audit.items / audit.profiles - P.randomPerProfile), 'lectures par profil au hasard').toBeLessThanOrEqual(0.5)
-    expect(Math.abs(softChoice.items / softChoice.profiles - P.randomPerProfileMax), 'lectures par profil au hasard, un seul accord').toBeLessThanOrEqual(0.5)
+    expect(Math.abs(pct(audit.read, audit.themes) - P.randomThemes), 'thèmes lus, feuilles d’essai').toBeLessThanOrEqual(5)
+    expect(Math.abs(pct(softChoice.read, softChoice.themes) - P.randomThemesMax), 'thèmes lus, feuilles d’essai, un seul accord').toBeLessThanOrEqual(5)
+    expect(Math.abs(audit.items / audit.profiles - P.randomPerProfile), 'lectures par feuille d’essai').toBeLessThanOrEqual(0.5)
+    expect(Math.abs(softChoice.items / softChoice.profiles - P.randomPerProfileMax), 'lectures par feuille d’essai, un seul accord').toBeLessThanOrEqual(0.5)
     // Un seul accord par question : la part moyenne des extrêmes, rapportée à celle de la gauche, dans la synthèse ;
     // sur la banque entière, puis sur le seul questionnaire rapide
     const ratio = (accs: Tally[]) => {
