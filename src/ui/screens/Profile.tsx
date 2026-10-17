@@ -299,7 +299,9 @@ function Waiting({ pack, wait, seen, total, left, added, href }: { pack: Electio
       <section class="profile-example" aria-labelledby="example-title">
         <h2 id="example-title">{T.EXAMPLE_TITLE}</h2>
         <p class="ex-note">{T.EXAMPLE_NOTE}</p>
-        {/* Une illustration, masquée aux lecteurs d'écran : la mention et la phrase des couleurs disent ce qu'elle montre */}
+        {/* Une illustration, masquée aux lecteurs d'écran : la mention la dit fictive, aux couleurs illustratives, et la
+            phrase dessous dit ce qu'est une case. Ce que veut dire une case pleine n'est pas écrit ici, comme sur la
+            maquette validée : seule la légende de la page le dit (DESIGN.md, Page d'attente) */}
         <div class="ex-grid" aria-hidden="true">
           <div class="ex-head">
             <span />

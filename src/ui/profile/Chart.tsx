@@ -122,7 +122,7 @@ export const deeperOf = (unit: UnitReading, ctx: ProfileCtx) =>
   unit.kind === 'theme' && ctx.pack.bank.questions.some(q => q.topicId === unit.id && q.tier !== 'essentiel' && !isAnswered(ctx.state.answers[q.id]))
 
 /**
- * La classe d'une case : son palier d'affinité (app.css, .tile.aff-*), atténuée par défaut ; « is-net » la rend pleine,
+ * La classe d'une case : son palier d'affinité (app.css, .aff-* et .tile), atténuée par défaut ; « is-net » la rend pleine,
  * sur une lecture nette seulement (mark), et au palier « mitigé », « is-sens-pres » ou « is-sens-loin » lui donne la
  * couleur de son sens ; sans candidat connu, « is-inconnu »
  */

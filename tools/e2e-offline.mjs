@@ -227,13 +227,16 @@ const homeEntry = pg =>
   })
 /**
  * Le fond des cases d'un palier, pleines et atténuées, sous un sélecteur : { « aff-tres-proche » : « rgb(…) »,
- * « aff-proche is-net » : « rgb(…) », … } ; bad : une case pleine hors de l'aplat de son palier, une atténuée hors de sa
- * teinte (« pâle sauf net », décision du propriétaire du 17 octobre 2026) ; net : les cases pleines
+ * « aff-proche is-net » : « rgb(…) », « aff-mitige is-net is-sens-pres » : « rgb(…) », … } ; bad : une case pleine hors
+ * de l'aplat de son palier (au palier « mitigé », de celui de son sens), une atténuée hors de sa teinte (« pâle sauf
+ * net », décision du propriétaire du 17 octobre 2026) ; net : les cases pleines ; paliers : les paliers vus, pleins ou
+ * atténués
  */
 const tileColors = (pg, sel) =>
   pg.evaluate(sel => {
     const colors = {}
     const bad = []
+    const paliers = new Set()
     let net = 0
     const probe = document.createElement('span')
     document.body.append(probe)
@@ -244,15 +247,21 @@ const tileColors = (pg, sel) =>
     for (const t of document.querySelectorAll(`${sel} .tile`)) {
       const k = [...t.classList].find(c => c.startsWith('aff-'))
       if (!k) continue
+      paliers.add(k)
       const full = t.classList.contains('is-net')
+      const sens = ['is-sens-pres', 'is-sens-loin'].find(c => t.classList.contains(c))
       const bg = getComputedStyle(t).backgroundColor
-      colors[full ? `${k} is-net` : k] = bg
+      colors[full ? `${k} is-net${sens ? ` ${sens}` : ''}` : k] = bg
       if (full) net++
-      const want = css(full ? `var(--${k})` : `var(--${k}-tint)`)
+      // Pleine : l'aplat de son palier ; au palier « mitigé », celui de « proche » ou de « éloigné », selon son sens
+      const flat = k !== 'aff-mitige' ? k : sens === 'is-sens-pres' ? 'aff-proche' : sens === 'is-sens-loin' ? 'aff-eloigne' : null
+      if (full && !flat) bad.push(`${k} pleine sans le sens de sa lecture`)
+      if (sens && (!full || k !== 'aff-mitige')) bad.push(`${k}${full ? ' pleine' : ' atténuée'} avec ${sens}`)
+      const want = css(full ? `var(--${flat ?? k})` : `var(--${k}-tint)`)
       if (bg !== want) bad.push(`${k}${full ? ' pleine' : ' atténuée'} : ${bg} au lieu de ${want}`)
     }
     probe.remove()
-    return { colors, bad, net }
+    return { colors, bad, net, paliers: paliers.size }
   }, sel)
 /** Les mots coupés sur deux lignes (un mot dont les rectangles tiennent sur deux hauteurs) sous ces sélecteurs */
 const cutWords = (pg, sel) =>
@@ -377,13 +386,19 @@ try {
       ts.every(t => getComputedStyle(t).outlineStyle === 'solid' && parseFloat(getComputedStyle(t).outlineWidth) >= (t.classList.contains('is-net') ? 3 : 1)),
     )
     await page.emulateMedia({ colorScheme: 'light', forcedColors: 'none' })
-    const same = ['light', 'dark'].every(k => Object.keys(shades[k].page.colors).length === 5 && JSON.stringify(shades[k].page.colors) === JSON.stringify(Object.fromEntries(Object.keys(shades[k].page.colors).map(b => [b, shades[k].home.colors[b]]))))
-    const distinct = new Set(Object.values(shades.light.home.colors)).size === 5
+    // Sorte de case par sorte de case (palier, pleine ou atténuée, sens d'un « mitigé » net), les mêmes sur la page et sur
+    // l'accueil, et la même teinte ; les cinq paliers vus des deux côtés, pleins ou atténués ; chaque sorte de case a sa
+    // teinte (une case nette « mitigé » prend celle de son sens, contrôlée par bad)
+    const kinds = o => Object.keys(o).sort().join('|')
+    const same = ['light', 'dark'].every(k => kinds(shades[k].page.colors) === kinds(shades[k].home.colors) && Object.keys(shades[k].page.colors).every(c => shades[k].page.colors[c] === shades[k].home.colors[c]))
+    const five = ['light', 'dark'].every(k => shades[k].page.paliers === 5 && shades[k].home.paliers === 5)
+    const own = Object.entries(shades.light.home.colors).filter(([c]) => !c.includes('is-sens-'))
+    const distinct = new Set(own.map(([, v]) => v)).size === own.length
     const ruled = ['light', 'dark'].flatMap(k => [...shades[k].page.bad, ...shades[k].home.bad])
     const full = ['light', 'dark'].every(k => shades[k].page.net === fictive && shades[k].home.net === fictive)
     check(
-      same && distinct && framed && full && !ruled.length,
-      `mon profil politique, aperçu de l’accueil : les teintes des cases de la page (clair et sombre ${same}, cinq teintes distinctes ${distinct}), ${shades.light.home.net} cases pleines sur ${fictive} lectures fictives nettes ${full}, aplat ou teinte de leur palier ${ruled.length ? ruled.slice(0, 3).join(' ; ') : 'oui'}, cadre en contraste forcé ${framed}`,
+      same && five && distinct && framed && full && !ruled.length,
+      `mon profil politique, aperçu de l’accueil : les teintes des cases de la page, sorte par sorte (clair et sombre ${same} : ${kinds(shades.light.home.colors).replace(/\|/g, ', ')}), cinq paliers vus ${five}, une teinte par sorte de case ${distinct}, ${shades.light.home.net} cases pleines sur ${fictive} lectures fictives nettes ${full}, aplat ou teinte de leur palier ${ruled.length ? ruled.slice(0, 3).join(' ; ') : 'oui'}, cadre en contraste forcé ${framed}`,
     )
   } else {
     check((await page.locator('.home-profile').count()) === 0, 'accueil : pas d’entrée « Mon profil politique » sans axe de la grille')
@@ -1031,6 +1046,10 @@ try {
         let full = 0
         let minRatio = 99
         const seen = new Set()
+        // Par place, les cases contrôlées, les pleines et les « mitigé » nettes : les lignes, une ligne ouverte (« Votre
+        // affinité, bloc par bloc », montée à l'ouverture seulement), le détail (son tableau ouvert), la légende
+        const places = Object.fromEntries(['lignes', 'ouverte', 'détail', 'légende'].map(p => [p, { tiles: 0, full: 0, mitige: 0 }]))
+        const placeOf = t => (t.closest('.chart-key') ? 'légende' : t.closest('.explain-blocs') ? 'ouverte' : t.closest('.echiquier') ? 'détail' : 'lignes')
         for (const t of document.querySelectorAll('main .profile-chart .tile, main .echiquier .tile')) {
           tiles++
           const key = [...t.classList].find(c => c.startsWith('aff-'))?.slice(4) ?? (t.classList.contains('is-inconnu') ? 'inconnu' : null)
@@ -1038,6 +1057,12 @@ try {
           const word = t.querySelector('.tile-word')?.textContent.replace(/\s+/g, ' ').trim()
           const isNet = t.classList.contains('is-net')
           const reading = readingOf(t)
+          if (t.checkVisibility()) {
+            const at = places[placeOf(t)]
+            at.tiles++
+            if (isNet) at.full++
+            if (isNet && key === 'mitige') at.mitige++
+          }
           if (!key) bad.push(`${name(t)} : une case sans palier`)
           else if (key === 'inconnu') {
             if (!near(b, paper)) bad.push(`${name(t)} : « inconnu » hors du papier`)
@@ -1071,6 +1096,14 @@ try {
             if (!near(c, onAction)) bad.push(`${name(el)} : lettres du bouton principal ${cs.color}`)
             continue
           }
+          // Votre avis dans « Ce qui pèse le plus » (lot 3), dans une ligne nette ouverte et dans le détail : le repère de
+          // la mini-réglette de « Qui porte quoi », dans le ton de son cran (l'aplat d'un palier de l'échelle du site), en
+          // gris pour « mitigé », au rouge du stylo sur une ligne rouge ; ses crans et son filet en gris
+          if (el.closest('.weigh .rating-mark')) {
+            const tone = x => clear(x) || [paper, print, soft, red, ...Object.values(aff)].some(y => near(x, y))
+            if (!tone(b) || !tone(c)) bad.push(`${name(el)} : votre avis hors du ton de son cran (${cs.backgroundColor}, ${cs.color})`)
+            continue
+          }
           if (!clear(b) && !near(b, paper) && !near(b, print) && !onWash(b)) bad.push(`${name(el)} fond ${cs.backgroundColor}`)
           if (!clear(b) && pastels.some(x => near(b, x))) bad.push(`${name(el)} : un pastel (${cs.backgroundColor})`)
           if (!clear(c) && ![print, soft, paper, onPrint].some(x => near(c, x)) && !(el.matches('.row-prio') && near(c, ink)) && !(el.matches('.detail-meta .is-red') && near(c, red)))
@@ -1090,13 +1123,51 @@ try {
         for (const el of document.querySelectorAll('main .profile-chart .zone, .axis-mini-inner > span, main .echiquier th.bloc-head'))
           if (!clear(bg(el)) && !near(bg(el), paper)) bad.push(`${name(el)} : en-tête coloré (${getComputedStyle(el).backgroundColor})`)
         const glyphs = /[▲▽]/.test(document.querySelector('main')?.textContent ?? '')
-        return { bad: [...new Set(bad)].slice(0, 5), tiles, full, seen: seen.size, minRatio, glyphs, scheme: matchMedia('(prefers-color-scheme: dark)').matches ? 'sombre' : 'clair' }
+        return { bad: [...new Set(bad)].slice(0, 12), tiles, full, places, seen: seen.size, minRatio, glyphs, scheme: matchMedia('(prefers-color-scheme: dark)').matches ? 'sombre' : 'clair' }
       }, [AFFINITY_BANDS, [KEY_NET, KEY_FLAT]])
-      // Une page de lectures nettes a des cases pleines (la légende mise à part)
-      const wantFull = /lectures nettes/.test(where)
+      // Une page de lectures nettes a des cases pleines (la légende mise à part) ; une ligne nette ouverte, des petites
+      // cases pleines ; le détail ouvert sur une lecture nette, des cases pleines ; une case nette « mitigé », dans chacun
+      // des trois (contre-vérification du 17 octobre 2026 : ni la ligne ouverte ni « mitigé » net n'étaient contrôlés)
+      const P = colors.places
+      const want = [
+        [/lectures nettes/.test(where), 'lignes', P.lignes.full > 0],
+        [/ligne nette ouverte/.test(where), 'ligne ouverte', P.ouverte.tiles >= 5 && P.ouverte.full > 0],
+        [/détail/.test(where), 'détail', P['détail'].full > 0],
+        [/« mitigé »/.test(where), '« mitigé » net', P.lignes.mitige > 0 && P.ouverte.mitige > 0 && P['détail'].mitige > 0],
+      ].filter(([on, , ok]) => on && !ok)
       check(
-        colors.bad.length === 0 && colors.tiles > 0 && colors.minRatio >= 4.5 && !colors.glyphs && (!wantFull || colors.full > 0),
-        `mon profil politique (${where}), couleurs des cases (${colors.scheme}) : ${colors.tiles} cases au palier de leur mot (${colors.seen} paliers vus), ${colors.full} pleines, chacune sur une lecture nette, mot à ${colors.minRatio === 99 ? '–' : colors.minRatio.toFixed(1)}:1 au moins, légende dans l’ordre du site puis pleine et atténuée, en-têtes neutres, aucun pastel de bloc, ${colors.glyphs ? 'des ▲ ▽ !' : 'aucun ▲ ▽'}${colors.bad.length ? ` : ${colors.bad.join(' ; ')}` : ''}`,
+        colors.bad.length === 0 && colors.tiles > 0 && colors.minRatio >= 4.5 && !colors.glyphs && !want.length,
+        `mon profil politique (${where}), couleurs des cases (${colors.scheme}) : ${colors.tiles} cases au palier de leur mot (${colors.seen} paliers vus), ${colors.full} pleines, chacune sur une lecture nette (vues, pleines dont « mitigé » : ${Object.entries(P).map(([p, x]) => `${p} ${x.tiles}, ${x.full} dont ${x.mitige}`).join(' ; ')}), mot à ${colors.minRatio === 99 ? '–' : colors.minRatio.toFixed(1)}:1 au moins, légende dans l’ordre du site puis pleine et atténuée, en-têtes neutres, aucun pastel de bloc, ${colors.glyphs ? 'des ▲ ▽ !' : 'aucun ▲ ▽'}${want.length ? ` ; manquent : ${want.map(w => w[1]).join(', ')}` : ''}${colors.bad.length ? ` : ${colors.bad.join(' ; ')}` : ''}`,
+      )
+    }
+
+    /**
+     * En contraste forcé, les couleurs tombent et les cadres restent : chaque case de la page (lignes, ligne ouverte,
+     * détail, légende), un cadre plein, épais (3 px) sur une case pleine, fin ailleurs, en tirets sur « ? inconnu » ;
+     * places : celles qui doivent avoir des cases pleines
+     */
+    const forcedFrames = async (pg, where, places) => {
+      await pg.emulateMedia({ forcedColors: 'active' })
+      const f = await pg.evaluate(() => {
+        const out = { bad: [], full: {}, tiles: 0 }
+        for (const t of document.querySelectorAll('main .profile-chart .tile, main .echiquier .tile')) {
+          if (!t.checkVisibility()) continue
+          out.tiles++
+          const cs = getComputedStyle(t)
+          const w = parseFloat(cs.outlineWidth)
+          const net = t.classList.contains('is-net')
+          const style = t.classList.contains('is-inconnu') ? 'dashed' : 'solid'
+          const place = t.closest('.chart-key') ? 'légende' : t.closest('.explain-blocs') ? 'ligne ouverte' : t.closest('.echiquier') ? 'détail' : 'lignes'
+          if (net) out.full[place] = (out.full[place] ?? 0) + 1
+          if (cs.outlineStyle !== style || (net ? w < 3 : w < 1 || w >= 3)) out.bad.push(`${place}, ${t.className} : ${cs.outlineStyle} ${cs.outlineWidth}`)
+        }
+        return out
+      })
+      await pg.emulateMedia({ forcedColors: 'none' })
+      const missing = places.filter(p => !f.full[p])
+      check(
+        f.tiles > 0 && !f.bad.length && !missing.length,
+        `mon profil politique (${where}), contraste forcé : ${f.tiles} cases, chacune dans son cadre, épais sur les cases pleines (${Object.entries(f.full).map(([p, n]) => `${p} ${n}`).join(', ') || 'aucune'})${missing.length ? `, aucune case pleine vue : ${missing.join(', ')}` : ''}${f.bad.length ? ` : ${f.bad.slice(0, 4).join(' ; ')}` : ''}`,
       )
     }
 
@@ -1657,6 +1728,17 @@ try {
         sticky === 'sticky' && /^Vos réponses se rapprochent nettement/.test(opened.lead) && opened.who > 0 && toDetail.focus && toDetail.blocs === 5 && whyOk,
         `mon profil politique (lectures nettes, 1 280 px) : axe ${sticky}, ligne ouverte « ${opened.lead.slice(0, 50)}… » (${opened.who} bloc(s) nettement plus près ou plus loin, en mots), « Voir le détail » : focus ${toDetail.focus}, ${toDetail.blocs} blocs, ${toDetail.why.length} phrase(s) des façons pour ${toDetail.nets} lecture(s) nette(s)${toDetail.exact ? '' : ' (borne : aucune attendue)'} (« ${toDetail.why[0] ?? ''} »)`,
       )
+      // La ligne nette encore ouverte et « Le détail » ouvert sur elle : les petites cases de « Votre affinité, bloc par
+      // bloc » et celles du détail suivent la même règle (pleines sur un bloc net seulement), en sombre puis en clair ; en
+      // contraste forcé, le cadre épais sur chaque case pleine des lignes, de la ligne ouverte, du détail et de la légende
+      {
+        const where = 'lectures nettes, une ligne nette ouverte et le détail, 1 280 px'
+        await profileColors(rp, where)
+        await rp.emulateMedia({ colorScheme: 'light' })
+        await profileColors(rp, where)
+        await forcedFrames(rp, where, ['lignes', 'ligne ouverte', 'détail', 'légende'])
+        await rp.emulateMedia({ colorScheme: 'dark' })
+      }
       // « Approfondir » jamais sous un sujet lu sans tendance nette (« Rien de net ») : ni dans sa ligne ouverte, ni dans
       // son détail (refusé par le propriétaire le 15 octobre 2026)
       const flatDetails = await rp.evaluate(async () => {
@@ -2025,6 +2107,47 @@ try {
         }
       }
       check(issues.length === 0, `mon profil politique (lot 3, cas repérés) : ${seen.join(', ')}, ligne et détail à 1 280 px et à 320 px texte à 200 %${issues.length ? ` : ${[...new Set(issues)].slice(0, 6).join(' ; ')}` : ''}`)
+    }
+
+    // « Pâle sauf net », une case nette au palier « mitigé » (décision du propriétaire du 17 octobre 2026 ; la feuille
+    // mêlée ci-dessus n'en porte pas forcément) : sur le clone bruité de la maquette (graine « n:attal:11 », le
+    // questionnaire rapide vu en entier), la première ligne qui en porte une, ouverte, puis son détail : sa case dans la
+    // ligne, sa petite case dans « Votre affinité, bloc par bloc » et sa case du détail, pleines dans l'aplat de leur sens,
+    // « Mitigé » écrit, en sombre et en clair ; en contraste forcé, le cadre épais
+    {
+      const { profilesFor } = await importSite('tests/fixtures/echiquier-profiles.ts')
+      const { chartRows: rowsOfChart } = await importSite('src/ui/profile/rows.ts')
+      const { currentAnswers: currentOf } = await importSite('src/core/revisions.ts')
+      const { affinityBand } = await importSite('src/core/affinity.ts')
+      const P = profilesFor(pack)
+      const answers = P.toAnswers(P.noisy(P.cloneLarge('attal'), 'n:attal:11'))
+      for (const q of pack.bank.questions) {
+        if (answers[q.id] && q.rev) answers[q.id].rev = q.rev
+        if (q.tier === 'essentiel' && !answers[q.id]) answers[q.id] = { ratings: {}, redLines: [], skipped: true, ...(q.rev ? { rev: q.rev } : {}) }
+      }
+      const st = sanitizeState({ ...freshState(pack.election.id, pack.election.dataVersion), answers, essentialDoneAt: new Date().toISOString() }, pack)
+      const shown = rowsOfChart(groups, readEchiquier(pack, currentOf(pack, st.answers)), u => u.id)
+      const u = [...shown.read, ...shown.apart].find(x => x.cells.some(c => affinityBand(c.affinity)?.key === 'mitige' && (c.mark === 'pres' || c.mark === 'loin')))
+      if (!u) check(false, 'mon profil politique, case nette « mitigé » : aucune sur le clone bruité n:attal:11')
+      else {
+        const mctx = await browser.newContext({ viewport: { width: 1280, height: 900 }, reducedMotion: 'reduce', colorScheme: 'dark' })
+        await mctx.addInitScript(x => Object.entries(x).forEach(([k, v]) => localStorage.setItem(k, v)), { [STORAGE]: JSON.stringify(st) })
+        const mp = await mctx.newPage()
+        await mp.goto(U('/profil'))
+        await mp.locator('[role="status"]', { hasText: 'Lecture prête.' }).waitFor({ timeout: 8000 }).catch(() => null)
+        const id = `sj-${u.kind}-${u.id}-b`
+        await mp.locator(`#${id}`).click()
+        await mp.waitForFunction(bid => !!document.getElementById(document.getElementById(bid)?.getAttribute('aria-controls') ?? '')?.querySelector('.explain-blocs'), id, { timeout: 5000 }).catch(() => null)
+        await mp.locator('.profile-chart .explain:not([hidden]) .link-button').click()
+        await mp.locator(`#d-${u.kind}-${u.id} .detail-blocs tbody tr`).first().waitFor({ timeout: 5000 }).catch(() => null)
+        await mp.waitForTimeout(200)
+        const where = `case nette « mitigé », ${u.kind}-${u.id} ouverte et son détail, 1 280 px`
+        await profileColors(mp, where)
+        await mp.emulateMedia({ colorScheme: 'light' })
+        await profileColors(mp, where)
+        await forcedFrames(mp, where, ['lignes', 'ligne ouverte', 'détail', 'légende'])
+        await mctx.close()
+      }
     }
 
     // Lot 4, « Votre façon de répondre » : la phrase, sans titre, après les domaines et avant la fiche repliée, quand presque

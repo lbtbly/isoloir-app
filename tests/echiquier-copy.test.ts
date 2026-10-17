@@ -416,8 +416,15 @@ describe('le graphique « Domaine par domaine »', () => {
 
   it('« Comment c’est calculé » : huit points au plus (le reste est dans la Méthode), et l’exemple dit le bon compte', () => {
     const code = readFileSync(join(ROOT, 'src/ui/profile/Chart.tsx'), 'utf8')
-    const calc = code.slice(code.indexOf('<details class="calc">'), code.indexOf('</details>', code.indexOf('<details class="calc">')))
+    // La balise ouvrante porte aussi son onToggle (chargement de « Ce qui pèse le plus ») : sans le « > » final
+    const start = code.indexOf('<details class="calc"')
+    expect(start).toBeGreaterThan(0)
+    const calc = code.slice(start, code.indexOf('</details>', start))
     const top = calc.replace(/<ol class="calc-example">[\s\S]*?<\/ol>/, '')
+    // Un renommage ne rend plus le test vide sans que personne le voie : les points sont là, l'exemple à part
+    expect(top.length).toBeGreaterThan(0)
+    expect(calc).toContain('<ol class="calc-example">')
+    expect((top.match(/<li[ >]/g) ?? []).length).toBeGreaterThan(0)
     expect((top.match(/<li[ >]/g) ?? []).length).toBeLessThanOrEqual(8)
     expect(T.HOW_EXAMPLE).toHaveLength(5)
     // 5! / (1! 1! 3!) = 20 ; 20 × 20 = 400 ; une sur dix au plus : 40
