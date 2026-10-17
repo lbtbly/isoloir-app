@@ -14,12 +14,29 @@
 // (readEchiquier, chartRows, crossingsOf, computeResults). Les chiffres publiés sont dans ECHIQUIER_CROSS
 // (src/core/echiquierMethodCopy.ts) ; à refaire après une mise à jour des positions.
 //
-// Usage : node tools/audit-croix.mjs [<id>] [--noisy 30] [--quick] [--sheets 200]
+// Usage : node tools/audit-croix.mjs [<id>] [--noisy 30] [--quick] [--sheets 200] [--json]
 //   <id>      : l'élection (par défaut presidentielle-2027) ; elle doit avoir un axe (election.spectrum.axis)
 //   --noisy   : clones bruités par candidat (60 pour ECHIQUIER_CROSS : la porte D5 en demande 60 pour un verdict, 30
 //               ne donnent qu'une indication)
 //   --quick   : refaire la mesure sur le seul questionnaire rapide (lignes de famille surtout)
 //   --sheets  : feuilles d'essai sur la banque entière (cinq fois plus au rapide) ; 0 pour s'en passer
+//   --json    : le même calcul ; le rapport lisible passe sur stderr, et stdout ne reçoit qu'une ligne JSON (contrat de
+//               la veille, tools/veille/CONTRACT.md, c.10 AUDIT_JSON), pour tools/veille/remeasure.mjs :
+//               { tool: 'audit-croix', electionId, options: { noisy, quick, sheets }, measured, extra }
+//     measured : la forme de ECHIQUIER_CROSS, sans measured ni clones, à 0,1 près : random, neighbour, other
+//                ({ withMin, withMax, withoutMin, withoutMax }), gapMax, reference ([avec, sans]), possible ([min, max]),
+//                possibleBlocs ({ low, lowWhere, high, highWhere, withoutLow, withoutHigh }, par bloc de la croix) et
+//                deduced ({ low, lowWhere, high, highWhere }, des données : le calcul de tests/echiquier-copy.test.ts) ;
+//                avec --quick, en plus (le passage refait aussi la banque, aux mêmes graines) : quick ({ random,
+//                neighbour, other, gapMax des deux scénarios qui passent, neighbourGap [avec, sans], reference }),
+//                possibleQuick et possibleBlocsQuick ;
+//     extra    : blocs (election.spectrum.axis[].bloc, dans l'ordre) et where (leurs mots) ; verdicts, par écart
+//                D5 : « random|neighbour|other|possibleBlocs|possibleTrue » + « .with|.without », préfixés « quick. »
+//                au rapide (possibleBlocs : par bloc de la croix ; possibleTrue : par bloc vrai) ; gaps, aux mêmes
+//                clés : { gap, low, high, reference } en points ; deducedBlocs (les 5 parts de deduced, dans l'ordre
+//                de l'axe) ; possibleBlocsByBloc (et possibleBlocsQuickByBloc) : { with, without }, la part de chaque
+//                bloc de la croix (null sans nom cité) ; mixed (et mixedQuick) : { with, without }, les noms mêlés ;
+//                sheets ({ bank, quick } : la part des lignes lues qui montrent une croix, si --sheets n'est pas 0)
 // Il faut Node 22.18+ (TypeScript sans compilation).
 import { importSite, useSiteModules } from './site-modules.mjs'
 
@@ -33,6 +50,9 @@ const id = argv.find((a, i) => !a.startsWith('--') && !OPTIONS.includes(argv[i -
 const NOISY = opt('--noisy', 60)
 const SHEETS = opt('--sheets', 200)
 const QUICK = argv.includes('--quick')
+const JSON_OUT = argv.includes('--json')
+// --json : le rapport lisible, inchangé, passe sur stderr ; stdout ne reçoit que la ligne JSON de la fin
+if (JSON_OUT) console.log = console.error
 
 useSiteModules()
 const { elections } = await importSite('src/elections/all.ts')
@@ -113,7 +133,8 @@ function withRedLines(answers, seed, ok) {
 }
 
 const blank = () => SH.map(() => ({ k: 0, n: 0 }))
-function run(kind, makeClones) {
+/** sink : reçoit, pour --json, les comptes de « pourrait franchir » bloc par bloc, sans rien changer au rapport */
+function run(kind, makeClones, sink = {}) {
   console.log(`\n=== ${kind} : ${NOISY} clones bruités par candidat, ${P.ranked.length} candidats ===`)
   const summary = {}
   const pooled = {}
@@ -198,21 +219,25 @@ function run(kind, makeClones) {
     }
     console.log(`  noms mêlés, trois scénarios réunis : ${pooled[w].mixed}`)
     summary[w].mixed = pooled[w].mixed
+    sink[w] = { cross: pooled[w].cross, true: pooled[w].true }
   }
   return summary
 }
 
 const t0 = Date.now()
 console.log(`Croix des lignes rouges : audit de ${id}, ${P.ranked.length} candidats sur l'axe, ${NOISY} clones bruités par candidat`)
-const bank = run('banque', cid => Array.from({ length: NOISY }, (_, s) => P.noisy(P.cloneLarge(cid), `n:${cid}:${s}`)))
+const sinks = { bank: {}, quick: {} }
+const bank = run('banque', cid => Array.from({ length: NOISY }, (_, s) => P.noisy(P.cloneLarge(cid), `n:${cid}:${s}`)), sinks.bank)
 console.log(`\n${JSON.stringify(bank)}`)
+let quick = null
 if (QUICK) {
-  const quick = run('questionnaire rapide seul', cid => Array.from({ length: NOISY }, (_, s) => P.noisy(P.cloneLarge(cid, isQuick), `nq:${cid}:${s}`)))
+  quick = run('questionnaire rapide seul', cid => Array.from({ length: NOISY }, (_, s) => P.noisy(P.cloneLarge(cid, isQuick), `nq:${cid}:${s}`)), sinks.quick)
   console.log(`\n${JSON.stringify(quick)}`)
 }
 
 // Feuilles remplies par un programme, sans suivre aucun candidat (schéma « audit ») : deux lignes rouges, sans viser
 // personne
+const sheets = {}
 if (SHEETS) {
   for (const only of [null, isQuick]) {
     let k = 0
@@ -228,6 +253,84 @@ if (SHEETS) {
       }
     }
     console.log(`\nFeuilles d’essai (audit${only ? ', rapide seul' : ''}), deux lignes rouges sans viser personne : croix sur ${k}/${n} lignes lues, ${r1(pct(k, n))} % [${r1(wilson(k, n)[0])}–${r1(wilson(k, n)[1])}]`)
+    sheets[only ? 'quick' : 'bank'] = r1(pct(k, n))
   }
 }
 console.log(`\n${Math.round((Date.now() - t0) / 1000)} s`)
+
+// --json : une ligne, les mêmes chiffres, à la forme de ECHIQUIER_CROSS (contrat de la veille, c.10 AUDIT_JSON)
+if (JSON_OUT) {
+  const WITH = 'avec le candidat'
+  const WITHOUT = 'sans le candidat'
+  const SCEN_KEYS = { 'sans viser personne': 'random', 'un bloc voisin': 'neighbour', 'l’autre côté': 'other' }
+  const WHERE = pack.election.spectrum.axis.map(a => a.where)
+  /** La part de chaque bloc (null sans effectif) */
+  const perBloc = cells => cells.map(c => (c.n ? r1(pct(c.k, c.n)) : null))
+  /** Le plus bas et le plus haut d'une suite de parts (null exclus), et leurs blocs (le premier en cas d'égalité) */
+  const extremes = xs => {
+    const ok = xs.filter(x => x !== null)
+    const low = ok.length ? Math.min(...ok) : null
+    const high = ok.length ? Math.max(...ok) : null
+    return { low, lowWhere: low === null ? null : WHERE[xs.indexOf(low)], high, highWhere: high === null ? null : WHERE[xs.indexOf(high)] }
+  }
+  const verdicts = {}
+  const gaps = {}
+  const note = (key, g, ref, verdict) => {
+    verdicts[key] = verdict
+    gaps[key] = { gap: r1(g.gap), low: r1(g.low), high: r1(g.high), reference: r1(ref.gap) }
+  }
+  /** Les clés de ECHIQUIER_CROSS (ou de son quick) mesurées par un passage, et ses verdicts sous le préfixe donné */
+  function pass(summary, sink, prefix) {
+    const out = {}
+    for (const [name, key] of Object.entries(SCEN_KEYS)) {
+      const [a, b] = [summary[WITH].scen[name], summary[WITHOUT].scen[name]]
+      out[key] = { withMin: r1(a.min), withMax: r1(a.max), withoutMin: r1(b.min), withoutMax: r1(b.max) }
+      note(`${prefix}${key}.with`, a.gap, summary[WITH].ref, a.verdict)
+      note(`${prefix}${key}.without`, b.gap, summary[WITHOUT].ref, b.verdict)
+    }
+    for (const [by, key] of [['cross', 'possibleBlocs'], ['true', 'possibleTrue']])
+      for (const [w, tag] of [[WITH, 'with'], [WITHOUT, 'without']]) note(`${prefix}${key}.${tag}`, summary[w][`possible-${by}`].gap, summary[w].ref, summary[w][`possible-${by}`].verdict)
+    const gapOfScen = names => r1(Math.max(...names.flatMap(n => [summary[WITH].scen[n].gap.gap, summary[WITHOUT].scen[n].gap.gap])))
+    const possible = Object.keys(SCEN_KEYS).flatMap(n => [summary[WITH].scen[n].possible, summary[WITHOUT].scen[n].possible])
+    const byBloc = { with: perBloc(sink[WITH].cross), without: perBloc(sink[WITHOUT].cross) }
+    const lw = extremes(byBloc.with)
+    const lo = extremes(byBloc.without)
+    return {
+      scen: out,
+      gapAll: gapOfScen(Object.keys(SCEN_KEYS)),
+      gapPassing: gapOfScen(['sans viser personne', 'l’autre côté']),
+      neighbourGap: [r1(summary[WITH].scen['un bloc voisin'].gap.gap), r1(summary[WITHOUT].scen['un bloc voisin'].gap.gap)],
+      reference: [r1(summary[WITH].ref.gap), r1(summary[WITHOUT].ref.gap)],
+      possible: [r1(Math.min(...possible)), r1(Math.max(...possible))],
+      possibleBlocs: { low: lw.low, lowWhere: lw.lowWhere, high: lw.high, highWhere: lw.highWhere, withoutLow: lo.low, withoutHigh: lo.high },
+      byBloc,
+      mixed: { with: summary[WITH].mixed, without: summary[WITHOUT].mixed },
+    }
+  }
+  // La part des positions déduites, ou de confiance basse, parmi celles qu'une ligne rouge peut viser, bloc par bloc :
+  // le calcul même de tests/echiquier-copy.test.ts (ECHIQUIER_CROSS.deduced), arrondi de même
+  const deducedBlocs = P.panel.map(ids => {
+    let n = 0
+    let k = 0
+    for (const cid of ids)
+      for (const pos of Object.values(pack.positions[cid] ?? {})) {
+        const level = dealbreakerLevel(pos)
+        if (level) n++
+        if (level === 'possible') k++
+      }
+    return n ? Math.round((1000 * k) / n) / 10 : null
+  })
+  const b = pass(bank, sinks.bank, '')
+  const measured = { ...b.scen, gapMax: b.gapAll, reference: b.reference, possible: b.possible, possibleBlocs: b.possibleBlocs, deduced: extremes(deducedBlocs) }
+  const extra = { blocs: pack.election.spectrum.axis.map(a => a.bloc), where: WHERE, verdicts, gaps, deducedBlocs, possibleBlocsByBloc: b.byBloc, mixed: b.mixed }
+  if (quick) {
+    const q = pass(quick, sinks.quick, 'quick.')
+    measured.quick = { ...q.scen, gapMax: q.gapPassing, neighbourGap: q.neighbourGap, reference: q.reference }
+    measured.possibleQuick = q.possible
+    measured.possibleBlocsQuick = q.possibleBlocs
+    extra.possibleBlocsQuickByBloc = q.byBloc
+    extra.mixedQuick = q.mixed
+  }
+  if (SHEETS) extra.sheets = sheets
+  process.stdout.write(`${JSON.stringify({ tool: 'audit-croix', electionId: id, options: { noisy: NOISY, quick: QUICK, sheets: SHEETS }, measured, extra })}\n`)
+}

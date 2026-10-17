@@ -33,6 +33,36 @@ function withoutLow(pack: ElectionPack): ElectionPack {
 }
 const realNoLow = withoutLow(real)
 
+/** Une fiche d'une lecture nette où la grille classe dans les blocs de la suite plus de candidats que de connus */
+type PartialCard = { u: UnitReading; w: Weigh; key: string }
+/**
+ * Les cas de la contre-vérification du lot 3, cherchés dans les données du jour : graine par graine (« n:<id>:<s> »,
+ * celles de sheets), les clones bruités de chaque candidat classé, jusqu'à une fiche à phrase (suite) d'un seul connu
+ * parmi plusieurs candidats de la grille, et une de plusieurs connus parmi plus encore ; au plus PARTIAL_SEEDS graines
+ */
+const PARTIAL_SEEDS = 60
+function partialCards(): { one?: PartialCard; many?: PartialCard; sheets: number } {
+  let one: PartialCard | undefined
+  let many: PartialCard | undefined
+  let sheets = 0
+  for (let s = 0; s < PARTIAL_SEEDS && !(one && many); s++) {
+    for (const id of P.ranked) {
+      const answers = P.toAnswers(P.noisy(P.cloneLarge(id), `n:${id}:${s}`))
+      sheets++
+      for (const u of read(readEchiquier(real, answers))) {
+        for (const w of weighOf(real, answers, u)) {
+          if (!w.suite || w.known >= w.size) continue
+          const card = { u, w, key: `n:${id}:${s} ${u.kind}-${u.id}, blocs ${w.seg.join('-')}` }
+          if (w.known === 1) one ??= card
+          else many ??= card
+        }
+      }
+      if (one && many) break
+    }
+  }
+  return { one, many, sheets }
+}
+
 /** Des feuilles réelles : clones bruités (banque et questionnaire rapide) et feuilles remplies par un programme */
 function sheets(n = 2): Answers[] {
   return [
@@ -268,19 +298,27 @@ describe('les quatre suites, et ce que dit la fiche', () => {
 
   it('des candidats du bloc sans position sur le sujet : la phrase ne compte que les connus, et le dit (contre-vérification du lot 3)', () => {
     // Des feuilles réelles où la grille classe plus de candidats dans le bloc qu'il n'y en a de connus sur le sujet :
-    // « du candidat que la grille classe au centre » disait qu'elle n'en classe qu'un là
+    // « du candidat que la grille classe au centre » disait qu'elle n'en classe qu'un là. En octobre 2026 : Marine
+    // Le Pen (logement, 1 connu sur 3), Gabriel Attal (territoires, 1 sur 2), Selma Labib (société, 2 sur 3). Les
+    // positions changent (veille automatique, décision du propriétaire du 17 octobre 2026) : les cas sont cherchés dans
+    // les données du jour, des clones bruités de chaque candidat classé, jusqu'à un cas d'un seul connu et un de plusieurs
     const axis = real.election.spectrum!.axis!
-    const cases = [
-      ['lepen', 15, 'theme-logement', 3, 1, 'Approche principale du seul candidat connu ici que la grille classe à l’extrême droite.'],
-      ['attal', 43, 'theme-territoires', 2, 1, 'Approche principale du seul candidat connu ici que la grille classe au centre.'],
-      ['labib', 30, 'theme-societe', 3, 2, 'Approche compatible pour les 2\u00a0candidats connus ici que la grille classe à gauche.'],
-    ] as const
-    for (const [id, seed, key, size, known, text] of cases) {
-      const answers = P.toAnswers(P.noisy(P.cloneLarge(id), `n:${id}:${seed}`))
-      const u = units(readEchiquier(real, answers)).find(x => `${x.kind}-${x.id}` === key)!
-      const [w] = weighOf(real, answers, u)
-      expect([w!.size, w!.known], key).toEqual([size, known])
-      expect(weighWho(where(axis, w!.seg), { ...w!, suite: w!.suite! }), key).toBe(text)
+    const { one, many, sheets: tried } = partialCards()
+    expect(one, `aucune fiche d’un seul connu parmi plusieurs, sur ${tried} feuilles`).toBeDefined()
+    expect(many, `aucune fiche de plusieurs connus parmi plus encore, sur ${tried} feuilles`).toBeDefined()
+    for (const { u, w, key } of [one!, many!]) {
+      const ids = w.seg.flatMap(b => u.cells[b]!.known)
+      expect(w.size, key).toBe(w.seg.reduce((t, b) => t + panelOf(real)[b]!.length, 0))
+      expect(w.known, key).toBe(ids.length)
+      expect(w.known, key).toBeGreaterThan(0)
+      expect(w.known, key).toBeLessThan(w.size)
+      const place = where(axis, w.seg)
+      const text = weighWho(place, { ...w, suite: w.suite! })
+      expect(text, key).toContain(`que la grille classe ${place}`)
+      // Le compte des connus, dit comme tel ; jamais celui que la grille classe là, ni « le candidat » quand elle en classe plusieurs
+      expect(text, key).toContain(w.known === 1 ? 'seul candidat connu ici' : `${w.known}\u00a0candidats connus ici`)
+      expect(text, key).not.toContain(`${w.size}\u00a0candidats`)
+      expect(text, key).not.toMatch(/(^|[^\p{L}])(du|le|Le) candidat que la grille/u)
     }
   })
 

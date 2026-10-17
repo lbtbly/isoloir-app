@@ -1,0 +1,38 @@
+{
+  "format": "isoloir-veille-watch/1",
+  "electionId": "presidentielle-2027",
+  "today": "2026-10-19",
+  "since": "2026-10-16",
+  "searches": 14,
+  "events": [
+    {
+      "ref": "e1",
+      "kind": "declaration",
+      "person": { "name": "Camille Exemple", "knownId": null },
+      "party": "Parti fictif",
+      "date": "2026-10-18",
+      "summary": "Exemple fictif : elle annonce sa candidature sans condition dans un entretien.",
+      "unconditional": true,
+      "condition": null,
+      "conditionChange": null,
+      "partyNationalElected": { "deputies": 3, "senators": 0, "meps": 1, "url": "https://parti.exemple.fr/elus", "asOf": "2026-10-18" },
+      "nationalOffice": { "current": [], "former": [{ "office": "député", "from": "2017-06-21", "to": "2022-06-21", "url": "https://exemple.fr/depute" }] },
+      "official": null,
+      "sources": [
+        { "url": "https://parti.exemple.fr/candidature", "title": "Communiqué fictif", "publisher": "Parti fictif", "date": "2026-10-18", "primary": true },
+        { "url": "https://journal.exemple.fr/candidature", "title": "Article fictif", "publisher": "Journal fictif", "date": "2026-10-18", "primary": false }
+      ],
+      "checker": {
+        "verdict": "confirmed",
+        "reasons": ["Le communiqué et l'article disent une candidature sans condition."],
+        "unconditional": true,
+        "partyNationalElected": { "deputies": 3, "senators": 0, "meps": 1, "url": "https://parti.exemple.fr/elus", "asOf": "2026-10-18" },
+        "nationalOffice": { "current": [], "former": [{ "office": "député", "from": "2017-06-21", "to": "2022-06-21", "url": "https://exemple.fr/depute" }] },
+        "sources": [{ "url": "https://autre.exemple.fr/depeche", "title": "Dépêche fictive", "publisher": "Agence fictive", "date": "2026-10-18", "primary": false }]
+      }
+    }
+  ],
+  "stillDeclared": [{ "candidateId": "exemplepresentee", "declared": true, "url": null, "note": "aucun signe de retrait" }],
+  "expectedChecked": [{ "id": "liste-officielle", "status": "attendu", "url": null }],
+  "log": []
+}

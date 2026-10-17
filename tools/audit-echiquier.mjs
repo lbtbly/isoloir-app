@@ -10,7 +10,7 @@
 // points entre le bloc le mieux lu et le moins bien lu. Aucune IA : le calcul même de la page. Les profils sont ceux de
 // tests/echiquier-calibration.test.ts (tests/fixtures/echiquier-profiles.ts), en plus grand nombre.
 //
-// Usage : node tools/audit-echiquier.mjs [<id>] [--profiles 400] [--noisy 6] [--count-max 2000000]
+// Usage : node tools/audit-echiquier.mjs [<id>] [--profiles 400] [--noisy 6] [--count-max 2000000] [--json]
 //   <id>        : l'élection (par défaut presidentielle-2027) ; elle doit avoir un axe (election.spectrum.axis)
 //   --profiles  : feuilles d'essai par schéma sur la banque entière (400 par défaut), cinq fois plus sur le seul
 //                 questionnaire rapide (calcul bien plus court) ; ECHIQUIER_PUBLISHED est mesuré avec --profiles 1000
@@ -19,6 +19,21 @@
 //                 référence d'une comparaison D5 : le max-T exact partout où l'on peut compter, la borne au-delà, au
 //                 lieu des tirages d'une seule graine de l'ancienne page ; un thème de deux millions de façons se compte
 //                 en une centaine de millisecondes : avec peu de feuilles d'essai (--profiles 50)
+//   --json      : le même calcul ; le rapport lisible passe sur stderr, et stdout ne reçoit qu'une ligne JSON (contrat
+//                 de la veille, tools/veille/CONTRACT.md, c.10 AUDIT_JSON), pour tools/veille/remeasure.mjs :
+//                 { tool: 'audit-echiquier', electionId, options: { profiles, noisy, countMax }, measured, extra }
+//     measured : les clés de ECHIQUIER_PUBLISHED, sans measured, à un chiffre après la virgule au moins (hitWithout,
+//                hitWithoutMin, hitWithoutMax, hitWith, hitWithMin, hitWithMax, wrongSideWithout à 0,1 ; randomThemes,
+//                randomThemesMax, randomPerProfile, randomPerProfileMax à 0,01 ; oneChoiceRatio, oneChoiceRatioQuick
+//                à 0,001 : les valeurs entre parenthèses du rapport) ;
+//     extra    : rounded (les mêmes, arrondies comme la constante : « mesuré » du rapport) ; blocs (les blocs de
+//                l'axe, election.spectrum.axis[].bloc, dans l'ordre) ; verdicts : {} (cet audit mesure la référence
+//                D5 elle-même, sans verdict) ; d5 : { with, without }, la part des clones larges bien lus, thèmes,
+//                avec puis sans le candidat, chacun { min, max, gap, gapLow, gapHigh, blocs } (blocs : la part de
+//                chaque bloc vrai, null s'il n'a aucun thème lu ; gapLow et gapHigh : la fourchette de l'écart, tirée
+//                des intervalles de Wilson) : hitWithMax − hitWithMin et hitWithoutMax − hitWithoutMin, l'écart publié
+//                que D5 interdit d'élargir ; table : toutes les lignes du tableau D5, par clé
+//                « <large|strict|noisy|quickLarge|quickNoisy>.<themes|families>.<with|without> », même forme
 // Après une mise à jour des positions : relancer, reporter les chiffres s'ils bougent, et le dire au journal.
 // Il faut Node 22.18+ (TypeScript sans compilation).
 
@@ -34,6 +49,9 @@ const id = argv.find((a, i) => !a.startsWith('--') && !OPTIONS.includes(argv[i -
 const N = opt('--profiles', 400)
 const NOISY = opt('--noisy', 6)
 const COUNT_MAX = opt('--count-max', null)
+const JSON_OUT = argv.includes('--json')
+// --json : le rapport lisible, inchangé, passe sur stderr ; stdout ne reçoit que la ligne JSON de la fin
+if (JSON_OUT) console.log = console.error
 /** Les réglages de chaque lecture : ceux de la page, ou le compte complet relevé (--count-max) */
 const read = (pack, answers, opts = {}) => readEchiquier(pack, answers, COUNT_MAX === null ? opts : { ...opts, countMax: COUNT_MAX })
 
@@ -235,3 +253,39 @@ for (const [k, v] of Object.entries(measured)) {
   console.log(`  ${k.padEnd(19)} mesuré ${v}${k in exactly ? ` (${exactly[k]})` : ''}, publié ${published ?? '–'}${far ? '  ← écart : mettre à jour le texte et le journal' : ''}`)
 }
 console.log(`\n${Math.round((Date.now() - t0) / 1000)} s`)
+
+// --json : une ligne, les mêmes chiffres (contrat de la veille, c.10 AUDIT_JSON)
+if (JSON_OUT) {
+  const KIND_KEYS = { large: 'large', strict: 'strict', bruité: 'noisy', 'rapide seul, large': 'quickLarge', 'rapide seul, bruité': 'quickNoisy' }
+  /** Une ligne du tableau D5, en nombres : la part de chaque bloc vrai (null sans lecture), l'écart et sa fourchette */
+  const d5Json = r => {
+    const ps = r.cells.filter(c => c.p !== null).map(c => c.p)
+    return {
+      min: ps.length ? r1(Math.min(...ps)) : null,
+      max: ps.length ? r1(Math.max(...ps)) : null,
+      gap: r.gap === null ? null : r1(r.gap),
+      gapLow: r.low === null ? null : r1(r.low),
+      gapHigh: r.high === null ? null : r1(r.high),
+      blocs: r.cells.map(c => (c.p === null ? null : r1(c.p))),
+    }
+  }
+  const table = {}
+  for (const [kind] of kinds)
+    for (const [what, hitKey, readKey] of [['themes', 'hit', 'read'], ['families', 'famHit', 'famRead']])
+      for (const w of [false, true]) table[`${KIND_KEYS[kind]}.${what}.${w ? 'without' : 'with'}`] = d5Json(d5Row(clones[`${kind}${w ? ', sans lui' : ''}, par bloc`], hitKey, readKey))
+  const precise = Object.fromEntries(Object.keys(measured).map(k => [k, k in exactly ? exactly[k] : r1(pct(without.wrong, without.themes))]))
+  const json = {
+    tool: 'audit-echiquier',
+    electionId: id,
+    options: { profiles: N, noisy: NOISY, countMax: COUNT_MAX },
+    measured: precise,
+    extra: {
+      rounded: measured,
+      blocs: pack.election.spectrum.axis.map(a => a.bloc),
+      verdicts: {},
+      d5: { with: table['large.themes.with'], without: table['large.themes.without'] },
+      table,
+    },
+  }
+  process.stdout.write(`${JSON.stringify(json)}\n`)
+}

@@ -1,0 +1,191 @@
+{
+  "format": "isoloir-veille-state/1",
+  "electionId": "presidentielle-2027",
+  "candidates": {
+    "philippe": {
+      "checkedAt": "2026-10-09",
+      "rotationCursor": 0,
+      "lastRunId": null,
+      "programmeSeen": null
+    },
+    "lepen": {
+      "checkedAt": "2026-10-09",
+      "rotationCursor": 0,
+      "lastRunId": null,
+      "programmeSeen": null
+    },
+    "melenchon": {
+      "checkedAt": "2026-10-09",
+      "rotationCursor": 0,
+      "lastRunId": null,
+      "programmeSeen": null
+    },
+    "retailleau": {
+      "checkedAt": "2026-10-09",
+      "rotationCursor": 0,
+      "lastRunId": null,
+      "programmeSeen": null
+    },
+    "attal": {
+      "checkedAt": "2026-10-09",
+      "rotationCursor": 0,
+      "lastRunId": null,
+      "programmeSeen": null
+    },
+    "lisnard": {
+      "checkedAt": "2026-10-09",
+      "rotationCursor": 0,
+      "lastRunId": null,
+      "programmeSeen": null
+    },
+    "roussel": {
+      "checkedAt": "2026-10-09",
+      "rotationCursor": 0,
+      "lastRunId": null,
+      "programmeSeen": null
+    },
+    "batho": {
+      "checkedAt": "2026-10-09",
+      "rotationCursor": 0,
+      "lastRunId": null,
+      "programmeSeen": null
+    },
+    "bouamrane": {
+      "checkedAt": "2026-10-09",
+      "rotationCursor": 0,
+      "lastRunId": null,
+      "programmeSeen": null
+    },
+    "cazeneuve": {
+      "checkedAt": "2026-10-09",
+      "rotationCursor": 0,
+      "lastRunId": null,
+      "programmeSeen": null
+    },
+    "becht": {
+      "checkedAt": "2026-10-09",
+      "rotationCursor": 0,
+      "lastRunId": null,
+      "programmeSeen": null
+    },
+    "dupontaignan": {
+      "checkedAt": "2026-10-09",
+      "rotationCursor": 0,
+      "lastRunId": null,
+      "programmeSeen": null
+    },
+    "arthaud": {
+      "checkedAt": "2026-10-09",
+      "rotationCursor": 0,
+      "lastRunId": null,
+      "programmeSeen": null
+    },
+    "asselineau": {
+      "checkedAt": "2026-10-09",
+      "rotationCursor": 0,
+      "lastRunId": null,
+      "programmeSeen": null
+    },
+    "philippot": {
+      "checkedAt": "2026-10-09",
+      "rotationCursor": 0,
+      "lastRunId": null,
+      "programmeSeen": null
+    },
+    "kazib": {
+      "checkedAt": "2026-10-09",
+      "rotationCursor": 0,
+      "lastRunId": null,
+      "programmeSeen": null
+    },
+    "labib": {
+      "checkedAt": "2026-10-09",
+      "rotationCursor": 0,
+      "lastRunId": null,
+      "programmeSeen": null
+    },
+    "lalanne": {
+      "checkedAt": "2026-10-09",
+      "rotationCursor": 0,
+      "lastRunId": null,
+      "programmeSeen": null
+    },
+    "markovic": {
+      "checkedAt": "2026-10-09",
+      "rotationCursor": 0,
+      "lastRunId": null,
+      "programmeSeen": null
+    },
+    "zemmour": {
+      "checkedAt": "2026-10-09",
+      "rotationCursor": 0,
+      "lastRunId": null,
+      "programmeSeen": null
+    },
+    "bertrand": {
+      "checkedAt": "2026-10-09",
+      "rotationCursor": 0,
+      "lastRunId": null,
+      "programmeSeen": null
+    },
+    "polony": {
+      "checkedAt": "2026-10-14",
+      "rotationCursor": 0,
+      "lastRunId": null,
+      "programmeSeen": null
+    },
+    "glucksmann": {
+      "checkedAt": "2026-10-09",
+      "rotationCursor": 0,
+      "lastRunId": null,
+      "programmeSeen": null
+    }
+  },
+  "watch": [],
+  "refused": [],
+  "expected": [
+    {
+      "id": "liste-officielle",
+      "label": "Liste officielle du Conseil constitutionnel",
+      "from": "2027-03-12",
+      "status": "attendu",
+      "url": null
+    },
+    {
+      "id": "lepen-eligibilite",
+      "label": "Décision sur l’éligibilité de Marine Le Pen",
+      "from": null,
+      "status": "attendu",
+      "url": null
+    },
+    {
+      "id": "zemmour-officialisation",
+      "label": "Déclaration formelle de la candidature d’Éric Zemmour",
+      "from": null,
+      "status": "attendu",
+      "url": null
+    },
+    {
+      "id": "bertrand-officialisation",
+      "label": "Déclaration formelle de la candidature de Xavier Bertrand",
+      "from": null,
+      "status": "attendu",
+      "url": null
+    },
+    {
+      "id": "resultats-t1",
+      "label": "Résultats du premier tour",
+      "from": "2027-04-18",
+      "status": "attendu",
+      "url": null
+    },
+    {
+      "id": "resultats-t2",
+      "label": "Résultats du second tour",
+      "from": "2027-05-02",
+      "status": "attendu",
+      "url": null
+    }
+  ],
+  "lastRuns": {}
+}

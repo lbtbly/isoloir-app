@@ -16,12 +16,28 @@
 // Le calcul même de la page (readEchiquier, chartRows, uniformViews, mannerOf). Les chiffres publiés sont dans
 // ECHIQUIER_MANNER (src/core/echiquierMethodCopy.ts) ; à refaire après une mise à jour des positions.
 //
-// Usage : node tools/audit-facon.mjs [<id>] [--noisy 60] [--sheets 400] [--quick]
+// Usage : node tools/audit-facon.mjs [<id>] [--noisy 60] [--sheets 400] [--quick] [--json]
 //   <id>      : l'élection (par défaut presidentielle-2027) ; elle doit avoir un axe (election.spectrum.axis)
 //   --noisy   : clones bruités par candidat (60 pour ECHIQUIER_MANNER : la porte D5 en demande 60 pour un verdict, 30
 //               ne donnent qu'une indication)
 //   --sheets  : feuilles d'essai par schéma sur la banque entière (cinq fois plus au rapide) ; 0 pour s'en passer
 //   --quick   : refaire la mesure des clones bruités sur le seul questionnaire rapide (lignes de famille surtout)
+//   --json    : le même calcul ; le rapport lisible passe sur stderr, et stdout ne reçoit qu'une ligne JSON (contrat de
+//               la veille, tools/veille/CONTRACT.md, c.10 AUDIT_JSON), pour tools/veille/remeasure.mjs :
+//               { tool: 'audit-facon', electionId, options: { noisy, sheets, quick }, measured, extra }
+//     measured : la forme de ECHIQUIER_MANNER, sans measured ni clones, à 0,1 près : agreeOnly ([banque, rapide],
+//                seulement si --sheets n'est pas 0), bank ({ all, blocs, lowWhere, highWhere, without, withoutBlocs } ;
+//                lowWhere nomme tous les blocs à égalité, « à gauche ou à droite », comme le vérifie
+//                tests/echiquier-copy.test.ts), gap et reference ([avec, sans]), style (la part des « pas d'accord »
+//                parmi les avis des clones bruités, bloc vrai par bloc vrai : le calcul exact du test, égal à la
+//                constante quand --noisy vaut ECHIQUIER_MANNER.clones), byShare ({ cut, bank }) et within ([[le plus
+//                haut, le plus bas]] : feuilles sur clones, les deux candidats d'un même bloc les plus éloignés) ; avec
+//                --quick, en plus (le passage refait aussi la banque, aux mêmes graines) : quick (même forme que
+//                bank), quickGap, quickReference, styleQuick, byShare.quick et le second élément de within ;
+//     extra    : blocs (election.spectrum.axis[].bloc, dans l'ordre) et where (leurs mots) ; verdicts, par écart D5 :
+//                « bank.with », « bank.without », « quick.with », « quick.without » ; gaps, aux mêmes clés : { gap,
+//                low, high, reference } en points ; side ({ bank|quick: { with|without: { far, near } } }, le côté
+//                de la phrase, bloc par bloc) ; sheets et clones (les tableaux du rapport, s'ils sont mesurés)
 // Il faut Node 22.18+ (TypeScript sans compilation).
 import { importSite, useSiteModules } from './site-modules.mjs'
 
@@ -35,6 +51,9 @@ const id = argv.find((a, i) => !a.startsWith('--') && !OPTIONS.includes(argv[i -
 const NOISY = opt('--noisy', 60)
 const SHEETS = opt('--sheets', 400)
 const QUICK = argv.includes('--quick')
+const JSON_OUT = argv.includes('--json')
+// --json : le rapport lisible, inchangé, passe sur stderr ; stdout ne reçoit que la ligne JSON de la fin
+if (JSON_OUT) console.log = console.error
 
 useSiteModules()
 const { elections } = await importSite('src/elections/all.ts')
@@ -152,8 +171,9 @@ for (const [name, make] of [
   out.clones[name] = { all: r1(pct(far + near, P.ranked.length)), far, near }
 }
 
-// Bloc vrai par bloc vrai : clones bruités, avec et sans le candidat
-function run(kind, makeClones) {
+// Bloc vrai par bloc vrai : clones bruités, avec et sans le candidat ; sink : reçoit, pour --json, les comptes des
+// « pas d'accord » bloc par bloc, sans rien changer au rapport
+function run(kind, makeClones, sink = {}) {
   console.log(`\n=== ${kind} : ${NOISY} clones bruités par candidat, ${P.ranked.length} candidats ===`)
   const summary = {}
   for (const without of [false, true]) {
@@ -213,6 +233,7 @@ function run(kind, makeClones) {
     console.log(`    par tranche de la part des « pas d’accord » de la feuille : ${bands(byBand)}`)
     const [below, above] = cutOf(byBand)
     console.log(`    sous ${CUT} % de « pas d’accord » : ${share(below.k, below.n)} ; ${CUT} % ou plus : ${share(above.k, above.n)}`)
+    sink[w] = { style }
     summary[w] = {
       all: r1(pct(tot.k, tot.n)),
       blocs: shown.map(c => r1(pct(c.k, c.n))),
@@ -229,7 +250,64 @@ function run(kind, makeClones) {
   }
   return summary
 }
-out.bank = run('banque', cid => Array.from({ length: NOISY }, (_, s) => P.noisy(P.cloneLarge(cid), `n:${cid}:${s}`)))
-if (QUICK) out.quick = run('questionnaire rapide seul', cid => Array.from({ length: NOISY }, (_, s) => P.noisy(P.cloneLarge(cid, isQuick), `nq:${cid}:${s}`)))
+const sinks = { bank: {}, quick: {} }
+out.bank = run('banque', cid => Array.from({ length: NOISY }, (_, s) => P.noisy(P.cloneLarge(cid), `n:${cid}:${s}`)), sinks.bank)
+if (QUICK) out.quick = run('questionnaire rapide seul', cid => Array.from({ length: NOISY }, (_, s) => P.noisy(P.cloneLarge(cid, isQuick), `nq:${cid}:${s}`)), sinks.quick)
 console.log(`\n${JSON.stringify(out)}`)
 console.log(`\n${Math.round((Date.now() - t0) / 1000)} s`)
+
+// --json : une ligne, les mêmes chiffres, à la forme de ECHIQUIER_MANNER (contrat de la veille, c.10 AUDIT_JSON)
+if (JSON_OUT) {
+  const WITH = 'avec le candidat'
+  const WITHOUT = 'sans le candidat'
+  const WHERE = pack.election.spectrum.axis.map(a => a.where)
+  /** « à gauche », « à gauche ou à droite » : les blocs à égalité (tests/echiquier-copy.test.ts, listOf) */
+  const listOf = xs => (xs.length > 1 ? `${xs.slice(0, -1).join(', ')} ou ${xs.at(-1)}` : (xs[0] ?? null))
+  /** Le passage d'une série (banque ou rapide), à la forme de ECHIQUIER_MANNER.bank */
+  const shownOf = s => {
+    const lo = Math.min(...s[WITH].blocs)
+    const hi = Math.max(...s[WITH].blocs)
+    return {
+      all: s[WITH].all,
+      blocs: s[WITH].blocs,
+      lowWhere: listOf(s[WITH].blocs.flatMap((x, b) => (x === lo ? [WHERE[b]] : []))),
+      highWhere: WHERE[s[WITH].blocs.indexOf(hi)] ?? null,
+      without: s[WITHOUT].all,
+      withoutBlocs: s[WITHOUT].blocs,
+    }
+  }
+  /** La part des « pas d'accord » parmi les avis des clones, bloc vrai par bloc vrai : le calcul exact du test */
+  const styleOf = sink => sink[WITH].style.map(c => (c.n ? Math.round((1000 * c.k) / c.n) / 10 : null))
+  const verdicts = {}
+  const gaps = {}
+  const side = {}
+  for (const key of ['bank', 'quick']) {
+    if (!out[key]) continue
+    side[key] = {}
+    for (const [w, tag] of [[WITH, 'with'], [WITHOUT, 'without']]) {
+      const s = out[key][w]
+      verdicts[`${key}.${tag}`] = s.verdict
+      gaps[`${key}.${tag}`] = { gap: s.gap[0], low: s.gap[1], high: s.gap[2], reference: s.reference[0] }
+      side[key][tag] = { far: s.far, near: s.near }
+    }
+  }
+  const b = out.bank
+  const measured = {}
+  if (out.sheets) measured.agreeOnly = [out.sheets['accord-seul']?.all ?? null, out.sheets['accord-seul, rapide seul']?.all ?? null]
+  measured.bank = shownOf(b)
+  if (out.quick) measured.quick = shownOf(out.quick)
+  measured.gap = [b[WITH].gap[0], b[WITHOUT].gap[0]]
+  measured.reference = [b[WITH].reference[0], b[WITHOUT].reference[0]]
+  if (out.quick) {
+    measured.quickGap = [out.quick[WITH].gap[0], out.quick[WITHOUT].gap[0]]
+    measured.quickReference = [out.quick[WITH].reference[0], out.quick[WITHOUT].reference[0]]
+  }
+  measured.style = styleOf(sinks.bank)
+  if (out.quick) measured.styleQuick = styleOf(sinks.quick)
+  measured.byShare = { cut: CUT, bank: b[WITH].byShare, ...(out.quick ? { quick: out.quick[WITH].byShare } : {}) }
+  // [le plus haut, le plus bas], comme la constante (le rapport dit « de <bas> à <haut> »)
+  measured.within = [b, out.quick].filter(Boolean).map(s => [s[WITH].within[1], s[WITH].within[0]])
+  const extra = { blocs: pack.election.spectrum.axis.map(a => a.bloc), where: WHERE, verdicts, gaps, side, clones: out.clones }
+  if (out.sheets) extra.sheets = out.sheets
+  process.stdout.write(`${JSON.stringify({ tool: 'audit-facon', electionId: id, options: { noisy: NOISY, sheets: SHEETS, quick: QUICK }, measured, extra })}\n`)
+}

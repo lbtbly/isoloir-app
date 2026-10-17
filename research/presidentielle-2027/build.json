@@ -1,0 +1,17 @@
+{
+  "format": "isoloir-build/1",
+  "_note": "Seule commande BUILD de la présidentielle : node tools/veille/build.mjs (PIPELINE.md, étape 0), qui lance tools/build-pack.mjs avec ces arguments depuis la racine du worktree, puis check-log et positions-history check. Une extension s'ajoute ici, en fin de « expansions », jamais dans une commande à part : une session qui lancerait l'ancienne commande la perdrait. « include » = les candidats pendingPrimary de config.json, masqués mais gardés dans positions.ts (tests/hidden.test.ts). Jamais --reset-revisions.",
+  "workflowOutput": "research/presidentielle-2027/question-bank-output.json",
+  "researchDir": "research/presidentielle-2027",
+  "srcDir": "src/elections/presidentielle-2027",
+  "expansions": [
+    "research/presidentielle-2027/expansion-merged.json",
+    "research/presidentielle-2027/expansion-merged-2.json"
+  ],
+  "include": [
+    "faure",
+    "guedj",
+    "maurel",
+    "royal"
+  ]
+}
