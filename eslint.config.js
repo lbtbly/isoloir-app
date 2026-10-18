@@ -47,6 +47,30 @@ export default tseslint.config(
     },
   },
   {
+    // « Faire les comptes » : ni stockage ni envoi, et rien de la feuille de réponses (décision du 17 octobre 2026 : le jeu
+    // ne lit pas les réponses ; ses réglages vivent en mémoire le temps de la page)
+    files: ['src/ui/budget/**/*.{ts,tsx}', 'src/core/budget/**/*.ts'],
+    rules: {
+      'no-restricted-globals': [
+        'error',
+        { name: 'localStorage', message: 'Le jeu ne garde rien sur l’appareil.' },
+        { name: 'sessionStorage', message: 'Le jeu ne garde rien sur l’appareil.' },
+        { name: 'indexedDB', message: 'Le jeu ne garde rien sur l’appareil.' },
+        { name: 'caches', message: 'Le jeu ne garde rien sur l’appareil.' },
+      ],
+      'no-restricted-properties': [
+        'error',
+        { object: 'navigator', property: 'share', message: 'Le jeu n’envoie rien.' },
+        { object: 'navigator', property: 'sendBeacon', message: 'Le jeu n’envoie rien.' },
+        { object: 'document', property: 'cookie', message: 'Le jeu ne garde rien sur l’appareil.' },
+      ],
+      'no-restricted-imports': [
+        'error',
+        { patterns: [{ group: ['**/core/storage', '**/core/revisions', '**/core/exportData', '**/core/answers'], message: 'Le jeu ne lit pas la feuille de réponses.' }] },
+      ],
+    },
+  },
+  {
     files: ['src/ui/questionnaire/table/**/*.{ts,tsx}'],
     rules: {
       'no-restricted-imports': [

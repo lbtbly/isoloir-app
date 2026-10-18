@@ -15,6 +15,7 @@ import type { ChangelogEntry, ElectionPack, Question } from '../../core/types'
 import { AiLabel } from '../components/AiLabel'
 import { ChangedQuestions } from '../components/ChangedQuestions'
 import { Icon } from '../components/Icon'
+import { BUDGET_PANEL, budgetShown } from '../budget/shown'
 import { Leader } from '../components/Leader'
 import { formatDate, formatMoment } from '../format'
 import { link } from '../nav'
@@ -95,6 +96,8 @@ export function WelcomeBack({ pack, state, results, stale, essentialCount, profi
     },
     { href: link('/approfondir'), icon: 'deepen', title: 'Approfondir', desc: 'D’autres questions, par thème, pour affiner votre dépouillement.' },
   ]
+  // « Faire les comptes » en dernier : à l'encre si sa place tombe sur le bleu (même règle que les autres panneaux)
+  if (budgetShown()) tiles.push({ href: link('/comptes'), icon: 'comptes', title: 'Faire les comptes', desc: BUDGET_PANEL, ink: tiles.length % 4 === 1 })
 
   return (
     <div class="welcome-back">

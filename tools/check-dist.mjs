@@ -350,6 +350,28 @@ for (const f of tableChunks) {
   for (const api of ['localStorage', 'sessionStorage', 'indexedDB', 'document.cookie', 'caches.open', 'navigator.share'])
     if (code.includes(api)) fail(`« À table » : assets/${f} appelle ${api} (rien ne doit être gardé ni envoyé)`)
 }
+// « Faire les comptes » (src/ui/budget/Budget.tsx : l'objectif, les rayons, la fiche d'un levier, le budget, la
+// méthode) : un fichier à part, chargé à la demande (src/ui/budget/load.ts), et ses leviers un second fichier, chargé par
+// l'écran seulement (src/elections/<id>/budget.ts) ; ni l'un ni l'autre dans le JS initial ni préchargés. Le jeu ne lit
+// pas la feuille de réponses et ne garde rien : son code n'appelle aucun stockage du navigateur ni aucun envoi.
+// Plafonds : l'écran, 29,1 ko le 18 octobre 2026, plus de quoi grandir ; les leviers vérifiés (76 fiches, 3,7 sources en
+// moyenne, et la ligne du budget de chacune, sourcée, qui range les « 3 plus gros »), 233,7 ko après la revue du même
+// jour, plus de quoi en ajouter quelques-uns : ils ne se chargent qu'à l'ouverture du jeu
+const BUDGET_SCREEN_BUDGET = 36_000
+const BUDGET_DATA_BUDGET = 260_000
+const budgetChunks = readdirSync(join(dist, 'assets')).filter(f => /^Budget-[\w-]+\.js$/.test(f))
+const budgetDataChunks = readdirSync(join(dist, 'assets')).filter(f => /^budget-[\w-]+\.js$/.test(f))
+if (budgetChunks.length !== 1) fail(`« Faire les comptes » : ${budgetChunks.length} fichier(s) assets/Budget-*.js, un attendu`)
+if (budgetDataChunks.length !== 1) fail(`« Faire les comptes » : ${budgetDataChunks.length} fichier(s) de leviers assets/budget-*.js, un attendu`)
+for (const [f, cap, what] of [...budgetChunks.map(f => [f, BUDGET_SCREEN_BUDGET, 'l’écran']), ...budgetDataChunks.map(f => [f, BUDGET_DATA_BUDGET, 'les leviers'])]) {
+  if (initial.includes(join('assets', f))) fail(`« Faire les comptes », ${what} : assets/${f} est dans le JS initial (il doit n'être chargé que par import())`)
+  if (modulePreloads.includes(`assets/${f}`)) fail(`« Faire les comptes », ${what} : assets/${f} est préchargé par dist/index.html`)
+  const size = statSync(join(dist, 'assets', f)).size
+  if (size > cap) fail(`« Faire les comptes », ${what} : assets/${f} pèse ${(size / 1000).toFixed(1)} ko, plafond de ${cap / 1000} ko`)
+  const code = readFileSync(join(dist, 'assets', f), 'utf8')
+  for (const api of ['localStorage', 'sessionStorage', 'indexedDB', 'document.cookie', 'caches.open', 'navigator.share', 'sendBeacon', 'XMLHttpRequest'])
+    if (code.includes(api)) fail(`« Faire les comptes », ${what} : assets/${f} appelle ${api} (rien ne doit être gardé ni envoyé)`)
+}
 // Les notices (la Méthode, la Confidentialité, les Mentions légales) et « Partager » : chacun un fichier à part, chargé
 // à la demande par import() (src/ui/screens/load.ts), jamais dans le JS initial ni préchargé par la page
 for (const name of ['Method', 'Privacy', 'Legal', 'Share']) {
@@ -582,6 +604,8 @@ for (const f of reportChunks) console.log(`  dépouillement en PDF : assets/${f}
 for (const f of agreeChunks) console.log(`  image « Accords et désaccords » : assets/${f}, ${(statSync(join(dist, 'assets', f)).size / 1000).toFixed(1)} ko sur ${AGREE_BUDGET / 1000} ko permis, chargée à la demande`)
 for (const f of tableChunks) console.log(`  « À table » : assets/${f}, ${(statSync(join(dist, 'assets', f)).size / 1000).toFixed(1)} ko sur ${TABLE_BUDGET / 1000} ko permis, chargé à la demande`)
 for (const f of journalChunks) console.log(`  journal des données : assets/${f}, ${(statSync(join(dist, 'assets', f)).size / 1000).toFixed(1)} ko sur ${JOURNAL_BUDGET / 1000} ko permis, chargé à la demande`)
+for (const f of budgetChunks) console.log(`  « Faire les comptes » : assets/${f}, ${(statSync(join(dist, 'assets', f)).size / 1000).toFixed(1)} ko sur ${BUDGET_SCREEN_BUDGET / 1000} ko permis, chargé à la demande`)
+for (const f of budgetDataChunks) console.log(`  « Faire les comptes », les leviers : assets/${f}, ${(statSync(join(dist, 'assets', f)).size / 1000).toFixed(1)} ko sur ${BUDGET_DATA_BUDGET / 1000} ko permis, chargés par l'écran`)
 for (const f of profileChunks) console.log(`  « Mon profil politique » : assets/${f} et ce qu’il charge en plus du JS initial, ${(bytesOf(ownOf(f)) / 1000).toFixed(1)} ko sur ${PROFILE_BUDGET / 1000} ko permis, chargé à la demande`)
 for (const f of methodSectionChunks) console.log(`  rubrique « Mon profil politique » de la Méthode : assets/${f} et ce qu’elle ajoute à la Méthode, ${(bytesOf(methodAdded(f)) / 1000).toFixed(1)} ko sur ${PROFILE_METHOD_BUDGET / 1000} ko permis, chargée à la demande`)
 for (const f of weighChunks) {

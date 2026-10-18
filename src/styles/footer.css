@@ -280,6 +280,11 @@
     grid-column: 1 / -1;
   }
 
+  /* Avec « Faire les comptes », quatre colonnes : deux rangées de deux */
+  .has-table.has-comptes > .home-foot-cols > .is-about {
+    grid-column: auto;
+  }
+
   .home-foot-vote {
     grid-column: -2;
   }
@@ -293,6 +298,10 @@
 
   .has-table > .home-foot-cols > .is-about {
     grid-column: auto;
+  }
+
+  .has-table.has-comptes > :is(.home-foot-top, .home-foot-cols) {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 4fr) minmax(0, 4fr) minmax(0, 5fr);
   }
 
   .home-foot-inner:not(.has-table) > :is(.home-foot-top, .home-foot-cols) {

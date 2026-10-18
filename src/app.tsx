@@ -34,6 +34,7 @@ import { clearSelections } from './ui/compare/selection'
 import { compareNow, loadCompare } from './ui/compare/load'
 import { loadProfile, profileNow } from './ui/profile/load'
 import { hasTable, setTableElection, tableLocked, tableScreen } from './ui/table/load'
+import { budgetScreen, hasBudget, setBudgetElection } from './ui/budget/load'
 import { useOnDemand, type OnDemand } from './ui/lazy'
 import { axisOf } from './core/spectrum'
 import { Topics } from './ui/screens/Topics'
@@ -111,6 +112,7 @@ export function App() {
     // « À table » du menu
     setVideoScope(pack)
     setTableElection(pack.election)
+    setBudgetElection(pack.election)
     return <ElectionApp key={entry.id} pack={pack} route={route} focusOnMount={focus} />
   }
   if (failed === entry.id) return <LoadFailed onRetry={retry} />
@@ -354,12 +356,14 @@ function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
   const noProfile = route.name === 'profile' && !axisOf(election)
   // Une élection sans axe de la grille, ou archivée, n'a pas de table
   const noTable = route.name === 'table' && !hasTable(election)
-  const missing = (!!list && list.length === 0) || (route.name === 'revision' && stale.length === 0) || noVideos || noProfile || noTable
+  // Une élection sans leviers, ou archivée, n'a pas « Faire les comptes »
+  const noBudget = route.name === 'budget' && !hasBudget(election)
+  const missing = (!!list && list.length === 0) || (route.name === 'revision' && stale.length === 0) || noVideos || noProfile || noTable || noBudget
   useEffect(() => {
     if (!missing) return
     if (route.name === 'sheet') replace(route.tier === 'essentiel' ? '/' : '/approfondir')
     if (route.name === 'revision' || route.name === 'profile') replace('/resultats')
-    if (route.name === 'videos' || route.name === 'table') replace('/')
+    if (route.name === 'videos' || route.name === 'table' || route.name === 'budget') replace('/')
   }, [missing, route])
 
   // Le cadre de l'élection : son en-tête (bandeau d'archive) et son pied de page en lisent les phrases propres
@@ -561,6 +565,12 @@ function ElectionApp({ pack, route: asked, focusOnMount }: ElectionProps) {
         if (noTable) return null
         // La table ne reçoit que l'élection et le composant de la feuille : ni les réponses, ni de quoi les effacer
         return onDemandScreen('table', tableScreen, 'La table', 'de la table', m => <m.Table pack={pack} Sheet={Sheet} />)
+      case 'budget':
+        if (noBudget) return null
+        // Le jeu ne reçoit que l'élection : il ne lit pas la feuille de réponses (décision du 17 octobre 2026)
+        return onDemandScreen('budget', budgetScreen, 'Les pages des comptes', 'des comptes', m => (
+          <m.Budget election={election} arg={route.arg} focusOnArrival={!firstRender.current} />
+        ))
       default:
         return (
           <Home pack={pack} state={state} essential={essential} stale={stale} results={results} />
@@ -655,6 +665,8 @@ function titleFor(route: Route): string {
       return 'Les sujets en vidéo'
     case 'table':
       return 'À table'
+    case 'budget':
+      return 'Faire les comptes'
     case 'transfer':
       return 'Transférer vos réponses'
     case 'journal':

@@ -17,6 +17,7 @@ import { ConfirmErase } from './ConfirmErase'
 import { useCurrentElection } from './CurrentElection'
 import { ExternalLink } from './ExternalLink'
 import { useFootSheet } from './FootContext'
+import { budgetShown } from '../budget/shown'
 import { Icon } from './Icon'
 import { Logo } from './Logo'
 import '../../styles/footer.css'
@@ -260,9 +261,10 @@ function SheetColumn() {
 export function SiteFooter() {
   const election = useCurrentElection()?.election
   const table = !!election && !!axisOf(election) && !election.archived
+  const comptes = budgetShown()
   return (
     <footer class="site-foot home-foot">
-      <div class={table ? 'home-foot-inner has-table' : 'home-foot-inner'}>
+      <div class={['home-foot-inner', table ? 'has-table' : '', comptes ? 'has-comptes' : ''].filter(Boolean).join(' ')}>
         <div class="home-foot-top">
           <Logo layout="horizontal" />
           <Vote />
@@ -280,6 +282,22 @@ export function SiteFooter() {
                   <a class="btn-text" href={link('/a-table')}>
                     <Icon name="table" />
                     À plusieurs, autour d’une table
+                  </a>
+                </li>
+              </ul>
+            </section>
+          ) : null}
+          {comptes ? (
+            <section class="home-foot-col" aria-labelledby="foot-comptes">
+              <h2 id="foot-comptes" class="home-foot-title">
+                Faire les comptes
+              </h2>
+              <p class="home-foot-text">Régler le budget 2027 et voir le déficit bouger, levier par levier.</p>
+              <ul class="home-foot-actions">
+                <li>
+                  <a class="btn-text" href={link('/comptes')}>
+                    <Icon name="comptes" />
+                    Votre budget 2027
                   </a>
                 </li>
               </ul>

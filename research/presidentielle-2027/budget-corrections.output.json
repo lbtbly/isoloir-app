@@ -1,0 +1,1184 @@
+{
+ "log": [
+  "ajouté impot-societes",
+  "corrigé cotisations-sociales",
+  "corrigé cotisations-retraite",
+  "corrigé contribution-exceptionnelle-grandes-entreprises",
+  "corrigé age-legal-retraite",
+  "corrigé credits-aides-personnelles-logement",
+  "corrigé aides-logement-revalorisation",
+  "corrigé prime-activite-revalorisation",
+  "corrigé prestations-familiales-revalorisation",
+  "corrigé depense-assurance-chomage-allocations",
+  "corrigé allegements-generaux",
+  "corrigé forfait-social-taux",
+  "corrigé cotisations-exploitants-agricoles",
+  "corrigé credits-administration-penitentiaire",
+  "corrigé credits-aide-publique-developpement",
+  "corrigé credits-aides-a-la-pierre",
+  "corrigé credits-ame",
+  "corrigé credits-anah-renovation",
+  "corrigé credits-asile",
+  "corrigé credits-audiovisuel-public",
+  "corrigé credits-culture",
+  "corrigé credits-egalite-femmes-hommes",
+  "corrigé credits-france-2030",
+  "corrigé credits-integration",
+  "corrigé credits-justice-judiciaire",
+  "corrigé credits-lutte-immigration-irreguliere",
+  "corrigé credits-pjj",
+  "corrigé credits-politique-de-la-ville",
+  "corrigé credits-remunerations-enseignement-scolaire",
+  "corrigé credits-universites-recherche",
+  "corrigé accise-carburants",
+  "corrigé accise-electricite",
+  "corrigé c3s-taux",
+  "corrigé cvae-taux",
+  "corrigé depense-fiscale-heures-supplementaires",
+  "corrigé ifi-bareme",
+  "corrigé tsn-taux",
+  "corrigé credits-prime-activite-rsa",
+  "corrigé depense-allocation-soutien-familial",
+  "corrigé depense-allocations-familiales",
+  "corrigé depense-complement-mode-de-garde",
+  "corrigé depense-conge-naissance",
+  "corrigé depense-prepare",
+  "corrigé effectifs-publics",
+  "corrigé point-indice",
+  "corrigé duree-assurance (écarté)"
+ ],
+ "crossNotes": "Contrôle croisé des 43 fiches corrigées (journal wf_93e81506-d85 : fix:is, cotisations, contribution, social-fixes, envelopes, register et leurs vérifications) avec le reste de budget-levers.json. Je renvoie 46 fiches : les 43 corrigées, dans leur version finale, plus 3 fiches modifiées seulement pour la réciprocité des recoupements (effectifs-publics, point-indice, duree-assurance). Aucun fichier du dépôt n'a été modifié.\n\n1. TROIS LEVIERS CORRIGÉS PAR PLUSIEURS CORRECTIFS (la fusion mécanique ne gardait que le dernier)\n- c3s-taux (enveloppes + registre). Je reprends la version du registre : source CPO au lieu du Sénat n° 942, perUnit.hi 0,05466 et limits. J'y applique la règle des enveloppes : ±25 % au lieu de ±100 %, puisque aucune idée de la carte ne supprime la C3S (serves []). Le libellé du montant devient « 5 466 M€ de C3S prévus en 2027 (CCSS) ».\n- credits-aides-personnelles-logement (social + enveloppes). Le montant compté (16,3554) vient des enveloppes. Le texte limits, avec les 165 M€ de frais de gestion, et la page p. 19 viennent de la vérification sociale.\n- depense-assurance-chomage-allocations (social, enveloppes, registre). C'est un vrai conflit. Le correctif du registre écartait le levier (Unédic = partie prenante) ; les correctifs social et enveloppes le gardaient. Je GARDE le levier, l'Unédic rangée en « administration », pour quatre raisons :\n  (a) la règle des enveloppes décidée par le propriétaire admet la « dépense … publiée par l'organisme » ;\n  (b) la décision 151 de la boucle (budget-loop.output.json) avait accepté ce montant de l'Unédic ;\n  (c) le registre range la CNAV, gestionnaire de régime doté lui aussi d'un conseil paritaire, dans « administration », et l'Unédic n'est ni un syndicat ni une organisation patronale (le vérificateur du constat F12 le dit aussi) ;\n  (d) le RESF classe l'Unédic parmi les ASSO. J'ajoute sa source en contexte (tableau 20, citation vérifiée).\n  Le reste de la fiche : réglage à ±25 % (règle des enveloppes), bas = haut = 0,387 sans la borne calculée, éditeur « Unédic (gestionnaire paritaire de l'assurance chômage) », et la citation complète du tableau 4. J'ai rendu la page 15 en image et l'ai relue : 37,2/38,1/38,7/38,3, France Travail 5,3, intérêts 0,9.\n  À NE PAS appliquer à la carte : la conséquence du correctif du registre. solidarites-1-a et 1-c gardent leur levier. Si le propriétaire préfère la lecture stricte, il faut reprendre la fiche écartée du correctif du registre.\n\n2. ERREURS DE CONSTRUCTION CORRIGÉES\nTrois textes limits dépassaient 280 caractères (cotisations-sociales 471, cotisations-retraite 458, contribution exceptionnelle 392), ce qui fait échouer tools/build-budget.mjs. Je les ai raccourcis à 279, 277 et 270 caractères sans perdre de contenu : bornes, part publique exclue, valeurs en baisse, allègements, impôt sur le revenu et emploi.\n\n3. MÊME RÈGLE PARTOUT\n- Plages : chômage ±20 → ±25, C3S ±100 → ±25. J'ai retiré « Plage de ±25 % : choix du site » de la fiche IS, comme les enveloppes l'avaient fait pour les accises.\n- « au PLF 2027 » dans today et amount de l'IS : c'est une ligne de l'état A, comme TSN, IFI et CVAE.\n- Les trois leviers mesurés depuis un gel ont désormais la même phrase, affichée dans limits (les notes d'options ne sont pas affichées) : « En dessous du gel, le chiffre est le miroir de la hausse : aucune source ne chiffre une baisse en euros ». Je l'ai ajoutée à aides-logement-revalorisation, où elle manquait dans limits. Pour prime d'activité et prestations familiales, j'ai repris la formulation des vérificateurs, qui n'avait pas été appliquée parce que leur vérification était ok=true. baseLabel de la prime d'activité : « gel » → « Gel ».\n- perUnit = 1 % exact du montant compté (contrôle suggéré par F5). Cela touche IS (bas 0,58516), allègements (bas 0,69062), TSN, APD, aides à la pierre, intégration, justice, rétention, politique de la ville, allocations familiales et le bas de France 2030. Les écarts étaient d'arrondi (au plus 3e-6), mais 1 % du montant sortait de la fourchette.\n\n4. RÉCIPROCITÉ\n- credits-politique-de-la-ville est ajouté à effectifs-publics et à point-indice.\n- age-legal-retraite ↔ duree-assurance : duree-assurance, levier écarté, liste maintenant age-legal-retraite. Le WARN « recoupe un levier absent » reste, c'est attendu.\n- Asymétries plus anciennes, sans fiche corrigée en jeu, laissées telles quelles (le build les complète) : effectifs-publics → aides-indirectes-étudiants, france-services, places-crèche, service national ; point-indice → aides-indirectes-étudiants.\n- operatorCaveat (F13) : rien à changer, le code dit déjà « Pour la part versée à un organisme public ».\n\n5. VÉRIFICATION\n- Le 18/10, j'ai récupéré à nouveau par curl les 38 adresses citées (toutes en HTTP 200) et extrait le texte avec PDFKit (ma copie : scratchpad/xc/tools).\n- Toutes les citations sont retrouvées, avec ces écarts dus à l'extraction : coupure « géné-ralisée » dans le dossier de presse p. 6 ; « € » lu « e » dans l'IPP ; colonnes de l'état A dans le désordre (lignes 1406, 1501 et 1503 vérifiées dans l'ordre) ; tableau de l'Unédic en image ; appel de note « 7 (*) » au Sénat (a25-145-5) ; tableau des emplois du dossier de presse.\n- tools/build-budget.mjs, lancé sur une copie de travail : 0 erreur, 76 leviers (impôts 32, dépenses 27, sociale 17), 2 écartés.\n- tests/budget-data, budget-ledger et budget-seed : 21 réussis.\n\n6. RESTE À FAIRE HORS FICHES (pour l'orchestrateur ou le propriétaire)\n- Aucune entrée de budget-map ne pointe vers impot-societes : finances_publiques-1-c, 1-e et fiscalite-x1-d, ainsi que les raisons « aucun levier publié pour l'IS », sont à reprendre.\n- Points de jugement assumés et signalés sur les fiches :\n  - âge légal : régimes alignés seuls, dans le total ; limits le dit « en deçà de l'effet sur les APU » ;\n  - contribution exceptionnelle : borne haute tirée du rendement 2026 ;\n  - classement de l'Unédic (point 1).",
+ "fixNotes": [
+  {
+   "key": "is",
+   "notes": "I added one new lever, impot-societes. It uses the same « 1 % du produit » method as tsn-taux, ifi-bareme and forfait-social-taux. It passes the checks in tools/build-budget.mjs: label 22 characters (max 40), today 62 (max 90), limits 275 (max 280), symmetric notches, max/step = 25, no candidate or party name. No repo file was edited.\n\nFIGURES, re-fetched 2026-10-18\n- The PLF 2027 PDF (n° 3210, assemblee-nationale.fr) was fetched again with WebFetch: 349 pages, sha1 718ebb51…, the same file as the earlier sz-plf-dl copy. I extracted the text with PDFKit, using my own copy of the script in scratchpad/is-tools.\n- p. 20, table of net tax revenue (columns: 2025, LFI 2026, revised 2026, gap, PLF 2027, gap, gap): « Impôt net sur les sociétés 59,9 61,6 60,3 -1,4 58,5 -1,8 -3,1 ».\n- p. 230, état A: line « 1301-Net Impôt sur les sociétés » = 58 515 984 932 €. The extraction mixes the two columns on that page, so the verbatim quote comes from the p. 236 summary: « Impôt net sur les sociétés 58 515 984 932 ».\n- Per unit: 1 % × 58,516 Md€ = 0,58516, rounded to 0,5852 Md€. At ±25 %, the effect is ±14,63 Md€.\n- Rates come from service-public.gouv.fr (DILA, page checked 17 February 2026): « imposée au taux normal de 25 % » (the page puts a non-breaking space before %). The PLF 2027 does not mention IS rates or article 219, so the base is 25 %, and ±25 % gives a normal rate of 18,75 % to 31,25 %.\n- Payment timing, verbatim from the same page: « Le paiement de l'impôt sur les sociétés (IS) est réalisé en 5 fois, c'est-à-dire 4 acomptes trimestriels et 1 solde ». The solde is due on 15 May of year N for an exercise closed on 31 December N-1.\n\nEXCLUSIVITY: I left exclusiveWith empty. The two levers do not count the same euros.\n- The contribution exceptionnelle is its own line in état A: « 1441 Contribution exceptionnelle sur les bénéfices des grandes entreprises 5 200 000 000 ».\n- The p. 20 text files it under « autres recettes fiscales nettes », not under the IS line (« La prorogation de la contribution exceptionnelle sur les bénéfices des grandes entreprises représenterait par ailleurs un rendement de 5,0 Md€ »).\n- So 1 % of line 1301 contains no contribution euros, and moving both levers adds two separate receipts.\n- The only link is a cross effect: the contribution is a percentage of IS due, so moving IS rates also moves its base by about 1 % of 5 Md€ per unit. The total therefore slightly understates the combined effect and never overstates it. The limits text says so.\n- Making the levers exclusive would block real combinations: cut the IS and end the surtax, or raise the IS and keep the surtax.\n- If the owner prefers to read the « même base » rule strictly, add each lever id to the other's exclusiveWith. The build makes the link two-way.\n\nRANGE: lo = hi, the same as the sister levers. The true mechanical effect is larger in both directions:\n- Gross IS is 83 890 M€ against 58 516 M€ net (p. 25, « 3. Impôt sur les sociétés 86 827 85 029 83 890 »).\n- Part of that gap is tax credits such as the CIR, which do not change with the rates. Another part is refunds of overpaid acomptes, which do change with them.\n- No eligible source splits these, so I did not invent a high bound. The limits text names the direction without a figure.\n\nMAPPING, for the orchestrator. These reasons say the IS has « aucun levier publié » and are now outdated:\n- finances_publiques-1-c, the « grandes entreprises » part: could be « a-regler » on impot-societes, direction +.\n- finances_publiques-1-e, « prélèvement sur les profits »: direction +.\n- fiscalite-x1-d, « grandes entreprises (IS) »: direction +.\n- Other text to update: gap 1 in the catalogue « gaps » (IS has no unit sensitivity), the numerique-3-g reason (« C'est la règle suivie pour l'impôt sur les sociétés… »), and the sentence in the contribution-exceptionnelle catalogue notes that says « Ce levier ne vaut pas pour l'IS au taux normal ».\n- I suggest leaving ecologie_energie-1-b and 3-b and numerique-1-c as they are. They target one sector or one tax advantage, not all IS rates.\n- A grep of bank.ts found no approach that explicitly asks to cut the IS, but the lever has notches in both directions.",
+   "open": []
+  },
+  {
+   "key": "cotisations",
+   "notes": "J'ai relu toutes les sources le 18/10/2026 : le PDF de la CCSS d'octobre 2026, le PDF de la Cour des comptes de février 2025, la page REPSS 1.4.1 et la fiche Fipeco. Chaque citation a été contrôlée mot à mot avec un script, sans tenir compte des espaces ni des coupures dues à l'extraction du PDF : les 21 citations s'y retrouvent. Je n'ai modifié aucun fichier du dépôt. Mes copies de travail sont dans le dossier de travail de la session : /private/tmp/claude-501/-Users-lambertbouley-Claude-Politique-primaire-de-gauche/9bc294e1-df15-43aa-a81d-214dd545ffb5/scratchpad/cotis-out/ (specs.json et build_specs.py).\n\nCOTISATIONS-SOCIALES\n(1) Effet sur l'ensemble des administrations publiques (APU), net des flux internes. La CCSS (p. 52) écrit que les employeurs publics cotisent aux branches maladie et famille pour tous leurs agents. Leur part patronale, 1 740 M€ par point (encadré 2, p. 51), est donc un flux interne aux comptes publics : elle est retirée de toutes les bornes patronales.\n- Le haut reste 10,92, mais il change de sens. C'est désormais la part salariale, qui est aujourd'hui de 0 % et peut monter. Quand des agents publics paient une cotisation salariale, ce sont des ménages qui paient : l'effet est net pour les APU.\n- Le bas passe de 9,18 à 7,59. 7,59 est le chiffre que la CCSS donne pour les seuls employeurs privés du régime général (« 7,6 Md€ », p. 48, 7 590 M€ dans l'encadré). Une hausse du seul taux patronal ne touche pas forcément les indépendants ni les exploitants. 9,18 (= 10 920 − 1 740, calculé) n'est donc pas un minimum.\n(2) Ajout de perUnitDown {7,59 ; 9,18}. Une baisse ne peut porter que sur la part patronale, puisque la part salariée est à 0 %. Le haut 9,18 correspond à tous les actifs hors secteur public, le bas 7,59 aux seuls employeurs privés. La fiche le dit maintenant (« une baisse vaut 7,59 à 9,18 Md€ »).\nAutre correction : Fipeco ne nomme pas « Mésange » (le mot n'apparaît pas dans la fiche). La note « à terme » et la citation disent maintenant « modèle macroéconomique de l'Insee et de la DG Trésor ». J'ai aussi ajouté le tableau des taux de Fipeco (13,3 / 0 ; 5,25 / 0) comme source de « aujourd'hui ».\nLimite qui reste : les valeurs de la CCSS sont théoriques. La hausse de la RGDU qu'entraînerait une hausse du taux patronal (compensée par l'État, donc à déduire pour les APU) n'est pas chiffrée : le bas peut être trop haut. La fiche le dit, mais je n'ai trouvé aucun chiffre net de la RGDU dans une source éligible.\n\nCOTISATIONS-RETRAITE\n(3) Le « 6,2 » a maintenant sa source. Il figure deux fois dans le tableau n° 8 de la Cour (p. 76), à la ligne « Cotisation salariale sous plafond » et à la ligne « Cotisation patronale déplafonnée ». La citation reprend désormais le tableau entier, avec 6,2 / 4,8 / 7,6 / 6,2.\n(2) Ajout de perUnitDown {4,8 ; 6,2}. La part salariale déplafonnée (0,40 %) ne peut pas baisser d'un point. Sans perUnitDown, le jeu comptait jusqu'à 7,6 Md€ par point de baisse, alors que la fiche donne au plus 6,2. Réserve : la ligne du jeu va de −1 à 0 point. Pour une baisse de 0,4 point au plus, la seule part salariale déplafonnée coûterait 7,6 par point.\n(1) Point non résolu sur le bas.\n- Les deux hauts (7,6 en hausse, 6,2 en baisse) sont nets pour les APU : ce sont des parts salariales, payées par les ménages, et la Cour présente ces rendements « pour les finances publiques », allègements déduits.\n- Le bas (4,8, part patronale sous plafond) compte encore la part des employeurs publics pour leurs contractuels. La CCSS (p. 52) confirme qu'ils cotisent au régime général vieillesse ; la REPSS dit que ces points portent « en quasi-totalité » sur le secteur privé.\n- Aucune source éligible récupérée ne chiffre cette part à part. J'ai cherché dans la CCSS (fiches 1.2 et 4.5), la REPSS, le Jaune pensions du PLF 2025 et la fiche Ircantec du COR. Seul le graphique image de la REPSS (« autres catégories » 0,6) s'en approche : ce n'est pas une citation, et le chiffre mêle d'autres cotisants.\n- Le bas reste donc 4,8, et la fiche le signale. Si l'arbitre exige un bas strictement net, il faut une source supplémentaire.\nJ'ai aussi ajouté le passage de la CCSS sur la RGDU (perte de 6,8 Md€ pour la CNAV en 2026), la phrase « plus de hausse en 2027 » (fiche 4.5, p. 176) et les sources des taux affichés dans « aujourd'hui » (Cour p. 75 : 15,45 % ; Fipeco : 2,11 + 0,4). Les valeurs 2025 de la REPSS (6,3 / 7,3) sont présentées comme des valeurs théoriques avant exonérations, à titre de contexte.",
+   "open": []
+  },
+  {
+   "key": "contribution",
+   "notes": "I kept the lever, re-sourced it from official documents only, and removed the Fipeco source. The two bounds have different horizons; that call is yours (point 3).\n\n1. **Rates are now quoted verbatim.**\n   - 15,7 % and 31,4 %, with the 1,5 Md€ threshold, are in the évaluations préalables, article 15, p. 157: « réduisant ses taux à 15,7 % pour la première tranche et à 31,4 % pour la seconde ». The same rates are in the article itself (PLF n° 3210, p. 63).\n   - 20,6 % is in BOFiP BOI-IS-AUT-60-20260812, § 250. § 1 of the same page says the contribution is due for the « deux premiers exercices clos à compter du 31 décembre 2025 ». The évaluations préalables (p. 156) say LFI 2026 article 12 changed only the threshold, raising it to 1,5 Md€.\n   - 41,2 % is in BOFiP § 260, but I left it out of the sources and out of the user-facing text.\n\n2. **Upper bound: Fipeco is replaced.** Fipeco's 7,3 Md€ was the LFI 2026 forecast. Two official sources now give a revised 7 Md€ for 2026:\n   - PLF 2027, exposé général, p. 20: « un rendement de 5,0 Md€, en diminution de 2,0 Md€ par rapport à 2026 ». The same page says the 2026 yield was revised down by 0,3 Md€ from the LFI forecast.\n   - CPO note n° 14 of 15/10/2026, p. 7 (organe-independant): « des taux abaissés d’environ 24 % ... estimé à 5 Md€ ..., contre 7 Md€ précédemment ». The note writes « LFI 2027 » where it means the PLF; the quote is copied as written.\n   - So perUnit.hi = 7,0 / 20,6 = 0,340 (was 0,354). perUnit.lo = 5 / 15,7 = 0,318 (évaluations préalables p. 160) is unchanged.\n   - The 2026 yield does not depend only on the 2026 rate: it also includes late payments for the first exercise, which used the 1 Md€ threshold. limits labels it neutrally as « rendement de 2026 ».\n\n3. **Decision for you: the horizon rule.** The upper bound comes from a 2026 yield. If you read the horizon or baseline rule (a bound measured against another base is refused) strictly, set hi = lo = 0,318. That figure comes from one official source, 2027 only, like other mechanical levers that are already a single point.\n\n4. **Sénat source (parlement):** re-fetched and the quote extended, verbatim. It now ends with « les taux applicables sont divisés par deux », which is the published support for a yield proportional to the rate.\n\n5. **Range unchanged:** ±4,9 points (back to 20,6 %), step 0,1, notches −4,9 / −2,5 / 0 / 2,5 / 4,9. Suppression (−15,7 points, 5 Md€) is published, but the symmetry rule keeps the smaller side. The catalogue lists no bank idea under « serves », so the wider ±100 % range does not apply.\n\n6. **Other edits:**\n   - laterNote: the 500 M€ in 2028 is now attributed to companies whose financial year does not close in December, as the évaluation says, instead of being called « le solde ».\n   - The état A line 1441 (5,2 Md€) is kept as context: it includes about 0,2 Md€ owed for earlier years, which the rate does not change.\n   - limits is 238 characters, today 58.\n\n7. **Not available:** the Assemblée nationale's report n° 3291, tome II (filed 10/10/2026), is shown as « Document non encore publié ». The Voies et moyens tome 1 for 2027 is not linked from the Assemblée nationale's PLF 2027 dossier page.\n\nAll quotes were re-fetched on 18/10/2026 and copied from the extracted text. No repo file was edited and no personal data was sent anywhere.\n\nExtracted texts are in /private/tmp/claude-501/-Users-lambertbouley-Claude-Politique-primaire-de-gauche/9bc294e1-df15-43aa-a81d-214dd545ffb5/scratchpad/ceg-txt/:\n- plf2027.txt\n- evalprea.txt\n- cpo.txt\n- senat.txt",
+   "open": []
+  },
+  {
+   "key": "social-fixes",
+   "notes": "I corrected six social specs. No repo files were edited.\n\nDry run: I merged the specs into a scratch copy of budget-levers.json and ran tools/build-budget.mjs there (scratchpad/sf-tree). It passes with 0 errors; the Unédic \"source hors du registre\" error is gone. Every limits text is ≤280 characters. The data-test checks also pass: one base per options lever, lo≤hi, linear perUnit.lo>0 and symmetric notches. The top 3 for the sociale family are unchanged: chômage (reach now 7,74), allocations familiales, APL.\n\nRe-fetch: every source was re-fetched with WebFetch on 2026-10-18. WebFetch saved the PDFs and I extracted their text with PDFKit. Every quote was then matched verbatim, after flattening whitespace and rejoining hyphenated words in the IPP columns. Two exceptions:\n- Unédic table 4 is an image in the PDF. I rendered p. 15 and read it: Dépenses 47,5 and Allocations brutes et aides 38,7 for 2027.\n- Sénat rapport 131: WebFetch confirmed the sentence on the live page (offset 100000). The full wording matches a copy fetched earlier in this session.\n\n(a) age-legal-retraite\n- 62-ans is +1,3/+1,3 and reprise-64 is −0,8/−0,8. Both come from the CCSS octobre 2026 and are on the same scope: régime général + salariés agricoles, champ LURA, stated explicitly on p. 17.\n- The whole-system 1,9 (Gouvernement, texte transmis au Sénat) is now outside the range. It appears in limits, which is displayed (option notes are not rendered), and in the reprise-64 note.\n- I dropped « un plancher », which no source supports. perUnit is set to {0.8, 1.3}; it is not used for options levers.\n- I added a CCSS scope source (p. 17) and page numbers. Printed page = PDF page − 2.\n\n(b) Mirror caveat: « Sous le gel du PLF, le chiffre est le miroir de la hausse, sans source qui le chiffre. »\n- Added to prime-activite-revalorisation (replaces « on suppose le même effet par point ») and to credits-aides-personnelles-logement (as you asked).\n- Also added to aides-logement-revalorisation. Review F7's evidence names this lever as the APL case (base: barème non revalorisé, 0,15/pt from the IPP).\n- prestations-familiales-revalorisation: to get one rule for all three F7 levers, I followed the verifier's betterFix. I added mirrored options « −2,3 % au 1er avril » (−0,52 to −0,50) and « −1,15 % » (−0,26 to −0,25), each with an unsourced-mirror note. The shared caveat replaces « aucune source ne le chiffre, le levier s'arrête là ».\n- These new options are a separable choice. Drop that spec if you prefer the lever to stay one-way.\n- prime-activite-revalorisation: I dropped the source « PLF n° 3210, article 74 et exposé des motifs » (opendata HTML). WebFetch stops at about 600k characters, before article 74, so it could not be re-fetched. The same −332 M€ (APU) stays sourced from the évaluations préalables, pp. 602-603.\n\n(c) depense-assurance-chomage-allocations\n- perUnit is 0.387/0.387, and today is « 38,7 Md€ en 2027 (prévision de l’Unédic) ».\n- The Unédic sources are now kind « administration », because the PLF takes up this forecast. The PLF 2027 annex, art. 68, p. 547, reproduces the Unédic June 2026 forecast: dépenses 47,5 Md€ in 2027, identical. Its source note says « Pour 2027, la trajectoire sous-jacente a été réalisée par l’Unédic », adjusted only on the State compensation, which is a receipt. Both Unédic figures say so.\n- I removed the computed low bound.\n- The PLF note (« des écarts peuvent apparaître ») and HCFP −0,3 % on prestations emploi are kept as context, outside the range. limits says the line may be a bit lower in the PLF scenario.\n- Caveat: strictly, the PLF reproduces the 47,5 total, not the 38,7 line by itself.\n\nNot changed, flagged for you\n1. The PLF art. 74 évaluation préalable (p. 602) prices the APL freeze at 101 M€ in 2027 and 404 M€ in 2028 (État = APU), without giving the rate. aides-logement-revalorisation still uses the IPP 2026 full-year 0,15/pt.\n2. Five other envelope lines also sit on frozen benefits: credits-prime-activite-rsa, depense-allocation-soutien-familial, depense-allocations-familiales, depense-complement-mode-de-garde, depense-prepare. As envelopes, 1 % of the line is mechanical both ways, so I did not add the caveat. For uniformity with credits-aides-personnelles-logement, the same sentence fits.\n3. point-indice (pay freeze, depenses family) has the same uncaveated below-freeze extrapolation.\n4. age-legal-retraite still lists exclusiveWith duree-assurance, which is dropped. The build only warns about it.",
+   "open": []
+  },
+  {
+   "key": "envelopes",
+   "notes": "AUTHORITATIVE COPY: the same 35 specs, byte-exact as generated (safer than this transcription), are in /private/tmp/claude-501/-Users-lambertbouley-Claude-Politique-primaire-de-gauche/9bc294e1-df15-43aa-a81d-214dd545ffb5/scratchpad/envfix-specs.json (generator: .../scratchpad/envfix-tools/build_specs.py). No repo file was edited.\n\nTHE RULE, applied to the 40 envelope levers (unit « 1 % des crédits / des avances / des emplois », or any lever with an amount):\n- ±25 % by default: notches −25, −10, 0, 10, 25 (step 1).\n- ±100 % (notches −100, −50, 0, 50, 100) only when an idea mapped to the lever in budget-map.draft.json abolishes or privatises that line. \"Mapped\" means entries[].lever, or catalogue \"serves\".\n\n±100 levers and the idea that triggers each:\n- credits-ame: immigration-x1-a (« Supprimer l'AME… »). Range unchanged; label fixed.\n- credits-audiovisuel-public: societe-1-a (privatise most of it), also societe-1-b. Range unchanged; label fixed.\n- credits-lutte-immigration-irreguliere: immigration-3-a (« …renoncer aux expulsions »). The map's own reason says the −100 % notch matches the idea as written. Moved from ±50 to ±100.\n  - Its limits and the figure of source 3 no longer claim « pas de cran de suppression ».\n  - They now say that at −100 %, compliance with the « retour » directive depends on how the idea is drafted (the map's wording).\n- Three levers stay at ±100 and are unchanged, so they are not returned:\n  - credits-aides-presse: societe-x1-c\n  - cultes-alsace-moselle-emplois: laicite_republique-1-g\n  - credits-aide-ukraine: ukraine_russie-1-d, 1-e and 2-e\n\nMoved to ±25 (old range in brackets):\n- credits-culture (100), credits-aide-publique-developpement (100), credits-aides-a-la-pierre (100), credits-anah-renovation (100), credits-egalite-femmes-hommes (100)\n- forfait-social-taux (100), c3s-taux (100), cvae-taux (100), ifi-bareme (100), tsn-taux (100), depense-fiscale-heures-supplementaires (100), depense-conge-naissance (100), depense-prepare (100)\n- credits-asile (50), credits-france-2030 (50), credits-integration (50), credits-politique-de-la-ville (50), accise-electricite (50), depense-allocation-soutien-familial (50), depense-allocations-familiales (50)\n- credits-administration-penitentiaire (20), credits-justice-judiciaire (20), credits-pjj (20), depense-assurance-chomage-allocations (20)\n- credits-universites-recherche (10), credits-remunerations-enseignement-scolaire (5), allegements-generaux (5)\n\nAlready ±25, label fixed only: cotisations-exploitants-agricoles, accise-carburants, credits-aides-personnelles-logement, credits-prime-activite-rsa, depense-complement-mode-de-garde.\n\nUnchanged and not returned:\n- credits-aides-directes-etudiants and credits-aides-indirectes-etudiants (already ±25, no amount).\n- The three ±100 levers listed above.\n- depense-fiscale-credit-impot-recherche (dropped, so the site does not show it). If it is ever revived: ±25 and the label « 7 382 M€ de coût prévu en 2027 (PAP 2027) ».\n\nBorderline cases kept at ±25, which the owner may want to revisit:\n- ifi-bareme: fiscalite-1-c and 1-f replace the IFI with another tax, but the map marks them non-chiffre and does not attach them to this lever.\n- allegements-generaux: industrie_economie-1-f is a reduction (« en supprimant celles accordées sans contrepartie »), not the abolition of this line.\n- credits-anah-renovation: logement-3-c is a reduction, replacing grants « au besoin » with zero-rate loans.\n- c3s-taux and cvae-taux: no idea is mapped to them. industrie_economie-1-a is non-chiffre.\n- Ideas that ask for a large increase now stop at +25 %, for example egalite-1-a and solidarites-2-a.\n\nTEXTS EDITED because they mentioned the old ranges (limits fields):\n- forfait-social-taux and tsn-taux: the « −100 % » sentence is removed.\n- credits-anah-renovation: « gardés même à −100 % » is removed.\n- credits-asile: « Plage de 50 % : choix éditorial » is removed.\n- accise-carburants and accise-electricite: « plage de ±25/±50 % : choix du site » is removed.\n- credits-lutte-immigration-irreguliere: see above.\nAll limits fields are at most 274 characters.\n\nAMOUNT LABELS (all 33 amounts):\n- Every label now starts with the number and says what it is.\n- « au PLF 2027 » appears only when the figure is a PLF line exactly as published.\n- Forecasts from other sources say so: « (CCSS) » or « prévues … par l'Unédic (juin 2026) ».\n- Counted bases read « X M€ comptés sur les Y M€ de crédits du PLF 2027, hors … ».\n- The 4 labels that had no number now have one: enseignement scolaire, universités, heures supplémentaires, IFI.\n\nAMOUNT VALUES, a change you may want to revert:\n- For 7 levers, amount.value is now the counted base the 1 % is applied to (100 × perUnit.hi). Before, it was the PLF total, so the card read « 4 813 M€… 10 % : 0,36 Md€ ».\n- This follows what culture and pénitentiaire already did.\n- The changes:\n  - france-2030: 3.99987 → 3.837277\n  - integration: 0.363889 → 0.350589\n  - justice-judiciaire: 4.813406 → 3.550799\n  - lutte-immigration: 0.314459 → 0.285155\n  - pjj: 1.173356 → 0.8958\n  - politique-ville: 0.619067 → 0.456042\n  - aides-personnelles-logement: 16.5205 → 16.3554\n- Each value is recomputed from quoted figures. No perUnit changed anywhere.\n- To revert: put back the PLF total and use the label « X M€ de crédits au PLF 2027 ».\n\nVERIFICATION:\n- On 2026-10-18 I fetched all 26 source documents again over HTTPS and extracted their text with PDFKit.\n- Every quote in the 35 specs is found word for word, apostrophes included, with three exceptions:\n  - PLF état A rows (accises, IFI, CVAE, TSN): checked with a row-by-row extraction of pages 230–231. Same rows, same numbers.\n  - Unédic tableau 4: it is an image, so I rendered page 15 and read it. Allocations brutes et aides: 37,2 / 38,1 / 38,7 / 38,3.\n  - CCSS note on allègements: differs only by the line break in « Agirc-Arrco ».\n- I ran tools/build-budget.mjs on a scratch mirror with these specs. It reports no new error.\n\nOPEN ISSUES:\n1. The build still fails because of 2 old ERRORs on depense-assurance-chomage-allocations: the Unédic source kind « organisme-gestionnaire » is outside the register. This is not part of this fix and is not resolved; budget.ts is still not written.\n2. Code, not data: src/ui/budget/Rails.tsx, unitText (line 36), always adds « au PLF » after md(amount.value). That is wrong for CCSS/Unédic forecasts and for counted bases. Suggest dropping the suffix or using the label.\n3. budget-decisions.json, build.envelopes, still says « Lignes de crédits ». The rule now covers every lever with an amount (taxes and social spending), so that text should be updated at merge.\n4. Outside this fix, Ukraine is inconsistent:\n   - The map's reasons count AMF+ (98,3 M€) in credits-aide-ukraine (0,126 Md€ at −100 %) and call it voluntary.\n   - The spec covers only the 28 M€ fund, and APD excludes AMF+ as « fixée par un règlement européen ».",
+   "open": []
+  },
+  {
+   "key": "register",
+   "notes": "Audit du registre des sources sur les 77 leviers de research/presidentielle-2027/budget-levers.json (242 sources, 51 adresses). Aucun fichier du dépôt n'a été modifié. Les fiches corrigées sont aussi dans /private/tmp/claude-501/-Users-lambertbouley-Claude-Politique-primaire-de-gauche/9bc294e1-df15-43aa-a81d-214dd545ffb5/scratchpad/regaudit/specs.json.\n\nMéthode : j'ai récupéré les 51 adresses le 18/10 (curl, User-Agent générique). Toutes répondent 200. J'ai extrait le texte (pypdf ou HTML) et cherché chaque citation dedans. Les 242 citations sont présentes dans la page récupérée ; les rares écarts viennent de l'extraction (le « € » de l'IPP lu comme « e », des coupures de mots), et je les ai vérifiés un par un. Aucune source ne repose donc sur un extrait de recherche ni sur une page en 403 ou 404. Aucun titre ni aucune adresse ne nomme un candidat ou un parti (même test que tools/build-budget.mjs, refait aussi sur les nouvelles sources). Certains textes en nomment dans leur corps : le rapport MECSS r24-901 cite une proposition de Gabriel Attal, le rapport r25-942 publie en annexe des contributions de groupes. Le test de la banque porte sur l'adresse et le titre, donc ils passent.\n\nLEVIERS EN CAUSE (2) :\n\n1) depense-assurance-chomage-allocations — CONFIRMÉ, à écarter (drop). Le montant et les deux bornes (38,7 et 38,1 × 0,997) viennent de l'Unédic. La fiche l'avait classée sous un genre inventé, « organisme-gestionnaire », hors du registre, et la construction s'arrête déjà sur deux ERROR dans budget-build-log.txt. Or l'Unédic est pilotée par les syndicats et le patronat. Sa page https://www.unedic.org/lassurance-chomage-en-france/qui-pilote-l-assurance-chomage dit, mot pour mot, « Les partenaires sociaux pilotent l’Assurance chômage, négocient les règles et veillent à leur bonne application ». Son Conseil d'administration et son Bureau sont « formés d’un nombre égal de représentants des salariés et des employeurs » : CFDT, CFE-CGC, CFTC, CGT, FO ; Medef, CPME, U2P. C'est donc une partie prenante, jamais une borne.\n\nJ'ai cherché une source éligible pour le montant des allocations 2027 dans l'annexe d'évaluations préalables du PLF, le RESF 2027 (PDF et classeur Excel), l'avis du HCFP, le rapport à la CCSS, le PAP Travail et emploi et le dossier de presse. Aucune ne donne les allocations seules :\n- le PLF ne donne que les dépenses totales, 47,5 Md€ (« prévisions de l’Unedic juin 2026 », ajustées par le Gouvernement) ;\n- le RESF, tableau 20, donne 46,8 Md€ en comptabilité nationale, non consolidés ;\n- le HCFP donne seulement une évolution, −0,3 % ;\n- dans le tableau 17 du RESF, la ligne « dont prestations chômage » vaut 0,0 % du PIB pour l'ensemble des APU : chiffre inutilisable.\nLe total comprend le financement de France Travail et les cotisations aux caisses de retraite (des transferts entre APU), ainsi que la dette. Il ne respecte donc pas la condition 2 des enveloppes. Aucune plage ne peut être restreinte aux sources éligibles, d'où l'écart. Dans la fiche écartée, j'ai mis perUnit à 0 et retiré amount, j'ai reclassé les deux sources Unédic en « partie-prenante » et j'ai ajouté le RESF comme source éligible qui ne publie qu'un total. La construction saute un levier écarté avant de contrôler ses sources, donc ses ERROR disparaissent.\n\nConséquences à reporter dans budget-map.draft.json : les idées solidarites-1-a (baisser) et solidarites-1-c (hausser) perdent leur levier. Elles passent toutes deux en « non-chiffre », avec la même raison, ce qui reste symétrique. Le menu des « 3 plus gros » de la famille sociale change aussi : cette ligne de 38,7 Md€ était la plus grosse. src/elections/presidentielle-2027/budget.ts est généré et la référera plus après la reconstruction.\n\n2) c3s-taux — PLAUSIBLE, source remplacée par prudence, valeurs inchangées. La borne basse (0,044) reposait seulement sur le rapport d'information du Sénat n° 942. Ce texte dit que « le Sénat a décidé, sur la proposition du groupe Les Indépendants - République et Territoires, de constituer une mission d'information ». Ce groupe est celui de Horizons au Sénat, le parti d'un candidat, et le rapporteur en est membre. Le registre écarte les « groupes parlementaires […] études commandées par eux » et les « propositions d'un groupe » : le cas est limite. Le rapport ne fait d'ailleurs que relayer le CPO (« le CPO estime que… »). J'ai donc pris la source première, le rapport du CPO de septembre 2025 publié sur ccomptes.fr (organe indépendant), récupéré le 18/10, p. 126 : 5,4 Md€ bruts en 2025, « son coût net est estimé à 4,4 Md€ ». J'ai aussi revérifié dans le PDF de la CCSS la ligne de la borne haute (5 466 M€). Le mot « par le CPO » est ajouté à limits, qui fait 203 caractères sur 280.\n\nVÉRIFIÉS, CONFORMES (sans changement) :\n- Leviers où Fipeco (expert indépendant) fournit une borne, avec à chaque fois une source éligible dans la fourchette :\n  - effectifs-publics : bas 0,28 (Fipeco) ; DGAFP 0,406 et Cour des comptes 0,30 dans la plage ;\n  - point-indice : haut 2,5 (Fipeco) ; Sénat, commission des lois, 2,17 à 2,27 dans la plage ;\n  - minima-sociaux-revalorisation : bas 0,29 (Fipeco, données DREES) ; IPP 0,31 et 0,35 dans la plage ;\n  - contribution-exceptionnelle-grandes-entreprises : haut 0,354 (Fipeco) ; évaluation préalable du PLF 0,318 et ligne 1441 de l'état A, 5,2 / 15,7 = 0,331, dans la plage.\n- Ailleurs, Fipeco ne sert qu'à recouper ou à donner le contexte : les trois leviers de TVA, csg-ensemble, cotisations-sociales.\n- Les quatre leviers d'impôt sur le revenu qui reposent sur l'IPP seul sont conformes (recherche). La note IPP n° 129 n'est pas une étude commandée : l'IPP est un partenariat de PSE et du Groupe ENSAE-ENSAI.\n- Les sources de contexte autorisées restent hors des bornes : texte juridique d'EUR-Lex (accises), CCSS (csg-capital), Service-public (csg-pensions), Insee (audiovisuel).\n- La CCSS, l'IGF-IGAS, le dossier de presse PLF/PLFSS, le CPO et le HCFP sont bien classés.\n- cvae-taux cite aussi le rapport r25-942, mais seulement pour le barème, hors des bornes ; je l'ai laissé. Si le propriétaire range ces missions parmi les parties prenantes, cette source est à remplacer par le texte du barème.\n- L'adresse Fipeco doublement encodée de contribution-exceptionnelle (%2520) répond 200 et contient la citation.",
+   "open": []
+  }
+ ],
+ "bases": [
+  {
+   "id": "accise-carburants",
+   "value": 16.303,
+   "label": "16,3 Md€ d'accise sur les carburants (produit net revenant à l'État) prévus au PLF 2027, état A, ligne 1501",
+   "source": {
+    "title": "Projet de loi de finances pour 2027 (n° 3210), état A « Voies et moyens pour 2027 », p. 231",
+    "publisher": "Gouvernement, projet de loi de finances pour 2027 déposé à l'Assemblée nationale",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
+    "date": "2026-10-01",
+    "accessedAt": "2026-10-18",
+    "figure": "Accise sur les carburants, nette : 16 303 020 548 € prévus en 2027",
+    "quote": "1501-Net Accise sur les carburants 16 303 020 548"
+   }
+  },
+  {
+   "id": "accise-electricite",
+   "value": 5.115,
+   "label": "5,1 Md€ d'accise sur l'électricité (produit net revenant à l'État) prévus au PLF 2027, état A, ligne 1503",
+   "source": {
+    "title": "Projet de loi de finances pour 2027 (n° 3210), état A « Voies et moyens pour 2027 », p. 231",
+    "publisher": "Gouvernement, projet de loi de finances pour 2027 déposé à l'Assemblée nationale",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
+    "date": "2026-10-01",
+    "accessedAt": "2026-10-18",
+    "figure": "Accise sur l'électricité, nette : 5 115 471 654 € prévus en 2027",
+    "quote": "1503-Net Accise sur l’électricité 5 115 471 654"
+   }
+  },
+  {
+   "id": "aides-logement-revalorisation",
+   "value": 16.511,
+   "label": "16,5 Md€ de charges du Fonds national d'aide au logement en 2027 (APL 7 482, ALS 5 582, ALF 3 282 et 165 M€ de frais de gestion), financées par l'État au PLF 2027 (programme 109) ; même ordre de grandeur que le levier « credits-aides-personnelles-logement » (16 520,5 M€ de crédits)",
+   "source": {
+    "title": "Projet annuel de performances 2027, mission Cohésion des territoires, programme 109, « Charges et ressources du Fnal en 2027 », p. 66",
+    "publisher": "Ministère chargé du logement (annexe au projet de loi de finances pour 2027)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Charges prévisionnelles du Fnal et contribution de l'État : 16 511 M€ en 2027",
+    "quote": "Ainsi, afin d’assurer l’équilibre du Fnal, la contribution de l’État au fonds s’élèvera pour 2027 à 16 511 M€."
+   }
+  },
+  {
+   "id": "allegements-generaux",
+   "value": 72.762,
+   "label": "72,8 Md€ d'allègements généraux prévus en 2027, tous attributaires, avant la mesure du PLFSS 2027 (−3,7 Md€ selon le HCFP, soit 69,1 Md€ calculé) ; chiffre publié du rapport CCSS d'octobre 2026, comme les autres lignes sociales",
+   "source": {
+    "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.6 « Les dispositifs d'exonération en faveur de l'emploi », tableau 1, p. 67",
+    "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+    "kind": "administration",
+    "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Allègements généraux : 72 762 M€ en 2027 (p)",
+    "quote": "Allègements généraux 79 562 77 554 -2,5 76 268 -1,7 72 762 -4,6"
+   }
+  },
+  {
+   "id": "c3s-taux",
+   "value": 5.466,
+   "label": "5,5 Md€ de produit brut de la C3S prévus en 2027 (rapport CCSS d'octobre 2026, avant le PLFSS 2027)",
+   "source": {
+    "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 1.4 « Les autres contributions, impôts et taxes », tableau 2, p. 61",
+    "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+    "kind": "administration",
+    "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Produit brut de la C3S : 5 466 M€ en 2027 (p)",
+    "quote": "Contribution sociale de solidarité des sociétés (C3S) 5 228 8,7 5 337 2,1 5 364 0,5 5 466 1,9"
+   }
+  },
+  {
+   "id": "contribution-exceptionnelle-grandes-entreprises",
+   "value": 5.2,
+   "label": "5,2 Md€ de contribution exceptionnelle sur les bénéfices des grandes entreprises prévus au PLF 2027, état A, ligne 1441 (l'évaluation préalable de l'article 15 en attend 5 Md€ d'acomptes en 2027)",
+   "source": {
+    "title": "Projet de loi de finances pour 2027 (n° 3210), état A « Voies et moyens pour 2027 », p. 231",
+    "publisher": "Gouvernement, projet de loi de finances pour 2027 déposé à l'Assemblée nationale",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
+    "date": "2026-10-01",
+    "accessedAt": "2026-10-18",
+    "figure": "Ligne 1441 : 5 200 000 000 € prévus en 2027",
+    "quote": "1441 Contribution exceptionnelle sur les bénéfices des grandes entreprises 5 200 000 000"
+   }
+  },
+  {
+   "id": "cotisations-exploitants-agricoles",
+   "value": 1.181,
+   "label": "1,2 Md€ de cotisations brutes de la retraite de base des exploitants agricoles prévus en 2027 (rapport CCSS d'octobre 2026, avant le PLFSS 2027)",
+   "source": {
+    "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 4.9 « Régime des exploitants agricoles », tableau 2 (risque vieillesse du régime de base), p. 189",
+    "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+    "kind": "administration",
+    "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Cotisations sociales brutes du risque vieillesse de base des exploitants : 1 181 M€ en 2027 (p)",
+    "quote": "Cotisations sociales brutes 1 454 2,8 1 361 -6,4 1 270 -6,7 1 181 -7,0"
+   }
+  },
+  {
+   "id": "cotisations-retraite",
+   "value": 114.872,
+   "label": "114,9 Md€ de cotisations sociales brutes de la CNAV prévues en 2027 (retraite de base du régime général, tous cotisants confondus, indépendants de l'ex-RSI compris), rapport CCSS d'octobre 2026, avant le PLFSS 2027",
+   "source": {
+    "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 4.5 « Les comptes de la CNAV », tableau 1, p. 175",
+    "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+    "kind": "administration",
+    "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Cotisations sociales brutes de la CNAV : 114 872 M€ en 2027 (p), dernière colonne",
+    "quote": "Cotisations sociales brutes 110 971 113 906 2,6 113 906 2,6 110 448 -3,0 -3,0 114 872 4,0"
+   }
+  },
+  {
+   "id": "cotisations-sociales",
+   "value": 110.905,
+   "label": "110,9 Md€ de cotisations sociales brutes de la branche maladie (CNAM) prévues en 2027, avant les mesures du PLFSS (rapport à la CCSS d'octobre 2026). C'est la plus grosse des deux lignes sur lesquelles joue le levier : un point porte sur la maladie ou sur la famille. La branche famille (CNAF) en compte 44,3 Md€ (tableau 12, p. 30). Aucune ligne publiée ne regroupe les deux.",
+   "source": {
+    "title": "Les comptes de la Sécurité sociale, octobre 2026, synthèse, tableau 10 « Charges, produits et solde de la branche maladie (2024-2027) » (p. 25)",
+    "publisher": "Direction de la sécurité sociale (rapport à la CCSS)",
+    "kind": "administration",
+    "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "110 905 M€ de cotisations sociales brutes de la branche maladie en 2027 (p), avant les mesures de la loi de financement",
+    "quote": "Cotisations sociales brutes 87 930 4,2 92 825 5,6 106 748 15,0 110 905 3,9"
+   }
+  },
+  {
+   "id": "credits-administration-penitentiaire",
+   "value": 5.7902,
+   "label": "5 790,2 M€ de crédits de paiement du programme 107 « Administration pénitentiaire » au PLF 2027, titre 2 compris (le levier en compte 4 275,6 M€, hors cotisations employeurs)",
+   "source": {
+    "title": "PAP 2027, mission Justice, programme 107 : éléments de synthèse du programme (p. 104)",
+    "publisher": "Ministère de la justice (projet annuel de performances annexé au PLF 2027)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128243/file/PAP%202027%20-%20Justice.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "5 790 230 570 € de CP en 2027 pour le programme 107",
+    "quote": "Total 3 653 929 610 1 376 937 902 5 030 867 512 3 653 929 610 2 136 300 960 5 790 230 570"
+   }
+  },
+  {
+   "id": "credits-aide-publique-developpement",
+   "value": 3.1708,
+   "label": "3 170,8 M€ de crédits de paiement de la mission Aide publique au développement au PLF 2027, seule ligne publiée qui couvre le levier. Elle comprend le programme 365 (115 M€, fonds propres de l'AFD), qui n'est pas dans le levier. Les programmes 110, 209 et 384 font 3 055,8 M€, dont 2 605 M€ comptés par le levier.",
+   "source": {
+    "title": "PAP 2027, mission Aide publique au développement : récapitulation des crédits par programme et action, ligne « Totaux » (p. 13)",
+    "publisher": "Ministère de l'économie et ministère de l'Europe et des affaires étrangères (PAP annexé au PLF 2027)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128210/file/PAP%202027%20-%20Aide%20publique%20au%20d%C3%A9veloppement.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "3 170 780 421 € de CP au PLF 2027 pour l'ensemble de la mission",
+    "quote": "Totaux 4 326 429 075 2 471 755 315 -42,87 % 3 569 384 015 3 170 780 421 -11,17 %"
+   }
+  },
+  {
+   "id": "credits-aide-ukraine",
+   "value": 0.028,
+   "label": "28 M€ de crédits de paiement en 2027 pour le Fonds de soutien aux infrastructures civiles ukrainiennes (programme 110, PLF 2027)",
+   "source": {
+    "title": "PAP 2027, programme 110 : justification au premier euro, Fonds de soutien aux infrastructures civiles ukrainiennes (p. 47)",
+    "publisher": "Ministère de l'économie (PAP annexé au PLF 2027)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128210/file/PAP%202027%20-%20Aide%20publique%20au%20d%C3%A9veloppement.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "28 M€ de CP en 2027",
+    "quote": "Fonds de soutien aux Infrastructures Civiles Ukrainiennes : 28 M€ en CP"
+   }
+  },
+  {
+   "id": "credits-aides-a-la-pierre",
+   "value": 0.1128,
+   "label": "112,8 M€ de crédits de paiement de l'action 01 « Construction locative et amélioration du parc » du programme 135 au PLF 2027 (le levier en compte 109,8 M€ ; les 352,8 M€ de fonds de concours du FNAP sont à part)",
+   "source": {
+    "title": "PAP 2027, mission Cohésion des territoires, programme 135 : justification de l'action 01 « Construction locative et amélioration du parc » (p. 102)",
+    "publisher": "Ministère chargé du logement (PAP annexé au PLF 2027)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "112 810 000 € de CP en 2027 (8 250 000 € d'AE ; fonds de concours attendus : 352 773 586 € en CP)",
+    "quote": "Total 8 250 000 112 810 000 523 783 015 352 773 586"
+   }
+  },
+  {
+   "id": "credits-aides-directes-etudiants",
+   "value": 2.4587,
+   "label": "2 458,7 M€ de crédits de paiement de l'action 01 « Aides directes » du programme 231 « Vie étudiante » au PLF 2027",
+   "source": {
+    "title": "PAP 2027, mission Recherche et enseignement supérieur, programme 231 « Vie étudiante » : justification de l'action 01 « Aides directes » (p. 144)",
+    "publisher": "Ministère de l'enseignement supérieur et de la recherche (PAP annexé au PLF 2027)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128257/file/PAP%202027%20-%20Recherche%20et%20enseignement%20sup%C3%A9rieur.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "2 458 711 067 € de CP en 2027",
+    "quote": "Total 2 458 711 067 2 458 711 067 0 0"
+   }
+  },
+  {
+   "id": "credits-aides-indirectes-etudiants",
+   "value": 0.6352,
+   "label": "635,2 M€ de crédits de paiement de l'action 02 « Aides indirectes » (logement et restauration des Crous) du programme 231 au PLF 2027",
+   "source": {
+    "title": "PAP 2027, mission Recherche et enseignement supérieur, programme 231 « Vie étudiante » : justification de l'action 02 « Aides indirectes » (p. 147)",
+    "publisher": "Ministère de l'enseignement supérieur et de la recherche (PAP annexé au PLF 2027)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128257/file/PAP%202027%20-%20Recherche%20et%20enseignement%20sup%C3%A9rieur.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "635 237 368 € de CP en 2027",
+    "quote": "Total 665 737 201 635 237 368 0 0"
+   }
+  },
+  {
+   "id": "credits-aides-personnelles-logement",
+   "value": 16.5205,
+   "label": "16 520,5 M€ de crédits de paiement du programme 109 « Aide à l'accès au logement » au PLF 2027, dont 16 511,1 M€ d'aides personnelles (APL, ALS, ALF)",
+   "source": {
+    "title": "PAP 2027, mission Cohésion des territoires : récapitulation des crédits par programme et action (p. 19)",
+    "publisher": "Ministère chargé du logement (PAP annexé au PLF 2027)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "16 520 517 313 € de CP au PLF 2027 pour le programme 109",
+    "quote": "109 – Aide à l'accès au logement 16 572 135 643 16 520 517 313 -0,31 % 16 572 135 643 16 520 517 313 -0,31 %"
+   }
+  },
+  {
+   "id": "credits-aides-presse",
+   "value": 0.176,
+   "label": "176,0 M€ de crédits de paiement au PLF 2027 pour l'action 02 « Aides à la presse » du programme 180, dont 166,8 M€ dans le levier (hors 9,2 M€ compensés à la Sécurité sociale)",
+   "source": {
+    "title": "PAP 2027, mission Médias, livre et industries culturelles, programme 180 : éléments de synthèse du programme (p. 35)",
+    "publisher": "Ministère de la culture (PAP annexé au PLF 2027, Assemblée nationale)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128246/file/PAP%202027%20-%20M%C3%A9dias%20livre%20et%20industries%20culturelles.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Action 02 : 176 012 845 € de CP 2027 (AE : 176 995 757 €)",
+    "quote": "02 – Aides à la presse 0 176 995 757 176 995 757 0 176 012 845 176 012 845"
+   }
+  },
+  {
+   "id": "credits-ame",
+   "value": 1.2083,
+   "label": "1 208,3 M€ de crédits de paiement au PLF 2027 pour l'action 02 « Aide médicale de l'État » du programme 183, dont 1 138,3 M€ dans le levier (hors 70 M€ de dotation forfaitaire versée à l'Assurance maladie pour les soins urgents, transfert entre administrations publiques)",
+   "source": {
+    "title": "PAP 2027, mission Santé, programme 183 : justification de l'action 02 « Aide médicale de l'État » (p. 83 ; soins urgents p. 83 et 89)",
+    "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128269/file/PAP%202027%20-%20Sant%C3%A9.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "1 208 300 000 € de CP 2027, tous en transferts aux ménages ; dont 70 M€ de dotation forfaitaire de l'État pour les soins urgents (p. 89 : « La dotation versée par le programme 183 reste stable à 70 M€. »), retirés du levier",
+    "quote": "Transferts aux ménages 1 208 300 000 1 208 300 000 0 0 Total 1 208 300 000 1 208 300 000 0 0"
+   }
+  },
+  {
+   "id": "credits-anah-renovation",
+   "value": 1.2329,
+   "label": "1 232,9 M€ de crédits de paiement versés par le programme 135 à l'Anah au PLF 2027 (1 535,3 M€ en LFI 2026)",
+   "source": {
+    "title": "PAP 2027, mission Cohésion des territoires, programme 135 : récapitulation des crédits alloués aux opérateurs (p. 124)",
+    "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Anah : 1 232 923 834 € de CP au PLF 2027 (LFI 2026 : 1 535 325 022 €)",
+    "quote": "ANAH - Agence nationale de l'habitat (P135) 1 506 381 782 1 535 325 022 5 405 760 404 1 232 923 834"
+   }
+  },
+  {
+   "id": "credits-asile",
+   "value": 1.315,
+   "label": "1 315,0 M€ de crédits de paiement au PLF 2027 pour l'action 02 « Garantie de l'exercice du droit d'asile » du programme 303 (1 369,6 M€ en LFI 2026)",
+   "source": {
+    "title": "PAP 2027, mission Immigration, asile et intégration, programme 303 : éléments de synthèse du programme (p. 37)",
+    "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128237/file/PAP%202027%20-%20Immigration%20asile%20et%20int%C3%A9gration.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Action 02 : 1 314 956 817 € de CP 2027, aucun crédit de titre 2",
+    "quote": "02 – Garantie de l'exercice du droit d'asile 0 1 526 611 563 1 526 611 563 0 1 314 956 817 1 314 956 817"
+   }
+  },
+  {
+   "id": "credits-audiovisuel-public",
+   "value": 3.8165,
+   "label": "3 816,5 M€ d'avances à l'audiovisuel public au PLF 2027 (compte de concours financiers ; 3 863,3 M€ en LFI 2026)",
+   "source": {
+    "title": "PAP 2027, compte de concours financiers « Avances à l'audiovisuel public » : récapitulation des crédits par programme (p. 13)",
+    "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128306/file/PAP%202027%20-%20Avances%20%C3%A0%20l%27audiovisuel%20public.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Totaux : 3 816 514 211 € en 2027 (LFI 2026 : 3 863 312 945 €, -1,21 %)",
+    "quote": "Totaux 3 863 312 945 3 816 514 211 -1,21 % 3 863 312 945 3 816 514 211 -1,21 %"
+   }
+  },
+  {
+   "id": "credits-culture",
+   "value": 3.6492,
+   "label": "3 649,2 M€ de crédits de paiement de la mission Culture au PLF 2027 (3 744,5 M€ en LFI 2026), dont 3 056,2 M€ retenus dans le levier",
+   "source": {
+    "title": "PAP 2027, mission Culture : récapitulation des crédits par programme et action (p. 16)",
+    "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128219/file/PAP%202027%20-%20Culture.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Mission Culture : 3 649 196 894 € de CP 2027 (LFI 2026 : 3 744 547 181 €, -2,55 %)",
+    "quote": "Totaux 3 753 177 973 3 689 542 686 -1,70 % 1 205 000 26 300 000 3 744 547 181 3 649 196 894 -2,55 %"
+   }
+  },
+  {
+   "id": "credits-egalite-femmes-hommes",
+   "value": 0.1063,
+   "label": "106,3 M€ de crédits de paiement du programme 137 « Égalité entre les femmes et les hommes » au PLF 2027 (98,6 M€ en LFI 2026)",
+   "source": {
+    "title": "PAP 2027, mission Solidarité, insertion et égalité des chances : récapitulation des crédits par programme (p. 16)",
+    "publisher": "Gouvernement, projet annuel de performances annexé au PLF 2027 (Assemblée nationale)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128278/file/PAP%202027%20-%20Solidarit%C3%A9%20insertion%20et%20%C3%A9galit%C3%A9%20des%20chances.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Programme 137 : 106 279 485 € de CP 2027 (LFI 2026 : 98 647 590 €, +7,74 %)",
+    "quote": "137 – Égalité entre les femmes et les hommes 98 647 590 106 279 485 +7,74 % 98 647 590 106 279 485 +7,74 %"
+   }
+  },
+  {
+   "id": "credits-france-2030",
+   "value": 3.99987,
+   "label": "3 999,9 M€ de crédits de paiement de la mission « Investir pour la France de 2030 » au PLF 2027 (4 397,8 M€ en LFI 2026), aucune autorisation d'engagement nouvelle",
+   "source": {
+    "title": "PAP 2027, mission Investir pour la France de 2030 : récapitulation des crédits par programme et action (p. 15)",
+    "publisher": "Secrétariat général pour l'investissement, PAP annexé au PLF 2027 (Assemblée nationale)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128240/file/PAP%202027%20-%20Investir%20pour%20la%20France%20de%202030.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "CP 2027 de la mission : 3 999 870 000 € (LFI 2026 : 4 397 829 332 €, -9,05 %) ; AE 2027 : 0",
+    "quote": "Totaux 450 000 000 -100,00 % 4 397 829 332 3 999 870 000 -9,05 %"
+   }
+  },
+  {
+   "id": "credits-integration",
+   "value": 0.363889,
+   "label": "363,9 M€ de crédits de paiement du programme 104 « Intégration et accès à la nationalité française » au PLF 2027",
+   "source": {
+    "title": "PAP 2027, mission Immigration, asile et intégration : programme 104, éléments de synthèse du programme (p. 74)",
+    "publisher": "Ministère de l'intérieur, PAP annexé au PLF 2027",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128237/file/PAP%202027%20-%20Immigration%20asile%20et%20int%C3%A9gration.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Programme 104, total des CP 2027 : 363 889 193 € (dernière valeur de la ligne ; les trois premières sont les AE)",
+    "quote": "Total 0 363 974 858 363 974 858 0 363 889 193 363 889 193"
+   }
+  },
+  {
+   "id": "credits-justice-judiciaire",
+   "value": 4.813406,
+   "label": "4 813,4 M€ de crédits de paiement du programme 166 « Justice judiciaire » au PLF 2027, titre 2 compris",
+   "source": {
+    "title": "PAP 2027, mission Justice : programme 166, éléments de synthèse du programme (p. 54)",
+    "publisher": "Ministère de la justice, PAP annexé au PLF 2027",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128243/file/PAP%202027%20-%20Justice.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Programme 166, total des CP 2027 : 4 813 406 204 € (dont 3 311 159 651 € de titre 2)",
+    "quote": "Total 3 311 159 651 1 450 707 150 4 761 866 801 3 311 159 651 1 502 246 553 4 813 406 204"
+   }
+  },
+  {
+   "id": "credits-lutte-immigration-irreguliere",
+   "value": 0.314459,
+   "label": "314,5 M€ de crédits de paiement de l'action 03 « Lutte contre l'immigration irrégulière » (programme 303) au PLF 2027",
+   "source": {
+    "title": "PAP 2027, mission Immigration, asile et intégration : programme 303, éléments de synthèse du programme (p. 37)",
+    "publisher": "Ministère de l'intérieur, PAP annexé au PLF 2027",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128237/file/PAP%202027%20-%20Immigration%20asile%20et%20int%C3%A9gration.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Action 03 du programme 303, CP 2027 : 314 459 351 € (dernière valeur de la ligne)",
+    "quote": "03 – Lutte contre l'immigration irrégulière 0 273 867 619 273 867 619 0 314 459 351 314 459 351"
+   }
+  },
+  {
+   "id": "credits-pjj",
+   "value": 1.173356,
+   "label": "1 173,4 M€ de crédits de paiement du programme 182 « Protection judiciaire de la jeunesse » au PLF 2027, titre 2 compris",
+   "source": {
+    "title": "PAP 2027, mission Justice : programme 182, éléments de synthèse du programme (p. 154)",
+    "publisher": "Ministère de la justice, PAP annexé au PLF 2027",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128243/file/PAP%202027%20-%20Justice.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Programme 182, total des CP 2027 : 1 173 355 630 € (dont 728 284 568 € de titre 2)",
+    "quote": "Total 728 284 568 466 747 196 1 195 031 764 728 284 568 445 071 062 1 173 355 630"
+   }
+  },
+  {
+   "id": "credits-politique-de-la-ville",
+   "value": 0.619067,
+   "label": "619,1 M€ de crédits de paiement du programme 147 « Politique de la ville » au PLF 2027",
+   "source": {
+    "title": "PAP 2027, mission Cohésion des territoires : programme 147, éléments de synthèse du programme (p. 195)",
+    "publisher": "Ministère chargé de la ville, PAP annexé au PLF 2027",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Programme 147, total des CP 2027 : 619 066 960 € (dernière valeur de la ligne)",
+    "quote": "Total 19 143 320 599 923 640 619 066 960 19 143 320 599 923 640 619 066 960"
+   }
+  },
+  {
+   "id": "credits-prime-activite-rsa",
+   "value": 12.972592,
+   "label": "12 972,6 M€ de crédits de paiement de l'action 11 « Prime d'activité et autres dispositifs » (programme 304) au PLF 2027",
+   "source": {
+    "title": "PAP 2027, mission Solidarité, insertion et égalité des chances : programme 304, éléments de synthèse du programme (p. 38)",
+    "publisher": "Ministère chargé des solidarités (annexe au projet de loi de finances pour 2027)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128278/file/PAP%202027%20-%20Solidarit%C3%A9%20insertion%20et%20%C3%A9galit%C3%A9%20des%20chances.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Action 11 du programme 304, CP 2027 : 12 972 591 939 € (dernière valeur de la ligne), dont 10,7 Md€ de prime d'activité",
+    "quote": "11 – Prime d'activité et autres dispositifs 0 12 972 591 939 12 972 591 939 0 12 972 591 939 12 972 591 939"
+   }
+  },
+  {
+   "id": "credits-remunerations-enseignement-scolaire",
+   "value": 49.853359,
+   "label": "49 853,4 M€ de rémunérations d'activité de la mission Enseignement scolaire au PLF 2027 : somme des lignes « 21 – Rémunérations d'activité » de ses six programmes, le PAP ne publiant pas de total pour la mission",
+   "source": {
+    "title": "PAP 2027, mission Enseignement scolaire : présentation des crédits par titre et catégorie des programmes 140 (p. 46), 141 (p. 93), 230 (p. 131), 139 (p. 186), 214 (p. 238) et 143 (p. 306)",
+    "publisher": "Ministère de l'éducation nationale et ministère de l'agriculture (PAP annexé au PLF 2027)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128234/file/PAP%202027%20-%20Enseignement%20scolaire.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Catégorie 21 au PLF 2027 (seconde valeur de chaque ligne ; la première est la LFI 2026) : P140 15 443 841 590 € + P141 22 562 301 548 € + P139 5 814 576 148 € + P143 724 651 385 € + P230 3 949 496 793 € + P214 1 358 491 528 € = 49 853 358 992 € ; la citation est la ligne du programme 141, la plus grosse",
+    "quote": "21 – Rémunérations d’activité 22 425 488 663 22 562 301 548"
+   }
+  },
+  {
+   "id": "credits-universites-recherche",
+   "value": 24.217145,
+   "label": "24 217,1 M€ de crédits de paiement des programmes 150 (15 786,1 M€) et 172 (8 431,1 M€) au PLF 2027 : somme de deux lignes du PAP, aucun total commun publié",
+   "source": {
+    "title": "PAP 2027, mission Recherche et enseignement supérieur : programme 150, éléments de synthèse (p. 69) ; programme 172, éléments de synthèse (p. 185)",
+    "publisher": "Ministère de l'enseignement supérieur et de la recherche (PAP annexé au PLF 2027)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128257/file/PAP%202027%20-%20Recherche%20et%20enseignement%20sup%C3%A9rieur.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "CP 2027 : programme 150, 15 786 054 527 € (dernière valeur de la ligne « Total » p. 69 ; les trois premières sont les AE) ; programme 172, 8 431 090 298 € (« 8 556 290 955 € en autorisations d’engagement (AE) et 8 431 090 298 € en crédits de paiement (CP) », p. 185) ; total 24 217 144 825 € ; la citation est la ligne du programme 150, le plus gros",
+    "quote": "Total 456 113 658 15 186 979 917 15 643 093 575 456 113 658 15 329 940 869 15 786 054 527"
+   }
+  },
+  {
+   "id": "csg-activite",
+   "value": 111.9,
+   "label": "111,9 Md€ de CSG sur les revenus d'activité en 2027 (prévision de la CCSS d'octobre 2026, tous affectataires)",
+   "source": {
+    "title": "Les comptes de la Sécurité sociale : rapport à la Commission des comptes de la Sécurité sociale, octobre 2026, fiche 1.3 « La CSG », tableau 1 « Rendement de la CSG par assiette, tous affectataires » (p. 55)",
+    "publisher": "Commission des comptes de la Sécurité sociale (direction de la sécurité sociale)",
+    "kind": "administration",
+    "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "111 880 M€ en 2027 (colonne « 2027 (p) », en millions d'euros)",
+    "quote": "2024 % 2025 % 2026 (p) % 2027 (p) % CSG sur les revenus d'activité 108 175 3,3 110 670 2,3 107 361 -3,0 111 880 4,2"
+   }
+  },
+  {
+   "id": "csg-capital",
+   "value": 19.2,
+   "label": "19,2 Md€ de CSG sur les revenus et produits du capital en 2027 (patrimoine et placements, prévision de la CCSS d'octobre 2026, tous affectataires)",
+   "source": {
+    "title": "Les comptes de la Sécurité sociale : rapport à la Commission des comptes de la Sécurité sociale, octobre 2026, fiche 1.3 « La CSG », tableau 1 « Rendement de la CSG par assiette, tous affectataires » (p. 55)",
+    "publisher": "Commission des comptes de la Sécurité sociale (direction de la sécurité sociale)",
+    "kind": "administration",
+    "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "19 171 M€ en 2027 (colonne « 2027 (p) »), dont 7 602 M€ sur le patrimoine et 11 569 M€ sur les placements",
+    "quote": "CSG sur les revenus ou produits du capital 17 627 6,1 17 590 -0,2 18 652 6,0 19 171 2,8"
+   }
+  },
+  {
+   "id": "csg-ensemble",
+   "value": 162.3,
+   "label": "162,3 Md€ de CSG brute en 2027, toutes assiettes (prévision de la CCSS d'octobre 2026, tous affectataires)",
+   "source": {
+    "title": "Les comptes de la Sécurité sociale : rapport à la Commission des comptes de la Sécurité sociale, octobre 2026, fiche 1.3 « La CSG », tableau 1 « Rendement de la CSG par assiette, tous affectataires » (p. 55)",
+    "publisher": "Commission des comptes de la Sécurité sociale (direction de la sécurité sociale)",
+    "kind": "administration",
+    "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "162 329 M€ de CSG brute en 2027 (colonne « 2027 (p) »), jeux compris (724 M€)",
+    "quote": "CSG brute 153 800 3,9 157 207 2,2 156 087 -0,7 162 329 4,0"
+   }
+  },
+  {
+   "id": "csg-pensions-taux-plein",
+   "value": null,
+   "label": "Aucune ligne publiée pour le seul taux de 8,3 % : la CSG sur les retraites, tous taux confondus (0 à 8,3 %), atteint 27,6 Md€ en 2027 (prévision de la CCSS d'octobre 2026, avant mesures du PLFSS 2027). Cette ligne est plus large que le levier et ne compte pas les pensions d'invalidité ; elle n'est donc pas retenue comme valeur",
+   "source": {
+    "title": "Les comptes de la Sécurité sociale : rapport à la Commission des comptes de la Sécurité sociale, octobre 2026, fiche 1.3 « La CSG », tableau 3 « Décomposition de l'évolution de la CSG sur revenus de remplacement par assiette » (p. 55)",
+    "publisher": "Commission des comptes de la Sécurité sociale (direction de la sécurité sociale)",
+    "kind": "administration",
+    "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "27 558 M€ de CSG sur les retraites en 2027 (colonne « 2027 (p) », avant mesures du PLFSS 2027), tous taux ; pas de ligne publiée pour le seul taux de 8,3 % ; contexte, pas retenu comme valeur",
+    "quote": "CSG sur revenus de remplacement 27 353 4,6 28 259 3,3 29 370 3,9 30 555 4,0 Retraites 24 812 4,7 25 439 2,5 26 504 4,2 27 558 4,0"
+   }
+  },
+  {
+   "id": "csg-remplacement",
+   "value": 30.6,
+   "label": "30,6 Md€ de CSG sur les revenus de remplacement en 2027 (retraites, invalidité, indemnités journalières, chômage ; prévision de la CCSS d'octobre 2026, tous affectataires)",
+   "source": {
+    "title": "Les comptes de la Sécurité sociale : rapport à la Commission des comptes de la Sécurité sociale, octobre 2026, fiche 1.3 « La CSG », tableau 1 « Rendement de la CSG par assiette, tous affectataires » (p. 55)",
+    "publisher": "Commission des comptes de la Sécurité sociale (direction de la sécurité sociale)",
+    "kind": "administration",
+    "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "30 555 M€ en 2027 (colonne « 2027 (p) »)",
+    "quote": "CSG sur les revenus de remplacement 27 353 4,6 28 259 3,3 29 370 3,9 30 555 4,0"
+   }
+  },
+  {
+   "id": "cultes-alsace-moselle-emplois",
+   "value": null,
+   "label": "Aucune ligne publiée : la paie des 1 141 personnels des cultes d'Alsace-Moselle est comprise dans le titre 2 de l'action 01 du programme 216 (l'action 07 « Cultes et laïcité » n'a ni emplois ni titre 2). Ordre de grandeur calculé, qui n'est pas une ligne publiée : 1 141,05 ETPT × 26 354 € ≈ 0,03 Md€ de rémunérations d'activité",
+   "source": {
+    "title": "PAP 2027, mission Administration générale et territoriale de l'État, programme 216 : coûts moyens d'entrée, globaux et de sortie par catégorie d'emplois (p. 111)",
+    "publisher": "Ministère de l'intérieur (PAP annexé au PLF 2027)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128203/file/PAP%202027%20-%20Administration%20g%C3%A9n%C3%A9rale%20et%20territoriale%20de%20l%27Etat.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Coût global de 26 354 € de rémunérations d'activité par emploi (32 335 € chargé hors CAS) ; avec les 1 141,05 ETPT de la p. 107, environ 30 M€ (calcul indicatif, pas retenu comme valeur)",
+    "quote": "Personnels des cultes 28 649 32 335 34 272 23 331 26 354 27 944"
+   }
+  },
+  {
+   "id": "cvae-taux",
+   "value": 4.11,
+   "label": "4,11 Md€ de cotisation sur la valeur ajoutée des entreprises prévus en 2027 à l'état A du PLF 2027 (produit brut)",
+   "source": {
+    "title": "Projet de loi de finances pour 2027 (n° 3210), état A « Voies et moyens pour 2027 », p. 231",
+    "publisher": "Gouvernement, projet de loi de finances pour 2027 déposé à l'Assemblée nationale",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
+    "date": "2026-10-01",
+    "accessedAt": "2026-10-18",
+    "figure": "Ligne 1497 : 4 110 000 000 € évalués pour 2027",
+    "quote": "1497 Cotisation sur la valeur ajoutée des entreprises 4 110 000 000"
+   }
+  },
+  {
+   "id": "defense",
+   "value": 63.4,
+   "label": "63,4 Md€ de crédits de paiement de la mission Défense hors pensions au PLF 2027",
+   "source": {
+    "title": "PAP 2027, mission Défense : présentation stratégique de la mission (p. 10)",
+    "publisher": "Ministère des armées (PAP annexé au PLF 2027)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128221/file/PAP%202027%20-%20D%C3%A9fense.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "63,4 Md€ de CP hors pensions en 2027 (78,7 Md€ en AE)",
+    "quote": "le projet de loi de finances (PLF) pour 2027 s’élève à 78,7 Md€ en AE et 63,4 Md€ en CP hors pensions"
+   }
+  },
+  {
+   "id": "depense-allocation-soutien-familial",
+   "value": 3.709,
+   "label": "3 709 M€ d'allocation de soutien familial prévus en 2027 (CCSS octobre 2026, avant les mesures du PLFSS, donc avant le gel ; environ 3 646 M€ après). On garde le chiffre d'avant mesures, comme pour les autres prestations familiales de ce tableau.",
+   "source": {
+    "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 2.6 « Les prestations familiales », tableau 1 « Dépenses de prestations financées par la CNAF » (p. 117 du PDF)",
+    "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+    "kind": "administration",
+    "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Allocation de soutien familial : 3 439 M€ (2025), 3 577 M€ (2026 p), 3 709 M€ (2027 p)",
+    "quote": "Allocation de soutien familial 3 265 3 439 5,3 10% 3 577 4,0 3 709 3,7"
+   }
+  },
+  {
+   "id": "depense-allocations-familiales",
+   "value": 13.407,
+   "label": "13 407 M€ d'allocations familiales prévus en 2027 (CCSS octobre 2026, avant les mesures du PLFSS, donc avant le gel).",
+   "source": {
+    "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 2.6 « Les prestations familiales », tableau 1 « Dépenses de prestations financées par la CNAF » (p. 117 du PDF)",
+    "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+    "kind": "administration",
+    "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Allocations familiales : 13 909 M€ (2025), 13 711 M€ (2026 p), 13 407 M€ (2027 p)",
+    "quote": "Allocations familiales 13 766 13 909 1,0 41% 13 711 -1,4 13 407 -2,2"
+   }
+  },
+  {
+   "id": "depense-assurance-chomage-allocations",
+   "value": 38.7,
+   "label": "38,7 Md€ d'allocations chômage et d'aides en 2027 selon la prévision de l'Unédic de juin 2026 (trajectoire reprise par le PLF 2027, art. 68), sans les cotisations aux caisses de retraite ni les autres dépenses de l'Unédic (47,5 Md€ au total).",
+   "source": {
+    "title": "Situation financière de l'Assurance chômage à horizon 2028 (prévisions financières, 17 juin 2026), p. 10",
+    "publisher": "Unédic",
+    "kind": "organisme-gestionnaire (règle des enveloppes : dépense d'un régime publiée par l'organisme)",
+    "url": "https://www.unedic.org/storage/uploads/2026/06/17/situation-financiere-assurance-chomage-a-horizon-2028-juin-2026_uid_6a32884bd3186.pdf",
+    "date": "2026-06-17",
+    "accessedAt": "2026-10-18",
+    "figure": "dépenses d'allocations et d'aides : près de 38,7 Md€ en 2027 (37,2 Md€ en 2025)",
+    "quote": "L’augmentation se poursuivrait en 2027 pour atteindre près de 38,7 Md€, alimentées par l’inflation salariale"
+   }
+  },
+  {
+   "id": "depense-complement-mode-de-garde",
+   "value": 7.69,
+   "label": "7 690 M€ de complément mode de garde prévus en 2027 (CCSS octobre 2026, avant les mesures du PLFSS ; cotisations prises en charge comprises).",
+   "source": {
+    "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 2.6 « Les prestations familiales », tableau 1 « Dépenses de prestations financées par la CNAF » (p. 117 du PDF)",
+    "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+    "kind": "administration",
+    "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Complément mode de garde : 7 372 M€ (2025), 7 546 M€ (2026 p), 7 690 M€ (2027 p)",
+    "quote": "Complément mode de garde 7 300 7 372 1,0 22% 7 546 2,4 7 690 1,9"
+   }
+  },
+  {
+   "id": "depense-conge-naissance",
+   "value": 0.4,
+   "label": "400 M€ en 2027 : ce que la CNAF verse à la CNAM pour le congé de naissance. Le texte de la CCSS dit 0,3 Md€ en 2026 et +0,1 Md€ en 2027 ; la ligne des prestations du tableau de la CNAM affiche encore 300 M€ en 2027.",
+   "source": {
+    "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 4.3 « Les comptes de la CNAM – Maladie », tableau 2 « Charges et produits nets de la CNAM-Maladie », produits (p. 173 du PDF)",
+    "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+    "kind": "administration",
+    "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "transfert de la CNAF au titre du congé de naissance : 300 M€ (2026 p), 400 M€ (2027 p)",
+    "quote": "dont transfert au titre du congé de naissance 300 400"
+   }
+  },
+  {
+   "id": "depense-fiscale-heures-supplementaires",
+   "value": 5.69,
+   "label": "5,69 Md€ en 2027, la somme de deux lignes du PAP Travail 2027 : la dépense fiscale n° 120146 (impôt sur le revenu, 2 273 M€, ordre de grandeur, p. 111, « 81 quater 2 212 2 219 2 273 ») et les crédits de la sous-action 05.02 « Exonérations TEPA » qui compensent les cotisations (3 416,8 M€, p. 18). Aucune ligne ne publie le total à elle seule.",
+   "source": {
+    "title": "PAP 2027, mission Travail, emploi et administration des ministères sociaux : sous-action 05-02 « Exonérations TEPA » (p. 18 du PDF) ; dépense fiscale n° 120146 (p. 111)",
+    "publisher": "Gouvernement (annexe au PLF 2027)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128284/file/PAP%202027%20-%20Travail%20emploi%20et%20administration%20des%20minist%C3%A8res%20sociaux.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Exonérations TEPA (cotisations) : 3 416 813 623 € en 2027 ; plus l'exonération d'impôt sur le revenu : 2 273 M€ en 2027 ; total 5,69 Md€ (calcul)",
+    "quote": "05-02 – Exonérations TEPA 3 324 940 799 3 416 813 623 +2,76 % […] code général des impôts : 81 quater 2 212 2 219 2 273"
+   }
+  },
+  {
+   "id": "depense-prepare",
+   "value": 0.652,
+   "label": "652 M€ d'allocations versées pendant le congé parental (CLCA, PreParE) prévus en 2027 (CCSS octobre 2026, avant les mesures du PLFSS, donc avant le gel).",
+   "source": {
+    "title": "Les comptes de la Sécurité sociale, octobre 2026, fiche 2.6 « Les prestations familiales », tableau 1 « Dépenses de prestations financées par la CNAF » (p. 117 du PDF)",
+    "publisher": "Direction de la sécurité sociale (rapport à la Commission des comptes de la Sécurité sociale)",
+    "kind": "administration",
+    "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Allocations versées pendant le congé parental (CLCA, PreParE) : 687 M€ (2025), 659 M€ (2026 p), 652 M€ (2027 p)",
+    "quote": "Allocations versées pendant le congé parental (CLCA, Prepare) 715 687 -3,9 2% 659 -4,0 652 -1,2"
+   }
+  },
+  {
+   "id": "dmtg-tranche-20",
+   "value": null,
+   "label": "Aucun document ne publie ce que rapporte la seule tranche à 20 % : ce levier n'a pas de taille de ligne. Le total des droits de mutation à titre gratuit (22,03 Md€ à l'état A du PLF 2027) couvre toutes les tranches et tous les liens de parenté et ne peut pas en tenir lieu. Le levier se range donc après les lignes publiées, selon son effet atteignable : passer de 20 à 15 % coûterait 1,2 Md€ (microsimulation de la DG Trésor reprise par le CPO, tarif 2025).",
+   "source": {
+    "title": "Corriger les principales distorsions de l'imposition du patrimoine (décembre 2025), tableau n° 12 « tarif des droits applicables en ligne directe » (p. 180 ; p. 192 du PDF)",
+    "publisher": "Conseil des prélèvements obligatoires, d'après la microsimulation de la DG Trésor",
+    "kind": "organe-independant",
+    "url": "https://www.ccomptes.fr/sites/default/files/2025-11/20251201-Corriger-les-principales-distorsions-de-l-imposition-du-patrimoine.pdf",
+    "date": "2025-12",
+    "accessedAt": "2026-10-18",
+    "figure": "Part nette taxable de 15 932 € à 552 324 € : de 20 % à 19 %, 0,2 Md€ ; de 20 % à 15 %, 1,2 Md€. Aucun rendement publié pour la tranche seule.",
+    "quote": "Comprise entre 15 932 € et 552 324 € 20 19 0,2 15 1,2"
+   }
+  },
+  {
+   "id": "dmtg-tranche-45",
+   "value": 0,
+   "label": "Pas de taille de ligne : le produit de la seule tranche à 45 % n'est publié nulle part. Les 22,0 Md€ de droits de mutation à titre gratuit prévus en 2027 (donations 5,0 et successions 17,0 Md€) couvrent toutes les tranches et toutes les parentés. Cette ligne est bien plus large et ne sert pas à classer ce levier.",
+   "source": {
+    "title": "Projet de loi de finances pour 2027 (n° 3210), état A, lignes 1705 et 1706 (p. 231)",
+    "publisher": "Gouvernement (Assemblée nationale)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
+    "date": "2026-10-01",
+    "accessedAt": "2026-10-18",
+    "figure": "Donations : 5 009 335 142 € ; successions : 17 019 928 378 € ; total 22 029 263 520 € prévus en 2027 (calcul). Ensemble des droits, pas la tranche à 45 %",
+    "quote": "1705 Mutations à titre gratuit entre vifs (donations) 5 009 335 142 1706 Mutations à titre gratuit par décès 17 019 928 378"
+   }
+  },
+  {
+   "id": "dutreil-exoneration",
+   "value": 3.8,
+   "label": "3,8 Md€ : coût prévu en 2027 de l'exonération partielle du pacte Dutreil (dépense fiscale n° 520110, CGI art. 787 B et 787 C), donné comme un ordre de grandeur au PAP 2027 Économie.",
+   "source": {
+    "title": "PAP 2027, mission Économie : dépense fiscale n° 520110 (p. 38)",
+    "publisher": "Gouvernement (annexe au PLF 2027)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128228/file/PAP%202027%20-%20Economie.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "3 800 M€ en 2025, en 2026 et en 2027 (fiabilité : ordre de grandeur)",
+    "quote": "Fiabilité : Ordre de grandeur - Création : 1999 - Dernière modification : 2024 - Dernière incidence budgétaire : dépense fiscale non bornée - Fin du fait générateur : dépense fiscale non bornée - code général des impôts : 787 B, 787 C 3 800 3 800 3 800"
+   }
+  },
+  {
+   "id": "effectifs-publics",
+   "value": 247.557,
+   "label": "247,6 Md€ de salaires et traitements bruts versés par les administrations publiques en 2025 (Insee). Le chiffre est hors cotisations des employeurs, comme le chiffrage du levier ; il atteint 370,0 Md€ cotisations comprises. C'est la dernière année publiée, et la même masse que pour le point d'indice.",
+   "source": {
+    "title": "Administrations publiques en 2025 (comptes nationaux annuels, base 2020), tableau 7.301 « Compte des administrations publiques (S13) »",
+    "publisher": "Insee",
+    "kind": "administration",
+    "url": "https://www.insee.fr/fr/statistiques/8988833",
+    "date": "2026-08-28",
+    "accessedAt": "2026-10-18",
+    "figure": "Salaires et traitements bruts (D11) des APU : 245,586 Md€ en 2024, 247,557 Md€ en 2025. Rémunération des salariés (D1) : 370,012 Md€ en 2025, dont cotisations sociales à la charge des employeurs (D12) : 122,455 Md€",
+    "quote": "D11 Salaires et traitements bruts […] 245.586 247.557"
+   }
+  },
+  {
+   "id": "forfait-social-taux",
+   "value": 6.756,
+   "label": "6 756 M€ : produit du forfait social prévu en 2027, avant les mesures du PLFSS (rapport à la CCSS d'octobre 2026).",
+   "source": {
+    "title": "Les comptes de la Sécurité sociale, octobre 2026, chapitre « Les recettes », tableau 2 (p. 61)",
+    "publisher": "Direction de la sécurité sociale (rapport à la CCSS)",
+    "kind": "administration",
+    "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Forfait social : 6 300 M€ (2024), 6 552 (2025), 6 629 (2026 p), 6 756 (2027 p)",
+    "quote": "Forfait social 6 300 -0,9 6 552 4,0 6 629 1,2 6 756 1,9"
+   }
+  },
+  {
+   "id": "france-services-espaces",
+   "value": 0.0844,
+   "label": "84,4 M€ (en AE et en CP) de crédits du programme 112 pour France services en 2027. N'y figure pas la part FNFS versée par les partenaires, rattachée plus tard par fonds de concours.",
+   "source": {
+    "title": "PAP 2027, mission Cohésion des territoires, programme 112, dépenses d'intervention (p. 167)",
+    "publisher": "Ministère chargé de l'aménagement du territoire (PAP annexé au PLF 2027)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "France services : 84,4 M€ en AE et CP en 2027",
+    "quote": "Amélioration de l’accès à un socle essentiel de services à la population, France services : 84,4 M€ en AE et CP"
+   }
+  },
+  {
+   "id": "ifi-bareme",
+   "value": 3.081,
+   "label": "3,08 Md€ d'impôt sur la fortune immobilière prévus au PLF 2027 (état A, ligne 1406).",
+   "source": {
+    "title": "Projet de loi de finances pour 2027 (n° 3210), état A, ligne 1406 (p. 230)",
+    "publisher": "Gouvernement (Assemblée nationale)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
+    "date": "2026-10-01",
+    "accessedAt": "2026-10-18",
+    "figure": "Impôt sur la fortune immobilière : 3 080 879 729 € prévus en 2027",
+    "quote": "1406 Impôt sur la fortune immobilière 3 080 879 729"
+   }
+  },
+  {
+   "id": "indemnites-journalieres",
+   "value": 12.747,
+   "label": "12 747 M€ d'indemnités journalières maladie de la CNAM prévus en 2027, avant les mesures du PLFSS. Hors indemnités maternité et paternité, hors accidents du travail.",
+   "source": {
+    "title": "Les comptes de la Sécurité sociale, octobre 2026, tableau 2 « Charges et produits nets de la CNAM-Maladie » (p. 171)",
+    "publisher": "Direction de la sécurité sociale (rapport à la CCSS)",
+    "kind": "administration",
+    "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Indemnités journalières (prestations légales maladie, soins de ville) : 11 775 M€ (2024), 11 998 (2025), 12 087 (2026 p), 12 747 (2027 p)",
+    "quote": "Indemnités journalières 11 775 7,5 11 998 1,9 12 087 0,7 12 747 5,5"
+   }
+  },
+  {
+   "id": "ir-credits-reductions",
+   "value": 14.623,
+   "label": "14,6 Md€ de réductions et crédits d'impôt sur le revenu en 2026 : c'est leur coût en dépenses fiscales, donné par le tome II des Voies et moyens du PLF 2026. Le tome II du PLF 2027 n'est pas publié sur le site de l'Assemblée, qui le cite sans lien. Le périmètre est plus large que celui de la simulation de l'IPP (1,1 Md€ pour un rabot de 10 %).",
+   "source": {
+    "title": "Évaluation des voies et moyens, tome II : dépenses fiscales, annexe au PLF 2026, tableau « Dépenses fiscales par impôt » (p. 16)",
+    "publisher": "Direction de la législation fiscale (annexe au PLF 2026)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087933/file/Voies_et_moyens_Tome_2_2026.pdf",
+    "date": "2025-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Impôt sur le revenu, dont réduction et crédit d'impôt : 14 140 M€ (2024), 15 076 (2025), 14 623 (2026)",
+    "quote": "dont réduction et crédit d’impôt 14 140 15 076 14 623"
+   }
+  },
+  {
+   "id": "ir-indexation-bareme",
+   "value": 102.5,
+   "label": "102,5 Md€ d'impôt sur le revenu net au PLF 2027 (recettes nettes de l'État, après remboursements et dégrèvements). La revalorisation des seuils joue sur l'impôt calculé au barème ; la ligne compte aussi l'impôt forfaitaire sur les revenus du capital (prélèvement forfaitaire unique), qu'elle ne touche pas, sauf option pour le barème.",
+   "source": {
+    "title": "Budget 2027 : dossier de presse (PLF et PLFSS pour 2027), tableau « Solde général du budget de l'État », p. 55 du PDF",
+    "publisher": "Ministères économiques et financiers et ministères sociaux (Direction du budget, Direction de la sécurité sociale)",
+    "kind": "administration",
+    "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2027/DP_Budget-2027.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Impôt sur le revenu net : 102,5 Md€ au PLF 2027 (colonnes : exécution 2025, LFI 2026, révisé 2026, PLF 2027)",
+    "quote": "En milliards d’euros, comptabilité budgétaire, format courant Exécution 2025 LFI 2026 Révisé 2026 PLF 2027 […] dont impôt sur le revenu 94,9 99,8 96,8 102,5"
+   }
+  },
+  {
+   "id": "ir-taux-bareme",
+   "value": 102.5,
+   "label": "102,5 Md€ d'impôt sur le revenu net au PLF 2027 (recettes nettes de l'État). Le levier porte sur les quatre taux du barème ; la ligne compte aussi l'impôt forfaitaire sur les revenus du capital (prélèvement forfaitaire unique), que ces taux ne touchent pas, sauf option pour le barème. Même base que la sous-indexation.",
+   "source": {
+    "title": "Budget 2027 : dossier de presse (PLF et PLFSS pour 2027), tableau « Solde général du budget de l'État », p. 55 du PDF",
+    "publisher": "Ministères économiques et financiers et ministères sociaux (Direction du budget, Direction de la sécurité sociale)",
+    "kind": "administration",
+    "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2027/DP_Budget-2027.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Impôt sur le revenu net : 102,5 Md€ au PLF 2027",
+    "quote": "En milliards d’euros, comptabilité budgétaire, format courant Exécution 2025 LFI 2026 Révisé 2026 PLF 2027 […] dont impôt sur le revenu 94,9 99,8 96,8 102,5"
+   }
+  },
+  {
+   "id": "ir-tranches-hautes",
+   "value": null,
+   "label": "Non renseigné : aucune source publiée ne donne ce que rapportent les seules tranches à 41 % et 45 %. Ni les évaluations préalables de l'article 2 du PLF 2027 ni la DGFiP ne publient un produit par tranche ; les derniers chiffres trouvés datent de 2015. Prendre tout l'impôt sur le revenu (102,5 Md€ au PLF 2027) gonflerait ce levier.",
+   "source": null
+  },
+  {
+   "id": "ir-taux-45",
+   "value": null,
+   "label": "Non renseigné : aucune source publiée ne donne ce que rapporte la seule tranche à 45 %. Les statistiques récentes de la DGFiP comptent les foyers par tranche, pas l'impôt qu'ils paient ; les derniers chiffres trouvés datent de 2015. Prendre tout l'impôt sur le revenu (102,5 Md€) gonflerait ce levier.",
+   "source": null
+  },
+  {
+   "id": "minima-sociaux-revalorisation",
+   "value": 29,
+   "label": "29,0 Md€ d'allocations versées en 2023 pour le RSA (12,2), l'AAH (12,7) et le minimum vieillesse (4,1). Somme de trois lignes d'un tableau de la DREES (calcul) ; les 31,6 Md€ de l'ensemble des minima comptent aussi l'ASS et d'autres aides que le levier ne touche pas.",
+   "source": {
+    "title": "Minima sociaux et prestations de solidarité, édition 2025, fiche 07 « Les dépenses d'allocations », tableau 1",
+    "publisher": "DREES",
+    "kind": "administration",
+    "url": "https://www.drees.solidarites-sante.gouv.fr/sites/default/files/2025-12/MS2025%20-%20Fiche%2007%20-%20Les%20d%C3%A9penses%20d%27allocations.pdf",
+    "date": "2025-12",
+    "accessedAt": "2026-10-18",
+    "figure": "Dépenses 2023 : RSA 12 218 M€, AAH 12 717 M€, minimum vieillesse 4 109 M€, soit 29 044 M€ (somme, calcul)",
+    "quote": "RSA1 1 849 700 42,4 12 218 -2,6 38,6 549 AAH2 1 352 800 31,0 12 717 +1,3 40,2 811 Minimum vieillesse (ASV et Aspa)3 723 000 16,6 4 109 +2,6 13,0 484"
+   }
+  },
+  {
+   "id": "ondam",
+   "value": 278.7,
+   "label": "278,7 Md€ d'Ondam 2027 au PLFSS 2027 (contre 273,3 Md€ en 2026 révisé)",
+   "source": {
+    "title": "Budget 2027 : dossier de presse (PLF et PLFSS pour 2027), tableau « Objectif national de dépenses d'assurance maladie », p. 61 du PDF",
+    "publisher": "Ministères économiques et financiers et ministères sociaux (Direction du budget, Direction de la sécurité sociale)",
+    "kind": "administration",
+    "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/PLFSS/2027/DP_Budget-2027.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Ondam 2027 : 278,7 Md€ (révisé 2026 : 273,3 Md€)",
+    "quote": "En milliards d’euros Révisé 2026 PLFSS 2027 […] Objectif national de dépenses d'assurance maladie (ONDAM) 273,3 278,7"
+   }
+  },
+  {
+   "id": "places-creche",
+   "value": 8.354,
+   "label": "8,354 Md€ de dépense publique pour l'accueil collectif (crèches) en 2023, tous financeurs, pour 495 600 places",
+   "source": {
+    "title": "Revue de dépenses relative à l'efficacité des politiques familiales (juin 2026), annexe VII, tableau 9 (p. 44 de l'annexe)",
+    "publisher": "Inspection générale des finances et Inspection générale des affaires sociales",
+    "kind": "administration",
+    "url": "https://igas.gouv.fr/sites/igas/files/2026-08/Revue%20de%20d%C3%A9penses_politiques%20familiales%20%282026%29.pdf",
+    "date": "2026-06",
+    "accessedAt": "2026-10-18",
+    "figure": "Accueil collectif : coût total de 8 354 M€ en 2023 (7 490 M€ en 2019), 495 600 places",
+    "quote": "Tableau 9 : Évolution des dépenses consacrées aux modes d’accueil formel sur la période 2019-2023, coût par place et coût horaire en 2023 […] Accueil collectif 7 490 M€ 8 354 M€ 54 % 495 600 16 856 € 10,17 €"
+   }
+  },
+  {
+   "id": "point-indice",
+   "value": null,
+   "label": "Non renseigné : aucune source publiée ne donne la part de la paie publique indexée sur le point. Les 370,0 Md€ de rémunérations versées par l'ensemble des administrations publiques en 2025 (Insee, cotisations des employeurs comprises) comptent aussi la plupart des primes et les salariés payés hors de la grille de la fonction publique : les prendre gonflerait ce levier.",
+   "source": null
+  },
+  {
+   "id": "prime-activite-revalorisation",
+   "value": 10.7,
+   "label": "10,7 Md€ de crédits de prime d'activité au PLF 2027 (programme 304, action 11), montant non revalorisé",
+   "source": {
+    "title": "PAP 2027, mission Solidarité, insertion et égalité des chances, programme 304, action 11 : 1) La prime d'activité (p. 40)",
+    "publisher": "Gouvernement (PAP annexé au PLF 2027, Assemblée nationale)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128278/file/PAP%202027%20-%20Solidarit%C3%A9%20insertion%20et%20%C3%A9galit%C3%A9%20des%20chances.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "Prime d'activité : 10,7 Md€ de crédits en 2027",
+    "quote": "Les crédits inscrits en PLF 2027 au titre de la prime d’activité 2027 s’élèvent à 10,7 Md€."
+   }
+  },
+  {
+   "id": "quotient-familial-plafond",
+   "value": 15.6,
+   "label": "15,6 Md€ : coût du quotient familial et des parts fiscales spécifiques en 2024 (IGF-IGAS, d'après la Cour des comptes). Le plafond ne joue que sur une partie de ce montant.",
+   "source": {
+    "title": "Revue de dépenses relative à l'efficacité des politiques familiales (juin 2026), annexe III, p. 10",
+    "publisher": "Inspection générale des finances et Inspection générale des affaires sociales",
+    "kind": "administration",
+    "url": "https://igas.gouv.fr/sites/igas/files/2026-08/Revue%20de%20d%C3%A9penses_politiques%20familiales%20%282026%29.pdf",
+    "date": "2026-06",
+    "accessedAt": "2026-10-18",
+    "figure": "Coût du quotient familial et des parts fiscales spécifiques : 15,6 Md€ en 2024",
+    "quote": "Enfin, le coût du quotient familial et des parts fiscales spécifiques s’élevait à 15,6 Md€ en 2024"
+   }
+  },
+  {
+   "id": "service-national-appeles",
+   "value": null,
+   "label": "Aucune ligne unique publiée : le PAP Défense 2027 répartit le service national entre la masse salariale des appelés (4 000 ETPT), les infrastructures et les équipements, sans en donner le total.",
+   "source": null
+  },
+  {
+   "id": "tsn-taux",
+   "value": 0.9808,
+   "label": "980,8 M€ de taxe sur les services numériques prévus en 2027 (état A du PLF 2027, ligne 1430)",
+   "source": {
+    "title": "Projet de loi de finances pour 2027, état A, ligne 1430 « Taxe sur les services numériques » (p. 231)",
+    "publisher": "Gouvernement, projet de loi de finances pour 2027 (Assemblée nationale, n° 3210)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf",
+    "date": "2026-10-01",
+    "accessedAt": "2026-10-18",
+    "figure": "980 834 006 € de recette prévue en 2027",
+    "quote": "1430 Taxe sur les services numériques 980 834 006"
+   }
+  },
+  {
+   "id": "tva-taux-intermediaire",
+   "value": null,
+   "label": "Aucun produit publié pour le seul taux de 10 %. Le total de la TVA (215,4 Md€) le placerait à tort en tête : le taux de 10 % ne porte que sur 5 % du chiffre d'affaires taxable (DGFiP, 2023).",
+   "source": {
+    "title": "DGFiP Statistiques n° 27 : La taxe sur la valeur ajoutée en 2023, tableau de l'assiette par taux (p. 3)",
+    "publisher": "Direction générale des finances publiques",
+    "kind": "administration",
+    "url": "https://www.impots.gouv.fr/sites/default/files/media/9_statistiques/0_etudes_et_stats/0_publications/dgfip_statistiques/2024/num27_09/dgfip_stat_27_2024.pdf",
+    "date": "2024-09",
+    "accessedAt": "2026-10-18",
+    "figure": "Taux de 10 % : 309 Md€ de chiffre d'affaires taxable en 2023, soit 5 % du total (une assiette, pas une recette)",
+    "quote": "Taux intermédiaire Produits agricoles, bois de chauffage, travaux d'amélioration du logement, lieux touristiques ou de loisirs 10% 309 -11,3% 5%"
+   }
+  },
+  {
+   "id": "tva-taux-normal",
+   "value": null,
+   "label": "Aucun produit publié pour le seul taux de 20 %. Le total de la TVA (215,4 Md€) le surestimerait : les opérations au taux normal de 20 % représentent 72 % du chiffre d'affaires taxable (DGFiP, 2023).",
+   "source": {
+    "title": "DGFiP Statistiques n° 27 : La taxe sur la valeur ajoutée en 2023, tableau 3 « Décomposition du chiffre d'affaires taxable (2023) » (p. 3)",
+    "publisher": "Direction générale des finances publiques",
+    "kind": "administration",
+    "url": "https://www.impots.gouv.fr/sites/default/files/media/9_statistiques/0_etudes_et_stats/0_publications/dgfip_statistiques/2024/num27_09/dgfip_stat_27_2024.pdf",
+    "date": "2024-09",
+    "accessedAt": "2026-10-18",
+    "figure": "Taux normal de 20 % : 4 105 Md€ de chiffre d'affaires taxable en 2023, soit 72 % du total (une assiette, pas une recette)",
+    "quote": "Taux normal 20% 4 105 1,5% 72%"
+   }
+  },
+  {
+   "id": "tva-taux-reduit",
+   "value": null,
+   "label": "Aucun produit publié pour le seul taux de 5,5 %. Le total de la TVA (215,4 Md€) le placerait à tort en tête : le taux de 5,5 % porte sur 15 % du chiffre d'affaires taxable (DGFiP, 2023).",
+   "source": {
+    "title": "DGFiP Statistiques n° 27 : La taxe sur la valeur ajoutée en 2023, tableau de l'assiette par taux (p. 3)",
+    "publisher": "Direction générale des finances publiques",
+    "kind": "administration",
+    "url": "https://www.impots.gouv.fr/sites/default/files/media/9_statistiques/0_etudes_et_stats/0_publications/dgfip_statistiques/2024/num27_09/dgfip_stat_27_2024.pdf",
+    "date": "2024-09",
+    "accessedAt": "2026-10-18",
+    "figure": "Taux de 5,5 % : 831 Md€ de chiffre d'affaires taxable en 2023, soit 15 % du total (une assiette, pas une recette)",
+    "quote": "Taux réduit Produits alimentaires, hygiènique, équipements handicapés, produits culturels (dont livres), fourniture énergie, cantines scolaires 5,5% 831 15,2% 15%"
+   }
+  },
+  {
+   "id": "tva-tous-taux",
+   "value": 215.4,
+   "label": "215,4 Md€ de TVA nette totale prévus en 2026 pour toutes les administrations (Voies et moyens du PLF 2026). Ce tome n'est pas encore publié pour le PLF 2027, qui ne donne que la part de l'État (107,0 Md€).",
+   "source": {
+    "title": "Évaluation des voies et moyens, tome I, PLF 2026 : TVA, passage à la TVA nette budgétaire (p. 33)",
+    "publisher": "Gouvernement (annexe au PLF 2026, Assemblée nationale)",
+    "kind": "administration",
+    "url": "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1087930/file/PLF%202026%20-%20V%26M%20TI%20-%20Evaluations%20des%20recettes.pdf",
+    "date": "2025-10",
+    "accessedAt": "2026-10-18",
+    "figure": "TVA nette totale (toutes administrations, comptabilité budgétaire) : 210,7 Md€ exécutés en 2024, 210,0 Md€ prévus en 2025, 215,4 Md€ prévus en 2026",
+    "quote": "TVA nette totale (en comptabilité budgétaire) 210,7 210,0 215,4"
+   }
+  },
+  {
+   "id": "age-legal-retraite",
+   "value": 352.2,
+   "label": "352,2 Md€ de pensions de retraite de droit direct versées par les administrations publiques en 2024, régimes de base et complémentaires compris (dernier chiffre publié pour tout le système de retraite ; DREES, comptes de la protection sociale)",
+   "source": {
+    "title": "La protection sociale en France et en Europe en 2024 – Résultats des comptes de la protection sociale, édition 2025, fiche 05 « Le risque vieillesse-survie », p. 54-55",
+    "publisher": "Direction de la recherche, des études, de l'évaluation et des statistiques (DREES)",
+    "kind": "administration",
+    "url": "https://www.drees.solidarites-sante.gouv.fr/sites/default/files/2026-05/CPS2025%20-%20Fiche%2005%20-%20Le%20risque%20vieillesse-survie.pdf",
+    "date": "2026-05",
+    "accessedAt": "2026-10-18",
+    "figure": "pensions de droit direct versées par les administrations publiques (régime général, régimes spéciaux, Agirc-Arrco, État…) : 352,2 Md€ en 2024 (+6,9 %) ; 359,7 Md€ avec les organismes d'assurance et fonds de pension ; réversions des administrations publiques à part (40,9 Md€)",
+    "quote": "De façon plus détaillée, les pensions versées par les administrations publiques (352,2 milliards d’euros), accélèrent en 2024, à +6,9 %, après +5,3 % en 2023."
+   },
+   "note": "L'âge légal joue sur les pensions de droit direct de tout le système de retraite. Selon le Sénat, le haut de la fourchette (1,9 Md€) couvre, outre la sécurité sociale, les régimes complémentaires obligatoires et l'État. Les 314,5 Md€ de la CCSS (2027) ne comptent que les régimes de base et y ajoutent les réversions, sur lesquelles l'âge ne joue pas. Aucun chiffre 2027 n'est publié pour tout le système : on prend le dernier publié (2024), comme le prévoit la règle. La ligne diffère désormais de celle de pensions-revalorisation, qui ne porte que sur les retraites de base."
+  },
+  {
+   "id": "pensions-revalorisation",
+   "value": 314.5,
+   "label": "314,5 Md€ de pensions nettes versées par les régimes de retraite de base en 2027 (prévision de la CCSS d'octobre 2026, avant les mesures du PLFSS 2027)",
+   "source": {
+    "title": "Les comptes de la Sécurité sociale, octobre 2026 (rapport à la Commission des comptes de la Sécurité sociale), fiche 2.5 « Les prestations de retraite », p. 108",
+    "publisher": "Direction de la sécurité sociale",
+    "kind": "administration",
+    "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "pensions nettes des régimes de retraite de base : 314,5 Md€ en 2027, avec la revalorisation légale de +1,7 % au 1er janvier 2027 (avant le gel différencié du PLFSS)",
+    "quote": "Les pensions nettes versées par les régimes de retraite de base ont atteint 297,9 Md€ en 2025 et s’élèveraient à 304,7 Md€ en 2026 puis à 314,5 Md€ en 2027."
+   },
+   "note": "Le PLFSS 2027 lui-même ne publie pas de masse de pensions après mesures, et l'annexe 9 (article 35) n'en donne pas non plus. La différence avec la ligne après mesures est de l'ordre de 4 Md€, sans effet sur l'ordre des leviers."
+  },
+  {
+   "id": "prestations-familiales-revalorisation",
+   "value": 33.9,
+   "label": "33,9 Md€ de prestations légales nettes de la branche famille en 2027 (prévision de la CCSS d'octobre 2026, avant les mesures du PLFSS 2027)",
+   "source": {
+    "title": "Les comptes de la Sécurité sociale, octobre 2026 (rapport à la Commission des comptes de la Sécurité sociale), fiche 2.1, tableau 3 « Répartition des prestations légales nettes par branche », p. 75",
+    "publisher": "Direction de la sécurité sociale",
+    "kind": "administration",
+    "url": "https://www.securite-sociale.fr/files/live/sites/SSFR/files/medias/CCSS/2026/CCSS-octobre-2026_assemble_VDEF.pdf",
+    "date": "2026-10",
+    "accessedAt": "2026-10-18",
+    "figure": "prestations légales famille nettes des régimes de base : 33 896 M€ en 2027 (en millions d'euros ; colonnes 2024, 2025, 2026 (p), 2027 (p)), avant les mesures du PLFSS, revalorisation légale comprise",
+    "quote": "Prestations légales famille nettes 33 785 3,7 33 908 0,4 33 967 0,2 33 896 -0,2"
+   },
+   "note": "Ordre de grandeur cohérent avec la sensibilité DSS du levier (300 M€ par point pour la CNAF). L'AEEH, elle aussi indexée sur la BMAF, est classée dans la branche autonomie (1,8 Md€) et n'est pas comptée ici."
+  },
+  {
+   "id": "impot-societes",
+   "value": null,
+   "label": "non vérifié : 58,5 Md€ d'impôt net sur les sociétés prévus en 2027 au PLF (état A ; 83,9 Md€ avant remboursements et dégrèvements)",
+   "source": null,
+   "note": "ATTENTION : aucun levier d'id « impot-societes » n'existe dans budget-levers.json (ni ailleurs dans le dépôt). La taille est donnée pour un levier sur le taux de l'IS ; elle ne vaut pas pour contribution-exceptionnelle-grandes-entreprises, qui a sa propre ligne. J'ai retenu le net, comme l'IR net de l'état A (102,5 Md€) : l'IS revient en entier à l'État."
+  }
+ ]
+}

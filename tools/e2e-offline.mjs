@@ -118,6 +118,8 @@ const NS = pack.candidates.filter(c => !EXCLUDED.has(c.id)).length
 const STORAGE = `isoloir:${entry.id}`
 /** « Mon profil politique » : seulement pour une élection dont la grille des nuances a un axe */
 const PROFILE = !!pack.election.spectrum?.axis?.length
+// « Faire les comptes » : l'élection a des leviers (src/elections/<id>/budget.ts, ui/budget/load.ts), hors archive
+const COMPTES = !pack.election.archived && existsSync(new URL(`../src/elections/${pack.election.id}/budget.ts`, import.meta.url))
 /** La couleur de chaque bloc de l'axe, celle de la page des candidats : rouge, jaune, bleu */
 /** Un candidat avec une fiche complète (parcours) : la page « candidat » de référence */
 const FICHE = pack.candidates.find(c => c.bio?.length) ?? pack.candidates[0]
@@ -603,7 +605,7 @@ try {
   await page.locator('.topic-fiche').first().waitFor()
   const followed = hashOf(page) === L('/sujets') && (await menuToggle.getAttribute('aria-expanded')) === 'false' && (await menuState())
   const sujetsCurrent = await menuPanel.locator(`a[href="${L('/sujets')}"]`).getAttribute('aria-current')
-  const expectedMenu = [`Les sujets ${L('/sujets')}`, ...(VIDEOS_SHOWN ? [`Les vidéos ${L('/videos')}`] : []), `Les candidats ${L('/candidats')}`, ...(PROFILE ? [`À table ${L('/a-table')}`] : [])].join(' | ')
+  const expectedMenu = [`Les sujets ${L('/sujets')}`, ...(VIDEOS_SHOWN ? [`Les vidéos ${L('/videos')}`] : []), `Les candidats ${L('/candidats')}`, ...(PROFILE ? [`À table ${L('/a-table')}`] : []), ...(COMPTES ? [`Faire les comptes ${L('/comptes')}`] : [])].join(' | ')
   check(
     menuOpened && menuLinks.join(' | ') === expectedMenu && escClosed && outsideClosed && followed && sujetsCurrent === 'page',
     `menu de l’en-tête sur téléphone : ouvert ${menuOpened}, fermé par Échap ${escClosed}, par un clic ailleurs ${outsideClosed}, en suivant « Les sujets » ${followed} (${menuLinks.join(' | ')})`,
@@ -3625,7 +3627,7 @@ try {
   // Le journal des données, entre la Méthode et la Confidentialité, depuis le 17 octobre 2026 (élections qui ont la page)
   // « Installer l'application » (17 octobre 2026) : le même pied, et aucun texte qui dise « feuille »
   const JOURNAL = pack.election.changelog.some(e => e.n)
-  const footScreens = ['/', '/feuille/2', '/resultats', '/proximite', '/candidats', `/candidat/${FICHE.id}`, '/sujets', '/methode', ...(JOURNAL ? ['/journal'] : []), '/confidentialite', '/mentions-legales', '/priorites', '/approfondir', '/partager', '/autre-appareil', '/installer', ...(PROFILE ? ['/profil', '/a-table'] : [])]
+  const footScreens = ['/', '/feuille/2', '/resultats', '/proximite', '/candidats', `/candidat/${FICHE.id}`, '/sujets', '/methode', ...(JOURNAL ? ['/journal'] : []), '/confidentialite', '/mentions-legales', '/priorites', '/approfondir', '/partager', '/autre-appareil', '/installer', ...(PROFILE ? ['/profil', '/a-table'] : []), ...(COMPTES ? ['/comptes/objectif', '/comptes/methode'] : [])]
   const notices = [L('/methode'), ...(JOURNAL ? [L('/journal')] : []), L('/confidentialite'), L('/mentions-legales')]
   const footIssues = []
   for (const path of footScreens) {
@@ -3956,7 +3958,7 @@ try {
   await wp.locator(`.main-nav a[href="${L('/candidats')}"]`).click()
   await wp.locator('.people-panel').first().waitFor()
   check(
-    inlineLinks.join(' | ') === [...(VIDEOS_SHOWN ? ['Les sujets page', 'Les vidéos -', 'Les candidats -'] : ['Les sujets page', 'Les candidats -']), ...(PROFILE ? ['À table -'] : [])].join(' | ') && !toggleShown && hashOf(wp) === L('/candidats'),
+    inlineLinks.join(' | ') === [...(VIDEOS_SHOWN ? ['Les sujets page', 'Les vidéos -', 'Les candidats -'] : ['Les sujets page', 'Les candidats -']), ...(PROFILE ? ['À table -'] : []), ...(COMPTES ? ['Faire les comptes -'] : [])].join(' | ') && !toggleShown && hashOf(wp) === L('/candidats'),
     `grand écran : menu en ligne (${inlineLinks.join(' | ')}), sans bouton « Menu », lien vers les candidats suivi`,
   )
   // Grand écran, la comparaison de trois ou quatre candidats : le tableau complet (la question dans la colonne de
@@ -4443,11 +4445,22 @@ try {
     const pagesWide = [
       '/', '/resultats', '/proximite', '/candidats', `/candidat/${FICHE.id}`, `/comparer/${pack.candidates.slice(0, 4).map(c => c.id).join(',')}`,
       '/partager', '/profil', '/sujets', ...(VIDEOS_SHOWN ? ['/videos'] : []), '/feuille/1', '/approfondir', '/priorites',
-      ...(PROFILE ? ['/a-table'] : []), '/autre-appareil', '/autre-appareil/importer', '/methode', '/confidentialite', '/mentions-legales',
+      ...(PROFILE ? ['/a-table'] : []), ...(COMPTES ? ['/comptes/objectif', '/comptes', '/comptes/effectifs-publics', '/comptes/age-legal-retraite', '/comptes/depenses', '/comptes/budget', '/comptes/methode'] : []), '/autre-appareil', '/autre-appareil/importer', '/methode', '/confidentialite', '/mentions-legales',
       ...(pack.election.changelog.some(e => e.n) ? ['/journal'] : []),
     ]
     const sizesWide = [[1920, 200], [1280, 200], [1024, 200], [768, 200], [390, 200], [320, 200]]
     const wideIssues = []
+    // « Faire les comptes » : un seul titre pour l'objectif et les rayons, et la fiche ouverte en est un autre : chaque
+    // écran se reconnaît à ce qu'il montre (une fiche par emplois, une par options, la grille d'une famille)
+    const READY = {
+      '/comptes/objectif': '.cpt-goals',
+      '/comptes': '.cpt-rail',
+      '/comptes/effectifs-publics': '.cpt-card .cpt-steps',
+      '/comptes/age-legal-retraite': '.cpt-card .cpt-options',
+      '/comptes/depenses': '.cpt-grid',
+      '/comptes/budget': '.cpt-verdict',
+      '/comptes/methode': '.cpt-method',
+    }
     for (const [width, scale] of sizesWide) {
       const c = await browser.newContext({ viewport: { width, height: 800 }, reducedMotion: 'reduce' })
       await c.addInitScript(s => Object.entries(s).forEach(([k, v]) => localStorage.setItem(k, v)), saved)
@@ -4457,13 +4470,20 @@ try {
       for (const path of pagesWide) {
         await p.goto(U(path))
         // La page est là quand son titre a remplacé celui de la précédente (les écrans chargés à la demande arrivent après)
-        await p
-          .waitForFunction(prev => { const h = document.querySelector('main h1'); return !!h && h.textContent !== prev }, shown, { timeout: 8000 })
-          .catch(() => null)
+        if (READY[path]) {
+          const there = await p.locator(READY[path]).first().waitFor({ timeout: 8000 }).then(() => true, () => false)
+          if (!there) wideIssues.push(`${path} à ${width} px : écran absent (${READY[path]})`)
+        } else
+          await p
+            .waitForFunction(prev => { const h = document.querySelector('main h1'); return !!h && h.textContent !== prev }, shown, { timeout: 8000 })
+            .catch(() => null)
         shown = await p.evaluate(() => document.querySelector('main h1')?.textContent ?? '')
         await p.waitForTimeout(300)
         const extra = await p.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)
         if (extra > 0) wideIssues.push(`${path} à ${width} px et ${scale} % : ${extra} px`)
+        // « Faire les comptes » : un objectif choisi, pour que les leviers et le budget se montrent au lieu de ramener à
+        // l'objectif (les adresses suivantes ne changent que le « # », la page garde son état)
+        if (path === '/comptes/objectif') await p.locator('.cpt-goal-row input').first().check().catch(() => null)
       }
       await c.close()
     }
@@ -4676,6 +4696,61 @@ try {
     check(tableForeign.length === 0, `à table : aucune requête hors du site ni envoi (${tableForeign.slice(0, 3).join(', ') || 'aucune'})`)
     await tc.close()
   }
+  // 10 bis. « Faire les comptes » (#/comptes), hors ligne : l'objectif, une fiche, un cran, le curseur ; le déficit de la
+  // bande suit, rien n'est écrit sur l'appareil, rien ne part ; « Votre budget 2027 » garde le levier réglé
+  if (COMPTES) {
+    const cc = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' })
+    const cp = await cc.newPage()
+    const foreign = []
+    const errors = []
+    cp.on('request', r => {
+      const u = r.url()
+      if (!u.startsWith(base) && !u.startsWith('blob:') && !u.startsWith('data:')) foreign.push(u)
+      if (r.method() !== 'GET') foreign.push(`${r.method()} ${u}`)
+    })
+    cp.on('pageerror', e => errors.push(e.message))
+    await cp.goto(HOME)
+    await cp.evaluate(() => navigator.serviceWorker.ready)
+    await cp.waitForFunction(() => !!navigator.serviceWorker.controller, null, { timeout: 5000 }).catch(() => null)
+    await cc.setOffline(true)
+    const keysBefore = await cp.evaluate(() => JSON.stringify(Object.entries(localStorage).sort()))
+    await cp.goto(U('/comptes'))
+    await cp.locator('.cpt-goals').waitFor({ timeout: 8000 })
+    const firstGoal = hashOf(cp) === L('/comptes/objectif')
+    // La redirection vers l'objectif remplace l'adresse demandée : le retour arrière ramène d'où l'on vient, pas à une
+    // redirection qui renverrait aussitôt à l'objectif
+    await cp.goBack().catch(() => null)
+    await cp.waitForTimeout(300)
+    const backOut = !hashOf(cp).startsWith(L('/comptes'))
+    await cp.goForward().catch(() => null)
+    await cp.locator('.cpt-goals').waitFor({ timeout: 8000 })
+    await cp.locator('.cpt-goal-row').nth(2).click()
+    await cp.locator('.action-bar .btn-primary').click()
+    await cp.locator('.cpt-rail').first().waitFor()
+    const before = (await cp.locator('.cpt-fig').innerText()).replace(/\s+/g, ' ')
+    await cp.locator('.cpt-row .cpt-tile:not(.cpt-tile-more) .cpt-tile-btn').first().click()
+    await cp.locator('.cpt-card').waitFor()
+    await cp.locator('.cpt-steps button').last().click()
+    const afterNotch = (await cp.locator('.cpt-fig').innerText()).replace(/\s+/g, ' ')
+    const range = cp.locator('.cpt-range')
+    let slid = true
+    if (await range.count()) {
+      const v0 = await range.inputValue()
+      await range.focus()
+      await cp.keyboard.press('ArrowLeft')
+      slid = (await range.inputValue()) !== v0
+    }
+    await cp.goto(U('/comptes/budget'))
+    await cp.locator('.cpt-lines').waitFor()
+    const recapRows = await cp.locator('.cpt-lines li:not(.fam)').count()
+    const keysAfter = await cp.evaluate(() => JSON.stringify(Object.entries(localStorage).sort()))
+    check(
+      firstGoal && backOut && before !== afterNotch && slid && recapRows >= 1 && keysBefore === keysAfter && foreign.length === 0 && errors.length === 0,
+      `« Faire les comptes » hors ligne : objectif d’abord ${firstGoal}, le retour arrière en sort ${backOut}, la bande suit le cran (${before} → ${afterNotch}), curseur au clavier ${slid}, levier au récapitulatif ${recapRows}, rien d’écrit ${keysBefore === keysAfter}, rien d’envoyé ${foreign.length === 0 ? 'oui' : foreign.join(', ')}${errors.length ? `, erreurs : ${errors.join(' ; ')}` : ''}`,
+    )
+    await cc.close()
+  }
+
   // 11. « Installer l'application » (#/installer), hors ligne, en imitant chaque appareil (navigateur, système, mode
   // installé) : iPhone avec Safari d'iOS 26 (copier d'abord, 7 gestes, « Copier le code » dans le geste même), d'iOS 18
   // (6 gestes), sans réponse (ni copie ni aplat bleu) ; Android avec Chrome (le bouton « Installer Isoloir » à l'annonce

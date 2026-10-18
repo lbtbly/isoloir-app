@@ -37,11 +37,11 @@
 
 /* La rangée ne tient pas, même avec le libellé court de l'appel (FormHeader, data-fit) : le pictogramme
    seul, plutôt qu'une deuxième rangée */
-.form-header-inner[data-fit='tight'] .brand .logo-horizontal {
+.form-header-inner:is([data-fit='tight'], [data-fit='tight-bare']) .brand .logo-horizontal {
   display: none;
 }
 
-.form-header-inner[data-fit='tight'] .brand .logo-mark {
+.form-header-inner:is([data-fit='tight'], [data-fit='tight-bare']) .brand .logo-mark {
   display: inline;
 }
 
@@ -129,7 +129,8 @@
 
 /* La rangée ne tient pas avec l'appel long (FormHeader, data-fit) : les pictogrammes du menu tombent avant que l'appel
    ne raccourcisse ; le nom des entrées reste. Avec le libellé court, ils reviennent */
-.form-header-inner[data-fit='bare'] .main-nav .icon {
+/* Avec cinq entrées (18/10/2026), à 1024 px, ils retombent aussi avec le libellé court (« short-bare », « tight-bare ») */
+.form-header-inner:is([data-fit='bare'], [data-fit='short-bare'], [data-fit='tight-bare']) .main-nav .icon {
   display: none;
 }
 

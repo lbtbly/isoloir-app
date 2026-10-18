@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'preact/hooks'
 import { APP_NAME } from '../../core/app'
 import { currentPath, link } from '../nav'
+import { budgetShown } from '../budget/shown'
 import { tableShown } from '../table/shown'
 import { videosShown } from '../videos/load'
 import '../../styles/brand.css'
@@ -40,11 +41,14 @@ const MENU = [
   { path: '/candidats', label: 'Les candidats', icon: 'people', hint: 'Leur parcours, leurs positions sourcées, et les comparer', page: /^\/candidats\/?$/, within: /^\/(candidat|comparer)(\/|$)/ },
   // « À table » : voter à plusieurs sur un seul téléphone (demande du propriétaire du 14/10/2026)
   { path: '/a-table', label: 'À table', icon: 'table', hint: 'Voter à plusieurs, en secret, sur un seul téléphone', page: /^\/a-table\/?$/, within: null },
+  // « Faire les comptes » : régler le budget 2027 et voir le déficit bouger (décision du propriétaire du 17/10/2026)
+  { path: '/comptes', label: 'Faire les comptes', icon: 'comptes', hint: 'Régler le budget 2027 et voir le déficit bouger', page: /^\/comptes(\/|$)/, within: null },
 ]
 
 /** Les entrées du menu pour l'élection affichée : « Les vidéos » seulement si elle en montre (videos/load.ts), « À table »
- *  seulement si elle a une table (table/shown.ts) */
-const menuItems = () => MENU.filter(item => (item.path !== '/videos' || videosShown()) && (item.path !== '/a-table' || tableShown()))
+ *  seulement si elle a une table (table/shown.ts), « Faire les comptes » si elle a des leviers (budget/shown.ts) */
+const menuItems = () =>
+  MENU.filter(item => (item.path !== '/videos' || videosShown()) && (item.path !== '/a-table' || tableShown()) && (item.path !== '/comptes' || budgetShown()))
 
 /** Lien courant : « page » sur la page elle-même, « true » sur une de ses fiches (fiche d'un candidat) */
 function currentOf(item: { page: RegExp; within: RegExp | null }): 'page' | 'true' | undefined {
@@ -130,7 +134,9 @@ function MenuButton() {
 }
 
 /** Ce que l'en-tête essaie, dans l'ordre, jusqu'à ce que la rangée tienne : voir useFit */
-const FIT = ['long', 'bare', 'short', 'tight'] as const
+// « short-bare » et « tight-bare » (18/10/2026, avec l'entrée « Faire les comptes ») : le libellé court ne suffit pas
+// à 1024 px avec les pictogrammes ; ils retombent alors, avant que le logo ne se réduise au pictogramme seul
+const FIT = ['long', 'bare', 'short', 'short-bare', 'tight', 'tight-bare'] as const
 
 /**
  * L'en-tête tient sur une seule rangée, de la même hauteur sur toutes les pages : l'appel principal garde

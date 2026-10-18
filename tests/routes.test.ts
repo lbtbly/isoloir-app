@@ -25,6 +25,8 @@ describe('parseRoute', () => {
     expect(parseRoute('#/sujets/retraites-1')).toEqual({ name: 'topics', anchor: 'retraites-1' })
     expect(parseRoute('#/profil')).toEqual({ name: 'profile' })
     expect(parseRoute('#/a-table')).toEqual({ name: 'table' })
+    expect(parseRoute('#/comptes')).toEqual({ name: 'budget' })
+    expect(parseRoute('#/comptes/tva-tous-taux')).toEqual({ name: 'budget', arg: 'tva-tous-taux' })
     expect(parseRoute('#/autre-appareil')).toEqual({ name: 'transfer' })
     expect(parseRoute('#/autre-appareil/importer')).toEqual({ name: 'transfer', import: true })
     expect(parseRoute('#/installer')).toEqual({ name: 'install' })
@@ -99,7 +101,7 @@ describe('withBase et canonicalPath', () => {
   })
 
   it('chaque adresse relue redonne la même page', () => {
-    for (const path of ['/', '/feuille/4', '/approfondi/2', '/resultats', '/profil', '/a-table', '/autre-appareil', '/autre-appareil/importer', '/installer', '/methode/ia', '/methode/profil', '/approfondir/defense', '/candidat/x', '/comparer/x,y', '/comparer', '/sujets/a-1', '/videos/v', '/journal', '/journal/8']) {
+    for (const path of ['/', '/feuille/4', '/approfondi/2', '/resultats', '/profil', '/a-table', '/comptes', '/comptes/budget', '/autre-appareil', '/autre-appareil/importer', '/installer', '/methode/ia', '/methode/profil', '/approfondir/defense', '/candidat/x', '/comparer/x,y', '/comparer', '/sujets/a-1', '/videos/v', '/journal', '/journal/8']) {
       for (const slug of ['', 'autre-2030']) {
         const place = parseLocation(withBase(slug, path))
         expect(place.slug, `${slug} ${path}`).toBe(slug)
