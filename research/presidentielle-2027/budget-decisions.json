@@ -1,0 +1,197 @@
+{
+  "_note": "Conventions du jeu « Faire les comptes » (#/comptes), fixées le 17 octobre 2026 AVANT toute mesure : plan approuvé par le propriétaire le même jour (~/.claude/plans/i-m-wondering-if-there-hazy-lagoon.md). Choix du propriétaire : le jeu complet amorcé par les réponses, assez ludique, lancé au plus tôt sur le PLF 2027 déposé. Les seuils de la porte ne se retouchent jamais pour faire passer une mesure ; les changer est une décision du propriétaire, datée ici.",
+  "version": 5,
+  "decidedAt": "2026-10-17",
+  "baseline": {
+    "text": "Projet de loi de finances pour 2027 tel que déposé le 1er octobre 2026 (n° 3210) et projet de loi de financement de la sécurité sociale pour 2027 déposé, projets non votés",
+    "label": "PLF 2027 tel que déposé, projet non voté",
+    "scheduled": [
+      "Suspension de la réforme des retraites de 2023 jusqu'au 1er janvier 2028, puis reprise du calendrier vers 64 ans",
+      "Trajectoire de la loi de programmation militaire actualisée en 2026",
+      "Mesures du PLF et du PLFSS 2027 déposés, telles que proposées (gel ou revalorisations compris)"
+    ],
+    "rule": "Chaque borne indique le texte auquel elle se compare ; une borne mesurée contre une autre base est refusée à la fusion (non chiffré).",
+    "rebase": "Après la promulgation de la loi de finances et de la loi de financement de la sécurité sociale pour 2027"
+  },
+  "horizon": {
+    "year": 2027,
+    "kind": "annee-pleine",
+    "rule": "N'entre dans le total qu'un effet de 2027 en année pleine. Une mesure qui monte avec le temps (âge de départ, trajectoire de défense) montre son effet « à terme » en note, hors du total, de la même façon des deux côtés."
+  },
+  "perimeter": {
+    "total": "APU",
+    "rule": "Seul un effet sur l'ensemble des administrations publiques entre dans le total ; un effet sur l'État ou la Sécurité sociale seuls est montré « hors total ». Rémunérations publiques : brut ou net choisi une fois pour toutes les lignes de paie (à fixer par la recherche, la même règle pour toutes)."
+  },
+  "ranges": {
+    "rule": "Fourchettes, jamais un point : le total ajoute les bas et les hauts à part.",
+    "centralAgreement": 0.2,
+    "interactions": "Deux lignes qui portent sur la même base deviennent exclusives (à trancher) ou plafonnées au plus grand des deux, jamais additionnées.",
+    "unpricedOnOrderedLever": "Un réglage non chiffré d'un levier ordonné prend la borne de son voisin plus modéré (« au moins autant que … »), calculée sur l'appareil.",
+    "cumulative": "Un chiffre cumulé sur plusieurs années est refusé."
+  },
+  "sources": {
+    "register": [
+      {
+        "kind": "administration",
+        "examples": "Direction du Budget, DGFiP, DLF (Voies et moyens), DG Trésor, DSS, CCSS, Insee, DREES, CNAV",
+        "bound": true
+      },
+      {
+        "kind": "organe-independant",
+        "examples": "Cour des comptes, Conseil des prélèvements obligatoires, Haut Conseil des finances publiques, Conseil d'orientation des retraites",
+        "bound": true
+      },
+      {
+        "kind": "parlement",
+        "examples": "rapports des commissions des finances et des affaires sociales, Sénat, Assemblée nationale (hors amendements et propositions d'un groupe)",
+        "bound": true
+      },
+      {
+        "kind": "recherche",
+        "examples": "IPP, OFCE, CEPII, Banque de France, laboratoires universitaires",
+        "bound": true
+      },
+      {
+        "kind": "expert-independant",
+        "examples": "Fipeco",
+        "bound": "avec une seconde source éligible dans la fourchette"
+      },
+      {
+        "kind": "think-tank",
+        "examples": "Institut Montaigne, iFRAP, Terra Nova, Rexecode, Fondation Jean-Jaurès, Fondapol",
+        "bound": "avec une seconde source éligible dans la fourchette"
+      },
+      {
+        "kind": "partie-prenante",
+        "examples": "candidats, partis, groupes parlementaires, syndicats, organisations patronales, études commandées par eux",
+        "bound": false
+      }
+    ],
+    "banned": [
+      "Une page dont l'adresse ou le titre nomme un candidat ou un parti (test de la banque).",
+      "Une page qu'on ne peut pas récupérer (403, 404) ou vue seulement dans un extrait de recherche : non chiffré."
+    ],
+    "requiredFields": [
+      "measure",
+      "match",
+      "flow",
+      "sign",
+      "basis",
+      "baseline",
+      "accessedAt"
+    ],
+    "match": "exact seulement pour une borne ; proxy = non chiffré ; enveloppe = contexte seulement"
+  },
+  "mapping": {
+    "statuses": {
+      "chiffrable": "Le texte de l'approche énonce son paramètre ou nomme une mesure précise, et une source éligible chiffre CETTE mesure.",
+      "a-regler": "Le texte donne une direction sans taille, sur un levier officiel dont l'effet par unité est publié : la personne choisit la taille.",
+      "non-chiffre": "Ni l'un ni l'autre, ou l'effet suppose une rupture de traité, une révision constitutionnelle ou un pari sur la croissance ; une raison est donnée.",
+      "sans-effet": "Aucun effet direct sur les comptes publics."
+    },
+    "symmetry": "La même règle s'applique des deux côtés : les idées de financement de la gauche et les baisses d'impôts ou de dépenses de la droite deviennent des leviers à régler, aucune ne reste en simple texte d'orientation.",
+    "noAiInterpretation": "Aucune taille inventée : « réduire fortement » ne devient jamais un montant."
+  },
+  "gate": {
+    "blocs": "Les cinq blocs de l'axe (election.spectrum.axis), candidats classés seulement, comme la porte D5",
+    "blocRatioMax": 1.5,
+    "minPricedLeversPerBlocForVerdict": 5,
+    "noisyClonesPerCandidate": 60,
+    "checks": {
+      "G0": "Sens et taille de l'amorce par bloc (colonnes brutes) et sur les feuilles d'essai (SCHEMES)",
+      "G1": "Couverture signée par bloc : part des idées chiffrées ou à régler, parmi celles qui creusent et celles qui réduisent le déficit",
+      "G2": "Largeur des fourchettes",
+      "G3": "Âge des sources",
+      "G4": "Portée symétrique du menu dans les deux sens",
+      "G5": "Idées à trancher par bloc",
+      "G6": "Règle des feuilles d'essai pour tout ce qui « lit » la personne"
+    },
+    "fallbackRules": [
+      "Les règles minLevers, minLeversPerBloc, G1 (≤ 1,5 avec et sans chaque candidat) et G4 (≤ 1,5) s’appliquent à la version « À régler ».",
+      "La règle minQuickPricedLines ne s’applique plus (elle a décidé le repli) ; la médiane des leviers à régler au rapide est publiée.",
+      "Si G1 ou G4 ne passe pas après cette boucle : retirer la composante en cause, ne jamais retoucher les bornes ni les seuils."
+    ]
+  },
+  "stopRules": {
+    "minLevers": 8,
+    "minLeversPerBloc": 2,
+    "minQuickPricedLines": 3,
+    "quickPricedLinesStatistic": "médiane des clones bruités du seul questionnaire rapide",
+    "g1RatioMax": 1.5,
+    "fallback": "La version « À régler » : même jeu, mais l'amorce ne donne que des directions, sans ligne d'idée chiffrée.",
+    "afterResearchLoop": "Si la porte dit encore « ne passe pas » après une boucle de recherche : retirer la composante en cause, ne jamais retoucher les bornes."
+  },
+  "goals": {
+    "options": [
+      "garder le déficit prévu",
+      "le réduire de moitié",
+      "revenir sous 3 %",
+      "pas d'objectif"
+    ],
+    "rule": "La personne choisit ; Isoloir n'impose rien. Le 3 % est montré avec son statut réel (valeur de référence des traités, procédure pour déficit excessif en cours)."
+  },
+  "history": [
+    {
+      "version": 1,
+      "at": "2026-10-17",
+      "what": "Conventions et seuils fixés avant la mesure (plan approuvé)."
+    },
+    {
+      "version": 2,
+      "at": "2026-10-17",
+      "what": "Après l’étape 0 (verdict REPLI : 0 ligne chiffrée en médiane au rapide ; G1 2,21 / 13,59), le propriétaire choisit la version « À régler » et UNE boucle de recherche : enveloppes officielles réglables et leviers manquants. Les seuils ne changent pas. Les idées juridiquement impossibles telles qu’écrites (traité, Constitution) restent dans le dénominateur de G1."
+    },
+    {
+      "version": 3,
+      "at": "2026-10-17",
+      "what": "Après la porte de la boucle (NE PASSE PAS : G1 1,63 / 2,01, G4 1,61), le propriétaire retire l’amorce par les réponses et choisit l’établi neutre : 74 leviers sourcés, objectif choisi par la personne, solde en direct. Puis (QCM) : accès par le menu et l’accueil, menu « 3 plus gros par famille » d’abord, solde en déficit en % du PIB depuis la prévision du PLF 2027."
+    },
+    {
+      "version": 4,
+      "at": "2026-10-18",
+      "what": "Maquettes validées par le propriétaire (« Ok, the mockups work. Build it ») ; structure hybride (rayons par famille, carte à l’ouverture, crans en boutons plus curseur au dixième). Il délègue les quatre décisions ouvertes aux réglages recommandés : voir build."
+    },
+    {
+      "version": 5,
+      "at": "2026-10-18",
+      "what": "Après la revue de finition (32 constats confirmés) : la règle des « 3 plus gros » devient la taille publiée de la ligne du budget sur laquelle joue le levier (au sens propre), au lieu de l’effet atteignable, qui dépendait de plages choisies par le site et mettait en tête l’audiovisuel et la culture. Plages des lignes de crédits : ±25 %, ou ±100 % quand une idée du débat supprime la ligne. Registre des sources appliqué par l’outil de construction."
+    }
+  ],
+  "variant": {
+    "id": "etabli",
+    "decidedAt": "2026-10-17",
+    "rule": "Aucune amorce par les réponses : le jeu ne lit pas la feuille. Les portes G1 et G4 (qui mesurent l’amorce) ne s’appliquent plus ; le menu reste symétrique par construction (chaque levier se règle dans les deux sens, crans symétriques autour du PLF)."
+  },
+  "envelopes": {
+    "decidedAt": "2026-10-17",
+    "rule": "Une ligne budgétaire officielle peut devenir un levier à régler, en pourcentage de son montant au PLF 2027 (crédits de paiement d’une mission, d’un programme ou d’une action ; sous-objectif de l’ONDAM ; dépense d’un régime de sécurité sociale publiée dans le PLFSS ou par l’organisme). Effet par unité = 1 % du montant, statique et mécanique, montré comme tel.",
+    "conditions": [
+      "Le montant est lu dans un document officiel récupéré (PLF ou PLFSS 2027, à défaut LFI ou LFSS 2026, année dite).",
+      "La ligne est une dépense finale des APU : un transfert entre administrations publiques (dotations aux collectivités, transferts État-Sécurité sociale) n’a pas d’effet sur le solde des APU et reste non chiffré.",
+      "L’idée vise cette ligne elle-même (la baisser, la hausser, la supprimer), pas une réforme dont l’effet dépend du dessin.",
+      "Crans symétriques autour du PLF ; une suppression est le cran −100 %.",
+      "Une contribution fixée par un traité (budget de l’Union) reste non chiffrée."
+    ]
+  },
+  "product": {
+    "decidedAt": "2026-10-17",
+    "entry": "Menu principal (comme « À table »), pied de l’accueil et panneaux « Et maintenant » ; ouvert à tous, même avant le questionnaire.",
+    "menu": "Dans chaque famille (impôts, dépenses de l’État, protection sociale), les 3 leviers au plus grand effet par cran d’abord (règle mécanique, sans choix éditorial) ; « Plus de leviers » ouvre le reste.",
+    "balance": "Déficit 2027 en % du PIB, depuis la prévision du PLF 2027 (5,0 %, projet non voté), en fourchette ; PIB 2027 du PLF (3 135 Md€) pour convertir.",
+    "goals": [
+      "garder le déficit prévu",
+      "le réduire de moitié",
+      "revenir sous 3 %",
+      "pas d'objectif"
+    ]
+  },
+  "build": {
+    "decidedAt": "2026-10-18",
+    "decidedBy": "défauts recommandés, à la demande du propriétaire",
+    "ranking": "Les 3 plus gros d’une famille : la taille publiée de la ligne du budget sur laquelle joue le levier (Md€, PLF ou PLFSS 2027, sinon la dernière publiée), de la plus grosse à la plus petite ; sans ligne propre, après, par l’effet atteignable ; un levier qui recoupe un levier déjà retenu laisse la place au suivant (révisé le 18/10 après la revue).",
+    "tva": "La fourchette du net au brut (DG Trésor) : « fourchettes, jamais un point ».",
+    "operators": "La chaîne État → organisme public (opérateurs, ODAC : audiovisuel public, Anah, universités, France 2030, Crous, CNC…) est admise pour toutes les lignes, la même règle partout : l’enveloppe entière, avec la mention « si l’organisme réduit d’autant sa dépense ».",
+    "notches": "Pas de cran au-delà de ce que chiffre la source : la plage s’arrête là, symétrique autour du PLF (le plus petit des deux côtés publiés) ; le curseur avance au dixième d’unité dans cette plage.",
+    "envelopes": "Lignes de crédits : plage de −25 % à +25 % ; de −100 % à +100 % seulement quand une idée de la banque supprime ou privatise cette ligne (18/10, après la revue)."
+  }
+}

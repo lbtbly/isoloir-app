@@ -94,6 +94,7 @@ import { isVoting, useCurrentElection } from '../components/CurrentElection'
 import { FormHeader } from '../components/FormHeader'
 import { SiteFooter } from '../components/SiteFooter'
 import { Icon } from '../components/Icon'
+import { BUDGET_PANEL, budgetShown } from '../budget/shown'
 import { Portrait } from '../components/Portrait'
 import { ProgressTally } from '../components/ProgressTally'
 import { ProfileBand } from '../components/ProfileEntry'
@@ -533,6 +534,8 @@ export function Results({ pack, state, results: allResults, update, eraseAll, es
     // À l'encre : avec la tuile « À table », sa place tomberait sur un pastel qui prendrait un sens sur une page de candidats
     { href: link('/candidats'), icon: 'arrow-right', title: 'Les candidats', desc: 'Parcours, site de campagne et toutes leurs positions.', ink: true },
   ]
+  // « Faire les comptes » en dernier : à l'encre si sa place tombe sur le bleu (même règle que les autres panneaux)
+  if (budgetShown()) next.push({ href: link('/comptes'), icon: 'comptes', title: 'Faire les comptes', desc: BUDGET_PANEL, ink: next.length % 4 === 1 })
 
   return (
     <div class="screen screen-wide screen-results">

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=390">
+<title>Une carte par levier</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:390px;height:844px;overflow:hidden;background:#fff;color:#17191c;font-family:'Archivo',system-ui,sans-serif;font-size:17px;line-height:1.5}
+.num{font-variant-numeric:tabular-nums}
+header{height:58px;display:flex;align-items:center;gap:10px;padding:0 16px;border-bottom:3px solid #17191c;box-shadow:0 4px 0 #fff,0 5px 0 #17191c}
+.mark{width:26px;height:26px;border-radius:50%;background:#17191c;position:relative;overflow:hidden}
+.mark i{position:absolute;top:0;bottom:0;width:4px}
+.word{font-weight:800;font-size:22px;letter-spacing:-.01em}
+.title{font-weight:800;font-stretch:80%;font-size:15px;color:#4a4f57;margin-left:2px}
+.menu{margin-left:auto;border:1.5px solid #17191c;height:40px;padding:0 12px;display:flex;align-items:center;font-weight:700;font-size:15px}
+.band{padding:16px 16px 10px;border-bottom:1.5px solid #17191c}
+.band small{display:block;font-size:13px;font-weight:650;color:#4a4f57}
+.fig{font-weight:850;font-stretch:70%;font-size:46px;line-height:.95;margin-top:2px}
+.fig span{font-size:22px;font-weight:800}
+.left{font-size:15px;margin-top:6px}
+.left b{color:#1f3bb3;font-weight:800}
+.step{display:flex;align-items:center;gap:10px;padding:12px 16px 8px;font-size:13px;font-weight:800;font-stretch:80%;text-transform:uppercase;letter-spacing:.04em}
+.step em{font-style:normal;color:#4a4f57;font-weight:650;text-transform:none;letter-spacing:0;font-stretch:100%;margin-left:auto}
+.card{margin:0 16px;background:#ffece7;box-shadow:inset 0 3px 0 #17191c;padding:18px 16px 14px}
+.card h1{font-weight:850;font-stretch:72%;font-size:34px;line-height:1.02}
+.today{font-size:15px;color:#4a4f57;margin-top:4px}
+.unit{margin-top:10px}
+.ruler{position:relative;height:74px;margin:14px 6px 0}
+.ruler .rail{position:absolute;left:0;right:0;top:22px;border-top:1.5px solid #17191c}
+.n{position:absolute;top:13px;width:1.5px;height:19px;background:#17191c;transform:translateX(-50%)}
+.c{position:absolute;top:17px;width:11px;height:11px;border-radius:50%;background:#fff;border:1.5px solid #17191c;transform:translateX(-50%)}
+.lab{position:absolute;top:40px;transform:translateX(-50%);font-size:13px;font-weight:700;color:#4a4f57;white-space:nowrap}
+.pick{position:absolute;top:16px;width:12px;height:12px;border-radius:50%;background:#1f3bb3;transform:translateX(-50%)}
+.loop{position:absolute;top:2px;width:46px;height:40px;transform:translateX(-50%) rotate(-6deg)}
+.lab.on{color:#1f3bb3;font-weight:800}
+.eff{border-top:1px solid rgba(23,25,28,.24);padding-top:10px;font-size:15px}
+.eff b{color:#1f3bb3;font-weight:800}
+.src{font-size:13px;color:#4a4f57;margin-top:8px}
+.ai{display:flex;gap:6px;align-items:center;font-size:13px;color:#4a4f57;padding:10px 16px 0}
+.ai svg{flex:none}
+.bar{position:absolute;left:0;right:0;bottom:0;height:76px;border-top:1.5px solid #17191c;background:#fff;display:flex;align-items:center;padding:0 16px;gap:12px}
+.prev{font-size:15px;font-weight:650;text-decoration:underline;text-underline-offset:.25em}
+.ticks{margin:0 auto}
+.next{background:#1f3bb3;color:#fff;height:48px;padding:0 20px;display:flex;align-items:center;gap:10px;font-weight:750;font-stretch:85%;font-size:17px}
+</style></head>
+<body>
+<header>
+  <div class="mark"><i style="left:12px;background:#95d4a9"></i><i style="left:16px;background:#f8a898"></i><i style="left:20px;background:#f9e6a2"></i><i style="left:24px;background:#9bc2f6"></i></div>
+  <span class="word">isoloir</span><span class="title">Faire les comptes</span>
+  <span class="menu">Menu</span>
+</header>
+
+<section class="band">
+  <small>Votre déficit 2027, en % du PIB · exemple</small>
+  <div class="fig num">4,6 à 4,7 <span>%</span></div>
+  <svg width="358" height="46" viewBox="0 0 358 46" aria-hidden="true" style="display:block;margin-top:8px">
+    <line x1="8" y1="20" x2="350" y2="20" stroke="#17191c" stroke-width="1.5"/>
+    <g stroke="#17191c" stroke-width="1.5">
+      <line x1="8" y1="15" x2="8" y2="25"/><line x1="65" y1="15" x2="65" y2="25"/><line x1="122" y1="15" x2="122" y2="25"/>
+      <line x1="179" y1="15" x2="179" y2="25"/><line x1="236" y1="15" x2="236" y2="25"/><line x1="293" y1="15" x2="293" y2="25"/><line x1="350" y1="15" x2="350" y2="25"/>
+    </g>
+    <g font-size="11" fill="#4a4f57" text-anchor="middle" font-family="Archivo"><text x="8" y="40">0</text><text x="65" y="40">1</text><text x="122" y="40">2</text><text x="179" y="40">3</text><text x="236" y="40">4</text><text x="293" y="40">5</text><text x="350" y="40">6 %</text></g>
+    <path d="M179 4v16" stroke="#17191c" stroke-width="2"/><path d="M179 4h22l-5 4 5 4h-22" fill="#17191c"/>
+    <line x1="293" y1="9" x2="293" y2="31" stroke="#17191c" stroke-width="3"/>
+    <rect x="271" y="14" width="4" height="12" fill="#1f3bb3"/>
+    <path d="M290 26c-5 4-10 4-15 1" stroke="#1f3bb3" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  </svg>
+  <p class="left">Prévu au PLF 2027 : 5,0 %. Pour votre objectif (3 %), encore <b class="num">50 à 53 Md€</b>.</p>
+</section>
+
+<div class="step">Impôts
+  <svg width="64" height="18" viewBox="0 0 64 18" aria-hidden="true"><g stroke="#1f3bb3" stroke-width="3" stroke-linecap="round"><path d="M4 2v14M11 2v14"/></g><g stroke="#4a4f57" stroke-width="1.5" stroke-dasharray="2 3"><path d="M18 2v14M25 2v14M32 2v14M39 2v14M46 2v14M53 2v14M60 2v14"/></g></svg>
+  <em class="num">levier 2 sur 9</em>
+</div>
+
+<article class="card">
+  <h1>TVA : taux normal</h1>
+  <p class="today">Aujourd'hui : 20 % (PLF 2027)</p>
+  <p class="unit">Un point de plus rapporte <b class="num">7,5 à 8,9 Md€</b> en 2027.</p>
+  <div class="ruler">
+    <div class="rail"></div>
+    <span class="n" style="left:0%"></span><span class="n" style="left:25%"></span><span class="c" style="left:50%"></span><span class="n" style="left:75%"></span>
+    <span class="pick" style="left:100%"></span>
+    <svg class="loop" style="left:100%" viewBox="0 0 46 40"><path d="M8 22c-2-11 12-18 24-15s14 17 2 24-25 3-27-8c-1-4 2-8 6-10" fill="none" stroke="#1f3bb3" stroke-width="2.1" stroke-linecap="round"/></svg>
+    <span class="lab num" style="left:0%">−1</span><span class="lab num" style="left:25%">−0,5</span><span class="lab num" style="left:50%">20 %</span><span class="lab num" style="left:75%">+0,5</span><span class="lab on num" style="left:100%">+1 point</span>
+  </div>
+  <p class="eff">Votre réglage : <b class="num">+7,5 à +8,9 Md€</b> de recettes, le déficit baisse de <b class="num">0,24 à 0,28</b> point.</p>
+  <p class="src">DG Trésor, Trésor-Éco n° 371, sept. 2025 · consulté le 17/10/2026</p>
+</article>
+
+<p class="ai"><svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.5" fill="none" stroke="#4a4f57" stroke-width="1.4"/><path d="M8 7v4M8 4.6v.1" stroke="#4a4f57" stroke-width="1.6" stroke-linecap="round"/></svg>Rédigé par IA · montants des sources citées · calcul sur votre appareil</p>
+
+<nav class="bar">
+  <span class="prev">Précédent</span>
+  <span class="ticks"></span>
+  <span class="next">Suivant <svg width="16" height="12" viewBox="0 0 16 12"><path d="M1 6h13M9 1l5 5-5 5" stroke="#fff" stroke-width="2" fill="none"/></svg></span>
+</nav>
+</body></html>

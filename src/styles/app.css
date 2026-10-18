@@ -241,11 +241,11 @@ q {
   display: none;
 }
 
-.form-header-inner:is([data-fit='short'], [data-fit='tight']) .header-cta .cta-long {
+.form-header-inner:is([data-fit='short'], [data-fit='short-bare'], [data-fit='tight'], [data-fit='tight-bare']) .header-cta .cta-long {
   display: none;
 }
 
-.form-header-inner:is([data-fit='short'], [data-fit='tight']) .header-cta .cta-short {
+.form-header-inner:is([data-fit='short'], [data-fit='short-bare'], [data-fit='tight'], [data-fit='tight-bare']) .header-cta .cta-short {
   display: inline;
 }
 

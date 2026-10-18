@@ -44,6 +44,11 @@ export type Route =
   | { name: 'journal'; n?: number; query?: string }
   /** « Installer l'application » : Isoloir sur l'écran d'accueil, et les réponses qui y passent */
   | { name: 'install' }
+  /**
+   * « Faire les comptes » : un budget 2027 à régler, levier par levier ; « arg » : l'écran (#/comptes/objectif, budget,
+   * methode), une famille (impots, depenses, sociale) ou un levier (#/comptes/<levier>)
+   */
+  | { name: 'budget'; arg?: string }
 
 /** Les noms de pages : un premier segment qui n'en est pas un est un préfixe d'élection */
 const PAGES = new Set([
@@ -75,6 +80,8 @@ const PAGES = new Set([
   'journal',
   // « Installer l'application » : de même pour #/installer
   'installer',
+  // « Faire les comptes » : sans lui ici, #/comptes serait lu comme le préfixe d'une élection
+  'comptes',
 ])
 
 /** Forme d'un préfixe d'élection (slug ou alias) */
@@ -152,6 +159,8 @@ export function parseRoute(path: string): Route {
     }
     case 'installer':
       return { name: 'install' }
+    case 'comptes':
+      return arg ? { name: 'budget', arg } : { name: 'budget' }
     default:
       return { name: 'home' }
   }

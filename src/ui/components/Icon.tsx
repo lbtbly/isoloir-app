@@ -14,6 +14,7 @@ const PATHS: Record<string, string> = {
   cross: 'M6 6l12 12M18 6L6 18',
   check: 'M5 12.5l4.5 4.5L19 7',
   chevron: 'M9.5 6l6 6-6 6',
+  'chevron-left': 'M14.5 6l-6 6 6 6',
   list: 'M9 6h11M9 12h11M9 18h11M4.5 6h.5M4.5 12h.5M4.5 18h.5',
   deepen: 'M10.5 17.5a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM15.5 15.5L20 20M10.5 7.5v6M7.5 10.5h6',
   scissors: 'M6 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM8.5 7.5L20 18M8.5 16.5L20 6',
@@ -25,6 +26,8 @@ const PATHS: Record<string, string> = {
   // l'extérieur, détachée de la table (redessinée le 2026-10-15 : les quatre traits d'avant se lisaient comme un
   // soleil, et des arcs autour d'une table ronde comme un signal radio)
   table: 'M6.5 9h11v6h-11zM10 7V4.75h4V7M10 17v2.25h4V17M4.5 10H2.25v4H4.5M19.5 10h2.25v4H19.5',
+  // « Faire les comptes » : une addition posée, le signe plus, trois lignes et le double trait du total
+  comptes: 'M3.5 6.5h4M5.5 4.5v4M11 5h9.5M11 9h9.5M11 13h9.5M3.5 17.25h17M3.5 20h17',
   // Les entrées du menu (demande du propriétaire du 2026-10-15), avec « table » ci-dessus. « Les sujets » : une page
   // imprimée au coin replié, et ses lignes
   topics: 'M6 3.5h8.5L18 7v13.5H6zM14.5 3.5V7H18M9 11h6M9 14.25h6M9 17.5h3.5',

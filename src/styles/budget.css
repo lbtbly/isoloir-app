@@ -1,0 +1,971 @@
+/* « Faire les comptes » (#/comptes), maquettes validées le 18/10/2026. Monde « Le dépouillement » :
+   imprimé noir pour les faits, bleu bille pour tout ce que la personne règle et pour l'action principale, fiches sur les
+   pastels du rideau dans l'ordre du drapé (sans aucun sens), aucun rouge ni vert pour dire un signe. */
+
+.screen-comptes {
+  --frame: 86rem;
+}
+
+.cpt-num {
+  font-variant-numeric: tabular-nums;
+}
+
+.cpt-ink {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+/* ——— La bande du déficit : collante sous l'en-tête, elle répond à chaque geste ——— */
+
+.cpt-band {
+  position: sticky;
+  top: var(--header-real, 4.1rem);
+  z-index: 9;
+  background: var(--paper);
+  border-bottom: var(--line) solid var(--rule-strong);
+}
+
+.cpt-band-inner {
+  container: band / inline-size;
+  max-width: var(--frame);
+  margin: 0 auto;
+  padding: var(--s3) var(--gutter) var(--s2);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: 'fig goal' 'axis axis' 'left left';
+  column-gap: var(--s3);
+  align-items: end;
+}
+
+.cpt-fig-wrap {
+  grid-area: fig;
+  min-width: 0;
+}
+
+.cpt-label {
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: 650;
+  color: var(--print-soft);
+}
+
+.cpt-fig {
+  display: block;
+  font-weight: 850;
+  font-stretch: 70%;
+  font-size: clamp(2.1rem, 8.5vw, 3rem);
+  line-height: 0.92;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.cpt-fig small {
+  font-size: 0.5em;
+  font-weight: 800;
+}
+
+.cpt-goal {
+  grid-area: goal;
+  text-align: right;
+  font-size: var(--text-xs);
+  font-weight: 650;
+  color: var(--print-soft);
+}
+
+.cpt-goal b {
+  display: block;
+  color: var(--print);
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: 1.35rem;
+  line-height: 1.05;
+  white-space: nowrap;
+}
+
+.cpt-axis {
+  --axis-pad: 2%;
+  grid-area: axis;
+  position: relative;
+  height: 2.7rem;
+  margin-top: var(--s2);
+  font-size: var(--text-xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.cpt-axis-track {
+  position: absolute;
+  left: var(--axis-pad);
+  right: var(--axis-pad);
+  top: 1.35rem;
+  border-top: var(--line) solid var(--print);
+}
+
+.cpt-axis-mark {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0;
+}
+
+.cpt-axis-mark::before {
+  content: '';
+  position: absolute;
+  left: -0.5px;
+  top: 1.05rem;
+  height: 0.6rem;
+  border-left: var(--hair) solid var(--print);
+}
+
+.cpt-axis-mark > span {
+  position: absolute;
+  bottom: -0.15rem;
+  transform: translateX(-50%);
+  color: var(--print-soft);
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.cpt-axis-plf::before {
+  top: 0.75rem;
+  height: 1.2rem;
+  border-left-width: var(--thick);
+  left: -1.5px;
+}
+
+.cpt-axis-plf > span {
+  top: 0;
+  bottom: auto;
+  /* À gauche de son repère, comme l'objectif : à droite, il sortait de l'écran au texte agrandi */
+  right: 0.35rem;
+  transform: none;
+}
+
+.cpt-axis-goal::before {
+  top: 0.1rem;
+  height: 1.6rem;
+  border-left-width: 2px;
+  left: -1px;
+}
+
+.cpt-axis-goal > span {
+  top: 0;
+  bottom: auto;
+  right: 0.35rem;
+  transform: none;
+  color: var(--print);
+  font-weight: 800;
+}
+
+/* La fourchette de la personne, au bleu bille, et son trajet depuis le PLF en tirets */
+.cpt-axis-you {
+  position: absolute;
+  top: 1.05rem;
+  height: 0.65rem;
+  min-width: 3px;
+  background: var(--ink);
+}
+
+.cpt-axis-trail {
+  position: absolute;
+  top: calc(1.35rem - 1px);
+  border-top: 2px dashed var(--ink);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cpt-axis-you,
+  .cpt-axis-trail {
+    transition: left 220ms var(--ease-out), width 220ms var(--ease-out);
+  }
+}
+
+.cpt-left {
+  grid-area: left;
+  margin: var(--s1) 0 0;
+  font-size: var(--text-sm);
+  line-height: 1.4;
+}
+
+@container band (min-width: 56rem) {
+  .cpt-band-inner {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas: 'fig axis goal' 'fig left goal';
+    column-gap: var(--s6);
+    align-items: center;
+  }
+  .cpt-axis {
+    margin-top: 0;
+  }
+}
+
+/* ——— Les rayons : une rangée par famille, qui défile de côté ——— */
+
+.cpt-work {
+  max-width: var(--frame);
+  margin: 0 auto;
+  padding: var(--s5) 0 calc(var(--bar-real, var(--bar-h)) + var(--s7));
+}
+
+.cpt-rail + .cpt-rail {
+  margin-top: var(--s6);
+}
+
+/* L'étiquette IA en tête des fiches : dans la marge des rayons, au-dessus de la première rangée */
+.cpt-rails-ai {
+  margin: 0 0 var(--s5);
+  padding: 0 var(--gutter);
+}
+
+.cpt-family .cpt-rails-ai {
+  padding: 0;
+}
+
+.cpt-card-ai {
+  margin-top: var(--s2);
+}
+
+.cpt-rail-head {
+  padding: 0 var(--gutter);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0 var(--s3);
+}
+
+.cpt-rail-title {
+  margin: 0;
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: clamp(1.35rem, 5.6vw, 1.65rem);
+  line-height: 1.02;
+}
+
+.cpt-rail-total {
+  font-size: var(--text-sm);
+  font-weight: 650;
+  color: var(--print-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.cpt-rail-total.is-set {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.cpt-rail-note {
+  flex-basis: 100%;
+  margin: 0.15rem 0 0;
+  font-size: var(--text-xs);
+  color: var(--print-soft);
+}
+
+.cpt-row {
+  list-style: none;
+  margin: var(--s3) 0 0;
+  padding: 0 var(--gutter) var(--s2);
+  display: flex;
+  gap: var(--s3);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--gutter);
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule) transparent;
+}
+
+.cpt-tile {
+  flex: 0 0 9.6rem;
+  scroll-snap-align: start;
+  display: flex;
+}
+
+.cpt-tile-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 8.5rem;
+  padding: calc(var(--s3) + var(--thick)) var(--s3) var(--s3);
+  background: var(--card);
+  box-shadow: inset 0 var(--thick) 0 var(--rule-strong);
+  border: 0;
+  border-radius: 0;
+  color: var(--print);
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Une fiche est un lien : son nom se souligne au survol (pointeur fin seulement) */
+@media (hover: hover) and (pointer: fine) {
+  .cpt-tile-btn:hover .cpt-tile-name {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+}
+
+.cpt-tile-btn:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.cpt-tile-name {
+  font-weight: 800;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.cpt-tile-unit {
+  margin-top: 0.3rem;
+  font-size: var(--text-xs);
+  line-height: 1.3;
+  color: var(--print-soft);
+}
+
+.cpt-tile-state {
+  margin-top: auto;
+  padding-top: var(--s2);
+  font-size: var(--text-sm);
+  font-weight: 650;
+  color: var(--print-soft);
+}
+
+.cpt-tile-state b {
+  display: block;
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: 1.15rem;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Réglé : le filet du haut et la valeur passent au bleu bille, le stylo de la personne */
+.cpt-tile.is-set .cpt-tile-btn {
+  box-shadow: inset 0 var(--thick) 0 var(--ink);
+}
+
+.cpt-tile.is-set .cpt-tile-state {
+  color: var(--ink);
+}
+
+.cpt-tile.is-open .cpt-tile-btn {
+  outline: var(--line) solid var(--ink);
+  outline-offset: 3px;
+}
+
+.cpt-tile-more .cpt-tile-btn {
+  background: var(--paper);
+  box-shadow: inset 0 0 0 var(--line) var(--rule-strong);
+  justify-content: space-between;
+}
+
+.cpt-tile-more .cpt-tile-name {
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: 1.35rem;
+  line-height: 1.05;
+}
+
+.cpt-tile-more .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Grand écran : les quatre fiches d'un rayon tiennent dans la colonne, sans coupe */
+@media (min-width: 64rem) {
+  .cpt-row .cpt-tile {
+    flex: 1 0 9.5rem;
+  }
+  .cpt-swipe {
+    display: none;
+  }
+}
+
+/* La barre du bas garde une seule rangée au téléphone : le compte des leviers réglés est déjà sur la bande */
+@container actions (max-width: 30rem) {
+  .screen-comptes .bar-note {
+    display: none;
+  }
+}
+
+/* ——— La fiche d'un levier : la carte qu'on règle ——— */
+
+.cpt-back {
+  margin: 0 0 var(--s3);
+}
+
+.cpt-card {
+  container: card / inline-size;
+  padding: calc(var(--s4) + var(--thick)) var(--s4) var(--s4);
+  background: var(--card);
+  box-shadow: inset 0 var(--thick) 0 var(--rule-strong);
+}
+
+.cpt-card-title {
+  margin: 0;
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: clamp(1.6rem, 6vw, 2.15rem);
+  line-height: 1;
+}
+
+.cpt-today {
+  margin: 0.4rem 0 0;
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.cpt-unit {
+  margin: var(--s3) 0 0;
+  max-width: 34ch;
+}
+
+.cpt-control {
+  margin-top: var(--s4);
+}
+
+.cpt-steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--s2);
+}
+
+.cpt-steps button {
+  min-height: 2.75rem;
+  padding: 0 0.2rem;
+  border: var(--line) solid var(--print);
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--print);
+  font: inherit;
+  font-size: var(--text-sm);
+  font-weight: 750;
+  font-stretch: 85%;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+}
+
+.cpt-steps button.is-base {
+  border-style: dashed;
+}
+
+.cpt-steps button[aria-pressed='true'] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--on-action);
+}
+
+.cpt-fine {
+  margin-top: var(--s4);
+}
+
+.cpt-fine-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s3);
+}
+
+.cpt-fine-head label {
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+.cpt-fine-head output {
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: 1.35rem;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Le curseur : un filet d'imprimé, le trajet depuis le PLF au bleu bille, un bouton rond de bille */
+.cpt-range:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.cpt-range {
+  --from: 50%;
+  --to: 80%;
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 2.75rem;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.cpt-range::-webkit-slider-runnable-track {
+  height: 3px;
+  background: linear-gradient(to right, var(--print) 0 var(--from), var(--ink) var(--from) var(--to), var(--print) var(--to)) center / 100% 3px no-repeat;
+}
+
+.cpt-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-top: -0.7rem;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 3px solid var(--paper);
+  box-shadow: 0 0 0 var(--line) var(--ink);
+}
+
+.cpt-range::-moz-range-track {
+  height: 1.5px;
+  background: var(--print);
+}
+
+.cpt-range::-moz-range-progress {
+  height: 3px;
+  background: var(--ink);
+}
+
+.cpt-range::-moz-range-thumb {
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 3px solid var(--paper);
+}
+
+.cpt-range-scale {
+  display: flex;
+  justify-content: space-between;
+  /* Sous l'anneau de focus du curseur, pas dedans */
+  margin-top: var(--s2);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--print-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.cpt-effect {
+  margin-top: var(--s4);
+  padding-top: var(--s3);
+  border-top: var(--hair) solid color-mix(in srgb, var(--print) 24%, transparent);
+}
+
+.cpt-effect-fig {
+  display: block;
+  margin: 0.15rem 0 0.2rem;
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.cpt-effect p {
+  margin: 0;
+  font-size: var(--text-sm);
+}
+
+.cpt-reset {
+  margin-top: var(--s2);
+}
+
+.cpt-limits {
+  margin: var(--s4) 0 0;
+  font-size: var(--text-sm);
+  max-width: var(--measure);
+}
+
+.cpt-limits b {
+  font-weight: 750;
+}
+
+.cpt-sources {
+  margin: var(--s4) 0 0;
+  padding: 0 0 0 var(--s4);
+  border-left: var(--hair) solid var(--rule-strong);
+  list-style: none;
+  font-size: var(--text-sm);
+}
+
+.cpt-sources li + li {
+  margin-top: var(--s2);
+}
+
+.cpt-sources a {
+  color: var(--print);
+  font-weight: 650;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.cpt-sources span {
+  display: block;
+  color: var(--print-soft);
+}
+
+/* ——— Grand écran : les rayons à gauche, la fiche ouverte à droite, collée sous la bande ; au téléphone, la fiche ouverte
+   prend la place des rayons ——— */
+
+.cpt-split {
+  max-width: var(--frame);
+  margin: 0 auto;
+}
+
+@media (max-width: 63.99rem) {
+  .cpt-split.has-open > .cpt-work,
+  .cpt-split:not(.has-open) > .cpt-panel {
+    display: none;
+  }
+  .cpt-panel {
+    padding: var(--s5) var(--gutter) calc(var(--bar-real, var(--bar-h)) + var(--s7));
+  }
+}
+
+/* Sous le filet épais, comme « Votre budget 2027 » : une colonne de lecture, pas une carte vide */
+.cpt-panel-empty {
+  padding: var(--s4) 0 0;
+  border-top: var(--thick) solid var(--rule-strong);
+}
+
+@media (min-width: 64rem) {
+  .cpt-split {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: var(--s6);
+    padding-right: var(--gutter);
+  }
+  /* Le retour et le total de la famille : les rayons, à côté, les montrent déjà */
+  .cpt-panel .cpt-panel-head {
+    display: none;
+  }
+  .cpt-split .cpt-work {
+    max-width: none;
+    margin: 0;
+    min-width: 0;
+  }
+  .cpt-panel {
+    position: sticky;
+    top: calc(var(--header-real, 4.1rem) + var(--band-real, 7rem) + var(--s4));
+    align-self: start;
+    margin-top: var(--s5);
+  }
+}
+
+/* ——— L'objectif ——— */
+
+.cpt-start {
+  max-width: calc(var(--sheet) + var(--margin-col));
+  margin: 0 auto;
+  padding: var(--s5) var(--gutter) calc(var(--bar-real, var(--bar-h)) + var(--s7));
+}
+
+.cpt-fact {
+  margin: 0 0 var(--s5);
+  padding: var(--s3) var(--s4);
+  border: var(--line) solid var(--rule-strong);
+  font-size: var(--text-sm);
+}
+
+.cpt-fact b {
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: 1.35rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.cpt-goals {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-bottom: var(--line) solid var(--rule-strong);
+}
+
+.cpt-goals legend {
+  float: left;
+  width: 100%;
+  padding: 0;
+  margin-bottom: var(--s3);
+  font-weight: 800;
+  font-stretch: 78%;
+  font-size: 1.45rem;
+  line-height: 1.1;
+}
+
+.cpt-goal-row {
+  display: grid;
+  grid-template-columns: 1.75rem minmax(0, 1fr);
+  gap: 0 var(--s3);
+  padding: var(--s3) 0;
+  cursor: pointer;
+}
+
+.cpt-goals legend + .cpt-goal-row {
+  clear: both;
+  border-top: var(--line) solid var(--rule-strong);
+}
+
+.cpt-goal-row + .cpt-goal-row {
+  border-top: var(--hair) solid var(--rule);
+}
+
+.cpt-goal-row input {
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0.1rem 0 0;
+  border: var(--line) solid var(--print);
+  border-radius: 50%;
+  background: var(--paper);
+}
+
+.cpt-goal-row input:checked {
+  border-color: var(--ink);
+  background: radial-gradient(circle, var(--ink) 0 0.42rem, var(--paper) 0.45rem);
+}
+
+.cpt-goal-row b {
+  font-weight: 800;
+}
+
+.cpt-goal-row span {
+  grid-column: 2;
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.cpt-notes {
+  margin: var(--s5) 0 0;
+  padding: 0 0 0 1.1rem;
+  font-size: var(--text-sm);
+  color: var(--print-soft);
+}
+
+.cpt-notes li + li {
+  margin-top: var(--s1);
+}
+
+/* ——— Votre budget 2027 ——— */
+
+.cpt-recap {
+  max-width: calc(var(--sheet) + var(--margin-col));
+  margin: 0 auto;
+  padding: var(--s5) var(--gutter) calc(var(--bar-real, var(--bar-h)) + var(--s7));
+}
+
+.cpt-verdict {
+  margin: 0 0 var(--s5);
+  font-size: 1.125rem;
+  line-height: 1.45;
+  max-width: 36ch;
+}
+
+.cpt-recap h2 {
+  margin: var(--s6) 0 var(--s2);
+  font-weight: 800;
+  font-stretch: 78%;
+  font-size: 1.45rem;
+  line-height: 1.1;
+}
+
+.cpt-lines {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: var(--line) solid var(--rule-strong);
+  border-bottom: var(--line) solid var(--rule-strong);
+}
+
+.cpt-lines li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0 var(--s3);
+  padding: var(--s3) 0;
+}
+
+.cpt-lines li + li {
+  border-top: var(--hair) solid var(--rule);
+}
+
+.cpt-lines .fam {
+  grid-column: 1 / -1;
+  padding-bottom: 0;
+  font-size: var(--text-xs);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--print-soft);
+}
+
+.cpt-lines .name {
+  font-weight: 750;
+}
+
+.cpt-lines .set {
+  grid-column: 1;
+  font-size: var(--text-sm);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.cpt-lines .amount {
+  grid-row: 1 / 3;
+  grid-column: 2;
+  align-self: center;
+  text-align: right;
+  font-weight: 850;
+  font-stretch: 72%;
+  font-size: 1.15rem;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.cpt-lines .amount small {
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: 650;
+  font-stretch: 100%;
+  color: var(--print-soft);
+}
+
+/* Ramené au PLF : la ligne reste écrite, barrée à l'encre grise ; rien ne disparaît */
+.cpt-lines li.is-cancelled .name,
+.cpt-lines li.is-cancelled .amount {
+  color: var(--print-soft);
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+}
+
+.cpt-lines li.is-cancelled .set {
+  color: var(--print-soft);
+}
+
+.cpt-list {
+  margin: 0;
+  padding: 0 0 0 1.1rem;
+  font-size: var(--text-sm);
+  max-width: var(--measure);
+}
+
+.cpt-list li + li {
+  margin-top: var(--s2);
+}
+
+/* ——— Tous les leviers d'une famille ——— */
+
+.cpt-family {
+  max-width: var(--frame);
+  margin: 0 auto;
+  padding: var(--s5) var(--gutter) calc(var(--bar-real, var(--bar-h)) + var(--s7));
+}
+
+.cpt-grid {
+  list-style: none;
+  margin: var(--s4) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 10rem), 1fr));
+  gap: var(--s3);
+}
+
+.cpt-grid .cpt-tile {
+  flex: none;
+}
+
+/* Les réglages distincts (âge de départ…) : des boutons qui passent à la ligne */
+.cpt-options {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 7rem), 1fr));
+}
+
+.cpt-howto {
+  margin: var(--s3) 0 0;
+}
+
+.cpt-method p {
+  max-width: var(--measure);
+}
+
+/* La liste de la méthode garde la taille du texte qui l'entoure */
+.cpt-method .cpt-list {
+  font-size: inherit;
+}
+
+/* Les crans d'une carte étroite (téléphone, texte agrandi) : rien ne déborde de son bouton */
+@container card (max-width: 20rem) {
+  .cpt-steps {
+    gap: var(--s1);
+  }
+  .cpt-steps button {
+    padding: 0;
+    font-size: var(--text-xs);
+  }
+  /* Les mots longs (titres des sources, options) se coupent plutôt que de pousser la page sur le côté ; le dernier mot
+     d'une source peut quitter son pictogramme */
+  .cpt-card > * {
+    hyphens: auto;
+    overflow-wrap: anywhere;
+  }
+  .cpt-sources {
+    padding-left: var(--s2);
+  }
+  .cpt-sources .nowrap {
+    white-space: normal;
+  }
+}
+
+/* Le montant de la phrase de la bande et le compte des leviers : chacun d'un seul tenant, la ligne se coupe autour */
+.cpt-left .cpt-ink,
+.cpt-band-count {
+  white-space: nowrap;
+}
+
+/* Le compte des leviers réglés : sur la bande quand la barre du bas n'en a pas la place */
+@container band (min-width: 30rem) {
+  .cpt-band-count {
+    display: none;
+  }
+}
+
+/* Au-dessus de la carte : le retour au rayon, et le total de la famille qui bouge avec le curseur */
+.cpt-panel-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0 var(--s3);
+  margin-bottom: var(--s3);
+}
+
+.cpt-panel-head .cpt-back {
+  margin: 0;
+}
+
+.cpt-panel-empty h2 {
+  margin: var(--s5) 0 var(--s2);
+  font-weight: 800;
+  font-stretch: 78%;
+  font-size: 1.15rem;
+  line-height: 1.15;
+}
+
+.cpt-panel-empty p + p {
+  margin-top: var(--s3);
+}
+
+.cpt-panel-empty p {
+  margin: 0;
+  max-width: 32ch;
+}
+
+/* La grille d'une famille : une fiche plus étroite que sa largeur prévue (10rem), au texte très agrandi sur téléphone, coupe
+   un nom long (« supplémentaires ») plutôt que de pousser la page sur le côté ; jamais à la taille normale */
+.cpt-grid > .cpt-tile {
+  container: tile / inline-size;
+}
+
+@container tile (max-width: 9.5rem) {
+  .cpt-tile-btn {
+    hyphens: auto;
+    overflow-wrap: anywhere;
+  }
+}

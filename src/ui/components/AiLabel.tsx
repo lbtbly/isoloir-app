@@ -22,7 +22,7 @@ import { link } from '../nav'
 import '../../styles/ai-label.css'
 
 /** Ce que l'étiquette accompagne : le texte de la mention et de son explication en dépend */
-export type AiKind = 'feuille' | 'fiche' | 'fiches' | 'positions' | 'approches' | 'resumes' | 'parcours' | 'texte' | 'video' | 'videos' | 'journal'
+export type AiKind = 'feuille' | 'fiche' | 'fiches' | 'positions' | 'approches' | 'resumes' | 'parcours' | 'texte' | 'video' | 'videos' | 'journal' | 'chiffrages'
 
 /** Rubrique « Usage de l'IA » de la notice Méthode et sources (ancre stable), en chemin : link(AI_METHOD_PATH) */
 export const AI_METHOD_PATH = '/methode/ia'
@@ -45,6 +45,8 @@ const LABEL: Record<AiKind, { lead: string; rest?: string }> = {
   videos: { lead: 'Textes rédigés par IA', rest: 'vérifiés automatiquement' },
   // Le journal des données : les titres courts et les textes des entrées ; ce qui vient des données ne l'est pas
   journal: { lead: 'Titres et textes rédigés par IA' },
+  // « Faire les comptes » : les fiches des leviers et leurs montants ; le calcul se fait sans IA
+  chiffrages: { lead: 'Leviers rédigés et montants relevés par IA', rest: 'vérifiés automatiquement contre leurs sources · calcul sans IA' },
 }
 
 /** La première phrase de l'explication, propre à chaque texte */
@@ -71,6 +73,8 @@ const WHAT: Record<AiKind, string> = {
     'Les textes de ces vidéos ont été rédigés par une IA (Claude, d’Anthropic) à partir des fiches et des sources citées, puis vérifiés automatiquement contre elles.',
   journal:
     'Les titres et les textes de ce journal ont été rédigés par une IA (Claude, d’Anthropic), d’après les décisions de l’éditeur. Le reste de chaque entrée est tiré des données, sans rédaction\u00a0: ses candidats, ses thèmes, ses questions et son effet sur le classement.',
+  chiffrages:
+    'Les fiches des leviers (nom, réglage du PLF, ce que le chiffre ne compte pas) ont été rédigées par une IA (Claude, d’Anthropic), qui a aussi choisi les sources, relevé leurs montants ou les a calculés à partir des chiffres publiés, et fixé les plages et les crans\u00a0; elles ont été vérifiées automatiquement contre ces sources, par une IA elle aussi, sans relecture humaine. Le calcul du déficit se fait sur votre appareil, sans IA.',
 }
 
 interface Props {
