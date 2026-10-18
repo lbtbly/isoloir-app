@@ -233,6 +233,14 @@ describe('verrou (lib/lock.mjs)', () => {
     }
   }
 
+  it('premier départ : le dossier de l\'état local est créé avec le verrou', () => {
+    const { a } = setup()
+    const file = join(tmp('verrou-neuf'), 'veille', 'lock.json')
+    expect(existsSync(join(file, '..'))).toBe(false)
+    expect(acquireLock(file, { runId: '2026-10-19-quotidien', kind: 'quotidien', worktree: a, now, policy })).toMatchObject({ takenOverFrom: null })
+    expect(validate(SCHEMAS.LOCK, readLock(file))).toEqual([])
+  })
+
   it('création atomique ; une autre exécution sort en 21 ; la même reprend sans perte', () => {
     const { file, a, b } = setup()
     const first = acquireLock(file, { runId: '2026-10-19-hebdo', kind: 'hebdo', worktree: a, now, policy })

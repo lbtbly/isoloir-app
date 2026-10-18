@@ -21,7 +21,7 @@
 // Usage :
 //   import { acquireLock, heartbeatLock, releaseLock, inspectLock, planCleanup } from './lib/lock.mjs'
 
-import { closeSync, existsSync, linkSync, openSync, readFileSync, realpathSync, renameSync, unlinkSync, writeSync } from 'node:fs'
+import { closeSync, existsSync, linkSync, mkdirSync, openSync, readFileSync, realpathSync, renameSync, unlinkSync, writeSync } from 'node:fs'
 import { basename, dirname, resolve } from 'node:path'
 import { RUN_ID } from '../schemas.mjs'
 import { EXIT, VeilleError, daysBetween, isoInParis, stableJson, todayInParis, writeJson } from './common.mjs'
@@ -78,6 +78,8 @@ export function inspectLock(file, { now, policy, worktree } = {}) {
 const held = lock => `verrou tenu par ${lock.runId ?? '?'} (${lock.kind ?? '?'}, phase « ${lock.phase ?? ''} », battement ${lock.heartbeatAt ?? '?'})`
 
 function createExclusive(file, lock) {
+  // Au tout premier départ, le dossier de l'état local (<M>/.claude/veille/) n'existe pas encore
+  mkdirSync(dirname(file), { recursive: true })
   let fd
   try {
     fd = openSync(file, 'wx')
